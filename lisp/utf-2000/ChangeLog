@@ -1,3 +1,16 @@
+2003-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (C4-3135): Unify BC-8DA4.
+
+	* Ideograph-R050-Turban.el (U+5E1A): Unify GT-11134 and GT-K03871.
+
+2003-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el (M-43265): Unify GT-K05028.
+
+	* Ideograph-R130-Meat.el (GT-K05506): New character.
+	(BC-8CA9): New character.
+
 2003-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R178-Tanned-Leather.el: Add mappings for Big5 code
