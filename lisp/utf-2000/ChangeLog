@@ -1,4 +1,18 @@
+2001-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+7B3D): Delete `daikanwa-radical' and
+	`daikanwa-strokes' to fix.
+
 2001-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (C5-3372): Add M-22989.
+	(C5-3371): Relate to M-22991.
+	(M-22992): Separate JSP-4E4F.
+	(C4-334A): Relate to M-22993.
+	(U+4002): Add M-22995; separate C3-374F.
+	(C6-423F): Add M-22997.
+	(C6-4241): Add M-22998.
+	(C6-4240): Relate to M-22999.
 
 	* Ideograph-R004-Slash.el (U+4E54): Delete `kangxi-radical',
 	`kangxi-strokes', `daikanwa-radical', `daikanwa-strokes' and
