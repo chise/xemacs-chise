@@ -1,5 +1,9 @@
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el: Add `=ucs@big5' features.
+
+	* Ideograph-R030-Mouth.el (JSP-3669): Separate B-F5C6.
+
 	* u0AC00-Hangul-Syllables.el: Add some mappings for CHINA3 PUA
 	code points.
 	(U+C815): Unify JC3-96D5 instead of JC3-82DA.
