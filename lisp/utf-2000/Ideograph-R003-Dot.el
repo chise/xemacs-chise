@@ -105,6 +105,7 @@
     (total-strokes	 . 3)
     (ideograph-gt-pj-2	. #x306C)	; ý¡€€‚‡
     (ideograph-daikanwa . 00097)	; ø¸€¡
+    (ideograph-cbeta	. 02728)	; ø¸ ª¨
     (ideograph-gt	. 00135)	; ý¡€€‚‡
     (mojikyo		. 000097)	; ý €€¡
     ))
