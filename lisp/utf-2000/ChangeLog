@@ -1,3 +1,24 @@
+2004-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+	* Ideograph-R072-Sun.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U+663C): Add `<-simplified@JP/Jouyou'; use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+665A): Unify JC3-51D5.
+	(U+6669): Add `<-simplified@JP/Jouyou'; unify BC-B1DF; separate
+	JC3-51D5.
+	(U+FA43): Unify BC-B4BB.
+
+2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
+	Ideograph-R032-Earth.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
 2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el, Ideograph-R069-Axe.el,
