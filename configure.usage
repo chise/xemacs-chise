@@ -15,8 +15,8 @@ Conventions for options:
   useful default.  Denoted `(Enum)'.
 - Set options accept one or more types from a list of implementations of the
   feature.  All specified implementations will be included.  Prefix a type
-  with `no' to disable only that implementation (e.g., `--with-sound=noesd'
-  to disable ESD).  The special values `none' and `all' must be first in the
+  with `no' to disable only that implementation (e.g., `--with-sound=nonas'
+  to disable NAS).  The special values `none' and `all' must be first in the
   list if used.  They change the defaults for all types individually from
   autodetect to `no' or `yes' respectively.  `--with-sound=none,native' and
   `--with-sound=noesd,nonas,native' have the same effect.  Denoted `(Set)'.
@@ -129,8 +129,8 @@ Select the widget set used to implement components, Lucid, Motif, or Athena.
 If `--with-gtk', `--with-gnome', or `--with-msw' are used or implied, treat
 component options as Bool.  The `lucid' widgets are a homebrew set, emulating
 Motif but faster.  Lucid toolbars, menubars, and scrollbars are implemented
-in Xt.  Lucid dialogs and misc widgets wrap and enhance Athena (maybe Motif;
-platform-dependent).  Several enhanced (eg, 3d) Athena libraries may be used,
+in Xt.  Lucid dialogs and misc widgets wrap and enhance Motif (or Athena if
+Motif is not found).  Several enhanced (eg, 3d) Athena libraries may be used,
 but the default is the X11R6 `libXaw' (flat) widgets.  Use `--with-athena' to
 explicitly specify which library to link against.
 
@@ -138,8 +138,8 @@ explicitly specify which library to link against.
 --with-menubars=TYPE    (Enum) Types: `lucid'(*), `motif', or `no'.
                         *WARNING*  The Motif menubar is currently broken.
 --with-scrollbars=TYPE  (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
---with-dialogs=TYPE     (Enum) Types: `motif'(*), `lucid'(*), `athena', or `no'.
---with-widgets=TYPE     (Enum) Types: `motif'(*), `lucid', `athena', or `no'.
+--with-dialogs=TYPE     (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
+--with-widgets=TYPE     (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
 --with-athena=TYPE      (Enum) Link with the TYPE Athena library.  Types:
                         `xaw' [flat], `3d', `next', `95', or `xpm'.
 --with-dragndrop (*)    Support generic drag and drop API. (EXPERIMENTAL)
@@ -237,7 +237,8 @@ Memory allocation options:
                         it in the standard C library.
 --with-system-malloc    (Bool) Use the system malloc, instead of GNU malloc.
 --with-debug-malloc     (Bool) Use the debugging malloc package.
-
+--use-regex-malloc=no   (Bool) Use malloc (not alloca) for regex fail stack.
+                        Setting this to 'yes' allows unpreventable crashes.
 
 Debugging options:
 

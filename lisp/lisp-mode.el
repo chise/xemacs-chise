@@ -260,6 +260,16 @@ All commands in `shared-lisp-mode-map' are inherited by this map.")
   ;; doesn't need them.
 )
 
+;; XEmacs: add docstrings to the hooks
+(defvar emacs-lisp-mode-hook nil
+  "Hook to run when entering emacs-lisp-mode.")
+
+(defvar lisp-mode-hook nil
+  "Hook to run when entering lisp-mode.")
+
+(defvar lisp-interaction-mode-hook nil
+  "Hook to run when entering lisp-interaction-mode.")
+
 (defun emacs-lisp-byte-compile ()
   "Byte compile the file containing the current buffer."
   (interactive)

@@ -1123,11 +1123,11 @@ static toff_t tiff_memory_seek(thandle_t data, toff_t off, int whence)
     break;
   default:
     fprintf(stderr,"Eh? invalid seek mode in tiff_memory_seek\n");
-    return -1;
+    return (toff_t) -1;
   }
 
   if ((newidx > mem->len) || (newidx < 0))
-    return -1;
+    return (toff_t) -1;
 
   mem->index = newidx;
   return newidx;
@@ -1277,7 +1277,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     raster = (uint32*) _TIFFmalloc (width * height * sizeof (uint32));
     if (raster != NULL)
       {
-	unsigned int i,j;
+	int i,j;
 	uint32 *rp;
 	ep = unwind.eimage;
 	rp = raster;
@@ -1288,7 +1288,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		/* This is to get around weirdness in the libtiff library where properly
 		   made TIFFs will come out upside down.  libtiff bug or jhod-brainlock? */
 		rp = raster + (i * width);
-		for (j = 0; j < width; j++)
+		for (j = 0; (uint32) j < width; j++)
 		  {
 		    *ep++ = (unsigned char)TIFFGetR(*rp);
 		    *ep++ = (unsigned char)TIFFGetG(*rp);

@@ -1,6 +1,7 @@
 ;;; code-process.el --- Process coding functions for XEmacs.
 
-;; Copyright (C) 1985-1987, 1993, 1994, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 1985-1987, 1993, 1994, 1997, 2003
+;;               Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Ben Wing
 ;; Copyright (C) 1997 MORIOKA Tomohiko
 
@@ -10,8 +11,6 @@
 ;; Keywords: mule, multilingual, coding system, process
 
 ;; This file is part of XEmacs.
-
-;; This file is very similar to code-process.el
 
 ;; XEmacs is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
@@ -27,6 +26,10 @@
 ;; along with XEmacs; see the file COPYING.  If not, write to the Free
 ;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ;; 02111-1307, USA.
+
+;;; Commentary:
+
+;; This file has some similarities to code-files.el.
 
 ;;; Code:
 
@@ -60,7 +63,12 @@ If BUFFER is 0, `call-process' returns immediately with value nil.
 Otherwise it waits for PROGRAM to terminate and returns a numeric exit status
  or a signal description string.
 If you quit, the process is killed with SIGINT, or SIGKILL if you
- quit again."
+ quit again.
+
+Coding systems are taken from `coding-system-for-read' for input and
+`coding-system-for-write' for output if those variables are bound.
+Otherwise they are looked up in `process-coding-system-alist'.  If not
+found, they default to `nil' for both input and output."
   (let* ((coding-system-for-read
 	  (or coding-system-for-read
 	      (let (ret)
@@ -105,7 +113,12 @@ If BUFFER is 0, returns immediately with value nil.
 Otherwise waits for PROGRAM to terminate
 and returns a numeric exit status or a signal description string.
 If you quit, the process is first killed with SIGINT, then with SIGKILL if
-you quit again before the process exits."
+you quit again before the process exits.
+
+Coding systems are taken from `coding-system-for-read' for input and
+`coding-system-for-write' for output if those variables are bound.
+Otherwise they are looked up in `process-coding-system-alist'.  If not
+found, they default to `nil' for both input and output."
   (let ((temp
 	 (make-temp-name
 	  (concat (file-name-as-directory (temp-directory)) "emacs"))))
@@ -151,8 +164,12 @@ BUFFER is the buffer or (buffer-name) to associate with the process.
  with any buffer
 Third arg is program file name.  It is searched for as in the shell.
 Remaining arguments are strings to give program as arguments.
-INCODE and OUTCODE specify the coding-system objects used in input/output
- from/to the process."
+
+Coding systems are taken from `coding-system-for-read' for input and
+`coding-system-for-write' for output if those variables are bound.
+Otherwise they are looked up in `process-coding-system-alist'.  If not
+found, they default to `undecided' for input and `nil' (binary) for
+output."
   (let (cs-r cs-w)
     (let (ret)
       (catch 'found

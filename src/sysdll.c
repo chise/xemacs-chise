@@ -24,6 +24,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #endif
 
 #include <stdlib.h>
+#include "lisp.h"
 #include "sysdll.h"
 
 /* This whole file is conditional upon HAVE_SHLIB */
@@ -31,6 +32,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 /* Thankfully, most systems follow the ELFish dlopen() method.
 */
+
 #if defined(HAVE_DLOPEN)
 #include <dlfcn.h>
 
@@ -47,6 +49,7 @@ dll_init (const char *arg)
 {
   return 0;
 }
+
 
 dll_handle
 dll_open (const char *fname)
@@ -150,7 +153,7 @@ dll_error (dll_handle h)
   return "Generic shared library error";
 }
 
-#elif defined(HAVE_INIT_DLD)
+#elif defined(HAVE_DLD_INIT)
 #include <dld.h>
 int
 dll_init (const char *arg)
@@ -241,8 +244,85 @@ dll_error (dll_handle h)
 {
   return "Windows DLL Error";
 }
+#elif defined(HAVE_DYLD) 
+
+/* 
+   This section supports MacOSX dynamic libraries. Dynamically
+   loadable libraries must be compiled as bundles, not dynamiclibs. 
+*/
+
+#include <mach-o/dyld.h>
+
+int
+dll_init (const char *arg)
+{
+  return 0;
+}
+
+dll_handle
+dll_open (const char *fname)
+{
+  NSObjectFileImage file;
+  NSObjectFileImageReturnCode ret = 
+    NSCreateObjectFileImageFromFile(fname, &file);
+  if (ret != NSObjectFileImageSuccess) {
+    return NULL;
+  }
+  return (dll_handle)NSLinkModule(file, fname, 
+				  NSLINKMODULE_OPTION_BINDNOW |
+				  NSLINKMODULE_OPTION_PRIVATE |
+				  NSLINKMODULE_OPTION_RETURN_ON_ERROR);
+}
+
+int
+dll_close (dll_handle h)
+{
+  return NSUnLinkModule((NSModule)h, NSUNLINKMODULE_OPTION_NONE);
+}
+
+dll_func
+dll_function (dll_handle h, const char *n)
+{
+  NSSymbol sym;
+#ifdef DLSYM_NEEDS_UNDERSCORE
+  char *buf = alloca_array (char, strlen (n) + 2);
+  *buf = '_';
+  strcpy (buf + 1, n);
+  n = buf;
+#endif
+  sym = NSLookupSymbolInModule((NSModule)h, n);
+  if (sym == 0) return 0;
+  return (dll_func)NSAddressOfSymbol(sym);
+}
+
+dll_var
+dll_variable (dll_handle h, const char *n)
+{
+  NSSymbol sym;
+#ifdef DLSYM_NEEDS_UNDERSCORE
+  char *buf = alloca_array (char, strlen (n) + 2);
+  *buf = '_';
+  strcpy (buf + 1, n);
+  n = buf;
+#endif
+  sym = NSLookupSymbolInModule((NSModule)h, n);
+  if (sym == 0) return 0;
+  return (dll_var)NSAddressOfSymbol(sym);
+}
+
+const char *
+dll_error (dll_handle h)
+{
+  NSLinkEditErrors c;
+  int errorNumber;
+  const char *fileNameWithError, *errorString;
+  NSLinkEditError(&c, &errorNumber, &fileNameWithError, &errorString);
+  return errorString;
+}
+
+
 #else
-/* Catchall if we don't know about this systems method of dynamic loading */
+/* Catchall if we don't know about this system's method of dynamic loading */
 int
 dll_init (const char *arg)
 {

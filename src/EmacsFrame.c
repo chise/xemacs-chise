@@ -185,7 +185,7 @@ static XtResource resources[] = {
     offset (bell_volume), XtRImmediate, (XtPointer)0 },
   { XtNuseBackingStore, XtCUseBackingStore,
     XtRBoolean, sizeof (Boolean),
-    offset (use_backing_store), XtRImmediate, (XtPointer)0 },
+    offset (use_backing_store), XtRImmediate, (XtPointer) NotUseful },
   { XtNpreferredWidth, XtCPreferredWidth,
     XtRDimension, sizeof (Dimension),
     offset (preferred_width), XtRImmediate, (XtPointer)0 },
@@ -235,7 +235,11 @@ EmacsFrameClassRec emacsFrameClassRec = {
     /* resource_count		*/	XtNumber (resources),
     /* xrm_class		*/	NULLQUARK,
     /* compress_motion		*/	TRUE,
+#ifdef LWLIB_USES_MOTIF
     /* compress_exposure	*/	TRUE,
+#else
+    /* compress_exposure	*/	XtExposeCompressMaximal | XtExposeNoRegion,
+#endif
     /* compress_enterleave	*/	TRUE,
     /* visible_interest		*/	FALSE,
     /* destroy			*/	NULL,
