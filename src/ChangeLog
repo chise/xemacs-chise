@@ -1,7 +1,7 @@
 2004-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* syntax.h (SYNTAX_CODE_UNSAFE): Use <Lisp_Object> and <EMACS_INT>
-	instead of <int>.
+	* syntax.h (SYNTAX_CODE_UNSAFE): Use <Lisp_Object> and <enum
+	syntaxcode> instead of <int>.
 
 2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
