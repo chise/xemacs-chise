@@ -1,3 +1,20 @@
+2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x100.
+	(LEADING_BYTE_JEF_CHINA3): New macro.
+	(MIN_CHAR_JEF_CHINA3): New macro.
+	(MAX_CHAR_JEF_CHINA3): Likewise.
+	(DECODE_CHAR): Fixed.
+
+2001-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_japanese_jef_china3): New variable.
+	(Qjapanese_jef_china3): New variable.
+	(encode_builtin_char_1): Support `japanese-jef-china3'.
+	(syms_of_mule_charset): Add new symbol `japanese-jef-china3'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`japanese-jef-china3'.
+
 2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (XCHARSET_CELL_RANGE): New inline function.
