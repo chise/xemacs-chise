@@ -317,7 +317,7 @@
     (ideographic-radical . 186)	; ⾹
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (->same
+    (<-same
      ((=ucs		  . #x2FA05)	; 馧
       ))
     (=ucs		. #x99A7)	; 馧

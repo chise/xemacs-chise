@@ -1605,16 +1605,16 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->same
+    (<-denotational
+     ((=ucs		  . #x52C9)	; 勉
+      ))
+    (<-same
      ((shinjigen-1	  . 735)
       (=jis-x0208	  . #x4A59)	; &GT-03050; [42-57]
       (=cns11643-6	  . #x3558)	; &I-C6-3558; [21-56]
       ))
-    (->same*sources
+    (<-same*sources
      shinjigen-1)
-    (<-denotational
-     ((=ucs		  . #x52C9)	; 勉
-      ))
     (hanyu-dazidian	1 372 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")

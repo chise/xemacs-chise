@@ -2360,7 +2360,7 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (->same
+    (<-same
      ((=cns11643-6	  . #x2641)	; &M-48957; [06-33]
       (=daikanwa	  . 48957)	; &I-M-48957;
       ))

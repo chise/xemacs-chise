@@ -1682,14 +1682,14 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (->same
+    (<-same
      ((=ucs		  . #x5227)	; 刧
       (=daikanwa	  . 01927)	; &I-M-01927;
       )
      ((=ucs		  . #x52AB)	; 劫
       (=daikanwa	  . 02316)	; &I-M-02316;
       ))
-    (->same*sources
+    (<-same*sources
      zhengzi-tong daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 709)
@@ -1719,14 +1719,14 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (->same
+    (<-same
      ((=ucs		  . #x5226)	; 刦
       (=daikanwa	  . 01926)	; &I-M-01926;
       )
      ((=ucs		  . #x52AB)	; 劫
       (=daikanwa	  . 02316)	; &I-M-02316;
       ))
-    (->same*sources
+    (<-same*sources
      zhengzi-tong daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 709)
@@ -4727,11 +4727,11 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (->same
+    (<-same
      ((=ucs		  . #x525D)	; 剝
       (=daikanwa	  . 02049)	; &I-M-02049;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (<-vulgar
      ((shinjigen-1	  . 666)
@@ -6031,11 +6031,11 @@
     (ideographic-radical@cns*sources
      cns11643 daikanwa)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=ucs		  . #x5013)	; 倓
       (=daikanwa	  . 00768)	; &I-M-00768;
       ))
-    (->same*sources
+    (<-same*sources
      shuowen yunhai-bei daikanwa)
     (=ucs		. #x202F4)	; 𠋴
     ))
@@ -7310,11 +7310,11 @@
     (ideographic-radical@cns . 118)	; ⽵
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
-    (->same
+    (<-same
      ((=ucs		  . #x7B9A)	; 箚
       (=daikanwa	  . 26149)	; &I-M-26149;
       ))
-    (->same*sources
+    (<-same*sources
      kouin kangxi daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -8014,19 +8014,19 @@
     (total-strokes	 . 16)
     (=ucs		. #x5292)	; 劒
     (->subsumptive
-     ((->same
-       ((=ucs		    . #x528D)	; 劍
-	(=daikanwa	    . 02228)	; &I-M-02228;
-	))
-      (->same*sources
-       yupian daikanwa)
-      (<-ancient
+     ((<-ancient
        ((shinjigen-1	    . 653)
 	(=ucs		    . #x528D)	; 劍
 	(=jis-x0208	    . #x5178)	; &I-J90-5178; [49-88]
 	))
       (<-ancient*sources
        shinjigen-1)
+      (<-same
+       ((=ucs		    . #x528D)	; 劍
+	(=daikanwa	    . 02228)	; &I-M-02228;
+	))
+      (<-same*sources
+       yupian daikanwa)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰

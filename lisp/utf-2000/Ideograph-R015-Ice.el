@@ -139,12 +139,6 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->same
-     ((=cns11643-3	  . #x214C)	; &M-00360; [01-44]
-      (=daikanwa	  . 00360)	; &I-M-00360;
-      ))
-    (->same*sources
-     shuowen kanjo ronkou jiyun daikanwa)
     (->vulgar
      ((=ucs		  . #x6C37)	; 氷
       (=daikanwa	  . 17087)	; &I-M-17087;
@@ -158,6 +152,12 @@
       ))
     (<-original*sources
      shinjigen-1)
+    (<-same
+     ((=cns11643-3	  . #x214C)	; &M-00360; [01-44]
+      (=daikanwa	  . 00360)	; &I-M-00360;
+      ))
+    (<-same*sources
+     shuowen kanjo ronkou jiyun daikanwa)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

@@ -1000,13 +1000,7 @@
     (=ucs		. #x8294)	; 芔
     (=big5		. #xD06A)	; &I-B-D06A;
     (->subsumptive
-     ((->same
-       ((=ucs		    . #x2F82C)	; 卉
-	(=daikanwa	    . 02720)	; &I-M-02720;
-	))
-      (->same*sources
-       shuowen zihui daikanwa)
-      (<-original
+     ((<-original
        ((shinjigen-1	    . 816)
 	(=ucs		    . #x5349)	; 卉
 	(=jis-x0208	    . #x5243)	; &I-J90-5243; [50-35]
@@ -1014,6 +1008,12 @@
 	))
       (<-original*sources
        daikanwa shinjigen-1)
+      (<-same
+       ((=ucs		    . #x2F82C)	; 卉
+	(=daikanwa	    . 02720)	; &I-M-02720;
+	))
+      (<-same*sources
+       shuowen zihui daikanwa)
       (shinjigen-1	  . 817)
       (=jis-x0212	  . #x5738)	; &M-30685; [55-24]
       (=cns11643-2	  . #x2D2D)	; &I-C2-2D2D; [13-13]
@@ -4493,7 +4493,7 @@
     (->identical
      ((=cns11643-6	  . #x333E)	; &C6-333E; [19-30]
       ))
-    (->same
+    (<-same
      ((=daikanwa	  . 23187)	; &M-23187;
       ))
     (=ucs		. #x26B5D)	; 𦭝

@@ -32,7 +32,7 @@
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (->same
+    (<-same
      ((=ucs		  . #x2F875)	; 尢
       ))
     (=ucs		. #x5C22)	; 尢
@@ -607,11 +607,11 @@
   '((ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same
+    (<-same
      ((=cns11643-6	  . #x366A)	; &M-07583; [22-74]
       (=daikanwa	  . 07583)	; &I-M-07583;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (=ucs		. #x21BED)	; 𡯭
     (=cns11643-6	. #x366B)	; &I-C6-366B; [22-75]

@@ -775,7 +775,7 @@
     (->identical
      ((=cns11643-7	  . #x4E3E)	; &C7-4E3E; [46-30]
       ))
-    (->same
+    (<-same
      ((=daikanwa	  . 49274)	; &M-49274;
       ))
     (=ucs		. #x206A1)	; 𠚡

@@ -490,7 +490,7 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (->same
+    (<-same
      ((=ucs		  . #x4E87)	; 亇
       ))
     (=cns11643-3	. #x212D)	; &C3-212D; [01-13]
@@ -608,11 +608,11 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (->same
+    (<-same
      ((=ucs		  . #x5301)	; 匁
       (=daikanwa	  . 02502)	; &I-M-02502;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (=gt		. 00176)	; &GT-00176;
     (=gt-pj-11		. #x527B)	; &GT-00176; [50-91]

@@ -847,12 +847,12 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (->same
+    (<-same
      ((=jis-x0212	  . #x3070)	; &M-00522; [16-80]
       (=jis-x0213-1-2000  . #x2E31)	; &I-JX1-2E31; [14-17]
       (=daikanwa	  . 00522)	; &I-M-00522;
       ))
-    (->same*sources
+    (<-same*sources
      chuanpian daikanwa)
     (=daikanwa		. 10104)	; &M-10104;
     (=jef-china3	. #x4DB3)	; &I-JC3-4DB3;

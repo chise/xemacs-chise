@@ -500,12 +500,12 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (->same
+    (<-same
      ((=jis-x0212	  . #x6870)	; &M-44433; [72-80]
       (=jis-x0213-1-2000  . #x7E2A)	; &I-JX1-7E2A; [94-10]
       (=daikanwa	  . 44433)	; &I-M-44433;
       ))
-    (->same*sources
+    (<-same*sources
      daikanwa)
     (=gt		. 59087)	; &GT-59087;
     (=gt-pj-8		. #x4646)	; &GT-59087; [38-38]

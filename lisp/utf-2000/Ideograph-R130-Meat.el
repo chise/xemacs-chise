@@ -10457,7 +10457,7 @@
     (->identical
      ((=cns11643-6	  . #x5D5C)	; &C6-5D5C; [61-60]
       ))
-    (->same
+    (<-same
      ((=daikanwa	  . 49158)	; &M-49158;
       ))
     (hanyu-dazidian	3 2104 5)
@@ -10468,7 +10468,7 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (->same
+    (<-same
      ((=daikanwa	  . 49158)	; &M-49158;
       )
      ((=cns11643-6	  . #x5D5C)	; &C6-5D5C; [61-60]
@@ -11300,7 +11300,7 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (->same
+    (<-same
      ((=jis-x0208	  . #x6733)	; &GT-38614; [71-19]
       ))
     (=ucs		. #x81A4)	; 膤

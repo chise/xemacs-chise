@@ -2344,17 +2344,17 @@
       ))
     (->confusing*sources
      daikanwa)
-    (->same
-     ((=ucs		  . #x26618)	; 𦘘
-      (=daikanwa	  . 29223)	; &I-M-29223;
-      ))
-    (->same*sources
-     daikanwa)
     (<-Large-Seal
      ((=daikanwa	  . 13948)	; &I-M-13948;
       ))
     (<-Large-Seal*sources
      shuowen daikanwa)
+    (<-same
+     ((=ucs		  . #x26618)	; 𦘘
+      (=daikanwa	  . 29223)	; &I-M-29223;
+      ))
+    (<-same*sources
+     daikanwa)
     (=ucs		. #x2F8CC)	; 書
     (=cns11643-6	. #x3836)	; &I-C6-3836; [24-22]
     (=daikanwa		. 13928)	; &I-M-13928;
@@ -5302,17 +5302,17 @@
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 15)
-      (->same
-       ((=ucs		    . #x6635)	; 昵
-	(=daikanwa	    . 13866)	; &I-M-13866;
-	))
-      (->same*sources
-       shuowen daikanwa)
       (->synonyms
        ((=daikanwa	    . 00279)	; &I-M-00279;
 	))
       (->synonyms*sources
        shuowen-tongxun-dingsheng daikanwa)
+      (<-same
+       ((=ucs		    . #x6635)	; 昵
+	(=daikanwa	    . 13866)	; &I-M-13866;
+	))
+      (<-same*sources
+       shuowen daikanwa)
       (=daikanwa	  . 14132)	; &M-14132;
       (=jef-china3	  . #x51EA)	; &I-JC3-51EA;
       )

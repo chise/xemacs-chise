@@ -158,7 +158,7 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (->same
+    (<-same
      ((=big5-cdp	  . #x8C5B)	; &CDP-8C5B;
       ))
     (=gt-k		. 04926)	; &GT-K04926;
@@ -168,7 +168,7 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (->same
+    (<-same
      ((=gt-k		  . 04926)	; &GT-K04926;
       ))
     (=big5-cdp		. #x8C5B)	; &CDP-8C5B;

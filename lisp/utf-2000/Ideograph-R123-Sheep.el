@@ -1668,7 +1668,7 @@
 			(:radical	8 ; ⼇
 			 :strokes	13))
     (total-strokes	 . 15)
-    (->same
+    (<-same
      ((=daikanwa	  . 49510)	; &M-49510;
       ))
     (hanyu-dazidian	1 292 5)

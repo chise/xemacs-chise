@@ -231,7 +231,7 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (->same
+    (<-same
      ((=gt		  . 00176)	; &GT-00176;
       (=daikanwa	  . 00129)	; &I-M-00129;
       ))

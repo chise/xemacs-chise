@@ -4705,20 +4705,20 @@
      ((=ucs		  . #x6D3E)	; 派
       ))
     (->subsumptive
-     ((->same
-       ((=gb2312	    . #x4549)	; &M-17427; [37-41]
-	(=cns11643-1	    . #x5226)	; &I-C1-5226; [50-06]
-	(=daikanwa	    . 17427)	; &I-M-17427;
-	))
-      (->same*sources
-       daikanwa)
-      (->vulgar
+     ((->vulgar
        ((=gb2312	    . #x4549)	; &M-17427; [37-41]
 	(=cns11643-1	    . #x5226)	; &I-C1-5226; [50-06]
 	(=daikanwa	    . 17427)	; &I-M-17427;
 	))
       (->vulgar*sources
        zhengzi-tong)
+      (<-same
+       ((=gb2312	    . #x4549)	; &M-17427; [37-41]
+	(=cns11643-1	    . #x5226)	; &I-C1-5226; [50-06]
+	(=daikanwa	    . 17427)	; &I-M-17427;
+	))
+      (<-same*sources
+       daikanwa)
       (shinjigen-1	  . 4197)
       (shinjigen-2	  . 4197)
       (=jis-x0208-1978	  . #x4749)	; &M-17428; [39-41]

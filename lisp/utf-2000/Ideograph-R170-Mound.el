@@ -1571,10 +1571,10 @@
   '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->same
+    (<-same
      ((=daikanwa	  . 41704)	; &M-41704;
       ))
-    (->same*sources
+    (<-same*sources
      zhonghua-dazidian daikanwa)
     (=daikanwa		. 41676)	; &M-41676;
     (mojikyo		. 041676)	; &MCS-6000A2CC;
@@ -4749,7 +4749,7 @@
   '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 23)
     (total-strokes	 . 31)
-    (->same
+    (<-same
      ((=daikanwa	  . 19650)	; &M-19650;
       ))
     (=ucs		. #x28F75)	; 𨽵
