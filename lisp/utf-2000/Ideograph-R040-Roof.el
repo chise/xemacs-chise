@@ -689,7 +689,9 @@
     (=ucs		. #x5B90)	; 宐
     (->subsumptive
      ((<-original
-       ((=daikanwa	    . 07111)	; &I-M-07111;
+       ((=jis-x0208	    . #x3539)	; &GT-08923; [21-25]
+	(=ks-x1001	    . #x6B71)	; &I-K0-6B71; [75-81]
+	(=daikanwa	    . 07111)	; &I-M-07111;
 	))
       (<-original*sources
        daikanwa)

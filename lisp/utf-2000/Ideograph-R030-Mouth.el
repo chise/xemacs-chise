@@ -1546,6 +1546,8 @@
     (total-strokes	 . 6)
     (<-original
      ((shinjigen-1	  . 1074)
+      (=jis-x0208	  . #x5323)	; &GT-04510; [51-03]
+      (=ks-x1001	  . #x7663)	; &I-K0-7663; [86-67]
       (=daikanwa	  . 03533)	; &I-M-03533;
       ))
     (<-original*sources
