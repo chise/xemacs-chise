@@ -1,3 +1,22 @@
+2003-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00180-Latin-Extended-B.el (JX1-2874): Add JU+01F8.
+
+	* Ideograph-R163-City.el (JX1-7C67): Add JU+90DE.
+
+	* Ideograph-R154-Shell.el (JX1-7C3B): Add JU+8CF8 instead of
+	J90U+8CF8.
+
+	* Ideograph-R149-Speech.el (JX1-7C34): Add JU+8B69.
+	(JX1-7C35): Add JU+8B9D.
+
+	* Ideograph-R104-Sickness.el (JX1-784D): Add JU+3F72.
+
+	* Ideograph-R086-Fire.el (JX1-7763): Add JU+7215.
+
+	* read-maps.el (mapping-table-read-file): If ucs-ccs is
+	`=ucs-jis-2000', add it.
+
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u01E00-Latin-Extended-Additional.el (JX1-2872): Unify JC3-85DE.
