@@ -284,13 +284,22 @@
     (ucs		. #x22F06)	; ð¢¼†
     ))
 (define-char
-  '((ideographic-radical . 66)	; â½
+  '((=>ucs		. #x3A81)	; ãª
+    (ideographic-radical . 66)	; â½
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (ideograph-daikanwa . 13129)	; ø¸ƒ‰
     ))
 (define-char
-  '((morohashi-daikanwa	13129 0 5)
+  '((morohashi-daikanwa	13129 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ucs		. #x3A81)	; ãª
+    ))
+(define-char
+  '((=>ucs		. #x3A81)	; ãª
+    (morohashi-daikanwa	13129 0 5)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
@@ -425,6 +434,15 @@
     (total-strokes	 . 8)
     (chinese-cns11643-4 . #x265F)	; ø»—¨¼
     (ideograph-daikanwa . 13140)	; ø¸ƒ”
+    (ucs		. #x3A82)	; ãª‚
+    ))
+(define-char
+  '((=>ucs		. #x3A82)	; ãª‚
+    (morohashi-daikanwa	13140 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (mojikyo		. 013140)	; ý €ƒ”
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
@@ -806,9 +824,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 13179)	; ø¸ƒ»
+    (ucs		. #x3A88)	; ãªˆ
     ))
 (define-char
-  '((morohashi-daikanwa	13179 0 5)
+  '((=>ucs		. #x3A88)	; ãªˆ
+    (morohashi-daikanwa	13179 0 5)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
@@ -1152,9 +1172,11 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 13207)	; ø¸ƒŽ—
+    (ucs		. #x3A8C)	; ãªŒ
     ))
 (define-char
-  '((morohashi-daikanwa	13207 0 5)
+  '((=>ucs		. #x3A8C)	; ãªŒ
+    (morohashi-daikanwa	13207 0 5)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -1563,6 +1585,20 @@
 (define-char
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ucs		. #x3A8E)	; ãªŽ
+    ))
+(define-char
+  '((=>ucs		. #x3A8E)	; ãªŽ
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (chinese-cns11643-4 . #x322C)	; ø»—¹±
+    ))
+(define-char
+  '((ideographic-radical . 66)	; â½
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
     (chinese-gb2312	. #x4132)	; ø»„µ•
     (chinese-isoir165	. #x4132)	; ø»¥
     (ucs		. #x655B)	; æ•›
@@ -1573,12 +1609,6 @@
     (total-strokes	 . 11)
     (chinese-cns11643-5 . #x326C)	; ø»š„µ
     (ucs		. #x22F77)	; ð¢½·
-    ))
-(define-char
-  '((ideographic-radical . 66)	; â½
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (chinese-cns11643-4 . #x322C)	; ø»—¹±
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
@@ -2248,8 +2278,24 @@
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-4 . #x3D5C)	; ø»˜Š«
     (ideograph-daikanwa . 13290)	; ø¸ƒª
+    (ucs		. #x3A9C)	; ãªœ
+    ))
+(define-char
+  '((=>ucs		. #x3A9C)	; ãªœ
+    (morohashi-daikanwa	13290 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (mojikyo		. 013290)	; ý €ƒª
+    ))
+(define-char
+  '((=>ucs		. #x3A9C)	; ãªœ
+    (morohashi-daikanwa	13290 0 5)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (chinese-cns11643-4 . #x3D5C)	; ø»˜Š«
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
@@ -3866,13 +3912,22 @@
     (ucs		. #x23012)	; ð£€’
     ))
 (define-char
-  '((ideographic-radical . 66)	; â½
+  '((=>ucs		. #x3AAC)	; ãª¬
+    (ideographic-radical . 66)	; â½
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (ideograph-daikanwa . 13416)	; ø¸ƒ‘¨
     ))
 (define-char
-  '((morohashi-daikanwa	13416 0 7)
+  '((morohashi-daikanwa	13416 0 2)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ucs		. #x3AAC)	; ãª¬
+    ))
+(define-char
+  '((=>ucs		. #x3AAC)	; ãª¬
+    (morohashi-daikanwa	13416 0 5)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 14)
     (total-strokes	 . 18)

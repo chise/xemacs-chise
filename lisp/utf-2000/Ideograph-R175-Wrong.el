@@ -47,6 +47,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-4 . #x3627)	; ø»—¿¤
     (ideograph-daikanwa . 42589)	; ø¸Š™
+    (ucs		. #x291E9)	; ð©‡©
     ))
 (define-char
   '((ideographic-radical . 175)	; â¾®
@@ -72,11 +73,26 @@
     (ucs		. #x4A3E)	; ä¨¾
     ))
 (define-char
-  '((ideographic-radical . 175)	; â¾®
+  '((=>ucs		. #x291EB)	; ð©‡«
+    (ideographic-radical . 175)	; â¾®
+    (ideographic-strokes . 3)
+    (total-strokes	 . 11)
+    (ideograph-daikanwa . 42593)	; ø¸Š™¡
+    ))
+(define-char
+  '((morohashi-daikanwa	42593 0 0)
+    (ideographic-radical . 175)	; â¾®
+    (ideographic-strokes . 3)
+    (total-strokes	 . 11)
+    (ucs		. #x291EB)	; ð©‡«
+    ))
+(define-char
+  '((=>ucs		. #x291EB)	; ð©‡«
+    (morohashi-daikanwa	42593 0 1)
+    (ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
     (chinese-cns11643-4 . #x3629)	; ø»—¿¦
-    (ideograph-daikanwa . 42593)	; ø¸Š™¡
     ))
 (define-char
   '((ideographic-radical . 175)	; â¾®
@@ -104,8 +120,16 @@
   '((ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-cns11643-4 . #x3B75)	; ø»˜ˆˆ
     (ideograph-daikanwa . 42597)	; ø¸Š™¥
+    (ucs		. #x291EF)	; ð©‡¯
+    ))
+(define-char
+  '((=>ucs		. #x291EF)	; ð©‡¯
+    (morohashi-daikanwa	42597 0 0)
+    (ideographic-radical . 175)	; â¾®
+    (ideographic-strokes . 4)
+    (total-strokes	 . 12)
+    (chinese-cns11643-4 . #x3B75)	; ø»˜ˆˆ
     ))
 (define-char
   '((=>ucs		. #x4A3F)	; ä¨¿
@@ -205,13 +229,22 @@
     (ucs		. #x9760)	; é 
     ))
 (define-char
-  '((ideographic-radical . 175)	; â¾®
+  '((=>ucs		. #x291F8)	; ð©‡¸
+    (ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 42605)	; ø¸Š™­
     ))
 (define-char
   '((morohashi-daikanwa	42605 0 2)
+    (ideographic-radical . 175)	; â¾®
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (ucs		. #x291F8)	; ð©‡¸
+    ))
+(define-char
+  '((=>ucs		. #x291F8)	; ð©‡¸
+    (morohashi-daikanwa	42605 0 3)
     (ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 7)
     (total-strokes	 . 15)

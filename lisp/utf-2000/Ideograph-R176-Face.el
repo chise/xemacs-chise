@@ -62,6 +62,7 @@
     (total-strokes	 . 13)
     (chinese-cns11643-4 . #x4159)	; ø»˜ 
     (ideograph-daikanwa . 42624)	; ø¸Šš€
+    (ucs		. #x29206)	; ð©ˆ†
     ))
 (define-char
   '((ideographic-radical . 176)	; â¾¯
@@ -72,7 +73,8 @@
     (ucs		. #x4A42)	; ä©‚
     ))
 (define-char
-  '((ideographic-radical . 176)	; â¾¯
+  '((=>ucs		. #x29207)	; ð©ˆ‡
+    (ideographic-radical . 176)	; â¾¯
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (ideograph-daikanwa . 42626)	; ø¸Šš‚
@@ -83,6 +85,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (chinese-cns11643-4 . #x415B)	; ø»˜¢
+    (ucs		. #x29207)	; ð©ˆ‡
     ))
 (define-char
   '((ideographic-radical . 176)	; â¾¯
@@ -152,6 +155,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-4 . #x4839)	; ø»˜š’
     (ideograph-daikanwa . 42635)	; ø¸Šš‹
+    (ucs		. #x2920F)	; ð©ˆ
     ))
 (define-char
   '((ideographic-radical . 176)	; â¾¯
@@ -232,9 +236,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 42645)	; ø¸Šš•
+    (ucs		. #x29219)	; ð©ˆ™
     ))
 (define-char
-  '((morohashi-daikanwa	42645 0 0)
+  '((=>ucs		. #x29219)	; ð©ˆ™
+    (morohashi-daikanwa	42645 0 0)
     (ideographic-radical . 176)	; â¾¯
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
@@ -490,11 +496,19 @@
     (ideograph-daikanwa . 42672)	; ø¸Šš°
     ))
 (define-char
-  '((ideographic-radical . 176)	; â¾¯
+  '((=>ucs		. #x29236)	; ð©ˆ¶
+    (ideographic-radical . 176)	; â¾¯
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
     (chinese-cns11643-4 . #x5E39)	; ø»˜º¦
     (ideograph-daikanwa . 42673)	; ø¸Šš±
+    ))
+(define-char
+  '((morohashi-daikanwa	42673 0 0)
+    (ideographic-radical . 176)	; â¾¯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (ucs		. #x29236)	; ð©ˆ¶
     ))
 (define-char
   '((ideographic-radical . 176)	; â¾¯
@@ -561,7 +575,7 @@
     (ideograph-daikanwa . 42685)	; ø¸Šš½
     ))
 (define-char
-  '((->ucs		. #x4A4C)	; ä©Œ
+  '((=>ucs		. #x4A4C)	; ä©Œ
     (ideographic-radical . 176)	; â¾¯
     (ideographic-strokes . 12)
     (total-strokes	 . 21)

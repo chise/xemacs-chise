@@ -2346,7 +2346,13 @@
     (ucs			. #x6C0E)	; 氎
     ))
 (define-char
-  '((morohashi-daikanwa	17023 0 9)
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 22)
+    (total-strokes	 . 26)
+    (ucs		. #x3CB2)	; 㲲
+    ))
+(define-char
+  '((=>ucs		. #x3CB2)	; 㲲
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 22)
     (total-strokes	 . 26)
