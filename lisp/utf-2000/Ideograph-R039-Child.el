@@ -1137,11 +1137,10 @@
     (=jef-china3	. #x49F6)	; øº„§¶
     ))
 (define-char
-  '((morohashi-daikanwa	7011 0 4)
+  '((morohashi-daikanwa	7011 0 1)
     (ideographic-radical . 39)	; â¼¦
-    (ideographic-strokes . 10)
-    (kangxi-strokes	 . 11)
-    (total-strokes	 . 13)
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=ucs		. #x5B76)	; å­¶
     ))
 (define-char
