@@ -1,3 +1,9 @@
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (breakup_char_1): Use
+	`Vdefault_coded_charset_priority_list' for hebrew-iso8859-8,
+	thai-tis620 and katakana-jisx0201 area.
+
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* char-ucs.h (breakup_char_1): Use
