@@ -1,3 +1,15 @@
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_denotational): New variable.
+	(Q_denotational_from): New variable.
+	(Fchar_feature): Refer `<-denotational' as same as `<-unified'.
+	(put_char_attribute): New function.
+	(Fput_char_attribute): Use `put_char_attribute'; regard
+	`->denotational' and `<-denotational' as same as `->unified' and
+	`<-unified'.
+	(syms_of_chartab): Add new symbols `->denotational' and
+	`<-denotational'.
+
 2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fget_composite_char): Use `Fchar_feature' instead of
