@@ -423,11 +423,11 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 23)
     (chinese-cns11643-7 . #x5E42)	; ø»Ÿ˜»
+    (mojikyo		. 050610)	; ø¸Œ–²
     ))
 (define-char
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 11)
-    (kangxi-strokes	 . 10)
     (total-strokes	 . 24)
     (shinjigen-2	. 9844)
     (japanese-jisx0208-1978	. #x7367)	; ø»ƒµ¢
