@@ -1,3 +1,30 @@
+2004-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el:
+	- Use `->subsumptive' for some character definitions.
+	- Add mappings for Big5 code points.
+
+	* Ideograph-R004-Slash.el (U-000200B3): Unify C6-3A65 and M-27272
+	instead of using `->same'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+
+2004-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el: Add mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+2004-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (U-000261E5): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U-0002035E): Use `->subsumptive' instead
+	of `->same' for M-49471; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+	(U-0002036E): Use `->subsumptive'.
+	(U+349D): Likewise.
+
 2004-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R180-Sound.el: Add mappings between CJK Ext B and CNS
