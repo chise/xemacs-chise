@@ -958,7 +958,13 @@
 	  (insert-char-data-with-variant char 'printable)
 	  (unless (char-attribute-alist char)
 	    (insert (format ";; = %c\n"
-			    (apply #'make-char (split-char char)))))
+			    (let* ((rest (split-char char))
+				   (ccs (pop rest))
+				   (code (pop rest)))
+			      (while rest
+				(setq code (logior (lsh code 8)
+						   (pop rest))))
+			      (decode-char ccs code)))))
           ;; (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
