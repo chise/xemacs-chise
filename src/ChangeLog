@@ -1,3 +1,15 @@
+2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_chinese_gb12345): New variable.
+	(Qchinese_gb12345): Likewise.
+	(Fdecode_builtin_char): Fixed.
+	(syms_of_mule_charset): Add `chinese-gb12345'.
+	(complex_vars_of_mule_charset): Add coded-charset
+	`chinese-gb12345'.
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x70.
+	(LEADING_BYTE_CHINESE_GB12345): New macro.
+
 2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fdecode_builtin_char): Use `latin-viscii-lower'
