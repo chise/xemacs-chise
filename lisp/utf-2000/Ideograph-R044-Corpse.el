@@ -892,6 +892,7 @@
     (=ks-x1001		. #x605A)	; ø»‰·§
     (=big5		. #xAE68)	; ý¢€Š¹¨
     (=daikanwa		. 07709)	; ø¸¸
+    (=ucs@big5		. #x5C51)	; ø»‚œ’
     ))
 (define-char
   '((morohashi-daikanwa	7709 0 2)
@@ -1469,6 +1470,7 @@
     (=cns11643-6	. #x477B)	; ø»œ­¾
     (=big5		. #xB14F)	; ý¢€‹…
     (=daikanwa		. 07761)	; ø¸¹‘
+    (=ucs@big5		. #x5C60)	; ø»‚±¢
     ))
 (define-char
   '((morohashi-daikanwa	7761 0 3)
