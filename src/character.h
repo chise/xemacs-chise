@@ -35,12 +35,62 @@ Boston, MA 02111-1307, USA.  */
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
 #define LEADING_BYTE_ASCII		0x8E /* Omitted in a buffer */
-#ifdef ENABLE_COMPOSITE_CHARS
-#endif
-#define LEADING_BYTE_COMPOSITE		0x80 /* for a composite character */
 #define LEADING_BYTE_CONTROL_1		0x8F /* represent normal 80-9F */
 
 /** The following are for 1-byte characters in an official charset. **/
+
+#ifdef UTF2000
+
+#define LEADING_BYTE_LATIN_ISO8859_1	0x81 /* Right half of ISO 8859-1 */
+#define LEADING_BYTE_LATIN_ISO8859_2	0x82 /* Right half of ISO 8859-2 */
+#define LEADING_BYTE_LATIN_ISO8859_3	0x83 /* Right half of ISO 8859-3 */
+#define LEADING_BYTE_LATIN_ISO8859_4	0x84 /* Right half of ISO 8859-4 */
+#define LEADING_BYTE_THAI_TIS620	0x85 /* TIS620-2533 */
+#define LEADING_BYTE_GREEK_ISO8859_7	0x86 /* Right half of ISO 8859-7 */
+#define LEADING_BYTE_ARABIC_ISO8859_6	0x87 /* Right half of ISO 8859-6 */
+#define LEADING_BYTE_HEBREW_ISO8859_8	0x88 /* Right half of ISO 8859-8 */
+#define LEADING_BYTE_KATAKANA_JISX0201	0x89 /* Right half of JIS X0201-1976 */
+#define LEADING_BYTE_LATIN_JISX0201	0x8A /* Left  half of JIS X0201-1976 */
+#define LEADING_BYTE_CYRILLIC_ISO8859_5	0x8C /* Right half of ISO 8859-5 */
+#define LEADING_BYTE_LATIN_ISO8859_9	0x8D /* Right half of ISO 8859-9 */
+
+#define MIN_LEADING_BYTE_OFFICIAL_1	LEADING_BYTE_LATIN_ISO8859_1
+#define MAX_LEADING_BYTE_OFFICIAL_1	LEADING_BYTE_LATIN_ISO8859_9
+
+#define LEADING_BYTE_CHINESE_BIG5_1	0xB0	/* Big5 Level 1 */
+#define LEADING_BYTE_CHINESE_BIG5_2	0xB1	/* Big5 Level 2 */
+#define MIN_LEADING_BYTE_PRIVATE_2	0xB0
+#define MAX_LEADING_BYTE_PRIVATE_2	0xBF
+
+/** The following are for 2-byte characters in an official charset. **/
+
+#define LEADING_BYTE_JAPANESE_JISX0208_1978 0xC0/* Japanese JIS X0208-1978 */
+#define LEADING_BYTE_CHINESE_GB2312	0xC1	/* Chinese Hanzi GB2312-1980 */
+#define LEADING_BYTE_JAPANESE_JISX0208	0xC2	/* Japanese JIS X0208-1983 */
+#define LEADING_BYTE_KOREAN_KSC5601	0xC3	/* Hangul KS C5601-1987 */
+#define LEADING_BYTE_JAPANESE_JISX0212	0xC4	/* Japanese JIS X0212-1990 */
+#define LEADING_BYTE_CHINESE_CCITT_GB	0xC5	/* CCITT Extended GB */
+#define LEADING_BYTE_CHINESE_CNS11643_1	0xC7	/* Chinese CNS11643 Set 1 */
+#define LEADING_BYTE_CHINESE_CNS11643_2	0xC8	/* Chinese CNS11643 Set 2 */
+#define LEADING_BYTE_CHINESE_CNS11643_3	0xC9	/* Chinese CNS11643 Set 3 */
+#define LEADING_BYTE_CHINESE_CNS11643_4	0xCA	/* Chinese CNS11643 Set 4 */
+#define LEADING_BYTE_CHINESE_CNS11643_5	0xCB	/* Chinese CNS11643 Set 5 */
+#define LEADING_BYTE_CHINESE_CNS11643_6	0xCC	/* Chinese CNS11643 Set 6 */
+#define LEADING_BYTE_CHINESE_CNS11643_7	0xCD	/* Chinese CNS11643 Set 7 */
+#define LEADING_BYTE_KOREAN_KPS9566	0xCE	/* DPRK Hangul KPS 9566-1997 */
+
+#define MIN_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_JAPANESE_JISX0208_1978
+#define MAX_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_KOREAN_KPS9566
+
+/** The following are for 1- and 2-byte characters in a private charset. **/
+
+#define PRE_LEADING_BYTE_PRIVATE_1	0x120	/* 1-byte char-set */
+#define PRE_LEADING_BYTE_PRIVATE_2	0x121	/* 2-byte char-set */
+
+#define MIN_LEADING_BYTE_PRIVATE_1	0x0D0
+#define MAX_LEADING_BYTE_PRIVATE_1	0x11f
+
+#else
 
 #define LEADING_BYTE_LATIN_ISO8859_1	0x81 /* Right half of ISO 8859-1 */
 #define LEADING_BYTE_LATIN_ISO8859_2	0x82 /* Right half of ISO 8859-2 */
@@ -90,7 +140,9 @@ Boston, MA 02111-1307, USA.  */
 #define MIN_LEADING_BYTE_PRIVATE_2	0xF0
 #define MAX_LEADING_BYTE_PRIVATE_2	0xFF
 
-#define NUM_LEADING_BYTES 128
+#endif
+
+#define NUM_LEADING_BYTES 256
 
 
 /************************************************************************/
@@ -99,7 +151,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Is this leading byte for a private charset? */
 
+#ifndef UTF2000
 #define LEADING_BYTE_PRIVATE_P(lb) ((lb) >= MIN_LEADING_BYTE_PRIVATE_1)
+#endif
 
 /* Is this a prefix for a private leading byte? */
 
@@ -236,7 +290,9 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 
 
+#ifdef LEADING_BYTE_PRIVATE_P
 #define CHARSET_PRIVATE_P(cs) LEADING_BYTE_PRIVATE_P (CHARSET_LEADING_BYTE (cs))
+#endif
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
@@ -254,7 +310,9 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_CCL_PROGRAM(cs)  CHARSET_CCL_PROGRAM  (XCHARSET (cs))
 #define XCHARSET_DIMENSION(cs)	  CHARSET_DIMENSION    (XCHARSET (cs))
 #define XCHARSET_CHARS(cs)	  CHARSET_CHARS        (XCHARSET (cs))
+#ifdef CHARSET_PRIVATE_P
 #define XCHARSET_PRIVATE_P(cs)	  CHARSET_PRIVATE_P    (XCHARSET (cs))
+#endif
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 
@@ -305,18 +363,18 @@ INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
 INLINE int
 REP_BYTES_BY_FIRST_BYTE (int fb)
 {
-  if ( fb >= 0xfc )
-    return 6;
-  else if ( fb >= 0xf8 )
-    return 5;
-  else if ( fb >= 0xf0 )
-    return 4;
-  else if ( fb >= 0xe0 )
-    return 3;
-  else if ( fb >= 0xc0 )
-    return 2;
-  else
+  if ( fb < 0xc0 )
     return 1;
+  else if ( fb < 0xe0 )
+    return 2;
+  else if ( fb < 0xf0 )
+    return 3;
+  else if ( fb < 0xf8 )
+    return 4;
+  else if ( fb < 0xfc )
+    return 5;
+  else
+    return 6;
 }
 #else /* MULE */
 #ifdef ERROR_CHECK_TYPECHECK
@@ -381,10 +439,20 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 /* Converting between field values and leading bytes.  */
 
 #define FIELD2_TO_OFFICIAL_LEADING_BYTE 0x80
-#define FIELD2_TO_PRIVATE_LEADING_BYTE  0x80
+
+#ifdef UTF2000
+
+#define FIELD1_TO_PRIVATE_LEADING_BYTE  0x80
+#define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x80
+#define FIELD2_TO_PRIVATE_LEADING_BYTE  0xb0
+
+#else
 
 #define FIELD1_TO_PRIVATE_LEADING_BYTE  0xc0
 #define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x50
+#define FIELD2_TO_PRIVATE_LEADING_BYTE  0x80
+
+#endif
 
 INLINE Emchar
 CHAR_FIELD2 (Emchar c)
@@ -549,6 +617,12 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return MULE_CHAR_PRIVATE_OFFSET
       | ((XCHARSET_LEADING_BYTE (charset) -
 	  FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | (c1);
+#ifdef UTF2000
+  else
+    return MULE_CHAR_PRIVATE_OFFSET
+      | ((XCHARSET_LEADING_BYTE (charset) -
+	  FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
+#else
   else if (!XCHARSET_PRIVATE_P (charset))
     return MULE_CHAR_PRIVATE_OFFSET
       | ((XCHARSET_LEADING_BYTE (charset) -
@@ -557,6 +631,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return MULE_CHAR_PRIVATE_OFFSET
       | ((XCHARSET_LEADING_BYTE (charset) -
 	  FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
+#endif
 }
 
 /* The charset of character C is set to CHARSET, and the
