@@ -1,0 +1,1192 @@
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Fortran Columns,  Next: Fortran Abbrev,  Prev: Fortran Comments,  Up: Fortran
+
+Columns
+-------
+
+`C-c C-r'
+     Displays a "column ruler" momentarily above the current line
+     (`fortran-column-ruler').
+
+`C-c C-w'
+     Splits the current window horizontally so that it is 72 columns
+     wide.  This may help you avoid going over that limit
+     (`fortran-window-create').
+
+   The command `C-c C-r' (`fortran-column-ruler') shows a column ruler
+above the current line.  The comment ruler consists of two lines of
+text that show you the locations of columns with special significance
+in Fortran programs.  Square brackets show the limits of the columns for
+line numbers, and curly brackets show the limits of the columns for the
+statement body.  Column numbers appear above them.
+
+   Note that the column numbers count from zero, as always in XEmacs.
+As a result, the numbers may not be those you are familiar with; but the
+actual positions in the line are standard Fortran.
+
+   The text used to display the column ruler is the value of the
+variable `fortran-comment-ruler'.  By changing this variable, you can
+change the display.
+
+   For even more help, use `C-c C-w' (`fortran-window-create'), a
+command which splits the current window horizontally, resulting in a
+window 72 columns wide.  When you edit in this window, you can
+immediately see when a line gets too wide to be correct Fortran.
+
+
+File: xemacs.info,  Node: Fortran Abbrev,  Prev: Fortran Columns,  Up: Fortran
+
+Fortran Keyword Abbrevs
+-----------------------
+
+   Fortran mode provides many built-in abbrevs for common keywords and
+declarations.  These are the same sort of abbrevs that you can define
+yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
+
+   The built-in abbrevs are unusual in one way: they all start with a
+semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
+mode makes this possible by changing the syntax of semicolon to "word
+constituent".
+
+   For example, one built-in Fortran abbrev is `;c' for `continue'.  If
+you insert `;c' and then insert a punctuation character such as a space
+or a newline, the `;c' changes automatically to `continue', provided
+Abbrev mode is enabled.
+
+   Type `;?' or `;C-h' to display a list of all built-in Fortran
+abbrevs and what they stand for.
+
+
+File: xemacs.info,  Node: Asm Mode,  Prev: Fortran,  Up: Programs
+
+Asm Mode
+========
+
+   Asm mode is a major mode for editing files of assembler code.  It
+defines these commands:
+
+`<TAB>'
+     `tab-to-tab-stop'.
+
+`<LFD>'
+     Insert a newline and then indent using `tab-to-tab-stop'.
+
+`:'
+     Insert a colon and then remove the indentation from before the
+     label preceding colon.  Then do `tab-to-tab-stop'.
+
+`;'
+     Insert or align a comment.
+
+   The variable `asm-comment-char' specifies which character starts
+comments in assembler syntax.
+
+
+File: xemacs.info,  Node: Running,  Next: Packages,  Prev: Programs,  Up: Top
+
+Compiling and Testing Programs
+******************************
+
+   The previous chapter discusses the Emacs commands that are useful for
+making changes in programs.  This chapter deals with commands that
+assist in the larger process of developing and maintaining programs.
+
+* Menu:
+
+* Compilation::        Compiling programs in languages other than Lisp
+                        (C, Pascal, etc.)
+* Modes: Lisp Modes.   Various modes for editing Lisp programs, with
+                       different facilities for running the Lisp programs.
+* Libraries: Lisp Libraries.      Creating Lisp programs to run in Emacs.
+* Eval: Lisp Eval.     Executing a single Lisp expression in Emacs.
+* Debug: Lisp Debug.   Debugging Lisp programs running in Emacs.
+* Interaction: Lisp Interaction.  Executing Lisp in an Emacs buffer.
+* External Lisp::      Communicating through Emacs with a separate Lisp.
+
+
+File: xemacs.info,  Node: Compilation,  Next: Lisp Modes,  Prev: Running,  Up: Running
+
+Running "make", or Compilers Generally
+======================================
+
+   Emacs can run compilers for non-interactive languages like C and
+Fortran as inferior processes, feeding the error log into an Emacs
+buffer.  It can also parse the error messages and visit the files in
+which errors are found, moving point to the line where the error
+occurred.
+
+`M-x compile'
+     Run a compiler asynchronously under Emacs, with error messages to
+     `*compilation*' buffer.
+
+`M-x grep'
+     Run `grep' asynchronously under Emacs, with matching lines listed
+     in the buffer named `*compilation*'.
+
+`M-x kill-compilation'
+     Kill the process made by the `M-x compile' command.
+
+`M-x kill-grep'
+     Kill the running compilation or `grep' subprocess.
+
+`C-x `'
+     Visit the next compiler error message or `grep' match.
+
+   To run `make' or another compiler, type `M-x compile'.  This command
+reads a shell command line using the minibuffer, then executes the
+specified command line in an inferior shell with output going to the
+buffer named `*compilation*'.  By default, the current buffer's default
+directory is used as the working directory for the execution of the
+command; therefore, the makefile comes from this directory.
+
+   When the shell command line is read, the minibuffer appears
+containing a default command line (the command you used the last time
+you typed `M-x compile').  If you type just <RET>, the same command
+line is used again.  The first `M-x compile' provides `make -k' as the
+default.  The default is taken from the variable `compile-command'; if
+the appropriate compilation command for a file is something other than
+`make -k', it can be useful to have the file specify a local value for
+`compile-command' (*note File Variables::).
+
+   When you start a compilation, the buffer `*compilation*' is
+displayed in another window but not selected.  Its mode line displays
+the word `run' or `exit' in the parentheses to tell you whether
+compilation is finished.  You do not have to keep this buffer visible;
+compilation continues in any case.
+
+   To kill the compilation process, type `M-x-kill-compilation'.  The
+mode line of the `*compilation*' buffer changes to say `signal' instead
+of `run'.  Starting a new compilation also kills any running
+compilation, as only one can occur at any time.  Starting a new
+compilation prompts for confirmation before actually killing a
+compilation that is running.
+
+   To parse the compiler error messages, type `C-x `' (`next-error').
+The character following `C-x' is the grave accent, not the single
+quote.  The command displays the buffer `*compilation*' in one window
+and the buffer in which the next error occurred in another window.
+Point in that buffer is moved to the line where the error was found.
+The corresponding error message is scrolled to the top of the window in
+which `*compilation*' is displayed.
+
+   The first time you use `C-x `' after the start of a compilation, it
+parses all the error messages, visits all the files that have error
+messages, and creates markers pointing at the lines the error messages
+refer to.  It then moves to the first error message location.
+Subsequent uses of `C-x `' advance down the data set up by the first
+use.  When the preparsed error messages are exhausted, the next `C-x `'
+checks for any more error messages that have come in; this is useful if
+you start editing compiler errors while compilation is still going on.
+If no additional error messages have come in, `C-x `' reports an error.
+
+   `C-u C-x `' discards the preparsed error message data and parses the
+`*compilation*' buffer again, then displays the first error.  This way,
+you can process the same set of errors again.
+
+   Instead of running a compiler, you can run `grep' and see the lines
+on which matches were found.  To do this, type `M-x grep' with an
+argument line that contains the same arguments you would give to
+`grep': a `grep'-style regexp (usually in single quotes to quote the
+shell's special characters) followed by filenames, which may use
+wildcard characters.  The output from `grep' goes in the
+`*compilation*' buffer.  You can use `C-x `' to find the lines that
+match as if they were compilation errors.
+
+   Note: a shell is used to run the compile command, but the shell is
+not run in interactive mode.  In particular, this means that the shell
+starts up with no prompt.  If you find your usual shell prompt making an
+unsightly appearance in the `*compilation*' buffer, it means you have
+made a mistake in your shell's initialization file (`.cshrc' or `.shrc'
+or ...) by setting the prompt unconditionally.  The shell
+initialization file should set the prompt only if there already is a
+prompt.  Here's how to do it in `csh':
+
+     if ($?prompt) set prompt = ...
+
+
+File: xemacs.info,  Node: Lisp Modes,  Next: Lisp Libraries,  Prev: Compilation,  Up: Running
+
+Major Modes for Lisp
+====================
+
+   Emacs has four different major modes for Lisp.  They are the same in
+terms of editing commands, but differ in the commands for executing Lisp
+expressions.
+
+Emacs-Lisp mode
+     The mode for editing source files of programs to run in Emacs Lisp.
+     This mode defines `C-M-x' to evaluate the current defun.  *Note
+     Lisp Libraries::.
+
+Lisp Interaction mode
+     The mode for an interactive session with Emacs Lisp.  It defines
+     <LFD> to evaluate the sexp before point and insert its value in the
+     buffer.  *Note Lisp Interaction::.
+
+Lisp mode
+     The mode for editing source files of programs that run in other
+     dialects of Lisp than Emacs Lisp.  This mode defines `C-M-x' to
+     send the current defun to an inferior Lisp process.  *Note
+     External Lisp::.
+
+Inferior Lisp mode
+     The mode for an interactive session with an inferior Lisp process.
+     This mode combines the special features of Lisp mode and Shell mode
+     (*note Shell Mode::).
+
+Scheme mode
+     Like Lisp mode but for Scheme programs.
+
+Inferior Scheme mode
+     The mode for an interactive session with an inferior Scheme
+     process.
+
+
+File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
+
+Libraries of Lisp Code for Emacs
+================================
+
+   Lisp code for Emacs editing commands is stored in files whose names
+conventionally end in `.el'.  This ending tells Emacs to edit them in
+Emacs-Lisp mode (*note Lisp Modes::).
+
+* Menu:
+
+* Loading::		Loading libraries of Lisp code into Emacs for use.
+* Compiling Libraries:: Compiling a library makes it load and run faster.
+* Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
+
+
+File: xemacs.info,  Node: Loading,  Next: Compiling Libraries,  Prev: Lisp Libraries,  Up: Lisp Libraries
+
+Loading Libraries
+-----------------
+
+`M-x load-file FILE'
+     Load the file FILE of Lisp code.
+
+`M-x load-library LIBRARY'
+     Load the library named LIBRARY.
+
+`M-x locate-library LIBRARY &optional NOSUFFIX'
+     Show the full path name of Emacs library LIBRARY.
+
+   To execute a file of Emacs Lisp, use `M-x load-file'.  This command
+reads the file name you provide in the minibuffer, then executes the
+contents of that file as Lisp code.  It is not necessary to visit the
+file first; in fact, this command reads the file as found on disk, not
+the text in an Emacs buffer.
+
+   Once a file of Lisp code is installed in the Emacs Lisp library
+directories, users can load it using `M-x load-library'.  Programs can
+load it by calling `load-library', or with `load', a more primitive
+function that is similar but accepts some additional arguments.
+
+   `M-x load-library' differs from `M-x load-file' in that it searches
+a sequence of directories and tries three file names in each directory.
+The three names are: first, the specified name with `.elc' appended;
+second, the name with `.el' appended; third, the specified name alone.
+A `.elc' file would be the result of compiling the Lisp file into byte
+code;  if possible, it is loaded in preference to the Lisp file itself
+because the compiled file loads and runs faster.
+
+   Because the argument to `load-library' is usually not in itself a
+valid file name, file name completion is not available.  In fact, when
+using this command, you usually do not know exactly what file name will
+be used.
+
+   The sequence of directories searched by `M-x load-library' is
+specified by the variable `load-path', a list of strings that are
+directory names.  The elements of this list may not begin with "`~'",
+so you must call `expand-file-name' on them before adding them to the
+list.  The default value of the list contains the directory where the
+Lisp code for Emacs itself is stored.  If you have libraries of your
+own, put them in a single directory and add that directory to
+`load-path'.  `nil' in this list stands for the current default
+directory, but it is probably not a good idea to put `nil' in the list.
+If you start wishing that `nil' were in the list, you should probably
+use `M-x load-file' for this case.
+
+   The variable is initialized by the EMACSLOADPATH environment
+variable. If no value is specified, the variable takes the default value
+specified in the file `paths.h' when Emacs was built. If a path isn't
+specified in `paths.h', a default value is obtained from the file
+system, near the directory in which the Emacs executable resides.
+
+   Like `M-x load-library', `M-x locate-library' searches the
+directories in `load-path' to find the file that `M-x load-library'
+would load.  If the optional second argument NOSUFFIX is non-`nil', the
+suffixes `.elc' or `.el' are not added to the specified name LIBRARY
+(like calling `load' instead of `load-library').
+
+   You often do not have to give any command to load a library, because
+the commands defined in the library are set up to "autoload" that
+library.  Running any of those commands causes `load' to be called to
+load the library; this replaces the autoload definitions with the real
+ones from the library.
+
+   If autoloading a file does not finish, either because of an error or
+because of a `C-g' quit, all function definitions made by the file are
+undone automatically.  So are any calls to `provide'.  As a
+consequence, the entire file is loaded a second time if you use one of
+the autoloadable commands again.  This prevents problems when the
+command is no longer autoloading but is working incorrectly because the
+file was only partially loaded.  Function definitions are undone only
+for autoloading; explicit calls to `load' do not undo anything if
+loading is not completed.
+
+   The variable `after-load-alist' takes an alist of expressions to be
+evaluated when particular files are loaded.  Each element has the form
+`(FILENAME forms...)'.  When `load' is run and the filename argument is
+FILENAME, the forms in the corresponding element are executed at the
+end of loading.
+
+   FILENAME must match exactly.  Normally FILENAME is the name of a
+library, with no directory specified, since that is how load is
+normally called.  An error in `forms' does not undo the load, but it
+does prevent execution of the rest of the `forms'.
+
+
+File: xemacs.info,  Node: Compiling Libraries,  Next: Mocklisp,  Prev: Loading,  Up: Lisp Libraries
+
+Compiling Libraries
+-------------------
+
+   Emacs Lisp code can be compiled into byte-code which loads faster,
+takes up less space when loaded, and executes faster.
+
+`M-x batch-byte-compile'
+     Run byte-compile-file on the files remaining on the command line.
+
+`M-x byte-compile-buffer &optional BUFFER'
+     Byte-compile and evaluate contents of BUFFER (default is current
+     buffer).
+
+`M-x byte-compile-file'
+     Compile a file of Lisp code named FILENAME into a file of byte
+     code.
+
+`M-x byte-compile-and-load-file FILENAME'
+     Compile a file of Lisp code named FILENAME into a file of byte
+     code and load it.
+
+`M-x byte-recompile-directory DIRECTORY'
+     Recompile every `.el' file in DIRECTORY that needs recompilation.
+
+`M-x disassemble'
+     Print disassembled code for OBJECT on (optional) STREAM.
+
+`M-x make-obsolete FUNCTION NEW'
+     Make the byte-compiler warn that FUNCTION is obsolete and NEW
+     should be used instead.
+
+   `byte-compile-file' creates a byte-code compiled file from an
+Emacs-Lisp source file.  The default argument for this function is the
+file visited in the current buffer.  The function reads the specified
+file, compiles it into byte code, and writes an output file whose name
+is made by appending `c' to the input file name.  Thus, the file
+`rmail.el' would be compiled into `rmail.elc'. To compile a file of
+Lisp code named FILENAME into a file of byte code and then load it, use
+`byte-compile-and-load-file'. To compile and evaluate Lisp code in a
+given buffer, use `byte-compile-buffer'.
+
+   To recompile all changed Lisp files in a directory, use `M-x
+byte-recompile-directory'.  Specify just the directory name as an
+argument.  Each `.el' file that has been byte-compiled before is
+byte-compiled again if it has changed since the previous compilation.
+A numeric argument to this command tells it to offer to compile each
+`.el' file that has not been compiled yet.  You must answer `y' or `n'
+to each offer.
+
+   You can use the function `batch-byte-compile' to invoke Emacs
+non-interactively from the shell to do byte compilation.  When you use
+this function, the files to be compiled are specified with command-line
+arguments.  Use a shell command of the form:
+
+     emacs -batch -f batch-byte-compile FILES...
+
+   Directory names may also be given as arguments; in that case,
+`byte-recompile-directory' is invoked on each such directory.
+`batch-byte-compile' uses all remaining command-line arguments as file
+or directory names, then kills the Emacs process.
+
+   `M-x disassemble' explains the result of byte compilation.  Its
+argument is a function name.  It displays the byte-compiled code in a
+help window in symbolic form, one instruction per line.  If the
+instruction refers to a variable or constant, that is shown, too.
+
+
+File: xemacs.info,  Node: Mocklisp,  Prev: Compiling Libraries,  Up: Lisp Libraries
+
+Converting Mocklisp to Lisp
+---------------------------
+
+   XEmacs can run Mocklisp files by converting them to Emacs Lisp first.
+To convert a Mocklisp file, visit it and then type `M-x
+convert-mocklisp-buffer'.  Then save the resulting buffer of Lisp file
+in a file whose name ends in `.el' and use the new file as a Lisp
+library.
+
+   You cannot currently byte-compile converted Mocklisp code.  The
+reason is that converted Mocklisp code uses some special Lisp features
+to deal with Mocklisp's incompatible ideas of how arguments are
+evaluated and which values signify "true" or "false".
+
+
+File: xemacs.info,  Node: Lisp Eval,  Next: Lisp Debug,  Prev: Lisp Libraries,  Up: Running
+
+Evaluating Emacs-Lisp Expressions
+=================================
+
+   Lisp programs intended to be run in Emacs should be edited in
+Emacs-Lisp mode; this will happen automatically for file names ending in
+`.el'.  By contrast, Lisp mode itself should be used for editing Lisp
+programs intended for other Lisp systems.  Emacs-Lisp mode can be
+selected with the command `M-x emacs-lisp-mode'.
+
+   For testing of Lisp programs to run in Emacs, it is useful to be able
+to evaluate part of the program as it is found in the Emacs buffer.  For
+example, if you change the text of a Lisp function definition and then
+evaluate the definition, Emacs installs the change for future calls to
+the function.  Evaluation of Lisp expressions is also useful in any
+kind of editing task for invoking non-interactive functions (functions
+that are not commands).
+
+`M-<ESC>'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the minibuffer (`eval-expression').
+
+`C-x C-e'
+     Evaluate the Lisp expression before point, and print the value in
+     the minibuffer (`eval-last-sexp').
+
+`C-M-x'
+     Evaluate the defun containing point or after point, and print the
+     value in the minibuffer (`eval-defun').
+
+`M-x eval-region'
+     Evaluate all the Lisp expressions in the region.
+
+`M-x eval-current-buffer'
+     Evaluate all the Lisp expressions in the buffer.
+
+   `M-<ESC>' (`eval-expression') is the most basic command for
+evaluating a Lisp expression interactively.  It reads the expression
+using the minibuffer, so you can execute any expression on a buffer
+regardless of what the buffer contains.  When evaluation is complete,
+the current buffer is once again the buffer that was current when
+`M-<ESC>' was typed.
+
+   `M-<ESC>' can easily confuse users, especially on keyboards with
+autorepeat, where it can result from holding down the <ESC> key for too
+long.  Therefore, `eval-expression' is normally a disabled command.
+Attempting to use this command asks for confirmation and gives you the
+option of enabling it; once you enable the command, you are no longer
+required to confirm.  *Note Disabling::.
+
+   In Emacs-Lisp mode, the key `C-M-x' is bound to the function
+`eval-defun', which parses the defun containing point or following point
+as a Lisp expression and evaluates it.  The value is printed in the echo
+area.  This command is convenient for installing in the Lisp environment
+changes that you have just made in the text of a function definition.
+
+   The command `C-x C-e' (`eval-last-sexp') performs a similar job but
+is available in all major modes, not just Emacs-Lisp mode.  It finds
+the sexp before point, reads it as a Lisp expression, evaluates it, and
+prints the value in the echo area.  It is sometimes useful to type in an
+expression and then, with point still after it, type `C-x C-e'.
+
+   If `C-M-x' or `C-x C-e' are given a numeric argument, they print the
+value by inserting it into the current buffer at point, rather than in
+the echo area.  The argument value does not matter.
+
+   The most general command for evaluating Lisp expressions from a
+buffer is `eval-region'.  `M-x eval-region' parses the text of the
+region as one or more Lisp expressions, evaluating them one by one.
+`M-x eval-current-buffer' is similar, but it evaluates the entire
+buffer.  This is a reasonable way to install the contents of a file of
+Lisp code that you are just ready to test.  After finding and fixing a
+bug, use `C-M-x' on each function that you change, to keep the Lisp
+world in step with the source file.
+
+
+File: xemacs.info,  Node: Lisp Debug,  Next: Lisp Interaction,  Prev: Lisp Eval,  Up: Running
+
+The Emacs-Lisp Debugger
+=======================
+
+   XEmacs contains a debugger for Lisp programs executing inside it.
+This debugger is normally not used; many commands frequently get Lisp
+errors when invoked in inappropriate contexts (such as `C-f' at the end
+of the buffer) and it would be unpleasant to enter a special debugging
+mode in this case.  When you want to make Lisp errors invoke the
+debugger, you must set the variable `debug-on-error' to non-`nil'.
+Quitting with `C-g' is not considered an error, and `debug-on-error'
+has no effect on the handling of `C-g'.  However, if you set
+`debug-on-quit' to be non-`nil', `C-g' will invoke the debugger.  This
+can be useful for debugging an infinite loop; type `C-g' once the loop
+has had time to reach its steady state.  `debug-on-quit' has no effect
+on errors.
+
+   You can make Emacs enter the debugger when a specified function is
+called or at a particular place in Lisp code.  Use `M-x debug-on-entry'
+with argument FUN-NAME to have Emacs enter the debugger as soon as
+FUN-NAME is called. Use `M-x cancel-debug-on-entry' to make the
+function stop entering the debugger when called.  (Redefining the
+function also does this.)  To enter the debugger from some other place
+in Lisp code, you must insert the expression `(debug)' there and
+install the changed code with `C-M-x'.  *Note Lisp Eval::.
+
+   When the debugger is entered, it displays the previously selected
+buffer in one window and a buffer named `*Backtrace*' in another
+window.  The backtrace buffer contains one line for each level of Lisp
+function execution currently going on.  At the beginning of the buffer
+is a message describing the reason that the debugger was invoked, for
+example, an error message if it was invoked due to an error.
+
+   The backtrace buffer is read-only and is in Backtrace mode, a special
+major mode in which letters are defined as debugger commands.  The
+usual Emacs editing commands are available; you can switch windows to
+examine the buffer that was being edited at the time of the error, and
+you can switch buffers, visit files, and perform any other editing
+operations.  However, the debugger is a recursive editing level (*note
+Recursive Edit::); it is a good idea to return to the backtrace buffer
+and explictly exit the debugger when you don't want to use it any more.
+Exiting the debugger kills the backtrace buffer.
+
+   The contents of the backtrace buffer show you the functions that are
+executing and the arguments that were given to them.  It also allows you
+to specify a stack frame by moving point to the line describing that
+frame.  The frame whose line point is on is considered the "current
+frame".  Some of the debugger commands operate on the current frame.
+Debugger commands are mainly used for stepping through code one
+expression at a time.  Here is a list of them:
+
+`c'
+     Exit the debugger and continue execution.  In most cases,
+     execution of the program continues as if the debugger had never
+     been entered (aside from the effect of any variables or data
+     structures you may have changed while inside the debugger).  This
+     includes entry to the debugger due to function entry or exit,
+     explicit invocation, and quitting or certain errors.  Most errors
+     cannot be continued; trying to continue an error usually causes
+     the same error to occur again.
+
+`d'
+     Continue execution, but enter the debugger the next time a Lisp
+     function is called.  This allows you to step through the
+     subexpressions of an expression, and see what the subexpressions
+     do and what values they compute.
+
+     When you enter the debugger this way, Emacs flags the stack frame
+     for the function call from which you entered.  The same function
+     is then called when you exit the frame.  To cancel this flag, use
+     `u'.
+
+`b'
+     Set up to enter the debugger when the current frame is exited.
+     Frames that invoke the debugger on exit are flagged with stars.
+
+`u'
+     Don't enter the debugger when the current frame is exited.  This
+     cancels a `b' command on a frame.
+
+`e'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the echo area.  This is equivalent to the command
+     `M-<ESC>', except that `e' is not normally disabled like `M-<ESC>'.
+
+`q'
+     Terminate the program being debugged; return to top-level Emacs
+     command execution.
+
+     If the debugger was entered due to a `C-g' but you really want to
+     quit, not to debug, use the `q' command.
+
+`r'
+     Return a value from the debugger.  The value is computed by
+     reading an expression with the minibuffer and evaluating it.
+
+     The value returned by the debugger makes a difference when the
+     debugger was invoked due to exit from a Lisp call frame (as
+     requested with `b'); then the value specified in the `r' command
+     is used as the value of that frame.
+
+     The debugger's return value also matters with many errors.  For
+     example, `wrong-type-argument' errors will use the debugger's
+     return value instead of the invalid argument; `no-catch' errors
+     will use the debugger value as a throw tag instead of the tag that
+     was not found.  If an error was signaled by calling the Lisp
+     function `signal', the debugger's return value is returned as the
+     value of `signal'.
+
+
+File: xemacs.info,  Node: Lisp Interaction,  Next: External Lisp,  Prev: Lisp Debug,  Up: Running
+
+Lisp Interaction Buffers
+========================
+
+   The buffer `*scratch*', which is selected when Emacs starts up, is
+provided for evaluating Lisp expressions interactively inside Emacs.
+Both the expressions you evaluate and their output goes in the buffer.
+
+   The `*scratch*' buffer's major mode is Lisp Interaction mode, which
+is the same as Emacs-Lisp mode except for one command, <LFD>.  In
+Emacs-Lisp mode, <LFD> is an indentation command.  In Lisp Interaction
+mode, <LFD> is bound to `eval-print-last-sexp'.  This function reads
+the Lisp expression before point, evaluates it, and inserts the value
+in printed representation before point.
+
+   The way to use the `*scratch*' buffer is to insert Lisp expressions
+at the end, ending each one with <LFD> so that it will be evaluated.
+The result is a complete typescript of the expressions you have
+evaluated and their values.
+
+   The rationale for this feature is that Emacs must have a buffer when
+it starts up, but that buffer is not useful for editing files since a
+new buffer is made for every file that you visit.  The Lisp interpreter
+typescript is the most useful thing I can think of for the initial
+buffer to do.  `M-x lisp-interaction-mode' will put any buffer in Lisp
+Interaction mode.
+
+
+File: xemacs.info,  Node: External Lisp,  Prev: Lisp Interaction,  Up: Running
+
+Running an External Lisp
+========================
+
+   Emacs has facilities for running programs in other Lisp systems.
+You can run a Lisp process as an inferior of Emacs, and pass
+expressions to it to be evaluated.  You can also pass changed function
+definitions directly from the Emacs buffers in which you edit the Lisp
+programs to the inferior Lisp process.
+
+   To run an inferior Lisp process, type `M-x run-lisp'.  This runs the
+program named `lisp', the same program you would run by typing `lisp'
+as a shell command, with both input and output going through an Emacs
+buffer named `*lisp*'.  In other words, any "terminal output" from Lisp
+will go into the buffer, advancing point, and any "terminal input" for
+Lisp comes from text in the buffer.  To give input to Lisp, go to the
+end of the buffer and type the input, terminated by <RET>.  The
+`*lisp*' buffer is in Inferior Lisp mode, which has all the special
+characteristics of Lisp mode and Shell mode (*note Shell Mode::).
+
+   Use Lisp mode to run the source files of programs in external Lisps.
+You can select this mode with `M-x lisp-mode'.  It is used automatically
+for files whose names end in `.l' or `.lisp', as most Lisp systems
+usually expect.
+
+   When you edit a function in a Lisp program you are running, the
+easiest way to send the changed definition to the inferior Lisp process
+is the key `C-M-x'.  In Lisp mode, this key runs the function
+`lisp-send-defun', which finds the defun around or following point and
+sends it as input to the Lisp process.  (Emacs can send input to any
+inferior process regardless of what buffer is current.)
+
+   Contrast the meanings of `C-M-x' in Lisp mode (for editing programs
+to be run in another Lisp system) and Emacs-Lisp mode (for editing Lisp
+programs to be run in Emacs): in both modes it has the effect of
+installing the function definition that point is in, but the way of
+doing so is different according to where the relevant Lisp environment
+is found.  *Note Lisp Modes::.
+
+
+File: xemacs.info,  Node: Packages,  Next: Abbrevs,  Prev: Running,  Up: Top
+
+Packages
+========
+
+   The XEmacs 21 distribution comes only with a very basic set of
+built-in modes and packages.  Most of the packages that were part of
+the distribution of earlier versions of XEmacs are now available
+separately.  The installer as well as the user can choose which
+packages to install; the actual installation process is easy.  This
+gives an installer the ability to tailor an XEmacs installation for
+local needs with safe removal of unnecessary code.
+
+* Menu:
+
+* Package Terminology:: Understanding different kinds of packages.
+* Using Packages::      How to install and use packages.
+* Building Packages::   Building packages from sources.
+
+
+File: xemacs.info,  Node: Package Terminology,  Next: Using Packages,  Up: Packages
+
+Package Flavors
+---------------
+
+   There are two main flavors of packages.
+
+   * Regular Packages A regular package is one in which multiple files
+     are involved and one may not in general safely remove any of them.
+
+   * Single-File Packages A single-file package is an aggregate
+     collection of thematically related but otherwise independent lisp
+     files.  These files are bundled together for download convenience
+     and individual files may be deleted at will without any loss of
+     functionality.
+
+Package Distributions
+---------------------
+
+   XEmacs Lisp packages are distributed in two ways, depending on the
+intended use.  Binary Packages are for installers and end-users and may
+be installed directly into an XEmacs package directory.  Source Packages
+are for developers and include all files necessary for rebuilding
+bytecompiled lisp and creating tarballs for distribution.
+
+Binary Packages
+---------------
+
+   Binary packages may be installed directly into an XEmacs package
+hierarchy.
+
+Source Packages
+---------------
+
+   Source packages contain all of the Package author's (where
+appropriate in regular packages) source code plus all of the files
+necessary to build distribution tarballs (Unix Tar format files,
+gzipped for space savings).
+
+
+File: xemacs.info,  Node: Using Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
+
+Getting Started
+---------------
+
+   When you first download XEmacs 21, you will usually first grab the
+"core distribution", a file called `xemacs-21.0.tar.gz'. (Replace the
+21.0 by the current version number.)  The core distribution contains
+the sources of XEmacs and a minimal set of Emacs Lisp files, which are
+in the subdirectory named `lisp'.  This subdirectory used to contain
+all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
+space, most non-essential packages were made optional.
+
+Choosing the Packages You Need
+------------------------------
+
+   The available packages can currently be found in the same ftp
+directory where you grabbed the core distribution from, and are located
+in the subdirectory `packages/binary-packages'.  Package file names
+follow the naming convention `<package-name>-<version>-pkg.tar.gz'.
+
+   If you have EFS *Note (EFS)::, packages can be installed over the
+network.  Alternatively, if you have copies of the packages locally,
+you can install packages from a local disk or CDROM.
+
+   The file `etc/PACKAGES' in the core distribution contains a list of
+the packages available at the time of the XEmacs release.  Packages are
+also listed on the `Options' menu under:
+
+     	Options->Customize->Emacs->Packages
+
+   However, don't select any of these menu picks unless you actually
+want to install the given package (and have properly configured your
+system to do so).
+
+   You can also get a list of available packages, and whether or not
+they are installed, using the visual package browser and installer.
+You can access it via the menus:
+
+     	Options->Manage Packages->List & Install
+
+   Or, you can get to it via the keyboard:
+
+     M-x pui-list-packages
+
+   Hint to system administrators of multi-user systems: it might be a
+good idea to install all packages and not interfere with the wishes of
+your users.
+
+   If you can't find which package provides the feature you require, try
+using the `package-get-package-provider' function. Eg., if you know
+that you need `thingatpt', type:
+
+     M-x package-get-package-provider RET thingatpt
+
+   which will return something like (fsf-compat "1.06"). You can the use
+one of the methods above for installing the package you want.
+
+XEmacs and Installing Packages
+------------------------------
+
+   Normally, packages are installed over the network, using EFS *Note
+(EFS)::.  However, you may not have network access, or you may already
+have some or all of the packages on a local disk, such as a CDROM.  If
+you want to install from a local disk, you must first tell XEmacs where
+to find the package binaries.  This is done by adding a line like the
+following to your `.emacs' file:
+
+     (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
+                                    package-get-remote))
+
+   Here, you'd change `/my/path/to/package/binaries' to be the path to
+your local package binaries.  Next, restart XEmacs, and you're ready to
+go (advanced users can just re-evaluate the sexp).
+
+   If you are installing from a temporary, one-time directory, you can
+also add these directory names to `package-get-remote' using:
+
+     	M-x pui-add-install-directory
+
+   Note, however, that any directories added using this function are not
+saved; this information will be lost when you quit XEmacs.
+
+   If you're going to install over the network, you only have to insure
+that EFS *Note (EFS):: works, and that it can get outside a firewall, if
+you happen to be behind one.  You shouldn't have to do anything else;
+XEmacs already knows where to go. However you can add your own mirrors
+to this list. See `package-get-remote'.
+
+   The easiest way to install a package is to use the visual package
+browser and installer, using the menu pick:
+
+     	Options->Manage Packages->List & Install
+   or
+     	Options->Manage Packages->Using Custom->Select-> ...
+
+   You can also access it using the keyboard:
+
+     M-x pui-list-packages
+
+   The visual package browser will then display a list of all packages.
+Help information will be displayed at the very bottom of the buffer; you
+may have to scroll down to see it.  You can also press `?' to get the
+same help.  From this buffer, you can tell the package status by the
+character in the first column:
+
+`-'
+     The package has not been installed.
+
+`*'
+     The package has been installed, but a newer version is available.
+     The current version is out-of-date.
+
+`+'
+     The package has been marked for installation/update.
+
+   If there is no character in the first column, the package has been
+installed and is up-to-date.
+
+   From here, you can select or unselect packages for installation using
+the <RET> key, the `Mouse-2' button or selecting "Select" from the
+(Popup) Menu.  Once you've finished selecting the packages, you can
+press the `x' key (or use the menu) to actually install the packages.
+Note that you will have to restart XEmacs for XEmacs to recognize any
+new packages.
+
+   Key summary:
+
+`?'
+     Display simple help.
+
+`<RET>'
+`<Mouse-2>'
+     Toggle between selecting and unselecting a package for
+     installation.
+
+`x'
+     Install selected packages.
+
+`<SPC>'
+     View, in the minibuffer, additional information about the package,
+     such as the package date (not the build date) and the package
+     author.  Moving the mouse over a package name will also do the
+     same thing.
+
+`v'
+     Toggle between verbose and non-verbose package display.
+
+`g'
+     Refresh the package display.
+
+`q'
+     Kill the package buffer.
+
+   Moving the mouse over a package will also cause additional
+information about the package to be displayed in the minibuffer.
+
+Other package installation interfaces
+-------------------------------------
+
+   For an alternative package interface, you can select packages from
+the customize menus, under:
+
+     	Options->Customize->Emacs->Packages-> ...
+   or
+     	Options->Manage Packages->Using Custom->Select-> ...
+
+   Set their state to on, and then do:
+
+     	Options->Manage Packages->Using Custom->Update Packages
+
+   This will automatically retrieve the packages you have selected from
+the XEmacs ftp site or your local disk, and install them into XEmacs.
+Additionally it will update any packages you already have installed to
+the newest version.  Note that if a package is newly installed you will
+have to restart XEmacs for the change to take effect.
+
+   You can also install packages using a semi-manual interface:
+
+     M-x package-get-all <return>
+
+   Enter the name of the package (e.g., `prog-modes'), and XEmacs will
+search for the latest version (as listed in the lisp file
+`lisp/package-get-base.el'), and install it and any packages that it
+depends upon.
+
+Manual Binary Package Installation
+----------------------------------
+
+   Pre-compiled, binary packages can be installed in either a system
+package directory (this is determined when XEmacs is compiled), or in
+one of the following subdirectories of your `$HOME' directory:
+
+     ~/.xemacs/mule-packages
+     ~/.xemacs/xemacs-packages
+
+   Packages in the former directory will only be found by a Mule-enabled
+XEmacs.
+
+   XEmacs does not have to be running to install binary packages,
+although XEmacs will not know about any newly-installed packages until
+you restart XEmacs.  Note, however, that installing a newer version of a
+package while XEmacs is running could cause strange errors in XEmacs;
+it's best to exit XEmacs before upgrading an existing package.
+
+   To install binary packages manually:
+
+  1. Download the package(s) that you want to install.  Each binary
+     package will typically be a gzip'd tarball.
+
+  2. Decide where to install the packages: in the system package
+     directory, or in `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.  If you want to install
+     the packages in the system package directory, make sure you can
+     write into that directory.  If you want to install in your `$HOME'
+     directory, create the directory, `~/.xemacs/mule-packages' or
+     `~/.xemacs/xemacs-packages', respectively.
+
+  3. Next, `cd' to the directory under which you want to install the
+     package(s).
+
+  4. From this directory, uncompress and extract each of the gzip'd
+     tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
+     users will typically do this using the commands:
+
+          	gunzip < package.tar.gz | tar xvf -
+
+     Above, replace `package.tar.gz' with the filename of the package
+     that you downloaded in step 1.
+
+     Of course, if you use GNU `tar', you could also use:
+
+          	tar xvzf package.tar.gz
+
+  5. That's it.  Quit and restart XEmacs to get it to recognize any new
+     or changed packages.
+
+
+
+File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
+
+   Source packages are available from the `packages/source-packages'
+subdirectory of your favorite XEmacs distribution site.  Alternatively,
+they are available via CVS from `cvs.xemacs.org'.  Look at
+`http://cvs.xemacs.org' for instructions.
+
+Prerequisites for Building Source Packages
+------------------------------------------
+
+   You must have GNU `cp', GNU `install' (or a BSD compatible `install'
+program) GNU `make' (3.75 or later preferred), `makeinfo' (1.68 from
+`texinfo-3.11' or later required), GNU `tar' and XEmacs 21.0.  The
+source packages will untar into a correct directory structure.  At the
+top level you must have `XEmacs.rules' and `package-compile.el'.  These
+files are available from the XEmacs FTP site from the same place you
+obtained your source package distributions.
+
+What You Can Do With Source Packages
+------------------------------------
+
+   NB:  A global build operation doesn't exist yet as of 13 January
+1998.
+
+   Source packages are most useful for creating XEmacs package tarballs
+for installation into your own XEmacs installations or for distributing
+to others.
+
+   Supported operations from `make' are:
+
+`clean'
+     Remove all built files except `auto-autoloads.el' and
+     `custom-load.el'.
+
+`distclean'
+     Remove XEmacs backups as well as the files deleted by `make clean'.
+
+`all'
+     Bytecompile all files, build and bytecompile byproduct files like
+     `auto-autoloads.el' and `custom-load.el'.  Create info version of
+     TeXinfo documentation if present.
+
+`srckit'
+     Usually aliased to `make srckit-std'.  This does a `make
+     distclean' and creates a package source tarball in the staging
+     directory.  This is generally only of use for package maintainers.
+
+`binkit'
+     May be aliased to `binkit-sourceonly', `binkit-sourceinfo',
+     `binkit-sourcedata', or `binkit-sourcedatainfo'. `sourceonly'
+     indicates there is nothing to install in a data directory or info
+     directory.  `sourceinfo' indicates that source and info files are
+     to be installed.  `sourcedata' indicates that source and etc
+     (data) files are to be installed.  `sourcedatainfo' indicates
+     source, etc (data), and info files are to be installed.  A few
+     packages have needs beyond the basic templates so this is not yet
+     complete.
+
+`dist'
+     Runs the rules `srckit' followed by `binkit'.  This is primarily
+     of use by XEmacs maintainers producing files for distribution.
+
+
+File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Packages,  Up: Top
+
+Abbrevs
+*******
+
+   An "abbrev" is a word which "expands" into some different text.
+Abbrevs are defined by the user to expand in specific ways.  For
+example, you might define `foo' as an abbrev expanding to `find outer
+otter'.  With this abbrev defined, you would be able to get `find outer
+otter ' into the buffer by typing `f o o <SPC>'.
+
+   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
+Disabling Abbrev mode does not cause abbrev definitions to be discarded,
+but they do not expand until Abbrev mode is enabled again.  The command
+`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
+turns Abbrev mode on if the argument is positive, off otherwise.  *Note
+Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
+when the variable is non-`nil'.  The variable `abbrev-mode'
+automatically becomes local to the current buffer when it is set.
+
+   Abbrev definitions can be "mode-specific"--active only in one major
+mode.  Abbrevs can also have "global" definitions that are active in
+all major modes.  The same abbrev can have a global definition and
+various mode-specific definitions for different major modes.  A
+mode-specific definition for the current major mode overrides a global
+definition.
+
+   You can define Abbrevs interactively during an editing session.  You
+can also save lists of abbrev definitions in files and reload them in
+later sessions.  Some users keep extensive lists of abbrevs that they
+load in every session.
+
+   A second kind of abbreviation facility is called the "dynamic
+expansion".  Dynamic abbrev expansion happens only when you give an
+explicit command and the result of the expansion depends only on the
+current contents of the buffer.  *Note Dynamic Abbrevs::.
+
+* Menu:
+
+* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
+* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
+* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
+* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
+* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
+
+
+File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+`C-x a g'
+     Define an abbrev to expand into some text before point
+     (`add-global-abbrev').
+
+`C-x a l'
+     Similar, but define an abbrev available only in the current major
+     mode (`add-mode-abbrev').
+
+`C-x a i g'
+     Define a word in the buffer as an abbrev
+     (`inverse-add-global-abbrev').
+
+`C-x a i l'
+     Define a word in the buffer as a mode-specific abbrev
+     (`inverse-add-mode-abbrev').
+
+`M-x kill-all-abbrevs'
+     After this command, no abbrev definitions remain in effect.
+
+   The usual way to define an abbrev is to enter the text you want the
+abbrev to expand to, position point after it, and type `C-x a g'
+(`add-global-abbrev').  This reads the abbrev itself using the
+minibuffer, and then defines it as an abbrev for one or more words
+before point.  Use a numeric argument to say how many words before point
+should be taken as the expansion.  For example, to define the abbrev
+`foo' as in the example above, insert the text `find outer otter', then
+type
+`C-u 3 C-x a g f o o <RET>'.
+
+   An argument of zero to `C-x a g' means to use the contents of the
+region as the expansion of the abbrev being defined.
+
+   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
+mode-specific abbrev.  Mode-specific abbrevs are active only in a
+particular major mode.  `C-x a l' defines an abbrev for the major mode
+in effect at the time `C-x a l' is typed.  The arguments work the same
+way they do for `C-x a g'.
+
+   If the text of an abbrev you want is already in the buffer instead of
+the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
+instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
+instead of `C-x a l'.  These commands are called "inverse" because they
+invert the meaning of the argument found in the buffer and the argument
+read using the minibuffer.
+
+   To change the definition of an abbrev, just add the new definition.
+You will be asked to confirm if the abbrev has a prior definition.  To
+remove an abbrev definition, give a negative argument to `C-x a g' or
+`C-x a l'.  You must choose the command to specify whether to kill a
+global definition or a mode-specific definition for the current mode,
+since those two definitions are independent for one abbrev.
+
+   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
+
