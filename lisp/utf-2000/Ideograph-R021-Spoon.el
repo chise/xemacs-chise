@@ -18,6 +18,18 @@
     (=daikanwa		. 02570)	; &I-M-02570;
     ))
 (define-char
+  '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (<-denotational
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=big5-cdp		. #x895F)	; &CDP-895F;
+    ))
+(define-char
   '((=>ucs@jis		. #x5315)	; 匕
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
