@@ -252,7 +252,7 @@
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let (ret radical script dest)
+  (let (ret rret radical script dest)
     (dolist (feature
 	     (cons 'ideographic-radical
 		   (mapcar
@@ -270,7 +270,11 @@
 				(unless (eq (get-char-attribute
 					     pc 'ideographic-radical)
 					    radical)
-				  (setq dest (cons pc dest))))
+				  (if (setq rret
+					    (get-char-attribute
+					     pc '<-subsumptive))
+				      (setq ret (append ret rret))
+				    (setq dest (cons pc dest)))))
 			      dest)
 			  (list chr))
 			(let ((rest (append
