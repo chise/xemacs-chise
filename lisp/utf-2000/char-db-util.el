@@ -199,7 +199,7 @@
 	  )
 	(when (setq cell (assq 'iso-10646-comment data))
 	    (setq cell (cdr cell))
-	    (insert (format "(iso-10646-comment\t . %S)
+	    (insert (format "(iso-10646-comment\t. %S)
     "
 			    cell))
 	    (setq data (del-alist 'iso-10646-comment data))
@@ -232,20 +232,6 @@
 				     cell " ")))
 	  (setq data (del-alist '->uppercase data))
 	  )
-	(when (setq cell (assq '->titlecase data))
-	  (setq cell (cdr cell))
-	  (insert (format "(->titlecase\t%s)
-    "
-			  (mapconcat (lambda (code)
-				       (cond ((symbolp code)
-					      (symbol-name code))
-					     ((integerp code)
-					      (format "#x%04X" code))
-					     (t
-					      (format "\n     %S" code))))
-				     cell " ")))
-	  (setq data (del-alist '->titlecase data))
-	  )
 	(when (setq cell (assq '->lowercase data))
 	  (setq cell (cdr cell))
 	  (insert (format "(->lowercase\t%s)
@@ -259,6 +245,20 @@
 					      (format "\n     %S" code))))
 				     cell " ")))
 	  (setq data (del-alist '->lowercase data))
+	  )
+	(when (setq cell (assq '->titlecase data))
+	  (setq cell (cdr cell))
+	  (insert (format "(->titlecase\t%s)
+    "
+			  (mapconcat (lambda (code)
+				       (cond ((symbolp code)
+					      (symbol-name code))
+					     ((integerp code)
+					      (format "#x%04X" code))
+					     (t
+					      (format "\n     %S" code))))
+				     cell " ")))
+	  (setq data (del-alist '->titlecase data))
 	  )
 	(setq data
 	      (sort data
