@@ -1,4 +1,5 @@
 /* Copyright (C) 1995 Free Software Foundation.
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -121,7 +122,7 @@ vars_of_mule (void)
 #ifdef UTF2000
   Fprovide (intern ("utf-2000"));
 
-  Vutf_2000_version = build_string("0.18 (Yamato-Koizumi)");
+  Vutf_2000_version = build_string("0.19 (Kōriyama)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of XEmacs UTF-2000.
 */ );
