@@ -232,15 +232,7 @@
 (define-char
   '((ideographic-radical . 144)	; â¾
     (ideographic-strokes . 5)
-    (total-strokes	 . 11)
     (=ucs		. #x8850)	; è¡
-    ))
-(define-char
-  '((ideographic-radical . 144)	; â¾
-    (ideographic-strokes . 5)
-    (total-strokes	 . 11)
-    (=ucs		. #x8854)	; è¡”
-    (=gb2312		. #x4F4E)	; ø»…Š•
     ))
 (define-char
   '((ideographic-radical . 144)	; â¾
@@ -544,10 +536,6 @@
     (ideographic-radical . 144)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x885E)	; è¡ž
-      (=jis-x0208	  . #x6A4C)	; ø½‹¡µ
-      ))
     (=ks-x1001		. #x6A5B)	; ø»Š†”
     (=jis-x0208-1990	. #x3152)	; ø½ŠŽ
     (=gt		. 45951)	; ý¡€‹¿

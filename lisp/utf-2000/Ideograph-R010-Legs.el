@@ -252,7 +252,6 @@
     (=gt-pj-1		. #x3D3C)	; ý¡€€›’
     (=daikanwa		. 01345)	; ø¸€•
     (=ucs@jis		. #x5145)	; ø½ŠŸŸ
-    (=ucs@big5		. #x5145)	; ø½ŠŸŸ
     ))
 (define-char
   '((morohashi-daikanwa	1345 0 0)
@@ -574,7 +573,6 @@
     (=gt-pj-1		. #x513C)	; ý¡€€› 
     (=daikanwa		. 01356)	; ø¸€•Œ
     (=ucs@jis		. #x514C)	; ø½Š¼·
-    (=ucs@big5		. #x514C)	; ø½Š¼·
     ))
 (define-char
   '((morohashi-daikanwa	1356 0 0)
@@ -686,10 +684,6 @@
     (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA32)	; ï¨²
-      (=jis-x0213-1-2000  . #x2E50)	; ø»¢¦±
-      ))
     (shinjigen-1	. 470)
     (shinjigen-2	. 470)
     (=jis-x0208		. #x4C48)	; ø½Šµ­
@@ -839,10 +833,6 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5152)	; å…’
-      (=jis-x0208	  . #x513B)	; ø½Š¼¶
-      ))
     (hanyu-dazidian	1 270 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1259,7 +1249,6 @@
     (=daikanwa		. 01375)	; ø¸€•Ÿ
     (=jef-china3	. #x43D7)	; øº„—
     (=ucs@jis		. #x5157)	; ø»Š¾—
-    (=ucs@big5		. #x5157)	; ø»Š¾—
     ))
 (define-char
   '((morohashi-daikanwa	1375 0 1)
@@ -1395,10 +1384,6 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EE8)	; é»¨
-      (=jis-x0208	  . #x735E)	; ø½‹¯•
-      ))
     (hanyu-dazidian	1 273 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1551,13 +1536,13 @@
       ))
     (=big5		. #xA25C)	; ý¢€Š‰œ
     (=daikanwa		. 01387)	; ø¸€•«
-    (=ucs@big5		. #x515D)	; ý¢€Š‰œ
     ))
 (define-char
   '((morohashi-daikanwa	1387 0 0)
     (ideographic-radical . 10)	; â¼‰
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
+    (ideographic-strokes . 10)
+    (kangxi-strokes	 . 9)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; â¿º

@@ -79,7 +79,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (=gt		  . 00458)	; ý¡€€‡Š
       )
      ((=ucs		  . #x4E28)	; ä¸¨
       ))
@@ -419,8 +419,8 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (<-simplified
-     ((=ucs		  . #x23D92)	; ð£¶’
+    (<-simplified-ideograph
+     ((=daikanwa	  . 00084)	; ø¸€”
       ))
     (=big5-cdp		. #x89CD)	; ý¢€ˆ§
     ))
@@ -626,10 +626,10 @@
     (=cns11643-5	. #x3D55)	; ø»š”¨
     ))
 (define-char
-  '((ideographic-radical@ucs . 2)	; â¼
-    (ideographic-strokes@ucs . 13)
-    (ideographic-radical@cns . 30)	; â¼
-    (ideographic-strokes@cns . 11)
+  '((ideographic-	(:radical	30 ; â¼
+			 :strokes	11)
+			(:radical	2 ; â¼
+			 :strokes	13))
     (total-strokes	 . 14)
     (hanyu-dazidian	1 31 1)
     (ideographic-structure

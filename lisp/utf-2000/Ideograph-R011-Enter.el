@@ -14,7 +14,6 @@
     (=gt-pj-1		. #x467E)	; ý¡€€œº
     (=daikanwa		. 01415)	; ø¸€–‡
     (=ucs@jis		. #x5165)	; ø½Š­¯
-    (=ucs@big5		. #x5165)	; ø½Š­¯
     ))
 (define-char
   '((morohashi-daikanwa	1415 0 0)
@@ -127,7 +126,6 @@
     (=big5		. #xA4BA)	; ý¢€Š’º
     (=daikanwa		. 01418)	; ø¸€–Š
     (=jef-china3	. #x43DE)	; øº„ž
-    (=ucs@big5		. #x5167)	; ý¢€Š’º
     ))
 (define-char
   '((morohashi-daikanwa	1418 0 1)
@@ -317,7 +315,6 @@
     (=big5		. #xA5FE)	; ý¢€Š—¾
     (=daikanwa		. 01424)	; ø¸€–
     (=jef-china3	. #x43DF)	; øº„Ÿ
-    (=ucs@big5		. #x5168)	; ø»ŠŒ 
     ))
 (define-char
   '((=>ucs		. #x5168)	; å…¨
@@ -346,7 +343,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (=gt		  . 00458)	; ý¡€€‡Š
       )
      ((=ucs		  . #x738B)	; çŽ‹
       ))
@@ -671,7 +668,6 @@
     (=gt-pj-1		. #x5140)	; ý¡€€
     (=daikanwa		. 01436)	; ø¸€–œ
     (=ucs@jis		. #x5169)	; ø½Š¼»
-    (=ucs@big5		. #x5169)	; ø½Š¼»
     ))
 (define-char
   '((morohashi-daikanwa	1436 0 0)
@@ -805,9 +801,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((=jis-x0208	    . #x467E)	; ø½Š­¯
-	(=ks-x1001	    . #x6C7D)	; ø»Š‰²
-	(=daikanwa	    . 01415)	; ø¸€–‡
+       ((=daikanwa	    . 01415)	; ø¸€–‡
 	)
        ((=ucs		    . #x4E28)	; ä¸¨
 	))
@@ -820,9 +814,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((=jis-x0208	      . #x467E)	; ø½Š­¯
-	  (=ks-x1001	      . #x6C7D)	; ø»Š‰²
-	  (=daikanwa	      . 01415)	; ø¸€–‡
+	 ((=daikanwa	      . 01415)	; ø¸€–‡
 	  )
 	 ((=ucs		      . #x4E28)	; ä¸¨
 	  ))
@@ -831,9 +823,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((=jis-x0208	      . #x467E)	; ø½Š­¯
-	  (=ks-x1001	      . #x6C7D)	; ø»Š‰²
-	  (=daikanwa	      . 01415)	; ø¸€–‡
+	 ((=daikanwa	      . 01415)	; ø¸€–‡
 	  )
 	 ((=ucs		      . #x4E28)	; ä¸¨
 	  ))
