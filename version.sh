@@ -1,9 +1,9 @@
 #!/bin/sh
 emacs_is_beta=
 emacs_major_version=21
-emacs_minor_version=2
-emacs_beta_version=47
-xemacs_codename="Zephir"
+emacs_minor_version=4
+emacs_beta_version=0
+xemacs_codename="Solid Vapor"
 infodock_major_version=4
 infodock_minor_version=0
 infodock_build_version=8

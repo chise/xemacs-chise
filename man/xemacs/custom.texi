@@ -1026,7 +1026,7 @@ just like @key{RET}.  This is used mainly for Mocklisp compatibility.
 @code{minibuffer-local-must-match-map} is for strict completion and
 for cautious completion.
 @item
-@code{repeat-complex-command-map} is for use in @kbd{C-x @key{ESC}}.
+@code{repeat-complex-command-map} is for use in @kbd{C-x @key{ESC} @key{ESC}}.
 @item
 @code{isearch-mode-map} contains the bindings of the special keys which
 are bound in the pseudo-mode entered with @kbd{C-s} and @kbd{C-r}.

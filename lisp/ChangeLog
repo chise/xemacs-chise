@@ -1,3 +1,43 @@
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.0 "Solid Vapor" is released.
+
+2001-04-15  Ben Wing  <ben@xemacs.org>
+
+	* about.el:
+	* about.el (about-headline-face): New.
+	* about.el (about-link-face): New.
+	* about.el (about-current-release-maintainers): New.
+	* about.el (about-other-current-hackers): New.
+	* about.el (about-url-alist):
+	* about.el (about-once-and-future-hackers): New.
+	* about.el (about-mailto-link): New.
+	* about.el (about-get-buffer):
+	* about.el (about-finish-buffer):
+	* about.el (about-xemacs):
+	* about.el (about-features): Removed.
+	* about.el (about-advantages): New.
+	* about.el (about-maintainer-info): Removed.
+	* about.el (about-personal-info): New.
+	* about.el (about-hacker-contribution): New.
+	* about.el (about-maintainer):
+	* about.el (about-show-linked-info):
+	* about.el (about-hackers):
+	Major revamping.  Rewriting of most of the text, improve the
+	link handling, separate info on contributors into personal
+	and contribution info, add new contributors, update personal
+	info, etc. etc.
+	
+	* menubar-items.el (default-menubar):
+	Help menubar entry for News now says more accurately
+	"What's New in XEmacs".
+	
+	* mouse.el:
+	* mouse.el (mouse-track-cleanup-hook):
+	* mouse.el (mouse-track):
+	Don't set-buffer to a dead buffer when calling mouse-track
+	cleanup hooks.
+
 2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.2.47 "Zephir" is released.

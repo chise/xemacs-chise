@@ -131,13 +131,10 @@ char *malloc ();
 char *realloc ();
 #endif
 
-#define charptr_emchar(str)		((Emchar) (str)[0])
+/* Other types */
+#include <stddef.h> /* for ptrdiff_t */
 
-#if (LONGBITS > INTBITS)
-# define EMACS_INT long
-#else
-# define EMACS_INT int
-#endif
+#define charptr_emchar(str)		((Emchar) (str)[0])
 
 typedef int Emchar;
 
@@ -991,7 +988,7 @@ print_double_string (re_char *where, re_char *string1, int size1,
     printf ("(null)");
   else
     {
-      unsigned int this_char;
+      Element_count this_char;
 
       if (FIRST_STRING_P (where))
         {
@@ -1151,8 +1148,8 @@ typedef union fail_stack_elt fail_stack_elt_t;
 typedef struct
 {
   fail_stack_elt_t *stack;
-  size_t size;
-  size_t avail;			/* Offset of next open position.  */
+  Element_count size;
+  Element_count avail;			/* Offset of next open position.  */
 } fail_stack_type;
 
 #define FAIL_STACK_EMPTY()     (fail_stack.avail == 0)
@@ -1195,7 +1192,7 @@ typedef struct
    REGEX_REALLOCATE_STACK requires `destination' be declared.   */
 
 #define DOUBLE_FAIL_STACK(fail_stack)					\
-  ((fail_stack).size > re_max_failures * MAX_FAILURE_ITEMS		\
+  ((int) (fail_stack).size > re_max_failures * MAX_FAILURE_ITEMS	\
    ? 0									\
    : ((fail_stack).stack = (fail_stack_elt_t *)				\
         REGEX_REALLOCATE_STACK ((fail_stack).stack, 			\
@@ -1369,7 +1366,7 @@ do {									\
     + NUM_NONREG_ITEMS)
 
 /* How many items can still be added to the stack without overflowing it.  */
-#define REMAINING_AVAIL_SLOTS ((fail_stack).size - (fail_stack).avail)
+#define REMAINING_AVAIL_SLOTS ((int) ((fail_stack).size - (fail_stack).avail))
 
 
 /* Pops what PUSH_FAIL_STACK pushes.
@@ -1489,7 +1486,7 @@ typedef union
     {									\
       if (!set_regs_matched_done)					\
 	{								\
-	  unsigned r;							\
+	  Element_count r;						\
 	  set_regs_matched_done = 1;					\
 	  for (r = lowest_active_reg; r <= highest_active_reg; r++)	\
 	    {								\
@@ -1602,7 +1599,7 @@ static unsigned char reg_unset_dummy;
 
 /* Make sure we have at least N more bytes of space in buffer.  */
 #define GET_BUFFER_SPACE(n)						\
-    while (buf_end - bufp->buffer + (n) > bufp->allocated)		\
+    while (buf_end - bufp->buffer + (n) > (ptrdiff_t) bufp->allocated)	\
       EXTEND_BUFFER ()
 
 /* Make sure we have one more byte of buffer space and then add C to it.  */
@@ -1950,7 +1947,7 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
   DEBUG_PRINT1 ("\nCompiling pattern: ");
   if (debug)
     {
-      unsigned debug_count;
+      int debug_count;
 
       for (debug_count = 0; debug_count < size; debug_count++)
         putchar (pattern[debug_count]);
@@ -2836,7 +2833,7 @@ regex_compile (re_char *pattern, int size, reg_syntax_t syntax,
                  else
                    { /* If the upper bound is > 1, we need to insert
                         more at the end of the loop.  */
-                     unsigned nbytes = 10 + (upper_bound > 1) * 10;
+                     Memory_count nbytes = 10 + (upper_bound > 1) * 10;
 
                      GET_BUFFER_SPACE (nbytes);
 
@@ -3290,7 +3287,7 @@ static reg_errcode_t
 compile_range (re_char **p_ptr, re_char *pend, RE_TRANSLATE_TYPE translate,
 	       reg_syntax_t syntax, unsigned char *buf_end)
 {
-  unsigned this_char;
+  Element_count this_char;
 
   re_char *p = *p_ptr;
   int range_start, range_end;
@@ -4022,7 +4019,7 @@ re_search_2 (struct re_pattern_buffer *bufp, const char *str1,
 
 #ifdef REGEX_BEGLINE_CHECK
   {
-    int i = 0;
+    unsigned long i = 0;
 
     while (i < bufp->used)
       {
@@ -4374,7 +4371,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 #endif
 #ifdef DEBUG
   static unsigned failure_id;
-  unsigned nfailure_points_pushed = 0, nfailure_points_popped = 0;
+  int nfailure_points_pushed = 0, nfailure_points_popped = 0;
 #endif
 
 #ifdef REL_ALLOC
@@ -4386,11 +4383,11 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
   /* We fill all the registers internally, independent of what we
      return, for use in backreferences.  The number here includes
      an element for register zero.  */
-  unsigned num_regs = bufp->re_nsub + 1;
+  int num_regs = bufp->re_nsub + 1;
 
   /* The currently active registers.  */
-  unsigned lowest_active_reg = NO_LOWEST_ACTIVE_REG;
-  unsigned highest_active_reg = NO_HIGHEST_ACTIVE_REG;
+  int lowest_active_reg = NO_LOWEST_ACTIVE_REG;
+  int highest_active_reg = NO_HIGHEST_ACTIVE_REG;
 
   /* Information on the contents of registers. These are pointers into
      the input strings; they record just what was matched (on this
@@ -5037,7 +5034,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
                   if (EVER_MATCHED_SOMETHING (reg_info[*p]))
 		    {
-		      unsigned r;
+		      int r;
 
                       EVER_MATCHED_SOMETHING (reg_info[*p]) = 0;
 
@@ -5422,7 +5419,7 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
                actual values.  Otherwise, we will restore only one
                register from the stack, since lowest will == highest in
                `pop_failure_point'.  */
-            unsigned dummy_low_reg, dummy_high_reg;
+            int dummy_low_reg, dummy_high_reg;
             unsigned char *pdummy;
             re_char *sdummy = NULL;
 
@@ -6317,7 +6314,7 @@ regcomp (regex_t *preg, const char *pattern, int cflags)
    We return 0 if we find a match and REG_NOMATCH if not.  */
 
 int
-regexec (const regex_t *preg, const char *string, size_t nmatch,
+regexec (const regex_t *preg, const char *string, Element_count nmatch,
 	 regmatch_t pmatch[], int eflags)
 {
   int ret;
@@ -6355,7 +6352,7 @@ regexec (const regex_t *preg, const char *string, size_t nmatch,
     {
       if (ret >= 0)
         {
-          unsigned r;
+          Element_count r;
 
           for (r = 0; r < nmatch; r++)
             {
@@ -6377,14 +6374,16 @@ regexec (const regex_t *preg, const char *string, size_t nmatch,
 /* Returns a message corresponding to an error code, ERRCODE, returned
    from either regcomp or regexec.   We don't use PREG here.  */
 
-size_t
-regerror (int errcode, const regex_t *preg, char *errbuf, size_t errbuf_size)
+Memory_count
+regerror (int errcode, const regex_t *preg, char *errbuf,
+	  Memory_count errbuf_size)
 {
   const char *msg;
-  size_t msg_size;
+  Memory_count msg_size;
 
   if (errcode < 0
-      || errcode >= (sizeof (re_error_msgid) / sizeof (re_error_msgid[0])))
+      || (size_t) errcode >= (sizeof (re_error_msgid)
+			      / sizeof (re_error_msgid[0])))
     /* Only error codes returned by the rest of the code should be passed
        to this routine.  If we are given anything else, or if other regex
        code generates an invalid error code, then the program has a bug.

@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/04/12 18:22:04 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/04/16 09:24:44 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -491,17 +491,18 @@ Getting Started:
 @unnumberedsubsec Q1.0.1: What is XEmacs?
 
 
-XEmacs is a highly customizable open source text editor and application
-development system.  It is protected under the GNU Public License and
-related to other versions of Emacs, in particular GNU Emacs.  Its
-emphasis is on modern graphical user interface support and an open
-software development model, similar to Linux.  XEmacs has an active
-development community numbering in the hundreds, and runs on Windows 95
-and NT, Linux and nearly every other version of Unix in
-existence.  Support for XEmacs has been supplied by Sun Microsystems,
-University of Illinois, Lucid, ETL/Electrotechnical Laboratory, Amdahl
-Corporation, BeOpen, and others, as well as the unpaid time of a great
-number of individual developers.
+XEmacs is a powerful, highly customizable open source text editor and
+application development system, with full GUI support.  It is protected
+under the GNU Public License and related to other versions of Emacs, in
+particular GNU Emacs.  Its emphasis is on modern graphical user
+interface support and an open software development model, similar to
+Linux.  XEmacs has an active development community numbering in the
+hundreds (and thousands of active beta testers on top of this), and runs
+on all versions of MS Windows, on Linux, and on nearly every other
+version of Unix in existence.  Support for XEmacs has been supplied by
+Sun Microsystems, University of Illinois, Lucid, ETL/Electrotechnical
+Laboratory, Amdahl Corporation, BeOpen, and others, as well as the
+unpaid time of a great number of individual developers.
 
 @node Q1.0.2, Q1.0.3, Q1.0.1, Introduction
 @unnumberedsubsec Q1.0.2: What is the current version of XEmacs?
