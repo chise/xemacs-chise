@@ -496,19 +496,28 @@
     (=cns11643-3	. #x2726)	; ø»•Ÿ
     ))
 (define-char
-  '((ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs		. #x8095)	; è‚•
-    (=daikanwa		. 29262)	; ø¸‡‰Ž
-    ))
-(define-char
-  '((=>ucs		. #x8095)	; è‚•
-    (morohashi-daikanwa	29262 0 0)
+  '((=>daikanwa		. 29262)	; ø¸‡‰Ž
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-2	. #x2474)	; ø»“’
+    (->synonyms@jiyun
+     ((=daikanwa	  . 43109)	; ø¸Š¡¥
+      )
+     ((=daikanwa	  . 42715)	; ø¸Š››
+      )
+     ((=daikanwa	  . 10312)	; ø¸‚¡ˆ
+      )
+     ((=daikanwa	  . 01848)	; ø¸€œ¸
+      ))
+    (->synonyms@jiyun*sources
+     jiyun daikanwa)
+    (=ucs		. #x8095)	; è‚•
+    (->subsumptive
+     ((=daikanwa	  . 29262)	; ø¸‡‰Ž
+      (=ucs@unicode	  . #x8095)	; ø¸‡‰Ž
+      )
+     ((=cns11643-2	  . #x2474)	; ø»“’
+      ))
     ))
 (define-char
   '((=>ucs		. #x8096)	; è‚–
