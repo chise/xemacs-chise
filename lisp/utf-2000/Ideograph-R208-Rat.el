@@ -24,8 +24,10 @@
   '((ideographic-radical . 208)	; â¿
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (japanese-jisx0208	. #x736B)	; ø»ˆ‰®
-    (ucs		. #x9F21)	; é¼¡
+    (japanese-jisx0208-1978	. #x736B)	; ø»ƒµ¦
+    (japanese-jisx0208		. #x736B)	; ø»ˆ‰®
+    (japanese-jisx0208-1990	. #x736B)	; ø½‹¯¢
+    (ucs			. #x9F21)	; é¼¡
     ))
 (define-char
   '((ideographic-radical . 208)	; â¿
