@@ -25039,9 +25039,7 @@
     (ucs		. #xF38F)	; 
     ))
 (define-char
-  '((chinese-big5	. #x88EF)	; 
-    (chinese-big5-cdp	. #x88EF)	; 
-    (ucs		. #xF390)	; 
+  '((ucs		. #xF390)	; 
     ))
 (define-char
   '((chinese-big5	. #x88F0)	; 
@@ -27224,9 +27222,7 @@
     (ucs		. #xF546)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BCF)	; 
-    (chinese-big5-cdp	. #x8BCF)	; 
-    (ucs		. #xF547)	; 
+  '((ucs		. #xF547)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BD0)	; 
@@ -27389,9 +27385,7 @@
     (ucs		. #xF567)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BF0)	; 
-    (chinese-big5-cdp	. #x8BF0)	; 
-    (ucs		. #xF568)	; 
+  '((ucs		. #xF568)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BF1)	; 
@@ -27424,9 +27418,7 @@
     (ucs		. #xF56E)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BF7)	; 
-    (chinese-big5-cdp	. #x8BF7)	; 
-    (ucs		. #xF56F)	; 
+  '((ucs		. #xF56F)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BF8)	; 
@@ -27897,9 +27889,7 @@
     (ucs		. #xF5CD)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8CB9)	; 
-    (chinese-big5-cdp	. #x8CB9)	; 
-    (ucs		. #xF5CE)	; 
+  '((ucs		. #xF5CE)	; 
     ))
 (define-char
   '((chinese-big5	. #x8CBA)	; 
@@ -28467,9 +28457,7 @@
     (ucs		. #xF63F)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8D6C)	; 
-    (chinese-big5-cdp	. #x8D6C)	; 
-    (ucs		. #xF640)	; 
+  '((ucs		. #xF640)	; 
     ))
 (define-char
   '((chinese-big5	. #x8D6D)	; 
