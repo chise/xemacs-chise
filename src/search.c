@@ -1,6 +1,7 @@
 /* String search routines for XEmacs.
    Copyright (C) 1985, 1986, 1987, 1992-1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -784,7 +785,11 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
   unsigned char fastmap[0400];
   int negate = 0;
   REGISTER int i;
+#ifdef UTF2000
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   Bufpos limit;
 
   if (NILP (lim))
@@ -1934,7 +1939,11 @@ wordify (Lisp_Object buffer, Lisp_Object string)
   Charcount i, len;
   EMACS_INT punct_count = 0, word_count = 0;
   struct buffer *buf = decode_buffer (buffer, 0);
+#ifdef UTF2000
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   CHECK_STRING (string);
   len = XSTRING_CHAR_LENGTH (string);
@@ -2290,7 +2299,11 @@ and you do not need to specify it.
       buf = XBUFFER (buffer);
     }
 
+#ifdef UTF2000
+  syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   case_action = nochange;	/* We tried an initialization */
 				/* but some C compilers blew it */
