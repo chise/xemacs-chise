@@ -81,6 +81,7 @@
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER K")
+    (script		Bopomofo)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -177,6 +178,7 @@
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER C")
+    (script		Bopomofo)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -211,6 +213,7 @@
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER O")
+    (script		Bopomofo)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -227,6 +230,7 @@
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER E")
+    (script		Bopomofo)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
