@@ -1214,7 +1214,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
-    (=cns11643-1	. #x2221)	; ø»‘ƒº
+    (chinese-cns11643-1 . #x2221)	; ø»‘ƒº
     (=big5		. #xA1C0)	; ý¢€Š‡€
     (=ucs		. #x32A3)	; ãŠ£
     ))
