@@ -57,8 +57,9 @@
   (let ((i #x3400)
 	j
 	char radical
-	(charsets '(japanese-jisx0208
-		    japanese-jisx0208-1978
+	(charsets '(japanese-jisx0208-1978
+		    japanese-jisx0208
+		    japanese-jisx0208-1990
 		    japanese-jisx0212
 		    chinese-cns11643-1
 		    chinese-cns11643-2
@@ -78,6 +79,16 @@
       (when (setq radical (char-ideograph-radical char))
 	(or (get-char-attribute char 'ucs)
 	    (put-char-attribute char 'ucs i))
+	(if (not (memq char
+		       (setq ret
+			     (aref ideograph-radical-chars-vector radical))))
+	    (aset ideograph-radical-chars-vector radical
+		  (cons char ret))))
+      (setq i (1+ i)))
+    (setq i #x100000)
+    (while (<= i #x10FFFF)
+      (setq char (int-char i))
+      (when (setq radical (char-ideograph-radical char))
 	(if (not (memq char
 		       (setq ret
 			     (aref ideograph-radical-chars-vector radical))))
@@ -129,11 +140,16 @@
 	  (cond ((eq (car (cdr ra))(car (cdr rb)))
 		 (cond ((< (length ra)(length rb)))
 		       ((= (length ra)(length rb))
-			(cond ((setq ra (get-char-attribute a 'ucs))
-			       (cond
-				((setq rb (get-char-attribute b 'ucs))
-				 (< ra rb))
-				(t))))))
+			(cond ((integerp (nth 2 ra))
+			       (cond ((integerp (nth 2 rb))
+				      (< (nth 2 ra)(nth 2 rb)))
+				     (t nil)))
+			      (t
+			       (cond ((setq ra (get-char-attribute a 'ucs))
+				      (cond
+				       ((setq rb (get-char-attribute b 'ucs))
+					(< ra rb))
+				       (t))))))))
 		 )
 		((null (car (cdr ra))))
 		((null (car (cdr rb)))
