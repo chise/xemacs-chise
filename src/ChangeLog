@@ -1,3 +1,10 @@
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (charset_by_leading_byte): Use `NUM_LEADING_BYTES'
+	instead of 128.
+	(CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE' and
+	`NUM_LEADING_BYTES' instead of 128.
+
 1999-08-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.h (charset_by_leading_byte): Use
