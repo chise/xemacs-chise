@@ -89,7 +89,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5341)	; 十
@@ -119,7 +118,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E8C)	; 二
@@ -149,7 +147,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x529B)	; 力
@@ -178,7 +175,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E01)	; 丁
@@ -243,7 +239,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x535C)	; 卜
@@ -272,7 +267,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E5D)	; 九
@@ -303,7 +297,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x482C)	; �����
@@ -327,7 +320,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x516B)	; 八
@@ -347,7 +339,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x51E0)	; 几
@@ -463,7 +454,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E43)	; 乃
@@ -601,7 +591,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B50)	; 子
@@ -631,7 +620,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x58EB)	; 士
@@ -670,7 +658,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E5F)	; 也
@@ -720,7 +707,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3E66)	; �����
@@ -749,7 +735,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E08)	; 丈
@@ -780,7 +765,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BF8)	; 寸
@@ -810,7 +794,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C71)	; 山
@@ -872,7 +855,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DE5)	; 工
@@ -920,7 +902,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5203)	; 刃
@@ -949,7 +930,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-cns11643-1 . #x4443)	; �����
@@ -969,7 +949,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5343)	; 千
@@ -1009,7 +988,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E5E)	; 乞
@@ -1064,7 +1042,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5F0B)	; 弋
@@ -1281,7 +1258,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E09)	; 三
@@ -1313,7 +1289,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E0A)	; 上
@@ -1424,7 +1399,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x536C)	; 卬
@@ -1455,7 +1429,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3A23)	; �����
@@ -1483,7 +1456,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4ECA)	; 今
@@ -1510,7 +1482,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E2D)	; 中
@@ -1540,7 +1511,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6BD4)	; 比
@@ -1591,7 +1561,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6708)	; 月
@@ -1613,7 +1582,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5348)	; 午
@@ -1639,7 +1607,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x725B)	; 牛
@@ -1676,7 +1643,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4ECB)	; 介
@@ -1740,7 +1706,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x58EC)	; 壬
@@ -1770,7 +1735,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x58EC)	; 壬
@@ -1799,7 +1763,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4A2C)	; �����
@@ -1824,7 +1787,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5206)	; 分
@@ -1857,7 +1819,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65B9)	; 方
@@ -1881,7 +1842,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65B9)	; 方
@@ -1904,7 +1864,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3878)	; �����
@@ -1929,7 +1888,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x516C)	; 公
@@ -1985,7 +1943,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DFF)	; 巿
@@ -2020,7 +1977,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5F14)	; 弔
@@ -2043,7 +1999,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4656)	; �����
@@ -2066,7 +2021,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C6F)	; 屯
@@ -2105,7 +2059,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5FC3)	; 心
@@ -2129,7 +2082,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x5036)	; �����
@@ -2159,7 +2111,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EA2)	; 亢
@@ -2180,7 +2131,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C39)	; 尹
@@ -2211,7 +2161,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x5060)	; �����
@@ -2239,7 +2188,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53CA)	; 及
@@ -2269,7 +2217,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E94)	; 五
@@ -2299,7 +2246,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x652F)	; 支
@@ -2338,7 +2284,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x72AC)	; 犬
@@ -2368,7 +2313,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6208)	; 戈
@@ -2398,7 +2342,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6728)	; 木
@@ -2452,7 +2395,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65A4)	; 斤
@@ -2483,7 +2425,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E0D)	; 不
@@ -2521,7 +2462,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5197)	; 冗
@@ -2560,7 +2500,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x592B)	; 夫
@@ -2607,7 +2546,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C24)	; 尤
@@ -2647,7 +2585,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x706B)	; 火
@@ -2739,7 +2676,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E91)	; 云
@@ -2807,7 +2743,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7259)	; 牙
@@ -2897,7 +2832,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C3A)	; 尺
@@ -2931,7 +2865,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7384)	; 玄
@@ -2952,7 +2885,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7384)	; 玄
@@ -2990,7 +2922,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x767D)	; 白
@@ -3020,7 +2951,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53E4)	; 古
@@ -3083,7 +3013,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x88C2)	; 
@@ -3135,7 +3064,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E16)	; 世
@@ -3159,7 +3087,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x5A62)	; �����
@@ -3183,7 +3110,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x534A)	; 半
@@ -3229,7 +3155,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4E61)	; �����
@@ -3259,7 +3184,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-cns11643-1 . #x456F)	; �����
@@ -3279,7 +3203,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EE4)	; 令
@@ -3319,7 +3242,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7533)	; 申
@@ -3359,7 +3281,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53F8)	; 司
@@ -3390,7 +3311,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x7841)	; �����
@@ -3412,7 +3332,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E73)	; 平
@@ -3434,7 +3353,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x304A)	; �����
@@ -3466,7 +3384,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EE5)	; 以
@@ -3486,7 +3403,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x52A0)	; 加
@@ -3516,7 +3432,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E15)	; 丕
@@ -3541,7 +3456,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53EA)	; 只
@@ -3573,7 +3487,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53F0)	; 台
@@ -3605,7 +3518,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7530)	; 田
@@ -3653,7 +3565,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65E6)	; 旦
@@ -3683,7 +3594,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B81)	; 宁
@@ -3712,7 +3622,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E03)	; 布
@@ -3746,7 +3655,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53BB)	; 去
@@ -3789,7 +3697,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B64)	; 此
@@ -3813,7 +3720,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B64)	; 此
@@ -3832,7 +3738,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7ACB)	; 立
@@ -3863,7 +3768,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6C10)	; 氐
@@ -3891,7 +3795,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6C10)	; 氐
@@ -3912,7 +3815,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 00100)	; �����
@@ -3934,7 +3836,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E3B)	; 主
@@ -3962,7 +3863,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DE6)	; 左
@@ -3992,7 +3892,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53F3)	; 右
@@ -4022,7 +3921,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x592E)	; 央
@@ -4045,7 +3943,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x672C)	; 本
@@ -4074,7 +3971,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5360)	; 占
@@ -4098,7 +3994,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53EF)	; 可
@@ -4128,7 +4023,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5FC5)	; 必
@@ -4154,7 +4048,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B83)	; 它
@@ -4180,7 +4073,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B83)	; 它
@@ -4253,7 +4145,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5931)	; 失
@@ -4283,7 +4174,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5F17)	; 弗
@@ -4313,7 +4203,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E4D)	; 乍
@@ -4352,7 +4241,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53E5)	; 句
@@ -4378,7 +4266,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E8C)	; 二
@@ -4426,7 +4313,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x544F)	; �����
@@ -4450,7 +4336,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x51AC)	; 冬
@@ -4550,7 +4435,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EDA)	; 仚
@@ -4610,7 +4494,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DE8)	; 巨
@@ -4632,7 +4515,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7528)	; 用
@@ -4679,7 +4561,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x74E6)	; 瓦
@@ -4718,7 +4599,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5361)	; 卡
@@ -4760,7 +4640,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8DA7)	; 
@@ -4799,7 +4678,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x56DE)	; 回
@@ -4831,7 +4709,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5404)	; 各
@@ -4854,7 +4731,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8001)	; 老
@@ -4897,7 +4773,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5408)	; 合
@@ -4920,7 +4795,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7F8A)	; 羊
@@ -4950,7 +4824,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x767E)	; 百
@@ -5007,7 +4880,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x572D)	; 圭
@@ -5061,7 +4933,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8033)	; 耳
@@ -5085,7 +4956,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E76)	; 并
@@ -5112,7 +4982,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5409)	; 吉
@@ -5142,7 +5011,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x826E)	; 艮
@@ -5166,11 +5034,9 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((name		  . "KANGXI RADICAL TONGUE")
-      (chinese-big5-cdp	  . #x88EF)	; ⾆
       (ucs		  . #x2F86)	; ⾆
       ))
     (japanese-jisx0212		. #x3077)	; �����
@@ -5201,7 +5067,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5371)	; 危
@@ -5234,7 +5099,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x6E6F)	; �����
@@ -5259,7 +5123,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-cns11643-1 . #x4740)	; �����
@@ -5279,7 +5142,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5168)	; 全
@@ -5298,7 +5160,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5146)	; 兆
@@ -5327,7 +5188,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1990	  . #x3872)	; �����
@@ -5357,7 +5217,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B21)	; 次
@@ -5378,7 +5237,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B21)	; 次
@@ -5398,7 +5256,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B21)	; 次
@@ -5415,7 +5272,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x482C)	; �����
@@ -5441,7 +5297,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x516B)	; 八
@@ -5462,7 +5317,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x516B)	; 八
@@ -5484,7 +5338,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4D79)	; �����
@@ -5511,7 +5364,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x540F)	; 吏
@@ -5537,7 +5389,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5211)	; 刑
@@ -5559,7 +5410,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5148)	; 先
@@ -5580,12 +5430,10 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x5678)	; �����
       (japanese-jisx0208	  . #x5678)	; �����
-      (chinese-big5-cdp		  . #x8B50)	; �����
       (ideograph-daikanwa	  . 09221)	; �����
       )
      ((ucs		  . #x4E47)	; 乇
@@ -5606,7 +5454,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53E3)	; 口
@@ -5648,7 +5495,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x81F3)	; 至
@@ -5674,7 +5520,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3067)	; �����
@@ -5717,7 +5562,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5937)	; 夷
@@ -5739,7 +5583,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x591A)	; 多
@@ -5778,7 +5621,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5938)	; 夸
@@ -5815,7 +5657,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5217)	; 列
@@ -5855,7 +5696,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BFA)	; 寺
@@ -5885,7 +5725,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BFA)	; 寺
@@ -5929,7 +5768,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6731)	; 朱
@@ -5959,7 +5797,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8840)	; 血
@@ -5982,7 +5819,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6709)	; 有
@@ -6020,7 +5856,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3042)	; �����
@@ -6044,7 +5879,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B89)	; 安
@@ -6074,7 +5908,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x725F)	; 牟
@@ -6101,7 +5934,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x800C)	; 而
@@ -6159,7 +5991,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x540C)	; 同
@@ -6187,7 +6018,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B85)	; 宅
@@ -6225,7 +6055,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65EC)	; 旬
@@ -6250,7 +6079,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5171)	; 共
@@ -6280,7 +6108,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x821F)	; 舟
@@ -6302,7 +6129,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8863)	; 衣
@@ -6349,7 +6175,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5982)	; 如
@@ -6688,7 +6513,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6BCF)	; 每
@@ -6733,7 +6557,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8BC7)	; 
@@ -6828,7 +6651,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8FB0)	; 辰
@@ -6880,7 +6702,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5750)	; 坐
@@ -6913,7 +6734,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D4C)	; 
@@ -6937,7 +6757,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D4C)	; 
@@ -6963,7 +6782,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5442)	; 呂
@@ -6991,7 +6809,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C40)	; 局
@@ -7024,7 +6841,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x446E)	; �����
@@ -7048,7 +6864,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5EF7)	; 廷
@@ -7084,7 +6899,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C91)	; 岑
@@ -7107,7 +6921,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x513C)	; �����
@@ -7131,7 +6944,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x514C)	; 兌
@@ -7207,7 +7019,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3939)	; �����
@@ -7234,7 +7045,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66F4)	; 更
@@ -7260,7 +7070,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 06107)	; �����
@@ -7281,7 +7090,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x59A5)	; 妥
@@ -7316,7 +7124,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5433)	; 吳
@@ -7339,7 +7146,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7CFB)	; 系
@@ -7387,7 +7193,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8DB3)	; 足
@@ -7417,7 +7222,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6211)	; 我
@@ -7463,7 +7267,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6C42)	; 求
@@ -7499,7 +7302,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x72C2)	; 狂
@@ -7548,7 +7350,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x543E)	; 吾
@@ -7573,7 +7374,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D64)	; 
@@ -7603,7 +7403,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9091)	; 邑
@@ -7645,7 +7444,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x826F)	; 良
@@ -7699,7 +7497,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x752B)	; �����
@@ -7723,7 +7520,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8096)	; 肖
@@ -7745,7 +7541,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8096)	; 肖
@@ -7773,7 +7568,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5229)	; 利
@@ -7802,7 +7596,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x752C)	; 甬
@@ -7843,7 +7636,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DE0)	; 巠
@@ -7866,7 +7658,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x898B)	; 見
@@ -7961,7 +7752,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5426)	; 否
@@ -7983,7 +7773,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8C37)	; 谷
@@ -8022,7 +7811,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x5555)	; �����
@@ -8050,7 +7838,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B5A)	; 孚
@@ -8072,7 +7859,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E0C)	; 希
@@ -8094,7 +7880,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x91CC)	; 里
@@ -8124,7 +7909,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x514D)	; 免
@@ -8151,7 +7935,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7539)	; 甹
@@ -8176,7 +7959,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5446)	; 呆
@@ -8292,7 +8074,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x77E3)	; 矣
@@ -8322,7 +8103,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x593E)	; 夾
@@ -8352,7 +8132,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8A00)	; 言
@@ -8378,7 +8157,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8A00)	; 言
@@ -8581,7 +8359,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x79C1)	; 私
@@ -8647,7 +8424,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E9C)	; 府
@@ -8674,7 +8450,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E9C)	; 府
@@ -8705,7 +8480,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3671)	; �����
@@ -8734,7 +8508,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5177)	; 具
@@ -8797,7 +8570,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x975E)	; 非
@@ -8825,7 +8597,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x975E)	; 非
@@ -8845,7 +8616,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6214)	; 戔
@@ -8884,7 +8654,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8868)	; 表
@@ -8922,7 +8691,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x53D4)	; 叔
@@ -8950,7 +8718,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x80A5)	; 肥
@@ -8972,7 +8739,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x80A5)	; 肥
@@ -8991,7 +8757,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5949)	; 奉
@@ -9030,7 +8795,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5944)	; 奄
@@ -9115,7 +8879,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5351)	; 卑
@@ -9154,7 +8917,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9577)	; 長
@@ -9267,7 +9029,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4234)	; �����
@@ -9296,7 +9057,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5352)	; 卒
@@ -9316,7 +9076,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x5140)	; �����
@@ -9345,7 +9104,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5169)	; 兩
@@ -9389,7 +9147,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B9B)	; 宛
@@ -9411,7 +9168,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B9B)	; 宛
@@ -9479,7 +9235,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x56FA)	; 固
@@ -9509,7 +9264,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B98)	; 官
@@ -9531,7 +9285,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B98)	; 官
@@ -9553,11 +9306,9 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
-     ((chinese-big5-cdp	  . #x8BCF)	; 咅
-      (ucs		  . #x5485)	; 咅
+     ((ucs		  . #x5485)	; 咅
       ))
     (shinjigen-1	. 313)
     (shinjigen-2	. 313)
@@ -9581,11 +9332,9 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
-     ((chinese-big5-cdp	  . #x8BCF)	; 咅
-      (ucs		  . #x5485)	; 咅
+     ((ucs		  . #x5485)	; 咅
       ))
     (chinese-gb2312	. #x3136)	; �����
     (chinese-isoir165	. #x3136)	; �����
@@ -9612,7 +9361,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5178)	; 典
@@ -9721,7 +9469,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9580)	; 門
@@ -9750,7 +9497,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5230)	; 到
@@ -9780,7 +9526,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x708E)	; 炎
@@ -9804,7 +9549,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C48)	; 屈
@@ -9833,7 +9577,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5782)	; 垂
@@ -9855,7 +9598,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5782)	; 垂
@@ -9874,7 +9616,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5E78)	; 幸
@@ -9903,7 +9644,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 14340)	; �����
@@ -9924,7 +9664,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x670B)	; 朋
@@ -9960,7 +9699,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C19)	; 尙
@@ -9983,7 +9721,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C1A)	; 尚
@@ -10033,7 +9770,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5947)	; 奇
@@ -10063,7 +9799,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5176)	; 其
@@ -10087,7 +9822,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x7132)	; �����
@@ -10111,7 +9845,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5468)	; 周
@@ -10162,7 +9895,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EAC)	; 京
@@ -10186,7 +9918,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EAC)	; 京
@@ -10206,7 +9937,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6614)	; 昔
@@ -10237,7 +9967,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x7032)	; �����
@@ -10259,7 +9988,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x96B9)	; 隹
@@ -10279,7 +10007,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x660C)	; 昌
@@ -10309,7 +10036,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x758C)	; 疌
@@ -10335,7 +10061,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x653E)	; 放
@@ -10362,7 +10087,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x653E)	; 放
@@ -10397,7 +10121,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7A7A)	; 空
@@ -10421,7 +10144,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7A7A)	; 空
@@ -10452,7 +10174,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x524B)	; �����
@@ -10479,7 +10200,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5377)	; 卷
@@ -10522,7 +10242,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B97)	; 宗
@@ -10547,7 +10266,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C45)	; 居
@@ -10578,7 +10296,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9751)	; 靑
@@ -10603,7 +10320,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9752)	; 青
@@ -10625,7 +10341,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5152)	; 兒
@@ -10655,7 +10370,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4F96)	; 侖
@@ -10684,7 +10398,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5353)	; 卓
@@ -10722,7 +10435,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x59D4)	; 委
@@ -10785,7 +10497,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x677E)	; 松
@@ -10807,7 +10518,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x590C)	; 夌
@@ -10830,7 +10540,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6606)	; 昆
@@ -10862,7 +10571,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4E8B)	; 事
@@ -10925,7 +10633,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B66)	; 武
@@ -11040,7 +10747,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5948)	; 奈
@@ -11150,7 +10856,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x76F4)	; 直
@@ -11231,7 +10936,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x82F1)	; 英
@@ -11254,7 +10958,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x82F1)	; 英
@@ -11275,7 +10978,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CA8)	; 
@@ -11297,7 +10999,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CA8)	; 
@@ -11342,7 +11043,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x533D)	; 匽
@@ -11371,7 +11071,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5	  . #xCDF4)	; �����
@@ -11401,7 +11100,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x91CD)	; 重
@@ -11424,7 +11122,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6625)	; 春
@@ -11456,7 +11153,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8C77)	; 
@@ -11486,7 +11182,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66F7)	; 曷
@@ -11516,7 +11211,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x97CB)	; 韋
@@ -11587,7 +11281,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x79B9)	; 禹
@@ -11611,7 +11304,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C4F)	; 屏
@@ -11634,7 +11326,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x82E5)	; 若
@@ -11656,7 +11347,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x82E5)	; 若
@@ -11677,7 +11367,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x662F)	; 是
@@ -11708,7 +11397,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x754F)	; 畏
@@ -11767,7 +11455,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6241)	; 扁
@@ -11817,7 +11504,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6241)	; 扁
@@ -11866,7 +11552,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x98A8)	; 風
@@ -11918,7 +11603,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C4B)	; 屋
@@ -11952,7 +11636,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7686)	; 皆
@@ -12004,7 +11687,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7701)	; 省
@@ -12057,7 +11739,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6545)	; 故
@@ -12101,7 +11782,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x81FF)	; 臿
@@ -12124,7 +11804,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EAD)	; 亭
@@ -12151,7 +11830,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EAD)	; 亭
@@ -12172,7 +11850,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x80CC)	; 背
@@ -12194,7 +11871,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x80CC)	; 背
@@ -12221,7 +11897,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CAD)	; 
@@ -12243,7 +11918,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CAD)	; 
@@ -12262,7 +11936,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7687)	; 皇
@@ -12286,7 +11959,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 34768)	; �����
@@ -12307,7 +11979,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8981)	; 要
@@ -12348,7 +12019,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x751A)	; 甚
@@ -12370,7 +12040,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x79CB)	; 秋
@@ -12408,7 +12077,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x97F3)	; 音
@@ -12431,7 +12099,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x97F3)	; 音
@@ -12451,7 +12118,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3D36)	; �����
@@ -12473,7 +12139,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x914B)	; 酋
@@ -12495,7 +12160,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x377A)	; �����
@@ -12522,7 +12186,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5EFA)	; 建
@@ -12630,7 +12293,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x67F4)	; 柴
@@ -12652,7 +12314,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x67F4)	; 柴
@@ -12693,7 +12354,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CA0)	; 負
@@ -12715,11 +12375,9 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
-     ((chinese-big5-cdp	  . #x8BF0)	; 畐
-      (ucs		  . #x7550)	; 畐
+     ((ucs		  . #x7550)	; 畐
       ))
     (shinjigen-2	. 348)
     (japanese-jisx0212		. #x3172)	; �����
@@ -12741,7 +12399,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5F85)	; 待
@@ -12799,7 +12456,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9762)	; 面
@@ -12822,7 +12478,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x54A0)	; 咠
@@ -12845,7 +12500,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x54C0)	; 哀
@@ -12866,7 +12520,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x54C0)	; 哀
@@ -12886,7 +12539,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 05917)	; �����
@@ -12908,7 +12560,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5951)	; 契
@@ -12938,7 +12589,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x601D)	; 思
@@ -12966,7 +12616,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8011)	; 耑
@@ -12988,7 +12637,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5247)	; 則
@@ -13017,7 +12665,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8C9E)	; 貞
@@ -13046,7 +12693,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x79BA)	; 禺
@@ -13085,7 +12731,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 01437)	; �����
@@ -13119,7 +12764,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4FDE)	; 俞
@@ -13145,7 +12789,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-cns11643-1 . #x4F7E)	; �����
@@ -13383,7 +13026,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x661D)	; 昝
@@ -13449,7 +13091,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x70BA)	; 為
@@ -13532,7 +13173,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9B3C)	; 鬼
@@ -13560,7 +13200,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9B3C)	; 鬼
@@ -13599,7 +13238,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8652)	; 虒
@@ -13630,7 +13268,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7D20)	; 素
@@ -13700,7 +13337,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C03)	; 尃
@@ -13759,7 +13395,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8338)	; 茸
@@ -13828,7 +13463,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideographic-structure
@@ -13857,7 +13491,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5193)	; 冓
@@ -13878,7 +13511,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x99AC)	; 馬
@@ -13901,7 +13533,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65C1)	; 旁
@@ -13928,7 +13559,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x65C1)	; 旁
@@ -13983,7 +13613,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x771E)	; 眞
@@ -14006,7 +13635,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x771F)	; 真
@@ -14054,7 +13682,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6840)	; 桀
@@ -14079,7 +13706,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6840)	; 桀
@@ -14175,7 +13801,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x5478)	; �����
@@ -14199,7 +13824,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x595A)	; 奚
@@ -14275,7 +13899,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x517C)	; 兼
@@ -14296,7 +13919,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D4B)	; 
@@ -14318,7 +13940,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D4B)	; 
@@ -14338,7 +13959,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5009)	; 倉
@@ -14364,7 +13984,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5009)	; 倉
@@ -14419,7 +14038,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8C73)	; 
@@ -14457,7 +14075,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6548)	; 效
@@ -14483,7 +14100,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6548)	; 效
@@ -14503,7 +14119,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BB9)	; 容
@@ -14525,7 +14140,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BB9)	; 容
@@ -14544,7 +14158,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CDA)	; 
@@ -14569,7 +14182,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CDA)	; 
@@ -14589,7 +14201,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 28634)	; �����
@@ -14610,7 +14221,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8ACB)	; ������
@@ -14630,7 +14240,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x26407)	; 𦐇
@@ -14651,7 +14260,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DEE)	; 差
@@ -14674,7 +14282,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DEE)	; 差
@@ -14886,7 +14493,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3248)	; �����
@@ -14911,7 +14517,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BB6)	; 家
@@ -14930,7 +14535,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BB6)	; 家
@@ -15051,7 +14655,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6CF0)	; 泰
@@ -15156,7 +14759,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5D14)	; 崔
@@ -15183,7 +14785,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5D14)	; 崔
@@ -15221,7 +14822,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5EB8)	; 庸
@@ -15248,7 +14848,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5EB8)	; 庸
@@ -15268,7 +14867,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66F9)	; 曹
@@ -15320,7 +14918,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8BDD)	; 
@@ -15343,7 +14940,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8BDD)	; 
@@ -15363,7 +14959,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 08212)	; �����
@@ -15384,7 +14979,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5D29)	; 崩
@@ -15404,7 +14998,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5F9E)	; 從
@@ -15435,7 +15028,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6556)	; 敖
@@ -15502,7 +15094,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C08)	; 專
@@ -15567,7 +15158,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CAC)	; 責
@@ -15605,7 +15195,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x621A)	; 戚
@@ -15667,7 +15256,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CBE)	; 
@@ -15704,7 +15292,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x723D)	; 爽
@@ -15736,7 +15323,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x796D)	; 祭
@@ -15759,7 +15345,6 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x56DF)	; 囟
@@ -15805,7 +15390,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7AE0)	; 章
@@ -15829,7 +15413,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3A22)	; �����
@@ -15858,7 +15441,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9803)	; 頃
@@ -15879,7 +15461,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7109)	; 焉
@@ -15952,7 +15533,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6089)	; 悉
@@ -15974,7 +15554,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5A41)	; 婁
@@ -16020,7 +15599,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7968)	; 票
@@ -16040,7 +15618,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7968)	; 票
@@ -16063,7 +15640,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5807)	; 堇
@@ -16100,7 +15676,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x5627)	; �����
@@ -16122,7 +15697,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9023)	; 連
@@ -16143,7 +15717,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9023)	; 連
@@ -16172,7 +15745,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0212	  . #x553A)	; �����
@@ -16197,7 +15769,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7FCF)	; 翏
@@ -16219,7 +15790,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66FC)	; 曼
@@ -16275,7 +15845,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8DA9)	; 
@@ -16295,7 +15864,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8DA9)	; 
@@ -16328,7 +15896,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CAA)	; 貪
@@ -16595,7 +16162,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5DFD)	; 巽
@@ -16619,7 +16185,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8C61)	; 象
@@ -16697,7 +16262,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x55AC)	; 喬
@@ -16735,7 +16299,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CB4)	; 貴
@@ -16788,7 +16351,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x706E)	; �����
@@ -16811,7 +16373,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C0A)	; 尊
@@ -16831,7 +16392,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D48)	; 
@@ -16860,7 +16420,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x559C)	; 喜
@@ -16890,7 +16449,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x52DE)	; 勞
@@ -16963,7 +16521,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CF2)	; 
@@ -16993,7 +16550,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B3A)	; 欺
@@ -17025,7 +16581,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5B71)	; 孱
@@ -17089,7 +16644,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x756A)	; 番
@@ -17155,7 +16709,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66FF)	; 替
@@ -17182,7 +16735,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x55AE)	; 單
@@ -17205,7 +16757,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x582F)	; 堯
@@ -17250,7 +16801,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5C31)	; 就
@@ -17287,7 +16837,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x413D)	; �����
@@ -17313,7 +16862,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66FE)	; 曾
@@ -17344,7 +16892,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CC1)	; 賁
@@ -17390,7 +16937,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9592)	; 閒
@@ -17415,7 +16961,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x77DE)	; 矞
@@ -17471,7 +17016,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x3E47)	; �����
@@ -17493,7 +17037,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7126)	; 焦
@@ -17515,7 +17058,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6701)	; 朁
@@ -17570,7 +17112,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7AE5)	; 童
@@ -17606,11 +17147,9 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
-     ((chinese-big5-cdp	  . #x8CB9)	; 粦
-      (ucs		  . #x7CA6)	; 粦
+     ((ucs		  . #x7CA6)	; 粦
       ))
     (japanese-jisx0212	. #x3244)	; �����
     (chinese-cns11643-2 . #x4924)	; �����
@@ -17823,7 +17362,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601	  . #x4D52)	; �����
@@ -17845,7 +17383,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x96C7)	; 雇
@@ -17906,7 +17443,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7C9F)	; 粟
@@ -17951,7 +17487,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8DAA)	; 
@@ -17980,7 +17515,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9EFD)	; 黽
@@ -18028,7 +17562,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7981)	; 禁
@@ -18048,7 +17581,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7981)	; 禁
@@ -18076,7 +17608,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CC8)	; 賈
@@ -18138,7 +17669,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8F9F)	; 辟
@@ -18185,7 +17715,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6101)	; 愁
@@ -18208,7 +17737,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 10947)	; �����
@@ -18228,7 +17756,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x611B)	; 愛
@@ -18258,7 +17785,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x585E)	; 塞
@@ -18279,7 +17805,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x585E)	; 塞
@@ -18299,7 +17824,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7FA9)	; 義
@@ -18390,7 +17914,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8FB2)	; 農
@@ -18419,7 +17942,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EB6)	; 亶
@@ -18441,7 +17963,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x4EB6)	; 亶
@@ -18461,7 +17982,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x610F)	; 意
@@ -18521,7 +18041,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7576)	; 當
@@ -18611,7 +18130,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x656C)	; 敬
@@ -18633,7 +18151,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x656C)	; 敬
@@ -18656,7 +18173,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8BB6)	; 
@@ -18681,7 +18197,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6703)	; 會
@@ -18707,7 +18222,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x50C9)	; 僉
@@ -18760,7 +18274,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x695A)	; 楚
@@ -18796,7 +18309,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8A79)	; 詹
@@ -18824,7 +18336,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CDF)	; 
@@ -19034,7 +18545,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CD3)	; 賓
@@ -19068,7 +18578,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8CE3)	; 
@@ -19114,7 +18623,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9700)	; 需
@@ -19144,7 +18652,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9700)	; 需
@@ -19187,7 +18694,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x81FA)	; 臺
@@ -19209,7 +18715,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x58FD)	; 壽
@@ -19261,7 +18766,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9F4A)	; 齊
@@ -19340,7 +18844,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7591)	; 疑
@@ -19364,7 +18867,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x76E1)	; 盡
@@ -19410,7 +18912,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5922)	; 夢
@@ -19433,7 +18934,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5922)	; 夢
@@ -19475,7 +18975,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x5BE7)	; 寧
@@ -19585,7 +19084,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CDE)	; 賞
@@ -19614,7 +19112,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((chinese-big5-cdp	  . #x8D47)	; 
@@ -19660,7 +19157,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x757E)	; 畾
@@ -19704,7 +19200,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x616E)	; 慮
@@ -19767,7 +19262,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x66B4)	; 暴
@@ -19790,7 +19284,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CE3)	; 賣
@@ -19810,7 +19303,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CE3)	; 賣
@@ -19838,7 +19330,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9E83)	; 麃
@@ -19880,7 +19371,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8CDC)	; 賜
@@ -19902,7 +19392,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6182)	; 憂
@@ -20055,7 +19544,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x89AA)	; 親
@@ -20078,7 +19566,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6B77)	; 歷
@@ -20143,7 +19630,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ideograph-daikanwa . 31895)	; �����
@@ -20164,7 +19650,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x848D)	; 蒍
@@ -20184,7 +19669,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9F8D)	; 龍
@@ -20224,7 +19708,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA22")
@@ -20258,7 +19741,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8AF8)	; 諸
@@ -20391,7 +19873,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x6BDA)	; 毚
@@ -20414,7 +19895,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8944)	; 襄
@@ -20584,7 +20064,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9E97)	; 麗
@@ -20630,7 +20109,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((japanese-jisx0208-1978	  . #x4D65)	; �����
@@ -20654,7 +20132,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7F85)	; 羅
@@ -20682,7 +20159,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x8D0A)	; 贊
@@ -20720,7 +20196,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((korean-ksc5601		  . #x5171)	; �����
@@ -20748,7 +20223,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x96E3)	; 難
@@ -20813,7 +20287,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x9EE8)	; 黨
@@ -20841,7 +20314,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x56B4)	; 嚴
@@ -20914,7 +20386,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; ⺅
       (ucs		  . #x2E85)	; ⺅
       )
      ((ucs		  . #x7E8D)	; 纍
