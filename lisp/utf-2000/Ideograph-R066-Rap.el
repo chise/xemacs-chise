@@ -3073,8 +3073,16 @@
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (chinese-cns11643-5 . #x462E)	; ø»š¡
     (ideograph-daikanwa . 13341)	; ø¸ƒ
+    (ucs		. #x3AA2)	; ãª¢
+    ))
+(define-char
+  '((=>ucs		. #x3AA2)	; ãª¢
+    (morohashi-daikanwa	13341 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (chinese-cns11643-5 . #x462E)	; ø»š¡
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
