@@ -1,3 +1,11 @@
+2002-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el, Ideograph-R064-Hand.el,
+	Ideograph-R057-Bow.el, Ideograph-R040-Roof.el,
+	Ideograph-R024-Ten.el, Ideograph-R004-Slash.el,
+	Ideograph-R009-Man.el, Ideograph-R001-One.el: Add some missing
+	mappings between CHINA3-JEF and UCS code points.
+
 2002-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u01E00-Latin-Extended-Additional.el, u0AC00-Hangul-Syllables.el,
