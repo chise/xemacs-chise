@@ -1,5 +1,5 @@
 /* Header for character representation.
-   Copyright (C) 1999,2000,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -98,7 +98,7 @@ INLINE_HEADER Emchar CHARC_TO_CHAR (Charc cc);
 INLINE_HEADER Emchar
 CHARC_TO_CHAR (Charc cc)
 {
-  return DECODE_CHAR (cc.charset, cc.code_point, 0);
+  return DECODE_CHAR (cc.charset, cc.code_point);
 }
 
 INLINE_HEADER int CHARC_EQ (Charc cc1, Charc cc2);

@@ -23,7 +23,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Mule 2.3.   Not in FSF. */
 
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs CHISE. */
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
 
 #include <config.h>
 #include "lisp.h"
@@ -3328,7 +3328,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 			 make_int (base)));
 	      Emchar chr
 		= NILP (char_type)
-		? DECODE_CHAR (ccs, code, 0)
+		? DECODE_CHAR (ccs, code)
 		: decode_builtin_char (ccs, code);
 
 	      DECODE_ADD_UCS_CHAR (chr, dst);
@@ -3394,7 +3394,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 
 	  if ( (code_point >= 0)
 	       && (NILP (char_type)
-		   || DECODE_CHAR (ccs, code_point, 0) != ch) )
+		   || DECODE_CHAR (ccs, code_point) != ch) )
 	    {
 	      Lisp_Object ret;
 
@@ -3950,11 +3950,10 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 	    {
 #ifdef UTF2000
 	      int code_point = (cpos << 8) | c;
-	      Emchar char_id = decode_defined_char (ccs, code_point, 0);
+	      Emchar char_id = decode_defined_char (ccs, code_point);
 
 	      if (char_id < 0)
-		char_id
-		  = DECODE_CHAR (Vcharset_chinese_big5, code_point, 0);
+		char_id = DECODE_CHAR (Vcharset_chinese_big5, code_point);
 	      DECODE_ADD_UCS_CHAR (char_id, dst);
 #else
 	      unsigned char b1, b2, b3;
@@ -4535,13 +4534,13 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 
 	      if (!NILP (ccs))
 		{
-		  char_id = decode_defined_char (ccs, cpos, 0);
+		  char_id = decode_defined_char (ccs, cpos);
 
 		  if (char_id < 0)
 		    char_id = cpos;
 		}
 	      else
-		char_id = cpos;
+		ccs = char_id;
 	      COMPOSE_ADD_CHAR (str, char_id, dst);
 	      cpos = 0;
 	      counter = 0;
@@ -5696,7 +5695,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		  COMPOSE_ADD_CHAR (str,
 				    DECODE_CHAR (charset,
 						 ((cpos & 0x7F7F7F) << 8)
-						 | (c & 0x7F), 0),
+						 | (c & 0x7F)),
 				    dst);
 		  cpos = 0;
 		  counter = 0;

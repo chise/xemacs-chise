@@ -4,238 +4,238 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0000)	; ␀
     (ascii		. #x00)	; ␀
+    (=ucs		. #x0000)	; ␀
     ))
 (define-char
   '((name		. "START OF HEADING")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0001)	; ␁
     (ascii		. #x01)	; ␁
+    (=ucs		. #x0001)	; ␁
     ))
 (define-char
   '((name		. "START OF TEXT")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0002)	; ␂
     (ascii		. #x02)	; ␂
+    (=ucs		. #x0002)	; ␂
     ))
 (define-char
   '((name		. "END OF TEXT")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0003)	; ␃
     (ascii		. #x03)	; ␃
+    (=ucs		. #x0003)	; ␃
     ))
 (define-char
   '((name		. "END OF TRANSMISSION")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0004)	; ␄
     (ascii		. #x04)	; ␄
+    (=ucs		. #x0004)	; ␄
     ))
 (define-char
   '((name		. "ENQUIRY")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0005)	; ␅
     (ascii		. #x05)	; ␅
+    (=ucs		. #x0005)	; ␅
     ))
 (define-char
   '((name		. "ACKNOWLEDGE")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0006)	; ␆
     (ascii		. #x06)	; ␆
+    (=ucs		. #x0006)	; ␆
     ))
 (define-char
   '((name		. "BELL")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0007)	; ␇
     (ascii		. #x07)	; ␇
+    (=ucs		. #x0007)	; ␇
     ))
 (define-char
   '((name		. "BACKSPACE")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0008)	; ␈
     (ascii		. #x08)	; ␈
+    (=ucs		. #x0008)	; ␈
     ))
 (define-char
   '((name		. "HORIZONTAL TABULATION")
     (general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (=ucs		. #x0009)	; ␉
     (ascii		. #x09)	; ␉
+    (=ucs		. #x0009)	; ␉
     ))
 (define-char
   '((name		. "LINE FEED")
     (general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (=ucs		. #x000A)	; ␊
     (ascii		. #x0A)	; ␊
+    (=ucs		. #x000A)	; ␊
     ))
 (define-char
   '((name		. "VERTICAL TABULATION")
     (general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (=ucs		. #x000B)	; ␋
     (ascii		. #x0B)	; ␋
+    (=ucs		. #x000B)	; ␋
     ))
 (define-char
   '((name		. "FORM FEED")
     (general-category	other control) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=ucs		. #x000C)	; ␌
     (ascii		. #x0C)	; ␌
+    (=ucs		. #x000C)	; ␌
     ))
 (define-char
   '((name		. "CARRIAGE RETURN")
     (general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (=ucs		. #x000D)	; ␍
     (ascii		. #x0D)	; ␍
+    (=ucs		. #x000D)	; ␍
     ))
 (define-char
   '((name		. "SHIFT OUT")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x000E)	; ␎
     (ascii		. #x0E)	; ␎
+    (=ucs		. #x000E)	; ␎
     ))
 (define-char
   '((name		. "SHIFT IN")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x000F)	; ␏
     (ascii		. #x0F)	; ␏
+    (=ucs		. #x000F)	; ␏
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0010)	; ␐
     (ascii		. #x10)	; ␐
+    (=ucs		. #x0010)	; ␐
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0011)	; ␑
     (ascii		. #x11)	; ␑
+    (=ucs		. #x0011)	; ␑
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0012)	; ␒
     (ascii		. #x12)	; ␒
+    (=ucs		. #x0012)	; ␒
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0013)	; ␓
     (ascii		. #x13)	; ␓
+    (=ucs		. #x0013)	; ␓
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0014)	; ␔
     (ascii		. #x14)	; ␔
+    (=ucs		. #x0014)	; ␔
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0015)	; ␕
     (ascii		. #x15)	; ␕
+    (=ucs		. #x0015)	; ␕
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0016)	; ␖
     (ascii		. #x16)	; ␖
+    (=ucs		. #x0016)	; ␖
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0017)	; ␗
     (ascii		. #x17)	; ␗
+    (=ucs		. #x0017)	; ␗
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0018)	; ␘
     (ascii		. #x18)	; ␘
+    (=ucs		. #x0018)	; ␘
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x0019)	; ␙
     (ascii		. #x19)	; ␙
+    (=ucs		. #x0019)	; ␙
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x001A)	; ␚
     (ascii		. #x1A)	; ␚
+    (=ucs		. #x001A)	; ␚
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x001B)	; ␛
     (ascii		. #x1B)	; ␛
+    (=ucs		. #x001B)	; ␛
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (=ucs		. #x001C)	; ␜
     (ascii		. #x1C)	; ␜
+    (=ucs		. #x001C)	; ␜
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (=ucs		. #x001D)	; ␝
     (ascii		. #x1D)	; ␝
+    (=ucs		. #x001D)	; ␝
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (=ucs		. #x001E)	; ␞
     (ascii		. #x1E)	; ␞
+    (=ucs		. #x001E)	; ␞
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (=ucs		. #x001F)	; ␟
     (ascii		. #x1F)	; ␟
+    (=ucs		. #x001F)	; ␟
     ))

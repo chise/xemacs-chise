@@ -1935,9 +1935,9 @@
      ((name		  . "LATIN SMALL LETTER A WITH DOT BELOW")
       (=ucs		  . #x1EA1)	; áº¡
       ))
-    (=ucs		. #x1EA0)	; áº 
-    (latin-viscii	. #x80)	; øº’ž•
     (latin-viscii-upper . #xD5)	; øº’ž•
+    (latin-viscii	. #x80)	; øº’ž•
+    (=ucs		. #x1EA0)	; áº 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH DOT BELOW")
@@ -1949,10 +1949,10 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH DOT BELOW")
       (=ucs		  . #x1EA0)	; áº 
       ))
-    (=ucs		. #x1EA1)	; áº¡
     (latin-tcvn5712	. #xB9)	; øº“™¹
-    (latin-viscii	. #xD5)	; øº’œµ
     (latin-viscii-lower . #xD5)	; øº’œµ
+    (latin-viscii	. #xD5)	; øº’œµ
+    (=ucs		. #x1EA1)	; áº¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH HOOK ABOVE")
@@ -1964,9 +1964,9 @@
      ((name		  . "LATIN SMALL LETTER A WITH HOOK ABOVE")
       (=ucs		  . #x1EA3)	; áº£
       ))
-    (=ucs		. #x1EA2)	; áº¢
-    (latin-viscii	. #xC4)	; øº’ž¤
     (latin-viscii-upper . #xE4)	; øº’ž¤
+    (latin-viscii	. #xC4)	; øº’ž¤
+    (=ucs		. #x1EA2)	; áº¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH HOOK ABOVE")
@@ -1978,10 +1978,10 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH HOOK ABOVE")
       (=ucs		  . #x1EA2)	; áº¢
       ))
-    (=ucs		. #x1EA3)	; áº£
     (latin-tcvn5712	. #xB6)	; øº“™¶
-    (latin-viscii	. #xE4)	; øº’„
     (latin-viscii-lower . #xE4)	; øº’„
+    (latin-viscii	. #xE4)	; øº’„
+    (=ucs		. #x1EA3)	; áº£
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
@@ -1993,10 +1993,10 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EA5)	; áº¥
       ))
-    (=ucs		. #x1EA4)	; áº¤
     (latin-tcvn5712	. #xC4)	; øº“š„
-    (latin-viscii	. #x84)	; øº’¤
     (latin-viscii-upper . #xA4)	; øº’¤
+    (latin-viscii	. #x84)	; øº’¤
+    (=ucs		. #x1EA4)	; áº¤
     ))
 (define-char
   '((=>ucs		. #x1EA4)	; áº¤
@@ -2012,10 +2012,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EA4)	; áº¤
       ))
-    (=ucs		. #x1EA5)	; áº¥
     (latin-tcvn5712	. #xCA)	; øº“šŠ
-    (latin-viscii	. #xA4)	; øº’œ„
     (latin-viscii-lower . #xA4)	; øº’œ„
+    (latin-viscii	. #xA4)	; øº’œ„
+    (=ucs		. #x1EA5)	; áº¥
     ))
 (define-char
   '((=>ucs		. #x1EA5)	; áº¥
@@ -2031,10 +2031,10 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EA7)	; áº§
       ))
-    (=ucs		. #x1EA6)	; áº¦
     (latin-tcvn5712	. #xC1)	; øº“š
-    (latin-viscii	. #x85)	; øº’¥
     (latin-viscii-upper . #xA5)	; øº’¥
+    (latin-viscii	. #x85)	; øº’¥
+    (=ucs		. #x1EA6)	; áº¦
     ))
 (define-char
   '((=>ucs		. #x1EA6)	; áº¦
@@ -2050,10 +2050,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EA6)	; áº¦
       ))
-    (=ucs		. #x1EA7)	; áº§
     (latin-tcvn5712	. #xC7)	; øº“š‡
-    (latin-viscii	. #xA5)	; øº’œ…
     (latin-viscii-lower . #xA5)	; øº’œ…
+    (latin-viscii	. #xA5)	; øº’œ…
+    (=ucs		. #x1EA7)	; áº§
     ))
 (define-char
   '((=>ucs		. #x1EA7)	; áº§
@@ -2069,10 +2069,10 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1EA9)	; áº©
       ))
-    (=ucs		. #x1EA8)	; áº¨
     (latin-tcvn5712	. #xC2)	; øº“š‚
-    (latin-viscii	. #x86)	; øº’¦
     (latin-viscii-upper . #xA6)	; øº’¦
+    (latin-viscii	. #x86)	; øº’¦
+    (=ucs		. #x1EA8)	; áº¨
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2084,10 +2084,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1EA8)	; áº¨
       ))
-    (=ucs		. #x1EA9)	; áº©
     (latin-tcvn5712	. #xC8)	; øº“šˆ
-    (latin-viscii	. #xA6)	; øº’œ†
     (latin-viscii-lower . #xA6)	; øº’œ†
+    (latin-viscii	. #xA6)	; øº’œ†
+    (=ucs		. #x1EA9)	; áº©
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND TILDE")
@@ -2099,10 +2099,10 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1EAB)	; áº«
       ))
-    (=ucs		. #x1EAA)	; áºª
     (latin-tcvn5712	. #xC3)	; øº“šƒ
-    (latin-viscii	. #x06)	; øº’ž§
     (latin-viscii-upper . #xE7)	; øº’ž§
+    (latin-viscii	. #x06)	; øº’ž§
+    (=ucs		. #x1EAA)	; áºª
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND TILDE")
@@ -2114,10 +2114,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1EAA)	; áºª
       ))
-    (=ucs		. #x1EAB)	; áº«
     (latin-tcvn5712	. #xC9)	; øº“š‰
-    (latin-viscii	. #xE7)	; øº’‡
     (latin-viscii-lower . #xE7)	; øº’‡
+    (latin-viscii	. #xE7)	; øº’‡
+    (=ucs		. #x1EAB)	; áº«
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
@@ -2129,9 +2129,9 @@
      ((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1EAD)	; áº­
       ))
-    (=ucs		. #x1EAC)	; áº¬
-    (latin-viscii	. #x87)	; øº’§
     (latin-viscii-upper . #xA7)	; øº’§
+    (latin-viscii	. #x87)	; øº’§
+    (=ucs		. #x1EAC)	; áº¬
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
@@ -2143,10 +2143,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1EAC)	; áº¬
       ))
-    (=ucs		. #x1EAD)	; áº­
     (latin-tcvn5712	. #xCB)	; øº“š‹
-    (latin-viscii	. #xA7)	; øº’œ‡
     (latin-viscii-lower . #xA7)	; øº’œ‡
+    (latin-viscii	. #xA7)	; øº’œ‡
+    (=ucs		. #x1EAD)	; áº­
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND ACUTE")
@@ -2158,10 +2158,10 @@
      ((name		  . "LATIN SMALL LETTER A WITH BREVE AND ACUTE")
       (=ucs		  . #x1EAF)	; áº¯
       ))
-    (=ucs		. #x1EAE)	; áº®
     (latin-tcvn5712	. #xC0)	; øº“š€
-    (latin-viscii	. #x81)	; øº’¡
     (latin-viscii-upper . #xA1)	; øº’¡
+    (latin-viscii	. #x81)	; øº’¡
+    (=ucs		. #x1EAE)	; áº®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND ACUTE")
@@ -2173,10 +2173,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH BREVE AND ACUTE")
       (=ucs		  . #x1EAE)	; áº®
       ))
-    (=ucs		. #x1EAF)	; áº¯
     (latin-tcvn5712	. #xBE)	; øº“™¾
-    (latin-viscii	. #xA1)	; øº’œ
     (latin-viscii-lower . #xA1)	; øº’œ
+    (latin-viscii	. #xA1)	; øº’œ
+    (=ucs		. #x1EAF)	; áº¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND GRAVE")
@@ -2188,10 +2188,10 @@
      ((name		  . "LATIN SMALL LETTER A WITH BREVE AND GRAVE")
       (=ucs		  . #x1EB1)	; áº±
       ))
-    (=ucs		. #x1EB0)	; áº°
     (latin-tcvn5712	. #xAF)	; øº“™¯
-    (latin-viscii	. #x82)	; øº’¢
     (latin-viscii-upper . #xA2)	; øº’¢
+    (latin-viscii	. #x82)	; øº’¢
+    (=ucs		. #x1EB0)	; áº°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND GRAVE")
@@ -2203,10 +2203,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH BREVE AND GRAVE")
       (=ucs		  . #x1EB0)	; áº°
       ))
-    (=ucs		. #x1EB1)	; áº±
     (latin-tcvn5712	. #xBB)	; øº“™»
-    (latin-viscii	. #xA2)	; øº’œ‚
     (latin-viscii-lower . #xA2)	; øº’œ‚
+    (latin-viscii	. #xA2)	; øº’œ‚
+    (=ucs		. #x1EB1)	; áº±
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH BREVE AND HOOK ABOVE")
@@ -2218,10 +2218,10 @@
      ((name . "LATIN SMALL LETTER A WITH BREVE AND HOOK ABOVE")
       (=ucs		  . #x1EB3)	; áº³
       ))
-    (=ucs		. #x1EB2)	; áº²
     (latin-tcvn5712	. #xBA)	; øº“™º
-    (latin-viscii	. #x02)	; øº’ž†
     (latin-viscii-upper . #xC6)	; øº’ž†
+    (latin-viscii	. #x02)	; øº’ž†
+    (=ucs		. #x1EB2)	; áº²
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH BREVE AND HOOK ABOVE")
@@ -2233,10 +2233,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH BREVE AND HOOK ABOVE")
       (=ucs		  . #x1EB2)	; áº²
       ))
-    (=ucs		. #x1EB3)	; áº³
     (latin-tcvn5712	. #xBC)	; øº“™¼
-    (latin-viscii	. #xC6)	; øº’œ¦
     (latin-viscii-lower . #xC6)	; øº’œ¦
+    (latin-viscii	. #xC6)	; øº’œ¦
+    (=ucs		. #x1EB3)	; áº³
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND TILDE")
@@ -2248,10 +2248,10 @@
      ((name		  . "LATIN SMALL LETTER A WITH BREVE AND TILDE")
       (=ucs		  . #x1EB5)	; áºµ
       ))
-    (=ucs		. #x1EB4)	; áº´
     (latin-tcvn5712	. #xBF)	; øº“™¿
-    (latin-viscii	. #x05)	; øº’ž‡
     (latin-viscii-upper . #xC7)	; øº’ž‡
+    (latin-viscii	. #x05)	; øº’ž‡
+    (=ucs		. #x1EB4)	; áº´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND TILDE")
@@ -2263,10 +2263,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH BREVE AND TILDE")
       (=ucs		  . #x1EB4)	; áº´
       ))
-    (=ucs		. #x1EB5)	; áºµ
     (latin-tcvn5712	. #xBD)	; øº“™½
-    (latin-viscii	. #xC7)	; øº’œ§
     (latin-viscii-lower . #xC7)	; øº’œ§
+    (latin-viscii	. #xC7)	; øº’œ§
+    (=ucs		. #x1EB5)	; áºµ
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW")
@@ -2278,9 +2278,9 @@
      ((name . "LATIN SMALL LETTER A WITH BREVE AND DOT BELOW")
       (=ucs		  . #x1EB7)	; áº·
       ))
-    (=ucs		. #x1EB6)	; áº¶
-    (latin-viscii	. #x83)	; øº’£
     (latin-viscii-upper . #xA3)	; øº’£
+    (latin-viscii	. #x83)	; øº’£
+    (=ucs		. #x1EB6)	; áº¶
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH BREVE AND DOT BELOW")
@@ -2292,10 +2292,10 @@
      ((name . "LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW")
       (=ucs		  . #x1EB6)	; áº¶
       ))
-    (=ucs		. #x1EB7)	; áº·
     (latin-tcvn5712	. #xC6)	; øº“š†
-    (latin-viscii	. #xA3)	; øº’œƒ
     (latin-viscii-lower . #xA3)	; øº’œƒ
+    (latin-viscii	. #xA3)	; øº’œƒ
+    (=ucs		. #x1EB7)	; áº·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH DOT BELOW")
@@ -2307,9 +2307,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH DOT BELOW")
       (=ucs		  . #x1EB9)	; áº¹
       ))
-    (=ucs		. #x1EB8)	; áº¸
-    (latin-viscii	. #x89)	; øº’©
     (latin-viscii-upper . #xA9)	; øº’©
+    (latin-viscii	. #x89)	; øº’©
+    (=ucs		. #x1EB8)	; áº¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH DOT BELOW")
@@ -2321,10 +2321,10 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH DOT BELOW")
       (=ucs		  . #x1EB8)	; áº¸
       ))
-    (=ucs		. #x1EB9)	; áº¹
     (latin-tcvn5712	. #xD1)	; øº“š‘
-    (latin-viscii	. #xA9)	; øº’œ‰
     (latin-viscii-lower . #xA9)	; øº’œ‰
+    (latin-viscii	. #xA9)	; øº’œ‰
+    (=ucs		. #x1EB9)	; áº¹
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH HOOK ABOVE")
@@ -2336,9 +2336,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH HOOK ABOVE")
       (=ucs		  . #x1EBB)	; áº»
       ))
-    (=ucs		. #x1EBA)	; áºº
-    (latin-viscii	. #xCB)	; øº’ž«
     (latin-viscii-upper . #xEB)	; øº’ž«
+    (latin-viscii	. #xCB)	; øº’ž«
+    (=ucs		. #x1EBA)	; áºº
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH HOOK ABOVE")
@@ -2350,10 +2350,10 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH HOOK ABOVE")
       (=ucs		  . #x1EBA)	; áºº
       ))
-    (=ucs		. #x1EBB)	; áº»
     (latin-tcvn5712	. #xCE)	; øº“šŽ
-    (latin-viscii	. #xEB)	; øº’‹
     (latin-viscii-lower . #xEB)	; øº’‹
+    (latin-viscii	. #xEB)	; øº’‹
+    (=ucs		. #x1EBB)	; áº»
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH TILDE")
@@ -2365,9 +2365,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH TILDE")
       (=ucs		  . #x1EBD)	; áº½
       ))
-    (=ucs		. #x1EBC)	; áº¼
-    (latin-viscii	. #x88)	; øº’¨
     (latin-viscii-upper . #xA8)	; øº’¨
+    (latin-viscii	. #x88)	; øº’¨
+    (=ucs		. #x1EBC)	; áº¼
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH TILDE")
@@ -2379,10 +2379,10 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH TILDE")
       (=ucs		  . #x1EBC)	; áº¼
       ))
-    (=ucs		. #x1EBD)	; áº½
     (latin-tcvn5712	. #xCF)	; øº“š
-    (latin-viscii	. #xA8)	; øº’œˆ
     (latin-viscii-lower . #xA8)	; øº’œˆ
+    (latin-viscii	. #xA8)	; øº’œˆ
+    (=ucs		. #x1EBD)	; áº½
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
@@ -2394,10 +2394,10 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EBF)	; áº¿
       ))
-    (=ucs		. #x1EBE)	; áº¾
     (latin-tcvn5712	. #xDA)	; øº“šš
-    (latin-viscii	. #x8A)	; øº’ª
     (latin-viscii-upper . #xAA)	; øº’ª
+    (latin-viscii	. #x8A)	; øº’ª
+    (=ucs		. #x1EBE)	; áº¾
     ))
 (define-char
   '((=>ucs		. #x1EBE)	; áº¾
@@ -2413,10 +2413,10 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1EBE)	; áº¾
       ))
-    (=ucs		. #x1EBF)	; áº¿
     (latin-tcvn5712	. #xD5)	; øº“š•
-    (latin-viscii	. #xAA)	; øº’œŠ
     (latin-viscii-lower . #xAA)	; øº’œŠ
+    (latin-viscii	. #xAA)	; øº’œŠ
+    (=ucs		. #x1EBF)	; áº¿
     ))
 (define-char
   '((=>ucs		. #x1EBF)	; áº¿
@@ -2432,10 +2432,10 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EC1)	; á»
       ))
-    (=ucs		. #x1EC0)	; á»€
     (latin-tcvn5712	. #xC5)	; øº“š…
-    (latin-viscii	. #x8B)	; øº’«
     (latin-viscii-upper . #xAB)	; øº’«
+    (latin-viscii	. #x8B)	; øº’«
+    (=ucs		. #x1EC0)	; á»€
     ))
 (define-char
   '((=>ucs		. #x1EC0)	; á»€
@@ -2451,10 +2451,10 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1EC0)	; á»€
       ))
-    (=ucs		. #x1EC1)	; á»
     (latin-tcvn5712	. #xD2)	; øº“š’
-    (latin-viscii	. #xAB)	; øº’œ‹
     (latin-viscii-lower . #xAB)	; øº’œ‹
+    (latin-viscii	. #xAB)	; øº’œ‹
+    (=ucs		. #x1EC1)	; á»
     ))
 (define-char
   '((=>ucs		. #x1EC1)	; á»
@@ -2470,10 +2470,10 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1EC3)	; á»ƒ
       ))
-    (=ucs		. #x1EC2)	; á»‚
     (latin-tcvn5712	. #xCD)	; øº“š
-    (latin-viscii	. #x8C)	; øº’¬
     (latin-viscii-upper . #xAC)	; øº’¬
+    (latin-viscii	. #x8C)	; øº’¬
+    (=ucs		. #x1EC2)	; á»‚
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2485,10 +2485,10 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1EC2)	; á»‚
       ))
-    (=ucs		. #x1EC3)	; á»ƒ
     (latin-tcvn5712	. #xD3)	; øº“š“
-    (latin-viscii	. #xAC)	; øº’œŒ
     (latin-viscii-lower . #xAC)	; øº’œŒ
+    (latin-viscii	. #xAC)	; øº’œŒ
+    (=ucs		. #x1EC3)	; á»ƒ
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND TILDE")
@@ -2500,10 +2500,10 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1EC5)	; á»…
       ))
-    (=ucs		. #x1EC4)	; á»„
     (latin-tcvn5712	. #xD9)	; øº“š™
-    (latin-viscii	. #x8D)	; øº’­
     (latin-viscii-upper . #xAD)	; øº’­
+    (latin-viscii	. #x8D)	; øº’­
+    (=ucs		. #x1EC4)	; á»„
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND TILDE")
@@ -2515,10 +2515,10 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1EC4)	; á»„
       ))
-    (=ucs		. #x1EC5)	; á»…
     (latin-tcvn5712	. #xD4)	; øº“š”
-    (latin-viscii	. #xAD)	; øº’œ
     (latin-viscii-lower . #xAD)	; øº’œ
+    (latin-viscii	. #xAD)	; øº’œ
+    (=ucs		. #x1EC5)	; á»…
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
@@ -2530,9 +2530,9 @@
      ((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1EC7)	; á»‡
       ))
-    (=ucs		. #x1EC6)	; á»†
-    (latin-viscii	. #x8E)	; øº’®
     (latin-viscii-upper . #xAE)	; øº’®
+    (latin-viscii	. #x8E)	; øº’®
+    (=ucs		. #x1EC6)	; á»†
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
@@ -2544,10 +2544,10 @@
      ((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1EC6)	; á»†
       ))
-    (=ucs		. #x1EC7)	; á»‡
     (latin-tcvn5712	. #xD6)	; øº“š–
-    (latin-viscii	. #xAE)	; øº’œŽ
     (latin-viscii-lower . #xAE)	; øº’œŽ
+    (latin-viscii	. #xAE)	; øº’œŽ
+    (=ucs		. #x1EC7)	; á»‡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH HOOK ABOVE")
@@ -2559,9 +2559,9 @@
      ((name		  . "LATIN SMALL LETTER I WITH HOOK ABOVE")
       (=ucs		  . #x1EC9)	; á»‰
       ))
-    (=ucs		. #x1EC8)	; á»ˆ
-    (latin-viscii	. #x9B)	; øº’ž¯
     (latin-viscii-upper . #xEF)	; øº’ž¯
+    (latin-viscii	. #x9B)	; øº’ž¯
+    (=ucs		. #x1EC8)	; á»ˆ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH HOOK ABOVE")
@@ -2573,10 +2573,10 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH HOOK ABOVE")
       (=ucs		  . #x1EC8)	; á»ˆ
       ))
-    (=ucs		. #x1EC9)	; á»‰
     (latin-tcvn5712	. #xD8)	; øº“š˜
-    (latin-viscii	. #xEF)	; øº’
     (latin-viscii-lower . #xEF)	; øº’
+    (latin-viscii	. #xEF)	; øº’
+    (=ucs		. #x1EC9)	; á»‰
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH DOT BELOW")
@@ -2588,9 +2588,9 @@
      ((name		  . "LATIN SMALL LETTER I WITH DOT BELOW")
       (=ucs		  . #x1ECB)	; á»‹
       ))
-    (=ucs		. #x1ECA)	; á»Š
-    (latin-viscii	. #x98)	; øº’¸
     (latin-viscii-upper . #xB8)	; øº’¸
+    (latin-viscii	. #x98)	; øº’¸
+    (=ucs		. #x1ECA)	; á»Š
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH DOT BELOW")
@@ -2602,10 +2602,10 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH DOT BELOW")
       (=ucs		  . #x1ECA)	; á»Š
       ))
-    (=ucs		. #x1ECB)	; á»‹
     (latin-tcvn5712	. #xDE)	; øº“šž
-    (latin-viscii	. #xB8)	; øº’œ˜
     (latin-viscii-lower . #xB8)	; øº’œ˜
+    (latin-viscii	. #xB8)	; øº’œ˜
+    (=ucs		. #x1ECB)	; á»‹
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH DOT BELOW")
@@ -2617,9 +2617,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH DOT BELOW")
       (=ucs		  . #x1ECD)	; á»
       ))
-    (=ucs		. #x1ECC)	; á»Œ
-    (latin-viscii	. #x9A)	; øº’ž·
     (latin-viscii-upper . #xF7)	; øº’ž·
+    (latin-viscii	. #x9A)	; øº’ž·
+    (=ucs		. #x1ECC)	; á»Œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH DOT BELOW")
@@ -2631,10 +2631,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH DOT BELOW")
       (=ucs		  . #x1ECC)	; á»Œ
       ))
-    (=ucs		. #x1ECD)	; á»
     (latin-tcvn5712	. #xE4)	; øº“š¤
-    (latin-viscii	. #xF7)	; øº’—
     (latin-viscii-lower . #xF7)	; øº’—
+    (latin-viscii	. #xF7)	; øº’—
+    (=ucs		. #x1ECD)	; á»
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HOOK ABOVE")
@@ -2646,9 +2646,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH HOOK ABOVE")
       (=ucs		  . #x1ECF)	; á»
       ))
-    (=ucs		. #x1ECE)	; á»Ž
-    (latin-viscii	. #x99)	; øº’ž¶
     (latin-viscii-upper . #xF6)	; øº’ž¶
+    (latin-viscii	. #x99)	; øº’ž¶
+    (=ucs		. #x1ECE)	; á»Ž
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HOOK ABOVE")
@@ -2660,10 +2660,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH HOOK ABOVE")
       (=ucs		  . #x1ECE)	; á»Ž
       ))
-    (=ucs		. #x1ECF)	; á»
     (latin-tcvn5712	. #xE1)	; øº“š¡
-    (latin-viscii	. #xF6)	; øº’–
     (latin-viscii-lower . #xF6)	; øº’–
+    (latin-viscii	. #xF6)	; øº’–
+    (=ucs		. #x1ECF)	; á»
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
@@ -2675,10 +2675,10 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1ED1)	; á»‘
       ))
-    (=ucs		. #x1ED0)	; á»
     (latin-tcvn5712	. #xFF)	; øº“š¿
-    (latin-viscii	. #x8F)	; øº’¯
     (latin-viscii-upper . #xAF)	; øº’¯
+    (latin-viscii	. #x8F)	; øº’¯
+    (=ucs		. #x1ED0)	; á»
     ))
 (define-char
   '((=>ucs		. #x1ED0)	; á»
@@ -2694,10 +2694,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
       (=ucs		  . #x1ED0)	; á»
       ))
-    (=ucs		. #x1ED1)	; á»‘
     (latin-tcvn5712	. #xE8)	; øº“š¨
-    (latin-viscii	. #xAF)	; øº’œ
     (latin-viscii-lower . #xAF)	; øº’œ
+    (latin-viscii	. #xAF)	; øº’œ
+    (=ucs		. #x1ED1)	; á»‘
     ))
 (define-char
   '((=>ucs		. #x1ED1)	; á»‘
@@ -2713,10 +2713,10 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1ED3)	; á»“
       ))
-    (=ucs		. #x1ED2)	; á»’
     (latin-tcvn5712	. #xDB)	; øº“š›
-    (latin-viscii	. #x90)	; øº’°
     (latin-viscii-upper . #xB0)	; øº’°
+    (latin-viscii	. #x90)	; øº’°
+    (=ucs		. #x1ED2)	; á»’
     ))
 (define-char
   '((=>ucs		. #x1ED2)	; á»’
@@ -2732,10 +2732,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
       (=ucs		  . #x1ED2)	; á»’
       ))
-    (=ucs		. #x1ED3)	; á»“
     (latin-tcvn5712	. #xE5)	; øº“š¥
-    (latin-viscii	. #xB0)	; øº’œ
     (latin-viscii-lower . #xB0)	; øº’œ
+    (latin-viscii	. #xB0)	; øº’œ
+    (=ucs		. #x1ED3)	; á»“
     ))
 (define-char
   '((=>ucs		. #x1ED3)	; á»“
@@ -2751,10 +2751,10 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1ED5)	; á»•
       ))
-    (=ucs		. #x1ED4)	; á»”
     (latin-tcvn5712	. #xE0)	; øº“š 
-    (latin-viscii	. #x91)	; øº’±
     (latin-viscii-upper . #xB1)	; øº’±
+    (latin-viscii	. #x91)	; øº’±
+    (=ucs		. #x1ED4)	; á»”
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2766,10 +2766,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
       (=ucs		  . #x1ED4)	; á»”
       ))
-    (=ucs		. #x1ED5)	; á»•
     (latin-tcvn5712	. #xE6)	; øº“š¦
-    (latin-viscii	. #xB1)	; øº’œ‘
     (latin-viscii-lower . #xB1)	; øº’œ‘
+    (latin-viscii	. #xB1)	; øº’œ‘
+    (=ucs		. #x1ED5)	; á»•
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND TILDE")
@@ -2781,10 +2781,10 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1ED7)	; á»—
       ))
-    (=ucs		. #x1ED6)	; á»–
     (latin-tcvn5712	. #xF0)	; øº“š°
-    (latin-viscii	. #x92)	; øº’²
     (latin-viscii-upper . #xB2)	; øº’²
+    (latin-viscii	. #x92)	; øº’²
+    (=ucs		. #x1ED6)	; á»–
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND TILDE")
@@ -2796,10 +2796,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND TILDE")
       (=ucs		  . #x1ED6)	; á»–
       ))
-    (=ucs		. #x1ED7)	; á»—
     (latin-tcvn5712	. #xE7)	; øº“š§
-    (latin-viscii	. #xB2)	; øº’œ’
     (latin-viscii-lower . #xB2)	; øº’œ’
+    (latin-viscii	. #xB2)	; øº’œ’
+    (=ucs		. #x1ED7)	; á»—
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
@@ -2811,9 +2811,9 @@
      ((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1ED9)	; á»™
       ))
-    (=ucs		. #x1ED8)	; á»˜
-    (latin-viscii	. #x93)	; øº’µ
     (latin-viscii-upper . #xB5)	; øº’µ
+    (latin-viscii	. #x93)	; øº’µ
+    (=ucs		. #x1ED8)	; á»˜
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
@@ -2825,10 +2825,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
       (=ucs		  . #x1ED8)	; á»˜
       ))
-    (=ucs		. #x1ED9)	; á»™
     (latin-tcvn5712	. #xE9)	; øº“š©
-    (latin-viscii	. #xB5)	; øº’œ•
     (latin-viscii-lower . #xB5)	; øº’œ•
+    (latin-viscii	. #xB5)	; øº’œ•
+    (=ucs		. #x1ED9)	; á»™
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND ACUTE")
@@ -2840,9 +2840,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH HORN AND ACUTE")
       (=ucs		  . #x1EDB)	; á»›
       ))
-    (=ucs		. #x1EDA)	; á»š
-    (latin-viscii	. #x95)	; øº’¾
     (latin-viscii-upper . #xBE)	; øº’¾
+    (latin-viscii	. #x95)	; øº’¾
+    (=ucs		. #x1EDA)	; á»š
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND ACUTE")
@@ -2854,10 +2854,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH HORN AND ACUTE")
       (=ucs		  . #x1EDA)	; á»š
       ))
-    (=ucs		. #x1EDB)	; á»›
     (latin-tcvn5712	. #xED)	; øº“š­
-    (latin-viscii	. #xBE)	; øº’œž
     (latin-viscii-lower . #xBE)	; øº’œž
+    (latin-viscii	. #xBE)	; øº’œž
+    (=ucs		. #x1EDB)	; á»›
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND GRAVE")
@@ -2869,9 +2869,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH HORN AND GRAVE")
       (=ucs		  . #x1EDD)	; á»
       ))
-    (=ucs		. #x1EDC)	; á»œ
-    (latin-viscii	. #x96)	; øº’¶
     (latin-viscii-upper . #xB6)	; øº’¶
+    (latin-viscii	. #x96)	; øº’¶
+    (=ucs		. #x1EDC)	; á»œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND GRAVE")
@@ -2883,10 +2883,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH HORN AND GRAVE")
       (=ucs		  . #x1EDC)	; á»œ
       ))
-    (=ucs		. #x1EDD)	; á»
     (latin-tcvn5712	. #xEA)	; øº“šª
-    (latin-viscii	. #xB6)	; øº’œ–
     (latin-viscii-lower . #xB6)	; øº’œ–
+    (latin-viscii	. #xB6)	; øº’œ–
+    (=ucs		. #x1EDD)	; á»
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE")
@@ -2898,9 +2898,9 @@
      ((name . "LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE")
       (=ucs		  . #x1EDF)	; á»Ÿ
       ))
-    (=ucs		. #x1EDE)	; á»ž
-    (latin-viscii	. #x97)	; øº’·
     (latin-viscii-upper . #xB7)	; øº’·
+    (latin-viscii	. #x97)	; øº’·
+    (=ucs		. #x1EDE)	; á»ž
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE")
@@ -2912,10 +2912,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE")
       (=ucs		  . #x1EDE)	; á»ž
       ))
-    (=ucs		. #x1EDF)	; á»Ÿ
     (latin-tcvn5712	. #xEB)	; øº“š«
-    (latin-viscii	. #xB7)	; øº’œ—
     (latin-viscii-lower . #xB7)	; øº’œ—
+    (latin-viscii	. #xB7)	; øº’œ—
+    (=ucs		. #x1EDF)	; á»Ÿ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND TILDE")
@@ -2927,9 +2927,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH HORN AND TILDE")
       (=ucs		  . #x1EE1)	; á»¡
       ))
-    (=ucs		. #x1EE0)	; á» 
-    (latin-viscii	. #xB3)	; øº’žž
     (latin-viscii-upper . #xDE)	; øº’žž
+    (latin-viscii	. #xB3)	; øº’žž
+    (=ucs		. #x1EE0)	; á» 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND TILDE")
@@ -2941,10 +2941,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH HORN AND TILDE")
       (=ucs		  . #x1EE0)	; á» 
       ))
-    (=ucs		. #x1EE1)	; á»¡
     (latin-tcvn5712	. #xEC)	; øº“š¬
-    (latin-viscii	. #xDE)	; øº’œ¾
     (latin-viscii-lower . #xDE)	; øº’œ¾
+    (latin-viscii	. #xDE)	; øº’œ¾
+    (=ucs		. #x1EE1)	; á»¡
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW")
@@ -2956,9 +2956,9 @@
      ((name . "LATIN SMALL LETTER O WITH HORN AND DOT BELOW")
       (=ucs		  . #x1EE3)	; á»£
       ))
-    (=ucs		. #x1EE2)	; á»¢
-    (latin-viscii	. #x94)	; øº’ž¾
     (latin-viscii-upper . #xFE)	; øº’ž¾
+    (latin-viscii	. #x94)	; øº’ž¾
+    (=ucs		. #x1EE2)	; á»¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND DOT BELOW")
@@ -2970,10 +2970,10 @@
      ((name . "LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW")
       (=ucs		  . #x1EE2)	; á»¢
       ))
-    (=ucs		. #x1EE3)	; á»£
     (latin-tcvn5712	. #xEE)	; øº“š®
-    (latin-viscii	. #xFE)	; øº’ž
     (latin-viscii-lower . #xFE)	; øº’ž
+    (latin-viscii	. #xFE)	; øº’ž
+    (=ucs		. #x1EE3)	; á»£
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DOT BELOW")
@@ -2985,9 +2985,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH DOT BELOW")
       (=ucs		  . #x1EE5)	; á»¥
       ))
-    (=ucs		. #x1EE4)	; á»¤
-    (latin-viscii	. #x9E)	; øº’ž¸
     (latin-viscii-upper . #xF8)	; øº’ž¸
+    (latin-viscii	. #x9E)	; øº’ž¸
+    (=ucs		. #x1EE4)	; á»¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DOT BELOW")
@@ -2999,10 +2999,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH DOT BELOW")
       (=ucs		  . #x1EE4)	; á»¤
       ))
-    (=ucs		. #x1EE5)	; á»¥
     (latin-tcvn5712	. #xF4)	; øº“š´
-    (latin-viscii	. #xF8)	; øº’˜
     (latin-viscii-lower . #xF8)	; øº’˜
+    (latin-viscii	. #xF8)	; øº’˜
+    (=ucs		. #x1EE5)	; á»¥
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HOOK ABOVE")
@@ -3014,9 +3014,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH HOOK ABOVE")
       (=ucs		  . #x1EE7)	; á»§
       ))
-    (=ucs		. #x1EE6)	; á»¦
-    (latin-viscii	. #x9C)	; øº’ž¼
     (latin-viscii-upper . #xFC)	; øº’ž¼
+    (latin-viscii	. #x9C)	; øº’ž¼
+    (=ucs		. #x1EE6)	; á»¦
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HOOK ABOVE")
@@ -3028,10 +3028,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH HOOK ABOVE")
       (=ucs		  . #x1EE6)	; á»¦
       ))
-    (=ucs		. #x1EE7)	; á»§
     (latin-tcvn5712	. #xF1)	; øº“š±
-    (latin-viscii	. #xFC)	; øº’œ
     (latin-viscii-lower . #xFC)	; øº’œ
+    (latin-viscii	. #xFC)	; øº’œ
+    (=ucs		. #x1EE7)	; á»§
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND ACUTE")
@@ -3043,9 +3043,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH HORN AND ACUTE")
       (=ucs		  . #x1EE9)	; á»©
       ))
-    (=ucs		. #x1EE8)	; á»¨
-    (latin-viscii	. #xBA)	; øº’ž‘
     (latin-viscii-upper . #xD1)	; øº’ž‘
+    (latin-viscii	. #xBA)	; øº’ž‘
+    (=ucs		. #x1EE8)	; á»¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND ACUTE")
@@ -3057,10 +3057,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH HORN AND ACUTE")
       (=ucs		  . #x1EE8)	; á»¨
       ))
-    (=ucs		. #x1EE9)	; á»©
     (latin-tcvn5712	. #xF8)	; øº“š¸
-    (latin-viscii	. #xD1)	; øº’œ±
     (latin-viscii-lower . #xD1)	; øº’œ±
+    (latin-viscii	. #xD1)	; øº’œ±
+    (=ucs		. #x1EE9)	; á»©
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND GRAVE")
@@ -3072,9 +3072,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH HORN AND GRAVE")
       (=ucs		  . #x1EEB)	; á»«
       ))
-    (=ucs		. #x1EEA)	; á»ª
-    (latin-viscii	. #xBB)	; øº’ž—
     (latin-viscii-upper . #xD7)	; øº’ž—
+    (latin-viscii	. #xBB)	; øº’ž—
+    (=ucs		. #x1EEA)	; á»ª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND GRAVE")
@@ -3086,10 +3086,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH HORN AND GRAVE")
       (=ucs		  . #x1EEA)	; á»ª
       ))
-    (=ucs		. #x1EEB)	; á»«
     (latin-tcvn5712	. #xF5)	; øº“šµ
-    (latin-viscii	. #xD7)	; øº’œ·
     (latin-viscii-lower . #xD7)	; øº’œ·
+    (latin-viscii	. #xD7)	; øº’œ·
+    (=ucs		. #x1EEB)	; á»«
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE")
@@ -3101,9 +3101,9 @@
      ((name . "LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE")
       (=ucs		  . #x1EED)	; á»­
       ))
-    (=ucs		. #x1EEC)	; á»¬
-    (latin-viscii	. #xBC)	; øº’ž˜
     (latin-viscii-upper . #xD8)	; øº’ž˜
+    (latin-viscii	. #xBC)	; øº’ž˜
+    (=ucs		. #x1EEC)	; á»¬
     ))
 (define-char
   '((name . "LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE")
@@ -3115,10 +3115,10 @@
      ((name . "LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE")
       (=ucs		  . #x1EEC)	; á»¬
       ))
-    (=ucs		. #x1EED)	; á»­
     (latin-tcvn5712	. #xF6)	; øº“š¶
-    (latin-viscii	. #xD8)	; øº’œ¸
     (latin-viscii-lower . #xD8)	; øº’œ¸
+    (latin-viscii	. #xD8)	; øº’œ¸
+    (=ucs		. #x1EED)	; á»­
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND TILDE")
@@ -3130,9 +3130,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH HORN AND TILDE")
       (=ucs		  . #x1EEF)	; á»¯
       ))
-    (=ucs		. #x1EEE)	; á»®
-    (latin-viscii	. #xFF)	; øº’ž¦
     (latin-viscii-upper . #xE6)	; øº’ž¦
+    (latin-viscii	. #xFF)	; øº’ž¦
+    (=ucs		. #x1EEE)	; á»®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND TILDE")
@@ -3144,10 +3144,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH HORN AND TILDE")
       (=ucs		  . #x1EEE)	; á»®
       ))
-    (=ucs		. #x1EEF)	; á»¯
     (latin-tcvn5712	. #xF7)	; øº“š·
-    (latin-viscii	. #xE6)	; øº’†
     (latin-viscii-lower . #xE6)	; øº’†
+    (latin-viscii	. #xE6)	; øº’†
+    (=ucs		. #x1EEF)	; á»¯
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW")
@@ -3159,9 +3159,9 @@
      ((name . "LATIN SMALL LETTER U WITH HORN AND DOT BELOW")
       (=ucs		  . #x1EF1)	; á»±
       ))
-    (=ucs		. #x1EF0)	; á»°
-    (latin-viscii	. #xB9)	; øº’ž±
     (latin-viscii-upper . #xF1)	; øº’ž±
+    (latin-viscii	. #xB9)	; øº’ž±
+    (=ucs		. #x1EF0)	; á»°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND DOT BELOW")
@@ -3173,10 +3173,10 @@
      ((name . "LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW")
       (=ucs		  . #x1EF0)	; á»°
       ))
-    (=ucs		. #x1EF1)	; á»±
     (latin-tcvn5712	. #xF9)	; øº“š¹
-    (latin-viscii	. #xF1)	; øº’‘
     (latin-viscii-lower . #xF1)	; øº’‘
+    (latin-viscii	. #xF1)	; øº’‘
+    (=ucs		. #x1EF1)	; á»±
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH GRAVE")
@@ -3188,9 +3188,9 @@
      ((name		  . "LATIN SMALL LETTER Y WITH GRAVE")
       (=ucs		  . #x1EF3)	; á»³
       ))
-    (=ucs		. #x1EF2)	; á»²
-    (latin-viscii	. #x9F)	; øº’ž
     (latin-viscii-upper . #xCF)	; øº’ž
+    (latin-viscii	. #x9F)	; øº’ž
+    (=ucs		. #x1EF2)	; á»²
     ))
 (define-char
   '((=>ucs		. #x1EF2)	; á»²
@@ -3206,10 +3206,10 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH GRAVE")
       (=ucs		  . #x1EF2)	; á»²
       ))
-    (=ucs		. #x1EF3)	; á»³
     (latin-tcvn5712	. #xFA)	; øº“šº
-    (latin-viscii	. #xCF)	; øº’œ¯
     (latin-viscii-lower . #xCF)	; øº’œ¯
+    (latin-viscii	. #xCF)	; øº’œ¯
+    (=ucs		. #x1EF3)	; á»³
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH DOT BELOW")
@@ -3221,9 +3221,9 @@
      ((name		  . "LATIN SMALL LETTER Y WITH DOT BELOW")
       (=ucs		  . #x1EF5)	; á»µ
       ))
-    (=ucs		. #x1EF4)	; á»´
-    (latin-viscii	. #x1E)	; øº’žœ
     (latin-viscii-upper . #xDC)	; øº’žœ
+    (latin-viscii	. #x1E)	; øº’žœ
+    (=ucs		. #x1EF4)	; á»´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH DOT BELOW")
@@ -3235,10 +3235,10 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH DOT BELOW")
       (=ucs		  . #x1EF4)	; á»´
       ))
-    (=ucs		. #x1EF5)	; á»µ
     (latin-tcvn5712	. #xFE)	; øº“š¾
-    (latin-viscii	. #xDC)	; øº’œ¼
     (latin-viscii-lower . #xDC)	; øº’œ¼
+    (latin-viscii	. #xDC)	; øº’œ¼
+    (=ucs		. #x1EF5)	; á»µ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH HOOK ABOVE")
@@ -3250,9 +3250,9 @@
      ((name		  . "LATIN SMALL LETTER Y WITH HOOK ABOVE")
       (=ucs		  . #x1EF7)	; á»·
       ))
-    (=ucs		. #x1EF6)	; á»¶
-    (latin-viscii	. #x14)	; øº’ž–
     (latin-viscii-upper . #xD6)	; øº’ž–
+    (latin-viscii	. #x14)	; øº’ž–
+    (=ucs		. #x1EF6)	; á»¶
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH HOOK ABOVE")
@@ -3264,10 +3264,10 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH HOOK ABOVE")
       (=ucs		  . #x1EF6)	; á»¶
       ))
-    (=ucs		. #x1EF7)	; á»·
     (latin-tcvn5712	. #xFB)	; øº“š»
-    (latin-viscii	. #xD6)	; øº’œ¶
     (latin-viscii-lower . #xD6)	; øº’œ¶
+    (latin-viscii	. #xD6)	; øº’œ¶
+    (=ucs		. #x1EF7)	; á»·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH TILDE")
@@ -3279,9 +3279,9 @@
      ((name		  . "LATIN SMALL LETTER Y WITH TILDE")
       (=ucs		  . #x1EF9)	; á»¹
       ))
-    (=ucs		. #x1EF8)	; á»¸
-    (latin-viscii	. #x19)	; øº’ž›
     (latin-viscii-upper . #xDB)	; øº’ž›
+    (latin-viscii	. #x19)	; øº’ž›
+    (=ucs		. #x1EF8)	; á»¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH TILDE")
@@ -3293,8 +3293,8 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH TILDE")
       (=ucs		  . #x1EF8)	; á»¸
       ))
-    (=ucs		. #x1EF9)	; á»¹
     (latin-tcvn5712	. #xFC)	; øº“š¼
-    (latin-viscii	. #xDB)	; øº’œ»
     (latin-viscii-lower . #xDB)	; øº’œ»
+    (latin-viscii	. #xDB)	; øº’œ»
+    (=ucs		. #x1EF9)	; á»¹
     ))

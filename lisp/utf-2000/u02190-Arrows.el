@@ -4,113 +4,113 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2190)	; â†
-    (=cns11643-1	. #x2258)	; ø»‘„±
-    (=ks-x1001		. #x2167)	; ø»ˆ›’
     (=gb2312		. #x217B)	; ø»„‡ž
     (=jis-x0208		. #x222B)	; ø½‰·¤
+    (=ks-x1001		. #x2167)	; ø»ˆ›’
+    (=cns11643-1	. #x2258)	; ø»‘„±
     (=big5		. #xA1F6)	; ý¢€Š‡¶
     (=jef-china3	. #x7BCE)	; øº‡¯Ž
+    (=ucs		. #x2190)	; â†
     ))
 (define-char
   '((name		. "UPWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2191)	; â†‘
-    (=cns11643-1	. #x2255)	; ø»‘„®
-    (=ks-x1001		. #x2168)	; ø»ˆ›“
     (=gb2312		. #x217C)	; ø»„‡Ÿ
     (=jis-x0208		. #x222C)	; ø½‰·¥
+    (=ks-x1001		. #x2168)	; ø»ˆ›“
+    (=cns11643-1	. #x2255)	; ø»‘„®
     (=big5		. #xA1F4)	; ý¢€Š‡´
     (=jef-china3	. #x7BCF)	; øº‡¯
+    (=ucs		. #x2191)	; â†‘
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2192)	; â†’
-    (=cns11643-1	. #x2257)	; ø»‘„°
-    (=ks-x1001		. #x2166)	; ø»ˆ›‘
     (=gb2312		. #x217A)	; ø»„‡
     (=jis-x0208		. #x222A)	; ø½‰·£
+    (=ks-x1001		. #x2166)	; ø»ˆ›‘
+    (=cns11643-1	. #x2257)	; ø»‘„°
     (=big5		. #xA1F7)	; ý¢€Š‡·
     (=jef-china3	. #x7BCD)	; øº‡¯
+    (=ucs		. #x2192)	; â†’
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2193)	; â†“
-    (=cns11643-1	. #x2256)	; ø»‘„¯
-    (=ks-x1001		. #x2169)	; ø»ˆ›”
     (=gb2312		. #x217D)	; ø»„‡ 
     (=jis-x0208		. #x222D)	; ø½‰·¦
+    (=ks-x1001		. #x2169)	; ø»ˆ›”
+    (=cns11643-1	. #x2256)	; ø»‘„¯
     (=big5		. #xA1F5)	; ý¢€Š‡µ
     (=jef-china3	. #x7BD0)	; øº‡¯
+    (=ucs		. #x2193)	; â†“
     ))
 (define-char
   '((name		. "LEFT RIGHT ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2194)	; â†”
-    (=jis-x0213-1-2000	. #x2271)	; ø»¢•ª
     (=ks-x1001		. #x216A)	; ø»ˆ›•
+    (=jis-x0213-1-2000	. #x2271)	; ø»¢•ª
+    (=ucs		. #x2194)	; â†”
     ))
 (define-char
   '((name		. "UP DOWN ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2195)	; â†•
     (=ks-x1001		. #x2255)	; ø»ˆœž
+    (=ucs		. #x2195)	; â†•
     ))
 (define-char
   '((name		. "NORTH WEST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2196)	; â†–
-    (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
-    (=cns11643-1	. #x2259)	; ø»‘„²
     (=ks-x1001		. #x2258)	; ø»ˆœ¡
+    (=cns11643-1	. #x2259)	; ø»‘„²
+    (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
     (=big5		. #xA1F8)	; ý¢€Š‡¸
+    (=ucs		. #x2196)	; â†–
     ))
 (define-char
   '((name		. "NORTH EAST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2197)	; â†—
-    (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
-    (=cns11643-1	. #x225A)	; ø»‘„³
     (=ks-x1001		. #x2256)	; ø»ˆœŸ
+    (=cns11643-1	. #x225A)	; ø»‘„³
+    (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
     (=big5		. #xA1F9)	; ý¢€Š‡¹
+    (=ucs		. #x2197)	; â†—
     ))
 (define-char
   '((name		. "SOUTH EAST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2198)	; â†˜
-    (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
-    (=cns11643-1	. #x225C)	; ø»‘„µ
     (=ks-x1001		. #x2259)	; ø»ˆœ¢
+    (=cns11643-1	. #x225C)	; ø»‘„µ
+    (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
     (=big5		. #xA1FB)	; ý¢€Š‡»
+    (=ucs		. #x2198)	; â†˜
     ))
 (define-char
   '((name		. "SOUTH WEST ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2199)	; â†™
-    (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
-    (=cns11643-1	. #x225B)	; ø»‘„´
     (=ks-x1001		. #x2257)	; ø»ˆœ 
+    (=cns11643-1	. #x225B)	; ø»‘„´
+    (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
     (=big5		. #xA1FA)	; ý¢€Š‡º
+    (=ucs		. #x2199)	; â†™
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH STROKE")
@@ -330,16 +330,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21B8)	; â†¸
     (=big5-eten		. #xC877)	; ý¢€Œ¡·
+    (=ucs		. #x21B8)	; â†¸
     ))
 (define-char
   '((name . "LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21B9)	; â†¹
     (=big5-eten		. #xC878)	; ý¢€Œ¡¸
+    (=ucs		. #x21B9)	; â†¹
     ))
 (define-char
   '((name		. "ANTICLOCKWISE OPEN CIRCLE ARROW")
@@ -416,8 +416,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21C4)	; â‡„
     (=jis-x0213-1-2000	. #x2329)	; ø»¢–€
+    (=ucs		. #x21C4)	; â‡„
     ))
 (define-char
   '((name		. "UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW")
@@ -518,11 +518,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21D2)	; â‡’
-    (=jis-x0208-1990	. #x224D)	; ø½‰¸†
-    (=ks-x1001		. #x2221)	; ø»ˆ›ª
     (=jis-x0208-1983	. #x224D)	; ø»†’’
+    (=ks-x1001		. #x2221)	; ø»ˆ›ª
+    (=jis-x0208-1990	. #x224D)	; ø½‰¸†
     (=jef-china3	. #x7FDA)	; øº‡¿š
+    (=ucs		. #x21D2)	; â‡’
     ))
 (define-char
   '((name		. "DOWNWARDS DOUBLE ARROW")
@@ -536,11 +536,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21D4)	; â‡”
-    (=jis-x0208-1990	. #x224E)	; ø½‰¸‡
-    (=ks-x1001		. #x2222)	; ø»ˆ›«
     (=jis-x0208-1983	. #x224E)	; ø»†’“
+    (=ks-x1001		. #x2222)	; ø»ˆ›«
+    (=jis-x0208-1990	. #x224E)	; ø½‰¸‡
     (=jef-china3	. #x7FDB)	; øº‡¿›
+    (=ucs		. #x21D4)	; â‡”
     ))
 (define-char
   '((name		. "UP DOWN DOUBLE ARROW")
@@ -666,37 +666,37 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21E6)	; â‡¦
     (=jis-x0213-1-2000	. #x232B)	; ø»¢–‚
     (=jef-china3	. #x76B2)	; øº‡š²
+    (=ucs		. #x21E6)	; â‡¦
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21E7)	; â‡§
     (=jis-x0213-1-2000	. #x232C)	; ø»¢–ƒ
     (=big5-eten		. #xC876)	; ý¢€Œ¡¶
     (=jef-china3	. #x76B1)	; øº‡š±
+    (=ucs		. #x21E7)	; â‡§
     ))
 (define-char
   '((name		. "RIGHTWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21E8)	; â‡¨
     (=jis-x0213-1-2000	. #x232A)	; ø»¢–
     (=jef-china3	. #x76B3)	; øº‡š³
+    (=ucs		. #x21E8)	; â‡¨
     ))
 (define-char
   '((name		. "DOWNWARDS WHITE ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x21E9)	; â‡©
     (=jis-x0213-1-2000	. #x232D)	; ø»¢–„
     (=jef-china3	. #x76B0)	; øº‡š°
+    (=ucs		. #x21E9)	; â‡©
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW FROM BAR")

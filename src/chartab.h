@@ -40,7 +40,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 EXFUN (Fmake_char, 3);
-EXFUN (Fdecode_char, 4);
+EXFUN (Fdecode_char, 3);
 
 EXFUN (Fput_char_attribute, 3);
 

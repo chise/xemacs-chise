@@ -641,16 +641,13 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point)
 Emchar load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point);
 #endif
 
-Emchar decode_defined_char (Lisp_Object charset, int code_point,
-			    int without_inheritance);
+Emchar decode_defined_char (Lisp_Object charset, int code_point);
 
+INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
-DECODE_CHAR (Lisp_Object charset, int code_point, int without_inheritance);
-INLINE_HEADER Emchar
-DECODE_CHAR (Lisp_Object charset, int code_point, int without_inheritance)
+DECODE_CHAR (Lisp_Object charset, int code_point)
 {
-  Emchar char_id
-    = decode_defined_char (charset, code_point, without_inheritance);
+  Emchar char_id = decode_defined_char (charset, code_point);
 
   if (char_id >= 0)
     return char_id;
@@ -666,9 +663,9 @@ INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   if (XCHARSET_DIMENSION (charset) == 1)
-    return DECODE_CHAR (charset, c1, 0);
+    return DECODE_CHAR (charset, c1);
   else
-    return DECODE_CHAR (charset, (c1 << 8) | c2, 0);
+    return DECODE_CHAR (charset, (c1 << 8) | c2);
 }
 
 extern Lisp_Object Vcharacter_attribute_table;

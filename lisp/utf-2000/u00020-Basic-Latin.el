@@ -4,11 +4,11 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (=ucs		. #x0020)	;
     (ascii		. #x20)	;
-    (latin-viscii	. #x20)	;
-    (ipa		. #xFF)	; øº’›¿
     (arabic-1-column	. #x21)	; øº©š
+    (ipa		. #xFF)	; øº’›¿
+    (latin-viscii	. #x20)	;
+    (=ucs		. #x0020)	;
     ))
 (define-char
   '((name		. "EXCLAMATION MARK")
@@ -19,11 +19,11 @@
      ((name		  . "FULLWIDTH EXCLAMATION MARK")
       (=ucs		  . #xFF01)	; ï¼
       ))
-    (=ucs		. #x0021)	; !
-    (latin-jisx0201	. #x21)	; øº‘‹Œ
     (ascii		. #x21)	; !
-    (latin-viscii	. #x21)	; !
+    (latin-jisx0201	. #x21)	; øº‘‹Œ
     (arabic-1-column	. #x22)	; øº©›
+    (latin-viscii	. #x21)	; !
+    (=ucs		. #x0021)	; !
     ))
 (define-char
   '((name		. "QUOTATION MARK")
@@ -34,10 +34,10 @@
      ((name		  . "FULLWIDTH QUOTATION MARK")
       (=ucs		  . #xFF02)	; ï¼‚
       ))
-    (=ucs		. #x0022)	; "
-    (latin-jisx0201	. #x22)	; øº‘‹
     (ascii		. #x22)	; "
+    (latin-jisx0201	. #x22)	; øº‘‹
     (latin-viscii	. #x22)	; "
+    (=ucs		. #x0022)	; "
     ))
 (define-char
   '((name		. "NUMBER SIGN")
@@ -48,10 +48,10 @@
      ((name		  . "FULLWIDTH NUMBER SIGN")
       (=ucs		  . #xFF03)	; ï¼ƒ
       ))
-    (=ucs		. #x0023)	; #
-    (latin-jisx0201	. #x23)	; øº‘‹Ž
     (ascii		. #x23)	; #
+    (latin-jisx0201	. #x23)	; øº‘‹Ž
     (latin-viscii	. #x23)	; #
+    (=ucs		. #x0023)	; #
     ))
 (define-char
   '((name		. "DOLLAR SIGN")
@@ -62,10 +62,10 @@
      ((name		  . "FULLWIDTH DOLLAR SIGN")
       (=ucs		  . #xFF04)	; ï¼„
       ))
-    (=ucs		. #x0024)	; $
-    (latin-jisx0201	. #x24)	; øº‘‹
     (ascii		. #x24)	; $
+    (latin-jisx0201	. #x24)	; øº‘‹
     (latin-viscii	. #x24)	; $
+    (=ucs		. #x0024)	; $
     ))
 (define-char
   '((name		. "PERCENT SIGN")
@@ -76,10 +76,10 @@
      ((name		  . "FULLWIDTH PERCENT SIGN")
       (=ucs		  . #xFF05)	; ï¼…
       ))
-    (=ucs		. #x0025)	; %
-    (latin-jisx0201	. #x25)	; øº‘‹
     (ascii		. #x25)	; %
+    (latin-jisx0201	. #x25)	; øº‘‹
     (latin-viscii	. #x25)	; %
+    (=ucs		. #x0025)	; %
     ))
 (define-char
   '((name		. "AMPERSAND")
@@ -90,10 +90,10 @@
      ((name		  . "FULLWIDTH AMPERSAND")
       (=ucs		  . #xFF06)	; ï¼†
       ))
-    (=ucs		. #x0026)	; &
-    (latin-jisx0201	. #x26)	; øº‘‹‘
     (ascii		. #x26)	; &
+    (latin-jisx0201	. #x26)	; øº‘‹‘
     (latin-viscii	. #x26)	; &
+    (=ucs		. #x0026)	; &
     ))
 (define-char
   '((name		. "APOSTROPHE")
@@ -104,10 +104,10 @@
      ((name		  . "FULLWIDTH APOSTROPHE")
       (=ucs		  . #xFF07)	; ï¼‡
       ))
-    (=ucs		. #x0027)	; '
-    (latin-jisx0201	. #x27)	; øº‘‹’
     (ascii		. #x27)	; '
+    (latin-jisx0201	. #x27)	; øº‘‹’
     (latin-viscii	. #x27)	; '
+    (=ucs		. #x0027)	; '
     ))
 (define-char
   '((name		. "LEFT PARENTHESIS")
@@ -118,11 +118,11 @@
      ((name		  . "FULLWIDTH LEFT PARENTHESIS")
       (=ucs		  . #xFF08)	; ï¼ˆ
       ))
-    (=ucs		. #x0028)	; (
-    (latin-jisx0201	. #x28)	; øº‘‹“
     (ascii		. #x28)	; (
-    (latin-viscii	. #x28)	; (
+    (latin-jisx0201	. #x28)	; øº‘‹“
     (arabic-1-column	. #x24)	; øº©
+    (latin-viscii	. #x28)	; (
+    (=ucs		. #x0028)	; (
     ))
 (define-char
   '((name		. "RIGHT PARENTHESIS")
@@ -133,11 +133,11 @@
      ((name		  . "FULLWIDTH RIGHT PARENTHESIS")
       (=ucs		  . #xFF09)	; ï¼‰
       ))
-    (=ucs		. #x0029)	; )
-    (latin-jisx0201	. #x29)	; øº‘‹”
     (ascii		. #x29)	; )
-    (latin-viscii	. #x29)	; )
+    (latin-jisx0201	. #x29)	; øº‘‹”
     (arabic-1-column	. #x23)	; øº©œ
+    (latin-viscii	. #x29)	; )
+    (=ucs		. #x0029)	; )
     ))
 (define-char
   '((name		. "ASTERISK")
@@ -148,10 +148,10 @@
      ((name		  . "FULLWIDTH ASTERISK")
       (=ucs		  . #xFF0A)	; ï¼Š
       ))
-    (=ucs		. #x002A)	; *
-    (latin-jisx0201	. #x2A)	; øº‘‹•
     (ascii		. #x2A)	; *
+    (latin-jisx0201	. #x2A)	; øº‘‹•
     (latin-viscii	. #x2A)	; *
+    (=ucs		. #x002A)	; *
     ))
 (define-char
   '((name		. "PLUS SIGN")
@@ -162,10 +162,10 @@
      ((name		  . "FULLWIDTH PLUS SIGN")
       (=ucs		  . #xFF0B)	; ï¼‹
       ))
-    (=ucs		. #x002B)	; +
-    (latin-jisx0201	. #x2B)	; øº‘‹–
     (ascii		. #x2B)	; +
+    (latin-jisx0201	. #x2B)	; øº‘‹–
     (latin-viscii	. #x2B)	; +
+    (=ucs		. #x002B)	; +
     ))
 (define-char
   '((name		. "COMMA")
@@ -176,10 +176,10 @@
      ((name		  . "FULLWIDTH COMMA")
       (=ucs		  . #xFF0C)	; ï¼Œ
       ))
-    (=ucs		. #x002C)	; ,
-    (latin-jisx0201	. #x2C)	; øº‘‹—
     (ascii		. #x2C)	; ,
+    (latin-jisx0201	. #x2C)	; øº‘‹—
     (latin-viscii	. #x2C)	; ,
+    (=ucs		. #x002C)	; ,
     ))
 (define-char
   '((name		. "HYPHEN-MINUS")
@@ -190,10 +190,10 @@
      ((name		  . "FULLWIDTH HYPHEN-MINUS")
       (=ucs		  . #xFF0D)	; ï¼
       ))
-    (=ucs		. #x002D)	; -
-    (latin-jisx0201	. #x2D)	; øº‘‹˜
     (ascii		. #x2D)	; -
+    (latin-jisx0201	. #x2D)	; øº‘‹˜
     (latin-viscii	. #x2D)	; -
+    (=ucs		. #x002D)	; -
     ))
 (define-char
   '((name		. "FULL STOP")
@@ -204,11 +204,11 @@
      ((name		  . "FULLWIDTH FULL STOP")
       (=ucs		  . #xFF0E)	; ï¼Ž
       ))
-    (=ucs		. #x002E)	; .
-    (latin-jisx0201	. #x2E)	; øº‘‹™
     (ascii		. #x2E)	; .
-    (latin-viscii	. #x2E)	; .
+    (latin-jisx0201	. #x2E)	; øº‘‹™
     (arabic-1-column	. #x26)	; øº©Ÿ
+    (latin-viscii	. #x2E)	; .
+    (=ucs		. #x002E)	; .
     ))
 (define-char
   '((name		. "SOLIDUS")
@@ -219,10 +219,10 @@
      ((name		  . "FULLWIDTH SOLIDUS")
       (=ucs		  . #xFF0F)	; ï¼
       ))
-    (=ucs		. #x002F)	; /
-    (latin-jisx0201	. #x2F)	; øº‘‹š
     (ascii		. #x2F)	; /
+    (latin-jisx0201	. #x2F)	; øº‘‹š
     (latin-viscii	. #x2F)	; /
+    (=ucs		. #x002F)	; /
     ))
 (define-char
   '((name		. "DIGIT ZERO")
@@ -236,10 +236,10 @@
      ((name		  . "FULLWIDTH DIGIT ZERO")
       (=ucs		  . #xFF10)	; ï¼
       ))
-    (=ucs		. #x0030)	; 0
-    (latin-jisx0201	. #x30)	; øº‘‹›
     (ascii		. #x30)	; 0
+    (latin-jisx0201	. #x30)	; øº‘‹›
     (latin-viscii	. #x30)	; 0
+    (=ucs		. #x0030)	; 0
     ))
 (define-char
   '((name		. "DIGIT ONE")
@@ -253,10 +253,10 @@
      ((name		  . "FULLWIDTH DIGIT ONE")
       (=ucs		  . #xFF11)	; ï¼‘
       ))
-    (=ucs		. #x0031)	; 1
-    (latin-jisx0201	. #x31)	; øº‘‹œ
     (ascii		. #x31)	; 1
+    (latin-jisx0201	. #x31)	; øº‘‹œ
     (latin-viscii	. #x31)	; 1
+    (=ucs		. #x0031)	; 1
     ))
 (define-char
   '((name		. "DIGIT TWO")
@@ -270,10 +270,10 @@
      ((name		  . "FULLWIDTH DIGIT TWO")
       (=ucs		  . #xFF12)	; ï¼’
       ))
-    (=ucs		. #x0032)	; 2
-    (latin-jisx0201	. #x32)	; øº‘‹
     (ascii		. #x32)	; 2
+    (latin-jisx0201	. #x32)	; øº‘‹
     (latin-viscii	. #x32)	; 2
+    (=ucs		. #x0032)	; 2
     ))
 (define-char
   '((name		. "DIGIT THREE")
@@ -287,10 +287,10 @@
      ((name		  . "FULLWIDTH DIGIT THREE")
       (=ucs		  . #xFF13)	; ï¼“
       ))
-    (=ucs		. #x0033)	; 3
-    (latin-jisx0201	. #x33)	; øº‘‹ž
     (ascii		. #x33)	; 3
+    (latin-jisx0201	. #x33)	; øº‘‹ž
     (latin-viscii	. #x33)	; 3
+    (=ucs		. #x0033)	; 3
     ))
 (define-char
   '((name		. "DIGIT FOUR")
@@ -304,10 +304,10 @@
      ((name		  . "FULLWIDTH DIGIT FOUR")
       (=ucs		  . #xFF14)	; ï¼”
       ))
-    (=ucs		. #x0034)	; 4
-    (latin-jisx0201	. #x34)	; øº‘‹Ÿ
     (ascii		. #x34)	; 4
+    (latin-jisx0201	. #x34)	; øº‘‹Ÿ
     (latin-viscii	. #x34)	; 4
+    (=ucs		. #x0034)	; 4
     ))
 (define-char
   '((name		. "DIGIT FIVE")
@@ -321,10 +321,10 @@
      ((name		  . "FULLWIDTH DIGIT FIVE")
       (=ucs		  . #xFF15)	; ï¼•
       ))
-    (=ucs		. #x0035)	; 5
-    (latin-jisx0201	. #x35)	; øº‘‹ 
     (ascii		. #x35)	; 5
+    (latin-jisx0201	. #x35)	; øº‘‹ 
     (latin-viscii	. #x35)	; 5
+    (=ucs		. #x0035)	; 5
     ))
 (define-char
   '((name		. "DIGIT SIX")
@@ -338,10 +338,10 @@
      ((name		  . "FULLWIDTH DIGIT SIX")
       (=ucs		  . #xFF16)	; ï¼–
       ))
-    (=ucs		. #x0036)	; 6
-    (latin-jisx0201	. #x36)	; øº‘‹¡
     (ascii		. #x36)	; 6
+    (latin-jisx0201	. #x36)	; øº‘‹¡
     (latin-viscii	. #x36)	; 6
+    (=ucs		. #x0036)	; 6
     ))
 (define-char
   '((name		. "DIGIT SEVEN")
@@ -355,10 +355,10 @@
      ((name		  . "FULLWIDTH DIGIT SEVEN")
       (=ucs		  . #xFF17)	; ï¼—
       ))
-    (=ucs		. #x0037)	; 7
-    (latin-jisx0201	. #x37)	; øº‘‹¢
     (ascii		. #x37)	; 7
+    (latin-jisx0201	. #x37)	; øº‘‹¢
     (latin-viscii	. #x37)	; 7
+    (=ucs		. #x0037)	; 7
     ))
 (define-char
   '((name		. "DIGIT EIGHT")
@@ -372,10 +372,10 @@
      ((name		  . "FULLWIDTH DIGIT EIGHT")
       (=ucs		  . #xFF18)	; ï¼˜
       ))
-    (=ucs		. #x0038)	; 8
-    (latin-jisx0201	. #x38)	; øº‘‹£
     (ascii		. #x38)	; 8
+    (latin-jisx0201	. #x38)	; øº‘‹£
     (latin-viscii	. #x38)	; 8
+    (=ucs		. #x0038)	; 8
     ))
 (define-char
   '((name		. "DIGIT NINE")
@@ -389,10 +389,10 @@
      ((name		  . "FULLWIDTH DIGIT NINE")
       (=ucs		  . #xFF19)	; ï¼™
       ))
-    (=ucs		. #x0039)	; 9
-    (latin-jisx0201	. #x39)	; øº‘‹¤
     (ascii		. #x39)	; 9
+    (latin-jisx0201	. #x39)	; øº‘‹¤
     (latin-viscii	. #x39)	; 9
+    (=ucs		. #x0039)	; 9
     ))
 (define-char
   '((name		. "COLON")
@@ -403,11 +403,11 @@
      ((name		  . "FULLWIDTH COLON")
       (=ucs		  . #xFF1A)	; ï¼š
       ))
-    (=ucs		. #x003A)	; :
-    (latin-jisx0201	. #x3A)	; øº‘‹¥
     (ascii		. #x3A)	; :
-    (latin-viscii	. #x3A)	; :
+    (latin-jisx0201	. #x3A)	; øº‘‹¥
     (arabic-1-column	. #x27)	; øº© 
+    (latin-viscii	. #x3A)	; :
+    (=ucs		. #x003A)	; :
     ))
 (define-char
   '((name		. "SEMICOLON")
@@ -418,10 +418,10 @@
      ((name		  . "FULLWIDTH SEMICOLON")
       (=ucs		  . #xFF1B)	; ï¼›
       ))
-    (=ucs		. #x003B)	; ;
-    (latin-jisx0201	. #x3B)	; øº‘‹¦
     (ascii		. #x3B)	; ;
+    (latin-jisx0201	. #x3B)	; øº‘‹¦
     (latin-viscii	. #x3B)	; ;
+    (=ucs		. #x003B)	; ;
     ))
 (define-char
   '((name		. "LESS-THAN SIGN")
@@ -432,10 +432,10 @@
      ((name		  . "FULLWIDTH LESS-THAN SIGN")
       (=ucs		  . #xFF1C)	; ï¼œ
       ))
-    (=ucs		. #x003C)	; <
-    (latin-jisx0201	. #x3C)	; øº‘‹§
     (ascii		. #x3C)	; <
+    (latin-jisx0201	. #x3C)	; øº‘‹§
     (latin-viscii	. #x3C)	; <
+    (=ucs		. #x003C)	; <
     ))
 (define-char
   '((name		. "EQUALS SIGN")
@@ -446,10 +446,10 @@
      ((name		  . "FULLWIDTH EQUALS SIGN")
       (=ucs		  . #xFF1D)	; ï¼
       ))
-    (=ucs		. #x003D)	; =
-    (latin-jisx0201	. #x3D)	; øº‘‹¨
     (ascii		. #x3D)	; =
+    (latin-jisx0201	. #x3D)	; øº‘‹¨
     (latin-viscii	. #x3D)	; =
+    (=ucs		. #x003D)	; =
     ))
 (define-char
   '((name		. "GREATER-THAN SIGN")
@@ -460,10 +460,10 @@
      ((name		  . "FULLWIDTH GREATER-THAN SIGN")
       (=ucs		  . #xFF1E)	; ï¼ž
       ))
-    (=ucs		. #x003E)	; >
-    (latin-jisx0201	. #x3E)	; øº‘‹©
     (ascii		. #x3E)	; >
+    (latin-jisx0201	. #x3E)	; øº‘‹©
     (latin-viscii	. #x3E)	; >
+    (=ucs		. #x003E)	; >
     ))
 (define-char
   '((name		. "QUESTION MARK")
@@ -474,10 +474,10 @@
      ((name		  . "FULLWIDTH QUESTION MARK")
       (=ucs		  . #xFF1F)	; ï¼Ÿ
       ))
-    (=ucs		. #x003F)	; ?
-    (latin-jisx0201	. #x3F)	; øº‘‹ª
     (ascii		. #x3F)	; ?
+    (latin-jisx0201	. #x3F)	; øº‘‹ª
     (latin-viscii	. #x3F)	; ?
+    (=ucs		. #x003F)	; ?
     ))
 (define-char
   '((name		. "COMMERCIAL AT")
@@ -488,10 +488,10 @@
      ((name		  . "FULLWIDTH COMMERCIAL AT")
       (=ucs		  . #xFF20)	; ï¼ 
       ))
-    (=ucs		. #x0040)	; @
-    (latin-jisx0201	. #x40)	; øº‘‹«
     (ascii		. #x40)	; @
+    (latin-jisx0201	. #x40)	; øº‘‹«
     (latin-viscii	. #x40)	; @
+    (=ucs		. #x0040)	; @
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A")
@@ -506,10 +506,10 @@
      ((name		  . "LATIN SMALL LETTER A")
       (=ucs		  . #x0061)	; a
       ))
-    (=ucs		. #x0041)	; A
-    (latin-jisx0201	. #x41)	; øº‘‹¬
     (ascii		. #x41)	; A
+    (latin-jisx0201	. #x41)	; øº‘‹¬
     (latin-viscii	. #x41)	; A
+    (=ucs		. #x0041)	; A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER B")
@@ -524,10 +524,10 @@
      ((name		  . "LATIN SMALL LETTER B")
       (=ucs		  . #x0062)	; b
       ))
-    (=ucs		. #x0042)	; B
-    (latin-jisx0201	. #x42)	; øº‘‹­
     (ascii		. #x42)	; B
+    (latin-jisx0201	. #x42)	; øº‘‹­
     (latin-viscii	. #x42)	; B
+    (=ucs		. #x0042)	; B
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER C")
@@ -542,10 +542,10 @@
      ((name		  . "LATIN SMALL LETTER C")
       (=ucs		  . #x0063)	; c
       ))
-    (=ucs		. #x0043)	; C
-    (latin-jisx0201	. #x43)	; øº‘‹®
     (ascii		. #x43)	; C
+    (latin-jisx0201	. #x43)	; øº‘‹®
     (latin-viscii	. #x43)	; C
+    (=ucs		. #x0043)	; C
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER D")
@@ -560,10 +560,10 @@
      ((name		  . "LATIN SMALL LETTER D")
       (=ucs		  . #x0064)	; d
       ))
-    (=ucs		. #x0044)	; D
-    (latin-jisx0201	. #x44)	; øº‘‹¯
     (ascii		. #x44)	; D
+    (latin-jisx0201	. #x44)	; øº‘‹¯
     (latin-viscii	. #x44)	; D
+    (=ucs		. #x0044)	; D
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E")
@@ -578,10 +578,10 @@
      ((name		  . "LATIN SMALL LETTER E")
       (=ucs		  . #x0065)	; e
       ))
-    (=ucs		. #x0045)	; E
-    (latin-jisx0201	. #x45)	; øº‘‹°
     (ascii		. #x45)	; E
+    (latin-jisx0201	. #x45)	; øº‘‹°
     (latin-viscii	. #x45)	; E
+    (=ucs		. #x0045)	; E
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER F")
@@ -596,10 +596,10 @@
      ((name		  . "LATIN SMALL LETTER F")
       (=ucs		  . #x0066)	; f
       ))
-    (=ucs		. #x0046)	; F
-    (latin-jisx0201	. #x46)	; øº‘‹±
     (ascii		. #x46)	; F
+    (latin-jisx0201	. #x46)	; øº‘‹±
     (latin-viscii	. #x46)	; F
+    (=ucs		. #x0046)	; F
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER G")
@@ -614,10 +614,10 @@
      ((name		  . "LATIN SMALL LETTER G")
       (=ucs		  . #x0067)	; g
       ))
-    (=ucs		. #x0047)	; G
-    (latin-jisx0201	. #x47)	; øº‘‹²
     (ascii		. #x47)	; G
+    (latin-jisx0201	. #x47)	; øº‘‹²
     (latin-viscii	. #x47)	; G
+    (=ucs		. #x0047)	; G
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER H")
@@ -632,10 +632,10 @@
      ((name		  . "LATIN SMALL LETTER H")
       (=ucs		  . #x0068)	; h
       ))
-    (=ucs		. #x0048)	; H
-    (latin-jisx0201	. #x48)	; øº‘‹³
     (ascii		. #x48)	; H
+    (latin-jisx0201	. #x48)	; øº‘‹³
     (latin-viscii	. #x48)	; H
+    (=ucs		. #x0048)	; H
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I")
@@ -650,10 +650,10 @@
      ((name		  . "LATIN SMALL LETTER I")
       (=ucs		  . #x0069)	; i
       ))
-    (=ucs		. #x0049)	; I
-    (latin-jisx0201	. #x49)	; øº‘‹´
     (ascii		. #x49)	; I
+    (latin-jisx0201	. #x49)	; øº‘‹´
     (latin-viscii	. #x49)	; I
+    (=ucs		. #x0049)	; I
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER J")
@@ -668,10 +668,10 @@
      ((name		  . "LATIN SMALL LETTER J")
       (=ucs		  . #x006A)	; j
       ))
-    (=ucs		. #x004A)	; J
-    (latin-jisx0201	. #x4A)	; øº‘‹µ
     (ascii		. #x4A)	; J
+    (latin-jisx0201	. #x4A)	; øº‘‹µ
     (latin-viscii	. #x4A)	; J
+    (=ucs		. #x004A)	; J
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER K")
@@ -686,10 +686,10 @@
      ((name		  . "LATIN SMALL LETTER K")
       (=ucs		  . #x006B)	; k
       ))
-    (=ucs		. #x004B)	; K
-    (latin-jisx0201	. #x4B)	; øº‘‹¶
     (ascii		. #x4B)	; K
+    (latin-jisx0201	. #x4B)	; øº‘‹¶
     (latin-viscii	. #x4B)	; K
+    (=ucs		. #x004B)	; K
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER L")
@@ -704,10 +704,10 @@
      ((name		  . "LATIN SMALL LETTER L")
       (=ucs		  . #x006C)	; l
       ))
-    (=ucs		. #x004C)	; L
-    (latin-jisx0201	. #x4C)	; øº‘‹·
     (ascii		. #x4C)	; L
+    (latin-jisx0201	. #x4C)	; øº‘‹·
     (latin-viscii	. #x4C)	; L
+    (=ucs		. #x004C)	; L
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER M")
@@ -722,10 +722,10 @@
      ((name		  . "LATIN SMALL LETTER M")
       (=ucs		  . #x006D)	; m
       ))
-    (=ucs		. #x004D)	; M
-    (latin-jisx0201	. #x4D)	; øº‘‹¸
     (ascii		. #x4D)	; M
+    (latin-jisx0201	. #x4D)	; øº‘‹¸
     (latin-viscii	. #x4D)	; M
+    (=ucs		. #x004D)	; M
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER N")
@@ -740,10 +740,10 @@
      ((name		  . "LATIN SMALL LETTER N")
       (=ucs		  . #x006E)	; n
       ))
-    (=ucs		. #x004E)	; N
-    (latin-jisx0201	. #x4E)	; øº‘‹¹
     (ascii		. #x4E)	; N
+    (latin-jisx0201	. #x4E)	; øº‘‹¹
     (latin-viscii	. #x4E)	; N
+    (=ucs		. #x004E)	; N
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O")
@@ -758,10 +758,10 @@
      ((name		  . "LATIN SMALL LETTER O")
       (=ucs		  . #x006F)	; o
       ))
-    (=ucs		. #x004F)	; O
-    (latin-jisx0201	. #x4F)	; øº‘‹º
     (ascii		. #x4F)	; O
+    (latin-jisx0201	. #x4F)	; øº‘‹º
     (latin-viscii	. #x4F)	; O
+    (=ucs		. #x004F)	; O
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER P")
@@ -776,10 +776,10 @@
      ((name		  . "LATIN SMALL LETTER P")
       (=ucs		  . #x0070)	; p
       ))
-    (=ucs		. #x0050)	; P
-    (latin-jisx0201	. #x50)	; øº‘‹»
     (ascii		. #x50)	; P
+    (latin-jisx0201	. #x50)	; øº‘‹»
     (latin-viscii	. #x50)	; P
+    (=ucs		. #x0050)	; P
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Q")
@@ -794,10 +794,10 @@
      ((name		  . "LATIN SMALL LETTER Q")
       (=ucs		  . #x0071)	; q
       ))
-    (=ucs		. #x0051)	; Q
-    (latin-jisx0201	. #x51)	; øº‘‹¼
     (ascii		. #x51)	; Q
+    (latin-jisx0201	. #x51)	; øº‘‹¼
     (latin-viscii	. #x51)	; Q
+    (=ucs		. #x0051)	; Q
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER R")
@@ -812,10 +812,10 @@
      ((name		  . "LATIN SMALL LETTER R")
       (=ucs		  . #x0072)	; r
       ))
-    (=ucs		. #x0052)	; R
-    (latin-jisx0201	. #x52)	; øº‘‹½
     (ascii		. #x52)	; R
+    (latin-jisx0201	. #x52)	; øº‘‹½
     (latin-viscii	. #x52)	; R
+    (=ucs		. #x0052)	; R
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER S")
@@ -830,10 +830,10 @@
      ((name		  . "LATIN SMALL LETTER S")
       (=ucs		  . #x0073)	; s
       ))
-    (=ucs		. #x0053)	; S
-    (latin-jisx0201	. #x53)	; øº‘‹¾
     (ascii		. #x53)	; S
+    (latin-jisx0201	. #x53)	; øº‘‹¾
     (latin-viscii	. #x53)	; S
+    (=ucs		. #x0053)	; S
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER T")
@@ -848,10 +848,10 @@
      ((name		  . "LATIN SMALL LETTER T")
       (=ucs		  . #x0074)	; t
       ))
-    (=ucs		. #x0054)	; T
-    (latin-jisx0201	. #x54)	; øº‘‹¿
     (ascii		. #x54)	; T
+    (latin-jisx0201	. #x54)	; øº‘‹¿
     (latin-viscii	. #x54)	; T
+    (=ucs		. #x0054)	; T
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U")
@@ -866,10 +866,10 @@
      ((name		  . "LATIN SMALL LETTER U")
       (=ucs		  . #x0075)	; u
       ))
-    (=ucs		. #x0055)	; U
-    (latin-jisx0201	. #x55)	; øº‘Œ€
     (ascii		. #x55)	; U
+    (latin-jisx0201	. #x55)	; øº‘Œ€
     (latin-viscii	. #x55)	; U
+    (=ucs		. #x0055)	; U
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER V")
@@ -884,10 +884,10 @@
      ((name		  . "LATIN SMALL LETTER V")
       (=ucs		  . #x0076)	; v
       ))
-    (=ucs		. #x0056)	; V
-    (latin-jisx0201	. #x56)	; øº‘Œ
     (ascii		. #x56)	; V
+    (latin-jisx0201	. #x56)	; øº‘Œ
     (latin-viscii	. #x56)	; V
+    (=ucs		. #x0056)	; V
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER W")
@@ -902,10 +902,10 @@
      ((name		  . "LATIN SMALL LETTER W")
       (=ucs		  . #x0077)	; w
       ))
-    (=ucs		. #x0057)	; W
-    (latin-jisx0201	. #x57)	; øº‘Œ‚
     (ascii		. #x57)	; W
+    (latin-jisx0201	. #x57)	; øº‘Œ‚
     (latin-viscii	. #x57)	; W
+    (=ucs		. #x0057)	; W
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER X")
@@ -920,10 +920,10 @@
      ((name		  . "LATIN SMALL LETTER X")
       (=ucs		  . #x0078)	; x
       ))
-    (=ucs		. #x0058)	; X
-    (latin-jisx0201	. #x58)	; øº‘Œƒ
     (ascii		. #x58)	; X
+    (latin-jisx0201	. #x58)	; øº‘Œƒ
     (latin-viscii	. #x58)	; X
+    (=ucs		. #x0058)	; X
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y")
@@ -938,10 +938,10 @@
      ((name		  . "LATIN SMALL LETTER Y")
       (=ucs		  . #x0079)	; y
       ))
-    (=ucs		. #x0059)	; Y
-    (latin-jisx0201	. #x59)	; øº‘Œ„
     (ascii		. #x59)	; Y
+    (latin-jisx0201	. #x59)	; øº‘Œ„
     (latin-viscii	. #x59)	; Y
+    (=ucs		. #x0059)	; Y
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Z")
@@ -956,10 +956,10 @@
      ((name		  . "LATIN SMALL LETTER Z")
       (=ucs		  . #x007A)	; z
       ))
-    (=ucs		. #x005A)	; Z
-    (latin-jisx0201	. #x5A)	; øº‘Œ…
     (ascii		. #x5A)	; Z
+    (latin-jisx0201	. #x5A)	; øº‘Œ…
     (latin-viscii	. #x5A)	; Z
+    (=ucs		. #x005A)	; Z
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET")
@@ -970,10 +970,10 @@
      ((name		  . "FULLWIDTH LEFT SQUARE BRACKET")
       (=ucs		  . #xFF3B)	; ï¼»
       ))
-    (=ucs		. #x005B)	; [
-    (latin-jisx0201	. #x5B)	; øº‘Œ†
     (ascii		. #x5B)	; [
+    (latin-jisx0201	. #x5B)	; øº‘Œ†
     (latin-viscii	. #x5B)	; [
+    (=ucs		. #x005B)	; [
     ))
 (define-char
   '((name		. "REVERSE SOLIDUS")
@@ -984,9 +984,9 @@
      ((name		  . "FULLWIDTH REVERSE SOLIDUS")
       (=ucs		  . #xFF3C)	; ï¼¼
       ))
-    (=ucs		. #x005C)	; \
     (ascii		. #x5C)	; \
     (latin-viscii	. #x5C)	; \
+    (=ucs		. #x005C)	; \
     ))
 (define-char
   '((name		. "RIGHT SQUARE BRACKET")
@@ -997,10 +997,10 @@
      ((name		  . "FULLWIDTH RIGHT SQUARE BRACKET")
       (=ucs		  . #xFF3D)	; ï¼½
       ))
-    (=ucs		. #x005D)	; ]
-    (latin-jisx0201	. #x5D)	; øº‘Œˆ
     (ascii		. #x5D)	; ]
+    (latin-jisx0201	. #x5D)	; øº‘Œˆ
     (latin-viscii	. #x5D)	; ]
+    (=ucs		. #x005D)	; ]
     ))
 (define-char
   '((name		. "CIRCUMFLEX ACCENT")
@@ -1011,10 +1011,10 @@
      ((name		  . "FULLWIDTH CIRCUMFLEX ACCENT")
       (=ucs		  . #xFF3E)	; ï¼¾
       ))
-    (=ucs		. #x005E)	; ^
-    (latin-jisx0201	. #x5E)	; øº‘Œ‰
     (ascii		. #x5E)	; ^
+    (latin-jisx0201	. #x5E)	; øº‘Œ‰
     (latin-viscii	. #x5E)	; ^
+    (=ucs		. #x005E)	; ^
     ))
 (define-char
   '((name		. "LOW LINE")
@@ -1025,10 +1025,10 @@
      ((name		  . "FULLWIDTH LOW LINE")
       (=ucs		  . #xFF3F)	; ï¼¿
       ))
-    (=ucs		. #x005F)	; _
-    (latin-jisx0201	. #x5F)	; øº‘ŒŠ
     (ascii		. #x5F)	; _
+    (latin-jisx0201	. #x5F)	; øº‘ŒŠ
     (latin-viscii	. #x5F)	; _
+    (=ucs		. #x005F)	; _
     ))
 (define-char
   '((name		. "GRAVE ACCENT")
@@ -1039,10 +1039,10 @@
      ((name		  . "FULLWIDTH GRAVE ACCENT")
       (=ucs		  . #xFF40)	; ï½€
       ))
-    (=ucs		. #x0060)	; `
-    (latin-jisx0201	. #x60)	; øº‘Œ‹
     (ascii		. #x60)	; `
+    (latin-jisx0201	. #x60)	; øº‘Œ‹
     (latin-viscii	. #x60)	; `
+    (=ucs		. #x0060)	; `
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A")
@@ -1057,11 +1057,11 @@
      ((name		  . "LATIN CAPITAL LETTER A")
       (=ucs		  . #x0041)	; A
       ))
-    (=ucs		. #x0061)	; a
-    (latin-jisx0201	. #x61)	; øº‘ŒŒ
     (ascii		. #x61)	; a
-    (latin-viscii	. #x61)	; a
+    (latin-jisx0201	. #x61)	; øº‘ŒŒ
     (ipa		. #xA5)	; øº’š¥
+    (latin-viscii	. #x61)	; a
+    (=ucs		. #x0061)	; a
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER B")
@@ -1076,11 +1076,11 @@
      ((name		  . "LATIN CAPITAL LETTER B")
       (=ucs		  . #x0042)	; B
       ))
-    (=ucs		. #x0062)	; b
-    (latin-jisx0201	. #x62)	; øº‘Œ
     (ascii		. #x62)	; b
-    (latin-viscii	. #x62)	; b
+    (latin-jisx0201	. #x62)	; øº‘Œ
     (ipa		. #xC1)	; øº’›
+    (latin-viscii	. #x62)	; b
+    (=ucs		. #x0062)	; b
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C")
@@ -1095,10 +1095,10 @@
      ((name		  . "LATIN CAPITAL LETTER C")
       (=ucs		  . #x0043)	; C
       ))
-    (=ucs		. #x0063)	; c
-    (latin-jisx0201	. #x63)	; øº‘ŒŽ
     (ascii		. #x63)	; c
+    (latin-jisx0201	. #x63)	; øº‘ŒŽ
     (latin-viscii	. #x63)	; c
+    (=ucs		. #x0063)	; c
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D")
@@ -1113,11 +1113,11 @@
      ((name		  . "LATIN CAPITAL LETTER D")
       (=ucs		  . #x0044)	; D
       ))
-    (=ucs		. #x0064)	; d
-    (latin-jisx0201	. #x64)	; øº‘Œ
     (ascii		. #x64)	; d
-    (latin-viscii	. #x64)	; d
+    (latin-jisx0201	. #x64)	; øº‘Œ
     (ipa		. #xC3)	; øº’›ƒ
+    (latin-viscii	. #x64)	; d
+    (=ucs		. #x0064)	; d
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E")
@@ -1132,11 +1132,11 @@
      ((name		  . "LATIN CAPITAL LETTER E")
       (=ucs		  . #x0045)	; E
       ))
-    (=ucs		. #x0065)	; e
-    (latin-jisx0201	. #x65)	; øº‘Œ
     (ascii		. #x65)	; e
-    (latin-viscii	. #x65)	; e
+    (latin-jisx0201	. #x65)	; øº‘Œ
     (ipa		. #xA2)	; øº’š¢
+    (latin-viscii	. #x65)	; e
+    (=ucs		. #x0065)	; e
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER F")
@@ -1151,11 +1151,11 @@
      ((name		  . "LATIN CAPITAL LETTER F")
       (=ucs		  . #x0046)	; F
       ))
-    (=ucs		. #x0066)	; f
-    (latin-jisx0201	. #x66)	; øº‘Œ‘
     (ascii		. #x66)	; f
-    (latin-viscii	. #x66)	; f
+    (latin-jisx0201	. #x66)	; øº‘Œ‘
     (ipa		. #xC6)	; øº’›†
+    (latin-viscii	. #x66)	; f
+    (=ucs		. #x0066)	; f
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER G")
@@ -1170,11 +1170,11 @@
      ((name		  . "LATIN CAPITAL LETTER G")
       (=ucs		  . #x0047)	; G
       ))
-    (=ucs		. #x0067)	; g
-    (latin-jisx0201	. #x67)	; øº‘Œ’
     (ascii		. #x67)	; g
-    (latin-viscii	. #x67)	; g
+    (latin-jisx0201	. #x67)	; øº‘Œ’
     (ipa		. #xC5)	; øº’›…
+    (latin-viscii	. #x67)	; g
+    (=ucs		. #x0067)	; g
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER H")
@@ -1189,11 +1189,11 @@
      ((name		  . "LATIN CAPITAL LETTER H")
       (=ucs		  . #x0048)	; H
       ))
-    (=ucs		. #x0068)	; h
-    (latin-jisx0201	. #x68)	; øº‘Œ“
     (ascii		. #x68)	; h
-    (latin-viscii	. #x68)	; h
+    (latin-jisx0201	. #x68)	; øº‘Œ“
     (ipa		. #xD1)	; øº’›‘
+    (latin-viscii	. #x68)	; h
+    (=ucs		. #x0068)	; h
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I")
@@ -1208,11 +1208,11 @@
      ((name		  . "LATIN CAPITAL LETTER I")
       (=ucs		  . #x0049)	; I
       ))
-    (=ucs		. #x0069)	; i
-    (latin-jisx0201	. #x69)	; øº‘Œ”
     (ascii		. #x69)	; i
-    (latin-viscii	. #x69)	; i
+    (latin-jisx0201	. #x69)	; øº‘Œ”
     (ipa		. #xA0)	; øº’š 
+    (latin-viscii	. #x69)	; i
+    (=ucs		. #x0069)	; i
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER J")
@@ -1227,11 +1227,11 @@
      ((name		  . "LATIN CAPITAL LETTER J")
       (=ucs		  . #x004A)	; J
       ))
-    (=ucs		. #x006A)	; j
-    (latin-jisx0201	. #x6A)	; øº‘Œ•
     (ascii		. #x6A)	; j
-    (latin-viscii	. #x6A)	; j
+    (latin-jisx0201	. #x6A)	; øº‘Œ•
     (ipa		. #xD9)	; øº’›™
+    (latin-viscii	. #x6A)	; j
+    (=ucs		. #x006A)	; j
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER K")
@@ -1246,11 +1246,11 @@
      ((name		  . "LATIN CAPITAL LETTER K")
       (=ucs		  . #x004B)	; K
       ))
-    (=ucs		. #x006B)	; k
-    (latin-jisx0201	. #x6B)	; øº‘Œ–
     (ascii		. #x6B)	; k
-    (latin-viscii	. #x6B)	; k
+    (latin-jisx0201	. #x6B)	; øº‘Œ–
     (ipa		. #xC4)	; øº’›„
+    (latin-viscii	. #x6B)	; k
+    (=ucs		. #x006B)	; k
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L")
@@ -1265,11 +1265,11 @@
      ((name		  . "LATIN CAPITAL LETTER L")
       (=ucs		  . #x004C)	; L
       ))
-    (=ucs		. #x006C)	; l
-    (latin-jisx0201	. #x6C)	; øº‘Œ—
     (ascii		. #x6C)	; l
-    (latin-viscii	. #x6C)	; l
+    (latin-jisx0201	. #x6C)	; øº‘Œ—
     (ipa		. #xDA)	; øº’›š
+    (latin-viscii	. #x6C)	; l
+    (=ucs		. #x006C)	; l
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M")
@@ -1284,11 +1284,11 @@
      ((name		  . "LATIN CAPITAL LETTER M")
       (=ucs		  . #x004D)	; M
       ))
-    (=ucs		. #x006D)	; m
-    (latin-jisx0201	. #x6D)	; øº‘Œ˜
     (ascii		. #x6D)	; m
-    (latin-viscii	. #x6D)	; m
+    (latin-jisx0201	. #x6D)	; øº‘Œ˜
     (ipa		. #xD2)	; øº’›’
+    (latin-viscii	. #x6D)	; m
+    (=ucs		. #x006D)	; m
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N")
@@ -1303,11 +1303,11 @@
      ((name		  . "LATIN CAPITAL LETTER N")
       (=ucs		  . #x004E)	; N
       ))
-    (=ucs		. #x006E)	; n
-    (latin-jisx0201	. #x6E)	; øº‘Œ™
     (ascii		. #x6E)	; n
-    (latin-viscii	. #x6E)	; n
+    (latin-jisx0201	. #x6E)	; øº‘Œ™
     (ipa		. #xD3)	; øº’›“
+    (latin-viscii	. #x6E)	; n
+    (=ucs		. #x006E)	; n
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O")
@@ -1322,11 +1322,11 @@
      ((name		  . "LATIN CAPITAL LETTER O")
       (=ucs		  . #x004F)	; O
       ))
-    (=ucs		. #x006F)	; o
-    (latin-jisx0201	. #x6F)	; øº‘Œš
     (ascii		. #x6F)	; o
-    (latin-viscii	. #x6F)	; o
+    (latin-jisx0201	. #x6F)	; øº‘Œš
     (ipa		. #xB6)	; øº’š¶
+    (latin-viscii	. #x6F)	; o
+    (=ucs		. #x006F)	; o
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER P")
@@ -1341,11 +1341,11 @@
      ((name		  . "LATIN CAPITAL LETTER P")
       (=ucs		  . #x0050)	; P
       ))
-    (=ucs		. #x0070)	; p
-    (latin-jisx0201	. #x70)	; øº‘Œ›
     (ascii		. #x70)	; p
-    (latin-viscii	. #x70)	; p
+    (latin-jisx0201	. #x70)	; øº‘Œ›
     (ipa		. #xC0)	; øº’›€
+    (latin-viscii	. #x70)	; p
+    (=ucs		. #x0070)	; p
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Q")
@@ -1360,10 +1360,10 @@
      ((name		  . "LATIN CAPITAL LETTER Q")
       (=ucs		  . #x0051)	; Q
       ))
-    (=ucs		. #x0071)	; q
-    (latin-jisx0201	. #x71)	; øº‘Œœ
     (ascii		. #x71)	; q
+    (latin-jisx0201	. #x71)	; øº‘Œœ
     (latin-viscii	. #x71)	; q
+    (=ucs		. #x0071)	; q
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R")
@@ -1378,11 +1378,11 @@
      ((name		  . "LATIN CAPITAL LETTER R")
       (=ucs		  . #x0052)	; R
       ))
-    (=ucs		. #x0072)	; r
-    (latin-jisx0201	. #x72)	; øº‘Œ
     (ascii		. #x72)	; r
-    (latin-viscii	. #x72)	; r
+    (latin-jisx0201	. #x72)	; øº‘Œ
     (ipa		. #xD6)	; øº’›–
+    (latin-viscii	. #x72)	; r
+    (=ucs		. #x0072)	; r
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S")
@@ -1397,11 +1397,11 @@
      ((name		  . "LATIN CAPITAL LETTER S")
       (=ucs		  . #x0053)	; S
       ))
-    (=ucs		. #x0073)	; s
-    (latin-jisx0201	. #x73)	; øº‘Œž
     (ascii		. #x73)	; s
-    (latin-viscii	. #x73)	; s
+    (latin-jisx0201	. #x73)	; øº‘Œž
     (ipa		. #xCA)	; øº’›Š
+    (latin-viscii	. #x73)	; s
+    (=ucs		. #x0073)	; s
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER T")
@@ -1416,11 +1416,11 @@
      ((name		  . "LATIN CAPITAL LETTER T")
       (=ucs		  . #x0054)	; T
       ))
-    (=ucs		. #x0074)	; t
-    (latin-jisx0201	. #x74)	; øº‘ŒŸ
     (ascii		. #x74)	; t
-    (latin-viscii	. #x74)	; t
+    (latin-jisx0201	. #x74)	; øº‘ŒŸ
     (ipa		. #xC2)	; øº’›‚
+    (latin-viscii	. #x74)	; t
+    (=ucs		. #x0074)	; t
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U")
@@ -1435,11 +1435,11 @@
      ((name		  . "LATIN CAPITAL LETTER U")
       (=ucs		  . #x0055)	; U
       ))
-    (=ucs		. #x0075)	; u
-    (latin-jisx0201	. #x75)	; øº‘Œ 
     (ascii		. #x75)	; u
-    (latin-viscii	. #x75)	; u
+    (latin-jisx0201	. #x75)	; øº‘Œ 
     (ipa		. #xB4)	; øº’š´
+    (latin-viscii	. #x75)	; u
+    (=ucs		. #x0075)	; u
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER V")
@@ -1454,11 +1454,11 @@
      ((name		  . "LATIN CAPITAL LETTER V")
       (=ucs		  . #x0056)	; V
       ))
-    (=ucs		. #x0076)	; v
-    (latin-jisx0201	. #x76)	; øº‘Œ¡
     (ascii		. #x76)	; v
-    (latin-viscii	. #x76)	; v
+    (latin-jisx0201	. #x76)	; øº‘Œ¡
     (ipa		. #xC7)	; øº’›‡
+    (latin-viscii	. #x76)	; v
+    (=ucs		. #x0076)	; v
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER W")
@@ -1473,11 +1473,11 @@
      ((name		  . "LATIN CAPITAL LETTER W")
       (=ucs		  . #x0057)	; W
       ))
-    (=ucs		. #x0077)	; w
-    (latin-jisx0201	. #x77)	; øº‘Œ¢
     (ascii		. #x77)	; w
-    (latin-viscii	. #x77)	; w
+    (latin-jisx0201	. #x77)	; øº‘Œ¢
     (ipa		. #xDE)	; øº’›ž
+    (latin-viscii	. #x77)	; w
+    (=ucs		. #x0077)	; w
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER X")
@@ -1492,11 +1492,11 @@
      ((name		  . "LATIN CAPITAL LETTER X")
       (=ucs		  . #x0058)	; X
       ))
-    (=ucs		. #x0078)	; x
-    (latin-jisx0201	. #x78)	; øº‘Œ£
     (ascii		. #x78)	; x
-    (latin-viscii	. #x78)	; x
+    (latin-jisx0201	. #x78)	; øº‘Œ£
     (ipa		. #xCF)	; øº’›
+    (latin-viscii	. #x78)	; x
+    (=ucs		. #x0078)	; x
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y")
@@ -1511,11 +1511,11 @@
      ((name		  . "LATIN CAPITAL LETTER Y")
       (=ucs		  . #x0059)	; Y
       ))
-    (=ucs		. #x0079)	; y
-    (latin-jisx0201	. #x79)	; øº‘Œ¤
     (ascii		. #x79)	; y
-    (latin-viscii	. #x79)	; y
+    (latin-jisx0201	. #x79)	; øº‘Œ¤
     (ipa		. #xAD)	; øº’š­
+    (latin-viscii	. #x79)	; y
+    (=ucs		. #x0079)	; y
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z")
@@ -1530,11 +1530,11 @@
      ((name		  . "LATIN CAPITAL LETTER Z")
       (=ucs		  . #x005A)	; Z
       ))
-    (=ucs		. #x007A)	; z
-    (latin-jisx0201	. #x7A)	; øº‘Œ¥
     (ascii		. #x7A)	; z
-    (latin-viscii	. #x7A)	; z
+    (latin-jisx0201	. #x7A)	; øº‘Œ¥
     (ipa		. #xCB)	; øº’›‹
+    (latin-viscii	. #x7A)	; z
+    (=ucs		. #x007A)	; z
     ))
 (define-char
   '((name		. "LEFT CURLY BRACKET")
@@ -1545,10 +1545,10 @@
      ((name		  . "FULLWIDTH LEFT CURLY BRACKET")
       (=ucs		  . #xFF5B)	; ï½›
       ))
-    (=ucs		. #x007B)	; {
-    (latin-jisx0201	. #x7B)	; øº‘Œ¦
     (ascii		. #x7B)	; {
+    (latin-jisx0201	. #x7B)	; øº‘Œ¦
     (latin-viscii	. #x7B)	; {
+    (=ucs		. #x007B)	; {
     ))
 (define-char
   '((name		. "VERTICAL LINE")
@@ -1559,10 +1559,10 @@
      ((name		  . "FULLWIDTH VERTICAL LINE")
       (=ucs		  . #xFF5C)	; ï½œ
       ))
-    (=ucs		. #x007C)	; |
-    (latin-jisx0201	. #x7C)	; øº‘Œ§
     (ascii		. #x7C)	; |
+    (latin-jisx0201	. #x7C)	; øº‘Œ§
     (latin-viscii	. #x7C)	; |
+    (=ucs		. #x007C)	; |
     ))
 (define-char
   '((name		. "RIGHT CURLY BRACKET")
@@ -1573,10 +1573,10 @@
      ((name		  . "FULLWIDTH RIGHT CURLY BRACKET")
       (=ucs		  . #xFF5D)	; ï½
       ))
-    (=ucs		. #x007D)	; }
-    (latin-jisx0201	. #x7D)	; øº‘Œ¨
     (ascii		. #x7D)	; }
+    (latin-jisx0201	. #x7D)	; øº‘Œ¨
     (latin-viscii	. #x7D)	; }
+    (=ucs		. #x007D)	; }
     ))
 (define-char
   '((name		. "TILDE")
@@ -1587,16 +1587,16 @@
      ((name		  . "FULLWIDTH TILDE")
       (=ucs		  . #xFF5E)	; ï½ž
       ))
-    (=ucs		. #x007E)	; ~
     (ascii		. #x7E)	; ~
     (latin-viscii	. #x7E)	; ~
+    (=ucs		. #x007E)	; ~
     ))
 (define-char
   '((name		. "DELETE")
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (=ucs		. #x007F)	; â¡
     (ascii		. #x7F)	; â¡
     (latin-viscii	. #x7F)	; â¡
+    (=ucs		. #x007F)	; â¡
     ))

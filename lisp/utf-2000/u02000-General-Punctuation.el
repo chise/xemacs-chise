@@ -29,8 +29,8 @@
     (bidi-category	. "WS")
     (mirrored		. nil)
     (->decomposition	compat #x0020)
-    (=ucs		. #x2003)	; â€ƒ
     (=cns11643-1	. #x256D)	; ø»‘‰ 
+    (=ucs		. #x2003)	; â€ƒ
     ))
 (define-char
   '((name		. "THREE-PER-EM SPACE")
@@ -128,8 +128,8 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2010)	; â€
     (=jis-x0208		. #x213E)	; ø½‰¶™
+    (=ucs		. #x2010)	; â€
     ))
 (define-char
   '((name		. "NON-BREAKING HYPHEN")
@@ -151,29 +151,29 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2013)	; â€“
-    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
     (=cns11643-1	. #x2139)	; ø»‘‚´
+    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
     (=big5		. #xA156)	; ý¢€Š…–
+    (=ucs		. #x2013)	; â€“
     ))
 (define-char
   '((name		. "EM DASH")
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2014)	; â€”
-    (=cns11643-1	. #x2137)	; ø»‘‚²
     (=jis-x0208		. #x213D)	; ø½‰¶˜
+    (=cns11643-1	. #x2137)	; ø»‘‚²
     (=big5		. #xA158)	; ý¢€Š…˜
+    (=ucs		. #x2014)	; â€”
     ))
 (define-char
   '((name		. "HORIZONTAL BAR")
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2015)	; â€•
-    (=ks-x1001		. #x212A)	; ø»ˆš•
     (=gb2312		. #x212A)	; ø»„†
+    (=ks-x1001		. #x212A)	; ø»ˆš•
+    (=ucs		. #x2015)	; â€•
     ))
 (define-char
   '((name		. "HALFWIDTH HORIZONTAL BAR")
@@ -189,10 +189,10 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2016)	; â€–
-    (=cns11643-1	. #x225D)	; ø»‘„¶
     (=gb2312		. #x212C)	; ø»„†
     (=jis-x0208		. #x2142)	; ø½‰¶
+    (=cns11643-1	. #x225D)	; ø»‘„¶
+    (=ucs		. #x2016)	; â€–
     ))
 (define-char
   '((name		. "DOUBLE LOW LINE")
@@ -200,32 +200,32 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0333)
-    (=ucs		. #x2017)	; â€—
     (hebrew-iso8859-8	. #xDF)	; øº’¿Ÿ
+    (=ucs		. #x2017)	; â€—
     ))
 (define-char
   '((name		. "LEFT SINGLE QUOTATION MARK")
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2018)	; â€˜
-    (=cns11643-1	. #x2164)	; ø»‘ƒŸ
-    (=ks-x1001		. #x212E)	; ø»ˆš™
     (=gb2312		. #x212E)	; ø»„†‘
     (=jis-x0208		. #x2146)	; ø½‰¶¡
+    (=ks-x1001		. #x212E)	; ø»ˆš™
+    (=cns11643-1	. #x2164)	; ø»‘ƒŸ
     (=big5		. #xA1A5)	; ý¢€Š†¥
+    (=ucs		. #x2018)	; â€˜
     ))
 (define-char
   '((name		. "RIGHT SINGLE QUOTATION MARK")
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2019)	; â€™
-    (=cns11643-1	. #x2165)	; ø»‘ƒ 
-    (=ks-x1001		. #x212F)	; ø»ˆšš
     (=gb2312		. #x212F)	; ø»„†’
     (=jis-x0208		. #x2147)	; ø½‰¶¢
+    (=ks-x1001		. #x212F)	; ø»ˆšš
+    (=cns11643-1	. #x2165)	; ø»‘ƒ 
     (=big5		. #xA1A6)	; ý¢€Š†¦
+    (=ucs		. #x2019)	; â€™
     ))
 (define-char
   '((name		. "SINGLE LOW-9 QUOTATION MARK")
@@ -246,24 +246,24 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x201C)	; â€œ
-    (=cns11643-1	. #x2166)	; ø»‘ƒ¡
-    (=ks-x1001		. #x2130)	; ø»ˆš›
     (=gb2312		. #x2130)	; ø»„†“
     (=jis-x0208		. #x2148)	; ø½‰¶£
+    (=ks-x1001		. #x2130)	; ø»ˆš›
+    (=cns11643-1	. #x2166)	; ø»‘ƒ¡
     (=big5		. #xA1A7)	; ý¢€Š†§
+    (=ucs		. #x201C)	; â€œ
     ))
 (define-char
   '((name		. "RIGHT DOUBLE QUOTATION MARK")
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x201D)	; â€
-    (=cns11643-1	. #x2167)	; ø»‘ƒ¢
-    (=ks-x1001		. #x2131)	; ø»ˆšœ
     (=gb2312		. #x2131)	; ø»„†”
     (=jis-x0208		. #x2149)	; ø½‰¶¤
+    (=ks-x1001		. #x2131)	; ø»ˆšœ
+    (=cns11643-1	. #x2167)	; ø»‘ƒ¢
     (=big5		. #xA1A8)	; ý¢€Š†¨
+    (=ucs		. #x201D)	; â€
     ))
 (define-char
   '((name		. "DOUBLE LOW-9 QUOTATION MARK")
@@ -284,28 +284,28 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2020)	; â€ 
-    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
-    (=ks-x1001		. #x2253)	; ø»ˆœœ
     (=jis-x0208-1983	. #x2277)	; ø»†’¼
+    (=ks-x1001		. #x2253)	; ø»ˆœœ
+    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
+    (=ucs		. #x2020)	; â€ 
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2021)	; â€¡
-    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
-    (=ks-x1001		. #x2254)	; ø»ˆœ
     (=jis-x0208-1983	. #x2278)	; ø»†’½
+    (=ks-x1001		. #x2254)	; ø»ˆœ
+    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
+    (=ucs		. #x2021)	; â€¡
     ))
 (define-char
   '((name		. "BULLET")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2022)	; â€¢
     (=jis-x0213-1-2000	. #x2340)	; ø»¢–—
+    (=ucs		. #x2022)	; â€¢
     ))
 (define-char
   '((name		. "TRIANGULAR BULLET")
@@ -328,11 +328,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E)
-    (=ucs		. #x2025)	; â€¥
-    (=cns11643-1	. #x212D)	; ø»‘‚¨
-    (=ks-x1001		. #x2125)	; ø»ˆš
     (=jis-x0208		. #x2145)	; ø½‰¶ 
+    (=ks-x1001		. #x2125)	; ø»ˆš
+    (=cns11643-1	. #x212D)	; ø»‘‚¨
     (=big5		. #xA14C)	; ý¢€Š…Œ
+    (=ucs		. #x2025)	; â€¥
     ))
 (define-char
   '((name		. "HORIZONTAL ELLIPSIS")
@@ -340,21 +340,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
-    (=ucs		. #x2026)	; â€¦
-    (=cns11643-1	. #x212C)	; ø»‘‚§
-    (=ks-x1001		. #x2126)	; ø»ˆš‘
     (=gb2312		. #x212D)	; ø»„†
     (=jis-x0208		. #x2144)	; ø½‰¶Ÿ
+    (=ks-x1001		. #x2126)	; ø»ˆš‘
+    (=cns11643-1	. #x212C)	; ø»‘‚§
     (=big5		. #xA14B)	; ý¢€Š…‹
+    (=ucs		. #x2026)	; â€¦
     ))
 (define-char
   '((name		. "HYPHENATION POINT")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2027)	; â€§
     (=cns11643-1	. #x2131)	; ø»‘‚¬
     (=big5		. #xA145)	; ý¢€Š……
+    (=ucs		. #x2027)	; â€§
     ))
 (define-char
   '((name		. "LINE SEPARATOR")
@@ -418,11 +418,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (=ucs		. #x2030)	; â€°
-    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
-    (=ks-x1001		. #x2236)	; ø»ˆ›¿
-    (=jis-x0208-1983	. #x2273)	; ø»†’¸
     (=gb2312		. #x216B)	; ø»„‡Ž
+    (=jis-x0208-1983	. #x2273)	; ø»†’¸
+    (=ks-x1001		. #x2236)	; ø»ˆ›¿
+    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
+    (=ucs		. #x2030)	; â€°
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")
@@ -436,12 +436,12 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (=ucs		. #x2032)	; â€²
-    (=cns11643-1	. #x216B)	; ø»‘ƒ¦
-    (=ks-x1001		. #x2147)	; ø»ˆš²
     (=gb2312		. #x2164)	; ø»„‡‡
     (=jis-x0208		. #x216C)	; ø½‰·‡
+    (=ks-x1001		. #x2147)	; ø»ˆš²
+    (=cns11643-1	. #x216B)	; ø»‘ƒ¦
     (=big5		. #xA1AC)	; ý¢€Š†¬
+    (=ucs		. #x2032)	; â€²
     ))
 (define-char
   '((name		. "DOUBLE PRIME")
@@ -449,10 +449,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
-    (=ucs		. #x2033)	; â€³
-    (=ks-x1001		. #x2148)	; ø»ˆš³
     (=gb2312		. #x2165)	; ø»„‡ˆ
     (=jis-x0208		. #x216D)	; ø½‰·ˆ
+    (=ks-x1001		. #x2148)	; ø»ˆš³
+    (=ucs		. #x2033)	; â€³
     ))
 (define-char
   '((name		. "TRIPLE PRIME")
@@ -467,9 +467,9 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2035)	; â€µ
     (=cns11643-1	. #x216A)	; ø»‘ƒ¥
     (=big5		. #xA1AB)	; ý¢€Š†«
+    (=ucs		. #x2035)	; â€µ
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME")
@@ -513,12 +513,12 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x203B)	; â€»
-    (=cns11643-1	. #x216F)	; ø»‘ƒª
-    (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
     (=gb2312		. #x2179)	; ø»„‡œ
     (=jis-x0208		. #x2228)	; ø½‰·¡
+    (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
+    (=cns11643-1	. #x216F)	; ø»‘ƒª
     (=big5		. #xA1B0)	; ý¢€Š†°
+    (=ucs		. #x203B)	; â€»
     ))
 (define-char
   '((name		. "DOUBLE EXCLAMATION MARK")
@@ -526,8 +526,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
-    (=ucs		. #x203C)	; â€¼
     (=jis-x0213-1-2000	. #x286B)	; ø»¢ž˜
+    (=ucs		. #x203C)	; â€¼
     ))
 (define-char
   '((name		. "INTERROBANG")
@@ -544,14 +544,14 @@
     (->decomposition	compat #x0020 #x0305)
     (->fullwidth
      ((name		  . "FULLWIDTH OVERLINE")
-      (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
-      (=ks-x1001	  . #x237E)	; ø»ˆž¥
       (=gb2312		  . #x237E)	; ø»„Š
       (=jis-x0208	  . #x2131)	; ø½‰¶Œ
+      (=ks-x1001	  . #x237E)	; ø»ˆž¥
+      (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
       ))
-    (=ucs		. #x203E)	; â€¾
-    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
     (latin-jisx0201	. #x7E)	; øº‘Œ©
+    (hebrew-iso8859-8	. #xAF)	; øº’¾¯
+    (=ucs		. #x203E)	; â€¾
     ))
 (define-char
   '((name		. "FULLWIDTH OVERLINE")
@@ -564,12 +564,12 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
-    (=cns11643-1	. #x2223)	; ø»‘ƒ¼
-    (=ks-x1001		. #x237E)	; ø»ˆž¥
     (=gb2312		. #x237E)	; ø»„Š
     (=jis-x0208		. #x2131)	; ø½‰¶Œ
+    (=ks-x1001		. #x237E)	; ø»ˆž¥
+    (=cns11643-1	. #x2223)	; ø»‘ƒ¼
     (=big5		. #xA1C2)	; ý¢€Š‡‚
-    (=ucs@jis		. #x203E)	; ø»‘ƒ¼
+    (=ucs@jis		. #x203E)	; ø»„Š
     ))
 (define-char
   '((name		. "heavy overline")
@@ -608,8 +608,8 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2042)	; â‚
     (=jis-x0213-1-2000	. #x2C7E)	; ø»¢¤£
+    (=ucs		. #x2042)	; â‚
     ))
 (define-char
   '((name		. "HYPHEN BULLET")
@@ -623,8 +623,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2044)	; â„
     (=cns11643-1	. #x225F)	; ø»‘„¸
+    (=ucs		. #x2044)	; â„
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET WITH QUILL")
@@ -642,8 +642,8 @@
     ))
 (define-char
   '((name		. "DOUBLE QUESTION MARK")
-    (=ucs		. #x2047)	; â‡
     (=jis-x0213-1-2000	. #x286C)	; ø»¢ž™
+    (=ucs		. #x2047)	; â‡
     ))
 (define-char
   '((name		. "QUESTION EXCLAMATION MARK")
@@ -651,8 +651,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
-    (=ucs		. #x2048)	; âˆ
     (=jis-x0213-1-2000	. #x286D)	; ø»¢žš
+    (=ucs		. #x2048)	; âˆ
     ))
 (define-char
   '((name		. "EXCLAMATION QUESTION MARK")
@@ -660,8 +660,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
-    (=ucs		. #x2049)	; â‰
     (=jis-x0213-1-2000	. #x286E)	; ø»¢ž›
+    (=ucs		. #x2049)	; â‰
     ))
 (define-char
   '((name		. "TIRONIAN SIGN ET")
@@ -693,8 +693,8 @@
     ))
 (define-char
   '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
-    (=ucs		. #x2051)	; â‘
     (=jis-x0213-1-2000	. #x2C7D)	; ø»¢¤¢
+    (=ucs		. #x2051)	; â‘
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")

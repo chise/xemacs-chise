@@ -1,16 +1,16 @@
 ;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "CIRCLED BULLET")
-    (=ucs		. #x29BF)	; â¦¿
     (=jis-x0213-1-2000	. #x233A)	; ø»¢–‘
+    (=ucs		. #x29BF)	; â¦¿
     ))
 (define-char
   '((name		. "DOUBLE PLUS")
-    (=ucs		. #x29FA)	; â§º
     (=jis-x0213-1-2000	. #x237D)	; ø»¢—”
+    (=ucs		. #x29FA)	; â§º
     ))
 (define-char
   '((name		. "TRIPLE PLUS")
-    (=ucs		. #x29FB)	; â§»
     (=jis-x0213-1-2000	. #x237E)	; ø»¢—•
+    (=ucs		. #x29FB)	; â§»
     ))

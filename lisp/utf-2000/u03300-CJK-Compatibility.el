@@ -5,8 +5,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30A2 #x30D1 #x30FC #x30C8)
-    (=ucs		. #x3300)	; ãŒ€
     (=jef-china3	. #x76EC)	; øº‡›¬
+    (=ucs		. #x3300)	; ãŒ€
     ))
 (define-char
   '((name		. "SQUARE ARUHUA")
@@ -30,9 +30,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30A2 #x30FC #x30EB)
-    (=ucs		. #x3303)	; ãŒƒ
     (=jis-x0213-1-2000	. #x2D46)	; ø»¢¥‰
     (=jef-china3	. #x76E1)	; øº‡›¡
+    (=ucs		. #x3303)	; ãŒƒ
     ))
 (define-char
   '((name		. "SQUARE ININGU")
@@ -48,8 +48,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30A4 #x30F3 #x30C1)
-    (=ucs		. #x3305)	; ãŒ…
     (=jef-china3	. #x76F1)	; øº‡›±
+    (=ucs		. #x3305)	; ãŒ…
     ))
 (define-char
   '((name		. "SQUARE UON")
@@ -113,9 +113,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30AB #x30ED #x30EA #x30FC)
-    (=ucs		. #x330D)	; ãŒ
     (=jis-x0213-1-2000	. #x2D4A)	; ø»¢¥
     (=jef-china3	. #x76E6)	; øº‡›¦
+    (=ucs		. #x330D)	; ãŒ
     ))
 (define-char
   '((name		. "SQUARE GARON")
@@ -171,9 +171,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30AD #x30ED)
-    (=ucs		. #x3314)	; ãŒ”
     (=jis-x0213-1-2000	. #x2D41)	; ø»¢¥„
     (=jef-china3	. #x76DC)	; øº‡›œ
+    (=ucs		. #x3314)	; ãŒ”
     ))
 (define-char
   '((name		. "SQUARE KIROGURAMU")
@@ -181,8 +181,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30AD #x30ED #x30B0 #x30E9 #x30E0)
-    (=ucs		. #x3315)	; ãŒ•
     (=jef-china3	. #x76DF)	; øº‡›Ÿ
+    (=ucs		. #x3315)	; ãŒ•
     ))
 (define-char
   '((name		. "SQUARE KIROMEETORU")
@@ -190,8 +190,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30AD #x30ED #x30E1 #x30FC #x30C8 #x30EB)
-    (=ucs		. #x3316)	; ãŒ–
     (=jef-china3	. #x76DD)	; øº‡›
+    (=ucs		. #x3316)	; ãŒ–
     ))
 (define-char
   '((name		. "SQUARE KIROWATTO")
@@ -207,9 +207,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30B0 #x30E9 #x30E0)
-    (=ucs		. #x3318)	; ãŒ˜
     (=jis-x0213-1-2000	. #x2D44)	; ø»¢¥‡
     (=jef-china3	. #x76DE)	; øº‡›ž
+    (=ucs		. #x3318)	; ãŒ˜
     ))
 (define-char
   '((name		. "SQUARE GURAMUTON")
@@ -257,8 +257,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30B3 #x30FC #x30DD)
-    (=ucs		. #x331E)	; ãŒž
     (=jef-china3	. #x76EF)	; øº‡›¯
+    (=ucs		. #x331E)	; ãŒž
     ))
 (define-char
   '((name		. "SQUARE SAIKURU")
@@ -290,9 +290,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30BB #x30F3 #x30C1)
-    (=ucs		. #x3322)	; ãŒ¢
     (=jis-x0213-1-2000	. #x2D42)	; ø»¢¥…
     (=jef-china3	. #x76DB)	; øº‡››
+    (=ucs		. #x3322)	; ãŒ¢
     ))
 (define-char
   '((name		. "SQUARE SENTO")
@@ -300,9 +300,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30BB #x30F3 #x30C8)
-    (=ucs		. #x3323)	; ãŒ£
     (=jis-x0213-1-2000	. #x2D4C)	; ø»¢¥
     (=jef-china3	. #x76E4)	; øº‡›¤
+    (=ucs		. #x3323)	; ãŒ£
     ))
 (define-char
   '((name		. "SQUARE DAASU")
@@ -326,9 +326,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30C9 #x30EB)
-    (=ucs		. #x3326)	; ãŒ¦
     (=jis-x0213-1-2000	. #x2D4B)	; ø»¢¥Ž
     (=jef-china3	. #x76E3)	; øº‡›£
+    (=ucs		. #x3326)	; ãŒ¦
     ))
 (define-char
   '((name		. "SQUARE TON")
@@ -336,9 +336,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30C8 #x30F3)
-    (=ucs		. #x3327)	; ãŒ§
     (=jis-x0213-1-2000	. #x2D45)	; ø»¢¥ˆ
     (=jef-china3	. #x76E0)	; øº‡› 
+    (=ucs		. #x3327)	; ãŒ§
     ))
 (define-char
   '((name		. "SQUARE NANO")
@@ -362,8 +362,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30CF #x30A4 #x30C4)
-    (=ucs		. #x332A)	; ãŒª
     (=jef-china3	. #x76F0)	; øº‡›°
+    (=ucs		. #x332A)	; ãŒª
     ))
 (define-char
   '((name		. "SQUARE PAASENTO")
@@ -371,9 +371,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30D1 #x30FC #x30BB #x30F3 #x30C8)
-    (=ucs		. #x332B)	; ãŒ«
     (=jis-x0213-1-2000	. #x2D4D)	; ø»¢¥
     (=jef-china3	. #x76E5)	; øº‡›¥
+    (=ucs		. #x332B)	; ãŒ«
     ))
 (define-char
   '((name		. "SQUARE PAATU")
@@ -421,8 +421,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30D3 #x30EB)
-    (=ucs		. #x3331)	; ãŒ±
     (=jef-china3	. #x76ED)	; øº‡›­
+    (=ucs		. #x3331)	; ãŒ±
     ))
 (define-char
   '((name		. "SQUARE HUARADDO")
@@ -462,9 +462,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30D8 #x30AF #x30BF #x30FC #x30EB)
-    (=ucs		. #x3336)	; ãŒ¶
     (=jis-x0213-1-2000	. #x2D47)	; ø»¢¥Š
     (=jef-china3	. #x76E2)	; øº‡›¢
+    (=ucs		. #x3336)	; ãŒ¶
     ))
 (define-char
   '((name		. "SQUARE PESO")
@@ -488,8 +488,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30D8 #x30EB #x30C4)
-    (=ucs		. #x3339)	; ãŒ¹
     (=jef-china3	. #x76EA)	; øº‡›ª
+    (=ucs		. #x3339)	; ãŒ¹
     ))
 (define-char
   '((name		. "SQUARE PENSU")
@@ -505,9 +505,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30DA #x30FC #x30B8)
-    (=ucs		. #x333B)	; ãŒ»
     (=jis-x0213-1-2000	. #x2D4F)	; ø»¢¥’
     (=jef-china3	. #x76EB)	; øº‡›«
+    (=ucs		. #x333B)	; ãŒ»
     ))
 (define-char
   '((name		. "SQUARE BEETA")
@@ -563,8 +563,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30DB #x30FC #x30F3)
-    (=ucs		. #x3342)	; ã‚
     (=jef-china3	. #x76E8)	; øº‡›¨
+    (=ucs		. #x3342)	; ã‚
     ))
 (define-char
   '((name		. "SQUARE MAIKURO")
@@ -604,8 +604,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30DE #x30F3 #x30B7 #x30E7 #x30F3)
-    (=ucs		. #x3347)	; ã‡
     (=jef-china3	. #x76EE)	; øº‡›®
+    (=ucs		. #x3347)	; ã‡
     ))
 (define-char
   '((name		. "SQUARE MIKURON")
@@ -621,9 +621,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30DF #x30EA)
-    (=ucs		. #x3349)	; ã‰
     (=jis-x0213-1-2000	. #x2D40)	; ø»¢¥ƒ
     (=jef-china3	. #x76DA)	; øº‡›š
+    (=ucs		. #x3349)	; ã‰
     ))
 (define-char
   '((name		. "SQUARE MIRIBAARU")
@@ -631,9 +631,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30DF #x30EA #x30D0 #x30FC #x30EB)
-    (=ucs		. #x334A)	; ãŠ
     (=jis-x0213-1-2000	. #x2D4E)	; ø»¢¥‘
     (=jef-china3	. #x76E9)	; øº‡›©
+    (=ucs		. #x334A)	; ãŠ
     ))
 (define-char
   '((name		. "SQUARE MEGA")
@@ -657,9 +657,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30E1 #x30FC #x30C8 #x30EB)
-    (=ucs		. #x334D)	; ã
     (=jis-x0213-1-2000	. #x2D43)	; ø»¢¥†
     (=jef-china3	. #x76D9)	; øº‡›™
+    (=ucs		. #x334D)	; ã
     ))
 (define-char
   '((name		. "SQUARE YAADO")
@@ -691,8 +691,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30EA #x30C3 #x30C8 #x30EB)
-    (=ucs		. #x3351)	; ã‘
     (=jis-x0213-1-2000	. #x2D48)	; ø»¢¥‹
+    (=ucs		. #x3351)	; ã‘
     ))
 (define-char
   '((name		. "SQUARE RIRA")
@@ -740,9 +740,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x30EF #x30C3 #x30C8)
-    (=ucs		. #x3357)	; ã—
     (=jis-x0213-1-2000	. #x2D49)	; ø»¢¥Œ
     (=jef-china3	. #x76E7)	; øº‡›§
+    (=ucs		. #x3357)	; ã—
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR ZERO")
@@ -998,8 +998,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x5E73 #x6210)
-    (=ucs		. #x337B)	; ã»
     (=jis-x0213-1-2000	. #x2D5F)	; ø»¢¥¢
+    (=ucs		. #x337B)	; ã»
     ))
 (define-char
   '((name		. "SQUARE ERA NAME SYOUWA")
@@ -1007,8 +1007,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x662D #x548C)
-    (=ucs		. #x337C)	; ã¼
     (=jis-x0213-1-2000	. #x2D6F)	; ø»¢¥²
+    (=ucs		. #x337C)	; ã¼
     ))
 (define-char
   '((name		. "SQUARE ERA NAME TAISYOU")
@@ -1016,8 +1016,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x5927 #x6B63)
-    (=ucs		. #x337D)	; ã½
     (=jis-x0213-1-2000	. #x2D6E)	; ø»¢¥±
+    (=ucs		. #x337D)	; ã½
     ))
 (define-char
   '((name		. "SQUARE ERA NAME MEIZI")
@@ -1025,8 +1025,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x660E #x6CBB)
-    (=ucs		. #x337E)	; ã¾
     (=jis-x0213-1-2000	. #x2D6D)	; ø»¢¥°
+    (=ucs		. #x337E)	; ã¾
     ))
 (define-char
   '((name		. "SQUARE CORPORATION")
@@ -1034,8 +1034,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x682A #x5F0F #x4F1A #x793E)
-    (=ucs		. #x337F)	; ã¿
     (=jef-china3	. #x76F5)	; øº‡›µ
+    (=ucs		. #x337F)	; ã¿
     ))
 (define-char
   '((name		. "SQUARE PA AMPS")
@@ -1043,8 +1043,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0041)
-    (=ucs		. #x3380)	; ãŽ€
     (=ks-x1001		. #x2749)	; ø»ˆ£¨
+    (=ucs		. #x3380)	; ãŽ€
     ))
 (define-char
   '((name		. "SQUARE NA")
@@ -1052,8 +1052,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0041)
-    (=ucs		. #x3381)	; ãŽ
     (=ks-x1001		. #x274A)	; ø»ˆ£©
+    (=ucs		. #x3381)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE MU A")
@@ -1061,8 +1061,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0041)
-    (=ucs		. #x3382)	; ãŽ‚
     (=ks-x1001		. #x274B)	; ø»ˆ£ª
+    (=ucs		. #x3382)	; ãŽ‚
     ))
 (define-char
   '((name		. "SQUARE MA")
@@ -1070,8 +1070,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0041)
-    (=ucs		. #x3383)	; ãŽƒ
     (=ks-x1001		. #x274C)	; ø»ˆ£«
+    (=ucs		. #x3383)	; ãŽƒ
     ))
 (define-char
   '((name		. "SQUARE KA")
@@ -1079,8 +1079,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0041)
-    (=ucs		. #x3384)	; ãŽ„
     (=ks-x1001		. #x274D)	; ø»ˆ£¬
+    (=ucs		. #x3384)	; ãŽ„
     ))
 (define-char
   '((name		. "SQUARE KB")
@@ -1088,8 +1088,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004B #x0042)
-    (=ucs		. #x3385)	; ãŽ…
     (=jef-china3	. #x76CE)	; øº‡›Ž
+    (=ucs		. #x3385)	; ãŽ…
     ))
 (define-char
   '((name		. "SQUARE MB")
@@ -1097,8 +1097,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0042)
-    (=ucs		. #x3386)	; ãŽ†
     (=jef-china3	. #x76CF)	; øº‡›
+    (=ucs		. #x3386)	; ãŽ†
     ))
 (define-char
   '((name		. "SQUARE GB")
@@ -1106,8 +1106,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0042)
-    (=ucs		. #x3387)	; ãŽ‡
     (=jef-china3	. #x76D0)	; øº‡›
+    (=ucs		. #x3387)	; ãŽ‡
     ))
 (define-char
   '((name		. "SQUARE CAL")
@@ -1115,8 +1115,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0061 #x006C)
-    (=ucs		. #x3388)	; ãŽˆ
     (=ks-x1001		. #x273A)	; ø»ˆ£™
+    (=ucs		. #x3388)	; ãŽˆ
     ))
 (define-char
   '((name		. "SQUARE KCAL")
@@ -1124,8 +1124,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0063 #x0061 #x006C)
-    (=ucs		. #x3389)	; ãŽ‰
     (=ks-x1001		. #x273B)	; ø»ˆ£š
+    (=ucs		. #x3389)	; ãŽ‰
     ))
 (define-char
   '((name		. "SQUARE PF")
@@ -1133,8 +1133,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0046)
-    (=ucs		. #x338A)	; ãŽŠ
     (=ks-x1001		. #x275C)	; ø»ˆ£»
+    (=ucs		. #x338A)	; ãŽŠ
     ))
 (define-char
   '((name		. "SQUARE NF")
@@ -1142,8 +1142,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0046)
-    (=ucs		. #x338B)	; ãŽ‹
     (=ks-x1001		. #x275D)	; ø»ˆ£¼
+    (=ucs		. #x338B)	; ãŽ‹
     ))
 (define-char
   '((name		. "SQUARE MU F")
@@ -1151,8 +1151,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0046)
-    (=ucs		. #x338C)	; ãŽŒ
     (=ks-x1001		. #x275E)	; ø»ˆ£½
+    (=ucs		. #x338C)	; ãŽŒ
     ))
 (define-char
   '((name		. "SQUARE MU G")
@@ -1160,8 +1160,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0067)
-    (=ucs		. #x338D)	; ãŽ
     (=ks-x1001		. #x2736)	; ø»ˆ£•
+    (=ucs		. #x338D)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE MG")
@@ -1169,12 +1169,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0067)
-    (=ucs		. #x338E)	; ãŽŽ
-    (=jis-x0213-1-2000	. #x2D53)	; ø»¢¥–
-    (=cns11643-1	. #x2275)	; ø»‘…Ž
     (=ks-x1001		. #x2737)	; ø»ˆ£–
+    (=cns11643-1	. #x2275)	; ø»‘…Ž
+    (=jis-x0213-1-2000	. #x2D53)	; ø»¢¥–
     (=big5		. #xA255)	; ý¢€Š‰•
     (=jef-china3	. #x76C4)	; øº‡›„
+    (=ucs		. #x338E)	; ãŽŽ
     ))
 (define-char
   '((name		. "SQUARE KG")
@@ -1182,12 +1182,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0067)
-    (=ucs		. #x338F)	; ãŽ
-    (=jis-x0213-1-2000	. #x2D54)	; ø»¢¥—
-    (=cns11643-1	. #x2276)	; ø»‘…
     (=ks-x1001		. #x2738)	; ø»ˆ£—
+    (=cns11643-1	. #x2276)	; ø»‘…
+    (=jis-x0213-1-2000	. #x2D54)	; ø»¢¥—
     (=big5		. #xA256)	; ý¢€Š‰–
     (=jef-china3	. #x76C5)	; øº‡›…
+    (=ucs		. #x338F)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE HZ")
@@ -1195,9 +1195,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0048 #x007A)
-    (=ucs		. #x3390)	; ãŽ
     (=ks-x1001		. #x2754)	; ø»ˆ£³
     (=jef-china3	. #x76D4)	; øº‡›”
+    (=ucs		. #x3390)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE KHZ")
@@ -1205,8 +1205,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0048 #x007A)
-    (=ucs		. #x3391)	; ãŽ‘
     (=ks-x1001		. #x2755)	; ø»ˆ£´
+    (=ucs		. #x3391)	; ãŽ‘
     ))
 (define-char
   '((name		. "SQUARE MHZ")
@@ -1214,8 +1214,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0048 #x007A)
-    (=ucs		. #x3392)	; ãŽ’
     (=ks-x1001		. #x2756)	; ø»ˆ£µ
+    (=ucs		. #x3392)	; ãŽ’
     ))
 (define-char
   '((name		. "SQUARE GHZ")
@@ -1223,8 +1223,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0048 #x007A)
-    (=ucs		. #x3393)	; ãŽ“
     (=ks-x1001		. #x2757)	; ø»ˆ£¶
+    (=ucs		. #x3393)	; ãŽ“
     ))
 (define-char
   '((name		. "SQUARE THZ")
@@ -1232,8 +1232,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0054 #x0048 #x007A)
-    (=ucs		. #x3394)	; ãŽ”
     (=ks-x1001		. #x2758)	; ø»ˆ£·
+    (=ucs		. #x3394)	; ãŽ”
     ))
 (define-char
   '((name		. "SQUARE MU L")
@@ -1241,8 +1241,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x2113)
-    (=ucs		. #x3395)	; ãŽ•
     (=ks-x1001		. #x2721)	; ø»ˆ£€
+    (=ucs		. #x3395)	; ãŽ•
     ))
 (define-char
   '((name		. "SQUARE ML")
@@ -1250,9 +1250,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2113)
-    (=ucs		. #x3396)	; ãŽ–
     (=ks-x1001		. #x2722)	; ø»ˆ£
     (=jef-china3	. #x76D7)	; øº‡›—
+    (=ucs		. #x3396)	; ãŽ–
     ))
 (define-char
   '((name		. "SQUARE DL")
@@ -1260,8 +1260,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0064 #x2113)
-    (=ucs		. #x3397)	; ãŽ—
     (=ks-x1001		. #x2723)	; ø»ˆ£‚
+    (=ucs		. #x3397)	; ãŽ—
     ))
 (define-char
   '((name		. "SQUARE KL")
@@ -1269,8 +1269,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x2113)
-    (=ucs		. #x3398)	; ãŽ˜
     (=ks-x1001		. #x2725)	; ø»ˆ£„
+    (=ucs		. #x3398)	; ãŽ˜
     ))
 (define-char
   '((name		. "SQUARE FM")
@@ -1278,8 +1278,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0066 #x006D)
-    (=ucs		. #x3399)	; ãŽ™
     (=ks-x1001		. #x272B)	; ø»ˆ£Š
+    (=ucs		. #x3399)	; ãŽ™
     ))
 (define-char
   '((name		. "SQUARE NM")
@@ -1287,8 +1287,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x006D)
-    (=ucs		. #x339A)	; ãŽš
     (=ks-x1001		. #x272C)	; ø»ˆ£‹
+    (=ucs		. #x339A)	; ãŽš
     ))
 (define-char
   '((name		. "SQUARE MU M")
@@ -1296,8 +1296,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x006D)
-    (=ucs		. #x339B)	; ãŽ›
     (=ks-x1001		. #x272D)	; ø»ˆ£Œ
+    (=ucs		. #x339B)	; ãŽ›
     ))
 (define-char
   '((name		. "SQUARE MM")
@@ -1305,12 +1305,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D)
-    (=ucs		. #x339C)	; ãŽœ
-    (=jis-x0213-1-2000	. #x2D50)	; ø»¢¥“
-    (=cns11643-1	. #x2270)	; ø»‘…‰
     (=ks-x1001		. #x272E)	; ø»ˆ£
+    (=cns11643-1	. #x2270)	; ø»‘…‰
+    (=jis-x0213-1-2000	. #x2D50)	; ø»¢¥“
     (=big5		. #xA250)	; ý¢€Š‰
     (=jef-china3	. #x76BC)	; øº‡š¼
+    (=ucs		. #x339C)	; ãŽœ
     ))
 (define-char
   '((name		. "SQUARE CM")
@@ -1318,12 +1318,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D)
-    (=ucs		. #x339D)	; ãŽ
-    (=jis-x0213-1-2000	. #x2D51)	; ø»¢¥”
-    (=cns11643-1	. #x2271)	; ø»‘…Š
     (=ks-x1001		. #x272F)	; ø»ˆ£Ž
+    (=cns11643-1	. #x2271)	; ø»‘…Š
+    (=jis-x0213-1-2000	. #x2D51)	; ø»¢¥”
     (=big5		. #xA251)	; ý¢€Š‰‘
     (=jef-china3	. #x76BD)	; øº‡š½
+    (=ucs		. #x339D)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE KM")
@@ -1331,12 +1331,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D)
-    (=ucs		. #x339E)	; ãŽž
-    (=jis-x0213-1-2000	. #x2D52)	; ø»¢¥•
-    (=cns11643-1	. #x2272)	; ø»‘…‹
     (=ks-x1001		. #x2730)	; ø»ˆ£
+    (=cns11643-1	. #x2272)	; ø»‘…‹
+    (=jis-x0213-1-2000	. #x2D52)	; ø»¢¥•
     (=big5		. #xA252)	; ý¢€Š‰’
     (=jef-china3	. #x76BE)	; øº‡š¾
+    (=ucs		. #x339E)	; ãŽž
     ))
 (define-char
   '((name		. "SQUARE MM SQUARED")
@@ -1344,8 +1344,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D #x00B2)
-    (=ucs		. #x339F)	; ãŽŸ
     (=ks-x1001		. #x2731)	; ø»ˆ£
+    (=ucs		. #x339F)	; ãŽŸ
     ))
 (define-char
   '((name		. "SQUARE CM SQUARED")
@@ -1353,9 +1353,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D #x00B2)
-    (=ucs		. #x33A0)	; ãŽ 
     (=ks-x1001		. #x2732)	; ø»ˆ£‘
     (=jef-china3	. #x76BF)	; øº‡š¿
+    (=ucs		. #x33A0)	; ãŽ 
     ))
 (define-char
   '((name		. "SQUARE M SQUARED")
@@ -1363,12 +1363,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x00B2)
-    (=ucs		. #x33A1)	; ãŽ¡
-    (=jis-x0213-1-2000	. #x2D56)	; ø»¢¥™
-    (=cns11643-1	. #x2274)	; ø»‘…
     (=ks-x1001		. #x2733)	; ø»ˆ£’
+    (=cns11643-1	. #x2274)	; ø»‘…
+    (=jis-x0213-1-2000	. #x2D56)	; ø»¢¥™
     (=big5		. #xA254)	; ý¢€Š‰”
     (=jef-china3	. #x76C0)	; øº‡›€
+    (=ucs		. #x33A1)	; ãŽ¡
     ))
 (define-char
   '((name		. "SQUARE KM SQUARED")
@@ -1376,9 +1376,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D #x00B2)
-    (=ucs		. #x33A2)	; ãŽ¢
     (=ks-x1001		. #x2734)	; ø»ˆ£“
     (=jef-china3	. #x76C1)	; øº‡›
+    (=ucs		. #x33A2)	; ãŽ¢
     ))
 (define-char
   '((name		. "SQUARE MM CUBED")
@@ -1386,8 +1386,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D #x00B3)
-    (=ucs		. #x33A3)	; ãŽ£
     (=ks-x1001		. #x2727)	; ø»ˆ£†
+    (=ucs		. #x33A3)	; ãŽ£
     ))
 (define-char
   '((name		. "SQUARE CM CUBED")
@@ -1395,9 +1395,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D #x00B3)
-    (=ucs		. #x33A4)	; ãŽ¤
     (=ks-x1001		. #x2728)	; ø»ˆ£‡
     (=jef-china3	. #x76C2)	; øº‡›‚
+    (=ucs		. #x33A4)	; ãŽ¤
     ))
 (define-char
   '((name		. "SQUARE M CUBED")
@@ -1405,9 +1405,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x00B3)
-    (=ucs		. #x33A5)	; ãŽ¥
     (=ks-x1001		. #x2729)	; ø»ˆ£ˆ
     (=jef-china3	. #x76C3)	; øº‡›ƒ
+    (=ucs		. #x33A5)	; ãŽ¥
     ))
 (define-char
   '((name		. "SQUARE KM CUBED")
@@ -1415,8 +1415,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D #x00B3)
-    (=ucs		. #x33A6)	; ãŽ¦
     (=ks-x1001		. #x272A)	; ø»ˆ£‰
+    (=ucs		. #x33A6)	; ãŽ¦
     ))
 (define-char
   '((name		. "SQUARE M OVER S")
@@ -1424,8 +1424,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2215 #x0073)
-    (=ucs		. #x33A7)	; ãŽ§
     (=ks-x1001		. #x273D)	; ø»ˆ£œ
+    (=ucs		. #x33A7)	; ãŽ§
     ))
 (define-char
   '((name		. "SQUARE M OVER S SQUARED")
@@ -1433,8 +1433,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2215 #x0073 #x00B2)
-    (=ucs		. #x33A8)	; ãŽ¨
     (=ks-x1001		. #x273E)	; ø»ˆ£
+    (=ucs		. #x33A8)	; ãŽ¨
     ))
 (define-char
   '((name		. "SQUARE PA")
@@ -1442,8 +1442,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0050 #x0061)
-    (=ucs		. #x33A9)	; ãŽ©
     (=ks-x1001		. #x2765)	; ø»ˆ¤„
+    (=ucs		. #x33A9)	; ãŽ©
     ))
 (define-char
   '((name		. "SQUARE KPA")
@@ -1451,8 +1451,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0050 #x0061)
-    (=ucs		. #x33AA)	; ãŽª
     (=ks-x1001		. #x2766)	; ø»ˆ¤…
+    (=ucs		. #x33AA)	; ãŽª
     ))
 (define-char
   '((name		. "SQUARE MPA")
@@ -1460,8 +1460,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0050 #x0061)
-    (=ucs		. #x33AB)	; ãŽ«
     (=ks-x1001		. #x2767)	; ø»ˆ¤†
+    (=ucs		. #x33AB)	; ãŽ«
     ))
 (define-char
   '((name		. "SQUARE GPA")
@@ -1469,8 +1469,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0050 #x0061)
-    (=ucs		. #x33AC)	; ãŽ¬
     (=ks-x1001		. #x2768)	; ø»ˆ¤‡
+    (=ucs		. #x33AC)	; ãŽ¬
     ))
 (define-char
   '((name		. "SQUARE RAD")
@@ -1478,8 +1478,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064)
-    (=ucs		. #x33AD)	; ãŽ­
     (=ks-x1001		. #x2761)	; ø»ˆ¤€
+    (=ucs		. #x33AD)	; ãŽ­
     ))
 (define-char
   '((name		. "SQUARE RAD OVER S")
@@ -1487,8 +1487,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073)
-    (=ucs		. #x33AE)	; ãŽ®
     (=ks-x1001		. #x2762)	; ø»ˆ¤
+    (=ucs		. #x33AE)	; ãŽ®
     ))
 (define-char
   '((name		. "SQUARE RAD OVER S SQUARED")
@@ -1496,8 +1496,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073 #x00B2)
-    (=ucs		. #x33AF)	; ãŽ¯
     (=ks-x1001		. #x2763)	; ø»ˆ¤‚
+    (=ucs		. #x33AF)	; ãŽ¯
     ))
 (define-char
   '((name		. "SQUARE PS")
@@ -1505,9 +1505,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0073)
-    (=ucs		. #x33B0)	; ãŽ°
     (=ks-x1001		. #x273F)	; ø»ˆ£ž
     (=jef-china3	. #x76CD)	; øº‡›
+    (=ucs		. #x33B0)	; ãŽ°
     ))
 (define-char
   '((name		. "SQUARE NS")
@@ -1515,9 +1515,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0073)
-    (=ucs		. #x33B1)	; ãŽ±
     (=ks-x1001		. #x2740)	; ø»ˆ£Ÿ
     (=jef-china3	. #x76CC)	; øº‡›Œ
+    (=ucs		. #x33B1)	; ãŽ±
     ))
 (define-char
   '((name		. "SQUARE MU S")
@@ -1525,9 +1525,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0073)
-    (=ucs		. #x33B2)	; ãŽ²
     (=ks-x1001		. #x2741)	; ø»ˆ£ 
     (=jef-china3	. #x76CB)	; øº‡›‹
+    (=ucs		. #x33B2)	; ãŽ²
     ))
 (define-char
   '((name		. "SQUARE MS")
@@ -1535,9 +1535,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0073)
-    (=ucs		. #x33B3)	; ãŽ³
     (=ks-x1001		. #x2742)	; ø»ˆ£¡
     (=jef-china3	. #x76CA)	; øº‡›Š
+    (=ucs		. #x33B3)	; ãŽ³
     ))
 (define-char
   '((name		. "SQUARE PV")
@@ -1545,8 +1545,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0056)
-    (=ucs		. #x33B4)	; ãŽ´
     (=ks-x1001		. #x2743)	; ø»ˆ£¢
+    (=ucs		. #x33B4)	; ãŽ´
     ))
 (define-char
   '((name		. "SQUARE NV")
@@ -1554,8 +1554,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0056)
-    (=ucs		. #x33B5)	; ãŽµ
     (=ks-x1001		. #x2744)	; ø»ˆ££
+    (=ucs		. #x33B5)	; ãŽµ
     ))
 (define-char
   '((name		. "SQUARE MU V")
@@ -1563,8 +1563,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0056)
-    (=ucs		. #x33B6)	; ãŽ¶
     (=ks-x1001		. #x2745)	; ø»ˆ£¤
+    (=ucs		. #x33B6)	; ãŽ¶
     ))
 (define-char
   '((name		. "SQUARE MV")
@@ -1572,8 +1572,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0056)
-    (=ucs		. #x33B7)	; ãŽ·
     (=ks-x1001		. #x2746)	; ø»ˆ£¥
+    (=ucs		. #x33B7)	; ãŽ·
     ))
 (define-char
   '((name		. "SQUARE KV")
@@ -1581,8 +1581,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0056)
-    (=ucs		. #x33B8)	; ãŽ¸
     (=ks-x1001		. #x2747)	; ø»ˆ£¦
+    (=ucs		. #x33B8)	; ãŽ¸
     ))
 (define-char
   '((name		. "SQUARE MV MEGA")
@@ -1590,8 +1590,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0056)
-    (=ucs		. #x33B9)	; ãŽ¹
     (=ks-x1001		. #x2748)	; ø»ˆ£§
+    (=ucs		. #x33B9)	; ãŽ¹
     ))
 (define-char
   '((name		. "SQUARE PW")
@@ -1599,8 +1599,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0057)
-    (=ucs		. #x33BA)	; ãŽº
     (=ks-x1001		. #x274E)	; ø»ˆ£­
+    (=ucs		. #x33BA)	; ãŽº
     ))
 (define-char
   '((name		. "SQUARE NW")
@@ -1608,8 +1608,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0057)
-    (=ucs		. #x33BB)	; ãŽ»
     (=ks-x1001		. #x274F)	; ø»ˆ£®
+    (=ucs		. #x33BB)	; ãŽ»
     ))
 (define-char
   '((name		. "SQUARE MU W")
@@ -1617,8 +1617,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0057)
-    (=ucs		. #x33BC)	; ãŽ¼
     (=ks-x1001		. #x2750)	; ø»ˆ£¯
+    (=ucs		. #x33BC)	; ãŽ¼
     ))
 (define-char
   '((name		. "SQUARE MW")
@@ -1626,8 +1626,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0057)
-    (=ucs		. #x33BD)	; ãŽ½
     (=ks-x1001		. #x2751)	; ø»ˆ£°
+    (=ucs		. #x33BD)	; ãŽ½
     ))
 (define-char
   '((name		. "SQUARE KW")
@@ -1635,8 +1635,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0057)
-    (=ucs		. #x33BE)	; ãŽ¾
     (=ks-x1001		. #x2752)	; ø»ˆ£±
+    (=ucs		. #x33BE)	; ãŽ¾
     ))
 (define-char
   '((name		. "SQUARE MW MEGA")
@@ -1644,8 +1644,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0057)
-    (=ucs		. #x33BF)	; ãŽ¿
     (=ks-x1001		. #x2753)	; ø»ˆ£²
+    (=ucs		. #x33BF)	; ãŽ¿
     ))
 (define-char
   '((name		. "SQUARE K OHM")
@@ -1653,8 +1653,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x03A9)
-    (=ucs		. #x33C0)	; ã€
     (=ks-x1001		. #x275A)	; ø»ˆ£¹
+    (=ucs		. #x33C0)	; ã€
     ))
 (define-char
   '((name		. "SQUARE M OHM")
@@ -1662,8 +1662,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x03A9)
-    (=ucs		. #x33C1)	; ã
     (=ks-x1001		. #x275B)	; ø»ˆ£º
+    (=ucs		. #x33C1)	; ã
     ))
 (define-char
   '((name		. "SQUARE AM")
@@ -1671,8 +1671,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0061 #x002E #x006D #x002E)
-    (=ucs		. #x33C2)	; ã‚
     (=ks-x1001		. #x2263)	; ø»ˆœ¬
+    (=ucs		. #x33C2)	; ã‚
     ))
 (define-char
   '((name		. "SQUARE BQ")
@@ -1680,8 +1680,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0042 #x0071)
-    (=ucs		. #x33C3)	; ãƒ
     (=ks-x1001		. #x276C)	; ø»ˆ¤‹
+    (=ucs		. #x33C3)	; ãƒ
     ))
 (define-char
   '((name		. "SQUARE CC")
@@ -1689,12 +1689,12 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0063)
-    (=ucs		. #x33C4)	; ã„
-    (=jis-x0213-1-2000	. #x2D55)	; ø»¢¥˜
-    (=cns11643-1	. #x2277)	; ø»‘…
     (=ks-x1001		. #x2726)	; ø»ˆ£…
+    (=cns11643-1	. #x2277)	; ø»‘…
+    (=jis-x0213-1-2000	. #x2D55)	; ø»¢¥˜
     (=big5		. #xA257)	; ý¢€Š‰—
     (=jef-china3	. #x76C6)	; øº‡›†
+    (=ucs		. #x33C4)	; ã„
     ))
 (define-char
   '((name		. "SQUARE CD")
@@ -1702,8 +1702,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0064)
-    (=ucs		. #x33C5)	; ã…
     (=ks-x1001		. #x2760)	; ø»ˆ£¿
+    (=ucs		. #x33C5)	; ã…
     ))
 (define-char
   '((name		. "SQUARE C OVER KG")
@@ -1711,8 +1711,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0043 #x2215 #x006B #x0067)
-    (=ucs		. #x33C6)	; ã†
     (=ks-x1001		. #x276F)	; ø»ˆ¤Ž
+    (=ucs		. #x33C6)	; ã†
     ))
 (define-char
   '((name		. "SQUARE CO")
@@ -1720,8 +1720,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0043 #x006F #x002E)
-    (=ucs		. #x33C7)	; ã‡
     (=ks-x1001		. #x2261)	; ø»ˆœª
+    (=ucs		. #x33C7)	; ã‡
     ))
 (define-char
   '((name		. "SQUARE DB")
@@ -1729,8 +1729,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0064 #x0042)
-    (=ucs		. #x33C8)	; ãˆ
     (=ks-x1001		. #x273C)	; ø»ˆ£›
+    (=ucs		. #x33C8)	; ãˆ
     ))
 (define-char
   '((name		. "SQUARE GY")
@@ -1738,8 +1738,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0079)
-    (=ucs		. #x33C9)	; ã‰
     (=ks-x1001		. #x276D)	; ø»ˆ¤Œ
+    (=ucs		. #x33C9)	; ã‰
     ))
 (define-char
   '((name		. "SQUARE HA")
@@ -1747,8 +1747,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0068 #x0061)
-    (=ucs		. #x33CA)	; ãŠ
     (=ks-x1001		. #x2735)	; ø»ˆ£”
+    (=ucs		. #x33CA)	; ãŠ
     ))
 (define-char
   '((name		. "SQUARE HP")
@@ -1756,9 +1756,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0048 #x0050)
-    (=ucs		. #x33CB)	; ã‹
     (=jis-x0213-1-2000	. #x235E)	; ø»¢–µ
     (=jef-china3	. #x76D2)	; øº‡›’
+    (=ucs		. #x33CB)	; ã‹
     ))
 (define-char
   '((name		. "SQUARE IN")
@@ -1766,8 +1766,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0069 #x006E)
-    (=ucs		. #x33CC)	; ãŒ
     (=jef-china3	. #x76D6)	; øº‡›–
+    (=ucs		. #x33CC)	; ãŒ
     ))
 (define-char
   '((name		. "SQUARE KK")
@@ -1775,8 +1775,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004B #x004B)
-    (=ucs		. #x33CD)	; ã
     (=jis-x0213-1-2000	. #x2D63)	; ø»¢¥¦
+    (=ucs		. #x33CD)	; ã
     ))
 (define-char
   '((name		. "SQUARE KM CAPITAL")
@@ -1784,9 +1784,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004B #x004D)
-    (=ucs		. #x33CE)	; ãŽ
     (=cns11643-1	. #x2273)	; ø»‘…Œ
     (=big5		. #xA253)	; ý¢€Š‰“
+    (=ucs		. #x33CE)	; ãŽ
     ))
 (define-char
   '((name		. "SQUARE KT")
@@ -1794,8 +1794,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0074)
-    (=ucs		. #x33CF)	; ã
     (=ks-x1001		. #x2739)	; ø»ˆ£˜
+    (=ucs		. #x33CF)	; ã
     ))
 (define-char
   '((name		. "SQUARE LM")
@@ -1803,8 +1803,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x006D)
-    (=ucs		. #x33D0)	; ã
     (=ks-x1001		. #x276A)	; ø»ˆ¤‰
+    (=ucs		. #x33D0)	; ã
     ))
 (define-char
   '((name		. "SQUARE LN")
@@ -1812,9 +1812,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x006E)
-    (=ucs		. #x33D1)	; ã‘
     (=cns11643-1	. #x224C)	; ø»‘„¥
     (=big5		. #xA1EB)	; ý¢€Š‡«
+    (=ucs		. #x33D1)	; ã‘
     ))
 (define-char
   '((name		. "SQUARE LOG")
@@ -1822,9 +1822,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x006F #x0067)
-    (=ucs		. #x33D2)	; ã’
     (=cns11643-1	. #x224B)	; ø»‘„¤
     (=big5		. #xA1EA)	; ý¢€Š‡ª
+    (=ucs		. #x33D2)	; ã’
     ))
 (define-char
   '((name		. "SQUARE LX")
@@ -1832,8 +1832,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x0078)
-    (=ucs		. #x33D3)	; ã“
     (=ks-x1001		. #x276B)	; ø»ˆ¤Š
+    (=ucs		. #x33D3)	; ã“
     ))
 (define-char
   '((name		. "SQUARE MB SMALL")
@@ -1841,8 +1841,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0062)
-    (=ucs		. #x33D4)	; ã”
     (=jef-china3	. #x76D5)	; øº‡›•
+    (=ucs		. #x33D4)	; ã”
     ))
 (define-char
   '((name		. "SQUARE MIL")
@@ -1850,9 +1850,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0069 #x006C)
-    (=ucs		. #x33D5)	; ã•
     (=cns11643-1	. #x226F)	; ø»‘…ˆ
     (=big5		. #xA24F)	; ý¢€Š‰
+    (=ucs		. #x33D5)	; ã•
     ))
 (define-char
   '((name		. "SQUARE MOL")
@@ -1860,8 +1860,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006F #x006C)
-    (=ucs		. #x33D6)	; ã–
     (=ks-x1001		. #x275F)	; ø»ˆ£¾
+    (=ucs		. #x33D6)	; ã–
     ))
 (define-char
   '((name		. "SQUARE PH")
@@ -1877,8 +1877,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x002E #x006D #x002E)
-    (=ucs		. #x33D8)	; ã˜
     (=ks-x1001		. #x2264)	; ø»ˆœ­
+    (=ucs		. #x33D8)	; ã˜
     ))
 (define-char
   '((name		. "SQUARE PPM")
@@ -1902,8 +1902,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0073 #x0072)
-    (=ucs		. #x33DB)	; ã›
     (=ks-x1001		. #x2764)	; ø»ˆ¤ƒ
+    (=ucs		. #x33DB)	; ã›
     ))
 (define-char
   '((name		. "SQUARE SV")
@@ -1911,8 +1911,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0053 #x0076)
-    (=ucs		. #x33DC)	; ãœ
     (=ks-x1001		. #x276E)	; ø»ˆ¤
+    (=ucs		. #x33DC)	; ãœ
     ))
 (define-char
   '((name		. "SQUARE WB")
@@ -1920,8 +1920,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0057 #x0062)
-    (=ucs		. #x33DD)	; ã
     (=ks-x1001		. #x2769)	; ø»ˆ¤ˆ
+    (=ucs		. #x33DD)	; ã
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY ONE")

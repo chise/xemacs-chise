@@ -93,9 +93,9 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (=ucs		. #x20AC)	; â‚¬
     (=jis-x0213-1-2000	. #x2921)	; ø»¢ž¬
     (=big5		. #xA3E1)	; ý¢€Š¡
+    (=ucs		. #x20AC)	; â‚¬
     ))
 (define-char
   '((name		. "KIP SIGN")

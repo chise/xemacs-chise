@@ -171,85 +171,76 @@
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
-
-  (make-charset '=big5-cdp
-		"Big5-CDP"
-		`(long-name	"Big5 with CDP extension"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  registry	"big5\\.cdp-0"
-		  mother	chinese-big5
-		  min-code	#x8140
-		  max-code	#x8DFE))
-  (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
-
-  (make-charset '=gt
-		"GT"
-		`(long-name	"GT 2000"
+  (make-charset '=ucs@gb
+		"UCS for GB"
+		`(long-name	"ISO/IEC 10646 for GB"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  registry	""
-		  min-code	,(lsh #x6100 16)
-		  max-code	,(+ (lsh #x6100 16) 67547)
-		  code-offset	,(lsh #x6100 16)))
-  (define-charset-alias 'ideograph-gt '=gt)
-  (make-charset '=gt-k
-		"GT parts"
-		`(long-name	"Ideographic parts of GT"
+		  mother	=ucs))
+  (define-charset-alias 'ucs-gb '=ucs@gb)
+  (make-charset '=ucs@cns
+		"UCS for CNS"
+		`(long-name	"ISO/IEC 10646 for CNS 11643"
 		  chars		256
-		  dimension	2
+		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  registry	""
-		  min-code	,(lsh #x6110 16)
-		  max-code	,(+ (lsh #x6110 16) 17090)
-		  code-offset	,(lsh #x6110 16)))
-  (define-charset-alias 'ideograph-gt-k '=gt-k)
-  (let ((i 1))
-    (while (<= i 11)
-      (make-charset
-       (intern (format "=gt-pj-%d" i))
-       (format "GT PJ %d" i)
-       `(long-name ,(format "GT 2000 (pseudo JIS encoding) part %d" i)
-		   chars 94
-		   dimension 2
-		   columns 2
-		   graphic 0
-		   direction l2r
-		   registry ,(format "\\(GTpj-%d\\|jisx0208\\.GT-%d\\)$" i i)))
-      (define-charset-alias
-	(intern (format "ideograph-gt-pj-%d" i))
-	(intern (format "=gt-pj-%d" i)))
-      (setq i (1+ i))))
-  (make-charset
-   '=gt-pj-k1
-   "GT K1"
-   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 1"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 0
-	       direction l2r
-	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
-  (define-charset-alias 'ideograph-gt-pj-k1 '=gt-pj-k1)
-  (make-charset
-   '=gt-pj-k2
-   "GT K2"
-   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 2"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 0
-	       direction l2r
-	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
-  (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
+		  mother	=ucs))
+  (define-charset-alias 'ucs-cns '=ucs@cns)
+  (make-charset '=ucs@jis
+		"UCS for JIS"
+		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-jis '=ucs@jis)
+  (make-charset '=ucs@jis-1990
+		"UCS for JIS:1990"
+		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
+  (make-charset '=ucs@jis-2000
+		"UCS for JIS:2000"
+		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
+  (make-charset '=ucs@ks
+		"UCS for KS"
+		`(long-name	"ISO/IEC 10646 for Korean Standards"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-ks '=ucs@ks)
+  (make-charset '=ucs@big5
+		"UCS for Big5"
+		`(long-name	"ISO/IEC 10646 for Big5"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-big5 '=ucs@big5)
 
   (make-charset '=daikanwa
 		"Daikanwa"
@@ -337,7 +328,19 @@
 		  min-code	#xC6A1
 		  max-code	#xC8FE
 		  registry	"Big5\\.ETEN"))
-
+  (make-charset '=big5-cdp
+		"Big5-CDP"
+		`(long-name	"Big5 with CDP extension"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	chinese-big5
+		  min-code	#x8140
+		  max-code	#x8DFE))
+  (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
   (let* ((i 1)
 	 (hzk-min (+ (lsh #x6200 16) 65536))
 	 (hzk-max (+ hzk-min 65535)))
@@ -362,6 +365,70 @@
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))
 
+  (make-charset '=gt
+		"GT"
+		`(long-name	"GT 2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	""
+		  min-code	,(lsh #x6100 16)
+		  max-code	,(+ (lsh #x6100 16) 67547)
+		  code-offset	,(lsh #x6100 16)))
+  (define-charset-alias 'ideograph-gt '=gt)
+  (make-charset '=gt-k
+		"GT parts"
+		`(long-name	"Ideographic parts of GT"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	""
+		  min-code	,(lsh #x6110 16)
+		  max-code	,(+ (lsh #x6110 16) 17090)
+		  code-offset	,(lsh #x6110 16)))
+  (define-charset-alias 'ideograph-gt-k '=gt-k)
+  (let ((i 1))
+    (while (<= i 11)
+      (make-charset
+       (intern (format "=gt-pj-%d" i))
+       (format "GT PJ %d" i)
+       `(long-name ,(format "GT 2000 (pseudo JIS encoding) part %d" i)
+		   chars 94
+		   dimension 2
+		   columns 2
+		   graphic 0
+		   direction l2r
+		   registry ,(format "\\(GTpj-%d\\|jisx0208\\.GT-%d\\)$" i i)))
+      (define-charset-alias
+	(intern (format "ideograph-gt-pj-%d" i))
+	(intern (format "=gt-pj-%d" i)))
+      (setq i (1+ i))))
+  (make-charset
+   '=gt-pj-k1
+   "GT K1"
+   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 1"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
+  (define-charset-alias 'ideograph-gt-pj-k1 '=gt-pj-k1)
+  (make-charset
+   '=gt-pj-k2
+   "GT K2"
+   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 2"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
+  (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
   (make-charset '=cbeta "CBETA PUA"
 		'(long-name	"CBETA private characters"
 		  chars		256
@@ -374,7 +441,6 @@
 		  columns	2
 		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
-
   (make-charset '=jef-china3
 		"JEF + CHINA3"
 		`(long-name	"JEF + CHINA3 private characters"
@@ -388,77 +454,6 @@
 		  max-code	#xE8FFFF
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
-
-  (make-charset '=ucs@gb
-		"UCS for GB"
-		`(long-name	"ISO/IEC 10646 for GB"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-gb '=ucs@gb)
-  (make-charset '=ucs@cns
-		"UCS for CNS"
-		`(long-name	"ISO/IEC 10646 for CNS 11643"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-cns '=ucs@cns)
-  (make-charset '=ucs@jis
-		"UCS for JIS"
-		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-jis '=ucs@jis)
-  (make-charset '=ucs@jis-1990
-		"UCS for JIS:1990"
-		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
-  (make-charset '=ucs@jis-2000
-		"UCS for JIS:2000"
-		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
-  (make-charset '=ucs@ks
-		"UCS for KS"
-		`(long-name	"ISO/IEC 10646 for Korean Standards"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-ks '=ucs@ks)
-  (make-charset '=ucs@big5
-		"UCS for Big5"
-		`(long-name	"ISO/IEC 10646 for Big5"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-big5 '=ucs@big5)
   )
 
 ;;; mule-conf.el ends here
