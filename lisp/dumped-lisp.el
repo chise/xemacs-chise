@@ -123,7 +123,7 @@
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
 	(when-feature mule "arabic")
-	(when-feature utf-2000 "make-cdbs")
+	(when-feature utf-2000 "update-cdb")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
 	;; All files after this can have extended characters in them.
