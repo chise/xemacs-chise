@@ -1,3 +1,20 @@
+2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R200-Hemp.el (K0-582B): Unify M-47887; separate
+	C1-5E28.
+	(C1-5E28): Relate to M-47887 instead of M-47888.
+	(C6-463E): Likewise.
+	(M-47888): Separate G0-4269 and U+9EBB.
+
+2003-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el (M-48560): Separate CNS and GB.
+
+	* Ideograph-R191-Fight.el (M-45657): Separate all.
+	(U+9B2D): Unify CB10823.
+
+	* Ideograph-R198-Deer.el (M-47586): Separate GB and CNS.
+
 2003-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R189-Tall.el: Reformatted.
