@@ -3096,6 +3096,29 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(ucs		    . #x2FFB)	; â¿»
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (ucs		      . #x2FF1)	; â¿±
+	  )
+	 ((name		      . "cjk radical person for top")
+	  (chinese-big5-cdp   . #x8B4A)	; ý¢€ˆ­Š
+	  )
+	 ((ucs		      . #x4E00)	; ä¸€
+	  ))
+	)
+       ((ucs		    . #x96B9)	; éš¹
+	))
+      )
+     ((ucs		  . #x529B)	; åŠ›
+      ))
     (chinese-cns11643-3 . #x4046)	; ø»–„«
     (ucs		. #x52E7)	; å‹§
     ))
