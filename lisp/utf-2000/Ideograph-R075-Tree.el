@@ -11094,6 +11094,21 @@
     (=cns11643-5	. #x393F)	; ø»šŽš
     ))
 (define-char
+  '((ideographic-radical . 75)	; â½Š
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x6728)	; æœ¨
+      )
+     ((=ucs		  . #x5CB8)	; å²¸
+      ))
+    (sources		bos=A016758-00009)
+    (=ruimoku-v6	. #xE00C)	; øº€Œ
+    ))
+(define-char
   '((=>ucs		. #x23531)	; ð£”±
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 9)
