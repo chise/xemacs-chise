@@ -13,17 +13,15 @@
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 0)
-    (kangxi-strokes	 . 1)
-    (total-strokes	 . 1)
-    (non-morohashi	91 9)
-    (ucs		. #x4E37)	; ä¸·
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideograph-daikanwa . 00092)	; ø¸€œ
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-daikanwa . 00092)	; ø¸€œ
+    (ucs		. #x4E37)	; ä¸·
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
@@ -66,19 +64,12 @@
     (ideograph-daikanwa . 00096)	; ø¸€ 
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC ITERATION MARK")
-    (general-category	letter modifier) ; Informative Category
-    (bidi-category	. "L")
+  '((script		Ideograph)
+    (->ucs		. #x3005)	; ã€…
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (japanese-jisx0208-1978	. #x2139)	; ø»¼˜
-    (chinese-gb2312		. #x2129)	; ø»„†Œ
-    (japanese-jisx0208		. #x2139)	; ø»† 
-    (chinese-isoir165		. #x2129)	; ø»Œ®œ
-    (japanese-jisx0208-1990	. #x2139)	; ø½‰¶”
-    (ideograph-daikanwa		. 00097)	; ø¸€¡
-    (ucs			. #x3005)	; ã€…
+    (ideograph-daikanwa . 00097)	; ø¸€¡
     ))
 (define-char
   '((ideographic-radical . 3)	; â¼‚
@@ -114,7 +105,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (non-morohashi	99 9)
     (chinese-gb2312	. #x4E2A)	; ø»…ˆ“
     (chinese-isoir165	. #x4E2A)	; ø»°£
     (ucs		. #x4E3A)	; ä¸º
@@ -194,7 +184,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
-    (non-morohashi	104 9)
     (chinese-gb2312	. #x3E59)	; ø»„±¢
     (chinese-isoir165	. #x3E59)	; ø»™²
     (ucs		. #x4E3E)	; ä¸¾
