@@ -287,6 +287,7 @@
 	"Ideograph-R213-Turtle"
 	"Ideograph-R214-Flute"
 	"u0A000-Yi-Syllables"
+	"u0A490-Yi-Radicals"
 	"u0AC00-Hangul-Syllables"
 	"u0E000-Private-Use"
 	"u0FB00-Alphabetic-Presentation-Forms"
