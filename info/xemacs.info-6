@@ -308,10 +308,10 @@ character, <DEL>, <ESC>, or another control character that is special
 within searches (`C-q', `C-w', `C-r', `C-s', or `C-y').
 
    Sometimes you search for `FOO' and find it, but were actually
-looking for a different occurence of it.  To move to the next occurrence
-of the search string, type another `C-s'.  Do this as often as
-necessary.  If you overshoot, you can cancel some `C-s' characters with
-<DEL>.
+looking for a different occurrence of it.  To move to the next
+occurrence of the search string, type another `C-s'.  Do this as often
+as necessary.  If you overshoot, you can cancel some `C-s' characters
+with <DEL>.
 
    After you exit a search, you can search for the same string again by
 typing just `C-s C-s': the first `C-s' is the key that invokes
@@ -541,10 +541,26 @@ Regular Expression Search
 =========================
 
    A "regular expression" ("regexp", for short) is a pattern that
-denotes a set of strings, possibly an infinite set.  Searching for
-matches for a regexp is a powerful operation that editors on Unix
-systems have traditionally offered.  In XEmacs, you can search for the
-next match for a regexp either incrementally or not.
+denotes a (possibly infinite) set of strings.  Searching for matches
+for a regexp is a powerful operation that editors on Unix systems have
+traditionally offered.
+
+   To gain a thorough understanding of regular expressions and how to
+use them to best advantage, we recommend that you study `Mastering
+Regular Expressions, by Jeffrey E.F. Friedl, O'Reilly and Associates,
+1997'. (It's known as the "Hip Owls" book, because of the picture on its
+cover.)  You might also read the manuals to *Note (gawk)Top::, *Note
+(ed)Top::, `sed', `grep', *Note (perl)Top::, *Note (regex)Top::, *Note
+(rx)Top::, `pcre', and *Note (flex)Top::, which also make good use of
+regular expressions.
+
+   The XEmacs regular expression syntax most closely resembles that of
+`ed', or `grep', the GNU versions of which all utilize the GNU `regex'
+library.  XEmacs' version of `regex' has recently been extended with
+some Perl-like capabilities, described in the next section.
+
+   In XEmacs, you can search for the next match for a regexp either
+incrementally or not.
 
    Incremental search for a regexp is done by typing `M-C-s'
 (`isearch-forward-regexp').  This command reads a search string
@@ -552,8 +568,7 @@ incrementally just like `C-s', but it treats the search string as a
 regexp rather than looking for an exact match against the text in the
 buffer.  Each time you add text to the search string, you make the
 regexp longer, and the new regexp is searched for.  A reverse regexp
-search command `isearch-backward-regexp' also exists, but no key runs
-it.
+search command `isearch-backward-regexp' also exists, bound to `M-C-r'.
 
    All of the control characters that do special things within an
 ordinary incremental search have the same functionality in incremental
@@ -564,7 +579,8 @@ regexp and non-regexp searches have independent defaults.
    Non-incremental search for a regexp is done by the functions
 `re-search-forward' and `re-search-backward'.  You can invoke them with
 `M-x' or bind them to keys.  You can also call `re-search-forward' by
-way of incremental regexp search with `M-C-s <RET>'.
+way of incremental regexp search with `M-C-s <RET>'; similarly for
+`re-search-backward' with `M-C-r <RET>'.
 
 
 File: xemacs.info,  Node: Regexps,  Next: Search Case,  Prev: Regexp Search,  Up: Search
@@ -574,133 +590,184 @@ Syntax of Regular Expressions
 
    Regular expressions have a syntax in which a few characters are
 special constructs and the rest are "ordinary".  An ordinary character
-is a simple regular expression which matches that character and nothing
-else.  The special characters are `$', `^', `.', `*', `+', `?', `[',
-`]' and `\'; no new special characters will be defined.  Any other
-character appearing in a regular expression is ordinary, unless a `\'
-precedes it.
+is a simple regular expression that matches that character and nothing
+else.  The special characters are `.', `*', `+', `?', `[', `]', `^',
+`$', and `\'; no new special characters will be defined in the future.
+Any other character appearing in a regular expression is ordinary,
+unless a `\' precedes it.
 
    For example, `f' is not a special character, so it is ordinary, and
 therefore `f' is a regular expression that matches the string `f' and
-no other string.  (It does not match the string `ff'.)  Likewise, `o'
+no other string.  (It does _not_ match the string `ff'.)  Likewise, `o'
 is a regular expression that matches only `o'.
 
    Any two regular expressions A and B can be concatenated.  The result
-is a regular expression which matches a string if A matches some amount
+is a regular expression that matches a string if A matches some amount
 of the beginning of that string and B matches the rest of the string.
 
-   As a simple example, you can concatenate the regular expressions `f'
+   As a simple example, we can concatenate the regular expressions `f'
 and `o' to get the regular expression `fo', which matches only the
-string `fo'.  To do something nontrivial, you need to use one of the
-following special characters:
+string `fo'.  Still trivial.  To do something more powerful, you need
+to use one of the special characters.  Here is a list of them:
 
 `. (Period)'
      is a special character that matches any single character except a
-     newline.  Using concatenation, you can make regular expressions
-     like `a.b', which matches any three-character string which begins
+     newline.  Using concatenation, we can make regular expressions
+     like `a.b', which matches any three-character string that begins
      with `a' and ends with `b'.
 
 `*'
-     is not a construct by itself; it is a suffix, which means the
-     preceding regular expression is to be repeated as many times as
-     possible.  In `fo*', the `*' applies to the `o', so `fo*' matches
-     one `f' followed by any number of `o's.  The case of zero `o's is
-     allowed: `fo*' does match `f'.
+     is not a construct by itself; it is a quantifying suffix operator
+     that means to repeat the preceding regular expression as many
+     times as possible.  In `fo*', the `*' applies to the `o', so `fo*'
+     matches one `f' followed by any number of `o's.  The case of zero
+     `o's is allowed: `fo*' does match `f'.
 
-     `*' always applies to the smallest possible preceding expression.
-     Thus, `fo*' has a repeating `o', not a repeating `fo'.
+     `*' always applies to the _smallest_ possible preceding
+     expression.  Thus, `fo*' has a repeating `o', not a repeating `fo'.
 
-     The matcher processes a `*' construct by immediately matching as
-     many repetitions as it can find.  Then it continues with the rest
-     of the pattern.  If that fails, backtracking occurs, discarding
-     some of the matches of the `*'-modified construct in case that
-     makes it possible to match the rest of the pattern.  For example,
-     matching `ca*ar' against the string `caaar', the `a*' first tries
-     to match all three `a's; but the rest of the pattern is `ar' and
-     there is only `r' left to match, so this try fails.  The next
-     alternative is for `a*' to match only two `a's.  With this choice,
-     the rest of the regexp matches successfully.
+     The matcher processes a `*' construct by matching, immediately, as
+     many repetitions as can be found; it is "greedy".  Then it
+     continues with the rest of the pattern.  If that fails,
+     backtracking occurs, discarding some of the matches of the
+     `*'-modified construct in case that makes it possible to match the
+     rest of the pattern.  For example, in matching `ca*ar' against the
+     string `caaar', the `a*' first tries to match all three `a's; but
+     the rest of the pattern is `ar' and there is only `r' left to
+     match, so this try fails.  The next alternative is for `a*' to
+     match only two `a's.  With this choice, the rest of the regexp
+     matches successfully.
+
+     Nested repetition operators can be extremely slow if they specify
+     backtracking loops.  For example, it could take hours for the
+     regular expression `\(x+y*\)*a' to match the sequence
+     `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxz'.  The slowness is because
+     Emacs must try each imaginable way of grouping the 35 `x''s before
+     concluding that none of them can work.  To make sure your regular
+     expressions run fast, check nested repetitions carefully.
 
 `+'
-     is a suffix character similar to `*' except that it requires that
-     the preceding expression be matched at least once.  For example,
-     `ca+r' will match the strings `car' and `caaaar' but not the
-     string `cr', whereas `ca*r' would match all three strings.
+     is a quantifying suffix operator similar to `*' except that the
+     preceding expression must match at least once.  It is also
+     "greedy".  So, for example, `ca+r' matches the strings `car' and
+     `caaaar' but not the string `cr', whereas `ca*r' matches all three
+     strings.
 
 `?'
-     is a suffix character similar to `*' except that it can match the
-     preceding expression either once or not at all.  For example,
-     `ca?r' will match `car' or `cr'; nothing else.
+     is a quantifying suffix operator similar to `*', except that the
+     preceding expression can match either once or not at all.  For
+     example, `ca?r' matches `car' or `cr', but does not match anything
+     else.
+
+`*?'
+     works just like `*', except that rather than matching the longest
+     match, it matches the shortest match.  `*?' is known as a
+     "non-greedy" quantifier, a regexp construct borrowed from Perl.
+
+     This construct is very useful for when you want to match the text
+     inside a pair of delimiters.  For instance, `/\*.*?\*/' will match
+     C comments in a string.  This could not easily be achieved without
+     the use of a non-greedy quantifier.
+
+     This construct has not been available prior to XEmacs 20.4.  It is
+     not available in FSF Emacs.
+
+`+?'
+     is the non-greedy version of `+'.
+
+`??'
+     is the non-greedy version of `?'.
+
+`\{n,m\}'
+     serves as an interval quantifier, analogous to `*' or `+', but
+     specifies that the expression must match at least N times, but no
+     more than M times.  This syntax is supported by most Unix regexp
+     utilities, and has been introduced to XEmacs for the version 20.3.
+
+     Unfortunately, the non-greedy version of this quantifier does not
+     exist currently, although it does in Perl.
 
 `[ ... ]'
      `[' begins a "character set", which is terminated by a `]'.  In
-     the simplest case, the characters between the two form the set.
-     Thus, `[ad]' matches either one `a' or one `d', and `[ad]*'
-     matches any string composed of just `a's and `d's (including the
-     empty string), from which it follows that `c[ad]*r' matches `cr',
-     `car', `cdr', `caddaar', etc.
+     the simplest case, the characters between the two brackets form
+     the set.  Thus, `[ad]' matches either one `a' or one `d', and
+     `[ad]*' matches any string composed of just `a's and `d's
+     (including the empty string), from which it follows that `c[ad]*r'
+     matches `cr', `car', `cdr', `caddaar', etc.
 
-     You can include character ranges in a character set by writing two
+     The usual regular expression special characters are not special
+     inside a character set.  A completely different set of special
+     characters exists inside character sets: `]', `-' and `^'.
+
+     `-' is used for ranges of characters.  To write a range, write two
      characters with a `-' between them.  Thus, `[a-z]' matches any
-     lower-case letter.  Ranges may be intermixed freely with individual
-     characters, as in `[a-z$%.]', which matches any lower-case letter
-     or `$', `%', or period.
+     lower case letter.  Ranges may be intermixed freely with individual
+     characters, as in `[a-z$%.]', which matches any lower case letter
+     or `$', `%', or a period.
 
-     Note that inside a character set the usual special characters are
-     not special any more.  A completely different set of special
-     characters exists inside character sets: `]', `-', and `^'.
+     To include a `]' in a character set, make it the first character.
+     For example, `[]a]' matches `]' or `a'.  To include a `-', write
+     `-' as the first character in the set, or put it immediately after
+     a range.  (You can replace one individual character C with the
+     range `C-C' to make a place to put the `-'.)  There is no way to
+     write a set containing just `-' and `]'.
 
-     To include a `]' in a character set, you must make it the first
-     character.  For example, `[]a]' matches `]' or `a'.  To include a
-     `-', write `---', which is a range containing only `-'.  To
-     include `^', make it other than the first character in the set.
+     To include `^' in a set, put it anywhere but at the beginning of
+     the set.
 
 `[^ ... ]'
      `[^' begins a "complement character set", which matches any
      character except the ones specified.  Thus, `[^a-z0-9A-Z]' matches
-     all characters except letters and digits.
+     all characters _except_ letters and digits.
 
      `^' is not special in a character set unless it is the first
      character.  The character following the `^' is treated as if it
-     were first (`-' and `]' are not special there).
+     were first (thus, `-' and `]' are not special there).
 
      Note that a complement character set can match a newline, unless
      newline is mentioned as one of the characters not to match.
 
 `^'
-     is a special character that matches the empty string, but only if
-     at the beginning of a line in the text being matched.  Otherwise,
-     it fails to match anything.  Thus, `^foo' matches a `foo' that
-     occurs at the beginning of a line.
+     is a special character that matches the empty string, but only at
+     the beginning of a line in the text being matched.  Otherwise it
+     fails to match anything.  Thus, `^foo' matches a `foo' that occurs
+     at the beginning of a line.
+
+     When matching a string instead of a buffer, `^' matches at the
+     beginning of the string or after a newline character `\n'.
 
 `$'
      is similar to `^' but matches only at the end of a line.  Thus,
-     `xx*$' matches a string of one `x' or more at the end of a line.
+     `x+$' matches a string of one `x' or more at the end of a line.
+
+     When matching a string instead of a buffer, `$' matches at the end
+     of the string or before a newline character `\n'.
 
 `\'
-     does two things: it quotes the special characters (including `\'),
-     and it introduces additional special constructs.
+     has two functions: it quotes the special characters (including
+     `\'), and it introduces additional special constructs.
 
      Because `\' quotes special characters, `\$' is a regular
      expression that matches only `$', and `\[' is a regular expression
      that matches only `[', and so on.
 
-   Note: for historical compatibility, special characters are treated as
-ordinary ones if they are in contexts where their special meanings make
-no sense.  For example, `*foo' treats `*' as ordinary since there is no
-preceding expression on which the `*' can act.  It is poor practice to
-depend on this behavior; better to quote the special character anyway,
-regardless of where is appears.
+   *Please note:* For historical compatibility, special characters are
+treated as ordinary ones if they are in contexts where their special
+meanings make no sense.  For example, `*foo' treats `*' as ordinary
+since there is no preceding expression on which the `*' can act.  It is
+poor practice to depend on this behavior; quote the special character
+anyway, regardless of where it appears.
 
-   Usually, `\' followed by any character matches only that character.
-However, there are several exceptions: characters which, when preceded
-by `\', are special constructs.  Such characters are always ordinary
-when encountered on their own.  Here is a table of `\' constructs.
+   For the most part, `\' followed by any character matches only that
+character.  However, there are several exceptions: characters that,
+when preceded by `\', are special constructs.  Such characters are
+always ordinary when encountered on their own.  Here is a table of `\'
+constructs:
 
 `\|'
      specifies an alternative.  Two regular expressions A and B with
-     `\|' in between form an expression that matches anything A or B
-     matches.
+     `\|' in between form an expression that matches anything that
+     either A or B matches.
 
      Thus, `foo\|bar' matches either `foo' or `bar' but no other string.
 
@@ -717,75 +784,108 @@ when encountered on their own.  Here is a table of `\' constructs.
        1. To enclose a set of `\|' alternatives for other operations.
           Thus, `\(foo\|bar\)x' matches either `foox' or `barx'.
 
-       2. To enclose a complicated expression for the postfix `*' to
-          operate on.  Thus, `ba\(na\)*' matches `bananana', etc., with
-          any (zero or more) number of `na' strings.
+       2. To enclose an expression for a suffix operator such as `*' to
+          act on.  Thus, `ba\(na\)*' matches `bananana', etc., with any
+          (zero or more) number of `na' strings.
 
-       3. To mark a matched substring for future reference.
-
+       3. To record a matched substring for future reference.
 
      This last application is not a consequence of the idea of a
-     parenthetical grouping; it is a separate feature which happens to
-     be assigned as a second meaning to the same `\( ... \)' construct
-     because in practice there is no conflict between the two meanings.
-     Here is an explanation:
+     parenthetical grouping; it is a separate feature that happens to be
+     assigned as a second meaning to the same `\( ... \)' construct
+     because there is no conflict in practice between the two meanings.
+     Here is an explanation of this feature:
 
 `\DIGIT'
-     after the end of a `\( ... \)' construct, the matcher remembers the
-     beginning and end of the text matched by that construct.  Then,
-     later on in the regular expression, you can use `\' followed by
-     DIGIT to mean "match the same text matched the DIGIT'th time by the
-     `\( ... \)' construct."
+     matches the same text that matched the DIGITth occurrence of a `\(
+     ... \)' construct.
+
+     In other words, after the end of a `\( ... \)' construct.  the
+     matcher remembers the beginning and end of the text matched by that
+     construct.  Then, later on in the regular expression, you can use
+     `\' followed by DIGIT to match that same text, whatever it may
+     have been.
 
      The strings matching the first nine `\( ... \)' constructs
      appearing in a regular expression are assigned numbers 1 through 9
-     in order that the open-parentheses appear in the regular
-     expression.  `\1' through `\9' may be used to refer to the text
-     matched by the corresponding `\( ... \)' construct.
+     in the order that the open parentheses appear in the regular
+     expression.  So you can use `\1' through `\9' to refer to the text
+     matched by the corresponding `\( ... \)' constructs.
 
      For example, `\(.*\)\1' matches any newline-free string that is
      composed of two identical halves.  The `\(.*\)' matches the first
      half, which may be anything, but the `\1' that follows must match
      the same exact text.
 
+`\(?: ... \)'
+     is called a "shy" grouping operator, and it is used just like `\(
+     ... \)', except that it does not cause the matched substring to be
+     recorded for future reference.
+
+     This is useful when you need a lot of grouping `\( ... \)'
+     constructs, but only want to remember one or two - or if you have
+     more than nine groupings and need to use backreferences to refer to
+     the groupings at the end.
+
+     Using `\(?: ... \)' rather than `\( ... \)' when you don't need
+     the captured substrings ought to speed up your programs some,
+     since it shortens the code path followed by the regular expression
+     engine, as well as the amount of memory allocation and string
+     copying it must do.  The actual performance gain to be observed
+     has not been measured or quantified as of this writing.
+
+     The shy grouping operator has been borrowed from Perl, and has not
+     been available prior to XEmacs 20.3, nor is it available in FSF
+     Emacs.
+
+`\w'
+     matches any word-constituent character.  The editor syntax table
+     determines which characters these are.  *Note Syntax::.
+
+`\W'
+     matches any character that is not a word constituent.
+
+`\sCODE'
+     matches any character whose syntax is CODE.  Here CODE is a
+     character that represents a syntax code: thus, `w' for word
+     constituent, `-' for whitespace, `(' for open parenthesis, etc.
+     *Note Syntax::, for a list of syntax codes and the characters that
+     stand for them.
+
+`\SCODE'
+     matches any character whose syntax is not CODE.
+
+   The following regular expression constructs match the empty
+string--that is, they don't use up any characters--but whether they
+match depends on the context.
+
 `\`'
-     matches the empty string, provided it is at the beginning of the
-     buffer.
+     matches the empty string, but only at the beginning of the buffer
+     or string being matched against.
 
 `\''
-     matches the empty string, provided it is at the end of the buffer.
+     matches the empty string, but only at the end of the buffer or
+     string being matched against.
+
+`\='
+     matches the empty string, but only at point.  (This construct is
+     not defined when matching against a string.)
 
 `\b'
-     matches the empty string, provided it is at the beginning or end
-     of a word.  Thus, `\bfoo\b' matches any occurrence of `foo' as a
+     matches the empty string, but only at the beginning or end of a
+     word.  Thus, `\bfoo\b' matches any occurrence of `foo' as a
      separate word.  `\bballs?\b' matches `ball' or `balls' as a
      separate word.
 
 `\B'
-     matches the empty string, provided it is not at the beginning or
-     end of a word.
-
-`\<'
-     matches the empty string, provided it is at the beginning of a
+     matches the empty string, but _not_ at the beginning or end of a
      word.
 
+`\<'
+     matches the empty string, but only at the beginning of a word.
+
 `\>'
-     matches the empty string, provided it is at the end of a word.
-
-`\w'
-     matches any word-constituent character.  The editor syntax table
-     determines which characters these are.
-
-`\W'
-     matches any character that is not a word-constituent.
-
-`\sCODE'
-     matches any character whose syntax is CODE.  CODE is a character
-     which represents a syntax code: thus, `w' for word constituent,
-     `-' for whitespace, `(' for open-parenthesis, etc.  *Note Syntax::.
-
-`\SCODE'
-     matches any character whose syntax is not CODE.
+     matches the empty string, but only at the end of a word.
 
    Here is a complicated regexp used by Emacs to recognize the end of a
 sentence together with any whitespace that follows.  It is given in Lisp
@@ -1090,121 +1190,4 @@ characters wrong, if you know you are confused in your typing and aren't
 sure exactly what you typed.  At such a time, you cannot correct with
 <DEL> except by looking at the screen to see what you did.  It requires
 less thought to kill the whole word and start over.
-
-
-File: xemacs.info,  Node: Transpose,  Next: Fixing Case,  Prev: Kill Errors,  Up: Fixit
-
-Transposing Text
-================
-
-`C-t'
-     Transpose two characters (`transpose-chars').
-
-`M-t'
-     Transpose two words (`transpose-words').
-
-`C-M-t'
-     Transpose two balanced expressions (`transpose-sexps').
-
-`C-x C-t'
-     Transpose two lines (`transpose-lines').
-
-   The common error of transposing two adjacent characters can be fixed
-with the `C-t' command (`transpose-chars').  Normally, `C-t' transposes
-the two characters on either side of point.  When given at the end of a
-line, `C-t' transposes the last two characters on the line, rather than
-transposing the last character of the line with the newline, which
-would be useless.  If you catch a transposition error right away, you
-can fix it with just `C-t'.  If you catch the error later,  move the
-cursor back to between the two transposed characters.  If you
-transposed a space with the last character of the word before it, the
-word motion commands are a good way of getting there.  Otherwise, a
-reverse search (`C-r') is often the best way.  *Note Search::.
-
-   `Meta-t' (`transpose-words') transposes the word before point with
-the word after point.  It moves point forward over a word, dragging the
-word preceding or containing point forward as well.  The punctuation
-characters between the words do not move.  For example, `FOO, BAR'
-transposes into `BAR, FOO' rather than `BAR FOO,'.
-
-   `C-M-t' (`transpose-sexps') is a similar command for transposing two
-expressions (*note Lists::), and `C-x C-t' (`transpose-lines')
-exchanges lines.  It works like `M-t' but in determines the division of
-the text into syntactic units differently.
-
-   A numeric argument to a transpose command serves as a repeat count:
-it tells the transpose command to move the character (word, sexp, line)
-before or containing point across several other characters (words,
-sexps, lines).  For example, `C-u 3 C-t' moves the character before
-point forward across three other characters.  This is equivalent to
-repeating `C-t' three times.  `C-u - 4 M-t' moves the word before point
-backward across four words.  `C-u - C-M-t' would cancel the effect of
-plain `C-M-t'.
-
-   A numeric argument of zero transposes the character (word, sexp,
-line) ending after point with the one ending after the mark (otherwise a
-command with a repeat count of zero would do nothing).
-
-
-File: xemacs.info,  Node: Fixing Case,  Next: Spelling,  Prev: Transpose,  Up: Fixit
-
-Case Conversion
-===============
-
-`M-- M-l'
-     Convert last word to lower case.  Note that `Meta--' is
-     "Meta-minus."
-
-`M-- M-u'
-     Convert last word to all upper case.
-
-`M-- M-c'
-     Convert last word to lower case with capital initial.
-
-   A  common error is to type words in the wrong case.  Because of this,
-the word case-conversion commands `M-l', `M-u', and `M-c' do not move
-the cursor when used with a negative argument.  As soon as you see you
-have mistyped the last word, you can simply case-convert it and
-continue typing.  *Note Case::.
-
-
-File: xemacs.info,  Node: Spelling,  Prev: Fixing Case,  Up: Fixit
-
-Checking and Correcting Spelling
-================================
-
-`M-$'
-     Check and correct spelling of word (`spell-word').
-
-`M-x spell-buffer'
-     Check and correct spelling of each word in the buffer.
-
-`M-x spell-region'
-     Check and correct spelling of each word in the region.
-
-`M-x spell-string'
-     Check spelling of specified word.
-
-   To check the spelling of the word before point, and optionally
-correct it, use the command `M-$' (`spell-word').  This command runs an
-inferior process containing the `spell' program to see whether the word
-is correct English.  If it is not, it asks you to edit the word (in the
-minibuffer) into a corrected spelling, and then performs a
-`query-replace' to substitute the corrected spelling for the old one
-throughout the buffer.
-
-   If you exit the minibuffer without altering the original spelling, it
-means you do not want to do anything to that word.  In that case, the
-`query-replace' is not done.
-
-   `M-x spell-buffer' checks each word in the buffer the same way that
-`spell-word' does, doing a `query-replace' for every incorrect word if
-appropriate.
-
-   `M-x spell-region' is similar to `spell-buffer' but operates only on
-the region, not the entire buffer.
-
-   `M-x spell-string' reads a string as an argument and checks whether
-that is a correctly spelled English word.  It prints a message giving
-the answer in the echo area.
 

@@ -126,6 +126,10 @@ static Boolean xim_initted = False;
 
 static XIMStyle best_style (XIMStyles *user, XIMStyles *xim);
 
+/* #### it appears this prototype is missing from the X11R6.4 includes,
+   at least the XFree86 version ... */
+char * XSetIMValues(XIM, ...);
+
 void
 Initialize_Locale (void)
 {
@@ -246,7 +250,11 @@ XIM_init_device (struct device *d)
 #ifdef THIS_IS_X11R6
   DEVICE_X_XIM (d) = NULL;
   XRegisterIMInstantiateCallback (DEVICE_X_DISPLAY (d), NULL, NULL, NULL,
-				  IMInstantiateCallback, (XPointer) d);
+				  IMInstantiateCallback,
+				  /* The sixth parameter is of type
+				     XPointer in XFree86 but (XPointer *)
+				     on most other X11's. */
+				  (void *) d);
   return;
 #else
   Display *dpy = DEVICE_X_DISPLAY (d);

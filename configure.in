@@ -639,7 +639,7 @@ The default is to autodetect all sound support."])
 	  done
         ;;
 
-        dnl Has the user specified a prefered Athena widget set?
+        dnl Has the user specified a preferred Athena widget set?
         dnl This bit expands any alias names out for us...
         "with_athena" )
 	  case "$val" in
@@ -1095,7 +1095,6 @@ case "$canonical" in
   clipper-*        ) machine=clipper ;;
   arm*             ) machine=arm ;;
   ns32k-*          ) machine=ns32000 ;;
-  s390-*           ) machine=s390 ;;
 esac
 
 dnl Straightforward OS determination
@@ -1554,12 +1553,27 @@ case "$canonical" in
 
 esac
 
-if test -z "$machine" -o -z "$opsys"; then
-  (echo "$progname: XEmacs hasn't been ported to \`$canonical' systems."
-   echo "$progname: Check \`etc/MACHINES' for recognized configuration names."
-  ) >&2
-  exit 1
+dnl Initialize machine and opsys from $canonical if not in our database above.
+test -z "$machine" && machine=`echo $canonical | sed 's/-.*$//'`
+test -z "$opsys"   && opsys=`echo $canonical | sed 's/^[^-]*-[^-]*-//'`
+
+dnl Use configure-time autodetection if s&m not available
+if test -r "${srcdir}/src/m/${machine}.h"; then
+  machfile="m/${machine}.h"
+  AC_DEFINE_UNQUOTED(config_machfile, "$machfile")
+else
+  echo "XEmacs has no builtin knowledge of \`$machine' machines."
+  echo "Using configure-time autodetection only."
 fi
+
+if test -r "${srcdir}/src/s/${opsys}.h"; then
+  opsysfile="s/${opsys}.h"
+  AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
+else
+  echo "XEmacs has no builtin knowledge of \`$opsys' operating systems."
+  echo "Using configure-time autodetection only."
+fi
+
 
 if test -z "$dynamic"; then
   case "$opsys" in
@@ -1588,9 +1602,6 @@ case "$opsys" in aix*) NON_GNU_CC=xlc ;; esac
 
 stack_trace_eye_catcher=`echo ${PROGNAME}_${version}_${canonical} | sed 'y/.-/__/'`
 AC_DEFINE_UNQUOTED(STACK_TRACE_EYE_CATCHER, $stack_trace_eye_catcher)
-
-machfile="m/${machine}.h"
-opsysfile="s/${opsys}.h"
 
 dnl --------------------------------------------------
 dnl Determine the compiler, set up for feature testing
@@ -1698,6 +1709,8 @@ AC_TRY_RUN([int main () {
 return 11;
 #elif defined __DECC
 return 12;
+#elif defined __USLC__ && defined __SCO_VERSION__
+return 13;
 #else
 return 0;
 #endif
@@ -1705,6 +1718,7 @@ return 0;
 [case "$conftest_rc" in
   11) echo "You appear to be using the SunPro C compiler."; __SUNPRO_C=yes ;;
   12) echo "You appear to be using the DEC C compiler."   ; __DECC=yes ;;
+  13) echo "You appear to be using the SCO C compiler."   ; __USLC__=yes ;;
 esac])
 
 
@@ -1740,7 +1754,8 @@ configure___ [$2]=no
 [#]endif
 ])dnl CPP_boolean_to_sh
 
-cat > $tempcname <<EOF
+cat > $tempcname < confdefs.h
+cat >> $tempcname <<EOF
 #define NOT_C_CODE
 #define C_SWITCH_SITE
 #define C_SWITCH_X_SITE
@@ -1748,8 +1763,14 @@ cat > $tempcname <<EOF
 #define LD_SWITCH_X_SITE
 #define LD_SWITCH_X_SITE_AUX
 #define OS_RELEASE $os_release
+
+#ifdef config_opsysfile
 #include "$srcdir/src/$opsysfile"
+#endif
+
+#ifdef config_machfile
 #include "$srcdir/src/$machfile"
+#endif
 
 CPP_to_sh(LIBS_MACHINE, libs_machine)
 CPP_to_sh(LIBS_SYSTEM,  libs_system)
@@ -1854,9 +1875,25 @@ esac
 dnl Non-ordinary link usually requires -lc
 test "$ordinary_link" = "no" -a -z "$libs_standard" && libs_standard="-lc"
 
+dnl -----------------------
 dnl Compiler-specific hacks
+dnl -----------------------
+
 dnl DEC C `-std1' means ANSI C mode
 test "$__DECC" = "yes" && XE_APPEND(-std1, c_switch_site)
+
+dnl Some versions of SCO native compiler need -Kalloca
+if test "$__USLC__" = yes; then
+  AC_MSG_CHECKING(for whether the -Kalloca compiler flag is needed)
+  need_kalloca=no
+  AC_TRY_LINK([], [void *x = alloca(4);], [:], [
+    xe_save_c_switch_system="$c_switch_system"
+    c_switch_system="$c_switch_system -Kalloca"
+    AC_TRY_LINK([], [void *x = alloca(4);], [ need_kalloca=yes ])
+    c_switch_system="$xe_save_c_switch_system"])
+  AC_MSG_RESULT($need_kalloca)
+  test "$need_kalloca" = "yes" && XE_APPEND(-Kalloca,c_switch_system)
+fi
 
 dnl Calculalate value of CFLAGS:
 dnl Use either command line flag, environment var, or autodetection
@@ -1898,7 +1935,7 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
                 case "$CFLAGS" in
                     *-fno-schedule-insns*) ;;
                     *)
-                        AC_MSG_RESULT(Yes)
+                        AC_MSG_RESULT(yes)
                         AC_MSG_WARN(Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures)
                         AC_MSG_WARN(without also using -fno-schedule-insns.)
                         AC_MSG_ERROR(Aborting due to known problem)
@@ -1910,7 +1947,7 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
 	dnl egcs-2.91.57 (egcs-1.1 release)
 	dnl egcs-2.91.66 (egcs-1.1.2 release)
     Linux:alpha:egcs-2.91.*)
-        AC_MSG_RESULT(Yes)
+        AC_MSG_RESULT(yes)
         AC_MSG_WARN(There have been reports of egcs-1.1 not compiling XEmacs correctly on)
         AC_MSG_WARN(Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.)
         AC_MSG_ERROR(Aborting due to known problem)
@@ -1923,7 +1960,7 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
                 	case "$CFLAGS" in
 	                    *-fno-strength-reduce*) ;;
         	            *)
-                                AC_MSG_RESULT(Yes)
+                                AC_MSG_RESULT(yes)
                       	        AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
 	                        AC_MSG_WARN(-fno-strength-reduce.)
         	                AC_MSG_ERROR(Aborting due to known problem)
@@ -1936,7 +1973,7 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
         case "$CFLAGS" in
 	 *-fno-caller-saves*) ;;
 	 *)
-            AC_MSG_RESULT(Yes)
+            AC_MSG_RESULT(yes)
 	    AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
 	    AC_MSG_WARN(-fno-caller-saves.)
             AC_MSG_ERROR(Aborting due to known problem)
@@ -1944,8 +1981,8 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
         esac
 	;;
 esac
+AC_MSG_RESULT(no)
 fi
-AC_MSG_RESULT(No)
 
 dnl Inform compiler that certain flags are meant for the linker
 dnl XE_PROTECT_LINKER_FLAGS(shell_var)
@@ -2310,11 +2347,9 @@ AC_CHECK_HEADERS(dnl
   mach/mach.h dnl
   sys/param.h dnl
   sys/pstat.h dnl
-  sys/stropts.h dnl
   sys/time.h dnl
   sys/timeb.h dnl
   sys/un.h dnl
-  kstat.h dnl
   ulimit.h dnl
   unistd.h dnl
   utime.h dnl
@@ -2570,7 +2605,9 @@ if test "$with_x11" = "yes"; then
   done
 
   dnl Avoid version mismatch for shared library libXm.so on osf4
-  if test "$GCC" = yes -a -d /usr/shlib; then XE_APPEND(-L/usr/shlib, X_LIBS); fi
+  case "$opsys" in
+  decosf*) if test "$GCC" = yes -a -d /usr/shlib; then XE_APPEND(-L/usr/shlib, X_LIBS); fi ;;
+  esac
 
   ld_switch_x_site="$X_LIBS"
 
@@ -2663,6 +2700,13 @@ dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
     [./conftest foobar; x11_release=$?],[x11_release=4],[x11_release=4])
   AC_MSG_RESULT(R${x11_release})
   AC_DEFINE_UNQUOTED(THIS_IS_X11R${x11_release})
+
+  if test "${x11_release}" = "4"; then
+    case "$with_widgets" in
+      "" | "no") with_widgets=no ;;
+      *) XE_DIE("Widget support requires X11R5 or greater") ;;
+    esac
+  fi
 
   AC_CHECK_FUNCS(XConvertCase)
 
@@ -2790,6 +2834,14 @@ if test "$with_x11" != "yes"; then
     fi
     eval "with_${feature}=no"
   done
+fi
+
+dnl Balloon Help requires the Shape extension, not available everywhere,
+dnl for example not on AIX 4.3.
+if test "$with_x11" = "yes"; then
+  AC_CHECK_HEADER(X11/extensions/shape.h, [
+   AC_DEFINE(HAVE_BALLOON_HELP)
+   XE_ADD_OBJS(balloon_help.o balloon-x.o)])
 fi
 
 dnl FSF 19.29 has some bitmapdir stuff here.
@@ -3515,20 +3567,50 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
+
+dnl Check for PTY support functions.
+dnl  getpt is the preferred pty allocation method on glibc systems.
+dnl _getpt is the preferred pty allocation method on SGI systems.
+dnl grantpt, unlockpt, ptsname are defined by Unix98.
+AC_CHECK_FUNCS(getpt _getpt grantpt unlockpt ptsname killpg tcgetpgrp)
+
+dnl openpty is the preferred pty allocation method on BSD and Tru64 systems.
+dnl openpty might be declared in pty.h or in libutil.h.
+AC_CHECK_FUNC(openpty, have_openpty=yes, [
+  AC_CHECK_LIB(util, openpty, have_openpty=yes need_libutil=yes)])
+if test "$have_openpty" = "yes"; then
+  AC_DEFINE(HAVE_OPENPTY)
+  AC_CHECK_HEADERS(pty.h libutil.h)
+  test "$need_libutil" = "yes" && XE_APPEND(-lutil, libs_system)
+fi
+
+dnl Check for STREAM support functions.
+dnl Confusingly, "str" means both "string" and "SysV Streams".
+AC_CHECK_HEADERS(sys/stropts.h)
+if test "$ac_cv_header_sys_stropts_h" = "yes"; then
+  AC_CHECK_FUNCS(isastream)
+  AC_CHECK_HEADERS(sys/strtio.h) dnl TIOCSIGNAL
+fi
 
 dnl Use our own realpath always.
 XE_ADD_OBJS(realpath.o)
 
-dnl Check whether the system provides getloadavg (Solaris 7 has it)
+dnl Check whether the system provides getloadavg().
 AC_CHECK_FUNCS(getloadavg)
 
-if test "$ac_cv_func_getloadavg" != "yes"
-then
+if test "$ac_cv_func_getloadavg" = "yes"; then
+  dnl Solaris 8 declares getloadavg() in <sys/loadavg.h>.
+  dnl glibc 2.2 declares getloadavg() in <stdlib.h>...
+  dnl   ...if we #define _GNU_SOURCE, which we do.
+  AC_CHECK_HEADERS(sys/loadavg.h)
+else
+  dnl We define our own getloadavg() using lower level functions.
   XE_ADD_OBJS(getloadavg.o)
 
   dnl Used by getloadavg() - does not require root priveleges
   AC_CHECK_LIB(kstat, kstat_open)
+  AC_CHECK_HEADERS(kstat.h)
 
   dnl Another way to get the load average
   AC_CHECK_LIB(kvm, kvm_read)
@@ -4439,8 +4521,6 @@ fi
 XE_SPACE(ac_configure_args, $ac_configure_args)
 AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$configuration")
 AC_DEFINE_UNQUOTED(EMACS_CONFIG_OPTIONS, "$ac_configure_args")
-AC_DEFINE_UNQUOTED(config_machfile,  "$machfile")
-AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
 
 dnl Following are deprecated
 
@@ -4521,8 +4601,16 @@ fi
 if test -n "$runpath"; then
   echo "  Runtime library search path:       $runpath"
 fi
-echo "  Operating system description file: \`$opsysfile'"
-echo "  Machine description file:          \`$machfile'"
+
+if test -n "$opsysfile"
+then echo "  Operating system description file: \`$opsysfile'"
+else echo "  Not using any operating system description file"
+fi
+if test -n "$machfile"
+then echo "  Machine description file:          \`$machfile'"
+else echo "  Not using any machine description file"
+fi
+
 echo "  Compiler:                          $CC $CFLAGS"
 echo "  Relocating allocator for buffers:  $rel_alloc"
 echo "  GNU version of malloc:             ${GNU_MALLOC}${GNU_MALLOC_reason}"
@@ -4749,9 +4837,9 @@ dnl Delete spurious blanks inserted by $CPP
 	-e 's/^[ TAB][ TAB]*$//'\
 	-e 's/^ /TAB/'		\
 dnl Delete blank lines
-  | sed -n -e '/^..*$/p'	\
+	-e '/^[ ]*$/d'	\
 dnl Restore lines quoted above to original contents.
-  | sed '/^\"/ {
+	-e '/^\"/ {
 	s/\\\([\"]\)/\1/g
 	s/^[ TAB]*\"//
 	s/\"[ TAB]*$//

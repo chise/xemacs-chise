@@ -1,25 +1,25 @@
  /* Tabs Widget for XEmacs.
     Copyright (C) 1999 Edward A. Falk
- 
+
  This file is part of XEmacs.
- 
+
  XEmacs is free software; you can redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
  Free Software Foundation; either version 2, or (at your option) any
  later version.
- 
+
  XEmacs is distributed in the hope that it will be useful, but WITHOUT
  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with XEmacs; see the file COPYING.  If not, write to
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
- 
+
  /* Synched up with: Gcs 1.7 */
- 
+
 
 #ifndef	GCS_H
 #define	GCS_H
@@ -35,7 +35,7 @@
  * AllocShadeGC()
  *	Given foreground, background, a contrast value & be_nice_to_colormap
  *	flag, return a GC suitable for rendering in an intermediate color,
- *	as determined by constrast.  May return a dither pattern or a
+ *	as determined by contrast.  May return a dither pattern or a
  *	solid color, as appropriate.
  *
  *	Contrast 0 = background color, 100 = foreground color.  It is legal

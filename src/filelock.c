@@ -123,6 +123,7 @@ fill_in_lock_file_name (Bufbyte *lockfile, Lisp_Object fn)
 static int
 lock_file_1 (char *lfname, int force)
 {
+  /* Does not GC. */
   int err;
   char *lock_info_str;
   char *host_name;
@@ -160,6 +161,7 @@ lock_file_1 (char *lfname, int force)
 static int
 current_lock_owner (lock_info_type *owner, char *lfname)
 {
+  /* Does not GC. */
   int len, ret;
   int local_owner = 0;
   char *at, *dot;
@@ -257,6 +259,7 @@ current_lock_owner (lock_info_type *owner, char *lfname)
 static int
 lock_if_free (lock_info_type *clasher, char *lfname)
 {
+  /* Does not GC. */
   if (lock_file_1 (lfname, 0) == 0)
     {
       int locker;
@@ -298,7 +301,7 @@ lock_if_free (lock_info_type *clasher, char *lfname)
 void
 lock_file (Lisp_Object fn)
 {
-  /* This function can GC. */
+  /* This function can GC.  GC checked 7-11-00 ben */
   /* dmoore - and can destroy current_buffer and all sorts of other
      mean nasty things with pointy teeth.  If you call this make sure
      you protect things right. */
@@ -325,7 +328,7 @@ lock_file (Lisp_Object fn)
     if (!NILP (subject_buf)
 	&& NILP (Fverify_visited_file_modtime (subject_buf))
 	&& !NILP (Ffile_exists_p (fn)))
-      call1_in_buffer (XBUFFER(subject_buf),
+      call1_in_buffer (XBUFFER (subject_buf),
 		       Qask_user_about_supersession_threat, fn);
   }
 
@@ -358,6 +361,7 @@ lock_file (Lisp_Object fn)
 void
 unlock_file (Lisp_Object fn)
 {
+  /* This can GC */
   register char *lfname;
   struct gcpro gcpro1;
 

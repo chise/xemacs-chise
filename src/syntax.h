@@ -254,6 +254,7 @@ Lisp_Object syntax_match (Lisp_Object table, Emchar ch);
 
 extern int no_quit_in_re_search;
 extern struct buffer *regex_emacs_buffer;
+extern int regex_emacs_buffer_p;
 
 void update_syntax_table (Lisp_Char_Table *ct);
 

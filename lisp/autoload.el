@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
-;; Copyright (C) 1996 Ben Wing.
+;; Copyright (C) 1996, 2000 Ben Wing.
 
 ;; Author: Roland McGrath <roland@gnu.ai.mit.edu>
 ;; Keywords: maint
@@ -121,7 +121,7 @@ the section of autoloads for a file.")
 			     (directory-file-name
 			      (file-name-directory file))))
    "\\\\" "/"))
-  
+
 ;;;###autoload
 (defun generate-file-autoloads (file &optional funlist)
   "Insert at point a loaddefs autoload section for FILE.
@@ -360,8 +360,8 @@ generally the file named `autoload-file-name' in the directory being
 updated.")
 
 (defconst cusload-file-name "custom-load.el"
-  "Generic filename ot put custom loads into.
-Unless you are an XEmacs maintainr, it is probably unwise to change this.")
+  "Generic filename to put custom loads into.
+Unless you are an XEmacs maintainer, it is probably unwise to change this.")
 
 ;;;###autoload
 (defun update-file-autoloads (file)
@@ -542,10 +542,13 @@ on the command line."
 	  (goto-char (point-max))
 	  (insert "\n(provide '" sym ")\n")))))
 
-;; #### this function is almost identical, but subtly different,
-;; from batch-update-autoloads.  Steve, it's your responsibility to
-;; clean this up.  The two should be merged, but I'm not sure what
-;; package-creation scripts out there might be using this. --ben
+(defvar autoload-package-name nil)
+
+;; #### this function is almost identical to, but subtly different from,
+;; batch-update-autoloads.  Both of these functions, unfortunately, are
+;; used in various build scripts in xemacs-packages.  They should be
+;; merged. (However, it looks like no scripts pass more than one arg,
+;; making merging easy.) --ben
 
 ;;;###autoload
 (defun batch-update-directory ()
@@ -576,7 +579,7 @@ be used only with -batch."
     (setq command-line-args-left nil)))
 
 ;; #### i created the following.  this one and the last should be merged into
-;; batch-update-autoloads. --ben
+;; batch-update-autoloads and batch-update-one-directory. --ben
 
 ;;;###autoload
 (defun batch-update-one-directory ()

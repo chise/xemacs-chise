@@ -461,7 +461,7 @@ update_scrollbar_instance (struct window *w, int vertical,
 	  {
 	    x_offset = WINDOW_LEFT (w);
 	  }
-	else 
+	else
 	  {
 	    x_offset = WINDOW_RIGHT (w) - scrollbar_width;
 	    if (window_needs_vertical_divider (w))
@@ -1004,7 +1004,7 @@ This is a specifier; use `set-specifier' to change it.
 This is a specifier; use `set-specifier' to change it.
 */ );
   Vscrollbar_on_left_p = Fmake_specifier (Qboolean);
-  
+
   {
     /* Kludge. Under X, we want athena scrollbars on the left,
        while all other scrollbars go on the right by default. */

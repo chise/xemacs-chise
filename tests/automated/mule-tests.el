@@ -313,4 +313,16 @@ the Assert macro checks for correctness."
 
   ;; Add many more file operation tests here...
 
+  ;;---------------------------------------------------------------
+  ;; Test Unicode-related functions
+  ;;---------------------------------------------------------------
+  (let* ((scaron (make-char 'latin-iso8859-2 57)))
+    (loop for code in '(#x0000 #x2222 #x4444 #xffff) do
+      (progn
+	(set-ucs-char code scaron)
+	(Assert (eq scaron (ucs-char code)))))
+  
+    (Assert (eq nil (set-ucs-char #x1ffff scaron)))
+    (Check-Error wrong-type-argument (set-ucs-char -10000 scaron)))
+  
   )

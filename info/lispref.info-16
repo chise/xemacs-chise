@@ -212,7 +212,7 @@ Defining Commands::.
           ;; The user types `minibuffer.t <RET>'.
                => "minibuffer.texi"
 
- - Function: read-command prompt &optinal default-value
+ - Function: read-command prompt &optional default-value
      This function reads the name of a command and returns it as a Lisp
      symbol.  The argument PROMPT is used as in `read-from-minibuffer'.
      Recall that a command is anything for which `commandp' returns

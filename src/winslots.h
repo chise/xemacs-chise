@@ -57,7 +57,7 @@ Boston, MA 02111-1307, USA.  */
   WINDOW_SLOT (vertical_divider_shadow_thickness, EQ);
   /* Divider surface width (not counting 3-d borders) */
   WINDOW_SLOT (vertical_divider_line_width, EQ);
-  /* Spacing between outer egde of divider border and window edge */
+  /* Spacing between outer edge of divider border and window edge */
   WINDOW_SLOT (vertical_divider_spacing, EQ);
   /* Whether vertical dividers are always displayed */
   WINDOW_SLOT (vertical_divider_always_visible_p, EQ);

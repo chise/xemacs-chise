@@ -19,7 +19,7 @@ world scripts, including Latin script, as well as Arabic script,
 Simplified Chinese script (for mainland of China), Traditional Chinese
 script (for Taiwan and Hong-Kong), Greek script, Hebrew script, IPA
 symbols, Japanese scripts (Hiragana, Katakana and Kanji), Korean scripts
-(Hangul and Hanja) and Cyrillic script (for Beylorussian, Bulgarian,
+(Hangul and Hanja) and Cyrillic script (for Byelorussian, Bulgarian,
 Russian, Serbian and Ukrainian).  These features have been merged from
 the modified version of Emacs known as MULE (for ``MULti-lingual
 Enhancement to GNU Emacs'').

@@ -225,7 +225,7 @@ filename_expand (char *fullpath, char *filename)
       /* Assume relative Unix style path.  Get the current directory
        and prepend it.  FIXME: need to fix the case of DOS paths like
        "\foo", where we need to get the current drive. */
-      
+
       strcat (fullpath, get_current_working_directory ());
       len = strlen (fullpath);
 
@@ -461,11 +461,11 @@ main (int argc, char *argv[])
     {
       fprintf (stderr,
 #ifdef INTERNET_DOMAIN_SOCKETS
-	       "usage: %s [-nw] [-display display] [-q] [-v] [-l library]\n"
+	       "Usage: %s [-nw] [-display display] [-q] [-v] [-l library]\n"
                "       [-batch] [-f function] [-eval form]\n"
 	       "       [-h host] [-p port] [-r remote-path] [[+line] file] ...\n",
 #else /* !INTERNET_DOMAIN_SOCKETS */
-	       "usage: %s [-nw] [-q] [-v] [-l library] [-f function] [-eval form] "
+	       "Usage: %s [-nw] [-q] [-v] [-l library] [-f function] [-eval form] "
 	       "[[+line] path] ...\n",
 #endif /* !INTERNET_DOMAIN_SOCKETS */
 	       progname);
@@ -573,7 +573,7 @@ main (int argc, char *argv[])
 		       progname);
 	      exit (1);
 	    }
-      /* Don't do disconnect_from_server becasue we have already read
+      /* Don't do disconnect_from_server because we have already read
 	 data, and disconnect doesn't do anything else. */
 #ifndef INTERNET_DOMAIN_SOCKETS
 	  if (connect_type == (int) CONN_IPC)

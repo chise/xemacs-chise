@@ -189,9 +189,7 @@ Boston, MA 02111-1307, USA.  */
     /* FSFmacs has overlay stuff here.  We have extent info elsewhere in the
        struct buffer.  */
 
-    /* If dedicated_frame is non-nil, display_buffer tries to use it instead
-       of the current frame */
-    MARKED_SLOT (dedicated_frame);
+    /* dedicated_frame in lisp */
 
     /* Lisp of symbols naming the file format used for visited file. */
     MARKED_SLOT (file_format);

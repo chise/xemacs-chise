@@ -1222,6 +1222,7 @@ bytind_to_bufpos (struct buffer *buf, Bytind x)
 Bufpos
 get_buffer_pos_char (struct buffer *b, Lisp_Object pos, unsigned int flags)
 {
+  /* Does not GC */
   Bufpos ind;
   Bufpos min_allowed, max_allowed;
 
@@ -1271,6 +1272,7 @@ void
 get_buffer_range_char (struct buffer *b, Lisp_Object from, Lisp_Object to,
 		       Bufpos *from_out, Bufpos *to_out, unsigned int flags)
 {
+  /* Does not GC */
   Bufpos min_allowed, max_allowed;
 
   min_allowed = (flags & GB_ALLOW_PAST_ACCESSIBLE) ?

@@ -75,7 +75,7 @@ Lisp_Object Vwin32_start_process_share_console;
    but is useful for Win32 processes on both Win95 and NT as well.  */
 Lisp_Object Vwin32_pipe_read_delay;
 
-/* Control whether stat() attempts to generate fake but hopefully
+/* Control whether xemacs_stat() attempts to generate fake but hopefully
    "accurate" inode values, by hashing the absolute truenames of files.
    This should detect aliasing between long and short names, but still
    allows the possibility of hash collisions.  */
@@ -410,8 +410,10 @@ create_child (const char *exe, char *cmdline, char *env,
   start.hStdError = GetStdHandle (STD_ERROR_HANDLE);
 
   /* Explicitly specify no security */
+  /* #### not supported under win98, but will go away */
   if (!InitializeSecurityDescriptor (&sec_desc, SECURITY_DESCRIPTOR_REVISION))
     goto EH_Fail;
+  /* #### not supported under win98, but will go away */
   if (!SetSecurityDescriptorDacl (&sec_desc, TRUE, NULL, FALSE))
     goto EH_Fail;
   sec_attrs.nLength = sizeof (sec_attrs);
@@ -498,7 +500,7 @@ sys_spawnve (int mode, const char *cmdname,
     }
 
   /* Handle executable names without an executable suffix.  */
-  program = make_string (cmdname, strlen (cmdname));
+  program = build_string (cmdname);
   GCPRO1 (program);
   if (NILP (Ffile_executable_p (program)))
     {
@@ -1252,6 +1254,7 @@ If successful, the new locale id is returned, otherwise nil.
   if (!IsValidLocale (XINT (lcid), LCID_SUPPORTED))
     return Qnil;
 
+  /* #### not supported under win98, but will go away */
   if (!SetThreadLocale (XINT (lcid)))
     return Qnil;
 

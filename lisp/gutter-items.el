@@ -2,6 +2,7 @@
 
 ;; Copyright (C) 1999 Free Software Foundation, Inc.
 ;; Copyright (C) 1999, 2000 Andy Piper.
+;; Copyright (C) 2000 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: frames, extensions, internal, dumped
@@ -154,9 +155,6 @@ If this is 0, then the full buffer name will be shown."
     ;; that the current buffer is at the front of the buffers list.
     ;; for example, select an item and then do M-C-l
     ;; (switch-to-other-buffer).  Things get way confused.
-    ;;
-    ;; Andy, if you want to maintain the current look, you must
-    ;; *uncouple* the gutter order and buffers order.
     (if (> (length (windows-of-buffer buffer)) 0)
 	(select-window (car (windows-of-buffer buffer)))
       (switch-to-buffer buffer))))
@@ -334,9 +332,7 @@ items by redefining the function `format-buffers-menu-line'."
 		 (if (or (eq gutter-buffers-tab-orientation 'top)
 			 (eq gutter-buffers-tab-orientation 'bottom))
 		     '(gutter-pixel-width) '(gutter-pixel-height))
-		 :properties
-		 (list :items
-		       (buffers-tab-items nil frame force-selection)))
+		 :items (buffers-tab-items nil frame force-selection))
 	 frame)))))
 
 ;; A myriad of different update hooks all doing slightly different things
@@ -356,7 +352,7 @@ items by redefining the function `format-buffers-menu-line'."
 ;; progress display
 ;; ripped off from message display
 ;;
-(defcustom progress-display-use-echo-area nil
+(defcustom progress-feedback-use-echo-area nil
   "*Whether progress gauge display should display in the echo area.
 If NIL then progress gauges will be displayed with whatever native widgets
 are available on the current console. If non-NIL then progress display will be
@@ -367,84 +363,78 @@ textual and displayed in the echo area."
 (defvar progress-glyph-height 24
   "Height of the progress gauge glyph.")
 
-(defvar progress-display-popup-period 0.5
+(defvar progress-feedback-popup-period 0.5
   "The time that the progress gauge should remain up after completion")
 
-;; private variables
-(defvar progress-text-glyph
-  (make-glyph [string :data ""]))
-
-(defvar progress-layout-glyph nil)
-(defvar progress-gauge-glyph
-  (make-glyph
-   `[progress-gauge
-     :pixel-height (eval progress-glyph-height)
-     :pixel-width 250
-     :descriptor "Progress"]))
-
-(defun set-progress-display-style (style)
-  "Control the appearance of the progress gauge.
-If STYLE is 'large, the default, then the progress-display text is
-displayed above the gauge itself. If STYLE is 'small then the gauge
-and text are arranged side-by-side."  
-  (cond
-   ((eq style 'small)
-    (setq progress-glyph-height 16)
-    (setq progress-layout-glyph
-	  (make-glyph
-	   `[layout
-	     :orientation horizontal
-	     :margin-width 4
-	     :items (,progress-gauge-glyph
-		     [button
-		      :pixel-height (eval progress-glyph-height)
-		      ;; 'quit is special and acts "asynchronously".
-		      :descriptor "Stop" :callback 'quit]
-		     ,progress-text-glyph)])))
-   (t 
-    (setq progress-glyph-height 24)
-    (setq progress-layout-glyph
-	  (make-glyph
-	   `[layout 
-	     :orientation vertical :justify left
-	     :margin-width 4
-	     :items (,progress-text-glyph
-		     [layout 
-		      :orientation horizontal
-		      :items (,progress-gauge-glyph
-			      [button 
-			       :pixel-height (eval progress-glyph-height)
-			       :descriptor " Stop "
-			       ;; 'quit is special and acts "asynchronously".
-			       :callback 'quit])])])))))
-
-(defcustom progress-display-style 'large
+(defcustom progress-feedback-style 'large
   "*Control the appearance of the progress gauge.
-If 'large, the default, then the progress-display text is displayed
+If 'large, the default, then the progress-feedback text is displayed
 above the gauge itself. If 'small then the gauge and text are arranged
 side-by-side."
   :group 'gutter
   :type '(choice (const :tag "large" large)
-		 (const :tag "small" small))
-  :set #'(lambda (var val)
-	   (set-progress-display-style val)))
+		 (const :tag "small" small)))
+
+;; private variables
+(defvar progress-text-instantiator [string :data ""])
+(defvar progress-layout-glyph (make-glyph))
+(defvar progress-layout-instantiator nil)
+
+(defvar progress-gauge-instantiator
+  [progress-gauge
+   :value 0
+   :pixel-height (eval progress-glyph-height)
+   :pixel-width 250
+   :descriptor "Progress"])
+
+(defun set-progress-feedback-instantiator (&optional locale)
+  (cond
+   ((eq progress-feedback-style 'small)
+    (setq progress-glyph-height 16)
+    (setq progress-layout-instantiator
+	  `[layout
+	    :orientation horizontal
+	    :margin-width 4
+	    :items (,progress-gauge-instantiator
+		    [button
+		     :pixel-height (eval progress-glyph-height)
+		     ;; 'quit is special and acts "asynchronously".
+		     :descriptor "Stop" :callback 'quit]
+		    ,progress-text-instantiator)])
+    (set-glyph-image progress-layout-glyph progress-layout-instantiator locale))
+   (t 
+    (setq progress-glyph-height 24)
+    (setq progress-layout-instantiator
+	  `[layout 
+	    :orientation vertical :justify left
+	    :margin-width 4
+	    :items (,progress-text-instantiator
+		    [layout 
+		     :orientation horizontal
+		     :items (,progress-gauge-instantiator
+			     [button 
+			      :pixel-height (eval progress-glyph-height)
+			      :descriptor " Stop "
+			      ;; 'quit is special and acts "asynchronously".
+			      :callback 'quit])])])
+    (set-glyph-image progress-layout-glyph progress-layout-instantiator locale))))
 
 (defvar progress-stack nil
   "An alist of label/string pairs representing active progress gauges.
 The first element in the list is currently displayed in the gutter area.
-Do not modify this directly--use the `progress-display' or
-`display-progress-display'/`clear-progress-display' functions.")
+Do not modify this directly--use the `progress-feedback' or
+`display-progress-feedback'/`clear-progress-feedback' functions.")
 
 (defvar progress-abort-glyph
   (make-glyph
    `[layout :orientation vertical :justify left
-	    :items (,progress-text-glyph
+	    :items (,progress-text-instantiator
 		    [layout
 		     :margin-width 4
 		     :pixel-height progress-glyph-height
 		     :orientation horizontal])]))
 
-(defun progress-displayed-p (&optional return-string frame)
+(defun progress-feedback-displayed-p (&optional return-string frame)
   "Return a non-nil value if a progress gauge is presently displayed in the
 gutter area.  If optional argument RETURN-STRING is non-nil,
 return a string containing the message, otherwise just return t."
@@ -456,7 +446,7 @@ return a string containing the message, otherwise just return t."
 
 ;;; Returns the string which remains in the echo area, or nil if none.
 ;;; If label is nil, the whole message stack is cleared.
-(defun clear-progress-display (&optional label frame no-restore)
+(defun clear-progress-feedback (&optional label frame no-restore)
   "Remove any progress gauge with LABEL from the progress gauge-stack,
 erasing it from the gutter area if it's currently displayed there.
 If a message remains at the head of the progress-stack and NO-RESTORE
@@ -467,10 +457,10 @@ If LABEL is nil, the entire progress-stack is cleared.
 Unless you need the return value or you need to specify a label,
 you should just use (progress nil)."
   (if (or (not (valid-image-instantiator-format-p 'progress-gauge frame))
-	  progress-display-use-echo-area)
+	  progress-feedback-use-echo-area)
       (clear-message label frame nil no-restore)
     (or frame (setq frame (selected-frame)))
-    (remove-progress-display label frame)
+    (remove-progress-feedback label frame)
     (let ((inhibit-read-only t)
 	  (zmacs-region-stays zmacs-region-stays)) ; preserve from change
       (erase-buffer (get-buffer-create " *Gutter Area*")))
@@ -478,19 +468,19 @@ you should just use (progress nil)."
 	nil			; just preparing to put another msg up
       (if progress-stack
 	  (let ((oldmsg (cdr (car progress-stack))))
-	    (raw-append-progress-display oldmsg nil frame)
+	    (raw-append-progress-feedback oldmsg nil frame)
 	    oldmsg)
 	;; nothing to display so get rid of the gauge
 	(set-specifier bottom-gutter-border-width 0 frame)
 	(set-gutter-element-visible-p bottom-gutter-visible-p 
 				      'progress nil frame)))))
 
-(defun progress-display-clear-when-idle (&optional label)
+(defun progress-feedback-clear-when-idle (&optional label)
   (add-one-shot-hook 'pre-idle-hook
 		     `(lambda ()
-			(clear-progress-display ',label))))
+			(clear-progress-feedback ',label))))
 
-(defun remove-progress-display (&optional label frame)
+(defun remove-progress-feedback (&optional label frame)
   ;; If label is nil, we want to remove all matching progress gauges.
   (while (and progress-stack
 	      (or (null label)	; null label means clear whole stack
@@ -504,7 +494,7 @@ you should just use (progress nil)."
 	      (setcdr s (cdr (cdr s))))
 	  (setq s (cdr s)))))))
 
-(defun progress-display-dispatch-non-command-events ()
+(defun progress-feedback-dispatch-non-command-events ()
   ;; don't allow errors to hose things
   (condition-case t 
       ;; (sit-for 0) is too agressive and cause more display than we
@@ -512,7 +502,7 @@ you should just use (progress nil)."
       (dispatch-non-command-events)
     nil))
 
-(defun append-progress-display (label message &optional value frame)
+(defun append-progress-feedback (label message &optional value frame)
   (or frame (setq frame (selected-frame)))
   ;; Add a new entry to the message-stack, or modify an existing one
   (let* ((top (car progress-stack))
@@ -521,25 +511,22 @@ you should just use (progress nil)."
 	(progn
 	  (setcdr top message)
 	  (if (equal tmsg message)
-	      ;; #### use of set-image-instance-property is wrong.
-	      ;; use set-glyph-image instead.
-	      (set-image-instance-property 
-	       (glyph-image-instance progress-gauge-glyph
-				     (frame-selected-window frame))
-	       :value value)
-	    (raw-append-progress-display message value frame))
+	      (progn 
+		(set-instantiator-property progress-gauge-instantiator :value value)
+		(set-progress-feedback-instantiator (frame-selected-window frame)))
+	    (raw-append-progress-feedback message value frame))
 	  (redisplay-gutter-area))
       (push (cons label message) progress-stack)
-      (raw-append-progress-display message value frame))
-    (progress-display-dispatch-non-command-events)
+      (raw-append-progress-feedback message value frame))
+    (progress-feedback-dispatch-non-command-events)
     ;; either get command events or sit waiting for them
     (when (eq value 100)
-;      (sit-for progress-display-popup-period nil)
-      (clear-progress-display label))))
+;      (sit-for progress-feedback-popup-period nil)
+      (clear-progress-feedback label))))
 
-(defun abort-progress-display (label message &optional frame)
+(defun abort-progress-feedback (label message &optional frame)
   (if (or (not (valid-image-instantiator-format-p 'progress-gauge frame))
-	  progress-display-use-echo-area)
+	  progress-feedback-use-echo-area)
       (display-message label (concat message "aborted.") frame)
     (or frame (setq frame (selected-frame)))
     ;; Add a new entry to the message-stack, or modify an existing one
@@ -558,24 +545,21 @@ you should just use (progress nil)."
 	  ;; fixup the gutter specifiers
 	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  (set-specifier bottom-gutter-border-width 2 frame)
-	  ;; #### use of set-image-instance-property is wrong.
-	  ;; use set-glyph-image instead.
-	  (set-image-instance-property 
-	   (glyph-image-instance progress-text-glyph
-				 (frame-selected-window frame)) :data message)
+	  (set-instantiator-property progress-text-instantiator :datat message)
+	  (set-progress-feedback-instantiator (frame-selected-window frame))
 	  (set-specifier bottom-gutter-height 'autodetect frame)
 	  (set-gutter-element-visible-p bottom-gutter-visible-p 
 					'progress t frame)
 	  ;; we have to do this so redisplay is up-to-date and so
 	  ;; redisplay-gutter-area performs optimally.
 	  (redisplay-gutter-area)
-	  (sit-for progress-display-popup-period nil)
-	  (clear-progress-display label frame)
+	  (sit-for progress-feedback-popup-period nil)
+	  (clear-progress-feedback label frame)
 	  (set-extent-begin-glyph ext progress-layout-glyph)
 	  (set-gutter-element bottom-gutter 'progress gutter-string frame)
 	  )))))
 
-(defun raw-append-progress-display (message &optional value frame)
+(defun raw-append-progress-feedback (message &optional value frame)
   (unless (equal message "")
     (let* ((inhibit-read-only t)
 	  (zmacs-region-stays zmacs-region-stays)
@@ -588,15 +572,11 @@ you should just use (progress nil)."
       ;; fixup the gutter specifiers
       (set-gutter-element bottom-gutter 'progress gutter-string frame)
       (set-specifier bottom-gutter-border-width 2 frame)
-      ;; #### use of set-image-instance-property is wrong.
-      ;; use set-glyph-image instead.
-      (set-image-instance-property 
-       (glyph-image-instance progress-gauge-glyph 
-			     (frame-selected-window frame))
-       :value val)
-      (set-image-instance-property 
-       (glyph-image-instance progress-text-glyph (frame-selected-window frame))
-       :data message)
+      (set-instantiator-property progress-gauge-instantiator :value val)
+      (set-progress-feedback-instantiator (frame-selected-window frame))
+
+      (set-instantiator-property progress-text-instantiator :data message)
+      (set-progress-feedback-instantiator (frame-selected-window frame))
       (if (and (eq (specifier-instance bottom-gutter-height frame)
 		   'autodetect)
 	       (gutter-element-visible-p bottom-gutter-visible-p
@@ -605,7 +585,7 @@ you should just use (progress nil)."
 	  ;; checking for user events
 	  (progn
 	    (redisplay-gutter-area)
-	    (progress-display-dispatch-non-command-events))
+	    (progress-feedback-dispatch-non-command-events))
 	;; otherwise make the gutter visible and redraw the frame
 	(set-specifier bottom-gutter-height 'autodetect frame)
 	(set-gutter-element-visible-p bottom-gutter-visible-p
@@ -613,36 +593,36 @@ you should just use (progress nil)."
 	;; we have to do this so redisplay is up-to-date and so
 	;; redisplay-gutter-area performs optimally. This may also
 	;; make sure the frame geometry looks ok.
-	(progress-display-dispatch-non-command-events)
+	(progress-feedback-dispatch-non-command-events)
 	(redisplay-frame frame)
 	))))
 
-(defun display-progress-display (label message &optional value frame)
+(defun display-progress-feedback (label message &optional value frame)
   "Display a progress gauge and message in the bottom gutter area.
  First argument LABEL is an identifier for this message.  MESSAGE is
-the string to display.  Use `clear-progress-display' to remove a labelled
+the string to display.  Use `clear-progress-feedback' to remove a labelled
 message."
   (cond ((eq value 'abort)
-	 (abort-progress-display label message frame))
+	 (abort-progress-feedback label message frame))
 	((or (not (valid-image-instantiator-format-p 'progress-gauge frame))
-	     progress-display-use-echo-area)
+	     progress-feedback-use-echo-area)
 	 (display-message label 
 	   (concat message (if (eq value 100) "done."
 			     (make-string (/ value 5) ?.)))
 	   frame))
 	(t
-	 (append-progress-display label message value frame))))
+	 (append-progress-feedback label message value frame))))
 
-(defun current-progress-display (&optional frame)
+(defun current-progress-feedback (&optional frame)
   "Return the current progress gauge in the gutter area, or nil.
 The FRAME argument is currently unused."
   (cdr (car progress-stack)))
 
 ;;; may eventually be frame-dependent
-(defun current-progress-display-label (&optional frame)
+(defun current-progress-feedback-label (&optional frame)
   (car (car progress-stack)))
 
-(defun progress-display (fmt &optional value &rest args)
+(defun progress-feedback (fmt &optional value &rest args)
   "Print a progress gauge and message in the bottom gutter area of the frame.
 The arguments are the same as to `format'.
 
@@ -650,12 +630,12 @@ If the only argument is nil, clear any existing progress gauge."
   (save-excursion
     (if (and (null fmt) (null args))
 	(prog1 nil
-	  (clear-progress-display nil))
+	  (clear-progress-feedback nil))
       (let ((str (apply 'format fmt args)))
-	(display-progress-display 'progress str value)
+	(display-progress-feedback 'progress str value)
 	str))))
 
-(defun lprogress-display (label fmt &optional value &rest args)
+(defun progress-feedback-with-label (label fmt &optional value &rest args)
   "Print a progress gauge and message in the bottom gutter area of the frame.
 First argument LABEL is an identifier for this progress gauge.  The rest of the
 arguments are the same as to `format'."
@@ -664,75 +644,10 @@ arguments are the same as to `format'."
   (save-excursion
     (if (and (null fmt) (null args))
 	(prog1 nil
-	  (clear-progress-display label nil))
+	  (clear-progress-feedback label nil))
       (let ((str (apply 'format fmt args)))
-	(display-progress-display label str value)
+	(display-progress-feedback label str value)
 	str))))
-
-;;
-;; Simple search dialog
-;;
-(defvar search-dialog-direction t)
-(defvar search-dialog-text 
-  (make-glyph 
-   [edit-field :width 15 :descriptor "" :active t :face default]))
-
-(defun search-dialog-callback (parent image-instance event)
-  (save-selected-frame
-    (select-frame parent)
-    (funcall (if search-dialog-direction
-		 'search-forward 'search-backward)
-	     (image-instance-property
-	      (glyph-image-instance search-dialog-text 
-				    (frame-selected-window 
-				     (event-channel event))) :text))
-    (isearch-highlight (match-beginning 0) (match-end 0))))
-  
-(defun make-search-dialog ()
-  "Popup a search dialog box."
-  (interactive)
-  (let* ((parent (selected-frame)))
-    (set-buffer-dedicated-frame 
-     (get-buffer-create "Dialog")
-     (make-dialog-box 
-      (make-glyph
-       `[layout 
-	 :orientation horizontal :justify left
-	 :height 10 :width 40
-	 :border [string :data "Search"]
-	 :items 
-	 ([layout :orientation vertical :justify left
-		  :items 
-		  ([string :data "Search for:"]
-		   [button :descriptor "Match case"
-			   :style toggle
-			   :selected (not case-fold-search)
-			   :callback (setq case-fold-search
-					   (not case-fold-search))]
-		   [button :descriptor "Forwards"
-			   :style radio
-			   :selected search-dialog-direction
-			   :callback (setq search-dialog-direction t)]
-		   [button :descriptor "Backwards"
-			   :style radio
-			   :selected (not search-dialog-direction)
-			   :callback (setq search-dialog-direction nil)]
-		   )]
-	  [layout :orientation vertical :justify left
-		  :items 
-		  (search-dialog-text
-		   [button :width 10 :descriptor "Find Next"
-			   :callback-ex
-			   (lambda (image-instance event)
-			     (search-dialog-callback ,parent
-						     image-instance event))]
-		   [button :width 10 :descriptor "Cancel"
-			   :callback-ex
-			   (lambda (image-instance event)
-			     (isearch-dehighlight)
-			     (delete-frame 
-			      (event-channel event)))])])])
-      '(height 10 width 40)))))
 
 (provide 'gutter-items)
 ;;; gutter-items.el ends here.

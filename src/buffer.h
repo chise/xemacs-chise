@@ -897,7 +897,7 @@ typedef enum dfc_conversion_type dfc_conversion_type;
 
 /* WARNING: These use a static buffer.  This can lead to disaster if
    these functions are not used *very* carefully.  Another reason to only use
-   TO_EXTERNAL_FORMATf() and TO_INTERNAL_FORMAT(). */
+   TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
 void
 dfc_convert_to_external_format (dfc_conversion_type source_type,
 				dfc_conversion_data *source,
@@ -1013,11 +1013,30 @@ typedef union { char c; void *p; } *dfc_aliasing_voidpp;
    argument to TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
 #define Qnative Qfile_name
 
-#ifdef HAVE_MS_WINDOWS
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
 /* #### kludge!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    Remove this as soon as my Mule code is integrated. */
 #define Qmswindows_tstr Qnative
 #endif
+
+/* More stand-ins */
+#define Qcommand_argument_encoding Qnative
+#define Qenvironment_variable_encoding Qnative
+
+/* Convenience macros for extremely common invocations */
+#define C_STRING_TO_EXTERNAL(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (C_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define C_STRING_TO_EXTERNAL_MALLOC(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (C_STRING, in, C_STRING_MALLOC, out, coding_system)
+#define EXTERNAL_TO_C_STRING(in, out, coding_system) \
+  TO_INTERNAL_FORMAT (C_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define EXTERNAL_TO_C_STRING_MALLOC(in, out, coding_system) \
+  TO_INTERNAL_FORMAT (C_STRING, in, C_STRING_MALLOC, out, coding_system)
+#define LISP_STRING_TO_EXTERNAL(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (LISP_STRING, in, C_STRING_ALLOCA, out, coding_system)
+#define LISP_STRING_TO_EXTERNAL_MALLOC(in, out, coding_system) \
+  TO_EXTERNAL_FORMAT (LISP_STRING, in, C_STRING_MALLOC, out, coding_system)
+
 
 /************************************************************************/
 /*                                                                      */

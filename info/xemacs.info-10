@@ -30,6 +30,84 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: TeX Editing,  Next: TeX Print,  Prev: TeX Mode,  Up: TeX Mode
+
+TeX Editing Commands
+....................
+
+   Here are the special commands provided in TeX mode for editing the
+text of the file.
+
+`"'
+     Insert, according to context, either ```' or `"' or `'''
+     (`TeX-insert-quote').
+
+`<LFD>'
+     Insert a paragraph break (two newlines) and check the previous
+     paragraph for unbalanced braces or dollar signs (`tex-terminate-
+     paragraph').
+
+`M-x validate-tex-buffer'
+     Check each paragraph in the buffer for unbalanced braces or dollar
+     signs.
+
+`C-c {'
+     Insert `{}' and position point between them (`tex-insert-braces').
+
+`C-c }'
+     Move forward past the next unmatched close brace (`up-list').
+
+`C-c C-e'
+     Close a block for LaTeX (`tex-close-latex-block').
+
+   In TeX, the character `"' is not normally used; you use ```' to
+start a quotation and `''' to end one.  TeX mode defines the key `"' to
+insert ```' after whitespace or an open brace, `"' after a backslash,
+or `''' otherwise.  This is done by the command `tex-insert-quote'.  If
+you need the character `"' itself in unusual contexts, use `C-q' to
+insert it.  Also, `"' with a numeric argument always inserts that
+number of `"' characters.
+
+   In TeX mode, `$' has a special syntax code which attempts to
+understand the way TeX math mode delimiters match.  When you insert a
+`$' that is meant to exit math mode, the position of the matching `$'
+that entered math mode is displayed for a second.  This is the same
+feature that displays the open brace that matches a close brace that is
+inserted.  However, there is no way to tell whether a `$' enters math
+mode or leaves it; so when you insert a `$' that enters math mode, the
+previous `$' position is shown as if it were a match, even though they
+are actually unrelated.
+
+   If you prefer to keep braces balanced at all times, you can use `C-c
+{' (`tex-insert-braces') to insert a pair of braces.  It leaves point
+between the two braces so you can insert the text that belongs inside.
+Afterward, use the command `C-c }' (`up-list') to move forward past the
+close brace.
+
+   There are two commands for checking the matching of braces.  <LFD>
+(`tex-terminate-paragraph') checks the paragraph before point, and
+inserts two newlines to start a new paragraph.  It prints a message in
+the echo area if any mismatch is found.  `M-x validate-tex-buffer'
+checks the entire buffer, paragraph by paragraph.  When it finds a
+paragraph that contains a mismatch, it displays point at the beginning
+of the paragraph for a few seconds and pushes a mark at that spot.
+Scanning continues until the whole buffer has been checked or until you
+type another key.  The positions of the last several paragraphs with
+mismatches can be found in the mark ring (*note Mark Ring::).
+
+   Note that square brackets and parentheses, not just braces, are
+matched in TeX mode.  This is wrong if you want to  check TeX syntax.
+However, parentheses and square brackets are likely to be used in text
+as matching delimiters and it is useful for the various motion commands
+and automatic match display to work with them.
+
+   In LaTeX input, `\begin' and `\end' commands must balance.  After
+you insert a `\begin', use `C-c C-f' (`tex-close-latex-block') to
+insert automatically a matching `\end' (on a new line following the
+`\begin').  A blank line is inserted between the two, and point is left
+there.
+
+
 File: xemacs.info,  Node: TeX Print,  Prev: TeX Editing,  Up: TeX Mode
 
 TeX Printing Commands
@@ -1099,89 +1177,4 @@ all of the lines inside a single parenthetical grouping.
 * Multi-line Indent::   Commands to reindent many lines at once.
 * Lisp Indent::		Specifying how each Lisp function should be indented.
 * C Indent::		Choosing an indentation style for C code.
-
-
-File: xemacs.info,  Node: Basic Indent,  Next: Multi-line Indent,  Prev: Grinding,  Up: Grinding
-
-Basic Program Indentation Commands
-----------------------------------
-
-`<TAB>'
-     Adjust indentation of current line.
-
-`<LFD>'
-     Equivalent to <RET> followed by <TAB> (`newline-and-indent').
-
-   The basic indentation command is <TAB>, which gives the current line
-the correct indentation as determined from the previous lines.  The
-function that <TAB> runs depends on the major mode; it is
-`lisp-indent-line' in Lisp mode, `c-indent-line' in C mode, etc.  These
-functions understand different syntaxes for different languages, but
-they all do about the same thing.  <TAB> in any programming language
-major mode inserts or deletes whitespace at the beginning of the
-current line, independent of where point is in the line.  If point is
-inside the whitespace at the beginning of the line, <TAB> leaves it at
-the end of that whitespace; otherwise, <TAB> leaves point fixed with
-respect to the characters around it.
-
-   Use `C-q <TAB>' to insert a tab at point.
-
-   When entering a large amount of new code, use <LFD>
-(`newline-and-indent'), which is equivalent to a <RET> followed by a
-<TAB>.  <LFD> creates a blank line, then gives it the appropriate
-indentation.
-
-   <TAB> indents the second and following lines of the body of a
-parenthetical grouping each under the preceding one; therefore, if you
-alter one line's indentation to be nonstandard, the lines below tend to
-follow it.  This is the right behavior in cases where the standard
-result of <TAB> does not look good.
-
-   Remember that Emacs assumes that an open-parenthesis, open-brace, or
-other opening delimiter at the left margin (including the indentation
-routines) is the start of a function.  You should therefore never have
-an opening delimiter in column zero that is not the beginning of a
-function, not even inside a string.  This restriction is vital for
-making the indentation commands fast. *Note Defuns::, for more
-information on this behavior.
-
-
-File: xemacs.info,  Node: Multi-line Indent,  Next: Lisp Indent,  Prev: Basic Indent,  Up: Grinding
-
-Indenting Several Lines
------------------------
-
-   Several commands are available to re-indent several lines of code
-which have been altered or moved to a different level in a list
-structure.
-
-`C-M-q'
-     Re-indent all the lines within one list (`indent-sexp').
-
-`C-u <TAB>'
-     Shift an entire list rigidly sideways so that its first line is
-     properly indented.
-
-`C-M-\'
-     Re-indent all lines in the region (`indent-region').
-
-   To re-indent the contents of a single list, position point before the
-beginning of it and type `C-M-q'. This key is bound to `indent-sexp' in
-Lisp mode, `indent-c-exp' in C mode, and bound to other suitable
-functions in other modes.  The indentation of the line the sexp starts
-on is not changed; therefore, only the relative indentation within the
-list, and not its position, is changed.  To correct the position as
-well, type a <TAB> before `C-M-q'.
-
-   If the relative indentation within a list is correct but the
-indentation of its beginning is not, go to the line on which the list
-begins and type `C-u <TAB>'.  When you give <TAB> a numeric argument,
-it moves all the lines in the group, starting on the current line,
-sideways the same amount that the current line moves.  The command does
-not move lines that start inside strings, or C preprocessor lines when
-in C mode.
-
-   Another way to specify a range to be re-indented is with point and
-mark.  The command `C-M-\' (`indent-region') applies <TAB> to every
-line whose first character is between point and mark.
 

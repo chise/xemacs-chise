@@ -749,7 +749,7 @@ long file that contains no page markers and has no local variables list.
 list.  That is inappropriate.  Whether you use Auto Fill mode or not is
 a matter of personal taste, not a matter of the contents of particular
 files.  If you want to use Auto Fill, set up major mode hooks with your
-file file to turn it on (when appropriate) for you alone
+init file to turn it on (when appropriate) for you alone
 (@pxref{Init File}).  Don't try to use a local variable list that would
 impose your taste on everyone working with the file.
 
@@ -2493,12 +2493,26 @@ proper, it does not use the face mechanism for specifying fonts and
 colors: It uses whatever resources are appropriate to the type of widget
 which is used to implement it.
 
-If Emacs was compiled to use only the Motif-lookalike menu widgets, then one
-way to specify the font of the menubar would be
+If Emacs was compiled to use only the Lucid Motif-lookalike menu widgets,
+then one way to specify the font of the menubar would be
 
 @example
 Emacs*menubar*font: *-courier-medium-r-*-*-*-120-*-*-*-*-*-*
 @end example
+
+If both the Lucid Motif-lookalike menu widgets and X Font Sets are 
+configured to allow multilingual menubars, then one uses
+
+@example
+*menubar*FontSet:       -*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*, \
+                        -*-*-*-*-*-*-*-120-*-jisx0208.1983-0
+@end example
+
+That would specify fonts for a Japanese menubar.  Specifying only one
+XLFD is acceptable; specifying more than one for a given registry
+(language) is also allowed.  When X Font Sets are configured, some .font
+resources (eg, menubars) are ignored in favor of the corresponding
+.fontSet resources.
 
 If the Motif library is being used, then one would have to use 
 

@@ -1,3 +1,52 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-30  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h (HAVE_STRCASECMP): Remove.
+
+2000-09-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	Make src\depend parsing recognise "#if defined" instead of "#ifdef".
+	Use matching single quotes to keep 4dos shell happy.
+
+2000-08-07  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak: add getloadavg.c.
+
+2000-07-30  Ben Wing  <ben@xemacs.org>
+
+	* README (NOTE):
+	Improve X documentation.
+	Document nascent Mule support.
+	Document current MS Windows contributors.
+
+2000-07-15  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak:
+	added new file win32.c.
+	took out unused alloca.c.
+	* xemacs.mak (update-elc-2): added new target for rebuilding the
+	remaining .elcs after dumped.  its dependency is added for target
+	all.
+	* xemacs.mak (update-auto-and-custom):
+	cleaned up ; now it byte-compiles custom-load.el.
+	* xemacs.mak (mostlyclean):
+	* xemacs.mak (clean):
+	* xemacs.mak (nicenclean):
+	* xemacs.mak (distclean):
+	* xemacs.mak (realclean):
+	* xemacs.mak (versionclean):
+	Redid all the clean targets, to be similar to what's in the
+	standard Makefile.
+
+2000-07-18  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak ($(PROGNAME)): Do check error code from temacs during
+	dumping.
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.

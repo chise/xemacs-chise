@@ -1667,7 +1667,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       else
 	findex = get_builtin_face_cache_index (w, face);
 
-      instance = glyph_image_instance (gb->glyph, data->window, 
+      instance = glyph_image_instance (gb->glyph, data->window,
 				       ERROR_ME_NOT, 1);
       if (TEXT_IMAGE_INSTANCEP (instance))
 	{
@@ -3507,7 +3507,7 @@ generate_formatted_string_db (Lisp_Object format_str, Lisp_Object result_str,
 
   /* result_str is nil when we're building a frame or icon title. Otherwise,
      we're building a modeline, so the offset starts at the modeline
-     horizontal scrolling ammount */
+     horizontal scrolling amount */
   if (! NILP (result_str))
     offset = w->modeline_hscroll;
   generate_fstring_runes (w, &data, 0, 0, -1, format_str, 0,
@@ -4292,9 +4292,9 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
   int truncate_win = b ? window_truncation_on (w) : 0;
   int end_glyph_width = 0;
 
-  /* we're going to ditch selective display for static text, its an
-     FSF thing and invisble extents are the way to go
-     here. Implementing it also relies on a number of buffer-specific
+  /* We're going to ditch selective display for static text, it's an
+     FSF thing and invisible extents are the way to go here.
+     Implementing it also relies on a number of buffer-specific
      functions that we don't have the luxury of being able to use
      here. */
 
@@ -5996,7 +5996,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
       && !(MINI_WINDOW_P (w) && f->buffers_changed)
       && !f->frame_changed
       && !truncation_changed
-      /* check whether start is really at the begining of a line  GE */
+      /* check whether start is really at the beginning of a line  GE */
       && (!w->start_at_line_beg || beginning_of_line_p (b, startp))
       )
     {
@@ -6338,12 +6338,15 @@ redisplay_frame (struct frame *f, int preemption_check)
   if (f->clear)
     f->frame_changed = 1;
 
-  /* Invalidate the subwindow cache. We use subwindows_changed here to
-     cause subwindows to get instantiated. This is because
+  /* Invalidate the subwindow caches. We use subwindows_changed here
+     to cause subwindows to get instantiated. This is because
      subwindows_state_changed is less strict - dealing with things
      like the clicked state of button. We have to do this before
      redisplaying the gutters as subwindows get unmapped in the
      process.*/
+  if (f->frame_changed)
+    reset_frame_subwindow_instance_cache (f);
+
   if (f->frame_changed || f->subwindows_changed)
     {
       /* we have to do this so the gutter gets regenerated. */
@@ -7537,7 +7540,7 @@ point_would_be_visible (struct window *w, Bufpos startp, Bufpos point)
    displayed.  The end of the last line is also know as the window end
    position.
 
-   WARNING: It is possible that rediplay failed to layout any lines for the
+   WARNING: It is possible that redisplay failed to layout any lines for the
    windows. Under normal circumstances this is rare. However it seems that it
    does occur in the following situation: A mouse event has come in and we
    need to compute its location in a window. That code (in
@@ -8897,7 +8900,7 @@ input and is guaranteed to proceed to completion.
 
   redisplay_frame (f, 1);
 
-  /* If we don't reset the global redisplay flafs here, subsequent
+  /* If we don't reset the global redisplay flags here, subsequent
      changes to the display will not get registered by redisplay
      because it thinks it already has registered changes. If you
      really knew what you were doing you could confuse redisplay by

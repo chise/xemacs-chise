@@ -99,11 +99,11 @@ example, to bind C-z to undo:
 Rebindind C-x and C-c is trickier because by default these are prefix
 keys in XEmacs. See the "Key Bindings" node in the XEmacs manual.
 
-** Behaviour of selected regions
+** Behavior of selected regions
 
 Selected regions behave differently in XEmacs from typical Windows
 programs. The pc-select package provides various functions to enable
-the standard Windows behaviour for selected regions (eg mark via
+the standard Windows behavior for selected regions (eg mark via
 shift-arrow, self-inserting deletes region, etc).
 
 ** Limitations on the use of the AltGr key.

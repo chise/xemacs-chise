@@ -39,7 +39,7 @@ hierarchy is called a @dfn{root}.
 @cindex root of a hierarchy
 Whenever this section refers to a directory using the shorthand
 @code{<root>}, it means that XEmacs searches for it under all
-hierarchies under all hierarchies XEmacs was able to scrounge up.  In a
+hierarchies XEmacs was able to scrounge up.  In a
 running XEmacs, the hierarchy roots are stored in the variable
 @code{emacs-roots}.
 @vindex emacs-roots
@@ -85,12 +85,12 @@ It is possible to specify at configure-time the location of the various
 package hierarchies with the @code{--package-path} option to configure.
 @cindex package path
 The early, late, and last components of the package path are separated
-by double instead of single colons.  If three components are present,
-they are locate the early, late, and last package hierarchies
+by double instead of single colons.  If all three components are
+present, they locate the early, late, and last package hierarchies
 respectively.  If two components are present, they locate the early and
-late hierarchies.  If only one component is present, it locates the late
-hierarchy.  At run time, the package path may also be specified via the
-@code{EMACSPACKAGEPATH} environment variable.
+late hierarchies.  If only one component is present, it locates the
+late hierarchy.  At run time, the package path may also be specified via
+the @code{EMACSPACKAGEPATH} environment variable.
 
 An XEmacs package is laid out just like a normal installed XEmacs lisp
 directory.  It may have @file{lisp}, @file{etc}, @file{info}, and

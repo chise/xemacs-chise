@@ -1,25 +1,25 @@
  /* Tabs Widget for XEmacs.
     Copyright (C) 1999 Edward A. Falk
- 
+
  This file is part of XEmacs.
- 
+
  XEmacs is free software; you can redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
  Free Software Foundation; either version 2, or (at your option) any
  later version.
- 
+
  XEmacs is distributed in the hope that it will be useful, but WITHOUT
  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with XEmacs; see the file COPYING.  If not, write to
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
- 
+
  /* Synched up with: Tabs.c 1.27 */
- 
+
  /*
  * Tabs.c - Index Tabs composite widget
  *
@@ -655,7 +655,7 @@ TabsSetValues(Widget current, Widget request, Widget new,
 	 * Window system will handle the redraws.
 	 */
 
-	if( tw->tabs.topWidget != curtw->tabs.topWidget ) 
+	if( tw->tabs.topWidget != curtw->tabs.topWidget )
 	{
 	  if( XtIsRealized(tw->tabs.topWidget) )
 	  {
@@ -757,7 +757,7 @@ TabsAcceptFocus(Widget w, Time *t)
 /*
  * Return preferred size.  Happily accept anything >= our preferred size.
  * (TODO: is that the right thing to do?  Should we always return "almost"
- * if offerred more than we need?)
+ * if offered more than we need?)
  */
 
 static XtGeometryResult
@@ -1385,7 +1385,7 @@ DrawTabs(TabsWidget tw, Bool labels)
 
  	if( !XtIsRealized((Widget)tw))
  	  return ;
- 
+
 	/* draw tabs and frames by row except for the top tab, which
 	 * is drawn last.  (This is inefficiently written, but should not
 	 * be too slow as long as there are not a lot of rows.)
@@ -1749,7 +1749,7 @@ TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_o
 	      if (!query_only)
 		tw->tabs.displayChildren++;
 	    }
-	  /* If there was only one row, increse the height by TABDELTA */
+	  /* If there was only one row, increase the height by TABDELTA */
 	  if( ++row == 1 )
 	  {
 	    y = TABDELTA ;

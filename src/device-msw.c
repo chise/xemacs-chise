@@ -40,12 +40,10 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "sysdep.h"
 
-/* #### Andy, these includes might break cygwin compilation - kkm*/
 #include <commdlg.h>
-#include <winspool.h>
 
 #if !(defined (CYGWIN) || defined(MINGW))
-# include <objbase.h>	/* For CoInitialize */
+#include <objbase.h>	/* For CoInitialize */
 #endif
 
 /* win32 DDE management library globals */
@@ -60,7 +58,7 @@ HSZ mswindows_dde_item_open;
    nil means no, t means yes. */
 Lisp_Object Vmswindows_downcase_file_names;
 
-/* Control whether stat() attempts to determine file type and link count
+/* Control whether xemacs_stat() attempts to determine file type and link count
    exactly, at the expense of slower operation.  Since true hard links
    are supported on NTFS volumes, this is only relevant on NT.  */
 Lisp_Object Vmswindows_get_true_file_attributes;
@@ -137,7 +135,7 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.cbWndExtra = MSWINDOWS_WINDOW_EXTRA_BYTES;
   /* This must match whatever is passed to CreateWIndowEx, NULL is ok
      for this. */
-  wc.hInstance = NULL;	
+  wc.hInstance = NULL;
   wc.hIcon = LoadIcon (GetModuleHandle(NULL), XEMACS_CLASS);
   wc.hCursor = LoadCursor (NULL, IDC_ARROW);
   /* Background brush is only used during sizing, when XEmacs cannot
@@ -146,9 +144,16 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.lpszMenuName = NULL;
 
   wc.lpszClassName = XEMACS_CLASS;
-  wc.hIconSm = (HICON) LoadImage (GetModuleHandle (NULL), XEMACS_CLASS,
-			  IMAGE_ICON, 16, 16, 0);
-  RegisterClassEx (&wc);
+  if (xLoadImageA) /* not in NT 3.5 */
+    wc.hIconSm = (HICON) xLoadImageA (GetModuleHandle (NULL), XEMACS_CLASS,
+				      IMAGE_ICON, 16, 16, 0);
+  else
+    wc.hIconSm = 0;
+
+  if (xRegisterClassExA)  /* not in NT 3.5 */
+    xRegisterClassExA (&wc);
+  else
+    RegisterClassA ((WNDCLASS *) &wc.style);
 
 #ifdef HAVE_WIDGETS
   xzero (wc);
@@ -157,7 +162,10 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.lpfnWndProc = (WNDPROC) mswindows_control_wnd_proc;
   wc.lpszClassName = XEMACS_CONTROL_CLASS;
   wc.hInstance = NULL;
-  RegisterClassEx (&wc);
+  if (xRegisterClassExA)  /* not in NT 3.5 */
+    xRegisterClassExA (&wc);
+  else
+    RegisterClassA ((WNDCLASS *) &wc.style);
 #endif
 
 #if defined (HAVE_TOOLBARS) || defined (HAVE_WIDGETS)
@@ -180,7 +188,7 @@ mswindows_finish_init_device (struct device *d, Lisp_Object props)
 		 APPCMD_FILTERINITS|CBF_FAIL_SELFCONNECTIONS|CBF_FAIL_ADVISES|
 		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS,
 		 0);
-  
+
   mswindows_dde_service = DdeCreateStringHandle (mswindows_dde_mlid,
 						 XEMACS_CLASS, 0);
   mswindows_dde_topic_system = DdeCreateStringHandle (mswindows_dde_mlid,
@@ -258,7 +266,7 @@ mswindows_device_system_metrics (struct device *d,
 #define FROB(met, fore, back)				\
     case DM_##met:					\
       return build_syscolor_cons (fore, back);
-      
+
       FROB (color_default, COLOR_WINDOWTEXT, COLOR_WINDOW);
       FROB (color_select, COLOR_HIGHLIGHTTEXT, COLOR_HIGHLIGHT);
       FROB (color_balloon, COLOR_INFOTEXT, COLOR_INFOBK);
@@ -340,7 +348,7 @@ mswindows_device_implementation_flags (void)
 static void
 signal_open_printer_error (struct device *d)
 {
-  signal_simple_error ("Failed to open printer", DEVICE_CONNECTION (d));
+  invalid_operation ("Failed to open printer", DEVICE_CONNECTION (d));
 }
 
 
@@ -385,10 +393,29 @@ msprinter_delete_device_internal (struct device *d)
   DEVICE_MSPRINTER_FONTLIST (d) = Qnil;
 }
 
-static int msprinter_reinit_device (struct device *d, char* devname)
+static int
+msprinter_reinit_device (struct device *d, char* devname)
 {
   msprinter_delete_device_internal (d);
   return msprinter_init_device_internal (d, devname);
+}
+
+Lisp_Object
+msprinter_default_printer (void)
+{
+  Extbyte name[666];
+  Bufbyte *nameint;
+
+  if (GetProfileString (XETEXT ("windows"), XETEXT ("device"), NULL, name,
+			sizeof (name) / XETCHAR_SIZE) <= 0)
+    return Qnil;
+  EXTERNAL_TO_C_STRING (name, nameint, Qmswindows_tstr);
+
+  if (name[0] == '\0')
+    return Qnil;
+  strtok (name, ",");
+
+  return build_string (name);
 }
 
 
@@ -421,9 +448,9 @@ msprinter_init_device (struct device *d, Lisp_Object props)
 
   if (!msprinter_init_device_internal (d, printer_name))
     signal_open_printer_error (d);
-    
-  /* Determinie DEVMODE size and store the default DEVMODE */
-  dm_size = DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
+
+  /* Determine DEVMODE size and store the default DEVMODE */
+  dm_size = DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER (d),
 				printer_name, NULL, NULL, 0);
   if (dm_size <= 0)
     signal_open_printer_error (d);
@@ -435,7 +462,7 @@ msprinter_init_device (struct device *d, Lisp_Object props)
 
   assert (DEVMODE_SIZE (pdm) <= dm_size);
 
-  DEVICE_MSPRINTER_DEVMODE(d) = 
+  DEVICE_MSPRINTER_DEVMODE(d) =
     allocate_devmode (pdm, 0, printer_name, d);
 
 }
@@ -483,7 +510,7 @@ msprinter_device_system_metrics (struct device *d,
          therefore useless */
       return make_int (GetDeviceCaps (DEVICE_MSPRINTER_HDC(d), BITSPIXEL));
 
-    case DM_num_color_cells:	/* Prnters are non-palette devices */
+    case DM_num_color_cells:	/* Printers are non-palette devices */
     case DM_slow_device:	/* Animation would be a really bad idea */
     case DM_security:		/* Not provided by windows */
       return Qzero;
@@ -584,7 +611,7 @@ sync_printer_with_devmode (struct device* d, DEVMODE* devmode_in,
       DEVICE_MSPRINTER_HDC (d) =
 	CreateDC ("WINSPOOL", DEVICE_MSPRINTER_NAME(d), NULL, devmode_out);
     }
- 
+
   return 1;
 }
 
@@ -628,8 +655,8 @@ ensure_not_printing (struct device *d)
   {
     Lisp_Object device;
     XSETDEVICE (device, d);
-    signal_simple_error ("Cannot change settings while print job is active",
-			 device);
+    invalid_operation ("Cannot change settings while print job is active",
+		       device);
   }
 }
 
@@ -640,12 +667,8 @@ decode_devmode (Lisp_Object dev)
     return XDEVMODE (dev);
   else
     {
-      struct device* d = decode_device (dev);
-      Lisp_Object device;
-      XSETDEVICE (device, d);
-      CHECK_MSPRINTER_DEVICE (device);
-      ensure_not_printing (d);
-      return XDEVMODE (DEVICE_MSPRINTER_DEVMODE (d));
+      ensure_not_printing (XDEVICE (dev));
+      return XDEVMODE (DEVICE_MSPRINTER_DEVMODE (XDEVICE (dev)));
     }
 }
 
@@ -707,77 +730,74 @@ print_dialog_worker (Lisp_Object dev, int print_p)
   }
 }
 
-DEFUN ("msprinter-print-setup-dialog", Fmsprinter_print_setup_dialog, 1, 1, 0, /*
-Invoke Windows standard Printer Setup dialog.
-This dialog is usually invoked when the user selects the Printer Setup
-command.
-
-DEVICE must be either an 'msprinter device, or a printer settings
-object. The function brings up the Printer Setup dialog, where the user
-can select a different printer and/or change printer options.
-Connection name can change as a result of selecting a different printer
-device.  If a printer is specified, then changes are stored into the
-settings object currently selected into that printer.  If a settings
-object is supplied, then changes are recorded into it, and, it it is
-selected into a printer, then changes are propagated to that printer
-too.
-
-Return value is nil if the user has canceled the dialog.  Otherwise, it
-is a new plist, with the following properties:
-  name       Printer device name, even if unchanged by the user.
-
-The printer device is destroyed and an error is signaled if new printer
-is selected by the user, but cannot be initialized.
-
-See also `msprinter-print-dialog' and `msprinter-page-setup-dialog'.
-*/
-	(device))
+Lisp_Object
+mswindows_handle_print_setup_dialog_box (struct frame *f, Lisp_Object keys)
 {
-  return print_dialog_worker (device, 0);
+  Lisp_Object device = Qunbound, settings = Qunbound;
+
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
+      {
+	if (EQ (key, Q_device))
+	  {
+	    device = wrap_device (decode_device (value));
+	    CHECK_MSPRINTER_DEVICE (device);
+	  }
+	else if (EQ (key, Q_printer_settings))
+	  {
+	    CHECK_DEVMODE (value);
+	    settings = value;
+	  }
+	else
+	  syntax_error ("Unrecognized print-dialog keyword", key);
+      }
+  }
+
+  if ((UNBOUNDP (device) && UNBOUNDP (settings)) ||
+      (!UNBOUNDP (device) && !UNBOUNDP (settings)))
+    syntax_error ("Exactly one of :device and :printer-settings must be given",
+		  keys);
+
+  return print_dialog_worker (!UNBOUNDP (device) ? device : settings, 0);
 }
 
-DEFUN ("msprinter-print-dialog", Fmsprinter_print_dialog, 1, 1, 0, /*
-Invoke Windows standard Print dialog.
-This dialog is usually invoked when the user selects the Print command.
-After the user presses OK, the program should start actual printout.
-
-DEVICE must be either an 'msprinter device, or a printer settings
-object. The function brings up the Print dialog, where the user can
-select a different printer and/or change printer options. Connection
-name can change as a result of selecting a different printer device.  If
-a printer is specified, then changes are stored into the settings object
-currently selected into that printer.  If a settings object is supplied,
-then changes are recorded into it, and, it it is selected into a
-printer, then changes are propagated to that printer 
-too.
-
-Return value is nil if the user has canceled the dialog.  Otherwise, it
-is a new plist, with the following properties:
-  name       Printer device name, even if unchanged by the user.
-  from-page  First page to print, 1-based. If not specified by the user,
-             then this value is not included in the plist.
-  to-page    Last page to print, inclusive, 1-based. If not specified by
-             the user, then this value is not included in the plist.
-  copies     Number of copies to print.  Always returned.
-
-The DEVICE is destroyed and an error is signaled in case of
-initialization problem with the new printer.
-
-See also `msprinter-setup-print-dialog' and
-`msprinter-page-setup-dialog'.
-*/
-	(device))
+Lisp_Object
+mswindows_handle_print_dialog_box (struct frame *f, Lisp_Object keys)
 {
-  return print_dialog_worker (device, 1);
-}
+  Lisp_Object device = Qunbound, settings = Qunbound;
 
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
+      {
+	if (EQ (key, Q_device))
+	  {
+	    device = wrap_device (decode_device (value));
+	    CHECK_MSPRINTER_DEVICE (device);
+	  }
+	else if (EQ (key, Q_printer_settings))
+	  {
+	    CHECK_DEVMODE (value);
+	    settings = value;
+	  }
+	else
+	  syntax_error ("Unrecognized print-dialog keyword", key);
+      }
+  }
+
+  if ((UNBOUNDP (device) && UNBOUNDP (settings)) ||
+      (!UNBOUNDP (device) && !UNBOUNDP (settings)))
+    syntax_error ("Exactly one of :device and :printer-settings must be given",
+		  keys);
+
+  return print_dialog_worker (!UNBOUNDP (device) ? device : settings, 1);
+}
 
 static int
 plist_get_margin (Lisp_Object plist, Lisp_Object prop)
 {
   Lisp_Object val = Fplist_get (plist, prop, make_int (1440));
   if (!INTP (val))
-    signal_simple_error ("Margin value must be an integer", val);
+    invalid_argument ("Margin value must be an integer", val);
 
   return MulDiv (XINT (val), 100, 144);
 }
@@ -789,70 +809,78 @@ plist_set_margin (Lisp_Object plist, Lisp_Object prop, int margin, int mm_p)
   return Fcons (prop, Fcons (val, plist));
 }
 
-DEFUN ("msprinter-page-setup-dialog", Fmsprinter_page_setup_dialog, 1, 2, 0, /*
-Invoke Windows standard Page Setup dialog.
-This dialog is usually invoked in response to Page Setup command, and
-used to chose such parameters as page orientation, print margins etc.
-Note that this dialog contains the "Printer" button, which invokes
-Printer Setup dialog (see `msprinter-print-setup-dialog') so that the
-user can update the printer options or even select a different printer
-as well.
-
-DEVICE must be either an 'msprinter device, or a printer settings
-object. The function brings up the Page Setup dialog, where the user
-can select a different printer and/or change printer options.
-Connection name can change as a result of selecting a different printer
-device.  If a printer is specified, then changes are stored into the
-settings object currently selected into that printer.  If a settings
-object is supplied, then changes are recorded into it, and, it it is
-selected into a printer, then changes are propagated to that printer
-too.
-
-PLIST is a plist of job properties;
-see `default-msprinter-frame-plist' for the complete list.  The plist
-is used to initialize the dialog.
-
-Return value is nil if the user has canceled the dialog.  Otherwise,
-it is a new plist, containing the new list of properties.
-
-The DEVICE is destroyed and an error is signaled in case of
-initialization problem with the new printer.
-
-See also `msprinter-print-setup-dialog' and `msprinter-print-dialog'.
-*/
-       (device, plist))
+Lisp_Object
+mswindows_handle_page_setup_dialog_box (struct frame *f, Lisp_Object keys)
 {
-  Lisp_Devmode *ldm = decode_devmode (device);
-  PAGESETUPDLG pd;
+  Lisp_Object device = Qunbound, settings = Qunbound;
+  Lisp_Object plist = Qnil;
 
-  memset (&pd, 0, sizeof (pd));
-  pd.lStructSize = sizeof (pd);
-  pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
-  pd.Flags = PSD_MARGINS;
-  pd.rtMargin.left   = plist_get_margin (plist, Qleft_margin);
-  pd.rtMargin.top    = plist_get_margin (plist, Qtop_margin);
-  pd.rtMargin.right  = plist_get_margin (plist, Qright_margin);
-  pd.rtMargin.bottom = plist_get_margin (plist, Qbottom_margin);
-  pd.hDevMode = devmode_to_hglobal (ldm);
-
-  if (!PageSetupDlg (&pd))
-    {
-      global_free_2_maybe (pd.hDevNames, pd.hDevMode);
-      return Qnil;
-    }
-
-  if (pd.hDevMode)
-    handle_devmode_changes (ldm, pd.hDevNames, pd.hDevMode);
-
-  /* Finally, build the resulting plist */
   {
-    Lisp_Object result = Qnil;
-    int mm_p = pd.Flags & PSD_INHUNDREDTHSOFMILLIMETERS;
-    result = plist_set_margin (result, Qbottom_margin, pd.rtMargin.bottom, mm_p);
-    result = plist_set_margin (result, Qright_margin, pd.rtMargin.right, mm_p);
-    result = plist_set_margin (result, Qtop_margin, pd.rtMargin.top, mm_p);
-    result = plist_set_margin (result, Qleft_margin, pd.rtMargin.left, mm_p);
-    return result;
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
+      {
+	if (EQ (key, Q_device))
+	  {
+	    device = wrap_device (decode_device (value));
+	    CHECK_MSPRINTER_DEVICE (device);
+	  }
+	else if (EQ (key, Q_printer_settings))
+	  {
+	    CHECK_DEVMODE (value);
+	    settings = value;
+	  }
+	else if (EQ (key, Q_properties))
+	  {
+	    CHECK_LIST (value);
+	    plist = value;
+	  }
+	else
+	  syntax_error ("Unrecognized page-setup dialog keyword", key);
+      }
+  }
+
+  if ((UNBOUNDP (device) && UNBOUNDP (settings)) ||
+      (!UNBOUNDP (device) && !UNBOUNDP (settings)))
+    syntax_error ("Exactly one of :device and :printer-settings must be given",
+		  keys);
+
+  if (UNBOUNDP (device))
+    device = settings;
+
+  {
+    Lisp_Devmode *ldm = decode_devmode (device);
+    PAGESETUPDLG pd;
+
+    memset (&pd, 0, sizeof (pd));
+    pd.lStructSize = sizeof (pd);
+    pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
+    pd.Flags = PSD_MARGINS;
+    pd.rtMargin.left   = plist_get_margin (plist, Qleft_margin);
+    pd.rtMargin.top    = plist_get_margin (plist, Qtop_margin);
+    pd.rtMargin.right  = plist_get_margin (plist, Qright_margin);
+    pd.rtMargin.bottom = plist_get_margin (plist, Qbottom_margin);
+    pd.hDevMode = devmode_to_hglobal (ldm);
+
+    if (!PageSetupDlg (&pd))
+      {
+	global_free_2_maybe (pd.hDevNames, pd.hDevMode);
+	return Qnil;
+      }
+
+    if (pd.hDevMode)
+      handle_devmode_changes (ldm, pd.hDevNames, pd.hDevMode);
+
+    /* Finally, build the resulting plist */
+    {
+      Lisp_Object result = Qnil;
+      int mm_p = pd.Flags & PSD_INHUNDREDTHSOFMILLIMETERS;
+      result = plist_set_margin (result, Qbottom_margin, pd.rtMargin.bottom,
+				 mm_p);
+      result = plist_set_margin (result, Qright_margin, pd.rtMargin.right,
+				 mm_p);
+      result = plist_set_margin (result, Qtop_margin, pd.rtMargin.top, mm_p);
+      result = plist_set_margin (result, Qleft_margin, pd.rtMargin.left, mm_p);
+      return result;
+    }
   }
 }
 
@@ -882,7 +910,7 @@ A settings object can be selected to no more than one printer at a time.
 If the supplied settings object is not specialized, it is specialized
 for the printer immediately upon selection. The object can be
 despecialized after it is unselected by calling the function
-`msprinter-settings-despecialize'. 
+`msprinter-settings-despecialize'.
 
 Return value is the previously selected settings object.
 */
@@ -900,8 +928,8 @@ Return value is the previously selected settings object.
   ldm = XDEVMODE (settings);
 
   if (!NILP (ldm->device))
-    signal_simple_error ("The object is currently selected into a device",
-			 settings);
+    invalid_operation ("The object is currently selected into a device",
+		       settings);
 
   /* If the object being selected is de-specialized, then its
      size is perhaps not enough to receive the new devmode. We can ask
@@ -914,15 +942,15 @@ Return value is the previously selected settings object.
 	DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
 			    DEVICE_MSPRINTER_NAME(d), NULL, NULL, 0);
       if (dm_size <= 0)
-	signal_simple_error ("Unable to specialize settings, printer error",
-			     device);
+	invalid_operation ("Unable to specialize settings, printer error",
+			   device);
 
       assert (XDEVMODE_SIZE (ldm) <= dm_size);
       ldm->devmode = xrealloc (ldm->devmode, dm_size);
     }
 
   /* If we bail out on signal here, no damage is done, except that
-     the stirage for the DEVMODE structure might be reallocated to
+     the storage for the DEVMODE structure might be reallocated to
      hold a larger one - not a big deal */
   if (!sync_printer_with_devmode (d, ldm->devmode, ldm->devmode,
 				  ldm->printer_name))
@@ -968,7 +996,7 @@ Return value is the currently selected settings object.
 
   /* If the supplied devmode is not specialized, then the current
      devmode size will always be sufficient, as the printer does
-     not change.  If it is specialized, we must reallocate the cuttent
+     not change.  If it is specialized, we must reallocate the current
      devmode storage to match with the supplied one, as it has the right
      size for the new printer, if it is going to change.  The correct
      way is to use the largest of the two though, to keep the old
@@ -984,7 +1012,7 @@ Return value is the currently selected settings object.
 				  ldm_current->devmode,
 				  ldm_new->printer_name))
     error ("Printer device initialization I/O error, device deleted.");
-  
+
   if (ldm_new->printer_name != NULL)
     {
       xfree (ldm_current->printer_name);
@@ -1033,9 +1061,9 @@ finalize_devmode (void *header, int for_disksave)
     {
       Lisp_Object devmode;
       XSETDEVMODE (devmode, dm);
-      signal_simple_error (
-        "Cannot dump XEmacs containing an msprinter-settings object",
-	devmode);
+      invalid_operation
+	("Cannot dump XEmacs containing an msprinter-settings object",
+	 devmode);
     }
 
   assert (NILP (dm->device));
@@ -1131,8 +1159,8 @@ Erase printer-specific settings from a printer settings object.
   ldm = XDEVMODE (settings);
 
   if (!NILP (ldm->device))
-    signal_simple_error ("The object is currently selected into a device",
-			 settings);
+    invalid_operation ("The object is currently selected into a device",
+		       settings);
 
   dm = ldm->devmode;
 
@@ -1148,6 +1176,90 @@ Erase printer-specific settings from a printer settings object.
   return Qnil;
 }
 
+DEFUN ("mswindows-get-default-printer", Fmswindows_get_default_printer, 0, 0, 0, /*
+Return name of the default printer, as string, on nil if there is no default.
+*/
+       ())
+{
+  return msprinter_default_printer ();
+}
+
+static void
+signal_enum_printer_error (void)
+{
+  invalid_operation ("Error enumerating printers", make_int (GetLastError ()));
+}
+
+DEFUN ("mswindows-printer-list", Fmswindows_printer_list, 0, 0, 0, /*
+Return a list of string names of installed printers.
+If there is a default printer, it is returned as the first element of
+the list.  If there is no default printer, the first element of the
+list will be nil.  The rest of elements are guaranteed to have string
+values.  Return value is nil if there are no printers installed.
+*/
+       ())
+{
+  int have_nt, ok;
+  BYTE *data_buf, dummy_byte;
+  size_t enum_entry_size;
+  DWORD enum_flags, enum_level, bytes_needed, num_printers;
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object result = Qnil, def_printer = Qnil;
+
+  /* Determine OS flavor, to use the fastest enumeration method available */
+  have_nt = !mswindows_windows9x_p ();
+  enum_flags = PRINTER_ENUM_LOCAL | (have_nt ? PRINTER_ENUM_CONNECTIONS : 0);
+  enum_level = have_nt ? 4 : 5;
+  enum_entry_size = have_nt ? sizeof (PRINTER_INFO_4) : sizeof (PRINTER_INFO_5);
+
+  /* Allocate memory for printer enum structure */
+  ok = EnumPrinters (enum_flags, NULL, enum_level, &dummy_byte, 1,
+		     &bytes_needed, &num_printers);
+  if (ok)
+    /* No printers, if just 1 byte is enough */
+    return Qnil;
+
+  if (GetLastError () != ERROR_INSUFFICIENT_BUFFER)
+    signal_enum_printer_error ();
+
+  data_buf = alloca (bytes_needed);
+  ok = EnumPrinters (enum_flags, NULL, enum_level, data_buf, bytes_needed,
+		     &bytes_needed, &num_printers);
+  if (!ok)
+    signal_enum_printer_error ();
+
+  if (num_printers == 0)
+    /* Strange but... */
+    return Qnil;
+
+  GCPRO2 (result, def_printer);
+
+  while (num_printers--)
+    {
+      LPCTSTR printer_name;
+      if (have_nt)
+	{
+	  PRINTER_INFO_4 *info = (PRINTER_INFO_4*) data_buf;
+	  printer_name = info->pPrinterName;
+	}
+      else
+	{
+	  PRINTER_INFO_5 *info = (PRINTER_INFO_5*) data_buf;
+	  printer_name = info->pPrinterName;
+	}
+      data_buf += enum_entry_size;
+
+      result = Fcons (build_ext_string (printer_name, Qmswindows_tstr),
+		      result);
+    }
+
+  def_printer = msprinter_default_printer ();
+  result = Fdelete (def_printer, result);
+  result = Fcons (def_printer, result);
+
+  RETURN_UNGCPRO (result);
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
@@ -1158,14 +1270,13 @@ syms_of_device_mswindows (void)
 {
   INIT_LRECORD_IMPLEMENTATION (devmode);
 
-  DEFSUBR (Fmsprinter_print_setup_dialog);
-  DEFSUBR (Fmsprinter_print_dialog);
-  DEFSUBR (Fmsprinter_page_setup_dialog);
   DEFSUBR (Fmsprinter_get_settings);
   DEFSUBR (Fmsprinter_select_settings);
   DEFSUBR (Fmsprinter_apply_settings);
   DEFSUBR (Fmsprinter_settings_copy);
   DEFSUBR (Fmsprinter_settings_despecialize);
+  DEFSUBR (Fmswindows_get_default_printer);
+  DEFSUBR (Fmswindows_printer_list);
 
   defsymbol (&Qinit_pre_mswindows_win, "init-pre-mswindows-win");
   defsymbol (&Qinit_post_mswindows_win, "init-post-mswindows-win");

@@ -56,10 +56,9 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  * version of my_ebss in lastfile.c and a new firstfile.c file.  jhar */
 
 #include <config.h>
-#include <stdlib.h> 	/* _fmode */
-#include <stdio.h>
-#include <fcntl.h>
-#include <windows.h>
+#include "lisp.h"
+
+#include "syswindows.h"
 
 #include "nt.h"
 #include "ntheap.h"
@@ -170,9 +169,9 @@ _start (void)
 }
 
 /* Dump out .data and .bss sections into a new executable.  */
-void
-unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
-	void *entry_address)
+int
+unexec (char *new_name, char *old_name, unsigned int start_data,
+	unsigned int start_bss, unsigned int entry_address)
 {
   file_data in_file, out_file;
   char out_filename[MAX_PATH], in_filename[MAX_PATH];
@@ -267,6 +266,8 @@ unexec (char *new_name, char *old_name, void *start_data, void *start_bss,
 
   close_file_data (&in_file);
   close_file_data (&out_file);
+
+  return 0;
 }
 
 /* Routines to manipulate NT executable file sections.  */

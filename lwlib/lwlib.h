@@ -212,6 +212,7 @@ void lw_pop_down_all_widgets (LWLIB_ID id);
 void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset);
 void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value);
 void lw_copy_widget_value_args (widget_value* copy, widget_value* val);
+widget_value * copy_widget_value_tree (widget_value *val, change_type change);
 
 widget_value *malloc_widget_value (void);
 void free_widget_value (widget_value *);
@@ -225,5 +226,7 @@ void lw_set_keyboard_focus (Widget parent, Widget w);
 
  /* Silly Energize hack to invert the "sheet" button */
 void lw_show_busy (Widget w, Boolean busy);
+
+void lw_remove_accelerator_spec (char *val);
 
 #endif /* INCLUDED_lwlib_h_ */

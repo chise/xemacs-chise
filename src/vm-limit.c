@@ -79,7 +79,7 @@ check_memory_limits (void)
 	  if (data_size > five_percent * 15)
 	    {
 	      warnlevel++;
-	      (*warn_function) ("Warning: past 75% of memory limit");
+	      (*save_warn_fun) ("Warning: past 75% of memory limit");
 	    }
 	  break;
 
@@ -87,7 +87,7 @@ check_memory_limits (void)
 	  if (data_size > five_percent * 17)
 	    {
 	      warnlevel++;
-	      (*warn_function) ("Warning: past 85% of memory limit");
+	      (*save_warn_fun) ("Warning: past 85% of memory limit");
 	    }
 	  break;
 
@@ -95,12 +95,12 @@ check_memory_limits (void)
 	  if (data_size > five_percent * 19)
 	    {
 	      warnlevel++;
-	      (*warn_function) ("Warning: past 95% of memory limit");
+	      (*save_warn_fun) ("Warning: past 95% of memory limit");
 	    }
 	  break;
 
 	default:
-	  (*warn_function) ("Warning: past acceptable memory limits");
+	  (*save_warn_fun) ("Warning: past acceptable memory limits");
 	  break;
 	}
       warn_function = save_warn_fun;
@@ -120,7 +120,18 @@ check_memory_limits (void)
     warnlevel = 2;
 
   if (EXCEEDS_LISP_PTR (cp))
-    (*warn_function) ("Warning: memory in use exceeds lisp pointer size");
+    {
+      if (warn_function)
+	{
+	  /* temporarily reset the warn_function to 0 or we will get infinite
+	     looping. */
+	  save_warn_fun = warn_function;
+	  warn_function = 0;
+	  (*save_warn_fun)
+	    ("Warning: memory in use exceeds lisp pointer size");
+	  warn_function = save_warn_fun;
+	}
+    }
 }
 
 /* Cause reinitialization based on job parameters;

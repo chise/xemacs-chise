@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/processes.info
 @node Processes, System Interface, Databases, Top
@@ -92,7 +92,7 @@ intermixed randomly.
 argument, @var{args}.  The @var{args} must all be strings, and they are
 supplied to @var{program} as separate command line arguments.  Wildcard
 characters and other shell constructs are not allowed in these strings,
-since they are passed directly to the specified program.  
+since they are passed directly to the specified program.
 
   @strong{Please note:} The argument @var{program} contains only the
 name of the program; it may not contain any command-line arguments.  You
@@ -106,7 +106,7 @@ must use @var{args} to provide those.
 specify overrides for it with @code{process-environment}.  @xref{System
 Environment}.
 
-@defvar exec-directory 
+@defvar exec-directory
 @pindex wakeup
 The value of this variable is the name of a directory (a string) that
 contains programs that come with XEmacs, that are intended for XEmacs
@@ -296,8 +296,8 @@ inputinput@point{}
 
 @smallexample
 @group
-(call-process-region 
- start end         
+(call-process-region
+ start end
  shell-file-name      ; @r{Name of program.}
  nil                  ; @r{Do not delete region.}
  buffer               ; @r{Send output to @code{buffer}.}
@@ -704,25 +704,26 @@ defined.  XEmacs can send signals only to its own subprocesses.
 section.  XEmacs also sends signals automatically at certain times:
 killing a buffer sends a @code{SIGHUP} signal to all its associated
 processes; killing XEmacs sends a @code{SIGHUP} signal to all remaining
-processes.  (@code{SIGHUP} is a signal that usually indicates that the
-user hung up the phone.)
+processes.  (@code{SIGHUP} is a signal that indicates that the
+connection between the user and the process is broken, for example if a
+connection via a telephone line is hung up.)
 
   Each of the signal-sending functions takes two optional arguments:
-@var{process-name} and @var{current-group}.
+@var{process} and @var{current-group}.
 
-  The argument @var{process-name} must be either a process, the name of
-one, or @code{nil}.  If it is @code{nil}, the process defaults to the
-process associated with the current buffer.  An error is signaled if
-@var{process-name} does not identify a process.
+  The argument @var{process} must be either a process or a buffer,
+the name of one, or @code{nil}.  If it is @code{nil}, the process
+defaults to the process associated with the current buffer.  An error is
+signaled if @var{process} does not identify a process.
 
   The argument @var{current-group} is a flag that makes a difference
 when you are running a job-control shell as an XEmacs subprocess.  If it
-is non-@code{nil}, then the signal is sent to the current process-group
-of the terminal that XEmacs uses to communicate with the subprocess.  If
-the process is a job-control shell, this means the shell's current
-subjob.  If it is @code{nil}, the signal is sent to the process group of
-the immediate subprocess of XEmacs.  If the subprocess is a job-control
-shell, this is the shell itself.
+is non-@code{nil}, then the signal is sent to the current foreground
+process group of the terminal that XEmacs uses to communicate with the
+subprocess.  If the process is a job-control shell, this means the
+shell's current subjob.  If it is @code{nil}, the signal is sent to the
+process group of the immediate subprocess of XEmacs.  If the subprocess
+is a job-control shell, this is the shell itself.
 
   The flag @var{current-group} has no effect when a pipe is used to
 communicate with the subprocess, because the operating system does not
@@ -730,30 +731,39 @@ support the distinction in the case of pipes.  For the same reason,
 job-control shells won't work when a pipe is used.  See
 @code{process-connection-type} in @ref{Asynchronous Processes}.
 
-@defun interrupt-process &optional process-name current-group
-This function interrupts the process @var{process-name} by sending the
-signal @code{SIGINT}.  Outside of XEmacs, typing the ``interrupt
-character'' (normally @kbd{C-c} on some systems, and @code{DEL} on
-others) sends this signal.  When the argument @var{current-group} is
-non-@code{nil}, you can think of this function as ``typing @kbd{C-c}''
-on the terminal by which XEmacs talks to the subprocess.
+  Some of the functions below take a @var{signal} argument, which
+identifies a signal to be sent.  It must be either an integer or a
+symbol which names the signal, like @code{SIGSEGV}.
+
+@defun process-send-signal signal &optional process current-group
+This function sends the signal @var{signal} to the process @var{process}.
+The following functions can be implemented in terms of
+@code{process-send-signal}.
 @end defun
 
-@defun kill-process &optional process-name current-group
-This function kills the process @var{process-name} by sending the
+@defun interrupt-process &optional process current-group
+This function interrupts the process @var{process} by sending the signal
+@code{SIGINT}.  Outside of XEmacs, typing the ``interrupt character''
+(normally @kbd{C-c}) sends this signal.  When the argument
+@var{current-group} is non-@code{nil}, you can think of this function as
+``typing @kbd{C-c}'' on the terminal by which XEmacs talks to the
+subprocess.
+@end defun
+
+@defun kill-process &optional process current-group
+This function kills the process @var{process} by sending the
 signal @code{SIGKILL}.  This signal kills the subprocess immediately,
 and cannot be handled by the subprocess.
 @end defun
 
-@defun quit-process &optional process-name current-group
+@defun quit-process &optional process current-group
 This function sends the signal @code{SIGQUIT} to the process
-@var{process-name}.  This signal is the one sent by the ``quit
-character'' (usually @kbd{C-b} or @kbd{C-\}) when you are not inside
-XEmacs.
+@var{process}.  This signal is the one sent by the ``quit
+character'' (usually @kbd{C-\}) when you are not inside XEmacs.
 @end defun
 
-@defun stop-process &optional process-name current-group
-This function stops the process @var{process-name} by sending the
+@defun stop-process &optional process current-group
+This function stops the process @var{process} by sending the
 signal @code{SIGTSTP}.  Use @code{continue-process} to resume its
 execution.
 
@@ -763,17 +773,16 @@ non-@code{nil}, you can think of this function as ``typing @kbd{C-z}''
 on the terminal XEmacs uses to communicate with the subprocess.
 @end defun
 
-@defun continue-process &optional process-name current-group
+@defun continue-process &optional process current-group
 This function resumes execution of the process @var{process} by sending
-it the signal @code{SIGCONT}.  This presumes that @var{process-name} was
+it the signal @code{SIGCONT}.  This presumes that @var{process} was
 stopped previously.
 @end defun
 
-@c Emacs 19 feature
 @defun signal-process pid signal
-This function sends a signal to process @var{pid}, which need not be
-a child of XEmacs.  The argument @var{signal} specifies which signal
-to send; it should be an integer.
+This function sends a signal to the process with process id @var{pid},
+which need not be a child of XEmacs.  The argument @var{signal}
+specifies which signal to send.
 @end defun
 
 @node Output from Processes
@@ -1096,7 +1105,7 @@ of event.
   The string describing the event looks like one of the following:
 
 @itemize @bullet
-@item 
+@item
 @code{"finished\n"}.
 
 @item

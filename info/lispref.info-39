@@ -50,6 +50,36 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Working With Hash Tables,  Next: Weak Hash Tables,  Prev: Introduction to Hash Tables,  Up: Hash Tables
+
+Working With Hash Tables
+========================
+
+ - Function: puthash key value hash-table
+     This function hashes KEY to VALUE in HASH-TABLE.
+
+ - Function: gethash key hash-table &optional default
+     This function finds the hash value for KEY in HASH-TABLE.  If
+     there is no entry for KEY in HASH-TABLE, DEFAULT is returned
+     (which in turn defaults to `nil').
+
+ - Function: remhash key hash-table
+     This function removes the entry for KEY from HASH-TABLE.  Does
+     nothing if there is no entry for KEY in HASH-TABLE.
+
+ - Function: clrhash hash-table
+     This function removes all entries from HASH-TABLE, leaving it
+     empty.
+
+ - Function: maphash function hash-table
+     This function maps FUNCTION over entries in HASH-TABLE, calling it
+     with two args, each key and value in the hash table.
+
+     FUNCTION may not modify HASH-TABLE, with the one exception that
+     FUNCTION may remhash or puthash the entry currently being
+     processed by FUNCTION.
+
+
 File: lispref.info,  Node: Weak Hash Tables,  Prev: Working With Hash Tables,  Up: Hash Tables
 
 Weak Hash Tables
@@ -73,11 +103,12 @@ remaining around forever, long past their actual period of use.
 (Otherwise, you'd have to explicitly map over the hash table every so
 often and remove unnecessary elements.)
 
-   There are three types of weak hash tables:
+   There are four types of weak hash tables:
 
-fully weak hash tables
-     In these hash tables, a pair disappears if either the key or the
-     value is unreferenced outside of the table.
+key-and-value-weak hash tables
+     In these hash tables, also known as fully weak or simply as weak
+     hash tables, a pair disappears if either the key or the value is
+     unreferenced outside of the table.
 
 key-weak hash tables
      In these hash tables, a pair disappears if the key is unreferenced
@@ -87,6 +118,10 @@ value-weak hash tables
      In these hash tables, a pair disappears if the value is
      unreferenced outside of the table, regardless of how the key is
      referenced.
+
+key-or-value-weak hash tables
+     In these hash tables, a pair disappears if both the key and the
+     value are unreferenced outside of the table.
 
    Also see *Note Weak Lists::.
 
@@ -184,16 +219,16 @@ Connecting to a Database
      can be any combination of `r' `w' and `+', for read, write, and
      creation flags.
 
-     TYPE can have the value `'dbm' or `'berkeley_db' to select the
+     TYPE can have the value `'dbm' or `'berkeley-db' to select the
      type of database file to use.  (Note:  XEmacs may not support both
      of these types.)
 
      For a TYPE of `'dbm', there are no subtypes, so SUBTYPE should be
      `nil'.
 
-     For a TYPE of `'berkeley_db', the following subtypes are
+     For a TYPE of `'berkeley-db', the following subtypes are
      available:  `'hash', `'btree', and `'recno'.  See the manpages for
-     the Berkeley DB functions to more information about these types.
+     the Berkeley DB functions for more information about these types.
 
  - Function: close-database obj
      This function closes database OBJ.
@@ -861,25 +896,26 @@ that are defined.  XEmacs can send signals only to its own subprocesses.
 section.  XEmacs also sends signals automatically at certain times:
 killing a buffer sends a `SIGHUP' signal to all its associated
 processes; killing XEmacs sends a `SIGHUP' signal to all remaining
-processes.  (`SIGHUP' is a signal that usually indicates that the user
-hung up the phone.)
+processes.  (`SIGHUP' is a signal that indicates that the connection
+between the user and the process is broken, for example if a connection
+via a telephone line is hung up.)
 
    Each of the signal-sending functions takes two optional arguments:
-PROCESS-NAME and CURRENT-GROUP.
+PROCESS and CURRENT-GROUP.
 
-   The argument PROCESS-NAME must be either a process, the name of one,
-or `nil'.  If it is `nil', the process defaults to the process
-associated with the current buffer.  An error is signaled if
-PROCESS-NAME does not identify a process.
+   The argument PROCESS must be either a process or a buffer, the name
+of one, or `nil'.  If it is `nil', the process defaults to the process
+associated with the current buffer.  An error is signaled if PROCESS
+does not identify a process.
 
    The argument CURRENT-GROUP is a flag that makes a difference when
 you are running a job-control shell as an XEmacs subprocess.  If it is
-non-`nil', then the signal is sent to the current process-group of the
-terminal that XEmacs uses to communicate with the subprocess.  If the
-process is a job-control shell, this means the shell's current subjob.
-If it is `nil', the signal is sent to the process group of the
-immediate subprocess of XEmacs.  If the subprocess is a job-control
-shell, this is the shell itself.
+non-`nil', then the signal is sent to the current foreground process
+group of the terminal that XEmacs uses to communicate with the
+subprocess.  If the process is a job-control shell, this means the
+shell's current subjob.  If it is `nil', the signal is sent to the
+process group of the immediate subprocess of XEmacs.  If the subprocess
+is a job-control shell, this is the shell itself.
 
    The flag CURRENT-GROUP has no effect when a pipe is used to
 communicate with the subprocess, because the operating system does not
@@ -887,26 +923,35 @@ support the distinction in the case of pipes.  For the same reason,
 job-control shells won't work when a pipe is used.  See
 `process-connection-type' in *Note Asynchronous Processes::.
 
- - Function: interrupt-process &optional process-name current-group
-     This function interrupts the process PROCESS-NAME by sending the
-     signal `SIGINT'.  Outside of XEmacs, typing the "interrupt
-     character" (normally `C-c' on some systems, and `DEL' on others)
-     sends this signal.  When the argument CURRENT-GROUP is non-`nil',
-     you can think of this function as "typing `C-c'" on the terminal
-     by which XEmacs talks to the subprocess.
+   Some of the functions below take a SIGNAL argument, which identifies
+a signal to be sent.  It must be either an integer or a symbol which
+names the signal, like `SIGSEGV'.
 
- - Function: kill-process &optional process-name current-group
-     This function kills the process PROCESS-NAME by sending the signal
+ - Function: process-send-signal signal &optional process current-group
+     This function sends the signal SIGNAL to the process PROCESS.  The
+     following functions can be implemented in terms of
+     `process-send-signal'.
+
+ - Function: interrupt-process &optional process current-group
+     This function interrupts the process PROCESS by sending the signal
+     `SIGINT'.  Outside of XEmacs, typing the "interrupt character"
+     (normally `C-c') sends this signal.  When the argument
+     CURRENT-GROUP is non-`nil', you can think of this function as
+     "typing `C-c'" on the terminal by which XEmacs talks to the
+     subprocess.
+
+ - Function: kill-process &optional process current-group
+     This function kills the process PROCESS by sending the signal
      `SIGKILL'.  This signal kills the subprocess immediately, and
      cannot be handled by the subprocess.
 
- - Function: quit-process &optional process-name current-group
-     This function sends the signal `SIGQUIT' to the process
-     PROCESS-NAME.  This signal is the one sent by the "quit character"
-     (usually `C-b' or `C-\') when you are not inside XEmacs.
+ - Function: quit-process &optional process current-group
+     This function sends the signal `SIGQUIT' to the process PROCESS.
+     This signal is the one sent by the "quit character" (usually
+     `C-\') when you are not inside XEmacs.
 
- - Function: stop-process &optional process-name current-group
-     This function stops the process PROCESS-NAME by sending the signal
+ - Function: stop-process &optional process current-group
+     This function stops the process PROCESS by sending the signal
      `SIGTSTP'.  Use `continue-process' to resume its execution.
 
      On systems with job control, the "stop character" (usually `C-z')
@@ -914,15 +959,15 @@ job-control shells won't work when a pipe is used.  See
      non-`nil', you can think of this function as "typing `C-z'" on the
      terminal XEmacs uses to communicate with the subprocess.
 
- - Function: continue-process &optional process-name current-group
+ - Function: continue-process &optional process current-group
      This function resumes execution of the process PROCESS by sending
-     it the signal `SIGCONT'.  This presumes that PROCESS-NAME was
-     stopped previously.
+     it the signal `SIGCONT'.  This presumes that PROCESS was stopped
+     previously.
 
  - Function: signal-process pid signal
-     This function sends a signal to process PID, which need not be a
-     child of XEmacs.  The argument SIGNAL specifies which signal to
-     send; it should be an integer.
+     This function sends a signal to the process with process id PID,
+     which need not be a child of XEmacs.  The argument SIGNAL
+     specifies which signal to send.
 
 
 File: lispref.info,  Node: Output from Processes,  Next: Sentinels,  Prev: Signals to Processes,  Up: Processes

@@ -710,6 +710,7 @@ concat (int nargs, Lisp_Object *args,
 	string_result_ptr = string_result;
         break;
       default:
+	val = Qnil;
         abort ();
       }
   }
@@ -1219,7 +1220,6 @@ The value is actually the tail of LIST whose car is ELT.
 */
        (elt, list))
 {
-  Lisp_Object list_elt, tail;
   EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
       if (internal_equal (elt, list_elt, 0))
@@ -1236,7 +1236,6 @@ Do not use it.
 */
        (elt, list))
 {
-  Lisp_Object list_elt, tail;
   EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
       if (internal_old_equal (elt, list_elt, 0))
@@ -1251,7 +1250,6 @@ The value is actually the tail of LIST whose car is ELT.
 */
        (elt, list))
 {
-  Lisp_Object list_elt, tail;
   EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
       if (EQ_WITH_EBOLA_NOTICE (elt, list_elt))
@@ -1268,7 +1266,6 @@ Do not use it.
 */
        (elt, list))
 {
-  Lisp_Object list_elt, tail;
   EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
       if (HACKEQ_UNSAFE (elt, list_elt))
@@ -1280,7 +1277,6 @@ Do not use it.
 Lisp_Object
 memq_no_quit (Lisp_Object elt, Lisp_Object list)
 {
-  Lisp_Object list_elt, tail;
   LIST_LOOP_3 (list_elt, list, tail)
     {
       if (EQ_WITH_EBOLA_NOTICE (elt, list_elt))
@@ -1296,7 +1292,6 @@ The value is actually the element of LIST whose car equals KEY.
        (key, list))
 {
   /* This function can GC. */
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (internal_equal (key, elt_car, 0))
@@ -1312,7 +1307,6 @@ The value is actually the element of LIST whose car equals KEY.
        (key, list))
 {
   /* This function can GC. */
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (internal_old_equal (key, elt_car, 0))
@@ -1336,7 +1330,6 @@ Elements of LIST that are not conses are ignored.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (EQ_WITH_EBOLA_NOTICE (key, elt_car))
@@ -1354,7 +1347,6 @@ Do not use it.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (HACKEQ_UNSAFE (key, elt_car))
@@ -1370,7 +1362,6 @@ Lisp_Object
 assq_no_quit (Lisp_Object key, Lisp_Object list)
 {
   /* This cannot GC. */
-  Lisp_Object elt;
   LIST_LOOP_2 (elt, list)
     {
       Lisp_Object elt_car = XCAR (elt);
@@ -1386,7 +1377,6 @@ The value is actually the element of LIST whose cdr equals KEY.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (internal_equal (key, elt_cdr, 0))
@@ -1401,7 +1391,6 @@ The value is actually the element of LIST whose cdr equals KEY.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (internal_old_equal (key, elt_cdr, 0))
@@ -1416,7 +1405,6 @@ The value is actually the element of LIST whose cdr is KEY.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (EQ_WITH_EBOLA_NOTICE (key, elt_cdr))
@@ -1431,7 +1419,6 @@ The value is actually the element of LIST whose cdr is KEY.
 */
        (key, list))
 {
-  Lisp_Object elt, elt_car, elt_cdr;
   EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
       if (HACKEQ_UNSAFE (key, elt_cdr))
@@ -1445,7 +1432,6 @@ The value is actually the element of LIST whose cdr is KEY.
 Lisp_Object
 rassq_no_quit (Lisp_Object key, Lisp_Object list)
 {
-  Lisp_Object elt;
   LIST_LOOP_2 (elt, list)
     {
       Lisp_Object elt_cdr = XCDR (elt);
@@ -1466,7 +1452,6 @@ Also see: `remove'.
 */
        (elt, list))
 {
-  Lisp_Object list_elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
 				(internal_equal (elt, list_elt, 0)));
   return list;
@@ -1481,7 +1466,6 @@ of changing the value of `foo'.
 */
        (elt, list))
 {
-  Lisp_Object list_elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
 				(internal_old_equal (elt, list_elt, 0)));
   return list;
@@ -1496,7 +1480,6 @@ changing the value of `foo'.
 */
        (elt, list))
 {
-  Lisp_Object list_elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
 				(EQ_WITH_EBOLA_NOTICE (elt, list_elt)));
   return list;
@@ -1511,7 +1494,6 @@ changing the value of `foo'.
 */
        (elt, list))
 {
-  Lisp_Object list_elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
 				(HACKEQ_UNSAFE (elt, list_elt)));
   return list;
@@ -1523,7 +1505,6 @@ changing the value of `foo'.
 Lisp_Object
 delq_no_quit (Lisp_Object elt, Lisp_Object list)
 {
-  Lisp_Object list_elt;
   LIST_LOOP_DELETE_IF (list_elt, list,
 		       (EQ_WITH_EBOLA_NOTICE (elt, list_elt)));
   return list;
@@ -1573,7 +1554,6 @@ the value of `foo'.
 */
        (key, list))
 {
-  Lisp_Object elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
 				(CONSP (elt) &&
 				 internal_equal (key, XCAR (elt), 0)));
@@ -1597,7 +1577,6 @@ the value of `foo'.
 */
        (key, list))
 {
-  Lisp_Object elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
 				(CONSP (elt) &&
 				 EQ_WITH_EBOLA_NOTICE (key, XCAR (elt))));
@@ -1609,7 +1588,6 @@ the value of `foo'.
 Lisp_Object
 remassq_no_quit (Lisp_Object key, Lisp_Object list)
 {
-  Lisp_Object elt;
   LIST_LOOP_DELETE_IF (elt, list,
 		       (CONSP (elt) &&
 			EQ_WITH_EBOLA_NOTICE (key, XCAR (elt))));
@@ -1625,7 +1603,6 @@ the value of `foo'.
 */
        (value, list))
 {
-  Lisp_Object elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
 				(CONSP (elt) &&
 				 internal_equal (value, XCDR (elt), 0)));
@@ -1641,7 +1618,6 @@ the value of `foo'.
 */
        (value, list))
 {
-  Lisp_Object elt;
   EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
 				(CONSP (elt) &&
 				 EQ_WITH_EBOLA_NOTICE (value, XCDR (elt))));
@@ -1652,7 +1628,6 @@ the value of `foo'.
 Lisp_Object
 remrassq_no_quit (Lisp_Object value, Lisp_Object list)
 {
-  Lisp_Object elt;
   LIST_LOOP_DELETE_IF (elt, list,
 		       (CONSP (elt) &&
 			EQ_WITH_EBOLA_NOTICE (value, XCDR (elt))));
@@ -1692,7 +1667,6 @@ See also the function `nreverse', which is used more often.
        (list))
 {
   Lisp_Object reversed_list = Qnil;
-  Lisp_Object elt;
   EXTERNAL_LIST_LOOP_2 (elt, list)
     {
       reversed_list = Fcons (elt, reversed_list);
@@ -2094,8 +2068,6 @@ static Lisp_Object
 bad_bad_turtle (Lisp_Object *plist, Lisp_Object *badplace, Error_behavior errb)
 {
   if (ERRB_EQ (errb, ERROR_ME))
-    /* #### Eek, this will probably result in another error
-       when PLIST is printed out */
     return Fsignal (Qcircular_property_list, list1 (*plist));
   else
     {
@@ -2958,12 +2930,11 @@ mapcar1 (size_t leni, Lisp_Object *vals,
 
 	 if (vals == 0) we don't have any free space available and
 	 don't want to eat up any more stack with alloca().
-	 So we use EXTERNAL_LIST_LOOP_3 and GCPRO the tail. */
+	 So we use EXTERNAL_LIST_LOOP_3_NO_DECLARE and GCPRO the tail. */
 
       if (vals)
 	{
 	  Lisp_Object *val = vals;
-	  Lisp_Object elt;
 
 	  LIST_LOOP_2 (elt, sequence)
 	      *val++ = elt;
@@ -2979,12 +2950,13 @@ mapcar1 (size_t leni, Lisp_Object *vals,
       else
 	{
 	  Lisp_Object elt, tail;
+	  EMACS_INT len_unused;
 	  struct gcpro ngcpro1;
 
 	  NGCPRO1 (tail);
 
 	  {
-	    EXTERNAL_LIST_LOOP_3 (elt, sequence, tail)
+	    EXTERNAL_LIST_LOOP_4_NO_DECLARE (elt, sequence, tail, len_unused)
 	      {
 		args[1] = elt;
 		Ffuncall (2, args);
@@ -3160,6 +3132,14 @@ length, no consing will take place.
 
 
 /* #### this function doesn't belong in this file! */
+
+#ifdef HAVE_GETLOADAVG
+#ifdef HAVE_SYS_LOADAVG_H
+#include <sys/loadavg.h>
+#endif
+#else
+int getloadavg (double loadavg[], int nelem); /* Defined in getloadavg.c */
+#endif
 
 DEFUN ("load-average", Fload_average, 0, 1, 0, /*
 Return list of 1 minute, 5 minute and 15 minute load averages.

@@ -17,8 +17,6 @@
 #define LIBS_DEBUG
 #define LIBS_SYSTEM "-lutil -lcompat"
 
-#define HAVE_GETLOADAVG
-
 /* System uses OXTABS instead of the expected TAB3.
    (Copied from netbsd.h.)  */
 #define TABDLY OXTABS

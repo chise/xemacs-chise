@@ -208,9 +208,9 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
 
       /*
        * Here, we use FindFirstFile()/FindNextFile() instead of opendir(),
-       * stat(), & friends, because stat() is VERY expensive in terms of
-       * time.  Hence, we take the time to write complicated Win32-specific
-       * code, instead of simple Unix-style stuff.
+       * xemacs_stat(), & friends, because xemacs_stat() is VERY expensive in
+       * terms of time.  Hence, we take the time to write complicated
+       * Win32-specific code, instead of simple Unix-style stuff.
        */
       findex = 0;
       fh = INVALID_HANDLE_VALUE;

@@ -117,7 +117,7 @@ This Info file contains v1.0 of the @value{emacs} dynamic loadable module
 support documentation.
 @menu
 * Introduction::                Introducing Emacs Modules
-* Annatomy of a Module::        Basic module layout and technology
+* Anatomy of a Module::         Basic module layout and technology
 * Using ellcc::                 How to use the module compiler
 * Defining Functions::          Creating new Lisp primitives
 * Defining Variables::          Creating new Lisp variables
@@ -125,12 +125,12 @@ support documentation.
 
  --- The Detailed Node Listing ---
 
-Annatomy of a Module
+Anatomy of a Module
 
 * Required Header File::        Always include <emodules.h>
 * Required Functions::          Functions you must always provide
 * Required Variables::          Variables whose values you must provide
-* Loading other Modules::       How to load dependant modules
+* Loading other Modules::       How to load dependent modules
 
 Using @code{ellcc}
 
@@ -148,7 +148,7 @@ Defining Functions
 
 @end ifinfo
 
-@node Introduction, Annatomy of a Module, Top, Top
+@node Introduction, Anatomy of a Module, Top, Top
 @chapter Introduction
 
   @value{emacs} is a powerful, extensible editor.  The traditional way of
@@ -161,12 +161,12 @@ ways than you can imagine, it does have its short-comings.
 implications.  Like all other interpreted languages (like Java), Elisp
 is often suitable only for certain types of application or extension.
 So although Elisp is a general purpose language, and very high level,
-there are times when it is desirable to descend to a lower level compiled 
+there are times when it is desirable to descend to a lower level compiled
 language for speed purposes.
 
   Secondly, Elisp (or Lisp in general) is not a very common language any
 more, except for certain circles in the computer industry.  C is a far
-more commonly known language, and because it is compiled, more suited to 
+more commonly known language, and because it is compiled, more suited to
 a wider range of applications, especially those that require low level
 access to a system or need to be as quick as possible.
 
@@ -175,8 +175,8 @@ access to a system or need to be as quick as possible.
 @cindex DSO
 @cindex shared object
   This manual describes a new way of extending @value{emacs}, by using dynamic
-loadable modules (also knows as dynamicaly loadable libraries (DLLs),
-dynamic shared objects (DSOs) or just simply shared objectcs), which can 
+loadable modules (also known as dynamically loadable libraries (DLLs),
+dynamic shared objects (DSOs) or just simply shared objects), which can
 be written in C or C++ and loaded into @value{emacs} at any time.  I sometimes
 refer to this technology as @dfn{CEmacs}, which is short for @dfn{C
 Extensible Emacs}.
@@ -199,7 +199,7 @@ specific characteristics from the developer.  This program is called to
 compile and link all objects that will make up the final shared object,
 and accepts all common C compiler flags.  @code{ellcc} also sets up the
 correct environment for compiling modules by enabling any special
-compiler modes (such as PIC mode), setting the correct include paths for 
+compiler modes (such as PIC mode), setting the correct include paths for
 the location of @value{emacs} internal header files etc.  The program will also
 invoke the linker correctly to created the final shared object which is
 loaded into @value{emacs}.
@@ -207,13 +207,13 @@ loaded into @value{emacs}.
 @item
 @cindex header files
   CEmacs also makes all of the relevant @value{emacs} internal header files
-availible for module authors to use.  This is often required to get data 
+available for module authors to use.  This is often required to get data
 structure definitions and external variable declarations.  The header
 files installed include the module specific header file
 @file{emodules.h}.  Due to the nature of dynamic modules, most of the
 internals of @value{emacs} are exposed.
-@xref{Top,,,internals,@value{emacs} Internals Manual}, for a 
-more complete discussion on how to extend and understand @value{emacs}.  All of 
+@xref{Top,,,internals,@value{emacs} Internals Manual}, for a
+more complete discussion on how to extend and understand @value{emacs}.  All of
 the rules for C modules are discussed there.
 
 @item
@@ -245,17 +245,17 @@ should be considered the final authority.  It will also help a great
 deal to look at the actual @value{emacs} source code to see how things are
 done.
 
-@node Annatomy of a Module, Using ellcc, Introduction, Top
-@chapter Annatomy of a Module
-@cindex annatomy
+@node Anatomy of a Module, Using ellcc, Introduction, Top
+@chapter Anatomy of a Module
+@cindex anatomy
 @cindex module skeleton
 @cindex skeleton, module
 @cindex module format
 @cindex format, module
 
-  Each dynamically loadable @value{emacs} extension (hereafter refered to as a
-module) has a certain compulsory format, and must contain several 
-pieces of information and several mandatory functions.  This chapter 
+  Each dynamically loadable @value{emacs} extension (hereafter referred to as a
+module) has a certain compulsory format, and must contain several
+pieces of information and several mandatory functions.  This chapter
 describes the basic layout of a module, and provides a very simple
 sample.  The source for this sample can be found in the file
 @file{modules/simple/sample.c} in the main @value{emacs} source code tree.
@@ -264,10 +264,10 @@ sample.  The source for this sample can be found in the file
 * Required Header File::        Always include <emodules.h>
 * Required Functions::          Functions you must always provide
 * Required Variables::          Variables whose values you must provide
-* Loading other Modules::       How to load dependant modules
+* Loading other Modules::       How to load dependent modules
 @end menu
 
-@node Required Header File, Required Functions, Annatomy of a Module, Annatomy of a Module
+@node Required Header File, Required Functions, Anatomy of a Module, Anatomy of a Module
 @section Required Header File
 @cindex required header
 @cindex include files
@@ -275,7 +275,7 @@ sample.  The source for this sample can be found in the file
 @cindex emodules.h
 @cindex config.h
   Every module must include the file @file{<emodules.h>}.  This
-will include several other @value{emacs} internal header files, and will set up 
+will include several other @value{emacs} internal header files, and will set up
 certain vital macros.  One of the most important files included by
 @file{emodules.h} is the generated @file{config.h} file, which contains
 all of the required system abstraction macros and definitions.  Most
@@ -283,20 +283,20 @@ modules will probably require some pre-processor conditionals based on
 constants defined in @file{config.h}.  Please read that file to
 familiarize yourself with the macros defined there.
 
-  Depending on exactly what your module will be doing, you will probably 
+  Depending on exactly what your module will be doing, you will probably
 need to include one or more of the @value{emacs} internal header files.  When
-you @code{#include <emodules.h>}, you will get a few of the most important 
+you @code{#include <emodules.h>}, you will get a few of the most important
 @value{emacs} header files included automatically for you.  The files included
 are:
 
 @table @file
 @item lisp.h
-This file contains most of the macros required for declaring Lisp object 
+This file contains most of the macros required for declaring Lisp object
 types, macros for accessing Lisp objects, and global variable
 declarations.
 
 @item sysdep.h
-All system dependant declarations and abstraction macros live here.  You 
+All system dependent declarations and abstraction macros live here.  You
 should never call low level system functions directly.  Rather, you
 should use the abstraction macros provided in this header file.
 
@@ -317,15 +317,15 @@ Provides the required structure, macro and function definitions for
 manipulating @value{emacs} frames.
 @end table
 
-@node Required Functions, Required Variables, Required Header File, Annatomy of a Module
+@node Required Functions, Required Variables, Required Header File, Anatomy of a Module
 @section Required Functions
 @cindex initialization
 @cindex functions, required
 @cindex required functions
 
 Every module requires several initialization functions.  It is the
-responsibility of these functions to load in any dependant modules, and to 
-declare all variables and functions which are to be made visibile to the 
+responsibility of these functions to load in any dependent modules, and to
+declare all variables and functions which are to be made visible to the
 @value{emacs} Lisp reader.  Each of these functions performs a very specific
 task, and they are executed in the correct order by @value{emacs}.  All of
 these functions are @code{void} functions which take no arguments.
@@ -339,7 +339,7 @@ place-holder, not an actual function name.
 @table @code
 @item syms_of_module
 @findex syms_of_module
-This required function is responsible for introducing to the Lisp reader 
+This required function is responsible for introducing to the Lisp reader
 all functions that you have defined in your module using
 @code{DEFUN()}.  Note that @emph{only} functions are declared here, using
 the @code{DEFSUBR()} macro.  No variables are declared.
@@ -355,7 +355,7 @@ all internal @value{emacs} source code.
 @item modules_of_module
 @findex modules_of_module
 This optional function should be used to load in any modules which your
-module depends on.  The @value{emacs} module loading code makes sure that the 
+module depends on.  The @value{emacs} module loading code makes sure that the
 same module is not loaded twice, so several modules can safely call the
 module load function for the same module.  Only one copy of each module
 (at a given version) will ever be loaded.
@@ -368,7 +368,7 @@ initialization code is produced.  It is required to document all
 functions and variables declared in your module.
 @end table
 
-@node Required Variables, Loading other Modules, Required Functions, Annatomy of a Module
+@node Required Variables, Loading other Modules, Required Functions, Anatomy of a Module
 @section Required Variables
 @cindex initialization
 @cindex variables, required
@@ -376,7 +376,7 @@ functions and variables declared in your module.
 
 Not only does a module need to declare the initialization functions
 mentioned above, it is also required to provide certain variables which
-the module loading code searches for in order to determine the viability 
+the module loading code searches for in order to determine the viability
 of a module.  You are @emph{not} required to provide these variables in
 your source files.  They are automatically set up in the module
 initialization file by the @code{ellcc} compiler.  These variables are
@@ -388,7 +388,7 @@ This is a variable of type @code{long}, and is used to indicate the
 version of the @value{emacs} loading technology that was used to produce the
 module being loaded.  This version number is completely unrelated to
 the @value{emacs} version number, as a given module may quite well work
-regardless of the version of @value{emacs} that was installed at the time the 
+regardless of the version of @value{emacs} that was installed at the time the
 module was created.
 
 The @value{emacs} modules version is used to differentiate between major
@@ -397,11 +397,11 @@ changes in the module loading technology, not versions of @value{emacs}.
 @item emodules_name
 This is a short (typically 10 characters or less) name for the module,
 and it is used as a suffix for all of the required functions.  This is
-also the name by which the module is recognised when loading dependant
+also the name by which the module is recognized when loading dependent
 modules.  The name does not necessarily have to be the same as the
 physical file name, although keeping the two names in sync is a pretty
-good idea.  The name must not be empty, and it must be a valid part of a 
-C function name.  The value of this variable is appended to the function 
+good idea.  The name must not be empty, and it must be a valid part of a
+C function name.  The value of this variable is appended to the function
 names @code{syms_of_}, @code{vars_of_}, @code{modules_of_} and
 @code{docs_of_} to form the actual function names that the module
 loading code looks for when loading a module.
@@ -423,9 +423,9 @@ and does not affect the loading of the module.  The value is set by the
 @code{--mod-title} argument to @code{ellcc}.
 @end table
 
-@node Loading other Modules,  , Required Variables, Annatomy of a Module
+@node Loading other Modules,  , Required Variables, Anatomy of a Module
 @section Loading other Modules
-@cindex dependancies
+@cindex dependencies
 @findex modules_of_module
 @findex emodules_load
 
@@ -433,7 +433,7 @@ During the loading of a module, it is the responsibility of the function
 @code{modules_of_module} to load in any modules which the current module
 depends on.  If the module is stand-alone, and does not depend on other
 modules, then this function can be left empty or even undeclared.
-However, if it does have dependnacies, it must call
+However, if it does have dependencies, it must call
 @code{emodules_load}:
 
 @example
@@ -444,18 +444,18 @@ int emodules_load (const char *module,
 @end cartouche
 @end example
 
-The first argument @var{module} is the name of the actual shared object 
+The first argument @var{module} is the name of the actual shared object
 or DLL.  You can omit the @file{.so}, @file{.ell} or @file{.dll}
 extension of you wish.  If you do not specify an absolute path name,
 then the same rules as apply to loading Lisp modules are applied when
 searching for the module.  If the module cannot be found in any of the
 standard places, and an absolute path name was not specified,
-@code{emodules_load} will signal an error and loading of the module 
+@code{emodules_load} will signal an error and loading of the module
 will stop.
 
 The second argument (@var{modname}) is the module name to load, and
 must match the contents of the variable @var{emodule_name} in the
-module to be loaded. A mis-match will cause the module load to fail.  If 
+module to be loaded. A mis-match will cause the module load to fail.  If
 this parameter is @code{NULL} or empty, then no checks are performed
 against the target module's @var{emodule_name} variable.
 
@@ -465,13 +465,13 @@ to load, and is compared to the target module's
 or empty, and the match fails, then the load of the module will fail.
 
 @code{emodules_load} can be called recursively.  If, at any point
-during the loading of modules a failure is encountered, then all modules 
+during the loading of modules a failure is encountered, then all modules
 that were loaded since the top level call to @code{emodules_load}
 will be unloaded.  This means that if any child modules fail to load,
 then their parents will also fail to load.  This does not include
 previous successful calls to @code{emodules_load} at the top level.
 
-@node Using ellcc, Defining Functions, Annatomy of a Module, Top
+@node Using ellcc, Defining Functions, Anatomy of a Module, Top
 @chapter Using @code{ellcc}
 @cindex @code{ellcc}
 @cindex module compiler
@@ -494,7 +494,7 @@ variable @code{CC} to @code{ellcc} and your code will be compiled as
 an Emacs module rather than a static C object.
 
 @code{ellcc} has three distinct modes of operation.  It can be run in
-compile, link or initialization mode.  These modes are discussed in more 
+compile, link or initialization mode.  These modes are discussed in more
 detail below.  If you want @code{ellcc} to show the commands it is
 executing, you can specify the option @code{--mode=verbose} to
 @code{ellcc}.  Specifying this option twice will enable certain extra
@@ -513,7 +513,7 @@ debugging messages to be displayed on the standard output.
 @cindex compiling
 
 By default, @code{ellcc} is in @dfn{compile} mode.  This means that it
-assumes that all of the command line arguments are C compiler arguments, 
+assumes that all of the command line arguments are C compiler arguments,
 and that you want to compile the specified source file or files.  You
 can force compile mode by specifying the @code{--mode=compile} argument
 to @code{ellcc}.
@@ -526,7 +526,7 @@ then invoke the C compiler to compile your module, and will return the
 same exit codes and messages that your C compiler does.
 
 By far the easiest way to compile modules is to construct a
-@file{Makefile} as you would for a normal program, and simply insert, at 
+@file{Makefile} as you would for a normal program, and simply insert, at
 some appropriate place something similar to:
 
 @example
@@ -554,14 +554,14 @@ functions.  Rather than have the documentation for compiled functions
 and variables passed as static strings in the source code, the
 documentation is included as a C comment.  A special program, called
 @file{make-docfile}, is used to scan the source code files and extract
-the documentation from these comments, producing the @value{emacs} @file{DOC} 
+the documentation from these comments, producing the @value{emacs} @file{DOC}
 file, which the internal help engine scans when the documentation for a
 function or variable is requested.
 
 Due to the internal construction of Lisp objects, subrs and other such
 things, adding documentation for a compiled function or variable in a
 compiled module, at any time after @value{emacs} has been @dfn{dumped} is
-somewhat problematic.  Fortunately, as a module writer you are insulated 
+somewhat problematic.  Fortunately, as a module writer you are insulated
 from the difficulties thanks to your friend @code{ellcc} and some
 internal trickery in the module loading code.  This is all done using
 the @dfn{initialization} mode of @code{ellcc}.
@@ -569,8 +569,8 @@ the @dfn{initialization} mode of @code{ellcc}.
 The result of running @code{ellcc} in initialization mode is a C source
 file which you compile with (you guessed it) @code{ellcc} in compile
 mode.  Initialization mode is where you set the module name, version,
-title and gather together all of the documentaion strings for the
-functions and vairables in your module.  There are several options that
+title and gather together all of the documentation strings for the
+functions and variables in your module.  There are several options that
 you are required to pass @code{ellcc} in initialization mode, the first
 of which is the mode switch itself, @code{--mode=init}.
 
@@ -602,8 +602,8 @@ This string should be brief, as it has to be formatted to fit the
 screen.
 
 Following all of these parameters, you need to provide the list of all
-source code modules that make up your module.  These are the files which 
-are scanned by @file{make-docfile}, and provide the information required 
+source code modules that make up your module.  These are the files which
+are scanned by @file{make-docfile}, and provide the information required
 to populate the @code{docs_of_module} function.  Below is a sample
 @file{Makefile} fragment which indicates how all of this is used.
 
@@ -656,17 +656,17 @@ way as the main module directory.  Each sub-directory within it is
 searched for a given module when the user attempts to load it.  The
 valid extensions that the loader attempts to use are @file{.so},
 @file{.ell} and @file{.dll}.  You can use any of these extensions,
-although @file{.ell} is the prefered extension.
+although @file{.ell} is the preferred extension.
 
 @node Link Mode, Other ellcc options, Initialization Mode, Using ellcc
 @section Link Mode
 @cindex linking
 
 Once all of your source code files have been compiled (including the
-generated init file) you need to link them all together to created the
+generated init file) you need to link them all together to create the
 loadable module.  To do this, you invoke @code{ellcc} in link mode, by
-pasing the @code{--mode-link} command.  You need to specify the final
-output file using the @code{--mod-output=NAME} command, but other than
+passing the @code{--mode-link} option.  You need to specify the final
+output file using the @code{--mod-output=NAME} option, but other than
 that all other arguments are passed on directly to the system compiler
 or linker, along with any other required arguments to create the
 loadable module.
@@ -686,7 +686,7 @@ sure you invoke it correctly in the @file{Makefile}.  See the sample
 
 Aside from the three main @code{ellcc} modes described above,
 @code{ellcc} can accept several other options.  These are typically used
-in a @file{Makefile} to determine installation paths.  @code{ellcc} also 
+in a @file{Makefile} to determine installation paths.  @code{ellcc} also
 allows you to over-ride several of its built-in compiler and linker
 options using environment variables.  Here is the complete list of
 options that @code{ellcc} accepts.
@@ -700,16 +700,16 @@ Enabled link edit mode.  Use this to create the final module.
 
 @item --mode=init
 Used to create the documentation function and to initialize other
-required variables.  Produces a C source file that must be compiled with 
+required variables.  Produces a C source file that must be compiled with
 @code{ellcc} in compile mode before linking the final module.
 
 @item --mode=verbose
 Enables verbose mode.  This will show you the commands that are being
-executed, as well as the version number of @code{ellcc}.  If you specify 
+executed, as well as the version number of @code{ellcc}.  If you specify
 this option twice, then some extra debugging information is displayed.
 
 @item --mod-name=NAME
-Sets the short internaml module @var{NAME} to the string specified,
+Sets the short internal module @var{NAME} to the string specified,
 which must consist only of valid C identifiers.  Required during
 initialization mode.
 
@@ -729,7 +729,7 @@ created to @var{FILENAME}.  During link mode, it sets the name of the
 final loadable module to @var{FILENAME}.
 
 @item --mod-location
-This will print the name of the standard module installation path on the 
+This will print the name of the standard module installation path on the
 standard output and immediately exit @code{ellcc}.  Use this option to
 determine the directory prefix of where you should install your modules.
 
@@ -737,11 +737,11 @@ determine the directory prefix of where you should install your modules.
 This will print the name of the site specific module location and exit.
 
 @item --mod-archdir
-Prints the name of the root of the architecture-dependant directory that 
-@value{emacs} searches for architecture-dependant files.
+Prints the name of the root of the architecture-dependent directory that
+@value{emacs} searches for architecture-dependent files.
 
 @item --mod-config
-Prints the name of the configuration for which @value{emacs} and @code{ellcc} 
+Prints the name of the configuration for which @value{emacs} and @code{ellcc}
 were compiled.
 @end table
 
@@ -751,10 +751,10 @@ were compiled.
 
 During its normal operation, @code{ellcc} uses the compiler and linker
 flags that were determined at the time @value{emacs} was configured.  In
-certain rare circumstances you may wish to over-ride the flags passed to 
+certain rare circumstances you may wish to over-ride the flags passed to
 the compiler or linker, and you can do so using environment variables.
-The table below lists all of the environment variables that @code{ellcc} 
-recognises.
+The table below lists all of the environment variables that @code{ellcc}
+recognizes.
 
 @table @code
 @item ELLCC
@@ -802,17 +802,17 @@ Used during the compile phase of @value{emacs} itself.
 
   One of the main reasons you would ever write a module is to
 provide one or more @dfn{functions} for the user or the editor to use.
-The term 
+The term
 @dfn{function} is a bit overloaded here, as it refers to both a C
 function and the way it appears to Lisp, which is a @dfn{subroutine}, or
 simply a @dfn{subr}.  A Lisp subr is also known as a Lisp primitive, but
 that term applies less to dynamic modules.  @xref{Writing Lisp
 Primitives,,,internals,@value{emacs} Internals Manual}, for details on how to
 declare functions.  You should familiarize yourself with the
-instructions there.  The format of the function declaration is identical 
+instructions there.  The format of the function declaration is identical
 in modules.
 
-  Normal Lisp primitives document the functions they defining by including 
+  Normal Lisp primitives document the functions they defining by including
 the documentation as a C comment.  During the build process, a program
 called @file{make-docfile} is run, which will extract all of these
 comments, build up a single large documentation file, and will store
@@ -826,7 +826,7 @@ macro @code{CDOCSUBR} is used for, and this is used extensively during
   When using @code{DEFUN} in normal @value{emacs} C code, the sixth
 ``parameter'' is a C comment which documents the function.  For a
 dynamic module, we of course need to convert the C comment to a usable
-string, and we need to set the documentation pointer of the subr to this 
+string, and we need to set the documentation pointer of the subr to this
 string.  As a module programmer, you don't actually need to do any work
 for this to happen.  It is all taken care of in the
 @code{docs_of_module} function created by @code{ellcc}.
@@ -843,7 +843,7 @@ for this to happen.  It is all taken care of in the
 @cindex functions, Lisp
 @cindex functions, defining
 
-  Although the full syntax of a function declaration is discussed in the 
+  Although the full syntax of a function declaration is discussed in the
 @value{emacs} internals manual in greater depth, what follows is a brief
 description of how to define and implement a new Lisp primitive in a
 module.  This is done using the @code{DEFUN} macro.  Here is a small
@@ -854,7 +854,7 @@ example:
 DEFUN ("my-function", Fmy_function, 1, 1, "FFile name: ", /*
 Sample Emacs primitive function.
 
-The specified FILE is frobricated before it is fnozzled.
+The specified FILE is frobnicated before it is fnozzled.
 */
     (file))
 @{
@@ -871,9 +871,9 @@ The specified FILE is frobricated before it is fnozzled.
 @end example
 
 The first argument is the name of the function as it will appear to the
-Lisp reader.  This must be provided as a string.  The second argument is 
+Lisp reader.  This must be provided as a string.  The second argument is
 the name of the actual C function that will be created.  This is
-typically the Lisp function name with a preceding capital @code{F}, with 
+typically the Lisp function name with a preceding capital @code{F}, with
 hyphens converted to underscores.  This must be a valid C function
 name.  Next come the minimum and maximum number of arguments,
 respectively.  This is used to ensure that the correct number of
@@ -891,7 +891,7 @@ function argument names, if any.
 @cindex functions, declaring
 
 Simply writing the code for a function is not enough to make it
-availible to the Lisp reader.  You have to, during module
+available to the Lisp reader.  You have to, during module
 initialization, let the Lisp reader know about the new function.  This
 is done by calling @code{DEFSUBR} with the name of the function.  This
 is the sole purpose of the initialization function
@@ -933,25 +933,25 @@ internals manual for more details.
 
   Rarely will you write a module that only contains functions.  It is
 common to also provide variables which can be used to control the
-behaviour of the function, or store the results of the function being
+behavior of the function, or store the results of the function being
 executed.  The actual C variable types are the same for modules
 and internal @value{emacs} primitives, and the declaration of the variables
 is identical.
 
-  @xref{Adding Global Lisp Variables,,,internals,XEmacs Internals Manual}, 
+  @xref{Adding Global Lisp Variables,,,internals,XEmacs Internals Manual},
 for more information on variables and naming conventions.
 
   Once your variables are defined, you need to initialize them and make
 the Lisp reader aware of them.  This is done in the
 @code{vars_of_module} initialization function using special @value{emacs}
-macros such as @code{DEFVAR_LISP}, @code{DEFVAR_BOOL}, @code{DEFVAR_INT} 
-etc.  The best way to see how to use these macros is to look at existing 
+macros such as @code{DEFVAR_LISP}, @code{DEFVAR_BOOL}, @code{DEFVAR_INT}
+etc.  The best way to see how to use these macros is to look at existing
 source code, or read the internals manual.
 
   One @emph{very} important difference between @value{emacs} variables and
 module variables is how you use pure space.  Simply put, you
 @strong{never} use pure space in @value{emacs} modules.  The pure space
-storage is of a limited size, and is initialized propperly during the
+storage is of a limited size, and is initialized properly during the
 dumping of @value{emacs}.  Because variables are being added dynamically to
 an already running @value{emacs} when you load a module, you cannot use pure
 space.  Be warned: @strong{do not use pure space in modules.  Repeat, do

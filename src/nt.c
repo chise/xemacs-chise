@@ -69,20 +69,6 @@ getwd (char *dir)
 #endif
 }
 
-/* Emulate getloadavg.  */
-int
-getloadavg (double loadavg[], int nelem)
-{
-  int i;
-
-  /* A faithful emulation is going to have to be saved for a rainy day.  */
-  for (i = 0; i < nelem; i++) 
-    {
-      loadavg[i] = 0.0;
-    }
-  return i;
-}
-
 /* Emulate getpwuid, getpwnam and others.  */
 
 #define PASSWD_FIELD_SIZE 256
@@ -1108,7 +1094,7 @@ readdir (DIR *dirp)
     }
   
   /* Emacs never uses this value, so don't bother making it match
-     value returned by stat().  */
+     value returned by xemacs_stat().  */
   dir_static.d_ino = 1;
   
   dir_static.d_reclen = sizeof (struct direct) - MAXNAMLEN + 3 +

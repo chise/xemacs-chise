@@ -65,12 +65,12 @@ DECLARE_CONSOLE_TYPE (msprinter);
 typedef struct Lisp_Devmode
 {
   struct lcrecord_header header;
-  
+
   /* Pointer to the DEVMODE structure */
   DEVMODE* devmode;
 
   /* Full printer name. It can be longer than devmode->dmDeviceName
-     can accomodate, so need to keep it separately */
+     can accommodate, so need to keep it separately */
   char* printer_name;
 
   /* Printer device this object is currently selected in, or Qnil
@@ -101,7 +101,7 @@ struct mswindows_device
   Lisp_Object fontlist;		/* List of strings, device fonts */
   HDC hcdc;			/* Compatible DC */
   DWORD update_tick;		/* Used when device is modified through
-				   Windows mwssages, see WM_DISPLAYCHANGE
+				   Windows messages, see WM_DISPLAYCHANGE
 				   in event-msw.c */
 };
 
@@ -178,6 +178,9 @@ struct mswindows_frame
   /* Time of last click event, for button 2 emul */
   DWORD last_click_time;
 
+  /* Mods of last click event */
+  DWORD last_click_mods;
+
   /* Coordinates of last click event, screen-relative */
   POINTS last_click_point;
 #ifdef HAVE_TOOLBARS
@@ -210,9 +213,10 @@ struct mswindows_frame
   int ignore_next_rbutton_up : 1;
   int sizing : 1;
   int paint_pending : 1; /* Whether a WM_PAINT magic event has been queued */
+  int popup : 1; /* frame is a popup frame */
 
   /* Geometry, in characters, as specified by proplist during frame
-     creation. Memebers are set to -1 for unspecified */
+     creation. Members are set to -1 for unspecified */
   XEMACS_RECT_WH* target_rect;
 };
 
@@ -236,6 +240,7 @@ struct mswindows_frame
 #define FRAME_MSWINDOWS_CHARWIDTH(f)	  (FRAME_MSWINDOWS_DATA (f)->charwidth)
 #define FRAME_MSWINDOWS_CHARHEIGHT(f)	  (FRAME_MSWINDOWS_DATA (f)->charheight)
 #define FRAME_MSWINDOWS_TARGET_RECT(f)	  (FRAME_MSWINDOWS_DATA (f)->target_rect)
+#define FRAME_MSWINDOWS_POPUP(f)	  (FRAME_MSWINDOWS_DATA (f)->popup)
 
 /* Frame check and validation macros */
 #define FRAME_MSWINDOWS_P(frm) CONSOLE_TYPESYM_MSWINDOWS_P (FRAME_TYPE (frm))
@@ -255,7 +260,7 @@ struct msprinter_frame
 {
   int left_margin, top_margin,		/* All in twips */
     right_margin, bottom_margin;
-  int charheight, charwidth;		/* As per proplist or -1 if not gven */
+  int charheight, charwidth;		/* As per proplist or -1 if not given */
   int pix_left, pix_top;		/* Calculated in init_frame_*, VP offset */
   int job_started : 1;
   int page_started : 1;
@@ -296,11 +301,12 @@ LRESULT WINAPI mswindows_control_wnd_proc (HWND hwnd,
 					   UINT msg, WPARAM wParam,
 					   LPARAM lParam);
 
-void mswindows_redraw_exposed_area (struct frame *f, int x, int y, 
+void mswindows_redraw_exposed_area (struct frame *f, int x, int y,
 				    int width, int height);
 void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest);
 HWND mswindows_get_selected_frame_hwnd (void);
 void mswindows_enqueue_magic_event (HWND hwnd, UINT msg);
+int mswindows_is_dialog_msg (MSG *msg);
 
 /* win32 DDE management library */
 #define MSWINDOWS_DDE_ITEM_OPEN "Open"
@@ -364,7 +370,36 @@ Lisp_Object mswindows_handle_gui_wm_command (struct frame* f,
 
 int mswindows_windows9x_p (void);
 
-
 void mswindows_output_last_error (char *frob);
+
+Lisp_Object mswindows_handle_print_dialog_box (struct frame *f,
+					       Lisp_Object keys);
+Lisp_Object mswindows_handle_page_setup_dialog_box (struct frame *f,
+						    Lisp_Object keys);
+Lisp_Object mswindows_handle_print_setup_dialog_box (struct frame *f,
+						     Lisp_Object keys);
+
+void mswindows_register_popup_frame (Lisp_Object frame);
+void mswindows_unregister_popup_frame (Lisp_Object frame);
+
+void mswindows_destroy_selection (Lisp_Object selection);
+
+Lisp_Object msprinter_default_printer (void);
+
+struct mswindows_dialog_id
+{
+  struct lcrecord_header header;
+
+  Lisp_Object frame;
+  Lisp_Object callbacks;
+  HWND hwnd;
+};
+
+DECLARE_LRECORD (mswindows_dialog_id, struct mswindows_dialog_id);
+#define XMSWINDOWS_DIALOG_ID(x) XRECORD (x, mswindows_dialog_id, struct mswindows_dialog_id)
+#define XSETMSWINDOWS_DIALOG_ID(x, p) XSETRECORD (x, p, mswindows_dialog_id)
+#define MSWINDOWS_DIALOG_IDP(x) RECORDP (x, mswindows_dialog_id)
+#define CHECK_MSWINDOWS_DIALOG_ID(x) CHECK_RECORD (x, mswindows_dialog_id)
+#define CONCHECK_MSWINDOWS_DIALOG_ID(x) CONCHECK_RECORD (x, mswindows_dialog_id)
 
 #endif /* INCLUDED_console_msw_h_ */

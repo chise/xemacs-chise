@@ -3,7 +3,7 @@
 @setfilename ../info/info.info
 @settitle Info
 @comment %**end of header
-@comment $Id: info.texi,v 1.4.2.4 2000/01/18 07:27:42 yoshiki Exp $
+@comment $Id: info.texi,v 1.4.2.5 2000/09/13 10:57:18 martinb Exp $
 
 @dircategory Texinfo documentation system
 @direntry
@@ -853,7 +853,7 @@ node of the file with Emacs Info mode.
 @node Emacs Info Variables, , Checking, Advanced Info
 @section Emacs Info-mode Variables
 
-The following variables may modify the behaviour of Info-mode in Emacs;
+The following variables may modify the behavior of Info-mode in Emacs;
 you may wish to set one or several of these variables interactively, or
 in your @file{~/.emacs} init file.  @xref{Examining, Examining and
 Setting Variables, Examining and Setting Variables, xemacs, XEmacs

@@ -38,6 +38,23 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Events and the Event Loop,  Next: Evaluation; Stack Frames; Bindings,  Prev: Dumping,  Up: Top
+
+Events and the Event Loop
+*************************
+
+* Menu:
+
+* Introduction to Events::
+* Main Loop::
+* Specifics of the Event Gathering Mechanism::
+* Specifics About the Emacs Event::
+* The Event Stream Callback Routines::
+* Other Event Loop Functions::
+* Converting Events::
+* Dispatching Events; The Command Builder::
+
+
 File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Prev: Events and the Event Loop,  Up: Events and the Event Loop
 
 Introduction to Events

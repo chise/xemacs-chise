@@ -101,7 +101,7 @@
  	instead of 1000.
 	(find-tag-internal): Use `letf'.
 	(tags-delete): Removed -- was unused.
-	(set-buffer-tag-table): Use `expland-file-name'.
+	(set-buffer-tag-table): Use `expand-file-name'.
 	(get-tag-table-buffer): Use `ecase'.
 	(add-to-tag-completion-table): Mark the filename messages with
  	progress.
@@ -998,7 +998,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
 	* modes/lazy-shot.el (lazy-shot-mode): Unstall lazy-shot only if
 	needed.
-	(lazy-shot-fontify-internal): Functionality put in seperate function.
+	(lazy-shot-fontify-internal): Functionality put in separate function.
 	(lazy-shot-lock-extent): Use it.
 	(lazy-shot-fontify-region): Dumb implementation added.
 	(lazy-shot-unstall-after-fontify): Needed to disable lazy

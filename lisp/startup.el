@@ -159,13 +159,17 @@ is less convenient.")
 ;;We do that if this regexp matches the locale name
 ;;specified by the LC_ALL, LC_CTYPE and LANG environment variables.")
 
-(defvar mail-host-address nil
-  "*Name of this machine, for purposes of naming users.")
+(defcustom mail-host-address nil
+  "*Name of this machine, for purposes of naming users."
+  :type 'string
+  :group 'mail)
 
-(defvar user-mail-address nil
+(defcustom user-mail-address nil
   "*Full mailing address of this user.
 This is initialized based on `mail-host-address',
-after your init file is read, in case it sets `mail-host-address'.")
+after your init file is read, in case it sets `mail-host-address'."
+  :type 'string
+  :group 'mail)
 
 (defvar auto-save-list-file-prefix "~/.saves-"
   "Prefix for generating auto-save-list-file-name.
@@ -667,7 +671,7 @@ If this is nil, no message will be displayed.")
     (catch 'found
       (dolist (file user-init-file-base-list)
 	(let ((expanded (expand-file-name file init-directory)))
-	  (when (file-exists-p expanded)
+	  (when (file-readable-p expanded)
 	    (throw 'found expanded)))))))
 
 (defun find-user-home-directory-init-file (&optional home-directory)
@@ -676,7 +680,7 @@ If this is nil, no message will be displayed.")
     (catch 'found
       (dolist (file user-home-init-file-base-list)
 	(let ((expanded (expand-file-name file home-directory)))
-	  (when (file-exists-p expanded)
+	  (when (file-readable-p expanded)
 	    (throw 'found expanded))))
       nil)))
 
@@ -691,7 +695,8 @@ If this is nil, no message will be displayed.")
   "Ask user if she wants to migrate the init file(s) to new location."
   (if (and (not load-home-init-file)
 	   (not (find-user-init-directory-init-file user-init-directory))
-	   (file-exists-p user-init-file))
+	   (stringp user-init-file)
+	   (file-readable-p user-init-file))
       (if (with-output-to-temp-buffer (help-buffer-name nil)
 	    (progn
 	      (princ "XEmacs recommends that the initialization code in
@@ -735,13 +740,18 @@ perform the migration at any time with M-x migrate-user-init-file.")
 
 (defun load-user-init-file ()
   "This function actually reads the init file."
-  (if (or user-init-file
-          (setq user-init-file (find-user-init-file user-init-directory)))
+  (if (not user-init-file)
+      (setq user-init-file
+	    (find-user-init-file user-init-directory)))
+  (if (and user-init-file
+	   (file-readable-p user-init-file))
       (load user-init-file t t t))
   (if (not custom-file)
       (setq custom-file (make-custom-file-name user-init-file)))
-  (if (and (not (string= custom-file user-init-file))
-	   (file-exists-p custom-file))
+  (if (and custom-file
+	   (or (not user-init-file)
+	       (not (string= custom-file user-init-file)))
+	   (file-readable-p custom-file))
       (load custom-file t t t))
   (unless inhibit-default-init
     (let ((inhibit-startup-message nil))

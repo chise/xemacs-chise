@@ -50,7 +50,7 @@ struct mswindows_color_instance_data
    combinations.  Only the one at index 0, neither underlined nor
    struk through is created with the font instance. Other fonts are
    created as necessary during redisplay, using the one at index 0
-   as protptype */
+   as prototype */
 #define MSWINDOWS_NUM_FONT_VARIANTS 4
 struct mswindows_font_instance_data
 {

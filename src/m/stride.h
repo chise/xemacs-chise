@@ -48,15 +48,6 @@ Boston, MA 02111-1307, USA.  */
 
 #undef CANNOT_DUMP
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-
-#undef VIRT_ADDR_VARIES
-
 /* The STRIDE system is more powerful than standard USG5.  */
 
 #define HAVE_PTYS

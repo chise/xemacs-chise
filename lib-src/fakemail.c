@@ -302,7 +302,7 @@ static line_list
 make_file_preface (void)
 {
   char *the_string, *temp;
-  long idiotic_interface;
+  time_t idiotic_interface;
   long prefix_length;
   long user_length;
   long date_length;
@@ -313,7 +313,8 @@ make_file_preface (void)
   the_date = ctime (&idiotic_interface);
   /* the_date has an unwanted newline at the end */
   date_length = strlen (the_date) - 1;
-  the_date[date_length] = '\0';
+  if (the_date[date_length] == '\n')
+    the_date[date_length] = '\0';
 #ifdef WIN32_NATIVE
   temp = "(null)";
 #else

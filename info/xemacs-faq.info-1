@@ -17,20 +17,14 @@ Introduction
 
    This is the guide to the XEmacs Frequently Asked Questions list--a
 compendium of questions and answers pertaining to one of the finest
-programs ever written.  It is much more than just a Text Editor.
+programs ever written.  XEmacs is much more than just a Text Editor.
 
-   This FAQ is freely redistributable.  I take no liability for the
-correctness and safety of any procedures or advice given here.  This
-FAQ is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.
+   This FAQ is freely redistributable.  This FAQ is distributed in the
+hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
    If you have a Web browser, the official hypertext version is at
-`http://www.xemacs.org/faq/xemacs-faq.html'.
-
-   This version is somewhat nicer than the unofficial hypertext versions
-that are archived at Utrecht, Oxford, Smart Pages, and other FAQ
-archives.
+`http://www.xemacs.org/faq/xemacs-faq.html'
 
 * Menu:
 
@@ -53,7 +47,7 @@ Introduction, Policy, Credits
 * Q1.0.4::      Why Another Version of Emacs?
 * Q1.0.5::      Why Haven't XEmacs and GNU Emacs Merged?
 * Q1.0.6::      Where can I get help?
-* Q1.0.7::      Where is the mailing list archived?
+* Q1.0.7::      Where are the mailing lists archived?
 * Q1.0.8::      How do you pronounce XEmacs?
 * Q1.0.9::      What does XEmacs look like?
 * Q1.0.10::     Is there a port of XEmacs to Microsoft ('95 or NT)?
@@ -73,12 +67,12 @@ Credits:
 * Q1.2.3::      Who contributed to the FAQ in the past?
 
 Internationalization:
-* Q1.3.1::      What is the status of XEmacs v20?
-* Q1.3.2::      What is the status of Asian-language support, aka MULE?
+* Q1.3.1::      What is the status of internationalization support aka MULE (including Asian language support?
+* Q1.3.2::      How can I help with internationalization?
 * Q1.3.3::      How do I type non-ASCII characters?
 * Q1.3.4::      Can XEmacs messages come out in a different language?
-* Q1.3.5::      Please explain the various input methods in MULE/XEmacs 20.0
-* Q1.3.6::      How do I portably code for MULE/XEmacs 20.0?
+* Q1.3.5::      Please explain the various input methods in MULE/XEmacs
+* Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
@@ -300,7 +294,7 @@ Emacs Lisp Programming Techniques:
 * Q5.1.4::      What is the performance hit of `let'?
 * Q5.1.5::      What is the recommended use of `setq'?
 * Q5.1.6::      What is the typical misuse of `setq' ?
-* Q5.1.7::      I like the the `do' form of cl, does it slow things down?
+* Q5.1.7::      I like the `do' form of cl, does it slow things down?
 * Q5.1.8::      I like recursion, does it slow things down?
 * Q5.1.9::      How do I put a glyph as annotation in a buffer?
 * Q5.1.10::     `map-extents' won't traverse all of my extents!
@@ -402,7 +396,7 @@ Introduction:
 * Q1.0.4::      Why Another Version of Emacs?
 * Q1.0.5::      Why Haven't XEmacs and GNU Emacs Merged?
 * Q1.0.6::      Where can I get help?
-* Q1.0.7::      Where is the mailing list archived?
+* Q1.0.7::      Where are the mailing lists archived?
 * Q1.0.8::      How do you pronounce XEmacs?
 * Q1.0.9::      What does XEmacs look like?
 * Q1.0.10::     Is there a port of XEmacs to Microsoft ('95 or NT)?
@@ -422,12 +416,12 @@ Credits:
 * Q1.2.3::      Who contributed to the FAQ in the past?
 
 Internationalization:
-* Q1.3.1::      What is the status of XEmacs v20?
-* Q1.3.2::      What is the status of Asian-language support, aka MULE?
+* Q1.3.1::      What is the status of internationalization support aka MULE (including Asian language support?
+* Q1.3.2::      How can I help with internationalization?
 * Q1.3.3::      How do I type non-ASCII characters?
 * Q1.3.4::      Can XEmacs messages come out in a different language?
-* Q1.3.5::      Please explain the various input methods in MULE/XEmacs 20.0
-* Q1.3.6::      How do I portably code for MULE/XEmacs 20.0?
+* Q1.3.5::      Please explain the various input methods in MULE/XEmacs
+* Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
@@ -460,10 +454,10 @@ File: xemacs-faq.info,  Node: Q1.0.2,  Next: Q1.0.3,  Prev: Q1.0.1,  Up: Introdu
 Q1.0.2: What is the current version of XEmacs?
 ----------------------------------------------
 
-   XEmacs 21.1.8 is the current stable version of XEmacs.
-
-   XEmacs 20.4 is a minor upgrade from 20.3, containing many bugfixes.
-It was released in February 1998.
+   XEmacs versions 21.1.* are releases made from the current stable
+sources.  XEmacs versions 21.2.* are releases made from the development
+sources.  Check at `http://www.xemacs.org' for the current minor
+version.
 
    XEmacs 19.16 was the last release of v19, released in November, 1997,
 which was also the last version without international language support.
@@ -574,8 +568,8 @@ a message with a subject of `unsubscribe' to be removed.
 
 File: xemacs-faq.info,  Node: Q1.0.7,  Next: Q1.0.8,  Prev: Q1.0.6,  Up: Introduction
 
-Q1.0.7: Where is the mailing list archived?
--------------------------------------------
+Q1.0.7: Where are the mailing lists archived?
+---------------------------------------------
 
    The archives can be found at `http://www.xemacs.org/Lists/Archive'
 
@@ -642,7 +636,7 @@ Q1.0.14: Where can I obtain a printed copy of the XEmacs users manual?
 TeX, you can generate your own manual from the XEmacs sources.
 
    HTML and Postscript versions of XEmacs manuals may be available from
-the XEmacs web site in the future.
+the XEmacs web site in the future.  Send requests to <faq@xemacs.org>.
 
 
 File: xemacs-faq.info,  Node: Q1.1.1,  Next: Q1.1.2,  Prev: Q1.0.14,  Up: Introduction
@@ -662,12 +656,11 @@ maintainers <faq@xemacs.org>.
    Please make sure that `XEmacs FAQ' appears on the Subject: line.  If
 you think you have a better way of answering a question, or think a
 question should be included, we'd like to hear about it.  Questions and
-answers included into the FAQ will be edited for spelling and grammar,
+answers included into the FAQ will be edited for spelling and grammar
 and will be attributed.  Answers appearing without attribution are
-either from versions of the FAQ dated before May 1996, or are from one
-of the four people listed at the top of this document.  Answers quoted
-from Usenet news articles will always be attributed, regardless of the
-author.
+either from versions of the FAQ dated before May 1996 or are from
+previous FAQ maintainers.  Answers quoted from Usenet news articles will
+always be attributed, regardless of the author.
 
 
 File: xemacs-faq.info,  Node: Q1.1.2,  Next: Q1.1.3,  Prev: Q1.1.1,  Up: Introduction
@@ -819,84 +812,20 @@ File: xemacs-faq.info,  Node: Q1.3.1,  Next: Q1.3.2,  Prev: Q1.2.3,  Up: Introdu
 1.3: Internationalization
 =========================
 
-Q1.3.1: What is the status of XEmacs v20?
------------------------------------------
+Q1.3.1: What is the status of internationalization support aka MULE (including Asian language support?
+------------------------------------------------------------------------------------------------------
 
-   XEmacs v20 is the version of XEmacs that includes MULE
-(Asian-language) support.  XEmacs 20.0 was released in February 1997,
-followed by XEmacs 20.2 in May, XEmacs 20.3 in November and XEmacs 20.4
-in February 1998.  When compiled without MULE support, 20.4 is
-approximately as stable as 19.16, and probably faster (due to
-additional optimization work.)
-
-   As of XEmacs 20.3, version 20 is _the_ supported version of XEmacs.
-This means that 19.16 will optionally receive stability fixes (if any),
-but that all the real development work will be done on the v20 tree.
-
-   The incompatible changes in XEmacs 20 include the additional
-byte-codes, new primitive data types (`character', `char-table', and
-`range-table').  This means that the character-integer equivalence
-inherent to all the previous Emacs and XEmacs releases no longer
-applies.
-
-   However, to avoid breaking old code, many functions that should
-normally accept characters work with integers, and vice versa.  For more
-information, see the Lisp reference manual.  Here is a relevant excerpt,
-for your convenience.
-
-       In XEmacs version 19, and in all versions of FSF GNU Emacs, a
-     "character" in XEmacs Lisp is nothing more than an integer.  This
-     is yet another holdover from XEmacs Lisp's derivation from
-     vintage-1980 Lisps; modern versions of Lisp consider this
-     equivalence a bad idea, and have separate character types.  In
-     XEmacs version 20, the modern convention is followed, and
-     characters are their own primitive types. (This change was
-     necessary in order for MULE, i.e. Asian-language, support to be
-     correctly implemented.)
-
-     Even in XEmacs version 20, remnants of the equivalence between
-     characters and integers still exist; this is termed the "char-int
-     confoundance disease".  In particular, many functions such as `eq',
-     `equal', and `memq' have equivalent functions (`old-eq',
-     `old-equal', `old-memq', etc.) that pretend like characters are
-     integers are the same.  Byte code compiled under any version 19
-     Emacs will have all such functions mapped to their `old-'
-     equivalents when the byte code is read into XEmacs 20.  This is to
-     preserve compatibility--Emacs 19 converts all constant characters
-     to the equivalent integer during byte-compilation, and thus there
-     is no other way to preserve byte-code compatibility even if the
-     code has specifically been written with the distinction between
-     characters and integers in mind.
-
-     Every character has an equivalent integer, called the "character
-     code".  For example, the character `A' is represented as the
-     integer 65, following the standard ASCII representation of
-     characters.  If XEmacs was not compiled with MULE support, the
-     range of this integer will always be 0 to 255--eight bits, or one
-     byte. (Integers outside this range are accepted but silently
-     truncated; however, you should most decidedly _not_ rely on this,
-     because it will not work under XEmacs with MULE support.)  When
-     MULE support is present, the range of character codes is much
-     larger. (Currently, 19 bits are used.)
-
-     FSF GNU Emacs uses kludgy character codes above 255 to represent
-     keyboard input of ASCII characters in combination with certain
-     modifiers.  XEmacs does not use this (a more general mechanism is
-     used that does not distinguish between ASCII keys and other keys),
-     so you will never find character codes above 255 in a non-MULE
-     XEmacs.
-
-     Individual characters are not often used in programs.  It is far
-     more common to work with _strings_, which are sequences composed of
-     characters.
+   Both the stable and development versions of XEmacs include
+internationalization support (aka MULE).  MULE currently works on UNIX
+and Linux systems; work for supporting MULE on Windows operating systems
+is in progress.  Binaries compiled without MULE support run faster than
+MULE capable XEmacsen.
 
 
 File: xemacs-faq.info,  Node: Q1.3.2,  Next: Q1.3.3,  Prev: Q1.3.1,  Up: Introduction
 
-Q1.3.2: What is the status of Asian-language support, aka MULE?
----------------------------------------------------------------
-
-   MULE support is now available for UNIX versions of XEmacs.
+Q1.3.2: How can I help with internationalization?
+-------------------------------------------------
 
    If you would like to help, you may want to join the
 <xemacs-mule@xemacs.org> mailing list.  Especially needed are people
@@ -921,8 +850,8 @@ Q1.3.4: Can XEmacs messages come out in a different language?
 
    The message-catalog support has mostly been written but doesn't
 currently work.  The first release of XEmacs 20 will _not_ support it.
-However, menubar localization _does_ work, even in 19.14.  To enable
-it, add to your `Emacs' file entries like this:
+However, menubar localization _does_ work.  To enable it, add to your
+`Emacs' file entries like this:
 
      Emacs*XlwMenu.resourceLabels:                   True
      Emacs*XlwMenu.file.labelString:                 Fichier
@@ -934,8 +863,8 @@ removing punctuation and capitalizing as above.
 
 File: xemacs-faq.info,  Node: Q1.3.5,  Next: Q1.3.6,  Prev: Q1.3.4,  Up: Introduction
 
-Q1.3.5: Please explain the various input methods in MULE/XEmacs 20.0
---------------------------------------------------------------------
+Q1.3.5: Please explain the various input methods in MULE/XEmacs
+---------------------------------------------------------------
 
    MORIOKA Tomohiko <morioka@jaist.ac.jp> writes:
 
@@ -984,8 +913,8 @@ Q1.3.5: Please explain the various input methods in MULE/XEmacs 20.0
 
 File: xemacs-faq.info,  Node: Q1.3.6,  Next: Q1.3.7,  Prev: Q1.3.5,  Up: Introduction
 
-Q1.3.6: How do I portably code for MULE/XEmacs 20?
---------------------------------------------------
+Q1.3.6: How do I portably code for MULE/XEmacs?
+-----------------------------------------------
 
    MORIOKA Tomohiko <morioka@jaist.ac.jp> writes:
 
@@ -1222,8 +1151,7 @@ File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: I
 Q2.0.1: Running XEmacs without installing
 -----------------------------------------
 
-   The `INSTALL' file says that up to 108 MB of space is needed
-temporarily during installation!  How can I just try it out?
+   How can I just try XEmacs without installing it?
 
    XEmacs will run in place without requiring installation and copying
 of the Lisp directories, and without having to specify a special
@@ -1238,4 +1166,91 @@ requires so much space.  XEmacs is largely written in Lisp.
 tree to instead of `/i/xemacs-20.2').
 
    This will let you run XEmacs without massive copying.
+
+
+File: xemacs-faq.info,  Node: Q2.0.2,  Next: Q2.0.3,  Prev: Q2.0.1,  Up: Installation
+
+Q2.0.2: XEmacs is too big
+-------------------------
+
+   The space required by the installation directories can be reduced
+dramatically if desired.  Gzip all the .el files.  Remove all the
+packages you'll never want to use.  Remove the TexInfo manuals.  Remove
+the Info (and use just hardcopy versions of the manual).  Remove most
+of the stuff in etc.  Remove or gzip all the source code.  Gzip or
+remove the C source code.  Configure it so that copies are not made of
+the support lisp.
+
+   These are all Emacs Lisp source code and bytecompiled object code.
+You may safely gzip everything named *.el here.  You may remove any
+package you don't use.  _Nothing bad will happen if you delete a package
+that you do not use_.  You must be sure you do not use it though, so be
+conservative at first.
+
+   Possible candidates for deletion include w3, games, hyperbole, mh-e,
+hm-html-menus, vm, viper, oobr, gnus, etc.  Ask yourself, _Do I ever
+want to use this package?_  If the answer is no, then it is a candidate
+for removal.
+
+   First, gzip all the .el files.  Then go about package by package and
+start gzipping the .elc files.  Then run XEmacs and do whatever it is
+you normally do.  If nothing bad happens, then delete the directory.  Be
+conservative about deleting directories, and it would be handy to have a
+backup around in case you get too zealous.
+
+   `prim', `modes', `packages', and `utils' are four directories you
+definitely do *not* want to delete, although certain packages can be
+removed from them if you do not use them.
+
+   Online texinfo sources in the `info' can either be compressed them
+or remove them.  In either case, `C-h i' (info mode) will no longer
+work.
+
+
+File: xemacs-faq.info,  Node: Q2.0.3,  Next: Q2.0.4,  Prev: Q2.0.2,  Up: Installation
+
+Q2.0.3: Compiling XEmacs with Netaudio.
+---------------------------------------
+
+   What is the best way to compile XEmacs with the netaudio system,
+since I have got the netaudio system compiled but installed at a weird
+place, I am not root.  Also in the READMEs it does not say anything
+about compiling with the audioserver?
+
+   You should only need to add some stuff to the configure command line.
+To tell it to compile in netaudio support: `--with-sound=both', or
+`--with-sound=nas' if you don't want native sound support for some
+reason.) To tell it where to find the netaudio includes and libraries:
+
+     --site-libraries=WHATEVER
+     --site-includes=WHATEVER
+
+   Then (fingers crossed) it should compile and it will use netaudio if
+you have a server running corresponding to the X server. The netaudio
+server has to be there when XEmacs starts. If the netaudio server goes
+away and another is run, XEmacs should cope (fingers crossed, error
+handling in netaudio isn't perfect).
+
+   BTW, netaudio has been renamed as it has a name clash with something
+else, so if you see references to NAS or Network Audio System, it's the
+same thing.  It also might be found at
+`ftp://ftp.x.org/contrib/audio/nas/'.
+
+
+File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
+
+Q2.0.4: Problems with Linux and ncurses.
+----------------------------------------
+
+   On Linux 1.3.98 with termcap 2.0.8 and the ncurses that came with
+libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
+
+     src/xemacs -nw -q
+     Initialization error:
+     Terminal type `xterm' undefined (or can't access database?)
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     Your ncurses configuration is messed up.  Your /usr/lib/terminfo
+     is a bad pointer, perhaps to a CD-ROM that is not inserted.
 

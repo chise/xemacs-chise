@@ -173,7 +173,7 @@ fi
 
 if test -n "$dll_cflags"; then
   AC_MSG_RESULT([${dll_cflags}])
-  
+
   # Check to make sure the dll_cflags actually works.
   AC_MSG_CHECKING([if PIC flag ${dll_cflags} really works])
   save_CFLAGS="$CFLAGS"
@@ -200,13 +200,13 @@ dnl Now comes the LD trickery. We do things differently to libtool here.
 dnl I believe that libtool is incorrect in trying to drive the linker
 dnl directly. This can cause considerable problems if the module you are
 dnl compiling has C++ or other static initializers. If we use ld directly,
-dnl we dont end up with the crt stuff being linked in, and we dont end up
+dnl we don't end up with the crt stuff being linked in, and we don't end up
 dnl with any .init or .fini sections (or the moral equivalent thereof).
-dnl gcc takes great care to do this propperly when invoked in -shared
-dnl mode, and we really do want this behaviour. Perhaps the libtool folks
+dnl gcc takes great care to do this properly when invoked in -shared
+dnl mode, and we really do want this behavior. Perhaps the libtool folks
 dnl are not aware that any SVR4 based dynamic loader will automatically
 dnl execute code in the .init section before dlopen() returns. This is
-dnl vital, as the module may have been compiled to rely on that behaviour.
+dnl vital, as the module may have been compiled to rely on that behavior.
 dnl
 dnl So, having said all of that, we diverge from libtool significantly
 dnl here. We want to try and use the C compiler as much as possible. Only
@@ -219,7 +219,7 @@ dnl version of XEmacs. With the libtool way, it picks up the linker that
 dnl gcc uses, which can be the internal collect2 that comes with gcc.
 dnl If the user ever changes their compiler version, the paths will no
 dnl longer be correct, and ellcc will break. This is clearly unacceptable.
-dnl By using the compiler driver on the path, we dont have this problem.
+dnl By using the compiler driver on the path, we don't have this problem.
 dnl If that is not clear, consider that gcc -print-prog-name=ld can
 dnl produce something along the lines of:
 dnl   /usr/local/lib/gcc-lib/OS-NAME/GCC-VERSION/ld
@@ -231,7 +231,7 @@ dnl If we are not using gcc, but the system C compiler can produce
 dnl shared objects, we try that. Only if all of that fails do we revert
 dnl back to the libtool ld trickery.
 dnl
-dnl We dont do ANY of this if we can't produce shared objects.
+dnl We don't do ANY of this if we can't produce shared objects.
 dnl
 if test "$can_build_shared" = "yes"; then
 cc_produces_so=no
@@ -513,7 +513,7 @@ dnl
 dnl Last thing, check how to get a linked executable to have its symbols
 dnl exported, so that the modules have access to them.
 dnl
-dnl XEmacs FIXME - we need to set ld_dynamic_link_flags propperly for
+dnl XEmacs FIXME - we need to set ld_dynamic_link_flags properly for
 dnl most of these systems, which was missing from libtool. I know they
 dnl all have a way of doing this, but someone needs to look at this
 dnl for each OS and make sure it is correct. Remember that the arguments

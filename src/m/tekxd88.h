@@ -40,14 +40,6 @@ Boston, MA 02111-1307, USA.  */
    and temacs will do (load "loadup") automatically unless told otherwise.  */
 /*#define CANNOT_DUMP*/
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-/* #define VIRT_ADDR_VARIES */ 
-
 /* Define NO_REMAP if memory segmentation makes it not work well
    to change the boundary between the text section and data section
    when Emacs is dumped.  If you define this, the preloaded Lisp

@@ -910,22 +910,28 @@ to use one of the special characters.  Here is a list of them:
      match, it matches the shortest match.  `*?' is known as a
      "non-greedy" quantifier, a regexp construct borrowed from Perl.
 
-     This construct very useful for when you want to match the text
+     This construct is very useful for when you want to match the text
      inside a pair of delimiters.  For instance, `/\*.*?\*/' will match
-     C comments in a string.  This could not be achieved without the
-     use of greedy quantifier.
+     C comments in a string.  This could not easily be achieved without
+     the use of a non-greedy quantifier.
 
      This construct has not been available prior to XEmacs 20.4.  It is
      not available in FSF Emacs.
 
 `+?'
-     is the `+' analog to `*?'.
+     is the non-greedy version of `+'.
+
+`??'
+     is the non-greedy version of `?'.
 
 `\{n,m\}'
      serves as an interval quantifier, analogous to `*' or `+', but
      specifies that the expression must match at least N times, but no
      more than M times.  This syntax is supported by most Unix regexp
      utilities, and has been introduced to XEmacs for the version 20.3.
+
+     Unfortunately, the non-greedy version of this quantifier does not
+     exist currently, although it does in Perl.
 
 `[ ... ]'
      `[' begins a "character set", which is terminated by a `]'.  In
@@ -1071,8 +1077,9 @@ constructs:
      recorded for future reference.
 
      This is useful when you need a lot of grouping `\( ... \)'
-     constructs, but only want to remember one or two.  Then you can use
-     not want to remember them for later use with `match-string'.
+     constructs, but only want to remember one or two - or if you have
+     more than nine groupings and need to use backreferences to refer to
+     the groupings at the end.
 
      Using `\(?: ... \)' rather than `\( ... \)' when you don't need
      the captured substrings ought to speed up your programs some,

@@ -149,7 +149,7 @@ main (int argc, char *argv[])
 #endif
 	  for (;;)
 	    {
-	      register int i, c, d;
+	      register int i, c = 0, d;
 
 #define hexchar(x) (isdigit (x) ? x - '0' : x - 'a' + 10)
 
@@ -195,7 +195,7 @@ main (int argc, char *argv[])
 	  string[17] = '\0';
 	  for (;;)
 	    {
-	      register int i, c;
+	      register int i, c = 0;
 
 	      for (i=0; i < 16; ++i)
 		{
@@ -246,6 +246,6 @@ main (int argc, char *argv[])
 void
 usage (void)
 {
-  (void) fprintf (stderr, "usage: %s [-de] [-iso]\n", progname);
+  fprintf (stderr, "Usage: %s [-de] [-iso]\n", progname);
   exit (1);
 }

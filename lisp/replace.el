@@ -604,7 +604,7 @@ The valid answers include `act', `skip', `act-and-show',
 
 ;; XEmacs
 (defun perform-replace-next-event (event)
-  (if isearch-highlight
+  (if search-highlight
       (let ((aborted t))
 	(unwind-protect
 	    (progn

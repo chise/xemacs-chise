@@ -88,14 +88,14 @@ struct x_device
   Pixmap gray_pixmap;
 
   /* Atoms associated with this device. */
-  /* allocated in Xatoms_of_xfns in xfns.c */
+  /* allocated in Xatoms_of_device_x */
   Atom Xatom_WM_PROTOCOLS;
   Atom Xatom_WM_DELETE_WINDOW;
   Atom Xatom_WM_SAVE_YOURSELF;
   Atom Xatom_WM_TAKE_FOCUS;
   Atom Xatom_WM_STATE;
 
-  /* allocated in Xatoms_of_select_x in xselect.c */
+  /* allocated in Xatoms_of_select_x */
   Atom Xatom_CLIPBOARD;
   Atom Xatom_TIMESTAMP;
   Atom Xatom_TEXT;
@@ -108,7 +108,7 @@ struct x_device
   Atom Xatom_ATOM_PAIR;
   Atom Xatom_COMPOUND_TEXT;
 
-  /* allocated in Xatoms_of_objects_x in objects-x.c */
+  /* allocated in Xatoms_of_objects_x */
   Atom Xatom_FOUNDRY;
   Atom Xatom_FAMILY_NAME;
   Atom Xatom_WEIGHT_NAME;
@@ -206,14 +206,14 @@ struct x_device
 #define DEVICE_X_FONTSET(d)    (DEVICE_X_DATA (d)->fontset)
 #endif /* HAVE_XIM */
 
-/* allocated in Xatoms_of_xfns in xfns.c */
+/* allocated in Xatoms_of_device_x */
 #define DEVICE_XATOM_WM_PROTOCOLS(d)	 (DEVICE_X_DATA (d)->Xatom_WM_PROTOCOLS)
 #define DEVICE_XATOM_WM_DELETE_WINDOW(d) (DEVICE_X_DATA (d)->Xatom_WM_DELETE_WINDOW)
 #define DEVICE_XATOM_WM_SAVE_YOURSELF(d) (DEVICE_X_DATA (d)->Xatom_WM_SAVE_YOURSELF)
 #define DEVICE_XATOM_WM_TAKE_FOCUS(d)	 (DEVICE_X_DATA (d)->Xatom_WM_TAKE_FOCUS)
 #define DEVICE_XATOM_WM_STATE(d)	 (DEVICE_X_DATA (d)->Xatom_WM_STATE)
 
-/* allocated in Xatoms_of_select_x in xselect.c */
+/* allocated in Xatoms_of_select_x */
 #define DEVICE_XATOM_CLIPBOARD(d) 	(DEVICE_X_DATA (d)->Xatom_CLIPBOARD)
 #define DEVICE_XATOM_TIMESTAMP(d) 	(DEVICE_X_DATA (d)->Xatom_TIMESTAMP)
 #define DEVICE_XATOM_TEXT(d) 		(DEVICE_X_DATA (d)->Xatom_TEXT)
@@ -226,7 +226,7 @@ struct x_device
 #define DEVICE_XATOM_ATOM_PAIR(d) 	(DEVICE_X_DATA (d)->Xatom_ATOM_PAIR)
 #define DEVICE_XATOM_COMPOUND_TEXT(d) 	(DEVICE_X_DATA (d)->Xatom_COMPOUND_TEXT)
 
-/* allocated in Xatoms_of_objects_x in objects-x.c */
+/* allocated in Xatoms_of_objects_x */
 #define DEVICE_XATOM_FOUNDRY(d)		(DEVICE_X_DATA (d)->Xatom_FOUNDRY)
 #define DEVICE_XATOM_FAMILY_NAME(d)	(DEVICE_X_DATA (d)->Xatom_FAMILY_NAME)
 #define DEVICE_XATOM_WEIGHT_NAME(d)	(DEVICE_X_DATA (d)->Xatom_WEIGHT_NAME)
@@ -490,6 +490,23 @@ extern int in_resource_setting;
 extern int in_specifier_change_function;
 
 extern Lisp_Object Vx_initial_argv_list; /* #### ugh! */
+
+/* Standins for various X encodings, until we know them better */
+
+/* !!#### Need to verify the encoding used in lwlib -- Qnative or Qctext?
+   Almost certainly the former.  Use a standin for now. */
+#define Qlwlib_encoding Qnative
+
+#define Qx_atom_name_encoding Qctext
+/* font names are often stored in atoms, so it gets sticky if we set this
+   to something different from atom-name encoding */
+#define Qx_font_name_encoding Qctext
+
+#define Qx_color_name_encoding Qctext
+
+/* the following probably must agree with Qcommand_argument_encoding and
+   Qenvironment_variable_encoding */
+#define Qx_display_name_encoding Qnative
 
 #endif /* HAVE_X_WINDOWS */
 

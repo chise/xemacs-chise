@@ -351,6 +351,15 @@ SYMBOL's value, function, and property lists."
       (setplist new (copy-list (symbol-plist symbol))))
     new))
 
+(defun set-symbol-value-in-buffer (sym val buffer)
+  "Set the value of SYM to VAL in BUFFER.  Useful with buffer-local variables.
+If SYM has a buffer-local value in BUFFER, or will have one if set, this
+function allows you to set the local value.
+
+NOTE: At some point, this will be moved into C and will be very fast."
+  (with-current-buffer buffer
+    (set sym val)))
+      
 ;;;; String functions.
 
 ;; XEmacs
@@ -358,48 +367,31 @@ SYMBOL's value, function, and property lists."
   "Replace all matches in STR for REGEXP with NEWTEXT string,
  and returns the new string.
 Optional LITERAL non-nil means do a literal replacement.
-Otherwise treat \\ in NEWTEXT string as special:
-  \\& means substitute original matched text,
-  \\N means substitute match for \(...\) number N,
-  \\\\ means insert one \\."
+Otherwise treat `\\' in NEWTEXT as special:
+  `\\&' in NEWTEXT means substitute original matched text.
+  `\\N' means substitute what matched the Nth `\\(...\\)'.
+       If Nth parens didn't match, substitute nothing.
+  `\\\\' means insert one `\\'.
+  `\\u' means upcase the next character.
+  `\\l' means downcase the next character.
+  `\\U' means begin upcasing all following characters.
+  `\\L' means begin downcasing all following characters.
+  `\\E' means terminate the effect of any `\\U' or `\\L'."
   (check-argument-type 'stringp str)
   (check-argument-type 'stringp newtext)
-  (let ((rtn-str "")
-	(start 0)
-	(special)
-	match prev-start)
-    (while (setq match (string-match regexp str start))
-      (setq prev-start start
-	    start (match-end 0)
-	    rtn-str
-	    (concat
-	      rtn-str
-	      (substring str prev-start match)
-	      (cond (literal newtext)
-		    (t (mapconcat
-			(lambda (c)
-			  (if special
-			      (progn
-				(setq special nil)
-				(cond ((eq c ?\\) "\\")
-				      ((eq c ?&)
-				       (substring str
-						  (match-beginning 0)
-						  (match-end 0)))
-				      ((and (>= c ?0) (<= c ?9))
-				       (if (> c (+ ?0 (length
-						       (match-data))))
-					   ;; Invalid match num
-					   (error "Invalid match num: %c" c)
-					 (setq c (- c ?0))
-					 (substring str
-						    (match-beginning c)
-						    (match-end c))))
-				      (t (char-to-string c))))
-			    (if (eq c ?\\) (progn (setq special t) nil)
-			      (char-to-string c))))
-			 newtext ""))))))
-    (concat rtn-str (substring str start))))
+  (if (> (length str) 50)
+      (with-temp-buffer
+	(insert str)
+	(goto-char 1)
+	  (while (re-search-forward regexp nil t)
+	    (replace-match newtext t literal))
+	  (buffer-string))
+  (let ((start 0) newstr)
+    (while (string-match regexp str start)
+      (setq newstr (replace-match newtext t literal str)
+	    start (+ (match-end 0) (- (length newstr) (length str)))
+	    str newstr))
+    str)))
 
 (defun split-string (string &optional pattern)
   "Return a list of substrings of STRING which are separated by PATTERN.
@@ -596,25 +588,126 @@ Analogous to (setq LAX-PLIST (lax-plist-remprop LAX-PLIST PROP))."
 
 ;;; Error functions
 
-(defun error (&rest args)
-  "Signal an error, making error message by passing all args to `format'.
-This error is not continuable: you cannot continue execution after the
-error using the debugger `r' command.  See also `cerror'."
-  (while t
-    (apply 'cerror args)))
+(defun error (datum &rest args)
+  "Signal a non-continuable error.
+DATUM should normally be an error symbol, i.e. a symbol defined using
+`define-error'.  ARGS will be made into a list, and DATUM and ARGS passed
+as the two arguments to `signal', the most basic error handling function.
 
-(defun cerror (&rest args)
+This error is not continuable: you cannot continue execution after the
+error using the debugger `r' command.  See also `cerror'.
+
+The correct semantics of ARGS varies from error to error, but for most
+errors that need to be generated in Lisp code, the first argument
+should be a string describing the *context* of the error (i.e. the
+exact operation being performed and what went wrong), and the remaining
+arguments or \"frobs\" (most often, there is one) specify the
+offending object(s) and/or provide additional details such as the exact
+error when a file error occurred, e.g.:
+
+-- the buffer in which an editing error occurred.
+-- an invalid value that was encountered. (In such cases, the string
+   should describe the purpose or \"semantics\" of the value [e.g. if the
+   value is an argument to a function, the name of the argument; if the value
+   is the value corresponding to a keyword, the name of the keyword; if the
+   value is supposed to be a list length, say this and say what the purpose
+   of the list is; etc.] as well as specifying why the value is invalid, if
+   that's not self-evident.)
+-- the file in which an error occurred. (In such cases, there should be a
+   second frob, probably a string, specifying the exact error that occurred.
+   This does not occur in the string that precedes the first frob, because
+   that frob describes the exact operation that was happening.
+
+For historical compatibility, DATUM can also be a string.  In this case,
+DATUM and ARGS are passed together as the arguments to `format', and then
+an error is signalled using the error symbol `error' and formatted string.
+Although this usage of `error' is very common, it is deprecated because it
+totally defeats the purpose of having structured errors.  There is now
+a rich set of defined errors you can use:
+
+error
+  syntax-error
+    invalid-read-syntax
+    list-formation-error
+      malformed-list
+        malformed-property-list
+      circular-list
+        circular-property-list
+
+  invalid-argument
+    wrong-type-argument
+    args-out-of-range
+    wrong-number-of-arguments
+    invalid-function
+    no-catch
+
+  invalid-state
+    void-function
+    cyclic-function-indirection
+    void-variable
+    cyclic-variable-indirection
+
+  invalid-operation
+    invalid-change
+      setting-constant
+    editing-error
+      beginning-of-buffer
+      end-of-buffer
+      buffer-read-only
+    io-error
+      end-of-file
+    arith-error
+      range-error
+      domain-error
+      singularity-error
+      overflow-error
+      underflow-error
+
+The five most common errors you will probably use or base your new
+errors off of are `syntax-error', `invalid-argument', `invalid-state',
+`invalid-operation', and `invalid-change'.  Note the semantic differences:
+
+-- `syntax-error' is for errors in complex structures: parsed strings, lists,
+   and the like.
+-- `invalid-argument' is for errors in a simple value.  Typically, the entire
+   value, not just one part of it, is wrong.
+-- `invalid-state' means that some settings have been changed in such a way
+   that their current state is unallowable.  More and more, code is being
+   written more carefully, and catches the error when the settings are being
+   changed, rather than afterwards.  This leads us to the next error:
+-- `invalid-change' means that an attempt is being made to change some settings
+   into an invalid state.  `invalid-change' is a type of `invalid-operation'.
+-- `invalid-operation' refers to all cases where code is trying to do something
+   that's disallowed.  This includes file errors, buffer errors (e.g. running
+   off the end of a buffer), `invalid-change' as just mentioned, and
+   arithmetic errors.
+
+See also `cerror', `signal', and `signal-error'."
+  (while t (apply
+	    'cerror datum args)))
+
+(defun cerror (datum &rest args)
   "Like `error' but signals a continuable error."
-  (signal 'error (list (apply 'format args))))
+  (cond ((stringp datum)
+	 (signal 'error (list (apply 'format datum args))))
+	((defined-error-p datum)
+	 (signal datum args))
+	(t
+	 (error 'invalid-argument "datum not string or error symbol" datum))))
 
 (defmacro check-argument-type (predicate argument)
   "Check that ARGUMENT satisfies PREDICATE.
-If not, signal a continuable `wrong-type-argument' error until the
-returned value satisfies PREDICATE, and assign the returned value
-to ARGUMENT."
-  `(if (not (,(eval predicate) ,argument))
-       (setq ,argument
-	     (wrong-type-argument ,predicate ,argument))))
+This is a macro, and ARGUMENT is not evaluated.  If ARGUMENT is an lvalue,
+this function signals a continuable `wrong-type-argument' error until the
+returned value satisfies PREDICATE, and assigns the returned value
+to ARGUMENT.  Otherwise, this function signals a non-continuable
+`wrong-type-argument' error if the returned value does not satisfy PREDICATE."
+  (if (symbolp argument)
+      `(if (not (,(eval predicate) ,argument))
+	   (setq ,argument
+		 (wrong-type-argument ,predicate ,argument)))
+    `(if (not (,(eval predicate) ,argument))
+	 (signal-error 'wrong-type-argument (list ,predicate ,argument)))))
 
 (defun signal-error (error-symbol data)
   "Signal a non-continuable error.  Args are ERROR-SYMBOL, and associated DATA.
@@ -645,6 +738,10 @@ yourself.]"
   (let ((conds (get inherits-from 'error-conditions)))
     (or conds (signal-error 'error (list "Not an error symbol" error-sym)))
     (put error-sym 'error-conditions (cons error-sym conds))))
+
+(defun defined-error-p (sym)
+  "Returns non-nil if SYM names a currently-defined error."
+  (and (symbolp sym) (not (null (get sym 'error-conditions)))))
 
 ;;;; Miscellanea.
 

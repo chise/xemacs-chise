@@ -31,7 +31,8 @@
 ;;; Commentary:
 
 ;; This file generates the custom-load files, loaded by cus-load.el.
-;; The only entry point is `Custom-make-dependencies'.
+;; Entry points are `Custom-make-dependencies' and
+;; `Custom-make-one-dependency'.
 
 ;; It works by scanning all the `.el' files in a directory, and
 ;; evaluates any `defcustom', `defgroup', or `defface' expression that
@@ -91,21 +92,7 @@
 ;; understand, but is in fact very easy to break.  Be sure to read and
 ;; understand the commentary above!
 
-;;;###autoload
-(defun Custom-make-dependencies (&optional subdirs)
-  "Extract custom dependencies from .el files in SUBDIRS.
-SUBDIRS is a list of directories.  If it is nil, the command-line
-arguments are used.  If it is a string, only that directory is
-processed.  This function is especially useful in batch mode.
-
-Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS"
-  (interactive "DDirectory: ")
-  (and (stringp subdirs)
-       (setq subdirs (list subdirs)))
-  (or subdirs
-      ;; Usurp the command-line-args
-      (setq subdirs command-line-args-left
-	    command-line-args-left nil))
+(defun Custom-make-dependencies-1 (subdirs)
   (setq subdirs (mapcar #'expand-file-name subdirs))
   (with-temp-buffer
     (let ((enable-local-eval nil)
@@ -181,6 +168,31 @@ Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS"
 			 (insert "))\n"))))))
 		(insert "\n;;; custom-load.el ends here\n"))
 	      (clrhash hash)))))))))
+
+(defun Custom-make-one-dependency ()
+  "Extract custom dependencies from .el files in one dir, on the command line.
+Like `Custom-make-dependencies' but snarfs only one command-line argument,
+making it useful in a chain of batch commands in a single XEmacs invocation."
+  (let ((subdir (car command-line-args-left)))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (Custom-make-dependencies-1 (list subdir))))
+
+;;;###autoload
+(defun Custom-make-dependencies (&optional subdirs)
+  "Extract custom dependencies from .el files in SUBDIRS.
+SUBDIRS is a list of directories.  If it is nil, the command-line
+arguments are used.  If it is a string, only that directory is
+processed.  This function is especially useful in batch mode.
+
+Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS"
+  (interactive "DDirectory: ")
+  (and (stringp subdirs)
+       (setq subdirs (list subdirs)))
+  (or subdirs
+      ;; Usurp the command-line-args
+      (setq subdirs command-line-args-left
+	    command-line-args-left nil))
+  (Custom-make-dependencies-1 subdirs))
 
 (provide 'cus-dep)
 

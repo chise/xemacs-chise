@@ -543,6 +543,14 @@ Normally DOMAIN will be a window or nil (meaning the selected window),
 See `glyph-property-instance' for more information."
   (glyph-property-instance glyph 'image domain default no-fallback))
 
+(defun glyph-image-property (glyph prop &optional domain default no-fallback)
+  "Return property PROP of the instance of GLYPH's image in DOMAIN.
+
+Normally DOMAIN will be a window or nil (meaning the selected window).
+The value returned is dependent on the image instance type."
+  (image-instance-property
+   (glyph-image-instance glyph domain default no-fallback) prop))
+
 (defun set-glyph-image (glyph spec &optional locale tag-set how-to-add)
   "Change the image of GLYPH in LOCALE.
 
@@ -746,7 +754,7 @@ Once you have created a glyph, you specify where it will be used as follows:
    `modeline-pointer-glyph' for the pointer used over the modeline, etc.
    Do an apropos over `*-pointer-glyph' to find all of them. (Note also
    that you can temporarily set the mouse pointer to some specific shape
-   by using `set-frame-pointer', which takes an image instace, as obtained
+   by using `set-frame-pointer', which takes an image instance, as obtained
    from calling `glyph-image-instance' on a glyph of type `pointer' --
    either one of the above-mentioned variables or one you created yourself.
    (See below for what it means to create a glyph of type `pointer'.)

@@ -89,15 +89,17 @@ the factor by which to increase the size of the hash table when enlarging.
 Keyword @code{:rehash-threshold} must be a float between 0.0 and 1.0,
 and specifies the load factor of the hash table which triggers enlarging.
 
-Keyword @code{:weakness} can be @code{nil} (default), @code{t},
-@code{key} or @code{value}.
+Non-standard keyword @code{:weakness} can be @code{nil} (default),
+@code{t}, @code{key-and-value}, @code{key}, @code{value} or
+@code{key-or-value}.  @code{t} is an alias for @code{key-and-value}.
 
-A weak hash table is one whose pointers do not count as GC referents:
-for any key-value pair in the hash table, if the only remaining pointer
-to either the key or the value is in a weak hash table, then the pair
-will be removed from the hash table, and the key and value collected.
-A non-weak hash table (or any other pointer) would prevent the object
-from being collected.
+A key-and-value-weak hash table, also known as a fully-weak or simply
+as a weak hash table, is one whose pointers do not count as GC
+referents: for any key-value pair in the hash table, if the only
+remaining pointer to either the key or the value is in a weak hash
+table, then the pair will be removed from the hash table, and the key
+and value collected.  A non-weak hash table (or any other pointer)
+would prevent the object from being collected.
 
 A key-weak hash table is similar to a fully-weak hash table except that
 a key-value pair will be removed only if the key remains unmarked
@@ -110,6 +112,12 @@ that a key-value pair will be removed only if the value remains
 unmarked outside of weak hash tables.  The pair will remain in the
 hash table if the value is pointed to by something other than a weak
 hash table, even if the key is not.
+
+A key-or-value-weak hash table is similar to a fully-weak hash table except
+that a key-value pair will be removed only if the value and the key remain
+unmarked outside of weak hash tables.  The pair will remain in the
+hash table if the value or key are pointed to by something other than a weak
+hash table, even if the other is not.
 @end defun
 
 @defun copy-hash-table hash-table
@@ -204,18 +212,22 @@ remaining around forever, long past their actual period of use.
 (Otherwise, you'd have to explicitly map over the hash table every so
 often and remove unnecessary elements.)
 
-There are three types of weak hash tables:
+There are four types of weak hash tables:
 
 @table @asis
-@item fully weak hash tables
-In these hash tables, a pair disappears if either the key or the value
-is unreferenced outside of the table.
+@item key-and-value-weak hash tables
+In these hash tables, also known as fully weak or simply as weak hash
+tables, a pair disappears if either the key or the value is unreferenced
+outside of the table.
 @item key-weak hash tables
 In these hash tables, a pair disappears if the key is unreferenced outside
 of the table, regardless of how the value is referenced.
 @item value-weak hash tables
 In these hash tables, a pair disappears if the value is unreferenced outside
 of the table, regardless of how the key is referenced.
+@item key-or-value-weak hash tables
+In these hash tables, a pair disappears if both the key and the value
+are unreferenced outside of the table.
 @end table
 
 Also see @ref{Weak Lists}.

@@ -161,7 +161,7 @@ enum lrecord_type
   lrecord_type_symbol_value_lisp_magic,
   lrecord_type_symbol_value_buffer_local,
   lrecord_type_max_symbol_value_magic = lrecord_type_symbol_value_buffer_local,
-  
+
   lrecord_type_symbol,
   lrecord_type_subr,
   lrecord_type_cons,
@@ -216,8 +216,11 @@ enum lrecord_type
   lrecord_type_pgconn,
   lrecord_type_pgresult,
   lrecord_type_devmode,
-  lrecord_type_count /* must be last */
+  lrecord_type_mswindows_dialog_id,
+  lrecord_type_last_built_in_type /* must be last */
 };
+
+extern unsigned int lrecord_type_count;
 
 struct lrecord_implementation
 {
@@ -288,7 +291,12 @@ struct lrecord_implementation
   unsigned int basic_p :1;
 };
 
-extern const struct lrecord_implementation *lrecord_implementations_table[];
+/* All the built-in lisp object types are enumerated in `enum record_type'.
+   Additional ones may be defined by a module (none yet).  We leave some
+   room in `lrecord_implementations_table' for such new lisp object types. */
+#define MODULE_DEFINABLE_TYPE_COUNT 32
+
+extern const struct lrecord_implementation *lrecord_implementations_table[(unsigned int)lrecord_type_last_built_in_type + MODULE_DEFINABLE_TYPE_COUNT];
 
 #define XRECORD_LHEADER_IMPLEMENTATION(obj) \
    LHEADER_IMPLEMENTATION (XRECORD_LHEADER (obj))
@@ -322,7 +330,7 @@ extern int gc_in_progress;
    A lrecord external description  is an array  of values.  The  first
    value of each line is a type, the second  the offset in the lrecord
    structure.  Following values  are parameters, their  presence, type
-   and number is type-dependant.
+   and number is type-dependent.
 
    The description ends with a "XD_END" or "XD_SPECIFIER_END" record.
 
@@ -488,6 +496,27 @@ const struct lrecord_implementation lrecord_##c_name =			\
     getprop, putprop, remprop, plist, size, sizer,			\
     lrecord_type_##c_name, basic_p }
 
+#define DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,structtype) \
+DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,structtype)
+
+#define DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,structtype) \
+MAKE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,sizeof (structtype),0,0,structtype)
+
+#define DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,sizer,structtype) \
+DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,sizer,structtype)
+
+#define DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,sizer,structtype) \
+MAKE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,0,sizer,0,structtype)
+
+#define MAKE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,size,sizer,basic_p,structtype) \
+DECLARE_ERROR_CHECK_TYPECHECK(c_name, structtype)			\
+unsigned int lrecord_type_##c_name = lrecord_type_count++;              \
+const struct lrecord_implementation lrecord_##c_name =			\
+  { name, marker, printer, nuker, equal, hash, desc,			\
+    getprop, putprop, remprop, plist, size, sizer,			\
+    (enum lrecord_type)lrecord_type_##c_name, basic_p }
+
+
 extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
 
 #define INIT_LRECORD_IMPLEMENTATION(type) do {				\
@@ -500,16 +529,139 @@ extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
 #define XRECORD_LHEADER(a) ((struct lrecord_header *) XPNTR (a))
 
 #define RECORD_TYPEP(x, ty) \
-  (LRECORDP (x) && XRECORD_LHEADER (x)->type == (ty))
+  (LRECORDP (x) && (((unsigned int)(XRECORD_LHEADER (x)->type)) == ((unsigned int)(ty))))
 
-/* NOTE: the DECLARE_LRECORD() must come before the associated
-   DEFINE_LRECORD_*() or you will get compile errors.
+/* Steps to create a new object:
 
-   Furthermore, you always need to put the DECLARE_LRECORD() in a header
-   file, and make sure the header file is included in inline.c, even
-   if the type is private to a particular file.  Otherwise, you will
-   get undefined references for the error_check_foo() inline function
-   under GCC. */
+   1. Declare the struct for your object in a header file somewhere.
+   Remember that it must begin with
+
+   struct lcrecord_header header;
+
+   2. Put a DECLARE_LRECORD() for the object below the struct definition,
+   along with the standard XFOO/XSETFOO junk.
+
+   3. Add this header file to inline.c.
+
+   4. Create the methods for your object.  Note that technically you don't
+   need any, but you will almost always want at least a mark method.
+
+   5. Define your object with DEFINE_LRECORD_IMPLEMENTATION() or some
+   variant.
+
+   6. Include the header file in the .c file where you defined the object.
+
+   7. Put a call to INIT_LRECORD_IMPLEMENTATION() for the object in the
+   .c file's syms_of_foo() function.
+
+   8. Add a type enum for the object to enum lrecord_type, earlier in this
+   file.
+
+An example:
+
+------------------------------ in toolbar.h -----------------------------
+
+struct toolbar_button
+{
+  struct lcrecord_header header;
+
+  Lisp_Object next;
+  Lisp_Object frame;
+
+  Lisp_Object up_glyph;
+  Lisp_Object down_glyph;
+  Lisp_Object disabled_glyph;
+
+  Lisp_Object cap_up_glyph;
+  Lisp_Object cap_down_glyph;
+  Lisp_Object cap_disabled_glyph;
+
+  Lisp_Object callback;
+  Lisp_Object enabled_p;
+  Lisp_Object help_string;
+
+  char enabled;
+  char down;
+  char pushright;
+  char blank;
+
+  int x, y;
+  int width, height;
+  int dirty;
+  int vertical;
+  int border_width;
+};
+
+DECLARE_LRECORD (toolbar_button, struct toolbar_button);
+#define XTOOLBAR_BUTTON(x) XRECORD (x, toolbar_button, struct toolbar_button)
+#define XSETTOOLBAR_BUTTON(x, p) XSETRECORD (x, p, toolbar_button)
+#define TOOLBAR_BUTTONP(x) RECORDP (x, toolbar_button)
+#define CHECK_TOOLBAR_BUTTON(x) CHECK_RECORD (x, toolbar_button)
+#define CONCHECK_TOOLBAR_BUTTON(x) CONCHECK_RECORD (x, toolbar_button)
+
+------------------------------ in toolbar.c -----------------------------
+
+#include "toolbar.h"
+
+...
+
+static Lisp_Object
+mark_toolbar_button (Lisp_Object obj)
+{
+  struct toolbar_button *data = XTOOLBAR_BUTTON (obj);
+  mark_object (data->next);
+  mark_object (data->frame);
+  mark_object (data->up_glyph);
+  mark_object (data->down_glyph);
+  mark_object (data->disabled_glyph);
+  mark_object (data->cap_up_glyph);
+  mark_object (data->cap_down_glyph);
+  mark_object (data->cap_disabled_glyph);
+  mark_object (data->callback);
+  mark_object (data->enabled_p);
+  return data->help_string;
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("toolbar-button", toolbar_button,
+			       mark_toolbar_button, 0, 0, 0, 0, 0,
+			       struct toolbar_button);
+
+...
+
+void
+syms_of_toolbar (void)
+{
+  INIT_LRECORD_IMPLEMENTATION (toolbar_button);
+
+  ...;
+}
+
+------------------------------ in inline.c -----------------------------
+
+#ifdef HAVE_TOOLBARS
+#include "toolbar.h"
+#endif
+
+------------------------------ in lrecord.h -----------------------------
+
+enum lrecord_type
+{
+  ...
+  lrecord_type_toolbar_button,
+  ...
+};
+
+*/
+
+/*
+
+Note: Object types defined in external dynamically-loaded modules (not
+part of the XEmacs main source code) should use DECLARE_EXTERNAL_LRECORD
+and DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION rather than DECLARE_LRECORD
+and DEFINE_LRECORD_IMPLEMENTATION.
+
+*/
+
 
 #ifdef ERROR_CHECK_TYPECHECK
 
@@ -524,6 +676,10 @@ error_check_##c_name (Lisp_Object obj)				\
   return (structtype *) XPNTR (obj);				\
 }								\
 extern Lisp_Object Q##c_name##p
+
+# define DECLARE_EXTERNAL_LRECORD(c_name, structtype)	       	\
+extern unsigned int lrecord_type_##c_name;                      \
+DECLARE_LRECORD(c_name, structtype)
 
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
 INLINE_HEADER structtype *					\
@@ -541,7 +697,7 @@ extern Lisp_Object Q##c_name##p
 
 # define XSETRECORD(var, p, c_name) do				\
 {								\
-  XSETOBJ (var, Lisp_Type_Record, p);				\
+  XSETOBJ (var, p);						\
   assert (RECORD_TYPEP (var, lrecord_type_##c_name));		\
 } while (0)
 
@@ -550,12 +706,16 @@ extern Lisp_Object Q##c_name##p
 # define DECLARE_LRECORD(c_name, structtype)			\
 extern Lisp_Object Q##c_name##p;				\
 extern const struct lrecord_implementation lrecord_##c_name
+# define DECLARE_EXTERNAL_LRECORD(c_name, structtype)		\
+extern Lisp_Object Q##c_name##p;				\
+extern unsigned int lrecord_type_##c_name;			\
+extern const struct lrecord_implementation lrecord_##c_name
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
 extern Lisp_Object Q##c_name##p
 # define XRECORD(x, c_name, structtype) ((structtype *) XPNTR (x))
 # define XNONRECORD(x, c_name, type_enum, structtype)		\
   ((structtype *) XPNTR (x))
-# define XSETRECORD(var, p, c_name) XSETOBJ (var, Lisp_Type_Record, p)
+# define XSETRECORD(var, p, c_name) XSETOBJ (var, p)
 
 #endif /* not ERROR_CHECK_TYPECHECK */
 

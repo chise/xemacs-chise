@@ -192,7 +192,7 @@ encoded by doing the same but also prefixing the character with the
 byte 0x8F.
 
   The advantage of a modal encoding is that it is generally more
-space-efficient, and is easily extendable because there are essentially
+space-efficient, and is easily extendible because there are essentially
 an arbitrary number of escape sequences that can be created.  The
 disadvantage, however, is that it is much more difficult to work with
 if it is not being processed in a sequential manner.  In the non-modal

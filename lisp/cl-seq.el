@@ -355,7 +355,7 @@ Also see: `remove*', `delete', `delete*'"
   (remove* cl-item cl-seq ':test 'equal))
 
 (defun remq (cl-elt cl-list)
-  "Remove all occurances of ELT in LIST, comparing with `eq'.
+  "Remove all occurrences of ELT in LIST, comparing with `eq'.
 This is a non-destructive function; it makes a copy of LIST to avoid
 corrupting the original LIST.
 Also see: `delq', `delete', `delete*', `remove', `remove*'."

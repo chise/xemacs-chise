@@ -7,7 +7,6 @@ gcc -shared -fPIC -Demacs -DHAVE_CONFIG_H -I. \
 
 # include <config.h>
 # include "lisp.h"
-# include "emacsfns.h"
 
 Lisp_Object Qdltest_counter;
 

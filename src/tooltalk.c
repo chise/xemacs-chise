@@ -33,6 +33,7 @@ Boston, MA 02111-1307, USA.  */
 #include "elhash.h"
 #include "process.h"
 #include "tooltalk.h"
+#include "syssignal.h"
 
 Lisp_Object Vtooltalk_fd;
 
@@ -773,7 +774,7 @@ New arguments can be added to a message with add-tooltalk-message-arg.
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_message_arg_val_set (m, n, value_ext);
     }
   else if (EQ (attribute, Qtt_status))
@@ -798,7 +799,7 @@ New arguments can be added to a message with add-tooltalk-message-arg.
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       (*fun_str) (m, value_ext);
     }
 
@@ -914,13 +915,13 @@ embedded nulls (use 'arg_bval).
   {
     const char *vtype_ext;
 
-    TO_EXTERNAL_FORMAT (LISP_STRING, vtype, C_STRING_ALLOCA, vtype_ext, Qnative);
+    LISP_STRING_TO_EXTERNAL (vtype, vtype_ext, Qnative);
     if (NILP (value))
       tt_message_arg_add (m, n, vtype_ext, NULL);
     else if (STRINGP (value))
       {
 	const char *value_ext;
-	TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+	LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
 	tt_message_arg_add (m, n, vtype_ext, value_ext);
       }
     else if (INTP (value))
@@ -1025,28 +1026,28 @@ less the "tooltalk_pattern_" prefix and the "_add" ...
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_file_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_object))
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_object_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_op))
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_op_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_otype))
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_otype_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_scope))
@@ -1058,21 +1059,21 @@ less the "tooltalk_pattern_" prefix and the "_add" ...
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_sender_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_sender_ptype))
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_sender_ptype_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_session))
     {
       const char *value_ext;
       CHECK_STRING (value);
-      TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+      LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
       tt_pattern_session_add (p, value_ext);
     }
   else if (EQ (attribute, Qtt_state))
@@ -1113,13 +1114,13 @@ is added.  At present there's no way to add a binary data argument.
   {
     const char *vtype_ext;
 
-    TO_EXTERNAL_FORMAT (LISP_STRING, vtype, C_STRING_ALLOCA, vtype_ext, Qnative);
+    LISP_STRING_TO_EXTERNAL (vtype, vtype_ext, Qnative);
     if (NILP (value))
       tt_pattern_arg_add (p, n, vtype_ext, NULL);
     else if (STRINGP (value))
       {
 	const char *value_ext;
-	TO_EXTERNAL_FORMAT (LISP_STRING, value, C_STRING_ALLOCA, value_ext, Qnative);
+	LISP_STRING_TO_EXTERNAL (value, value_ext, Qnative);
 	tt_pattern_arg_add (p, n, vtype_ext, value_ext);
       }
     else if (INTP (value))
@@ -1368,7 +1369,7 @@ syms_of_tooltalk (void)
   defsymbol (&Qtt_reply, "reply");
   defsymbol (&Qtt_fail, "fail");
 
-  deferror (&Qtooltalk_error, "tooltalk-error", "ToolTalk error", Qio_error);
+  DEFERROR (Qtooltalk_error, "ToolTalk error", Qio_error);
 }
 
 void

@@ -467,7 +467,7 @@ exactly once) if FUNCTION modifies or deletes the current entry
       EMACS_INT first, last;
       Lisp_Object args[4];
       int oldlen;
-      
+
     again:
       first = entry->first;
       last = entry->last;

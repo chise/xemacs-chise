@@ -30,6 +30,104 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Other Window,  Next: Pop Up Window,  Prev: Split Window,  Up: Windows
+
+Using Other Windows
+===================
+
+`C-x o'
+     Select another window (`other-window').  That is the letter `o',
+     not zero.
+
+`M-C-v'
+     Scroll the next window (`scroll-other-window').
+
+`M-x compare-windows'
+     Find the next place where the text in the selected window does not
+     match the text in the next window.
+
+`M-x other-window-any-frame N'
+     Select the Nth different window on any frame.
+
+   To select a different window, use `C-x o' (`other-window').  That is
+an `o', for `other', not a zero.  When there are more than two windows,
+the command moves through all the windows in a cyclic order, generally
+top to bottom and left to right.  From the rightmost and bottommost
+window, it goes back to the one at the upper left corner.  A numeric
+argument, N, moves several steps in the cyclic order of windows. A
+negative numeric argument moves around the cycle in the opposite order.
+If the optional second argument ALL-FRAMES is non-`nil', the function
+cycles through all frames.  When the minibuffer is active, the
+minibuffer is the last window in the cycle; you can switch from the
+minibuffer window to one of the other windows, and later switch back
+and finish supplying the minibuffer argument that is requested.  *Note
+Minibuffer Edit::.
+
+   The command `M-x other-window-any-frame' also selects the window N
+steps away in the cyclic order.  However, unlike `other-window', this
+command selects a window on the next or previous frame instead of
+wrapping around to the top or bottom of the current frame, when there
+are no more windows.
+
+   The usual scrolling commands (*note Display::) apply to the selected
+window only.  `M-C-v' (`scroll-other-window') scrolls the window that
+`C-x o' would select.  Like `C-v', it takes positive and negative
+arguments.
+
+   The command `M-x compare-windows' compares the text in the current
+window with the text in the next window.  Comparison starts at point in
+each window.  Point moves forward in each window, a character at a time,
+until the next set of characters in the two windows are different.
+Then the command is finished.
+
+   A prefix argument IGNORE-WHITESPACE means ignore changes in
+whitespace.  The variable `compare-windows-whitespace' controls how
+whitespace is skipped.
+
+   If `compare-ignore-case' is non-`nil', changes in case are also
+ignored.
+
+
+File: xemacs.info,  Node: Pop Up Window,  Next: Change Window,  Prev: Other Window,  Up: Windows
+
+Displaying in Another Window
+============================
+
+   `C-x 4' is a prefix key for commands that select another window
+(splitting the window if there is only one) and select a buffer in that
+window.  Different `C-x 4' commands have different ways of finding the
+buffer to select.
+
+`C-x 4 b BUFNAME <RET>'
+     Select buffer BUFNAME in another window.  This runs
+     `switch-to-buffer-other-window'.
+
+`C-x 4 f FILENAME <RET>'
+     Visit file FILENAME and select its buffer in another window.  This
+     runs `find-file-other-window'.  *Note Visiting::.
+
+`C-x 4 d DIRECTORY <RET>'
+     Select a Dired buffer for directory DIRECTORY in another window.
+     This runs `dired-other-window'.  *Note Dired::.
+
+`C-x 4 m'
+     Start composing a mail message in another window.  This runs
+     `mail-other-window', and its same-window version is `C-x m' (*note
+     Sending Mail::).
+
+`C-x 4 .'
+     Find a tag in the current tag table in another window.  This runs
+     `find-tag-other-window', the multiple-window variant of `M-.'
+     (*note Tags::).
+
+   If the variable `display-buffer-function' is non-`nil', its value is
+the function to call to handle `display-buffer'. It receives two
+arguments, the buffer and a flag that if non-`nil' means that the
+currently selected window is not acceptable. Commands such as
+`switch-to-buffer-other-window' and `find-file-other-window' work using
+this function.
+
+
 File: xemacs.info,  Node: Change Window,  Prev: Pop Up Window,  Up: Windows
 
 Deleting and Rearranging Windows
@@ -113,7 +211,7 @@ world scripts, including Latin script, as well as Arabic script,
 Simplified Chinese script (for mainland of China), Traditional Chinese
 script (for Taiwan and Hong-Kong), Greek script, Hebrew script, IPA
 symbols, Japanese scripts (Hiragana, Katakana and Kanji), Korean scripts
-(Hangul and Hanja) and Cyrillic script (for Beylorussian, Bulgarian,
+(Hangul and Hanja) and Cyrillic script (for Byelorussian, Bulgarian,
 Russian, Serbian and Ukrainian).  These features have been merged from
 the modified version of Emacs known as MULE (for "MULti-lingual
 Enhancement to GNU Emacs").
@@ -1049,82 +1147,4 @@ industry standard 2400 foot half-inch reel.  The physical format for
 the 1/4 inch streamer cartridges uses QIC-11, 8000 bpi, 4-track
 serpentine recording for the SUN.  Also, SystemV tapes can be written
 in cpio format, blocked 5120 bytes, ASCII headers.
-
-
-File: xemacs.info,  Node: TeX Editing,  Next: TeX Print,  Prev: TeX Mode,  Up: TeX Mode
-
-TeX Editing Commands
-....................
-
-   Here are the special commands provided in TeX mode for editing the
-text of the file.
-
-`"'
-     Insert, according to context, either ```' or `"' or `'''
-     (`TeX-insert-quote').
-
-`<LFD>'
-     Insert a paragraph break (two newlines) and check the previous
-     paragraph for unbalanced braces or dollar signs (`tex-terminate-
-     paragraph').
-
-`M-x validate-tex-buffer'
-     Check each paragraph in the buffer for unbalanced braces or dollar
-     signs.
-
-`C-c {'
-     Insert `{}' and position point between them (`tex-insert-braces').
-
-`C-c }'
-     Move forward past the next unmatched close brace (`up-list').
-
-`C-c C-e'
-     Close a block for LaTeX (`tex-close-latex-block').
-
-   In TeX, the character `"' is not normally used; you use ```' to
-start a quotation and `''' to end one.  TeX mode defines the key `"' to
-insert ```' after whitespace or an open brace, `"' after a backslash,
-or `''' otherwise.  This is done by the command `tex-insert-quote'.  If
-you need the character `"' itself in unusual contexts, use `C-q' to
-insert it.  Also, `"' with a numeric argument always inserts that
-number of `"' characters.
-
-   In TeX mode, `$' has a special syntax code which attempts to
-understand the way TeX math mode delimiters match.  When you insert a
-`$' that is meant to exit math mode, the position of the matching `$'
-that entered math mode is displayed for a second.  This is the same
-feature that displays the open brace that matches a close brace that is
-inserted.  However, there is no way to tell whether a `$' enters math
-mode or leaves it; so when you insert a `$' that enters math mode, the
-previous `$' position is shown as if it were a match, even though they
-are actually unrelated.
-
-   If you prefer to keep braces balanced at all times, you can use `C-c
-{' (`tex-insert-braces') to insert a pair of braces.  It leaves point
-between the two braces so you can insert the text that belongs inside.
-Afterward, use the command `C-c }' (`up-list') to move forward past the
-close brace.
-
-   There are two commands for checking the matching of braces.  <LFD>
-(`tex-terminate-paragraph') checks the paragraph before point, and
-inserts two newlines to start a new paragraph.  It prints a message in
-the echo area if any mismatch is found.  `M-x validate-tex-buffer'
-checks the entire buffer, paragraph by paragraph.  When it finds a
-paragraph that contains a mismatch, it displays point at the beginning
-of the paragraph for a few seconds and pushes a mark at that spot.
-Scanning continues until the whole buffer has been checked or until you
-type another key.  The positions of the last several paragraphs with
-mismatches can be found in the mark ring (*note Mark Ring::).
-
-   Note that square brackets and parentheses, not just braces, are
-matched in TeX mode.  This is wrong if you want to  check TeX syntax.
-However, parentheses and square brackets are likely to be used in text
-as matching delimiters and it is useful for the various motion commands
-and automatic match display to work with them.
-
-   In LaTeX input, `\begin' and `\end' commands must balance.  After
-you insert a `\begin', use `C-c C-f' (`tex-close-latex-block') to
-insert automatically a matching `\end' (on a new line following the
-`\begin').  A blank line is inserted between the two, and point is left
-there.
 

@@ -23,6 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file Mule-ized (more like Mule-verified) by Ben Wing, 7-8-00. */
+
 #include <config.h>
 #include "lisp.h"
 
@@ -408,7 +410,7 @@ x_update_vertical_scrollbar_callback (Widget widget, LWLIB_ID id,
   mirror = find_scrollbar_window_mirror (f, id);
   if (!mirror)
     return;
-  
+
   win = real_window (mirror, 1);
 
   if (NILP (win))
@@ -614,7 +616,7 @@ x_update_horizontal_scrollbar_callback (Widget widget, LWLIB_ID id,
   mirror = find_scrollbar_window_mirror (f, id);
   if (!mirror)
     return;
-  
+
   win = real_window (mirror, 1);
 
   if (NILP (win))

@@ -329,8 +329,35 @@ Concept Index
 
 * Menu:
 
+* $ in regexp:                           Regexps.
+* ( in regexp:                           Regexps.
+* ) in regexp:                           Regexps.
+* * in regexp:                           Regexps.
+* *? in regexp:                          Regexps.
+* + in regexp:                           Regexps.
+* +? in regexp:                          Regexps.
+* . in regexp:                           Regexps.
 * .mailrc file:                          Mail Headers.
 * // in file name:                       Minibuffer File.
+* ? in regexp:                           Regexps.
+* ?? in regexp:                          Regexps.
+* [ in regexp:                           Regexps.
+* \ in regexp:                           Regexps.
+* \' in regexp:                          Regexps.
+* \(?: in regexp:                        Regexps.
+* \< in regexp:                          Regexps.
+* \= in regexp:                          Regexps.
+* \> in regexp:                          Regexps.
+* \` in regexp:                          Regexps.
+* \B in regexp:                          Regexps.
+* \b in regexp:                          Regexps.
+* \S in regexp:                          Regexps.
+* \s in regexp:                          Regexps.
+* \W in regexp:                          Regexps.
+* \w in regexp:                          Regexps.
+* \{n,m\} in regexp:                     Regexps.
+* ] in regexp:                           Regexps.
+* ^ in regexp:                           Regexps.
 * Abbrev mode:                           Minor Modes.
 * abbrevs:                               Abbrevs.
 * aborting:                              Quitting.
@@ -358,6 +385,7 @@ Concept Index
 * autoload:                              Loading.
 * backup file:                           Backup.
 * batch mode:                            Command Switches.
+* beginning of line in regexp:           Regexps.
 * bell, changing:                        Audible Bell.
 * binary packages:                       Package Terminology.
 * binding:                               Commands.
@@ -391,6 +419,7 @@ Concept Index
 * changing buffers:                      Select Buffer.
 * changing menu items:                   Menu Customization.
 * character set:                         Intro to Keystrokes.
+* character set (in regexp):             Regexps.
 * checking in files:                     Concepts of VC.
 * checking out files:                    Concepts of VC.
 * Chinese:                               Mule.
@@ -700,6 +729,8 @@ Concept Index
 * recursive editing level:               Recursive Edit.
 * redefining keys:                       Key Bindings Using Strings.
 * regexp:                                Regexp Search.
+* regexp alternative:                    Regexps.
+* regexp grouping:                       Regexps.
 * region <1>:                            Case.
 * region:                                Mark.
 * registered file:                       Concepts of VC.
@@ -805,5 +836,6 @@ Concept Index
 * yahrzeits <1>:                         Sexp Diary Entries.
 * yahrzeits:                             From Other Calendar.
 * yanking:                               Yanking.
+* | in regexp:                           Regexps.
 
 

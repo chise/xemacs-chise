@@ -109,7 +109,7 @@ esac
 #
 # The largish sed script prefixes all version numbers with a sort key.
 # That key is constructed by padding out any single or double digits to 3
-# digits from the version number, then converting all occurences of `.' to
+# digits from the version number, then converting all occurrences of `.' to
 # `0', and prefixing and suffixing the entire result with an additional
 # zero.  After sorting, the sort key is stripped from the output.
 # We do all this because `sort' cannot numerically sort decimal numbers and

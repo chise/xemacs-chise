@@ -2806,7 +2806,7 @@
 	(mswindows_tab_control_instantiate): ditto.
 	(mswindows_tab_control_set_property): ditto.
 	(image_instantiator_format_create_glyphs_mswindows): predicate
- 	existance of widgets on HAVE_WIDGETS.
+ 	existence of widgets on HAVE_WIDGETS.
 
 	* frame.h (struct frame): add subwindow_exposures variables.
 
@@ -3973,7 +3973,7 @@
 	* systime.h: ditto.
 	* systty.h: ditto.
 
-	* config.h.in: dont turn on DEBUG_ENCAPSULATION by default because
+	* config.h.in: don't turn on DEBUG_ENCAPSULATION by default because
  	some systems don't have all of the encapsulated system calls.
 
 	* callproc.c: warning elimination.
@@ -5551,7 +5551,7 @@
  	subwindows on a msw frame.
 	(mswindows_map_subwindow): ditto.
 	(mswindows_register_image_instance): register instantiated widgets
- 	with the widget hastable.
+ 	with the widget hashtable.
 	(mswindows_button_instantiate): instantiate a button type widget
  	on an msw frame.
 	(mswindows_subwindow_instantiate): instanttiate a subwindow on a
@@ -7121,7 +7121,7 @@
 
 	* fileio.c: (expand_file_name): under win32: Don't treat names
 	as UNC names if a drive letter has been specified.  If a drive
-	has been specified, strip out extra directory-seperators that
+	has been specified, strip out extra directory-separators that
 	reportedly cause problems under Win95.
 
 1998-07-09  Jonathan Harris  <jhar@tardis.ed.ac.uk>
@@ -7171,7 +7171,7 @@
 
 	* fileio.c: (expand_file_name): under win32: Don't treat names as
 	UNC names if a drive letter has been specified.  If a drive has
-	been specified, strip out extra directory-seperators that
+	been specified, strip out extra directory-separators that
 	reportedly cause problems under Win95.
 
 1998-07-05  Andy Piper  <andyp@parallax.co.uk>
@@ -7194,7 +7194,7 @@
 
 1998-06-24  Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
-	* fileio.c: Don't do directory seperator canonicalisation in
+	* fileio.c: Don't do directory separator canonicalisation in
 	  substitute-in-file-name because we don't know that the
 	  filename refers to a local file.
 
@@ -7278,7 +7278,7 @@
 	* objects-msw.c: Added helper function match_font used by
 	  mswindows_initialize_font_instance and mswindows_list_fonts.
 	  Allow a charset to be specified in a font string, even if
-	  previous fields havn't been specified.
+	  previous fields haven't been specified.
 
 1998-06-23  Greg Klanderman  <greg@alphatech.com>
 
@@ -7335,7 +7335,7 @@
 	* objects-msw.c: Added helper function match_font used by
 	  mswindows_initialize_font_instance and mswindows_list_fonts.
 	  Allow a charset to be specified in a font string, even if
-	  previous fields havn't been specified.
+	  previous fields haven't been specified.
 
 1998-06-15  Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
@@ -7379,7 +7379,7 @@
 	parameters. define macors to access it.
 
 	* frame-msw.c (mswindows_init_frame_1): use new target_rect
-	parameter to intialise desired sizing. (mswindows_init_frame_2):
+	parameter to initialize desired sizing. (mswindows_init_frame_2):
 	enable and size the frame to something sensible when we get
 	here. (mswindows_set_frame_properites): use new
 	mswindows_size_frame_internal function and size frame if frame
@@ -8081,7 +8081,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	(set_frame_toolbar): Removed allocation of toolbar_data lrecord.
 	(update_frame_toolbars): Do not check for changed buffer
 	here. Toolbar information is provided by cached specs in
-	windows. The check for buffer is eliminated becuase toolbars are
+	windows. The check for buffer is eliminated because toolbars are
 	marked changed in set_frame_selected_window() in frame.c
 	Added check for changed toolbars geometry.
 	(compute_frame_toolbars_data): Removed unused second parameter;

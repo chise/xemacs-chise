@@ -47,14 +47,14 @@ mswindows_create_scrollbar_instance (struct frame *f, int vertical,
 				     struct scrollbar_instance *sb)
 {
   int orientation;
-  
+
   sb->scrollbar_data = xnew_and_zero (struct mswindows_scrollbar_data);
-  
+
   if (vertical)
     orientation = SBS_VERT;
   else
     orientation = SBS_HORZ;
-  
+
   SCROLLBAR_MSW_HANDLE (sb) =
     CreateWindowEx(0, "SCROLLBAR", 0, orientation|WS_CHILD,
 		 CW_USEDEFAULT, CW_USEDEFAULT,
@@ -83,7 +83,7 @@ static void
 mswindows_free_scrollbar_instance (struct scrollbar_instance *sb)
 {
   DestroyWindow (SCROLLBAR_MSW_HANDLE (sb));
-  if (sb->scrollbar_data) 
+  if (sb->scrollbar_data)
     xfree (sb->scrollbar_data);
 }
 
@@ -146,7 +146,7 @@ mswindows_update_scrollbar_instance_values (struct window *w,
   UPDATE_POS_FIELD (scrollbar_width);
   UPDATE_POS_FIELD (scrollbar_height);
 
-  if (pos_changed) 
+  if (pos_changed)
     {
       MoveWindow(SCROLLBAR_MSW_HANDLE (sb),
 		 new_scrollbar_x, new_scrollbar_y,
@@ -186,7 +186,7 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
   f = XFRAME (frame);
 
   /* SB_LINEDOWN == SB_CHARLEFT etc. This is the way they will
-     always be - any Windows is binary compatible backward with 
+     always be - any Windows is binary compatible backward with
      old programs */
 
   switch (code)
@@ -195,12 +195,12 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
       mswindows_enqueue_misc_user_event
 	(frame, vert ? Qscrollbar_line_down : Qscrollbar_char_right, win);
       break;
-	  
+
     case SB_LINEUP:
       mswindows_enqueue_misc_user_event
 	(frame, vert ? Qscrollbar_line_up : Qscrollbar_char_left, win);
       break;
-	  
+
     case SB_PAGEDOWN:
       mswindows_enqueue_misc_user_event
 	(win, vert ? Qscrollbar_page_down : Qscrollbar_page_right,
@@ -213,7 +213,7 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 	 vert ? Qscrollbar_page_up : Qscrollbar_page_left,
 	 vert ? Fcons (win, Qnil) : win);
       break;
-	  
+
     case SB_BOTTOM:
       mswindows_enqueue_misc_user_event
 	(frame, vert ? Qscrollbar_to_bottom : Qscrollbar_to_right, win);
@@ -276,7 +276,7 @@ can_scroll(struct scrollbar_instance* scrollbar)
 int
 mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta)
 {
-  int hasVertBar, hasHorzBar;	/* Indicates prescence of scroll bars */
+  int hasVertBar, hasHorzBar;	/* Indicates presence of scroll bars */
   unsigned wheelScrollLines = 0; /* Number of lines per wheel notch */
 
   /* Find the currently selected window */

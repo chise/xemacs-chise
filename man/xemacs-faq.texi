@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/07/08 09:14:11 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/09/19 07:50:41 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -32,23 +32,17 @@
 
 This is the guide to the XEmacs Frequently Asked Questions list---a
 compendium of questions and answers pertaining to one of the finest
-programs ever written.  It is much more than just a Text Editor.
+programs ever written.  XEmacs is much more than just a Text Editor.
 
-This FAQ is freely redistributable.  I take no liability for the
-correctness and safety of any procedures or advice given here.  This
-FAQ is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.
+This FAQ is freely redistributable.  This FAQ is distributed in the hope
+that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 If you have a Web browser, the official hypertext version is at
 @iftex
 @*
 @end iftex
-@uref{http://www.xemacs.org/faq/xemacs-faq.html}.
-
-This version is somewhat nicer than the unofficial hypertext versions
-that are archived at Utrecht, Oxford, Smart Pages, and other FAQ
-archives.
+@uref{http://www.xemacs.org/faq/xemacs-faq.html}
 
 @ifset CANONICAL
 @html
@@ -104,7 +98,7 @@ Introduction, Policy, Credits
 * Q1.0.4::      Why Another Version of Emacs?
 * Q1.0.5::      Why Haven't XEmacs and GNU Emacs Merged?
 * Q1.0.6::      Where can I get help?
-* Q1.0.7::      Where is the mailing list archived?
+* Q1.0.7::      Where are the mailing lists archived?
 * Q1.0.8::      How do you pronounce XEmacs?
 * Q1.0.9::      What does XEmacs look like?
 * Q1.0.10::     Is there a port of XEmacs to Microsoft ('95 or NT)?
@@ -124,12 +118,12 @@ Credits:
 * Q1.2.3::      Who contributed to the FAQ in the past?
 
 Internationalization:
-* Q1.3.1::      What is the status of XEmacs v20?
-* Q1.3.2::      What is the status of Asian-language support, aka @var{mule}?
+* Q1.3.1::      What is the status of internationalization support aka MULE (including Asian language support?
+* Q1.3.2::      How can I help with internationalization?
 * Q1.3.3::      How do I type non-ASCII characters?
 * Q1.3.4::      Can XEmacs messages come out in a different language?
-* Q1.3.5::      Please explain the various input methods in MULE/XEmacs 20.0
-* Q1.3.6::      How do I portably code for MULE/XEmacs 20.0?
+* Q1.3.5::      Please explain the various input methods in MULE/XEmacs
+* Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
@@ -351,7 +345,7 @@ Emacs Lisp Programming Techniques:
 * Q5.1.4::      What is the performance hit of @code{let}?
 * Q5.1.5::      What is the recommended use of @code{setq}?
 * Q5.1.6::      What is the typical misuse of @code{setq} ?
-* Q5.1.7::      I like the the @code{do} form of cl, does it slow things down?
+* Q5.1.7::      I like the @code{do} form of cl, does it slow things down?
 * Q5.1.8::      I like recursion, does it slow things down?
 * Q5.1.9::      How do I put a glyph as annotation in a buffer?
 * Q5.1.10::     @code{map-extents} won't traverse all of my extents!
@@ -452,7 +446,7 @@ Introduction:
 * Q1.0.4::      Why Another Version of Emacs?
 * Q1.0.5::      Why Haven't XEmacs and GNU Emacs Merged?
 * Q1.0.6::      Where can I get help?
-* Q1.0.7::      Where is the mailing list archived?
+* Q1.0.7::      Where are the mailing lists archived?
 * Q1.0.8::      How do you pronounce XEmacs?
 * Q1.0.9::      What does XEmacs look like?
 * Q1.0.10::     Is there a port of XEmacs to Microsoft ('95 or NT)?
@@ -472,12 +466,12 @@ Credits:
 * Q1.2.3::      Who contributed to the FAQ in the past?
 
 Internationalization:
-* Q1.3.1::      What is the status of XEmacs v20?
-* Q1.3.2::      What is the status of Asian-language support, aka @var{mule}?
+* Q1.3.1::      What is the status of internationalization support aka MULE (including Asian language support?
+* Q1.3.2::      How can I help with internationalization?
 * Q1.3.3::      How do I type non-ASCII characters?
 * Q1.3.4::      Can XEmacs messages come out in a different language?
-* Q1.3.5::      Please explain the various input methods in MULE/XEmacs 20.0
-* Q1.3.6::      How do I portably code for MULE/XEmacs 20.0?
+* Q1.3.5::      Please explain the various input methods in MULE/XEmacs
+* Q1.3.6::      How do I portably code for MULE/XEmacs?
 * Q1.3.7::      How about Cyrillic Modes?
 
 Getting Started:
@@ -503,10 +497,10 @@ track changes to GNU Emacs while also working to add new features.
 @node Q1.0.2, Q1.0.3, Q1.0.1, Introduction
 @unnumberedsubsec Q1.0.2: What is the current version of XEmacs?
 
-XEmacs 21.1.8 is the current stable version of XEmacs.
-
-XEmacs 20.4 is a minor upgrade from 20.3, containing many bugfixes. It
-was released in February 1998.
+XEmacs versions 21.1.* are releases made from the current stable
+sources.  XEmacs versions 21.2.* are releases made from the development
+sources.  Check at @uref{http://www.xemacs.org} for the current minor
+version.
 
 XEmacs 19.16 was the last release of v19, released in November, 1997,
 which was also the last version without international language support.
@@ -631,7 +625,7 @@ xemacs-request address.  Send a message with a subject of
 @samp{unsubscribe} to be removed.
 
 @node Q1.0.7, Q1.0.8, Q1.0.6, Introduction
-@unnumberedsubsec Q1.0.7: Where is the mailing list archived?
+@unnumberedsubsec Q1.0.7: Where are the mailing lists archived?
 
 The archives can be found at @uref{http://www.xemacs.org/Lists/Archive}
 
@@ -722,8 +716,7 @@ Pre-printed manuals are not available.  If you are familiar with
 TeX, you can generate your own manual from the XEmacs sources.
 
 HTML and Postscript versions of XEmacs manuals may be available from the
-XEmacs web site in the future.
-
+XEmacs web site in the future.  Send requests to @email{faq@@xemacs.org}.
 
 @node Q1.1.1, Q1.1.2, Q1.0.14, Introduction
 @unnumberedsec 1.1: Policies
@@ -738,12 +731,11 @@ maintainers}.
 Please make sure that @samp{XEmacs FAQ} appears on the Subject: line.
 If you think you have a better way of answering a question, or think a
 question should be included, we'd like to hear about it.  Questions and
-answers included into the FAQ will be edited for spelling and grammar,
+answers included into the FAQ will be edited for spelling and grammar
 and will be attributed.  Answers appearing without attribution are
-either from versions of the FAQ dated before May 1996, or are from one
-of the four people listed at the top of this document.  Answers quoted
-from Usenet news articles will always be attributed, regardless of the
-author.
+either from versions of the FAQ dated before May 1996 or are from
+previous FAQ maintainers.  Answers quoted from Usenet news articles will
+always be attributed, regardless of the author.
 
 @node Q1.1.2, Q1.1.3, Q1.1.1, Introduction
 @unnumberedsubsec Q1.1.2: How do I become a Beta Tester?
@@ -913,80 +905,16 @@ crash some time ago.
 
 @node Q1.3.1, Q1.3.2, Q1.2.3, Introduction
 @unnumberedsec 1.3: Internationalization
-@unnumberedsubsec Q1.3.1: What is the status of XEmacs v20?
+@unnumberedsubsec Q1.3.1: What is the status of internationalization support aka MULE (including Asian language support?
 
-XEmacs v20 is the version of XEmacs that includes MULE (Asian-language)
-support.  XEmacs 20.0 was released in February 1997, followed by XEmacs
-20.2 in May, XEmacs 20.3 in November and XEmacs 20.4 in February 1998.  When compiled without MULE
-support, 20.4 is approximately as stable as 19.16, and probably faster
-(due to additional optimization work.)
-
-As of XEmacs 20.3, version 20 is @emph{the} supported version of
-XEmacs.  This means that 19.16 will optionally receive stability fixes
-(if any), but that all the real development work will be done on the v20
-tree.
-
-The incompatible changes in XEmacs 20 include the additional byte-codes,
-new primitive data types (@code{character}, @code{char-table}, and
-@code{range-table}).  This means that the character-integer equivalence
-inherent to all the previous Emacs and XEmacs releases no longer
-applies.
-
-However, to avoid breaking old code, many functions that should normally
-accept characters work with integers, and vice versa.  For more
-information, see the Lisp reference manual.  Here is a relevant excerpt,
-for your convenience.
-
-@quotation
-  In XEmacs version 19, and in all versions of FSF GNU Emacs, a
-@dfn{character} in XEmacs Lisp is nothing more than an integer.
-This is yet another holdover from XEmacs Lisp's derivation from
-vintage-1980 Lisps; modern versions of Lisp consider this equivalence
-a bad idea, and have separate character types.  In XEmacs version 20,
-the modern convention is followed, and characters are their own
-primitive types. (This change was necessary in order for @sc{mule},
-i.e. Asian-language, support to be correctly implemented.)
-
-  Even in XEmacs version 20, remnants of the equivalence between
-characters and integers still exist; this is termed the @dfn{char-int
-confoundance disease}.  In particular, many functions such as @code{eq},
-@code{equal}, and @code{memq} have equivalent functions (@code{old-eq},
-@code{old-equal}, @code{old-memq}, etc.) that pretend like characters
-are integers are the same.  Byte code compiled under any version 19
-Emacs will have all such functions mapped to their @code{old-} equivalents
-when the byte code is read into XEmacs 20.  This is to preserve
-compatibility---Emacs 19 converts all constant characters to the equivalent
-integer during byte-compilation, and thus there is no other way to preserve
-byte-code compatibility even if the code has specifically been written
-with the distinction between characters and integers in mind.
-
-  Every character has an equivalent integer, called the @dfn{character
-code}.  For example, the character @kbd{A} is represented as the
-@w{integer 65}, following the standard @sc{ascii} representation of
-characters.  If XEmacs was not compiled with @sc{mule} support, the
-range of this integer will always be 0 to 255---eight bits, or one
-byte. (Integers outside this range are accepted but silently truncated;
-however, you should most decidedly @emph{not} rely on this, because it
-will not work under XEmacs with @sc{mule} support.)  When @sc{mule}
-support is present, the range of character codes is much
-larger. (Currently, 19 bits are used.)
-
-  FSF GNU Emacs uses kludgy character codes above 255 to represent
-keyboard input of @sc{ascii} characters in combination with certain
-modifiers.  XEmacs does not use this (a more general mechanism is
-used that does not distinguish between @sc{ascii} keys and other
-keys), so you will never find character codes above 255 in a
-non-@sc{mule} XEmacs.
-
-  Individual characters are not often used in programs.  It is far more
-common to work with @emph{strings}, which are sequences composed of
-characters.
-@end quotation
+Both the stable and development versions of XEmacs include
+internationalization support (aka MULE).  MULE currently works on UNIX
+and Linux systems; work for supporting MULE on Windows operating systems
+is in progress.  Binaries compiled without MULE support run faster than
+MULE capable XEmacsen.
 
 @node Q1.3.2, Q1.3.3, Q1.3.1, Introduction
-@unnumberedsubsec Q1.3.2: What is the status of Asian-language support, aka MULE?
-
-MULE support is now available for UNIX versions of XEmacs.
+@unnumberedsubsec Q1.3.2: How can I help with internationalization?
 
 If you would like to help, you may want to join the
 @email{xemacs-mule@@xemacs.org} mailing list.  Especially needed are
@@ -1005,7 +933,7 @@ See question 3.5.7 (@pxref{Q3.5.7}) in part 3 of this FAQ.
 
 The message-catalog support has mostly been written but doesn't
 currently work.  The first release of XEmacs 20 will @emph{not} support
-it.  However, menubar localization @emph{does} work, even in 19.14.  To
+it.  However, menubar localization @emph{does} work.  To
 enable it, add to your @file{Emacs} file entries like this:
 
 @example
@@ -1018,7 +946,7 @@ The name of the resource is derived from the non-localized entry by
 removing punctuation and capitalizing as above.
 
 @node Q1.3.5, Q1.3.6, Q1.3.4, Introduction
-@unnumberedsubsec Q1.3.5: Please explain the various input methods in MULE/XEmacs 20.0
+@unnumberedsubsec Q1.3.5: Please explain the various input methods in MULE/XEmacs
 
 @email{morioka@@jaist.ac.jp, MORIOKA Tomohiko} writes:
 
@@ -1069,7 +997,7 @@ it will be continued.
 @end quotation
 
 @node Q1.3.6, Q1.3.7, Q1.3.5, Introduction
-@unnumberedsubsec Q1.3.6: How do I portably code for MULE/XEmacs 20?
+@unnumberedsubsec Q1.3.6: How do I portably code for MULE/XEmacs?
 
 @email{morioka@@jaist.ac.jp, MORIOKA Tomohiko} writes:
 
@@ -1315,8 +1243,8 @@ Trouble Shooting:
 @node Q2.0.1, Q2.0.2, Installation, Installation
 @unnumberedsec 2.0: Installation
 @unnumberedsubsec Q2.0.1: Running XEmacs without installing
-The @file{INSTALL} file says that up to 108 MB of space is needed
-temporarily during installation!  How can I just try it out?
+
+How can I just try XEmacs without installing it?
 
 XEmacs will run in place without requiring installation and copying of
 the Lisp directories, and without having to specify a special build-time
@@ -1337,98 +1265,13 @@ This will let you run XEmacs without massive copying.
 @node Q2.0.2, Q2.0.3, Q2.0.1, Installation
 @unnumberedsubsec Q2.0.2: XEmacs is too big
 
-Although this entry has been written for XEmacs 19.13, most of it still
-stands true.
-
-@email{steve@@xemacs.org, Steve Baur} writes:
-
-@quotation
-The 45MB of space required by the installation directories can be
+The space required by the installation directories can be
 reduced dramatically if desired.  Gzip all the .el files.  Remove all
-the packages you'll never want to use (or even ones you do like the two
-obsolete mailcrypts and Gnus 4 in 19.13).  Remove the TexInfo manuals.
+the packages you'll never want to use.  Remove the TexInfo manuals.
 Remove the Info (and use just hardcopy versions of the manual).  Remove
 most of the stuff in etc.  Remove or gzip all the source code.  Gzip or
 remove the C source code.  Configure it so that copies are not made of
-the support lisp.  I'm not advocating any of these things, just pointing
-out ways to reduce the disk requirements if desired.
-
-Now examine the space used by directory:
-
-@format
-0       /usr/local/bin/xemacs
-2048    /usr/local/bin/xemacs-19.13
-
-1546    /usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
-1158    /usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
-@end format
-
-You need to keep these.  XEmacs isn't stripped by default in
-installation, you should consider stripping.  That will save you about
-5MB right there.
-
-@format
-207     /usr/local/lib/xemacs-19.13/etc/w3
-122     /usr/local/lib/xemacs-19.13/etc/sounds
-18      /usr/local/lib/xemacs-19.13/etc/sparcworks
-159     /usr/local/lib/xemacs-19.13/etc/vm
-6       /usr/local/lib/xemacs-19.13/etc/e
-21      /usr/local/lib/xemacs-19.13/etc/eos
-172     /usr/local/lib/xemacs-19.13/etc/toolbar
-61      /usr/local/lib/xemacs-19.13/etc/ns
-43      /usr/local/lib/xemacs-19.13/etc/gnus
-@end format
-
-These are support directories for various packages.  In general they
-match a directory under ./xemacs-19.13/lib/xemacs-19.13/lisp/.  If you
-do not require the package, you may delete or gzip the support too.
-
-@format
-1959    /usr/local/lib/xemacs-19.13/etc
-175     /usr/local/lib/xemacs-19.13/lisp/bytecomp
-340     /usr/local/lib/xemacs-19.13/lisp/calendar
-342     /usr/local/lib/xemacs-19.13/lisp/comint
-517     /usr/local/lib/xemacs-19.13/lisp/dired
-42      /usr/local/lib/xemacs-19.13/lisp/electric
-212     /usr/local/lib/xemacs-19.13/lisp/emulators
-238     /usr/local/lib/xemacs-19.13/lisp/energize
-289     /usr/local/lib/xemacs-19.13/lisp/gnus
-457     /usr/local/lib/xemacs-19.13/lisp/ilisp
-1439    /usr/local/lib/xemacs-19.13/lisp/modes
-2276    /usr/local/lib/xemacs-19.13/lisp/packages
-1040    /usr/local/lib/xemacs-19.13/lisp/prim
-176     /usr/local/lib/xemacs-19.13/lisp/pcl-cvs
-154     /usr/local/lib/xemacs-19.13/lisp/rmail
-3       /usr/local/lib/xemacs-19.13/lisp/epoch
-45      /usr/local/lib/xemacs-19.13/lisp/term
-860     /usr/local/lib/xemacs-19.13/lisp/utils
-851     /usr/local/lib/xemacs-19.13/lisp/vm
-13      /usr/local/lib/xemacs-19.13/lisp/vms
-157     /usr/local/lib/xemacs-19.13/lisp/x11
-19      /usr/local/lib/xemacs-19.13/lisp/tooltalk
-14      /usr/local/lib/xemacs-19.13/lisp/sunpro
-291     /usr/local/lib/xemacs-19.13/lisp/games
-198     /usr/local/lib/xemacs-19.13/lisp/edebug
-619     /usr/local/lib/xemacs-19.13/lisp/w3
-229     /usr/local/lib/xemacs-19.13/lisp/eos
-55      /usr/local/lib/xemacs-19.13/lisp/iso
-59      /usr/local/lib/xemacs-19.13/lisp/mailcrypt
-187     /usr/local/lib/xemacs-19.13/lisp/eterm
-356     /usr/local/lib/xemacs-19.13/lisp/ediff
-408     /usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
-1262    /usr/local/lib/xemacs-19.13/lisp/hyperbole
-247     /usr/local/lib/xemacs-19.13/lisp/hm--html-menus
-161     /usr/local/lib/xemacs-19.13/lisp/mh-e
-299     /usr/local/lib/xemacs-19.13/lisp/viper
-53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
-4       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
-3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
-3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
-11      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
-53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
-466     /usr/local/lib/xemacs-19.13/lisp/oobr
-14142   /usr/local/lib/xemacs-19.13/lisp
-@end format
+the support lisp.  
 
 These are all Emacs Lisp source code and bytecompiled object code.  You
 may safely gzip everything named *.el here.  You may remove any package
@@ -1436,81 +1279,24 @@ you don't use.  @emph{Nothing bad will happen if you delete a package
 that you do not use}.  You must be sure you do not use it though, so be
 conservative at first.
 
-Possible candidates for deletion include w3 (newer versions exist, or
-you may just use Lynx or Netscape for web browsing), games, hyperbole,
-mh-e, hm--html-menus (better packages exist), vm, viper, oobr, gnus (new
-versions exist), etc.  Ask yourself, @emph{Do I ever want to use this
-package?}  If the answer is no, then it is a candidate for removal.
+Possible candidates for deletion include w3, games, hyperbole, mh-e,
+hm-html-menus, vm, viper, oobr, gnus, etc.  Ask yourself, @emph{Do I
+ever want to use this package?}  If the answer is no, then it is a
+candidate for removal.
 
 First, gzip all the .el files.  Then go about package by package and
 start gzipping the .elc files.  Then run XEmacs and do whatever it is
 you normally do.  If nothing bad happens, then delete the directory.  Be
 conservative about deleting directories, and it would be handy to have a
-backup tape around in case you get too zealous.
+backup around in case you get too zealous.
 
 @file{prim}, @file{modes}, @file{packages}, and @file{utils} are four
 directories you definitely do @strong{not} want to delete, although
 certain packages can be removed from them if you do not use them.
 
-@example
-1972    /usr/local/lib/xemacs-19.13/info
-@end example
-
-These are online texinfo sources.  You may either gzip them or remove
-them.  In either case, @kbd{C-h i} (info mode) will no longer work.
-
-@example
-20778   /usr/local/lib/xemacs-19.13
-@end example
-
-The 20MB achieved is less than half of what the full distribution takes up,
-@strong{and} can be achieved without deleting a single file.
-@end quotation
-
-@email{boffi@@hp735.stru.polimi.it, Giacomo Boffi} provides this procedure:
-
-@quotation
-Substitute @file{/usr/local/lib/} with the path where the xemacs tree is
-rooted, then use this script:
-
-@example
-#!/bin/sh
-
-r=/usr/local/lib/xemacs-19.13/lisp
-
-cd $r ; rm -f cmpr ; touch cmpr
-
-du -s .
-
-for d in * ; do
-  if test -d $d ; then
-    cd $d
-    for f in *.el ; do
-#     compress (remove) only (ONLY) the sources that have a
-#     corresponding compiled file --- do not (DO NOT)
-#     touch other sources
-      if test -f $@{f@}c ; then gzip -v9 $f >> $r/cmpr ; fi
-    done
-    cd ..
-  fi
-done
-
-du -s .
-@end example
-
-A step beyond would be substituting @samp{rm -f} for @samp{gzip -v9},
-but you have to be desperate for removing the sources (remember that
-emacs can access compressed files transparently).
-
-Also, a good megabyte could easily be trimmed from the $r/../etc
-directory, e.g., the termcap files, some O+NEWS, others that I don't
-remember as well.
-@end quotation
-
-@quotation
-XEmacs 21.0 will unbundle the lisp hierarchy and allow the installer
-to choose exactly how much support code gets installed.
-@end quotation
+Online texinfo sources in the @file{info} can either be compressed them
+or remove them.  In either case, @kbd{C-h i} (info mode) will no longer
+work.
 
 @node Q2.0.3, Q2.0.4, Q2.0.2, Installation
 @unnumberedsubsec Q2.0.3: Compiling XEmacs with Netaudio.
@@ -1567,9 +1353,8 @@ bad pointer, perhaps to a CD-ROM that is not inserted.
 @unnumberedsubsec Q2.0.5: Do I need X11 to run XEmacs?
 
 No.  The name @dfn{XEmacs} is unfortunate in the sense that it is
-@strong{not} an X Window System-only version of Emacs.  Starting with
-19.14 XEmacs has full color support on a color-capable character
-terminal.
+@strong{not} an X Window System-only version of Emacs.  XEmacs has
+full color support on a color-capable character terminal.
 
 @node Q2.0.6, Q2.0.7, Q2.0.5, Installation
 @unnumberedsubsec Q2.0.6: I'm having strange crashes.  What do I do?
@@ -4871,7 +4656,7 @@ Emacs Lisp Programming Techniques:
 * Q5.1.4::      What is the performance hit of @code{let}?
 * Q5.1.5::      What is the recommended use of @code{setq}?
 * Q5.1.6::      What is the typical misuse of @code{setq}?
-* Q5.1.7::      I like the the @code{do} form of cl, does it slow things down?
+* Q5.1.7::      I like the @code{do} form of cl, does it slow things down?
 * Q5.1.8::      I like recursion, does it slow things down?
 * Q5.1.9::      How do I put a glyph as annotation in a buffer?
 * Q5.1.10::     @code{map-extents} won't traverse all of my extents!
@@ -5521,7 +5306,7 @@ While compiling toplevel forms:
 @end lisp
 
 @node Q5.1.7, Q5.1.8, Q5.1.6, Miscellaneous
-@unnumberedsubsec Q5.1.7: I like the the @code{do} form of cl, does it slow things down?
+@unnumberedsubsec Q5.1.7: I like the @code{do} form of cl, does it slow things down?
 
 It shouldn't.  Here is what Dave Gillespie has to say about cl.el
 performance:

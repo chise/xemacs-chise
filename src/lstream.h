@@ -92,7 +92,7 @@ typedef struct lstream_implementation
      the caller calls Lstream_read() with a very small size.
 
      This function can be NULL if the stream is output-only. */
-  /* The omniscient mly, blinded by the irresistable thrall of Common
+  /* The omniscient mly, blinded by the irresistible thrall of Common
      Lisp, thinks that it is bogus that the types and implementations
      of input and output streams are the same. */
   ssize_t (*reader) (Lstream *stream, unsigned char *data, size_t size);

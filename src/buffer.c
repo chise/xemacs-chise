@@ -439,7 +439,7 @@ the search will still be done on `buffer-file-name'.
 */
        (filename))
 {
-  /* This function can GC.  GC checked 1997.04.06. */
+  /* This function can GC.  GC checked and fixed 7-11-2000 ben. */
   REGISTER Lisp_Object buf;
   struct gcpro gcpro1;
 
@@ -474,15 +474,17 @@ the search will still be done on `buffer-file-name'.
 	  dn = Ffile_name_directory (filename);
 	  fn = Ffile_truename (dn, Qnil);
 	  if (! NILP (fn)) dn = fn;
-	  fn = Fexpand_file_name (Ffile_name_nondirectory (filename),
-				  dn);
+	  /* Formerly the two calls below were combined, but that is
+	     not GC-safe because the first call returns unprotected
+	     data and the second call can GC. --ben */
+	  fn = Ffile_name_nondirectory (filename);
+	  fn = Fexpand_file_name (fn, dn);
 	}
       filename = fn;
       NUNGCPRO;
     }
 
   {
-    Lisp_Object elt;
     LIST_LOOP_2 (elt, Vbuffer_alist)
       {
 	buf = Fcdr (elt);
@@ -534,6 +536,7 @@ delete_from_buffer_alist (Lisp_Object buf)
 Lisp_Object
 get_truename_buffer (REGISTER Lisp_Object filename)
 {
+  /* This function can GC.  GC correct 7-11-00 ben */
   /* FSFmacs has its own code here and doesn't call get-file-buffer.
      That's because their equivalent of find-file-compare-truenames
      (find-file-existing-other-name) isn't looked at in get-file-buffer.
@@ -869,37 +872,6 @@ No argument or nil as argument means use current buffer as BUFFER.
   return result;
 }
 
-DEFUN ("buffer-dedicated-frame", Fbuffer_dedicated_frame, 0, 1, 0, /*
-Return the frame dedicated to this BUFFER, or nil if there is none.
-No argument or nil as argument means use current buffer as BUFFER.
-*/
-       (buffer))
-{
-  struct buffer *buf = decode_buffer (buffer, 0);
-
-  /* XEmacs addition: if the frame is dead, silently make it go away. */
-  if (!NILP (buf->dedicated_frame) &&
-      !FRAME_LIVE_P (XFRAME (buf->dedicated_frame)))
-    buf->dedicated_frame = Qnil;
-
-  return buf->dedicated_frame;
-}
-
-DEFUN ("set-buffer-dedicated-frame", Fset_buffer_dedicated_frame, 2, 2, 0, /*
-For this BUFFER, set the FRAME dedicated to it.
-FRAME must be a frame or nil.
-*/
-       (buffer, frame))
-{
-  struct buffer *buf = decode_buffer (buffer, 0);
-
-  if (!NILP (frame))
-    CHECK_LIVE_FRAME (frame); /* XEmacs change */
-
-  return buf->dedicated_frame = frame;
-}
-
-
 
 DEFUN ("buffer-modified-p", Fbuffer_modified_p, 0, 1, 0, /*
 Return t if BUFFER was modified since its file was last read or saved.
@@ -1227,7 +1199,7 @@ with `delete-process'.
          to access data internal to select.c that can't be seen from
          Lisp (so the Lisp code would just call into C anyway. */
       select_notify_buffer_kill (buf);
-      
+
       unbind_to (speccount, Qnil);
       UNGCPRO;
       b = XBUFFER (buf);        /* Hypothetical relocating GC. */
@@ -2202,8 +2174,6 @@ syms_of_buffer (void)
   DEFSUBR (Fbuffer_base_buffer);
   DEFSUBR (Fbuffer_indirect_children);
   DEFSUBR (Fbuffer_local_variables);
-  DEFSUBR (Fbuffer_dedicated_frame);
-  DEFSUBR (Fset_buffer_dedicated_frame);
   DEFSUBR (Fbuffer_modified_p);
   DEFSUBR (Fset_buffer_modified_p);
   DEFSUBR (Fbuffer_modified_tick);
@@ -2224,8 +2194,8 @@ syms_of_buffer (void)
   DEFSUBR (Fbuffer_memory_usage);
 #endif
 
-  deferror (&Qprotected_field, "protected-field",
-	    "Attempt to modify a protected field", Qerror);
+  DEFERROR (Qprotected_field, "Attempt to modify a protected field",
+	    Qinvalid_change);
 }
 
 void
@@ -3129,8 +3099,8 @@ directory_is_current_directory (Extbyte *pwd)
 		      Qfile_name);
 
   return (IS_DIRECTORY_SEP (*pwd_internal)
-	  && stat ((char *) pwd_internal, &pwdstat) == 0
-	  && stat (".", &dotstat) == 0
+	  && xemacs_stat ((char *) pwd_internal, &pwdstat) == 0
+	  && xemacs_stat (".", &dotstat) == 0
 	  && dotstat.st_ino == pwdstat.st_ino
 	  && dotstat.st_dev == pwdstat.st_dev
 	  && pwd_internal_len < MAXPATHLEN);

@@ -831,6 +831,8 @@
 (Assert (equal (split-string "foo,,bar" ",+") '("foo" "bar")))
 (Assert (equal (split-string ",foo,,bar," ",+") '("" "foo" "bar" "")))
 
+(Assert (not (string-match "\\(\\.\\=\\)" ".")))
+
 ;;-----------------------------------------------------
 ;; Test near-text buffer functions.
 ;;-----------------------------------------------------
@@ -938,3 +940,8 @@
 (Check-Error 'wrong-type-argument (subseq 3 2))
 (Check-Error 'args-out-of-range (subseq [1 2 3] -42))
 (Check-Error 'args-out-of-range (subseq [1 2 3] 0 42))
+
+;;-----------------------------------------------------
+;; Time-related tests
+;;-----------------------------------------------------
+(Assert (= (length (current-time-string)) 24))

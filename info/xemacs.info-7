@@ -30,6 +30,123 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Transpose,  Next: Fixing Case,  Prev: Kill Errors,  Up: Fixit
+
+Transposing Text
+================
+
+`C-t'
+     Transpose two characters (`transpose-chars').
+
+`M-t'
+     Transpose two words (`transpose-words').
+
+`C-M-t'
+     Transpose two balanced expressions (`transpose-sexps').
+
+`C-x C-t'
+     Transpose two lines (`transpose-lines').
+
+   The common error of transposing two adjacent characters can be fixed
+with the `C-t' command (`transpose-chars').  Normally, `C-t' transposes
+the two characters on either side of point.  When given at the end of a
+line, `C-t' transposes the last two characters on the line, rather than
+transposing the last character of the line with the newline, which
+would be useless.  If you catch a transposition error right away, you
+can fix it with just `C-t'.  If you catch the error later,  move the
+cursor back to between the two transposed characters.  If you
+transposed a space with the last character of the word before it, the
+word motion commands are a good way of getting there.  Otherwise, a
+reverse search (`C-r') is often the best way.  *Note Search::.
+
+   `Meta-t' (`transpose-words') transposes the word before point with
+the word after point.  It moves point forward over a word, dragging the
+word preceding or containing point forward as well.  The punctuation
+characters between the words do not move.  For example, `FOO, BAR'
+transposes into `BAR, FOO' rather than `BAR FOO,'.
+
+   `C-M-t' (`transpose-sexps') is a similar command for transposing two
+expressions (*note Lists::), and `C-x C-t' (`transpose-lines')
+exchanges lines.  It works like `M-t' but in determines the division of
+the text into syntactic units differently.
+
+   A numeric argument to a transpose command serves as a repeat count:
+it tells the transpose command to move the character (word, sexp, line)
+before or containing point across several other characters (words,
+sexps, lines).  For example, `C-u 3 C-t' moves the character before
+point forward across three other characters.  This is equivalent to
+repeating `C-t' three times.  `C-u - 4 M-t' moves the word before point
+backward across four words.  `C-u - C-M-t' would cancel the effect of
+plain `C-M-t'.
+
+   A numeric argument of zero transposes the character (word, sexp,
+line) ending after point with the one ending after the mark (otherwise a
+command with a repeat count of zero would do nothing).
+
+
+File: xemacs.info,  Node: Fixing Case,  Next: Spelling,  Prev: Transpose,  Up: Fixit
+
+Case Conversion
+===============
+
+`M-- M-l'
+     Convert last word to lower case.  Note that `Meta--' is
+     "Meta-minus."
+
+`M-- M-u'
+     Convert last word to all upper case.
+
+`M-- M-c'
+     Convert last word to lower case with capital initial.
+
+   A  common error is to type words in the wrong case.  Because of this,
+the word case-conversion commands `M-l', `M-u', and `M-c' do not move
+the cursor when used with a negative argument.  As soon as you see you
+have mistyped the last word, you can simply case-convert it and
+continue typing.  *Note Case::.
+
+
+File: xemacs.info,  Node: Spelling,  Prev: Fixing Case,  Up: Fixit
+
+Checking and Correcting Spelling
+================================
+
+`M-$'
+     Check and correct spelling of word (`spell-word').
+
+`M-x spell-buffer'
+     Check and correct spelling of each word in the buffer.
+
+`M-x spell-region'
+     Check and correct spelling of each word in the region.
+
+`M-x spell-string'
+     Check spelling of specified word.
+
+   To check the spelling of the word before point, and optionally
+correct it, use the command `M-$' (`spell-word').  This command runs an
+inferior process containing the `spell' program to see whether the word
+is correct English.  If it is not, it asks you to edit the word (in the
+minibuffer) into a corrected spelling, and then performs a
+`query-replace' to substitute the corrected spelling for the old one
+throughout the buffer.
+
+   If you exit the minibuffer without altering the original spelling, it
+means you do not want to do anything to that word.  In that case, the
+`query-replace' is not done.
+
+   `M-x spell-buffer' checks each word in the buffer the same way that
+`spell-word' does, doing a `query-replace' for every incorrect word if
+appropriate.
+
+   `M-x spell-region' is similar to `spell-buffer' but operates only on
+the region, not the entire buffer.
+
+   `M-x spell-string' reads a string as an argument and checks whether
+that is a correctly spelled English word.  It prints a message giving
+the answer in the echo area.
+
+
 File: xemacs.info,  Node: Files,  Next: Buffers,  Prev: Fixit,  Up: Top
 
 File Handling
@@ -947,73 +1064,4 @@ command `C-u C-x v v'.  `C-x v v' (`vc-next-action') is the command
 that `C-x C-q' uses to do the "real work" when the visited file uses
 version control.  When used for checkin, and given a prefix argument,
 it reads the version number with the minibuffer.
-
-
-File: xemacs.info,  Node: Variables for Check-in/out,  Next: Log Entries,  Prev: Editing with VC,  Up: Version Control
-
-Variables Affecting Check-in and Check-out
-------------------------------------------
-
-   If `vc-suppress-confirm' is non-`nil', then `C-x C-q' and `C-x v i'
-can save the current buffer without asking, and `C-x v u' also operates
-without asking for confirmation.  (This variable does not affect `C-x v
-c'; that is so drastic that it should always ask for confirmation.)
-
-   VC mode does much of its work by running the shell commands for RCS
-and SCCS.  If `vc-command-messages' is non-`nil', VC displays messages
-to indicate which shell commands it runs, and additional messages when
-the commands finish.
-
-   Normally, VC assumes that it can deduce the locked/unlocked state of
-files by looking at the file permissions of the work file; this is
-fast.  However, if the `RCS' or `SCCS' subdirectory is actually a
-symbolic link, then VC does not trust the file permissions to reflect
-this status.
-
-   You can specify the criterion for whether to trust the file
-permissions by setting the variable `vc-mistrust-permissions'.  Its
-value may be `t' (always mistrust the file permissions and check the
-master file), `nil' (always trust the file permissions), or a function
-of one argument which makes the decision.  The argument is the directory
-name of the `RCS' or `SCCS' subdirectory.  A non-`nil' value from the
-function says to mistrust the file permissions.
-
-   If you find that the file permissions of work files are changed
-erroneously, set `vc-mistrust-permissions' to `t'.  Then VC always
-checks the master file to determine the file's status.
-
-   You can specify additional directories to search for version control
-programs by setting the variable `vc-path'.  These directories are
-searched before the usual search path.  The proper result usually
-happens automatically.
-
-
-File: xemacs.info,  Node: Log Entries,  Next: Change Logs and VC,  Prev: Variables for Check-in/out,  Up: Version Control
-
-Log Entries
------------
-
-   When you're editing an initial comment or log entry for inclusion in
-a master file, finish your entry by typing `C-c C-c'.
-
-`C-c C-c'
-     Finish the comment edit normally (`vc-finish-logentry').  This
-     finishes check-in.
-
-   To abort check-in, just don't type `C-c C-c' in that buffer.  You
-can switch buffers and do other editing.  As long as you don't try to
-check in another file, the entry you were editing remains in its
-buffer, and you can go back to that buffer at any time to complete the
-check-in.
-
-   If you change several source files for the same reason, it is often
-convenient to specify the same log entry for many of the files.  To do
-this, use the history of previous log entries.  The commands `M-n',
-`M-p', `M-s' and `M-r' for doing this work just like the minibuffer
-history commands (except that these versions are used outside the
-minibuffer).
-
-   Each time you check in a file, the log entry buffer is put into VC
-Log mode, which involves running two hooks: `text-mode-hook' and
-`vc-log-mode-hook'.
 

@@ -4,7 +4,7 @@
 ;; Copyright (C) 1999, 2000 Andy Piper.
 
 ;; Maintainer: XEmacs Development Team
-;; Keywords: frames, extensions, internal, dumped
+;; Keywords: frames, gui, internal, dumped
 
 ;; This file is part of XEmacs.
 
@@ -30,7 +30,7 @@
   "Input from the gutters."
   :group 'environment)
 
-;; Although these customizations appear bogus, they are neccessary in
+;; Although these customizations appear bogus, they are necessary in
 ;; order to be able to save options through the options menu.
 (defcustom default-gutter-position
   (default-gutter-position)
@@ -69,7 +69,7 @@ created to put the glyph into."
     (when (glyphp val)
       (setq spec (copy-sequence "\n"))
       (set-extent-begin-glyph (make-extent 0 1 spec) val))
-    (map-extents #'(lambda (extent arg) 
+    (map-extents #'(lambda (extent arg)
 		     (set-extent-property extent 'duplicable t)) spec)
     (modify-specifier-instances gutter-specifier #'plist-put (list prop spec)
 				'force nil locale tag-set)))
@@ -85,13 +85,13 @@ This is a convenience function for removing gutter elements."
 				     locale tag-set)
   "Change the visibility of gutter elements.
 Set the visibility of element PROP to VISIBLE-P for
-GUTTER-SPECIFIER-VISIBLE-P in optional LOCALE.  
+GUTTER-SPECIFIER-VISIBLE-P in optional LOCALE.
 This is a convenience function for hiding and showing gutter elements."
-  (modify-specifier-instances 
+  (modify-specifier-instances
    gutter-visible-specifier-p #'(lambda (spec prop visible-p)
 				  (if (consp spec)
-				      (if visible-p 
-					  (if (memq prop spec) spec  
+				      (if visible-p
+					  (if (memq prop spec) spec
 					    (cons prop spec))
 					(delq prop spec))
 				    (if visible-p (list prop))))
@@ -139,7 +139,7 @@ always gutter-size specifiers.
 
 Valid gutter-size instantiators are either integers or the special
 symbol 'autodetect. If a gutter-size is set to 'autodetect them the
-size of the gutter will be adjusted to just accomodate the gutters
+size of the gutter will be adjusted to just accommodate the gutters
 contents. 'autodetect only works for top and bottom gutters."
   (make-specifier-and-init 'gutter-size spec-list))
 
@@ -158,7 +158,7 @@ gutter-visible specifiers.
 
 Valid gutter-visible instantiators are t, nil or a list of symbols.
 If a gutter-visible instantiator is set to a list of symbols, and the
-correspondong gutter specification is a property-list strings, then
+corresponding gutter specification is a property-list strings, then
 elements of the gutter specification will only be visible if the
 corresponding symbol occurs in the gutter-visible instantiator."
   (make-specifier-and-init 'gutter-visible spec-list))

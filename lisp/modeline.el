@@ -39,6 +39,23 @@
   "Modeline customizations."
   :group 'environment)
 
+(defcustom modeline-3d-p ;; added for the options menu
+  (let ((thickness
+	 (specifier-instance modeline-shadow-thickness)))
+    (and (integerp thickness)
+	 (> thickness 0)))
+  "Whether the default toolbar is globally visible. This option can be
+customized through the options menu."
+  :group 'display
+  :type 'boolean
+  :set #'(lambda (var val)
+	   (if val
+	       (set-specifier modeline-shadow-thickness 2)
+	     (set-specifier modeline-shadow-thickness 0))
+	   (redraw-modeline t)
+	   (setq modeline-3d-p val))
+  )
+
 (defcustom drag-divider-event-lag 150
   "*The pause (in msecs) between divider drag events before redisplaying.
 If this value is too small, dragging will be choppy because redisplay cannot

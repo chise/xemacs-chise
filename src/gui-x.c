@@ -1,6 +1,6 @@
 /* General GUI code -- X-specific. (menubars, scrollbars, toolbars, dialogs)
    Copyright (C) 1995 Board of Trustees, University of Illinois.
-   Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1995, 1996, 2000 Ben Wing.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1998 Free Software Foundation, Inc.
 
@@ -23,6 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file Mule-ized by Ben Wing, 7-8-00. */
+
 #include <config.h>
 #include "lisp.h"
 
@@ -39,8 +41,6 @@ Boston, MA 02111-1307, USA.  */
 #include "glyphs.h"
 #include "redisplay.h"
 #include "opaque.h"
-
-Lisp_Object Qmenu_no_selection_hook;
 
 /* we need a unique id for each popup menu, dialog box, and scrollbar */
 static unsigned int lwlib_id_tick;
@@ -153,8 +153,9 @@ widget_value_unwind (Lisp_Object closure)
 static void
 print_widget_value (widget_value *wv, int depth)
 {
-  /* !!#### This function has not been Mule-ized */
-  char d [200];
+  /* strings in wv are in external format; use printf not stdout_out
+     because the latter takes internal-format strings */
+  Extbyte d [200];
   int i;
   for (i = 0; i < depth; i++) d[i] = ' ';
   d[depth]=0;
@@ -255,11 +256,16 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
       callback = XCAR (XCDR (data));
       callback_ex = XCDR (XCDR (data));
       update_subwindows_p = 1;
+      /* It is possible for a widget action to cause it to get out of
+	 sync with its instantiator. Thus it is necessary to signal
+	 this possibility. */
+      if (IMAGE_INSTANCEP (image_instance))
+	XIMAGE_INSTANCE_WIDGET_ACTION_OCCURRED (image_instance) = 1;
 
       if (!NILP (callback_ex) && !UNBOUNDP (callback_ex))
 	{
 	  event = Fmake_event (Qnil, Qnil);
-	  
+
 	  XEVENT (event)->event_type = misc_user_event;
 	  XEVENT (event)->channel = frame;
 	  XEVENT (event)->event.eval.function = Qeval;
@@ -292,7 +298,7 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 #endif
   if (!NILP (event))
     enqueue_Xt_dispatch_event (event);
-  /* The result of this evaluation could cause other instances to change so 
+  /* The result of this evaluation could cause other instances to change so
      enqueue an update callback to check this. */
   if (update_subwindows_p && !NILP (event))
     enqueue_magic_eval_event (update_widget_instances, frame);
@@ -312,11 +318,11 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
       ((void) (slot = (!NILP (form))))
 #endif
 
-char *
-menu_separator_style (const char *s)
+Extbyte *
+menu_separator_style_and_to_external (const Bufbyte *s)
 {
-  const char *p;
-  char first;
+  const Bufbyte *p;
+  Bufbyte first;
 
   if (!s || s[0] == '\0')
     return NULL;
@@ -336,18 +342,25 @@ menu_separator_style (const char *s)
 	    ? NULL			/* single etched is the default */
 	    : xstrdup ("shadowDoubleEtchedIn"));
   else if (*p == ':')
-    return xstrdup (p+1);
+    {
+      Extbyte *retval;
+
+      C_STRING_TO_EXTERNAL_MALLOC (p + 1, retval, Qlwlib_encoding);
+      return retval;
+    }
 
   return NULL;
 }
 
-char *
-strdup_and_add_accel (char *name)
+Extbyte *
+add_accel_and_to_external (Lisp_Object string)
 {
   int i;
   int found_accel = 0;
+  Extbyte *retval;
+  Bufbyte *name = XSTRING_DATA (string);
 
-  for (i=0; name[i]; ++i)
+  for (i = 0; name[i]; ++i)
     if (name[i] == '%' && name[i+1] == '_')
       {
 	found_accel = 1;
@@ -355,15 +368,18 @@ strdup_and_add_accel (char *name)
       }
 
   if (found_accel)
-    return xstrdup (name);
+    LISP_STRING_TO_EXTERNAL_MALLOC (string, retval, Qlwlib_encoding);
   else
     {
-      char *chars = (char *) alloca (strlen (name) + 3);
+      size_t namelen = XSTRING_LENGTH (string);
+      Bufbyte *chars = (Bufbyte *) alloca (namelen + 3);
       chars[0] = '%';
       chars[1] = '_';
-      memcpy (chars+2, name, strlen (name) + 1);
-      return xstrdup (chars);
+      memcpy (chars + 2, name, namelen + 1);
+      C_STRING_TO_EXTERNAL_MALLOC (chars, retval, Qlwlib_encoding);
     }
+
+  return retval;
 }
 
 /* This does the dirty work.  gc_currently_forbidden is 1 when this is called.
@@ -371,10 +387,9 @@ strdup_and_add_accel (char *name)
 int
 button_item_to_widget_value (Lisp_Object gui_object_instance,
 			     Lisp_Object gui_item, widget_value *wv,
-			     int allow_text_field_p, int no_keys_p, 
-			     int menu_entry_p)
+			     int allow_text_field_p, int no_keys_p,
+			     int menu_entry_p, int accel_p)
 {
-  /* !!#### This function has not been Mule-ized */
   /* This function cannot GC because gc_currently_forbidden is set when
      it's called */
   Lisp_Gui_Item* pgui = 0;
@@ -383,17 +398,19 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
   if (STRINGP (gui_item))
     {
       wv->type = TEXT_TYPE;
-      wv->name = (char *) XSTRING_DATA (gui_item);
-      wv->name = strdup_and_add_accel (wv->name);
+      if (accel_p)
+	wv->name = add_accel_and_to_external (gui_item);
+      else
+	LISP_STRING_TO_EXTERNAL_MALLOC (gui_item, wv->name, Qlwlib_encoding);
       return 1;
     }
   else if (!GUI_ITEMP (gui_item))
-    signal_simple_error("need a string or a gui_item here", gui_item);
+    syntax_error ("need a string or a gui_item here", gui_item);
 
   pgui = XGUI_ITEM (gui_item);
 
   if (!NILP (pgui->filter))
-    signal_simple_error(":filter keyword not permitted on leaf nodes", gui_item);
+    syntax_error (":filter keyword not permitted on leaf nodes", gui_item);
 
 #ifdef HAVE_MENUBARS
   if (menu_entry_p && !gui_item_included_p (gui_item, Vmenubar_configuration))
@@ -407,13 +424,19 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
     pgui->name = Feval (pgui->name);
 
   CHECK_STRING (pgui->name);
-  wv->name = (char *) XSTRING_DATA (pgui->name);
-  wv->name = xstrdup (wv->name);
-  wv->accel = LISP_TO_VOID (gui_item_accelerator (gui_item));
+  if (accel_p)
+    {
+      wv->name = add_accel_and_to_external (pgui->name);
+      wv->accel = LISP_TO_VOID (gui_item_accelerator (gui_item));
+    }
+  else
+    {
+      LISP_STRING_TO_EXTERNAL_MALLOC (pgui->name, wv->name, Qlwlib_encoding);
+      wv->accel = LISP_TO_VOID (Qnil);
+    }
 
   if (!NILP (pgui->suffix))
     {
-      const char *const_bogosity;
       Lisp_Object suffix2;
 
       /* Shortcut to avoid evaluating suffix each time */
@@ -425,11 +448,7 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
 	  CHECK_STRING (suffix2);
 	}
 
-      TO_EXTERNAL_FORMAT (LISP_STRING, suffix2,
-			  C_STRING_ALLOCA, const_bogosity,
-			  Qfile_name);
-      wv->value = (char *) const_bogosity;
-      wv->value = xstrdup (wv->value);
+      LISP_STRING_TO_EXTERNAL_MALLOC (suffix2, wv->value, Qlwlib_encoding);
     }
 
   wv_set_evalable_slot (wv->enabled, pgui->active);
@@ -451,7 +470,7 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
       CHECK_STRING (pgui->keys);
       pgui->keys = Fsubstitute_command_keys (pgui->keys);
       if (XSTRING_LENGTH (pgui->keys) > 0)
-	wv->key = xstrdup ((char *) XSTRING_DATA (pgui->keys));
+	LISP_STRING_TO_EXTERNAL_MALLOC (pgui->keys, wv->key, Qlwlib_encoding);
       else
 	wv->key = 0;
     }
@@ -461,7 +480,7 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
       /* #### Warning, dependency here on current_buffer and point */
       where_is_to_char (pgui->callback, buf);
       if (buf [0])
-	wv->key = xstrdup (buf);
+	C_STRING_TO_EXTERNAL_MALLOC (buf, wv->key, Qlwlib_encoding);
       else
 	wv->key = 0;
     }
@@ -469,14 +488,16 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
   CHECK_SYMBOL (pgui->style);
   if (NILP (pgui->style))
     {
+      Bufbyte *intname;
       /* If the callback is nil, treat this item like unselectable text.
 	 This way, dashes will show up as a separator. */
       if (!wv->enabled)
 	wv->type = BUTTON_TYPE;
-      if (separator_string_p (wv->name))
+      EXTERNAL_TO_C_STRING (wv->name, intname, Qlwlib_encoding);
+      if (separator_string_p (intname))
 	{
 	  wv->type = SEPARATOR_TYPE;
-	  wv->value = menu_separator_style (wv->name);
+	  wv->value = menu_separator_style_and_to_external (intname);
 	}
       else
 	{
@@ -509,27 +530,29 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
 #endif
     }
   else
-    signal_simple_error_2 ("Unknown style", pgui->style, gui_item);
+    syntax_error_2 ("Unknown style", pgui->style, gui_item);
 
   if (!allow_text_field_p && (wv->type == TEXT_TYPE))
-    signal_simple_error ("Text field not allowed in this context", gui_item);
+    syntax_error ("Text field not allowed in this context", gui_item);
 
   if (!NILP (pgui->selected) && EQ (pgui->style, Qtext))
-    signal_simple_error (
-			 ":selected only makes sense with :style toggle, radio or button",
-			 gui_item);
+    syntax_error
+      (":selected only makes sense with :style toggle, radio or button",
+       gui_item);
   return 1;
 }
 
 /* parse tree's of gui items into widget_value hierarchies */
-static void gui_item_children_to_widget_values (Lisp_Object gui_object_instance,
+static void gui_item_children_to_widget_values (Lisp_Object
+						gui_object_instance,
 						Lisp_Object items,
-						widget_value* parent);
+						widget_value* parent,
+						int accel_p);
 
 static widget_value *
 gui_items_to_widget_values_1 (Lisp_Object gui_object_instance,
 			      Lisp_Object items, widget_value* parent,
-			      widget_value* prev)
+			      widget_value* prev, int accel_p)
 {
   widget_value* wv = 0;
 
@@ -537,13 +560,13 @@ gui_items_to_widget_values_1 (Lisp_Object gui_object_instance,
   /* now walk the tree creating widget_values as appropriate */
   if (!CONSP (items))
     {
-      wv = xmalloc_widget_value();
+      wv = xmalloc_widget_value ();
       if (parent)
 	parent->contents = wv;
       else
 	prev->next = wv;
       if (!button_item_to_widget_value (gui_object_instance,
-					items, wv, 0, 1, 0))
+					items, wv, 0, 1, 0, accel_p))
 	{
 	  free_widget_value_tree (wv);
 	  if (parent)
@@ -552,32 +575,31 @@ gui_items_to_widget_values_1 (Lisp_Object gui_object_instance,
 	    prev->next = 0;
 	}
       else
-	{
-	  wv->value = xstrdup (wv->name);	/* what a mess... */
-	}
+	wv->value = xstrdup (wv->name);	/* what a mess... */
     }
   else
     {
       /* first one is the parent */
       if (CONSP (XCAR (items)))
-	signal_simple_error ("parent item must not be a list", XCAR (items));
+	syntax_error ("parent item must not be a list", XCAR (items));
 
       if (parent)
 	wv = gui_items_to_widget_values_1 (gui_object_instance,
-					   XCAR (items), parent, 0);
+					   XCAR (items), parent, 0, accel_p);
       else
 	wv = gui_items_to_widget_values_1 (gui_object_instance,
-					   XCAR (items), 0, prev);
+					   XCAR (items), 0, prev, accel_p);
       /* the rest are the children */
       gui_item_children_to_widget_values (gui_object_instance,
-					  XCDR (items), wv);
+					  XCDR (items), wv, accel_p);
     }
   return wv;
 }
 
 static void
 gui_item_children_to_widget_values (Lisp_Object gui_object_instance,
-				    Lisp_Object items, widget_value* parent)
+				    Lisp_Object items, widget_value* parent,
+				    int accel_p)
 {
   widget_value* wv = 0, *prev = 0;
   Lisp_Object rest;
@@ -585,27 +607,28 @@ gui_item_children_to_widget_values (Lisp_Object gui_object_instance,
 
   /* first one is master */
   prev = gui_items_to_widget_values_1 (gui_object_instance, XCAR (items),
-				       parent, 0);
+				       parent, 0, accel_p);
   /* the rest are the children */
   LIST_LOOP (rest, XCDR (items))
     {
       Lisp_Object tab = XCAR (rest);
-      wv = gui_items_to_widget_values_1 (gui_object_instance, tab, 0, prev);
+      wv = gui_items_to_widget_values_1 (gui_object_instance, tab, 0, prev,
+					 accel_p);
       prev = wv;
     }
 }
 
 widget_value *
-gui_items_to_widget_values (Lisp_Object gui_object_instance, Lisp_Object items)
+gui_items_to_widget_values (Lisp_Object gui_object_instance, Lisp_Object items,
+			    int accel_p)
 {
-  /* !!#### This function has not been Mule-ized */
   /* This function can GC */
   widget_value *control = 0, *tmp = 0;
   int count = specpdl_depth ();
   Lisp_Object wv_closure;
 
   if (NILP (items))
-    signal_simple_error ("must have some items", items);
+    syntax_error ("must have some items", items);
 
   /* Inhibit GC during this conversion.  The reasons for this are
      the same as in menu_item_descriptor_to_widget_value(); see
@@ -616,11 +639,12 @@ gui_items_to_widget_values (Lisp_Object gui_object_instance, Lisp_Object items)
 
   /* Also make sure that we free the partially-created widget_value
      tree on Lisp error. */
-  control = xmalloc_widget_value();
+  control = xmalloc_widget_value ();
   wv_closure = make_opaque_ptr (control);
   record_unwind_protect (widget_value_unwind, wv_closure);
 
-  gui_items_to_widget_values_1 (gui_object_instance, items, control, 0);
+  gui_items_to_widget_values_1 (gui_object_instance, items, control, 0,
+				accel_p);
 
   /* mess about getting the data we really want */
   tmp = control;
@@ -698,8 +722,6 @@ void
 syms_of_gui_x (void)
 {
   INIT_LRECORD_IMPLEMENTATION (popup_data);
-
-  defsymbol (&Qmenu_no_selection_hook, "menu-no-selection-hook");
 }
 
 void
@@ -721,14 +743,4 @@ vars_of_gui_x (void)
 
   Vpopup_callbacks = Qnil;
   staticpro (&Vpopup_callbacks);
-
-#if 0
-  /* This DEFVAR_LISP is just for the benefit of make-docfile. */
-  /* #### misnamed */
-  DEFVAR_LISP ("menu-no-selection-hook", &Vmenu_no_selection_hook /*
-Function or functions to call when a menu or dialog box is dismissed
-without a selection having been made.
-*/ );
-#endif
-  Fset (Qmenu_no_selection_hook, Qnil);
 }

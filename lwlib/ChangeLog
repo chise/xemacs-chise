@@ -1,3 +1,38 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* *: Spelling mega-patch
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib.c (ascii_strcasecmp): New.
+	* lwlib.c (find_in_table): Use ascii_strcasecmp.
+	Avoid using non-standard non-portable strcasecmp.
+
+2000-08-02  Stephen J. Turnbull <stephen@xemacs.org>
+
+	* xlwmenu.c (XlwMenuInitialize): make comment on algorithm for
+	setting fontList match code.  Suggest using same algorithm for
+	X Font Set resources in native lw code.
+
+2000-07-30  Ben Wing  <ben@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_update_one_widget):
+	Remove accelerator specs from buttons, since Athena doesn't handle
+	them.
+	
+	* lwlib.c (lw_remove_accelerator_spec):
+	* lwlib.h:
+	Define function and prototype to do this.
+
+2000-07-15  Ben Wing  <ben@xemacs.org>
+
+	* xlwradioP.h:
+	Remove duplicate definition of streq().
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.

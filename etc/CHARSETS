@@ -16,7 +16,7 @@
 tibetan-1-column:241:2:94:4:1:0:56:0:Tibetan 1 column glyph
 tibetan:252:2:94:4:2:0:55:0:Tibetan characters
 lao:167:1:94:3:1:0:49:0:Lao characters (ISO10646 0E80..0EDF)
-indian-1-column:240:2:94:4:1:0:54:0:Indian charset for 2-column width glypps
+indian-1-column:240:2:94:4:1:0:54:0:Indian charset for 2-column width glyphs
 indian-2-column:251:2:94:4:2:0:53:0:Indian charset for 2-column width glyphs
 indian-is13194:225:1:94:3:2:0:53:1:Generic Indian charset for data exchange with IS 13194
 ascii-right-to-left:166:1:94:3:1:1:66:0:ASCII (left half of ISO8859-1) with right-to-left direction

@@ -3344,6 +3344,7 @@ Leave point at the location of the call, or after the last expression."
 
 (defun custom-save-resets (property setter special)
   (let (started-writing ignored-special)
+    (setq ignored-special ignored-special) ;; suppress byte-compiler warning
     ;; (custom-save-delete setter) Done by caller 
     (let ((standard-output (current-buffer))
 	  (mapper `(lambda (object)
@@ -3367,7 +3368,8 @@ Leave point at the location of the call, or after the last expression."
       (setq ignored-special special)
       (mapatoms mapper)
       (when started-writing
-	(princ ")\n")))))
+	(princ ")\n"))))
+    )
 			
 
 (defun custom-save-loaded-themes ()

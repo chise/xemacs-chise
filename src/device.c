@@ -986,7 +986,7 @@ size-icon             Icon dimensions.
 size-icon-small       Small icon dimensions.
 size-device           Device screen or paper size in pixels.
 size-workspace        Workspace size in pixels. This can be less than or
-                      equal to the above. For diplays, this is the area
+                      equal to the above. For displays, this is the area
                       available to applications less window manager
                       decorations. For printers, this is the size of
                       printable area.

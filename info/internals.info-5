@@ -372,6 +372,15 @@ there needs to be a `DECLARE_LRECORD_IMPLEMENTATION()' somewhere in a
 `FOOBARP()', etc. macros in a `.h' (or occasionally `.c') file.  To
 create one of these, copy an existing model and modify as necessary.
 
+   *Please note:* If you define an lrecord in an external
+dynamically-loaded module, you must use `DECLARE_EXTERNAL_LRECORD',
+`DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION', and
+`DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION' instead of the
+non-EXTERNAL forms. These macros will dynamically add new type numbers
+to the global enum that records them, whereas the non-EXTERNAL forms
+assume that the programmer has already inserted the correct type numbers
+into the enum's code at compile-time.
+
    The various methods in the lrecord implementation structure are:
 
   1. A "mark" method.  This is called during the marking stage and
@@ -1082,21 +1091,4 @@ differently-compiled xemacsen on the same system (mule and no-mule
 comes to mind).
 
    The DOC file contents should probably end up in the dump file.
-
-
-File: internals.info,  Node: Events and the Event Loop,  Next: Evaluation; Stack Frames; Bindings,  Prev: Dumping,  Up: Top
-
-Events and the Event Loop
-*************************
-
-* Menu:
-
-* Introduction to Events::
-* Main Loop::
-* Specifics of the Event Gathering Mechanism::
-* Specifics About the Emacs Event::
-* The Event Stream Callback Routines::
-* Other Event Loop Functions::
-* Converting Events::
-* Dispatching Events; The Command Builder::
 

@@ -29,13 +29,13 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Qhash_tablep;
 static Lisp_Object Qhashtable, Qhash_table;
-static Lisp_Object Qweakness, Qvalue, Qkey_value;
+static Lisp_Object Qweakness, Qvalue, Qkey_or_value, Qkey_and_value;
 static Lisp_Object Vall_weak_hash_tables;
 static Lisp_Object Qrehash_size, Qrehash_threshold;
 static Lisp_Object Q_size, Q_test, Q_weakness, Q_rehash_size, Q_rehash_threshold;
 
 /* obsolete as of 19990901 in xemacs-21.2 */
-static Lisp_Object Qweak, Qkey_weak, Qvalue_weak, Qkey_value_weak;
+static Lisp_Object Qweak, Qkey_weak, Qvalue_weak, Qkey_or_value_weak;
 static Lisp_Object Qnon_weak, Q_type;
 
 typedef struct hentry
@@ -277,7 +277,7 @@ hash_table_hash (Lisp_Object hash_table, int depth)
    `size'             (a natnum or nil)
    `rehash-size'      (a float)
    `rehash-threshold' (a float)
-   `weakness'         (nil, t, key or value)
+   `weakness'         (nil, key, value, key-and-value, or key-or-value)
    `data'             (a list)
 
    If `print-readably' is nil, then a simpler syntax is used, for example
@@ -352,10 +352,10 @@ print_hash_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   if (ht->weakness != HASH_TABLE_NON_WEAK)
     {
       sprintf (buf, " weakness %s",
-	       (ht->weakness == HASH_TABLE_WEAK	      ? "t"     :
-		ht->weakness == HASH_TABLE_KEY_WEAK   ? "key"   :
-		ht->weakness == HASH_TABLE_VALUE_WEAK ? "value" :
-		ht->weakness == HASH_TABLE_KEY_VALUE_WEAK ? "key-value" :
+	       (ht->weakness == HASH_TABLE_WEAK		  ? "key-and-value" :
+		ht->weakness == HASH_TABLE_KEY_WEAK	  ? "key" :
+		ht->weakness == HASH_TABLE_VALUE_WEAK	  ? "value" :
+		ht->weakness == HASH_TABLE_KEY_VALUE_WEAK ? "key-or-value" :
 		"you-d-better-not-see-this"));
       write_c_string (buf, printcharfun);
     }
@@ -541,18 +541,19 @@ static int
 hash_table_weakness_validate (Lisp_Object keyword, Lisp_Object value,
 			      Error_behavior errb)
 {
-  if (EQ (value, Qnil))		return 1;
-  if (EQ (value, Qt))		return 1;
-  if (EQ (value, Qkey))		return 1;
-  if (EQ (value, Qkey_value))		return 1;
-  if (EQ (value, Qvalue))	return 1;
+  if (EQ (value, Qnil))			return 1;
+  if (EQ (value, Qt))			return 1;
+  if (EQ (value, Qkey))			return 1;
+  if (EQ (value, Qkey_and_value))	return 1;
+  if (EQ (value, Qkey_or_value))	return 1;
+  if (EQ (value, Qvalue))		return 1;
 
   /* Following values are obsolete as of 19990901 in xemacs-21.2 */
-  if (EQ (value, Qnon_weak))	return 1;
-  if (EQ (value, Qweak))	return 1;
-  if (EQ (value, Qkey_weak))	return 1;
-  if (EQ (value, Qkey_value_weak))	return 1;
-  if (EQ (value, Qvalue_weak))	return 1;
+  if (EQ (value, Qnon_weak))		return 1;
+  if (EQ (value, Qweak))		return 1;
+  if (EQ (value, Qkey_weak))		return 1;
+  if (EQ (value, Qkey_or_value_weak))	return 1;
+  if (EQ (value, Qvalue_weak))		return 1;
 
   maybe_signal_simple_error ("Invalid hash table weakness",
 			     value, Qhash_table, errb);
@@ -562,18 +563,19 @@ hash_table_weakness_validate (Lisp_Object keyword, Lisp_Object value,
 static enum hash_table_weakness
 decode_hash_table_weakness (Lisp_Object obj)
 {
-  if (EQ (obj, Qnil))	     return HASH_TABLE_NON_WEAK;
-  if (EQ (obj, Qt))	     return HASH_TABLE_WEAK;
-  if (EQ (obj, Qkey))        return HASH_TABLE_KEY_WEAK;
-  if (EQ (obj, Qkey_value))        return HASH_TABLE_KEY_VALUE_WEAK;
-  if (EQ (obj, Qvalue))      return HASH_TABLE_VALUE_WEAK;
+  if (EQ (obj, Qnil))			return HASH_TABLE_NON_WEAK;
+  if (EQ (obj, Qt))			return HASH_TABLE_WEAK;
+  if (EQ (obj, Qkey_and_value))		return HASH_TABLE_WEAK;
+  if (EQ (obj, Qkey))			return HASH_TABLE_KEY_WEAK;
+  if (EQ (obj, Qkey_or_value))		return HASH_TABLE_KEY_VALUE_WEAK;
+  if (EQ (obj, Qvalue))			return HASH_TABLE_VALUE_WEAK;
 
   /* Following values are obsolete as of 19990901 in xemacs-21.2 */
-  if (EQ (obj, Qnon_weak))   return HASH_TABLE_NON_WEAK;
-  if (EQ (obj, Qweak))	     return HASH_TABLE_WEAK;
-  if (EQ (obj, Qkey_weak))   return HASH_TABLE_KEY_WEAK;
-  if (EQ (obj, Qkey_value_weak))   return HASH_TABLE_KEY_VALUE_WEAK;
-  if (EQ (obj, Qvalue_weak)) return HASH_TABLE_VALUE_WEAK;
+  if (EQ (obj, Qnon_weak))		return HASH_TABLE_NON_WEAK;
+  if (EQ (obj, Qweak))			return HASH_TABLE_WEAK;
+  if (EQ (obj, Qkey_weak))		return HASH_TABLE_KEY_WEAK;
+  if (EQ (obj, Qkey_or_value_weak))	return HASH_TABLE_KEY_VALUE_WEAK;
+  if (EQ (obj, Qvalue_weak))		return HASH_TABLE_VALUE_WEAK;
 
   signal_simple_error ("Invalid hash table weakness", obj);
   return HASH_TABLE_NON_WEAK; /* not reached */
@@ -806,15 +808,16 @@ the factor by which to increase the size of the hash table when enlarging.
 Keyword :rehash-threshold must be a float between 0.0 and 1.0,
 and specifies the load factor of the hash table which triggers enlarging.
 
-Non-standard keyword :weakness can be `nil' (default), `t', `key', `value'
-or `key-value'.
+Non-standard keyword :weakness can be `nil' (default), `t', `key-and-value',
+`key', `value' or `key-or-value'. `t' is an alias for `key-and-value'.
 
-A weak hash table is one whose pointers do not count as GC referents:
-for any key-value pair in the hash table, if the only remaining pointer
-to either the key or the value is in a weak hash table, then the pair
-will be removed from the hash table, and the key and value collected.
-A non-weak hash table (or any other pointer) would prevent the object
-from being collected.
+A key-and-value-weak hash table, also known as a fully-weak or simply
+as a weak hash table, is one whose pointers do not count as GC
+referents: for any key-value pair in the hash table, if the only
+remaining pointer to either the key or the value is in a weak hash
+table, then the pair will be removed from the hash table, and the key
+and value collected.  A non-weak hash table (or any other pointer)
+would prevent the object from being collected.
 
 A key-weak hash table is similar to a fully-weak hash table except that
 a key-value pair will be removed only if the key remains unmarked
@@ -828,7 +831,7 @@ unmarked outside of weak hash tables.  The pair will remain in the
 hash table if the value is pointed to by something other than a weak
 hash table, even if the key is not.
 
-A key-value-weak hash table is similar to a fully-weak hash table except
+A key-or-value-weak hash table is similar to a fully-weak hash table except
 that a key-value pair will be removed only if the value and the key remain
 unmarked outside of weak hash tables.  The pair will remain in the
 hash table if the value or key are pointed to by something other than a weak
@@ -1122,17 +1125,17 @@ beyond which the HASH-TABLE is enlarged by rehashing.
 
 DEFUN ("hash-table-weakness", Fhash_table_weakness, 1, 1, 0, /*
 Return the weakness of HASH-TABLE.
-This can be one of `nil', `t', `key' or `value'.
+This can be one of `nil', `key-and-value', `key-or-value', `key' or `value'.
 */
        (hash_table))
 {
   switch (xhash_table (hash_table)->weakness)
     {
-    case HASH_TABLE_WEAK:	return Qt;
-    case HASH_TABLE_KEY_WEAK:	return Qkey;
-    case HASH_TABLE_KEY_VALUE_WEAK:	return Qkey_value;
-    case HASH_TABLE_VALUE_WEAK:	return Qvalue;
-    default:			return Qnil;
+    case HASH_TABLE_WEAK:		return Qkey_and_value;
+    case HASH_TABLE_KEY_WEAK:		return Qkey;
+    case HASH_TABLE_KEY_VALUE_WEAK:	return Qkey_or_value;
+    case HASH_TABLE_VALUE_WEAK:		return Qvalue;
+    default:				return Qnil;
     }
 }
 
@@ -1145,11 +1148,11 @@ This can be one of `non-weak', `weak', `key-weak' or `value-weak'.
 {
   switch (xhash_table (hash_table)->weakness)
     {
-    case HASH_TABLE_WEAK:	return Qweak;
-    case HASH_TABLE_KEY_WEAK:	return Qkey_weak;
-    case HASH_TABLE_KEY_VALUE_WEAK:	return Qkey_value_weak;
-    case HASH_TABLE_VALUE_WEAK:	return Qvalue_weak;
-    default:			return Qnon_weak;
+    case HASH_TABLE_WEAK:		return Qweak;
+    case HASH_TABLE_KEY_WEAK:		return Qkey_weak;
+    case HASH_TABLE_KEY_VALUE_WEAK:	return Qkey_or_value_weak;
+    case HASH_TABLE_VALUE_WEAK:		return Qvalue_weak;
+    default:				return Qnon_weak;
     }
 }
 
@@ -1484,13 +1487,14 @@ syms_of_elhash (void)
   defsymbol (&Qhashtable, "hashtable");
   defsymbol (&Qweakness, "weakness");
   defsymbol (&Qvalue, "value");
-  defsymbol (&Qkey_value, "key-value");
+  defsymbol (&Qkey_or_value, "key-or-value");
+  defsymbol (&Qkey_and_value, "key-and-value");
   defsymbol (&Qrehash_size, "rehash-size");
   defsymbol (&Qrehash_threshold, "rehash-threshold");
 
   defsymbol (&Qweak, "weak");             /* obsolete */
   defsymbol (&Qkey_weak, "key-weak");     /* obsolete */
-  defsymbol (&Qkey_value_weak, "key-value-weak");     /* obsolete */
+  defsymbol (&Qkey_or_value_weak, "key-or-value-weak");    /* obsolete */
   defsymbol (&Qvalue_weak, "value-weak"); /* obsolete */
   defsymbol (&Qnon_weak, "non-weak");     /* obsolete */
 

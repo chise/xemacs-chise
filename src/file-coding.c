@@ -66,7 +66,7 @@ struct file_coding_dump {
 static const struct lrecord_description fcd_description_1[] = {
   { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
 #if defined(MULE) && !defined(UTF2000)
-  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, ucs_to_mule_table), 65536 },
+  { XD_LISP_OBJECT_ARRAY, offsetof (struct file_coding_dump, ucs_to_mule_table), countof (fcd->ucs_to_mule_table) },
 #endif
   { XD_END }
 };
@@ -732,7 +732,7 @@ nil or 'undecided
      JIS (the Japanese encoding commonly used for e-mail), EUC (the
      standard Unix encoding for Japanese and other languages), and
      Compound Text (the encoding used in X11).  You can specify more
-     specific information about the conversion with the FLAGS argument.
+     specific information about the conversion with the PROPS argument.
 'big5
      Big5 (the encoding commonly used for Taiwanese).
 'ccl
@@ -882,7 +882,6 @@ if TYPE is 'ccl:
        (name, type, doc_string, props))
 {
   Lisp_Coding_System *codesys;
-  Lisp_Object rest, key, value;
   enum coding_system_type ty;
   int need_to_setup_eol_systems = 1;
 
@@ -914,92 +913,94 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
-  EXTERNAL_PROPERTY_LIST_LOOP (rest, key, value, props)
-    {
-      if (EQ (key, Qmnemonic))
-	{
-          if (!NILP (value))
-	    CHECK_STRING (value);
-	  CODING_SYSTEM_MNEMONIC (codesys) = value;
-	}
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, props)
+      {
+	if (EQ (key, Qmnemonic))
+	  {
+	    if (!NILP (value))
+	      CHECK_STRING (value);
+	    CODING_SYSTEM_MNEMONIC (codesys) = value;
+	  }
 
-      else if (EQ (key, Qeol_type))
-	{
-	  need_to_setup_eol_systems = NILP (value);
-	  if (EQ (value, Qt))
-	    value = Qnil;
-	  CODING_SYSTEM_EOL_TYPE (codesys) = symbol_to_eol_type (value);
-	}
+	else if (EQ (key, Qeol_type))
+	  {
+	    need_to_setup_eol_systems = NILP (value);
+	    if (EQ (value, Qt))
+	      value = Qnil;
+	    CODING_SYSTEM_EOL_TYPE (codesys) = symbol_to_eol_type (value);
+	  }
 
-      else if (EQ (key, Qpost_read_conversion)) CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
-      else if (EQ (key, Qpre_write_conversion)) CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
+	else if (EQ (key, Qpost_read_conversion)) CODING_SYSTEM_POST_READ_CONVERSION (codesys) = value;
+	else if (EQ (key, Qpre_write_conversion)) CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
 #ifdef MULE
-      else if (ty == CODESYS_ISO2022)
-	{
+	else if (ty == CODESYS_ISO2022)
+	  {
 #define FROB_INITIAL_CHARSET(charset_num) \
   CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, charset_num) = \
     ((EQ (value, Qt) || EQ (value, Qnil)) ? value : Fget_charset (value))
 
-	  if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
-	  else if (EQ (key, Qcharset_g1)) FROB_INITIAL_CHARSET (1);
-	  else if (EQ (key, Qcharset_g2)) FROB_INITIAL_CHARSET (2);
-	  else if (EQ (key, Qcharset_g3)) FROB_INITIAL_CHARSET (3);
+	    if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
+	    else if (EQ (key, Qcharset_g1)) FROB_INITIAL_CHARSET (1);
+	    else if (EQ (key, Qcharset_g2)) FROB_INITIAL_CHARSET (2);
+	    else if (EQ (key, Qcharset_g3)) FROB_INITIAL_CHARSET (3);
 
 #define FROB_FORCE_CHARSET(charset_num) \
   CODING_SYSTEM_ISO2022_FORCE_CHARSET_ON_OUTPUT (codesys, charset_num) = !NILP (value)
 
-	  else if (EQ (key, Qforce_g0_on_output)) FROB_FORCE_CHARSET (0);
-	  else if (EQ (key, Qforce_g1_on_output)) FROB_FORCE_CHARSET (1);
-	  else if (EQ (key, Qforce_g2_on_output)) FROB_FORCE_CHARSET (2);
-	  else if (EQ (key, Qforce_g3_on_output)) FROB_FORCE_CHARSET (3);
+	    else if (EQ (key, Qforce_g0_on_output)) FROB_FORCE_CHARSET (0);
+	    else if (EQ (key, Qforce_g1_on_output)) FROB_FORCE_CHARSET (1);
+	    else if (EQ (key, Qforce_g2_on_output)) FROB_FORCE_CHARSET (2);
+	    else if (EQ (key, Qforce_g3_on_output)) FROB_FORCE_CHARSET (3);
 
 #define FROB_BOOLEAN_PROPERTY(prop) \
   CODING_SYSTEM_ISO2022_##prop (codesys) = !NILP (value)
 
-	  else if (EQ (key, Qshort))         FROB_BOOLEAN_PROPERTY (SHORT);
-	  else if (EQ (key, Qno_ascii_eol))  FROB_BOOLEAN_PROPERTY (NO_ASCII_EOL);
-	  else if (EQ (key, Qno_ascii_cntl)) FROB_BOOLEAN_PROPERTY (NO_ASCII_CNTL);
-	  else if (EQ (key, Qseven))         FROB_BOOLEAN_PROPERTY (SEVEN);
-	  else if (EQ (key, Qlock_shift))    FROB_BOOLEAN_PROPERTY (LOCK_SHIFT);
-	  else if (EQ (key, Qno_iso6429))    FROB_BOOLEAN_PROPERTY (NO_ISO6429);
-	  else if (EQ (key, Qescape_quoted)) FROB_BOOLEAN_PROPERTY (ESCAPE_QUOTED);
+	    else if (EQ (key, Qshort))         FROB_BOOLEAN_PROPERTY (SHORT);
+	    else if (EQ (key, Qno_ascii_eol))  FROB_BOOLEAN_PROPERTY (NO_ASCII_EOL);
+	    else if (EQ (key, Qno_ascii_cntl)) FROB_BOOLEAN_PROPERTY (NO_ASCII_CNTL);
+	    else if (EQ (key, Qseven))         FROB_BOOLEAN_PROPERTY (SEVEN);
+	    else if (EQ (key, Qlock_shift))    FROB_BOOLEAN_PROPERTY (LOCK_SHIFT);
+	    else if (EQ (key, Qno_iso6429))    FROB_BOOLEAN_PROPERTY (NO_ISO6429);
+	    else if (EQ (key, Qescape_quoted)) FROB_BOOLEAN_PROPERTY (ESCAPE_QUOTED);
 
-	  else if (EQ (key, Qinput_charset_conversion))
-	    {
-	      codesys->iso2022.input_conv =
-		Dynarr_new (charset_conversion_spec);
-	      parse_charset_conversion_specs (codesys->iso2022.input_conv,
-					      value);
-	    }
-	  else if (EQ (key, Qoutput_charset_conversion))
-	    {
-	      codesys->iso2022.output_conv =
-		Dynarr_new (charset_conversion_spec);
-	      parse_charset_conversion_specs (codesys->iso2022.output_conv,
-					      value);
-	    }
-	  else
-	    signal_simple_error ("Unrecognized property", key);
-	}
-      else if (EQ (type, Qccl))
-	{
-	  if (EQ (key, Qdecode))
-	    {
-	      CHECK_VECTOR (value);
-	      CODING_SYSTEM_CCL_DECODE (codesys) = value;
-	    }
-	  else if (EQ (key, Qencode))
-	    {
-	      CHECK_VECTOR (value);
-	      CODING_SYSTEM_CCL_ENCODE (codesys) = value;
-	    }
-	  else
-	    signal_simple_error ("Unrecognized property", key);
-	}
+	    else if (EQ (key, Qinput_charset_conversion))
+	      {
+		codesys->iso2022.input_conv =
+		  Dynarr_new (charset_conversion_spec);
+		parse_charset_conversion_specs (codesys->iso2022.input_conv,
+						value);
+	      }
+	    else if (EQ (key, Qoutput_charset_conversion))
+	      {
+		codesys->iso2022.output_conv =
+		  Dynarr_new (charset_conversion_spec);
+		parse_charset_conversion_specs (codesys->iso2022.output_conv,
+						value);
+	      }
+	    else
+	      signal_simple_error ("Unrecognized property", key);
+	  }
+	else if (EQ (type, Qccl))
+	  {
+	    if (EQ (key, Qdecode))
+	      {
+		CHECK_VECTOR (value);
+		CODING_SYSTEM_CCL_DECODE (codesys) = value;
+	      }
+	    else if (EQ (key, Qencode))
+	      {
+		CHECK_VECTOR (value);
+		CODING_SYSTEM_CCL_ENCODE (codesys) = value;
+	      }
+	    else
+	      signal_simple_error ("Unrecognized property", key);
+	  }
 #endif /* MULE */
-      else
-	signal_simple_error ("Unrecognized property", key);
-    }
+	else
+	  signal_simple_error ("Unrecognized property", key);
+      }
+  }
 
   if (need_to_setup_eol_systems)
     setup_eol_coding_systems (codesys);
@@ -1218,7 +1219,7 @@ subsidiary_coding_system (Lisp_Object coding_system, eol_type_t type)
     case EOL_LF:   new_coding_system = CODING_SYSTEM_EOL_LF   (cs); break;
     case EOL_CR:   new_coding_system = CODING_SYSTEM_EOL_CR   (cs); break;
     case EOL_CRLF: new_coding_system = CODING_SYSTEM_EOL_CRLF (cs); break;
-    default:       abort ();
+    default:       abort (); return Qnil;
     }
 
   return NILP (new_coding_system) ? coding_system : new_coding_system;
@@ -3593,13 +3594,13 @@ Return T on success, NIL on failure.
 */
        (code, character))
 {
-  unsigned int c;
+  size_t c;
 
   CHECK_CHAR (character);
-  CHECK_INT (code);
+  CHECK_NATNUM (code);
   c = XINT (code);
 
-  if (c < sizeof (fcd->ucs_to_mule_table))
+  if (c < countof (fcd->ucs_to_mule_table))
     {
       fcd->ucs_to_mule_table[c] = character;
       return Qt;
@@ -3611,7 +3612,7 @@ Return T on success, NIL on failure.
 static Lisp_Object
 ucs_to_char (unsigned long code)
 {
-  if (code < sizeof (fcd->ucs_to_mule_table))
+  if (code < countof (fcd->ucs_to_mule_table))
     {
       return fcd->ucs_to_mule_table[code];
     }
@@ -4780,6 +4781,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	  {
 	    /* Can this ever be reached? -slb */
 	    abort();
+	    return 0;
 	  }
 
 	cs = CHARSET_BY_ATTRIBUTES (chars, single, c,
@@ -6089,8 +6091,7 @@ syms_of_file_coding (void)
 {
   INIT_LRECORD_IMPLEMENTATION (coding_system);
 
-  deferror (&Qcoding_system_error, "coding-system-error",
-	    "Coding-system error", Qio_error);
+  DEFERROR_STANDARD (Qcoding_system_error, Qio_error);
 
   DEFSUBR (Fcoding_system_p);
   DEFSUBR (Ffind_coding_system);
@@ -6371,9 +6372,9 @@ complex_vars_of_file_coding (void)
 
 #if defined(MULE) && !defined(UTF2000)
   {
-    unsigned int i;
+    size_t i;
 
-    for (i = 0; i < 65536; i++)
+    for (i = 0; i < countof (fcd->ucs_to_mule_table); i++)
       fcd->ucs_to_mule_table[i] = Qnil;
   }
   staticpro (&mule_to_ucs_table);

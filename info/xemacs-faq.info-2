@@ -7,230 +7,14 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: xemacs-faq.info,  Node: Q2.0.2,  Next: Q2.0.3,  Prev: Q2.0.1,  Up: Installation
-
-Q2.0.2: XEmacs is too big
--------------------------
-
-   Although this entry has been written for XEmacs 19.13, most of it
-still stands true.
-
-   Steve Baur <steve@xemacs.org> writes:
-
-     The 45MB of space required by the installation directories can be
-     reduced dramatically if desired.  Gzip all the .el files.  Remove
-     all the packages you'll never want to use (or even ones you do
-     like the two obsolete mailcrypts and Gnus 4 in 19.13).  Remove the
-     TexInfo manuals.  Remove the Info (and use just hardcopy versions
-     of the manual).  Remove most of the stuff in etc.  Remove or gzip
-     all the source code.  Gzip or remove the C source code.  Configure
-     it so that copies are not made of the support lisp.  I'm not
-     advocating any of these things, just pointing out ways to reduce
-     the disk requirements if desired.
-
-     Now examine the space used by directory:
-
-     0       /usr/local/bin/xemacs
-     2048    /usr/local/bin/xemacs-19.13
-     
-     1546    /usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
-     1158    /usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
-
-     You need to keep these.  XEmacs isn't stripped by default in
-     installation, you should consider stripping.  That will save you
-     about 5MB right there.
-
-     207     /usr/local/lib/xemacs-19.13/etc/w3
-     122     /usr/local/lib/xemacs-19.13/etc/sounds
-     18      /usr/local/lib/xemacs-19.13/etc/sparcworks
-     159     /usr/local/lib/xemacs-19.13/etc/vm
-     6       /usr/local/lib/xemacs-19.13/etc/e
-     21      /usr/local/lib/xemacs-19.13/etc/eos
-     172     /usr/local/lib/xemacs-19.13/etc/toolbar
-     61      /usr/local/lib/xemacs-19.13/etc/ns
-     43      /usr/local/lib/xemacs-19.13/etc/gnus
-
-     These are support directories for various packages.  In general
-     they match a directory under
-     ./xemacs-19.13/lib/xemacs-19.13/lisp/.  If you do not require the
-     package, you may delete or gzip the support too.
-
-     1959    /usr/local/lib/xemacs-19.13/etc
-     175     /usr/local/lib/xemacs-19.13/lisp/bytecomp
-     340     /usr/local/lib/xemacs-19.13/lisp/calendar
-     342     /usr/local/lib/xemacs-19.13/lisp/comint
-     517     /usr/local/lib/xemacs-19.13/lisp/dired
-     42      /usr/local/lib/xemacs-19.13/lisp/electric
-     212     /usr/local/lib/xemacs-19.13/lisp/emulators
-     238     /usr/local/lib/xemacs-19.13/lisp/energize
-     289     /usr/local/lib/xemacs-19.13/lisp/gnus
-     457     /usr/local/lib/xemacs-19.13/lisp/ilisp
-     1439    /usr/local/lib/xemacs-19.13/lisp/modes
-     2276    /usr/local/lib/xemacs-19.13/lisp/packages
-     1040    /usr/local/lib/xemacs-19.13/lisp/prim
-     176     /usr/local/lib/xemacs-19.13/lisp/pcl-cvs
-     154     /usr/local/lib/xemacs-19.13/lisp/rmail
-     3       /usr/local/lib/xemacs-19.13/lisp/epoch
-     45      /usr/local/lib/xemacs-19.13/lisp/term
-     860     /usr/local/lib/xemacs-19.13/lisp/utils
-     851     /usr/local/lib/xemacs-19.13/lisp/vm
-     13      /usr/local/lib/xemacs-19.13/lisp/vms
-     157     /usr/local/lib/xemacs-19.13/lisp/x11
-     19      /usr/local/lib/xemacs-19.13/lisp/tooltalk
-     14      /usr/local/lib/xemacs-19.13/lisp/sunpro
-     291     /usr/local/lib/xemacs-19.13/lisp/games
-     198     /usr/local/lib/xemacs-19.13/lisp/edebug
-     619     /usr/local/lib/xemacs-19.13/lisp/w3
-     229     /usr/local/lib/xemacs-19.13/lisp/eos
-     55      /usr/local/lib/xemacs-19.13/lisp/iso
-     59      /usr/local/lib/xemacs-19.13/lisp/mailcrypt
-     187     /usr/local/lib/xemacs-19.13/lisp/eterm
-     356     /usr/local/lib/xemacs-19.13/lisp/ediff
-     408     /usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
-     1262    /usr/local/lib/xemacs-19.13/lisp/hyperbole
-     247     /usr/local/lib/xemacs-19.13/lisp/hm--html-menus
-     161     /usr/local/lib/xemacs-19.13/lisp/mh-e
-     299     /usr/local/lib/xemacs-19.13/lisp/viper
-     53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
-     4       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
-     3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
-     3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
-     11      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
-     53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
-     466     /usr/local/lib/xemacs-19.13/lisp/oobr
-     14142   /usr/local/lib/xemacs-19.13/lisp
-
-     These are all Emacs Lisp source code and bytecompiled object code.
-     You may safely gzip everything named *.el here.  You may remove
-     any package you don't use.  _Nothing bad will happen if you delete
-     a package that you do not use_.  You must be sure you do not use
-     it though, so be conservative at first.
-
-     Possible candidates for deletion include w3 (newer versions exist,
-     or you may just use Lynx or Netscape for web browsing), games,
-     hyperbole, mh-e, hm-html-menus (better packages exist), vm, viper,
-     oobr, gnus (new versions exist), etc.  Ask yourself, _Do I ever
-     want to use this package?_  If the answer is no, then it is a
-     candidate for removal.
-
-     First, gzip all the .el files.  Then go about package by package
-     and start gzipping the .elc files.  Then run XEmacs and do
-     whatever it is you normally do.  If nothing bad happens, then
-     delete the directory.  Be conservative about deleting directories,
-     and it would be handy to have a backup tape around in case you get
-     too zealous.
-
-     `prim', `modes', `packages', and `utils' are four directories you
-     definitely do *not* want to delete, although certain packages can
-     be removed from them if you do not use them.
-
-          1972    /usr/local/lib/xemacs-19.13/info
-
-     These are online texinfo sources.  You may either gzip them or
-     remove them.  In either case, `C-h i' (info mode) will no longer
-     work.
-
-          20778   /usr/local/lib/xemacs-19.13
-
-     The 20MB achieved is less than half of what the full distribution
-     takes up, *and* can be achieved without deleting a single file.
-
-   Giacomo Boffi <boffi@hp735.stru.polimi.it> provides this procedure:
-
-     Substitute `/usr/local/lib/' with the path where the xemacs tree is
-     rooted, then use this script:
-
-          #!/bin/sh
-          
-          r=/usr/local/lib/xemacs-19.13/lisp
-          
-          cd $r ; rm -f cmpr ; touch cmpr
-          
-          du -s .
-          
-          for d in * ; do
-            if test -d $d ; then
-              cd $d
-              for f in *.el ; do
-          #     compress (remove) only (ONLY) the sources that have a
-          #     corresponding compiled file --- do not (DO NOT)
-          #     touch other sources
-                if test -f ${f}c ; then gzip -v9 $f >> $r/cmpr ; fi
-              done
-              cd ..
-            fi
-          done
-          
-          du -s .
-
-     A step beyond would be substituting `rm -f' for `gzip -v9', but
-     you have to be desperate for removing the sources (remember that
-     emacs can access compressed files transparently).
-
-     Also, a good megabyte could easily be trimmed from the $r/../etc
-     directory, e.g., the termcap files, some O+NEWS, others that I
-     don't remember as well.
-
-     XEmacs 21.0 will unbundle the lisp hierarchy and allow the
-     installer to choose exactly how much support code gets installed.
-
-
-File: xemacs-faq.info,  Node: Q2.0.3,  Next: Q2.0.4,  Prev: Q2.0.2,  Up: Installation
-
-Q2.0.3: Compiling XEmacs with Netaudio.
----------------------------------------
-
-   What is the best way to compile XEmacs with the netaudio system,
-since I have got the netaudio system compiled but installed at a weird
-place, I am not root.  Also in the READMEs it does not say anything
-about compiling with the audioserver?
-
-   You should only need to add some stuff to the configure command line.
-To tell it to compile in netaudio support: `--with-sound=both', or
-`--with-sound=nas' if you don't want native sound support for some
-reason.) To tell it where to find the netaudio includes and libraries:
-
-     --site-libraries=WHATEVER
-     --site-includes=WHATEVER
-
-   Then (fingers crossed) it should compile and it will use netaudio if
-you have a server running corresponding to the X server. The netaudio
-server has to be there when XEmacs starts. If the netaudio server goes
-away and another is run, XEmacs should cope (fingers crossed, error
-handling in netaudio isn't perfect).
-
-   BTW, netaudio has been renamed as it has a name clash with something
-else, so if you see references to NAS or Network Audio System, it's the
-same thing.  It also might be found at
-`ftp://ftp.x.org/contrib/audio/nas/'.
-
-
-File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
-
-Q2.0.4: Problems with Linux and ncurses.
-----------------------------------------
-
-   On Linux 1.3.98 with termcap 2.0.8 and the ncurses that came with
-libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
-
-     src/xemacs -nw -q
-     Initialization error:
-     Terminal type `xterm' undefined (or can't access database?)
-
-   Ben Wing <ben@xemacs.org> writes:
-
-     Your ncurses configuration is messed up.  Your /usr/lib/terminfo
-     is a bad pointer, perhaps to a CD-ROM that is not inserted.
-
-
 File: xemacs-faq.info,  Node: Q2.0.5,  Next: Q2.0.6,  Prev: Q2.0.4,  Up: Installation
 
 Q2.0.5: Do I need X11 to run XEmacs?
 ------------------------------------
 
    No.  The name "XEmacs" is unfortunate in the sense that it is *not*
-an X Window System-only version of Emacs.  Starting with 19.14 XEmacs
-has full color support on a color-capable character terminal.
+an X Window System-only version of Emacs.  XEmacs has full color
+support on a color-capable character terminal.
 
 
 File: xemacs-faq.info,  Node: Q2.0.6,  Next: Q2.0.7,  Prev: Q2.0.5,  Up: Installation
@@ -1247,4 +1031,276 @@ work!  Is there a reason for this?  If you do it at the EVAL prompt it
 works fine!! How strange.
 
    Use `setq-default' instead, since `tab-width' is all-buffer-local.
+
+
+File: xemacs-faq.info,  Node: Q3.0.4,  Next: Q3.0.5,  Prev: Q3.0.3,  Up: Customization
+
+Q3.0.4: How can I add directories to the `load-path'?
+-----------------------------------------------------
+
+   Here are two ways to do that, one that puts your directories at the
+front of the load-path, the other at the end:
+
+     ;;; Add things at the beginning of the load-path, do not add
+     ;;; duplicate directories:
+     (pushnew "bar" load-path :test 'equal)
+     
+     (pushnew "foo" load-path :test 'equal)
+     
+     ;;; Add things at the end, unconditionally
+     (setq load-path (nconc load-path '("foo" "bar")))
+
+   keith (k.p.) hanlan <keithh@nortel.ca> writes:
+
+     To add directories using Unix shell metacharacters use
+     `expand-file-name' like this:
+
+          (push (expand-file-name "~keithh/.emacsdir") load-path)
+
+
+File: xemacs-faq.info,  Node: Q3.0.5,  Next: Q3.0.6,  Prev: Q3.0.4,  Up: Customization
+
+Q3.0.5: How to check if a lisp function is defined?
+---------------------------------------------------
+
+   Use the following elisp:
+
+     (fboundp 'foo)
+
+   It's almost always a mistake to test `emacs-version' or any similar
+variables.
+
+   Instead, use feature-tests, such as `featurep', `boundp', `fboundp',
+or even simple behavioral tests, eg.:
+
+     (defvar foo-old-losing-code-p
+       (condition-case nil (progn (losing-code t) nil)
+         (wrong-number-of-arguments t)))
+
+   There is an incredible amount of broken code out there which could
+work much better more often in more places if it did the above instead
+of trying to divine its environment from the value of one variable.
+
+
+File: xemacs-faq.info,  Node: Q3.0.6,  Next: Q3.0.7,  Prev: Q3.0.5,  Up: Customization
+
+Q3.0.6: Can I force the output of `(face-list)' to a buffer?
+------------------------------------------------------------
+
+   It would be good having it in a buffer, as the output of
+`(face-list)' is too wide to fit to a minibuffer.
+
+   Evaluate the expression in the `*scratch*' buffer with point after
+the rightmost paren and typing `C-j'.
+
+   If the minibuffer smallness is the only problem you encounter, you
+can simply press `C-h l' to get the former minibuffer contents in a
+buffer.
+
+
+File: xemacs-faq.info,  Node: Q3.0.7,  Next: Q3.0.8,  Prev: Q3.0.6,  Up: Customization
+
+Q3.0.7: Font selections in don't get saved after `Save Options'.
+----------------------------------------------------------------
+
+   For XEmacs 19.14 and previous:
+
+   John Mann <mannj@ll.mit.edu> writes:
+
+     You have to go to Options->Frame Appearance and unselect
+     `Frame-Local Font Menu'.  If this option is selected, font changes
+     are only applied to the _current_ frame and do _not_ get saved
+     when you save options.
+
+   For XEmacs 19.15 and later:
+
+   Implement the above as well as set the following in your `.emacs'
+
+     (setq options-save-faces t)
+
+
+File: xemacs-faq.info,  Node: Q3.0.8,  Next: Q3.0.9,  Prev: Q3.0.7,  Up: Customization
+
+Q3.0.8: How do I get a single minibuffer frame?
+-----------------------------------------------
+
+   Vin Shelton <acs@acm.org> writes:
+
+     (setq initial-frame-plist '(minibuffer nil))
+     (setq default-frame-plist '(minibuffer nil))
+     (setq default-minibuffer-frame
+           (make-frame
+            '(minibuffer only
+                         width 86
+                         height 1
+                         menubar-visible-p nil
+                         default-toolbar-visible-p nil
+                         name "minibuffer"
+                         top -2
+                         left -2
+                         has-modeline-p nil)))
+     (frame-notice-user-settings)
+
+   *Please note:* The single minibuffer frame may not be to everyone's
+taste, and there any number of other XEmacs options settings that may
+make it difficult or inconvenient to use.
+
+
+File: xemacs-faq.info,  Node: Q3.0.9,  Next: Q3.1.1,  Prev: Q3.0.8,  Up: Customization
+
+Q3.0.9: What is `Customize'?
+----------------------------
+
+   Starting with XEmacs 20.2 there is new system 'Customize' for
+customizing XEmacs options.
+
+   You can access `Customize' from the `Options' menu or invoking one
+of customize commands by typing eg.  `M-x customize', `M-x
+customize-face', `M-x customize-variable' or `M-x customize-apropos'.
+
+   Starting with XEmacs 20.3 there is also new `browser' mode for
+Customize.  Try it out with `M-x customize-browse'
+
+
+File: xemacs-faq.info,  Node: Q3.1.1,  Next: Q3.1.2,  Prev: Q3.0.9,  Up: Customization
+
+3.1: X Window System & Resources
+================================
+
+Q3.1.1: Where is a list of X resources?
+---------------------------------------
+
+   Search through the `NEWS' file for `X Resources'.  A fairly
+comprehensive list is given after it.
+
+   In addition, an `app-defaults' file is supplied, `etc/Emacs.ad'
+listing the defaults.  The file `etc/sample.Xdefaults' gives a set of
+defaults that you might consider.  It is essentially the same as
+`etc/Emacs.ad' but some entries are slightly altered.  Be careful about
+installing the contents of this file into your `.Xdefaults' or
+`.Xresources' file if you use GNU Emacs under X11 as well.
+
+
+File: xemacs-faq.info,  Node: Q3.1.2,  Next: Q3.1.3,  Prev: Q3.1.1,  Up: Customization
+
+Q3.1.2: How can I detect a color display?
+-----------------------------------------
+
+   You can test the return value of the function `(device-class)', as
+in:
+
+     (when (eq (device-class) 'color)
+       (set-face-foreground  'font-lock-comment-face "Grey")
+       (set-face-foreground  'font-lock-string-face  "Red")
+       ....
+       )
+
+
+File: xemacs-faq.info,  Node: Q3.1.3,  Next: Q3.1.4,  Prev: Q3.1.2,  Up: Customization
+
+Q3.1.3: [This question intentionally left blank]
+------------------------------------------------
+
+
+File: xemacs-faq.info,  Node: Q3.1.4,  Next: Q3.1.5,  Prev: Q3.1.3,  Up: Customization
+
+Q3.1.4: [This question intentionally left blank]
+------------------------------------------------
+
+
+File: xemacs-faq.info,  Node: Q3.1.5,  Next: Q3.1.6,  Prev: Q3.1.4,  Up: Customization
+
+Q3.1.5: How can I get the icon to just say `XEmacs'?
+----------------------------------------------------
+
+   I'd like the icon to just say `XEmacs', and not include the name of
+the current file in it.
+
+   Add the following line to your `.emacs':
+
+     (setq frame-icon-title-format "XEmacs")
+
+
+File: xemacs-faq.info,  Node: Q3.1.6,  Next: Q3.1.7,  Prev: Q3.1.5,  Up: Customization
+
+Q3.1.6: How can I have the window title area display the full path?
+-------------------------------------------------------------------
+
+   I'd like to have the window title area display the full
+directory/name of the current buffer file and not just the name.
+
+   Add the following line to your `.emacs':
+
+     (setq frame-title-format "%S: %f")
+
+   A more sophisticated title might be:
+
+     (setq frame-title-format
+           '("%S: " (buffer-file-name "%f"
+                                      (dired-directory dired-directory "%b"))))
+
+   That is, use the file name, or the dired-directory, or the buffer
+name.
+
+
+File: xemacs-faq.info,  Node: Q3.1.7,  Next: Q3.1.8,  Prev: Q3.1.6,  Up: Customization
+
+Q3.1.7: `xemacs -name junk' doesn't work?
+-----------------------------------------
+
+   When I run `xterm -name junk', I get an xterm whose class name
+according to xprop, is `junk'.  This is the way it's supposed to work,
+I think.  When I run `xemacs -name junk' the class name is not set to
+`junk'.  It's still `emacs'.  What does `xemacs -name' really do?  The
+reason I ask is that my window manager (fvwm) will make a window sticky
+and I use XEmacs to read my mail.  I want that XEmacs window to be
+sticky, without having to use the window manager's function to set the
+window sticky.  What gives?
+
+   `xemacs -name' sets the application name for the program (that is,
+the thing which normally comes from `argv[0]').  Using `-name' is the
+same as making a copy of the executable with that new name.  The
+`WM_CLASS' property on each frame is set to the frame-name, and the
+application-class.  So, if you did `xemacs -name FOO' and then created
+a frame named BAR, you'd get an X window with WM_CLASS = `( "BAR",
+"Emacs")'.  However, the resource hierarchy for this widget would be:
+
+     Name:    FOO   .shell             .container   .BAR
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   instead of the default
+
+     Name:    xemacs.shell             .container   .emacs
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   It is arguable that the first element of WM_CLASS should be set to
+the application-name instead of the frame-name, but I think that's less
+flexible, since it does not give you the ability to have multiple frames
+with different WM_CLASS properties.  Another possibility would be for
+the default frame name to come from the application name instead of
+simply being `emacs'.  However, at this point, making that change would
+be troublesome: it would mean that many users would have to make yet
+another change to their resource files (since the default frame name
+would suddenly change from `emacs' to `xemacs', or whatever the
+executable happened to be named), so we'd rather avoid it.
+
+   To make a frame with a particular name use:
+
+     (make-frame '((name . "the-name")))
+
+
+File: xemacs-faq.info,  Node: Q3.1.8,  Next: Q3.2.1,  Prev: Q3.1.7,  Up: Customization
+
+Q3.1.8: `-iconic' doesn't work.
+-------------------------------
+
+   When I start up XEmacs using `-iconic' it doesn't work right.  Using
+`-unmapped' on the command line, and setting the `initiallyUnmapped' X
+Resource don't seem to help much either...
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     Ugh, this stuff is such an incredible mess that I've about given up
+     getting it to work.  The principal problem is numerous
+     window-manager bugs...
 

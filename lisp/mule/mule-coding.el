@@ -188,4 +188,6 @@
 (set-coding-category-system 'iso-lock-shift 'iso-2022-lock)
 (set-coding-category-system 'no-conversion 'no-conversion)
 
+(setq-default buffer-file-coding-system 'iso-2022-8)
+
 ;;; mule-coding.el ends here

@@ -1,3 +1,26 @@
+to 21.2.36 "Notus"
+-- Fix build problems on AIX 4.3 -- Martin Buchholz
+-- Fix build problems on HP-UX 10.20 -- Alexandre Oliva and Martin Buchholz
+-- Fix build problems on SunOS 4.1.4 -- Martin Buchholz
+-- Fix build problems on IA64/Linux -- Martin Buchholz
+-- Fix build problems on Alpha/Linux -- Steve Baur
+-- Fix build problems on Unixware -- Martin Buchholz
+-- Support pty input lines longer than 512 bytes on HP-UX 10.20. -- Martin Buchholz
+-- `equal' of hash tables is now the same as `eq'. -- Martin Buchholz
+-- ucs fixes - Daiki Ueno
+-- Lots of little doc fixes. -- Martin Buchholz
+-- Process-signaling code rewritten -- Martin Buchholz
+-- pty allocation code rewritten -- Martin Buchholz
+-- The byte compiler generates more efficient code -- Martin Buchholz
+-- build-report fixes -- Adrian Aichner
+-- next-window/next-frame functions rewritten -- Martin Buchholz
+-- Windows fixes -- Jonathan Harris
+-- Multiple info buffer support -- Golubev I. N.
+-- regex crash fixes -- Yoshiki Hayashi
+-- Widget/windows fixes -- Andy Piper
+-- structured lisp errors -- Ben Wing
+-- allow modules to define their own lisp object types -- Andrew Begel
+
 to 21.2.35 "Nike"
 -- You now again build XEmacs in a directory containing a predefined
    CPP symbol -- Martin Buchholz
@@ -29,7 +52,7 @@ to 21.2.34 "Molpe"
 to 21.2.33 "Melpomene"
 -- Yet more progress gauge and gutter redisplay fixes from Andy Piper
 -- glyph error checking from Andy Piper
--- Proper implementation of string glyps makes them Mule safe (IKEYAMA Tomonori)
+-- Proper implementation of string glyphs makes them Mule safe (IKEYAMA Tomonori)
 -- Bug fixes from the usual suspects
 -- --with-clash-detection now defaults to `yes', at least for betas.
 -- Autoconf support for detecting how to #include header files
@@ -50,7 +73,7 @@ to 21.2.32 "Kastor & Polydeukes"
 -- Internal Postgres RDBMS support from Steve Baur
 -- Improve gutter useability
 -- Fix window geometry with gutters
--- Fix async updates so that they only occur when neccessary
+-- Fix async updates so that they only occur when necessary
 -- Gutter documentation from Stephen Turnbull
 -- redisplay-gutter-area fixes from Andy Piper
 -- pdump file in MS-Windows executable from Mike Alexander
@@ -62,7 +85,7 @@ to 21.2.31 "Iris"
 -- Make XEmacs work on Windows again.
 
 to 21.2.30 "Hygeia"
--- Make (find-tag-other-window) always use other window, 
+-- Make (find-tag-other-window) always use other window,
    even if tag is found in buffer of current window, Samuel Mikes
 -- Make configure complain about broken compiler versions (Jan Vroonhof, Yoshiki Hayashi, Bill Perry)
 -- `write-region' now deals properly with non-ASCII file names, Martin Buchholz
@@ -77,7 +100,7 @@ to 21.2.30 "Hygeia"
 
 to 21.2.29 "Hestia"
 -- Fix compile errors on pre-X11R6 systems, introduced in 21.2.28.
--- Fix autodetection of Berkeley DB on Linux Glibc 2 systems.  
+-- Fix autodetection of Berkeley DB on Linux Glibc 2 systems.
    (but more work needed)
 -- Allow non-symbols (anything compared with `eq') in object plists.
 -- Cleanup of property frobbing code.

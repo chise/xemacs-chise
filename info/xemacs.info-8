@@ -30,6 +30,75 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Variables for Check-in/out,  Next: Log Entries,  Prev: Editing with VC,  Up: Version Control
+
+Variables Affecting Check-in and Check-out
+------------------------------------------
+
+   If `vc-suppress-confirm' is non-`nil', then `C-x C-q' and `C-x v i'
+can save the current buffer without asking, and `C-x v u' also operates
+without asking for confirmation.  (This variable does not affect `C-x v
+c'; that is so drastic that it should always ask for confirmation.)
+
+   VC mode does much of its work by running the shell commands for RCS
+and SCCS.  If `vc-command-messages' is non-`nil', VC displays messages
+to indicate which shell commands it runs, and additional messages when
+the commands finish.
+
+   Normally, VC assumes that it can deduce the locked/unlocked state of
+files by looking at the file permissions of the work file; this is
+fast.  However, if the `RCS' or `SCCS' subdirectory is actually a
+symbolic link, then VC does not trust the file permissions to reflect
+this status.
+
+   You can specify the criterion for whether to trust the file
+permissions by setting the variable `vc-mistrust-permissions'.  Its
+value may be `t' (always mistrust the file permissions and check the
+master file), `nil' (always trust the file permissions), or a function
+of one argument which makes the decision.  The argument is the directory
+name of the `RCS' or `SCCS' subdirectory.  A non-`nil' value from the
+function says to mistrust the file permissions.
+
+   If you find that the file permissions of work files are changed
+erroneously, set `vc-mistrust-permissions' to `t'.  Then VC always
+checks the master file to determine the file's status.
+
+   You can specify additional directories to search for version control
+programs by setting the variable `vc-path'.  These directories are
+searched before the usual search path.  The proper result usually
+happens automatically.
+
+
+File: xemacs.info,  Node: Log Entries,  Next: Change Logs and VC,  Prev: Variables for Check-in/out,  Up: Version Control
+
+Log Entries
+-----------
+
+   When you're editing an initial comment or log entry for inclusion in
+a master file, finish your entry by typing `C-c C-c'.
+
+`C-c C-c'
+     Finish the comment edit normally (`vc-finish-logentry').  This
+     finishes check-in.
+
+   To abort check-in, just don't type `C-c C-c' in that buffer.  You
+can switch buffers and do other editing.  As long as you don't try to
+check in another file, the entry you were editing remains in its
+buffer, and you can go back to that buffer at any time to complete the
+check-in.
+
+   If you change several source files for the same reason, it is often
+convenient to specify the same log entry for many of the files.  To do
+this, use the history of previous log entries.  The commands `M-n',
+`M-p', `M-s' and `M-r' for doing this work just like the minibuffer
+history commands (except that these versions are used outside the
+minibuffer).
+
+   Each time you check in a file, the log entry buffer is put into VC
+Log mode, which involves running two hooks: `text-mode-hook' and
+`vc-log-mode-hook'.
+
+
 File: xemacs.info,  Node: Change Logs and VC,  Next: Old Versions,  Prev: Log Entries,  Up: Version Control
 
 Change Logs and VC
@@ -1088,102 +1157,4 @@ Display::.
 supplying a REGISTER argument to `window-configuration-to-register'
 (`C-x 6'). To return to the window configuration established with
 `window-configuration-to-register', use `jump-to-register' (`C-x j').
-
-
-File: xemacs.info,  Node: Other Window,  Next: Pop Up Window,  Prev: Split Window,  Up: Windows
-
-Using Other Windows
-===================
-
-`C-x o'
-     Select another window (`other-window').  That is the letter `o',
-     not zero.
-
-`M-C-v'
-     Scroll the next window (`scroll-other-window').
-
-`M-x compare-windows'
-     Find the next place where the text in the selected window does not
-     match the text in the next window.
-
-`M-x other-window-any-frame N'
-     Select the Nth different window on any frame.
-
-   To select a different window, use `C-x o' (`other-window').  That is
-an `o', for `other', not a zero.  When there are more than two windows,
-the command moves through all the windows in a cyclic order, generally
-top to bottom and left to right.  From the rightmost and bottommost
-window, it goes back to the one at the upper left corner.  A numeric
-argument, N, moves several steps in the cyclic order of windows. A
-negative numeric argument moves around the cycle in the opposite order.
-If the optional second argument ALL-FRAMES is non-`nil', the function
-cycles through all frames.  When the minibuffer is active, the
-minibuffer is the last window in the cycle; you can switch from the
-minibuffer window to one of the other windows, and later switch back
-and finish supplying the minibuffer argument that is requested.  *Note
-Minibuffer Edit::.
-
-   The command `M-x other-window-any-frame' also selects the window N
-steps away in the cyclic order.  However, unlike `other-window', this
-command selects a window on the next or previous frame instead of
-wrapping around to the top or bottom of the current frame, when there
-are no more windows.
-
-   The usual scrolling commands (*note Display::) apply to the selected
-window only.  `M-C-v' (`scroll-other-window') scrolls the window that
-`C-x o' would select.  Like `C-v', it takes positive and negative
-arguments.
-
-   The command `M-x compare-windows' compares the text in the current
-window with the text in the next window.  Comparison starts at point in
-each window.  Point moves forward in each window, a character at a time,
-until the next set of characters in the two windows are different.
-Then the command is finished.
-
-   A prefix argument IGNORE-WHITESPACE means ignore changes in
-whitespace.  The variable `compare-windows-whitespace' controls how
-whitespace is skipped.
-
-   If `compare-ignore-case' is non-`nil', changes in case are also
-ignored.
-
-
-File: xemacs.info,  Node: Pop Up Window,  Next: Change Window,  Prev: Other Window,  Up: Windows
-
-Displaying in Another Window
-============================
-
-   `C-x 4' is a prefix key for commands that select another window
-(splitting the window if there is only one) and select a buffer in that
-window.  Different `C-x 4' commands have different ways of finding the
-buffer to select.
-
-`C-x 4 b BUFNAME <RET>'
-     Select buffer BUFNAME in another window.  This runs
-     `switch-to-buffer-other-window'.
-
-`C-x 4 f FILENAME <RET>'
-     Visit file FILENAME and select its buffer in another window.  This
-     runs `find-file-other-window'.  *Note Visiting::.
-
-`C-x 4 d DIRECTORY <RET>'
-     Select a Dired buffer for directory DIRECTORY in another window.
-     This runs `dired-other-window'.  *Note Dired::.
-
-`C-x 4 m'
-     Start composing a mail message in another window.  This runs
-     `mail-other-window', and its same-window version is `C-x m' (*note
-     Sending Mail::).
-
-`C-x 4 .'
-     Find a tag in the current tag table in another window.  This runs
-     `find-tag-other-window', the multiple-window variant of `M-.'
-     (*note Tags::).
-
-   If the variable `display-buffer-function' is non-`nil', its value is
-the function to call to handle `display-buffer'. It receives two
-arguments, the buffer and a flag that if non-`nil' means that the
-currently selected window is not acceptable. Commands such as
-`switch-to-buffer-other-window' and `find-file-other-window' work using
-this function.
 

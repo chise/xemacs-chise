@@ -1030,7 +1030,7 @@ complete absence of warranty for XEmacs.  `C-h n' (`view-emacs-news')
 displays the file `xemacs/etc/NEWS', which contains documentation on
 XEmacs changes arranged chronologically.  `C-h F' (`xemacs-local-faq')
 displays local version of the XEmacs
-frequentliy-answered-questions-list.  `C-h t' (`help-with-tutorial')
+frequently-answered-questions-list.  `C-h t' (`help-with-tutorial')
 displays the learn-by-doing XEmacs tutorial. `C-h C-c'
 (`describe-copying') displays the file `xemacs/etc/COPYING', which
 tells you the conditions you must obey in distributing copies of

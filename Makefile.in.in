@@ -283,13 +283,14 @@ ${srcdir}/configure : ${srcdir}/configure.in
 ${srcdir}/lib-src/config.values.in : ${srcdir}/configure
 	cd ${srcdir} && $(SHELL) lib-src/config.values.sh
 
-depend ${srcdir}/src/depend :
-	cd ${srcdir}/src && $(RECURSIVE_MAKE) depend
+depend ${srcdir}/src/depend:
+	cd ./src && $(RECURSIVE_MAKE) depend
 
 ## Build XEmacs and recompile out-of-date and missing .elc files along
 ## the way.
 all-elc all-elcs: lib-src lwlib dump-elcs src
-	MAKE='$(MAKE)' EMACS='./src/$(PROGNAME)' $(SHELL) ${srcdir}/lib-src/update-elc.sh
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l update-elc-2.el -f batch-update-elc-2 lisp
 
 ## Sub-target for all-elc.
 dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs

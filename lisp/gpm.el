@@ -72,7 +72,7 @@ With prefix arg, turn GPM mouse mode on if and only if arg is positive."
 			   (device-console device))))
       (turn-off-gpm-mouse-tracking device)))
 
-;; Restore normal mouse behaviour outside Emacs
+;; Restore normal mouse behavior outside Emacs
 
 (add-hook 'suspend-hook 'turn-off-gpm-mouse-tracking)
 (add-hook 'suspend-resume-hook 'turn-on-gpm-mouse-tracking)

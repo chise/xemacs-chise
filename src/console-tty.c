@@ -130,8 +130,8 @@ tty_init_console (struct console *con, Lisp_Object props)
   if (NILP (CONSOLE_NAME (con)))
     CONSOLE_NAME (con) = Ffile_name_nondirectory (tty);
   {
-    int tty_pg;
-    int controlling_tty_pg;
+    pid_t tty_pg;
+    pid_t controlling_tty_pg;
     int cfd;
 
     /* OK, the only sure-fire way I can think of to determine

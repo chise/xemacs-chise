@@ -40,7 +40,9 @@ Boston, MA 02111-1307, USA.  */
  *
  ***********************************************************************/
 
-#define streq(a, b) ( strcmp((a), (b)) == 0 )
+/* Already in Xaw/ToggleP.h, and not used by us.
+  #define streq(a, b) ( strcmp((a), (b)) == 0 )
+*/
 
 typedef void (*XawDiamondProc) (Widget);
 

@@ -1,13 +1,17 @@
-Building and Installing XEmacs on Windows 95/98/NT        -*- mode:outline -*-
+Building and Installing XEmacs on Windows 95/98/NT/2000    -*- mode:outline -*-
 
 			     David Hobley
 			     Marc Paquette
 			    Jonathan Harris
 			       Ben Wing
 
-This is a port of XEmacs to Windows 95/98/NT.  If you are looking for a port
-of GNU Emacs, see http://www.cs.washington.edu/homes/voelker/ntemacs.html.
-
+This is a port of XEmacs to Windows 95/98/NT/2000.  If you are looking for a
+port of GNU Emacs, see http://www.cs.washington.edu/homes/voelker/ntemacs.html.
+NT 3.51 or later is required for building on Windows NT.  Note that the
+developers typically use NT 4.0 and Windows 2000, and there may possibly be
+problems under Windows 95/98 and NT 3.51.  If so, please report them to
+xemacs-nt@xemacs.org; we are committed to maintaining compatibility with all
+systems listed.
 
 * Required tools and sources
 ============================
@@ -20,31 +24,42 @@ of GNU Emacs, see http://www.cs.washington.edu/homes/voelker/ntemacs.html.
     Your PATH environment variable also needs to include the DevStudio
     vc\bin and sharedide\bin directories.
 
-    Visual C++ V5.0 installs a batch file called vcvars32.bat in
+    Visual C++ V5.0 and later install a batch file called vcvars32.bat in
     c:\Program Files\DevStudio\VC\bin\ (or wherever you installed it) that you
     can run before building to set up all of these environment variables.
+    Alternatively, you can choose at setup time to have these
+    environment variables automatically set up in the registry, which
+    is generally a good idea.
+
 
 2.  Grab the latest XEmacs source from
 
       ftp://ftp.xemacs.org/pub/xemacs/
 
-    or one of its mirrors listed at http://www.xemacs.org/Download/index.html .
+    or one of its mirrors listed at http://www.xemacs.org/Download/index.html.
+
+    (NOTE: If you are behind a firewall and have problems with FTP access,
+    the URL http://ftp.xemacs.org/pub/xemacs/ works just as well.)
 
     You'll also need the packages.  You probably want to get the unified
     packages bundle from
 
       ftp://ftp.xemacs.org/pub/xemacs/packages/xemacs-sumo.tar.gz
 
+    If you are building with international support, you also need
+
+      ftp://ftp.xemacs.org/pub/xemacs/packages/xemacs-mule-sumo.tar.gz
+
     Although we don't recommend it, you can also retrieve just the packages
     you really need if you have an extremely slow net connection or are very
     short on disk space.  You can find the various packages in
-    ftp://ftp.xemacs.org/pub/xemacs/packages/.  You will need the
-    xemacs-base package.  You'll also need the texinfo package unless you
-    have a copy of makeinfo.exe on your machine.  If you want to download
-    additional or updated packages from within XEmacs you'll need the efs,
-    dired and vm packages.  You'll probably also want at least the
-    edit-utils, text-modes, fsf-compat, cc-mode, prog-modes and xemacs-devel
-    packages.
+    ftp://ftp.xemacs.org/pub/xemacs/packages/.  You will need the xemacs-base
+    package (and mule-base, if building with international support).  You'll
+    also need the texinfo package unless you have a copy of makeinfo.exe on
+    your machine.  If you want to download additional or updated packages
+    from within XEmacs you'll need the efs, dired and vm packages.  You'll
+    probably also want at least the edit-utils, text-modes, fsf-compat,
+    cc-mode, prog-modes and xemacs-devel packages.
 
     Unpack the packages into "x:\your\choice\XEmacs\xemacs-packages",
     for example "c:\Program Files\XEmacs\xemacs-packages".
@@ -56,12 +71,34 @@ of GNU Emacs, see http://www.cs.washington.edu/homes/voelker/ntemacs.html.
 
 ** Extra tools and sources required for X
 
+NOTE: XEmacs has not been tested with X support under the native
+Windows build for a long, long time!  It may not even compile any
+more.  If you are interested in X support, you're better off compiling
+the Cygwin version of XEmacs, which can handle both Win32 native and X
+frames (in the same binary, in fact, but not at the same time), and is
+actively tested with X support.
+
 If you want support for X you will also need:
 
-1.  An X server. MI/X is available on the Internet as trialware; it is 
-    available from: http://www.microimages.com/www/html/mix/
+1.  An X server.  XEmacs has been tested and runs well under MI/X,
+    available from: http://www.microimages.com/mix/. (International aka
+    "Mule" support even works under this X server!) Unfortunately, this is
+    not free, but is trialware; you have to pay $25 if you want to use it
+    for more than 15 days.  XEmacs also runs (barely) under the free XWin
+    server that comes as part of the Cygwin XFree86 package, available at
 
-2.  Source for the MIT X11R6.3 libraries, available from: ftp.x.org
+    ftp://sources.redhat.com/pub/cygwin/xfree/
+
+    or numerous mirrors, such as
+
+    ftp://ftp.freesoftware.com/pub/sourceware/cygwin/xfree/
+
+    There are numerous other X servers available in the same package or at
+    the same location, but unfortunately most of them behave even worse
+    than XWin.  If you have any luck with any of these, *PLEASE* email
+    the maintainers at xemacs-nt@xemacs.org, and we'll add the info here.
+
+2.  Source for the MIT X11R6.3 libraries, available from ftp.x.org.
 
 3.  You'll need to compile the MIT libraries without multi-thread support.
     To do this, there is an example Win32.cf and site.def provided which set
@@ -121,6 +158,15 @@ If you want support for X you will also need:
     config.inc.samp to config.inc.  Make any necessary modifications.  This
     file controls the options that XEmacs is built with:
 
+    -- If you want international (aka "Mule") support, modify the appropriate
+       line in config.inc as follows:
+
+       HAVE_MULE=1
+
+       NOTE: This support is still quite raw under the Win32 native GUI,
+       but works well if you compile the Cygwin version with X support
+       and disable native Win32 support (--with-msw=no).
+    
     -- If you're building with XPM support, modify the appropriate lines in
        config.inc as follows:
 
@@ -182,7 +228,7 @@ If you want support for X you will also need:
     (By default, XEmacs will be installed in directories under the directory
     "c:\Program Files\XEmacs\XEmacs-21.2".)
 
-2.  If you want to build xemacs on the command line, use
+3.  If you want to build xemacs on the command line, use
     `nmake install -f xemacs.mak', or just `nmake -f xemacs.mak' if you want
     to run XEmacs from its build directory.  nmake will build temacs, the DOC
     file, update the elc's, dump xemacs and (optionally) install the relevant
@@ -198,14 +244,15 @@ If you want support for X you will also need:
     You may want to create a shortcut to the file from your Desktop or
     Start Menu.
 
-3.  To build using MS Developer Studio, you can use the workspace file
-    `nt/xemacs.dsw'.  This was prepared for Visual C++ 5.0; if you have
-    a different version and this file doesn't work, just open up
-    `nt/xemacs.mak' from within MS Developer Studio and it will offer to
-    wrap this Makefile in a workspace file, from which you can build.
-    Assuming you want to run from the build directory (which you will
-    want to do if you are planning on doing any development work on XEmacs),
-    use the following settings in Project/Settings...:
+4.  To build using MS Developer Studio, you can use the workspace file
+    `nt/xemacs.dsw'.  This was prepared for Visual C++ 6.0.  If you are using
+    Visual C++ 5.0, you can use the workspace file `nt/xemacs-vc50.dsw'.  If
+    you have a different version and neither file works, just open up
+    `nt/xemacs.mak' from within MS Developer Studio and it will offer to wrap
+    this Makefile in a workspace file, from which you can build.  Assuming
+    you want to run from the build directory (which you will want to do if
+    you are planning on doing any development work on XEmacs), use the
+    following settings in Project/Settings...:
 
     Under the General tab:
 
@@ -255,10 +302,17 @@ assistance we can:
 The XEmacs NT Mailing List: xemacs-nt@xemacs.org
 Subscribe address:          xemacs-nt-request@xemacs.org
 
-David Hobley
-Marc Paquette
-August Hill
-Jonathan Harris
-Ben Wing
+Ben Wing (current primary MS Windows maintainer; author of the MS Windows
+          Mule code and some of the dialog box code)
+Andy Piper (MS Windows contributor; author of the Cygwin support and the
+            MS Windows glyph and widget code)
+Jonathan Harris (MS Windows contributor; author of the MS Windows redisplay
+                 and underlying GUI code)
+Kirill Katsnelson (MS Windows contributor; author of the MS Windows process
+                   and printing code and some of the dialog box code;
+                   general guru on obscure MS Windows programming topics)
+David Hobley (early MS Windows contributor)
+Marc Paquette (early MS Windows contributor)
+August Hill (early MS Windows contributor)
 
 and others.

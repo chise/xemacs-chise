@@ -1,6 +1,7 @@
 /* Implements an elisp-programmable menubar -- X interface.
    Copyright (C) 1993, 1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
+   Copyright (C) 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -20,6 +21,8 @@ the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
+
+/* This file Mule-ized by Ben Wing, 7-8-00. */
 
 /* Authorship:
 
@@ -102,7 +105,6 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
   /* This function cannot GC.
      It is only called from menu_item_descriptor_to_widget_value, which
      prohibits GC. */
-  /* !!#### This function has not been Mule-ized */
   int menubar_root_p = (menu_type == MENUBAR_TYPE && depth == 0);
   int count = specpdl_depth ();
   int partition_seen = 0;
@@ -113,21 +115,16 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 
   if (STRINGP (desc))
     {
-      char *string_chars = (char *) XSTRING_DATA (desc);
+      Bufbyte *string_chars = XSTRING_DATA (desc);
       wv->type = (separator_string_p (string_chars) ? SEPARATOR_TYPE :
 		  TEXT_TYPE);
-#if 1
-      /* #### - should internationalize with X resources instead.
-         Not so! --ben */
-      string_chars = GETTEXT (string_chars);
-#endif
       if (wv->type == SEPARATOR_TYPE)
 	{
-	  wv->value = menu_separator_style (string_chars);
+	  wv->value = menu_separator_style_and_to_external (string_chars);
 	}
       else
 	{
-	  wv->name = xstrdup (string_chars);
+	  LISP_STRING_TO_EXTERNAL_MALLOC (desc, wv->name, Qlwlib_encoding);
 	  wv->enabled = 1;
 	  /* dverna Dec. 98: command_builder_operate_menu_accelerator will
 	     manipulate the accel as a Lisp_Object if the widget has a name.
@@ -142,7 +139,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
       if (!button_item_to_widget_value (Qmenubar,
 					gui_item, wv, 1,
 					(menu_type == MENUBAR_TYPE
-					 && depth <= 1), 1))
+					 && depth <= 1), 1, 1))
 	{
 	  /* :included form was nil */
 	  wv = NULL;
@@ -164,10 +161,9 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	  int active_spec = 0;
 	  wv->type = CASCADE_TYPE;
 	  wv->enabled = 1;
-	  wv->name = (char *) XSTRING_DATA (LISP_GETTEXT (XCAR (desc)));
-	  wv->name = strdup_and_add_accel (wv->name);
+	  wv->name = add_accel_and_to_external (XCAR (desc));
 
-	  accel = gui_name_accelerator (LISP_GETTEXT (XCAR (desc)));
+	  accel = gui_name_accelerator (XCAR (desc));
 	  wv->accel = LISP_TO_VOID (accel);
 
 	  desc = Fcdr (desc);
@@ -177,8 +173,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      Lisp_Object cascade = desc;
 	      desc = Fcdr (desc);
 	      if (NILP (desc))
-		signal_simple_error ("Keyword in menu lacks a value",
-				     cascade);
+		syntax_error ("Keyword in menu lacks a value", cascade);
 	      val = Fcar (desc);
 	      desc = Fcdr (desc);
 	      if (EQ (key, Q_included))
@@ -195,14 +190,14 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		       || CHARP (val))
 		    wv->accel = LISP_TO_VOID (val);
 		  else
-		    signal_simple_error ("bad keyboard accelerator", val);
+		    syntax_error ("bad keyboard accelerator", val);
 		}
 	      else if (EQ (key, Q_label))
 		{
 		  /* implement in 21.2 */
 		}
 	      else
-		signal_simple_error ("Unknown menu cascade keyword", cascade);
+		syntax_error ("Unknown menu cascade keyword", cascade);
 	    }
 
 	  if ((!NILP (config_tag)
@@ -256,7 +251,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      title_wv->enabled = 1;
 	      title_wv->next = sep_wv;
 	      sep_wv->type = SEPARATOR_TYPE;
-	      sep_wv->value = menu_separator_style ("==");
+	      sep_wv->value = menu_separator_style_and_to_external ("==");
 	      sep_wv->next = 0;
 
 	      wv->contents = title_wv;
@@ -289,8 +284,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	}
       else
 	{
-	  signal_simple_error ("Menu name (first element) must be a string",
-                               desc);
+	  syntax_error ("Menu name (first element) must be a string", desc);
 	}
 
       if (deep_p || menubar_root_p)
@@ -302,8 +296,9 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      if (menubar_root_p && NILP (child))	/* the partition */
 		{
 		  if (partition_seen)
-		    error (
-			   "More than one partition (nil) in menubar description");
+		    syntax_error
+		      ("More than one partition (nil) in menubar description",
+		       desc);
 		  partition_seen = 1;
 		  next = xmalloc_widget_value ();
 		  next->type = PUSHRIGHT_TYPE;
@@ -326,9 +321,9 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	wv = NULL;
     }
   else if (NILP (desc))
-    error ("nil may not appear in menu descriptions");
+    syntax_error ("nil may not appear in menu descriptions", desc);
   else
-    signal_simple_error ("Unrecognized menu descriptor", desc);
+    syntax_error ("Unrecognized menu descriptor", desc);
 
  menu_item_done:
 

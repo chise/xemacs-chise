@@ -1066,7 +1066,6 @@ or wnn_kaikakko and the CDR contains the value.
 {
   int             rc;
   struct wnn_param	param;
-  Lisp_Object tail, key, val;
   int	snum;
 
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
@@ -1074,34 +1073,36 @@ or wnn_kaikakko and the CDR contains the value.
   rc = jl_param_get (wnnfns_buf[snum], &param);
   if (rc < 0) return Qnil;
 
-  EXTERNAL_PROPERTY_LIST_LOOP (tail, key, val, Vsetvalues_alist)
-    {
-      int setval;
-      CHECK_INT (val);
-      setval = XINT (val);
-      if (EQ (key, Qwnn_n)) param.n = setval;
-      else if (EQ (key, Qwnn_nsho)) param.nsho = setval;
-      else if (EQ (key, Qwnn_hindo)) param.p1 = setval;
-      else if (EQ (key, Qwnn_len)) param.p2 = setval;
-      else if (EQ (key, Qwnn_jiri)) param.p3 = setval;
-      else if (EQ (key, Qwnn_flag)) param.p4 = setval;
-      else if (EQ (key, Qwnn_jisho)) param.p5 = setval;
-      else if (EQ (key, Qwnn_sbn)) param.p6 = setval;
-      else if (EQ (key, Qwnn_dbn_len)) param.p7 = setval;
-      else if (EQ (key, Qwnn_sbn_cnt)) param.p8 = setval;
-      else if (EQ (key, Qwnn_suuji)) param.p9 = setval;
-      else if (EQ (key, Qwnn_kana)) param.p10 = setval;
-      else if (EQ (key, Qwnn_eisuu)) param.p11 = setval;
-      else if (EQ (key, Qwnn_kigou)) param.p12 = setval;
-      else if (EQ (key, Qwnn_toji_kakko)) param.p13 = setval;
-      else if (EQ (key, Qwnn_fuzokogo)) param.p14 = setval;
-      else if (EQ (key, Qwnn_kaikakko)) param.p15 = setval;
-      else
-        {
-	  signal_simple_error ("Invalid wnn keyword", key);
-	  return Qnil;
-	}
-    }
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, val, Vsetvalues_alist)
+      {
+	int setval;
+	CHECK_INT (val);
+	setval = XINT (val);
+	if (EQ (key, Qwnn_n)) param.n = setval;
+	else if (EQ (key, Qwnn_nsho)) param.nsho = setval;
+	else if (EQ (key, Qwnn_hindo)) param.p1 = setval;
+	else if (EQ (key, Qwnn_len)) param.p2 = setval;
+	else if (EQ (key, Qwnn_jiri)) param.p3 = setval;
+	else if (EQ (key, Qwnn_flag)) param.p4 = setval;
+	else if (EQ (key, Qwnn_jisho)) param.p5 = setval;
+	else if (EQ (key, Qwnn_sbn)) param.p6 = setval;
+	else if (EQ (key, Qwnn_dbn_len)) param.p7 = setval;
+	else if (EQ (key, Qwnn_sbn_cnt)) param.p8 = setval;
+	else if (EQ (key, Qwnn_suuji)) param.p9 = setval;
+	else if (EQ (key, Qwnn_kana)) param.p10 = setval;
+	else if (EQ (key, Qwnn_eisuu)) param.p11 = setval;
+	else if (EQ (key, Qwnn_kigou)) param.p12 = setval;
+	else if (EQ (key, Qwnn_toji_kakko)) param.p13 = setval;
+	else if (EQ (key, Qwnn_fuzokogo)) param.p14 = setval;
+	else if (EQ (key, Qwnn_kaikakko)) param.p15 = setval;
+	else
+	  {
+	    signal_simple_error ("Invalid wnn keyword", key);
+	    return Qnil;
+	  }
+      }
+  }
 
 #if 0
   printf("wnn_n = %d\n",param.n);

@@ -371,6 +371,10 @@ This removes %_'s (accelerator indications) and converts %% to %.
       INC_CHARPTR (name_data);
     }
 
+  if (string_result_ptr - string_result == XSTRING_LENGTH (name)
+      && !memcmp (string_result, XSTRING_DATA (name), XSTRING_LENGTH (name)))
+    return name;
+
   return make_string (string_result, string_result_ptr - string_result);
 }
 
@@ -559,13 +563,15 @@ The possible keywords are:
 		         :included (memq symbol menubar-configuration)
 	             See the variable `menubar-configuration'.
 
- :filter <function>  A menu filter can only be used in a menu item list.
-		     (i.e. not in a menu item itself).  It is used to
+ :filter <function>  A menu filter can only be used at the beginning of a
+                     submenu description (i.e. not in a menu item itself).
+		     (Remember that most of the keywords can take evaluated
+		     expressions as well as constants.)  The filter is used to
 		     incrementally create a submenu only when it is selected
                      by the user and not every time the menubar is activated.
                      The filter function is passed the list of menu items in
-                     the submenu and must return a list of menu items to be
-                     used for the menu.  It must not destructively modify
+                     the submenu and must return the modified list to be
+		     actually used.  The filter MUST NOT destructively modify
                      the list of menu items passed to it.  It is called only
 		     when the menu is about to be displayed, so other menus
 		     may already be displayed.  Vile and terrible things will
@@ -576,6 +582,7 @@ The possible keywords are:
 
  :key-sequence keys  Used in FSF Emacs as an hint to an equivalent keybinding.
                      Ignored by XEmacs for easymenu.el compatibility.
+		     (XEmacs computes this information automatically.)
 
 For example:
 

@@ -97,7 +97,6 @@
 
 #endif /* not __ELF__ */
 
-#define HAVE_GETLOADAVG
 /* #define NO_TERMIO */ /* detected in configure */
 #define DECLARE_GETPWUID_WITH_UID_T
 

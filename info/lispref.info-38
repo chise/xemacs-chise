@@ -1159,10 +1159,13 @@ which specifies the initial hash table contents.
      and specifies the load factor of the hash table which triggers
      enlarging.
 
-     Keyword `:weakness' can be `nil' (default), `t', `key' or `value'.
+     Non-standard keyword `:weakness' can be `nil' (default), `t',
+     `key-and-value', `key', `value' or `key-or-value'.  `t' is an
+     alias for `key-and-value'.
 
-     A weak hash table is one whose pointers do not count as GC
-     referents: for any key-value pair in the hash table, if the only
+     A key-and-value-weak hash table, also known as a fully-weak or
+     simply as a weak hash table, is one whose pointers do not count as
+     GC referents: for any key-value pair in the hash table, if the only
      remaining pointer to either the key or the value is in a weak hash
      table, then the pair will be removed from the hash table, and the
      key and value collected.  A non-weak hash table (or any other
@@ -1179,6 +1182,13 @@ which specifies the initial hash table contents.
      remains unmarked outside of weak hash tables.  The pair will
      remain in the hash table if the value is pointed to by something
      other than a weak hash table, even if the key is not.
+
+     A key-or-value-weak hash table is similar to a fully-weak hash
+     table except that a key-value pair will be removed only if the
+     value and the key remain unmarked outside of weak hash tables.
+     The pair will remain in the hash table if the value or key are
+     pointed to by something other than a weak hash table, even if the
+     other is not.
 
  - Function: copy-hash-table hash-table
      This function returns a new hash table which contains the same
@@ -1209,34 +1219,4 @@ which specifies the initial hash table contents.
  - Function: hash-table-weakness hash-table
      This function returns the weakness of HASH-TABLE.  This can be one
      of `nil', `t', `key' or `value'.
-
-
-File: lispref.info,  Node: Working With Hash Tables,  Next: Weak Hash Tables,  Prev: Introduction to Hash Tables,  Up: Hash Tables
-
-Working With Hash Tables
-========================
-
- - Function: puthash key value hash-table
-     This function hashes KEY to VALUE in HASH-TABLE.
-
- - Function: gethash key hash-table &optional default
-     This function finds the hash value for KEY in HASH-TABLE.  If
-     there is no entry for KEY in HASH-TABLE, DEFAULT is returned
-     (which in turn defaults to `nil').
-
- - Function: remhash key hash-table
-     This function removes the entry for KEY from HASH-TABLE.  Does
-     nothing if there is no entry for KEY in HASH-TABLE.
-
- - Function: clrhash hash-table
-     This function removes all entries from HASH-TABLE, leaving it
-     empty.
-
- - Function: maphash function hash-table
-     This function maps FUNCTION over entries in HASH-TABLE, calling it
-     with two args, each key and value in the hash table.
-
-     FUNCTION may not modify HASH-TABLE, with the one exception that
-     FUNCTION may remhash or puthash the entry currently being
-     processed by FUNCTION.
 

@@ -60,11 +60,6 @@ Boston, MA 02111-1307, USA.  */
 #undef MAIL_USE_SYSTEM_LOCK
 #define HAVE_MSW_C_DIRED
 
-/* Define NO_ARG_ARRAY if you cannot take the address of the first of a
- * group of arguments and treat it as an array of the arguments.  */
-
-#define NO_ARG_ARRAY
-
 /* System calls that are encapsulated */
 #define ENCAPSULATE_RENAME
 #define ENCAPSULATE_OPEN
@@ -73,13 +68,8 @@ Boston, MA 02111-1307, USA.  */
 #define ENCAPSULATE_STAT
 #define ENCAPSULATE_FSTAT
 
-/* Data type of load average, as read out of kmem.  */
-
-#define LOAD_AVE_TYPE long
-
-/* Convert that into an integer that is 100 for a load average of 1.0  */
-
-#define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / FSCALE)
+/* Do not define LOAD_AVE_TYPE or LOAD_AVE_CVT
+   since there is no load average available. */
 
 /* Define VIRT_ADDR_VARIES if the virtual addresses of
    pure and impure space as loaded can vary, and even their

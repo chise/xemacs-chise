@@ -462,9 +462,28 @@ and can edit it until it has been confirmed."
                (sleep-for 2))))
       ans)))
 
-;; these may be redefined later, but make the original def easily encapsulable
-(define-function 'yes-or-no-p 'yes-or-no-p-minibuf)
-(define-function 'y-or-n-p 'y-or-n-p-minibuf)
+(defun yes-or-no-p (prompt)
+  "Ask user a yes-or-no question.  Return t if answer is yes.
+The question is asked with a dialog box or the minibuffer, as appropriate.
+Takes one argument, which is the string to display to ask the question.
+It should end in a space; `yes-or-no-p' adds `(yes or no) ' to it.
+The user must confirm the answer with RET,
+and can edit it until it as been confirmed."
+  (if (should-use-dialog-box-p)
+      (yes-or-no-p-dialog-box prompt)
+    (yes-or-no-p-minibuf prompt)))
+
+(defun y-or-n-p (prompt)
+  "Ask user a \"y or n\" question.  Return t if answer is \"y\".
+Takes one argument, which is the string to display to ask the question.
+The question is asked with a dialog box or the minibuffer, as appropriate.
+It should end in a space; `y-or-n-p' adds `(y or n) ' to it.
+No confirmation of the answer is requested; a single character is enough.
+Also accepts Space to mean yes, or Delete to mean no."
+  (if (should-use-dialog-box-p)
+      (yes-or-no-p-dialog-box prompt)
+    (y-or-n-p-minibuf prompt)))
+
 
 
 (defun read-char ()

@@ -185,7 +185,7 @@ The following KEYWORD's are defined:
         the current value for that symbol.  The default is
         `default-value'.
 :require VALUE should be a feature symbol.  Each feature will be
-        required after initialization, of the the user have saved this
+        required after initialization, of the user have saved this
         option.
 
 Read the section about customization in the Emacs Lisp manual for more
@@ -395,7 +395,7 @@ LOAD should be either a library file name, or a feature name."
   "(deftheme THEME &optional DOC &key KEYWORDS)
 
 Define a theme labeled by SYMBOL THEME. The optional argument DOC is a
-doc string describing the the theme. It is optionally followed by the
+doc string describing the theme. It is optionally followed by the
 following keyboard arguments
 
 :short-description DESC
@@ -535,7 +535,7 @@ See `custom-set-variables' for a description of the arguments ARGS."
 
 (defun custom-theme-load-themes (by-theme &rest body)
   "Load the themes specified by BODY and record them as required by
-theme BY-THEME. BODY is a secuence of
+theme BY-THEME. BODY is a sequence of
        - a SYMBOL
             require the theme SYMBOL
        - a list (reset THEME)
@@ -565,7 +565,7 @@ BODY is as with custom-theme-load-themes."
 
 
 (defsubst copy-upto-last (elt list)
-  "Copy all the elements of the list upto the last occurence of elt"
+  "Copy all the elements of the list upto the last occurrence of elt"
   ;; Is it faster to do more work in C than to do less in elisp?
   (nreverse (cdr (member elt (reverse list)))))
 
@@ -614,7 +614,7 @@ VARIABLE.  Nil otherwise."
 
 (defun custom-theme-reset-variables (theme &rest args)
   "Reset the value of the variables to values previously defined.
-Assosiate this setting with THEME.
+Associate this setting with THEME.
 
 ARGS is a list of lists of the form
 
@@ -629,7 +629,7 @@ This means reset variable to its value in to-theme."
 
 (defun custom-reset-variables (&rest args)
     "Reset the value of the variables to values previously defined.
-Assosiate this setting with the `user' theme.
+Associate this setting with the `user' theme.
 
 The ARGS are as in `custom-theme-reset-variables'."
     (apply #'custom-theme-reset-variables 'user args))

@@ -1,10 +1,10 @@
-/* 
-   
-   
+/*
+
+
    PROPOSAL FOR HOW THIS ALL OUGHT TO WORK
    this isn't implemented yet, but this is the plan-in-progress
 
-   
+
    In general, it's accepted that the best way to internationalize is for all
    messages to be referred to by a symbolic name (or number) and come out of a
    table or tables, which are easy to change.
@@ -54,11 +54,11 @@
    something has gone wrong.  (Except to do things like remove assumptions
    about the order of words within a sentence, or how pluralization works.)
 
-   There are two parts to the task of displaying translated strings to the 
+   There are two parts to the task of displaying translated strings to the
    user: the first is to extract the strings which need to be translated from
    the sources; and the second is to make some call which will translate those
    strings before they are presented to the user.
-   
+
    The old way was to use the same form to do both, that is, GETTEXT() was both
    the tag that we searched for to build a catalog, and was the form which did
    the translation.  The new plan is to separate these two things more: the
@@ -66,36 +66,36 @@
    already, and the translation will get done in some more centralized, lower
    level place.
 
-   This program (make-msgfile.c) addresses the first part, extracting the 
+   This program (make-msgfile.c) addresses the first part, extracting the
    strings.
-   
+
    For the emacs C code, we need to recognize the following patterns:
-   
+
      message ("string" ... )
      error ("string")
      report_file_error ("string" ... )
      signal_simple_error ("string" ... )
      signal_simple_error_2 ("string" ... )
-     
+
      build_translated_string ("string")
      #### add this and use it instead of build_string() in some places.
-     
+
      yes_or_no_p ("string" ... )
      #### add this instead of funcalling Qyes_or_no_p directly.
 
      barf_or_query_if_file_exists	#### restructure this
      check all callers of Fsignal	#### restructure these
      signal_error (Qerror ... )		#### change all of these to error()
-     
+
      And we also parse out the `interactive' prompts from DEFUN() forms.
-     
+
      #### When we've got a string which is a candidate for translation, we
      should ignore it if it contains only format directives, that is, if
      there are no alphabetic characters in it that are not a part of a `%'
      directive.  (Careful not to translate either "%s%s" or "%s: ".)
 
    For the emacs Lisp code, we need to recognize the following patterns:
-   
+
      (message "string" ... )
      (error "string" ... )
      (format "string" ... )
@@ -106,20 +106,20 @@
      (read-file-name "string" ... )
      (temp-minibuffer-message "string")
      (query-replace-read-args "string" ... )
-     
+
    I expect there will be a lot like the above; basically, any function which
    is a commonly used wrapper around an eventual call to `message' or
    `read-from-minibuffer' needs to be recognized by this program.
 
 
      (dgettext "domain-name" "string")		#### do we still need this?
-     
+
      things that should probably be restructured:
        `princ' in cmdloop.el
        `insert' in debug.el
        face-interactive
        help.el, syntax.el all messed up
-     
+
 
    Menu descriptors: one way to extract the strings in menu labels would be
    to teach this program about "^(defvar .*menu\n" forms; that's probably
@@ -128,8 +128,8 @@
 
      "string" ... ;###translate
 
-   where the magic token ";###translate" on a line means that the string 
-   constant on this line should go into the message catalog.  This is analagous
+   where the magic token ";###translate" on a line means that the string
+   constant on this line should go into the message catalog.  This is analogous
    to the magic ";###autoload" comments, and to the magic comments used in the
    EPSF structuring conventions.
 
@@ -139,7 +139,7 @@
   translations, there are hooks in a small number of low level places in
   emacs.
 
-  Assume the existence of a C function gettext(str) which returns the 
+  Assume the existence of a C function gettext(str) which returns the
   translation of `str' if there is one, otherwise returns `str'.
 
   - message() takes a char* as its argument, and always filters it through
@@ -174,12 +174,12 @@
   Solving the "translating too much" problem:
   The concern has been raised that in this situation:
    - "Help" is a string for which we know a translation;
-   - someone visits a file called Help, and someone does something 
+   - someone visits a file called Help, and someone does something
      contrived like (error buffer-file-name)
   then we would display the translation of Help, which would not be correct.
   We can solve this by adding a bit to Lisp_String objects which identifies
   them as having been read as literal constants from a .el or .elc file (as
-  opposed to having been constructed at run time as it would in the above 
+  opposed to having been constructed at run time as it would in the above
   case.)  To solve this:
 
     - Fmessage() takes a lisp string as its first argument.
@@ -306,7 +306,7 @@ void scan_file (char *filename)
   else
     process_Lisp_file ();
   fputc ('\n', outfile);
-  
+
   fclose (infile);
 }
 

@@ -166,8 +166,7 @@ static void
 #endif
 tty_frame_output_end (struct frame *f)
 {
-  struct device *d = XDEVICE (FRAME_DEVICE (f));
-  struct console *c = XCONSOLE (DEVICE_CONSOLE (d));
+  struct console *c = XCONSOLE (FRAME_CONSOLE (f));
 
   CONSOLE_TTY_CURSOR_X (c) = CONSOLE_TTY_FINAL_CURSOR_X (c);
   CONSOLE_TTY_CURSOR_Y (c) = CONSOLE_TTY_FINAL_CURSOR_Y (c);
@@ -881,7 +880,13 @@ reset_tty_modes (struct console *c)
   OUTPUT1_IF (c, TTY_SD (c).keypad_off);
   OUTPUT1_IF (c, TTY_SD (c).cursor_normal);
   OUTPUT1_IF (c, TTY_SD (c).end_motion);
-  tty_frame_output_end (XFRAME (CONSOLE_SELECTED_FRAME (c)));
+
+  {
+    Lisp_Object frm = CONSOLE_SELECTED_FRAME (c);
+
+    if (!NILP (frm))
+      tty_frame_output_end (XFRAME (frm));
+  }
 }
 
 /*****************************************************************************

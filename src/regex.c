@@ -5512,22 +5512,25 @@ re_match_2_internal (struct re_pattern_buffer *bufp, const char *string1,
 #ifdef emacs
   	case before_dot:
           DEBUG_PRINT1 ("EXECUTING before_dot.\n");
- 	  if (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d) >=
-	      BUF_PT (regex_emacs_buffer))
+ 	  if (!regex_emacs_buffer_p
+	      || (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d)
+		  >= BUF_PT (regex_emacs_buffer)))
   	    goto fail;
   	  break;
 
   	case at_dot:
           DEBUG_PRINT1 ("EXECUTING at_dot.\n");
- 	  if (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d)
-	      != BUF_PT (regex_emacs_buffer))
+ 	  if (!regex_emacs_buffer_p
+	      || (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d)
+		  != BUF_PT (regex_emacs_buffer)))
   	    goto fail;
   	  break;
 
   	case after_dot:
           DEBUG_PRINT1 ("EXECUTING after_dot.\n");
-          if (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d)
-	      <= BUF_PT (regex_emacs_buffer))
+          if (!regex_emacs_buffer_p
+	      || (BUF_PTR_BYTE_POS (regex_emacs_buffer, (unsigned char *) d)
+		  <= BUF_PT (regex_emacs_buffer)))
   	    goto fail;
   	  break;
 #if 0 /* not emacs19 */

@@ -31,9 +31,9 @@ version of Emacs.
 /*
  * Each dynamically loaded Emacs module is given a name at compile
  * time. This is a short name, and must be a valid part of a C
- * identifier.  This name is used to contruct the name of several
+ * identifier.  This name is used to construct the name of several
  * functions which must appear in the module source code.
- * The first such function, modules_of_XXXX, should load in any dependant
+ * The first such function, modules_of_XXXX, should load in any dependent
  * modules. This function is optional, and the module will still load if
  * it is not present in the module.
  *
@@ -60,8 +60,8 @@ modules_of_sample()
 {
   /*
    * This function isn't actually required as we will not be loading
-   * in any dependant modules, but if we were, we would do something like:
-   * emodules_load ("dependant.ell", "sample2", "1.0.0");
+   * in any dependent modules, but if we were, we would do something like:
+   * emodules_load ("dependent.ell", "sample2", "1.0.0");
    */
 }
 

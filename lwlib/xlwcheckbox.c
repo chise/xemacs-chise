@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   June 30, 1997
  *
  * Overview:  This widget is identical to the Radio widget in behavior,
@@ -126,7 +126,7 @@ static	XtActionsRec	actionsList[] =
 
 CheckboxClassRec checkboxClassRec = {
   {
-    (WidgetClass) SuperClass,		/* superclass		*/	
+    (WidgetClass) SuperClass,		/* superclass		*/
     "Checkbox",				/* class_name		*/
     sizeof(CheckboxRec),		/* size			*/
     CheckboxClassInit,			/* class_initialize	*/
@@ -170,7 +170,7 @@ CheckboxClassRec checkboxClassRec = {
     NULL				/* extension		*/
   },  /* CoreClass fields initialization */
   {
-    XtInheritChangeSensitive		/* change_sensitive	*/ 
+    XtInheritChangeSensitive		/* change_sensitive	*/
   },  /* SimpleClass fields initialization */
 #ifdef	_ThreeDP_h
   {
@@ -271,7 +271,7 @@ CheckboxRealize(Widget w,
 /*	Function Name: CheckboxDestroy
  *	Description: Destroy Callback for checkbox widget.
  *	Arguments: w - the checkbox widget that is being destroyed.
- *                 junk, grabage - not used.
+ *                 junk, garbage - not used.
  *	Returns: none.
  */
 

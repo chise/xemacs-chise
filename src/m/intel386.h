@@ -112,15 +112,6 @@ NOTE-END */
 
 /* #define CANNOT_DUMP */
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-
-/* #define VIRT_ADDR_VARIES */
-
 #ifdef XENIX
 
 /* Define NO_REMAP if memory segmentation makes it not work well

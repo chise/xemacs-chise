@@ -182,17 +182,15 @@ mswindows_hide_console (void)
 void
 mswindows_show_console (void)
 {
+  /* What I really want is for the console window to appear on top of other
+     windows, but NOT get the focus.  This seems hard-to-impossible under
+     Windows.  The following sequence seems to do the best possible, along
+     with keeping the console window on top when xemacs --help is used. */
   HWND hwnd = mswindows_get_console_hwnd ();
-  ShowWindow (hwnd, SW_SHOWNA);
-
-  /* I tried to raise the window to the top without activating
-     it, but this fails.  Apparently Windows just doesn't like
-     having the active window not be on top.  So instead, we
-     at least put it just below our own window, where part of it
-     will likely be seen. */
-  SetWindowPos (hwnd, GetForegroundWindow (), 0, 0, 0, 0,
-		SWP_NOSIZE | SWP_NOMOVE | SWP_NOSENDCHANGING |
-		SWP_NOACTIVATE);
+  HWND hwndf = GetFocus ();
+  ShowWindow (hwnd, SW_SHOW);
+  BringWindowToTop (hwnd);
+  SetFocus (hwndf);
 }
 
 static int mswindows_console_buffered = 0;
@@ -237,6 +235,37 @@ mswindows_windows9x_p (void)
   return GetVersion () & 0x80000000;
 }
 
+DEFUN ("mswindows-debugging-output", Fmswindows_debugging_output, 1, 1, 0, /*
+Write CHAR-OR-STRING to the Windows debugger, using OutputDebugString().
+This function can be used as the STREAM argument of Fprint() or the like.
+*/
+       (char_or_string))
+{
+  Extbyte *extstr;
+
+  if (STRINGP (char_or_string))
+    {
+      TO_EXTERNAL_FORMAT (LISP_STRING, char_or_string,
+			  C_STRING_ALLOCA, extstr,
+			  Qmswindows_tstr);
+      OutputDebugString (extstr);
+    }
+  else
+    {
+      Bufbyte str[MAX_EMCHAR_LEN + 1];
+      Bytecount len;
+
+      CHECK_CHAR_COERCE_INT (char_or_string);
+      len = set_charptr_emchar (str, XCHAR (char_or_string));
+      str[len] = '\0';
+      TO_EXTERNAL_FORMAT (C_STRING, str,
+			  C_STRING_ALLOCA, extstr,
+			  Qmswindows_tstr);
+      OutputDebugString (extstr);
+    }
+
+  return char_or_string;
+}
 
 #ifdef DEBUG_XEMACS
 
@@ -446,10 +475,7 @@ no effect.  */
   Extbyte *titleout = 0;
   UINT sty = 0;
 
-  if (noninteractive)
-    return Qcancel;
-
-  if (!CONSP (flags))
+  if (!LISTP (flags))
     {
       CHECK_SYMBOL (flags);
       flags = list1 (flags);
@@ -547,6 +573,35 @@ mswindows_output_last_error (char *frob)
 	      frob, errval, (char*)lpMsgBuf);
 }
 
+static Lisp_Object
+msprinter_canonicalize_console_connection (Lisp_Object connection,
+					   Error_behavior errb)
+{
+  /* If nil connection is specified, transform it into the name
+     of the default printer */
+  if (NILP (connection))
+    {
+      connection = msprinter_default_printer ();
+      if (NILP (connection))
+	{
+	  if (ERRB_EQ (errb, ERROR_ME))
+	    error ("There is no default printer in the system");
+	  else
+	    return Qunbound;
+	}
+    }
+
+  CHECK_STRING (connection);
+  return connection;
+}
+
+static Lisp_Object
+msprinter_canonicalize_device_connection (Lisp_Object connection,
+					  Error_behavior errb)
+{
+  return msprinter_canonicalize_console_connection (connection, errb);
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
@@ -555,6 +610,8 @@ mswindows_output_last_error (char *frob)
 void
 syms_of_console_mswindows (void)
 {
+  DEFSUBR (Fmswindows_debugging_output);
+
   defsymbol (&Qabortretryignore, "abortretryignore");
   defsymbol (&Qapplmodal, "applmodal");
   defsymbol (&Qdefault_desktop_only, "default-desktop-only");
@@ -609,6 +666,8 @@ console_type_create_mswindows (void)
 /*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_device_connection); */
 
   INITIALIZE_CONSOLE_TYPE (msprinter, "msprinter", "console-msprinter-p");
+  CONSOLE_HAS_METHOD (msprinter, canonicalize_console_connection);
+  CONSOLE_HAS_METHOD (msprinter, canonicalize_device_connection);
 }
 
 void

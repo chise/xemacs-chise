@@ -209,13 +209,13 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
 
 /* On bsd, [man says] kill does not accept a negative number to kill a pgrp.
    Must do that using the killpg call.  */
-#ifdef BSD
-#define EMACS_KILLPG(gid, signo) killpg (gid, signo)
+#ifdef HAVE_KILLPG
+#define EMACS_KILLPG(pid, signo) killpg (pid, signo)
 #else
 #ifdef WIN32_NATIVE
-#define EMACS_KILLPG(gid, signo) kill (gid, signo)
+#define EMACS_KILLPG(pid, signo) kill (pid, signo)
 #else
-#define EMACS_KILLPG(gid, signo) kill (-(gid), signo)
+#define EMACS_KILLPG(pid, signo) kill (-(pid), signo)
 #endif
 #endif
 

@@ -58,6 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #include <errno.h>
 
 #include <a.out.h>
+#include "lisp.h"
 
 /*
  * Minor modification to enable dumping with shared libraries added by
@@ -81,11 +82,9 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef HPUX_USE_SHLIBS
 #include <dl.h>			/* User-space dynamic loader entry points */
-void Save_Shared_Data(void);
-int run_time_remap();
+static void Save_Shared_Data (void);
+static void Restore_Shared_Data (void);
 #endif
-
-#define min(x,y)  ( ((x)<(y))?(x):(y) )
 
 void write_header(int file, struct header *hdr, struct som_exec_auxhdr *auxhdr);
 void read_header (int file, struct header *hdr, struct som_exec_auxhdr *auxhdr);
@@ -100,10 +99,10 @@ int calculate_checksum(struct header *hdr);
 
 /* Create a new a.out file, same as old but with current data space */
 int
-unexec(char new_name[],		/* name of the new a.out file to be created */
-       char old_name[],		/* name of the old a.out file */
-       char *new_end_of_text,	/* ptr to new edata/etext; NOT USED YET */
-       int dummy1, int dummy2)	/* not used by emacs */
+unexec (char *new_name,		/* name of the new a.out file to be created */
+        char *old_name,		/* name of the old a.out file */
+        uintptr_t new_end_of_text, /* ptr to new edata/etext; NOT USED YET */
+        uintptr_t dummy1, uintptr_t dummy2) /* not used by emacs */
 {
   int old, new;
   int old_size, new_size;
@@ -291,11 +290,17 @@ copy_file (int old, int new, int size)
 
   for (; size > 0; size -= len)
     {
-      len = min(size, sizeof(buffer));
-      if (read(old, buffer, len) != len)
-	{ perror("Read failure on a.out file"); exit(1); }
-      if (write(new, buffer, len) != len)
-	{ perror("Write failure in a.out file"); exit(1); }
+      len = size < sizeof (buffer) ? size : sizeof (buffer);
+      if (read (old, buffer, len) != len)
+	{
+	  perror ("Read failure on a.out file");
+	  exit (1);
+	}
+      if (write (new, buffer, len) != len)
+	{
+	  perror ("Write failure in a.out file");
+	  exit (1);
+	}
     }
 }
 
@@ -338,19 +343,24 @@ display_header(struct header *hdr, struct som_exec_auxhdr *auxhdr)
 
 void *Brk_On_Dump = 0;		/* Brk value to restore... stored as a global */
 
-void Save_Shared_Data () {
-  Brk_On_Dump = sbrk( 0 );
+static void
+Save_Shared_Data (void)
+{
+  Brk_On_Dump = sbrk (0);
 }
 
-void Restore_Shared_Data () {
-  brk ( Brk_On_Dump );
-}
-
-int run_time_remap (int d) {
-  Restore_Shared_Data();
+static void
+Restore_Shared_Data (void)
+{
+  brk (Brk_On_Dump);
 }
 
 /* run_time_remap is the magic called by startup code in the dumped executable
- * if RUN_TIME_REMAP is set.
- */
+   if RUN_TIME_REMAP is set. */
+int
+run_time_remap (char *dummy)
+{
+  Restore_Shared_Data ();
+  return 0;
+}
 #endif /* HPUX_USE_SHLIBS */

@@ -29,7 +29,10 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <fcntl.h>
 #include <config.h>
 #include <string.h>
+
+#define DONT_ENCAPSULATE /* filenames are external in unex*.c */
 #include "sysfile.h"
+
 #define PERROR(arg) perror(arg);exit(-1) 
 
 #ifndef HAVE_A_OUT_H

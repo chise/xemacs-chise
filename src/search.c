@@ -301,6 +301,7 @@ looking_at_1 (Lisp_Object string, struct buffer *buf, int posix)
   s2 = BI_BUF_ZV (buf) - p2;
 
   regex_emacs_buffer = buf;
+  regex_emacs_buffer_p = 1;
   i = re_match_2 (bufp, (char *) BI_BUF_BYTE_ADDRESS (buf, p1),
 		  s1, (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
 		  BI_BUF_PT (buf) - BI_BUF_BEGV (buf), &search_regs,
@@ -391,6 +392,7 @@ string_match_1 (Lisp_Object regexp, Lisp_Object string, Lisp_Object start,
   {
     Bytecount bis = charcount_to_bytecount (XSTRING_DATA (string), s);
     regex_emacs_buffer = buf;
+    regex_emacs_buffer_p = 0;
     val = re_search (bufp, (char *) XSTRING_DATA (string),
 		     XSTRING_LENGTH (string), bis,
 		     XSTRING_LENGTH (string) - bis,
@@ -484,6 +486,7 @@ fast_string_match (Lisp_Object regexp,  const Bufbyte *nonreloc,
 
   /* #### evil current-buffer dependency */
   regex_emacs_buffer = current_buffer;
+  regex_emacs_buffer_p = 0;
   val = re_search (bufp, (char *) newnonreloc + offset, length, 0,
 		   length, 0);
 
@@ -1164,6 +1167,7 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 	  Bytecount val;
 	  QUIT;
           regex_emacs_buffer = buf;
+	  regex_emacs_buffer_p = 1;
 	  val = re_search_2 (bufp,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p1), s1,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
@@ -1202,6 +1206,7 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 	  Bytecount val;
 	  QUIT;
           regex_emacs_buffer = buf;
+	  regex_emacs_buffer_p = 1;
           val = re_search_2 (bufp,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p1), s1,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
@@ -1242,7 +1247,7 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 
        BTW "BM" stands for Boyer-Moore, which is one of the standard
        string-searching algorithms.  It's the best string-searching
-       algorithm out there provided
+       algorithm out there, provided that:
 
        a) You're not fazed by algorithm complexity. (Rabin-Karp, which
           uses hashing, is much much easier to code but not as fast.)
@@ -1574,8 +1579,8 @@ set_search_regs (struct buffer *buf, Bufpos beg, Charcount len)
 
 
 /* Given a string of words separated by word delimiters,
-  compute a regexp that matches those exact words
-  separated by arbitrary punctuation.  */
+   compute a regexp that matches those exact words
+   separated by arbitrary punctuation.  */
 
 static Lisp_Object
 wordify (Lisp_Object buffer, Lisp_Object string)
@@ -2543,8 +2548,8 @@ void
 syms_of_search (void)
 {
 
-  deferror (&Qsearch_failed, "search-failed", "Search failed", Qerror);
-  deferror (&Qinvalid_regexp, "invalid-regexp", "Invalid regexp", Qerror);
+  DEFERROR_STANDARD (Qsearch_failed, Qinvalid_operation);
+  DEFERROR_STANDARD (Qinvalid_regexp, Qsyntax_error);
 
   DEFSUBR (Flooking_at);
   DEFSUBR (Fposix_looking_at);
