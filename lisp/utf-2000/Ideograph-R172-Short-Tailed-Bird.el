@@ -331,6 +331,14 @@
     ))
 (define-char
   '((ideographic-radical . 172)	; â¾«
+    (ideographic-strokes . 3)
+    (total-strokes	 . 11)
+    (ideograph-gt-pj-9	. #x4C4B)	; ý¡€°¬
+    (ideograph-gt	. 56364)	; ý¡€°¬
+    (mojikyo		. 076024)	; ý €’£¸
+    ))
+(define-char
+  '((ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 41958)	; ø¸Š¦
