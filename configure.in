@@ -1953,10 +1953,10 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
         AC_MSG_ERROR(Aborting due to known problem)
         ;;
     *:i*86*:2.7.2*)
-	case "$GCC_VERSION" in
-	    2.7.2)
-		case "$CFLAGS" in
-        	    *-O2*|*-O3*)
+	case "$CFLAGS" in
+            *-O2*|*-O3*)
+		case "$GCC_VERSION" in
+		    2.7.2)
                 	case "$CFLAGS" in
 	                    *-fno-strength-reduce*) ;;
         	            *)
@@ -1968,17 +1968,17 @@ case `uname -s`:`uname -m`:$GCC_VERSION in
 	                esac
 	                ;;
 		esac
+	        case "$CFLAGS" in
+		 *-fno-caller-saves*) ;;
+		 *)
+	            AC_MSG_RESULT(yes)
+		    AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
+		    AC_MSG_WARN(-fno-caller-saves.)
+	            AC_MSG_ERROR(Aborting due to known problem)
+		    ;;
+	        esac
 		;;
 	esac
-        case "$CFLAGS" in
-	 *-fno-caller-saves*) ;;
-	 *)
-            AC_MSG_RESULT(yes)
-	    AC_MSG_WARN(Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using)
-	    AC_MSG_WARN(-fno-caller-saves.)
-            AC_MSG_ERROR(Aborting due to known problem)
-	    ;;
-        esac
 	;;
 esac
 AC_MSG_RESULT(no)
@@ -2762,6 +2762,12 @@ if test "$with_msw" != "no"; then
   AC_CHECK_LIB(gdi32,main,with_msw=yes)
   if test "$with_msw" = "yes"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
+
+    dnl The net installer only works with MS-Windows currently
+    XE_APPEND(netinstall, MAKE_SUBDIR)
+    XE_APPEND(netinstall, SRC_SUBDIR_DEPS)
+    XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
+	
     install_pp="$blddir/lib-src/installexe.sh"
     XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
@@ -4123,7 +4129,14 @@ typedef uint64_t u_int64_t;
 #if DB_VERSION_MAJOR > 1
 yes
 #endif
-], [AC_MSG_RESULT(2); dbfunc=db_open], [AC_MSG_RESULT(1); dbfunc=dbopen])
+], [AC_EGREP_CPP(yes,
+[#include <$db_h_file>
+#if DB_VERSION_MAJOR > 2
+yes
+#endif
+], [AC_MSG_RESULT(3); dbfunc=db_create],[
+    AC_MSG_RESULT(2); dbfunc=db_open])],[
+    AC_MSG_RESULT(1); dbfunc=dbopen])
     AC_CHECK_FUNC($dbfunc,     with_database_berkdb=yes need_libdb=no, [
     AC_CHECK_LIB(db, $dbfunc,  with_database_berkdb=yes need_libdb=yes)])
   fi

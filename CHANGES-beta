@@ -1,3 +1,19 @@
+to 21.2.39 "Millennium"
+-- Safer coding-priority-list -- Stephen Turnbull
+-- Andreas Jaeger resigns as core maintainer :-(
+-- Make font-lock know about all C++ keywords -- Enrico Scholz
+-- Comments beginning in column zero are no longer indented by
+   indent-for-comment -- Adrian Aichner
+-- Better documentation for package creation -- Stephen Turnbull
+-- input-method-xfs.c removed.  Functionality incorporated into
+   input-method-xlib.c -- Kazuyuki IENAGA
+-- replace-buffer-in-windows fixes -- Yoshiki Hayashi
+-- Fix redisplay bugs with buffer-local face specifiers -- Yoshiki Hayashi
+-- More printing fixes -- Martin Buchholz
+-- Another SGI dumping fix -- Martin Buchholz
+-- A new Windows installer in netinstall -- Andy Piper
+-- Support Berkeley DB 3.1 -- Daiki Ueno
+
 to 21.2.38 "Peisino,Ak(B"
 -- Keyboard commands to set code system now work in file-coding
    Emacsen! -- Jan Vroonhof (actually in 21.2.37)
