@@ -21,7 +21,7 @@
     (ideograph-daikanwa . 39270)	; �����
     ))
 (define-char
-  '((->ucs		. #x961D)	; 阝
+  '((=>ucs		. #x961D)	; 阝
     (morohashi-daikanwa	41536 0 9)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 0)
@@ -78,7 +78,7 @@
     (ucs		. #x9094)	; 邔
     ))
 (define-char
-  '((->ucs		. #x9094)	; 邔
+  '((=>ucs		. #x9094)	; 邔
     (morohashi-daikanwa	39276 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 3)
@@ -170,7 +170,7 @@
     (ucs		. #x909A)	; 邚
     ))
 (define-char
-  '((->ucs		. #x909A)	; 邚
+  '((=>ucs		. #x909A)	; 邚
     (morohashi-daikanwa	39284 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 3)
@@ -418,7 +418,7 @@
     (ucs		. #x90A5)	; 邥
     ))
 (define-char
-  '((->ucs		. #x90A6)	; 邦
+  '((=>ucs		. #x90A6)	; 邦
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -438,7 +438,7 @@
     (ucs			. #x90A6)	; 邦
     ))
 (define-char
-  '((->ucs		. #x90A6)	; 邦
+  '((=>ucs		. #x90A6)	; 邦
     (morohashi-daikanwa	39310 0 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
@@ -446,7 +446,7 @@
     (chinese-cns11643-1 . #x4B5A)	; �����
     ))
 (define-char
-  '((->ucs		. #x90A6)	; 邦
+  '((=>ucs		. #x90A6)	; 邦
     (morohashi-daikanwa	39310 0 1 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
@@ -461,7 +461,7 @@
     (ucs		. #x90AB)	; 邫
     ))
 (define-char
-  '((->ucs		. #x90AB)	; 邫
+  '((=>ucs		. #x90AB)	; 邫
     (morohashi-daikanwa	39311 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
@@ -477,7 +477,7 @@
     (ucs		. #x90A7)	; 邧
     ))
 (define-char
-  '((->ucs		. #x90A8)	; 邨
+  '((=>ucs		. #x90A8)	; 邨
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -488,7 +488,7 @@
     (ideograph-daikanwa		. 39313)	; �����
     ))
 (define-char
-  '((->ucs		. #x90A8)	; 邨
+  '((=>ucs		. #x90A8)	; 邨
     (morohashi-daikanwa	39313 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
@@ -831,7 +831,7 @@
     (ucs		. #x90B7)	; 邷
     ))
 (define-char
-  '((->ucs		. #x90B8)	; 邸
+  '((=>ucs		. #x90B8)	; 邸
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -918,7 +918,7 @@
     (ideograph-daikanwa . 39355)	; �����
     ))
 (define-char
-  '((->ucs		. #x90AA)	; 邪
+  '((=>ucs		. #x90AA)	; 邪
     (morohashi-daikanwa	39357 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
@@ -927,7 +927,7 @@
     (japanese-jisx0208		. #x3C59)	; �����
     ))
 (define-char
-  '((->ucs		. #x90AA)	; 邪
+  '((=>ucs		. #x90AA)	; 邪
     (morohashi-daikanwa	39357 1 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
@@ -1028,7 +1028,7 @@
     (ucs		. #x90BF)	; 邿
     ))
 (define-char
-  '((->ucs		. #x90BF)	; 邿
+  '((=>ucs		. #x90BF)	; 邿
     (morohashi-daikanwa	39367 0 2)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 6)
@@ -1207,7 +1207,7 @@
     (ucs			. #x90C7)	; 郇
     ))
 (define-char
-  '((->ucs		. #x48C1)	; 䣁
+  '((=>ucs		. #x48C1)	; 䣁
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1241,7 +1241,7 @@
     (ucs			. #x90C8)	; 郈
     ))
 (define-char
-  '((->ucs		. #x90C9)	; 郉
+  '((=>ucs		. #x90C9)	; 郉
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1446,7 +1446,7 @@
     (ucs		. #x90D4)	; 郔
     ))
 (define-char
-  '((->ucs		. #x90D4)	; 郔
+  '((=>ucs		. #x90D4)	; 郔
     (morohashi-daikanwa	39408 0 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
@@ -1708,7 +1708,7 @@
     (ideograph-daikanwa . 39437)	; �����
     ))
 (define-char
-  '((->ucs		. #x90E2)	; 郢
+  '((=>ucs		. #x90E2)	; 郢
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -1899,7 +1899,7 @@
     (ideograph-daikanwa . 39453)	; �����
     ))
 (define-char
-  '((->ucs		. #x48CA)	; 䣊
+  '((=>ucs		. #x48CA)	; 䣊
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -1973,7 +1973,7 @@
     (ucs			. #x90F6)	; 郶
     ))
 (define-char
-  '((->ucs		. #x48CB)	; 䣋
+  '((=>ucs		. #x48CB)	; 䣋
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -1995,7 +1995,7 @@
     (ucs		. #x90E9)	; 郩
     ))
 (define-char
-  '((->ucs		. #x90E9)	; 郩
+  '((=>ucs		. #x90E9)	; 郩
     (morohashi-daikanwa	39463 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
@@ -2023,7 +2023,7 @@
     (ucs		. #x90EA)	; 郪
     ))
 (define-char
-  '((->ucs		. #x90EA)	; 郪
+  '((=>ucs		. #x90EA)	; 郪
     (morohashi-daikanwa	39465 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
@@ -2081,7 +2081,7 @@
     (ideograph-daikanwa . 39471)	; �����
     ))
 (define-char
-  '((->ucs		. #x90EC)	; 郬
+  '((=>ucs		. #x90EC)	; 郬
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -2118,7 +2118,7 @@
     (ucs			. #x90ED)	; 郭
     ))
 (define-char
-  '((->ucs		. #x90EE)	; 郮
+  '((=>ucs		. #x90EE)	; 郮
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -2169,14 +2169,14 @@
     (ucs		. #x48CE)	; 䣎
     ))
 (define-char
-  '((->ucs		. #x90F1)	; 郱
+  '((=>ucs		. #x90F1)	; 郱
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 39480)	; �����
     ))
 (define-char
-  '((->ucs		. #x90F1)	; 郱
+  '((=>ucs		. #x90F1)	; 郱
     (morohashi-daikanwa	39480 0 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
@@ -2241,7 +2241,7 @@
     (ucs			. #x90F5)	; 郵
     ))
 (define-char
-  '((->ucs		. #x90F5)	; 郵
+  '((=>ucs		. #x90F5)	; 郵
     (morohashi-daikanwa	39485 0 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
@@ -2571,7 +2571,7 @@
     (ucs		. #x48D0)	; 䣐
     ))
 (define-char
-  '((->ucs		. #x9100)	; 鄀
+  '((=>ucs		. #x9100)	; 鄀
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -2595,7 +2595,7 @@
     (ucs		. #x9101)	; 鄁
     ))
 (define-char
-  '((->ucs		. #x9101)	; 鄁
+  '((=>ucs		. #x9101)	; 鄁
     (morohashi-daikanwa	39518 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
@@ -2638,7 +2638,7 @@
     (chinese-cns11643-5 . #x3C7C)	; �����
     ))
 (define-char
-  '((->ucs		. #x9103)	; 鄃
+  '((=>ucs		. #x9103)	; 鄃
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -2871,14 +2871,22 @@
     (ucs		. #x910B)	; 鄋
     ))
 (define-char
-  '((ideographic-radical . 163)	; ⾢
+  '((=>ucs		. #x910C)	; 鄌
+    (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4523)	; �����
     (ideograph-daikanwa . 39552)	; �����
     ))
 (define-char
-  '((->ucs		. #x48D3)	; 䣓
+  '((morohashi-daikanwa	39552 0 0)
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (chinese-cns11643-3 . #x4523)	; �����
+    (ucs		. #x910C)	; 鄌
+    ))
+(define-char
+  '((=>ucs		. #x48D3)	; 䣓
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -2910,7 +2918,7 @@
     (ucs		. #x910E)	; 鄎
     ))
 (define-char
-  '((->ucs		. #x48D4)	; 䣔
+  '((=>ucs		. #x48D4)	; 䣔
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -3039,6 +3047,7 @@
     (total-strokes	 . 13)
     (chinese-cns11643-3 . #x4524)	; �����
     (ideograph-daikanwa . 39568)	; �����
+    (ucs		. #x9113)	; 鄓
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -3376,7 +3385,7 @@
     (ideograph-daikanwa . 39605)	; �����
     ))
 (define-char
-  '((->ucs		. #x911D)	; 鄝
+  '((=>ucs		. #x911D)	; 鄝
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -3428,7 +3437,7 @@
     (ucs		. #x9120)	; 鄠
     ))
 (define-char
-  '((->ucs		. #x9120)	; 鄠
+  '((=>ucs		. #x9120)	; 鄠
     (morohashi-daikanwa	39611 0 2)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 11)
@@ -3443,7 +3452,7 @@
     (ucs		. #x9121)	; 鄡
     ))
 (define-char
-  '((->ucs		. #x9121)	; 鄡
+  '((=>ucs		. #x9121)	; 鄡
     (morohashi-daikanwa	39612 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 11)
@@ -3602,7 +3611,7 @@
     (ideograph-daikanwa . 39631)	; �����
     ))
 (define-char
-  '((->ucs		. #x9128)	; 鄨
+  '((=>ucs		. #x9128)	; 鄨
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
@@ -3641,7 +3650,7 @@
     (ucs		. #x912A)	; 鄪
     ))
 (define-char
-  '((->ucs		. #x48DD)	; 䣝
+  '((=>ucs		. #x48DD)	; 䣝
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -3709,7 +3718,7 @@
     (chinese-cns11643-5 . #x516F)	; �����
     ))
 (define-char
-  '((->ucs		. #x912B)	; 鄫
+  '((=>ucs		. #x912B)	; 鄫
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -3731,7 +3740,7 @@
     (ucs		. #x912C)	; 鄬
     ))
 (define-char
-  '((->ucs		. #x912C)	; 鄬
+  '((=>ucs		. #x912C)	; 鄬
     (morohashi-daikanwa	39644 0 4)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
@@ -3760,7 +3769,7 @@
     (chinese-cns11643-5 . #x5170)	; �����
     ))
 (define-char
-  '((->ucs		. #x912D)	; 鄭
+  '((=>ucs		. #x912D)	; 鄭
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -4114,7 +4123,7 @@
     (ucs			. #x9134)	; 鄴
     ))
 (define-char
-  '((->ucs		. #x9134)	; 鄴
+  '((=>ucs		. #x9134)	; 鄴
     (morohashi-daikanwa	39684 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 13)
@@ -4129,7 +4138,7 @@
     (ucs		. #x9135)	; 鄵
     ))
 (define-char
-  '((->ucs		. #x9135)	; 鄵
+  '((=>ucs		. #x9135)	; 鄵
     (morohashi-daikanwa	39685 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 13)
@@ -4265,7 +4274,7 @@
     (ucs			. #x9139)	; 鄹
     ))
 (define-char
-  '((->ucs		. #x9139)	; 鄹
+  '((=>ucs		. #x9139)	; 鄹
     (morohashi-daikanwa	39698 0 0)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 14)
@@ -4690,7 +4699,7 @@
     (ideograph-daikanwa . 39746)	; �����
     ))
 (define-char
-  '((->ucs		. #x9144)	; 酄
+  '((=>ucs		. #x9144)	; 酄
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
@@ -4705,7 +4714,7 @@
     (ucs		. #x9144)	; 酄
     ))
 (define-char
-  '((->ucs		. #x9145)	; 酅
+  '((=>ucs		. #x9145)	; 酅
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 18)
     (total-strokes	 . 21)

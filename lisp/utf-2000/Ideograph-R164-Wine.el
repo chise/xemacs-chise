@@ -263,7 +263,7 @@
     (ucs		. #x9155)	; 酕
     ))
 (define-char
-  '((->ucs		. #x9155)	; 酕
+  '((=>ucs		. #x9155)	; 酕
     (morohashi-daikanwa	39790 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 4)
@@ -582,7 +582,7 @@
     (chinese-cns11643-5 . #x436A)	; �����
     ))
 (define-char
-  '((->ucs		. #x9161)	; 酡
+  '((=>ucs		. #x9161)	; 酡
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
@@ -734,7 +734,7 @@
     (ideograph-daikanwa . 39837)	; �����
     ))
 (define-char
-  '((->ucs		. #x48F5)	; 䣵
+  '((=>ucs		. #x48F5)	; 䣵
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
@@ -826,11 +826,26 @@
     (ucs		. #x48F8)	; 䣸
     ))
 (define-char
-  '((ideographic-radical . 164)	; ⾣
+  '((=>ucs		. #x916B)	; 酫
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideograph-daikanwa . 39849)	; �����
+    ))
+(define-char
+  '((=>ucs		. #x916B)	; 酫
+    (morohashi-daikanwa	39849 0 0)
+    (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (chinese-cns11643-3 . #x4527)	; �����
-    (ideograph-daikanwa . 39849)	; �����
+    ))
+(define-char
+  '((morohashi-daikanwa	39849 0 1)
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ucs		. #x916B)	; 酫
     ))
 (define-char
   '((ideographic-radical . 164)	; ⾣
@@ -865,7 +880,7 @@
     (ucs		. #x916D)	; 酭
     ))
 (define-char
-  '((->ucs		. #x916D)	; 酭
+  '((=>ucs		. #x916D)	; 酭
     (morohashi-daikanwa	39852 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 6)
@@ -935,7 +950,7 @@
     (ucs		. #x916F)	; 酯
     ))
 (define-char
-  '((->ucs		. #x916F)	; 酯
+  '((=>ucs		. #x916F)	; 酯
     (morohashi-daikanwa	39861 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 6)
@@ -978,7 +993,7 @@
     (ucs		. #x48FA)	; 䣺
     ))
 (define-char
-  '((->ucs		. #x48FA)	; 䣺
+  '((=>ucs		. #x48FA)	; 䣺
     (morohashi-daikanwa	39863 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 7)
@@ -1077,7 +1092,7 @@
     (ucs		. #x9176)	; 酶
     ))
 (define-char
-  '((->ucs		. #x9177)	; 酷
+  '((=>ucs		. #x9177)	; 酷
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
@@ -1142,7 +1157,7 @@
     (ucs		. #x917A)	; 酺
     ))
 (define-char
-  '((->ucs		. #x917B)	; 酻
+  '((=>ucs		. #x917B)	; 酻
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
@@ -1171,7 +1186,7 @@
     (chinese-cns11643-5 . #x4A65)	; �����
     ))
 (define-char
-  '((->ucs		. #x917C)	; 酼
+  '((=>ucs		. #x917C)	; 酼
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 7)
     (ideograph-daikanwa . 39877)	; �����
@@ -1235,7 +1250,7 @@
     (ucs		. #x48FC)	; 䣼
     ))
 (define-char
-  '((->ucs		. #x9180)	; 醀
+  '((=>ucs		. #x9180)	; 醀
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 8)
     (ideograph-daikanwa . 39885)	; �����
@@ -1344,7 +1359,7 @@
     (ucs		. #x48FD)	; 䣽
     ))
 (define-char
-  '((->ucs		. #x9184)	; 醄
+  '((=>ucs		. #x9184)	; 醄
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
@@ -1402,7 +1417,7 @@
     (ideograph-daikanwa . 39902)	; �����
     ))
 (define-char
-  '((->ucs		. #x9188)	; 醈
+  '((=>ucs		. #x9188)	; 醈
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 8)
     (ideograph-daikanwa . 39903)	; �����
@@ -1528,7 +1543,7 @@
     (ucs		. #x918C)	; 醌
     ))
 (define-char
-  '((->ucs		. #x918C)	; 醌
+  '((=>ucs		. #x918C)	; 醌
     (morohashi-daikanwa	39918 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 8)
@@ -1613,7 +1628,7 @@
     (ucs			. #x918E)	; 醎
     ))
 (define-char
-  '((->ucs		. #x918F)	; 醏
+  '((=>ucs		. #x918F)	; 醏
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 9)
     (ideograph-daikanwa . 39927)	; �����
@@ -1896,7 +1911,7 @@
     (ucs		. #x4909)	; 䤉
     ))
 (define-char
-  '((->ucs		. #x9199)	; 醙
+  '((=>ucs		. #x9199)	; 醙
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (ideograph-daikanwa . 39959)	; �����
@@ -1910,13 +1925,13 @@
     (ucs		. #x9199)	; 醙
     ))
 (define-char
-  '((->ucs		. #x919A)	; 醚
+  '((=>ucs		. #x919A)	; 醚
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (ideograph-daikanwa . 39960)	; �����
     ))
 (define-char
-  '((->ucs		. #x919A)	; 醚
+  '((=>ucs		. #x919A)	; 醚
     (morohashi-daikanwa	39960 0 2)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
@@ -1961,14 +1976,14 @@
     (ideograph-daikanwa . 39964)	; �����
     ))
 (define-char
-  '((->ucs		. #x919B)	; 醛
+  '((=>ucs		. #x919B)	; 醛
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (ideograph-daikanwa . 39965)	; �����
     ))
 (define-char
-  '((->ucs		. #x919B)	; 醛
+  '((=>ucs		. #x919B)	; 醛
     (morohashi-daikanwa	39965 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
@@ -2077,7 +2092,7 @@
     (ideograph-daikanwa . 39975)	; �����
     ))
 (define-char
-  '((->ucs		. #x919F)	; 醟
+  '((=>ucs		. #x919F)	; 醟
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (ideograph-daikanwa . 39976)	; �����
@@ -2104,7 +2119,7 @@
     (ucs		. #x91A0)	; 醠
     ))
 (define-char
-  '((->ucs		. #x91A0)	; 醠
+  '((=>ucs		. #x91A0)	; 醠
     (morohashi-daikanwa	39978 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
@@ -2185,7 +2200,7 @@
     (ideograph-daikanwa . 39986)	; �����
     ))
 (define-char
-  '((->ucs		. #x91A3)	; 醣
+  '((=>ucs		. #x91A3)	; 醣
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
@@ -2272,7 +2287,7 @@
     (ucs		. #x91A5)	; 醥
     ))
 (define-char
-  '((->ucs		. #x91A5)	; 醥
+  '((=>ucs		. #x91A5)	; 醥
     (morohashi-daikanwa	39996 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
@@ -2339,9 +2354,10 @@
     (total-strokes	 . 18)
     (chinese-cns11643-3 . #x593D)	; �����
     (ideograph-daikanwa . 40003)	; �����
+    (ucs		. #x91A9)	; 醩
     ))
 (define-char
-  '((->ucs		. #x91AA)	; 醪
+  '((=>ucs		. #x91AA)	; 醪
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
@@ -2663,7 +2679,7 @@
     (japanese-jisx0208-1990	. #x6E51)	; �����
     ))
 (define-char
-  '((->ucs		. #x91AF)	; 醯
+  '((=>ucs		. #x91AF)	; 醯
     (morohashi-daikanwa	40036 0 1)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
@@ -2895,7 +2911,7 @@
     (ucs			. #x91B6)	; 醶
     ))
 (define-char
-  '((->ucs		. #x91B7)	; 醷
+  '((=>ucs		. #x91B7)	; 醷
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 13)
     (ideograph-daikanwa . 40058)	; �����
@@ -3000,7 +3016,7 @@
     (ucs		. #x91B9)	; 醹
     ))
 (define-char
-  '((->ucs		. #x91B9)	; 醹
+  '((=>ucs		. #x91B9)	; 醹
     (morohashi-daikanwa	40069 0 2)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 14)
@@ -3191,7 +3207,7 @@
     (ucs		. #x91BD)	; 醽
     ))
 (define-char
-  '((->ucs		. #x91BD)	; 醽
+  '((=>ucs		. #x91BD)	; 醽
     (morohashi-daikanwa	40094 0 0)
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 17)
@@ -3207,7 +3223,7 @@
     (ucs		. #x4917)	; 䤗
     ))
 (define-char
-  '((->ucs		. #x91BE)	; 醾
+  '((=>ucs		. #x91BE)	; 醾
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 17)
     (ideograph-daikanwa . 40096)	; �����
@@ -3326,7 +3342,7 @@
     (ucs		. #x91C1)	; 釁
     ))
 (define-char
-  '((->ucs		. #x91C2)	; 釂
+  '((=>ucs		. #x91C2)	; 釂
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 18)
     (total-strokes	 . 25)

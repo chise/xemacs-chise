@@ -3089,15 +3089,17 @@
 (define-char
   '((ideographic-radical . 142)	; â¾
     (ideographic-strokes . 7)
-    (chinese-gb2312	. #x4E4F)	; ø»…ˆ¸
-    (chinese-isoir165	. #x4E4F)	; ø»±ˆ
-    (ucs		. #x8717)	; èœ—
+    (total-strokes	 . 13)
+    (chinese-cns11643-3 . #x4448)	; ø»–Š¥
+    (ucs		. #x8716)	; èœ–
     ))
 (define-char
   '((ideographic-radical . 142)	; â¾
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4448)	; ø»–Š¥
+    (chinese-gb2312	. #x4E4F)	; ø»…ˆ¸
+    (chinese-isoir165	. #x4E4F)	; ø»±ˆ
+    (ucs		. #x8717)	; èœ—
     ))
 (define-char
   '((ideographic-radical . 142)	; â¾
