@@ -1,3 +1,29 @@
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`open_chise_data_source_maybe'; use `chise_ds_open_decoding_table'
+	instead of `chise_open_decoding_table'; refer
+	`default_chise_data_source'; use `chise_dt_close' instead of
+	`chise_close_decoding_table'.
+	(load_char_decoding_entry_maybe): Likewise.
+
+	* chartab.c (default_chise_data_source): New variable when `CHISE'
+	is defined.
+	(Fcopy_char_table): `ct->ds' is deleted.
+	(open_chise_data_source_maybe): New function.
+	(Fclose_char_data_source): New function.
+	(char_table_open_db_maybe): Use `open_chise_data_source_maybe';
+	use `chise_ds_open_feature_table' instead of
+	`chise_open_feature_table'.
+	(char_table_close_db_maybe): Use `chise_ft_close' instead of
+	`chise_close_feature_table'; `cit->ds' is deleted.
+	(syms_of_chartab): Add new builtin function
+	`close-char-data-source' when `HAVE_CHISE_CLIENT' is defined.
+
+	* chartab.h (default_chise_data_source): New extern variable.
+	(open_chise_data_source_maybe): New prototype.
+	(struct Lisp_Char_Table): Delete `ds'.
+
 2003-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Fsave_charset_mapping_table): Use libchise when
