@@ -616,46 +616,39 @@
     (=cns11643-6	. #x2359)	; &C6-2359; [03-57]
     ))
 (define-char
-  '((=>ucs		. #x518F)	; 冏
-    (ideographic-radical . 13)	; ⼌
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=big5-cdp	  . #x8C58)	; &CDP-8C58;
-      )
-     ((=ucs		  . #x53E3)	; 口
-      ))
-    (shinjigen-1	. 518)
-    (shinjigen-2	. 518)
-    (=jis-x0208		. #x5148)	; &GT-02006; [49-40]
-    (=big5		. #xCA6A)	; &I-B-CA6A;
-    (=gt		. 02006)	; &I-GT-02006;
-    (=gt-k		. 02683)	; &I-GT-K02683;
-    (=gt-pj-1		. #x5148)	; &I-GT-02006; [49-40]
-    (=daikanwa		. 01528)	; &I-M-01528;
-    (=ucs@jis		. #x518F)	; &GT-02006;
-    (=ucs@big5		. #x518F)	; &GT-02006;
-    ))
-(define-char
-  '((=>ucs		. #x518F)	; 冏
-    (morohashi-daikanwa	1528 0 0)
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=cns11643-2	. #x232C)	; &C2-232C; [03-12]
-    (=ucs@cns		. #x518F)	; &C2-232C;
-    ))
-(define-char
-  '((morohashi-daikanwa	1528 0 1)
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 100 12)
     (=ucs		. #x518F)	; 冏
-    (=iso-ir165		. #x7A2A)	; &I-EGB-7A2A; [90-10]
+    (->subsumptive
+     ((=big5		  . #xCA6A)	; &B-CA6A;
+      (=ucs@big5	  . #x518F)	; &B-CA6A;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	  (=ucs		      . #x2FF4)	; ⿴
+	  )
+	 ((=big5-cdp	      . #x8C58)	; &CDP-8C58;
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  ))
+	(shinjigen-1	    . 518)
+	(shinjigen-2	    . 518)
+	(=jis-x0208	    . #x5148)	; &GT-02006; [49-40]
+	(=gt		    . 02006)	; &I-GT-02006;
+	(=gt-k		    . 02683)	; &I-GT-K02683;
+	(=gt-pj-1	    . #x5148)	; &I-GT-02006; [49-40]
+	(=daikanwa	    . 01528)	; &I-M-01528;
+	(=ucs@jis	    . #x518F)	; &GT-02006;
+	)
+       ((=cns11643-2	    . #x232C)	; &C2-232C; [03-12]
+	(=ucs@cns	    . #x518F)	; &C2-232C;
+	))
+      )
+     ((hanyu-dazidian	  1 100 12)
+      (=iso-ir165	  . #x7A2A)	; &EGB-7A2A; [90-10]
+      (=ucs@unicode	  . #x518F)	; &EGB-7A2A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
