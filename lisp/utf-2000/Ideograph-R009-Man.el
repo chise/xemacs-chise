@@ -7657,6 +7657,8 @@
     (japanese-jisx0208-1978	. #x3536)	; ø»‚™­
     (japanese-jisx0208		. #x3536)	; ø»†­µ
     (chinese-cns11643-1		. #x5873)	; ø»’” 
+    (japanese-jisx0208-1990	. #x3536)	; å½
+    (mojikyo			. 50104)	; ø¸ŒŽ¸
     (ucs			. #x507D)	; å½
     ))
 (define-char
