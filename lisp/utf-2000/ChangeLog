@@ -1,11 +1,34 @@
 2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (<FULLWIDTH SOLIDUS>):
+	Unify C1-225F.
+	(C1-2226): Map to U+02CD instead of U+FF3F; moved to
+	u002B0-Spacing-Modifier-Letters.el.
+	(<FULLWIDTH MACRON>): Unify C1-2224 and B-A1C3.
+	- For each `->decomposition' feature which has `wide' property,
+	  omit it if the character follows `wide' is stored in
+	  `<-fullwidth' feature.
+	- Use `=jis-x0208@{1983|1990}' instead of
+	  `=jis-x0208-{1983|1990}'.
+
+2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u02700-Dingbats.el: Separate *fullwidth characters* from UCS
 	characters.
 
 	* u02600-Miscellaneous-Symbols.el:
 	- Separate *fullwidth characters* from UCS characters.
 	- Use `=jis-x0208@{1983|1990}' instead of `=jis-x0208-{1983|1990}'.
+
+2004-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE30-CJK-Compatibility-Forms.el (<PRESENTATION FORM FOR
+	VERTICAL LOW LINE>): Unify C1-213A.
+	(<PRESENTATION FORM FOR VERTICAL WAVY LOW LINE>): Unify C1-213C
+	and B-A15B.
+	(<presentation form for vertical book name mark>): Abolished.
+	(<WAVY LOW LINE>): Unify C1-213D and B-A15C.
+	(<book name mark>): Abolished.
 
 2004-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -176,7 +199,7 @@
 	In each ucs character:
 	- Omit `->fullwidth' for non-UCS objects.
 
-	* u002B0-Spacing-Modifier-Letters.el In each *fullwidth* variant:
+	* u002B0-Spacing-Modifier-Letters.el: In each *fullwidth* variant:
 	- Use `<-denotational' instead of `=>ucs'.
 	- Omit features defined in the mother.
 	- Use `=ucs@jis/fw' instead of `=ucs@jis' in principle.
