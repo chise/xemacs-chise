@@ -6205,6 +6205,7 @@
     (total-strokes	 . 15)
     (japanese-jisx0208-1978	. #x4446)	; ø»‚¯¿
     (japanese-jisx0208		. #x4446)	; ø»‡„‡
+    (japanese-jisx0208-1990	. #x4446)	; ø½Š©»
     ))
 (define-char
   '((morohashi-daikanwa	5451 0 3)
