@@ -409,6 +409,13 @@
     (chinese-cns11643-6 . #x4339)	; ø»œ§„
     ))
 (define-char
+  '((=>ucs		. #x517B)	; å…»
+    (ideographic-radical . 123)	; â½º
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (japanese-jisx0213-2	. #x7474)	; ø»¦˜
+    ))
+(define-char
   '((->ucs		. #x7F95)	; ç¾•
     (ideographic-radical . 123)	; â½º
     (ideographic-strokes . 5)
