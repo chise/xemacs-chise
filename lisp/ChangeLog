@@ -1,3 +1,12 @@
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `mojikyo-pj-*' and `ideograph-daikanwa' to `ucs-bmp' and
+	`arabic-iso8859-6'.
+
+	* utf-2000/char-db-util.el (insert-char-data): Modify for
+	code-point format change.
+
 2000-01-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
