@@ -69,6 +69,8 @@
       (setq i (1+ i)))
     v))
 
+(defvar char-db-file-coding-system 'utf-8-mcs-er)
+
 (defvar char-db-feature-domains
   '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
 	jis-x0213 misc unknown))
@@ -1157,9 +1159,10 @@
 
 (defun write-char-range-data-to-file (min max file
 					  &optional script excluded-script)
-  (let ((coding-system-for-write 'utf-8-mcs))
+  (let ((coding-system-for-write char-db-file-coding-system))
     (with-temp-buffer
-      (insert ";; -*- coding: utf-8-mcs -*-\n")
+      (insert (format ";; -*- coding: %s -*-\n"
+		      char-db-file-coding-system))
       (insert-char-range-data min max script excluded-script)
       (write-region (point-min)(point-max) file))))
 
