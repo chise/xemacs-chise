@@ -10039,6 +10039,7 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (jisx0208-difference . 78err)
     (shinjigen-2	. 1196)
     (japanese-jisx0208-1978	. #x5350)	; ø»ƒ†‹
     (japanese-jisx0208		. #x5350)	; ø»‡š“
