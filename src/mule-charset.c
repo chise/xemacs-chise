@@ -390,6 +390,7 @@ Lisp_Object Qnarrow;
 Lisp_Object Qcompat;
 Lisp_Object QnoBreak;
 Lisp_Object Qsuper;
+Lisp_Object Qsub;
 Lisp_Object Qfraction;
 
 Emchar
@@ -409,8 +410,10 @@ to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
     return -4;
   else if (EQ (v, Qsuper))
     return -5;
-  else if (EQ (v, Qfraction))
+  else if (EQ (v, Qsub))
     return -6;
+  else if (EQ (v, Qfraction))
+    return -7;
   else 
     signal_simple_error (err_msg, err_arg);
 }
@@ -2508,6 +2511,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qcompat,			"compat");
   defsymbol (&QnoBreak,			"noBreak");
   defsymbol (&Qsuper,			"super");
+  defsymbol (&Qsub,			"sub");
   defsymbol (&Qfraction,		"fraction");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
