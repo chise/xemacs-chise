@@ -1,3 +1,22 @@
+2000-02-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Don't output
+	mojikyo-pj-*.
+
+	* utf-2000/Ideograph-R184-Eat.el (M44014): Unify U+98DF.
+	(M44080): Separate japanese-jisx02080-1978 and japanese-jisx0208.
+
+	* utf-2000/Ideograph-R100-Life.el (M21670): Unify GB, CNS and JIS.
+	(M21680): Likewise.
+	(M21684): Unify with U+7522.
+	(M21684'): Unify with U+7523.
+
+	* utf-2000/Ideograph-R067-Script.el (M013450): Unify GB, CNS and
+	JIS.
+
+	* utf-2000/Ideograph-R009-Man.el (M00378): Add
+	japanese-jisx0208-1990.
+
 2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/char-db-util.el (decode-builtin-char): Use
