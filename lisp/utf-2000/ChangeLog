@@ -1,3 +1,38 @@
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (U+49BE): New character.
+	(H1-DE72): Moved from Ideograph-R010-Legs.el.
+
+2001-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Add some CJK Ext-B code points.
+
+	* Ideograph-R029-Again.el:
+	- Add some missing `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Add some missing `ideographic-structure' properties.
+	- Add some Big5-CDP code points.
+
+	* Ideograph-R026-Seal.el: Add some missing `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char' properties.
+	(U+536A): Add `ideographic-structure'.
+
+	* Ideograph-R010-Legs.el (H1-DCE3): Unify U-00020478.
+	(H1-DE46): Unify U-00020489.
+	(H1-DE67): Unify U-0002048B.
+	(H1-DE6A): Unify U-0002048F.
+	(H1-DE6E): Unify U-00025631.
+	(H1-DE72): Moved to Ideograph-R170-Mound.el.
+	(H1-DE73): Unify U-0002049C.
+	(H1-DE74): Unify U-0002049D.
+	(H1-DEAC): Unify U-000204A7.
+	(H1-DEC9): Unify U-000204AE.
+	(H1-DEC8): Unify U-00020926.
+	(H1-DECF): Unify U-000204BE.
+	(M-01407): Unify U-000204CA.
+	(H1-DED6): Unify U-000204D6.
+	(H1-DED9): Unify U-000204DA.
+
 2001-12-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R032-Earth.el: Merge some CHINA3-JEF code points.
