@@ -5946,19 +5946,15 @@
     (=daikanwa		. 02133)	; ø¸€¡•
     ))
 (define-char
-  '((=>ucs		. #x202F4)	; ð ‹´
-    (ideographic-radical . 18)	; â¼‘
+  '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (->identical
+     ((=daikanwa	  . 00938)	; ø¸€Žª
+      ))
+    (<-denotational
      ((=ucs		  . #x202F4)	; ð ‹´
       ))
-    (->same
-     ((=ucs		  . #x5013)	; å€“
-      (=daikanwa	  . 00768)	; ø¸€Œ€
-      ))
-    (->same*sources
-     shuowen yunhai-bei daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
@@ -5970,11 +5966,30 @@
     (=daikanwa		. 02134)	; ø¸€¡–
     ))
 (define-char
-  '((=>ucs		. #x202F4)	; ð ‹´
-    (morohashi-daikanwa	2134 0 0)
-    (ideographic-radical . 18)	; â¼‘
+  '((ideographic-radical@ucs . 9)	; â¼ˆ
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 18)	; â¼‘
+    (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     cns11643 daikanwa)
+    (total-strokes	 . 12)
+    (->same
+     ((=ucs		  . #x5013)	; å€“
+      (=daikanwa	  . 00768)	; ø¸€Œ€
+      ))
+    (->same*sources
+     shuowen yunhai-bei daikanwa)
+    (=ucs		. #x202F4)	; ð ‹´
+    ))
+(define-char
+  '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x202F4)	; ð ‹´
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
