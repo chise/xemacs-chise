@@ -3723,7 +3723,8 @@ if test "$with_mule" = "yes" ; then
 
   test -z "$with_chise" && with_chise=yes
   if test "$with_chise" = "yes"; then
-    AC_DEFINE(CHISE)
+    AC_DEFINE(HAVE_CHISE)
+    AC_DEFINE(HAVE_LIBCHISE)
     XE_PREPEND(-lchise, libs_x)
   fi
 
@@ -4471,6 +4472,7 @@ if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
   if test "$with_utf_2000" = "yes"; then
+    AC_DEFINE(HAVE_CHISE)
     AC_DEFINE(HAVE_CHISE_CLIENT)
   fi
 fi
