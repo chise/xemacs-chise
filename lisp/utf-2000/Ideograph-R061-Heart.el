@@ -15952,6 +15952,8 @@
      zhengzi-tong daikanwa)
     (<-original
      ((shinjigen-1	  . 2743)
+      (=jis-x0208	  . #x5874)	; &GT-14505; [56-84]
+      (=ks-x1001	  . #x6B73)	; &I-K0-6B73; [75-83]
       (=daikanwa	  . 11501)	; &I-M-11501;
       ))
     (<-original*sources

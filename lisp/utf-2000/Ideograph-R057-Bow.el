@@ -202,7 +202,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (<-original
-     ((=daikanwa	  . 09698)	; &I-M-09698;
+     ((=ucs		  . #x5F14)	; 弔
+      (=daikanwa	  . 09698)	; &I-M-09698;
       ))
     (<-original*sources
      daikanwa)
