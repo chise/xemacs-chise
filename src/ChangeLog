@@ -1,3 +1,9 @@
+2002-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c, chartab.h, casetab.c, char-ucs.h, chartab.c: Use
+	`HAVE_CHISE_CLIENT' instead of `HAVE_DATABASE' to indicate the
+	CHISE client feature.
+
 2002-12-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule.c (vars_of_mule): Update `utf-2000-version' to 0.20.
