@@ -1,5 +1,10 @@
 2004-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* lisp-disunion.h (XCHARVAL): Fix condition about
+	SIZEOF_EMACS_INT.
+
+2004-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (decode_builtin_char): Use <EMACS_INT> instead of
 	<int> for `code'.
 	(Fdecode_builtin_char): Use <EMACS_INT> instead of <int> for code
