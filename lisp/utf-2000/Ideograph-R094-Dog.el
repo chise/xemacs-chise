@@ -2557,6 +2557,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=jis-x0212		. #x4B25)	; ø»‹¢€
+    (=jis-x0213-2-2000	. #x7045)	; ø»¦‘¦
     (=big5		. #xD662)	; ý¢€™¢
     (=daikanwa		. 20461)	; ø¸„¿­
     (=jef-china3	. #x58EB)	; øº…£«
@@ -4099,6 +4100,7 @@
     (total-strokes	 . 12)
     (=gb2312		. #x622A)	; ø»…¥«
     (=iso-ir165		. #x622A)	; ø»Ž»
+    (=jis-x0213-2-2000	. #x704A)	; ø»¦‘«
     (=ucs		. #x7339)	; çŒ¹
     ))
 (define-char
