@@ -1912,8 +1912,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (->same-ideograph
-     ((ideographic-radical . 3)	; â¼‚
-      (ideograph-daikanwa . 00104)	; ø¸€¨
+     ((ideograph-daikanwa . 00104)	; ø¸€¨
       ))
     (<-ancient-ideograph
      (:sources	(morohashi-daikanwa)
@@ -1928,14 +1927,33 @@
     (mojikyo		. 000059)	; ý €€€»
     ))
 (define-char
-  '((=>ucs		. #x4E3D)	; ä¸½
-    (morohashi-daikanwa	59 0 2)
-    (ideographic-radical . 1)	; â¼€
+  '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (->identical
-     ((ideographic-radical . 3)	; â¼‚
-      (ideograph-daikanwa . 00104)	; ø¸€¨
+    (ideograph-gt-pj-2	. #x304C)	; ý¡€€“
+    (ideograph-daikanwa . 00060)	; ø¸€€¼
+    (china3-jef		. #x8EF3)	; øºˆ»³
+    (ideograph-gt	. 00083)	; ý¡€€“
+    (mojikyo		. 000060)	; ý €€€¼
+    ))
+(define-char
+  '((=>ucs		. #x4E3D)	; ä¸½
+    (ideographic-	(:radical	1 ; â¼€
+			 :strokes	7
+			 :sources	(cns-11643))
+			(:radical	3 ; â¼‚
+			 :strokes	7
+			 :sources	(morohashi-daikanwa gt)))
+    (total-strokes	 . 8)
+    (->same-ideograph
+     ((ideographic-radical . 1)	; â¼€
+      (ideograph-daikanwa . 00059)	; ø¸€€»
+      ))
+    (<-ancient-ideograph
+     (:sources	(morohashi-daikanwa)
+      :char	((ideographic-radical . 198)	; â¿…
+		 (ideograph-daikanwa . 47663)	; ø¸‹¨¯
+		 )
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1974,16 +1992,10 @@
 	))
       ))
     (chinese-cns11643-3 . #x2740)	; ø»•Ÿ·
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (ideograph-gt-pj-2	. #x304C)	; ý¡€€“
-    (ideograph-daikanwa . 00060)	; ø¸€€¼
-    (china3-jef		. #x8EF3)	; øºˆ»³
-    (ideograph-gt	. 00083)	; ý¡€€“
-    (mojikyo		. 000060)	; ý €€€¼
+    (ideograph-gt-pj-2	. #x3071)	; ý¡€€‚‘
+    (ideograph-daikanwa . 00104)	; ø¸€¨
+    (ideograph-gt	. 00145)	; ý¡€€‚‘
+    (mojikyo		. 000104)	; ý €€¨
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
