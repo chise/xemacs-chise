@@ -1,3 +1,62 @@
+2000-01-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Split ideograph-daikanwa
+	characters.
+
+1999-12-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_mojikyo_pj_[1 .. 21]): New variable.
+	(Qisolated): New variable.
+	(Qinitial): New variable.
+	(Qmedial): New variable.
+	(Qfinal): New variable.
+	(Qvertical): New variable.
+	(Qsmall): New variable.
+	(to_char_code): Use `Qisolated', `Qinitial', `Qmedial', `Qfinal',
+	`Qvertical' and `Qsmall'.
+	(Qmojikyo_pj_[1 .. 21]): New variable.
+	(syms_of_mule_charset): Add new symbols `isolated', `initial',
+	`medial', `final', `vertical', `small' and `mojikyo-pj-[1 .. 21]'.
+	(complex_vars_of_mule_charset): Add new charset `mojikyo-pj-[1
+	.. 21]'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x60.
+	(LEADING_BYTE_MOJIKYO_PJ_[1 .. 21]): New macros.
+	(MAX_LEADING_BYTE_PRIVATE): Changed to `(CHARSET_ID_OFFSET - 32)'.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (LEADING_BYTE_JAPANESE_JISX0208_1990): New macro.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_ideograph_daikanwa): New variable.
+	(Vcharset_hiragana_jisx0208): Deleted.
+	(Vcharset_katakana_jisx0208): Deleted.
+	(Qideograph_daikanwa): New variable.
+	(Qhiragana_jisx0208): Deleted.
+	(Qkatakana_jisx0208): Deleted.
+	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa';
+	delete symbol `hiragana-jisx0208' and `katakana-jisx0208'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-daikanwa'; delete coded-charset `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA): New macro.
+	(LEADING_BYTE_HIRAGANA_JISX0208): Deleted.
+	(LEADING_BYTE_KATAKANA_JISX0208): Deleted.
+	(MIN_CHAR_DAIKANWA): New macro.
+	(MAX_CHAR_DAIKANWA): New macro.
+
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Don't support OBS_94x94.
+
+	* char-ucs.h (MIN_CHAR_OBS_94x94): Deleted.
+	(MAX_CHAR_OBS_94x94): Deleted.
+
 2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (split_builtin_char): Use `MAX_CHAR_BMP'.
