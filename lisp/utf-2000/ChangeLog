@@ -1,5 +1,10 @@
 2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u00300-Combining-Diacritical-Marks.el (U+****): Unify
+	`latin-tcvn5712' and `chinese-big5' code points.
+
+2001-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R083-Clan.el: Merge missing JIS X 0208 code points.
 
 2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -20,7 +25,7 @@
 	(FULLWIDTH BROKEN BAR): Unify JX1-2925.
 	(FULLWIDTH YEN SIGN): Unify BIG5-A244.
 
-	* u000A0-Latin-1-Supplement.el (U+****): Unify `latin-tcvn5712&
+	* u000A0-Latin-1-Supplement.el (U+****): Unify `latin-tcvn5712'
 	code points; separate `japanese-jisx0213-1' code points.
 	(fullwidth *): Smallize `name' property; unify
 	`japanese-jisx0213-1' and `chinese-big5' code points.
