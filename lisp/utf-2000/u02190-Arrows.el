@@ -517,7 +517,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x224D)	; ø»†’’
+    (=jis-x0208-1983	. #x224D)	; ø»†’’
     (korean-ksc5601	. #x2221)	; ø»ˆ›ª
     (=jis-x0208-1990	. #x224D)	; ø½‰¸†
     (=jef-china3	. #x7FDA)	; øº‡¿š
@@ -535,7 +535,7 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x224E)	; ø»†’“
+    (=jis-x0208-1983	. #x224E)	; ø»†’“
     (korean-ksc5601	. #x2222)	; ø»ˆ›«
     (=jis-x0208-1990	. #x224E)	; ø½‰¸‡
     (=jef-china3	. #x7FDB)	; øº‡¿›

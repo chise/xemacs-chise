@@ -283,7 +283,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x2277)	; ø»†’¼
+    (=jis-x0208-1983	. #x2277)	; ø»†’¼
     (korean-ksc5601	. #x2253)	; ø»ˆœœ
     (=jis-x0208-1990	. #x2277)	; ø½‰¸°
     (=ucs		. #x2020)	; â€ 
@@ -293,7 +293,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	. #x2278)	; ø»†’½
+    (=jis-x0208-1983	. #x2278)	; ø»†’½
     (korean-ksc5601	. #x2254)	; ø»ˆœ
     (=jis-x0208-1990	. #x2278)	; ø½‰¸±
     (=ucs		. #x2021)	; â€¡
@@ -418,7 +418,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (chinese-gb2312	. #x216B)	; ø»„‡Ž
-    (japanese-jisx0208	. #x2273)	; ø»†’¸
+    (=jis-x0208-1983	. #x2273)	; ø»†’¸
     (korean-ksc5601	. #x2236)	; ø»ˆ›¿
     (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
     (=ucs		. #x2030)	; â€°

@@ -78,7 +78,7 @@
     (shinjigen-1	. 494)
     (shinjigen-2	. 494)
     (=jis-x0208-1978	. #x3878)	; ø»‚Ÿ‰
-    (japanese-jisx0208	. #x3878)	; ø»†³‘
+    (=jis-x0208-1983	. #x3878)	; ø»†³‘
     (korean-ksc5601	. #x4D6B)	; ø»‰›¾
     (chinese-big5	. #xA4BD)	; ý¢€Š’½
     (ideograph-daikanwa . 01452)	; ø¸€–¬

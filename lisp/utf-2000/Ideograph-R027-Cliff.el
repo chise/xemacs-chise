@@ -2195,7 +2195,7 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (japanese-jisx0208	. #x3139)	; ø»†¨€
+    (=jis-x0208-1983	. #x3139)	; ø»†¨€
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
@@ -3033,7 +3033,7 @@
 	))
       )
      ((=jis-x0208-1978	  . #x343A)	; ø»‚˜“
-      (japanese-jisx0208  . #x343A)	; ø»†¬›
+      (=jis-x0208-1983	  . #x343A)	; ø»†¬›
       ))
     (shinjigen-1	. 1285)
     (shinjigen-2	. 1285)

@@ -572,7 +572,7 @@
      ((=ucs		  . #x54C1)	; å“
       ))
     (=jis-x0208-1978	. #x523F)	; ø»ƒ„œ
-    (japanese-jisx0208	. #x523F)	; ø»‡˜¤
+    (=jis-x0208-1983	. #x523F)	; ø»‡˜¤
     ))
 (define-char
   '((morohashi-daikanwa	2691 0 2)

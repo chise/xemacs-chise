@@ -266,7 +266,7 @@
     (shinjigen-1	. 10)
     (shinjigen-2	. 10)
     (=jis-x0208-1978	. #x3E66)	; ø»‚§«
-    (japanese-jisx0208	. #x3E66)	; ø»†»³
+    (=jis-x0208-1983	. #x3E66)	; ø»†»³
     (korean-ksc5601	. #x6D5B)	; ø»ŠŠ®
     (=gt-pj-2		. #x3027)	; ý¡€€€’
     (chinese-big5	. #xA456)	; ý¢€Š‘–
@@ -639,7 +639,7 @@
       (=ucs		  . #x2FFA)	; â¿º
       )
      ((=jis-x0208-1978	  . #x3E66)	; ø»‚§«
-      (japanese-jisx0208  . #x3E66)	; ø»†»³
+      (=jis-x0208-1983	  . #x3E66)	; ø»†»³
       (korean-ksc5601	  . #x6D5B)	; ø»ŠŠ®
       (ideograph-daikanwa . 00011)	; ø¸€€‹
       )

@@ -25,7 +25,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
     (chinese-gb2312	. #x3249)	; ø»„Ÿª
-    (japanese-jisx0208	. #x3A53)	; ø»†µ¨
+    (=jis-x0208-1983	. #x3A53)	; ø»†µ¨
     (=iso-ir165		. #x3249)	; ø»‡º
     (=jis-x0208-1990	. #x3A53)	; ø½Š›œ
     (=gt-pj-1		. #x3A53)	; é‡‡

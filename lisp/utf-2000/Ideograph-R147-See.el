@@ -1135,7 +1135,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (=jis-x0208-1978	. #x3F46)	; ø»‚¨©
-    (japanese-jisx0208	. #x3F46)	; ø»†¼±
+    (=jis-x0208-1983	. #x3F46)	; ø»†¼±
     ))
 (define-char
   '((morohashi-daikanwa	34918 0 2)
@@ -1317,7 +1317,7 @@
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (japanese-jisx0208	. #x6B32)	; ø»‡½…
+    (=jis-x0208-1983	. #x6B32)	; ø»‡½…
     (chinese-cns11643-2 . #x5F48)	; ø»”¨‹
     (=jis-x0208-1990	. #x6B32)	; ø½‹¢¹
     (chinese-gb12345	. #x6A6D)	; è¦¯

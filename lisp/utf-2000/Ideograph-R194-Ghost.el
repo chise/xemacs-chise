@@ -986,7 +986,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
     (=jis-x0208-1978	. #x7233)	; ø»ƒ³
-    (japanese-jisx0208	. #x7233)	; ø»ˆ‡˜
+    (=jis-x0208-1983	. #x7233)	; ø»ˆ‡˜
     (chinese-cns11643-1 . #x777D)	; ø»“‚Œ
     ))
 (define-char

@@ -1199,7 +1199,7 @@
     (total-strokes	 . 13)
     (shinjigen-1	. 9250)
     (shinjigen-2	. 9250)
-    (japanese-jisx0208	. #x303B)	; ø»†¦¤
+    (=jis-x0208-1983	. #x303B)	; ø»†¦¤
     (=jis-x0208-1990	. #x303B)	; ø½ŠŒ˜
     (chinese-gb12345	. #x6242)	; é£´
     (=ucs		. #x98F4)	; é£´
@@ -2052,7 +2052,7 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
-    (japanese-jisx0208	. #x4C5F)	; ø»‡
+    (=jis-x0208-1983	. #x4C5F)	; ø»‡
     (=jis-x0208-1990	. #x4C5F)	; ø½Š¶„
     (chinese-gb12345	. #x317D)	; é¤…
     (=ucs		. #x9905)	; é¤…
@@ -2306,7 +2306,7 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
-    (japanese-jisx0208	. #x3142)	; ø»†¨‰
+    (=jis-x0208-1983	. #x3142)	; ø»†¨‰
     (chinese-gb12345	. #x367C)	; é¤Œ
     (=ucs		. #x990C)	; é¤Œ
     ))

@@ -132,7 +132,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-gb2312	. #x2150)	; ø»„†³
-    (japanese-jisx0208	. #x225E)	; ø»†’£
+    (=jis-x0208-1983	. #x225E)	; ø»†’£
     (korean-ksc5601	. #x2152)	; ø»ˆš½
     (=jis-x0208-1990	. #x225E)	; ø½‰¸—
     (=ucs		. #x2312)	; âŒ’

@@ -819,7 +819,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (chinese-gb2312	. #x477B)	; ø»„¿’
-    (japanese-jisx0208	. #x366D)	; ø»†°Š
+    (=jis-x0208-1983	. #x366D)	; ø»†°Š
     (=iso-ir165		. #x477B)	; ø»§¢
     (=jis-x0208-1990	. #x366D)	; ø½Š•¾
     (=ucs		. #x8EAF)	; èº¯

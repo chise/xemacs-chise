@@ -201,7 +201,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
     (shinjigen-2	. 9038)
-    (japanese-jisx0208	. #x7051)	; ø»ˆ„º
+    (=jis-x0208-1983	. #x7051)	; ø»ˆ„º
     (ideograph-daikanwa . 42604)	; ø¸Š™¬
     ))
 (define-char

@@ -3878,7 +3878,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (chinese-gb2312	. #x6960)	; ø»…°³
-    (japanese-jisx0208	. #x4D32)	; ø»‡‘
+    (=jis-x0208-1983	. #x4D32)	; ø»‡‘
     (=iso-ir165		. #x6960)	; ø»Ž™ƒ
     (chinese-cns11643-1 . #x6527)	; ø»’¦š
     (=jis-x0208-1990	. #x4D32)	; ø½Š¶µ

@@ -397,7 +397,7 @@
       ))
     (shinjigen-2	. 1531)
     (=jis-x0208-1978	. #x5464)	; ø»ƒ‡½
-    (japanese-jisx0208	. #x445B)	; ø»‡„œ
+    (=jis-x0208-1983	. #x445B)	; ø»‡„œ
     (chinese-cns11643-3 . #x3477)	; ø»•³´
     (=jis-x0208-1990	. #x445B)	; ø½Šª
     (=gt-pj-1		. #x445B)	; å£·
@@ -466,7 +466,7 @@
       ))
     (shinjigen-2	. 1531)
     (=jis-x0208-1978	. #x445B)	; ø»‚°”
-    (japanese-jisx0208	. #x5464)	; ø»‡œ…
+    (=jis-x0208-1983	. #x5464)	; ø»‡œ…
     (korean-ksc5601	. #x7B3E)	; ø»Šžµ
     (chinese-cns11643-1 . #x5E63)	; ø»’„
     (=jis-x0208-1990	. #x5464)	; ø½‹¹

@@ -874,7 +874,7 @@
     (shinjigen-1	. 870)
     (shinjigen-2	. 870)
     (chinese-gb2312	. #x4764)	; ø»„¾»
-    (japanese-jisx0208	. #x362A)	; ø»†¯‡
+    (=jis-x0208-1983	. #x362A)	; ø»†¯‡
     (=iso-ir165		. #x4764)	; ø»§‹
     (chinese-cns11643-1 . #x544E)	; ø»’Žƒ
     (=jis-x0208-1990	. #x362A)	; ø½Š”»

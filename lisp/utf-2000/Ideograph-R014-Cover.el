@@ -506,7 +506,7 @@
      ((=ucs		  . #x5154)	; å…”
       ))
     (chinese-gb2312	. #x5429)	; ø»…‘†
-    (japanese-jisx0208	. #x514D)	; ø»‡—”
+    (=jis-x0208-1983	. #x514D)	; ø»‡—”
     (=iso-ir165		. #x5429)	; ø»¹–
     (chinese-cns11643-1 . #x5441)	; ø»’¶
     (=jis-x0208-1990	. #x514D)	; ø½Š½ˆ
