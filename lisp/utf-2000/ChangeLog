@@ -4,7 +4,8 @@
 
 2003-07-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R141-Tiger.el: Add some GT code points.
+	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R141-Tiger.el: Add
+	some GT code points.
 
 2003-07-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
