@@ -2928,10 +2928,10 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_jisx0201,		"latin-jisx0201");
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
-  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208-1978");
+  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208@1978");
   defsymbol (&Qmap_gb2312,		"=gb2312");
   defsymbol (&Qmap_gb12345,		"=gb12345");
-  defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
+  defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208@1983");
   defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
   defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
   defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
@@ -2950,7 +2950,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
-  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208-1990");
+  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208@1990");
   defsymbol (&Qmap_big5,		"=big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
