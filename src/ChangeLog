@@ -1,3 +1,8 @@
+2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (charset_lookup_description_1): Use
+	`NUM_LEADING_BYTES' in UTF-2000.
+
 2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_china3_jef): Deleted.
