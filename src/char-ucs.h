@@ -501,6 +501,60 @@ extern Lisp_Object Vcharset_chinese_big5;
 extern Lisp_Object Vcharset_chinese_big5_1;
 extern Lisp_Object Vcharset_chinese_big5_2;
 
+int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
+
+INLINE_HEADER void
+decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
+			    int code_point);
+INLINE_HEADER void
+decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
+			    int code_point)
+{
+  int i = -1;
+
+  while (dim > 0)
+    {
+      Lisp_Object nv;
+
+      dim--;
+      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
+      nv = XVECTOR_DATA(v)[i];
+      if (!VECTORP (nv))
+	break;
+      v = nv;
+    }
+  if (i >= 0)
+    XVECTOR_DATA(v)[i] = Qnil;
+}
+
+INLINE_HEADER void
+decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+			 int code_point, Lisp_Object character);
+INLINE_HEADER void
+decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+			 int code_point, Lisp_Object character)
+{
+  int i = -1;
+  Lisp_Object nv;
+  int ccs_len = XVECTOR_LENGTH (v);
+
+  while (dim > 0)
+    {
+      dim--;
+      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
+      nv = XVECTOR_DATA(v)[i];
+      if (dim > 0)
+	{
+	  if (!VECTORP (nv))
+	    nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+	  v = nv;
+	}
+      else
+	break;
+    }
+  XVECTOR_DATA(v)[i] = character;
+}
+
 INLINE_HEADER Emchar
 DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
