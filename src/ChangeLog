@@ -1,3 +1,14 @@
+2001-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_cns): New variable.
+	(Qucs_cns): New variable.
+	(syms_of_mule_charset): Add new symbol `ucs-cns'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-cns'.
+
+2001-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (LEADING_BYTE_UCS_CNS): New macro.
+
 2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* search.c (search_buffer): Make `charset_base_code' as
