@@ -5169,6 +5169,18 @@
     (=ucs		. #x22311)	; 𢌑
     ))
 (define-char
+  '((morohashi-daikanwa	33859 0 0)
+    (ideographic-radical@ucs . 142)	; ⾍
+    (ideographic-strokes@ucs . 17)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 53)	; ⼴
+    (ideographic-strokes@cns . 20)
+    (total-strokes	 . 23)
+    (=cns11643-2	. #x6F26)	; �����
+    (=ucs		. #x882F)	; 蠯
+    ))
+(define-char
   '((=>ucs		. #x22312)	; 𢌒
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 21)
