@@ -1,3 +1,12 @@
+2002-03-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u025A0-Geometric-Shapes.el, u02500-Box-Drawing.el,
+	u01F00-Greek-Extended.el: Reformatted.
+
+2002-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01E00-Latin-Extended-Additional.el: Reformatted.
+
 2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u01800-Mongolian.el: Reformatted.
