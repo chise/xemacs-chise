@@ -1,3 +1,41 @@
+2000-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el: Use `vulgar-char-of-shinjigen-1'
+	and `variant-of-shinjigen-1' instead of `comment'.
+
+	* Ideograph-R041-Inch.el: Use `vulgar-char-of-shinjigen-1' instead
+	of `comment'.
+
+	* Ideograph-R040-Roof.el (M-7211): Separate U+5BC8.
+	(M-7238): Separate U+5BD1.
+	(M-7277): Separate U+5BDC.
+
+	* Ideograph-R030-Mouth.el: Use
+	`{ancient|original}-char-of-shinjigen-1' and
+	`variant-of-shinjigen-1' instead of `comment'.
+
+	* Ideograph-R020-Wrap.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R024-Ten.el, Ideograph-R025-Divination.el,
+	Ideograph-R026-Seal.el, Ideograph-R027-Cliff.el,
+	Ideograph-R028-Private.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R018-Knife.el, Ideograph-R019-Power.el,
+	Ideograph-R012-Eight.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R014-Cover.el, Ideograph-R015-Ice.el: Use
+	`{vulgar|original|ancient|wrong}-char-of-shinjigen-1' and
+	`variant-of-shinjigen-1' instead of `comment'.
+
+	* Ideograph-R004-Slash.el, Ideograph-R006-Hook.el,
+	Ideograph-R007-Two.el, Ideograph-R008-Lid.el,
+	Ideograph-R009-Man.el: Use
+	`{vulgar|original|ancient}-char-of-shinjigen-1' and
+	`variant-of-shinjigen-1' instead of `comment'.
+
+	* Ideograph-R003-Dot.el: Use `original-char-of-shinjigen-1'
+	instead of `comment'.
+
+	* Ideograph-R001-One.el: Use
+	`{vulgar|original}-char-of-shinjigen-1' instead of `comment'.
+
 2000-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R055-Two-Hands.el, Ideograph-R056-Shoot.el,
