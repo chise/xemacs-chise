@@ -522,6 +522,13 @@
 		      line-breaking))
       (setq attributes (delq '=>ucs-cns attributes))
       )
+    (when (and (memq '=>ucs-big5 attributes)
+	       (setq value (get-char-attribute char '=>ucs-big5)))
+      (insert (format "(=>ucs-big5\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs-big5 value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs-big5 attributes))
+      )
     (when (and (memq '=>ucs-jis attributes)
 	       (setq value (get-char-attribute char '=>ucs-jis)))
       (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
