@@ -641,7 +641,7 @@
     (ideograph-daikanwa . 01358)	; ø¸€•Ž
     (=big5-cdp		. #xA74B)	; ý¢€Š‹
     (=jef-china3	. #x43D5)	; øº„•
-    (ucs-cns		. #x2F80E)	; ï¨²
+    (=ucs@cns		. #x2F80E)	; ï¨²
     (=ucs		. #xFA32)	; ï¨²
     ))
 (define-char

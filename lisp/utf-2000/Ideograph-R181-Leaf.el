@@ -1298,7 +1298,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
     (chinese-cns11643-2 . #x555F)	; ø»”™¶
-    (ucs-cns		. #x981E)	; ø»”™¶
+    (=ucs@cns		. #x981E)	; ø»”™¶
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´

@@ -3349,7 +3349,7 @@
     (total-strokes	 . 17)
     (chinese-cns11643-2 . #x5E3C)	; ø»”¦¡
     (ideograph-daikanwa . 27114)	; ø¸†§ª
-    (ucs-cns		. #x7CE8)	; ø»”¦¡
+    (=ucs@cns		. #x7CE8)	; ø»”¦¡
     ))
 (define-char
   '((=>ucs-cns		. #x2F968)	; ð¯¥¨

@@ -3120,7 +3120,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (chinese-cns11643-1 . #x6669)	; ø»’¨º
-    (ucs-cns		. #x8A79)	; ø»’¨º
+    (=ucs@cns		. #x8A79)	; ø»’¨º
     ))
 (define-char
   '((morohashi-daikanwa	35458 0 1)

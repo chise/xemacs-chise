@@ -1015,7 +1015,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (chinese-cns11643-4 . #x652A)	; ø»™„©
-    (ucs-cns		. #x2F9FA)	; ø»™„©
+    (=ucs@cns		. #x2F9FA)	; ø»™„©
     ))
 (define-char
   '((=>ucs		. #x97E0)	; éŸ 
@@ -1024,7 +1024,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (chinese-cns11643-4 . #x6527)	; ø»™„¦
-    (ucs-cns		. #x97E0)	; ø»™„¦
+    (=ucs@cns		. #x97E0)	; ø»™„¦
     ))
 (define-char
   '((=>ucs		. #x97E0)	; éŸ 

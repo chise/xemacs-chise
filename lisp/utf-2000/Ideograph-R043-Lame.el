@@ -5,7 +5,7 @@
     (total-strokes	 . 3)
     (chinese-cns11643-1 . #x4452)	; ø»‘¶§
     (ideograph-daikanwa . 07538)	; ø¸µ²
-    (ucs-cns		. #x5C22)	; ø»‘¶§
+    (=ucs@cns		. #x5C22)	; ø»‘¶§
     ))
 (define-char
   '((=>ucs*		. #x5C22)	; å°¢

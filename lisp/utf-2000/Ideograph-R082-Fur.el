@@ -20,7 +20,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-cns11643-1 . #x4553)	; ø»‘¸†
-    (ucs-cns		. #x6BDB)	; ø»‘¸†
+    (=ucs@cns		. #x6BDB)	; ø»‘¸†
     ))
 (define-char
   '((=>ucs		. #x23B1B)	; ð£¬›

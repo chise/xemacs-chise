@@ -43,7 +43,7 @@
     (total-strokes	 . 4)
     (chinese-cns11643-4 . #x2154)	; ø»—¡›
     (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
-    (ucs-cns		. #x8FB6)	; â»Ž
+    (=ucs@cns		. #x8FB6)	; â»Ž
     (=ucs		. #x2ECE)	; â»Ž
     ))
 (define-char

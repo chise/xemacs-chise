@@ -4340,7 +4340,7 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (chinese-cns11643-2 . #x2E29)	; ø»“Ÿ®
-    (ucs-cns		. #x5261)	; ø»“Ÿ®
+    (=ucs@cns		. #x5261)	; ø»“Ÿ®
     ))
 (define-char
   '((=>ucs		. #x34EE)	; ã“®
@@ -5939,7 +5939,7 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (chinese-cns11643-1 . #x6337)	; ø»’£®
-    (ucs-cns		. #x5277)	; ø»’£®
+    (=ucs@cns		. #x5277)	; ø»’£®
     ))
 (define-char
   '((=>ucs-cns		. #x2F823)	; ð¯ £

@@ -2934,7 +2934,7 @@
     (chinese-cns11643-4 . #x2C5E)	; ø»—±¯
     (ideograph-daikanwa . 08121)	; ø¸¾¹
     (=cbeta		. 00776)	; ø¸ Œˆ
-    (ucs-cns		. #x37CF)	; ø»—±¯
+    (=ucs@cns		. #x37CF)	; ø»—±¯
     ))
 (define-char
   '((morohashi-daikanwa	8121 0 0)
@@ -4751,7 +4751,7 @@
     (total-strokes	 . 12)
     (chinese-cns11643-2 . #x3B3E)	; ø»“³‰
     (=jef-china3	. #x4BCE)	; øº„¯Ž
-    (ucs-cns		. #x5D43)	; ø»“³‰
+    (=ucs@cns		. #x5D43)	; ø»“³‰
     ))
 (define-char
   '((=>ucs-cns		. #x2F87C)	; ð¯¡¼

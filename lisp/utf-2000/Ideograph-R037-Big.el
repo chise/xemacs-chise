@@ -1491,7 +1491,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (chinese-cns11643-1 . #x5471)	; ø»’Ž¦
-    (ucs-cns		. #x595A)	; ø»’Ž¦
+    (=ucs@cns		. #x595A)	; ø»’Ž¦
     ))
 (define-char
   '((=>ucs		. #x20AFB)	; ð «»

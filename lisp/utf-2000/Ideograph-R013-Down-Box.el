@@ -207,7 +207,7 @@
       (=ucs		  . #x2E86)	; âº†
       ))
     (chinese-cns11643-2 . #x212E)	; ø»“Œ­
-    (ucs-cns		. #x5187)	; ø»“Œ­
+    (=ucs@cns		. #x5187)	; ø»“Œ­
     ))
 (define-char
   '((=>ucs		. #x5189)	; å†‰
@@ -540,7 +540,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (chinese-cns11643-2 . #x232C)	; ø»“§
-    (ucs-cns		. #x518F)	; ø»“§
+    (=ucs@cns		. #x518F)	; ø»“§
     ))
 (define-char
   '((morohashi-daikanwa	1528 0 1)

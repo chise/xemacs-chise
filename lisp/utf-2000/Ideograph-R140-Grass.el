@@ -24,7 +24,7 @@
     (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
     (ideograph-daikanwa . 30639)	; ø¸‡ž¯
     (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
-    (ucs-cns		. #x8279)	; âº¿
+    (=ucs@cns		. #x8279)	; âº¿
     (=ucs		. #x2EBF)	; âº¿
     ))
 (define-char
@@ -2761,7 +2761,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (chinese-cns11643-2 . #x2D41)	; ø»“ž¨
-    (ucs-cns		. #x82EA)	; ø»“ž¨
+    (=ucs@cns		. #x82EA)	; ø»“ž¨
     ))
 (define-char
   '((=>ucs		. #x82EA)	; è‹ª
@@ -3574,7 +3574,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (chinese-cns11643-6 . #x2E22)	; ø»œ‡·
-    (ucs-cns		. #x2F995)	; ø»œ‡·
+    (=ucs@cns		. #x2F995)	; ø»œ‡·
     ))
 (define-char
   '((=>ucs*		. #x82BD)	; èŠ½
@@ -4850,7 +4850,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (chinese-cns11643-1 . #x5824)	; ø»’“‘
-    (ucs-cns		. #x8343)	; ø»’“‘
+    (=ucs@cns		. #x8343)	; ø»’“‘
     ))
 (define-char
   '((=>ucs		. #x8343)	; èƒ
@@ -7688,7 +7688,7 @@
     (total-strokes	 . 12)
     (chinese-cns11643-2 . #x3F51)	; ø»“¹”
     (ideograph-daikanwa . 31134)	; ø¸‡¦ž
-    (ucs-cns		. #x83BF)	; ø»“¹”
+    (=ucs@cns		. #x83BF)	; ø»“¹”
     ))
 (define-char
   '((morohashi-daikanwa	31134 0 0)
@@ -8459,7 +8459,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (chinese-cns11643-2 . #x3253)	; ø»“¦
-    (ucs-cns		. #x8353)	; ø»“¦
+    (=ucs@cns		. #x8353)	; ø»“¦
     ))
 (define-char
   '((morohashi-daikanwa	31192 0 3)
@@ -8618,7 +8618,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (chinese-cns11643-2 . #x3F68)	; ø»“¹«
-    (ucs-cns		. #x83EA)	; ø»“¹«
+    (=ucs@cns		. #x83EA)	; ø»“¹«
     ))
 (define-char
   '((=>ucs		. #x83EA)	; èª
@@ -16021,7 +16021,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (chinese-cns11643-2 . #x464E)	; ø»”ƒ£
-    (ucs-cns		. #x84F1)	; ø»”ƒ£
+    (=ucs@cns		. #x84F1)	; ø»”ƒ£
     ))
 (define-char
   '((morohashi-daikanwa	31727 0 3)
@@ -25921,7 +25921,7 @@
     (total-strokes	 . 21)
     (chinese-cns11643-2 . #x6C2E)	; ø»”º·
     (ideograph-daikanwa . 32505)	; ø¸‡»¹
-    (ucs-cns		. #x8625)	; ø»”º·
+    (=ucs@cns		. #x8625)	; ø»”º·
     ))
 (define-char
   '((morohashi-daikanwa	32505 0 1)

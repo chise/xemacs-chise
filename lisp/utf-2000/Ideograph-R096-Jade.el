@@ -4474,7 +4474,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4B76)	; ø»”‹¡
     (chinese-big5	. #xE2D0)	; ý¢€Ž‹
-    (ucs-cns		. #x7471)	; ø»”‹¡
+    (=ucs@cns		. #x7471)	; ø»”‹¡
     ))
 (define-char
   '((=>ucs		. #x7472)	; ç‘²

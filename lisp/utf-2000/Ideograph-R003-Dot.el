@@ -93,7 +93,7 @@
     (chinese-big5	. #xA459)	; ý¢€Š‘™
     (ideograph-daikanwa . 00095)	; ø¸€Ÿ
     (=gt-k		. 00162)	; ý¡„€‚¢
-    (ucs-cns		. #x4E38)	; ø»‘¶
+    (=ucs@cns		. #x4E38)	; ø»‘¶
     (ucs-big5		. #x4E38)	; ø»‘¶
     (=gt		. 00132)	; ý¡€€‚„
     ))
@@ -431,7 +431,7 @@
     (chinese-cns11643-3 . #x2740)	; ø»•Ÿ·
     (=gt-pj-2		. #x3071)	; ý¡€€‚‘
     (ideograph-daikanwa . 00104)	; ø¸€¨
-    (ucs-cns		. #x4E3D)	; ø»•Ÿ·
+    (=ucs@cns		. #x4E3D)	; ø»•Ÿ·
     (=gt		. 00145)	; ý¡€€‚‘
     ))
 (define-char

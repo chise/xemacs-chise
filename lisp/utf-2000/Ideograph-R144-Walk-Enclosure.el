@@ -565,7 +565,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (chinese-cns11643-4 . #x534B)	; ø»˜ª®
-    (ucs-cns		. #x8860)	; ø»˜ª®
+    (=ucs@cns		. #x8860)	; ø»˜ª®
     ))
 (define-char
   '((ideographic-radical . 144)	; â¾

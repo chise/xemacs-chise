@@ -353,7 +353,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-cns11643-1 . #x5273)	; ø»’‹¬
-    (ucs-cns		. #x7A81)	; ø»’‹¬
+    (=ucs@cns		. #x7A81)	; ø»’‹¬
     ))
 (define-char
   '((=>ucs-jis		. #xFA55)	; ï©•

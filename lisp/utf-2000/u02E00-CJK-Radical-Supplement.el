@@ -641,7 +641,7 @@
     (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
     (ideograph-daikanwa . 30639)	; ø¸‡ž¯
     (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
-    (ucs-cns		. #x8279)	; âº¿
+    (=ucs@cns		. #x8279)	; âº¿
     (=ucs		. #x2EBF)	; âº¿
     ))
 (define-char
@@ -801,7 +801,7 @@
     (total-strokes	 . 4)
     (chinese-cns11643-4 . #x2154)	; ø»—¡›
     (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
-    (ucs-cns		. #x8FB6)	; â»Ž
+    (=ucs@cns		. #x8FB6)	; â»Ž
     (=ucs		. #x2ECE)	; â»Ž
     ))
 (define-char

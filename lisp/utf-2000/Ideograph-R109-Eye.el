@@ -3160,7 +3160,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (chinese-cns11643-4 . #x3946)	; ø»˜„
-    (ucs-cns		. #x4039)	; ø»˜„
+    (=ucs@cns		. #x4039)	; ø»˜„
     ))
 (define-char
   '((=>ucs*		. #x4039)	; ä€¹

@@ -387,7 +387,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (chinese-cns11643-1 . #x6170)	; ø»’¡«
-    (ucs-cns		. #x865B)	; ø»’¡«
+    (=ucs@cns		. #x865B)	; ø»’¡«
     ))
 (define-char
   '((=>ucs		. #x865C)	; è™œ
@@ -418,7 +418,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (chinese-cns11643-1 . #x663F)	; ø»’¨
-    (ucs-cns		. #x865C)	; ø»’¨
+    (=ucs@cns		. #x865C)	; ø»’¨
     ))
 (define-char
   '((ideographic-radical . 141)	; â¾Œ

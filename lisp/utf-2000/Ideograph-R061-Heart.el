@@ -15384,7 +15384,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (chinese-cns11643-1 . #x7834)	; ø»“‚¡
-    (ucs-cns		. #x61F2)	; ø»“‚¡
+    (=ucs@cns		. #x61F2)	; ø»“‚¡
     ))
 (define-char
   '((=>ucs		. #x2290A)	; ð¢¤Š

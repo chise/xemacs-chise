@@ -100,7 +100,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-cns11643-2 . #x223B)	; ø»“Ž˜
-    (ucs-cns		. #x5E75)	; ø»“Ž˜
+    (=ucs@cns		. #x5E75)	; ø»“Ž˜
     ))
 (define-char
   '((ideographic-radical . 51)	; â¼²

@@ -15686,7 +15686,7 @@
      ((chinese-cns11643-3 . #x2B4E)	; ø»•¥½
       ))
     (chinese-cns11643-6 . #x3D24)	; ø»œ»
-    (ucs-cns		. #x202E2)	; ø»œ»
+    (=ucs@cns		. #x202E2)	; ø»œ»
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
@@ -26953,7 +26953,7 @@
      ((chinese-cns11643-1 . #x6A4B)	; ø»’®”
       ))
     (chinese-cns11643-5 . #x5359)	; ø»šµ€
-    (ucs-cns		. #x349B)	; ø»šµ€
+    (=ucs@cns		. #x349B)	; ø»šµ€
     ))
 (define-char
   '((=>ucs		. #x203EC)	; ð ¬
