@@ -1,5 +1,27 @@
 2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R181-Leaf.el (JC3-8CE9): New character.
+
+	* Ideograph-R122-Net.el (C4-2152): Separated from U+5188 and moved
+	from Ideograph-R013-Down-Box.el.
+
+	* Ideograph-R032-Earth.el (M-05234): Use `<-original-ideograph'
+	instead of `original-ideograph-of'.
+	(M-05291): New character.
+	(C6-3E32): Relate to M-05291.
+	(M-05352): Unify C6-5152 instead of C4-3C5A.
+
+	* Ideograph-R030-Mouth.el: Merge some CHINA3-JEF code points.
+
+	* Ideograph-R025-Divination.el (U+5361): Unify JC3-82B5.
+	(U+5367): Separate C3-2A5C and moved it to
+	Ideograph-R131-Minister.el.
+
+	* Ideograph-R023-Hiding-Enclosure.el, Ideograph-R020-Wrap.el:
+	Merge some CHINA3-JEF code points.
+
+2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R029-Again.el: Add some CHINA3-JEF code points.
 	(C6-3D67): Unify M-48963.
 	(C1-5937): Use `->identical' instead of `ideograph='.
