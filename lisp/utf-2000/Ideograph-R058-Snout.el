@@ -106,10 +106,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (<-vulgar-ideograph
-     ((=daikanwa	  . 21890)	; ø¸…–‚
+     (:sources	(morohashi-daikanwa)
+      :char	((=daikanwa	     . 21890)	; ø¸…–‚
+		 )
       ))
-    (<-vulgar-ideograph*sources
-     daikanwa)
     (=ucs		. #x22450)	; ð¢‘
     (=cns11643-6	. #x246E)	; ø»›º—
     (=daikanwa		. 09912)	; ø¸‚š¸
@@ -118,14 +118,12 @@
   '((ideographic-radical . 58)	; â¼¹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x7576)	; ç•¶
-      (=jis-x0208	  . #x6144)	; ø½‹”Ÿ
-      (=daikanwa	  . 21890)	; ø¸…–‚
-      ))
-    (<-simplified@JP/Jouyou*sources
-     daikanwa JP/Jouyou)
     (shinjigen-2	. 5071)
+    (simplified-ideograph-of
+     ((sources		  morohashi-daikanwa)
+      (char . ((=daikanwa	   . 21890)	; ø¸…–‚
+	       ))
+      ))
     (=ucs		. #x5F53)	; å½“
     (=jis-x0208		. #x4576)	; ø½Š¬‰
     (=gb2312		. #x3531)	; ø»„£¬

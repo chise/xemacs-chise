@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997,1999,2002,2003,2004 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -175,8 +175,6 @@
   (setq coded-charset-entity-reference-alist
 	'(((ideograph-gt . isolated)            "I-GT-" 5 d)
 	  ( ideograph-gt   		          "GT-" 5 d)
-	  ((=ruimoku-v6 . isolated)	      "I-RUI6-" 4 X)
-	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ((chinese-big5-cdp . isolated)       "I-CDP-" 4 X)
 	  ( chinese-big5-cdp		         "CDP-" 4 X)
 	  ((ideograph-daikanwa . isolated)       "I-M-" 5 d)
@@ -286,7 +284,7 @@
    'utf-8-jis 'utf-8
    "Coding-system of UTF-8 using JIS mapping."
    '(mnemonic "UTF8J"
-	      charset-g0 =ucs@jis-2000
+	      charset-g0 ucs-jis
 	      charset-g1 =>ucs-jis
 	      charset-g2 =>ucs))
 
@@ -294,24 +292,7 @@
    'utf-8-jis-er 'utf-8
    "Coding-system of UTF-8 using JIS mapping with entity-reference."
    '(mnemonic "UTF8Jr"
-	      charset-g0 =ucs@jis-2000
-	      charset-g1 =>ucs-jis
-	      charset-g2 =>ucs
-	      use-entity-reference t))
-
-  (make-coding-system
-   'utf-8-jp 'utf-8
-   "Coding-system of UTF-8 for common glyphs used in Japan."
-   '(mnemonic "UTF8J"
-	      charset-g0 =ucs@jp
-	      charset-g1 =>ucs-jis
-	      charset-g2 =>ucs))
-
-  (make-coding-system
-   'utf-8-jp-er 'utf-8
-   "Coding-system of UTF-8 using =ucs@jp mapping with entity-reference."
-   '(mnemonic "UTF8Jr"
-	      charset-g0 =ucs@jp
+	      charset-g0 ucs-jis
 	      charset-g1 =>ucs-jis
 	      charset-g2 =>ucs
 	      use-entity-reference t))
@@ -336,17 +317,6 @@
   (define-coding-system-alias 'utf-8 'utf-8-mcs)
   (define-coding-system-alias 'utf-8-er 'utf-8-mcs-er)
   )
-
-(make-coding-system
- 'euc-jisx0213 'iso2022
- "Coding-system of Japanese EUC based on JIS X 0213."
- '(charset-g0 ascii
-   charset-g1 japanese-jisx0213-1
-   charset-g2 katakana-jisx0201
-   charset-g3 japanese-jisx0213-2
-   short t
-   mnemonic "Ja/EUC0213"
-   ))
 
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
