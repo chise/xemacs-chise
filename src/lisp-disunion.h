@@ -82,7 +82,7 @@ typedef EMACS_INT Lisp_Object;
 #define VALMASK (((1UL << VALBITS) - 1UL) << GCTYPEBITS)
 #define XTYPE(x) ((enum Lisp_Type) (((EMACS_UINT)(x)) & ~VALMASK))
 #define XPNTRVAL(x) (x) /* This depends on Lisp_Type_Record == 0 */
-#define XCHARVAL(x) ((x) >> GCBITS)
+#define XCHARVAL(x) ((EMACS_UINT)(x) >> GCBITS)
 #define XREALINT(x) ((x) >> INT_GCBITS)
 #define XUINT(x) ((EMACS_UINT)(x) >> INT_GCBITS)
 #define INTP(x) ((EMACS_UINT)(x) & Lisp_Type_Int_Bit)
