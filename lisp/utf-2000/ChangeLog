@@ -1,3 +1,46 @@
+2001-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el: Add some CJK Ext-B code points.
+	(M-04684): Separate C6-225F; map to U-00020064.
+	(C6-225F): Add `->identical' for U-00020064; map to U-00020064.
+
+	* Ideograph-R029-Again.el: Add some CJK Ext-B code points.
+
+	* Ideograph-R002-Line.el (U-00020064): Add `->identical' for
+	C6-225F; add `->same-ideograph' for M-04684.
+
+	* Ideograph-R011-Enter.el (M-01416): Add `<-wrong-ideograph' for
+	M-00345.
+	(U+4EBD): Moved to Ideograph-R009-Man.el.
+
+	* Ideograph-R009-Man.el (U+4EBD): Moved from
+	Ideograph-R011-Enter.el; relate to M-00345.
+	(U+4ECA): Use U+4EBD instead of BC-8AFC.
+	(U+4EE4): Likewise.
+	(U+4F1B): Simplify the `ideographic-structure' property.
+	(M-00757): Likewise.
+	(U+500A): Likewise.
+	(U+506C): Likewise.
+
+	* Ideograph-R075-Tree.el (U+6729): Unify BC-8956.
+
+2001-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el (U+97E6): Unify BC-89D6.
+
+	* Ideograph-R168-Long.el (U+957F): Add `total-strokes'; unify
+	BC-89A5.
+
+	* Ideograph-R040-Roof.el (J0-555F): Unify BC-8AF8.
+
+	* Ideograph-R011-Enter.el:
+	- Add some Hanziku-1 code points.
+	- Add some missing `ideographic-structure' properties.
+
+	* Ideograph-R009-Man.el:
+	- Add some missing `ideographic-structure' properties.
+	- Add some Hanziku-1 code points.
+
 2001-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R169-Gate.el (U+95E8): Add `total-strokes'; unify
