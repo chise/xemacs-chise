@@ -138,6 +138,8 @@
     (total-strokes	 . 3)
     (<-original
      ((shinjigen-1	  . 75)
+      (=ucs		  . #x4E8E)	; 于
+      (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
       (=daikanwa	  . 00252)	; &I-M-00252;
       ))
     (<-original*sources

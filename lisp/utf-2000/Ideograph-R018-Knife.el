@@ -2369,6 +2369,7 @@
     (<-original
      ((shinjigen-1	  . 615)
       (=ucs		  . #x5225)	; 別
+      (=jis-x0208	  . #x4A4C)	; &I-J90-4A4C; [42-44]
       ))
     (<-original*sources
      shinjigen-1)

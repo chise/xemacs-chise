@@ -816,7 +816,11 @@
      ((=ucs		  . #x6700)	; 最
       ))
     (<-original
-     ((=daikanwa	  . 14301)	; &I-M-14301;
+     ((shinjigen-1	  . 925)
+      (=jis-x0208	  . #x3A47)	; &GT-18101; [26-39]
+      (=ks-x1001	  . #x754C)	; &I-K0-754C; [85-44]
+      (=cns11643-6	  . #x4978)	; &I-C6-4978; [41-88]
+      (=daikanwa	  . 14301)	; &I-M-14301;
       ))
     (<-original*sources
      zhengzi-tong daikanwa shinjigen-1)

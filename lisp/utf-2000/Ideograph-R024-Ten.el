@@ -492,6 +492,8 @@
     (total-strokes	 . 6)
     (<-original
      ((shinjigen-1	  . 814)
+      (=ucs		  . #x5345)	; 卅
+      (=jis-x0208	  . #x5241)	; &I-J90-5241; [50-33]
       (=daikanwa	  . 02700)	; &I-M-02700;
       ))
     (<-original*sources
