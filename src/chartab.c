@@ -67,9 +67,6 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 #ifdef UTF2000
 
-static void
-decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
-
 #define BT_UINT8_MIN		0
 #define BT_UINT8_MAX	(UCHAR_MAX - 3)
 #define BT_UINT8_t	(UCHAR_MAX - 2)
@@ -857,16 +854,6 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
     return cit->default_value;
   else
     return val;
-}
-
-void
-put_char_id_table (Lisp_Char_Table* cit,
-		   Lisp_Object character, Lisp_Object value)
-{
-  struct chartab_range range;
-
-  decode_char_table_range (character, &range);
-  put_char_table (cit, &range, value);
 }
 
 
@@ -1732,7 +1719,10 @@ as CHAR-TABLE.  The values will not themselves be copied.
   return obj;
 }
 
-static void
+#ifndef UTF2000
+static
+#endif
+void
 decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 {
   if (EQ (range, Qt))
