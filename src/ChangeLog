@@ -1,5 +1,11 @@
 2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (char_table_open_db_maybe): Use `chise_ds_get_feature'
+	instead of `chise_ds_open_feature_table'.
+	(char_table_close_db_maybe): Don't use `chise_ft_close'.
+
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Fsave_charset_mapping_table): Use
 	`chise_ds_get_ccs' instead of `chise_ds_open_ccs_table'; use
 	`chise_ccs_set_decoded_char' instead of `chise_ccst_put_char'; use
