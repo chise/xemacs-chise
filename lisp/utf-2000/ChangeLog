@@ -1,3 +1,21 @@
+2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Use `=ucs@jis/{1990|2000}'
+	instead of `=ucs@jis-{1990|2000}'.
+
+2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el, Ideograph-R086-Fire.el: Use
+	`=ucs@jis/1990' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R072-Sun.el: Use `=ucs@jis/{1990|2000}' instead of
+	`=ucs@jis-{1990|2000}'.
+
+	* Ideograph-R059-Bristle.el: Use `=ucs@JP' instead of `=ucs@jp'.
+
+	* Ideograph-R046-Mountain.el: Use `=ucs@jis/2000' instead of
+	`=ucs@jis-2000'.
+
 2004-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el: Use `=daikanwa@rev{1|2}' instead of
