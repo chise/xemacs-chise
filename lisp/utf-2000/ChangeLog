@@ -1,17 +1,39 @@
 2003-08-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R144-Walk-Enclosure.el (U+884E): Unify JC3-99A9.
+	(U+8855): Unify JC3-63E8.
+	(U+885A): Unify JC3-63E9.
+	(U+885C): Unify JC3-63EA.
+	(U+885F): Unify JC3-63EB.
+	(JSP-5C32): Unify JC3-63EC.
+
+	* Ideograph-R143-Blood.el (JSP-5C25): Unify JC3-63E2.
+
+2003-08-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R046-Mountain.el (U+37E2): Unify JC3-4AFE.
+
+	* Ideograph-R133-Arrive.el (U+4453): Unify JC3-60EA.
+
+	* Ideograph-R106-White.el (U+769E): Unify JC3-5BA5.
+
 	* Ideograph-R032-Earth.el (CB07009): Unify JC3-8DF8.
 
 2003-08-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R108-Dish.el: Add mappings for Big5 code points.
-
-	* Ideograph-R104-Sickness.el (J0-617A): Unify B-C4EE.
-
 	* Ideograph-R029-Again.el (BC-8AC4): Unify JC3-8EC0.
 	(M003167): New character.
 
+	* Ideograph-R148-Horn.el (U+89D4): Unify JC3-64D0.
+	(JX1-5D39): Unify JC3-64D2.
+
 2003-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R129-Brush.el (U+8082): Unify B-D1FB.
+
+	* Ideograph-R108-Dish.el: Add mappings for Big5 code points.
+
+	* Ideograph-R104-Sickness.el (J0-617A): Unify B-C4EE.
 
 	* Ideograph-R078-Death.el (U+8082): Unify B-D1FB.
 
