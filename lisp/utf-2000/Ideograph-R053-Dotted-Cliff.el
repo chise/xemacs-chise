@@ -2758,7 +2758,6 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (shinjigen-1	. 2207)
     (japanese-jisx0208-1978	. #x567E)	; ø»ƒ‹“
     (japanese-jisx0208		. #x567E)	; ø»‡Ÿ›
     (japanese-jisx0208-1990	. #x567E)	; ø½‹…
@@ -2767,11 +2766,21 @@
 (define-char
   '((morohashi-daikanwa	9453 0 0)
     (ideographic-radical . 53)	; â¼´
-    (ideographic-strokes . 12)
-    (kangxi-strokes	 . 11)
+    (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (chinese-cns11643-3 . #x4661)	; ø»–º
     (ucs		. #x5ECF)	; å»
+    ))
+(define-char
+  '((->ucs		. #x5ECF)	; å»
+    (morohashi-daikanwa	9453 0 2)
+    (ideographic-radical . 53)	; â¼´
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (shinjigen-1	. 2207)
+    (ideograph-gt-pj-11 . #x3B54)	; ý¡€‚¹¾
+    (ideograph-gt	. 11902)	; ý¡€‚¹¾
+    (mojikyo		. 050989)	; ý €Œœ­
     ))
 (define-char
   '((->ucs		. #x5ED0)	; å»
@@ -2779,12 +2788,10 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (<-vulgar-ideograph
-     (:sources	(jiyun morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 2207)
-		 (ideograph-daikanwa . 09453)	; ø¸‚“­
+     (:sources	(jiyun morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 09453)	; ø¸‚“­
 		 )
       ))
-    (shinjigen-1	. 2209)
     (japanese-jisx0208-1978	. #x567D)	; ø»ƒ‹’
     (japanese-jisx0208		. #x567D)	; ø»‡Ÿš
     (japanese-jisx0208-1990	. #x567D)	; ø½‹…Ž
@@ -2803,9 +2810,24 @@
     (morohashi-daikanwa	9454 0 1)
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 12)
-    (kangxi-strokes	 . 11)
     (total-strokes	 . 14)
     (korean-ksc5601	. #x4F2A)	; ø»‰¹
+    ))
+(define-char
+  '((->ucs		. #x5ED0)	; å»
+    (morohashi-daikanwa	9454 0 3)
+    (ideographic-radical . 53)	; â¼´
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (<-vulgar-ideograph
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 2207)
+		 (ideograph-gt	     . 11902)	; ý¡€‚¹¾
+		 )
+      ))
+    (shinjigen-1	. 2209)
+    (ideograph-gt-pj-9	. #x4C55)	; ý¡€‚¹½
+    (ideograph-gt	. 11901)	; ý¡€‚¹½
     ))
 (define-char
   '((morohashi-daikanwa	9454 0 5)
