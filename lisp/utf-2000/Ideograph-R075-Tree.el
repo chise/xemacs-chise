@@ -6895,7 +6895,7 @@
 	)
        ((=ucs		    . #x6728)	; 木
 	)
-       ((=ucs@unicode	    . #x8C55)	; &UU+8C55;
+       ((=ucs@unicode	    . #x8C55)	; &G0-7539;
 	))
       (=ucs@unicode	  . #x3B6C)	; &UU+3B6C;
       )

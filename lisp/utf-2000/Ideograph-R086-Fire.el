@@ -8813,7 +8813,7 @@
       (=ks-x1001	  . #x7B7D)	; &I-K0-7B7D; [91-93]
       (=daikanwa	  . 18850)	; &I-M-18850;
       )
-     ((=ucs@unicode	  . #x9022)	; &UU+9022;
+     ((=ucs@unicode	  . #x9022)	; &GT-52042;
       ))
     (=ucs@unicode	. #x71A2)	; &UU+71A2;
     ))
