@@ -188,7 +188,7 @@
     ;; to sort the stuff below, use M-x sort-regexp-fields RET
     ;; ^.*$ RET (\([a-z]*\) RET
   '((ajc        . "http://www-personal.monash.edu.au/~ajc/")
-    (baw        . "http://www.python.org/~bwarsaw/")
+    (baw        . "http://barry.wooz.org/")
     (ben        . "http://www.666.com/ben/")
     (ben-xemacs . "http://www.xemacs.org/Architecting-XEmacs/index.html")
     (beopen     . "http://www.beopen.com/")
@@ -198,8 +198,10 @@
     (dkindred   . "http://www.cs.cmu.edu/People/dkindred/me.html")
     (dmoore     . "http://oj.egbt.org/dmoore/")
     (dv         . "http://www.lrde.epita.fr/~didier/")
+    (fabrice    . "http://www.ese-metz.fr/~popineau/")
+    (fptex      . "http://www.fptex.org/")
     (jason      . "http://www.mastaler.com/")
-    (juhp       . "http://www.kurims.kyoto-u.ac.jp/~petersen/")
+    (juhp       . "http://www.01.246.ne.jp/~juhp/")
     (jwz        . "http://www.jwz.org/")
     (kazz       . "http://www.imasy.or.jp/~kazz/")
     (kyle       . "http://www.wonderworks.com/kyle/")
@@ -208,34 +210,45 @@
     (ograf      . "http://www.fga.de/~ograf/")
     (pez        . "http://cbs.sportsline.com/")
     (piper      . "http://www.xemacs.freeserve.co.uk/")
+    (rossini    . "http://faculty.washington.edu/rossini/")
     (stigb      . "http://www.tihlde.hist.no/~stigb/")
     (vin        . "http://www.upa.org/")
     (vladimir   . "http://www.leonora.org/~vladimir/")
     (wget       . "http://www.wget.org/")
     (wget-ftp   . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
-    (xemacs     . "http://www.xemacs.org/"))
+    (xemacs     . "http://www.xemacs.org/")
+    (youngs     . "http://eicq.sourceforge.net/"))
   "Some of the more important URLs.")
 
 (defvar about-left-margin 3)
 
-;; Insert a URL link to the buffer.
-(defun about-url-link (what &optional echo)
-  (or (stringp what)
-      (setq what (cdr (assq what about-url-alist))))
-  (assert what)
+(defun about-lookup-url (name)
+  (let ((result (cdr (assq name about-url-alist))))
+    (assert result)
+    result))
+
+;; Insert a URL link in the buffer.  TEXT-TO-INSERT is the text that will
+;; be hyperlinked; if omitted, the URL is used.  HELP-ECHO is some text that
+;; will be displayed when the mouse moves over the link.
+(defun about-url-link (url &optional text-to-insert help-echo)
+  (assert url)
+  (when (symbolp url)
+    (setq url (about-lookup-url url)))
+  (when (and text-to-insert (symbolp text-to-insert))
+    (setq text-to-insert (about-lookup-url text-to-insert)))
   (widget-create 'url-link
 		 :button-prefix ""
 		 :button-suffix ""
-		 :help-echo echo
-		 what))
+		 :help-echo help-echo
+		 :tag (or text-to-insert url)
+		 url))
 
-;; Insert a mailto: link to the buffer.
+;; Insert a mailto: link in the buffer.
 (defun about-mailto-link (address)
-  (widget-create 'url-link :help-echo (concat "Send mail to " address)
-		 :button-prefix ""
-		 :button-suffix ""
-		 :tag address
-		 (concat "mailto:" address)))
+  (about-url-link
+   (concat "mailto:" address) address
+   (concat "Send mail to " address)
+   ))
 
 ;; Attach a face to a string, in order to be inserted into the buffer.
 ;; Make sure that the extent is duplicable, but unique.  Returns the
@@ -387,7 +400,7 @@ be obtained through the ")
      " on-line information system.\n
 The XEmacs web page can be browsed, using any WWW browser at\n
 \t\t    ")
-    (about-url-link 'xemacs "Visit XEmacs WWW page")
+    (about-url-link 'xemacs nil "Visit XEmacs WWW page")
     (widget-insert "\n
 Note that W3 (XEmacs's own browser), might need customization (due to
 firewalls) in order to work correctly.
@@ -722,7 +735,7 @@ et. al., he spends his time pursuing, among other things, a Life.
 Some of this currently involves doing an A-Z (by country) of
 restaurants with friends, and has, in the past, involved dyeing his
 hair various colours (see ")
-     (about-url-link 'ajc "Visit Andrew's home page")
+     (about-url-link 'ajc nil "Visit Andrew's home page")
      (widget-insert ".\n"))
     (alastair
      (widget-insert
@@ -730,19 +743,61 @@ hair various colours (see ")
 Sorry, no personal information available about me yet.\n"))
     (baw
      (widget-insert "\
-Daddy
-\(C) 1994 Warsaw
-===============
-Drive me Daddy, drive me quick
-Push my pedal, shift my stick
-Fill me up with golden gas
-My rubber squeals, I go real fast
+As of November 2000, I am a software engineer with the Pythonlabs at
+Digital Creations.  Pythonlabs is the core team developing and
+maintaining the Python open source, object-oriented scripting
+language.  Digital Creations is the publisher of Zope, an open source
+content management system written in Python.
 
-Milk me Daddy, milk me now
-Milk me like a big ol' cow
-I've got milk inside my udder
-Churn it up and make some butter\n\nSee also:\n\n\t")
-     (about-url-link 'baw "Visit Barry's home page")
+In addition to my Python and Zope work, I am lead developer for the
+GNU Mailman project, a mailing list management system written,
+naturally, in Python.  See the trend?
+
+On the side I play bass with a number of Washington DC area bands and
+also write poems about cows, milk, and fathers.  Here's a sample, and
+drop me an email if you live in the NYC to Charlotte region; I'll let
+you know when the band's playing in your area.  It'd be cool to meet
+you, and talking about XEmacs would make my wife very happy by helping
+to fend off the legions of groupies that seem to follow me everywhere.
+
+    Milk Me Daddy
+    (C) 1990 Warsaw
+    ===============
+    Oh daddy with your fingers pink 
+    From whose udders do you drink? 
+    Thy milk offends with putrid stink 
+    I'll vomit now, lactose I think 
+
+    If I could dream, I'd be a cow 
+    Not horse, or mule, or barnyard sow 
+    The cud I'd chew would drip and how! 
+    So milk me daddy, milk me now! 
+
+    My bovine nature knows no bounds 
+    I'd naught awake at midnight sounds 
+    Of teens approaching o'er the grounds 
+    To tip with glee, then screech like clowns 
+
+    And so I stare into this glass 
+    Of sweaty juice, I gulp so fast 
+    Each drop I lick, down to the last 
+    The vertigo I know will pass 
+
+    My mother smiles and pats my head 
+    She's proud of me, so she has said 
+    My pop just now gets out of bed 
+    His eyes quite comatose and red 
+
+    He'll empathize my milky fate 
+    Whilest sopping gravy from his plate 
+    And as the hour is getting late 
+    His belly taut with all he ate 
+
+    He isn't often quite so chatty 
+    His arteries clogged with meat so fatty 
+    With burps that launch soup, thick and splatty 
+    Oh how I wish you'd milk me daddy\n\n\t")
+     (about-url-link 'baw nil "Visit Barry's home page")
      (widget-insert "\n"))
     (ben
      (widget-insert
@@ -760,9 +815,9 @@ More recently I have fought my way back with loads and loads of
 narcotic painkillers, and currently I'm an art student at the
 University of Arizona.\n\n")
      (widget-insert "Architecting XEmacs: ")
-     (about-url-link 'ben-xemacs "Find the miracles in store for XEmacs")
+     (about-url-link 'ben-xemacs nil "Find the miracles in store for XEmacs")
      (widget-insert "\nBen's home page:     ")
-     (about-url-link 'ben "Visit Ben's page")
+     (about-url-link 'ben nil "Visit Ben's page")
      (widget-insert "\n"))
     (bw
      (widget-insert "\
@@ -801,7 +856,7 @@ numerous other features and fixes.
 Rumors that Chuck is aka Black Francis aka Frank Black are completely
 unfounded.\n"))
     (daiki
-     (about-url-link 'daiki "Visit Daiki's page"))
+     (about-url-link 'daiki nil "Visit Daiki's page"))
     (dan
      (widget-insert
       "\
@@ -827,7 +882,7 @@ Carnegie Mellon University, but he's trying hard to kick that
 habit.
 
 See ")
-     (about-url-link 'dkindred "Visit Darrell's WWW page")
+     (about-url-link 'dkindred nil "Visit Darrell's WWW page")
      (widget-insert ".\n"))
     (dmoore
      (widget-insert "\
@@ -839,7 +894,7 @@ of course.)  He can be found at `druidmuck.egbt.org 4201' at various
 hours of the day.
 
 He has a page at ")
-     (about-url-link 'dmoore "Visit David's home page")
+     (about-url-link 'dmoore nil "Visit David's home page")
      (widget-insert ".\n"))
     (dv
      (widget-insert "\
@@ -858,7 +913,7 @@ semi-professional Jazz guitar player (and singer), which means that it
 is not the way I earn my crust, but things may very well reverse in
 the future ...\n\n")
      (widget-insert "Visit Didier's home page: ")
-     (about-url-link 'dv "Visit Didier's home page")
+     (about-url-link 'dv nil "Visit Didier's home page")
      (widget-insert "\n"))
     (eb
      (widget-insert
@@ -867,7 +922,19 @@ Sorry, no personal information available about me yet.\n"))
     (fabrice
      (widget-insert
       "\
-Sorry, no personal information available about me yet.\n"))
+I'm a computer science researcher and teacher in a French electrical
+engineering institution called Supelec. My fields of interest are
+symbolic artificial intelligence, theoretical computer science, functional
+languages ... and TeX.
+
+Lately, my hacking time has been devoted to porting the Web2C/teTeX
+distribution of TeX for Unix to Win32, and I'm still maintaining it.
+It is included in the TeX Live cdrom edited by Sebastian Rahtz.\n")
+     (widget-insert "Visit fpTeX home page: ")
+     (about-url-link 'fptex nil "Visit fpTeX home page")
+     (widget-insert "\nFabrice's home page:   ")
+     (about-url-link 'fabrice nil "Visit Fabrice's page")
+     (widget-insert "\n"))
     (golubev
      (widget-insert
       "\
@@ -896,9 +963,9 @@ at SRCE.  His hobby is hacking free software, particularly XEmacs and
 GNU Wget, the latter being his very own creation.
 
 For info on Wget, see ")
-     (about-url-link 'wget "Visit the Wget web page")
+     (about-url-link 'wget nil "Visit the Wget web page")
      (widget-insert " or\n")
-     (about-url-link 'wget-ftp "Visit the Wget ftp page")
+     (about-url-link 'wget-ftp nil "Visit the Wget ftp page")
      (widget-insert ".\n"))
     (hobley
      (widget-insert "\
@@ -939,7 +1006,7 @@ Scientist(tm) in the Los Alamos National Laboratory's Advanced
 Computing Group.
 
 See: ")
-      (about-url-link 'jason "Visit Jason's homepage")
+      (about-url-link 'jason nil "Visit Jason's homepage")
       (widget-insert ".\n"))
     (jens
      (widget-insert "\
@@ -969,38 +1036,43 @@ until late 1997 when I started working at Symbian, a Windows-only
 company, and felt lost without my favourite editing environment.\n"))
     (juhp
      (widget-insert "\
-I started using XEmacs-20 as my work-environment in June 1997.  I
-became a beta developer shortly after that (\"it seems like a good
-idea at the time...\" :-), so far contributing mainly bug fixes,
-\"find-func.el\" and improvements to \"help.el\".
+Jens was born in Copenhagen, grew up in Britain and is now living in
+Japan.  He started using XEmacs 20 (instead of Emacs) as his
+work-environment in June 1997 while still an EU postdoc at RIMS, Kyoto
+University, and quickly got involved in XEmacs development.  Recently
+he is getting into Haskell, a very nice pure functional programming
+language.
 
-My current dreams for XEmacs: Move to using guile as the Lisp engine
-and gtk as the default X toolkit.
-
-I have been a postdoctoral researcher at the Research Institute for
-Mathematical Sciences, Kyoto University, since August 1994, doing
-research in mathematical physics (representation theory of quantum
-groups).  Though now I seem to be heading for other things.
-
-My homepage is ")
-     (about-url-link 'juhp "Visit Jens' homepage")
-     (widget-insert ".\n"))
+")
+     (about-url-link 'juhp nil "Visit Jens' homepage")
+     (widget-insert "\n"))
     (jwz
      (widget-insert
       "\t"
       (about-with-face "\"So much to do, so little time.\"" 'italic)
       "\n
 Jamie Zawinski was primarily to blame for Lucid Emacs from its
-inception in 1991, to 1994 when Lucid Inc. finally died.  He is now to
-be found at Netscape Communications, hacking on Netscape Navigator (he
-did the first Unix version and the mail and news reader).  Thankfully
-his extensive sleep deprivation experiments conducted during 1994 and
-1995 are now a thing of the past, but his predilection for dark,
-Gothic music remains unabated.
+inception in 1991, to 1994 when Lucid Inc. finally died.  After that,
+he was one of the initial employees of Netscape Communications, writing
+the first Unix version of Netscape Navigator, and designing and
+implementing the first version of the Netscape Mail and News readers.
+He then helped create and run ")
+     (about-url-link "http://www.mozilla.org/"
+		     "mozilla.org"
+		     "Visit The Mozilla Organization")
+     (widget-insert " for its first two years,
+until America Online bought Netscape Communications, at which point he
+gave up in disgust and dropped out of the computer industry entirely.
 
-Come visit his glorified .plan file at\n\n")
-     (about-url-link 'jwz "Visit Jamie's home page")
-     (widget-insert "\n"))
+He now runs a ")
+     (about-url-link "http://www.dnalounge.com/"
+		     "nightclub"
+		     "Visit The DNA Lounge")
+     (widget-insert " in San Francisco, and occasionally writes
+screen savers.\n\n")
+     (widget-insert "Visit jwz's ")
+     (about-url-link 'jwz "home page" "Visit jwz's home page")
+     (widget-insert ".\n"))
     (kazz
      (widget-insert "\
 Kazz is the XEmacs lead on BSD (especially FreeBSD).
@@ -1013,7 +1085,7 @@ In real life, he is working on a PDM product based on CORBA,
 and doing consultation, design and implemention.
 He loves to play soccer, yes football!
 See also:")
-     (about-url-link 'kazz "Visit Kazz's home page")
+     (about-url-link 'kazz nil "Visit Kazz's home page")
      (widget-insert ".\n"))
     (kirill
      (widget-insert
@@ -1022,7 +1094,7 @@ Sorry, no personal information available about me yet.\n"))
     (kyle
      (widget-insert "\
 See\n")
-     (about-url-link 'kyle "Visit Kyle's Home page")
+     (about-url-link 'kyle nil "Visit Kyle's Home page")
      (widget-insert ".\n"))
     (larsi
      (widget-insert "\
@@ -1031,14 +1103,14 @@ Internet stock broker.  He claims no responsibility for the Dot
 Com Bomb, but he snickers a lot.
 
 See ")
-     (about-url-link 'larsi "Visit the Larsissistic pages")
+     (about-url-link 'larsi nil "Visit the Larsissistic pages")
      (widget-insert ".\n"))
     (marcpa
      (widget-insert "\
 I work for Positron Industries Inc., Public Safety Division.
 I'm part of the team producing POWER 911, a 911 emergency response
 system written in Modula3:\n")
-     (about-url-link 'marcpa "Visit POWER 911")
+     (about-url-link 'marcpa nil "Visit POWER 911")
      (widget-insert "\
 \n\nPreviously, I worked at Softimage Inc., now a Microsoft company
 \(eeekkk!), as a UNIX system administrator.  This is where I've been
@@ -1096,7 +1168,7 @@ also Drag'n'Drop, and more), and various other hacks: ISDN-tools,
 cd players, python, etc...
 
 To see some of these have a look at ")
-     (about-url-link 'ograf "one of my homepages")
+     (about-url-link 'ograf nil "one of my homepages")
      (widget-insert ".\n"))
     (olivier
      (widget-insert
@@ -1109,17 +1181,25 @@ Sorry, no personal information available about me yet.\n"))
     (pelegri
      (widget-insert
       "\
-Sorry, no personal information available about me yet.\n"))
+I did my my PhD at UCB and a postdoc at CSL/PARC.  I joined Sun in 1990,
+spent some time in DevPro (that is when I made my contribution to
+XEmacs) and joined JavaSoft in fall '95, where I've been the lead for
+several JSP-related specifications and JAX-RPC.  I'm currently the Web
+Layer architect for J2EE. 
+
+I was born in Barcelona and I grew up mostly in Caracas; I have two kids
+and I speak only catalan to them; I can juggle some (career, family, and
+4 balls or 3 pins); and my english can be idiosyncratic!.\n"))
     (pez
      (widget-insert "\
 Peter currently serves as Senior Vice President, Product Development
 for CBS SportsLine.  See ")
-     (about-url-link 'pez "CBS SportsLine")
+     (about-url-link 'pez nil "CBS SportsLine")
      (widget-insert ".\n"))
     (piper
      (widget-insert "\
 My home page is here:\n")
-     (about-url-link 'piper "Visit andy's home page")
+     (about-url-link 'piper nil "Visit andy's home page")
      (widget-insert "\n
 Andy has recently rejoined the XEmacs team to help port XEmacs to
 MS Windows operating systems.\n"))
@@ -1140,15 +1220,19 @@ betas, and tinkers with various personal hacking projects.\n"))
 Sorry, no personal information available about me yet.\n"))
     (rossini
      (widget-insert "\
-Author of the first XEmacs FAQ, as well as minor priest in the
-movement to get every statistician in the world to use XEmacs for
-statistical programming and data analysis.  Current development lead
-for ESS (Emacs Speaks Statistics), a mode and inferior mode for
-statistical programming and data analysis for SAS, S, S-PLUS, R,
-XLispStat; configurable for nearly any other statistical
-language/package one might want.  In spare time, acts as a
-Ph.D. (bio)statistician for money and amusement.  Current position:
-Assistant Professor of Statistics at the University of South Carolina.\n"))
+Current development lead for ESS (Emacs Speaks Statistics), a mode and
+inferior mode for statistical programming and data analysis for SAS,
+S, S-PLUS, R, XLispStat; configurable for nearly any other statistical
+language/package one might want.  In spare time, chases his son around
+and acts as a Ph.D. (bio)statistician for money and amusement,
+primarily focusing on statistical computing, visualization, and the
+design and analysis of HIV vaccine trials.  Current position: Research
+Assistant Professor of Biostatistics at the University of Washington
+and the Fred Hutchinson Cancer Research Center.
+
+See ")
+     (about-url-link 'rossini nil "Visit Anothony's home page")
+     (widget-insert ".\n"))
     (slb
      (widget-insert "\
 Peaches Baur, 1986-1999.
@@ -1179,7 +1263,7 @@ Currently studying computer science in Trondheim, Norway.  Full time
 Linux user and proud of it.  XEmacs hacker light.
 
 See:\t")
-     (about-url-link 'stigb "Visit Stig's home page"))
+     (about-url-link 'stigb nil "Visit Stig's home page"))
     (thiessel
      (widget-insert "\
 Worked at University of Kaiserslautern where he took part in the
@@ -1212,13 +1296,15 @@ with in Austin, Texas - the Ether Bunnies.  I'm getting too old
 to play competitive Ultimate any more, so now I've gotten roped
 into serving on the board of directors of the Ultimate Players
 Association.  See ")
-     (about-url-link 'vin "Visit the UPA homepage")
+     (about-url-link 'vin nil "Visit the UPA homepage")
      (widget-insert ".\n"))
     (vladimir
      (widget-insert "\
-Former technical lead for XEmacs at Sun.  He is now with a startup
-marketing embedded Java databases.  See ")
-     (about-url-link 'vladimir "Visit Vladimir's home page")
+Former technical lead for XEmacs at Sun.  He is now writing a book on
+distributed Java and is working at Xerox PARC documenting AspectJ, a
+light-weight extension to Java that supports crosscutting concerns.
+See ")
+     (about-url-link 'vladimir nil "Visit Vladimir's home page")
      (widget-insert ".\n"))
     (wmperry
      (widget-insert "\
@@ -1228,9 +1314,21 @@ Currently working at Aventail, Corp. on SOCKS v5 servers.\n"))
       "\
 Sorry, no personal information available about me yet.\n"))
     (youngs
-     (widget-insert
-      "\
-Sorry, no personal information available about me yet.\n"))
+     (widget-insert "\
+I live in Brisbane, Australia with my wife, Michelle and our daughter,
+Kaitlyn.  I've only been hacking XEmacs for a short time (approx 18
+mths), but I've been fooling around with computers since the early
+80's.
+
+In the past, I've been a bank officer, car salesman, insurance agent,
+managed a computer firm and owned and operated my own business.  I now
+divide my time between my family, planning my next business idea (a
+computer consulting firm that uses zero Microsoft products), looking
+after the XEmacs Packages and hacking my own XEmacs package, Eicq.
+
+\tSee: ")
+     (about-url-link 'youngs nil "Visit the Eicq homepage")
+     (widget-insert ".\n"))
     ))
 
 ;; Insert info about a maintainer's contribution to XEmacs.  See also
@@ -1266,11 +1364,17 @@ where the full power of the clipboard system is available under
 XEmacs).\n"))
     (baw
      (widget-insert "\
-Author of CC Mode for C, C++, Objective-C and Java editing, and
-Supercite for mail and news citing.  Also various and sundry other
-Emacs utilities, fixes, enhancements and kludgery as whimsy, boredom,
-and ToT dictate (but not necessarily in that order).  See also\n")
-     (about-url-link 'cc-mode "Visit the CC Mode distribution")
+I'm the author of ")
+     (about-url-link 'cc-mode "CC Mode" "Visit the CC Mode page")
+     (widget-insert ", for C, C++, Objective-C and Java editing,
+Supercite for mail and news citing, and sundry other XEmacs packages
+such as ELP (the Emacs Lisp Profiler), Reporter, xrdb-mode, and
+winring.  Even though I still live almost 100% in XEmacs these days,
+my Lisp hacking has fallen off in recent years as I became more
+involved in Python, and in fact, I currently maintain the Python
+editing mode.  See also: ")
+     (about-url-link "http://www.python.org/emacs" nil
+		     "Visit the python.org Emacs Goodies page")
      (widget-insert ".\n"))
     (ben
      (widget-insert
@@ -1295,7 +1399,7 @@ for software engineers.  It runs atop XEmacs and is available from
 his firm, BeOpen, which offers distributions, custom development,
 support, and training packages for corporate users of XEmacs, GNU
 Emacs and InfoDock.  See ")
-     (about-url-link 'beopen "Visit BeOpen WWW page")
+     (about-url-link 'beopen nil "Visit BeOpen WWW page")
      (widget-insert ".\n"))
     (cgw
      (widget-insert
@@ -1363,7 +1467,12 @@ reliable beta tester ever since.\n"))
     (fabrice
      (widget-insert
       "\
-Sorry, no information about my XEmacs contributions yet.\n"))
+I have started to provide binary kits for the 21.2 series when there
+was no installer available. I contributed a few lines of core code
+occasionally to make things smoother with the native win32 port which
+I'm using all the day.
+
+I also contributed elisp code long ago to make Gnus run under XEmacs.\n"))
     (golubev
      (widget-insert
       "\
@@ -1422,7 +1531,8 @@ I started the native port of XEmacs to MS Windows. Author of the
 Windows frame, redisplay, face and event loop support.\n"))
     (juhp
      (widget-insert "\
-Author of \"find-func.el\" and improvements to \"help.el\".\n"))
+Author of \"find-func.el\", improvements to \"help.el\" and a good
+number of bug fixes during June 1997 to December 1998.\n"))
     (jwz
      (widget-insert
       "\
@@ -1525,7 +1635,9 @@ Author of many extensions to the `extents' code, including the initial
 implementation of `duplicable' properties.\n"))
     (rossini
      (widget-insert "\
-Author of the first XEmacs FAQ.\n"))
+Author of the first XEmacs FAQ;
+Development lead on Emacs Speaks Statistics;
+Assisted Jareth Hein with setting up the JitterBug tracking system.\n"))
     (slb
      (widget-insert
       "\
@@ -1584,8 +1696,7 @@ strikethru face attribute support).\n"))
       "\
 Sorry, no information about my XEmacs contributions yet.\n"))
     (youngs
-     (widget-insert
-      "\
+     (widget-insert "\
 Maintainer and release manager of the packages.\n"))
     ))
 

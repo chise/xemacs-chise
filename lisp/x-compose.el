@@ -521,7 +521,12 @@
 	    (eq 1 (length value))
 	    (null (lookup-key keymap value)))
        (define-key keymap value value))))
-   keymap))
+   keymap
+   ;; #### It is currently not safe to add definitions to a keymap in
+   ;; map-keymap, due to a bug in map-keymap (dangling pointer to freed
+   ;; memory on a rehash).  So we sort, which has the side effect of
+   ;; mapping over a copy of the original hash-table.
+   t))
 (xlib-input-method-bug-workaround compose-map)
 (unintern 'xlib-input-method-bug-workaround)
 
@@ -534,7 +539,12 @@
        (alias-colon-to-doublequote value))
      (when (eq key '\")
        (define-key keymap ":" value)))
-   keymap))
+   keymap
+   ;; #### It is currently not safe to add definitions to a keymap in
+   ;; map-keymap, due to a bug in map-keymap (dangling pointer to freed
+   ;; memory on a rehash).  So we sort, which has the side effect of
+   ;; mapping over a copy of the original hash-table.
+   t))
 (alias-colon-to-doublequote compose-map)
 (unintern 'alias-colon-to-doublequote)
 
@@ -696,7 +706,7 @@ which it understands) are:
 ;;     (define-key binding [(control h)] 'compose-help)
 ;;     (define-key binding [help]        'compose-help)
      ))
- compose-map nil)
+ compose-map)
 
 ;; Make redisplay display the accented letters
 (if (memq (default-value 'ctl-arrow) '(t nil))
