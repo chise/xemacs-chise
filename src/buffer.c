@@ -2,6 +2,7 @@
    Copyright (C) 1985-1989, 1992-1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -29,6 +30,7 @@ Boston, MA 02111-1307, USA.  */
         list per frame.)
    Mly: a few changes for buffer-local vars, 19.8 or 19.9.
    Ben Wing: some changes and cleanups for Mule, 19.12.
+   MORIOKA Tomohiko: some changes for XEmacs UTF-2000.
  */
 
 /* This file contains functions that work with buffer objects.
@@ -2433,8 +2435,10 @@ common_init_complex_vars_of_buffer (void)
   defs->category_table = Vstandard_category_table;
 #endif /* MULE */
   defs->syntax_table = Vstandard_syntax_table;
+#ifndef UTF2000
   defs->mirror_syntax_table =
     XCHAR_TABLE (Vstandard_syntax_table)->mirror_table;
+#endif
   defs->modeline_format = build_string ("%-");  /* reset in loaddefs.el */
   defs->case_fold_search = Qt;
   defs->selective_display_ellipses = Qt;
