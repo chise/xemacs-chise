@@ -528,6 +528,7 @@
 			  line-breaking)))
 		((memq name '(ideograph=
 			      original-ideograph-of
+			      ancient-ideograph-of
 			      vulgar-ideograph-of))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
