@@ -60,7 +60,7 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (comment		. "<original character> of S1-0039")
+    (original-char-of-shinjigen-1 . 39)
     (shinjigen-1	. 40)
     (chinese-cns11643-6 . #x2132)	; ø»›µ
     (ideograph-daikanwa . 00096)	; ø¸€ 
