@@ -641,10 +641,17 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x5912)	; 夒
-    (=jis-x0212		. #x3863)	; &I-JSP-3863; [24-67]
-    (=cns11643-2	. #x6545)	; &I-C2-6545; [69-37]
-    (=big5		. #xF1F9)	; &I-B-F1F9;
-    (=daikanwa		. 05741)	; &I-M-05741;
+    (->subsumptive
+     ((=daikanwa	  . 05741)	; &M-05741;
+      )
+     ((=cns11643-2	  . #x6545)	; &C2-6545; [69-37]
+      )
+     ((=big5		  . #xF1F9)	; &B-F1F9;
+      (=ucs@unicode	  . #x5912)	; &B-F1F9;
+      )
+     ((=jis-x0212	  . #x3863)	; &JSP-3863; [24-67]
+      (=ucs@jis		  . #x5912)	; &JSP-3863;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21580)	; 𡖀
