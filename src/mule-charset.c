@@ -906,12 +906,52 @@ get_unallocated_leading_byte (int dimension)
 #define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
 
 Emchar
+decode_defined_char (Lisp_Object ccs, int code_point)
+{
+  int dim = XCHARSET_DIMENSION (ccs);
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
+  Emchar char_id = -1;
+  Lisp_Object mother;
+
+  while (dim > 0)
+    {
+      dim--;
+      decoding_table
+	= get_ccs_octet_table (decoding_table, ccs,
+			       (code_point >> (dim * 8)) & 255);
+    }
+  if (CHARP (decoding_table))
+    return XCHAR (decoding_table);
+#ifdef HAVE_DATABASE
+  if (EQ (decoding_table, Qunloaded) ||
+      EQ (decoding_table, Qunbound) ||
+      NILP (decoding_table) )
+    {
+      char_id = load_char_decoding_entry_maybe (ccs, code_point);
+    }
+#endif
+  if (char_id >= 0)
+    return char_id;
+  else if ( CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
+    {
+      if ( XCHARSET_CONVERSION (ccs) == CONVERSION_IDENTICAL )
+	{
+	  if ( EQ (mother, Vcharset_ucs) )
+	    return DECODE_CHAR (mother, code_point);
+	  else
+	    return decode_defined_char (mother, code_point);
+	}
+    }
+  return -1;
+}
+
+Emchar
 decode_builtin_char (Lisp_Object charset, int code_point)
 {
   Lisp_Object mother = XCHARSET_MOTHER (charset);
   int final;
 
-  if ( CHARSETP (mother) )
+  if ( CHARSETP (mother) && (XCHARSET_MAX_CODE (charset) > 0) )
     {
       int code = code_point;
 
@@ -1059,7 +1099,8 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	code = charset_code_point (mother, ch);
       else
 	code = ch;
-      if ( (min <= code) && (code <= max) )
+      if ( ((max == 0) && CHARSETP (mother)) ||
+	   ((min <= code) && (code <= max)) )
 	{
 	  int d = code - XCHARSET_CODE_OFFSET (charset);
 
@@ -2227,7 +2268,7 @@ If corresponding character is not found, nil is returned.
   if (NILP (defined_only))
     c = DECODE_CHAR (charset, c);
   else
-    c = DECODE_DEFINED_CHAR (charset, c);
+    c = decode_defined_char (charset, c);
   return c >= 0 ? make_char (c) : Qnil;
 }
 
@@ -2723,7 +2764,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS"),
 		  build_string ("ISO/IEC 10646"),
 		  build_string (""),
-		  Qnil, 0, 0xFFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,
@@ -2772,7 +2813,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for JIS X 0208, 0212 and 0213"),
 		  build_string ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_ks);
   Vcharset_ucs_ks =
     make_charset (LEADING_BYTE_UCS_KS, Qucs_ks, 256, 3,
