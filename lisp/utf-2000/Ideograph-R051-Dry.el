@@ -16,16 +16,23 @@
     (=ucs		. #x5E72)	; å¹²
     ))
 (define-char
-  '((script		Chinese Simplified Ideograph)
-    (ideographic-radical@ucs . 55)	; â¼¶
+  '((ideographic-radical@ucs . 55)	; â¼¶
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     ucs jis-x0213-2000/a)
     (ideographic-radical@cns . 51)	; â¼²
+    (ideographic-strokes@cns . 1)
     (ideographic-radical@cns*sources
      cns11643)
-    (ideographic-strokes . 1)
+    (ideographic-radical@jis/b . 7)	; â¼†
+    (ideographic-strokes@jis/b . 2)
+    (ideographic-radical@jis/b*sources
+     jis-x0213-2000/b)
     (total-strokes	 . 4)
     (=gb2312		. #x3F2A)	; ø»„²‘
     (=iso-ir165		. #x3F2A)	; ø»š¡
     (=cns11643-4	. #x214D)	; ø»—¡”
+    (=jis-x0213-1-2000	. #x7431)	; ø»¤†
     (=big5-cdp		. #x8B6F)	; ý¢€ˆ­¯
     (=ucs		. #x5F00)	; å¼€
     ))
