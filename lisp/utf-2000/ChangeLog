@@ -1,4 +1,34 @@
+2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
+	points.
+
+	* Ideograph-R193-Cauldron.el (J0-722F): Unify GT-61436.
+	(J0-6478): Unify GT-61490.
+
+	* Ideograph-R192-Sacrificial-Wine.el (U+9B2F): Unify GT-61419.
+	(U+9B31): Unify GT-61435.
+
+	* Ideograph-R190-Hair.el, Ideograph-R189-Tall.el,
+	Ideograph-R188-Bone.el: Add some GT code points.
+
+	* Ideograph-R187-Horse.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R186-Fragrant.el: Add some GT code points.
+
 2003-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R185-Head.el (U+9996): Unify GT-59948.
+	(U+9997): Unify GT-59950.
+	(U+9998): Unify GT-59972.
+
+	* Ideograph-R184-Eat.el: Add some GT code points.
+
+	* Ideograph-R182-Wind.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
 	points.
