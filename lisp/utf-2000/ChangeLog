@@ -1,5 +1,8 @@
 2003-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+830D): Copied from
+	Ideograph-R140-Grass.el.
+
 	* Ideograph-R075-Tree.el: Add `=ucs@big5' features.
 
 2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
