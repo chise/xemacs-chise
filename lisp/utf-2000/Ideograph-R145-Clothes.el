@@ -747,7 +747,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (shinjigen-2	. 7358)
+    (japanese-jisx0208-1978	. #x3736)	; ø»‚œ©
     (chinese-gb2312		. #x7442)	; ø»†€Ÿ
+    (japanese-jisx0208		. #x3736)	; ø»†°±
     (chinese-isoir165		. #x7442)	; ø»Ž¨¯
     (chinese-cns11643-1		. #x5D36)	; ø»’š¹
     (japanese-jisx0208-1990	. #x3736)	; è¢ˆ
