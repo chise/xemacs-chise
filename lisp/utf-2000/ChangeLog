@@ -1,3 +1,57 @@
+2002-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Ignore
+	all `mojikyo-*'.
+
+	* Ideograph-R028-Private.el (U+53C3): Simplify
+	`ideographic-structure'.
+	(U+53C4): Add `ideographic-structure'.
+	(U+53C5): Likewise.
+
+	* Ideograph-R005-Second.el (U+4E5E): Use U-00020089 instead of
+	BC-8B4A in the `ideographic-structure'.
+	(JSP-303C): Unify B-D44B.
+	(C2-334E): Use U+722B instead of <CJK RADICAL PAW ONE>; separate
+	U+4E7F.
+	(M059022): Separate B-D44B.
+
+	* Ideograph-R035-Go-Slowly.el (JX2-253A): Separate U+590B.
+
+	* Ideograph-R028-Private.el (M-03088): Add
+	`ideographic-structure'.
+
+	* Ideograph-R020-Wrap.el (C4-212F): Unify B-A463.
+	(U+52FA): Modify operator of the `ideographic-structure'; separate
+	B-A463.
+	(U+52FB): Modify operator of the `ideographic-structure'.
+	(U+52FC): Likewise.
+	(U+52FE): Likewise.
+
+	* Ideograph-R009-Man.el (JSP-3124): Separate U+4F8C.
+	(M-00674): Separate C1-4F76, M000674, J0-3D53, K0-7155, B-AB54,
+	G0-3F21 and U+4FCA.
+
+	* Ideograph-R025-Divination.el (U+5360): Use U+56D7 instead of
+	U+53E3 in the `ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (U+5225): Use U-00020BA0 instead of
+	C5-2161 in the `ideographic-structure'.
+	(U+5237): Use U-00021C2F instead of C6-244F in the
+	`ideographic-structure'.
+
+	* Ideograph-R084-Steam.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R083-Clan.el: Use `=>ucs' instead of `->ucs'.
+	(JX1-764F): Unify JC3-55A8.
+
+	* Ideograph-R081-Compare.el: Merge mapping to CHINA3-JEF code
+	points.
+	(M-16751): Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R050-Turban.el (U+5E2E): Unify JC3-4BFC.
+
 2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el (JX2-7828): Separate G0-7142 and
