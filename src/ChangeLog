@@ -1,3 +1,8 @@
+1999-08-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Update to
+	0.4 (Shin-Imamiya).
+
 1999-07-13 Daiki Ueno <ueno@ueda.info.waseda.ac.jp>
 
 	* file-coding.c (encode_coding_sjis): New implementation for
