@@ -1,3 +1,43 @@
+2001-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some `ideographic-structure' properties.
+	- Merge some CBETA numbers.
+
+	* Ideograph-R040-Roof.el (M-07056): Separate U+5B82 and C3-223D.
+	(CB-00974): New character; unify M053063; relate to M-7056 and
+	U+5B82.
+	(U+5B82): Relate to M053063.
+	(M-07089): Use `<-original-ideograph' instead of
+	`original-ideograph-of'.
+	(M-07112): Use `->same-ideograph' instead of `ideograph='.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+	- Merge some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+
+2001-11-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R038-Woman.el (U+59E7): Use U+36A3 instead of (U+2FF1
+	U+5973 U+5973) in `ideographic-structure'.
+	(M-06489): Separate C4-367C; use M-23179 instead of U+7701 in
+	`ideographic-structure'.
+	(U+372E): Use U+76E3 instead of M-23032 in
+	`ideographic-structure'.
+	(M-06903): Use M-23747 instead of U+77BF in
+	`ideographic-structure'.
+
+	* Ideograph-R163-City.el (JX1-7C6A): Add `=>ucs*'.
+
+	* Ideograph-R149-Speech.el (JX1-7C2E): Add `=>ucs*'.
+
+	* Ideograph-R113-Spirit.el (JX1-793C): Use `=>ucs*' instead of
+	`ideographic-variants'; unify KU+795E.
+	(JX1-793D): Add `=>ucs*'; unify KU+7965.
+	(JX1-7941): Add `=>ucs*'; unify KU+798F.
+
 2001-11-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-attributes): Format `=>ucs*'
