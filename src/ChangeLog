@@ -1,3 +1,23 @@
+2002-07-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (Qcomposition): Add extern if external-DB feature
+	is supported.
+	(Vcharacter_composition_table): Don't add extern if external-DB
+	feature is supported.
+	(COMPOSE_ADD_CHAR): Modify for new data-representation of
+	character composition rule if external-DB feature is supported.
+
+	* chartab.c (Vcharacter_composition_table): Don't define if
+	external-DB feature is supported.
+	(Qcomposition): New variable.
+	(Fget_composite_char): New implementation for external-DB support.
+	(Fput_char_attribute): Use `composition' property of each
+	character instead of `Vcharacter_composition_table' to store
+	character-composition rules if external-DB feature is supported.
+	(syms_of_chartab): Add new symbol `composition'.
+	(vars_of_chartab): Don't setup `Vcharacter_composition_table' if
+	external-DB feature is supported.
+
 2002-07-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (Vchar_db_stingy_mode): New variable.
