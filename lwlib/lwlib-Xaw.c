@@ -179,6 +179,7 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
 	}
 #endif /* ! LWLIB_DIALOGS_ATHENA3D */
 
+      lw_remove_accelerator_spec (val->value);
       XtSetArg (al [0], XtNlabel,     val->value);
       XtSetArg (al [1], XtNsensitive, val->enabled);
       /* Force centered button text.  See above. */

@@ -272,7 +272,7 @@ merge_widget_value_args (widget_value *old, widget_value *new)
 /* Make a complete copy of a widget_value tree.  Store CHANGE into
    the widget_value tree's `change' field. */
 
-static widget_value *
+widget_value *
 copy_widget_value_tree (widget_value *val, change_type change)
 {
   widget_value *copy;
@@ -824,13 +824,28 @@ initialize_widget_instance (widget_instance *instance)
     val->change = NO_CHANGE;
 }
 
+/* strcasecmp() is not sufficiently portable or standard,
+   and it's easier just to write our own. */
+static int
+ascii_strcasecmp (const char *s1, const char *s2)
+{
+  while (1)
+    {
+      char c1 = *s1++;
+      char c2 = *s2++;
+      if (c1 >= 'A' && c1 <= 'Z') c1 += 'a' - 'A';
+      if (c2 >= 'A' && c2 <= 'Z') c2 += 'a' - 'A';
+      if (c1 != c2) return c1 - c2;
+      if (c1 == '\0') return 0;
+    }
+}
 
 static widget_creation_function
 find_in_table (const char *type, widget_creation_entry *table)
 {
   widget_creation_entry *cur;
   for (cur = table; cur->type; cur++)
-    if (!strcasecmp (type, cur->type))
+    if (!ascii_strcasecmp (type, cur->type))
       return cur->function;
   return NULL;
 }
@@ -1431,3 +1446,24 @@ void lw_copy_widget_value_args (widget_value* val, widget_value* copy)
     }
 }
 
+/* Remove %_ and convert %% to %.  We can do this in-place because we
+   are always shortening, never lengthening, the string. */
+void
+lw_remove_accelerator_spec (char *val)
+{
+  char *foo = val, *bar = val;
+
+  while (*bar)
+    {
+      if (*bar == '%' && *(bar+1) == '_')
+	bar += 2;
+      else if (*bar == '%' && *(bar+1) == '%')
+	{
+	  *foo++ = *bar++;
+	  bar++;
+	}
+      else
+	*foo++ = *bar++;
+    }
+  *foo = '\0';
+}

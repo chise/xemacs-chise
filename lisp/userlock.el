@@ -132,30 +132,37 @@ to get the latest version of the file, then make the change again.")
 ;;; dialog-box versions [XEmacs]
 
 (defun ask-user-about-lock-dbox (fn opponent)
-  (let ((echo-keystrokes 0)
-	(dbox
-	 (cons
-	  (format "%s is locking %s\n
+  (let ((echo-keystrokes 0))
+    (make-dialog-box
+     'question
+     :question (format "%s is locking %s\n
 	It has been detected that you want to modify a file that
 	someone else has already started modifying in XEmacs."
-		  opponent fn)
-	  '(["Steal Lock\n\nThe other user will\nbecome the intruder" steal t]
-	    ["Proceed\n\nEdit file at your own\n\(and the other user's) risk"
-	     proceed t]
-	    nil
-	    ["Abort\n\nDon't modify the buffer\n" yield t]))))
-    (popup-dialog-box dbox)
+		       opponent fn)
+     :buttons
+     '(["Steal Lock\n\nThe other user will\nbecome the intruder" steal t]
+       ["Proceed\n\nEdit file at your own\n\(and the other user's) risk"
+	proceed t]
+       nil
+       ["Abort\n\nDon't modify the buffer\n" yield t]))
     (catch 'aual-done
       (while t
 	(let ((event (next-command-event)))
-	  (cond ((and (misc-user-event-p event) (eq (event-object event) 'proceed))
+	  (cond ((and (misc-user-event-p event)
+		      (eq (event-object event) 'proceed))
 		 (throw 'aual-done nil))
-		((and (misc-user-event-p event) (eq (event-object event) 'steal))
+		((and (misc-user-event-p event)
+		      (eq (event-object event) 'steal))
 		 (throw 'aual-done t))
-		((and (misc-user-event-p event) (eq (event-object event) 'yield))
+		((and (misc-user-event-p event)
+		      (eq (event-object event) 'yield))
 		 (signal 'file-locked (list "File is locked" fn opponent)))
 		((and (misc-user-event-p event)
 		      (eq (event-object event) 'menu-no-selection-hook))
+		 (signal 'quit nil))
+		;; safety check, so we're not endlessly stuck when no
+		;; dialog box up
+		((not (popup-up-p))
 		 (signal 'quit nil))
 		((button-release-event-p event) ;; don't beep twice
 		 nil)
@@ -164,20 +171,21 @@ to get the latest version of the file, then make the change again.")
 		 (message "please answer the dialog box"))))))))
 
 (defun ask-user-about-supersession-threat-dbox (fn)
-  (let ((echo-keystrokes 0)
-	(dbox
-	 (cons
-	  (format "File %s has changed on disk
+  (let ((echo-keystrokes 0))
+    (make-dialog-box
+     'question
+     :question
+     (format "File %s has changed on disk
 since its buffer was last read in or saved.
 
 Do you really want to edit the buffer? " fn)
-	  '(["Yes\n\nEdit the buffer anyway,\nignoring the disk file"
-	     proceed t]
-	    ["No\n\nDon't modify the buffer\n" yield t]
-	    nil
-	    ["No\n\nDon't modify the buffer\nbut revert it" revert t]
-	    ))))
-    (popup-dialog-box dbox)
+     :buttons
+     '(["Yes\n\nEdit the buffer anyway,\nignoring the disk file"
+	proceed t]
+       ["No\n\nDon't modify the buffer\n" yield t]
+       nil
+       ["No\n\nDon't modify the buffer\nbut revert it" revert t]
+       ))
     (catch 'auast-done
       (while t
 	(let ((event (next-command-event)))
@@ -194,6 +202,10 @@ Do you really want to edit the buffer? " fn)
 			 (list fn "(reverted)")))
 		((and (misc-user-event-p event)
 		      (eq (event-object event) 'menu-no-selection-hook))
+		 (signal 'quit nil))
+		;; safety check, so we're not endlessly stuck when no
+		;; dialog box up
+		((not (popup-up-p))
 		 (signal 'quit nil))
 		((button-release-event-p event) ;; don't beep twice
 		 nil)
@@ -214,10 +226,7 @@ This function has a choice of three things to do:
   return nil (edit the file even though it is locked).
 You can rewrite it to use any criterion you like to choose which one to do."
   (discard-input)
-  (if (and (fboundp 'popup-dialog-box)
-	   (or (button-press-event-p last-command-event)
-	       (button-release-event-p last-command-event)
-	       (misc-user-event-p last-command-event)))
+  (if (should-use-dialog-box-p)
       (ask-user-about-lock-dbox fn opponent)
     (ask-user-about-lock-minibuf fn opponent)))
 
@@ -231,10 +240,7 @@ in which case the proposed buffer modification will not be made.
 You can rewrite this to use any criterion you like to choose which one to do.
 The buffer in question is current when this function is called."
   (discard-input)
-  (if (and (fboundp 'popup-dialog-box)
-	   (or (button-press-event-p last-command-event)
-	       (button-release-event-p last-command-event)
-	       (misc-user-event-p last-command-event)))
+  (if (should-use-dialog-box-p)
       (ask-user-about-supersession-threat-dbox fn)
     (ask-user-about-supersession-threat-minibuf fn)))
 

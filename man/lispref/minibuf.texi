@@ -852,7 +852,7 @@ Buffer name? (default foo) @point{}
 @end example
 @end defun
 
-@defun read-command prompt &optinal default-value
+@defun read-command prompt &optional default-value
 This function reads the name of a command and returns it as a Lisp
 symbol.  The argument @var{prompt} is used as in
 @code{read-from-minibuffer}.  Recall that a command is anything for

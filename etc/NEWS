@@ -187,8 +187,8 @@ clipboard can be made; the kill-ring and friends will be updated as
 per X.
 
 The only thing selection doesn't do is set the clipboard automatically
-as this would break the MS-Windows model.  If you want this behaviour
-then set `selection-sets-clipboard' to t
+as this would break the MS-Windows model.  If you want this behavior
+then set `selection-sets-clipboard' to t.
 
 ** Mail spool locking now works correctly.
 XEmacs has always come with a little auxiliary program, movemail,
@@ -252,12 +252,12 @@ menus.
 ** Pixel-based scrolling has been implemented.
 By default this will attempt to scroll in increments equal to the
 height of the default face.  Set `window-pixel-scroll-increment' to
-modify this behaviour.
+modify this behavior.
 
 ** Operation progress can be displayed using graphical widgets.
 See `lprogress-display' for details.  This support has been switched
 on by default for font-lock and some web browsing functions.  If you
-do not like this behaviour set `progress-display-use-echo-area'.
+do not like this behavior set `progress-feedback-use-echo-area'.
 
 ** The PostgreSQL Relational Database Management System is now supported.
 It is now possible to build XEmacs so that the programming interface
@@ -380,7 +380,7 @@ to (concat "~" init-file-user).  This turned out to be too complicated
 for most packages (and some core Lisp files) to use correctly.  Also,
 the `init-file-user' variable has been obsoleted in the process.
 
-The user-visible options like `-u' have not changed their behaviour.
+The user-visible options like `-u' have not changed their behavior.
 
 ** XEmacs finally has an automated test suite!
 Although this is not yet very sophisticated, it is already responsible
@@ -509,7 +509,7 @@ interned in the global obarray.  For example:
     (keywordp (intern ":foo"))       ; The same as (keywordp :foo)
       => t
 
-This behaviour is compatible with other code which treats symbols
+This behavior is compatible with other code which treats symbols
 beginning with colon as keywords only if they are interned in the
 global obarray.  `keywordp' used to wrongly return t in both cases
 above.

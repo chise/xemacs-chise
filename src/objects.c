@@ -43,7 +43,7 @@ void
 finalose (void *ptr)
 {
   Lisp_Object obj;
-  XSETOBJ (obj, Lisp_Type_Record, ptr);
+  XSETOBJ (obj, ptr);
 
   signal_simple_error
     ("Can't dump an emacs containing window system objects", obj);

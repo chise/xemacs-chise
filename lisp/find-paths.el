@@ -280,7 +280,7 @@ If ENFORCE-VERSION is non-nil, the directory must contain the XEmacs version."
 
 (defun paths-decode-directory-path (string &optional drop-empties)
   "Split STRING at path separators into a directory list.
-Non-\"\" comonents are converted into directory form.
+Non-\"\" components are converted into directory form.
 If DROP-EMPTIES is non-NIL, \"\" components are dropped from the output.
 Otherwise, they are left alone."
   (let* ((components (split-path string))

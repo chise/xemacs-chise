@@ -39,11 +39,6 @@ Boston, MA 02111-1307, USA.  */
 /* Do not define LOAD_AVE_TYPE or LOAD_AVE_CVT
    since there is no /dev/kmem */
 
-/* Undefine VIRT_ADDR_VARIES because the virtual addresses of
-   pure and impure space as loaded do not vary.  */
-
-#undef VIRT_ADDR_VARIES
-
 /* Define HAVE_ALLOCA because we use the system's version of alloca.  */
 
 #define HAVE_ALLOCA

@@ -57,13 +57,13 @@ dll_init (const char *arg)
 dll_handle
 dll_open (const char *fname)
 {
-  return (dll_handle)dlopen (fname, RTLD_LAZY | RTLD_GLOBAL);
+  return (dll_handle) dlopen (fname, RTLD_LAZY | RTLD_GLOBAL);
 }
 
 int
 dll_close (dll_handle h)
 {
-  return dlclose((void *)h);
+  return dlclose ((void *) h);
 }
 
 dll_func
@@ -72,10 +72,10 @@ dll_function (dll_handle h, const char *n)
 #ifdef DLSYM_NEEDS_UNDERSCORE
   char *buf = alloca_array (char, strlen (n) + 2);
   *buf = '_';
-  (void)strcpy(buf + 1, n);
+  strcpy (buf + 1, n);
   n = buf;
 #endif
-  return (dll_func)dlsym ((void *)h, n);
+  return (dll_func) dlsym ((void *) h, n);
 }
 
 dll_var
@@ -84,7 +84,7 @@ dll_variable (dll_handle h, const char *n)
 #ifdef DLSYM_NEEDS_UNDERSCORE
   char *buf = alloca_array (char, strlen (n) + 2);
   *buf = '_';
-  (void)strcpy(buf + 1, n);
+  strcpy (buf + 1, n);
   n = buf;
 #endif
   return (dll_var)dlsym ((void *)h, n);
@@ -94,9 +94,9 @@ const char *
 dll_error (dll_handle h)
 {
 #if defined(HAVE_DLERROR) || defined(dlerror)
-  return (const char *)dlerror ();
+  return (const char *) dlerror ();
 #elif defined(HAVE__DLERROR)
-  return (const char *)_dlerror();
+  return (const char *) _dlerror();
 #else
   return "Shared library error";
 #endif
@@ -114,26 +114,16 @@ dll_init (const char *arg)
 dll_handle
 dll_open (const char *fname)
 {
-  shl_t h = shl_load (fname, BIND_DEFERRED,0L);
-  shl_t *hp = NULL;
+  /* shl_load will hang hard if passed a NULL fname. */
+  if (fname == NULL) return NULL;
 
-  if (h)
-    {
-      hp = (shl_t *)malloc (sizeof (shl_t));
-      if (!hp)
-	shl_unload(h);
-      else
-	*hp = h;
-    }
-  return (dll_handle)hp;
+  return (dll_handle) shl_load (fname, BIND_DEFERRED,0L);
 }
 
 int
 dll_close (dll_handle h)
 {
-  shl_t hp = *((shl_t *)h);
-  free (hp);
-  return shl_unload(h);
+  return shl_unload ((shl_t) h);
 }
 
 dll_func
@@ -141,10 +131,10 @@ dll_function (dll_handle h, const char *n)
 {
   long handle = 0L;
 
-  if (shl_findsym ((shl_t *)h, n, TYPE_PROCEDURE, &handle))
+  if (shl_findsym ((shl_t *) &h, n, TYPE_PROCEDURE, &handle))
     return NULL;
 
-  return (dll_func)handle;
+  return (dll_func) handle;
 }
 
 dll_var
@@ -152,10 +142,10 @@ dll_variable (dll_handle h, const char *n)
 {
   long handle = 0L;
 
-  if (shl_findsym ((shl_t *)h, n, TYPE_DATA, &handle))
+  if (shl_findsym ((shl_t *) &h, n, TYPE_DATA, &handle))
     return NULL;
 
-  return (dll_var)handle;
+  return (dll_var) handle;
 }
 
 const char *
@@ -190,7 +180,7 @@ dll_open (const char *fname)
   if (rc)
     return NULL;
 
-  return (dll_handle)1;
+  return (dll_handle) 1;
 }
 
 int
@@ -208,13 +198,13 @@ dll_close (dll_handle h)
 DLL_FUNC
 dll_function (dll_handle h, const char *n)
 {
-  return dld_get_func(n);
+  return dld_get_func (n);
 }
 
 DLL_FUNC
 dll_variable (dll_handle h, const char *n)
 {
-  return dld_get_symbol(n);
+  return dld_get_symbol (n);
 }
 #elif defined (WIN32_NATIVE)
 
@@ -231,7 +221,7 @@ dll_init (const char *arg)
 dll_handle
 dll_open (const char *fname)
 {
-  return (dll_handle)LoadLibrary (fname);
+  return (dll_handle) LoadLibrary (fname);
 }
 
 int
@@ -243,13 +233,13 @@ dll_close (dll_handle h)
 dll_func
 dll_function (dll_handle h, const char *n)
 {
-  return (dll_func)GetProcAddress (h,n);
+  return (dll_func) GetProcAddress (h, n);
 }
 
 dll_func
 dll_variable (dll_handle h, const char *n)
 {
-  return (dll_func)GetProcAddress (h,n);
+  return (dll_func) GetProcAddress (h, n);
 }
 
 const char *

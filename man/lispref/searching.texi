@@ -273,17 +273,21 @@ match, it matches the shortest match.  @samp{*?} is known as a
 @dfn{non-greedy} quantifier, a regexp construct borrowed from Perl.
 @c Did perl get this from somewhere?  What's the real history of *? ?
 
-This construct very useful for when you want to match the text inside a
-pair of delimiters.  For instance, @samp{/\*.*?\*/} will match C
-comments in a string.  This could not be achieved without the use of
-greedy quantifier.
+This construct is very useful for when you want to match the text inside
+a pair of delimiters.  For instance, @samp{/\*.*?\*/} will match C
+comments in a string.  This could not easily be achieved without the use
+of a non-greedy quantifier.
 
 This construct has not been available prior to XEmacs 20.4.  It is not
 available in FSF Emacs.
 
 @item +?
 @cindex @samp{+?} in regexp
-is the @samp{+} analog to @samp{*?}.
+is the non-greedy version of @samp{+}.
+
+@item ??
+@cindex @samp{??} in regexp
+is the non-greedy version of @samp{?}.
 
 @item \@{n,m\@}
 @c Note the spacing after the close brace is deliberate.
@@ -292,6 +296,9 @@ serves as an interval quantifier, analogous to @samp{*} or @samp{+}, but
 specifies that the expression must match at least @var{n} times, but no
 more than @var{m} times.  This syntax is supported by most Unix regexp
 utilities, and has been introduced to XEmacs for the version 20.3.
+
+Unfortunately, the non-greedy version of this quantifier does not exist
+currently, although it does in Perl.
 
 @item [ @dots{} ]
 @cindex character set (in regexp)
@@ -462,8 +469,9 @@ is called a @dfn{shy} grouping operator, and it is used just like
 substring to be recorded for future reference.
 
 This is useful when you need a lot of grouping @samp{\( @dots{} \)}
-constructs, but only want to remember one or two.  Then you can use 
-not want to remember them for later use with @code{match-string}.
+constructs, but only want to remember one or two -- or if you have
+more than nine groupings and need to use backreferences to refer to
+the groupings at the end.
 
 Using @samp{\(?: @dots{} \)} rather than @samp{\( @dots{} \)} when you
 don't need the captured substrings ought to speed up your programs some,
@@ -472,7 +480,7 @@ engine, as well as the amount of memory allocation and string copying it
 must do.  The actual performance gain to be observed has not been
 measured or quantified as of this writing.
 @c This is used to good advantage by the font-locking code, and by
-@c `regexp-opt.el'.  ... It will be.  It's not yet, but will be.
+@c `regexp-opt.el'.
 
 The shy grouping operator has been borrowed from Perl, and has not been
 available prior to XEmacs 20.3, nor is it available in FSF Emacs.

@@ -50,4 +50,9 @@ const char *dll_error(dll_handle);
 }
 #endif
 
+/* More stand-ins ... */
+
+#define Qdll_filename_encoding Qfile_name
+#define Qdll_function_name_encoding Qnative
+
 #endif /* INCLUDED_sysdll_h_ */

@@ -1,6 +1,6 @@
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq im (make-glyph [xpm :file "xemacs-icon.xpm"])))
+ (setq im (make-glyph [xbm :file "xemacsicon.xbm"])))
 
 (set-extent-begin-glyph 
  (make-extent (point) (point))
@@ -16,17 +16,17 @@
 (setq ok-select nil)
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq radio-button1 
-       (make-glyph 
+ (make-glyph 
+  (setq radio-button1 
 	[button :face widget
 		:descriptor ["ok1" (setq ok-select t)
 			     :style radio :selected ok-select]])))
 ;; button in a group
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq radio-button2
-       (make-glyph
-`	[button :descriptor ["ok2" (setq ok-select nil) :style radio 
+ (make-glyph 
+  (setq radio-button2
+	[button :descriptor ["ok2" (setq ok-select nil) :style radio 
 			     :selected (not ok-select)]])))
 ;; toggle button
 (set-extent-begin-glyph 
@@ -37,11 +37,12 @@
 					:selected (not ok-select)]])))
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq toggle-button
-       (make-glyph [button :descriptor ["ok4" :style toggle 
-					:callback 
-					(setq ok-select (not ok-select))
-					:selected ok-select]])))
+ (make-glyph 
+  (setq toggle-button
+	[button :descriptor ["ok4" :style toggle 
+			     :callback 
+			     (setq ok-select (not ok-select))
+			     :selected ok-select]])))
 
 ;; normal pushbutton
 (set-extent-begin-glyph 
@@ -57,11 +58,11 @@
  (setq tree (make-glyph 
 	     [tree-view :width 10
 			:descriptor "My Tree"
-			:properties (:items (["One" foo]
-					     (["Two" foo]
-					      ["Four" foo]
-					      "Six")
-					     "Three"))])))
+			:items (["One" foo]
+				(["Two" foo]
+				 ["Four" foo]
+				 "Six")
+				"Three")])))
 
 ;; tab control
 (set-extent-begin-glyph 
@@ -70,20 +71,21 @@
 	    [tab-control :descriptor "My Tab"
 			 :face highlight
 			 :orientation right
-			 :properties (:items (["One" foo :selected t]
-					      ["Two" fee :selected nil]
-					      ["Three" foo :selected nil]))])))
+			 :items (["One" foo :selected t]
+				 ["Two" fee :selected nil]
+				 ["Three" foo :selected nil])])))
 
 ;; progress gauge
 (set-extent-begin-glyph 
  (make-extent (point) (point))
  (setq pgauge (make-glyph 
-	       [progress-gauge :width 10 :height 2 
+	       [progress-gauge :width 10 :height 2 :value 0
 			       :descriptor "ok"])))
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pgauge) :value x)
+    (set-glyph-image pgauge `[progress-gauge :width 10 :height 2
+					     :descriptor "ok" :value ,x])
     (setq x (+ x 5))
     (sit-for 0.1)))
 
@@ -96,7 +98,9 @@
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pg) :value x)
+    (set-glyph-image pg
+		     `[progress-gauge :width 5 :pixel-height 16
+				      :descriptor "ok" :value ,x])
     (setq x (+ x 5))
     (sit-for 0.1)))
 
@@ -116,25 +120,27 @@
 ;; edit box
 (set-extent-begin-glyph 
  (make-extent (point) (point)) 
- (setq edit-field (make-glyph [edit-field :pixel-width 50 :pixel-height 30
+ (make-glyph (setq edit-field [edit-field :pixel-width 50 :pixel-height 30
 					  :face bold-italic
 					  :descriptor ["Hello"]])))
 ;; combo box
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq combo-box (make-glyph
-		  [combo-box :width 10 :descriptor ["Hello"] 
-			     :properties (:items ("One" "Two" "Three"))])))
+ (make-glyph (setq combo-box
+		   [combo-box :width 10 :descriptor ["Hello"] 
+			      :items ("One" "Two" "Three")])))
 
 ;; label
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq label (make-glyph [label :pixel-width 150 :descriptor "Hello"])))
+ (make-glyph (setq label [label :pixel-width 150 :descriptor "Hello"])))
 
 ;; string
 (set-extent-begin-glyph 
  (make-extent (point) (point))
- (setq str (make-glyph [string :data "Hello There"])))
+ (make-glyph 
+  (setq str
+	[string :data "Hello There"])))
 
 ;; scrollbar
 ;(set-extent-begin-glyph 
@@ -148,17 +154,30 @@
 ;; layout
 (setq layout 
       (make-glyph
-       [layout :descriptor "The Layout"
-	       :orientation vertical
-	       :justify left
-	       :border [string :data "Hello There Mrs"]
-	       :items ([native-layout :orientation horizontal
-				      :items (radio-button1 radio-button2)]
-		       edit-field toggle-button label str)]))
-(set-glyph-face layout 'gui-element)
+       `[layout :descriptor "The Layout"
+		:orientation vertical
+		:justify left
+		:border [string :data "Hello There Mrs"]
+		:items ([layout :orientation horizontal
+				:items (,radio-button1 ,radio-button2)]
+			,edit-field ,toggle-button ,label ,str)]))
+;(set-glyph-face layout 'gui-element)
 (set-extent-begin-glyph
  (make-extent (point) (point)) layout)
 
+;; another test layout
+(set-extent-begin-glyph
+ (make-extent (point) (point)) 
+ (setq layout-2
+       (make-glyph `[layout :descriptor "The Layout"
+			    :orientation vertical
+			    :items ([progress-gauge :value 0 :width 10 :height 2
+						    :descriptor "ok"])])))
+
+(set-glyph-image layout-2 `[layout :descriptor "The Layout"
+				   :orientation vertical
+				   :items ([progress-gauge :value 4 :width 10 :height 2
+							   :descriptor "ok"])])
 (setq test-toggle-widget nil)
 	
 (defun test-toggle (widget)

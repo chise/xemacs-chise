@@ -52,7 +52,11 @@ Lisp_Object Vstandard_output, Qstandard_output;
 
 /* The subroutine object for external-debugging-output is kept here
    for the convenience of the debugger.  */
-Lisp_Object Qexternal_debugging_output;
+Lisp_Object Qexternal_debugging_output, Qalternate_debugging_output;
+
+#ifdef HAVE_MS_WINDOWS
+Lisp_Object Qmswindows_debugging_output;
+#endif
 
 /* Avoid actual stack overflow in print.  */
 static int print_depth;
@@ -105,10 +109,6 @@ FILE *termscript;	/* Stdio stream being used for copy of all output.  */
 
 int stdout_needs_newline;
 
-#ifdef WIN32_NATIVE
-static int no_useful_stderr;
-#endif
-
 static void
 std_handle_out_external (FILE *stream, Lisp_Object lstream,
 			 const Extbyte *extptr, Extcount extlen,
@@ -120,12 +120,14 @@ std_handle_out_external (FILE *stream, Lisp_Object lstream,
   if (stream)
     {
 #ifdef WIN32_NATIVE
-      if (!no_useful_stderr)
-	no_useful_stderr = GetStdHandle (STD_ERROR_HANDLE) == 0 ? 1 : -1;
+      HANDLE errhand = GetStdHandle (STD_INPUT_HANDLE);
+      int no_useful_stderr = errhand == 0 || errhand == INVALID_HANDLE_VALUE;
 
+      if (!no_useful_stderr)
+	no_useful_stderr = !PeekNamedPipe (errhand, 0, 0, 0, 0, 0);
       /* we typically have no useful stdout/stderr under windows if we're
 	 being invoked graphically. */
-      if (!noninteractive || no_useful_stderr > 0)
+      if (no_useful_stderr)
 	mswindows_output_console_string (extptr, extlen);
       else
 #endif
@@ -189,7 +191,7 @@ std_handle_out_va (FILE *stream, const char *fmt, va_list args)
       extptr = (Extbyte *) kludge;
       extlen = (Extcount) strlen ((char *) kludge);
     }
-  
+
   std_handle_out_external (stream, Qnil, extptr, extlen, 1, 1);
   return retval;
 }
@@ -1404,7 +1406,7 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
      the flag print-gensym is non-nil, prefix it with #n= to read the
      object back with the #n# reader syntax later if needed.  */
   if (!NILP (Vprint_gensym)
-      /* #### Test whether this produces a noticable slow-down for
+      /* #### Test whether this produces a noticeable slow-down for
          printing when print-gensym is non-nil.  */
       && !EQ (obj, oblookup (Vobarray,
 			     string_data (symbol_name (XSYMBOL (obj))),
@@ -1512,13 +1514,9 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   UNGCPRO;
 }
 
-/* #ifdef DEBUG_XEMACS */
 
-/* I don't like seeing `Note: Strange doc (not fboundp) for function
-   alternate-debugging-output @ 429542' -slb */
-/* #### Eek!  Any clue how to get rid of it?  In fact, how about
-   getting rid of this function altogether?  Does anything actually
-   *use* it?  --hniksic */
+/* Useful on systems or in places where writing to stdout is unavailable or
+   not working. */
 
 static int alternate_do_pointer;
 static char alternate_do_string[5000];
@@ -1546,7 +1544,6 @@ to 0.
   alternate_do_string[alternate_do_pointer] = 0;
   return character;
 }
-/* #endif / * DEBUG_XEMACS */
 
 DEFUN ("external-debugging-output", Fexternal_debugging_output, 1, 3, 0, /*
 Write CHAR-OR-STRING to stderr or stdout.
@@ -1658,6 +1655,12 @@ debug_print_no_newline (Lisp_Object debug_print_obj)
     Vprint_level = make_int (debug_print_level);
 
   print_internal (debug_print_obj, Qexternal_debugging_output, 1);
+  alternate_do_pointer = 0;
+  print_internal (debug_print_obj, Qalternate_debugging_output, 1);
+#ifdef WIN32_NATIVE
+  /* Write out to the debugger, as well */
+  print_internal (debug_print_obj, Qmswindows_debugging_output, 1);
+#endif
 
   Vinhibit_quit  = save_Vinhibit_quit;
   Vprint_level   = save_Vprint_level;
@@ -1783,6 +1786,10 @@ syms_of_print (void)
   DEFSUBR (Fexternal_debugging_output);
   DEFSUBR (Fopen_termscript);
   defsymbol (&Qexternal_debugging_output, "external-debugging-output");
+  defsymbol (&Qalternate_debugging_output, "alternate-debugging-output");
+#ifdef HAVE_MS_WINDOWS
+  defsymbol (&Qmswindows_debugging_output, "mswindows-debugging-output");
+#endif
   DEFSUBR (Fwith_output_to_temp_buffer);
 }
 

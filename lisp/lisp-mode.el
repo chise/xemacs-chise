@@ -43,59 +43,91 @@
 (defvar emacs-lisp-mode-syntax-table nil)
 (defvar lisp-mode-abbrev-table nil)
 
-;; XEmacs change
-(defvar lisp-interaction-mode-popup-menu
-  (purecopy '("Lisp-Interaction"
-	      ["Evaluate Last %_S-expression" eval-last-sexp]
-	      ["Evaluate %_Whole Buffer"     eval-current-buffer]
-	      ["Evaluate Re%_gion"	eval-region
-	       :active (region-exists-p)]
-	      "---"
-	      ["%_Evaluate This Defun"      eval-defun]
-	      ["%_Instrument This Defun for Debugging" edebug-defun]
-	      "---"
-	      ["Find %_Function Source..." find-function
+(defun construct-lisp-mode-menu (popup-p emacs-lisp-p)
+  (flet ((popup-wrap (form)
+	   (if popup-p `(menu-call-at-event ',form) form)))
+    `(,@(if emacs-lisp-p
+	  `(["%_Byte-Compile This File" ,(popup-wrap
+					  'emacs-lisp-byte-compile)]
+	    ["B%_yte-Compile/Load This File"
+	     ,(popup-wrap 'emacs-lisp-byte-compile-and-load)]
+	    ["Byte-%_Recompile Directory..."
+	     ,(popup-wrap 'byte-recompile-directory)]
+	    "---"))
+	["%_Evaluate Region or Defun"
+	 ,(popup-wrap '(if (region-exists-p)
+			   (call-interactively 'eval-region)
+			 (call-interactively 'eval-defun)))]
+	["Evaluate %_Whole Buffer" ,(popup-wrap 'eval-current-buffer)]
+	["Evaluate Last %_S-expression" ,(popup-wrap 'eval-last-sexp)]
+	"---"
+	,@(if popup-p
+	    '(["%_Find Function"
+	       (find-function (menu-call-at-event '(function-at-point)))
+	       :suffix (let ((fun (menu-call-at-event '(function-at-point))))
+			 (if fun (symbol-name fun) ""))
+	       :active (and (fboundp 'find-function)
+			    (menu-call-at-event '(function-at-point)))]
+	      ["%_Find Variable"
+	       (find-variable (menu-call-at-event '(variable-at-point)))
+	       :suffix (let ((fun (menu-call-at-event '(variable-at-point))))
+			 (if fun (symbol-name fun) ""))
+	       :active (and (fboundp 'find-variable)
+			    (menu-call-at-event '(variable-at-point)))]
+	      ["%_Help on Function"
+	       (describe-function (menu-call-at-event '(function-at-point)))
+	       :suffix (let ((fun (menu-call-at-event '(function-at-point))))
+			 (if fun (symbol-name fun) ""))
+	       :active (and (fboundp 'describe-function)
+			    (menu-call-at-event '(function-at-point)))]
+	      ["%_Help on Variable"
+	       (describe-variable (menu-call-at-event '(variable-at-point)))
+	       :suffix (let ((fun (menu-call-at-event '(variable-at-point))))
+			 (if fun (symbol-name fun) ""))
+	       :active (and (fboundp 'describe-variable)
+			    (menu-call-at-event '(variable-at-point)))])
+	    '(["Find %_Function..." find-function
 	       :active (fboundp 'find-function)]
-	      ["Find %_Variable Source..." find-variable
+	      ["Find %_Variable..." find-variable
 	       :active (fboundp 'find-variable)]
-	      ["%_Trace Function..."   trace-function-background]
-	      ["%_Untrace All Functions"    untrace-all
-	       :active (fboundp 'untrace-all)]
-	      "---"
-	      ["%_Comment Out Region"	comment-region
-	       :active (region-exists-p)]
-	      "---"
-	      ["Indent %_Line or Region"
-	       (if (region-exists-p)
-		   (call-interactively 'indent-region)
-		 (call-interactively 'lisp-indent-line))]
-	      ["Indent B%_alanced Expression"	indent-sexp]
-	      ["Indent %_Defun"
-	       (progn
-		 (beginning-of-defun)
-		 (indent-sexp))]
-	      "---"
-	      "Look for debug-on-error under Options->General"
-	      )))
+	      ["%_Help on Function..." describe-function
+	       :active (fboundp 'describe-function)]
+	      ["Hel%_p on Variable..." describe-variable
+	       :active (fboundp 'describe-variable)]))
+	"---"
+	["Instrument This Defun for %_Debugging" ,(popup-wrap 'edebug-defun)]
+	["%_Trace Function..." trace-function-background]
+	["%_Untrace All Functions" untrace-all
+	 :active (fboundp 'untrace-all)]
+	"---"
+	["%_Comment Out Region" comment-region :active (region-exists-p)]
+	"---"
+	["%_Indent Region or Balanced Expression"
+	 ,(popup-wrap '(if (region-exists-p)
+			   (call-interactively 'indent-region)
+			 (call-interactively 'indent-sexp)))]
+	["I%_ndent Defun"
+	 ,(popup-wrap '(progn
+			 (beginning-of-defun)
+			 (indent-sexp)))]
+	"---"
+	"Look for debug-on-error under Options->Troubleshooting"
+	)))
+
+(defvar lisp-interaction-mode-popup-menu
+  (cons "Lisp-Interaction" (construct-lisp-mode-menu t nil)))
 
 (defvar emacs-lisp-mode-popup-menu
-  (purecopy
-   (nconc
-    '("Emacs-Lisp"
-      ["%_Byte-Compile This File" emacs-lisp-byte-compile]
-      ["B%_yte-Compile/Load This File" emacs-lisp-byte-compile-and-load]
-      ["Byte-%_Recompile Directory..." byte-recompile-directory]
-      "---")
-    (cdr lisp-interaction-mode-popup-menu))))
+  (cons "Emacs-Lisp" (construct-lisp-mode-menu t t)))
 
 ;Don't have a menubar entry in Lisp Interaction mode.  Otherwise, the
 ;*scratch* buffer has a Lisp menubar item!  Very confusing.
 ;Jan Vroonhof really wants this, so it's back.  --ben
 (defvar lisp-interaction-mode-menubar-menu
-  (purecopy (cons "%_Lisp" (cdr lisp-interaction-mode-popup-menu))))
+  (cons "%_Lisp" (construct-lisp-mode-menu nil nil)))
 
 (defvar emacs-lisp-mode-menubar-menu
-  (purecopy (cons "%_Lisp" (cdr emacs-lisp-mode-popup-menu))))
+  (cons "%_Lisp" (construct-lisp-mode-menu nil t)))
 
 (if (not emacs-lisp-mode-syntax-table)
     (let ((i 0))
@@ -667,8 +699,16 @@ of the start of the containing expression."
       (let ((function (buffer-substring (point)
 					(progn (forward-sexp 1) (point))))
 	    method)
-	(setq method (or (get (intern-soft function) 'lisp-indent-function)
-			 (get (intern-soft function) 'lisp-indent-hook)))
+	(if (condition-case nil
+		(save-excursion
+		  (backward-up-list 1)
+		  (backward-up-list 1)
+		  (backward-up-list 1)
+		  (looking-at "(flet\\s-"))
+	      (error nil))
+	    (setq method 'defun)
+	  (setq method (or (get (intern-soft function) 'lisp-indent-function)
+			   (get (intern-soft function) 'lisp-indent-hook))))
 	(cond ((or (eq method 'defun)
 		   (and (null method)
 			(> (length function) 3)
@@ -749,6 +789,7 @@ of the start of the containing expression."
 (put 'save-excursion 'lisp-indent-function 0)
 (put 'save-window-excursion 'lisp-indent-function 0)
 (put 'save-selected-window 'lisp-indent-function 0)
+(put 'with-selected-window 'lisp-indent-function 1)
 (put 'save-selected-frame 'lisp-indent-function 0)
 (put 'with-selected-frame 'lisp-indent-function 1)
 (put 'save-restriction 'lisp-indent-function 0)

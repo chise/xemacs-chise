@@ -341,7 +341,7 @@ tgetent (bp, name)
   const char *term;
   int malloc_size = 0;
   int c;
-  char *tcenv;			/* TERMCAP value, if it contais :tc=.  */
+  char *tcenv;			/* TERMCAP value, if it contains :tc=.  */
   const char *indirect = 0;	/* Terminal type in :tc= in TERMCAP value.  */
 
   tem = getenv ("TERMCAP");

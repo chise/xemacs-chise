@@ -255,18 +255,18 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
 	    {
 	      name_string =
 		XmStringCreateLtoR (res_name, XmSTRING_DEFAULT_CHARSET);
-	      
+
 	      value_name = XtMalloc (strlen (val->value) + 2);
 	      *value_name = 0;
 	      strcat (value_name, " ");
 	      strcat (value_name, val->value);
-	      
+
 	      val_string =
 		XmStringCreateLtoR (value_name, XmSTRING_DEFAULT_CHARSET);
-	      
+
 	      built_string =
 		XmStringConcat (name_string, val_string);
-	      
+
 	      XtFree (value_name);
 	    }
 	}
@@ -927,7 +927,7 @@ xm_update_one_value (widget_instance* instance, Widget widget,
 	  val->edited = True;
 	}
     }
-  else if (class == xmListWidgetClass 
+  else if (class == xmListWidgetClass
 #if defined (LWLIB_WIDGETS_MOTIF) && XmVERSION > 1
 	   || class == xmComboBoxWidgetClass
 #endif
@@ -1140,7 +1140,7 @@ make_dialog (char* name, Widget parent, Boolean pop_up_p,
       n_children++;
     }
 
-  /* invisible seperator button */
+  /* invisible separator button */
   ac = 0;
   XtSetArg (al[ac], XmNmappedWhenManaged, FALSE); ac++;
   children [n_children] = XmCreateLabel (row, "separator_button",
@@ -1256,7 +1256,7 @@ make_dialog (char* name, Widget parent, Boolean pop_up_p,
       XtSetArg(al[ac], XmNrightOffset, 13);			ac++;
       value = XmCreateScrolledList (form, "list", al, ac);
 
-      /* this is the easiest way I found to have the dble click in the
+      /* this is the easiest way I found to have the double click in the
 	 list activate the default button */
       XtAddCallback (value, XmNdefaultActionCallback, activate_button, button);
     }

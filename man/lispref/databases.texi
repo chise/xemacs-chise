@@ -26,16 +26,16 @@ This function opens database @var{file}, using database method
 permissions @var{mode}.  @var{access} can be any combination of @code{r}
 @code{w} and @code{+}, for read, write, and creation flags.
 
-@var{type} can have the value @code{'dbm} or @code{'berkeley_db} to
+@var{type} can have the value @code{'dbm} or @code{'berkeley-db} to
 select the type of database file to use.  (Note:  XEmacs may not
 support both of these types.)
 
 For a @var{type} of @code{'dbm}, there are no subtypes, so
 @var{subtype} should be @code{nil}.
 
-For a @var{type} of @code{'berkeley_db}, the following subtypes are
+For a @var{type} of @code{'berkeley-db}, the following subtypes are
 available:  @code{'hash}, @code{'btree}, and @code{'recno}.  See the
-manpages for the Berkeley DB functions to more information about these 
+manpages for the Berkeley DB functions for more information about these 
 types.
 @end defun
 

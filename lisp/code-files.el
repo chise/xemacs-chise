@@ -551,9 +551,4 @@ See also `write-region-pre-hook' and `write-region-post-hook'."
 			start end filename append visit lockname
 			coding-system)))
 
-;;; The following was all that remained in mule-files.el, so I moved it
-;;; here for neatness.  -sb
-(when (featurep 'mule)
-  (setq-default buffer-file-coding-system 'iso-2022-8))
-
 ;;; code-files.el ends here

@@ -98,7 +98,7 @@ allocate_line_number_cache (struct buffer *b)
 }
 
 /* Flag LINE_NUMBER_BEGV (b) as dirty.  Do it only if the line number
-   cache is already initialized.  */ 
+   cache is already initialized.  */
 void
 narrow_line_number_cache (struct buffer *b)
 {

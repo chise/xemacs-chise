@@ -1,3 +1,32 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: Add `current-time' test.
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: Add ucs tests.
+
+	* DLL/dltest.c: Remove reference to obsolete emacsfns.h
+
+2000-08-03  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/lisp-test.el: Check matching \\= against string
+	doesn't crash XEmacs.
+	From: Markus Linnala <maage@cs.tut.fi>
+
+2000-07-26  Andy Piper  <andy@xemacs.org>
+
+	* glyph-test.el: fix for new glyph instantiation mechanism.
+
+2000-07-31  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/hash-table-tests.el:
+	Fix up test suite to comply with new hash table weakness API.
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.

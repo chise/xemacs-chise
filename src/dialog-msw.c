@@ -1,5 +1,6 @@
 /* Implements elisp-programmable dialog boxes -- MS Windows interface.
    Copyright (C) 1998 Kirill M. Katsnelson <kkm@kis.ru>
+   Copyright (C) 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -33,10 +34,30 @@ Boston, MA 02111-1307, USA.  */
 #include "gui.h"
 #include "opaque.h"
 
+#include <cderr.h>
+#include <commdlg.h>
+
+Lisp_Object Qdialog_box_error;
+
+static Lisp_Object Q_initial_directory;
+static Lisp_Object Q_initial_filename;
+static Lisp_Object Q_filter_list;
+static Lisp_Object Q_title;
+static Lisp_Object Q_allow_multi_select;
+static Lisp_Object Q_create_prompt_on_nonexistent;
+static Lisp_Object Q_overwrite_prompt;
+static Lisp_Object Q_file_must_exist;
+static Lisp_Object Q_no_network_button;
+static Lisp_Object Q_no_read_only_return;
+
 /* List containing all dialog data structures of currently popped up
-   dialogs. Each item is a cons of frame object and a vector of
-   callbacks for buttons in the dialog, in order */
+   dialogs. */
 static Lisp_Object Vdialog_data_list;
+
+/* List of popup frames wanting keyboard traversal handled */
+static Lisp_Object Vpopup_frame_list;
+
+Lisp_Object Vdefault_file_dialog_filter_alist;
 
 /* DLUs per character metrics */
 #define X_DLU_PER_CHAR	     4
@@ -110,6 +131,51 @@ static Lisp_Object Vdialog_data_list;
 
 #define ID_ITEM_BIAS 32
 
+void
+mswindows_register_popup_frame (Lisp_Object frame)
+{
+  Vpopup_frame_list = Fcons (frame, Vpopup_frame_list);
+}
+
+void
+mswindows_unregister_popup_frame (Lisp_Object frame)
+{
+  Vpopup_frame_list = delq_no_quit (frame, Vpopup_frame_list);
+}
+
+/* Dispatch message to any dialog boxes.  Return non-zero if dispatched. */
+int
+mswindows_is_dialog_msg (MSG *msg)
+{
+  LIST_LOOP_2 (data, Vdialog_data_list)
+    {
+      if (IsDialogMessage (XMSWINDOWS_DIALOG_ID (data)->hwnd, msg))
+	return 1;
+    }
+
+  {
+    LIST_LOOP_2 (popup, Vpopup_frame_list)
+      {
+	HWND hwnd = FRAME_MSWINDOWS_HANDLE (XFRAME (popup));
+	if (IsDialogMessage (hwnd, msg))
+	  return 1;
+      }
+  }
+  return 0;
+}
+
+static Lisp_Object
+mark_mswindows_dialog_id (Lisp_Object obj)
+{
+  struct mswindows_dialog_id *data = XMSWINDOWS_DIALOG_ID (obj);
+  mark_object (data->frame);
+  return data->callbacks;
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("mswindows-dialog-id", mswindows_dialog_id,
+			       mark_mswindows_dialog_id, 0, 0, 0, 0, 0,
+			       struct mswindows_dialog_id);
+
 /* Dialog procedure */
 static BOOL CALLBACK 
 dialog_proc (HWND hwnd, UINT msg, WPARAM w_param, LPARAM l_param)
@@ -131,14 +197,27 @@ dialog_proc (HWND hwnd, UINT msg, WPARAM w_param, LPARAM l_param)
     case WM_COMMAND:
       {
 	Lisp_Object fn, arg, data;
+	struct mswindows_dialog_id *did;
+
 	VOID_TO_LISP (data, GetWindowLong (hwnd, DWL_USER));
-	
-	assert (w_param >= ID_ITEM_BIAS 
-		&& w_param < XVECTOR_LENGTH (XCDR (data)) + ID_ITEM_BIAS);
-	
-	get_gui_callback (XVECTOR_DATA (XCDR (data)) [w_param - ID_ITEM_BIAS],
-			  &fn, &arg);
-	mswindows_enqueue_misc_user_event (XCAR (data), fn, arg);
+	did = XMSWINDOWS_DIALOG_ID (data);
+	if (w_param != IDCANCEL) /* user pressed escape */
+	  {
+	    assert (w_param >= ID_ITEM_BIAS 
+		    && w_param
+		    < XVECTOR_LENGTH (did->callbacks) + ID_ITEM_BIAS);
+	    
+	    get_gui_callback (XVECTOR_DATA (did->callbacks)
+			      [w_param - ID_ITEM_BIAS],
+			      &fn, &arg);
+	    mswindows_enqueue_misc_user_event (did->frame, fn, arg);
+	  }
+	else
+	  mswindows_enqueue_misc_user_event (did->frame, Qrun_hooks,
+					     Qmenu_no_selection_hook);
+	/* #### need to error-protect!  will do so when i merge in
+	   my working ws */
+	va_run_hook_with_args (Qdelete_dialog_box_hook, 1, data);
 
 	DestroyWindow (hwnd);
       }
@@ -211,13 +290,130 @@ free_dynarr_opaque_ptr (Lisp_Object arg)
     Dynarr_add_many (template, &zeroes, slippage);	\
 }
 
-static void
-mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
+static struct
+{
+  int errmess;
+  char *errname;
+} common_dialog_errors[] =
+{
+  { CDERR_DIALOGFAILURE, "CDERR_DIALOGFAILURE" },
+  { CDERR_FINDRESFAILURE, "CDERR_FINDRESFAILURE" },
+  { CDERR_INITIALIZATION, "CDERR_INITIALIZATION" },
+  { CDERR_LOADRESFAILURE, "CDERR_LOADRESFAILURE" },
+  { CDERR_LOADSTRFAILURE, "CDERR_LOADSTRFAILURE" },
+  { CDERR_LOCKRESFAILURE, "CDERR_LOCKRESFAILURE" },
+  { CDERR_MEMALLOCFAILURE, "CDERR_MEMALLOCFAILURE" },
+  { CDERR_MEMLOCKFAILURE, "CDERR_MEMLOCKFAILURE" },
+  { CDERR_NOHINSTANCE, "CDERR_NOHINSTANCE" },
+  { CDERR_NOHOOK, "CDERR_NOHOOK" },
+  { CDERR_NOTEMPLATE, "CDERR_NOTEMPLATE" },
+  { CDERR_REGISTERMSGFAIL, "CDERR_REGISTERMSGFAIL" },
+  { CDERR_STRUCTSIZE, "CDERR_STRUCTSIZE" },
+  { PDERR_CREATEICFAILURE, "PDERR_CREATEICFAILURE" },
+  { PDERR_DEFAULTDIFFERENT, "PDERR_DEFAULTDIFFERENT" },
+  { PDERR_DNDMMISMATCH, "PDERR_DNDMMISMATCH" },
+  { PDERR_GETDEVMODEFAIL, "PDERR_GETDEVMODEFAIL" },
+  { PDERR_INITFAILURE, "PDERR_INITFAILURE" },
+  { PDERR_LOADDRVFAILURE, "PDERR_LOADDRVFAILURE" },
+  { PDERR_NODEFAULTPRN, "PDERR_NODEFAULTPRN" },
+  { PDERR_NODEVICES, "PDERR_NODEVICES" },
+  { PDERR_PARSEFAILURE, "PDERR_PARSEFAILURE" },
+  { PDERR_PRINTERNOTFOUND, "PDERR_PRINTERNOTFOUND" },
+  { PDERR_RETDEFFAILURE, "PDERR_RETDEFFAILURE" },
+  { PDERR_SETUPFAILURE, "PDERR_SETUPFAILURE" },
+  { CFERR_MAXLESSTHANMIN, "CFERR_MAXLESSTHANMIN" },
+  { CFERR_NOFONTS, "CFERR_NOFONTS" },
+  { FNERR_BUFFERTOOSMALL, "FNERR_BUFFERTOOSMALL" },
+  { FNERR_INVALIDFILENAME, "FNERR_INVALIDFILENAME" },
+  { FNERR_SUBCLASSFAILURE, "FNERR_SUBCLASSFAILURE" },
+  { FRERR_BUFFERLENGTHZERO, "FRERR_BUFFERLENGTHZERO" },
+};
+
+static Lisp_Object
+handle_file_dialog_box (struct frame *f, Lisp_Object keys)
+{
+  OPENFILENAME ofn;
+  char fnbuf[8000];
+
+  xzero (ofn);
+  ofn.lStructSize = sizeof (ofn);
+  ofn.hwndOwner = FRAME_MSWINDOWS_HANDLE (f);
+  ofn.lpstrFile = fnbuf;
+  ofn.nMaxFile = sizeof (fnbuf) / XETCHAR_SIZE;
+  xetcscpy (fnbuf, XETEXT (""));
+
+  LOCAL_FILE_FORMAT_TO_TSTR (Fexpand_file_name (build_string (""), Qnil),
+			     ofn.lpstrInitialDir);
+
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
+      {
+	if (EQ (key, Q_initial_filename))
+	  {
+	    Extbyte *fnout;
+
+	    CHECK_STRING (value);
+	    LOCAL_FILE_FORMAT_TO_TSTR (value, fnout);
+	    xetcscpy (fnbuf, fnout);
+	  }
+	else if (EQ (key, Q_title))
+	  {
+	    CHECK_STRING (value);
+	    LISP_STRING_TO_EXTERNAL (value, ofn.lpstrTitle, Qmswindows_tstr);
+	  }
+	else if (EQ (key, Q_initial_directory))
+	  LOCAL_FILE_FORMAT_TO_TSTR (Fexpand_file_name (value, Qnil),
+				     ofn.lpstrInitialDir);
+	else if (EQ (key, Q_file_must_exist))
+	  {
+	    if (!NILP (value))
+	      ofn.Flags |= OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+	    else
+	      ofn.Flags &= ~(OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST);
+	  }
+	else
+	  syntax_error ("Unrecognized file-dialog keyword", key);
+      }
+  }
+
+  if (!GetOpenFileName (&ofn))
+    {
+      DWORD err = CommDlgExtendedError ();
+      if (!err)
+	{
+	  while (1)
+	    signal_quit ();
+	}
+      else
+	{
+	  int i;
+
+	  for (i = 0; i < countof (common_dialog_errors); i++)
+	    {
+	      if (common_dialog_errors[i].errmess == err)
+		signal_type_error (Qdialog_box_error,
+				   "Creating file-dialog-box",
+				   build_string
+				   (common_dialog_errors[i].errname));
+	    }
+
+	  signal_type_error (Qdialog_box_error,
+			     "Unknown common dialog box error???",
+			     make_int (err));
+	}
+    }
+
+  return tstr_to_local_file_format (ofn.lpstrFile);
+}
+
+static Lisp_Object
+handle_question_dialog_box (struct frame *f, Lisp_Object keys)
 {
   Lisp_Object_dynarr *dialog_items = Dynarr_new (Lisp_Object);
   unsigned_char_dynarr *template = Dynarr_new (unsigned_char);
   unsigned int button_row_width = 0;
   unsigned int text_width, text_height;
+  Lisp_Object question = Qnil, title = Qnil;
 
   int unbind_count = specpdl_depth ();
   record_unwind_protect (free_dynarr_opaque_ptr,
@@ -226,31 +422,56 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 			 make_opaque_ptr (template));
 
   /* A big NO NEED to GCPRO gui_items stored in the array: they are just
-     pointers into DESC list, which is GC-protected by the caller */
+     pointers into KEYS list, which is GC-protected by the caller */
 
-  /* Parse each item in the dialog into gui_item structs, and stuff a dynarr
-     of these. Calculate button row width in this loop too */
   {
-    Lisp_Object item_cons;
-
-    EXTERNAL_LIST_LOOP (item_cons, XCDR (desc))
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
       {
-	if (!NILP (XCAR (item_cons)))
+	if (EQ (key, Q_question))
 	  {
-	    Lisp_Object gitem = gui_parse_item_keywords (XCAR (item_cons));
-	    Dynarr_add (dialog_items, gitem);
-	    button_row_width += button_width (XGUI_ITEM (gitem)->name) 
-	      + X_BUTTON_MARGIN;
+	    CHECK_STRING (value);
+	    question = value;
 	  }
+	else if (EQ (key, Q_title))
+	  {
+	    CHECK_STRING (value);
+	    title = value;
+	  }
+	else if (EQ (key, Q_buttons))
+	  {
+	    Lisp_Object item_cons;
+
+	    /* Parse each item in the dialog into gui_item structs,
+	       and stuff a dynarr of these. Calculate button row width
+	       in this loop too */
+	    EXTERNAL_LIST_LOOP (item_cons, value)
+	      {
+		if (!NILP (XCAR (item_cons)))
+		  {
+		    Lisp_Object gitem =
+		      gui_parse_item_keywords (XCAR (item_cons));
+		    Dynarr_add (dialog_items, gitem);
+		    button_row_width += button_width (XGUI_ITEM (gitem)->name) 
+		      + X_BUTTON_MARGIN;
+		  }
+	      }
+
+	    button_row_width -= X_BUTTON_MARGIN;
+	  }
+	else
+	  syntax_error ("Unrecognized question-dialog keyword", key);
       }
-    if (Dynarr_length (dialog_items) == 0)
-      signal_simple_error ("Dialog descriptor provides no active items", desc);
-    button_row_width -= X_BUTTON_MARGIN;
   }
+
+  if (Dynarr_length (dialog_items) == 0)
+    syntax_error ("Dialog descriptor provides no buttons", keys);
+
+  if (NILP (question))
+    syntax_error ("Dialog descriptor provides no question", keys);
 
   /* Determine the final width layout */
   {
-    Bufbyte *p = XSTRING_DATA (XCAR (desc));
+    Bufbyte *p = XSTRING_DATA (question);
     Charcount string_max = 0, this_length = 0;
     while (1)
       {
@@ -280,17 +501,17 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
   
   /* Now calculate the height for the text control */
   {
-    Bufbyte *p = XSTRING_DATA (XCAR (desc));
+    Bufbyte *p = XSTRING_DATA (question);
     Charcount break_at = text_width / X_DLU_PER_CHAR;
     Charcount char_pos = 0;
     int num_lines = 1;
     Emchar ch;
     
-    while ((ch = charptr_emchar (p)) != (Emchar)'\0')
+    while ((ch = charptr_emchar (p)) != (Emchar) '\0')
       {
 	INC_CHARPTR (p);
-	char_pos += ch != (Emchar)'\n';
-	if (ch == (Emchar)'\n' || char_pos == break_at)
+	char_pos += ch != (Emchar) '\n';
+	if (ch == (Emchar) '\n' || char_pos == break_at)
 	  {
 	    ++num_lines;
 	    char_pos = 0;
@@ -324,9 +545,12 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
     /* We want no menu and standard class */
     Dynarr_add_many (template, &zeroes, 4);
 
-    /* And the third is the dialog title. "XEmacs" as long as we do not supply
-       one in descriptor. Note that the string must be in Unicode. */
-    Dynarr_add_many (template, L"XEmacs", 14);
+    /* And the third is the dialog title. "XEmacs" unless one is supplied.
+       Note that the string must be in Unicode. */
+    if (NILP (title))
+      Dynarr_add_many (template, L"XEmacs", 14);
+    else
+      push_lisp_string_as_unicode (template, title);
 
     /* We want standard dialog font */
     Dynarr_add_many (template, L"\x08MS Shell Dlg", 28);
@@ -348,7 +572,7 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
     Dynarr_add_many (template, &static_class_id, sizeof (static_class_id));
 
     /* Next thing to add is control text, as Unicode string */
-    push_lisp_string_as_unicode (template, XCAR (desc));
+    push_lisp_string_as_unicode (template, question);
 
     /* Specify 0 length creation data */
     Dynarr_add_many (template, &zeroes, 2);
@@ -406,45 +630,103 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 
   /* Now the Windows dialog structure is ready. We need to prepare a
      data structure for the new dialog, which will contain callbacks
-     and the frame for these callbacks. This structure has to be
-     GC-protected. The data structure itself is a cons of frame object
-     and a vector of callbacks; for the protection reasons it is put
-     into a statically protected list. */
+     and the frame for these callbacks.  This structure has to be
+     GC-protected and thus it is put into a statically protected
+     list. */
   {
-    Lisp_Object frame, vector, dialog_data;
+    Lisp_Object dialog_data;
     int i;
-    
-    XSETFRAME (frame, f);
-    vector = make_vector (Dynarr_length (dialog_items), Qunbound);
-    dialog_data = Fcons (frame, vector);
-    for (i = 0; i < Dynarr_length (dialog_items); i++)
-      XVECTOR_DATA (vector) [i] =
-	XGUI_ITEM (*Dynarr_atp (dialog_items, i))->callback;
+    struct mswindows_dialog_id *did =
+      alloc_lcrecord_type (struct mswindows_dialog_id,
+			   &lrecord_mswindows_dialog_id);
 
+    XSETMSWINDOWS_DIALOG_ID (dialog_data, did);
+
+    did->frame = wrap_frame (f);
+    did->callbacks = make_vector (Dynarr_length (dialog_items), Qunbound);
+    for (i = 0; i < Dynarr_length (dialog_items); i++)
+      XVECTOR_DATA (did->callbacks) [i] =
+	XGUI_ITEM (*Dynarr_atp (dialog_items, i))->callback;
+    
     /* Woof! Everything is ready. Pop pop pop in now! */
-    if (!CreateDialogIndirectParam (NULL,
-				    (LPDLGTEMPLATE) Dynarr_atp (template, 0),
-				    FRAME_MSWINDOWS_HANDLE (f), dialog_proc,
-				    (LPARAM) LISP_TO_VOID (dialog_data)))
+    did->hwnd =
+      CreateDialogIndirectParam (NULL,
+				 (LPDLGTEMPLATE) Dynarr_atp (template, 0),
+				 FRAME_MSWINDOWS_HANDLE (f), dialog_proc,
+				 (LPARAM) LISP_TO_VOID (dialog_data));
+    if (!did->hwnd)
       /* Something went wrong creating the dialog */
-      signal_simple_error ("System error creating dialog", desc);
+      signal_type_error (Qdialog_box_error, "Creating dialog", keys);
 
     Vdialog_data_list = Fcons (dialog_data, Vdialog_data_list);
-  }
 
-  /* Cease protection and free dynarrays */
-  unbind_to (unbind_count, Qnil);
+    /* Cease protection and free dynarrays */
+    unbind_to (unbind_count, Qnil);
+    return dialog_data;
+  }
+}
+
+static Lisp_Object
+mswindows_make_dialog_box_internal (struct frame* f, Lisp_Object type,
+				    Lisp_Object keys)
+{
+  if (EQ (type, Qfile))
+    return handle_file_dialog_box (f, keys);
+  else if (EQ (type, Qquestion))
+    return handle_question_dialog_box (f, keys);
+  else if (EQ (type, Qprint))
+    return mswindows_handle_print_dialog_box (f, keys);
+  else if (EQ (type, Qpage_setup))
+    return mswindows_handle_page_setup_dialog_box (f, keys);
+  else if (EQ (type, Qprint_setup))
+    return mswindows_handle_print_setup_dialog_box (f, keys);
+  else
+    signal_type_error (Qunimplemented, "Dialog box type", type);
+  return Qnil;
 }
 
 void
 console_type_create_dialog_mswindows (void)
 {
-  CONSOLE_HAS_METHOD (mswindows, popup_dialog_box);
+  CONSOLE_HAS_METHOD (mswindows, make_dialog_box_internal);
+}
+
+void
+syms_of_dialog_mswindows (void)
+{
+  INIT_LRECORD_IMPLEMENTATION (mswindows_dialog_id);
+
+  DEFKEYWORD (Q_initial_directory);
+  DEFKEYWORD (Q_initial_filename);
+  DEFKEYWORD (Q_filter_list);
+  DEFKEYWORD (Q_title);
+  DEFKEYWORD (Q_allow_multi_select);
+  DEFKEYWORD (Q_create_prompt_on_nonexistent);
+  DEFKEYWORD (Q_overwrite_prompt);
+  DEFKEYWORD (Q_file_must_exist);
+  DEFKEYWORD (Q_no_network_button);
+  DEFKEYWORD (Q_no_read_only_return);
+
+  /* Errors */
+  DEFERROR_STANDARD (Qdialog_box_error, Qinvalid_operation);
 }
 
 void
 vars_of_dialog_mswindows (void)
 {
+  Vpopup_frame_list = Qnil;
+  staticpro (&Vpopup_frame_list);
+
   Vdialog_data_list = Qnil;
   staticpro (&Vdialog_data_list);
+
+  DEFVAR_LISP ("default-file-dialog-filter-alist",
+	       &Vdefault_file_dialog_filter_alist /*
+*/ );
+  Vdefault_file_dialog_filter_alist =
+    list5 (Fcons (build_string ("Text Files"), build_string ("*.txt")),
+	   Fcons (build_string ("C Files"), build_string ("*.c;*.h")),
+	   Fcons (build_string ("Elisp Files"), build_string ("*.el")),
+	   Fcons (build_string ("HTML Files"), build_string ("*.html;*.html")),
+	   Fcons (build_string ("All Files"), build_string ("*.*")));
 }

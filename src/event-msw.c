@@ -96,7 +96,8 @@ static Lisp_Object mswindows_find_frame (HWND hwnd);
 static Lisp_Object mswindows_find_console (HWND hwnd);
 static Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 						  int extendedp);
-static int mswindows_modifier_state (BYTE* keymap, int has_AltGr);
+static int mswindows_modifier_state (BYTE* keymap, DWORD fwKeys,
+				     int has_AltGr);
 static void mswindows_set_chord_timer (HWND hwnd);
 static int mswindows_button2_near_enough (POINTS p1, POINTS p2);
 static int mswindows_current_layout_has_AltGr (void);
@@ -151,7 +152,7 @@ int mswindows_mouse_button_max_skew_y;
 int mswindows_mouse_button_tolerance;
 
 #ifdef DEBUG_XEMACS
-int mswindows_debug_events;
+int debug_mswindows_events;
 #endif
 
 /* This is the event signaled by the event pump.
@@ -161,6 +162,8 @@ static int mswindows_in_modal_loop;
 
 /* Count of wound timers */
 static int mswindows_pending_timers_count;
+
+static DWORD mswindows_last_mouse_button_state;
 
 /************************************************************************/
 /*                Pipe instream - reads process output                  */
@@ -600,7 +603,8 @@ ntpipe_shove_writer (Lstream *stream, const unsigned char *data, size_t size)
   SetEvent (s->hev_thread);
   /* Give it a chance to run -- this dramatically improves performance
      of things like crypt. */
-  (void) SwitchToThread ();
+  if (xSwitchToThread) /* not in Win9x or NT 3.51 */
+    (void) xSwitchToThread ();
   return size;
 }
 
@@ -959,7 +963,7 @@ mswindows_enqueue_process_event (Lisp_Process* p)
 
 static void
 mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where,
-				      DWORD when)
+				      int mods, DWORD when)
 {
   int downp = (msg == WM_LBUTTONDOWN || msg == WM_MBUTTONDOWN ||
 	       msg == WM_RBUTTONDOWN);
@@ -979,7 +983,7 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where,
     ((msg==WM_RBUTTONDOWN || msg==WM_RBUTTONUP) ? 3 : 2);
   event->event.button.x = where.x;
   event->event.button.y = where.y;
-  event->event.button.modifiers = mswindows_modifier_state (NULL, 0);
+  event->event.button.modifiers = mswindows_modifier_state (NULL, mods, 0);
 
   if (downp)
     {
@@ -1270,6 +1274,14 @@ mswindows_drain_windows_queue (void)
 
   while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
     {
+      char class_name_buf [sizeof (XEMACS_CLASS) + 2] = "";
+
+      if (mswindows_is_dialog_msg (&msg))
+	{
+	  mswindows_unmodalize_signal_maybe ();
+	  continue;
+	}
+
       /* We have to translate messages that are not sent to an XEmacs
          frame. This is so that key presses work ok in things like
          edit fields. However, we *musn't* translate message for XEmacs
@@ -1279,7 +1291,7 @@ mswindows_drain_windows_queue (void)
       /* GetClassName will truncate a longer class name. By adding one
 	 extra character, we are forcing textual comparison to fail
 	 if the name is longer than XEMACS_CLASS */
-      char class_name_buf [sizeof (XEMACS_CLASS) + 2] = "";
+
       GetClassName (msg.hwnd, class_name_buf, sizeof (class_name_buf) - 1);
       if (stricmp (class_name_buf, XEMACS_CLASS) != 0)
 	{
@@ -1289,7 +1301,7 @@ mswindows_drain_windows_queue (void)
       else if (msg.message == WM_PAINT)
 	{
 	  struct mswindows_frame* msframe;
-	  
+
 	  /* hdc will be NULL unless this is a subwindow - in which case we
 	     shouldn't have received a paint message for it here. */
 	  assert (msg.wParam == 0);
@@ -1400,7 +1412,7 @@ mswindows_need_event (int badly_p)
 	    {
 	      mswindows_drain_windows_queue ();
 	    }
-	  else 
+	  else
 	    {
 #ifdef HAVE_TTY
 	      /* Look for a TTY event */
@@ -1414,7 +1426,7 @@ mswindows_need_event (int badly_p)
 		      struct console *c = tty_find_console_from_fd (i);
 		      Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
 		      Lisp_Event* event = XEVENT (emacs_event);
-		      
+
 		      assert (c);
 		      if (read_event_from_tty_or_stream_desc (event, c, i))
 			{
@@ -1433,7 +1445,7 @@ mswindows_need_event (int badly_p)
 			{
 			  Lisp_Process *p =
 			    get_process_from_usid (FD_TO_USID(i));
-			  
+
 			  mswindows_enqueue_process_event (p);
 			}
 		      else
@@ -1709,7 +1721,7 @@ mswindows_handle_paint (struct frame *frame)
 }
 
 /*
- * Returns 1 if a key is a real modifier or special key, which 
+ * Returns 1 if a key is a real modifier or special key, which
  * is better handled by DefWindowProc
  */
 static int
@@ -1993,7 +2005,7 @@ output_alt_keyboard_state (void)
 /* 	      asyncstate[2] & 0x1 ? 1 : 0); */
 }
 
-#endif /* DEBUG_XEMACS */  
+#endif /* DEBUG_XEMACS */
 
 
 /*
@@ -2010,6 +2022,11 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
   Lisp_Event *event;
   struct frame *frame;
   struct mswindows_frame* msframe;
+
+  /* Not perfect but avoids crashes. There is potential for wierd
+     behavior here. */
+  if (gc_in_progress)
+    goto defproc;
 
   assert (!GetWindowLong (hwnd, GWL_USERDATA));
   switch (message_)
@@ -2045,14 +2062,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int should_set_keymap = 0;
 
 #ifdef DEBUG_XEMACS
-	if (mswindows_debug_events)
+	if (debug_mswindows_events)
 	  {
 	    stderr_out ("%s wparam=%d lparam=%d\n",
 			message_ == WM_KEYUP ? "WM_KEYUP" : "WM_SYSKEYUP",
 			wParam, (int)lParam);
 	    output_alt_keyboard_state ();
-	  }	    
-#endif /* DEBUG_XEMACS */  
+	  }
+#endif /* DEBUG_XEMACS */
 
 	mswindows_handle_sticky_modifiers (wParam, lParam, 0, 1);
 	if (wParam == VK_CONTROL)
@@ -2074,7 +2091,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  SetKeyboardState (keymap);
 
       }
-      
+
       if (key_needs_default_processing_p (wParam))
 	goto defproc;
       else
@@ -2084,7 +2101,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
     case WM_SYSKEYDOWN:
 
       /* In some locales the right-hand Alt key is labelled AltGr. This key
-       * should produce alternative charcaters when combined with another key.
+       * should produce alternative characters when combined with another key.
        * eg on a German keyboard pressing AltGr+q should produce '@'.
        * AltGr generates exactly the same keystrokes as LCtrl+RAlt. But if
        * TranslateMessage() is called with *any* combination of Ctrl+Alt down,
@@ -2102,14 +2119,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int sticky_changed;
 
 #ifdef DEBUG_XEMACS
-	if (mswindows_debug_events)
+	if (debug_mswindows_events)
 	  {
 	    stderr_out ("%s wparam=%d lparam=%d\n",
 			message_ == WM_KEYDOWN ? "WM_KEYDOWN" : "WM_SYSKEYDOWN",
 			wParam, (int)lParam);
 	    output_alt_keyboard_state ();
-	  }	    
-#endif /* DEBUG_XEMACS */  
+	  }
+#endif /* DEBUG_XEMACS */
 
 	GetKeyboardState (keymap_orig);
 	frame = XFRAME (mswindows_find_frame (hwnd));
@@ -2130,7 +2147,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	else
 	  memcpy (keymap_sticky, keymap_orig, 256);
 
-	mods = mswindows_modifier_state (keymap_sticky, has_AltGr);
+	mods = mswindows_modifier_state (keymap_sticky, (DWORD) -1, has_AltGr);
 
 	/* Handle non-printables */
 	if (!NILP (keysym = mswindows_key_to_emacs_keysym (wParam, mods,
@@ -2148,7 +2165,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	    MSG msg, tranmsg;
 	    int potential_accelerator = 0;
 	    int got_accelerator = 0;
-	  
+
 	    msg.hwnd = hwnd;
 	    msg.message = message_;
 	    msg.wParam = wParam;
@@ -2229,7 +2246,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	    /* This generates WM_SYSCHAR messages, which are interpreted
 	       by DefWindowProc as the menu selections. */
 	    if (got_accelerator)
-	      { 
+	      {
 		SetKeyboardState (keymap_sticky);
 		TranslateMessage (&msg);
 		SetKeyboardState (keymap_orig);
@@ -2251,7 +2268,9 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	 if one wants to exercise fingers playing chords on the mouse,
 	 he is allowed to do that! */
       mswindows_enqueue_mouse_button_event (hwnd, message_,
-					    MAKEPOINTS (lParam), GetMessageTime());
+					    MAKEPOINTS (lParam),
+					    wParam &~ MK_MBUTTON,
+					    GetMessageTime());
       break;
 
     case WM_LBUTTONUP:
@@ -2269,7 +2288,11 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  msframe->button2_is_down = 0;
 	  msframe->ignore_next_rbutton_up = 1;
 	  mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
-						MAKEPOINTS (lParam), GetMessageTime());
+						MAKEPOINTS (lParam),
+						wParam
+						&~ (MK_LBUTTON | MK_MBUTTON
+						    | MK_RBUTTON),
+						GetMessageTime());
 	}
       else
 	{
@@ -2277,10 +2300,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	    {
 	      msframe->button2_need_rbutton = 0;
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam &~ MK_LBUTTON,
+						    GetMessageTime());
 	    }
 	  mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONUP,
-						MAKEPOINTS (lParam), GetMessageTime());
+						MAKEPOINTS (lParam),
+						wParam &~ MK_LBUTTON,
+						GetMessageTime());
 	}
       break;
 
@@ -2299,7 +2326,11 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  msframe->button2_is_down = 0;
 	  msframe->ignore_next_lbutton_up = 1;
 	  mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONUP,
-						MAKEPOINTS (lParam), GetMessageTime());
+						MAKEPOINTS (lParam),
+						wParam
+						&~ (MK_LBUTTON | MK_MBUTTON
+						    | MK_RBUTTON),
+						GetMessageTime());
 	}
       else
 	{
@@ -2307,10 +2338,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	    {
 	      msframe->button2_need_lbutton = 0;
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam &~ MK_RBUTTON,
+						    GetMessageTime());
 	    }
 	  mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONUP,
-						MAKEPOINTS (lParam), GetMessageTime());
+						MAKEPOINTS (lParam),
+						wParam &~ MK_RBUTTON,
+						GetMessageTime());
 	}
       break;
 
@@ -2322,18 +2357,28 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  KillTimer (hwnd, BUTTON_2_TIMER_ID);
 	  msframe->button2_need_lbutton = 0;
 	  msframe->button2_need_rbutton = 0;
-	  if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
+	  if (mswindows_button2_near_enough (msframe->last_click_point,
+					     MAKEPOINTS (lParam)))
 	    {
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam
+						    &~ (MK_LBUTTON | MK_MBUTTON
+							| MK_RBUTTON),
+						    GetMessageTime());
 	      msframe->button2_is_down = 1;
 	    }
 	  else
 	    {
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						    msframe->last_click_point, msframe->last_click_time);
+						    msframe->last_click_point,
+						    msframe->last_click_mods
+						    &~ MK_RBUTTON,
+						    msframe->last_click_time);
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam &~ MK_LBUTTON,
+						    GetMessageTime());
 	    }
 	}
       else
@@ -2341,6 +2386,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  mswindows_set_chord_timer (hwnd);
 	  msframe->button2_need_rbutton = 1;
 	  msframe->last_click_point = MAKEPOINTS (lParam);
+	  msframe->last_click_mods = wParam;
 	}
       msframe->last_click_time =  GetMessageTime();
       break;
@@ -2353,18 +2399,28 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  KillTimer (hwnd, BUTTON_2_TIMER_ID);
 	  msframe->button2_need_lbutton = 0;
 	  msframe->button2_need_rbutton = 0;
-	  if (mswindows_button2_near_enough (msframe->last_click_point, MAKEPOINTS (lParam)))
+	  if (mswindows_button2_near_enough (msframe->last_click_point,
+					     MAKEPOINTS (lParam)))
 	    {
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_MBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam
+						    &~ (MK_LBUTTON | MK_MBUTTON
+							| MK_RBUTTON),
+						    GetMessageTime());
 	      msframe->button2_is_down = 1;
 	    }
 	  else
 	    {
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						    msframe->last_click_point, msframe->last_click_time);
+						    msframe->last_click_point,
+						    msframe->last_click_mods
+						    &~ MK_LBUTTON,
+						    msframe->last_click_time);
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						    MAKEPOINTS (lParam), GetMessageTime());
+						    MAKEPOINTS (lParam),
+						    wParam &~ MK_RBUTTON,
+						    GetMessageTime());
 	    }
 	}
       else
@@ -2372,6 +2428,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  mswindows_set_chord_timer (hwnd);
 	  msframe->button2_need_lbutton = 1;
 	  msframe->last_click_point = MAKEPOINTS (lParam);
+	  msframe->last_click_mods = wParam;
 	}
       msframe->last_click_time =  GetMessageTime();
       break;
@@ -2386,13 +2443,19 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	    {
 	      msframe->button2_need_lbutton = 0;
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_RBUTTONDOWN,
-						    msframe->last_click_point, msframe->last_click_time);
+						    msframe->last_click_point,
+						    msframe->last_click_mods
+						    &~ MK_RBUTTON,
+						    msframe->last_click_time);
 	    }
 	  else if (msframe->button2_need_rbutton)
 	    {
 	      msframe->button2_need_rbutton = 0;
 	      mswindows_enqueue_mouse_button_event (hwnd, WM_LBUTTONDOWN,
-						    msframe->last_click_point, msframe->last_click_time);
+						    msframe->last_click_point,
+						    msframe->last_click_mods
+						    &~ MK_LBUTTON,
+						    msframe->last_click_time);
 	    }
 	}
       else
@@ -2423,7 +2486,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  event->event_type = pointer_motion_event;
 	  event->event.motion.x = MAKEPOINTS(lParam).x;
 	  event->event.motion.y = MAKEPOINTS(lParam).y;
-	  event->event.motion.modifiers = mswindows_modifier_state (NULL, 0);
+	  event->event.motion.modifiers =
+	    mswindows_modifier_state (NULL, wParam, 0);
 
 	  mswindows_enqueue_dispatch_event (emacs_event);
 	}
@@ -2459,9 +2523,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	      {
 		/* I think this is safe since the text will only go away
 		   when the toolbar does...*/
-		TO_EXTERNAL_FORMAT (LISP_STRING, btext,
-				    C_STRING_ALLOCA, tttext->lpszText,
-				    Qnative);
+		LISP_STRING_TO_EXTERNAL (btext, tttext->lpszText, Qnative);
 	      }
 #endif
 	  }
@@ -2493,7 +2555,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	 shouldn't have received a paint message for it here. */
       assert (wParam == 0);
 
-      /* Can't queue a magic event because windows goes modal and sends paint 
+      /* Can't queue a magic event because windows goes modal and sends paint
 	 messages directly to the windows procedure when doing solid drags
 	 and the message queue doesn't get processed. */
       mswindows_handle_paint (XFRAME (mswindows_find_frame (hwnd)));
@@ -2821,7 +2883,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	event->channel = mswindows_find_frame(hwnd);
 	event->timestamp = GetMessageTime();
 	event->event.misc.button = 1;		/* #### Should try harder */
-	event->event.misc.modifiers = mswindows_modifier_state (NULL, 0);
+	event->event.misc.modifiers = mswindows_modifier_state (NULL,
+								(DWORD) -1, 0);
 	event->event.misc.x = point.x;
 	event->event.misc.y = point.y;
 	event->event.misc.function = Qdragdrop_drop_dispatch;
@@ -2846,7 +2909,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 
 		if (CoCreateInstance (&CLSID_ShellLink, NULL,
 				      CLSCTX_INPROC_SERVER, &IID_IShellLink, &psl) == S_OK)
-		  { 
+		  {
 		    IPersistFile* ppf;
 
 		    if (psl->lpVtbl->QueryInterface (psl, &IID_IPersistFile,
@@ -2947,8 +3010,10 @@ mswindows_current_layout_has_AltGr (void)
      time when a key typed at autorepeat rate of 30 cps! */
   static HKL last_hkl = 0;
   static int last_hkl_has_AltGr;
+  HKL current_hkl = (HKL) -1;
 
-  HKL current_hkl = GetKeyboardLayout (0);
+  if (xGetKeyboardLayout) /* not in NT 3.5 */
+    current_hkl = xGetKeyboardLayout (0);
   if (current_hkl != last_hkl)
     {
       TCHAR c;
@@ -2968,10 +3033,19 @@ mswindows_current_layout_has_AltGr (void)
 /* Returns the state of the modifier keys in the format expected by the
  * Lisp_Event key_data, button_data and motion_data modifiers member */
 static int
-mswindows_modifier_state (BYTE* keymap, int has_AltGr)
+mswindows_modifier_state (BYTE* keymap, DWORD fwKeys, int has_AltGr)
 {
   int mods = 0;
+  int keys_is_real = 0;
   BYTE keymap2[256];
+
+  if (fwKeys == (DWORD) -1)
+    fwKeys = mswindows_last_mouse_button_state;
+  else
+    {
+      keys_is_real = 1;
+      mswindows_last_mouse_button_state = fwKeys;
+    }
 
   if (keymap == NULL)
     {
@@ -2980,6 +3054,8 @@ mswindows_modifier_state (BYTE* keymap, int has_AltGr)
       has_AltGr = mswindows_current_layout_has_AltGr ();
     }
 
+  /* #### should look at fwKeys for MK_CONTROL.  I don't understand how
+     AltGr works. */
   if (has_AltGr && (keymap [VK_LCONTROL] & 0x80) && (keymap [VK_RMENU] & 0x80))
     {
       mods |= (keymap [VK_LMENU] & 0x80) ? XEMACS_MOD_META : 0;
@@ -2991,7 +3067,11 @@ mswindows_modifier_state (BYTE* keymap, int has_AltGr)
       mods |= (keymap [VK_CONTROL] & 0x80) ? XEMACS_MOD_CONTROL : 0;
     }
 
-  mods |= (keymap [VK_SHIFT] & 0x80) ? XEMACS_MOD_SHIFT : 0;
+  mods |= (keys_is_real ? fwKeys & MK_SHIFT : (keymap [VK_SHIFT] & 0x80))
+    ? XEMACS_MOD_SHIFT : 0;
+  mods |= fwKeys & MK_LBUTTON ? XEMACS_MOD_BUTTON1 : 0;
+  mods |= fwKeys & MK_MBUTTON ? XEMACS_MOD_BUTTON2 : 0;
+  mods |= fwKeys & MK_RBUTTON ? XEMACS_MOD_BUTTON3 : 0;
 
   return mods;
 }
@@ -3000,7 +3080,6 @@ mswindows_modifier_state (BYTE* keymap, int has_AltGr)
  * Translate a mswindows virtual key to a keysym.
  * Only returns non-Qnil for keys that don't generate WM_CHAR messages
  * or whose ASCII codes (like space) xemacs doesn't like.
- * Virtual key values are defined in winresrc.h
  */
 Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 					   int extendedp)
@@ -3009,6 +3088,7 @@ Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
     {
       switch (mswindows_key)
         {
+	case VK_CANCEL:		return KEYSYM ("pause");
 	case VK_RETURN:		return KEYSYM ("kp-enter");
 	case VK_PRIOR:		return KEYSYM ("prior");
 	case VK_NEXT:		return KEYSYM ("next");
@@ -3020,6 +3100,11 @@ Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 	case VK_DOWN:		return KEYSYM ("down");
 	case VK_INSERT:		return KEYSYM ("insert");
 	case VK_DELETE:		return QKdelete;
+#if 0	/* FSF Emacs allows these to return configurable syms/mods */
+	case VK_LWIN		return KEYSYM ("");
+	case VK_RWIN		return KEYSYM ("");
+#endif
+	case VK_APPS:		return KEYSYM ("menu");
 	}
     }
   else
@@ -3031,6 +3116,7 @@ Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 	case '\n':		return QKlinefeed;
 	case VK_CLEAR:		return KEYSYM ("clear");
 	case VK_RETURN:		return QKreturn;
+	case VK_PAUSE:		return KEYSYM ("pause");
 	case VK_ESCAPE:		return QKescape;
 	case VK_SPACE:		return QKspace;
 	case VK_PRIOR:		return KEYSYM ("kp-prior");
@@ -3048,11 +3134,6 @@ Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
 	case VK_INSERT:		return KEYSYM ("kp-insert");
 	case VK_DELETE:		return KEYSYM ("kp-delete");
 	case VK_HELP:		return KEYSYM ("help");
-#if 0	/* FSF Emacs allows these to return configurable syms/mods */
-	  case VK_LWIN		return KEYSYM ("");
-	  case VK_RWIN		return KEYSYM ("");
-#endif
-	case VK_APPS:		return KEYSYM ("menu");
 	case VK_NUMPAD0:	return KEYSYM ("kp-0");
 	case VK_NUMPAD1:	return KEYSYM ("kp-1");
 	case VK_NUMPAD2:	return KEYSYM ("kp-2");
@@ -3365,7 +3446,7 @@ emacs_mswindows_quit_p (void)
 	{
 	  emacs_event = mswindows_cancel_dispatch_event (&match_against);
 	  assert (!NILP (emacs_event));
-	  
+
 	  if (XEVENT(emacs_event)->event.key.modifiers & XEMACS_MOD_SHIFT)
 	    critical_p = 1;
 
@@ -3479,6 +3560,12 @@ emacs_mswindows_delete_stream_pair (Lisp_Object instream,
 	  : HANDLE_TO_USID (get_ntpipe_input_stream_waitable (XLSTREAM (instream))));
 }
 
+static int
+emacs_mswindows_current_event_timestamp (struct console *c)
+{
+  return GetTickCount ();
+}
+
 #ifndef HAVE_X_WINDOWS
 /* This is called from GC when a process object is about to be freed.
    If we've still got pointers to it in this file, we're gonna lose hard.
@@ -3533,6 +3620,8 @@ reinit_vars_of_event_mswindows (void)
   mswindows_event_stream->create_stream_pair_cb = emacs_mswindows_create_stream_pair;
   mswindows_event_stream->delete_stream_pair_cb = emacs_mswindows_delete_stream_pair;
 #endif
+  mswindows_event_stream->current_event_timestamp_cb =
+    emacs_mswindows_current_event_timestamp;
 }
 
 void
@@ -3555,7 +3644,7 @@ vars_of_event_mswindows (void)
 
 
 #ifdef DEBUG_XEMACS
-  DEFVAR_INT ("mswindows-debug-events", &mswindows_debug_events /*
+  DEFVAR_INT ("debug-mswindows-events", &debug_mswindows_events /*
 If non-zero, display debug information about Windows events that XEmacs sees.
 Information is displayed in a console window.  Currently defined values are:
 
@@ -3564,7 +3653,7 @@ Information is displayed in a console window.  Currently defined values are:
 
 #### Unfortunately, not yet implemented.
 */ );
-  mswindows_debug_events = 0;
+  debug_mswindows_events = 0;
 #endif
 
   DEFVAR_BOOL ("mswindows-alt-by-itself-activates-menu",

@@ -10,10 +10,6 @@
 #define USG5_4
 #endif
 
-#if OS_RELEASE >= 57
-#define HAVE_GETLOADAVG
-#endif
-
 /* Fix understandable GCC lossage on Solaris 2.6 */
 #if defined(__GNUC__) && OS_RELEASE >= 56 && !defined(NOT_C_CODE)
 

@@ -87,7 +87,7 @@ This will do nothing under anything other than X.")
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
 says how to convert the data. Returns NIL if there is no selection"
-  (condition-case err (get-selection type data-type) (t nil)))
+  (condition-case nil (get-selection type data-type) (t nil)))
 
 (defun get-selection (&optional type data-type)
   "Return the value of a window-system selection.
@@ -116,7 +116,7 @@ and DATA specifies the contents.  DATA may be any lisp data type
 that can be converted using the function corresponding to DATA-TYPE
 in `select-converter-alist'---strings are the usual choice, but
 other types may be permissible depending on the DATA-TYPE parameter
-(if DATA-TYPE is not supplied, the default behaviour is window
+(if DATA-TYPE is not supplied, the default behavior is window
 system specific, but strings are always accepted).
 HOW-TO-ADD may be any of the following:
 
@@ -131,7 +131,7 @@ The selection may also be a cons of two markers pointing to the same buffer,
 or an overlay.  In these cases, the selection is considered to be the text
 between the markers *at whatever time the selection is examined* (note
 that the window system clipboard does not necessarily duplicate this
-behaviour - it doesn't on mswindows for example).
+behavior - it doesn't on mswindows for example).
 Thus, editing done in the buffer after you specify the selection
 can alter the effective value of the selection.
 
@@ -364,7 +364,7 @@ any more, because just about anything could be a valid selection now."
 ;;; Functions to convert the selection into various other selection
 ;;; types.
 
-;; These two functions get called by C code...
+;; These next three functions get called by C code...
 (defun select-convert-in (selection type value)
   "Attempt to convert the specified external VALUE to the specified DATA-TYPE,
 for the specified SELECTION. Return nil if this is impossible, or a
@@ -380,6 +380,15 @@ and SELECTION. Return nil if this is impossible, or a suitable external
 representation otherwise."
   (when value
     (let ((handler-fn (cdr (assq type selection-converter-out-alist))))
+      (when handler-fn
+	(apply handler-fn (list selection type value))))))
+
+(defun select-coerce (selection type value)
+  "Attempt to convert the specified internal VALUE to a representation
+suitable for return from `get-selection' in the specified DATA-TYPE. Return
+nil if this is impossible, or a suitable representation otherwise."
+  (when value
+    (let ((handler-fn (cdr (assq type selection-coercion-alist))))
       (when handler-fn
 	(apply handler-fn (list selection type value))))))
 
@@ -410,13 +419,17 @@ representation otherwise."
 	     (buffer-substring (car value) (cdr value)))))
 	(t nil)))
 
+(defun select-coerce-to-text (selection type value)
+  (select-convert-to-text selection type value))
+
 (defun select-convert-from-text (selection type value)
   (when (stringp value)
     value))
 
 (defun select-convert-to-string (selection type value)
   (let ((outval (select-convert-to-text selection type value)))
-    ;; force the string to be not in Compound Text format.
+    ;; force the string to be not in Compound Text format. This grubby
+    ;; hack will go soon, to be replaced by a more general mechanism.
     (if (stringp outval)
 	(cons 'STRING outval)
       outval)))
@@ -585,7 +598,7 @@ representation otherwise."
   (user-full-name))
 
 (defun select-convert-to-class (selection type size)
-  x-emacs-application-class)
+  (symbol-value 'x-emacs-application-class))
 
 ;; We do not try to determine the name Emacs was invoked with,
 ;; because it is not clean for a program's behavior to depend on that.
@@ -694,13 +707,18 @@ representation otherwise."
 
 ;;; Buffer kill handlers
 
-;; #### Should this function take the text *out* of the buffer that's
-;; being killed? Or should it do what the original code did and just
-;; destroy the selection?
 (defun select-buffer-killed-default (selection type value buffer)
 ;; This handler gets used if the type is "nil".
   (cond ((extentp value)
-	 (unless (eq (extent-object value) buffer)
+	 (if (eq (extent-object value) buffer)
+	     ; If this selection is on the clipboard, grab it quick
+	     (when (eq selection 'CLIPBOARD)
+	       (save-excursion
+		 (set-buffer (extent-object value))
+		 (save-restriction
+		  (widen)
+		  (buffer-substring (extent-start-position value)
+				    (extent-end-position value)))))
 	   value))
 	((markerp value)
 	 (unless (eq (marker-buffer value) buffer)
@@ -708,9 +726,16 @@ representation otherwise."
 	((and (consp value)
 	      (markerp (car value))
 	      (markerp (cdr value)))
-	 (unless (or (eq (marker-buffer (car value)) buffer)
-		     (eq (marker-buffer (cdr value)) buffer))
-	   value))
+	 (if (or (eq (marker-buffer (car value)) buffer)
+		 (eq (marker-buffer (cdr value)) buffer))
+	     ; If this selection is on the clipboard, grab it quick
+	     (when (eq selection 'CLIPBOARD)
+	       (save-excursion
+		 (set-buffer (marker-buffer (car value)))
+		 (save-restriction
+		   (widen)
+		   (buffer-substring (car value) (cdr value)))))
+	     value))
 	(t value)))
 
 (defun select-buffer-killed-text (selection type value buffer)
@@ -757,6 +782,22 @@ representation otherwise."
 	(FILE_NAME . select-convert-from-filename)
 	(CF_TEXT . select-convert-from-cf-text)
 	))
+
+;; Types listed here have special coercion functions that can munge
+;; other types. This can also be used to add special features - e.g.
+;; being able to pass a region or a cons of markers to own-selection,
+;; but getting the *current* text in the region back when calling
+;; get-selection.
+;;
+;; Any function listed in here *will be called* whenever a value of
+;; its type is retrieved from the internal selection cache, or when
+;; no suitable values could be found in which case XEmacs looks for
+;; values with types listed in selection-coercible-types.
+(setq selection-coercion-alist
+      '((TEXT . select-coerce-to-text)
+	(STRING . select-coerce-to-text)
+	(COMPOUND_TEXT . select-coerce-to-text)
+	(CF_TEXT . select-coerce-to-text)))
 
 ;; Types listed here can be appended by own-selection
 (setq selection-appender-alist

@@ -952,10 +952,7 @@
 ;;       (setq args (cdr args)))))
 
 
-;;; CCL dump staffs
-
-;; To avoid byte-compiler warning.
-(defvar ccl-code)
+;;; CCL dump stuff
 
 ;;;###autoload
 (defun ccl-dump (ccl-code)
@@ -983,6 +980,7 @@
 
 ;; Return a CCL code in `ccl-code' at `ccl-current-ic'.
 (defun ccl-get-next-code ()
+  (declare (special ccl-code))
   (prog1
       (aref ccl-code ccl-current-ic)
     (setq ccl-current-ic (1+ ccl-current-ic))))

@@ -41,7 +41,7 @@
   (dolist (size '(0 1 100))
     (dolist (rehash-size '(1.1 9.9))
       (dolist (rehash-threshold '(0.2 .9))
-	(dolist (weakness '(nil t key value))
+	(dolist (weakness '(nil key value key-or-value key-and-value))
 	  (dolist (data '(() (1 2) (1 2 3 4)))
 	    (let ((ht (make-hash-table
 		       :test test
@@ -58,13 +58,13 @@
 	      (Assert (eq weakness (hash-table-weakness ht))))))))))
 
 (loop for (fun weakness) in '((make-hashtable nil)
-			      (make-weak-hashtable t)
+			      (make-weak-hashtable key-and-value)
 			      (make-key-weak-hashtable key)
 			      (make-value-weak-hashtable value))
   do (Assert (eq weakness (hash-table-weakness (funcall fun 10)))))
 
 (loop for (type weakness) in '((non-weak nil)
-			       (weak t)
+			       (weak key-and-value)
 			       (key-weak key)
 			       (value-weak value))
   do (Assert (equal (make-hash-table :type type)

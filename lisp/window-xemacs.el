@@ -191,6 +191,29 @@ Each frame has its own window-config and \"unpop\" stack."
 
 ;;;;;;;;;;;;; display-buffer, moved here from C.  Hallelujah.
 
+(make-variable-buffer-local '__buffer-dedicated-frame)
+
+(defun buffer-dedicated-frame (&optional buffer)
+  "Return the frame dedicated to this BUFFER, or nil if there is none.
+No argument or nil as argument means use current buffer as BUFFER."
+  (let ((buffer (decode-buffer buffer)))
+    (let ((frame (symbol-value-in-buffer '__buffer-dedicated-frame buffer)))
+      ;; XEmacs addition: if the frame is dead, silently make it go away.
+      (when (and (framep frame) (not (frame-live-p frame)))
+	    (with-current-buffer buffer
+	      (setq __buffer-dedicated-frame nil))
+	    (setq frame nil))
+      frame)))
+
+(defun set-buffer-dedicated-frame (buffer frame)
+  "For this BUFFER, set the FRAME dedicated to it.
+FRAME must be a frame or nil."
+  (let ((buffer (decode-buffer buffer)))
+    (and frame
+	 (check-argument-type #'frame-live-p frame))
+    (with-current-buffer buffer
+      (setq __buffer-dedicated-frame frame))))
+
 (defvar display-buffer-function nil
   "If non-nil, function to call to handle `display-buffer'.
 It will receive three args: the same as those to `display-buffer'.")

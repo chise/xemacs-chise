@@ -85,16 +85,6 @@
 ;Go to a local news spool if its value is nil, in which case `gnus-nntp-server'
 ;should be set to `(system-name)'.")
 
-(defvar gnus-local-domain nil
-  "*Your domain name without a host name: for example, \"ai.mit.edu\".
-The DOMAINNAME environment variable is used instead if defined.
-If the function `system-name' returns a fully qualified domain name,
-there is no need to set this variable.")
-
-(defvar gnus-local-organization nil
-  "*The name of your organization, as a string.
-The `ORGANIZATION' environment variable is used instead if defined.")
-
 (defvar mh-progs nil
   "Directory containing MH commands.")
 
@@ -103,10 +93,6 @@ The `ORGANIZATION' environment variable is used instead if defined.")
 
 (defvar rmail-file-name (purecopy "~/RMAIL")
   "Name of user's primary mail file.")
-
-(defvar gnus-startup-file (purecopy "~/.newsrc")
-  "The file listing groups to which user is subscribed.
-Will use `gnus-startup-file'-SERVER instead if exists.")
 
 (defconst rmail-spool-directory nil
   "Name of directory used by system mailer for delivering new mail.

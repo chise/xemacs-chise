@@ -471,7 +471,6 @@ Lisp_Object
 funcall_compiled_function (Lisp_Object fun, int nargs, Lisp_Object args[])
 {
   /* This function can GC */
-  Lisp_Object symbol, tail;
   int speccount = specpdl_depth();
   REGISTER int i = 0;
   Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
@@ -486,24 +485,26 @@ funcall_compiled_function (Lisp_Object fun, int nargs, Lisp_Object args[])
      and local variables of fun.   So just reserve it once. */
   SPECPDL_RESERVE (f->specpdl_depth);
 
-  /* Fmake_byte_code() guaranteed that f->arglist is a valid list
-     containing only non-constant symbols. */
-  LIST_LOOP_3 (symbol, f->arglist, tail)
-    {
-      if (EQ (symbol, Qand_rest))
-	{
-	  tail = XCDR (tail);
-	  symbol  = XCAR (tail);
-	  SPECBIND_FAST_UNSAFE (symbol, Flist (nargs - i, &args[i]));
-	  goto run_code;
-	}
-      else if (EQ (symbol, Qand_optional))
-	optional = 1;
-      else if (i == nargs && !optional)
-	goto wrong_number_of_arguments;
-      else
-	SPECBIND_FAST_UNSAFE (symbol, i < nargs ? args[i++] : Qnil);
-    }
+  {
+    /* Fmake_byte_code() guaranteed that f->arglist is a valid list
+       containing only non-constant symbols. */
+    LIST_LOOP_3 (symbol, f->arglist, tail)
+      {
+	if (EQ (symbol, Qand_rest))
+	  {
+	    tail = XCDR (tail);
+	    symbol  = XCAR (tail);
+	    SPECBIND_FAST_UNSAFE (symbol, Flist (nargs - i, &args[i]));
+	    goto run_code;
+	  }
+	else if (EQ (symbol, Qand_optional))
+	  optional = 1;
+	else if (i == nargs && !optional)
+	  goto wrong_number_of_arguments;
+	else
+	  SPECBIND_FAST_UNSAFE (symbol, i < nargs ? args[i++] : Qnil);
+      }
+  }
 
   if (i < nargs)
     goto wrong_number_of_arguments;
@@ -2410,8 +2411,7 @@ syms_of_bytecode (void)
 {
   INIT_LRECORD_IMPLEMENTATION (compiled_function);
 
-  deferror (&Qinvalid_byte_code, "invalid-byte-code",
-	    "Invalid byte code", Qerror);
+  DEFERROR_STANDARD (Qinvalid_byte_code, Qinvalid_state);
   defsymbol (&Qbyte_code, "byte-code");
   defsymbol (&Qcompiled_functionp, "compiled-function-p");
 

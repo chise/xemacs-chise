@@ -207,3 +207,4 @@ Boston, MA 02111-1307, USA.  */
 
 /* XEmacs: removed setpgrp() definition because we use setpgid() when
    it's available, and autodetect it. */
+

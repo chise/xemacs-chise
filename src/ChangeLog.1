@@ -3547,7 +3547,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* redisplay.c:
  	(generate_formatted_string_db): new flag to distinguish a modeline
 	string from a title or icon one, plus use a negative first pos to
-	indicate the modeline hscroll ammount.
+	indicate the modeline hscroll amount.
 	(add_string_to_fstring_db_runes): completely rewrote this function
 	to handle the case of scrolled modelines.
 	(add_glyph_to_fstring_db_runes): handle the case of scrolled
@@ -3555,7 +3555,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* window.c:
 	(Fmodeline_hscroll): new function to return the	modeline current
-	horizontal scroll ammount.
+	horizontal scroll amount.
 	(Fset_modeline_hscroll): new function to scroll the modeline
 	horizontaly.
 	Plus some updates related to this new functionality (windows
@@ -3842,7 +3842,7 @@ Wed Jan 28 13:41:22 1998  Andy Piper  <andyp@parallax.co.uk>
 	HEAP_IN_DATA is defined. beef up error message about what to do if
 	sheap space runs out.
 
-	* sysdep.c: make start_of_data reurn something sensible for
+	* sysdep.c: make start_of_data return something sensible for
 	HEAP_IN_DATA.
 
 	* systime.h: don't use itimer stuff on cygwin b19.
@@ -4456,7 +4456,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* opaque.c: opaque objects given hash and equal methods, so they
 	  can be compared with 'equal. Menubar uses opaque pointers as
-	  hash keys in an 'equal style hastable.
+	  hash keys in an 'equal style hashtable.
 
 	* Most of the above touched files: Eliminated compiler warnings.
 
@@ -7648,7 +7648,7 @@ Fri Mar 21 18:54:04 1997  David Moore  <dmoore@ucsd.edu>
 	(Ffile_newer_than_file_p): ditto
 	(Fset_visited_file_modtime): ditto
 
-	*fileio.c (Ffile_truename): Unneccessary GC protection.
+	*fileio.c (Ffile_truename): Unnecessary GC protection.
 	(Fdelete_directory): Fix broken caller-must-GC-protect call.
 
 	* filelock.c (lock_file): New comments warning that this function
@@ -7907,7 +7907,7 @@ Sun Feb 16 14:53:58 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* keymap.c (lookup_keys): Wrong sense in test.
 
-	* Makefile.in.in: Dont dump font.elc.
+	* Makefile.in.in: Don't dump font.elc.
 
 Sat Feb 15 02:30:51 1997  Steven L Baur  <steve@altair.xemacs.org>
 

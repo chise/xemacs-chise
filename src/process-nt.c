@@ -42,6 +42,9 @@ Boston, MA 02111-1307, USA.  */
 #include <winsock.h>
 #endif
 
+/* Bound by win32-native.el */
+Lisp_Object Qmswindows_construct_process_command_line;
+
 /* Arbitrary size limit for code fragments passed to run_in_other_process */
 #define FRAGMENT_CODE_SIZE 32
 
@@ -407,10 +410,11 @@ enable_child_signals (HANDLE h_process)
 /* ---------------------------- the 95 way ------------------------------- */
 
 static BOOL CALLBACK
-find_child_console (HWND hwnd, struct nt_process_data *cp)
+find_child_console (HWND hwnd, long putada)
 {
   DWORD thread_id;
   DWORD process_id;
+  struct nt_process_data *cp = (struct nt_process_data *) putada;
 
   thread_id = GetWindowThreadProcessId (hwnd, &process_id);
   if (process_id == cp->dwProcessId)
@@ -608,7 +612,7 @@ send_signal_the_95_way (struct nt_process_data *cp, int pid, int signo)
 static int
 send_signal (struct nt_process_data *cp, int pid, int signo)
 {
-  return send_signal_the_nt_way (cp, pid, signo)
+  return (!mswindows_windows9x_p () && send_signal_the_nt_way (cp, pid, signo))
     || send_signal_the_95_way (cp, pid, signo);
 }
 
@@ -621,7 +625,7 @@ validate_signal_number (int signo)
   if (signo != SIGKILL && signo != SIGTERM
       && signo != SIGQUIT && signo != SIGINT
       && signo != SIGHUP)
-    signal_simple_error ("Signal number not supported", make_int (signo));
+    invalid_argument ("Signal number not supported", make_int (signo));
 }
   
 /*-----------------------------------------------------------------------*/
@@ -672,7 +676,7 @@ static void
 signal_cannot_launch (Lisp_Object image_file, DWORD err)
 {
   mswindows_set_errno (err);
-  signal_simple_error_2 ("Error starting", image_file, lisp_strerror (errno));
+  report_file_error ("Error starting", image_file);
 }
 
 static void
@@ -720,31 +724,34 @@ nt_create_process (Lisp_Process *p,
      already does this. */
 
   /* Find out whether the application is windowed or not */
-  {
-    /* SHGetFileInfo tends to return ERROR_FILE_NOT_FOUND on most
-       errors. This leads to bogus error message. */
-    DWORD image_type;
-    char *p = strrchr ((char *)XSTRING_DATA (program), '.');
-    if (p != NULL &&
-	(stricmp (p, ".exe") == 0 ||
-	 stricmp (p, ".com") == 0 ||
-	 stricmp (p, ".bat") == 0 ||
-	 stricmp (p, ".cmd") == 0))
-      {
-	image_type = SHGetFileInfo ((char *)XSTRING_DATA (program), 0,NULL,
-				    0, SHGFI_EXETYPE);
-      }
-    else
-      {
-	char progname[MAX_PATH];
-	sprintf (progname, "%s.exe", (char *)XSTRING_DATA (program));
-	image_type = SHGetFileInfo (progname, 0, NULL, 0, SHGFI_EXETYPE);
-      }
-    if (image_type == 0)
-      signal_cannot_launch (program, (GetLastError () == ERROR_FILE_NOT_FOUND
-				      ? ERROR_BAD_FORMAT : GetLastError ()));
-    windowed = HIWORD (image_type) != 0;
-  }
+  if (xSHGetFileInfoA)
+    {
+      /* SHGetFileInfo tends to return ERROR_FILE_NOT_FOUND on most
+	 errors. This leads to bogus error message. */
+      DWORD image_type;
+      char *p = strrchr ((char *)XSTRING_DATA (program), '.');
+      if (p != NULL &&
+	  (stricmp (p, ".exe") == 0 ||
+	   stricmp (p, ".com") == 0 ||
+	   stricmp (p, ".bat") == 0 ||
+	   stricmp (p, ".cmd") == 0))
+	{
+	  image_type = xSHGetFileInfoA ((char *)XSTRING_DATA (program), 0,NULL,
+					0, SHGFI_EXETYPE);
+	}
+      else
+	{
+	  char progname[MAX_PATH];
+	  sprintf (progname, "%s.exe", (char *)XSTRING_DATA (program));
+	  image_type = xSHGetFileInfoA (progname, 0, NULL, 0, SHGFI_EXETYPE);
+	}
+      if (image_type == 0)
+	signal_cannot_launch (program, (GetLastError () == ERROR_FILE_NOT_FOUND
+					? ERROR_BAD_FORMAT : GetLastError ()));
+      windowed = HIWORD (image_type) != 0;
+    }
+  else /* NT 3.5; we have no idea so just guess. */
+    windowed = 0;
 
   /* Decide whether to do I/O on process handles, or just mark the
      process exited immediately upon successful launching. We do I/O if the
@@ -782,264 +789,35 @@ nt_create_process (Lisp_Process *p,
       hmyslurp = htmp;
     }
 
-  /* Convert an argv vector into Win32 style command line. */
+  /* Convert an argv vector into Win32 style command line by a call to
+     lisp function `mswindows-construct-process-command-line'
+     (in win32-native.el) */
   {
     int i;
-    Bufbyte **quoted_args;
-    int is_dos_app, is_cygnus_app;
-    int is_command_shell;
-    int do_quoting = 0;
-    char escape_char = 0;
+    Lisp_Object args_or_ret = Qnil;
+    struct gcpro gcpro1;
 
-    nargv++; /* include program; we access argv offset by 1 below */
-    quoted_args = alloca_array (Bufbyte *, nargv);
-
-    /* Determine whether program is a 16-bit DOS executable, or a Win32
-       executable that is implicitly linked to the Cygnus dll (implying it
-       was compiled with the Cygnus GNU toolchain and hence relies on
-       cygwin.dll to parse the command line - we use this to decide how to
-       escape quote chars in command line args that must be quoted). */
-    mswindows_executable_type (XSTRING_DATA (program),
-			       &is_dos_app, &is_cygnus_app);
-
-    {
-      /* #### Bleeeeeeeeeeeeeeeeech!!!!  The command shells appear to
-	 use '^' as a quote character, at least under NT.  #### I haven't
-	 tested 95.  If it allows no quoting conventions at all, set
-	 escape_char to 0 and the code below will work. (e.g. NT tolerates
-         no quoting -- this command
-
-         cmd /c "ls "/Program Files""
-
-         actually works.) */
-	 
-      struct gcpro gcpro1, gcpro2;
-      Lisp_Object progname = Qnil;
-
-      GCPRO2 (program, progname);
-      progname = Ffile_name_nondirectory (program);
-      progname = Fdowncase (progname, Qnil);
-
-      is_command_shell =
-	internal_equal (progname, build_string ("command.com"), 0)
-	|| internal_equal (progname, build_string ("cmd.exe"), 0);
-      UNGCPRO;
-    }
-	
-#if 0
-    /* #### we need to port this. */
-    /* On Windows 95, if cmdname is a DOS app, we invoke a helper
-       application to start it by specifying the helper app as cmdname,
-       while leaving the real app name as argv[0].  */
-    if (is_dos_app)
-      {
-	cmdname = (char*) alloca (MAXPATHLEN);
-	if (egetenv ("CMDPROXY"))
-	  strcpy ((char*)cmdname, egetenv ("CMDPROXY"));
-	else
-	  {
-	    strcpy ((char*)cmdname, XSTRING_DATA (Vinvocation_directory));
-	    strcat ((char*)cmdname, "cmdproxy.exe");
-	  }
-      }
-#endif
-  
-    /* we have to do some conjuring here to put argv and envp into the
-       form CreateProcess wants...  argv needs to be a space separated/null
-       terminated list of parameters, and envp is a null
-       separated/double-null terminated list of parameters.
-
-       Additionally, zero-length args and args containing whitespace or
-       quote chars need to be wrapped in double quotes - for this to work,
-       embedded quotes need to be escaped as well.  The aim is to ensure
-       the child process reconstructs the argv array we start with
-       exactly, so we treat quotes at the beginning and end of arguments
-       as embedded quotes.
-
-       The Win32 GNU-based library from Cygnus doubles quotes to escape
-       them, while MSVC uses backslash for escaping.  (Actually the MSVC
-       startup code does attempt to recognize doubled quotes and accept
-       them, but gets it wrong and ends up requiring three quotes to get a
-       single embedded quote!)  So by default we decide whether to use
-       quote or backslash as the escape character based on whether the
-       binary is apparently a Cygnus compiled app.
-
-       Note that using backslash to escape embedded quotes requires
-       additional special handling if an embedded quote is already
-       preceded by backslash, or if an arg requiring quoting ends with
-       backslash.  In such cases, the run of escape characters needs to be
-       doubled.  For consistency, we apply this special handling as long
-       as the escape character is not quote.
-   
-       Since we have no idea how large argv and envp are likely to be we
-       figure out list lengths on the fly and allocate them.  */
-  
-    if (!NILP (Vmswindows_quote_process_args))
-      {
-	do_quoting = 1;
-	/* Override escape char by binding mswindows-quote-process-args to
-	   desired character, or use t for auto-selection.  */
-	if (INTP (Vmswindows_quote_process_args))
-	  escape_char = (char) XINT (Vmswindows_quote_process_args);
-	else
-	  escape_char = is_command_shell ? '^' : is_cygnus_app ? '"' : '\\';
-      }
-  
-    /* do argv...  */
-    for (i = 0; i < nargv; ++i)
-      {
-	Bufbyte *targ = XSTRING_DATA (i == 0 ? program : argv[i - 1]);
-	Bufbyte *p = targ;
-	int need_quotes = 0;
-	int escape_char_run = 0;
-	int arglen = 0;
-
-	if (*p == 0)
-	  need_quotes = 1;
-	for ( ; *p; p++)
-	  {
-	    if (*p == '"')
-	      {
-		/* allow for embedded quotes to be escaped */
-		if (escape_char)
-		  arglen++;
-		need_quotes = 1;
-		/* handle the case where the embedded quote is already escaped */
-		if (escape_char_run > 0)
-		  {
-		    /* To preserve the arg exactly, we need to double the
-		       preceding escape characters (plus adding one to
-		       escape the quote character itself).  */
-		    arglen += escape_char_run;
-		  }
-	      }
-	    else if (*p == ' ' || *p == '\t')
-	      {
-		need_quotes = 1;
-	      }
-
-	    if (escape_char && *p == escape_char && escape_char != '"')
-	      escape_char_run++;
-	    else
-	      escape_char_run = 0;
-	  }
-	if (need_quotes)
-	  {
-	    arglen += 2;
-	    /* handle the case where the arg ends with an escape char - we
-	       must not let the enclosing quote be escaped.  */
-	    if (escape_char_run > 0)
-	      arglen += escape_char_run;
-	  }
-	arglen += strlen (targ) + 1;
-
-	quoted_args[i] = alloca_array (Bufbyte, arglen); 
-      }
+    GCPRO1 (args_or_ret);
 
     for (i = 0; i < nargv; ++i)
-      {
-	Bufbyte *targ = XSTRING_DATA (i == 0 ? program : argv[i - 1]);
-	Bufbyte *p = targ;
-	int need_quotes = 0;
-	Bufbyte *parg = quoted_args[i];
+      args_or_ret = Fcons (*argv++, args_or_ret);
+    args_or_ret = Fnreverse (args_or_ret);
+    args_or_ret = Fcons (program, args_or_ret);
 
-	if (*p == 0)
-	  need_quotes = 1;
+    args_or_ret = call1 (Qmswindows_construct_process_command_line,
+			 args_or_ret);
 
-	if (do_quoting)
-	  {
-	    for ( ; *p; p++)
-	      if (*p == ' ' || *p == '\t' || *p == '"')
-		need_quotes = 1;
-	  }
-	if (need_quotes)
-	  {
-	    int escape_char_run = 0;
-	    Bufbyte * first;
-	    Bufbyte * last;
+    if (!STRINGP (args_or_ret))
+      /* Luser wrote his/her own clever version */
+      invalid_argument
+	("Bogus return value from `mswindows-construct-process-command-line'",
+	 args_or_ret);
 
-	    p = targ;
-	    first = p;
-	    last = p + strlen (p) - 1;
-	    *parg++ = '"';
-#if 0
-	    /* This version does not escape quotes if they occur at the
-	       beginning or end of the arg - this could lead to incorrect
-	       behavior when the arg itself represents a command line
-	       containing quoted args.  I believe this was originally done
-	       as a hack to make some things work, before
-	       `mswindows-quote-process-args' was added.  */
-	    while (*p)
-	      {
-		if (*p == '"' && p > first && p < last)
-		  *parg++ = escape_char;	/* escape embedded quotes */
-		*parg++ = *p++;
-	      }
-#else
-	    for ( ; *p; p++)
-	      {
-		if (escape_char && *p == '"')
-		  {
-		    /* double preceding escape chars if any */
-		    while (escape_char_run > 0)
-		      {
-			*parg++ = escape_char;
-			escape_char_run--;
-		      }
-		    /* escape all quote chars, even at beginning or end */
-		    *parg++ = escape_char;
-		  }
-		*parg++ = *p;
+    LISP_STRING_TO_EXTERNAL (args_or_ret, command_line, Qmswindows_tstr);
 
-		if (escape_char && *p == escape_char && escape_char != '"')
-		  escape_char_run++;
-		else
-		  escape_char_run = 0;
-	      }
-	    /* double escape chars before enclosing quote */
-	    while (escape_char_run > 0)
-	      {
-		*parg++ = escape_char;
-		escape_char_run--;
-	      }
-#endif
-	    *parg++ = '"';
-	  }
-	else
-	  {
-	    strcpy (parg, targ);
-	    parg += strlen (targ);
-	  }
-	*parg = '\0';
-      }
-
-    {
-      int total_cmdline_len = 0;
-      Extcount *extargcount = (Extcount *) alloca_array (Extcount, nargv);
-      Extbyte **extarg = (Extbyte **) alloca_array (Extbyte *, nargv);
-      Extbyte *command_ptr;
-
-      for (i = 0; i < nargv; ++i)
-	{
-	  TO_EXTERNAL_FORMAT (C_STRING, quoted_args[i], ALLOCA,
-			      (extarg[i], extargcount[i]), Qmswindows_tstr);
-	  /* account for space and terminating null */
-	  total_cmdline_len += extargcount[i] + EITCHAR_SIZE;
-	}
-
-      command_line = alloca_array (char, total_cmdline_len);
-      command_ptr = command_line;
-      for (i = 0; i < nargv; ++i)
-	{
-	  memcpy (command_ptr, extarg[i], extargcount[i]);
-	  command_ptr += extargcount[i];
-	  EICOPY_TCHAR (command_ptr, ' ');
-	  command_ptr += EITCHAR_SIZE;
-	}
-      EICOPY_TCHAR (command_ptr, '\0');
-      command_ptr += EITCHAR_SIZE;
-    }
+    UNGCPRO; /* args_or_ret */
   }
+
   /* Set `proc_env' to a nul-separated array of the strings in
      Vprocess_environment terminated by 2 nuls.  */
  
@@ -1123,6 +901,24 @@ nt_create_process (Lisp_Process *p,
       }
     *penv = 0;
   }
+
+#if 0
+    /* #### we need to port this. */
+    /* On Windows 95, if cmdname is a DOS app, we invoke a helper
+       application to start it by specifying the helper app as cmdname,
+       while leaving the real app name as argv[0].  */
+    if (is_dos_app)
+      {
+	cmdname = (char*) alloca (MAXPATHLEN);
+	if (egetenv ("CMDPROXY"))
+	  strcpy ((char*)cmdname, egetenv ("CMDPROXY"));
+	else
+	  {
+	    strcpy ((char*)cmdname, XSTRING_DATA (Vinvocation_directory));
+	    strcat ((char*)cmdname, "cmdproxy.exe");
+	  }
+      }
+#endif
   
   /* Create process */
   {
@@ -1276,8 +1072,8 @@ nt_send_process (Lisp_Object proc, struct lstream* lstream)
 	  p->tick++;
 	  process_tick++;
 	  deactivate_process (*((Lisp_Object *) (&vol_proc)));
-	  error ("Broken pipe error sending to process %s; closed it",
-		 XSTRING_DATA (p->name));
+	  invalid_operation ("Broken pipe error sending to process; closed it",
+			     p->name);
 	}
 
       {
@@ -1320,7 +1116,7 @@ nt_kill_child_process (Lisp_Object proc, int signo,
 
   /* Send signal */
   if (!send_signal (NT_DATA (p), 0, signo))
-    signal_simple_error ("Cannot send signal to process", proc);
+    invalid_operation ("Cannot send signal to process", proc);
 }
 
 /*
@@ -1462,7 +1258,7 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host,
   CHECK_STRING (host);
 
   if (!EQ (protocol, Qtcp))
-    signal_simple_error ("Unsupported protocol", protocol);
+    invalid_argument ("Unsupported protocol", protocol);
 
   if (INTP (service))
     port = htons ((unsigned short) XINT (service));
@@ -1472,7 +1268,7 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host,
       CHECK_STRING (service);
       svc_info = getservbyname ((char *) XSTRING_DATA (service), "tcp");
       if (svc_info == 0)
-	signal_simple_error ("Unknown service", service);
+	invalid_argument ("Unknown service", service);
       port = svc_info->s_port;
     }
 
@@ -1581,6 +1377,7 @@ process_type_create_nt (void)
 void
 syms_of_process_nt (void)
 {
+  DEFSYMBOL (Qmswindows_construct_process_command_line);
 }
 
 void

@@ -17,7 +17,6 @@
 
 #undef KERNEL_FILE
 #undef LDAV_SYMBOL
-#define HAVE_GETLOADAVG
 
 #define PENDING_OUTPUT_COUNT(FILE) ((FILE)->_p - (FILE)->_bf._base)
 

@@ -87,7 +87,7 @@ XtAppContext Xt_app_con;
 int x_allow_sendevents;
 
 #ifdef DEBUG_XEMACS
-int x_debug_events;
+int debug_x_events;
 #endif
 
 static int process_events_occurred;
@@ -944,7 +944,11 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
 
 #ifdef HAVE_XIM
   int len;
-  char buffer[64];
+  /* Some implementations of XmbLookupString don't return
+     XBufferOverflow correctly, so increase the size of the xim input
+     buffer from 64 to the more reasonable size 513, as Emacs has done.
+     From Kenichi Handa. */
+  char buffer[513];
   char *bufptr = buffer;
   int   bufsiz = sizeof (buffer);
   Status status;
@@ -982,7 +986,7 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
 #endif /* HAVE_XIM */
 
 #ifdef DEBUG_XEMACS
-  if (x_debug_events > 0)
+  if (debug_x_events > 0)
     {
       stderr_out ("   status=");
 #define print_status_when(S) if (status == S) stderr_out (#S)
@@ -1143,6 +1147,25 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	if (*state & xd->SuperMask)  modifiers |= XEMACS_MOD_SUPER;
 	if (*state & xd->HyperMask)  modifiers |= XEMACS_MOD_HYPER;
 	if (*state & xd->AltMask)    modifiers |= XEMACS_MOD_ALT;
+	{
+	  int numero_de_botao = -1;
+
+	  if (!key_event_p)
+	    numero_de_botao = x_event->xbutton.button;
+
+	  /* the button gets noted either in the button or the modifiers
+	     field, but not both. */
+	  if (numero_de_botao != 1 && (*state & Button1Mask))
+	    modifiers |= XEMACS_MOD_BUTTON1;
+	  if (numero_de_botao != 2 && (*state & Button2Mask))
+	    modifiers |= XEMACS_MOD_BUTTON2;
+	  if (numero_de_botao != 3 && (*state & Button3Mask))
+	    modifiers |= XEMACS_MOD_BUTTON3;
+	  if (numero_de_botao != 4 && (*state & Button4Mask))
+	    modifiers |= XEMACS_MOD_BUTTON4;
+	  if (numero_de_botao != 5 && (*state & Button5Mask))
+	    modifiers |= XEMACS_MOD_BUTTON5;
+	}
 
 	/* Ignore the Caps_Lock key if:
 	   - any other modifiers are down, so that Caps_Lock doesn't
@@ -1277,6 +1300,11 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
         if (ev->state & xd->SuperMask)	modifiers |= XEMACS_MOD_SUPER;
         if (ev->state & xd->HyperMask)	modifiers |= XEMACS_MOD_HYPER;
         if (ev->state & xd->AltMask)	modifiers |= XEMACS_MOD_ALT;
+        if (ev->state & Button1Mask)	modifiers |= XEMACS_MOD_BUTTON1;
+        if (ev->state & Button2Mask)	modifiers |= XEMACS_MOD_BUTTON2;
+        if (ev->state & Button3Mask)	modifiers |= XEMACS_MOD_BUTTON3;
+        if (ev->state & Button4Mask)	modifiers |= XEMACS_MOD_BUTTON4;
+        if (ev->state & Button5Mask)	modifiers |= XEMACS_MOD_BUTTON5;
         /* Currently ignores Shift_Lock but probably shouldn't
            (but it definitely should ignore Caps_Lock). */
         emacs_event->event.motion.modifiers = modifiers;
@@ -1319,6 +1347,11 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	    if (state & xd->SuperMask)	modifiers |= XEMACS_MOD_SUPER;
 	    if (state & xd->HyperMask)	modifiers |= XEMACS_MOD_HYPER;
 	    if (state & xd->AltMask)	modifiers |= XEMACS_MOD_ALT;
+	    if (state & Button1Mask)	modifiers |= XEMACS_MOD_BUTTON1;
+	    if (state & Button2Mask)	modifiers |= XEMACS_MOD_BUTTON2;
+	    if (state & Button3Mask)	modifiers |= XEMACS_MOD_BUTTON3;
+	    if (state & Button4Mask)	modifiers |= XEMACS_MOD_BUTTON4;
+	    if (state & Button5Mask)	modifiers |= XEMACS_MOD_BUTTON5;
 
 	    if (state & Button5Mask)    button = Button5;
 	    if (state & Button4Mask)    button = Button4;
@@ -1507,7 +1540,7 @@ handle_focus_event_1 (struct frame *f, int in_p)
      do this in their selection callback, but we don't want that since
      a button having focus is legitimate. An edit field having focus
      is mandatory. Weirdly you get a FocusOut event when you click in
-     a widget-glyph but you don't get a correspondng FocusIn when you
+     a widget-glyph but you don't get a corresponding FocusIn when you
      click in the frame. Why is this?  */
   if (in_p
 #if XtSpecificationRelease > 5
@@ -2402,7 +2435,7 @@ describe_event (XEvent *event)
     break;
 
     case Expose:
-      if (x_debug_events > 1)
+      if (debug_x_events > 1)
 	{
 	  XExposeEvent *ev = &event->xexpose;
 	  describe_event_window (ev->window, ev->display);
@@ -2415,7 +2448,7 @@ describe_event (XEvent *event)
       break;
 
     case GraphicsExpose:
-      if (x_debug_events > 1)
+      if (debug_x_events > 1)
 	{
 	  XGraphicsExposeEvent *ev = &event->xgraphicsexpose;
 	  describe_event_window (ev->drawable, ev->display);
@@ -2432,7 +2465,7 @@ describe_event (XEvent *event)
 
     case EnterNotify:
     case LeaveNotify:
-      if (x_debug_events > 1)
+      if (debug_x_events > 1)
 	{
 	  XCrossingEvent *ev = &event->xcrossing;
 	  describe_event_window (ev->window, ev->display);
@@ -2453,7 +2486,7 @@ describe_event (XEvent *event)
       break;
 
     case ConfigureNotify:
-      if (x_debug_events > 1)
+      if (debug_x_events > 1)
 	{
 	  XConfigureEvent *ev = &event->xconfigure;
 	  describe_event_window (ev->window, ev->display);
@@ -2467,7 +2500,7 @@ describe_event (XEvent *event)
       break;
 
     case VisibilityNotify:
-      if (x_debug_events > 1)
+      if (debug_x_events > 1)
 	{
 	  XVisibilityEvent *ev = &event->xvisibility;
 	  describe_event_window (ev->window, ev->display);
@@ -2630,7 +2663,7 @@ emacs_Xt_event_handler (Widget wid /* unused */,
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
 
 #ifdef DEBUG_XEMACS
-  if (x_debug_events > 0)
+  if (debug_x_events > 0)
     {
       describe_event (event);
     }
@@ -2914,6 +2947,21 @@ emacs_Xt_event_pending_p (int user_p)
   return 0;
 }
 
+static int
+emacs_Xt_current_event_timestamp (struct console *c)
+{
+  /* semi-yuck. */
+  Lisp_Object devs = CONSOLE_DEVICE_LIST (c);
+
+  if (NILP (devs))
+    return 0;
+  else
+    {
+      struct device *d = XDEVICE (XCAR (devs));
+      return DEVICE_X_LAST_SERVER_TIMESTAMP (d);
+    }
+}
+
 
 /************************************************************************/
 /*            replacement for standard string-to-pixel converter        */
@@ -3011,9 +3059,9 @@ Boolean EmacsXtCvtStringToPixel (
   if ((d = get_device_from_display_1(dpy))) {
     visual = DEVICE_X_VISUAL(d);
     if (colormap != DEVICE_X_COLORMAP(d)) {
-      XtAppWarningMsg(the_app_con, "wierdColormap", "cvtStringToPixel",
+      XtAppWarningMsg(the_app_con, "weirdColormap", "cvtStringToPixel",
 		      "XtToolkitWarning",
-		      "The colormap passed to cvtStringToPixel doesn't match the one registerd to the device.\n",
+		      "The colormap passed to cvtStringToPixel doesn't match the one registered to the device.\n",
 		      NULL, 0);
       status = XAllocNamedColor(dpy, colormap, (char*)str, &screenColor, &exactColor);
     } else {
@@ -3139,6 +3187,8 @@ reinit_vars_of_event_Xt (void)
   Xt_event_stream->quit_p_cb		 = emacs_Xt_quit_p;
   Xt_event_stream->create_stream_pair_cb = emacs_Xt_create_stream_pair;
   Xt_event_stream->delete_stream_pair_cb = emacs_Xt_delete_stream_pair;
+  Xt_event_stream->current_event_timestamp_cb =
+    emacs_Xt_current_event_timestamp;
 
   the_Xt_timeout_blocktype = Blocktype_new (struct Xt_timeout_blocktype);
 
@@ -3165,14 +3215,14 @@ Beware: allowing emacs to process SendEvents opens a big security hole.
   x_allow_sendevents = 0;
 
 #ifdef DEBUG_XEMACS
-  DEFVAR_INT ("x-debug-events", &x_debug_events /*
+  DEFVAR_INT ("debug-x-events", &debug_x_events /*
 If non-zero, display debug information about X events that XEmacs sees.
 Information is displayed on stderr.  Currently defined values are:
 
 1 == non-verbose output
 2 == verbose output
 */ );
-  x_debug_events = 0;
+  debug_x_events = 0;
 #endif
 }
 
@@ -3215,7 +3265,7 @@ init_event_Xt_late (void) /* called when already initialized */
   Xt_app_con = XtCreateApplicationContext ();
   XtAppSetFallbackResources (Xt_app_con, (String *) x_fallback_resources);
 
-  /* In xselect.c */
+  /* In select-x.c */
   x_selection_timeout = (XtAppGetSelectionTimeout (Xt_app_con) / 1000);
   XSetErrorHandler (x_error_handler);
   XSetIOErrorHandler (x_IO_error_handler);

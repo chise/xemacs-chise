@@ -21,6 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* 7-8-00 !!#### This file needs definite Mule review. */
+
 /* Original authors: Jamie Zawinski and the FSF */
 /* Rewritten by Ben Wing and Chuck Thompson. */
 
@@ -246,11 +248,11 @@ x_init_device_class (struct device *d)
  * Finally, if all else fails, return `xemacs', as it is more
  * appropriate (X11R5 returns `main').
  */
-static char *
-compute_x_app_name (int argc, char **argv)
+static Extbyte *
+compute_x_app_name (int argc, Extbyte **argv)
 {
   int i;
-  char *ptr;
+  Extbyte *ptr;
 
   for (i = 1; i < argc - 1; i++)
     if (!strncmp(argv[i], "-name", max (2, strlen (argv[1]))))
@@ -459,7 +461,7 @@ x_init_device (struct device *d, Lisp_Object props)
   Display *dpy;
   Widget app_shell;
   int argc;
-  char **argv;
+  Extbyte **argv;
   const char *app_class;
   const char *app_name;
   const char *disp_name;
@@ -549,9 +551,7 @@ x_init_device (struct device *d, Lisp_Object props)
 
   make_argc_argv (Vx_initial_argv_list, &argc, &argv);
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, display,
-		      C_STRING_ALLOCA, disp_name,
-		      Qctext);
+  LISP_STRING_TO_EXTERNAL (display, disp_name, Qctext);
 
   /*
    * Break apart the old XtOpenDisplay call into XOpenDisplay and
@@ -573,9 +573,7 @@ x_init_device (struct device *d, Lisp_Object props)
 
   if (STRINGP (Vx_emacs_application_class) &&
       XSTRING_LENGTH (Vx_emacs_application_class) > 0)
-    TO_EXTERNAL_FORMAT (LISP_STRING, Vx_emacs_application_class,
-			C_STRING_ALLOCA, app_class,
-			Qctext);
+    LISP_STRING_TO_EXTERNAL (Vx_emacs_application_class, app_class, Qctext);
   else
     {
       app_class = (NILP (Vx_emacs_application_class)  &&
@@ -595,7 +593,7 @@ x_init_device (struct device *d, Lisp_Object props)
      Yuck. */
   XtDisplayInitialize (Xt_app_con, dpy, compute_x_app_name (argc, argv),
                        app_class, emacs_options,
-                       XtNumber (emacs_options), &argc, argv);
+                       XtNumber (emacs_options), &argc, (char **) argv);
   speed_up_interrupts ();
 
   screen = DefaultScreen (dpy);
@@ -617,9 +615,7 @@ x_init_device (struct device *d, Lisp_Object props)
     if (STRINGP (Vx_app_defaults_directory) &&
 	XSTRING_LENGTH (Vx_app_defaults_directory) > 0)
       {
-	TO_EXTERNAL_FORMAT (LISP_STRING, Vx_app_defaults_directory,
-			    C_STRING_ALLOCA, data_dir,
-			    Qfile_name);
+	LISP_STRING_TO_EXTERNAL (Vx_app_defaults_directory, data_dir, Qfile_name);
 	path = (char *)alloca (strlen (data_dir) + strlen (locale) + 7);
 	sprintf (path, "%s%s/Emacs", data_dir, locale);
 	if (!access (path, R_OK))
@@ -627,9 +623,7 @@ x_init_device (struct device *d, Lisp_Object props)
       }
     else if (STRINGP (Vdata_directory) && XSTRING_LENGTH (Vdata_directory) > 0)
       {
-	TO_EXTERNAL_FORMAT (LISP_STRING, Vdata_directory,
-			    C_STRING_ALLOCA, data_dir,
-			    Qfile_name);
+	LISP_STRING_TO_EXTERNAL (Vdata_directory, data_dir, Qfile_name);
 	path = (char *)alloca (strlen (data_dir) + 13 + strlen (locale) + 7);
 	sprintf (path, "%sapp-defaults/%s/Emacs", data_dir, locale);
 	if (!access (path, R_OK))
@@ -785,9 +779,10 @@ x_init_device (struct device *d, Lisp_Object props)
 #ifdef HAVE_WMCOMMAND
   {
     int new_argc;
-    char **new_argv;
+    Extbyte **new_argv;
     make_argc_argv (Vcommand_line_args, &new_argc, &new_argv);
-    XSetCommand (XtDisplay (app_shell), XtWindow (app_shell), new_argv, new_argc);
+    XSetCommand (XtDisplay (app_shell), XtWindow (app_shell),
+		 (char **) new_argv, new_argc);
     free_argc_argv (new_argv);
   }
 #endif /* HAVE_WMCOMMAND */
@@ -1259,6 +1254,22 @@ construct_name_list (Display *display, Widget widget, char *fake_name,
 
 #endif /* 0 */
 
+/* strcasecmp() is not sufficiently portable or standard,
+   and it's easier just to write our own. */
+static int
+ascii_strcasecmp (const char *s1, const char *s2)
+{
+  while (1)
+    {
+      char c1 = *s1++;
+      char c2 = *s2++;
+      if (c1 >= 'A' && c1 <= 'Z') c1 += 'a' - 'A';
+      if (c2 >= 'A' && c2 <= 'Z') c2 += 'a' - 'A';
+      if (c1 != c2) return c1 - c2;
+      if (c1 == '\0') return 0;
+    }
+}
+
 static char_dynarr *name_char_dynarr;
 static char_dynarr *class_char_dynarr;
 
@@ -1485,13 +1496,13 @@ mean ``unspecified''.
     return build_string (raw_result);
   else if (EQ (type, Qboolean))
     {
-      if (!strcasecmp (raw_result, "off")   ||
-	  !strcasecmp (raw_result, "false") ||
-	  !strcasecmp (raw_result, "no"))
+      if (!ascii_strcasecmp (raw_result, "off")   ||
+	  !ascii_strcasecmp (raw_result, "false") ||
+	  !ascii_strcasecmp (raw_result, "no"))
 	return Fcons (Qnil, Qnil);
-      if (!strcasecmp (raw_result, "on")   ||
-	  !strcasecmp (raw_result, "true") ||
-	  !strcasecmp (raw_result, "yes"))
+      if (!ascii_strcasecmp (raw_result, "on")   ||
+	  !ascii_strcasecmp (raw_result, "true") ||
+	  !ascii_strcasecmp (raw_result, "yes"))
 	return Fcons (Qt, Qnil);
       return maybe_continuable_error
 	(Qresource, errb,
@@ -1687,9 +1698,7 @@ Valid keysyms are listed in the files /usr/include/X11/keysymdef.h and in
   const char *keysym_ext;
 
   CHECK_STRING (keysym);
-  TO_EXTERNAL_FORMAT (LISP_STRING, keysym,
-		      C_STRING_ALLOCA, keysym_ext,
-		      Qctext);
+  LISP_STRING_TO_EXTERNAL (keysym, keysym_ext, Qctext);
 
   return XStringToKeysym (keysym_ext) ? Qt : Qnil;
 }
@@ -1935,9 +1944,7 @@ See also `x-get-font-path'.
 
   EXTERNAL_LIST_LOOP (path_entry, font_path)
     {
-      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (path_entry),
-			  C_STRING_ALLOCA, directories[i++],
-			  Qfile_name);
+      LISP_STRING_TO_EXTERNAL (XCAR (path_entry), directories[i++], Qfile_name);
     }
 
   expect_x_error (dpy);

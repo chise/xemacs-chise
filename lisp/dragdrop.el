@@ -3,7 +3,7 @@
 ;; Copyright (C) 1998 Oliver Graf <ograf@fga.de>
 
 ;; Maintainer: XEmacs Development Team, Oliver Graf <ograf@fga.de>
-;; Keywords: drag, drop, dumped
+;; Keywords: mouse, gui, dumped
 
 ;; This file is part of XEmacs.
 
@@ -244,8 +244,8 @@ Finds files and URLs. Returns nil if object does not contain URL data."
 		   ;; to-do: open ftp URLs with efs...
 		   (t 
 		    ;; some other URL, try to fire up some browser for it
-		    (if (boundp 'browse-url-browser-function)
-			(funcall browse-url-browser-function (car data))
+		    (if (fboundp 'browse-url)
+			(browse-url (car data))
 		      (display-message 'error 
 			"Can't show URL, no browser selected"))))
 	     (undo-boundary)

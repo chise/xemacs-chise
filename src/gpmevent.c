@@ -570,7 +570,7 @@ Toggle accepting of GPM mouse events.
 	conn.maxMod = ((1<<KG_SHIFT)|(1<<KG_ALT)|(1<<KG_CTRL));
 
 	/* Reset some silly static variables so that multiple Gpm_Open()
-	** calls have even a sligh chance of working
+	** calls have even a slight chance of working
 	*/
 	gpm_tried = 0;
 	gpm_flag = 0;

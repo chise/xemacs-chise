@@ -61,6 +61,7 @@ See the samples for more details.
 #include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <string.h>
 #include <ctype.h>
 #include <errno.h>
@@ -120,16 +121,19 @@ static void do_init_mode (void);
 #define ELLCC_LINK_MODE         1
 #define ELLCC_INIT_MODE         2
 
-int ellcc_mode = ELLCC_COMPILE_MODE;
-char *progname;
-char *mod_name = (char *)0, *mod_version = (char *)0, *mod_title = (char *)0;
-char *mod_output = (char *)0;
-int verbose = 0;
-char **exec_argv;
-int exec_argc = 1, *exec_args;
-int real_argc = 0;
-int prog_argc;
-char **prog_argv;
+static int ellcc_mode = ELLCC_COMPILE_MODE;
+static char *progname;
+static char *mod_name = NULL;
+static char *mod_version = NULL;
+static char *mod_title = NULL;
+static char *mod_output = NULL;
+static int verbose = 0;
+static char **exec_argv;
+static int exec_argc = 1;
+static int *exec_args;
+static int real_argc = 0;
+static int prog_argc;
+static char **prog_argv;
 
 /*
  * We allow the user to over-ride things in the environment

@@ -61,6 +61,9 @@ Boston, MA 02111-1307, USA.  */
 #include "systty.h"
 #include "syswait.h"
 
+#ifdef HPUX
+#include <grp.h>		/* See grantpt fixups for HPUX below. */
+#endif
 
 /*
  * Implementation-specific data. Pointed to by Lisp_Process->process_data
@@ -82,12 +85,6 @@ struct unix_process_data
 };
 
 #define UNIX_DATA(p) ((struct unix_process_data*)((p)->process_data))
-
-#ifdef HAVE_PTYS
-/* The file name of the pty opened by allocate_pty.  */
-
-static char pty_name[24];
-#endif
 
 
 
@@ -152,17 +149,17 @@ close_process_descs (void)
 /* This function used to be visible on the Lisp level, but there is no
    real point in doing that.  Here is the doc string:
 
-  "Connect to an existing file descriptor.\n\
-Returns a subprocess-object to represent the connection.\n\
-Input and output work as for subprocesses; `delete-process' closes it.\n\
-Args are NAME BUFFER INFD OUTFD.\n\
-NAME is name for process.  It is modified if necessary to make it unique.\n\
-BUFFER is the buffer (or buffer-name) to associate with the process.\n\
- Process output goes at end of that buffer, unless you specify\n\
- an output stream or filter function to handle the output.\n\
- BUFFER may be also nil, meaning that this process is not associated\n\
- with any buffer\n\
-INFD and OUTFD specify the file descriptors to use for input and\n\
+  "Connect to an existing file descriptor.
+Return a subprocess-object to represent the connection.
+Input and output work as for subprocesses; `delete-process' closes it.
+Args are NAME BUFFER INFD OUTFD.
+NAME is name for process.  It is modified if necessary to make it unique.
+BUFFER is the buffer (or buffer-name) to associate with the process.
+ Process output goes at end of that buffer, unless you specify
+ an output stream or filter function to handle the output.
+ BUFFER may also be nil, meaning that this process is not associated
+ with any buffer.
+INFD and OUTFD specify the file descriptors to use for input and
  output, respectively."
 */
 
@@ -179,15 +176,16 @@ connect_to_file_descriptor (Lisp_Object name, Lisp_Object buffer,
   CHECK_INT (outfd);
 
   inch = XINT (infd);
-  if (get_process_from_usid (FD_TO_USID(inch)))
-    error ("There is already a process connected to fd %d", inch);
+  if (get_process_from_usid (FD_TO_USID (inch)))
+    invalid_operation ("There is already a process connected to fd", infd);
   if (!NILP (buffer))
     buffer = Fget_buffer_create (buffer);
   proc = make_process_internal (name);
 
   XPROCESS (proc)->pid = Fcons (infd, name);
   XPROCESS (proc)->buffer = buffer;
-  init_process_io_handles (XPROCESS (proc), (void*)inch, (void*)XINT (outfd), 0);
+  init_process_io_handles (XPROCESS (proc), (void*)inch, (void*)XINT (outfd),
+			   0);
   UNIX_DATA (XPROCESS (proc))->connected_via_filedesc_p = 1;
 
   event_stream_select_process (XPROCESS (proc));
@@ -196,16 +194,162 @@ connect_to_file_descriptor (Lisp_Object name, Lisp_Object buffer,
 }
 
 #ifdef HAVE_PTYS
+static int allocate_pty_the_old_fashioned_way (void);
+
+/* The file name of the (slave) pty opened by allocate_pty().  */
+#ifndef MAX_PTYNAME_LEN
+#define MAX_PTYNAME_LEN 64
+#endif
+static char pty_name[MAX_PTYNAME_LEN];
 
 /* Open an available pty, returning a file descriptor.
    Return -1 on failure.
    The file name of the terminal corresponding to the pty
-   is left in the variable pty_name.  */
+   is left in the variable `pty_name'.  */
 
 static int
 allocate_pty (void)
 {
-#ifndef PTY_OPEN
+  /* Unix98 standardized grantpt, unlockpt, and ptsname, but not the
+     functions required to open a master pty in the first place :-(
+
+     Modern Unix systems all seems to have convenience methods to open
+     a master pty fd in one function call, but there is little
+     agreement on how to do it.
+
+     allocate_pty() tries all the different known easy ways of opening
+     a pty.  In case of failure, we resort to the old BSD-style pty
+     grovelling code in allocate_pty_the_old_fashioned_way(). */
+  int master_fd = -1;
+  const char *slave_name = NULL;
+  const char *clone = NULL;
+  static const char * const clones[] = /* Different pty master clone devices */
+    {
+      "/dev/ptmx",      /* Various systems */
+      "/dev/ptm/clone", /* HPUX */
+      "/dev/ptc",       /* AIX */
+      "/dev/ptmx_bsd"   /* Tru64 */
+    };
+
+#ifdef HAVE_GETPT /* glibc */
+  master_fd = getpt ();
+  if (master_fd >= 0)
+    goto have_master;
+#endif /* HAVE_GETPT */
+
+
+#if defined(HAVE_OPENPTY) /* BSD, Tru64, glibc */
+  {
+    int slave_fd = -1;
+    int rc;
+    EMACS_BLOCK_SIGNAL (SIGCHLD);
+    rc = openpty (&master_fd, &slave_fd, NULL, NULL, NULL);
+    EMACS_UNBLOCK_SIGNAL (SIGCHLD);
+    if (rc == 0)
+      {
+	slave_name = ttyname (slave_fd);
+	close (slave_fd);
+	goto have_slave_name;
+      }
+    else
+      {
+	if (master_fd >= 0)
+	  close (master_fd);
+	if (slave_fd >= 0)
+	  close (slave_fd);
+      }
+  }
+#endif /* HAVE_OPENPTY */
+
+#if defined(HAVE__GETPTY) && defined (O_NDELAY) /* SGI */
+  master_fd = -1;
+  EMACS_BLOCK_SIGNAL (SIGCHLD);
+  slave_name = _getpty (&master_fd, O_RDWR | O_NDELAY, 0600, 0);
+  EMACS_UNBLOCK_SIGNAL (SIGCHLD);
+  if (master_fd >= 0 && slave_name != NULL)
+    goto have_slave_name;
+#endif /* HAVE__GETPTY */
+
+  /* Master clone devices are available on most systems */
+  {
+    int i;
+    for (i = 0; i < countof (clones); i++)
+      {
+	clone = clones[i];
+	master_fd = open (clone, O_RDWR | O_NONBLOCK | OPEN_BINARY, 0);
+	if (master_fd >= 0)
+	  goto have_master;
+      }
+    clone = NULL;
+  }
+
+  goto lose;
+
+ have_master:
+
+#if defined (HAVE_PTSNAME)
+  slave_name = ptsname (master_fd);
+  if (slave_name)
+    goto have_slave_name;
+#endif
+
+  /* AIX docs say to use ttyname, not ptsname, to get slave_name */
+  if (clone
+      && !strcmp (clone, "/dev/ptc")
+      && (slave_name = ttyname (master_fd)) != NULL)
+    goto have_slave_name;
+
+  goto lose;
+
+ have_slave_name:
+  strncpy (pty_name, slave_name, sizeof (pty_name));
+  pty_name[sizeof (pty_name) - 1] = '\0';
+  setup_pty (master_fd);
+
+  /* We jump through some hoops to frob the pty.
+     It's not obvious that checking the return code here is useful. */
+
+  /* "The grantpt() function will fail if it is unable to successfully
+      invoke the setuid root program.  It may also fail if the
+      application has installed a signal handler to catch SIGCHLD
+      signals." */
+#if defined (HAVE_GRANTPT) || defined (HAVE_UNLOCKPT)
+  EMACS_BLOCK_SIGNAL (SIGCHLD);
+
+#if defined (HAVE_GRANTPT)
+  grantpt (master_fd);
+#ifdef HPUX
+  /* grantpt() behavior on some versions of HP-UX differs from what's
+     specified in the man page: the group of the slave PTY is set to
+     the user's primary group, and we fix that. */
+  {
+    struct group *tty_group = getgrnam ("tty");
+    if (tty_group != NULL)
+      chown (pty_name, (uid_t) -1, tty_group->gr_gid);
+  }
+#endif /* HPUX has broken grantpt() */
+#endif /* HAVE_GRANTPT */
+
+#if defined (HAVE_UNLOCKPT)
+  unlockpt (master_fd);
+#endif
+
+  EMACS_UNBLOCK_SIGNAL (SIGCHLD);
+#endif /* HAVE_GRANTPT || HAVE_UNLOCKPT */
+
+  return master_fd;
+
+ lose:
+  if (master_fd >= 0)
+    close (master_fd);
+  return allocate_pty_the_old_fashioned_way ();
+}
+
+/* This function tries to allocate a pty by iterating through file
+   pairs with names like /dev/ptyp1 and /dev/ttyp1. */
+static int
+allocate_pty_the_old_fashioned_way (void)
+{
   struct stat stb;
 
   /* Some systems name their pseudoterminals so that there are gaps in
@@ -214,19 +358,20 @@ allocate_pty (void)
      three failures in a row before deciding that we've reached the
      end of the ptys.  */
   int failed_count = 0;
-#endif
   int fd;
-#ifndef HAVE_GETPT
   int i;
   int c;
-#endif
 
 #ifdef PTY_ITERATION
   PTY_ITERATION
 #else
+# ifndef FIRST_PTY_LETTER
+# define FIRST_PTY_LETTER 'p'
+# endif
   for (c = FIRST_PTY_LETTER; c <= 'z'; c++)
     for (i = 0; i < 16; i++)
-#endif
+#endif /* PTY_ITERATION */
+
       {
 #ifdef PTY_NAME_SPRINTF
 	PTY_NAME_SPRINTF
@@ -234,53 +379,30 @@ allocate_pty (void)
 	sprintf (pty_name, "/dev/pty%c%x", c, i);
 #endif /* no PTY_NAME_SPRINTF */
 
-#ifdef PTY_OPEN
-	PTY_OPEN;
-#else /* no PTY_OPEN */
-#ifdef IRIS
-	/* Unusual IRIS code */
- 	*ptyv = open ("/dev/ptc", O_RDWR | O_NONBLOCK | OPEN_BINARY, 0);
- 	if (fd < 0)
- 	  return -1;
-	if (fstat (fd, &stb) < 0)
-	  return -1;
-#else /* not IRIS */
-	if (stat (pty_name, &stb) < 0)
+	if (xemacs_stat (pty_name, &stb) < 0)
 	  {
-	    failed_count++;
-	    if (failed_count >= 3)
+	    if (++failed_count >= 3)
 	      return -1;
 	  }
 	else
 	  failed_count = 0;
 	fd = open (pty_name, O_RDWR | O_NONBLOCK | OPEN_BINARY, 0);
-#endif /* not IRIS */
-#endif /* no PTY_OPEN */
 
 	if (fd >= 0)
 	  {
-	    /* check to make certain that both sides are available
-	       this avoids a nasty yet stupid bug in rlogins */
 #ifdef PTY_TTY_NAME_SPRINTF
 	    PTY_TTY_NAME_SPRINTF
 #else
             sprintf (pty_name, "/dev/tty%c%x", c, i);
 #endif /* no PTY_TTY_NAME_SPRINTF */
-#if !defined(UNIPLUS) && !defined(HAVE_GETPT)
-	    if (access (pty_name, 6) != 0)
+	    if (access (pty_name, R_OK | W_OK) == 0)
 	      {
-		close (fd);
-#if !defined(IRIS) && !defined(__sgi)
-		continue;
-#else
-		return -1;
-#endif /* IRIS */
+		setup_pty (fd);
+		return fd;
 	      }
-#endif /* not UNIPLUS */
-	    setup_pty (fd);
-	    return fd;
+	    close (fd);
 	  }
-      }
+      } /* iteration */
   return -1;
 }
 #endif /* HAVE_PTYS */
@@ -575,14 +697,14 @@ static int
 process_signal_char (int tty_fd, int signo)
 {
   /* If it's not a tty, pray that these default values work */
-  if (!isatty(tty_fd)) {
+  if (! isatty (tty_fd)) {
 #define CNTL(ch) (037 & (ch))
     switch (signo)
       {
-      case SIGINT:  return CNTL('C');
-      case SIGQUIT: return CNTL('\\');
+      case SIGINT:  return CNTL ('C');
+      case SIGQUIT: return CNTL ('\\');
 #ifdef SIGTSTP
-      case SIGTSTP: return CNTL('Z');
+      case SIGTSTP: return CNTL ('Z');
 #endif
       }
   }
@@ -694,7 +816,7 @@ unix_init_process (void)
  * Initialize any process local data. This is called when newly
  * created process is connected to real OS file handles. The
  * handles are generally represented by void* type, but are
- * of type int (file descriptors) for UNIX
+ * of type int (file descriptors) for UNIX.
  */
 
 static void
@@ -718,8 +840,6 @@ unix_create_process (Lisp_Process *p,
 		     Lisp_Object *argv, int nargv,
 		     Lisp_Object program, Lisp_Object cur_dir)
 {
-  /* This function rewritten by ben@xemacs.org. */
-
   int pid;
   int inchannel  = -1;
   int outchannel = -1;
@@ -792,17 +912,15 @@ unix_create_process (Lisp_Process *p,
 	int xforkin = forkin;
 	int xforkout = forkout;
 
-	if (!pty_flag)
-	  EMACS_SEPARATE_PROCESS_GROUP ();
+	/* Disconnect the current controlling terminal, pursuant to
+	   making the pty be the controlling terminal of the process.
+	   Also put us in our own process group. */
+
+	disconnect_controlling_terminal ();
+
 #ifdef HAVE_PTYS
-	else
+	if (pty_flag)
 	  {
-	    /* Disconnect the current controlling terminal, pursuant to
-	       making the pty be the controlling terminal of the process.
-	       Also put us in our own process group. */
-
-	    disconnect_controlling_terminal ();
-
 	    /* Open the pty connection and make the pty's terminal
 	       our controlling terminal.
 
@@ -855,9 +973,22 @@ unix_create_process (Lisp_Process *p,
                Must be done before using tc* functions on xforkin.
                This guarantees that isatty(xforkin) is true. */
 
-# ifdef SETUP_SLAVE_PTY
-	    SETUP_SLAVE_PTY;
-# endif /* SETUP_SLAVE_PTY */
+#  if defined (HAVE_ISASTREAM) && defined (I_PUSH)
+	    if (isastream (xforkin))
+	      {
+#    if defined (I_FIND)
+#      define stream_module_pushed(fd, module) (ioctl (fd, I_FIND, module) == 1)
+#    else
+#      define stream_module_pushed(fd, module) 0
+#    endif
+		if (! stream_module_pushed (xforkin, "ptem"))
+		  ioctl (xforkin, I_PUSH, "ptem");
+		if (! stream_module_pushed (xforkin, "ldterm"))
+		  ioctl (xforkin, I_PUSH, "ldterm");
+		if (! stream_module_pushed (xforkin, "ttcompat"))
+		  ioctl (xforkin, I_PUSH, "ttcompat");
+	      }
+#  endif /* HAVE_ISASTREAM */
 
 #  ifdef TIOCSCTTY
 	    /* We ignore the return value
@@ -891,7 +1022,7 @@ unix_create_process (Lisp_Process *p,
 	       of our new controlling terminal. */
 
 	    {
-	      int piddly = EMACS_GET_PROCESS_GROUP ();
+	      pid_t piddly = EMACS_GET_PROCESS_GROUP ();
 	      EMACS_SET_TTY_PROCESS_GROUP (xforkin, &piddly);
 	    }
 
@@ -928,9 +1059,7 @@ unix_create_process (Lisp_Process *p,
 	    }
 	  new_argv[i + 1] = 0;
 
-	  TO_EXTERNAL_FORMAT (LISP_STRING, cur_dir,
-			      C_STRING_ALLOCA, current_dir,
-			      Qfile_name);
+	  LISP_STRING_TO_EXTERNAL (cur_dir, current_dir, Qfile_name);
 
 	  child_setup (xforkin, xforkout, xforkout, new_argv, current_dir);
 	}
@@ -945,7 +1074,9 @@ unix_create_process (Lisp_Process *p,
 
   if (pid < 0)
     {
+      int save_errno = errno;
       close_descriptor_pair (forkin, forkout);
+      errno = save_errno;
       report_file_error ("Doing fork", Qnil);
     }
 
@@ -1141,12 +1272,12 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 
   /* #### JV: layering violation?
 
-     This function knows too much about the relation between the encodingstream
-     (DATA_OUTSTREAM) and te actual output stream p->output_stream.
+     This function knows too much about the relation between the encoding
+     stream (DATA_OUTSTREAM) and the actual output stream p->output_stream.
 
      If encoding streams properly forwarded all calls, we could simply
      use DATA_OUTSTREAM everywhere. */
-  
+
   if (!SETJMP (send_process_frame))
     {
       /* use a reasonable-sized buffer (somewhere around the size of the
@@ -1204,8 +1335,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
       p->tick++;
       process_tick++;
       deactivate_process (*((Lisp_Object *) (&vol_proc)));
-      error ("SIGPIPE raised on process %s; closed it",
-	     XSTRING_DATA (p->name));
+      invalid_operation ("SIGPIPE raised on process; closed it", p->name);
     }
 
   old_sigpipe = (SIGTYPE (*) (int)) signal (SIGPIPE, send_process_trap);
@@ -1272,7 +1402,17 @@ unix_deactivate_process (Lisp_Process *p)
   return usid;
 }
 
-/* send a signal number SIGNO to PROCESS.
+/* If the subtty field of the process data is not filled in, do so now. */
+static void
+try_to_initialize_subtty (struct unix_process_data *upd)
+{
+  if (upd->pty_flag
+      && (upd->subtty = -1 || ! isatty (upd->subtty))
+      && STRINGP (upd->tty_name))
+    upd->subtty = open (XSTRING_DATA (upd->tty_name), O_RDWR, 0);
+}
+
+/* Send signal number SIGNO to PROCESS.
    CURRENT_GROUP means send to the process group that currently owns
    the terminal being used to communicate with PROCESS.
    This is used for various commands in shell mode.
@@ -1281,70 +1421,18 @@ unix_deactivate_process (Lisp_Process *p)
 
    If we can, we try to signal PROCESS by sending control characters
    down the pty.  This allows us to signal inferiors who have changed
-   their uid, for which killpg would return an EPERM error.
+   their uid, for which killpg would return an EPERM error,
+   or processes running on other machines via remote login.
 
-   The method signals an error if the given SIGNO is not valid
-*/
+   The method signals an error if the given SIGNO is not valid. */
 
 static void
 unix_kill_child_process (Lisp_Object proc, int signo,
 			 int current_group, int nomsg)
 {
-  int gid;
-  int no_pgrp = 0;
-  int kill_retval;
+  pid_t pgid = -1;
   Lisp_Process *p = XPROCESS (proc);
-
-  if (!UNIX_DATA(p)->pty_flag)
-    current_group = 0;
-
-  /* If we are using pgrps, get a pgrp number and make it negative.  */
-  if (current_group)
-    {
-#ifdef SIGNALS_VIA_CHARACTERS
-      /* If possible, send signals to the entire pgrp
-	 by sending an input character to it.  */
-      {
-        char sigchar = process_signal_char(UNIX_DATA(p)->subtty, signo);
-        if (sigchar) {
-          send_process (proc, Qnil, (Bufbyte *) &sigchar, 0, 1);
-          return;
-        }
-      }
-#endif /* ! defined (SIGNALS_VIA_CHARACTERS) */
-
-#ifdef TIOCGPGRP
-      /* Get the pgrp using the tty itself, if we have that.
-	 Otherwise, use the pty to get the pgrp.
-	 On pfa systems, saka@pfu.fujitsu.co.JP writes:
-	 "TIOCGPGRP symbol defined in sys/ioctl.h at E50.
-	 But, TIOCGPGRP does not work on E50 ;-P works fine on E60"
-	 His patch indicates that if TIOCGPGRP returns an error, then
-	 we should just assume that p->pid is also the process group id.  */
-      {
-	int err;
-
-        err = ioctl ( (UNIX_DATA(p)->subtty != -1
-		       ? UNIX_DATA(p)->subtty
-		       : UNIX_DATA(p)->infd), TIOCGPGRP, &gid);
-
-#ifdef pfa
-	if (err == -1)
-	  gid = - XINT (p->pid);
-#endif /* ! defined (pfa) */
-      }
-      if (gid == -1)
-	no_pgrp = 1;
-      else
-	gid = - gid;
-#else /* ! defined (TIOCGPGRP ) */
-      /* Can't select pgrps on this system, so we know that
-	 the child itself heads the pgrp.  */
-      gid = - XINT (p->pid);
-#endif /* ! defined (TIOCGPGRP ) */
-    }
-  else
-    gid = - XINT (p->pid);
+  struct unix_process_data *d = UNIX_DATA (p);
 
   switch (signo)
     {
@@ -1361,46 +1449,92 @@ unix_kill_child_process (Lisp_Object proc, int signo,
     case SIGINT:
     case SIGQUIT:
     case SIGKILL:
-      flush_pending_output (UNIX_DATA(p)->infd);
+      flush_pending_output (d->infd);
       break;
     }
 
-  /* If we don't have process groups, send the signal to the immediate
-     subprocess.  That isn't really right, but it's better than any
-     obvious alternative.  */
-  if (no_pgrp)
-    {
-      kill_retval = kill (XINT (p->pid), signo) ? errno : 0;
-    }
-  else
-    {
-      /* gid may be a pid, or minus a pgrp's number */
-#if defined (TIOCSIGNAL) || defined (TIOCSIGSEND)
-      if (current_group)
-	{
-#ifdef TIOCSIGNAL
-	  kill_retval = ioctl (UNIX_DATA(p)->infd, TIOCSIGNAL, signo);
-#else /* ! defined (TIOCSIGNAL) */
-	  kill_retval = ioctl (UNIX_DATA(p)->infd, TIOCSIGSEND, signo);
-#endif /* ! defined (TIOCSIGNAL) */
-	}
-      else
-	kill_retval = kill (- XINT (p->pid), signo) ? errno : 0;
-#else /* ! (defined (TIOCSIGNAL) || defined (TIOCSIGSEND)) */
-      kill_retval = EMACS_KILLPG (-gid, signo) ? errno : 0;
-#endif /* ! (defined (TIOCSIGNAL) || defined (TIOCSIGSEND)) */
-    }
+  if (! d->pty_flag)
+    current_group = 0;
 
-  if (kill_retval < 0 && errno == EINVAL)
-    error ("Signal number %d is invalid for this system", signo);
+  /* If current_group is true, we want to send a signal to the
+     foreground process group of the terminal our child process is
+     running on.  You would think that would be easy.
+
+     The BSD people invented the TIOCPGRP ioctl to get the foreground
+     process group of a tty.  That, combined with killpg, gives us
+     what we want.
+
+     However, the POSIX standards people, in their infinite wisdom,
+     have seen fit to only allow this for processes which have the
+     terminal as controlling terminal, which doesn't apply to us.
+
+     Sooo..., we have to do something non-standard.  The ioctls
+     TIOCSIGNAL, TIOCSIG, and TIOCSIGSEND send the signal directly on
+     many systems.  POSIX tcgetpgrp(), since it is *documented* as not
+     doing what we want, is actually less likely to work than the BSD
+     ioctl TIOCGPGRP it is supposed to obsolete.  Sometimes we have to
+     use TIOCGPGRP on the master end, sometimes the slave end
+     (probably an AIX bug).  So we better get a fd for the slave if we
+     haven't got it yet.  On some systems none of these work, so then
+     we just fall back to the non-current_group behavior and kill the
+     process group of the child. */
+  if (current_group)
+    {
+      try_to_initialize_subtty (d);
+
+#ifdef SIGNALS_VIA_CHARACTERS
+      /* If possible, send signals to the entire pgrp
+	 by sending an input character to it.  */
+      {
+        char sigchar = process_signal_char (d->subtty, signo);
+        if (sigchar)
+	  {
+	    send_process (proc, Qnil, (Bufbyte *) &sigchar, 0, 1);
+	    return;
+	  }
+      }
+#endif /* SIGNALS_VIA_CHARACTERS */
+
+#ifdef TIOCGPGRP
+      if (pgid == -1)
+	ioctl (d->infd, TIOCGPGRP, &pgid); /* BSD */
+      if (pgid == -1 && d->subtty != -1)
+	ioctl (d->subtty, TIOCGPGRP, &pgid); /* Only this works on AIX! */
+#endif /* TIOCGPGRP */
+
+      if (pgid == -1)
+	{
+	  /* Many systems provide an ioctl to send a signal directly */
+#ifdef TIOCSIGNAL /* Solaris, HP-UX */
+	  if (ioctl (d->infd, TIOCSIGNAL, signo) != -1)
+	    return;
+#endif /* TIOCSIGNAL */
+
+#ifdef TIOCSIG /* BSD */
+	  if (ioctl (d->infd, TIOCSIG, signo) != -1)
+	    return;
+#endif /* TIOCSIG */
+	}
+    } /* current_group */
+
+  if (pgid == -1)
+    /* Either current_group is 0, or we failed to get the foreground
+       process group using the trickery above.  So we fall back to
+       sending the signal to the process group of our child process.
+       Since this is often a shell that ignores signals like SIGINT,
+       the shell's subprocess is killed, which is the desired effect.
+       The process group of p->pid is always p->pid, since it was
+       created as a process group leader. */
+    pgid = XINT (p->pid);
+
+  /* Finally send the signal. */
+  if (EMACS_KILLPG (pgid, signo) == -1)
+    error ("kill (%ld, %ld) failed: %s",
+	   (long) pgid, (long) signo, strerror (errno));
 }
 
-/*
- * Kill any process in the system given its PID.
- *
- * Returns zero if a signal successfully sent, or
- * negative number upon failure
- */
+/* Send signal SIGCODE to any process in the system given its PID.
+   Return zero if successful, a negative number upon failure. */
 
 static int
 unix_kill_process_by_pid (int pid, int sigcode)
@@ -1408,9 +1542,7 @@ unix_kill_process_by_pid (int pid, int sigcode)
   return kill (pid, sigcode);
 }
 
-/*
- * Return TTY name used to communicate with subprocess
- */
+/* Return TTY name used to communicate with subprocess. */
 
 static Lisp_Object
 unix_get_tty_name (Lisp_Process *p)
@@ -1418,11 +1550,8 @@ unix_get_tty_name (Lisp_Process *p)
   return UNIX_DATA (p)->tty_name;
 }
 
-/*
- * Canonicalize host name HOST, and return its canonical form
- *
- * The default implementation just takes HOST for a canonical name.
- */
+/* Canonicalize host name HOST, and return its canonical form.
+   The default implementation just takes HOST for a canonical name. */
 
 #ifdef HAVE_SOCKETS
 static Lisp_Object
@@ -1440,15 +1569,13 @@ unix_canonicalize_host_name (Lisp_Object host)
   hints.ai_family = AF_UNSPEC;
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_protocol = 0;
-  TO_EXTERNAL_FORMAT (LISP_STRING, host, C_STRING_ALLOCA, ext_host, Qnative);
+  LISP_STRING_TO_EXTERNAL (host, ext_host, Qnative);
   retval = getaddrinfo (ext_host, NULL, &hints, &res);
   if (retval != 0)
     {
       char *gai_error;
 
-      TO_INTERNAL_FORMAT (C_STRING, gai_strerror (retval),
-			  C_STRING_ALLOCA, gai_error,
-			  Qnative);
+      EXTERNAL_TO_C_STRING (gai_strerror (retval), gai_error, Qnative);
       maybe_error (Qprocess, ERROR_ME_NOT,
 		   "%s \"%s\"", gai_error, XSTRING_DATA (host));
       canonname = host;
@@ -1478,11 +1605,11 @@ unix_canonicalize_host_name (Lisp_Object host)
 #endif /* ! HAVE_GETADDRINFO */
 }
 
-/* open a TCP network connection to a given HOST/SERVICE.  Treated
-   exactly like a normal process when reading and writing.  Only
-   differences are in status display and process deletion.  A network
-   connection has no PID; you cannot signal it.  All you can do is
-   deactivate and close it via delete-process */
+/* Open a TCP network connection to a given HOST/SERVICE.
+   Treated exactly like a normal process when reading and writing.
+   Only differences are in status display and process deletion.
+   A network connection has no PID; you cannot signal it.  All you can
+   do is deactivate and close it via delete-process. */
 
 static void
 unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
@@ -1498,8 +1625,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
   CHECK_STRING (host);
 
   if (!EQ (protocol, Qtcp) && !EQ (protocol, Qudp))
-    error ("Unsupported protocol \"%s\"",
-	   string_data (symbol_name (XSYMBOL (protocol))));
+    invalid_argument ("Unsupported protocol", protocol);
 
   {
 #if defined(HAVE_GETADDRINFO) && defined(HAVE_GETNAMEINFO)
@@ -1523,9 +1649,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
     else
       {
 	CHECK_STRING (service);
-	TO_EXTERNAL_FORMAT (LISP_STRING, service,
-			    C_STRING_ALLOCA, portstring,
-			    Qnative);
+	LISP_STRING_TO_EXTERNAL (service, portstring, Qnative);
 	port = 0;
       }
 
@@ -1537,15 +1661,13 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
     else /* EQ (protocol, Qudp) */
       hints.ai_socktype = SOCK_DGRAM;
     hints.ai_protocol = 0;
-    TO_EXTERNAL_FORMAT (LISP_STRING, host, C_STRING_ALLOCA, ext_host, Qnative);
+    LISP_STRING_TO_EXTERNAL (host, ext_host, Qnative);
     retval = getaddrinfo (ext_host, portstring, &hints, &res);
     if (retval != 0)
       {
 	char *gai_error;
 
-	TO_INTERNAL_FORMAT (C_STRING, gai_strerror (retval),
-			    C_STRING_ALLOCA, gai_error,
-			    Qnative);
+	EXTERNAL_TO_C_STRING (gai_strerror (retval), gai_error, Qnative);
 	error ("%s/%s %s", XSTRING_DATA (host), portstring, gai_error);
       }
 
@@ -1676,7 +1798,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
 	  svc_info = getservbyname ((char *) XSTRING_DATA (service), "udp");
 
 	if (svc_info == 0)
-	  error ("Unknown service \"%s\"", XSTRING_DATA (service));
+	  invalid_argument ("Unknown service", service);
 	port = svc_info->s_port;
       }
 
@@ -1795,8 +1917,9 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
 */
 
 static void
-unix_open_multicast_group (Lisp_Object name, Lisp_Object dest, Lisp_Object port,
-			   Lisp_Object ttl, void** vinfd, void** voutfd)
+unix_open_multicast_group (Lisp_Object name, Lisp_Object dest,
+			   Lisp_Object port, Lisp_Object ttl, void** vinfd,
+			   void** voutfd)
 {
   struct ip_mreq imr;
   struct sockaddr_in sa;
@@ -1817,7 +1940,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest, Lisp_Object port,
   thettl = (unsigned char) XINT (ttl);
 
   if ((udp = getprotobyname ("udp")) == NULL)
-    error ("No info available for UDP protocol");
+    type_error (Qinvalid_operation, "No info available for UDP protocol");
 
   /* Init the sockets. Yes, I need 2 sockets. I couldn't duplicate one. */
   if ((rs = socket (PF_INET, SOCK_DGRAM, udp->p_proto)) < 0)

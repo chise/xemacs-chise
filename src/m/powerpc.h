@@ -53,18 +53,9 @@ Boston, MA 02111-1307, USA.  */
 #define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / FSCALE)
 #else /* mklinux */
 
-/* Define NO_ARG_ARRAY if you cannot take the address of the first of a
- * group of arguments and treat it as an array of the arguments.  */
-
-#define NO_ARG_ARRAY
-
 /* Define addresses, macros, change some setup for dump */
 
 #define NO_REMAP
-
-/* Use type int rather than a union, to represent Lisp_Object */
-
-/* #define NO_UNION_TYPE */
 
 #ifdef CANNOT_DUMP
 

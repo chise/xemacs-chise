@@ -118,6 +118,22 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/select.h>
 #endif
 
+#ifdef HAVE_SYS_STROPTS_H
+#include <sys/stropts.h>	/* isastream(), I_PUSH */
+#endif
+
+#ifdef HAVE_SYS_STRTIO_H
+#include <sys/strtio.h>		/* TIOCSIGNAL */
+#endif
+
+#ifdef HAVE_PTY_H
+#include <pty.h>		/* openpty() on Tru64, Linux */
+#endif
+
+#ifdef HAVE_LIBUTIL_H
+#include <libutil.h>		/* openpty() on BSD */
+#endif
+
 #ifdef FD_SET
 
 /* We could get this from param.h, but better not to depend on finding that.

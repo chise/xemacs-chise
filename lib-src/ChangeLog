@@ -1,3 +1,34 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-30  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuserv.c (main): Warning removal.
+
+2000-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* ellcc.c: Make global variables static.  Avoids warnings on AIX.
+
+	* fakemail.c (make_file_preface): Use standard type time_t.
+	Actually check that the 25th char returned from ctime is '\n'.
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* *: Spelling mega-patch
+
+2000-09-12  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuclient.c (main):
+	* hexl.c (usage):
+	Use `Usage', not `usage', in Usage messages.
+
+2000-07-15  Ben Wing  <ben@xemacs.org>
+
+	* etags.c (add_regex): added commented out code for use figuring
+	out Windows quoting problems.
+	* hexl.c (main): fixed warnings about possible used uninitialized.
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.

@@ -152,12 +152,12 @@ is a symbol whose name is one of the device classes mentioned above.
 
 @defun valid-device-type-p device-type
 This function returns whether @var{device-type} (which should be a symbol)
-species a valid device type.
+specifies a valid device type.
 @end defun
 
 @defun valid-device-class-p device-class
 This function returns whether @var{device-class} (which should be a symbol)
-species a valid device class.
+specifies a valid device class.
 @end defun
 
 @defvar terminal-device

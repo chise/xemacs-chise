@@ -152,7 +152,7 @@ struct specifier_methods
      name specifier_instance) to avoid creating "external"
      specification loops.
 
-     This method must presume that both INSTANTIATOR and MATCSPEC are
+     This method must presume that both INSTANTIATOR and MATCHSPEC are
      already validated by the corresponding validate_* methods, and
      may abort if they are invalid.
 

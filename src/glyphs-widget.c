@@ -58,10 +58,8 @@ Lisp_Object Qlayout;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (native_layout);
 Lisp_Object Qnative_layout;
 
-Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
-Lisp_Object Q_image, Q_text, Q_orientation, Q_justify, Q_border;
-Lisp_Object Q_margin_width;
 Lisp_Object Qetched_in, Qetched_out, Qbevel_in, Qbevel_out;
+Lisp_Object Qmake_glyph;
 
 #ifdef DEBUG_WIDGETS
 int debug_widget_instances;
@@ -85,16 +83,14 @@ widget_possible_dest_types (void)
 }
 
 static void
-check_valid_glyph_or_instantiator (Lisp_Object data)
+check_valid_instantiator (Lisp_Object data)
 {
   Lisp_Object glyph = data;
   if (SYMBOLP (data))
     glyph = XSYMBOL (data)->value;
 
-  if (IMAGE_INSTANCEP (glyph))
-    CHECK_IMAGE_INSTANCE (glyph);
-  else if (!CONSP (glyph) && !VECTORP (glyph))
-    CHECK_BUFFER_GLYPH (glyph);
+  if (!CONSP (glyph) && !VECTORP (glyph))
+    invalid_argument ("instantiator item must be a vector", data);
 }
 
 static void
@@ -103,7 +99,7 @@ check_valid_orientation (Lisp_Object data)
   if (!EQ (data, Qhorizontal)
       &&
       !EQ (data, Qvertical))
-    signal_simple_error ("unknown orientation for layout", data);
+    invalid_argument ("unknown orientation for layout", data);
 }
 
 static void
@@ -116,14 +112,14 @@ check_valid_tab_orientation (Lisp_Object data)
       !EQ (data, Qleft)
       &&
       !EQ (data, Qright))
-    signal_simple_error ("unknown orientation for tab control", data);
+    invalid_argument ("unknown orientation for tab control", data);
 }
 
 static void
 check_valid_justification (Lisp_Object data)
 {
   if (!EQ (data, Qleft) && !EQ (data, Qright) && !EQ (data, Qcenter))
-    signal_simple_error ("unknown justification for layout", data);
+    invalid_argument ("unknown justification for layout", data);
 }
 
 static void
@@ -132,7 +128,7 @@ check_valid_border (Lisp_Object data)
   if (!EQ (data, Qt) && !EQ (data, Qetched_in) && !EQ (data, Qetched_out)
       && !EQ (data, Qbevel_in) && !EQ (data, Qbevel_out)
       && !GLYPHP (data) && !VECTORP (data))
-    signal_simple_error ("unknown border style for layout", data);
+    invalid_argument ("unknown border style for layout", data);
 }
 
 static void
@@ -147,7 +143,7 @@ check_valid_callback (Lisp_Object data)
 	&& !COMPILED_FUNCTIONP (data)
 	&& !CONSP (data))
     {
-	signal_simple_error (":callback must be a function or expression", data);
+	invalid_argument (":callback must be a function or expression", data);
     }
 }
 
@@ -155,7 +151,7 @@ static void
 check_valid_int_or_function (Lisp_Object data)
 {
   if (!INTP (data) && !CONSP (data))
-    signal_simple_error ("must be an integer or expresssion", data);
+    invalid_argument ("must be an integer or expresssion", data);
 }
 
 static void
@@ -168,11 +164,11 @@ static void
 check_valid_string_or_vector (Lisp_Object data)
 {
     if (!STRINGP (data) && !VECTORP (data))
-	signal_simple_error (":descriptor must be a string or a vector", data);
+	invalid_argument (":descriptor must be a string or a vector", data);
 }
 
 void
-check_valid_item_list_1 (Lisp_Object items)
+check_valid_item_list (Lisp_Object items)
 {
   Lisp_Object rest;
 
@@ -184,32 +180,21 @@ check_valid_item_list_1 (Lisp_Object items)
       else if (VECTORP (XCAR (rest)))
 	gui_parse_item_keywords (XCAR (rest));
       else if (LISTP (XCAR (rest)))
-	check_valid_item_list_1 (XCAR (rest));
+	check_valid_item_list (XCAR (rest));
       else
-	signal_simple_error ("Items must be vectors, lists or strings", items);
+	invalid_argument ("Items must be vectors, lists or strings", items);
     }
 }
 
 static void
-check_valid_item_list (Lisp_Object data)
-{
-  Lisp_Object items;
-
-  Fcheck_valid_plist (data);
-  items = Fplist_get (data, Q_items, Qnil);
-
-  check_valid_item_list_1 (items);
-}
-
-static void
-check_valid_glyph_or_instantiator_list (Lisp_Object data)
+check_valid_instantiator_list (Lisp_Object data)
 {
   Lisp_Object rest;
 
   CHECK_LIST (data);
   EXTERNAL_LIST_LOOP (rest, data)
     {
-      check_valid_glyph_or_instantiator (XCAR (rest));
+      check_valid_instantiator (XCAR (rest));
     }
 }
 
@@ -219,26 +204,26 @@ glyph_instantiator_to_glyph (Lisp_Object sym)
   /* This function calls lisp. */
   Lisp_Object glyph = sym;
   struct gcpro gcpro1;
-	  
+
   GCPRO1 (glyph);
   /* if we have a symbol get at the actual data */
   if (SYMBOLP (glyph))
     glyph = XSYMBOL (glyph)->value;
-	  
+
   if (CONSP (glyph))
     glyph = Feval (glyph);
 
   /* Be really helpful to the user. */
   if (VECTORP (glyph))
     {
-      glyph = call1 (intern ("make-glyph"), glyph);
+      glyph = call1 (Qmake_glyph, glyph);
     }
 
   /* substitute the new glyph */
   RETURN_UNGCPRO (glyph);
 }
 
-static void 
+static void
 substitute_keyword_value (Lisp_Object inst, Lisp_Object key, Lisp_Object val)
 {
   int i;
@@ -264,24 +249,24 @@ substitute_keyword_value (Lisp_Object inst, Lisp_Object key, Lisp_Object val)
    type (Qedit_field for example). It is debatable whether we should
    wire things in this generalised way rather than treating widgets
    specially in image_instance_property. */
-static Lisp_Object 
+static Lisp_Object
 widget_property (Lisp_Object image_instance, Lisp_Object prop)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
-
+#if 0				/* The usefulness of this is dubious. */
   /* first see if its a general property ... */
   if (!NILP (Fplist_member (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop)))
     return Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop, Qnil);
-
+#endif
   /* .. then try device specific methods ... */
   meths = decode_device_ii_format (image_instance_device (image_instance),
-				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+				   IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				   ERROR_ME_NOT);
   if (meths && HAS_IIFORMAT_METH_P (meths, property))
     return IIFORMAT_METH (meths, property, (image_instance, prop));
   /* ... then format specific methods ... */
-  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				   ERROR_ME_NOT);
   if (meths && HAS_IIFORMAT_METH_P (meths, property))
     return IIFORMAT_METH (meths, property, (image_instance, prop));
@@ -289,58 +274,62 @@ widget_property (Lisp_Object image_instance, Lisp_Object prop)
   return Qunbound;
 }
 
-static Lisp_Object 
-widget_set_property (Lisp_Object image_instance, Lisp_Object prop, Lisp_Object val)
+/* Update the displayed properties of a widget.
+
+   #### This has been adapted from the original set_property functions
+   and thus reuses the state management of that. A better solution is
+   to simply re-parse the instantiator when items need updating. This
+   make comparing differences much simpler and obviates the need for a
+   lot of the state variables.
+
+   #### property is still a valid function since we have to be able to
+   extract information from the actual widget.
+
+   #### update_widget should probably be re-written to use the
+   instantiator. We probably want to keep a record of the differences
+   also to make this easy. We would also need a pending_instantiator
+   so that changes could be delayed. */
+static void
+widget_update (Lisp_Object image_instance, Lisp_Object instantiator)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
-  Lisp_Object ret;
 
-  /* PIck up any generic properties that we might need to keep hold
+  Lisp_Object text = find_keyword_in_vector (instantiator, Q_text);
+  /* Pick up any generic properties that we might need to keep hold
      of. */
-  if (EQ (prop, Q_text))
+  if (!NILP (text))
     {
-      IMAGE_INSTANCE_WIDGET_TEXT (ii) = val;
+      IMAGE_INSTANCE_WIDGET_TEXT (ii) = text;
       IMAGE_INSTANCE_TEXT_CHANGED (ii) = 1;
     }
 
   /* Now try device specific methods first ... */
-  meths = decode_device_ii_format (image_instance_device (image_instance), 
-				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+  meths = decode_device_ii_format (image_instance_device (image_instance),
+				   IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				   ERROR_ME_NOT);
-  if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
-      &&
-      !UNBOUNDP (ret = 
-		 IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
-    {
-      return ret;
-    }
+  MAYBE_IIFORMAT_METH (meths, update, (image_instance, instantiator));
   /* ... then format specific methods ... */
-  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				   ERROR_ME_NOT);
-  if (meths && HAS_IIFORMAT_METH_P (meths, set_property)
-      &&
-      !UNBOUNDP (ret = 
-		 IIFORMAT_METH (meths, set_property, (image_instance, prop, val))))
-    {
-      return ret;
-    }
-  /* we didn't do any device specific properties, so shove the property in our plist */
+  MAYBE_IIFORMAT_METH (meths, update, (image_instance, instantiator));
+#if 0 /* The usefulness of this is dubious. */
+  /* we didn't do any device specific properties, so shove the property in our plist. */
   IMAGE_INSTANCE_WIDGET_PROPS (ii)
     = Fplist_put (IMAGE_INSTANCE_WIDGET_PROPS (ii), prop, val);
-  return val;
+#endif
 }
 
 /* Like the rest of redisplay, we want widget updates to occur
    asynchronously. Thus toolkit specific methods for setting
-   properties must be called by redisplay instead of by
-   *_set_property. Thus *_set_property records the change and this
-   function actually implements it. We want to be slightly clever
-   about this however by supplying format specific functions for the
-   updates instead of lumping them all into this function. Note that
-   there is no need for format generic functions. */
+   properties must be called by redisplay instead of by *_update. Thus
+   *_update records the change and this function actually implements
+   it. We want to be slightly clever about this however by supplying
+   format specific functions for the updates instead of lumping them
+   all into this function. Note that there is no need for format
+   generic functions. This is not the same as widget_update! */
 void
-update_widget (Lisp_Object widget)
+redisplay_widget (Lisp_Object widget)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (widget);
   struct image_instantiator_methods* meths;
@@ -350,17 +339,19 @@ update_widget (Lisp_Object widget)
       || EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qnative_layout))
     return;
 
-  /* Device generic methods. We must update the widget's size as it
-     may have been changed by the the layout routines. We also do this
-     here so that explicit resizing from lisp does not result in
-     synchronous updates. */
-  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain), update_widget, (ii));
-
-  /* Device-format specific methods */
+  /* Device-format specific methods - e.g. x_tab_control_redisplay () */
   meths = decode_device_ii_format (image_instance_device (widget), 
 				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
 				   ERROR_ME_NOT);
-  MAYBE_IIFORMAT_METH (meths, update, (widget));
+  MAYBE_IIFORMAT_METH (meths, redisplay, (widget));
+
+  /* Device generic methods - e.g. x_redisplay_widget (). We must
+     update the widget's size as it may have been changed by the the
+     layout routines. We also do this here so that explicit resizing
+     from lisp does not result in synchronous updates. Do this last so
+     that format-specific methods have an opportunity to prevent
+     wholesale changes - e.g. rebuilding tabs. */
+  MAYBE_DEVMETH (DOMAIN_XDEVICE (ii->domain), redisplay_widget, (ii));
 
   /* Pick up the items we recorded earlier. */
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
@@ -373,8 +364,8 @@ update_widget (Lisp_Object widget)
 
 /* Query for a widgets desired geometry. If no type specific method is
    provided then use the widget text to calculate sizes. */
-static void 
-widget_query_geometry (Lisp_Object image_instance, 
+static void
+widget_query_geometry (Lisp_Object image_instance,
 		       int* width, int* height,
 		       enum image_instance_geometry disp, Lisp_Object domain)
 {
@@ -386,32 +377,32 @@ widget_query_geometry (Lisp_Object image_instance,
   /* First just set up what we already have. */
   if (width)	*width = IMAGE_INSTANCE_WIDTH (ii);
   if (height)	*height = IMAGE_INSTANCE_HEIGHT (ii);
-  
+
   if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii)
       ||
       IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii))
     {
       /* .. then try device specific methods ... */
       meths = decode_device_ii_format (image_instance_device (image_instance),
-				       IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+				       IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				       ERROR_ME_NOT);
       if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
-	IIFORMAT_METH (meths, query_geometry, (image_instance, 
+	IIFORMAT_METH (meths, query_geometry, (image_instance,
 					       width, height, disp,
 					       domain));
       else
 	{
 	  /* ... then format specific methods ... */
-	  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+	  meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii),
 					   ERROR_ME_NOT);
 	  if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
-	    IIFORMAT_METH (meths, query_geometry, (image_instance, 
+	    IIFORMAT_METH (meths, query_geometry, (image_instance,
 						   width, height, disp,
 						   domain));
-	  else 
+	  else
 	    {
 	      int w, h;
-	      
+
 	      /* Then if we are allowed to resize the widget, make the
 		 size the same as the text dimensions. */
 	      query_string_geometry (IMAGE_INSTANCE_WIDGET_TEXT (ii),
@@ -440,28 +431,31 @@ widget_query_geometry (Lisp_Object image_instance,
     }
 }
 
-static int 
-widget_layout (Lisp_Object image_instance, 
-	       int width, int height, Lisp_Object domain)
+static int
+widget_layout (Lisp_Object image_instance,
+	       int width, int height, int xoffset, int yoffset,
+	       Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
 
   /* .. then try device specific methods ... */
   meths = decode_device_ii_format (image_instance_device (image_instance),
-				   IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+				   IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				   ERROR_ME_NOT);
   if (meths && HAS_IIFORMAT_METH_P (meths, layout))
-    return IIFORMAT_METH (meths, layout, (image_instance, 
-					  width, height, domain));
+    return IIFORMAT_METH (meths, layout, (image_instance,
+					  width, height, xoffset, yoffset,
+					  domain));
   else
     {
       /* ... then format specific methods ... */
-      meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii), 
+      meths = decode_device_ii_format (Qnil, IMAGE_INSTANCE_WIDGET_TYPE (ii),
 				       ERROR_ME_NOT);
       if (meths && HAS_IIFORMAT_METH_P (meths, layout))
-	return IIFORMAT_METH (meths, layout, (image_instance, 
-					      width, height, domain));
+	return IIFORMAT_METH (meths, layout, (image_instance,
+					      width, height, xoffset, yoffset,
+					      domain));
     }
   return 1;
 }
@@ -472,38 +466,41 @@ widget_validate (Lisp_Object instantiator)
   Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
 
   if (NILP (desc))
-    signal_simple_error ("Must supply :descriptor", instantiator);
+    syntax_error ("Must supply :descriptor", instantiator);
 
   if (VECTORP (desc))
     gui_parse_item_keywords (desc);
 
   if (!NILP (find_keyword_in_vector (instantiator, Q_width))
       && !NILP (find_keyword_in_vector (instantiator, Q_pixel_width)))
-    signal_simple_error ("Must supply only one of :width and :pixel-width", instantiator);
+    syntax_error ("Must supply only one of :width and :pixel-width", instantiator);
 
   if (!NILP (find_keyword_in_vector (instantiator, Q_height))
 	     && !NILP (find_keyword_in_vector (instantiator, Q_pixel_height)))
-    signal_simple_error ("Must supply only one of :height and :pixel-height", instantiator);
+    syntax_error ("Must supply only one of :height and :pixel-height", instantiator);
 }
 
 static void
 combo_box_validate (Lisp_Object instantiator)
 {
   widget_validate (instantiator);
-  if (NILP (find_keyword_in_vector (instantiator, Q_properties)))
-    signal_simple_error ("Must supply item list", instantiator);
+  if (NILP (find_keyword_in_vector (instantiator, Q_items)))
+    syntax_error ("Must supply item list", instantiator);
 }
 
 /* we need to convert things like glyphs to images, eval expressions
    etc.*/
 static Lisp_Object
-widget_normalize (Lisp_Object inst, Lisp_Object console_type)
+widget_normalize (Lisp_Object inst, Lisp_Object console_type,
+		  Lisp_Object dest_mask)
 {
   /* This function can call lisp */
   Lisp_Object glyph = find_keyword_in_vector (inst, Q_image);
 
   /* we need to eval glyph if its an expression, we do this for the
-     same reasons we normalize file to data. */
+     same reasons we normalize file to data.
+
+     #### should just normalize the data. */
   if (!NILP (glyph))
     {
       substitute_keyword_value (inst, Q_image, glyph_instantiator_to_glyph (glyph));
@@ -541,6 +538,9 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		    int dest_mask, Lisp_Object domain)
 {
+  /* #### practically all of this should be moved to widget_update()
+     so that users can dynamically change all possible widget
+     properties. */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object face = find_keyword_in_vector (instantiator, Q_face);
   Lisp_Object height = find_keyword_in_vector (instantiator, Q_height);
@@ -549,62 +549,52 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object pixheight = find_keyword_in_vector (instantiator, Q_pixel_height);
   Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
-  Lisp_Object props = find_keyword_in_vector (instantiator, Q_properties);
   Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
   Lisp_Object orient = find_keyword_in_vector (instantiator, Q_orientation);
   Lisp_Object mwidth = find_keyword_in_vector (instantiator, Q_margin_width);
+  Lisp_Object ifocus = find_keyword_in_vector (instantiator, Q_initial_focus);
   int pw=0, ph=0, tw=0, th=0;
-  
+
   /* this just does pixel type sizing */
   subwindow_instantiate (image_instance, instantiator, pointer_fg, pointer_bg,
 			 dest_mask, domain);
-  
+
   if (!(dest_mask & IMAGE_WIDGET_MASK))
     incompatible_image_types (instantiator, dest_mask, IMAGE_WIDGET_MASK);
 
   initialize_widget_image_instance (ii, XVECTOR_DATA (instantiator)[0]);
 
   IMAGE_INSTANCE_TYPE (ii) = IMAGE_WIDGET;
-  IMAGE_INSTANCE_WIDGET_PROPS (ii) = props;
 
   /* retrieve the fg and bg colors */
   if (!NILP (face))
     SET_IMAGE_INSTANCE_WIDGET_FACE (ii, Fget_face (face));
-  
+
   /* retrieve the gui item information. This is easy if we have been
      provided with a vector, more difficult if we have just been given
      keywords */
   if (STRINGP (desc) || NILP (desc))
     {
       /* big cheat - we rely on the fact that a gui item looks like an instantiator */
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
 	gui_parse_item_keywords_no_errors (instantiator);
       IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
     }
   else
     IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
       gui_parse_item_keywords_no_errors (desc);
-      
+
   /* Pick up the orientation before we do our first layout. */
   if (EQ (orient, Qleft) || EQ (orient, Qright) || EQ (orient, Qvertical))
     IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = LAYOUT_VERTICAL;
 
   /* parse more gui items out of the properties */
-  if (!NILP (props)
-      && 
-      !EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qlayout)
+  if (!NILP (items) && !EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qlayout)
       && !EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qnative_layout))
     {
-      if (NILP (items))
-	{
-	  items = Fplist_get (props, Q_items, Qnil);
-	}
-      if (!NILP (items))
-	{
-	  IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
-	    Fcons (IMAGE_INSTANCE_WIDGET_ITEMS (ii), 
-		   parse_gui_item_tree_children (items));
-	}
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
+	Fcons (IMAGE_INSTANCE_WIDGET_ITEMS (ii),
+	       parse_gui_item_tree_children (items));
     }
 
   /* Normalize size information. We now only assign sizes if the user
@@ -662,9 +652,9 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   if (!NILP (glyph))
     {
       if (!pw)
-	pw = glyph_width (glyph, domain) + 2 * WIDGET_BORDER_WIDTH;
+	pw = glyph_width (glyph, image_instance) + 2 * WIDGET_BORDER_WIDTH;
       if (!ph)
-	ph = glyph_height (glyph, domain) + 2 * WIDGET_BORDER_HEIGHT;
+	ph = glyph_height (glyph, image_instance) + 2 * WIDGET_BORDER_HEIGHT;
       IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 0;
       IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 0;
     }
@@ -672,6 +662,8 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* Pick up the margin width. */
   if (!NILP (mwidth))
     IMAGE_INSTANCE_MARGIN_WIDTH (ii) = XINT (mwidth);
+
+  IMAGE_INSTANCE_WANTS_INITIAL_FOCUS (ii) = !NILP (ifocus);
 
   /* Layout for the layout widget is premature at this point since the
      children will not have been instantiated. We can't instantiate
@@ -697,7 +689,7 @@ widget_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 /* Get the geometry of a button control. We need to adjust the size
    depending on the type of button. */
 static void
-button_query_geometry (Lisp_Object image_instance, 
+button_query_geometry (Lisp_Object image_instance,
 		       int* width, int* height,
 		       enum image_instance_geometry disp, Lisp_Object domain)
 {
@@ -723,14 +715,14 @@ button_query_geometry (Lisp_Object image_instance,
 
 /* tree-view geometry - get the height right */
 static void
-tree_view_query_geometry (Lisp_Object image_instance, 
+tree_view_query_geometry (Lisp_Object image_instance,
 			  int* width, int* height,
 			  enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = IMAGE_INSTANCE_WIDGET_ITEMS (ii);
 
-  
+
   if (*width)
     {
       /* #### what should this be. reconsider when X has tree views. */
@@ -750,14 +742,14 @@ tree_view_query_geometry (Lisp_Object image_instance,
 /* Get the geometry of a tab control. This is based on the number of
    items and text therin in the tab control. */
 static void
-tab_control_query_geometry (Lisp_Object image_instance, 
+tab_control_query_geometry (Lisp_Object image_instance,
 			    int* width, int* height,
 			    enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
   Lisp_Object rest;
-  unsigned int tw = 0, th = 0;
+  int tw = 0, th = 0;
 
   LIST_LOOP (rest, items)
     {
@@ -784,48 +776,83 @@ tab_control_query_geometry (Lisp_Object image_instance,
     }
 }
 
-/* Get the geometry of a tab control. This is based on the number of
-   items and text therin in the tab control. */
-static Lisp_Object
-tab_control_set_property (Lisp_Object image_instance, 
-			  Lisp_Object prop,
-			  Lisp_Object val)
+/* Update the contents of a tab control. */
+static void
+tab_control_update (Lisp_Object image_instance,
+		    Lisp_Object instantiator)
 {
-  /* Record new items for update. *_tab_control_update will do the
+  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
+  /* Record new items for update. *_tab_control_redisplay will do the
      rest. */
-  if (EQ (prop, Q_items))
+  if (!NILP (items))
     {
       Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
-
-      check_valid_item_list_1 (val);
-      
+      check_valid_item_list (items);
+#ifdef DEBUG_WIDGET_OUTPUT
+      stderr_out ("tab control %p updated\n", IMAGE_INSTANCE_SUBWINDOW_ID (ii));
+#endif
       /* Don't set the actual items since we might decide not to use
          the new ones (because nothing has really changed). If we did
          set them and didn't use them then we would get into whole
          heaps of trouble when the old items get GC'd. */
       IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)), 
-	       parse_gui_item_tree_children (val));
+	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
+	       parse_gui_item_tree_children (items));
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
-
-      return Qt;
     }
-  return Qunbound;
 }
 
-/* set the properties of a progres guage */
-static Lisp_Object
-progress_gauge_set_property (Lisp_Object image_instance,
-			     Lisp_Object prop,
-			     Lisp_Object val)
+/* Determine whether only the order has changed for a tab. */
+int tab_control_order_only_changed (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  int found = 0, len, pending_len;
+  Lisp_Object rest;
 
-  if (EQ (prop, Q_value))
+  /* Degenerate case. */
+  if (NILP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+    return 1;
+
+  /* See whether we just need a change in order. */
+  GET_LIST_LENGTH (IMAGE_INSTANCE_WIDGET_ITEMS (ii), len);
+  GET_LIST_LENGTH (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii),
+		   pending_len);
+  if (len == pending_len)
     {
-      CHECK_INT (val);
+      LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
+	{
+	  Lisp_Object pending_rest;
+	  found = 0;
+	  LIST_LOOP (pending_rest,
+		     XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+	    {
+	      if (gui_item_equal_sans_selected (XCAR (rest),
+						XCAR (pending_rest), 0))
+		{
+		  found = 1;
+		  break;
+		}
+	    }
+	  if (!found)
+	    break;
+	}
+    }
+  return found;
+}
+
+/* Set the properties of a progress gauge */
+static void
+progress_gauge_update (Lisp_Object image_instance,
+		       Lisp_Object instantiator)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object value = find_keyword_in_vector (instantiator, Q_value);
+
+  if (!NILP (value))
+    {
+      CHECK_INT (value);
 #ifdef DEBUG_WIDGET_OUTPUT
-      printf ("progress gauge value set to %ld\n", XINT (val));
+      stderr_out ("progress gauge value set to %ld\n", XINT (value));
 #endif
       IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
 	copy_gui_item_tree (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
@@ -833,44 +860,147 @@ progress_gauge_set_property (Lisp_Object image_instance,
       assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
 #endif
       if (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
-	XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value = val;
+	XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value = value;
 
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
-
-      return Qt;
     }
-  return Qunbound;
 }
 
 
 /*****************************************************************************
  *                              widget layout                               *
  *****************************************************************************/
-/* we need to convert things like glyphs to images, eval expressions
-   etc.*/
+/* We need to cascade normalization.*/
 static Lisp_Object
-layout_normalize (Lisp_Object inst, Lisp_Object console_type)
+layout_normalize (Lisp_Object inst, Lisp_Object console_type,
+		  Lisp_Object dest_mask)
 {
   /* This function can call lisp */
-  Lisp_Object items = find_keyword_in_vector (inst, Q_items);
-  Lisp_Object border = find_keyword_in_vector (inst, Q_border);
-  /* we need to eval glyph if its an expression, we do this for the
-     same reasons we normalize file to data. */
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object alist = Qnil, new_items = Qnil, border;
+  /* This function can call lisp */
+  Lisp_Object items;
+
+  GCPRO2 (alist, new_items);
+  alist = tagged_vector_to_alist (inst);
+  items = assq_no_quit (Q_items, alist);
+
+  /* We need to normalize sub-objects. */
   if (!NILP (items))
     {
       Lisp_Object rest;
-      LIST_LOOP (rest, items)
+      LIST_LOOP (rest, XCDR (items))
 	{
-	  /* substitute the new glyph */
-	  Fsetcar (rest, glyph_instantiator_to_glyph (XCAR (rest)));
+	  /* Substitute the new instantiator */
+	  new_items = Fcons (normalize_image_instantiator (XCAR (rest),
+							   console_type, dest_mask),
+			     new_items);
+	}
+      new_items = Fnreverse (new_items);
+      Fsetcdr (items, new_items);
+    }
+  /* Normalize the border spec. */
+  border = assq_no_quit (Q_border, alist);
+  if (!NILP (border) && VECTORP (XCDR (border)))
+    {
+      Fsetcdr (border, normalize_image_instantiator (XCDR (border),
+						     console_type, dest_mask));
+    }
+
+  {
+    Lisp_Object result = alist_to_tagged_vector (XVECTOR_DATA (inst)[0],
+						 alist);
+    free_alist (alist);
+    RETURN_UNGCPRO (result);
+  }
+}
+
+/* Update the instances in the layout. */
+static void
+layout_update (Lisp_Object image_instance, Lisp_Object instantiator)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
+  Lisp_Object border_inst = find_keyword_in_vector (instantiator, Q_border);
+  Lisp_Object border = Qnil;
+  Lisp_Object children = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii);
+  int structure_changed = 0;
+  struct gcpro gcpro1;
+
+  /* We want to avoid consing if we can. This is quite awkward because
+     we have to deal with the border as well as the items. */
+
+  GCPRO1 (border);
+
+  if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
+    {
+      border = XCAR (children);
+      children = XCDR (children);
+    }
+
+#ifdef DEBUG_WIDGET_OUTPUT
+  stderr_out ("layout updated\n");
+#endif
+  /* Update the border. */
+  if (!NILP (border_inst))
+    {
+      if (VECTORP (border_inst))
+	{
+	  /* We are going to be sneaky here and add the border text as
+	     just another child, the layout and output routines don't know
+	     this and will just display at the offsets we prescribe. */
+	  if (!NILP (border))
+	    call3 (Qset_glyph_image, border, border_inst,
+		   IMAGE_INSTANCE_DOMAIN (ii));
+	  else
+	    {
+	      border = Fcons (call1 (Qmake_glyph, border_inst), Qnil);
+	      structure_changed = 1;
+	    }
+	  IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (0);
+	}
+      else
+	{
+	  if (!NILP (border))
+	    {
+	      border = Qnil;
+	      structure_changed = 1;
+	    }
+	  if (EQ (border_inst, Qt))
+	      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = Qetched_in;
+	  else
+	    IMAGE_INSTANCE_LAYOUT_BORDER (ii) = border_inst;
 	}
     }
-  /* normalize the border spec. */
-  if (VECTORP (border) || CONSP (border))
+
+  /* Pick up the sub-widgets. */
+  if (!NILP (items))
     {
-      substitute_keyword_value (inst, Q_border, glyph_instantiator_to_glyph (border));
+      int len1, len2;
+      GET_LIST_LENGTH (items, len1);
+      GET_LIST_LENGTH (children, len2);
+      /* The structure hasn't changed so just update the images. */
+      if (!structure_changed && len1 == len2)
+	{
+	  /* Pick up the sub-widgets. */
+	  for (; !NILP (children); children = XCDR (children), items = XCDR (items))
+	    {
+	      call3 (Qset_glyph_image, XCAR (children), XCAR (items),
+		     IMAGE_INSTANCE_DOMAIN (ii));
+	    }
+	}
+      /* The structure has changed so start over. */
+      else
+	{
+	  /* Instantiate any new glyphs. */
+	  for (; !NILP (items); items = XCDR (items))
+	    {
+	      border = Fcons (call1 (Qmake_glyph, XCAR (items)), border);
+	    }
+	  IMAGE_INSTANCE_LAYOUT_CHILDREN (ii) = Fnreverse (border);
+	}
     }
-  return inst;
+  UNGCPRO;
 }
 
 static void
@@ -880,8 +1010,10 @@ layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object orient = find_keyword_in_vector (instantiator, Q_orientation);
-  Lisp_Object border = find_keyword_in_vector (instantiator, Q_border);
 
+#ifdef DEBUG_WIDGET_OUTPUT
+  stderr_out ("layout instantiated\n");
+#endif
   /* Do widget type instantiation first. */
   widget_instantiate (image_instance, instantiator, pointer_fg, pointer_bg,
 		      dest_mask, domain);
@@ -890,60 +1022,17 @@ layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     {
       IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = LAYOUT_VERTICAL;
     }
-      
-  if (EQ (border, Qt))
-    {
-      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = Qetched_in;
-    }
-  else
-    {
-      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = border;
-    }
-  /* We don't do the children yet as we might not have a containing
+
+  /* Get child glyphs and finish instantiation. We can't do image
+     instance children yet as we might not have a containing
      window. */
+  layout_update (image_instance, instantiator);
 }
 
 static void
 layout_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			 Lisp_Object domain)
 {
-  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
-  Lisp_Object rest, children = Qnil;
-
-  if (GLYPHP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
-    {
-      /* We are going to be sneaky here and add the border text as
-	 just another child, the layout and output routines don't know
-	 this and will just display at the offsets we prescribe. */
-      Lisp_Object gii = glyph_image_instance 
-	(IMAGE_INSTANCE_LAYOUT_BORDER (ii),
-	 image_instance, ERROR_ME, 1);
-
-      if (!IMAGE_INSTANCEP (gii))
-	return;
-      /* make sure we are designated as the parent. */
-      XIMAGE_INSTANCE_PARENT (gii) = image_instance;
-      children = Fcons (gii, children);
-      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (0);
-    }
-
-  /* Pick up the sub-widgets. */
-  LIST_LOOP (rest, items)
-    {
-      /* make sure the image is instantiated */
-      Lisp_Object gii = glyph_image_instance (XCAR (rest), 
-					      image_instance, ERROR_ME, 1);
-      if (!IMAGE_INSTANCEP (gii))
-	return;
-      /* make sure we are designated as the parent. */
-      XIMAGE_INSTANCE_PARENT (gii) = image_instance;
-      children = Fcons (gii, children);
-    }
-  /* Make sure elements in the layout are in the order the
-     user expected. */
-  children = Fnreverse (children);
-  IMAGE_INSTANCE_LAYOUT_CHILDREN (ii) = children;
 }
 
 /* Layout widget. Sizing commentary: we have a number of problems that
@@ -956,30 +1045,30 @@ layout_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
    course these attributes can change dynamically and so the size
    should changed dynamically also. Only in a few limited cases should
    the size be fixed and remain fixed. Of course this actually means
-   that we don't really want to specifiy the size *at all* for most
+   that we don't really want to specify the size *at all* for most
    widgets - we want it to be discovered dynamically. Thus we can
    envisage the following scenarios:
-   
+
    1. A button is sized to accommodate its text, the text changes and the
-   button should change size also.  
+   button should change size also.
 
    2. A button is given an explicit size. Its size should never change.
 
    3. Layout is put inside an area. The size of the area changes, the
-   layout should change with it. 
+   layout should change with it.
 
    4. A button grows to accommodate additional text. The whitespace
    around it should be modified to cope with the new layout
-   requirements. 
+   requirements.
 
    5. A button grows. The area surrounding it should grow also if
-   possible. 
+   possible.
 
    What metrics are important?
    1. Actual width and height.
-   
+
    2. Whether the width and height are what the widget actually wants, or
-   whether it can grow or shrink. 
+   whether it can grow or shrink.
 
    Text glyphs are particularly troublesome since their metrics depend
    on the context in which they are being viewed. For instance they
@@ -1011,7 +1100,7 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
   /* First just set up what we already have. */
   if (width)	*width = IMAGE_INSTANCE_WIDTH (ii);
   if (height)	*height = IMAGE_INSTANCE_HEIGHT (ii);
-  
+
   /* If we are not allowed to dynamically size then return. */
   if (!IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii)
       &&
@@ -1021,19 +1110,20 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
   /* Pick up the border text if we have one. */
   if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)))
     {
-      image_instance_query_geometry (XCAR (items), &gwidth, &gheight, disp, domain);
+      glyph_query_geometry (XCAR (items), &gwidth, &gheight, disp,
+			    image_instance);
       ph_adjust = gheight / 2;
       items = XCDR (items);
     }
-  
+
   /* Flip through the items to work out how much stuff we have to display */
   LIST_LOOP (rest, items)
     {
       Lisp_Object glyph = XCAR (rest);
-      image_instance_query_geometry (glyph, &gwidth, &gheight, disp, domain);
+      glyph_query_geometry (glyph, &gwidth, &gheight, disp, image_instance);
 
       nitems ++;
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	  == LAYOUT_HORIZONTAL)
 	{
 	  maxph = max (maxph, gheight);
@@ -1050,7 +1140,7 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
      have been fixed by the user. */
   if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
     {
-      Lisp_Object dynamic_width = 
+      Lisp_Object dynamic_width =
 	Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
       if (INTP (dynamic_width))
 	*width = XINT (dynamic_width);
@@ -1059,14 +1149,14 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
 	   == LAYOUT_HORIZONTAL)
     *width = maxpw + ((nitems + 1) * WIDGET_BORDER_WIDTH +
 		      IMAGE_INSTANCE_MARGIN_WIDTH (ii)) * 2;
-  else 
-    *width = maxpw + 2 * (WIDGET_BORDER_WIDTH * 2 + 
+  else
+    *width = maxpw + 2 * (WIDGET_BORDER_WIDTH * 2 +
 			  IMAGE_INSTANCE_MARGIN_WIDTH (ii));
 
   /* Work out vertical spacings. */
   if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
     {
-      Lisp_Object dynamic_height = 
+      Lisp_Object dynamic_height =
 	Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
       if (INTP (dynamic_height))
 	*height = XINT (dynamic_height);
@@ -1081,8 +1171,9 @@ layout_query_geometry (Lisp_Object image_instance, int* width,
 }
 
 int
-layout_layout (Lisp_Object image_instance, 
-	       int width, int height, Lisp_Object domain)
+layout_layout (Lisp_Object image_instance,
+	       int width, int height, int xoffset, int yoffset,
+	       Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object rest;
@@ -1100,26 +1191,25 @@ layout_layout (Lisp_Object image_instance,
     {
       Lisp_Object border = XCAR (items);
       items = XCDR (items);
-      image_instance_query_geometry (border, &gwidth, &gheight,
-				     IMAGE_DESIRED_GEOMETRY, domain);
-      /* #### Really, what should this be? */
-      XIMAGE_INSTANCE_XOFFSET (border) = 10;
-      XIMAGE_INSTANCE_YOFFSET (border) = 0;
+      glyph_query_geometry (border, &gwidth, &gheight,
+			    IMAGE_DESIRED_GEOMETRY, image_instance);
       ph_adjust = gheight / 2;
       IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (ph_adjust);
 
-      image_instance_layout (border, gwidth, gheight, domain);
+      /* #### Really, what should this be? */
+      glyph_do_layout (border, gwidth, gheight, 10, 0,
+		       image_instance);
     }
 
   /* Flip through the items to work out how much stuff we have to display. */
   LIST_LOOP (rest, items)
     {
       Lisp_Object glyph = XCAR (rest);
-      
-      image_instance_query_geometry (glyph, &gwidth, &gheight, 
-				     IMAGE_DESIRED_GEOMETRY, domain);
+
+      glyph_query_geometry (glyph, &gwidth, &gheight,
+			    IMAGE_DESIRED_GEOMETRY, image_instance);
       nitems ++;
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	  == LAYOUT_HORIZONTAL)
 	{
 	  maxph = max (maxph, gheight);
@@ -1138,12 +1228,12 @@ layout_layout (Lisp_Object image_instance,
        just provide default spacing and will let the output routines
        clip.. */
     horiz_spacing = WIDGET_BORDER_WIDTH * 2;
-  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	   == LAYOUT_HORIZONTAL)
     /* We have a larger area to display in so distribute the space
        evenly. */
-    horiz_spacing = (width - (maxpw + 
-			      IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2)) 
+    horiz_spacing = (width - (maxpw +
+			      IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2))
       / (nitems + 1);
   else
     horiz_spacing = (width - maxpw) / 2
@@ -1151,13 +1241,13 @@ layout_layout (Lisp_Object image_instance,
 
   if (height < maxph)
     vert_spacing = WIDGET_BORDER_HEIGHT * 2;
-  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+  else if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	   == LAYOUT_VERTICAL)
-    vert_spacing = (height - (maxph + ph_adjust + 
-			      IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2)) 
+    vert_spacing = (height - (maxph + ph_adjust +
+			      IMAGE_INSTANCE_MARGIN_WIDTH (ii) * 2))
       / (nitems + 1);
   else
-    vert_spacing = (height - (maxph + ph_adjust)) / 2 
+    vert_spacing = (height - (maxph + ph_adjust)) / 2
       - IMAGE_INSTANCE_MARGIN_WIDTH (ii);
 
   y = vert_spacing + ph_adjust + IMAGE_INSTANCE_MARGIN_WIDTH (ii);
@@ -1170,33 +1260,33 @@ layout_layout (Lisp_Object image_instance,
     {
       Lisp_Object glyph = XCAR (rest);
 
-      image_instance_query_geometry (glyph, &gwidth, &gheight, 
-				     IMAGE_DESIRED_GEOMETRY, domain);
+      glyph_query_geometry (glyph, &gwidth, &gheight,
+			    IMAGE_DESIRED_GEOMETRY, image_instance);
 
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	  == LAYOUT_HORIZONTAL)
 	{
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
 	      == LAYOUT_JUSTIFY_RIGHT)
 	    y = height - (gheight + vert_spacing);
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
 	      == LAYOUT_JUSTIFY_CENTER)
 	    y = (height - gheight) / 2;
 	}
-      else 
+      else
 	{
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
 	      == LAYOUT_JUSTIFY_RIGHT)
 	    x = width - (gwidth + horiz_spacing);
-	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii) 
+	  if (IMAGE_INSTANCE_SUBWINDOW_JUSTIFY (ii)
 	      == LAYOUT_JUSTIFY_CENTER)
 	    x = (width - gwidth) / 2;
 	}
-	
-      XIMAGE_INSTANCE_XOFFSET (glyph) = x;
-      XIMAGE_INSTANCE_YOFFSET (glyph) = y;
-	
-      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) 
+
+      /* Now layout subwidgets if they require it. */
+      glyph_do_layout (glyph, gwidth, gheight, x, y, image_instance);
+
+      if (IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii)
 	  == LAYOUT_HORIZONTAL)
 	{
 	  x += (gwidth + horiz_spacing);
@@ -1205,31 +1295,53 @@ layout_layout (Lisp_Object image_instance,
 	{
 	  y += (gheight + vert_spacing);
 	}
-      
-      /* Now layout subwidgets if they require it. */
-      image_instance_layout (glyph, gwidth, gheight, domain);
+
     }
   return 1;
+}
+
+/* Get the glyphs that comprise a layout. These are created internally
+   and so are otherwise inaccessible to lisp. We need some way of getting
+   properties from the widgets that comprise a layout and this is the
+   simplest way of doing it.
+
+   #### Eventually we should allow some more intelligent access to
+   sub-widgets. */
+static Lisp_Object
+layout_property (Lisp_Object image_instance, Lisp_Object prop)
+{
+  /* This function can GC. */
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  if (EQ (prop, Q_items))
+    {
+      if (INTP (IMAGE_INSTANCE_LAYOUT_BORDER (ii)) &&
+	  CONSP (IMAGE_INSTANCE_LAYOUT_CHILDREN (ii)))
+	return Fcopy_sequence (XCDR
+			       (IMAGE_INSTANCE_LAYOUT_CHILDREN (ii)));
+      else
+	return Fcopy_sequence (IMAGE_INSTANCE_LAYOUT_CHILDREN (ii));
+    }
+  return Qunbound;
 }
 
 /* Layout subwindows if they are real subwindows. */
 static int
 native_layout_layout (Lisp_Object image_instance,
-		      int width, int height,
+		      int width, int height, int xoffset, int yoffset,
 		      Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object rest;
-  
+
   /* The first time this gets called, the layout will be only
      partially instantiated. The children get done in
      post_instantiate. */
   if (!IMAGE_INSTANCE_INITIALIZED (ii))
     return 0;
 
-  /* Defining this overrides the default layout_layout so we first have to call that to get 
+  /* Defining this overrides the default layout_layout so we first have to call that to get
      suitable instances and values set up. */
-  layout_layout (image_instance, width, height, domain);
+  layout_layout (image_instance, width, height, xoffset, yoffset, domain);
 
   LIST_LOOP (rest, IMAGE_INSTANCE_LAYOUT_CHILDREN (ii))
     {
@@ -1239,7 +1351,7 @@ native_layout_layout (Lisp_Object image_instance,
       dga.width = IMAGE_INSTANCE_WIDTH (ii);
       dga.height = IMAGE_INSTANCE_HEIGHT (ii);
 
-      map_subwindow (XCAR (rest), 
+      map_subwindow (XCAR (rest),
 		     IMAGE_INSTANCE_XOFFSET (ii),
 		     IMAGE_INSTANCE_YOFFSET (ii), &dga);
     }
@@ -1254,47 +1366,38 @@ native_layout_layout (Lisp_Object image_instance,
 void
 syms_of_glyphs_widget (void)
 {
-  defkeyword (&Q_descriptor, ":descriptor");
-  defkeyword (&Q_height, ":height");
-  defkeyword (&Q_width, ":width");
-  defkeyword (&Q_properties, ":properties");
-  defkeyword (&Q_items, ":items");
-  defkeyword (&Q_image, ":image");
-  defkeyword (&Q_text, ":text");
-  defkeyword (&Q_orientation, ":orientation");
-  defkeyword (&Q_justify, ":justify");
-  defkeyword (&Q_border, ":border");
-  defkeyword (&Q_margin_width, ":margin-width");
-
-  defsymbol (&Qetched_in, "etched-in");
-  defsymbol (&Qetched_out, "etched-out");
-  defsymbol (&Qbevel_in, "bevel-in");
-  defsymbol (&Qbevel_out, "bevel-out");
+  DEFSYMBOL (Qetched_in);
+  DEFSYMBOL (Qetched_out);
+  DEFSYMBOL (Qbevel_in);
+  DEFSYMBOL (Qbevel_out);
+  DEFSYMBOL (Qmake_glyph);
 }
 
-#define VALID_GUI_KEYWORDS(type) do {							\
-  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_active, check_valid_anything);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_suffix, check_valid_anything);			\
-  IIFORMAT_VALID_KEYWORD (type, Q_keys, check_valid_string);				\
-  IIFORMAT_VALID_KEYWORD (type, Q_style, check_valid_symbol);				\
-  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_selected, check_valid_anything);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_filter, check_valid_anything);			\
-  IIFORMAT_VALID_KEYWORD (type, Q_config, check_valid_symbol);				\
-  IIFORMAT_VALID_KEYWORD (type, Q_included, check_valid_anything);			\
-  IIFORMAT_VALID_KEYWORD (type, Q_key_sequence, check_valid_string);			\
-  IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);			\
-  IIFORMAT_VALID_KEYWORD (type, Q_label, check_valid_anything);				\
-  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback, check_valid_callback);		\
-  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback_ex, check_valid_callback);		\
-  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_descriptor, check_valid_string_or_vector);	\
+#define VALID_GUI_KEYWORDS(type) do {					      \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_active, check_valid_anything);      \
+  IIFORMAT_VALID_KEYWORD (type, Q_suffix, check_valid_anything);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_keys, check_valid_string);		      \
+  IIFORMAT_VALID_KEYWORD (type, Q_style, check_valid_symbol);		      \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_selected, check_valid_anything);    \
+  IIFORMAT_VALID_KEYWORD (type, Q_filter, check_valid_anything);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_config, check_valid_symbol);		      \
+  IIFORMAT_VALID_KEYWORD (type, Q_included, check_valid_anything);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_initial_focus, check_valid_anything);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_key_sequence, check_valid_string);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);	      \
+  IIFORMAT_VALID_KEYWORD (type, Q_label, check_valid_anything);		      \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback, check_valid_callback);    \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback_ex, check_valid_callback); \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_descriptor,			      \
+				  check_valid_string_or_vector);	      \
 } while (0)
 
-#define VALID_WIDGET_KEYWORDS(type) do {				\
-  IIFORMAT_VALID_KEYWORD (type, Q_width, check_valid_int);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_height, check_valid_int);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_pixel_width, check_valid_int_or_function);\
-  IIFORMAT_VALID_KEYWORD (type, Q_pixel_height, check_valid_int_or_function);\
-  IIFORMAT_VALID_KEYWORD (type, Q_face, check_valid_face);		\
+#define VALID_WIDGET_KEYWORDS(type) do {				      \
+  IIFORMAT_VALID_KEYWORD (type, Q_width, check_valid_int);		      \
+  IIFORMAT_VALID_KEYWORD (type, Q_height, check_valid_int);		      \
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_width, check_valid_int_or_function);  \
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_height, check_valid_int_or_function); \
+  IIFORMAT_VALID_KEYWORD (type, Q_face, check_valid_face);		      \
 } while (0)
 
 
@@ -1302,7 +1405,7 @@ static void image_instantiator_widget (void)
 { /* we only do this for properties */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM (widget, "widget");
   IIFORMAT_HAS_METHOD (widget, property);
-  IIFORMAT_HAS_METHOD (widget, set_property);
+  IIFORMAT_HAS_METHOD (widget, update);
   IIFORMAT_HAS_METHOD (widget, query_geometry);
   IIFORMAT_HAS_METHOD (widget, layout);
 }
@@ -1318,7 +1421,7 @@ static void image_instantiator_buttons (void)
   IIFORMAT_HAS_SHARED_METHOD (button, governing_domain, subwindow);
   IIFORMAT_HAS_METHOD (button, query_geometry);
   IIFORMAT_VALID_KEYWORD (button,
-			  Q_image, check_valid_glyph_or_instantiator);
+			  Q_image, check_valid_instantiator);
   VALID_WIDGET_KEYWORDS (button);
   VALID_GUI_KEYWORDS (button);
 }
@@ -1346,9 +1449,10 @@ static void image_instantiator_combo_box (void)
 
   IIFORMAT_VALID_KEYWORD (combo_box, Q_width, check_valid_int);
   IIFORMAT_VALID_KEYWORD (combo_box, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width, check_valid_int_or_function);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width,
+			  check_valid_int_or_function);
   IIFORMAT_VALID_KEYWORD (combo_box, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (combo_box, Q_properties, check_valid_item_list);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_items, check_valid_item_list);
 }
 
 static void image_instantiator_scrollbar (void)
@@ -1361,8 +1465,10 @@ static void image_instantiator_scrollbar (void)
   IIFORMAT_HAS_SHARED_METHOD (scrollbar, governing_domain, subwindow);
   VALID_GUI_KEYWORDS (scrollbar);
 
-  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_width, check_valid_int_or_function);
-  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_height, check_valid_int_or_function);
+  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_width,
+			  check_valid_int_or_function);
+  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_height,
+			  check_valid_int_or_function);
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_face, check_valid_face);
 }
 
@@ -1374,9 +1480,11 @@ static void image_instantiator_progress_guage (void)
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, governing_domain, subwindow);
-  IIFORMAT_HAS_METHOD (progress_gauge, set_property);
+  IIFORMAT_HAS_METHOD (progress_gauge, update);
   VALID_WIDGET_KEYWORDS (progress_gauge);
   VALID_GUI_KEYWORDS (progress_gauge);
+
+  IIFORMAT_VALID_KEYWORD (progress_gauge, Q_value, check_valid_int);
 }
 
 static void image_instantiator_tree_view (void)
@@ -1387,10 +1495,11 @@ static void image_instantiator_tree_view (void)
   IIFORMAT_HAS_SHARED_METHOD (tree_view, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tree_view, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tree_view, governing_domain, subwindow);
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, update, tab_control);
   IIFORMAT_HAS_METHOD (tree_view, query_geometry);
   VALID_WIDGET_KEYWORDS (tree_view);
   VALID_GUI_KEYWORDS (tree_view);
-  IIFORMAT_VALID_KEYWORD (tree_view, Q_properties, check_valid_item_list);
+  IIFORMAT_VALID_KEYWORD (tree_view, Q_items, check_valid_item_list);
 }
 
 static void image_instantiator_tab_control (void)
@@ -1402,11 +1511,12 @@ static void image_instantiator_tab_control (void)
   IIFORMAT_HAS_SHARED_METHOD (tab_control, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tab_control, governing_domain, subwindow);
   IIFORMAT_HAS_METHOD (tab_control, query_geometry);
-  IIFORMAT_HAS_METHOD (tab_control, set_property);
+  IIFORMAT_HAS_METHOD (tab_control, update);
   VALID_WIDGET_KEYWORDS (tab_control);
   VALID_GUI_KEYWORDS (tab_control);
-  IIFORMAT_VALID_KEYWORD (tab_control, Q_orientation, check_valid_tab_orientation);
-  IIFORMAT_VALID_KEYWORD (tab_control, Q_properties, check_valid_item_list);
+  IIFORMAT_VALID_KEYWORD (tab_control, Q_orientation,
+			  check_valid_tab_orientation);
+  IIFORMAT_VALID_KEYWORD (tab_control, Q_items, check_valid_item_list);
 }
 
 static void image_instantiator_labels (void)
@@ -1420,14 +1530,14 @@ static void image_instantiator_labels (void)
   IIFORMAT_VALID_KEYWORD (label, Q_descriptor, check_valid_string);
 }
 
-#define VALID_LAYOUT_KEYWORDS(layout) \
-  VALID_WIDGET_KEYWORDS (layout);						\
-  IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation);	\
-  IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);	\
-  IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);		\
-  IIFORMAT_VALID_KEYWORD (layout, Q_margin_width, check_valid_int);	\
-  IIFORMAT_VALID_KEYWORD (layout, Q_items,				\
-			  check_valid_glyph_or_instantiator_list)
+#define VALID_LAYOUT_KEYWORDS(layout)					   \
+  VALID_WIDGET_KEYWORDS (layout);					   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation); \
+  IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);	   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_margin_width, check_valid_int);	   \
+  IIFORMAT_VALID_KEYWORD (layout, Q_items,				   \
+			  check_valid_instantiator_list)
 
 static void image_instantiator_layout (void)
 {
@@ -1439,6 +1549,8 @@ static void image_instantiator_layout (void)
   IIFORMAT_HAS_METHOD (layout, normalize);
   IIFORMAT_HAS_METHOD (layout, query_geometry);
   IIFORMAT_HAS_METHOD (layout, layout);
+  IIFORMAT_HAS_METHOD (layout, update);
+  IIFORMAT_HAS_METHOD (layout, property);
 
   VALID_GUI_KEYWORDS (layout);
   VALID_LAYOUT_KEYWORDS (layout);
@@ -1455,6 +1567,7 @@ static void image_instantiator_native_layout (void)
   IIFORMAT_HAS_SHARED_METHOD (native_layout, normalize, layout);
   IIFORMAT_HAS_SHARED_METHOD (native_layout, query_geometry, layout);
   IIFORMAT_HAS_SHARED_METHOD (native_layout, layout, layout);
+  IIFORMAT_HAS_SHARED_METHOD (native_layout, property, layout);
 
   VALID_GUI_KEYWORDS (native_layout);
   VALID_LAYOUT_KEYWORDS (native_layout);

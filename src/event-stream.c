@@ -610,6 +610,14 @@ event_stream_quit_p (void)
     event_stream->quit_p_cb ();
 }
 
+static int
+event_stream_current_event_timestamp (struct console *c)
+{
+  if (event_stream && event_stream->current_event_timestamp_cb)
+    return event_stream->current_event_timestamp_cb (c);
+  else
+    return 0;
+}
 
 
 /**********************************************************************/
@@ -765,6 +773,17 @@ maybe_kbd_translate (Lisp_Object event)
       if (!NILP (traduit) && SYMBOLP (traduit))
 	{
 	  XEVENT (event)->event.key.keysym = traduit;
+	  did_translate = 1;
+	}
+      else if (CHARP (traduit))
+	{
+	  Lisp_Event ev2;
+
+	  zero_event (&ev2);
+	  character_to_event (XCHAR (traduit), &ev2,
+			      XCONSOLE (EVENT_CHANNEL (XEVENT (event))), 1, 1);
+	  XEVENT (event)->event.key.keysym = ev2.event.key.keysym;
+	  XEVENT (event)->event.key.modifiers |= ev2.event.key.modifiers;
 	  did_translate = 1;
 	}
     }
@@ -2037,7 +2056,12 @@ The next available event will be
 
 -- any events in `unread-command-events' or `unread-command-event'; else
 -- the next event in the currently executing keyboard macro, if any; else
--- an event queued by `enqueue-eval-event', if any; else
+-- an event queued by `enqueue-eval-event', if any, or any similar event
+   queued internally, such as a misc-user event. (For example, when an item
+   is selected from a menu or from a `question'-type dialog box, the item's
+   callback is not immediately executed, but instead a misc-user event
+   is generated and placed onto this queue; when it is dispatched, the
+   callback is executed.) Else
 -- the next available event from the window system or terminal driver.
 
 In the last case, this function will block until an event is available.
@@ -2352,7 +2376,7 @@ This function is useful for forcing the redisplay of native
 widgets. Normally these are redisplayed through a native window-system
 event encoded as magic event, rather than by the redisplay code.  This
 function does not call redisplay or do any of the other things that
-`next-event' does.  
+`next-event' does.
 */
        ())
 {
@@ -2875,10 +2899,8 @@ If sit-for is called from within a process filter function or timer
   return result;
 }
 
-/* This handy little function is used by xselect.c and energize.c to
-   wait for replies from processes that aren't really processes (that is,
-   the X server and the Energize server).
- */
+/* This handy little function is used by select-x.c to wait for replies
+   from processes that aren't really processes (e.g. the X server) */
 void
 wait_delaying_user_input (int (*predicate) (void *arg), void *predicate_arg)
 {
@@ -4416,6 +4438,23 @@ If FILE is nil, close any open dribble file.
 }
 
 
+
+DEFUN ("current-event-timestamp", Fcurrent_event_timestamp, 0, 1, 0, /*
+Return the current event timestamp of the window system associated with CONSOLE.
+CONSOLE defaults to the selected console if omitted.
+*/
+       (console))
+{
+  struct console *c = decode_console (console);
+  int tiempo = event_stream_current_event_timestamp (c);
+
+  /* This junk is so that timestamps don't get to be negative, but contain
+     as many bits as this particular emacs will allow.
+   */
+  return make_int (((1L << (VALBITS - 1)) - 1) & tiempo);
+}
+
+
 /************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
@@ -4429,8 +4468,7 @@ syms_of_event_stream (void)
   defsymbol (&Qdisabled, "disabled");
   defsymbol (&Qcommand_event_p, "command-event-p");
 
-  deferror (&Qundefined_keystroke_sequence, "undefined-keystroke-sequence",
-            "Undefined keystroke sequence", Qerror);
+  DEFERROR_STANDARD (Qundefined_keystroke_sequence, Qinvalid_argument);
 
   DEFSUBR (Frecent_keys);
   DEFSUBR (Frecent_keys_ring_size);
@@ -4453,6 +4491,7 @@ syms_of_event_stream (void)
   DEFSUBR (Fthis_command_keys);
   DEFSUBR (Freset_this_command_lengths);
   DEFSUBR (Fopen_dribble_file);
+  DEFSUBR (Fcurrent_event_timestamp);
 
   defsymbol (&Qpre_command_hook, "pre-command-hook");
   defsymbol (&Qpost_command_hook, "post-command-hook");
@@ -4550,7 +4589,7 @@ Normal hook run when XEmacs it about to be idle.
 This occurs whenever it is going to block, waiting for an event.
 This generally happens as a result of a call to `next-event',
 `next-command-event', `sit-for', `sleep-for', `accept-process-output',
-`x-get-selection', or various Energize-specific commands.
+or `x-get-selection'.
 Errors running the hook are caught and ignored.
 */ );
   Vpre_idle_hook = Qnil;
@@ -4736,6 +4775,10 @@ Each key-press event is looked up in this table as follows:
    keysym changed and its modifiers left alone.  This is useful for
    dealing with non-standard X keyboards, such as the grievous damage
    that Sun has inflicted upon the world.
+-- If an entry maps a symbol to a character, then a key-press event
+   whose keysym is the former symbol (with any modifiers at all) gets
+   changed into a key-press event matching the latter character, and the
+   resulting modifiers are the union of the original and new modifiers.
 -- If an entry maps a character to a character, then a key-press event
    matching the former character gets converted to a key-press event
    matching the latter character.  This is useful on ASCII terminals
@@ -4744,6 +4787,16 @@ Each key-press event is looked up in this table as follows:
 -- If an entry maps a character to a symbol, then a key-press event
    matching the character gets converted to a key-press event whose
    keysym is the given symbol and which has no modifiers.
+
+Here's an example: This makes typing parens and braces easier by rerouting
+their positions to eliminate the need to use the Shift key.
+
+  (keyboard-translate ?[ ?()
+  (keyboard-translate ?] ?))
+  (keyboard-translate ?{ ?[)
+  (keyboard-translate ?} ?])
+  (keyboard-translate 'f11 ?{)
+  (keyboard-translate 'f12 ?})
 */ );
 
   DEFVAR_LISP ("retry-undefined-key-binding-unshifted",

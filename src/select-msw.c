@@ -65,14 +65,14 @@ symbol_to_ms_cf (Lisp_Object value)
 {
   /* If it's NIL, we're in trouble. */
   if (NILP (value))			return 0;
-  
+
   /* If it's an integer, assume it's a format ID */
   if (INTP (value))			return (UINT) (XINT (value));
 
   /* If it's a string, register the format(!) */
   if (STRINGP (value))
     return RegisterClipboardFormat (XSTRING_DATA (value));
-  
+
   /* Check for Windows clipboard format symbols */
   if (EQ (value, QCF_TEXT))		return CF_TEXT;
   if (EQ (value, QCF_BITMAP))		return CF_BITMAP;
@@ -82,6 +82,9 @@ symbol_to_ms_cf (Lisp_Object value)
   if (EQ (value, QCF_TIFF))		return CF_TIFF;
   if (EQ (value, QCF_OEMTEXT))		return CF_OEMTEXT;
   if (EQ (value, QCF_DIB))		return CF_DIB;
+#ifdef CF_DIBV5
+  if (EQ (value, QCF_DIBV5))		return CF_DIBV5;
+#endif
   if (EQ (value, QCF_PALETTE))		return CF_PALETTE;
   if (EQ (value, QCF_PENDATA))		return CF_PENDATA;
   if (EQ (value, QCF_RIFF))		return CF_RIFF;
@@ -114,6 +117,9 @@ ms_cf_to_symbol (UINT format)
     case CF_TIFF:		return QCF_TIFF;
     case CF_OEMTEXT:		return QCF_OEMTEXT;
     case CF_DIB:		return QCF_DIB;
+#ifdef CF_DIBV5
+    case CF_DIBV5:		return QCF_DIBV5;
+#endif
     case CF_PALETTE:		return QCF_PALETTE;
     case CF_PENDATA:		return QCF_PENDATA;
     case CF_RIFF:		return QCF_RIFF;
@@ -139,14 +145,18 @@ cf_is_autofreed (UINT format)
 {
   switch (format)
     {
-    /* This list comes from the SDK documentation */
+      /* This list comes from the SDK documentation */
     case CF_DSPENHMETAFILE:
     case CF_DSPMETAFILEPICT:
     case CF_ENHMETAFILE:
+    case CF_METAFILEPICT:
     case CF_BITMAP:
     case CF_DSPBITMAP:
     case CF_PALETTE:
     case CF_DIB:
+#ifdef CF_DIBV5
+    case CF_DIBV5:
+#endif
     case CF_DSPTEXT:
     case CF_OEMTEXT:
     case CF_TEXT:
@@ -159,7 +169,7 @@ cf_is_autofreed (UINT format)
 }
 
 /* Do protocol to assert ourself as a selection owner.
-   
+
    Under mswindows, we:
 
    * Only set the clipboard if (eq selection-name 'CLIPBOARD)
@@ -208,7 +218,7 @@ mswindows_own_selection (Lisp_Object selection_name,
       /* Only continue if we can figure out a clipboard type */
       if (!cfType)
 	return Qnil;
-      
+
       cfObject = selection_type;
     }
 
@@ -230,52 +240,52 @@ mswindows_own_selection (Lisp_Object selection_name,
 
       data = XCDR (data);
     }
-  
+
   /* We support opaque or string values, but we only mention string
      values for now... */
   if (!OPAQUEP (data)
       && !STRINGP (data))
     return Qnil;
-      
+
   /* Compute the data length */
   if (OPAQUEP (data))
     size = XOPAQUE_SIZE (data);
   else
     size = XSTRING_LENGTH (data) + 1;
-      
+
   /* Find the frame */
   f = selected_frame ();
 
   /* Open the clipboard */
   if (!OpenClipboard (FRAME_MSWINDOWS_HANDLE (f)))
     return Qnil;
-  
+
   /* Allocate memory */
   hValue = GlobalAlloc (GMEM_DDESHARE | GMEM_MOVEABLE, size);
-      
+
   if (!hValue)
     {
       CloseClipboard ();
 
       return Qnil;
     }
-      
+
   /* Copy the data */
   if (OPAQUEP (data))
     src = XOPAQUE_DATA (data);
   else
     src = XSTRING_DATA (data);
-      
+
   dst = GlobalLock (hValue);
-  
+
   if (!dst)
     {
       GlobalFree (hValue);
       CloseClipboard ();
-      
+
       return Qnil;
     }
-  
+
   memcpy (dst, src, size);
 
   GlobalUnlock (hValue);
@@ -301,7 +311,7 @@ mswindows_own_selection (Lisp_Object selection_name,
     {
       Lisp_Object alist_elt = Qnil, rest;
       Lisp_Object cfType_int = make_int (cfType);
-      
+
       /* First check if there's an element in the alist for this type
 	 already. */
       alist_elt = assq_no_quit (cfType_int, Vhandle_alist);
@@ -314,7 +324,7 @@ mswindows_own_selection (Lisp_Object selection_name,
 	{
 	  /* Free the original handle */
 	  GlobalFree ((HGLOBAL) get_opaque_ptr (XCDR (alist_elt)));
-	
+
 	  /* Remove the original one (adding first makes life easier, because
 	     we don't have to special case this being the first element)      */
 	  for (rest = Vhandle_alist; !NILP (rest); rest = Fcdr (rest))
@@ -325,7 +335,7 @@ mswindows_own_selection (Lisp_Object selection_name,
 	      }
 	}
     }
-  
+
   CloseClipboard ();
 
   /* #### Should really return a time, though this is because of the
@@ -342,7 +352,7 @@ mswindows_available_selection_types (Lisp_Object selection_name)
 
   if (!EQ (selection_name, QCLIPBOARD))
     return Qnil;
-  
+
   /* Find the frame */
   f = selected_frame ();
 
@@ -353,7 +363,7 @@ mswindows_available_selection_types (Lisp_Object selection_name)
   /* #### ajh - Should there be an unwind-protect handler around this?
                 It could (well it probably won't, but it's always better to
 		be safe) run out of memory and leave the clipboard open... */
-  
+
   while ((format = EnumClipboardFormats (format)))
     types = Fcons (ms_cf_to_symbol (format), types);
 
@@ -388,7 +398,7 @@ mswindows_selection_data_type_name (Lisp_Object type_id)
   /* If it's an integer, convert to a symbol if appropriate */
   if (INTP (type_id))
     type_id = ms_cf_to_symbol (XINT (type_id));
-  
+
   /* If this is a symbol, return it */
   if (SYMBOLP (type_id))
     return type_id;
@@ -410,10 +420,10 @@ mswindows_selection_data_type_name (Lisp_Object type_id)
          MULE could hack it. */
       name = make_ext_string (name_buf, numchars,
 			      Fget_coding_system (Qraw_text));
-      
+
       return name;
     }
-  
+
   return Qnil;
 }
 
@@ -429,13 +439,13 @@ mswindows_get_foreign_selection (Lisp_Object selection_symbol,
   void		*data;
   struct frame  *f = NULL;
   struct gcpro	gcpro1;
-  
+
   /* Only continue if we're trying to read the clipboard - mswindows doesn't
      use the same selection model as X */
   if (!EQ (selection_symbol, QCLIPBOARD))
     return Qnil;
 
-  /* If this is one fo the X-style atom name symbols, or NIL, convert it
+  /* If this is one of the X-style atom name symbols, or NIL, convert it
      as appropriate */
   if (NILP (target_type) || x_sym_p (target_type))
     {
@@ -492,7 +502,7 @@ mswindows_get_foreign_selection (Lisp_Object selection_symbol,
   CloseClipboard ();
 
   GCPRO1 (ret);
-  
+
   /* Convert this to the appropriate type. If we can't find anything,
      then we return a cons of the form (DATA-TYPE . STRING), where the
      string contains the raw binary data. */
@@ -501,7 +511,7 @@ mswindows_get_foreign_selection (Lisp_Object selection_symbol,
 			     ret);
 
   UNGCPRO;
-  
+
   if (NILP (value))
     return Fcons (cfObject, ret);
   else
@@ -529,17 +539,15 @@ mswindows_disown_selection (Lisp_Object selection, Lisp_Object timeval)
 void
 mswindows_destroy_selection (Lisp_Object selection)
 {
-  Lisp_Object alist_elt;
-  
   /* Do nothing if this isn't for the clipboard. */
   if (!EQ (selection, QCLIPBOARD))
     return;
 
   /* Right. We need to delete everything in Vhandle_alist. */
-  alist_elt = Vhandle_alist;
-
-  for (alist_elt; !NILP (alist_elt); alist_elt = Fcdr (alist_elt))
-    GlobalFree ((HGLOBAL) get_opaque_ptr (XCDR (alist_elt)));
+  {
+    LIST_LOOP_2 (elt, Vhandle_alist)
+      GlobalFree ((HGLOBAL) get_opaque_ptr (XCDR (elt)));
+  }
 
   Vhandle_alist = Qnil;
 }

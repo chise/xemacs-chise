@@ -421,7 +421,7 @@ Fifth argument PROTOCOL is a network protocol.  Currently 'tcp
  (Transmission Control Protocol) and 'udp (User Datagram Protocol) are
  supported.  When omitted, 'tcp is assumed.
 
-Ouput via `process-send-string' and input via buffer or filter (see
+Output via `process-send-string' and input via buffer or filter (see
 `set-process-filter') are stream-oriented.  That means UDP datagrams are
 not guaranteed to be sent and received in discrete packets. (But small
 datagrams around 500 bytes that are not truncated by `process-send-string'
@@ -432,13 +432,20 @@ lost packets."
 (defun shell-quote-argument (argument)
   "Quote an argument for passing as argument to an inferior shell."
   (if (and (eq system-type 'windows-nt)
-	   ;; #### this is a temporary hack.  a better solution needs
-	   ;; futzing with the c code.  i'll do this shortly.
 	   (let ((progname (downcase (file-name-nondirectory
 				      shell-file-name))))
 	     (or (equal progname "command.com")
 		 (equal progname "cmd.exe"))))
-      argument
+      ;; the expectation is that you can take the result of
+      ;; shell-quote-argument and pass it to as an arg to
+      ;; (start-process shell-quote-argument ...) and have it end
+      ;; up as-is in the program's argv[] array.  to do this, we
+      ;; need to protect against both the shell's and the program's
+      ;; quoting conventions (and our own conventions in
+      ;; mswindows-construct-process-command-line!).  Putting quotes
+      ;; around shell metachars gets through the last two, and applying
+      ;; the normal VC runtime quoting works with practically all apps.
+      (mswindows-quote-one-vc-runtime-arg argument t)
     ;; Quote everything except POSIX filename characters.
     ;; This should be safe enough even for really weird shells.
     (let ((result "") (start 0) end)

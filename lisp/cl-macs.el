@@ -1413,10 +1413,10 @@ values.  For compatibility, (values A B C) is a synonym for (list A B C)."
   (cond ((eq (car-safe spec) 'special)
 	 (if (boundp 'byte-compile-bound-variables)
 	     (setq byte-compile-bound-variables
-		   ;; todo: this should compute correct binding bits vs. 0
-		   (append (mapcar #'(lambda (v) (cons v 0))
-				   (cdr spec))
-			   byte-compile-bound-variables))))
+		   (append
+		    (mapcar #'(lambda (v) (cons v byte-compile-global-bit))
+			    (cdr spec))
+		    byte-compile-bound-variables))))
 
 	((eq (car-safe spec) 'inline)
 	 (while (setq spec (cdr spec))
@@ -1769,6 +1769,7 @@ Example: (defsetf nth (n x) (v) (list 'setcar (list 'nthcdr n x) v))."
 (defsetf x-get-cut-buffer x-store-cut-buffer t)   ; groan.
 (defsetf x-get-secondary-selection x-own-secondary-selection t)
 (defsetf x-get-selection x-own-selection t)
+(defsetf get-selection own-selection t)
 
 ;;; More complex setf-methods.
 ;;; These should take &environment arguments, but since full arglists aren't

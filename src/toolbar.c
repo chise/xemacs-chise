@@ -73,24 +73,8 @@ mark_toolbar_button (Lisp_Object obj)
   return data->help_string;
 }
 
-static void
-print_toolbar_button (Lisp_Object obj, Lisp_Object printcharfun,
-		      int escapeflag)
-{
-  struct toolbar_button *tb = XTOOLBAR_BUTTON (obj);
-  char buf[100];
-
-  if (print_readably)
-    error ("printing unreadable object #<toolbar-button 0x%x>",
-	   tb->header.uid);
-
-  sprintf (buf, "#<toolbar-button 0x%x>", tb->header.uid);
-  write_c_string (buf, printcharfun);
-}
-
 DEFINE_LRECORD_IMPLEMENTATION ("toolbar-button", toolbar_button,
-			       mark_toolbar_button, print_toolbar_button,
-			       0, 0, 0, 0,
+			       mark_toolbar_button, 0, 0, 0, 0, 0,
 			       struct toolbar_button);
 
 DEFUN ("toolbar-button-p", Ftoolbar_button_p, 1, 1, 0, /*
@@ -1040,7 +1024,7 @@ whole, use `check-valid-instantiator' with a specifier type of 'toolbar.
 	 which buffer to check in.  #### I think this is a bad thing.
 	 See if we can't get enough information to this function so
 	 that it can check.
-	 
+
 	 #### Wrong.  We shouldn't be checking the value at all here.
 	 The user might set or change the value at any time. */
       value = Fsymbol_value (elt[0]);

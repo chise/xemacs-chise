@@ -120,13 +120,19 @@ Otherwise, include frames only on the selected device."
 
 (defmacro save-selected-window (&rest body)
   "Execute BODY, then select the window that was selected before BODY."
-  (list 'let
-	'((save-selected-window-window (selected-window)))
-	(list 'unwind-protect
-	      (cons 'progn body)
-	      (list 'and ; XEmacs
-		    (list 'window-live-p 'save-selected-window-window)
-		    (list 'select-window 'save-selected-window-window)))))
+  `(let ((save-selected-window-window (selected-window)))
+     (unwind-protect
+	 (progn ,@body)
+       (when (window-live-p save-selected-window-window)
+	 (select-window save-selected-window-window)))))
+
+(defmacro with-selected-window (window &rest body)
+  "Execute forms in BODY with WINDOW as the selected window.
+The value returned is the value of the last form in BODY."
+  `(save-selected-window
+     (select-window ,window)
+     ,@body))
+
 
 (defun count-windows (&optional minibuf)
    "Return the number of visible windows.
@@ -286,8 +292,7 @@ or if the window is the only window of its frame."
 	      (if (and (not (eobp))
 		       (eq ?\n (char-after (1- (point-max)))))
 		  1 0)))
-	  (mini (frame-property (window-frame window) 'minibuffer))
-	  (edges (window-pixel-edges (selected-window))))
+	  (mini (frame-property (window-frame window) 'minibuffer)))
       (if (and (< 1 (let ((frame (selected-frame)))
 		      (select-frame (window-frame window))
 		      (unwind-protect
@@ -297,7 +302,6 @@ or if the window is the only window of its frame."
 	       ;; of the frame
 	       (window-leftmost-p window)
 	       (window-rightmost-p window)
-	       (zerop (nth 0 edges))
 	       ;; The whole buffer must be visible.
 	       (pos-visible-in-window-p (point-min) window)
 	       ;; The frame must not be minibuffer-only.

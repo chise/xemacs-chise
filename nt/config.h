@@ -257,7 +257,6 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_SIGHOLD
 #undef HAVE_SIGPROCMASK
 #undef HAVE_SIGSETJMP
-#undef HAVE_STRCASECMP
 #define HAVE_STRERROR
 #undef HAVE_TZSET
 #undef HAVE_UTIMES
@@ -499,7 +498,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* If you wish to compile with support for the Network Audio System
    system define HAVE_NAS_SOUND.
-   NAS_NO_ERROR_JUMP means that the NAS libraries don't inlcude some
+   NAS_NO_ERROR_JUMP means that the NAS libraries don't include some
    error handling changes.
  */
 #undef HAVE_NAS_SOUND

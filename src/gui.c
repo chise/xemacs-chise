@@ -23,6 +23,9 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file not quite Mule-ized yet but will be when merged with my
+   Mule workspace. --ben */
+
 #include <config.h>
 #include "lisp.h"
 #include "gui.h"
@@ -30,10 +33,8 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "bytecode.h"
 
-Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
-Lisp_Object Q_filter, Q_config, Q_included, Q_key_sequence;
-Lisp_Object Q_accelerator, Q_label, Q_callback, Q_callback_ex, Q_value;
-Lisp_Object Qtoggle, Qradio;
+Lisp_Object Qmenu_no_selection_hook;
+Lisp_Object Vmenu_no_selection_hook;
 
 static Lisp_Object parse_gui_item_tree_list (Lisp_Object list);
 
@@ -53,10 +54,10 @@ See `popup-menu' and `popup-dialog-box'.
 #endif /* HAVE_POPUPS */
 
 int
-separator_string_p (const char *s)
+separator_string_p (const Bufbyte *s)
 {
-  const char *p;
-  char first;
+  const Bufbyte *p;
+  Bufbyte first;
 
   if (!s || s[0] == '\0')
     return 0;
@@ -118,7 +119,7 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
   Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   if (!KEYWORDP (key))
-    signal_simple_error_2 ("Non-keyword in gui item", key, pgui_item->name);
+    syntax_error_2 ("Non-keyword in gui item", key, pgui_item->name);
 
   if	  (EQ (key, Q_suffix))	 pgui_item->suffix   = val;
   else if (EQ (key, Q_active))	 pgui_item->active   = val;
@@ -138,10 +139,10 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
       if (SYMBOLP (val) || CHARP (val))
 	pgui_item->accelerator = val;
       else if (ERRB_EQ (errb, ERROR_ME))
-	signal_simple_error ("Bad keyboard accelerator", val);
+	syntax_error ("Bad keyboard accelerator", val);
     }
   else if (ERRB_EQ (errb, ERROR_ME))
-    signal_simple_error_2 ("Unknown keyword in gui item", key,
+    syntax_error_2 ("Unknown keyword in gui item", key,
 			   pgui_item->name);
 }
 
@@ -198,7 +199,7 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
   contents = XVECTOR_DATA (item);
 
   if (length < 1)
-    signal_simple_error ("GUI item descriptors must be at least 1 elts long", item);
+    syntax_error ("GUI item descriptors must be at least 1 elts long", item);
 
   /* length 1:     		[ "name" ]
      length 2:		[ "name" callback ]
@@ -233,7 +234,7 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
     {
       int i;
       if ((length - start) & 1)
-	signal_simple_error (
+	syntax_error (
 		"GUI item descriptor has an odd number of keywords and values",
 			     item);
 
@@ -357,6 +358,19 @@ gui_item_selected_p (Lisp_Object gui_item)
 	  || !NILP (Feval (XGUI_ITEM (gui_item)->selected)));
 }
 
+Lisp_Object
+gui_item_list_find_selected (Lisp_Object gui_item_list)
+{
+  /* This function can GC. */
+  Lisp_Object rest;
+  LIST_LOOP (rest, gui_item_list)
+    {
+      if (gui_item_selected_p (XCAR (rest)))
+	return XCAR (rest);
+    }
+  return XCAR (gui_item_list);
+}
+
 /*
  * Decide whether a GUI item is included by evaluating its :included
  * form if given, and testing its :config form against supplied CONFLIST
@@ -384,7 +398,7 @@ gui_item_included_p (Lisp_Object gui_item, Lisp_Object conflist)
 static DOESNT_RETURN
 signal_too_long_error (Lisp_Object name)
 {
-  signal_simple_error ("GUI item produces too long displayable string", name);
+  syntax_error ("GUI item produces too long displayable string", name);
 }
 
 #ifdef HAVE_WINDOW_SYSTEM
@@ -544,8 +558,8 @@ gui_item_id_hash (Lisp_Object hashtable, Lisp_Object gitem, int slot)
   return id;
 }
 
-static int
-gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+int
+gui_item_equal_sans_selected (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   Lisp_Gui_Item *p1 = XGUI_ITEM (obj1);
   Lisp_Gui_Item *p2 = XGUI_ITEM (obj2);
@@ -568,13 +582,24 @@ gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	&&
 	EQ (p1->style, p2->style)
 	&&
-	EQ (p1->selected, p2->selected)
-	&&
 	EQ (p1->accelerator, p2->accelerator)
 	&&
 	EQ (p1->keys, p2->keys)
 	&&
 	EQ (p1->value, p2->value)))
+    return 0;
+  return 1;
+}
+
+static int
+gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  Lisp_Gui_Item *p1 = XGUI_ITEM (obj1);
+  Lisp_Gui_Item *p2 = XGUI_ITEM (obj2);
+
+  if (!(gui_item_equal_sans_selected (obj1, obj2, depth)
+	&&
+	EQ (p1->selected, p2->selected)))
     return 0;
   return 1;
 }
@@ -632,7 +657,7 @@ copy_gui_item_tree (Lisp_Object arg)
     }
   else if (GUI_ITEMP (arg))
     return copy_gui_item (arg);
-  else 
+  else
     return arg;
 }
 
@@ -658,7 +683,7 @@ parse_gui_item_tree_item (Lisp_Object entry)
       CHECK_STRING (entry);
     }
   else
-    signal_simple_error ("item must be a vector or a string", entry);
+    syntax_error ("item must be a vector or a string", entry);
 
   RETURN_UNGCPRO (ret);
 }
@@ -715,23 +740,7 @@ syms_of_gui (void)
 {
   INIT_LRECORD_IMPLEMENTATION (gui_item);
 
-  defkeyword (&Q_active,   ":active");
-  defkeyword (&Q_suffix,   ":suffix");
-  defkeyword (&Q_keys,     ":keys");
-  defkeyword (&Q_key_sequence,":key-sequence");
-  defkeyword (&Q_style,    ":style");
-  defkeyword (&Q_selected, ":selected");
-  defkeyword (&Q_filter,   ":filter");
-  defkeyword (&Q_config,   ":config");
-  defkeyword (&Q_included, ":included");
-  defkeyword (&Q_accelerator, ":accelerator");
-  defkeyword (&Q_label, ":label");
-  defkeyword (&Q_callback, ":callback");
-  defkeyword (&Q_callback_ex, ":callback-ex");
-  defkeyword (&Q_value, ":value");
-
-  defsymbol (&Qtoggle, "toggle");
-  defsymbol (&Qradio, "radio");
+  DEFSYMBOL (Qmenu_no_selection_hook);
 
 #ifdef HAVE_POPUPS
   DEFSUBR (Fpopup_up_p);
@@ -741,4 +750,9 @@ syms_of_gui (void)
 void
 vars_of_gui (void)
 {
+  DEFVAR_LISP ("menu-no-selection-hook", &Vmenu_no_selection_hook /*
+Function or functions to call when a menu or dialog box is dismissed
+without a selection having been made.
+*/ );
+  Vmenu_no_selection_hook = Qnil;
 }

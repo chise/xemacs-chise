@@ -1,5 +1,6 @@
 /* Definitions of symbol-value forwarding for XEmacs Lisp interpreter.
    Copyright (C) 1985, 1986, 1987, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -80,7 +81,7 @@ struct symbol_value_magic
  XRECORD_LHEADER (x)->type <= lrecord_type_max_symbol_value_magic)
 #define XSYMBOL_VALUE_MAGIC_TYPE(v) \
 	(((struct symbol_value_magic *) XPNTR (v))->type)
-#define XSETSYMBOL_VALUE_MAGIC(s, p) XSETOBJ (s, Lisp_Type_Record, p)
+#define XSETSYMBOL_VALUE_MAGIC(s, p) XSETOBJ (s, p)
 void print_symbol_value_magic (Lisp_Object, Lisp_Object, int);
 
 /********** The various different symbol-value-magic types ***********/
@@ -281,13 +282,38 @@ void defsubr (Lisp_Subr *);
 void defsubr_macro (Lisp_Subr *);
 #define DEFSUBR_MACRO(Fname) defsubr_macro (&S##Fname)
 
+void defsymbol_massage_name (Lisp_Object *location, const char *name);
+void defsymbol_massage_name_nodump (Lisp_Object *location, const char *name);
+void defsymbol_massage_multiword_predicate (Lisp_Object *location,
+					    const char *name);
+void defsymbol_massage_multiword_predicate_nodump (Lisp_Object *location,
+						   const char *name);
 void defsymbol (Lisp_Object *location, const char *name);
 void defsymbol_nodump (Lisp_Object *location, const char *name);
 
+#define DEFSYMBOL(name) defsymbol_massage_name (&name, #name)
+#define DEFSYMBOL_NO_DUMP(name) defsymbol_massage_name_nodump (&name, #name)
+#define DEFSYMBOL_MULTIWORD_PREDICATE(name) \
+  defsymbol_massage_multiword_predicate (&name, #name)
+#define DEFSYMBOL_MULTIWORD_PREDICATE_NO_DUMP(name) \
+  defsymbol_massage_multiword_predicate_nodump (&name, #name)
+
 void defkeyword (Lisp_Object *location, const char *name);
+void defkeyword_massage_name (Lisp_Object *location, const char *name);
+#define DEFKEYWORD(name) defkeyword_massage_name (&name, #name)
 
 void deferror (Lisp_Object *symbol, const char *name,
 	       const char *message, Lisp_Object inherits_from);
+void deferror_massage_name (Lisp_Object *symbol, const char *name,
+			    const char *message, Lisp_Object inherits_from);
+void deferror_massage_name_and_message (Lisp_Object *symbol, const char *name,
+					Lisp_Object inherits_from);
+#define DEFERROR(name, message, inherits_from) \
+  deferror_massage_name (&name, #name, message, inherits_from)
+/* In this case, the error message is the same as the name, modulo some
+   prettifying */
+#define DEFERROR_STANDARD(name, inherits_from) \
+  deferror_massage_name_and_message (&name, #name, inherits_from)
 
 /* Macros we use to define forwarded Lisp variables.
    These are used in the syms_of_FILENAME functions.  */

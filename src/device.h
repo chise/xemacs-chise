@@ -220,6 +220,7 @@ struct device
 DECLARE_LRECORD (device, struct device);
 #define XDEVICE(x) XRECORD (x, device, struct device)
 #define XSETDEVICE(x, p) XSETRECORD (x, p, device)
+#define wrap_device(p) wrap_object (p)
 #define DEVICEP(x) RECORDP (x, device)
 #define CHECK_DEVICE(x) CHECK_RECORD (x, device)
 #define CONCHECK_DEVICE(x) CONCHECK_RECORD (x, device)

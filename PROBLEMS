@@ -523,7 +523,7 @@ correctly if you are using ash instead of bash (see below).
 
 This is usually because xmkmf is not in your path or because you are
 using the default cygwin shell. The default cygwin shell (/bin/sh.exe)
-is ash which appears to work in most circumstances but has some wierd
+is ash which appears to work in most circumstances but has some weird
 failure modes. I recommend replacing sh.exe with bash.exe, this will
 mean configure is slower but more reliable.
 
@@ -1045,7 +1045,7 @@ it only if it is undefined.
 Or you could set TERMCAP only when you set TERM--which should not
 happen in a non-login shell.
 
-*** The popup menu appears at the buttom/right of my screen.
+*** The popup menu appears at the bottom/right of my screen.
 
 You probably have something like the following in your ~/.Xdefaults
 
@@ -1427,7 +1427,7 @@ Richard Cognot <cognot@ensg.u-nancy.fr> writes:
   launched. Forcing a static link of libc.a alone by adding
   /usr/lib/libc.a at the end of the link line solves this. Note that
   my 9.07 build of 19.14b17 and my (old) build of 19.13 both exhibit
-  the same behaviour. I've tried various hpux patches to no avail. If
+  the same behavior. I've tried various hpux patches to no avail. If
   this problem cannot be solved before the release date, binary kits
   for HP *must* be linked statically against libc, otherwise this
   problem will show up. (This is directed at whoever will volunteer

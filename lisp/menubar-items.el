@@ -54,14 +54,6 @@
 
 ;;; Code:
 
-;;; Warning-free compile
-(eval-when-compile
-  (defvar language-environment-list)
-  (defvar bookmark-alist)
-  (defvar language-info-alist)
-  (defvar current-language-environment)
-  (defvar tutorial-supported-languages))
-
 (defun menu-truncate-list (list n)
   (if (<= (length list) n)
       list
@@ -147,12 +139,13 @@ which will not be used as accelerators."
       ["Save %_As..." write-file]
       ["Save So%_me Buffers" save-some-buffers]
       "-----"
-      ["%_Print Buffer" generic-print-buffer
+      ["%_Print" generic-print-buffer
        :active (or (valid-specifier-tag-p 'msprinter)
 		   (and (not (eq system-type 'windows-nt))
 			(fboundp 'lpr-buffer)))
-       :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]
-      ["Prett%_y-Print Buffer" ps-print-buffer-with-faces
+       :suffix (if put-buffer-names-in-file-menu (concat (buffer-name) "...")
+		 "...")]
+      ["Prett%_y-Print" ps-print-buffer-with-faces
        :active (fboundp 'ps-print-buffer-with-faces)
        :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]
       "-----"
@@ -194,15 +187,12 @@ which will not be used as accelerators."
        :active (selection-owner-p)]
       "----"
       ["Select %_All" mark-whole-buffer]
-      ["Select %_Page" mark-page]
+      ["Select Pa%_ge" mark-page]
       "----"
-      ["%_Search..." make-search-dialog]
-      ["%_1 Replace..." query-replace]
-      "----"
-      ["%_2 Search (Regexp)..." isearch-forward-regexp]
-      ["%_3 Search Backward (Regexp)..." isearch-backward-regexp]
-      ["%_4 Replace (Regexp)..." query-replace-regexp]
-
+      ["%_Find..." make-search-dialog]
+      ["R%_eplace..." query-replace]
+      ["Replace (Rege%_xp)..." query-replace-regexp]
+      ["%_List Matching Lines..." list-matching-lines]
       ,@(when (featurep 'mule)
 	 '("----"
 	   ("%_Multilingual (\"Mule\")"
@@ -363,13 +353,20 @@ which will not be used as accelerators."
 	:style toggle :selected mouse-track-rectangle-p]
        )
       ("%_Sort"
-       ["%_Lines" sort-lines :active (region-exists-p)]
-       ["%_Paragraphs" sort-paragraphs :active (region-exists-p)]
-       ["P%_ages" sort-pages :active (region-exists-p)]
-       ["%_Columns" sort-columns :active (region-exists-p)]
+       ["%_Lines in Region" sort-lines :active (region-exists-p)]
+       ["%_Paragraphs in Region" sort-paragraphs :active (region-exists-p)]
+       ["P%_ages in Region" sort-pages :active (region-exists-p)]
+       ["%_Columns in Region" sort-columns :active (region-exists-p)]
        ["%_Regexp..." sort-regexp-fields :active (region-exists-p)]
        )
-      ("%_Center"
+      ("%_Change Case"
+       ["%_Upcase Region" upcase-region :active (region-exists-p)]
+       ["%_Downcase Region" downcase-region :active (region-exists-p)]
+       ["%_Capitalize Region" capitalize-region :active (region-exists-p)]
+       ["%_Title-Case Region" capitalize-region-as-title
+	:active (region-exists-p)]
+       )
+      ("Ce%_nter"
        ["%_Line" center-line]
        ["%_Paragraph" center-paragraph]
        ["%_Region" center-region :active (region-exists-p)]
@@ -393,6 +390,25 @@ which will not be used as accelerators."
       )
 
      ("%_Tools"
+      ("%_Packages"
+       ("%_Add Download Site"
+        :filter (lambda (&rest junk)
+                  (submenu-generate-accelerator-spec
+		   (package-get-download-menu))))
+       ["%_Update Package Index" package-get-update-base]
+       ["%_List and Install" pui-list-packages]
+       ["U%_pdate Installed Packages" package-get-update-all]
+       ;; hack-o-matic, we can't force a load of package-base here
+       ;; since it triggers dialog box interactions which we can't
+       ;; deal with while using a menu
+       ("Using %_Custom" 
+	:filter (lambda (&rest junk)
+		  (if package-get-base
+		      (submenu-generate-accelerator-spec
+		       (cdr (custom-menu-create 'packages)))
+		    '("Please load Package Index"))))
+       
+       ["%_Help" (Info-goto-node "(xemacs)Packages")])
       ("%_Internet"
        ["Read Mail %_1 (VM)..." vm
 	:active (fboundp 'vm)]
@@ -631,38 +647,10 @@ which will not be used as accelerators."
        ["Se%_t..." customize-customized]
        ["%_Apropos..." customize-apropos]
        ["%_Browse..." customize-browse])
-      ("Manage %_Packages"
-       ("%_Add Download Site"
-        :filter (lambda (&rest junk)
-                  (submenu-generate-accelerator-spec
-		   (package-get-download-menu))))
-       ["%_Update Package Index" package-get-update-base]
-       ["%_List and Install" pui-list-packages]
-       ["U%_pdate Installed Packages" package-get-update-all]
-       ;; hack-o-matic, we can't force a load of package-base here
-       ;; since it triggers dialog box interactions which we can't
-       ;; deal with while using a menu
-       ("Using %_Custom" 
-	:filter (lambda (&rest junk)
-		  (if package-get-base
-		      (submenu-generate-accelerator-spec
-		       (cdr (custom-menu-create 'packages)))
-		    '(["Please load Package Index"
-		       (lamda (&rest junk) ()) nil]))))
-       
-       ["%_Help" (Info-goto-node "(xemacs)Packages")])
       "---"
-      ("%_Keyboard and Mouse"
-       ["%_Abbrev Mode"
-	(customize-set-variable 'abbrev-mode
-				(not (default-value 'abbrev-mode)))
-	:style toggle
-	:selected (default-value 'abbrev-mode)]
-       ["%_Delete Key Deletes Selection"
-	(customize-set-variable 'pending-delete-mode (not pending-delete-mode))
-	:style toggle
-	:selected (and (boundp 'pending-delete-mode) pending-delete-mode)
-	:active (boundp 'pending-delete-mode)]
+      ("%_Editing"
+       ["This Buffer %_Read Only" (toggle-read-only)
+	:style toggle :selected buffer-read-only]
        ["%_Yank/Kill Interact With Clipboard"
 	(if (eq interprogram-cut-function 'own-clipboard)
 	    (progn
@@ -677,6 +665,44 @@ which will not be used as accelerators."
 	  (setq overwrite-mode (if overwrite-mode nil 'overwrite-mode-textual))
 	  (customize-set-variable 'overwrite-mode overwrite-mode))
 	:style toggle :selected overwrite-mode]
+       ["%_Abbrev Mode"
+	(customize-set-variable 'abbrev-mode
+				(not (default-value 'abbrev-mode)))
+	:style toggle
+	:selected (default-value 'abbrev-mode)]
+       ["Active Re%_gions"
+	(customize-set-variable 'zmacs-regions (not zmacs-regions))
+	:style toggle :selected zmacs-regions]
+       "---"
+       ["%_Case Sensitive Search"
+	(customize-set-variable 'case-fold-search
+				(setq case-fold-search (not case-fold-search)))
+	:style toggle :selected (not case-fold-search)]
+       ["Case %_Matching Replace"
+	(customize-set-variable 'case-replace (not case-replace))
+	:style toggle :selected case-replace]
+       "---"
+       ("%_Newline at End of File..."
+	["%_Don't Require"
+	 (customize-set-variable 'require-final-newline nil)
+	 :style radio :selected (not require-final-newline)]
+	["%_Require"
+	 (customize-set-variable 'require-final-newline t)
+	 :style radio :selected (eq require-final-newline t)]
+	["%_Ask"
+	 (customize-set-variable 'require-final-newline 'ask)
+	 :style radio :selected (and require-final-newline
+				     (not (eq require-final-newline t)))])
+       ["Add Newline When Moving Past %_End"
+	(customize-set-variable 'next-line-add-newlines
+				(not next-line-add-newlines))
+	:style toggle :selected next-line-add-newlines])
+      ("%_Keyboard and Mouse"
+       ["%_Delete Key Deletes Selection"
+	(customize-set-variable 'pending-delete-mode (not pending-delete-mode))
+	:style toggle
+	:selected (and (boundp 'pending-delete-mode) pending-delete-mode)
+	:active (boundp 'pending-delete-mode)]
        ("`%_kill-line' Behavior..."
 	["Kill %_Whole Line"
 	 (customize-set-variable 'kill-whole-line 'always)
@@ -697,72 +723,19 @@ which will not be used as accelerators."
 	  (customize-set-variable 'viper-mode viper-mode))
 	:style toggle :selected (and (boundp 'viper-mode) viper-mode)
 	:active (fboundp 'toggle-viper-mode)]
-       ["Active Re%_gions"
-	(customize-set-variable 'zmacs-regions (not zmacs-regions))
-	:style toggle :selected zmacs-regions]
        "----"
        ["%_Set Key..." global-set-key]
        ["%_Unset Key..." global-unset-key]
        "---"
-       ["%_Case Sensitive Search"
-	(customize-set-variable 'case-fold-search
-				(setq case-fold-search (not case-fold-search)))
-	:style toggle :selected (not case-fold-search)]
-       ["Case Matching %_Replace"
-	(customize-set-variable 'case-replace (not case-replace))
-	:style toggle :selected case-replace]
-       "---"
-       ("%_Newline at End of File..."
-	["%_Don't Require"
-	 (customize-set-variable 'require-final-newline nil)
-	 :style radio :selected (not require-final-newline)]
-	["%_Require"
-	 (customize-set-variable 'require-final-newline t)
-	 :style radio :selected (eq require-final-newline t)]
-	["%_Ask"
-	 (customize-set-variable 'require-final-newline 'ask)
-	 :style radio :selected (and require-final-newline
-				     (not (eq require-final-newline t)))])
-       ["Add Newline When Moving Past %_End"
-	(customize-set-variable 'next-line-add-newlines
-				(not next-line-add-newlines))
-	:style toggle :selected next-line-add-newlines]
-       "---"
-       ["%_Mouse Paste at Text Cursor"
+       ["%_Mouse Paste at Text Cursor (not Clicked Location)"
 	(customize-set-variable 'mouse-yank-at-point (not mouse-yank-at-point))
 	:style toggle :selected mouse-yank-at-point]
-       ["A%_void Text..."
-	(customize-set-variable 'mouse-avoidance-mode
-				(if mouse-avoidance-mode nil 'banish))
-	:style toggle
-	:selected (and (boundp 'mouse-avoidance-mode) mouse-avoidance-mode)
-	:active (and (boundp 'mouse-avoidance-mode)
-		     (device-on-window-system-p))]
-       ["%_Strokes Mode"
-	(customize-set-variable 'strokes-mode (not strokes-mode))
-	:style toggle
-	:selected (and (boundp 'strokes-mode) strokes-mode)
-	:active (and (boundp 'strokes-mode)
-		     (device-on-window-system-p))]
-       )
-      ("%_General"
-       ["This Buffer %_Read Only" (toggle-read-only)
-	:style toggle :selected buffer-read-only]
+       "---"
        ["%_Teach Extended Commands"
 	(customize-set-variable 'teach-extended-commands-p
 				(not teach-extended-commands-p))
 	:style toggle :selected teach-extended-commands-p]
-       ["Debug on %_Error"
-	(customize-set-variable 'debug-on-error (not debug-on-error))
-	:style toggle :selected debug-on-error]
-       ["Debug on %_Quit"
-	(customize-set-variable 'debug-on-quit (not debug-on-quit))
-	:style toggle :selected debug-on-quit]
-       ["Debug on %_Signal"
-	(customize-set-variable 'debug-on-signal (not debug-on-signal))
-	:style toggle :selected debug-on-signal]
        )
-      
       ("%_Printing"
        ["Set Printer %_Name for Generic Print Support..."
 	(customize-set-variable
@@ -967,46 +940,113 @@ which will not be used as accelerators."
 			(eq browse-url-browser-function 'browse-url-kfm))
 	 :active (and (boundp 'browse-url-browser-function)
 		      (fboundp 'browse-url-kfm))]
-	))
-
-
+	))      
+      ("%_Troubleshooting"
+       ["%_Debug on Error"
+	(customize-set-variable 'debug-on-error (not debug-on-error))
+	:style toggle :selected debug-on-error]
+       ["Debug on %_Quit"
+	(customize-set-variable 'debug-on-quit (not debug-on-quit))
+	:style toggle :selected debug-on-quit]
+       ["Debug on S%_ignal"
+	(customize-set-variable 'debug-on-signal (not debug-on-signal))
+	:style toggle :selected debug-on-signal]
+       ["%_Stack Trace on Error"
+	(customize-set-variable 'stack-trace-on-error
+				(not stack-trace-on-error))
+	:style toggle :selected stack-trace-on-error]
+       ["Stack Trace on Si%_gnal"
+	(customize-set-variable 'stack-trace-on-signal
+				(not stack-trace-on-signal))
+	:style toggle :selected stack-trace-on-signal]
+       )
       "-----"
-      ("Display"
+      ("%_Display"
        ,@(if (featurep 'scrollbar)
 	     '(["%_Scrollbars"
 		(customize-set-variable 'scrollbars-visible-p
 					(not scrollbars-visible-p))
 		:style toggle
 		:selected scrollbars-visible-p]))
-       ;; I don't think this is of any interest. - dverna apr. 98
-       ;; #### I beg to differ!  Many FSFmacs converts hate the 3D
-       ;; modeline, and it was perfectly fine to be able to turn them
-       ;; off through the Options menu.  I would have uncommented this
-       ;; source, but the code for saving options would not save the
-       ;; modeline 3D-ness.  Grrr.  --hniksic
-       ;;	 ["%_3D Modeline"
-       ;;	  (progn
-       ;;	    (if (zerop (specifier-instance modeline-shadow-thickness))
-       ;;		(set-specifier modeline-shadow-thickness 2)
-       ;;	      (set-specifier modeline-shadow-thickness 0))
-       ;;	    (redraw-modeline t))
-       ;;	  :style toggle
-       ;;	  :selected (let ((thickness
-       ;;			   (specifier-instance modeline-shadow-thickness)))
-       ;;		      (and (integerp thickness)
-       ;;			   (> thickness 0)))]
-       ["%_Truncate Lines"
+       ["%_3D Modeline"
+	(customize-set-variable 'modeline-3d-p
+				(not modeline-3d-p))
+	:style toggle
+	:selected modeline-3d-p]
+       ["%_Wrap Long Lines"
 	(progn;; becomes buffer-local
 	  (setq truncate-lines (not truncate-lines))
 	  (customize-set-variable 'truncate-lines truncate-lines))
 	:style toggle
-	:selected truncate-lines]
+	:selected (not truncate-lines)]
+       ,@(if (featurep 'toolbar)
+	     '("---"
+	       ["%_Toolbars Visible"
+		(customize-set-variable 'toolbar-visible-p
+					(not toolbar-visible-p))
+		:style toggle
+		:selected toolbar-visible-p]
+	       ["Toolbars Ca%_ptioned"
+		(customize-set-variable 'toolbar-captioned-p
+					(not toolbar-captioned-p))
+		:style toggle
+		:active toolbar-visible-p
+		:selected toolbar-captioned-p]
+	       ("Default Toolba%_r Location"
+		["%_Top"
+		 (customize-set-variable 'default-toolbar-position 'top)
+		 :style radio
+		 :active toolbar-visible-p
+		 :selected (eq default-toolbar-position 'top)]
+		["%_Bottom"
+		 (customize-set-variable 'default-toolbar-position 'bottom)
+		 :style radio
+		 :active toolbar-visible-p
+		 :selected (eq default-toolbar-position 'bottom)]
+		["%_Left"
+		 (customize-set-variable 'default-toolbar-position 'left)
+		 :style radio
+		 :active toolbar-visible-p
+		 :selected (eq default-toolbar-position 'left)]
+		["%_Right"
+		 (customize-set-variable 'default-toolbar-position 'right)
+		 :style radio
+		 :active toolbar-visible-p
+		 :selected (eq default-toolbar-position 'right)]
+		)
+	       ))
+       ,@(if (featurep 'gutter)
+	     '("---"
+	       ["B%_uffers Tab Visible"
+		(customize-set-variable 'gutter-buffers-tab-visible-p
+					(not gutter-buffers-tab-visible-p))
+		:style toggle
+		:selected gutter-buffers-tab-visible-p]
+	       ("Default %_Gutter Location"
+		["%_Top"
+		 (customize-set-variable 'default-gutter-position 'top)
+		 :style radio
+		 :selected (eq default-gutter-position 'top)]
+		["%_Bottom"
+		 (customize-set-variable 'default-gutter-position 'bottom)
+		 :style radio
+		 :selected (eq default-gutter-position 'bottom)]
+		["%_Left"
+		 (customize-set-variable 'default-gutter-position 'left)
+		 :style radio
+		 :selected (eq default-gutter-position 'left)]
+		["%_Right"
+		 (customize-set-variable 'default-gutter-position 'right)
+		 :style radio
+		 :selected (eq default-gutter-position 'right)]
+		)
+	       ))
+       "-----"
        ["%_Blinking Cursor"
 	(customize-set-variable 'blink-cursor-mode (not blink-cursor-mode))
 	:style toggle
 	:selected (and (boundp 'blink-cursor-mode) blink-cursor-mode)
 	:active (boundp 'blink-cursor-mode)]
-       "-----"
        ["Bl%_ock Cursor"
 	(progn
 	  (customize-set-variable 'bar-cursor nil)
@@ -1025,6 +1065,34 @@ which will not be used as accelerators."
 	  (force-cursor-redisplay))
 	:style radio
 	:selected (and bar-cursor (not (eq bar-cursor t)))]
+       "----"
+       ("Pa%_ren Highlighting"
+       ["%_None"
+	(customize-set-variable 'paren-mode nil)
+	:style radio
+	:selected (and (boundp 'paren-mode) (not paren-mode))
+	:active (boundp 'paren-mode)]
+       ["%_Blinking Paren"
+	(customize-set-variable 'paren-mode 'blink-paren)
+	:style radio
+	:selected (and (boundp 'paren-mode) (eq paren-mode 'blink-paren))
+	:active (boundp 'paren-mode)]
+       ["%_Steady Paren"
+	(customize-set-variable 'paren-mode 'paren)
+	:style radio
+	:selected (and (boundp 'paren-mode) (eq paren-mode 'paren))
+	:active (boundp 'paren-mode)]
+       ["%_Expression"
+	(customize-set-variable 'paren-mode 'sexp)
+	:style radio
+	:selected (and (boundp 'paren-mode) (eq paren-mode 'sexp))
+	:active (boundp 'paren-mode)]
+       ;;	 ["Nes%_ted Shading"
+       ;;	  (customize-set-variable 'paren-mode 'nested)
+       ;;	  :style radio
+       ;;	  :selected (and (boundp 'paren-mode) (eq paren-mode 'nested))
+       ;;	  :active (boundp 'paren-mode)]
+       )
        "------"
        ["%_Line Numbers"
 	(progn
@@ -1045,23 +1113,28 @@ which will not be used as accelerators."
 	 :style radio
 	 :selected (null get-frame-for-buffer-default-instance-limit)]
 	["Other Frame (%_2 Frames Max)"
-	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit 2)
+	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit
+				 2)
 	 :style radio
 	 :selected (eq 2 get-frame-for-buffer-default-instance-limit)]
 	["Other Frame (%_3 Frames Max)"
-	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit 3)
+	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit
+				 3)
 	 :style radio
 	 :selected (eq 3 get-frame-for-buffer-default-instance-limit)]
 	["Other Frame (%_4 Frames Max)"
-	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit 4)
+	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit
+				 4)
 	 :style radio
 	 :selected (eq 4 get-frame-for-buffer-default-instance-limit)]
 	["Other Frame (%_5 Frames Max)"
-	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit 5)
+	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit
+				 5)
 	 :style radio
 	 :selected (eq 5 get-frame-for-buffer-default-instance-limit)]
 	["Always Create %_New Frame"
-	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit 0)
+	 (customize-set-variable 'get-frame-for-buffer-default-instance-limit
+				 0)
 	 :style radio
 	 :selected (eq 0 get-frame-for-buffer-default-instance-limit)]
 	"-----"
@@ -1077,7 +1150,8 @@ which will not be used as accelerators."
 	 :selected (null temp-buffer-show-function)]
 	"-----"
 	["%_Make Current Frame Gnuserv Target"
-	 (customize-set-variable 'gnuserv-frame (if (eq gnuserv-frame t) nil t))
+	 (customize-set-variable 'gnuserv-frame (if (eq gnuserv-frame t) nil
+						  t))
 	 :style toggle
 	 :selected (and (boundp 'gnuserv-frame) (eq gnuserv-frame t))
 	 :active (boundp 'gnuserv-frame)]
@@ -1159,64 +1233,6 @@ which will not be used as accelerators."
 	:selected (and (boundp 'font-menu-ignore-scaled-fonts)
 		       font-menu-ignore-scaled-fonts)]
        )
-      ,@(if (featurep 'toolbar)
-	    '(("%_Toolbars"
-	       ["%_Visible"
-		(customize-set-variable 'toolbar-visible-p
-					(not toolbar-visible-p))
-		:style toggle
-		:selected toolbar-visible-p]
-	       ["%_Captioned"
-		(customize-set-variable 'toolbar-captioned-p
-					(not toolbar-captioned-p))
-		:style toggle
-		:selected toolbar-captioned-p]
-	       ("%_Default Location"
-		["%_Top"
-		 (customize-set-variable 'default-toolbar-position 'top)
-		 :style radio
-		 :selected (eq default-toolbar-position 'top)]
-		["%_Bottom"
-		 (customize-set-variable 'default-toolbar-position 'bottom)
-		 :style radio
-		 :selected (eq default-toolbar-position 'bottom)]
-		["%_Left"
-		 (customize-set-variable 'default-toolbar-position 'left)
-		 :style radio
-		 :selected (eq default-toolbar-position 'left)]
-		["%_Right"
-		 (customize-set-variable 'default-toolbar-position 'right)
-		 :style radio
-		 :selected (eq default-toolbar-position 'right)]
-		)
-	       )))
-      ,@(if (featurep 'gutter)
-	    '(("G%_utters"
-	       ["Buffers Tab %_Visible"
-		(customize-set-variable 'gutter-buffers-tab-visible-p
-					(not gutter-buffers-tab-visible-p))
-		:style toggle
-		:selected gutter-buffers-tab-visible-p]
-	       ("%_Default Location"
-		["%_Top"
-		 (customize-set-variable 'default-gutter-position 'top)
-		 :style radio
-		 :selected (eq default-gutter-position 'top)]
-		["%_Bottom"
-		 (customize-set-variable 'default-gutter-position 'bottom)
-		 :style radio
-		 :selected (eq default-gutter-position 'bottom)]
-		["%_Left"
-		 (customize-set-variable 'default-gutter-position 'left)
-		 :style radio
-		 :selected (eq default-gutter-position 'left)]
-		["%_Right"
-		 (customize-set-variable 'default-gutter-position 'right)
-		 :style radio
-		 :selected (eq default-gutter-position 'right)]
-		)
-	       )))
-      "-----"
       ("S%_yntax Highlighting"
        ["%_In This Buffer"
 	(progn;; becomes buffer local
@@ -1226,6 +1242,13 @@ which will not be used as accelerators."
 	:selected (and (boundp 'font-lock-mode) font-lock-mode)
 	:active (boundp 'font-lock-mode)]
        ["%_Automatic"
+	(customize-set-variable 'font-lock-auto-fontify
+				(not font-lock-auto-fontify))
+	:style toggle
+	:selected (and (boundp 'font-lock-auto-fontify) font-lock-auto-fontify)
+	:active (fboundp 'font-lock-mode)]
+       "-----"
+       ["Force %_Rehighlight in this Buffer"
 	(customize-set-variable 'font-lock-auto-fontify
 				(not font-lock-auto-fontify))
 	:style toggle
@@ -1253,7 +1276,7 @@ which will not be used as accelerators."
 	:selected (and (boundp 'font-lock-use-colors) font-lock-use-colors)
 	:active (boundp 'font-lock-mode)]
        "-----"
-       ["%_Least"
+       ["%_1 Least"
 	(progn
 	  (require 'font-lock)
 	  (if (or (and (not (integerp font-lock-maximum-decoration))
@@ -1265,12 +1288,12 @@ which will not be used as accelerators."
 	    (font-lock-recompute-variables)))
 	:style radio
 	:active (fboundp 'font-lock-mode)
-	:selected (and (boundp 'font-lock-maximium-decoration)
+	:selected (and (boundp 'font-lock-maximum-decoration)
 		       (or (and (not (integerp font-lock-maximum-decoration))
 				(not (eq t font-lock-maximum-decoration)))
 			   (and (integerp font-lock-maximum-decoration)
 				(<= font-lock-maximum-decoration 0))))]
-       ["M%_ore"
+       ["%_2 More"
 	(progn
 	  (require 'font-lock)
 	  (if (and (integerp font-lock-maximum-decoration)
@@ -1280,10 +1303,10 @@ which will not be used as accelerators."
 	    (font-lock-recompute-variables)))
 	:style radio
 	:active (fboundp 'font-lock-mode)
-	:selected (and (boundp 'font-lock-maximium-decoration)
+	:selected (and (boundp 'font-lock-maximum-decoration)
 		       (integerp font-lock-maximum-decoration)
 		       (= 1 font-lock-maximum-decoration))]
-       ["%_Even More"
+       ["%_3 Even More"
 	(progn
 	  (require 'font-lock)
 	  (if (and (integerp font-lock-maximum-decoration)
@@ -1296,7 +1319,7 @@ which will not be used as accelerators."
 	:selected (and (boundp 'font-lock-maximum-decoration)
 		       (integerp font-lock-maximum-decoration)
 		       (= 2 font-lock-maximum-decoration))]
-       ["%_Most"
+       ["%_4 Most"
 	(progn
 	  (require 'font-lock)
 	  (if (or (eq font-lock-maximum-decoration t)
@@ -1312,7 +1335,19 @@ which will not be used as accelerators."
 			   (and (integerp font-lock-maximum-decoration)
 				(>= font-lock-maximum-decoration 3))))]
        "-----"
-       ["La%_zy"
+       ["Lazy %_Lock"
+	(progn;; becomes buffer local
+	  (lazy-lock-mode)
+	  (customize-set-variable 'lazy-lock-mode lazy-lock-mode)
+	  ;; this shouldn't be necessary so there has to
+	  ;; be a redisplay bug lurking somewhere (or
+	  ;; possibly another event handler bug)
+	  (redraw-modeline))
+	:active (and (boundp 'font-lock-mode) (boundp 'lazy-lock-mode)
+		     font-lock-mode)
+	:style toggle
+	:selected (and (boundp 'lazy-lock-mode) lazy-lock-mode)]
+       ["Lazy %_Shot"
 	(progn;; becomes buffer local
 	  (lazy-shot-mode)
 	  (customize-set-variable 'lazy-shot-mode lazy-shot-mode)
@@ -1337,46 +1372,18 @@ which will not be used as accelerators."
 	:style toggle
 	:selected (and (boundp 'fast-lock-mode) fast-lock-mode)]
        )
-      ("Pa%_ren Highlighting"
-       ["%_None"
-	(customize-set-variable 'paren-mode nil)
-	:style radio
-	:selected (and (boundp 'paren-mode) (not paren-mode))
-	:active (boundp 'paren-mode)]
-       ["%_Blinking Paren"
-	(customize-set-variable 'paren-mode 'blink-paren)
-	:style radio
-	:selected (and (boundp 'paren-mode) (eq paren-mode 'blink-paren))
-	:active (boundp 'paren-mode)]
-       ["%_Steady Paren"
-	(customize-set-variable 'paren-mode 'paren)
-	:style radio
-	:selected (and (boundp 'paren-mode) (eq paren-mode 'paren))
-	:active (boundp 'paren-mode)]
-       ["%_Expression"
-	(customize-set-variable 'paren-mode 'sexp)
-	:style radio
-	:selected (and (boundp 'paren-mode) (eq paren-mode 'sexp))
-	:active (boundp 'paren-mode)]
-       ;;	 ["Nes%_ted Shading"
-       ;;	  (customize-set-variable 'paren-mode 'nested)
-       ;;	  :style radio
-       ;;	  :selected (and (boundp 'paren-mode) (eq paren-mode 'nested))
-       ;;	  :active (boundp 'paren-mode)]
-       )
-      "-----"
+      ("%_Font" :filter font-menu-family-constructor)
+      ("Font Si%_ze" :filter font-menu-size-constructor)
+      ;;      ("Font Weig%_ht" :filter font-menu-weight-constructor)
       ["Edit Fa%_ces..." (customize-face nil)]
-      ("Fo%_nt" :filter font-menu-family-constructor)
-      ("Si%_ze"	:filter font-menu-size-constructor)
-      ;;      ("Weig%_ht" :filter font-menu-weight-constructor)
       "-----"
-      ["%_Edit Init (.emacs) File"
+      ["Edit I%_nit File"
        ;; #### there should be something that holds the name that the init
        ;; file should be created as, when it's not present.
-       (progn (find-file (or user-init-file "~/.emacs"))
+       (progn (find-file (or user-init-file "~/.xemacs/init.el"))
 	      (or (eq major-mode 'emacs-lisp-mode)
 		  (emacs-lisp-mode)))]
-      ["%_Save Options to .emacs File" customize-save-customized]
+      ["%_Save Options to Init File" customize-save-customized]
       )
 
      ("%_Buffers"
@@ -1407,9 +1414,9 @@ which will not be used as accelerators."
       ("XEmacs %_FAQ"
        ["%_FAQ (local)" xemacs-local-faq]
        ["FAQ via %_WWW" xemacs-www-faq
-	:active (boundp 'browse-url-browser-function)]
+	:active (fboundp 'browse-url)]
        ["%_Home Page" xemacs-www-page
-	:active (boundp 'browse-url-browser-function)])
+	:active (fboundp 'browse-url)])
       ("%_Tutorials"
        :filter tutorials-menu-filter)
       ("%_Samples"
@@ -1477,15 +1484,17 @@ Adds `Load .emacs' button to menubar when starting up with -q."
 ;;; The Bookmarks menu
 
 (defun bookmark-menu-filter (&rest ignore)
+  (declare (special bookmark-alist))
   (let ((definedp (and (boundp 'bookmark-alist)
 		       bookmark-alist
 		       t)))
     `(,(if definedp
 	   '("%_Jump to Bookmark"
 	     :filter (lambda (&rest junk)
-		       (mapcar #'(lambda (bmk)
-				   `[,bmk (bookmark-jump ',bmk)])
-			       (bookmark-all-names))))
+		       (submenu-generate-accelerator-spec
+			(mapcar #'(lambda (bmk)
+				    `[,bmk (bookmark-jump ',bmk)])
+				(bookmark-all-names)))))
 	 ["%_Jump to Bookmark" nil nil])
       ["Set %_Bookmark" bookmark-set
        :active (fboundp 'bookmark-set)]
@@ -1500,9 +1509,10 @@ Adds `Load .emacs' button to menubar when starting up with -q."
       ,(if definedp
 	   '("%_Delete Bookmark"
 	     :filter (lambda (&rest junk)
-		       (mapcar #'(lambda (bmk)
-				   `[,bmk (bookmark-delete ',bmk)])
-			       (bookmark-all-names))))
+		       (submenu-generate-accelerator-spec
+			(mapcar #'(lambda (bmk)
+				    `[,bmk (bookmark-delete ',bmk)])
+				(bookmark-all-names)))))
 	 ["%_Delete Bookmark" nil nil])
       ["%_Edit Bookmark List" bookmark-bmenu-list	,definedp]
       "---"
@@ -1517,7 +1527,7 @@ Adds `Load .emacs' button to menubar when starting up with -q."
   "Customization of `Buffers' menu."
   :group 'menu)
 
-(defvar buffers-menu-omit-chars-list '(?b ?p ?l))
+(defvar buffers-menu-omit-chars-list '(?b ?p ?l ?d))
 
 (defcustom buffers-menu-max-size 25
   "*Maximum number of entries which may appear on the \"Buffers\" menu.
@@ -1806,6 +1816,7 @@ items by redefining the function `format-buffers-menu-line'."
 
 (defun language-environment-menu-filter (menu)
   "This is the menu filter for the \"Language Environment\" submenu."
+  (declare (special language-environment-list))
   (let ((n 0))
     (mapcar (lambda (env-sym)
 	      (setq n (1+ n))
@@ -1847,35 +1858,37 @@ If this is a relative filename, it is put into the same directory as your
 ;;; The Help menu
 
 (defun tutorials-menu-filter (menu-items)
-   (append
+  (declare (special language-info-alist
+		    current-language-environment
+		    tutorial-supported-languages))
+  (append
+   (if (featurep 'mule)
+       (if (assq 'tutorial
+		 (assoc current-language-environment language-info-alist))
+	   `([,(concat "%_Default (" current-language-environment ")")
+	      help-with-tutorial]))
+     '(["%_English" help-with-tutorial]))
+   (submenu-generate-accelerator-spec
     (if (featurep 'mule)
-	(if (assq 'tutorial
-		  (assoc current-language-environment language-info-alist))
-	    `([,(concat "%_Default (" current-language-environment ")")
-	       help-with-tutorial]))
-      '(["%_English" help-with-tutorial]))
-    (submenu-generate-accelerator-spec
-     (if (featurep 'mule)
-	 ;; Mule tutorials.
-	 (mapcan #'(lambda (lang)
-		     (let ((tut (assq 'tutorial lang)))
-		       (and tut
-			    (not (string= (car lang) "ASCII"))
-			    ;; skip current language, since we already
-			    ;; included it first
-			    (not (string= (car lang)
-					  current-language-environment))
-			    `([,(car lang)
-			       (help-with-tutorial nil ,(cdr tut))]))))
-		 language-info-alist)
-       ;; Non mule tutorials.
-       (mapcar #'(lambda (lang)
-		   `[,(car lang)
-		     (help-with-tutorial ,(format "TUTORIAL.%s"
-						  (cadr lang)))])
-	       tutorial-supported-languages)))))
+	;; Mule tutorials.
+	(mapcan #'(lambda (lang)
+		    (let ((tut (assq 'tutorial lang)))
+		      (and tut
+			   (not (string= (car lang) "ASCII"))
+			   ;; skip current language, since we already
+			   ;; included it first
+			   (not (string= (car lang)
+					 current-language-environment))
+			   `([,(car lang)
+			      (help-with-tutorial nil ,(cdr tut))]))))
+		language-info-alist)
+      ;; Non mule tutorials.
+      (mapcar #'(lambda (lang)
+		  `[,(car lang)
+		    (help-with-tutorial ,(format "TUTORIAL.%s"
+						 (cadr lang)))])
+	      tutorial-supported-languages)))))
 
-
 (set-menubar default-menubar)
 
 
@@ -1903,133 +1916,12 @@ If this is a relative filename, it is put into the same directory as your
     ["U%_nsplit Window" delete-other-windows]
     ))
 
-(defvar global-popup-menu nil
-  "The global popup menu.  This is present in all modes.
-See the function `popup-menu' for a description of menu syntax.")
-
-(defvar mode-popup-menu nil
-  "The mode-specific popup menu.  Automatically buffer local.
-This is appended to the default items in `global-popup-menu'.
-See the function `popup-menu' for a description of menu syntax.")
-(make-variable-buffer-local 'mode-popup-menu)
-
 ;; In an effort to avoid massive menu clutter, this mostly worthless menu is
 ;; superseded by any local popup menu...
 (setq-default mode-popup-menu default-popup-menu)
 
-(defvar activate-popup-menu-hook nil
-  "Function or functions run before a mode-specific popup menu is made visible.
-These functions are called with no arguments, and should interrogate and
-modify the value of `global-popup-menu' or `mode-popup-menu' as desired.
-Note: this hook is only run if you use `popup-mode-menu' for activating the
-global and mode-specific commands; if you have your own binding for button3,
-this hook won't be run.")
-
-(defun popup-mode-menu ()
-  "Pop up a menu of global and mode-specific commands.
-The menu is computed by combining `global-popup-menu' and `mode-popup-menu'."
-  (interactive "@_")
-  (run-hooks 'activate-popup-menu-hook)
-  (popup-menu
-   (cond ((and global-popup-menu mode-popup-menu)
-	  ;; Merge global-popup-menu and mode-popup-menu
-	  (check-menu-syntax mode-popup-menu)
-	  (let* ((title (car mode-popup-menu))
-		 (items (cdr mode-popup-menu))
-		 mode-filters)
-	    ;; Strip keywords from local menu for attaching them at the top
-	    (while (and items
-			(keywordp (car items)))
-	      ;; Push both keyword and its argument.
-	      (push (pop items) mode-filters)
-	      (push (pop items) mode-filters))
-	    (setq mode-filters (nreverse mode-filters))
-	    ;; If mode-filters contains a keyword already present in
-	    ;; `global-popup-menu', you will probably lose.
-	    (append (list (car global-popup-menu))
-		    mode-filters
-		    (cdr global-popup-menu)
-		    '("---" "---")
-		    (if popup-menu-titles (list title))
-		    (if popup-menu-titles '("---" "---"))
-		    items)))
-	 (t
-	  (or mode-popup-menu
-	      global-popup-menu
-	      (error "No menu defined in this buffer"))))))
-
-(defun popup-buffer-menu (event)
-  "Pop up a copy of the Buffers menu (from the menubar) where the mouse is clicked."
-  (interactive "e")
-  (let ((window (and (event-over-text-area-p event) (event-window event)))
-	(bmenu nil))
-    (or window
-	(error "Pointer must be in a normal window"))
-    (select-window window)
-    (if current-menubar
-	(setq bmenu (assoc "%_Buffers" current-menubar)))
-    (if (null bmenu)
-	(setq bmenu (assoc "%_Buffers" default-menubar)))
-    (if (null bmenu)
-	(error "Can't find the Buffers menu"))
-    (popup-menu bmenu)))
-
-(defun popup-menubar-menu (event)
-  "Pop up a copy of menu that also appears in the menubar."
-  (interactive "e")
-  (let ((window (and (event-over-text-area-p event) (event-window event)))
-	popup-menubar)
-    (or window
-	(error "Pointer must be in a normal window"))
-    (select-window window)
-    (and current-menubar (run-hooks 'activate-menubar-hook))
-    ;; #### Instead of having to copy this just to safely get rid of
-    ;; any nil what we should really do is fix up the internal menubar
-    ;; code to just ignore nil if generating a popup menu
-    (setq popup-menubar (delete nil (copy-sequence (or current-menubar
-						       default-menubar))))
-    (popup-menu (cons "%_Menubar Menu" popup-menubar))
-    ))
-
-(global-set-key 'button3 'popup-mode-menu)
-;; shift button3 and shift button2 are reserved for Hyperbole
-(global-set-key '(meta control button3) 'popup-buffer-menu)
-;; The following command is way too dangerous with Custom.
-;; (global-set-key '(meta shift button3) 'popup-menubar-menu)
-
-;; Here's a test of the cool new menu features (from Stig).
-
-;;(setq mode-popup-menu
-;;      '("Test Popup Menu"
-;;        :filter cdr
-;;        ["this item won't appear because of the menu filter" ding t]
-;;        "--:singleLine"
-;;        "singleLine"
-;;        "--:doubleLine"
-;;        "doubleLine"
-;;        "--:singleDashedLine"
-;;        "singleDashedLine"
-;;        "--:doubleDashedLine"
-;;        "doubleDashedLine"
-;;        "--:noLine"
-;;        "noLine"
-;;        "--:shadowEtchedIn"
-;;        "shadowEtchedIn"
-;;        "--:shadowEtchedOut"
-;;        "shadowEtchedOut"
-;;        "--:shadowDoubleEtchedIn"
-;;        "shadowDoubleEtchedIn"
-;;        "--:shadowDoubleEtchedOut"
-;;        "shadowDoubleEtchedOut"
-;;        "--:shadowEtchedInDash"
-;;        "shadowEtchedInDash"
-;;        "--:shadowEtchedOutDash"
-;;        "shadowEtchedOutDash"
-;;        "--:shadowDoubleEtchedInDash"
-;;        "shadowDoubleEtchedInDash"
-;;        "--:shadowDoubleEtchedOutDash"
-;;        "shadowDoubleEtchedOutDash"
-;;        ))
+
+;; misc
 
 (defun xemacs-splash-buffer ()
   "Redisplay XEmacs splash screen in a buffer."

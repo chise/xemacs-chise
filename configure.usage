@@ -252,9 +252,6 @@ Other options:
 --with-debug-malloc     Use the debugging malloc package.
 --with-clash-detection  Use lock files to detect multiple edits of the same
                         file.  The default is to do clash detection.
---lockdir=DIR           The directory to put clash detection files in, such as
-                        `/var/lock/emacs'.
-                        Defaults to `${statedir}/xemacs/lock'.
 
 You may also specify any of the `path' variables found in Makefile.in,
 including --bindir, --libdir, --docdir, --lispdir, --sitelispdir,

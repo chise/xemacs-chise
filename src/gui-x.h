@@ -1,6 +1,6 @@
 /* General GUI code -- X-specific header file.
    Copyright (C) 1993, 1994 Free Software Foundation, Inc.
-   Copyright (C) 1996 Ben Wing.
+   Copyright (C) 1996, 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -20,6 +20,8 @@ the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
+
+/* This file Mule-ized by Ben Wing, 7-8-00. */
 
 #ifndef INCLUDED_gui_x_h_
 #define INCLUDED_gui_x_h_
@@ -68,15 +70,14 @@ int popup_handled_p (LWLIB_ID id);
 void free_popup_widget_value_tree (widget_value *wv);
 void popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 			       XtPointer client_data);
-char *strdup_and_add_accel (char *name);
+Extbyte *add_accel_and_to_external (Lisp_Object string);
 int button_item_to_widget_value (Lisp_Object gui_object_instance,
 				 Lisp_Object gui_item, widget_value *wv,
-				 int allow_text_field_p, int no_keys_p, 
-				 int menu_entry_p);
+				 int allow_text_field_p, int no_keys_p,
+				 int menu_entry_p, int accel_p);
 widget_value * gui_items_to_widget_values (Lisp_Object gui_object_instance,
-					   Lisp_Object items);
-Lisp_Object menu_name_to_accelerator (char *name);
-char *menu_separator_style (const char *s);
+					   Lisp_Object items, int accel_p);
+Extbyte *menu_separator_style_and_to_external (const Bufbyte *s);
 Lisp_Object widget_value_unwind (Lisp_Object closure);
 
 #endif /* INCLUDED_gui_x_h_ */

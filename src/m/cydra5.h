@@ -43,15 +43,6 @@ Boston, MA 02111-1307, USA.  */
 
 /*#define CANNOT_DUMP*/
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that data space precedes text space,
-   numerically.  */
-
-#undef VIRT_ADDR_VARIES
-
 /* Define C_ALLOCA if this machine does not support a true alloca
    and the one written in C should be used instead.
    Define HAVE_ALLOCA to say that the system provides a properly

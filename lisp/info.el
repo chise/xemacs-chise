@@ -494,9 +494,11 @@ or nil if current info file is not split into subfiles.")
 (defvar Info-current-node nil
   "Name of node that Info is now looking at, or nil.")
 
-(defvar Info-tag-table-marker (make-marker)
+(defvar Info-tag-table-marker nil
   "Marker pointing at beginning of current Info file's tag table.
 Marker points nowhere if file has no tag table.")
+
+(defvar Info-tag-table-buffer nil)
 
 (defvar Info-current-file-completions nil
   "Cached completion list for current Info file.")
@@ -651,7 +653,8 @@ further (recursive) error recovery.  TRYFILE is ??"
   ;; should be locked up where they can't do any more harm.
 
   ;; Go into info buffer.
-  (switch-to-buffer "*info*")
+  (or (eq major-mode 'Info-mode)
+      (switch-to-buffer "*info*"))
   (buffer-disable-undo (current-buffer))
   (run-hooks 'Info-startup-hook)
   (or (eq major-mode 'Info-mode)
@@ -660,7 +663,7 @@ further (recursive) error recovery.  TRYFILE is ??"
       (equal Info-current-file filename)
       (not Info-novice)
       (string= "dir" (file-name-nondirectory Info-current-file))
-      (if (y-or-n-p-maybe-dialog-box
+      (if (y-or-n-p
 	   (format "Leave Info file `%s'? "
 		   (file-name-nondirectory Info-current-file)))
 	  (message "")
@@ -704,16 +707,20 @@ further (recursive) error recovery.  TRYFILE is ??"
 			  (looking-at "(Indirect)\n"))
 			;; It is indirect.  Copy it to another buffer
 			;; and record that the tag table is in that buffer.
-			(save-excursion
-			  (let ((buf (current-buffer)))
-			    (set-buffer
-			     (get-buffer-create " *info tag table*"))
-			    (buffer-disable-undo (current-buffer))
-			    (setq case-fold-search t)
-			    (erase-buffer)
-			    (insert-buffer-substring buf)
-			    (set-marker Info-tag-table-marker
-					(match-end 0))))
+			  (let ((buf (current-buffer))
+				(m Info-tag-table-marker))
+			    (or
+			     Info-tag-table-buffer
+			     (setq
+			      Info-tag-table-buffer
+			      (generate-new-buffer " *info tag table*")))
+			    (save-excursion
+			      (set-buffer Info-tag-table-buffer)
+			      (buffer-disable-undo (current-buffer))
+			      (setq case-fold-search t)
+			      (erase-buffer)
+			      (insert-buffer-substring buf)
+			      (set-marker m (match-end 0))))
 		     (set-marker Info-tag-table-marker pos))))
 	      (setq Info-current-file
 		    (file-name-sans-versions buffer-file-name))))
@@ -730,18 +737,21 @@ further (recursive) error recovery.  TRYFILE is ??"
 	    ;; Also, if this is an indirect info file,
 	    ;; read the proper subfile into this buffer.
 	    (if (marker-position Info-tag-table-marker)
-		(save-excursion
-		  (set-buffer (marker-buffer Info-tag-table-marker))
-		  (goto-char Info-tag-table-marker)
-		  (if (re-search-forward regexp nil t)
-		      (progn
-			(setq guesspos (read (current-buffer)))
-			;; If this is an indirect file,
-			;; determine which file really holds this node
-			;; and read it in.
-			(if (not (eq (current-buffer) (get-buffer "*info*")))
-			    (setq guesspos
-				  (Info-read-subfile guesspos)))))))
+		(let (foun found-mode (m Info-tag-table-marker))
+		  (save-excursion
+		    (set-buffer (marker-buffer Info-tag-table-marker))
+		    (goto-char m)
+		    (setq foun (re-search-forward regexp nil t))
+		    (if foun 
+			(setq guesspos (read (current-buffer))))
+		    (setq found-mode major-mode))
+		  (if foun 
+		      ;; If this is an indirect file,
+		      ;; determine which file really holds this node
+		      ;; and read it in.
+		      (if (not (eq major-mode found-mode))
+			  (setq guesspos
+				(Info-read-subfile guesspos))))))
 	    (goto-char (max (point-min) (- guesspos 1000)))
 	    ;; Now search from our advised position (or from beg of buffer)
 	    ;; to find the actual node.
@@ -1311,30 +1321,30 @@ For example, invoke \"xemacs -batch -f Info-batch-rebuild-dir /usr/local/info\""
     (if p (file-name-nondirectory file) file)))
 
 (defun Info-read-subfile (nodepos)
-  (set-buffer (marker-buffer Info-tag-table-marker))
-  (goto-char (point-min))
-  (search-forward "\n\^_")
   (let (lastfilepos
 	lastfilename)
-    (forward-line 2)
-    (catch 'foo
-      (while (not (looking-at "\^_"))
-	(if (not (eolp))
-	    (let ((beg (point))
-		  thisfilepos thisfilename)
-	      (search-forward ": ")
-	      (setq thisfilename  (buffer-substring beg (- (point) 2)))
-	      (setq thisfilepos (read (current-buffer)))
-	      ;; read in version 19 stops at the end of number.
-	      ;; Advance to the next line.
-	      (if (eolp)
-		  (forward-line 1))
-	      (if (> thisfilepos nodepos)
-		  (throw 'foo t))
-	      (setq lastfilename thisfilename)
-	      (setq lastfilepos thisfilepos))
-	  (throw 'foo t))))
-    (set-buffer (get-buffer "*info*"))
+    (save-excursion
+      (set-buffer (marker-buffer Info-tag-table-marker))
+      (goto-char (point-min))
+      (search-forward "\n\^_")
+      (forward-line 2)
+      (catch 'foo
+	(while (not (looking-at "\^_"))
+	  (if (not (eolp))
+	      (let ((beg (point))
+		    thisfilepos thisfilename)
+		(search-forward ": ")
+		(setq thisfilename  (buffer-substring beg (- (point) 2)))
+		(setq thisfilepos (read (current-buffer)))
+		;; read in version 19 stops at the end of number.
+		;; Advance to the next line.
+		(if (eolp)
+		    (forward-line 1))
+		(if (> thisfilepos nodepos)
+		    (throw 'foo t))
+		(setq lastfilename thisfilename)
+		(setq lastfilepos thisfilepos))
+	    (throw 'foo t)))))
     (or (equal Info-current-subfile lastfilename)
 	(let ((buffer-read-only nil))
 	  (setq buffer-file-name nil)
@@ -1568,14 +1578,15 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
 
 (defun Info-build-node-completions ()
   (or Info-current-file-completions
-      (let ((compl (Info-build-annotation-completions)))
+      (let ((m Info-tag-table-marker)
+	    (compl (Info-build-annotation-completions)))
 	(save-excursion
 	  (save-restriction
 	    (widen)
 	    (if (marker-buffer Info-tag-table-marker)
 		(progn
 		  (set-buffer (marker-buffer Info-tag-table-marker))
-		  (goto-char Info-tag-table-marker)
+		  (goto-char m)
 		  (while (re-search-forward "\nNode: \\(.*\\)\177" nil t)
 		    (setq compl
 			  (cons (list (buffer-substring (match-beginning 1)
@@ -1626,26 +1637,27 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
       (if (not found)                   ;can only happen in subfile case -- else would have erred
           (unwind-protect
               (let ((list ()))
-                (set-buffer (marker-buffer Info-tag-table-marker))
-                (goto-char (point-min))
-                (search-forward "\n\^_\nIndirect:")
-                (save-restriction
-                  (narrow-to-region (point)
-                                    (progn (search-forward "\n\^_")
-                                           (1- (point))))
-                  (goto-char (point-min))
-                  (search-forward (concat "\n" osubfile ": "))
-                  (beginning-of-line)
-                  (while (not (eobp))
-                    (re-search-forward "\\(^.*\\): [0-9]+$")
-                    (goto-char (+ (match-end 1) 2))
-                    (setq list (cons (cons (read (current-buffer))
-                                           (buffer-substring (match-beginning 1)
-                                                             (match-end 1)))
-                                     list))
-                    (goto-char (1+ (match-end 0))))
-                  (setq list (nreverse list)
-                        list (cdr list)))
+                (save-excursion
+		  (set-buffer (marker-buffer Info-tag-table-marker))
+		  (goto-char (point-min))
+		  (search-forward "\n\^_\nIndirect:")
+		  (save-restriction
+		    (narrow-to-region (point)
+				      (progn (search-forward "\n\^_")
+					     (1- (point))))
+		    (goto-char (point-min))
+		    (search-forward (concat "\n" osubfile ": "))
+		    (beginning-of-line)
+		    (while (not (eobp))
+		      (re-search-forward "\\(^.*\\): [0-9]+$")
+		      (goto-char (+ (match-end 1) 2))
+		      (setq list (cons (cons (read (current-buffer))
+					     (buffer-substring (match-beginning 1)
+							       (match-end 1)))
+				       list))
+		      (goto-char (1+ (match-end 0))))
+		    (setq list (nreverse list)
+			  list (cdr list))))
                 (while list
                   (message "Searching subfile %s..." (cdr (car list)))
                   (Info-read-subfile (car (car list)))
@@ -2814,6 +2826,9 @@ e	Edit the contents of the current node."
   (make-local-variable 'Info-current-subfile)
   (make-local-variable 'Info-current-node)
   (make-local-variable 'Info-tag-table-marker)
+  (setq Info-tag-table-marker (make-marker))
+  (make-local-variable 'Info-tag-table-buffer)
+  (setq Info-tag-table-buffer nil)
   (make-local-variable 'Info-current-file-completions)
   (make-local-variable 'Info-current-annotation-completions)
   (make-local-variable 'Info-index-alternatives)
@@ -2879,7 +2894,7 @@ Allowed only if variable `Info-enable-edit' is non-nil."
   (interactive)
   ;; Do this first, so nothing has changed if user C-g's at query.
   (and (buffer-modified-p)
-       (y-or-n-p-maybe-dialog-box "Save the file? ")
+       (y-or-n-p "Save the file? ")
        (save-buffer))
   (use-local-map Info-mode-map)
   (setq major-mode 'Info-mode)

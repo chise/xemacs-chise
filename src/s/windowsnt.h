@@ -228,8 +228,6 @@ typedef int pid_t;
 #define HAVE_H_ERRNO
 #define HAVE_STRUCT_UTIMBUF
 
-#define HAVE_STRCASECMP
-
 /* Compatibility macros. Some used to be routines in nt.c */
 #define strcasecmp(x,y) _stricmp(x,y)
 #define random() (rand() << 15 | rand())
@@ -355,6 +353,16 @@ gid_t getegid (void);
  #ifndef _WIN32_WINNT
   #define _WIN32_WINNT 0x0400
  #endif
+#endif
+
+/* Force the various NT 4 structures and constants to be included; we're
+   careful not to call (or even link with) functions not in NT 3.51 when
+   running on 3.51, but when running on NT 4 or Win9x, we use the later
+   functions, and need their headers. */
+/* The VC++ (5.0, at least) headers treat WINVER non-existent as 0x0400 */
+#if defined (WINVER) && WINVER < 0x0400
+# undef WINVER
+# define WINVER 0x0400
 #endif
 
 /* MSVC 6.0 has a mechanism to declare functions which never return */
