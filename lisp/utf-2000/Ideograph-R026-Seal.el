@@ -534,11 +534,12 @@
     (comment		. "<vulgar character> of S1-0868")
     (shinjigen-1	. 870)
     (shinjigen-2	. 870)
-    (chinese-gb2312	. #x4764)	; ø»„¾»
-    (japanese-jisx0208	. #x362A)	; ø»†¯‡
-    (chinese-isoir165	. #x4764)	; ø»§‹
-    (chinese-cns11643-1 . #x544E)	; ø»’Žƒ
-    (ucs		. #x537F)	; å¿
+    (chinese-gb2312		. #x4764)	; ø»„¾»
+    (japanese-jisx0208		. #x362A)	; ø»†¯‡
+    (chinese-isoir165		. #x4764)	; ø»§‹
+    (chinese-cns11643-1		. #x544E)	; ø»’Žƒ
+    (japanese-jisx0208-1990	. #x362A)	; å¿
+    (ucs			. #x537F)	; å¿
     ))
 (define-char
   '((morohashi-daikanwa	2878)
