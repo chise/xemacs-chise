@@ -338,6 +338,7 @@ CHARSET_ENCODING_TABLE (Lisp_Charset* cs)
 
 #define CONVERSION_IDENTICAL	0
 #define CONVERSION_94x60	1
+#define CONVERSION_94x94x60	2
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
