@@ -1239,12 +1239,13 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
 	      else if (i == CHARSET_COMPOSITION)
 		i = MAKE_COMPOSITE_CHAR (reg[rrr]);
 #endif
-	      else if (REP_BYTES_BY_FIRST_BYTE (i) == 1)
-		i = ((i - 0x70) << 7) | (reg[rrr] & 0x7F);
+	      else if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
+		i = ((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
+		  | (reg[rrr] & 0x7F);
 	      else if (i < MIN_LEADING_BYTE_OFFICIAL_2)
-		i = ((i - 0x8F) << 14) | reg[rrr];
+		i = ((i - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | reg[rrr];
 	      else
-		i = ((i - 0xE0) << 14) | reg[rrr];
+		i = ((i - FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | reg[rrr];
 
 	      CCL_WRITE_CHAR (i);
 
