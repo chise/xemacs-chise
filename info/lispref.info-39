@@ -1,0 +1,1322 @@
+This is Info file ../../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: System Interface,  Next: X-Windows,  Prev: Processes,  Up: Top
+
+Operating System Interface
+**************************
+
+   This chapter is about starting and getting out of Emacs, access to
+values in the operating system environment, and terminal input, output,
+and flow control.
+
+   *Note Building XEmacs::, for related information.  See also *Note
+Display::, for additional operating system status information
+pertaining to the terminal and the screen.
+
+* Menu:
+
+* Starting Up::         Customizing XEmacs start-up processing.
+* Getting Out::         How exiting works (permanent or temporary).
+* System Environment::  Distinguish the name and kind of system.
+* User Identification:: Finding the name and user id of the user.
+* Time of Day::		Getting the current time.
+* Time Conversion::     Converting a time from numeric form to a string, or
+                          to calendrical data (or vice versa).
+* Timers::		Setting a timer to call a function at a certain time.
+* Terminal Input::      Recording terminal input for debugging.
+* Terminal Output::     Recording terminal output for debugging.
+* Flow Control::        How to turn output flow control on or off.
+* Batch Mode::          Running XEmacs without terminal interaction.
+
+
+File: lispref.info,  Node: Starting Up,  Next: Getting Out,  Up: System Interface
+
+Starting Up XEmacs
+==================
+
+   This section describes what XEmacs does when it is started, and how
+you can customize these actions.
+
+* Menu:
+
+* Start-up Summary::        Sequence of actions XEmacs performs at start-up.
+* Init File::               Details on reading the init file (`.emacs').
+* Terminal-Specific::       How the terminal-specific Lisp file is read.
+* Command Line Arguments::  How command line arguments are processed,
+                              and how you can customize them.
+
+
+File: lispref.info,  Node: Start-up Summary,  Next: Init File,  Up: Starting Up
+
+Summary: Sequence of Actions at Start Up
+----------------------------------------
+
+   The order of operations performed (in `startup.el') by XEmacs when
+it is started up is as follows:
+
+  1. It loads the initialization library for the window system, if you
+     are using a window system.  This library's name is
+     `term/WINDOWSYSTEM-win.el'.
+
+  2. It processes the initial options.  (Some of them are handled even
+     earlier than this.)
+
+  3. It initializes the X window frame and faces, if appropriate.
+
+  4. It runs the normal hook `before-init-hook'.
+
+  5. It loads the library `site-start', unless the option
+     `-no-site-file' was specified.  The library's file name is usually
+     `site-start.el'.
+
+  6. It loads the file `~/.emacs' unless `-q' was specified on the
+     command line.  (This is not done in `-batch' mode.)  The `-u'
+     option can specify the user name whose home directory should be
+     used instead of `~'.
+
+  7. It loads the library `default' unless `inhibit-default-init' is
+     non-`nil'.  (This is not done in `-batch' mode or if `-q' was
+     specified on the command line.)  The library's file name is
+     usually `default.el'.
+
+  8. It runs the normal hook `after-init-hook'.
+
+  9. It sets the major mode according to `initial-major-mode', provided
+     the buffer `*scratch*' is still current and still in Fundamental
+     mode.
+
+ 10. It loads the terminal-specific Lisp file, if any, except when in
+     batch mode or using a window system.
+
+ 11. It displays the initial echo area message, unless you have
+     suppressed that with `inhibit-startup-echo-area-message'.
+
+ 12. It processes the action arguments from the command line.
+
+ 13. It runs `term-setup-hook'.
+
+ 14. It calls `frame-notice-user-settings', which modifies the
+     parameters of the selected frame according to whatever the init
+     files specify.
+
+ 15. It runs `window-setup-hook'.  *Note Terminal-Specific::.
+
+ 16. It displays copyleft, nonwarranty, and basic use information,
+     provided there were no remaining command line arguments (a few
+     steps above) and the value of `inhibit-startup-message' is `nil'.
+
+ - User Option: inhibit-startup-message
+     This variable inhibits the initial startup messages (the
+     nonwarranty, etc.).  If it is non-`nil', then the messages are not
+     printed.
+
+     This variable exists so you can set it in your personal init file,
+     once you are familiar with the contents of the startup message.
+     Do not set this variable in the init file of a new user, or in a
+     way that affects more than one user, because that would prevent
+     new users from receiving the information they are supposed to see.
+
+ - User Option: inhibit-startup-echo-area-message
+     This variable controls the display of the startup echo area
+     message.  You can suppress the startup echo area message by adding
+     text with this form to your `.emacs' file:
+
+          (setq inhibit-startup-echo-area-message
+                "YOUR-LOGIN-NAME")
+
+     Simply setting `inhibit-startup-echo-area-message' to your login
+     name is not sufficient to inhibit the message; Emacs explicitly
+     checks whether `.emacs' contains an expression as shown above.
+     Your login name must appear in the expression as a Lisp string
+     constant.
+
+     This way, you can easily inhibit the message for yourself if you
+     wish, but thoughtless copying of your `.emacs' file will not
+     inhibit the message for someone else.
+
+
+File: lispref.info,  Node: Init File,  Next: Terminal-Specific,  Prev: Start-up Summary,  Up: Starting Up
+
+The Init File: `.emacs'
+-----------------------
+
+   When you start XEmacs, it normally attempts to load the file
+`.emacs' from your home directory.  This file, if it exists, must
+contain Lisp code.  It is called your "init file".  The command line
+switches `-q' and `-u' affect the use of the init file; `-q' says not
+to load an init file, and `-u' says to load a specified user's init
+file instead of yours.  *Note Entering XEmacs: (xemacs)Entering XEmacs.
+
+   A site may have a "default init file", which is the library named
+`default.el'.  XEmacs finds the `default.el' file through the standard
+search path for libraries (*note How Programs Do Loading::.).  The
+XEmacs distribution does not come with this file; sites may provide one
+for local customizations.  If the default init file exists, it is
+loaded whenever you start Emacs, except in batch mode or if `-q' is
+specified.  But your own personal init file, if any, is loaded first; if
+it sets `inhibit-default-init' to a non-`nil' value, then XEmacs does
+not subsequently load the `default.el' file.
+
+   Another file for site-customization is `site-start.el'.  Emacs loads
+this *before* the user's init file.  You can inhibit the loading of
+this file with the option `-no-site-file'.
+
+ - Variable: site-run-file
+     This variable specifies the site-customization file to load before
+     the user's init file.  Its normal value is `"site-start"'.
+
+   If there is a great deal of code in your `.emacs' file, you should
+move it into another file named `SOMETHING.el', byte-compile it (*note
+Byte Compilation::.), and make your `.emacs' file load the other file
+using `load' (*note Loading::.).
+
+   *Note Init File Examples: (xemacs)Init File Examples, for examples
+of how to make various commonly desired customizations in your `.emacs'
+file.
+
+ - User Option: inhibit-default-init
+     This variable prevents XEmacs from loading the default
+     initialization library file for your session of XEmacs.  If its
+     value is non-`nil', then the default library is not loaded.  The
+     default value is `nil'.
+
+ - Variable: before-init-hook
+ - Variable: after-init-hook
+     These two normal hooks are run just before, and just after,
+     loading of the user's init file, `default.el', and/or
+     `site-start.el'.
+
+
+File: lispref.info,  Node: Terminal-Specific,  Next: Command Line Arguments,  Prev: Init File,  Up: Starting Up
+
+Terminal-Specific Initialization
+--------------------------------
+
+   Each terminal type can have its own Lisp library that XEmacs loads
+when run on that type of terminal.  For a terminal type named TERMTYPE,
+the library is called `term/TERMTYPE'.  XEmacs finds the file by
+searching the `load-path' directories as it does for other files, and
+trying the `.elc' and `.el' suffixes.  Normally, terminal-specific Lisp
+library is located in `emacs/lisp/term', a subdirectory of the
+`emacs/lisp' directory in which most XEmacs Lisp libraries are kept.
+
+   The library's name is constructed by concatenating the value of the
+variable `term-file-prefix' and the terminal type.  Normally,
+`term-file-prefix' has the value `"term/"'; changing this is not
+recommended.
+
+   The usual function of a terminal-specific library is to enable
+special keys to send sequences that XEmacs can recognize.  It may also
+need to set or add to `function-key-map' if the Termcap entry does not
+specify all the terminal's function keys.  *Note Terminal Input::.
+
+   When the name of the terminal type contains a hyphen, only the part
+of the name before the first hyphen is significant in choosing the
+library name.  Thus, terminal types `aaa-48' and `aaa-30-rv' both use
+the `term/aaa' library.  If necessary, the library can evaluate
+`(getenv "TERM")' to find the full name of the terminal type.
+
+   Your `.emacs' file can prevent the loading of the terminal-specific
+library by setting the variable `term-file-prefix' to `nil'.  This
+feature is useful when experimenting with your own peculiar
+customizations.
+
+   You can also arrange to override some of the actions of the
+terminal-specific library by setting the variable `term-setup-hook'.
+This is a normal hook which XEmacs runs using `run-hooks' at the end of
+XEmacs initialization, after loading both your `.emacs' file and any
+terminal-specific libraries.  You can use this variable to define
+initializations for terminals that do not have their own libraries.
+*Note Hooks::.
+
+ - Variable: term-file-prefix
+     If the `term-file-prefix' variable is non-`nil', XEmacs loads a
+     terminal-specific initialization file as follows:
+
+          (load (concat term-file-prefix (getenv "TERM")))
+
+     You may set the `term-file-prefix' variable to `nil' in your
+     `.emacs' file if you do not wish to load the
+     terminal-initialization file.  To do this, put the following in
+     your `.emacs' file: `(setq term-file-prefix nil)'.
+
+ - Variable: term-setup-hook
+     This variable is a normal hook that XEmacs runs after loading your
+     `.emacs' file, the default initialization file (if any) and the
+     terminal-specific Lisp file.
+
+     You can use `term-setup-hook' to override the definitions made by a
+     terminal-specific file.
+
+ - Variable: window-setup-hook
+     This variable is a normal hook which XEmacs runs after loading your
+     `.emacs' file and the default initialization file (if any), after
+     loading terminal-specific Lisp code, and after running the hook
+     `term-setup-hook'.
+
+
+File: lispref.info,  Node: Command Line Arguments,  Prev: Terminal-Specific,  Up: Starting Up
+
+Command Line Arguments
+----------------------
+
+   You can use command line arguments to request various actions when
+you start XEmacs.  Since you do not need to start XEmacs more than once
+per day, and will often leave your XEmacs session running longer than
+that, command line arguments are hardly ever used.  As a practical
+matter, it is best to avoid making the habit of using them, since this
+habit would encourage you to kill and restart XEmacs unnecessarily
+often.  These options exist for two reasons: to be compatible with
+other editors (for invocation by other programs) and to enable shell
+scripts to run specific Lisp programs.
+
+   This section describes how Emacs processes command line arguments,
+and how you can customize them.
+
+ - Function: command-line
+     This function parses the command line that XEmacs was called with,
+     processes it, loads the user's `.emacs' file and displays the
+     startup messages.
+
+ - Variable: command-line-processed
+     The value of this variable is `t' once the command line has been
+     processed.
+
+     If you redump XEmacs by calling `dump-emacs', you may wish to set
+     this variable to `nil' first in order to cause the new dumped
+     XEmacs to process its new command line arguments.
+
+ - Variable: command-switch-alist
+     The value of this variable is an alist of user-defined command-line
+     options and associated handler functions.  This variable exists so
+     you can add elements to it.
+
+     A "command line option" is an argument on the command line of the
+     form:
+
+          -OPTION
+
+     The elements of the `command-switch-alist' look like this:
+
+          (OPTION . HANDLER-FUNCTION)
+
+     The HANDLER-FUNCTION is called to handle OPTION and receives the
+     option name as its sole argument.
+
+     In some cases, the option is followed in the command line by an
+     argument.  In these cases, the HANDLER-FUNCTION can find all the
+     remaining command-line arguments in the variable
+     `command-line-args-left'.  (The entire list of command-line
+     arguments is in `command-line-args'.)
+
+     The command line arguments are parsed by the `command-line-1'
+     function in the `startup.el' file.  See also *Note Command Line
+     Switches and Arguments: (xemacs)Command Switches.
+
+ - Variable: command-line-args
+     The value of this variable is the list of command line arguments
+     passed to XEmacs.
+
+ - Variable: command-line-functions
+     This variable's value is a list of functions for handling an
+     unrecognized command-line argument.  Each time the next argument
+     to be processed has no special meaning, the functions in this list
+     are called, in order of appearance, until one of them returns a
+     non-`nil' value.
+
+     These functions are called with no arguments.  They can access the
+     command-line argument under consideration through the variable
+     `argi'.  The remaining arguments (not including the current one)
+     are in the variable `command-line-args-left'.
+
+     When a function recognizes and processes the argument in `argi', it
+     should return a non-`nil' value to say it has dealt with that
+     argument.  If it has also dealt with some of the following
+     arguments, it can indicate that by deleting them from
+     `command-line-args-left'.
+
+     If all of these functions return `nil', then the argument is used
+     as a file name to visit.
+
+
+File: lispref.info,  Node: Getting Out,  Next: System Environment,  Prev: Starting Up,  Up: System Interface
+
+Getting out of XEmacs
+=====================
+
+   There are two ways to get out of XEmacs: you can kill the XEmacs job,
+which exits permanently, or you can suspend it, which permits you to
+reenter the XEmacs process later.  As a practical matter, you seldom
+kill XEmacs--only when you are about to log out.  Suspending is much
+more common.
+
+* Menu:
+
+* Killing XEmacs::        Exiting XEmacs irreversibly.
+* Suspending XEmacs::     Exiting XEmacs reversibly.
+
+
+File: lispref.info,  Node: Killing XEmacs,  Next: Suspending XEmacs,  Up: Getting Out
+
+Killing XEmacs
+--------------
+
+   Killing XEmacs means ending the execution of the XEmacs process.  The
+parent process normally resumes control.  The low-level primitive for
+killing XEmacs is `kill-emacs'.
+
+ - Function: kill-emacs &optional EXIT-DATA
+     This function exits the XEmacs process and kills it.
+
+     If EXIT-DATA is an integer, then it is used as the exit status of
+     the XEmacs process.  (This is useful primarily in batch operation;
+     see *Note Batch Mode::.)
+
+     If EXIT-DATA is a string, its contents are stuffed into the
+     terminal input buffer so that the shell (or whatever program next
+     reads input) can read them.
+
+   All the information in the XEmacs process, aside from files that have
+been saved, is lost when the XEmacs is killed.  Because killing XEmacs
+inadvertently can lose a lot of work, XEmacs queries for confirmation
+before actually terminating if you have buffers that need saving or
+subprocesses that are running.  This is done in the function
+`save-buffers-kill-emacs'.
+
+ - Variable: kill-emacs-query-functions
+     After asking the standard questions, `save-buffers-kill-emacs'
+     calls the functions in the list `kill-buffer-query-functions', in
+     order of appearance, with no arguments.  These functions can ask
+     for additional confirmation from the user.  If any of them returns
+     non-`nil', XEmacs is not killed.
+
+ - Variable: kill-emacs-hook
+     This variable is a normal hook; once `save-buffers-kill-emacs' is
+     finished with all file saving and confirmation, it runs the
+     functions in this hook.
+
+
+File: lispref.info,  Node: Suspending XEmacs,  Prev: Killing XEmacs,  Up: Getting Out
+
+Suspending XEmacs
+-----------------
+
+   "Suspending XEmacs" means stopping XEmacs temporarily and returning
+control to its superior process, which is usually the shell.  This
+allows you to resume editing later in the same XEmacs process, with the
+same buffers, the same kill ring, the same undo history, and so on.  To
+resume XEmacs, use the appropriate command in the parent shell--most
+likely `fg'.
+
+   Some operating systems do not support suspension of jobs; on these
+systems, "suspension" actually creates a new shell temporarily as a
+subprocess of XEmacs.  Then you would exit the shell to return to
+XEmacs.
+
+   Suspension is not useful with window systems such as X, because the
+XEmacs job may not have a parent that can resume it again, and in any
+case you can give input to some other job such as a shell merely by
+moving to a different window.  Therefore, suspending is not allowed
+when XEmacs is an X client.
+
+ - Function: suspend-emacs STRING
+     This function stops XEmacs and returns control to the superior
+     process.  If and when the superior process resumes XEmacs,
+     `suspend-emacs' returns `nil' to its caller in Lisp.
+
+     If STRING is non-`nil', its characters are sent to be read as
+     terminal input by XEmacs's superior shell.  The characters in
+     STRING are not echoed by the superior shell; only the results
+     appear.
+
+     Before suspending, `suspend-emacs' runs the normal hook
+     `suspend-hook'.  In Emacs version 18, `suspend-hook' was not a
+     normal hook; its value was a single function, and if its value was
+     non-`nil', then `suspend-emacs' returned immediately without
+     actually suspending anything.
+
+     After the user resumes XEmacs, `suspend-emacs' runs the normal hook
+     `suspend-resume-hook'.  *Note Hooks::.
+
+     The next redisplay after resumption will redraw the entire screen,
+     unless the variable `no-redraw-on-reenter' is non-`nil' (*note
+     Refresh Screen::.).
+
+     In the following example, note that `pwd' is not echoed after
+     XEmacs is suspended.  But it is read and executed by the shell.
+
+          (suspend-emacs)
+               => nil
+
+          (add-hook 'suspend-hook
+                    (function (lambda ()
+                                (or (y-or-n-p
+                                      "Really suspend? ")
+                                    (error "Suspend cancelled")))))
+               => (lambda nil
+                    (or (y-or-n-p "Really suspend? ")
+                        (error "Suspend cancelled")))
+
+          (add-hook 'suspend-resume-hook
+                    (function (lambda () (message "Resumed!"))))
+               => (lambda nil (message "Resumed!"))
+
+          (suspend-emacs "pwd")
+               => nil
+
+          ---------- Buffer: Minibuffer ----------
+          Really suspend? y
+          ---------- Buffer: Minibuffer ----------
+
+          ---------- Parent Shell ----------
+          lewis@slug[23] % /user/lewis/manual
+          lewis@slug[24] % fg
+
+          ---------- Echo Area ----------
+          Resumed!
+
+ - Variable: suspend-hook
+     This variable is a normal hook run before suspending.
+
+ - Variable: suspend-resume-hook
+     This variable is a normal hook run after suspending.
+
+
+File: lispref.info,  Node: System Environment,  Next: User Identification,  Prev: Getting Out,  Up: System Interface
+
+Operating System Environment
+============================
+
+   XEmacs provides access to variables in the operating system
+environment through various functions.  These variables include the
+name of the system, the user's UID, and so on.
+
+ - Variable: system-type
+     The value of this variable is a symbol indicating the type of
+     operating system XEmacs is operating on.  Here is a table of the
+     possible values:
+
+    `aix-v3'
+          AIX.
+
+    `berkeley-unix'
+          Berkeley BSD.
+
+    `dgux'
+          Data General DGUX operating system.
+
+    `gnu'
+          A GNU system using the GNU HURD and Mach.
+
+    `hpux'
+          Hewlett-Packard HPUX operating system.
+
+    `irix'
+          Silicon Graphics Irix system.
+
+    `linux'
+          A GNU system using the Linux kernel.
+
+    `ms-dos'
+          Microsoft MS-DOS "operating system."
+
+    `next-mach'
+          NeXT Mach-based system.
+
+    `rtu'
+          Masscomp RTU, UCB universe.
+
+    `unisoft-unix'
+          UniSoft UniPlus.
+
+    `usg-unix-v'
+          AT&T System V.
+
+    `vax-vms'
+          VAX VMS.
+
+    `windows-nt'
+          Microsoft windows NT.
+
+    `xenix'
+          SCO Xenix 386.
+
+     We do not wish to add new symbols to make finer distinctions
+     unless it is absolutely necessary!  In fact, we hope to eliminate
+     some of these alternatives in the future.  We recommend using
+     `system-configuration' to distinguish between different operating
+     systems.
+
+ - Variable: system-configuration
+     This variable holds the three-part configuration name for the
+     hardware/software configuration of your system, as a string.  The
+     convenient way to test parts of this string is with `string-match'.
+
+ - Function: system-name
+     This function returns the name of the machine you are running on.
+          (system-name)
+               => "prep.ai.mit.edu"
+
+   The symbol `system-name' is a variable as well as a function.  In
+fact, the function returns whatever value the variable `system-name'
+currently holds.  Thus, you can set the variable `system-name' in case
+Emacs is confused about the name of your system.  The variable is also
+useful for constructing frame titles (*note Frame Titles::.).
+
+ - Variable: mail-host-address
+     If this variable is non-`nil', it is used instead of `system-name'
+     for purposes of generating email addresses.  For example, it is
+     used when constructing the default value of `user-mail-address'.
+     *Note User Identification::.  (Since this is done when XEmacs
+     starts up, the value actually used is the one saved when XEmacs
+     was dumped.  *Note Building XEmacs::.)
+
+ - Function: getenv VAR
+     This function returns the value of the environment variable VAR,
+     as a string.  Within XEmacs, the environment variable values are
+     kept in the Lisp variable `process-environment'.
+
+          (getenv "USER")
+               => "lewis"
+          
+          lewis@slug[10] % printenv
+          PATH=.:/user/lewis/bin:/usr/bin:/usr/local/bin
+          USER=lewis
+          TERM=ibmapa16
+          SHELL=/bin/csh
+          HOME=/user/lewis
+
+ - Command: setenv VARIABLE VALUE
+     This command sets the value of the environment variable named
+     VARIABLE to VALUE.  Both arguments should be strings.  This
+     function works by modifying `process-environment'; binding that
+     variable with `let' is also reasonable practice.
+
+ - Variable: process-environment
+     This variable is a list of strings, each describing one environment
+     variable.  The functions `getenv' and `setenv' work by means of
+     this variable.
+
+          process-environment
+          => ("l=/usr/stanford/lib/gnuemacs/lisp"
+              "PATH=.:/user/lewis/bin:/usr/class:/nfsusr/local/bin"
+              "USER=lewis"
+
+          "TERM=ibmapa16"
+              "SHELL=/bin/csh"
+              "HOME=/user/lewis")
+
+ - Variable: path-separator
+     This variable holds a string which says which character separates
+     directories in a search path (as found in an environment
+     variable).  Its value is `":"' for Unix and GNU systems, and `";"'
+     for MS-DOS and Windows NT.
+
+ - Variable: invocation-name
+     This variable holds the program name under which Emacs was
+     invoked.  The value is a string, and does not include a directory
+     name.
+
+ - Variable: invocation-directory
+     This variable holds the directory from which the Emacs executable
+     was invoked, or perhaps `nil' if that directory cannot be
+     determined.
+
+ - Variable: installation-directory
+     If non-`nil', this is a directory within which to look for the
+     `lib-src' and `etc' subdirectories.  This is non-`nil' when Emacs
+     can't find those directories in their standard installed
+     locations, but can find them in a directory related somehow to the
+     one containing the Emacs executable.
+
+ - Function: load-average &optional USE-FLOATS
+     This function returns a list of the current 1-minute, 5-minute and
+     15-minute load averages.  The values are integers that are 100
+     times the system load averages.  (The load averages indicate the
+     number of processes trying to run.)
+
+     When USE-FLOATS is non-`nil', floats will be returned instead of
+     integers.  These floats are not multiplied by 100.
+
+          (load-average)
+               => (169 158 164)
+          (load-average t)
+               => (1.69921875 1.58984375 1.640625)
+          
+          lewis@rocky[5] % uptime
+            8:06pm  up 16 day(s), 21:57,  40 users,
+           load average: 1.68, 1.59, 1.64
+
+     If the 5-minute or 15-minute load averages are not available,
+     return a shortened list, containing only those averages which are
+     available.
+
+     On some systems, this function may require special privileges to
+     run, or it may be unimplemented for the particular system type.
+     In that case, the function will signal an error.
+
+ - Function: emacs-pid
+     This function returns the process ID of the Emacs process.
+
+ - Function: setprv PRIVILEGE-NAME &optional SETP GETPRV
+     This function sets or resets a VMS privilege.  (It does not exist
+     on Unix.)  The first arg is the privilege name, as a string.  The
+     second argument, SETP, is `t' or `nil', indicating whether the
+     privilege is to be turned on or off.  Its default is `nil'.  The
+     function returns `t' if successful, `nil' otherwise.
+
+     If the third argument, GETPRV, is non-`nil', `setprv' does not
+     change the privilege, but returns `t' or `nil' indicating whether
+     the privilege is currently enabled.
+
+
+File: lispref.info,  Node: User Identification,  Next: Time of Day,  Prev: System Environment,  Up: System Interface
+
+User Identification
+===================
+
+ - Variable: user-mail-address
+     This holds the nominal email address of the user who is using
+     Emacs.  When Emacs starts up, it computes a default value that is
+     usually right, but users often set this themselves when the
+     default value is not right.
+
+ - Function: user-login-name &optional UID
+     If you don't specify UID, this function returns the name under
+     which the user is logged in.  If the environment variable `LOGNAME'
+     is set, that value is used.  Otherwise, if the environment variable
+     `USER' is set, that value is used.  Otherwise, the value is based
+     on the effective UID, not the real UID.
+
+     If you specify UID, the value is the user name that corresponds to
+     UID (which should be an integer).
+
+          (user-login-name)
+               => "lewis"
+
+ - Function: user-real-login-name
+     This function returns the user name corresponding to Emacs's real
+     UID.  This ignores the effective UID and ignores the environment
+     variables `LOGNAME' and `USER'.
+
+ - Variable: user-full-name
+     This variable holds the name of the user running this Emacs.  It is
+     initialized at startup time from the value of `NAME' environment
+     variable.  You can change the value of this variable to alter the
+     result of the `user-full-name' function.
+
+ - Function: user-full-name &optional USER
+     This function returns the full name of USER.  If USER is `nil', it
+     defaults to the user running this Emacs.  In that case, the value
+     of `user-full-name' variable, if non-`nil', will be used.
+
+     If USER is specified explicitly, `user-full-name' variable is
+     ignored.
+
+          (user-full-name)
+               => "Hrvoje Niksic"
+          (setq user-full-name "Hrvoje \"Niksa\" Niksic")
+          (user-full-name)
+               => "Hrvoje \"Niksa\" Niksic"
+          (user-full-name "hniksic")
+               => "Hrvoje Niksic"
+
+   The symbols `user-login-name', `user-real-login-name' and
+`user-full-name' are variables as well as functions.  The functions
+return the same values that the variables hold.  These variables allow
+you to "fake out" Emacs by telling the functions what to return.  The
+variables are also useful for constructing frame titles (*note Frame
+Titles::.).
+
+ - Function: user-real-uid
+     This function returns the real UID of the user.
+
+          (user-real-uid)
+               => 19
+
+ - Function: user-uid
+     This function returns the effective UID of the user.
+
+ - Function: user-home-directory
+     This function returns the "`HOME'" directory of the user, and is
+     intended to replace occurrences of "`(getenv "HOME")'".  Under
+     Unix systems, the following is done:
+
+       1. Return the value of "`(getenv "HOME")'", if set.
+
+       2. Return "/", as a fallback, but issue a warning.  (Future
+          versions of XEmacs will also attempt to lookup the `HOME'
+          directory via `getpwent()', but this has not yet been
+          implemented.)
+
+     Under MS Windows, this is done:
+
+       1. Return the value of "`(getenv "HOME")'", if set.
+
+       2. If the environment variables `HOMEDRIVE' and `HOMEDIR' are
+          both set, return the concatenation (the following description
+          uses MS Windows environment variable substitution syntax):
+          `%HOMEDRIVE%%HOMEDIR%'.
+
+       3. Return "C:\", as a fallback, but issue a warning.
+
+
+File: lispref.info,  Node: Time of Day,  Next: Time Conversion,  Prev: User Identification,  Up: System Interface
+
+Time of Day
+===========
+
+   This section explains how to determine the current time and the time
+zone.
+
+ - Function: current-time-string &optional TIME-VALUE
+     This function returns the current time and date as a
+     humanly-readable string.  The format of the string is unvarying;
+     the number of characters used for each part is always the same, so
+     you can reliably use `substring' to extract pieces of it.  It is
+     wise to count the characters from the beginning of the string
+     rather than from the end, as additional information may be added
+     at the end.
+
+     The argument TIME-VALUE, if given, specifies a time to format
+     instead of the current time.  The argument should be a list whose
+     first two elements are integers.  Thus, you can use times obtained
+     from `current-time' (see below) and from `file-attributes' (*note
+     File Attributes::.).
+
+          (current-time-string)
+               => "Wed Oct 14 22:21:05 1987"
+
+ - Function: current-time
+     This function returns the system's time value as a list of three
+     integers: `(HIGH LOW MICROSEC)'.  The integers HIGH and LOW
+     combine to give the number of seconds since 0:00 January 1, 1970,
+     which is HIGH * 2**16 + LOW.
+
+     The third element, MICROSEC, gives the microseconds since the
+     start of the current second (or 0 for systems that return time
+     only on the resolution of a second).
+
+     The first two elements can be compared with file time values such
+     as you get with the function `file-attributes'.  *Note File
+     Attributes::.
+
+ - Function: current-time-zone &optional TIME-VALUE
+     This function returns a list describing the time zone that the
+     user is in.
+
+     The value has the form `(OFFSET NAME)'.  Here OFFSET is an integer
+     giving the number of seconds ahead of UTC (east of Greenwich).  A
+     negative value means west of Greenwich.  The second element, NAME
+     is a string giving the name of the time zone.  Both elements
+     change when daylight savings time begins or ends; if the user has
+     specified a time zone that does not use a seasonal time
+     adjustment, then the value is constant through time.
+
+     If the operating system doesn't supply all the information
+     necessary to compute the value, both elements of the list are
+     `nil'.
+
+     The argument TIME-VALUE, if given, specifies a time to analyze
+     instead of the current time.  The argument should be a cons cell
+     containing two integers, or a list whose first two elements are
+     integers.  Thus, you can use times obtained from `current-time'
+     (see above) and from `file-attributes' (*note File Attributes::.).
+
+
+File: lispref.info,  Node: Time Conversion,  Next: Timers,  Prev: Time of Day,  Up: System Interface
+
+Time Conversion
+===============
+
+   These functions convert time values (lists of two or three integers)
+to strings or to calendrical information.  There is also a function to
+convert calendrical information to a time value.  You can get time
+values from the functions `current-time' (*note Time of Day::.) and
+`file-attributes' (*note File Attributes::.).
+
+ - Function: format-time-string FORMAT-STRING &optional TIME
+     This function converts TIME to a string according to
+     FORMAT-STRING.  If TIME is omitted, it defaults to the current
+     time.  The argument FORMAT-STRING may contain `%'-sequences which
+     say to substitute parts of the time.  Here is a table of what the
+     `%'-sequences mean:
+
+    `%a'
+          This stands for the abbreviated name of the day of week.
+
+    `%A'
+          This stands for the full name of the day of week.
+
+    `%b'
+          This stands for the abbreviated name of the month.
+
+    `%B'
+          This stands for the full name of the month.
+
+    `%c'
+          This is a synonym for `%x %X'.
+
+    `%C'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%A, %B %e, %Y'.
+
+    `%d'
+          This stands for the day of month, zero-padded.
+
+    `%D'
+          This is a synonym for `%m/%d/%y'.
+
+    `%e'
+          This stands for the day of month, blank-padded.
+
+    `%h'
+          This is a synonym for `%b'.
+
+    `%H'
+          This stands for the hour (00-23).
+
+    `%I'
+          This stands for the hour (00-12).
+
+    `%j'
+          This stands for the day of the year (001-366).
+
+    `%k'
+          This stands for the hour (0-23), blank padded.
+
+    `%l'
+          This stands for the hour (1-12), blank padded.
+
+    `%m'
+          This stands for the month (01-12).
+
+    `%M'
+          This stands for the minute (00-59).
+
+    `%n'
+          This stands for a newline.
+
+    `%p'
+          This stands for `AM' or `PM', as appropriate.
+
+    `%r'
+          This is a synonym for `%I:%M:%S %p'.
+
+    `%R'
+          This is a synonym for `%H:%M'.
+
+    `%S'
+          This stands for the seconds (00-60).
+
+    `%t'
+          This stands for a tab character.
+
+    `%T'
+          This is a synonym for `%H:%M:%S'.
+
+    `%U'
+          This stands for the week of the year (01-52), assuming that
+          weeks start on Sunday.
+
+    `%w'
+          This stands for the numeric day of week (0-6).  Sunday is day
+          0.
+
+    `%W'
+          This stands for the week of the year (01-52), assuming that
+          weeks start on Monday.
+
+    `%x'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%D'.
+
+    `%X'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%T'.
+
+    `%y'
+          This stands for the year without century (00-99).
+
+    `%Y'
+          This stands for the year with century.
+
+    `%Z'
+          This stands for the time zone abbreviation.
+
+ - Function: decode-time TIME
+     This function converts a time value into calendrical information.
+     The return value is a list of nine elements, as follows:
+
+          (SECONDS MINUTES HOUR DAY MONTH YEAR DOW DST ZONE)
+
+     Here is what the elements mean:
+
+    SEC
+          The number of seconds past the minute, as an integer between
+          0 and 59.
+
+    MINUTE
+          The number of minutes past the hour, as an integer between 0
+          and 59.
+
+    HOUR
+          The hour of the day, as an integer between 0 and 23.
+
+    DAY
+          The day of the month, as an integer between 1 and 31.
+
+    MONTH
+          The month of the year, as an integer between 1 and 12.
+
+    YEAR
+          The year, an integer typically greater than 1900.
+
+    DOW
+          The day of week, as an integer between 0 and 6, where 0
+          stands for Sunday.
+
+    DST
+          `t' if daylight savings time is effect, otherwise `nil'.
+
+    ZONE
+          An integer indicating the time zone, as the number of seconds
+          east of Greenwich.
+
+     Note that Common Lisp has different meanings for DOW and ZONE.
+
+ - Function: encode-time SECONDS MINUTES HOUR DAY MONTH YEAR &optional
+          ZONE
+     This function is the inverse of `decode-time'.  It converts seven
+     items of calendrical data into a time value.  For the meanings of
+     the arguments, see the table above under `decode-time'.
+
+     Year numbers less than 100 are treated just like other year
+     numbers.  If you want them to stand for years above 1900, you must
+     alter them yourself before you call `encode-time'.
+
+     The optional argument ZONE defaults to the current time zone and
+     its daylight savings time rules.  If specified, it can be either a
+     list (as you would get from `current-time-zone') or an integer (as
+     you would get from `decode-time').  The specified zone is used
+     without any further alteration for daylight savings time.
+
+
+File: lispref.info,  Node: Timers,  Next: Terminal Input,  Prev: Time Conversion,  Up: System Interface
+
+Timers for Delayed Execution
+============================
+
+   You can set up a timer to call a function at a specified future time.
+
+ - Function: add-timeout SECS FUNCTION OBJECT &optional RESIGNAL
+     This function adds a timeout, to be signaled after the timeout
+     period has elapsed.  SECS is a number of seconds, expressed as an
+     integer or a float.  FUNCTION will be called after that many
+     seconds have elapsed, with one argument, the given OBJECT.  If the
+     optional RESIGNAL argument is provided, then after this timeout
+     expires, `add-timeout' will automatically be called again with
+     RESIGNAL as the first argument.
+
+     This function returns an object which is the "id" of this
+     particular timeout.  You can pass that object to `disable-timeout'
+     to turn off the timeout before it has been signalled.
+
+     The number of seconds may be expressed as a floating-point number,
+     in which case some fractional part of a second will be used.
+     Caveat: the usable timeout granularity will vary from system to
+     system.
+
+     Adding a timeout causes a timeout event to be returned by
+     `next-event', and the function will be invoked by
+     `dispatch-event', so if XEmacs is in a tight loop, the function
+     will not be invoked until the next call to sit-for or until the
+     return to top-level (the same is true of process filters).
+
+     WARNING: if you are thinking of calling add-timeout from inside of
+     a callback function as a way of resignalling a timeout, think
+     again.  There is a race condition.  That's why the RESIGNAL
+     argument exists.
+
+     (NOTE: In FSF Emacs, this function is called `run-at-time' and has
+     different semantics.)
+
+ - Function: disable-timeout ID
+     Cancel the requested action for ID, which should be a value
+     previously returned by `add-timeout'.  This cancels the effect of
+     that call to `add-timeout'; the arrival of the specified time will
+     not cause anything special to happen.  (NOTE: In FSF Emacs, this
+     function is called `cancel-timer'.)
+
+
+File: lispref.info,  Node: Terminal Input,  Next: Terminal Output,  Prev: Timers,  Up: System Interface
+
+Terminal Input
+==============
+
+   This section describes functions and variables for recording or
+manipulating terminal input.  See *Note Display::, for related
+functions.
+
+* Menu:
+
+* Input Modes::		Options for how input is processed.
+* Translating Input::   Low level conversion of some characters or events
+			  into others.
+* Recording Input::	Saving histories of recent or all input events.
+
+
+File: lispref.info,  Node: Input Modes,  Next: Translating Input,  Up: Terminal Input
+
+Input Modes
+-----------
+
+ - Function: set-input-mode INTERRUPT FLOW META QUIT-CHAR
+     This function sets the mode for reading keyboard input.  If
+     INTERRUPT is non-null, then XEmacs uses input interrupts.  If it is
+     `nil', then it uses CBREAK mode.  When XEmacs communicates
+     directly with X, it ignores this argument and uses interrupts if
+     that is the way it knows how to communicate.
+
+     If FLOW is non-`nil', then XEmacs uses XON/XOFF (`C-q', `C-s')
+     flow control for output to the terminal.  This has no effect except
+     in CBREAK mode.  *Note Flow Control::.
+
+     The default setting is system dependent.  Some systems always use
+     CBREAK mode regardless of what is specified.
+
+     The argument META controls support for input character codes above
+     127.  If META is `t', XEmacs converts characters with the 8th bit
+     set into Meta characters.  If META is `nil', XEmacs disregards the
+     8th bit; this is necessary when the terminal uses it as a parity
+     bit.  If META is neither `t' nor `nil', XEmacs uses all 8 bits of
+     input unchanged.  This is good for terminals using European 8-bit
+     character sets.
+
+     If QUIT-CHAR is non-`nil', it specifies the character to use for
+     quitting.  Normally this character is `C-g'.  *Note Quitting::.
+
+   The `current-input-mode' function returns the input mode settings
+XEmacs is currently using.
+
+ - Function: current-input-mode
+     This function returns current mode for reading keyboard input.  It
+     returns a list, corresponding to the arguments of `set-input-mode',
+     of the form `(INTERRUPT FLOW META QUIT)' in which:
+    INTERRUPT
+          is non-`nil' when XEmacs is using interrupt-driven input.  If
+          `nil', Emacs is using CBREAK mode.
+
+    FLOW
+          is non-`nil' if XEmacs uses XON/XOFF (`C-q', `C-s') flow
+          control for output to the terminal.  This value has no effect
+          unless INTERRUPT is non-`nil'.
+
+    META
+          is `t' if XEmacs treats the eighth bit of input characters as
+          the meta bit; `nil' means XEmacs clears the eighth bit of
+          every input character; any other value means XEmacs uses all
+          eight bits as the basic character code.
+
+    QUIT
+          is the character XEmacs currently uses for quitting, usually
+          `C-g'.
+
+
+File: lispref.info,  Node: Translating Input,  Next: Recording Input,  Prev: Input Modes,  Up: Terminal Input
+
+Translating Input Events
+------------------------
+
+   This section describes features for translating input events into
+other input events before they become part of key sequences.
+
+ - Variable: function-key-map
+     This variable holds a keymap that describes the character sequences
+     sent by function keys on an ordinary character terminal.  This
+     keymap uses the same data structure as other keymaps, but is used
+     differently: it specifies translations to make while reading
+     events.
+
+     If `function-key-map' "binds" a key sequence K to a vector V, then
+     when K appears as a subsequence *anywhere* in a key sequence, it
+     is replaced with the events in V.
+
+     For example, VT100 terminals send `<ESC> O P' when the keypad PF1
+     key is pressed.  Therefore, we want XEmacs to translate that
+     sequence of events into the single event `pf1'.  We accomplish
+     this by "binding" `<ESC> O P' to `[pf1]' in `function-key-map',
+     when using a VT100.
+
+     Thus, typing `C-c <PF1>' sends the character sequence `C-c <ESC> O
+     P'; later the function `read-key-sequence' translates this back
+     into `C-c <PF1>', which it returns as the vector `[?\C-c pf1]'.
+
+     Entries in `function-key-map' are ignored if they conflict with
+     bindings made in the minor mode, local, or global keymaps.  The
+     intent is that the character sequences that function keys send
+     should not have command bindings in their own right.
+
+     The value of `function-key-map' is usually set up automatically
+     according to the terminal's Terminfo or Termcap entry, but
+     sometimes those need help from terminal-specific Lisp files.
+     XEmacs comes with terminal-specific files for many common
+     terminals; their main purpose is to make entries in
+     `function-key-map' beyond those that can be deduced from Termcap
+     and Terminfo.  *Note Terminal-Specific::.
+
+     Emacs versions 18 and earlier used totally different means of
+     detecting the character sequences that represent function keys.
+
+ - Variable: key-translation-map
+     This variable is another keymap used just like `function-key-map'
+     to translate input events into other events.  It differs from
+     `function-key-map' in two ways:
+
+        * `key-translation-map' goes to work after `function-key-map' is
+          finished; it receives the results of translation by
+          `function-key-map'.
+
+        * `key-translation-map' overrides actual key bindings.
+
+     The intent of `key-translation-map' is for users to map one
+     character set to another, including ordinary characters normally
+     bound to `self-insert-command'.
+
+   You can use `function-key-map' or `key-translation-map' for more
+than simple aliases, by using a function, instead of a key sequence, as
+the "translation" of a key.  Then this function is called to compute
+the translation of that key.
+
+   The key translation function receives one argument, which is the
+prompt that was specified in `read-key-sequence'--or `nil' if the key
+sequence is being read by the editor command loop.  In most cases you
+can ignore the prompt value.
+
+   If the function reads input itself, it can have the effect of
+altering the event that follows.  For example, here's how to define
+`C-c h' to turn the character that follows into a Hyper character:
+
+     (defun hyperify (prompt)
+       (let ((e (read-event)))
+         (vector (if (numberp e)
+                     (logior (lsh 1 20) e)
+                   (if (memq 'hyper (event-modifiers e))
+                       e
+                     (add-event-modifier "H-" e))))))
+     
+     (defun add-event-modifier (string e)
+       (let ((symbol (if (symbolp e) e (car e))))
+         (setq symbol (intern (concat string
+                                      (symbol-name symbol))))
+         (if (symbolp e)
+             symbol
+           (cons symbol (cdr e)))))
+     
+     (define-key function-key-map "\C-ch" 'hyperify)
+
+   The `iso-transl' library uses this feature to provide a way of
+inputting non-ASCII Latin-1 characters.
+
+
+File: lispref.info,  Node: Recording Input,  Prev: Translating Input,  Up: Terminal Input
+
+Recording Input
+---------------
+
+ - Function: recent-keys &optional NUMBER
+     This function returns a vector containing recent input events from
+     the keyboard or mouse.  By default, 100 events are recorded, which
+     is how many `recent-keys' returns.
+
+     All input events are included, whether or not they were used as
+     parts of key sequences.  Thus, you always get the last 100 inputs,
+     not counting keyboard macros.  (Events from keyboard macros are
+     excluded because they are less interesting for debugging; it
+     should be enough to see the events that invoked the macros.)
+
+     If NUMBER is specified, not more than NUMBER events will be
+     returned.  You may change the number of stored events using
+     `set-recent-keys-ring-size'.
+
+ - Function: recent-keys-ring-size
+     This function returns the number of recent events stored
+     internally.  This is also the maximum number of events
+     `recent-keys' can return.  By default, 100 events are stored.
+
+ - Function: set-recent-keys-ring-size SIZE
+     This function changes the number of events stored by XEmacs and
+     returned by `recent-keys'.
+
+     For example, `(set-recent-keys-ring-size 250)' will make XEmacs
+     remember last 250 events and will make `recent-keys' return last
+     250 events by default.
+
+ - Command: open-dribble-file FILENAME
+     This function opens a "dribble file" named FILENAME.  When a
+     dribble file is open, each input event from the keyboard or mouse
+     (but not those from keyboard macros) is written in that file.  A
+     non-character event is expressed using its printed representation
+     surrounded by `<...>'.
+
+     You close the dribble file by calling this function with an
+     argument of `nil'.
+
+     This function is normally used to record the input necessary to
+     trigger an XEmacs bug, for the sake of a bug report.
+
+          (open-dribble-file "~/dribble")
+               => nil
+
+   See also the `open-termscript' function (*note Terminal Output::.).
+

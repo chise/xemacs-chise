@@ -1,0 +1,1174 @@
+This is Info file ../../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: High-Level Completion,  Next: Reading File Names,  Prev: Completion Commands,  Up: Completion
+
+High-Level Completion  Functions
+--------------------------------
+
+   This section describes the higher-level convenient functions for
+reading certain sorts of names with completion.
+
+   In most cases, you should not call these functions in the middle of a
+Lisp function.  When possible, do all minibuffer input as part of
+reading the arguments for a command, in the `interactive' spec.  *Note
+Defining Commands::.
+
+ - Function: read-buffer PROMPT &optional DEFAULT EXISTING
+     This function reads the name of a buffer and returns it as a
+     string.  The argument DEFAULT is the default name to use, the
+     value to return if the user exits with an empty minibuffer.  If
+     non-`nil', it should be a string or a buffer.  It is mentioned in
+     the prompt, but is not inserted in the minibuffer as initial input.
+
+     If EXISTING is non-`nil', then the name specified must be that of
+     an existing buffer.  The usual commands to exit the minibuffer do
+     not exit if the text is not valid, and <RET> does completion to
+     attempt to find a valid name.  (However, DEFAULT is not checked
+     for validity; it is returned, whatever it is, if the user exits
+     with the minibuffer empty.)
+
+     In the following example, the user enters `minibuffer.t', and then
+     types <RET>.  The argument EXISTING is `t', and the only buffer
+     name starting with the given input is `minibuffer.texi', so that
+     name is the value.
+
+          (read-buffer "Buffer name? " "foo" t)
+          ;; After evaluation of the preceding expression,
+          ;;   the following prompt appears,
+          ;;   with an empty minibuffer:
+          
+          ---------- Buffer: Minibuffer ----------
+          Buffer name? (default foo) -!-
+          ---------- Buffer: Minibuffer ----------
+          
+          ;; The user types `minibuffer.t <RET>'.
+               => "minibuffer.texi"
+
+ - Function: read-command PROMPT
+     This function reads the name of a command and returns it as a Lisp
+     symbol.  The argument PROMPT is used as in `read-from-minibuffer'.
+     Recall that a command is anything for which `commandp' returns
+     `t', and a command name is a symbol for which `commandp' returns
+     `t'.  *Note Interactive Call::.
+
+          (read-command "Command name? ")
+          
+          ;; After evaluation of the preceding expression,
+          ;;   the following prompt appears with an empty minibuffer:
+          
+          ---------- Buffer: Minibuffer ----------
+          Command name?
+          ---------- Buffer: Minibuffer ----------
+
+     If the user types `forward-c <RET>', then this function returns
+     `forward-char'.
+
+     The `read-command' function is a simplified interface to the
+     function `completing-read'.  It uses the variable `obarray' so as
+     to complete in the set of extant Lisp symbols, and it uses the
+     `commandp' predicate so as to accept only command names:
+
+          (read-command PROMPT)
+          ==
+          (intern (completing-read PROMPT obarray
+                                   'commandp t nil))
+
+ - Function: read-variable PROMPT
+     This function reads the name of a user variable and returns it as a
+     symbol.
+
+          (read-variable "Variable name? ")
+          
+          ;; After evaluation of the preceding expression,
+          ;;   the following prompt appears,
+          ;;   with an empty minibuffer:
+          
+          ---------- Buffer: Minibuffer ----------
+          Variable name? -!-
+          ---------- Buffer: Minibuffer ----------
+
+     If the user then types `fill-p <RET>', `read-variable' returns
+     `fill-prefix'.
+
+     This function is similar to `read-command', but uses the predicate
+     `user-variable-p' instead of `commandp':
+
+          (read-variable PROMPT)
+          ==
+          (intern
+           (completing-read PROMPT obarray
+                            'user-variable-p t nil))
+
+
+File: lispref.info,  Node: Reading File Names,  Next: Programmed Completion,  Prev: High-Level Completion,  Up: Completion
+
+Reading File Names
+------------------
+
+   Here is another high-level completion function, designed for reading
+a file name.  It provides special features including automatic insertion
+of the default directory.
+
+ - Function: read-file-name PROMPT &optional DIRECTORY DEFAULT EXISTING
+          INITIAL
+     This function reads a file name in the minibuffer, prompting with
+     PROMPT and providing completion.  If DEFAULT is non-`nil', then
+     the function returns DEFAULT if the user just types <RET>.
+     DEFAULT is not checked for validity; it is returned, whatever it
+     is, if the user exits with the minibuffer empty.
+
+     If EXISTING is non-`nil', then the user must specify the name of
+     an existing file; <RET> performs completion to make the name valid
+     if possible, and then refuses to exit if it is not valid.  If the
+     value of EXISTING is neither `nil' nor `t', then <RET> also
+     requires confirmation after completion.  If EXISTING is `nil',
+     then the name of a nonexistent file is acceptable.
+
+     The argument DIRECTORY specifies the directory to use for
+     completion of relative file names.  If `insert-default-directory'
+     is non-`nil', DIRECTORY is also inserted in the minibuffer as
+     initial input.  It defaults to the current buffer's value of
+     `default-directory'.
+
+     If you specify INITIAL, that is an initial file name to insert in
+     the buffer (after with DIRECTORY, if that is inserted).  In this
+     case, point goes at the beginning of INITIAL.  The default for
+     INITIAL is `nil'--don't insert any file name.  To see what INITIAL
+     does, try the command `C-x C-v'.
+
+     Here is an example:
+
+          (read-file-name "The file is ")
+          
+          ;; After evaluation of the preceding expression,
+          ;;   the following appears in the minibuffer:
+          
+          ---------- Buffer: Minibuffer ----------
+          The file is /gp/gnu/elisp/-!-
+          ---------- Buffer: Minibuffer ----------
+
+     Typing `manual <TAB>' results in the following:
+
+          ---------- Buffer: Minibuffer ----------
+          The file is /gp/gnu/elisp/manual.texi-!-
+          ---------- Buffer: Minibuffer ----------
+
+     If the user types <RET>, `read-file-name' returns the file name as
+     the string `"/gp/gnu/elisp/manual.texi"'.
+
+ - User Option: insert-default-directory
+     This variable is used by `read-file-name'.  Its value controls
+     whether `read-file-name' starts by placing the name of the default
+     directory in the minibuffer, plus the initial file name if any.
+     If the value of this variable is `nil', then `read-file-name' does
+     not place any initial input in the minibuffer (unless you specify
+     initial input with the INITIAL argument).  In that case, the
+     default directory is still used for completion of relative file
+     names, but is not displayed.
+
+     For example:
+
+          ;; Here the minibuffer starts out with the default directory.
+          (let ((insert-default-directory t))
+            (read-file-name "The file is "))
+          
+          ---------- Buffer: Minibuffer ----------
+          The file is ~lewis/manual/-!-
+          ---------- Buffer: Minibuffer ----------
+          
+          ;; Here the minibuffer is empty and only the prompt
+          ;;   appears on its line.
+          (let ((insert-default-directory nil))
+            (read-file-name "The file is "))
+          
+          ---------- Buffer: Minibuffer ----------
+          The file is -!-
+          ---------- Buffer: Minibuffer ----------
+
+
+File: lispref.info,  Node: Programmed Completion,  Prev: Reading File Names,  Up: Completion
+
+Programmed Completion
+---------------------
+
+   Sometimes it is not possible to create an alist or an obarray
+containing all the intended possible completions.  In such a case, you
+can supply your own function to compute the completion of a given
+string.  This is called "programmed completion".
+
+   To use this feature, pass a symbol with a function definition as the
+COLLECTION argument to `completing-read'.  The function
+`completing-read' arranges to pass your completion function along to
+`try-completion' and `all-completions', which will then let your
+function do all the work.
+
+   The completion function should accept three arguments:
+
+   * The string to be completed.
+
+   * The predicate function to filter possible matches, or `nil' if
+     none.  Your function should call the predicate for each possible
+     match, and ignore the possible match if the predicate returns
+     `nil'.
+
+   * A flag specifying the type of operation.
+
+   There are three flag values for three operations:
+
+   * `nil' specifies `try-completion'.  The completion function should
+     return the completion of the specified string, or `t' if the
+     string is an exact match already, or `nil' if the string matches no
+     possibility.
+
+   * `t' specifies `all-completions'.  The completion function should
+     return a list of all possible completions of the specified string.
+
+   * `lambda' specifies a test for an exact match.  The completion
+     function should return `t' if the specified string is an exact
+     match for some possibility; `nil' otherwise.
+
+   It would be consistent and clean for completion functions to allow
+lambda expressions (lists that are functions) as well as function
+symbols as COLLECTION, but this is impossible.  Lists as completion
+tables are already assigned another meaning--as alists.  It would be
+unreliable to fail to handle an alist normally because it is also a
+possible function.  So you must arrange for any function you wish to
+use for completion to be encapsulated in a symbol.
+
+   Emacs uses programmed completion when completing file names.  *Note
+File Name Completion::.
+
+
+File: lispref.info,  Node: Yes-or-No Queries,  Next: Multiple Queries,  Prev: Completion,  Up: Minibuffers
+
+Yes-or-No Queries
+=================
+
+   This section describes functions used to ask the user a yes-or-no
+question.  The function `y-or-n-p' can be answered with a single
+character; it is useful for questions where an inadvertent wrong answer
+will not have serious consequences.  `yes-or-no-p' is suitable for more
+momentous questions, since it requires three or four characters to
+answer.  Variations of these functions can be used to ask a yes-or-no
+question using a dialog box, or optionally using one.
+
+   If either of these functions is called in a command that was invoked
+using the mouse, then it uses a dialog box or pop-up menu to ask the
+question.  Otherwise, it uses keyboard input.
+
+   Strictly speaking, `yes-or-no-p' uses the minibuffer and `y-or-n-p'
+does not; but it seems best to describe them together.
+
+ - Function: y-or-n-p PROMPT
+     This function asks the user a question, expecting input in the echo
+     area.  It returns `t' if the user types `y', `nil' if the user
+     types `n'.  This function also accepts <SPC> to mean yes and <DEL>
+     to mean no.  It accepts `C-]' to mean "quit", like `C-g', because
+     the question might look like a minibuffer and for that reason the
+     user might try to use `C-]' to get out.  The answer is a single
+     character, with no <RET> needed to terminate it.  Upper and lower
+     case are equivalent.
+
+     "Asking the question" means printing PROMPT in the echo area,
+     followed by the string `(y or n) '.  If the input is not one of
+     the expected answers (`y', `n', `<SPC>', `<DEL>', or something
+     that quits), the function responds `Please answer y or n.', and
+     repeats the request.
+
+     This function does not actually use the minibuffer, since it does
+     not allow editing of the answer.  It actually uses the echo area
+     (*note The Echo Area::.), which uses the same screen space as the
+     minibuffer.  The cursor moves to the echo area while the question
+     is being asked.
+
+     The answers and their meanings, even `y' and `n', are not
+     hardwired.  The keymap `query-replace-map' specifies them.  *Note
+     Search and Replace::.
+
+     In the following example, the user first types `q', which is
+     invalid.  At the next prompt the user types `y'.
+
+          (y-or-n-p "Do you need a lift? ")
+          
+          ;; After evaluation of the preceding expression,
+          ;;   the following prompt appears in the echo area:
+
+          ---------- Echo area ----------
+          Do you need a lift? (y or n)
+          ---------- Echo area ----------
+          
+          ;; If the user then types `q', the following appears:
+          ---------- Echo area ----------
+          Please answer y or n.  Do you need a lift? (y or n)
+          ---------- Echo area ----------
+          
+          ;; When the user types a valid answer,
+          ;;   it is displayed after the question:
+          ---------- Echo area ----------
+          Do you need a lift? (y or n) y
+          ---------- Echo area ----------
+
+     We show successive lines of echo area messages, but only one
+     actually appears on the screen at a time.
+
+ - Function: yes-or-no-p PROMPT
+     This function asks the user a question, expecting input in the
+     minibuffer.  It returns `t' if the user enters `yes', `nil' if the
+     user types `no'.  The user must type <RET> to finalize the
+     response.  Upper and lower case are equivalent.
+
+     `yes-or-no-p' starts by displaying PROMPT in the echo area,
+     followed by `(yes or no) '.  The user must type one of the
+     expected responses; otherwise, the function responds `Please answer
+     yes or no.', waits about two seconds and repeats the request.
+
+     `yes-or-no-p' requires more work from the user than `y-or-n-p' and
+     is appropriate for more crucial decisions.
+
+     Here is an example:
+
+          (yes-or-no-p "Do you really want to remove everything? ")
+          
+          ;; After evaluation of the preceding expression,
+          ;;   the following prompt appears,
+          ;;   with an empty minibuffer:
+
+          ---------- Buffer: minibuffer ----------
+          Do you really want to remove everything? (yes or no)
+          ---------- Buffer: minibuffer ----------
+
+     If the user first types `y <RET>', which is invalid because this
+     function demands the entire word `yes', it responds by displaying
+     these prompts, with a brief pause between them:
+
+          ---------- Buffer: minibuffer ----------
+          Please answer yes or no.
+          Do you really want to remove everything? (yes or no)
+          ---------- Buffer: minibuffer ----------
+
+ - Function: yes-or-no-p-dialog-box PROMPT
+     This function asks the user a "y or n" question with a popup dialog
+     box.  It returns `t' if the answer is "yes".  PROMPT is the string
+     to display to ask the question.
+
+   The following functions ask a question either in the minibuffer or a
+dialog box, depending on whether the last user event (which presumably
+invoked this command) was a keyboard or mouse event.  When XEmacs is
+running on a window system, the functions `y-or-n-p' and `yes-or-no-p'
+are replaced with the following functions, so that menu items bring up
+dialog boxes instead of minibuffer questions.
+
+ - Function: y-or-n-p-maybe-dialog-box PROMPT
+     This function asks user a "y or n" question, using either a dialog
+     box or the minibuffer, as appropriate.
+
+ - Function: yes-or-no-p-maybe-dialog-box PROMPT
+     This function asks user a "yes or no" question, using either a
+     dialog box or the minibuffer, as appropriate.
+
+
+File: lispref.info,  Node: Multiple Queries,  Next: Minibuffer Misc,  Prev: Yes-or-No Queries,  Up: Minibuffers
+
+Asking Multiple Y-or-N Questions
+================================
+
+   When you have a series of similar questions to ask, such as "Do you
+want to save this buffer" for each buffer in turn, you should use
+`map-y-or-n-p' to ask the collection of questions, rather than asking
+each question individually.  This gives the user certain convenient
+facilities such as the ability to answer the whole series at once.
+
+ - Function: map-y-or-n-p PROMPTER ACTOR LIST &optional HELP
+          ACTION-ALIST
+     This function, new in Emacs 19, asks the user a series of
+     questions, reading a single-character answer in the echo area for
+     each one.
+
+     The value of LIST specifies the objects to ask questions about.
+     It should be either a list of objects or a generator function.  If
+     it is a function, it should expect no arguments, and should return
+     either the next object to ask about, or `nil' meaning stop asking
+     questions.
+
+     The argument PROMPTER specifies how to ask each question.  If
+     PROMPTER is a string, the question text is computed like this:
+
+          (format PROMPTER OBJECT)
+
+     where OBJECT is the next object to ask about (as obtained from
+     LIST).
+
+     If not a string, PROMPTER should be a function of one argument
+     (the next object to ask about) and should return the question
+     text.  If the value is a string, that is the question to ask the
+     user.  The function can also return `t' meaning do act on this
+     object (and don't ask the user), or `nil' meaning ignore this
+     object (and don't ask the user).
+
+     The argument ACTOR says how to act on the answers that the user
+     gives.  It should be a function of one argument, and it is called
+     with each object that the user says yes for.  Its argument is
+     always an object obtained from LIST.
+
+     If the argument HELP is given, it should be a list of this form:
+
+          (SINGULAR PLURAL ACTION)
+
+     where SINGULAR is a string containing a singular noun that
+     describes the objects conceptually being acted on, PLURAL is the
+     corresponding plural noun, and ACTION is a transitive verb
+     describing what ACTOR does.
+
+     If you don't specify HELP, the default is `("object" "objects"
+     "act on")'.
+
+     Each time a question is asked, the user may enter `y', `Y', or
+     <SPC> to act on that object; `n', `N', or <DEL> to skip that
+     object; `!' to act on all following objects; <ESC> or `q' to exit
+     (skip all following objects); `.' (period) to act on the current
+     object and then exit; or `C-h' to get help.  These are the same
+     answers that `query-replace' accepts.  The keymap
+     `query-replace-map' defines their meaning for `map-y-or-n-p' as
+     well as for `query-replace'; see *Note Search and Replace::.
+
+     You can use ACTION-ALIST to specify additional possible answers
+     and what they mean.  It is an alist of elements of the form `(CHAR
+     FUNCTION HELP)', each of which defines one additional answer.  In
+     this element, CHAR is a character (the answer); FUNCTION is a
+     function of one argument (an object from LIST); HELP is a string.
+
+     When the user responds with CHAR, `map-y-or-n-p' calls FUNCTION.
+     If it returns non-`nil', the object is considered "acted upon",
+     and `map-y-or-n-p' advances to the next object in LIST.  If it
+     returns `nil', the prompt is repeated for the same object.
+
+     If `map-y-or-n-p' is called in a command that was invoked using the
+     mouse--more precisely, if `last-nonmenu-event' (*note Command Loop
+     Info::.) is either `nil' or a list--then it uses a dialog box or
+     pop-up menu to ask the question.  In this case, it does not use
+     keyboard input or the echo area.  You can force use of the mouse
+     or use of keyboard input by binding `last-nonmenu-event' to a
+     suitable value around the call.
+
+     The return value of `map-y-or-n-p' is the number of objects acted
+     on.
+
+
+File: lispref.info,  Node: Minibuffer Misc,  Prev: Multiple Queries,  Up: Minibuffers
+
+Minibuffer Miscellany
+=====================
+
+   This section describes some basic functions and variables related to
+minibuffers.
+
+ - Command: exit-minibuffer
+     This command exits the active minibuffer.  It is normally bound to
+     keys in minibuffer local keymaps.
+
+ - Command: self-insert-and-exit
+     This command exits the active minibuffer after inserting the last
+     character typed on the keyboard (found in `last-command-char';
+     *note Command Loop Info::.).
+
+ - Command: previous-history-element N
+     This command replaces the minibuffer contents with the value of the
+     Nth previous (older) history element.
+
+ - Command: next-history-element N
+     This command replaces the minibuffer contents with the value of the
+     Nth more recent history element.
+
+ - Command: previous-matching-history-element PATTERN
+     This command replaces the minibuffer contents with the value of the
+     previous (older) history element that matches PATTERN (a regular
+     expression).
+
+ - Command: next-matching-history-element PATTERN
+     This command replaces the minibuffer contents with the value of
+     the next (newer) history element that matches PATTERN (a regular
+     expression).
+
+ - Function: minibuffer-prompt
+     This function returns the prompt string of the currently active
+     minibuffer.  If no minibuffer is active, it returns `nil'.
+
+ - Function: minibuffer-prompt-width
+     This function returns the display width of the prompt string of the
+     currently active minibuffer.  If no minibuffer is active, it
+     returns 0.
+
+ - Variable: minibuffer-setup-hook
+     This is a normal hook that is run whenever the minibuffer is
+     entered.  *Note Hooks::.
+
+ - Variable: minibuffer-exit-hook
+     This is a normal hook that is run whenever the minibuffer is
+     exited.  *Note Hooks::.
+
+ - Variable: minibuffer-help-form
+     The current value of this variable is used to rebind `help-form'
+     locally inside the minibuffer (*note Help Functions::.).
+
+ - Function: active-minibuffer-window
+     This function returns the currently active minibuffer window, or
+     `nil' if none is currently active.
+
+ - Function: minibuffer-window &optional FRAME
+     This function returns the minibuffer window used for frame FRAME.
+     If FRAME is `nil', that stands for the current frame.  Note that
+     the minibuffer window used by a frame need not be part of that
+     frame--a frame that has no minibuffer of its own necessarily uses
+     some other frame's minibuffer window.
+
+ - Function: window-minibuffer-p WINDOW
+     This function returns non-`nil' if WINDOW is a minibuffer window.
+
+   It is not correct to determine whether a given window is a
+minibuffer by comparing it with the result of `(minibuffer-window)',
+because there can be more than one minibuffer window if there is more
+than one frame.
+
+ - Function: minibuffer-window-active-p WINDOW
+     This function returns non-`nil' if WINDOW, assumed to be a
+     minibuffer window, is currently active.
+
+ - Variable: minibuffer-scroll-window
+     If the value of this variable is non-`nil', it should be a window
+     object.  When the function `scroll-other-window' is called in the
+     minibuffer, it scrolls this window.
+
+   Finally, some functions and variables deal with recursive minibuffers
+(*note Recursive Editing::.):
+
+ - Function: minibuffer-depth
+     This function returns the current depth of activations of the
+     minibuffer, a nonnegative integer.  If no minibuffers are active,
+     it returns zero.
+
+ - User Option: enable-recursive-minibuffers
+     If this variable is non-`nil', you can invoke commands (such as
+     `find-file') that use minibuffers even while in the minibuffer
+     window.  Such invocation produces a recursive editing level for a
+     new minibuffer.  The outer-level minibuffer is invisible while you
+     are editing the inner one.
+
+     This variable only affects invoking the minibuffer while the
+     minibuffer window is selected.   If you switch windows while in the
+     minibuffer, you can always invoke minibuffer commands while some
+     other window is selected.
+
+   In FSF Emacs 19, if a command name has a property
+`enable-recursive-minibuffers' that is non-`nil', then the command can
+use the minibuffer to read arguments even if it is invoked from the
+minibuffer.  The minibuffer command `next-matching-history-element'
+(normally `M-s' in the minibuffer) uses this feature.
+
+   This is not implemented in XEmacs because it is a kludge.  If you
+want to explicitly set the value of `enable-recursive-minibuffers' in
+this fashion, just use an evaluated interactive spec and bind
+`enable-recursive-minibuffers' while reading from the minibuffer.  See
+the definition of `next-matching-history-element' in
+`lisp/prim/minibuf.el'.
+
+
+File: lispref.info,  Node: Command Loop,  Next: Keymaps,  Prev: Minibuffers,  Up: Top
+
+Command Loop
+************
+
+   When you run XEmacs, it enters the "editor command loop" almost
+immediately.  This loop reads events, executes their definitions, and
+displays the results.  In this chapter, we describe how these things
+are done, and the subroutines that allow Lisp programs to do them.
+
+* Menu:
+
+* Command Overview::    How the command loop reads commands.
+* Defining Commands::   Specifying how a function should read arguments.
+* Interactive Call::    Calling a command, so that it will read arguments.
+* Command Loop Info::   Variables set by the command loop for you to examine.
+* Events::		What input looks like when you read it.
+* Reading Input::       How to read input events from the keyboard or mouse.
+* Waiting::             Waiting for user input or elapsed time.
+* Quitting::            How `C-g' works.  How to catch or defer quitting.
+* Prefix Command Arguments::    How the commands to set prefix args work.
+* Recursive Editing::   Entering a recursive edit,
+                          and why you usually shouldn't.
+* Disabling Commands::  How the command loop handles disabled commands.
+* Command History::     How the command history is set up, and how accessed.
+* Keyboard Macros::     How keyboard macros are implemented.
+
+
+File: lispref.info,  Node: Command Overview,  Next: Defining Commands,  Up: Command Loop
+
+Command Loop Overview
+=====================
+
+   The command loop in XEmacs is a standard event loop, reading events
+one at a time with `next-event' and handling them with
+`dispatch-event'.  An event is typically a single user action, such as
+a keypress, mouse movement, or menu selection; but they can also be
+notifications from the window system, informing XEmacs that (for
+example) part of its window was just uncovered and needs to be redrawn.
+*Note Events::.  Pending events are held in a first-in, first-out list
+called the "event queue": events are read from the head of the list,
+and newly arriving events are added to the tail.  In this way, events
+are always processed in the order in which they arrive.
+
+   `dispatch-event' does most of the work of handling user actions.
+The first thing it must do is put the events together into a key
+sequence, which is a sequence of events that translates into a command.
+It does this by consulting the active keymaps, which specify what the
+valid key sequences are and how to translate them into commands.  *Note
+Key Lookup::, for information on how this is done.  The result of the
+translation should be a keyboard macro or an interactively callable
+function.  If the key is `M-x', then it reads the name of another
+command, which it then calls.  This is done by the command
+`execute-extended-command' (*note Interactive Call::.).
+
+   To execute a command requires first reading the arguments for it.
+This is done by calling `command-execute' (*note Interactive Call::.).
+For commands written in Lisp, the `interactive' specification says how
+to read the arguments.  This may use the prefix argument (*note Prefix
+Command Arguments::.) or may read with prompting in the minibuffer
+(*note Minibuffers::.).  For example, the command `find-file' has an
+`interactive' specification which says to read a file name using the
+minibuffer.  The command's function body does not use the minibuffer;
+if you call this command from Lisp code as a function, you must supply
+the file name string as an ordinary Lisp function argument.
+
+   If the command is a string or vector (i.e., a keyboard macro) then
+`execute-kbd-macro' is used to execute it.  You can call this function
+yourself (*note Keyboard Macros::.).
+
+   To terminate the execution of a running command, type `C-g'.  This
+character causes "quitting" (*note Quitting::.).
+
+ - Variable: pre-command-hook
+     The editor command loop runs this normal hook before each command.
+     At that time, `this-command' contains the command that is about to
+     run, and `last-command' describes the previous command.  *Note
+     Hooks::.
+
+ - Variable: post-command-hook
+     The editor command loop runs this normal hook after each command.
+     (In FSF Emacs, it is also run when the command loop is entered, or
+     reentered after an error or quit.)  At that time, `this-command'
+     describes the command that just ran, and `last-command' describes
+     the command before that.  *Note Hooks::.
+
+   Quitting is suppressed while running `pre-command-hook' and
+`post-command-hook'.  If an error happens while executing one of these
+hooks, it terminates execution of the hook, but that is all it does.
+
+
+File: lispref.info,  Node: Defining Commands,  Next: Interactive Call,  Prev: Command Overview,  Up: Command Loop
+
+Defining Commands
+=================
+
+   A Lisp function becomes a command when its body contains, at top
+level, a form that calls the special form `interactive'.  This form
+does nothing when actually executed, but its presence serves as a flag
+to indicate that interactive calling is permitted.  Its argument
+controls the reading of arguments for an interactive call.
+
+* Menu:
+
+* Using Interactive::     General rules for `interactive'.
+* Interactive Codes::     The standard letter-codes for reading arguments
+                             in various ways.
+* Interactive Examples::  Examples of how to read interactive arguments.
+
+
+File: lispref.info,  Node: Using Interactive,  Next: Interactive Codes,  Up: Defining Commands
+
+Using `interactive'
+-------------------
+
+   This section describes how to write the `interactive' form that
+makes a Lisp function an interactively-callable command.
+
+ - Special Form: interactive ARG-DESCRIPTOR
+     This special form declares that the function in which it appears
+     is a command, and that it may therefore be called interactively
+     (via `M-x' or by entering a key sequence bound to it).  The
+     argument ARG-DESCRIPTOR declares how to compute the arguments to
+     the command when the command is called interactively.
+
+     A command may be called from Lisp programs like any other
+     function, but then the caller supplies the arguments and
+     ARG-DESCRIPTOR has no effect.
+
+     The `interactive' form has its effect because the command loop
+     (actually, its subroutine `call-interactively') scans through the
+     function definition looking for it, before calling the function.
+     Once the function is called, all its body forms including the
+     `interactive' form are executed, but at this time `interactive'
+     simply returns `nil' without even evaluating its argument.
+
+   There are three possibilities for the argument ARG-DESCRIPTOR:
+
+   * It may be omitted or `nil'; then the command is called with no
+     arguments.  This leads quickly to an error if the command requires
+     one or more arguments.
+
+   * It may be a Lisp expression that is not a string; then it should
+     be a form that is evaluated to get a list of arguments to pass to
+     the command.
+
+     If this expression reads keyboard input (this includes using the
+     minibuffer), keep in mind that the integer value of point or the
+     mark before reading input may be incorrect after reading input.
+     This is because the current buffer may be receiving subprocess
+     output; if subprocess output arrives while the command is waiting
+     for input, it could relocate point and the mark.
+
+     Here's an example of what *not* to do:
+
+          (interactive
+           (list (region-beginning) (region-end)
+                 (read-string "Foo: " nil 'my-history)))
+
+     Here's how to avoid the problem, by examining point and the mark
+     only after reading the keyboard input:
+
+          (interactive
+           (let ((string (read-string "Foo: " nil 'my-history)))
+             (list (region-beginning) (region-end) string)))
+
+   * It may be a string; then its contents should consist of a code
+     character followed by a prompt (which some code characters use and
+     some ignore).  The prompt ends either with the end of the string
+     or with a newline.  Here is a simple example:
+
+          (interactive "bFrobnicate buffer: ")
+
+     The code letter `b' says to read the name of an existing buffer,
+     with completion.  The buffer name is the sole argument passed to
+     the command.  The rest of the string is a prompt.
+
+     If there is a newline character in the string, it terminates the
+     prompt.  If the string does not end there, then the rest of the
+     string should contain another code character and prompt,
+     specifying another argument.  You can specify any number of
+     arguments in this way.
+
+     The prompt string can use `%' to include previous argument values
+     (starting with the first argument) in the prompt.  This is done
+     using `format' (*note Formatting Strings::.).  For example, here
+     is how you could read the name of an existing buffer followed by a
+     new name to give to that buffer:
+
+          (interactive "bBuffer to rename: \nsRename buffer %s to: ")
+
+     If the first character in the string is `*', then an error is
+     signaled if the buffer is read-only.
+
+     If the first character in the string is `@', and if the key
+     sequence used to invoke the command includes any mouse events, then
+     the window associated with the first of those events is selected
+     before the command is run.
+
+     If the first character in the string is `_', then this command will
+     not cause the region to be deactivated when it completes; that is,
+     `zmacs-region-stays' will be set to `t' when the command exits
+     successfully.
+
+     You can use `*', `@', and `_' together; the order does not matter.
+     Actual reading of arguments is controlled by the rest of the
+     prompt string (starting with the first character that is not `*',
+     `@', or `_').
+
+ - Function: function-interactive FUNCTION
+     This function retrieves the interactive specification of FUNCTION,
+     which may be any funcallable object.  The specification will be
+     returned as the list of the symbol `interactive' and the specs.  If
+     FUNCTION is not interactive, `nil' will be returned.
+
+
+File: lispref.info,  Node: Interactive Codes,  Next: Interactive Examples,  Prev: Using Interactive,  Up: Defining Commands
+
+Code Characters for `interactive'
+---------------------------------
+
+   The code character descriptions below contain a number of key words,
+defined here as follows:
+
+Completion
+     Provide completion.  <TAB>, <SPC>, and <RET> perform name
+     completion because the argument is read using `completing-read'
+     (*note Completion::.).  `?' displays a list of possible
+     completions.
+
+Existing
+     Require the name of an existing object.  An invalid name is not
+     accepted; the commands to exit the minibuffer do not exit if the
+     current input is not valid.
+
+Default
+     A default value of some sort is used if the user enters no text in
+     the minibuffer.  The default depends on the code character.
+
+No I/O
+     This code letter computes an argument without reading any input.
+     Therefore, it does not use a prompt string, and any prompt string
+     you supply is ignored.
+
+     Even though the code letter doesn't use a prompt string, you must
+     follow it with a newline if it is not the last code character in
+     the string.
+
+Prompt
+     A prompt immediately follows the code character.  The prompt ends
+     either with the end of the string or with a newline.
+
+Special
+     This code character is meaningful only at the beginning of the
+     interactive string, and it does not look for a prompt or a newline.
+     It is a single, isolated character.
+
+   Here are the code character descriptions for use with `interactive':
+
+`*'
+     Signal an error if the current buffer is read-only.  Special.
+
+`@'
+     Select the window mentioned in the first mouse event in the key
+     sequence that invoked this command.  Special.
+
+`_'
+     Do not cause the region to be deactivated when this command
+     completes.  Special.
+
+`a'
+     A function name (i.e., a symbol satisfying `fboundp').  Existing,
+     Completion, Prompt.
+
+`b'
+     The name of an existing buffer.  By default, uses the name of the
+     current buffer (*note Buffers::.).  Existing, Completion, Default,
+     Prompt.
+
+`B'
+     A buffer name.  The buffer need not exist.  By default, uses the
+     name of a recently used buffer other than the current buffer.
+     Completion, Default, Prompt.
+
+`c'
+     A character.  The cursor does not move into the echo area.  Prompt.
+
+`C'
+     A command name (i.e., a symbol satisfying `commandp').  Existing,
+     Completion, Prompt.
+
+`d'
+     The position of point, as an integer (*note Point::.).  No I/O.
+
+`D'
+     A directory name.  The default is the current default directory of
+     the current buffer, `default-directory' (*note System
+     Environment::.).  Existing, Completion, Default, Prompt.
+
+`e'
+     The last mouse-button or misc-user event in the key sequence that
+     invoked the command.  No I/O.
+
+     You can use `e' more than once in a single command's interactive
+     specification.  If the key sequence that invoked the command has N
+     mouse-button or misc-user events, the Nth `e' provides the Nth
+     such event.
+
+`f'
+     A file name of an existing file (*note File Names::.).  The default
+     directory is `default-directory'.  Existing, Completion, Default,
+     Prompt.
+
+`F'
+     A file name.  The file need not exist.  Completion, Default,
+     Prompt.
+
+`k'
+     A key sequence (*note Keymap Terminology::.).  This keeps reading
+     events until a command (or undefined command) is found in the
+     current key maps.  The key sequence argument is represented as a
+     vector of events.  The cursor does not move into the echo area.
+     Prompt.
+
+     This kind of input is used by commands such as `describe-key' and
+     `global-set-key'.
+
+`K'
+     A key sequence, whose definition you intend to change.  This works
+     like `k', except that it suppresses, for the last input event in
+     the key sequence, the conversions that are normally used (when
+     necessary) to convert an undefined key into a defined one.
+
+`m'
+     The position of the mark, as an integer.  No I/O.
+
+`n'
+     A number read with the minibuffer.  If the input is not a number,
+     the user is asked to try again.  The prefix argument, if any, is
+     not used.  Prompt.
+
+`N'
+     The raw prefix argument.  If the prefix argument is `nil', then
+     read a number as with `n'.  Requires a number.  *Note Prefix
+     Command Arguments::.  Prompt.
+
+`p'
+     The numeric prefix argument.  (Note that this `p' is lower case.)
+     No I/O.
+
+`P'
+     The raw prefix argument.  (Note that this `P' is upper case.)  No
+     I/O.
+
+`r'
+     Point and the mark, as two numeric arguments, smallest first.
+     This is the only code letter that specifies two successive
+     arguments rather than one.  No I/O.
+
+`s'
+     Arbitrary text, read in the minibuffer and returned as a string
+     (*note Text from Minibuffer::.).  Terminate the input with either
+     <LFD> or <RET>.  (`C-q' may be used to include either of these
+     characters in the input.)  Prompt.
+
+`S'
+     An interned symbol whose name is read in the minibuffer.  Any
+     whitespace character terminates the input.  (Use `C-q' to include
+     whitespace in the string.)  Other characters that normally
+     terminate a symbol (e.g., parentheses and brackets) do not do so
+     here.  Prompt.
+
+`v'
+     A variable declared to be a user option (i.e., satisfying the
+     predicate `user-variable-p').  *Note High-Level Completion::.
+     Existing, Completion, Prompt.
+
+`x'
+     A Lisp object, specified with its read syntax, terminated with a
+     <LFD> or <RET>.  The object is not evaluated.  *Note Object from
+     Minibuffer::.  Prompt.
+
+`X'
+     A Lisp form is read as with `x', but then evaluated so that its
+     value becomes the argument for the command.  Prompt.
+
+
+File: lispref.info,  Node: Interactive Examples,  Prev: Interactive Codes,  Up: Defining Commands
+
+Examples of Using `interactive'
+-------------------------------
+
+   Here are some examples of `interactive':
+
+     (defun foo1 ()              ; `foo1' takes no arguments,
+         (interactive)           ;   just moves forward two words.
+         (forward-word 2))
+          => foo1
+     
+     (defun foo2 (n)             ; `foo2' takes one argument,
+         (interactive "p")       ;   which is the numeric prefix.
+         (forward-word (* 2 n)))
+          => foo2
+     
+     (defun foo3 (n)             ; `foo3' takes one argument,
+         (interactive "nCount:") ;   which is read with the Minibuffer.
+         (forward-word (* 2 n)))
+          => foo3
+     
+     (defun three-b (b1 b2 b3)
+       "Select three existing buffers.
+     Put them into three windows, selecting the last one."
+         (interactive "bBuffer1:\nbBuffer2:\nbBuffer3:")
+         (delete-other-windows)
+         (split-window (selected-window) 8)
+         (switch-to-buffer b1)
+         (other-window 1)
+         (split-window (selected-window) 8)
+         (switch-to-buffer b2)
+         (other-window 1)
+         (switch-to-buffer b3))
+          => three-b
+     (three-b "*scratch*" "declarations.texi" "*mail*")
+          => nil
+
+
+File: lispref.info,  Node: Interactive Call,  Next: Command Loop Info,  Prev: Defining Commands,  Up: Command Loop
+
+Interactive Call
+================
+
+   After the command loop has translated a key sequence into a
+definition, it invokes that definition using the function
+`command-execute'.  If the definition is a function that is a command,
+`command-execute' calls `call-interactively', which reads the arguments
+and calls the command.  You can also call these functions yourself.
+
+ - Function: commandp OBJECT
+     Returns `t' if OBJECT is suitable for calling interactively; that
+     is, if OBJECT is a command.  Otherwise, returns `nil'.
+
+     The interactively callable objects include strings and vectors
+     (treated as keyboard macros), lambda expressions that contain a
+     top-level call to `interactive', compiled-function objects made
+     from such lambda expressions, autoload objects that are declared
+     as interactive (non-`nil' fourth argument to `autoload'), and some
+     of the primitive functions.
+
+     A symbol is `commandp' if its function definition is `commandp'.
+
+     Keys and keymaps are not commands.  Rather, they are used to look
+     up commands (*note Keymaps::.).
+
+     See `documentation' in *Note Accessing Documentation::, for a
+     realistic example of using `commandp'.
+
+ - Function: call-interactively COMMAND &optional RECORD-FLAG
+     This function calls the interactively callable function COMMAND,
+     reading arguments according to its interactive calling
+     specifications.  An error is signaled if COMMAND is not a function
+     or if it cannot be called interactively (i.e., is not a command).
+     Note that keyboard macros (strings and vectors) are not accepted,
+     even though they are considered commands, because they are not
+     functions.
+
+     If RECORD-FLAG is the symbol `lambda', the interactive calling
+     arguments for `command' are read and returned as a list, but the
+     function is not called on them.
+
+     If RECORD-FLAG is `t', then this command and its arguments are
+     unconditionally added to the list `command-history'.  Otherwise,
+     the command is added only if it uses the minibuffer to read an
+     argument.  *Note Command History::.
+
+ - Function: command-execute COMMAND &optional RECORD-FLAG
+     This function executes COMMAND as an editing command.  The
+     argument COMMAND must satisfy the `commandp' predicate; i.e., it
+     must be an interactively callable function or a keyboard macro.
+
+     A string or vector as COMMAND is executed with
+     `execute-kbd-macro'.  A function is passed to
+     `call-interactively', along with the optional RECORD-FLAG.
+
+     A symbol is handled by using its function definition in its place.
+     A symbol with an `autoload' definition counts as a command if it
+     was declared to stand for an interactively callable function.
+     Such a definition is handled by loading the specified library and
+     then rechecking the definition of the symbol.
+
+ - Command: execute-extended-command PREFIX-ARGUMENT
+     This function reads a command name from the minibuffer using
+     `completing-read' (*note Completion::.).  Then it uses
+     `command-execute' to call the specified command.  Whatever that
+     command returns becomes the value of `execute-extended-command'.
+
+     If the command asks for a prefix argument, it receives the value
+     PREFIX-ARGUMENT.  If `execute-extended-command' is called
+     interactively, the current raw prefix argument is used for
+     PREFIX-ARGUMENT, and thus passed on to whatever command is run.
+
+     `execute-extended-command' is the normal definition of `M-x', so
+     it uses the string `M-x ' as a prompt.  (It would be better to
+     take the prompt from the events used to invoke
+     `execute-extended-command', but that is painful to implement.)  A
+     description of the value of the prefix argument, if any, also
+     becomes part of the prompt.
+
+          (execute-extended-command 1)
+          ---------- Buffer: Minibuffer ----------
+          1 M-x forward-word RET
+          ---------- Buffer: Minibuffer ----------
+               => t
+
+ - Function: interactive-p
+     This function returns `t' if the containing function (the one that
+     called `interactive-p') was called interactively, with the function
+     `call-interactively'.  (It makes no difference whether
+     `call-interactively' was called from Lisp or directly from the
+     editor command loop.)  If the containing function was called by
+     Lisp evaluation (or with `apply' or `funcall'), then it was not
+     called interactively.
+
+     The most common use of `interactive-p' is for deciding whether to
+     print an informative message.  As a special exception,
+     `interactive-p' returns `nil' whenever a keyboard macro is being
+     run.  This is to suppress the informative messages and speed
+     execution of the macro.
+
+     For example:
+
+          (defun foo ()
+            (interactive)
+            (and (interactive-p)
+                 (message "foo")))
+               => foo
+          
+          (defun bar ()
+            (interactive)
+            (setq foobar (list (foo) (interactive-p))))
+               => bar
+          
+          ;; Type `M-x foo'.
+               -| foo
+          
+          ;; Type `M-x bar'.
+          ;; This does not print anything.
+          
+          foobar
+               => (nil t)
+
