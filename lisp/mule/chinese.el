@@ -205,7 +205,7 @@
     nil))
 	   
 (set-language-info-alist
- "Chinese-GB" '((setup-function . chinese-gb-environment-setup-function)
+ "Chinese-GB" '((setup-function . setup-chinese-gb-environment-internal)
 		(charset chinese-gb2312 sisheng)
 		(coding-system cn-gb-2312 iso-2022-7bit hz-gb-2312)
 		(coding-priority cn-gb-2312 big5 iso-2022-7bit)
