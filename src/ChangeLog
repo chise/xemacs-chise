@@ -1,5 +1,10 @@
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* data.c (Fstring_to_number): Don't recognize floating point if
+	base is not 10.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (Fput_char_attribute): Forgot to `CHECK_CHAR'.
 
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
