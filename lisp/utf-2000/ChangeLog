@@ -1,3 +1,18 @@
+2004-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (C3-2628): Add `->mistakable' for
+	M-11712; unify GT-14762 and GT-K02657.
+	(J0-4C61): Add S{1|2}-2795.
+	(U+623E): Use `->subsumptive'.
+
+	* Ideograph-R075-Tree.el (U+6753): Use `->subsumptive'.
+	(K0-7875): Unify GT-18401 and GT-K02566.
+
+	* Ideograph-R012-Eight.el (U+5177): define as an abstract
+	character.
+	(U-0002F811): Use `<-denotational' for U+5177.
+	(G0-3E5F): Likewise.
+
 2004-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R151-Bean.el (GT-K02620): New character.
@@ -92,6 +107,16 @@
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL FOOT>): Add
 	`<-ideographic-component-forms' for U+8DB3; unify GT-K02600.
+
+	* Ideograph-R189-Tall.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+	(GT-K08880): New character.
+	(U-00029ACF): Use `->subsumptive'.
+	(M-45329): Modify `ideographic-structure'.
+	(C7-362D): Likewise.
+	(U-00029AD6): Use `->subsumptive'.
+	(M-45332): Modify `ideographic-structure'.
+	(H1-E2B6): Likewise.
 
 	* Ideograph-R129-Brush.el (BC-8BC6): New character.
 	(GT-K02451): New character.
