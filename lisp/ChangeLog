@@ -1,5 +1,16 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* menubar-items.el (default-menubar): `select-input-method' was
+	renamed to `set-input-method'.
+
+	* mule/mule-cmds.el (set-language-info-alist): Fix setting for
+	"Set Language Environment" menu.
+
+	* mule/mule-cmds.el (set-language-info-alist): Fix setting for
+	"Describe Language Support" menu.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/chinese.el ("Chinese-GB"): Rename
 	`chinese-gb-environment-setup-function' to
 	`setup-chinese-gb-environment-internal'.
