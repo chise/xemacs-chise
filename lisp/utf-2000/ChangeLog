@@ -1,7 +1,19 @@
 2005-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R173-Rain.el (U+970A): Use `->subsumptive'.
+	(U+9746): Use `->denotational'.
+	(U+9747): Use `->subsumptive'.
+	(U+9748): Likewise.
+
+2005-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R193-Cauldron.el (U+9B32): Use `->denotational' and
 	`->subsumptive'.
+
+	* Ideograph-R189-Tall.el (U+9AD8): Use `->subsumptive'; add
+	`<-denotational' for J97-3962.
+	(J97-3962): New abstract character.
+	(U+9AD9): Use `->subsumptive'; add `<-denotational' for J97-3962.
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96C6): Use
 	`->subsumptive'.
