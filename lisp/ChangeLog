@@ -1,3 +1,8 @@
+1999-07-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Add coding: local variable, to avoid
+	bootstrapping problem with C locale.
+
 1999-07-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-cmds.el (reset-language-environment): Regard
