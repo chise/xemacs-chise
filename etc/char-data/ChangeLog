@@ -4,5 +4,5 @@
 
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* etc/char-data/GT-RS.txt: Moved from etc/GT-RS.txt.
+	* GT-RS.txt: Moved from etc/GT-RS.txt.
 
