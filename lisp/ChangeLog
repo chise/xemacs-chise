@@ -1,8 +1,13 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs-bmp' and `arabic-iso8859-6'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add "u00400-Cyrillic.el",
 	"u00530-Armenian.el", "u00590-Hebrew.el", "u00600-Arabic.el",
-	"u00700-Syriac.el" and "u00780-Thaana.el".
+	"u00700-Syriac.el" and "u00780-Thaana.el" in UTF-2000.
 
 	* utf-2000/u00400-Cyrillic.el, utf-2000/u00530-Armenian.el,
 	utf-2000/u00590-Hebrew.el, utf-2000/u00600-Arabic.el,
@@ -71,7 +76,8 @@
 	"u000A0-Latin-1-Supplement.el", "u00100-Latin-Extended-A.el",
 	"u00180-Latin-Extended-B.el", "u00250-IPA-Extensions.el",
 	"u002B0-Spacing-Modifier-Letters.el",
-	"u00300-Combining-Diacritical-Marks.el" and "u00370-Greek.el".
+	"u00300-Combining-Diacritical-Marks.el" and "u00370-Greek.el" in
+	UTF-2000.
 
 	* utf-2000/ccs-iso8859-2.el, utf-2000/ccs-iso8859-3.el,
 	utf-2000/ccs-iso8859-4.el, utf-2000/ccs-iso8859-9.el: Delete.
