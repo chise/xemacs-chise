@@ -1609,8 +1609,8 @@
     (total-strokes	 . 8)
     (ideographic-structure
      (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (ucs		     . #x2FF0)	; â¿°
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+		 (ucs		     . #x2FF2)	; â¿²
 		 )
       )
      ((ucs		  . #x4E95)	; äº•
@@ -1631,8 +1631,8 @@
     (total-strokes	 . 8)
     (ideographic-structure
      (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (ucs		     . #x2FF0)	; â¿°
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+		 (ucs		     . #x2FF2)	; â¿²
 		 )
       )
      ((ucs		  . #x4E95)	; äº•
@@ -2509,7 +2509,8 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((ideograph-daikanwa . 29263)	; ø¸‡‰
+     ((korean-ksc5601	  . #x752B)	; ø»Š•®
+      (ideograph-daikanwa . 29263)	; ø¸‡‰
       )
      ((chinese-big5-cdp	  . #x8B4D)	; åˆ‚
       (ucs		  . #x5202)	; åˆ‚
