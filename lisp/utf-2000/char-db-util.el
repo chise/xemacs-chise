@@ -61,6 +61,16 @@
     ("So" symbol	other)
     ))
 
+(defconst ideographic-radicals
+  (let ((v (make-vector 215 nil))
+	(i 1))
+    (while (< i 215)
+      (aset v i (int-char (+ #x2EFF i)))
+      (setq i (1+ i)))
+    (if (< (charset-iso-final-char (car (split-char (aref v 34)))) ?0)
+	(aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
+    v))
+
 (defun char-attribute-name< (ka kb)
   (cond
    ((find-charset ka)
@@ -220,6 +230,35 @@
 			  cell))
 	  (setq data (del-alist 'iso-10646-comment data))
 	  )
+	(when (setq cell (assq 'ideographic-radical data))
+	  (setq cell (cdr cell))
+	  (insert (format "(ideographic-radical . %S)\t; %c
+    "
+			  cell
+			  (aref ideographic-radicals cell)))
+	  (setq data (del-alist 'ideographic-radical data))
+	  )
+	(cond
+	 ((setq cell (assq 'ideographic-strokes data))
+	  (setq cell (cdr cell))
+	  (insert (format "(ideographic-strokes . %S)
+    "
+			  cell))
+	  (setq data (del-alist 'ideographic-strokes data))
+	  (when (setq cell (assq 'total-strokes data))
+	    (setq cell (cdr cell))
+	    (insert (format "(total-strokes\t . %S)
+    "
+			    cell))
+	    (setq data (del-alist 'total-strokes data))
+	    ))
+	 ((setq cell (assq 'total-strokes data))
+	  (setq cell (cdr cell))
+	  (insert (format "(total-strokes\t. %S)
+    "
+			  cell))
+	  (setq data (del-alist 'total-strokes data))
+	  ))
 	(when (setq cell (assq '->decomposition data))
 	  (setq cell (cdr cell))
 	  (insert (format "(->decomposition\t%s)
@@ -323,9 +362,11 @@
 					      (format "\n     %S" code))))
 				     (cdr cell) " "))))
 		((consp (cdr cell))
-		 (insert (format "%S
+		 (insert (format "(%-18s %s)
     "
-				 cell)))
+				 (car cell)
+				 (mapconcat (function prin1-to-string)
+					    (cdr cell) " "))))
 		(t
 		 (insert (format "(%-18s . %S)
     "
