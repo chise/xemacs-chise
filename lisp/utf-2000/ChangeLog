@@ -1,3 +1,8 @@
+2003-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JX1-7635): Add `ideographic-structure'.
+	(C3-5524): Separate JC3-54B4.
+
 2003-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (M-12236): Unify GT-15509.
