@@ -1,3 +1,48 @@
+2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el (GT-K01231): New character.
+
+	* Ideograph-R120-Silk.el (M-49471): Add `ideographic-structure'.
+	(U-0002035E): Complete `ideographic-structure'.
+	(JX1-7A2E): Unify U+FA57 and KU+7DF4; add mapping for GU+7DF4 and
+	CU+7DF4.
+	(U+7DF4): Add mapping for JU+FA57.
+	(JX1-7A33): Unify U+FA59 and CU+7E41 and KU+7E41; add mapping for
+	GU+7E41.
+	(U+7E41): Add mapping for JU+FA59.
+	(HZK1-E2C2): Modify `ideographic-structure'.
+
+2003-01-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R123-Sheep.el: Reformatted.
+	(GT-K01352): New character.
+
+	* Ideograph-R009-Man.el (U-0002035E): Modify
+	`ideographic-structure'.
+
+2003-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (M-03555): Separate G0-3F48, C1-503D and
+	U+54B3.
+
+	* Ideograph-R118-Bamboo.el: Reformatted.
+	(JX1-7964): Unify U+FA56 and KU+7BC0.
+
+	* Ideograph-R116-Cave.el (JX1-7951): Unify U+FA55 and KU+7A81; add
+	mapping for GU+7A81 and CU+7A81.
+	(C1-5273): Unify CU+7A81; add mapping for JU+FA55.
+	(U+7A81): Add mapping for JU+FA55.
+
+	* Ideograph-R050-Turban.el: Reformatted.
+
+2003-01-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el: Reformatted.
+	(JX1-763B): Unify JU+F91D.
+	(U+F91D): New character.
+
+	* Ideograph-R032-Earth.el: Reformatted.
+
 2003-01-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R114-Track.el (U-0002573C): Unify M-24887; modify
