@@ -6755,13 +6755,8 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (=ucs		. #x764E)	; ç™Ž
-    (->subsumptive
-     ((=ks-x1001	  . #x4A56)	; ø»‰—
-      (=jef-china3	  . #x5AF0)	; øº…«°
-      )
-     ((=cns11643-3	  . #x5554)	; ø»–£¯
-      (=ucs@unicode	  . #x764E)	; ø»–£¯
-      ))
+    (=ks-x1001		. #x4A56)	; ø»‰—
+    (=cns11643-3	. #x5554)	; ø»–£¯
     ))
 (define-char
   '((ideographic-radical . 104)	; â½§

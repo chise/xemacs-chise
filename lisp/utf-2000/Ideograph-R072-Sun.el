@@ -414,10 +414,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (<-simplified
-     ((=jis-x0212	  . #x566B)	; ø»‹³
-      (=cns11643-4	  . #x276D)	; ø»—ª¨
-      (=jis-x0213-2-2000  . #x755B)	; ø»¦™’
-      (=daikanwa	  . 30177)	; ø¸‡—¡
+     ((=daikanwa	  . 30177)	; ø¸‡—¡
       ))
     (=gt-k		. 03318)	; ý¡„€³¶
     (=gt-pj-k1		. #x357D)	; ý¡„€³¶
@@ -428,10 +425,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (<-simplified
-     ((=jis-x0212	  . #x566B)	; ø»‹³
-      (=cns11643-4	  . #x276D)	; ø»—ª¨
-      (=jis-x0213-2-2000  . #x755B)	; ø»¦™’
-      (=daikanwa	  . 30177)	; ø¸‡—¡
+     ((=daikanwa	  . 30177)	; ø¸‡—¡
       ))
     (=gt-k		. 03616)	; ý¡„€¸ 
     (=gt-pj-k1		. #x5E44)	; ý¡„€¸ 

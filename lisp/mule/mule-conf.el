@@ -389,38 +389,6 @@
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
 
-  (make-charset '=ruimoku-v6
-		"RUI6"
-		`(long-name	"private characters used in RUIMOKU"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  registry	"rui6-0"
-                  ;; mother	ucs
-		  min-code	#xE90000 ; #xE000
-		  max-code	#xE908FF ; #xE8FF
-		  code-offset	,(- #xE90000 #xE000)))
-
-  (make-charset '=ucs@iso
-		"UCS for ISO"
-		`(long-name	"ISO/IEC 10646 for its representative glyphs"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (make-charset '=ucs@unicode
-		"UCS for Unicode"
-		`(long-name	"Unicode for its representative glyphs"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs@iso))
   (make-charset '=ucs@gb
 		"UCS for GB"
 		`(long-name	"ISO/IEC 10646 for GB"
@@ -429,7 +397,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@unicode))
+		  mother	=ucs))
   (define-charset-alias 'ucs-gb '=ucs@gb)
   (make-charset '=ucs@cns
 		"UCS for CNS"
@@ -439,7 +407,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@unicode))
+		  mother	=ucs))
   (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset '=ucs@jis
 		"UCS for JIS"
@@ -449,7 +417,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@unicode))
+		  mother	=ucs))
   (define-charset-alias 'ucs-jis '=ucs@jis)
   (make-charset '=ucs@jis-1990
 		"UCS for JIS:1990"
@@ -488,7 +456,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@unicode))
+		  mother	=ucs))
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs@big5
 		"UCS for Big5"
@@ -498,83 +466,8 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@unicode))
+		  mother	=ucs))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
-
-  (make-charset
-   '=ucs-radicals
-   "UCS-Radicals"
-   `(long-name "CJK Radicals of UCS"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "-zh-.*-ucs-0"
-	       mother ucs-bmp
-	       min-code #x2E00 max-code #x2FFF))
-  (make-charset
-   '=ucs-radicals@unicode
-   "UCS-Radicals"
-   `(long-name "CJK Radicals of UCS"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "-zh-.*-ucs-0"
-	       mother =ucs@unicode
-	       min-code #x2E00 max-code #x2FFF))
-  (make-charset
-   '=ucs-bmp-cjk
-   "UCS-BMP-CJK"
-   `(long-name "CJK Characters in BMP of UCS"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "-zh-.*-ucs-0"
-	       mother ucs-bmp
-	       min-code #x2E00 max-code #xA4CF))
-  (make-charset
-   '=ucs-bmp-cjk@unicode
-   "Unicode-BMP-CJK"
-   `(long-name "CJK Characters in BMP of Unicode"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "-zh-.*-ucs-0"
-	       mother =ucs@unicode
-	       min-code #x2E00 max-code #xA4CF))
-  (make-charset
-   '=ucs-sip-ext-b
-   "UCS CJK Ext-B"
-   `(long-name "CJK Ideographs Extension B"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
-	       mother ucs
-	       min-code #x20000 max-code #x2A6D6
-	       code-offset #x20000))
-  (make-charset
-   '=ucs-sip-ext-b@iso
-   "UCS CJK Ext-B"
-   `(long-name "CJK Ideographs Extension B (ISO/IEC 10646-2)"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
-	       mother =ucs@iso
-	       min-code #x20000 max-code #x2A6D6
-	       code-offset #x20000))
   )
 
 ;;; mule-conf.el ends here
