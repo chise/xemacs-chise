@@ -35,4 +35,6 @@ valid_char_p (Emchar ch)
   return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
 }
 
+#define CHAR_COLUMNS(c)     (XCHARSET_COLUMNS(CHAR_CHARSET(c)))
+
 #endif /* _XEMACS_CHAR_LB_H */
