@@ -2777,7 +2777,7 @@
   '((->ucs		. #x79A9)	; ç¦©
     (morohashi-daikanwa	24833 0 2)
     (ideographic-radical . 113)	; â½°
-    (japanese-strokes	 . 11)
+    (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (japanese-jisx0212		. #x506D)	; ø»‹ªž
     (japanese-jisx0213-2	. #x726C)	; ø»¦•‰
