@@ -15130,6 +15130,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (korean-ksc5601	. #x4B48)	; ø»‰˜Ÿ
+    (china3-jef		. #x53FA)	; øº…º
     (ideograph-gt	. 19861)	; ý¡€„¶•
     ))
 (define-char
