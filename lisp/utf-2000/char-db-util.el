@@ -579,6 +579,24 @@
 		      line-breaking))
       (setq attributes (delq '->mojikyo attributes))
       )
+    (when (and (memq 'hanyu-dazidian-vol attributes)
+	       (setq value (get-char-attribute char 'hanyu-dazidian-vol)))
+      (insert (format "(hanyu-dazidian-vol  . %d)%s"
+		      value line-breaking))
+      (setq attributes (delq 'hanyu-dazidian-vol attributes))
+      )
+    (when (and (memq 'hanyu-dazidian-page attributes)
+	       (setq value (get-char-attribute char 'hanyu-dazidian-page)))
+      (insert (format "(hanyu-dazidian-page . %d)%s"
+		      value line-breaking))
+      (setq attributes (delq 'hanyu-dazidian-page attributes))
+      )
+    (when (and (memq 'hanyu-dazidian-char attributes)
+	       (setq value (get-char-attribute char 'hanyu-dazidian-char)))
+      (insert (format "(hanyu-dazidian-char . %d)%s"
+		      value line-breaking))
+      (setq attributes (delq 'hanyu-dazidian-char attributes))
+      )
     (setq rest ccs-attributes)
     (while (and rest
 		(progn
@@ -601,6 +619,7 @@
 		((memq name '(->lowercase
 			      ->uppercase ->titlecase
 			      ->fullwidth <-fullwidth
+			      ->identical
 			      ->vulgar-ideograph <-vulgar-ideograph
 			      ->ancient-ideograph <-ancient-ideograph
 			      ->original-ideograph <-original-ideograph
