@@ -2750,18 +2750,21 @@ map_char_table (Lisp_Char_Table *ct,
 	for (retval =0, i = cell_min; i <= cell_max && retval == 0; i++)
 	  {
 	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
-	    Lisp_Object val
-	      = get_byte_table (get_byte_table
-				(get_byte_table
-				 (get_byte_table
-				  (ct->table,
-				   (unsigned char)(ch >> 24)),
-				  (unsigned char) (ch >> 16)),
-				 (unsigned char)  (ch >> 8)),
-				(unsigned char)    ch);
 
-	    if (!UNBOUNDP (val))
+	    if ( charset_code_point (range->charset, ch) >= 0 )
 	      {
+		Lisp_Object val
+		  = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (ct->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+
+		if (UNBOUNDP (val))
+		  val = ct->default_value;
 		rainj.ch = ch;
 		retval = (fn) (&rainj, val, arg);
 	      }
