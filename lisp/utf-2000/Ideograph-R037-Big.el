@@ -24,7 +24,7 @@
     (ucs		. #x5928)	; 夨
     ))
 (define-char
-  '((->ucs		. #x5929)	; 天
+  '((=>ucs		. #x5929)	; 天
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
@@ -76,7 +76,7 @@
     (ucs			. #x592B)	; 夫
     ))
 (define-char
-  '((->ucs		. #x592C)	; 夬
+  '((=>ucs		. #x592C)	; 夬
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
@@ -903,7 +903,7 @@
     (ucs		. #x5950)	; 奐
     ))
 (define-char
-  '((->ucs		. #x5950)	; 奐
+  '((=>ucs		. #x5950)	; 奐
     (morohashi-daikanwa	5916 0 5)
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -911,14 +911,14 @@
     (chinese-cns11643-1 . #x5059)	; �����
     ))
 (define-char
-  '((->ucs		. #x5951)	; 契
+  '((=>ucs		. #x5951)	; 契
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 05917)	; �����
     ))
 (define-char
-  '((->ucs		. #x5951)	; 契
+  '((=>ucs		. #x5951)	; 契
     (morohashi-daikanwa	5917 0 0)
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -926,7 +926,7 @@
     (korean-ksc5601	. #x4C78)	; �����
     ))
 (define-char
-  '((->ucs		. #x5951)	; 契
+  '((=>ucs		. #x5951)	; 契
     (morohashi-daikanwa	5917 0 1)
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -943,7 +943,7 @@
     (ucs		. #x5951)	; 契
     ))
 (define-char
-  '((->ucs		. #x5951)	; 契
+  '((=>ucs		. #x5951)	; 契
     (morohashi-daikanwa	5917 0 3)
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -1000,7 +1000,7 @@
     (ucs			. #x5954)	; 奔
     ))
 (define-char
-  '((->ucs		. #x5955)	; 奕
+  '((=>ucs		. #x5955)	; 奕
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1092,7 +1092,7 @@
     (ucs		. #x5959)	; 奙
     ))
 (define-char
-  '((->ucs		. #x595A)	; 奚
+  '((=>ucs		. #x595A)	; 奚
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -1209,7 +1209,7 @@
     (ucs		. #x595C)	; 奜
     ))
 (define-char
-  '((->ucs		. #x595D)	; 奝
+  '((=>ucs		. #x595D)	; 奝
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -1271,7 +1271,7 @@
     (ideograph-daikanwa . 05950)	; �����
     ))
 (define-char
-  '((->ucs		. #x595F)	; 奟
+  '((=>ucs		. #x595F)	; 奟
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -1347,7 +1347,7 @@
     (ideograph-daikanwa . 05959)	; �����
     ))
 (define-char
-  '((->ucs		. #x5960)	; 奠
+  '((=>ucs		. #x5960)	; 奠
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -1391,6 +1391,7 @@
     (total-strokes	 . 12)
     (japanese-jisx0213-2	. #x2547)	; �����
     (ideograph-daikanwa		. 05963)	; �����
+    (ucs			. #x21647)	; 𡙇
     ))
 (define-char
   '((morohashi-daikanwa	5963 0 2)
@@ -1400,7 +1401,7 @@
     (chinese-cns11643-4 . #x3C5E)	; �����
     ))
 (define-char
-  '((->ucs		. #x5962)	; 奢
+  '((=>ucs		. #x5962)	; 奢
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -1478,6 +1479,14 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
+      )
+     ((ucs		  . #x5927)	; 大
+      )
+     ((ucs		  . #x54C1)	; 品
+      ))
     (chinese-cns11643-4 . #x3678)	; �����
     (ideograph-daikanwa . 05972)	; �����
     ))
@@ -1626,7 +1635,7 @@
     (ucs			. #x5968)	; 奨
     ))
 (define-char
-  '((->ucs		. #x5968)	; 奨
+  '((=>ucs		. #x5968)	; 奨
     (morohashi-daikanwa	5990 1 0)
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 10)
@@ -1674,7 +1683,7 @@
     (chinese-cns11643-5 . #x452F)	; �����
     ))
 (define-char
-  '((->ucs		. #x596A)	; 奪
+  '((=>ucs		. #x596A)	; 奪
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -1868,7 +1877,7 @@
     (ideograph-daikanwa . 06011)	; �����
     ))
 (define-char
-  '((->ucs		. #x596E)	; 奮
+  '((=>ucs		. #x596E)	; 奮
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
