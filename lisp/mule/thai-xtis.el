@@ -1,4 +1,4 @@
-;;; thai-xtis.el --- Thai support for pre-composed representation (XTIS).
+;;; thai-xtis.el --- Support for Thai (XTIS) -*- coding: iso-2022-7bit; -*-
 
 ;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
