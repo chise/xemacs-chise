@@ -29340,7 +29340,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x89AA)	; &UU+89AA;
+       ((=gb12345	    . #x4757)	; &UU+89AA; [39-55]
 	))
       (=ucs@unicode	  . #x512D)	; &UU+512D;
       ))
