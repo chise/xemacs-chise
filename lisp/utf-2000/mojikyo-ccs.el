@@ -70,4 +70,7 @@
 			      conversion 94x60))
     (setq i (1+ i))))
 
+
+(provide 'mojikyo-ccs)
+
 ;;; mojikyo-ccs.el ends here
