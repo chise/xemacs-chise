@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 #include <chise.h>
 #endif
 
@@ -48,7 +48,7 @@ EXFUN (Ffind_char, 1);
 
 extern Lisp_Object Qdowncase, Qflippedcase, Q_lowercase, Q_uppercase;
 
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 extern CHISE_DS *default_chise_data_source;
 
 int open_chise_data_source_maybe (void);
@@ -179,7 +179,7 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   Lisp_Object db;
 #endif
   unsigned char unloaded;
