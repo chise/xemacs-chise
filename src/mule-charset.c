@@ -298,13 +298,13 @@ Lisp_Object Qascii,
   Qcyrillic_iso8859_5,
   Qlatin_iso8859_9,
   Qmap_jis_x0208_1978,
-  Qmap_gb2312,
-  Qmap_gb12345,
+  Qchinese_gb2312,
+  Qchinese_gb12345,
   Qmap_jis_x0208_1983,
-  Qmap_ks_x1001,
+  Qkorean_ksc5601,
   Qmap_jis_x0212,
-  Qmap_cns11643_1,
-  Qmap_cns11643_2,
+  Qchinese_cns11643_1,
+  Qchinese_cns11643_2,
 #ifdef UTF2000
   Qmap_ucs, Qucs,
   Qucs_bmp,
@@ -318,7 +318,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_upper,
   Qmap_jis_x0208,
   Qmap_jis_x0208_1990,
-  Qmap_big5,
+  Qchinese_big5,
   Qethiopic_ucs,
 #endif
   Qchinese_big5_1,
@@ -1159,8 +1159,6 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
 	      exit (-1);
 	    }
 	}
-      else if (defined_only)
-	return -1;
       else if ( ( XCHARSET_FINAL (charset) >= '0' ) &&
 		( XCHARSET_MIN_CODE (charset) == 0 )
 	       /*
@@ -2714,13 +2712,13 @@ syms_of_mule_charset (void)
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
   defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208-1978");
-  defsymbol (&Qmap_gb2312,		"=gb2312");
-  defsymbol (&Qmap_gb12345,		"=gb12345");
+  defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
+  defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
-  defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
+  defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
   defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
-  defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
-  defsymbol (&Qmap_cns11643_2,		"=cns11643-2");
+  defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
+  defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qmap_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
@@ -2735,7 +2733,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
   defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208-1990");
-  defsymbol (&Qmap_big5,		"=big5");
+  defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
@@ -3017,7 +3015,7 @@ complex_vars_of_mule_charset (void)
 		  CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
-    make_charset (LEADING_BYTE_CHINESE_GB2312, Qmap_gb2312, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 94, 2,
 		  2, 0, 'A', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("GB2312"),
 		  build_string ("GB2312)"),
@@ -3026,7 +3024,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb12345);
   Vcharset_chinese_gb12345 =
-    make_charset (LEADING_BYTE_CHINESE_GB12345, Qmap_gb12345, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_GB12345, Qchinese_gb12345, 94, 2,
 		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("G1"),
 		  build_string ("GB 12345)"),
@@ -3067,7 +3065,7 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
-    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qmap_ks_x1001, 94, 2,
+    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601, 94, 2,
 		  2, 0, 'C', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("KSC5601"),
 		  build_string ("KSC5601 (Korean"),
@@ -3087,7 +3085,7 @@ complex_vars_of_mule_charset (void)
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   staticpro (&Vcharset_chinese_cns11643_1);
   Vcharset_chinese_cns11643_1 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qmap_cns11643_1, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qchinese_cns11643_1, 94, 2,
 		  2, 0, 'G', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-1"),
 		  build_string ("CNS11643-1 (Chinese traditional)"),
@@ -3097,7 +3095,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qmap_cns11643_2, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2, 94, 2,
 		  2, 0, 'H', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-2"),
 		  build_string ("CNS11643-2 (Chinese traditional)"),
@@ -3144,7 +3142,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_big5);
   Vcharset_chinese_big5 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5, Qmap_big5, 256, 2,
+    make_charset (LEADING_BYTE_CHINESE_BIG5, Qchinese_big5, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5"),
