@@ -537,18 +537,21 @@
 (define-char
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 5)
+    (total-strokes	 . 10)
     (=ucs		. #x76CF)	; ç›
     (=gb2312		. #x5535)	; ø»…’°
     ))
 (define-char
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 5)
+    (total-strokes	 . 10)
     (=ucs		. #x76D0)	; ç›
     (=gb2312		. #x514E)	; ø»…‘
     ))
 (define-char
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 5)
+    (total-strokes	 . 10)
     (=ucs		. #x76D1)	; ç›‘
     (=gb2312		. #x3C60)	; ø»„®­
     ))
