@@ -1,6 +1,9 @@
 2004-01-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R058-Snout.el: Add some `<-simplified@JP/Jouyou'
+	* Ideograph-R074-Moon.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el, Ideograph-R066-Rap.el,
+	Ideograph-R060-Step.el, Ideograph-R046-Mountain.el,
+	Ideograph-R058-Snout.el: Add some `<-simplified@JP/Jouyou'
 	features.
 
 2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
