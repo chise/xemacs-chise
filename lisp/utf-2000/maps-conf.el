@@ -19,26 +19,33 @@
     (setq ucs (1+ ucs))))
 
 
-;; (let ((default-coded-charset-priority-list
-;;         '(ideograph-gt-pj-1
-;;           ideograph-gt-pj-2
-;;           ideograph-gt-pj-3
-;;           ideograph-gt-pj-4
-;;           ideograph-gt-pj-5
-;;           ideograph-gt-pj-6
-;;           ideograph-gt-pj-7
-;;           ideograph-gt-pj-8
-;;           ideograph-gt-pj-9
-;;           ideograph-gt-pj-10
-;;           ideograph-gt-pj-11
-;;           ideograph-gt-pj-k1
-;;           ideograph-gt-pj-k2))
-;;       (i 1)
-;;       chr ret)
-;;   (while (<= i 12000)
-;;     (when (and (setq ret (decode-char 'ideograph-gt-k i))
-;;                (setq ret (split-char ret))
-;;                (memq (car ret) default-coded-charset-priority-list))
-;;       (when (setq chr (apply (function make-char) ret))
-;;         (put-char-attribute chr 'ideograph-gt-k i)))
-;;     (setq i (1+ i))))
+(map-char-attribute
+ (lambda (c v)
+   (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
+		       '=gt-pj-1 v)
+   nil)
+ '=gt-pj-1)
+
+(let ((default-coded-charset-priority-list
+	'(=gt-pj-1
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2))
+      (i 1)
+      chr ret)
+  (while (<= i 12000)
+    (when (and (setq ret (decode-char '=gt-k i))
+	       (setq ret (split-char ret))
+	       (memq (car ret) default-coded-charset-priority-list))
+      (when (setq chr (apply (function make-char) ret))
+	(put-char-attribute chr '=gt-k i)))
+    (setq i (1+ i))))
