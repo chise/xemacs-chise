@@ -1,3 +1,16 @@
+2004-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-657D.
+
+	* Ideograph-R026-Seal.el (U-00020A13): Use `->subsumptive'.
+	(C4-2557): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
+
+2004-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U+6B20): Use `->subsumptive'.
+
 2004-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R122-Net.el: Use `->subsumptive' for some character
