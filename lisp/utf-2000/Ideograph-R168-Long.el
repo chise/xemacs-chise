@@ -8,6 +8,7 @@
     (korean-ksc5601		. #x6D7E)	; ø»Š‹‘
     (chinese-cns11643-1		. #x4F5B)	; ø»’†º
     (japanese-jisx0208-1990	. #x4439)	; ø½Š©®
+    (chinese-gb12345		. #x3324)	; é•·
     (ideograph-daikanwa		. 41100)	; ø¸Š‚Œ
     (ucs			. #x9577)	; é•·
     ))
