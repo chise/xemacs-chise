@@ -319,18 +319,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 /*                        Dealing with characters                       */
 /************************************************************************/
 
-/* Is this character represented by more than one byte in a string? */
-
-#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
-
-#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
-
-/* The bit fields of character are divided into 3 parts:
-   FIELD1(5bits):FIELD2(7bits):FIELD3(7bits) */
-
-#define CHAR_FIELD1_MASK (0x7F << 14)
-#define CHAR_FIELD2_MASK (0x7F << 7)
-#define CHAR_FIELD3_MASK 0x7F
+#define MAX_CHAR_BASIC_LATIN	0x007F
 
 #define MIN_CHAR_GREEK		0x0370
 #define MAX_CHAR_GREEK		0x03CF
@@ -357,54 +346,6 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
-/* Macros to access each field of a character code of C.  */
-
-#define CHAR_FIELD1(c) (((c) & CHAR_FIELD1_MASK) >> 14)
-#define CHAR_FIELD2_INTERNAL(c) (((c) & CHAR_FIELD2_MASK) >> 7)
-#define CHAR_FIELD3_INTERNAL(c)  ((c) & CHAR_FIELD3_MASK)
-
-/* Field 1, if non-zero, usually holds a leading byte for a
-   dimension-2 charset.  Field 2, if non-zero, usually holds a leading
-   byte for a dimension-1 charset. */
-
-/* Converting between field values and leading bytes.  */
-
-#define FIELD1_TO_PRIVATE_LEADING_BYTE  CHARSET_ID_OFFSET_94x94
-#define FIELD1_TO_OFFICIAL_LEADING_BYTE CHARSET_ID_OFFSET_94x94
-#define FIELD2_TO_PRIVATE_LEADING_BYTE  (MIN_LEADING_BYTE_PRIVATE_1 - 32)
-#define FIELD2_TO_OFFICIAL_LEADING_BYTE LEADING_BYTE_ASCII
-
-/* Minimum and maximum allowed values for the fields. */
-
-#define MIN_CHAR_FIELD1_OFFICIAL \
-  (MIN_LEADING_BYTE_OFFICIAL_2 - FIELD1_TO_OFFICIAL_LEADING_BYTE)
-#define MAX_CHAR_FIELD1_OFFICIAL \
-  (MAX_LEADING_BYTE_OFFICIAL_2 - FIELD1_TO_OFFICIAL_LEADING_BYTE)
-
-#define MIN_CHAR_FIELD2_PRIVATE \
-  (MIN_LEADING_BYTE_PRIVATE_1 - FIELD2_TO_PRIVATE_LEADING_BYTE)
-#define MAX_CHAR_FIELD2_PRIVATE \
-  (MAX_LEADING_BYTE_PRIVATE_1 - FIELD2_TO_PRIVATE_LEADING_BYTE)
-
-#define MIN_CHAR_FIELD1_PRIVATE \
-  (MIN_LEADING_BYTE_PRIVATE_2 - FIELD1_TO_PRIVATE_LEADING_BYTE)
-#define MAX_CHAR_FIELD1_PRIVATE \
-  (MAX_LEADING_BYTE_PRIVATE_2 - FIELD1_TO_PRIVATE_LEADING_BYTE)
-
-/* Minimum character code of each <type> character.  */
-
-#define MULE_CHAR_PRIVATE_OFFSET (0xe0 << 16)
-
-#define MIN_CHAR_PRIVATE_TYPE9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD2_PRIVATE  <<  7))
-#define MAX_CHAR_PRIVATE_TYPE9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MAX_CHAR_FIELD2_PRIVATE  <<  7) | 0x7f)
-#define MIN_CHAR_PRIVATE_TYPE9NX9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_PRIVATE  << 14))
-#define MIN_CHAR_OFFICIAL_TYPE9NX9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_OFFICIAL << 14))
-#define MIN_CHAR_COMPOSITION \
-  (MULE_CHAR_PRIVATE_OFFSET | (0x7f << 14))
 
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2.
@@ -477,7 +418,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (CHAR_ASCII_P (c))
+  if (c <= MAX_CHAR_BASIC_LATIN)
     {
       *charset = Vcharset_ascii;
       *c1 = c;
@@ -486,13 +427,13 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
   else if (c < 0xA0)
     {
       *charset = Vcharset_control_1;
-      *c1 = CHAR_FIELD3_INTERNAL (c);
+      *c1 = c & 0x7f;
       *c2 = 0;
     }
   else if (c <= 0xff)
     {
       *charset = Vcharset_latin_iso8859_1;
-      *c1 = CHAR_FIELD3_INTERNAL (c);
+      *c1 = c & 0x7f;
       *c2 = 0;
     }
   else if (c <= 0x17f)
