@@ -1,3 +1,26 @@
+2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_defined_char): New function; search
+	mother.
+	(decode_builtin_char): Don't search mother if
+	XCHARSET_MAX_CODE(charset) == 0.
+	(charset_code_point): Search mother if XCHARSET_MAX_CODE(charset)
+	== 0 even if code >= XCHARSET_MAX_CODE(charset).
+	(Fdecode_char): Use `decode_defined_char' instead of
+	`DECODE_DEFINED_CHAR'.
+	(complex_vars_of_mule_charset): Specify `Vcharset_ucs' as the
+	mother of `Vcharset_ucs_jis'.
+
+	* text-coding.c (decode_coding_big5): Use `decode_defined_char'
+	instead of `DECODE_DEFINED_CHAR'.
+
+	* char-ucs.h (decode_defined_char): Renamed from
+	`DECODE_DEFINED_CHAR'; changed to normal function.
+	(DECODE_CHAR): Use `decode_defined_char' instead of
+	`DECODE_DEFINED_CHAR'.
+
+	* lisp.h: Add `EXFUN' for `Fstring_to_number'.
+
 2002-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h: Add `extern' for `Vcharset_ucs'.
