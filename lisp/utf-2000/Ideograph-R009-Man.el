@@ -23265,8 +23265,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((japanese-jisx0213-2	  . #x2E37)	; ø»¤°œ
-      (ideograph-daikanwa	  . 14302)	; ø¸ƒŸž
+     ((ideograph-daikanwa . 14302)	; ø¸ƒŸž
       ))
     (shinjigen-1	. 395)
     (shinjigen-2	. 395)
@@ -26563,7 +26562,8 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideograph-daikanwa	  . 29093)	; ø¸‡†¥
+     ((japanese-jisx0208-1990	  . #x665C)	; ø½‹œ
+      (ideograph-daikanwa	  . 29093)	; ø¸‡†¥
       ))
     (ideograph-daikanwa . 01228)	; ø¸€“Œ
     ))
