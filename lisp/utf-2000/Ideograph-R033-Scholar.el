@@ -76,7 +76,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=big5-cdp	  . #x89B1)	; ý¢€ˆ¦±
+     ((=ucs		  . #x4E2C)	; ä¸¬
       )
      ((=ucs		  . #x58EB)	; å£«
       ))
