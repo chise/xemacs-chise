@@ -101,7 +101,7 @@ Lisp_Object Qctext, Qescape_quoted;
 Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 #ifdef UTF2000
-Lisp_Object Qcomposite;
+Lisp_Object Qdisable_composition;
 #endif
 Lisp_Object Qencode, Qdecode;
 
@@ -938,8 +938,8 @@ if TYPE is 'ccl:
       else if (EQ (key, Qpre_write_conversion))
 	CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = value;
 #ifdef UTF2000
-      else if (EQ (key, Qcomposite))
-	CODING_SYSTEM_COMPOSITE (codesys) = !NILP (value);
+      else if (EQ (key, Qdisable_composition))
+	CODING_SYSTEM_DISABLE_COMPOSITION (codesys) = !NILP (value);
 #endif
 #ifdef MULE
       else if (ty == CODESYS_ISO2022)
@@ -2068,7 +2068,7 @@ void
 COMPOSE_ADD_CHAR(struct decoding_stream *str,
 		 Emchar character, unsigned_char_dynarr* dst)
 {
-  if (!CODING_SYSTEM_COMPOSITE (str->codesys))
+  if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
     DECODE_ADD_UCS_CHAR (character, dst);
   else if (!CHAR_CODE_TABLE_P (str->combining_table))
     {
@@ -5586,7 +5586,7 @@ syms_of_file_coding (void)
   defsymbol (&Qescape_quoted, "escape-quoted");
 #endif /* MULE */
 #ifdef UTF2000
-  defsymbol (&Qcomposite, "composite");
+  defsymbol (&Qdisable_composition, "disable-composition");
 #endif
   defsymbol (&Qencode, "encode");
   defsymbol (&Qdecode, "decode");
