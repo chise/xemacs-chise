@@ -1291,6 +1291,7 @@
     (=cns11643-3	. #x253F)	; ø»•œº
     (=daikanwa		. 04964)	; ø¸¤
     (=cbeta		. 02197)	; ø¸ ¢•
+    (=jef-china3	. #x80AD)	; øºˆ‚­
     (=ucs		. #x362D)	; ã˜­
     ))
 (define-char
@@ -8893,6 +8894,7 @@
     (=gb2312		. #x5C2C)	; ø»…œ¹
     (=iso-ir165		. #x5C2C)	; ø»Ž…‰
     (=big5		. #xE15B)	; ý¢€Ž…›
+    (=jef-china3	. #x48B3)	; øº„¢³
     (=ucs		. #x5881)	; å¢
     ))
 (define-char
@@ -12563,6 +12565,7 @@
     (=gb12345		. #x3053)	; å£©
     (=big5		. #xC5F2)	; ý¢€Œ—²
     (=daikanwa		. 05630)	; ø¸—¾
+    (=jef-china3	. #x48C5)	; øº„£…
     (=ucs		. #x58E9)	; å£©
     ))
 (define-char
