@@ -3680,9 +3680,16 @@ char_encode_big5 (struct encoding_stream *str, Emchar ch,
     {
 #ifdef UTF2000
       int code_point;
+      Lisp_Object ccs
+	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
 
       if ((code_point = charset_code_point (Vcharset_ascii, ch)) >= 0)
 	Dynarr_add (dst, code_point);
+      else if ((code_point = charset_code_point (ccs, ch)) >= 0)
+	{
+	  Dynarr_add (dst, code_point >> 8);
+	  Dynarr_add (dst, code_point & 0xFF);
+	}
       else if ((code_point
 		= charset_code_point (Vcharset_chinese_big5, ch)) >= 0)
 	{
