@@ -553,7 +553,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 
 struct charset_lookup {
   /* Table of charsets indexed by leading byte. */
-  Lisp_Object charset_by_leading_byte[128];
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
