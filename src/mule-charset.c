@@ -2624,6 +2624,22 @@ complex_vars_of_mule_charset (void)
 		  build_string ("BMP"),
 		  build_string (""),
 		  NULL, 0, 0xFFFF, 0);
+#else
+# define latin_iso8859_2_to_ucs NULL
+# define latin_iso8859_3_to_ucs NULL
+# define latin_iso8859_4_to_ucs NULL
+# define latin_iso8859_9_to_ucs NULL
+# define latin_jisx0201_to_ucs NULL
+# define MIN_CHAR_THAI 0
+# define MAX_CHAR_THAI 0
+# define MIN_CHAR_GREEK 0
+# define MAX_CHAR_GREEK 0
+# define MIN_CHAR_HEBREW 0
+# define MAX_CHAR_HEBREW 0
+# define MIN_CHAR_HALFWIDTH_KATAKANA 0
+# define MAX_CHAR_HALFWIDTH_KATAKANA 0
+# define MIN_CHAR_CYRILLIC 0
+# define MAX_CHAR_CYRILLIC 0
 #endif
   Vcharset_ascii =
     make_charset (LEADING_BYTE_ASCII, Qascii,
