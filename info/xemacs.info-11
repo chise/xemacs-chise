@@ -30,6 +30,600 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Pages,  Next: Filling,  Prev: Paragraphs,  Up: Text
+
+Pages
+=====
+
+   Files are often thought of as divided into "pages" by the "formfeed"
+character (ASCII Control-L, octal code 014).  For example, if a file is
+printed on a line printer, each "page" of the file starts on a new page
+of paper.  Emacs treats a page-separator character just like any other
+character.  It can be inserted with `C-q C-l' or deleted with <DEL>.
+You are free to paginate your file or not.  However, since pages are
+often meaningful divisions of the file, commands are provided to move
+over them and operate on them.
+
+`C-x ['
+     Move point to previous page boundary (`backward-page').
+
+`C-x ]'
+     Move point to next page boundary (`forward-page').
+
+`C-x C-p'
+     Put point and mark around this page (or another page)
+     (`mark-page').
+
+`C-x l'
+     Count the lines in this page (`count-lines-page').
+
+   The `C-x [' (`backward-page') command moves point to immediately
+after the previous page delimiter.  If point is already right after a
+page delimiter, the command skips that one and stops at the previous
+one.  A numeric argument serves as a repeat count.  The `C-x ]'
+(`forward-page') command moves forward past the next page delimiter.
+
+   The `C-x C-p' command (`mark-page') puts point at the beginning of
+the current page and the mark at the end.  The page delimiter at the end
+is included (the mark follows it).  The page delimiter at the front is
+excluded (point follows it).  You can follow this command  by `C-w' to
+kill a page you want to move elsewhere.  If you insert the page after a
+page delimiter, at a place where `C-x ]' or `C-x [' would take you, the
+page will be properly delimited before and after once again.
+
+   A numeric argument to `C-x C-p' is used to specify which page to go
+to, relative to the current one.  Zero means the current page.  One
+means the next page, and -1 means the previous one.
+
+   The `C-x l' command (`count-lines-page') can help you decide where
+to break a page in two.  It prints the total number of lines in the
+current page in the echo area, then divides the lines into those
+preceding the current line and those following it, for example
+
+     Page has 96 (72+25) lines
+
+Notice that the sum is off by one; this is correct if point is not at
+the beginning of a line.
+
+   The variable `page-delimiter' should have as its value a regexp that
+matches the beginning of a line that separates pages.  This defines
+where pages begin.  The normal value of this variable is `"^\f"', which
+matches a formfeed character at the beginning of a line.
+
+
+File: xemacs.info,  Node: Filling,  Next: Case,  Prev: Pages,  Up: Text
+
+Filling Text
+============
+
+   If you use Auto Fill mode, Emacs "fills" text (breaks it up into
+lines that fit in a specified width) as you insert it.  When you alter
+existing text it is often no longer be properly filled afterwards and
+you can use explicit commands for filling.
+
+* Menu:
+
+* Auto Fill::	  Auto Fill mode breaks long lines automatically.
+* Fill Commands:: Commands to refill paragraphs and center lines.
+* Fill Prefix::   Filling when every line is indented or in a comment, etc.
+
+
+File: xemacs.info,  Node: Auto Fill,  Next: Fill Commands,  Prev: Filling,  Up: Filling
+
+Auto Fill Mode
+--------------
+
+   "Auto Fill" mode is a minor mode in which lines are broken
+automatically when they become too wide.  Breaking happens only when
+you type a <SPC> or <RET>.
+
+`M-x auto-fill-mode'
+     Enable or disable Auto Fill mode.
+
+`<SPC>'
+`<RET>'
+     In Auto Fill mode, break lines when appropriate.
+
+   `M-x auto-fill-mode' turns Auto Fill mode on if it was off, or off
+if it was on.  With a positive numeric argument the command always turns
+Auto Fill mode on, and with a negative argument it always turns it off.
+The presence of the word `Fill' in the mode line, inside the
+parentheses, indicates that Auto Fill mode is in effect.  Auto Fill mode
+is a minor mode; you can turn it on or off for each buffer individually.
+*Note Minor Modes::.
+
+   In Auto Fill mode, lines are broken automatically at spaces when
+they get longer than desired.  Line breaking and rearrangement takes
+place only when you type <SPC> or <RET>.  To insert a space or newline
+without permitting line-breaking, type `C-q <SPC>' or `C-q <LFD>'
+(recall that a newline is really a linefeed).  `C-o' inserts a newline
+without line breaking.
+
+   Auto Fill mode works well with Lisp mode: when it makes a new line in
+Lisp mode, it indents that line with <TAB>.  If a line ending in a Lisp
+comment gets too long, the text of the comment is split into two
+comment lines.  Optionally, new comment delimiters are inserted at the
+end of the first line and the beginning of the second, so that each line
+is a separate comment.  The variable `comment-multi-line' controls the
+choice (*note Comments::).
+
+   Auto Fill mode does not refill entire paragraphs.  It can break
+lines but cannot merge lines.  Editing in the middle of a paragraph can
+result in a paragraph that is not correctly filled.  The easiest way to
+make the paragraph properly filled again is using an explicit fill
+commands.
+
+   Many users like Auto Fill mode and want to use it in all text files.
+The section on init files explains how you can arrange this permanently
+for yourself.  *Note Init File::.
+
+
+File: xemacs.info,  Node: Fill Commands,  Next: Fill Prefix,  Prev: Auto Fill,  Up: Filling
+
+Explicit Fill Commands
+----------------------
+
+`M-q'
+     Fill current paragraph (`fill-paragraph').
+
+`M-g'
+     Fill each paragraph in the region (`fill-region').
+
+`C-x f'
+     Set the fill column (`set-fill-column').
+
+`M-x fill-region-as-paragraph'
+     Fill the region, considering it as one paragraph.
+
+`M-s'
+     Center a line.
+
+   To refill a paragraph, use the command `Meta-q' (`fill-paragraph').
+It causes the paragraph containing point, or the one after point if
+point is between paragraphs, to be refilled.  All line breaks are
+removed, and new ones are inserted where necessary.  `M-q' can be
+undone with `C-_'.  *Note Undo::.
+
+   To refill many paragraphs, use `M-g' (`fill-region'), which divides
+the region into paragraphs and fills each of them.
+
+   `Meta-q' and `Meta-g' use the same criteria as `Meta-h' for finding
+paragraph boundaries (*note Paragraphs::).  For more control, you can
+use `M-x fill-region-as-paragraph', which refills everything between
+point and mark.  This command recognizes only blank lines as paragraph
+separators.
+
+   A numeric argument to `M-g' or `M-q' causes it to "justify" the text
+as well as filling it.  Extra spaces are inserted to make the right
+margin line up exactly at the fill column.  To remove the extra spaces,
+use `M-q' or `M-g' with no argument.
+
+   The variable `auto-fill-inhibit-regexp' takes as a value a regexp to
+match lines that should not be auto-filled.
+
+   The command `Meta-s' (`center-line') centers the current line within
+the current fill column.  With an argument, it centers several lines
+individually and moves past them.
+
+   The maximum line width for filling is in the variable `fill-column'.
+Altering the value of `fill-column' makes it local to the current
+buffer; until then, the default value--initially 70--is in effect.
+*Note Locals::.
+
+   The easiest way to set `fill-column' is to use the command `C-x f'
+(`set-fill-column').  With no argument, it sets `fill-column' to the
+current horizontal position of point.  With a numeric argument, it uses
+that number as the new fill column.
+
+
+File: xemacs.info,  Node: Fill Prefix,  Prev: Fill Commands,  Up: Filling
+
+The Fill Prefix
+---------------
+
+   To fill a paragraph in which each line starts with a special marker
+(which might be a few spaces, giving an indented paragraph), use the
+"fill prefix" feature.  The fill prefix is a string which is not
+included in filling.  Emacs expects every line to start with a fill
+prefix.
+
+`C-x .'
+     Set the fill prefix (`set-fill-prefix').
+
+`M-q'
+     Fill a paragraph using current fill prefix (`fill-paragraph').
+
+`M-x fill-individual-paragraphs'
+     Fill the region, considering each change of indentation as
+     starting a new paragraph.
+
+   To specify a fill prefix, move to a line that starts with the desired
+prefix, put point at the end of the prefix, and give the command
+`C-x .' (`set-fill-prefix').  That's a period after the `C-x'.  To turn
+off the fill prefix, specify an empty prefix: type `C-x .' with point
+at the beginning of a line.
+
+   When a fill prefix is in effect, the fill commands remove the fill
+prefix from each line before filling and insert it on each line after
+filling.  Auto Fill mode also inserts the fill prefix inserted on new
+lines it creates.  Lines that do not start with the fill prefix are
+considered to start paragraphs, both in `M-q' and the paragraph
+commands; this is just right if you are using paragraphs with hanging
+indentation (every line indented except the first one).  Lines which are
+blank or indented once the prefix is removed also separate or start
+paragraphs; this is what you want if you are writing multi-paragraph
+comments with a comment delimiter on each line.
+
+   The fill prefix is stored in the variable `fill-prefix'.  Its value
+is a string, or `nil' when there is no fill prefix.  This is a
+per-buffer variable; altering the variable affects only the current
+buffer, but there is a default value which you can change as well.
+*Note Locals::.
+
+   Another way to use fill prefixes is through `M-x
+fill-individual-paragraphs'.  This function divides the region into
+groups of consecutive lines with the same amount and kind of
+indentation and fills each group as a paragraph, using its indentation
+as a fill prefix.
+
+
+File: xemacs.info,  Node: Case,  Prev: Filling,  Up: Text
+
+Case Conversion Commands
+========================
+
+   Emacs has commands for converting either a single word or any
+arbitrary range of text to upper case or to lower case.
+
+`M-l'
+     Convert following word to lower case (`downcase-word').
+
+`M-u'
+     Convert following word to upper case (`upcase-word').
+
+`M-c'
+     Capitalize the following word (`capitalize-word').
+
+`C-x C-l'
+     Convert region to lower case (`downcase-region').
+
+`C-x C-u'
+     Convert region to upper case (`upcase-region').
+
+   The word conversion commands are used most frequently.  `Meta-l'
+(`downcase-word') converts the word after point to lower case, moving
+past it.  Thus, repeating `Meta-l' converts successive words.  `Meta-u'
+(`upcase-word') converts to all capitals instead, while `Meta-c'
+(`capitalize-word') puts the first letter of the word into upper case
+and the rest into lower case.  The word conversion commands convert
+several words at once if given an argument.  They are especially
+convenient for converting a large amount of text from all upper case to
+mixed case: you can move through the text using `M-l', `M-u', or `M-c'
+on each word as appropriate, occasionally using `M-f' instead to skip a
+word.
+
+   When given a negative argument, the word case conversion commands
+apply to the appropriate number of words before point, but do not move
+point.  This is convenient when you have just typed a word in the wrong
+case: you can give the case conversion command and continue typing.
+
+   If a word case conversion command is given in the middle of a word,
+it applies only to the part of the word which follows point.  This is
+just like what `Meta-d' (`kill-word') does.  With a negative argument,
+case conversion applies only to the part of the word before point.
+
+   The other case conversion commands are `C-x C-u' (`upcase-region')
+and `C-x C-l' (`downcase-region'), which convert everything between
+point and mark to the specified case.  Point and mark do not move.
+
+
+File: xemacs.info,  Node: Programs,  Next: Running,  Prev: Text,  Up: Top
+
+Editing Programs
+****************
+
+   Emacs has many commands designed to understand the syntax of
+programming languages such as Lisp and C.  These commands can:
+
+   * Move over or kill balanced expressions or "sexps" (*note Lists::).
+
+   * Move over or mark top-level balanced expressions ("defuns", in
+     Lisp; functions, in C).
+
+   * Show how parentheses balance (*note Matching::).
+
+   * Insert, kill, or align comments (*note Comments::).
+
+   * Follow the usual indentation conventions of the language (*note
+     Grinding::).
+
+   The commands available for words, sentences, and paragraphs are
+useful in editing code even though their canonical application is for
+editing human language text.  Most symbols contain words (*note
+Words::); sentences can be found in strings and comments (*note
+Sentences::).  Paragraphs per se are not present in code, but the
+paragraph commands are useful anyway, because Lisp mode and C mode
+define paragraphs to begin and end at blank lines (*note Paragraphs::).
+Judicious use of blank lines to make the program clearer also provides
+interesting chunks of text for the paragraph commands to work on.
+
+   The selective display feature is useful for looking at the overall
+structure of a function (*note Selective Display::).  This feature
+causes only the lines that are indented less than a specified amount to
+appear on the screen.
+
+* Menu:
+
+* Program Modes::       Major modes for editing programs.
+* Lists::               Expressions with balanced parentheses.
+                         There are editing commands to operate on them.
+* Defuns::              Each program is made up of separate functions.
+                         There are editing commands to operate on them.
+* Grinding::            Adjusting indentation to show the nesting.
+* Matching::            Insertion of a close-delimiter flashes matching open.
+* Comments::            Inserting, filling and aligning comments.
+* Balanced Editing::    Inserting two matching parentheses at once, etc.
+* Lisp Completion::     Completion on symbol names in Lisp code.
+* Documentation::       Getting documentation of functions you plan to call.
+* Change Log::          Maintaining a change history for your program.
+* Tags::                Go direct to any function in your program in one
+                         command.  Tags remembers which file it is in.
+* Fortran::		Fortran mode and its special features.
+* Asm Mode::            Asm mode and its special features.
+
+
+File: xemacs.info,  Node: Program Modes,  Next: Lists,  Prev: Programs,  Up: Programs
+
+Major Modes for Programming Languages
+=====================================
+
+   Emacs has several major modes for the programming languages Lisp,
+Scheme (a variant of Lisp), C, Fortran, and Muddle.  Ideally, a major
+mode should be implemented for each programming language you might want
+to edit with Emacs; but often the mode for one language can serve for
+other syntactically similar languages.  The language modes that exist
+are those that someone decided to take the trouble to write.
+
+   There are several variants of Lisp mode, which differ in the way they
+interface to Lisp execution.  *Note Lisp Modes::.
+
+   Each of the programming language modes defines the <TAB> key to run
+an indentation function that knows the indentation conventions of that
+language and updates the current line's indentation accordingly.  For
+example, in C mode <TAB> is bound to `c-indent-line'.  <LFD> is
+normally defined to do <RET> followed by <TAB>; thus it, too, indents
+in a mode-specific fashion.
+
+   In most programming languages, indentation is likely to vary from
+line to line.  So the major modes for those languages rebind <DEL> to
+treat a tab as if it were the equivalent number of spaces (using the
+command `backward-delete-char-untabify').  This makes it possible to
+rub out indentation one column at a time without worrying whether it is
+made up of spaces or tabs.  In these modes, use `C-b C-d' to delete a
+tab character before point.
+
+   Programming language modes define paragraphs to be separated only by
+blank lines, so that the paragraph commands remain useful.  Auto Fill
+mode, if enabled in a programming language major mode, indents the new
+lines which it creates.
+
+   Turning on a major mode calls a user-supplied function called the
+"mode hook", which is the value of a Lisp variable.  For example,
+turning on C mode calls the value of the variable `c-mode-hook' if that
+value exists and is non-`nil'.  Mode hook variables for other
+programming language modes include `lisp-mode-hook',
+`emacs-lisp-mode-hook', `lisp-interaction-mode-hook',
+`scheme-mode-hook', and `muddle-mode-hook'.  The mode hook function
+receives no arguments.
+
+
+File: xemacs.info,  Node: Lists,  Next: Defuns,  Prev: Program Modes,  Up: Programs
+
+Lists and Sexps
+===============
+
+   By convention, Emacs keys for dealing with balanced expressions are
+usually `Control-Meta-' characters.  They tend to be analogous in
+function to their `Control-' and `Meta-' equivalents.  These commands
+are usually thought of as pertaining to expressions in programming
+languages, but can be useful with any language in which some sort of
+parentheses exist (including English).
+
+   The commands fall into two classes.  Some commands deal only with
+"lists" (parenthetical groupings).  They see nothing except
+parentheses, brackets, braces (depending on what must balance in the
+language you are working with), and escape characters that might be used
+to quote those.
+
+   The other commands deal with expressions or "sexps".  The word `sexp'
+is derived from "s-expression", the term for a symbolic expression in
+Lisp.  In Emacs, the notion of `sexp' is not limited to Lisp.  It
+refers to an expression in the language  your program is written in.
+Each programming language has its own major mode, which customizes the
+syntax tables so that expressions in that language count as sexps.
+
+   Sexps typically include symbols, numbers, and string constants, as
+well as anything contained in parentheses, brackets, or braces.
+
+   In languages that use prefix and infix operators, such as C, it is
+not possible for all expressions to be sexps.  For example, C mode does
+not recognize `foo + bar' as an sexp, even though it is a C expression;
+it recognizes `foo' as one sexp and `bar' as another, with the `+' as
+punctuation between them.  This is a fundamental ambiguity: both `foo +
+bar' and `foo' are legitimate choices for the sexp to move over if
+point is at the `f'.  Note that `(foo + bar)' is a sexp in C mode.
+
+   Some languages have obscure forms of syntax for expressions that
+nobody has bothered to make Emacs understand properly.
+
+`C-M-f'
+     Move forward over an sexp (`forward-sexp').
+
+`C-M-b'
+     Move backward over an sexp (`backward-sexp').
+
+`C-M-k'
+     Kill sexp forward (`kill-sexp').
+
+`C-M-u'
+     Move up and backward in list structure (`backward-up-list').
+
+`C-M-d'
+     Move down and forward in list structure (`down-list').
+
+`C-M-n'
+     Move forward over a list (`forward-list').
+
+`C-M-p'
+     Move backward over a list (`backward-list').
+
+`C-M-t'
+     Transpose expressions (`transpose-sexps').
+
+`C-M-@'
+     Put mark after following expression (`mark-sexp').
+
+   To move forward over an sexp, use `C-M-f' (`forward-sexp').  If the
+first significant character after point is an opening delimiter (`(' in
+Lisp; `(', `[', or `{' in C), `C-M-f' moves past the matching closing
+delimiter.  If the character begins a symbol, string, or number,
+`C-M-f' moves over that.  If the character after point is a closing
+delimiter, `C-M-f' just moves past it.  (This last is not really moving
+across an sexp; it is an exception which is included in the definition
+of `C-M-f' because it is as useful a behavior as anyone can think of
+for that situation.)
+
+   The command `C-M-b' (`backward-sexp') moves backward over a sexp.
+The detailed rules are like those above for `C-M-f', but with
+directions reversed.  If there are any prefix characters (single quote,
+back quote, and comma, in Lisp) preceding the sexp, `C-M-b' moves back
+over them as well.
+
+   `C-M-f' or `C-M-b' with an argument repeats that operation the
+specified number of times; with a negative argument, it moves in the
+opposite direction.
+
+   In languages such as C where the comment-terminator can be
+recognized, the sexp commands move across comments as if they were
+whitespace.  In Lisp and other languages where comments run until the
+end of a line, it is very difficult to ignore comments when parsing
+backwards; therefore, in such languages the sexp commands treat the
+text of comments as if it were code.
+
+   Killing an sexp at a time can be done with `C-M-k' (`kill-sexp').
+`C-M-k' kills the characters that `C-M-f' would move over.
+
+   The "list commands", `C-M-n' (`forward-list') and `C-M-p'
+(`backward-list'), move over lists like the sexp commands but skip over
+any number of other kinds of sexps (symbols, strings, etc).  In some
+situations, these commands are useful because they usually ignore
+comments, since the comments usually do not contain any lists.
+
+   `C-M-n' and `C-M-p' stay at the same level in parentheses, when that
+is possible.  To move up one (or N) levels, use `C-M-u'
+(`backward-up-list').  `C-M-u' moves backward up past one unmatched
+opening delimiter.  A positive argument serves as a repeat count; a
+negative argument reverses direction of motion and also requests
+repetition, so it moves forward and up one or more levels.
+
+   To move down in list structure, use `C-M-d' (`down-list').  In Lisp
+mode, where `(' is the only opening delimiter, this is nearly the same
+as searching for a `('.  An argument specifies the number of levels of
+parentheses to go down.
+
+   `C-M-t' (`transpose-sexps') drags the previous sexp across the next
+one.  An argument serves as a repeat count, and a negative argument
+drags backwards (thus canceling out the effect of `C-M-t' with a
+positive argument).  An argument of zero, rather than doing nothing,
+transposes the sexps ending after point and the mark.
+
+   To make the region be the next sexp in the buffer, use `C-M-@'
+(`mark-sexp') which sets the mark at the same place that `C-M-f' would
+move to.  `C-M-@' takes arguments like `C-M-f'.  In particular, a
+negative argument is useful for putting the mark at the beginning of
+the previous sexp.
+
+   The list and sexp commands' understanding of syntax is completely
+controlled by the syntax table.  Any character can, for example, be
+declared to be an opening delimiter and act like an open parenthesis.
+*Note Syntax::.
+
+
+File: xemacs.info,  Node: Defuns,  Next: Grinding,  Prev: Lists,  Up: Programs
+
+Defuns
+======
+
+   In Emacs, a parenthetical grouping at the top level in the buffer is
+called a "defun".  The name derives from the fact that most top-level
+lists in Lisp are instances of the special form `defun', but Emacs
+calls any top-level parenthetical grouping counts a defun regardless of
+its contents or the programming language.  For example, in C, the body
+of a function definition is a defun.
+
+`C-M-a'
+     Move to beginning of current or preceding defun
+     (`beginning-of-defun').
+
+`C-M-e'
+     Move to end of current or following defun (`end-of-defun').
+
+`C-M-h'
+     Put region around whole current or following defun (`mark-defun').
+
+   The commands to move to the beginning and end of the current defun
+are `C-M-a' (`beginning-of-defun') and `C-M-e' (`end-of-defun').
+
+   To operate on the current defun, use `C-M-h' (`mark-defun') which
+puts point at the beginning and the mark at the end of the current or
+next defun.  This is the easiest way to prepare for moving the defun to
+a different place.  In C mode, `C-M-h' runs the function
+`mark-c-function', which is almost the same as `mark-defun', but which
+backs up over the argument declarations, function name, and returned
+data type so that the entire C function is inside the region.
+
+   To compile and evaluate the current defun, use `M-x compile-defun'.
+This function prints the results in the minibuffer. If you include an
+argument, it inserts the value in the current buffer after the defun.
+
+   Emacs assumes that any open-parenthesis found in the leftmost column
+is the start of a defun.  Therefore, never put an open-parenthesis at
+the left margin in a Lisp file unless it is the start of a top level
+list.  Never put an open-brace or other opening delimiter at the
+beginning of a line of C code unless it starts the body of a function.
+The most likely problem case is when you want an opening delimiter at
+the start of a line inside a string.  To avoid trouble, put an escape
+character (`\' in C and Emacs Lisp, `/' in some other Lisp dialects)
+before the opening delimiter.  It will not affect the contents of the
+string.
+
+   The original Emacs found defuns by moving upward a level of
+parentheses until there were no more levels to go up.  This required
+scanning back to the beginning of the buffer for every function.  To
+speed this up, Emacs was changed to assume that any `(' (or other
+character assigned the syntactic class of opening-delimiter) at the
+left margin is the start of a defun.  This heuristic is nearly always
+right; however, it mandates the convention described above.
+
+
+File: xemacs.info,  Node: Grinding,  Next: Matching,  Prev: Defuns,  Up: Programs
+
+Indentation for Programs
+========================
+
+   The best way to keep a program properly indented ("ground") is to
+use Emacs to re-indent it as you change the program.  Emacs has commands
+to indent properly either a single line, a specified number of lines, or
+all of the lines inside a single parenthetical grouping.
+
+* Menu:
+
+* Basic Indent::
+* Multi-line Indent::   Commands to reindent many lines at once.
+* Lisp Indent::		Specifying how each Lisp function should be indented.
+* C Indent::		Choosing an indentation style for C code.
+
+
 File: xemacs.info,  Node: Basic Indent,  Next: Multi-line Indent,  Prev: Grinding,  Up: Grinding
 
 Basic Program Indentation Commands
@@ -576,544 +1170,4 @@ as an argument, and displays the Unix manual page for that topic.
 concatenates all the entries it finds.  For example, the topic
 `termcap' finds the description of the termcap library from section 3,
 followed by the description of the termcap data base from section 5.
-
-
-File: xemacs.info,  Node: Change Log,  Next: Tags,  Prev: Documentation,  Up: Programs
-
-Change Logs
-===========
-
-   The Emacs command `M-x add-change-log-entry' helps you keep a record
-of when and why you have changed a program.  It assumes that you have a
-file in which you write a chronological sequence of entries describing
-individual changes.  The default is to store the change entries in a
-file called `ChangeLog' in the same directory as the file you are
-editing.  The same `ChangeLog' file therefore records changes for all
-the files in a directory.
-
-   A change log entry starts with a header line that contains your name
-and the current date.  Except for these header lines, every line in the
-change log starts with a tab.  One entry can describe several changes;
-each change starts with a line starting with a tab and a star.  `M-x
-add-change-log-entry' visits the change log file and creates a new entry
-unless the most recent entry is for today's date and your name.  In
-either case, it adds a new line to start the description of another
-change just after the header line of the entry.  When `M-x
-add-change-log-entry' is finished, all is prepared for you to edit in
-the description of what you changed and how.  You must then save the
-change log file yourself.
-
-   The change log file is always visited in Indented Text mode, which
-means that <LFD> and auto-filling indent each new line like the previous
-line.  This is convenient for entering the contents of an entry, which
-must be indented.  *Note Text Mode::.
-
-   Here is an example of the formatting conventions used in the change
-log for Emacs:
-
-     Wed Jun 26 19:29:32 1985  Richard M. Stallman  (rms at mit-prep)
-     
-             * xdisp.c (try_window_id):
-             If C-k is done at end of next-to-last line,
-             this fn updates window_end_vpos and cannot leave
-             window_end_pos nonnegative (it is zero, in fact).
-             If display is preempted before lines are output,
-             this is inconsistent.  Fix by setting
-             blank_end_of_window to nonzero.
-     
-     Tue Jun 25 05:25:33 1985  Richard M. Stallman  (rms at mit-prep)
-     
-             * cmds.c (Fnewline):
-             Call the auto fill hook if appropriate.
-     
-             * xdisp.c (try_window_id):
-             If point is found by compute_motion after xp, record that
-             permanently.  If display_text_line sets point position wrong
-             (case where line is killed, point is at eob and that line is
-             not displayed), set it again in final compute_motion.
-
-
-File: xemacs.info,  Node: Tags,  Next: Fortran,  Prev: Change Log,  Up: Programs
-
-Tags Tables
-===========
-
-   A "tags table" is a description of how a multi-file program is
-broken up into files.  It lists the names of the component files and the
-names and positions of the functions (or other named subunits) in each
-file.  Grouping the related files makes it possible to search or replace
-through all the files with one command.  Recording the function names
-and positions makes possible the `M-.' command which finds the
-definition of a function by looking up which of the files it is in.
-
-   Tags tables are stored in files called "tags table files".  The
-conventional name for a tags table file is `TAGS'.
-
-   Each entry in the tags table records the name of one tag, the name
-of the file that the tag is defined in (implicitly), and the position
-in that file of the tag's definition.
-
-   Just what names from the described files are recorded in the tags
-table depends on the programming language of the described file.  They
-normally include all functions and subroutines, and may also include
-global variables, data types, and anything else convenient.  Each name
-recorded is called a "tag".
-
-* Menu:
-
-* Tag Syntax::		Tag syntax for various types of code and text files.
-* Create Tags Table::	Creating a tags table with `etags'.
-* Etags Regexps::       Create arbitrary tags using regular expressions.
-* Select Tags Table::	How to visit a tags table.
-* Find Tag::		Commands to find the definition of a specific tag.
-* Tags Search::		Using a tags table for searching and replacing.
-* List Tags::		Listing and finding tags defined in a file.
-
-
-File: xemacs.info,  Node: Tag Syntax,  Next: Create Tags Table,  Prev: Tags,  Up: Tags
-
-Source File Tag Syntax
-----------------------
-
-   Here is how tag syntax is defined for the most popular languages:
-
-   * In C code, any C function or typedef is a tag, and so are
-     definitions of `struct', `union' and `enum'.  You can tag function
-     declarations and external variables in addition to function
-     definitions by giving the `--declarations' option to `etags'.
-     `#define' macro definitions and `enum' constants are also tags,
-     unless you specify `--no-defines' when making the tags table.
-     Similarly, global variables are tags, unless you specify
-     `--no-globals'.  Use of `--no-globals' and `--no-defines' can make
-     the tags table file much smaller.
-
-   * In C++ code, in addition to all the tag constructs of C code,
-     member functions are also recognized, and optionally member
-     variables if you use the `--members' option.  Tags for variables
-     and functions in classes are named `CLASS::VARIABLE' and
-     `CLASS::FUNCTION'.  `operator' functions tags are named, for
-     example `operator+'.
-
-   * In Java code, tags include all the constructs recognized in C++,
-     plus the `interface', `extends' and `implements' constructs.  Tags
-     for variables and functions in classes are named `CLASS.VARIABLE'
-     and `CLASS.FUNCTION'.
-
-   * In LaTeX text, the argument of any of the commands `\chapter',
-     `\section', `\subsection', `\subsubsection', `\eqno', `\label',
-     `\ref', `\cite', `\bibitem', `\part', `\appendix', `\entry', or
-     `\index', is a tag.
-
-     Other commands can make tags as well, if you specify them in the
-     environment variable `TEXTAGS' before invoking `etags'.  The value
-     of this environment variable should be a colon-separated list of
-     command names.  For example,
-
-          TEXTAGS="def:newcommand:newenvironment"
-          export TEXTAGS
-
-     specifies (using Bourne shell syntax) that the commands `\def',
-     `\newcommand' and `\newenvironment' also define tags.
-
-   * In Lisp code, any function defined with `defun', any variable
-     defined with `defvar' or `defconst', and in general the first
-     argument of any expression that starts with `(def' in column zero,
-     is a tag.
-
-   * In Scheme code, tags include anything defined with `def' or with a
-     construct whose name starts with `def'.  They also include
-     variables set with `set!' at top level in the file.
-
-   Several other languages are also supported:
-
-   * In Ada code, functions, procedures, packages, tasks, and types are
-     tags.  Use the `--packages-only' option to create tags for packages
-     only.
-
-   * In assembler code, labels appearing at the beginning of a line,
-     followed by a colon, are tags.
-
-   * In Bison or Yacc input files, each rule defines as a tag the
-     nonterminal it constructs.  The portions of the file that contain
-     C code are parsed as C code.
-
-   * In Cobol code, tags are paragraph names; that is, any word
-     starting in column 8 and followed by a period.
-
-   * In Erlang code, the tags are the functions, records, and macros
-     defined in the file.
-
-   * In Fortran code, functions, subroutines and blockdata are tags.
-
-   * In Objective C code, tags include Objective C definitions for
-     classes, class categories, methods, and protocols.
-
-   * In Pascal code, the tags are the functions and procedures defined
-     in the file.
-
-   * In Perl code, the tags are the procedures defined by the `sub',
-     `my' and `local' keywords.  Use `--globals' if you want to tag
-     global variables.
-
-   * In Postscript code, the tags are the functions.
-
-   * In Prolog code, a tag name appears at the left margin.
-
-   * In Python code, `def' or `class' at the beginning of a line
-     generate a tag.
-
-   You can also generate tags based on regexp matching (*note Etags
-Regexps::) to handle other formats and languages.
-
-
-File: xemacs.info,  Node: Create Tags Table,  Next: Etags Regexps,  Prev: Tag Syntax,  Up: Tags
-
-Creating Tags Tables
---------------------
-
-   The `etags' program is used to create a tags table file.  It knows
-the syntax of several languages, as described in *Note Tag Syntax::.
-Here is how to run `etags':
-
-     etags INPUTFILES...
-
-The `etags' program reads the specified files, and writes a tags table
-named `TAGS' in the current working directory.  You can intermix
-compressed and plain text source file names.  `etags' knows about the
-most common compression formats, and does the right thing.  So you can
-compress all your source files and have `etags' look for compressed
-versions of its file name arguments, if it does not find uncompressed
-versions.  Under MS-DOS, `etags' also looks for file names like
-`mycode.cgz' if it is given `mycode.c' on the command line and
-`mycode.c' does not exist.
-
-   `etags' recognizes the language used in an input file based on its
-file name and contents.  You can specify the language with the
-`--language=NAME' option, described below.
-
-   If the tags table data become outdated due to changes in the files
-described in the table, the way to update the tags table is the same
-way it was made in the first place.  It is not necessary to do this
-often.
-
-   If the tags table fails to record a tag, or records it for the wrong
-file, then Emacs cannot possibly find its definition.  However, if the
-position recorded in the tags table becomes a little bit wrong (due to
-some editing in the file that the tag definition is in), the only
-consequence is a slight delay in finding the tag.  Even if the stored
-position is very wrong, Emacs will still find the tag, but it must
-search the entire file for it.
-
-   So you should update a tags table when you define new tags that you
-want to have listed, or when you move tag definitions from one file to
-another, or when changes become substantial.  Normally there is no need
-to update the tags table after each edit, or even every day.
-
-   One tags table can effectively include another.  Specify the included
-tags file name with the `--include=FILE' option when creating the file
-that is to include it.  The latter file then acts as if it contained
-all the files specified in the included file, as well as the files it
-directly contains.
-
-   If you specify the source files with relative file names when you run
-`etags', the tags file will contain file names relative to the
-directory where the tags file was initially written.  This way, you can
-move an entire directory tree containing both the tags file and the
-source files, and the tags file will still refer correctly to the source
-files.
-
-   If you specify absolute file names as arguments to `etags', then the
-tags file will contain absolute file names.  This way, the tags file
-will still refer to the same files even if you move it, as long as the
-source files remain in the same place.  Absolute file names start with
-`/', or with `DEVICE:/' on MS-DOS and MS-Windows.
-
-   When you want to make a tags table from a great number of files, you
-may have problems listing them on the command line, because some systems
-have a limit on its length.  The simplest way to circumvent this limit
-is to tell `etags' to read the file names from its standard input, by
-typing a dash in place of the file names, like this:
-
-     find . -name "*.[chCH]" -print | etags -
-
-   Use the option `--language=NAME' to specify the language explicitly.
-You can intermix these options with file names; each one applies to
-the file names that follow it.  Specify `--language=auto' to tell
-`etags' to resume guessing the language from the file names and file
-contents.  Specify `--language=none' to turn off language-specific
-processing entirely; then `etags' recognizes tags by regexp matching
-alone (*note Etags Regexps::).
-
-   `etags --help' prints the list of the languages `etags' knows, and
-the file name rules for guessing the language. It also prints a list of
-all the available `etags' options, together with a short explanation.
-
-
-File: xemacs.info,  Node: Etags Regexps,  Next: Select Tags Table,  Prev: Create Tags Table,  Up: Tags
-
-Etags Regexps
--------------
-
-   The `--regex' option provides a general way of recognizing tags
-based on regexp matching.  You can freely intermix it with file names.
-Each `--regex' option adds to the preceding ones, and applies only to
-the following files.  The syntax is:
-
-     --regex=/TAGREGEXP[/NAMEREGEXP]/
-
-where TAGREGEXP is used to match the lines to tag.  It is always
-anchored, that is, it behaves as if preceded by `^'.  If you want to
-account for indentation, just match any initial number of blanks by
-beginning your regular expression with `[ \t]*'.  In the regular
-expressions, `\' quotes the next character, and `\t' stands for the tab
-character.  Note that `etags' does not handle the other C escape
-sequences for special characters.
-
-   The syntax of regular expressions in `etags' is the same as in
-Emacs, augmented with the "interval operator", which works as in `grep'
-and `ed'.  The syntax of an interval operator is `\{M,N\}', and its
-meaning is to match the preceding expression at least M times and up to
-N times.
-
-   You should not match more characters with TAGREGEXP than that needed
-to recognize what you want to tag.  If the match is such that more
-characters than needed are unavoidably matched by TAGREGEXP (as will
-usually be the case), you should add a NAMEREGEXP, to pick out just the
-tag.  This will enable Emacs to find tags more accurately and to do
-completion on tag names more reliably.  You can find some examples
-below.
-
-   The option `--ignore-case-regex' (or `-c') is like `--regex', except
-that the regular expression provided will be matched without regard to
-case, which is appropriate for various programming languages.
-
-   The `-R' option deletes all the regexps defined with `--regex'
-options.  It applies to the file names following it, as you can see
-from the following example:
-
-     etags --regex=/REG1/ voo.doo --regex=/REG2/ \
-         bar.ber -R --lang=lisp los.er
-
-Here `etags' chooses the parsing language for `voo.doo' and `bar.ber'
-according to their contents.  `etags' also uses REG1 to recognize
-additional tags in `voo.doo', and both REG1 and REG2 to recognize
-additional tags in `bar.ber'.  `etags' uses the Lisp tags rules, and no
-regexp matching, to recognize tags in `los.er'.
-
-   A regular expression can be bound to a given language, by prepending
-it with `{lang}'.  When you do this, `etags' will use the regular
-expression only for files of that language.  `etags --help' prints the
-list of languages recognised by `etags'.  The following example tags
-the `DEFVAR' macros in the Emacs source files.  `etags' applies this
-regular expression to C files only:
-
-     --regex='{c}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/'
-
-This feature is particularly useful when storing a list of regular
-expressions in a file.  The following option syntax instructs `etags'
-to read two files of regular expressions.  The regular expressions
-contained in the second file are matched without regard to case.
-
-     --regex=@first-file --ignore-case-regex=@second-file
-
-A regex file contains one regular expressions per line.  Empty lines,
-and lines beginning with space or tab are ignored.  When the first
-character in a line is `@', `etags' assumes that the rest of the line
-is the name of a file of regular expressions.  This means that such
-files can be nested.  All the other lines are taken to be regular
-expressions.  For example, one can create a file called `emacs.tags'
-with the following contents (the first line in the file is a comment):
-
-             -- This is for GNU Emacs source files
-     {c}/[ \t]*DEFVAR_[A-Z_ \t(]+"\([^"]+\)"/\1/
-
-and then use it like this:
-
-     etags --regex=@emacs.tags *.[ch] */*.[ch]
-
-   Here are some more examples.  The regexps are quoted to protect them
-from shell interpretation.
-
-   * Tag Octave files:
-
-          etags --language=none \
-                --regex='/[ \t]*function.*=[ \t]*\([^ \t]*\)[ \t]*(/\1/' \
-                --regex='/###key \(.*\)/\1/' \
-                --regex='/[ \t]*global[ \t].*/' \
-                *.m
-
-     Note that tags are not generated for scripts so that you have to
-     add a line by yourself of the form `###key <script-name>' if you
-     want to jump to it.
-
-   * Tag Tcl files:
-
-          etags --language=none --regex='/proc[ \t]+\([^ \t]+\)/\1/' *.tcl
-
-   * Tag VHDL files:
-
-          --language=none \
-          --regex='/[ \t]*\(ARCHITECTURE\|CONFIGURATION\) +[^ ]* +OF/' \
-          --regex='/[ \t]*\(ATTRIBUTE\|ENTITY\|FUNCTION\|PACKAGE\
-          \( BODY\)?\|PROCEDURE\|PROCESS\|TYPE\)[ \t]+\([^ \t(]+\)/\3/'
-
-
-File: xemacs.info,  Node: Select Tags Table,  Next: Find Tag,  Prev: Etags Regexps,  Up: Tags
-
-Selecting a Tags Table
-----------------------
-
-   At any time Emacs has one "selected" tags table, and all the commands
-for working with tags tables use the selected one.  To select a tags
-table, use the variable `tag-table-alist'.
-
-   The value of `tag-table-alist' is a list that determines which
-`TAGS' files should be active for a given buffer.  This is not really
-an association list, in that all elements are checked.  The car of each
-element of this list is a pattern against which the buffers file name
-is compared; if it matches, then the cdr of the list should be the name
-of the tags table to use.  If more than one element of this list
-matches the buffers file name, all of the associated tags tables are
-used.  Earlier ones are searched first.
-
-   If the car of elements of this list are strings, they are treated as
-regular-expressions against which the file is compared (like the
-`auto-mode-alist').  If they are not strings, they are evaluated.  If
-they evaluate to non-`nil', the current buffer is considered to match.
-
-   If the cdr of the elements of this list are strings, they are
-assumed to name a tags file.  If they name a directory, the string
-`tags' is appended to them to get the file name.  If they are not
-strings, they are evaluated and must return an appropriate string.
-
-   For example:
-
-       (setq tag-table-alist
-             '(("/usr/src/public/perl/" . "/usr/src/public/perl/perl-3.0/")
-               ("\\.el$" . "/usr/local/emacs/src/")
-               ("/jbw/gnu/" . "/usr15/degree/stud/jbw/gnu/")
-               ("" . "/usr/local/emacs/src/")
-               ))
-
-   The example defines the tags table alist in the following way:
-
-   * Anything in the directory `/usr/src/public/perl/' should use the
-     `TAGS' file `/usr/src/public/perl/perl-3.0/TAGS'.
-
-   * Files ending in `.el' should use the `TAGS' file
-     `/usr/local/emacs/src/TAGS'.
-
-   * Anything in or below the directory `/jbw/gnu/' should use the
-     `TAGS' file `/usr15/degree/stud/jbw/gnu/TAGS'.
-
-   If you had a file called `/usr/jbw/foo.el', it would use both `TAGS'
-files,
-`/usr/local/emacs/src/TAGS' and `/usr15/degree/stud/jbw/gnu/TAGS' (in
-that order), because it matches both patterns.
-
-   If the buffer-local variable `buffer-tag-table' is set, it names a
-tags table that is searched before all others when `find-tag' is
-executed from this buffer.
-
-   If there is a file called `TAGS' in the same directory as the file
-in question, then that tags file will always be used as well (after the
-`buffer-tag-table' but before the tables specified by this list).
-
-   If the variable `tags-file-name' is set, the `TAGS' file it names
-will apply to all buffers (for backwards compatibility.)  It is searched
-first.
-
-   If the value of the variable `tags-always-build-completion-table' is
-`t', the tags file will always be added to the completion table without
-asking first, regardless of the size of the tags file.
-
-   The function `M-x visit-tags-table', is largely made obsolete by the
-variable `tag-table-alist', tells tags commands to use the tags table
-file FILE first.  The FILE should be the name of a file created with
-the `etags' program.  A directory name is also acceptable; it means the
-file `TAGS' in that directory.  The function only stores the file name
-you provide in the variable `tags-file-name'.  Emacs does not actually
-read in the tags table contents until you try to use them.  You can set
-the variable explicitly instead of using `visit-tags-table'.  The value
-of the variable `tags-file-name' is the name of the tags table used by
-all buffers.  This is for backward compatibility, and is largely
-supplanted by the variable `tag-table-alist'.
-
-
-File: xemacs.info,  Node: Find Tag,  Next: Tags Search,  Prev: Select Tags Table,  Up: Tags
-
-Finding a Tag
--------------
-
-   The most important thing that a tags table enables you to do is to
-find the definition of a specific tag.
-
-`M-. TAG &OPTIONAL OTHER-WINDOW'
-     Find first definition of TAG (`find-tag').
-
-`C-u M-.'
-     Find next alternate definition of last tag specified.
-
-`C-x 4 . TAG'
-     Find first definition of TAG, but display it in another window
-     (`find-tag-other-window').
-
-   `M-.' (`find-tag') is the command to find the definition of a
-specified tag.  It searches through the tags table for that tag, as a
-string, then uses the tags table information to determine the file in
-which the definition is used and the approximate character position of
-the definition in the file.  Then `find-tag' visits the file, moves
-point to the approximate character position, and starts searching
-ever-increasing distances away for the text that should appear at the
-beginning of the definition.
-
-   If an empty argument is given (by typing <RET>), the sexp in the
-buffer before or around point is used as the name of the tag to find.
-*Note Lists::, for information on sexps.
-
-   The argument to `find-tag' need not be the whole tag name; it can be
-a substring of a tag name.  However, there can be many tag names
-containing the substring you specify.  Since `find-tag' works by
-searching the text of the tags table, it finds the first tag in the
-table that the specified substring appears in.  To find other tags that
-match the substring, give `find-tag' a numeric argument, as in `C-u
-M-.'.  This does not read a tag name, but continues searching the tag
-table's text for another tag containing the same substring last used.
-If your keyboard has a real <META> key, `M-0 M-.' is an easier
-alternative to `C-u M-.'.
-
-   If the optional second argument OTHER-WINDOW is non-`nil', it uses
-another window to display the tag.  Multiple active tags tables and
-completion are supported.
-
-   Variables of note include the following:
-
-`tag-table-alist'
-     Controls which tables apply to which buffers.
-
-`tags-file-name'
-     Stores a default tags table.
-
-`tags-build-completion-table'
-     Controls completion behavior.
-
-`buffer-tag-table'
-     Specifies a buffer-local table.
-
-`make-tags-files-invisible'
-     Sets whether tags tables should be very hidden.
-
-`tag-mark-stack-max'
-     Specifies how many tags-based hops to remember.
-
-   Like most commands that can switch buffers, `find-tag' has another
-similar command that displays the new buffer in another window.  `C-x 4
-.' invokes the function `find-tag-other-window'.  (This key sequence
-ends with a period.)
-
-   Emacs comes with a tags table file `TAGS' (in the directory
-containing Lisp libraries) that includes all the Lisp libraries and all
-the C sources of Emacs.  By specifying this file with `visit-tags-table'
-and then using `M-.' you can quickly look at the source of any Emacs
-function.
 

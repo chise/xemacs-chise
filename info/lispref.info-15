@@ -50,6 +50,60 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Specification Examples,  Prev: Debugging Backquote,  Up: Instrumenting Macro Calls
+
+Specification Examples
+......................
+
+   Here we provide several examples of Edebug specifications to show
+many of its capabilities.
+
+   A `let' special form has a sequence of bindings and a body.  Each of
+the bindings is either a symbol or a sublist with a symbol and optional
+value.  In the specification below, notice the `gate' inside of the
+sublist to prevent backtracking.
+
+     (def-edebug-spec let
+       ((&rest
+         &or symbolp (gate symbolp &optional form))
+        body))
+
+   Edebug uses the following specifications for `defun' and `defmacro'
+and the associated argument list and `interactive' specifications.  It
+is necessary to handle the expression argument of an interactive form
+specially since it is actually evaluated outside of the function body.
+
+     (def-edebug-spec defmacro defun)      ; Indirect ref to `defun' spec
+     (def-edebug-spec defun
+       (&define name lambda-list
+                [&optional stringp]        ; Match the doc string, if present.
+                [&optional ("interactive" interactive)]
+                def-body))
+     
+     (def-edebug-spec lambda-list
+       (([&rest arg]
+         [&optional ["&optional" arg &rest arg]]
+         &optional ["&rest" arg]
+         )))
+     
+     (def-edebug-spec interactive
+       (&optional &or stringp def-form))    ; Notice: `def-form'
+
+   The specification for backquote below illustrates how to match
+dotted lists and use `nil' to terminate recursion.  It also illustrates
+how components of a vector may be matched.  (The actual specification
+provided by Edebug does not support dotted lists because doing so
+causes very deep recursion that could fail.)
+
+     (def-edebug-spec ` (backquote-form))  ;; alias just for clarity
+     
+     (def-edebug-spec backquote-form
+       (&or ([&or "," ",@"] &or ("quote" backquote-form) form)
+            (backquote-form . [&or nil backquote-form])
+            (vector &rest backquote-form)
+            sexp))
+
+
 File: lispref.info,  Node: Edebug Options,  Prev: Instrumenting Macro Calls,  Up: Edebug
 
 Edebug Options

@@ -887,11 +887,12 @@ higher-level functions for moving over balanced expressions.
    You can use `forward-comment' to move forward or backward over one
 comment or several comments.
 
- - Function: forward-comment count &optional buffer
+ - Function: forward-comment &optional count buffer
      This function moves point forward across COUNT comments (backward,
      if COUNT is negative).  If it finds anything other than a comment
      or whitespace, it stops, leaving point at the place where it
-     stopped.  It also stops after satisfying COUNT.
+     stopped.  It also stops after satisfying COUNT.  COUNT defaults to
+     `1'.
 
      Optional argument BUFFER defaults to the current buffer.
 
@@ -1016,7 +1017,7 @@ Therefore, it is safe to use them in an extremely nonstandard way.
 *Note Creating Symbols::.
 
    For the user-level commands for abbrevs, see *Note Abbrev Mode:
-(emacs)Abbrevs.
+(xemacs)Abbrevs.
 
 * Menu:
 

@@ -649,13 +649,13 @@ entry format, which saves the reader from having to type the file name.
      @end menu
 
   For example, to refer directly to the `Outlining' and `Rebinding'
-nodes in the `Emacs Manual', you would write a menu like this:
+nodes in the `XEmacs User's Manual', you would write a menu like this:
 
      @menu
-     * Outlining: (emacs)Outline Mode. The major mode for
-                                       editing outlines.
-     * Rebinding: (emacs)Rebinding.    How to redefine the
-                                       meaning of a key.
+     * Outlining: (xemacs)Outline Mode. The major mode for
+                                        editing outlines.
+     * Rebinding: (xemacs)Rebinding.    How to redefine the
+                                        meaning of a key.
      @end menu
 
   If you do not list the node name, but only name the file, then Info

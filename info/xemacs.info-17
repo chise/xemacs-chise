@@ -30,6 +30,587 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Minor Modes,  Next: Variables,  Up: Customization
+
+Minor Modes
+===========
+
+   Minor modes are options which you can use or not.  For example, Auto
+Fill mode is a minor mode in which <SPC> breaks lines between words as
+you type.  All the minor modes are independent of each other and of the
+selected major mode.  Most minor modes inform you in the mode line when
+they are on; for example, `Fill' in the mode line means that Auto Fill
+mode is on.
+
+   Append `-mode' to the name of a minor mode to get the name of a
+command function that turns the mode on or off.  Thus, the command to
+enable or disable Auto Fill mode is called `M-x auto-fill-mode'.  These
+commands are usually invoked with `M-x', but you can bind keys to them
+if you wish.  With no argument, the function turns the mode on if it was
+off and off if it was on.  This is known as "toggling".  A positive
+argument always turns the mode on, and an explicit zero argument or a
+negative argument always turns it off.
+
+   Auto Fill mode allows you to enter filled text without breaking lines
+explicitly.  Emacs inserts newlines as necessary to prevent lines from
+becoming too long.  *Note Filling::.
+
+   Overwrite mode causes ordinary printing characters to replace
+existing text instead of moving it to the right.  For example, if point
+is in front of the `B' in `FOOBAR', and you type a `G' in Overwrite
+mode, it changes to `FOOGAR', instead of `FOOGBAR'.
+
+   Abbrev mode allows you to define abbreviations that automatically
+expand as you type them.  For example, `amd' might expand to `abbrev
+mode'.  *Note Abbrevs::, for full information.
+
+
+File: xemacs.info,  Node: Variables,  Next: Keyboard Macros,  Prev: Minor Modes,  Up: Customization
+
+Variables
+=========
+
+   A "variable" is a Lisp symbol which has a value.  Variable names can
+contain any characters, but by convention they are words separated by
+hyphens.  A variable can also have a documentation string, which
+describes what kind of value it should have and how the value will be
+used.
+
+   Lisp allows any variable to have any kind of value, but most
+variables that Emacs uses require a value of a certain type.  Often the
+value has to be a string or a number.  Sometimes we say that a certain
+feature is turned on if a variable is "non-`nil'," meaning that if the
+variable's value is `nil', the feature is off, but the feature is on
+for any other value.  The conventional value to turn on the
+feature--since you have to pick one particular value when you set the
+variable--is `t'.
+
+   Emacs uses many Lisp variables for internal recordkeeping, as any
+Lisp program must, but the most interesting variables for you are the
+ones that exist for the sake of customization.  Emacs does not
+(usually) change the values of these variables; instead, you set the
+values, and thereby alter and control the behavior of certain Emacs
+commands.  These variables are called "options".  Most options are
+documented in this manual and appear in the Variable Index (*note
+Variable Index::).
+
+   One example of a variable which is an option is `fill-column', which
+specifies the position of the right margin (as a number of characters
+from the left margin) to be used by the fill commands (*note Filling::).
+
+* Menu:
+
+* Examining::           Examining or setting one variable's value.
+* Easy Customization::  Convenient and easy customization of variables.
+* Edit Options::        Examining or editing list of all variables' values.
+* Locals::              Per-buffer values of variables.
+* File Variables::      How files can specify variable values.
+
+
+File: xemacs.info,  Node: Examining,  Next: Easy Customization,  Up: Variables
+
+Examining and Setting Variables
+-------------------------------
+
+`C-h v'
+`M-x describe-variable'
+     Print the value and documentation of a variable.
+
+`M-x set-variable'
+     Change the value of a variable.
+
+   To examine the value of a single variable, use `C-h v'
+(`describe-variable'), which reads a variable name using the
+minibuffer, with completion.  It prints both the value and the
+documentation of the variable.
+
+     C-h v fill-column <RET>
+
+prints something like:
+
+     fill-column's value is 75
+     
+     Documentation:
+     *Column beyond which automatic line-wrapping should happen.
+     Automatically becomes local when set in any fashion.
+
+The star at the beginning of the documentation indicates that this
+variable is an option.  `C-h v' is not restricted to options; it allows
+any variable name.
+
+   If you know which option you want to set, you can use `M-x
+set-variable' to set it.  This prompts for the variable name in the
+minibuffer (with completion), and then prompts for a Lisp expression
+for the new value using the minibuffer a second time.  For example,
+
+     M-x set-variable <RET> fill-column <RET> 75 <RET>
+
+sets `fill-column' to 75, as if you had executed the Lisp expression
+`(setq fill-column 75)'.
+
+   Setting variables in this way, like all means of customizing Emacs
+except where explicitly stated, affects only the current Emacs session.
+
+
+File: xemacs.info,  Node: Easy Customization,  Next: Edit Options,  Prev: Examining,  Up: Variables
+
+Easy Customization Interface
+----------------------------
+
+   A convenient way to find the user option variables that you want to
+change, and then change them, is with `M-x customize'.  This command
+creates a "customization buffer" with which you can browse through the
+Emacs user options in a logically organized structure, then edit and
+set their values.  You can also use the customization buffer to save
+settings permanently.  (Not all Emacs user options are included in this
+structure as of yet, but we are adding the rest.)
+
+* Menu:
+
+* Groups: Customization Groups.
+                             How options are classified in a structure.
+* Changing an Option::       How to edit a value and set an option.
+* Face Customization::       How to edit the attributes of a face.
+* Specific Customization::   Making a customization buffer for specific
+                                options, faces, or groups.
+
+
+File: xemacs.info,  Node: Customization Groups,  Next: Changing an Option,  Up: Easy Customization
+
+Customization Groups
+....................
+
+   For customization purposes, user options are organized into "groups"
+to help you find them.  Groups are collected into bigger groups, all
+the way up to a master group called `Emacs'.
+
+   `M-x customize' creates a customization buffer that shows the
+top-level `Emacs' group and the second-level groups immediately under
+it.  It looks like this, in part:
+
+     /- Emacs group: ---------------------------------------------------\
+           [State]: visible group members are all at standard settings.
+        Customization of the One True Editor.
+        See also [Manual].
+     
+      [Open] Editing group
+     Basic text editing facilities.
+     
+      [Open] External group
+     Interfacing to external utilities.
+     
+     MORE SECOND-LEVEL GROUPS
+     
+     \- Emacs group end ------------------------------------------------/
+
+This says that the buffer displays the contents of the `Emacs' group.
+The other groups are listed because they are its contents.  But they
+are listed differently, without indentation and dashes, because _their_
+contents are not included.  Each group has a single-line documentation
+string; the `Emacs' group also has a `[State]' line.
+
+   Most of the text in the customization buffer is read-only, but it
+typically includes some "editable fields" that you can edit.  There are
+also "active fields"; this means a field that does something when you
+"invoke" it.  To invoke an active field, either click on it with
+`Mouse-1', or move point to it and type <RET>.
+
+   For example, the phrase `[Open]' that appears in a second-level
+group is an active field.  Invoking the `[Open]' field for a group
+opens up a new customization buffer, which shows that group and its
+contents.  This field is a kind of hypertext link to another group.
+
+   The `Emacs' group does not include any user options itself, but
+other groups do.  By examining various groups, you will eventually find
+the options and faces that belong to the feature you are interested in
+customizing.  Then you can use the customization buffer to set them.
+
+   You can view the structure of customization groups on a larger scale
+with `M-x customize-browse'.  This command creates a special kind of
+customization buffer which shows only the names of the groups (and
+options and faces), and their structure.
+
+   In this buffer, you can show the contents of a group by invoking
+`[+]'.  When the group contents are visible, this button changes to
+`[-]'; invoking that hides the group contents.
+
+   Each group, option or face name in this buffer has an active field
+which says `[Group]', `[Option]' or `[Face]'.  Invoking that active
+field creates an ordinary customization buffer showing just that group
+and its contents, just that option, or just that face.  This is the way
+to set values in it.
+
+
+File: xemacs.info,  Node: Changing an Option,  Next: Face Customization,  Prev: Customization Groups,  Up: Easy Customization
+
+Changing an Option
+..................
+
+   Here is an example of what a user option looks like in the
+customization buffer:
+
+     Kill Ring Max: [Hide] 30
+        [State]: this option is unchanged from its standard setting.
+     Maximum length of kill ring before oldest elements are thrown away.
+
+   The text following `[Hide]', `30' in this case, indicates the
+current value of the option.  If you see `[Show]' instead of `[Hide]',
+it means that the value is hidden; the customization buffer initially
+hides values that take up several lines.  Invoke `[Show]' to show the
+value.
+
+   The line after the option name indicates the "customization state"
+of the option: in the example above, it says you have not changed the
+option yet.  The word `[State]' at the beginning of this line is
+active; you can get a menu of various operations by invoking it with
+`Mouse-1' or <RET>.  These operations are essential for customizing the
+variable.
+
+   The line after the `[State]' line displays the beginning of the
+option's documentation string.  If there are more lines of
+documentation, this line ends with `[More]'; invoke this to show the
+full documentation string.
+
+   To enter a new value for `Kill Ring Max', move point to the value
+and edit it textually.  For example, you can type `M-d', then insert
+another number.
+
+   When you begin to alter the text, you will see the `[State]' line
+change to say that you have edited the value:
+
+     [State]: you have edited the value as text, but not set the option.
+
+   Editing the value does not actually set the option variable.  To do
+that, you must "set" the option.  To do this, invoke the word `[State]'
+and choose `Set for Current Session'.
+
+   The state of the option changes visibly when you set it:
+
+     [State]: you have set this option, but not saved it for future sessions.
+
+   You don't have to worry about specifying a value that is not valid;
+setting the option checks for validity and will not really install an
+unacceptable value.
+
+   While editing a value or field that is a file name, directory name,
+command name, or anything else for which completion is defined, you can
+type `M-<TAB>' (`widget-complete') to do completion.
+
+   Some options have a small fixed set of possible legitimate values.
+These options don't let you edit the value textually.  Instead, an
+active field `[Value Menu]' appears before the value; invoke this field
+to edit the value.  For a boolean "on or off" value, the active field
+says `[Toggle]', and it changes to the other value.  `[Value Menu]' and
+`[Toggle]' edit the buffer; the changes take effect when you use the
+`Set for Current Session' operation.
+
+   Some options have values with complex structure.  For example, the
+value of `load-path' is a list of directories.  Here is how it appears
+in the customization buffer:
+
+     Load Path:
+     [INS] [DEL] [Current dir?]: /usr/local/share/emacs/19.34.94/site-lisp
+     [INS] [DEL] [Current dir?]: /usr/local/share/emacs/site-lisp
+     [INS] [DEL] [Current dir?]: /usr/local/share/emacs/19.34.94/leim
+     [INS] [DEL] [Current dir?]: /usr/local/share/emacs/19.34.94/lisp
+     [INS] [DEL] [Current dir?]: /build/emacs/e19/lisp
+     [INS] [DEL] [Current dir?]: /build/emacs/e19/lisp/gnus
+     [INS]
+        [State]: this item has been changed outside the customization buffer.
+     List of directories to search for files to load....
+
+Each directory in the list appears on a separate line, and each line has
+several editable or active fields.
+
+   You can edit any of the directory names.  To delete a directory from
+the list, invoke `[DEL]' on that line.  To insert a new directory in
+the list, invoke `[INS]' at the point where you want to insert it.
+
+   You can also invoke `[Current dir?]' to switch between including a
+specific named directory in the path, and including `nil' in the path.
+(`nil' in a search path means "try the current directory.")
+
+   Two special commands, <TAB> and `S-<TAB>', are useful for moving
+through the customization buffer.  <TAB> (`widget-forward') moves
+forward to the next active or editable field; `S-<TAB>'
+(`widget-backward') moves backward to the previous active or editable
+field.
+
+   Typing <RET> on an editable field also moves forward, just like
+<TAB>.  The reason for this is that people have a tendency to type
+<RET> when they are finished editing a field.  If you have occasion to
+insert a newline in an editable field, use `C-o' or `C-q C-j',
+
+   Setting the option changes its value in the current Emacs session;
+"saving" the value changes it for future sessions as well.  This works
+by writing code into your init file so as to set the option variable
+again each time you start Emacs.  *Note Init File::.  To save the
+option, invoke `[State]' and select the `Save for Future Sessions'
+operation.
+
+   You can also restore the option to its standard value by invoking
+`[State]' and selecting the `Reset' operation.  There are actually
+three reset operations:
+
+`Reset to Current'
+     If you have made some modifications and not yet set the option,
+     this restores the text in the customization buffer to match the
+     actual value.
+
+`Reset to Saved'
+     This restores the value of the option to the last saved value, and
+     updates the text accordingly.
+
+`Reset to Standard Settings'
+     This sets the option to its standard value, and updates the text
+     accordingly.  This also eliminates any saved value for the option,
+     so that you will get the standard value in future Emacs sessions.
+
+   The state of a group indicates whether anything in that group has
+been edited, set or saved.  You can select `Set for Current Session',
+`Save for Future Sessions' and the various kinds of `Reset' operation
+for the group; these operations on the group apply to all options in
+the group and its subgroups.
+
+   Near the top of the customization buffer there are two lines
+containing several active fields:
+
+      [Set] [Save] [Reset]  [Done]
+
+Invoking `[Done]' buries this customization buffer.  Each of the other
+fields performs an operation--set, save or reset--on each of the items
+in the buffer that could meaningfully be set, saved or reset.
+
+
+File: xemacs.info,  Node: Face Customization,  Next: Specific Customization,  Prev: Changing an Option,  Up: Easy Customization
+
+Customizing Faces
+.................
+
+   In addition to user options, some customization groups also include
+faces.  When you show the contents of a group, both the user options and
+the faces in the group appear in the customization buffer.  Here is an
+example of how a face looks:
+
+     Custom Changed Face: (sample)
+        [State]: this face is unchanged from its standard setting.
+     Face used when the customize item has been changed.
+     Parent groups: [Custom Magic Faces]
+     Attributes: [ ] Bold: [Toggle]  off (nil)
+                 [ ] Italic: [Toggle]  off (nil)
+                 [ ] Underline: [Toggle]  off (nil)
+                 [ ] Foreground: white       (sample)
+                 [ ] Background: blue        (sample)
+                 [ ] Inverse: [Toggle]  off (nil)
+                 [ ] Stipple:
+                 [ ] Font Family:
+                 [ ] Size:
+                 [ ] Strikethru: off
+
+   Each face attribute has its own line.  The `[X]' field before the
+attribute name indicates whether the attribute is "enabled"; `X' means
+that it is.  You can enable or disable the attribute by invoking that
+field.  When the attribute is enabled, you can change the attribute
+value in the usual ways.
+
+   Setting, saving and resetting a face work like the same operations
+for options (*note Changing an Option::).
+
+   A face can specify different appearances for different types of
+display.  For example, a face can make text red on a color display, but
+use a bold font on a monochrome display.  To specify multiple
+appearances for a face, select `Show Display Types' in the menu you get
+from invoking `[State]'.
+
+
+File: xemacs.info,  Node: Specific Customization,  Prev: Face Customization,  Up: Easy Customization
+
+Customizing Specific Items
+..........................
+
+   Instead of finding the options you want to change by moving down
+through the structure of groups, you can specify the particular option,
+face or group that you want to customize.
+
+`M-x customize-option <RET> OPTION <RET>'
+     Set up a customization buffer with just one option, OPTION.
+
+`M-x customize-face <RET> FACE <RET>'
+     Set up a customization buffer with just one face, FACE.
+
+`M-x customize-group <RET> GROUP <RET>'
+     Set up a customization buffer with just one group, GROUP.
+
+`M-x customize-apropos <RET> REGEXP <RET>'
+     Set up a customization buffer with all the options, faces and
+     groups that match REGEXP.
+
+`M-x customize-saved'
+     Set up a customization buffer containing all options and faces
+     that you have saved with customization buffers.
+
+`M-x customize-customized'
+     Set up a customization buffer containing all options and faces
+     that you have customized but not saved.
+
+   If you want to alter a particular user option variable with the
+customization buffer, and you know its name, you can use the command
+`M-x customize-option' and specify the option name.  This sets up the
+customization buffer with just one option--the one that you asked for.
+Editing, setting and saving the value work as described above, but only
+for the specified option.
+
+   Likewise, you can modify a specific face, chosen by name, using `M-x
+customize-face'.
+
+   You can also set up the customization buffer with a specific group,
+using `M-x customize-group'.  The immediate contents of the chosen
+group, including option variables, faces, and other groups, all appear
+as well.  However, these subgroups' own contents start out hidden.  You
+can show their contents in the usual way, by invoking `[Show]'.
+
+   To control more precisely what to customize, you can use `M-x
+customize-apropos'.  You specify a regular expression as argument; then
+all options, faces and groups whose names match this regular expression
+are set up in the customization buffer.  If you specify an empty regular
+expression, this includes _all_ groups, options and faces in the
+customization buffer (but that takes a long time).
+
+   If you change option values and then decide the change was a mistake,
+you can use two special commands to revisit your previous changes.  Use
+`customize-saved' to look at the options and faces that you have saved.
+Use `M-x customize-customized' to look at the options and faces that
+you have set but not saved.
+
+
+File: xemacs.info,  Node: Edit Options,  Next: Locals,  Prev: Easy Customization,  Up: Variables
+
+Editing Variable Values
+-----------------------
+
+`M-x list-options'
+     Display a buffer listing names, values, and documentation of all
+     options.
+
+`M-x edit-options'
+     Change option values by editing a list of options.
+
+   `M-x list-options' displays a list of all Emacs option variables in
+an Emacs buffer named `*List Options*'.  Each option is shown with its
+documentation and its current value.  Here is what a portion of it might
+look like:
+
+     ;; exec-path:
+     ("." "/usr/local/bin" "/usr/ucb" "/bin" "/usr/bin" "/u2/emacs/etc")
+     *List of directories to search programs to run in subprocesses.
+     Each element is a string (directory name)
+     or nil (try the default directory).
+     ;;
+     ;; fill-column:
+     75
+     *Column beyond which automatic line-wrapping should happen.
+     Automatically becomes local when set in any fashion.
+     ;;
+
+   `M-x edit-options' goes one step further and immediately selects the
+`*List Options*' buffer; this buffer uses the major mode Options mode,
+which provides commands that allow you to point at an option and change
+its value:
+
+`s'
+     Set the variable point is in or near to a new value read using the
+     minibuffer.
+
+`x'
+     Toggle the variable point is in or near: if the value was `nil',
+     it becomes `t'; otherwise it becomes `nil'.
+
+`1'
+     Set the variable point is in or near to `t'.
+
+`0'
+     Set the variable point is in or near to `nil'.
+
+`n'
+`p'
+     Move to the next or previous variable.
+
+
+File: xemacs.info,  Node: Locals,  Next: File Variables,  Prev: Edit Options,  Up: Variables
+
+Local Variables
+---------------
+
+`M-x make-local-variable'
+     Make a variable have a local value in the current buffer.
+
+`M-x kill-local-variable'
+     Make a variable use its global value in the current buffer.
+
+`M-x make-variable-buffer-local'
+     Mark a variable so that setting it will make it local to the
+     buffer that is current at that time.
+
+   You can make any variable "local" to a specific Emacs buffer.  This
+means that the variable's value in that buffer is independent of its
+value in other buffers.  A few variables are always local in every
+buffer.  All other Emacs variables have a "global" value which is in
+effect in all buffers that have not made the variable local.
+
+   Major modes always make the variables they set local to the buffer.
+This is why changing major modes in one buffer has no effect on other
+buffers.
+
+   `M-x make-local-variable' reads the name of a variable and makes it
+local to the current buffer.  Further changes in this buffer will not
+affect others, and changes in the global value will not affect this
+buffer.
+
+   `M-x make-variable-buffer-local' reads the name of a variable and
+changes the future behavior of the variable so that it automatically
+becomes local when it is set.  More precisely, once you have marked a
+variable in this way, the usual ways of setting the variable will
+automatically invoke `make-local-variable' first.  We call such
+variables "per-buffer" variables.
+
+   Some important variables have been marked per-buffer already.  They
+include `abbrev-mode', `auto-fill-function', `case-fold-search',
+`comment-column', `ctl-arrow', `fill-column', `fill-prefix',
+`indent-tabs-mode', `left-margin',
+`mode-line-format', `overwrite-mode', `selective-display-ellipses',
+`selective-display', `tab-width', and `truncate-lines'.  Some other
+variables are always local in every buffer, but they are used for
+internal purposes.
+
+   Note: the variable `auto-fill-function' was formerly named
+`auto-fill-hook'.
+
+   If you want a variable to cease to be local to the current buffer,
+call `M-x kill-local-variable' and provide the name of a variable to
+the prompt.  The global value of the variable is again in effect in
+this buffer.  Setting the major mode kills all the local variables of
+the buffer.
+
+   To set the global value of a variable, regardless of whether the
+variable has a local value in the current buffer, you can use the Lisp
+function `setq-default'.  It works like `setq'.  If there is a local
+value in the current buffer, the local value is not affected by
+`setq-default'; thus, the new global value may not be visible until you
+switch to another buffer, as in the case of:
+
+     (setq-default fill-column 75)
+
+`setq-default' is the only way to set the global value of a variable
+that has been marked with `make-variable-buffer-local'.
+
+   Programs can look at a variable's default value with `default-value'.
+This function takes a symbol as an argument and returns its default
+value.  The argument is evaluated; usually you must quote it
+explicitly, as in the case of:
+
+     (default-value 'fill-column)
+
+
 File: xemacs.info,  Node: File Variables,  Prev: Locals,  Up: Variables
 
 Local Variables in Files
@@ -598,578 +1179,4 @@ fashion:
              control j      linefeed
              control [      escape
              control @      control space
-
-
-File: xemacs.info,  Node: Disabling,  Prev: Rebinding,  Up: Key Bindings
-
-Disabling Commands
-------------------
-
-   Disabling a command marks it as requiring confirmation before it can
-be executed.  The purpose of disabling a command is to prevent
-beginning users from executing it by accident and being confused.
-
-   The direct mechanism for disabling a command is to have a non-`nil'
-`disabled' property on the Lisp symbol for the command.  These
-properties are normally set by the user's init file with Lisp
-expressions such as:
-
-     (put 'delete-region 'disabled t)
-
-   *Note Init File::.
-
-   If the value of the `disabled' property is a string, that string is
-included in the message printed when the command is used:
-
-     (put 'delete-region 'disabled
-          "Text deleted this way cannot be yanked back!\n")
-
-   You can disable a command either by editing the init file directly
-or with the command `M-x disable-command', which edits the init file
-for you.  *Note Init File::.
-
-   When you attempt to invoke a disabled command interactively in Emacs,
-a window is displayed containing the command's name, its documentation,
-and some instructions on what to do next; then Emacs asks for input
-saying whether to execute the command as requested, enable it and
-execute, or cancel it.  If you decide to enable the command, you are
-asked whether to do this permanently or just for the current session.
-Enabling permanently works by automatically editing your init file.
-You can use `M-x enable-command' at any time to enable any command
-permanently.
-
-   Whether a command is disabled is independent of what key is used to
-invoke it; it also applies if the command is invoked using `M-x'.
-Disabling a command has no effect on calling it as a function from Lisp
-programs.
-
-
-File: xemacs.info,  Node: Syntax,  Next: Init File,  Prev: Key Bindings,  Up: Customization
-
-The Syntax Table
-================
-
-   All the Emacs commands which parse words or balance parentheses are
-controlled by the "syntax table".  The syntax table specifies which
-characters are opening delimiters, which are parts of words, which are
-string quotes, and so on.  Actually, each major mode has its own syntax
-table (though sometimes related major modes use the same one) which it
-installs in each buffer that uses that major mode.  The syntax table
-installed in the current buffer is the one that all commands use, so we
-call it "the" syntax table.  A syntax table is a Lisp object, a vector
-of length 256 whose elements are numbers.
-
-* Menu:
-
-* Entry: Syntax Entry.    What the syntax table records for each character.
-* Change: Syntax Change.  How to change the information.
-
-
-File: xemacs.info,  Node: Syntax Entry,  Next: Syntax Change,  Up: Syntax
-
-Information About Each Character
---------------------------------
-
-   The syntax table entry for a character is a number that encodes six
-pieces of information:
-
-   * The syntactic class of the character, represented as a small
-     integer
-
-   * The matching delimiter, for delimiter characters only (the
-     matching delimiter of `(' is `)', and vice versa)
-
-   * A flag saying whether the character is the first character of a
-     two-character comment starting sequence
-
-   * A flag saying whether the character is the second character of a
-     two-character comment starting sequence
-
-   * A flag saying whether the character is the first character of a
-     two-character comment ending sequence
-
-   * A flag saying whether the character is the second character of a
-     two-character comment ending sequence
-
-   The syntactic classes are stored internally as small integers, but
-are usually described to or by the user with characters.  For example,
-`(' is used to specify the syntactic class of opening delimiters.  Here
-is a table of syntactic classes, with the characters that specify them.
-
-` '
-     The class of whitespace characters.
-
-`w'
-     The class of word-constituent characters.
-
-`_'
-     The class of characters that are part of symbol names but not
-     words.  This class is represented by `_' because the character `_'
-     has this class in both C and Lisp.
-
-`.'
-     The class of punctuation characters that do not fit into any other
-     special class.
-
-`('
-     The class of opening delimiters.
-
-`)'
-     The class of closing delimiters.
-
-`''
-     The class of expression-adhering characters.  These characters are
-     part of a symbol if found within or adjacent to one, and are part
-     of a following expression if immediately preceding one, but are
-     like whitespace if surrounded by whitespace.
-
-`"'
-     The class of string-quote characters.  They match each other in
-     pairs, and the characters within the pair all lose their syntactic
-     significance except for the `\' and `/' classes of escape
-     characters, which can be used to include a string-quote inside the
-     string.
-
-`$'
-     The class of self-matching delimiters.  This is intended for TeX's
-     `$', which is used both to enter and leave math mode.  Thus, a
-     pair of matching `$' characters surround each piece of math mode
-     TeX input.  A pair of adjacent `$' characters act like a single
-     one for purposes of matching.
-
-`/'
-     The class of escape characters that always just deny the following
-     character its special syntactic significance.  The character after
-     one of these escapes is always treated as alphabetic.
-
-`\'
-     The class of C-style escape characters.  In practice, these are
-     treated just like `/'-class characters, because the extra
-     possibilities for C escapes (such as being followed by digits)
-     have no effect on where the containing expression ends.
-
-`<'
-     The class of comment-starting characters.  Only single-character
-     comment starters (such as `;' in Lisp mode) are represented this
-     way.
-
-`>'
-     The class of comment-ending characters.  Newline has this syntax in
-     Lisp mode.
-
-   The characters flagged as part of two-character comment delimiters
-can have other syntactic functions most of the time.  For example, `/'
-and `*' in C code, when found separately, have nothing to do with
-comments.  The comment-delimiter significance overrides when the pair of
-characters occur together in the proper order.  Only the list and sexp
-commands use the syntax table to find comments; the commands
-specifically for comments have other variables that tell them where to
-find comments.  Moreover, the list and sexp commands notice comments
-only if `parse-sexp-ignore-comments' is non-`nil'.  This variable is set
-to `nil' in modes where comment-terminator sequences are liable to
-appear where there is no comment, for example, in Lisp mode where the
-comment terminator is a newline but not every newline ends a comment.
-
-
-File: xemacs.info,  Node: Syntax Change,  Prev: Syntax Entry,  Up: Syntax
-
-Altering Syntax Information
----------------------------
-
-   It is possible to alter a character's syntax table entry by storing
-a new number in the appropriate element of the syntax table, but it
-would be hard to determine what number to use.  Emacs therefore
-provides a command that allows you to specify the syntactic properties
-of a character in a convenient way.
-
-   `M-x modify-syntax-entry' is the command to change a character's
-syntax.  It can be used interactively and is also used by major modes
-to initialize their own syntax tables.  Its first argument is the
-character to change.  The second argument is a string that specifies the
-new syntax.  When called from Lisp code, there is a third, optional
-argument, which specifies the syntax table in which to make the change.
-If not supplied, or if this command is called interactively, the third
-argument defaults to the current buffer's syntax table.
-
-  1. The first character in the string specifies the syntactic class.
-     It is one of the characters in the previous table (*note Syntax
-     Entry::).
-
-  2. The second character is the matching delimiter.  For a character
-     that is not an opening or closing delimiter, this should be a
-     space, and may be omitted if no following characters are needed.
-
-  3. The remaining characters are flags.  The flag characters allowed
-     are:
-
-    `1'
-          Flag this character as the first of a two-character comment
-          starting sequence.
-
-    `2'
-          Flag this character as the second of a two-character comment
-          starting sequence.
-
-    `3'
-          Flag this character as the first of a two-character comment
-          ending sequence.
-
-    `4'
-          Flag this character as the second of a two-character comment
-          ending sequence.
-
-   Use `C-h s' (`describe-syntax') to display a description of the
-contents of the current syntax table.  The description of each
-character includes both the string you have to pass to
-`modify-syntax-entry' to set up that character's current syntax, and
-some English to explain that string if necessary.
-
-
-File: xemacs.info,  Node: Init File,  Next: Audible Bell,  Prev: Syntax,  Up: Customization
-
-The Init File
-=============
-
-   When you start Emacs, it normally loads either `.xemacs/init.el' or
-the file `.emacs' (whichever comes first) in your home directory.  This
-file, if it exists, should contain Lisp code.  It is called your
-initialization file or "init file".  Use the command line switch `-q'
-to tell Emacs whether to load an init file (*note Entering Emacs::).
-Use the command line switch `-user-init-file' (*note Command
-Switches::) to tell Emacs to load a different file instead of
-`~/.xemacs/init.el'/`~/.emacs'.
-
-   When the init file is read, the variable `user-init-file' says which
-init file was loaded.
-
-   At some sites there is a "default init file", which is the library
-named `default.el', found via the standard search path for libraries.
-The Emacs distribution contains no such library; your site may create
-one for local customizations.  If this library exists, it is loaded
-whenever you start Emacs.  But your init file, if any, is loaded first;
-if it sets `inhibit-default-init' non-`nil', then `default' is not
-loaded.
-
-   If you have a large amount of code in your init file, you should
-byte-compile it to `~/.xemacs/init.elc' or `~/.emacs.elc'.
-
-* Menu:
-
-* Init Syntax::     Syntax of constants in Emacs Lisp.
-* Init Examples::   How to do some things with an init file.
-* Terminal Init::   Each terminal type can have an init file.
-
-
-File: xemacs.info,  Node: Init Syntax,  Next: Init Examples,  Up: Init File
-
-Init File Syntax
-----------------
-
-   The init file contains one or more Lisp function call expressions.
-Each consists of a function name followed by arguments, all surrounded
-by parentheses.  For example, `(setq fill-column 60)' represents a call
-to the function `setq' which is used to set the variable `fill-column'
-(*note Filling::) to 60.
-
-   The second argument to `setq' is an expression for the new value of
-the variable.  This can be a constant, a variable, or a function call
-expression.  In the init file, constants are used most of the time.
-They can be:
-
-Numbers
-     Integers are written in decimal, with an optional initial minus
-     sign.
-
-     If a sequence of digits is followed by a period and another
-     sequence of digits, it is interpreted as a floating point number.
-
-     The number prefixes `#b', `#o', and `#x' are supported to
-     represent numbers in binary, octal, and hexadecimal notation (or
-     radix).
-
-Strings
-     Lisp string syntax is the same as C string syntax with a few extra
-     features.  Use a double-quote character to begin and end a string
-     constant.
-
-     Newlines and special characters may be present literally in
-     strings.  They can also be represented as backslash sequences:
-     `\n' for newline, `\b' for backspace, `\r' for return, `\t' for
-     tab, `\f' for formfeed (control-l), `\e' for escape, `\\' for a
-     backslash, `\"' for a double-quote, or `\OOO' for the character
-     whose octal code is OOO.  Backslash and double-quote are the only
-     characters for which backslash sequences are mandatory.
-
-     You can use `\C-' as a prefix for a control character, as in
-     `\C-s' for ASCII Control-S, and `\M-' as a prefix for a Meta
-     character, as in `\M-a' for Meta-A or `\M-\C-a' for Control-Meta-A.
-
-Characters
-     Lisp character constant syntax consists of a `?' followed by
-     either a character or an escape sequence starting with `\'.
-     Examples: `?x', `?\n', `?\"', `?\)'.  Note that strings and
-     characters are not interchangeable in Lisp; some contexts require
-     one and some contexts require the other.
-
-True
-     `t' stands for `true'.
-
-False
-     `nil' stands for `false'.
-
-Other Lisp objects
-     Write a single-quote (') followed by the Lisp object you want.
-
-
-File: xemacs.info,  Node: Init Examples,  Next: Terminal Init,  Prev: Init Syntax,  Up: Init File
-
-Init File Examples
-------------------
-
-   Here are some examples of doing certain commonly desired things with
-Lisp expressions:
-
-   * Make <TAB> in C mode just insert a tab if point is in the middle
-     of a line.
-
-          (setq c-tab-always-indent nil)
-
-     Here we have a variable whose value is normally `t' for `true' and
-     the alternative is `nil' for `false'.
-
-   * Make searches case sensitive by default (in all buffers that do not
-     override this).
-
-          (setq-default case-fold-search nil)
-
-     This sets the default value, which is effective in all buffers
-     that do not have local values for the variable.  Setting
-     `case-fold-search' with `setq' affects only the current buffer's
-     local value, which is probably not what you want to do in an init
-     file.
-
-   * Make Text mode the default mode for new buffers.
-
-          (setq default-major-mode 'text-mode)
-
-     Note that `text-mode' is used because it is the command for
-     entering the mode we want.  A single-quote is written before it to
-     make a symbol constant; otherwise, `text-mode' would be treated as
-     a variable name.
-
-   * Turn on Auto Fill mode automatically in Text mode and related
-     modes.
-
-          (setq text-mode-hook
-            '(lambda () (auto-fill-mode 1)))
-
-     Here we have a variable whose value should be a Lisp function.  The
-     function we supply is a list starting with `lambda', and a single
-     quote is written in front of it to make it (for the purpose of this
-     `setq') a list constant rather than an expression.  Lisp functions
-     are not explained here; for mode hooks it is enough to know that
-     `(auto-fill-mode 1)' is an expression that will be executed when
-     Text mode is entered.  You could replace it with any other
-     expression that you like, or with several expressions in a row.
-
-          (setq text-mode-hook 'turn-on-auto-fill)
-
-     This is another way to accomplish the same result.
-     `turn-on-auto-fill' is a symbol whose function definition is
-     `(lambda () (auto-fill-mode 1))'.
-
-   * Load the installed Lisp library named `foo' (actually a file
-     `foo.elc' or `foo.el' in a standard Emacs directory).
-
-          (load "foo")
-
-     When the argument to `load' is a relative pathname, not starting
-     with `/' or `~', `load' searches the directories in `load-path'
-     (*note Loading::).
-
-   * Load the compiled Lisp file `foo.elc' from your home directory.
-
-          (load "~/foo.elc")
-
-     Here an absolute file name is used, so no searching is done.
-
-   * Rebind the key `C-x l' to run the function `make-symbolic-link'.
-
-          (global-set-key "\C-xl" 'make-symbolic-link)
-
-     or
-
-          (define-key global-map "\C-xl" 'make-symbolic-link)
-
-     Note once again the single-quote used to refer to the symbol
-     `make-symbolic-link' instead of its value as a variable.
-
-   * Do the same thing for C mode only.
-
-          (define-key c-mode-map "\C-xl" 'make-symbolic-link)
-
-   * Bind the function key <F1> to a command in C mode.  Note that the
-     names of function keys must be lower case.
-
-          (define-key c-mode-map 'f1 'make-symbolic-link)
-
-   * Bind the shifted version of <F1> to a command.
-
-          (define-key c-mode-map '(shift f1) 'make-symbolic-link)
-
-   * Redefine all keys which now run `next-line' in Fundamental mode to
-     run `forward-line' instead.
-
-          (substitute-key-definition 'next-line 'forward-line
-                                     global-map)
-
-   * Make `C-x C-v' undefined.
-
-          (global-unset-key "\C-x\C-v")
-
-     One reason to undefine a key is so that you can make it a prefix.
-     Simply defining `C-x C-v ANYTHING' would make `C-x C-v' a prefix,
-     but `C-x C-v' must be freed of any non-prefix definition first.
-
-   * Make `$' have the syntax of punctuation in Text mode.  Note the
-     use of a character constant for `$'.
-
-          (modify-syntax-entry ?\$ "." text-mode-syntax-table)
-
-   * Enable the use of the command `eval-expression' without
-     confirmation.
-
-          (put 'eval-expression 'disabled nil)
-
-
-File: xemacs.info,  Node: Terminal Init,  Prev: Init Examples,  Up: Init File
-
-Terminal-Specific Initialization
---------------------------------
-
-   Each terminal type can have a Lisp library to be loaded into Emacs
-when it is run on that type of terminal.  For a terminal type named
-TERMTYPE, the library is called `term/TERMTYPE' and it is found by
-searching the directories `load-path' as usual and trying the suffixes
-`.elc' and `.el'.  Normally it appears in the subdirectory `term' of
-the directory where most Emacs libraries are kept.
-
-   The usual purpose of the terminal-specific library is to define the
-escape sequences used by the terminal's function keys using the library
-`keypad.el'.  See the file `term/vt100.el' for an example of how this
-is done.
-
-   When the terminal type contains a hyphen, only the part of the name
-before the first hyphen is significant in choosing the library name.
-Thus, terminal types `aaa-48' and `aaa-30-rv' both use the library
-`term/aaa'.  The code in the library can use `(getenv "TERM")' to find
-the full terminal type name.
-
-   The library's name is constructed by concatenating the value of the
-variable `term-file-prefix' and the terminal type.  Your init file can
-prevent the loading of the terminal-specific library by setting
-`term-file-prefix' to `nil'.  *Note Init File::.
-
-   The value of the variable `term-setup-hook', if not `nil', is called
-as a function of no arguments at the end of Emacs initialization, after
-both your init file and any terminal-specific library have been read.
-*Note Init File::.  You can set the value in the init file to override
-part of any of the terminal-specific libraries and to define
-initializations for terminals that do not have a library.
-
-
-File: xemacs.info,  Node: Audible Bell,  Next: Faces,  Prev: Init File,  Up: Customization
-
-Changing the Bell Sound
-=======================
-
-   You can now change how the audible bell sounds using the variable
-`sound-alist'.
-
-   `sound-alist''s value is an list associating symbols with, among
-other things, strings of audio-data.  When `ding' is called with one of
-the symbols, the associated sound data is played instead of the
-standard beep.  This only works if you are logged in on the console of a
-machine with audio hardware. To listen to a sound of the provided type,
-call the function `play-sound' with the argument SOUND. You can also
-set the volume of the sound with the optional argument VOLUME.
-
-   Each element of `sound-alist' is a list describing a sound.  The
-first element of the list is the name of the sound being defined.
-Subsequent elements of the list are alternating keyword/value pairs:
-
-`sound'
-     A string of raw sound data, or the name of another sound to play.
-     The symbol `t' here means use the default X beep.
-
-`volume'
-     An integer from 0-100, defaulting to `bell-volume'.
-
-`pitch'
-     If using the default X beep, the pitch (Hz) to generate.
-
-`duration'
-     If using the default X beep, the duration (milliseconds).
-
-   For compatibility, elements of `sound-alist' may also be of the form:
-
-     ( SOUND-NAME . <SOUND> )
-     ( SOUND-NAME <VOLUME> <SOUND> )
-
-   You should probably add things to this list by calling the function
-`load-sound-file'.
-
-   Note that you can only play audio data if running on the console
-screen of a machine with audio hardware which emacs understands, which
-at this time means a Sun SparcStation, SGI, or HP9000s700.
-
-   Also note that the pitch, duration, and volume options are available
-everywhere, but most X servers ignore the `pitch' option.
-
-   The variable `bell-volume' should be an integer from 0 to 100, with
-100 being loudest, which controls how loud the sounds emacs makes
-should be.  Elements of the `sound-alist' may override this value.
-This variable applies to the standard X bell sound as well as sound
-files.
-
-   If the symbol `t' is in place of a sound-string, Emacs uses the
-default X beep.  This allows you to define beep-types of different
-volumes even when not running on the console.
-
-   You can add things to this list by calling the function
-`load-sound-file', which reads in an audio-file and adds its data to
-the sound-alist. You can specify the sound with the SOUND-NAME argument
-and the file into which the sounds are loaded with the FILENAME
-argument. The optional VOLUME argument sets the volume.
-
-   `load-sound-file (FILENAME SOUND-NAME &optional VOLUME)'
-
-   To load and install some sound files as beep-types, use the function
-`load-default-sounds' (note that this only works if you are on display
-0 of a machine with audio hardware).
-
-   The following beep-types are used by Emacs itself. Other Lisp
-packages may use other beep types, but these are the ones that the C
-kernel of Emacs uses.
-
-`auto-save-error'
-     An auto-save does not succeed
-
-`command-error'
-     The Emacs command loop catches an error
-
-`undefined-key'
-     You type a key that is undefined
-
-`undefined-click'
-     You use an undefined mouse-click combination
-
-`no-completion'
-     Completion was not possible
-
-`y-or-n-p'
-     You type something other than the required `y' or `n'
-
-`yes-or-no-p'
-     You type something other than `yes' or `no'
 

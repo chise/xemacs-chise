@@ -30,6 +30,615 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Regexps,  Next: Search Case,  Prev: Regexp Search,  Up: Search
+
+Syntax of Regular Expressions
+=============================
+
+   Regular expressions have a syntax in which a few characters are
+special constructs and the rest are "ordinary".  An ordinary character
+is a simple regular expression that matches that character and nothing
+else.  The special characters are `.', `*', `+', `?', `[', `]', `^',
+`$', and `\'; no new special characters will be defined in the future.
+Any other character appearing in a regular expression is ordinary,
+unless a `\' precedes it.
+
+   For example, `f' is not a special character, so it is ordinary, and
+therefore `f' is a regular expression that matches the string `f' and
+no other string.  (It does _not_ match the string `ff'.)  Likewise, `o'
+is a regular expression that matches only `o'.
+
+   Any two regular expressions A and B can be concatenated.  The result
+is a regular expression that matches a string if A matches some amount
+of the beginning of that string and B matches the rest of the string.
+
+   As a simple example, we can concatenate the regular expressions `f'
+and `o' to get the regular expression `fo', which matches only the
+string `fo'.  Still trivial.  To do something more powerful, you need
+to use one of the special characters.  Here is a list of them:
+
+`. (Period)'
+     is a special character that matches any single character except a
+     newline.  Using concatenation, we can make regular expressions
+     like `a.b', which matches any three-character string that begins
+     with `a' and ends with `b'.
+
+`*'
+     is not a construct by itself; it is a quantifying suffix operator
+     that means to repeat the preceding regular expression as many
+     times as possible.  In `fo*', the `*' applies to the `o', so `fo*'
+     matches one `f' followed by any number of `o's.  The case of zero
+     `o's is allowed: `fo*' does match `f'.
+
+     `*' always applies to the _smallest_ possible preceding
+     expression.  Thus, `fo*' has a repeating `o', not a repeating `fo'.
+
+     The matcher processes a `*' construct by matching, immediately, as
+     many repetitions as can be found; it is "greedy".  Then it
+     continues with the rest of the pattern.  If that fails,
+     backtracking occurs, discarding some of the matches of the
+     `*'-modified construct in case that makes it possible to match the
+     rest of the pattern.  For example, in matching `ca*ar' against the
+     string `caaar', the `a*' first tries to match all three `a's; but
+     the rest of the pattern is `ar' and there is only `r' left to
+     match, so this try fails.  The next alternative is for `a*' to
+     match only two `a's.  With this choice, the rest of the regexp
+     matches successfully.
+
+     Nested repetition operators can be extremely slow if they specify
+     backtracking loops.  For example, it could take hours for the
+     regular expression `\(x+y*\)*a' to match the sequence
+     `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxz'.  The slowness is because
+     Emacs must try each imaginable way of grouping the 35 `x''s before
+     concluding that none of them can work.  To make sure your regular
+     expressions run fast, check nested repetitions carefully.
+
+`+'
+     is a quantifying suffix operator similar to `*' except that the
+     preceding expression must match at least once.  It is also
+     "greedy".  So, for example, `ca+r' matches the strings `car' and
+     `caaaar' but not the string `cr', whereas `ca*r' matches all three
+     strings.
+
+`?'
+     is a quantifying suffix operator similar to `*', except that the
+     preceding expression can match either once or not at all.  For
+     example, `ca?r' matches `car' or `cr', but does not match anything
+     else.
+
+`*?'
+     works just like `*', except that rather than matching the longest
+     match, it matches the shortest match.  `*?' is known as a
+     "non-greedy" quantifier, a regexp construct borrowed from Perl.
+
+     This construct is very useful for when you want to match the text
+     inside a pair of delimiters.  For instance, `/\*.*?\*/' will match
+     C comments in a string.  This could not easily be achieved without
+     the use of a non-greedy quantifier.
+
+     This construct has not been available prior to XEmacs 20.4.  It is
+     not available in FSF Emacs.
+
+`+?'
+     is the non-greedy version of `+'.
+
+`??'
+     is the non-greedy version of `?'.
+
+`\{n,m\}'
+     serves as an interval quantifier, analogous to `*' or `+', but
+     specifies that the expression must match at least N times, but no
+     more than M times.  This syntax is supported by most Unix regexp
+     utilities, and has been introduced to XEmacs for the version 20.3.
+
+     Unfortunately, the non-greedy version of this quantifier does not
+     exist currently, although it does in Perl.
+
+`[ ... ]'
+     `[' begins a "character set", which is terminated by a `]'.  In
+     the simplest case, the characters between the two brackets form
+     the set.  Thus, `[ad]' matches either one `a' or one `d', and
+     `[ad]*' matches any string composed of just `a's and `d's
+     (including the empty string), from which it follows that `c[ad]*r'
+     matches `cr', `car', `cdr', `caddaar', etc.
+
+     The usual regular expression special characters are not special
+     inside a character set.  A completely different set of special
+     characters exists inside character sets: `]', `-' and `^'.
+
+     `-' is used for ranges of characters.  To write a range, write two
+     characters with a `-' between them.  Thus, `[a-z]' matches any
+     lower case letter.  Ranges may be intermixed freely with individual
+     characters, as in `[a-z$%.]', which matches any lower case letter
+     or `$', `%', or a period.
+
+     To include a `]' in a character set, make it the first character.
+     For example, `[]a]' matches `]' or `a'.  To include a `-', write
+     `-' as the first character in the set, or put it immediately after
+     a range.  (You can replace one individual character C with the
+     range `C-C' to make a place to put the `-'.)  There is no way to
+     write a set containing just `-' and `]'.
+
+     To include `^' in a set, put it anywhere but at the beginning of
+     the set.
+
+`[^ ... ]'
+     `[^' begins a "complement character set", which matches any
+     character except the ones specified.  Thus, `[^a-z0-9A-Z]' matches
+     all characters _except_ letters and digits.
+
+     `^' is not special in a character set unless it is the first
+     character.  The character following the `^' is treated as if it
+     were first (thus, `-' and `]' are not special there).
+
+     Note that a complement character set can match a newline, unless
+     newline is mentioned as one of the characters not to match.
+
+`^'
+     is a special character that matches the empty string, but only at
+     the beginning of a line in the text being matched.  Otherwise it
+     fails to match anything.  Thus, `^foo' matches a `foo' that occurs
+     at the beginning of a line.
+
+     When matching a string instead of a buffer, `^' matches at the
+     beginning of the string or after a newline character `\n'.
+
+`$'
+     is similar to `^' but matches only at the end of a line.  Thus,
+     `x+$' matches a string of one `x' or more at the end of a line.
+
+     When matching a string instead of a buffer, `$' matches at the end
+     of the string or before a newline character `\n'.
+
+`\'
+     has two functions: it quotes the special characters (including
+     `\'), and it introduces additional special constructs.
+
+     Because `\' quotes special characters, `\$' is a regular
+     expression that matches only `$', and `\[' is a regular expression
+     that matches only `[', and so on.
+
+   *Please note:* For historical compatibility, special characters are
+treated as ordinary ones if they are in contexts where their special
+meanings make no sense.  For example, `*foo' treats `*' as ordinary
+since there is no preceding expression on which the `*' can act.  It is
+poor practice to depend on this behavior; quote the special character
+anyway, regardless of where it appears.
+
+   For the most part, `\' followed by any character matches only that
+character.  However, there are several exceptions: characters that,
+when preceded by `\', are special constructs.  Such characters are
+always ordinary when encountered on their own.  Here is a table of `\'
+constructs:
+
+`\|'
+     specifies an alternative.  Two regular expressions A and B with
+     `\|' in between form an expression that matches anything that
+     either A or B matches.
+
+     Thus, `foo\|bar' matches either `foo' or `bar' but no other string.
+
+     `\|' applies to the largest possible surrounding expressions.
+     Only a surrounding `\( ... \)' grouping can limit the grouping
+     power of `\|'.
+
+     Full backtracking capability exists to handle multiple uses of
+     `\|'.
+
+`\( ... \)'
+     is a grouping construct that serves three purposes:
+
+       1. To enclose a set of `\|' alternatives for other operations.
+          Thus, `\(foo\|bar\)x' matches either `foox' or `barx'.
+
+       2. To enclose an expression for a suffix operator such as `*' to
+          act on.  Thus, `ba\(na\)*' matches `bananana', etc., with any
+          (zero or more) number of `na' strings.
+
+       3. To record a matched substring for future reference.
+
+     This last application is not a consequence of the idea of a
+     parenthetical grouping; it is a separate feature that happens to be
+     assigned as a second meaning to the same `\( ... \)' construct
+     because there is no conflict in practice between the two meanings.
+     Here is an explanation of this feature:
+
+`\DIGIT'
+     matches the same text that matched the DIGITth occurrence of a `\(
+     ... \)' construct.
+
+     In other words, after the end of a `\( ... \)' construct.  the
+     matcher remembers the beginning and end of the text matched by that
+     construct.  Then, later on in the regular expression, you can use
+     `\' followed by DIGIT to match that same text, whatever it may
+     have been.
+
+     The strings matching the first nine `\( ... \)' constructs
+     appearing in a regular expression are assigned numbers 1 through 9
+     in the order that the open parentheses appear in the regular
+     expression.  So you can use `\1' through `\9' to refer to the text
+     matched by the corresponding `\( ... \)' constructs.
+
+     For example, `\(.*\)\1' matches any newline-free string that is
+     composed of two identical halves.  The `\(.*\)' matches the first
+     half, which may be anything, but the `\1' that follows must match
+     the same exact text.
+
+`\(?: ... \)'
+     is called a "shy" grouping operator, and it is used just like `\(
+     ... \)', except that it does not cause the matched substring to be
+     recorded for future reference.
+
+     This is useful when you need a lot of grouping `\( ... \)'
+     constructs, but only want to remember one or two - or if you have
+     more than nine groupings and need to use backreferences to refer to
+     the groupings at the end.
+
+     Using `\(?: ... \)' rather than `\( ... \)' when you don't need
+     the captured substrings ought to speed up your programs some,
+     since it shortens the code path followed by the regular expression
+     engine, as well as the amount of memory allocation and string
+     copying it must do.  The actual performance gain to be observed
+     has not been measured or quantified as of this writing.
+
+     The shy grouping operator has been borrowed from Perl, and has not
+     been available prior to XEmacs 20.3, nor is it available in FSF
+     Emacs.
+
+`\w'
+     matches any word-constituent character.  The editor syntax table
+     determines which characters these are.  *Note Syntax::.
+
+`\W'
+     matches any character that is not a word constituent.
+
+`\sCODE'
+     matches any character whose syntax is CODE.  Here CODE is a
+     character that represents a syntax code: thus, `w' for word
+     constituent, `-' for whitespace, `(' for open parenthesis, etc.
+     *Note Syntax::, for a list of syntax codes and the characters that
+     stand for them.
+
+`\SCODE'
+     matches any character whose syntax is not CODE.
+
+   The following regular expression constructs match the empty
+string--that is, they don't use up any characters--but whether they
+match depends on the context.
+
+`\`'
+     matches the empty string, but only at the beginning of the buffer
+     or string being matched against.
+
+`\''
+     matches the empty string, but only at the end of the buffer or
+     string being matched against.
+
+`\='
+     matches the empty string, but only at point.  (This construct is
+     not defined when matching against a string.)
+
+`\b'
+     matches the empty string, but only at the beginning or end of a
+     word.  Thus, `\bfoo\b' matches any occurrence of `foo' as a
+     separate word.  `\bballs?\b' matches `ball' or `balls' as a
+     separate word.
+
+`\B'
+     matches the empty string, but _not_ at the beginning or end of a
+     word.
+
+`\<'
+     matches the empty string, but only at the beginning of a word.
+
+`\>'
+     matches the empty string, but only at the end of a word.
+
+   Here is a complicated regexp used by Emacs to recognize the end of a
+sentence together with any whitespace that follows.  It is given in Lisp
+syntax to enable you to distinguish the spaces from the tab characters.
+In Lisp syntax, the string constant begins and ends with a
+double-quote.  `\"' stands for a double-quote as part of the regexp,
+`\\' for a backslash as part of the regexp, `\t' for a tab and `\n' for
+a newline.
+
+     "[.?!][]\"')]*\\($\\|\t\\|  \\)[ \t\n]*"
+
+This regexp contains four parts: a character set matching period, `?'
+or `!'; a character set matching close-brackets, quotes or parentheses,
+repeated any number of times; an alternative in backslash-parentheses
+that matches end-of-line, a tab or two spaces; and a character set
+matching whitespace characters, repeated any number of times.
+
+
+File: xemacs.info,  Node: Search Case,  Next: Replace,  Prev: Regexps,  Up: Search
+
+Searching and Case
+==================
+
+   All searches in Emacs normally ignore the case of the text they are
+searching through; if you specify searching for `FOO', `Foo' and `foo'
+are also considered a match.  Regexps, and in particular character
+sets, are included: `[aB]' matches `a' or `A' or `b' or `B'.
+
+   If you want a case-sensitive search, set the variable
+`case-fold-search' to `nil'.  Then all letters must match exactly,
+including case. `case-fold-search' is a per-buffer variable; altering
+it affects only the current buffer, but there is a default value which
+you can change as well.  *Note Locals::.  You can also use Case
+Sensitive Search from the Options menu on your screen.
+
+
+File: xemacs.info,  Node: Replace,  Next: Other Repeating Search,  Prev: Search Case,  Up: Search
+
+Replacement Commands
+====================
+
+   Global search-and-replace operations are not needed as often in
+Emacs as they are in other editors, but they are available.  In
+addition to the simple `replace-string' command which is like that
+found in most editors, there is a `query-replace' command which asks
+you, for each occurrence of a pattern, whether to replace it.
+
+   The replace commands all replace one string (or regexp) with one
+replacement string.  It is possible to perform several replacements in
+parallel using the command `expand-region-abbrevs'.  *Note Expanding
+Abbrevs::.
+
+* Menu:
+
+* Unconditional Replace::  Replacing all matches for a string.
+* Regexp Replace::         Replacing all matches for a regexp.
+* Replacement and Case::   How replacements preserve case of letters.
+* Query Replace::          How to use querying.
+
+
+File: xemacs.info,  Node: Unconditional Replace,  Next: Regexp Replace,  Prev: Replace,  Up: Replace
+
+Unconditional Replacement
+-------------------------
+
+`M-x replace-string <RET> STRING <RET> NEWSTRING <RET>'
+     Replace every occurrence of STRING with NEWSTRING.
+
+`M-x replace-regexp <RET> REGEXP <RET> NEWSTRING <RET>'
+     Replace every match for REGEXP with NEWSTRING.
+
+   To replace every instance of `foo' after point with `bar', use the
+command `M-x replace-string' with the two arguments `foo' and `bar'.
+Replacement occurs only after point: if you want to cover the whole
+buffer you must go to the beginning first.  By default, all occurrences
+up to the end of the buffer are replaced.  To limit replacement to part
+of the buffer, narrow to that part of the buffer before doing the
+replacement (*note Narrowing::).
+
+   When `replace-string' exits, point is left at the last occurrence
+replaced.  The value of point when the `replace-string' command was
+issued is remembered on the mark ring; `C-u C-<SPC>' moves back there.
+
+   A numeric argument restricts replacement to matches that are
+surrounded by word boundaries.
+
+
+File: xemacs.info,  Node: Regexp Replace,  Next: Replacement and Case,  Prev: Unconditional Replace,  Up: Replace
+
+Regexp Replacement
+------------------
+
+   `replace-string' replaces exact matches for a single string.  The
+similar command `replace-regexp' replaces any match for a specified
+pattern.
+
+   In `replace-regexp', the NEWSTRING need not be constant.  It can
+refer to all or part of what is matched by the REGEXP.  `\&' in
+NEWSTRING stands for the entire text being replaced.  `\D' in
+NEWSTRING, where D is a digit, stands for whatever matched the D'th
+parenthesized grouping in REGEXP.  For example,
+
+     M-x replace-regexp <RET> c[ad]+r <RET> \&-safe <RET>
+
+would replace (for example) `cadr' with `cadr-safe' and `cddr' with
+`cddr-safe'.
+
+     M-x replace-regexp <RET> \(c[ad]+r\)-safe <RET> \1 <RET>
+
+would perform exactly the opposite replacements.  To include a `\' in
+the text to replace with, you must give `\\'.
+
+
+File: xemacs.info,  Node: Replacement and Case,  Next: Query Replace,  Prev: Regexp Replace,  Up: Replace
+
+Replace Commands and Case
+-------------------------
+
+   If the arguments to a replace command are in lower case, the command
+preserves case when it makes a replacement.  Thus, the following
+command:
+
+     M-x replace-string <RET> foo <RET> bar <RET>
+
+replaces a lower-case `foo' with a lower case `bar', `FOO' with `BAR',
+and `Foo' with `Bar'.  If upper-case letters are used in the second
+argument, they remain upper-case every time that argument is inserted.
+If upper-case letters are used in the first argument, the second
+argument is always substituted exactly as given, with no case
+conversion.  Likewise, if the variable `case-replace' is set to `nil',
+replacement is done without case conversion.  If `case-fold-search' is
+set to `nil', case is significant in matching occurrences of `foo' to
+replace; also, case conversion of the replacement string is not done.
+
+
+File: xemacs.info,  Node: Query Replace,  Prev: Replacement and Case,  Up: Replace
+
+Query Replace
+-------------
+
+`M-% STRING <RET> NEWSTRING <RET>'
+`M-x query-replace <RET> STRING <RET> NEWSTRING <RET>'
+     Replace some occurrences of STRING with NEWSTRING.
+
+`M-x query-replace-regexp <RET> REGEXP <RET> NEWSTRING <RET>'
+     Replace some matches for REGEXP with NEWSTRING.
+
+   If you want to change only some of the occurrences of `foo' to
+`bar', not all of them, you can use `query-replace' instead of `M-%'.
+This command finds occurrences of `foo' one by one, displays each
+occurrence, and asks you whether to replace it.  A numeric argument to
+`query-replace' tells it to consider only occurrences that are bounded
+by word-delimiter characters.
+
+   Aside from querying, `query-replace' works just like
+`replace-string', and `query-replace-regexp' works just like
+`replace-regexp'.
+
+   The things you can type when you are shown an occurrence of STRING
+or a match for REGEXP are:
+
+`<SPC>'
+     to replace the occurrence with NEWSTRING.  This preserves case,
+     just like `replace-string', provided `case-replace' is non-`nil',
+     as it normally is.
+
+`<DEL>'
+     to skip to the next occurrence without replacing this one.
+
+`, (Comma)'
+     to replace this occurrence and display the result.  You are then
+     prompted for another input character.  However, since the
+     replacement has already been made, <DEL> and <SPC> are equivalent.
+     At this point, you can type `C-r' (see below) to alter the
+     replaced text.  To undo the replacement, you can type `C-x u'.
+     This exits the `query-replace'.  If you want to do further
+     replacement you must use `C-x ESC' to restart (*note Repetition::).
+
+`<ESC>'
+     to exit without doing any more replacements.
+
+`. (Period)'
+     to replace this occurrence and then exit.
+
+`!'
+     to replace all remaining occurrences without asking again.
+
+`^'
+     to go back to the location of the previous occurrence (or what
+     used to be an occurrence), in case you changed it by mistake.
+     This works by popping the mark ring.  Only one `^' in a row is
+     allowed, because only one previous replacement location is kept
+     during `query-replace'.
+
+`C-r'
+     to enter a recursive editing level, in case the occurrence needs
+     to be edited rather than just replaced with NEWSTRING.  When you
+     are done, exit the recursive editing level with `C-M-c' and the
+     next occurrence will be displayed.  *Note Recursive Edit::.
+
+`C-w'
+     to delete the occurrence, and then enter a recursive editing level
+     as in `C-r'.  Use the recursive edit to insert text to replace the
+     deleted occurrence of STRING.  When done, exit the recursive
+     editing level with `C-M-c' and the next occurrence will be
+     displayed.
+
+`C-l'
+     to redisplay the screen and then give another answer.
+
+`C-h'
+     to display a message summarizing these options, then give another
+     answer.
+
+   If you type any other character, Emacs exits the `query-replace', and
+executes the character as a command.  To restart the `query-replace',
+use `C-x <ESC>', which repeats the `query-replace' because it used the
+minibuffer to read its arguments.  *Note C-x ESC: Repetition.
+
+
+File: xemacs.info,  Node: Other Repeating Search,  Prev: Replace,  Up: Search
+
+Other Search-and-Loop Commands
+==============================
+
+   Here are some other commands that find matches for a regular
+expression.  They all operate from point to the end of the buffer.
+
+`M-x occur'
+     Print each line that follows point and contains a match for the
+     specified regexp.  A numeric argument specifies the number of
+     context lines to print before and after each matching line; the
+     default is none.
+
+     The buffer `*Occur*' containing the output serves as a menu for
+     finding occurrences in their original context.  Find an occurrence
+     as listed in `*Occur*', position point there, and type `C-c C-c';
+     this switches to the buffer that was searched and moves point to
+     the original of the same occurrence.
+
+`M-x list-matching-lines'
+     Synonym for `M-x occur'.
+
+`M-x count-matches'
+     Print the number of matches following point for the specified
+     regexp.
+
+`M-x delete-non-matching-lines'
+     Delete each line that follows point and does not contain a match
+     for the specified regexp.
+
+`M-x delete-matching-lines'
+     Delete each line that follows point and contains a match for the
+     specified regexp.
+
+
+File: xemacs.info,  Node: Fixit,  Next: Files,  Prev: Search,  Up: Top
+
+Commands for Fixing Typos
+*************************
+
+   This chapter describes commands that are especially useful when you
+catch a mistake in your text just after you have made it, or when you
+change your mind while composing text on line.
+
+* Menu:
+
+* Kill Errors:: Commands to kill a batch of recently entered text.
+* Transpose::   Exchanging two characters, words, lines, lists...
+* Fixing Case:: Correcting case of last word entered.
+* Spelling::    Apply spelling checker to a word, or a whole file.
+
+
+File: xemacs.info,  Node: Kill Errors,  Next: Transpose,  Prev: Fixit,  Up: Fixit
+
+Killing Your Mistakes
+=====================
+
+`<DEL>'
+     Delete last character (`delete-backward-char').
+
+`M-<DEL>'
+     Kill last word (`backward-kill-word').
+
+`C-x <DEL>'
+     Kill to beginning of sentence (`backward-kill-sentence').
+
+   The <DEL> character (`delete-backward-char') is the most important
+correction command.  When used among graphic (self-inserting)
+characters, it can be thought of as canceling the last character typed.
+
+   When your mistake is longer than a couple of characters, it might be
+more convenient to use `M-<DEL>' or `C-x <DEL>'.  `M-<DEL>' kills back
+to the start of the last word, and `C-x <DEL>' kills back to the start
+of the last sentence.  `C-x <DEL>' is particularly useful when you are
+thinking of what to write as you type it, in case you change your mind
+about phrasing.  `M-<DEL>' and `C-x <DEL>' save the killed text for
+`C-y' and `M-y' to retrieve.  *Note Yanking::.
+
+   `M-<DEL>' is often useful even when you have typed only a few
+characters wrong, if you know you are confused in your typing and aren't
+sure exactly what you typed.  At such a time, you cannot correct with
+<DEL> except by looking at the screen to see what you did.  It requires
+less thought to kill the whole word and start over.
+
+
 File: xemacs.info,  Node: Transpose,  Next: Fixing Case,  Prev: Kill Errors,  Up: Fixit
 
 Transposing Text
@@ -573,497 +1182,4 @@ variable `version-control'.  Its possible values are:
 the making of backups for that buffer's file.  For example, Rmail mode
 locally sets `version-control' to `never' to make sure that there is
 only one backup for an Rmail file.  *Note Locals::.
-
-
-File: xemacs.info,  Node: Backup Deletion,  Next: Backup Copying,  Prev: Backup Names,  Up: Backup
-
-Automatic Deletion of Backups
-.............................
-
-   To prevent unlimited consumption of disk space, Emacs can delete
-numbered backup versions automatically.  Generally Emacs keeps the
-first few backups and the latest few backups, deleting any in between.
-This happens every time a new backup is made.  The two variables that
-control the deletion are `kept-old-versions' and `kept-new-versions'.
-Their values are, respectively the number of oldest (lowest-numbered)
-backups to keep and the number of newest (highest-numbered) ones to
-keep, each time a new backup is made.  The values are used just after a
-new backup version is made; that newly made backup is included in the
-count in `kept-new-versions'.  By default, both variables are 2.
-
-   If `delete-old-versions' is non-`nil',  excess middle versions are
-deleted without notification.  If it is `nil', the default, you are
-asked whether the excess middle versions should really be deleted.
-
-   You can also use Dired's `.' (Period) command to delete old versions.
-*Note Dired::.
-
-
-File: xemacs.info,  Node: Backup Copying,  Prev: Backup Deletion,  Up: Backup
-
-Copying vs. Renaming
-....................
-
-   You can make backup files by copying the old file or by renaming it.
-This makes a difference when the old file has multiple names.  If you
-rename the old file into the backup file, the alternate names become
-names for the backup file.  If you copy the old file instead, the
-alternate names remain names for the file that you are editing, and the
-contents accessed by those names will be the new contents.
-
-   How you make a backup file may also affect the file's owner and
-group.  If you use copying, they do not change.  If renaming is used,
-you become the file's owner, and the file's group becomes the default
-(different operating systems have different defaults for the group).
-
-   Having the owner change is usually a good idea, because then the
-owner is always the person who last edited the file.  Occasionally
-there is a file whose owner should not change.  Since most files should
-change owners, it is a good idea to use local variable lists to set
-`backup-by-copying-when-mismatch' for the special cases where the owner
-should not change (*note File Variables::).
-
-   Three variables control the choice of renaming or copying.
-Normally, renaming is done.  If the variable `backup-by-copying' is
-non-`nil', copying is used.  Otherwise, if the variable
-`backup-by-copying-when-linked' is non-`nil', copying is done for files
-that have multiple names, but renaming may still be done when the file
-being edited has only one name.  If the variable
-`backup-by-copying-when-mismatch' is non-`nil', copying is done if
-renaming would cause the file's owner or group to change.
-
-
-File: xemacs.info,  Node: Interlocking,  Prev: Backup,  Up: Saving
-
-Protection Against Simultaneous Editing
----------------------------------------
-
-   Simultaneous editing occurs when two users visit the same file, both
-make changes, and both save their changes.  If no one was informed that
-this was happening, and you saved first, you would later find that your
-changes were lost.  On some systems, Emacs notices immediately when the
-second user starts to change a file already being edited, and issues a
-warning.  When this is not possible, or if the second user has started
-to change the file despite the warning, Emacs checks when the file is
-saved, and issues a second warning when a user is about to overwrite a
-file containing another user's changes.  If you are the user editing the
-file, you can take corrective action at this point and prevent actual
-loss of work.
-
-   When you make the first modification in an Emacs buffer that is
-visiting a file, Emacs records that you have locked the file.  (It does
-this by writing another file in a directory reserved for this purpose.)
-The lock is removed when you save the changes.  The idea is that the
-file is locked whenever the buffer is modified.  If you begin to modify
-the buffer while the visited file is locked by someone else, this
-constitutes a collision, and Emacs asks you what to do.  It does this
-by calling the Lisp function `ask-user-about-lock', which you can
-redefine to customize what it does.  The standard definition of this
-function asks you a question and accepts three possible answers:
-
-`s'
-     Steal the lock.  Whoever was already changing the file loses the
-     lock, and you get the lock.
-
-`p'
-     Proceed.  Go ahead and edit the file despite its being locked by
-     someone else.
-
-`q'
-     Quit.  This causes an error (`file-locked') and the modification
-     you were trying to make in the buffer does not actually take place.
-
-   Note that locking works on the basis of a file name; if a file has
-multiple names, Emacs does not realize that the two names are the same
-file and cannot prevent two users from editing it simultaneously under
-different names.  However, basing locking on names means that Emacs can
-interlock the editing of new files that do not really exist until they
-are saved.
-
-   Some systems are not configured to allow Emacs to make locks.  On
-these systems, Emacs cannot detect trouble in advance, but it can still
-detect it in time to prevent you from overwriting someone else's
-changes.
-
-   Every time Emacs saves a buffer, it first checks the
-last-modification date of the existing file on disk to see that it has
-not changed since the file was last visited or saved.  If the date does
-not match, it implies that changes were made in the file in some other
-way, and these changes are about to be lost if Emacs actually does
-save.  To prevent this, Emacs prints a warning message and asks for
-confirmation before saving.  Occasionally you will know why the file
-was changed and know that it does not matter; then you can answer `yes'
-and proceed.  Otherwise, you should cancel the save with `C-g' and
-investigate the situation.
-
-   The first thing you should do when notified that simultaneous editing
-has already taken place is to list the directory with `C-u C-x C-d'
-(*note Directory Listing: ListDir.).  This will show the file's current
-author.  You should attempt to contact that person and ask him not to
-continue editing.  Often the next step is to save the contents of your
-Emacs buffer under a different name, and use `diff' to compare the two
-files.
-
-   Simultaneous editing checks are also made when you visit a file that
-is already visited with `C-x C-f' and when you start to modify a file.
-This is not strictly necessary, but it is useful to find out about such
-a problem as early as possible, when corrective action takes less work.
-
-   Another way to protect your file is to set the read, write, and
-executable permissions for the file. Use the function
-`set-default-file-modes' to set the UNIX `umask' value to the NMASK
-argument. The `umask' value is the default protection mode for new
-files.
-
-
-File: xemacs.info,  Node: Reverting,  Next: Auto Save,  Prev: Saving,  Up: Files
-
-Reverting a Buffer
-==================
-
-   If you have made extensive changes to a file and then change your
-mind about them, you can get rid of all changes by reading in the
-previous version of the file.  To do this, use `M-x revert-buffer',
-which operates on the current buffer.  Since reverting a buffer can
-result in very extensive changes, you must confirm it with `yes'.
-
-   If the current buffer has been auto-saved more recently than it has
-been saved explicitly, `revert-buffer' offers to read the auto save file
-instead of the visited file (*note Auto Save::).  Emacs asks you about
-the auto-save file before the request for confirmation of the
-`revert-buffer' operation, and demands `y' or `n' as an answer.  If you
-have started to type `yes' for confirmation without realizing that the
-auto-save question was going to be asked, the `y' will answer that
-question, but the `es' will not be valid confirmation.  This gives you
-a chance to cancel the operation with `C-g' and try again with the
-answers you really intend.
-
-   `revert-buffer' keeps point at the same distance (measured in
-characters) from the beginning of the file.  If the file was edited only
-slightly, you will be at approximately the same piece of text after
-reverting as before.  If you have made more extensive changes, the
-value of point in the old file may bring you to a totally different
-piece of text than your last editing point.
-
-   A buffer reverted from its visited file is marked "not modified"
-until you make a change.
-
-   Some kinds of buffers whose contents reflect data bases other than
-files, such as Dired buffers, can also be reverted.  For them,
-reverting means recalculating their contents from the appropriate data.
-Buffers created randomly with `C-x b' cannot be reverted;
-`revert-buffer' reports an error when asked to do so.
-
-
-File: xemacs.info,  Node: Auto Save,  Next: Version Control,  Prev: Reverting,  Up: Files
-
-Auto-Saving: Protection Against Disasters
-=========================================
-
-   Emacs saves all the visited files from time to time (based on
-counting your keystrokes) without being asked.  This is called
-"auto-saving".  It prevents you from losing more than a limited amount
-of work if the system crashes.
-
-   When Emacs determines it is time for auto-saving, each buffer is
-considered and is auto-saved if auto-saving is turned on for it and it
-has changed since the last time it was auto-saved.  If any auto-saving
-is done, the message `Auto-saving...' is displayed in the echo area
-until auto-saving is finished.  Errors occurring during auto-saving are
-caught so that they do not interfere with the execution of commands you
-have been typing.
-
-* Menu:
-
-* Files: Auto Save Files.
-* Control: Auto Save Control.
-* Recover::		Recovering text from auto-save files.
-
-
-File: xemacs.info,  Node: Auto Save Files,  Next: Auto Save Control,  Prev: Auto Save,  Up: Auto Save
-
-Auto-Save Files
----------------
-
-   Auto-saving does not normally write to the files you visited, because
-it can be undesirable to save a program that is in an inconsistent
-state when you have made only half of a planned change.  Instead,
-auto-saving is done in a different file called the "auto-save file",
-and the visited file is changed only when you save explicitly, for
-example, with `C-x C-s'.
-
-   Normally, the name of the auto-save file is generated by appending
-`#' to the front and back of the visited file name.  Thus, a buffer
-visiting file `foo.c' would be auto-saved in a file `#foo.c#'.  Most
-buffers that are not visiting files are auto-saved only if you request
-it explicitly; when they are auto-saved, the auto-save file name is
-generated by appending `#%' to the front and `#' to the back of buffer
-name.  For example, the `*mail*' buffer in which you compose messages
-to be sent is auto-saved in a file named `#%*mail*#'.  Names of
-auto-save files are generated this way unless you customize the
-functions `make-auto-save-file-name' and `auto-save-file-name-p' to do
-something different.  The file name to be used for auto-saving a buffer
-is calculated at the time auto-saving is turned on in that buffer.
-
-   If you want auto-saving to be done in the visited file, set the
-variable `auto-save-visited-file-name' to be non-`nil'.  In this mode,
-there is really no difference between auto-saving and explicit saving.
-
-   Emacs deletes a buffer's auto-save file when you explicitly save the
-buffer.  To inhibit the deletion, set the variable
-`delete-auto-save-files' to `nil'.  Changing the visited file name with
-`C-x C-w' or `set-visited-file-name' renames any auto-save file to
-correspond to the new visited name.
-
-
-File: xemacs.info,  Node: Auto Save Control,  Next: Recover,  Prev: Auto Save Files,  Up: Auto Save
-
-Controlling Auto-Saving
------------------------
-
-   Each time you visit a file, auto-saving is turned on for that file's
-buffer if the variable `auto-save-default' is non-`nil' (but not in
-batch mode; *note Entering Emacs::).  The default for this variable is
-`t', so Emacs auto-saves buffers that visit files by default.  You can
-use the command `M-x auto-save-mode' to turn auto-saving for a buffer
-on or off.  Like other minor mode commands, `M-x auto-save-mode' turns
-auto-saving on with a positive argument, off with a zero or negative
-argument; with no argument, it toggles.
-
-   Emacs performs auto-saving periodically based on counting how many
-characters you have typed since the last time auto-saving happened.  The
-variable `auto-save-interval' specifies the number of characters
-between auto-saves.  By default, it is 300.  Emacs also auto-saves
-whenever you call the function `do-auto-save'.
-
-   Emacs also does auto-saving whenever it gets a fatal error.  This
-includes killing the Emacs job with a shell command such as `kill
--emacs', or disconnecting a phone line or network connection.
-
-   You can set the number of seconds of idle time before an auto-save is
-done. Setting the value of the variable `auto-save-timeout' to zero or
-`nil' will  disable auto-saving due to idleness.
-
-   The actual amount of idle time between auto-saves is logarithmically
-related to the size of the current buffer.  This variable is the number
-of seconds after which an auto-save will happen when the current buffer
-is 50k or less; the timeout will be 2 1/4 times this in a 200k buffer, 3
-3/4 times this in a 1000k buffer, and 4 1/2 times this in a 2000k
-buffer.
-
-   For this variable to have any effect, you must do `(require 'timer)'.
-
-
-File: xemacs.info,  Node: Recover,  Prev: Auto Save Control,  Up: Auto Save
-
-Recovering Data from Auto-Saves
--------------------------------
-
-   If you want to use the contents of an auto-save file to recover from
-a loss of data, use the command `M-x recover-file <RET> FILE <RET>'.
-Emacs visits FILE and then (after your confirmation) restores the
-contents from the auto-save file `#FILE#'.  You can then save the file
-with `C-x C-s' to put the recovered text into FILE itself.  For
-example, to recover file `foo.c' from its auto-save file `#foo.c#', do:
-
-     M-x recover-file <RET> foo.c <RET>
-     C-x C-s
-
-   Before asking for confirmation, `M-x recover-file' displays a
-directory listing describing the specified file and the auto-save file,
-so you can compare their sizes and dates.  If the auto-save file is
-older, `M-x recover-file' does not offer to read it.
-
-   Auto-saving is disabled by `M-x recover-file' because using this
-command implies that the auto-save file contains valuable data from a
-past session.  If you save the data in the visited file and then go on
-to make new changes, turn auto-saving back on with `M-x auto-save-mode'.
-
-
-File: xemacs.info,  Node: Version Control,  Next: ListDir,  Prev: Auto Save,  Up: Files
-
-Version Control
-===============
-
-   "Version control systems" are packages that can record multiple
-versions of a source file, usually storing the unchanged parts of the
-file just once.  Version control systems also record history information
-such as the creation time of each version, who created it, and a
-description of what was changed in that version.
-
-   The GNU project recommends the version control system known as RCS,
-which is free software and available from the Free Software Foundation.
-Emacs supports use of either RCS or SCCS (a proprietary, but widely
-used, version control system that is not quite as powerful as RCS)
-through a facility called VC.  The same Emacs commands work with either
-RCS or SCCS, so you hardly have to know which one of them you are using.
-
-* Menu:
-
-* Concepts of VC::              Basic version control information;
-                                  checking files in and out.
-* Editing with VC::             Commands for editing a file maintained
-                                  with version control.
-* Variables for Check-in/out::  Variables that affect the commands used
-                                  to check files in or out.
-* Log Entries::                 Logging your changes.
-* Change Logs and VC::          Generating a change log file from log
-                                  entries.
-* Old Versions::                Examining and comparing old versions.
-* VC Status::                   Commands to view the VC status of files and
-                                  look at log entries.
-* Renaming and VC::             A command to rename both the source and
-                                  master file correctly.
-* Snapshots::                   How to make and use snapshots, a set of
-                                  file versions that can be treated as a unit.
-* Version Headers::             Inserting version control headers into
-                                  working files.
-
-
-File: xemacs.info,  Node: Concepts of VC,  Next: Editing with VC,  Prev: Version Control,  Up: Version Control
-
-Concepts of Version Control
----------------------------
-
-   When a file is under version control, we also say that it is
-"registered" in the version control system.  Each registered file has a
-corresponding "master file" which represents the file's present state
-plus its change history, so that you can reconstruct from it either the
-current version or any specified earlier version.  Usually the master
-file also records a "log entry" for each version describing what was
-changed in that version.
-
-   The file that is maintained under version control is sometimes called
-the "work file" corresponding to its master file.
-
-   To examine a file, you "check it out".  This extracts a version of
-the source file (typically, the most recent) from the master file.  If
-you want to edit the file, you must check it out "locked".  Only one
-user can do this at a time for any given source file.  (This kind of
-locking is completely unrelated to the locking that Emacs uses to
-detect simultaneous editing of a file.)
-
-   When you are done with your editing, you must "check in" the new
-version.  This records the new version in the master file, and unlocks
-the source file so that other people can lock it and thus modify it.
-
-   Checkin and checkout are the basic operations of version control.
-You can do both of them with a single Emacs command: `C-x C-q'
-(`vc-toggle-read-only').
-
-   A "snapshot" is a coherent collection of versions of the various
-files that make up a program.  *Note Snapshots::.
-
-
-File: xemacs.info,  Node: Editing with VC,  Next: Variables for Check-in/out,  Prev: Concepts of VC,  Up: Version Control
-
-Editing with Version Control
-----------------------------
-
-   When you visit a file that is maintained using version control, the
-mode line displays `RCS' or `SCCS' to inform you that version control
-is in use, and also (in case you care) which low-level system the file
-is actually stored in.  Normally, such a source file is read-only, and
-the mode line indicates this with `%%'.  With RCS, the mode line also
-indicates the number of the head version, which is normally also the
-version you are looking at.
-
-   These are the commands for editing a file maintained with version
-control:
-
-`C-x C-q'
-     Check the visited file in or out.
-
-`C-x v u'
-     Revert the buffer and the file to the last checked in version.
-
-`C-x v c'
-     Remove the last-entered change from the master for the visited
-     file.  This undoes your last check-in.
-
-`C-x v i'
-     Register the visited file in version control.
-
-(`C-x v' is the prefix key for version control commands; all of these
-commands except for `C-x C-q' start with `C-x v'.)
-
-   When you want to modify a file maintained with version control, type
-`C-x C-q' (`vc-toggle-read-only').  This "checks out" the file, and
-tells RCS or SCCS to lock the file.  This means making the file
-writable for you (but not for anyone else).
-
-   When you are finished editing the file, type `C-x C-q' again.  When
-used on a file that is checked out, this command checks the file in.
-But check-in does not start immediately; first, you must enter the "log
-entry"--a description of the changes in the new version.  `C-x C-q'
-pops up a buffer for you to enter this in.  When you are finished
-typing in the log entry, type `C-c C-c' to terminate it; this is when
-actual check-in takes place.
-
-   Once you have checked in your changes, the file is unlocked, so that
-other users can lock it and modify it.
-
-   Emacs does not save backup files for source files that are maintained
-with version control.  If you want to make backup files despite version
-control, set the variable `vc-make-backup-files' to a non-`nil' value.
-
-   Normally the work file exists all the time, whether it is locked or
-not.  If you set `vc-keep-workfiles' to `nil', then checking in a new
-version with `C-x C-q' deletes the work file; but any attempt to visit
-the file with Emacs creates it again.
-
-   It is not impossible to lock a file that someone else has locked.  If
-you try to check out a file that is locked, `C-x C-q' asks you whether
-you want to "steal the lock."  If you say yes, the file becomes locked
-by you, but a message is sent to the person who had formerly locked the
-file, to inform him of what has happened.  The mode line indicates that
-a file is locked by someone else by displaying the login name of that
-person, before the version number.
-
-   If you want to discard your current set of changes and revert to the
-last version checked in, use `C-x v u' (`vc-revert-buffer').  This
-cancels your last check-out, leaving the file unlocked.  If you want to
-make a different set of changes, you must first check the file out
-again.  `C-x v u' requires confirmation, unless it sees that you
-haven't made any changes since the last checked-in version.
-
-   `C-x v u' is also the command to use if you lock a file and then
-don't actually change it.
-
-   You can cancel a change after checking it in, with `C-x v c'
-(`vc-cancel-version').  This command discards all record of the most
-recent checked in version, so be careful about using it.  It requires
-confirmation with `yes'.  By default, `C-x v c' reverts your workfile
-and buffer to the previous version (the one that precedes the version
-that is deleted), but you can prevent the reversion by giving the
-command a prefix argument.  Then the buffer does not change.
-
-   This command with a prefix argument is useful when you have checked
-in a change and then discover a trivial error in it; you can cancel the
-erroneous check-in, fix the error, and repeat the check-in.
-
-   Be careful when invoking `C-x v c', as it is easy to throw away a
-lot of work with it.  To help you be careful, this command always
-requires confirmation with `yes'.
-
-   You can register the visited file for version control using
-`C-x v i' (`vc-register').  If the variable `vc-default-back-end' is
-non-`nil', it specifies which version control system to use; otherwise,
-this uses RCS if it is installed on your system and SCCS if not.  After
-`C-x v i', the file is unlocked and read-only.  Type `C-x C-q' if you
-wish to edit it.
-
-   By default, the initial version number is 1.1.  If you want to use a
-different number, give `C-x v i' a prefix argument; then it reads the
-initial version number using the minibuffer.
-
-   If `vc-initial-comment' is non-`nil', `C-x v i' reads an initial
-comment (much like a log entry) to describe the purpose of this source
-file.
-
-   To specify the version number for a subsequent checkin, use the
-command `C-u C-x v v'.  `C-x v v' (`vc-next-action') is the command
-that `C-x C-q' uses to do the "real work" when the visited file uses
-version control.  When used for checkin, and given a prefix argument,
-it reads the version number with the minibuffer.
 

@@ -482,7 +482,7 @@ indent them:
 The indentation commands of the Lisp modes in XEmacs, such as `M-;'
 (`indent-for-comment') and <TAB> (`lisp-indent-line') automatically
 indent comments according to these conventions, depending on the number
-of semicolons.  *Note Manipulating Comments: (emacs)Comments.
+of semicolons.  *Note Manipulating Comments: (xemacs)Comments.
 
 
 File: lispref.info,  Node: Library Headers,  Prev: Comment Tips,  Up: Tips

@@ -30,6 +30,579 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Specify Coding,  Prev: Recognize Coding,  Up: Mule
+
+Specifying a Coding System
+==========================
+
+   In cases where XEmacs does not automatically choose the right coding
+system, you can use these commands to specify one:
+
+`C-x <RET> f CODING <RET>'
+     Use coding system CODING for the visited file in the current
+     buffer.
+
+`C-x <RET> c CODING <RET>'
+     Specify coding system CODING for the immediately following command.
+
+`C-x <RET> k CODING <RET>'
+     Use coding system CODING for keyboard input.
+
+`C-x <RET> t CODING <RET>'
+     Use coding system CODING for terminal output.
+
+`C-x <RET> p CODING <RET>'
+     Use coding system CODING for subprocess input and output in the
+     current buffer.
+
+   The command `C-x RET f' (`set-buffer-file-coding-system') specifies
+the file coding system for the current buffer--in other words, which
+coding system to use when saving or rereading the visited file.  You
+specify which coding system using the minibuffer.  Since this command
+applies to a file you have already visited, it affects only the way the
+file is saved.
+
+   Another way to specify the coding system for a file is when you visit
+the file.  First use the command `C-x <RET> c'
+(`universal-coding-system-argument'); this command uses the minibuffer
+to read a coding system name.  After you exit the minibuffer, the
+specified coding system is used for _the immediately following command_.
+
+   So if the immediately following command is `C-x C-f', for example,
+it reads the file using that coding system (and records the coding
+system for when the file is saved).  Or if the immediately following
+command is `C-x C-w', it writes the file using that coding system.
+Other file commands affected by a specified coding system include `C-x
+C-i' and `C-x C-v', as well as the other-window variants of `C-x C-f'.
+
+   In addition, if you run some file input commands with the precedent
+`C-u', you can specify coding system to read from minibuffer.  So if
+the immediately following command is `C-x C-f', for example, it reads
+the file using that coding system (and records the coding system for
+when the file is saved).  Other file commands affected by a specified
+coding system include `C-x C-i' and `C-x C-v', as well as the
+other-window variants of `C-x C-f'.
+
+   The variable `default-buffer-file-coding-system' specifies the
+choice of coding system to use when you create a new file.  It applies
+when you find a new file, and when you create a buffer and then save it
+in a file.  Selecting a language environment typically sets this
+variable to a good choice of default coding system for that language
+environment.
+
+   The command `C-x <RET> t' (`set-terminal-coding-system') specifies
+the coding system for terminal output.  If you specify a character code
+for terminal output, all characters output to the terminal are
+translated into that coding system.
+
+   This feature is useful for certain character-only terminals built to
+support specific languages or character sets--for example, European
+terminals that support one of the ISO Latin character sets.
+
+   By default, output to the terminal is not translated at all.
+
+   The command `C-x <RET> k' (`set-keyboard-coding-system') specifies
+the coding system for keyboard input.  Character-code translation of
+keyboard input is useful for terminals with keys that send non-ASCII
+graphic characters--for example, some terminals designed for ISO
+Latin-1 or subsets of it.
+
+   By default, keyboard input is not translated at all.
+
+   There is a similarity between using a coding system translation for
+keyboard input, and using an input method: both define sequences of
+keyboard input that translate into single characters.  However, input
+methods are designed to be convenient for interactive use by humans, and
+the sequences that are translated are typically sequences of ASCII
+printing characters.  Coding systems typically translate sequences of
+non-graphic characters.
+
+   The command `C-x <RET> p' (`set-buffer-process-coding-system')
+specifies the coding system for input and output to a subprocess.  This
+command applies to the current buffer; normally, each subprocess has its
+own buffer, and thus you can use this command to specify translation to
+and from a particular subprocess by giving the command in the
+corresponding buffer.
+
+   By default, process input and output are not translated at all.
+
+   The variable `file-name-coding-system' specifies a coding system to
+use for encoding file names.  If you set the variable to a coding
+system name (as a Lisp symbol or a string), XEmacs encodes file names
+using that coding system for all file operations.  This makes it
+possible to use non-Latin-1 characters in file names--or, at least,
+those non-Latin-1 characters which the specified coding system can
+encode.  By default, this variable is `nil', which implies that you
+cannot use non-Latin-1 characters in file names.
+
+
+File: xemacs.info,  Node: Major Modes,  Next: Indentation,  Prev: Mule,  Up: Top
+
+Major Modes
+***********
+
+   Emacs has many different "major modes", each of which customizes
+Emacs for editing text of a particular sort.  The major modes are
+mutually exclusive;  at any time, each buffer has one major mode.  The
+mode line normally contains the name of the current major mode in
+parentheses.  *Note Mode Line::.
+
+   The least specialized major mode is called "Fundamental mode".  This
+mode has no mode-specific redefinitions or variable settings.  Each
+Emacs command behaves in its most general manner, and each option is in
+its default state.  For editing any specific type of text, such as Lisp
+code or English text, you should switch to the appropriate major mode,
+such as Lisp mode or Text mode.
+
+   Selecting a major mode changes the meanings of a few keys to become
+more specifically adapted to the language being edited.  <TAB>, <DEL>,
+and <LFD> are changed frequently.  In addition, commands which handle
+comments use the mode to determine how to delimit comments.  Many major
+modes redefine the syntactical properties of characters appearing in
+the buffer.  *Note Syntax::.
+
+   The major modes fall into three major groups.  Lisp mode (which has
+several variants), C mode, and Muddle mode are for specific programming
+languages.  Text mode, Nroff mode, TeX mode, and Outline mode are for
+editing English text.  The remaining major modes are not intended for
+use on users' files; they are used in buffers created by Emacs for
+specific purposes and include Dired mode for buffers made by Dired
+(*note Dired::), Mail mode for buffers made by `C-x m' (*note Sending
+Mail::), and Shell mode for buffers used for communicating with an
+inferior shell process (*note Interactive Shell::).
+
+   Most programming language major modes specify that only blank lines
+separate paragraphs.  This is so that the paragraph commands remain
+useful.  *Note Paragraphs::.  They also cause Auto Fill mode to use the
+definition of <TAB> to indent the new lines it creates.  This is
+because most lines in a program are usually indented.  *Note
+Indentation::.
+
+* Menu:
+
+* Choosing Modes::     How major modes are specified or chosen.
+
+
+File: xemacs.info,  Node: Choosing Modes,  Prev: Major Modes,  Up: Major Modes
+
+Choosing Major Modes
+====================
+
+   You can select a major mode explicitly for the current buffer, but
+most of the time Emacs determines which mode to use based on the file
+name or some text in the file.
+
+   Use a `M-x' command to explicitly select a new major mode.  Add
+`-mode' to the name of a major mode to get the name of a command to
+select that mode.  For example, to enter Lisp mode, execute `M-x
+lisp-mode'.
+
+   When you visit a file, Emacs usually chooses the right major mode
+based on the file's name.  For example, files whose names end in `.c'
+are edited in C mode.  The variable `auto-mode-alist' controls the
+correspondence between file names and major mode.  Its value is a list
+in which each element has the form:
+
+     (REGEXP . MODE-FUNCTION)
+
+For example, one element normally found in the list has the form
+`("\\.c$" . c-mode)'. It is responsible for selecting C mode for files
+whose names end in `.c'.  (Note that `\\' is needed in Lisp syntax to
+include a `\' in the string, which is needed to suppress the special
+meaning of `.' in regexps.)  The only practical way to change this
+variable is with Lisp code.
+
+   You can specify which major mode should be used for editing a certain
+file by a special sort of text in the first non-blank line of the file.
+The mode name should appear in this line both preceded and followed by
+`-*-'.  Other text may appear on the line as well.  For example,
+
+     ;-*-Lisp-*-
+
+tells Emacs to use Lisp mode.  Note how the semicolon is used to make
+Lisp treat this line as a comment.  Such an explicit specification
+overrides any default mode based on the file name.
+
+   Another format of mode specification is:
+
+     -*-Mode: MODENAME;-*-
+
+which allows other things besides the major mode name to be specified.
+However, Emacs does not look for anything except the mode name.
+
+   The major mode can also be specified in a local variables list.
+*Note File Variables::.
+
+   When you visit a file that does not specify a major mode to use, or
+when you create a new buffer with `C-x b', Emacs uses the major mode
+specified by the variable `default-major-mode'.  Normally this value is
+the symbol `fundamental-mode', which specifies Fundamental mode.  If
+`default-major-mode' is `nil', the major mode is taken from the
+previously selected buffer.
+
+
+File: xemacs.info,  Node: Indentation,  Next: Text,  Prev: Major Modes,  Up: Top
+
+Indentation
+***********
+
+`<TAB>'
+     Indent current line "appropriately" in a mode-dependent fashion.
+
+`<LFD>'
+     Perform <RET> followed by <TAB> (`newline-and-indent').
+
+`M-^'
+     Merge two lines (`delete-indentation').  This would cancel out the
+     effect of <LFD>.
+
+`C-M-o'
+     Split line at point; text on the line after point becomes a new
+     line indented to the same column that it now starts in
+     (`split-line').
+
+`M-m'
+     Move (forward or back) to the first non-blank character on the
+     current line (`back-to-indentation').
+
+`C-M-\'
+     Indent several lines to same column (`indent-region').
+
+`C-x <TAB>'
+     Shift block of lines rigidly right or left (`indent-rigidly').
+
+`M-i'
+     Indent from point to the next prespecified tab stop column
+     (`tab-to-tab-stop').
+
+`M-x indent-relative'
+     Indent from point to under an indentation point in the previous
+     line.
+
+   Most programming languages have some indentation convention.  For
+Lisp code, lines are indented according to their nesting in
+parentheses.  The same general idea is used for C code, though details
+differ.
+
+   Use the <TAB> command to indent a line whatever the language.  Each
+major mode defines this command to perform indentation appropriate for
+the particular language.  In Lisp mode, <TAB> aligns a line according
+to its depth in parentheses.  No matter where in the line you are when
+you type <TAB>, it aligns the line as a whole.  In C mode, <TAB>
+implements a subtle and sophisticated indentation style that knows
+about many aspects of C syntax.
+
+   In Text mode, <TAB> runs the command `tab-to-tab-stop', which
+indents to the next tab stop column.  You can set the tab stops with
+`M-x edit-tab-stops'.
+
+* Menu:
+
+* Indentation Commands:: Various commands and techniques for indentation.
+* Tab Stops::            You can set arbitrary "tab stops" and then
+                         indent to the next tab stop when you want to.
+* Just Spaces::          You can request indentation using just spaces.
+
+
+File: xemacs.info,  Node: Indentation Commands,  Next: Tab Stops,  Prev: Indentation,  Up: Indentation
+
+Indentation Commands and Techniques
+===================================
+
+   If you just want to insert a tab character in the buffer, you can
+type `C-q <TAB>'.
+
+   To move over the indentation on a line, type `Meta-m'
+(`back-to-indentation').  This command, given anywhere on a line,
+positions point at the first non-blank character on the line.
+
+   To insert an indented line before the current line, type `C-a C-o
+<TAB>'.  To make an indented line after the current line, use `C-e
+<LFD>'.
+
+   `C-M-o' (`split-line') moves the text from point to the end of the
+line vertically down, so that the current line becomes two lines.
+`C-M-o' first moves point forward over any spaces and tabs.  Then it
+inserts after point a newline and enough indentation to reach the same
+column point is on.  Point remains before the inserted newline; in this
+regard, `C-M-o' resembles `C-o'.
+
+   To join two lines cleanly, use the `Meta-^' (`delete-indentation')
+command to delete the indentation at the front of the current line, and
+the line boundary as well.  Empty spaces are replaced by a single
+space, or by no space if at the beginning of a line, before a close
+parenthesis, or after an open parenthesis.  To delete just the
+indentation of a line, go to the beginning of the line and use `Meta-\'
+(`delete-horizontal-space'), which deletes all spaces and tabs around
+the cursor.
+
+   There are also commands for changing the indentation of several
+lines at once.  `Control-Meta-\' (`indent-region') gives each line which
+begins in the region the "usual" indentation by invoking <TAB> at the
+beginning of the line.  A numeric argument specifies the column to
+indent to.  Each line is shifted left or right so that its first
+non-blank character appears in that column.  `C-x <TAB>'
+(`indent-rigidly') moves all the lines in the region right by its
+argument (left, for negative arguments).  The whole group of lines moves
+rigidly sideways, which is how the command gets its name.
+
+   `M-x indent-relative' indents at point based on the previous line
+(actually, the last non-empty line.)  It inserts whitespace at point,
+moving point, until it is underneath an indentation point in the
+previous line.  An indentation point is the end of a sequence of
+whitespace or the end of the line.  If point is farther right than any
+indentation point in the previous line, the whitespace before point is
+deleted and the first indentation point then applicable is used.  If no
+indentation point is applicable even then, `tab-to-tab-stop' is run
+(see next section).
+
+   `indent-relative' is the definition of <TAB> in Indented Text mode.
+*Note Text::.
+
+
+File: xemacs.info,  Node: Tab Stops,  Next: Just Spaces,  Prev: Indentation Commands,  Up: Indentation
+
+Tab Stops
+=========
+
+   For typing in tables, you can use Text mode's definition of <TAB>,
+`tab-to-tab-stop'.  This command inserts indentation before point,
+enough to reach the next tab stop column.  Even if you are not in Text
+mode, this function is associated with `M-i' anyway.
+
+   You can arbitrarily set the tab stops used by `M-i'.  They are
+stored as a list of column-numbers in increasing order in the variable
+`tab-stop-list'.
+
+   The convenient way to set the tab stops is using `M-x
+edit-tab-stops', which creates and selects a buffer containing a
+description of the tab stop settings.  You can edit this buffer to
+specify different tab stops, and then type `C-c C-c' to make those new
+tab stops take effect.  In the tab stop buffer, `C-c C-c' runs the
+function `edit-tab-stops-note-changes' rather than the default
+`save-buffer'.  `edit-tab-stops' records which buffer was current when
+you invoked it, and stores the tab stops in that buffer.  Normally all
+buffers share the same tab stops and changing them in one buffer
+affects all.  If you make `tab-stop-list' local in one buffer
+`edit-tab-stops' in that buffer edits only the local settings.
+
+   Below is the text representing ordinary tab stops every eight
+columns:
+
+             :       :       :       :       :       :
+     0         1         2         3         4
+     0123456789012345678901234567890123456789012345678
+     To install changes, type C-c C-c
+
+   The first line contains a colon at each tab stop.  The remaining
+lines help you see where the colons are and tell you what to do.
+
+   Note that the tab stops that control `tab-to-tab-stop' have nothing
+to do with displaying tab characters in the buffer.  *Note Display
+Vars::, for more information on that.
+
+
+File: xemacs.info,  Node: Just Spaces,  Prev: Tab Stops,  Up: Indentation
+
+Tabs vs. Spaces
+===============
+
+   Emacs normally uses both tabs and spaces to indent lines.  If you
+prefer, all indentation can be made from spaces only.  To request this,
+set `indent-tabs-mode' to `nil'.  This is a per-buffer variable;
+altering the variable affects only the current buffer, but there is a
+default value which you can change as well.  *Note Locals::.
+
+   There are also commands to convert tabs to spaces or vice versa,
+always preserving the columns of all non-blank text.  `M-x tabify'
+scans the region for sequences of spaces, and converts sequences of at
+least three spaces to tabs if that is possible without changing
+indentation.  `M-x untabify' changes all tabs in the region to
+corresponding numbers of spaces.
+
+
+File: xemacs.info,  Node: Text,  Next: Programs,  Prev: Indentation,  Up: Top
+
+Commands for Human Languages
+****************************
+
+   The term "text" has two widespread meanings in our area of the
+computer field.  One is data that is a sequence of characters.  In this
+sense of the word any file that you edit with Emacs is text.  The other
+meaning is more restrictive: a sequence of characters in a human
+language for humans to read (possibly after processing by a text
+formatter), as opposed to a program or commands for a program.
+
+   Human languages have syntactic and stylistic conventions that editor
+commands should support or use to advantage: conventions involving
+words, sentences, paragraphs, and capital letters.  This chapter
+describes Emacs commands for all these things.  There are also commands
+for "filling", or rearranging paragraphs into lines of approximately
+equal length.  The commands for moving over and killing words,
+sentences, and paragraphs, while intended primarily for editing text,
+are also often useful for editing programs.
+
+   Emacs has several major modes for editing human language text.  If a
+file contains plain text, use Text mode, which customizes Emacs in
+small ways for the syntactic conventions of text.  For text which
+contains embedded commands for text formatters, Emacs has other major
+modes, each for a particular text formatter.  Thus, for input to TeX,
+you can use TeX mode; for input to nroff, Nroff mode.
+
+* Menu:
+
+* Text Mode::   The major modes for editing text files.
+* Nroff Mode::  The major mode for editing input to the formatter nroff.
+* TeX Mode::    The major modes for editing input to the formatter TeX.
+* Outline Mode:: The major mode for editing outlines.
+* Words::       Moving over and killing words.
+* Sentences::   Moving over and killing sentences.
+* Paragraphs::	Moving over paragraphs.
+* Pages::	Moving over pages.
+* Filling::     Filling or justifying text
+* Case::        Changing the case of text
+
+
+File: xemacs.info,  Node: Text Mode,  Next: Words,  Prev: Text,  Up: Text
+
+Text Mode
+=========
+
+   You should use Text mode--rather than Fundamental or Lisp mode--to
+edit files of text in a human language.  Invoke `M-x text-mode' to
+enter Text mode.  In Text mode, <TAB> runs the function
+`tab-to-tab-stop', which allows you to use arbitrary tab stops set with
+`M-x edit-tab-stops' (*note Tab Stops::).  Features concerned with
+comments in programs are turned off unless they are explicitly invoked.
+The syntax table is changed so that periods are not considered part of a
+word, while apostrophes, backspaces and underlines are.
+
+   A similar variant mode is Indented Text mode, intended for editing
+text in which most lines are indented.  This mode defines <TAB> to run
+`indent-relative' (*note Indentation::), and makes Auto Fill indent the
+lines it creates.  As a result, a line made by Auto Filling, or by
+<LFD>, is normally indented just like the previous line.  Use `M-x
+indented-text-mode' to select this mode.
+
+   Entering Text mode or Indented Text mode calls the value of the
+variable `text-mode-hook' with no arguments, if that value exists and
+is not `nil'.  This value is also called when modes related to Text
+mode are entered; this includes Nroff mode, TeX mode, Outline mode, and
+Mail mode.  Your hook can look at the value of `major-mode' to see
+which of these modes is actually being entered.
+
+   Two modes similar to Text mode are of use for editing text that is to
+be passed through a text formatter before achieving its final readable
+form.
+
+* Menu:
+
+* Nroff Mode::  The major mode for editing input to the formatter nroff.
+* TeX Mode::    The major modes for editing input to the formatter TeX.
+
+
+  Another similar mode is used for editing outlines.  It allows you
+to view the text at various levels of detail.  You can view either
+the outline headings alone or both headings and text; you can also
+hide some of the headings at lower levels from view to make the high
+level structure more visible.
+
+
+* Outline Mode:: The major mode for editing outlines.
+
+
+File: xemacs.info,  Node: Nroff Mode,  Next: TeX Mode,  Prev: Text Mode,  Up: Text Mode
+
+Nroff Mode
+----------
+
+   Nroff mode is a mode like Text mode but modified to handle nroff
+commands present in the text.  Invoke `M-x nroff-mode' to enter this
+mode.  Nroff mode differs from Text mode in only a few ways.  All nroff
+command lines are considered paragraph separators, so that filling never
+garbles the nroff commands.  Pages are separated by `.bp' commands.
+Comments start with backslash-doublequote.  There are also three special
+commands that are not available in Text mode:
+
+`M-n'
+     Move to the beginning of the next line that isn't an nroff command
+     (`forward-text-line').  An argument is a repeat count.
+
+`M-p'
+     Like `M-n' but move up (`backward-text-line').
+
+`M-?'
+     Prints in the echo area the number of text lines (lines that are
+     not nroff commands) in the region (`count-text-lines').
+
+   The other feature of Nroff mode is Electric Nroff newline mode.
+This is a minor mode that you can turn on or off with `M-x
+electric-nroff-mode' (*note Minor Modes::).  When the mode is on and
+you use <RET> to end a line containing an nroff command that opens a
+kind of grouping, Emacs automatically inserts the matching nroff
+command to close that grouping on the following line.  For example, if
+you are at the beginning of a line and type `.(b <RET>', the matching
+command `.)b' will be inserted on a new line following point.
+
+   Entering Nroff mode calls the value of the variable `text-mode-hook'
+with no arguments, if that value exists and is not `nil'; then it does
+the same with the variable `nroff-mode-hook'.
+
+
+File: xemacs.info,  Node: TeX Mode,  Next: Outline Mode,  Prev: Nroff Mode,  Up: Text Mode
+
+TeX Mode
+--------
+
+   TeX is a powerful text formatter written by Donald Knuth; like GNU
+Emacs, it is free.  LaTeX is a simplified input format for TeX,
+implemented by TeX macros.  It is part of TeX.
+
+   Emacs has a special TeX mode for editing TeX input files.  It
+provides facilities for checking the balance of delimiters and for
+invoking TeX on all or part of the file.
+
+   TeX mode has two variants, Plain TeX mode and LaTeX mode, which are
+two distinct major modes that differ only slightly.  These modes are
+designed for editing the two different input formats.  The command `M-x
+tex-mode' looks at the contents of a buffer to determine whether it
+appears to be LaTeX input or not; it then selects the appropriate mode.
+If it can't tell which is right (e.g., the buffer is empty), the
+variable `tex-default-mode' controls which mode is used.
+
+   The commands `M-x plain-tex-mode' and `M-x latex-mode' explicitly
+select one of the variants of TeX mode.  Use these commands when `M-x
+tex-mode' does not guess right.
+
+* Menu:
+
+* Editing: TeX Editing.   Special commands for editing in TeX mode.
+* Printing: TeX Print.    Commands for printing part of a file with TeX.
+
+   TeX for Unix systems can be obtained from the University of
+Washington for a distribution fee.
+
+   To order a full distribution, send $140.00 for a 1/2 inch 9-track
+tape, $165.00 for two 4-track 1/4 inch cartridge tapes (foreign sites
+$150.00, for 1/2 inch, $175.00 for 1/4 inch, to cover the extra
+postage) payable to the University of Washington to:
+
+     The Director
+     Northwest Computer Support Group,  DW-10
+     University of Washington
+     Seattle, Washington 98195
+
+Purchase orders are acceptable, but there is an extra charge of $10.00
+to pay for processing charges. (The total cost comes to $150 for
+domestic sites, $175 for foreign sites).
+
+   The normal distribution is a tar tape, blocked 20, 1600 bpi, on an
+industry standard 2400 foot half-inch reel.  The physical format for
+the 1/4 inch streamer cartridges uses QIC-11, 8000 bpi, 4-track
+serpentine recording for the SUN.  Also, SystemV tapes can be written
+in cpio format, blocked 5120 bytes, ASCII headers.
+
+
 File: xemacs.info,  Node: TeX Editing,  Next: TeX Print,  Prev: TeX Mode,  Up: TeX Mode
 
 TeX Editing Commands
@@ -583,598 +1156,4 @@ contained in it must match both regexps.  For example, normally
    Normally it is desirable for page boundaries to separate paragraphs.
 The default values of these variables recognize the usual separator for
 pages.
-
-
-File: xemacs.info,  Node: Pages,  Next: Filling,  Prev: Paragraphs,  Up: Text
-
-Pages
-=====
-
-   Files are often thought of as divided into "pages" by the "formfeed"
-character (ASCII Control-L, octal code 014).  For example, if a file is
-printed on a line printer, each "page" of the file starts on a new page
-of paper.  Emacs treats a page-separator character just like any other
-character.  It can be inserted with `C-q C-l' or deleted with <DEL>.
-You are free to paginate your file or not.  However, since pages are
-often meaningful divisions of the file, commands are provided to move
-over them and operate on them.
-
-`C-x ['
-     Move point to previous page boundary (`backward-page').
-
-`C-x ]'
-     Move point to next page boundary (`forward-page').
-
-`C-x C-p'
-     Put point and mark around this page (or another page)
-     (`mark-page').
-
-`C-x l'
-     Count the lines in this page (`count-lines-page').
-
-   The `C-x [' (`backward-page') command moves point to immediately
-after the previous page delimiter.  If point is already right after a
-page delimiter, the command skips that one and stops at the previous
-one.  A numeric argument serves as a repeat count.  The `C-x ]'
-(`forward-page') command moves forward past the next page delimiter.
-
-   The `C-x C-p' command (`mark-page') puts point at the beginning of
-the current page and the mark at the end.  The page delimiter at the end
-is included (the mark follows it).  The page delimiter at the front is
-excluded (point follows it).  You can follow this command  by `C-w' to
-kill a page you want to move elsewhere.  If you insert the page after a
-page delimiter, at a place where `C-x ]' or `C-x [' would take you, the
-page will be properly delimited before and after once again.
-
-   A numeric argument to `C-x C-p' is used to specify which page to go
-to, relative to the current one.  Zero means the current page.  One
-means the next page, and -1 means the previous one.
-
-   The `C-x l' command (`count-lines-page') can help you decide where
-to break a page in two.  It prints the total number of lines in the
-current page in the echo area, then divides the lines into those
-preceding the current line and those following it, for example
-
-     Page has 96 (72+25) lines
-
-Notice that the sum is off by one; this is correct if point is not at
-the beginning of a line.
-
-   The variable `page-delimiter' should have as its value a regexp that
-matches the beginning of a line that separates pages.  This defines
-where pages begin.  The normal value of this variable is `"^\f"', which
-matches a formfeed character at the beginning of a line.
-
-
-File: xemacs.info,  Node: Filling,  Next: Case,  Prev: Pages,  Up: Text
-
-Filling Text
-============
-
-   If you use Auto Fill mode, Emacs "fills" text (breaks it up into
-lines that fit in a specified width) as you insert it.  When you alter
-existing text it is often no longer be properly filled afterwards and
-you can use explicit commands for filling.
-
-* Menu:
-
-* Auto Fill::	  Auto Fill mode breaks long lines automatically.
-* Fill Commands:: Commands to refill paragraphs and center lines.
-* Fill Prefix::   Filling when every line is indented or in a comment, etc.
-
-
-File: xemacs.info,  Node: Auto Fill,  Next: Fill Commands,  Prev: Filling,  Up: Filling
-
-Auto Fill Mode
---------------
-
-   "Auto Fill" mode is a minor mode in which lines are broken
-automatically when they become too wide.  Breaking happens only when
-you type a <SPC> or <RET>.
-
-`M-x auto-fill-mode'
-     Enable or disable Auto Fill mode.
-
-`<SPC>'
-`<RET>'
-     In Auto Fill mode, break lines when appropriate.
-
-   `M-x auto-fill-mode' turns Auto Fill mode on if it was off, or off
-if it was on.  With a positive numeric argument the command always turns
-Auto Fill mode on, and with a negative argument it always turns it off.
-The presence of the word `Fill' in the mode line, inside the
-parentheses, indicates that Auto Fill mode is in effect.  Auto Fill mode
-is a minor mode; you can turn it on or off for each buffer individually.
-*Note Minor Modes::.
-
-   In Auto Fill mode, lines are broken automatically at spaces when
-they get longer than desired.  Line breaking and rearrangement takes
-place only when you type <SPC> or <RET>.  To insert a space or newline
-without permitting line-breaking, type `C-q <SPC>' or `C-q <LFD>'
-(recall that a newline is really a linefeed).  `C-o' inserts a newline
-without line breaking.
-
-   Auto Fill mode works well with Lisp mode: when it makes a new line in
-Lisp mode, it indents that line with <TAB>.  If a line ending in a Lisp
-comment gets too long, the text of the comment is split into two
-comment lines.  Optionally, new comment delimiters are inserted at the
-end of the first line and the beginning of the second, so that each line
-is a separate comment.  The variable `comment-multi-line' controls the
-choice (*note Comments::).
-
-   Auto Fill mode does not refill entire paragraphs.  It can break
-lines but cannot merge lines.  Editing in the middle of a paragraph can
-result in a paragraph that is not correctly filled.  The easiest way to
-make the paragraph properly filled again is using an explicit fill
-commands.
-
-   Many users like Auto Fill mode and want to use it in all text files.
-The section on init files explains how you can arrange this permanently
-for yourself.  *Note Init File::.
-
-
-File: xemacs.info,  Node: Fill Commands,  Next: Fill Prefix,  Prev: Auto Fill,  Up: Filling
-
-Explicit Fill Commands
-----------------------
-
-`M-q'
-     Fill current paragraph (`fill-paragraph').
-
-`M-g'
-     Fill each paragraph in the region (`fill-region').
-
-`C-x f'
-     Set the fill column (`set-fill-column').
-
-`M-x fill-region-as-paragraph'
-     Fill the region, considering it as one paragraph.
-
-`M-s'
-     Center a line.
-
-   To refill a paragraph, use the command `Meta-q' (`fill-paragraph').
-It causes the paragraph containing point, or the one after point if
-point is between paragraphs, to be refilled.  All line breaks are
-removed, and new ones are inserted where necessary.  `M-q' can be
-undone with `C-_'.  *Note Undo::.
-
-   To refill many paragraphs, use `M-g' (`fill-region'), which divides
-the region into paragraphs and fills each of them.
-
-   `Meta-q' and `Meta-g' use the same criteria as `Meta-h' for finding
-paragraph boundaries (*note Paragraphs::).  For more control, you can
-use `M-x fill-region-as-paragraph', which refills everything between
-point and mark.  This command recognizes only blank lines as paragraph
-separators.
-
-   A numeric argument to `M-g' or `M-q' causes it to "justify" the text
-as well as filling it.  Extra spaces are inserted to make the right
-margin line up exactly at the fill column.  To remove the extra spaces,
-use `M-q' or `M-g' with no argument.
-
-   The variable `auto-fill-inhibit-regexp' takes as a value a regexp to
-match lines that should not be auto-filled.
-
-   The command `Meta-s' (`center-line') centers the current line within
-the current fill column.  With an argument, it centers several lines
-individually and moves past them.
-
-   The maximum line width for filling is in the variable `fill-column'.
-Altering the value of `fill-column' makes it local to the current
-buffer; until then, the default value--initially 70--is in effect.
-*Note Locals::.
-
-   The easiest way to set `fill-column' is to use the command `C-x f'
-(`set-fill-column').  With no argument, it sets `fill-column' to the
-current horizontal position of point.  With a numeric argument, it uses
-that number as the new fill column.
-
-
-File: xemacs.info,  Node: Fill Prefix,  Prev: Fill Commands,  Up: Filling
-
-The Fill Prefix
----------------
-
-   To fill a paragraph in which each line starts with a special marker
-(which might be a few spaces, giving an indented paragraph), use the
-"fill prefix" feature.  The fill prefix is a string which is not
-included in filling.  Emacs expects every line to start with a fill
-prefix.
-
-`C-x .'
-     Set the fill prefix (`set-fill-prefix').
-
-`M-q'
-     Fill a paragraph using current fill prefix (`fill-paragraph').
-
-`M-x fill-individual-paragraphs'
-     Fill the region, considering each change of indentation as
-     starting a new paragraph.
-
-   To specify a fill prefix, move to a line that starts with the desired
-prefix, put point at the end of the prefix, and give the command
-`C-x .' (`set-fill-prefix').  That's a period after the `C-x'.  To turn
-off the fill prefix, specify an empty prefix: type `C-x .' with point
-at the beginning of a line.
-
-   When a fill prefix is in effect, the fill commands remove the fill
-prefix from each line before filling and insert it on each line after
-filling.  Auto Fill mode also inserts the fill prefix inserted on new
-lines it creates.  Lines that do not start with the fill prefix are
-considered to start paragraphs, both in `M-q' and the paragraph
-commands; this is just right if you are using paragraphs with hanging
-indentation (every line indented except the first one).  Lines which are
-blank or indented once the prefix is removed also separate or start
-paragraphs; this is what you want if you are writing multi-paragraph
-comments with a comment delimiter on each line.
-
-   The fill prefix is stored in the variable `fill-prefix'.  Its value
-is a string, or `nil' when there is no fill prefix.  This is a
-per-buffer variable; altering the variable affects only the current
-buffer, but there is a default value which you can change as well.
-*Note Locals::.
-
-   Another way to use fill prefixes is through `M-x
-fill-individual-paragraphs'.  This function divides the region into
-groups of consecutive lines with the same amount and kind of
-indentation and fills each group as a paragraph, using its indentation
-as a fill prefix.
-
-
-File: xemacs.info,  Node: Case,  Prev: Filling,  Up: Text
-
-Case Conversion Commands
-========================
-
-   Emacs has commands for converting either a single word or any
-arbitrary range of text to upper case or to lower case.
-
-`M-l'
-     Convert following word to lower case (`downcase-word').
-
-`M-u'
-     Convert following word to upper case (`upcase-word').
-
-`M-c'
-     Capitalize the following word (`capitalize-word').
-
-`C-x C-l'
-     Convert region to lower case (`downcase-region').
-
-`C-x C-u'
-     Convert region to upper case (`upcase-region').
-
-   The word conversion commands are used most frequently.  `Meta-l'
-(`downcase-word') converts the word after point to lower case, moving
-past it.  Thus, repeating `Meta-l' converts successive words.  `Meta-u'
-(`upcase-word') converts to all capitals instead, while `Meta-c'
-(`capitalize-word') puts the first letter of the word into upper case
-and the rest into lower case.  The word conversion commands convert
-several words at once if given an argument.  They are especially
-convenient for converting a large amount of text from all upper case to
-mixed case: you can move through the text using `M-l', `M-u', or `M-c'
-on each word as appropriate, occasionally using `M-f' instead to skip a
-word.
-
-   When given a negative argument, the word case conversion commands
-apply to the appropriate number of words before point, but do not move
-point.  This is convenient when you have just typed a word in the wrong
-case: you can give the case conversion command and continue typing.
-
-   If a word case conversion command is given in the middle of a word,
-it applies only to the part of the word which follows point.  This is
-just like what `Meta-d' (`kill-word') does.  With a negative argument,
-case conversion applies only to the part of the word before point.
-
-   The other case conversion commands are `C-x C-u' (`upcase-region')
-and `C-x C-l' (`downcase-region'), which convert everything between
-point and mark to the specified case.  Point and mark do not move.
-
-
-File: xemacs.info,  Node: Programs,  Next: Running,  Prev: Text,  Up: Top
-
-Editing Programs
-****************
-
-   Emacs has many commands designed to understand the syntax of
-programming languages such as Lisp and C.  These commands can:
-
-   * Move over or kill balanced expressions or "sexps" (*note Lists::).
-
-   * Move over or mark top-level balanced expressions ("defuns", in
-     Lisp; functions, in C).
-
-   * Show how parentheses balance (*note Matching::).
-
-   * Insert, kill, or align comments (*note Comments::).
-
-   * Follow the usual indentation conventions of the language (*note
-     Grinding::).
-
-   The commands available for words, sentences, and paragraphs are
-useful in editing code even though their canonical application is for
-editing human language text.  Most symbols contain words (*note
-Words::); sentences can be found in strings and comments (*note
-Sentences::).  Paragraphs per se are not present in code, but the
-paragraph commands are useful anyway, because Lisp mode and C mode
-define paragraphs to begin and end at blank lines (*note Paragraphs::).
-Judicious use of blank lines to make the program clearer also provides
-interesting chunks of text for the paragraph commands to work on.
-
-   The selective display feature is useful for looking at the overall
-structure of a function (*note Selective Display::).  This feature
-causes only the lines that are indented less than a specified amount to
-appear on the screen.
-
-* Menu:
-
-* Program Modes::       Major modes for editing programs.
-* Lists::               Expressions with balanced parentheses.
-                         There are editing commands to operate on them.
-* Defuns::              Each program is made up of separate functions.
-                         There are editing commands to operate on them.
-* Grinding::            Adjusting indentation to show the nesting.
-* Matching::            Insertion of a close-delimiter flashes matching open.
-* Comments::            Inserting, filling and aligning comments.
-* Balanced Editing::    Inserting two matching parentheses at once, etc.
-* Lisp Completion::     Completion on symbol names in Lisp code.
-* Documentation::       Getting documentation of functions you plan to call.
-* Change Log::          Maintaining a change history for your program.
-* Tags::                Go direct to any function in your program in one
-                         command.  Tags remembers which file it is in.
-* Fortran::		Fortran mode and its special features.
-* Asm Mode::            Asm mode and its special features.
-
-
-File: xemacs.info,  Node: Program Modes,  Next: Lists,  Prev: Programs,  Up: Programs
-
-Major Modes for Programming Languages
-=====================================
-
-   Emacs has several major modes for the programming languages Lisp,
-Scheme (a variant of Lisp), C, Fortran, and Muddle.  Ideally, a major
-mode should be implemented for each programming language you might want
-to edit with Emacs; but often the mode for one language can serve for
-other syntactically similar languages.  The language modes that exist
-are those that someone decided to take the trouble to write.
-
-   There are several variants of Lisp mode, which differ in the way they
-interface to Lisp execution.  *Note Lisp Modes::.
-
-   Each of the programming language modes defines the <TAB> key to run
-an indentation function that knows the indentation conventions of that
-language and updates the current line's indentation accordingly.  For
-example, in C mode <TAB> is bound to `c-indent-line'.  <LFD> is
-normally defined to do <RET> followed by <TAB>; thus it, too, indents
-in a mode-specific fashion.
-
-   In most programming languages, indentation is likely to vary from
-line to line.  So the major modes for those languages rebind <DEL> to
-treat a tab as if it were the equivalent number of spaces (using the
-command `backward-delete-char-untabify').  This makes it possible to
-rub out indentation one column at a time without worrying whether it is
-made up of spaces or tabs.  In these modes, use `C-b C-d' to delete a
-tab character before point.
-
-   Programming language modes define paragraphs to be separated only by
-blank lines, so that the paragraph commands remain useful.  Auto Fill
-mode, if enabled in a programming language major mode, indents the new
-lines which it creates.
-
-   Turning on a major mode calls a user-supplied function called the
-"mode hook", which is the value of a Lisp variable.  For example,
-turning on C mode calls the value of the variable `c-mode-hook' if that
-value exists and is non-`nil'.  Mode hook variables for other
-programming language modes include `lisp-mode-hook',
-`emacs-lisp-mode-hook', `lisp-interaction-mode-hook',
-`scheme-mode-hook', and `muddle-mode-hook'.  The mode hook function
-receives no arguments.
-
-
-File: xemacs.info,  Node: Lists,  Next: Defuns,  Prev: Program Modes,  Up: Programs
-
-Lists and Sexps
-===============
-
-   By convention, Emacs keys for dealing with balanced expressions are
-usually `Control-Meta-' characters.  They tend to be analogous in
-function to their `Control-' and `Meta-' equivalents.  These commands
-are usually thought of as pertaining to expressions in programming
-languages, but can be useful with any language in which some sort of
-parentheses exist (including English).
-
-   The commands fall into two classes.  Some commands deal only with
-"lists" (parenthetical groupings).  They see nothing except
-parentheses, brackets, braces (depending on what must balance in the
-language you are working with), and escape characters that might be used
-to quote those.
-
-   The other commands deal with expressions or "sexps".  The word `sexp'
-is derived from "s-expression", the term for a symbolic expression in
-Lisp.  In Emacs, the notion of `sexp' is not limited to Lisp.  It
-refers to an expression in the language  your program is written in.
-Each programming language has its own major mode, which customizes the
-syntax tables so that expressions in that language count as sexps.
-
-   Sexps typically include symbols, numbers, and string constants, as
-well as anything contained in parentheses, brackets, or braces.
-
-   In languages that use prefix and infix operators, such as C, it is
-not possible for all expressions to be sexps.  For example, C mode does
-not recognize `foo + bar' as an sexp, even though it is a C expression;
-it recognizes `foo' as one sexp and `bar' as another, with the `+' as
-punctuation between them.  This is a fundamental ambiguity: both `foo +
-bar' and `foo' are legitimate choices for the sexp to move over if
-point is at the `f'.  Note that `(foo + bar)' is a sexp in C mode.
-
-   Some languages have obscure forms of syntax for expressions that
-nobody has bothered to make Emacs understand properly.
-
-`C-M-f'
-     Move forward over an sexp (`forward-sexp').
-
-`C-M-b'
-     Move backward over an sexp (`backward-sexp').
-
-`C-M-k'
-     Kill sexp forward (`kill-sexp').
-
-`C-M-u'
-     Move up and backward in list structure (`backward-up-list').
-
-`C-M-d'
-     Move down and forward in list structure (`down-list').
-
-`C-M-n'
-     Move forward over a list (`forward-list').
-
-`C-M-p'
-     Move backward over a list (`backward-list').
-
-`C-M-t'
-     Transpose expressions (`transpose-sexps').
-
-`C-M-@'
-     Put mark after following expression (`mark-sexp').
-
-   To move forward over an sexp, use `C-M-f' (`forward-sexp').  If the
-first significant character after point is an opening delimiter (`(' in
-Lisp; `(', `[', or `{' in C), `C-M-f' moves past the matching closing
-delimiter.  If the character begins a symbol, string, or number,
-`C-M-f' moves over that.  If the character after point is a closing
-delimiter, `C-M-f' just moves past it.  (This last is not really moving
-across an sexp; it is an exception which is included in the definition
-of `C-M-f' because it is as useful a behavior as anyone can think of
-for that situation.)
-
-   The command `C-M-b' (`backward-sexp') moves backward over a sexp.
-The detailed rules are like those above for `C-M-f', but with
-directions reversed.  If there are any prefix characters (single quote,
-back quote, and comma, in Lisp) preceding the sexp, `C-M-b' moves back
-over them as well.
-
-   `C-M-f' or `C-M-b' with an argument repeats that operation the
-specified number of times; with a negative argument, it moves in the
-opposite direction.
-
-   In languages such as C where the comment-terminator can be
-recognized, the sexp commands move across comments as if they were
-whitespace.  In Lisp and other languages where comments run until the
-end of a line, it is very difficult to ignore comments when parsing
-backwards; therefore, in such languages the sexp commands treat the
-text of comments as if it were code.
-
-   Killing an sexp at a time can be done with `C-M-k' (`kill-sexp').
-`C-M-k' kills the characters that `C-M-f' would move over.
-
-   The "list commands", `C-M-n' (`forward-list') and `C-M-p'
-(`backward-list'), move over lists like the sexp commands but skip over
-any number of other kinds of sexps (symbols, strings, etc).  In some
-situations, these commands are useful because they usually ignore
-comments, since the comments usually do not contain any lists.
-
-   `C-M-n' and `C-M-p' stay at the same level in parentheses, when that
-is possible.  To move up one (or N) levels, use `C-M-u'
-(`backward-up-list').  `C-M-u' moves backward up past one unmatched
-opening delimiter.  A positive argument serves as a repeat count; a
-negative argument reverses direction of motion and also requests
-repetition, so it moves forward and up one or more levels.
-
-   To move down in list structure, use `C-M-d' (`down-list').  In Lisp
-mode, where `(' is the only opening delimiter, this is nearly the same
-as searching for a `('.  An argument specifies the number of levels of
-parentheses to go down.
-
-   `C-M-t' (`transpose-sexps') drags the previous sexp across the next
-one.  An argument serves as a repeat count, and a negative argument
-drags backwards (thus canceling out the effect of `C-M-t' with a
-positive argument).  An argument of zero, rather than doing nothing,
-transposes the sexps ending after point and the mark.
-
-   To make the region be the next sexp in the buffer, use `C-M-@'
-(`mark-sexp') which sets the mark at the same place that `C-M-f' would
-move to.  `C-M-@' takes arguments like `C-M-f'.  In particular, a
-negative argument is useful for putting the mark at the beginning of
-the previous sexp.
-
-   The list and sexp commands' understanding of syntax is completely
-controlled by the syntax table.  Any character can, for example, be
-declared to be an opening delimiter and act like an open parenthesis.
-*Note Syntax::.
-
-
-File: xemacs.info,  Node: Defuns,  Next: Grinding,  Prev: Lists,  Up: Programs
-
-Defuns
-======
-
-   In Emacs, a parenthetical grouping at the top level in the buffer is
-called a "defun".  The name derives from the fact that most top-level
-lists in Lisp are instances of the special form `defun', but Emacs
-calls any top-level parenthetical grouping counts a defun regardless of
-its contents or the programming language.  For example, in C, the body
-of a function definition is a defun.
-
-`C-M-a'
-     Move to beginning of current or preceding defun
-     (`beginning-of-defun').
-
-`C-M-e'
-     Move to end of current or following defun (`end-of-defun').
-
-`C-M-h'
-     Put region around whole current or following defun (`mark-defun').
-
-   The commands to move to the beginning and end of the current defun
-are `C-M-a' (`beginning-of-defun') and `C-M-e' (`end-of-defun').
-
-   To operate on the current defun, use `C-M-h' (`mark-defun') which
-puts point at the beginning and the mark at the end of the current or
-next defun.  This is the easiest way to prepare for moving the defun to
-a different place.  In C mode, `C-M-h' runs the function
-`mark-c-function', which is almost the same as `mark-defun', but which
-backs up over the argument declarations, function name, and returned
-data type so that the entire C function is inside the region.
-
-   To compile and evaluate the current defun, use `M-x compile-defun'.
-This function prints the results in the minibuffer. If you include an
-argument, it inserts the value in the current buffer after the defun.
-
-   Emacs assumes that any open-parenthesis found in the leftmost column
-is the start of a defun.  Therefore, never put an open-parenthesis at
-the left margin in a Lisp file unless it is the start of a top level
-list.  Never put an open-brace or other opening delimiter at the
-beginning of a line of C code unless it starts the body of a function.
-The most likely problem case is when you want an opening delimiter at
-the start of a line inside a string.  To avoid trouble, put an escape
-character (`\' in C and Emacs Lisp, `/' in some other Lisp dialects)
-before the opening delimiter.  It will not affect the contents of the
-string.
-
-   The original Emacs found defuns by moving upward a level of
-parentheses until there were no more levels to go up.  This required
-scanning back to the beginning of the buffer for every function.  To
-speed this up, Emacs was changed to assume that any `(' (or other
-character assigned the syntactic class of opening-delimiter) at the
-left margin is the start of a defun.  This heuristic is nearly always
-right; however, it mandates the convention described above.
-
-
-File: xemacs.info,  Node: Grinding,  Next: Matching,  Prev: Defuns,  Up: Programs
-
-Indentation for Programs
-========================
-
-   The best way to keep a program properly indented ("ground") is to
-use Emacs to re-indent it as you change the program.  Emacs has commands
-to indent properly either a single line, a specified number of lines, or
-all of the lines inside a single parenthetical grouping.
-
-* Menu:
-
-* Basic Indent::
-* Multi-line Indent::   Commands to reindent many lines at once.
-* Lisp Indent::		Specifying how each Lisp function should be indented.
-* C Indent::		Choosing an indentation style for C code.
 

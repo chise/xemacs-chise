@@ -1078,7 +1078,7 @@ information.
      indirect keymap bindings.  This makes it possible to search for an
      indirect definition itself.
 
-     This function is used by `where-is' (*note Help: (emacs)Help.).
+     This function is used by `where-is' (*note Help: (xemacs)Help.).
 
           (where-is-internal 'describe-function)
               => ([(control h) d] [(control h) f] [f1 d] [f1 f])

@@ -50,78 +50,6 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: lispref.info,  Node: Buffer Contents,  Next: Comparing Text,  Prev: Near Point,  Up: Text
-
-Examining Buffer Contents
-=========================
-
-   This section describes two functions that allow a Lisp program to
-convert any portion of the text in the buffer into a string.
-
- - Function: buffer-substring start end &optional buffer
- - Function: buffer-string start end &optional buffer
-     These functions are equivalent and return a string containing a
-     copy of the text of the region defined by positions START and END
-     in the buffer.  If the arguments are not positions in the
-     accessible portion of the buffer, `buffer-substring' signals an
-     `args-out-of-range' error.  If optional argument BUFFER is `nil',
-     the current buffer is assumed.
-
-     If the region delineated by START and END contains duplicable
-     extents, they will be remembered in the string.  *Note Duplicable
-     Extents::.
-
-     It is not necessary for START to be less than END; the arguments
-     can be given in either order.  But most often the smaller argument
-     is written first.
-
-          ---------- Buffer: foo ----------
-          This is the contents of buffer foo
-          
-          ---------- Buffer: foo ----------
-          
-          (buffer-substring 1 10)
-          => "This is t"
-          (buffer-substring (point-max) 10)
-          => "he contents of buffer foo
-          "
-
-
-File: lispref.info,  Node: Comparing Text,  Next: Insertion,  Prev: Buffer Contents,  Up: Text
-
-Comparing Text
-==============
-
-   This function lets you compare portions of the text in a buffer,
-without copying them into strings first.
-
- - Function: compare-buffer-substrings buffer1 start1 end1 buffer2
-          start2 end2
-     This function lets you compare two substrings of the same buffer
-     or two different buffers.  The first three arguments specify one
-     substring, giving a buffer and two positions within the buffer.
-     The last three arguments specify the other substring in the same
-     way.  You can use `nil' for BUFFER1, BUFFER2, or both to stand for
-     the current buffer.
-
-     The value is negative if the first substring is less, positive if
-     the first is greater, and zero if they are equal.  The absolute
-     value of the result is one plus the index of the first differing
-     characters within the substrings.
-
-     This function ignores case when comparing characters if
-     `case-fold-search' is non-`nil'.  It always ignores text
-     properties.
-
-     Suppose the current buffer contains the text `foobarbar
-     haha!rara!'; then in this example the two substrings are `rbar '
-     and `rara!'.  The value is 2 because the first substring is greater
-     at the second character.
-
-          (compare-buffer-substring nil 6 11 nil 16 21)
-               => 2
-
-
 File: lispref.info,  Node: Insertion,  Next: Commands for Insertion,  Prev: Comparing Text,  Up: Text
 
 Inserting Text
@@ -310,10 +238,11 @@ return a value of `nil'.
      START and END.  The value is `nil'.  If optional argument BUFFER
      is `nil', the current buffer is assumed.
 
- - Command: delete-char count &optional killp
+ - Command: delete-char &optional count killp
      This command deletes COUNT characters directly after point, or
-     before point if COUNT is negative.  If KILLP is non-`nil', then it
-     saves the deleted characters in the kill ring.
+     before point if COUNT is negative.  COUNT defaults to `1'.  If
+     KILLP is non-`nil', then it saves the deleted characters in the
+     kill ring.
 
      In an interactive call, COUNT is the numeric prefix argument, and
      KILLP is the unprocessed prefix argument.  Therefore, if a prefix
@@ -323,10 +252,11 @@ return a value of `nil'.
 
      The value returned is always `nil'.
 
- - Command: delete-backward-char count &optional killp
+ - Command: delete-backward-char &optional count killp
      This command deletes COUNT characters directly before point, or
-     after point if COUNT is negative.  If KILLP is non-`nil', then it
-     saves the deleted characters in the kill ring.
+     after point if COUNT is negative.  COUNT defaults to 1.  If KILLP
+     is non-`nil', then it saves the deleted characters in the kill
+     ring.
 
      In an interactive call, COUNT is the numeric prefix argument, and
      KILLP is the unprocessed prefix argument.  Therefore, if a prefix

@@ -909,7 +909,7 @@ variables.
           strictly speaking redundant now that `setf' exists.  Many
           programmers continue to prefer `setq' for setting simple
           variables, though, purely for stylistic or historical reasons.
-          The macro `(setf x y)' actually expands to `(setq x y)', so
+          The form `(setf x y)' actually expands to `(setq x y)', so
           there is no performance penalty for using it in compiled code.
 
         * A call to any of the following Lisp functions:

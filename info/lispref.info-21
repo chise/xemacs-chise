@@ -1024,7 +1024,7 @@ visited.
      If you run `normal-mode' interactively, the argument FIND-FILE is
      normally `nil'.  In this case, `normal-mode' unconditionally
      processes any local variables list.  *Note Local Variables in
-     Files: (emacs)File variables, for the syntax of the local
+     Files: (xemacs)File variables, for the syntax of the local
      variables section of a file.
 
      `normal-mode' uses `condition-case' around the call to the major
@@ -1058,7 +1058,7 @@ visited.
      value of a local variable.  However, this function does not look
      for the `mode:' local variable near the end of a file; the
      `hack-local-variables' function does that.  *Note How Major Modes
-     are Chosen: (emacs)Choosing Modes.
+     are Chosen: (xemacs)Choosing Modes.
 
  - User Option: default-major-mode
      This variable holds the default major mode for new buffers.  The

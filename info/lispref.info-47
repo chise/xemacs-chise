@@ -114,7 +114,7 @@ define such variables for their internal use; we don't list them here.
      *note Usual Display::
 
 `comment-column'
-     *note Comments: (emacs)Comments.
+     *note Comments: (xemacs)Comments.
 
 `default-directory'
      *note System Environment::
@@ -126,7 +126,7 @@ define such variables for their internal use; we don't list them here.
      *note Auto Filling::
 
 `goal-column'
-     *note Moving Point: (emacs)Moving Point.
+     *note Moving Point: (xemacs)Moving Point.
 
 `left-margin'
      *note Indentation::

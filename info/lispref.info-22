@@ -864,7 +864,7 @@ that information to read the documentation from the appropriate file;
 this is transparent to the user.
 
    For information on the uses of documentation strings, see *Note
-Help: (emacs)Help.
+Help: (xemacs)Help.
 
    The `emacs/lib-src' directory contains two utilities that you can
 use to print nice-looking hardcopy for the file

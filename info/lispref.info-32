@@ -786,8 +786,8 @@ Regular Expression Searching
 
    In XEmacs, you can search for the next match for a regexp either
 incrementally or not.  Incremental search commands are described in the
-`The XEmacs Reference Manual'.  *Note Regular Expression Search:
-(emacs)Regexp Search.  Here we describe only the search functions
+`The XEmacs Lisp Reference Manual'.  *Note Regular Expression Search:
+(xemacs)Regexp Search.  Here we describe only the search functions
 useful in programs.  The principal one is `re-search-forward'.
 
  - Command: re-search-forward regexp &optional limit noerror count
