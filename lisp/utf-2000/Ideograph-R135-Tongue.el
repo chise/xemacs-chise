@@ -22,7 +22,9 @@
     (total-strokes	 . 6)
     (<-original-ideograph
      (:sources	(shinjigen-1)
-      :char	()
+      :char	((japanese-jisx0208  . #x4065)	; ø»†¾®
+		 (ucs		     . #x820C)	; èˆŒ
+		 )
       ))
     (ideograph-cdp	. 31451)
     (shinjigen-1	. 6629)
