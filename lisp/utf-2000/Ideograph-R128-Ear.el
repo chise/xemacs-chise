@@ -123,6 +123,25 @@
     (=daikanwa		. 29007)	; ø¸‡…
     ))
 (define-char
+  '((ideographic-radical . 128)	; â½¿
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (->same-ideograph
+     ((=big5-cdp	  . #x8C5B)	; ý¢€ˆ±›
+      ))
+    (=gt-pj-k1		. #x3432)	; ý¡„Œ¾
+    (=gt-k		. 04926)	; ý¡„Œ¾
+    ))
+(define-char
+  '((ideographic-radical . 128)	; â½¿
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (->same-ideograph
+     ((=gt-k		  . 04926)	; ý¡„Œ¾
+      ))
+    (=big5-cdp		. #x8C5B)	; ý¢€ˆ±›
+    ))
+(define-char
   '((=>ucs		. #x8036)	; è€¶
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 3)
