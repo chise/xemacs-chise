@@ -2867,6 +2867,8 @@
     (=ucs		. #x6667)	; æ™§
     (=cns11643-3	. #x3645)	; ø»•µ¾
     (=iso-ir165		. #x2E4D)	; ø»‚†
+    (=gt		. 17615)	; ý¡€„“
+    (=gt-pj-9		. #x5F4C)	; ý¡€„“
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡
