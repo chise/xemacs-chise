@@ -1,3 +1,11 @@
+2003-04-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Qmap_gb2312): Renamed from `Qchinese_gb2312'.
+	(syms_of_mule_charset): Add new symbol `=gb2312' instead of
+	`chinese-gb2312'.
+	(complex_vars_of_mule_charset): Rename `chinese-gb2312' to
+	`=gb2312'.
+
 2003-04-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Qmap_big5): Renamed from `Qchinese_big5'.
