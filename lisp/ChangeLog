@@ -1,3 +1,8 @@
+2004-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1997): New coded-charset for
+	XEmacs CHISE.
+
 2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0208-1978): Define as an alias for
