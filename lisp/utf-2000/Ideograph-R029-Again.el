@@ -294,8 +294,7 @@
      ((=jis-x0208-1990	  . #x5256)	; &GT-56567;
       ))
     (<-vulgar
-     ((ideographic-radical . 172)	; ⾫
-      (shinjigen-1	  . 903)
+     ((shinjigen-1	  . 903)
       (=daikanwa	  . 42116)	; &I-M-42116;
       ))
     (<-vulgar*sources
@@ -390,7 +389,6 @@
     ))
 (define-char
   '((script		JP Jouyou Ideograph)
-    (=>daikanwa		. 03128)	; &GT-03952;
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -399,8 +397,7 @@
       (=jis-x0208	  . #x5A40)	; &I-J90-5A40;
       ))
     (<-vulgar
-     ((ideographic-radical . 66)	; ⽁
-      (shinjigen-1	  . 907)
+     ((shinjigen-1	  . 907)
       (=daikanwa	  . 13110)	; &I-M-13110;
       ))
     (<-vulgar*sources
