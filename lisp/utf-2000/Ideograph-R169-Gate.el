@@ -2499,6 +2499,16 @@
     (ucs		. #x95D7)	; é——
     ))
 (define-char
+  '((morohashi-daikanwa	45649 1 0)
+    (ideographic-radical . 169)	; â¾¨
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (->mojikyo		. 050601)	; ý €Œ–©
+    (chinese-cns11643-3		. #x594A)	; ø»–©
+    (japanese-jisx0208-1990	. #x462E)	; ø½Š¬Ÿ
+    (ucs			. #x95D8)	; é—˜
+    ))
+(define-char
   '((ideographic-radical . 169)	; â¾¨
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
