@@ -1,3 +1,9 @@
+1999-11-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0212' and `ipa' in UTF-2000; use `latin-viscii-*'
+	instead of `vietnamese-viscii-*'.
+
 1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-conf.el: New file.
