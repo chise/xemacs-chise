@@ -175,6 +175,11 @@ create_xemacs_root (char *path, int issystem, int isnative)
 		 0, REG_SZ, (BYTE *)path, strlen (path)+1);
   RegSetValueEx (key, XEMACS_INFO_XEMACS_ROOT_TYPE, 
 		 0, REG_DWORD, (BYTE *)&itype, sizeof (itype));
+  // write out the package path
+  sprintf (buf, "~\\.xemacs;%s\\site-packages;%s\\xemacs-packages",
+	   path, path);
+  RegSetValueEx (key, XEMACS_INFO_XEMACS_PACKAGE_KEY, 
+		 0, REG_SZ, (BYTE *)buf, strlen (buf)+1);
 }
 
 void

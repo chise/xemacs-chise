@@ -1,3 +1,25 @@
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-16  Martin Buchholz  <martin@xemacs.org>
+
+	* PROBLEMS: Document MIPSpro ICE problem workaround.
+
+2001-01-06  Golubev I. N.  <gin@mo.msk.ru>
+
+	* configure.in: check for dlopen by linking program with
+ 	<dlfcn.h>.
+
+2001-01-08  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: add extra_includes and populate appropriately for
+	cygwin and mingw.
+
+2000-12-28  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: allow --with-widgets=msw
+
 2001-01-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.40 is released.
@@ -1381,7 +1403,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 

@@ -473,12 +473,12 @@
 		 (if (and (cdr form) (null backwards))
 		     (byte-compile-log
 		      "  all subforms of %s called for effect; deleted" form))
-		 (and backwards
-                      ;; Now optimize the rest of the forms. We need the return
-                      ;; values. We already did the car.
-                      (setcdr backwards
-                              (mapcar 'byte-optimize-form (cdr backwards)))
-		      (cons fn (nreverse backwards))))
+		 (when backwards
+		   ;; Now optimize the rest of the forms. We need the return
+		   ;; values. We already did the car.
+		   (setcdr backwards
+			   (mapcar 'byte-optimize-form (cdr backwards))))
+		 (cons fn (nreverse backwards)))
 	     (cons fn (mapcar 'byte-optimize-form (cdr form)))))
 
 	  ((eq fn 'interactive)

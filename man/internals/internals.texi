@@ -4867,7 +4867,7 @@ shown in their processed order:
 @itemize @bullet
 @item
 all constant symbols and static variables that are registered via
-@code{staticpro}@ in the array @code{staticvec}.
+@code{staticpro}@ in the dynarr @code{staticpros}.
 @xref{Adding Global Lisp Variables}.
 @item
 all Lisp objects that are created in C functions and that must be
@@ -5877,9 +5877,9 @@ follow pointers to C structures and opaque data in addition to
 Lisp_Object members.
 @end enumerate
 
-This is done by @code{pdump_register_object}, which handles Lisp_Object
-variables, and pdump_register_struct which handles C structures, which
-both delegate the description management to pdump_register_sub.
+This is done by @code{pdump_register_object()}, which handles Lisp_Object
+variables, and @code{pdump_register_struct()} which handles C structures,
+which both delegate the description management to @code{pdump_register_sub()}.
 
 The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
 allows us to look up a pdump_entry_list_elmt with the object it points
@@ -5896,11 +5896,13 @@ the @code{staticpro}'ed variables (there is a special @code{staticpro_nodump()}
 call for protected variables we do not want to dump).
 
 @item
-the @code{pdump_wire}'d variables (@code{staticpro()} is equivalent to
-@code{staticpro_nodump()} + @code{pdump_wire()}).
+the variables registered via @code{dump_add_root_object}
+(@code{staticpro()} is equivalent to @code{staticpro_nodump()} +
+@code{dump_add_root_object()}).
 
 @item
-the @code{dumpstruct}'ed variables, which points to C structures.
+the variables registered via @code{dump_add_root_struct_ptr}, each of
+which points to a C structure.
 @end enumerate
 
 This does not include the GCPRO'ed variables, the specbinds, the
@@ -5953,11 +5955,10 @@ alignments happy).
 @subsection The header
 
 The next step creates the file and writes a header with a signature and
-some random information in it (number of staticpro, number of assigned
-lrecord types, etc...).  The reloc_address field, which indicates at
-which address the file should be loaded if we want to avoid post-reload
-relocation, is set to 0.  It then seeks to offset 256 (base offset for
-the objects).
+some random information in it.  The @code{reloc_address} field, which
+indicates at which address the file should be loaded if we want to avoid
+post-reload relocation, is set to 0.  It then seeks to offset 256 (base
+offset for the objects).
 
 @node Data dumping, Pointers dumping, The header, Dumping phase
 @subsection Data dumping
@@ -5979,29 +5980,32 @@ then written.  They are:
 
 @enumerate
 @item
-the staticpro array
+the pdump_root_struct_ptrs dynarr
 @item
-the dumpstruct array
-@item
-the lrecord_implementation_table array
+the pdump_opaques dynarr
 @item
 a vector of all the offsets to the objects in the file that include a
 description (for faster relocation at reload time)
 @item
-the pdump_wire and pdump_wire_list arrays
+the pdump_root_objects and pdump_weak_object_chains dynarrs.
 @end enumerate
 
-For each of the arrays we write both the pointer to the variables and
+For each of the dynarrs we write both the pointer to the variables and
 the relocated offset of the object they point to.  Since these variables
 are global, the pointers are still valid when restarting the program and
 are used to regenerate the global pointers.
 
-The @code{pdump_wire_list} array is a special case.  The variables it
-points to are the head of weak linked lists of lisp objects of the same
-type.  Not all objects of this list are dumped so the relocated pointer
-we associate with them points to the first dumped object of the list, or
-Qnil if none is available.  This is also the reason why they are not
-used as roots for the purpose of object enumeration.
+The @code{pdump_weak_object_chains} dynarr is a special case.  The
+variables it points to are the head of weak linked lists of lisp objects
+of the same type.  Not all objects of this list are dumped so the
+relocated pointer we associate with them points to the first dumped
+object of the list, or Qnil if none is available.  This is also the
+reason why they are not used as roots for the purpose of object
+enumeration.
+
+Some very important information like the @code{staticpros} and
+@code{lrecord_implementations_table} are handled indirectly using
+@code{dump_add_opaque} or @code{dump_add_root_struct_ptr}.
 
 This is the end of the dumping part.
 
@@ -6020,22 +6024,15 @@ The difference between the actual loading address and the reloc_address
 is computed and will be used for all the relocations.
 
 
-@subsection Putting back the staticvec
+@subsection Putting back the pdump_opaques
 
-The staticvec array is memcpy'd from the file and the variables it
-points to are reset to the relocated objects addresses.
-
-
-@subsection Putting back the dumpstructed variables
-
-The variables pointed to by dumpstruct in the dump phase are reset to
-the right relocated object addresses.
+The memory contents are restored in the obvious and trivial way.
 
 
-@subsection lrecord_implementations_table
+@subsection Putting back the pdump_root_struct_ptrs
 
-The lrecord_implementations_table is reset to its dump time state and
-the right lrecord_type_index values are put in.
+The variables pointed to by pdump_root_struct_ptrs in the dump phase are
+reset to the right relocated object addresses.
 
 
 @subsection Object relocation
@@ -6045,9 +6042,9 @@ by @code{pdump_reloc_one}.  This step is unnecessary if the
 reloc_address is equal to the file loading address.
 
 
-@subsection Putting back the pdump_wire and pdump_wire_list variables
+@subsection Putting back the pdump_root_objects and pdump_weak_object_chains
 
-Same as Putting back the dumpstructed variables.
+Same as Putting back the pdump_root_struct_ptrs.
 
 
 @subsection Reorganize the hash tables

@@ -245,7 +245,6 @@ void *alloca ();
 #undef HAVE_SHL_LOAD
 #undef HAVE_DLD_INIT
 #undef HAVE_SHLIB
-#undef HAVE_DLFCN_H
 
 #undef HAVE_LIBINTL
 #undef HAVE_LIBDNET

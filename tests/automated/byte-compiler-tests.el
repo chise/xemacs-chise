@@ -119,6 +119,8 @@
 (before-and-after-compile-equal (- simplyamarker 1))
 (before-and-after-compile-equal (- simplyamarker))
 
+(before-and-after-compile-equal (let ((z 1)) (or (setq z 42)) z))
+
 ;; byte-after-unbind-ops
 
 ;; byte-constant

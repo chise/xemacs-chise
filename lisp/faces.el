@@ -907,6 +907,12 @@ the function to be called on it."
       (setq inst-list (cdr inst-list)))
     (or result first-valid)))
 
+(defcustom face-frob-from-locale-first nil
+  "*If non nil, use kludgy way of frobbing fonts suitable for non-mule
+multi-charset environments."
+  :group 'faces
+  :type 'boolean)
+
 (defun frob-face-font-2 (face locale tags unfrobbed-face frobbed-face
 			      tty-thunk ws-thunk standard-face-mapping)
   ;; another kludge to make things more intuitive.  If we're
@@ -924,14 +930,20 @@ the function to be called on it."
   (let* ((the-locale (cond ((null locale) 'global)
 			   ((valid-specifier-locale-p locale) locale)
 			   (t nil)))
-	 (specs (and the-locale (face-font face the-locale nil t)))
-	 (change-it (and specs (cdr (assoc specs standard-face-mapping)))))
+	 (spec-list
+	  (and
+	   the-locale
+	   (specifier-spec-list (get (get-face face) 'font) the-locale tags t)))
+	 (change-it
+	  (and
+	   spec-list
+	   (cdr (assoc (cdadar spec-list) standard-face-mapping)))))
     (if (and change-it
 	     (not (memq (face-name (find-face face))
 			'(default bold italic bold-italic))))
 	(progn
 	  (or (equal change-it t)
-	      (set-face-property face 'font change-it the-locale))
+	      (set-face-property face 'font change-it the-locale tags))
 	  (funcall tty-thunk))
       (let* ((domain (cond ((null the-locale) nil)
 			   ((valid-specifier-domain-p the-locale) the-locale)
@@ -942,20 +954,34 @@ the function to be called on it."
 			    (selected-device))
 			   (t nil)))
 	     (inst (and domain (face-property-instance face 'font domain))))
-	(funcall tty-thunk)
-	(funcall ws-thunk)
 	;; If it's reasonable to do the inherit-from-standard-face trick,
 	;; and it's called for, then do it now.
-	(or (null domain)
-	    (not (equal inst (face-property-instance face 'font domain)))
-	    ;; don't do it for standard faces, or you'll get inheritance loops.
-	    ;; #### This makes XEmacs seg fault! fix this bug.
-	    (memq (face-name (find-face face))
-		  '(default bold italic bold-italic))
-	    (not (equal (face-property-instance face 'font domain)
-			(face-property-instance unfrobbed-face 'font domain)))
+	(if (and
+	     face-frob-from-locale-first
+	     (eq the-locale 'global)
+	     domain
+	     (equal inst (face-property-instance face 'font domain))
+	     ;; don't do it for standard faces, or you'll get inheritance loops.
+	     ;; #### This makes XEmacs seg fault! fix this bug.
+	     (not (memq (face-name (find-face face))
+			'(default bold italic bold-italic)))
+	     (equal (face-property-instance face 'font domain)
+		    (face-property-instance unfrobbed-face 'font domain)))
 	    (set-face-property face 'font (vector frobbed-face)
-			       the-locale tags))))))
+			       the-locale tags)
+	  ;; and only otherwise try to build new property value artificially
+	  (funcall tty-thunk)
+	  (funcall ws-thunk)
+	  (and
+	   domain
+	   (equal inst (face-property-instance face 'font domain))
+	   ;; don't do it for standard faces, or you'll get inheritance loops.
+	   ;; #### This makes XEmacs seg fault! fix this bug.
+	   (not (memq (face-name (find-face face))
+		      '(default bold italic bold-italic)))
+	   (equal (face-property-instance face 'font domain)
+		  (face-property-instance unfrobbed-face 'font domain))
+	   (set-face-property face 'font (vector frobbed-face) the-locale tags)))))))
 
 (defun make-face-bold (face &optional locale tags)
   "Make FACE bold in LOCALE, if possible.

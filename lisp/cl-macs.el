@@ -150,11 +150,41 @@ ARGLIST allows full Common Lisp conventions."
 (defvar bind-block) (defvar bind-defs) (defvar bind-enquote)
 (defvar bind-inits) (defvar bind-lets) (defvar bind-forms)
 
+;; npak@ispras.ru
+(defun cl-upcase-arg (arg)
+  ;; Changes all non-keyword sysmbols in `arg' to symbols
+  ;; with name in upper case.
+  ;; arg is either symbol or list of symbols or lists
+  (cond ((symbolp arg)
+         (if (memq arg lambda-list-keywords)
+             ;; Do not upcase &optional, &key etc.
+             arg
+           (intern (upcase (symbol-name arg)))))
+        ((listp arg)
+         (mapcar 'cl-upcase-arg arg))))
+
+;; npak@ispras.ru
+(defun cl-function-arglist (function agrlist)
+  "Returns string with printed representation of arguments list.
+Supports Common Lisp lambda lists."
+  (prin1-to-string
+   (cons function (cl-upcase-arg agrlist))))
+
 (defun cl-transform-lambda (form bind-block)
   (let* ((args (car form)) (body (cdr form))
 	 (bind-defs nil) (bind-enquote nil)
 	 (bind-inits nil) (bind-lets nil) (bind-forms nil)
-	 (header nil) (simple-args nil))
+	 (header nil) (simple-args nil)
+         (doc ""))
+    ;; Add CL lambda list to documentation. npak@ispras.ru
+    (if (stringp (car body))
+        (setq doc (cl-pop body)))
+    (cl-push (concat "\nCommon Lisp lambda list:\n" 
+                     "  " (cl-function-arglist bind-block args) 
+                     "\n\n"
+                     doc)
+             header)
+
     (while (or (stringp (car body)) (eq (car-safe (car body)) 'interactive))
       (cl-push (cl-pop body) header))
     (setq args (if (listp args) (copy-list args) (list '&rest args)))

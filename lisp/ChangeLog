@@ -1,3 +1,59 @@
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-16  Mike Sperber <mike@xemacs.org>
+
+	* setup-paths.el (paths-core-load-path-depth): Stopgap bump to
+	catch lisp/mule/.
+
+2001-01-14  Mike Sperber <mike@xemacs.org>
+
+	* startup.el (maybe-create-compatibility-dot-emacs):
+	(maybe-unmigrate-user-init-file):
+	(unmigrate-user-init-file): Created.
+	(maybe-migrate-user-init-file): Offer creation of compatibility
+	.emacs.
+	Some doc fixes wrt init file location.
+
+2001-01-15  Golubev I. N.  <gin@mo.msk.ru>
+
+	* faces.el (face-frob-from-locale-first): new variable.
+	(frob-face-font-2): Honor tags arg while trying to use
+	standard-face-mapping.  When face-frob-from-locale-first is set,
+	first try to set face inheriting from frobbed-face.
+
+2001-01-15  Didier Verna  <didier@xemacs.org>
+
+	* about.el (xemacs-hackers): update my entry.
+	* about.el (about-url-alist): ditto.
+	* about.el (about-maintainer-info): ditto.
+	* about.el (about-hackers): ditto.
+
+2001-01-15  Martin Buchholz  <martin@xemacs.org>
+
+	The byte compiler has been badly broken for a year,
+	by the patch of 1999-12-06.
+	* byte-optimize.el (byte-optimize-form-code-walker):
+	Bug was: the byte compiler was making this erroneous optimization:
+	(progn (or (foo)) (bar)) ==> (bar)
+
+2000-11-20  Mike Sperber <mike@xemacs.org>
+
+	* setup-paths.el (paths-core-load-path-depth): Split
+	`paths-load-path-depth' in two for site and core lisp.  Don't
+	recurse into core.
+	* setup-paths.el (paths-construct-load-path): Use.
+
+2001-01-10  Andy Piper  <andy@xemacs.org>
+
+	* package-net.el (package-net-cygwin32-binary-size): new variable
+	(package-net-win32-binary-size): ditto.  add much needed
+	commentary.
+
+	* gutter-items.el (buffers-tab-items): correct off-by-one error
+	for buffers-tab-max-size.
+
 2001-01-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.40 is released.

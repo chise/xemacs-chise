@@ -13,8 +13,6 @@
 ##
 ## Makefile for Cygwin installer
 
-## FIXME: integrate autoload.c so that wininet doesn't have to be linked.
-
 ## For performance and consistency, no built-in rules
 .SUFFIXES:
 .SUFFIXES: .c .cc .h .o
@@ -60,6 +58,8 @@ archlibdir=@archlibdir@
 configuration=@configuration@
 moduledir=@moduledir@
 sitemoduledir=@sitemoduledir@
+extra_includes=@extra_includes@
+blddir=@blddir@
 
 ## ==================== Utility Programs for the Build =================
 
@@ -78,7 +78,8 @@ program_transform_name = @program_transform_name@
 CC		= @CC@
 CC_FOR_TARGET	= $(CC)
 
-LOCALCFLAGS = $(CFLAGS) -DMINGW
+## -O3 has problems so fix this locally
+LOCALCFLAGS = $(CFLAGS) -O2 -DMINGW $(extra_includes)
 CXXFLAGS	= $(LOCALCFLAGS) -fno-exceptions -nostdinc++ -fno-rtti
 
 WINDRES		= windres
@@ -88,10 +89,12 @@ MINGW_CFLAGS	= $(LOCALCFLAGS) -mno-cygwin $(MINGW_INCLUDES) -mwindows
 MINGW_ZLIB_DIR	= /usr/local/lib
 
 PROGS	= setup.exe
+XEMACS=${blddir}/src/${PROGNAME}
 
 CONFIG_H = ../src/config.h
 
 OBJS = \
+	autoload.o \
 	choose.o \
 	concat.o \
 	desktop.o \
@@ -141,9 +144,16 @@ all: Makefile $(PROGS)
 setup.exe: $(OBJS)
 	$(CXX) $(MINGW_CXXFLAGS) -o $@ $(OBJS) \
 		-lole32 -lwsock32 -lnetapi32 -ladvapi32 \
-		-luuid -lkernel32 -luser32 -lwininet \
+		-luuid -lkernel32 -luser32 \
 		-L$(MINGW_ZLIB_DIR) -lz -lmingw32
 	@chmod a-x $@
+
+setup.ini: setup.exe
+	V=`grep '^\$$Revision.*' $(srcdir)/ChangeLog \
+	| sed -e 's/\$$Revision:* *//' \
+	  -e 's/ *$$.*//'` ;\
+	$(XEMACS) -batch -vanilla -l ${srcdir}/../lisp/package-net.el \
+		-f package-net-batch-convert-index-to-ini . $$V
 
 install:
 	@echo; echo "Installing net setup."

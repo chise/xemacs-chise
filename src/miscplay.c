@@ -360,8 +360,11 @@ size_t sndcnv8U_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*(src)++ +
-                              (int)*(src)++) / 2);
+    {
+      *dest++ = (unsigned char)(((int)*(src) +
+				 (int)*(src+1)) / 2);
+      src += 2;
+    }
   *data   = src;
   return(rc);
 }

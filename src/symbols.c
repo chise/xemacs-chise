@@ -2163,6 +2163,7 @@ sets it.
       = alloc_lcrecord_type (struct symbol_value_buffer_local,
 			     &lrecord_symbol_value_buffer_local);
     Lisp_Object foo;
+    zero_lcrecord (&bfwd->magic);
     bfwd->magic.type = SYMVAL_BUFFER_LOCAL;
 
     bfwd->default_value = find_symbol_value (variable);
@@ -2270,6 +2271,7 @@ Use `make-local-hook' instead.
   /* Make sure variable is set up to hold per-buffer values */
   bfwd = alloc_lcrecord_type (struct symbol_value_buffer_local,
 			      &lrecord_symbol_value_buffer_local);
+  zero_lcrecord (&bfwd->magic);
   bfwd->magic.type = SYMVAL_SOME_BUFFER_LOCAL;
 
   bfwd->current_buffer = Qnil;
@@ -2990,6 +2992,7 @@ pity, thereby invalidating your code.
     {
       bfwd = alloc_lcrecord_type (struct symbol_value_lisp_magic,
 				  &lrecord_symbol_value_lisp_magic);
+      zero_lcrecord (&bfwd->magic);
       bfwd->magic.type = SYMVAL_LISP_MAGIC;
       for (i = 0; i < MAGIC_HANDLER_MAX; i++)
 	{
@@ -3126,6 +3129,7 @@ has a buffer-local value in any buffer, or the symbols nil or t.
 
   bfwd = alloc_lcrecord_type (struct symbol_value_varalias,
 			      &lrecord_symbol_value_varalias);
+  zero_lcrecord (&bfwd->magic);
   bfwd->magic.type = SYMVAL_VARALIAS;
   bfwd->aliasee = alias;
   bfwd->shadowed = valcontents;
@@ -3259,9 +3263,9 @@ init_symbols_once_early (void)
   XSYMBOL (Qt)->value = Qt;	/* Veritas aeterna */
   Vquit_flag = Qnil;
 
-  pdump_wire (&Qnil);
-  pdump_wire (&Qunbound);
-  pdump_wire (&Vquit_flag);
+  dump_add_root_object (&Qnil);
+  dump_add_root_object (&Qunbound);
+  dump_add_root_object (&Vquit_flag);
 }
 
 void

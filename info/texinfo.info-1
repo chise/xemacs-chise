@@ -604,8 +604,8 @@ menu-driven, on-line Info file with nodes, menus, cross references, and
 indices.  You can, if you wish, make the chapters and sections of the
 printed document correspond to the nodes of the on-line information;
 and you use the same cross references and indices for both the Info
-file and the printed work.  `The GNU Emacs Manual' is a good example of
-a Texinfo file, as is this manual.
+file and the printed work.  `The XEmacs User's Manual' is a good
+example of a Texinfo file, as is this manual.
 
   To make a printed document, you process a Texinfo source file with the
 TeX typesetting program.  This creates a DVI file that you can typeset

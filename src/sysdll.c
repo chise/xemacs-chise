@@ -30,14 +30,8 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #ifdef HAVE_SHLIB
 
 /* Thankfully, most systems follow the ELFish dlopen() method.
-** HAVE__DLOPEN is lame, but SCO has their dl* functions as _dl*, and
-** unless you include dlfcn.h you don't get the macros to mask them, and
-** autoconf fails to find them. No longer true as of 5.0.5.
-**
-** Anybody who wants to use this on SCO needs to have their configure.in
-** look for _dlopen() as well as dlopen()
 */
-#if defined(HAVE_DLOPEN) || defined(HAVE__DLOPEN) || defined(HAVE_DLFCN_H)
+#if defined(HAVE_DLOPEN)
 #include <dlfcn.h>
 
 #ifndef RTLD_LAZY

@@ -420,7 +420,12 @@ do_desktop (HINSTANCE h)
   if (xemacs_package != 0 && xemacs_package->type != TY_GENERIC)
     {
       batname = concat (find_xemacs_exe_path (), "\\",
-			find_xemacs_exe_name (), 0);
+#if 0
+			find_xemacs_exe_name (), 
+#else
+			"runemacs.exe",
+#endif
+			0);
       root_desktop = check_desktop ("XEmacs", batname);
       root_menu = check_startmenu ("XEmacs", batname);
     }

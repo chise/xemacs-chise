@@ -5738,7 +5738,7 @@ vars_of_file_coding (void)
   int i;
 
   fcd = xnew (struct file_coding_dump);
-  dumpstruct (&fcd, &fcd_description);
+  dump_add_root_struct_ptr (&fcd, &fcd_description);
 
   /* Initialize to something reasonable ... */
   for (i = 0; i < CODING_CATEGORY_LAST; i++)
@@ -5805,7 +5805,7 @@ complex_vars_of_file_coding (void)
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   the_codesys_prop_dynarr = Dynarr_new (codesys_prop);
-  dumpstruct (&the_codesys_prop_dynarr, &codesys_prop_dynarr_description);
+  dump_add_root_struct_ptr (&the_codesys_prop_dynarr, &codesys_prop_dynarr_description);
 
 #define DEFINE_CODESYS_PROP(Prop_Type, Sym) do	\
 {						\

@@ -1,25 +1,16 @@
-This directory contains the source for the setup program for the cygwin
+This directory contains the source for the setup program for the XEmacs
 net releases.
 
+For commentary on how to do a release please see `package-net.el'
 
+This code has been adapted from the cygwin net release installer. In
+particular note that the cygwin net release installer is actively
+maintained and therefore we will want to incorporate improvements from
+that. I have therefore tried to use the cygwin way wherever
+possible. I have however cleaned up the code somewhat so that there
+are not billions of warnings.
 
-To-Do list:
-
-ini.cc: add field in setup.ini to specify whether package is installed
-by default, or not.
-
-install.cc: scan newly installed files for README files, show list to
-user, let them read them if they want.
-
-download.cc: add a "total progress" indicator, like the install one.
-
-add a "category" field to setup.ini, let user choose which categories
-of packages to install, perhaps with a "custom..." button to lead to
-the current chooser.
-
-remember which packages were selected to be skipped, and which prev/curr/exp
-option was last selected, and recall them each time the chooser runs.
-
-Add friendly error reporting to simpsock.cc
-
-Add option to download sources also.
+This program should get built as part of the standard XEmacs
+make. Note however that if you use trhe cygwin build you will need a
+NON CYGWIN VERSION OF ZLIB.
+	

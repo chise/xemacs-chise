@@ -273,7 +273,7 @@ dialog_cmd (HWND h, int id, HWND hwndctl, UINT code)
 	if (IDNO == yesno (IDS_ROOT_NOCYGWIN))
 	  break;
 
-      create_xemacs_root (root_dir,
+      create_xemacs_root (backslash (root_dir),
 			  root_scope == IDC_ROOT_SYSTEM ? 1 : 0,
 			  install_type == IDC_INSTALL_NATIVE ? 1 : 0);
 

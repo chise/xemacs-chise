@@ -116,10 +116,37 @@ tar_open (char *pathname)
   return g ? 0 : 1;
 }
 
+/* For some reason the cygwin version uses a function that is not in
+   the original source. We duplicate it here - although this does mean
+   revealing some internals. */
+extern "C" {
+  z_off_t ZEXPORT tar_gzctell (gzFile file);
+  typedef struct gz_stream {
+    z_stream stream;
+    int      z_err;   /* error code for last stream operation */
+    int      z_eof;   /* set if end of input file */
+    FILE     *file;   /* .gz file */
+    Byte     *inbuf;  /* input buffer */
+    Byte     *outbuf; /* output buffer */
+    uLong    crc;     /* crc32 of uncompressed data */
+    char     *msg;    /* error message */
+    char     *path;   /* path name for debugging only */
+    int      transparent; /* 1 if input file is not a .gz file */
+    char     mode;    /* 'w' or 'r' */
+    long     startpos; /* start of compressed data in file (header skipped) */
+  } gz_stream;
+};
+
+z_off_t ZEXPORT tar_gzctell (gzFile file)
+{
+    gz_stream *s = (gz_stream *)file;
+    return ftell(s->file);
+}
+
 int
 tar_ftell ()
 {
-  return gztell (g);
+  return tar_gzctell (g);
 }
 
 static void
@@ -482,7 +509,7 @@ tar_auto (char *pathname, char **maplist)
 
   if ((tar_open (pathname)))
     return 1;
-  while (c = tar_next_file ())
+  while ((c = tar_next_file ()))
     {
       int l = strlen (c);
       for (i=0; i<nmaps; i++)

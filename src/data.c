@@ -2229,7 +2229,7 @@ vars_of_data (void)
 {
   /* This must not be staticpro'd */
   Vall_weak_lists = Qnil;
-  pdump_wire_list (&Vall_weak_lists);
+  dump_add_weak_object_chain (&Vall_weak_lists);
 
 #ifdef DEBUG_XEMACS
   DEFVAR_BOOL ("debug-issue-ebola-notices", &debug_issue_ebola_notices /*

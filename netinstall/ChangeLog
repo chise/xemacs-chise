@@ -1,3 +1,41 @@
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-12  Andy Piper  <andy@xemacs.org>
+
+	* postinstall.cc (do_postinstall): don't pick up shells if cygwin
+	isn't installed.
+
+2001-01-10  Andy Piper  <andy@xemacs.org>
+
+	* README.xemacs: deleted.
+
+	* README: updated.
+
+	* tar.cc (tar_gzctell): new function picked up from some internal
+	cygnus version of zlib.
+
+	* Makefile.in.in (LOCALCFLAGS): use -O2
+	(OBJS): reinstate autoload.
+
+2001-01-09  Andy Piper  <andy@xemacs.org>
+
+	* root.cc (dialog_cmd): backslash root dir.
+
+	* desktop.cc (do_desktop): runemacs.exe is the exe to run.
+
+	* package-net.el (package-net-batch-convert-index-to-ini): new
+	batch command.
+
+	* Makefile.in.in (setup.ini): new target. Automatically create.
+	(LOCALCFLAGS): use extra_includes.
+	(setup.ini): new target.
+	
+	* regedit.cc (create_xemacs_root): write out the package path.
+
+	* reginfo.h (XEMACS_NATIVE_ARCH_NAME): arch dir is i386 not i586
+
 2001-01-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.40 is released.
@@ -128,5 +166,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.1.2.5 2000/12/31 12:03:34 martinb Exp $
-$Revision: 1.1.2.5 $
+%%% $Id: ChangeLog,v 1.1.2.9 2001/01/12 16:11:12 andyp Exp $
+$Revision: 1.1.2.9 $

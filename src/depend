@@ -5,7 +5,7 @@ LISP_UNION_H=lisp-union.h
 #else
 LISP_UNION_H=lisp-disunion.h
 #endif
-LISP_H=lisp.h lrecord.h config.h general-slots.h symsinit.h symeval.h $(LISP_UNION_H)
+LISP_H=lisp.h config.h general-slots.h lrecord.h symeval.h symsinit.h $(LISP_UNION_H)
 #if defined(HAVE_MS_WINDOWS)
 console-msw.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-msw.h console.h events.h mule-charset.h opaque.h syscommctrl.h systime.h syswindows.h
 device-msw.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-msw.h console-stream.h console.h device.h events.h faces.h frame.h frameslots.h glyphs.h gui.h mule-charset.h objects-msw.h objects.h redisplay.h scrollbar.h specifier.h syscommctrl.h sysdep.h systime.h syswindows.h toolbar.h window.h winslots.h
@@ -67,7 +67,7 @@ EmacsManager.o: EmacsManager.h EmacsManagerP.h config.h xintrinsicp.h xmmanagerp
 EmacsShell-sub.o: EmacsShell.h EmacsShellP.h config.h xintrinsic.h xintrinsicp.h
 EmacsShell.o: EmacsShell.h ExternalShell.h config.h xintrinsicp.h
 abbrev.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h insdel.h mule-charset.h redisplay.h scrollbar.h syntax.h window.h winslots.h
-alloc.o: $(LISP_H) alloc.h backtrace.h buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console-stream.h console.h device.h dumper.h elhash.h events.h extents.h frame.h frameslots.h glyphs.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h systime.h toolbar.h window.h winslots.h
+alloc.o: $(LISP_H) backtrace.h buffer.h bufslots.h bytecode.h casetab.h chartab.h conslots.h console-stream.h console.h device.h dumper.h elhash.h events.h extents.h frame.h frameslots.h glyphs.h gui.h mule-charset.h opaque.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h systime.h toolbar.h window.h winslots.h
 alloca.o: config.h
 balloon_help.o: balloon_help.h config.h xintrinsic.h
 blocktype.o: $(LISP_H) blocktype.h
@@ -92,7 +92,7 @@ dired.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h elhash.h m
 doc.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h insdel.h keymap.h mule-charset.h sysfile.h
 doprnt.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h lstream.h mule-charset.h
 dragdrop.o: $(LISP_H) dragdrop.h
-dumper.o: $(LISP_H) alloc.h conslots.h console-stream.h console.h dump-id.h dumper.h elhash.h nt.h specifier.h sysfile.h syswindows.h
+dumper.o: $(LISP_H) conslots.h console-stream.h console.h dump-id.h dumper.h elhash.h nt.h specifier.h sysfile.h syswindows.h
 dynarr.o: $(LISP_H)
 ecrt0.o: config.h
 editfns.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h events.h extents.h frame.h frameslots.h glyphs.h gui.h insdel.h line-number.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h syspwd.h systime.h toolbar.h window.h winslots.h

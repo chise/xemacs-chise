@@ -277,7 +277,7 @@ redefining the function `format-buffers-menu-line'."
       (and (integerp buffers-tab-max-size)
 	   (> buffers-tab-max-size 1)
 	   (> (length buffers) buffers-tab-max-size)
-	   (setcdr (nthcdr buffers-tab-max-size buffers) nil))
+	   (setcdr (nthcdr (1- buffers-tab-max-size) buffers) nil))
       ;; sort buffers in group (default is most-recently-selected)
       (when buffers-tab-sort-function
 	(setq buffers (funcall buffers-tab-sort-function buffers)))

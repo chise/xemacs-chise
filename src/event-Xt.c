@@ -3290,7 +3290,7 @@ vars_of_event_Xt (void)
   dispatch_event_queue = Qnil;
   staticpro (&dispatch_event_queue);
   dispatch_event_queue_tail = Qnil;
-  pdump_wire (&dispatch_event_queue_tail);
+  dump_add_root_object (&dispatch_event_queue_tail);
 
   DEFVAR_BOOL ("x-allow-sendevents", &x_allow_sendevents /*
 *Non-nil means to allow synthetic events.  Nil means they are ignored.

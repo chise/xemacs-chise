@@ -369,6 +369,7 @@ with_widgets=''
 with_dialogs=''
 with_file_coding=''
 cpp='' cppflags='' libs='' ldflags=''
+extra_includes=''
 dynamic=''
 with_x11=''
 with_msw=''
@@ -795,6 +796,7 @@ The default is to autodetect all sound support."])
 	    a | at | ath | athe | athen | athena )	val=athena ;;
 	    n | no | non | none )			val=no     ;;
 	    y | ye | yes )				val=yes    ;;
+	    m | ms | msw )			val=msw    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
   \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
 	  esac
@@ -1864,10 +1866,15 @@ test "$extra_verbose" = "yes" && \
   have_terminfo mail_use_flock mail_use_lockf) && echo ""
 
 dnl Pick up mingw32 include path
-case "$opsys" in mingw*) mingw_include=`eval "gcc -print-file-name=libc.a"` ;
-	mingw_include=`eval "dirname $mingw_include"` ;
-	mingw_include="-I$mingw_include/../include/mingw32" ;
-	XE_APPEND($mingw_include, c_switch_system) ;;
+case "$opsys" in mingw* | cygwin*) 
+  cygwin_include=`eval "gcc -print-file-name=libc.a"` ;
+  cygwin_include=`eval "dirname $cygwin_include"` ;
+  cygwin_include="-I$cygwin_include/../include" ;
+  extra_includes="$cygwin_include/mingw32 $cygwin_include/mingw $cygwin_include" ;
+  case "$opsys" in mingw*) 
+    XE_APPEND($extra_includes, c_switch_system) ;;
+  esac
+  ;;	
 esac
 
 dnl Non-ordinary link usually requires -lc
@@ -4164,8 +4171,16 @@ if test "$with_modules" != "no"; then
   else
     dnl Find headers and libraries
     AC_CHECK_HEADER(dlfcn.h, [
-      AC_CHECK_LIB(dl, dlopen, [ have_dl=yes libdl=dl], [
-      AC_CHECK_LIB(c,  dlopen, [ have_dl=yes ])])])
+      AC_MSG_CHECKING([for dlopen in -lc])
+      AC_TRY_LINK([#include <dlfcn.h>],dnl
+	[dlopen ("", 0);], [ have_dl=yes ], [
+      AC_MSG_CHECKING([for dlopen in -ldl])
+      ac_save_LIBS="$LIBS"
+      LIBS="-ldl $LIBS"
+      AC_TRY_LINK([#include <dlfcn.h>],dnl
+	[dlopen ("", 0);], [ have_dl=yes ],
+	[LIBS="$ac_save_LIBS"])
+      ac_save_LIBS=])])
     if test -n "$have_dl"; then
       AC_DEFINE(HAVE_DLOPEN)
     else
@@ -4339,6 +4354,7 @@ AC_SUBST(pkgdir)
 AC_SUBST(statedir)
 AC_SUBST(libdir)
 AC_SUBST(mandir)
+AC_SUBST(extra_includes)
 
 AC_SUBST(prefix)
 AC_SUBST(PREFIX_USER_DEFINED)

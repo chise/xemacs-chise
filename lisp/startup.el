@@ -77,9 +77,9 @@ The frame system uses this to open frames to display messages while
 XEmacs loads the user's initialization file.")
 
 (defvar after-init-hook nil
-  "*Functions to call after loading the init file (`.emacs').
+  "*Functions to call after loading the init file.
 The call is not protected by a condition-case, so you can set `debug-on-error'
-in `.emacs', and put all the actual code on `after-init-hook'.")
+in the init file, and put all the actual code on `after-init-hook'.")
 
 (defvar term-setup-hook nil
   "*Functions to be called after loading terminal-specific Lisp code.
@@ -238,7 +238,7 @@ In addition, the")
   -debug-init           Enter the debugger if an error in the init file occurs.
   -unmapped             Do not map the initial frame.
   -no-site-file         Do not load the site-specific init file (site-start.el).
-  -no-init-file         Do not load the user-specific init file (~/.emacs).
+  -no-init-file         Do not load the user-specific init file.
   -no-early-packages	Do not process early packages.
   -no-autoloads		Do not load global symbol files (auto-autoloads) at
 			startup.  Also implies `-vanilla'.
@@ -247,8 +247,6 @@ In addition, the")
   -user-init-file <file> Use <file> as init file.
   -user-init-directory <directory> Use <directory> as init directory.
   -user <user>          Load user's init file instead of your own.
-                        Equivalent to -user-init-file ~<user>/.emacs
-                                      -user-init-directory ~<user>/.xemacs/
   -u <user>             Same as -user.\n")
    (let ((l command-switch-alist)
 	  (insert (lambda (&rest x)
@@ -437,7 +435,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 
     (unwind-protect
 	(command-line)
-      ;; Do this again, in case .emacs defined more abbreviations.
+      ;; Do this again, in case the init file defined more abbreviations.
       (setq default-directory (abbreviate-file-name default-directory))
       ;; Specify the file for recording all the auto save files of
       ;; this session.  This is used by recover-session.
@@ -452,7 +450,7 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (and term-setup-hook
 	   (run-hooks 'term-setup-hook))
       (setq term-setup-hook nil)
-      ;;      ;; Modify the initial frame based on what .emacs puts into
+      ;;      ;; Modify the initial frame based on what the init file puts into
       ;;      ;; ...-frame-alist.
       (frame-notice-user-settings)
       ;;      ;;####FSFmacs junk
@@ -705,6 +703,9 @@ After the migration, init.el/init.elc holds user-written
 initialization code.  Moreover the customize settings will be in
 custom.el.
 
+You can undo the migration at any time with
+M-x maybe-unmigrate-user-init-file.
+
 If you choose not to do this now, XEmacs will not ask you this
 question in the future.  However, you can still make XEmacs
 perform the migration at any time with M-x migrate-user-init-file.")
@@ -712,8 +713,25 @@ perform the migration at any time with M-x migrate-user-init-file.")
 	      (yes-or-no-p-minibuf (concat "Migrate init file to "
 					   user-init-directory
 					   "? "))))
-	  (migrate-user-init-file)
+	  (progn
+	    (migrate-user-init-file)
+	    (maybe-create-compatibility-dot-emacs))
 	(customize-save-variable 'load-home-init-file t))))
+
+(defun maybe-create-compatibility-dot-emacs ()
+  "Ask user if she wants to create a .emacs compatibility file."
+  (if (with-output-to-temp-buffer (help-buffer-name nil)
+	(progn
+	  (princ "The initialization code has now been migrated to the ")
+	  (princ user-init-directory)
+	  (princ "directory.
+
+For backwards compatibility with, for example, older versions of XEmacs,
+XEmacs can create a special old-style .emacs file in your home
+directory which will load the relocated initialization code.")
+	  (show-temp-buffer-in-current-frame standard-output)
+	  (yes-or-no-p-minibuf "Create compatibility .emacs? ")))
+      (create-compatibility-dot-emacs)))
 
 (defun migrate-user-init-file ()
   "Migrate the init file from the home directory."
@@ -723,13 +741,53 @@ perform the migration at any time with M-x migrate-user-init-file.")
 	(message "Creating %s directory..." user-init-directory)
 	(make-directory user-init-directory)))
   (message "Migrating custom file...")
+  (customize-set-value 'load-home-init-file nil)
   (custom-migrate-custom-file (make-custom-file-name user-init-file
 						     'force-new))
   (message "Moving init file...")
-  (rename-file user-init-file
-	       (expand-file-name user-init-file-base
-				 user-init-directory))
+  (let ((new-user-init-file (expand-file-name user-init-file-base
+					      user-init-directory)))
+    (rename-file user-init-file new-user-init-file)
+    (setq user-init-file new-user-init-file))
   (message "Migration done."))
+
+(defun create-compatibility-dot-emacs ()
+  "Create .emacs compatibility file for migrated setup."
+  (message "Creating .emacs compatibility file.")
+  (with-temp-file (expand-file-name ".emacs" "~")
+    (insert ";;; XEmacs backwards compatibility file\n")
+    (insert "(setq user-init-file\n")
+    (insert "      (expand-file-name \"init.el\"\n")
+    (insert "			(expand-file-name \".xemacs\" \"~\")))\n")
+    (insert "(setq custom-file\n")
+    (insert "      (expand-file-name \"custom.el\"\n")
+    (insert "			(expand-file-name \".xemacs\" \"~\")))\n")
+    (insert "\n")
+    (insert "(load-file user-init-file)\n")
+    (insert "(load-file custom-file)"))
+  (message "Created .emacs compatibility file."))
+
+(defun maybe-unmigrate-user-init-file ()
+  "Possibly unmigrate the user's init and custom files."
+  (interactive)
+  (let ((dot-emacs-file-name (expand-file-name ".emacs" "~")))
+    (if (and (not load-home-init-file)
+	     (or (not (file-exists-p dot-emacs-file-name))
+		 (yes-or-no-p-minibuf (concat "Overwrite " dot-emacs-file-name
+					      "? "))))
+      (unmigrate-user-init-file dot-emacs-file-name))))
+
+(defun unmigrate-user-init-file (&optional target-file-name)
+  "Unmigrate the user's init and custom files."
+  (interactive)
+  (let ((target-file-name
+	 (or target-file-name (expand-file-name ".emacs" "~"))))
+    (rename-file user-init-file target-file-name 'ok-if-already-exists)
+    (setq user-init-file target-file-name)
+    (let ((old-custom-file custom-file))
+      (custom-migrate-custom-file target-file-name)
+      (customize-save-variable 'load-home-init-file t)
+      (delete-file old-custom-file))))
 
 (defun load-user-init-file ()
   "This function actually reads the init file."
