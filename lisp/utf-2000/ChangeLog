@@ -1,3 +1,17 @@
+2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Delete
+	"read-maps" and "ad-hoc-cdp".
+
+	* ad-hoc-cdp.el: Deleted [moved to maps-conf.el].
+
+	* maps-conf.el: New file.
+
+	* read-maps.el (mapping-table-read-file): Add autoload cookie and
+	DOC-string.
+	- Move setting code to read mapping files into maps-conf.el.
+	- provide 'read-maps.
+
 2002-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R010-Legs.el (C3-2452): Unify U-0002F80E; unify
