@@ -1,5 +1,13 @@
 2004-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R026-Seal.el (U+3541): Use `<-wrong*sources' instead
+	of char-ref in `<-wrong'; add `->mistakable' for M-39379; add
+	`<-vulgar' for M-02867.
+	(U+537B): Use `->subsumptive'.
+
+	* Ideograph-R171-Slave.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
 	* Ideograph-R130-Meat.el (JSP-564C): Moved into U+8196.
 	(U+8196): Use `->subsumptive'.
 	(M-29821): Moved into U-0002F989.
