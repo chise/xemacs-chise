@@ -34,15 +34,14 @@
     (ucs		. #x20627)	; ð ˜§
     ))
 (define-char
-  '((ideographic-radical . 16)	; â¼
-    (ideographic-strokes . 1)
+  '((ideographic-	(:radical	3 ; â¼‚
+			 :strokes	2)
+			(:radical	16 ; â¼
+			 :strokes	1))
     (total-strokes	 . 3)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 276)
     (hanyu-dazidian-char . 3)
-    (->identical
-     ((chinese-cns11643-1 . #x443B)	; ø»‘¶
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (ucs		  . #x2FF5)	; â¿µ
@@ -58,6 +57,7 @@
     (japanese-jisx0208		. #x4B5E)	; ø»‡Ž±
     (korean-ksc5601		. #x5B6D)	; ø»‰°¤
     (chinese-isoir165		. #x3732)	; ø»Ž¹
+    (chinese-cns11643-1		. #x443B)	; ø»‘¶
     (japanese-jisx0208-1990	. #x4B5E)	; ø½Š´¥
     (chinese-big5		. #xA45A)	; ý¢€Š‘š
     (ideograph-daikanwa		. 01739)	; ø¸€›‹
@@ -70,10 +70,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
-     (:cdp-combinator	3
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-		 (ucs		     . #x2FF5)	; â¿µ
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
       )
      ((ucs		  . #x51E0)	; å‡ 
       )
