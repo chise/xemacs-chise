@@ -76,7 +76,7 @@
 	* Ideograph-R012-Eight.el (M-01459): Separate JX2-2328.
 	(U+5173): Unify JX2-2328.
 	- Use `=>ucs' instead of `->ucs'.
-	- Big5, KS X 1001 and GB 12345 code points.
+	- Merge Big5, KS X 1001 and GB 12345 code points.
 
 	* Ideograph-R175-Wrong.el (J83-7051): Separate J78-7051 and
 	J90-7051.
