@@ -1,3 +1,10 @@
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/u00370-Greek.el (FULLWIDTH GREEK SMALL LETTER BETA):
+	Fix typo.
+
+	* utf-2000/u00300-Combining-Diacritical-Marks.el: Reformatted.
+
 1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/u002B0-Spacing-Modifier-Letters.el,
