@@ -33,7 +33,7 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_buffer_h_
 
 #ifdef MULE
-#include "mule-charset.h"
+#include "character.h"
 #endif
 
 #include "casetab.h"

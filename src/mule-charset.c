@@ -86,6 +86,7 @@ static const struct struct_description charset_lookup_description = {
   charset_lookup_description_1
 };
 
+#ifndef UTF2000
 /* Table of number of bytes in the string representation of a character
    indexed by the first byte of that representation.
 
@@ -105,12 +106,17 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   /* 0x80 - 0x8f are for Dimension-1 official charsets */
+#ifdef CHAR_IS_UCS4
   2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3,
+#else
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+#endif
   /* 0x90 - 0x9d are for Dimension-2 official charsets */
   /* 0x9e is for Dimension-1 private charsets */
   /* 0x9f is for Dimension-2 private charsets */
   3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4
 };
+#endif
 
 Lisp_Object Vutf_2000_version;
 
@@ -1408,7 +1414,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qcomposite,		"composite");
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.2 (JR NAMBA)");
+  Vutf_2000_version = build_string("0.3 (Imamiya)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );

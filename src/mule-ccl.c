@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "lisp.h"
 #include "buffer.h"
-#include "mule-charset.h"
+#include "character.h"
 #include "mule-ccl.h"
 #include "file-coding.h"
 
