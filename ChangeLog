@@ -1,3 +1,9 @@
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Delete `--with-ucs4' option.
+	- Display message about UTF-2000 if "$with_utf_2000" = yes.
+
 1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* configure.in:

@@ -3663,11 +3663,13 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	      fastmap[j] = 1;
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
+#ifndef UTF2000
 	      if (LEADING_BYTE_PREFIX_P(j))
 		/* too complicated to calculate this right */
 		fastmap[j] = 1;
 	      else
 		{
+#endif
 		  int multi_p;
 		  Lisp_Object cset;
 
@@ -3679,7 +3681,9 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 			  == Sword || multi_p)
 			fastmap[j] = 1;
 		    }
+#ifndef UTF2000
 		}
+#endif
 	    }
 #else /* not MULE */
 	  for (j = 0; j < (1 << BYTEWIDTH); j++)
@@ -3706,11 +3710,13 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	      fastmap[j] = 1;
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
+#ifndef UTF2000
 	      if (LEADING_BYTE_PREFIX_P(j))
 		/* too complicated to calculate this right */
 		fastmap[j] = 1;
 	      else
 		{
+#endif
 		  int multi_p;
 		  Lisp_Object cset;
 
@@ -3722,7 +3728,9 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 			  != Sword || multi_p)
 			fastmap[j] = 1;
 		    }
+#ifndef UTF2000
 		}
+#endif
 	    }
 #else /* not MULE */
 	  for (j = 0; j < (1 << BYTEWIDTH); j++)

@@ -32,143 +32,124 @@ Boston, MA 02111-1307, USA.  */
 /*                    Definition of leading bytes                       */
 /************************************************************************/
 
+typedef int Charset_ID;
+
 #define MIN_LEADING_BYTE		0x80
-/* These need special treatment in a string and/or character */
-#define LEADING_BYTE_ASCII		0x8E /* Omitted in a buffer */
-#define LEADING_BYTE_CONTROL_1		0x8F /* represent normal 80-9F */
 
-/* Note the gap in each official charset can cause core dump
-   as first and last values are used to determine whether
-   charset is defined or not in non_ascii_valid_char_p */
+#define LEADING_BYTE_UCS_BMP		0x80
+#define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
 
-/** The following are for 1-byte characters in an official charset. **/
-enum LEADING_BYTE_OFFICIAL_1
-{
-  LEADING_BYTE_LATIN_ISO8859_1 = 0x81, /* Right half of ISO 8859-1 */
-  LEADING_BYTE_LATIN_ISO8859_2,   /* 0x82 Right half of ISO 8859-2 */
-  LEADING_BYTE_LATIN_ISO8859_3,   /* 0x83 Right half of ISO 8859-3 */
-  LEADING_BYTE_LATIN_ISO8859_4,   /* 0x84 Right half of ISO 8859-4 */
-  LEADING_BYTE_THAI_TIS620,       /* 0x85 TIS620-2533 */
-  LEADING_BYTE_GREEK_ISO8859_7,   /* 0x86 Right half of ISO 8859-7 */
-  LEADING_BYTE_ARABIC_ISO8859_6,  /* 0x87 Right half of ISO 8859-6 */
-  LEADING_BYTE_HEBREW_ISO8859_8,  /* 0x88 Right half of ISO 8859-8 */
-  LEADING_BYTE_KATAKANA_JISX0201, /* 0x89 Right half of JIS X0201-1976 */
-  LEADING_BYTE_LATIN_JISX0201,    /* 0x8A Left  half of JIS X0201-1976 */
-  LEADING_BYTE_CYRILLIC_ISO8859_5,/* 0x8B Right half of ISO 8859-5 */
-  LEADING_BYTE_LATIN_ISO8859_9    /* 0x8C Right half of ISO 8859-9 */
-                                  /* 0x8D unused */
-};
 
-#define MIN_LEADING_BYTE_OFFICIAL_1	LEADING_BYTE_LATIN_ISO8859_1
-#define MAX_LEADING_BYTE_OFFICIAL_1	LEADING_BYTE_LATIN_ISO8859_9
+#define CHARSET_ID_OFFSET_94		0x60
 
-#ifdef UTF2000
+#define MIN_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '0')
+#define MAX_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '?')
 
-#define LEADING_BYTE_CHINESE_BIG5_1	0xB0	/* Big5 Level 1 */
-#define LEADING_BYTE_CHINESE_BIG5_2	0xB1	/* Big5 Level 2 */
-#define MIN_LEADING_BYTE_PRIVATE_2	0xB0
-#define MAX_LEADING_BYTE_PRIVATE_2	0xBF
+/* ISO 646 IRV */
+#define LEADING_BYTE_ASCII		(CHARSET_ID_OFFSET_94 + 'B')
 
-/** The following are for 2-byte characters in an official charset. **/
+/* Right half of JIS X0201-1976 */
+#define LEADING_BYTE_KATAKANA_JISX0201	(CHARSET_ID_OFFSET_94 + 'I')
 
-#define LEADING_BYTE_JAPANESE_JISX0208_1978 0xC0/* Japanese JIS X0208-1978 */
-#define LEADING_BYTE_CHINESE_GB2312	0xC1	/* Chinese Hanzi GB2312-1980 */
-#define LEADING_BYTE_JAPANESE_JISX0208	0xC2	/* Japanese JIS X0208-1983 */
-#define LEADING_BYTE_KOREAN_KSC5601	0xC3	/* Hangul KS C5601-1987 */
-#define LEADING_BYTE_JAPANESE_JISX0212	0xC4	/* Japanese JIS X0212-1990 */
-#define LEADING_BYTE_CHINESE_CCITT_GB	0xC5	/* CCITT Extended GB */
-#define LEADING_BYTE_CHINESE_CNS11643_1	0xC7	/* Chinese CNS11643 Set 1 */
-#define LEADING_BYTE_CHINESE_CNS11643_2	0xC8	/* Chinese CNS11643 Set 2 */
-#define LEADING_BYTE_CHINESE_CNS11643_3	0xC9	/* Chinese CNS11643 Set 3 */
-#define LEADING_BYTE_CHINESE_CNS11643_4	0xCA	/* Chinese CNS11643 Set 4 */
-#define LEADING_BYTE_CHINESE_CNS11643_5	0xCB	/* Chinese CNS11643 Set 5 */
-#define LEADING_BYTE_CHINESE_CNS11643_6	0xCC	/* Chinese CNS11643 Set 6 */
-#define LEADING_BYTE_CHINESE_CNS11643_7	0xCD	/* Chinese CNS11643 Set 7 */
-#define LEADING_BYTE_KOREAN_KPS9566	0xCE	/* DPRK Hangul KPS 9566-1997 */
+/* Left  half of JIS X0201-1976 */
+#define LEADING_BYTE_LATIN_JISX0201	(CHARSET_ID_OFFSET_94 + 'J')
+
+
+#define CHARSET_ID_OFFSET_96		0x70
+
+/* Right half of ISO 8859-1 */
+#define LEADING_BYTE_LATIN_ISO8859_1	(CHARSET_ID_OFFSET_96 + 'A')
+
+/* Right half of ISO 8859-2 */
+#define LEADING_BYTE_LATIN_ISO8859_2	(CHARSET_ID_OFFSET_96 + 'B')
+
+/* Right half of ISO 8859-3 */
+#define LEADING_BYTE_LATIN_ISO8859_3	(CHARSET_ID_OFFSET_96 + 'C')
+
+/* Right half of ISO 8859-4 */
+#define LEADING_BYTE_LATIN_ISO8859_4	(CHARSET_ID_OFFSET_96 + 'D')
+
+/* Right half of ISO 8859-7 */
+#define LEADING_BYTE_GREEK_ISO8859_7	(CHARSET_ID_OFFSET_96 + 'F')
+
+/* Right half of ISO 8859-6 */
+#define LEADING_BYTE_ARABIC_ISO8859_6	(CHARSET_ID_OFFSET_96 + 'G')
+
+/* Right half of ISO 8859-8 */
+#define LEADING_BYTE_HEBREW_ISO8859_8	(CHARSET_ID_OFFSET_96 + 'H')
+
+/* Right half of ISO 8859-5 */
+#define LEADING_BYTE_CYRILLIC_ISO8859_5	(CHARSET_ID_OFFSET_96 + 'L')
+
+/* Right half of ISO 8859-9 */
+#define LEADING_BYTE_LATIN_ISO8859_9	(CHARSET_ID_OFFSET_96 + 'M')
+
+/* TIS620-2533 */
+#define LEADING_BYTE_THAI_TIS620	(CHARSET_ID_OFFSET_96 + 'T')
+
+
+#define MIN_LEADING_BYTE_PRIVATE_1	0xD0
+#define MAX_LEADING_BYTE_PRIVATE_1	0xDF
+
+
+#define CHARSET_ID_OFFSET_94x94		0xB0
+
+/* Big5 Level 1 */
+#define LEADING_BYTE_CHINESE_BIG5_1	('0' + CHARSET_ID_OFFSET_94x94)
+
+/* Big5 Level 2 */
+#define LEADING_BYTE_CHINESE_BIG5_2	('1' + CHARSET_ID_OFFSET_94x94)
+
+#define MIN_LEADING_BYTE_PRIVATE_2	('0' + CHARSET_ID_OFFSET_94x94)
+#define MAX_LEADING_BYTE_PRIVATE_2	('?' + CHARSET_ID_OFFSET_94x94)
+
+/* Japanese JIS X0208-1978 */
+#define LEADING_BYTE_JAPANESE_JISX0208_1978 \
+					('@' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese Hanzi GB2312-1980 */
+#define LEADING_BYTE_CHINESE_GB2312	('A' + CHARSET_ID_OFFSET_94x94)
+
+/* Japanese JIS X0208-1983 */
+#define LEADING_BYTE_JAPANESE_JISX0208	('B' + CHARSET_ID_OFFSET_94x94)
+
+/* Hangul KS C5601-1987 */
+#define LEADING_BYTE_KOREAN_KSC5601	('C' + CHARSET_ID_OFFSET_94x94)
+
+/* Japanese JIS X0212-1990 */
+#define LEADING_BYTE_JAPANESE_JISX0212	('D' + CHARSET_ID_OFFSET_94x94)
+
+/* CCITT Extended GB */
+#define LEADING_BYTE_CHINESE_CCITT_GB	('E' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 1 */
+#define LEADING_BYTE_CHINESE_CNS11643_1	('G' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 2 */
+#define LEADING_BYTE_CHINESE_CNS11643_2	('H' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 3 */
+#define LEADING_BYTE_CHINESE_CNS11643_3	('I' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 4 */
+#define LEADING_BYTE_CHINESE_CNS11643_4	('J' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 5 */
+#define LEADING_BYTE_CHINESE_CNS11643_5	('K' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 6 */
+#define LEADING_BYTE_CHINESE_CNS11643_6	('L' + CHARSET_ID_OFFSET_94x94)
+
+/* Chinese CNS11643 Set 7 */
+#define LEADING_BYTE_CHINESE_CNS11643_7	('M' + CHARSET_ID_OFFSET_94x94)
+
+/* DPRK Hangul KPS 9566-1997 */
+#define LEADING_BYTE_KOREAN_KPS9566	('N' + CHARSET_ID_OFFSET_94x94)
 
 #define MIN_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_JAPANESE_JISX0208_1978
 #define MAX_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_KOREAN_KPS9566
 
-/** The following are for 1- and 2-byte characters in a private charset. **/
-
-#define PRE_LEADING_BYTE_PRIVATE_1	0x120	/* 1-byte char-set */
-#define PRE_LEADING_BYTE_PRIVATE_2	0x121	/* 2-byte char-set */
-
-#define MIN_LEADING_BYTE_PRIVATE_1	0x0D0
-#define MAX_LEADING_BYTE_PRIVATE_1	0x11f
-
-#else
-
-/** The following are for 2-byte characters in an official charset. **/
-enum LEADING_BYTE_OFFICIAL_2
-{
-  LEADING_BYTE_JAPANESE_JISX0208_1978 = 0x90, /* Japanese JIS X0208-1978 */
-  LEADING_BYTE_CHINESE_GB2312,           /* 0x91 Chinese Hanzi GB2312-1980 */
-  LEADING_BYTE_JAPANESE_JISX0208,        /* 0x92 Japanese JIS X0208-1983 */
-  LEADING_BYTE_KOREAN_KSC5601,           /* 0x93 Hangul KS C5601-1987 */
-  LEADING_BYTE_JAPANESE_JISX0212,        /* 0x94 Japanese JIS X0212-1990 */
-  LEADING_BYTE_CHINESE_CCITT_GB,	 /* 0x95 CCITT Extended GB */
-  LEADING_BYTE_CHINESE_BIG5_1,           /* 0x96 Big5 Level 1 */
-  LEADING_BYTE_CHINESE_CNS11643_1,       /* 0x97 Chinese CNS11643 Set 1 */
-  LEADING_BYTE_CHINESE_CNS11643_2,       /* 0x98 Chinese CNS11643 Set 2 */
-  LEADING_BYTE_CHINESE_CNS11643_3,	 /* 0x99 Chinese CNS11643 Set 3 */
-  LEADING_BYTE_CHINESE_CNS11643_4,	 /* 0x9A Chinese CNS11643 Set 4 */
-  LEADING_BYTE_CHINESE_CNS11643_5,	 /* 0x9B Chinese CNS11643 Set 5 */
-  LEADING_BYTE_CHINESE_CNS11643_6,	 /* 0x9C Chinese CNS11643 Set 6 */
-  LEADING_BYTE_CHINESE_CNS11643_7,	 /* 0x9D Chinese CNS11643 Set 7 */
-  LEADING_BYTE_CHINESE_BIG5_2,           /* 0x9D Big5 Level 2 */
-  LEADING_BYTE_KOREAN_KPS9566		 /* 0x9E DPRK Hangul KPS 9566-1997 */
-                                         /* 0x99 unused */
-                                         /* 0x9A unused */
-                                         /* 0x9B unused */
-                                         /* 0x9C unused */
-};
-
-#define MIN_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_JAPANESE_JISX0208_1978
-#define MAX_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_CHINESE_BIG5_2
-
-/** The following are for 1- and 2-byte characters in a private charset. **/
-
-#define PRE_LEADING_BYTE_PRIVATE_1	0x9E	/* 1-byte char-set */
-#define PRE_LEADING_BYTE_PRIVATE_2	0x9F	/* 2-byte char-set */
-
-#define MIN_LEADING_BYTE_PRIVATE_1	0xA0
-#define MAX_LEADING_BYTE_PRIVATE_1	0xEF
-#define MIN_LEADING_BYTE_PRIVATE_2	0xF0
-#define MAX_LEADING_BYTE_PRIVATE_2	0xFF
-
-#endif
-
 #define NUM_LEADING_BYTES 256
-
-
-/************************************************************************/
-/*                    Operations on leading bytes                       */
-/************************************************************************/
-
-/* Is this leading byte for a private charset? */
-
-#ifndef UTF2000
-#define LEADING_BYTE_PRIVATE_P(lb) ((lb) >= MIN_LEADING_BYTE_PRIVATE_1)
-#endif
-
-/* Is this a prefix for a private leading byte? */
-
-INLINE_HEADER int LEADING_BYTE_PREFIX_P (Bufbyte lb);
-INLINE_HEADER int
-LEADING_BYTE_PREFIX_P (Bufbyte lb)
-{
-  return (lb == PRE_LEADING_BYTE_PRIVATE_1 ||
-	  lb == PRE_LEADING_BYTE_PRIVATE_2);
-}
-
-/* Given a private leading byte, return the leading byte prefix stored
-   in a string. */
-
-#define PRIVATE_LEADING_BYTE_PREFIX(lb)	\
-  ((unsigned int) (lb) < MIN_LEADING_BYTE_PRIVATE_2 ?	\
-   PRE_LEADING_BYTE_PRIVATE_1 :		\
-   PRE_LEADING_BYTE_PRIVATE_2)
 
 
 /************************************************************************/
@@ -191,20 +172,12 @@ LEADING_BYTE_PREFIX_P (Bufbyte lb)
 
 /* Does BYTE represent the first byte of a character? */
 
-#ifdef UTF2000
 INLINE_HEADER int BUFBYTE_FIRST_BYTE_P (Bufbyte byte);
 INLINE_HEADER int
 BUFBYTE_FIRST_BYTE_P (Bufbyte byte)
 {
   return (byte <= 0x7f) || (0xc0 <= byte);
 }
-#else
-#define BUFBYTE_FIRST_BYTE_P(byte) ((byte) < 0xA0)
-#endif
-
-/* Does BYTE represent the first byte of a multi-byte character? */
-
-#define BUFBYTE_LEADING_BYTE_P(byte) BYTE_C1_P (byte)
 
 
 /************************************************************************/
@@ -262,10 +235,12 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
-#define CHARSET_TYPE_94    0	/* This charset includes 94    characters. */
-#define CHARSET_TYPE_96    1	/* This charset includes 96    characters. */
-#define CHARSET_TYPE_94X94 2	/* This charset includes 94x94 characters. */
-#define CHARSET_TYPE_96X96 3	/* This charset includes 96x96 characters. */
+#define CHARSET_TYPE_94      0 /* This charset includes 94    characters. */
+#define CHARSET_TYPE_96      1 /* This charset includes 96    characters. */
+#define CHARSET_TYPE_94X94   2 /* This charset includes 94x94 characters. */
+#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96 characters. */
+#define CHARSET_TYPE_128X128 4 /* This charset includes 128x128 characters. */
+#define CHARSET_TYPE_256X256 5 /* This charset includes 256x256 characters. */
 
 #define CHARSET_LEFT_TO_RIGHT	0
 #define CHARSET_RIGHT_TO_LEFT	1
@@ -290,10 +265,6 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 
 
-#ifdef LEADING_BYTE_PRIVATE_P
-#define CHARSET_PRIVATE_P(cs) LEADING_BYTE_PRIVATE_P (CHARSET_LEADING_BYTE (cs))
-#endif
-
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
 #define XCHARSET_SHORT_NAME(cs)	  CHARSET_SHORT_NAME   (XCHARSET (cs))
@@ -310,9 +281,6 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET_CCL_PROGRAM(cs)  CHARSET_CCL_PROGRAM  (XCHARSET (cs))
 #define XCHARSET_DIMENSION(cs)	  CHARSET_DIMENSION    (XCHARSET (cs))
 #define XCHARSET_CHARS(cs)	  CHARSET_CHARS        (XCHARSET (cs))
-#ifdef CHARSET_PRIVATE_P
-#define XCHARSET_PRIVATE_P(cs)	  CHARSET_PRIVATE_P    (XCHARSET (cs))
-#endif
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 
@@ -320,15 +288,16 @@ struct charset_lookup {
   /* Table of charsets indexed by leading byte. */
   Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
-  /* Table of charsets indexed by type/final-byte/direction. */
-  Lisp_Object charset_by_attributes[4][128][2];
+  /* Table of charsets indexed by type/final-byte. */
+  Lisp_Object charset_by_attributes[4][128];
+
   Bufbyte next_allocated_1_byte_leading_byte;
   Bufbyte next_allocated_2_byte_leading_byte;
 };
 
-INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
+INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (Charset_ID lb);
 INLINE_HEADER Lisp_Object
-CHARSET_BY_LEADING_BYTE (int lb)
+CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 {
   extern struct charset_lookup *chlook;
 
@@ -350,21 +319,11 @@ CHARSET_BY_ATTRIBUTES (unsigned int type, unsigned char final, int dir)
   extern struct charset_lookup *chlook;
 
   type_checking_assert (type  < countof (chlook->charset_by_attributes) &&
-			final < countof (chlook->charset_by_attributes[0]) &&
-			dir   < countof (chlook->charset_by_attributes[0][0]));
-  return chlook->charset_by_attributes[type][final][dir];
+			final < countof (chlook->charset_by_attributes[0]));
+  return chlook->charset_by_attributes[type][final];
 }
 
-/* Table of number of bytes in the string representation of a character
-   indexed by the first byte of that representation.
-
-   This value can be derived in other ways -- e.g. something like
-   XCHARSET_REP_BYTES (CHARSET_BY_LEADING_BYTE (first_byte))
-   but it's faster this way. */
-extern const Bytecount rep_bytes_by_first_byte[0xA0];
-
 /* Number of bytes in the string representation of a character. */
-#ifdef UTF2000
 INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
 INLINE_HEADER int
 REP_BYTES_BY_FIRST_BYTE (int fb)
@@ -382,15 +341,6 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
   else
     return 6;
 }
-#else /* MULE */
-INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
-INLINE_HEADER int
-REP_BYTES_BY_FIRST_BYTE (int fb)
-{
-  type_checking_assert (fb < 0xA0);
-  return rep_bytes_by_first_byte[fb];
-}
-#endif
 
 
 /************************************************************************/
@@ -425,6 +375,16 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 #define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF60
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
+#define MIN_CHAR_94		0xE90940
+#define MAX_CHAR_94		(MIN_CHAR_94 + 94 * 80 - 1)
+#define MIN_CHAR_96		(MIN_CHAR_94 + 94 * 80)
+#define MAX_CHAR_96		(MIN_CHAR_96 + 96 * 80 - 1)
+
+#define MIN_CHAR_94x94		0xE9F6C0
+#define MAX_CHAR_94x94		(MIN_CHAR_94x94 + 94 * 94 * 80 - 1)
+#define MIN_CHAR_96x96		0xF4C000
+#define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
+
 /* Macros to access each field of a character code of C.  */
 
 #define CHAR_FIELD1(c) (((c) & CHAR_FIELD1_MASK) >> 14)
@@ -437,71 +397,12 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 
 /* Converting between field values and leading bytes.  */
 
-#define FIELD2_TO_OFFICIAL_LEADING_BYTE 0x80
-
-#ifdef UTF2000
-
-#define FIELD1_TO_PRIVATE_LEADING_BYTE  0x80
-#define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x80
-#define FIELD2_TO_PRIVATE_LEADING_BYTE  0xb0
-
-#else
-
-#define FIELD1_TO_PRIVATE_LEADING_BYTE  0xc0
-#define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x50
-#define FIELD2_TO_PRIVATE_LEADING_BYTE  0x80
-
-#endif
-
-INLINE_HEADER Emchar CHAR_FIELD2 (Emchar c);
-INLINE_HEADER Emchar
-CHAR_FIELD2 (Emchar c)
-{
-  if( (MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK) )
-    return LEADING_BYTE_GREEK_ISO8859_7
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC) )
-    return LEADING_BYTE_CYRILLIC_ISO8859_5
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW) )
-    return LEADING_BYTE_HEBREW_ISO8859_8
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI) )
-    return LEADING_BYTE_THAI_TIS620
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	   && (c <= MAX_CHAR_HALFWIDTH_KATAKANA) )
-    return LEADING_BYTE_KATAKANA_JISX0201
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else
-    return CHAR_FIELD2_INTERNAL(c);
-}
-
-INLINE_HEADER Emchar CHAR_FIELD3 (Emchar c);
-INLINE_HEADER Emchar
-CHAR_FIELD3 (Emchar c)
-{
-  if( (MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK) )
-    return c - MIN_CHAR_GREEK + 0x20;
-  else if( (MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC) )
-    return c - MIN_CHAR_CYRILLIC + 0x20;
-  else if( (MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW) )
-    return c - MIN_CHAR_HEBREW + 0x20;
-  else if( (MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI) )
-    return c - MIN_CHAR_THAI + 0x20;
-  else if( (MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	   && (c <= MAX_CHAR_HALFWIDTH_KATAKANA) )
-    return c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
-  else
-    return CHAR_FIELD3_INTERNAL(c);
-}
+#define FIELD1_TO_PRIVATE_LEADING_BYTE  CHARSET_ID_OFFSET_94x94
+#define FIELD1_TO_OFFICIAL_LEADING_BYTE CHARSET_ID_OFFSET_94x94
+#define FIELD2_TO_PRIVATE_LEADING_BYTE  (MIN_LEADING_BYTE_PRIVATE_1 - 32)
+#define FIELD2_TO_OFFICIAL_LEADING_BYTE LEADING_BYTE_ASCII
 
 /* Minimum and maximum allowed values for the fields. */
-
-#define MIN_CHAR_FIELD2_OFFICIAL \
-  (MIN_LEADING_BYTE_OFFICIAL_1 - FIELD2_TO_OFFICIAL_LEADING_BYTE)
-#define MAX_CHAR_FIELD2_OFFICIAL \
-  (MAX_LEADING_BYTE_OFFICIAL_1 - FIELD2_TO_OFFICIAL_LEADING_BYTE)
 
 #define MIN_CHAR_FIELD1_OFFICIAL \
   (MIN_LEADING_BYTE_OFFICIAL_2 - FIELD1_TO_OFFICIAL_LEADING_BYTE)
@@ -522,62 +423,16 @@ CHAR_FIELD3 (Emchar c)
 
 #define MULE_CHAR_PRIVATE_OFFSET (0xe0 << 16)
 
-#define MIN_CHAR_OFFICIAL_TYPE9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD2_OFFICIAL <<  7))
 #define MIN_CHAR_PRIVATE_TYPE9N \
   (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD2_PRIVATE  <<  7))
+#define MAX_CHAR_PRIVATE_TYPE9N \
+  (MULE_CHAR_PRIVATE_OFFSET | (MAX_CHAR_FIELD2_PRIVATE  <<  7) | 0x7f)
 #define MIN_CHAR_PRIVATE_TYPE9NX9N \
   (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_PRIVATE  << 14))
 #define MIN_CHAR_OFFICIAL_TYPE9NX9N \
   (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_OFFICIAL << 14))
 #define MIN_CHAR_COMPOSITION \
   (MULE_CHAR_PRIVATE_OFFSET | (0x7f << 14))
-
-/* Leading byte of a character.
-
-   NOTE: This takes advantage of the fact that
-   FIELD2_TO_OFFICIAL_LEADING_BYTE and
-   FIELD2_TO_PRIVATE_LEADING_BYTE are the same.
-   */
-
-INLINE_HEADER Bufbyte CHAR_LEADING_BYTE (Emchar c);
-INLINE_HEADER Bufbyte
-CHAR_LEADING_BYTE (Emchar c)
-{
-  if (CHAR_ASCII_P (c))
-    return LEADING_BYTE_ASCII;
-  else if (c < 0xA0)
-    return LEADING_BYTE_CONTROL_1;
-  else if (c <= 0xff)
-    return LEADING_BYTE_LATIN_ISO8859_1;
-  else if (c <= MAX_CHAR_GREEK)
-    return LEADING_BYTE_GREEK_ISO8859_7;
-  else if (c <= MAX_CHAR_CYRILLIC)
-    return LEADING_BYTE_CYRILLIC_ISO8859_5;
-  else if (c <= MAX_CHAR_HEBREW)
-    return LEADING_BYTE_HEBREW_ISO8859_8;
-  else if (c <= MAX_CHAR_THAI)
-    return LEADING_BYTE_THAI_TIS620;
-  else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
-    return LEADING_BYTE_KATAKANA_JISX0201;
-  else if (c < MIN_CHAR_PRIVATE_TYPE9NX9N)
-    return CHAR_FIELD2 (c) + FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if (c < MIN_CHAR_OFFICIAL_TYPE9NX9N)
-    return CHAR_FIELD1 (c) + FIELD1_TO_PRIVATE_LEADING_BYTE;
-  else if (c < MIN_CHAR_COMPOSITION)
-    return CHAR_FIELD1 (c) + FIELD1_TO_OFFICIAL_LEADING_BYTE;
-  else
-    {
-#ifdef ENABLE_COMPOSITE_CHARS
-      return LEADING_BYTE_COMPOSITE;
-#else
-      abort();
-      return 0;
-#endif /* ENABLE_COMPOSITE_CHARS */
-    }
-}
-
-#define CHAR_CHARSET(c) CHARSET_BY_LEADING_BYTE (CHAR_LEADING_BYTE (c))
 
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2.
@@ -610,57 +465,184 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
     else
       return 32;
-#ifdef ENABLE_COMPOSITE_CHARS
-  else if (EQ (charset, Vcharset_composite))
-    return (0x1F << 14) | ((c1) << 7) | (c2);
-#endif
   else if (XCHARSET_DIMENSION (charset) == 1)
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | (c1);
-#ifdef UTF2000
+    {
+      switch (XCHARSET_CHARS (charset))
+	{
+	case 94:
+	  return MIN_CHAR_94
+	    + (XCHARSET_FINAL (charset) - '0') * 94 + (c1 - 33);
+	case 96:
+	  return MIN_CHAR_96
+	    + (XCHARSET_FINAL (charset) - '0') * 96 + (c1 - 32);
+	default:
+	  abort ();
+	}
+    }
   else
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
-#else
-  else if (!XCHARSET_PRIVATE_P (charset))
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
-  else
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
-#endif
+    {
+      switch (XCHARSET_CHARS (charset))
+	{
+	case 94:
+	  return MIN_CHAR_94x94
+	    + (XCHARSET_FINAL (charset) - '0') * 94 * 94
+	    + (c1 - 33) * 94 + (c2 - 33);
+	case 96:
+	  return MIN_CHAR_96x96
+	    + (XCHARSET_FINAL (charset) - '0') * 96 * 96
+	    + (c1 - 32) * 96 + (c2 - 32);
+	default:
+	  abort ();
+	}
+    }
 }
 
-/* The charset of character C is set to CHARSET, and the
-   position-codes of C are set to C1 and C2.  C2 of TYPE9N character
-   is 0.  */
-
-/* BREAKUP_CHAR_1_UNSAFE assumes that the charset has already been
-   calculated, and just computes c1 and c2.
-
-   BREAKUP_CHAR also computes and stores the charset. */
-
-#define BREAKUP_CHAR_1_UNSAFE(c, charset, c1, c2)	\
-  XCHARSET_DIMENSION (charset) == 1			\
-  ? ((c1) = CHAR_FIELD3 (c), (c2) = 0)			\
-  : ((c1) = CHAR_FIELD2 (c),				\
-     (c2) = CHAR_FIELD3 (c))
+extern Charset_ID    latin_a_char_to_charset[128];
+extern unsigned char latin_a_char_to_byte1[128];
+extern unsigned char latin_a_char_to_byte2[128];
 
 INLINE_HEADER void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  *charset = CHAR_CHARSET (c);
-  BREAKUP_CHAR_1_UNSAFE (c, *charset, *c1, *c2);
+  if (CHAR_ASCII_P (c))
+    {
+      *charset = Vcharset_ascii;
+      *c1 = c;
+      *c2 = 0;
+    }
+  else if (c < 0xA0)
+    {
+      *charset = Vcharset_control_1;
+      *c1 = CHAR_FIELD3_INTERNAL (c);
+      *c2 = 0;
+    }
+  else if (c <= 0xff)
+    {
+      *charset = Vcharset_latin_iso8859_1;
+      *c1 = CHAR_FIELD3_INTERNAL (c);
+      *c2 = 0;
+    }
+  else if (c <= 0x17f)
+    {
+      *charset
+	= CHARSET_BY_LEADING_BYTE (latin_a_char_to_charset[c - 0x100]);
+      *c1 = latin_a_char_to_byte1[c - 0x100];
+      *c2 = latin_a_char_to_byte2[c - 0x100];
+    }
+  else if (c < MIN_CHAR_GREEK)
+    {
+      printf("not break up u+%x", c);
+      abort ();
+    }
+  else if (c <= MAX_CHAR_GREEK)
+    {
+      *charset = Vcharset_greek_iso8859_7;
+      *c1 = c - MIN_CHAR_GREEK + 0x20;
+      *c2 = 0;
+    }
+  else if (c < MIN_CHAR_CYRILLIC)
+    {
+      printf("not break up u+%x", c);
+      abort ();
+    }
+  else if (c <= MAX_CHAR_CYRILLIC)
+    {
+      *charset = Vcharset_cyrillic_iso8859_5;
+      *c1 = c - MIN_CHAR_CYRILLIC + 0x20;
+      *c2 = 0;
+    }
+  else if (c < MIN_CHAR_HEBREW)
+    {
+      printf("not break up u+%x", c);
+      abort ();
+    }
+  else if (c <= MAX_CHAR_HEBREW)
+    {
+      *charset = Vcharset_hebrew_iso8859_8;
+      *c1 = c - MIN_CHAR_HEBREW + 0x20;
+      *c2 = 0;
+    }
+  else if (c < MIN_CHAR_THAI)
+    {
+      printf("not break up u+%x", c);
+      abort ();
+    }
+  else if (c <= MAX_CHAR_THAI)
+    {
+      *charset = Vcharset_thai_tis620;
+      *c1 = c - MIN_CHAR_THAI + 0x20;
+      *c2 = 0;
+    }
+  else if (c < MIN_CHAR_HALFWIDTH_KATAKANA)
+    {
+      printf("not break up u+%x", c);
+      abort ();
+    }
+  else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
+    {
+      *charset = Vcharset_katakana_jisx0201;
+      *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
+      *c2 = 0;
+    }
+  else if (c <= MAX_CHAR_94)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
+				 ((c - MIN_CHAR_94) / 94) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = ((c - MIN_CHAR_94) % 94) + 33;
+      *c2 = 0;
+    }
+  else if (c <= MAX_CHAR_96)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
+				 ((c - MIN_CHAR_96) / 96) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = ((c - MIN_CHAR_96) % 96) + 32;
+      *c2 = 0;
+    }
+  else if (c <= MAX_CHAR_94x94)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
+				 ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = (((c - MIN_CHAR_94x94) / 94) % 94) + 33;
+      *c2 = ((c - MIN_CHAR_94x94) % 94) + 33;
+    }
+  else if (c <= MAX_CHAR_96x96)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96X96,
+				 ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = (((c - MIN_CHAR_96x96) / 96) % 96) + 32;
+      *c2 = ((c - MIN_CHAR_96x96) % 96) + 32;
+    }
+  else
+    {
+      printf("u+%x", c);
+      abort();
+    }
 }
 
 #define BREAKUP_CHAR(c, charset, c1, c2) \
   breakup_char_1 (c, &(charset), &(c1), &(c2))
 
+INLINE_HEADER Lisp_Object CHAR_CHARSET (Emchar c);
+INLINE_HEADER Lisp_Object
+CHAR_CHARSET (Emchar c)
+{
+  Lisp_Object charset;
+  int c1, c2;
+
+  BREAKUP_CHAR(c, charset, c1, c2);
+  return charset;
+}
+
+#define CHAR_LEADING_BYTE(c) (XCHARSET_LEADING_BYTE(CHAR_CHARSET(c)))
 
 
 #ifdef ENABLE_COMPOSITE_CHARS
@@ -683,6 +665,7 @@ EXFUN (Fget_charset, 1);
 extern Lisp_Object Vcharset_chinese_big5_1;
 extern Lisp_Object Vcharset_chinese_big5_2;
 extern Lisp_Object Vcharset_japanese_jisx0208;
+extern Lisp_Object Vcharset_japanese_jisx0212;
 
 Emchar Lstream_get_emchar_1 (Lstream *stream, int first_char);
 int Lstream_fput_emchar (Lstream *stream, Emchar ch);

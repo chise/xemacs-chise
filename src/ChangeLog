@@ -1,6 +1,194 @@
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-canna.c (c2mu): Use `MAKE_CHAR',
+	`Vcharset_japanese_jisx0212' and `Vcharset_japanese_jisx0208'
+	instead of `MULE_CHAR_PRIVATE_OFFSET',
+	`LEADING_BYTE_JAPANESE_JISX0212', `LEADING_BYTE_JAPANESE_JISX0208'
+	and `FIELD1_TO_OFFICIAL_LEADING_BYTE'.
+	(m2c): Use `BREAKUP_CHAR' and `XCHARSET_FINAL'.
+
+	* character.h (Vcharset_japanese_jisx0212): New variable
+	definition.
+
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_ucs_bmp): New variable in UTF-2000.
+	(charset_by_attributes): Delete array about direction.
+	(latin_a_char_to_charset): New variable in UTF-2000.
+	(latin_a_char_to_byte1): New variable in UTF-2000.
+	(latin_a_char_to_byte2): New variable in UTF-2000.
+	(Qucs_bmp): New variable.
+	(next_allocated_1_byte_leading_byte): Use `Charset_ID' instead of
+	`Bufbyte'.
+	(next_allocated_2_byte_leading_byte): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(make_charset): Likewise; add `CHARSET_TYPE_128X128' and
+	`CHARSET_TYPE_256X256' in UTF-2000; modify for
+	`charset_by_attributes'.
+	(get_unallocated_leading_byte): Use `Charset_ID' instead of `int'.
+	(char-charset): Use `CHAR_CHARSET' instead of `CHAR_LEADING_BYTE'
+	and `CHARSET_BY_LEADING_BYTE'.
+	(syms_of_mule_charset): Set up `ucs-bmp'; move setting of
+	`utf-2000-version' to `vars_of_mule_charset'.
+	(vars_of_mule_charset): Modify for `charset_by_attributes'; don't
+	define `leading-code-private-11' in UTF-2000; move setting of
+	`utf-2000-version' from `syms_of_mule_charset'.
+	(complex_vars_of_mule_charset): Set up charset `ucs-bmp' in
+	UTF-2000.
+
+	* character.h (Charset_ID): New type.
+	(LEADING_BYTE_UCS_BMP): New macro.
+	(LEADING_BYTE_CONTROL_1): Changed from 0x8F to 0x81.
+	(CHARSET_ID_OFFSET_94): New macro.
+	(MIN_CHARSET_ID_PRIVATE_94): New macro.
+	(MAX_CHARSET_ID_PRIVATE_94): New macro.
+	(LEADING_BYTE_ASCII): Changed to use CHARSET_ID_OFFSET_94 and
+	final-byte.
+	(LEADING_BYTE_KATAKANA_JISX0201): Likewise.
+	(LEADING_BYTE_LATIN_JISX0201): Likewise.
+	(CHARSET_ID_OFFSET_96): New macro.
+	(LEADING_BYTE_LATIN_ISO8859_1): Changed to use
+	CHARSET_ID_OFFSET_96 and final-byte.
+	(LEADING_BYTE_LATIN_ISO8859_2): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_3): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_4): Likewise.
+	(LEADING_BYTE_GREEK_ISO8859_7): Likewise.
+	(LEADING_BYTE_ARABIC_ISO8859_6): Likewise.
+	(LEADING_BYTE_HEBREW_ISO8859_8): Likewise.
+	(LEADING_BYTE_CYRILLIC_ISO8859_5): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_9): Likewise.
+	(LEADING_BYTE_THAI_TIS620): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_1): Changed from 0x0D0 to 0xD0.
+	(MAX_LEADING_BYTE_PRIVATE_1): Changed from 0x11f to 0xDF.
+	(CHARSET_ID_OFFSET_94x94): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to use
+	CHARSET_ID_OFFSET_94x94 and final-byte.
+	(LEADING_BYTE_CHINESE_BIG5_2): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_2): Likewise.
+	(MAX_LEADING_BYTE_PRIVATE_2): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208_1978): Likewise.
+	(LEADING_BYTE_CHINESE_GB2312): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208): Likewise.
+	(LEADING_BYTE_KOREAN_KSC5601): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0212): Likewise.
+	(LEADING_BYTE_CHINESE_CCITT_GB): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_*): Likewise.
+	(LEADING_BYTE_KOREAN_KPS9566): Likewise.
+	(CHARSET_TYPE_128X128): New macro.
+	(CHARSET_TYPE_256X256): New macro.
+	(XCHARSET_PRIVATE_P): Delete unconditionally.
+	(charset_by_attributes): Delete array about direction.
+	(CHARSET_BY_LEADING_BYTE): Use `Charset_ID' instead of `int'.
+	(CHARSET_BY_ATTRIBUTES): Modify for `charset_by_attributes'.
+	(MIN_CHAR_94): New macro.
+	(MAX_CHAR_94): New macro.
+	(MIN_CHAR_96): New macro.
+	(MAX_CHAR_96): New macro.
+	(MIN_CHAR_94x94): New macro.
+	(MAX_CHAR_94x94): New macro.
+	(MIN_CHAR_96x96): New macro.
+	(MAX_CHAR_96x96): New macro.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Use `CHARSET_ID_OFFSET_94x94'.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Use `(MIN_LEADING_BYTE_PRIVATE_1
+	- 32)'.
+	(FIELD2_TO_OFFICIAL_LEADING_BYTE): Use `LEADING_BYTE_ASCII'.
+	(MIN_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MAX_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Deleted.
+	(MAX_CHAR_PRIVATE_TYPE9N): Changed.
+	(MAKE_CHAR): Use `XCHARSET_FINAL' instead of
+	`XCHARSET_LEADING_BYTE' to make code-point.
+	(latin_a_char_to_charset): New variable.
+	(latin_a_char_to_byte1): New variable.
+	(latin_a_char_to_byte2): New variable.
+	(breakup_char_1): Use `latin_a_char_to_{charset|byte1|byte2}' for
+	Latin Extended-A; use `CHARSET_BY_ATTRIBUTES' instead of
+	`CHARSET_BY_LEADING_BYTE' to get charset for ISO-2022 characters.
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
+	(find_charsets_in_emchar_string): Likewise.
+	(vars_of_insdel): Don't define local variable `i' in UTF-2000.
+
+	* file-coding.c (Fdecode_big5_char): Use `Charset_ID' instead of
+	`int'.
+	(decode_coding_iso2022): Likewise.
+
+	* toolbar-x.c (x_output_toolbar_button): Use `Charset_ID' instead
+	of `unsigned char'.
+
+	* redisplay.c (redisplay_text_width_emchar_string): Use
+	`Charset_ID' instead of `unsigned char'.
+	(redisplay_frame_text_width_string): Likewise.
+
+	* glyphs.c (glyph_height_internal): Use `Charset_ID' instead of
+	`unsigned char'.
+
+	* faces.h, faces.c (ensure_face_cachel_complete): Use `Charset_ID'
+	instead of `unsigned char'.
+	(face_cachel_charset_font_metric_info): Likewise.
+
+	* chartab.c (print_char_table): Use `Charset_ID' instead of `int'.
+	(get_non_ascii_char_table_value): Likewise.
+	(get_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_over_other_charset): Likewise.
+	(map_char_table): Likewise.
+
+	* buffer.h (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'.
+
+1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (PRE_LEADING_BYTE_PRIVATE_1): Deleted.
+	(PRE_LEADING_BYTE_PRIVATE_2): Deleted.
+
+	* mule-charset.c (leading_code_private_11): Don't define in
+	UTF-2000.
+
+	* mule-ccl.c (ccl_driver): Don't define `CCL_ReadMultibyteChar2'
+	in UTF-2000 because it is not ported yet and not to use
+	`PRE_LEADING_BYTE_PRIVATE_1' and `PRE_LEADING_BYTE_PRIVATE_2'.
+
 1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* character.h (LEADING_BYTE_COMPOSITE): Deleted.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* regex.c (re_compile_fastmap): Don't use `LEADING_BYTE_PREFIX_P'
+	in UTF-2000.
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use int instead
+	of unsigned char to store leading-byte.
+
+	* chartab.c (get_non_ascii_char_table_value): Don't use
+	`BREAKUP_CHAR_1_UNSAFE' in UTF-2000.
+
+	* file-coding.c (encode_coding_big5): Delete bogus implementation
+	in UTF2000.
+
+	* character.h (LEADING_BYTE_*): Delete definition for
+	non-UTF-2000.
+	(LEADING_BYTE_PRIVATE_P): Deleted unconditionally.
+	(LEADING_BYTE_PREFIX_P): Deleted.
+	(PRIVATE_LEADING_BYTE_PREFIX): Deleted.
+	(BUFBYTE_FIRST_BYTE_P): Delete definition for non-UTF-2000.
+	(BUFBYTE_LEADING_BYTE_P): Deleted.
+	(CHARSET_PRIVATE_P): Deleted unconditionally.
+	(rep_bytes_by_first_byte): Deleted unconditionally.
+	(REP_BYTES_BY_FIRST_BYTE): Delete definition for non-UTF-2000.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Likewise.
+	(CHAR_FIELD2): Deleted.
+	(CHAR_FIELD3): Deleted.
+	(MAKE_CHAR): Delete definition for non-UTF-2000.
+	(BREAKUP_CHAR_1_UNSAFE): Deleted.
+	(breakup_char_1): New implementation.
+	(CHAR_CHARSET): Use `BREAKUP_CHAR'.
+	(CHAR_LEADING_BYTE): Use `CHAR_CHARSET'.
 
 1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -14,7 +202,8 @@
 	(XCHARSET_PRIVATE_P): Likewise.
 	(MAKE_CHAR): Don't use XCHARSET_PRIVATE_P in UTF2000.
 
-	* file-coding.c (encode_coding_ucs4): Don't implement in UTF2000.
+	* file-coding.c (encode_coding_ucs4): Delete bogus implement in
+	UTF2000.
 	(decode_coding_iso2022): Don't use XCHARSET_PRIVATE_P in UTF2000.
 
 1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>

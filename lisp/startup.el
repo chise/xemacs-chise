@@ -1127,6 +1127,7 @@ XEmacs, by either running the command `xemacs-mule', or by using the X resource
      "\n--\n"
      (face italic "\
 Copyright (C) 1985-2001 Free Software Foundation, Inc.
+Copyright (C) 1995-1999 Electrotechnical Laboratory, JAPAN.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois

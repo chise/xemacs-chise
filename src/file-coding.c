@@ -3489,6 +3489,7 @@ static void
 encode_coding_big5 (Lstream *encoding, const Bufbyte *src,
 		    unsigned_char_dynarr *dst, Lstream_data_count n)
 {
+#ifndef UTF2000
   unsigned char c;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
   unsigned int flags  = str->flags;
@@ -3543,6 +3544,7 @@ encode_coding_big5 (Lstream *encoding, const Bufbyte *src,
 
   str->flags = flags;
   str->ch    = ch;
+#endif
 }
 
 
@@ -3563,7 +3565,7 @@ Return the corresponding character.
   if (BYTE_BIG5_TWO_BYTE_1_P (b1) &&
       BYTE_BIG5_TWO_BYTE_2_P (b2))
     {
-      int leading_byte;
+      Charset_ID leading_byte;
       Lisp_Object charset;
       DECODE_BIG5 (b1, b2, leading_byte, c1, c2);
       charset = CHARSET_BY_LEADING_BYTE (leading_byte);
@@ -5244,7 +5246,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 	{			/* Graphic characters */
 	  Lisp_Object charset;
 #ifndef UTF2000
-	  int lb;
+	  Charset_ID lb;
 #endif
 	  int reg;
 
