@@ -1,3 +1,12 @@
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_vulgar): Deleted.
+	(Q_vulgar_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}vulgar'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}vulgar'.
+	(syms_of_chartab): Don't define `{<-|->}vulgar'.
+
 2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-refs in value of
