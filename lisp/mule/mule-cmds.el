@@ -1234,11 +1234,12 @@ of buffer-file-coding-system set by this function."
 	       (coding-system-change-eol-conversion default-coding eol-type)
 	     default-coding))
 	  (setq default-sendmail-coding-system default-coding)
-	  (set-coding-priority categories)
+	  (set-coding-priority-list categories)
 	  (while priority
 	    (set (car categories) (car priority))
 	    (setq priority (cdr priority) categories (cdr categories)))
-	  (update-coding-systems-internal)))))
+          ;; (update-coding-systems-internal)
+	  ))))
 
 ;; Print all arguments with `princ', then print "\n".
 (defsubst princ-list (&rest args)
