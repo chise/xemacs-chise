@@ -1,3 +1,25 @@
+2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el: Add `=ucs@big5' features.
+	(U+52D7): Add `ideographic-structure'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R068-Dipper.el, Ideograph-R067-Script.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D7): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R064-Hand.el, Ideograph-R061-Heart.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R057-Bow.el (JX1-7437): Unify JC3-4CEF.
+	(U+5F36): Separate JC3-4CEF.
+
+	* Ideograph-R066-Rap.el, Ideograph-R063-Door.el,
+	Ideograph-R060-Step.el, Ideograph-R059-Bristle.el: Add `=ucs@big5'
+	features.
+
 2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U-00020295): Add strokes; complete
