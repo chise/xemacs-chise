@@ -1,3 +1,11 @@
+1999-09-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* buffer.h: Include mb-utf-8.h in UTF-2000.
+
+	* character.h (BUFBYTE_FIRST_BYTE_P): Moved to mb-utf-8.h.
+
+	* mb-utf-8.h: New file.
+
 1999-09-02  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use `Charset_ID'
