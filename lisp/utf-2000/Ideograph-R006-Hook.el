@@ -280,54 +280,46 @@
     (=hanziku-1		. #xE8D1)	; ý¢€ž£‘
     ))
 (define-char
-  '((=>ucs		. #x20116)	; ð „–
+  '((=>daikanwa		. 00237)	; ø¸€ƒ­
     (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
+    (->unified
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; â¿°
+	)
+       ((=jis-x0208	    . #x4E61)	; ø½Š¹‚
+	(=ks-x1001	    . #x5635)	; ø»‰¨–
+	(=daikanwa	    . 00387)	; ø¸€†ƒ
+	)
+       ((=ucs		    . #x4E01)	; ä¸
+	))
+      (=daikanwa	  . 00237)	; ø¸€ƒ­
       )
-     ((=jis-x0208	  . #x4E61)	; ø½Š¹‚
-      (=ks-x1001	  . #x5635)	; ø»‰¨–
-      (=daikanwa	  . 00387)	; ø¸€†ƒ
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; â¿°
+	)
+       ((=cns11643-1	    . #x456F)	; ø»‘¸¢
+	)
+       ((=ucs		    . #x4E01)	; ä¸
+	))
+      (=cns11643-5	  . #x2330)	; ø»™­·
+      (=ucs@iso		  . #x20116)	; ø»™­·
       )
-     ((=ucs		  . #x4E01)	; ä¸
-      ))
-    (=daikanwa		. 00237)	; ø¸€ƒ­
-    ))
-(define-char
-  '((morohashi-daikanwa	237 0 0)
-    (ideographic-radical . 6)	; â¼…
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=cns11643-1	  . #x456F)	; ø»‘¸¢
-      )
-     ((=ucs		  . #x4E01)	; ä¸
+     ((hanyu-dazidian	  1 128 12)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; â¿°
+	)
+       ((=ucs		    . #x4EE4)	; ä»¤
+	)
+       ((=ucs		    . #x4E01)	; ä¸
+	))
+      (=hanziku-1	  . #xBE59)	; ý¢€›¹™
       ))
     (=ucs		. #x20116)	; ð „–
-    (=cns11643-5	. #x2330)	; ø»™­·
-    ))
-(define-char
-  '((=>ucs		. #x20116)	; ð „–
-    (morohashi-daikanwa	237 0 1)
-    (ideographic-radical . 6)	; â¼…
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 128 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x4EE4)	; ä»¤
-      )
-     ((=ucs		  . #x4E01)	; ä¸
-      ))
-    (=hanziku-1		. #xBE59)	; ý¢€›¹™
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…
