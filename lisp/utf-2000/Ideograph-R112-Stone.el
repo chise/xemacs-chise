@@ -6207,14 +6207,16 @@
     (ucs			. #x791C)	; ç¤œ
     ))
 (define-char
-  '((=>ucs		. #x791D)	; ç¤
-    (ideographic-radical . 112)	; â½¯
+  '((ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
     (ideograph-daikanwa . 24546)	; ø¸…¿¢
+    (mojikyo		. 024546)	; ý €…¿¢
+    (ucs		. #x791D)	; ç¤
     ))
 (define-char
-  '((morohashi-daikanwa	24546 0 0)
+  '((=>ucs		. #x791D)	; ç¤
+    (morohashi-daikanwa	24546 0 0)
     (ideographic-radical . 112)	; â½¯
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
