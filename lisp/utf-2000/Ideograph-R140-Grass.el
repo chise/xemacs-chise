@@ -4762,6 +4762,15 @@
     (ideograph-daikanwa . 49582)	; ø¸Œ†®
     ))
 (define-char
+  '((=>ucs		. #x8362)	; è¢
+    (morohashi-daikanwa	ho 521)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideograph-gt-pj-11 . #x5277)	; ý¡€‰µŒ
+    (ideograph-gt	. 40268)	; ý¡€‰µŒ
+    ))
+(define-char
   '((morohashi-daikanwa	ho 521 1)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 6)
