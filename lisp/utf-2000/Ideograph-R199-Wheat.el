@@ -300,6 +300,8 @@
     (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x7350)	; ø»ƒµ‹
+    (japanese-jisx0208		. #x7350)	; ø»ˆ‰“
     (japanese-jisx0208-1990	. #x7350)	; ø½‹¯‡
     ))
 (define-char
