@@ -1,3 +1,16 @@
+2004-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U+5B6B): Use `->subsumptive'.
+	(U+3743): Likewise.
+	(U+5B6C): Likewise.
+	(U-0002196A): Likewise.
+	(U-00022232): Likewise.
+	(U-0002196D): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+5617): Use `->subsumptive'.
+	(U+5653): Likewise.
+	(U+5618): Likewise.
+
 2004-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el: Add mappings for Big5 code points.
