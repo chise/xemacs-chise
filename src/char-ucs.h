@@ -45,6 +45,23 @@ struct Lisp_Char_Byte_Table
   Lisp_Object property[256];
 };
 
+
+DECLARE_LRECORD (char_code_table, struct Lisp_Char_Code_Table);
+#define XCHAR_CODE_TABLE(x) \
+  XRECORD (x, char_code_table, struct Lisp_Char_Code_Table)
+#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
+#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
+#define GC_CHAR_CODE_TABLE_P(x) GC_RECORDP (x, char_code_table)
+/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
+   char table entries should never escape to Lisp */
+
+struct Lisp_Char_Code_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object table;
+};
+
 Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
 
 
