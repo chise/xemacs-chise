@@ -214,6 +214,16 @@
     (ucs		. #xFE44)	; ï¹„
     ))
 (define-char
+  '((name		. "SESAME DOT")
+    (japanese-jisx0213-1	. #x233E)	; ø»¢–•
+    (ucs			. #xFE45)	; ï¹…
+    ))
+(define-char
+  '((name		. "WHITE SESAME DOT")
+    (japanese-jisx0213-1	. #x233D)	; ø»¢–”
+    (ucs			. #xFE46)	; ï¹†
+    ))
+(define-char
   '((name		. "DASHED OVERLINE")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
