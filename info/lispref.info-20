@@ -1,0 +1,1205 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Pop-Up Menus,  Next: Menu Filters,  Prev: Modifying Menus,  Up: Menus
+
+Pop-Up Menus
+============
+
+ - Function: popup-menu menu-desc
+     This function pops up a menu specified by MENU-DESC, which is a
+     menu description (*note Menu Format::).  The menu is displayed at
+     the current mouse position.
+
+ - Function: popup-menu-up-p
+     This function returns `t' if a pop-up menu is up, `nil' otherwise.
+
+ - Variable: popup-menu-titles
+     If true (the default), pop-up menus will have title bars at the
+     top.
+
+   Some machinery is provided that attempts to provide a higher-level
+mechanism onto pop-up menus.  This only works if you do not redefine
+the binding for button3.
+
+ - Command: popup-mode-menu
+     This function pops up a menu of global and mode-specific commands.
+     The menu is computed by combining `global-popup-menu' and
+     `mode-popup-menu'.  This is the default binding for button3.  You
+     should generally not change this binding.
+
+ - Variable: global-popup-menu
+     This holds the global popup menu.  This is present in all modes.
+     (This is `nil' by default.)
+
+ - Variable: mode-popup-menu
+     The mode-specific popup menu.  Automatically buffer local.  This
+     is appended to the default items in `global-popup-menu'.
+
+ - Constant: default-popup-menu
+     This holds the default value of `mode-popup-menu'.
+
+ - Variable: activate-popup-menu-hook
+     Function or functions run before a mode-specific popup menu is made
+     visible.  These functions are called with no arguments, and should
+     interrogate and modify the value of `global-popup-menu' or
+     `mode-popup-menu' as desired.  Note: this hook is only run if you
+     use `popup-mode-menu' for activating the global and mode-specific
+     commands; if you have your own binding for button3, this hook
+     won't be run.
+
+   The following convenience functions are provided for displaying
+pop-up menus.
+
+ - Function: popup-buffer-menu event
+     This function pops up a copy of the `Buffers' menu (from the
+     menubar) where the mouse is clicked.
+
+ - Function: popup-menubar-menu event
+     This function pops up a copy of menu that also appears in the
+     menubar.
+
+
+File: lispref.info,  Node: Menu Accelerators,  Next: Buffers Menu,  Prev: Menu Filters,  Up: Menus
+
+Menu Accelerators
+=================
+
+   Menu accelerators are keyboard shortcuts for accessing the menubar.
+Accelerator keys can be specified for menus as well as for menu items.
+An accelerator key for a menu is used to activate that menu when it
+appears as a submenu of another menu.  An accelerator key for a menu
+item is used to activate that item.
+
+* Menu:
+
+* Creating Menu Accelerators::	How to add accelerator keys to a menu.
+* Keyboard Menu Traversal::	How to use and modify the keys which are used
+				to traverse the menu structure.
+* Menu Accelerator Functions::	Functions for working with menu accelerators.
+
+
+File: lispref.info,  Node: Creating Menu Accelerators,  Next: Keyboard Menu Traversal,  Up: Menu Accelerators
+
+Creating Menu Accelerators
+--------------------------
+
+   Menu accelerators are specified as part of the menubar format using
+the :accelerator tag to specify a key or by placing "%_" in the menu or
+menu item name prior to the letter which is to be used as the
+accelerator key.  The advantage of the second method is that the menu
+rendering code then knows to draw an underline under that character,
+which is the canonical way of indicating an accelerator key to a user.
+
+   For example, the command
+
+     (add-submenu nil '("%_Test"
+     		   ["One" (insert "1") :accelerator ?1 :active t]
+     		   ["%_Two" (insert "2")]
+     		   ["%_3" (insert "3")]))
+
+   will add a new menu to the top level menubar.  The new menu can be
+reached by pressing "t" while the top level menubar is active.  When
+the menu is active, pressing "1" will activate the first item and
+insert the character "1" into the buffer.  Pressing "2" will activate
+the second item and insert the character "2" into the buffer.  Pressing
+"3" will activate the third item and insert the character "3" into the
+buffer.
+
+   It is possible to activate the top level menubar itself using
+accelerator keys.  *Note Menu Accelerator Functions::.
+
+
+File: lispref.info,  Node: Keyboard Menu Traversal,  Next: Menu Accelerator Functions,  Prev: Creating Menu Accelerators,  Up: Menu Accelerators
+
+Keyboard Menu Traversal
+-----------------------
+
+   In addition to immediately activating a menu or menu item, the
+keyboard can be used to traverse the menus without activating items.
+The keyboard arrow keys, the return key and the escape key are defined
+to traverse the menus in a way that should be familiar to users of any
+of a certain family of popular PC operating systems.
+
+   This behavior can be changed by modifying the bindings in
+menu-accelerator-map.  At this point, the online help is your best bet
+for more information about how to modify the menu traversal keys.
+
+
+File: lispref.info,  Node: Menu Accelerator Functions,  Prev: Keyboard Menu Traversal,  Up: Menu Accelerators
+
+Menu Accelerator Functions
+--------------------------
+
+ - Function: accelerate-menu
+     Make the menubar immediately active and place the cursor on the
+     left most entry in the top level menu.  Menu items can be selected
+     as usual.
+
+ - Variable: menu-accelerator-enabled
+     Whether menu accelerator keys can cause the menubar to become
+     active.
+
+     If `menu-force' or `menu-fallback', then menu accelerator keys can
+     be used to activate the top level menu.  Once the menubar becomes
+     active, the accelerator keys can be used regardless of the value
+     of this variable.
+
+     `menu-force' is used to indicate that the menu accelerator key
+     takes precedence over bindings in the current keymap(s).
+     `menu-fallback' means that bindings in the current keymap take
+     precedence over menu accelerator keys.  Thus a top level menu with
+     an accelerator of "T" would be activated on a keypress of Meta-t
+     if MENU-ACCELERATOR-ENABLED is `menu-force'.  However, if
+     MENU-ACCELERATOR-ENABLED is `menu-fallback', then Meta-t will not
+     activate the menubar and will instead run the function
+     transpose-words, to which it is normally bound.
+
+     The default value is `nil'.
+
+     See also MENU-ACCELERATOR-MODIFIERS and MENU-ACCELERATOR-PREFIX.
+
+ - Variable: menu-accelerator-map
+     Keymap consulted to determine the commands to run in response to
+     keypresses occurring while the menubar is active.  *Note Keyboard
+     Menu Traversal::.
+
+ - Variable: menu-accelerator-modifiers
+     A list of modifier keys which must be pressed in addition to a
+     valid menu accelerator in order for the top level menu to be
+     activated in response to a keystroke.  The default value of
+     `(meta)' mirrors the usage of the alt key as a menu accelerator in
+     popular PC operating systems.
+
+     The modifier keys in MENU-ACCELERATOR-MODIFIERS must match exactly
+     the modifiers present in the keypress.  The only exception is that
+     the shift modifier is accepted in conjunction with alphabetic keys
+     even if it is not a menu accelerator modifier.
+
+     See also MENU-ACCELERATOR-ENABLED and MENU-ACCELERATOR-PREFIX.
+
+ - Variable: menu-accelerator-prefix
+     Prefix key(s) that must be typed before menu accelerators will be
+     activated.  Must be a valid key descriptor.
+
+     The default value is `nil'.
+
+     (setq menu-accelerator-prefix ?\C-x)
+     (setq menu-accelerator-modifiers '(meta control))
+     (setq menu-accelerator-enabled 'menu-force)
+     (add-submenu nil '("%_Test"
+     		   ["One" (insert "1") :accelerator ?1 :active t]
+     		   ["%_Two" (insert "2")]
+     		   ["%_3" (insert "3")]))
+
+   will add the menu "Test" to the top level menubar.  Pressing C-x
+followed by C-M-T will activate the menubar and display the "Test"
+menu.  Pressing C-M-T by itself will not activate the menubar.  Neither
+will pressing C-x followed by anything else.
+
+
+File: lispref.info,  Node: Buffers Menu,  Prev: Menu Accelerators,  Up: Menus
+
+Buffers Menu
+============
+
+   The following options control how the `Buffers' menu is displayed.
+This is a list of all (or a subset of) the buffers currently in
+existence, and is updated dynamically.
+
+ - User Option: buffers-menu-max-size
+     This user option holds the maximum number of entries which may
+     appear on the `Buffers' menu.  If this is 10, then only the ten
+     most-recently-selected buffers will be shown.  If this is `nil',
+     then all buffers will be shown.  Setting this to a large number or
+     `nil' will slow down menu responsiveness.
+
+ - Function: format-buffers-menu-line buffer
+     This function returns a string to represent BUFFER in the
+     `Buffers' menu.  `nil' means the buffer shouldn't be listed.  You
+     can redefine this.
+
+ - User Option: complex-buffers-menu-p
+     If true, the `Buffers' menu will contain several commands, as
+     submenus of each buffer line.  If this is false, then there will
+     be only one command: select that buffer.
+
+ - User Option: buffers-menu-switch-to-buffer-function
+     This user option holds the function to call to select a buffer
+     from the `Buffers' menu.  `switch-to-buffer' is a good choice, as
+     is `pop-to-buffer'.
+
+
+File: lispref.info,  Node: Dialog Boxes,  Next: Toolbar,  Prev: Menus,  Up: Top
+
+Dialog Boxes
+************
+
+* Menu:
+
+* Dialog Box Format::
+* Dialog Box Functions::
+
+
+File: lispref.info,  Node: Dialog Box Format,  Next: Dialog Box Functions,  Up: Dialog Boxes
+
+Dialog Box Format
+=================
+
+   A dialog box description is a list.
+
+   * The first element of the list is a string to display in the dialog
+     box.
+
+   * The rest of the elements are descriptions of the dialog box's
+     buttons.  Each one is a vector of three elements:
+        - The first element is the text of the button.
+
+        - The second element is the "callback".
+
+        - The third element is `t' or `nil', whether this button is
+          selectable.
+
+   If the callback of a button is a symbol, then it must name a command.
+It will be invoked with `call-interactively'.  If it is a list, then it
+is evaluated with `eval'.
+
+   One (and only one) of the buttons may be `nil'.  This marker means
+that all following buttons should be flushright instead of flushleft.
+
+   The syntax, more precisely:
+
+        form		:=  <something to pass to `eval'>
+        command	:=  <a symbol or string, to pass to `call-interactively'>
+        callback 	:=  command | form
+        active-p	:=  <t, nil, or a form to evaluate to decide whether this
+     		    button should be selectable>
+        name		:=  <string>
+        partition	:=  'nil'
+        button	:=  '['  name callback active-p ']'
+        dialog	:=  '(' name [ button ]+ [ partition [ button ]+ ] ')'
+
+
+File: lispref.info,  Node: Dialog Box Functions,  Prev: Dialog Box Format,  Up: Dialog Boxes
+
+Dialog Box Functions
+====================
+
+ - Function: popup-dialog-box dbox-desc
+     This function pops up a dialog box.  DBOX-DESC describes how the
+     dialog box will appear (*note Dialog Box Format::).
+
+   *Note Yes-or-No Queries::, for functions to ask a yes/no question
+using a dialog box.
+
+
+File: lispref.info,  Node: Toolbar,  Next: Scrollbars,  Prev: Dialog Boxes,  Up: Top
+
+Toolbar
+*******
+
+* Menu:
+
+* Toolbar Intro::		An introduction.
+* Toolbar Descriptor Format::	How to create a toolbar.
+* Specifying the Toolbar::	Setting a toolbar's contents.
+* Other Toolbar Variables::	Controlling the size of toolbars.
+
+
+File: lispref.info,  Node: Toolbar Intro,  Next: Toolbar Descriptor Format,  Up: Toolbar
+
+Toolbar Intro
+=============
+
+   A "toolbar" is a bar of icons displayed along one edge of a frame.
+You can view a toolbar as a series of menu shortcuts - the most common
+menu options can be accessed with a single click rather than a series
+of clicks and/or drags to select the option from a menu.  Consistent
+with this, a help string (called the "help-echo") describing what an
+icon in the toolbar (called a "toolbar button") does, is displayed in
+the minibuffer when the mouse is over the button.
+
+   In XEmacs, a toolbar can be displayed along any of the four edges of
+the frame, and two or more different edges can be displaying toolbars
+simultaneously.  The contents, thickness, and visibility of the
+toolbars can be controlled separately, and the values can be
+per-buffer, per-frame, etc., using specifiers (*note Specifiers::).
+
+   Normally, there is one toolbar displayed in a frame.  Usually, this
+is the standard toolbar, but certain modes will override this and
+substitute their own toolbar.  In some cases (e.g. the VM package), a
+package will supply its own toolbar along a different edge from the
+standard toolbar, so that both can be visible at once.  This standard
+toolbar is usually positioned along the top of the frame, but this can
+be changed using `set-default-toolbar-position'.
+
+   Note that, for each of the toolbar properties (contents, thickness,
+and visibility), there is a separate specifier for each of the four
+toolbar positions (top, bottom, left, and right), and an additional
+specifier for the "default" toolbar, i.e. the toolbar whose position is
+controlled by `set-default-toolbar-position'.  The way this works is
+that `set-default-toolbar-position' arranges things so that the
+appropriate position-specific specifiers for the default position
+inherit from the corresponding default specifiers.  That way, if the
+position-specific specifier does not give a value (which it usually
+doesn't), then the value from the default specifier applies.  If you
+want to control the default toolbar, you just change the default
+specifiers, and everything works.  A package such as VM that wants to
+put its own toolbar in a different location from the default just sets
+the position-specific specifiers, and if the user sets the default
+toolbar to the same position, it will just not be visible.
+
+
+File: lispref.info,  Node: Toolbar Descriptor Format,  Next: Specifying the Toolbar,  Prev: Toolbar Intro,  Up: Toolbar
+
+Toolbar Descriptor Format
+=========================
+
+   The contents of a toolbar are specified using a "toolbar descriptor".
+The format of a toolbar descriptor is a list of "toolbar button
+descriptors".  Each toolbar button descriptor is a vector in one of the
+following formats:
+
+   * `[GLYPH-LIST FUNCTION ENABLED-P HELP]'
+
+   * `[:style 2D-OR-3D]'
+
+   * `[:style 2D-OR-3D :size WIDTH-OR-HEIGHT]'
+
+   * `[:size WIDTH-OR-HEIGHT :style 2D-OR-3D]'
+
+   Optionally, one of the toolbar button descriptors may be `nil'
+instead of a vector; this signifies the division between the toolbar
+buttons that are to be displayed flush-left, and the buttons to be
+displayed flush-right.
+
+   The first vector format above specifies a normal toolbar button; the
+others specify blank areas in the toolbar.
+
+   For the first vector format:
+
+   * GLYPH-LIST should be a list of one to six glyphs (as created by
+     `make-glyph') or a symbol whose value is such a list.  The first
+     glyph, which must be provided, is the glyph used to display the
+     toolbar button when it is in the "up" (not pressed) state.  The
+     optional second glyph is for displaying the button when it is in
+     the "down" (pressed) state.  The optional third glyph is for when
+     the button is disabled.  The last three glyphs are for displaying
+     the button in the "up", "down", and "disabled" states,
+     respectively, but are used when the user has called for captioned
+     toolbar buttons (using `toolbar-buttons-captioned-p').  The
+     function `toolbar-make-button-list' is useful in creating these
+     glyph lists.
+
+   * Even if you do not provide separate down-state and disabled-state
+     glyphs, the user will still get visual feedback to indicate which
+     state the button is in.  Buttons in the up-state are displayed
+     with a shadowed border that gives a raised appearance to the
+     button.  Buttons in the down-state are displayed with shadows that
+     give a recessed appearance.  Buttons in the disabled state are
+     displayed with no shadows, giving a 2-d effect.
+
+   * If some of the toolbar glyphs are not provided, they inherit as
+     follows:
+
+               UP:                up
+               DOWN:              down -> up
+               DISABLED:          disabled -> up
+               CAP-UP:            cap-up -> up
+               CAP-DOWN:          cap-down -> cap-up -> down -> up
+               CAP-DISABLED:      cap-disabled -> cap-up -> disabled -> up
+
+   * The second element FUNCTION is a function to be called when the
+     toolbar button is activated (i.e. when the mouse is released over
+     the toolbar button, if the press occurred in the toolbar).  It can
+     be any form accepted by `call-interactively', since this is how it
+     is invoked.
+
+   * The third element ENABLED-P specifies whether the toolbar button
+     is enabled (disabled buttons do nothing when they are activated,
+     and are displayed differently; see above).  It should be either a
+     boolean or a form that evaluates to a boolean.
+
+   * The fourth element HELP, if non-`nil', should be a string.  This
+     string is displayed in the echo area when the mouse passes over the
+     toolbar button.
+
+   For the other vector formats (specifying blank areas of the toolbar):
+
+   * 2D-OR-3D should be one of the symbols `2d' or `3d', indicating
+     whether the area is displayed with shadows (giving it a raised,
+     3-d appearance) or without shadows (giving it a flat appearance).
+
+   * WIDTH-OR-HEIGHT specifies the length, in pixels, of the blank
+     area.  If omitted, it defaults to a device-specific value (8
+     pixels for X devices).
+
+ - Function: toolbar-make-button-list up &optional down disabled cap-up
+          cap-down cap-disabled
+     This function calls `make-glyph' on each arg and returns a list of
+     the results.  This is useful for setting the first argument of a
+     toolbar button descriptor (typically, the result of this function
+     is assigned to a symbol, which is specified as the first argument
+     of the toolbar button descriptor).
+
+ - Function: check-toolbar-button-syntax button &optional noerror
+     Verify the syntax of entry BUTTON in a toolbar description list.
+     If you want to verify the syntax of a toolbar description list as a
+     whole, use `check-valid-instantiator' with a specifier type of
+     `toolbar'.
+
+
+File: lispref.info,  Node: Specifying the Toolbar,  Next: Other Toolbar Variables,  Prev: Toolbar Descriptor Format,  Up: Toolbar
+
+Specifying the Toolbar
+======================
+
+   In order to specify the contents of a toolbar, set one of the
+specifier variables `default-toolbar', `top-toolbar', `bottom-toolbar',
+`left-toolbar', or `right-toolbar'.  These are specifiers, which means
+you set them with `set-specifier' and query them with `specifier-specs'
+or `specifier-instance'.  You will get an error if you try to set them
+using `setq'.  The valid instantiators for these specifiers are toolbar
+descriptors, as described above.  *Note Specifiers::, for more
+information.
+
+   Most of the time, you will set `default-toolbar', which allows the
+user to choose where the toolbar should go.
+
+ - Specifier: default-toolbar
+     The position of this toolbar is specified in the function
+     `default-toolbar-position'.  If the corresponding
+     position-specific toolbar (e.g. `top-toolbar' if
+     `default-toolbar-position' is `top') does not specify a toolbar in
+     a particular domain, then the value of `default-toolbar' in that
+     domain, of any, will be used instead.
+
+   Note that the toolbar at any particular position will not be
+displayed unless its thickness (width or height, depending on
+orientation) is non-zero and its visibility status is true.  The
+thickness is controlled by the specifiers `top-toolbar-height',
+`bottom-toolbar-height', `left-toolbar-width', and
+`right-toolbar-width', and the visibility status is controlled by the
+specifiers `top-toolbar-visible-p', `bottom-toolbar-visible-p',
+`left-toolbar-visible-p', and `right-toolbar-visible-p' (*note Other
+Toolbar Variables::).
+
+ - Function: set-default-toolbar-position position
+     This function sets the position that the `default-toolbar' will be
+     displayed at.  Valid positions are the symbols `top', `bottom',
+     `left' and `right'.  What this actually does is set the fallback
+     specifier for the position-specific specifier corresponding to the
+     given position to `default-toolbar', and set the fallbacks for the
+     other position-specific specifiers to `nil'.  It also does the
+     same thing for the position-specific thickness and visibility
+     specifiers, which inherit from one of `default-toolbar-height' or
+     `default-toolbar-width', and from `default-toolbar-visible-p',
+     respectively (*note Other Toolbar Variables::).
+
+ - Function: default-toolbar-position
+     This function returns the position that the `default-toolbar' will
+     be displayed at.
+
+   You can also explicitly set a toolbar at a particular position.  When
+redisplay determines what to display at a particular position in a
+particular domain (i.e. window), it first consults the position-specific
+toolbar.  If that does not yield a toolbar descriptor, the
+`default-toolbar' is consulted if `default-toolbar-position' indicates
+this position.
+
+ - Specifier: top-toolbar
+     Specifier for the toolbar at the top of the frame.
+
+ - Specifier: bottom-toolbar
+     Specifier for the toolbar at the bottom of the frame.
+
+ - Specifier: left-toolbar
+     Specifier for the toolbar at the left edge of the frame.
+
+ - Specifier: right-toolbar
+     Specifier for the toolbar at the right edge of the frame.
+
+ - Function: toolbar-specifier-p object
+     This function returns non-nil if OBJECT is a toolbar specifier.
+     Toolbar specifiers are the actual objects contained in the toolbar
+     variables described above, and their valid instantiators are
+     toolbar descriptors (*note Toolbar Descriptor Format::).
+
+
+File: lispref.info,  Node: Other Toolbar Variables,  Prev: Specifying the Toolbar,  Up: Toolbar
+
+Other Toolbar Variables
+=======================
+
+   The variables to control the toolbar thickness, visibility status,
+and captioned status are all specifiers.  *Note Specifiers::.
+
+ - Specifier: default-toolbar-height
+     This specifies the height of the default toolbar, if it's oriented
+     horizontally.  The position of the default toolbar is specified by
+     the function `set-default-toolbar-position'.  If the corresponding
+     position-specific toolbar thickness specifier (e.g.
+     `top-toolbar-height' if `default-toolbar-position' is `top') does
+     not specify a thickness in a particular domain (a window or a
+     frame), then the value of `default-toolbar-height' or
+     `default-toolbar-width' (depending on the toolbar orientation) in
+     that domain, if any, will be used instead.
+
+ - Specifier: default-toolbar-width
+     This specifies the width of the default toolbar, if it's oriented
+     vertically.  This behaves like `default-toolbar-height'.
+
+   Note that `default-toolbar-height' is only used when
+`default-toolbar-position' is `top' or `bottom', and
+`default-toolbar-width' is only used when `default-toolbar-position' is
+`left' or `right'.
+
+ - Specifier: top-toolbar-height
+     This specifies the height of the top toolbar.
+
+ - Specifier: bottom-toolbar-height
+     This specifies the height of the bottom toolbar.
+
+ - Specifier: left-toolbar-width
+     This specifies the width of the left toolbar.
+
+ - Specifier: right-toolbar-width
+     This specifies the width of the right toolbar.
+
+   Note that all of the position-specific toolbar thickness specifiers
+have a fallback value of zero when they do not correspond to the
+default toolbar.  Therefore, you will have to set a non-zero thickness
+value if you want a position-specific toolbar to be displayed.
+
+ - Specifier: default-toolbar-visible-p
+     This specifies whether the default toolbar is visible.  The
+     position of the default toolbar is specified by the function
+     `set-default-toolbar-position'.  If the corresponding
+     position-specific toolbar visibility specifier (e.g.
+     `top-toolbar-visible-p' if `default-toolbar-position' is `top')
+     does not specify a visible-p value in a particular domain (a
+     window or a frame), then the value of `default-toolbar-visible-p'
+     in that domain, if any, will be used instead.
+
+ - Specifier: top-toolbar-visible-p
+     This specifies whether the top toolbar is visible.
+
+ - Specifier: bottom-toolbar-visible-p
+     This specifies whether the bottom toolbar is visible.
+
+ - Specifier: left-toolbar-visible-p
+     This specifies whether the left toolbar is visible.
+
+ - Specifier: right-toolbar-visible-p
+     This specifies whether the right toolbar is visible.
+
+   `default-toolbar-visible-p' and all of the position-specific toolbar
+visibility specifiers have a fallback value of true.
+
+   Internally, toolbar thickness and visibility specifiers are
+instantiated in both window and frame domains, for different purposes.
+The value in the domain of a frame's selected window specifies the
+actual toolbar thickness or visibility that you will see in that frame.
+The value in the domain of a frame itself specifies the toolbar
+thickness or visibility that is used in frame geometry calculations.
+
+   Thus, for example, if you set the frame width to 80 characters and
+the left toolbar width for that frame to 68 pixels, then the frame will
+be sized to fit 80 characters plus a 68-pixel left toolbar.  If you then
+set the left toolbar width to 0 for a particular buffer (or if that
+buffer does not specify a left toolbar or has a nil value specified for
+`left-toolbar-visible-p'), you will find that, when that buffer is
+displayed in the selected window, the window will have a width of 86 or
+87 characters - the frame is sized for a 68-pixel left toolbar but the
+selected window specifies that the left toolbar is not visible, so it is
+expanded to take up the slack.
+
+ - Specifier: toolbar-buttons-captioned-p
+     Whether toolbar buttons are captioned.  This affects which glyphs
+     from a toolbar button descriptor are chosen.  *Note Toolbar
+     Descriptor Format::.
+
+   You can also reset the toolbar to what it was when XEmacs started up.
+
+ - Constant: initial-toolbar-spec
+     The toolbar descriptor used to initialize `default-toolbar' at
+     startup.
+
+
+File: lispref.info,  Node: Scrollbars,  Next: Drag and Drop,  Prev: Toolbar,  Up: Top
+
+scrollbars
+**********
+
+   Not yet documented.
+
+
+File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: Top
+
+Drag and Drop
+*************
+
+   _WARNING_: the Drag'n'Drop API is still under development and the
+interface may change! The current implementation is considered
+experimental.
+
+   Drag'n'drop is a way to transfer information between multiple
+applications.  To do this several GUIs define their own protocols.
+Examples are OffiX, CDE, Motif, KDE, MSWindows, GNOME, and many more.
+To catch all these protocols, XEmacs provides a generic API.
+
+   One prime idea behind the API is to use a data interface that is
+transparent for all systems. The author thinks that this is best
+archived by using URL and MIME data, cause any internet enabled system
+must support these for email already. XEmacs also already provides
+powerful interfaces to support these types of data (tm and w3).
+
+* Menu:
+
+* Supported Protocols:: Which low-level protocols are supported.
+* Drop Interface::      How XEmacs handles a drop from another application.
+* Drag Interface::      Calls to initiate a drag from XEmacs.
+
+
+File: lispref.info,  Node: Supported Protocols,  Next: Drop Interface,  Up: Drag and Drop
+
+Supported Protocols
+===================
+
+   The current release of XEmacs only support a small set of Drag'n'drop
+protocols. Some of these only support limited options available in the
+API.
+
+* Menu:
+
+* OffiX DND::           A generic X based protocol.
+* CDE dt::              Common Desktop Environment used on suns.
+* MSWindows OLE::       Mr. Gates way of live.
+* Loose ends::          The other protocols.
+
+
+File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
+
+OffiX DND
+---------
+
+   _WARNING_: If you compile in OffiX, you may not be able to use
+multiple X displays successfully.  If the two servers are from
+different vendors, the results may be unpredictable.
+
+   The OffiX Drag'n'Drop protocol is part of a X API/Widget library
+created by Cesar Crusius. It is based on X-Atoms and ClientMessage
+events, and works with any X platform supporting them.
+
+   OffiX is supported if 'offix is member of the variable
+dragdrop-protocols, or the feature 'offix is defined.
+
+   Unfortunately it uses it's own data types. Examples are: File, Files,
+Exe, Link, URL, MIME. The API tries to choose the right type for the
+data that is dragged from XEmacs (well, not yet...).
+
+   XEmacs supports both MIME and URL drags and drops using this API. No
+application interaction is possible while dragging is in progress.
+
+   For information about the OffiX project have a look at
+http://leb.net/~offix/
+
+
+File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
+
+CDE dt
+------
+
+   CDE stands for Common Desktop Environment. It is based on the Motif
+widget library. It's drag'n'drop protocol is also an abstraction of the
+Motif protocol (so it might be possible, that XEmacs will also support
+the Motif protocol soon).
+
+   CDE has three different types: file, buffer, and text. XEmacs only
+uses file and buffer drags. The API will disallow full URL drags, only
+file method URLs are passed through.
+
+   Buffer drags are always converted to plain text.
+
+
+File: lispref.info,  Node: MSWindows OLE,  Next: Loose ends,  Prev: CDE dt,  Up: Supported Protocols
+
+MSWindows OLE
+-------------
+
+   Only allows file drags and drops.
+
+
+File: lispref.info,  Node: Loose ends,  Prev: MSWindows OLE,  Up: Supported Protocols
+
+Loose ends
+----------
+
+   The following protocols will be supported soon: Xdnd, Motif, Xde (if
+I get some specs), KDE OffiX (if KDE can find XEmacs windows).
+
+   In particular Xdnd will be one of the protocols that can benefit from
+the XEmacs API, cause it also uses MIME types to encode dragged data.
+
+
+File: lispref.info,  Node: Drop Interface,  Next: Drag Interface,  Prev: Supported Protocols,  Up: Drag and Drop
+
+Drop Interface
+==============
+
+   For each activated low-level protocol, a internal routine will catch
+incoming drops and convert them to a dragdrop-drop type misc-user-event.
+
+   This misc-user-event has its function argument set to
+`dragdrop-drop-dispatch' and the object contains the data of the drop
+(converted to URL/MIME specific data). This function will search the
+variable `experimental-dragdrop-drop-functions' for a function that can
+handle the dropped data.
+
+   To modify the drop behavior, the user can modify the variable
+`experimental-dragdrop-drop-functions'. Each element of this list
+specifies a possible handler for dropped data. The first one that can
+handle the data will return `t' and exit. Another possibility is to set
+a extent-property with the same name. Extents are checked prior to the
+variable.
+
+   The customization group `drag-n-drop' shows all variables of user
+interest.
+
+
+File: lispref.info,  Node: Drag Interface,  Prev: Drop Interface,  Up: Drag and Drop
+
+Drag Interface
+==============
+
+   This describes the drag API (not implemented yet).
+
+
+File: lispref.info,  Node: Modes,  Next: Documentation,  Prev: Drag and Drop,  Up: Top
+
+Major and Minor Modes
+*********************
+
+   A "mode" is a set of definitions that customize XEmacs and can be
+turned on and off while you edit.  There are two varieties of modes:
+"major modes", which are mutually exclusive and used for editing
+particular kinds of text, and "minor modes", which provide features
+that users can enable individually.
+
+   This chapter describes how to write both major and minor modes, how
+to indicate them in the modeline, and how they run hooks supplied by the
+user.  For related topics such as keymaps and syntax tables, see *Note
+Keymaps::, and *Note Syntax Tables::.
+
+* Menu:
+
+* Major Modes::        Defining major modes.
+* Minor Modes::        Defining minor modes.
+* Modeline Format::    Customizing the text that appears in the modeline.
+* Hooks::              How to use hooks; how to write code that provides hooks.
+
+
+File: lispref.info,  Node: Major Modes,  Next: Minor Modes,  Up: Modes
+
+Major Modes
+===========
+
+   Major modes specialize XEmacs for editing particular kinds of text.
+Each buffer has only one major mode at a time.
+
+   The least specialized major mode is called "Fundamental mode".  This
+mode has no mode-specific definitions or variable settings, so each
+XEmacs command behaves in its default manner, and each option is in its
+default state.  All other major modes redefine various keys and options.
+For example, Lisp Interaction mode provides special key bindings for
+<LFD> (`eval-print-last-sexp'), <TAB> (`lisp-indent-line'), and other
+keys.
+
+   When you need to write several editing commands to help you perform a
+specialized editing task, creating a new major mode is usually a good
+idea.  In practice, writing a major mode is easy (in contrast to
+writing a minor mode, which is often difficult).
+
+   If the new mode is similar to an old one, it is often unwise to
+modify the old one to serve two purposes, since it may become harder to
+use and maintain.  Instead, copy and rename an existing major mode
+definition and alter the copy--or define a "derived mode" (*note
+Derived Modes::).  For example, Rmail Edit mode, which is in
+`emacs/lisp/rmailedit.el', is a major mode that is very similar to Text
+mode except that it provides three additional commands.  Its definition
+is distinct from that of Text mode, but was derived from it.
+
+   Rmail Edit mode is an example of a case where one piece of text is
+put temporarily into a different major mode so it can be edited in a
+different way (with ordinary XEmacs commands rather than Rmail).  In
+such cases, the temporary major mode usually has a command to switch
+back to the buffer's usual mode (Rmail mode, in this case).  You might
+be tempted to present the temporary redefinitions inside a recursive
+edit and restore the usual ones when the user exits; but this is a bad
+idea because it constrains the user's options when it is done in more
+than one buffer: recursive edits must be exited most-recently-entered
+first.  Using alternative major modes avoids this limitation.  *Note
+Recursive Editing::.
+
+   The standard XEmacs Lisp library directory contains the code for
+several major modes, in files including `text-mode.el', `texinfo.el',
+`lisp-mode.el', `c-mode.el', and `rmail.el'.  You can look at these
+libraries to see how modes are written.  Text mode is perhaps the
+simplest major mode aside from Fundamental mode.  Rmail mode is a
+complicated and specialized mode.
+
+* Menu:
+
+* Major Mode Conventions::  Coding conventions for keymaps, etc.
+* Example Major Modes::     Text mode and Lisp modes.
+* Auto Major Mode::         How XEmacs chooses the major mode automatically.
+* Mode Help::               Finding out how to use a mode.
+* Derived Modes::           Defining a new major mode based on another major
+                              mode.
+
+
+File: lispref.info,  Node: Major Mode Conventions,  Next: Example Major Modes,  Up: Major Modes
+
+Major Mode Conventions
+----------------------
+
+   The code for existing major modes follows various coding conventions,
+including conventions for local keymap and syntax table initialization,
+global names, and hooks.  Please follow these conventions when you
+define a new major mode:
+
+   * Define a command whose name ends in `-mode', with no arguments,
+     that switches to the new mode in the current buffer.  This command
+     should set up the keymap, syntax table, and local variables in an
+     existing buffer without changing the buffer's text.
+
+   * Write a documentation string for this command that describes the
+     special commands available in this mode.  `C-h m'
+     (`describe-mode') in your mode will display this string.
+
+     The documentation string may include the special documentation
+     substrings, `\[COMMAND]', `\{KEYMAP}', and `\<KEYMAP>', that
+     enable the documentation to adapt automatically to the user's own
+     key bindings.  *Note Keys in Documentation::.
+
+   * The major mode command should start by calling
+     `kill-all-local-variables'.  This is what gets rid of the local
+     variables of the major mode previously in effect.
+
+   * The major mode command should set the variable `major-mode' to the
+     major mode command symbol.  This is how `describe-mode' discovers
+     which documentation to print.
+
+   * The major mode command should set the variable `mode-name' to the
+     "pretty" name of the mode, as a string.  This appears in the mode
+     line.
+
+   * Since all global names are in the same name space, all the global
+     variables, constants, and functions that are part of the mode
+     should have names that start with the major mode name (or with an
+     abbreviation of it if the name is long).  *Note Style Tips::.
+
+   * The major mode should usually have its own keymap, which is used
+     as the local keymap in all buffers in that mode.  The major mode
+     function should call `use-local-map' to install this local map.
+     *Note Active Keymaps::, for more information.
+
+     This keymap should be kept in a global variable named
+     `MODENAME-mode-map'.  Normally the library that defines the mode
+     sets this variable.
+
+   * The mode may have its own syntax table or may share one with other
+     related modes.  If it has its own syntax table, it should store
+     this in a variable named `MODENAME-mode-syntax-table'.  *Note
+     Syntax Tables::.
+
+   * The mode may have its own abbrev table or may share one with other
+     related modes.  If it has its own abbrev table, it should store
+     this in a variable named `MODENAME-mode-abbrev-table'.  *Note
+     Abbrev Tables::.
+
+   * Use `defvar' to set mode-related variables, so that they are not
+     reinitialized if they already have a value.  (Such reinitialization
+     could discard customizations made by the user.)
+
+   * To make a buffer-local binding for an Emacs customization
+     variable, use `make-local-variable' in the major mode command, not
+     `make-variable-buffer-local'.  The latter function would make the
+     variable local to every buffer in which it is subsequently set,
+     which would affect buffers that do not use this mode.  It is
+     undesirable for a mode to have such global effects.  *Note
+     Buffer-Local Variables::.
+
+     It's ok to use `make-variable-buffer-local', if you wish, for a
+     variable used only within a single Lisp package.
+
+   * Each major mode should have a "mode hook" named
+     `MODENAME-mode-hook'.  The major mode command should run that
+     hook, with `run-hooks', as the very last thing it does. *Note
+     Hooks::.
+
+   * The major mode command may also run the hooks of some more basic
+     modes.  For example, `indented-text-mode' runs `text-mode-hook' as
+     well as `indented-text-mode-hook'.  It may run these other hooks
+     immediately before the mode's own hook (that is, after everything
+     else), or it may run them earlier.
+
+   * If something special should be done if the user switches a buffer
+     from this mode to any other major mode, the mode can set a local
+     value for `change-major-mode-hook'.
+
+   * If this mode is appropriate only for specially-prepared text, then
+     the major mode command symbol should have a property named
+     `mode-class' with value `special', put on as follows:
+
+          (put 'funny-mode 'mode-class 'special)
+
+     This tells XEmacs that new buffers created while the current
+     buffer has Funny mode should not inherit Funny mode.  Modes such
+     as Dired, Rmail, and Buffer List use this feature.
+
+   * If you want to make the new mode the default for files with certain
+     recognizable names, add an element to `auto-mode-alist' to select
+     the mode for those file names.  If you define the mode command to
+     autoload, you should add this element in the same file that calls
+     `autoload'.  Otherwise, it is sufficient to add the element in the
+     file that contains the mode definition.  *Note Auto Major Mode::.
+
+   * In the documentation, you should provide a sample `autoload' form
+     and an example of how to add to `auto-mode-alist', that users can
+     include in their `.emacs' files.
+
+   * The top-level forms in the file defining the mode should be
+     written so that they may be evaluated more than once without
+     adverse consequences.  Even if you never load the file more than
+     once, someone else will.
+
+ - Variable: change-major-mode-hook
+     This normal hook is run by `kill-all-local-variables' before it
+     does anything else.  This gives major modes a way to arrange for
+     something special to be done if the user switches to a different
+     major mode.  For best results, make this variable buffer-local, so
+     that it will disappear after doing its job and will not interfere
+     with the subsequent major mode.  *Note Hooks::.
+
+
+File: lispref.info,  Node: Example Major Modes,  Next: Auto Major Mode,  Prev: Major Mode Conventions,  Up: Major Modes
+
+Major Mode Examples
+-------------------
+
+   Text mode is perhaps the simplest mode besides Fundamental mode.
+Here are excerpts from  `text-mode.el' that illustrate many of the
+conventions listed above:
+
+     ;; Create mode-specific tables.
+     (defvar text-mode-syntax-table nil
+       "Syntax table used while in text mode.")
+     
+     (if text-mode-syntax-table
+         ()              ; Do not change the table if it is already set up.
+       (setq text-mode-syntax-table (make-syntax-table))
+       (modify-syntax-entry ?\" ".   " text-mode-syntax-table)
+       (modify-syntax-entry ?\\ ".   " text-mode-syntax-table)
+       (modify-syntax-entry ?' "w   " text-mode-syntax-table))
+     
+     (defvar text-mode-abbrev-table nil
+       "Abbrev table used while in text mode.")
+     (define-abbrev-table 'text-mode-abbrev-table ())
+     
+     (defvar text-mode-map nil)   ; Create a mode-specific keymap.
+     
+     (if text-mode-map
+         ()              ; Do not change the keymap if it is already set up.
+       (setq text-mode-map (make-sparse-keymap))
+       (define-key text-mode-map "\t" 'tab-to-tab-stop)
+       (define-key text-mode-map "\es" 'center-line)
+       (define-key text-mode-map "\eS" 'center-paragraph))
+
+   Here is the complete major mode function definition for Text mode:
+
+     (defun text-mode ()
+       "Major mode for editing text intended for humans to read.
+      Special commands: \\{text-mode-map}
+     Turning on text-mode runs the hook `text-mode-hook'."
+       (interactive)
+       (kill-all-local-variables)
+       (use-local-map text-mode-map)     ; This provides the local keymap.
+       (setq mode-name "Text")           ; This name goes into the modeline.
+       (setq major-mode 'text-mode)      ; This is how `describe-mode'
+                                         ;   finds the doc string to print.
+       (setq local-abbrev-table text-mode-abbrev-table)
+       (set-syntax-table text-mode-syntax-table)
+       (run-hooks 'text-mode-hook))      ; Finally, this permits the user to
+                                         ;   customize the mode with a hook.
+
+   The three Lisp modes (Lisp mode, Emacs Lisp mode, and Lisp
+Interaction mode) have more features than Text mode and the code is
+correspondingly more complicated.  Here are excerpts from
+`lisp-mode.el' that illustrate how these modes are written.
+
+     ;; Create mode-specific table variables.
+     (defvar lisp-mode-syntax-table nil "")
+     (defvar emacs-lisp-mode-syntax-table nil "")
+     (defvar lisp-mode-abbrev-table nil "")
+     
+     (if (not emacs-lisp-mode-syntax-table) ; Do not change the table
+                                            ;   if it is already set.
+         (let ((i 0))
+           (setq emacs-lisp-mode-syntax-table (make-syntax-table))
+     
+           ;; Set syntax of chars up to 0 to class of chars that are
+           ;;   part of symbol names but not words.
+           ;;   (The number 0 is `48' in the ASCII character set.)
+           (while (< i ?0)
+             (modify-syntax-entry i "_   " emacs-lisp-mode-syntax-table)
+             (setq i (1+ i)))
+           ...
+           ;; Set the syntax for other characters.
+           (modify-syntax-entry ?  "    " emacs-lisp-mode-syntax-table)
+           (modify-syntax-entry ?\t "    " emacs-lisp-mode-syntax-table)
+           ...
+           (modify-syntax-entry ?\( "()  " emacs-lisp-mode-syntax-table)
+           (modify-syntax-entry ?\) ")(  " emacs-lisp-mode-syntax-table)
+           ...))
+     ;; Create an abbrev table for lisp-mode.
+     (define-abbrev-table 'lisp-mode-abbrev-table ())
+
+   Much code is shared among the three Lisp modes.  The following
+function sets various variables; it is called by each of the major Lisp
+mode functions:
+
+     (defun lisp-mode-variables (lisp-syntax)
+       ;; The `lisp-syntax' argument is `nil' in Emacs Lisp mode,
+       ;;   and `t' in the other two Lisp modes.
+       (cond (lisp-syntax
+              (if (not lisp-mode-syntax-table)
+                  ;; The Emacs Lisp mode syntax table always exists, but
+                  ;;   the Lisp Mode syntax table is created the first time a
+                  ;;   mode that needs it is called.  This is to save space.
+                  (progn (setq lisp-mode-syntax-table
+                            (copy-syntax-table emacs-lisp-mode-syntax-table))
+                         ;; Change some entries for Lisp mode.
+                         (modify-syntax-entry ?\| "\"   "
+                                              lisp-mode-syntax-table)
+                         (modify-syntax-entry ?\[ "_   "
+                                              lisp-mode-syntax-table)
+                         (modify-syntax-entry ?\] "_   "
+                                              lisp-mode-syntax-table)))
+               (set-syntax-table lisp-mode-syntax-table)))
+       (setq local-abbrev-table lisp-mode-abbrev-table)
+       ...)
+
+   Functions such as `forward-paragraph' use the value of the
+`paragraph-start' variable.  Since Lisp code is different from ordinary
+text, the `paragraph-start' variable needs to be set specially to
+handle Lisp.  Also, comments are indented in a special fashion in Lisp
+and the Lisp modes need their own mode-specific
+`comment-indent-function'.  The code to set these variables is the rest
+of `lisp-mode-variables'.
+
+       (make-local-variable 'paragraph-start)
+       ;; Having `^' is not clean, but `page-delimiter'
+       ;; has them too, and removing those is a pain.
+       (setq paragraph-start (concat "^$\\|" page-delimiter))
+       ...
+       (make-local-variable 'comment-indent-function)
+       (setq comment-indent-function 'lisp-comment-indent))
+
+   Each of the different Lisp modes has a slightly different keymap.
+For example, Lisp mode binds `C-c C-l' to `run-lisp', but the other
+Lisp modes do not.  However, all Lisp modes have some commands in
+common.  The following function adds these common commands to a given
+keymap.
+
+     (defun lisp-mode-commands (map)
+       (define-key map "\e\C-q" 'indent-sexp)
+       (define-key map "\177" 'backward-delete-char-untabify)
+       (define-key map "\t" 'lisp-indent-line))
+
+   Here is an example of using `lisp-mode-commands' to initialize a
+keymap, as part of the code for Emacs Lisp mode.  First we declare a
+variable with `defvar' to hold the mode-specific keymap.  When this
+`defvar' executes, it sets the variable to `nil' if it was void.  Then
+we set up the keymap if the variable is `nil'.
+
+   This code avoids changing the keymap or the variable if it is already
+set up.  This lets the user customize the keymap.
+
+     (defvar emacs-lisp-mode-map () "")
+     (if emacs-lisp-mode-map
+         ()
+       (setq emacs-lisp-mode-map (make-sparse-keymap))
+       (define-key emacs-lisp-mode-map "\e\C-x" 'eval-defun)
+       (lisp-mode-commands emacs-lisp-mode-map))
+
+   Finally, here is the complete major mode function definition for
+Emacs Lisp mode.
+
+     (defun emacs-lisp-mode ()
+       "Major mode for editing Lisp code to run in XEmacs.
+     Commands:
+     Delete converts tabs to spaces as it moves back.
+     Blank lines separate paragraphs.  Semicolons start comments.
+     \\{emacs-lisp-mode-map}
+     Entry to this mode runs the hook `emacs-lisp-mode-hook'."
+       (interactive)
+       (kill-all-local-variables)
+       (use-local-map emacs-lisp-mode-map)    ; This provides the local keymap.
+       (set-syntax-table emacs-lisp-mode-syntax-table)
+       (setq major-mode 'emacs-lisp-mode)     ; This is how `describe-mode'
+                                              ;   finds out what to describe.
+       (setq mode-name "Emacs-Lisp")          ; This goes into the modeline.
+       (lisp-mode-variables nil)              ; This defines various variables.
+       (run-hooks 'emacs-lisp-mode-hook))     ; This permits the user to use a
+                                              ;   hook to customize the mode.
+

@@ -1,0 +1,1272 @@
+This is ../info/new-users-guide.info, produced by makeinfo version 4.0
+from new-users-guide/new-users-guide.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Intro: (new-users-guide).	Introduction to the XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This manual serves as an introduction to the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+
+File: new-users-guide.info,  Node: Top,  Next: Intro,  Prev: (dir),  Up: (dir)
+
+   The Emacs Editor ****************
+
+   Emacs is the extensible, customizable, self-documenting real-time
+display editor.  This Info file will help you get started on using
+XEmacs.  It corresponds to XEmacs version 19.13.
+
+* Menu:
+
+* Intro::                       Introduction to XEmacs editor
+
+Indices, nodes containing large menus
+* Key Index::                   An item for each standard Emacs key sequence.
+* Command Index::               An item for each command and function name
+* Variable Index::              An item for each variable in User-Guide
+* Concept Index::               An item for the concepts introduced
+
+Entering, Exiting and Editing Emacs
+* Entering::                    Starting Emacs from the shell and Exiting
+* Windows and Menus::           Description of Pull-down menus
+* Edit::                        Basic Editing commands
+
+Other Features of XEmacs
+* Customization Basics::        Customize Emacs menus and keybindings
+* Help::                        Help menu and other help commands
+* Modes::                       Major and Minor modes in XEmacs
+* Files::                       Visiting, Saving and Listing Files
+* Other Customizations::        Customizing Variables, Modes, etc
+* Select and Move::             Selecting text and moving text
+* Search and Replace::          Searching and Replacing text
+
+
+
+ --- The Detailed Node Listing ---
+
+Entering and Exiting Emacs
+
+* Enter::                       Entering Emacs from the shell
+* Frame::                       Basic information about the XEmacs Frame
+* Exiting::                     Exiting Emacs
+* Mode Line::                   Interpreting the mode line.
+* Echo Area::                   Bottom of the frame where you interact
+                                with Emacs.
+
+XEmacs Windows and Menus
+
+* XEmacs Window::               Manipulating XEmacs Windows
+* Pull-down Menus::             Description of XEmacs Pull-down Menus
+
+Pull-down menus
+
+* File menu::                   Items on the File Menu
+* Edit menu::                   Items on the Edit Menu
+* Options Menu::                Items on the Options Menu
+* Buffers Menu::                Items on the Buffers Menu
+* Help menu::                   The Help Menu at the extreme right on
+                                the frame
+
+Basic Editing Commands
+
+* Insert::                      Insert text in Emacs by simply typing at
+                                the cursor position.
+* Cursor Position::             Moving Around the cursor in the buffer,
+* Erase::                       Different commands for erasing text
+* Numeric Argument::            Giving Numeric Arguments to commands
+* Undo::                        Undoing Changes made by mistake
+
+Customize key bindings and menus
+
+* Customizing key Bindings::    Changing Key Bindings
+* Customizing Menus::           Adding, Deleting, Enabling and Disabling Menus
+
+Help
+
+* The Help Menu::               Items on the Help Menu
+
+Major and Minor Modes
+
+* Major Modes::                 Choosing Major Modes
+* Minor Modes::                 Auto-Fill, Abbrev and other minor modes
+
+Emacs Files
+
+* File Names::                  How to type and edit file name arguments.
+* Visiting::                    Visiting a file prepares Emacs to edit the file.
+* Saving Files::                How to save Emacs files.
+
+Other Customizations
+
+* Setting Variables::           Customizing Emacs variables
+* Init File::                   Some examples of Lisp expressions in
+                                .emacs file
+
+Selecting and Moving Text
+
+* Selecting Text::              Select a region of text by setting the Mark
+* Mouse::                       Selecting Text with Mouse
+* Region Operation::            Various ways to operate on a selected text
+* Moving Text::                 Moving Text
+* Accumulating text::           Accumulating Text from several buffers
+
+No sub menu for the node search and replace
+
+
+File: new-users-guide.info,  Node: Intro,  Next: Key Index,  Prev: Top,  Up: Top
+
+Introduction
+************
+
+   You are reading about XEmacs which is a self-documenting,
+customizable, extensible real-time display editor.
+
+   XEmacs is a "display" editor because normally the text being edited
+is visible on the screen and is updated automatically as you type.
+*Note Display: (xemacs)Frame.
+
+   It is a "real-time" editor because the display is updated very
+frequently, usually after each character or pair of characters you type.
+This minimizes the amount of information you must keep in your head as
+you edit.  *Note Real-time: (xemacs)Basic.
+
+   It is advanced because it provides facilities that go beyond simple
+insertion and deletion: filling of text; automatic indentation of
+programs; viewing two or more files at once; and dealing in terms of
+characters, words, lines, sentences, paragraphs, and pages, as well as
+expressions and comments in several different programming languages.
+It is much easier to type one command meaning "go to the end of the
+paragraph" than to find that spot with simple cursor keys.
+
+   "Self-documenting" means that at any time you can type a special
+character, `Control-h', to find out what your options are.  You can
+also use `C-h' to find out what a command does, or to find all the
+commands relevant to a topic.  *Note Help: (xemacs)Help.
+
+   "Customizable" means you can change the definitions of Emacs
+commands.  For example, if you use a programming language in which
+comments start with `<**' and end with `**>', you can tell the Emacs
+comment manipulation commands to use those strings (*note Comments:
+(xemacs)Comments.).  Another sort of customization is rearrangement of
+the command set.  For example, you can set up the four basic cursor
+motion commands (up, down, left and right) on keys in a diamond pattern
+on the keyboard if you prefer.  *Note Customization:
+(xemacs)Customization.
+
+   "Extensible" means you can go beyond simple customization and write
+entirely new commands, programs in the Lisp language to be run by
+Emacs's own Lisp interpreter.  Emacs is an "on-line extensible" system:
+it is divided into many functions that call each other.  You can
+redefine any function in the middle of an editing session and replace
+any part of Emacs without making a separate copy of all of Emacs.  Most
+of the editing commands of Emacs are written in Lisp; the few
+exceptions could have been written in Lisp but are written in C for
+efficiency.  Only a programmer can write an extension to Emacs, but
+anybody can use it afterward.
+
+
+File: new-users-guide.info,  Node: Entering,  Next: Windows and Menus,  Prev: Concept Index,  Up: Top
+
+Entering and Exiting Emacs
+**************************
+
+   While using Emacs you should be familiar with the following three
+terms:
+
+Buffer
+     A buffer is a region of memory holding characters. It is the basic
+     editing unit; one buffer corresponds to one piece of text being
+     edited. You can have multiple buffers but you can edit only one
+     buffer at any one time. For more information, *Note Buffers:
+     (xemacs)Buffers.
+
+File
+     A file is a region of disk space holding characters. Emacs edits a
+     file by reading it into a buffer, editing that buffer and writing
+     out the buffer back to the file. To save your work permanently you
+     have to write it to a file.  So after you load and work with a
+     file, you have to save it back.
+
+Windows
+     A window is a rectangular region in which a buffer is displayed.
+     You can open multiple windows with multiple buffers and edit them
+     by selecting the corresponding buffer. Initially, when you start
+     emacs, it will automatically open up a window for you.
+
+* Menu:
+
+* Enter::                       Entering Emacs from the shell
+* Frame::                      Basic information about the XEmacs Frame
+* Exiting::                     Exiting Emacs
+* Mode Line::                   Interpreting the mode line.
+* Echo Area::                   Bottom of the frame where you interact
+                                with Emacs.
+
+
+File: new-users-guide.info,  Node: Enter,  Next: Frame,  Prev: Entering,  Up: Entering
+
+Entering Emacs
+==============
+
+   To enter Emacs type `xemacs' and press the Return key at the shell
+i.e. `xemacs <RET>'.  This will bring up an emacs window with
+`*scratch*' as the default buffer because Emacs must always have a
+buffer to work on. Then choose the Open... option from the File menu on
+the menubar at the top of the frame. It will prompt you to enter a
+filename. After you enter the filename, Emacs will read that file into
+the current buffer. You can also type :
+     xemacs <filename> <RET>
+   directly which will bring up an Emacs frame with the "filename" as
+the buffer.
+
+
+File: new-users-guide.info,  Node: Frame,  Next: Exiting,  Prev: Enter,  Up: Entering
+
+Emacs Frame
+===========
+
+   When you run XEmacs under X, a menu bar on top of the Emacs frame
+provides access to pull-down menus of file, edit, and help-related
+commands. The menus only provide convenient shortcuts, the options that
+they provide are available via key commands. You can invoke those
+commands from the keyboard also. For many of the options, their
+corresponding key commands are displayed right besides them. The five
+default menus on the menubar that you will see on the frame are File,
+Edit, Options, Buffers and Help. *Note XEmacs Pull-down Menus:
+(xemacs)XEmacs Pull-down Menus, for detailed information on the
+functions provided by the pull-down menus.
+
+   The Emacs frame has a rectangle shaped box at the extreme right and
+you can drag it up or down to scroll the window accordingly. Clicking
+on the arrows also serves the same purpose.
+
+   The last line in your window is `the Mode line' which will give you
+a description of what's going on in that particular window. *Note Mode
+Line::, for more information. Below the mode line is the `Echo area'.
+Emacs uses this area to interact with the user. *Note Echo Area::.
+
+   If you wish to open another file in a new window after you enter
+XEmacs, select Open in New Frame... from the File menu, which will
+prompt you for a filename and open a new window with that filename as
+the current buffer. If you want to open a new file in the same window,
+select Open.. from the File menu. You need to enter XEmacs only once,
+you can edit multiple files by opening several other frames or by
+switching between buffers.
+
+
+File: new-users-guide.info,  Node: Exiting,  Next: Mode Line,  Prev: Frame,  Up: Entering
+
+Exiting Emacs
+=============
+
+   There are two commands for exiting Emacs, one for "suspending" Emacs
+and the other for "killing" Emacs. "Suspending" means stopping Emacs
+temporarily and returning control to the shell, allowing you to resume
+editing later in the same Emacs job, with the same files, same kill
+ring, same undo history, and so on.  This is the usual way to exit.
+"Killing" Emacs means destroying the Emacs job.  You can run Emacs
+again later, but you will get a fresh Emacs; there is no way to resume
+the same editing session after it has been killed.
+
+`C-z'
+     Suspend Emacs (`suspend-emacs').  If used under the X window
+     system, this command will shrink the X window containing the Emacs
+     frame to an icon. Clicking on the icon will resume that Emacs
+     process again. *Note Exiting Emacs: (xemacs)Exiting Emacs.
+
+`C-x C-c'
+     Kill Emacs (`save-buffers-kill-emacs'). You can also select Exit
+     Emacs option from the File menu to kill that Emacs process. If you
+     haven't saved the file, Emacs will ask you if you wish to save the
+     file before killing that process.
+
+
+File: new-users-guide.info,  Node: Mode Line,  Next: Echo Area,  Prev: Exiting,  Up: Entering
+
+The Mode Line
+=============
+
+   When you enter XEmacs, each text window's last line is a "mode line"
+which describes what is going on in that window. Normally, the mode
+line looks like :
+
+     --CH-XEmacs: BUF     (MAJOR MINOR)----POS------
+
+This gives information about the buffer being displayed in the window:
+the buffer's name, what major and minor modes are in use, whether the
+buffer's text has been changed, and how far down the buffer you are
+currently looking.
+
+   The CH contains :
+`**'
+     if the text in the buffer has been edited
+
+`--'
+     if the text in the buffer has not been edited
+
+`%%'
+     if the buffer is a read-only-buffer i.e. it cannot be edited
+
+   BUF is the name of the window's chosen "buffer". If you are editing
+a file (which is the selected buffer), the file name appears in BUF.
+*Note Buffers: (xemacs)Buffers.
+
+   POS contains :
+`All'
+     if your entire file is visible on the screen.
+
+`Top'
+     if you are looking at the beginning of the file.
+
+`Bot'
+     if you are looking at the end of the file.
+
+`NN%'
+     NN will be a number corresponding to the percentage of the file
+     above the top of the screen, for example `52', which means that 52%
+     of the file is above the top of the screen.
+
+   MAJOR is the name of the "major mode" in effect in the buffer.  At
+any time, each buffer is in one and only one major mode.  The available
+major modes include Fundamental mode (the least specialized), Text
+mode, Lisp mode, and C mode.  *Note Major Modes: (xemacs)Major Modes,
+for details on how the modes differ and how you select one.
+
+   MINOR is a list of some of the "minor modes" that are turned on in
+the window's chosen buffer.  For example, `Fill' means that Auto Fill
+mode is on which means that lines are broken automatically when they
+become too wide. *Note Minor Modes: (xemacs)Minor Modes, for more
+information on various minor modes and how to enable them.
+
+   You can also display time in the mode line. *Note The Mode Line:
+(xemacs)The Mode Line, for more information regarding the mode line.
+
+
+File: new-users-guide.info,  Node: Echo Area,  Prev: Mode Line,  Up: Entering
+
+The Echo Area
+=============
+
+   The line at the bottom of the frame (below the mode line) is the
+"echo area".  Emacs uses this area to communicate with you:
+
+   *   The "echo area" will print out the characters that you type. For
+     example, if you choose the Open... option from the File menu you
+     might get the following in the echo area:
+
+          Find file: /usr/lib/x11/
+
+     Now you need to give a file name to open, for example if the file
+     name is `myfile', you will type `myfile' after `/usr/lib/x11/' and
+     press the <Return> key. If you pause for more than a second while
+     typing, you will see the characters that you type in the "echo
+     area".
+
+   *   The "echo area" also prints error messages. For example, if you
+     misspell `usr' and type `/urs/lib/x11/myfile' <RETURN> in the
+     above example you might get an error message. Since Emacs will not
+     be able to find the `/urs' directory, the "echo area" will say:
+
+          error--> Opening directory: no such file or directory, /urs/lib/x11/myfile
+
+     This error message will be accompanied by a beep. Some XEmacs
+     commands will print informative messages in the "echo area". *Note
+     The Echo Area: (xemacs)The Echo Area, for more information on the
+     "echo area".
+
+
+File: new-users-guide.info,  Node: Windows and Menus,  Next: Edit,  Prev: Entering,  Up: Top
+
+XEmacs Windows and Menus
+************************
+
+   The first section of this chapter will show you how you can
+manipulate XEmacs Windows and the other section will explain the
+Pull-down Menus of an XEmacs window.
+
+* Menu:
+
+* XEmacs Window::               Manipulating XEmacs Windows
+* Pull-down Menus::             Description of XEmacs Pull-down Menus
+
+
+File: new-users-guide.info,  Node: XEmacs Window,  Next: Pull-down Menus,  Prev: Windows and Menus,  Up: Windows and Menus
+
+XEmacs Windows
+==============
+
+   When you use XEmacs under X, you can open multiple windows and each
+window can display one buffer or multiple parts of one buffer. Each
+window will have its own "mode line" and "echo area". At any one time
+there is only one "selected window" and the buffer it displays is the
+"selected buffer". There are some commands for manipulating windows:
+
+`M-C-v'
+     This command will scroll the window which is not "selected"
+     (`scroll-other-window').
+
+`C-x 0'
+     This command will get rid of the selected window (`delete-window').
+     That is a zero. If there is more than one Emacs frame, deleting the
+     sole remaining window on that frame deletes the frame as well. If
+     the current frame is the only frame, it is not deleted.
+
+`C-x 1'
+     This command will get rid of all the windows except the selected
+     one.  (`delete-other-windows'). For example, if you use the
+     Describe variable option from the Help menu, the window will split
+     vertically and the bottom window will contain documentation for
+     that variable. After you are done looking at that variable's
+     documentation you might want to come back to your original single
+     window. Just type `C-x 1' after your cursor is in the top window
+     (the window which you want to keep) and hit <RET>.
+
+`C-x 2'
+     This command will split the selected window into two windows, one
+     above the other (`split-window-vertically'). Both the windows will
+     start out by displaying the same buffer. The window in which you
+     have your cursor will be your "selected window".
+
+`C-x 3'
+     This will split the selected window into two windows positioned
+     side by side (`split-window-horizontally'). A line of vertical
+     bars will separate the window.
+
+You can select a buffer in another window by using some other commands.
+These commands all have a prefix key `C-x 4'
+`C-x 4 b BUFNAME <RET>'
+     This command will select a buffer BUFNAME in another window.  This
+     runs `switch-to-buffer-other-window'. It will prompt you for a
+     buffername.
+
+`C-x 4 f FILENAME <RET>'
+     Visit file FILENAME and select its buffer in another window.  This
+     runs `find-file-other-window'.  *Note Visiting: (xemacs)Visiting.
+     It will prompt you for a filename.
+
+`C-x 4 d DIRECTORY <RET>'
+     Select a Dired buffer for directory DIRECTORY in another window.
+     This runs `dired-other-window'.  *Note Dired: (xemacs)Dired.
+
+`C-x 4 m'
+     Start composing a mail message in another window.  This runs
+     `mail-other-window', and its same-window version is `C-x m'.
+     *Note Sending Mail: (xemacs)Sending Mail, for information on how
+     to Send Mail using XEmacs. *Note Reading Mail With Rmail:
+     (xemacs)Reading Mail With Rmail, for information on reading mail
+     using Rmail.
+
+   If you click the right button on the mouse on a mode line, you will
+get a menu with following options:
+Delete Window
+     Choosing this menu will remove the window above this modeline from
+     the frame.
+
+Delete Other Windows
+     Delete all windows on the frame except for the one above this
+     modeline.
+
+Split Window
+     Split the window above the mode line in half, creating another
+     window.
+
+Split Window Horizontally
+     Split the window above the mode line in half horizontally, so that
+     there will be two windows side-by-side.
+
+Balance Windows
+     Readjust the sizes of all windows on the frame until all windows
+     have roughly the same number of lines.
+
+
+File: new-users-guide.info,  Node: Pull-down Menus,  Prev: XEmacs Window,  Up: Windows and Menus
+
+XEmacs Pull-down Menus
+======================
+
+   When you run XEmacs under X, each Emacs frame has a menu-bar at the
+top which provides commands for editing, help and other options. All
+these options are also available via key commands, the menus just
+provide convenient short-cuts. The key commands are displayed right
+besides some of the options. The following is a brief description of
+the four default menus on the menu bar:
+
+* Menu:
+
+* File menu::                   Items on the File menu
+* Edit menu::                   Items on the Edit menu
+* Options Menu::                Items on the Options Menu
+* Buffers Menu::                Items on the Buffers Menu
+* Help menu::                   The Help Menu at the extreme right on
+                                the frame
+
+
+File: new-users-guide.info,  Node: File menu,  Next: Edit menu,  Prev: Pull-down Menus,  Up: Pull-down Menus
+
+The File Menu
+-------------
+
+   The File menu bar contains the following items. To choose a
+particular option, press the left mouse button and drag it to the item
+you wish to select. Then release the button.
+
+Open...
+     This option will prompt you for a file name. You will get a
+     message in the echo area:
+
+          Find File:
+
+     After Find File, there might be a directory path also. After you
+     type the file name and press <RET> the file will be loaded into a
+     new buffer.
+
+Open in New Frame...
+     It prompts you for a file name and loads that file in a new buffer
+     in a new frame. You can open many frames for the same Emacs
+     session. You can delete the frame by selecting Delete Frame.
+
+Insert File...
+     Prompts you for a filename and inserts the contents of this
+     filename in your current buffer. Position your cursor at the place
+     you wish to insert the file and select this option. You will get
+     the following message in the echo area:
+
+          Insert file:
+
+     Insert the file name and press <RET>.
+
+Save <Buffername>
+     It saves the changes you have made to the buffer. If you have made
+     changes which are not saved yet, the option will appear dark,
+     otherwise it will be light and unselectable. If you do not wish to
+     save the changes, select Revert Buffer.
+
+Save As...
+     Prompts you for a filename and saves the current buffer in that
+     file. It loads the new file if the filename you specify is
+     different from the one you were working with.
+
+Print Buffer <buffername>
+     Prints a hardcopy of the current or "selected" buffer.
+
+New Frame
+     Opens a new frame with *scratch* as the default buffer. It doesn't
+     prompt you for a filename. To open a file you need to go to that
+     frame and select Open...
+
+Split Frame
+     Splits the current window into two equal-sized windows with the
+     same buffer. To get back a single frame, select Un-Split (Keep
+     This). *Note XEmacs Window::, for more information about windows.
+
+Un-Split (Keep This)
+     If the frame contains multiple windows, it will remove all windows
+     except the selected one.
+
+Un-Split (Keep Others)
+     If the frame contains multiple windows, it will remove the selected
+     window and keep the other one.
+
+Revert Buffer <buffername>
+     If you do not wish to save the changes you made to the file since
+     you opened it, select this option. It will restore the last saved
+     version of the file to the current buffer.
+
+Kill Buffer <buffername>
+     It will kill the current buffer. If will prompt you if there are
+     unsaved changes.
+
+Exit Emacs
+     It will kill the Emacs "process" as opposed to simply killing the
+     "buffer". Before it kills the process, it will prompt you as to
+     which unsaved buffers you wish to save by going through the list
+     of the buffers.
+
+* Menu:
+
+* Edit menu::                   Items on the Edit Menu
+* Options Menu::                Items on the Options Menu
+* Buffers Menu::                Items on the Buffers Menu
+* Help menu::                   The Help Menu at the extreme right on
+                                the frame
+
+
+File: new-users-guide.info,  Node: Edit menu,  Next: Options Menu,  Prev: File menu,  Up: Pull-down Menus
+
+The Edit Menu
+-------------
+
+   Most of the commands in this menu work on a block of text or a
+selected region. The text will be highlighted as you select it.
+Undo
+     Undoes the previous command.  If you type something by mistake you
+     can use this command. For example, if you select Insert File...
+     from the File menu and insert a wrong file by mistake, you can
+     select this item and it will remove the inserted file. It undoes a
+     batch of text which is worth an emacs command.
+
+Cut
+     Removes the selected text block from the current buffer, makes it
+     the X clipboard selection, and places it in the kill ring (*note
+     Moving Text::). Before executing this command, you have to select
+     a region using Emacs region selection commands or with the mouse.
+     *Note Selecting Text::.
+
+Copy
+     Makes a selected text block the X clipboard selection, and places
+     it in the kill ring.  You can select text using one of the Emacs
+     region selection commands or by selecting a text region with the
+     mouse. *Note Selecting Text::, for more information.
+
+Paste
+     Inserts the current value of the X clipboard selection in the
+     current buffer.  Note that this is not necessarily the same as the
+     Emacs `yank' command, because the Emacs kill ring and the X
+     clipboard selection are not the same thing.  You can paste in text
+     you have placed in the clipboard using Copy or Cut.  You can also
+     use Paste to insert text that was pasted into the clipboard from
+     other applications. *Note X Clipboard Selection: (xemacs)X
+     Clipboard Selection, for information on using Clipboard Selection.
+
+Clear
+     Removes the selected text block from the current buffer but does
+     not place it in the kill ring or the X clipboard selection. You
+     will not be able to get this text back.
+
+Start Macro Recording
+     After selecting this, Emacs will remember every keystroke you type
+     until End Macro Recording is selected.
+
+End Macro Recording
+     Selecting this tells emacs to stop remembering your keystrokes.
+
+Execute Last Macro
+     Selecting this item will cause emacs to re-interpret all of the
+     keystrokes which were saved between selections of the Start Macro
+     Recording and End Macro Recording menu items.  You can now execute
+     the most recent keyboard macro. *Note Keyboard Macros:
+     (xemacs)Keyboard Macros, for further information.
+
+
+File: new-users-guide.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Edit menu,  Up: Pull-down Menus
+
+The Options Menu
+----------------
+
+   There are sub-menus for some of the menus which you will need to
+select. If sub-menus exist for an item, they will be displayed
+automatically when you drag the mouse on that item. The items in this
+menu provide some fancy editing operations.
+
+Read Only
+     Selecting this item will cause the buffer to visit the file in a
+     read-only mode. Changes to the file will not be allowed.
+
+Case Sensitive Search
+     Selecting this item will cause searches to be case-sensitive. If
+     its not selected then searches will ignore case. This option is
+     local to the buffer. For example, if this item is selected and you
+     are searching for `Smile', then an occurrence of `smile' will not
+     be recognized because of the smaller case of `s'.
+
+Overstrike
+     After selecting this item, when you type letters they will replace
+     existing text on a one-to-one basis, rather than pushing it to the
+     right. At the end of a line, such characters extend the line.
+     Before a tab, such characters insert until the tab is filled in.
+
+Auto Delete Selection
+     Selecting this item will cause automatic deletion of the selected
+     region. After you select a region and hit the <RET> key, the
+     selected text will be deleted. The typed text will replace the
+     selection if the selection is active (i.e. if its highlighted). If
+     the option is not selected then the typed text is just inserted at
+     the cursor.
+
+Teach Extended Commands
+     After you  select this item, any time you execute a command with
+     `M-x' which has a shorter keybinding, you will be shown the
+     alternate binding before the command executes. For example if you
+     type `M-x find-file-other-window' which performs the same function
+     as the Open in Other Window... in File menu you will see the
+     following message:
+
+          M-x find-file-other-window (bound to keys: C-x 4 f, C-x 4 C-f)
+
+Syntax Highlighting
+     You can customize your `.emacs' file to include the font-lock mode
+     so that when you select this item, the comments will be displayed
+     in one face, strings in another, reserved words in another, and so
+     on. *Note Customization: (xemacs)Customization, for more
+     information on customizing `.emacs' file.  After selecting this
+     item, you will find your code a lot easier to read. When Fonts is
+     selected, different parts of the program will appear in different
+     Fonts. When Colors is selected, then the program will be displayed
+     in different colors. Selecting None causes the program to appear in
+     just one Font and Color. Selecting Less resets the Fonts and Colors
+     to a fast, minimal set of decorations. Selecting More resets the
+     Fonts and Colors to a larger set of decorations. For example, if
+     Less is selected (which is the default setting) then you might have
+     all comments in green color. It does not matter what the comments
+     contain. Whereas, if More is selected then a function name in the
+     comments themselves might appear in a different Color or Font. Even
+     though the comments themselves might appear in green color, a
+     function name "within" the comments might appear in red color.
+
+Paren Highlighting
+     After selecting Blink from this item, if you place the cursor on a
+     parenthesis, the matching parenthesis will blink. If you select
+     Highlight and place the cursor on a parenthesis, the whole
+     expression of the parenthesis under the cursor will be highlighted.
+     Selecting None will turn off the options (regarding Paren
+     Highlighting) which you had selected earlier.
+
+Font
+     You can select any Font for your program by choosing from one of
+     the available Fonts. The whole buffer will be converted to the
+     Font you select.
+
+Size
+     You can select any size for the text in your buffer (ranging from
+     2 to 24) by selecting the appropriate option.
+
+Weight
+     You can choose either Bold or Medium for the weight of the text of
+     your buffer.
+
+Buffers Menu Length...
+     Prompts you for the number of buffers to display. Then it will
+     display that number of most recently selected buffers.
+
+Buffers Sub-Menus
+     After selection of this item the Buffers menu will contain several
+     commands, as submenus of each buffer line. If this item is
+     unselected, then there are no submenus for each buffer line, the
+     only command available will be selecting that buffer.
+
+Save Options
+     Selecting this item will save the current settings of your Options
+     menu to your `.emacs' file so that the next time you start XEmacs,
+     you won't need to select the options again.
+
+
+File: new-users-guide.info,  Node: Buffers Menu,  Next: Help menu,  Prev: Options Menu,  Up: Pull-down Menus
+
+The Buffers Menu
+----------------
+
+   The Buffers menu provides a selection of up to ten buffers and the
+item List All Buffers, which provides a Buffer List. If you select
+Buffers Sub-menus from the Options menu, you will get some sub-menus
+for each of the buffer listing.
+
+
+File: new-users-guide.info,  Node: Help menu,  Prev: Buffers Menu,  Up: Pull-down Menus
+
+The Help Menu
+-------------
+
+   The Help Menu gives you access to Emacs Info and provides a menu
+equivalent for some of the choices you have when using `C-h'.  *Note
+Help::, for more information.
+
+   The Describe variable and Describe function will provide
+documentation for the corresponding variable or function. The Help menu
+also gives access to UNIX online manual pages via the UNIX Manual...
+option.
+
+
+File: new-users-guide.info,  Node: Edit,  Next: Customization Basics,  Prev: Windows and Menus,  Up: Top
+
+Basic Editing Commands
+**********************
+
+   This chapter will introduce you to some basic editing commands. You
+can also learn the basic editing commands by typing `Control-h t'
+(`help-with-tutorial' OR by selecting Emacs Tutorial from the Help menu
+on the menu bar. Most of the Emacs commands will use the <CONTROL> key
+or the <META> key. The following abbreviations will be used for the
+<CONTROL> and <META> key in this manual:
+
+`C-<chr>'
+     This means that you should hold down the <CONTROL> key while typing
+     `<chr>'. For example, if the command is `C-g', you should hold the
+     <CONTROL> key and type <g>.
+
+`M-<chr>'
+     This means that you should hold down the `META' key while typing
+     `<chr>'. If there is no `META' key on your keyboard, use the `ESC'
+     key instead. For example, if the command is `M-x', then type
+     `ESC', release it and type `x'.
+
+   The following abbreviations will be used for some other keys:
+
+<SPC>
+     Space bar.
+
+<RET>
+     Return key.
+
+<LFD>
+     Linefeed key.
+
+<TAB>
+     Tab.
+
+<ESC>
+     Escape.
+
+<SFT>
+     Shift.
+
+* Menu:
+
+* Insert::                      Insert text in Emacs by simply typing at
+                                the cursor position.
+* Cursor Position::             Moving Around the cursor in the buffer,
+* Erase::                       Different commands for erasing text
+* Numeric Argument::            Giving Numeric Arguments to commands
+* Undo::                        Undoing Changes made by mistake
+
+
+File: new-users-guide.info,  Node: Insert,  Next: Cursor Position,  Prev: Edit,  Up: Edit
+
+Inserting Text
+==============
+
+   To insert printing characters into the text you are editing, just
+type them. Emacs will automatically insert the characters that you type
+into the buffer at the cursor. The cursor moves forward, but if you
+prefer to have text characters replace (overwrite) existing text
+characters, you can enable the Overstrike option from the Options menu
+in the menu bar.
+
+   To "delete" text you have just inserted, use <DEL>.  <DEL> deletes
+the character BEFORE the cursor (not the one that the cursor is on top
+of or under; that is the character AFTER the cursor).  The cursor and
+all characters after it move backwards.  Therefore, if you type a
+printing character and then type <DEL>, they cancel out.
+
+   To end a line and start typing a new one, type <RET>.  This inserts
+a newline character in the buffer.  If point is in the middle of a
+line, <RET> splits the line.  Typing <DEL> when the cursor is at the
+beginning of a line rubs out the newline before the line, thus joining
+the line with the preceding line.
+
+   Emacs automatically splits lines when they become too long, if you
+turn on a special mode called "Auto Fill" mode.  *Note Filling:
+(xemacs)Filling, for information on using Auto Fill mode.
+
+
+File: new-users-guide.info,  Node: Cursor Position,  Next: Erase,  Prev: Insert,  Up: Edit
+
+Moving Around
+=============
+
+   The following commands will allow you to move the cursor around the
+screen. The actual function names corresponding to these commands are
+given in parenthesis. You can also invoke these commands by typing `M-x
+<function name>'. You can do this for any command in XEmacs.
+
+`C-b'
+     Move the cursor backward one character (`backward-char').
+
+`C-f'
+     Move the cursor forward one character (`forward-char').
+
+`C-p'
+     Move the cursor up one line vertically (`previous-line').
+
+`C-n'
+     Move the cursor down one line vertically (`next-line').
+
+`C-a'
+     Move the cursor to the beginning of the line (`beginning-of-line').
+
+`C-e'
+     Move the cursor to the end of the line (`end-of-line').
+
+`M-f'
+     Move the cursor forward one word (`forward-word').
+
+`M-b'
+     Move the cursor backword one word (`backward-word').
+
+`M-<'
+     Move the cursor to the top of the buffer (`beginning-of-buffer').
+
+`M->'
+     Move the cursor to the end of the buffer (`end-of-buffer').
+
+`M-x goto-char RET <number> RET'
+     To enable this command type `M-x goto-char', and hit <RETURN> key.
+     In the "echo area" you will see:
+
+          Goto char:
+
+     You should then type in a number right after the colon and hit the
+     `RETURN' key again. After reading a number N this command will
+     move the cursor to character number N.  Position 1 is the
+     beginning of the buffer. For example, if you type `M-x goto-char
+     RET 200 RET', then the cursor will move to the 200th character
+     starting from the beginning of the buffer.
+
+`M-x goto-line RET <number> RET'
+     To enable this command type `M-x goto-line', and hit the <RETURN>
+     key. After you see `Goto line:' in the "echo area", type in a
+     number N and hit <RETURN> key again. This command will position
+     the cursor on the nth line starting from the beginning of the
+     buffer.
+
+`M-x what-line RET'
+     This command will display the current line number in the echo area.
+
+
+File: new-users-guide.info,  Node: Erase,  Next: Numeric Argument,  Prev: Cursor Position,  Up: Edit
+
+Erasing Text
+============
+
+`<DEL>'
+     If you press <DEL> i.e. the "delete" key, it will delete the
+     character before the cursor (`delete-backward-char').
+
+`C-d'
+     This will delete the character after the cursor (`delete-char').
+
+`C-k'
+     Kill to the end of the line (`kill-line'). If you kill the line by
+     mistake you can "yank" or `paste' it back by typing `C-y'. *Note
+     Moving Text::, for more information on yanking.
+
+`M-d'
+     Kill forward to the end of the next word (`kill-word').
+
+`M-<DEL>'
+     Kill back to the beginning of the previous word
+     (`backward-kill-word').
+
+`M-k'
+     Kill to the end of current sentence (`kill-sentence').
+
+`M-z CHAR'
+     Kill up to next occurrence of CHAR (`zap-to-char'). To use this
+     command type `M-z'. You will see the following statement in the
+     echo area :
+
+          Zap to char:
+
+     Type any char and press the <RET> key. For example, if you type
+     `p' then the entire text starting from the position of the cursor
+     until the first occurrence of `p' is killed.
+
+
+File: new-users-guide.info,  Node: Numeric Argument,  Next: Undo,  Prev: Erase,  Up: Edit
+
+Giving Numeric Arguments
+========================
+
+   Any Emacs command can be given a "numeric argument".  Some commands
+interpret the argument as a repetition count.  For example, if you want
+to move forward ten characters, you could type `C-f' ten times.
+However, a more efficient way to do this would be to give an argument
+of ten to the key `C-f' (the command `forward-char', move forward one
+character). Negative arguments are also allowed. Often they tell a
+command to move or act backwards. For example, if you want to move down
+ten lines, type the following:
+     C-u 10 C-n RET
+
+After you press <RET> key, the cursor will move ten lines downward. You
+can also type:
+     M-10 C-n RET
+
+Both `C-u' and `M-' allow you to give numeric arguments. If you want to
+move ten lines backward, you can also give negative arguments, like:
+     C-u -10 C-n RET
+
+OR you could also type:
+     M--10 C-n RET
+
+You can obviously use `C-b' to move backward rather than giving
+negative arguments to `C-n'. *Note Numeric Arguments: (xemacs)Numeric
+Arguments, for more information on numeric arguments.
+
+
+File: new-users-guide.info,  Node: Undo,  Prev: Numeric Argument,  Up: Edit
+
+Undoing Changes
+===============
+
+   When you are editing a buffer, you might type something by mistake.
+Emacs allows you to undo all changes you make to a buffer (but not more
+than 8000 characters). Each buffer in Emacs keeps a record of the
+changes made to it individually, so the undo command applies to the
+current buffer. There are two undo commands:
+
+`C-x u'
+     Undo one batch of changes (usually, one command's worth).
+     (`undo').
+
+`C-_'
+     The same as above, but this command might not be obvious to type
+     on some keyboards so it might be better to use the above command.
+
+   *Note Undoing Changes: (xemacs)Undoing Changes, for more information
+on undoing changes.
+
+
+File: new-users-guide.info,  Node: Customization Basics,  Next: Help,  Prev: Edit,  Up: Top
+
+Customize key bindings and menus
+********************************
+
+   When you start Emacs, it reads the file `~/.emacs' in your home
+directory. You can use this file to initialize and customize Emacs to
+your liking. This file should contain lisp-code. You can customize your
+`.emacs' file to create new menus, disable menus, change key bindings,
+enable a minor mode, etc. Any kind of customization affects only a
+particular Emacs job that you do them in. If you want to save your
+customizations `permanently' i.e. for future use also, you have to put
+it in your `.emacs' file. After you make changes to your `.emacs' file
+and save it, the changes will be effective only after you start Emacs
+again i.e. for a new Emacs process. To try out some of the examples in
+this section, highlight that region and evaluate the region by giving
+the command `M-x eval-region'. You will be able to see the results of
+your customizations in that Emacs session only (*note Lisp Eval:
+(xemacs)Lisp Eval.).
+
+* Menu:
+
+* Customizing key Bindings::    Changing Key Bindings
+* Customizing Menus::           Adding, Deleting, Enabling and Disabling Menus
+
+
+File: new-users-guide.info,  Node: Customizing key Bindings,  Next: Customizing Menus,  Prev: Customization Basics,  Up: Customization Basics
+
+Customize key bindings
+======================
+
+   Most of Emacs commands use key sequences. *Note Keystrokes:
+(xemacs)Keystrokes, for more information about Keys and Commands. In
+Emacs, the keys themselves carry no meaning unless they are bound to a
+function. For example, `C-n' moves the cursor to the next line because
+its bound to the function next-line. Similarly, `C-p' moves to the
+previous line because its bound to the function previous-line. The
+functions themselves define a particular behavior. You can customize
+the key `C-n' to move to the previous line by binding it to
+previous-line and `C-p' to move to the next line by binding it to
+next-line. To bind keys to globally run commands you need to use the
+following syntax in your .emacs file:
+
+     `(global-set-key KEYS CMD)'
+
+Here, `global-set-key' is a function which will bind the "keys" to the
+specified "cmd". For example, if you type the following in your .emacs
+file:
+
+     (global-set-key "\C-p" 'next-line)
+     (global-set-key "\C-n" 'previous-line)
+
+then `C-p' will move to the next line and `C-n' to the previous line.
+
+   You can also disable a key binding, by using `nil' as the CMD in the
+syntax stated above. Here, `nil' stands for `false' which means disable
+a command or turn off a feature. If you want to enable a command or
+turn on a particular feature use `t' which stands for `true'.  For
+example, if you do not wish `C-x C-c' to `Exit Emacs' you can type the
+following expression in your `.emacs' file:
+
+     (global-set-key "\C-x\C-c" nil)
+
+You might want to have this statement in your `.emacs' file because its
+easy to hit this command by mistake and it could be annoying to exit
+Emacs unintentionally. There is a Exit Emacs option in the File menu
+which you might want to use instead. To make a particular key undefined
+you can also use:
+
+     (global-unset-key "\C-x\C-c")
+
+Now if you use the command `C-x C-c', you will get an error saying that
+the command is undefined.
+
+   Some other customizations you could try are:
+   *      (global-set-key 'button3 'beginning-of-buffer)
+
+     Now when you press the third button of your mouse, the cursor will
+     be placed at the `beginning-of-buffer'.
+
+   *      (global-set-key 'f1 'goto-line)
+
+     If you press the <F1> key, you will be prompted for a line number.
+     After you type the line number and hit <RET>, the cursor will be
+     placed on that line number.
+
+   *      (global-set-key 'f2 'undo)
+
+     Pressing <F2> will undo the last command. If you have a <undo> key
+     on your keyboard, try binding that key to the undo command.
+
+   Another syntax for customizing key bindings is: `(define-key KEYMAP
+KEYS DEF)' It defines KEYS to run DEF in the keymap KEYMAP.
+
+   KEYMAP is a keymap object which records the bindings of keys to the
+commands that they run.
+
+   KEYS is the sequence of keystrokes to bind.
+
+   DEF is anything that can be a key's definition:
+
+   Look at the following two examples:
+
+     (define-key global-map "\C-xl" 'make-symbolic-link)
+     (define-key c-mode-map "\C-xl" 'make-symbolic-link)
+
+Both the examples bind the key `C-xl' to run the function
+`make-symbolic-link' (*note Misc File Ops: (xemacs)Misc File Ops.).
+However, the second example will bind the key only for C mode. *Note
+Major Modes: (xemacs)Major Modes, for more information on Major Modes
+in XEmacs.
+
+
+File: new-users-guide.info,  Node: Customizing Menus,  Prev: Customizing key Bindings,  Up: Customization Basics
+
+Customizing Menus
+=================
+
+   You can customize any of the  XEmacs Pull-down-Menus. You can create
+your own menu, delete an existing one, enable a menu or disable a menu.
+For more information on the default menus available to you, *Note
+Pull-down Menus::.
+
+   Some of the functions which are available to you for customization
+are:
+  1. add-menu-item: (MENU-NAME ITEM-NAME FUNCTION ENABLED-P &optional
+     BEFORE)
+
+     This function will add a menu item to a menu, creating the menu
+     first if necessary. If the named item already exists, the menu
+     will remain unchanged. For example, if you add the following
+     example to your `.emacs' file or evaluate it (*note Customization
+     Basics::),
+
+          (add-menu-item '("Edit") "Replace String" replace-string t "Clear")
+
+     a sub-menu Replace String will be created under Edit menu before
+     the sub-menu Clear. The Edit menu will now look like:
+
+          Undo                    C-x u
+          Cut                     cut
+          Copy                    copy
+          Paste                   paste
+          Replace String
+          Clear
+          Start Macro Recording   C-x(
+          End Macro Recording     C-x)
+          Execute Last Macro      C-xe
+
+     Replace String will now execute the function `replace-string'.
+     Select this menu item. Emacs will prompt you for a string name to
+     be replaced. Type a string and hit <RET>. Now type a new string to
+     replace the old string and hit <RET>. All occurrences of the old
+     string will be replaced by the new string. In this example,
+
+     `Edit' is the MENU-NAME which identifies the menu into which the
+     new menu item should be inserted.
+
+     `Replace String' is the ITEM-NAME which names the menu item to be
+     added.
+
+     `replace-string' is the FUNCTION i.e. the command to be invoked
+     when the menu item "Replace String" is selected.
+
+     `t' is the ENABLED-P parameter which controls whether the menu
+     item is selectable or not. This parameter can be either `t'
+     (selectable), `nil' (not selectable), or a form to evaluate. This
+     form is evaluated just before the menu is displayed, and the menu
+     item will be selectable if the form returns non-`nil'.
+
+     `Clear' is the &OPTIONAL BEFORE parameter which is the name of the
+     menu before which the new menu or sub-menu should be added. The
+     &OPTIONAL string means that this parameter is optional. You do not
+     need to specify this parameter. If you do not specify this
+     parameter in the example above, the Replace String menu item will
+     be added at the end of the list of sub-menus in the Edit menu i.e.
+     after Execute Last Macro.
+
+     If you wish to add a new menu to the menubar, try:
+
+          (add-menu-item nil "Bot" 'end-of-buffer t)
+
+     This will create a new menu Bot on the menu bar. Selecting this
+     menu will take you to the end of the buffer. Using `nil' for the
+     parameter MENU-NAME will create a new menu. Your menu-bar will now
+     look like:
+
+          File Edit Options Buffers Bot                         Help
+
+     The following example will illustrate how you can add sub-menus to
+     the submenus themselves:
+
+          (add-menu-item '("File" "Management") "Copy File" 'copy-file t)
+          (add-menu-item '("File" "Management") "Delete File" 'delete-file t)
+          (add-menu-item '("File" "Management") "Rename File" 'rename-file t)
+
+     This will create a sub-menu Management under the File menu. When
+     you select the submenu Management, it will contain three submenus:
+     Copy File, Delete File and Rename File.
+
+  2. delete-menu-item: (MENU-PATH) This function will remove the menu
+     item defined by MENU-NAME from the menu hierarchy. Look at the
+     following examples and the comments just above them which specify
+     what the examples do.
+
+          ;; deletes the "Replace String" menu item created earlier
+          (delete-menu-item '("Edit" "Replace String"))
+          
+          ;; deletes the "Bot" menu created earlier
+          (delete-menu-item '("Bot"))
+          
+          ;; deletes the sub-menu "Copy File" created earlier
+          (delete-menu-item '("File" "File Management" "Copy File"))
+          
+          ;; deletes the sub-menu "Delete File" created earlier
+          (delete-menu-item '("File" "Management" "Delete File"))
+          
+          ;; deletes the sub-menu "Rename File" created earlier
+          (delete-menu-item '("File" "Management" "Rename File"))
+
+  3. disable-menu-item: (MENU-NAME) Disables the specified menu item.
+     The following example
+
+          (disable-menu-item '("File" "Management" "Copy File"))
+
+     will make the Copy File item unselectable. This menu-item would
+     still be there but it will appear faded which would mean that it
+     cannot be selected.
+
+  4. enable-menu-item: (MENU-NAME) Enables the specified previously
+     disabled menu item.
+
+          (enable-menu-item '("File" "Management" "Copy File"))
+
+     This will enable the sub-menu Copy File, which was disabled by the
+     earlier command.
+
+  5. relabel-menu-item: (MENU-NAME NEW-NAME) Change the string of the
+     menu item specified by MENU-NAME to NEW-NAME.
+
+          (relabel-menu-item '("File" "Open...") "Open File")
+
+     This example will rename the Open... menu item from the File menu
+     to Open File.
+
+

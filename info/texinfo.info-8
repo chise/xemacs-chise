@@ -1,0 +1,1312 @@
+This is ../info/texinfo.info, produced by makeinfo version 4.0 from
+texinfo.texi.
+
+INFO-DIR-SECTION Texinfo documentation system
+START-INFO-DIR-ENTRY
+* Texinfo: (texinfo).           The GNU documentation format.
+* install-info: (texinfo)Invoking install-info. Update info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
+* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
+END-INFO-DIR-ENTRY
+
+  This file documents Texinfo, a documentation system that can produce
+both online information and a printed manual from a single source file.
+
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+Foundation, Inc.
+
+  This edition is for Texinfo version 4.0, 28 September 1999.
+
+  Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+  Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+  Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+
+
+File: texinfo.info,  Node: Raw Formatter Commands,  Next: set clear value,  Prev: Conditional Not Commands,  Up: Conditionals
+
+Raw Formatter Commands
+======================
+
+  Inside a region delineated by `@iftex' and `@end iftex', you can
+embed some raw TeX commands.  Info will ignore these commands since
+they are only in that part of the file which is seen by TeX.  You can
+write the TeX commands as you would write them in a normal TeX file,
+except that you must replace the `\' used by TeX with an `@'.  For
+example, in the `@titlepage' section of a Texinfo file, you can use the
+TeX command `@vskip' to format the copyright page.  (The `@titlepage'
+command causes Info to ignore the region automatically, as it does with
+the `@iftex' command.)
+
+  However, many features of plain TeX will not work, as they are
+overridden by Texinfo features.
+
+  You can enter plain TeX completely, and use `\' in the TeX commands,
+by delineating a region with the `@tex' and `@end tex' commands.  (The
+`@tex' command also causes Info to ignore the region, like the `@iftex'
+command.)  The sole exception is that the `@' character still
+introduces a command, so that `@end tex' can be recognized properly.
+
+  For example, here is a mathematical expression written in plain TeX:
+
+     @tex
+     $$ \chi^2 = \sum_{i=1}^N
+               \left (y_i - (a + b x_i)
+               \over \sigma_i\right)^2 $$
+     @end tex
+
+The output of this example will appear only in a printed manual.  If
+you are reading this in Info, you will not see the equation that appears
+in the printed manual.
+
+  Analogously, you can use `@ifhtml ... @end ifhtml' to delimit a
+region to be included in HTML output only, and `@html ...  @end html'
+for a region of raw HTML (again, except that `@' is still the escape
+character, so the `@end' command can be recognized.)
+
+
+File: texinfo.info,  Node: set clear value,  Prev: Raw Formatter Commands,  Up: Conditionals
+
+`@set', `@clear', and `@value'
+==============================
+
+  You can direct the Texinfo formatting commands to format or ignore
+parts of a Texinfo file with the `@set', `@clear', `@ifset', and
+`@ifclear' commands.
+
+  In addition, you can use the `@set FLAG' command to set the value of
+FLAG to a string of characters; and use `@value{FLAG}' to insert that
+string.  You can use `@set', for example, to set a date and use
+`@value' to insert the date in several places in the Texinfo file.
+
+* Menu:
+
+* ifset ifclear::               Format a region if a flag is set.
+* set value::                   Expand a flag variable to a string.
+* value Example::               An easy way to update edition information.
+
+
+File: texinfo.info,  Node: ifset ifclear,  Next: set value,  Up: set clear value
+
+`@ifset' and `@ifclear'
+-----------------------
+
+  When a FLAG is set, the Texinfo formatting commands format text
+between subsequent pairs of `@ifset FLAG' and `@end ifset' commands.
+When the FLAG is cleared, the Texinfo formatting commands do _not_
+format the text.
+
+  Use the `@set FLAG' command to turn on, or "set", a FLAG; a "flag"
+name can be any single word, containing letters, numerals, hyphens, or
+underscores.
+
+  The format for the command looks like this:
+
+     @set FLAG
+
+  Write the conditionally formatted text between `@ifset FLAG' and
+`@end ifset' commands, like this:
+
+     @ifset FLAG
+     CONDITIONAL-TEXT
+     @end ifset
+
+  For example, you can create one document that has two variants, such
+as a manual for a `large' and `small' model:
+
+     You can use this machine to dig up shrubs
+     without hurting them.
+     
+     @set large
+     
+     @ifset large
+     It can also dig up fully grown trees.
+     @end ifset
+     
+     Remember to replant promptly ...
+
+In the example, the formatting commands will format the text between
+`@ifset large' and `@end ifset' because the `large' flag is set.
+
+  Use the `@clear FLAG' command to turn off, or "clear", a flag.
+Clearing a flag is the opposite of setting a flag.  The command looks
+like this:
+
+     @clear FLAG
+
+Write the command on a line of its own.
+
+  When FLAG is cleared, the Texinfo formatting commands do _not_ format
+the text between `@ifset FLAG' and `@end ifset'; that text is ignored
+and does not appear in either printed or Info output.
+
+  For example, if you clear the flag of the preceding example by writing
+an `@clear large' command after the `@set large' command (but before
+the conditional text), then the Texinfo formatting commands ignore the
+text between the `@ifset large' and `@end ifset' commands.  In the
+formatted output, that text does not appear; in both printed and Info
+output, you see only the lines that say, "You can use this machine to
+dig up shrubs without hurting them.  Remember to replant promptly ...".
+
+  If a flag is cleared with an `@clear FLAG' command, then the
+formatting commands format text between subsequent pairs of `@ifclear'
+and `@end ifclear' commands.  But if the flag is set with `@set FLAG',
+then the formatting commands do _not_ format text between an `@ifclear'
+and an `@end ifclear' command; rather, they ignore that text.  An
+`@ifclear' command looks like this:
+
+     @ifclear FLAG
+
+  In brief, the commands are:
+
+`@set FLAG'
+     Tell the Texinfo formatting commands that FLAG is set.
+
+`@clear FLAG'
+     Tell the Texinfo formatting commands that FLAG is cleared.
+
+`@ifset FLAG'
+     If FLAG is set, tell the Texinfo formatting commands to format the
+     text up to the following `@end ifset' command.
+
+     If FLAG is cleared, tell the Texinfo formatting commands to ignore
+     text up to the following `@end ifset' command.
+
+`@ifclear FLAG'
+     If FLAG is set, tell the Texinfo formatting commands to ignore the
+     text up to the following `@end ifclear' command.
+
+     If FLAG is cleared, tell the Texinfo formatting commands to format
+     the text up to the following `@end ifclear' command.
+
+
+File: texinfo.info,  Node: set value,  Next: value Example,  Prev: ifset ifclear,  Up: set clear value
+
+`@set' and `@value'
+-------------------
+
+  You can use the `@set' command to specify a value for a flag, which
+is expanded by the `@value' command.  A flag is an identifier; for best
+results, use only letters and numerals in a flag name, not `-' or
+`_'--they will work in some contexts, but not all, due to limitations
+in TeX.  The value is just a string of characters, the remainder of the
+input line.
+
+  Write the `@set' command like this:
+
+     @set foo This is a string.
+
+This sets the value of the flag `foo' to "This is a string.".
+
+  The Texinfo formatters then replace an `@value{FLAG}' command with
+the string to which FLAG is set.  Thus, when `foo' is set as shown
+above, the Texinfo formatters convert
+
+     @value{foo}
+to
+     This is a string.
+
+  You can write an `@value' command within a paragraph; but you must
+write an `@set' command on a line of its own.
+
+  If you write the `@set' command like this:
+
+     @set foo
+
+without specifying a string, the value of `foo' is an empty string.
+
+  If you clear a previously set flag with `@clear FLAG', a subsequent
+`@value{flag}' command is invalid and the string is replaced with an
+error message that says `{No value for "FLAG"}'.
+
+  For example, if you set `foo' as follows:
+
+     @set how-much very, very, very
+
+then the formatters transform
+
+     It is a @value{how-much} wet day.
+into
+     It is a very, very, very wet day.
+
+  If you write
+
+     @clear how-much
+
+then the formatters transform
+
+     It is a @value{how-much} wet day.
+into
+     It is a {No value for "how-much"} wet day.
+
+
+File: texinfo.info,  Node: value Example,  Prev: set value,  Up: set clear value
+
+`@value' Example
+----------------
+
+  You can use the `@value' command to limit the number of places you
+need to change when you record an update to a manual.  Here is how it is
+done in `The GNU Make Manual':
+
+  1. Set the flags:
+
+          @set EDITION 0.35 Beta
+          @set VERSION 3.63 Beta
+          @set UPDATED 14 August 1992
+          @set UPDATE-MONTH August 1992
+
+  2. Write text for the first `@ifinfo' section, for people reading the
+     Texinfo file:
+
+          This is Edition @value{EDITION},
+          last updated @value{UPDATED},
+          of @cite{The GNU Make Manual},
+          for @code{make}, version @value{VERSION}.
+
+  3. Write text for the title page, for people reading the printed
+     manual:
+
+          @title GNU Make
+          @subtitle A Program for Directing Recompilation
+          @subtitle Edition @value{EDITION}, ...
+          @subtitle @value{UPDATE-MONTH}
+
+     (On a printed cover, a date listing the month and the year looks
+     less fussy than a date listing the day as well as the month and
+     year.)
+
+  4. Write text for the Top node, for people reading the Info file:
+
+          This is Edition @value{EDITION}
+          of the @cite{GNU Make Manual},
+          last updated @value{UPDATED}
+          for @code{make} Version @value{VERSION}.
+
+     After you format the manual, the text in the first `@ifinfo'
+     section looks like this:
+
+          This is Edition 0.35 Beta, last updated 14 August 1992,
+          of `The GNU Make Manual', for `make', Version 3.63 Beta.
+
+  When you update the manual, change only the values of the flags; you
+do not need to edit the three sections.
+
+
+File: texinfo.info,  Node: Internationalization,  Next: Defining New Texinfo Commands,  Prev: Conditionals,  Up: Top
+
+Internationalization
+********************
+
+  Texinfo has some support for writing in languages other than English,
+although this area still needs considerable work.
+
+  For a list of the various accented and special characters Texinfo
+supports, see *Note Inserting Accents::.
+
+* Menu:
+
+* documentlanguage::            Declaring the current language.
+* documentencoding::            Declaring the input encoding.
+
+
+File: texinfo.info,  Node: documentlanguage,  Next: documentencoding,  Up: Internationalization
+
+`@documentlanguage CC': Set the Document Language
+=================================================
+
+  The `@documentlanguage' command declares the current document
+language.  Write it on a line by itself, with a two-letter ISO-639
+language code following (list is included below).  If you have a
+multilingual document, the intent is to be able to use this command
+multiple times, to declare each language change.  If the command is not
+used at all, the default is `en' for English.
+
+  At present, this command is ignored in Info and HTML output.  For
+TeX, it causes the file `txi-CC.tex' to be read (if it exists).  Such a
+file appropriately redefines the various English words used in TeX
+output, such as `Chapter', `See', and so on.
+
+  It would be good if this command also changed TeX's ideas of the
+current hyphenation patterns (via the TeX primitive `\language'), but
+this is unfortunately not currently implemented.
+
+  Here is the list of valid language codes.  This list comes from the
+free translation project
+(http://www.iro.umontreal.ca/contrib/po/iso-639).  In the future we may
+wish to allow the 3-letter POV codes described at
+`http://www.sil.org/ethnologue/#contents'.  This will be necessary to
+support African languages.
+
+`aa' Afar                 `ab'Abkhazian            `af'Afrikaans
+`am' Amharic              `ar'Arabic               `as'Assamese
+`ay' Aymara               `az'Azerbaijani          `ba'Bashkir
+`be' Byelorussian         `bg'Bulgarian            `bh'Bihari
+`bi' Bislama              `bn'Bengali; Bangla      `bo'Tibetan
+`br' Breton               `ca'Catalan              `co'Corsican
+`cs' Czech                `cy'Welsh                `da'Danish
+`de' German               `dz'Bhutani              `el'Greek
+`en' English              `eo'Esperanto            `es'Spanish
+`et' Estonian             `eu'Basque               `fa'Persian
+`fi' Finnish              `fj'Fiji                 `fo'Faroese
+`fr' French               `fy'Frisian              `ga'Irish
+`gd' Scots Gaelic         `gl'Galician             `gn'Guarani
+`gu' Gujarati             `ha'Hausa                `he'Hebrew
+`hi' Hindi                `hr'Croatian             `hu'Hungarian
+`hy' Armenian             `ia'Interlingua          `id'Indonesian
+`ie' Interlingue          `ik'Inupiak              `is'Icelandic
+`it' Italian              `iu'Inuktitut            `ja'Japanese
+`jw' Javanese             `ka'Georgian             `kk'Kazakh
+`kl' Greenlandic          `km'Cambodian            `kn'Kannada
+`ks' Kashmiri             `ko'Korean               `ku'Kurdish
+`ky' Kirghiz              `la'Latin                `ln'Lingala
+`lt' Lithuanian           `lo'Laothian             `lv'Latvian, Lettish
+`mg' Malagasy             `mi'Maori                `mk'Macedonian
+`ml' Malayalam            `mn'Mongolian            `mo'Moldavian
+`mr' Marathi              `ms'Malay                `mt'Maltese
+`my' Burmese              `na'Nauru                `ne'Nepali
+`nl' Dutch                `no'Norwegian            `oc'Occitan
+`om' (Afan) Oromo         `or'Oriya                `pa'Punjabi
+`pl' Polish               `ps'Pashto, Pushto       `pt'Portuguese
+`qu' Quechua              `rm'Rhaeto-Romance       `rn'Kirundi
+`ro' Romanian             `ru'Russian              `rw'Kinyarwanda
+`sa' Sanskrit             `sd'Sindhi               `sg'Sangro
+`sh' Serbo-Croatian       `si'Sinhalese            `sk'Slovak
+`sl' Slovenian            `sm'Samoan               `sn'Shona
+`so' Somali               `sq'Albanian             `sr'Serbian
+`ss' Siswati              `st'Sesotho              `su'Sundanese
+`sv' Swedish              `sw'Swahili              `ta'Tamil
+`te' Telugu               `tg'Tajik                `th'Thai
+`ti' Tigrinya             `tk'Turkmen              `tl'Tagalog
+`tn' Setswana             `to'Tonga                `tr'Turkish
+`ts' Tsonga               `tt'Tatar                `tw'Twi
+`ug' Uighur               `uk'Ukrainian            `ur'Urdu
+`uz' Uzbek                `vi'Vietnamese           `vo'Volapuk
+`wo' Wolof                `xh'Xhosa                `yi'Yiddish
+`yo' Yoruba               `za'Zhuang               `zh'Chinese
+`zu' Zulu                                              
+
+
+File: texinfo.info,  Node: documentencoding,  Prev: documentlanguage,  Up: Internationalization
+
+`@documentencoding ENC': Set Input Encoding
+===========================================
+
+  The `@documentencoding' command declares the input document encoding.
+Write it on a line by itself, with a valid encoding specification
+following, such as `ISO-8859-1'.
+
+  At present, this is used only in HTML output from `makeinfo'.  If a
+document encoding ENC is specified, it is used in the `<meta>' tag is
+included in the `<head>' of the output:
+
+     <meta http-equiv="Content-Type" content="text/html; charset=ENC">
+
+
+File: texinfo.info,  Node: Defining New Texinfo Commands,  Next: Hardcopy,  Prev: Internationalization,  Up: Top
+
+Defining New Texinfo Commands
+*****************************
+
+  Texinfo provides several ways to define new commands:
+
+   * A Texinfo "macro" allows you to define a new Texinfo command as any
+     sequence of text and/or existing commands (including other
+     macros).  The macro can have any number of "parameters"--text you
+     supply each time you use the macro.
+
+     Incidentally, these macros have nothing to do with the `@defmac'
+     command, which is for documenting macros in the subject of the
+     manual (*note Def Cmd Template::).
+
+   * `@alias' is a convenient way to define a new name for an existing
+     command.
+
+   * `@definfoenclose' allows you to define new commands with
+     customized output in the Info file.
+
+
+* Menu:
+
+* Defining Macros::             Defining and undefining new commands.
+* Invoking Macros::             Using a macro, once you've defined it.
+* Macro Details::               Beyond basic macro usage.
+* alias::                       Command aliases.
+* definfoenclose::              Customized highlighting.
+
+
+File: texinfo.info,  Node: Defining Macros,  Next: Invoking Macros,  Up: Defining New Texinfo Commands
+
+Defining Macros
+===============
+
+  You use the Texinfo `@macro' command to define a macro, like this:
+
+     @macro MACRONAME{PARAM1, PARAM2, ...}
+     TEXT ... \PARAM1\ ...
+     @end macro
+
+  The "parameters" PARAM1, PARAM2, ... correspond to arguments supplied
+when the macro is subsequently used in the document (described in the
+next section).
+
+  For a macro to work with TeX, MACRONAME must consist entirely of
+letters: no digits, hyphens, underscores, or other special characters.
+
+  If a macro needs no parameters, you can define it either with an empty
+list (`@macro foo {}') or with no braces at all (`@macro foo').
+
+  The definition or "body" of the macro can contain most Texinfo
+commands, including previously-defined macros.  Not-yet-defined macro
+invocations are not allowed; thus, it is not possible to have mutually
+recursive Texinfo macros.  Also, a macro definition that defines another
+macro does not work in TeX due to limitations in the design of `@macro'.
+
+  In the macro body, instances of a parameter name surrounded by
+backslashes, as in `\PARAM1\' in the example above, are replaced by the
+corresponding argument from the macro invocation.  You can use
+parameter names any number of times in the body, including zero.
+
+  To get a single `\' in the macro expansion, use `\\'.  Any other use
+of `\' in the body yields a warning.
+
+  The newlines after the `@macro' line and before the `@end macro' line
+are ignored, that is, not included in the macro body.  All other
+whitespace is treated according to the usual Texinfo rules.
+
+  To allow a macro to be used recursively, that is, in an argument to a
+call to itself, you must define it with `@rmacro', like this:
+
+     @rmacro rmac
+     a\arg\b
+     @end rmacro
+     ...
+     @rmac{1@rmac{text}2}
+
+  This produces the output `a1atextb2b'.  With `@macro' instead of
+`@rmacro', an error message is given.
+
+  You can undefine a macro FOO with `@unmacro FOO'.  It is not an error
+to undefine a macro that is already undefined.  For example:
+
+     @unmacro foo
+
+
+File: texinfo.info,  Node: Invoking Macros,  Next: Macro Details,  Prev: Defining Macros,  Up: Defining New Texinfo Commands
+
+Invoking Macros
+===============
+
+  After a macro is defined (see the previous section), you can use
+("invoke") it in your document like this:
+
+     @MACRONAME {ARG1, ARG2, ...}
+
+and the result will be just as if you typed the body of MACRONAME at
+that spot.  For example:
+
+     @macro foo {p, q}
+     Together: \p\ & \q\.
+     @end macro
+     @foo{a, b}
+
+produces:
+
+     Together: a & b.
+
+  Thus, the arguments and parameters are separated by commas and
+delimited by braces; any whitespace after (but not before) a comma is
+ignored.  The braces are required in the invocation (but not the
+definition), even when the macro takes no arguments, consistent with
+all other Texinfo commands.  For example:
+
+     @macro argless {}
+     No arguments here.
+     @end macro
+     @argless{}
+
+produces:
+
+     No arguments here.
+
+  To insert a comma, brace, or backslash in an argument, prepend a
+backslash, as in
+
+     @MACNAME {\\\{\}\,}
+
+which will pass the (almost certainly error-producing) argument `\{},'
+to MACNAME.
+
+  If the macro is defined to take a single argument, and is invoked
+without any braces, the entire rest of the line after the macro name is
+supplied as the argument.  For example:
+
+     @macro bar {p}
+     Twice: \p\ & \p\.
+     @end macro
+     @bar aah
+
+produces:
+
+     Twice: aah & aah.
+
+  If the macro is defined to take a single argument, and is invoked with
+braces, the braced text is passed as the argument, regardless of
+commas.  For example:
+
+     @macro bar {p}
+     Twice: \p\ & \p\.
+     @end macro
+     @bar{a,b}
+
+produces:
+
+     Twice: a,b & a,b.
+
+
+File: texinfo.info,  Node: Macro Details,  Next: alias,  Prev: Invoking Macros,  Up: Defining New Texinfo Commands
+
+Macro Details
+=============
+
+  Due to unavoidable disparities in the TeX and `makeinfo'
+implementations, Texinfo macros have the following limitations.
+
+   * All macros are expanded inside at least one TeX group.  This means
+     that
+
+   * Macros containing a command which must be on a line by itself,
+     such as a conditional, cannot be invoked in the middle of a line.
+
+   * The TeX implementation cannot construct macros that define macros
+     in the natural way.  To do this, you must use conditionals and raw
+     TeX.  For example:
+
+          @ifinfo
+          @macro ctor {name, arg}
+          @macro \name\
+          something involving \arg\ somehow
+          @end macro
+          @end macro
+          @end ifinfo
+          @tex
+          \gdef\ctor#1{\ctorx#1,}
+          \gdef\ctorx#1,#2,{\def#1{something involving #2 somehow}}
+          @end tex
+
+   * It is best to avoid comments inside macro definitions.
+
+
+
+File: texinfo.info,  Node: alias,  Next: definfoenclose,  Prev: Macro Details,  Up: Defining New Texinfo Commands
+
+`@alias NEW=EXISTING'
+=====================
+
+  The `@alias' command defines a new command to be just like an
+existing one.  This is useful for defining additional markup names, thus
+preserving semantic information in the input even though the output
+result may be the same.
+
+  Write the `@alias' command on a line by itself, followed by the new
+command name, an equals sign, and the existing command name.
+Whitespace around the equals sign is ignored.  Thus:
+     @alias NEW = EXISTING
+
+  For example, if your document contains citations for both books and
+some other media (movies, for example), you might like to define a
+macro `@moviecite{}' that does the same thing as an ordinary `@cite{}'
+but conveys the extra semantic information as well.  You'd do this as
+follows:
+
+     @alias moviecite = cite
+
+  Macros do not always have the same effect due to vagaries of argument
+parsing.  Also, aliases are much simpler to define than macros.  So the
+command is not redundant.  (It was also heavily used in the Jargon
+File!)
+
+  Aliases must not be recursive, directly or indirectly.
+
+
+File: texinfo.info,  Node: definfoenclose,  Prev: alias,  Up: Defining New Texinfo Commands
+
+`definfoenclose': Customized Highlighting
+=========================================
+
+  A `@definfoenclose' command may be used to define a highlighting
+command for Info, but not for TeX.  A command defined using
+`@definfoenclose' marks text by enclosing it in strings that precede
+and follow the text.  You can use this to get closer control of your
+Info output.
+
+  Presumably, if you define a command with `@definfoenclose' for Info,
+you will create a corresponding command for TeX, either in
+`texinfo.tex', `texinfo.cnf', or within an `@iftex' in your document.
+
+  Write a `@definfoenclose' command on a line and follow it with three
+arguments separated by commas.  The first argument to `@definfoenclose'
+is the @-command name (without the `@'); the second argument is the
+Info start delimiter string; and the third argument is the Info end
+delimiter string.  The latter two arguments enclose the highlighted
+text in the Info file.  A delimiter string may contain spaces.  Neither
+the start nor end delimiter is required.  If you do not want a start
+delimiter but do want an end delimiter, you must follow the command
+name with two commas in a row; otherwise, the Info formatting commands
+will naturally misinterpret the end delimiter string you intended as
+the start delimiter string.
+
+  If you do a `@definfoenclose' on the name of a pre-defined macro
+(such as `@emph', `@strong', `@t', or `@i'), the enclosure definition
+will override the built-in definition.
+
+  An enclosure command defined this way takes one argument in braces;
+this is intended for new markup commands (*note Marking Text::).
+
+  For example, you can write:
+
+     @definfoenclose phoo,//,\\
+
+near the beginning of a Texinfo file to define `@phoo' as an Info
+formatting command that inserts `//' before and `\\' after the argument
+to `@phoo'.  You can then write `@phoo{bar}' wherever you want
+`//bar\\' highlighted in Info.
+
+  Also, for TeX formatting, you could write
+
+     @iftex
+     @global@let@phoo=@i
+     @end iftex
+
+to define `@phoo' as a command that causes TeX to typeset the argument
+to `@phoo' in italics.
+
+  Note that each definition applies to its own formatter: one for TeX,
+the other for `texinfo-format-buffer' or `texinfo-format-region'.  The
+`@definfoenclose' command need not be within `@ifinfo', but the raw TeX
+commands do need to be in `@iftex'.
+
+  Here is another example: write
+
+     @definfoenclose headword, , :
+
+near the beginning of the file, to define `@headword' as an Info
+formatting command that inserts nothing before and a colon after the
+argument to `@headword'.
+
+  `@definfoenclose' definitions must not be recursive, directly or
+indirectly.
+
+
+File: texinfo.info,  Node: Hardcopy,  Next: Creating and Installing Info Files,  Prev: Defining New Texinfo Commands,  Up: Top
+
+Formatting and Printing Hardcopy
+********************************
+
+  There are three major shell commands for making a printed manual from
+a Texinfo file: one for converting the Texinfo file into a file that
+will be printed, a second for sorting indices, and a third for printing
+the formatted document.  When you use the shell commands, you can either
+work directly in the operating system shell or work within a shell
+inside GNU Emacs.
+
+  If you are using GNU Emacs, you can use commands provided by Texinfo
+mode instead of shell commands.  In addition to the three commands to
+format a file, sort the indices, and print the result, Texinfo mode
+offers key bindings for commands to recenter the output buffer, show the
+print queue, and delete a job from the print queue.
+
+* Menu:
+
+* Use TeX::                     Use TeX to format for hardcopy.
+* Format with tex/texindex::    How to format with explicit shell commands.
+* Format with texi2dvi::        A simpler way to format.
+* Print with lpr::              How to print.
+* Within Emacs::                How to format and print from an Emacs shell.
+* Texinfo Mode Printing::       How to format and print in Texinfo mode.
+* Compile-Command::             How to print using Emacs's compile command.
+* Requirements Summary::        TeX formatting requirements summary.
+* Preparing for TeX::           What to do before you use TeX.
+* Overfull hboxes::             What are and what to do with overfull hboxes.
+* smallbook::                   How to print small format books and manuals.
+* A4 Paper::                    How to print on European A4 paper.
+* pagesizes::                   How to print with customized page sizes.
+* Cropmarks and Magnification::  How to print marks to indicate the size
+                                of pages and how to print scaled up output.
+* PDF Output::                  Portable Document Format output.
+
+
+File: texinfo.info,  Node: Use TeX,  Next: Format with tex/texindex,  Up: Hardcopy
+
+Use TeX
+=======
+
+  The typesetting program called TeX is used for formatting a Texinfo
+file.  TeX is a very powerful typesetting program and, if used
+correctly, does an exceptionally good job.  (*Note How to Obtain TeX:
+Obtaining TeX, for information on how to obtain TeX.)
+
+  The `makeinfo', `texinfo-format-region', and `texinfo-format-buffer'
+commands read the very same @-commands in the Texinfo file as does TeX,
+but process them differently to make an Info file (*note Creating an
+Info File::).
+
+
+File: texinfo.info,  Node: Format with tex/texindex,  Next: Format with texi2dvi,  Prev: Use TeX,  Up: Hardcopy
+
+Format with `tex' and `texindex'
+================================
+
+  Format the Texinfo file with the shell command `tex' followed by the
+name of the Texinfo file.  For example:
+
+     tex foo.texi
+
+TeX will produce a "DVI file" as well as several auxiliary files
+containing information for indices, cross references, etc.  The DVI
+file (for "DeVice Independent" file) can be printed on virtually any
+device (see the following sections).
+
+  The `tex' formatting command itself does not sort the indices; it
+writes an output file of unsorted index data.  (The `texi2dvi' command
+automatically generates indices; *note Format with `texi2dvi': Format
+with texi2dvi..)  To generate a printed index after running the `tex'
+command, you first need a sorted index to work from.  The `texindex'
+command sorts indices.  (The source file `texindex.c' comes as part of
+the standard Texinfo distribution, among other places.)
+
+  The `tex' formatting command outputs unsorted index files under names
+that obey a standard convention: the name of your main input file with
+any `.tex' (or similar, *note tex invocation: (web2c)tex invocation.)
+extension removed, followed by the two letter names of indices.  For
+example, the raw index output files for the input file `foo.texinfo'
+would be `foo.cp', `foo.vr', `foo.fn', `foo.tp', `foo.pg' and `foo.ky'.
+Those are exactly the arguments to give to `texindex'.
+
+  Instead of specifying all the unsorted index file names explicitly,
+you can use `??' as shell wildcards and give the command in this form:
+
+     texindex foo.??
+
+This command will run `texindex' on all the unsorted index files,
+including any that you have defined yourself using `@defindex' or
+`@defcodeindex'.  (You may execute `texindex foo.??' even if there are
+similarly named files with two letter extensions that are not index
+files, such as `foo.el'.  The `texindex' command reports but otherwise
+ignores such files.)
+
+  For each file specified, `texindex' generates a sorted index file
+whose name is made by appending `s' to the input file name.  The
+`@printindex' command looks for a file with that name (*note Printing
+Indices & Menus::).  `texindex' does not alter the raw index output
+file.
+
+  After you have sorted the indices, you need to rerun the `tex'
+formatting command on the Texinfo file.  This regenerates the DVI file,
+this time with up-to-date index entries.
+
+  Finally, you may need to run `tex' one more time, to get the page
+numbers in the cross-references correct.
+
+  To summarize, this is a five step process:
+
+  1. Run `tex' on your Texinfo file.  This generates a DVI file (with
+     undefined cross-references and no indices), and the raw index files
+     (with two letter extensions).
+
+  2. Run `texindex' on the raw index files.  This creates the
+     corresponding sorted index files (with three letter extensions).
+
+  3. Run `tex' again on your Texinfo file.  This regenerates the DVI
+     file, this time with indices and defined cross-references, but
+     with page numbers for the cross-references from last time,
+     generally incorrect.
+
+  4. Sort the indices again, with `texindex'.
+
+  5. Run `tex' one last time.  This time the correct page numbers are
+     written for the cross-references.
+
+  Alternatively, it's a one-step process: run `texi2dvi' (*note Format
+with texi2dvi::).
+
+  You need not run `texindex' each time after you run `tex'.  If you do
+not, on the next run, the `tex' formatting command will use whatever
+sorted index files happen to exist from the previous use of `texindex'.
+This is usually ok while you are debugging.
+
+  Sometimes you may wish to print a document while you know it is
+incomplete, or to print just one chapter of a document.  In that case,
+the usual auxiliary files that TeX creates and warnings TeX gives when
+cross-references are not satisfied are just nuisances.  You can avoid
+them with the `@novalidate' command, which you must give _before_ the
+`@setfilename' command (*note `@setfilename': setfilename.).  Thus, the
+beginning of your file would look approximately like this:
+
+     \input texinfo
+     @novalidate
+     @setfilename myfile.info
+     ...
+
+`@novalidate' also turns off validation in `makeinfo', just like its
+`--no-validate' option (*note Pointer Validation::).
+
+
+File: texinfo.info,  Node: Format with texi2dvi,  Next: Print with lpr,  Prev: Format with tex/texindex,  Up: Hardcopy
+
+Format with `texi2dvi'
+======================
+
+  The `texi2dvi' command automatically runs both `tex' and `texindex'
+as many times as necessary to produce a DVI file with sorted indices
+and all cross-references resolved.  It simplifies the
+`tex'--`texindex'--`tex'--`tex' sequence described in the previous
+section.
+
+  To run `texi2dvi' on an input file `foo.texi', do this (where
+`prompt$ ' is your shell prompt):
+
+     prompt$ texi2dvi foo.texi
+
+  As shown in this example, the input filenames to `texi2dvi' must
+include any extension (`.texi', `.texinfo', etc.).  Under MS-DOS and
+perhaps in other circumstances, you may need to run `sh texi2dvi
+foo.texi' instead of relying on the operating system to invoke the
+shell on the `texi2dvi' script.
+
+  Perhaps the most useful option to `texi2dvi' is `--texinfo=CMD'.
+This inserts CMD on a line by itself after the `@setfilename' in a
+temporary copy of the input file before running TeX.  With this, you
+can specify different printing formats, such as `@smallbook' (*note
+smallbook::), `@afourpaper' (*note A4 Paper::), or `@pageparams' (*note
+pagesizes::), without actually changing the document source.  (You can
+also do this on a site-wide basis with `texinfo.cnf'; *note Preparing
+for TeX: Preparing for TeX.).
+
+  For a list of other options, run `texi2dvi --help'.
+
+
+File: texinfo.info,  Node: Print with lpr,  Next: Within Emacs,  Prev: Format with texi2dvi,  Up: Hardcopy
+
+Shell Print Using `lpr -d'
+==========================
+
+  The precise command to print a DVI file depends on your system
+installation, but `lpr -d' is common.  The command may require the DVI
+file name without any extension or with a `.dvi' extension.  (If it is
+`lpr', you must include the `.dvi'.)
+
+  For example, the following commands, will (perhaps) suffice to sort
+the indices, format, and print the `Bison Manual':
+
+     tex bison.texinfo
+     texindex bison.??
+     tex bison.texinfo
+     lpr -d bison.dvi
+
+(Remember that the shell commands may be different at your site; but
+these are commonly used versions.)
+
+  Using the `texi2dvi' shell script, you simply need type:
+
+     texi2dvi bison.texinfo
+     lpr -d bison.dvi
+
+  `lpr' is a standard program on Unix systems, but it is usually absent
+on MS-DOS/MS-Windows.  Some network packages come with a program named
+`lpr', but these are usually limited to sending files to a print server
+over the network, and generally don't support the `-d' option.  If you
+are unfortunate enough to work on one of these systems, you have
+several alternative ways of printing DVI files:
+
+   * Find and install a Unix-like `lpr' program, or its clone.  If you
+     can do that, you will be able to print DVI files just like
+     described above.
+
+   * Send the DVI files to a network printer queue for DVI files.  Some
+     network printers have special queues for printing DVI files.  You
+     should be able to set up your network software to send files to
+     that queue.  In some cases, the version of `lpr' which comes with
+     your network software will have a special option to send a file to
+     specific queues, like this:
+
+          lpr -Qdvi -hprint.server.domain bison.dvi
+
+   * Convert the DVI file to a Postscript or PCL file and send it to
+     your local printer.  *Note dvips invocation: (dvips)dvips
+     invocation, and the man pages for `dvilj', for detailed
+     description of these tools.  Once the DVI file is converted to the
+     format your local printer understands directly, just send it to
+     the appropriate port, usually `PRN'.
+
+
+File: texinfo.info,  Node: Within Emacs,  Next: Texinfo Mode Printing,  Prev: Print with lpr,  Up: Hardcopy
+
+From an Emacs Shell
+===================
+
+  You can give formatting and printing commands from a shell within GNU
+Emacs.  To create a shell within Emacs, type `M-x shell'.  In this
+shell, you can format and print the document.  *Note Format and Print
+Hardcopy: Hardcopy, for details.
+
+  You can switch to and from the shell buffer while `tex' is running
+and do other editing.  If you are formatting a long document on a slow
+machine, this can be very convenient.
+
+  You can also use `texi2dvi' from an Emacs shell.  For example, here
+is how to use `texi2dvi' to format and print `Using and Porting GNU CC'
+from a shell within Emacs:
+
+     texi2dvi gcc.texinfo
+     lpr -d gcc.dvi
+
+  *Note Texinfo Mode Printing::, for more information about formatting
+and printing in Texinfo mode.
+
+
+File: texinfo.info,  Node: Texinfo Mode Printing,  Next: Compile-Command,  Prev: Within Emacs,  Up: Hardcopy
+
+Formatting and Printing in Texinfo Mode
+=======================================
+
+  Texinfo mode provides several predefined key commands for TeX
+formatting and printing.  These include commands for sorting indices,
+looking at the printer queue, killing the formatting job, and
+recentering the display of the buffer in which the operations occur.
+
+`C-c C-t C-b'
+`M-x texinfo-tex-buffer'
+     Run `texi2dvi' on the current buffer.
+
+`C-c C-t C-r'
+`M-x texinfo-tex-region'
+     Run TeX on the current region.
+
+`C-c C-t C-i'
+`M-x texinfo-texindex'
+     Sort the indices of a Texinfo file formatted with
+     `texinfo-tex-region'.
+
+`C-c C-t C-p'
+`M-x texinfo-tex-print'
+     Print a DVI file that was made with `texinfo-tex-region' or
+     `texinfo-tex-buffer'.
+
+`C-c C-t C-q'
+`M-x tex-show-print-queue'
+     Show the print queue.
+
+`C-c C-t C-d'
+`M-x texinfo-delete-from-print-queue'
+     Delete a job from the print queue; you will be prompted for the job
+     number shown by a preceding `C-c C-t C-q' command
+     (`texinfo-show-tex-print-queue').
+
+`C-c C-t C-k'
+`M-x tex-kill-job'
+     Kill the currently running TeX job started by either
+     `texinfo-tex-region' or `texinfo-tex-buffer', or any other process
+     running in the Texinfo shell buffer.
+
+`C-c C-t C-x'
+`M-x texinfo-quit-job'
+     Quit a TeX formatting job that has stopped because of an error by
+     sending an <x> to it.  When you do this, TeX preserves a record of
+     what it did in a `.log' file.
+
+`C-c C-t C-l'
+`M-x tex-recenter-output-buffer'
+     Redisplay the shell buffer in which the TeX printing and formatting
+     commands are run to show its most recent output.
+
+  Thus, the usual sequence of commands for formatting a buffer is as
+follows (with comments to the right):
+
+     C-c C-t C-b             Run `texi2dvi' on the buffer.
+     C-c C-t C-p             Print the DVI file.
+     C-c C-t C-q             Display the printer queue.
+
+  The Texinfo mode TeX formatting commands start a subshell in Emacs
+called the `*tex-shell*'.  The `texinfo-tex-command',
+`texinfo-texindex-command', and `tex-dvi-print-command' commands are
+all run in this shell.
+
+  You can watch the commands operate in the `*tex-shell*' buffer, and
+you can switch to and from and use the `*tex-shell*' buffer as you
+would any other shell buffer.
+
+  The formatting and print commands depend on the values of several
+variables.  The default values are:
+
+          Variable                              Default value
+     
+     texinfo-texi2dvi-command                  "texi2dvi"
+     texinfo-tex-command                       "tex"
+     texinfo-texindex-command                  "texindex"
+     texinfo-delete-from-print-queue-command   "lprm"
+     texinfo-tex-trailer                       "@bye"
+     tex-start-of-header                       "%**start"
+     tex-end-of-header                         "%**end"
+     tex-dvi-print-command                     "lpr -d"
+     tex-show-queue-command                    "lpq"
+
+  You can change the values of these variables with the `M-x
+edit-options' command (*note Editing Variable Values: (emacs)Edit
+Options.), with the `M-x set-variable' command (*note Examining and
+Setting Variables: (emacs)Examining.), or with your `.emacs'
+initialization file (*note Init File: (emacs)Init File.).
+
+  Beginning with version 20, GNU Emacs offers a user-friendly interface,
+called "Customize", for changing values of user-definable variables.
+*Note Easy Customization Interface: (emacs)Easy Customization, for more
+details about this.  The Texinfo variables can be found in the
+`Development/Docs/Texinfo' group, once you invoke the `M-x customize'
+command.
+
+
+File: texinfo.info,  Node: Compile-Command,  Next: Requirements Summary,  Prev: Texinfo Mode Printing,  Up: Hardcopy
+
+Using the Local Variables List
+==============================
+
+  Yet another way to apply the TeX formatting command to a Texinfo file
+is to put that command in a "local variables list" at the end of the
+Texinfo file.  You can then specify the `tex' or `texi2dvi' commands as
+a `compile-command' and have Emacs run it by typing `M-x compile'.
+This creates a special shell called the `*compilation*' buffer in which
+Emacs runs the compile command.  For example, at the end of the
+`gdb.texinfo' file, after the `@bye', you could put the following:
+
+     Local Variables:
+     compile-command: "texi2dvi gdb.texinfo"
+     End:
+
+This technique is most often used by programmers who also compile
+programs this way; see *Note Compilation: (emacs)Compilation.
+
+
+File: texinfo.info,  Node: Requirements Summary,  Next: Preparing for TeX,  Prev: Compile-Command,  Up: Hardcopy
+
+TeX Formatting Requirements Summary
+===================================
+
+  Every Texinfo file that is to be input to TeX must begin with a
+`\input' command and must contain an `@setfilename' command:
+
+     \input texinfo
+     @setfilename ARG-NOT-USED-BY-TEX
+
+The first command instructs TeX to load the macros it needs to process
+a Texinfo file and the second command opens auxiliary files.
+
+  Every Texinfo file must end with a line that terminates TeX's
+processing and forces out unfinished pages:
+
+     @bye
+
+  Strictly speaking, these lines are all a Texinfo file needs to be
+processed successfully by TeX.
+
+  Usually, however, the beginning includes an `@settitle' command to
+define the title of the printed manual, an `@setchapternewpage'
+command, a title page, a copyright page, and permissions.  Besides an
+`@bye', the end of a file usually includes indices and a table of
+contents.  (And of course most manuals contain a body of text as well.)
+
+  For more information, see:
+   * *Note `@settitle': settitle
+
+   * *Note `@setchapternewpage': setchapternewpage
+
+   * *Note Page Headings: Headings
+
+   * *Note Titlepage & Copyright Page::
+
+   * *Note Printing Indices & Menus::
+
+   * *Note Contents::
+
+
+File: texinfo.info,  Node: Preparing for TeX,  Next: Overfull hboxes,  Prev: Requirements Summary,  Up: Hardcopy
+
+Preparing for TeX
+=================
+
+  TeX needs to know where to find the `texinfo.tex' file that you have
+told it to input with the `\input texinfo' command at the beginning of
+the first line.  The `texinfo.tex' file tells TeX how to handle
+@-commands; it is included in all standard GNU distributions.
+
+  Usually, the `texinfo.tex' file is put under the default directory
+that contains TeX macros
+(`/usr/local/share/texmf/tex/texinfo/texinfo.tex' by default) when GNU
+Emacs or other GNU software is installed.  In this case, TeX will find
+the file and you do not need to do anything special.  Alternatively,
+you can put `texinfo.tex' in the current directory when you run TeX,
+and TeX will find it there.
+
+  Also, you should install `epsf.tex' in the same place as
+`texinfo.tex', if it is not already installed from another
+distribution.  This file is needed to support the `@image' command
+(*note Images::).
+
+  Optionally, you may create an additional `texinfo.cnf', and install
+it as well.  This file is read by TeX when the `@setfilename' command
+is executed (*note `@setfilename': setfilename.).  You can put any
+commands you like there, according to local site-wide conventions.  They
+will be read by TeX when processing any Texinfo document.  For example,
+if `texinfo.cnf' contains the line `@afourpaper' (*note A4 Paper::),
+then all Texinfo documents will be processed with that page size in
+effect.  If you have nothing to put in `texinfo.cnf', you do not need
+to create it.
+
+  If neither of the above locations for these system files suffice for
+you, you can specify the directories explicitly.  For `texinfo.tex',
+you can do this by writing the complete path for the file after the
+`\input' command.  Another way, that works for both `texinfo.tex' and
+`texinfo.cnf' (and any other file TeX might read), is to set the
+`TEXINPUTS' environment variable in your `.cshrc' or `.profile' file.
+
+  Which you use of `.cshrc' or `.profile' depends on whether you use a
+Bourne shell-compatible (`sh', `bash', `ksh', ...) or C
+shell-compatible (`csh', `tcsh') command interpreter.  The latter read
+the `.cshrc' file for initialization information, and the former read
+`.profile'.
+
+  In a `.cshrc' file, you could use the following `csh' command
+sequence:
+
+     setenv TEXINPUTS .:/home/me/mylib:/usr/lib/tex/macros
+
+  In a `.profile' file, you could use the following `sh' command
+sequence:
+
+     TEXINPUTS=.:/home/me/mylib:/usr/lib/tex/macros
+     export TEXINPUTS
+
+  On MS-DOS/MS-Windows, you would say it like this(1) (*note Preparing
+for TeX-Footnote-1::):
+
+     set TEXINPUTS=.;d:/home/me/mylib;c:/usr/lib/tex/macros
+
+It is customary for DOS/Windows users to put such commands in the
+`autoexec.bat' file, or in the Windows Registry.
+
+These settings would cause TeX to look for `\input' file first in the
+current directory, indicated by the `.', then in a hypothetical user's
+`me/mylib' directory, and finally in a system directory
+`/usr/lib/tex/macros'.
+
+  Finally, you may wish to dump a `.fmt' file (*note Memory dumps:
+(web2c)Memory dumps.) so that TeX can load Texinfo faster.  (The
+disadvantage is that then updating `texinfo.tex' requires redumping.)
+You can do this by running this command, assuming `epsf.tex' is
+findable by TeX:
+
+     initex texinfo @dump
+
+  (`@dump' is a TeX primitive.)  You'll then need to move `texinfo.fmt'
+to wherever your `.fmt' files are found; typically this will be in the
+subdirectory `web2c' of your TeX installation, for example,
+`/usr/local/share/tex/web2c'.
+
+
+File: texinfo.info,  Node: Preparing for TeX-Footnotes,  Up: Preparing for TeX
+
+  (1) Note the use of the `;' character, instead of `:', as directory
+separator on these systems.
+
+
+File: texinfo.info,  Node: Overfull hboxes,  Next: smallbook,  Prev: Preparing for TeX,  Up: Hardcopy
+
+Overfull "hboxes"
+=================
+
+  TeX is sometimes unable to typeset a line without extending it into
+the right margin.  This can occur when TeX comes upon what it
+interprets as a long word that it cannot hyphenate, such as an
+electronic mail network address or a very long title.  When this
+happens, TeX prints an error message like this:
+
+     Overfull @hbox (20.76302pt too wide)
+
+(In TeX, lines are in "horizontal boxes", hence the term, "hbox".
+`@hbox' is a TeX primitive not needed in the Texinfo language.)
+
+  TeX also provides the line number in the Texinfo source file and the
+text of the offending line, which is marked at all the places that TeX
+considered hyphenation.  *Note Catching Errors with TeX Formatting:
+Debugging with TeX, for more information about typesetting errors.
+
+  If the Texinfo file has an overfull hbox, you can rewrite the sentence
+so the overfull hbox does not occur, or you can decide to leave it.  A
+small excursion into the right margin often does not matter and may not
+even be noticeable.
+
+  If you have many overfull boxes and/or an antipathy to rewriting, you
+can coerce TeX into greatly increasing the allowable interword spacing,
+thus (if you're lucky) avoiding many of the bad line breaks, like this:
+
+     @tex
+     \global\emergencystretch = .9\hsize
+     @end tex
+
+(You can adjust the fraction as needed.)  This huge value for
+`\emergencystretch' cannot be the default, since then the typeset
+output would generally be of noticeably lower quality.  The default
+value is `.15\hsize'.  `\hsize' is the TeX dimension containing the
+current line width.
+
+  For what overfull boxes you have, however, TeX will print a large,
+ugly, black rectangle beside the line that contains the overfull hbox
+unless told otherwise.  This is so you will notice the location of the
+problem if you are correcting a draft.
+
+  To prevent such a monstrosity from marring your final printout, write
+the following in the beginning of the Texinfo file on a line of its own,
+before the `@titlepage' command:
+
+     @finalout
+
+
+File: texinfo.info,  Node: smallbook,  Next: A4 Paper,  Prev: Overfull hboxes,  Up: Hardcopy
+
+Printing "Small" Books
+======================
+
+  By default, TeX typesets pages for printing in an 8.5 by 11 inch
+format.  However, you can direct TeX to typeset a document in a 7 by
+9.25 inch format that is suitable for bound books by inserting the
+following command on a line by itself at the beginning of the Texinfo
+file, before the title page:
+
+     @smallbook
+
+(Since many books are about 7 by 9.25 inches, this command might better
+have been called the `@regularbooksize' command, but it came to be
+called the `@smallbook' command by comparison to the 8.5 by 11 inch
+format.)
+
+  If you write the `@smallbook' command between the start-of-header and
+end-of-header lines, the Texinfo mode TeX region formatting command,
+`texinfo-tex-region', will format the region in "small" book size
+(*note Start of Header::).
+
+  *Note small::, for information about commands that make it easier to
+produce examples for a smaller manual.
+
+  *Note Format with texi2dvi::, and *Note Preparing for TeX: Preparing
+for TeX, for other ways to format with `@smallbook' that do not require
+changing the source file.
+
