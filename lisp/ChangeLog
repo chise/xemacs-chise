@@ -1,3 +1,9 @@
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (chinese-big5-eten): New coded-charset in
+	UTF-2000.
+	(chinese-big5-cdp): Likewise.
+
 2002-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Rename
