@@ -1,3 +1,10 @@
+2000-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el, Ideograph-R159-Cart.el,
+	Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el: Resorted; add
+	missing `ideographic-strokes' attributes; use
+	`ideographic-strokes' if each stroke attribute has same value.
+
 2000-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el: Resorted; add missing
