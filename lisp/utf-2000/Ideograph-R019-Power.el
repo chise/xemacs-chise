@@ -1597,12 +1597,11 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (->same-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 735)
+     (:char	((shinjigen-1	     . 735)
 		 (=jis-x0208	     . #x4A59)	; ø½Š³‚
 		 (chinese-cns11643-6 . #x3558)	; ø»œ’¿
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 372 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -1622,7 +1621,16 @@
     (chinese-big5		. #xAB6A)	; ý¢€Š­ª
     (ideograph-daikanwa		. 02362)	; ø¸€¤º
     (china3-jef			. #x44E7)	; øº„“§
+    (ucs-jis			. #xFA33)	; å‹‰
     (ucs			. #x52C9)	; å‹‰
+    ))
+(define-char
+  '((=>ucs*		. #x52C9)	; å‹‰
+    (morohashi-daikanwa	2362 0 0)
+    (ideographic-radical . 19)	; â¼’
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ucs		. #xFA33)	; ï¨³
     ))
 (define-char
   '((ideographic-radical . 19)	; â¼’
@@ -2903,7 +2911,16 @@
     (chinese-big5		. #xB6D4)	; ý¢€‹›”
     (ideograph-daikanwa		. 02424)	; ø¸€¥¸
     (china3-jef			. #x44EF)	; øº„“¯
+    (ucs-jis			. #xFA34)	; å‹¤
     (ucs			. #x52E4)	; å‹¤
+    ))
+(define-char
+  '((=>ucs*		. #x52E4)	; å‹¤
+    (morohashi-daikanwa	2424 0 0)
+    (ideographic-radical . 19)	; â¼’
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ucs		. #xFA34)	; ï¨´
     ))
 (define-char
   '((=>ucs		. #x52E5)	; å‹¥
