@@ -27011,8 +27011,7 @@
     (=hanziku-1		. #xD44F)	; &HZK01-D44F;
     ))
 (define-char
-  '((morohashi-daikanwa	24898 0 2)
-    (ideographic-radical@ucs . 9)	; ⼈
+  '((ideographic-radical@ucs . 9)	; ⼈
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@ucs*sources
      ucs)
@@ -27021,18 +27020,23 @@
     (ideographic-radical@cns*sources
      daikanwa cns-11643)
     (total-strokes	 . 15)
-    (hanyu-dazidian	1 215 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
-      )
-     ((=big5-cdp	  . #x87FB)	; &CDP-87FB;
-      ))
     (=ucs		. #x20398)	; 𠎘
-    (=cns11643-7	. #x262D)	; &I-C7-262D;
-    (=hanziku-1		. #xD2B1)	; &I-HZK01-D2B1;
+    (->subsumptive
+     ((=daikanwa	  . 24898)	; &M-24898;
+      )
+     ((hanyu-dazidian	  1 215 14)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
+	)
+       ((=big5-cdp	    . #x87FB)	; &CDP-87FB;
+	))
+      (=cns11643-7	  . #x262D)	; &HZK01-D2B1;
+      (=hanziku-1	  . #xD2B1)	; &I-HZK01-D2B1;
+      (=ucs@iso		  . #x20398)	; &HZK01-D2B1;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	ho 24)
