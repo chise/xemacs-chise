@@ -785,3 +785,20 @@
  (defun test-emacs-buffer-local-parameter (test-emacs-buffer-local-variable)
    (setq test-emacs-buffer-local-variable nil)))
 (test-emacs-buffer-local-parameter nil)
+
+;;-----------------------------------------------------
+;; Test split-string
+;;-----------------------------------------------------
+;; Hrvoje didn't like these tests so I'm disabling them for now. -sb
+;(Assert (equal (split-string "foo" "") '("" "f" "o" "o" "")))
+;(Assert (equal (split-string "foo" "^") '("" "foo")))
+;(Assert (equal (split-string "foo" "$") '("foo" "")))
+(Assert (equal (split-string "foo,bar" ",") '("foo" "bar")))
+(Assert (equal (split-string ",foo,bar," ",") '("" "foo" "bar" "")))
+(Assert (equal (split-string ",foo,bar," "^,") '("" "foo,bar,")))
+(Assert (equal (split-string ",foo,bar," ",$") '(",foo,bar" "")))
+(Assert (equal (split-string ",foo,,bar," ",") '("" "foo" "" "bar" "")))
+(Assert (equal (split-string "foo,,,bar" ",") '("foo" "" "" "bar")))
+(Assert (equal (split-string "foo,,bar,," ",") '("foo" "" "bar" "" "")))
+(Assert (equal (split-string "foo,,bar" ",+") '("foo" "bar")))
+(Assert (equal (split-string ",foo,,bar," ",+") '("" "foo" "bar" "")))

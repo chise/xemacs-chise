@@ -1,7 +1,14 @@
 							-*- indented-text -*-
 to 21.2.15 "Sakuragawa"
+-- new self tests from Oscar Figueiredo and Hrvoje Niksic
+-- Miscellaneous bug fixes from Yoshiki Hayashi, Jerry James, Hirokazu FUKUI,
+   Hrvoje Niksic, MORIOKA Tomohiko
+-- LDAP internationalization from Oscar Figueiredo
+-- DEC OSF build fixes from Steve Baur
+-- Documentation fixes from Mike McEwan, Vin Shelton and Gunnar Evermann
+-- Build fixes from Jan Vroonhof
 -- Miscellaneous fixes from Hrvoje Niksic
--- Documentation updates from Hrvoje Niksic
+-- Documentation updates from Hrvoje Niksic and Albert Chin-A-Young
 -- mule-charset.el synch with Mule from Steve Baur
 -- miscellaneous build and cosmetic fixes from Steve Baur
 -- font-menu for mswindows from Andy Piper

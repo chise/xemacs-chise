@@ -1838,7 +1838,7 @@ Note also: Warping the mouse is contrary to the ICCCM, so be very sure
   struct window *w;
   int pix_x, pix_y;
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   CHECK_INT (x);
   CHECK_INT (y);
 
@@ -1862,7 +1862,7 @@ before calling this function on it, like this.
 {
   struct window *w;
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   CHECK_INT (x);
   CHECK_INT (y);
 

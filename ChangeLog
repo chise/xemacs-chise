@@ -1,3 +1,12 @@
+1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.15 is released
+
+1999-06-01  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* README.packages: fix typos: user pacakge hierarchy is ~/.xemacs
+	From: Eric Veldhuyzen <eric@terra.nu>
+
 1999-05-25  Jan Vroonhof  <jan@xemacs.org>
 
 	* configure.in: For non-beta's use x.y.z format for version strings.
