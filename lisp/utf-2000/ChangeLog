@@ -1,5 +1,15 @@
 2000-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R128-Ear.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R125-Old.el: Resorted; add missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+2000-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R124-Feather.el: Resorted; add some missing
 	Morohashi's Daikanwa characters; add missing `ideographic-strokes'
 	attributes; use `ideographic-strokes' if each stroke attribute has
