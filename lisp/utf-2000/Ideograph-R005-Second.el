@@ -944,8 +944,6 @@
 (define-char
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
-    (kangxi-radical	 . 213)	; â¿”
-    (kangxi-strokes	 . 0)
     (total-strokes	 . 11)
     (<-vulgar-ideograph
      (:sources	(morohashi-daikanwa)
@@ -953,11 +951,8 @@
 		 (ideograph-daikanwa . 48847)	; ø¸‹»
 		 )
       ))
-    (shinjigen-1	. 9917)
-    (shinjigen-2	. 9916)
     (japanese-jisx0208-1978	. #x3535)	; ø»‚™¬
     (japanese-jisx0208		. #x3535)	; ø»†­´
-    (chinese-cns11643-3		. #x396C)	; ø»•º¿
     (japanese-jisx0208-1990	. #x3535)	; ø½Š“¨
     (ideograph-daikanwa		. 00210)	; ø¸€ƒ’
     (mojikyo			. 000210)	; ý €€ƒ’
@@ -1073,7 +1068,7 @@
 (define-char
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 12)
-    (total-strokes	 . 12)
+    (total-strokes	 . 13)
     (ideograph-cdp	. 391)
     (ideographic-structure
      (:cdp-combinator	1
@@ -1086,13 +1081,20 @@
      ((name		  . "CJK RADICAL SECOND TWO")
       (ucs		  . #x2E83)	; âºƒ
       ))
-    (chinese-cns11643-2 . #x4156)	; ø»“¼•
     (ideograph-gt-pj-2	. #x316F)	; ý¡€€„Ÿ
     (chinese-big5	. #xDCB1)	; øº¢”º
     (ideograph-daikanwa . 00215)	; ø¸€ƒ—
     (ideograph-gt	. 00287)	; ý¡€€„Ÿ
     (mojikyo		. 000215)	; ý €€ƒ—
     (ucs		. #x4E83)	; äºƒ
+    ))
+(define-char
+  '((=>ucs		. #x4E83)	; äºƒ
+    (morohashi-daikanwa	215 0 0)
+    (ideographic-radical . 5)	; â¼„
+    (ideographic-strokes . 12)
+    (total-strokes	 . 13)
+    (chinese-cns11643-2 . #x4156)	; ø»“¼•
     ))
 (define-char
   '((morohashi-daikanwa	215 0 1)
