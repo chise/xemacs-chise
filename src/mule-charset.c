@@ -426,6 +426,7 @@ Lisp_Object Vcharacter_name_table;
 Lisp_Object Vcharacter_ideographic_radical_table;
 Lisp_Object Vcharacter_ideographic_strokes_table;
 Lisp_Object Vcharacter_total_strokes_table;
+Lisp_Object Vcharacter_morohashi_daikanwa_table;
 Lisp_Object Vcharacter_decomposition_table;
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
@@ -433,6 +434,8 @@ Lisp_Object Vcharacter_variant_table;
 Lisp_Object Qname;
 Lisp_Object Qideographic_radical, Qideographic_strokes;
 Lisp_Object Qtotal_strokes;
+Lisp_Object Qmorohashi_daikanwa;
+Lisp_Object Qideograph_daikanwa;
 Lisp_Object Q_decomposition;
 Lisp_Object Qucs;
 Lisp_Object Q_ucs;
@@ -583,6 +586,11 @@ Return the alist of attributes of CHARACTER.
     alist = Fcons (Fcons (Qtotal_strokes, ret), alist);
 
   ret = get_char_id_table (XCHAR (character),
+			   Vcharacter_morohashi_daikanwa_table);
+  if (!NILP (ret))
+    alist = Fcons (Fcons (Qmorohashi_daikanwa, ret), alist);
+
+  ret = get_char_id_table (XCHAR (character),
 			   Vcharacter_decomposition_table);
   if (!NILP (ret))
     alist = Fcons (Fcons (Q_decomposition, ret), alist);
@@ -652,6 +660,11 @@ Return the value of CHARACTER's ATTRIBUTE.
       return get_char_id_table (XCHAR (character),
 				Vcharacter_total_strokes_table);
     }
+  else if (EQ (attribute, Qmorohashi_daikanwa))
+    {
+      return get_char_id_table (XCHAR (character),
+				Vcharacter_morohashi_daikanwa_table);
+    }
   else if (EQ (attribute, Q_decomposition))
     {
       return get_char_id_table (XCHAR (character),
@@ -707,6 +720,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       CHECK_INT (value);
       put_char_id_table (XCHAR (character), value,
 			 Vcharacter_total_strokes_table);
+      return value;
+    }
+  else if (EQ (attribute, Qmorohashi_daikanwa))
+    {
+      CHECK_LIST (value);
+      put_char_id_table (XCHAR (character), value,
+			 Vcharacter_morohashi_daikanwa_table);
       return value;
     }
   else if (EQ (attribute, Q_decomposition))
@@ -1079,6 +1099,7 @@ Store character's ATTRIBUTES.
   Lisp_Object rest = attributes;
   Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
   Lisp_Object character;
+  Lisp_Object daikanwa = Qnil;
 
   if (NILP (code))
     {
@@ -1122,10 +1143,30 @@ Store character's ATTRIBUTES.
   while (CONSP (rest))
     {
       Lisp_Object cell = Fcar (rest);
+      Lisp_Object key = Fcar (cell);
+      Lisp_Object value = Fcdr (cell);
 
       if (!LISTP (cell))
 	signal_simple_error ("Invalid argument", attributes);
+
+      if (EQ (key, Qmorohashi_daikanwa))
+	{
+	  size_t len;
+	  GET_EXTERNAL_LIST_LENGTH (value, len);
+
+	  if (len == 1)
+	    {
+	      if (NILP (daikanwa))
+		daikanwa = Fcdr (Fassq (Qideograph_daikanwa, rest));
+	      if (EQ (Fcar (value), daikanwa))
+		goto ignored;
+	    }
+	}
+      else if (EQ (key, Qideograph_daikanwa))
+	daikanwa = value;
+
       Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
+    ignored:
       rest = Fcdr (rest);
     }
   return
@@ -1178,7 +1219,6 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
-  Qideograph_daikanwa,
   Qmojikyo,
   Qmojikyo_pj_1,
   Qmojikyo_pj_2,
@@ -3057,6 +3097,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qideographic_radical,	"ideographic-radical");
   defsymbol (&Qideographic_strokes,	"ideographic-strokes");
   defsymbol (&Qtotal_strokes,		"total-strokes");
+  defsymbol (&Qmorohashi_daikanwa,	"morohashi-daikanwa");
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
@@ -3177,6 +3218,9 @@ Version number of UTF-2000.
 
   /* staticpro (&Vcharacter_total_strokes_table); */
   Vcharacter_total_strokes_table = make_char_id_table (Qnil, -1);
+
+  staticpro (&Vcharacter_morohashi_daikanwa_table);
+  Vcharacter_morohashi_daikanwa_table = make_char_id_table (Qnil, 0);
 
   /* staticpro (&Vcharacter_decomposition_table); */
   Vcharacter_decomposition_table = make_char_id_table (Qnil, -1);
