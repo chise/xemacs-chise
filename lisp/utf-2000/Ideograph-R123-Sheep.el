@@ -1146,6 +1146,7 @@
     (=gb2312		. #x4F5B)	; ø»…Š¢
     (=iso-ir165		. #x4F5B)	; ø»²²
     (=big5		. #xDB43)	; ý¢€­ƒ
+    (=jef-china3	. #x5FF7)	; øº…¿·
     (=ucs		. #x7FA1)	; ç¾¡
     ))
 (define-char
@@ -2078,6 +2079,7 @@
     (total-strokes	 . 16)
     (=big5		. #xEAE3)	; ý¢€Ž«£
     (=daikanwa		. 28545)	; ø¸†¾
+    (=jef-china3	. #x98F3)	; øº‰£³
     (mojikyo		. 028545)	; ý €†¾
     ))
 (define-char
@@ -2877,6 +2879,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
     (=big5		. #xF5EE)	; ý¢€—®
+    (=jef-china3	. #x5FFB)	; øº…¿»
     ))
 (define-char
   '((morohashi-daikanwa	28593 0 2)
