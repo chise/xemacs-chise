@@ -1152,7 +1152,8 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 	      + XCHARSET_BYTE_OFFSET (charset)) << 8)
 	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
     }
-  else if (XCHARSET_CODE_OFFSET (charset) == 0)
+  else if ( (XCHARSET_CODE_OFFSET (charset) == 0) ||
+	    (XCHARSET_CODE_OFFSET (charset) == XCHARSET_MIN_CODE (charset)) )
     {
       if (XCHARSET_DIMENSION (charset) == 1)
 	{
