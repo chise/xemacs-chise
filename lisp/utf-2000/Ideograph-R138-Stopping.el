@@ -8,7 +8,9 @@
     (korean-ksc5601	. #x4A5D)	; ø»‰—–
     (chinese-isoir165	. #x745E)	; ø»Ž©‹
     (chinese-cns11643-1 . #x4862)	; ø»‘¼¯
+    (=gt-pj-1		. #x3A31)	; è‰®
     (ideograph-daikanwa . 30596)	; ø¸‡ž„
+    (=gt-k		. 01615)	; ý¡„€™
     (ucs		. #x826E)	; è‰®
     ))
 (define-char
@@ -19,7 +21,9 @@
     (shinjigen-2	. 6671)
     (=jis-x0208		. #x4E49)	; ø½Š¸ª
     (korean-ksc5601	. #x555E)	; ø»‰§¡
+    (=gt-pj-1		. #x4E49)	; ø½Š¸ª
     (ideograph-daikanwa . 30597)	; ø¸‡ž…
+    (=gt-k		. 02672)	; ý¡„€©°
     (ucs-jis		. #x826F)	; ø½Š¸ª
     ))
 (define-char

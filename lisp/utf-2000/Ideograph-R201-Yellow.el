@@ -25,6 +25,8 @@
     (=jis-x0208		. #x322B)	; ø½Š„
     (chinese-isoir165	. #x3B46)	; ø»•…
     (chinese-cns11643-3 . #x396A)	; ø»•º½
+    (=gt-pj-1		. #x322B)	; é»„
+    (=gt-k		. 07722)	; ý¡„¸ª
     (mojikyo		. 050608)	; ý €Œ–°
     (ucs		. #x9EC4)	; é»„
     ))

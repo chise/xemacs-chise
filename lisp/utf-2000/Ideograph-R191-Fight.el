@@ -6,7 +6,9 @@
     (chinese-isoir165	. #x2F79)	; ø»„
     (chinese-cns11643-1 . #x586E)	; ø»’”›
     (chinese-gb12345	. #x3637)	; é¬¥
+    (=gt-pj-1		. #x7228)	; é¬¥
     (ideograph-daikanwa . 45632)	; ø¸‹‰€
+    (=gt-k		. 06655)	; ý¡„§¿
     (ucs		. #x9B25)	; é¬¥
     ))
 (define-char

@@ -4,7 +4,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
     (=jis-x0208		. #x7366)	; ø½‹¯
+    (=gt-pj-1		. #x7366)	; ø½‹¯
     (ideograph-daikanwa . 48257)	; ø¸‹²
+    (=gt-k		. 10369)	; ý¡„‚¢
     (ucs-jis		. #x9EFD)	; ø½‹¯
     ))
 (define-char

@@ -15,6 +15,8 @@
     (total-strokes	 . 10)
     (=jis-x0208		. #x706A)	; ø½‹«‡
     (korean-ksc5601	. #x6A5F)	; ø»Š†˜
+    (=gt-pj-1		. #x706A)	; ø½‹«‡
+    (=gt-k		. 06734)	; ý¡„©Ž
     (ucs-jis		. #x97CB)	; ø½‹«‡
     ))
 (define-char

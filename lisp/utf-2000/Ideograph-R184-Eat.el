@@ -26,6 +26,8 @@
     (shinjigen-1	. 9233)
     (shinjigen-2	. 9234)
     (=jis-x0208		. #x3F29)	; ø½Š¢ˆ
+    (=gt-pj-1		. #x3F29)	; ø½Š¢ˆ
+    (=gt-k		. 05345)	; ý¡„“¡
     (ucs-jis		. #x98DF)	; ø½Š¢ˆ
     (mojikyo		. 044014)	; ý €Š¯®
     ))
@@ -211,6 +213,8 @@
     (total-strokes	 . 10)
     (=jis-x0208		. #x3532)	; ø½Š“¥
     (chinese-gb12345	. #x783F)	; é£¢
+    (=gt-pj-1		. #x3532)	; é£¢
+    (=gt-k		. 06397)	; ý¡„£½
     (mojikyo		. 050580)	; ý €Œ–”
     (ucs		. #x98E2)	; é£¢
     ))
@@ -884,6 +888,8 @@
     (total-strokes	 . 12)
     (=jis-x0208		. #x307B)	; ø½Š˜
     (chinese-gb12345	. #x527B)	; é£²
+    (=gt-pj-1		. #x307B)	; é£²
+    (=gt-k		. 08993)	; ý¡„‚Œ¡
     (mojikyo		. 050582)	; ý €Œ––
     (ucs		. #x98F2)	; é£²
     ))

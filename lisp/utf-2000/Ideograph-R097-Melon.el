@@ -31,6 +31,8 @@
     (total-strokes	 . 5)
     (=jis-x0208		. #x313B)	; ø½Š¶
     (korean-ksc5601	. #x4D7E)	; ø»‰œ‘
+    (=gt-pj-1		. #x313B)	; ø½Š¶
+    (=gt-k		. 01570)	; ý¡„€˜¢
     (ucs-jis		. #x74DC)	; ø½Š¶
     ))
 (define-char
@@ -390,6 +392,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (japanese-jisx0208-1990	. #x6121)	; ø½‹“¼
+    (=gt-pj-1			. #x6121)	; ø½‹“¼
+    (=gt-k			. 09213)	; ý¡„‚½
     (ucs-jis			. #x74E0)	; ø½‹“¼
     ))
 (define-char

@@ -1936,8 +1936,10 @@
      ((=big5-cdp	  . #x89BD)	; ý¢€ˆ¦½
       ))
     (=jis-x0208		. #x3535)	; ø½Š“¨
+    (=gt-pj-1		. #x3535)	; äº€
     (ideograph-daikanwa . 00210)	; ø¸€ƒ’
     (=hanziku-12	. #xEBBD)	; ý¢ƒŽ®½
+    (=gt-k		. 07742)	; ý¡„¸¾
     (mojikyo		. 000210)	; ý €€ƒ’
     (ucs		. #x4E80)	; äº€
     ))

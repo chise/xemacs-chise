@@ -6,7 +6,9 @@
     (shinjigen-2	. 9037)
     (=jis-x0208		. #x4873)	; ø½Š° 
     (korean-ksc5601	. #x5E2A)	; ø»‰³»
+    (=gt-pj-1		. #x4873)	; ø½Š° 
     (ideograph-daikanwa . 42585)	; ø¸Š™™
+    (=gt-k		. 03805)	; ý¡„€»
     (ucs-jis		. #x975E)	; ø½Š° 
     ))
 (define-char

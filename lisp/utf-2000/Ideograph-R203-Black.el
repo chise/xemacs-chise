@@ -24,7 +24,9 @@
     (shinjigen-2	. 9817)
     (=jis-x0208		. #x3975)	; ø½Šš 
     (chinese-cns11643-3 . #x396B)	; ø»•º¾
+    (=gt-pj-1		. #x3975)	; é»’
     (ideograph-daikanwa . 48040)	; ø¸‹®¨
+    (=gt-k		. 07761)	; ý¡„¹‘
     (ucs		. #x9ED2)	; é»’
     ))
 (define-char
@@ -274,6 +276,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (=jis-x0208		. #x4C5B)	; ø½Š¶€
+    (=gt-pj-1		. #x4C5B)	; é»™
+    (=gt-k		. 11953)	; ý¡„‚º±
     (mojikyo		. 050609)	; ý €Œ–±
     (ucs		. #x9ED9)	; é»™
     ))

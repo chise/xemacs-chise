@@ -8,7 +8,9 @@
     (korean-ksc5601	. #x4D5B)	; ø»‰›®
     (chinese-isoir165	. #x3948)	; ø»’‹
     (chinese-cns11643-1 . #x4B47)	; ø»’€®
+    (=gt-pj-1		. #x432B)	; è°·
     (ideograph-daikanwa . 36182)	; ø¸ˆµ–
+    (=gt-k		. 02607)	; ý¡„€¨¯
     (ucs		. #x8C37)	; è°·
     ))
 (define-char
