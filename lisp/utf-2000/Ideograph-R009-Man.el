@@ -7347,6 +7347,7 @@
     (japanese-jisx0208		. #x3676)	; ø»†°“
     (chinese-isoir165		. #x453C)	; ø»£§
     (chinese-cns11643-1		. #x587B)	; ø»’”¨
+    (japanese-jisx0208-1990	. #x3676)	; å¶
     (ideograph-daikanwa		. 00899)	; ø¸€Žƒ
     (ucs			. #x5076)	; å¶
     ))
@@ -9158,7 +9159,8 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (japanese-jisx0208	. #x364F)	; ø»†¯¬
+    (japanese-jisx0208		. #x364F)	; ø»†¯¬
+    (japanese-jisx0208-1990	. #x364F)	; ø»†¯¬
     ))
 (define-char
   '((morohashi-daikanwa	1049)
