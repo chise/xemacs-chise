@@ -10,6 +10,7 @@
     (chinese-cns11643-3		. #x213D)	; ø»•—€
     (japanese-jisx0208-1990	. #x5676)	; ø½‹…‡
     (ideograph-daikanwa		. 09189)	; ø¸‚¥
+    (chinese-big5-cdp		. #x8B44)	; ý¢€ˆ­„
     (ucs			. #x5E7A)	; å¹º
     ))
 (define-char
