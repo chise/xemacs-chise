@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -159,7 +159,7 @@
 		       arabic-digit
 		       arabic-1-column
 		       arabic-2-column)))
-	      ((string-match "^mojikyo-pj-" (symbol-name (car rest))))
+	      ((string-match "^mojikyo-" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
 	       (unless (memq 'ideograph-gt dest)
 		 (setq dest (cons 'ideograph-gt dest))))
