@@ -107,21 +107,6 @@
     (=daikanwa		. 01511)	; ø¸€—§
     ))
 (define-char
-  '((ideographic-radical . 13)	; â¼Œ
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-denotational
-     ((=ucs		  . #x5185)	; å†…
-      ))
-    (<-vulgar-ideograph
-     ((=daikanwa	  . 01418)	; ø¸€–Š
-      ))
-    (<-vulgar-ideograph*sources
-     daikanwa)
-    (=cns11643-6	. #x2150)	; ø»›µŸ
-    (=daikanwa		. 01512)	; ø¸€—¨
-    ))
-(define-char
   '((ideographic-radical@ucs . 13)	; â¼Œ
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
@@ -135,6 +120,21 @@
      ((=ucs		  . #x5167)	; å…§
       ))
     (=ucs		. #x5185)	; å†…
+    ))
+(define-char
+  '((ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x5185)	; å†…
+      ))
+    (<-vulgar-ideograph
+     ((=daikanwa	  . 01418)	; ø¸€–Š
+      ))
+    (<-vulgar-ideograph*sources
+     daikanwa)
+    (=cns11643-6	. #x2150)	; ø»›µŸ
+    (=daikanwa		. 01512)	; ø¸€—¨
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ

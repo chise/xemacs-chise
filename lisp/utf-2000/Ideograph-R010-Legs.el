@@ -668,6 +668,13 @@
     (=hanziku-1		. #xDDCB)	; ������
     ))
 (define-char
+  '((ideographic-radical . 10)	; ⼉
+    (sound@ja		"men-z+iru")
+    (sound@ja/kun	"manuka-r+eru" "manuga-r+eru")
+    (sound@ja/on/go	"men")
+    (=ucs		. #x514D)	; 免
+    ))
+(define-char
   '((=>ucs*		. #x514D)	; 免
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
@@ -698,13 +705,6 @@
      ((=ucs		  . #xFA32)	; 免
       ))
     (=ucs		. #x2F80E)	; 免
-    ))
-(define-char
-  '((ideographic-radical . 10)	; ⼉
-    (sound@ja		"men-z+iru")
-    (sound@ja/kun	"manuka-r+eru" "manuga-r+eru")
-    (sound@ja/on/go	"men")
-    (=ucs		. #x514D)	; 免
     ))
 (define-char
   '((ideographic-strokes . 5)
