@@ -123,7 +123,7 @@ struct textual_run
 static int
 separate_textual_runs (unsigned char *text_storage,
 		       struct textual_run *run_storage,
-		       const Emchar *str, Charcount len)
+		       const Charc *str, Charcount len)
 {
   Lisp_Object prev_charset = Qunbound; /* not Qnil because that is a
 					  possible valid charset when
@@ -137,16 +137,24 @@ separate_textual_runs (unsigned char *text_storage,
 
   for (i = 0; i < len; i++)
     {
-      Emchar ch = str[i];
-      Lisp_Object charset;
+      Charc ec = str[i];
+      Lisp_Object charset = ec.charset;
       int byte1, byte2;
       int dimension;
       int graphic;
 
-      BREAKUP_CHAR (ch, charset, byte1, byte2);
       dimension = XCHARSET_DIMENSION (charset);
       graphic   = XCHARSET_GRAPHIC   (charset);
-
+      if (dimension == 1)
+	{
+	  byte1 = ec.code_point;
+	  byte2 = 0;
+	}
+      else
+	{
+	  byte1 = ec.code_point >> 8;
+	  byte2 = ec.code_point & 0xFF;
+	}
       if (!EQ (charset, prev_charset))
 	{
 	  run_storage[runs_so_far].ptr       = text_storage;
@@ -241,7 +249,7 @@ x_text_width_single_run (struct face_cachel *cachel, struct textual_run *run)
    */
 
 static int
-x_text_width (struct frame *f, struct face_cachel *cachel, const Emchar *str,
+x_text_width (struct frame *f, struct face_cachel *cachel, const Charc *str,
 	      Charcount len)
 {
   int width_so_far = 0;
@@ -318,7 +326,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 			int cursor_width, int cursor_height)
 {
   struct frame *f = XFRAME (w->frame);
-  Emchar_dynarr *buf = Dynarr_new (Emchar);
+  Charc_dynarr *buf = Dynarr_new (Charc);
   Lisp_Object window;
 
   struct display_block *db = Dynarr_atp (dl->display_blocks, block);
@@ -341,7 +349,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
   findex = rb->findex;
   xpos = rb->xpos;
   if (rb->type == RUNE_CHAR)
-    charset = CHAR_CHARSET (rb->object.chr.ch);
+    charset = rb->object.cglyph.charset;
 
   if (end < 0)
     end = Dynarr_length (rba);
@@ -352,10 +360,12 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
       rb = Dynarr_atp (rba, elt);
 
       if (rb->findex == findex && rb->type == RUNE_CHAR
-	  && rb->object.chr.ch != '\n' && rb->cursor_type != CURSOR_ON
-	  && EQ (charset, CHAR_CHARSET (rb->object.chr.ch)))
+	  && (!EQ (rb->object.cglyph.charset, Vcharset_ascii)
+	      || rb->object.cglyph.code_point != '\n')
+	  && rb->cursor_type != CURSOR_ON
+	  && EQ (charset, rb->object.cglyph.charset))
 	{
-	  Dynarr_add (buf, rb->object.chr.ch);
+	  Dynarr_add (buf, rb->object.cglyph);
 	  width += rb->width;
 	  elt++;
 	}
@@ -376,17 +386,18 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	    {
 	      findex = rb->findex;
 	      xpos = rb->xpos;
-	      charset = CHAR_CHARSET (rb->object.chr.ch);
+	      charset = rb->object.cglyph.charset;
 
 	      if (rb->cursor_type == CURSOR_ON)
 		{
-		  if (rb->object.chr.ch == '\n')
+		  if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
+		      && (rb->object.cglyph.code_point == '\n'))
 		    {
 		      x_output_eol_cursor (w, dl, xpos, findex);
 		    }
 		  else
 		    {
-		      Dynarr_add (buf, rb->object.chr.ch);
+		      Dynarr_add (buf, rb->object.cglyph);
 		      x_output_string (w, dl, buf, xpos, 0, start_pixpos,
 				       rb->width, findex, 1,
 				       cursor_start, cursor_width,
@@ -397,7 +408,8 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		  xpos += rb->width;
 		  elt++;
 		}
-	      else if (rb->object.chr.ch == '\n')
+	      else if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
+		       && (rb->object.cglyph.code_point == '\n'))
 		{
 		  /* Clear in case a cursor was formerly here. */
 		  redisplay_clear_region (window, findex, xpos,
@@ -764,7 +776,7 @@ x_get_gc (struct device *d, Lisp_Object font, Lisp_Object fg, Lisp_Object bg,
  ****************************************************************************/
 void
 x_output_string (struct window *w, struct display_line *dl,
-		 Emchar_dynarr *buf, int xpos, int xoffset, int clip_start,
+		 Charc_dynarr *buf, int xpos, int xoffset, int clip_start,
 		 int width, face_index findex, int cursor,
 		 int cursor_start, int cursor_width, int cursor_height)
 {
