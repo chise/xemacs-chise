@@ -1,3 +1,91 @@
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el: Unify `chinese-big5-cdp'.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SECOND TWO): Unify
+	`chinese-big5-cdp'.
+	(CJK RADICAL PERSON): Likewise.
+
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el: Add `ideograph-cdp' and
+	`ideographic-structure'.
+	(U+4E5A): Unify Big5-C87B.
+
+2001-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F4E1): Separate Big5-8B47.
+	(U+F4E4): Separate Big5-8C5D.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SECOND TWO): Add
+	`total-strokes' and `ideograph-cdp'; unify Big5-8C5D.
+	(CJK RADICAL PERSON): Use `ideograph-cdp' instead of
+	`ideographic-cdp'.
+
+	* Ideograph-R145-Clothes.el (C6-2553): Relate to M-34091.
+	(M-34094): Use `<-original-ideograph' instead of `comment'.
+	(C1-4F4F): Moved from Ideograph-R018-Knife.el.
+	- Merge KS X 1001, Big5, JIS X 0212  and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R002-Line.el: Use `ideograph-cdp' instead of
+	`ideographic-cdp'.
+	(U+4E28): Add `ideograph-cdp'; unify Big5-8B76.
+
+	* Ideograph-R001-One.el: Use `ideograph-cdp' instead of
+	`ideographic-cdp'.
+
+2001-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F4D0): Separate Big5-8AF5.
+	(U+F510): Separate Big5-8B76.
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL PERSON): Add
+	`total-strokes' and `ideographic-cdp'; unify Big5-8AF5 (CDP
+	private).
+
+	* char-db-util.el (char-db-insert-char-reference): Regard integer
+	value of :char as UCS code point.
+	(insert-char-attributes): Use current-column to detect short or
+	long; format `ideographic-structure' as sequence of
+	character-references.
+
+	* Ideograph-R026-Seal.el, Ideograph-R025-Divination.el,
+	Ideograph-R024-Ten.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R021-Spoon.el:
+	- Merge KS X 1001 and Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R002-Line.el, Ideograph-R001-One.el:
+	- Merge `ideographic-cdp'.
+	- Add `ideographic-structure'.
+
+2001-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03100-Bopomofo.el: Use `<-bopomofo' instead of `->ideograph'.
+
+2001-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (J83-737D): Separate J78-737D and
+	U+9F9C.
+	(M-48848): Separate C7-2C3A; use `<-original-ideograph' instead of
+	`comment'; unify U+9F9C.
+	(J90-6354): Separate C3-5E47 and U+9F9D; use `<-ancient-ideograph'
+	instead of `comment'; add `->same-ideograph'; delete
+	`kangxi-radical' and `kangxi-strokes'.
+	(J78-6354): New character; relate to U+9F9D and M-48869.
+
+	* Ideograph-R109-Eye.el (U+770C): Unify J90-3829.
+	(M-23221): Add `total-strokes'; unify JSP-4E5F.
+	(M-49364): Use `<-original-ideograph' instead of
+	`original-ideograph-of'.
+
+	* Ideograph-R096-Jade.el (J90-6076): New character; relate to
+	U+7476 and M-21149.
+
 2001-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R198-Deer.el (M-47690): Use `->synonyms' instead of
