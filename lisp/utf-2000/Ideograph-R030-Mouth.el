@@ -14130,15 +14130,16 @@
     (ucs			. #x5699)	; åš™
     ))
 (define-char
-  '((morohashi-daikanwa	4516 0 7)
+  '((morohashi-daikanwa	4516 0 5)
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (japanese-jisx0208	. #x337A)	; ø»†«½
-    (ucs		. #x565B)	; å™›
+    (japanese-jisx0208		. #x337A)	; ø»†«½
+    (japanese-jisx0208-1990	. #x337A)	; å™›
+    (ucs			. #x565B)	; å™›
     ))
 (define-char
-  '((morohashi-daikanwa	4516 0 8)
+  '((morohashi-daikanwa	4516 0 7)
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
