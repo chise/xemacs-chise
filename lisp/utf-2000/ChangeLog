@@ -1,3 +1,20 @@
+2004-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el: Use `=jis-x0208@{1978|1983|1990}' instead
+	of `=jis-x0208-{1978|1983|1990}'.
+	(U+4E08): Add J97-3E66.
+
+	* Ideograph-R011-Enter.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U-000204FD): Use `->subsumptive'.
+	(U-000204FF): Moved from Ideograph-R009-Man.el; use
+	`->subsumptive'.
+	(M-01449): Moved into U-000204FF.
+
+	* Ideograph-R008-Lid.el: Use `=jis-x0208@{1978|1983|1990}' instead
+	of `=jis-x0208-{1978|1983|1990}'.
+	(U+4EA4): Add J97-3872.
+
 2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (JSP-5142): Moved into B-EAB0.
