@@ -1,3 +1,7 @@
+2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el: Add some GT code points.
+
 2003-07-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R159-Cart.el: Add some GT code points.
@@ -11,6 +15,8 @@
 	Ideograph-R142-Insect.el: Add some GT code points.
 
 2003-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R166-Village.el: Add some GT code points.
 
 	* Ideograph-R161-Morning.el (U+8FB0): Unify GT-51621.
 	(U+8FB1): Unify GT-51624.
