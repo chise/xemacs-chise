@@ -1,3 +1,25 @@
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_shift_jis): Modify for
+	`charset_code_point'.
+	(char_encode_iso2022): Likewise.
+
+	* mule-charset.c (Fput_char_attribute): Use <Lisp_Object>
+	(integer) instead of list of <Lisp_Object>s (integers) as the
+	format of code-point of a coded-charset.
+	(range_charset_code_point): Return <int> instead of <Lisp_Object>.
+	(encode_builtin_char_1): New function; delete
+	`split_builtin_char'.
+	(charset_code_point): Return <int> instead of <Lisp_Object>.
+	(Fsplit_char): Don't use `SPLIT_CHAR'.
+
+	* char-ucs.h (encode_builtin_char_1): New prototype; delete
+	prototype for `split_builtin_char'.
+	(range_charset_code_point): Return <int> instead of <Lisp_Object>.
+	(charset_code_point): Likewise.
+	(encode_char_1): New inline function; delete `SPLIT_CHAR'.
+	(breakup_char_1): Use `encode_char_1' instead of `SPLIT_CHAR'.
+
 2000-01-20  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Don't define
