@@ -424,7 +424,8 @@
 					 ((integerp code)
 					  (format "#x%04X" code))
 					 (t
-					  (format "%s%S" line-breaking code))))
+					  (format "%s %S"
+						  line-breaking code))))
 				 value " ")
 		      line-breaking))
       (setq attributes (delq '->ideograph attributes))
@@ -700,8 +701,9 @@
 	    (insert (format "\t; %c" char)))
 	  )))))
 
-(defun insert-char-data-with-variant (char &optional script printable
-					   no-ucs-variant)
+(defun insert-char-data-with-variant (char &optional printable
+					   no-ucs-variant
+					   script excluded-script)
   (insert-char-data char printable)
   (let ((variants (or (char-variants char)
 		      (let ((ucs (get-char-attribute char '->ucs)))
@@ -710,28 +712,33 @@
 	variant vs)
     (while variants
       (setq variant (car variants))
-      (if (or (null script)
-	      (null (setq vs (get-char-attribute variant 'script)))
-	      (memq script vs))
+      (if (and (or (null script)
+		   (null (setq vs (get-char-attribute variant 'script)))
+		   (memq script vs))
+	       (or (null excluded-script)
+		   (null (setq vs (get-char-attribute variant 'script)))
+		   (not (memq excluded-script vs))))
 	  (or (and no-ucs-variant (get-char-attribute variant 'ucs))
 	      (insert-char-data variant printable)))
       (setq variants (cdr variants))
       )))
 
-(defun insert-char-range-data (min max &optional script)
+(defun insert-char-range-data (min max &optional script excluded-script)
   (let ((code min)
 	char)
     (while (<= code max)
       (setq char (decode-char 'ucs code))
       (if (get-char-attribute char 'ucs)
-	  (insert-char-data-with-variant char script nil 'no-ucs-variant))
+	  (insert-char-data-with-variant char nil 'no-ucs-variant
+					 script excluded-script))
       (setq code (1+ code))
       )))
 
-(defun write-char-range-data-to-file (min max file &optional script)
+(defun write-char-range-data-to-file (min max file
+					  &optional script excluded-script)
   (let ((coding-system-for-write 'utf-8))
     (with-temp-buffer
-      (insert-char-range-data min max script)
+      (insert-char-range-data min max script excluded-script)
       (write-region (point-min)(point-max) file))))
 
 (defvar what-character-original-window-configuration)
@@ -749,7 +756,7 @@
     (erase-buffer)
     (condition-case err
 	(progn
-	  (insert-char-data-with-variant char nil 'printable)
+	  (insert-char-data-with-variant char 'printable)
           ;; (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
