@@ -1,3 +1,9 @@
+2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (find_char_feature_in_family): New function.
+	(Fchar_feature): Use `find_char_feature_in_family' with
+	`->identical', `<-subsumptive' and `<-denotational'.
+
 2004-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (char_encode_as_entity_reference): Allow prefix
