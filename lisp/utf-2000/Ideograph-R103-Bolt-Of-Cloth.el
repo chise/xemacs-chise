@@ -90,7 +90,7 @@
     (korean-ksc5601	. #x6142)	; ø»‰¸­
     (=gt-pj-1		. #x4141)	; ø½Š¥œ
     (=gt-k		. 09086)	; ý¡„‚¾
-    (ucs-jis		. #x758F)	; ø½Š¥œ
+    (=ucs@jis		. #x758F)	; ø½Š¥œ
     ))
 (define-char
   '((morohashi-daikanwa	22000 0 2)

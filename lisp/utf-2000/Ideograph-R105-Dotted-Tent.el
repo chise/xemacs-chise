@@ -41,7 +41,7 @@
     (=gt-pj-1		. #x6223)	; ø½‹•œ
     (ideograph-daikanwa . 22660)	; ø¸…¢„
     (=gt-k		. 05268)	; ý¡„’”
-    (ucs-jis		. #x7678)	; ø½‹•œ
+    (=ucs@jis		. #x7678)	; ø½‹•œ
     ))
 (define-char
   '((morohashi-daikanwa	22660 0 0)
@@ -166,7 +166,7 @@
     (=gt-pj-1		. #x6224)	; ø½‹•
     (ideograph-daikanwa . 22669)	; ø¸…¢
     (=gt-k		. 09215)	; ý¡„‚¿
-    (ucs-jis		. #x767C)	; ø½‹•
+    (=ucs@jis		. #x767C)	; ø½‹•
     ))
 (define-char
   '((morohashi-daikanwa	22669 0 0)

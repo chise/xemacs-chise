@@ -27,7 +27,7 @@
     (=gt-pj-1		. #x3267)	; ø½Š€
     (=gt-k		. 00900)	; ý¡„€Ž„
     (=jef-china3	. #x58C5)	; øº…£…
-    (ucs-jis		. #x7259)	; ø½Š€
+    (=ucs@jis		. #x7259)	; ø½Š€
     ))
 (define-char
   '((=>ucs		. #x3E26)	; ã¸¦
@@ -162,7 +162,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (japanese-jisx0212	. #x4A57)	; ø»‹¡”
-    (ucs-jis		. #x725A)	; ø»‹¡”
+    (=ucs@jis		. #x725A)	; ø»‹¡”
     ))
 (define-char
   '((ideographic-radical . 92)	; â½›

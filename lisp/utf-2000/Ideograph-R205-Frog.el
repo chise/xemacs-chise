@@ -7,7 +7,7 @@
     (=gt-pj-1		. #x7366)	; ø½‹¯
     (ideograph-daikanwa . 48257)	; ø¸‹²
     (=gt-k		. 10369)	; ý¡„‚¢
-    (ucs-jis		. #x9EFD)	; ø½‹¯
+    (=ucs@jis		. #x9EFD)	; ø½‹¯
     ))
 (define-char
   '((morohashi-daikanwa	48257 0 0)
@@ -512,7 +512,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 25)
     (=jis-x0208-1990	. #x7368)	; ø½‹¯Ÿ
-    (ucs-jis		. #x9F08)	; ø½‹¯Ÿ
+    (=ucs@jis		. #x9F08)	; ø½‹¯Ÿ
     ))
 (define-char
   '((=>ucs		. #x9F08)	; é¼ˆ

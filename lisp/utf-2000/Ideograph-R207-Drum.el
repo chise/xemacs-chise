@@ -100,7 +100,7 @@
     (shinjigen-2	. 9857)
     (=jis-x0208		. #x736A)	; ø½‹¯¡
     (ideograph-daikanwa . 48341)	; ø¸‹³•
-    (ucs-jis		. #x9F15)	; ø½‹¯¡
+    (=ucs@jis		. #x9F15)	; ø½‹¯¡
     ))
 (define-char
   '((=>ucs		. #x9F15)	; é¼•

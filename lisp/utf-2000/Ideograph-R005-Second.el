@@ -1138,7 +1138,7 @@
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
     (japanese-jisx0212	. #x303A)	; ø»Šº«
-    (ucs-jis		. #x4E75)	; ø»Šº«
+    (=ucs@jis		. #x4E75)	; ø»Šº«
     ))
 (define-char
   '((morohashi-daikanwa	192 0 2)
@@ -1171,7 +1171,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((ucs-jis	    . #x722B)	; ø»‹¡…
+       ((japanese-jisx0212  . #x4A48)	; ø»‹¡…
+	(chinese-cns11643-4 . #x2151)	; ø»—¡˜
+	(=jis-x0213-2-2000  . #x702A)	; ø»¦‘‹
+	(ideograph-daikanwa . 19655)	; ø¸„³‡
 	)
        ((=ucs		    . #x53E3)	; å£
 	))
@@ -1661,7 +1664,7 @@
     (chinese-big5	. #xD44B)	; ý¢€‘‹
     (ideograph-daikanwa . 00205)	; ø¸€ƒ
     (=jef-china3	. #x41C5)	; øº„‡…
-    (ucs-jis		. #x4E7F)	; ø»Šº­
+    (=ucs@jis		. #x4E7F)	; ø»Šº­
     (ucs-big5		. #x4E7F)	; ø»Šº­
     (=gt		. 00276)	; ý¡€€„”
     ))
@@ -2030,7 +2033,7 @@
     (chinese-big5	. #xB6C3)	; ý¢€‹›ƒ
     (ideograph-daikanwa . 00214)	; ø¸€ƒ–
     (=gt-k		. 10403)	; ý¡„‚¢£
-    (ucs-jis		. #x4E82)	; ø½Š»‰
+    (=ucs@jis		. #x4E82)	; ø½Š»‰
     (ucs-ks		. #x4E82)	; ø½Š»‰
     (ucs-big5		. #x4E82)	; ø½Š»‰
     (=gt		. 00285)	; ý¡€€„

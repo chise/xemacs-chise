@@ -51,7 +51,7 @@
     (=jis-x0208-1990	. #x394D)	; ø½Š™¸
     (=gt-pj-1		. #x394D)	; ø»‰›˜
     (=gt-k		. 01611)	; ý¡„€™‹
-    (ucs-jis		. #x8003)	; ø»‰›˜
+    (=ucs@jis		. #x8003)	; ø»‰›˜
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼

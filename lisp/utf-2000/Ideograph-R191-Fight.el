@@ -165,7 +165,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (=jis-x0213-1-2000	. #x7E3E)	; ø»¤›¿
-    (ucs-jis		. #x4C17)	; ø»¤›¿
+    (=ucs@jis		. #x4C17)	; ø»¤›¿
     ))
 (define-char
   '((ideographic-radical . 191)	; â¾¾
@@ -292,7 +292,7 @@
     (japanese-jisx0208	. #x722D)	; ø»ˆ‡’
     (chinese-cns11643-2 . #x7166)	; ø»•ƒ…
     (=jis-x0208-1990	. #x722D)	; ø½‹­†
-    (ucs-jis		. #x9B2E)	; ø»ˆ‡’
+    (=ucs@jis		. #x9B2E)	; ø»ˆ‡’
     ))
 (define-char
   '((=>ucs		. #x9B2E)	; é¬®

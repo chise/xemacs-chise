@@ -1959,7 +1959,7 @@
     (total-strokes	 . 15)
     (=jis-x0208		. #x4158)	; ø½Š¥³
     (=gt-pj-1		. #x4158)	; ø½Š¥³
-    (ucs-jis		. #x5C64)	; ø½Š¥³
+    (=ucs@jis		. #x5C64)	; ø½Š¥³
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«
@@ -2249,7 +2249,7 @@
     (korean-ksc5601	. #x6155)	; ø»‰¹€
     (=gt-pj-1		. #x5624)	; ø½‹ƒµ
     (ideograph-daikanwa . 07821)	; ø¸º
-    (ucs-jis		. #x5C6C)	; ø½‹ƒµ
+    (=ucs@jis		. #x5C6C)	; ø½‹ƒµ
     ))
 (define-char
   '((morohashi-daikanwa	7821 0 1)

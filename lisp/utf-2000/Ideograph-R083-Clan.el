@@ -25,7 +25,7 @@
     (chinese-big5	. #xA5C2)	; ý¢€Š—‚
     (ideograph-daikanwa . 17027)	; ø¸„Šƒ
     (=jef-china3	. #x55A8)	; øº…–¨
-    (ucs-jis		. #x6C10)	; ø»‹›Ž
+    (=ucs@jis		. #x6C10)	; ø»‹›Ž
     ))
 (define-char
   '((morohashi-daikanwa	17027 0 3)
@@ -70,7 +70,7 @@
     (=jis-x0208-1990	. #x5D62)	; ø½‹…
     (chinese-big5	. #xAA5D)	; ý¢€Š©
     (ideograph-daikanwa . 17030)	; ø¸„Š†
-    (ucs-jis		. #x6C13)	; ø½‹…
+    (=ucs@jis		. #x6C13)	; ø½‹…
     ))
 (define-char
   '((=>ucs		. #x6C13)	; æ°“

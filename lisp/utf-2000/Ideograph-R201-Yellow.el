@@ -731,7 +731,7 @@
     (shinjigen-2	. 9812)
     (=jis-x0208		. #x7354)	; ø½‹¯‹
     (ideograph-daikanwa . 47985)	; ø¸‹­±
-    (ucs-jis		. #x9ECC)	; ø½‹¯‹
+    (=ucs@jis		. #x9ECC)	; ø½‹¯‹
     ))
 (define-char
   '((=>ucs		. #x9ECC)	; é»Œ

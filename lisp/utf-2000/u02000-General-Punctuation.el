@@ -567,7 +567,7 @@
     (korean-ksc5601	. #x237E)	; ø»ˆž¥
     (chinese-cns11643-1 . #x2223)	; ø»‘ƒ¼
     (chinese-big5	. #xA1C2)	; ý¢€Š‡‚
-    (ucs-jis		. #x203E)	; ø»„Š
+    (=ucs@jis		. #x203E)	; ø»„Š
     ))
 (define-char
   '((name		. "heavy overline")

@@ -72,7 +72,7 @@
     (=jis-x0208-1990	. #x3164)	; ø½ŠŽŸ
     (=gt-pj-1		. #x3164)	; ø»’ƒš
     (=gt-k		. 03635)	; ý¡„€¸³
-    (ucs-jis		. #x5EF6)	; ø»’ƒš
+    (=ucs@jis		. #x5EF6)	; ø»’ƒš
     ))
 (define-char
   '((=>ucs		. #x2231B)	; ð¢Œ›
@@ -136,7 +136,7 @@
     (=jis-x0213-2-2000	. #x2C2B)	; ø»¤­”
     (ideograph-daikanwa . 09573)	; ø¸‚•¥
     (=jef-china3	. #x4CD7)	; øº„³—
-    (ucs-jis		. #x2231E)	; ø»¤­”
+    (=ucs@jis		. #x2231E)	; ø»¤­”
     ))
 (define-char
   '((morohashi-daikanwa	9573 0 0)

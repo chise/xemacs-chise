@@ -74,7 +74,7 @@
     (chinese-big5	. #xACC6)	; ý¢€Š³†
     (ideograph-daikanwa . 21648)	; ø¸…’
     (=gt-k		. 05114)	; ý¡„º
-    (ucs-jis		. #x751A)	; ø½Š¢²
+    (=ucs@jis		. #x751A)	; ø½Š¢²
     ))
 (define-char
   '((=>ucs		. #x751A)	; ç”š

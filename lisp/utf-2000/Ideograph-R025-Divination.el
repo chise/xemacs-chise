@@ -79,7 +79,7 @@
     (=gt-pj-1		. #x5246)	; ø½Š¾Ÿ
     (ideograph-daikanwa . 02778)	; ø¸€«š
     (=gt-k		. 00519)	; ý¡„€ˆ‡
-    (ucs-jis		. #x535E)	; ø½Š¾Ÿ
+    (=ucs@jis		. #x535E)	; ø½Š¾Ÿ
     ))
 (define-char
   '((morohashi-daikanwa	2778 0 1)

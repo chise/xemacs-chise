@@ -30,7 +30,7 @@
       (=ucs		  . #x00A0)	; Â 
       ))
     (=jis-x0213-1-2000	. #x2922)	; ø»¢ž­
-    (ucs-jis		. #x00A0)	; ø»¢ž­
+    (=ucs@jis		. #x00A0)	; ø»¢ž­
     ))
 (define-char
   '((name		. "INVERTED EXCLAMATION MARK")
@@ -59,7 +59,7 @@
     (korean-ksc5601	. #x222E)	; ø»ˆ›·
     (japanese-jisx0212	. #x2242)	; ø»Š¦
     (=jis-x0213-1-2000	. #x2923)	; ø»¢ž®
-    (ucs-jis		. #x00A1)	; ø»ˆ›·
+    (=ucs@jis		. #x00A1)	; ø»ˆ›·
     ))
 (define-char
   '((name		. "CENT SIGN")
@@ -124,7 +124,7 @@
     (korean-ksc5601	. #x2234)	; ø»ˆ›½
     (japanese-jisx0212	. #x2270)	; ø»Š¦½
     (=jis-x0213-1-2000	. #x2924)	; ø»¢ž¯
-    (ucs-jis		. #x00A4)	; ø»„‡‹
+    (=ucs@jis		. #x00A4)	; ø»„‡‹
     ))
 (define-char
   '((name		. "YEN SIGN")
@@ -192,7 +192,7 @@
     (korean-ksc5601	. #x2157)	; ø»ˆ›‚
     (chinese-cns11643-1 . #x2170)	; ø»‘ƒ«
     (chinese-big5	. #xA1B1)	; ý¢€Š†±
-    (ucs-jis		. #x00A7)	; ø»„‡
+    (=ucs@jis		. #x00A7)	; ø»„‡
     ))
 (define-char
   '((name		. "DIAERESIS")
@@ -229,7 +229,7 @@
     (korean-ksc5601	. #x2127)	; ø»ˆš’
     (=big5-eten		. #xC6D8)	; ý¢€Œ›˜
     (=jef-china3	. #x81AA)	; øºˆ†ª
-    (ucs-jis		. #x00A8)	; ø»„†Š
+    (=ucs@jis		. #x00A8)	; ø»„†Š
     ))
 (define-char
   '((name		. "COPYRIGHT SIGN")
@@ -258,7 +258,7 @@
       ))
     (japanese-jisx0212	. #x226D)	; ø»Š¦º
     (=jis-x0213-1-2000	. #x2926)	; ø»¢ž±
-    (ucs-jis		. #x00A9)	; ø»Š¦º
+    (=ucs@jis		. #x00A9)	; ø»Š¦º
     ))
 (define-char
   '((name		. "FEMININE ORDINAL INDICATOR")
@@ -288,7 +288,7 @@
     (korean-ksc5601	. #x2823)	; ø»ˆ¤ 
     (japanese-jisx0212	. #x226C)	; ø»Š¦¹
     (=jis-x0213-1-2000	. #x2927)	; ø»¢ž²
-    (ucs-jis		. #x00AA)	; ø»ˆ¤ 
+    (=ucs@jis		. #x00AA)	; ø»ˆ¤ 
     ))
 (define-char
   '((name		. "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK")
@@ -317,7 +317,7 @@
       (=ucs		  . #x00AB)	; Â«
       ))
     (=jis-x0213-1-2000	. #x2928)	; ø»¢ž³
-    (ucs-jis		. #x00AB)	; ø»¢ž³
+    (=ucs@jis		. #x00AB)	; ø»¢ž³
     ))
 (define-char
   '((name		. "NOT SIGN")
@@ -365,7 +365,7 @@
       ))
     (korean-ksc5601	. #x2129)	; ø»ˆš”
     (=jis-x0213-1-2000	. #x2929)	; ø»¢ž´
-    (ucs-jis		. #x00AD)	; ø»ˆš”
+    (=ucs@jis		. #x00AD)	; ø»ˆš”
     ))
 (define-char
   '((name		. "REGISTERED SIGN")
@@ -394,7 +394,7 @@
     (japanese-jisx0212	. #x226E)	; ø»Š¦»
     (=jis-x0213-1-2000	. #x292A)	; ø»¢žµ
     (=jef-china3	. #x81A1)	; øºˆ†¡
-    (ucs-jis		. #x00AE)	; ø»Š¦»
+    (=ucs@jis		. #x00AE)	; ø»Š¦»
     ))
 (define-char
   '((name		. "MACRON")
@@ -446,7 +446,7 @@
     (korean-ksc5601	. #x2146)	; ø»ˆš±
     (chinese-cns11643-1 . #x2278)	; ø»‘…‘
     (chinese-big5	. #xA258)	; ý¢€Š‰˜
-    (ucs-jis		. #x00B0)	; ø»„‡†
+    (=ucs@jis		. #x00B0)	; ø»„‡†
     ))
 (define-char
   '((name		. "PLUS-MINUS SIGN")
@@ -480,7 +480,7 @@
     (korean-ksc5601	. #x213E)	; ø»ˆš©
     (chinese-cns11643-1 . #x2234)	; ø»‘„
     (chinese-big5	. #xA1D3)	; ý¢€Š‡“
-    (ucs-jis		. #x00B1)	; ø»„†£
+    (=ucs@jis		. #x00B1)	; ø»„†£
     ))
 (define-char
   '((name		. "SUPERSCRIPT TWO")
@@ -517,7 +517,7 @@
       ))
     (korean-ksc5601	. #x2977)	; ø»ˆ§’
     (=jis-x0213-1-2000	. #x292C)	; ø»¢ž·
-    (ucs-jis		. #x00B2)	; ø»ˆ§’
+    (=ucs@jis		. #x00B2)	; ø»ˆ§’
     ))
 (define-char
   '((name		. "SUPERSCRIPT THREE")
@@ -554,7 +554,7 @@
       ))
     (korean-ksc5601	. #x2978)	; ø»ˆ§“
     (=jis-x0213-1-2000	. #x292D)	; ø»¢ž¸
-    (ucs-jis		. #x00B3)	; ø»ˆ§“
+    (=ucs@jis		. #x00B3)	; ø»ˆ§“
     ))
 (define-char
   '((name		. "ACUTE ACCENT")
@@ -587,7 +587,7 @@
     (=jis-x0208		. #x212D)	; ø½‰¶ˆ
     (korean-ksc5601	. #x2225)	; ø»ˆ›®
     (=jef-china3	. #x81A4)	; øºˆ†¤
-    (ucs-jis		. #x00B4)	; ø½‰¶ˆ
+    (=ucs@jis		. #x00B4)	; ø½‰¶ˆ
     ))
 (define-char
   '((name		. "MICRO SIGN")
@@ -629,7 +629,7 @@
     (japanese-jisx0208	. #x2279)	; ø»†’¾
     (korean-ksc5601	. #x2252)	; ø»ˆœ›
     (=jis-x0208-1990	. #x2279)	; ø½‰¸²
-    (ucs-jis		. #x00B6)	; ø»†’¾
+    (=ucs@jis		. #x00B6)	; ø»†’¾
     ))
 (define-char
   '((name		. "MIDDLE DOT")
@@ -662,7 +662,7 @@
     (chinese-cns11643-1 . #x2126)	; ø»‘‚¡
     (=jis-x0213-1-2000	. #x292E)	; ø»¢ž¹
     (chinese-big5	. #xA150)	; ý¢€Š…
-    (ucs-jis		. #x00B7)	; ø»ˆš
+    (=ucs@jis		. #x00B7)	; ø»ˆš
     ))
 (define-char
   '((name		. "CEDILLA")
@@ -697,7 +697,7 @@
     (japanese-jisx0212	. #x2231)	; ø»Š¥¾
     (=jis-x0213-1-2000	. #x292F)	; ø»¢žº
     (=jef-china3	. #x81B2)	; øºˆ†²
-    (ucs-jis		. #x00B8)	; ø»ˆ›µ
+    (=ucs@jis		. #x00B8)	; ø»ˆ›µ
     ))
 (define-char
   '((name		. "SUPERSCRIPT ONE")
@@ -732,7 +732,7 @@
       ))
     (korean-ksc5601	. #x2976)	; ø»ˆ§‘
     (=jis-x0213-1-2000	. #x2930)	; ø»¢ž»
-    (ucs-jis		. #x00B9)	; ø»ˆ§‘
+    (=ucs@jis		. #x00B9)	; ø»ˆ§‘
     ))
 (define-char
   '((name		. "MASCULINE ORDINAL INDICATOR")
@@ -762,7 +762,7 @@
     (korean-ksc5601	. #x282C)	; ø»ˆ¤©
     (japanese-jisx0212	. #x226B)	; ø»Š¦¸
     (=jis-x0213-1-2000	. #x2931)	; ø»¢ž¼
-    (ucs-jis		. #x00BA)	; ø»ˆ¤©
+    (=ucs@jis		. #x00BA)	; ø»ˆ¤©
     ))
 (define-char
   '((name		. "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK")
@@ -791,7 +791,7 @@
       (=ucs		  . #x00BB)	; Â»
       ))
     (=jis-x0213-1-2000	. #x2932)	; ø»¢ž½
-    (ucs-jis		. #x00BB)	; ø»¢ž½
+    (=ucs@jis		. #x00BB)	; ø»¢ž½
     ))
 (define-char
   '((name		. "VULGAR FRACTION ONE QUARTER")
@@ -822,7 +822,7 @@
       ))
     (korean-ksc5601	. #x2879)	; ø»ˆ¥¶
     (=jis-x0213-1-2000	. #x2933)	; ø»¢ž¾
-    (ucs-jis		. #x00BC)	; ø»ˆ¥¶
+    (=ucs@jis		. #x00BC)	; ø»ˆ¥¶
     ))
 (define-char
   '((name		. "VULGAR FRACTION ONE HALF")
@@ -855,7 +855,7 @@
       ))
     (korean-ksc5601	. #x2876)	; ø»ˆ¥³
     (=jis-x0213-1-2000	. #x2934)	; ø»¢ž¿
-    (ucs-jis		. #x00BD)	; ø»ˆ¥³
+    (=ucs@jis		. #x00BD)	; ø»ˆ¥³
     ))
 (define-char
   '((name		. "VULGAR FRACTION THREE QUARTERS")
@@ -886,7 +886,7 @@
       ))
     (korean-ksc5601	. #x287A)	; ø»ˆ¥·
     (=jis-x0213-1-2000	. #x2935)	; ø»¢Ÿ€
-    (ucs-jis		. #x00BE)	; ø»ˆ¥·
+    (=ucs@jis		. #x00BE)	; ø»ˆ¥·
     ))
 (define-char
   '((name		. "INVERTED QUESTION MARK")
@@ -915,7 +915,7 @@
     (korean-ksc5601	. #x222F)	; ø»ˆ›¸
     (japanese-jisx0212	. #x2244)	; ø»Š¦‘
     (=jis-x0213-1-2000	. #x2936)	; ø»¢Ÿ
-    (ucs-jis		. #x00BF)	; ø»ˆ›¸
+    (=ucs@jis		. #x00BF)	; ø»ˆ›¸
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH GRAVE")
@@ -954,7 +954,7 @@
     (japanese-jisx0212	. #x2A22)	; ø»Š±Ÿ
     (=jis-x0213-1-2000	. #x2937)	; ø»¢Ÿ‚
     (=jef-china3	. #x85B9)	; øºˆ–¹
-    (ucs-jis		. #x00C0)	; ø»Š±Ÿ
+    (=ucs@jis		. #x00C0)	; ø»Š±Ÿ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH ACUTE")
@@ -995,7 +995,7 @@
     (japanese-jisx0212	. #x2A21)	; ø»Š±ž
     (=jis-x0213-1-2000	. #x2938)	; ø»¢Ÿƒ
     (=jef-china3	. #x85D5)	; øºˆ—•
-    (ucs-jis		. #x00C1)	; ø»Š±ž
+    (=ucs@jis		. #x00C1)	; ø»Š±ž
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
@@ -1037,7 +1037,7 @@
     (japanese-jisx0212	. #x2A24)	; ø»Š±¡
     (=jis-x0213-1-2000	. #x2939)	; ø»¢Ÿ„
     (=jef-china3	. #x86B7)	; øºˆš·
-    (ucs-jis		. #x00C2)	; ø»Š±¡
+    (=ucs@jis		. #x00C2)	; ø»Š±¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH TILDE")
@@ -1076,7 +1076,7 @@
     (japanese-jisx0212	. #x2A2A)	; ø»Š±§
     (=jis-x0213-1-2000	. #x293A)	; ø»¢Ÿ…
     (=jef-china3	. #x86E2)	; øºˆ›¢
-    (ucs-jis		. #x00C3)	; ø»Š±§
+    (=ucs@jis		. #x00C3)	; ø»Š±§
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH DIAERESIS")
@@ -1115,7 +1115,7 @@
     (japanese-jisx0212	. #x2A23)	; ø»Š± 
     (=jis-x0213-1-2000	. #x293B)	; ø»¢Ÿ†
     (=jef-china3	. #x88C5)	; øºˆ£…
-    (ucs-jis		. #x00C4)	; ø»Š± 
+    (=ucs@jis		. #x00C4)	; ø»Š± 
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH RING ABOVE")
@@ -1152,7 +1152,7 @@
     (japanese-jisx0212	. #x2A29)	; ø»Š±¦
     (=jis-x0213-1-2000	. #x293C)	; ø»¢Ÿ‡
     (=jef-china3	. #x88FD)	; øºˆ£½
-    (ucs-jis		. #x00C5)	; ø»Š±¦
+    (=ucs@jis		. #x00C5)	; ø»Š±¦
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER AE")
@@ -1182,7 +1182,7 @@
     (japanese-jisx0212	. #x2921)	; ø»Š°€
     (=jis-x0213-1-2000	. #x293D)	; ø»¢Ÿˆ
     (=jef-china3	. #x83A5)	; øºˆŽ¥
-    (ucs-jis		. #x00C6)	; ø»ˆ¤ž
+    (=ucs@jis		. #x00C6)	; ø»ˆ¤ž
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER C WITH CEDILLA")
@@ -1220,7 +1220,7 @@
     (japanese-jisx0212	. #x2A2E)	; ø»Š±«
     (=jis-x0213-1-2000	. #x293E)	; ø»¢Ÿ‰
     (=jef-china3	. #x89F5)	; øºˆ§µ
-    (ucs-jis		. #x00C7)	; ø»Š±«
+    (=ucs@jis		. #x00C7)	; ø»Š±«
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH GRAVE")
@@ -1259,7 +1259,7 @@
     (japanese-jisx0212	. #x2A32)	; ø»Š±¯
     (=jis-x0213-1-2000	. #x293F)	; ø»¢ŸŠ
     (=jef-china3	. #x85BA)	; øºˆ–º
-    (ucs-jis		. #x00C8)	; ø»Š±¯
+    (=ucs@jis		. #x00C8)	; ø»Š±¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH ACUTE")
@@ -1300,7 +1300,7 @@
     (japanese-jisx0212	. #x2A31)	; ø»Š±®
     (=jis-x0213-1-2000	. #x2940)	; ø»¢Ÿ‹
     (=jef-china3	. #x85D8)	; øºˆ—˜
-    (ucs-jis		. #x00C9)	; ø»Š±®
+    (=ucs@jis		. #x00C9)	; ø»Š±®
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
@@ -1340,7 +1340,7 @@
     (japanese-jisx0212	. #x2A34)	; ø»Š±±
     (=jis-x0213-1-2000	. #x2941)	; ø»¢ŸŒ
     (=jef-china3	. #x86B9)	; øºˆš¹
-    (ucs-jis		. #x00CA)	; ø»Š±±
+    (=ucs@jis		. #x00CA)	; ø»Š±±
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH DIAERESIS")
@@ -1379,7 +1379,7 @@
     (japanese-jisx0212	. #x2A33)	; ø»Š±°
     (=jis-x0213-1-2000	. #x2942)	; ø»¢Ÿ
     (=jef-china3	. #x88C7)	; øºˆ£‡
-    (ucs-jis		. #x00CB)	; ø»Š±°
+    (=ucs@jis		. #x00CB)	; ø»Š±°
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH GRAVE")
@@ -1418,7 +1418,7 @@
     (japanese-jisx0212	. #x2A40)	; ø»Š±½
     (=jis-x0213-1-2000	. #x2943)	; ø»¢ŸŽ
     (=jef-china3	. #x85BB)	; øºˆ–»
-    (ucs-jis		. #x00CC)	; ø»Š±½
+    (=ucs@jis		. #x00CC)	; ø»Š±½
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH ACUTE")
@@ -1459,7 +1459,7 @@
     (japanese-jisx0212	. #x2A3F)	; ø»Š±¼
     (=jis-x0213-1-2000	. #x2944)	; ø»¢Ÿ
     (=jef-china3	. #x85DB)	; øºˆ—›
-    (ucs-jis		. #x00CD)	; ø»Š±¼
+    (=ucs@jis		. #x00CD)	; ø»Š±¼
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
@@ -1498,7 +1498,7 @@
     (japanese-jisx0212	. #x2A42)	; ø»Š±¿
     (=jis-x0213-1-2000	. #x2945)	; ø»¢Ÿ
     (=jef-china3	. #x86BC)	; øºˆš¼
-    (ucs-jis		. #x00CE)	; ø»Š±¿
+    (=ucs@jis		. #x00CE)	; ø»Š±¿
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH DIAERESIS")
@@ -1535,7 +1535,7 @@
     (japanese-jisx0212	. #x2A41)	; ø»Š±¾
     (=jis-x0213-1-2000	. #x2946)	; ø»¢Ÿ‘
     (=jef-china3	. #x88C9)	; øºˆ£‰
-    (ucs-jis		. #x00CF)	; ø»Š±¾
+    (=ucs@jis		. #x00CF)	; ø»Š±¾
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER ETH")
@@ -1570,7 +1570,7 @@
       ))
     (korean-ksc5601	. #x2822)	; ø»ˆ¤Ÿ
     (=jis-x0213-1-2000	. #x2947)	; ø»¢Ÿ’
-    (ucs-jis		. #x00D0)	; ø»ˆ¤Ÿ
+    (=ucs@jis		. #x00D0)	; ø»ˆ¤Ÿ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER N WITH TILDE")
@@ -1607,7 +1607,7 @@
     (japanese-jisx0212	. #x2A50)	; ø»Š²
     (=jis-x0213-1-2000	. #x2948)	; ø»¢Ÿ“
     (=jef-china3	. #x86E6)	; øºˆ›¦
-    (ucs-jis		. #x00D1)	; ø»Š²
+    (=ucs@jis		. #x00D1)	; ø»Š²
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH GRAVE")
@@ -1646,7 +1646,7 @@
     (japanese-jisx0212	. #x2A52)	; ø»Š²
     (=jis-x0213-1-2000	. #x2949)	; ø»¢Ÿ”
     (=jef-china3	. #x85BD)	; øºˆ–½
-    (ucs-jis		. #x00D2)	; ø»Š²
+    (=ucs@jis		. #x00D2)	; ø»Š²
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH ACUTE")
@@ -1686,7 +1686,7 @@
     (japanese-jisx0212	. #x2A51)	; ø»Š²Ž
     (=jis-x0213-1-2000	. #x294A)	; ø»¢Ÿ•
     (=jef-china3	. #x85E0)	; øºˆ— 
-    (ucs-jis		. #x00D3)	; ø»Š²Ž
+    (=ucs@jis		. #x00D3)	; ø»Š²Ž
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
@@ -1728,7 +1728,7 @@
     (japanese-jisx0212	. #x2A54)	; ø»Š²‘
     (=jis-x0213-1-2000	. #x294B)	; ø»¢Ÿ–
     (=jef-china3	. #x86BF)	; øºˆš¿
-    (ucs-jis		. #x00D4)	; ø»Š²‘
+    (=ucs@jis		. #x00D4)	; ø»Š²‘
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH TILDE")
@@ -1767,7 +1767,7 @@
     (japanese-jisx0212	. #x2A58)	; ø»Š²•
     (=jis-x0213-1-2000	. #x294C)	; ø»¢Ÿ—
     (=jef-china3	. #x86E7)	; øºˆ›§
-    (ucs-jis		. #x00D5)	; ø»Š²•
+    (=ucs@jis		. #x00D5)	; ø»Š²•
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH DIAERESIS")
@@ -1806,7 +1806,7 @@
     (japanese-jisx0212	. #x2A53)	; ø»Š²
     (=jis-x0213-1-2000	. #x294D)	; ø»¢Ÿ˜
     (=jef-china3	. #x88CB)	; øºˆ£‹
-    (ucs-jis		. #x00D6)	; ø»Š²
+    (=ucs@jis		. #x00D6)	; ø»Š²
     ))
 (define-char
   '((name		. "MULTIPLICATION SIGN")
@@ -1842,7 +1842,7 @@
     (korean-ksc5601	. #x213F)	; ø»ˆšª
     (chinese-cns11643-1 . #x2232)	; ø»‘„‹
     (chinese-big5	. #xA1D1)	; ý¢€Š‡‘
-    (ucs-jis		. #x00D7)	; ø»„†¤
+    (=ucs@jis		. #x00D7)	; ø»„†¤
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH STROKE")
@@ -1871,7 +1871,7 @@
     (japanese-jisx0212	. #x292C)	; ø»Š°‹
     (=jis-x0213-1-2000	. #x294E)	; ø»¢Ÿ™
     (=jef-china3	. #x83A2)	; øºˆŽ¢
-    (ucs-jis		. #x00D8)	; ø»ˆ¤§
+    (=ucs@jis		. #x00D8)	; ø»ˆ¤§
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH GRAVE")
@@ -1903,7 +1903,7 @@
     (japanese-jisx0212	. #x2A63)	; ø»Š² 
     (=jis-x0213-1-2000	. #x294F)	; ø»¢Ÿš
     (=jef-china3	. #x85BF)	; øºˆ–¿
-    (ucs-jis		. #x00D9)	; ø»Š² 
+    (=ucs@jis		. #x00D9)	; ø»Š² 
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH ACUTE")
@@ -1944,7 +1944,7 @@
     (japanese-jisx0212	. #x2A62)	; ø»Š²Ÿ
     (=jis-x0213-1-2000	. #x2950)	; ø»¢Ÿ›
     (=jef-china3	. #x85E6)	; øºˆ—¦
-    (ucs-jis		. #x00DA)	; ø»Š²Ÿ
+    (=ucs@jis		. #x00DA)	; ø»Š²Ÿ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
@@ -1982,7 +1982,7 @@
     (japanese-jisx0212	. #x2A65)	; ø»Š²¢
     (=jis-x0213-1-2000	. #x2951)	; ø»¢Ÿœ
     (=jef-china3	. #x86C1)	; øºˆ›
-    (ucs-jis		. #x00DB)	; ø»Š²¢
+    (=ucs@jis		. #x00DB)	; ø»Š²¢
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS")
@@ -2021,7 +2021,7 @@
     (japanese-jisx0212	. #x2A64)	; ø»Š²¡
     (=jis-x0213-1-2000	. #x2952)	; ø»¢Ÿ
     (=jef-china3	. #x88CE)	; øºˆ£Ž
-    (ucs-jis		. #x00DC)	; ø»Š²¡
+    (=ucs@jis		. #x00DC)	; ø»Š²¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH ACUTE")
@@ -2059,7 +2059,7 @@
     (japanese-jisx0212	. #x2A72)	; ø»Š²¯
     (=jis-x0213-1-2000	. #x2953)	; ø»¢Ÿž
     (=jef-china3	. #x85E9)	; øºˆ—©
-    (ucs-jis		. #x00DD)	; ø»Š²¯
+    (=ucs@jis		. #x00DD)	; ø»Š²¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER THORN")
@@ -2097,7 +2097,7 @@
     (japanese-jisx0212	. #x2930)	; ø»Š°
     (=jis-x0213-1-2000	. #x2954)	; ø»¢ŸŸ
     (=jef-china3	. #x83A4)	; øºˆŽ¤
-    (ucs-jis		. #x00DE)	; ø»ˆ¤ª
+    (=ucs@jis		. #x00DE)	; ø»ˆ¤ª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SHARP S")
@@ -2132,7 +2132,7 @@
     (japanese-jisx0212	. #x294E)	; ø»Š°­
     (=jis-x0213-1-2000	. #x2955)	; ø»¢Ÿ 
     (=jef-china3	. #x83B7)	; øºˆŽ·
-    (ucs-jis		. #x00DF)	; ø»ˆ¦‡
+    (=ucs@jis		. #x00DF)	; ø»ˆ¦‡
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH GRAVE")
@@ -2174,7 +2174,7 @@
     (japanese-jisx0212	. #x2B22)	; ø»Š²½
     (=jis-x0213-1-2000	. #x2956)	; ø»¢Ÿ¡
     (=jef-china3	. #x85C1)	; øºˆ—
-    (ucs-jis		. #x00E0)	; ø»„™
+    (=ucs@jis		. #x00E0)	; ø»„™
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH ACUTE")
@@ -2218,7 +2218,7 @@
     (japanese-jisx0212	. #x2B21)	; ø»Š²¼
     (=jis-x0213-1-2000	. #x2957)	; ø»¢Ÿ¢
     (=jef-china3	. #x85EB)	; øºˆ—«
-    (ucs-jis		. #x00E1)	; ø»„—
+    (=ucs@jis		. #x00E1)	; ø»„—
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CIRCUMFLEX")
@@ -2260,7 +2260,7 @@
     (japanese-jisx0212	. #x2B24)	; ø»Š²¿
     (=jis-x0213-1-2000	. #x2958)	; ø»¢Ÿ£
     (=jef-china3	. #x86C4)	; øºˆ›„
-    (ucs-jis		. #x00E2)	; ø»Š²¿
+    (=ucs@jis		. #x00E2)	; ø»Š²¿
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH TILDE")
@@ -2300,7 +2300,7 @@
     (japanese-jisx0212	. #x2B2A)	; ø»Š³…
     (=jis-x0213-1-2000	. #x2959)	; ø»¢Ÿ¤
     (=jef-china3	. #x86EF)	; øºˆ›¯
-    (ucs-jis		. #x00E3)	; ø»Š³…
+    (=ucs@jis		. #x00E3)	; ø»Š³…
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH DIAERESIS")
@@ -2339,7 +2339,7 @@
     (japanese-jisx0212	. #x2B23)	; ø»Š²¾
     (=jis-x0213-1-2000	. #x295A)	; ø»¢Ÿ¥
     (=jef-china3	. #x88D2)	; øºˆ£’
-    (ucs-jis		. #x00E4)	; ø»Š²¾
+    (=ucs@jis		. #x00E4)	; ø»Š²¾
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH RING ABOVE")
@@ -2376,7 +2376,7 @@
     (japanese-jisx0212	. #x2B29)	; ø»Š³„
     (=jis-x0213-1-2000	. #x295B)	; ø»¢Ÿ¦
     (=jef-china3	. #x89A7)	; øºˆ¦§
-    (ucs-jis		. #x00E5)	; ø»Š³„
+    (=ucs@jis		. #x00E5)	; ø»Š³„
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER AE")
@@ -2417,7 +2417,7 @@
     (japanese-jisx0212	. #x2941)	; ø»Š° 
     (=jis-x0213-1-2000	. #x295C)	; ø»¢Ÿ§
     (=jef-china3	. #x83B0)	; øºˆŽ°
-    (ucs-jis		. #x00E6)	; ø»ˆ¥¼
+    (=ucs@jis		. #x00E6)	; ø»ˆ¥¼
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C WITH CEDILLA")
@@ -2456,7 +2456,7 @@
     (japanese-jisx0212	. #x2B2E)	; ø»Š³‰
     (=jis-x0213-1-2000	. #x295D)	; ø»¢Ÿ¨
     (=jef-china3	. #x89FB)	; øºˆ§»
-    (ucs-jis		. #x00E7)	; ø»Š³‰
+    (=ucs@jis		. #x00E7)	; ø»Š³‰
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH GRAVE")
@@ -2498,7 +2498,7 @@
     (japanese-jisx0212	. #x2B32)	; ø»Š³
     (=jis-x0213-1-2000	. #x295E)	; ø»¢Ÿ©
     (=jef-china3	. #x85C2)	; øºˆ—‚
-    (ucs-jis		. #x00E8)	; ø»„
+    (=ucs@jis		. #x00E8)	; ø»„
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH ACUTE")
@@ -2542,7 +2542,7 @@
     (japanese-jisx0212	. #x2B31)	; ø»Š³Œ
     (=jis-x0213-1-2000	. #x295F)	; ø»¢Ÿª
     (=jef-china3	. #x85EE)	; øºˆ—®
-    (ucs-jis		. #x00E9)	; ø»„›
+    (=ucs@jis		. #x00E9)	; ø»„›
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH CIRCUMFLEX")
@@ -2584,7 +2584,7 @@
     (japanese-jisx0212	. #x2B34)	; ø»Š³
     (=jis-x0213-1-2000	. #x2960)	; ø»¢Ÿ«
     (=jef-china3	. #x86C6)	; øºˆ›†
-    (ucs-jis		. #x00EA)	; ø»„¯
+    (=ucs@jis		. #x00EA)	; ø»„¯
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH DIAERESIS")
@@ -2623,7 +2623,7 @@
     (japanese-jisx0212	. #x2B33)	; ø»Š³Ž
     (=jis-x0213-1-2000	. #x2961)	; ø»¢Ÿ¬
     (=jef-china3	. #x88D4)	; øºˆ£”
-    (ucs-jis		. #x00EB)	; ø»Š³Ž
+    (=ucs@jis		. #x00EB)	; ø»Š³Ž
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH GRAVE")
@@ -2664,7 +2664,7 @@
     (chinese-gb2312	. #x282C)	; ø»„¡
     (japanese-jisx0212	. #x2B40)	; ø»Š³›
     (=jis-x0213-1-2000	. #x2962)	; ø»¢Ÿ­
-    (ucs-jis		. #x00EC)	; ø»„¡
+    (=ucs@jis		. #x00EC)	; ø»„¡
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH ACUTE")
@@ -2707,7 +2707,7 @@
     (chinese-gb2312	. #x282A)	; ø»„Ÿ
     (japanese-jisx0212	. #x2B3F)	; ø»Š³š
     (=jis-x0213-1-2000	. #x2963)	; ø»¢Ÿ®
-    (ucs-jis		. #x00ED)	; ø»„Ÿ
+    (=ucs@jis		. #x00ED)	; ø»„Ÿ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH CIRCUMFLEX")
@@ -2745,7 +2745,7 @@
       ))
     (japanese-jisx0212	. #x2B42)	; ø»Š³
     (=jis-x0213-1-2000	. #x2964)	; ø»¢Ÿ¯
-    (ucs-jis		. #x00EE)	; ø»Š³
+    (=ucs@jis		. #x00EE)	; ø»Š³
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH DIAERESIS")
@@ -2774,7 +2774,7 @@
       ))
     (japanese-jisx0212	. #x2B41)	; ø»Š³œ
     (=jis-x0213-1-2000	. #x2965)	; ø»¢Ÿ°
-    (ucs-jis		. #x00EF)	; ø»Š³œ
+    (=ucs@jis		. #x00EF)	; ø»Š³œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ETH")
@@ -2804,7 +2804,7 @@
     (japanese-jisx0212	. #x2943)	; ø»Š°¢
     (=jis-x0213-1-2000	. #x2966)	; ø»¢Ÿ±
     (=jef-china3	. #x83B4)	; øºˆŽ´
-    (ucs-jis		. #x00F0)	; ø»ˆ¥¾
+    (=ucs@jis		. #x00F0)	; ø»ˆ¥¾
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH TILDE")
@@ -2841,7 +2841,7 @@
     (japanese-jisx0212	. #x2B50)	; ø»Š³«
     (=jis-x0213-1-2000	. #x2967)	; ø»¢Ÿ²
     (=jef-china3	. #x86F3)	; øºˆ›³
-    (ucs-jis		. #x00F1)	; ø»Š³«
+    (=ucs@jis		. #x00F1)	; ø»Š³«
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH GRAVE")
@@ -2883,7 +2883,7 @@
     (japanese-jisx0212	. #x2B52)	; ø»Š³­
     (=jis-x0213-1-2000	. #x2968)	; ø»¢Ÿ³
     (=jef-china3	. #x85C5)	; øºˆ—…
-    (ucs-jis		. #x00F2)	; ø»„¥
+    (=ucs@jis		. #x00F2)	; ø»„¥
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH ACUTE")
@@ -2926,7 +2926,7 @@
     (japanese-jisx0212	. #x2B51)	; ø»Š³¬
     (=jis-x0213-1-2000	. #x2969)	; ø»¢Ÿ´
     (=jef-china3	. #x85F6)	; øºˆ—¶
-    (ucs-jis		. #x00F3)	; ø»„£
+    (=ucs@jis		. #x00F3)	; ø»„£
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CIRCUMFLEX")
@@ -2968,7 +2968,7 @@
     (japanese-jisx0212	. #x2B54)	; ø»Š³¯
     (=jis-x0213-1-2000	. #x296A)	; ø»¢Ÿµ
     (=jef-china3	. #x86CC)	; øºˆ›Œ
-    (ucs-jis		. #x00F4)	; ø»Š³¯
+    (=ucs@jis		. #x00F4)	; ø»Š³¯
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH TILDE")
@@ -3008,7 +3008,7 @@
     (japanese-jisx0212	. #x2B58)	; ø»Š³³
     (=jis-x0213-1-2000	. #x296B)	; ø»¢Ÿ¶
     (=jef-china3	. #x86F4)	; øºˆ›´
-    (ucs-jis		. #x00F5)	; ø»Š³³
+    (=ucs@jis		. #x00F5)	; ø»Š³³
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH DIAERESIS")
@@ -3047,7 +3047,7 @@
     (japanese-jisx0212	. #x2B53)	; ø»Š³®
     (=jis-x0213-1-2000	. #x296C)	; ø»¢Ÿ·
     (=jef-china3	. #x88D8)	; øºˆ£˜
-    (ucs-jis		. #x00F6)	; ø»Š³®
+    (=ucs@jis		. #x00F6)	; ø»Š³®
     ))
 (define-char
   '((name		. "DIVISION SIGN")
@@ -3083,7 +3083,7 @@
     (korean-ksc5601	. #x2140)	; ø»ˆš«
     (chinese-cns11643-1 . #x2233)	; ø»‘„Œ
     (chinese-big5	. #xA1D2)	; ý¢€Š‡’
-    (ucs-jis		. #x00F7)	; ø»„†¥
+    (=ucs@jis		. #x00F7)	; ø»„†¥
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH STROKE")
@@ -3122,7 +3122,7 @@
     (japanese-jisx0212	. #x294C)	; ø»Š°«
     (=jis-x0213-1-2000	. #x296D)	; ø»¢Ÿ¸
     (=jef-china3	. #x83AD)	; øºˆŽ­
-    (ucs-jis		. #x00F8)	; ø»ˆ¦…
+    (=ucs@jis		. #x00F8)	; ø»ˆ¦…
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH GRAVE")
@@ -3164,7 +3164,7 @@
     (japanese-jisx0212	. #x2B63)	; ø»Š³¾
     (=jis-x0213-1-2000	. #x296E)	; ø»¢Ÿ¹
     (=jef-china3	. #x85C7)	; øºˆ—‡
-    (ucs-jis		. #x00F9)	; ø»„©
+    (=ucs@jis		. #x00F9)	; ø»„©
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH ACUTE")
@@ -3208,7 +3208,7 @@
     (japanese-jisx0212	. #x2B62)	; ø»Š³½
     (=jis-x0213-1-2000	. #x296F)	; ø»¢Ÿº
     (=jef-china3	. #x85FC)	; øºˆ—¼
-    (ucs-jis		. #x00FA)	; ø»„§
+    (=ucs@jis		. #x00FA)	; ø»„§
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH CIRCUMFLEX")
@@ -3246,7 +3246,7 @@
     (japanese-jisx0212	. #x2B65)	; ø»Š´€
     (=jis-x0213-1-2000	. #x2970)	; ø»¢Ÿ»
     (=jef-china3	. #x86CE)	; øºˆ›Ž
-    (ucs-jis		. #x00FB)	; ø»Š´€
+    (=ucs@jis		. #x00FB)	; ø»Š´€
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DIAERESIS")
@@ -3287,7 +3287,7 @@
     (japanese-jisx0212	. #x2B64)	; ø»Š³¿
     (=jis-x0213-1-2000	. #x2971)	; ø»¢Ÿ¼
     (=jef-china3	. #x88DB)	; øºˆ£›
-    (ucs-jis		. #x00FC)	; ø»„®
+    (=ucs@jis		. #x00FC)	; ø»„®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH ACUTE")
@@ -3326,7 +3326,7 @@
     (japanese-jisx0212	. #x2B72)	; ø»Š´
     (=jis-x0213-1-2000	. #x2972)	; ø»¢Ÿ½
     (=jef-china3	. #x86A1)	; øºˆš¡
-    (ucs-jis		. #x00FD)	; ø»Š´
+    (=ucs@jis		. #x00FD)	; ø»Š´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER THORN")
@@ -3364,7 +3364,7 @@
     (japanese-jisx0212	. #x2950)	; ø»Š°¯
     (=jis-x0213-1-2000	. #x2973)	; ø»¢Ÿ¾
     (=jef-china3	. #x83AF)	; øºˆŽ¯
-    (ucs-jis		. #x00FE)	; ø»ˆ¦ˆ
+    (=ucs@jis		. #x00FE)	; ø»ˆ¦ˆ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH DIAERESIS")
@@ -3399,5 +3399,5 @@
       ))
     (japanese-jisx0212	. #x2B73)	; ø»Š´Ž
     (=jis-x0213-1-2000	. #x2974)	; ø»¢Ÿ¿
-    (ucs-jis		. #x00FF)	; ø»Š´Ž
+    (=ucs@jis		. #x00FF)	; ø»Š´Ž
     ))
