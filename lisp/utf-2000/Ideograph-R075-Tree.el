@@ -6216,7 +6216,6 @@
      ((ucs		  . #x6728)	; æœ¨
       )
      ((korean-ksc5601	  . #x743F)	; ø»Š”¤
-      (mojikyo		  . 054189)	; ý €Ž­
       ))
     (japanese-jisx0208-1990	. #x4B71)	; ø½Š´¸
     (ucs-jis			. #x685D)	; ø½Š´¸

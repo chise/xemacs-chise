@@ -3591,6 +3591,7 @@
     ))
 (define-char
   '((korean-ksc5601	. #x3950)	; ø»ˆ¾‹
+    (china3-jef		. #x8BFE)	; øºˆ¯¾
     (ucs		. #xBC00)	; ë°€
     ))
 (define-char
@@ -8748,6 +8749,7 @@
     ))
 (define-char
   '((korean-ksc5601	. #x472E)	; ø»‰’
+    (china3-jef		. #x8CAF)	; øºˆ²¯
     (ucs		. #xD480)	; í’€
     ))
 (define-char
