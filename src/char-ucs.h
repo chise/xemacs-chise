@@ -694,33 +694,8 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
 
   if (char_id >= 0)
     return char_id;
-  else if (XCHARSET_DIMENSION (charset) == 1)
+  else
     return decode_builtin_char (charset, code_point);
-  else if (EQ (charset, Vcharset_chinese_big5_1))
-    {
-      unsigned int I
-	= ((code_point >> 8) - 33) * (0xFF - 0xA1)
-	+ ((code_point & 0xFF) - 33);
-      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-
-      b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
-    }
-  else if (EQ (charset, Vcharset_chinese_big5_2))
-    {
-      unsigned int I
-	= ((code_point >> 8) - 33) * (0xFF - 0xA1)
-	+ ((code_point & 0xFF) - 33);
-      unsigned char b1, b2;
-
-      I += (0xFF - 0xA1 + 0x7F - 0x40) * (0xC9 - 0xA1);
-      b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-      b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-      b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
-    }
-  return decode_builtin_char (charset, code_point);
 }
 
 /* Return a character whose charset is CHARSET and position-codes
