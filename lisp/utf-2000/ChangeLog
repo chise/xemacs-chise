@@ -1,6 +1,15 @@
+2004-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R129-Brush.el, Ideograph-R124-Feather.el:
+	* Ideograph-R129-Brush.el, Ideograph-R124-Feather.el,
+	Ideograph-R120-Silk.el:
 	- Use `=jis-x0208@{1978|1983|1990}' instead of
 	  `=jis-x0208-{1978|1983|1990}'.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
