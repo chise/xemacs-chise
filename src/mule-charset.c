@@ -57,6 +57,13 @@ Lisp_Object Vcharset_korean_ksc5601;
 Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
+#ifdef UTF2000
+Lisp_Object Vcharset_chinese_cns11643_3;
+Lisp_Object Vcharset_chinese_cns11643_4;
+Lisp_Object Vcharset_chinese_cns11643_5;
+Lisp_Object Vcharset_chinese_cns11643_6;
+Lisp_Object Vcharset_chinese_cns11643_7;
+#endif
 Lisp_Object Vcharset_chinese_big5_1;
 Lisp_Object Vcharset_chinese_big5_2;
 
@@ -146,6 +153,13 @@ Lisp_Object Qascii,
   Qjapanese_jisx0212,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
+#ifdef UTF2000
+  Qchinese_cns11643_3,
+  Qchinese_cns11643_4,
+  Qchinese_cns11643_5,
+  Qchinese_cns11643_6,
+  Qchinese_cns11643_7,
+#endif
   Qchinese_big5_1,
   Qchinese_big5_2,
   Qcomposite;
@@ -1398,6 +1412,13 @@ syms_of_mule_charset (void)
   defsymbol (&Qjapanese_jisx0212,	"japanese-jisx0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
+#ifdef UTF2000
+  defsymbol (&Qchinese_cns11643_3,	"chinese-cns11643-3");
+  defsymbol (&Qchinese_cns11643_4,	"chinese-cns11643-4");
+  defsymbol (&Qchinese_cns11643_5,	"chinese-cns11643-5");
+  defsymbol (&Qchinese_cns11643_6,	"chinese-cns11643-6");
+  defsymbol (&Qchinese_cns11643_7,	"chinese-cns11643-7");
+#endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
 
@@ -1427,7 +1448,11 @@ vars_of_mule_charset (void)
 	charset_by_attributes[i][j][k] = Qnil;
 
   next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
+#ifdef UTF2000
+  next_allocated_2_byte_leading_byte = LEADING_BYTE_CHINESE_BIG5_2 + 1;
+#else
   next_allocated_2_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_2;
+#endif
 
   leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
   DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
@@ -1619,6 +1644,53 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("2")));
+#ifdef UTF2000
+  Vcharset_chinese_cns11643_3 =
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3, 3,
+		  CHARSET_TYPE_94X94, 2, 0, 'I',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CNS11643-3"),
+		  build_string ("CNS11643-3 (Chinese traditional)"),
+		  build_string
+		  ("CNS 11643 Plane 3 Chinese traditional"),
+		  build_string (CHINESE_CNS_PLANE_RE("3")));
+  Vcharset_chinese_cns11643_4 =
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_4, Qchinese_cns11643_4, 3,
+		  CHARSET_TYPE_94X94, 2, 0, 'J',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CNS11643-4"),
+		  build_string ("CNS11643-4 (Chinese traditional)"),
+		  build_string
+		  ("CNS 11643 Plane 4 Chinese traditional"),
+		  build_string (CHINESE_CNS_PLANE_RE("4")));
+  Vcharset_chinese_cns11643_5 =
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_5, Qchinese_cns11643_5, 3,
+		  CHARSET_TYPE_94X94, 2, 0, 'K',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CNS11643-5"),
+		  build_string ("CNS11643-5 (Chinese traditional)"),
+		  build_string
+		  ("CNS 11643 Plane 5 Chinese traditional"),
+		  build_string (CHINESE_CNS_PLANE_RE("5")));
+  Vcharset_chinese_cns11643_6 =
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_6, Qchinese_cns11643_6, 3,
+		  CHARSET_TYPE_94X94, 2, 0, 'L',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CNS11643-6"),
+		  build_string ("CNS11643-6 (Chinese traditional)"),
+		  build_string
+		  ("CNS 11643 Plane 6 Chinese traditional"),
+		  build_string (CHINESE_CNS_PLANE_RE("6")));
+  Vcharset_chinese_cns11643_7 =
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_7, Qchinese_cns11643_7, 3,
+		  CHARSET_TYPE_94X94, 2, 0, 'M',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CNS11643-7"),
+		  build_string ("CNS11643-7 (Chinese traditional)"),
+		  build_string
+		  ("CNS 11643 Plane 7 Chinese traditional"),
+		  build_string (CHINESE_CNS_PLANE_RE("7")));
+#endif
   Vcharset_chinese_big5_1 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1, 3,
 		  CHARSET_TYPE_94X94, 2, 0, '0',
