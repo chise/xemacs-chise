@@ -7854,7 +7854,7 @@
       )
      ((ucs		  . #x53E3)	; å£
       )
-     ((ucs		  . #x5349)	; å‰
+     ((ucs		  . #x2F82C)	; ð¯ ¬
       ))
     (ideograph-daikanwa . 03598)	; ø¸€¸Ž
     (=cbeta		. 01216)	; ø¸ “€
