@@ -1106,7 +1106,7 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 		  return (row << 8) | cell;
 		}
 	      else
-		return code;
+		return code - min + XCHARSET_CODE_OFFSET (charset);
 	    }
 	}
     }
