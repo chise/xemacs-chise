@@ -252,6 +252,7 @@
     (total-strokes	 . 8)
     (=ks-x1001		. #x5F46)	; ø»‰µµ
     (=daikanwa		. 07493)	; ø¸µ…
+    (=big5-cdp		. #xA97C)	; ý¢€Š¥¼
     (=jef-china3	. #x4AD3)	; øº„«“
     (=ucs		. #x5C19)	; å°™
     ))
@@ -276,6 +277,15 @@
     (=gt-k		. 03743)	; ý¡„€ºŸ
     (=gt		. 09446)	; ý¡€‚“¦
     (=ucs		. #x5C1A)	; å°š
+    ))
+(define-char
+  '((=>ucs		. #x5C1A)	; å°š
+    (morohashi-daikanwa	7493 1 5)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=gt-pj-k1		. #x3242)	; ý¡„Ž–
+    (=gt-k		. 05014)	; ý¡„Ž–
     ))
 (define-char
   '((=>ucs		. #x21B65)	; ð¡­¥
