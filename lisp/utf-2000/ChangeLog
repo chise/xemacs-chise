@@ -1,5 +1,31 @@
 2001-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R181-Leaf.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R075-Tree.el (C5-6825): Relate to M-15785.
+	(M-15789): Separate C3-5A44.
+	(U+3BFE): Relate to M-15790.
+	(U+6ACF): Separate M-15791.
+	(C5-6828): Relate to M-15792.
+	(C7-4743): Add M-15793.
+	(C5-682B): Relate to M-15794.
+	(M-15795): Separate C2-655F.
+	(C5-6829): Add M-15799.
+	(M-15800): Separate U+6AD4.
+	(C7-4742): Add M-15802.
+	(U+3BFF): Add M-15803; separate C4-5F73.
+	(U+3C00): Add M-15804.
+	(M-15826): Separate C2-616C.
+	(M-15833): Separate C3-5A48.
+	(M-15841): Separate U+6AE3.
+	(M-15843): Separate U+6AE7.
+	(M-15848): Fixed.
+	(M-15853): Separate U+6AED.
+
+2001-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R118-Bamboo.el (U+7B3D): Delete `daikanwa-radical' and
 	`daikanwa-strokes' to fix.
 
