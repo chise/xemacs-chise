@@ -1,3 +1,8 @@
+2002-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Use "big5-0" as
+	the XLFD registry-encoding name of `chinese-big5'.
+
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Vcharset_chinese_big5_cdp): Deleted.
