@@ -3811,14 +3811,33 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 	{
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	  if (BYTE_BIG5_TWO_BYTE_1_P (c))
-	    cpos = c;
+	    {
+	      decode_flush_er_chars (str, dst);
+	      cpos = c;
+	    }
+	  else if ( c >= ' ' )
+	    {
+	      /* DECODE_ADD_BINARY_CHAR (c, dst); */
+	      decode_add_er_char (str, c, dst);
+	    }
 	  else
-	    DECODE_ADD_BINARY_CHAR (c, dst);
+	    {
+	      decode_flush_er_chars (str, dst);
+	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+	      DECODE_ADD_BINARY_CHAR (c, dst);
+	    }
 	}
     label_continue_loop:;
     }
 
-  DECODE_HANDLE_END_OF_CONVERSION (flags, cpos, dst);
+  /* DECODE_HANDLE_END_OF_CONVERSION (flags, cpos, dst); */
+  if (flags & CODING_STATE_END)
+    {
+      decode_flush_er_chars (str, dst);
+      DECODE_OUTPUT_PARTIAL_CHAR (cpos);
+      if (flags & CODING_STATE_CR)
+	Dynarr_add (dst, '\r');
+    }
 
   str->flags = flags;
   str->cpos  = cpos;
