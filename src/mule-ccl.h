@@ -43,8 +43,13 @@ struct ccl_program {
 				   should be than the input buffer.  */
 };
 
+
+#define CCL_MODE_ENCODING 0
+#define CCL_MODE_DECODING 1
+
 int ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
-		unsigned_char_dynarr *destination, int src_bytes, int *consumed);
+		unsigned_char_dynarr *destination, int src_bytes,
+		int *consumed, int conversion_mode);
 void setup_ccl_program (struct ccl_program *ccl, Lisp_Object val);
 
 /* Alist of fontname patterns vs corresponding CCL program.  */
