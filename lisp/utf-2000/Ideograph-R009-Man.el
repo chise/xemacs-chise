@@ -4577,7 +4577,6 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (non-morohashi	541 9 1)
     (chinese-gb2312	. #x595D)	; ø»…™
     (chinese-isoir165	. #x595D)	; ø»Ž 
     (ucs		. #x4F65)	; ä½¥
@@ -4585,6 +4584,7 @@
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (mojikyo		. 059051)	; ý €Žš«
     (ucs		. #x4F66)	; ä½¦
     ))
@@ -4613,6 +4613,7 @@
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (ucs		. #x4F68)	; ä½¨
     ))
 (define-char
@@ -8303,7 +8304,6 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (non-morohashi	720 9 0)
     (shinjigen-2	. 426)
     (chinese-gb2312		. #x5931)	; ø»…˜¤
     (chinese-isoir165		. #x5931)	; ø»Ž€´
@@ -8313,6 +8313,7 @@
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (ucs		. #x4FE7)	; ä¿§
     ))
 (define-char
@@ -14686,6 +14687,7 @@
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
+    (total-strokes	 . 12)
     (ucs		. #x50A6)	; å‚¦
     ))
 (define-char
