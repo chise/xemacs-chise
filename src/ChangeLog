@@ -1,3 +1,8 @@
+1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* doprnt.c (emacs_doprnt_1): Fix problem with %0XXd for a negative
+	integer.
+
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* data.c (Fstring_to_number): Don't recognize floating point if
