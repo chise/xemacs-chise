@@ -1,6 +1,6 @@
 1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule/mule-cmds.el (mule-keymap): Use `list-coding-systems'
+	* mule/mule-cmds.el (mule-keymap): Use `describe-coding-system'
 	instead of `list-coding-system'.
 
 1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
