@@ -1,3 +1,13 @@
+2002-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R106-White.el (U+76A1): Separate C3-5176.
+	(C3-5176): Unify JC3-5BA7.
+	(JSP-4E42): Separate U+76A5; delete JC3-5BA7.
+
+	* read-maps.el (mapping-table-read-file): Accept JC3-xxxx; don't
+	check `->ucs'.
+	- Read etc/char-data/JC3-to-UCS.txt.
+
 2002-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el, Ideograph-R032-Earth.el,
