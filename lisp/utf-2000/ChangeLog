@@ -1,3 +1,55 @@
+2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2E84): Unify GT-K00008.
+	(GT-K00007): New character.
+	(U+2E86): Add `<-radical' for U+5182; separate BC-8BF2.
+	(BC-8BF2): Unify GT-K00143.
+	(U+2E87): Unify GT-K00086 and GT-02284.
+	(U+2E88): Unify GT-K00091.
+	(U+2E8A): Unify GT-K00062.
+	(U+2E9C): Unify GT-K00565.
+	(U+2EAE): Add `<-ideographic-component-forms' for U+7AF9; unify
+	GT-K02267.
+	(U+2ECD): Unify GT-K00580 and GT-51643.
+
+	* Ideograph-R162-Walk.el (U+2ECD): Unify GT-K00580 and GT-51643.
+
+	* Ideograph-R140-Grass.el (U+FA5E): Unify GT-K00671 and GT-39643.
+
+	* Ideograph-R088-Father.el (M-19721): Unify GT-K00483 and
+	GT-25336.
+
+	* Ideograph-R067-Script.el (M-13450): Unify GT-K00489.
+	(GT-K00488): New character.
+
+	* Ideograph-R026-Seal.el (U+353E): Unify GT-K00101.
+
+	* Ideograph-R024-Ten.el (U+5342): Unify GT-K00250 and GT-03454.
+	(GT-K00252): New character.
+	(GT-K00251): New character.
+
+	* Ideograph-R020-Wrap.el (U-0002F828): Unify GT-K00184 and
+	GT-03203.
+
+	* Ideograph-R018-Knife.el (U+5202): Unify GT-K00110 and GT-02405.
+	(M-01848): Unify GT-K00215 and GT-02406.
+	(M-01853): Unify GT-K00485 and GT-02420.
+
+	* Ideograph-R013-Down-Box.el (U+5183): Unify GT-K00548 and
+	GT-01984.
+
+	* Ideograph-R012-Eight.el (M-01452): Unify GT-K00431 and GT-01892.
+
+	* Ideograph-R008-Lid.el (U+4EA0): Unify GT-K00074 and GT-00375.
+	(B-A460): Unify GT-K00202.
+
+	* Ideograph-R004-Slash.el (U-00020087): Separate BC-8B5F.
+	(BC-8B5F): Unify GT-K00105.
+
+	* Ideograph-R009-Man.el (J0-4750): Modify `ideographic-structure';
+	separate B-ADD6.
+	(U+4FF3): Delete `hanyu-dazidian-{vol|page|char}'.
+
 2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R030-Mouth.el (M-03803): Modify
