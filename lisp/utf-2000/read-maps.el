@@ -41,6 +41,10 @@
      "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@jis/2000
      "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
+    (=gb2312
+     "^G0-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
+     =ucs@gb
+     "\tGU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
     (=cns11643-1
      "^C1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@cns
@@ -136,11 +140,13 @@ UCS-REGEXP is a regular expression to match against
 			      (if (memq ucs-ccs '(=ucs@jis
 						  =ucs@jis/1990
 						  =ucs@jis/2000
-						  ;; ucs-big5
 						  ))
 				  (encode-char chr '=ucs@jis/fw
 					       'defined-only)
-				(char-feature chr '=>ucs)))
+				(unless (memq ucs-ccs '(=ucs@gb
+							;; ucs-big5
+							))
+				  (char-feature chr '=>ucs))))
 			  ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
@@ -148,6 +154,7 @@ UCS-REGEXP is a regular expression to match against
 				  (and (not (memq ucs-ccs '(=ucs@jis
 							    =ucs@jis/1990
                                                             =ucs@jis/2000
+							    =ucs@gb
 							    ;; ucs-big5
 							    )))
 				       (char-feature chr '=>ucs)))
