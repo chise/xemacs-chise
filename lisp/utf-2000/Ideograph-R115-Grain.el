@@ -2363,7 +2363,7 @@
     (japanese-jisx0208-1990	. #x3972)	; ø½Šš
     ))
 (define-char
-  '((->ucs		. #x7A40)	; ç©€
+  '((=>ucs		. #x7A40)	; ç©€
     (morohashi-daikanwa	25188 1 0)
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 9)
