@@ -2538,6 +2538,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (chinese-cns11643-3 . #x2D2E)	; ø»•¨™
+    (chinese-big5-cdp	. #x8CAD)	; ý¢€ˆ²­
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
@@ -13313,7 +13314,7 @@
   '((ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (->same-ideograph
+    (->synonyms
      (:sources	(seiji-tsuu jiyun morohashi-daikanwa)
       :char	((ideograph-daikanwa . 03220)	; ø¸€²”
 		 )
