@@ -1,3 +1,19 @@
+2005-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (map-char-family): Add autoload cookie.
+
+2005-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-ignored-attributes): Add
+	`ideographic-products' into default value.
+
+2005-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
+	CNS 11643-5.
+
+	* Ideograph-R013-Down-Box.el (J0-3A47): Add S2-925.
+
 2005-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (U+2E81): Add
