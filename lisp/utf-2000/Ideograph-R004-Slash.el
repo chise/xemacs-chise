@@ -909,6 +909,7 @@
     (japanese-jisx0213-2	. #x212E)	; ø»¤
     (ideograph-gt-pj-2		. #x312F)	; ý¡€€ƒ€
     (ideograph-daikanwa		. 00141)	; ø¸€‚
+    (china3-jef			. #x97C6)	; øº‰Ÿ†
     (chinese-big5-cdp		. #x8BBB)	; ý¢€ˆ®»
     (ideograph-gt		. 00192)	; ý¡€€ƒ€
     (mojikyo			. 000141)	; ý €€‚
