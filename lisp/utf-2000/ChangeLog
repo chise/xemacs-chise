@@ -1,6 +1,7 @@
 2003-08-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R145-Clothes.el: Add some mappings to JEF-CHINA3 code
+	* Ideograph-R145-Clothes.el, Ideograph-R149-Speech.el,
+	Ideograph-R150-Valley.el: Add some mappings to JEF-CHINA3 code
 	points.
 
 	* Ideograph-R037-Big.el (U+594C): Unify GT-07438.
