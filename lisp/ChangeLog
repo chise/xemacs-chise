@@ -1,3 +1,9 @@
+2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Print code-point of
+	`ideograph-daikanwa' as a decimal value.
+	(decode-builtin-char): New function.
+
 2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
