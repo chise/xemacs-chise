@@ -426,7 +426,7 @@ update_syntax_cache (int pos, int count)
   else if (CONSP (tmp_table) && INTP (XCAR (tmp_table)))
     {
       syntax_cache.use_code = 1;
-      syntax_cache.syntax_code = XINT (XCAR(tmp_table));
+      syntax_cache.syntax_code = (enum syntaxcode) XINT (XCAR (tmp_table));
     }
   else 
     {

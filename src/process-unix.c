@@ -892,6 +892,7 @@ unix_create_process (Lisp_Process *p,
 #endif
 
   set_descriptor_non_blocking (inchannel);
+  set_descriptor_non_blocking (outchannel);
 
   /* Record this as an active process, with its channels.
      As a result, child_setup will close Emacs's side of the pipes.  */

@@ -1,3 +1,12 @@
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.12 "Portable Code" is released.
+
+2003-01-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el (stale match data): Stale match data
+	persists after failed match.  Thanks to <bjacob@ca.metsci.com>.
+
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.

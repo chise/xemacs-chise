@@ -1,3 +1,16 @@
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.12 "Portable Code" is released.
+
+2003-01-13  Ilya Golubev  <golubev@xemacs.org>
+
+	* etc/photos/golubev.png, etc/photos/golubevm.png: New.
+
+2003-01-05  Rick Rankin  <rick_rankin@yahoo.com>
+
+        * configure.in: Add -lkernel32 to the list of system libraries 
+        linked under Cygwin. Needed for IsBadReadPtr().
+
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.

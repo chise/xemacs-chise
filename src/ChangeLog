@@ -1,3 +1,35 @@
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.12 "Portable Code" is released.
+
+2003-01-14  Sergey Okhapkin <sos@prospect.com.ru>
+
+	* Makefile.in.in (ldflags): re-order sections for gcc 3.2.
+	* s/cygwin.sc: new linker file.
+
+2003-01-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Build fixes courtesy Martin Buchholz <martin@xemacs.org>:
+
+	* redisplay-x.c (x_output_string): Use X11-specified types.
+	* syntax.c, syntax.h (SYNTAX_CODE): Use enum syntaxcode, not int.
+	* emacs.c (__free_hook): Use typeof with Intel compiler.
+	* config.h.in (alloca.h): Quick safe hack to please Intel compiler.
+
+2003-01-08  Andy Piper  <andy@xemacs.org>
+
+	* unexcw.c (copy_executable_and_dump_data_section): Set the stack
+	reserve size during unexec().
+
+2003-01-07  Daiki Ueno  <daiki@xemacs.org>
+
+	* process-unix.c (unix_create_process): Don't let outchannel block.
+
+2003-01-05  Rick Rankin  <rick_rankin@yahoo.com>
+
+        * emacs.c: Include "syswindows.h" when compiling under Cygwin.
+        Needed for IsBadReadPtr().
+
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.

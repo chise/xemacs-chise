@@ -1,3 +1,29 @@
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.12 "Portable Code" is released.
+
+2003-01-13  Ilya Golubev  <golubev@xemacs.org>
+
+	* about.el: Update golubev data.
+
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* isearch-mode.el (isearch-mode-map): Substitute comment on
+	desirability, and back out "GR is printable" changes.
+
+2003-01-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* isearch-mode.el (isearch-mode-map): Don't bind CSI.
+
+2003-01-07  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* isearch-mode.el (isearch-mode-map): GR (and C1) is printable.
+
+2003-01-06  Ville Skyttä  <scop@xemacs.org>
+
+	* menubar-items.el (default-menubar): Use browse-url-mozilla
+	instead of browse-url-gnome-moz for Mozilla.
+
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.

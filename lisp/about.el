@@ -114,7 +114,7 @@
     (dv       "Didier Verna"      "didier@xemacs.org")
     (eb       "Eric Benson"       "eb@xemacs.org")
     (fabrice  "Fabrice Popineau"  "fabrice@xemacs.org")
-    (golubev  "I N Golubev"       "golubev@xemacs.org")
+    (golubev  "Ilya Golubev"      "golubev@xemacs.org")
     (gunnar   "Gunnar Evermann"   "gunnar@xemacs.org")
     (hbs      "Harlan Sexton"     "hbs@xemacs.org")
     (hisashi  "Hisashi Miyashita" "hisashi@xemacs.org")
@@ -955,7 +955,19 @@ It is included in the TeX Live cdrom edited by Sebastian Rahtz.\n")
     (golubev
      (widget-insert
       "\
-Sorry, no personal information available about me yet.\n"))
+I appreciate power of XEmacs, but elementary editing operations should
+be done by single keystrokes with no modifiers.  So would not use
+XEmacs until discovered viper, and now can't live without viper.
+Occasionally dislike something in there or in other free software, and
+try to get it fixed.  .plan file contains classic (perhaps reinvented
+independently) formula:
+
+Hacking world for ever
+
+(borrowed from \"Hacking X for Y\" in ")
+     (about-url-link "http://www.jargon.org/"
+		     "Jargon File" "www.jargon.org")
+     (widget-insert ").\n"))
     (gunnar
      (widget-insert
       "\
@@ -1523,7 +1535,10 @@ I also contributed elisp code long ago to make Gnus run under XEmacs.\n"))
     (golubev
      (widget-insert
       "\
-Sorry, no information about my XEmacs contributions yet.\n"))
+Used XEmacs since early 1997.  Fixed bugs that annoy me, both in
+XEmacs core and in packages I use, mostly viper.  Hoping to get
+coding-cookie package distributed, which is also a fix of what I
+consider a bug.\n"))
     (gunnar
      (widget-insert
       "\

@@ -2936,7 +2936,7 @@ if test "$with_msw" != "no"; then
     fi
 
     install_pp="$blddir/lib-src/installexe.sh"
-    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
+    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lkernel32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
  	window_system=msw

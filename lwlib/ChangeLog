@@ -1,3 +1,12 @@
+2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.12 "Portable Code" is released.
+
+2003-01-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib-Xm.c (): Don't reference xm_update_progress
+	--without-widgets.  Thanks Martin Buchholz <martin@xemacs.org>.
+
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.

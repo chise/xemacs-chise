@@ -153,6 +153,9 @@ cppflags = $(CPPFLAGS) -Demacs -I. $(c_switch_all)
 cflags   = $(CFLAGS) $(cppflags)
 #if defined (WIN32_NATIVE) || defined (CYGWIN)
 ldflags  = $(LDFLAGS) -mwindows -e _mainCRTStartup $(ld_switch_all) $(ld_dynamic_link_flags)
+# if defined (CYGWIN)
+ldflags += -Wl,--script=s/cygwin.sc
+# endif
 #else
 ldflags  = $(LDFLAGS) $(ld_switch_all) $(ld_dynamic_link_flags)
 #endif
