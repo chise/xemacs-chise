@@ -997,7 +997,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=ucs		  . #x8033)	; è€³
+     ((=daikanwa	  . 28999)	; ø¸‡…‡
       )
      ((=ucs		  . #x53C8)	; åˆ
       ))
@@ -1018,14 +1018,12 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 395)
-    (hanyu-dazidian-char . 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=ucs		  . #x8033)	; è€³
+     ((=jis-x0208	  . #x3C2A)	; ø½Š¯
+      (=ks-x1001	  . #x6C3C)	; ø»Šˆ±
       )
      ((=ucs		  . #x53C8)	; åˆ
       ))
