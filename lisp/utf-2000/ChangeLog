@@ -1,4 +1,25 @@
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (M-02400): Moved into U-00020880.
+	(U-00020880): Use `->subsumptive'; integrate M-02400.
+	(U-00020884): Use `->subsumptive'.
+
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (J90-6354): Use `zihui' and `daikanwa'
+	instead of `jii' and `morohashi-daikanwa' in
+	`<-ancient-ideograph*sources'.
+
 2004-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (BC-87D9): Unify U-000200A3; moved into
+	Ideograph-R004-Slash.el.
+	(BC-8871): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R004-Slash.el: Use `->subsumptive' for some character
+	definitions.
+	(U-000200A3): Unify BC-87D9.
 
 	* Ideograph-R177-Leather.el (U+976D): Delete `=>daikanwa'.
 
