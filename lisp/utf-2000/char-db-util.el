@@ -879,6 +879,13 @@
 		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
 			  (string-match "^->halfwidth" (symbol-name name))
+			  (and
+			   (string-match "^->fullwidth" (symbol-name name))
+			   (not
+			    (and (consp value)
+				 (characterp (car value))
+				 (encode-char
+				  (car value) '=ucs 'defined-only))))
 			  (string-match "^->simplified" (symbol-name name))
 			  (string-match "^->vulgar" (symbol-name name))
 			  (string-match "^->wrong" (symbol-name name))
