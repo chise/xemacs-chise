@@ -1136,6 +1136,7 @@
 (define-char
   '((ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 9)
+    (total-strokes	 . 16)
     (=ucs		. #x8C6E)	; è±®
     (=iso-ir165		. #x7E5D)	; ø»Ž·¶
     ))
