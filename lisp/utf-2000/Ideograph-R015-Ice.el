@@ -2407,24 +2407,18 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 561)
-		 (=daikanwa	     . 01717)	; ø¸€šµ
-		 )
-      :sources	(henkai morohashi-daikanwa shinjigen-1)))
+     ((shinjigen-1	  . 561)
+      (=daikanwa	  . 01717)	; ø¸€šµ
+      ))
+    (<-vulgar-ideograph*sources
+     pianhai daikanwa shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=daikanwa	    . 00300)	; ø¸€„¬
-	)
-       ((=daikanwa	    . 24623)	; ø¸†€¯
-	))
+     ((=daikanwa	  . 24742)	; ø¸†‚¦
       ))
     (shinjigen-1	. 563)
     (shinjigen-2	. 563)
@@ -2444,14 +2438,7 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=ucs		    . #x342D)	; ã­
-	)
-       ((=daikanwa	    . 24623)	; ø¸†€¯
-	))
+     ((=cns11643-3	  . #x433D)	; ø»–ˆ¼
       ))
     (=cns11643-3	. #x4B30)	; ø»–”Ÿ
     ))
@@ -2467,14 +2454,7 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=daikanwa	    . 00300)	; ø¸€„¬
-	)
-       ((=ucs		    . #x793A)	; ç¤º
-	))
+     ((=jis-x0208	  . #x6349)	; ø½‹— 
       ))
     (=jis-x0208-1990	. #x515B)	; ø½Š½–
     (=gt		. 02257)	; ý¡€€£‘
@@ -2493,14 +2473,7 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=ucs		    . #x342D)	; ã­
-	)
-       ((=ucs		    . #x793A)	; ç¤º
-	))
+     ((=ucs		  . #x7980)	; ç¦€
       ))
     (=ucs		. #x51DB)	; å‡›
     (=gb2312		. #x415D)	; ø»„¶€
