@@ -1,3 +1,27 @@
+2004-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R081-Compare.el, Ideograph-R080-Do-Not.el,
+	Ideograph-R078-Death.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (M-14388): Map to U-0002338C.
+	(U-0002338C): Copied from Ideograph-R075-Tree.el; fix
+	`ideographic-radical'; use `->subsumptive'.
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R071-Not.el:
