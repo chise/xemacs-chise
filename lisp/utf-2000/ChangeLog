@@ -81,6 +81,11 @@
 	* Ideograph-R086-Fire.el: Add some missing mappings to CBETA
 	numbers.
 
+2002-11-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EA5): Delete `<-radical'.
+	(U+2EA7): Unify BC-8B66.
+
 2002-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el (J0-3C31): Separate C1-787C, G1-4A36
