@@ -1,5 +1,19 @@
 2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el: Add missing mappings between JIS X 0213
+	and UCS.
+
+	* Ideograph-R072-Sun.el (JX2-2E24): Add mapping for U-000231B6.
+
+	* Ideograph-R066-Rap.el (J0-495F): Use `ucs-jis' instead of
+	`=>ucs-jis'.
+
+	* Ideograph-R064-Hand.el (JX2-2D32): Unify U-00022B46.
+
+	* Ideograph-R030-Mouth.el (U+56B9): Unify G1-7C37.
+
+2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
 	u03200-Enclosed-CJK-Letters-and-Months.el, u030A0-Katakana.el,
 	u03040-Hiragana.el, u03000-CJK-Symbols-and-Punctuation.el,
