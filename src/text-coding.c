@@ -3304,20 +3304,44 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      Lisp_Object charset;
-      unsigned int c1, c2, s1, s2;
+      unsigned int s1, s2;
 #ifdef UTF2000
       int code_point = charset_code_point (Vcharset_latin_jisx0201, ch);
 
       if (code_point >= 0)
+	Dynarr_add (dst, code_point);
+      else if ((code_point
+		= charset_code_point (Vcharset_japanese_jisx0208_1990, ch))
+	       >= 0)
 	{
-	  charset = Vcharset_latin_jisx0201;
-	  c1 = code_point;
-	  c2 = 0;
+	  ENCODE_SJIS ((code_point >> 8) | 0x80,
+		       (code_point & 0xFF) | 0x80, s1, s2);
+	  Dynarr_add (dst, s1);
+	  Dynarr_add (dst, s2);
 	}
+      else if ((code_point
+		= charset_code_point (Vcharset_katakana_jisx0201, ch))
+	       >= 0)
+	Dynarr_add (dst, code_point | 0x80);
+      else if ((code_point
+		= charset_code_point (Vcharset_japanese_jisx0208, ch))
+	       >= 0)
+	{
+	  ENCODE_SJIS ((code_point >> 8) | 0x80,
+		       (code_point & 0xFF) | 0x80, s1, s2);
+	  Dynarr_add (dst, s1);
+	  Dynarr_add (dst, s2);
+	}
+      else if ((code_point = charset_code_point (Vcharset_ascii, ch))
+	       >= 0)
+	Dynarr_add (dst, code_point);
       else
-#endif
-	BREAKUP_CHAR (ch, charset, c1, c2);
+	Dynarr_add (dst, '?');
+#else
+      Lisp_Object charset;
+      unsigned int c1, c2;
+
+      BREAKUP_CHAR (ch, charset, c1, c2);
 	  
       if (EQ(charset, Vcharset_katakana_jisx0201))
 	{
@@ -3335,6 +3359,7 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
 	}
       else
 	Dynarr_add (dst, '?');
+#endif
     }
 }
 
@@ -3538,12 +3563,9 @@ decode_coding_big5 (Lstream *decoding, const unsigned char *src,
 	  if (BYTE_BIG5_TWO_BYTE_2_P (c))
 	    {
 #ifdef UTF2000
-	      Charset_ID b1;
-	      unsigned char b2, b3;
-	      DECODE_BIG5 (cpos, c, b1, b2, b3);
-	      DECODE_ADD_UCS_CHAR (MAKE_CHAR (CHARSET_BY_LEADING_BYTE (b1),
-					      b2 & 0x7F, b3 & 0x7F),
-				   dst);
+	      DECODE_ADD_UCS_CHAR
+		(DECODE_CHAR (Vcharset_chinese_big5, (cpos << 8) | c),
+		 dst);
 #else
 	      unsigned char b1, b2, b3;
 	      DECODE_BIG5 (cpos, c, b1, b2, b3);
