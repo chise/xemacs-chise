@@ -297,5 +297,10 @@
   '((ideographic-radical . 54)	; ⼵
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=daikanwa		. 09582)	; &M-09582;
+    (=ucs		. #x262EA)	; 𦋪
+    (->subsumptive
+     ((=daikanwa	  . 09582)	; &M-09582;
+      )
+     ((=ucs@iso		  . #x262EA)	; &UU+262EA;
+      ))
     ))
