@@ -1,5 +1,20 @@
 2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R128-Ear.el (M029074): Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R120-Silk.el (M082779): Use `=>ucs' instead of
+	`->ucs'.
+	(M055448): Likewise.
+
+	* Ideograph-R115-Grain.el (M050322): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R108-Dish.el (M022972): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R102-Field.el (M021805): Use `=>ucs' instead of
+	`->ucs'.
+
 	* Ideograph-R079-Weapon.el (M050242): Use `=>ucs' instead of
 	`->ucs'.
 	(M016629): Likewise.
