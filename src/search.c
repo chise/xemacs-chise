@@ -1963,7 +1963,7 @@ and you do not need to specify it.)
 	      Charcount subend   = -1;
 
 	      c = string_char (XSTRING (newtext), strpos);
-	      if (c == '\\')
+	      if (c == '\\' && strpos < stlen - 1)
 		{
 		  c = string_char (XSTRING (newtext), ++strpos);
 		  if (c == '&')
@@ -2109,7 +2109,7 @@ and you do not need to specify it.)
 	  Charcount offset = BUF_PT (buf) - search_regs.start[0];
 
 	  c = string_char (XSTRING (newtext), strpos);
-	  if (c == '\\')
+	  if (c == '\\' && strpos < stlen - 1)
 	    {
 	      c = string_char (XSTRING (newtext), ++strpos);
 	      if (c == '&')

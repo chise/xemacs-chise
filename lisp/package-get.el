@@ -198,7 +198,7 @@ order until the package is found.  As a special case, `site-name' can be
     ("uniroma2.it" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages")
     ("icm.edu.pl" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages")
     ("sunet.se" "ftp.sunet.se" "pub/gnu/xemacs/packages")
-    ("doc.ic.ac.uk" "ftp.doc.ic.ac.uk" "packages/xemacs/packages")
+    ("doc.ic.ac.uk" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages")
     ("srcc.msu.su" "ftp1.srcc.msu.su" "mirror/ftp.xemacs.org/packages")
 
     ;; Asia

@@ -130,7 +130,7 @@ menu_parse_submenu_keywords (Lisp_Object desc, struct gui_item* pgui_item)
       desc = XCDR (desc);
       if (!NILP (desc))
 	CHECK_CONS (desc);
-      gui_item_add_keyval_pair (pgui_item, key, val);
+      gui_item_add_keyval_pair (pgui_item, key, val, ERROR_ME);
     }
 
   /* Return the rest - supposed to be a list of items */

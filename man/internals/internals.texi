@@ -2676,7 +2676,7 @@ Header files should @emph{not} include @code{<config.h>} and
 use it to do so.
 
 @item
-If the header uses @code{INLINE}, either directly or though
+If the header uses @code{INLINE}, either directly or through
 @code{DECLARE_LRECORD}, then it must be added to @file{inline.c}'s
 includes.
 
@@ -2968,7 +2968,7 @@ low-level macros.
 As a general rule, all typedefs should go into the typedefs section of
 @file{lisp.h} rather than into a module-specific header file even if the
 structure is defined elsewhere.  This allows function prototypes that
-use the typedef to placed into other header files.  Forward structure
+use the typedef to be placed into other header files.  Forward structure
 declarations (i.e. a simple declaration like @code{struct foo;} where
 the structure itself is defined elsewhere) should be placed into the
 typedefs section as necessary.

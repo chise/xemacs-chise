@@ -1649,6 +1649,69 @@ Release a keyboard grab made with `x-grab-keyboard'.
   return Qnil;
 }
 
+DEFUN ("x-get-font-path", Fx_get_font_path, 0, 1, 0, /*
+Get the X Server's font path.
+
+See also `x-set-font-path'.
+*/
+       (device))
+{
+  Display *dpy = get_x_display (device);
+  int ndirs_return;
+  CONST char **directories = (CONST char **) XGetFontPath (dpy, &ndirs_return);
+  Lisp_Object font_path = Qnil;
+
+  if (!directories)
+    signal_simple_error ("Can't get X font path", device);
+
+  while (ndirs_return--)
+      font_path = Fcons (build_ext_string (directories[ndirs_return], 
+                                           FORMAT_FILENAME), font_path);
+
+  return font_path;
+}
+
+DEFUN ("x-set-font-path", Fx_set_font_path, 1, 2, 0, /*
+Set the X Server's font path to FONT-PATH.
+
+There is only one font path per server, not one per client.  Use this
+sparingly.  It uncaches all of the X server's font information.
+
+Font directories should end in the path separator and should contain
+a file called fonts.dir usually created with the program mkfontdir.
+
+Setting the FONT-PATH to nil tells the X server to use the default
+font path.
+
+See also `x-get-font-path'.
+*/
+       (font_path, device))
+{
+  Display *dpy = get_x_display (device);
+  Lisp_Object path_entry;
+  CONST char **directories;
+  int i=0,ndirs=0;
+
+  EXTERNAL_LIST_LOOP (path_entry, font_path)
+    {
+      CHECK_STRING (XCAR (path_entry));
+      ndirs++;
+    }
+
+  directories = alloca_array (CONST char *, ndirs);
+
+  EXTERNAL_LIST_LOOP (path_entry, font_path)
+    {
+      GET_C_STRING_FILENAME_DATA_ALLOCA (XCAR (path_entry), directories[i++]);
+    }
+
+  expect_x_error (dpy);
+  XSetFontPath (dpy, (char **) directories, ndirs);
+  signal_if_x_error (dpy, 1/*resumable_p*/);
+
+  return Qnil;
+}
+
 
 /************************************************************************/
 /*                            initialization                            */
@@ -1676,6 +1739,9 @@ syms_of_device_x (void)
   DEFSUBR (Fx_ungrab_pointer);
   DEFSUBR (Fx_grab_keyboard);
   DEFSUBR (Fx_ungrab_keyboard);
+
+  DEFSUBR (Fx_get_font_path);
+  DEFSUBR (Fx_set_font_path);
 
   defsymbol (&Qx_error, "x-error");
   defsymbol (&Qinit_pre_x_win, "init-pre-x-win");

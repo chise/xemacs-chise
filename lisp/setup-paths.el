@@ -54,11 +54,22 @@
 			     nil
 			     configure-site-directory))
 
+(defun paths-find-site-module-directory (roots)
+  "Find the site modules directory of the XEmacs hierarchy."
+  (paths-find-site-directory roots "site-modules"
+			     nil
+			     configure-site-module-directory))
+
 (defun paths-find-lisp-directory (roots)
   "Find the main Lisp directory of the XEmacs hierarchy."
   (paths-find-version-directory roots "lisp"
 				nil
 				configure-lisp-directory))
+
+(defun paths-find-module-directory (roots)
+  "Find the main modules directory of the XEmacs hierarchy."
+  (paths-find-architecture-directory roots "modules"
+				configure-module-directory))
 
 (defun paths-construct-load-path
   (roots early-package-load-path late-package-load-path last-package-load-path
@@ -83,6 +94,25 @@
 	    late-package-load-path
 	    lisp-load-path
 	    last-package-load-path)))
+
+(defun paths-construct-module-load-path
+  (root module-directory &optional site-module-directory)
+  "Construct the modules load path."
+  (let* ((envvar-value (getenv "EMACSMODULEPATH"))
+	 (env-module-path
+	  (and envvar-value
+	       (paths-decode-directory-path envvar-value 'drop-empties)))
+	 (site-module-load-path
+	  (and site-module-directory
+	       (paths-find-recursive-load-path (list site-module-directory)
+					       paths-load-path-depth)))
+	 (module-load-path
+	  (and module-directory
+	       (paths-find-recursive-load-path (list module-directory)
+					       paths-load-path-depth))))
+     (append env-module-path
+	    site-module-load-path
+	    module-load-path)))
 
 (defun paths-construct-info-path (roots early-packages late-packages last-packages)
   "Construct the info path."

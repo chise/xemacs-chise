@@ -1,3 +1,31 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* movemail.c (strerror): Must be NON-static, since it is used by
+	the POP code, which got moved to a separate file.
+
+1999-01-11  Damon Lipparelli  <lipp@primus.com>
+
+	* Makefile.in.in: use ellcc (not ellc) everywhere
+
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* Makefile.in.in: Include moduledir and sitemoduledir as defined
+	by configure.
+	- Install ellcc if we're supporting shared objects
+	- Rules and dependancies for ellcc
+
+	* ellcc.c: New file. Front end to the compiler for making modules.
+
+	* ellcc.h.in: New file. Contains path definitions used by ellcc.
+
+	* make-docfile.c (main): Add check for -E argument used by ellcc.
+
+	* make-docfile.c: Changed output format when in -E mode.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.

@@ -5,7 +5,7 @@
 ;; Author: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Maintainer: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Created: Jan 1998
-;; Version: $Revision: 1.7.2.2 $
+;; Version: $Revision: 1.7.2.3 $
 ;; Keywords: help comm
 
 ;; This file is part of XEmacs
@@ -34,9 +34,6 @@
 
 
 ;;; Code:
-
-(require 'ldap)
-(require 'custom)
 
 (defgroup ldap nil
   "Lightweight Directory Access Protocol"
@@ -170,5 +167,7 @@ Additional search parameters can be specified through
 				 (plist-get host-plist 'scope)
 				 attributes attrsonly)
       (ldap-close ldap))))
+
+(provide 'ldap)
 		
 ;;; ldap.el ends here

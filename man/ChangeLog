@@ -1,3 +1,17 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* internals\internals.texi (Techniques for XEmacs Developers):
+ 	Fixing documentation.
+	(Basic Lisp Modules): ditto.
+
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* emodules.texi: New file to describe XEmacs modules.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.

@@ -151,10 +151,21 @@ blddir=@blddir@
 ## themselves in separate directories.
 lispdir=@lispdir@
 
+## Where to install the module files distributed with
+## XEmacs.  This includes the XEmacs version, so that the
+## module files for different versions of XEmacs will install
+## themselves in separate directories.
+moduledir=@moduledir@
+
 ## Directory XEmacs should search for lisp files specific
 ## to this site (i.e. customizations), before consulting
 ## ${lispdir}.
 sitelispdir=@sitelispdir@
+
+## Directory XEmacs should search for module files specific
+## to this site (i.e. customizations), before consulting
+## ${moduledir}.
+sitemoduledir=@sitemoduledir@
 
 ## Where XEmacs will search for its lisp files while
 ## building.  This is only used during the process of
@@ -466,7 +477,8 @@ MAKEPATH=./lib-src/make-path
 ## make-path instead of mkdir.  Not all mkdirs have the `-p' flag.
 mkdir: FRC.mkdir
 	${MAKEPATH} ${COPYDESTS} ${lockdir} ${infodir} ${archlibdir} \
-	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir}
+	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir} \
+	  ${sitelispdir} ${moduledir} ${sitemoduledir}
 	-chmod 0777 ${lockdir}
 
 ## Delete all the installed files that the `install' target would

@@ -1,3 +1,89 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-19  Didier Verna  <verna@inf.enst.fr>
+
+	* replace.el (replace-search-function): new variable containing a
+	function to perform a search-forward.
+	(replace-re-search-function): new variable containing a function
+	to perform a re-search-forward.
+	(perform-replace): use them.
+
+1999-01-25  Didier Verna  <verna@inf.enst.fr>
+
+	* select.el (selection-owner-p): use the name `XEmacs'.
+	(cut-copy-clear-internal): ditto.
+
+1999-01-18  Andy Piper  <andy@xemacs.org>
+
+	* about.el (about-url-alist): Update my entry.
+	(xemacs-hackers): Ditto.
+
+1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* buffer.el (switch-to-buffer): Fixing documentation.
+	* minibuf.el (minibuffer-completion-table): ditto.
+	* cl-macs.el (return-from): ditto.
+
+1999-01-04  Didier Verna  <verna@inf.enst.fr>
+
+	* replace.el (delete-non-matching-lines): temporarily disable
+	case-folding when called interactively with a regexp containing
+	uppercase characters.
+	(delete-matching-lines): ditto.
+	(count-matches): ditto.
+	(list-matching-lines): ditto.
+
+1999-01-07  Colin Rafferty  <colin@xemacs.org>
+
+	* window.el (shrink-window-if-larger-than-buffer): Clean up.  Only
+ 	abort if current window is split horizontally, not if others are
+ 	split.  Got rid of unnecessary minibuffer checking.  Also, add
+ 	some comments (it's still complex).
+
+1999-01-12  Robert Pluim  <rpluim@BayNetworks.com>
+
+	* package-get.el: changed address for doc.ic.ac.uk to
+ 	sunsite.doc.ic.ac.uk
+
+1999-01-09  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el (toplevel): Remove requires so that the file compiles
+	with a non LDAP-enabled XEmacs binary.  Provide `ldap'.
+
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* dump-paths.el: Calculate module-directory and set
+	module-load-path to the load path for modules.
+
+	* loadup.el: Get bootstrap value of module-load-path from the
+	environment variable EMACSBOOTSTRAPMODULEPATH.
+	- Display the module load path if we're debugging paths.
+
+	* setup-paths.el: Added function paths-find-site-module-directory.
+	- Added function paths-find-module-directory.
+	- Added function paths-construct-module-load-path.  Uses new
+	environment variable EMACSMODULEPATH.
+
+1998-12-30  Martin Buchholz  <martin@xemacs.org>
+
+	* font.el (font-default-object-for-device): 
+	Oops! This `or' can't be replaced by `unless'.
+	Fixed inability to run w3, among other things.
+
+1998-12-17  Charles G. Waldman <cgw@pgt.com>
+
+	* package-admin.el: Change initialization of
+	  package-admin-install-function dependent on system type.
+	  Change package-admin-install-function-mswindows to use
+	  "minitar".
+
+1998-12-23  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* mouse.el (default-mouse-motion-handler): Disable help echo while 
+	in the minibuffer.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.

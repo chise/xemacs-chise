@@ -270,6 +270,11 @@ struct display_line
   glyph_block_dynarr *right_glyphs;
 };
 
+#define DISPLAY_LINE_HEIGHT(dl) \
+(dl->ascent + dl->descent - dl->clip)
+#define DISPLAY_LINE_YPOS(dl) \
+(dl->ypos - dl->ascent)
+
 typedef struct
 {
   Dynarr_declare (display_line);
@@ -559,6 +564,7 @@ void redisplay_output_subwindow (struct window *w, struct display_line *dl,
 				 int xoffset, int start_pixpos, int width,
 				 face_index findex, int cursor_start, 
 				 int cursor_width, int cursor_height);
+void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width, int height);
 void redisplay_clear_region (Lisp_Object window, face_index findex, int x,
 			     int y, int width, int height);
 void redisplay_clear_bottom_of_window (struct window *w,

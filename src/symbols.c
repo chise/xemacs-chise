@@ -3180,6 +3180,45 @@ check_sane_subr (Lisp_Subr *subr, Lisp_Object sym)
 #define check_sane_subr(subr, sym) /* nothing */
 #endif
 
+#ifdef HAVE_SHLIB
+/*
+ * If we are not in a pure undumped Emacs, we need to make a duplicate of
+ * the subr. This is because the only time this function will be called
+ * in a running Emacs is when a dynamically loaded module is adding a
+ * subr, and we need to make sure that the subr is in allocated, Lisp-
+ * accessible memory.  The address assigned to the static subr struct
+ * in the shared object will be a trampoline address, so we need to create
+ * a copy here to ensure that a real address is used.
+ *
+ * Once we have copied everything across, we re-use the original static
+ * structure to store a pointer to the newly allocated one. This will be
+ * used in emodules.c by emodules_doc_subr() to find a pointer to the
+ * allocated object so that we can set its doc string propperly.
+ *
+ * NOTE: We dont actually use the DOC pointer here any more, but we did
+ * in an earlier implementation of module support. There is no harm in
+ * setting it here in case we ever need it in future implementations.
+ * subr->doc will point to the new subr structure that was allocated.
+ * Code can then get this value from the statis subr structure and use
+ * it if required.
+ *
+ * FIXME: Should newsubr be staticpro()'ed? I dont think so but I need
+ * a guru to check.
+ */
+#define check_module_subr()                                             \
+do {                                                                    \
+  if (initialized) {                                                    \
+    struct Lisp_Subr *newsubr;                                          \
+    newsubr = (Lisp_Subr *)xmalloc(sizeof(struct Lisp_Subr));           \
+    memcpy (newsubr, subr, sizeof(struct Lisp_Subr));                   \
+    subr->doc = (CONST char *)newsubr;                                  \
+    subr = newsubr;                                                     \
+  }                                                                     \
+} while (0)
+#else /* ! HAVE_SHLIB */
+#define check_module_subr()
+#endif
+
 void
 defsubr (Lisp_Subr *subr)
 {
@@ -3187,6 +3226,7 @@ defsubr (Lisp_Subr *subr)
   Lisp_Object fun;
 
   check_sane_subr (subr, sym);
+  check_module_subr ();
 
   XSETSUBR (fun, subr);
   XSYMBOL (sym)->function = fun;
@@ -3200,6 +3240,7 @@ defsubr_macro (Lisp_Subr *subr)
   Lisp_Object fun;
 
   check_sane_subr (subr, sym);
+  check_module_subr();
 
   XSETSUBR (fun, subr);
   XSYMBOL (sym)->function = Fcons (Qmacro, fun);
@@ -3321,10 +3362,19 @@ defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *magic)
       magic = p;
     }
 
-  sym = Fintern (make_pure_pname ((CONST Bufbyte *) symbol_name,
-				  strlen (symbol_name),
-				  1),
-		 Qnil);
+#if defined(HAVE_SHLIB)
+  /*
+   * As with defsubr(), this will only be called in a dumped Emacs when
+   * we are adding variables from a dynamically loaded module. That means
+   * we can't use purespace. Take that into account.
+   */
+  if (initialized)
+    sym = Fintern (build_string (symbol_name), Qnil);
+  else
+#endif
+    sym = Fintern (make_pure_pname ((CONST Bufbyte *) symbol_name,
+                                    strlen (symbol_name), 1), Qnil);
+
   XSETOBJ (XSYMBOL (sym)->value, Lisp_Type_Record, magic);
 }
 

@@ -1,5 +1,5 @@
 /* XEmacs site configuration template file.  -*- C -*-
-   Copyright (C) 1986, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
+   Copyright (C) 1986, 1991-1994, 1998, 1999 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
 
@@ -80,6 +80,9 @@ char *alloca();
 
 /* Allow the configurer to specify if she wants site-lisp. */
 #undef INHIBIT_SITE_LISP
+
+/* Allow the configurer to specify if she wants site-modules. */
+#undef INHIBIT_SITE_MODULES
 
 /* This will be removed in 19.15. */
 /* Hah!  Try 20.3 ... */
@@ -214,9 +217,11 @@ char *alloca();
 /* Have shared library support */
 #undef HAVE_DLOPEN
 #undef HAVE_DLERROR
+#undef HAVE__DLERROR
 #undef HAVE_SHL_LOAD
 #undef HAVE_DLD_INIT
 #undef HAVE_SHLIB
+#undef HAVE_DLFCN_H
 
 #undef HAVE_LIBKSTAT
 #undef HAVE_LIBINTL

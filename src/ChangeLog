@@ -1,3 +1,227 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-30  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecode.c (funcall_compiled_function): Call
+	UNBIND_TO_GCPRO instead of UNBIND_TO_GCPRO_VARIABLES_ONLY.
+
+	* backtrace.h (UNBIND_TO_GCPRO_VARIABLES_ONLY): 
+	#ifdef 0 out unused macro.
+
+1999-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* gui.c (gui_parse_item_keywords_internal): Make static.
+
+1999-01-21  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c: add xface support.
+	(mswindows_xface_instantiate): new function copied from glyphs-x.c
+	(image_instantiator_format_create_glyphs_mswindows): do device
+ 	specific initialisation for xfaces.
+	(xbm_create_bitmap_from_data): line data must be padded to a word
+ 	boundary.
+
+	* glyphs-x.c (xface_validate): moved to glyphs.c
+	(xface_normalize): ditto.
+	(xface_possible_dest_types): ditto.
+	(image_instantiator_format_create_glyphs_x): do device specific
+ 	initialisation for xfaces.
+
+	* glyphs.h: declare xface symbol.
+
+	* glyphs.c: move generic xface support here.
+	(xface_validate): moved from glyphs-x.c
+	(xface_normalize): ditto.
+	(xface_possible_dest_types): ditto.
+	(image_instantiator_format_create): xface declarations moved from
+ 	glyphs-x.c.
+
+1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* event-stream.c (vars_of_event_stream): Fixing documentation.
+
+1999-01-17  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* glyphs-eimage.c (gif_instantiate): Correct handling of
+	interlaced gifs to avoid writing past the end of the eimage
+	buffer. 
+
+1999-01-13  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* search.c (Freplace_match): Handle single backslash at end of
+	NEWTEXT correctly.
+
+1999-01-12  William M. Perry  <wmperry@aventail.com>
+
+	* eldap.c (Fldap_open): slow down interrupts around ldap_open to
+	  avoid connection errors.
+
+1999-01-12  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_update_line): backout change that
+ 	shouldn't have gone ine.
+
+1999-01-09  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* eldap.c (vars_of_ldap): Do no provide `ldap' here since it may
+ 	collide with ldap.el
+
+1999-01-11  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.h (DISPLAY_LINE_HEIGHT): new macro.
+	(DISPLAY_LINE_YPOS): new macro.
+
+	* redisplay-msw.c (mswindows_output_string): use it.
+	(mswindows_output_pixmap): ditto.
+	(mswindows_output_display_block): ditto.
+
+	* redisplay-output.c (redisplay_output_display_block): new
+ 	function. just call the devmeth, maybe insert some generic code
+ 	here later.
+	(compare_display_blocks): use it.
+	(output_display_line): ditto.
+	(redisplay_unmap_subwindows_maybe): new function. potentially
+ 	unmap subwindows in the given area.
+
+	* glyphs.c (reset_subwindow_cachels): unmap subwindows that we are
+ 	resetting.
+
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* Makefile.in.in: Set value of moduledir
+	- Changed DUMPENV to include $(MODULEPATH)
+	- Added install rule to install header files for use by ellcc.
+
+	* config.h.in: Added INHIBIT_SITE_MODULES
+	- Added HAVE__DLERROR
+	- Added HAVE_DLFCN_H
+	- Added DLSYM_NEEDS_UNDERSCORE
+
+	* dll.c: Removed.
+
+	* emodules.c: New file containing dynamic loading code.
+
+	* emodules.h: New file.
+
+	* emacs.c: Added variables Vmodule_directory,
+	Vsite_module_directory, Vconfigure_module_directory and
+	Vconfigure_site_module_directory.
+	- (main_1): Added new variable inhibit_site_modules and command
+	line options `-no-site-modules' and `--no-site-modules'.
+	- (main_1): Call syms_of_module() instead of syms_of_dll().
+	- (main_1): Call vars_of_module().
+	- (vars_of_emacs): Introduce inhibit-site-modules,
+	module-directory, configure-module-directory,
+	site-module-directory, and configure-site-module-directory to the
+	Lisp reader.
+
+	* lisp.h: Declare load_module and list_modules, as well as
+	Vmodule_directory, Vsite_module_directory,
+	Vconfigure_module_directory and Vconfigure_site_module_directory.
+
+	* paths.h.in: Added PATH_MODULESEARCH and PATH_SITE_MODULES.
+	- Added correct support for site-lisp directory.
+
+	* symbols.c (defsubr): Modified to allow modules to add new subrs
+	after dump time.
+	- (defsubr_macro): Same.
+	- (defvar_magick): Only use purespace when not initialized, so
+	that loaded modules can still add symbols.
+
+	* symsinit.h: Add definitions for syms_of_module(),
+	vars_of_module().  Removed syms_of_dll().
+
+	* sysdll.c: Include dlfcn.h if HAVE_DLFCN_H is defined.
+	- (dll_variable): Take DLSYM_NEEDS_UNDERSCORE into account.
+	- (dll_error): use _dlerror() if HAVE__DLERROR is defined.
+
+	* s/sco5-shr.h (C_SWITCH_SYSTEM): Correct for modern gcc and
+	explicitly pass -belf for native cc.
+
+	* s/sco5.h (LIB_GCC): Use -print-libgcc-file-name instead of
+	hard-coding the library name.
+
+1999-01-01    <martin@xemacs.org>
+
+	* device-x.c (Fx_set_font_path): 
+	Add proper cast to permit compilation under C++.
+
+	* buffer.c (directory_is_current_directory): 
+	Add proper casts to permit compilation under C++.
+
+1998-12-30  Damon Lipparelli  <lipp@primus.com>
+
+	* event-msw.c (mswindows_wnd_proc):
+	  Fixed failure when building with MSVC 5.
+
+1998-12-29  Martin Buchholz  <martin@xemacs.org>
+
+	* file-coding.c (decode_coding_iso2022): 
+	- Prevent crash when decoding ISO7/Lock detected files
+	- the usual martin fiddling
+
+1998-12-29  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* event-msw.c:
+	  glyphs-msw.c:
+	  Fixed failures when building with MSVC.
+	* unexnt.c (dump_bss_and_heap):
+	  Removed compiler warning by removing bss_data variable.
+
+1998-12-18  Jim Radford  <radford@robby.caltech.edu>
+ 
+	* device-x.c (Fx_set_font_path, Fx_get_font_path): New functions
+ 	so that packages that distribute their own fonts can access them.
+
+1998-12-28  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_button_instantiate): cope with buttons
+ 	that have an image provided.
+
+	* glyphs.h: add Q_image decl.
+
+	* glyphs-widget.c new functionality allowing images in
+ 	widgets.
+ 	(check_valid_glyph_or_image): new function to validate
+ 	glyphs passed in through :image.
+	(widget_normalize): new function. convert :image parameters into
+ 	real glyphs if not already so.
+	(widget_instantiate_1): mess with size parameters to be similar to
+ 	:image if provided.
+	(syms_of_glyphs_widget): new keyword :image.
+	(image_instantiator_format_create_glyphs_widget): normalize
+ 	buttons and allow :image.
+
+1998-12-27  Andy Piper  <andy@xemacs.org>
+
+	* frame-msw.c (mswindows_init_frame_1): warning elimination.
+
+	* glyphs-widget.c (check_valid_anything): no-op function.
+	(check_valid_callback): check callbacks in gui_items.
+	(check_valid_symbol): as it sounds.
+	(check_valid_string_or_vector): ditto.
+	(widget_validate): modified for descriptors that are vectors or
+ 	sequences of keyword/val pairs.
+	(widget_instantiate_1): ditto.
+	(image_instantiator_format_create_glyphs_widget): allow gui_item
+ 	keywords in the instantiator.
+
+	* gui.c (gui_parse_item_keywords_internal): renamed from
+ 	gui_parse_item_keywords but taking error behaviour.
+	(gui_parse_item_keywords): use it.
+	(gui_parse_item_keywords_no_errors): ditto.
+	(gui_item_add_keyval_pair): add Error_behavior flag and only
+ 	signal invalid keywords if required.
+
+	* gui.h: new gui signatures.
+
+	* menubar.c (menu_parse_submenu_keywords): use new
+ 	gui_item_add_keyval_pair signature.
+
+	* s/cygwin32.h: modify PTY_ITERATION to eliminate warnings.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.
@@ -44,7 +268,7 @@
 
 	* process-unix.c (unix_create_process):
 	- Fix crash invoking program with non-ASCII name.
-	  Try invoking xemacs with SHELL=/bin/üsh, then M-x shell.
+	  Try invoking xemacs with SHELL=/bin/sh, then M-x shell.
 	- Remove unused variable `env'.
 	- Rename `temp' to better name `save_errno'.
 	- Reorganize code for clarity.  But still too chicken to nuke the

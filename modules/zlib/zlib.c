@@ -22,9 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Author: William Perry <wmperry@aventail.com> */
 
-#include <config.h>
-
-#include "lisp.h"
+#include <emodules.h>
 
 DEFUN ("compress", Fcompress, 1, 6, 0, /*
 Return the compressed version of an object.
@@ -58,14 +56,14 @@ determined.  Else assume binary coding if all else fails.
 }
 
 void
-syms_of (void)
+syms_of_zlib (void)
 {
   DEFSUBR(Fcompress);
   DEFSUBR(Fdecompress);
 }
 
 void
-vars_of (void)
+vars_of_zlib (void)
 {
   Fprovide (intern ("zlib"));
 }

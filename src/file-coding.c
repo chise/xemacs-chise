@@ -3586,11 +3586,15 @@ static int
 detect_coding_iso2022 (struct detection_state *st, CONST unsigned char *src,
 		       unsigned int n)
 {
-  int c;
   int mask;
 
   /* #### There are serious deficiencies in the recognition mechanism
-     here.  This needs to be much smarter if it's going to cut it. */
+     here.  This needs to be much smarter if it's going to cut it.
+     The sequence "\xff\x0f" is currently detected as LOCK_SHIFT while
+     it should be detected as Latin-1.
+     All the ISO2022 stuff in this file should be synced up with the
+     code from FSF Emacs-20.4, in which Mule should be more or less stable.
+     Perhaps we should wait till R2L works in FSF Emacs? */
 
   if (!st->iso2022.initted)
     {
@@ -3610,7 +3614,7 @@ detect_coding_iso2022 (struct detection_state *st, CONST unsigned char *src,
 
   while (n--)
     {
-      c = *src++;
+      int c = *src++;
       if (c >= 0xA0)
 	{
 	  mask &= ~CODING_CATEGORY_ISO_7_MASK;
@@ -3773,7 +3777,6 @@ static void
 decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		       unsigned_char_dynarr *dst, unsigned int n)
 {
-  unsigned char c;
   unsigned int flags, ch;
   enum eol_type eol_type;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
@@ -3789,7 +3792,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 
   while (n--)
     {
-      c = *src++;
+      unsigned char c = *src++;
       if (flags & CODING_STATE_ESCAPE)
 	{	/* Within ESC sequence */
 	  int retval = parse_iso2022_esc (coding_system, &str->iso2022,
@@ -3904,7 +3907,8 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	  charset = str->iso2022.charset[reg];
 
 	  /* Error checking: */
-	  if (NILP (charset) || str->iso2022.invalid_designated[reg]
+	  if (! CHARSETP (charset)
+	      || str->iso2022.invalid_designated[reg]
 	      || (((c & 0x7F) == ' ' || (c & 0x7F) == ISO_CODE_DEL)
 		  && XCHARSET_CHARS (charset) == 94))
 	    /* Mrmph.  We are trying to invoke a register that has no

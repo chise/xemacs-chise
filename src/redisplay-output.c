@@ -41,6 +41,10 @@ static int compare_runes (struct window *w, struct rune *crb,
 			  struct rune *drb);
 static void redraw_cursor_in_window (struct window *w,
 				     int run_end_begin_glyphs);
+static void redisplay_output_display_block (struct window *w, struct display_line *dl,
+					    int block, int start, int end, int start_pixpos,
+					    int cursor_start, int cursor_width, 
+					    int cursor_height);
 
 /*****************************************************************************
  sync_rune_structs
@@ -302,8 +306,6 @@ compare_display_blocks (struct window *w, struct display_line *cdl,
 			int cursor_height)
 {
   struct frame *f = XFRAME (w->frame);
-  struct device *d = XDEVICE (f->device);
-
   struct display_block *cdb, *ddb;
   int start_pos;
   int stop_pos;
@@ -413,10 +415,10 @@ compare_display_blocks (struct window *w, struct display_line *cdl,
 	  stop_pos = elt + 1;
 	}
 
-      DEVMETH (d, output_display_block, (w, ddl, d_block, start_pos,
-					 stop_pos, start_pixpos,
-					 cursor_start, cursor_width,
-					 cursor_height));
+      redisplay_output_display_block (w, ddl, d_block, start_pos,
+				      stop_pos, start_pixpos,
+				      cursor_start, cursor_width,
+				      cursor_height);
       return 1;
     }
 
@@ -471,7 +473,6 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 
 {
   struct frame *f = XFRAME (w->frame);
-  struct device *d = XDEVICE (f->device);
   struct buffer *b = XBUFFER (w->buffer);
   struct buffer *old_b = window_display_buffer (w);
   struct display_line *cdl, *ddl;
@@ -542,8 +543,8 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 	}
       else
 	{
-	  DEVMETH (d, output_display_block, (w, ddl, 0, 0, -1, start_pixpos,
-					     0, 0, 0));
+	  redisplay_output_display_block (w, ddl, 0, 0, -1, start_pixpos,
+					  0, 0, 0);
 	  must_sync = 1;
 	}
 
@@ -679,13 +680,13 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 		}
 
 	      must_sync = 1;
-	      DEVMETH (d, output_display_block, (w, ddl, block, first_elt,
-						 last_elt,
-						 start_pixpos,
-						 cursor_start, cursor_width,
-						 cursor_height));
+	      redisplay_output_display_block (w, ddl, block, first_elt,
+					      last_elt,
+					      start_pixpos,
+					      cursor_start, cursor_width,
+					      cursor_height);
 	    }
-
+	  
 	  start_pixpos = next_start_pixpos;
 	}
     }
@@ -982,6 +983,26 @@ redisplay_redraw_cursor (struct frame *f, int run_end_begin_meths)
 }
 
 /****************************************************************************
+ redisplay_output_display_block
+
+ Given a display line, a block number for that start line, output all
+ runes between start and end in the specified display block.
+ ****************************************************************************/
+static void
+redisplay_output_display_block (struct window *w, struct display_line *dl, int block,
+				int start, int end, int start_pixpos, int cursor_start,
+				int cursor_width, int cursor_height)
+{
+  struct frame *f = XFRAME (w->frame);
+  struct device *d = XDEVICE (f->device);
+
+  DEVMETH (d, output_display_block, (w, dl, block, start,
+				     end, start_pixpos,
+				     cursor_start, cursor_width,
+				     cursor_height));
+}
+  
+/****************************************************************************
  redisplay_unmap_subwindows
 
  Remove subwindows from the area in the box defined by the given
@@ -1004,6 +1025,20 @@ static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width
 	{
 	  unmap_subwindow (cachel->subwindow);
 	}
+    }
+}
+
+/****************************************************************************
+ redisplay_unmap_subwindows_maybe
+
+ Potentially subwindows from the area in the box defined by the given
+ parameters.
+ ****************************************************************************/
+void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width, int height)
+{
+  if (Dynarr_length (FRAME_SUBWINDOW_CACHE (f)))
+    {
+      redisplay_unmap_subwindows (f, x, y, width, height);
     }
 }
 

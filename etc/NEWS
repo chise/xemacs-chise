@@ -33,6 +33,16 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
+** Interactive searching and matching case improvements:
+Case sensitiveness in searching operations is controled by the variable
+`case-fold-search' (if non-nil, case is ignored while searching). This
+mechanism has now been slightly improved in the case of an interactive
+search: if the search string (or regexp) happens to contain uppercase
+characters, the searching is forced to be case-sensitive, regardless of
+the value of `case-fold-search'. This behavior affects all functions
+performing interactive searches, like `zap-to-char', `tags-search',
+`occur' etc. 
+
 ** You can now create "indirect buffers", like in GNU Emacs.  An
 indirect buffer shares its text with another buffer ("base buffer"),
 but has its own major mode, local variables, extents, and narrowing.

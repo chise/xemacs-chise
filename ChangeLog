@@ -1,3 +1,45 @@
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-02-01  Glynn Clements  <glynn@sensei.co.uk>
+
+	* etc/recycle.xpm: Fix colours so that they work on TrueColor
+	and DirectColor displays
+
+1999-01-21  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: make xface detection specifc to a window system in
+ 	general rather than just X.
+
+1999-18-10  Andy Piper <andy@xemacs.org>
+
+	* configure.in: remove -O3 prevention on cygwin - current versions
+ 	cope ok now.  remove dll prevention on cygwin - the new module
+ 	code checks correctly.
+	
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* configure.in: Added moduledir as the path where loadable modules 
+	are stored. Added --with-site-modules and --moduledir options.
+	- Ensure the SCO OpenServer compiles with --dynamic by default
+	- Check for dlfcn.h for dynamic loader
+	- Renamed dll.o to emodules.o and changed dynamic loader tests
+	- Renabled code that deals with site-lisp so that it is handled
+	correctly when a user specifies --with-site-lisp.
+
+	* aclocal.m4: Replaced entire file with more complete DLL tests
+	by way of libtool.
+
+	* config.usage: Removed TAB characters which caused it to be
+	displayed incorrectly on terminals where TAB != 8.
+	- Added help text to describe --with-site-modules and --moduledir.
+
+	* INSTALL: Updated documentation to describe module directories
+
+	* Makefile.in.in: Added moduledir, sitemoduledir macros.
+	- Make those directories at install time.
+
 1998-12-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.8 is released.

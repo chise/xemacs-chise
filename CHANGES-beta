@@ -1,4 +1,29 @@
 							-*- indented-text -*-
+to 21.2 beta9 "Athena"
+-- parameterize replace-match function from Didier Verna
+-- X-Face support under mswindows from Andy Piper
+-- doc fixes from Adrian Aichner
+-- about patchlet from Marcus Thiessel
+-- isearch doc fixes from Didier Verna
+-- interlaced gif fix from Gunnar Evermann
+-- isearch improvements from Didier Verna
+-- eldap connection fix from William Perry
+-- package-get site fix from Robert Pluim
+-- loadable modules fix from Damon Lipparelli
+-- ldap fixes from Oscar Figueiredo
+-- loadable modules from J. Kean Johnston
+-- runwhatever from Charles Wilson
+-- redisplay fixes for glyphs from Andy Piper
+-- progress gauge widgets implentation from Andy Piper
+-- W3 works again due to font.el being fixed
+-- Another mule xemacs crash fixed
+-- Images in widgets, warning fixes and gui_item cleanup from Andy Piper
+-- package admin fixes under mswindows from Charles Waldman
+-- miscellaneous mswindows build fixes from Jonathan Harris
+-- help-echo fix from Hrvoje Niksic
+-- x font path support from Jim Radford
+-- MSVC compile fixes from Damon Lipparelli
+
 to 21.2 beta8 "Artemis"
 -- A bunch of Mule fixes from Martin Buchholz
 

@@ -38,7 +38,9 @@
 (defvar package-admin-temp-buffer "*Package Output*"
   "Temporary buffer where output of backend commands is saved.")
 
-(defvar package-admin-install-function 'package-admin-default-install-function
+(defvar package-admin-install-function (if (eq system-type 'windows-nt)
+					   'package-admin-install-function-mswindows
+					 'package-admin-default-install-function)
   "The function to call to install a package.
 Three args are passed: FILENAME PKG-DIR BUF
 Install package FILENAME into directory PKG-DIR, with any messages output
@@ -126,7 +128,7 @@ The optional `pkg-dir' can be used to override the default package hierarchy
   (let ((default-directory (file-name-as-directory pkg-dir)))
     (unless (file-directory-p default-directory)
       (make-directory default-directory t))
-    (call-process "djtar" nil buf t "-x" file)))
+    (call-process "minitar" nil buf t file)))
 
 (defun package-admin-default-install-function (file pkg-dir buf)
   "Default function to install a package.

@@ -293,17 +293,15 @@ or if the window is the only window of its frame."
 		      (unwind-protect
 			  (count-windows)
 			(select-frame frame))))
-	       ;; check to make sure that we don't have horizontally
-	       ;; split windows
-	       (eq (frame-highest-window (window-frame window) 0)
-		   (frame-highest-window (window-frame window) -1))
+	       ;; check to make sure that the window is the full width
+	       ;; of the frame
+	       (eq (nth 2 edges)
+		   (frame-pixel-width))
+	       (zerop (nth 0 edges))
+	       ;; The whole buffer must be visible.
 	       (pos-visible-in-window-p (point-min) window)
-	       (not (eq mini 'only))
-	       (or (not mini) (eq mini t)
-		   (< (nth 3 edges)
-		      (nth 1 (window-pixel-edges mini)))
-		   (> (nth 1 edges)
-		      0)))
+	       ;; The frame must not be minibuffer-only.
+	       (not (eq mini 'only)))
 	  (progn
 	    (save-window-excursion
 	      (goto-char (point-min))

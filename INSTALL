@@ -444,7 +444,7 @@ are installed in the following directories:
 By default, XEmacs installs its files in the following directories:
 
 `/usr/local/bin' holds the executable programs users normally run -
-		`xemacs', `etags', `ctags', `b2m', `emacsclient',
+		`xemacs', `etags', `ctags', `b2m', `emacsclient', `ellcc',
 		`gnuclient', `gnudoit', `gnuattach', and `rcs-checkin'.
 
 `/usr/local/lib/xemacs-VERSION/lisp' holds the Emacs Lisp libraries;
@@ -482,6 +482,17 @@ By default, XEmacs installs its files in the following directories:
 		time; this is useful for sites at which different
 		kinds of machines share the file system XEmacs is
 		installed on.
+
+`/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME/modules' holds the Emacs
+		dynamically loadable modules.  These are special programs
+		typically written in C that can be loaded in much the same
+		way that Lisp packages are.  Not all systems support
+		dynamic modules, so do not be alarmed if this directory
+		does not exist or is empty.
+
+		XEmacs searches for modules in this directory, or any
+		sub-directory of it, and then in
+		`/usr/local/lib/xemacs/site-modules/*'.
 
 `/usr/local/lib/xemacs-VERSION/info' holds the on-line documentation
 		for XEmacs, known as "info files".
@@ -622,6 +633,15 @@ GNU software; here are some variables specific to XEmacs.
 	while running.  Its default value, based on `libdir' (see
 	above), is `/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME'
 	(where VERSION and CONFIGURATION-NAME are as described above).
+
+`moduledir' indicates where XEmacs installs and expects to find
+	any dynamic modules.  Its default value, based on
+	`archlibdir' (see above) is
+	`/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME/modules'
+	(where VERSION and CONFIGURATION-NAME are as described above).
+	By their very nature, dynamic loadable modules are architecture-
+	dependant, and care should be taken not to set this directory
+	to a system- or architecture-independant directory.
 
 Remember that you must specify any variable values you need each time
 you run `make' in the top directory.  If you run `make' once to build

@@ -139,6 +139,8 @@ Lisp_Object Vemacs_program_name, Vemacs_program_version;
 Lisp_Object Vexec_path;
 Lisp_Object Vexec_directory, Vconfigure_exec_directory;
 Lisp_Object Vlisp_directory, Vconfigure_lisp_directory;
+Lisp_Object Vmodule_directory, Vconfigure_module_directory;
+Lisp_Object Vsite_module_directory, Vconfigure_site_module_directory;
 Lisp_Object Vconfigure_package_path;
 Lisp_Object Vdata_directory, Vconfigure_data_directory;
 Lisp_Object Vdoc_directory, Vconfigure_doc_directory;
@@ -200,6 +202,9 @@ int noninteractive1;
 
 /* Nonzero means don't perform site-lisp searches at startup */
 int inhibit_site_lisp;
+
+/* Nonzero means don't perform site-modules searches at startup */
+int inhibit_site_modules;
 
 /* Nonzero means don't respect early packages at startup */
 int inhibit_early_packages;
@@ -705,6 +710,16 @@ main_1 (int argc, char **argv, char **envp, int restart)
       inhibit_early_packages = 1;
       skip_args--;
     }
+#ifdef HAVE_SHLIB
+  if (argmatch (argv, argc, "-no-site-modules", "--no-site-modules",
+		9, NULL, &skip_args))
+    {
+      inhibit_site_modules = 1;
+      skip_args--;
+    }
+#else
+  inhibit_site_modules = 1;
+#endif
   if (argmatch (argv, argc, "-vanilla", "--vanilla",
 		7, NULL, &skip_args))
     {
@@ -891,9 +906,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_dialog ();
 #endif
       syms_of_dired ();
-#ifdef HAVE_SHLIB
-      syms_of_dll ();
-#endif
       syms_of_doc ();
       syms_of_editfns ();
       syms_of_elhash ();
@@ -938,6 +950,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_menubar ();
 #endif
       syms_of_minibuf ();
+#ifdef HAVE_SHLIB
+      syms_of_module ();
+#endif
       syms_of_objects ();
       syms_of_print ();
 #if !defined (NO_SUBPROCESSES)
@@ -1328,6 +1343,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_menubar ();
 #endif
       vars_of_minibuf ();
+#ifdef HAVE_SHLIB
+      vars_of_module ();
+#endif
       vars_of_objects ();
       vars_of_print ();
 
@@ -2830,6 +2848,13 @@ Set to non-nil when the site-lisp should not be searched at startup.
   inhibit_site_lisp = 1;
 #endif
 
+  DEFVAR_BOOL ("inhibit-site-modules", &inhibit_site_modules /*
+Set to non-nil when site-modules should not be searched at startup.
+*/ );
+#ifdef INHIBIT_SITE_MODULES
+  inhibit_site_modules = 1;
+#endif
+
   DEFVAR_INT ("emacs-priority", &emacs_priority /*
 Priority for XEmacs to run at.
 This value is effective only if set before XEmacs is dumped,
@@ -2941,6 +2966,22 @@ configure's idea of what LISP-DIRECTORY will be.
   Vconfigure_lisp_directory = Qnil;
 #endif
 
+  DEFVAR_LISP ("module-directory", &Vmodule_directory /*
+*Directory of core dynamic modules that come with XEmacs.
+*/ );
+  Vmodule_directory = Qnil;
+
+  DEFVAR_LISP ("configure-module-directory", &Vconfigure_module_directory /*
+For internal use by the build procedure only.
+configure's idea of what MODULE-DIRECTORY will be.
+*/ );
+#ifdef PATH_MODULESEARCH
+  Vconfigure_module_directory = Ffile_name_as_directory
+    (build_string ((char *) PATH_MODULESEARCH));
+#else
+  Vconfigure_module_directory = Qnil;
+#endif
+
   DEFVAR_LISP ("configure-package-path", &Vconfigure_package_path /*
 For internal use by the build procedure only.
 configure's idea of what the package path will be.
@@ -3003,6 +3044,22 @@ configure's idea of what SITE-DIRECTORY will be.
     (build_string ((char *) PATH_SITE));
 #else
   Vconfigure_site_directory = Qnil;
+#endif
+
+  DEFVAR_LISP ("site-module-directory", &Vsite_module_directory /*
+*Directory of site-specific loadable modules that come with XEmacs.
+*/ );
+  Vsite_module_directory = Qnil;
+
+  DEFVAR_LISP ("configure-site-module-directory", &Vconfigure_site_module_directory /*
+For internal use by the build procedure only.
+configure's idea of what SITE-DIRECTORY will be.
+*/ );
+#ifdef PATH_SITE_MODULES
+  Vconfigure_site_module_directory = Ffile_name_as_directory
+    (build_string ((char *) PATH_SITE_MODULES));
+#else
+  Vconfigure_site_module_directory = Qnil;
 #endif
 
   DEFVAR_LISP ("doc-directory", &Vdoc_directory /*

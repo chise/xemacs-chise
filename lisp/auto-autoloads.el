@@ -175,7 +175,7 @@ For example, invoke `xemacs -batch -f batch-byte-recompile-directory .'." nil ni
 
 ;;;***
 
-;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* gentemp gensym cl-compile-time-init) "cl-macs" "lisp/cl-macs.el")
+;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-file-errors ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* gentemp gensym cl-compile-time-init) "cl-macs" "lisp/cl-macs.el")
 
 (autoload 'cl-compile-time-init "cl-macs" nil nil nil)
 
@@ -322,7 +322,7 @@ go back to their previous definitions, or lack thereof)." nil 'macro)
 (autoload 'labels "cl-macs" "\
 (labels ((FUNC ARGLIST BODY...) ...) FORM...): make temporary func bindings.
 This is like `flet', except the bindings are lexical instead of dynamic.
-Unlike `flet', this macro is fully complaint with the Common Lisp standard." nil 'macro)
+Unlike `flet', this macro is fully compliant with the Common Lisp standard." nil 'macro)
 
 (autoload 'macrolet "cl-macs" "\
 (macrolet ((NAME ARGLIST BODY...) ...) FORM...): make temporary macro defns.
@@ -486,6 +486,10 @@ omitted, a default message listing FORM itself is used." nil 'macro)
 Execute FORMS; if an error occurs, return nil.
 Otherwise, return result of last FORM." nil 'macro)
 
+(autoload 'ignore-file-errors "cl-macs" "\
+Execute FORMS; if an error of type `file-error' occurs, return nil.
+Otherwise, return result of last FORM." nil 'macro)
+
 (autoload 'define-compiler-macro "cl-macs" "\
 (define-compiler-macro FUNC ARGLIST BODY...): Define a compiler-only macro.
 This is like `defmacro', but macro expansion occurs only if the call to
@@ -511,7 +515,7 @@ and then returning foo." nil 'macro)
 ;;;### (autoloads (config-value config-value-hash-table) "config" "lisp/config.el")
 
 (autoload 'config-value-hash-table "config" "\
-Return hashtable of configuration parameters and their values." nil nil)
+Return hash table of configuration parameters and their values." nil nil)
 
 (autoload 'config-value "config" "\
 Return the value of the configuration parameter CONFIG_SYMBOL." nil nil)
@@ -925,7 +929,7 @@ MATCH-ANCHORED should be of the form:
 Where MATCHER is as for MATCH-HIGHLIGHT with one exception; see below.
 PRE-MATCH-FORM and POST-MATCH-FORM are evaluated before the first, and after
 the last, instance MATCH-ANCHORED's MATCHER is used.  Therefore they can be
-used to initialise before, and cleanup after, MATCHER is used.  Typically,
+used to initialize before, and cleanup after, MATCHER is used.  Typically,
 PRE-MATCH-FORM is used to move to some position relative to the original
 MATCHER, before starting with MATCH-ANCHORED's MATCHER.  POST-MATCH-FORM might
 be used to move, before resuming with MATCH-ANCHORED's parent's MATCHER.
@@ -960,7 +964,7 @@ the wrong pattern can dramatically slow things down!")
 
 (make-variable-buffer-local 'font-lock-keywords)
 
-(defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set '(lambda (var val) (font-lock-mode (or val 0))))
+(defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set (function (lambda (var val) (font-lock-mode (or val 0)))))
 
 (defvar font-lock-mode-hook nil "\
 Function or functions to run on entry to font-lock-mode.")
@@ -1062,7 +1066,7 @@ Prefix arg means just kill any existing server communications subprocess." t nil
 
 ;;;***
 
-;;;### (autoloads (hyper-apropos-popup-menu hyper-apropos-set-variable hyper-set-variable hyper-apropos-read-variable-symbol hyper-describe-function hyper-describe-variable hyper-describe-face hyper-describe-key-briefly hyper-describe-key hyper-apropos) "hyper-apropos" "lisp/hyper-apropos.el")
+;;;### (autoloads (hyper-apropos-popup-menu hyper-apropos-set-variable hyper-set-variable hyper-apropos-read-variable-symbol hyper-describe-function hyper-where-is hyper-describe-variable hyper-describe-face hyper-describe-key-briefly hyper-describe-key hyper-apropos) "hyper-apropos" "lisp/hyper-apropos.el")
 
 (autoload 'hyper-apropos "hyper-apropos" "\
 Display lists of functions and variables matching REGEXP
@@ -1081,6 +1085,9 @@ See also `hyper-apropos' and `hyper-describe-function'." t nil)
 (autoload 'hyper-describe-variable "hyper-apropos" "\
 Hypertext drop-in replacement for `describe-variable'.
 See also `hyper-apropos' and `hyper-describe-function'." t nil)
+
+(autoload 'hyper-where-is "hyper-apropos" "\
+Print message listing key sequences that invoke specified command." t nil)
 
 (autoload 'hyper-describe-function "hyper-apropos" "\
 Hypertext replacement for `describe-function'.  Unlike `describe-function'
@@ -1302,7 +1309,10 @@ Fetch and install the latest versions of all customized packages." t nil)
 
 ;;;***
 
-;;;### (autoloads (pui-list-packages pui-add-install-directory) "package-ui" "lisp/package-ui.el")
+;;;### (autoloads (pui-list-packages pui-add-install-directory package-ui-add-site) "package-ui" "lisp/package-ui.el")
+
+(autoload 'package-ui-add-site "package-ui" "\
+Add site to package-get-remote and possibly offer to update package list." nil nil)
 
 (autoload 'pui-add-install-directory "package-ui" "\
 Add a new package binary directory to the head of `package-get-remote'.
@@ -1316,6 +1326,8 @@ The package name, version, and description are displayed.  From the displayed
 buffer, the user can see which packages are installed, which are not, and
 which are out-of-date (a newer version is available).  The user can then
 select packages for installation via the keyboard or mouse." t nil)
+
+(defalias 'list-packages 'pui-list-packages)
 
 ;;;***
 
@@ -1644,6 +1656,18 @@ or if you change your font path, you can call this to re-initialize the menus." 
 (autoload 'font-menu-size-constructor "x-font-menu" nil nil nil)
 
 (autoload 'font-menu-weight-constructor "x-font-menu" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (x-win-init-sun) "x-win-sun" "lisp/x-win-sun.el")
+
+(autoload 'x-win-init-sun "x-win-sun" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (x-win-init-xfree86) "x-win-xfree86" "lisp/x-win-xfree86.el")
+
+(autoload 'x-win-init-xfree86 "x-win-xfree86" nil nil nil)
 
 ;;;***
 

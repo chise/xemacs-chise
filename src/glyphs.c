@@ -90,6 +90,11 @@ Lisp_Object Q_foreground, Q_background;
 #endif
 #endif
 
+#ifdef HAVE_XFACE
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (xface);
+Lisp_Object Qxface;
+#endif
+
 #ifdef HAVE_XPM
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (xpm);
 Lisp_Object Qxpm;
@@ -2001,6 +2006,80 @@ xbm_possible_dest_types (void)
 #endif
 
 
+#ifdef HAVE_XFACE
+/**********************************************************************
+ *                             X-Face                                 *
+ **********************************************************************/
+
+static void
+xface_validate (Lisp_Object instantiator)
+{
+  file_or_data_must_be_present (instantiator);
+}
+
+static Lisp_Object
+xface_normalize (Lisp_Object inst, Lisp_Object console_type)
+{
+  /* This function can call lisp */
+  Lisp_Object file = Qnil, mask_file = Qnil;
+  struct gcpro gcpro1, gcpro2, gcpro3;
+  Lisp_Object alist = Qnil;
+
+  GCPRO3 (file, mask_file, alist);
+
+  /* Now, convert any file data into inline data for both the regular
+     data and the mask data.  At the end of this, `data' will contain
+     the inline data (if any) or Qnil, and `file' will contain
+     the name this data was derived from (if known) or Qnil.
+     Likewise for `mask_file' and `mask_data'.
+
+     Note that if we cannot generate any regular inline data, we
+     skip out. */
+
+  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data,
+					     console_type);
+  mask_file = potential_pixmap_file_instantiator (inst, Q_mask_file,
+						  Q_mask_data, console_type);
+
+  if (CONSP (file)) /* failure locating filename */
+    signal_double_file_error ("Opening bitmap file",
+			      "no such file or directory",
+			      Fcar (file));
+
+  if (NILP (file) && NILP (mask_file)) /* no conversion necessary */
+    RETURN_UNGCPRO (inst);
+
+  alist = tagged_vector_to_alist (inst);
+
+  {
+    Lisp_Object data = make_string_from_file (file);
+    alist = remassq_no_quit (Q_file, alist);
+    /* there can't be a :data at this point. */
+    alist = Fcons (Fcons (Q_file, file),
+		   Fcons (Fcons (Q_data, data), alist));
+  }
+
+  alist = xbm_mask_file_munging (alist, file, mask_file, console_type);
+
+  {
+    Lisp_Object result = alist_to_tagged_vector (Qxface, alist);
+    free_alist (alist);
+    RETURN_UNGCPRO (result);
+  }
+}
+
+static int
+xface_possible_dest_types (void)
+{
+  return
+    IMAGE_MONO_PIXMAP_MASK  |
+    IMAGE_COLOR_PIXMAP_MASK |
+    IMAGE_POINTER_MASK;
+}
+
+#endif /* HAVE_XFACE */
+
+
 #ifdef HAVE_XPM
 
 /**********************************************************************
@@ -3539,9 +3618,26 @@ get_subwindow_cachel_index (struct frame *f, Lisp_Object subwindow)
   return elt;
 }
 
+/* redisplay in general assumes that drawing something will erase
+   what was there before. unfortunately this does not apply to
+   subwindows that need to be specifically unmapped in order to
+   disappear. we take a brute force approach - on the basis that its
+   cheap - and unmap all subwindows in a display line */
 void
 reset_subwindow_cachels (struct frame *f)
 {
+  int elt;
+  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+    {
+      struct subwindow_cachel *cachel =
+	Dynarr_atp (f->subwindow_cachels, elt);
+
+      if (!NILP (cachel->subwindow) && cachel->being_displayed)
+	{
+	  struct Lisp_Image_Instance* ii = XIMAGE_INSTANCE (cachel->subwindow);
+	  MAYBE_DEVMETH (XDEVICE (f->device), unmap_subwindow, (ii));
+	}
+    }
   Dynarr_reset (f->subwindow_cachels);
 }
 
@@ -4032,6 +4128,21 @@ image_instantiator_format_create (void)
   IIFORMAT_VALID_KEYWORD (xbm, Q_background, check_valid_string);
 #endif /* HAVE_WINDOW_SYSTEM */
 
+#ifdef HAVE_XFACE
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (xface, "xface");
+
+  IIFORMAT_HAS_METHOD (xface, validate);
+  IIFORMAT_HAS_METHOD (xface, normalize);
+  IIFORMAT_HAS_METHOD (xface, possible_dest_types);
+
+  IIFORMAT_VALID_KEYWORD (xface, Q_data, check_valid_string);
+  IIFORMAT_VALID_KEYWORD (xface, Q_file, check_valid_string);
+  IIFORMAT_VALID_KEYWORD (xface, Q_hotspot_x, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (xface, Q_hotspot_y, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (xface, Q_foreground, check_valid_string);
+  IIFORMAT_VALID_KEYWORD (xface, Q_background, check_valid_string);
+#endif
+
 #ifdef HAVE_XPM
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (xpm, "xpm");
 
@@ -4110,6 +4221,9 @@ The default value of this variable defines the logical color names
 */ );
   Vxpm_color_symbols = Qnil; /* initialized in x-faces.el */
 #endif /* HAVE_XPM */
+#ifdef HAVE_XFACE
+  Fprovide (Qxface);
+#endif
 }
 
 void

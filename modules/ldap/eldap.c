@@ -28,15 +28,10 @@ Boston, MA 02111-1307, USA.  */
    - UMich LDAP 3.3 (http://www.umich.edu/~dirsvcs/ldap/)
    - Netscape's LDAP SDK 1.0 (http://developer.netscape.com) */
 
-
-
-#include <config.h>
+#include <emodules.h>
 
 #if defined (HAVE_LDAP)
-
 /* The entire file is within this conditional */
-
-#include "lisp.h"
 
 #include "eldap.h"
 #include <lber.h>
@@ -409,7 +404,7 @@ an alist of attribute/values.
 }
 
 void
-syms_of (void)
+syms_of_ldap (void)
 {
   DEFSUBR(Fldap_search_internal);
 
@@ -440,7 +435,7 @@ syms_of (void)
 }
 
 void
-vars_of (void)
+vars_of_ldap (void)
 {
   Fprovide (intern ("ldap-internal"));
 

@@ -310,7 +310,7 @@ mswindows_output_blank (struct window *w, struct display_line *dl, struct rune *
   struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, rb->findex);
 
   Lisp_Object bg_pmap = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, rb->findex);
-  
+
   if (!IMAGE_INSTANCEP (bg_pmap)
       || !IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (bg_pmap)))
     bg_pmap = Qnil;
@@ -502,7 +502,7 @@ mswindows_output_string (struct window *w, struct display_line *dl,
   xpos -= xoffset;
 
   /* sort out the destination rectangle */
-  height = dl->ascent + dl->descent - dl->clip;
+  height = DISPLAY_LINE_HEIGHT (dl);
   rect.left = clip_start;
   rect.top  = dl->ypos - dl->ascent;
   rect.right = clip_end;
@@ -591,6 +591,7 @@ mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
   int need_clipping = (clip_x || clip_y);
   int yoffset=0;
   int xoffset=0;
+
   /* do we need to offset the pixmap vertically? this is necessary
      for background pixmaps. */
   if (offset_bitmap)
@@ -713,7 +714,7 @@ mswindows_output_pixmap (struct window *w, struct display_line *dl,
   struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
 
-  int lheight = dl->ascent + dl->descent - dl->clip;
+  int lheight = DISPLAY_LINE_HEIGHT (dl);
   int pheight = ((int) IMAGE_INSTANCE_PIXMAP_HEIGHT (p) > lheight ? lheight :
 		 IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
   int clip_x, clip_y, clip_width, clip_height;
@@ -1177,7 +1178,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	      else if (rb->object.chr.ch == '\n')
 		{
 		  /* Clear in case a cursor was formerly here. */
-		  int height = dl->ascent + dl->descent - dl->clip;
+		  int height = DISPLAY_LINE_HEIGHT (dl);
 
 		  redisplay_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
 				    rb->width, height);

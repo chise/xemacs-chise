@@ -68,12 +68,14 @@ struct gui_item
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
 extern Lisp_Object Q_keys, Q_selected, Q_suffix, Qradio, Qtoggle;
-extern Lisp_Object Q_key_sequence, Q_label;
+extern Lisp_Object Q_key_sequence, Q_label, Q_callback;
 
 void gui_item_init (struct gui_item *pgui_item);
 void gui_item_add_keyval_pair (struct gui_item *pgui_item,
-			       Lisp_Object key, Lisp_Object val);
+			       Lisp_Object key, Lisp_Object val,
+			       Error_behavior errb);
 void gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item);
+void gui_parse_item_keywords_no_errors (Lisp_Object item, struct gui_item *pgui_item);
 int  gui_item_active_p (CONST struct gui_item *pgui_item);
 int  gui_item_selected_p (CONST struct gui_item *pgui_item);
 int  gui_item_included_p (CONST struct gui_item *pgui_item, Lisp_Object into);
