@@ -1,4 +1,37 @@
+2004-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el: Use `->subsumptive' for some
+	character definitions.
+	(M-42712): Unify U-0002925C.
+	(U+976C): Unify JC3-8DBD.
+	(U+9773): Unify JC3-6CC1.
+	(J90-3724): Unify JC3-6CCB.
+	(U+9776): Unify JC3-8BF4.
+	(J90-3373): Unify JC3-6CCA.
+	(G0-474A): Unify JC3-6CCC.
+	(M-42896): Unify CB02709.
+	(M-42899): Unify U-000292D7.
+	(JSP-674A): Unify JC3-6CC2; separate C3-567B; moved into U+979F.
+	(U+979F): Use `->subsumptive'.
+	(U+97AE): Unify JC3-6CC3.
+	(C5-5F64): Map to M-42945.
+	(JSP-674E): Unify JC3-6CC4.
+	(JSP-6752): Unify JC3-6CC5.
+	(U+97BC): Unify JC3-6CC6.
+	(M-43036): Unify JC3-6CC7.
+	(U+97C1): Unify JC3-6CC8.
+	(GT-57774): Unify JC3-6CC9.
+
+2004-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el: Add mappings for Big5 code points.
+
 2004-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el: Use `->subsumptive' for some character
+	definitions.
+	(C5-3D42): Map to U-000291EE.
+	(M-42603): Map to U-000291F6.
 
 	* Ideograph-R176-Face.el: Add mappings between CJK Ext B and CNS
 	11643 plain 5.
