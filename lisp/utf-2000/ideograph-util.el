@@ -111,6 +111,10 @@
     (numberp (car b))))
 
 (defun morohashi-daikanwa< (a b)
+  (if (integerp a)
+      (setq a (list a)))
+  (if (integerp b)
+      (setq b (list b)))
   (cond ((eq (car a) 'ho)
 	 (if (eq (car b) 'ho)
 	     (int-list< (cdr a)(cdr b))
@@ -124,74 +128,51 @@
 	     t
 	   (int-list< a b)))))
 
+(defun char-representative-of-daikanwa (char)
+  (if (get-char-attribute char 'ideograph-daikanwa)
+      char
+    (let ((m (get-char-attribute char 'morohashi-daikanwa))
+	  m-m m-s pat)
+      (or (when m
+	    (setq m-m (pop m))
+	    (setq m-s (pop m))
+	    (if (= m-s 0)
+		(decode-char 'ideograph-daikanwa m-m)
+	      (when m
+		(setq pat (list m-m m-s))
+		(map-char-attribute (lambda (c v)
+				      (if (equal pat v)
+					  c))
+				    'morohashi-daikanwa))))
+	  char))))
+
 (defun ideograph-char< (a b)
-  (let ((a-m-m (get-char-attribute a 'ideograph-daikanwa))
-	(b-m-m (get-char-attribute b 'ideograph-daikanwa))
-	a-m-r b-m-r
-	a-s b-s
-	a-u b-u
-	ret pat)
-    (if a-m-m
-	(setq a-s (char-ideographic-strokes a))
-      (setq a-m-r (get-char-attribute a 'morohashi-daikanwa))
-      (if a-m-r
-	  (progn
-	    (setq a-m-m (car a-m-r)
-		  a-m-r (cdr a-m-r))
-	    (if (= (car a-m-r) 0)
-		(progn
-		  (setq ret (decode-char 'ideograph-daikanwa a-m-m))
-		  (if (= (get-char-attribute ret 'ideographic-radical)
-			 (get-char-attribute a 'ideographic-radical))
-		      (setq a-s (char-ideographic-strokes ret))
-		    (setq a-s (char-ideographic-strokes a))))
-              (setq a-s (char-ideographic-strokes
-			 (if (cdr a-m-r)
-			     (progn
-			       (setq pat (list a-m-m (car a-m-r)))
-			       (or (map-char-attribute (lambda (c v)
-							 (if (equal v pat)
-							     c))
-						       'morohashi-daikanwa)
-				   a))
-			   a)))
-	      ))
-	(setq a-s (char-ideographic-strokes a))))
-    (if b-m-m
-	(setq b-s (char-ideographic-strokes b))
-      (setq b-m-r (get-char-attribute b 'morohashi-daikanwa))
-      (if b-m-r
-	  (progn
-	    (setq b-m-m (car b-m-r)
-		  b-m-r (cdr b-m-r))
-	    (if (= (car b-m-r) 0)
-		(progn
-		  (setq ret (decode-char 'ideograph-daikanwa b-m-m))
-		  (if (= (get-char-attribute ret 'ideographic-radical)
-			 (get-char-attribute b 'ideographic-radical))
-		      (setq b-s (char-ideographic-strokes ret))
-		    (setq b-s (char-ideographic-strokes b))))
-              (setq b-s (char-ideographic-strokes
-			 (if (cdr b-m-r)
-			     (progn
-			       (setq pat (list b-m-m (car b-m-r)))
-			       (or (map-char-attribute (lambda (c v)
-							 (if (equal v pat)
-							     c))
-						       'morohashi-daikanwa)
-				   b))
-			   b)))
-	      ))
-	(setq b-s (char-ideographic-strokes b))))
+  (let (a-m b-m a-s b-s a-u b-u ret)
+    (setq ret (char-representative-of-daikanwa a))
+    (setq a-s (char-ideographic-strokes
+	       (if (= (get-char-attribute ret 'ideographic-radical)
+		      (get-char-attribute a 'ideographic-radical))
+		   ret
+		 a)))
+    (setq ret (char-representative-of-daikanwa b))
+    (setq b-s (char-ideographic-strokes
+	       (if (= (get-char-attribute ret 'ideographic-radical)
+		      (get-char-attribute b 'ideographic-radical))
+		   ret
+		 b)))
     (if a-s
 	(if b-s
 	    (if (= a-s b-s)
-		(if a-m-m
-		    (if b-m-m
-			(morohashi-daikanwa< (cons a-m-m a-m-r)
-					     (cons b-m-m b-m-r))
+		(if (setq a-m (or (get-char-attribute a 'ideograph-daikanwa)
+				  (get-char-attribute a 'morohashi-daikanwa)))
+		    (if (setq b-m
+			      (or (get-char-attribute b 'ideograph-daikanwa)
+				  (get-char-attribute b 'morohashi-daikanwa)))
+			(morohashi-daikanwa< a-m b-m)
 		      t)
-		  (if b-m-m
+		  (if (setq b-m
+			    (or (get-char-attribute b 'ideograph-daikanwa)
+				(get-char-attribute b 'morohashi-daikanwa)))
 		      nil
 		    (setq a-u (get-char-attribute a 'ucs)
 			  b-u (get-char-attribute b 'ucs))
