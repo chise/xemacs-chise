@@ -18848,6 +18848,12 @@
   '((ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (=ucs		. #x651A)	; æ”š
+    ))
+(define-char
+  '((ideographic-radical . 64)	; â¼¿
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
     (hanyu-dazidian	3 1982 5)
     (=hanziku-5		. #xEE46)	; ý¢ž¹†
     (=ucs		. #x22E00)	; ð¢¸€
@@ -19201,12 +19207,6 @@
     (total-strokes	 . 20)
     (=jis-x0213-2-2000	. #x2D5B)	; ø»¤¯¢
     (=ucs		. #x3A6E)	; ã©®
-    ))
-(define-char
-  '((ideographic-radical . 64)	; â¼¿
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (=ucs		. #x651A)	; æ”š
     ))
 (define-char
   '((ideographic-radical . 64)	; â¼¿
