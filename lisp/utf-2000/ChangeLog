@@ -1,3 +1,29 @@
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R079-Weapon.el (M050242): Use `=>ucs' instead of
+	`->ucs'.
+	(M016629): Likewise.
+	(M073347): Likewise.
+	(M016632): Likewise.
+	(M016633): Likewise.
+	(M016635): Likewise.
+	(M016636): Likewise.
+
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R135-Tongue.el (C1-485F): Fix `:char' of
+	`<-original-ideograph'.
+
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R072-Sun.el (M057064): Use `=>ucs' instead of `->ucs'.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U+5411): Delete wrong
+	`ideographic-structure' and CB-05156.
+	(U+54CD): Add `ideographic-structure' and CB-05156.
+
 2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R063-Door.el: Add some mappings to CJK Ext-B code
