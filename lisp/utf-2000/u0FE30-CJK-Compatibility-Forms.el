@@ -6,7 +6,7 @@
     (->decomposition	vertical #x2025)
     (chinese-cns11643-1 . #x212B)	; ø»‘‚¦
     (chinese-big5	. #xA14A)	; ý¢€Š…Š
-    (ucs		. #xFE30)	; ï¸°
+    (=ucs		. #xFE30)	; ï¸°
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EM DASH")
@@ -16,7 +16,7 @@
     (->decomposition	vertical #x2014)
     (chinese-cns11643-1 . #x2136)	; ø»‘‚±
     (chinese-big5	. #xA157)	; ý¢€Š…—
-    (ucs		. #xFE31)	; ï¸±
+    (=ucs		. #xFE31)	; ï¸±
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EN DASH")
@@ -25,7 +25,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2013)
     (chinese-cns11643-1 . #x2138)	; ø»‘‚³
-    (ucs		. #xFE32)	; ï¸²
+    (=ucs		. #xFE32)	; ï¸²
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL LOW LINE")
@@ -34,7 +34,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
     (chinese-big5	. #xA159)	; ý¢€Š…™
-    (ucs		. #xFE33)	; ï¸³
+    (=ucs		. #xFE33)	; ï¸³
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL WAVY LOW LINE")
@@ -42,7 +42,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
-    (ucs		. #xFE34)	; ï¸´
+    (=ucs		. #xFE34)	; ï¸´
     ))
 (define-char
   '((name . "presentation form for vertical book name mark")
@@ -61,7 +61,7 @@
     (->decomposition	vertical #x0028)
     (chinese-cns11643-1 . #x2140)	; ø»‘‚»
     (chinese-big5	. #xA15F)	; ý¢€Š…Ÿ
-    (ucs		. #xFE35)	; ï¸µ
+    (=ucs		. #xFE35)	; ï¸µ
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT PARENTHESIS")
@@ -71,7 +71,7 @@
     (->decomposition	vertical #x0029)
     (chinese-cns11643-1 . #x2141)	; ø»‘‚¼
     (chinese-big5	. #xA160)	; ý¢€Š… 
-    (ucs		. #xFE36)	; ï¸¶
+    (=ucs		. #xFE36)	; ï¸¶
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CURLY BRACKET")
@@ -81,7 +81,7 @@
     (->decomposition	vertical #x007B)
     (chinese-cns11643-1 . #x2144)	; ø»‘‚¿
     (chinese-big5	. #xA163)	; ý¢€Š…£
-    (ucs		. #xFE37)	; ï¸·
+    (=ucs		. #xFE37)	; ï¸·
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET")
@@ -91,7 +91,7 @@
     (->decomposition	vertical #x007D)
     (chinese-cns11643-1 . #x2145)	; ø»‘ƒ€
     (chinese-big5	. #xA164)	; ý¢€Š…¤
-    (ucs		. #xFE38)	; ï¸¸
+    (=ucs		. #xFE38)	; ï¸¸
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT TORTOISE SHELL BRACKET")
@@ -101,7 +101,7 @@
     (->decomposition	vertical #x3014)
     (chinese-cns11643-1 . #x2148)	; ø»‘ƒƒ
     (chinese-big5	. #xA167)	; ý¢€Š…§
-    (ucs		. #xFE39)	; ï¸¹
+    (=ucs		. #xFE39)	; ï¸¹
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET")
@@ -111,7 +111,7 @@
     (->decomposition	vertical #x3015)
     (chinese-cns11643-1 . #x2149)	; ø»‘ƒ„
     (chinese-big5	. #xA168)	; ý¢€Š…¨
-    (ucs		. #xFE3A)	; ï¸º
+    (=ucs		. #xFE3A)	; ï¸º
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT BLACK LENTICULAR BRACKET")
@@ -121,7 +121,7 @@
     (->decomposition	vertical #x3010)
     (chinese-cns11643-1 . #x214C)	; ø»‘ƒ‡
     (chinese-big5	. #xA16B)	; ý¢€Š…«
-    (ucs		. #xFE3B)	; ï¸»
+    (=ucs		. #xFE3B)	; ï¸»
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT BLACK LENTICULAR BRACKET")
@@ -131,7 +131,7 @@
     (->decomposition	vertical #x3011)
     (chinese-cns11643-1 . #x214D)	; ø»‘ƒˆ
     (chinese-big5	. #xA16C)	; ý¢€Š…¬
-    (ucs		. #xFE3C)	; ï¸¼
+    (=ucs		. #xFE3C)	; ï¸¼
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET")
@@ -141,7 +141,7 @@
     (->decomposition	vertical #x300A)
     (chinese-cns11643-1 . #x2150)	; ø»‘ƒ‹
     (chinese-big5	. #xA16F)	; ý¢€Š…¯
-    (ucs		. #xFE3D)	; ï¸½
+    (=ucs		. #xFE3D)	; ï¸½
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET")
@@ -151,7 +151,7 @@
     (->decomposition	vertical #x300B)
     (chinese-cns11643-1 . #x2151)	; ø»‘ƒŒ
     (chinese-big5	. #xA170)	; ý¢€Š…°
-    (ucs		. #xFE3E)	; ï¸¾
+    (=ucs		. #xFE3E)	; ï¸¾
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET")
@@ -161,7 +161,7 @@
     (->decomposition	vertical #x3008)
     (chinese-cns11643-1 . #x2154)	; ø»‘ƒ
     (chinese-big5	. #xA173)	; ý¢€Š…³
-    (ucs		. #xFE3F)	; ï¸¿
+    (=ucs		. #xFE3F)	; ï¸¿
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET")
@@ -171,7 +171,7 @@
     (->decomposition	vertical #x3009)
     (chinese-cns11643-1 . #x2155)	; ø»‘ƒ
     (chinese-big5	. #xA174)	; ý¢€Š…´
-    (ucs		. #xFE40)	; ï¹€
+    (=ucs		. #xFE40)	; ï¹€
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CORNER BRACKET")
@@ -181,7 +181,7 @@
     (->decomposition	vertical #x300C)
     (chinese-cns11643-1 . #x2158)	; ø»‘ƒ“
     (chinese-big5	. #xA177)	; ý¢€Š…·
-    (ucs		. #xFE41)	; ï¹
+    (=ucs		. #xFE41)	; ï¹
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CORNER BRACKET")
@@ -191,7 +191,7 @@
     (->decomposition	vertical #x300D)
     (chinese-cns11643-1 . #x2159)	; ø»‘ƒ”
     (chinese-big5	. #xA178)	; ý¢€Š…¸
-    (ucs		. #xFE42)	; ï¹‚
+    (=ucs		. #xFE42)	; ï¹‚
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT WHITE CORNER BRACKET")
@@ -201,7 +201,7 @@
     (->decomposition	vertical #x300E)
     (chinese-cns11643-1 . #x215C)	; ø»‘ƒ—
     (chinese-big5	. #xA17B)	; ý¢€Š…»
-    (ucs		. #xFE43)	; ï¹ƒ
+    (=ucs		. #xFE43)	; ï¹ƒ
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT WHITE CORNER BRACKET")
@@ -211,17 +211,17 @@
     (->decomposition	vertical #x300F)
     (chinese-cns11643-1 . #x215D)	; ø»‘ƒ˜
     (chinese-big5	. #xA17C)	; ý¢€Š…¼
-    (ucs		. #xFE44)	; ï¹„
+    (=ucs		. #xFE44)	; ï¹„
     ))
 (define-char
   '((name		. "SESAME DOT")
     (=jis-x0213-1-2000	. #x233E)	; ø»¢–•
-    (ucs		. #xFE45)	; ï¹…
+    (=ucs		. #xFE45)	; ï¹…
     ))
 (define-char
   '((name		. "WHITE SESAME DOT")
     (=jis-x0213-1-2000	. #x233D)	; ø»¢–”
-    (ucs		. #xFE46)	; ï¹†
+    (=ucs		. #xFE46)	; ï¹†
     ))
 (define-char
   '((name		. "DASHED OVERLINE")
@@ -231,7 +231,7 @@
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x2227)	; ø»‘„€
     (chinese-big5	. #xA1C6)	; ý¢€Š‡†
-    (ucs		. #xFE49)	; ï¹‰
+    (=ucs		. #xFE49)	; ï¹‰
     ))
 (define-char
   '((name		. "CENTRELINE OVERLINE")
@@ -241,7 +241,7 @@
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x2228)	; ø»‘„
     (chinese-big5	. #xA1C7)	; ý¢€Š‡‡
-    (ucs		. #xFE4A)	; ï¹Š
+    (=ucs		. #xFE4A)	; ï¹Š
     ))
 (define-char
   '((name		. "WAVY OVERLINE")
@@ -251,7 +251,7 @@
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x222B)	; ø»‘„„
     (chinese-big5	. #xA1CA)	; ý¢€Š‡Š
-    (ucs		. #xFE4B)	; ï¹‹
+    (=ucs		. #xFE4B)	; ï¹‹
     ))
 (define-char
   '((name		. "DOUBLE WAVY OVERLINE")
@@ -261,7 +261,7 @@
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x222C)	; ø»‘„…
     (chinese-big5	. #xA1CB)	; ý¢€Š‡‹
-    (ucs		. #xFE4C)	; ï¹Œ
+    (=ucs		. #xFE4C)	; ï¹Œ
     ))
 (define-char
   '((name		. "DASHED LOW LINE")
@@ -271,7 +271,7 @@
     (->decomposition	compat #x005F)
     (chinese-cns11643-1 . #x2229)	; ø»‘„‚
     (chinese-big5	. #xA1C8)	; ý¢€Š‡ˆ
-    (ucs		. #xFE4D)	; ï¹
+    (=ucs		. #xFE4D)	; ï¹
     ))
 (define-char
   '((name		. "CENTRELINE LOW LINE")
@@ -281,7 +281,7 @@
     (->decomposition	compat #x005F)
     (chinese-cns11643-1 . #x222A)	; ø»‘„ƒ
     (chinese-big5	. #xA1C9)	; ý¢€Š‡‰
-    (ucs		. #xFE4E)	; ï¹Ž
+    (=ucs		. #xFE4E)	; ï¹Ž
     ))
 (define-char
   '((name		. "WAVY LOW LINE")
@@ -289,7 +289,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x005F)
-    (ucs		. #xFE4F)	; ï¹
+    (=ucs		. #xFE4F)	; ï¹
     ))
 (define-char
   '((name		. "book name mark")

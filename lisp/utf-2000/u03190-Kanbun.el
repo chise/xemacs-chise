@@ -4,7 +4,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kanbun Tateten")
-    (ucs		. #x3190)	; ㆐
+    (=ucs		. #x3190)	; ㆐
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION REVERSE MARK")
@@ -12,7 +12,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
-    (ucs		. #x3191)	; ㆑
+    (=ucs		. #x3191)	; ㆑
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION ONE MARK")
@@ -21,7 +21,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E00)
-    (ucs		. #x3192)	; ㆒
+    (=ucs		. #x3192)	; ㆒
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION TWO MARK")
@@ -30,7 +30,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E8C)
-    (ucs		. #x3193)	; ㆓
+    (=ucs		. #x3193)	; ㆓
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION THREE MARK")
@@ -39,7 +39,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E09)
-    (ucs		. #x3194)	; ㆔
+    (=ucs		. #x3194)	; ㆔
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION FOUR MARK")
@@ -48,7 +48,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x56DB)
-    (ucs		. #x3195)	; ㆕
+    (=ucs		. #x3195)	; ㆕
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION TOP MARK")
@@ -57,7 +57,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E0A)
-    (ucs		. #x3196)	; ㆖
+    (=ucs		. #x3196)	; ㆖
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION MIDDLE MARK")
@@ -66,7 +66,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E2D)
-    (ucs		. #x3197)	; ㆗
+    (=ucs		. #x3197)	; ㆗
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION BOTTOM MARK")
@@ -75,7 +75,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E0B)
-    (ucs		. #x3198)	; ㆘
+    (=ucs		. #x3198)	; ㆘
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION FIRST MARK")
@@ -84,7 +84,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x7532)
-    (ucs		. #x3199)	; ㆙
+    (=ucs		. #x3199)	; ㆙
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION SECOND MARK")
@@ -93,7 +93,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E59)
-    (ucs		. #x319A)	; ㆚
+    (=ucs		. #x319A)	; ㆚
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION THIRD MARK")
@@ -102,7 +102,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E19)
-    (ucs		. #x319B)	; ㆛
+    (=ucs		. #x319B)	; ㆛
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION FOURTH MARK")
@@ -111,7 +111,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4E01)
-    (ucs		. #x319C)	; ㆜
+    (=ucs		. #x319C)	; ㆜
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION HEAVEN MARK")
@@ -120,7 +120,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x5929)
-    (ucs		. #x319D)	; ㆝
+    (=ucs		. #x319D)	; ㆝
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION EARTH MARK")
@@ -129,7 +129,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x5730)
-    (ucs		. #x319E)	; ㆞
+    (=ucs		. #x319E)	; ㆞
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ANNOTATION MAN MARK")
@@ -138,5 +138,5 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Kaeriten")
     (->decomposition	super #x4EBA)
-    (ucs		. #x319F)	; ㆟
+    (=ucs		. #x319F)	; ㆟
     ))

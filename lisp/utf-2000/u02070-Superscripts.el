@@ -7,7 +7,7 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (->decomposition	super #x0030)
-    (ucs		. #x2070)	; ⁰
+    (=ucs		. #x2070)	; ⁰
     ))
 (define-char
   '((name		. "SUPERSCRIPT FOUR")
@@ -22,7 +22,7 @@
      ((name		  . "fullwidth superscript four")
       (korean-ksc5601	  . #x2979)	; �����
       ))
-    (ucs		. #x2074)	; ⁴
+    (=ucs		. #x2074)	; ⁴
     ))
 (define-char
   '((name		. "fullwidth superscript four")
@@ -36,7 +36,7 @@
     (->decomposition	wide #x2074)
     (<-fullwidth
      ((name		  . "SUPERSCRIPT FOUR")
-      (ucs		  . #x2074)	; ⁴
+      (=ucs		  . #x2074)	; ⁴
       ))
     (korean-ksc5601	. #x2979)	; �����
     ))
@@ -49,7 +49,7 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (->decomposition	super #x0035)
-    (ucs		. #x2075)	; ⁵
+    (=ucs		. #x2075)	; ⁵
     ))
 (define-char
   '((name		. "SUPERSCRIPT SIX")
@@ -60,7 +60,7 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (->decomposition	super #x0036)
-    (ucs		. #x2076)	; ⁶
+    (=ucs		. #x2076)	; ⁶
     ))
 (define-char
   '((name		. "SUPERSCRIPT SEVEN")
@@ -71,7 +71,7 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (->decomposition	super #x0037)
-    (ucs		. #x2077)	; ⁷
+    (=ucs		. #x2077)	; ⁷
     ))
 (define-char
   '((name		. "SUPERSCRIPT EIGHT")
@@ -82,7 +82,7 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (->decomposition	super #x0038)
-    (ucs		. #x2078)	; ⁸
+    (=ucs		. #x2078)	; ⁸
     ))
 (define-char
   '((name		. "SUPERSCRIPT NINE")
@@ -93,7 +93,7 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (->decomposition	super #x0039)
-    (ucs		. #x2079)	; ⁹
+    (=ucs		. #x2079)	; ⁹
     ))
 (define-char
   '((name		. "SUPERSCRIPT PLUS SIGN")
@@ -101,7 +101,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	super #x002B)
-    (ucs		. #x207A)	; ⁺
+    (=ucs		. #x207A)	; ⁺
     ))
 (define-char
   '((name		. "SUPERSCRIPT MINUS")
@@ -109,7 +109,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	super #x2212)
-    (ucs		. #x207B)	; ⁻
+    (=ucs		. #x207B)	; ⁻
     ))
 (define-char
   '((name		. "SUPERSCRIPT EQUALS SIGN")
@@ -117,7 +117,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x003D)
-    (ucs		. #x207C)	; ⁼
+    (=ucs		. #x207C)	; ⁼
     ))
 (define-char
   '((name		. "SUPERSCRIPT LEFT PARENTHESIS")
@@ -125,7 +125,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	super #x0028)
-    (ucs		. #x207D)	; ⁽
+    (=ucs		. #x207D)	; ⁽
     ))
 (define-char
   '((name		. "SUPERSCRIPT RIGHT PARENTHESIS")
@@ -133,7 +133,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	super #x0029)
-    (ucs		. #x207E)	; ⁾
+    (=ucs		. #x207E)	; ⁾
     ))
 (define-char
   '((name		. "SUPERSCRIPT LATIN SMALL LETTER N")
@@ -145,7 +145,7 @@
      ((name		  . "fullwidth superscript latin small letter n")
       (korean-ksc5601	  . #x297A)	; �����
       ))
-    (ucs		. #x207F)	; ⁿ
+    (=ucs		. #x207F)	; ⁿ
     ))
 (define-char
   '((name		. "fullwidth superscript latin small letter n")
@@ -156,7 +156,7 @@
     (->decomposition	wide #x207F)
     (<-fullwidth
      ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
-      (ucs		  . #x207F)	; ⁿ
+      (=ucs		  . #x207F)	; ⁿ
       ))
     (korean-ksc5601	. #x297A)	; �����
     ))

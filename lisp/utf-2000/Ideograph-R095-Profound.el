@@ -20,7 +20,7 @@
     (chinese-gb2312	. #x507E)	; ø»…Œ£
     (chinese-isoir165	. #x507E)	; ø»´³
     (chinese-cns11643-1 . #x4668)	; ø»‘¹¹
-    (ucs		. #x7384)	; çŽ„
+    (=ucs		. #x7384)	; çŽ„
     ))
 (define-char
   '((=>ucs		. #x7385)	; çŽ…
@@ -40,7 +40,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-cns11643-2 . #x2C28)	; ø»“œ±
-    (ucs		. #x7385)	; çŽ…
+    (=ucs		. #x7385)	; çŽ…
     ))
 (define-char
   '((=>ucs		. #x7386)	; çŽ†
@@ -60,7 +60,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (chinese-cns11643-1 . #x565C)	; ø»’‘
-    (ucs		. #x7386)	; çŽ†
+    (=ucs		. #x7386)	; çŽ†
     ))
 (define-char
   '((=>ucs		. #x7387)	; çŽ‡
@@ -92,7 +92,7 @@
     (chinese-gb2312	. #x424A)	; ø»„·‹
     (chinese-isoir165	. #x424A)	; ø»Ÿ›
     (chinese-cns11643-1 . #x5B7B)	; ø»’™‚
-    (ucs		. #x7387)	; çŽ‡
+    (=ucs		. #x7387)	; çŽ‡
     ))
 (define-char
   '((=>ucs		. #x7388)	; çŽˆ
@@ -107,7 +107,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (chinese-cns11643-2 . #x372F)	; ø»“­‚
-    (ucs		. #x7388)	; çŽˆ
+    (=ucs		. #x7388)	; çŽˆ
     ))
 (define-char
   '((=>ucs		. #x248E7)	; ð¤£§
@@ -116,7 +116,7 @@
     (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
+      (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0208	  . #x383C)	; ø½Š˜‰
       (korean-ksc5601	  . #x7A5C)	; ø»Šµ
@@ -124,19 +124,19 @@
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
+	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((ucs		    . #x5C71)	; å±±
+       ((=ucs		    . #x5C71)	; å±±
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (ucs		      . #x2FF1)	; â¿±
+	  (=ucs		      . #x2FF1)	; â¿±
 	  )
 	 ((name*	      . "ideographic component person for top")
-	  (ucs		      . #x20089)	; ð ‚‰
+	  (=ucs		      . #x20089)	; ð ‚‰
 	  )
 	 ((name		      . "CJK RADICAL DIVINATION")
-	  (ucs		      . #x2E8A)	; âºŠ
+	  (=ucs		      . #x2E8A)	; âºŠ
 	  ))
 	))
       ))
@@ -150,31 +150,31 @@
     (hanyu-dazidian	1 291 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
+      (=ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs		  . #x7384)	; çŽ„
+     ((=ucs		  . #x7384)	; çŽ„
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
+	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((ucs		    . #x5C71)	; å±±
+       ((=ucs		    . #x5C71)	; å±±
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (ucs		      . #x2FF1)	; â¿±
+	  (=ucs		      . #x2FF1)	; â¿±
 	  )
 	 ((name*	      . "ideographic component person for top")
-	  (ucs		      . #x20089)	; ð ‚‰
+	  (=ucs		      . #x20089)	; ð ‚‰
 	  )
 	 ((name		      . "CJK RADICAL DIVINATION")
-	  (ucs		      . #x2E8A)	; âºŠ
+	  (=ucs		      . #x2E8A)	; âºŠ
 	  ))
 	))
       ))
     (chinese-cns11643-6 . #x4B46)	; ø»œ³
     (=hanziku-1		. #xE1F1)	; ý¢€ž‡±
-    (ucs		. #x248E7)	; ð¤£§
+    (=ucs		. #x248E7)	; ð¤£§
     ))
 (define-char
   '((=>ucs		. #x248E8)	; ð¤£¨
@@ -183,13 +183,13 @@
     (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
+      (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0208	  . #x383C)	; ø½Š˜‰
       (korean-ksc5601	  . #x7A5C)	; ø»Šµ
       (ideograph-daikanwa . 20814)	; ø¸……Ž
       )
-     ((ucs		  . #x66F7)	; æ›·
+     ((=ucs		  . #x66F7)	; æ›·
       ))
     (ideograph-daikanwa . 20820)	; ø¸……”
     ))
@@ -201,13 +201,13 @@
     (hanyu-dazidian	1 292 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
+      (=ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs		  . #x7384)	; çŽ„
+     ((=ucs		  . #x7384)	; çŽ„
       )
-     ((ucs		  . #x66F7)	; æ›·
+     ((=ucs		  . #x66F7)	; æ›·
       ))
     (chinese-cns11643-6 . #x5E72)	; ø»§
     (=hanziku-1		. #xE254)	; ý¢€ž‰”
-    (ucs		. #x248E8)	; ð¤£¨
+    (=ucs		. #x248E8)	; ð¤£¨
     ))
