@@ -510,7 +510,7 @@
       (ideograph-daikanwa	  . 22959)	; ø¸…¦¯
       ))
     (ideograph-daikanwa . 17073)	; ø¸„Š±
-    (ideograph-cbeta	. 00645)	; ø¸ Š…
+    (=cbeta		. #x0285)	; ø¸ Š…
     (ucs		. #x23C66)	; ð£±¦
     ))
 (define-char

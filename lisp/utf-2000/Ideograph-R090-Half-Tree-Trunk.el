@@ -113,7 +113,7 @@
     (=jis-x0208		. #x602E)	; ø½‹’«
     (korean-ksc5601	. #x5F51)	; ø»‰¶€
     (ideograph-daikanwa . 19763)	; ø¸„´³
-    (ideograph-cbeta	. 00646)	; ø¸ Š†
+    (=cbeta		. #x0286)	; ø¸ Š†
     (ucs		. #x7240)	; ç‰€
     ))
 (define-char
@@ -574,7 +574,7 @@
     (total-strokes	 . 13)
     (japanese-jisx0212	. #x4A4F)	; ø»‹¡Œ
     (ideograph-daikanwa . 19790)	; ø¸„µŽ
-    (ideograph-cbeta	. 02173)	; ø¸ ¡½
+    (=cbeta		. #x087D)	; ø¸ ¡½
     (ucs		. #x7243)	; ç‰ƒ
     ))
 (define-char

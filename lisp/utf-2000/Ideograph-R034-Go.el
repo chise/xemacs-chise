@@ -140,7 +140,7 @@
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (ideograph-cbeta	. 03232)	; ø¸ ² 
+    (=cbeta		. #x0CA0)	; ø¸ ² 
     ))
 (define-char
   '((ideographic-radical . 34)	; â¼¡

@@ -197,7 +197,7 @@
     (chinese-cns11643-3 . #x255F)	; ø»•š
     (=jis-x0213-1-2000	. #x4F5E)	; ø»£—
     (ideograph-daikanwa . 07559)	; ø¸¶‡
-    (ideograph-cbeta	. 00460)	; ø¸ ‡Œ
+    (=cbeta		. #x01CC)	; ø¸ ‡Œ
     (=jef-china3	. #x4ADB)	; øº„«›
     (ucs		. #x5C2B)	; å°«
     ))

@@ -257,7 +257,7 @@
     (japanese-jisx0212	. #x6A32)	; ø»Œ¯
     (chinese-cns11643-4 . #x6D37)	; ø»™¦
     (=jis-x0213-1-2000	. #x7E3F)	; ø»¤œ€
-    (ideograph-cbeta	. 10823)	; ø¸¢©‡
+    (=cbeta		. #x2A47)	; ø¸¢©‡
     (ucs		. #x9B2D)	; é¬­
     ))
 (define-char

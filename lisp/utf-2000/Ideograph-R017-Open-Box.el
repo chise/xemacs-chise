@@ -133,7 +133,7 @@
       )
      ((ucs		  . #x53C8)	; åˆ
       ))
-    (ideograph-cbeta	. 04552)	; ø¸¡‡ˆ
+    (=cbeta		. #x11C8)	; ø¸¡‡ˆ
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼
@@ -152,7 +152,7 @@
     (chinese-cns11643-4 . #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
     (chinese-big5-cdp	. #x8DC7)	; ý¢€ˆ·‡
-    (ideograph-cbeta	. 00631)	; ø¸ ‰·
+    (=cbeta		. #x0277)	; ø¸ ‰·
     (ucs		. #x51F7)	; å‡·
     ))
 (define-char
@@ -498,7 +498,7 @@
     (=jis-x0208			. #x5162)	; ø½Š½
     (ideograph-daikanwa		. 01830)	; ø¸€œ¦
     (ideograph-hanziku-1	. #xE5C8)	; ý¢€ž—ˆ
-    (ideograph-cbeta		. 00630)	; ø¸ ‰¶
+    (=cbeta			. #x0276)	; ø¸ ‰¶
     (ucs			. #x51FE)	; å‡¾
     ))
 (define-char

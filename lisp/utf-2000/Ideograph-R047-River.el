@@ -9,7 +9,7 @@
     (chinese-cns11643-3 . #x213C)	; ø»•–¿
     (ideograph-daikanwa . 08669)	; ø¸‚‡
     (chinese-big5-cdp	. #x8B74)	; ý¢€ˆ­´
-    (ideograph-cbeta	. 02655)	; ø¸ ©Ÿ
+    (=cbeta		. #x0A5F)	; ø¸ ©Ÿ
     (ucs		. #x5DDB)	; å·›
     ))
 (define-char

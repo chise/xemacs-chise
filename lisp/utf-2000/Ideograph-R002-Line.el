@@ -91,7 +91,7 @@
     (ideograph-daikanwa . 00070)	; ø¸€†
     (chinese-big5-cdp	. #x8A4B)	; ý¢€ˆ©‹
     (ideograph-gt-k	. 00209)	; ý¡„€ƒ‘
-    (ideograph-cbeta	. 00286)	; ø¸ „ž
+    (=cbeta		. #x011E)	; ø¸ „ž
     (ideograph-gt	. 00105)	; ý¡€€©
     (ucs		. #x4E2A)	; ä¸ª
     ))

@@ -6011,7 +6011,7 @@
       )
      ((ucs		  . #x544A)	; å‘Š
       ))
-    (ideograph-cbeta	. 01651)	; ø¸ ™³
+    (=cbeta		. #x0673)	; ø¸ ™³
     ))
 (define-char
   '((ideographic-radical . 140)	; â¾‹

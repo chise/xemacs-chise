@@ -6712,7 +6712,7 @@
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (ideograph-cbeta	. 01704)	; ø¸ š¨
+    (=cbeta		. #x06A8)	; ø¸ š¨
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
