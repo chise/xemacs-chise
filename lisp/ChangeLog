@@ -1,3 +1,17 @@
+2000-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Support
+	`insert-char-data'.
+
+	* utf-2000/u03100-Bopomofo.el (BOPOMOFO LETTER K): Add
+	`->ideograph' and `chinese-isoir165'; delete `ideograph-daikanwa'.
+	(BOPOMOFO LETTER C): Likewise.
+	(BOPOMOFO LETTER O): Likewise.
+	(BOPOMOFO LETTER E): Likewise.
+	(BOPOMOFO LETTER U): Add `morohashi-daikanwa',
+	`ideographic-radical', `ideographic-strokes', `total-strokes'; use
+	`->ideograph' instead of `ideograph'.
+
 2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/Ideograph-R197-Salt.el: Reformatted.
