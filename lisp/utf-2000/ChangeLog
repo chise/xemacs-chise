@@ -1,3 +1,29 @@
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (U+8F89): Moved from
+	Ideograph-R042-Small.el.
+	(U+8F8B): Add `total-strokes'.
+	(U+8F8C): Add `total-strokes'.
+	(U+8F8D): Add `total-strokes'.
+	(U+8F8E): Add `total-strokes'.
+
+	* Ideograph-R059-Bristle.el (U+987B): Add `total-strokes'.
+
+	* Ideograph-R039-Child.el (U+5B67): Add `total-strokes'.
+
+	* Ideograph-R033-Scholar.el (U+58F6): Add `total-strokes'.
+	(U+58F8): Add `total-strokes'.
+	(U+5900): Add `total-strokes'.
+
+	* Ideograph-R028-Private.el (U+517F): Add `total-strokes'.
+
+	* Ideograph-R016-Table.el (U+34D8): Modify strokes.
+
+	* Ideograph-R014-Cover.el (U+519A): Add `total-strokes'.
+	(U+51A7): Add `total-strokes'.
+
+	* Ideograph-R007-Two.el (U+4E9F): Modify strokes.
+
 2003-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R079-Weapon.el (U-00023A98): New character.
