@@ -1108,7 +1108,9 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=cns11643-3	. #x5176)	; ø»–ž™
+    (=jis-x0213-2-2000	. #x7170)	; ø»¦“¯
     (=jef-china3	. #x5BA7)	; øº…®§
+    (=ucs@jis		. #x76A1)	; ø»–ž™
     ))
 (define-char
   '((ideographic-radical . 106)	; â½©
