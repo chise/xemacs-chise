@@ -1990,6 +1990,22 @@
     (=hanziku-7		. #xB8B3)	; ý¢»¢³
     ))
 (define-char
+  '((=>daikanwa		. 49345)	; ø»š™„
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (=ucs		. #x24CA3)	; ð¤²£
+    (->subsumptive
+     ((ideographic-radical . 103)	; â½¦
+      (=cns11643-5	  . #x4057)	; ø»š™„
+      (=daikanwa	  . 49345)	; ø¸Œƒ
+      )
+     ((ideographic-radical . 102)	; â½¥
+      (hanyu-dazidian	  4 2546 4)
+      (=hanziku-7	  . #xB851)	; ý¢»¡‘
+      (=ucs@iso		  . #x24CA3)	; ý¢»¡‘
+      ))
+    ))
+(define-char
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
@@ -2119,17 +2135,6 @@
     (=ucs		. #x24C9C)	; ð¤²œ
     (=cns11643-6	. #x5544)	; ø»«
     (=hanziku-7		. #xB7F2)	; ý¢»Ÿ²
-    ))
-(define-char
-  '((ideographic-radical . 102)	; â½¥
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (->identical
-     ((=daikanwa	  . 49345)	; ø¸Œƒ
-      ))
-    (hanyu-dazidian	4 2546 4)
-    (=ucs		. #x24CA3)	; ð¤²£
-    (=hanziku-7		. #xB851)	; ý¢»¡‘
     ))
 (define-char
   '((ideographic-radical . 102)	; â½¥
@@ -2440,6 +2445,22 @@
     (=hanziku-7		. #xB942)	; ý¢»¥‚
     ))
 (define-char
+  '((ideographic-radical@ucs . 102)	; â½¥
+    (ideographic-strokes@ucs . 11)
+    (ideographic-radical@cns . 1)	; â¼€
+    (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (total-strokes	 . 16)
+    (hanyu-dazidian	4 2552 4)
+    (=ucs		. #x24CCF)	; ð¤³
+    (=cns11643-7	. #x2C3B)	; ø»ž˜
+    (=gt		. 00098)	; ý¡€€¢
+    (=gt-pj-2		. #x3051)	; ý¡€€¢
+    (=daikanwa		. 00065)	; ø¸€
+    (=hanziku-7		. #xB974)	; ý¢»¥´
+    ))
+(define-char
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
@@ -2559,17 +2580,6 @@
     (=ucs		. #x24CC9)	; ð¤³‰
     (=cns11643-4	. #x5143)	; ø»˜§ª
     (=hanziku-7		. #xB971)	; ý¢»¥±
-    ))
-(define-char
-  '((ideographic-radical . 102)	; â½¥
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (->identical
-     ((=daikanwa	  . 00065)	; ø¸€
-      ))
-    (hanyu-dazidian	4 2552 4)
-    (=ucs		. #x24CCF)	; ð¤³
-    (=hanziku-7		. #xB974)	; ý¢»¥´
     ))
 (define-char
   '((ideographic-radical . 102)	; â½¥

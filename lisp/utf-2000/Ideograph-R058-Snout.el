@@ -40,7 +40,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (->identical
-     ((=gt		  . 67403)	; ý¡€‹
+     ((=big5-cdp	  . #x8BAB)	; ý¢€ˆ®«
       ))
     (=gt-k		. 00267)	; ý¡„€„‹
     (=gt-pj-k1		. #x3974)	; ý¡„€„‹

@@ -305,15 +305,16 @@
     (=hanziku-1		. #xD2B1)	; ý¢€Š±
     ))
 (define-char
-  '((=>ucs		. #x20FA7)	; ð ¾§
-    (ideographic-radical . 114)	; â½±
-    (ideographic-strokes . 10)
+  '((ideographic-radical@ucs . 30)	; â¼
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 114)	; â½±
+    (ideographic-strokes@cns . 10)
     (total-strokes	 . 15)
-    (->identical
-     ((=ucs		  . #x20FA7)	; ð ¾§
-      ))
+    (hanyu-dazidian	1 683 4)
+    (=ucs		. #x20FA7)	; ð ¾§
     (=cns11643-7	. #x262B)	; ø»ž†”
     (=daikanwa		. 24899)	; ø¸†…ƒ
+    (=hanziku-2		. #xDECE)	; ý¢€­»Ž
     ))
 (define-char
   '((ideographic-radical . 114)	; â½±

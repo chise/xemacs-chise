@@ -156,7 +156,7 @@
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let (ret radical script)
+  (let (ret radical script dest)
     (dolist (feature
 	     (cons 'ideographic-radical
 		   (mapcar
@@ -165,11 +165,23 @@
 		    char-db-feature-domains)))
       (map-char-attribute
        (lambda (chr radical)
-	 (dolist (char (cons chr
-			     (get-char-attribute chr '->denotational)))
+	 (dolist (char (append
+			(if (setq ret
+				  (get-char-attribute chr '<-subsumptive))
+			    (progn
+			      (setq dest nil)
+			      (dolist (pc ret)
+				(unless (get-char-attribute
+					 pc 'ideographic-radical)
+				  (setq dest (cons pc dest))))
+			      dest)
+			  (list chr))
+			(get-char-attribute chr '<-identical)
+			(get-char-attribute chr '->denotational)))
 	   (when (and radical
-		      (eq radical
-			  (char-ideographic-radical char radical))
+		      (or (eq radical
+			      (char-ideographic-radical char radical))
+			  (null (char-ideographic-radical char)))
 		      (or (null (setq script
 				      (get-char-attribute char 'script)))
 			  (memq 'Ideograph script)))
@@ -235,19 +247,22 @@
 ;;         (t (< a b))))
 
 ;;;###autoload
-(defun char-representative-of-daikanwa (char)
+(defun char-representative-of-daikanwa (char &optional radical)
+  (unless radical
+    (setq radical ideographic-radical))
   (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
 	  (encode-char char '=daikanwa-rev2 'defined-only))
       char
     (let ((m (char-feature char '=>daikanwa))
-	  m-m m-s pat)
+	  m-m m-s pat
+	  scs sc ret)
       (or (and (integerp m)
 	       (or (decode-char '=daikanwa-rev2 m 'defined-only)
 		   (decode-char 'ideograph-daikanwa m)))
 	  (when (or m
 		    (setq m (get-char-attribute char 'morohashi-daikanwa)))
-	    (setq m-m (pop m))
-	    (setq m-s (pop m))
+	    (setq m-m (car m))
+	    (setq m-s (nth 1 m))
 	    (if (= m-s 0)
 		(or (decode-char '=daikanwa-rev2 m-m 'defined-only)
 		    (decode-char 'ideograph-daikanwa m-m))
@@ -257,6 +272,19 @@
 				      (if (equal pat v)
 					  c))
 				    'morohashi-daikanwa))))
+	  (when (setq scs (get-char-attribute char '->subsumptive))
+	    (while (and scs
+			(setq sc (car scs))
+			(not
+			 (and
+			  (setq ret
+				(char-representative-of-daikanwa sc))
+			  (or (null radical)
+			      (eq (char-ideographic-radical ret radical)
+				  radical)
+			      (setq ret nil)))))
+	      (setq scs (cdr scs)))
+	    ret)
 	  char))))
 
 (defun char-attributes-poly< (c1 c2 accessors testers defaulters)
@@ -294,14 +322,15 @@
 (defun char-daikanwa-strokes (char &optional radical)
   (unless radical
     (setq radical ideographic-radical))
-  (let ((drc (char-representative-of-daikanwa char)))
-    (if (= (char-ideographic-radical drc radical)
-	   (char-ideographic-radical char radical))
+  (let ((drc (char-representative-of-daikanwa char radical))
+	(r (char-ideographic-radical char radical)))
+    (if (or (null r)
+	    (= (char-ideographic-radical drc radical) r))
 	(setq char drc)))
   (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
-(defun char-daikanwa (char)
+(defun char-daikanwa (char &optional radical)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
       (get-char-attribute char 'morohashi-daikanwa)
@@ -310,7 +339,25 @@
 	     (if (or (get-char-attribute char '<-subsumptive)
 		     (get-char-attribute char '<-denotational))
 		 (list ret 0)
-	       ret)))))
+	       ret)))
+      (let ((scs (get-char-attribute char '->subsumptive))
+	    sc ret)
+	(unless radical
+	  (setq radical ideographic-radical))
+	(when scs
+	  (while (and scs
+		      (setq sc (car scs))
+		      (not
+		       (and
+			(setq ret
+			      (char-representative-of-daikanwa sc))
+			(or (null radical)
+			    (eq (char-ideographic-radical ret radical)
+				radical)
+			    (setq ret nil)))))
+	    (setq scs (cdr scs))))
+	(if ret
+	    (char-daikanwa ret)))))
 
 ;;;###autoload
 (defun char-ucs (char)
