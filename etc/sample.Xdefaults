@@ -204,8 +204,27 @@ Emacs*toolBarShadowThickness:		2
 ! Note that the menubar resources do not use the `face' syntax, since they
 ! are X toolkit widgets and thus outside the domain of XEmacs proper.
 ! 
-Emacs*menubar*Font: 		-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
-Emacs*popup*Font:		-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
+! When X Font Sets are enabled with ./configure --with-xfs (eg, for
+! multilingual menubars and XIM), some .font resources (those specific to
+! the Lucid widget set) are ignored in favor of .fontSet resources.
+! Note that you need to use fontSet (or FontSet) in that case even if you
+! want to specify one font:
+!
+! *menubar*FontSet:	-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
+!
+! There is no harm in having both resources set, except for the confusion
+! you suffer.  Sorry; that's the price of backward compatibility.
+!
+*menubar*Font:		-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
+*popup*Font:		-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
+*menubar*FontSet:	-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*, \
+			-*-*-*-*-*-*-*-120-*-iso10646-1, \
+			-*-*-*-*-*-*-*-120-*-jisx0208.1983-0, \
+			-*-*-*-*-*-*-*-120-*-jisx0201.1976-0
+*popup*FontSet:		-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*, \
+			-*-*-*-*-*-*-*-120-*-iso10646-1, \
+			-*-*-*-*-*-*-*-120-*-jisx0208.1983-0, \
+			-*-*-*-*-*-*-*-120-*-jisx0201.1976-0
 
 ! Font in the Motif dialog boxes.
 ! (Motif uses `fontList' while most other things use `font' - if you don't

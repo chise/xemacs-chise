@@ -518,7 +518,9 @@ by a visible newline, it displays an ellipsis.
 
   Ordinarily, commands that operate on text or move point do not care
 whether the text is invisible.  However, the user-level line motion
-commands explicitly ignore invisible newlines.
+commands explicitly ignore invisible newlines.  Since this causes a
+slow-down of these commands it is turned off by default, controlled by
+the variable @code{line-move-ignore-invisible}.
 
 @node Selective Display
 @section Selective Display

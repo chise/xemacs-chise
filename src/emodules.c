@@ -582,7 +582,7 @@ when a dynamic module is loaded.
 */);
 
   /* #### Export this to Lisp */
-  Vmodule_extensions = build_string (":.ell:.so:.dll");
+  Vmodule_extensions = build_string (":.ell:.so:.dll:.dylib");
   staticpro (&Vmodule_extensions);
 
   load_modules_quietly = 0;

@@ -344,6 +344,7 @@ xm_update_pushbutton (widget_instance* instance, Widget widget,
   XtAddCallback (widget, XmNactivateCallback, xm_generic_callback, instance);
 }
 
+#ifdef LWLIB_WIDGETS_MOTIF
 static void
 xm_update_progress (widget_instance* instance, Widget scale,
 		      widget_value* val)
@@ -373,6 +374,7 @@ xm_update_progress (widget_instance* instance, Widget scale,
 
   XtSetValues (scale, al, 1);
 }
+#endif /* LWLIB_WIDGETS_MOTIF */
 
 #ifdef LWLIB_MENUBARS_MOTIF
 

@@ -478,7 +478,7 @@
     ))
 (define-char
   '((=ks-x1001		. #x3138)	; ø»ˆ²ƒ
-    (=jef-china3	. #x82E4)	; øºˆ‹¤
+    (=jef-china3	. #x93F2)	; øº‰²
     (=ucs		. #xAD6C)	; êµ¬
     ))
 (define-char
@@ -1816,6 +1816,7 @@
     ))
 (define-char
   '((=ks-x1001		. #x346B)	; ø»ˆ·
+    (=jef-china3	. #x93FC)	; øº‰¼
     (=ucs		. #xB300)	; ëŒ€
     ))
 (define-char

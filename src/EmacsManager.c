@@ -87,7 +87,7 @@ EmacsManagerClassRec emacsManagerClassRec = {
     /* num_resources      */    XtNumber(resources),
     /* xrm_class          */    NULLQUARK,
     /* compress_motion	  */	TRUE,
-    /* compress_exposure  */	TRUE,
+    /* compress_exposure  */	XtExposeCompressMaximal | XtExposeNoRegion,
     /* compress_enterleave*/	TRUE,
     /* visible_interest   */    FALSE,
     /* destroy            */    NULL,
