@@ -255,6 +255,16 @@
     (=ucs		. #x5389)	; åŽ‰
     ))
 (define-char
+  '((morohashi-daikanwa	ho 59)
+    (ideographic-radical . 27)	; â¼š
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 69 1)
+    (=hanziku-1		. #xB24A)	; ý¢€›‰Š
+    (mojikyo		. 085201)	; ý €”³‘
+    (=ucs		. #x20A33)	; ð ¨³
+    ))
+(define-char
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -1518,7 +1528,19 @@
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (hanyu-dazidian	1 74 4)
     (=daikanwa		. 02978)	; ø¸€®¢
+    (=hanziku-1		. #xB350)	; ý¢€›
+    (=ucs		. #x20A77)	; ð ©·
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 60)
+    (ideographic-radical . 27)	; â¼š
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=gt-pj-11		. #x4375)	; ý¡€€º²
+    (=gt		. 03762)	; ý¡€€º²
+    (mojikyo		. 085255)	; ý €”´‡
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
@@ -1744,7 +1766,8 @@
     (=ucs		. #x20A84)	; ð ª„
     ))
 (define-char
-  '((ideographic-radical . 27)	; â¼š
+  '((morohashi-daikanwa	ho 61)
+    (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 75 9)
@@ -1759,6 +1782,7 @@
     (=gb2312		. #x4F61)	; ø»…Š¨
     (=iso-ir165		. #x4F61)	; ø»²¸
     (=hanziku-1		. #xB375)	; ý¢€›µ
+    (mojikyo		. 050950)	; ý €Œœ†
     (=ucs		. #x53A2)	; åŽ¢
     ))
 (define-char
@@ -3293,12 +3317,6 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
-    (hanyu-dazidian	1 69 1)
-    (=hanziku-1		. #xB24A)	; ý¢€›‰Š
-    (=ucs		. #x20A33)	; ð ¨³
-    ))
-(define-char
-  '((ideographic-radical . 27)	; â¼š
     (hanyu-dazidian	1 69 14)
     (=hanziku-1		. #xB257)	; ý¢€›‰—
     (=ucs		. #x20A3E)	; ð ¨¾
@@ -3356,12 +3374,6 @@
     (hanyu-dazidian	1 74 3)
     (=hanziku-1		. #xB34F)	; ý¢€›
     (=ucs		. #x20A76)	; ð ©¶
-    ))
-(define-char
-  '((ideographic-radical . 27)	; â¼š
-    (hanyu-dazidian	1 74 4)
-    (=hanziku-1		. #xB350)	; ý¢€›
-    (=ucs		. #x20A77)	; ð ©·
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
