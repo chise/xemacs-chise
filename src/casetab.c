@@ -1,7 +1,6 @@
 /* XEmacs routines to deal with case tables.
    Copyright (C) 1987, 1992, 1993, 1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -30,7 +29,6 @@ Boston, MA 02111-1307, USA.  */
    distribution file chartab.c for details. */
 
 /* Modified for Mule by Ben Wing. */
-/* Modified for UTF-2000 by MORIOKA Tomohiko */
 
 /* Case table consists of four char-table.  Those are for downcase,
    upcase, canonical and equivalent respectively.
@@ -52,9 +50,6 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Qcase_tablep, Qdowncase, Qupcase;
 Lisp_Object Vstandard_case_table;
-#ifdef UTF2000
-Lisp_Object Q_lowercase, Q_uppercase;
-#endif
 
 static void compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse);
 Lisp_Object case_table_char (Lisp_Object ch, Lisp_Object table);
@@ -199,15 +194,6 @@ See also `put-case-table-pair'.
 
   if (EQ (char_case, Qdowncase))
     {
-#ifdef UTF2000
-      Lisp_Object table;
-
-      table = XCASE_TABLE_DOWNCASE (case_table);
-      if (CHAR_TABLEP (table))
-	return Fput_char_table (character, value, table);
-      else
-	return Fput_char_attribute (character, table, value);
-#else
       Fput_char_table (character, value, XCASE_TABLE_DOWNCASE (case_table));
       /* This one is not at all intuitive.  */
       Fput_char_table (character, value, XCASE_TABLE_UPCASE (case_table));
@@ -215,26 +201,15 @@ See also `put-case-table-pair'.
       Fput_char_table (value, value, XCASE_TABLE_CANON (case_table));
       Fput_char_table (value, character, XCASE_TABLE_EQV (case_table));
       Fput_char_table (character, value, XCASE_TABLE_EQV (case_table));
-#endif
     }
   else if (EQ (char_case, Qupcase))
     {
-#ifdef UTF2000
-      Lisp_Object table;
-
-      table = XCASE_TABLE_UPCASE (case_table);
-      if (CHAR_TABLEP (table))
-	return Fput_char_table (character, value, table);
-      else
-	return Fput_char_attribute (character, table, value);
-#else
       Fput_char_table (character, value, XCASE_TABLE_UPCASE (case_table));
       Fput_char_table (character, character, XCASE_TABLE_DOWNCASE (case_table));
       Fput_char_table (character, character, XCASE_TABLE_CANON (case_table));
       Fput_char_table (value, character, XCASE_TABLE_CANON (case_table));
       Fput_char_table (value, character, XCASE_TABLE_EQV (case_table));
       Fput_char_table (character, value, XCASE_TABLE_EQV (case_table));
-#endif
     }
   else
     signal_simple_error ("Char case must be downcase or upcase", char_case);
@@ -252,23 +227,6 @@ UC is an uppercase character and LC is a downcase character.
   CHECK_CHAR (lc);
   CHECK_CASE_TABLE (case_table);
 
-#ifdef UTF2000
-  {
-    Lisp_Object table;
-
-    table = XCASE_TABLE_UPCASE (case_table);
-    if (CHAR_TABLEP (table))
-      Fput_char_table (lc, uc, table);
-    else
-      Fput_char_attribute (lc, table, uc);
-
-    table = XCASE_TABLE_DOWNCASE (case_table);
-    if (CHAR_TABLEP (table))
-      Fput_char_table (uc, lc, table);
-    else
-      Fput_char_attribute (uc, table, lc);
-  }
-#else
   Fput_char_table (lc, lc, XCASE_TABLE_DOWNCASE (case_table));
   Fput_char_table (uc, lc, XCASE_TABLE_UPCASE (case_table));
   Fput_char_table (uc, lc, XCASE_TABLE_DOWNCASE (case_table));
@@ -278,7 +236,6 @@ UC is an uppercase character and LC is a downcase character.
   Fput_char_table (uc, lc, XCASE_TABLE_CANON (case_table));
   Fput_char_table (uc, lc, XCASE_TABLE_EQV (case_table));
   Fput_char_table (lc, uc, XCASE_TABLE_EQV (case_table));
-#endif
   return Qnil;
 }
 
@@ -291,35 +248,6 @@ Return a new case table which is a copy of CASE-TABLE
   CHECK_CASE_TABLE (case_table);
 
   new_obj = allocate_case_table ();
-#ifdef UTF2000
-  {
-    Lisp_Object table;
-
-    table = XCASE_TABLE_DOWNCASE (case_table);
-    if (CHAR_TABLEP (table))
-      XSET_CASE_TABLE_DOWNCASE (new_obj, Fcopy_char_table (table));
-    else
-      XSET_CASE_TABLE_DOWNCASE (new_obj, table);
-
-    table = XCASE_TABLE_UPCASE (case_table);
-    if (CHAR_TABLEP (table))
-      XSET_CASE_TABLE_UPCASE (new_obj, Fcopy_char_table (table));
-    else
-      XSET_CASE_TABLE_UPCASE (new_obj, table);
-
-    table = XCASE_TABLE_CANON (case_table);
-    if (CHAR_TABLEP (table))
-      XSET_CASE_TABLE_CANON (new_obj, Fcopy_char_table (table));
-    else
-      XSET_CASE_TABLE_CANON (new_obj, table);
-
-    table = XCASE_TABLE_EQV (case_table);
-    if (CHAR_TABLEP (table))
-      XSET_CASE_TABLE_EQV (new_obj, Fcopy_char_table (table));
-    else
-      XSET_CASE_TABLE_EQV (new_obj, table);
-  }
-#else
   XSET_CASE_TABLE_DOWNCASE
     (new_obj, Fcopy_char_table (XCASE_TABLE_DOWNCASE (case_table)));
   XSET_CASE_TABLE_UPCASE
@@ -328,7 +256,6 @@ Return a new case table which is a copy of CASE-TABLE
     (new_obj, Fcopy_char_table (XCASE_TABLE_CANON (case_table)));
   XSET_CASE_TABLE_EQV
     (new_obj, Fcopy_char_table (XCASE_TABLE_EQV (case_table)));
-#endif
   return new_obj;
 }
 
@@ -523,10 +450,6 @@ syms_of_casetab (void)
   defsymbol (&Qcase_tablep, "case-table-p");
   defsymbol (&Qdowncase, "downcase");
   defsymbol (&Qupcase, "upcase");
-#ifdef UTF2000
-  defsymbol (&Q_lowercase, "->lowercase");
-  defsymbol (&Q_uppercase, "->uppercase");
-#endif
 
   DEFSUBR (Fcase_table_p);
   DEFSUBR (Fget_case_table);
@@ -549,44 +472,28 @@ complex_vars_of_casetab (void)
 
   Vstandard_case_table = allocate_case_table ();
 
-#ifdef UTF2000
-  tem = Q_lowercase;
-#else /* UTF2000 */
   tem = MAKE_TRT_TABLE ();
-#endif /* not UTF2000 */
   XSET_CASE_TABLE_DOWNCASE (Vstandard_case_table, tem);
   XSET_CASE_TABLE_CANON (Vstandard_case_table, tem);
 
-#ifdef UTF2000
-  Fmount_char_attribute_table (Q_lowercase);
-#endif
   /* Under Mule, can't do set_string_char() until Vcharset_control_1
      and Vcharset_ascii are initialized. */
   for (i = 0; i < 256; i++)
     {
       unsigned char lowered = tolower (i);
 
-      if (lowered != i)
-	SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
+      SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
     }
 
-#ifdef UTF2000
-  tem = Q_uppercase;
-#else /* UTF2000 */
   tem = MAKE_TRT_TABLE ();
-#endif /* not UTF2000 */
   XSET_CASE_TABLE_UPCASE (Vstandard_case_table, tem);
   XSET_CASE_TABLE_EQV (Vstandard_case_table, tem);
 
-#ifdef UTF2000
-  Fmount_char_attribute_table (Q_uppercase);
-#endif
   for (i = 0; i < 256; i++)
     {
       unsigned char flipped = (isupper (i) ? tolower (i)
 			       : (islower (i) ? toupper (i) : i));
 
-      if (flipped != i)
-	SET_TRT_TABLE_CHAR_1 (tem, i, flipped);
+      SET_TRT_TABLE_CHAR_1 (tem, i, flipped);
     }
 }
