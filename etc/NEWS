@@ -502,6 +502,8 @@ You will need to install a LDAP library first.  The following have
 been tested:
   - LDAP 3.3 from the University of Michigan
     (get it from <URL:http://www.umich.edu/~dirsvcs/ldap/>)
+  - OpenLDAP 1.0.3 from the OpenLDAP Foundation
+    (get it from <URL:http://www.openldap.org/>)
   - LDAP SDK 1.0 from Netscape Corp.
     (get it from <URL:http://developer.netscape.com/>)
 
