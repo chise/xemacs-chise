@@ -1,5 +1,6 @@
 /* Simple built-in editing commands.
    Copyright (C) 1985, 1992, 1993, 1994, 1995 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -350,7 +351,11 @@ internal_self_insert (Emchar c1, int noautofill)
   int tab_width;
 
   overwrite = buf->overwrite_mode;
+#ifdef UTF2000
+  syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
 #if 0
   /* No, this is very bad, it makes undo *always* undo a character at a time
@@ -524,6 +529,11 @@ A char-table for characters which invoke auto-filling.
 Such characters have value t in this table.
 */);
   Vauto_fill_chars = Fmake_char_table (Qgeneric);
+#ifdef UTF2000
+  put_char_id_table_0 (XCHAR_TABLE (Vauto_fill_chars), ' ', Qt);
+  put_char_id_table_0 (XCHAR_TABLE (Vauto_fill_chars), '\n', Qt);
+#else
   XCHAR_TABLE (Vauto_fill_chars)->ascii[' '] = Qt;
   XCHAR_TABLE (Vauto_fill_chars)->ascii['\n'] = Qt;
+#endif
 }

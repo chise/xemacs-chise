@@ -3397,7 +3397,34 @@ Codename of this version of Emacs (a string).
 #ifndef XEMACS_CODENAME
 #define XEMACS_CODENAME "Noname"
 #endif
+#ifdef MULE
+  {
+    char dest[129];
+    char src[64] = XEMACS_CODENAME;
+    unsigned char* sp = (unsigned char*)src;
+    int i = 0, chr;
+
+    while ( (chr = *sp++) && (i < 128) )
+      {
+	if (chr <= 0x7F)
+	  dest[i++] = chr;
+	else
+	  {
+#ifdef UTF2000
+	    dest[i++] = (chr >> 6) | 0xC0;
+	    dest[i++] = (chr & 0x3F) | 0x80;
+#else
+	    dest[i++] = LEADING_BYTE_LATIN_ISO8859_1;
+	    dest[i++] = chr;
+#endif
+	  }
+      }
+    dest[i] = 0;
+    Vxemacs_codename = build_string (dest);
+  }
+#else  
   Vxemacs_codename = build_string (XEMACS_CODENAME);
+#endif
 
   /* Lisp variables which contain command line flags.
 

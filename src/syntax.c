@@ -1,6 +1,7 @@
 /* XEmacs routines to deal with syntax tables; also word and list parsing.
    Copyright (C) 1985-1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -229,7 +230,9 @@ BUFFER defaults to the current buffer if omitted.
   struct buffer *buf = decode_buffer (buffer, 0);
   syntax_table = check_syntax_table (syntax_table, Qnil);
   buf->syntax_table = syntax_table;
+#ifndef UTF2000
   buf->mirror_syntax_table = XCHAR_TABLE (syntax_table)->mirror_table;
+#endif
   /* Indicate that this buffer now has a specified syntax table.  */
   buf->local_var_flags |= XINT (buffer_local_flags.syntax_table);
   return syntax_table;
@@ -316,8 +319,12 @@ update_syntax_cache (int pos, int count, int init)
       if (EQ (Fsyntax_table_p (tmp_table), Qt))
 	{
 	  syntax_cache.use_code = 0;
+#ifdef UTF2000
+	  syntax_cache.current_syntax_table = tmp_table;
+#else
 	  syntax_cache.current_syntax_table =
 	    XCHAR_TABLE (tmp_table)->mirror_table;
+#endif
 	} 
       else if (CONSP (tmp_table) && INTP (XCAR (tmp_table)))
 	{
@@ -327,8 +334,13 @@ update_syntax_cache (int pos, int count, int init)
       else 
 	{
 	  syntax_cache.use_code = 0;
+#ifdef UTF2000
+	  syntax_cache.current_syntax_table =
+	    syntax_cache.buffer->syntax_table;
+#else
 	  syntax_cache.current_syntax_table =
 	    syntax_cache.buffer->mirror_syntax_table;
+#endif
 	}
     }
 }
@@ -382,7 +394,9 @@ syntax table.
 */
        (character, syntax_table))
 {
+#ifndef UTF2000
   Lisp_Char_Table *mirrortab;
+#endif
 
   if (NILP (character))
     {
@@ -390,8 +404,13 @@ syntax table.
     }
   CHECK_CHAR_COERCE_INT (character);
   syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+#ifdef UTF2000
+  return make_char (syntax_code_spec[(int) SYNTAX (XCHAR_TABLE(syntax_table),
+						   XCHAR (character))]);
+#else
   mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
   return make_char (syntax_code_spec[(int) SYNTAX (mirrortab, XCHAR (character))]);
+#endif
 }
 
 #ifdef MULE
@@ -427,13 +446,19 @@ syntax table.
 */
        (character, syntax_table))
 {
+#ifndef UTF2000
   Lisp_Char_Table *mirrortab;
+#endif
   int code;
 
   CHECK_CHAR_COERCE_INT (character);
   syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+#ifdef UTF2000
+  code = SYNTAX (XCHAR_TABLE (syntax_table), XCHAR (character));
+#else
   mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
   code = SYNTAX (mirrortab, XCHAR (character));
+#endif
   if (code == Sopen || code == Sclose || code == Sstring)
     return syntax_match (syntax_table, XCHAR (character));
   return Qnil;
@@ -1543,7 +1568,11 @@ Optional arg BUFFER defaults to the current buffer.
   Bufpos beg = BUF_BEGV (buf);
   Bufpos pos = BUF_PT (buf);
 #ifndef emacs
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 #endif
   Emchar c = '\0'; /* initialize to avoid compiler warnings */
 
@@ -2024,6 +2053,7 @@ cmst_mapfun (struct chartab_range *range, Lisp_Object val, void *arg)
   return 0;
 }
 
+#ifndef UTF2000
 static void
 update_just_this_syntax_table (Lisp_Char_Table *ct)
 {
@@ -2058,6 +2088,7 @@ update_syntax_table (Lisp_Char_Table *ct)
   else
     update_just_this_syntax_table (ct);
 }
+#endif
 
 
 /************************************************************************/

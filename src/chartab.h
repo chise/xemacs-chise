@@ -1,6 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -27,6 +28,88 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_chartab_h_
 #define INCLUDED_chartab_h_
 
+
+#ifdef UTF2000
+
+#ifdef HAVE_DATABASE
+#include "database.h"
+#endif
+
+EXFUN (Fmake_char, 3);
+EXFUN (Fdecode_char, 3);
+
+EXFUN (Fput_char_attribute, 3);
+
+EXFUN (Ffind_char, 1);
+
+
+/************************************************************************/
+/*			    Char-ID Tables                              */
+/************************************************************************/
+
+struct Lisp_Uint8_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned char property[256];
+};
+typedef struct Lisp_Uint8_Byte_Table Lisp_Uint8_Byte_Table;
+
+DECLARE_LRECORD (uint8_byte_table, Lisp_Uint8_Byte_Table);
+#define XUINT8_BYTE_TABLE(x) \
+   XRECORD (x, uint8_byte_table, Lisp_Uint8_Byte_Table)
+#define XSETUINT8_BYTE_TABLE(x, p) XSETRECORD (x, p, uint8_byte_table)
+#define UINT8_BYTE_TABLE_P(x) RECORDP (x, uint8_byte_table)
+#define GC_UINT8_BYTE_TABLE_P(x) GC_RECORDP (x, uint8_byte_table)
+/* #define CHECK_UINT8_BYTE_TABLE(x) CHECK_RECORD (x, uint8_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Uint16_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned short property[256];
+};
+typedef struct Lisp_Uint16_Byte_Table Lisp_Uint16_Byte_Table;
+
+DECLARE_LRECORD (uint16_byte_table, Lisp_Uint16_Byte_Table);
+#define XUINT16_BYTE_TABLE(x) \
+   XRECORD (x, uint16_byte_table, Lisp_Uint16_Byte_Table)
+#define XSETUINT16_BYTE_TABLE(x, p) XSETRECORD (x, p, uint16_byte_table)
+#define UINT16_BYTE_TABLE_P(x) RECORDP (x, uint16_byte_table)
+#define GC_UINT16_BYTE_TABLE_P(x) GC_RECORDP (x, uint16_byte_table)
+/* #define CHECK_UINT16_BYTE_TABLE(x) CHECK_RECORD (x, uint16_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Byte_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object property[256];
+};
+typedef struct Lisp_Byte_Table Lisp_Byte_Table;
+
+DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
+#define XBYTE_TABLE(x) XRECORD (x, byte_table, Lisp_Byte_Table)
+#define XSETBYTE_TABLE(x, p) XSETRECORD (x, p, byte_table)
+#define BYTE_TABLE_P(x) RECORDP (x, byte_table)
+#define GC_BYTE_TABLE_P(x) GC_RECORDP (x, byte_table)
+/* #define CHECK_BYTE_TABLE(x) CHECK_RECORD (x, byte_table)
+   char table entries should never escape to Lisp */
+
+Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
+
+Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
+			    Lisp_Object value);
+
+
+Lisp_Object make_char_id_table (Lisp_Object initval);
+
+#endif
+
+
 /************************************************************************/
 /*                               Char Tables                            */
 /************************************************************************/
@@ -35,7 +118,7 @@ Boston, MA 02111-1307, USA.  */
    When not under Mule, there are only 256 possible characters
    so we just represent them directly. */
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 struct Lisp_Char_Table_Entry
 {
@@ -69,16 +152,25 @@ enum char_table_type
   CHAR_TABLE_TYPE_CHAR
 };
 
+#ifndef UTF2000
 #ifdef MULE
 #define NUM_ASCII_CHARS 160
 #else
 #define NUM_ASCII_CHARS 256
+#endif
 #endif
 
 struct Lisp_Char_Table
 {
   struct lcrecord_header header;
 
+#ifdef UTF2000
+  Lisp_Object table;
+  Lisp_Object default_value;
+  Lisp_Object name;
+  Lisp_Object db;
+  unsigned char unloaded;
+#else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
 #ifdef MULE
@@ -110,11 +202,14 @@ struct Lisp_Char_Table
   Lisp_Object level1[NUM_LEADING_BYTES];
 
 #endif /* MULE */
+#endif /* non UTF2000 */
 
   enum char_table_type type;
 
+#ifndef UTF2000
   /* stuff used for syntax tables */
   Lisp_Object mirror_table;
+#endif
   Lisp_Object next_table; /* DO NOT mark through this. */
 };
 typedef struct Lisp_Char_Table Lisp_Char_Table;
@@ -129,10 +224,37 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #define CHAR_TABLE_TYPE(ct) ((ct)->type)
 #define XCHAR_TABLE_TYPE(ct) CHAR_TABLE_TYPE (XCHAR_TABLE (ct))
 
-#ifdef MULE
+#ifdef UTF2000
+
+#define CHAR_TABLE_NAME(ct) ((ct)->name)
+#define XCHAR_TABLE_NAME(ct) CHAR_TABLE_NAME (XCHAR_TABLE (ct))
+
+#define CHAR_TABLE_UNLOADED(ct) ((ct)->unloaded)
+#define XCHAR_TABLE_UNLOADED(ct) CHAR_TABLE_UNLOADED (XCHAR_TABLE (ct))
+
+INLINE_HEADER Lisp_Object
+CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
+INLINE_HEADER Lisp_Object
+CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
+{
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (ct->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+  if (UNBOUNDP (val))
+    return ct->default_value;
+  else
+    return val;
+}
+
+#elif defined(MULE)
 
 Lisp_Object get_non_ascii_char_table_value (Lisp_Char_Table *ct,
-					    int leading_byte,
+					    Charset_ID leading_byte,
 					    Emchar c);
 
 INLINE_HEADER Lisp_Object
@@ -140,7 +262,11 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 {
-  unsigned char lb = CHAR_LEADING_BYTE (ch);
+#ifdef UTF2000
+  Charset_ID lb = CHAR_CHARSET_ID (ch);
+#else
+  Charset_ID lb = CHAR_LEADING_BYTE (ch);
+#endif
   if (!CHAR_TABLE_ENTRYP ((ct)->level1[lb - MIN_LEADING_BYTE]))
     return (ct)->level1[lb - MIN_LEADING_BYTE];
   else
@@ -164,6 +290,9 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 enum chartab_range_type
 {
   CHARTAB_RANGE_ALL,
+#ifdef UTF2000
+  CHARTAB_RANGE_DEFAULT,
+#endif
 #ifdef MULE
   CHARTAB_RANGE_CHARSET,
   CHARTAB_RANGE_ROW,
@@ -197,6 +326,92 @@ EXFUN (Fget_char_table, 2);
 
 extern Lisp_Object Vall_syntax_tables;
 
+
+#ifdef UTF2000
+
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value);
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
+{
+  Lisp_Object table1, table2, table3, table4;
+	
+  table1 = cit->table;
+  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
+  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
+  table4 = get_byte_table (table3, (unsigned char)(code >>  8));
+
+  table4     = put_byte_table (table4, (unsigned char) code, value);
+  table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
+  table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
+  cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+}
+
+#ifdef HAVE_DATABASE
+extern Lisp_Object Qsystem_char_id;
+
+Lisp_Object
+char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
+			       int writing_mode);
+
+Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
+#endif
+
+INLINE_HEADER Lisp_Object
+get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch)
+{
+  return get_byte_table (get_byte_table
+			 (get_byte_table
+			  (get_byte_table
+			   (cit->table,
+			    (unsigned char)(ch >> 24)),
+			   (unsigned char) (ch >> 16)),
+			  (unsigned char)  (ch >> 8)),
+			 (unsigned char)    ch);
+}
+
+INLINE_HEADER Lisp_Object
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
+{
+  Lisp_Object val = get_char_id_table_0 (cit, ch);
+
+#ifdef HAVE_DATABASE
+  if (EQ (val, Qunloaded))
+    {
+      val = load_char_attribute_maybe (cit, ch);
+      put_char_id_table_0 (cit, ch, val);
+    }
+#endif
+  if (UNBOUNDP (val))
+    return cit->default_value;
+  else
+    return val;
+}
+
+void
+decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
+
+INLINE_HEADER void
+put_char_id_table (Lisp_Char_Table* table,
+		   Lisp_Object character, Lisp_Object value);
+INLINE_HEADER void
+put_char_id_table (Lisp_Char_Table* table,
+		   Lisp_Object character, Lisp_Object value)
+{
+  struct chartab_range range;
+
+  decode_char_table_range (character, &range);
+  put_char_table (table, &range, value);
+}
+
+
+EXFUN (Fget_char_attribute, 3);
+
+#endif
 
 
 #ifdef MULE

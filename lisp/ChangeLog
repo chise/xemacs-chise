@@ -1,3 +1,679 @@
+2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el: Don't specify `auto-fill-chars' for
+	`katakana-jisx0201', `japanese-jisx0208', `japanese-jisx0212',
+	`chinese-gb2312', `chinese-big5-1' and `chinese-big5-2'.
+	(default-coded-charset-priority-list): Add `chinese-big5-1' and
+	`chinese-big5-2' in UTF-2000.
+
+	* mule/chinese.el: Set syntax-entry "w" for `chinese-big5' instead
+	of `chinese-big5-1' and `chinese-big5-2' in UTF-2000.
+
+2002-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/chinese.el: Add new coding-systems `big5-er', `big5-eten',
+	`big5-eten-er' in UTF-2000.
+	(big5-cdp): Modify DOC-string and mnemonic.
+
+2002-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-mcs-er): New coding-system in
+	UTF-2000 [renamed from utf-8-er].
+	(utf-8-gb): New coding-system in UTF-2000.
+	(utf-8-gb-er): Likewise.
+	(utf-8-cns): Likewise.
+	(utf-8-cns-er): Likewise.
+	(utf-8-big5): Likewise.
+	(utf-8-big5-er): Likewise.
+	(utf-8-jis): Likewise.
+	(utf-8-jis-er): Likewise.
+	(utf-8-ks): Likewise.
+	(utf-8-ks-er): Likewise.
+	(utf-8-er): Likewise.
+
+2002-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use `utf-8-mcs-unix'
+	instead of `utf-8-unix' in UTF-2000.
+
+	* mule/mule-coding.el (utf-8): Define as an alias for `utf-8-mcs'.
+
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/japanese.el (euc-jisx0213): New coding-system.
+
+	* mule/mule-conf.el (japanese-jisx0213-1): Specify
+	`japanese-jisx0208-1990' as the mother.
+
+2002-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Change condition of
+	loading "close-cdb".
+
+2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-er): New coding-system in UTF-2000;
+	setup `coded-charset-entity-reference-alist'.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Dump "close-cdb" in
+	UTF-2000.
+
+2002-04-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-big5-eten-a' and `chinese-big5-eten-b'.
+
+2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (chinese-big5-pua): New coded-charset.
+	(chinese-big5-eten-a): Likewise.
+	(chinese-big5-eten-b): Likewise.
+	(chinese-big5-cdp): Declare as a subset of `chinese-big5' whose
+	code range is #x8140 .. #x8DFE.
+
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (chinese-big5-eten): New coded-charset in
+	UTF-2000.
+	(chinese-big5-cdp): Likewise.
+
+2002-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Rename
+	utf-2000/make-cdbs.el -> utf-2000/update-cdb.el.
+
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-elc.el: Load lisp/utf-2000/dumped-chars.el in UTF-2000;
+	append `system-char-db-source-file-list' into
+	`preloaded-file-list' in UTF-2000.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	character-definition files.
+
+2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add `make-cdbs' in
+	UTF-2000.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Delete `mojikyo-2022-1'.
+
+2001-12-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Delete `mojikyo'.
+
+2001-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs-sip'.
+
+2001-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Comment out `chinese-gb12345'.
+
+2001-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Fixed.
+
+2001-10-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Dump `ad-hoc-cdp' in
+	XEmacs UTF-2000.
+
+2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/chinese.el (big5-cdp): New coding-system in XEmacs
+	UTF-2000.
+
+2001-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-hanziku-{1 .. 12}' in XEmacs UTF-2000.
+
+2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	`japanese-jef-china3' is renamed `china3-jef'.
+
+2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jef-china3' and `ideograph-cbeta'.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* list-mode.el: Delete dirty hack for XEmacs UTF-2000.
+
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-big5-cdp'.
+
+2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`arabic-digit', `arabic-1-column' and `arabic-2-column'.
+
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Load "arabic" before
+	loading character definitions.
+
+2001-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Rename
+	u031A0-Extended-Bopomofo.el to u031A0-Bopomofo-Extended.el.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-big5'.
+
+2001-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Dump
+	"Ideograph-R028-Private" with XEmacs UTF-2000.
+
+2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-gb12345'.
+
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-gt-pj-{1..11}'.
+
+	* dumped-lisp.el (preloaded-file-list): Dump `isolated-char' in
+	XEmacs UTF-2000.
+
+2000-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `chinese-gb2312' than `chinese-cns11643-*'; add
+	`chinese-isoir165'.
+
+2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* format.el (format-alist): Revive `image/jpeg', `image/gif',
+	`image/png', `image/x-xpm' and `image/tiff'.
+
+	* files.el (binary-file-regexps): Add *.PNG.
+
+2000-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `japanese-jisx0208-1990' than `japanese-jisx0212'; prefer
+	`korean-ksc5601' than `japanese-jisx0213-1'; add `mojikyo-2022-1'.
+
+2000-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* list-mode.el: Call `completion-list-mode' to avoid slowness of
+	the first completion when UTF-2000 is running.
+
+2000-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Delete `ucs'.
+
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Don't add "mojikyo".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`mojikyo' instead of `mojikyo-pj-[1..21]'.
+
+2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/vietnamese.el (vscii-2): Delete abolished property
+	`composite'; now composite mode is default.
+
+2000-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use `binary' instead
+	of `raw-text'; check \uHHHH representation even if non-ascii
+	characters are not found.
+
+	* dumped-lisp.el (preloaded-file-list): Add "ccs-tcvn5712.el" in
+	UTF-2000; add "viet-ccl" in non-UTF-2000 Mule; add "vietnamese"
+	unconditionally.
+
+	* mule/viet-ccl.el: New file.
+
+	* mule/vietnamese.el (vscii-2): New coding-system in UTF-2000.
+	(tcvn-5712): New coding-system alias of `vscii-2' in UTF-2000.
+	- Separate CCL based implementations to viet-ccl.el.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule/mule-conf.el (japanese-jisx0213-1): Allow
+	"jisx0213.2000-1".
+	(japanese-jisx0213-2): Allow "jisx0213.2000-2".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `japanese-jisx0213-1' and `japanese-jisx0213-2' to
+	`japanese-jisx0208-1978' and `japanese-jisx0208-1990'.
+
+2000-01-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "mojikyo" in UTF-2000.
+
+2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs' in UTF-2000.
+
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `mojikyo-pj-*' and `ideograph-daikanwa' to `ucs-bmp' and
+	`arabic-iso8859-6'.
+
+2000-01-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`mojikyo-pj-[1 .. 21]' in UTF-2000.
+
+2000-01-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`katakana-jisx0201' in UTF-2000.
+
+1999-12-23  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u0A000-Yi-Syllables",
+	"u0AC00-Hangul-Syllables", "u0FB00-Alphabetic-Presentation-Forms",
+	"u0FB50-Arabic-Presentation-Forms-A",
+	"u0FE20-Combining-Half-Marks", "u0FE30-CJK-Compatibility-Forms",
+	"u0FE50-Small-Form-Variants",
+	"u0FE70-Arabic-Presentation-Forms-B",
+	"u0FF00-Halfwidth-and-Fullwidth-Forms" and "u0FFF0-Specials" in
+	UTF-2000.
+
+1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	"ccs-jisx0208-1983.el"; add "Ideograph-R031-Enclosure"
+	... "Ideograph-R214-Flute" in UTF-2000.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-conf.el (japanese-jisx0213-1): New coded-charset.
+	(japanese-jisx0213-2): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"Ideograph-R028-Private", "Ideograph-R029-Again" and
+	"Ideograph-R030-Mouth".
+
+1999-11-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R012-Eight",
+	"Ideograph-R013-Down-Box", "Ideograph-R014-Cover",
+	"Ideograph-R015-Ice", "Ideograph-R016-Table",
+	"Ideograph-R017-Open-Box", "Ideograph-R018-Knife",
+	"Ideograph-R019-Power", "Ideograph-R020-Wrap", "Ideograph-R021-Spoon",
+	"Ideograph-R022-Right-Open-Box", "Ideograph-R023-Hiding-Enclosure",
+	"Ideograph-R024-Ten", "Ideograph-R025-Divination",
+	"Ideograph-R026-Seal" and "Ideograph-R027-Cliff" in UTF-2000.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R002-Line",
+	"Ideograph-R003-Dot", "Ideograph-R004-Slash",
+	"Ideograph-R005-Second", "Ideograph-R006-Hook",
+	"Ideograph-R007-Two", "Ideograph-R008-Lid", "Ideograph-R009-Man",
+	"Ideograph-R010-Legs" and "Ideograph-R011-Enter".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208-1990' and `japanese-jisx0208-1978'.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R001-One"
+	in UTF-2000.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-conf.el (sisheng): Moved from mule/chinese.el.
+	(chinese-isoir165): Moved from mule/chinese.el.
+	(chinese-cns11643-3): Moved from mule/chinese.el.
+	(chinese-cns11643-4): Moved from mule/chinese.el.
+	(chinese-cns11643-5): Moved from mule/chinese.el.
+	(chinese-cns11643-6): Moved from mule/chinese.el.
+	(chinese-cns11643-7): Moved from mule/chinese.el.
+
+	* mule/chinese.el: Move definition of coded-charsets to
+	mule/mule-conf.el.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-daikanwa'.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	"ccs-jisx0201-latin.el".
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u031A0-Extended-Bopomofo" in UTF-2000.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): u02E00-CJK-Radicals was
+	renamed to u02E00-CJK-Radical-Supplement.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u03000-CJK-Symbols-and-Punctuation", "u03040-Hiragana",
+	"u030A0-Katakana", "u03100-Bopomofo",
+	"u03130-Hangul-Compatibility-Jamo", "u03190-Kanbun",
+	"u03200-Enclosed-CJK-Letters-and-Months" and
+	"u03300-CJK-Compatibility".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u02E00-CJK-Radicals",
+	"u02F00-Kangxi-Radicals" and
+	"u02FF0-Ideographic-Description-Characters".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02600-Miscellaneous-Symbols", "u02700-Dingbats" and
+	"u02800-Braille-Patterns" in UTF-2000.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Load "uXXXXX-*" instead of
+	"uXXXXX-*.el" in UTF-2000.
+
+	* bytecomp.el (byte-compile-insert-header): Delete comments if
+	non-ASCII characters are found; allow `byte-compile-dynamic' and
+	`byte-compile-dynamic-docstrings' if *.elc will be encoded by
+	`raw-text'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02500-Box-Drawing.el", "u02580-Block-Elements.el" and
+	"u025A0-Geometric-Shapes.el".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02400-Control-Pictures.el", "u02440-OCR.el" and
+	"u02460-Enclosed-Alphanumerics.el".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-gb2312'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02200-Mathematical-Operators.el" and
+	"u02300-Miscellaneous-Technical.el".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-cns11643-*'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02100-Letterlike-Symbols.el", "u02150-Number-Forms.el" and
+	"u02190-Arrows.el" in UTF-2000.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`korean-ksc5601'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02000-General-Punctuation.el", "u02070-Superscripts.el",
+	"u02080-Subscripts.el", "u020A0-Currency-Symbols.el" and
+	"u020D0-Combining-Diacritical-Marks-for-Symbols.el" in UTF-2000.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Delete "ccs-viscii.el".
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u013A0-Cherokee.el",
+	"u01400-Canadian.el", "u01680-Ogham.el", "u016A0-Runic.el",
+	"u01780-Khmer.el", "u01800-Mongolian.el",
+	"u01E00-Latin-Extended-Additional.el" and
+	"u01F00-Greek-Extended.el" in UTF-2000.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ethiopic-ucs' and `ethiopic'.
+
+	* dumped-lisp.el (preloaded-file-list): Add "u010A0-Georgian.el",
+	"u01100-Hangul-Jamo.el" and "u01200-Ethiopic.el".
+
+	* mule/mule-conf.el: Move definition of coded-charset `ethiopic'
+	from mule/ethiopic.el.
+
+	* mule/ethiopic.el: Move definition of coded-charset `ethiopic' to
+	mule/mule-conf.el.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`lao'.
+
+	* mule/mule-conf.el (lao): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u00900-Devanagari.el", "u00980-Bengali.el", "u00A00-Gurmukhi.el",
+	"u00A80-Gujarati.el", "u00B00-Oriya.el", "u00B80-Tamil.el",
+	"u00C00-Telugu.el", "u00C80-Kannada.el", "u00D00-Malayalam.el",
+	"u00D80-Sinhala.el", "u00E00-Thai.el", "u00E80-Lao.el",
+	"u00F00-Tibetan.el" and "u01000-Myanmar.el".
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs-bmp' and `arabic-iso8859-6'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u00400-Cyrillic.el",
+	"u00530-Armenian.el", "u00590-Hebrew.el", "u00600-Arabic.el",
+	"u00700-Syriac.el" and "u00780-Thaana.el" in UTF-2000.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* startup.el (normal-top-level): Load autoload file for UTF-2000
+	in UTF-2000.
+
+1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "mule-conf" in Mule;
+	delete "ccs-iso8859-*.el"; add "u00000-C0.el",
+	"u00020-Basic-Latin.el", "u00080-C1.el",
+	"u000A0-Latin-1-Supplement.el", "u00100-Latin-Extended-A.el",
+	"u00180-Latin-Extended-B.el", "u00250-IPA-Extensions.el",
+	"u002B0-Spacing-Modifier-Letters.el",
+	"u00300-Combining-Diacritical-Marks.el" and "u00370-Greek.el" in
+	UTF-2000.
+
+1999-11-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0212' and `ipa' in UTF-2000; use `latin-viscii-*'
+	instead of `vietnamese-viscii-*'.
+
+1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-conf.el: New file.
+
+	* mule/misc-lang.el: Move definition of charset `ipa' to
+	mule/mule-conf.el.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`latin-viscii'; prefer it for characters used in Vietnamese.
+
+1999-10-08   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Fix regexp.
+
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/viet-chars.el (latin-viscii-lower): Renamed from charset
+	`vietnamese-viscii-lower'.
+	(latin-viscii-upper): Renamed from charset
+	`vietnamese-viscii-upper'.
+	(vietnamese-viscii-lower): New alias for charset
+	`latin-viscii-lower'.
+	(vietnamese-viscii-upper): New alias for charset
+	`latin-viscii-upper'.
+
+1999-10-05  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Comment out `hiragana-jisx0208' and `katakana-jisx0208'.
+
+1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/ccs-jisx0208-1983.el, mule/ccs-tcvn5712.el,
+	mule/ccs-viscii.el, mule/ccs-iso8859-9.el,
+	mule/ccs-jisx0201-latin.el, mule/ccs-iso8859-2.el,
+	mule/ccs-iso8859-3.el, mule/ccs-iso8859-4.el: Moved to
+	lisp/utf-2000.
+
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/ccs-tcvn5712.el: New file.
+
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "ccs-jisx0208-1983.el"
+	in UTF-2000.
+
+1999-10-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208'.
+
+1999-10-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"ccs-jisx0201-latin.el", "ccs-iso8859-2.el", "ccs-iso8859-3.el",
+	"ccs-iso8859-4.el", "ccs-iso8859-9.el" and "ccs-viscii.el" in
+	UTF-2000.
+
+	* mule/ccs-iso8859-2.el, mule/ccs-iso8859-3.el,
+	mule/ccs-iso8859-4.el, mule/ccs-iso8859-9.el,
+	mule/ccs-jisx0201-latin.el, mule/ccs-jisx0208-1983.el,
+	mule/ccs-viscii.el: New files.
+
+	* bytecomp.el (byte-compile-insert-header): Don't use `raw-text'
+	if \uXXXX is found.
+
+1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`hiragana-jisx0208' and `katakana-jisx0208'.
+
+1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el (chinese-cns11643-3): Define it even if
+	`utf-2000' is provided.
+	(chinese-cns11643-4): Likewise.
+	(chinese-cns11643-5): Likewise.
+	(chinese-cns11643-6): Likewise.
+	(chinese-cns11643-7): Likewise.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	thai-tis620 and hebrew-iso8859-8; namely all BMP are covered.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`cyrillic-iso8859-5' and `greek-iso8859-7'.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Setup in UTF-2000.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/viet-chars.el: Don't define charset
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper' because
+	they are defined as builtin charsets.
+
+1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* version.el (emacs-version): Add more space just before UTF-2000
+	version string.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* version.el ([constant] emacs-version): Don't add a space in the
+	preceding place of `xemacs-betaname' because it is duplicated.
+	(emacs-version): Add UTF-2000 version if `utf-2000' is provided.
+
+	* startup.el (splash-frame-body): Add ETL.
+
+1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el (chinese-cns11643-3): Don't define if `utf-2000'
+	is provided because it is defined as builtin charset.
+	(chinese-cns11643-4): Likewise.
+	(chinese-cns11643-5): Likewise.
+	(chinese-cns11643-6): Likewise.
+	(chinese-cns11643-7): Likewise.
+
+1999-08-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (reset-language-environment): Fix problem when
+	coding-system `iso-10646-ucs-4' is not defined.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use utf-8 as
+	coding-system if `utf-2000' is provided.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-coding.el: Add `utf-8' to coding-priority-list if
+	`utf-2000' is provided.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Don't load vietnamese.el
+	if utf-2000 is provided temporally.
+
+1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/vietnamese.el (leading-code-private-11): Deleted [defined
+	as builtin variable].
+
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.
