@@ -417,7 +417,9 @@
 		     (not (eq (car cdef) 'ideograph-daikanwa))
 		     (or (memq (car cdef) '(ascii latin-viscii-upper
 						  latin-viscii-lower
-						  arabic-iso8859-6))
+						  arabic-iso8859-6
+						  japanese-jisx0213-1
+						  japanese-jisx0213-2))
 			 (= (char-int (charset-iso-final-char (car cdef)))
 			    0)))
 		    (apply (function make-char) cdef)
