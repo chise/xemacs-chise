@@ -5246,39 +5246,35 @@
     (=daikanwa		. 14130)	; &I-M-14130;
     ))
 (define-char
-  '((=>ucs		. #x66B1)	; 暱
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=daikanwa		. 14132)	; &M-14132;
-    (=jef-china3	. #x51EA)	; &I-JC3-51EA;
-    ))
-(define-char
-  '((morohashi-daikanwa	14132 0 1)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-original-ideograph
-     ((shinjigen-1	  . 3299)
-      (=jis-x0208	  . #x5A63)	; &I-J90-5A63; [58-67]
-      (=daikanwa	  . 13866)	; &I-M-13866;
-      ))
-    (<-original-ideograph*sources
-     shinjigen-1)
-    (shinjigen-1	. 3300)
-    (shinjigen-2	. 3300)
+  '((ideographic-radical . 72)	; ⽇
     (=ucs		. #x66B1)	; 暱
-    (=jis-x0212		. #x425A)	; &I-JSP-425A; [34-58]
-    (=jis-x0213-2-2000	. #x2E30)	; &I-JX2-2E30; [14-16]
-    (=big5		. #xBCCA)	; &I-B-BCCA;
-    ))
-(define-char
-  '((=>ucs		. #x66B1)	; 暱
-    (morohashi-daikanwa	14132 0 2)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-1	. #x6D34)	; &C1-6D34; [77-20]
+    (->subsumptive
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 15)
+      (=daikanwa	  . 14132)	; &M-14132;
+      (=jef-china3	  . #x51EA)	; &I-JC3-51EA;
+      )
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 14)
+      (ideographic-strokes@jisx0213 . 11)
+      (=jis-x0212	  . #x425A)	; &JX2-2E30; [34-58]
+      (=jis-x0213-2-2000  . #x2E30)	; &I-JX2-2E30; [14-16]
+      (=big5		  . #xBCCA)	; &I-B-BCCA;
+      (=ucs@unicode	  . #x66B1)	; &JX2-2E30;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 15)
+      (<-original
+       ((shinjigen-1	    . 3299)
+	(=jis-x0208	    . #x5A63)	; &I-J90-5A63; [58-67]
+	(=daikanwa	    . 13866)	; &I-M-13866;
+	))
+      (<-original*sources
+       shinjigen-1)
+      (shinjigen-1	  . 3300)
+      (shinjigen-2	  . 3300)
+      (=cns11643-1	  . #x6D34)	; &C1-6D34; [77-20]
+      ))
     ))
 (define-char
   '((=>ucs		. #x66B2)	; 暲
