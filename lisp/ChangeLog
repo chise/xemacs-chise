@@ -1,3 +1,9 @@
+2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=ucs-jis-1990): New coded-charset for
+	UTF-2000.
+	(=ucs-jis-2000): New coded-charset for UTF-2000.
+
 2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
