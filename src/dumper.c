@@ -281,7 +281,11 @@ static int pdump_fd;
 static void *pdump_buf;
 static FILE *pdump_out;
 
+#ifdef UTF2000
+#define PDUMP_HASHSIZE 20000001
+#else
 #define PDUMP_HASHSIZE 200001
+#endif
 
 static pdump_entry_list_elt **pdump_hash;
 

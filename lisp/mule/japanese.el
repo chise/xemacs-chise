@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002 MORIOKA Tomohiko
 
 ;; Keywords: multilingual, Japanese
 
@@ -241,6 +241,17 @@
    charset-g3 japanese-jisx0212
    short t
    mnemonic "Ja/EUC"
+   ))
+
+(make-coding-system
+ 'euc-jisx0213 'iso2022
+ "Coding-system of Japanese EUC based on JIS X 0213."
+ '(charset-g0 ascii
+   charset-g1 japanese-jisx0213-1
+   charset-g2 katakana-jisx0201
+   charset-g3 japanese-jisx0213-2
+   short t
+   mnemonic "Ja/EUC0213"
    ))
 
 ;; (define-coding-system-alias 'euc-japan-1990 'japanese-iso-8bit)

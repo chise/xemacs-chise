@@ -501,13 +501,13 @@ Lisp_Object Qtop_bottom;
 /***************************************************************************/
 
 static int
-redisplay_text_width_emchar_string (struct window *w, int findex,
-				    Emchar *str, Charcount len)
+redisplay_text_width_charc_string (struct window *w, int findex,
+				   Charc *str, Charcount len)
 {
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   Lisp_Object window;
 
-  find_charsets_in_emchar_string (charsets, str, len);
+  find_charsets_in_charc_string (charsets, str, len);
   XSETWINDOW (window, w);
   ensure_face_cachel_complete (WINDOW_FACE_CACHEL (w, findex), window,
 			       charsets);
@@ -516,24 +516,24 @@ redisplay_text_width_emchar_string (struct window *w, int findex,
 			       WINDOW_FACE_CACHEL (w, findex), str, len));
 }
 
-static Emchar_dynarr *rtw_emchar_dynarr;
+static Charc_dynarr *rtw_charc_dynarr;
 
 int
 redisplay_text_width_string (struct window *w, int findex,
 			     Bufbyte *nonreloc, Lisp_Object reloc,
 			     Bytecount offset, Bytecount len)
 {
-  if (!rtw_emchar_dynarr)
-    rtw_emchar_dynarr = Dynarr_new (Emchar);
-  Dynarr_reset (rtw_emchar_dynarr);
+  if (!rtw_charc_dynarr)
+    rtw_charc_dynarr = Dynarr_new (Charc);
+  Dynarr_reset (rtw_charc_dynarr);
 
   fixup_internal_substring (nonreloc, reloc, offset, &len);
   if (STRINGP (reloc))
     nonreloc = XSTRING_DATA (reloc);
-  convert_bufbyte_string_into_emchar_dynarr (nonreloc, len, rtw_emchar_dynarr);
-  return redisplay_text_width_emchar_string
-    (w, findex, Dynarr_atp (rtw_emchar_dynarr, 0),
-     Dynarr_length (rtw_emchar_dynarr));
+  convert_bufbyte_string_into_charc_dynarr (nonreloc, len, rtw_charc_dynarr);
+  return redisplay_text_width_charc_string
+    (w, findex, Dynarr_atp (rtw_charc_dynarr, 0),
+     Dynarr_length (rtw_charc_dynarr));
 }
 
 int
@@ -541,26 +541,26 @@ redisplay_frame_text_width_string (struct frame *f, Lisp_Object face,
 				   Bufbyte *nonreloc, Lisp_Object reloc,
 				   Bytecount offset, Bytecount len)
 {
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   Lisp_Object frame;
   struct face_cachel cachel;
 
-  if (!rtw_emchar_dynarr)
-    rtw_emchar_dynarr = Dynarr_new (Emchar);
-  Dynarr_reset (rtw_emchar_dynarr);
+  if (!rtw_charc_dynarr)
+    rtw_charc_dynarr = Dynarr_new (Charc);
+  Dynarr_reset (rtw_charc_dynarr);
 
   fixup_internal_substring (nonreloc, reloc, offset, &len);
   if (STRINGP (reloc))
     nonreloc = XSTRING_DATA (reloc);
-  convert_bufbyte_string_into_emchar_dynarr (nonreloc, len, rtw_emchar_dynarr);
+  convert_bufbyte_string_into_charc_dynarr (nonreloc, len, rtw_charc_dynarr);
   find_charsets_in_bufbyte_string (charsets, nonreloc, len);
   reset_face_cachel (&cachel);
   cachel.face = face;
   XSETFRAME (frame, f);
   ensure_face_cachel_complete (&cachel, frame, charsets);
   return DEVMETH (XDEVICE (FRAME_DEVICE (f)),
-		  text_width, (f, &cachel, Dynarr_atp (rtw_emchar_dynarr, 0),
-			       Dynarr_length (rtw_emchar_dynarr)));
+		  text_width, (f, &cachel, Dynarr_atp (rtw_charc_dynarr, 0),
+			       Dynarr_length (rtw_charc_dynarr)));
 }
 
 /* Return the display block from DL of the given TYPE.  A display line
@@ -950,6 +950,7 @@ add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
 {
   struct rune rb, *crb;
   int width, local;
+  Charc char_glyph;
 
   if (data->start_col)
     {
@@ -966,13 +967,17 @@ add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
 
   if (data->ch == '\n')
     {
+      char_glyph = ASCII_TO_CHARC ('\n');
       data->font_is_bogus = 0;
       /* Cheesy end-of-line pseudo-character. */
       width = data->blank_width;
     }
   else
     {
-      Lisp_Object charset = CHAR_CHARSET (data->ch);
+      Lisp_Object charset;
+
+      char_glyph = CHAR_TO_CHARC (data->ch);
+      charset = CHARC_CHARSET (char_glyph);
       if (!EQ (charset, data->last_charset) ||
 	  data->findex != data->last_findex)
 	{
@@ -1013,9 +1018,9 @@ add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
       if (width < 0)
 	{
 	  /* bummer.  Proportional fonts. */
-	  width = redisplay_text_width_emchar_string (XWINDOW (data->window),
-						      data->findex,
-						      &data->ch, 1);
+	  width = redisplay_text_width_charc_string (XWINDOW (data->window),
+						     data->findex,
+						     &char_glyph, 1);
 	}
     }
 
@@ -1046,7 +1051,8 @@ add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
 			    data->bi_bufpos);
       else
 	crb->bufpos =
-	  bytecount_to_charcount (XSTRING_DATA (data->string), data->bi_bufpos);
+	  bytecount_to_charcount (XSTRING_DATA (data->string),
+				  data->bi_bufpos);
     }
   else if (data->is_modeline)
     crb->bufpos = data->modeline_charpos;
@@ -1054,7 +1060,9 @@ add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
     /* Text but not in buffer */
     crb->bufpos = 0;
   crb->type = RUNE_CHAR;
-  crb->object.chr.ch = data->font_is_bogus ? '~' : data->ch;
+  crb->object.cglyph = data->font_is_bogus
+    ? ASCII_TO_CHARC ('~')
+    : char_glyph;
   crb->endpos = 0;
 
   if (data->cursor_type == CURSOR_ON)
@@ -2768,7 +2776,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if ((rb->type == RUNE_CHAR && rb->object.chr.ch == ' ')
+	if ((rb->type == RUNE_CHAR && CHARC_ASCII_EQ (rb->object.cglyph, ' '))
 	    || rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.left_white += rb->width;
@@ -2788,8 +2796,7 @@ done:
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if (!(rb->type == RUNE_CHAR && rb->object.chr.ch < 0x100
-	    && isspace (rb->object.chr.ch))
+	if (!(rb->type == RUNE_CHAR && CHARC_IS_SPACE (rb->object.cglyph))
 	    && !rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.right_white = rb->xpos + rb->width;
@@ -3755,8 +3762,9 @@ generate_formatted_string_db (Lisp_Object format_str, Lisp_Object result_str,
           if (Dynarr_atp (db->runes, elt)->type == RUNE_CHAR)
             {
               len += (set_charptr_emchar
-                      (strdata + len, Dynarr_atp (db->runes,
-                                                  elt)->object.chr.ch));
+		      (strdata + len,
+		       CHARC_TO_CHAR (Dynarr_atp (db->runes,
+						  elt)->object.cglyph)));
             }
         }
 
@@ -4992,7 +5000,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if ((rb->type == RUNE_CHAR && rb->object.chr.ch == ' ')
+	if ((rb->type == RUNE_CHAR && CHARC_ASCII_EQ (rb->object.cglyph, ' '))
 	    || rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.left_white += rb->width;
@@ -5012,8 +5020,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
       {
 	struct rune *rb = Dynarr_atp (db->runes, elt);
 
-	if (!(rb->type == RUNE_CHAR && rb->object.chr.ch < 0x100
-	    && isspace (rb->object.chr.ch))
+	if (!(rb->type == RUNE_CHAR && CHARC_IS_SPACE (rb->object.cglyph))
 	    && !rb->type == RUNE_BLANK)
 	  {
 	    dl->bounds.right_white = rb->xpos + rb->width;
@@ -8914,7 +8921,7 @@ pixel_to_glyph_translation (struct frame *f, int x_coord, int y_coord,
 		    }
 		  else if (past_end
 			   || (rb->type == RUNE_CHAR
-			       && rb->object.chr.ch == '\n'))
+			       && CHARC_ASCII_EQ (rb->object.cglyph, '\n')))
 		    {
 		      (*row)--;
 		      /* At this point we may have glyphs in the right
