@@ -741,14 +741,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(ucs		    . #x2FF8)	; ⿸
-	)
-       ((ucs		    . #x5382)	; 厂
-	)
-       ((ucs		    . #x4E07)	; 万
-	))
+     ((ucs		  . #x5389)	; 厉
       )
      ((ucs		  . #x529B)	; 力
       ))
@@ -3108,8 +3101,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((name		      . "cjk radical person for top")
-	  (chinese-big5-cdp   . #x8B4A)	; ������
+	 ((ucs		      . #x20089)	; 𠂉
 	  )
 	 ((ucs		      . #x4E00)	; 一
 	  ))
