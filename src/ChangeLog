@@ -1,3 +1,76 @@
+2001-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_mojikyo): Deleted.
+	(Vcharset_mojikyo_2022_1): Deleted.
+	(Vcharset_mojikyo_pj_{1..21}): Deleted.
+	(Qmin_code): New variable in UTF-2000.
+	(Qmax_code): Likewise.
+	(Qmother): Likewise.
+	(Qconversion): Likewise.
+	(Q94x60): Likewise.
+	(Qmojikyo): Deleted.
+	(Qmojikyo_2022_1): Deleted.
+	(Qmojikyo_pj_{1..22}): Deleted.
+	(mark_charset): Mark `cs->mother'.
+	(charset_description): Add description for `mother'.
+	(make_charset): Rename `ucs_{min|max}' to `{min|max}_code'; add
+	new arguments `mother' and `conversion'; use
+	`CHARSET_{MIN|MAX}_CODE' instead of `CHARSET_UCS_{MIN|MAX}'.
+	(charset_code_point): Moved from char-ucs.h; support `mother'
+	charset feature.
+	(range_charset_code_point): use `CHARSET_{MIN|MAX}_CODE' instead
+	of `CHARSET_UCS_{MIN|MAX}'; delete hard code for `mojikyo-2022-1'.
+	(Fmake_charset): Allow 3 and 4 as the value of `dimension' in
+	UTF-2000; allow 128 and 256 as the value of `chars' in UTF-2000;
+	allow 2 as the value of `graphic' in UTF-2000; add new properties
+	`min-code', `max-code', `mother', `conversion' in UTF-2000; don't
+	require `final' in UTF-2000; modify for `make_charset'.
+	(Fmake_reverse_direction_charset): use `CHARSET_{MIN|MAX}_CODE'
+	instead of `CHARSET_UCS_{MIN|MAX}'; modify for `make_charset'.
+	(Fcharset_property): Support `mother', `min-code' and `max-code'.
+	(Fencode_char): New function.
+	(syms_of_mule_charset): Add new builtin function `encode-char' in
+	UTF-2000; add new symbols `min-code', `max-code', `mother',
+	`conversion' and `94x60'; delete symbols `mojikyo',
+	`mojikyo-2022-1' and `mojikyo-pj-{1..21}'.
+	(complex_vars_of_mule_charset): Modify for `make_charset' change;
+	delete coded-charsets `mojikyo', `mojikyo-2022-1' and
+	`mojikyo-pj-{1..21}'; delete `DEF_MOJIKYO_PJ'.
+
+	* chartab.c (Fdefine_char): Use `XCHARSET_MAX_CODE' instead of
+	`XCHARSET_UCS_MAX'; regard `chinese-big5' as a base CCS.
+
+	* char-ucs.h (Vcharset_mojikyo): Deleted.
+	(Vcharset_mojikyo_2022_1): Deleted.
+	(LEADING_BYTE_MOJIKYO): Deleted.
+	(LEADING_BYTE_MOJIKYO_2022_1): Deleted.
+	(LEADING_BYTE_MOJIKYO_2022_2): Deleted.
+	(LEADING_BYTE_MOJIKYO_PJ_{1 .. 21}): Deleted.
+	(struct Lisp_Charset): Rename `ucs_{min|max}' to `{min|max}_code';
+	add new member `mother'; add new member `conversion'.
+	(CHARSET_MIN_CODE): Renamed from `CHARSET_UCS_MIN'.
+	(CHARSET_MAX_CODE): Renamed from `CHARSET_UCS_MAX'.
+	(CHARSET_MOTHER): New macro.
+	(CHARSET_CONVERSION): New macro.
+	(CONVERSION_IDENTICAL): New macro.
+	(CONVERSION_94x60): New macro.
+	(XCHARSET_MIN_CODE): Renamed from `CHARSET_MIN_CODE'.
+	(XCHARSET_MAX_CODE): Renamed from `CHARSET_MAX_CODE'.
+	(XCHARSET_MOTHER): New macro.
+	(XCHARSET_CONVERSION): New macro.
+	(MIN_CHAR_MOJIKYO): Deleted.
+	(MAX_CHAR_MOJIKYO): Deleted.
+	(DECODE_MOJIKYO_2022): Deleted.
+	(DECODE_CHAR): Delete hard code for builtin Mojikyo characters.
+	(charset_code_point): Changed to non-inline function.
+	(encode_char_1): Use `charset_code_point'.
+	(CHAR_TO_CHARC): Delete hard code for Mojikyo characters.
+
+2001-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lread.c (read_compiled_function): Fix prototype.
+	(read_vector): Likewise.
+
 2001-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* lrecord.h (struct lrecord_header): Delete `older'.
