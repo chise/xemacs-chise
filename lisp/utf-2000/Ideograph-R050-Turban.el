@@ -4646,9 +4646,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=jis-x0208@1978	  . #x5A49)	; &M-13245; [58-41]
-      (=jis-x0208@1983	  . #x5A49)	; &I-J83-5A49; [58-41]
-      (=daikanwa	  . 13245)	; &I-M-13245;
+     ((=jis-x0208@1990	  . #x5A49)	; &J90-5A49; [58-41]
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
