@@ -378,7 +378,6 @@ vars_of_menubar (void)
 				   Fcons (Fvector (3, &menu_item[0]),
 					  Qnil)),
 			    Qnil);
-    Vblank_menubar = Fpurecopy (Vblank_menubar);
     staticpro (&Vblank_menubar);
   }
 

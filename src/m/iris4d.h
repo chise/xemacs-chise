@@ -99,8 +99,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef USG5_4
 #undef UNEXEC
-/* FSF renames this file to unexsgi.o */
-#define UNEXEC "unexelfsgi.o"
+#define UNEXEC "unexelf.o"
 #else
 #define UNEXEC "unexmips.o"
 #endif

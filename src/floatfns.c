@@ -108,15 +108,15 @@ static CONST char *float_error_fn_name;
 
 
 #define arith_error(op,arg) \
-  Fsignal (Qarith_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qarith_error, list2 (build_string (op), arg))
 #define range_error(op,arg) \
-  Fsignal (Qrange_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qrange_error, list2 (build_string (op), arg))
 #define range_error2(op,a1,a2) \
-  Fsignal (Qrange_error, list3 (build_string ((op)), (a1), (a2)))
+  Fsignal (Qrange_error, list3 (build_string (op), a1, a2))
 #define domain_error(op,arg) \
-  Fsignal (Qdomain_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qdomain_error, list2 (build_string (op), arg))
 #define domain_error2(op,a1,a2) \
-  Fsignal (Qdomain_error, list3 (build_string ((op)), (a1), (a2)))
+  Fsignal (Qdomain_error, list3 (build_string (op), a1, a2))
 
 
 /* Convert float to Lisp Integer if it fits, else signal a range
@@ -160,7 +160,7 @@ in_float_error (void)
 
 
 static Lisp_Object
-mark_float (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_float (Lisp_Object obj)
 {
   return Qnil;
 }

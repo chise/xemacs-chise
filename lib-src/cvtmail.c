@@ -53,9 +53,7 @@ static void fatal (CONST char *s1, CONST char *s2);
 static void error (CONST char *s1, CONST char *s2);
 
 int
-main (argc, argv)
-     int argc;
-     char *argv[];
+main (int argc, char *argv[])
 {
   char *hd;
   char *md;

@@ -3234,7 +3234,7 @@ convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
 /************************************************************************/
 
 void
-vars_of_insdel (void)
+reinit_vars_of_insdel (void)
 {
   int i;
 
@@ -3243,6 +3243,12 @@ vars_of_insdel (void)
 
   for (i = 0; i <= MAX_BYTIND_GAP_SIZE_3; i++)
     three_to_one_table[i] = i / 3;
+}
+
+void
+vars_of_insdel (void)
+{
+  reinit_vars_of_insdel ();
 }
 
 void

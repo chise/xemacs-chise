@@ -83,7 +83,7 @@ Normally it also has no modelines, menubars, or toolbars."
   "True if OBJECT is a GUI button."
   (and (vectorp object)
        (> (length object) 0)
-       (eq 'gui-button (aref object 0))))
+       (eq 'button (aref object 0))))
 
 (make-face 'gui-button-face "Face used for gui buttons")
 (if (not (face-differs-from-default-p 'gui-button-face))
@@ -98,26 +98,15 @@ Normally it also has no modelines, menubars, or toolbars."
   "Make a GUI button whose label is STRING and whose action is ACTION.
 If the button is inserted in a buffer and then clicked on, and ACTION
 is non-nil, ACTION will be called with one argument, USER-DATA."
-  (vector 'gui-button
-	  (if (featurep 'xpm)
-	      (xpm-button-create
-	       string gui-button-shadow-thickness
-	       (color-instance-name (face-foreground-instance 'gui-button-face))
-	       (color-instance-name (face-background-instance 'gui-button-face)))
-	    (xbm-button-create string gui-button-shadow-thickness))
-	  action user-data))
+  (vector 'button
+	  :descriptor string
+	  :face 'gui-button-face
+	  :callback `(funcall (quote ,action) (quote ,user-data))))
 
 (defun insert-gui-button (button &optional pos buffer)
   "Insert GUI button BUTTON at POS in BUFFER."
   (check-argument-type 'gui-button-p button)
-  (let ((annotation
-	 (make-annotation (make-glyph (car (aref button 1)))
-			  pos 'text buffer nil
-			  (make-glyph (cadr (aref button 1)))))
-	(action (aref button 2)))
-    (and action
-	 (progn
-	   (set-annotation-action annotation action)
-	   (set-annotation-data annotation (aref button 3))))))
+  (make-annotation (make-glyph button)
+			       pos 'text buffer nil))
 
 ;;; gui.el ends here

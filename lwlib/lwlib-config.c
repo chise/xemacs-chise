@@ -88,3 +88,13 @@ int lwlib_dialogs_athena;
 int lwlib_does_not_support_dialogs;
 # endif
 #endif
+
+#ifdef LWLIB_WIDGETS_MOTIF
+int lwlib_widgets_motif;
+#else
+# ifdef LWLIB_WIDGETS_ATHENA
+int lwlib_widgets_athena;
+# else
+int lwlib_does_not_support_widgets;
+# endif
+#endif

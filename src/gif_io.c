@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "gifrlib.h"
+#include "sysfile.h"
 
 /******************************************************************************
 * Set up the GifFileType structure for use.  This must be called first in any *

@@ -219,7 +219,6 @@ DECLARE_LRECORD (buffer, struct buffer);
 #define XBUFFER(x) XRECORD (x, buffer, struct buffer)
 #define XSETBUFFER(x, p) XSETRECORD (x, p, buffer)
 #define BUFFERP(x) RECORDP (x, buffer)
-#define GC_BUFFERP(x) GC_RECORDP (x, buffer)
 #define CHECK_BUFFER(x) CHECK_RECORD (x, buffer)
 #define CONCHECK_BUFFER(x) CONCHECK_RECORD (x, buffer)
 
@@ -568,7 +567,7 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
 
 #else
 
-#define XCHAR_OR_CHAR_INT(obj) (CHARP ((obj)) ? XCHAR ((obj)) : XINT ((obj)))
+#define XCHAR_OR_CHAR_INT(obj) (CHARP (obj) ? XCHAR (obj) : XINT (obj))
 
 #endif
 

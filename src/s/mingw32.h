@@ -54,6 +54,19 @@ Boston, MA 02111-1307, USA.  */
 #define SHGFI_EXETYPE 0x2000
 #define NSIG 23
 
+#ifndef SPI_GETWHEELSCROLLLINES
+#define SPI_GETWHEELSCROLLLINES 104
+#endif
+#ifndef WHEEL_PAGESCROLL
+#define WHEEL_PAGESCROLL (UINT_MAX)
+#endif
+#ifndef WHEEL_DELTA
+#define WHEEL_DELTA 120
+#endif
+#ifndef WM_MOUSEWHEEL
+#define WM_MOUSEWHEEL 0x20A
+#endif
+
 /* translate NT world unexec stuff to our a.out definitions */
 
 #define strnicmp strncasecmp

@@ -1539,18 +1539,13 @@ and some English to explain that string if necessary.
   When you start Emacs, it normally loads the file @file{.emacs} in your
 home directory.  This file, if it exists, should contain Lisp code.  It
 is called your initialization file or @dfn{init file}.  Use the command
-line switches @samp{-q} and @samp{-u} to tell Emacs whether to load an
-init file (@pxref{Entering Emacs}).
+line switch @samp{-q} to tell Emacs whether to load an
+init file (@pxref{Entering Emacs}).  Use the command line switch
+@samp{-user-init-file} (@pxref{Command Switches}) to tell Emacs to load
+a different file instead of @file{~/.emacs}.
 
-@vindex init-file-user
-When the @file{.emacs} file is read, the variable @code{init-file-user}
-says which user's init file it is.  The value may be the null string or a
-string containing a user's name.  If the value is a null string, it means
-that the init file was taken from the user that originally logged in.
-
-In all cases, @code{(concat "~" init-file-user "/")} evaluates to the
-directory name of the directory where the @file{.emacs} file was looked
-for.
+When the @file{.emacs} file is read, the variable @code{user-init-file}
+says which init file was loaded.
 
   At some sites there is a @dfn{default init file}, which is the
 library named @file{default.el}, found via the standard search path for

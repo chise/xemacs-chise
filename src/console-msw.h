@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #include <windows.h>
 #include <ddeml.h>	/* DDE management library */
-#if !defined (__CYGWIN32__) && !defined(__MINGW32__)
+#if !defined(__CYGWIN32__) && !defined(__MINGW32__)
 #include <shellapi.h>	/* FileManager/Explorer drag and drop */
 #include <commctrl.h>
 #endif
@@ -66,6 +66,7 @@ Boston, MA 02111-1307, USA.  */
 /* The name of the main window class */
 #define XEMACS_CLASS "XEmacs"
 
+#define XEMACS_CONTROL_CLASS "XEmacsControl"
 
 /*
  * Console
@@ -224,6 +225,9 @@ struct mswindows_frame
 /* win32 "Windows" procedure */
 LRESULT WINAPI mswindows_wnd_proc (HWND hwnd, UINT msg, WPARAM wParam,
 				   LPARAM lParam);
+LRESULT WINAPI mswindows_control_wnd_proc (HWND hwnd,
+					   UINT msg, WPARAM wParam,
+					   LPARAM lParam);
 
 void mswindows_redraw_exposed_area (struct frame *f, int x, int y, 
 				    int width, int height);

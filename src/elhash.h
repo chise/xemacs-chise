@@ -28,11 +28,10 @@ DECLARE_LRECORD (hash_table, struct Lisp_Hash_Table);
 #define XHASH_TABLE(x) XRECORD (x, hash_table, struct Lisp_Hash_Table)
 #define XSETHASH_TABLE(x, p) XSETRECORD (x, p, hash_table)
 #define HASH_TABLEP(x) RECORDP (x, hash_table)
-#define GC_HASH_TABLEP(x) GC_RECORDP (x, hash_table)
 #define CHECK_HASH_TABLE(x) CHECK_RECORD (x, hash_table)
 #define CONCHECK_HASH_TABLE(x) CONCHECK_RECORD (x, hash_table)
 
-enum hash_table_type
+enum hash_table_weakness
 {
   HASH_TABLE_NON_WEAK,
   HASH_TABLE_KEY_WEAK,
@@ -49,6 +48,8 @@ enum hash_table_test
   HASH_TABLE_EQUAL
 };
 
+extern const struct lrecord_description hash_table_description[];
+
 EXFUN (Fcopy_hash_table, 1);
 EXFUN (Fhash_table_count, 1);
 EXFUN (Fgethash, 3);
@@ -62,15 +63,16 @@ typedef unsigned long (*hash_table_hash_function_t) (Lisp_Object obj);
 typedef int (*maphash_function_t) (Lisp_Object key, Lisp_Object value,
 				   void* extra_arg);
 
+struct Lisp_Hash_Table;
 
-Lisp_Object make_general_lisp_hash_table (size_t size,
-					  enum hash_table_type type,
-					  enum hash_table_test test,
+Lisp_Object make_general_lisp_hash_table (enum hash_table_test test,
+					  size_t size,
+					  double rehash_size,
 					  double rehash_threshold,
-					  double rehash_size);
+					  enum hash_table_weakness weakness);
 
 Lisp_Object make_lisp_hash_table (size_t size,
-				  enum hash_table_type type,
+				  enum hash_table_weakness weakness,
 				  enum hash_table_test test);
 
 void elisp_maphash (maphash_function_t function,
@@ -79,8 +81,9 @@ void elisp_maphash (maphash_function_t function,
 void elisp_map_remhash (maphash_function_t predicate,
 			Lisp_Object hash_table, void *extra_arg);
 
-int finish_marking_weak_hash_tables (int (*obj_marked_p) (Lisp_Object),
-				     void (*markobj) (Lisp_Object));
-void prune_weak_hash_tables (int (*obj_marked_p) (Lisp_Object));
+int finish_marking_weak_hash_tables (void);
+void prune_weak_hash_tables (void);
+
+void reorganize_hash_table (struct Lisp_Hash_Table *ht);
 
 #endif /* _XEMACS_ELHASH_H_ */

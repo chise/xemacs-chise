@@ -46,7 +46,7 @@ Lisp_Object Qinhibit_read_only;
    which will be added to the list at the end of the command.
    This ensures we can't run out of space while trying to make
    an undo-boundary.  */
-Lisp_Object pending_boundary;
+static Lisp_Object pending_boundary;
 
 static void
 undo_boundary (struct buffer *b)
@@ -547,9 +547,16 @@ syms_of_undo (void)
 }
 
 void
-vars_of_undo (void)
+reinit_vars_of_undo (void)
 {
   inside_undo = 0;
+}
+
+void
+vars_of_undo (void)
+{
+  reinit_vars_of_undo ();
+
   pending_boundary = Qnil;
   staticpro (&pending_boundary);
   last_undo_buffer = Qnil;

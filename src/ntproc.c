@@ -1456,8 +1456,8 @@ syms_of_ntproc ()
 void
 vars_of_ntproc (void)
 {
-  Qhigh = intern ("high");
-  Qlow = intern ("low");
+  defsymbol (&Qhigh, "high");
+  defsymbol (&Qlow, "low");
 
   DEFVAR_LISP ("win32-quote-process-args", &Vwin32_quote_process_args /*
     Non-nil enables quoting of process arguments to ensure correct parsing.

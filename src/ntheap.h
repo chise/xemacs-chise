@@ -87,7 +87,7 @@ extern unsigned char *round_to_next (unsigned char *address,
 /* Useful routines for manipulating memory-mapped files. */
 
 typedef struct file_data {
-    char          *name;
+    CONST char    *name;
     unsigned long  size;
     HANDLE         file;
     HANDLE         file_mapping;

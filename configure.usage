@@ -159,6 +159,9 @@ Additional features:
                         and localdir files in case run-time searching
                         for them fails.
 --moduledir=DIR         Directory to install dynamic modules in.
+--pdump			New, experimental, non-working, don't-sue-me-if-
+			your-house-collapses-and-your-wife-goes-away,
+			portable dumper.
 
 Internationalization options:
 

@@ -36,7 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #include "file-coding.h"
 
-Lisp_Object Qbuffer_file_coding_system, Qcoding_system_error;
+Lisp_Object Qcoding_system_error;
 
 Lisp_Object Vkeyboard_coding_system;
 Lisp_Object Vterminal_coding_system;
@@ -47,14 +47,33 @@ Lisp_Object Vfile_name_coding_system;
 /* Table of symbols identifying each coding category. */
 Lisp_Object coding_category_symbol[CODING_CATEGORY_LAST + 1];
 
-/* Coding system currently associated with each coding category. */
-Lisp_Object coding_category_system[CODING_CATEGORY_LAST + 1];
 
-/* Table of all coding categories in decreasing order of priority.
-   This describes a permutation of the possible coding categories. */
-int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
 
-Lisp_Object Qcoding_system_p;
+struct file_coding_dump {
+  /* Coding system currently associated with each coding category. */
+  Lisp_Object coding_category_system[CODING_CATEGORY_LAST + 1];
+
+  /* Table of all coding categories in decreasing order of priority.
+     This describes a permutation of the possible coding categories. */
+  int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
+
+  Lisp_Object ucs_to_mule_table[65536];
+} *fcd;
+
+static const struct lrecord_description fcd_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
+  { XD_LISP_OBJECT, offsetof(struct file_coding_dump, ucs_to_mule_table),      65536 },
+  { XD_END }
+};
+
+static const struct struct_description fcd_description = {
+  sizeof(struct file_coding_dump),
+  fcd_description_1
+};
+
+Lisp_Object mule_to_ucs_table;
+
+Lisp_Object Qcoding_systemp;
 
 Lisp_Object Qraw_text, Qno_conversion, Qccl, Qiso2022;
 /* Qinternal in general.c */
@@ -227,6 +246,26 @@ typedef struct
   Dynarr_declare (codesys_prop);
 } codesys_prop_dynarr;
 
+static const struct lrecord_description codesys_prop_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(codesys_prop, sym), 1 },
+  { XD_END }
+};
+
+static const struct struct_description codesys_prop_description = {
+  sizeof(codesys_prop),
+  codesys_prop_description_1
+};
+
+static const struct lrecord_description codesys_prop_dynarr_description_1[] = {
+  XD_DYNARR_DESC(codesys_prop_dynarr, &codesys_prop_description),
+  { XD_END }
+};
+
+static const struct struct_description codesys_prop_dynarr_description = {
+  sizeof(codesys_prop_dynarr),
+  codesys_prop_dynarr_description_1
+};
+
 codesys_prop_dynarr *the_codesys_prop_dynarr;
 
 enum codesys_prop_enum
@@ -241,7 +280,7 @@ enum codesys_prop_enum
 /*                       Coding system functions                        */
 /************************************************************************/
 
-static Lisp_Object mark_coding_system (Lisp_Object, void (*) (Lisp_Object));
+static Lisp_Object mark_coding_system (Lisp_Object);
 static void print_coding_system (Lisp_Object, Lisp_Object, int);
 static void finalize_coding_system (void *header, int for_disksave);
 
@@ -287,16 +326,16 @@ DEFINE_LRECORD_IMPLEMENTATION ("coding-system", coding_system,
 			       struct Lisp_Coding_System);
 
 static Lisp_Object
-mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_coding_system (Lisp_Object obj)
 {
   Lisp_Coding_System *codesys = XCODING_SYSTEM (obj);
 
-  markobj (CODING_SYSTEM_NAME (codesys));
-  markobj (CODING_SYSTEM_DOC_STRING (codesys));
-  markobj (CODING_SYSTEM_MNEMONIC (codesys));
-  markobj (CODING_SYSTEM_EOL_LF (codesys));
-  markobj (CODING_SYSTEM_EOL_CRLF (codesys));
-  markobj (CODING_SYSTEM_EOL_CR (codesys));
+  mark_object (CODING_SYSTEM_NAME (codesys));
+  mark_object (CODING_SYSTEM_DOC_STRING (codesys));
+  mark_object (CODING_SYSTEM_MNEMONIC (codesys));
+  mark_object (CODING_SYSTEM_EOL_LF (codesys));
+  mark_object (CODING_SYSTEM_EOL_CRLF (codesys));
+  mark_object (CODING_SYSTEM_EOL_CR (codesys));
 
   switch (CODING_SYSTEM_TYPE (codesys))
     {
@@ -304,15 +343,15 @@ mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
       int i;
     case CODESYS_ISO2022:
       for (i = 0; i < 4; i++)
-	markobj (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i));
+	mark_object (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i));
       if (codesys->iso2022.input_conv)
 	{
 	  for (i = 0; i < Dynarr_length (codesys->iso2022.input_conv); i++)
 	    {
 	      struct charset_conversion_spec *ccs =
 		Dynarr_atp (codesys->iso2022.input_conv, i);
-	      markobj (ccs->from_charset);
-	      markobj (ccs->to_charset);
+	      mark_object (ccs->from_charset);
+	      mark_object (ccs->to_charset);
 	    }
 	}
       if (codesys->iso2022.output_conv)
@@ -321,22 +360,22 @@ mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
 	    {
 	      struct charset_conversion_spec *ccs =
 		Dynarr_atp (codesys->iso2022.output_conv, i);
-	      markobj (ccs->from_charset);
-	      markobj (ccs->to_charset);
+	      mark_object (ccs->from_charset);
+	      mark_object (ccs->to_charset);
 	    }
 	}
       break;
 
     case CODESYS_CCL:
-      markobj (CODING_SYSTEM_CCL_DECODE (codesys));
-      markobj (CODING_SYSTEM_CCL_ENCODE (codesys));
+      mark_object (CODING_SYSTEM_CCL_DECODE (codesys));
+      mark_object (CODING_SYSTEM_CCL_ENCODE (codesys));
       break;
 #endif /* MULE */
     default:
       break;
     }
 
-  markobj (CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys));
+  mark_object (CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys));
   return CODING_SYSTEM_POST_READ_CONVERSION (codesys);
 }
 
@@ -1301,7 +1340,7 @@ previously.
      order. */
   for (j = 0; j <= CODING_CATEGORY_LAST; j++)
     {
-      int cat = coding_category_by_priority[j];
+      int cat = fcd->coding_category_by_priority[j];
       if (category_to_priority[cat] < 0)
 	category_to_priority[cat] = i++;
     }
@@ -1310,7 +1349,7 @@ previously.
      constructed. */
 
   for (i = 0; i <= CODING_CATEGORY_LAST; i++)
-    coding_category_by_priority[category_to_priority[i]] = i;
+    fcd->coding_category_by_priority[category_to_priority[i]] = i;
 
   /* Phew!  That was confusing. */
   return Qnil;
@@ -1325,7 +1364,7 @@ Return a list of coding categories in descending order of priority.
   Lisp_Object list = Qnil;
 
   for (i = CODING_CATEGORY_LAST; i >= 0; i--)
-    list = Fcons (coding_category_symbol[coding_category_by_priority[i]],
+    list = Fcons (coding_category_symbol[fcd->coding_category_by_priority[i]],
 		  list);
   return list;
 }
@@ -1338,7 +1377,7 @@ Change the coding system associated with a coding category.
   int cat = decode_coding_category (coding_category);
 
   coding_system = Fget_coding_system (coding_system);
-  coding_category_system[cat] = coding_system;
+  fcd->coding_category_system[cat] = coding_system;
   return Qnil;
 }
 
@@ -1348,7 +1387,7 @@ Return the coding system associated with a coding category.
        (coding_category))
 {
   int cat = decode_coding_category (coding_category);
-  Lisp_Object sys = coding_category_system[cat];
+  Lisp_Object sys = fcd->coding_category_system[cat];
 
   if (!NILP (sys))
     return XCODING_SYSTEM_NAME (sys);
@@ -1582,13 +1621,13 @@ coding_system_from_mask (int mask)
 	 the first one that is allowed. */
       for (i = 0; i <= CODING_CATEGORY_LAST; i++)
 	{
-	  cat = coding_category_by_priority[i];
+	  cat = fcd->coding_category_by_priority[i];
 	  if ((mask & (1 << cat)) &&
-	      !NILP (coding_category_system[cat]))
+	      !NILP (fcd->coding_category_system[cat]))
 	    break;
 	}
       if (cat >= 0)
-	return coding_category_system[cat];
+	return fcd->coding_category_system[cat];
       else
 	return Fget_coding_system (Qraw_text);
     }
@@ -1620,26 +1659,65 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
   if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT ||
       *eol_type_in_out == EOL_AUTODETECT)
     {
+      unsigned char random_buffer[4096];
+      int nread;
+      Lisp_Object coding_system = Qnil;
 
-      while (1)
+      nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
+      if (nread)
 	{
-	  unsigned char random_buffer[4096];
-	  int nread;
+	  unsigned char *cp = random_buffer;
 
-	  nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
-	  if (!nread)
-	    break;
-	  if (detect_coding_type (&decst, random_buffer, nread,
-				  XCODING_SYSTEM_TYPE (*codesys_in_out) !=
-				  CODESYS_AUTODETECT))
-	    break;
+	  while (cp < random_buffer + nread)
+	    {
+	      if ((*cp++ == 'c') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'o') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'd') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'i') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'n') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'g') && (cp < random_buffer + nread) &&
+		  (*cp++ == ':') && (cp < random_buffer + nread))
+		{
+		  unsigned char coding_system_name[4096 - 6];
+		  unsigned char *np = coding_system_name;
+
+		  while ( (cp < random_buffer + nread)
+			  && ((*cp == ' ') || (*cp == '\t')) )
+		    {
+		      cp++;
+		    }
+		  while ( (cp < random_buffer + nread) &&
+			  (*cp != ' ') && (*cp != '\t') && (*cp != ';') )
+		    {
+		      *np++ = *cp++;
+		    }
+		  *np = 0;
+		  coding_system
+		    = Ffind_coding_system (intern ((char *) coding_system_name));
+		  break;
+		}
+	    }
+	  if (EQ(coding_system, Qnil))
+	    do{
+	      if (detect_coding_type (&decst, random_buffer, nread,
+				      XCODING_SYSTEM_TYPE (*codesys_in_out)
+				      != CODESYS_AUTODETECT))
+		break;
+	      nread = Lstream_read (stream,
+				    random_buffer, sizeof (random_buffer));
+	      if (!nread)
+		break;
+	    } while(1);
 	}
-
       *eol_type_in_out = decst.eol_type;
       if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
-	*codesys_in_out = coding_system_from_mask (decst.mask);
+	{
+	  if (EQ(coding_system, Qnil))
+	    *codesys_in_out = coding_system_from_mask (decst.mask);
+	  else
+	    *codesys_in_out = coding_system;
+	}
     }
-
   /* If we absolutely can't determine the EOL type, just assume LF. */
   if (*eol_type_in_out == EOL_AUTODETECT)
     *eol_type_in_out = EOL_LF;
@@ -1697,10 +1775,10 @@ type.  Optional arg BUFFER defaults to the current buffer.
 #endif
       for (i = CODING_CATEGORY_LAST; i >= 0; i--)
 	{
-	  int sys = coding_category_by_priority[i];
+	  int sys = fcd->coding_category_by_priority[i];
 	  if (decst.mask & (1 << sys))
 	    {
-	      Lisp_Object codesys = coding_category_system[sys];
+	      Lisp_Object codesys = fcd->coding_category_system[sys];
 	      if (!NILP (codesys))
 		codesys = subsidiary_coding_system (codesys, decst.eol_type);
 	      val = Fcons (codesys, val);
@@ -1836,6 +1914,9 @@ struct decoding_stream
   /* Additional information (the state of the running CCL program)
      used by the CCL decoder. */
   struct ccl_program ccl;
+
+  /* counter for UTF-8 or UCS-4 */
+  unsigned char counter;
 #endif
   struct detection_state decst;
 };
@@ -1847,14 +1928,13 @@ static int decoding_seekable_p (Lstream *stream);
 static int decoding_flusher    (Lstream *stream);
 static int decoding_closer     (Lstream *stream);
 
-static Lisp_Object decoding_marker (Lisp_Object stream,
-				    void (*markobj) (Lisp_Object));
+static Lisp_Object decoding_marker (Lisp_Object stream);
 
 DEFINE_LSTREAM_IMPLEMENTATION ("decoding", lstream_decoding,
 			       sizeof (struct decoding_stream));
 
 static Lisp_Object
-decoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+decoding_marker (Lisp_Object stream)
 {
   Lstream *str = DECODING_STREAM_DATA (XLSTREAM (stream))->other_end;
   Lisp_Object str_obj;
@@ -1864,9 +1944,9 @@ decoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
      and automatically marked. */
 
   XSETLSTREAM (str_obj, str);
-  markobj (str_obj);
+  mark_object (str_obj);
   if (str->imp->marker)
-    return (str->imp->marker) (str_obj, markobj);
+    return (str->imp->marker) (str_obj);
   else
     return Qnil;
 }
@@ -1970,6 +2050,7 @@ reset_decoding_stream (struct decoding_stream *str)
     {
       setup_ccl_program (&str->ccl, CODING_SYSTEM_CCL_DECODE (str->codesys));
     }
+  str->counter = 0;
 #endif /* MULE */
   str->flags = str->ch = 0;
 }
@@ -2302,14 +2383,13 @@ static int encoding_seekable_p (Lstream *stream);
 static int encoding_flusher    (Lstream *stream);
 static int encoding_closer     (Lstream *stream);
 
-static Lisp_Object encoding_marker (Lisp_Object stream,
-				    void (*markobj) (Lisp_Object));
+static Lisp_Object encoding_marker (Lisp_Object stream);
 
 DEFINE_LSTREAM_IMPLEMENTATION ("encoding", lstream_encoding,
 			       sizeof (struct encoding_stream));
 
 static Lisp_Object
-encoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+encoding_marker (Lisp_Object stream)
 {
   Lstream *str = ENCODING_STREAM_DATA (XLSTREAM (stream))->other_end;
   Lisp_Object str_obj;
@@ -2319,9 +2399,9 @@ encoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
      and automatically marked. */
 
   XSETLSTREAM (str_obj, str);
-  markobj (str_obj);
+  mark_object (str_obj);
   if (str->imp->marker)
-    return (str->imp->marker) (str_obj, markobj);
+    return (str->imp->marker) (str_obj);
   else
     return Qnil;
 }
@@ -3160,8 +3240,6 @@ Return the corresponding character code in Big5.
 /*                                                                      */
 /************************************************************************/
 
-Lisp_Object ucs_to_mule_table[65536];
-Lisp_Object mule_to_ucs_table;
 
 DEFUN ("set-ucs-char", Fset_ucs_char, 2, 2, 0, /*
 Map UCS-4 code CODE to Mule character CHARACTER.
@@ -3176,9 +3254,9 @@ Return T on success, NIL on failure.
   CHECK_INT (code);
   c = XINT (code);
 
-  if (c < sizeof (ucs_to_mule_table))
+  if (c < sizeof (fcd->ucs_to_mule_table))
     {
-      ucs_to_mule_table[c] = character;
+      fcd->ucs_to_mule_table[c] = character;
       return Qt;
     }
   else
@@ -3188,9 +3266,9 @@ Return T on success, NIL on failure.
 static Lisp_Object
 ucs_to_char (unsigned long code)
 {
-  if (code < sizeof (ucs_to_mule_table))
+  if (code < sizeof (fcd->ucs_to_mule_table))
     {
-      return ucs_to_mule_table[code];
+      return fcd->ucs_to_mule_table[code];
     }
   else if ((0xe00000 <= code) && (code <= 0xe00000 + 94 * 94 * 14))
     {
@@ -3343,31 +3421,33 @@ decode_coding_ucs4 (Lstream *decoding, CONST unsigned char *src,
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags = str->flags;
   unsigned int ch    = str->ch;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  ch = c;
-	  flags = 3;
+	  counter = 3;
 	  break;
 	case 1:
 	  decode_ucs4 ( ( ch << 8 ) | c, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 8 ) | c;
-	  flags--;
+	  counter--;
 	}
     }
-  if (flags & CODING_STATE_END)
+  if (counter & CODING_STATE_END)
     DECODE_OUTPUT_PARTIAL_CHAR (ch);
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 static void
@@ -3552,37 +3632,38 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
   unsigned int flags  = str->flags;
   unsigned int ch     = str->ch;
   eol_type_t eol_type = str->eol_type;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  if ( c >= 0xfc )
 	    {
 	      ch = c & 0x01;
-	      flags = 5;
+	      counter = 5;
 	    }
 	  else if ( c >= 0xf8 )
 	    {
 	      ch = c & 0x03;
-	      flags = 4;
+	      counter = 4;
 	    }
 	  else if ( c >= 0xf0 )
 	    {
 	      ch = c & 0x07;
-	      flags = 3;
+	      counter = 3;
 	    }
 	  else if ( c >= 0xe0 )
 	    {
 	      ch = c & 0x0f;
-	      flags = 2;
+	      counter = 2;
 	    }
 	  else if ( c >= 0xc0 )
 	    {
 	      ch = c & 0x1f;
-	      flags = 1;
+	      counter = 1;
 	    }
 	  else
 	    {
@@ -3594,11 +3675,11 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 	  ch = ( ch << 6 ) | ( c & 0x3f );
 	  decode_ucs4 (ch, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  flags--;
+	  counter--;
 	}
     label_continue_loop:;
     }
@@ -3608,6 +3689,7 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 static void
@@ -5444,7 +5526,6 @@ convert_from_external_format (CONST Extbyte *ptr,
 void
 syms_of_file_coding (void)
 {
-  defsymbol (&Qbuffer_file_coding_system, "buffer-file-coding-system");
   deferror (&Qcoding_system_error, "coding-system-error",
 	    "Coding-system error", Qio_error);
 
@@ -5484,7 +5565,7 @@ syms_of_file_coding (void)
   DEFSUBR (Fset_char_ucs);
   DEFSUBR (Fchar_ucs);
 #endif /* MULE */
-  defsymbol (&Qcoding_system_p, "coding-system-p");
+  defsymbol (&Qcoding_systemp, "coding-system-p");
   defsymbol (&Qno_conversion, "no-conversion");
   defsymbol (&Qraw_text, "raw-text");
 #ifdef MULE
@@ -5579,11 +5660,14 @@ vars_of_file_coding (void)
 {
   int i;
 
+  fcd = xnew (struct file_coding_dump);
+  dumpstruct (&fcd, &fcd_description);
+
   /* Initialize to something reasonable ... */
   for (i = 0; i <= CODING_CATEGORY_LAST; i++)
     {
-      coding_category_system[i] = Qnil;
-      coding_category_by_priority[i] = i;
+      fcd->coding_category_system[i] = Qnil;
+      fcd->coding_category_by_priority[i] = i;
     }
 
   Fprovide (intern ("file-coding"));
@@ -5644,6 +5728,7 @@ complex_vars_of_file_coding (void)
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   the_codesys_prop_dynarr = Dynarr_new (codesys_prop);
+  dumpstruct (&the_codesys_prop_dynarr, &codesys_prop_dynarr_description);
 
 #define DEFINE_CODESYS_PROP(Prop_Type, Sym) do	\
 {						\
@@ -5697,7 +5782,7 @@ complex_vars_of_file_coding (void)
   Fdefine_coding_system_alias (Qno_conversion, Qraw_text);
 
   /* Need this for bootstrapping */
-  coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
+  fcd->coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
     Fget_coding_system (Qraw_text);
 
 #ifdef MULE
@@ -5705,7 +5790,7 @@ complex_vars_of_file_coding (void)
     unsigned int i;
 
     for (i = 0; i < 65536; i++)
-      ucs_to_mule_table[i] = Qnil;
+      fcd->ucs_to_mule_table[i] = Qnil;
   }
   staticpro (&mule_to_ucs_table);
   mule_to_ucs_table = Fmake_char_table(Qgeneric);

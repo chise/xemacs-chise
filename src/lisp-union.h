@@ -123,11 +123,13 @@ extern Lisp_Object Qnull_pointer, Qzero;
 #define XREALINT(x) ((x).s.val)
 #define XUINT(x) ((x).u.val)
 #define XTYPE(x) ((x).gu.type)
-#define XGCTYPE(x) XTYPE (x)
 #define EQ(x,y) ((x).v == (y).v)
 
 #define INTP(x) ((x).s.bits)
-#define GC_EQ(x,y) EQ (x, y)
+#define INT_PLUS(x,y)  make_int (XINT (x) + XINT (y))
+#define INT_MINUS(x,y) make_int (XINT (x) - XINT (y))
+#define INT_PLUS1(x)   make_int (XINT (x) + 1)
+#define INT_MINUS1(x)  make_int (XINT (x) - 1)
 
 /* Convert between a (void *) and a Lisp_Object, as when the
    Lisp_Object is passed to a toolkit callback function */

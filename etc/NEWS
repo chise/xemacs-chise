@@ -33,30 +33,6 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
-** The functions in rect.el have been almost completely rewritten...
-to avoid inserting undesirable spaces, notably at the end of lines.
-Two typical examples of this old behavior are `string-rectangle', which filled
-all lines up to the right side of the rectangle, and `clear-rectangle', which
-filled even empty lines up to the left side.
-
-This is not the case any more. All these functions have been rewritten to
-avoid inserting unwanted spaces, and an optional prefix now allows them to
-behave the old way.
-
-As a side effect, `move-to-column' now also accepts 'coerce as its second
-argument, meaning that the line shouldn't be filled if its too short to reach
-the desired column.
-
-** You can now customize and save comments for faces and variables.
-
-In Custom buffers, a new menu entry allows you to add and edit a comment.
-Comments for variables can also be assigned by calling
-`customize-set-(value|variable)' with a prefix argument.
-
-** XEmacs now locates the early package hierarchy at ~/.xemacs/packages.
-
-This has changed from simply ~/.xemacs.
-
 ** `delete-key-deletes-forward' now defaults to t.
 
 `delete-key-deletes-forward' is the variable that regulates the
@@ -82,6 +58,33 @@ uppercase characters, the searching is forced to be case-sensitive,
 The new behavior affects all functions performing interactive
 searches, like `zap-to-char', `list-matching-lines', `tags-search'
 etc.  The incremental search facility has always behaved that way.
+
+** The rectangle functions have been almost completely rewritten in
+order to avoid inserting undesirable spaces, notably at the end of
+lines.  Two typical examples of the old behavior were
+`string-rectangle', which filled all lines up to the right side of the
+rectangle, and `clear-rectangle', which filled even empty lines up to
+the left side.  All functions have been rewritten to avoid inserting
+unwanted spaces, and an optional prefix now allows them to behave the
+old way.
+
+As a side effect, the FORCE argument to `move-to-column' now
+understands the special value `coerce', which means that the line
+should not be filled if it is too short to reach the desired column.
+
+** Incremental search will now highlight all visible matches, making
+it easier to anticipate where consecutive C-s or C-r will place the
+point.  If you want to disable the feature, set
+`isearch-highlight-all-matches' to nil.
+
+** You can now customize and save comments for faces and variables.
+In Custom buffers, a new menu entry allows you to add and edit a
+comment.  Comments for variables can also be assigned by calling
+`customize-set-(value|variable)' with a prefix argument.
+
+** XEmacs now locates the early package hierarchies at
+~/.xemacs/mule-packages/ and ~/.xemacs/xemacs-packages/.  Previously,
+the early packages were located in ~/.xemacs/.
 
 ** You can now create "indirect buffers", like in GNU Emacs.  An
 indirect buffer shares its text with another buffer ("base buffer"),
@@ -115,20 +118,19 @@ The new primitives available for this purpose are functions named
 ** Native widgets can be displayed in buffers.
 
 The glyph system has been extended to allow the display of glyphs that
-are implemented as native window-system widgets. Thus you can embed
+are implemented as native window-system widgets.  Thus you can embed
 buttons, scrollbars, combo boxes, edit fields and progress gauges in a
-buffer. As a side effect subwindow support now works once again.
+buffer.  As a side effect subwindow support now works once again.
 
 This support is currently only available under MS-Windows.
 
-** X-Face support is now available under MS-Windows
-
+** X-Face support is now available under MS-Windows.
 If an X-Face libary built under MS-Windows is available then XEmacs
 will use this at build time.
 
-** The font-menu is now available under MS-Windows
+** The font-menu is now available under MS-Windows.
 
-** MS-Windows support for selection is much more robust
+** MS-Windows support for selection is now much more robust.
 
 Generally selection should now do what you would expect under
 MS-Windows: the middle mouse button will paste your current selection
@@ -137,8 +139,16 @@ clipboard can be made; the kill-ring and friends will be updated as
 per X.
 
 The only thing selection doesn't do is set the clipboard automatically
-as this would break the MS-Windows model. If you want this behaviour
+as this would break the MS-Windows model.  If you want this behaviour
 then set `selection-sets-clipboard' to t
+
+** New command-line switches -user-init-file and -user-init-directory.
+These can be used to specify alternate locations for what is normally
+~/.emacs and ~/.xemacs.
+
+Moreover, -user <user> (which used to only work in unpredictable ways)
+is now equivalent to
+-user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
 
 
 * Lisp and internal changes in XEmacs 21.2
@@ -269,6 +279,13 @@ to check whether a specific symbol is interned in an obarray, e.g.:
 ** Functions for decoding base64 encoding are now available; see
 `base64-encode-region', `base64-encode-string', `base64-decode-region'
 and `base64-decode-string'.
+
+** user-init-directory is now an absolute, unexpanded path.
+Previously, `user-init-directory' used to be relative to
+(concat "~" init-file-user).  This turned out to be too complicated
+for most packages (and some core Lisp files) to use correctly.
+
+Also, `init-file-user' has been obsoleted in the process.
 
 
 * Changes in XEmacs 21.0
@@ -752,7 +769,7 @@ directory hierarchy has been rewritten to support the package system.
 Look under "Startup Paths" in the Info documentation for more
 information.
 
-*** site-lisp is now longer part of the load-path by default.
+*** site-lisp is no longer part of the load-path by default.
 Its use is deprecated, but you can specify --with-site-lisp=yes at the
 configure command line to get it back.
 

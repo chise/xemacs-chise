@@ -34,6 +34,8 @@ Lisp_Object Q_filter, Q_config, Q_included, Q_key_sequence;
 Lisp_Object Q_accelerator, Q_label, Q_callback;
 Lisp_Object Qtoggle, Qradio;
 
+static Lisp_Object parse_gui_item_tree_list (Lisp_Object list);
+
 #ifdef HAVE_POPUPS
 
 /* count of menus/dboxes currently up */
@@ -152,7 +154,7 @@ gui_item_init (Lisp_Object gui_item)
 }
 
 Lisp_Object
-allocate_gui_item ()
+allocate_gui_item (void)
 {
   struct Lisp_Gui_Item *lp =
     alloc_lcrecord_type (struct Lisp_Gui_Item, &lrecord_gui_item);
@@ -381,6 +383,7 @@ unsigned int
 gui_item_display_flush_left  (Lisp_Object gui_item,
 			      char* buf, Bytecount buf_len)
 {
+  /* This function can call lisp */
   char *p = buf;
   Bytecount len;
   struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
@@ -468,22 +471,22 @@ gui_item_display_flush_right (Lisp_Object gui_item,
 #endif /* HAVE_WINDOW_SYSTEM */
 
 static Lisp_Object
-mark_gui_item (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_gui_item (Lisp_Object obj)
 {
   struct Lisp_Gui_Item *p = XGUI_ITEM (obj);
 
-  markobj (p->name);
-  markobj (p->callback);
-  markobj (p->config);
-  markobj (p->suffix);
-  markobj (p->active);
-  markobj (p->included);
-  markobj (p->config);
-  markobj (p->filter);
-  markobj (p->style);
-  markobj (p->selected);
-  markobj (p->keys);
-  markobj (p->accelerator);
+  mark_object (p->name);
+  mark_object (p->callback);
+  mark_object (p->config);
+  mark_object (p->suffix);
+  mark_object (p->active);
+  mark_object (p->included);
+  mark_object (p->config);
+  mark_object (p->filter);
+  mark_object (p->style);
+  mark_object (p->selected);
+  mark_object (p->keys);
+  mark_object (p->accelerator);
 
   return Qnil;
 }
@@ -561,6 +564,56 @@ print_gui_item (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string ("#<gui-item ", printcharfun);
   sprintf (buf, "0x%x>", g->header.uid);
   write_c_string (buf, printcharfun);
+}
+
+/* parse a glyph descriptor into a tree of gui items.
+
+   The gui_item slot of an image instance can be a single item or an
+   arbitrarily nested hierarchy of item lists. */
+
+static Lisp_Object parse_gui_item_tree_item (Lisp_Object entry)
+{
+  Lisp_Object ret = entry;
+  if (VECTORP (entry))
+    {
+      ret =  gui_parse_item_keywords_no_errors (entry);
+    }
+  else if (STRINGP (entry))
+    {
+      CHECK_STRING (entry);
+    }
+  else
+    signal_simple_error ("item must be a vector or a string", entry);
+
+  return ret;
+}
+
+Lisp_Object parse_gui_item_tree_children (Lisp_Object list)
+{
+  Lisp_Object rest, ret = Qnil;
+  CHECK_CONS (list);
+  /* recursively add items to the tree view */
+  LIST_LOOP (rest, list)
+    {
+      Lisp_Object sub;
+      if (CONSP (XCAR (rest)))
+	sub = parse_gui_item_tree_list (XCAR (rest));
+      else
+	sub = parse_gui_item_tree_item (XCAR (rest));
+      
+      ret = Fcons (sub, ret);
+    }
+  /* make the order the same as the items we have parsed */
+  return Fnreverse (ret);
+}
+
+static Lisp_Object parse_gui_item_tree_list (Lisp_Object list)
+{
+  Lisp_Object ret;
+  CHECK_CONS (list);
+  /* first one can never be a list */
+  ret = parse_gui_item_tree_item (XCAR (list));
+  return Fcons (ret, parse_gui_item_tree_children (XCDR (list)));
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("gui-item", gui_item,

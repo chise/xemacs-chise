@@ -98,7 +98,7 @@ static int r_alloc_initialized = 0;
 /* Declarations for working with the malloc, ralloc, and system breaks.  */
 
 /* Function to set the real break value. */
-static POINTER (*real_morecore) (long size);
+static POINTER (*real_morecore) (ptrdiff_t size);
 
 /* The break value, as seen by malloc (). */
 static POINTER virtual_break_value;
@@ -339,7 +339,7 @@ get_more_space (SIZE size)
    If SIZE is more than a page, return the space to the system. */
 
 static void
-relinquish ()
+relinquish (void)
 {
   register heap_ptr h;
   int excess = 0;
@@ -790,9 +790,9 @@ free_bloc (bloc_ptr bloc)
    __morecore hook values - in particular, __default_morecore in the
    GNU malloc package.  */
 
-POINTER r_alloc_sbrk (long size);
+POINTER r_alloc_sbrk (ptrdiff_t size);
 POINTER
-r_alloc_sbrk (long size)
+r_alloc_sbrk (ptrdiff_t size)
 {
   register bloc_ptr b;
   POINTER address;
@@ -1082,7 +1082,7 @@ r_alloc_freeze (long size)
 
 void r_alloc_thaw (void);
 void
-r_alloc_thaw ()
+r_alloc_thaw (void)
 {
 
   if (! r_alloc_initialized)
@@ -1109,13 +1109,10 @@ r_alloc_thaw ()
 /* The hook `malloc' uses for the function which gets more space
    from the system.  */
 #ifndef DOUG_LEA_MALLOC
-extern POINTER (*__morecore) (long size);
+extern POINTER (*__morecore) (ptrdiff_t size);
 #endif
 
 /* Initialize various things for memory allocation. */
-
-#define SET_FUN_PTR(fun_ptr, fun_val) \
-  (*((void **) (&fun_ptr)) = ((void *) (fun_val)))
 
 void
 init_ralloc (void)
@@ -1124,8 +1121,12 @@ init_ralloc (void)
     return;
 
   r_alloc_initialized = 1;
-  SET_FUN_PTR (real_morecore, __morecore);
-  SET_FUN_PTR (__morecore, r_alloc_sbrk);
+  real_morecore = (POINTER (*) (ptrdiff_t)) __morecore;
+  __morecore =
+#ifdef __GNUC__
+    (__typeof__ (__morecore))
+#endif
+    r_alloc_sbrk;
 
   first_heap = last_heap = &heap_base;
   first_heap->next = first_heap->prev = NIL_HEAP;
@@ -1172,21 +1173,25 @@ init_ralloc (void)
    Emacs.  This is needed when using Doug Lea's malloc from GNU libc.  */
 void r_alloc_reinit (void);
 void
-r_alloc_reinit ()
+r_alloc_reinit (void)
 {
   /* Only do this if the hook has been reset, so that we don't get an
      infinite loop, in case Emacs was linked statically.  */
-  if ( ((void*) __morecore) !=  (void *) (r_alloc_sbrk))
+  if ( (POINTER (*) (ptrdiff_t)) __morecore !=  r_alloc_sbrk)
     {
-      SET_FUN_PTR (real_morecore, __morecore);
-      SET_FUN_PTR (__morecore, r_alloc_sbrk);
+      real_morecore = (POINTER (*) (ptrdiff_t)) __morecore;
+      __morecore =
+#ifdef __GNUC__
+	(__typeof__ (__morecore))
+#endif
+	r_alloc_sbrk;
     }
 }
 #if 0
 #ifdef DEBUG
 
 void
-r_alloc_check ()
+r_alloc_check (void)
 {
   int found = 0;
   heap_ptr h, ph = 0;

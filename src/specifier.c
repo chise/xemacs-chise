@@ -64,7 +64,28 @@ typedef struct
   Dynarr_declare (specifier_type_entry);
 } specifier_type_entry_dynarr;
 
-specifier_type_entry_dynarr *the_specifier_type_entry_dynarr;
+static specifier_type_entry_dynarr *the_specifier_type_entry_dynarr;
+
+static const struct lrecord_description ste_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(specifier_type_entry, symbol), 1 },
+  { XD_STRUCT_PTR,  offsetof(specifier_type_entry, meths), 1, &specifier_methods_description },
+  { XD_END }
+};
+
+static const struct struct_description ste_description = {
+  sizeof(specifier_type_entry),
+  ste_description_1
+};
+
+static const struct lrecord_description sted_description_1[] = {
+  XD_DYNARR_DESC(specifier_type_entry_dynarr, &ste_description),
+  { XD_END }
+};
+
+static const struct struct_description sted_description = {
+  sizeof(specifier_type_entry_dynarr),
+  sted_description_1
+};
 
 static Lisp_Object Vspecifier_type_list;
 
@@ -180,19 +201,19 @@ kill_specifier_buffer_locals (Lisp_Object buffer)
 }
 
 static Lisp_Object
-mark_specifier (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_specifier (Lisp_Object obj)
 {
   struct Lisp_Specifier *specifier = XSPECIFIER (obj);
 
-  markobj (specifier->global_specs);
-  markobj (specifier->device_specs);
-  markobj (specifier->frame_specs);
-  markobj (specifier->window_specs);
-  markobj (specifier->buffer_specs);
-  markobj (specifier->magic_parent);
-  markobj (specifier->fallback);
+  mark_object (specifier->global_specs);
+  mark_object (specifier->device_specs);
+  mark_object (specifier->frame_specs);
+  mark_object (specifier->window_specs);
+  mark_object (specifier->buffer_specs);
+  mark_object (specifier->magic_parent);
+  mark_object (specifier->fallback);
   if (!GHOST_SPECIFIER_P (XSPECIFIER (obj)))
-    MAYBE_SPECMETH (specifier, mark, (obj, markobj));
+    MAYBE_SPECMETH (specifier, mark, (obj));
   return Qnil;
 }
 
@@ -216,24 +237,24 @@ mark_specifier (Lisp_Object obj, void (*markobj) (Lisp_Object))
 */
 
 void
-prune_specifiers (int (*obj_marked_p) (Lisp_Object))
+prune_specifiers (void)
 {
   Lisp_Object rest, prev = Qnil;
 
   for (rest = Vall_specifiers;
-       !GC_NILP (rest);
+       !NILP (rest);
        rest = XSPECIFIER (rest)->next_specifier)
     {
-      if (! obj_marked_p (rest))
+      if (! marked_p (rest))
 	{
 	  struct Lisp_Specifier* sp = XSPECIFIER (rest);
 	  /* A bit of assertion that we're removing both parts of the
              magic one altogether */
-	  assert (!GC_MAGIC_SPECIFIER_P(sp)
-		  || (GC_BODILY_SPECIFIER_P(sp) && obj_marked_p (sp->fallback))
-		  || (GC_GHOST_SPECIFIER_P(sp) && obj_marked_p (sp->magic_parent)));
+	  assert (!MAGIC_SPECIFIER_P(sp)
+		  || (BODILY_SPECIFIER_P(sp) && marked_p (sp->fallback))
+		  || (GHOST_SPECIFIER_P(sp) && marked_p (sp->magic_parent)));
 	  /* This specifier is garbage.  Remove it from the list. */
-	  if (GC_NILP (prev))
+	  if (NILP (prev))
 	    Vall_specifiers = sp->next_specifier;
 	  else
 	    XSPECIFIER (prev)->next_specifier = sp->next_specifier;
@@ -280,7 +301,7 @@ finalize_specifier (void *header, int for_disksave)
 {
   struct Lisp_Specifier *sp = (struct Lisp_Specifier *) header;
   /* don't be snafued by the disksave finalization. */
-  if (!for_disksave && !GC_GHOST_SPECIFIER_P(sp) && sp->caching)
+  if (!for_disksave && !GHOST_SPECIFIER_P(sp) && sp->caching)
     {
       xfree (sp->caching);
       sp->caching = 0;
@@ -336,18 +357,51 @@ static size_t
 sizeof_specifier (CONST void *header)
 {
   if (GHOST_SPECIFIER_P ((struct Lisp_Specifier *) header))
-    return sizeof (struct Lisp_Specifier);
+    return offsetof (struct Lisp_Specifier, data);
   else
     {
       CONST struct Lisp_Specifier *p = (CONST struct Lisp_Specifier *) header;
-      return sizeof (*p) + p->methods->extra_data_size - 1;
+      return offsetof (struct Lisp_Specifier, data) + p->methods->extra_data_size;
     }
 }
+
+static const struct lrecord_description specifier_methods_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(struct specifier_methods, predicate_symbol), 1 },
+  { XD_END }
+};
+
+const struct struct_description specifier_methods_description = {
+  sizeof(struct specifier_methods),
+  specifier_methods_description_1
+};
+
+static const struct lrecord_description specifier_caching_description_1[] = {
+  { XD_END }
+};
+
+static const struct struct_description specifier_caching_description = {
+  sizeof(struct specifier_caching),
+  specifier_caching_description_1
+};
+
+static const struct lrecord_description specifier_description[] = {
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Specifier, methods), 1, &specifier_methods_description },
+  { XD_LO_LINK,     offsetof(struct Lisp_Specifier, next_specifier) },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Specifier, global_specs), 5 },
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Specifier, caching), 1, &specifier_caching_description },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Specifier, magic_parent), 2 },
+  { XD_SPECIFIER_END }
+};
+
+const struct lrecord_description specifier_empty_extra_description[] = {
+  { XD_END }
+};
 
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("specifier", specifier,
 					mark_specifier, print_specifier,
 					finalize_specifier,
-					specifier_equal, specifier_hash, 0,
+					specifier_equal, specifier_hash,
+					specifier_description,
 					sizeof_specifier,
 					struct Lisp_Specifier);
 
@@ -414,8 +468,8 @@ make_specifier_internal (struct specifier_methods *spec_meths,
 {
   Lisp_Object specifier;
   struct Lisp_Specifier *sp = (struct Lisp_Specifier *)
-    alloc_lcrecord (sizeof (struct Lisp_Specifier) +
-		    data_size - 1, &lrecord_specifier);
+    alloc_lcrecord (offsetof (struct Lisp_Specifier, data) +
+		    data_size, &lrecord_specifier);
 
   sp->methods = spec_meths;
   sp->global_specs = Qnil;
@@ -3125,6 +3179,7 @@ void
 specifier_type_create (void)
 {
   the_specifier_type_entry_dynarr = Dynarr_new (specifier_type_entry);
+  dumpstruct (&the_specifier_type_entry_dynarr, &sted_description);
 
   Vspecifier_type_list = Qnil;
   staticpro (&Vspecifier_type_list);
@@ -3149,6 +3204,16 @@ specifier_type_create (void)
 }
 
 void
+reinit_specifier_type_create (void)
+{
+  REINITIALIZE_SPECIFIER_TYPE (generic);
+  REINITIALIZE_SPECIFIER_TYPE (integer);
+  REINITIALIZE_SPECIFIER_TYPE (natnum);
+  REINITIALIZE_SPECIFIER_TYPE (boolean);
+  REINITIALIZE_SPECIFIER_TYPE (display_table);
+}
+
+void
 vars_of_specifier (void)
 {
   Vcached_specifiers = Qnil;
@@ -3157,6 +3222,7 @@ vars_of_specifier (void)
   /* Do NOT mark through this, or specifiers will never be GC'd.
      This is the same deal as for weak hash tables. */
   Vall_specifiers = Qnil;
+  pdump_wire_list (&Vall_specifiers);
 
   Vuser_defined_tags = Qnil;
   staticpro (&Vuser_defined_tags);

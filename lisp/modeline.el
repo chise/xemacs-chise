@@ -595,13 +595,14 @@ Normally nil in most modes, since there is no process to display.")
   (purecopy "   ")
   'global-mode-string
   (purecopy "   %[(")
-  (cons modeline-minor-mode-extent (list "" 'mode-name 'minor-mode-alist))
-  (cons modeline-narrowed-extent "%n")
+  (cons modeline-minor-mode-extent
+	(list (purecopy "") 'mode-name 'minor-mode-alist))
+  (cons modeline-narrowed-extent (purecopy "%n"))
   'modeline-process
   (purecopy ")%]----")
-  (purecopy '(line-number-mode "L%l--"))
-  (purecopy '(column-number-mode "C%c--"))
-  (purecopy '(-3 . "%p"))
+  (list 'line-number-mode (purecopy "L%l--"))
+  (list 'column-number-mode (purecopy "C%c--"))
+  (cons -3 (purecopy "%p"))
   (purecopy "-%-")))
 
 ;;; Added for XEmacs 20.3.  Provide wrapper for vc since it may not always be

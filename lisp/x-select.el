@@ -50,16 +50,15 @@
   'select-make-extent-for-selection)
 (define-obsolete-function-alias 'x-cut-copy-clear-internal 'cut-copy-clear-internal)
 (define-obsolete-function-alias 'x-get-selection 'get-selection)
+(define-obsolete-function-alias 'x-get-clipboard 'get-clipboard)
+(define-obsolete-function-alias 'x-yank-clipboard-selection 
+  'yank-clipboard-selection)
 (define-obsolete-function-alias 'x-disown-selection-internal
   'disown-selection-internal)
 
 (defun x-get-secondary-selection ()
   "Return text selected from some X window."
   (get-selection 'SECONDARY))
-
-(defun x-get-clipboard ()
-  "Return text pasted to the clipboard."
-  (get-selection 'CLIPBOARD))
 
 (defun x-own-secondary-selection (selection &optional type)
   "Make a secondary X Selection of the given argument.  The argument may be a
@@ -154,19 +153,6 @@ into Emacs."
 	 (x-store-cutbuffer-internal 'CUT_BUFFER0 string))))
 
 
-;;; Random utility functions
-
-(defun x-yank-clipboard-selection ()
-  "Insert the current Clipboard selection at point."
-  (interactive "*")
-  (setq last-command nil)
-  (setq this-command 'yank) ; so that yank-pop works.
-  (let ((clip (x-get-clipboard)))
-    (or clip (error "there is no clipboard selection"))
-    (push-mark)
-    (insert clip)))
-
-
 ;FSFmacs (provide 'select)
 
 ;;; x-select.el ends here.

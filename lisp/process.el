@@ -299,7 +299,7 @@ Third arg is program file name.  It is searched for as in the shell.
 Remaining arguments are strings to give program as arguments."
   (apply 'start-process-internal name buffer program program-args))
 
-(defun open-network-stream (name buffer host service)
+(defun open-network-stream (name buffer host service &optional protocol)
   "Open a TCP connection for a service to a host.
 Returns a subprocess-object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
@@ -312,8 +312,18 @@ BUFFER is the buffer (or buffer-name) to associate with the process.
  with any buffer
 Third arg is name of the host to connect to, or its IP address.
 Fourth arg SERVICE is name of the service desired, or an integer
- specifying a port number to connect to."
-  (open-network-stream-internal name buffer host service))
+ specifying a port number to connect to.
+Fifth argument PROTOCOL is a network protocol.  Currently 'tcp
+ (Transmission Control Protocol) and 'udp (User Datagram Protocol) are
+ supported.  When omitted, 'tcp is assumed.
+
+Ouput via `process-send-string' and input via buffer or filter (see
+`set-process-filter') are stream-oriented.  That means UDP datagrams are
+not guaranteed to be sent and received in discrete packets. (But small
+datagrams around 500 bytes that are not truncated by `process-send-string'
+are usually fine.)  Note further that UDP protocol does not guard against 
+lost packets."
+  (open-network-stream-internal name buffer host service protocol))
 
 (defun shell-quote-argument (argument)
   "Quote an argument for passing as argument to an inferior shell."

@@ -40,11 +40,15 @@ DECLARE_SPECIFIER_TYPE (gutter);
 
 enum gutter_pos
 {
-  TOP_GUTTER,
-  BOTTOM_GUTTER,
-  LEFT_GUTTER,
-  RIGHT_GUTTER
+  TOP_GUTTER     = 0,
+  BOTTOM_GUTTER  = 1,
+  LEFT_GUTTER    = 2,
+  RIGHT_GUTTER   = 3
 };
+
+/* Iterate over all possible gutter positions */
+#define GUTTER_POS_LOOP(var) \
+for (var = (enum gutter_pos) 0; var < 4; var = (enum gutter_pos) (var + 1))
 
 extern Lisp_Object Qgutter;
 
@@ -57,6 +61,7 @@ void init_global_gutters (struct device *d);
 void free_frame_gutters (struct frame *f);
 void redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 			     int height);
+void reset_gutter_display_lines (struct frame* f);
 
 #define WINDOW_GUTTER_BORDER_WIDTH(w, pos) \
 (NILP ((w)->gutter_border_width[pos]) ? 0 : XINT ((w)->gutter_border_width[pos]))

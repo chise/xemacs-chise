@@ -213,7 +213,7 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
 #define EMACS_KILLPG(gid, signo) killpg (gid, signo)
 #else
 #ifdef WINDOWSNT
-#define EMACS_KILLPG(gid, signo) (kill (gid, signo))
+#define EMACS_KILLPG(gid, signo) kill (gid, signo)
 #else
 #define EMACS_KILLPG(gid, signo) kill (-(gid), signo)
 #endif

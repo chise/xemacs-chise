@@ -16,6 +16,9 @@ occur in building, installing and running XEmacs.
 See the file `nt/README' for instructions on building XEmacs for
 Microsoft Windows.
 
+The file 'README.packages' will guide you in the installation of
+(essential) add on packages.
+
 Reports of bugs in XEmacs should be posted to the newsgroup
 comp.emacs.xemacs or sent to the mailing list xemacs@xemacs.org.  See
 the "Bugs" section of the XEmacs manual for more information on how to

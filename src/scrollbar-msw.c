@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 #include <config.h>
+#include <limits.h>
 #include "lisp.h"
 
 #include "console-msw.h"
@@ -263,6 +264,69 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
       vertical_drag_in_progress = 0;
       break;
     }
+}
+
+static int
+can_scroll(struct scrollbar_instance* scrollbar)
+{
+  return scrollbar != NULL
+	&& IsWindowVisible (SCROLLBAR_MSW_HANDLE (scrollbar))
+	&& IsWindowEnabled (SCROLLBAR_MSW_HANDLE (scrollbar));
+}
+
+int
+mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta)
+{
+  int hasVertBar, hasHorzBar;	/* Indicates prescence of scroll bars */
+  unsigned wheelScrollLines = 0; /* Number of lines per wheel notch */
+
+  /* Find the currently selected window */
+  Lisp_Object win = FRAME_SELECTED_WINDOW (XFRAME (frame));
+  struct window* w = XWINDOW (win);
+  struct window_mirror* mirror = find_window_mirror (w);
+
+  /* Check that there is something to scroll */
+  hasVertBar = can_scroll (mirror->scrollbar_vertical_instance);
+  hasHorzBar = can_scroll (mirror->scrollbar_horizontal_instance);
+  if (!hasVertBar && !hasHorzBar)
+    return FALSE;
+
+  /* No support for panning and zooming, so ignore */
+  if (keys & (MK_SHIFT | MK_CONTROL))
+    return FALSE;
+
+  /* Get the number of lines per wheel delta */
+  SystemParametersInfo (SPI_GETWHEELSCROLLLINES, 0, &wheelScrollLines, 0);
+
+  /* Calculate the amount to scroll */
+  if (wheelScrollLines == WHEEL_PAGESCROLL)
+    {
+      /* Scroll by a page */
+      Lisp_Object function;
+      if (hasVertBar)
+	function = delta > 0 ? Qscrollbar_page_up : Qscrollbar_page_down;
+      else
+	function = delta > 0 ? Qscrollbar_page_left : Qscrollbar_page_right;
+      mswindows_enqueue_misc_user_event (frame, function, Fcons (win, Qnil));
+    }
+  else /* Scroll by a number of lines */
+    {
+      /* Calc the number of lines to scroll */
+      int toScroll = MulDiv (delta, wheelScrollLines, WHEEL_DELTA);
+
+      /* Do the scroll */
+      Lisp_Object function;
+      if (hasVertBar)
+	function = delta > 0 ? Qscrollbar_line_up : Qscrollbar_line_down;
+      else
+	function = delta > 0 ? Qscrollbar_char_left : Qscrollbar_char_right;
+      if (toScroll < 0)
+	toScroll = -toScroll;
+      while (toScroll--)
+	mswindows_enqueue_misc_user_event (frame, function, win);
+    }
+
+  return TRUE;
 }
 
 #ifdef MEMORY_USAGE_STATS

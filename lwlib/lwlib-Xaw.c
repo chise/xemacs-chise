@@ -41,7 +41,15 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/Xaw/Command.h>
 #include <X11/Xaw/Label.h>
 #endif
-
+#ifdef LWLIB_WIDGETS_ATHENA
+#include <X11/Xaw/Toggle.h>
+#include "xlwradio.h"
+#include "xlwcheckbox.h"
+#include "xlwgauge.h"
+#ifndef NEED_MOTIF
+#include <X11/Xaw/AsciiText.h>
+#endif
+#endif
 #include <X11/Xatom.h>
 
 static void xaw_generic_callback (Widget, XtPointer, XtPointer);
@@ -56,6 +64,14 @@ lw_xaw_widget_p (Widget widget)
 #endif
 #ifdef LWLIB_DIALOGS_ATHENA
 	  || XtIsSubclass (widget, dialogWidgetClass)
+#endif
+#ifdef LWLIB_WIDGETS_ATHENA
+	  || XtIsSubclass (widget, labelWidgetClass)
+	  || XtIsSubclass (widget, toggleWidgetClass)
+	  || XtIsSubclass (widget, gaugeWidgetClass)
+#if 0
+	  || XtIsSubclass (widget, textWidgetClass)
+#endif
 #endif
 	  );
 }
@@ -110,6 +126,9 @@ void
 xaw_update_one_widget (widget_instance *instance, Widget widget,
 		       widget_value *val, Boolean deep_p)
 {
+  if (val->nargs)
+    XtSetValues (widget, val->args, val->nargs);
+
   if (0)
     ;
 #ifdef LWLIB_SCROLLBARS_ATHENA
@@ -125,6 +144,16 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
 	XtSetArg (al [0], XtNlabel, val->contents->value);
 	XtSetValues (widget, al, 1);
       }
+#endif /* LWLIB_DIALOGS_ATHENA */
+#ifdef LWLIB_WIDGETS_ATHENA
+  else if (XtClass (widget) == labelWidgetClass)
+      {
+	Arg al [1];
+	XtSetArg (al [0], XtNlabel, val->value);
+	XtSetValues (widget, al, 1);
+      }
+#endif /* LWLIB_WIDGETS_ATHENA */
+#if defined (LWLIB_DIALOGS_ATHENA) || defined (LWLIB_WIDGETS_ATHENA)
   else if (XtIsSubclass (widget, commandWidgetClass))
     {
       Dimension bw = 0;
@@ -154,6 +183,14 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
 
       XtRemoveAllCallbacks (widget, XtNcallback);
       XtAddCallback (widget, XtNcallback, xaw_generic_callback, instance);
+#ifdef LWLIB_WIDGETS_ATHENA
+      /* set the selected state */
+      if (XtIsSubclass (widget, toggleWidgetClass))
+	{
+	  XtSetArg (al [0], XtNstate, val->selected);
+	  XtSetValues (widget, al, 1);
+	}
+#endif /* LWLIB_WIDGETS_ATHENA */
     }
 #endif /* LWLIB_DIALOGS_ATHENA */
 }
@@ -162,9 +199,36 @@ void
 xaw_update_one_value (widget_instance *instance, Widget widget,
 		      widget_value *val)
 {
-  /* This function is not used by the scrollbars and those are the only
-     Athena widget implemented at the moment so do nothing. */
-  return;
+#ifdef LWLIB_WIDGETS_ATHENA
+  widget_value *old_wv;
+
+  /* copy the call_data slot into the "return" widget_value */
+  for (old_wv = instance->info->val->contents; old_wv; old_wv = old_wv->next)
+    if (!strcmp (val->name, old_wv->name))
+      {
+	val->call_data = old_wv->call_data;
+	break;
+      }
+  
+  if (XtIsSubclass (widget, toggleWidgetClass))
+    {
+      Arg al [1];
+      XtSetArg (al [0], XtNstate, &val->selected);
+      XtGetValues (widget, al, 1);
+      val->edited = True;
+    }
+#ifndef NEED_MOTIF
+  else if (XtIsSubclass (widget, asciiTextWidgetClass))
+    {
+      Arg al [1];
+      if (val->value)
+	free (val->value);
+      XtSetArg (al [0], XtNstring, &val->value);
+      XtGetValues (widget, al, 1);
+      val->edited = True;
+    }
+#endif
+#endif /* LWLIB_WIDGETS_ATHENA */
 }
 
 void
@@ -440,7 +504,21 @@ xaw_generic_callback (Widget widget, XtPointer closure, XtPointer call_data)
   Widget instance_widget;
   LWLIB_ID id;
   XtPointer user_data;
+#ifdef LWLIB_WIDGETS_ATHENA
+  /* We want the selected status to change only when we decide it
+     should change.  Yuck but correct. */
+  if (XtIsSubclass (widget, toggleWidgetClass))
+    {
+      Boolean check;
+      Arg al [1];
 
+      XtSetArg (al [0], XtNstate, &check);
+      XtGetValues (widget, al, 1);
+
+      XtSetArg (al [0], XtNstate, !check);
+      XtSetValues (widget, al, 1);
+    }
+#endif /* LWLIB_WIDGETS_ATHENA */
   lw_internal_update_other_instances (widget, closure, call_data);
 
   if (! instance)
@@ -464,17 +542,26 @@ xaw_generic_callback (Widget widget, XtPointer closure, XtPointer call_data)
 #else
   /* Damn!  Athena doesn't give us a way to hang our own data on the
      buttons, so we have to go find it...  I guess this assumes that
-     all instances of a button have the same call data. */
+     all instances of a button have the same call data. 
+
+     ... Which is a totally bogus assumption --andyp */
   {
-    widget_value *val = instance->info->val->contents;
-    char *name = XtName (widget);
-    while (val)
+    widget_value *val = instance->info->val;
+    /* If the widget is a buffer/gutter widget then we already have
+       the one we are looking for, so don't try and descend the widget
+       tree. */
+    if (val->contents)
       {
-	if (val->name && !strcmp (val->name, name))
-	  break;
-	val = val->next;
+	char *name = XtName (widget);
+	val = val->contents;
+	while (val)
+	  {
+	    if (val->name && !strcmp (val->name, name))
+	      break;
+	    val = val->next;
+	  }
+	if (! val) abort ();
       }
-    if (! val) abort ();
     user_data = val->call_data;
   }
 #endif
@@ -614,12 +701,163 @@ xaw_create_horizontal_scrollbar (widget_instance *instance)
 }
 #endif /* LWLIB_SCROLLBARS_ATHENA */
 
+#ifdef LWLIB_WIDGETS_ATHENA
+/* glyph widgets */
+static Widget
+xaw_create_button (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget button = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNjustify, XtJustifyCenter);		ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XtNhighlightThickness, (Dimension)0);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  if (!val->call_data)
+    button = XtCreateManagedWidget (val->name, labelWidgetClass, 
+				    instance->parent, al, ac);
+
+  else 
+    {
+      if (val->type == TOGGLE_TYPE || val->type == RADIO_TYPE)
+	{
+	  XtSetArg (al [ac], XtNstate, val->selected);	ac++;
+	  button = XtCreateManagedWidget 
+	    (val->name, 
+	     val->type == TOGGLE_TYPE ? checkboxWidgetClass : radioWidgetClass,
+	     instance->parent, al, ac);
+	}
+      else 
+	{
+	  button = XtCreateManagedWidget (val->name, commandWidgetClass,
+					  instance->parent, al, ac);
+	}
+      XtRemoveAllCallbacks (button, XtNcallback);
+      XtAddCallback (button, XtNcallback, xaw_generic_callback, (XtPointer)instance);
+    }
+
+  XtManageChild (button);
+
+  return button;
+}
+
+static Widget
+xaw_create_label_field (widget_instance *instance)
+{
+  return xaw_create_label (instance->parent, instance->info->val);
+}
+
+Widget
+xaw_create_label (Widget parent, widget_value* val)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget label = 0;
+
+  XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNjustify, XtJustifyCenter);		ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  label = XtCreateManagedWidget (val->name, labelWidgetClass, 
+				 parent, al, ac);
+
+  /* Do it again for arguments that have no effect until the widget is realized. */
+  ac = 0;
+  lw_add_value_args_to_args (val, al, &ac);
+  XtSetValues (label, al, ac);
+
+  return label;
+}
+
+static Widget
+xaw_create_progress (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget scale = 0;
+  widget_value* val = instance->info->val;
+
+  if (!val->call_data)
+    {
+      XtSetArg (al [ac], XtNsensitive, False);		ac++;
+    }
+  else
+    {
+      XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
+    }
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNorientation, XtorientHorizontal);	ac++;
+  XtSetArg (al [ac], XtNhighlightThickness, (Dimension)0);ac++;
+  XtSetArg (al [ac], XtNntics, (Cardinal)10);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  scale = XtCreateManagedWidget (val->name, gaugeWidgetClass,
+				 instance->parent, al, ac);
+  /* add the callback */
+  if (val->call_data)
+    XtAddCallback (scale, XtNgetValue, xaw_generic_callback, (XtPointer)instance);
+
+  XtManageChild (scale);
+
+  return scale;
+}
+
+#ifndef NEED_MOTIF
+static Widget
+xaw_create_text_field (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget text = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XtNsensitive, val->enabled && val->call_data);		ac++;
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNhighlightThickness, (Dimension)0);	ac++;
+  XtSetArg (al [ac], XtNtype, XawAsciiString);		ac++;
+  XtSetArg (al [ac], XtNeditType, XawtextEdit);		ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  text = XtCreateManagedWidget (val->name, asciiTextWidgetClass,
+				      instance->parent, al, ac);
+  XtManageChild (text);
+
+  return text;
+}
+#endif
+#endif /* LWLIB_WIDGETS_ATHENA */
+
 widget_creation_entry
 xaw_creation_table [] =
 {
 #ifdef LWLIB_SCROLLBARS_ATHENA
-  {"vertical-scrollbar",	xaw_create_vertical_scrollbar},
-  {"horizontal-scrollbar",	xaw_create_horizontal_scrollbar},
+  {"vertical-scrollbar",	xaw_create_vertical_scrollbar	},
+  {"horizontal-scrollbar",	xaw_create_horizontal_scrollbar	},
+#endif
+#ifdef LWLIB_WIDGETS_ATHENA
+  {"button",		xaw_create_button		},
+  { "label", 		xaw_create_label_field		},
+#ifndef NEED_MOTIF
+  {"text-field",		xaw_create_text_field		},
+#endif
+  {"progress",		xaw_create_progress		},
 #endif
   {NULL, NULL}
 };
+

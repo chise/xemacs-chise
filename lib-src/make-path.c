@@ -35,8 +35,6 @@ Boston, MA 02111-1307, USA.  */
 #include <stdio.h>
 #include <errno.h>
 
-extern int errno;
-
 char *prog_name;
 
 static int touchy_mkdir (char *path)

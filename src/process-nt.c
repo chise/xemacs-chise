@@ -409,8 +409,6 @@ nt_init_process (void)
  * must signal an error instead.
  */
 
-/* #### This function completely ignores Vprocess_environment */
-
 static void
 signal_cannot_launch (Lisp_Object image_file, DWORD err)
 {
@@ -426,6 +424,7 @@ nt_create_process (struct Lisp_Process *p,
   HANDLE hmyshove, hmyslurp, hprocin, hprocout;
   LPTSTR command_line;
   BOOL do_io, windowed;
+  char *proc_env;
 
   /* Find out whether the application is windowed or not */
   {
@@ -513,6 +512,80 @@ nt_create_process (struct Lisp_Process *p,
     UNGCPRO; /* args_or_ret */
   }
 
+  /* Set `proc_env' to a nul-separated array of the strings in
+     Vprocess_environment terminated by 2 nuls.  */
+ 
+  {
+    extern int compare_env (const char **strp1, const char **strp2);
+    char **env;
+    REGISTER Lisp_Object tem;
+    REGISTER char **new_env;
+    REGISTER int new_length = 0, i, new_space;
+    char *penv;
+    
+    for (tem = Vprocess_environment;
+ 	 (CONSP (tem)
+ 	  && STRINGP (XCAR (tem)));
+ 	 tem = XCDR (tem))
+      new_length++;
+    
+    /* new_length + 1 to include terminating 0.  */
+    env = new_env = alloca_array (char *, new_length + 1);
+ 
+    /* Copy the Vprocess_environment strings into new_env.  */
+    for (tem = Vprocess_environment;
+ 	 (CONSP (tem)
+ 	  && STRINGP (XCAR (tem)));
+ 	 tem = XCDR (tem))
+      {
+	char **ep = env;
+	char *string = (char *) XSTRING_DATA (XCAR (tem));
+	/* See if this string duplicates any string already in the env.
+	   If so, don't put it in.
+	   When an env var has multiple definitions,
+	   we keep the definition that comes first in process-environment.  */
+	for (; ep != new_env; ep++)
+	  {
+	    char *p = *ep, *q = string;
+	    while (1)
+	      {
+		if (*q == 0)
+		  /* The string is malformed; might as well drop it.  */
+		  goto duplicate;
+		if (*q != *p)
+		  break;
+		if (*q == '=')
+		  goto duplicate;
+		p++, q++;
+	      }
+	  }
+	*new_env++ = string;
+      duplicate: ;
+      }
+    *new_env = 0;
+    
+    /* Sort the environment variables */
+    new_length = new_env - env;
+    qsort (env, new_length, sizeof (char *), compare_env);
+    
+    /* Work out how much space to allocate */
+    new_space = 0;
+    for (i = 0; i < new_length; i++)
+      {
+ 	new_space += strlen(env[i]) + 1;
+      }
+    new_space++;
+    
+    /* Allocate space and copy variables into it */
+    penv = proc_env = alloca(new_space);
+    for (i = 0; i < new_length; i++)
+      {
+ 	strcpy(penv, env[i]);
+ 	penv += strlen(env[i]) + 1;
+      }
+    *penv = 0;
+  }
+  
   /* Create process */
   {
     STARTUPINFO si;
@@ -533,7 +606,7 @@ nt_create_process (struct Lisp_Process *p,
     err = (CreateProcess (NULL, command_line, NULL, NULL, TRUE,
 			  CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP
 			  | CREATE_SUSPENDED,
-			  NULL, (char *) XSTRING_DATA (cur_dir), &si, &pi)
+			  proc_env, (char *) XSTRING_DATA (cur_dir), &si, &pi)
 	   ? 0 : GetLastError ());
 
     if (do_io)
@@ -834,7 +907,7 @@ nt_canonicalize_host_name (Lisp_Object host)
 
 static void
 nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
-			Lisp_Object family, void** vinfd, void** voutfd)
+			Lisp_Object protocol, void** vinfd, void** voutfd)
 {
   struct sockaddr_in address;
   SOCKET s;
@@ -843,9 +916,9 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
 
   CHECK_STRING (host);
 
-  if (!EQ (family, Qtcpip))
-    error ("Unsupported protocol family \"%s\"",
-	   string_data (symbol_name (XSYMBOL (family))));
+  if (!EQ (protocol, Qtcp))
+    error ("Unsupported protocol \"%s\"",
+	   string_data (symbol_name (XSYMBOL (protocol))));
 
   if (INTP (service))
     port = htons ((unsigned short) XINT (service));

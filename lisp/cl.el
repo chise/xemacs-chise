@@ -680,9 +680,9 @@ FUNC is not added if it already appears on the list stored in HOOK."
 ;(load "cl-defs")
 
 ;;; Define data for indentation and edebug.
-(mapc
+(mapcar
  #'(lambda (entry)
-     (mapc
+     (mapcar
       #'(lambda (func)
 	  (put func 'lisp-indent-function (nth 1 entry))
 	  (put func 'lisp-indent-hook (nth 1 entry))

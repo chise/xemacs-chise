@@ -25,6 +25,8 @@ MODTITLE="Sample loadable module"
 
 all: $(MODNAME).ell
 
+distclean: clean
+
 clean:
 	rm -f $(MODNAME).ell $(OBJS) sample_i.o sample_i.c
 

@@ -39,8 +39,7 @@ Boston, MA 02111-1307, USA.  */
  * 4.  Add a FROB line for it in xemacs_debug_loop.
  */
 
-Lisp_Object Qredisplay, Qbuffers, Qfaces;
-Lisp_Object Qwindows, Qframes, Qdevices;
+static Lisp_Object Qredisplay, Qbuffers, Qfaces, Qwindows, Qframes, Qdevices;
 
 struct debug_classes active_debug_classes;
 
@@ -194,7 +193,6 @@ syms_of_debug (void)
   defsymbol (&Qwindows, "windows");
   defsymbol (&Qframes, "frames");
   defsymbol (&Qdevices, "devices");
-  /* defsymbol (&Qbyte_code, "byte-code"); in bytecode.c */
 
   DEFSUBR (Fadd_debug_class_to_check);
   DEFSUBR (Fdelete_debug_class_to_check);
@@ -206,11 +204,17 @@ syms_of_debug (void)
 }
 
 void
-vars_of_debug (void)
+reinit_vars_of_debug (void)
 {
   /* If you need to have any classes active early on in startup, then
      the flags should be set here.
      All functions called by this function are "allowed" according
      to emacs.c. */
   xemacs_debug_loop (INIT, Qnil, Qnil);
+}
+
+void
+vars_of_debug (void)
+{
+  reinit_vars_of_debug ();
 }

@@ -37,8 +37,7 @@ struct Lisp_Process;
 
 struct process_methods
 {
-  void (*mark_process_data) (struct Lisp_Process *proc,
-			     void (*markobj) (Lisp_Object));
+  void (*mark_process_data) (struct Lisp_Process *proc);
   void (*print_process_data) (struct Lisp_Process *proc,
 			      Lisp_Object printcharfun);
   void (*finalize_process_data) (struct Lisp_Process *proc, int for_disksave);
@@ -51,7 +50,7 @@ struct process_methods
   int  (*tooltalk_connection_p) (struct Lisp_Process *p);
 #ifdef HAVE_SOCKETS
   void (*open_network_stream) (Lisp_Object name, Lisp_Object host,
-			       Lisp_Object service, Lisp_Object family,
+			       Lisp_Object service, Lisp_Object protocol,
 			       void** vinfd, void** voutfd);
 #ifdef HAVE_MULTICAST
   void (*open_multicast_group) (Lisp_Object name, Lisp_Object dest,
@@ -159,7 +158,7 @@ struct Lisp_Process
 
 /* Random externs from process.c */
 extern Lisp_Object Qrun, Qstop, Qopen, Qclosed;
-extern Lisp_Object Qtcpip;
+extern Lisp_Object Qtcp, Qudp;
 extern Lisp_Object Vprocess_connection_type;
 extern Lisp_Object Vprocess_list;
 

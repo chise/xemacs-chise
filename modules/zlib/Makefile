@@ -25,6 +25,8 @@ MODTITLE="ZLIB compression library interface"
 
 all: $(MODNAME).ell
 
+distclean: clean
+
 clean:
 	rm -f $(MODNAME).ell $(OBJS) zlib_i.o zlib_i.c
 

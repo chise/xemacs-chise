@@ -198,9 +198,9 @@ or a cons of coding systems which are used as above.
 
 See also the function `find-operation-coding-system'.")
 
-(defun open-network-stream (name buffer host service)
+(defun open-network-stream (name buffer host service &optional protocol)
   "Open a TCP connection for a service to a host.
-Returns a subprocess-object to represent the connection.
+Return a subprocess-object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 Args are NAME BUFFER HOST SERVICE.
 NAME is name for process.  It is modified if necessary to make it unique.
@@ -211,7 +211,17 @@ BUFFER is the buffer (or buffer-name) to associate with the process.
  with any buffer
 Third arg is name of the host to connect to, or its IP address.
 Fourth arg SERVICE is name of the service desired, or an integer
- specifying a port number to connect to."
+ specifying a port number to connect to.
+Fifth argument PROTOCOL is a network protocol.  Currently 'tcp
+ (Transmission Control Protocol) and 'udp (User Datagram Protocol) are
+ supported.  When omitted, 'tcp is assumed.
+
+Ouput via `process-send-string' and input via buffer or filter (see
+`set-process-filter') are stream-oriented.  That means UDP datagrams are
+not guaranteed to be sent and received in discrete packets. (But small
+datagrams around 500 bytes that are not truncated by `process-send-string'
+are usually fine.)  Note further that UDP protocol does not guard against 
+lost packets."
   (let (cs-r cs-w)
     (let (ret)
       (catch 'found
@@ -245,6 +255,6 @@ Fourth arg SERVICE is name of the service desired, or an integer
 	   (or coding-system-for-read cs-r))
 	  (coding-system-for-write
 	   (or coding-system-for-write cs-w)))
-      (open-network-stream-internal name buffer host service))))
+      (open-network-stream-internal name buffer host service protocol))))
 
 ;;; mule-process.el ends here

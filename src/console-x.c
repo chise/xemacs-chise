@@ -280,3 +280,9 @@ console_type_create_x (void)
   CONSOLE_HAS_METHOD (x, initially_selected_for_input);
 }
 
+
+void
+reinit_console_type_create_x (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (x);
+}

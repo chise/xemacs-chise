@@ -49,6 +49,9 @@
 ## make extraclean
 ##      Still more severe - delete backup and autosave files, too.
 
+#define NOT_C_CODE
+#include "src/config.h"
+
 #ifdef USE_GNU_MAKE
 RECURSIVE_MAKE=$(MAKE)
 #else
@@ -199,7 +202,7 @@ etcdir=@etcdir@
 ## currently being edited.
 lockdir=@lockdir@
 
-# Where to put the DOC file.
+## Where to put the DOC file.
 docdir=@docdir@
 
 ## Where to put executables to be run by XEmacs rather than
@@ -224,7 +227,10 @@ INSTALL_DATA = @INSTALL_DATA@
 MAKE_SUBDIR = @MAKE_SUBDIR@
 
 ## Subdirectories that can be made recursively.
-SUBDIR = ${MAKE_SUBDIR} man
+SUBDIR = ${MAKE_SUBDIR} man  
+
+## Subdirectories that must be cleaned on distclean
+SUBDIR_DISTCLEAN = ${SUBDIR} modules/sample modules/ldap modules/zlib modules/base64
 
 ## The makefiles of the directories in ${MAKE_SUBDIR}.
 SUBDIR_MAKEFILES = @SUBDIR_MAKEFILES@
@@ -409,9 +415,18 @@ install-arch-dep: mkdir
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
 	else true; fi
+#ifdef WINDOWSNT
+	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}
+	-chmod 0755 ${bindir}/${PROGNAME}
+#else
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}
 	-chmod 0755 ${bindir}/${PROGNAME}-${version}
+# ifdef __CYGWIN32__
+	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version}.exe ./${PROGNAME}
+# else
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
+# endif /* __CYGWIN32__ */
+#endif /* WINDOWSNT */
 	if test "${prefix}" != "${exec_prefix}"; then \
 	  for dir in \
 		lib/${inststaticdir} \
@@ -552,10 +567,10 @@ top_distclean=\
 	$(RM) config.status config.log confdefs.h config-tmp-* build-install Installation ; \
 	$(RM) core .sbinit lock/* GNUmakefile Makefile Makefile.in ; \
 	$(RM) lisp/finder-inf.el* Installation.el Installation.elc ; \
-	$(RM) packages mule-packages site-lisp
+	$(RM) -r site-packages xemacs-packages mule-packages site-lisp
 
 distclean: FRC.distclean
-	for d in $(SUBDIR); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
+	for d in $(SUBDIR_DISTCLEAN); do (cd ./$$d && $(RECURSIVE_MAKE) $@); done
 	-${top_distclean}
 
 ## `realclean'

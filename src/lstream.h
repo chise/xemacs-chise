@@ -129,7 +129,7 @@ typedef struct lstream_implementation
   int (*closer) (Lstream *stream);
   /* Mark this object for garbage collection.  Same semantics as
      a standard Lisp_Object marker.  This function can be NULL. */
-  Lisp_Object (*marker) (Lisp_Object lstream, void (*markfun) (Lisp_Object));
+  Lisp_Object (*marker) (Lisp_Object lstream);
 } Lstream_implementation;
 
 #define DEFINE_LSTREAM_IMPLEMENTATION(name,c_name,size)	\

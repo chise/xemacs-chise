@@ -392,6 +392,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 		  case IMAGE_COLOR_PIXMAP:
 		  case IMAGE_SUBWINDOW:
 		  case IMAGE_WIDGET:
+		  case IMAGE_LAYOUT:
 		    /* just do nothing here */
 		    break;
 
@@ -464,7 +465,7 @@ tty_output_vertical_divider (struct window *w, int clear)
 static void
 tty_clear_region (Lisp_Object window, struct device* d, struct frame * f,
 		  face_index findex, int x, int y,
-		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor, 
+		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
 		  Lisp_Object background_pixmap)
 {
   struct console *c = XCONSOLE (FRAME_CONSOLE (f));
@@ -949,11 +950,11 @@ tty_redisplay_shutdown (struct console *c)
 {
   Lisp_Object dev = CONSOLE_SELECTED_DEVICE (c);
 
-  if (!GC_NILP (dev))
+  if (!NILP (dev))
     {
       Lisp_Object frm = DEVICE_SELECTED_FRAME (XDEVICE (dev));
 
-      if (!GC_NILP (frm))
+      if (!NILP (frm))
 	{
 	  struct frame *f = XFRAME (frm);
 
@@ -1304,7 +1305,8 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
 
 struct fkey_table
 {
-  CONST char *cap, *name;
+  CONST char *cap;
+  CONST char *name;
 };
 
   /* Termcap capability names that correspond directly to X keysyms.
@@ -1444,22 +1446,18 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
      describes F10, whereas othertimes it describes F0 and "k;" describes F10.
      We will attempt to politely accommodate both systems by testing for
      "k;", and if it is present, assuming that "k0" denotes F0, otherwise F10.
-     */
+  */
   {
-    char *k_semi  = tgetstr ("k;", address);
-    char *k0      = tgetstr ("k0", address);
-    CONST char *k0_name = "f10";
+    CONST char *k_semi  = tgetstr ("k;", address);
+    CONST char *k0      = tgetstr ("k0", address);
 
     if (k_semi)
-      {
-	Fdefine_key (function_key_map, build_ext_string (k_semi, FORMAT_BINARY),
-		     vector1 (intern ("f10")));
-	k0_name = "f0";
-      }
+      Fdefine_key (function_key_map, build_ext_string (k_semi, FORMAT_BINARY),
+		   vector1 (intern ("f10")));
 
     if (k0)
       Fdefine_key (function_key_map, build_ext_string (k0, FORMAT_BINARY),
-		   vector1 (intern (k0_name)));
+		   vector1 (intern (k_semi ? "f0" : "f10")));
   }
 
   /* Set up cookies for numbered function keys above f10. */
@@ -1487,42 +1485,40 @@ term_get_fkeys_1 (Lisp_Object function_key_map)
 	    }
 	}
       }
-   }
+  }
 
   /*
    * Various mappings to try and get a better fit.
    */
-  {
-#define CONDITIONAL_REASSIGN(cap1, cap2, sym)				\
-      if (!tgetstr (cap1, address))					\
-	{								\
-	  char *sequence = tgetstr (cap2, address);			\
-	  if (sequence)							\
-	    Fdefine_key (function_key_map,				\
-			 build_ext_string (sequence, FORMAT_BINARY),	\
-			 vector1 (intern (sym)));			\
-	}
+#define CONDITIONAL_REASSIGN(cap1, cap2, keyname)			\
+  if (!tgetstr (cap1, address))						\
+    {									\
+      char *sequence = tgetstr (cap2, address);				\
+      if (sequence)							\
+	Fdefine_key (function_key_map,					\
+		     build_ext_string (sequence, FORMAT_BINARY),	\
+		     vector1 (intern (keyname)));				\
+    }
 
-      /* if there's no key_next keycap, map key_npage to `next' keysym */
-      CONDITIONAL_REASSIGN ("%5", "kN", "next");
-      /* if there's no key_prev keycap, map key_ppage to `previous' keysym */
-      CONDITIONAL_REASSIGN ("%8", "kP", "prior");
-      /* if there's no key_dc keycap, map key_ic to `insert' keysym */
-      CONDITIONAL_REASSIGN ("kD", "kI", "insert");
+  /* if there's no key_next keycap, map key_npage to `next' keysym */
+  CONDITIONAL_REASSIGN ("%5", "kN", "next");
+  /* if there's no key_prev keycap, map key_ppage to `previous' keysym */
+  CONDITIONAL_REASSIGN ("%8", "kP", "prior");
+  /* if there's no key_dc keycap, map key_ic to `insert' keysym */
+  CONDITIONAL_REASSIGN ("kD", "kI", "insert");
 
-      /* IBM has their own non-standard dialect of terminfo.
-	 If the standard name isn't found, try the IBM name.  */
-      CONDITIONAL_REASSIGN ("kB", "KO", "backtab");
-      CONDITIONAL_REASSIGN ("@4", "kJ", "execute"); /* actually "action" */
-      CONDITIONAL_REASSIGN ("@4", "kc", "execute"); /* actually "command" */
-      CONDITIONAL_REASSIGN ("%7", "ki", "menu");
-      CONDITIONAL_REASSIGN ("@7", "kw", "end");
-      CONDITIONAL_REASSIGN ("F1", "k<", "f11");
-      CONDITIONAL_REASSIGN ("F2", "k>", "f12");
-      CONDITIONAL_REASSIGN ("%1", "kq", "help");
-      CONDITIONAL_REASSIGN ("*6", "kU", "select");
+  /* IBM has their own non-standard dialect of terminfo.
+     If the standard name isn't found, try the IBM name.  */
+  CONDITIONAL_REASSIGN ("kB", "KO", "backtab");
+  CONDITIONAL_REASSIGN ("@4", "kJ", "execute"); /* actually "action" */
+  CONDITIONAL_REASSIGN ("@4", "kc", "execute"); /* actually "command" */
+  CONDITIONAL_REASSIGN ("%7", "ki", "menu");
+  CONDITIONAL_REASSIGN ("@7", "kw", "end");
+  CONDITIONAL_REASSIGN ("F1", "k<", "f11");
+  CONDITIONAL_REASSIGN ("F2", "k>", "f12");
+  CONDITIONAL_REASSIGN ("%1", "kq", "help");
+  CONDITIONAL_REASSIGN ("*6", "kU", "select");
 #undef CONDITIONAL_REASSIGN
-  }
 
   return Qnil;
 }

@@ -1,4 +1,29 @@
 							-*- indented-text -*-
+to 21.2.20 "Yoko"
+-- UTF-8 & file-coding magic cookie fix from MORIOKA Tomohiko
+-- bug fixes from Adrian Aichner, Sean MacLennan, and Jeff Miller
+-- glyph widget support under X/Athena from Andy Piper
+-- tab widget support under X (all variants) from Andy Piper
+-- many gutter, redisplay & widget fixes from Andy Piper
+-- mswindows mousewheel support from Mike Woolley
+-- combo box support under X/Motif from Andy Piper
+-- buffer tab grouping from Andy Piper
+-- layout widget support from Andy Piper
+-- partial display line scrolling support from Andy Piper
+-- cleanup patches from Gleb Arshinov
+-- hash table FSF API sync from Martin Buchholz
+-- widget cleanup from Martin Buchholz
+-- process-environment fix for nt from Julian Back
+-- widget to frame fix from Jan Vroonhof
+-- animated glyph support from Andy Piper
+-- glyph redisplay improvements from Andy Piper
+-- color cells allocation fix from Lee Kindness
+-- recover file fix for windows nt
+-- mingw install fix from Craig Lanning
+-- recognize keypad keys under MS-Windows from Jonathan Harris
+-- Switch gui dialogs to native widgets from Andy Piper
+-- fixes from Yoshiki Hayashi and Norbert Koch
+
 to 21.2.19 "Shinjuku"
 -- various fixes from Gunnar Evermann
 -- XIM fixes from Kazuyuki IENAGA

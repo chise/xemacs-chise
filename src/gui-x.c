@@ -58,34 +58,26 @@ xmalloc_widget_value (void)
 }
 
 
-struct mark_widget_value_closure
-{
-  void (*markobj) (Lisp_Object);
-};
-
 static int
 mark_widget_value_mapper (widget_value *val, void *closure)
 {
   Lisp_Object markee;
-
-  struct mark_widget_value_closure *cl =
-    (struct mark_widget_value_closure *) closure;
   if (val->call_data)
     {
       VOID_TO_LISP (markee, val->call_data);
-      (cl->markobj) (markee);
+      mark_object (markee);
     }
 
   if (val->accel)
     {
       VOID_TO_LISP (markee, val->accel);
-      (cl->markobj) (markee);
+      mark_object (markee);
     }
   return 0;
 }
 
 static Lisp_Object
-mark_popup_data (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_popup_data (Lisp_Object obj)
 {
   struct popup_data *data = (struct popup_data *) XPOPUP_DATA (obj);
 
@@ -93,12 +85,7 @@ mark_popup_data (Lisp_Object obj, void (*markobj) (Lisp_Object))
      call-data */
 
   if (data->id)
-    {
-      struct mark_widget_value_closure closure;
-
-      closure.markobj = markobj;
-      lw_map_widget_values (data->id, mark_widget_value_mapper, &closure);
-    }
+    lw_map_widget_values (data->id, mark_widget_value_mapper, 0);
 
   return data->last_menubar_buffer;
 }
@@ -257,7 +244,7 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
     }
   else
     {
-      MARK_SUBWINDOWS_CHANGED;
+      MARK_SUBWINDOWS_STATE_CHANGED;
       get_gui_callback (data, &fn, &arg);
     }
 
@@ -325,7 +312,20 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
   /* !!#### This function has not been Mule-ized */
   /* This function cannot GC because gc_currently_forbidden is set when
      it's called */
-  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui_item);
+  struct Lisp_Gui_Item* pgui = 0;
+
+  /* degenerate case */
+  if (STRINGP (gui_item))
+    {
+      wv->type = TEXT_TYPE;
+      wv->name = (char *) XSTRING_DATA (gui_item);
+      wv->name = xstrdup (wv->name);
+      return 1;
+    }
+  else if (!GUI_ITEMP (gui_item))
+    signal_simple_error("need a string or a gui_item here", gui_item);
+
+  pgui = XGUI_ITEM (gui_item);
 
   if (!NILP (pgui->filter))
     signal_simple_error(":filter keyword not permitted on leaf nodes", gui_item);
@@ -340,6 +340,7 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
 
   CHECK_STRING (pgui->name);
   wv->name = (char *) XSTRING_DATA (pgui->name);
+  wv->name = xstrdup (wv->name);
   wv->accel = LISP_TO_VOID (gui_item_accelerator (gui_item));
 
   if (!NILP (pgui->suffix))
@@ -448,6 +449,111 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
   return 1;
 }
 
+/* parse tree's of gui items into widget_value hierarchies */
+static void gui_item_children_to_widget_values (Lisp_Object items, widget_value* parent);
+
+static widget_value *
+gui_items_to_widget_values_1 (Lisp_Object items, widget_value* parent,
+			      widget_value* prev)
+{
+  widget_value* wv = 0;
+
+  assert ((parent || prev) && !(parent && prev));
+  /* now walk the tree creating widget_values as appropriate */
+  if (!CONSP (items))
+    {
+      wv = xmalloc_widget_value();
+      if (parent)
+	parent->contents = wv;
+      else 
+	prev->next = wv;
+      if (!button_item_to_widget_value (items, wv, 0, 1))
+	{
+	  free_widget_value (wv);
+	  if (parent)
+	    parent->contents = 0;
+	  else 
+	    prev->next = 0;
+	}
+      else 
+	{
+	  wv->value = xstrdup (wv->name);	/* what a mess... */
+	}
+    }
+  else
+    {
+      /* first one is the parent */
+      if (CONSP (XCAR (items)))
+	signal_simple_error ("parent item must not be a list", XCAR (items));
+
+      if (parent)
+	wv = gui_items_to_widget_values_1 (XCAR (items), parent, 0);
+      else
+	wv = gui_items_to_widget_values_1 (XCAR (items), 0, prev);
+      /* the rest are the children */
+      gui_item_children_to_widget_values (XCDR (items), wv);
+    }
+  return wv;
+}
+
+static void
+gui_item_children_to_widget_values (Lisp_Object items, widget_value* parent)
+{
+  widget_value* wv = 0, *prev = 0;
+  Lisp_Object rest;
+  CHECK_CONS (items);
+
+  /* first one is master */
+  prev = gui_items_to_widget_values_1 (XCAR (items), parent, 0);
+  /* the rest are the children */
+  LIST_LOOP (rest, XCDR (items))
+    {
+      Lisp_Object tab = XCAR (rest);
+      wv = gui_items_to_widget_values_1 (tab, 0, prev);
+      prev = wv;
+    }
+}
+
+widget_value *
+gui_items_to_widget_values (Lisp_Object items)
+{
+  /* !!#### This function has not been Mule-ized */
+  /* This function can GC */
+  widget_value *control = 0, *tmp = 0;
+  int count = specpdl_depth ();
+  Lisp_Object wv_closure;
+
+  if (NILP (items))
+    signal_simple_error ("must have some items", items);
+
+  /* Inhibit GC during this conversion.  The reasons for this are
+     the same as in menu_item_descriptor_to_widget_value(); see
+     the large comment above that function. */
+  record_unwind_protect (restore_gc_inhibit,
+			 make_int (gc_currently_forbidden));
+  gc_currently_forbidden = 1;
+
+  /* Also make sure that we free the partially-created widget_value
+     tree on Lisp error. */
+  control = xmalloc_widget_value();
+  wv_closure = make_opaque_ptr (control);
+  record_unwind_protect (widget_value_unwind, wv_closure);
+
+  gui_items_to_widget_values_1 (items, control, 0);
+
+  /* mess about getting the data we really want */
+  tmp = control;
+  control = control->contents;
+  tmp->next = 0;
+  tmp->contents = 0;
+  free_widget_value (tmp);
+
+  /* No more need to free the half-filled-in structures. */
+  set_opaque_ptr (wv_closure, 0);
+  unbind_to (count, Qnil);
+
+  return control;
+}
 
 /* This is a kludge to make sure emacs can only link against a version of
    lwlib that was compiled in the right way.  Emacs references symbols which
@@ -498,6 +604,11 @@ sanity_check_lwlib (void)
 #elif defined (HAVE_DIALOGS)
   MACROLET (lwlib_dialogs_athena);
 #endif
+#ifdef LWLIB_WIDGETS_MOTIF
+  MACROLET (lwlib_widgets_motif);
+#elif defined (HAVE_WIDGETS)
+  MACROLET (lwlib_widgets_athena);
+#endif
 
 #undef MACROLET
 }
@@ -509,11 +620,21 @@ syms_of_gui_x (void)
 }
 
 void
-vars_of_gui_x (void)
+reinit_vars_of_gui_x (void)
 {
   lwlib_id_tick = (1<<16);	/* start big, to not conflict with Energize */
-
+#ifdef HAVE_POPUPS
   popup_up_p = 0;
+#endif
+
+  /* this makes only safe calls as in emacs.c */
+  sanity_check_lwlib ();
+}
+
+void
+vars_of_gui_x (void)
+{
+  reinit_vars_of_gui_x ();
 
   Vpopup_callbacks = Qnil;
   staticpro (&Vpopup_callbacks);
@@ -527,7 +648,4 @@ without a selection having been made.
 */ );
 #endif
   Fset (Qmenu_no_selection_hook, Qnil);
-
-  /* this makes only safe calls as in emacs.c */
-  sanity_check_lwlib ();
 }

@@ -936,9 +936,15 @@ syms_of_minibuf (void)
 }
 
 void
-vars_of_minibuf (void)
+reinit_vars_of_minibuf (void)
 {
   minibuf_level = 0;
+}
+
+void
+vars_of_minibuf (void)
+{
+  reinit_vars_of_minibuf ();
 
   staticpro (&Vminibuf_prompt);
   Vminibuf_prompt = Qnil;
@@ -965,7 +971,7 @@ Each completion has to match all regexps in this list.
 }
 
 void
-complex_vars_of_minibuf (void)
+reinit_complex_vars_of_minibuf (void)
 {
   /* This function can GC */
 #ifdef I18N3
@@ -974,8 +980,14 @@ complex_vars_of_minibuf (void)
 #endif
   Vminibuffer_zero
     = Fget_buffer_create
-      (Fpurecopy (build_string (DEFER_GETTEXT (" *Minibuf-0*"))));
+      (build_string (DEFER_GETTEXT (" *Minibuf-0*")));
   Vecho_area_buffer
     = Fget_buffer_create
-      (Fpurecopy (build_string (DEFER_GETTEXT (" *Echo Area*"))));
+      (build_string (DEFER_GETTEXT (" *Echo Area*")));
+}
+
+void
+complex_vars_of_minibuf (void)
+{
+  reinit_complex_vars_of_minibuf ();
 }

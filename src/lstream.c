@@ -134,10 +134,10 @@ void Lstream_rewind (Lstream *stream)
 #define MAX_READ_SIZE 512
 
 static Lisp_Object
-mark_lstream (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_lstream (Lisp_Object obj)
 {
   Lstream *lstr = XLSTREAM (obj);
-  return lstr->imp->marker ? (lstr->imp->marker) (obj, markobj) : Qnil;
+  return lstr->imp->marker ? (lstr->imp->marker) (obj) : Qnil;
 }
 
 static void
@@ -1214,7 +1214,7 @@ lisp_string_rewinder (Lstream *stream)
 }
 
 static Lisp_Object
-lisp_string_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+lisp_string_marker (Lisp_Object stream)
 {
   struct lisp_string_stream *str = LISP_STRING_STREAM_DATA (XLSTREAM (stream));
   return str->obj;
@@ -1612,13 +1612,13 @@ lisp_buffer_rewinder (Lstream *stream)
 }
 
 static Lisp_Object
-lisp_buffer_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+lisp_buffer_marker (Lisp_Object stream)
 {
   struct lisp_buffer_stream *str =
     LISP_BUFFER_STREAM_DATA (XLSTREAM (stream));
 
-  markobj (str->start);
-  markobj (str->end);
+  mark_object (str->start);
+  mark_object (str->end);
   return str->buffer;
 }
 
@@ -1673,13 +1673,19 @@ lstream_type_create (void)
 }
 
 void
-vars_of_lstream (void)
+reinit_vars_of_lstream (void)
 {
   int i;
 
   for (i = 0; i < countof (Vlstream_free_list); i++)
     {
       Vlstream_free_list[i] = Qnil;
-      staticpro (&Vlstream_free_list[i]);
+      staticpro_nodump (&Vlstream_free_list[i]);
     }
+}
+
+void
+vars_of_lstream (void)
+{
+  reinit_vars_of_lstream ();
 }

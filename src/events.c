@@ -103,29 +103,29 @@ zero_event (struct Lisp_Event *e)
 }
 
 static Lisp_Object
-mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_event (Lisp_Object obj)
 {
   struct Lisp_Event *event = XEVENT (obj);
 
   switch (event->event_type)
     {
     case key_press_event:
-      markobj (event->event.key.keysym);
+      mark_object (event->event.key.keysym);
       break;
     case process_event:
-      markobj (event->event.process.process);
+      mark_object (event->event.process.process);
       break;
     case timeout_event:
-      markobj (event->event.timeout.function);
-      markobj (event->event.timeout.object);
+      mark_object (event->event.timeout.function);
+      mark_object (event->event.timeout.object);
       break;
     case eval_event:
     case misc_user_event:
-      markobj (event->event.eval.function);
-      markobj (event->event.eval.object);
+      mark_object (event->event.eval.function);
+      mark_object (event->event.eval.object);
       break;
     case magic_eval_event:
-      markobj (event->event.magic_eval.object);
+      mark_object (event->event.magic_eval.object);
       break;
     case button_press_event:
     case button_release_event:
@@ -137,7 +137,7 @@ mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
     default:
       abort ();
     }
-  markobj (event->channel);
+  mark_object (event->channel);
   return event->next;
 }
 
@@ -2229,11 +2229,28 @@ syms_of_events (void)
   defsymbol (&Qbutton_release, "button-release");
   defsymbol (&Qmisc_user, "misc-user");
   defsymbol (&Qascii_character, "ascii-character");
+
+  defsymbol (&QKbackspace, "backspace");
+  defsymbol (&QKtab, "tab");
+  defsymbol (&QKlinefeed, "linefeed");
+  defsymbol (&QKreturn, "return");
+  defsymbol (&QKescape, "escape");
+  defsymbol (&QKspace, "space");
+  defsymbol (&QKdelete, "delete");
+}
+
+
+void
+reinit_vars_of_events (void)
+{
+  Vevent_resource = Qnil;
 }
 
 void
 vars_of_events (void)
 {
+  reinit_vars_of_events ();
+
   DEFVAR_LISP ("character-set-property", &Vcharacter_set_property /*
 A symbol used to look up the 8-bit character of a keysym.
 To convert a keysym symbol to an 8-bit code, as when that key is
@@ -2243,22 +2260,4 @@ system-specific code will set up appropriate properties and set this
 variable.
 */ );
   Vcharacter_set_property = Qnil;
-
-  Vevent_resource = Qnil;
-
-  QKbackspace = KEYSYM ("backspace");
-  QKtab       = KEYSYM ("tab");
-  QKlinefeed  = KEYSYM ("linefeed");
-  QKreturn    = KEYSYM ("return");
-  QKescape    = KEYSYM ("escape");
-  QKspace     = KEYSYM ("space");
-  QKdelete    = KEYSYM ("delete");
-
-  staticpro (&QKbackspace);
-  staticpro (&QKtab);
-  staticpro (&QKlinefeed);
-  staticpro (&QKreturn);
-  staticpro (&QKescape);
-  staticpro (&QKspace);
-  staticpro (&QKdelete);
 }

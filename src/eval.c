@@ -73,7 +73,7 @@ struct backtrace *backtrace_list;
    a SUBR with more than 8 arguments, use max_args == MANY.
    See the DEFUN macro in lisp.h)  */
 #define PRIMITIVE_FUNCALL(rv, fn, av, ac) do {			\
-  void (*PF_fn)() = (void (*)()) (fn);				\
+  void (*PF_fn)(void) = (void (*)(void)) fn;			\
   Lisp_Object *PF_av = (av);					\
   switch (ac)							\
     {								\
@@ -170,7 +170,7 @@ int specpdl_depth_counter;
 int max_specpdl_size;
 
 /* Depth in Lisp evaluations and function calls.  */
-int lisp_eval_depth;
+static int lisp_eval_depth;
 
 /* Maximum allowed depth in Lisp evaluations and function calls.  */
 int max_lisp_eval_depth;
@@ -295,9 +295,15 @@ print_subr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (trailer, printcharfun);
 }
 
-DEFINE_LRECORD_IMPLEMENTATION ("subr", subr,
-                               this_one_is_unmarkable, print_subr, 0, 0, 0, 0,
-			       Lisp_Subr);
+static const struct lrecord_description subr_description[] = {
+  { XD_DOC_STRING, offsetof(Lisp_Subr, doc)    },
+  { XD_END }
+};
+
+DEFINE_BASIC_LRECORD_IMPLEMENTATION ("subr", subr,
+				     this_one_is_unmarkable, print_subr, 0, 0, 0,
+				     subr_description,
+				     Lisp_Subr);
 
 /************************************************************************/
 /*			 Entering the debugger				*/
@@ -1004,8 +1010,6 @@ In byte compilation, `function' causes its argument to be compiled.
 static Lisp_Object
 define_function (Lisp_Object name, Lisp_Object defn)
 {
-  if (purify_flag)
-    defn = Fpurecopy (defn);
   Ffset (name, defn);
   LOADHIST_ATTACH (name);
   return name;
@@ -1078,14 +1082,7 @@ In lisp-interaction-mode defvar is treated as defconst.
       if (!NILP (args = XCDR (args)))
 	{
 	  Lisp_Object doc = XCAR (args);
-#if 0 /* FSFmacs */
-	  /* #### We should probably do this but it might be dangerous */
-	  if (purify_flag)
-	    doc = Fpurecopy (doc);
 	  Fput (sym, Qvariable_documentation, doc);
-#else
-	  pure_put (sym, Qvariable_documentation, doc);
-#endif
 	  if (!NILP (args = XCDR (args)))
 	    error ("too many arguments");
 	}
@@ -1093,7 +1090,7 @@ In lisp-interaction-mode defvar is treated as defconst.
 
 #ifdef I18N3
   if (!NILP (Vfile_domain))
-    pure_put (sym, Qvariable_domain, Vfile_domain);
+    Fput (sym, Qvariable_domain, Vfile_domain);
 #endif
 
   LOADHIST_ATTACH (sym);
@@ -1133,21 +1130,14 @@ Since `defconst' unconditionally assigns the variable,
   if (!NILP (args = XCDR (args)))
     {
       Lisp_Object doc = XCAR (args);
-#if 0 /* FSFmacs */
-      /* #### We should probably do this but it might be dangerous */
-      if (purify_flag)
-	doc = Fpurecopy (doc);
       Fput (sym, Qvariable_documentation, doc);
-#else
-      pure_put (sym, Qvariable_documentation, doc);
-#endif
       if (!NILP (args = XCDR (args)))
 	error ("too many arguments");
     }
 
 #ifdef I18N3
   if (!NILP (Vfile_domain))
-    pure_put (sym, Qvariable_domain, Vfile_domain);
+    Fput (sym, Qvariable_domain, Vfile_domain);
 #endif
 
   LOADHIST_ATTACH (sym);
@@ -1167,7 +1157,7 @@ for the variable is `*'.
   return
     ((INTP (documentation) && XINT (documentation) < 0) ||
 
-     ((STRINGP (documentation)) &&
+     (STRINGP (documentation) &&
       (string_byte (XSTRING (documentation), 0) == '*')) ||
 
      /* If (STRING . INTEGER), a negative integer means a user variable. */
@@ -2633,7 +2623,7 @@ when reading the arguments.
     {
       Fsignal (Qwrong_type_argument,
 	       Fcons (Qcommandp,
-		      ((EQ (cmd, final))
+		      (EQ (cmd, final)
                        ? list1 (cmd)
                        : list2 (cmd, final))));
       return Qnil;
@@ -2750,12 +2740,11 @@ this does nothing and returns nil.
       /* Attempt to avoid consing identical (string=) pure strings. */
       file = Fsymbol_name (Fintern (file, Qnil));
     }
-
-  return Ffset (function,
-                Fpurecopy (Fcons (Qautoload, list4 (file,
-                                                    docstring,
-                                                    interactive,
-                                                    type))));
+  
+  return Ffset (function, Fcons (Qautoload, list4 (file,
+						   docstring,
+						   interactive,
+						   type)));
 }
 
 Lisp_Object
@@ -2955,7 +2944,7 @@ Evaluate FORM and return its value.
       if (max_args == UNEVALLED) /* Optimize for the common case */
 	{
 	  backtrace.evalargs = 0;
-	  val = (((Lisp_Object (*) (Lisp_Object)) (subr_function (subr)))
+	  val = (((Lisp_Object (*) (Lisp_Object)) subr_function (subr))
 		 (original_args));
 	}
       else if (nargs <= max_args)
@@ -3009,7 +2998,7 @@ Evaluate FORM and return its value.
 	  backtrace.args  = args;
 	  backtrace.nargs = nargs;
 
-	  val = (((Lisp_Object (*) (int, Lisp_Object *)) (subr_function (subr)))
+	  val = (((Lisp_Object (*) (int, Lisp_Object *)) subr_function (subr))
 		 (nargs, args));
 
 	  UNGCPRO;
@@ -3203,7 +3192,7 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
 	}
       else if (max_args == MANY)
 	{
-	  val = ((Lisp_Object (*) (int, Lisp_Object *)) (subr_function (subr)))
+	  val = ((Lisp_Object (*) (int, Lisp_Object *)) subr_function (subr))
 	    (fun_nargs, fun_args);
 	}
       else if (max_args == UNEVALLED) /* Can't funcall a special form */
@@ -3627,8 +3616,9 @@ run_hook_with_args_in_buffer (struct buffer *buf, int nargs, Lisp_Object *args,
     }
   else
     {
-      struct gcpro gcpro1, gcpro2;
-      GCPRO2 (sym, val);
+      struct gcpro gcpro1, gcpro2, gcpro3;
+      Lisp_Object globals = Qnil;
+      GCPRO3 (sym, val, globals);
 
       for (;
 	   CONSP (val) && ((cond == RUN_HOOKS_TO_COMPLETION)
@@ -3640,7 +3630,7 @@ run_hook_with_args_in_buffer (struct buffer *buf, int nargs, Lisp_Object *args,
 	    {
 	      /* t indicates this hook has a local binding;
 		 it means to run the global binding too.  */
-	      Lisp_Object globals = Fdefault_value (sym);
+	      globals = Fdefault_value (sym);
 
 	      if ((! CONSP (globals) || EQ (XCAR (globals), Qlambda)) &&
 		  ! NILP (globals))
@@ -4207,14 +4197,14 @@ eval_in_buffer_trapping_errors (CONST char *warning_string,
   /* gc_currently_forbidden = 1; Currently no reason to do this; */
 
   cons = noseeum_cons (buffer, form);
-  opaque = (warning_string ? make_opaque_ptr (warning_string) : Qnil);
+  opaque = (warning_string ? make_opaque_ptr ((void *)warning_string) : Qnil);
   GCPRO2 (cons, opaque);
   /* Qerror not Qt, so you can get a backtrace */
   tem = condition_case_1 (Qerror,
                           catch_them_squirmers_eval_in_buffer, cons,
 			  caught_a_squirmer, opaque);
   free_cons (XCONS (cons));
-  if (OPAQUEP (opaque))
+  if (OPAQUE_PTRP (opaque))
     free_opaque_ptr (opaque);
   UNGCPRO;
 
@@ -4247,13 +4237,13 @@ run_hook_trapping_errors (CONST char *warning_string, Lisp_Object hook_symbol)
   speccount = specpdl_depth();
   specbind (Qinhibit_quit, Qt);
 
-  opaque = (warning_string ? make_opaque_ptr (warning_string) : Qnil);
+  opaque = (warning_string ? make_opaque_ptr ((void *)warning_string) : Qnil);
   GCPRO1 (opaque);
   /* Qerror not Qt, so you can get a backtrace */
   tem = condition_case_1 (Qerror,
                           catch_them_squirmers_run_hook, hook_symbol,
                           caught_a_squirmer, opaque);
-  if (OPAQUEP (opaque))
+  if (OPAQUE_PTRP (opaque))
     free_opaque_ptr (opaque);
   UNGCPRO;
 
@@ -4283,7 +4273,7 @@ safe_run_hook_trapping_errors (CONST char *warning_string,
     specbind (Qinhibit_quit, Qt);
 
   cons = noseeum_cons (hook_symbol,
-		       warning_string ? make_opaque_ptr (warning_string)
+		       warning_string ? make_opaque_ptr ((void *)warning_string)
 		       : Qnil);
   GCPRO1 (cons);
   /* Qerror not Qt, so you can get a backtrace */
@@ -4294,7 +4284,7 @@ safe_run_hook_trapping_errors (CONST char *warning_string,
 			  allow_quit_safe_run_hook_caught_a_squirmer :
                           safe_run_hook_caught_a_squirmer,
 			  cons);
-  if (OPAQUEP (XCDR (cons)))
+  if (OPAQUE_PTRP (XCDR (cons)))
     free_opaque_ptr (XCDR (cons));
   free_cons (XCONS (cons));
   UNGCPRO;
@@ -4329,12 +4319,12 @@ call0_trapping_errors (CONST char *warning_string, Lisp_Object function)
   specbind (Qinhibit_quit, Qt);
   /* gc_currently_forbidden = 1; Currently no reason to do this; */
 
-  opaque = (warning_string ? make_opaque_ptr (warning_string) : Qnil);
+  opaque = (warning_string ? make_opaque_ptr ((void *)warning_string) : Qnil);
   /* Qerror not Qt, so you can get a backtrace */
   tem = condition_case_1 (Qerror,
                           catch_them_squirmers_call0, function,
                           caught_a_squirmer, opaque);
-  if (OPAQUEP (opaque))
+  if (OPAQUE_PTRP (opaque))
     free_opaque_ptr (opaque);
   UNGCPRO;
 
@@ -4379,12 +4369,12 @@ call1_trapping_errors (CONST char *warning_string, Lisp_Object function,
   /* gc_currently_forbidden = 1; Currently no reason to do this; */
 
   cons = noseeum_cons (function, object);
-  opaque = (warning_string ? make_opaque_ptr (warning_string) : Qnil);
+  opaque = (warning_string ? make_opaque_ptr ((void *)warning_string) : Qnil);
   /* Qerror not Qt, so you can get a backtrace */
   tem = condition_case_1 (Qerror,
                           catch_them_squirmers_call1, cons,
                           caught_a_squirmer, opaque);
-  if (OPAQUEP (opaque))
+  if (OPAQUE_PTRP (opaque))
     free_opaque_ptr (opaque);
   free_cons (XCONS (cons));
   UNGCPRO;
@@ -4415,12 +4405,12 @@ call2_trapping_errors (CONST char *warning_string, Lisp_Object function,
   /* gc_currently_forbidden = 1; Currently no reason to do this; */
 
   cons = list3 (function, object1, object2);
-  opaque = (warning_string ? make_opaque_ptr (warning_string) : Qnil);
+  opaque = (warning_string ? make_opaque_ptr ((void *)warning_string) : Qnil);
   /* Qerror not Qt, so you can get a backtrace */
   tem = condition_case_1 (Qerror,
                           catch_them_squirmers_call2, cons,
                           caught_a_squirmer, opaque);
-  if (OPAQUEP (opaque))
+  if (OPAQUE_PTRP (opaque))
     free_opaque_ptr (opaque);
   free_list (cons);
   UNGCPRO;
@@ -5053,8 +5043,28 @@ reinit_eval (void)
 }
 
 void
+reinit_vars_of_eval (void)
+{
+  preparing_for_armageddon = 0;
+  in_warnings = 0;
+  Qunbound_suspended_errors_tag = make_opaque_ptr (&Qunbound_suspended_errors_tag);
+  staticpro_nodump (&Qunbound_suspended_errors_tag);
+
+  specpdl_size = 50;
+  specpdl = xnew_array (struct specbinding, specpdl_size);
+  /* XEmacs change: increase these values. */
+  max_specpdl_size = 3000;
+  max_lisp_eval_depth = 500;
+#if 0 /* no longer used */
+  throw_level = 0;
+#endif
+}
+
+void
 vars_of_eval (void)
 {
+  reinit_vars_of_eval ();
+
   DEFVAR_INT ("max-specpdl-size", &max_specpdl_size /*
 Limit on number of Lisp variable bindings & unwind-protects before error.
 */ );
@@ -5156,13 +5166,10 @@ If due to `eval' entry, one arg, t.
 */ );
   Vdebugger = Qnil;
 
-  preparing_for_armageddon = 0;
-
   staticpro (&Vpending_warnings);
   Vpending_warnings = Qnil;
-  Vpending_warnings_tail = Qnil; /* no need to protect this */
-
-  in_warnings = 0;
+  pdump_wire (&Vpending_warnings_tail);
+  Vpending_warnings_tail = Qnil;
 
   staticpro (&Vautoload_queue);
   Vautoload_queue = Qnil;
@@ -5174,19 +5181,6 @@ If due to `eval' entry, one arg, t.
 
   staticpro (&Vcurrent_error_state);
   Vcurrent_error_state = Qnil; /* errors as normal */
-
-  Qunbound_suspended_errors_tag = make_opaque_long (0);
-  staticpro (&Qunbound_suspended_errors_tag);
-
-  specpdl_size = 50;
-  specpdl_depth_counter = 0;
-  specpdl = xnew_array (struct specbinding, specpdl_size);
-  /* XEmacs change: increase these values. */
-  max_specpdl_size = 3000;
-  max_lisp_eval_depth = 500;
-#if 0 /* no longer used */
-  throw_level = 0;
-#endif
 
   reinit_eval ();
 }

@@ -381,7 +381,7 @@ extern struct console_type *x_console_type;
 extern Lisp_Object Vdefault_x_device;
 
 /* Number of pixels below each line. */
-extern int x_interline_space;
+extern int x_interline_space; /* #### implement me */
 
 extern int x_selection_timeout;
 
@@ -420,15 +420,14 @@ void x_output_string (struct window *w, struct display_line *dl,
 		      int cursor, int cursor_start, int cursor_width,
 		      int cursor_height);
 void x_output_x_pixmap (struct frame *f, struct Lisp_Image_Instance *p,
-			int x, int y, int clip_x, int clip_y,
-			int clip_width, int clip_height, int width,
-			int height, int pixmap_offset,
+			int x, int y, int xoffset, int yoffset,
+			int width, int height,
 			unsigned long fg, unsigned long bg,
 			GC override_gc);
 void x_output_shadows (struct frame *f, int x, int y, int width,
 		       int height, GC top_shadow_gc,
 		       GC bottom_shadow_gc, GC background_gc,
-		       int shadow_thickness);
+		       int shadow_thickness, int edges);
 void x_generate_shadow_pixels (struct frame *f,
 			       unsigned long *top_shadow,
 			       unsigned long *bottom_shadow,
@@ -439,10 +438,10 @@ int x_initialize_frame_menubar (struct frame *f);
 void x_init_modifier_mapping (struct device *d);
 
 #define X_ERROR_OCCURRED(dpy, body)	\
-     (expect_x_error ((dpy)), (body), x_error_occurred_p (dpy))
+     (expect_x_error (dpy), body, x_error_occurred_p (dpy))
 
 #define HANDLING_X_ERROR(dpy, body)	\
-     ( expect_x_error ((dpy)), (body), signal_if_x_error ((dpy), 0))
+     (expect_x_error (dpy), body, signal_if_x_error (dpy, 0))
 
 void Initialize_Locale (void);
 

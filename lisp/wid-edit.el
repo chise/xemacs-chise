@@ -1935,16 +1935,11 @@ If END is omitted, it defaults to the length of LIST."
 		(console-on-window-system-p))
 	   (unless gui-glyphs
 	     (let* ((gui-button-shadow-thickness 1)
-		    (gui (make-gui-button tag 'widget-gui-action widget)))
-	       (setq
-		gui-glyphs
-		(list
-		 (make-glyph `(,(nth 0 (aref gui 1)) [string :data ,text]))
-		 (make-glyph `(,(nth 1 (aref gui 1)) [string :data ,text]))
-		 (make-glyph `(,(nth 2 (aref gui 1)) [string :data ,text]))))
+		    (gui (make-glyph 
+			  (make-gui-button tag 'widget-gui-action widget))))
+	       (setq gui-glyphs gui)
 	       (laxputf widget-push-button-cache tag gui-glyphs)))
-	   (widget-glyph-insert-glyph
-	    widget (nth 0 gui-glyphs) (nth 1 gui-glyphs) (nth 2 gui-glyphs)))
+	   (widget-glyph-insert-glyph widget gui-glyphs))
 	  (t
 	   (insert text)))))
 

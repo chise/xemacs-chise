@@ -125,8 +125,6 @@ free_widget_value (widget_value *wv)
   widget_value_free_list = wv;
 }
 
-static void free_widget_value_tree (widget_value *wv);
-
 static void
 free_widget_value_contents (widget_value *wv)
 {
@@ -155,11 +153,13 @@ free_widget_value_contents (widget_value *wv)
       free_widget_value_tree (wv->contents);
       wv->contents = (widget_value *) 0xDEADBEEF;
     }
-  if (wv->args && wv->free_args)
+  if (wv->args && wv->nargs)
     {
-      free (wv->args);
-      wv->args = (void *) 0xDEADBEEF;
+      if (wv->free_args)
+	free (wv->args);
+      wv->args = (ArgList) 0xDEADBEEF;
       wv->nargs = 0;
+      wv->free_args = 0;
     }
   if (wv->next)
     {
@@ -168,7 +168,7 @@ free_widget_value_contents (widget_value *wv)
     }
 }
 
-static void
+void
 free_widget_value_tree (widget_value *wv)
 {
   if (!wv)
@@ -1326,3 +1326,4 @@ void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
       *offset += wv->nargs;
     }
 }
+

@@ -66,10 +66,17 @@ set the clipboard.")
 (defun yank-clipboard-selection ()
   "Insert the current Clipboard selection at point."
   (interactive "*")
-  (case (device-type (selected-device))
-    (x (x-yank-clipboard-selection))
-    (mswindows (mswindows-paste-clipboard))
-    (otherwise nil)))
+  (when (console-on-window-system-p)
+    (setq last-command nil)
+    (setq this-command 'yank) ; so that yank-pop works.
+    (let ((clip (get-clipboard)))
+      (or clip (error "there is no clipboard selection"))
+      (push-mark)
+      (insert clip))))
+
+(defun get-clipboard ()
+  "Return text pasted to the clipboard."
+  (get-selection 'CLIPBOARD))
 
 (define-device-method get-cutbuffer
   "Return the value of one of the cut buffers.
@@ -178,13 +185,18 @@ Interactively, the text of the region is used as the selection value."
 (setq lost-selection-hooks 'dehilight-selection)
 
 (defun own-clipboard (string)
-  "Paste the given string to the X Clipboard."
+  "Paste the given string to the window system Clipboard."
   (own-selection string 'CLIPBOARD))
 
 (defun disown-selection (&optional secondary-p)
   "Assuming we own the selection, disown it.  With an argument, discard the
 secondary selection instead of the primary selection."
-  (disown-selection-internal (if secondary-p 'SECONDARY 'PRIMARY)))
+  (disown-selection-internal (if secondary-p 'SECONDARY 'PRIMARY))
+  (when (and selection-sets-clipboard
+	     (or (not secondary-p)
+		 (eq secondary-p 'PRIMARY)
+		 (eq secondary-p 'CLIPBOARD)))
+    (disown-selection-internal 'CLIPBOARD)))
 
 ;; from x-init.el
 ;; selections and active regions

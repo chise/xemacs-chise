@@ -386,7 +386,7 @@ get_doprnt_args (printf_spec_dynarr *specs, va_list vargs)
       if (strchr (int_converters, ch))
 	{
 	  if (spec->h_flag)
-	    arg.i = va_arg (vargs, short);
+	    arg.i = va_arg (vargs, int /* short */);
 	  else if (spec->l_flag)
 	    arg.l = va_arg (vargs, long);
 	  else
@@ -395,7 +395,7 @@ get_doprnt_args (printf_spec_dynarr *specs, va_list vargs)
       else if (strchr (unsigned_int_converters, ch))
 	{
 	  if (spec->h_flag)
-	    arg.ui = va_arg (vargs, unsigned short);
+	    arg.ui = va_arg (vargs, unsigned int /* unsigned short */);
 	  else if (spec->l_flag)
 	    arg.ul = va_arg (vargs, unsigned long);
 	  else

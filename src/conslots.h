@@ -25,6 +25,10 @@ Boston, MA 02111-1307, USA.  */
    definition.  In the garbage collector this file is included after
    defining MARKED_SLOT(x) to be mark_object(console->x). */
 
+#ifndef CONSOLE_SLOTS_FIRST_NAME
+#define CONSOLE_SLOTS_FIRST_NAME name
+#endif
+
     /* Name of this console, for resourcing and printing purposes.
        If not explicitly given, it's initialized in a console-specific
        manner. */
@@ -93,4 +97,7 @@ Boston, MA 02111-1307, USA.  */
        Initialized by the terminal-specific lisp files.  */
     MARKED_SLOT (function_key_map);
 
+#ifndef CONSOLE_SLOTS_LAST_NAME
+#define CONSOLE_SLOTS_LAST_NAME function_key_map
+#endif
 

@@ -252,15 +252,15 @@ Lisp_Object QLFD, QTAB, QRET, QESC, QDEL, QSPC, QBS;
 /************************************************************************/
 
 static Lisp_Object
-mark_keymap (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_keymap (Lisp_Object obj)
 {
   Lisp_Keymap *keymap = XKEYMAP (obj);
-  markobj (keymap->parents);
-  markobj (keymap->prompt);
-  markobj (keymap->inverse_table);
-  markobj (keymap->sub_maps_cache);
-  markobj (keymap->default_binding);
-  markobj (keymap->name);
+  mark_object (keymap->parents);
+  mark_object (keymap->prompt);
+  mark_object (keymap->inverse_table);
+  mark_object (keymap->sub_maps_cache);
+  mark_object (keymap->default_binding);
+  mark_object (keymap->name);
   return keymap->table;
 }
 
@@ -278,7 +278,7 @@ print_keymap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
     print_internal (keymap->name, printcharfun, 1);
   /* #### Yuck!  This is no way to form plural!  --hniksic */
   sprintf (buf, "%s%d entr%s 0x%x>",
-           ((NILP (keymap->name)) ? "" : " "),
+           (NILP (keymap->name) ? "" : " "),
            size,
            ((size == 1) ? "y" : "ies"),
            keymap->header.uid);
@@ -1351,6 +1351,8 @@ define_key_check_and_coerce_keysym (Lisp_Object spec,
 	*keysym = QKescape;
       else if (EQ (*keysym, QDEL))
 	*keysym = QKdelete;
+      else if (EQ (*keysym, QSPC))
+	*keysym = QKspace;
       else if (EQ (*keysym, QBS))
 	*keysym = QKbackspace;
       /* Emacs compatibility */
@@ -3175,9 +3177,9 @@ spaces are put between sequence elements, etc...
       for (i = 0; i < size; i++)
 	{
 	  Lisp_Object s2 = Fsingle_key_description
-	    (((STRINGP (keys))
-	      ? make_char (string_char (XSTRING (keys), i))
-	      : XVECTOR_DATA (keys)[i]));
+	    (STRINGP (keys)
+	     ? make_char (string_char (XSTRING (keys), i))
+	     : XVECTOR_DATA (keys)[i]);
 
 	  if (i == 0)
 	    string = s2;
@@ -3534,7 +3536,7 @@ where_is_recursive_mapper (Lisp_Object map, void *arg)
 
       for (;;) /* loop over all keys that match */
 	{
-	  Lisp_Object k = ((CONSP (keys)) ? XCAR (keys) : keys);
+	  Lisp_Object k = CONSP (keys) ? XCAR (keys) : keys;
 	  int i;
 
 	  so_far [keys_count].keysym = k;
@@ -4274,6 +4276,7 @@ syms_of_keymap (void)
   defsymbol (&QRET, "RET");
   defsymbol (&QESC, "ESC");
   defsymbol (&QDEL, "DEL");
+  defsymbol (&QSPC, "SPC");
   defsymbol (&QBS, "BS");
 }
 
@@ -4327,7 +4330,7 @@ Incremented for each change to any keymap.
 
   staticpro (&Vcurrent_global_map);
 
-  Vsingle_space_string = make_string_nocopy ((CONST Bufbyte *) " ", 1);
+  Vsingle_space_string = make_string ((CONST Bufbyte *) " ", 1);
   staticpro (&Vsingle_space_string);
 }
 

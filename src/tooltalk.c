@@ -151,9 +151,9 @@ struct Lisp_Tooltalk_Message
 };
 
 static Lisp_Object
-mark_tooltalk_message (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_tooltalk_message (Lisp_Object obj)
 {
-  markobj (XTOOLTALK_MESSAGE (obj)->callback);
+  mark_object (XTOOLTALK_MESSAGE (obj)->callback);
   return XTOOLTALK_MESSAGE (obj)->plist_sym;
 }
 
@@ -225,9 +225,9 @@ struct Lisp_Tooltalk_Pattern
 };
 
 static Lisp_Object
-mark_tooltalk_pattern (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_tooltalk_pattern (Lisp_Object obj)
 {
-  markobj (XTOOLTALK_PATTERN (obj)->callback);
+  mark_object (XTOOLTALK_PATTERN (obj)->callback);
   return XTOOLTALK_PATTERN (obj)->plist_sym;
 }
 

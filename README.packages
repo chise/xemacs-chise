@@ -224,3 +224,13 @@ The site-packages hierarchy replaces the old 'site-lisp' directory.
 XEmacs no longer looks into a 'site-lisp' directly by default.
 A good place to put 'site-start.el' would be in
 $prefix/lib/xemacs/site-packages/lisp/
+
+Finding the right packages
+--------------------------
+
+If you want to find out which package contains the functionality you
+are looking for, use M-x package-get-package-provider, and give it a
+symbol that is likely to be in that package.  eg, if some code you
+want to use has a (require 'thingatpt) in it, try doing
+M-x package-get-package-provider RET thingatpt , which will return
+something like: (fsf-compat "1.06").
