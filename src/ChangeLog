@@ -1,3 +1,8 @@
+2000-01-20  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Don't define
+	`japanese-jisx0208-1990' in non-UTF-2000 Mule.
+
 2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (split_builtin_char): Don't support OBS_94x94.
