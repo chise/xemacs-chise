@@ -865,6 +865,7 @@ successfully installed but errors occurred during initialization, or
 	      (if (package-get-init-package (package-admin-get-lispdir
 					     install-dir package))
 		  (progn
+		    (run-hook-with-args 'package-install-hook package install-dir)
 		    (message "Added package `%s'" package)
 		    (sit-for 0)
 		    )
@@ -950,7 +951,7 @@ Returns the modified PACKAGE-LIST.  Any missing fields are created."
 (defun package-get-staging-dir (filename)
   "Return a good place to stash FILENAME when it is retrieved.
 Use `package-get-dir' for directory to store stuff.
-Creates `package-get-dir'  it it doesn't exist."
+Creates `package-get-dir'  if it doesn't exist."
   (interactive "FPackage filename: ")
   (if (not (file-exists-p package-get-dir))
       (make-directory package-get-dir))

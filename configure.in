@@ -358,6 +358,8 @@ with_msw=''
 rel_alloc='default'
 with_system_malloc='default'
 with_dlmalloc='default'
+dnl ESD is associated with crashes and lockups due to incorrect signal use.
+with_esd_sound='no'
 native_sound_lib=''
 dnl These should be set to the empty string when we want gtk / gnome to
 dnl be auto-detected instead of manually specified.
@@ -375,6 +377,8 @@ with_dnet=""
 pdump="no"
 dnl dragndrop is still experimental.  When it is stable, comment out the following line:
 with_dragndrop="no"
+dnl I think this is mandated by IPv6 standards.
+with_ipv6_cname="yes"
 
 dnl ------------------
 dnl Options Processing
@@ -500,7 +504,8 @@ while test $# != 0; do
 	with_hesiod	| \
 	with_dnet	| \
 	with_infodock	| \
-	with_netinstall   | \
+	with_netinstall | \
+	with_ipv6_cname | \
 	external_widget | \
 	verbose		| \
 	extra_verbose	| \
@@ -616,7 +621,8 @@ while test $# != 0; do
 		types="\`all', \`none', \`(no)native', \`no(nas)', \`(no)esd'."
 		USAGE_ERROR(["Valid types for the \`--$optname' option are:
   $types.
-The default is to autodetect all sound support."])
+Option \`all' or \`none' must be first in the list.
+The default is to autodetect native and NAS sound support."])
 	    elif test -n "$new_sdefault" ; then
 		with_native_sound=$new_sdefault
 		with_nas_sound=$new_sdefault
@@ -783,14 +789,14 @@ The default is to autodetect all sound support."])
 	"with_widgets" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
-	    m | mo | mot | moti | motif )		val=motif  ;;
+	    mo | mot | moti | motif )			val=motif  ;;
 	    a | at | ath | athe | athen | athena )	val=athena ;;
 	    n | no | non | none )			val=no     ;;
 	    y | ye | yes )				val=yes    ;;
 	    g | gt | gtk )				val=gtk    ;;
-	    m | ms | msw )				val=msw    ;;
+	    ms | msw )					val=msw    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`gtk\', \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
+  \`gtk', \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
 	  esac
 	  eval "$opt=\"$val\""
 	;;
@@ -2602,8 +2608,10 @@ if test "${GTK_CONFIG}" != "no"; then
 
       dnl Check for libglade support (it rocks)
       OLD_CFLAGS="${CFLAGS}"
+      OLD_CPPFLAGS="${CPPFLAGS}"
       OLD_LDFLAGS="${LDFLAGS}"
       CFLAGS="${GTK_CFLAGS} ${CFLAGS}"
+      CPPFLAGS="${GTK_CFLAGS} ${CFLAGS}"
       LDFLAGS="${LDFLAGS} ${GTK_LIBS}"
       AC_CHECK_HEADERS(glade/glade.h glade.h)
       AC_CHECK_LIB(xml, main, XE_PREPEND(-lxml, libs_gtk))
@@ -2614,6 +2622,7 @@ if test "${GTK_CONFIG}" != "no"; then
                        AC_DEFINE(LIBGLADE_XML_TXTDOMAIN,1)],
                       [AC_MSG_RESULT(no)])
       CFLAGS="${OLD_CFLAGS}"
+      CPPFLAGS="${OLD_CPPFLAGS}"
       LDFLAGS="${OLD_LDFLAGS}"
 fi
 
@@ -3317,9 +3326,10 @@ dnl X-Specific Graphics libraries
 dnl ----------------------
 
 if test "$with_x11" = "yes"; then
-
   AC_CHECKING(for X11 graphics libraries)
+fi
 
+if test "$with_x11" = "yes" -a "$with_widgets" = "athena"; then
   AC_CHECKING(for the Athena widgets)
 
   dnl What in heck did the user actually want?
@@ -3416,6 +3426,11 @@ if test "$with_x11" = "yes"; then
     have_xaw=no
   fi
 
+else
+  have_xaw=no
+fi dnl "$with_x11" = "yes" -a "$with_widgets" = "athena"
+
+if test "$with_x11" = "yes"; then
   dnl autodetect Motif - but only add to libs_x later (if necessary)
   AC_CHECK_HEADER(Xm/Xm.h,
    [AC_CHECK_LIB(Xm, XmStringFree, have_motif=yes, have_motif=no)],
@@ -4162,7 +4177,7 @@ if test "$with_tty" = "yes"  ; then
       XE_ADD_OBJS(tparam.o)
       dnl The HP-UX curses library seems to have a badly broken version of select(2)
       dnl that makes "poll: interrupted system call" messages to appear and
-      dnl Emacs suprocesses to hang (e.g. TeX compilation w/ AUCTeX) */
+      dnl Emacs subprocesses to hang (e.g. TeX compilation w/ AUCTeX) */
       case "$opsys" in *-hp-hpux* ) libs_termcap="-ltermcap" ;; esac
       if test -n "$libs_termcap"; then
 	XE_PREPEND($libs_termcap, LIBS)
@@ -4723,6 +4738,7 @@ test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
 test "$with_hesiod"        = "yes" && AC_DEFINE(HESIOD)
 test "$use_union_type"     = "yes" && AC_DEFINE(USE_UNION_TYPE)
 test "$pdump"              = "yes" && AC_DEFINE(PDUMP)
+test "$with_ipv6_cname"    = "yes" && AC_DEFINE(IPV6_CANONICALIZE)
 
 dnl -------------------------------
 dnl Report on what we decided to do
@@ -4929,6 +4945,7 @@ test -n "$mail_locking" && echo "  Compiling in support for \"$mail_locking\" ma
 
 echo "
 Other Features:"
+test "with_ipv6_cname" = no && echo "  Inhibiting IPv6 canonicalization at startup."
 test "$with_tooltalk" = yes && echo "  Compiling in support for ToolTalk."
 test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
 test "$with_socks" = yes && echo "  Compiling in support for SOCKS."

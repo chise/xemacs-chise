@@ -794,11 +794,11 @@ directory which will load the relocated initialization code.")
   (if (not user-init-file)
       (setq user-init-file
 	    (find-user-init-file user-init-directory)))
+  (if (not custom-file)
+      (setq custom-file (make-custom-file-name user-init-file)))
   (if (and user-init-file
 	   (file-readable-p user-init-file))
       (load user-init-file t t t))
-  (if (not custom-file)
-      (setq custom-file (make-custom-file-name user-init-file)))
   (if (and custom-file
 	   (or (not user-init-file)
 	       (not (string= custom-file user-init-file)))

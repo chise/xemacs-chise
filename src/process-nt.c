@@ -56,10 +56,6 @@ struct nt_process_data
   HWND hwnd; /* console window */
 };
 
-/* Control how args are quoted to ensure correct parsing by child
-   process. */
-Lisp_Object Vmswindows_quote_process_args;
-
 /* Control whether create_child causes the process to inherit Emacs'
    console window, or be given a new one of its own.  The default is
    nil, to allow multiple DOS programs to run on Win95.  Having separate
@@ -1383,20 +1379,6 @@ syms_of_process_nt (void)
 void
 vars_of_process_nt (void)
 {
-  DEFVAR_LISP ("mswindows-quote-process-args",
-	       &Vmswindows_quote_process_args /*
-Non-nil enables quoting of process arguments to ensure correct parsing.
-Because Windows does not directly pass argv arrays to child processes,
-programs have to reconstruct the argv array by parsing the command
-line string.  For an argument to contain a space, it must be enclosed
-in double quotes or it will be parsed as multiple arguments.
-
-If the value is a character, that character will be used to escape any
-quote characters that appear, otherwise a suitable escape character
-will be chosen based on the type of the program (normal or Cygwin).
-*/ );								  
-  Vmswindows_quote_process_args = Qt;
-
   DEFVAR_LISP ("mswindows-start-process-share-console",
 	       &Vmswindows_start_process_share_console /*
 When nil, new child processes are given a new console.

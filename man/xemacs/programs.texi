@@ -1033,7 +1033,7 @@ recorded is called a @dfn{tag}.
 @cindex class browser, C++
 @cindex Ebrowse
 The Ebrowse is a separate facility tailored for C++, with tags and a
-class browser.  @xref{,,, ebrowse, Ebrowse User's Manual}.
+class browser.  @xref{Top,,, ebrowse, Ebrowse User's Manual}.
 
 @menu
 * Tag Syntax::		Tag syntax for various types of code and text files.

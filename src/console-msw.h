@@ -273,8 +273,8 @@ struct msprinter_frame
 #define FRAME_MSPRINTER_BOTTOM_MARGIN(f) (FRAME_MSPRINTER_DATA (f)->bottom_margin)
 #define FRAME_MSPRINTER_JOB_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->job_started)
 #define FRAME_MSPRINTER_PAGE_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->page_started)
-#define FRAME_MSPRINTER_CHARWIDTH(f)	 (FRAME_MSPRINTER_DATA (f)->charheight)
-#define FRAME_MSPRINTER_CHARHEIGHT(f)	 (FRAME_MSPRINTER_DATA (f)->charwidth)
+#define FRAME_MSPRINTER_CHARWIDTH(f)	 (FRAME_MSPRINTER_DATA (f)->charwidth)
+#define FRAME_MSPRINTER_CHARHEIGHT(f)	 (FRAME_MSPRINTER_DATA (f)->charheight)
 #define FRAME_MSPRINTER_PIXLEFT(f)	 (FRAME_MSPRINTER_DATA (f)->pix_left)
 #define FRAME_MSPRINTER_PIXTOP(f)	 (FRAME_MSPRINTER_DATA (f)->pix_top)
 
@@ -376,8 +376,6 @@ Lisp_Object mswindows_handle_print_dialog_box (struct frame *f,
 					       Lisp_Object keys);
 Lisp_Object mswindows_handle_page_setup_dialog_box (struct frame *f,
 						    Lisp_Object keys);
-Lisp_Object mswindows_handle_print_setup_dialog_box (struct frame *f,
-						     Lisp_Object keys);
 int mswindows_get_default_margin (Lisp_Object prop);
 
 void mswindows_register_popup_frame (Lisp_Object frame);

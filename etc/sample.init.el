@@ -226,6 +226,14 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;        ;;
 ;        ))
 
+(defun Init-safe-require (feat)
+"Try to REQUIRE the specified feature.  Errors occurring are silenced.
+\(Perhaps in the future there will be a way to get at the error.)
+Returns t if the feature was successfully required."
+  (condition-case nil
+      (progn (require feat) t)
+    (error nil)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                          Key Definitions                         ;;
@@ -615,14 +623,11 @@ backward, and defaults to 1.  Buffers whose name begins with a space
 
 ;; Make sure we get Windows-like shifted-motion key selection behavior
 ;; on recent XEmacs versions.
-(if (boundp 'shifted-motion-keys-select-region)
-    (setq shifted-motion-keys-select-region t)
-  ;; otherwise, try the pc-select package -- 
-  (condition-case nil
-      (progn
-	(require 'pc-select)
-	(pc-select-mode 1))
-    (error nil)))
+(cond ((boundp 'shifted-motion-keys-select-region)
+       (setq shifted-motion-keys-select-region t))
+      ;; otherwise, try the pc-select package -- 
+      ((Init-safe-require 'pc-select)
+       (pc-select-mode 1)))
 
 ;; The following commented-out code rearranges the keymap in an
 ;; unconventional but extremely useful way for programmers.  Parens
@@ -929,11 +934,8 @@ previous with \\[backward-sexp]."
 ;;; rather than append -- standard behavior under all window systems
 ;;; nowadays.
 
-(pending-delete-mode 1)
-
-;;; enable region selection with shift+arrows (on by default in 21.5
-;;; and up)
-(setq shifted-motion-keys-select-region t)
+(if (fboundp 'pending-delete-mode)
+    (pending-delete-mode 1))
 
 ;;; NOTE: In this context, `windows-nt' actually refers to all MS
 ;;; Windows operating systems!
@@ -972,7 +974,7 @@ previous with \\[backward-sexp]."
   (setq menu-accelerator-enabled 'menu-force)
 
   ;; Make Cygwin `make' work inside a shell buffer.
-  (setenv "MAKE_MODE" "UNIX"))
+  (if (boundp 'setenv) (setenv "MAKE_MODE" "UNIX")))
 
 ;; This shows how to set up the XEmacs side of tags. (To create the
 ;; TAGS table, use the `etags' program found in the XEmacs bin
@@ -1023,16 +1025,20 @@ previous with \\[backward-sexp]."
 ;; has a NetAudio or ESD server, or on the console of a Linux, Sparc,
 ;; HP, or SGI machine.  Otherwise, you just get the standard beep.)
 
-(cond ((or (and (getenv "DISPLAY") 
-		(string-match ":0" (getenv "DISPLAY")))
-	   (and (eq (console-type) 'mswindows)
-		(device-sound-enabled-p)))
-       (load-default-sounds)
-       ;; On Windows, at least, the sound "quiet-beep", which is normally
-       ;; given the symbolic name `quiet' and is used for Quit and such,
-       ;; is just totally disgusting.  So make this name correspond to a
-       ;; more innocuous sound.
-       (load-sound-file "drum-beep" 'quiet 80))
+(cond ((and (fboundp 'load-default-sounds)
+	    (or (and (getenv "DISPLAY") 
+		     (string-match ":0" (getenv "DISPLAY")))
+		(and (eq (console-type) 'mswindows)
+		     (device-sound-enabled-p))))
+       (condition-case nil
+	   (progn
+	     (load-default-sounds)
+	     ;; On Windows, at least, the sound "quiet-beep", which is normally
+	     ;; given the symbolic name `quiet' and is used for Quit and such,
+	     ;; is just totally disgusting.  So make this name correspond to a
+	     ;; more innocuous sound.
+	     (load-sound-file "drum-beep" 'quiet 80))
+	 (error nil)))
       (t
        (setq bell-volume 40)
        (setq sound-alist
@@ -1182,49 +1188,15 @@ previous with \\[backward-sexp]."
 ;;; When this is loaded, the pathname syntax /user@host:/remote/path
 ;;; refers to files accessible through ftp.
 ;;;
-(require 'dired)
-;; compatible ange-ftp/efs initialization derived from code
-;; from John Turner <turner@lanl.gov>
-;;
-;; The environment variable EMAIL_ADDRESS is used as the password
-;; for access to anonymous ftp sites, if it is set.  If not, one is
-;; constructed using the environment variables USER and DOMAINNAME
-;; (e.g. turner@lanl.gov), if set.
+(Init-safe-require 'dired)
 
-(condition-case nil
-    (progn
-      (require 'efs-auto)
-      (if (getenv "USER")
-	  (setq efs-default-user (getenv "USER")))
-      (if (getenv "EMAIL_ADDRESS")
-	  (setq efs-generate-anonymous-password (getenv "EMAIL_ADDRESS"))
-	(if (and (getenv "USER")
-		 (getenv "DOMAINNAME"))
-	    (setq efs-generate-anonymous-password
-		  (concat (getenv "USER")"@"(getenv "DOMAINNAME")))))
-      (setq efs-auto-save 1))
-  (error
-   (require 'ange-ftp)
-   (if (getenv "USER")
-       (setq ange-ftp-default-user (getenv "USER")))
-   (if (getenv "EMAIL_ADDRESS")
-       (setq ange-ftp-generate-anonymous-password (getenv "EMAIL_ADDRESS"))
-     (if (and (getenv "USER")
-	      (getenv "DOMAINNAME"))
-	 (setq ange-ftp-generate-anonymous-password
-	       (concat (getenv "USER")"@"(getenv "DOMAINNAME")))))
-   (setq ange-ftp-auto-save 1)
-   ))
-
+(or (Init-safe-require 'efs-auto) (Init-safe-require 'ange-ftp))
 
 ;;; ********************
 ;;; Load the default-dir.el package which installs fancy handling of
 ;;; the initial contents in the minibuffer when reading file names.
-
-;(condition-case nil
-;    (require 'default-dir)
-;  (error nil))
-
+;; #### but it seems to cause some breakage.
+;(Init-safe-require 'default-dir))
 
 ;;; ********************
 ;;; Put all of your autosave files in one place, instead of scattering
@@ -1235,9 +1207,9 @@ previous with \\[backward-sexp]."
 ;;; is fast fast fast!)
 ;;;
 ;;; Unfortunately, the code that implements this (auto-save.el) is
-;;; broken on Windows in 21.4 and earlier.
+;;; broken on Windows prior to 21.4.
 (unless (and (eq system-type 'windows-nt)
-	     (not (emacs-version>= 21 5)))
+	     (not (emacs-version>= 21 4)))
   (setq auto-save-directory (expand-file-name "~/.autosave/")
 	auto-save-directory-fallback auto-save-directory
 	auto-save-hash-p nil
@@ -1247,9 +1219,6 @@ previous with \\[backward-sexp]."
 	;; for better interactive response.
 	auto-save-interval 2000
 	)
-  ;; We load this afterwards because it checks to make sure the
-  ;; auto-save-directory exists (creating it if not) when it's loaded.
-  (require 'auto-save)
   )
 
 
@@ -1273,7 +1242,7 @@ previous with \\[backward-sexp]."
 ;;; because there are no other commands whose first three words begin with
 ;;; the letters `b', `c', and `a' respectively.
 ;;;
-(load-library "completer")
+(Init-safe-require 'completer)
 
 
 ;;; ********************
@@ -1287,7 +1256,7 @@ previous with \\[backward-sexp]."
 				   ; tell it not to assume that "binary" files
 				   ; are encrypted and require a password.
       )
-(require 'crypt)
+(Init-safe-require 'crypt)
 
 
 ;;; ********************
@@ -1295,9 +1264,11 @@ previous with \\[backward-sexp]."
 ;;; makes filling (e.g. using M-q) much much smarter about paragraphs
 ;;; that are indented and/or are set off with semicolons, dashes, etc.
 
-(require 'filladapt)
+(Init-safe-require 'filladapt)
 (setq-default filladapt-mode t)
-(add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+(when (fboundp 'turn-off-filladapt-mode)
+  (add-hook 'c-mode-hook 'turn-off-filladapt-mode)
+  (add-hook 'outline-mode-hook 'turn-off-filladapt-mode))
 
 
 ;;; ********************
@@ -1324,7 +1295,7 @@ previous with \\[backward-sexp]."
 ;       (setq font-lock-use-default-fonts nil)
 ;       (setq font-lock-use-default-colors nil)
 
-       (require 'font-lock)
+       (Init-safe-require 'font-lock)
 
 ;       ;; Mess around with the faces a bit.  Note that you have
 ;       ;; to change the font-lock-use-default-* variables *before*
@@ -1360,10 +1331,12 @@ previous with \\[backward-sexp]."
 ;;; accurate as using full font-lock or fast-lock, but it's *much*
 ;;; faster.  No more annoying pauses when you load files.
 
-(add-hook 'font-lock-mode-hook 'turn-on-lazy-lock)
+(if (fboundp 'turn-on-lazy-lock)
+    (add-hook 'font-lock-mode-hook 'turn-on-lazy-lock))
+
 ;; I personally don't like "stealth mode" (where lazy-lock starts
 ;; fontifying in the background if you're idle for 30 seconds)
-;; because it takes too long to wake up again on my piddly Sparc 1+.
+;; because it takes too long to wake up again.
 (setq lazy-lock-stealth-time nil)
 
 
@@ -1377,8 +1350,7 @@ previous with \\[backward-sexp]."
 ;;; Send bug reports, enhancements etc to:
 ;;; David Hughes <ukchugd@ukpmr.cs.philips.nl>
 ;;;
-(cond (running-xemacs
-       (require 'func-menu)
+(cond ((and running-xemacs (Init-safe-require 'func-menu))
        (global-set-key '(shift f12) 'function-menu)
        (add-hook 'find-file-hooks 'fume-add-menubar-entry)
        (global-set-key "\C-cl" 'fume-list-functions)
@@ -1429,16 +1401,16 @@ previous with \\[backward-sexp]."
 ;;; resize-minibuffer-mode makes the minibuffer automatically
 ;;; resize as necessary when it's too big to hold its contents.
 
-(autoload 'resize-minibuffer-mode "rsz-minibuf" nil t)
-(resize-minibuffer-mode)
-(setq resize-minibuffer-window-exactly nil)
+(when (fboundp 'resize-minibuffer-mode)
+  (resize-minibuffer-mode)
+  (setq resize-minibuffer-window-exactly nil))
 
 
 ;;; ********************
 ;;; scroll-in-place is a package that keeps the cursor on the same line (and in the same column) when scrolling by a page using PgUp/PgDn.
 
-(require 'scroll-in-place)
-(turn-on-scroll-in-place)
+(if (Init-safe-require 'scroll-in-place)
+    (turn-on-scroll-in-place))
 
 
 ;;; ********************

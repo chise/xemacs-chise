@@ -253,18 +253,29 @@ display of the print dialog box.
 
 If BUFFER is nil or omitted, the current buffer is used."
   (interactive (list nil (not current-prefix-arg)))
-  (if (or (not (valid-specifier-tag-p 'msprinter))
-	  (not display-print-dialog))
-      (generic-print-region (point-min buffer) (point-max buffer) buffer)
-    (let* ((d (Printer-get-device))
-	   (props (condition-case err
-		      (make-dialog-box 'print :device d)
-		    (error
-		     (Printer-clear-device)
-		     (signal (car err) (cdr err))))))
-      (and props (generic-print-region (point-min buffer)
-				       (point-max buffer) buffer
-				       d props)))))
+  (let* ((print-region (and (interactive-p) (region-active-p)))
+	 (start (if print-region (region-beginning) (point-min buffer)))
+	 (end (if print-region (region-end) (point-max buffer))))
+    (if (or (not (valid-specifier-tag-p 'msprinter))
+	    (not display-print-dialog))
+	(generic-print-region start end buffer)
+      (let* ((d (Printer-get-device))
+	     (props (condition-case err
+			(make-dialog-box 'print :device d
+					 :allow-selection print-region
+					 :selected-page-button
+					 (if print-region 'selection 'all))
+		      (error
+		       (Printer-clear-device)
+		       (signal (car err) (cdr err))))))
+	(and props
+	     (let ((really-print-region
+		    (eq (plist-get props 'selected-page-button) 'selection)))
+	       (generic-print-region (if really-print-region start
+				       (point-min buffer))
+				     (if really-print-region end
+				       (point-max buffer))
+				     buffer d props)))))))
 
 (defun generic-print-region (start end &optional buffer print-device props)
   "Print region using a printing method appropriate to the O.S. being run.
@@ -295,131 +306,141 @@ Recognized properties are the same as those in `make-dialog-box':
              the end.
   copies     Number of copies to print.  If omitted, one copy is printed."
   (cond ((valid-specifier-tag-p 'msprinter)
-	 (let (d f header-buffer footer-buffer)
-	   (setq buffer (decode-buffer buffer))
-	   (unwind-protect
-	       (progn
-		 (setq d (or print-device (Printer-get-device)))
-		 (setq f (make-frame
-			  (list* 'name (concat
+	 ;; loop, printing one copy of document per loop.  kill and
+	 ;; re-create the frame each time so that we eject the piece
+	 ;; of paper at the end even if we're printing more than one
+	 ;; page per sheet of paper.
+	 (let ((copies (plist-get props 'copies 1)))
+	   (while (> copies 0)
+	     (let (d f header-buffer footer-buffer)
+	       (setq buffer (decode-buffer buffer))
+	       (unwind-protect
+		   (with-current-buffer buffer
+		     (save-restriction
+		       (narrow-to-region start end)
+		       (setq d (or print-device (Printer-get-device)))
+		       (setq f (make-frame
+				(list* 'name
+				       (concat
 					(substitute ?_ ?. (buffer-name buffer))
 					" - XEmacs")
-				 '(menubar-visible-p
-				   nil
-				   has-modeline-p nil
-				   default-toolbar-visible-p nil
-				   default-gutter-visible-p nil
-				   minibuffer none
-				   modeline-shadow-thickness 0
-				   vertical-scrollbar-visible-p nil
-				   horizontal-scrollbar-visible-p nil))
-			  d))
-		 (let* ((w (frame-root-window f))
-			(vertdpi (cdr (device-system-metric d 'device-dpi)))
-			(pixel-vertical-clip-threshold (/ vertdpi 2))
-			(from-page (plist-get props 'from-page 1))
-			(to-page (plist-get props 'to-page))
-			(copies (plist-get props 'copies 1))
-			(context (make-Print-context
-				  :start-time (current-time)
-				  ;; #### bogus! we need accessors for
-				  ;; print-settings objects.
-				  :printer-name
-				  (or (plist-get props 'name)
-				      printer-name
-				      (mswindows-get-default-printer))))
-			header-window
-			footer-window)
+				       '(menubar-visible-p
+					 nil
+					 has-modeline-p nil
+					 default-toolbar-visible-p nil
+					 default-gutter-visible-p nil
+					 minibuffer none
+					 modeline-shadow-thickness 0
+					 vertical-scrollbar-visible-p nil
+					 horizontal-scrollbar-visible-p nil))
+				d))
+		       (let* ((w (frame-root-window f))
+			      (vertdpi
+			       (cdr (device-system-metric d 'device-dpi)))
+			      (pixel-vertical-clip-threshold (/ vertdpi 2))
+			      (from-page (plist-get props 'from-page 1))
+			      (to-page (plist-get props 'to-page))
+			      (context (make-Print-context
+					:start-time (current-time)
+					;; #### bogus! we need accessors for
+					;; print-settings objects.
+					:printer-name
+					(or (plist-get props 'name)
+					    printer-name
+					    (mswindows-get-default-printer))))
+			      header-window
+			      footer-window)
 
-		   (when printer-page-header
-		     (let ((window-min-height 2))
-		       (setq header-window w)
-		       (setq w (split-window w 2)))
-		     (setq header-buffer (generate-new-buffer " *header*"))
-		     (set-window-buffer header-window header-buffer))
+			 (when printer-page-header
+			   (let ((window-min-height 2))
+			     (setq header-window w)
+			     (setq w (split-window w 2)))
+			   (setq header-buffer
+				 (generate-new-buffer " *header*"))
+			   (set-window-buffer header-window header-buffer))
 
-		   (when printer-page-footer
-		     (let ((window-min-height 2))
-		       (setq footer-window
-			     (split-window w (- (window-height w) 2))))
-		     (setq footer-buffer (generate-new-buffer " *footer*"))
-		     (set-window-buffer footer-window footer-buffer))
+			 (when printer-page-footer
+			   (let ((window-min-height 2))
+			     (setq footer-window
+				   (split-window w (- (window-height w) 2))))
+			   (setq footer-buffer
+				 (generate-new-buffer " *footer*"))
+			   (set-window-buffer footer-window footer-buffer))
 
-		   (setf (Print-context-window context) w)
+			 (setf (Print-context-window context) w)
 
-		   ;; loop, printing one copy of document per loop
-		   (while (> copies 0)
-		     (let ((last-end 0) ; bufpos at end of previous page
-			   reached-end  ; t if we've reached the end of the
+			 (let ((last-end 0) ; bufpos at end of previous page
+			       reached-end ; t if we've reached the end of the
 					; text we're printing
-			   (pageno 1))
-		       (set-window-buffer w buffer)
-		       (set-window-start w start)
+			       (pageno 1))
+			   (set-window-buffer w buffer)
+			   (set-window-start w start)
 
-		       ;; loop, printing one page per loop
-		       (while (and (not reached-end)
-				   ;; stop at end of region of text or
-				   ;; outside of ranges of pages given
-				   (or (not to-page) (<= pageno to-page)))
+			   ;; loop, printing one page per loop
+			   (while (and (not reached-end)
+				       ;; stop at end of region of text or
+				       ;; outside of ranges of pages given
+				       (or (not to-page) (<= pageno to-page)))
 
-			 (setf (Print-context-pageno context) pageno)
+			     (setf (Print-context-pageno context) pageno)
 
-			 ;; only actually print the page if it's in the
-			 ;; range.
-			 (when (>= pageno from-page)
-			   (when printer-page-header
-			     (with-current-buffer header-buffer
-			       (erase-buffer)
-			       (generate-header-line printer-page-header
-						     context)
-			       (goto-char (point-min))
-			       (set-window-start header-window (point-min))))
+			     ;; only actually print the page if it's in the
+			     ;; range.
+			     (when (>= pageno from-page)
+			       (when printer-page-header
+				 (with-current-buffer header-buffer
+				   (erase-buffer)
+				   (generate-header-line printer-page-header
+							 context)
+				   (goto-char (point-min))
+				   (set-window-start header-window
+						     (point-min))))
 
-			   (when printer-page-footer
-			     (with-current-buffer footer-buffer
-			       (erase-buffer)
-			       (insert "\n")
-			       (generate-header-line printer-page-footer
-						     context)
-			       (goto-char (point-min))
-			       (set-window-start footer-window (point-min))))
+			       (when printer-page-footer
+				 (with-current-buffer footer-buffer
+				   (erase-buffer)
+				   (insert "\n")
+				   (generate-header-line printer-page-footer
+							 context)
+				   (goto-char (point-min))
+				   (set-window-start footer-window
+						     (point-min))))
 
-			   (redisplay-frame f t)
-			   (print-job-eject-page f)
-			   )
-			 ;; but use the GUARANTEE argument to `window-end'
-			 ;; so that we get the right value even if we
-			 ;; didn't do a redisplay.
-			 (let ((this-end (window-end w t))
-			       (pixvis (window-last-line-visible-height w)))
-			   ;; in case we get stuck somewhere, bow out
-			   ;; rather than printing an infinite number of
-			   ;; pages.  #### this will fail with an image
-			   ;; bigger than an entire page.  but we really
-			   ;; need this check here.  we should be more
-			   ;; clever in our check, to deal with this case.
-			   (if (or (= this-end last-end)
-				   ;; #### fuckme!  window-end returns a value
-				   ;; outside of the valid range of buffer
-				   ;; positions!!!
-				   (>= this-end end))
-			       (setq reached-end t)
-			     (setq last-end this-end)
-			     (set-window-start w this-end)
-			     (if pixvis
-				 (save-selected-window
-				   (select-window w)
-				   ;; #### scroll-down should take a
-				   ;; window arg.
-				   (let ((window-pixel-scroll-increment
-					  pixvis))
-				     (scroll-down 1))))))
-			 (setq pageno (1+ pageno))))
-		     (setq copies (1- copies)))))
-	     (and f (delete-frame f))
-	     (and header-buffer (kill-buffer header-buffer))
-	     (and footer-buffer (kill-buffer footer-buffer))
-	     )))
+			       (redisplay-frame f t)
+			       (print-job-eject-page f)
+			       )
+			     ;; but use the GUARANTEE argument to `window-end'
+			     ;; so that we get the right value even if we
+			     ;; didn't do a redisplay.
+			     (let ((this-end (window-end w t))
+				   (pixvis
+				    (window-last-line-visible-height w)))
+			       ;; in case we get stuck somewhere, bow out
+			       ;; rather than printing an infinite number of
+			       ;; pages.  #### this will fail with an image
+			       ;; bigger than an entire page.  but we really
+			       ;; need this check here.  we should be more
+			       ;; clever in our check, to deal with this case.
+			       (if (or (= this-end last-end)
+				       ;; #### fuckme!  window-end returns a
+				       ;; value outside of the valid range of
+				       ;; buffer positions!!!
+				       (>= this-end end))
+				   (setq reached-end t)
+				 (setq last-end this-end)
+				 (set-window-start w this-end)
+				 (if pixvis
+				     (with-selected-window w
+				       ;; #### scroll-down should take a
+				       ;; window arg.
+				       (let ((window-pixel-scroll-increment
+					      pixvis))
+					 (scroll-down 1))))))
+			     (setq pageno (1+ pageno))))))
+		     (and f (delete-frame f))
+		     (and header-buffer (kill-buffer header-buffer))
+		     (and footer-buffer (kill-buffer footer-buffer)))))
+	     (setq copies (1- copies)))))
 	((and (not (eq system-type 'windows-nt))
 	      (fboundp 'lpr-region))
 	 (lpr-region buffer))

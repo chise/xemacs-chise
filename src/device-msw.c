@@ -26,6 +26,7 @@ Boston, MA 02111-1307, USA.  */
    Original authors: Jamie Zawinski and the FSF
    Rewritten by Ben Wing and Chuck Thompson.
    Rewritten for mswindows by Jonathan Harris, November 1997 for 21.0.
+   Print support added by Kirill Katsnelson, July 2000.
 */
 
 
@@ -65,6 +66,11 @@ Lisp_Object Vmswindows_get_true_file_attributes;
 
 Lisp_Object Qinit_pre_mswindows_win, Qinit_post_mswindows_win;
 Lisp_Object Qdevmodep;
+
+static Lisp_Object Q_allow_selection;
+static Lisp_Object Q_allow_pages;
+static Lisp_Object Q_selected_page_button;
+static Lisp_Object Qselected_page_button;
 
 static Lisp_Object allocate_devmode (DEVMODE* src_devmode, int do_copy,
 				     char* src_name, struct device *d);
@@ -674,11 +680,9 @@ decode_devmode (Lisp_Object dev)
 
 /*
  * DEV can be either a printer or devmode
- * PRINT_P is non-zero for the Print dialog, zero for the
- *         Page Setup dialog
  */
 static Lisp_Object
-print_dialog_worker (Lisp_Object dev, int print_p)
+print_dialog_worker (Lisp_Object dev, DWORD flags)
 {
   Lisp_Devmode *ldm = decode_devmode (dev);
   PRINTDLG pd;
@@ -687,8 +691,7 @@ print_dialog_worker (Lisp_Object dev, int print_p)
   pd.lStructSize = sizeof (pd);
   pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
   pd.hDevMode = devmode_to_hglobal (ldm);
-  pd.Flags = (PD_NOSELECTION | PD_USEDEVMODECOPIESANDCOLLATE
-	      | (print_p ? 0 : PD_PRINTSETUP));
+  pd.Flags = flags | PD_USEDEVMODECOPIESANDCOLLATE;
   pd.nMinPage = 0;
   pd.nMaxPage = 0xFFFF;
 
@@ -708,21 +711,24 @@ print_dialog_worker (Lisp_Object dev, int print_p)
 
     /* Do consing in reverse order.
        Number of copies */
-    if (print_p)
-      result = Fcons (Qcopies, Fcons (make_int (pd.nCopies), result));
+    result = Fcons (Qcopies, Fcons (make_int (pd.nCopies), result));
 
     /* Page range */
-    if (print_p && (pd.Flags & PD_PAGENUMS))
+    if (pd.Flags & PD_PAGENUMS)
       {
 	result = Fcons (Qto_page, Fcons (make_int (pd.nToPage), result));
 	result = Fcons (Qfrom_page, Fcons (make_int (pd.nFromPage), result));
+	result = Fcons (Qselected_page_button, Fcons (Qpages, result));
       }
+    else if (pd.Flags & PD_SELECTION)
+      result = Fcons (Qselected_page_button, Fcons (Qselection, result));
+    else
+      result = Fcons (Qselected_page_button, Fcons (Qall, result));
 
     /* Device name */
-    result = Fcons (Qname,
-		    Fcons (build_ext_string (ldm->printer_name,
-					     Qmswindows_tstr),
-			   result));
+    result = Fcons (Qname, Fcons (build_ext_string (ldm->printer_name,
+						    Qmswindows_tstr),
+				  result));
     UNGCPRO;
 
     global_free_2_maybe (pd.hDevNames, pd.hDevMode);
@@ -731,40 +737,10 @@ print_dialog_worker (Lisp_Object dev, int print_p)
 }
 
 Lisp_Object
-mswindows_handle_print_setup_dialog_box (struct frame *f, Lisp_Object keys)
-{
-  Lisp_Object device = Qunbound, settings = Qunbound;
-
-  {
-    EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
-      {
-	if (EQ (key, Q_device))
-	  {
-	    device = wrap_device (decode_device (value));
-	    CHECK_MSPRINTER_DEVICE (device);
-	  }
-	else if (EQ (key, Q_printer_settings))
-	  {
-	    CHECK_DEVMODE (value);
-	    settings = value;
-	  }
-	else
-	  syntax_error ("Unrecognized print-dialog keyword", key);
-      }
-  }
-
-  if ((UNBOUNDP (device) && UNBOUNDP (settings)) ||
-      (!UNBOUNDP (device) && !UNBOUNDP (settings)))
-    syntax_error ("Exactly one of :device and :printer-settings must be given",
-		  keys);
-
-  return print_dialog_worker (!UNBOUNDP (device) ? device : settings, 0);
-}
-
-Lisp_Object
 mswindows_handle_print_dialog_box (struct frame *f, Lisp_Object keys)
 {
   Lisp_Object device = Qunbound, settings = Qunbound;
+  DWORD flags = PD_NOSELECTION;
 
   {
     EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, keys)
@@ -779,6 +755,26 @@ mswindows_handle_print_dialog_box (struct frame *f, Lisp_Object keys)
 	    CHECK_DEVMODE (value);
 	    settings = value;
 	  }
+	else if (EQ (key, Q_allow_pages))
+	  {
+	    if (NILP (value))
+	      flags |= PD_NOPAGENUMS;
+	  }
+	else if (EQ (key, Q_allow_selection))
+	  {
+	    if (!NILP (value))
+	      flags &= ~PD_NOSELECTION;
+	  }
+	else if (EQ (key, Q_selected_page_button))
+	  {
+	    if (EQ (value, Qselection))
+	      flags |= PD_SELECTION;
+	    else if (EQ (value, Qpages))
+	      flags |= PD_PAGENUMS;
+	    else if (!EQ (value, Qall))
+	      invalid_argument ("Invalid value for :selected-page-button",
+				value);
+	  }
 	else
 	  syntax_error ("Unrecognized print-dialog keyword", key);
       }
@@ -789,7 +785,7 @@ mswindows_handle_print_dialog_box (struct frame *f, Lisp_Object keys)
     syntax_error ("Exactly one of :device and :printer-settings must be given",
 		  keys);
 
-  return print_dialog_worker (!UNBOUNDP (device) ? device : settings, 1);
+  return print_dialog_worker (!UNBOUNDP (device) ? device : settings, flags);
 }
 
 int
@@ -1291,8 +1287,13 @@ syms_of_device_mswindows (void)
   DEFSUBR (Fmswindows_get_default_printer);
   DEFSUBR (Fmswindows_printer_list);
 
-  defsymbol (&Qinit_pre_mswindows_win, "init-pre-mswindows-win");
-  defsymbol (&Qinit_post_mswindows_win, "init-post-mswindows-win");
+  DEFKEYWORD (Q_allow_selection);
+  DEFKEYWORD (Q_allow_pages);
+  DEFKEYWORD (Q_selected_page_button);
+  DEFSYMBOL (Qselected_page_button);
+
+  DEFSYMBOL (Qinit_pre_mswindows_win);
+  DEFSYMBOL (Qinit_post_mswindows_win);
 }
 
 void

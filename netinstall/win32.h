@@ -21,24 +21,14 @@
 #ifndef _MINI_WIN32_
 #define _MINI_WIN32_
 
-#define _UNION_NAME(x)
-#define _STRUCT_NAME(x)
 #define NOCOMATTRIBUTE
 
 #include <stdarg.h>
-#ifdef WIN32_NATIVE
-/* MSVC is barking with the list above, something else is missing, so
-   I'm using <windows.h> and lean-n-mean. FP, 2000-23-12 */
-#include <windows.h>
-#endif
-#include <windef.h>
-#include <basetyps.h>
-#include <winbase.h>
-#include <wingdi.h>
-#include <winuser.h>
-#include <wininet.h>
-#include <winreg.h>
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+#include <wininet.h>
 #include <windowsx.h>
 
 /* Cope with native win32 & mingw differences.  Written by F. Popineau

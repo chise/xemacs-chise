@@ -678,7 +678,8 @@ find_start_of_comment (struct buffer *buf, Bufpos from, Bufpos stop,
 		  {
 		    code = Sendcomment;
 		    styles_match_p =
-		      SYNTAX_CODES_COMMENT_MASK_END (prev_syncode, syncode);
+		      SYNTAX_CODES_COMMENT_MASK_END (prev_syncode, syncode)
+		      & mask;
 		    from--;
 		    UPDATE_SYNTAX_CACHE_BACKWARD (from);
 		    c = BUF_FETCH_CHAR (buf, from);
@@ -701,7 +702,8 @@ find_start_of_comment (struct buffer *buf, Bufpos from, Bufpos stop,
 		  {
 		    code = Scomment;
 		    styles_match_p =
-		      SYNTAX_CODES_COMMENT_MASK_START (prev_syncode, syncode);
+		      SYNTAX_CODES_COMMENT_MASK_START (prev_syncode, syncode)
+		      & mask;
 		    from--;
 		    UPDATE_SYNTAX_CACHE_BACKWARD (from);
 		    c = BUF_FETCH_CHAR (buf, from);

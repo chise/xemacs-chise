@@ -313,12 +313,13 @@ if test -z "$LTLD"; then
     # Accept absolute paths.
     /*)
       if test -z "$LTLD"; then
-        case "$ac_prog" in
-          *gcc-lib*) LTLD="$CC"
-                     ;;
-          *)         LTLD="$ac_prog"
-                     ;;
-        esac
+#        case "$ac_prog" in
+#          *gcc-lib*) LTLD="$CC"
+#                     ;;
+#          *)
+         LTLD="$ac_prog"
+#                     ;;
+#        esac
       fi
       ;;
     "")

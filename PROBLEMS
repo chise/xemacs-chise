@@ -556,7 +556,7 @@ and later.
 *** In general use etc/check_cygwin_setup.sh to trap environment problems.
 
 The script etc/check_cygwin_setup.sh will attempt to detect whether
-you have a suitable environment for building. This script may not work
+you have a suitable environment for building.  This script may not work
 correctly if you are using ash instead of bash (see below).
 
 *** Syntax errors running configure scripts, make failing with exit code 127
@@ -1485,9 +1485,9 @@ file is not necessary with this approach.
 A newer problem is due to XEmacs changing to use the modern
 getaddrinfo() interface from the older gethostbyname() interface.  The
 solution above is insufficient, because getaddrinfo() by default tries
-to get IPv6 information for localhost.  This always involves a dns
-lookup to get the CNAME, and the strategies above don't work.  It then
-falls back to IPv4 behavior.
+to get IPv6 information for localhost (including the local X server).
+This always involves a dns lookup to get the CNAME, and the strategies
+above don't work.  It then falls back to IPv4 behavior.
 
 ***** Robust network case
 
@@ -1503,22 +1503,20 @@ IPv4 behavior.  Explicitly setting DISPLAY=127.0.0.1:0.0 (or whatever
 is appropriate) works in most cases.
 
 If you cannot or do not want to do that, you can hard code IPv4
-behavior in src/process-unix.c.  This is bad[tm], on your own head be
-it.  In the function unix_canonicalize_host_name() about ten lines
-down, change the statement
+behavior in src/process-unix.c.  Add `--with-ipv6-cname=no" to your
+configure options and rebuild XEmacs.
 
-  hints.ai_family = AF_UNSPEC;
+*** XEmacs disappears after several sound events in succession
 
-to
+If esd is not running (e.g. you unchecked the run esd checkbox in the
+GNOME Configuration tool), every sound event will cause the esound
+client library to signal SIGUSR1.  It is not that difficult (hold down
+PgUp or PgDn, for example) to cause XEmacs to generate additional
+SIGUSR1 signals before the first handler has a chance to reset, so the
+second SIGUSR1 causes the default behavior of ending the process.
 
-  hints.ai_family = PF_INET;
-
-and rebuild XEmacs.
-
-getaddrinfo() is also called in src/sysdep.c:init_system_name() and in
-src/process-unix.c:unix_open_network_stream().  It should not be
-useful to make this change in either of those places.
-
+The solution is either to build XEmacs with -sound=native,noesd or to make sure
+that esd is in fact running. 
 
 ** IRIX
 *** On Irix, I don't see the toolbar icons and I'm getting lots of
@@ -1752,14 +1750,38 @@ GCC.
 
 
 ** Windows
-*** Emacs exits with "X protocol error" when run with an X server for
-Windows.
+*** In general, the Windows code is less mature than the Unix code.
 
-A certain X server for Windows had a bug which caused this.
-Supposedly the newer 32-bit version of this server doesn't have the
-problem.
+The Windows code base is still changing quickly.  If you are
+experiencing problems, try the latest beta version to see if the
+problem still exists.  Also ask on xemacs-nt@xemacs.org.
 
 
+** Cygwin
+*** Subprocesses do not work.
+ 
+You do not have "tty" in your CYGWIN environment variable.  This must
+be set in your autoexec.bat (win95) or the system properties (winnt)
+as it must be read before the cygwin DLL initializes.
+
+*** ^G does not work on hung subprocesses.
+
+This is a known problem. It can be remedied by defining BROKEN_SIGIO
+in src/s/cygwin.h, however this currently leads to instability in XEmacs.
+(#### is this still true?)
+
+*** Errors from make like `/c:not found' when running `M-x compile'.
+
+Make sure you set the environment variable MAKE_MODE to UNIX in your
+init file (.xemacs/init.el), Control Panel (Windows 2000/NT), or
+AUTOEXEC.BAT (Windows 98/95).
+
+*** There are no images in the toolbar buttons.
+
+You need version 4.71 of commctrl.dll which does not ship with windows
+95. You can get this by installing IE 4.0 or downloading it from the
+microsoft website.
+ 
 
 * Compatibility problems (with Emacs 18, GNU Emacs, or previous XEmacs/lemacs)
 ==============================================================================

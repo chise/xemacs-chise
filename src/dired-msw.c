@@ -428,9 +428,8 @@ switches do not contain `d', so that a full listing is expected.
        (file, switches, wildcard, full_directory_p))
 {
   Lisp_Object		result, handler, wildpat, fns, basename;
-  char			*filename;
   char			*switchstr;
-  int			len, nfiles, i;
+  int			nfiles, i;
   int			hide_system, hide_dot, reverse, display_size;
   WIN32_FIND_DATA	*files, **sorted_files;
   enum mswindows_sortby	sort_by;
@@ -495,28 +494,11 @@ switches do not contain `d', so that a full listing is expected.
 	    }
 	}
 
-      /*
-       * Sometimes we get ".../foo* /" as FILE (without the space).
-       * While the shell and `ls' don't mind, we certainly do,
-       * because it makes us think there is no wildcard, only a
-       * directory name.
-       */
-      if (!NILP(Fstring_match(build_string("[[?*]"), file, Qnil, Qnil)))
-	{
-	  wildcard = Qt;
-	  filename = XSTRING_DATA(file);
-	  len = strlen(filename);
-	  if (len > 0 && (filename[len - 1] == '\\' ||
-			  filename[len - 1] == '/'))
-	    {
-	      filename[len - 1] = '\0';
-	    }
-	  file = build_string(filename);
-	}
       if (!NILP(wildcard))
 	{
 	  Lisp_Object	newfile;
 
+	  file = Fdirectory_file_name (file);
 	  basename = Ffile_name_nondirectory(file);
 	  fns = intern("wildcard-to-regexp");
 	  wildpat = call1(fns, basename);

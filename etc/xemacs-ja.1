@@ -1,321 +1,378 @@
-.TH XEMACS 1 "1997 年 3 月 11 日"
+.TH XEMACS 1 "2000-09-20"
 .UC 4
-.SH "名前"
-xemacs \- 次世代 Emacs
-.SH "形式"
+.SH 名前
+xemacs \- Emacs: The Next Generation
+.SH 書式
 .B xemacs
 [
-.I <コマンド行オプション>
+.I コマンド行スイッチ
 ] [
-.I <ファイル名>...
+.I ファイル名 ...
 ]
 .br
-.\"以下、bold にすべきコマンド名などが英語では italic になっているので、修正。
-.SH "機能説明"
-.B XEmacs
-は、Free Software Foundation の Richard Stallman によって書かれたもので、
-.B Emacs 
-との互換性を保持したまま多くの改良が加えられたバージョンです。
-.B "GNU Emacs "
-バージョン 19 の早期リリースをもとに開発され、
-.B "GNU Emacs "
-の後続リリースと同期がとられています。
+.SH 説明
+.I XEmacs
+は、Free Software Foundationの Richard Stallman によって書かれた
+.I GNU Emacs
+と互換で、さらに多くの改善が加えられた
+.I Emacs
+のバージョンです。もともとは
+.I GNU Emacs のバージョン 19 の早期リリース
+を元に開発され、その後は
+.I GNU Emacs
+の後続リリースが登場する度に同期されてきました。
 .PP
-.B XEmacs 
-の主なマニュアルは、
-.B XEmacs 
-サブシステムの 1 つである Info を使ってオンラインで参照することができます。
-完成された最新のマニュアルは、そちらを参照してください
-(ただし現時点では、Info 形式ドキュメントは英語版のみが用意されています)。
-Emacs Lisp 使用方法についての完全なマニュアルとしては
-『XEmacs Lisp Programmer's Manual』を、
-オンラインで参照することができます。どちらのマニュアルも
-.B TeX
-書式パッケージを使用すれば、きれいに印刷することができます。
+.I XEmacs
+についての第一のドキュメントは
+.I XEmacs Reference Manual
+にあり
+.I XEmacs
+のサブシステムである Info を使用してオンラインで読むことができます。完
+全で最新のドキュメントはそちらを参照してください。Emacs Lisp 使用に関
+するの完全なドキュメントとしては
+.I XEmacs Lisp Programmer's Manual
+がオンラインで利用できます。どちらのマニュアルも文書整形パッケージ
+.I TeX
+を使用してきれいに印刷することができます。
 .PP
-使用できる
-.B XEmacs
+.I XEmacs
 の機能は、ほかの
-.B Emacs
-エディタでできるすべての機能が含まれており、
-編集コマンドは Lisp で記述されているため、容易に拡張することができます。
+.I Emacs
+エディタの機能すべてを含んでいます。また編集コマンドが Lisp で書かれて
+いるため、容易に拡張することができます。
 .PP
-.B XEmacs
-には拡張対話型ヘルプ機能が用意されていますが、この機能を使用するには、
-.B XEmacs
-ウィンドウとバッファについての扱い方を知っていることが前提となります。
-CTRL-h でヘルプ機能を実行します。「XEmacs 自習書(CTRL-h t)」は、
-初心者が数分間で
-.B XEmacs
-の基礎を知ることができる対話型のチュートリアルを呼び出します。
-「適切検索...(CTRL-h a)」は、指定した機能を実行するコマンドを
-探す手助けをします。
-「キー/マウス記述...(CTRL-h k)」は、指定したキー操作の実行内容を表示します。
-「関数記述...(CTRL-h f)」は、指定した名前の Lisp 関数を表示します。
-さらに「キー/マウス割り当て...(CTRL-h CTRL-k)」を使用すると、
-.B XEmacs 
-リファレンスマニュアル上のキー操作を参照でき、
-「Elisp 関数...(CTRL-h CTRL-f)」を使用すると、
-『XEmacs Lisp Programmer's Manual』上の Lisp 関数を参照できます。
-ユーザーがウィンドウシステムを使用している場合は、
-これらのヘルプ機能はすべてヘルプメニューから使用することができます。
+.I XEmacs
+には大規模な対話型ヘルプ機能が備わっています。しかしこの機能はあなたが
+.I XEmacs
+のウインドウやバッファの扱い方を知っていることを仮定しています。Help 
+機能には CTRL-h で入ります。Help Tutorial (CTRL-h t) は初心者が数分間
+で
+.I XEmacs
+の基礎を学ぶことができる対話型チュートリアルを呼び出します。Help
+Apropos (CTRL-h a) は機能からコマンドを探す助けになります。Help Key
+Binding (CTRL-h k) は指定のキー操作の効果を説明します。また Help
+Function (CTRL-h f) は名前を指定された Lisp 関数の説明をします。さらに 
+Lookup Key Binding (CTRL-h CTRL-k)を使用してキー操作を
+.I XEmacs Reference Manual
+から探すことも、Lookup Function (CTRL-h CTRL-f) によって Lisp 関数を
+.I XEmacs Lisp Programmer's Manual
+から探すこともできます。あなたがウインドウシステムを使用しているならば、
+これらすべてのヘルプ機能(とさらに多くのもの)が Help メニューから利用で
+きます。
 .PP
-複数フレーム(トップレベルウィンドウ)、メニューバー、ツールバー、
-水平・垂直スクロールバー、ダイアログボックス、拡張マウス機能
-などを持つ X のようなウィンドウシステム環境下では、
-.B XEmacs
-は
-拡張 GUI(グラフィカルユーザーインタフェース)をサポートします。
+.I XEmacs
+には
+.I X
+のようなウインドウシステム環境下での実行時の広範な GUI (graphical user
+interface) サポートがあり、これには複数個のフレーム(トップレベルのウイ
+ンドウ)、メニューバー、ツールバー、水平/垂直スクロールバー、ダイアログ
+ボックス、さまざまな場面でのマウスサポートなどが含まれます。
 .PP
-.B XEmacs 
-は、複数のフォントやカラー、可変幅フォント、可変行間隔を
-完全にサポートしており、
-ピックスマップをバッファに取り込むことも可能です
-(これは特に、W3 Web ブラウジングパッケージや一部の
-デバッガ、アウトライン機能のインタフェースに用いられます)。
+.I XEmacs
+は複数フォント、多色、可変幅フォント、可変高行などを完全にサポートし、
+またピクスマップをバッファ中に挿入することもできます。(この機能は web 
+ブラウズパッケージ W3 や一部のデバッガ、アウトラインインタフェース、そ
+の他で利用されています。)
 .PP
-.B XEmacs 
-の「元に戻す」は、バッファに反映された数ステップ前までの変更を
-取り消すことができ、編集のミスを簡単に修復することができます。
+.I XEmacs
+の Undo はバッファに加えられた複数ステップにわたる変更も取り消すことが
+可能なため、編集ミスを簡単に修復することができます。
 .PP
-.B XEmacs 
-には、多くの専用パッケージが用意されています。メールの読み出し (VM、MH-E、
-RMail) や発信 (Mail)、ネットニュースの読み出しと投函 (GNUS)、
-World Wide Web のブラウズ (W3)、すべての主要なプログラミング言語に
-で書かれたソースコードを編集するための特化されたモード、
-多くの言語用の構文強調表示 (Font-Lock)、コンパイル (Compile)、
-.B XEmacs
-ウィンドウ内で動作するサブシェル (Shell)、アウトライン編集 (Outline)、
-Lisp の「読み込み、評価、表示」ループの実行 (Lisp-Interaction-Mode)、
-ゲーム精神分析医 (Doctor) などです。
+.I XEmacs
+には多くの専用パッケージがあり、メールを読んだり(VM, HM-E, RMail)、送
+信したり(Mail)、Usenet のニュースを読み書きしたり(GNUS)、World Wide
+Web をブラウズしたり(W3)、一般的なプログラミング言語すべてのソースコー
+ドを専用モードで編集したり、多くの言語で構文の強調表示をしたり
+(Font-Lock)、コンパイルしたり(Compile)、
+.I XEmacs
+中でサブシェルを走らせたり(Shell)、アウトライン編集したり(Outline)、
+Lisp の read-eval-print ループを実行したり(Lisp-Interaction-Mode)、自
+動サイコセラピーをしたり(Doctor)できます。
 .PP
-詳細なリファレンスマニュアルはありますが、
-他のバージョンの Emacs を使用したことがあれば、
-マニュアルなしでも問題なく対応できると思われます。
-初めて Emacs を使用する人でも、チュートリアルを学習したり自動
-マニュアル機能を利用することで、すぐに基本機能を使うことができるように
-なるでしょう。
+リファレンスマニュアルの量は膨大ですが、他の Emacsen のユーザであれば
+マニュアルなしでもほとんど問題なしに
+.I XEmacs
+に慣れることができるでしょう。初めて Emacs を使用するユーザでもチュー
+トリアルを学習し、自己ドキュメント機能を使用することで基本機能はかなり
+急速に使えるようになるでしょう。
 .PP
-.SM "XEmacs オプション"
+.SM XEmacs のオプション
 .PP
-XEmacs は、X ウィンドウが動作する環境下では、すべての標準 X ツールキットの
-コマンドオプションを認識します。それに加えて、以下のオプションを認識
-します
-(オプションが一連の複数の処理を意味する場合は、指定された順に実行されます)。
-.TP
-.BI \-t " デバイス名"
-使用中の標準入出力の代わりに、指定されたデバイスを使います。これは
-.BR \-nw
-オプションを含意しています。
+XEmacs は X Windows 環境で実行されているときには X Toolkit のすべての
+標準コマンド行オプションを受け付けます。それに加えて以下のオプションが
+有効です(オプションが処理動作の連続を意味するときには、それらは現れた
+順に処理されます):
+.PP
+XEmacs accepts all standard X Toolkit command line options when run in
+an X Windows environment.  In addition, the following options are accepted
+(when options imply a sequence of actions to perform, they are
+performed in the order encountered):
+.TP 8
+.BI \-t " file"
+stdin/stdout を使用する代わりに
+指定の
+.I file
+を端末として使用します。これは
+.B \-nw
+を暗に含みます。
 .TP
 .BI \-batch
-バッチモードで編集を行います。エディタは標準出力にメッセージを送出します。
-実行ファイルを指定したり関数を呼び出す場合は、必ず
-.BR \-l
-、
-.BR \-f
-、
+バッチモードで編集します。エディタはメッセージを stdout に送ります。
+オプション
+.BR \-l 、
+.BR \-f 、
+および
 .B \-eval
-オプションを使用してください。
+を使用し、実行するファイルと呼び出す関数を指定する必要があります。
 .TP
-.B \-nw\ 
-ウィンドウシステム特有の表示用コードの使用をすべて禁止します。
-現在の TTY を使用します。
+.B \-nw
+一切のウインドウシステム固有の表示コードを抑制し、現在の TTY
+を使用します。
 .TP
 .B \-debug\-init
-初期化ファイルの読み込み中にエラーが発生した場合、デバッガを起動します。
+初期化ファイルロード時にエラーが発生したときデバッガを起動します。
 .TP
 .B \-unmapped
-初期フレームをマッピングしません。
+初期フレームを割り当てません。
 .TP
 .B \-no\-site\-file
-サイト固有の初期化ファイル(site-init.el)を読み込みません。
+サイト固有の初期化ファイル(site-start.el)をロードしません。
 .TP
-.BR \-q "、" \-no\-init\-file
-初期化ファイルを読み込みません。
+.B \-q, \-no\-init\-file
+初期化ファイルをロードしません。
 .TP
-.BI \-u " ユーザー名、" \-user " ユーザー名"
-指定したユーザー固有の初期化ファイルを読み込みます。
+.B \-no-early-packages
+初期ロードパッケージを処理しません。
 .TP
-.I ファイル名 
-指定したファイルを編集します。
+.B \-vanilla
+立ち上げ時に一切の余分なファイルをロードしません。
+オプション
+.BR \-q 、
+.BR \-no-site-file 、
+.B \-no-early-packages
+の組み合わせと等価です。
 .TP
-.BI \+ "行番号"
-.I 行番号 
-に指定した行に移動します
-.br
-(+ 符号と行番号の間に空白文字は入れないでください)。
+.BI \-u " user, " \-user " user"
+.I user
+の初期化ファイルをロードします。
+.TP 8
+.I file
+.I file
+を編集します。
 .TP
-.BR \-help "、" \-flags "、" \-?
-ヘルプメッセージを出力して終了します。
+.BI \+ number
+.I number
+で指定された行に移動します。
+("+" 符号と数字の間にスペースを入れないでください。)
 .TP
-.BR \-V "、" \-version
-バージョン番号を出力して終了します。
+.B \-help
+ヘルプメッセージを表示し終了します。
 .TP
-.BI \-f " 関数名、 " \-funcall " 関数名"
-.I "関数名 "
-に指定した Lisp 関数を実行します。
+.B \-V, \-version,
+バージョンを表示し終了します。
 .TP
-.BI \-l " ファイル名、 " \-load " ファイル名"
-.I ファイル名
-に指定したファイル中の Lisp コードを読み込みます。
+.BI \-f " function, " \-funcall " function"
+Lisp 関数
+.I function
+を実行します。
 .TP
-.BI \-eval " フォーム"
-.I フォーム
-に指定した Lisp のフォームを評価します。
+.BI \-l " file, " \-load " file"
+Lisp コードをファイル
+.I file
+からロードします。
 .TP
-.BI \-i " ファイル名、" \-insert " ファイル名"
-現在のバッファに、
-.I ファイル名
-に指定したファイルを取り込みます。
+.BI \-eval " form"
+Lisp 式
+.I form
+を評価します。
+.TP
+.BI \-i " file, " \-insert " file"
+カレントバッファに
+.I file
+を挿入します。
 .TP
 .B \-kill
-.B XEmacs
-を終了します(
-.BR \-batch 
-で有効です)。
+.I XEmacs
+を終了します。
+.RB ( \-batch
+使用時に役立ちます。)
 .PP
-.SM "X での XEmacs の使用"
+.SM XEmacs を X Windows で使用する
 .PP
-.B XEmacs
-は、X ウィンドウシステム上で正しく動作するように開発されてきました。
-X ウィンドウで
-.B XEmacs
-を起動すると、ディスプレイ内に独自の X ウィンドウを開きます。
-ユーザーのオリジナルのウィンドウをそのまま使い続けることができるように、
-エディタはバックグラウンドのジョブとして起動したほうがよいでしょう。
+.I XEmacs
+は X window system でうまく動作するように調整されてきました。
+.I XEmacs
+が X windows で実行されると専用の X
+のウインドウが作成されそこに表示がされます。
 .PP
-.B XEmacs
-は、以下の標準 X オプションを付けて起動することができます。
+.I XEmacs
+は以下の標準 X オプションとともに起動することができます:
+.TP
+.BI \-visual " <visualname><bitdepth>"
+XEmacs が使用を試みる visual を選択します。
+.I <visualname>
+は "StaticColor"、 "TrueColor"、 "GrayScale"、 "PseudoColor"、
+"DirectColor" の文字列のうちの一つであり、
+.I <bitdepth>
+はピクセル毎のビット数です。
+(たとえば 24bit TrueColor の visual には "-visual TrueColor24"
+を指定します。)
+詳しくは
+.IR X (1)
+を参照してください。
+.TP
+.B -privateColormap
+XEmacs が表示用にプライベートカラーマップを作成し、それを使用するよう
+に要求します。これにより XEmacsはデフォルトのカラーマップを使用しなく
+なり、他のクライアントによりカラーマップが影響を受けることがなくなりま
+すが、その代わりにフォーカスが移動する際は目ざわりなフリッカが発生しま
+す。このオプションはあなたの X サーバが 24 bit visualをサポートしてい
+ないときにのみ使用してください。
 .TP
 .BI \-geometry " ##x##+##+##"
-初期ウィンドウのジオメトリを指定します。## には、幅(文字数)、
-高さ(文字数)、X オフセット(ピクセル数)、Y オフセット(ピクセル数)
-を数字で指定してください。
+初期ウインドウのジオメトリーを指定します。## は数値であり、4つの数値は
+それぞれ幅(文字数)、高さ(文字数)、X 座標のオフセット(ピクセル)、Y 座標
+のオフセット(ピクセル)をあらわします。
 .I ##x##
-や
+あるいは
 .I +##+##
-などの書式の部分指定も有効です。(ジオメトリ仕様は、標準 X フォーマットに
-準拠しています。詳細は
-.BR X (1)
+という形式の部分指定も許されます。(ジオメトリーの仕様は X の標準フォー
+マットに従っています。詳細は
+.IR X (1)
 を参照してください。)
 .TP
 .B \-iconic
-起動時の初期ウィンドウをアイコンで表示します。
+初期ウインドウがアイコン化されて現れます。
+.TP 8
+.BI \-name " name"
+ユーザの X リソースからデフォルト値を探すときに使用される、このプログ
+ラムの名前を指定します。
 .TP
-.BI \-name " プログラム名"
-ユーザーの X リソース内にあるデフォルトを参照するために使用される
-プログラム名を指定します。
+.BI \-title " title, " \-T " title, " \-wn " title"
+この
+.I XEmacs
+のウインドウに割り当てられるタイトルを指定します。
 .TP
-.BI \-title " タイトル名、" \-T " タイトル名、" \-wn " タイトル名"
-.B XEmacs
-ウィンドウのタイトル名を指定します。
+.BI \-d " displayname, " \-display " displayname"
+.I XEmacs
+を
+.I displayname
+で指定したディスプレイ上に作成します。
+コマンド行の最初(先頭)のオプションでなくてはいけません。
 .TP
-.BI \-d " ディスプレイ名、" \-display " ディスプレイ名"
-.IR ディスプレイ名
-に指定したディスプレイ上に
-.B XEmacs
-ウィンドウを作成します。
-このオプションは、コマンド行で最初 (先頭) に指定してください。
+.BI \-font " font, " \-fn " font"
+.I XEmacs
+のウインドウフォントを
+.I font
+で指定されたフォントにセットします。
+.I /usr/lib/X11/fonts
+ディレクトリでさまざまな
+.I X
+フォントが見つかると思います。
+.I XEmacs
+は固定幅と可変幅のどちらのフォントも使用できますが、おそらく固定幅フォ
+ントのほうが見栄えがよいでしょう。
 .TP
-.BI \-font " フォント名、" \-fn " フォント名"
-.B XEmacs
-ウィンドウのフォントとして、
-.I フォント名
-に指定したフォントを使用します。X フォントは 
-.B "/usr/lib/X11/fonts"
-ディレクトリから選択してください。
-.B XEmacs
-は、固定幅フォントと可変幅フォントのどちらでも動作しますが、
-固定幅フォントを使用することをお勧めします。
-.TP
-.BI \-scrollbar\-width " ピクセル数"
+.BI \-scrollbar\-width " pixels"
 垂直スクロールバーの幅を指定します。
 .TP
-.BI \-scrollbar\-height " ピクセル数"
+.BI \-scrollbar\-height " pixels"
 水平スクロールバーの高さを指定します。
 .TP
-.BI \-bw " ピクセル数、 " \-borderwidth " ピクセル数"
-.B XEmacs
-ウィンドウの境界幅を指定します。
-ウィンドウ両側のデフォルト値は 1 ピクセルです。
+.BI \-bw " pixels, " \-borderwidth " pixels"
+.I XEmacs
+のウインドウのボーダー幅を
+.I pixels
+で指定されたピクセル数に設定します。
+デフォルトでは各ウインドウ側面に 1 ピクセルです。
 .TP
-.BI \-ib " ピクセル数、 " \-internal\-border\-width " ピクセル数"
-フレームの境界とテキストとの間隔を指定します。
-ウィンドウ両側のデフォルト値は 1 ピクセルです。
+.BI \-ib " pixels, " \-internal\-border\-width " pixels"
+フレームのボーダーとテキストの間の幅をピクセル数で指定します。
+デフォルトでは各ウインドウ側面に 1 ピクセルです。
 .TP
-.BI \-fg " カラー名、 " \-foreground " カラー名"
-テキストの色を設定します。カラー名については、
-.B "/usr/lib/X11/rgb.txt"
-ファイル中のリストを参照してください。
+.BI \-fg " color, " \-foreground " color"
+テキストの色を設定します。
+
+使用できる色の名前のリストは
+.I /usr/lib/X11/rgb.txt
+を参照してください。
 .TP
-.BI \-bg " カラー名、 " \-background " カラー名"
-ウィンドウの背景の色を設定します。
+.BI \-bg " color, " \-background " color"
+ウインドウの背景色を設定します。
 .TP
-.BI \-bd " カラー名、 " \-bordercolor " カラー名"
-ウィンドウ境界の色を設定します。
+.BI \-bd " color, " \-bordercolor " color"
+ウインドウのボーダー色を設定します。
 .TP
-.BI \-mc " カラー名"
+.BI \-mc " color"
 マウスポインタの色を設定します。
 .TP
-.BI \-cr " カラー名"
+.BI \-cr " color"
 テキストカーソルの色を設定します。
 .TP
-.BR \-rv "、" \-reverse
-前景と背景の色を反転します(反転表示)。
-このオプションを使用せずに、
-前景色と背景色を明示的に設定することをお勧めします。
+.B \-rv, \-reverse
+前景色と背景色を反転させます(反転表示)。このオプションを使用する代わり
+に、前景色と背景色を陽に設定することを検討してください。
 .TP
-.BI \-xrm " 引数"
-コマンド行で任意のリソースを設定することができます。
-.B \.Xresource
-や
-.B \.Xdefaults
-ファイル中に指定されるのと同様に、
-.I 引数
-に指定した値がリソースとして解釈されます。
+.BI \-xrm " argument"
+コマンドラインから任意のリソースを設定することができます。
+.I argument
+は
+.I \.Xresources
+ファイルや
+.I \.Xdefaults
+ファイルにあるようなリソースの列挙です。
 .PP
-ユーザーは、たとえば
-.B \.Xresources
-や
-.B \.Xdefaults
-ファイルで、
-.B XEmacs 
-ウィンドウ用のリソースのデフォルト値を設定することもできます(
-.BR xrdb (1)
-参照)。
-書式は以下のようになります。
+.I XEmacs
+のウインドウのリソース、つまり
+.I X
+のデフォルト値は
+.I \.Xresources
+ファイルまたは
+.I \.Xdefaults
+ファイル(
+.IR xrdb (1)
+参照)の中で指定することもできます。
+以下の書式を使用してください:
 .IP
-\f3Emacs.\f2キーワード\f3:\f2値\f1
+Emacs.keyword:value
 .PP
 または
 .IP
-\f3Emacs*EmacsFrame.\f2キーワード\f3:\f2値\f1
+Emacs*EmacsFrame.keyword:value
 .PP
-です (どちらの形式かは、リソースによる)。
+ここで
+.I value
+は
+.I keyword
+のデフォルト値です。(リソースうちあるものは前者の書式を必要とし、また
+あるものは後者の書式をとります。)
 .PP
-以下の書式を使用して、特定のフレームのリソースを設定することもできます。
+また以下の書式を使用して特定のフレームのリソースを設定することもできます。
 .IP
-\f3Emacs*\f2フレーム名\f3.\f2キーワード\f3:\f2値\f1
+Emacs*framename.keyword:value
 .PP
-(VM のような完成されたパッケージは、それらのフレームに固有の
-リソース名を与えます。この場合は VM になります。)
+ここで
+.I framename
+はその特定のフレームに割り当てられたリソース名です。(ある種のパッケー
+ジ、たとえば VMなどでは使用するフレームに独自のリソース名、この場合で
+あれば "VM" を与えます。)
 .PP
-.B XEmacs
-では、以下のキーワードに対するデフォルト設定をユーザーが行うことができます。
-.TP
+.I XEmacs
+では以下のキーワードのデフォルト値を設定することができます。
+.TP 8
 .B default.attributeFont (\fPclass\fB Face.AttributeFont)
-ウィンドウのテキストフォントを設定します。
+ウインドウのテキストフォントを設定します。
 .TP
 .B default.attributeForeground (\fPclass\fB Face.AttributeForeground)
-ウィンドウテキストの色を設定します。
+ウインドウのテキスト色を設定します。
 .TP
 .B default.attributeBackground (\fPclass\fB Face.AttributeBackground)
-ウィンドウの背景色を設定します。
+ウインドウの背景色を設定します。
 .TP
-.B \fIフェイス\fB.attributeFont (\fPclass\fB Face.AttributeFont)
-フェイス名のフォントを設定します。
-よく使用されるフェイス名を、以下に示します。
+.B \fIface\fB.attributeFont (\fPclass\fB Face.AttributeFont)
+.I face
+で指定された名前のフェイスのフォントを設定します。
+一般的なフェイス名は以下の通りです。
 .PP
 .in +\w'right-margin'u+12n
 .ta \w'right-margin'u+4n
@@ -326,451 +383,416 @@ X ウィンドウで
 default	通常のテキスト。
 .br
 .ti -\w'right-margin'u+4n
-bold	ボールド (太字) テキスト。
+bold	太字のテキスト。
 .br
 .ti -\w'right-margin'u+4n
-italic	イタリック (斜体) テキスト。
+italic	イタリックテキスト。
 .br
 .ti -\w'right-margin'u+4n
-bold-italic	ボールドイタリックテキスト。
+bold-italic	太字のイタリックテキスト。
 .br
 .ti -\w'right-margin'u+4n
-modeline	モード行テキスト。
+modeline	モードラインのテキスト。
 .br
 .ti -\w'right-margin'u+4n
-zmacs-region	マウス選択されたテキスト。
+zmacs-region	マウスで選択されたテキスト。
 .br
 .ti -\w'right-margin'u+4n
-highlight	マウス通過時の強調テキスト。
+highlight	マウスが通過したときの強調されたテキスト。
 .br
 .ti -\w'right-margin'u+4n
-left-margin	左マージン内のテキスト。
+left-margin	左マージンのテキスト。
 .br
 .ti -\w'right-margin'u+4n
-right-margin	右マージン内のテキスト。
+right-margin	右マージンのテキスト。
 .br
 .ti -\w'right-margin'u+4n
-isearch	検索時の強調テキスト。
+isearch	インクリメンタルサーチ中の強調されたテキスト。
 .br
 .ti -\w'right-margin'u+4n
-info-node	Info メニューのテキスト。
+info-node	Info メニューアイテムのテキスト。
 .br
 .ti -\w'right-margin'u+4n
-info-xref	Info 相互参照のテキスト。
+info-xref	Info のクロスリファレンスのテキスト。
+.TP 8
+.B \fIface\fB.attributeForeground (\fPclass\fB Face.AttributeForeground)
+.I face
+の前景色を設定します。
+.TP 8
+.B \fIface\fB.attributeBackground (\fPclass\fB Face.AttributeBackground)
+.I face
+の背景色を設定します。
+.TP 8
+.B \fIface\fB.attributeBackgroundPixmap (\fPclass\fB Face.AttributeBackgroundPixmap)
+.I face 
+の背景ピクスマップ(点画)を設定します。
+.TP 8
+.B \fIface\fB.attributeUnderline (\fPclass\fB Face.AttributeUnderline)
+.I face
+が下線つきか。
 .TP
-.B \fIフェイス\fB.attributeForeground(\f1class\fB Face.AttributeForeground)
-指定フェイス用の前景色を設定します。
-.TP
-.B \fIフェイス\fB.attributeBackground(\f1class\fB Face.AttributeBackground)
-指定フェイス用の背景色を設定します。
-.TP
-.B \fIフェイス\fB.attributeBackgroundPixmap
-.B (\f1class\fB Face.AttributeBackgroundPixmap)\f1
-.br
-指定フェイス用の背景ピックスマップを設定します。
-.TP
-.B \fIフェイス\fB.attributeUnderline (\f1class\fB Face.AttributeUnderline)
-指定フェイス用の下線の有無を決めます。
-.TP
-.B reverseVideo (\f1class\fB ReverseVideo)
-.IR on 
-に設定された場合は、ウィンドウは反転表示します。
-このリソースを使用せずに、前景色と背景色を
-明示的に設定することをお勧めします。
+.B reverseVideo (\fPclass\fB ReverseVideo)
+.IR on
+に設定されたときはウインドウは反転表示されます。
+このリソースを使用する代わりに前景色、
+背景色を陽に指定することを検討してください。
 .TP
 .B borderWidth (\fPclass\fB BorderWidth)
-ウィンドウの境界幅をピクセル数で設定します。
+ウインドウのボーダー幅をピクセル数で設定します。
 .TP
 .B internalBorderWidth (\fPclass\fB InternalBorderWidth)
-ウィンドウの内側境界幅をピクセル数で設定します。
+ウインドウの内側ボーダー幅をピクセル数で設定します。
 .TP
 .B borderColor (\fPclass\fB BorderColor)
-ウィンドウ境界の色を設定します。
+ウインドウのボーダーの色を設定します。
 .TP
 .B cursorColor (\fPclass\fB Foreground)
-ウィンドウのテキストカーソルの色を設定します。
+ウインドウのテキストカーソルの色を設定します。
 .TP
 .B pointerColor (\fPclass\fB Foreground)
-ウィンドウのマウスカーソルの色を設定します。
+ウインドウのマウスカーソルの色を設定します。
+.TP
+.B emacsVisual (\fPclass\fB EmacsVisual)
+.I XEmacs
+が使用しようとするデフォルトのビジュアルを設定します。(上述)
+.TP
+.B privateColormap (\fPclass\fB PrivateColormap)
+設定されると
+.I XEmacs
+はプライベートカラーマップを使用します。
 .TP
 .B geometry (\fPclass\fB Geometry)
-.B XEmacs
-ウィンドウのジオメトリを設定します(上述)。
+.I XEmacs
+のウインドウのジオメトリーを設定します。(上述)
 .TP
 .B iconic (\fPclass\fB Iconic)
-on に設定されている場合は、
-.B XEmacs
-ウィンドウは最初にアイコン化されて表示されます。
+on に設定すると
+.I XEmacs
+は最初アイコンとして表示されます。
 .TP
 .B menubar (\fPclass\fB Menubar)
-.B XEmacs
-ウィンドウにメニューバーを表示させるかどうかを設定します。初期値は true です。
+.I XEmacs
+ウインドウにメニューバーがつくか。デフォルトでは true です。
 .TP
 .B initiallyUnmapped (\fPclass\fB InitiallyUnmapped)
-.B XEmacs
-が起動時にアンマップされた初期フレームを残すかどうかを設定します。
+.I XEmacs
+起動時に初期フレームをマップしないでおくか。
 .TP
 .B barCursor (\fPclass\fB BarCursor)
-カーソルの形状を、箱型またはバーに設定します。
+カーソルの形状として箱型の代わりに縦棒を使用するか。
 .TP
 .B title (\fPclass\fB Title)
-.B XEmacs
-ウィンドウのタイトル名を設定します。
+.I XEmacs
+のウインドウタイトルを設定します。
 .TP
 .B iconName (\fPclass\fB Title)
-.B XEmacs
-ウィンドウアイコンの名前を設定します。
+.I XEmacs
+ウインドウのアイコンの名前を設定します。
 .TP
 .B scrollBarWidth (\fPclass\fB ScrollBarWidth)
-垂直スクロールバーの幅をピクセル数で設定します。
-値を 0 にすると、垂直スクロールバーは表示されません。
+垂直スクロールバーの幅をピクセル数で設定します。幅を 0 にすると垂直ス
+クロールバーは表示されません。
 .TP
 .B scrollBarHeight (\fPclass\fB ScrollBarHeight)
-水平スクロールバーの高さをピクセル数で設定します。
-値を 0 にすると、水平スクロールバーは表示されません。
+水平スクロールバーの高さをピクセル数で設定します。高さを 0 にすると水
+平スクロールバーは表示されません。
 .TP
 .B scrollBarPlacement (\fPclass\fB ScrollBarPlacement)
-垂直・水平スクロールバーの位置を設定します。"top-left"、"bottom-left"、 
-"top-right"、"bottom-right"のいずれかを選択します。
-デフォルトでは、Motif と Lucid 用には "bottom-right" が、
-Athena 用には "buttom-left" が設定されています。
+垂直/水平スクロールバーの位置を設定します。文字列 "top-left"、
+"bottom-left"、 "top-right"、"bottom-right" のうち一つを指定します。デ
+フォルト値は Motif または Lucid スクロールバーでは "bottom-right"、
+Athena スクロールバーでは "bottom-left" です。
 .TP
 .B topToolBarHeight (\fPclass\fB TopToolBarHeight)
-上部のツールバーの高さをピクセル数で設定します。
-値を 0 にすると、ツールバーは表示されません。
+上部ツールバーの高さをピクセル数で設定します。0 のとき上部ツールバーは
+表示されません。
 .TP
 .B bottomToolBarHeight (\fPclass\fB BottomToolBarHeight)
-下部ツールバー の高さをピクセル数で設定します。
-値を 0 にすると、下部ツールバーは表示されません。
+下部ツールバーの高さをピクセル数で設定します。0 のとき下部ツールバーは
+表示されません。
 .TP
 .B leftToolBarWidth (\fPclass\fB LeftToolBarWidth)
-左側のツールバーの幅をピクセル数で設定します。
-値を 0 にすると、左側のツールバーは表示されません。
+左ツールバーの幅をピクセル数で設定します。0 のとき左ツールバーは表示さ
+れません。
 .TP
 .B rightToolBarWidth (\fPclass\fB RightToolBarWidth)
-右側のツールバーの幅をピクセル数で設定します。
-値を 0 にすると、右側のツールバーは表示されません。
+右ツールバーの幅をピクセル数で設定します。0 のとき右ツールバーは表示さ
+れません。
 .TP
 .B topToolBarShadowColor (\fPclass\fB TopToolBarShadowColor)
-ツールバーの上部シャドウの色を設定します。
-(すべてのツールバーに有効。上部ツールバー以外にも有効です。)
+ツールバーの上部シャドー色を設定します。
+(フレーム上部のツールバーだけではなく、
+すべてのツールバーに適用されます。)
 .TP
 .B bottomToolBarShadowColor (\fPclass\fB BottomToolBarShadowColor)
-ツールバーの下部シャドウの色を設定します。
-(すべてのツールバーに有効。上部ツールバー以外にも有効です。)
+ツールバーの下部シャドー色を設定します。
+(フレーム下部のツールバーだけではなく、
+すべてのツールバーに適用されます。)
 .TP
 .B topToolBarShadowPixmap (\fPclass\fB TopToolBarShadowPixmap)
-ツールバーの上部シャドウのピックスマップを設定します。
-(すべてのツールバーに有効。上部ツールバー以外にも有効です。)
-設定されていれば、このリソースは対応するカラーリソースを無効にします。
+ツールバーの上部シャドーピクスマップを設定します。
+(フレーム上部のツールバーだけではなく、
+すべてのツールバーに適用されます。)
+このリソースの設定は対応するシャドー色リソースを上書きします。
 .TP
 .B bottomToolBarShadowPixmap (\fPclass\fB BottomToolBarShadowPixmap)
-ツールバーの下部シャドウのピックスマップを設定します。
-(すべてのツールバーに有効。上部ツールバー以外にも有効です。)
-設定されていれば、このリソースは対応するカラーリソースを無効にします。
+ツールバーの下部シャドーピクスマップを設定します。
+(フレーム下部のツールバーだけではなく、
+すべてのツールバーに適用されます。)
+このリソースの設定は対応するシャドー色リソースを上書きします。
 .TP
 .B toolBarShadowThickness (\fPclass\fB ToolBarShadowThickness)
-ツールバーを囲むシャドウ濃度をピクセル数で設定します。
+ツールバーのシャドーの太さのピクセル数。
 .TP
 .B visualBell (\fPclass\fB VisualBell)
-スクリーン点滅またはビープ音のどちらを使用するかを設定します。
+ビープ音の代わりに画面をフラッシュさせるか。
 .TP
 .B bellVolume (\fPclass\fB BellVolume)
-ビープ音の音量を設定します。設定範囲は 0 から 100 です。
+ビープ音の大きさを 0 から 100 の範囲で。
 .TP
 .B useBackingStore (\fPclass\fB UseBackingStore)
-.B XEmacs
-X ウィンドウのバッキングストア属性を設定するかどうかを決定します。
-この属性を設定すると、
-X サーバーが使用するメモリーが多くなりますが、
-スクリーンを更新する際の X トラフィックが少なくなります。
-また、モデム接続のような低速回線を使った
+.I XEmacs
+が
 .I X
-サーバーとの接続に有効です。
+のウインドウにバッキングストア属性をつけるか。これは
+.I X
+サーバのメモリー使用量を増やしますが画面更新に必要な
+.I X
+のトラフィックの総量は減り、
+.I X
+がモデムのような低帯域幅の接続で使用されている場合には有効です。
 .TP
 .B textPointer (\fPclass\fB Cursor)
-テキスト上にマウスがあるときに使用するカーソルを設定します。
+マウスがテキスト上にあるときのカーソル。
 .TP
 .B selectionPointer (\fPclass\fB Cursor)
-マウス選択されたテキスト範囲上にマウスがあるときに使用する
-カーソルを設定します。
+マウスがマウス選択されたテキスト領域上にあるときのカーソル。
 .TP
 .B spacePointer (\fPclass\fB Cursor)
-バッファ内の空白スペース上にマウスがあるときに(つまり、
-行末やファイルの最後で) 使用するカーソルを設定します。
+マウスがバッファ内のブランクスペース(すなわち行末以降またはファイル末
+尾以後)上にあるときのカーソル。
 .TP
 .B modeLinePointer (\fPclass\fB Cursor)
-モードライン上にマウスがあるときに使用するカーソルを設定します。
+マウスがモードライン上にあるときのカーソル。
 .TP
 .B gcPointer (\fPclass\fB Cursor)
-ガーベッジコレクション中に表示するカーソルを設定します。
+ガベッジコレクション中に表示されるマウスカーソル。
 .TP
 .B scrollbarPointer (\fPclass\fB Cursor)
-スクロールバー上にマウスがあるときに使用するカーソルを設定します。
+マウスがスクロールバー上にあるときのカーソル。
 .TP
 .B pointerColor (\fPclass\fB Foreground)
-マウスカーソルの前景色を設定します。
+マウスカーソルの前景色。
 .TP
 .B pointerBackground (\fPclass\fB Background)
-マウスカーソルの背景色を設定します。
+マウスカーソルの背景色。
 .PP
-.SM "マウスの使用"
+.SM マウスの使用
 .PP
-以下のリストは、X11 における
-.B XEmacs
-ウィンドウでの、マウスボタンの割り当てです。
+以下は X11 における
+.I XEmacs
+のウインドウでのマウスボタンの割り当てのリストです。
 
 .in +\w'CTRL-SHIFT-middle'u+4n
 .ta \w'CTRL-SHIFT-middle'u+4n
 .ti -\w'CTRL-SHIFT-middle'u+4n
-マウスボタン       機能
+マウスボタン	機能
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-左                 ポイントの位置決めと、テキストの選択。
+left	ポイントのセットまたはテキスト選択。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-中央               テキストのペースト。
+middle	テキストの張りつけ。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-右                 オプションメニューのポップアップ
+right	オプションメニューのポップアップ。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-SHIFT-左           選択範囲の拡張。
+SHIFT-left	選択範囲の拡張。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-CTRL-左            選択した内容をポイント位置に挿入。
+CTRL-left	選択をしポイントへ挿入する。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-CTRL-中央          ポイントの位置決めとその位置でのテキストの選択。
+CTRL-middle	ポイントをセットし、そこへ選択テキストを移動する。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-CTRL-SHIFT-左      選択した内容を削除しその内容をポイント位置に挿入。
+CTRL-SHIFT-left	選択し、選択内容を削除してポイントへ挿入する。
 .br
 .ti -\w'CTRL-SHIFT-middle'u+4n
-META-左            箱型選択。
-.SH "ファイル"
-.LP
-Lisp コードが、起動時にユーザーの初期化ファイル \fB$HOME/.emacs\fP から
-読み込まれます。
-.LP
-\f3/usr/local/info\f1
-.br
-Info 文書ブラウザ
-(
-.BR XEmacs 
-のサブシステム)の参照するファイル。
-『XEmacs Reference Manual』と『XEmacs Lisp Programmer's Manual』
-の完全なテキストが、所定の階層構造で収められています。
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/info\f1
-.br
-Info ファイル(この位置とはかぎらない)
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/src\f1
-.br
-C ソースファイルとオブジェクトファイル(存在しない場合もある)
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/lisp/*\f1
-.br
-多くの編集コマンドを定義する Lisp ソースファイルとコンパイル済みファイル。
-これらのファイルは機能や個々のパッケージ別にサブディレクトリ内に
-分類され、置かれています。いくつかのファイルは
-前もって読み込まれています。それ以外のものは、使用時にこれらのディレクトリから、
-自動的に読み込まれます。
-.LP 
-\f3/usr/local/lib/xemacs-$VERSION/etc\f1
-.br
-いくつかの情報ファイル、ピックスマップファイル、
-パッケージに使用されるデータファイルなど。
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/$CONFIGURATION\f1
-.br
-XEmacs に使用されるさまざまなプログラムファイル。
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/$CONFIGURATION/DOC\f1
-.br
-Lisp プリミティブ (基本関数) と \fBXEmacs\fP にあらかじめ
-読み込まれた Lisp 関数のドキュメント文字列。
-これらのファイルは、\fBXEmacs\fP 本体のサイズを減らすためにここに保管
-されています。
-.LP
-\f3/usr/local/lib/xemacs-$VERSION/etc/SERVICE\f1
-.br
-\fBXEmacs\fP ユーザーのための、学習、保守、移植、
-カスタマイズなどのさまざまなサービスを提供する人々についてまとめています。
-.LP
-\f3/usr/local/lib/xemacs/lock\f1
-.br
-2 人のユーザーが 1 つのファイルを同時に更新できないように、
-.BR XEmacs
-で更新中のすべてのファイルに対してできるロックファイルを保持します。
-.LP
-\f3/usr/local/lib/xemacs/site-lisp\f1
-.br
-ローカルに作成する Lisp ファイル。
-.LP
-\f3/usr/lib/X11/rgb.txt\f1
-.br
-正式の X カラー名がリストされています。
-.PP
-.SH "使用上の留意点と問い合わせ先"
-.B XEmacs
-に関するバグや修正の報告先として、また助言を求める宛先として、
-comp.emacs.xemacs ニュースグループがあります。
-ただし、問題点をバグとして報告する前に、
-本当にそれがバグであるか、誤解や意図的な機能ではないか
-ということをお確かめください。バグレポートの方法や時期については、
-リファレンスマニュアル(または Into システム) の後半近くある
-「Reporting XEmacs Bugs」という章をお読みください。
-また、報告するバグレポートには、動作中の
-.B XEmacs
-のバージョン番号とそれが動作しているシステムを記入してください。
-最後に、バグの原因とそれが発生した状況を、できるだけそのまま保存しておいて
-ください。その保存状態が良ければ簡単に修正できる可能性が高くなります。
-できるだけご協力をお願いします。
+META-left	矩形選択する。
+.SH ファイル
+起動時にユーザの初期化ファイル
+\fB$HOME/.emacs\fP
+から Lisp のコードが読まれます。
 
-このニュースグループは、xemacs@xemacs.org というメールリストからの発信、受信を
-双方向に行うことができます。ネットニュースに簡単にアクセスできないような場合は、
-newsgroup に代わってメールリストを読むことができます。メールリストへの追加
-ご希望の方は、xemacs-request@xemacs.org へメールをお送りください。
-(直接リストにメールを送信しないでください。)
+/usr/local/info - ドキュメントブラウザである Info
+.RI ( XEmacs
+のサブシステム)が参照するためのファイル群。
+.I XEmacs Reference Manual
+と
+.I XEmacs Lisp Programmer's Manual
+の完全なテキストは扱いやすいツリー構造になって収められています。
 
-.B XEmacs
-の保守担当者は、定期的にニュースグループを読んでいます。そして報告された
-バグに対して迅速に修正をするように努めています。しかしながら、すべての
-メッセージが保守担当者から返答を受けることができるわけではありません。
-保守担当者以外に多数の人達がニュースグループを読んでおり、通常彼らからも
-出くわした問題を解決するための助言を得ることができます。
+/usr/local/lib/xemacs-$VERSION/info - Info のファイルは代わりにここに
+あるかも知れません。
 
-ニュースグループから得られる情報以上に、詳細なサポートが必要な場合は、
-SERVICE ファイル(上述)を参照してください。
-そのファイルに、担当者がリストされています。
+/usr/local/lib/xemacs-$VERSION/lisp/* -ほとんどの編集コマンドを定義し
+ている Lisp のソースファイルとコンパイルされたファイル。ファイルは機能
+またはパッケージ別に分類されサブディレクトリに分けて収められています。
+いくつかは前もってロードされ、その他のものは使用時にこれらのディレクト
+リから自動ロードされます。
 
-XEmacs のメールリストについての詳細は、
-.B /usr/local/lib/xemacs-$VERSION/etc/MAILINGLISTS
-のファイルを参照してください。
-.SH "非制約事項"
+/usr/local/lib/xemacs-$VERSION/etc - 情報ファイル、ピクスマップファイ
+ル、ある種のパッケージに使用されるその他のデータファイル、など。
+
+/usr/local/lib/xemacs-$VERSION/$CONFIGURATION - XEmacs とともに使用さ
+れるいろいろなプログラム。
+
+/usr/local/lib/xemacs-$VERSION/$CONFIGURATION/DOC - \fIXEmacs\fP の 
+Lisp プリミティブと事前読み込み Lisp 関数のドキュメント文字列が含まれ
+ます。これらは \fIXEmacs\fP 本体のサイズを減らすためここに格納されてい
+ます。
+
+/usr/local/lib/xemacs/site-lisp - ローカルで提供される Lisp ファイル。
+
 .PP
-.B XEmacs
-は、フリーのソフトウェアです。
-.B XEmacs 
-General Public License に述べられている限りにおいて、だれでも
-.B XEmacs 
-やそれに付随したもののコピー、およびリファレンスマニュアルに表示されている
-内容のコピーを、任意の人に提供することが許されています。
+.SH バグとヘルプ
+.I XEmacs
+のバグやその修正を報告したり助言を求めたりする場所として、ニュースグルー
+プ comp.emacs.xemacs があります。しかし何かをバグとして報告する前に、
+それが本当にバグであり、誤解や意図的な機能ではないことを確認するように
+してください。リファレンスマニュアル(または Info システム)の終わりのほ
+うにある``Reporting XEmacs Bugs'' 節を読んでください。バグレポートをい
+つ、どのようにするのかについてのヒントが書いてあります。また、あなたの
+実行している
+.I XEmacs
+のバージョンとそれを実行しているシステムを \fIすべての\fR バグレポート
+に含めるようにしてください。最後に、バグの原因や発生条件をより特定して
+おくことができれば、それだけバグが修正されやすくなります。ですからそう
+することに時間をかけてください。
+
+comp.emacs.xemacs はメーリングリスト xemacs@xemacs.org と双方向にゲー
+トウェイされています。Usenet のニュースへの手ごろなアクセス手段がない
+ならば代わりにこのメーリングリストを読むことができます。メーリングリス
+トへ参加するには xemacs-request@xemacs.org にメールしてください。
+(xemacs@xemacs.org 自体には送らないでください。)
+
+.I XEmacs
+のメンテナは定期的にニュースグループを読み、報告されたバグに対して迅速
+な修正を行うように努めています。しかしすべてのメッセージに対してメンテ
+ナから返答があるわけではありません。メンテナ以外にも多くの人たちがその
+ニュースグループを読んでいて、通常、彼らからあなたの出くわした問題を解
+決するための助言を得ることができます。
+
+もしニュースグループで得られる以上のより個人的な援助が必要であれば、
+SERVICE ファイル(上述)にそのようなサービスを提供している人たちのリスト
+があります。
+
+XEmacs メーリングリストについてのより詳しい情報は
+/usr/local/lib/xemacs-$VERSION/etc/MAILINGLISTS ファイルを参照してくだ
+さい。
+
+.SH 非制約事項
 .PP
-.B XEmacs
-は、UNIX システムの配布物とともにパッケージされて提供されることがありますが、
-.B XEmacs
-は常にそれらのシステムに関するライセンスの範囲外です。もし
-.B XEmacs 
-もそのライセンスに含まれているとすれば、それは配布許可要項に反します。
-いかなる人も
-.B XEmacs 
-の配布に関しては何の制約も受けてはならない、というのが 
-General Public License の本来の目的です。
-.SH "関連項目"
-.BR X (1),
-.BR xlsfonts (1),
-.BR xterm (1),
-.BR xrdb (1), 
-.BR emacs (1), 
-.BR vi (1)
-.SH "著者"
+.I XEmacs
+はフリーです。
+.I XEmacs
+General Public License に述べられている条件下で、誰もが任意の人に
+.I XEmacs
+の複製を再配布することができます。
+.I XEmacs
+General Public License は
+.I XEmacs
+のすべてのコピーに付随しており、またリファレンスマニュアル中にも現れま
+す。
 .PP
-.B XEmacs 
-は、Chuck Thompson <cthomp@xemacs.org>、Ben Wing <ben@xemacs.org>、
-Jamie Zawinski <jwz@netscape.com>、Richard Mlynarik <mly@adoc.xerox.com>、
-Martin Buchholz <mrb@eng.sun.com> 他、によって書かれました。
-Free Software Foundation の Richard Stallman の書いた 
-.B "GNU Emacs "
-バージョン 
-.I 19 
-の早期バージョンをもとにしていましたが、
-.B GNU Emacs 
-が使用可能となった後では、その後続リリースに同期されています。
-もともとは、(今や存在しない) Lucid, Inc. によって書かれたもので、
-.B "Lucid Emacs "
+.I XEmacs
+の複製は時には Unix システムのディストリビューションにパッケージされて
+提供されるかもしれませんが、
+.I XEmacs
+がそうしたシステムに関するなんらかのライセンスの対象にも含まれてしまう
+ことは決してありません。もし
+.I XEmacs
+もそのライセンス対象に含まれているならば、それは配布許可条項に違反して
+います。実際のところ、General Public License の第一の目的は
+.I XEmacs
+の再配布に誰かが他の条件をつけ加えることを禁止するにあるのです。
+.SH 参照
+X(1), xlsfonts(1), xterm(1), xrdb(1), emacs(1), vi(1)
+.SH 著者
+.PP
+.I XEmacs
+は
+Steve Baur <steve@xemacs.org>、
+Martin Buchholz <martin@xemacs.org>、
+Richard Mlynarik <mly@adoc.xerox.com>、
+Hrvoje Niksic <hniksic@xemacs.org>、
+Chuck Thompson <cthomp@xemacs.org>、
+Ben Wing <ben@xemacs.org>、
+Jamie Zawinski <jwz@jwz.org>、
+ほか多くの人たちにより書かれました。
+.I XEmacs
+は Free Software Foundation の Richard Stallman <rms@gnu.org> によって
+書かれた
+.I GNU Emacs バージョン 19
+の早期バージョンを元に開発され、その後は
+.I GNU Emacs
+の後続リリースが登場する度に同期されてきました。もともとは (今では存在
+しない) Lucid, Inc. により書かれたもので
+.I Lucid Emacs
 と呼ばれていました。
 .PP
-Chuck Thompson が
-.B XEmacs
-の再表示の基本部分を書き、
-.B XEmacs
-の FTP と WWW サイトを保持し、
-バージョン 19.11 (
-.B XEmacs 
-とよばれた最初のリリース) からすべての
-.B XEmacs 
-の機能がリリースされました。
-Ben Wing は、アジア言語のサポート、オンラインマニュアル (マニュアル
-ページと多くの FAQ を含む)、外部ウィジェットコードを書き、低レベルだった
-.B XEmacs 
-サブシステムの多くの基本部分を強化し、書き直しました。
-Jamie Zawinski は、
-.B "Lucid Emacs "
-の初期バージョン (19.0) から最終バージョン (19.10) までのすべてを
-リリースし、これらすべてのリリースの主コード貢献者でした。
-Richard Mlynarik は、
-.B XEmacs 
-Lisp オブジェクト割り当てシステムを書き直しと、キーマップコードと
-ミニバッファコードの修正、そして
-.B XEmacs 
+Chuck Thompson は
+.I XEmacs
+の再表示エンジンを書き、
+.I XEmacs
+の FTP サイトおよび WWW サイトを保守し、
+.I XEmacs
+の 19.11
+.RI ( XEmacs
+と呼ばれた最初のリリース)以降のすべてのリリースを行ってきました。Ben
+Wing はアジア言語のサポート部分、オンラインドキュメント(この man page 
+や FAQ のほとんどの部分を含みます)、外部ウィジェットコードを書き、
+.I XEmacs
+サブシステムの基本部分、低レベル部分のほとんどに手をいれ、あるいは書き
+直しました。Jamie Zawinski は
+.I Lucid Emacs
+の最初(19.0)から最後(19.10)までのすべてのリリースを送り出し、またこれ
+らのリリースでの第一のコード貢献者でした。Richard Mlynarik は
+.I XEmacs
+の Lisp オブジェクト割り当てシステムを書き直し、キーマップとミニバッファ
+のコードを改良し、そして
+.I XEmacs
 と
-.B GNU Emacs 
-バージョン
-.IR 19 
-の初期の同期を行いました。
+.I GNU Emacs バージョン 19
+との最初の同期を行いました。
 .PP
-その他多くの人も、多大な貢献を続けてきました。詳細な内容(別の観点
-から見た \fBXEmacs\fP の長い歴史や鮮明な画像、\fBXEmacs\fP 貢献者たち
-の人物紹介など)については、
-ヘルプメニューの「XEmacs について」を参照してください。
-.SH "追加情報"
-\fBXEmacs\fP の追加情報については、
-ヘルプメニューの「XEmacs について」(上述)を参照するか、
-.B /usr/local/lib/xemacs-$VERSION/etc/NEWS
-ファイルをお読みください。または Web ブラウザで
+ほかにも多くの人たちが特筆すべき貢献をしてきました。\fIXEmacs\fP に関
+する複数の視点からの長い歴史や、\fIXEmacs\fP の主要な貢献者のきれいな
+画像と人物紹介などを含んだ、より詳しい情報は
+.I XEmacs About Page
+(Help メニューの About XEmacs オプション)で見ることができます。
+.SH 追加情報
+\fIXEmacs\fP についてのさらなる情報を得るには
+.I XEmacs About Page
+(上でふれています)を見たり、
+/usr/local/lib/xemacs-$VERSION/etc/NEWS を読んだり、
+あるいは Web ブラウザで
 .PP
 http://www.xemacs.org/
 .PP
-を指定してすると、\fBXEmacs\fP についての最新情報が得られます。
+から \fIXEmacs\f についての最新の情報を得たりしてください。
 .PP
-.B XEmacs
-についての FAQ (よく尋ねられる質問) も、この URL で見つけることができます。
-\fBXEmacs\fP 内の Info システムからは、使用可能な旧バージョンに
-アクセスすることも可能です。
+.I XEmacs
+FAQ (Frequently Asked Questions) がこの Web サイトで見つかるでしょう。
+時代遅れになっているかもしれないバージョンならば \fIXEmacs\fP 内の
+Info システムででもアクセスできます。
 .PP
-最新バージョンの \fBXEmacs\fP は、
-.B "ftp://ftp.xemacs.org/pub/xemacs/"
-またはお近くのミラーサイトから匿名 (anonymous) FTP で
-ダウンロードすることができます。
-以下にミラーサイトの一覧を記述します。
-ただし、ミラーサイトが変更されてアクセスできない場合もあります。
+\fIXEmacs\fP の最新のバージョンは匿名(anonymous) FTP で
 .PP
-ftp://ftp.ai.mit.edu/pub/xemacs/
-.br
-ftp://ftp.uu.net/systems/gnu/xemacs/
-.br
-ftp://ftp.sunet.se/pub/gnu/xemacs/
-.br
-ftp://ftp.cenatls.cena.dgac.fr/pub/Emacs/xemacs/
-.br
-ftp://liasun3.epfl.ch/pub/gnu/xemacs/
-.br
-ftp://ftp.th-darmstadt.de/pub/editors/xemacs/
-.br
-ftp://audrey.levels.unisa.edu.au/xemacs/
-.br
-ftp://sunsite.doc.ic.ac.uk/gnu/xemacs/
-.br
-ftp://ftp.ibp.fr/pub/emacs/xemacs/
-.br
-ftp://uiarchive.cso.uiuc.edu/pub/packages/xemacs/
-.br
-ftp://ftp.technion.ac.il/pub/unsupported/gnu/xemacs/
-.br
-ftp://thphys.irb.hr/pub/xemacs/
+ftp://ftp.xemacs.org/pub/xemacs/
 .PP
-ミラーサイトの最新リストについては、Web サイトをご覧ください。
-
+またはあなたの近くのミラーサイトからダウンロードできます。
+ミラーサイトは XEmacs の配布中にある etc/FTP ファイルにリストされ、
+また Web サイトからも最新のミラーサイト一覧を見ることができます。

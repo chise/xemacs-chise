@@ -2504,7 +2504,9 @@ common_init_complex_vars_of_buffer (void)
 
     /* #### Warning: 1<<31 is the largest number currently allowable
        due to the XINT() handling of this value.  With some
-       rearrangement you can get 3 more bits. */
+       rearrangement you can get 3 more bits.
+
+       #### 3 more?  34 bits???? -ben */
   }
 }
 

@@ -1,3 +1,64 @@
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-07-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (with_esd_sound): Default to no.
+
+	* configure.usage: Various documentation improvements.
+
+	* configure.in (--with-ipv6-cname): New Boolean option.  Defaults on.
+	* configure.usage:
+	* PROBLEMS (IPv6 CNAME lookup):
+	Document it.
+
+2001-07-18  Adrian Aichner  <adrian@xemacs.org>
+
+	* etc\TUTORIAL: Fix minor typo.
+	* etc\TUTORIAL.de: Sync with TUTORIAL.
+
+2001-05-23  Ben Wing  <ben@xemacs.org>
+
+	* etc\sample.init.el:
+	* etc\sample.init.el (Init-safe-require): New.
+	* etc\sample.init.el ((fboundp 'pending-delete-mode)):
+	* etc\sample.init.el ((eq system-type 'windows-nt)):
+	* etc\sample.init.el (dired):
+	* etc\sample.init.el ((Init-safe-require 'efs-auto)):
+	* etc\sample.init.el (completer):
+	* etc\sample.init.el (crypt):
+	* etc\sample.init.el (filladapt):
+	* etc\sample.init.el ((fboundp 'turn-on-lazy-lock)):
+	* etc\sample.init.el ((fboundp 'resize-minibuffer-mode)):
+	* etc\sample.init.el ((Init-safe-require 'scroll-in-place)):
+	Rewrite to be much more careful about loading features -- now
+	it decays gracefully even in the complete absence of packages.
+	Also avoid doing obnoxious things when loading efs.
+
+2001-04-14  Gordon Sadler  <gbsadler1@lcisp.com>
+
+	* configure.in: Add GTK_CFLAGS to CPPFLAGS for glade.h check.
+
+2001-07-01  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* configure.in (option processing):  with_widgets=m is ambiguous;
+	don't allow it.
+	(AC_CHECKING for the Athena widgets): Don't check for Athena when
+	with_widgets=no.
+
+2001-05-29  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Remove stray backslash.
+
+2001-05-27  Kazuo Oishi  <oishi@n-pl.org>
+
+	* etc/xemacs-ja.1: Replace with new translation.
+
+2001-05-17  Andrew Begel  <abegel@eecs.berkeley.edu>
+
+	* aclocal.m4 (LTLD): Don't use "gcc", use the ld reported by gcc.
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

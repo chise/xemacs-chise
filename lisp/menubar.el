@@ -544,10 +544,10 @@ button was clicked."
 	      (setq mode-filters (nreverse mode-filters))
 	      ;; If mode-filters contains a keyword already present in
 	      ;; `global-popup-menu', you will probably lose.
-	      (append (and popup-menu-titles
-			   (cond (mode-title (list mode-title))
-				 (global-title (list global-title))
-				 (t "")))
+	      (append (cond ((not popup-menu-titles) (list ""))
+			    (mode-title (list mode-title))
+			    (global-title (list global-title))
+			    (t (list "")))
 		      mode-filters
 		      context-menu-items
 		      (and context-menu-items mode-items '("---"))

@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/04/16 09:24:44 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/07/25 07:46:06 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -169,7 +169,7 @@ Trouble Shooting:
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in @code{strcat} on HP/UX 10.
 * Q2.1.17::     @samp{Marker does not point anywhere}.
-* Q2.1.18::     [This question intentionally left blank]
+* Q2.1.18::     XEmacs is outputting lots of X errors.
 * Q2.1.19::     XEmacs does not follow the local timezone.
 * Q2.1.20::     @samp{Symbol's function definition is void: hkey-help-show.}
 * Q2.1.21::     [This question intentionally left blank]
@@ -378,37 +378,47 @@ XEmacs on MS Windows
 
 General Info:
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
-* Q6.0.2::      What flavors of MS Windows are supported?
+* Q6.0.2::      What flavors of MS Windows are supported?  The list name implies NT only.
 * Q6.0.3::      Are binaries available?
-* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
-
+* Q6.0.4::      Can I build XEmacs on MS Windows with X support?  Do I need to?
+* Q6.0.5::      I'd like to help out.  What do I do?
+* Q6.0.6::      What are Cygwin and MinGW, and do I need them to run XEmacs?
+* Q6.0.7::      What exactly are all the different ways to build XEmacs under Windows?
+ 
 Building XEmacs on MS Windows:
-* Q6.1.1::      I decided to run with X.  Where do I get an X server?
-* Q6.1.2::      What compiler do I need to compile XEmacs?
-* Q6.1.3::      How do I compile for the native port?
-* Q6.1.4::      How do I compile for the X port?
-* Q6.1.5::      How do I compile for Cygnus' Cygwin?
-* Q6.1.6::      What do I need for Cygwin?
+* Q6.1.1::      What compiler/libraries do I need to compile XEmacs?
+* Q6.1.2::      How do I compile the native port?
+* Q6.1.3::      What do I need for Cygwin?
+* Q6.1.4::      How do I compile under Cygwin?
+* Q6.1.5::      How do I compile using MinGW (aka @samp{the -mno-cygwin flag to gcc})?
+* Q6.1.6::      I decided to run with X.  Where do I get an X server?
+* Q6.1.7::      How do I compile with X support?
 
 Customization and User Interface:
-* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.1::      How does the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
 * Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
+* Q6.2.4::      How do I get Windows Explorer to associate a file type with XEmacs?
+* Q6.2.5::      Is it possible to print from XEmacs?
+  
 
 Miscellaneous:
-* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.1::      Does XEmacs rename all the @samp{win32-*} symbols to @samp{w32-*}?
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
-* Q6.3.3::      What is the porting team doing at the moment?
+* Q6.3.3::      XEmacs 21.1 on Windows used to spawn an ugly console window on every startup.  Has that been fixed?
+* Q6.3.4::      What is the porting team doing at the moment?
 
 Troubleshooting:
-* Q6.4.1::      XEmacs won't start on Windows. (NEW)
+* Q6.4.1::      XEmacs won't start on Windows.
+* Q6.4.2::      Why do I get a blank toolbar on Windows 95?
 
 Current Events:
-
-* Q7.0.1::      What is new in 20.2?
-* Q7.0.2::      What is new in 20.3?
-* Q7.0.3::      What is new in 20.4?
-* Q7.0.4::      Procedural changes in XEmacs development.
+* Q7.0.1::      What new features will be in XEmacs soon?
+* Q7.0.2::      What's new in XEmacs 21.4?
+* Q7.0.3::      What's new in XEmacs 21.1?
+* Q7.0.4::      What's new in XEmacs 20.4?
+* Q7.0.5::      What's new in XEmacs 20.3?
+* Q7.0.6::      What's new in XEmacs 20.2?
 @end detailmenu
 @end menu
 
@@ -653,7 +663,8 @@ Screen snapshots are available in the WWW version of the FAQ.
 @node Q1.0.10, Q1.0.11, Q1.0.9, Introduction
 @unnumberedsubsec Q1.0.10: Is there a port of XEmacs to Microsoft ('95 or NT)?
 
-Yes, @xref{MS Windows}.
+Yes.  XEmacs can be built under MS Windows and is fully-featured and
+actively developed.  See @ref{MS Windows}.
 
 @node Q1.0.11, Q1.0.12, Q1.0.10, Introduction
 @unnumberedsubsec Q1.0.11: Is there a port of XEmacs to the Macintosh?
@@ -666,9 +677,18 @@ Yes, @xref{MS Windows}.
 @c For the MacOS, there is a port of
 @c @uref{ftp://ftp.cs.cornell.edu/pub/parmet/, Emacs 18.59}.
 
-Yes, there is a port of XEmacs 19.14, tested on MacOS 7.6.1 and MacOS
-8.5.1 by @email{pjarvis@@ispchannel.com, Pitts Jarvis}.  It's available
-at @uref{http://homepage.mac.com/pjarvis/xemacs.html}.
+Yes.
+
+XEmacs 21.5 (perhaps 21.4 also?) works on MacOS X, although it certainly
+will not feel very much like a Mac application as it has no Mac-specific
+code in it.
+
+There is also a port of XEmacs 19.14 that works on all recent versions
+of MacOS, from 8.1 through MacOS X, by @email{pjarvis@@ispchannel.com,
+Pitts Jarvis}.  It runs in an equivalent of TTY mode only (one single
+Macintosh window, 25 colors), but has a large number of Mac-specific
+additions.  It's available at
+@uref{http://homepage.mac.com/pjarvis/xemacs.html}.
 
 @node Q1.0.12, Q1.0.13, Q1.0.11, Introduction
 @unnumberedsubsec Q1.0.12: Is there a port of XEmacs to NextStep?
@@ -688,8 +708,9 @@ No, but Alexander Nikolaev <avn_1251@@mail.ru> is working on it.
 Pre-printed manuals are not available.  If you are familiar with
 TeX, you can generate your own manual from the XEmacs sources.
 
-HTML and Postscript versions of XEmacs manuals may be available from the
-XEmacs web site in the future.  Send requests to @email{faq@@xemacs.org}.
+HTML and Postscript versions of XEmacs manuals are available from the
+XEmacs web site at
+@uref{http://www.xemacs.org/Documentation/index.html}.
 
 @node Q1.1.1, Q1.1.2, Q1.0.14, Introduction
 @unnumberedsec 1.1: Policies
@@ -1224,7 +1245,7 @@ Trouble Shooting:
 * Q2.1.15::     How to debug an XEmacs problem with a debugger.
 * Q2.1.16::     XEmacs crashes in @code{strcat} on HP/UX 10.
 * Q2.1.17::     @samp{Marker does not point anywhere}.
-* Q2.1.18::     [This question intentionally left blank]
+* Q2.1.18::     XEmacs is outputting lots of X errors.
 * Q2.1.19::     XEmacs does not follow the local timezone.
 * Q2.1.20::     @samp{Symbol's function definition is void: hkey-help-show.}
 * Q2.1.21::     [This question intentionally left blank]
@@ -1647,7 +1668,7 @@ your system administrator.
 
 It's possible that a core file didn't get produced, in which case you're
 out of luck.  Go complain to your system administrator and tell him not
-to disable core files by default.  Also @xref{Q2.1.15}, for tips and
+to disable core files by default.  Also see @ref{Q2.1.15}, for tips and
 techniques for dealing with a debugger.
 
 When making a problem report make sure that:
@@ -2014,12 +2035,13 @@ Here are some hints:
 @itemize @bullet
 @item
 First of all, if the crash is at all reproducible, consider very
-strongly recompiling your XEmacs with debugging symbols, with no
-optimization, and with the configure options @samp{--debug=yes} and
-@samp{--error-checking=all}.  This will make your XEmacs run somewhat
-slower but make it a lot more likely to catch the problem earlier
-(closer to its source), and a lot easier to determine what's going on
-with a debugger.
+strongly recompiling your XEmacs with debugging symbols and with no
+optimization (e.g. with GCC use the compiler flags @samp{-g -O0} --
+that's an "oh" followed by a zero), and with the configure options
+@samp{--debug=yes} and @samp{--error-checking=all}.  This will make your
+XEmacs run somewhat slower but make it a lot more likely to catch the
+problem earlier (closer to its source), and a lot easier to determine
+what's going on with a debugger.
 
 @item
 If you're able to run XEmacs under a debugger and reproduce the crash
@@ -2038,6 +2060,10 @@ If XEmacs is hitting an assertion failure, put a breakpoint on
 If XEmacs is hitting some weird Lisp error that's causing it to crash
 (e.g. during startup), put a breakpoint on @code{signal_1()}---this is
 declared static in eval.c.
+
+@item
+If XEmacs is outputting lots of X errors, put a breakpoint on
+@code{x_error_handler()}; that will tell you which call is causing them.
 
 @item
 Internally, you will probably see lots of variables that hold objects of
@@ -2219,7 +2245,11 @@ Upgrade your Gnus.
 @end enumerate
 
 @node Q2.1.18, Q2.1.19, Q2.1.17, Installation
-@unnumberedsubsec Q2.1.18: removed
+@unnumberedsubsec Q2.1.18: XEmacs is outputting lots of X errors.
+
+If this is happening, we would very much like to know what's causing
+them.  To find this out, see @ref{Q2.1.15}.  Try to get both a C and Lisp
+backtrace, and send them to @email{xemacs-beta@@xemacs.org}.
 
 @node Q2.1.19, Q2.1.20, Q2.1.18, Installation
 @unnumberedsubsec Q2.1.19: XEmacs does not follow the local timezone.
@@ -2324,7 +2354,7 @@ the toolbar button or select the menu item), nothing (or an error)
 happens.  The simplest explanation is that you are missing a package
 that is essential to you.  You can either track it down and install it
 (there is a list of packages and brief descriptions of their contents in
-@file{etc/PACKAGES}), or install the `Sumo Tarball' (see @pxref{Q2.0.14}).
+@file{etc/PACKAGES}), or install the `Sumo Tarball' (@pxref{Q2.0.14}).
 
 @c #### should xref to XEmacs manual here
 
@@ -3000,7 +3030,7 @@ left to @code{gnuclient}, though.
 Yes.  Use @code{gnuclient -nw}. (Prior to 20.3, use the @code{gnuattach}
 program supplied with XEmacs instead.)
 
-Also @xref{Q5.0.12}.
+Also see @ref{Q5.0.12}.
 
 @node Q3.5.1, Q3.5.2, Q3.4.2, Customization
 @unnumberedsec 3.5: The Keyboard
@@ -3095,7 +3125,7 @@ get around this, try the following:
 (global-set-key 'redirected-delete 'foo)
 @end lisp
 
-Also @xref{Q3.5.10}.
+Also see @ref{Q3.5.10}.
 
 @node Q3.5.5, Q3.5.6, Q3.5.4, Customization
 @unnumberedsubsec Q3.5.5: Scrolling one line at a time.
@@ -3235,7 +3265,7 @@ Customize. Select from the @code{Options} menu
 @code{Advanced (Customize)->Emacs->Editing->Basics->Delete Key Deletes Forward} or
 type @kbd{M-x customize @key{RET} editing-basics @key{RET}}.
 
-Also @xref{Q3.5.4}.
+Also see @ref{Q3.5.4}.
 
 @node Q3.5.10, Q3.5.11, Q3.5.9, Customization
 @unnumberedsubsec Q3.5.10: Can I turn on @dfn{sticky} modifier keys?
@@ -3712,7 +3742,7 @@ Put this in your @code{.emacs}:
 
 @strong{Warning: This command turns off all region highlighting.}
 
-Also @xref{Q3.10.1}.
+Also see @ref{Q3.10.1}.
 
 @node Q3.10.5,  , Q3.10.4, Customization
 @unnumberedsubsec Q3.10.5: The region disappears when I hit the end of buffer while scrolling.
@@ -5842,70 +5872,174 @@ port of XEmacs.
 
 @menu
 
-General Info
+General Info:
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
 * Q6.0.2::      What flavors of MS Windows are supported?
 * Q6.0.3::      Where are the XEmacs on MS Windows binaries?
-* Q6.0.4::      Can I build XEmacs on MS Windows with support for X or Cygwin?
-
+* Q6.0.4::      Can I build XEmacs on MS Windows with X support?  Do I need to?
+* Q6.0.5::      I'd like to help out.  What do I do?
+* Q6.0.6::      What are Cygwin and MinGW, and do I need them to run XEmacs?
+* Q6.0.7::      What exactly are all the different ways to build XEmacs under Windows?
+  
 Building XEmacs on MS Windows
-* Q6.1.1::      I decided to run with X.  Where do I get an X server?
-* Q6.1.2::      What compiler do I need to compile XEmacs?
-* Q6.1.3::      How do I compile for the native port?
-* Q6.1.4::      How do I compile for the X port?
-* Q6.1.5::      How do I compile for Cygnus' Cygwin?
-* Q6.1.6::      What do I need for Cygwin?
-
+* Q6.1.1::      What compiler/libraries do I need to compile XEmacs?
+* Q6.1.2::      How do I compile the native port?
+* Q6.1.3::      What do I need for Cygwin?
+* Q6.1.4::      How do I compile under Cygwin?
+* Q6.1.5::      How do I compile using MinGW (aka @samp{the -mno-cygwin flag to gcc})?
+* Q6.1.6::      I decided to run with X.  Where do I get an X server?
+* Q6.1.7::      How do I compile with X support?
+  
 Customization and User Interface
-* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.1::      How does the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
 * Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
-
+* Q6.2.4::      How do I get Windows Explorer to associate a file type with XEmacs?
+* Q6.2.5::      Is it possible to print from XEmacs?
+  
 Miscellaneous
-* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.1::      Does XEmacs rename all the win32-* symbols to w32-*?
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
-* Q6.3.3::      What is the porting team doing at the moment?
+* Q6.3.3::      XEmacs 21.1 on Windows used to spawn an ugly console window on every startup.  Has that been fixed?
+* Q6.3.4::      What is the porting team doing at the moment?
 
 Troubleshooting:
-* Q6.4.1::      XEmacs won't start on Windows. (NEW)
-
+* Q6.4.1::      XEmacs won't start on Windows.
+* Q6.4.2::      Why do I get a blank toolbar on Windows 95?
 @end menu
 
 @node Q6.0.1, Q6.0.2, MS Windows, MS Windows
 @unnumberedsec 6.0: General Info
 @unnumberedsubsec Q6.0.1: What is the status of the XEmacs port to Windows?
 
-Is XEmacs really getting ported to MS Windows?  What is the status of the port?
+Is XEmacs really ported to MS Windows?  What is the status of the port?
 
-Yes, a group of volunteers actively works on making XEmacs code base
-cleanly compile and run on MS Windows operating systems.  The mailing
-list at @email{xemacs-nt@@xemacs.org} is dedicated to that effort
-(please use the -request address to subscribe).
+Beginning with release 21.0, XEmacs has worked under MS Windows.  A
+group of dedicated developers actively maintains and improves the
+Windows-specific portions of the code.  The mailing list at
+@email{xemacs-nt@@xemacs.org} is dedicated to that effort (please use
+the -request address to subscribe). (Despite its name, XEmacs actually
+works on all versions of Windows.)
 
-At this time, XEmacs on MS Windows is stable and full-featured.
-However, the internationalization (Mule) support does not work --
-although this is being actively worked on.
+As of May 2001, XEmacs on MS Windows is stable and full-featured, and
+has been so for a year or more -- in fact, some features, such as
+printing, actually work better on Windows than native Unix.  However,
+the internationalization (Mule) support does not work -- although this
+is being actively worked on.
+
 
 @node Q6.0.2, Q6.0.3, Q6.0.1, MS Windows
 @unnumberedsubsec Q6.0.2: What flavors of MS Windows are supported?  The list name implies NT only.
 
-The list name is misleading, as XEmacs will support Windows 95, Windows
-98, Windows NT, Windows 2000, Windows ME, Windows XP, and all newer
-versions of Windows.  The MS Windows-specific code is based on Microsoft
-Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
+The list name is misleading, as XEmacs supports and has been compiled on
+Windows 95, Windows 98, Windows NT, Windows 2000, Windows ME, Windows
+XP, and all newer versions of Windows.  The MS Windows-specific code is
+based on Microsoft Win32 API, and will not work on MS Windows 3.x or on
+MS-DOS.
+
+XEmacs also supports the Cygwin and MinGW development and runtime
+environments, where it also uses native Windows code for graphical
+features.
 
 
 @node Q6.0.3, Q6.0.4, Q6.0.2, MS Windows
 @unnumberedsubsec Q6.0.3: Are binaries available?
 
-Binaries are available at
-@uref{ftp://ftp.xemacs.org/pub/xemacs/binaries/win32/} for the native MS
-Windows version.
+Binaries are available at @uref{http://www.xemacs.org/Download/win32/}
+for the native and Cygwin MS Windows versions of 21.4, and the native
+version of 21.1.
 
-@node Q6.0.4, Q6.1.1, Q6.0.3, MS Windows
-@unnumberedsubsec Q6.0.4: Can I build XEmacs on MS Windows with support for X or Cygwin?
+The 21.4 binaries use a modified version of the Cygwin installer.  Run
+the provided @file{setup.exe}, and follow the instructions.
 
-Yes.  XEmacs can be built in several ways in the MS Windows environment.
+
+@node Q6.0.4, Q6.0.5, Q6.0.3, MS Windows
+@unnumberedsubsec Q6.0.4: Can I build XEmacs on MS Windows with X support?  Do I need to?
+
+Yes, you can, but no you do not need to.  In fact, we recommend that you
+use a native-GUI version unless you have a specific need for an X
+version.
+
+@node Q6.0.5, Q6.0.6, Q6.0.4, MS Windows
+@unnumberedsubsec Q6.0.5: I'd like to help out.  What do I do?
+
+It depends on the knowledge and time you possess.  If you are a
+programmer, try to build XEmacs and see if you can improve it.
+Windows-specific improvements like integration with established
+Windows environments are especially sought after.
+
+Otherwise, you can still help by downloading the binaries, using
+XEmacs as your everyday editor and reporting bugs you find to the
+mailing list.
+
+Another area where we need help is the documentation: We need good
+documentation for building XEmacs and for using it.  This FAQ is a
+small step in that direction.
+
+@node Q6.0.6, Q6.0.7, Q6.0.5, MS Windows
+@unnumberedsubsec Q6.0.6: What are Cygwin and MinGW, and do I need them to run XEmacs?
+
+To answer the second part of the question: No, you, you don't need
+Cygwin or MinGW to build or to run XEmacs.  But if you have them and
+want to use them, XEmacs supports these environments.
+
+(One important reason to support Cygwin is that it lets the MS Windows
+developers test out their code in a Unix environment without actually
+having to have a Unix machine around.  For this reason alone, Cygwin
+support is likely to remain supported for a long time in XEmacs.  Same
+goes for the X support under Cygwin, for the same reasons.  MinGW
+support, on the other hand, depends on volunteers to keep it up to date;
+but this is generally not hard.)
+
+Cygwin is a set of tools providing Unix-like API on top of Win32.
+It makes it easy to port large Unix programs without significant
+changes to their source code.  It is a development environment as well
+as a runtime environment.
+
+When built with Cygwin, XEmacs supports all display types -- TTY, X &
+Win32 GUI, and can be built with support for all three simultaneously.
+If you build with Win32 GUI support then the Cygwin version uses the
+majority of the Windows-specific code, which is mostly related to
+display.  If you want to build with X support you need X libraries (and
+an X server to display XEmacs on); see @ref{Q6.1.4}.  TTY and Win32 GUI
+require no additional libraries beyond what comes standard with Cygwin.
+
+The advantages of the Cygwin version are that it integrates well with
+the Cygwin environment for existing Cygwin users; uses configure so
+building with different features is very easy; and actively supports X &
+TTY.  Furthermore, the entire Cygwin environment and compiler are free,
+whereas Visual C++ costs money.
+
+The disadvantage is that it requires the whole Cygwin environment,
+whereas the native port requires only a suitable MS Windows compiler.
+Also, it follows the Unix filesystem and process model very closely
+(some will undoubtedly view this as an advantage).
+
+See @uref{http://sources.redhat.com/cygwin/} for more information on
+Cygwin.
+
+MinGW is a collection of header files and import libraries that allow
+one to use GCC under the Cygwin environment to compile and produce
+exactly the same native Win32 programs that you can using Visual C++.
+Programs compiled with MinGW make use of the standard Microsoft runtime
+library @file{MSVCRT.DLL}, present on all Windows systems, and look,
+feel, and act like a standard Visual-C-produced application. (The only
+difference is the compiler.) This means that, unlike a
+standardly-compiled Cygwin application, no extra runtime support
+(e.g. Cygwin's @file{cygwin1.dll}) is required.  This, along with the
+fact that GCC is free (and works in a nice Unix-y way in a nice Unix-y
+environment, for those die-hard Unix hackers out there), is the main
+advantage of MinGW.  It is also potentially faster than Cygwin because
+it has less overhead when calling Windows, but you lose the POSIX
+emulation layer, which makes Unix programs harder to port. (But this is
+irrelevant for XEmacs since it's already ported to Win32.)
+
+See @uref{http://www.mingw.org/} for more information on MinGW.
+
+@node Q6.0.7, Q6.1.1, Q6.0.6, MS Windows
+@unnumberedsubsec Q6.0.7: What exactly are all the different ways to build XEmacs under Windows?
+
+XEmacs can be built in several ways in the MS Windows environment.
 
 The standard way is what we call the "native" port.  It uses the Win32
 API and has no connection with X whatsoever -- it does not require X
@@ -5914,80 +6048,60 @@ port is the most reliable version and provides the best graphical
 support.  Almost all development is geared towards this version, and
 there is little reason not to use it.
 
-You can also build XEmacs "X" port---it requires X libraries to build
-and an X server to run.  Internally it uses the Xt event loop and makes
-use of X toolkits.  Its look is quite un-Windowsy, and it is not well
-maintained, but it is being kept around for the time being because it
-has a long history.
+The second way to build is the Cygwin port.  It takes advantage of
+Cygnus emulation library under Win32.  @xref{Q6.0.6}, for more
+information.
 
-There is also a third special case, the Cygwin port.  It takes
-advantage of Cygnus emulation library under Win32, which enables it to
-reuse much of the Unix XEmacs code base, such as processes and network
-support, or internal select() mechanisms.
+A third way is the MinGW port.  It uses the Cygwin environment to build
+but does not require it at runtime.  @xref{Q6.0.6}, for more
+information.
 
-Cygwin port supports all display types---TTY, X & MS GUI, and can be
-built with support for all three.  If you build with MS GUI support
-then the Cygwin version uses the majority of the msw code, which is
-mostly related to display.  If you want to build with X support you
-need X libraries.  If you want to build with TTY support you need
-ncurses.  MS GUI requires no additional libraries.
+Finally, you might also be able to build the non-Cygwin, non-MinGW "X"
+port.  This was actually the first version of XEmacs that ran under MS
+Windows, and although the code is still in XEmacs, it's essentially
+orphaned and it's unlikely it will compile without a lot of work.  If
+you want an MS Windows versin of XEmacs that supports X, use the Cygwin
+version. (The X support there is actively maintained, so that Windows
+developers can test the X support in XEmacs.)
 
-The advantages of the Cygwin version are that it integrates well with
-Cygwin environment for existing Cygwin users; uses configure so building
-with different features is very easy; and has process support in X &
-tty.
 
-The disadvantage is that it requires several Unix utilities and the
-whole Cygwin environment, whereas the native port requires only a
-suitable MS Windows compiler.  Also, it follows the Unix filesystem and
-process model very closely (some will undoubtedly view this as an
-advantage).
-
-@node Q6.1.1, Q6.1.2, Q6.0.4, MS Windows
+@node Q6.1.1, Q6.1.2, Q6.0.7, MS Windows
 @unnumberedsec 6.1: Building XEmacs on MS Windows
-@unnumberedsubsec Q6.1.1: I decided to run with X.  Where do I get an X server?
+@unnumberedsubsec Q6.1.1: What compiler/libraries do I need to compile XEmacs?
 
-Pointers to X servers can be found at
-@iftex
-@*
-@end iftex
-@uref{http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/};
-
-look for "Where to get an X server".  Also note that, although the above
-page talks about Cygnus gnu-win32 (Cygwin), the information on X servers
-is Cygwin-independent.  You don't have to be running/using Cygwin to use
-these X servers, and you don't have to compile XEmacs under Cygwin to
-use XEmacs with these X servers.  An "X port" XEmacs compiled under
-Visual C++ will work with these X servers (as will XEmacs running on a
-Unix box, redirected to the server running on your PC).
-
+You need Visual C++ 4.2, 5.0, or 6.0 for the native version. (We have
+some beta testers currently trying to compile with VC.NET, aka version
+7.0, but we can't yet report complete success.) For the Cygwin and MinGW
+versions, you need the Cygwin environment, which comes with GCC, the
+compiler used for those versions.  @xref{Q6.0.6}, for more information
+on Cygwin and MinGW.
 
 @node Q6.1.2, Q6.1.3, Q6.1.1, MS Windows
-@unnumberedsubsec Q6.1.2: What compiler do I need to compile XEmacs?
-
-You need Visual C++ 4.2, 5.0, or 6.0, with the exception of the Cygwin
-port, which uses Gcc.  There is also a MINGW32 port of XEmacs (using
-Gcc, but using native libraries rather than the Cygwin libraries).  ####
-More information about this should be provided.
-
-
-@node Q6.1.3, Q6.1.4, Q6.1.2, MS Windows
-@unnumberedsubsec Q6.1.3: How do I compile for the native port?
+@unnumberedsubsec Q6.1.2: How do I compile the native port?
 
 Please read the file @file{nt/README} in the XEmacs distribution, which
 contains the full description.
 
+@node Q6.1.3, Q6.1.4, Q6.1.2, MS Windows
+@unnumberedsubsec Q6.1.3: What do I need for Cygwin?
+
+You can find the Cygwin tools and compiler at:
+
+@uref{http://sources.redhat.com/cygwin/}
+
+Click on the @samp{Install now!} link, which will download a file
+@file{setup.exe}, which you can use to download everything else. (You
+will need to pick a mirror site; @samp{mirrors.rcn.net} is probably the
+best.) You should go ahead and install everything -- you'll get various
+ancillary libraries that XEmacs needs or likes, e.g. XPM, PNG, JPEG,
+TIFF, etc.
+
+If you want to compile under X, you will also need the X libraries; see
+@ref{Q6.1.6}.
+
 
 @node Q6.1.4, Q6.1.5, Q6.1.3, MS Windows
-@unnumberedsubsec Q6.1.4: How do I compile for the X port?
-
-Again, it is described in @file{nt/README} in some detail.  Basically, you
-need to get X11 libraries from ftp.x.org, and compile them.  If the
-precompiled versions are available somewhere, I don't know of it.
-
-
-@node Q6.1.5, Q6.1.6, Q6.1.4, MS Windows
-@unnumberedsubsec Q6.1.5: How do I compile for Cygnus' Cygwin?
+@unnumberedsubsec Q6.1.4: How do I compile under Cygwin?
 
 Similar as on Unix; use the usual `configure' and `make' process.
 Some problems to watch out for:
@@ -5998,8 +6112,7 @@ make sure HOME is set. This controls where you
 @file{init.el}/@file{.emacs} file comes from;
 
 @item
-CYGWIN needs to be set to tty for process support work. e.g. CYGWIN=tty;
-(use CYGWIN32=tty under b19 and older.)
+CYGWIN needs to be set to tty for process support to work, e.g. CYGWIN=tty;
 
 @item
 picking up some other grep or other UNIX-like tools can kill configure;
@@ -6009,95 +6122,120 @@ static heap too small, adjust @file{src/sheap-adjust.h} to a more positive
 number;
 
 @item
-The Cygwin version doesn't understand @file{//machine/path} type paths so you
-will need to manually mount a directory of this form under a unix style
-directory for a build to work on the directory.
+(Unconfirmed) The Cygwin version doesn't understand
+@file{//machine/path} type paths so you will need to manually mount a
+directory of this form under a unix style directory for a build to work
+on the directory;
+
+@item
+If you're building @strong{WITHOUT} X11, don't forget to change symlinks
+@file{/usr/lib/libXpm.a} and @file{/usr/lib/libXpm.dll.a} to point to
+the non-X versions of these libraries.  By default they point to the X
+versions.  So:
+
+@example
+/usr/lib/libXpm.a     -> /usr/lib/libXpm-noX.a
+/usr/lib/libXpm.dll.a -> /usr/lib/libXpm-noX.dll.a
+@end example
+
+
+@item
+Other problems are listed in the @file{PROBLEMS} file, in the top-level
+directory of the XEmacs sources.
 
 @end itemize
 
-@node Q6.1.6, Q6.2.1, Q6.1.5, MS Windows
-@unnumberedsubsec Q6.1.6: What do I need for Cygwin?
 
-You can find the Cygwin tools and compiler at:
+@node Q6.1.5, Q6.1.6, Q6.1.4, MS Windows
+@unnumberedsubsec Q6.1.5: How do I compile using MinGW (aka @samp{the -mno-cygwin flag to gcc})?
 
-@uref{http://sourceware.cygnus.com/cygwin/}
+Similar to the method for Unix.  Things to remember:
 
-You will need version b19 or later.
-The latest current version is 1.1.1.
-Other common versions you will see are b20.1.
+@itemize @bullet
+@item
+Specify the target host on the command line for @file{./configure}, e.g.
+@samp{./configure i586-pc-mingw32}.
 
-Another location, one of the mirror sites of the site just mentioned,
-is usually a last faster:
+@item
+Be sure that your build directory is mounted such that it has the
+same path either as a cygwin path (@file{/build/xemacs}) or as a Windows
+path (@file{c:\build\xemacs}).
 
-@uref{ftp://ftp.freesoftware.com/pub/sourceware/cygwin/}
+@item
+Build @samp{gcc -mno-cygwin} versions of the extra libs, i.e. @file{libpng},
+@file{compface}, etc.
 
-You can obtain the latest version (currently 1.1.1) from the
-@samp{latest/} subdirectory of either of the above two just-mentioned
-URL's.
-
-@strong{WARNING: The version of GCC supplied under @samp{latest/}, as of
-June 6th, 2000, does not appear to work.  It generates loads of spurious
-preprocessor warnings and errors, which makes it impossible to compile
-XEmacs with it.}
-
-You will also need the X libraries.  You can get them on the XEmacs FTP
-site at
-
-@uref{ftp://ftp.xemacs.org/pub/xemacs/aux/cygwin/}
-
-You will find b19 and b20 versions of the X libraries, plus b19 and b20
-versions of stuff that should go into @samp{/usr/local/}, donated by
-Andy Piper.  This includes pre-built versions of various graphics libraries,
-such as PNG, JPEG, TIFF, and XPM. (Remember, GIF support is built-in to
-XEmacs.)
-
-(X libraries for v1 and beyond of Cygwin can be found on the Cygwin site
-itself -- look in the @samp{xfree/} subdirectory.)
-
-@emph{NOTE:} There are two versions of the XPM library provided in
-Andy's packets.  Once is for building with X support, and the other for
-building without.  The X version should work if you're building with
-both X and Windows support.  The two files are called @file{libXpm-X.a}
-and @file{libXpm-noX.a} respectively, and you must symlink the
-appropriate one to @file{libXpm.a}. @strong{CAREFUL:} By default, the
-non-X version is symlinked in.  If you then configure XEmacs with X,
-you won't run into problems until you start compiling @file{events.c},
-at which point you'll get strange and decidedly non-obvious errors.
-
-Please see @uref{http://www.xemacs.freeserve.co.uk/} (Andy Piper's home
-page) for more information.
-
-BTW There are also libraries at
-@iftex
-@*
-@end iftex
-@uref{http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/}, but
-these are not b19 compatible, and may in fact be native-compiled.
+@item
+Specify the target location of the extra libs on the command line
+to @file{configure}, e.g.
+@samp{./configure --site-prefixes=/build/libs i586-pc-mingw32}.
+@end itemize
 
 
-@node Q6.2.1, Q6.2.2, Q6.1.6, MS Windows
+@node Q6.1.6, Q6.1.7, Q6.1.5, MS Windows
+@unnumberedsubsec Q6.1.6: I decided to run with X.  Where do I get an X server?
+
+As of May 2001, we are recommending that you use the port of XFree86 to
+Cygwin.  This has recently stabilized, and will undoubtedly soon make
+most other MS Windows X servers obsolete.  It is what the Windows
+developers use to test the MS Windows X support.
+
+To install, go to @uref{http://xfree86.cygwin.com/}.  There is a
+detailed description on that site of exactly how to install it.  This
+installation also provides the libraries, include files, and other stuff
+needed for development; a large collection of internationalized fonts;
+the standard X utilities (xterm, twm, etc.) -- in a word, the works.
+
+NOTE: As of late May 2001, there is a bug in the file
+@file{startxwin.bat}, used to start X Windows.  It passes the option
+@samp{-engine -4} to the X server, which is bogus -- you need to edit
+the file and change it to @samp{-engine 4}.
+
+
+@node Q6.1.7, Q6.2.1, Q6.1.6, MS Windows
+@unnumberedsubsec Q6.1.7: How do I compile with X support?
+
+To compile under Cygwin, all you need to do is install XFree86
+(@pxref{Q6.1.6}).  Once installed, @file{configure} should automatically
+find the X libraries and compile with X support.
+
+As noted above, the non-Cygwin X support is basically orphaned, and
+probably won't work.  But if it want to try, it's described in
+@file{nt/README} in some detail.  Basically, you need to get X11
+libraries from ftp.x.org, and compile them.  If the precompiled versions
+are available somewhere, we don't know of it.
+
+
+@node Q6.2.1, Q6.2.2, Q6.1.7, MS Windows
 @unnumberedsec 6.2: Customization and User Interface
-@unnumberedsubsec Q6.2.1: How will the port cope with differences in the Windows user interface?
+@unnumberedsubsec Q6.2.1: How does the port cope with differences in the Windows user interface?
 
-XEmacs (and Emacs in general) UI is pretty
-different from what is expected of a typical MS Windows program.  How will
-the MS Windows port cope with it?
+XEmacs (and Emacs in general) UI is pretty different from what is
+expected of a typical MS Windows program.  How does the MS Windows port
+cope with it?
 
-Fortunately, Emacs is also one of the most configurable editor beasts
-in the world.  The MS Windows "look and feel" (mark via shift-arrow,
-self-inserting deletes region, etc.) can be easily configured via
-various packages distributed with XEmacs.  The `pending-delete'
-package is an example of such a utility.
+As a general rule, we follow native MS Windows conventions as much as
+possible.  In cases where there's a clear UI conflict, we currently use
+normal Unix XEmacs behavior by default, but make sure the MS Windows
+"look and feel" (mark via shift-arrow, self-inserting deletes region,
+Alt selects menu items, etc.) is easily configurable (respectively:
+using the variable @code{shifted-motion-keys-select-region} in 21.4 and
+above [it's in fact the default in these versions], or the
+@file{pc-select} package; using the @file{pending-del} package; and
+setting the variable @code{menu-accelerator-enabled} to
+@code{menu-force} in 21.4 and above).  In fact, if you use the sample
+@file{init.el} file as your init file, you will get all these behaviors
+automatically turned on.
 
-In future versions, some of these packages might be turned on by
+In future versions, some of these features might be turned on by
 default in the MS Windows environment.
 
 
 @node Q6.2.2, Q6.2.3, Q6.2.1, MS Windows
 @unnumberedsubsec Q6.2.2: How do I change fonts in XEmacs on MS Windows?
 
-In 21.2.*, use the font menu.  In 21.1.*, you can change font
-manually. For example:
+In 21.4 and above, use the font menu.  In all versions, you can change
+font manually. For example:
 
 @display
     (set-face-font 'default "Lucida Console:Regular:10")
@@ -6105,41 +6243,115 @@ manually. For example:
 @end display
 
 
-@node Q6.2.3, Q6.3.1, Q6.2.2, MS Windows
+@node Q6.2.3, Q6.2.4, Q6.2.2, MS Windows
 @unnumberedsubsec Q6.2.3: Where do I put my @file{init.el}/@file{.emacs} file?
 
 @file{init.el} is the name of the init file starting with 21.4, and is
 located in the subdirectory @file{.xemacs/} of your home directory.  In
 prior versions, the init file is called @file{.emacs} and is located in
 your home directory.  Your home directory under Windows is determined by
-the HOME environment variable.  If this is not set, it defaults to
-`C:\'.
+the @samp{HOME} environment variable.  If this is not set, it defaults to
+@samp{C:\}.
 
-@node Q6.3.1, Q6.3.2, Q6.2.3, MS Windows
+To set this variable, modify @file{AUTOEXEC.BAT} under Windows 95/98, or
+select @samp{Control Panel->System->Advanced->Environment Variables...}
+under Windows NT/2000.
+
+
+@node Q6.2.4, Q6.2.5, Q6.2.3, MS Windows
+@unnumberedsubsec Q6.2.4: How do I get Windows Explorer to associate a file type with XEmacs?
+
+@unnumberedsubsubsec Associating a new file type with XEmacs.
+
+In Explorer select @samp{View/Options/File Types}, press @samp{[New
+Type...]} and fill in the dialog box, e.g.:
+
+@example
+        Description of type:    Emacs Lisp source
+        Associated extension:   el
+        Content Type (MIME):    text/plain
+@end example
+
+then press @samp{[New...]} and fill in the @samp{Action} dialog box as
+follows:
+
+@example
+        Action:
+        Open
+
+        Application used to perform action:
+        D:\Full\path\for\xemacs.exe "%1"
+
+        [x] Use DDE
+
+        DDE Message:
+        open("%1")
+
+        Application:
+        <leave blank>
+
+        DDE Application Not Running:
+        <leave blank>
+
+        Topic:
+        <leave blank>
+@end example
+
+@unnumberedsubsubsec Associating an existing file type with XEmacs.
+
+In Explorer select @samp{View/Options/File Types}.  Click on the file
+type in the list and press @samp{[Edit...]}.  If the file type already
+has an @samp{Open} action, double click on it and fill in the
+@samp{Action} dialog box as described above; otherwise create a new
+action.
+
+If the file type has more than one action listed, you probably want to
+make the @samp{Open} action that you just edited the default by clicking on
+it and pressing @samp{Set Default}.
+
+Note for Windows 2000 users: Under Windows 2000, get to @samp{File Types}
+using @samp{Control Panel->Folder Options->File Types}.
+
+
+@node Q6.2.5, Q6.3.1, Q6.2.4, MS Windows
+@unnumberedsubsec Q6.2.5: Is it possible to print from XEmacs?
+
+As of 21.4, printing works on Windows, using simply @samp{File->Print},
+and can be configured with @samp{File->Page Setup}.
+
+Prior to 21.4, there is no built-in support, but there are some clever
+hacks out there.  If you know how, please let us know and we'll put it
+here.
+
+
+@node Q6.3.1, Q6.3.2, Q6.2.5, MS Windows
 @unnumberedsec 6.3: Miscellaneous
-@unnumberedsubsec Q6.3.1: Will XEmacs rename all the win32-* symbols to w32-*?
+@unnumberedsubsec Q6.3.1: Does XEmacs rename all the @samp{win32-*} symbols to @samp{w32-*}?
 
-In his flavor of Emacs 20, Richard Stallman has renamed all the win32-*
-symbols to w32-*.  Will XEmacs do the same?
+In his flavor of Emacs 20, Richard Stallman has renamed all the @samp{win32-*}
+symbols to @samp{w32-*}.  Does XEmacs do the same?
 
-We consider such a move counter-productive, thus we will not use the
-`w32' prefix.  However, we do recognize that Win32 name is little more
-than a marketing buzzword (will it be Win64 in the next release?), so
-we decided not to use it.  Using `windows-' would be wrong because the
-term is too generic, which is why we settled on a compromise
-`mswindows' term.
+We consider such a move counter-productive, thus we do not use the
+@samp{w32} prefix. (His rather questionable justification was that he
+did not consider Windows to be a "winning" platform.) However, the name
+@samp{Win32} is not particularly descriptive outside the Windows world,
+and using just @samp{windows-} would be too generic.  So we chose a
+compromise, the prefix @samp{mswindows-} for Windows-related variables
+and functions.
 
-Thus all the XEmacs variables and functions directly related to Win32
-are prefixed `mswindows-'.  The user-variables shared with NT Emacs
-will be provided as compatibility aliases.
+Thus all the XEmacs variables and functions directly related to either
+the Windows GUI or OS are prefixed @samp{mswindows-} (except for a
+couple of debugging variables, prefixed @samp{debug-mswindows-}).  From
+an architectural perspective, however, we believe that this is mostly a
+non-issue because there should be a very small number of
+window-systems-specific variables anyway.  Whenever possible, we try to
+provide generic interfaces that apply to all window systems.
 
-Architectural note: We believe that there should be a very small number
-of window-systems-specific variables, and we provide generic interfaces
-whenever possible.  Thus, most of the equivalents of GNU Emacs `w32-*'
-functions and variables (as well as the corresponding `x-*' versions)
-are non-window-system-specific in XEmacs, and the issue of `mswindows-*'
-vs. `w32-*' does not come up much.
-
+@c not true:
+@c The user variables
+@c that share functionality with existing NT Emacs variables are be named
+@c with our convention, but we provide the GNU Emacs names as
+@c compatibility aliases.
 
 @node Q6.3.2, Q6.3.3, Q6.3.1, MS Windows
 @unnumberedsubsec Q6.3.2: What are the differences between the various MS Windows emacsen?
@@ -6152,70 +6364,12 @@ Here is a recount of various Emacs versions running on MS Windows:
 @itemize @bullet
 
 @item
-Win-Emacs
-
-@itemize @minus
-
-@item
-Win-Emacs is a port of Lucid Emacs 19.6 to MS Windows using X
-compatibility libraries.  Win-Emacs has been written by Ben Wing.  The
-MS Windows code has not made it back to Lucid Emacs, which left Win-Emacs
-pretty much dead for our purposes.  Win-Emacs used to be available at
-Pearlsoft, but not anymore, since Pearlsoft went out of business.
-@end itemize
-
-@item
-GNU Emacs for DOS
-
-@itemize @minus
-
-@item
-GNU Emacs features support for MS-DOS and DJGPP (D.J. Delorie's DOS
-port of Gcc).  Such an Emacs is heavily underfeatured, because it does
-not supports long file names, lacks proper subprocesses support, and
-is far too big compared to typical DOS editors.
-@end itemize
-
-@item
-GNU Emacs compiled with Win32
-
-@itemize @minus
-
-@item
-Starting with version 19.30, it has been possible to compile GNU Emacs
-under MS Windows using the DJGPP compiler and X libraries.  The result
-is is very similar to GNU Emacs compiled under MS DOS, only it
-supports longer file names, etc.  This "port" is similar to the "X"
-flavor of XEmacs on MS Windows.
-@end itemize
-
-@item
-NT Emacs
-
-@itemize @minus
-
-@item
-NT Emacs is a version of GNU Emacs modified to compile and run under
-MS MS Windows 95 and NT using the native Win32 API.  As such, it is close
-in spirit to the XEmacs "native" port.
-
-@item
-NT Emacs has been written by Geoff Voelker, and more information can be
-found at
-@iftex
-@*
-@end iftex
-@uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
-
-@end itemize
-
-@item
 XEmacs
 
 @itemize @minus
 
 @item
-Beginning with XEmacs 19.12, XEmacs' architecture has been redesigned
+Beginning with XEmacs 19.12, XEmacs' architecture was redesigned
 in such a way to allow clean support of multiple window systems.  At
 this time the TTY support was added, making X and TTY the first two
 "window systems" XEmacs supported.  The 19.12 design is the basis for
@@ -6233,18 +6387,150 @@ people have contributed, including Kirill M. Katsnelson (contributed
 support for menubars, subprocesses and network, as well as loads of
 other code), Andy Piper (ported XEmacs to Cygwin environment,
 contributed Windows unexec, Windows-specific glyphs and toolbars code,
-and more), Jeff Sparkes (contributed scrollbars support) and many
-others.
+and more), Ben Wing (loads of improvements; currently the most active MS
+Windows developer), Jeff Sparkes (contributed scrollbars support) and
+many others.
+@end itemize
 
+@item
+U Emacs for DOS
+
+@itemize @minus
+
+@item
+GNU Emacs features support for MS-DOS and DJGPP (D. J. Delorie's DOS
+port of GCC).  Such an Emacs is heavily underfeatured, because it does
+not supports long file names, lacks proper subprocesses support, and
+is far too big compared with typical DOS editors.
+@end itemize
+
+@item
+GNU Emacs compiled with Win32
+
+@itemize @minus
+
+@item
+Starting with version 19.30, it has been possible to compile GNU Emacs
+under MS Windows using the DJGPP compiler and X libraries.  The result
+is very similar to GNU Emacs compiled under MS DOS, except that it
+supports longer file names, etc.  This "port" is similar to the "X"
+flavor of XEmacs on MS Windows.
+@end itemize
+
+@item
+NT Emacs
+
+@itemize @minus
+
+@item
+NT Emacs is a version of GNU Emacs modified to compile and run under MS
+Windows 95 and NT using the native Win32 API.  As such, it is close in
+spirit to the XEmacs "native" port.
+
+@item
+NT Emacs has been written by Geoff Voelker, and more information can be
+found at
+@iftex
+@*
+@end iftex
+@uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
+@end itemize
+
+@item
+Win-Emacs
+
+@itemize @minus
+
+@item
+Win-Emacs was a port of Lucid Emacs 19.6 to MS Windows using X
+compatibility libraries.  Win-Emacs was written by Ben Wing.  The MS
+Windows code never made it back to Lucid Emacs, and its creator (Pearl
+Software) has long since gone out of business.
+@end itemize
+
+@item
+GNU Emacs for DOS
+
+@itemize @minus
+
+@item
+GNU Emacs features support for MS-DOS and DJGPP (D.J. Delorie's DOS
+port of Gcc).  Such an Emacs is heavily underfeatured, because it does
+not support long file names, lacks proper subprocesses support, and
+is far too big compared to typical DOS editors.
+@end itemize
+
+@item
+GNU Emacs compiled with Win32
+
+@itemize @minus
+
+@item
+Starting with version 19.30, it has been possible to compile GNU Emacs
+under MS Windows using the DJGPP compiler and X libraries.  The result
+is is very similar to GNU Emacs compiled under MS DOS, only it
+supports longer file names, etc.  This "port" is similar to the "X"
+flavor of XEmacs on MS Windows.
 @end itemize
 
 @end itemize
 
 
-@node Q6.3.3, Q6.4.1, Q6.3.2, MS Windows
-@unnumberedsubsec Q6.3.3: What is the porting team doing at the moment?
+@node Q6.3.3, Q6.3.4, Q6.3.2, MS Windows
+@unnumberedsubsec Q6.3.3: XEmacs 21.1 on Windows used to spawn an ugly console window on every startup.  Has that been fixed?
 
-(as of March 2001)
+Yes.
+
+The console was there because @file{temacs} (and in turn, @file{xemacs})
+was a console application, and Windows typically creates a new
+console for a console process unless the creating process requests that
+one isn't created.  This used to be fixed with @file{runemacs}, a small
+Windows application that existed merely to start @file{xemacs}, stating
+that it didn't want a console.
+
+XEmacs 21.4 fixes this cleanly by the virtue of being a true "GUI"
+application.  The explanation of what that means is included for
+educational value.
+
+When building an application to be run in a Win32 environment, you must
+state which sub-system it is to run in.  Valid subsystems include
+"console" and "gui".  The subsystem you use affects the run time
+libraries linked into your application, the start up function that is
+run before control is handed over to your application, the entry point
+to your program, and how Windows normally invokes your program. (Console
+programs automatically get a console created for them at startup if
+their stdin/stdout don't point anywhere useful, which is the case when
+run from the GUI.  This is a stupid design, of course -- instead, the
+console should get created only when the first I/O actually occurs!
+GUI programs have an equally stupid design: When called from
+@file{CMD.EXE}/@file{COMMAND.COM}, their stdin/stdout will be set to
+point nowhere useful, even though the command shell has its own
+stdin/stdout.  It's as if someone who had learned a bit about stdio but
+had no actual knowledge of interprocess communication designed the
+scheme; unfortunately, the whole process-communication aspect of the
+Win32 API is equally badly designed.) For example, the entry point for a
+console app is "main" (which is what you'd expect for a C/C++ program),
+but the entry point for a "gui" app is "WinMain".  This confuses and
+annoys a lot of programmers who've grown up on Unix systems, where the
+kernel doesn't really care whether your application is a gui program or
+not.
+
+For reasons not altogether clear, and are lost in the mists of time and
+tradition, XEmacs on Win32 started out as a console application, and
+therefore a console was automatically created for it. (It may have been
+made a console application partly because a console is needed in some
+circumstances, especially under Win95, to interrupt, terminate, or send
+signals to a child process, and because of the bogosity mentioned above
+with GUI programs and the standard command shell.  Currently, XEmacs
+just creates and immediately hides a console when necessary, and
+works around the "no useful stdio" problem by creating its own console
+window as necessary to display messages in.)
+
+
+@node Q6.3.4, Q6.4.1, Q6.3.3, MS Windows
+@unnumberedsubsec Q6.3.4: What is the porting team doing at the moment?
+
+(as of June 2001)
 
 The porting team is continuing work on the MS Windows-specific code.
 Major projects are the development of Mule (internationalization)
@@ -6252,66 +6538,334 @@ support for Windows and the improvement of the widget support (better
 support for dialog boxes, buttons, edit fields, and similar UI
 elements).
 
-@node Q6.4.1, ,Q6.3.3, MS Windows
+
+@node Q6.4.1, Q6.4.2, Q6.3.4, MS Windows
 @unnumberedsec 6.3: Troubleshooting
-@unnumberedsubsec Q6.4.1 XEmacs won't start on Windows. (NEW)
+@unnumberedsubsec Q6.4.1 XEmacs won't start on Windows.
 
 XEmacs relies on a process called "dumping" to generate a working
 executable. Under MS-Windows this process effectively fixes the memory
 addresses of information in the executable. When XEmacs starts up it tries
 to reserve these memory addresses so that the dumping process can be
-reversed - putting the information back at the correct addresses.
-Unfortunately some .dlls (For instance the soundblaster driver) occupy
+reversed -- putting the information back at the correct addresses.
+Unfortunately some .DLLs (for instance the soundblaster driver) occupy
 memory addresses that can conflict with those needed by the dumped XEmacs
 executable. In this instance XEmacs will fail to start without any
 explanation. Note that this is extremely machine specific.
 
 21.1.10 includes a fix for this that makes more intelligent guesses
 about which memory addresses will be free, and this should cure the
-problem for most people.  Unfortunately, no binary is yet available for
-this version.  Check back periodically at
+problem for most people.  21.4 implements "portable dumping", which
+eliminates the problem altogether.  We recommend you use the 21.4
+binaries, but you can use the 21.1 binaries if you are very paranoid
+about stability.  @xref{Q6.0.3}.
 
-@uref{ftp://ftp.xemacs.org/pub/xemacs/binaries/}.
+@node Q6.4.2, , Q6.4.1, MS Windows
+@unnumberedsubsec Q6.4.2 Why do I get a blank toolbar on Windows 95?
 
-21.2 implements "portable dumping" which will eliminate the problem
-altogether.  You might have better luck with the 21.2 beta binary,
-available at
-
-@uref{ftp://ftp.xemacs.org/pub/xemacs/beta/binaries/}.
+You need at least version 4.71 of the system file @file{comctl32.dll}.
+The updated version is supplied with Internet Explorer 4 and later but if
+you are avoiding IE you can also download it from the Microsoft web
+site.  Go into support and search for @file{comctl32.dll}.  The download
+is a self-installing executable.
 
 
 @node Current Events,  , MS Windows, Top
 @unnumbered 7 What the Future Holds
 
 This is part 7 of the XEmacs Frequently Asked Questions list.  This
-section will change monthly, and contains any interesting items that have
-transpired over the previous month.  If you are reading this from the
-XEmacs distribution, please see the version on the Web or archived at the
-various FAQ FTP sites, as this file is surely out of date.
+section will change frequently, and (in theory) should contain any
+interesting items that have transpired recently. (But in practice it's
+not getting updated like this.)
+
+This section also contains descriptions of the new features in all the
+recent releases of XEmacs.  For the most part, the information below is
+a synopsis of the more complete information that can be found in the
+file @file{NEWS} in the @file{etc} directory of the XEmacs distribution.
+You can view this file in XEmacs using @kbd{C-h n} or the @samp{Help}
+menu.
+
+Information on older versions of XEmacs can be find in @file{ONEWS} in
+the same directory, or @file{OONEWS} for really old versions.
+
 
 @menu
-* Q7.0.1::      What is new in 20.2?
-* Q7.0.2::      What is new in 20.3?
-* Q7.0.3::      What is new in 20.4?
-* Q7.0.4::      Procedural changes in XEmacs development.
+* Q7.0.1::      What new features will be in XEmacs soon?
+* Q7.0.2::      What's new in XEmacs 21.4?
+* Q7.0.3::      What's new in XEmacs 21.1?
+* Q7.0.4::      What's new in XEmacs 20.4?
+* Q7.0.5::      What's new in XEmacs 20.3?
+* Q7.0.6::      What's new in XEmacs 20.2?
 @end menu
 
 @node Q7.0.1, Q7.0.2, Current Events, Current Events
 @unnumberedsec 7.0: Changes
-@unnumberedsubsec Q7.0.1: What is new in 20.2?
+@unnumberedsubsec Q7.0.1: What new features will be in XEmacs soon?
 
-The biggest changes in 20.2 include integration of EFS (the next
-generation of ange-ftp) and AUC Tex (the Emacs subsystem that includes a
-major mode for editing Tex and LaTeX, and a lot of other stuff).  Many
-bugs from 20.0 have been fixed for this release.  20.2 also contains a
-new system for customizing XEmacs options, invoked via @kbd{M-x
-customize}.
-
-XEmacs 20.2 is the development release (20.0 was beta), and is no longer
-considered unstable.
+Not yet written.
 
 @node Q7.0.2, Q7.0.3, Q7.0.1, Current Events
-@unnumberedsubsec Q7.0.2: What is new in 20.3?
+@unnumberedsubsec Q7.0.2: What's new in XEmacs 21.4?
+
+21.4 was the "stable" version of the 21.2 series, which was considered
+"experimental" throughout its life; thus there were no "official"
+releases at all.  In essence, XEmacs is now following the "alternating"
+scheme of Linux, where at any point there are at least two different
+development branches, one "stable" and one "experimental".  Periodic
+releases happen in both branches, but those in the experimental branch
+are not tested as well, and there's no guarantee they will work at all.
+The experiemental branch is open to any and all code that's acceptable
+to the developers; the stable branch, however, is in general limited
+only to bug fixes, and all contributions are carefully reviewed to make
+sure they will increase and not decrease stability.
+
+21.3 never existed at all; it was decided to follow the Linux scheme
+exactly, where odd-numbered series are experimental and even-numbered
+ones stable.
+
+The following lists summarizes the essential changes made in this
+version.  For a fuller list, see the @file{NEWS} in the @file{etc}
+directory of the XEmacs distribution, or use @kbd{C-h n} or the
+@samp{Help} menu to view this file inside of XEmacs.
+
+@unnumberedsubsubsec User-visible changes
+
+@itemize @bullet
+
+@item
+The delete key now deletes forward by default.
+@item
+Shifted motion keys now select text by default.
+@item
+You can now build XEmacs with support for GTK+ widget set.
+@item
+~/.xemacs/init.el is now the preferred location for the init
+file. (XEmacs now supports a `~/.xemacs/init.el' startup file. Custom
+file will move to ~/.xemacs/custom.el.)
+@item
+Much-improved sample init.el, showing how to use many useful features.
+@item
+XEmacs support for menu accelerators has been much improved.
+@item
+Default menubar improvements. (Default menubar has many new commands and
+better organization.  The font-menu is now available under MS Windows.)
+@item
+Dialog box improvements, including a real file dialog box. (XEmacs now has a proper file dialog box under MS Windows (and GTK)!  The old clunky file dialog box is improved.  Keyboard traversal now works correctly in MS Windows dialog boxes.  There is a Search dialog box available from Edit->Find...)
+@item
+New buffer tabs.
+@item
+There is a new MS Windows installer, netinstall, ported from Cygwin.
+@item
+The subprocess quote-handling mechanism under Windows is much improved.
+@item
+Printing support now available under MS Windows.
+@item
+Selection improvements. (Kill and yank now interact with the clipboard under Windows.  MS Windows support for selection is now much more robust.  Motif selection support is now more correct (but slower).)
+@item
+Mail spool locking now works correctly.
+@item
+International support changes. (The default coding-priority-list is now
+safer.  International keysyms are now supported under X.  MS Windows
+1251 code page now supported.  Czech, Thai, Cyrillic-KOI8, Vietnamese,
+Ethiopic now supported.  Proper support for words in Latin 3 and Latin
+4.)
+@item
+Help buffers contain hyperlinks, and other changes.
+@item
+The modeline's text is now scrollable.
+@item
+The mouse wheel under MS Windows now functions correctly.
+@item
+Interactive searching and matching case improvements. (Incremental search will now highlight all visible matches.  Interactive searches always respect uppercase characters.)
+@item
+Rectangle functions rewritten to avoid inserting extra spaces.
+@item
+New command `kill-entire-line' that always kills the entire line.
+@item
+Default values correctly stored in minibuffer histories.
+@item
+You can now create "indirect buffers", like in GNU Emacs.
+@item
+Pixel-based scrolling has been implemented.
+@item
+Operation progress can be displayed using graphical widgets.
+@item
+User names following a tilde can now be completed at file name prompts.
+@item
+XEmacs can now play sound using Enlightenment Sound Daemon (ESD).
+@item
+X-Face support is now available under MS Windows.
+@item
+The PostgreSQL Relational Database Management System is now supported.
+@item
+Indentation no longer indents comments that begin at column zero.
+@item
+Face and variable settings can have comments in Customize.
+@item
+New locations for early package hierarchies.
+@item
+The `auto-save' library has been greatly improved.
+@item
+New variable `mswindows-alt-by-itself-activates-menu'.
+@item
+Other init-file-related changes. (Init file in your home directory may be called `.emacs.el'.  New command-line switches -user-init-file and -user-init-directory.)
+@item
+Etags changes.  See @file{NEWS} for full details.
+@end itemize
+
+@unnumberedsubsubsec Lisp and internal changes
+
+Not yet written.
+
+@itemize @bullet
+@end itemize
+
+@node Q7.0.3, Q7.0.4, Q7.0.2, Current Events
+@unnumberedsubsec Q7.0.3: What's new in XEmacs 21.1?
+
+21.1 was the "stable" version of "experimental" 21.0 series.
+@xref{Q7.0.2}.
+
+The following lists summarizes the essential changes made in this
+version.  For a fuller list, see the @file{NEWS} in the @file{etc}
+directory of the XEmacs distribution, or use @kbd{C-h n} or the
+@samp{Help} menu to view this file inside of XEmacs.
+
+@unnumberedsubsubsec User-visible changes
+
+@itemize @bullet
+
+@item
+XEmacs is now supported under Microsoft Windows 95/98 and Windows NT
+operating systems.  To discuss Windows-specific issues, subscribe to the
+mailing list at @email{xemacs-nt-request@@xemacs.org}.
+
+@item
+XEmacs has been unbundled into constituent installable packages.
+
+@item
+@strong{Other notable changes}: The @samp{Options} menu has been ported to
+Custom; XEmacs now is able to choose X visuals and use private
+colormaps; You can drag the vertical divider of "horizontally"
+(side-by-side) split windows.
+
+@item
+@strong{Building changes}: XEmacs can be built with support for 31-bit Lisp
+integers and 32-bit pointers (previously, it was 28-bit integers and
+pointers); XEmacs can be built with LDAP support; @file{dir} files can be
+removed in the Info subsystem, and will be regenerated on-the-fly.
+
+@item
+@strong{New packages}: @file{imenu}, @file{popper}, @file{gdb-highlight}
+
+@item
+@strong{Package changes}: Many changes to @file{cc-mode}, @file{gnus},
+@file{gnuclient}.  See @file{NEWS} for full details.
+
+@item
+@strong{New commands, variables and functions}:
+@code{center-to-window-line} (like @code{recenter} but doesn't force a
+redisplay); variable @code{user-full-name} (customize what your full
+name looks like in mail); @kbd{M-x customize-changed-options} (customize
+options whose default values changes because you upgraded your XEmacs);
+@kbd{M-x add-log-convert} (converts an old-style ChangeLog buffer to
+new-style); @kbd{M-x zap-up-to-char} (like @code{zap-to-char} but
+doesn't delete the char searched for); commands to store, retrieve and
+increment numbers in registers, useful for macros.
+
+@item
+@strong{Changes to commands, variables, and functions}: @kbd{M-x
+query-replace} and friends operate only on the region when it's active;
+@code{echo-keystrokes} can now be a floating-point number; @kbd{M-.}
+searches exact tag matches before inexact ones; function
+@code{user-full-name} with no arguments returns the var
+@code{user-full-name}; a prefix arg to @kbd{M-:} and @kbd{C-h c} inserts
+the result in the current buffer.
+ 
+@item
+@strong{Other changes}: Under X, new application class @samp{XEmacs};
+byte-compilation of user-specs now works.
+
+@item
+@strong{XEmacs/Mule (internationalization) changes}: Mule support now
+works on TTY's; Egg/SJ3 input method now officially supported (Quail and
+Egg/Skk already available through LEIM since 20.3); localized Japanese
+menubars if XEmacs is built with the right support.
+
+@end itemize
+
+@unnumberedsubsubsec Lisp and internal changes
+
+@itemize @bullet
+
+@item
+@strong{Specifier changes}: The window locale now has a higher
+precedence than the buffer locale when instantiating; new macro
+@code{let-specifier}; new specifiers
+@code{vertical-scrollbar-visible-p}, horizontal-scrollbar-visible-p',
+@code{scrollbar-on-left-p}, @code{scrollbar-on-top-p},
+@code{vertical-divider-always-visible-p},
+@code{vertical-divider-shadow-thickness},
+@code{vertical-divider-line-width}, @code{vertical-divider-spacing};
+specifiers and symbols whose value is a specifier allowed as modeline
+specifications.
+
+@item
+@strong{Frame focus changes}: @code{focus-follows-mouse} works like FSF,
+prevents any attempt to permanently change the selected frame; new
+function @code{focus-frame} sets the window system focus a frame; new
+special forms @code{save-selected-frame} and @code{with-selected-frame}.
+
+@item
+@strong{Window function changes}: @code{select-window} now has optional
+argument @var{NORECORD} to inhibit recording a buffer change;
+@code{vertical-motion} now correctly handles optional @var{WINDOW}
+argument and has new optional argument @var{PIXELS}, to have the
+returned values be in pixels; new function
+@code{vertical-motion-pixels}; new functions
+@code{window-text-area-pixel-@{width,height,edges@}}; new functions
+@code{shrink-window-pixels} and @code{enlarge-window-pixels}; new
+function @code{window-displayed-text-pixel-height}.
+
+@item
+@strong{Other function changes}: Arithmetic comparison functions
+@code{<}, @code{>}, @code{=}, @code{/=} now accept a variable number of
+arguments; hashtables now have a consistent read/print syntax; keyword
+symbols cannot be set to a value other than themselves; @code{concat} no
+longer accepts integer arguments; new function @code{string}, like
+@code{list}, @code{vector}, etc.; new function @code{temp-directory}
+(OS-independent way to get a temp directory); @code{load-average} has
+optional argument @var{USE-FLOATS}; @code{make-event} implemented
+completely; new function @code{function-interactive} (returns a
+function's interactive spec); new functions @code{lmessage},
+@code{lwarn} (printf-like versions of @code{display-wessage},
+@code{display-warning}); new keyword @code{:version} to
+@code{defcustom}.
+
+@item
+@strong{Performance}: when the new GNU Malloc aka Doug Lea Malloc is
+available, it will be used (better performance on libc6 Linux systems);
+tracking line-numbers in modeline is now efficient; profiling records a
+call-count of all called functions, retrievable through
+@code{profile-call-count-results}.
+
+@item
+@strong{Startup and path searching}: code to assemble paths at startup
+rewritten for new package system; new function @code{split-path} (splits
+by @code{path-separator}); @code{Info-default-directory-list} obsolete,
+use @code{Info-directory-list} instead; site-lisp is deprecated and no
+longer on the load-path by default.
+
+@end itemize
+
+@node Q7.0.4, Q7.0.5, Q7.0.3, Current Events
+@unnumberedsubsec Q7.0.4: What's new in XEmacs 20.4?
+
+XEmacs 20.4 is a bugfix release with no user-visible changes.
+@c Filled in from NEWS file of 20.5-b33
+
+@node Q7.0.5, Q7.0.6, Q7.0.4, Current Events
+@unnumberedsubsec Q7.0.5: What's new in XEmacs 20.3?
 
 XEmacs 20.3 was released in November 1997. It contains many bugfixes,
 and a number of new features, including Autoconf 2 based configuration,
@@ -6330,45 +6884,20 @@ the default) is definitely faster than XEmacs 19.16.
 XEmacs 20.3 is the first non-beta v20 release, and will be the
 basis for all further development.
 
-@node Q7.0.3, Q7.0.4, Q7.0.2, Current Events
-@unnumberedsubsec Q7.0.3: What's new in XEmacs 20.4?
+@node Q7.0.6, , Q7.0.5, Current Events
+@unnumberedsubsec Q7.0.6: What's new in XEmacs 20.2?
 
-XEmacs 20.4 is a bugfix release with no user-visible changes.
-@c Filled in from NEWS file of 20.5-b33
+The biggest changes in 20.2 include integration of EFS (the next
+generation of ange-ftp) and AUC Tex (the Emacs subsystem that includes a
+major mode for editing Tex and LaTeX, and a lot of other stuff).  Many
+bugs from 20.0 have been fixed for this release.  20.2 also contains a
+new system for customizing XEmacs options, invoked via @kbd{M-x
+customize}.
 
+XEmacs 20.2 is the development release (20.0 was beta), and is no longer
+considered unstable.
 
-@node Q7.0.4,  , Q7.0.3, Current Events
-@unnumberedsubsec Q7.0.4: Procedural changes in XEmacs development.
-
-@enumerate
-@item
-Discussion about the development of XEmacs occurs on the xemacs-beta
-mailing list.  Subscriptions to this list will now be fully automated
-instead of being handled by hand.  Send a mail message to
-@email{xemacs-beta-request@@xemacs.org} with @samp{subscribe} as the
-BODY of the message to join the list.  Please note this is a developers
-mailing list for people who have an active interest in the development
-process.
-
-The discussion of NT XEmacs development is taking place on a separate
-mailing list.  Send mail to
-@iftex
-@*
-@end iftex
-@email{xemacs-nt-request@@xemacs.org} to
-subscribe.
-
-@item
-Due to the long development cycle in between releases, it has been
-decided that intermediate versions will be made available in source only
-form for the truly interested.
-
-XEmacs 19.16 was the last 19 release, basically consisting of 19.15 plus
-the collected bugfixes.
-
-@item
-As of December 1996, @email{steve@@xemacs.org, Steve Baur} has become
-the lead maintainer of XEmacs.
-@end enumerate
+For older news, see the file @file{ONEWS} in the @file{etc} directory of
+the XEmacs distribution.
 
 @bye
