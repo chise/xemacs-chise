@@ -83,8 +83,8 @@
     ))
 (define-char
   '((sources		bos=A016374-00004)
-    (=ruimoku-v6	. #xE00A)	; øº€Š
     (=ucs@unicode	. #x29C2C)	; øº€Š
+    (=ruimoku-v6	. #xE00A)	; øº€Š
     ))
 (define-char
   '((sources		bos=A2001-16138-00013)
