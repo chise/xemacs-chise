@@ -1229,16 +1229,20 @@ of buffer-file-coding-system set by this function."
   (let* ((priority (get-language-info language-name 'coding-priority))
 	 (default-coding (car priority)))
     (if priority
-	(let ((categories (mapcar 'coding-system-category priority)))
+	(let ((categories (mapcar 'coding-system-category priority))
+	      category checked-categories)
 	  (set-default-coding-systems
 	   (if (memq eol-type '(lf crlf cr unix dos mac))
 	       (coding-system-change-eol-conversion default-coding eol-type)
 	     default-coding))
           ;; (setq default-sendmail-coding-system default-coding)
-	  (set-coding-priority-list categories)
 	  (while priority
-	    (set-coding-category-system (car categories) (car priority))
-	    (setq priority (cdr priority) categories (cdr categories)))
+	    (unless (memq (setq category (car categories)) checked-categories)
+	      (set-coding-category-system category (car priority))
+	      (setq checked-categories (cons category checked-categories)))
+	    (setq priority (cdr priority)
+		  categories (cdr categories)))
+	  (set-coding-priority-list (nreverse checked-categories))
           ;; (update-coding-systems-internal)
 	  ))))
 
