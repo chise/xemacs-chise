@@ -117,8 +117,26 @@
     nil)))
 
 (defvar char-db-coded-charset-priority-list
-  (sort (copy-list default-coded-charset-priority-list)
-	#'char-attribute-name<))
+  (let ((rest default-coded-charset-priority-list)
+	dest)
+    (while rest
+      (when (symbolp (car rest))
+	(cond ((memq (car rest)
+		     '(latin-viscii-lower
+		       latin-viscii-upper
+		       ipa
+		       lao
+		       ethiopic
+		       arabic-digit
+		       arabic-1-column
+		       arabic-2-column)))
+	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
+	       (unless (memq 'ideograph-gt dest)
+		 (setq dest (cons 'ideograph-gt dest))))
+	      (t
+	       (setq dest (cons (car rest) dest)))))
+      (setq rest (cdr rest)))
+    (sort dest #'char-attribute-name<)))
 
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
@@ -141,6 +159,8 @@
 				 (setq ret (get-char-attribute char ccs)))
 			    (eq ccs 'ideograph-daikanwa))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
+		  (if (null char-spec)
+		      (setq char-spec (split-char char)))
 		  (if (setq ret (get-char-attribute char 'name))
 		      (setq char-spec (cons (cons 'name ret) char-spec)))
 		  )))
