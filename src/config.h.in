@@ -567,16 +567,16 @@ void *alloca ();
 
 /* Define this if you want CHISE support
    (CHaracter Information Service Environment) */
-#undef CHISE
+#undef HAVE_CHISE
+
+/* Define if you are using libchise */
+#undef HAVE_LIBCHISE
 
 /* Define this if you want UTF-2000 support (character representation
    based on character object model). */
 #undef UTF2000
 
 #undef CHAR_IS_UCS4
-
-/* Compile in support for external character database. */
-#undef HAVE_CHISE_CLIENT
 
 /* Define this if you want file coding support */
 #undef FILE_CODING

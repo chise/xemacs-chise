@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -31,8 +31,12 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
-#ifdef HAVE_CHISE_CLIENT
-#include "database.h"
+#ifdef HAVE_CHISE
+#  ifdef HAVE_LIBCHISE
+#    include <chise.h>
+#  else /* HAVE_LIBCHISE */
+#    include "database.h"
+#  endif /* not HAVE_LIBCHISE */
 #endif
 
 EXFUN (Fmake_char, 3);
@@ -44,6 +48,11 @@ EXFUN (Ffind_char, 1);
 
 extern Lisp_Object Qdowncase, Qflippedcase, Q_lowercase, Q_uppercase;
 
+#ifdef HAVE_LIBCHISE
+extern CHISE_DS *default_chise_data_source;
+
+int open_chise_data_source_maybe (void);
+#endif
 
 /************************************************************************/
 /*			    Char-ID Tables                              */
@@ -170,7 +179,9 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
+#ifndef HAVE_LIBCHISE
   Lisp_Object db;
+#endif
   unsigned char unloaded;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
@@ -349,15 +360,17 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
+Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
+
+#ifndef HAVE_LIBCHISE
 extern Lisp_Object Qsystem_char_id;
 
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode);
-
-Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
-#endif
+#endif /* not HAVE_LIBCHISE */
+#endif /* HAVE_CHISE */
 
 INLINE_HEADER Lisp_Object
 get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch);
@@ -381,13 +394,13 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
   Lisp_Object val = get_char_id_table_0 (cit, ch);
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   if (EQ (val, Qunloaded))
     {
       val = load_char_attribute_maybe (cit, ch);
       put_char_id_table_0 (cit, ch, val);
     }
-#endif
+#endif /* HAVE_CHISE */
   if (UNBOUNDP (val))
     return cit->default_value;
   else

@@ -1339,6 +1339,7 @@
     (=gt-pj-7		. #x4146)	; ý¡€Œ
     (=daikanwa		. 36750)	; ø¸ˆ¾Ž
     (=gt-k		. 10215)	; ý¡„‚Ÿ§
+    (=jef-china3	. #x65F3)	; øº†—³
     (=gt		. 49231)	; ý¡€Œ
     ))
 (define-char

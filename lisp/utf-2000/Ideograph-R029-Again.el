@@ -1307,6 +1307,7 @@
       ))
     (=big5-cdp		. #x8AC4)	; ý¢€ˆ«„
     (=cbeta		. 00008)	; ø¸ €ˆ
+    (=jef-china3	. #x8EC0)	; øºˆ»€
     ))
 (define-char
   '((morohashi-daikanwa	3167 0 1)

@@ -3493,11 +3493,11 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
       if (CHARP (ret))
 	{
 	  Emchar char2 = XCHARVAL (ret);
-	  ret = Fget_char_attribute (make_char (character), Qcomposition,
-				     Qnil);
-	  if (NILP (ret))
+	  Lisp_Object ret2 = Fget_char_attribute (ret, Qcomposition, Qnil);
+
+	  if (NILP (ret2))
 	    {
-	      decode_add_er_char (str, character, dst);
+	      decode_add_er_char (str, char2, dst);
 	      str->combined_char_count = 0;
 	      str->combining_table = Qnil;
 	    }
@@ -3505,13 +3505,23 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	    {
 	      str->combined_chars[0] = char2;
 	      str->combined_char_count = 1;
-	      str->combining_table = ret;
+	      str->combining_table = ret2;
 	    }
 	}
       else
 	{
+	  ret = Fget_char_attribute (make_char (character), Qcomposition,
+				     Qnil);
+
 	  COMPOSE_FLUSH_CHARS (str, dst);
-	  decode_add_er_char (str, character, dst);
+	  if (NILP (ret))
+	    decode_add_er_char (str, character, dst);
+	  else
+	    {
+	      str->combined_chars[0] = character;
+	      str->combined_char_count = 1;
+	      str->combining_table = ret;
+	    }
 	}
     }
 }
