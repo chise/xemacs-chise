@@ -798,7 +798,7 @@ generate_cursor_fg_bg (Lisp_Object device, Lisp_Object *foreground,
   else
     {
       xbg->pixel = 0;
-      xbg->red = xbg->green = xbg->blue = ~0;
+      xbg->red = xbg->green = xbg->blue = USHRT_MAX;
     }
 }
 

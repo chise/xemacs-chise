@@ -150,7 +150,6 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_MACH_MACH_H
 #undef HAVE_SYS_TIMEB_H
 #undef HAVE_UNISTD_H
-#undef HAVE_UTIME_H
 #undef HAVE_SYS_WAIT_H
 #undef HAVE_LIBGEN_H
 #undef WORDS_BIGENDIAN
@@ -174,9 +173,6 @@ Boston, MA 02111-1307, USA.  */
 
 /* Define if `sys_siglist' is declared by <signal.h>. */
 #undef SYS_SIGLIST_DECLARED
-
-/* Define if `struct utimbuf' is declared by <utime.h>.  */
-#undef HAVE_STRUCT_UTIMBUF
 
 /* Define if `struct timeval' is declared by <sys/time.h>.  */
 #define HAVE_TIMEVAL
@@ -258,6 +254,7 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_SIGSETJMP
 #define HAVE_STRERROR
 #undef HAVE_TZSET
+#undef HAVE_UTIME
 #undef HAVE_UTIMES
 #undef HAVE_WAITPID
 #undef HAVE_VSNPRINTF

@@ -1,4 +1,3 @@
-
 (setq preloaded-file-list
       (assemble-list
         "backquote" 		; needed for defsubst etc.

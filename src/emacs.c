@@ -3,6 +3,7 @@
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 2000 Ben Wing.
+   Copyright (C) 2000,2002 MORIOKA Tomohiko.
 
 This file is part of XEmacs.
 
@@ -181,7 +182,6 @@ version 18.59 released October 31, 1992.
 #include "systime.h"
 
 #ifdef PDUMP
-#include "dump-id.h"
 #include "dumper.h"
 #endif
 
@@ -284,6 +284,8 @@ Lisp_Object Vemacs_program_name, Vemacs_program_version;
 Lisp_Object Vexec_path;
 Lisp_Object Vexec_directory, Vconfigure_exec_directory;
 Lisp_Object Vlisp_directory, Vconfigure_lisp_directory;
+Lisp_Object Vmule_lisp_directory, Vconfigure_mule_lisp_directory;
+Lisp_Object Vutf_2000_lisp_directory, Vconfigure_utf_2000_lisp_directory;
 Lisp_Object Vmodule_directory, Vconfigure_module_directory;
 Lisp_Object Vsite_module_directory, Vconfigure_site_module_directory;
 Lisp_Object Vconfigure_package_path;
@@ -3615,6 +3617,39 @@ configure's idea of what `lisp-directory' will be.
     (build_string ((char *) PATH_LOADSEARCH));
 #else
   Vconfigure_lisp_directory = Qnil;
+#endif
+
+  DEFVAR_LISP ("mule-lisp-directory", &Vmule_lisp_directory /*
+*Directory of Mule Lisp files that come with XEmacs.
+*/ );
+  Vmule_lisp_directory = Qnil;
+
+  DEFVAR_LISP ("configure-mule-lisp-directory", &Vconfigure_mule_lisp_directory /*
+For internal use by the build procedure only.
+configure's idea of what `mule-lisp-directory' will be.
+*/ );
+#ifdef PATH_MULELOADSEARCH
+  Vconfigure_mule_lisp_directory = Ffile_name_as_directory
+    (build_string ((char *) PATH_MULELOADSEARCH));
+#else
+  Vconfigure_mule_lisp_directory = Qnil;
+#endif
+
+  DEFVAR_LISP ("utf-2000-lisp-directory", &Vutf_2000_lisp_directory /*
+*Directory of UTF-2000 Lisp files that come with XEmacs.
+*/ );
+  Vutf_2000_lisp_directory = Qnil;
+
+  DEFVAR_LISP ("configure-utf-2000-lisp-directory",
+	       &Vconfigure_utf_2000_lisp_directory /*
+For internal use by the build procedure only.
+configure's idea of what `utf-2000-lisp-directory' will be.
+*/ );
+#ifdef PATH_UTF2000LOADSEARCH
+  Vconfigure_utf_2000_lisp_directory = Ffile_name_as_directory
+    (build_string ((char *) PATH_UTF2000LOADSEARCH));
+#else
+  Vconfigure_utf_2000_lisp_directory = Qnil;
 #endif
 
   DEFVAR_LISP ("module-directory", &Vmodule_directory /*

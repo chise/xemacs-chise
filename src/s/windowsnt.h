@@ -226,7 +226,6 @@ typedef int pid_t;
 
 #define HAVE_MOUSE
 #define HAVE_H_ERRNO
-#define HAVE_STRUCT_UTIMBUF
 
 /* Compatibility macros. Some used to be routines in nt.c */
 #define strcasecmp(x,y) _stricmp(x,y)

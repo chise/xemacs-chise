@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.0b from
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -602,6 +602,7 @@ authors' reputations.
 modification follow.
 
                          TERMS AND CONDITIONS
+
   1. This License Agreement applies to any program or other work which
      contains a notice placed by the copyright holder saying it may be
      distributed under the terms of this General Public License.  The

@@ -100,3 +100,43 @@
   (test-backward-word "WO " 3)
   (test-backward-word "W !" 3)
   (test-backward-word "WO !" 4))
+
+;; Works like test-forward-word, except for the following:
+;; after <string> is inserted, the syntax-table <apply-syntax>
+;; is applied to position <apply-pos>.
+;; <apply-pos> can be in the form (start . end), or can be a
+;; character position.
+(defun test-syntax-table (string apply-pos apply-syntax stop)
+  (goto-char (point-max))
+  (unless (consp apply-pos)
+	(setq apply-pos `(,apply-pos . ,(+ 1 apply-pos))))
+  (let ((point (point)))
+	(insert string)
+	(put-text-property (+ point (car apply-pos)) (+ point (cdr apply-pos))
+					   'syntax-table apply-syntax)
+	(goto-char point)
+	(forward-word 1)
+	(Assert (eq (point) (+ point stop)))))
+
+;; test syntax-table extents
+(with-temp-buffer
+  ;; Apply punctuation to word
+  (test-syntax-table "WO" 1 `(,(syntax-string-to-code ".")) 1)
+  ;; Apply word to punctuation
+  (test-syntax-table "W." 1 `(,(syntax-string-to-code "w")) 2))
+
+;; Test forward-comment at buffer boundaries
+(with-temp-buffer
+  (c-mode)
+  (insert "// comment\n")
+  (forward-comment -2)
+  (Assert (eq (point) (point-min)))
+
+  (let ((point (point)))
+	(insert "/* comment */")
+	(goto-char point)
+	(forward-comment 2)
+	(Assert (eq (point) (point-max)))
+
+	;; this last used to crash
+	(parse-partial-sexp point (point-max))))

@@ -1134,7 +1134,7 @@ Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
 Copyright (C) 1995-1996 Ben Wing
-Copyright (C) 1996-2000 MORIOKA Tomohiko
+Copyright (C) 1996-2002 MORIOKA Tomohiko
 "))
 
     ((face (blue bold underline) "\nInformation, on-line help:\n\n")
@@ -1283,6 +1283,28 @@ It's idempotent, so call this as often as you like!"
       (princ (format "lisp-directory:\n%S\n" lisp-directory)
 	     'external-debugging-output))
 
+  (if (featurep 'mule)
+      (progn
+	(setq mule-lisp-directory
+	      (paths-find-mule-lisp-directory roots
+					      lisp-directory))
+	(if debug-paths
+	    (princ (format "mule-lisp-directory:\n%S\n"
+			   mule-lisp-directory)
+		   'external-debugging-output)))
+    (setq mule-lisp-directory '()))
+
+  (if (featurep 'utf-2000)
+      (progn
+	(setq utf-2000-lisp-directory
+	      (paths-find-utf-2000-lisp-directory roots
+						  lisp-directory))
+	(if debug-paths
+	    (princ (format "utf-2000-lisp-directory:\n%S\n"
+			   utf-2000-lisp-directory)
+		   'external-debugging-output)))
+    (setq utf-2000-lisp-directory '()))
+
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
 
@@ -1295,7 +1317,9 @@ It's idempotent, so call this as often as you like!"
 					     late-package-load-path
 					     last-package-load-path
 					     lisp-directory
-					     site-directory))
+					     site-directory
+					     mule-lisp-directory
+					     utf-2000-lisp-directory))
 
   (setq Info-directory-list
 	(paths-construct-info-path roots
@@ -1362,6 +1386,12 @@ It's idempotent, so call this as often as you like!"
 	(erase-buffer)
 	(buffer-disable-undo (current-buffer))
 	(if (null lisp-directory) (push "lisp-directory" warnings))
+	(if (and (featurep 'mule)
+		 (null mule-lisp-directory))
+	    (push "mule-lisp-directory" warnings))
+	(if (and (featurep 'utf-2000)
+		 (null utf-2000-lisp-directory))
+	    (push "utf-2000-lisp-directory" warnings))
 	(if (null exec-directory) (push "exec-directory" warnings))
 	(if (null data-directory) (push "data-directory" warnings))
 	(if (null doc-directory)  (push "doc-directory"  warnings))
