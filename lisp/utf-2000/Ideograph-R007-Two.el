@@ -435,6 +435,7 @@
     (chinese-cns11643-3 . #x2441)	; ø»•›ž
     (ideograph-daikanwa . 00267)	; ø¸€„‹
     (mojikyo		. 000267)	; ý €€„‹
+    (ucs		. #x2F81B)	; ð¯ ›
     ))
 (define-char
   '((ideographic-radical . 7)	; â¼†
