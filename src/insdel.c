@@ -219,7 +219,9 @@ Boston, MA 02111-1307, USA.  */
 #define MAX_BUFPOS_GAP_SIZE_3 (65535/3)
 #define MAX_BYTIND_GAP_SIZE_3 (3 * MAX_BUFPOS_GAP_SIZE_3)
 
+#ifndef UTF2000
 short three_to_one_table[1 + MAX_BYTIND_GAP_SIZE_3];
+#endif
 
 /* Various macros modelled along the lines of those in buffer.h.
    Purposefully omitted from buffer.h because files other than this
@@ -430,7 +432,11 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
   bufmax = buf->text->mule_bufmax;
   bytmin = buf->text->mule_bytmin;
   bytmax = buf->text->mule_bytmax;
+#ifdef UTF2000
+  size = buf->text->mule_size;
+#else
   size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
 
   /* The basic idea here is that we shift the "known region" up or down
      until it overlaps the specified position.  We do this by moving
@@ -625,11 +631,16 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
      discovered isn't too large, because we use a fixed-length
      table to divide by 3. */
 
+#ifdef UTF2000
+  buf->text->mule_size = size;
+#endif
   if (size == 3)
     {
       int gap = bytmax - bytmin;
+#ifndef UTF2000
       buf->text->mule_three_p = 1;
       buf->text->mule_shifter = 1;
+#endif
 
       if (gap > MAX_BYTIND_GAP_SIZE_3)
 	{
@@ -647,11 +658,13 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
     }
   else
     {
+#ifndef UTF2000
       buf->text->mule_three_p = 0;
       if (size == 4)
 	buf->text->mule_shifter = 2;
       else
 	buf->text->mule_shifter = size - 1;
+#endif
     }
 
   buf->text->mule_bufmin = bufmin;
@@ -707,7 +720,11 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
   bufmax = buf->text->mule_bufmax;
   bytmin = buf->text->mule_bytmin;
   bytmax = buf->text->mule_bytmax;
+#ifdef UTF2000
+  size = buf->text->mule_size;
+#else
   size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
 
   /* The basic idea here is that we shift the "known region" up or down
      until it overlaps the specified position.  We do this by moving
@@ -902,11 +919,16 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
      discovered isn't too large, because we use a fixed-length
      table to divide by 3. */
 
+#ifdef UTF2000
+  buf->text->mule_size = size;
+  #endif
   if (size == 3)
     {
       int gap = bytmax - bytmin;
+#ifndef UTF2000
       buf->text->mule_three_p = 1;
       buf->text->mule_shifter = 1;
+#endif
 
       if (gap > MAX_BYTIND_GAP_SIZE_3)
 	{
@@ -924,11 +946,13 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
     }
   else
     {
+#ifndef UTF2000
       buf->text->mule_three_p = 0;
       if (size == 4)
 	buf->text->mule_shifter = 2;
       else
 	buf->text->mule_shifter = size - 1;
+#endif
     }
 
   buf->text->mule_bufmin = bufmin;
@@ -964,7 +988,11 @@ buffer_mule_signal_inserted_region (struct buffer *buf, Bufpos start,
 				    Bytecount bytelength,
 				    Charcount charlength)
 {
+#ifdef UTF2000
+  int size = buf->text->mule_size;
+#else
   int size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
   int i;
 
   /* Adjust the cache of known positions. */
@@ -3072,7 +3100,7 @@ barf_if_buffer_read_only (struct buffer *buf, Bufpos from, Bufpos to)
 }
 
 void
-find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
+find_charsets_in_bufbyte_string (Charset_ID *charsets, const Bufbyte *str,
 				 Bytecount len)
 {
 #ifndef MULE
@@ -3080,18 +3108,25 @@ find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
   charsets[0] = 1;
 #else
   const Bufbyte *strend = str + len;
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
 
   while (str < strend)
     {
-      charsets[CHAR_LEADING_BYTE (charptr_emchar (str)) - 128] = 1;
+#ifdef UTF2000
+      charsets[CHAR_CHARSET_ID (charptr_emchar (str))
+	      - MIN_LEADING_BYTE] = 1;
+#else /* I'm not sure the definition for UTF2000 works with leading-byte
+	 representation. */
+      charsets[CHAR_LEADING_BYTE (charptr_emchar (str))
+	      - MIN_LEADING_BYTE] = 1;
+#endif
       INC_CHARPTR (str);
     }
 #endif
 }
 
 void
-find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
+find_charsets_in_emchar_string (Charset_ID *charsets, const Emchar *str,
 				Charcount len)
 {
 #ifndef MULE
@@ -3100,10 +3135,15 @@ find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
 #else
   int i;
 
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
   for (i = 0; i < len; i++)
     {
-      charsets[CHAR_LEADING_BYTE (str[i]) - 128] = 1;
+#ifdef UTF2000
+      charsets[CHAR_CHARSET_ID (str[i]) - MIN_LEADING_BYTE] = 1;
+#else /* I'm not sure the definition for UTF2000 works with leading-byte
+	 representation. */
+      charsets[CHAR_LEADING_BYTE (str[i]) - MIN_LEADING_BYTE] = 1;
+#endif
     }
 #endif
 }
@@ -3118,7 +3158,7 @@ bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len)
     {
 #ifdef MULE
       Emchar ch = charptr_emchar (str);
-      cols += XCHARSET_COLUMNS (CHAR_CHARSET (ch));
+      cols += CHAR_COLUMNS (ch);
 #else
       cols++;
 #endif
@@ -3136,7 +3176,7 @@ emchar_string_displayed_columns (const Emchar *str, Charcount len)
   int i;
 
   for (i = 0; i < len; i++)
-    cols += XCHARSET_COLUMNS (CHAR_CHARSET (str[i]));
+    cols += CHAR_COLUMNS (str[i]);
 
   return cols;
 #else  /* not MULE */
@@ -3229,13 +3269,17 @@ convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
 void
 reinit_vars_of_insdel (void)
 {
+#ifndef UTF2000
   int i;
+#endif
 
   inside_change_hook = 0;
   in_first_change = 0;
 
+#ifndef UTF2000
   for (i = 0; i <= MAX_BYTIND_GAP_SIZE_3; i++)
     three_to_one_table[i] = i / 3;
+#endif
 }
 
 void
@@ -3265,8 +3309,12 @@ init_buffer_text (struct buffer *b)
 
 	b->text->mule_bufmin = b->text->mule_bufmax = 1;
 	b->text->mule_bytmin = b->text->mule_bytmax = 1;
+#ifdef UTF2000
+	b->text->mule_size = 0;
+#else
 	b->text->mule_shifter = 0;
 	b->text->mule_three_p = 0;
+#endif
 
 	for (i = 0; i < 16; i++)
 	  {

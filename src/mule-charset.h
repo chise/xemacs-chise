@@ -324,6 +324,8 @@ Boston, MA 02111-1307, USA.  */
 /*                    Definition of leading bytes                       */
 /************************************************************************/
 
+typedef int Charset_ID;
+
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
 #define LEADING_BYTE_ASCII		0x8E /* Omitted in a buffer */
@@ -552,8 +554,8 @@ DECLARE_LRECORD (charset, Lisp_Charset);
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 
 struct charset_lookup {
-  /* Table of charsets indexed by leading byte. */
-  Lisp_Object charset_by_leading_byte[128];
+  /* Table of charsets indexed by (leading byte - MIN_LEADING_BYTE). */
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
@@ -569,13 +571,15 @@ INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
 INLINE_HEADER Lisp_Object
 CHARSET_BY_LEADING_BYTE (int lb)
 {
-  assert (lb >= 0x80 && lb <= 0xFF);
-  return chlook->charset_by_leading_byte[lb - 128];
+  assert (lb >= MIN_LEADING_BYTE &&
+	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
+  return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
 #else
 
-#define CHARSET_BY_LEADING_BYTE(lb) (chlook->charset_by_leading_byte[(lb) - 128])
+#define CHARSET_BY_LEADING_BYTE(lb) \
+  (chlook->charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
 
 #endif
 
@@ -607,11 +611,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 /*                        Dealing with characters                       */
 /************************************************************************/
 
-/* Is this character represented by more than one byte in a string? */
-
-#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
-
-#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
+#define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 /* The bit fields of character are divided into 3 parts:
    FIELD1(5bits):FIELD2(7bits):FIELD3(7bits) */

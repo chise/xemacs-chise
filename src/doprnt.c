@@ -657,16 +657,24 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		  long_to_string (constructed_spec + strlen (constructed_spec),
 				  spec->precision);
 		}
+#if 0
 	      sprintf (constructed_spec + strlen (constructed_spec), "%c", ch);
+#endif
 
 	      /* sprintf the mofo */
 	      /* we have to use separate calls to sprintf(), rather than
 		 a single big conditional, because of the different types
 		 of the arguments */
 	      if (strchr (double_converters, ch))
-		sprintf (text_to_print, constructed_spec, arg.d);
+		{
+		  sprintf (constructed_spec + strlen (constructed_spec),
+			   "%c", ch);
+		  sprintf (text_to_print, constructed_spec, arg.d);
+		}
 	      else if (strchr (unsigned_int_converters, ch))
 		{
+		  sprintf (constructed_spec + strlen (constructed_spec),
+			   "%c", ch);
 		  if (spec->l_flag)
 		    sprintf (text_to_print, constructed_spec, arg.ul);
 		  else
@@ -674,6 +682,12 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		}
 	      else
 		{
+		  if (spec->zero_flag && spec->minwidth)
+		    sprintf (constructed_spec + strlen (constructed_spec),
+			     "0%d%c", spec->minwidth, ch);
+		  else
+		    sprintf (constructed_spec + strlen (constructed_spec),
+			     "%c", ch);
 		  if (spec->l_flag)
 		    sprintf (text_to_print, constructed_spec, arg.l);
 		  else

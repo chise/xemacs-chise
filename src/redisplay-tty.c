@@ -358,7 +358,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 			    {
 #ifdef MULE
 			      Emchar ch = charptr_emchar (temptemp);
-			      i += XCHARSET_COLUMNS (CHAR_CHARSET (ch));
+			      i += CHAR_COLUMNS (ch);
 #else
 			      i++; /* telescope this */
 #endif

@@ -521,6 +521,10 @@ char *alloca ();
    if you're working with ASCII files. */
 #undef MULE
 
+#undef UTF2000
+
+#undef CHAR_IS_UCS4
+
 /* Define this if you want file coding support */
 #undef FILE_CODING
 

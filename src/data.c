@@ -1064,7 +1064,7 @@ Floating point numbers always use base 10.
     p++;
 
 #ifdef LISP_FLOAT_TYPE
-  if (isfloat_string (p))
+  if (isfloat_string (p) && b == 10)
     return make_float (atof (p));
 #endif /* LISP_FLOAT_TYPE */
 

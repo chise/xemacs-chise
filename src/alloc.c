@@ -2070,6 +2070,10 @@ LENGTH must be an integer and INIT must be a character.
 	    Bufbyte *init_ptr = init_str;
 	    switch (len)
 	      {
+#ifdef UTF2000
+	      case 6: *ptr++ = *init_ptr++;
+	      case 5: *ptr++ = *init_ptr++;
+#endif
 	      case 4: *ptr++ = *init_ptr++;
 	      case 3: *ptr++ = *init_ptr++;
 	      case 2: *ptr++ = *init_ptr++;
