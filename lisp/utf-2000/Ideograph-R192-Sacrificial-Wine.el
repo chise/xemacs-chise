@@ -163,6 +163,7 @@
     (japanese-jisx0208		. #x5D35)	; ø»‡¨¤
     (korean-ksc5601		. #x6A26)	; ø»Š…Ÿ
     (japanese-jisx0208-1990	. #x5D35)	; ø½‹Ž˜
+    (chinese-gb12345		. #x5374)	; é¬±
     (ideograph-daikanwa		. 45671)	; ø¸‹‰§
     (ucs			. #x9B31)	; é¬±
     ))
