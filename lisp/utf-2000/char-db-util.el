@@ -248,6 +248,14 @@
 			  (aref ideographic-radicals cell)))
 	  (setq data (del-alist 'ideographic-radical data))
 	  )
+	(when (setq cell (assq 'cns-radical data))
+	  (setq cell (cdr cell))
+	  (insert (format "(cns-radical\t . %S)\t; %c
+    "
+			  cell
+			  (aref ideographic-radicals cell)))
+	  (setq data (del-alist 'cns-radical data))
+	  )
 	(cond
 	 ((setq cell (assq 'ideographic-strokes data))
 	  (setq cell (cdr cell))
