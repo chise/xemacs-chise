@@ -1,3 +1,16 @@
+2004-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs to
+	characters in value of `ideographic-structure'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}simplified(@...)'.
+	(Fdefine_char): bTry to use predefined character's id.
+
+2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* fns.c (simplify_char_spec): Try to convert builtin chars to
+	defined chars.
+
 2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-refs in value of
