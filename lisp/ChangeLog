@@ -1,5 +1,55 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/chinese.el:
+	- Use `define-coding-system-alias' instead of `copy-coding-system'.
+	- Register `chinese-gb-environment-setup-function' as a
+	  `setup-function' of "Chinese-GB" environment.
+	- Register input-method key in language-info-alist.
+
+1998-10-26  Kenichi Handa <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Cancel previous change,
+	use generate-new-buffer instead of get-buffer-create.
+
+1998-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Use with-temp-buffer.
+
+1998-08-31  Paul Eggert  <eggert@twinsun.com>
+
+	* mule/chinese.el: Add coding: local variable, to avoid
+	bootstrapping problem if you need to recompile all the Lisp files
+	using interpreted code.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el: Remove setting up of
+	describe-chinese-environment-map and
+	setup-chinese-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.
+
+1997-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el (post-read-decode-hz): Return the result of
+	decode-hz-region.
+	(pre-write-encode-hz): Do not change the value of
+	last-coding-system.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info-alist): Allow dummy
+	optional argument `parents'.
+
+	* mule/thai-xtis.el: Specify `tis-620' as `tutorial-coding-system'
+	property for Thai-XTIS.
+
+	* mule/mule-help.el (help-with-tutorial): Use property
+	`tutorial-coding-system' of language-info as a coding-system to
+	read tutorial file.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/thai-xtis.el: Don't setup `setup-function' and
 	`exit-function'.
 
