@@ -98,6 +98,54 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
 } while (0)
 
 
+#define CHARC_CHARSET(cc)	((cc).charset)
+#define CHARC_CHARSET_ID(cc)	XCHARSET_ID (CHARC_CHARSET (cc))
+#define CHARC_CODE_POINT(cc)	((cc).code_point)
+#define CHARC_COLUMNS(cc)	CHARSET_COLUMNS (XCHARSET (CHARC_CHARSET (cc)))
+
+INLINE_HEADER Emchar CHARC_TO_CHAR (Charc cc);
+INLINE_HEADER Emchar
+CHARC_TO_CHAR (Charc cc)
+{
+  return DECODE_CHAR (cc.charset, cc.code_point);
+}
+
+INLINE_HEADER int CHARC_EQ (Charc cc1, Charc cc2);
+INLINE_HEADER int
+CHARC_EQ (Charc cc1, Charc cc2)
+{
+  return EQ (cc1.charset, cc2.charset) && (cc1.code_point == cc2.code_point);
+}
+
+INLINE_HEADER int CHARC_ASCII_EQ (Charc cc, int ch);
+INLINE_HEADER int
+CHARC_ASCII_EQ (Charc cc, int ch)
+{
+  return EQ (cc.charset, Vcharset_ascii) && (cc.code_point == ch);
+}
+
+INLINE_HEADER int CHARC_IS_SPACE (Charc cc);
+INLINE_HEADER int
+CHARC_IS_SPACE (Charc cc)
+{
+  return (EQ (cc.charset, Vcharset_ascii) ||
+	  EQ (cc.charset, Vcharset_control_1) ||
+	  EQ (cc.charset, Vcharset_latin_iso8859_1))
+    && isspace (cc.code_point);
+}
+
+INLINE_HEADER Charc ASCII_TO_CHARC (int ch);
+INLINE_HEADER Charc
+ASCII_TO_CHARC (int ch)
+{
+  Charc cc;
+
+  cc.charset = Vcharset_ascii;
+  cc.code_point = ch;
+  return cc;
+}
+
+
 typedef struct
 {
   Dynarr_declare (Charc);
