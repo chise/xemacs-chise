@@ -1,3 +1,13 @@
+2002-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el, Ideograph-R050-Turban.el,
+	Ideograph-R046-Mountain.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R019-Power.el,
+	Ideograph-R016-Table.el, Ideograph-R018-Knife.el,
+	Ideograph-R012-Eight.el, Ideograph-R009-Man.el,
+	Ideograph-R004-Slash.el: Add some missing mappings to CHINA3-JEF
+	code points.
+
 2002-09-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
