@@ -1,3 +1,118 @@
+1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
+
+	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 
+	redisplay-x.c
+
+1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* redisplay-x.c (separate_textual_runs): Run `ccl_driver' with
+	`CCL_MODE_ENCODING'.
+
+	* file-coding.c (mule_decode): Run `ccl_driver' with
+	`CCL_MODE_DECODING'.
+	(mule_encode): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+
+	* mule-ccl.c (CCL_WRITE_CHAR): Refer `conversion_mode'.
+	(ccl_driver): Add new argument `conversion_mode'.
+	(Fccl_execute): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+	(Fccl_execute_on_string): Likewise [perhaps it is better to add
+	new optional argument].
+
+	* mule-ccl.h (CCL_MODE_ENCODING): New macro.
+	(CCL_MODE_DECODING): New macro.
+	(ccl_driver): Add new argument `conversion_mode'.
+
+1999-06-15  SL Baur  <steve@miho.m17n.org>
+
+	* mule-charset.c (Fsplit_char): New subr.
+	(Fchar_octet): delete.
+	(syms_of_mule_charset): DEFSUBR it.
+
+1999-06-13  Andy Piper  <andy@xemacs.org>
+
+	* menubar.h: update declarations involving gui_items.
+
+	* lisp.h: declare Lisp_Gui_Item.
+
+	* glyphs.h (struct Lisp_Image_Instance): update type of gui_item.
+
+	* glyphs.c (mark_image_instance): modify for new lisp-based gui_items.
+	(print_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+
+	* event-msw.c (mswindows_need_event): assert badly_p status.
+	(mswindows_wnd_proc): modify WM_NOTIFY handling to cope with
+ 	callbacks in tree-view and tab-control widgets.
+	(emacs_mswindows_next_event): modify use of
+ 	mswindows_dequeue_dispatch_event.
+
+	* dialog-msw.c (mswindows_popup_dialog_box): modify for new
+ 	lisp-based gui_items.
+
+	* glyphs-msw.c (mswindows_update_subwindow): update use of
+ 	gui_items.
+	(mswindows_register_gui_item): new function.
+	(mswindows_register_gui_item): fix to use lisp gui_items.
+	(mswindows_widget_instantiate): ditto.
+	(mswindows_button_instantiate): ditto.
+	(add_tree_item): new function to recursively add tree view
+ 	elements.
+	(add_tree_item_list): ditto.
+	(mswindows_tree_instantiate): new function. instantiate tree view
+ 	controls.
+	(add_tab_item): new function to add tabs to a tab control.
+	(mswindows_tab_instantiate): new function. instantiate tab
+ 	controls.
+	(image_instantiator_format_create_glyphs_mswindows): add tree view
+ 	and tab controls.
+	(vars_of_glyphs_mswindows): ditto.
+
+	* glyphs-widget.c (check_valid_item_list_1): allow nested lists in
+ 	item lists.
+	(check_valid_item_list): ditto.
+	(initialize_widget_image_instance): fix to use new lisp gui_item.
+	(widget_instantiate_1): allow the setting of default textwidth in
+ 	characters.
+	(widget_instantiate): change to use new widget_instantiate_1
+ 	signature.
+	(combo_instantiate): ditto.
+	(static_instantiate): ditto.
+	(tab_instantiate): new function for tab widgets.
+	(image_instantiator_format_create_glyphs_widget): add tab and tree
+ 	view widgets.
+
+	* menubar-msw.c (displayable_menu_item): convert to use lisp
+ 	gui_items.
+	(populate_menu_add_item): ditto.
+	(populate_or_checksum_helper): ditto.
+
+	* menubar.c (menu_parse_submenu_keywords): convert to use lisp
+ 	gui_items.
+	(Fmenu_find_real_submenu): ditto.
+
+	* gui.h (struct Lisp_Gui_Item): make gui_item a lisp oebjct.
+
+	* gui.c (gui_item_add_keyval_pair): gui_items are now lisp
+ 	objects, convert functions that use them accordingly.
+	(gui_item_init): ditto.
+	(gui_item_active_p): ditto.
+	(gui_item_selected_p): ditto.
+	(gui_item_included_p): ditto.
+	(gui_item_display_flush_left): ditto.
+	(gui_item_display_flush_right): ditto.
+	(mark_gui_item): ditto.
+	(allocate_gui_item): new function to create a gui_item.
+	(make_gui_item_from_keywords_internal): ditto. create and return a
+ 	gui_item as well as setting keywords.
+	(gui_parse_item_keywords): ditto.
+	(gui_parse_item_keywords_no_errors): ditto.
+	(gui_add_item_keywords_to_plist): new function, not yet used.
+	(gui_item_hash): new function.
+	(gui_item_id_hash): use gui_item_hash.
+	(gui_item_equal): new function.
+	(print_gui_item): new function.
+
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released
@@ -26,12 +141,6 @@
 	`no-conversion' as an alias for `raw-text'.
 
 	* file-coding.h (Qraw_text): New variable.
-
-1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule-charset.c (complex_vars_of_mule_charset): Registry of
-	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
-	"jisc6226.1983".
 
 1999-06-08  SL Baur  <steve@xemacs.org>
 

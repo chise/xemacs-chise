@@ -88,6 +88,22 @@ maintained internally.
 The new primitives available for this purpose are functions named
 `user-name-completion' and `user-name-all-completions'.
 
+** Native widgets can be displayed in buffers.
+
+The glyph system has been extended to allow the display of glyphs that
+are implemented as native window-system widgets. Thus you can embed
+buttons, scrollbars, combo boxes, edit fields and progress gauges in a
+buffer. As a side effect subwindow support now works once again.
+
+This support is currently only available under MS-Windows.
+
+** X-Face support is now available under MS-Windows
+
+If an X-Face libary built under MS-Windows is available then XEmacs
+will use this at build time.
+
+** The font-menu is now available under MS-Windows
+
 
 * Lisp and internal changes in XEmacs 21.2
 ==========================================

@@ -32,9 +32,9 @@
 
 ;; For syntax of Cyrillic
 (modify-syntax-entry 'cyrillic-iso8859-5 "w")
-(modify-syntax-entry ?.LN- ".")
-(modify-syntax-entry ?.LNp ".")
-(modify-syntax-entry ?.LN} ".")
+(modify-syntax-entry ?,L-(B ".")
+(modify-syntax-entry ?,Lp(B ".")
+(modify-syntax-entry ?,L}(B ".")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; CYRILLIC
@@ -77,7 +77,7 @@
 		  (charset . (cyrillic-iso8859-5))
 		  (tutorial . "TUTORIAL.ru")
 		  (coding-system . (iso-8859-5))
-		  (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
+		  (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
 		  (documentation . ("Support for Cyrillic ISO-8859-5."
 				    . describe-cyrillic-environment-map))))
 
@@ -96,13 +96,13 @@
    96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111
    112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
    ?$B(!(B ?$B("(B ?$B(#(B ?$B($(B ?$B(&(B ?$B(%(B ?$B('(B ?$B()(B ?$B(((B ?$B(*(B ?$B(+(B 32  ?$(G#'(B ?$(G#+(B ?$(G#/(B 32
-   32  ?$(C"F(B 32  32  ?$B"#(B 32  ?$B"e(B ?$A!V(B ?$A!\(B ?$A!](B ?.AN   32  ?N0  ?N2  ?N7  ?Nw
-   ?$(G#D(B 32  32  ?.LNq  32  32  32  32  32  32  32  32  32  32  32  ?$(G#E(B
-   32  32  ?$(G#G(B ?.LN!  32  32  32  32  32  32  32  32  ?$(G#F(B 32  32  ?.AN)
-   ?.LNn  ?NP  ?NQ  ?Nf  ?NT  ?NU  ?Nd  ?NS  ?Ne  ?NX  ?NY  ?NZ  ?N[  ?N\  ?N]  ?N^ 
-   ?.LN_  ?No  ?N`  ?Na  ?Nb  ?Nc  ?NV  ?NR  ?Nl  ?Nk  ?NW  ?Nh  ?Nm  ?Ni  ?Ng  ?Nj 
-   ?.LNN  ?N0  ?N1  ?NF  ?N4  ?N5  ?ND  ?N3  ?NE  ?N8  ?N9  ?N:  ?N;  ?N<  ?N=  ?N> 
-   ?.LN?  ?NO  ?N@  ?NA  ?NB  ?NC  ?N6  ?N2  ?NL  ?NK  ?N7  ?NH  ?NM  ?NI  ?NG  ?NJ ]
+   32  ?$(C"F(B 32  32  ?$B"#(B 32  ?$B"e(B ?$A!V(B ?$A!\(B ?$A!](B ?,L (B  32  ?,A0(B  ?,A2(B  ?,A7(B  ?,Aw(B
+   ?$(G#D(B 32  32  ?,Lq(B  32  32  32  32  32  32  32  32  32  32  32  ?$(G#E(B
+   32  32  ?$(G#G(B ?,L!(B  32  32  32  32  32  32  32  32  ?$(G#F(B 32  32  ?,A)(B
+   ?,Ln(B  ?,LP(B  ?,LQ(B  ?,Lf(B  ?,LT(B  ?,LU(B  ?,Ld(B  ?,LS(B  ?,Le(B  ?,LX(B  ?,LY(B  ?,LZ(B  ?,L[(B  ?,L\(B  ?,L](B  ?,L^(B 
+   ?,L_(B  ?,Lo(B  ?,L`(B  ?,La(B  ?,Lb(B  ?,Lc(B  ?,LV(B  ?,LR(B  ?,Ll(B  ?,Lk(B  ?,LW(B  ?,Lh(B  ?,Lm(B  ?,Li(B  ?,Lg(B  ?,Lj(B 
+   ?,LN(B  ?,L0(B  ?,L1(B  ?,LF(B  ?,L4(B  ?,L5(B  ?,LD(B  ?,L3(B  ?,LE(B  ?,L8(B  ?,L9(B  ?,L:(B  ?,L;(B  ?,L<(B  ?,L=(B  ?,L>(B 
+   ?,L?(B  ?,LO(B  ?,L@(B  ?,LA(B  ?,LB(B  ?,LC(B  ?,L6(B  ?,L2(B  ?,LL(B  ?,LK(B  ?,L7(B  ?,LH(B  ?,LM(B  ?,LI(B  ?,LG(B  ?,LJ(B ]
   "Cyrillic KOI8-R decoding table.")
 
 (defvar cyrillic-koi8-r-encode-table
@@ -110,7 +110,7 @@
 	(i 0))
     (while (< i 256)
       (let* ((ch (aref cyrillic-koi8-r-decode-table i))
-	     (split (split-char-or-char-int ch)))
+	     (split (split-char ch)))
 	(cond ((eq (car split) 'cyrillic-iso8859-5)
 	       (aset table (logior (nth 1 split) 128) i)
 	       )
@@ -184,7 +184,7 @@
 		   (charset . (cyrillic-iso8859-5))
 		   (coding-system . (koi8-r))
 		   (tutorial . "TUTORIAL.ru")
-		   (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
+		   (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
 		   (documentation . ("Support for Cyrillic KOI-8."
 				     . describe-cyrillic-environment-map))))
 
@@ -204,14 +204,14 @@
 	       80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
 	       96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111
 	       112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
-	       ?.LN0  ?N1  ?N2  ?N3  ?N4  ?N5  ?N6  ?N7  ?N8  ?N9  ?N:  ?N;  ?N<  ?N=  ?N>  ?N?
-	       ?.LN@  ?NA  ?NB  ?NC  ?ND  ?NE  ?NF  ?NG  ?NH  ?NI  ?NJ  ?NK  ?NL  ?NM  ?NN  ?NO
-	       ?.LNP  ?NQ  ?NR  ?NS  ?NT  ?NU  ?NV  ?NW  ?NX  ?NY  ?NZ  ?N[  ?N\  ?N]  ?N^  ?N_
+	       ?,L0(B  ?,L1(B  ?,L2(B  ?,L3(B  ?,L4(B  ?,L5(B  ?,L6(B  ?,L7(B  ?,L8(B  ?,L9(B  ?,L:(B  ?,L;(B  ?,L<(B  ?,L=(B  ?,L>(B  ?,L?(B
+	       ?,L@(B  ?,LA(B  ?,LB(B  ?,LC(B  ?,LD(B  ?,LE(B  ?,LF(B  ?,LG(B  ?,LH(B  ?,LI(B  ?,LJ(B  ?,LK(B  ?,LL(B  ?,LM(B  ?,LN(B  ?,LO(B
+	       ?,LP(B  ?,LQ(B  ?,LR(B  ?,LS(B  ?,LT(B  ?,LU(B  ?,LV(B  ?,LW(B  ?,LX(B  ?,LY(B  ?,LZ(B  ?,L[(B  ?,L\(B  ?,L](B  ?,L^(B  ?,L_(B
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
-	       ?.LN`  ?Na  ?Nb  ?Nc  ?Nd  ?Ne  ?Nf  ?Ng  ?Nh  ?Ni  ?Nj  ?Nk  ?Nl  ?Nm  ?Nn  ?No
-	       ?.LN!  ?Nq   32  32  32  32  32  32  32  32  32  32  32  32  32 ?Np]))))
+	       ?,L`(B  ?,La(B  ?,Lb(B  ?,Lc(B  ?,Ld(B  ?,Le(B  ?,Lf(B  ?,Lg(B  ?,Lh(B  ?,Li(B  ?,Lj(B  ?,Lk(B  ?,Ll(B  ?,Lm(B  ?,Ln(B  ?,Lo(B
+	       ?,L!(B  ?,Lq(B   32  32  32  32  32  32  32  32  32  32  32  32  32 ?,Lp(B]))))
   "CCL program to decode Alternativnyj.")
 
 (define-ccl-program ccl-encode-alternativnyj
@@ -268,7 +268,7 @@
 		  (charset . (cyrillic-iso8859-5))
 		  (coding-system . (alternativnyj))
 		  (tutorial . "TUTORIAL.ru")
-		  (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
+		  (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
 		  (documentation . ("Support for Cyrillic ALTERNATIVNYJ."
 				    . describe-cyrillic-environment-map))))
 
@@ -303,7 +303,7 @@
               (charset . (cyrillic-iso8859-5))
 	      (tutorial . "TUTORIAL.ru")
               (coding-system . (iso-8859-5 koi8-r alternativnyj))
-              (sample-text . "Russian (.LN@NcNaNaNZNXNY) N7NTN`NPNRNaNbNRNcNYNbNU!")
+              (sample-text . "Russian (,L@caaZXY(B) ,L7T`PRabRcYbU(B!")
               (documentation . nil)))
 
 ;;; cyrillic.el ends here
