@@ -10510,14 +10510,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 162 3)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x4EBB)	; äº»
-      )
-     ((ucs		  . #x53E3)	; å£
-      )
-     ((ucs		  . #x5348)	; åˆ
-      ))
     (chinese-cns11643-6		. #x2E5E)	; ø»œˆ³
     (ideograph-daikanwa		. 00714)	; ø¸€‹Š
     (ideograph-hanziku-1	. #xC545)	; ý¢€œ•…
