@@ -30,7 +30,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=jis-x0213-2-2000	. #x2359)	; ø»¤ ´
-    (ucs-jis		. #x20AD3)	; ø»¤ ´
+    (=ucs@jis		. #x20AD3)	; ø»¤ ´
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›

@@ -24,7 +24,7 @@
     (=gt-pj-1		. #x4E49)	; ø½Š¸ª
     (ideograph-daikanwa . 30597)	; ø¸‡ž…
     (=gt-k		. 02672)	; ý¡„€©°
-    (ucs-jis		. #x826F)	; ø½Š¸ª
+    (=ucs@jis		. #x826F)	; ø½Š¸ª
     ))
 (define-char
   '((morohashi-daikanwa	30597 0 0)

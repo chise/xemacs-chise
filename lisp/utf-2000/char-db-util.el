@@ -512,7 +512,7 @@
     ;;                   line-breaking))
     ;;   (setq attributes (delq '=>ucs* attributes))
     ;;   )
-    (dolist (name '(=>ucs@gb =>ucs@cns))
+    (dolist (name '(=>ucs@gb =>ucs@cns =>ucs@jis))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
 	(insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -548,8 +548,8 @@
       )
     (when (and (memq '=>ucs-jis attributes)
 	       (setq value (get-char-attribute char '=>ucs-jis)))
-      (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
-		      value (decode-char 'ucs-jis value)
+      (insert (format "(=>ucs@jis\t\t. #x%04X)\t; %c%s"
+		      value (decode-char '=ucs@jis value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-jis attributes))
       )

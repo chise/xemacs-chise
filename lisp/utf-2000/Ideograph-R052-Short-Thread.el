@@ -227,7 +227,7 @@
     (chinese-big5	. #xB458)	; ý¢€‹‘˜
     (ideograph-daikanwa . 09208)	; ø¸‚¸
     (=gt-k		. 09021)	; ý¡„‚Œ½
-    (ucs-jis		. #x5E7E)	; ø½Š“‹
+    (=ucs@jis		. #x5E7E)	; ø½Š“‹
     ))
 (define-char
   '((=>ucs		. #x5E7E)	; å¹¾

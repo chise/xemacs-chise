@@ -10,7 +10,7 @@
     (ideograph-daikanwa . 05691)	; ø¸˜»
     (=big5-cdp		. #x8B45)	; ý¢€ˆ­…
     (=gt-k		. 00217)	; ý¡„€ƒ™
-    (ucs-jis		. #x5902)	; ø½‹¾
+    (=ucs@jis		. #x5902)	; ø½‹¾
     ))
 (define-char
   '((morohashi-daikanwa	5691 0 1)
@@ -299,7 +299,7 @@
     (shinjigen-2	. 3201)
     (=jis-x0208		. #x4A51)	; ø½Š²º
     (=gt-pj-1		. #x4A51)	; ø½Š²º
-    (ucs-jis		. #x5909)	; ø½Š²º
+    (=ucs@jis		. #x5909)	; ø½Š²º
     ))
 (define-char
   '((morohashi-daikanwa	5703 0 2)

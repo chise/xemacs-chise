@@ -82,7 +82,7 @@
     (ideograph-daikanwa . 13067)	; ø¸ƒŒ‹
     (=cbeta		. 02050)	; ø¸  ‚
     (=jef-china3	. #x50BE)	; øº…‚¾
-    (ucs-jis		. #x6531)	; ø»‹“µ
+    (=ucs@jis		. #x6531)	; ø»‹“µ
     ))
 (define-char
   '((morohashi-daikanwa	13067 0 0)

@@ -93,7 +93,7 @@
     (shinjigen-2	. 7948)
     (=jis-x0208		. #x6C5F)	; ø½‹¥„
     (ideograph-daikanwa . 37001)	; ø¸‰‚‰
-    (ucs-jis		. #x8D67)	; ø½‹¥„
+    (=ucs@jis		. #x8D67)	; ø½‹¥„
     ))
 (define-char
   '((morohashi-daikanwa	37001 0 2)
@@ -247,7 +247,7 @@
     (shinjigen-2	. 7950)
     (=jis-x0208		. #x6C60)	; ø½‹¥…
     (ideograph-daikanwa . 37017)	; ø¸‰‚™
-    (ucs-jis		. #x8D6D)	; ø½‹¥…
+    (=ucs@jis		. #x8D6D)	; ø½‹¥…
     ))
 (define-char
   '((morohashi-daikanwa	37017 0 2)

@@ -65,7 +65,7 @@
     (=jis-x0208-1990	. #x3D58)	; ø½ŠŸ»
     (=gt-pj-1		. #x3D58)	; ø½ŠŸ»
     (=gt-k		. 10220)	; ý¡„‚Ÿ¬
-    (ucs-jis		. #x821C)	; ø½ŠŸ»
+    (=ucs@jis		. #x821C)	; ø½ŠŸ»
     ))
 (define-char
   '((=>ucs		. #x20B02)	; ð ¬‚
@@ -124,7 +124,7 @@
     (korean-ksc5601	. #x5971)	; ø»‰­¬
     (=gt-pj-1		. #x4971)	; ø½Š±¼
     (=gt-k		. 11948)	; ý¡„‚º¬
-    (ucs-jis		. #x821E)	; ø½Š±¼
+    (=ucs@jis		. #x821E)	; ø½Š±¼
     (mojikyo		. 050385)	; ý €Œ“‘
     ))
 (define-char

@@ -216,7 +216,7 @@
     (=gt-pj-1		. #x6B2C)	; ø½‹¢³
     (ideograph-daikanwa . 34815)	; ø¸ˆŸ¿
     (=gt-k		. 07980)	; ý¡„¼¬
-    (ucs-jis		. #x8993)	; ø½‹¢³
+    (=ucs@jis		. #x8993)	; ø½‹¢³
     ))
 (define-char
   '((morohashi-daikanwa	34815 0 2)
@@ -987,7 +987,7 @@
     (shinjigen-2	. 7497)
     (=jis-x0208		. #x6B30)	; ø½‹¢·
     (ideograph-daikanwa . 34904)	; ø¸ˆ¡˜
-    (ucs-jis		. #x89A6)	; ø½‹¢·
+    (=ucs@jis		. #x89A6)	; ø½‹¢·
     ))
 (define-char
   '((morohashi-daikanwa	34904 0 2)
@@ -1124,7 +1124,7 @@
     (korean-ksc5601	. #x7651)	; ø»Š—²
     (=jis-x0208-1990	. #x3F46)	; ø½Š¢¥
     (ideograph-daikanwa . 34918)	; ø¸ˆ¡¦
-    (ucs-jis		. #x89AA)	; ø»Š—²
+    (=ucs@jis		. #x89AA)	; ø»Š—²
     ))
 (define-char
   '((=>ucs		. #x89AA)	; è¦ª
@@ -1577,7 +1577,7 @@
     (total-strokes	 . 19)
     (japanese-jisx0212	. #x5D31)	; ø»‹¼¨
     (ideograph-daikanwa . 34962)	; ø¸ˆ¢’
-    (ucs-jis		. #x89B6)	; ø»‹¼¨
+    (=ucs@jis		. #x89B6)	; ø»‹¼¨
     ))
 (define-char
   '((morohashi-daikanwa	34962 0 2)
@@ -1631,7 +1631,7 @@
     (chinese-cns11643-2 . #x667E)	; ø»”³“
     (=jis-x0213-2-2000	. #x784A)	; ø»¦›
     (ideograph-daikanwa . 34969)	; ø¸ˆ¢™
-    (ucs-jis		. #x89B7)	; ø»‹¼©
+    (=ucs@jis		. #x89B7)	; ø»‹¼©
     ))
 (define-char
   '((morohashi-daikanwa	34969 0 4)
@@ -1712,7 +1712,7 @@
     (korean-ksc5601	. #x5542)	; ø»‰§…
     (chinese-cns11643-1 . #x7B2A)	; ø»“†±
     (ideograph-daikanwa . 34977)	; ø¸ˆ¢¡
-    (ucs-jis		. #x89BD)	; ø½‹¢¼
+    (=ucs@jis		. #x89BD)	; ø½‹¢¼
     ))
 (define-char
   '((morohashi-daikanwa	34977 0 1)
@@ -1785,7 +1785,7 @@
     (shinjigen-2	. 7508)
     (=jis-x0208		. #x6B36)	; ø½‹¢½
     (ideograph-daikanwa . 34984)	; ø¸ˆ¢¨
-    (ucs-jis		. #x89BF)	; ø½‹¢½
+    (=ucs@jis		. #x89BF)	; ø½‹¢½
     ))
 (define-char
   '((morohashi-daikanwa	34984 0 1)
@@ -1892,7 +1892,7 @@
     (total-strokes	 . 24)
     (=jis-x0208		. #x6B37)	; ø½‹¢¾
     (korean-ksc5601	. #x4E3A)	; ø»‰œ«
-    (ucs-jis		. #x89C0)	; ø½‹¢¾
+    (=ucs@jis		. #x89C0)	; ø½‹¢¾
     ))
 (define-char
   '((morohashi-daikanwa	34993 0 3)

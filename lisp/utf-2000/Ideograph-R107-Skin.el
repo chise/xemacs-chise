@@ -454,7 +454,7 @@
     (=jis-x0208		. #x622F)	; ø½‹•¨
     (chinese-cns11643-1 . #x6078)	; ø»’ •
     (ideograph-daikanwa . 22866)	; ø¸…¥’
-    (ucs-jis		. #x76B4)	; ø½‹•¨
+    (=ucs@jis		. #x76B4)	; ø½‹•¨
     ))
 (define-char
   '((morohashi-daikanwa	22866 0 1)

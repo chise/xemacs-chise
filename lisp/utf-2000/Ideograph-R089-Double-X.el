@@ -10,7 +10,7 @@
     (chinese-big5	. #xA4F8)	; ý¢€Š“¸
     (ideograph-daikanwa . 19737)	; ø¸„´™
     (=gt-k		. 00541)	; ý¡„€ˆ
-    (ucs-jis		. #x723B)	; ø½‹’¨
+    (=ucs@jis		. #x723B)	; ø½‹’¨
     ))
 (define-char
   '((morohashi-daikanwa	19737 0 0)

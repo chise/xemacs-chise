@@ -236,7 +236,7 @@
     (=gt-pj-1		. #x6B29)	; ø½‹¢°
     (ideograph-daikanwa . 34778)	; ø¸ˆŸš
     (=gt-k		. 09334)	; ý¡„‚‘¶
-    (ucs-jis		. #x8983)	; ø½‹¢°
+    (=ucs@jis		. #x8983)	; ø½‹¢°
     ))
 (define-char
   '((morohashi-daikanwa	34778 0 3)
@@ -437,7 +437,7 @@
     (shinjigen-2	. 7479)
     (=jis-x0208		. #x6B2A)	; ø½‹¢±
     (ideograph-daikanwa . 34791)	; ø¸ˆŸ§
-    (ucs-jis		. #x8988)	; ø½‹¢±
+    (=ucs@jis		. #x8988)	; ø½‹¢±
     (mojikyo		. 034791)	; ý €ˆŸ§
     ))
 (define-char

@@ -786,7 +786,7 @@
     (japanese-jisx0212	. #x6134)	; ø»Œ‚£
     (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (ideograph-daikanwa . 38702)	; ø¸‰œ®
-    (ucs-jis		. #x8FB6)	; â»
+    (=ucs@jis		. #x8FB6)	; â»
     (=ucs		. #x2ECD)	; â»
     ))
 (define-char

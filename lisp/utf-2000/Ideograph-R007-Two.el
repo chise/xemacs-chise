@@ -708,7 +708,7 @@
     (chinese-big5	. #xAB45)	; ý¢€Š­…
     (ideograph-daikanwa . 00279)	; ø¸€„—
     (=gt-k		. 03851)	; ý¡„€¼‹
-    (ucs-jis		. #x4E9F)	; ø½Š»‘
+    (=ucs@jis		. #x4E9F)	; ø½Š»‘
     (mojikyo		. 000279)	; ý €€„—
     ))
 (define-char

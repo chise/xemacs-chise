@@ -167,7 +167,7 @@
     (ideograph-daikanwa . 09594)	; ø¸‚•º
     (=gt-k		. 02705)	; ý¡„€ª‘
     (=cbeta		. 00020)	; ø¸ €”
-    (ucs-jis		. #x5F03)	; ø½‹… 
+    (=ucs@jis		. #x5F03)	; ø½‹… 
     ))
 (define-char
   '((morohashi-daikanwa	9594 0 0)
@@ -406,7 +406,7 @@
     (chinese-big5	. #xABD9)	; ý¢€Š¯™
     (ideograph-daikanwa . 09611)	; ø¸‚–‹
     (=jef-china3	. #x4CDD)	; øº„³
-    (ucs-jis		. #x5F08)	; ø»‹Œ¸
+    (=ucs@jis		. #x5F08)	; ø»‹Œ¸
     ))
 (define-char
   '((morohashi-daikanwa	9611 0 0)

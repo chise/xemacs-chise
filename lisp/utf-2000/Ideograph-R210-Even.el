@@ -9,7 +9,7 @@
     (=gt-pj-1		. #x736E)	; ø½‹¯¥
     (ideograph-daikanwa . 48560)	; ø¸‹¶°
     (=gt-k		. 11243)	; ý¡„‚¯«
-    (ucs-jis		. #x9F4A)	; ø½‹¯¥
+    (=ucs@jis		. #x9F4A)	; ø½‹¯¥
     (ucs-ks		. #x9F4A)	; ø½‹¯¥
     ))
 (define-char

@@ -322,7 +322,7 @@
     (=jis-x0208		. #x6227)	; ø½‹• 
     (chinese-cns11643-1 . #x5257)	; ø»’‹
     (ideograph-daikanwa . 22705)	; ø¸…¢±
-    (ucs-jis		. #x7688)	; ø½‹• 
+    (=ucs@jis		. #x7688)	; ø½‹• 
     ))
 (define-char
   '((morohashi-daikanwa	22705 0 1)
@@ -512,7 +512,7 @@
     (=jis-x0208		. #x6229)	; ø½‹•¢
     (korean-ksc5601	. #x4E6B)	; ø»‰œ
     (ideograph-daikanwa . 22724)	; ø¸…£„
-    (ucs-jis		. #x768E)	; ø½‹•¢
+    (=ucs@jis		. #x768E)	; ø½‹•¢
     ))
 (define-char
   '((morohashi-daikanwa	22724 0 0)
@@ -552,7 +552,7 @@
     (=gt-pj-1		. #x3B29)	; ø½Šœ
     (ideograph-daikanwa . 22727)	; ø¸…£‡
     (=gt-k		. 07769)	; ý¡„¹™
-    (ucs-jis		. #x7690)	; ø½Šœ
+    (=ucs@jis		. #x7690)	; ø½Šœ
     ))
 (define-char
   '((morohashi-daikanwa	22727 0 2)
@@ -901,7 +901,7 @@
     (=jis-x0213-2-2000	. #x716F)	; ø»¦“®
     (ideograph-daikanwa . 22769)	; ø¸…£±
     (=jef-china3	. #x5BA4)	; øº…®¤
-    (ucs-jis		. #x769C)	; ø»‹¦°
+    (=ucs@jis		. #x769C)	; ø»‹¦°
     ))
 (define-char
   '((morohashi-daikanwa	22769 0 0)
@@ -995,7 +995,7 @@
     (japanese-jisx0212	. #x4E3E)	; ø»‹¦³
     (=jis-x0213-2-2000	. #x7171)	; ø»¦“°
     (ideograph-daikanwa . 22776)	; ø¸…£¸
-    (ucs-jis		. #x76A0)	; ø»‹¦³
+    (=ucs@jis		. #x76A0)	; ø»‹¦³
     ))
 (define-char
   '((morohashi-daikanwa	22776 0 1)
@@ -1135,7 +1135,7 @@
     (japanese-jisx0212	. #x4E42)	; ø»‹¦·
     (chinese-cns11643-3 . #x5557)	; ø»–£²
     (ideograph-daikanwa . 22787)	; ø¸…¤ƒ
-    (ucs-jis		. #x76A5)	; ø»‹¦·
+    (=ucs@jis		. #x76A5)	; ø»‹¦·
     ))
 (define-char
   '((morohashi-daikanwa	22787 0 1)
@@ -1192,7 +1192,7 @@
     (=jis-x0213-1-2000	. #x7864)	; ø»¤“±
     (ideograph-daikanwa . 22792)	; ø¸…¤ˆ
     (=jef-china3	. #x5BA9)	; øº…®©
-    (ucs-jis		. #x76A6)	; ø»‹¦¸
+    (=ucs@jis		. #x76A6)	; ø»‹¦¸
     ))
 (define-char
   '((morohashi-daikanwa	22792 0 0)
@@ -1481,7 +1481,7 @@
     (japanese-jisx0212	. #x4E47)	; ø»‹¦¼
     (ideograph-daikanwa . 22815)	; ø¸…¤Ÿ
     (=jef-china3	. #x5BAB)	; øº…®«
-    (ucs-jis		. #x76AD)	; ø»‹¦¼
+    (=ucs@jis		. #x76AD)	; ø»‹¦¼
     ))
 (define-char
   '((morohashi-daikanwa	22815 0 3)

@@ -61,7 +61,7 @@
     (chinese-big5	. #xA4BF)	; ý¢€Š’¿
     (ideograph-daikanwa . 01803)	; ø¸€œ‹
     (=gt-k		. 00412)	; ý¡„€†œ
-    (ucs-jis		. #x51F6)	; ø½Š”¸
+    (=ucs@jis		. #x51F6)	; ø½Š”¸
     ))
 (define-char
   '((morohashi-daikanwa	1803 0 0)

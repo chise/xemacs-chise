@@ -83,7 +83,7 @@
     (=gt-pj-1		. #x5674)	; ø½‹……
     (ideograph-daikanwa . 09169)	; ø¸‚‘
     (=gt-k		. 01720)	; ý¡„€š¸
-    (ucs-jis		. #x5E75)	; ø½‹……
+    (=ucs@jis		. #x5E75)	; ø½‹……
     ))
 (define-char
   '((morohashi-daikanwa	9169 0 1)
