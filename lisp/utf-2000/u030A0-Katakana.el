@@ -1,1046 +1,1136 @@
 (define-char
   '((name		. "KATAKANA LETTER SMALL A")
-    (ucs		. #x30A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x21)	; ø»‚¸
-    (chinese-gb2312		#x25 #x21)	; ø»„‹¼
-    (japanese-jisx0208		#x25 #x21)	; ø»†–€
-    (korean-ksc5601		#x2B #x21)	; ø»ˆ¨¸
+    (japanese-jisx0208-1978	. #x2521)	; ø»‚¸
+    (chinese-gb2312		. #x2521)	; ø»„‹¼
+    (japanese-jisx0208		. #x2521)	; ø»†–€
+    (korean-ksc5601		. #x2B21)	; ø»ˆ¨¸
+    (japanese-jisx0208-1990	. #x2521)	; ã‚¡
+    (ucs			. #x30A1)	; ã‚¡
     ))
 (define-char
   '((name		. "KATAKANA LETTER A")
-    (ucs		. #x30A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x22)	; ø»‚¹
-    (chinese-gb2312		#x25 #x22)	; ø»„‹½
-    (japanese-jisx0208		#x25 #x22)	; ø»†–
-    (korean-ksc5601		#x2B #x22)	; ø»ˆ¨¹
+    (japanese-jisx0208-1978	. #x2522)	; ø»‚¹
+    (chinese-gb2312		. #x2522)	; ø»„‹½
+    (japanese-jisx0208		. #x2522)	; ø»†–
+    (korean-ksc5601		. #x2B22)	; ø»ˆ¨¹
+    (japanese-jisx0208-1990	. #x2522)	; ã‚¢
+    (ucs			. #x30A2)	; ã‚¢
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL I")
-    (ucs		. #x30A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x23)	; ø»‚º
-    (chinese-gb2312		#x25 #x23)	; ø»„‹¾
-    (japanese-jisx0208		#x25 #x23)	; ø»†–‚
-    (korean-ksc5601		#x2B #x23)	; ø»ˆ¨º
+    (japanese-jisx0208-1978	. #x2523)	; ø»‚º
+    (chinese-gb2312		. #x2523)	; ø»„‹¾
+    (japanese-jisx0208		. #x2523)	; ø»†–‚
+    (korean-ksc5601		. #x2B23)	; ø»ˆ¨º
+    (japanese-jisx0208-1990	. #x2523)	; ã‚£
+    (ucs			. #x30A3)	; ã‚£
     ))
 (define-char
   '((name		. "KATAKANA LETTER I")
-    (ucs		. #x30A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x24)	; ø»‚»
-    (chinese-gb2312		#x25 #x24)	; ø»„‹¿
-    (japanese-jisx0208		#x25 #x24)	; ø»†–ƒ
-    (korean-ksc5601		#x2B #x24)	; ø»ˆ¨»
+    (japanese-jisx0208-1978	. #x2524)	; ø»‚»
+    (chinese-gb2312		. #x2524)	; ø»„‹¿
+    (japanese-jisx0208		. #x2524)	; ø»†–ƒ
+    (korean-ksc5601		. #x2B24)	; ø»ˆ¨»
+    (japanese-jisx0208-1990	. #x2524)	; ã‚¤
+    (ucs			. #x30A4)	; ã‚¤
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL U")
-    (ucs		. #x30A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x25)	; ø»‚¼
-    (chinese-gb2312		#x25 #x25)	; ø»„Œ€
-    (japanese-jisx0208		#x25 #x25)	; ø»†–„
-    (korean-ksc5601		#x2B #x25)	; ø»ˆ¨¼
+    (japanese-jisx0208-1978	. #x2525)	; ø»‚¼
+    (chinese-gb2312		. #x2525)	; ø»„Œ€
+    (japanese-jisx0208		. #x2525)	; ø»†–„
+    (korean-ksc5601		. #x2B25)	; ø»ˆ¨¼
+    (japanese-jisx0208-1990	. #x2525)	; ã‚¥
+    (ucs			. #x30A5)	; ã‚¥
     ))
 (define-char
   '((name		. "KATAKANA LETTER U")
-    (ucs		. #x30A6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x26)	; ø»‚½
-    (chinese-gb2312		#x25 #x26)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x26)	; ø»†–…
-    (korean-ksc5601		#x2B #x26)	; ø»ˆ¨½
+    (japanese-jisx0208-1978	. #x2526)	; ø»‚½
+    (chinese-gb2312		. #x2526)	; ø»„Œ
+    (japanese-jisx0208		. #x2526)	; ø»†–…
+    (korean-ksc5601		. #x2B26)	; ø»ˆ¨½
+    (japanese-jisx0208-1990	. #x2526)	; ã‚¦
+    (ucs			. #x30A6)	; ã‚¦
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL E")
-    (ucs		. #x30A7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x27)	; ø»‚¾
-    (chinese-gb2312		#x25 #x27)	; ø»„Œ‚
-    (japanese-jisx0208		#x25 #x27)	; ø»†–†
-    (korean-ksc5601		#x2B #x27)	; ø»ˆ¨¾
+    (japanese-jisx0208-1978	. #x2527)	; ø»‚¾
+    (chinese-gb2312		. #x2527)	; ø»„Œ‚
+    (japanese-jisx0208		. #x2527)	; ø»†–†
+    (korean-ksc5601		. #x2B27)	; ø»ˆ¨¾
+    (japanese-jisx0208-1990	. #x2527)	; ã‚§
+    (ucs			. #x30A7)	; ã‚§
     ))
 (define-char
   '((name		. "KATAKANA LETTER E")
-    (ucs		. #x30A8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x28)	; ø»‚¿
-    (chinese-gb2312		#x25 #x28)	; ø»„Œƒ
-    (japanese-jisx0208		#x25 #x28)	; ø»†–‡
-    (korean-ksc5601		#x2B #x28)	; ø»ˆ¨¿
+    (japanese-jisx0208-1978	. #x2528)	; ø»‚¿
+    (chinese-gb2312		. #x2528)	; ø»„Œƒ
+    (japanese-jisx0208		. #x2528)	; ø»†–‡
+    (korean-ksc5601		. #x2B28)	; ø»ˆ¨¿
+    (japanese-jisx0208-1990	. #x2528)	; ã‚¨
+    (ucs			. #x30A8)	; ã‚¨
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL O")
-    (ucs		. #x30A9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x29)	; ø»‚‚€
-    (chinese-gb2312		#x25 #x29)	; ø»„Œ„
-    (japanese-jisx0208		#x25 #x29)	; ø»†–ˆ
-    (korean-ksc5601		#x2B #x29)	; ø»ˆ©€
+    (japanese-jisx0208-1978	. #x2529)	; ø»‚‚€
+    (chinese-gb2312		. #x2529)	; ø»„Œ„
+    (japanese-jisx0208		. #x2529)	; ø»†–ˆ
+    (korean-ksc5601		. #x2B29)	; ø»ˆ©€
+    (japanese-jisx0208-1990	. #x2529)	; ã‚©
+    (ucs			. #x30A9)	; ã‚©
     ))
 (define-char
   '((name		. "KATAKANA LETTER O")
-    (ucs		. #x30AA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x2A)	; ø»‚‚
-    (chinese-gb2312		#x25 #x2A)	; ø»„Œ…
-    (japanese-jisx0208		#x25 #x2A)	; ø»†–‰
-    (korean-ksc5601		#x2B #x2A)	; ø»ˆ©
+    (japanese-jisx0208-1978	. #x252A)	; ø»‚‚
+    (chinese-gb2312		. #x252A)	; ø»„Œ…
+    (japanese-jisx0208		. #x252A)	; ø»†–‰
+    (korean-ksc5601		. #x2B2A)	; ø»ˆ©
+    (japanese-jisx0208-1990	. #x252A)	; ã‚ª
+    (ucs			. #x30AA)	; ã‚ª
     ))
 (define-char
   '((name		. "KATAKANA LETTER KA")
-    (ucs		. #x30AB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x2B)	; ø»‚‚‚
-    (chinese-gb2312		#x25 #x2B)	; ø»„Œ†
-    (japanese-jisx0208		#x25 #x2B)	; ø»†–Š
-    (korean-ksc5601		#x2B #x2B)	; ø»ˆ©‚
+    (japanese-jisx0208-1978	. #x252B)	; ø»‚‚‚
+    (chinese-gb2312		. #x252B)	; ø»„Œ†
+    (japanese-jisx0208		. #x252B)	; ø»†–Š
+    (korean-ksc5601		. #x2B2B)	; ø»ˆ©‚
+    (japanese-jisx0208-1990	. #x252B)	; ã‚«
+    (ucs			. #x30AB)	; ã‚«
     ))
 (define-char
   '((name		. "KATAKANA LETTER GA")
-    (ucs		. #x30AC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30AB #x3099)
-    (japanese-jisx0208-1978	#x25 #x2C)	; ø»‚‚ƒ
-    (chinese-gb2312		#x25 #x2C)	; ø»„Œ‡
-    (japanese-jisx0208		#x25 #x2C)	; ø»†–‹
-    (korean-ksc5601		#x2B #x2C)	; ø»ˆ©ƒ
+    (japanese-jisx0208-1978	. #x252C)	; ø»‚‚ƒ
+    (chinese-gb2312		. #x252C)	; ø»„Œ‡
+    (japanese-jisx0208		. #x252C)	; ø»†–‹
+    (korean-ksc5601		. #x2B2C)	; ø»ˆ©ƒ
+    (japanese-jisx0208-1990	. #x252C)	; ã‚¬
+    (ucs			. #x30AC)	; ã‚¬
     ))
 (define-char
   '((name		. "KATAKANA LETTER KI")
-    (ucs		. #x30AD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x2D)	; ø»‚‚„
-    (chinese-gb2312		#x25 #x2D)	; ø»„Œˆ
-    (japanese-jisx0208		#x25 #x2D)	; ø»†–Œ
-    (korean-ksc5601		#x2B #x2D)	; ø»ˆ©„
+    (japanese-jisx0208-1978	. #x252D)	; ø»‚‚„
+    (chinese-gb2312		. #x252D)	; ø»„Œˆ
+    (japanese-jisx0208		. #x252D)	; ø»†–Œ
+    (korean-ksc5601		. #x2B2D)	; ø»ˆ©„
+    (japanese-jisx0208-1990	. #x252D)	; ã‚­
+    (ucs			. #x30AD)	; ã‚­
     ))
 (define-char
   '((name		. "KATAKANA LETTER GI")
-    (ucs		. #x30AE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30AD #x3099)
-    (japanese-jisx0208-1978	#x25 #x2E)	; ø»‚‚…
-    (chinese-gb2312		#x25 #x2E)	; ø»„Œ‰
-    (japanese-jisx0208		#x25 #x2E)	; ø»†–
-    (korean-ksc5601		#x2B #x2E)	; ø»ˆ©…
+    (japanese-jisx0208-1978	. #x252E)	; ø»‚‚…
+    (chinese-gb2312		. #x252E)	; ø»„Œ‰
+    (japanese-jisx0208		. #x252E)	; ø»†–
+    (korean-ksc5601		. #x2B2E)	; ø»ˆ©…
+    (japanese-jisx0208-1990	. #x252E)	; ã‚®
+    (ucs			. #x30AE)	; ã‚®
     ))
 (define-char
   '((name		. "KATAKANA LETTER KU")
-    (ucs		. #x30AF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x2F)	; ø»‚‚†
-    (chinese-gb2312		#x25 #x2F)	; ø»„ŒŠ
-    (japanese-jisx0208		#x25 #x2F)	; ø»†–Ž
-    (korean-ksc5601		#x2B #x2F)	; ø»ˆ©†
+    (japanese-jisx0208-1978	. #x252F)	; ø»‚‚†
+    (chinese-gb2312		. #x252F)	; ø»„ŒŠ
+    (japanese-jisx0208		. #x252F)	; ø»†–Ž
+    (korean-ksc5601		. #x2B2F)	; ø»ˆ©†
+    (japanese-jisx0208-1990	. #x252F)	; ã‚¯
+    (ucs			. #x30AF)	; ã‚¯
     ))
 (define-char
   '((name		. "KATAKANA LETTER GU")
-    (ucs		. #x30B0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30AF #x3099)
-    (japanese-jisx0208-1978	#x25 #x30)	; ø»‚‚‡
-    (chinese-gb2312		#x25 #x30)	; ø»„Œ‹
-    (japanese-jisx0208		#x25 #x30)	; ø»†–
-    (korean-ksc5601		#x2B #x30)	; ø»ˆ©‡
+    (japanese-jisx0208-1978	. #x2530)	; ø»‚‚‡
+    (chinese-gb2312		. #x2530)	; ø»„Œ‹
+    (japanese-jisx0208		. #x2530)	; ø»†–
+    (korean-ksc5601		. #x2B30)	; ø»ˆ©‡
+    (japanese-jisx0208-1990	. #x2530)	; ã‚°
+    (ucs			. #x30B0)	; ã‚°
     ))
 (define-char
   '((name		. "KATAKANA LETTER KE")
-    (ucs		. #x30B1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x31)	; ø»‚‚ˆ
-    (chinese-gb2312		#x25 #x31)	; ø»„ŒŒ
-    (japanese-jisx0208		#x25 #x31)	; ø»†–
-    (korean-ksc5601		#x2B #x31)	; ø»ˆ©ˆ
+    (japanese-jisx0208-1978	. #x2531)	; ø»‚‚ˆ
+    (chinese-gb2312		. #x2531)	; ø»„ŒŒ
+    (japanese-jisx0208		. #x2531)	; ø»†–
+    (korean-ksc5601		. #x2B31)	; ø»ˆ©ˆ
+    (japanese-jisx0208-1990	. #x2531)	; ã‚±
+    (ucs			. #x30B1)	; ã‚±
     ))
 (define-char
   '((name		. "KATAKANA LETTER GE")
-    (ucs		. #x30B2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30B1 #x3099)
-    (japanese-jisx0208-1978	#x25 #x32)	; ø»‚‚‰
-    (chinese-gb2312		#x25 #x32)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x32)	; ø»†–‘
-    (korean-ksc5601		#x2B #x32)	; ø»ˆ©‰
+    (japanese-jisx0208-1978	. #x2532)	; ø»‚‚‰
+    (chinese-gb2312		. #x2532)	; ø»„Œ
+    (japanese-jisx0208		. #x2532)	; ø»†–‘
+    (korean-ksc5601		. #x2B32)	; ø»ˆ©‰
+    (japanese-jisx0208-1990	. #x2532)	; ã‚²
+    (ucs			. #x30B2)	; ã‚²
     ))
 (define-char
   '((name		. "KATAKANA LETTER KO")
-    (ucs		. #x30B3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x33)	; ø»‚‚Š
-    (chinese-gb2312		#x25 #x33)	; ø»„ŒŽ
-    (japanese-jisx0208		#x25 #x33)	; ø»†–’
-    (korean-ksc5601		#x2B #x33)	; ø»ˆ©Š
+    (japanese-jisx0208-1978	. #x2533)	; ø»‚‚Š
+    (chinese-gb2312		. #x2533)	; ø»„ŒŽ
+    (japanese-jisx0208		. #x2533)	; ø»†–’
+    (korean-ksc5601		. #x2B33)	; ø»ˆ©Š
+    (japanese-jisx0208-1990	. #x2533)	; ã‚³
+    (ucs			. #x30B3)	; ã‚³
     ))
 (define-char
   '((name		. "KATAKANA LETTER GO")
-    (ucs		. #x30B4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30B3 #x3099)
-    (japanese-jisx0208-1978	#x25 #x34)	; ø»‚‚‹
-    (chinese-gb2312		#x25 #x34)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x34)	; ø»†–“
-    (korean-ksc5601		#x2B #x34)	; ø»ˆ©‹
+    (japanese-jisx0208-1978	. #x2534)	; ø»‚‚‹
+    (chinese-gb2312		. #x2534)	; ø»„Œ
+    (japanese-jisx0208		. #x2534)	; ø»†–“
+    (korean-ksc5601		. #x2B34)	; ø»ˆ©‹
+    (japanese-jisx0208-1990	. #x2534)	; ã‚´
+    (ucs			. #x30B4)	; ã‚´
     ))
 (define-char
   '((name		. "KATAKANA LETTER SA")
-    (ucs		. #x30B5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x35)	; ø»‚‚Œ
-    (chinese-gb2312		#x25 #x35)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x35)	; ø»†–”
-    (korean-ksc5601		#x2B #x35)	; ø»ˆ©Œ
+    (japanese-jisx0208-1978	. #x2535)	; ø»‚‚Œ
+    (chinese-gb2312		. #x2535)	; ø»„Œ
+    (japanese-jisx0208		. #x2535)	; ø»†–”
+    (korean-ksc5601		. #x2B35)	; ø»ˆ©Œ
+    (japanese-jisx0208-1990	. #x2535)	; ã‚µ
+    (ucs			. #x30B5)	; ã‚µ
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZA")
-    (ucs		. #x30B6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30B5 #x3099)
-    (japanese-jisx0208-1978	#x25 #x36)	; ø»‚‚
-    (chinese-gb2312		#x25 #x36)	; ø»„Œ‘
-    (japanese-jisx0208		#x25 #x36)	; ø»†–•
-    (korean-ksc5601		#x2B #x36)	; ø»ˆ©
+    (japanese-jisx0208-1978	. #x2536)	; ø»‚‚
+    (chinese-gb2312		. #x2536)	; ø»„Œ‘
+    (japanese-jisx0208		. #x2536)	; ø»†–•
+    (korean-ksc5601		. #x2B36)	; ø»ˆ©
+    (japanese-jisx0208-1990	. #x2536)	; ã‚¶
+    (ucs			. #x30B6)	; ã‚¶
     ))
 (define-char
   '((name		. "KATAKANA LETTER SI")
-    (ucs		. #x30B7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x37)	; ø»‚‚Ž
-    (chinese-gb2312		#x25 #x37)	; ø»„Œ’
-    (japanese-jisx0208		#x25 #x37)	; ø»†––
-    (korean-ksc5601		#x2B #x37)	; ø»ˆ©Ž
+    (japanese-jisx0208-1978	. #x2537)	; ø»‚‚Ž
+    (chinese-gb2312		. #x2537)	; ø»„Œ’
+    (japanese-jisx0208		. #x2537)	; ø»†––
+    (korean-ksc5601		. #x2B37)	; ø»ˆ©Ž
+    (japanese-jisx0208-1990	. #x2537)	; ã‚·
+    (ucs			. #x30B7)	; ã‚·
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZI")
-    (ucs		. #x30B8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30B7 #x3099)
-    (japanese-jisx0208-1978	#x25 #x38)	; ø»‚‚
-    (chinese-gb2312		#x25 #x38)	; ø»„Œ“
-    (japanese-jisx0208		#x25 #x38)	; ø»†–—
-    (korean-ksc5601		#x2B #x38)	; ø»ˆ©
+    (japanese-jisx0208-1978	. #x2538)	; ø»‚‚
+    (chinese-gb2312		. #x2538)	; ø»„Œ“
+    (japanese-jisx0208		. #x2538)	; ø»†–—
+    (korean-ksc5601		. #x2B38)	; ø»ˆ©
+    (japanese-jisx0208-1990	. #x2538)	; ã‚¸
+    (ucs			. #x30B8)	; ã‚¸
     ))
 (define-char
   '((name		. "KATAKANA LETTER SU")
-    (ucs		. #x30B9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x39)	; ø»‚‚
-    (chinese-gb2312		#x25 #x39)	; ø»„Œ”
-    (japanese-jisx0208		#x25 #x39)	; ø»†–˜
-    (korean-ksc5601		#x2B #x39)	; ø»ˆ©
+    (japanese-jisx0208-1978	. #x2539)	; ø»‚‚
+    (chinese-gb2312		. #x2539)	; ø»„Œ”
+    (japanese-jisx0208		. #x2539)	; ø»†–˜
+    (korean-ksc5601		. #x2B39)	; ø»ˆ©
+    (japanese-jisx0208-1990	. #x2539)	; ã‚¹
+    (ucs			. #x30B9)	; ã‚¹
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZU")
-    (ucs		. #x30BA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30B9 #x3099)
-    (japanese-jisx0208-1978	#x25 #x3A)	; ø»‚‚‘
-    (chinese-gb2312		#x25 #x3A)	; ø»„Œ•
-    (japanese-jisx0208		#x25 #x3A)	; ø»†–™
-    (korean-ksc5601		#x2B #x3A)	; ø»ˆ©‘
+    (japanese-jisx0208-1978	. #x253A)	; ø»‚‚‘
+    (chinese-gb2312		. #x253A)	; ø»„Œ•
+    (japanese-jisx0208		. #x253A)	; ø»†–™
+    (korean-ksc5601		. #x2B3A)	; ø»ˆ©‘
+    (japanese-jisx0208-1990	. #x253A)	; ã‚º
+    (ucs			. #x30BA)	; ã‚º
     ))
 (define-char
   '((name		. "KATAKANA LETTER SE")
-    (ucs		. #x30BB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x3B)	; ø»‚‚’
-    (chinese-gb2312		#x25 #x3B)	; ø»„Œ–
-    (japanese-jisx0208		#x25 #x3B)	; ø»†–š
-    (korean-ksc5601		#x2B #x3B)	; ø»ˆ©’
+    (japanese-jisx0208-1978	. #x253B)	; ø»‚‚’
+    (chinese-gb2312		. #x253B)	; ø»„Œ–
+    (japanese-jisx0208		. #x253B)	; ø»†–š
+    (korean-ksc5601		. #x2B3B)	; ø»ˆ©’
+    (japanese-jisx0208-1990	. #x253B)	; ã‚»
+    (ucs			. #x30BB)	; ã‚»
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZE")
-    (ucs		. #x30BC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30BB #x3099)
-    (japanese-jisx0208-1978	#x25 #x3C)	; ø»‚‚“
-    (chinese-gb2312		#x25 #x3C)	; ø»„Œ—
-    (japanese-jisx0208		#x25 #x3C)	; ø»†–›
-    (korean-ksc5601		#x2B #x3C)	; ø»ˆ©“
+    (japanese-jisx0208-1978	. #x253C)	; ø»‚‚“
+    (chinese-gb2312		. #x253C)	; ø»„Œ—
+    (japanese-jisx0208		. #x253C)	; ø»†–›
+    (korean-ksc5601		. #x2B3C)	; ø»ˆ©“
+    (japanese-jisx0208-1990	. #x253C)	; ã‚¼
+    (ucs			. #x30BC)	; ã‚¼
     ))
 (define-char
   '((name		. "KATAKANA LETTER SO")
-    (ucs		. #x30BD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x3D)	; ø»‚‚”
-    (chinese-gb2312		#x25 #x3D)	; ø»„Œ˜
-    (japanese-jisx0208		#x25 #x3D)	; ø»†–œ
-    (korean-ksc5601		#x2B #x3D)	; ø»ˆ©”
+    (japanese-jisx0208-1978	. #x253D)	; ø»‚‚”
+    (chinese-gb2312		. #x253D)	; ø»„Œ˜
+    (japanese-jisx0208		. #x253D)	; ø»†–œ
+    (korean-ksc5601		. #x2B3D)	; ø»ˆ©”
+    (japanese-jisx0208-1990	. #x253D)	; ã‚½
+    (ucs			. #x30BD)	; ã‚½
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZO")
-    (ucs		. #x30BE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30BD #x3099)
-    (japanese-jisx0208-1978	#x25 #x3E)	; ø»‚‚•
-    (chinese-gb2312		#x25 #x3E)	; ø»„Œ™
-    (japanese-jisx0208		#x25 #x3E)	; ø»†–
-    (korean-ksc5601		#x2B #x3E)	; ø»ˆ©•
+    (japanese-jisx0208-1978	. #x253E)	; ø»‚‚•
+    (chinese-gb2312		. #x253E)	; ø»„Œ™
+    (japanese-jisx0208		. #x253E)	; ø»†–
+    (korean-ksc5601		. #x2B3E)	; ø»ˆ©•
+    (japanese-jisx0208-1990	. #x253E)	; ã‚¾
+    (ucs			. #x30BE)	; ã‚¾
     ))
 (define-char
   '((name		. "KATAKANA LETTER TA")
-    (ucs		. #x30BF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x3F)	; ø»‚‚–
-    (chinese-gb2312		#x25 #x3F)	; ø»„Œš
-    (japanese-jisx0208		#x25 #x3F)	; ø»†–ž
-    (korean-ksc5601		#x2B #x3F)	; ø»ˆ©–
+    (japanese-jisx0208-1978	. #x253F)	; ø»‚‚–
+    (chinese-gb2312		. #x253F)	; ø»„Œš
+    (japanese-jisx0208		. #x253F)	; ø»†–ž
+    (korean-ksc5601		. #x2B3F)	; ø»ˆ©–
+    (japanese-jisx0208-1990	. #x253F)	; ã‚¿
+    (ucs			. #x30BF)	; ã‚¿
     ))
 (define-char
   '((name		. "KATAKANA LETTER DA")
-    (ucs		. #x30C0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30BF #x3099)
-    (japanese-jisx0208-1978	#x25 #x40)	; ø»‚‚—
-    (chinese-gb2312		#x25 #x40)	; ø»„Œ›
-    (japanese-jisx0208		#x25 #x40)	; ø»†–Ÿ
-    (korean-ksc5601		#x2B #x40)	; ø»ˆ©—
+    (japanese-jisx0208-1978	. #x2540)	; ø»‚‚—
+    (chinese-gb2312		. #x2540)	; ø»„Œ›
+    (japanese-jisx0208		. #x2540)	; ø»†–Ÿ
+    (korean-ksc5601		. #x2B40)	; ø»ˆ©—
+    (japanese-jisx0208-1990	. #x2540)	; ãƒ€
+    (ucs			. #x30C0)	; ãƒ€
     ))
 (define-char
   '((name		. "KATAKANA LETTER TI")
-    (ucs		. #x30C1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x41)	; ø»‚‚˜
-    (chinese-gb2312		#x25 #x41)	; ø»„Œœ
-    (japanese-jisx0208		#x25 #x41)	; ø»†– 
-    (korean-ksc5601		#x2B #x41)	; ø»ˆ©˜
+    (japanese-jisx0208-1978	. #x2541)	; ø»‚‚˜
+    (chinese-gb2312		. #x2541)	; ø»„Œœ
+    (japanese-jisx0208		. #x2541)	; ø»†– 
+    (korean-ksc5601		. #x2B41)	; ø»ˆ©˜
+    (japanese-jisx0208-1990	. #x2541)	; ãƒ
+    (ucs			. #x30C1)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER DI")
-    (ucs		. #x30C2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30C1 #x3099)
-    (japanese-jisx0208-1978	#x25 #x42)	; ø»‚‚™
-    (chinese-gb2312		#x25 #x42)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x42)	; ø»†–¡
-    (korean-ksc5601		#x2B #x42)	; ø»ˆ©™
+    (japanese-jisx0208-1978	. #x2542)	; ø»‚‚™
+    (chinese-gb2312		. #x2542)	; ø»„Œ
+    (japanese-jisx0208		. #x2542)	; ø»†–¡
+    (korean-ksc5601		. #x2B42)	; ø»ˆ©™
+    (japanese-jisx0208-1990	. #x2542)	; ãƒ‚
+    (ucs			. #x30C2)	; ãƒ‚
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL TU")
-    (ucs		. #x30C3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x43)	; ø»‚‚š
-    (chinese-gb2312		#x25 #x43)	; ø»„Œž
-    (japanese-jisx0208		#x25 #x43)	; ø»†–¢
-    (korean-ksc5601		#x2B #x43)	; ø»ˆ©š
+    (japanese-jisx0208-1978	. #x2543)	; ø»‚‚š
+    (chinese-gb2312		. #x2543)	; ø»„Œž
+    (japanese-jisx0208		. #x2543)	; ø»†–¢
+    (korean-ksc5601		. #x2B43)	; ø»ˆ©š
+    (japanese-jisx0208-1990	. #x2543)	; ãƒƒ
+    (ucs			. #x30C3)	; ãƒƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER TU")
-    (ucs		. #x30C4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x44)	; ø»‚‚›
-    (chinese-gb2312		#x25 #x44)	; ø»„ŒŸ
-    (japanese-jisx0208		#x25 #x44)	; ø»†–£
-    (korean-ksc5601		#x2B #x44)	; ø»ˆ©›
+    (japanese-jisx0208-1978	. #x2544)	; ø»‚‚›
+    (chinese-gb2312		. #x2544)	; ø»„ŒŸ
+    (japanese-jisx0208		. #x2544)	; ø»†–£
+    (korean-ksc5601		. #x2B44)	; ø»ˆ©›
+    (japanese-jisx0208-1990	. #x2544)	; ãƒ„
+    (ucs			. #x30C4)	; ãƒ„
     ))
 (define-char
   '((name		. "KATAKANA LETTER DU")
-    (ucs		. #x30C5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30C4 #x3099)
-    (japanese-jisx0208-1978	#x25 #x45)	; ø»‚‚œ
-    (chinese-gb2312		#x25 #x45)	; ø»„Œ 
-    (japanese-jisx0208		#x25 #x45)	; ø»†–¤
-    (korean-ksc5601		#x2B #x45)	; ø»ˆ©œ
+    (japanese-jisx0208-1978	. #x2545)	; ø»‚‚œ
+    (chinese-gb2312		. #x2545)	; ø»„Œ 
+    (japanese-jisx0208		. #x2545)	; ø»†–¤
+    (korean-ksc5601		. #x2B45)	; ø»ˆ©œ
+    (japanese-jisx0208-1990	. #x2545)	; ãƒ…
+    (ucs			. #x30C5)	; ãƒ…
     ))
 (define-char
   '((name		. "KATAKANA LETTER TE")
-    (ucs		. #x30C6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x46)	; ø»‚‚
-    (chinese-gb2312		#x25 #x46)	; ø»„Œ¡
-    (japanese-jisx0208		#x25 #x46)	; ø»†–¥
-    (korean-ksc5601		#x2B #x46)	; ø»ˆ©
+    (japanese-jisx0208-1978	. #x2546)	; ø»‚‚
+    (chinese-gb2312		. #x2546)	; ø»„Œ¡
+    (japanese-jisx0208		. #x2546)	; ø»†–¥
+    (korean-ksc5601		. #x2B46)	; ø»ˆ©
+    (japanese-jisx0208-1990	. #x2546)	; ãƒ†
+    (ucs			. #x30C6)	; ãƒ†
     ))
 (define-char
   '((name		. "KATAKANA LETTER DE")
-    (ucs		. #x30C7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30C6 #x3099)
-    (japanese-jisx0208-1978	#x25 #x47)	; ø»‚‚ž
-    (chinese-gb2312		#x25 #x47)	; ø»„Œ¢
-    (japanese-jisx0208		#x25 #x47)	; ø»†–¦
-    (korean-ksc5601		#x2B #x47)	; ø»ˆ©ž
+    (japanese-jisx0208-1978	. #x2547)	; ø»‚‚ž
+    (chinese-gb2312		. #x2547)	; ø»„Œ¢
+    (japanese-jisx0208		. #x2547)	; ø»†–¦
+    (korean-ksc5601		. #x2B47)	; ø»ˆ©ž
+    (japanese-jisx0208-1990	. #x2547)	; ãƒ‡
+    (ucs			. #x30C7)	; ãƒ‡
     ))
 (define-char
   '((name		. "KATAKANA LETTER TO")
-    (ucs		. #x30C8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x48)	; ø»‚‚Ÿ
-    (chinese-gb2312		#x25 #x48)	; ø»„Œ£
-    (japanese-jisx0208		#x25 #x48)	; ø»†–§
-    (korean-ksc5601		#x2B #x48)	; ø»ˆ©Ÿ
+    (japanese-jisx0208-1978	. #x2548)	; ø»‚‚Ÿ
+    (chinese-gb2312		. #x2548)	; ø»„Œ£
+    (japanese-jisx0208		. #x2548)	; ø»†–§
+    (korean-ksc5601		. #x2B48)	; ø»ˆ©Ÿ
+    (japanese-jisx0208-1990	. #x2548)	; ãƒˆ
+    (ucs			. #x30C8)	; ãƒˆ
     ))
 (define-char
   '((name		. "KATAKANA LETTER DO")
-    (ucs		. #x30C9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30C8 #x3099)
-    (japanese-jisx0208-1978	#x25 #x49)	; ø»‚‚ 
-    (chinese-gb2312		#x25 #x49)	; ø»„Œ¤
-    (japanese-jisx0208		#x25 #x49)	; ø»†–¨
-    (korean-ksc5601		#x2B #x49)	; ø»ˆ© 
+    (japanese-jisx0208-1978	. #x2549)	; ø»‚‚ 
+    (chinese-gb2312		. #x2549)	; ø»„Œ¤
+    (japanese-jisx0208		. #x2549)	; ø»†–¨
+    (korean-ksc5601		. #x2B49)	; ø»ˆ© 
+    (japanese-jisx0208-1990	. #x2549)	; ãƒ‰
+    (ucs			. #x30C9)	; ãƒ‰
     ))
 (define-char
   '((name		. "KATAKANA LETTER NA")
-    (ucs		. #x30CA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4A)	; ø»‚‚¡
-    (chinese-gb2312		#x25 #x4A)	; ø»„Œ¥
-    (japanese-jisx0208		#x25 #x4A)	; ø»†–©
-    (korean-ksc5601		#x2B #x4A)	; ø»ˆ©¡
+    (japanese-jisx0208-1978	. #x254A)	; ø»‚‚¡
+    (chinese-gb2312		. #x254A)	; ø»„Œ¥
+    (japanese-jisx0208		. #x254A)	; ø»†–©
+    (korean-ksc5601		. #x2B4A)	; ø»ˆ©¡
+    (japanese-jisx0208-1990	. #x254A)	; ãƒŠ
+    (ucs			. #x30CA)	; ãƒŠ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NI")
-    (ucs		. #x30CB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4B)	; ø»‚‚¢
-    (chinese-gb2312		#x25 #x4B)	; ø»„Œ¦
-    (japanese-jisx0208		#x25 #x4B)	; ø»†–ª
-    (korean-ksc5601		#x2B #x4B)	; ø»ˆ©¢
+    (japanese-jisx0208-1978	. #x254B)	; ø»‚‚¢
+    (chinese-gb2312		. #x254B)	; ø»„Œ¦
+    (japanese-jisx0208		. #x254B)	; ø»†–ª
+    (korean-ksc5601		. #x2B4B)	; ø»ˆ©¢
+    (japanese-jisx0208-1990	. #x254B)	; ãƒ‹
+    (ucs			. #x30CB)	; ãƒ‹
     ))
 (define-char
   '((name		. "KATAKANA LETTER NU")
-    (ucs		. #x30CC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4C)	; ø»‚‚£
-    (chinese-gb2312		#x25 #x4C)	; ø»„Œ§
-    (japanese-jisx0208		#x25 #x4C)	; ø»†–«
-    (korean-ksc5601		#x2B #x4C)	; ø»ˆ©£
+    (japanese-jisx0208-1978	. #x254C)	; ø»‚‚£
+    (chinese-gb2312		. #x254C)	; ø»„Œ§
+    (japanese-jisx0208		. #x254C)	; ø»†–«
+    (korean-ksc5601		. #x2B4C)	; ø»ˆ©£
+    (japanese-jisx0208-1990	. #x254C)	; ãƒŒ
+    (ucs			. #x30CC)	; ãƒŒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NE")
-    (ucs		. #x30CD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4D)	; ø»‚‚¤
-    (chinese-gb2312		#x25 #x4D)	; ø»„Œ¨
-    (japanese-jisx0208		#x25 #x4D)	; ø»†–¬
-    (korean-ksc5601		#x2B #x4D)	; ø»ˆ©¤
+    (japanese-jisx0208-1978	. #x254D)	; ø»‚‚¤
+    (chinese-gb2312		. #x254D)	; ø»„Œ¨
+    (japanese-jisx0208		. #x254D)	; ø»†–¬
+    (korean-ksc5601		. #x2B4D)	; ø»ˆ©¤
+    (japanese-jisx0208-1990	. #x254D)	; ãƒ
+    (ucs			. #x30CD)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NO")
-    (ucs		. #x30CE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4E)	; ø»‚‚¥
-    (chinese-gb2312		#x25 #x4E)	; ø»„Œ©
-    (japanese-jisx0208		#x25 #x4E)	; ø»†–­
-    (korean-ksc5601		#x2B #x4E)	; ø»ˆ©¥
+    (japanese-jisx0208-1978	. #x254E)	; ø»‚‚¥
+    (chinese-gb2312		. #x254E)	; ø»„Œ©
+    (japanese-jisx0208		. #x254E)	; ø»†–­
+    (korean-ksc5601		. #x2B4E)	; ø»ˆ©¥
+    (japanese-jisx0208-1990	. #x254E)	; ãƒŽ
+    (ucs			. #x30CE)	; ãƒŽ
     ))
 (define-char
   '((name		. "KATAKANA LETTER HA")
-    (ucs		. #x30CF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x4F)	; ø»‚‚¦
-    (chinese-gb2312		#x25 #x4F)	; ø»„Œª
-    (japanese-jisx0208		#x25 #x4F)	; ø»†–®
-    (korean-ksc5601		#x2B #x4F)	; ø»ˆ©¦
+    (japanese-jisx0208-1978	. #x254F)	; ø»‚‚¦
+    (chinese-gb2312		. #x254F)	; ø»„Œª
+    (japanese-jisx0208		. #x254F)	; ø»†–®
+    (korean-ksc5601		. #x2B4F)	; ø»ˆ©¦
+    (japanese-jisx0208-1990	. #x254F)	; ãƒ
+    (ucs			. #x30CF)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER BA")
-    (ucs		. #x30D0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30CF #x3099)
-    (japanese-jisx0208-1978	#x25 #x50)	; ø»‚‚§
-    (chinese-gb2312		#x25 #x50)	; ø»„Œ«
-    (japanese-jisx0208		#x25 #x50)	; ø»†–¯
-    (korean-ksc5601		#x2B #x50)	; ø»ˆ©§
+    (japanese-jisx0208-1978	. #x2550)	; ø»‚‚§
+    (chinese-gb2312		. #x2550)	; ø»„Œ«
+    (japanese-jisx0208		. #x2550)	; ø»†–¯
+    (korean-ksc5601		. #x2B50)	; ø»ˆ©§
+    (japanese-jisx0208-1990	. #x2550)	; ãƒ
+    (ucs			. #x30D0)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER PA")
-    (ucs		. #x30D1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30CF #x309A)
-    (japanese-jisx0208-1978	#x25 #x51)	; ø»‚‚¨
-    (chinese-gb2312		#x25 #x51)	; ø»„Œ¬
-    (japanese-jisx0208		#x25 #x51)	; ø»†–°
-    (korean-ksc5601		#x2B #x51)	; ø»ˆ©¨
+    (japanese-jisx0208-1978	. #x2551)	; ø»‚‚¨
+    (chinese-gb2312		. #x2551)	; ø»„Œ¬
+    (japanese-jisx0208		. #x2551)	; ø»†–°
+    (korean-ksc5601		. #x2B51)	; ø»ˆ©¨
+    (japanese-jisx0208-1990	. #x2551)	; ãƒ‘
+    (ucs			. #x30D1)	; ãƒ‘
     ))
 (define-char
   '((name		. "KATAKANA LETTER HI")
-    (ucs		. #x30D2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x52)	; ø»‚‚©
-    (chinese-gb2312		#x25 #x52)	; ø»„Œ­
-    (japanese-jisx0208		#x25 #x52)	; ø»†–±
-    (korean-ksc5601		#x2B #x52)	; ø»ˆ©©
+    (japanese-jisx0208-1978	. #x2552)	; ø»‚‚©
+    (chinese-gb2312		. #x2552)	; ø»„Œ­
+    (japanese-jisx0208		. #x2552)	; ø»†–±
+    (korean-ksc5601		. #x2B52)	; ø»ˆ©©
+    (japanese-jisx0208-1990	. #x2552)	; ãƒ’
+    (ucs			. #x30D2)	; ãƒ’
     ))
 (define-char
   '((name		. "KATAKANA LETTER BI")
-    (ucs		. #x30D3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D2 #x3099)
-    (japanese-jisx0208-1978	#x25 #x53)	; ø»‚‚ª
-    (chinese-gb2312		#x25 #x53)	; ø»„Œ®
-    (japanese-jisx0208		#x25 #x53)	; ø»†–²
-    (korean-ksc5601		#x2B #x53)	; ø»ˆ©ª
+    (japanese-jisx0208-1978	. #x2553)	; ø»‚‚ª
+    (chinese-gb2312		. #x2553)	; ø»„Œ®
+    (japanese-jisx0208		. #x2553)	; ø»†–²
+    (korean-ksc5601		. #x2B53)	; ø»ˆ©ª
+    (japanese-jisx0208-1990	. #x2553)	; ãƒ“
+    (ucs			. #x30D3)	; ãƒ“
     ))
 (define-char
   '((name		. "KATAKANA LETTER PI")
-    (ucs		. #x30D4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D2 #x309A)
-    (japanese-jisx0208-1978	#x25 #x54)	; ø»‚‚«
-    (chinese-gb2312		#x25 #x54)	; ø»„Œ¯
-    (japanese-jisx0208		#x25 #x54)	; ø»†–³
-    (korean-ksc5601		#x2B #x54)	; ø»ˆ©«
+    (japanese-jisx0208-1978	. #x2554)	; ø»‚‚«
+    (chinese-gb2312		. #x2554)	; ø»„Œ¯
+    (japanese-jisx0208		. #x2554)	; ø»†–³
+    (korean-ksc5601		. #x2B54)	; ø»ˆ©«
+    (japanese-jisx0208-1990	. #x2554)	; ãƒ”
+    (ucs			. #x30D4)	; ãƒ”
     ))
 (define-char
   '((name		. "KATAKANA LETTER HU")
-    (ucs		. #x30D5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x55)	; ø»‚‚¬
-    (chinese-gb2312		#x25 #x55)	; ø»„Œ°
-    (japanese-jisx0208		#x25 #x55)	; ø»†–´
-    (korean-ksc5601		#x2B #x55)	; ø»ˆ©¬
+    (japanese-jisx0208-1978	. #x2555)	; ø»‚‚¬
+    (chinese-gb2312		. #x2555)	; ø»„Œ°
+    (japanese-jisx0208		. #x2555)	; ø»†–´
+    (korean-ksc5601		. #x2B55)	; ø»ˆ©¬
+    (japanese-jisx0208-1990	. #x2555)	; ãƒ•
+    (ucs			. #x30D5)	; ãƒ•
     ))
 (define-char
   '((name		. "KATAKANA LETTER BU")
-    (ucs		. #x30D6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D5 #x3099)
-    (japanese-jisx0208-1978	#x25 #x56)	; ø»‚‚­
-    (chinese-gb2312		#x25 #x56)	; ø»„Œ±
-    (japanese-jisx0208		#x25 #x56)	; ø»†–µ
-    (korean-ksc5601		#x2B #x56)	; ø»ˆ©­
+    (japanese-jisx0208-1978	. #x2556)	; ø»‚‚­
+    (chinese-gb2312		. #x2556)	; ø»„Œ±
+    (japanese-jisx0208		. #x2556)	; ø»†–µ
+    (korean-ksc5601		. #x2B56)	; ø»ˆ©­
+    (japanese-jisx0208-1990	. #x2556)	; ãƒ–
+    (ucs			. #x30D6)	; ãƒ–
     ))
 (define-char
   '((name		. "KATAKANA LETTER PU")
-    (ucs		. #x30D7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D5 #x309A)
-    (japanese-jisx0208-1978	#x25 #x57)	; ø»‚‚®
-    (chinese-gb2312		#x25 #x57)	; ø»„Œ²
-    (japanese-jisx0208		#x25 #x57)	; ø»†–¶
-    (korean-ksc5601		#x2B #x57)	; ø»ˆ©®
+    (japanese-jisx0208-1978	. #x2557)	; ø»‚‚®
+    (chinese-gb2312		. #x2557)	; ø»„Œ²
+    (japanese-jisx0208		. #x2557)	; ø»†–¶
+    (korean-ksc5601		. #x2B57)	; ø»ˆ©®
+    (japanese-jisx0208-1990	. #x2557)	; ãƒ—
+    (ucs			. #x30D7)	; ãƒ—
     ))
 (define-char
   '((name		. "KATAKANA LETTER HE")
-    (ucs		. #x30D8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x58)	; ø»‚‚¯
-    (chinese-gb2312		#x25 #x58)	; ø»„Œ³
-    (japanese-jisx0208		#x25 #x58)	; ø»†–·
-    (korean-ksc5601		#x2B #x58)	; ø»ˆ©¯
+    (japanese-jisx0208-1978	. #x2558)	; ø»‚‚¯
+    (chinese-gb2312		. #x2558)	; ø»„Œ³
+    (japanese-jisx0208		. #x2558)	; ø»†–·
+    (korean-ksc5601		. #x2B58)	; ø»ˆ©¯
+    (japanese-jisx0208-1990	. #x2558)	; ãƒ˜
+    (ucs			. #x30D8)	; ãƒ˜
     ))
 (define-char
   '((name		. "KATAKANA LETTER BE")
-    (ucs		. #x30D9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D8 #x3099)
-    (japanese-jisx0208-1978	#x25 #x59)	; ø»‚‚°
-    (chinese-gb2312		#x25 #x59)	; ø»„Œ´
-    (japanese-jisx0208		#x25 #x59)	; ø»†–¸
-    (korean-ksc5601		#x2B #x59)	; ø»ˆ©°
+    (japanese-jisx0208-1978	. #x2559)	; ø»‚‚°
+    (chinese-gb2312		. #x2559)	; ø»„Œ´
+    (japanese-jisx0208		. #x2559)	; ø»†–¸
+    (korean-ksc5601		. #x2B59)	; ø»ˆ©°
+    (japanese-jisx0208-1990	. #x2559)	; ãƒ™
+    (ucs			. #x30D9)	; ãƒ™
     ))
 (define-char
   '((name		. "KATAKANA LETTER PE")
-    (ucs		. #x30DA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30D8 #x309A)
-    (japanese-jisx0208-1978	#x25 #x5A)	; ø»‚‚±
-    (chinese-gb2312		#x25 #x5A)	; ø»„Œµ
-    (japanese-jisx0208		#x25 #x5A)	; ø»†–¹
-    (korean-ksc5601		#x2B #x5A)	; ø»ˆ©±
+    (japanese-jisx0208-1978	. #x255A)	; ø»‚‚±
+    (chinese-gb2312		. #x255A)	; ø»„Œµ
+    (japanese-jisx0208		. #x255A)	; ø»†–¹
+    (korean-ksc5601		. #x2B5A)	; ø»ˆ©±
+    (japanese-jisx0208-1990	. #x255A)	; ãƒš
+    (ucs			. #x30DA)	; ãƒš
     ))
 (define-char
   '((name		. "KATAKANA LETTER HO")
-    (ucs		. #x30DB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x5B)	; ø»‚‚²
-    (chinese-gb2312		#x25 #x5B)	; ø»„Œ¶
-    (japanese-jisx0208		#x25 #x5B)	; ø»†–º
-    (korean-ksc5601		#x2B #x5B)	; ø»ˆ©²
+    (japanese-jisx0208-1978	. #x255B)	; ø»‚‚²
+    (chinese-gb2312		. #x255B)	; ø»„Œ¶
+    (japanese-jisx0208		. #x255B)	; ø»†–º
+    (korean-ksc5601		. #x2B5B)	; ø»ˆ©²
+    (japanese-jisx0208-1990	. #x255B)	; ãƒ›
+    (ucs			. #x30DB)	; ãƒ›
     ))
 (define-char
   '((name		. "KATAKANA LETTER BO")
-    (ucs		. #x30DC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30DB #x3099)
-    (japanese-jisx0208-1978	#x25 #x5C)	; ø»‚‚³
-    (chinese-gb2312		#x25 #x5C)	; ø»„Œ·
-    (japanese-jisx0208		#x25 #x5C)	; ø»†–»
-    (korean-ksc5601		#x2B #x5C)	; ø»ˆ©³
+    (japanese-jisx0208-1978	. #x255C)	; ø»‚‚³
+    (chinese-gb2312		. #x255C)	; ø»„Œ·
+    (japanese-jisx0208		. #x255C)	; ø»†–»
+    (korean-ksc5601		. #x2B5C)	; ø»ˆ©³
+    (japanese-jisx0208-1990	. #x255C)	; ãƒœ
+    (ucs			. #x30DC)	; ãƒœ
     ))
 (define-char
   '((name		. "KATAKANA LETTER PO")
-    (ucs		. #x30DD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30DB #x309A)
-    (japanese-jisx0208-1978	#x25 #x5D)	; ø»‚‚´
-    (chinese-gb2312		#x25 #x5D)	; ø»„Œ¸
-    (japanese-jisx0208		#x25 #x5D)	; ø»†–¼
-    (korean-ksc5601		#x2B #x5D)	; ø»ˆ©´
+    (japanese-jisx0208-1978	. #x255D)	; ø»‚‚´
+    (chinese-gb2312		. #x255D)	; ø»„Œ¸
+    (japanese-jisx0208		. #x255D)	; ø»†–¼
+    (korean-ksc5601		. #x2B5D)	; ø»ˆ©´
+    (japanese-jisx0208-1990	. #x255D)	; ãƒ
+    (ucs			. #x30DD)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER MA")
-    (ucs		. #x30DE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x5E)	; ø»‚‚µ
-    (chinese-gb2312		#x25 #x5E)	; ø»„Œ¹
-    (japanese-jisx0208		#x25 #x5E)	; ø»†–½
-    (korean-ksc5601		#x2B #x5E)	; ø»ˆ©µ
+    (japanese-jisx0208-1978	. #x255E)	; ø»‚‚µ
+    (chinese-gb2312		. #x255E)	; ø»„Œ¹
+    (japanese-jisx0208		. #x255E)	; ø»†–½
+    (korean-ksc5601		. #x2B5E)	; ø»ˆ©µ
+    (japanese-jisx0208-1990	. #x255E)	; ãƒž
+    (ucs			. #x30DE)	; ãƒž
     ))
 (define-char
   '((name		. "KATAKANA LETTER MI")
-    (ucs		. #x30DF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x5F)	; ø»‚‚¶
-    (chinese-gb2312		#x25 #x5F)	; ø»„Œº
-    (japanese-jisx0208		#x25 #x5F)	; ø»†–¾
-    (korean-ksc5601		#x2B #x5F)	; ø»ˆ©¶
+    (japanese-jisx0208-1978	. #x255F)	; ø»‚‚¶
+    (chinese-gb2312		. #x255F)	; ø»„Œº
+    (japanese-jisx0208		. #x255F)	; ø»†–¾
+    (korean-ksc5601		. #x2B5F)	; ø»ˆ©¶
+    (japanese-jisx0208-1990	. #x255F)	; ãƒŸ
+    (ucs			. #x30DF)	; ãƒŸ
     ))
 (define-char
   '((name		. "KATAKANA LETTER MU")
-    (ucs		. #x30E0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x60)	; ø»‚‚·
-    (chinese-gb2312		#x25 #x60)	; ø»„Œ»
-    (japanese-jisx0208		#x25 #x60)	; ø»†–¿
-    (korean-ksc5601		#x2B #x60)	; ø»ˆ©·
+    (japanese-jisx0208-1978	. #x2560)	; ø»‚‚·
+    (chinese-gb2312		. #x2560)	; ø»„Œ»
+    (japanese-jisx0208		. #x2560)	; ø»†–¿
+    (korean-ksc5601		. #x2B60)	; ø»ˆ©·
+    (japanese-jisx0208-1990	. #x2560)	; ãƒ 
+    (ucs			. #x30E0)	; ãƒ 
     ))
 (define-char
   '((name		. "KATAKANA LETTER ME")
-    (ucs		. #x30E1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x61)	; ø»‚‚¸
-    (chinese-gb2312		#x25 #x61)	; ø»„Œ¼
-    (japanese-jisx0208		#x25 #x61)	; ø»†—€
-    (korean-ksc5601		#x2B #x61)	; ø»ˆ©¸
+    (japanese-jisx0208-1978	. #x2561)	; ø»‚‚¸
+    (chinese-gb2312		. #x2561)	; ø»„Œ¼
+    (japanese-jisx0208		. #x2561)	; ø»†—€
+    (korean-ksc5601		. #x2B61)	; ø»ˆ©¸
+    (japanese-jisx0208-1990	. #x2561)	; ãƒ¡
+    (ucs			. #x30E1)	; ãƒ¡
     ))
 (define-char
   '((name		. "KATAKANA LETTER MO")
-    (ucs		. #x30E2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x62)	; ø»‚‚¹
-    (chinese-gb2312		#x25 #x62)	; ø»„Œ½
-    (japanese-jisx0208		#x25 #x62)	; ø»†—
-    (korean-ksc5601		#x2B #x62)	; ø»ˆ©¹
+    (japanese-jisx0208-1978	. #x2562)	; ø»‚‚¹
+    (chinese-gb2312		. #x2562)	; ø»„Œ½
+    (japanese-jisx0208		. #x2562)	; ø»†—
+    (korean-ksc5601		. #x2B62)	; ø»ˆ©¹
+    (japanese-jisx0208-1990	. #x2562)	; ãƒ¢
+    (ucs			. #x30E2)	; ãƒ¢
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YA")
-    (ucs		. #x30E3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x63)	; ø»‚‚º
-    (chinese-gb2312		#x25 #x63)	; ø»„Œ¾
-    (japanese-jisx0208		#x25 #x63)	; ø»†—‚
-    (korean-ksc5601		#x2B #x63)	; ø»ˆ©º
+    (japanese-jisx0208-1978	. #x2563)	; ø»‚‚º
+    (chinese-gb2312		. #x2563)	; ø»„Œ¾
+    (japanese-jisx0208		. #x2563)	; ø»†—‚
+    (korean-ksc5601		. #x2B63)	; ø»ˆ©º
+    (japanese-jisx0208-1990	. #x2563)	; ãƒ£
+    (ucs			. #x30E3)	; ãƒ£
     ))
 (define-char
   '((name		. "KATAKANA LETTER YA")
-    (ucs		. #x30E4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x64)	; ø»‚‚»
-    (chinese-gb2312		#x25 #x64)	; ø»„Œ¿
-    (japanese-jisx0208		#x25 #x64)	; ø»†—ƒ
-    (korean-ksc5601		#x2B #x64)	; ø»ˆ©»
+    (japanese-jisx0208-1978	. #x2564)	; ø»‚‚»
+    (chinese-gb2312		. #x2564)	; ø»„Œ¿
+    (japanese-jisx0208		. #x2564)	; ø»†—ƒ
+    (korean-ksc5601		. #x2B64)	; ø»ˆ©»
+    (japanese-jisx0208-1990	. #x2564)	; ãƒ¤
+    (ucs			. #x30E4)	; ãƒ¤
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YU")
-    (ucs		. #x30E5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x65)	; ø»‚‚¼
-    (chinese-gb2312		#x25 #x65)	; ø»„€
-    (japanese-jisx0208		#x25 #x65)	; ø»†—„
-    (korean-ksc5601		#x2B #x65)	; ø»ˆ©¼
+    (japanese-jisx0208-1978	. #x2565)	; ø»‚‚¼
+    (chinese-gb2312		. #x2565)	; ø»„€
+    (japanese-jisx0208		. #x2565)	; ø»†—„
+    (korean-ksc5601		. #x2B65)	; ø»ˆ©¼
+    (japanese-jisx0208-1990	. #x2565)	; ãƒ¥
+    (ucs			. #x30E5)	; ãƒ¥
     ))
 (define-char
   '((name		. "KATAKANA LETTER YU")
-    (ucs		. #x30E6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x66)	; ø»‚‚½
-    (chinese-gb2312		#x25 #x66)	; ø»„
-    (japanese-jisx0208		#x25 #x66)	; ø»†—…
-    (korean-ksc5601		#x2B #x66)	; ø»ˆ©½
+    (japanese-jisx0208-1978	. #x2566)	; ø»‚‚½
+    (chinese-gb2312		. #x2566)	; ø»„
+    (japanese-jisx0208		. #x2566)	; ø»†—…
+    (korean-ksc5601		. #x2B66)	; ø»ˆ©½
+    (japanese-jisx0208-1990	. #x2566)	; ãƒ¦
+    (ucs			. #x30E6)	; ãƒ¦
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YO")
-    (ucs		. #x30E7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x67)	; ø»‚‚¾
-    (chinese-gb2312		#x25 #x67)	; ø»„‚
-    (japanese-jisx0208		#x25 #x67)	; ø»†—†
-    (korean-ksc5601		#x2B #x67)	; ø»ˆ©¾
+    (japanese-jisx0208-1978	. #x2567)	; ø»‚‚¾
+    (chinese-gb2312		. #x2567)	; ø»„‚
+    (japanese-jisx0208		. #x2567)	; ø»†—†
+    (korean-ksc5601		. #x2B67)	; ø»ˆ©¾
+    (japanese-jisx0208-1990	. #x2567)	; ãƒ§
+    (ucs			. #x30E7)	; ãƒ§
     ))
 (define-char
   '((name		. "KATAKANA LETTER YO")
-    (ucs		. #x30E8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x68)	; ø»‚‚¿
-    (chinese-gb2312		#x25 #x68)	; ø»„ƒ
-    (japanese-jisx0208		#x25 #x68)	; ø»†—‡
-    (korean-ksc5601		#x2B #x68)	; ø»ˆ©¿
+    (japanese-jisx0208-1978	. #x2568)	; ø»‚‚¿
+    (chinese-gb2312		. #x2568)	; ø»„ƒ
+    (japanese-jisx0208		. #x2568)	; ø»†—‡
+    (korean-ksc5601		. #x2B68)	; ø»ˆ©¿
+    (japanese-jisx0208-1990	. #x2568)	; ãƒ¨
+    (ucs			. #x30E8)	; ãƒ¨
     ))
 (define-char
   '((name		. "KATAKANA LETTER RA")
-    (ucs		. #x30E9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x69)	; ø»‚ƒ€
-    (chinese-gb2312		#x25 #x69)	; ø»„„
-    (japanese-jisx0208		#x25 #x69)	; ø»†—ˆ
-    (korean-ksc5601		#x2B #x69)	; ø»ˆª€
+    (japanese-jisx0208-1978	. #x2569)	; ø»‚ƒ€
+    (chinese-gb2312		. #x2569)	; ø»„„
+    (japanese-jisx0208		. #x2569)	; ø»†—ˆ
+    (korean-ksc5601		. #x2B69)	; ø»ˆª€
+    (japanese-jisx0208-1990	. #x2569)	; ãƒ©
+    (ucs			. #x30E9)	; ãƒ©
     ))
 (define-char
   '((name		. "KATAKANA LETTER RI")
-    (ucs		. #x30EA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6A)	; ø»‚ƒ
-    (chinese-gb2312		#x25 #x6A)	; ø»„…
-    (japanese-jisx0208		#x25 #x6A)	; ø»†—‰
-    (korean-ksc5601		#x2B #x6A)	; ø»ˆª
+    (japanese-jisx0208-1978	. #x256A)	; ø»‚ƒ
+    (chinese-gb2312		. #x256A)	; ø»„…
+    (japanese-jisx0208		. #x256A)	; ø»†—‰
+    (korean-ksc5601		. #x2B6A)	; ø»ˆª
+    (japanese-jisx0208-1990	. #x256A)	; ãƒª
+    (ucs			. #x30EA)	; ãƒª
     ))
 (define-char
   '((name		. "KATAKANA LETTER RU")
-    (ucs		. #x30EB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6B)	; ø»‚ƒ‚
-    (chinese-gb2312		#x25 #x6B)	; ø»„†
-    (japanese-jisx0208		#x25 #x6B)	; ø»†—Š
-    (korean-ksc5601		#x2B #x6B)	; ø»ˆª‚
+    (japanese-jisx0208-1978	. #x256B)	; ø»‚ƒ‚
+    (chinese-gb2312		. #x256B)	; ø»„†
+    (japanese-jisx0208		. #x256B)	; ø»†—Š
+    (korean-ksc5601		. #x2B6B)	; ø»ˆª‚
+    (japanese-jisx0208-1990	. #x256B)	; ãƒ«
+    (ucs			. #x30EB)	; ãƒ«
     ))
 (define-char
   '((name		. "KATAKANA LETTER RE")
-    (ucs		. #x30EC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6C)	; ø»‚ƒƒ
-    (chinese-gb2312		#x25 #x6C)	; ø»„‡
-    (japanese-jisx0208		#x25 #x6C)	; ø»†—‹
-    (korean-ksc5601		#x2B #x6C)	; ø»ˆªƒ
+    (japanese-jisx0208-1978	. #x256C)	; ø»‚ƒƒ
+    (chinese-gb2312		. #x256C)	; ø»„‡
+    (japanese-jisx0208		. #x256C)	; ø»†—‹
+    (korean-ksc5601		. #x2B6C)	; ø»ˆªƒ
+    (japanese-jisx0208-1990	. #x256C)	; ãƒ¬
+    (ucs			. #x30EC)	; ãƒ¬
     ))
 (define-char
   '((name		. "KATAKANA LETTER RO")
-    (ucs		. #x30ED)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6D)	; ø»‚ƒ„
-    (chinese-gb2312		#x25 #x6D)	; ø»„ˆ
-    (japanese-jisx0208		#x25 #x6D)	; ø»†—Œ
-    (korean-ksc5601		#x2B #x6D)	; ø»ˆª„
+    (japanese-jisx0208-1978	. #x256D)	; ø»‚ƒ„
+    (chinese-gb2312		. #x256D)	; ø»„ˆ
+    (japanese-jisx0208		. #x256D)	; ø»†—Œ
+    (korean-ksc5601		. #x2B6D)	; ø»ˆª„
+    (japanese-jisx0208-1990	. #x256D)	; ãƒ­
+    (ucs			. #x30ED)	; ãƒ­
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL WA")
-    (ucs		. #x30EE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6E)	; ø»‚ƒ…
-    (chinese-gb2312		#x25 #x6E)	; ø»„‰
-    (japanese-jisx0208		#x25 #x6E)	; ø»†—
-    (korean-ksc5601		#x2B #x6E)	; ø»ˆª…
+    (japanese-jisx0208-1978	. #x256E)	; ø»‚ƒ…
+    (chinese-gb2312		. #x256E)	; ø»„‰
+    (japanese-jisx0208		. #x256E)	; ø»†—
+    (korean-ksc5601		. #x2B6E)	; ø»ˆª…
+    (japanese-jisx0208-1990	. #x256E)	; ãƒ®
+    (ucs			. #x30EE)	; ãƒ®
     ))
 (define-char
   '((name		. "KATAKANA LETTER WA")
-    (ucs		. #x30EF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x6F)	; ø»‚ƒ†
-    (chinese-gb2312		#x25 #x6F)	; ø»„Š
-    (japanese-jisx0208		#x25 #x6F)	; ø»†—Ž
-    (korean-ksc5601		#x2B #x6F)	; ø»ˆª†
+    (japanese-jisx0208-1978	. #x256F)	; ø»‚ƒ†
+    (chinese-gb2312		. #x256F)	; ø»„Š
+    (japanese-jisx0208		. #x256F)	; ø»†—Ž
+    (korean-ksc5601		. #x2B6F)	; ø»ˆª†
+    (japanese-jisx0208-1990	. #x256F)	; ãƒ¯
+    (ucs			. #x30EF)	; ãƒ¯
     ))
 (define-char
   '((name		. "KATAKANA LETTER WI")
-    (ucs		. #x30F0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x70)	; ø»‚ƒ‡
-    (chinese-gb2312		#x25 #x70)	; ø»„‹
-    (japanese-jisx0208		#x25 #x70)	; ø»†—
-    (korean-ksc5601		#x2B #x70)	; ø»ˆª‡
+    (japanese-jisx0208-1978	. #x2570)	; ø»‚ƒ‡
+    (chinese-gb2312		. #x2570)	; ø»„‹
+    (japanese-jisx0208		. #x2570)	; ø»†—
+    (korean-ksc5601		. #x2B70)	; ø»ˆª‡
+    (japanese-jisx0208-1990	. #x2570)	; ãƒ°
+    (ucs			. #x30F0)	; ãƒ°
     ))
 (define-char
   '((name		. "KATAKANA LETTER WE")
-    (ucs		. #x30F1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x71)	; ø»‚ƒˆ
-    (chinese-gb2312		#x25 #x71)	; ø»„Œ
-    (japanese-jisx0208		#x25 #x71)	; ø»†—
-    (korean-ksc5601		#x2B #x71)	; ø»ˆªˆ
+    (japanese-jisx0208-1978	. #x2571)	; ø»‚ƒˆ
+    (chinese-gb2312		. #x2571)	; ø»„Œ
+    (japanese-jisx0208		. #x2571)	; ø»†—
+    (korean-ksc5601		. #x2B71)	; ø»ˆªˆ
+    (japanese-jisx0208-1990	. #x2571)	; ãƒ±
+    (ucs			. #x30F1)	; ãƒ±
     ))
 (define-char
   '((name		. "KATAKANA LETTER WO")
-    (ucs		. #x30F2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x72)	; ø»‚ƒ‰
-    (chinese-gb2312		#x25 #x72)	; ø»„
-    (japanese-jisx0208		#x25 #x72)	; ø»†—‘
-    (korean-ksc5601		#x2B #x72)	; ø»ˆª‰
+    (japanese-jisx0208-1978	. #x2572)	; ø»‚ƒ‰
+    (chinese-gb2312		. #x2572)	; ø»„
+    (japanese-jisx0208		. #x2572)	; ø»†—‘
+    (korean-ksc5601		. #x2B72)	; ø»ˆª‰
+    (japanese-jisx0208-1990	. #x2572)	; ãƒ²
+    (ucs			. #x30F2)	; ãƒ²
     ))
 (define-char
   '((name		. "KATAKANA LETTER N")
-    (ucs		. #x30F3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x73)	; ø»‚ƒŠ
-    (chinese-gb2312		#x25 #x73)	; ø»„Ž
-    (japanese-jisx0208		#x25 #x73)	; ø»†—’
-    (korean-ksc5601		#x2B #x73)	; ø»ˆªŠ
+    (japanese-jisx0208-1978	. #x2573)	; ø»‚ƒŠ
+    (chinese-gb2312		. #x2573)	; ø»„Ž
+    (japanese-jisx0208		. #x2573)	; ø»†—’
+    (korean-ksc5601		. #x2B73)	; ø»ˆªŠ
+    (japanese-jisx0208-1990	. #x2573)	; ãƒ³
+    (ucs			. #x30F3)	; ãƒ³
     ))
 (define-char
   '((name		. "KATAKANA LETTER VU")
-    (ucs		. #x30F4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30A6 #x3099)
-    (japanese-jisx0208-1978	#x25 #x74)	; ø»‚ƒ‹
-    (chinese-gb2312		#x25 #x74)	; ø»„
-    (japanese-jisx0208		#x25 #x74)	; ø»†—“
-    (korean-ksc5601		#x2B #x74)	; ø»ˆª‹
+    (japanese-jisx0208-1978	. #x2574)	; ø»‚ƒ‹
+    (chinese-gb2312		. #x2574)	; ø»„
+    (japanese-jisx0208		. #x2574)	; ø»†—“
+    (korean-ksc5601		. #x2B74)	; ø»ˆª‹
+    (japanese-jisx0208-1990	. #x2574)	; ãƒ´
+    (ucs			. #x30F4)	; ãƒ´
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL KA")
-    (ucs		. #x30F5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x75)	; ø»‚ƒŒ
-    (chinese-gb2312		#x25 #x75)	; ø»„
-    (japanese-jisx0208		#x25 #x75)	; ø»†—”
-    (korean-ksc5601		#x2B #x75)	; ø»ˆªŒ
+    (japanese-jisx0208-1978	. #x2575)	; ø»‚ƒŒ
+    (chinese-gb2312		. #x2575)	; ø»„
+    (japanese-jisx0208		. #x2575)	; ø»†—”
+    (korean-ksc5601		. #x2B75)	; ø»ˆªŒ
+    (japanese-jisx0208-1990	. #x2575)	; ãƒµ
+    (ucs			. #x30F5)	; ãƒµ
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL KE")
-    (ucs		. #x30F6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x25 #x76)	; ø»‚ƒ
-    (chinese-gb2312		#x25 #x76)	; ø»„‘
-    (japanese-jisx0208		#x25 #x76)	; ø»†—•
-    (korean-ksc5601		#x2B #x76)	; ø»ˆª
+    (japanese-jisx0208-1978	. #x2576)	; ø»‚ƒ
+    (chinese-gb2312		. #x2576)	; ø»„‘
+    (japanese-jisx0208		. #x2576)	; ø»†—•
+    (korean-ksc5601		. #x2B76)	; ø»ˆª
+    (japanese-jisx0208-1990	. #x2576)	; ãƒ¶
+    (ucs			. #x30F6)	; ãƒ¶
     ))
 (define-char
   '((name		. "KATAKANA LETTER VA")
-    (ucs		. #x30F7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30EF #x3099)
-    (japanese-jisx0213-1	#x27 #x72)	; ãƒ·
+    (japanese-jisx0213-1	. #x2772)	; ãƒ·
+    (ucs			. #x30F7)	; ãƒ·
     ))
 (define-char
   '((name		. "KATAKANA LETTER VI")
-    (ucs		. #x30F8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F0 #x3099)
-    (japanese-jisx0213-1	#x27 #x73)	; ãƒ¸
+    (japanese-jisx0213-1	. #x2773)	; ãƒ¸
+    (ucs			. #x30F8)	; ãƒ¸
     ))
 (define-char
   '((name		. "KATAKANA LETTER VE")
-    (ucs		. #x30F9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F1 #x3099)
-    (japanese-jisx0213-1	#x27 #x74)	; ãƒ¹
+    (japanese-jisx0213-1	. #x2774)	; ãƒ¹
+    (ucs			. #x30F9)	; ãƒ¹
     ))
 (define-char
   '((name		. "KATAKANA LETTER VO")
-    (ucs		. #x30FA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F2 #x3099)
-    (japanese-jisx0213-1	#x27 #x75)	; ãƒº
+    (japanese-jisx0213-1	. #x2775)	; ãƒº
+    (ucs			. #x30FA)	; ãƒº
     ))
 (define-char
   '((name		. "KATAKANA MIDDLE DOT")
-    (ucs		. #x30FB)
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x26)	; ø»¼…
-    (chinese-gb2312		#x21 #x24)	; ø»„†‡
-    (japanese-jisx0208		#x21 #x26)	; ø»†
+    (japanese-jisx0208-1978	. #x2126)	; ø»¼…
+    (chinese-gb2312		. #x2124)	; ø»„†‡
+    (japanese-jisx0208		. #x2126)	; ø»†
+    (japanese-jisx0208-1990	. #x2126)	; ãƒ»
+    (ucs			. #x30FB)	; ãƒ»
     ))
 (define-char
   '((name		. "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
-    (ucs		. #x30FC)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x3C)	; ø»¼›
-    (japanese-jisx0208		#x21 #x3C)	; ø»†£
+    (japanese-jisx0208-1978	. #x213C)	; ø»¼›
+    (japanese-jisx0208		. #x213C)	; ø»†£
+    (japanese-jisx0208-1990	. #x213C)	; ãƒ¼
+    (ucs			. #x30FC)	; ãƒ¼
     ))
 (define-char
   '((name		. "KATAKANA ITERATION MARK")
-    (ucs		. #x30FD)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x33)	; ø»¼’
-    (japanese-jisx0208		#x21 #x33)	; ø»†š
+    (japanese-jisx0208-1978	. #x2133)	; ø»¼’
+    (japanese-jisx0208		. #x2133)	; ø»†š
+    (japanese-jisx0208-1990	. #x2133)	; ãƒ½
+    (ucs			. #x30FD)	; ãƒ½
     ))
 (define-char
   '((name		. "KATAKANA VOICED ITERATION MARK")
-    (ucs		. #x30FE)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30FD #x3099)
-    (japanese-jisx0208-1978	#x21 #x34)	; ø»¼“
-    (japanese-jisx0208		#x21 #x34)	; ø»†›
+    (japanese-jisx0208-1978	. #x2134)	; ø»¼“
+    (japanese-jisx0208		. #x2134)	; ø»†›
+    (japanese-jisx0208-1990	. #x2134)	; ãƒ¾
+    (ucs			. #x30FE)	; ãƒ¾
     ))
