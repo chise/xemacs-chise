@@ -3096,15 +3096,20 @@
     (=daikanwa		. 03050)	; ø¸€¯ª
     ))
 (define-char
-  '((=>ucs		. #x9F8E)	; é¾Ž
-    (ideographic-radical . 27)	; â¼š
-    (ideographic-strokes . 16)
+  '((=>daikanwa		. 48819)	; ø¸‹º³
+    (ideographic-radical@ucs . 212)	; â¿“
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@cns . 27)	; â¼š
+    (ideographic-strokes@cns . 16)
     (total-strokes	 . 18)
-    (->same
-     ((ideographic-radical . 212)	; â¿“
-      (=daikanwa	  . 48819)	; ø¸‹º³
+    (=ucs		. #x9F8E)	; é¾Ž
+    (->subsumptive
+     ((=daikanwa	  . 48819)	; ø¸‹º³
+      )
+     ((=ucs@unicode	  . #x9F8E)	; ó°€”
+      )
+     ((=cns11643-3	  . #x5755)	; ø»–¦¬
       ))
-    (=cns11643-3	. #x5755)	; ø»–¦¬
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š
