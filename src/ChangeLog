@@ -1,3 +1,22 @@
+2002-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Fixed.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Q_ucs_variants): New variable.
+	(syms_of_chartab): Add new symbol `->ucs-variants'.
+	(complex_vars_of_chartab): Set `Vcharacter_variant_table' on
+	`Vchar_attribute_hash_table' as the value of `->ucs-variants'; set
+	`->ucs-variants' on `XCHAR_TABLE_NAME (Vcharacter_variant_table)'.
+
+	* mule-charset.c (load_char_decoding_entry_maybe): New function.
+
+	* char-ucs.h (load_char_decoding_entry_maybe): New prototype when
+	`HAVE_DATABASE' is defined.
+	(DECODE_DEFINED_CHAR): Use `load_char_decoding_entry_maybe' when
+	`HAVE_DATABASE' is defined.
+
 2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (Fsave_char_attribute_table): Don't clear internal
