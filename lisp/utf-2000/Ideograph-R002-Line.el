@@ -345,16 +345,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 29)
-    (hanyu-dazidian-char . 6)
-    (chinese-big5-cdp	. #x8869)	; ý¢€ˆ¡©
-    (ucs		. #x20686)	; ð š†
-    ))
-(define-char
-  '((ideographic-radical . 2)	; â¼
-    (ideographic-strokes . 5)
-    (total-strokes	 . 6)
-    (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 30)
     (hanyu-dazidian-char . 1)
     (chinese-big5-cdp	. #x866B)	; ý¢€ˆ™«
