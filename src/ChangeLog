@@ -1,3 +1,7 @@
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_char): Fixed.
+
 2001-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Modify registry
