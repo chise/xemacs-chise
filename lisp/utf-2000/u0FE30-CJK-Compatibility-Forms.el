@@ -5,9 +5,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2025)
+    (=ucs		. #xFE30)	; ï¸°
     (=cns11643-1	. #x212B)	; ø»‘‚¦
     (=big5		. #xA14A)	; ý¢€Š…Š
-    (=ucs		. #xFE30)	; ï¸°
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EM DASH")
@@ -15,9 +15,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2014)
+    (=ucs		. #xFE31)	; ï¸±
     (=cns11643-1	. #x2136)	; ø»‘‚±
     (=big5		. #xA157)	; ý¢€Š…—
-    (=ucs		. #xFE31)	; ï¸±
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL EN DASH")
@@ -25,8 +25,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2013)
-    (=cns11643-1	. #x2138)	; ø»‘‚³
     (=ucs		. #xFE32)	; ï¸²
+    (=cns11643-1	. #x2138)	; ø»‘‚³
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL LOW LINE")
@@ -34,8 +34,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
-    (=big5		. #xA159)	; ý¢€Š…™
     (=ucs		. #xFE33)	; ï¸³
+    (=big5		. #xA159)	; ý¢€Š…™
     ))
 (define-char
   '((name		. "PRESENTATION FORM FOR VERTICAL WAVY LOW LINE")
@@ -60,9 +60,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x0028)
+    (=ucs		. #xFE35)	; ï¸µ
     (=cns11643-1	. #x2140)	; ø»‘‚»
     (=big5		. #xA15F)	; ý¢€Š…Ÿ
-    (=ucs		. #xFE35)	; ï¸µ
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT PARENTHESIS")
@@ -70,9 +70,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x0029)
+    (=ucs		. #xFE36)	; ï¸¶
     (=cns11643-1	. #x2141)	; ø»‘‚¼
     (=big5		. #xA160)	; ý¢€Š… 
-    (=ucs		. #xFE36)	; ï¸¶
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CURLY BRACKET")
@@ -80,9 +80,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x007B)
+    (=ucs		. #xFE37)	; ï¸·
     (=cns11643-1	. #x2144)	; ø»‘‚¿
     (=big5		. #xA163)	; ý¢€Š…£
-    (=ucs		. #xFE37)	; ï¸·
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET")
@@ -90,9 +90,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x007D)
+    (=ucs		. #xFE38)	; ï¸¸
     (=cns11643-1	. #x2145)	; ø»‘ƒ€
     (=big5		. #xA164)	; ý¢€Š…¤
-    (=ucs		. #xFE38)	; ï¸¸
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT TORTOISE SHELL BRACKET")
@@ -100,9 +100,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3014)
+    (=ucs		. #xFE39)	; ï¸¹
     (=cns11643-1	. #x2148)	; ø»‘ƒƒ
     (=big5		. #xA167)	; ý¢€Š…§
-    (=ucs		. #xFE39)	; ï¸¹
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET")
@@ -110,9 +110,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3015)
+    (=ucs		. #xFE3A)	; ï¸º
     (=cns11643-1	. #x2149)	; ø»‘ƒ„
     (=big5		. #xA168)	; ý¢€Š…¨
-    (=ucs		. #xFE3A)	; ï¸º
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT BLACK LENTICULAR BRACKET")
@@ -120,9 +120,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3010)
+    (=ucs		. #xFE3B)	; ï¸»
     (=cns11643-1	. #x214C)	; ø»‘ƒ‡
     (=big5		. #xA16B)	; ý¢€Š…«
-    (=ucs		. #xFE3B)	; ï¸»
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT BLACK LENTICULAR BRACKET")
@@ -130,9 +130,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3011)
+    (=ucs		. #xFE3C)	; ï¸¼
     (=cns11643-1	. #x214D)	; ø»‘ƒˆ
     (=big5		. #xA16C)	; ý¢€Š…¬
-    (=ucs		. #xFE3C)	; ï¸¼
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET")
@@ -140,9 +140,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300A)
+    (=ucs		. #xFE3D)	; ï¸½
     (=cns11643-1	. #x2150)	; ø»‘ƒ‹
     (=big5		. #xA16F)	; ý¢€Š…¯
-    (=ucs		. #xFE3D)	; ï¸½
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET")
@@ -150,9 +150,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300B)
+    (=ucs		. #xFE3E)	; ï¸¾
     (=cns11643-1	. #x2151)	; ø»‘ƒŒ
     (=big5		. #xA170)	; ý¢€Š…°
-    (=ucs		. #xFE3E)	; ï¸¾
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET")
@@ -160,9 +160,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3008)
+    (=ucs		. #xFE3F)	; ï¸¿
     (=cns11643-1	. #x2154)	; ø»‘ƒ
     (=big5		. #xA173)	; ý¢€Š…³
-    (=ucs		. #xFE3F)	; ï¸¿
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET")
@@ -170,9 +170,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3009)
+    (=ucs		. #xFE40)	; ï¹€
     (=cns11643-1	. #x2155)	; ø»‘ƒ
     (=big5		. #xA174)	; ý¢€Š…´
-    (=ucs		. #xFE40)	; ï¹€
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT CORNER BRACKET")
@@ -180,9 +180,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300C)
+    (=ucs		. #xFE41)	; ï¹
     (=cns11643-1	. #x2158)	; ø»‘ƒ“
     (=big5		. #xA177)	; ý¢€Š…·
-    (=ucs		. #xFE41)	; ï¹
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT CORNER BRACKET")
@@ -190,9 +190,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300D)
+    (=ucs		. #xFE42)	; ï¹‚
     (=cns11643-1	. #x2159)	; ø»‘ƒ”
     (=big5		. #xA178)	; ý¢€Š…¸
-    (=ucs		. #xFE42)	; ï¹‚
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT WHITE CORNER BRACKET")
@@ -200,9 +200,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300E)
+    (=ucs		. #xFE43)	; ï¹ƒ
     (=cns11643-1	. #x215C)	; ø»‘ƒ—
     (=big5		. #xA17B)	; ý¢€Š…»
-    (=ucs		. #xFE43)	; ï¹ƒ
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL RIGHT WHITE CORNER BRACKET")
@@ -210,19 +210,19 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300F)
+    (=ucs		. #xFE44)	; ï¹„
     (=cns11643-1	. #x215D)	; ø»‘ƒ˜
     (=big5		. #xA17C)	; ý¢€Š…¼
-    (=ucs		. #xFE44)	; ï¹„
     ))
 (define-char
   '((name		. "SESAME DOT")
-    (=jis-x0213-1-2000	. #x233E)	; ø»¢–•
     (=ucs		. #xFE45)	; ï¹…
+    (=jis-x0213-1-2000	. #x233E)	; ø»¢–•
     ))
 (define-char
   '((name		. "WHITE SESAME DOT")
-    (=jis-x0213-1-2000	. #x233D)	; ø»¢–”
     (=ucs		. #xFE46)	; ï¹†
+    (=jis-x0213-1-2000	. #x233D)	; ø»¢–”
     ))
 (define-char
   '((name		. "DASHED OVERLINE")
@@ -230,9 +230,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
+    (=ucs		. #xFE49)	; ï¹‰
     (=cns11643-1	. #x2227)	; ø»‘„€
     (=big5		. #xA1C6)	; ý¢€Š‡†
-    (=ucs		. #xFE49)	; ï¹‰
     ))
 (define-char
   '((name		. "CENTRELINE OVERLINE")
@@ -240,9 +240,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
+    (=ucs		. #xFE4A)	; ï¹Š
     (=cns11643-1	. #x2228)	; ø»‘„
     (=big5		. #xA1C7)	; ý¢€Š‡‡
-    (=ucs		. #xFE4A)	; ï¹Š
     ))
 (define-char
   '((name		. "WAVY OVERLINE")
@@ -250,9 +250,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
+    (=ucs		. #xFE4B)	; ï¹‹
     (=cns11643-1	. #x222B)	; ø»‘„„
     (=big5		. #xA1CA)	; ý¢€Š‡Š
-    (=ucs		. #xFE4B)	; ï¹‹
     ))
 (define-char
   '((name		. "DOUBLE WAVY OVERLINE")
@@ -260,9 +260,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
+    (=ucs		. #xFE4C)	; ï¹Œ
     (=cns11643-1	. #x222C)	; ø»‘„…
     (=big5		. #xA1CB)	; ý¢€Š‡‹
-    (=ucs		. #xFE4C)	; ï¹Œ
     ))
 (define-char
   '((name		. "DASHED LOW LINE")
@@ -270,9 +270,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x005F)
+    (=ucs		. #xFE4D)	; ï¹
     (=cns11643-1	. #x2229)	; ø»‘„‚
     (=big5		. #xA1C8)	; ý¢€Š‡ˆ
-    (=ucs		. #xFE4D)	; ï¹
     ))
 (define-char
   '((name		. "CENTRELINE LOW LINE")
@@ -280,9 +280,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x005F)
+    (=ucs		. #xFE4E)	; ï¹Ž
     (=cns11643-1	. #x222A)	; ø»‘„ƒ
     (=big5		. #xA1C9)	; ý¢€Š‡‰
-    (=ucs		. #xFE4E)	; ï¹Ž
     ))
 (define-char
   '((name		. "WAVY LOW LINE")

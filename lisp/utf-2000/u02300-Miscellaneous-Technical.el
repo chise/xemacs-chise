@@ -39,16 +39,16 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x2248)	; ø»¢•
     (=ucs		. #x2305)	; âŒ…
+    (=jis-x0213-1-2000	. #x2248)	; ø»¢•
     ))
 (define-char
   '((name		. "PERSPECTIVE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x2249)	; ø»¢•‚
     (=ucs		. #x2306)	; âŒ†
+    (=jis-x0213-1-2000	. #x2249)	; ø»¢•‚
     ))
 (define-char
   '((name		. "WAVY LINE")
@@ -132,11 +132,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=gb2312		. #x2150)	; ø»„†³
-    (=jis-x0208-1983	. #x225E)	; ø»†’£
-    (=ks-x1001		. #x2152)	; ø»ˆš½
-    (=jis-x0208-1990	. #x225E)	; ø½‰¸—
     (=ucs		. #x2312)	; âŒ’
+    (=jis-x0208-1990	. #x225E)	; ø½‰¸—
+    (=ks-x1001		. #x2152)	; ø»ˆš½
+    (=jis-x0208-1983	. #x225E)	; ø»†’£
+    (=gb2312		. #x2150)	; ø»„†³
     ))
 (define-char
   '((name		. "SEGMENT")
@@ -178,8 +178,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x277C)	; ø»¢‹
     (=ucs		. #x2318)	; âŒ˜
+    (=jis-x0213-1-2000	. #x277C)	; ø»¢‹
     ))
 (define-char
   '((name		. "TURNED NOT SIGN")
@@ -1096,81 +1096,81 @@
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP RIGHT")
-    (=jis-x0213-1-2000	. #x2742)	; ø»¢œ‘
     (=ucs		. #x23BE)	; âŽ¾
+    (=jis-x0213-1-2000	. #x2742)	; ø»¢œ‘
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM RIGHT")
-    (=jis-x0213-1-2000	. #x2743)	; ø»¢œ’
     (=ucs		. #x23BF)	; âŽ¿
+    (=jis-x0213-1-2000	. #x2743)	; ø»¢œ’
     ))
 (define-char
   '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH CIRCLE")
-    (=jis-x0213-1-2000	. #x2744)	; ø»¢œ“
     (=ucs		. #x23C0)	; â€
+    (=jis-x0213-1-2000	. #x2744)	; ø»¢œ“
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH CIRCLE")
-    (=jis-x0213-1-2000	. #x2745)	; ø»¢œ”
     (=ucs		. #x23C1)	; â
+    (=jis-x0213-1-2000	. #x2745)	; ø»¢œ”
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH CIRCLE")
-    (=jis-x0213-1-2000	. #x2746)	; ø»¢œ•
     (=ucs		. #x23C2)	; â‚
+    (=jis-x0213-1-2000	. #x2746)	; ø»¢œ•
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT VERTICAL WITH TRIANGLE")
-    (=jis-x0213-1-2000	. #x2747)	; ø»¢œ–
     (=ucs		. #x23C3)	; âƒ
+    (=jis-x0213-1-2000	. #x2747)	; ø»¢œ–
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH TRIANGLE")
-    (=jis-x0213-1-2000	. #x2748)	; ø»¢œ—
     (=ucs		. #x23C4)	; â„
+    (=jis-x0213-1-2000	. #x2748)	; ø»¢œ—
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH TRIANGLE")
-    (=jis-x0213-1-2000	. #x2749)	; ø»¢œ˜
     (=ucs		. #x23C5)	; â…
+    (=jis-x0213-1-2000	. #x2749)	; ø»¢œ˜
     ))
 (define-char
   '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL WITH WAVE")
-    (=jis-x0213-1-2000	. #x274A)	; ø»¢œ™
     (=ucs		. #x23C6)	; â†
+    (=jis-x0213-1-2000	. #x274A)	; ø»¢œ™
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL WITH WAVE")
-    (=jis-x0213-1-2000	. #x274B)	; ø»¢œš
     (=ucs		. #x23C7)	; â‡
+    (=jis-x0213-1-2000	. #x274B)	; ø»¢œš
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL WITH WAVE")
-    (=jis-x0213-1-2000	. #x274C)	; ø»¢œ›
     (=ucs		. #x23C8)	; âˆ
+    (=jis-x0213-1-2000	. #x274C)	; ø»¢œ›
     ))
 (define-char
   '((name		. "DENTISTRY SYMBOL LIGHT DOWN AND HORIZONTAL")
-    (=jis-x0213-1-2000	. #x274D)	; ø»¢œœ
     (=ucs		. #x23C9)	; â‰
+    (=jis-x0213-1-2000	. #x274D)	; ø»¢œœ
     ))
 (define-char
   '((name		. "DENTISTRY SYMBOL LIGHT UP AND HORIZONTAL")
-    (=jis-x0213-1-2000	. #x274E)	; ø»¢œ
     (=ucs		. #x23CA)	; âŠ
+    (=jis-x0213-1-2000	. #x274E)	; ø»¢œ
     ))
 (define-char
   '((name		. "DENTISTRY SYMBOL LIGHT VERTICAL AND TOP LEFT")
-    (=jis-x0213-1-2000	. #x274F)	; ø»¢œž
     (=ucs		. #x23CB)	; â‹
+    (=jis-x0213-1-2000	. #x274F)	; ø»¢œž
     ))
 (define-char
   '((name . "DENTISTRY SYMBOL LIGHT VERTICAL AND BOTTOM LEFT")
-    (=jis-x0213-1-2000	. #x2750)	; ø»¢œŸ
     (=ucs		. #x23CC)	; âŒ
+    (=jis-x0213-1-2000	. #x2750)	; ø»¢œŸ
     ))
 (define-char
   '((name		. "RETURN SYMBOL")
-    (=jis-x0213-1-2000	. #x277E)	; ø»¢
     (=ucs		. #x23CE)	; âŽ
+    (=jis-x0213-1-2000	. #x277E)	; ø»¢
     ))
