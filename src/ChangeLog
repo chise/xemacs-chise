@@ -1,3 +1,17 @@
+1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* syntax.c (word_constituent_p): Deleted.
+	(scan_words): Use `WORD_BOUNDARY_P'.
+
+	* chartab.c (Vword_combining_categories): New variable.
+	(Vword_separating_categories): Likewise.
+	(CATEGORYP): New macro.
+	(CATEGORY_SET): Likewise.
+	(CATEGORY_MEMBER): Likewise.
+	(word_boundary_p): New function.
+	(complex_vars_of_chartab): Set up new variable
+	`word-combining-categories' and `word-separating-categories'.
+
 1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
 
 	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 
