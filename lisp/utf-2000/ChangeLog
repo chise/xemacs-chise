@@ -1,3 +1,9 @@
+2002-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el, Ideograph-R063-Door.el,
+	Ideograph-R062-Halberd.el, Ideograph-R061-Heart.el: Merge mapping
+	to CHINA3-JEF code points.
+
 2002-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R060-Step.el: Merge mapping to CHINA3-JEF code points.
