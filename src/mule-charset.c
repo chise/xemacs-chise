@@ -66,6 +66,7 @@ Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_ideograph_daikanwa;
+Lisp_Object Vcharset_mojikyo;
 Lisp_Object Vcharset_mojikyo_pj_1;
 Lisp_Object Vcharset_mojikyo_pj_2;
 Lisp_Object Vcharset_mojikyo_pj_3;
@@ -579,7 +580,7 @@ remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
   Lisp_Object alist
     = get_char_code_table (char_code, Vcharacter_attribute_table);
 
-  if (!EQ (attribute, Fcar (Fcar (alist))))
+  if (EQ (attribute, Fcar (Fcar (alist))))
     {
       alist = Fcdr (alist);
     }
@@ -841,7 +842,9 @@ Store character's ATTRIBUTES.
 
 	  if (!LISTP (cell))
 	    signal_simple_error ("Invalid argument", attributes);
-	  if (!NILP (ccs = Ffind_charset (Fcar (cell))))
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
+	      && ((XCHARSET_FINAL (ccs) != 0) ||
+		  (XCHARSET_UCS_MAX (ccs) > 0)) )
 	    {
 	      cell = Fcdr (cell);
 	      if (CONSP (cell))
@@ -928,6 +931,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qideograph_daikanwa,
+  Qmojikyo,
   Qmojikyo_pj_1,
   Qmojikyo_pj_2,
   Qmojikyo_pj_3,
@@ -2814,6 +2818,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
+  defsymbol (&Qmojikyo,			"mojikyo");
   defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
   defsymbol (&Qmojikyo_pj_2,		"mojikyo-pj-2");
   defsymbol (&Qmojikyo_pj_3,		"mojikyo-pj-3");
@@ -3196,6 +3201,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Daikanwa dictionary by MOROHASHI Tetsuji"),
 		  build_string ("Daikanwa"),
 		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0);
+  staticpro (&Vcharset_mojikyo);
+  Vcharset_mojikyo =
+    make_charset (LEADING_BYTE_MOJIKYO, Qmojikyo, 256, 3,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Mojikyo"),
+		  build_string ("Mojikyo"),
+		  build_string ("Konjaku-Mojikyo"),
+		  build_string (""),
+		  Qnil, MIN_CHAR_MOJIKYO, MAX_CHAR_MOJIKYO, 0, 0);
   staticpro (&Vcharset_mojikyo_pj_1);
   Vcharset_mojikyo_pj_1 =
     make_charset (LEADING_BYTE_MOJIKYO_PJ_1, Qmojikyo_pj_1, 94, 2,
