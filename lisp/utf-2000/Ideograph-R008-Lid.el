@@ -2508,20 +2508,15 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	49510 0 0)
-    (ideographic-	(:radical	123 ; ⽺
-			 :strokes	8)
-			(:radical	8 ; ⼇
-			 :strokes	13))
+  '((ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-strokes@ucs . 13)
+    (ideographic-radical@cns . 123)	; ⽺
+    (ideographic-strokes@cns . 8)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 15)
-    (<-same
-     ((=daikanwa	  . 49510)	; &M-49510;
-      ))
-    (hanyu-dazidian	1 292 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
+    (=ucs		. #x20186)	; 𠆆
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -2530,26 +2525,56 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #x4EA0)	; 亠
+	 ((=gt-k	      . 01444)	; &GT-K01444;
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  ))
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x535D)	; 卝
+	  )
+	 ((=ucs		      . #x5E72)	; 干
+	  ))
 	))
+      (=daikanwa	  . 49510)	; &M-49510;
       )
-     ((ideographic-structure
+     ((hanyu-dazidian	  1 292 5)
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x535D)	; 卝
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((ideographic-structure
+	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	    (=ucs		. #x2FF1)	; ⿱
+	    )
+	   ((=ucs		. #x4EA0)	; 亠
+	    )
+	   ((=ucs		. #x53E3)	; 口
+	    ))
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  ))
 	)
-       ((=ucs		    . #x5E72)	; 干
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x535D)	; 卝
+	  )
+	 ((=ucs		      . #x5E72)	; 干
+	  ))
 	))
+      (=cns11643-7	  . #x2679)	; &HZK01-E256; [06-89]
+      (=hanziku-1	  . #xE256)	; &I-HZK01-E256;
+      (=ucs@iso		  . #x20186)	; &HZK01-E256;
       ))
-    (=ucs		. #x20186)	; 𠆆
-    (=cns11643-7	. #x2679)	; &I-C7-2679; [06-89]
-    (=hanziku-1		. #xE256)	; &I-HZK01-E256;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
