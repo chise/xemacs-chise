@@ -215,16 +215,17 @@
     ))
 (define-char
   '((name*		. "ideographic component person for top")
-    (ideographic-	(:radical	4 ; â¼ƒ
-			 :strokes	1
-			 :sources	(ucs))
-			(:radical	1 ; â¼€
-			 :strokes	1
-			 :sources	(gt))
-			(:radical	9 ; â¼ˆ
-			 :strokes	0))
+    (ideographic-radical@ucs . 4)	; â¼ƒ
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     ucs)
+    (ideographic-radical@gt . 1)	; â¼€
+    (ideographic-strokes@gt . 1)
+    (ideographic-radical@gt*sources
+     gt)
+    (ideographic-radical@misc . 9)	; â¼ˆ
+    (ideographic-strokes@misc . 0)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -63)
     (=jis-x0213-2-2000	. #x2121)	; ø»¤€
     (=gt-pj-9		. #x4D4A)	; ý¡€€€ˆ
     (=big5-cdp		. #x8B4A)	; ý¢€ˆ­Š
