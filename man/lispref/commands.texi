@@ -874,7 +874,7 @@ The contents of each event are as follows:
 @item channel
 @item timestamp
 @item key
-  Which key was pressed.  This is an integer (in the printing @sc{ASCII}
+  Which key was pressed.  This is an integer (in the printing @sc{ascii}
 range: >32 and <127) or a symbol such as @code{left} or @code{right}.
 Note that many physical keys are actually treated as two separate keys,
 depending on whether the shift key is pressed; for example, the ``a''
@@ -1252,7 +1252,7 @@ This function returns the device that the given event occurred on.
 
 @defun event-key event
 This function returns the Keysym of the given key-press event.
-This will be the @sc{ASCII} code of a printing character, or a symbol.
+This will be the @sc{ascii} code of a printing character, or a symbol.
 @end defun
 
 @defun event-button event
@@ -1450,10 +1450,10 @@ that is safe.
 
 XEmacs provides some auxiliary functions for converting between events
 and other ways of representing keys.  These are useful when working with
-@sc{ASCII} strings and with keymaps.
+@sc{ascii} strings and with keymaps.
 
 @defun character-to-event ch &optional event device
-This function converts a numeric @sc{ASCII} value to an event structure,
+This function converts a numeric @sc{ascii} value to an event structure,
 replete with modifier bits.  @var{ch} is the character to convert, and
 @var{event} is the event object to fill in.  This function contains
 knowledge about what the codes ``mean'' -- for example, the number 9 is
@@ -1474,19 +1474,19 @@ high bit as meta.
 
 Beware that @code{character-to-event} and @code{event-to-character} are
 not strictly inverse functions, since events contain much more
-information than the @sc{ASCII} character set can encode.
+information than the @sc{ascii} character set can encode.
 @end defun
 
 @defun event-to-character event &optional allow-extra-modifiers allow-meta allow-non-ascii
-This function returns the closest @sc{ASCII} approximation to
+This function returns the closest @sc{ascii} approximation to
 @var{event}.  If the event isn't a keypress, this returns @code{nil}.
 
 If @var{allow-extra-modifiers} is non-@code{nil}, then this is lenient
 in its translation; it will ignore modifier keys other than
 @key{control} and @key{meta}, and will ignore the @key{shift} modifier
-on those characters which have no shifted @sc{ASCII} equivalent
+on those characters which have no shifted @sc{ascii} equivalent
 (@key{Control-Shift-A} for example, will be mapped to the same
-@sc{ASCII} code as @key{Control-A}).
+@sc{ascii} code as @key{Control-A}).
 
 If @var{allow-meta} is non-@code{nil}, then the @key{Meta} modifier will
 be represented by turning on the high bit of the byte returned;
@@ -1497,7 +1497,7 @@ If @var{allow-non-ascii} is non-@code{nil}, then characters which are
 present in the prevailing character set (@pxref{Keymaps, variable
 @code{character-set-property}}) will be returned as their code in that
 character set, instead of the return value being restricted to
-@sc{ASCII}.
+@sc{ascii}.
 
 Note that specifying both @var{allow-meta} and @var{allow-non-ascii} is
 ambiguous, as both use the high bit; @key{M-x} and @key{oslash} will be
@@ -1506,7 +1506,7 @@ indistinguishable.
 
 @defun events-to-keys events &optional no-mice
 Given a vector of event objects, this function returns a vector of key
-descriptors, or a string (if they all fit in the @sc{ASCII} range).
+descriptors, or a string (if they all fit in the @sc{ascii} range).
 Optional arg @var{no-mice} means that button events are not allowed.
 @end defun
 
@@ -1656,7 +1656,7 @@ press the right-arrow function key:
 @defun read-char
 This function reads and returns a character of command input.  If a
 mouse click is detected, an error is signalled.  The character typed is
-returned as an @sc{ASCII} value.  This function is retained for
+returned as an @sc{ascii} value.  This function is retained for
 compatibility with Emacs 18, and is most likely the wrong thing for you
 to be using: consider using @code{next-command-event} instead.
 @end defun
@@ -1803,8 +1803,8 @@ value of @code{last-command-event}.
 
 @defvar last-input-char
 If the value of @code{last-input-event} is a keyboard event, then this
-is the nearest @sc{ASCII} equivalent to it.  Remember that there is
-@emph{not} a 1:1 mapping between keyboard events and @sc{ASCII}
+is the nearest @sc{ascii} equivalent to it.  Remember that there is
+@emph{not} a 1:1 mapping between keyboard events and @sc{ascii}
 characters: the set of keyboard events is much larger, so writing code
 that examines this variable to determine what key has been typed is bad
 practice, unless you are certain that it will be one of a small set of

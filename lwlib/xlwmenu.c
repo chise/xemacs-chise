@@ -1529,7 +1529,7 @@ label_button_size (XlwMenuWidget mw,
 	     2 * mw->menu.vertical_margin +
 	     2 * mw->menu.shadow_thickness);
   /* no left column decoration */
-  *toggle_width = mw->menu.horizontal_margin + mw->menu.shadow_thickness;;
+  *toggle_width = mw->menu.horizontal_margin + mw->menu.shadow_thickness;
 
   *label_width  = string_width_u (mw, resource_widget_value (mw, val));
   *bindings_width =  mw->menu.horizontal_margin + mw->menu.shadow_thickness;

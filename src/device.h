@@ -168,6 +168,7 @@ struct device
   unsigned int frame_changed :1;
   unsigned int glyphs_changed :1;
   unsigned int subwindows_changed :1;
+  unsigned int subwindows_state_changed :1;
   unsigned int icon_changed :1;
   unsigned int menubar_changed :1;
   unsigned int modeline_changed :1;
@@ -220,7 +221,6 @@ DECLARE_LRECORD (device, struct device);
 #define XDEVICE(x) XRECORD (x, device, struct device)
 #define XSETDEVICE(x, p) XSETRECORD (x, p, device)
 #define DEVICEP(x) RECORDP (x, device)
-#define GC_DEVICEP(x) GC_RECORDP (x, device)
 #define CHECK_DEVICE(x) CHECK_RECORD (x, device)
 #define CONCHECK_DEVICE(x) CONCHECK_RECORD (x, device)
 
@@ -247,7 +247,7 @@ error_check_device_type (struct device *d, Lisp_Object sym)
   return d;
 }
 # define DEVICE_TYPE_DATA(d, type)			\
-  ((struct type##_device *) (error_check_device_type (d, Q##type))->device_data)
+  ((struct type##_device *) error_check_device_type (d, Q##type)->device_data)
 #else
 # define DEVICE_TYPE_DATA(d, type)			\
   ((struct type##_device *) (d)->device_data)
@@ -348,6 +348,9 @@ int valid_device_class_p (Lisp_Object class);
 #define MARK_DEVICE_SUBWINDOWS_CHANGED(d)			\
   ((void) (subwindows_changed = (d)->subwindows_changed = 1))
 
+#define MARK_DEVICE_SUBWINDOWS_STATE_CHANGED(d)		\
+  ((void) (subwindows_state_changed = (d)->subwindows_state_changed = 1))
+
 #define MARK_DEVICE_TOOLBARS_CHANGED(d)			\
   ((void) (toolbar_changed = (d)->toolbar_changed = 1))
 
@@ -363,6 +366,14 @@ int valid_device_class_p (Lisp_Object class);
   DEVICE_FRAME_LOOP (frmcons, mdffc_d)			\
     XFRAME (XCAR (frmcons))->faces_changed = 1;		\
   MARK_DEVICE_FACES_CHANGED (mdffc_d);			\
+} while (0)
+
+#define MARK_DEVICE_FRAMES_GLYPHS_CHANGED(d) do {	\
+  struct device *mdffc_d = (d);				\
+  Lisp_Object frmcons;					\
+  DEVICE_FRAME_LOOP (frmcons, mdffc_d)			\
+    XFRAME (XCAR (frmcons))->glyphs_changed = 1;		\
+  MARK_DEVICE_GLYPHS_CHANGED (mdffc_d);		\
 } while (0)
 
 #define MARK_DEVICE_FRAME_CHANGED(d)			\

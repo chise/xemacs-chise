@@ -30,6 +30,9 @@ MODULES=$(XEMACS)\modules
 NT=$(XEMACS)\nt
 OUTDIR=$(NT)\obj
 
+# Define a variable for the 'del' command to use
+DEL=-del
+
 # Program name and version
 
 !include "..\version.sh"
@@ -116,6 +119,9 @@ HAVE_MSW_C_DIRED=1
 !endif
 !if !defined(HAVE_NATIVE_SOUND)
 HAVE_NATIVE_SOUND=1
+!endif
+!if !defined(HAVE_WIDGETS)
+HAVE_WIDGETS=1
 !endif
 !if !defined(DEBUG_XEMACS)
 DEBUG_XEMACS=0
@@ -311,6 +317,9 @@ MSW_DEFINES=$(MSW_DEFINES) -DHAVE_DIALOGS
 MSW_DIALOG_SRC=$(XEMACS)\src\dialog.c $(XEMACS)\src\dialog-msw.c
 MSW_DIALOG_OBJ=$(OUTDIR)\dialog.obj $(OUTDIR)\dialog-msw.obj
 !endif
+!if $(HAVE_WIDGETS)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_WIDGETS
+!endif
 !if $(HAVE_NATIVE_SOUND)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_NATIVE_SOUND
 !endif
@@ -408,17 +417,17 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 
 # Inferred rule
 {$(LIB_SRC)}.c{$(LIB_SRC)}.exe :
-	@cd $(LIB_SRC)
+	cd $(LIB_SRC)
 	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** -link -incremental:no
-	@cd $(NT)
+	cd $(NT)
 
 # Individual dependencies
 ETAGS_DEPS = $(LIB_SRC)/getopt.c $(LIB_SRC)/getopt1.c $(LIB_SRC)/../src/regex.c
 $(LIB_SRC)/etags.exe : $(LIB_SRC)/etags.c $(ETAGS_DEPS)
 $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
-	@cd $(LIB_SRC)
+	cd $(LIB_SRC)
 	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** wsock32.lib -link -incremental:no
-	@cd $(NT)
+	cd $(NT)
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/make-docfile.exe	\
@@ -852,7 +861,7 @@ TEMACS_OBJS= \
 # Rules
 
 .SUFFIXES:
-.SUFFIXES:	.c .texi
+.SUFFIXES:	.c .obj .texi .info
 
 # nmake rule
 !if $(DEBUG_XEMACS)
@@ -881,7 +890,7 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS)
 !if $(DEBUG_XEMACS)
 	@dir /b/s $(OUTDIR)\*.sbr > bscmake.tmp
 	bscmake -nologo -o$(TEMACS_BROWSE) @bscmake.tmp
-	@del bscmake.tmp
+	@$(DEL) bscmake.tmp
 !endif
 	link.exe @<<
   $(TEMACS_LFLAGS) $(TEMACS_OBJS) $(TEMACS_LIBS)
@@ -892,7 +901,7 @@ $(OUTDIR)\xemacs.res: xemacs.rc
 
 # Section handling automated tests starts here
 
-SRCDIR=..\src
+SRCDIR=$(MAKEDIR)\..\src
 PROGNAME=$(SRCDIR)\xemacs.exe
 blddir=$(MAKEDIR:\=\\)\\..
 temacs_loadup=$(TEMACS) -batch -l $(SRCDIR)/../lisp/loadup.el
@@ -917,7 +926,10 @@ check-temacs:
 # Section handling automated tests ends here
 
 # Section handling info starts here
-MAKEINFO=$(PROGNAME) -no-site-file -no-init-file -batch -l texinfmt -f batch-texinfo-format
+
+!if !defined(MAKEINFO)
+MAKEINFO=$(PROGNAME) -vanilla -batch -l texinfmt -f batch-texinfo-format
+!endif
 
 MANDIR = $(XEMACS)\man
 INFODIR = $(XEMACS)\info
@@ -939,12 +951,10 @@ INFO_FILES= \
 	$(INFODIR)\internals.info
 
 {$(MANDIR)}.texi{$(INFODIR)}.info:
+	cd $(MANDIR)
 	$(MAKEINFO) $**
 
-$(INFODIR)\xemacs.info:	$(MANDIR)\xemacs\xemacs.texi
-	$(MAKEINFO) $**
-
-$(MANDIR)\xemacs\xemacs.texi: \
+XEMACS_SRCS = \
 	$(MANDIR)\xemacs\abbrevs.texi \
 	$(MANDIR)\xemacs\basic.texi \
 	$(MANDIR)\xemacs\buffers.texi \
@@ -956,13 +966,13 @@ $(MANDIR)\xemacs\xemacs.texi: \
 	$(MANDIR)\xemacs\entering.texi \
 	$(MANDIR)\xemacs\files.texi \
 	$(MANDIR)\xemacs\fixit.texi \
+	$(MANDIR)\xemacs\frame.texi \
 	$(MANDIR)\xemacs\glossary.texi \
 	$(MANDIR)\xemacs\gnu.texi \
 	$(MANDIR)\xemacs\help.texi \
 	$(MANDIR)\xemacs\indent.texi \
 	$(MANDIR)\xemacs\keystrokes.texi \
 	$(MANDIR)\xemacs\killing.texi \
-	$(MANDIR)\xemacs\\xemacs.texi \
 	$(MANDIR)\xemacs\m-x.texi \
 	$(MANDIR)\xemacs\major.texi \
 	$(MANDIR)\xemacs\mark.texi \
@@ -970,25 +980,23 @@ $(MANDIR)\xemacs\xemacs.texi: \
 	$(MANDIR)\xemacs\mini.texi \
 	$(MANDIR)\xemacs\misc.texi \
 	$(MANDIR)\xemacs\mouse.texi \
+	$(MANDIR)\xemacs\mule.texi \
 	$(MANDIR)\xemacs\new.texi \
+	$(MANDIR)\xemacs\packages.texi \
 	$(MANDIR)\xemacs\picture.texi \
 	$(MANDIR)\xemacs\programs.texi \
 	$(MANDIR)\xemacs\reading.texi \
 	$(MANDIR)\xemacs\regs.texi \
-	$(MANDIR)\xemacs\frame.texi \
 	$(MANDIR)\xemacs\search.texi \
 	$(MANDIR)\xemacs\sending.texi \
+	$(MANDIR)\xemacs\startup.texi \
 	$(MANDIR)\xemacs\text.texi \
 	$(MANDIR)\xemacs\trouble.texi \
 	$(MANDIR)\xemacs\undo.texi \
 	$(MANDIR)\xemacs\windows.texi \
+	$(MANDIR)\xemacs\xemacs.texi
 
-
-$(INFODIR)\lispref.info:	$(MANDIR)\lispref\lispref.texi
-	copy $(MANDIR)\lispref\index.perm $(MANDIR)\lispref\index.texi
-	$(MAKEINFO) $**
-
-$(MANDIR)\lispref\lispref.texi: \
+LISPREF_SRCS = \
 	$(MANDIR)\lispref\abbrevs.texi \
 	$(MANDIR)\lispref\annotations.texi \
 	$(MANDIR)\lispref\back.texi \
@@ -999,10 +1007,12 @@ $(MANDIR)\lispref\lispref.texi: \
 	$(MANDIR)\lispref\compile.texi \
 	$(MANDIR)\lispref\consoles-devices.texi \
 	$(MANDIR)\lispref\control.texi \
+	$(MANDIR)\lispref\customize.texi \
 	$(MANDIR)\lispref\databases.texi \
 	$(MANDIR)\lispref\debugging.texi \
 	$(MANDIR)\lispref\dialog.texi \
 	$(MANDIR)\lispref\display.texi \
+	$(MANDIR)\lispref\dragndrop.texi \
 	$(MANDIR)\lispref\edebug-inc.texi \
 	$(MANDIR)\lispref\edebug.texi \
 	$(MANDIR)\lispref\errors.texi \
@@ -1021,6 +1031,7 @@ $(MANDIR)\lispref\lispref.texi: \
 	$(MANDIR)\lispref\intro.texi \
 	$(MANDIR)\lispref\keymaps.texi \
 	$(MANDIR)\lispref\ldap.texi \
+	$(MANDIR)\lispref\lispref.texi \
 	$(MANDIR)\lispref\lists.texi \
 	$(MANDIR)\lispref\loading.texi \
 	$(MANDIR)\lispref\locals.texi \
@@ -1052,37 +1063,62 @@ $(MANDIR)\lispref\lispref.texi: \
 	$(MANDIR)\lispref\tooltalk.texi \
 	$(MANDIR)\lispref\variables.texi \
 	$(MANDIR)\lispref\windows.texi \
-	$(MANDIR)\lispref\x-windows.texi \
-	$(MANDIR)\lispref\index.unperm \
-	$(MANDIR)\lispref\index.perm \
+	$(MANDIR)\lispref\x-windows.texi
 
+INTERNALS_SRCS = \
+	$(MANDIR)\internals\internals.texi \
+	$(MANDIR)\internals\index.texi
 
-$(INFODIR)\new-users-guide.info:	$(MANDIR)\new-users-guide\new-users-guide.texi
-	$(MAKEINFO) $**
-
-$(MANDIR)\new-users-guide\new-users-guide.texi: \
+NEW_USERS_GUIDE_SRCS = \
 	$(MANDIR)\new-users-guide\custom1.texi \
-	$(MANDIR)\new-users-guide\files.texi \
-	$(MANDIR)\new-users-guide\region.texi \
 	$(MANDIR)\new-users-guide\custom2.texi \
-	$(MANDIR)\new-users-guide\help.texi \
-	$(MANDIR)\new-users-guide\search.texi \
 	$(MANDIR)\new-users-guide\edit.texi \
-	$(MANDIR)\new-users-guide\modes.texi \
-	$(MANDIR)\new-users-guide\xmenu.texi \
 	$(MANDIR)\new-users-guide\enter.texi \
+	$(MANDIR)\new-users-guide\files.texi \
+	$(MANDIR)\new-users-guide\help.texi \
+	$(MANDIR)\new-users-guide\modes.texi \
+	$(MANDIR)\new-users-guide\new-users-guide.texi \
+	$(MANDIR)\new-users-guide\region.texi \
+	$(MANDIR)\new-users-guide\search.texi \
+	$(MANDIR)\new-users-guide\xmenu.texi
+
+$(INFODIR)\xemacs.info: $(XEMACS_SRCS)
+	cd $(MANDIR)\xemacs
+	$(MAKEINFO) xemacs.texi
+	cd ..
 
 
-$(INFODIR)\internals.info:	$(MANDIR)\internals\internals.texi
-	copy $(MANDIR)\internals\index.perm $(MANDIR)\internals\index.texi
-	$(MAKEINFO) $**
+$(INFODIR)\lispref.info: $(LISPREF_SRCS)
+	cd $(MANDIR)\lispref
+	$(MAKEINFO) lispref.texi
+	cd ..
 
-$(MANDIR)\internals\internals.texi: \
-	$(MANDIR)\internals\index.unperm \
-	$(MANDIR)\internals\index.perm \
+$(INFODIR)\internals.info: $(INTERNALS_SRCS)
+	cd $(MANDIR)\internals
+	$(MAKEINFO) internals.texi
+	cd ..
 
+$(INFODIR)\new-users-guide.info: $(NEW_USERS_GUIDE_SRCS)
+	cd $(MANDIR)\new-users-guide
+	$(MAKEINFO) new-users-guide.texi
+	cd ..
 
-info:	$(INFO_FILES)
+info:	makeinfo-test $(INFO_FILES)
+
+makeinfo-test:
+	@<<makeinfo_test.bat
+@echo off
+if exist "$(MAKEINFO)" goto test_done
+@"$(PROGNAME)" -batch -vanilla -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
+@if not errorlevel 1 goto suggest_makeinfo
+@echo XEmacs `info' cannot be built!
+@echo Install XEmacs package `texinfo' (see README.packages).
+:suggest_makeinfo
+@echo Consider specifying path to makeinfo program: MAKEINFO=path
+@echo as this will build info docs faster than XEmacs using `texinfo'.
+@if errorlevel 1 exit 1
+:test_done
+<<NOKEEP
 
 # Section handling info ends here
 
@@ -1093,7 +1129,7 @@ info:	$(INFO_FILES)
 LOADPATH=$(LISP)
 
 $(DOC): $(LIB_SRC)\make-docfile.exe
-	-del $(DOC)
+	$(DEL) $(DOC)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC1)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC2)
@@ -1117,24 +1153,26 @@ dump-xemacs: $(TEMACS)
 	cd $(TEMACS_DIR)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	-1 $(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\loadup.el dump
-	@cd $(NT)
+	cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
 
 #------------------------------------------------------------------------------
 
 # use this rule to build the complete system
-all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
-	$(TEMACS) update-elc $(DOC) dump-xemacs info
+all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
+	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) dump-xemacs \
+	$(LISP)/auto-autoloads.el $(LISP)/custom-load.el info
 
 temacs: $(TEMACS)
 
 # use this rule to install the system
 install:	all
+	cd $(NT)
 	@echo Installing in $(INSTALL_DIR) ...
 	@echo PlaceHolder > PlaceHolder
 	@xcopy /q PROBLEMS "$(INSTALL_DIR)\"
 	@xcopy /q PlaceHolder "$(INSTALL_DIR)\lock\"
-	@del "$(INSTALL_DIR)\lock\PlaceHolder"
+	@$(DEL) "$(INSTALL_DIR)\lock\PlaceHolder"
 	@xcopy /q $(LIB_SRC)\*.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
 	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(CONFIG_VALUES) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
@@ -1145,53 +1183,55 @@ install:	all
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"
 	@echo Making skeleton package tree in $(PACKAGE_PREFIX) ...
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\site-packages\"
-	@del "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
+	@$(DEL) "$(PACKAGE_PREFIX)\site-packages\PlaceHolder"
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\mule-packages\"
-	@del "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
+	@$(DEL) "$(PACKAGE_PREFIX)\mule-packages\PlaceHolder"
 	@xcopy /q PlaceHolder "$(PACKAGE_PREFIX)\xemacs-packages\"
-	@del "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
-	@del PlaceHolder
+	@$(DEL) "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
+	@$(DEL) PlaceHolder
 
 distclean:
-	del *.bak
-	del *.orig
-	del *.rej
-	del *.tmp
-	del $(XEMACS)\Installation
+	$(DEL) *.bak
+	$(DEL) *.orig
+	$(DEL) *.rej
+	$(DEL) *.tmp
+	$(DEL) $(XEMACS)\Installation
 	cd $(OUTDIR)
-	del *.lib
-	del *.obj
-	del *.pdb
-	del *.res
-	del *.sbr
+	$(DEL) *.lib
+	$(DEL) *.obj
+	$(DEL) *.pdb
+	$(DEL) *.res
+	$(DEL) *.sbr
 	cd $(XEMACS)\$(TEMACS_DIR)
-	del config.h
-	del paths.h
-	del Emacs.ad.h
-	del *.bak
-	del *.orig
-	del *.rej
-	del *.exe
-	del *.map
-	del *.bsc
-	del *.pdb
+	$(DEL) config.h
+	$(DEL) paths.h
+	$(DEL) Emacs.ad.h
+	$(DEL) *.bak
+	$(DEL) *.orig
+	$(DEL) *.rej
+	$(DEL) *.exe
+	$(DEL) *.map
+	$(DEL) *.bsc
+	$(DEL) *.pdb
 	cd $(LIB_SRC)
-	del DOC
-	del *.bak
-	del *.orig
-	del *.rej
-	del *.exe
-	del *.obj
-	del *.pdb
-	del *.res
-	del $(CONFIG_VALUES)
+	$(DEL) DOC
+	$(DEL) *.bak
+	$(DEL) *.orig
+	$(DEL) *.rej
+	$(DEL) *.exe
+	$(DEL) *.obj
+	$(DEL) *.pdb
+	$(DEL) *.res
+	$(DEL) $(CONFIG_VALUES)
 	cd $(LISP)
-	-del /s /q *.bak *.elc *.orig *.rej
+	$(DEL) /s /q *.bak *.elc *.orig *.rej
 	cd $(INFODIR)
-	del *.info* $(MANDIR)\internals\index.texi $(MANDIR)\lispref\index.texi
+	$(DEL) *.info*
 
 depend:
-	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c
+	cd $(SRCDIR)
+	perl ./make-src-depend > depend.tmp
+	perl -MFile::Compare -e "compare('depend.tmp', 'depend') && rename('depend.tmp', 'depend') or unlink('depend.tmp')"
 
 $(XEMACS)\Installation:
 	@type > $(XEMACS)\Installation <<
@@ -1257,6 +1297,9 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !if $(HAVE_DIALOGS)
   Compiling in support for dialogs.
 !endif
+!if $(HAVE_WIDGETS)
+  Compiling in support for widgets.
+!endif
 !if $(HAVE_NATIVE_SOUND)
   Compiling in support for native sounds.
 !endif
@@ -1285,6 +1328,22 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 	@echo --------------------------------------------------------------------
 	@type $(XEMACS)\Installation
 	@echo --------------------------------------------------------------------
+
+# Update auto-autoloads.el and custom-load.el similar to what
+# XEmacs.rules does for xemacs-packages.
+VANILLA=-vanilla
+FORCE:
+$(LISP)\auto-autoloads.el:	FORCE
+	@$(DEL) $(LISP)\auto-autoloads.el
+	$(PROGNAME) $(VANILLA) -batch \
+		-l autoload -f batch-update-directory $(LISP)
+	$(PROGNAME) $(VANILLA) -batch \
+		-f batch-byte-compile $@
+	@$(DEL) $(LISP)\auto-autoloads.el~
+
+$(LISP)\custom-load.el:	FORCE
+	$(PROGNAME) $(VANILLA) -batch -l cus-dep \
+		-f Custom-make-dependencies $(LISP)
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

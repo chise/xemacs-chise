@@ -94,10 +94,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <errno.h>
 
-#ifndef errno
-extern int errno;
-#endif
-
 #ifndef HAVE_GETLOADAVG
 
 /* The existing Emacs configuration files define a macro called
@@ -536,7 +532,7 @@ getloadavg (double loadavg[], int nelem)
    privileges to use it.
 
    Initial implementation courtesy Zlatko Calusic <zcalusic@carnet.hr>.
-   Integrated to XEmacs by Hrvoje Niksic <hniksic@srce.hr>.
+   Integrated to XEmacs by Hrvoje Niksic <hniksic@xemacs.org>.
    Additional cleanup by Hrvoje Niksic, based on code published by
    Casper Dik <Casper.Dik@Holland.Sun.Com>.  */
   kstat_ctl_t *kc;

@@ -229,6 +229,8 @@
 (Assert (= (+ 1.0 1) 2.0))
 (Assert (= (+ 1.0 1 1) 3.0))
 (Assert (= (+ 1 1 1.0) 3.0))
+(Assert (eq (1+ most-positive-fixnum) most-negative-fixnum))
+(Assert (eq (+ most-positive-fixnum 1) most-negative-fixnum))
 
 ;; Test `-'
 (Check-Error wrong-number-of-arguments (-))
@@ -252,6 +254,9 @@
 
 (Assert (= (- 1.5 1) .5))
 (Assert (= (- 1 1.5) (- .5)))
+
+(Assert (eq (1- most-negative-fixnum) most-positive-fixnum))
+(Assert (eq (- most-negative-fixnum 1) most-positive-fixnum))
 
 ;; Test `/'
 

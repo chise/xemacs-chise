@@ -305,8 +305,8 @@ otherwise it is killed."
   "Return the command invoked by KEY.
 Like `key-binding', but handles menu events and toolbar presses correctly.
 KEY is any value returned by `next-command-event'.
-MENU-FLAG is a symbol that should be set to T if KEY is a menu event,
- or NIL otherwise"
+MENU-FLAG is a symbol that should be set to t if KEY is a menu event,
+ or nil otherwise"
   (let (defn)
     (and menu-flag (set menu-flag nil))
     ;; If the key typed was really a menu selection, grab the form out
@@ -657,9 +657,20 @@ then only the mouse bindings are displayed."
             (gettext "key             binding\n---             -------\n")))
         (buffer (current-buffer))
         (minor minor-mode-map-alist)
+	(extent-maps (mapcar-extents
+		      'extent-keymap
+		      nil (current-buffer) (point) (point) nil 'keymap))
         (local (current-local-map))
         (shadow '()))
     (set-buffer standard-output)
+    (while extent-maps
+      (insert "Bindings for Text Region:\n"
+	      heading)
+      (describe-bindings-internal
+       (car extent-maps) nil shadow prefix mouse-only-p)
+       (insert "\n")
+       (setq shadow (cons (car extent-maps) shadow)
+	     extent-maps (cdr extent-maps)))
     (while minor
       (let ((sym (car (car minor)))
             (map (cdr (car minor))))
@@ -937,8 +948,9 @@ When run interactively, it defaults to any function found by
                         (format (gettext "Describe function (default %s): ")
 				fn)
                         (gettext "Describe function: "))
-                    obarray 'fboundp t nil 'function-history))))
-      (list (if (equal val "") fn (intern val)))))
+                    obarray 'fboundp t nil 'function-history
+		    (symbol-name fn)))))
+      (list (intern val))))
   (with-displaying-help-buffer
    (lambda ()
      (describe-function-1 function)
@@ -1226,8 +1238,9 @@ part of the documentation of internal subroutines."
                    (if v
                        (format "Describe variable (default %s): " v)
                        (gettext "Describe variable: "))
-                   obarray 'boundp t nil 'variable-history))))
-     (list (if (equal val "") v (intern val)))))
+                   obarray 'boundp t nil 'variable-history
+		   (symbol-name v)))))
+     (list (intern val))))
   (with-displaying-help-buffer
    (lambda ()
      (let ((origvar variable)

@@ -50,7 +50,6 @@ DECLARE_LRECORD (range_table, struct Lisp_Range_Table);
   XRECORD (x, range_table, struct Lisp_Range_Table)
 #define XSETRANGE_TABLE(x, p) XSETRECORD (x, p, range_table)
 #define RANGE_TABLEP(x) RECORDP (x, range_table)
-#define GC_RANGE_TABLEP(x) GC_RECORDP (x, range_table)
 #define CHECK_RANGE_TABLE(x) CHECK_RECORD (x, range_table)
 
 #endif

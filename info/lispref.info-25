@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -72,7 +72,7 @@ that is independent of the buffer list orders for any particular frame.
    Note that the different buffer lists all contain the same elements.
 It is only the order of those elements that is different.
 
- - Function: buffer-list &optional FRAME
+ - Function: buffer-list &optional frame
      This function returns a list of all buffers, including those whose
      names begin with a space.  The elements are actual buffers, not
      their names.  The order of the list is specific to FRAME, which
@@ -96,7 +96,7 @@ It is only the order of those elements that is different.
      This list is a copy of a list used inside XEmacs; modifying it has
      no effect on the buffers.
 
- - Function: other-buffer &optional BUFFER-OR-NAME FRAME VISIBLE-OK
+ - Function: other-buffer &optional buffer-or-name frame visible-ok
      This function returns the first buffer in the buffer list other
      than BUFFER-OR-NAME, in FRAME's ordering for the buffer list.
      (FRAME defaults to the current frame.  If FRAME is `t', then the
@@ -128,14 +128,14 @@ It is only the order of those elements that is different.
      VISIBLE-OK is the second argument instead of the third.  FSF Emacs
      19.
 
- - Command: list-buffers &optional FILES-ONLY
+ - Command: list-buffers &optional files-only
      This function displays a listing of the names of existing buffers.
      It clears the buffer `*Buffer List*', then inserts the listing
      into that buffer and displays it in a window.  `list-buffers' is
      intended for interactive use, and is described fully in `The XEmacs
      Reference Manual'.  It returns `nil'.
 
- - Command: bury-buffer &optional BUFFER-OR-NAME
+ - Command: bury-buffer &optional buffer-or-name
      This function puts BUFFER-OR-NAME at the end of the buffer list
      without changing the order of any of the other buffers on the list.
      This buffer therefore becomes the least desirable candidate for
@@ -162,11 +162,11 @@ with the specified name; `generate-new-buffer' always creates a new
 buffer and gives it a unique name.
 
    Other functions you can use to create buffers include
-`with-output-to-temp-buffer' (*note Temporary Displays::.) and
-`create-file-buffer' (*note Visiting Files::.).  Starting a subprocess
-can also create a buffer (*note Processes::.).
+`with-output-to-temp-buffer' (*note Temporary Displays::) and
+`create-file-buffer' (*note Visiting Files::).  Starting a subprocess
+can also create a buffer (*note Processes::).
 
- - Function: get-buffer-create NAME
+ - Function: get-buffer-create name
      This function returns a buffer named NAME.  It returns an existing
      buffer with that name, if one exists; otherwise, it creates a new
      buffer.  The buffer does not become the current buffer--this
@@ -181,7 +181,7 @@ can also create a buffer (*note Processes::.).
      variable `default-major-mode' is handled at a higher level.  *Note
      Auto Major Mode::.
 
- - Function: generate-new-buffer NAME
+ - Function: generate-new-buffer name
      This function returns a newly created, empty buffer, but does not
      make it current.  If there is no buffer named NAME, then that is
      the name of the new buffer.  If that name is in use, this function
@@ -234,11 +234,11 @@ buffers, the indirect buffers are automatically killed as well.
 buffer has been killed, you can either use this feature or the function
 `buffer-live-p'.
 
- - Function: buffer-live-p BUFFER
+ - Function: buffer-live-p buffer
      This function returns `nil' if BUFFER is deleted, and `t'
      otherwise.
 
- - Command: kill-buffer BUFFER-OR-NAME
+ - Command: kill-buffer buffer-or-name
      This function kills the buffer BUFFER-OR-NAME, freeing all its
      memory for use as space for other buffers.  (Emacs version 18 and
      older was unable to return the memory to the operating system.)
@@ -320,7 +320,7 @@ base buffer.
    Killing an indirect buffer has no effect on its base buffer.  Killing
 the base buffer kills all its indirect children.
 
- - Command: make-indirect-buffer BASE-BUFFER NAME
+ - Command: make-indirect-buffer base-buffer name
      This creates an indirect buffer named NAME whose base buffer is
      BASE-BUFFER.  The argument BASE-BUFFER may be a buffer or a string.
 
@@ -330,7 +330,7 @@ the base buffer kills all its indirect children.
           (make-indirect-buffer "*scratch*" "indirect")
                => #<buffer "indirect">
 
- - Function: buffer-base-buffer &optional BUFFER
+ - Function: buffer-base-buffer &optional buffer
      This function returns the base buffer of BUFFER.  If BUFFER is not
      indirect, the value is `nil'.  Otherwise, the value is another
      buffer, which is never an indirect buffer.  If BUFFER is not
@@ -339,7 +339,7 @@ the base buffer kills all its indirect children.
           (buffer-base-buffer (get-buffer "indirect"))
                => #<buffer "*scratch*">
 
- - Function: buffer-indirect-children &optional BUFFER
+ - Function: buffer-indirect-children &optional buffer
      This function returns a list of all indirect buffers whose base
      buffer is BUFFER.  If BUFFER is indirect, the return value will
      always be nil; see `make-indirect-buffer'.  If BUFFER is not
@@ -404,8 +404,8 @@ has been used).  *Note Current Buffer::.
 
    For practical purposes, a window exists only while it is displayed in
 a frame.  Once removed from the frame, the window is effectively deleted
-and should not be used, *even though there may still be references to
-it* from other Lisp objects.  Restoring a saved window configuration is
+and should not be used, _even though there may still be references to
+it_ from other Lisp objects.  Restoring a saved window configuration is
 the only way for a window no longer on the screen to come back to life.
 (*Note Deleting Windows::.)
 
@@ -454,7 +454,7 @@ Windows::, and *Note Size of Window::.
    *Note Display::, for information on how the contents of the window's
 buffer are displayed in the window.
 
- - Function: windowp OBJECT
+ - Function: windowp object
      This function returns `t' if OBJECT is a window.
 
 
@@ -466,13 +466,13 @@ Splitting Windows
    The functions described here are the primitives used to split a
 window into two windows.  Two higher level functions sometimes split a
 window, but not always: `pop-to-buffer' and `display-buffer' (*note
-Displaying Buffers::.).
+Displaying Buffers::).
 
    The functions described here do not accept a buffer as an argument.
 The two "halves" of the split window initially display the same buffer
 previously visible in the window that was split.
 
- - Function: one-window-p &optional NO-MINI ALL-FRAMES
+ - Function: one-window-p &optional no-mini all-frames
      This function returns non-`nil' if there is only one window.  The
      argument NO-MINI, if non-`nil', means don't count the minibuffer
      even if it is active; otherwise, the minibuffer window is
@@ -497,7 +497,7 @@ previously visible in the window that was split.
           WINDOW's frame are counted, excluding the minibuffer in use
           if it lies in some other frame.
 
- - Command: split-window &optional WINDOW SIZE HORIZONTAL
+ - Command: split-window &optional window size horizontal
      This function splits WINDOW into two windows.  The original window
      WINDOW remains the selected window, but occupies only part of its
      former screen area.  The rest is occupied by a newly created
@@ -524,21 +524,19 @@ previously visible in the window that was split.
                => #<window 8 on windows.texi>
           (window-edges)          ; Edges in order:
                => (0 0 80 50)     ;   left-top-right-bottom
-
+          
           ;; Returns window created
           (setq w2 (split-window w 15))
                => #<window 28 on windows.texi>
-
           (window-edges w2)
                => (0 15 80 50)    ; Bottom window;
                                   ;   top is line 15
-
           (window-edges w)
                => (0 0 80 15)     ; Top window
 
      The frame looks like this:
 
-          __________
+                   __________
                   |          |  line 0
                   |    w     |
                   |__________|
@@ -552,19 +550,16 @@ previously visible in the window that was split.
 
           (setq w3 (split-window w 35 t))
                => #<window 32 on windows.texi>
-
           (window-edges w3)
                => (35 0 80 15)  ; Left edge at column 35
-
           (window-edges w)
                => (0 0 35 15)   ; Right edge at column 35
-
           (window-edges w2)
                => (0 15 80 50)  ; Bottom window unchanged
 
      Now, the screen looks like this:
 
-          column 35
+               column 35
                    __________
                   |   |      |  line 0
                   | w |  w3  |
@@ -580,7 +575,7 @@ previously visible in the window that was split.
      or `|' characters.  The display table can specify alternative
      border characters; see *Note Display Tables::.
 
- - Command: split-window-vertically &optional SIZE
+ - Command: split-window-vertically &optional size
      This function splits the selected window into two windows, one
      above the other, leaving the selected window with SIZE lines.
 
@@ -592,7 +587,7 @@ previously visible in the window that was split.
             (interactive "P")
             (split-window nil (and arg (prefix-numeric-value arg))))
 
- - Command: split-window-horizontally &optional SIZE
+ - Command: split-window-horizontally &optional size
      This function splits the selected window into two windows
      side-by-side, leaving the selected window with SIZE columns.
 
@@ -605,7 +600,7 @@ previously visible in the window that was split.
             (interactive "P")
             (split-window nil (and arg (prefix-numeric-value arg)) t))
 
- - Function: one-window-p &optional NO-MINI ALL-FRAMES
+ - Function: one-window-p &optional no-mini all-frames
      This function returns non-`nil' if there is only one window.  The
      argument NO-MINI, if non-`nil', means don't count the minibuffer
      even if it is active; otherwise, the minibuffer window is
@@ -643,21 +638,21 @@ calling certain functions that delete windows.  A deleted window cannot
 appear on the screen, but continues to exist as a Lisp object until
 there are no references to it.  There is no way to cancel the deletion
 of a window aside from restoring a saved window configuration (*note
-Window Configurations::.).  Restoring a window configuration also
+Window Configurations::).  Restoring a window configuration also
 deletes any windows that aren't part of that configuration.
 
    When you delete a window, the space it took up is given to one
 adjacent sibling.  (In Emacs version 18, the space was divided evenly
 among all the siblings.)
 
- - Function: window-live-p WINDOW
+ - Function: window-live-p window
      This function returns `nil' if WINDOW is deleted, and `t'
      otherwise.
 
      *Warning:* Erroneous information or fatal errors may result from
      using a deleted window as if it were live.
 
- - Command: delete-window &optional WINDOW
+ - Command: delete-window &optional window
      This function removes WINDOW from the display.  If WINDOW is
      omitted, then the selected window is deleted.  An error is signaled
      if there is only one window when `delete-window' is called.
@@ -667,14 +662,14 @@ among all the siblings.)
      When `delete-window' is called interactively, WINDOW defaults to
      the selected window.
 
- - Command: delete-other-windows &optional WINDOW
+ - Command: delete-other-windows &optional window
      This function makes WINDOW the only window on its frame, by
      deleting the other windows in that frame.  If WINDOW is omitted or
      `nil', then the selected window is used by default.
 
      The result is `nil'.
 
- - Command: delete-windows-on BUFFER &optional FRAME
+ - Command: delete-windows-on buffer &optional frame
      This function deletes all windows showing BUFFER.  If there are no
      windows showing BUFFER, it does nothing.
 
@@ -709,7 +704,7 @@ Selecting Windows
    When a window is selected, the buffer in the window becomes the
 current buffer, and the cursor will appear in it.
 
- - Function: selected-window &optional DEVICE
+ - Function: selected-window &optional device
      This function returns the selected window.  This is the window in
      which the cursor appears and to which many commands apply.  Each
      separate device can have its own selected window, which is
@@ -717,7 +712,7 @@ current buffer, and the cursor will appear in it.
      argument DEVICE specifies which device to return the selected
      window for, and defaults to the selected device.
 
- - Function: select-window WINDOW &optional NORECORD
+ - Function: select-window window &optional norecord
      This function makes WINDOW the selected window.  The cursor then
      appears in WINDOW (on redisplay).  The buffer being displayed in
      WINDOW is immediately designated the current buffer.
@@ -732,7 +727,7 @@ current buffer, and the cursor will appear in it.
           (select-window w)
                => #<window 65 on windows.texi>
 
- - Macro: save-selected-window FORMS...
+ - Macro: save-selected-window forms...
      This macro records the selected window, executes FORMS in
      sequence, then restores the earlier selected window.  It does not
      save or restore anything about the sizes, arrangement or contents
@@ -742,7 +737,7 @@ current buffer, and the cursor will appear in it.
    The following functions choose one of the windows on the screen,
 offering various criteria for the choice.
 
- - Function: get-lru-window &optional FRAME
+ - Function: get-lru-window &optional frame
      This function returns the window least recently "used" (that is,
      selected).  The selected window is always the most recently used
      window.
@@ -765,7 +760,7 @@ offering various criteria for the choice.
 
         * If it is a frame, consider windows on that frame.
 
- - Function: get-largest-window &optional FRAME
+ - Function: get-largest-window &optional frame
      This function returns the window with the largest area (height
      times width).  If there are no side-by-side windows, then this is
      the window with the most lines.  A minibuffer window is never a
@@ -801,7 +796,7 @@ horizontal, the ordering is top to bottom in the left part, and so on.
 In general, within each set of siblings at any level in the window tree,
 the order is left to right, or top to bottom.
 
- - Function: next-window &optional WINDOW MINIBUF ALL-FRAMES
+ - Function: next-window &optional window minibuf all-frames
      This function returns the window following WINDOW in the cyclic
      ordering of windows.  This is the window that `C-x o' would select
      if typed when WINDOW is selected.  If WINDOW is the only window
@@ -852,12 +847,12 @@ the order is left to right, or top to bottom.
           (next-window (next-window (selected-window)))
                => #<window 56 on windows.texi>
 
- - Function: previous-window &optional WINDOW MINIBUF ALL-FRAMES
+ - Function: previous-window &optional window minibuf all-frames
      This function returns the window preceding WINDOW in the cyclic
      ordering of windows.  The other arguments specify which windows to
      include in the cycle, as in `next-window'.
 
- - Command: other-window COUNT &optional FRAME
+ - Command: other-window count &optional frame
      This function selects the COUNTth following window in the cyclic
      order.  If count is negative, then it selects the -COUNTth
      preceding window.  It returns `nil'.
@@ -881,7 +876,7 @@ the order is left to right, or top to bottom.
 
         * If it is any other value, then the behavior is undefined.
 
- - Function: walk-windows PROC &optional MINIBUF ALL-FRAMES
+ - Function: walk-windows proc &optional minibuf all-frames
      This function cycles through all windows, calling `proc' once for
      each window with the window as its sole argument.
 
@@ -902,14 +897,14 @@ and specify a buffer for it.  The functions described there are easier
 to use than these, but they employ heuristics in choosing or creating a
 window; use these functions when you need complete control.
 
- - Function: set-window-buffer WINDOW BUFFER-OR-NAME
+ - Function: set-window-buffer window buffer-or-name
      This function makes WINDOW display BUFFER-OR-NAME as its contents.
      It returns `nil'.
 
           (set-window-buffer (selected-window) "foo")
                => nil
 
- - Function: window-buffer &optional WINDOW
+ - Function: window-buffer &optional window
      This function returns the buffer that WINDOW is displaying.  If
      WINDOW is omitted, this function returns the buffer for the
      selected window.
@@ -917,7 +912,7 @@ window; use these functions when you need complete control.
           (window-buffer)
                => #<buffer windows.texi>
 
- - Function: get-buffer-window BUFFER-OR-NAME &optional FRAME
+ - Function: get-buffer-window buffer-or-name &optional frame
      This function returns a window currently displaying
      BUFFER-OR-NAME, or `nil' if there is none.  If there are several
      such windows, then the function returns the first one in the
@@ -954,11 +949,11 @@ you more precise control.
 current so that a Lisp program can access or modify it; they are too
 drastic for that purpose, since they change the display of buffers in
 windows, which is gratuitous and will surprise the user.  Instead, use
-`set-buffer' (*note Current Buffer::.) and `save-excursion' (*note
-Excursions::.), which designate buffers as current for programmed
-access without affecting the display of buffers in windows.
+`set-buffer' (*note Current Buffer::) and `save-excursion' (*note
+Excursions::), which designate buffers as current for programmed access
+without affecting the display of buffers in windows.
 
- - Command: switch-to-buffer BUFFER-OR-NAME &optional NORECORD
+ - Command: switch-to-buffer buffer-or-name &optional norecord
      This function makes BUFFER-OR-NAME the current buffer, and also
      displays the buffer in the selected window.  This means that a
      human can see the buffer and subsequent keyboard commands will
@@ -979,7 +974,7 @@ access without affecting the display of buffers in windows.
      the binding of `C-x b'.  It is also used frequently in programs.
      It always returns `nil'.
 
- - Command: switch-to-buffer-other-window BUFFER-OR-NAME
+ - Command: switch-to-buffer-other-window buffer-or-name
      This function makes BUFFER-OR-NAME the current buffer and displays
      it in a window not currently selected.  It then selects that
      window.  The handling of the buffer is the same as in
@@ -991,8 +986,8 @@ access without affecting the display of buffers in windows.
      already displaying the buffer, then it continues to do so, but
      another window is nonetheless found to display it in as well.
 
- - Function: pop-to-buffer BUFFER-OR-NAME &optional OTHER-WINDOW
-          ON-FRAME
+ - Function: pop-to-buffer buffer-or-name &optional other-window
+          on-frame
      This function makes BUFFER-OR-NAME the current buffer and switches
      to it in some window, preferably not the window previously
      selected.  The "popped-to" window becomes the selected window
@@ -1034,7 +1029,7 @@ access without affecting the display of buffers in windows.
      An example use of this function is found at the end of *Note
      Filter Functions::.
 
- - Command: replace-buffer-in-windows BUFFER
+ - Command: replace-buffer-in-windows buffer
      This function replaces BUFFER with some other buffer in all
      windows displaying it.  The other buffer used is chosen with
      `other-buffer'.  In the usual applications of this function, you
@@ -1054,7 +1049,7 @@ display a buffer in--`display-buffer'.  All the higher-level functions
 and commands use this subroutine.  Here we describe how to use
 `display-buffer' and how to customize it.
 
- - Command: display-buffer BUFFER-OR-NAME &optional NOT-THIS-WINDOW
+ - Command: display-buffer buffer-or-name &optional not-this-window
      This command makes BUFFER-OR-NAME appear in some window, like
      `pop-to-buffer', but it does not select that window and does not
      make the buffer current.  The identity of the selected window is
@@ -1077,11 +1072,11 @@ and commands use this subroutine.  Here we describe how to use
 XEmacs will not automatically change which buffer appears in the
 window, such as `display-buffer' might normally do.
 
- - Function: window-dedicated-p WINDOW
+ - Function: window-dedicated-p window
      This function returns WINDOW's dedicated object, usually `t' or
      `nil'.
 
- - Function: set-window-buffer-dedicated WINDOW BUFFER
+ - Function: set-window-buffer-dedicated window buffer
      This function makes WINDOW display BUFFER and be dedicated to that
      buffer.  Then XEmacs will not automatically change which buffer
      appears in WINDOW.  If BUFFER is `nil', this function makes WINDOW
@@ -1168,7 +1163,7 @@ window, such as `display-buffer' might normally do.
      The default value of this variable is
      `special-display-popup-frame'.
 
- - Function: special-display-popup-frame BUFFER
+ - Function: special-display-popup-frame buffer
      This function makes BUFFER visible in a frame of its own.  If
      BUFFER is already displayed in a window in some frame, it makes
      the frame visible and raises it, to use that window.  Otherwise, it
@@ -1209,11 +1204,11 @@ window, such as `display-buffer' might normally do.
    A window can be marked as "dedicated" to its buffer.  Then
 `display-buffer' does not try to use that window.
 
- - Function: window-dedicated-p WINDOW
+ - Function: window-dedicated-p window
      This function returns `t' if WINDOW is marked as dedicated;
      otherwise `nil'.
 
- - Function: set-window-dedicated-p WINDOW FLAG
+ - Function: set-window-dedicated-p window flag
      This function marks WINDOW as dedicated if FLAG is non-`nil', and
      nondedicated otherwise.
 

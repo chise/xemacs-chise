@@ -58,6 +58,7 @@ REAL="$EMACS_DIR/`basename $EMACS`"
 echo "Rebuilding autoloads in $CANON_PWD"
 echo "          with $REAL..."
 
+#### echon really sucks!
 if [ "`uname -r | sed 's/\(.\).*/\1/'`" -gt 4 ]; then
   echon()
   {

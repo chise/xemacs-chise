@@ -38,7 +38,7 @@ struct color_specifier
   Lisp_Object face_property;	/* property of that face */
 };
 
-#define COLOR_SPECIFIER_DATA(g) (SPECIFIER_TYPE_DATA (g, color))
+#define COLOR_SPECIFIER_DATA(g) SPECIFIER_TYPE_DATA (g, color)
 #define COLOR_SPECIFIER_FACE(g) (COLOR_SPECIFIER_DATA (g)->face)
 #define COLOR_SPECIFIER_FACE_PROPERTY(g) \
   (COLOR_SPECIFIER_DATA (g)->face_property)
@@ -63,7 +63,7 @@ struct font_specifier
   Lisp_Object face_property;	/* property of that face */
 };
 
-#define FONT_SPECIFIER_DATA(g) (SPECIFIER_TYPE_DATA (g, font))
+#define FONT_SPECIFIER_DATA(g) SPECIFIER_TYPE_DATA (g, font)
 #define FONT_SPECIFIER_FACE(g) (FONT_SPECIFIER_DATA (g)->face)
 #define FONT_SPECIFIER_FACE_PROPERTY(g) \
   (FONT_SPECIFIER_DATA (g)->face_property)
@@ -88,7 +88,7 @@ struct face_boolean_specifier
   Lisp_Object face_property;	/* property of that face */
 };
 
-#define FACE_BOOLEAN_SPECIFIER_DATA(g) (SPECIFIER_TYPE_DATA (g, face_boolean))
+#define FACE_BOOLEAN_SPECIFIER_DATA(g) SPECIFIER_TYPE_DATA (g, face_boolean)
 #define FACE_BOOLEAN_SPECIFIER_FACE(g) (FACE_BOOLEAN_SPECIFIER_DATA (g)->face)
 #define FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY(g) \
   (FACE_BOOLEAN_SPECIFIER_DATA (g)->face_property)
@@ -116,7 +116,6 @@ DECLARE_LRECORD (color_instance, struct Lisp_Color_Instance);
   XRECORD (x, color_instance, struct Lisp_Color_Instance)
 #define XSETCOLOR_INSTANCE(x, p) XSETRECORD (x, p, color_instance)
 #define COLOR_INSTANCEP(x) RECORDP (x, color_instance)
-#define GC_COLOR_INSTANCEP(x) GC_RECORDP (x, color_instance)
 #define CHECK_COLOR_INSTANCE(x) CHECK_RECORD (x, color_instance)
 #define CONCHECK_COLOR_INSTANCE(x) CONCHECK_RECORD (x, color_instance)
 
@@ -145,7 +144,6 @@ DECLARE_LRECORD (font_instance, struct Lisp_Font_Instance);
 #define XFONT_INSTANCE(x) XRECORD (x, font_instance, struct Lisp_Font_Instance)
 #define XSETFONT_INSTANCE(x, p) XSETRECORD (x, p, font_instance)
 #define FONT_INSTANCEP(x) RECORDP (x, font_instance)
-#define GC_FONT_INSTANCEP(x) GC_RECORDP (x, font_instance)
 #define CHECK_FONT_INSTANCE(x) CHECK_RECORD (x, font_instance)
 #define CONCHECK_FONT_INSTANCE(x) CONCHECK_RECORD (x, font_instance)
 

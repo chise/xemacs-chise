@@ -3,7 +3,7 @@
 ;; Copyright (C) 1992-4, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995, 1996 Ben Wing.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: extensions, internal, dumped
 

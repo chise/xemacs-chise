@@ -226,7 +226,6 @@ DECLARE_LRECORD (face, struct Lisp_Face);
 #define XFACE(x) XRECORD (x, face, struct Lisp_Face)
 #define XSETFACE(x, p) XSETRECORD (x, p, face)
 #define FACEP(x) RECORDP (x, face)
-#define GC_FACEP(x) GC_RECORDP (x, face)
 #define CHECK_FACE(x) CHECK_RECORD (x, face)
 
 Lisp_Object ensure_face_cachel_contains_charset (struct face_cachel *cachel,
@@ -241,8 +240,7 @@ void update_face_cachel_data (struct face_cachel *cachel,
 void face_cachel_charset_font_metric_info (struct face_cachel *cachel,
 					   Charset_ID *charsets,
 					   struct font_metric_info *fm);
-void mark_face_cachels (face_cachel_dynarr *elements,
-			void (*markobj) (Lisp_Object));
+void mark_face_cachels (face_cachel_dynarr *elements);
 void mark_face_cachels_as_clean (struct window *w);
 void mark_face_cachels_as_not_updated (struct window *w);
 void reset_face_cachel (struct face_cachel *inst);
@@ -260,7 +258,7 @@ EXFUN (Fget_face, 1);
 
 extern Lisp_Object Qstrikethru, Vbuilt_in_face_specifiers, Vdefault_face;
 extern Lisp_Object Vleft_margin_face, Vpointer_face, Vright_margin_face;
-extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face; 
+extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face;
 extern Lisp_Object Vtoolbar_face, Vgui_element_face, Vwidget_face;
 
 void mark_all_faces_as_clean (void);

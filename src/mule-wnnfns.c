@@ -1875,9 +1875,22 @@ syms_of_mule_wnn (void)
 }
 
 void
-vars_of_mule_wnn (void)
+reinit_vars_of_mule_wnn (void)
 {
   int i;
+
+  for (i = 0; i < NSERVER; i++)
+    {
+      wnnfns_buf[i] = (struct wnn_buf *) 0;
+      wnnfns_env_norm[i] = (struct wnn_env *) 0;
+      wnnfns_env_rev[i] = (struct wnn_env *) 0;
+    }
+}
+
+void
+vars_of_mule_wnn (void)
+{
+  reinit_vars_of_mule_wnn ();
 
   DEFVAR_INT ("lb-sisheng", &lb_sisheng /*
 Leading character for Sisheng.
@@ -1900,13 +1913,6 @@ Leading character for Sisheng.
   Vwnnenv_sticky = Qnil;
 
   Vwnn_uniq_level = Qwnn_uniq;
-
-  for (i = 0; i < NSERVER; i++)
-    {
-      wnnfns_buf[i] = (struct wnn_buf *) 0;
-      wnnfns_env_norm[i] = (struct wnn_env *) 0;
-      wnnfns_env_rev[i] = (struct wnn_env *) 0;
-    }
 
   Fprovide(intern("wnn"));
 }

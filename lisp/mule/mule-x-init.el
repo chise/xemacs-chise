@@ -1,6 +1,6 @@
 ;;; mule-x-init.el --- initialization code for X Windows under MULE
 ;; Copyright (C) 1994 Free Software Foundation, Inc.
-;; Copyright (C) 1996 Ben Wing <wing@666.com>
+;; Copyright (C) 1996 Ben Wing <ben@xemacs.org>
 
 ;; Author: various
 ;; Keywords: mule X11

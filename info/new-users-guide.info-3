@@ -1,5 +1,5 @@
-This is Info file ../../info/new-users-guide.info, produced by Makeinfo
-version 1.68 from the input file new-users-guide.texi.
+This is ../info/new-users-guide.info, produced by makeinfo version
+3.12s from new-users-guide/new-users-guide.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -38,8 +38,8 @@ Command and Function Index
 * delete-backward-char:                  Erase.
 * delete-char:                           Erase.
 * delete-menu-item:                      Customizing Menus.
-* delete-other-windows <1>:              Windows and Menus.
-* delete-other-windows:                  XEmacs Window.
+* delete-other-windows <1>:              XEmacs Window.
+* delete-other-windows:                  Windows and Menus.
 * delete-window <1>:                     XEmacs Window.
 * delete-window:                         Windows and Menus.
 * describe-variable:                     Setting Variables.
@@ -144,8 +144,8 @@ Concept Index
 * cursor control:                        Cursor Position.
 * cursor position:                       Cursor Position.
 * cursor shapes:                         Mouse.
-* customize <1>:                         Customization Basics.
-* customize:                             Other Customizations.
+* customize <1>:                         Other Customizations.
+* customize:                             Customization Basics.
 * customize menus:                       Customizing Menus.
 * Cut menu item:                         Edit menu.
 * Delete Frame menu item:                File menu.
@@ -177,8 +177,8 @@ Concept Index
 * fortran-mode:                          Major Modes.
 * fundamental-mode:                      Major Modes.
 * goto-line:                             Cursor Position.
-* help <1>:                              Help.
-* help:                                  The Help Menu.
+* help <1>:                              The Help Menu.
+* help:                                  Help.
 * Help menu:                             Help menu.
 * hook:                                  Other Customizations.
 * init file examples:                    Init File.
@@ -254,8 +254,8 @@ Concept Index
 * visiting files:                        Visiting.
 * Weight menu item:                      Options Menu.
 * windows <1>:                           XEmacs Window.
-* windows <2>:                           Entering.
-* windows:                               Windows and Menus.
+* windows <2>:                           Windows and Menus.
+* windows:                               Entering.
 * yanking:                               Moving Text.
 
 

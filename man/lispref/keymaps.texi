@@ -235,7 +235,7 @@ if it has none.
 @section Key Sequences
 @cindex key sequences
 
-  Contrary to popular belief, the world is not @sc{ASCII}.  When running
+  Contrary to popular belief, the world is not @sc{ascii}.  When running
 under a window manager, XEmacs can tell the difference between, for
 example, the keystrokes @kbd{control-h}, @kbd{control-shift-h}, and
 @kbd{backspace}.  You can, in fact, bind different commands to each of
@@ -246,8 +246,8 @@ keysym and some set of modifiers (such as @key{CONTROL} and @key{META}).
 A @dfn{keysym} is what is printed on the keys on your keyboard.
 
   A keysym may be represented by a symbol, or (if and only if it is
-equivalent to an @sc{ASCII} character in the range 32 - 255) by a
-character or its equivalent @sc{ASCII} code.  The @kbd{A} key may be
+equivalent to an @sc{ascii} character in the range 32 - 255) by a
+character or its equivalent @sc{ascii} code.  The @kbd{A} key may be
 represented by the symbol @code{A}, the character @code{?A}, or by the
 number 65.  The @kbd{break} key may be represented only by the symbol
 @code{break}.
@@ -262,12 +262,12 @@ keystroke may also be represented by an event object, as returned by the
 @code{next-command-event} and @code{read-key-sequence} functions.
 
   Note that in this context, the keystroke @kbd{control-b} is @emph{not}
-represented by the number 2 (the @sc{ASCII} code for @samp{^B}) or the
+represented by the number 2 (the @sc{ascii} code for @samp{^B}) or the
 character @code{?\^B}.  See below.
 
   The @key{SHIFT} modifier is somewhat of a special case.  You should
 not (and cannot) use @code{(meta shift a)} to mean @code{(meta A)},
-since for characters that have @sc{ASCII} equivalents, the state of the
+since for characters that have @sc{ascii} equivalents, the state of the
 shift key is implicit in the keysym (@samp{a} vs. @samp{A}).  You also
 cannot say @code{(shift =)} to mean @code{+}, as that sort of thing
 varies from keyboard to keyboard.  The @key{SHIFT} modifier is for use
@@ -311,8 +311,8 @@ so be careful.
 
   For backward compatibility, a key sequence may also be represented by
 a string.  In this case, it represents the key sequence(s) that would
-produce that sequence of @sc{ASCII} characters in a purely @sc{ASCII}
-world.  For example, a string containing the @sc{ASCII} backspace
+produce that sequence of @sc{ascii} characters in a purely @sc{ascii}
+world.  For example, a string containing the @sc{ascii} backspace
 character, @code{"\^H"}, would represent two key sequences:
 @code{(control h)} and @code{backspace}.  Binding a command to this will
 actually bind both of those key sequences.  Likewise for the following
@@ -342,7 +342,7 @@ it is possible to redefine only one of those sequences like so:
 @end example
 
   Of course, all of this applies only when running under a window
-system.  If you're talking to XEmacs through a @sc{TTY} connection, you
+system.  If you're talking to XEmacs through a @sc{tty} connection, you
 don't get any of these features.
 
 @defun event-matches-key-specifier-p event key-specifier
@@ -973,14 +973,14 @@ This variable is the meta-prefix character code.  It is used when
 translating a two-character sequence to a meta character so it can be
 looked up in a keymap.  For useful results, the value should be a prefix
 event (@pxref{Prefix Keys}).  The default value is @code{?\^[} (integer
-27), which is the @sc{ASCII} character usually produced by the @key{ESC}
+27), which is the @sc{ascii} character usually produced by the @key{ESC}
 key.
 
   As long as the value of @code{meta-prefix-char} remains @code{?\^[},
 key lookup translates @kbd{@key{ESC} b} into @kbd{M-b}, which is
 normally defined as the @code{backward-word} command.  However, if you
 set @code{meta-prefix-char} to @code{?\^X} (i.e. the keystroke
-@kbd{C-x}) or its equivalent @sc{ASCII} code @code{24}, then XEmacs will
+@kbd{C-x}) or its equivalent @sc{ascii} code @code{24}, then XEmacs will
 translate @kbd{C-x b} (whose standard binding is the
 @code{switch-to-buffer} command) into @kbd{M-b}.
 
@@ -1503,7 +1503,7 @@ If @var{firstonly} is @code{non-ascii}, then the value is a single
 string representing the first key sequence found, rather than a list of
 all possible key sequences.  If @var{firstonly} is @code{t}, then the
 value is the first key sequence, except that key sequences consisting
-entirely of @sc{ASCII} characters (or meta variants of @sc{ASCII}
+entirely of @sc{ascii} characters (or meta variants of @sc{ascii}
 characters) are preferred to all other key sequences.
 @end ignore
 
@@ -1546,13 +1546,13 @@ displays it in a window.
 If @var{prefix} is non-@code{nil}, it should be a prefix key; then the
 listing includes only keys that start with @var{prefix}.
 
-When several characters with consecutive @sc{ASCII} codes have the
+When several characters with consecutive @sc{ascii} codes have the
 same definition, they are shown together, as
 @samp{@var{firstchar}..@var{lastchar}}.  In this instance, you need to
-know the @sc{ASCII} codes to understand which characters this means.
+know the @sc{ascii} codes to understand which characters this means.
 For example, in the default global map, the characters @samp{@key{SPC}
-..@: ~} are described by a single line.  @key{SPC} is @sc{ASCII} 32,
-@kbd{~} is @sc{ASCII} 126, and the characters between them include all
+..@: ~} are described by a single line.  @key{SPC} is @sc{ascii} 32,
+@kbd{~} is @sc{ascii} 126, and the characters between them include all
 the normal printing characters, (e.g., letters, digits, punctuation,
 etc.@:); all these characters are bound to @code{self-insert-command}.
 

@@ -1,6 +1,6 @@
 XEmacs Installation Guide
 Copyright (c) 1994, 1995, 1996 Board of Trustees, University of Illinois
-Copyright (c) 1994 Free Software Foundation, Inc.
+Copyright (c) 1994-1999 Free Software Foundation, Inc.
 
 Synched up with: FSF 19.30.
 
@@ -23,20 +23,22 @@ for instructions on building under Microsoft Windows):
 
 1) Make sure your system has enough swapping space allocated to handle
    a program whose pure code is 900k bytes and whose data area is at
-   least 400k and can reach 8Mb or more.  If the swapping space is
+   least 400k and can reach 8Mb or more. Note that a typical XEmacs
+   build is much bigger. If the swapping space is
    insufficient, you will get an error in the command `temacs -batch
    -l loadup dump', found in `./src/Makefile.in.in', or possibly when
    running the final dumped XEmacs.
 
-Building XEmacs requires about 41 Mb of disk space (including the
-XEmacs sources).  Once installed, XEmacs occupies about 16 Mb in the
-file system where it is installed; this includes the executable files,
-Lisp libraries, miscellaneous data files, and on-line documentation.
-The amount of storage of the Lisp directories may be reduced by
-compressing the .el files. If the building and installation take place
-in different directories, then the installation procedure temporarily
-requires 41+16 Mb.  Adjust this value upwards depending upon what
-additional Lisp support is installed.
+   Verify that your users have a high enough stack limit. On some
+   systems such as OpenBSD and OSF/Tru64 the default is 2MB which is
+   too low. See 'PROBLEMS' for details.
+
+Building XEmacs requires about 100 Mb of disk space (including the
+XEmacs sources).  Once installed, XEmacs occupies between 20 and 100 Mb
+in the file system where it is installed; this includes the executable files,
+Lisp libraries, miscellaneous data files, and on-line documentation. The
+exact amount depends greatly on the number of extra lisp packages that are
+installed 
 
 XEmacs requires an ANSI C compiler, such as GCC.  If you wish to build
 the documentation yourself, you will need at least version 1.68 of
@@ -65,20 +67,34 @@ Use the --site-includes and --site-libraries options when building
 XEmacs to allow configure to find the external software packages.
 If you link with dynamic (``.so'') external package libraries, which
 is not recommended, you will also need to add the library directories
-to the --site-runtime-libraries option.
+to the --site-runtime-libraries option. For your convenience these can
+be set together by using the --with-site-prefix command. This will set
+these variables as needed assuming your libraries are organised as a
+typical /usr tree.
 
+3) [N.B. Most of this section can be done during or after the
+compilation of the core source code, but is present early to catch
+your attention.]
 
-3) Decide what Initial Lisp you need with XEmacs.  XEmacs is
-distributed separately from most of its runtime environment.  This is
+Decide what Initial Lisp you need with XEmacs. XEmacs is
+distributed separately from most of its runtime environment. This is
 done to make it easier for administrators to tune an installation for
-what the local users need.  See the file etc/PACKAGES for an overview
-of what is available and which packages need to be installed prior to
-building XEmacs.  At this point you only need a minimum to get started
-at which point you may install what you wish without further changes
-to the XEmacs binary.  A sample minimum configuration for a Linux
-system using Mule and Wnn6 from OMRON corporation would be the
-packages `mule-base' and `egg-its'.  By default, packages will be
-searched for in the path
+what the local users need. Note that while XEmacs will compile and
+install without any packages present at least some additional lisp
+packages are needed to bring XEmacs up to "normal" editor
+functionality. Installation and upgrading of the packages can be done
+almost automatically when from inside XEmacs when it has been compiled
+and installed.
+
+More information and suggestions for which packages to install see the
+file README.packages.
+
+IMPORTANT! The file README.packages contain information vital to have
+a fully working XEmacs. This information was not included in this file
+only because it is too large for this terse INSTALL.  Please read
+README.packages now!
+
+By default, packages will be searched for in the path
 
 ~/.xemacs::$prefix/lib/xemacs-${version}/mule-packages:$prefix/lib/xemacs/mule-packages:$prefix/lib/xemacs-${version}/xemacs-packages:$prefix/lib/xemacs/xemacs-packages
 
@@ -294,12 +310,12 @@ inefficient.  Generally, it's best to go with the default
 configuration for your system.  You can tweak this based on how you
 use XEmacs, and the memory and cpu resources available on your system.
 
-The `--use-system-malloc' option can be use to either enable or
+The `--with-system-malloc' option can be use to either enable or
 disable use of the system malloc.  Generally, it's best to go with the
 default configuration for your system.  Note that on many systems
 using the system malloc disables the use of the relocating allocator.
 
-The `--use-debug-malloc' option can be used to link a special debugging
+The `--with-debug-malloc' option can be used to link a special debugging
 version of malloc.  Debug Malloc is not included with XEmacs, is
 intended for use only by the developers and may be obtained from
 <URL:http://www.letters.com/dmalloc/>.
@@ -380,7 +396,7 @@ creates a shell script `config.status' which, when run, recreates the
 same configuration.  If `configure' exits with an error after
 disturbing the status quo, it removes `config.status'.
 
-4) Look at `./lisp/paths.el'; if some of those values are not right
+5) Look at `./lisp/paths.el'; if some of those values are not right
 for your system, set up the file `./lisp/site-init.el' with XEmacs
 Lisp code to override them; it is not a good idea to edit paths.el
 itself.  YOU MUST USE THE LISP FUNCTION `setq' TO ASSIGN VALUES,
@@ -403,7 +419,7 @@ configured.  If you have an unusual automounter configuration that
 XEmacs cannot detect, you may need to change the value of
 `directory-abbrev-alist'.
 
-5) Put into `./lisp/site-init.el' or `./lisp/site-load.el' any Emacs
+6) Put into `./lisp/site-init.el' or `./lisp/site-load.el' any Emacs
 Lisp code you want XEmacs to load before it is dumped out.  Use
 site-load.el for additional libraries if you arrange for their
 documentation strings to be in the lib-src/DOC file (see
@@ -422,12 +438,12 @@ See `./PROBLEMS' for more details on which systems this affects.
 The `site-*.el' files are nonexistent in the distribution.  You do not
 need to create them if you have nothing to put in them.
 
-6) Refer to the file `./etc/TERMS' for information on fields you may
+7) Refer to the file `./etc/TERMS' for information on fields you may
 wish to add to various termcap entries.  The files `./etc/termcap.ucb'
 and `./etc/termcap.dat' may already contain appropriately-modified
 entries.
 
-7) Run `make' in the top directory of the XEmacs distribution to finish
+8) Run `make' in the top directory of the XEmacs distribution to finish
 building XEmacs in the standard way.  The final executable file is
 named `src/emacs'.  You can execute this file "in place" without
 copying it, if you wish; then it automatically uses the sibling
@@ -505,18 +521,18 @@ information on this.
 Using GNU Make allows for simultaneous builds with and without the
 --srcdir option.
 
-8) If your system uses lock files to interlock access to mailer inbox files,
-then you might need to make the movemail program setuid or setgid
-to enable it to write the lock files.  We believe this is safe.
+9) If your system uses lock files to interlock access to mailer inbox
+files, then you might need to make the movemail program setuid or
+setgid to enable it to write the lock files.  We believe this is safe.
 The setuid/setgid bits need not be set on any other XEmacs-related
 executables.
 
-9) You are done with the hard part!  You can remove executables and
+10) You are done with the hard part!  You can remove executables and
 object files from the build directory by typing `make clean'.  To also
 remove the files that `configure' created (so you can compile XEmacs
 for a different configuration), type `make distclean'.
 
-10) You should now go to the XEmacs web page at http://www.xemacs.org/
+11) You should now go to the XEmacs web page at http://www.xemacs.org/
 and decide what additional Lisp support you wish to have.
 
 MAKE VARIABLES
@@ -670,13 +686,13 @@ see which operating system and architecture description files from
 `src/config.h', and change the two `#include' directives to include
 the appropriate system and architecture description files.
 
-2) Edit `./src/config.h' to set the right options for your system.  If
+3) Edit `./src/config.h' to set the right options for your system.  If
 you need to override any of the definitions in the s/*.h and m/*.h
 files for your system and machine, do so by editing config.h, not by
 changing the s/*.h and m/*.h files.  Occasionally you may need to
 redefine parameters used in `./lib-src/movemail.c'.
 
-3) If you're going to use the make utility to build XEmacs, you will
+4) If you're going to use the make utility to build XEmacs, you will
 still need to run `configure' first, giving the appropriate values for
 the variables in the sections entitled "Things `configure' Might Edit"
 and "Where To Install Things."  Note that you may only need to change
@@ -775,6 +791,10 @@ debugging.
 
 
 PROBLEMS
+
+The most likely problem is that you forgot to read and follow the
+directions in README.packages.  You can not have a working XEmacs
+without downloading some additional packages.
 
 See the file PROBLEMS in this directory for a list of various
 problems sometimes encountered, and what to do about them.

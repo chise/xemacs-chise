@@ -1,5 +1,4 @@
-This is Info file ../info/cl.info, produced by Makeinfo version 1.68
-from the input file cl.texi.
+This is ../info/cl.info, produced by makeinfo version 4.0 from cl.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -126,8 +125,8 @@ Function Index
 * list-length:                           List Functions.
 * load-time-value:                       Time of Evaluation.
 * locally:                               Declarations.
-* loop <1>:                              Iteration.
-* loop:                                  Loop Basics.
+* loop <1>:                              Loop Basics.
+* loop:                                  Iteration.
 * macrolet:                              Macro Bindings.
 * make-random-state:                     Random Numbers.
 * map:                                   Mapping over Sequences.

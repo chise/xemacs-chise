@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
 ;; Copyright (C) 1997 Sun Microsystems
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;; Restructured by: Jonathan Stigelman <Stig@hackvan.com>
 ;; Mule-ized by: Martin Buchholz
 ;; More restructuring for MS-Windows by Andy Piper <andy@xemacs.org>

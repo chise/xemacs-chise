@@ -1,4 +1,63 @@
 							-*- indented-text -*-
+to 21.2.24 "Hecate"
+-- (coding-system-list) deals properly with coding system aliases, Shenghuo ZHU
+-- configure support for ESD sound rewritte, Martin Buchholz
+-- directory separator fix from Mike Alexander
+-- Windows process support cleanup, Adrian Aichner
+-- NT now encapsulates fstat to get correct file mod time, Adrian Aichner
+
+to 21.2.23 "Hebe"
+-- MS-Windows selection fixes from Mike Alexander
+-- MS-WIndows process handling fixes from Mike Alexander
+-- Subwindow GC fix from Andy Piper
+-- Various minor fixes from Andy Piper
+-- Rewrite module configure support, Martin Buchholz
+-- Various Windows fixes, Martin Buchholz, Adrian Aichner, Andy Piper
+-- HP native compiler compilation fixes, Martin Buchholz
+-- Workarounds for Cygnus compiler bugs, Martin Buchholz
+-- Workarounds for Cygwin broken header files, Martin Buchholz
+-- itimers work again, Kyle Jones
+-- random code cleanup, Martin Buchholz
+-- various redisplay fixes, Andy Piper, Jan Vroonhof
+-- various fixes from Hrvoje Niksic, Yoshiki Hayashi
+
+to 21.2.22 "Mercedes"
+-- ESD Sound support from Robert Bihlmeyer
+-- 10% faster redisplay from Jan Vroonhof
+-- Fixes from Jeff Miller, Alexandre Oliva and Yoshiki Hayashi
+-- "If you've got problems, read PROBLEMS!" from Robert Pluim
+-- Lstream code now uses size_t, ssize_t consistently, Martin Buchholz
+-- Fix `make install' if prefix != exec_prefix, Martin Buchholz
+-- Fix compile warnings and C++ compilation, Martin Buchholz
+-- Fix detection of coding: cookie in -*- first line.
+-- More xim-xlib work by Kazuyuki Ienaga
+-- Fix crash in abbrev.c (abbrev_location), Eric Darve
+
+to 21.2.20 "Yoko"
+-- UTF-8 & file-coding magic cookie fix from MORIOKA Tomohiko
+-- bug fixes from Adrian Aichner, Sean MacLennan, and Jeff Miller
+-- glyph widget support under X/Athena from Andy Piper
+-- tab widget support under X (all variants) from Andy Piper
+-- many gutter, redisplay & widget fixes from Andy Piper
+-- mswindows mousewheel support from Mike Woolley
+-- combo box support under X/Motif from Andy Piper
+-- buffer tab grouping from Andy Piper
+-- layout widget support from Andy Piper
+-- partial display line scrolling support from Andy Piper
+-- cleanup patches from Gleb Arshinov
+-- hash table FSF API sync from Martin Buchholz
+-- widget cleanup from Martin Buchholz
+-- process-environment fix for nt from Julian Back
+-- widget to frame fix from Jan Vroonhof
+-- animated glyph support from Andy Piper
+-- glyph redisplay improvements from Andy Piper
+-- color cells allocation fix from Lee Kindness
+-- recover file fix for windows nt
+-- mingw install fix from Craig Lanning
+-- recognize keypad keys under MS-Windows from Jonathan Harris
+-- Switch gui dialogs to native widgets from Andy Piper
+-- fixes from Yoshiki Hayashi and Norbert Koch
+
 to 21.2.19 "Shinjuku"
 -- various fixes from Gunnar Evermann
 -- XIM fixes from Kazuyuki IENAGA

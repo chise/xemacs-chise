@@ -41,14 +41,33 @@ crashes in the function skip-syntax-backward.
 There have been reports of egcs-1.1 not compiling XEmacs correctly on
 Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.
 
-*** Don't use -O2 with gcc 2.7.2 under Intel/XXX without also using
-`-fno-strength-reduce'.
+*** Don't use -O2 or -O3 with Cygwin 1.0, CodeFusion-99070 or gcc 2.7.2 on x86
+without also using `-fno-strength-reduce'.
 
 gcc will generate incorrect code otherwise.  This bug is present in at
 least 2.6.x and 2.7.[0-2].  This bug has been fixed in GCC 2.7.2.1 and
 later.  This bug is O/S independent, but is limited to x86 architectures.
 
 This problem is known to be fixed in egcs (or pgcc) 1.0 or later.
+
+Unfortunately, later releases of Cygnus-released compilers (not the
+Net-released ones) have a bug with the same `problem signature'.
+
+If you're lucky, you'll get an error while compiling that looks like:
+
+event-stream.c:3189: internal error--unrecognizable insn:
+(insn 256 14 15 (set (reg/v:SI 24)
+        (minus:SI (reg/v:SI 25)
+            (const_int 2))) -1 (insn_list 11 (nil))
+    (nil))
+    0       0 [main]
+
+If you're unlucky, your code will simply execute incorrectly.
+
+*** Don't use gcc-2.95.2 with -mcpu=ultrasparc on Solaris 2.6.
+
+gcc will assume a 64-bit operating system, even though you've
+merely told it to assume a 64-bit instruction set.
 
 *** Don't use -O2 with gcc 2.7.2 under Intel architectures without also
 using `-fno-caller-saves'.
@@ -391,8 +410,8 @@ Marcus Thiessel <marcus_thiessel@hp.com>
 
 Marcus Thiessel <marcus_thiessel@hp.com>
 
-  Unfortunately, XEmacs releases <21.0 don't work with Motif2.1. It
-  will compile but you will get excessive X11 errors like
+  Unfortunately, XEmacs releases prior to 21.0 don't work with
+  Motif2.1. It will compile but you will get excessive X11 errors like
 
   xemacs: X Error of failed request:  BadGC (invalid GC parameter)
 
@@ -542,17 +561,23 @@ shell.
 *** You type Control-H (Backspace) expecting to delete characters.
 
 Emacs has traditionally used Control-H for help; unfortunately this
-interferes with its use as Backspace on TTY's.  One way to solve this
-problem is to put this in your .emacs:
+interferes with its use as Backspace on TTY's.  As of XEmacs 21,
+XEmacs looks at the "erase" setting of TTY structures and maps C-h to
+backspace when erase is set to C-h.  This is sort of a special hack,
+but it makes it possible for you to use the standard:
 
-  (when (eq tty-erase-char ?\C-h)
-    (keyboard-translate ?\C-h ?\C-?)
-    (global-set-key "\M-?" 'help-command))
+    stty erase ^H
 
-This checks whether the TTY erase char is C-h, and if it is, makes
-Control-H (Backspace) work sensibly, and moves help to Meta-? (ESC ?).
+to get your backspace key to erase characters.  The erase setting is
+recorded in the Lisp variable `tty-erase-char', which you can use to
+tune the settings in your .emacs.
 
-Note that you can probably also access help using F1.
+A major drawback of this is that when C-h becomes backspace, it no
+longer invokes help.  In that case, you need to use f1 for help, or
+bind another key.  An example of the latter is the following code,
+which moves help to Meta-? (ESC ?):
+
+    (global-set-key "\M-?" 'help-command)
 
 *** Mail agents (VM, Gnus, rmail) cannot get new mail
 

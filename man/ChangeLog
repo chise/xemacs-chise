@@ -1,3 +1,148 @@
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-12-07  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xemacs/startup.texi (Startup Paths): fix typo: EMACSPACKAGEPATH
+	instead of PACKAGEPATH 
+	From Marcus Harnisch <harnisch@mikrom.de>
+
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-12-06  Sandra Wambold  <wambold@pobox.com>
+
+	* xemacs-faq.texi: Added MS-Windows questions; some other changes
+
+1999-11-29  Martin Buchholz  <martin@xemacs.org>
+
+	* info.texi (Top): 
+	Remove @ifnottex, which gives old makeinfos indigestion.
+	* texinfo.texi (Top): 
+	Revert to pre-texinfo-4.0 version, plus small changes to make
+	texinfo-3.12, texinfo-3.12f, texinfo-4.0, and TeX happy.
+
+1999-11-30  Sandra Wambold  <wambold@cygnus.com>
+
+	* xemacs-faq.texi: fixed and commented out bad URL links
+
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* internals.texi (Lstream Functions):
+	* internals.texi (Lstream Methods):
+	Types have changed to size_t and ssize_t.  Document them.
+
+1999-08-12     Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xemacs-faq.texi (Q4.4.2): added FAQ about Sun Workshop on
+ 	XEmacs 21
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/programs.texi: Upgrade to etags Version 13.32
+	
+	* Makefile:
+	- Make sure the default target is `info' instead of cl.info.
+	- Use $(INFODIR) consistently where appropriate.
+	- Remove makeinfo-1.68 warning.  (Usually only maintainer rebuilds info).
+	- Comment out unused macros: EMACS EMACSFLAGS
+	- Replace `-rm -f' with `rm -f', XPG4 guarantees exit code == 0.
+	- Get dependencies up to date.
+
+	* internals/Makefile:
+	* xemacs/Makefile:
+	* lispref/Makefile:
+	* new-users-guide/Makefile:
+	* lispref/index.perm:
+	* lispref/index.unperm:
+	* lispref/permute-index:
+	* internals/index.perm:
+	* internals/index.unperm:
+	Remove these Makefiles.
+	Include all functionality in man/Makefile.
+	Support only non-permuted indexes for simplicity.
+
+	* emodules.texi:
+	- TeX doesn't tolerate `_' in variable names; use `-' instead.
+
+	* lispref/commands.texi:
+	* lispref/display.texi:
+	* lispref/faces.texi:
+	* lispref/functions.texi:
+	* lispref/keymaps.texi:
+	* lispref/lists.texi:
+	* lispref/modes.texi:
+	* lispref/objects.texi:
+	* lispref/os.texi:
+	* lispref/sequences.texi:
+	* lispref/strings.texi:
+	* lispref/text.texi:
+	* new-users-guide/custom1.texi:
+	* xemacs/custom.texi:
+	* xemacs/menus.texi:
+	- Make sources compatible with makeinfo 4.0 *and* 3.12.
+	- Replace @sc{ASCII} with @sc{ascii}, etc...
+	- Replace @var{(foo)} with (@var{foo}), etc...
+
+	* info-stnd.texi: Remove.  Who cares about the standalone info reader?
+
+	* texinfo.tex:
+	* texinfo.texi:
+	* info.texi:
+	* standards.texi:
+	* make-stds.texi:
+	Import FSF-maintained files from texinfo-4.0.
+
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-08-30  Robert Pluim  <rpluim@bigfoot.com>
+
+	* xemacs/packages.texi (Using Packages): Added description of
+	package-get-package-provider.
+
+1999-07-27  Charles G Waldman  <cgw@fnal.gov>
+
+	* xemacs-faq.texi (Q5.0.6): Describe `shell-multiple-shells'
+
+1999-08-01  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs/programs.texi (Balanced Editing): Remove broken
+	line-break.
+
+	* xemacs-faq.texi (Q1.0.6): Provide correct location in XEmacs
+	menus.
+	(Q1.4.1): ditto.
+	(Q1.4.3): ditto.
+	(Q2.0.5): Hyphenate words.
+
+	* info.texi (Add): Fix one typo.
+
+1999-08-23  Stephane Epardaud  <stephane@lunatech.com>
+
+	* internals/internals.texi (Garbage Collection - Step by Step):
+	just added some dots to shut up compile warnings.
+
+1999-08-19  Matthias Neubauer  <neubauer@informatik.uni-tuebingen.de>
+
+	* internals/internals.texi (Garbage Collection - Step by Step):
+	new section in chapter Allocation of Objects in XEmacs Lisp.
+
+1999-07-28  Andy Piper  <andy@xemacs.org>
+
+	* internals.texi (Glyphs): add some glyph documentation.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released

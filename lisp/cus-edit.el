@@ -3,7 +3,7 @@
 ;; Copyright (C) 1996, 1997 Free Software Foundation, Inc.
 ;;
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>
-;; Maintainer: Hrvoje Niksic <hniksic@srce.hr>
+;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
 ;; Keywords: help, faces
 ;; Version: 1.9960-x
 ;; X-URL: http://www.dina.kvl.dk/~abraham/custom/
@@ -3280,7 +3280,7 @@ Leave point at the location of the call, or after the last expression."
  		    (when (or (and spec (eq (car spec) 'user)
  			       (eq (second spec) 'set)) comment)
  		      (princ "\n '(")
- 		      (princ symbol)
+ 		      (prin1 symbol)
  		      (princ " ")
 		      ;; This comment stuf is in the way ####
 		      ;; Is (eq (third spec) (car saved-value)) ????
@@ -3313,7 +3313,7 @@ Leave point at the location of the call, or after the last expression."
 	       (eq (car theme-spec) 'user)
 	       (eq (second theme-spec) 'set)) comment)
       (princ "\n '(")
-      (princ symbol)
+      (prin1 symbol)
       (princ " ")
       (prin1 (get symbol 'saved-face))
       (if (or comment now)
@@ -3358,7 +3358,7 @@ Leave point at the location of the call, or after the last expression."
 			(princ "(")
 			(princ (quote ,setter))
 			(princ "\n '(")
-			(princ object)
+			(prin1 object)
 			(princ " ")
 			(prin1 (third spec))
 			(princ ")")))))))

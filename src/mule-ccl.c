@@ -682,17 +682,27 @@ static tr_stack *mapping_stack_pointer;
 
 /* Write a string at ccl_prog[IC] of length LEN to the current output
    buffer.  */
-#define CCL_WRITE_STRING(len) do {			\
-  if (!destination)					\
-    {							\
-      ccl->status = CCL_STAT_INVALID_CMD;		\
-      goto ccl_error_handler;				\
-    }							\
-  else							\
-    for (i = 0; i < len; i++)				\
-      Dynarr_add(destination,				\
-		 (XINT (ccl_prog[ic + (i / 3)])		\
-		  >> ((2 - (i % 3)) * 8)) & 0xFF);	\
+#define CCL_WRITE_STRING(len) do {				\
+  if (!destination)						\
+    {								\
+      ccl->status = CCL_STAT_INVALID_CMD;			\
+      goto ccl_error_handler;					\
+    }								\
+  else								\
+    {								\
+      Bufbyte work[MAX_EMCHAR_LEN];				\
+      for (i = 0; i < len; i++)					\
+	{							\
+	  int ch = (XINT (ccl_prog[ic + (i / 3)])		\
+		    >> ((2 - (i % 3)) * 8)) & 0xFF;		\
+	  int bytes =						\
+	    ( ch < ( conversion_mode == CCL_MODE_ENCODING ?	\
+		     256 : 128 ) ) ?				\
+	    simple_set_charptr_emchar (work, ch) :		\
+	    non_ascii_set_charptr_emchar (work, ch);		\
+	  Dynarr_add_many (destination, work, bytes);		\
+	}							\
+    }								\
 } while (0)
 
 /* Read one byte from the current input buffer into Rth register.  */
@@ -760,7 +770,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source,
   int i, j, op;
   int stack_idx = ccl->stack_idx;
   /* Instruction counter of the current CCL code. */
-  int this_ic;
+  int this_ic = 0;
 
   if (ic >= ccl->eof_ic)
     ic = CCL_HEADER_MAIN;
@@ -1671,7 +1681,7 @@ setup_ccl_program (struct ccl_program *ccl, Lisp_Object vec)
    function converts symbols of code conversion maps and character
    translation tables embeded in the CCL code into their ID numbers.  */
 
-Lisp_Object
+static Lisp_Object
 resolve_symbol_ccl_program (Lisp_Object ccl)
 {
   int i, veclen;
@@ -1738,8 +1748,8 @@ As side effect, each element of REGISTER holds the value of
   int i;
   Lisp_Object ccl_id;
 
-  if ((SYMBOLP (ccl_prog)) &&
-      (!NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil))))
+  if (SYMBOLP (ccl_prog) &&
+      !NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil)))
     {
       ccl_prog = XVECTOR_DATA (Vccl_program_table)[XUINT (ccl_id)];
       CHECK_LIST (ccl_prog);
@@ -1805,8 +1815,8 @@ It returns the contents of write buffer as a string,
   struct gcpro gcpro1, gcpro2, gcpro3;
   Lisp_Object ccl_id;
 
-  if ((SYMBOLP (ccl_prog)) &&
-      (!NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil))))
+  if (SYMBOLP (ccl_prog) &&
+      !NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil)))
     {
       ccl_prog = XVECTOR (Vccl_program_table)->contents[XUINT (ccl_id)];
       CHECK_LIST (ccl_prog);
@@ -1842,7 +1852,7 @@ It returns the contents of write buffer as a string,
   outbuf = Dynarr_new (unsigned_char);
   ccl.last_block = NILP (contin);
   produced = ccl_driver (&ccl, XSTRING_DATA (str), outbuf,
-			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_ENCODING);
+			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_DECODING);
   for (i = 0; i < 8; i++)
     XVECTOR_DATA (status)[i] = make_int(ccl.reg[i]);
   XSETINT (XVECTOR_DATA (status)[8], ccl.ic);

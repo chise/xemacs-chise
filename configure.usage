@@ -121,9 +121,13 @@ Additional features:
 --with-database=TYPE (*) Compile with database support.  Valid types are
                         `no' or a comma-separated list of one or more
                         of `berkdb' and either `dbm' or `gnudbm'.
---with-sound=native (*) Compile with native sound support.
---with-sound=nas        Compile with network sound support.
---with-sound=both       Compile with native and network sound support.
+--with-sound=TYPE,[TYPE],... Compile with native sound support.
+			Valid types are `native', `nas' and `esd'.
+			Prefix a type with 'no' to disable.
+			The first option can be `none' or `all'.
+			`none' is a synonym for `nonative,nonas,noesd'.
+			`all' is a synonym for native,nas,esd or `all'.
+			The default is to autodetect all sound support.
 --native-sound-lib=LIB  Native sound support library.  Needed on Suns
                         with --with-sound=both because both sound libraries
                         are called libaudio.
@@ -159,6 +163,9 @@ Additional features:
                         and localdir files in case run-time searching
                         for them fails.
 --moduledir=DIR         Directory to install dynamic modules in.
+--pdump			New, experimental, non-working, don't-sue-me-if-
+			your-house-collapses-and-your-wife-goes-away,
+			portable dumper.
 
 Internationalization options:
 

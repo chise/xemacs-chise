@@ -32,6 +32,10 @@ Boston, MA 02111-1307, USA.  */
    definition.  In the garbage collector this file is included after
    defining MARKED_SLOT(x) to be mark_object(buffer->x). */
 
+#ifndef BUFFER_SLOTS_FIRST_NAME
+#define BUFFER_SLOTS_FIRST_NAME name
+#endif
+
     /* The name of this buffer.  */
     MARKED_SLOT (name);
 
@@ -235,6 +239,11 @@ Boston, MA 02111-1307, USA.  */
     /* A hash table that maps from a "generic extent" (an extent in
        `modeline-format') into a buffer-specific extent. */
     MARKED_SLOT (modeline_extent_table);
+
+#ifndef BUFFER_SLOTS_LAST_NAME
+#define BUFFER_SLOTS_LAST_NAME modeline_extent_table
+#endif
+
 #if 0 /* FSFmacs */
     /* This is silly and stupid */
     /* These are so we don't have to recompile everything

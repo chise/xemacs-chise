@@ -1,5 +1,4 @@
-This is Info file ../info/cl.info, produced by Makeinfo version 1.68
-from the input file cl.texi.
+This is ../info/cl.info, produced by makeinfo version 4.0 from cl.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -46,7 +45,7 @@ provides no way to create new distinct types, this package implements
 structures as vectors (or lists upon request) with a special "tag"
 symbol to identify them.
 
- - Special Form: defstruct NAME SLOTS...
+ - Special Form: defstruct name slots...
      The `defstruct' form defines a new structure type called NAME,
      with the specified SLOTS.  (The SLOTS may begin with a string
      which documents the structure type.)  In the simplest case, NAME
@@ -169,7 +168,7 @@ symbol to identify them.
           descriptor.  It is legal to include arguments which don't
           correspond to slot names; these are useful if they are
           referred to in the defaults for optional, keyword, or `&aux'
-          arguments which *do* correspond to slots.
+          arguments which _do_ correspond to slots.
 
           You can specify any number of full-format `:constructor'
           options on a structure.  The default constructor is still
@@ -354,7 +353,7 @@ is less than 3, then the byte-compiler will optimize away the following
 assertions.  Because assertions might be optimized away, it is a bad
 idea for them to include side-effects.
 
- - Special Form: assert TEST-FORM [SHOW-ARGS STRING ARGS...]
+ - Special Form: assert test-form [show-args string args...]
      This form verifies that TEST-FORM is true (i.e., evaluates to a
      non-`nil' value).  If so, it returns `nil'.  If the test is not
      satisfied, `assert' signals an error.
@@ -376,7 +375,7 @@ idea for them to include side-effects.
      Emacs Lisp does not support continuable errors, it makes no sense
      to specify PLACES.
 
- - Special Form: check-type FORM TYPE [STRING]
+ - Special Form: check-type form type [string]
      This form verifies that FORM evaluates to a value of type TYPE.
      If so, it returns `nil'.  If not, `check-type' signals a
      `wrong-type-argument' error.  The default error message lists the
@@ -395,7 +394,7 @@ idea for them to include side-effects.
 
    The following error-related macro is also defined:
 
- - Special Form: ignore-errors FORMS...
+ - Special Form: ignore-errors forms...
      This executes FORMS exactly like a `progn', except that errors are
      ignored during the FORMS.  More precisely, if an error is
      signalled then `ignore-errors' immediately aborts execution of the
@@ -428,7 +427,7 @@ which are the most efficient ways of doing these respective operations
 in Lisp.  Thus, there is no performance penalty for using the more
 readable `incf' and `push' forms in your compiled code.
 
-   *Interpreted* code, on the other hand, must expand these macros
+   _Interpreted_ code, on the other hand, must expand these macros
 every time they are executed.  For this reason it is strongly
 recommended that code making heavy use of macros be compiled.  (The
 features labelled "Special Form" instead of "Function" in this manual
@@ -440,7 +439,7 @@ thrown away a hundred times.
    You can find out how a macro expands by using the `cl-prettyexpand'
 function.
 
- - Function: cl-prettyexpand FORM &optional FULL
+ - Function: cl-prettyexpand form &optional full
      This function takes a single Lisp form as an argument and inserts
      a nicely formatted copy of it in the current buffer (which must be
      in Lisp mode so that indentation works properly).  It also expands
@@ -465,7 +464,7 @@ function.
      just leaves it alone.  The temporary variable `G1004' was created
      by `gensym'.)
 
-     If the optional argument FULL is true, then *all* macros are
+     If the optional argument FULL is true, then _all_ macros are
      expanded, including `block', `eval-when', and compiler macros.
      Expansion is done as if FORM were a top-level form in a file being
      compiled.  For example,
@@ -508,7 +507,7 @@ Functions taking keyword arguments will accept an odd number of
 arguments, treating the trailing keyword as if it were followed by the
 value `nil'.
 
-   Argument lists (as processed by `defun*' and friends) *are* checked
+   Argument lists (as processed by `defun*' and friends) _are_ checked
 rigorously except for the minor point just mentioned; in particular,
 keyword arguments are checked for validity, and `&allow-other-keys' and
 `:allow-other-keys' are fully implemented.  Keyword validity checking
@@ -532,7 +531,7 @@ top-level context.  The patch will not harm versions of the Emacs 18
 compiler which have already had a similar patch applied, nor will it
 affect the optimizing Emacs 19 byte-compiler written by Jamie Zawinski
 and Hallvard Furuseth.  The patch is applied to the byte compiler's
-code in Emacs' memory, *not* to the `bytecomp.elc' file stored on disk.
+code in Emacs' memory, _not_ to the `bytecomp.elc' file stored on disk.
 
    The Emacs 19 compiler (for Emacs 18) is available from various Emacs
 Lisp archive sites such as `archive.cis.ohio-state.edu'.  Its use is
@@ -564,13 +563,13 @@ lists).
 
    In order to allow an efficient implementation, keyword arguments use
 a slightly cheesy parser which may be confused if a keyword symbol is
-passed as the *value* of another keyword argument.  (Specifically,
+passed as the _value_ of another keyword argument.  (Specifically,
 `(memq :KEYWORD REST-OF-ARGUMENTS)' is used to scan for `:KEYWORD'
 among the supplied keyword arguments.)
 
    The `eql' and `equal' predicates do not distinguish between IEEE
 floating-point plus and minus zero.  The `equalp' predicate has several
-differences with Common Lisp; *note Predicates::..
+differences with Common Lisp; *note Predicates::.
 
    The `setf' mechanism is entirely compatible, except that
 setf-methods return a list of five values rather than five values
@@ -591,7 +590,7 @@ since Emacs Lisp cannot support multiple return values directly.  The
 macros will be compatible with Common Lisp if `values' or `values-list'
 is always used to return to a `multiple-value-bind' or other
 multiple-value receiver; if `values' is used without
-`multiple-value-...'  or vice-versa the effect will be different from
+`multiple-value-...' or vice-versa the effect will be different from
 Common Lisp.
 
    Many Common Lisp declarations are ignored, and others match the
@@ -709,7 +708,7 @@ an Emacs implementation of true Common Lisp.  Some of the remaining
 differences between Emacs Lisp and Common Lisp make it difficult to
 port large Common Lisp applications to Emacs.  For one, some of the
 features in this package are not fully compliant with ANSI or Steele;
-*note Common Lisp Compatibility::..  But there are also quite a few
+*note Common Lisp Compatibility::.  But there are also quite a few
 features that this package does not provide at all.  Here are some
 major omissions that you will want watch out for when bringing Common
 Lisp code into Emacs.

@@ -41,7 +41,6 @@ DECLARE_LRECORD (gui_item, struct Lisp_Gui_Item);
   XRECORD (x, gui_item, struct Lisp_Gui_Item)
 #define XSETGUI_ITEM(x, p) XSETRECORD (x, p, gui_item)
 #define GUI_ITEMP(x) RECORDP (x, gui_item)
-#define GC_GUI_ITEMP(x) GC_RECORDP (x, gui_item)
 #define CHECK_GUI_ITEM(x) CHECK_RECORD (x, gui_item)
 #define CONCHECK_GUI_ITEM(x) CONCHECK_RECORD (x, gui_item)
 
@@ -72,6 +71,7 @@ void gui_item_add_keyval_pair (Lisp_Object,
 			       Error_behavior errb);
 Lisp_Object gui_parse_item_keywords (Lisp_Object item);
 Lisp_Object gui_parse_item_keywords_no_errors (Lisp_Object item);
+void gui_add_item_keywords_to_plist (Lisp_Object plist, Lisp_Object gui_item);
 int  gui_item_active_p (Lisp_Object);
 int  gui_item_selected_p (Lisp_Object);
 int  gui_item_included_p (Lisp_Object, Lisp_Object into);
@@ -83,8 +83,9 @@ unsigned int gui_item_display_flush_left  (Lisp_Object pgui_item,
 unsigned int gui_item_display_flush_right (Lisp_Object gui_item,
 					   char* buf, Bytecount buf_len);
 
-Lisp_Object allocate_gui_item ();
+Lisp_Object allocate_gui_item (void);
 void gui_item_init (Lisp_Object gui_item);
+Lisp_Object parse_gui_item_tree_children (Lisp_Object list);
 
 /* this is mswindows biased but reasonably safe I think */
 #define GUI_ITEM_ID_SLOTS 8

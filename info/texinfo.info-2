@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 3.12s from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -44,7 +44,7 @@ titlepage', look more intimidating than they are.  Most of the material
 is standard boilerplate; when you write a manual, simply insert the
 names for your own manual in this segment. (*Note Beginning a File::.)
 
-In the following, the sample text is *indented*; comments on it are
+In the following, the sample text is _indented_; comments on it are
 not.  The complete file, without any comments, is shown in *Note Sample
 Texinfo File::.
 
@@ -159,6 +159,7 @@ The Results
 
   Here is what the contents of the first chapter of the sample look
 like:
+
 
      This is the contents of the first chapter.
 
@@ -371,7 +372,7 @@ first letter of the @-command:
      however, more mnemonic; hence the two keybindings.  (Also, you can
      move out from between braces by typing `C-f'.)
 
-  To put a command such as `@code{...}' around an *existing* word,
+  To put a command such as `@code{...}' around an _existing_ word,
 position the cursor in front of the word and type `C-u 1 C-c C-c c'.
 This makes it easy to edit existing plain text.  The value of the
 prefix argument tells Emacs how many words following point to include
@@ -519,7 +520,7 @@ or an `@ifinfo' line.
 followed by a node with an `@chapter' or equivalent-level command.
 Note that the menu updating commands will not create a main or master
 menu for a Texinfo file that has only `@chapter'-level nodes!  The menu
-updating commands only create menus *within* nodes for lower level
+updating commands only create menus _within_ nodes for lower level
 nodes.  To create a menu of chapters, you must provide a `Top' node.
 
   The menu updating commands remove menu entries that refer to other
@@ -785,7 +786,7 @@ an Info file:
 or
      M-x makeinfo-buffer
 
-  For TeX or the Info formatting commands to work, the file *must*
+  For TeX or the Info formatting commands to work, the file _must_
 include a line that has `@setfilename' in its header.
 
   *Note Create an Info File::, for details about Info formatting.
@@ -802,7 +803,7 @@ print the file.  Optionally, you may also create indices.  To do this,
 you must run the `texindex' command after first running the `tex'
 typesetting command; and then you must run the `tex' command again.  Or
 else run the `texi2dvi' command which automatically creates indices as
-needed (*note Format with texi2dvi::.).
+needed (*note Format with texi2dvi::).
 
   Often, when you are writing a document, you want to typeset and print
 only part of a file to see what it will look like.  You can use the
@@ -836,7 +837,7 @@ only part of a file to see what it will look like.  You can use the
      `texinfo-tex-buffer' or `texinfo-tex-region'.
 
   For `texinfo-tex-region' or `texinfo-tex-buffer' to work, the file
-*must* start with a `\input texinfo' line and must include an
+_must_ start with a `\input texinfo' line and must include an
 `@settitle' line.  The file must end with `@bye' on a line by itself.
 (When you use `texinfo-tex-region', you must surround the `@settitle'
 line with start-of-header and end-of-header lines.)
@@ -1181,7 +1182,7 @@ Start of Header
 Follow the start-of-header line with `@setfilename' and `@settitle'
 lines and, optionally, with other command lines, such as `@smallbook'
 or `@footnotestyle'; and then by an end-of-header line (*note End of
-Header::.).
+Header::).
 
   With these lines, you can format part of a Texinfo file for Info or
 typeset part for printing.

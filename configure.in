@@ -388,6 +388,7 @@ with_toolbars=""
 with_tty=""
 use_union_type="no"
 with_dnet=""
+pdump="no"
 
 dnl ------------------
 dnl Options Processing
@@ -518,6 +519,7 @@ while test $# != 0; do
 	const_is_losing | \
 	usage_tracking	| \
 	use_union_type	| \
+	pdump		| \
 	debug		| \
 	use_assertions	| \
 	memory_usage_stats | \
@@ -582,20 +584,20 @@ while test $# != 0; do
         "with_database" )
 	  with_database_berkdb=no
 	  with_database_dbm=no
-	  with_database_gnudbm=no
+	  with_database_gdbm=no
 	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
 	    case "$x" in
-		no ) ;;
-		b | be | ber | berk | berkd | berkdb )  with_database_berkdb=yes ;;
-		d | db | dbm )				with_database_dbm=yes    ;;
-		g | gn | gnu | gnud | gnudb | gnudbm )  with_database_gnudbm=yes ;;
-		* ) USAGE_ERROR(["The \`--$optname' option value
+	      no ) ;;
+	      b | be | ber | berk | berkd | berkdb )       with_database_berkdb=yes ;;
+	      d | db | dbm )				   with_database_dbm=yes    ;;
+	      g | gn | gnu | gnud | gnudb | gnudbm | gdbm) with_database_gdbm=yes   ;;
+	      * ) USAGE_ERROR(["The \`--$optname' option value
   must be either \`no' or a comma-separated list
   of one or more of \`berkdb' and either \`dbm' or \`gnudbm'."]) ;;
             esac
 	  done
-	  if test "$with_database_dbm"    = "yes" -a \
-	          "$with_database_gnudbm" = "yes"; then
+	  if test "$with_database_dbm"  = "yes" -a \
+	          "$with_database_gdbm" = "yes"; then
 	  USAGE_ERROR("Only one of \`dbm' and \`gnudbm' may be specified
   with the \`--$optname' option.")
 	  fi
@@ -603,18 +605,39 @@ while test $# != 0; do
 
         dnl Has the user requested sound support?
 	"with_sound" )
-	  dnl value can be native, nas or both. yes is allowed
-	  dnl as a backwards compatible synonym for native
-	  case "$val" in
-	    y | ye | yes )			val=native ;;
-	    n | no | non | none )		val=no;;
-	    na | nat | nati | nativ | native )	val=native  ;;
-	    ne | net | neta | netau | netaud | netaudi | netaudio | nas ) val=nas  ;;
-	    b | bo | bot | both )		val=both;;
-	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`native', \`nas', \`both', or \`none'."]) ;;
-	  esac
-          eval "$opt=\"$val\""
+	dnl values is a subset of all,native,nas,esd
+        dnl or their negatives: none,nonative,nonas,noesd
+	  for x in `echo "$val" | sed -e 's/,/ /g'` ; do
+	    case "$x" in
+	      dnl all and none are only permitted as the first in the list.
+	      n | no | non | none ) new_sdefault=no ;;
+	      a | al | all | both ) new_sdefault=yes ;;
+
+	      native )       with_native_sound=yes ;;
+	      nonative )     with_native_sound=no ;;
+
+	      nas )          with_nas_sound=yes ;;
+	      nonas )        with_nas_sound=no ;;
+
+	      esd )	     with_esd_sound=yes ;;
+	      noesd )        with_esd_sound=no ;;
+
+	      * ) bogus_sound=yes ;;
+	    esac
+	    if test "$bogus_sound" -o \
+	         \( -n "$new_sdefault" -a -n "$sound_notfirst" \) ; then
+		types="\`all', \`none', \`(no)native', \`no(nas)', \`(no)esd'."
+		USAGE_ERROR(["Valid types for the \`--$optname' option are:
+  $types.
+The default is to autodetect all sound support."])
+	    elif test -n "$new_sdefault" ; then
+		with_native_sound=$new_sdefault
+		with_nas_sound=$new_sdefault
+		with_esd_sound=$new_sdefault
+		new_sdefault=	# reset this
+	    fi
+	    sound_notfirst=true
+	  done
         ;;
 
         dnl Has the user requested XIM support?
@@ -761,6 +784,8 @@ while test $# != 0; do
 	;;
 
 	dnl Obsolete legacy argument?  Warn, but otherwise ignore.
+	"use_minimal_tagbits" | \
+	"use_indexed_lrecord_implementation" | \
 	"run_in_place"	| \
 	"with_gnu_make" )
 	  AC_MSG_WARN([Obsolete option \`--$optname' ignored.])
@@ -1032,6 +1057,7 @@ case "$canonical" in
   vax-*-*          ) machine=vax ;;
   mips-dec-*       ) machine=pmax ;;
   mips-sgi-*       ) machine=iris4d ;;
+  mips*-linux      ) machine=mips ;;
   romp-ibm-*       ) machine=ibmrt ;;
   rs6000-ibm-aix*  ) machine=ibmrs6000 ;;
   powerpc-ibm-aix* ) machine=ibmrs6000 ;;
@@ -2155,6 +2181,7 @@ AC_TYPE_PID_T
 AC_TYPE_UID_T
 AC_TYPE_MODE_T
 AC_TYPE_OFF_T
+AC_CHECK_TYPE(ssize_t, int)
 
 AC_MSG_CHECKING(for struct timeval)
 AC_TRY_COMPILE([#ifdef TIME_WITH_SYS_TIME
@@ -2543,7 +2570,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix wmcommand xim xmu
+  for feature in tooltalk cde offix wmcommand xim xmu xpm nas_sound
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -2862,6 +2889,9 @@ if test "$with_x11" = "yes"; then
       dnl XE_APPEND(pkg-src/tree-x, INSTALL_ARCH_DEP_SUBDIR)])
   dnl fi
 
+  dnl Autodetect -lXaw3d
+  AC_CHECK_LIB(Xaw3d, XawScrollbarSetThumb, have_xaw3d=yes, have_xaw3d=no)
+
   dnl autodetect Motif - but only add to libs_x later (if necessary)
   AC_CHECK_HEADER(Xm/Xm.h,
    [AC_CHECK_LIB(Xm, XmStringFree, have_motif=yes, have_motif=no)],
@@ -2890,6 +2920,7 @@ case "$with_menubars" in "" | "yes" | "athena" | "athena3d" )
 esac
 case "$with_dialogs" in "" | "yes" | "lucid" )
   if   test "$have_motif" = "yes"; then with_dialogs="motif"
+  elif test "$have_xaw3d" = "yes"; then with_dialogs="athena3d"
   elif test "$have_xaw"   = "yes"; then with_dialogs="athena"
   else with_dialogs=no
   fi ;;
@@ -2897,15 +2928,27 @@ esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
-case "$with_widgets" in "" | "yes" )
+case "$with_widgets" in "" | "yes" | "lucid")
   if   test "$have_motif" = "yes"; then with_widgets="motif"
+  elif test "$have_xaw3d" = "yes"; then with_widgets="athena3d"
+  elif test "$have_xaw"   = "yes"; then with_widgets="athena"
   else with_widgets=no
   fi ;;
 esac
 
 all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
-case "$all_widgets" in *athena* )
+case "$all_widgets" in
+ *athena*3d )
+  AC_DEFINE(LWLIB_USES_ATHENA)
+  AC_DEFINE(NEED_ATHENA)
+  XE_APPEND(lwlib-Xaw.o, lwlib_objs)
+  if test "$have_xaw3d"; then
+    XE_PREPEND(-lXaw3d, libs_x)
+  else
+    XE_PREPEND(-lXaw, libs_x)
+  fi ;;
+ *athena* )
   AC_DEFINE(LWLIB_USES_ATHENA)
   AC_DEFINE(NEED_ATHENA)
   XE_APPEND(lwlib-Xaw.o, lwlib_objs)
@@ -2922,6 +2965,11 @@ esac
 test "$with_menubars"   = "lucid" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_menubars"   = "motif" && XE_APPEND(xlwmenu.o, lwlib_objs)
 test "$with_scrollbars" = "lucid" && XE_APPEND(xlwscrollbar.o, lwlib_objs)
+test "$with_widgets"   != "no" && test "$with_widgets" != "msw" && \
+	XE_APPEND(xlwtabs.o xlwgcs.o, lwlib_objs)
+case "$with_widgets" in athena* )
+	XE_APPEND(xlwradio.o xlwcheckbox.o xlwgauge.o, lwlib_objs);;
+esac
 case "$all_widgets" in *lucid* )
   AC_DEFINE(NEED_LUCID)
   XE_APPEND(lwlib-Xlw.o, lwlib_objs) ;;
@@ -2933,11 +2981,15 @@ case "$with_scrollbars" in athena* ) AC_DEFINE(LWLIB_SCROLLBARS_ATHENA);; esac
 case "$with_dialogs"    in athena* ) AC_DEFINE(LWLIB_DIALOGS_ATHENA)   ;; esac
 test "$with_scrollbars" = "athena3d" && AC_DEFINE(LWLIB_SCROLLBARS_ATHENA3D)
 test "$with_dialogs"    = "athena3d" && AC_DEFINE(LWLIB_DIALOGS_ATHENA3D)
+case "$with_widgets" in athena* ) AC_DEFINE(LWLIB_WIDGETS_ATHENA);; esac
+test "$with_widgets" != "no" && test "$with_widgets" != "msw" && \
+	AC_DEFINE(LWLIB_TABS_LUCID)
 
 test "$with_menubars"   != "no"    && AC_DEFINE(HAVE_MENUBARS)
 test "$with_scrollbars" != "no"    && AC_DEFINE(HAVE_SCROLLBARS)
 test "$with_dialogs"    != "no"    && AC_DEFINE(HAVE_DIALOGS)
 test "$with_toolbars"   != "no"    && AC_DEFINE(HAVE_TOOLBARS)
+test "$with_widgets"   != "no"    && AC_DEFINE(HAVE_WIDGETS)
 
 test "$with_menubars"   = "lucid"  && AC_DEFINE(LWLIB_MENUBARS_LUCID)
 test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
@@ -2945,6 +2997,7 @@ test "$with_scrollbars" = "lucid"  && AC_DEFINE(LWLIB_SCROLLBARS_LUCID)
 test "$with_menubars"   = "motif"  && AC_DEFINE(LWLIB_MENUBARS_MOTIF)
 test "$with_scrollbars" = "motif"  && AC_DEFINE(LWLIB_SCROLLBARS_MOTIF)
 test "$with_dialogs"    = "motif"  && AC_DEFINE(LWLIB_DIALOGS_MOTIF)
+test "$with_widgets"    = "motif"  && AC_DEFINE(LWLIB_WIDGETS_MOTIF)
 
 test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar.o)
 test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar.o)
@@ -2957,12 +3010,6 @@ if test "$with_x11" = "yes"; then
   test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
   test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
   test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
-else
-  if test \( "$with_sound" = "nas" \) -o \( "$with_sound" = "both" \); then
-    echo "Attempt to Build NAS sound without X"
-    echo "Please remove NAS configuration or build with X"
-    exit 1
-  fi
 fi
 
 dnl ----------------------
@@ -3114,7 +3161,7 @@ if test "$need_motif" = "yes" ; then
   XE_COMPUTE_RUNPATH()
 fi
 
-AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
+AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime gethostname getpagesize gettimeofday getcwd getpt getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strcasecmp strerror tzset ulimit usleep utimes waitpid vsnprintf)
 
 dnl realpath is buggy on linux, decosf and aix4
 
@@ -3357,10 +3404,6 @@ dnl Check for sound of various sorts.
 
 dnl Autodetect native sound
 AC_CHECKING("for sound support")
-case "$with_sound" in
-  native | both ) with_native_sound=yes;;
-  nas    | no   ) with_native_sound=no;;
-esac
 test -z "$with_native_sound" -a -n "$native_sound_lib" && with_native_sound=yes
 
 if test "$with_native_sound" != "no"; then
@@ -3418,6 +3461,7 @@ if test "$with_native_sound" != "no"; then
     for dir in "machine" "sys" "linux"; do
       AC_CHECK_HEADER(${dir}/soundcard.h,
         sound_found=yes
+       need_miscplay=yes
         XE_ADD_OBJS(linuxplay.o)
         [AC_DEFINE_UNQUOTED(SOUNDCARD_H_PATH, "${dir}/soundcard.h")]
         break)
@@ -3427,25 +3471,55 @@ if test "$with_native_sound" != "no"; then
   test "$sound_found" = "yes" && with_native_sound=yes
 fi
 
-if test -z "$with_sound"; then
-  if test "$with_native_sound" = "yes" -o -n "$native_sound_lib"; then
-    with_sound=native
-  fi
-fi
-
 if test "$with_native_sound" = "yes"; then
   AC_DEFINE(HAVE_NATIVE_SOUND)
   test -n "$native_sound_lib" && XE_PREPEND($native_sound_lib, LIBS)
 fi
 
-case "$with_sound" in both | nas )
-  AC_DEFINE(HAVE_NAS_SOUND)
-  XE_ADD_OBJS(nas.o)
-  XE_PREPEND(-laudio, libs_x)
-  dnl If the nas library does not contain the error jump point,
-  dnl then we force safer behavior.
-  AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[AC_DEFINE(NAS_NO_ERROR_JUMP)])
-esac
+dnl NAS Sound support
+if test "$with_nas_sound" != "no"; then
+  AC_CHECK_HEADER(audio/audiolib.h, [
+    AC_CHECK_LIB(audio, AuOpenServer, have_nas_sound=yes)])
+  if test "$have_nas_sound" = "yes"; then
+    with_nas_sound=yes
+    AC_DEFINE(HAVE_NAS_SOUND)
+    XE_ADD_OBJS(nas.o)
+    XE_PREPEND(-laudio, libs_x)
+    dnl If the nas library does not contain the error jump point,
+    dnl then we force safer behavior.
+    AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[old_nas=yes; AC_DEFINE(NAS_NO_ERROR_JUMP)])
+  else
+    test "$with_nas_sound" = "yes" && \
+      XE_DIE("Required NAS sound support cannot be provided.")
+    with_nas_sound=no
+  fi
+fi
+
+dnl ESD Sound support
+if test "$with_esd_sound" != "no"; then
+  AC_CHECK_PROG(have_esd_config, esd-config, yes, no)
+  if test "$have_esd_config" = "yes"; then
+    save_c_switch_site="$c_switch_site" save_LIBS="$LIBS"
+    XE_APPEND(`esd-config --cflags`, c_switch_site)
+    XE_PREPEND(`esd-config --libs`, LIBS)
+    AC_CHECK_FUNC(esd_play_stream,
+      have_esd_sound=yes,
+      c_switch_site="$save_c_switch_site" LIBS="$save_LIBS")
+  fi
+
+  if test "$have_esd_sound" = "yes"; then
+    with_esd_sound=yes
+    need_miscplay=yes
+    XE_ADD_OBJS(esd.o)
+    AC_DEFINE(HAVE_ESD_SOUND)
+  else
+    test "$with_esd_sound" = "yes" && \
+      XE_DIE("Required ESD sound support cannot be provided.")
+    with_esd_sound=no
+  fi
+fi
+
+test "$need_miscplay" = "yes" && XE_ADD_OBJS(miscplay.o)
 
 dnl ---------------------
 dnl TTY-dependent options
@@ -3536,26 +3610,26 @@ dnl We do not necessarily have to have libdb/lib(g)dbm for DB/(G)DBM support.
 dnl On FreeBSD, both DB and DBM are part of libc.
 dnl By default, we check for DBM support in libgdbm, then libc, then libdbm.
 
-test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
   != "no no no" && AC_CHECKING(for database support)
 
 dnl Check for ndbm.h, required for either kind of DBM support.
-if test "$with_database_gnudbm $with_database_dbm" != "no no"; then
+if test "$with_database_gdbm $with_database_dbm" != "no no"; then
   AC_CHECK_HEADER(ndbm.h, [:], [
-    test "$with_database_gnudbm" = "yes" -o \
-         "$with_database_dbm"    = "yes" && \
+    test "$with_database_gdbm" = "yes" -o \
+         "$with_database_dbm"  = "yes" && \
       XE_DIE("Required DBM support cannot be provided.")
-    with_database_gnudbm=no with_database_dbm=no])
+    with_database_gdbm=no with_database_dbm=no])
 fi
 
 dnl Check for DBM support in libgdbm.
-if test "$with_database_gnudbm" != "no"; then
+if test "$with_database_gdbm" != "no"; then
   AC_CHECK_LIB(gdbm, dbm_open, [
-   with_database_gnudbm=yes with_database_dbm=no libdbm=-lgdbm], [
-   if test "$with_database_gnudbm" = "yes"; then
+   with_database_gdbm=yes with_database_dbm=no libdbm=-lgdbm], [
+   if test "$with_database_gdbm" = "yes"; then
      XE_DIE("Required GNU DBM support cannot be provided.")
    fi
-   with_database_gnudbm=no])
+   with_database_gdbm=no])
 fi
 
 dnl Check for DBM support in libc and libdbm.
@@ -3569,8 +3643,8 @@ fi
 
 dnl Tell make about the DBM support we detected.
 test -n "$libdbm" && XE_PREPEND("$libdbm", LIBS)
-test "$with_database_gnudbm" = "yes" -o \
-     "$with_database_dbm"    = "yes" && \
+test "$with_database_gdbm" = "yes" -o \
+     "$with_database_dbm"  = "yes" && \
   AC_DEFINE(HAVE_DBM)
 
 dnl Check for Berkeley DB.
@@ -3615,7 +3689,7 @@ yes
   fi
 fi
 
-if test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
@@ -3634,24 +3708,42 @@ if test "$usage_tracking" = "yes"; then
 fi
 
 dnl autodetect dll support
-AC_CHECK_HEADERS(dlfcn.h, [have_dlfcn=yes
-  AC_DEFINE(HAVE_DLFCN_H)])
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_modules=yes]) }
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
-test -z "$with_modules" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_modules=yes]) }
-test -z "$with_modules" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_modules=yes]) }
-if test "$with_modules" = "yes"; then
-  XE_SHLIB_STUFF
+if test "$with_modules" != "no"; then
+  AC_CHECKING(for module support)
+
+  dnl Find headers and libraries
+  AC_CHECK_HEADER(dlfcn.h, [
+    AC_CHECK_LIB(dl, dlopen, [ have_dl=yes libdl=dl], [
+    AC_CHECK_LIB(c,  dlopen, [ have_dl=yes ])])])
+  if test -n "$have_dl"; then
+    AC_DEFINE(HAVE_DLOPEN)
+  else
+    AC_CHECK_LIB(dld, shl_load, [
+      libdl=dld have_dl=yes;
+      AC_DEFINE(HAVE_SHL_LOAD)], [
+    AC_CHECK_LIB(dld, dld_init, [
+      libdl=dld have_dl=yes;
+      AC_DEFINE(HAVE_DLD_INIT)])])
+  fi
+
+  if test -n "$have_dl"; then
+    dnl XE_SHLIB_STUFF (in aclocal.m4) defines $can_build_shared
+    XE_SHLIB_STUFF
+  fi
+
   if test "$can_build_shared" = "yes"; then
     AC_DEFINE(HAVE_SHLIB)
-    XE_ADD_OBJS(sysdll.o)
-    XE_ADD_OBJS(emodules.o)
+    XE_ADD_OBJS(sysdll.o emodules.o)
     XE_APPEND(src, INSTALL_ARCH_DEP_SUBDIR)
-    test ! -z "$DLL_LIB" && XE_PREPEND(-l${DLL_LIB}, LIBS)
+    test -n "$libdl" && XE_PREPEND(-l${libdl}, LIBS)
     AC_CHECK_FUNCS(dlerror _dlerror)
+    with_modules=yes
   else
-    AC_MSG_WARN(disabling shared library support)
+    if test "$with_modules" = "yes"; then
+      XE_DIE("Required module support cannot be provided.")
+    else
+      AC_MSG_WARN("Module support cannot be provided.")
+    fi
     with_modules=no
   fi
 fi
@@ -3974,7 +4066,7 @@ if test "$with_site_modules" = "no"; then
 fi
 
 XE_SPACE(ac_configure_args, $ac_configure_args)
-AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$canonical")
+AC_DEFINE_UNQUOTED(EMACS_CONFIGURATION, "$configuration")
 AC_DEFINE_UNQUOTED(EMACS_CONFIG_OPTIONS, "$ac_configure_args")
 AC_DEFINE_UNQUOTED(config_machfile,  "$machfile")
 AC_DEFINE_UNQUOTED(config_opsysfile, "$opsysfile")
@@ -4010,6 +4102,7 @@ test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)
 test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
 test "$with_hesiod"        = "yes" && AC_DEFINE(HESIOD)
 test "$use_union_type"     = "yes" && AC_DEFINE(USE_UNION_TYPE)
+test "$pdump"              = "yes" && AC_DEFINE(PDUMP)
 
 dnl -------------------------------
 dnl Report on what we decided to do
@@ -4033,7 +4126,7 @@ if test ! -z ${emacs_beta_version} ; then
 	xemacs_betaname="-b${emacs_beta_version}"
   fi
 else
-  xemacs_betaname=""	
+  xemacs_betaname=""
 fi
 
 dnl Start stdout redirection to '| tee -a Installation'
@@ -4103,16 +4196,15 @@ test "$with_gif"   = yes && echo "  Compiling in support for (builtin) GIF image
 test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling."
 test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
-case "$with_sound" in
-  nas    ) echo "  Compiling in network sound (NAS) support." ;;
-  native ) echo "  Compiling in native sound support." ;;
-  both   ) echo "  Compiling in both network and native sound support." ;;
-esac
-test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
+
+test "$with_native_sound" = yes && echo "  Compiling in native sound support."
+test "$with_nas_sound"    = yes && echo "  Compiling in network sound (NAS) support."
+test "$old_nas"           = yes && echo "     nas library lacks error trapping, will play synchronously."
+test "$with_esd_sound"    = yes && echo "  Compiling in support for Enlightened Sound Daemon (ESD)."
 
 test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley DB."
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
-test "$with_database_gnudbm" = yes && echo "  Compiling in support for GNU DBM."
+test "$with_database_gdbm"   = yes && echo "  Compiling in support for GNU DBM."
 
 test "$with_ldap"	     = yes && echo "  Compiling in support for LDAP."
 
@@ -4146,15 +4238,20 @@ case "$with_menubars" in
           echo "  *WARNING*  The Motif menubar implementation is currently buggy."
           echo "             We recommend using the Lucid menubar instead."
           echo "             Re-run configure with --with-menubars='lucid'." ;;
+  msw ) echo "  Using MS-Windows menubars." ;;
 esac
 case "$with_scrollbars" in
   lucid    ) echo "  Using Lucid scrollbars."     ;;
   motif    ) echo "  Using Motif scrollbars."     ;;
   athena   ) echo "  Using Athena scrollbars."    ;;
   athena3d ) echo "  Using Athena-3d scrollbars." ;;
+  msw ) echo "  Using MS-Windows scrollbars." ;;
 esac
 case "$with_widgets" in
   motif    ) echo "  Using Motif native widgets."     ;;
+  athena   ) echo "  Using Athena native widgets."    ;;
+  athena3d ) echo "  Using Athena-3d native widgets." ;;
+  msw ) echo "  Using MS-Windows native widgets." ;;
 esac
 case "$with_dialogs" in
   motif    )
@@ -4168,8 +4265,9 @@ case "$with_dialogs" in
     ;;
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
+  msw ) echo "  Using MS-Windows dialog boxes." ;;
 esac
-test "$with_modules" = "yes" && echo "  Compiling in DSO module support."
+test "$with_modules" = "yes" && echo "  Compiling in dynamic shared object module support."
 test "$with_clash_detection" = yes && \
   echo "  Clash detection will use \"$lockdir\" for locking files."
 echo "  movemail will use \"$mail_locking\" for locking mail spool files."
@@ -4177,8 +4275,9 @@ test "$with_pop"	= yes && echo "  Using POP for mail access."
 test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
 test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
 test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
-test "$debug"              = yes && echo "  Compiling in extra code for debugging."
-test "$usage_tracking"     = yes && echo "  Compiling with usage tracking active (Sun internal)."
+test "$pdump"           = yes && echo "  Using the new portable dumper (wishful thinking)."
+test "$debug"           = yes && echo "  Compiling in extra code for debugging."
+test "$usage_tracking"  = yes && echo "  Compiling with usage tracking active (Sun internal)."
 if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc" \
   != "no no no no no"; then
   echo "  WARNING: ---------------------------------------------------------"
@@ -4209,12 +4308,10 @@ dnl except ./Makefile from $srcdir/Makefile.in
 for file in $internal_makefile_list; do
   test "$file" = src/Makefile.in && \
     file="src/Makefile.in:src/Makefile.in.in:src/depend"
-  ac_output_files="${ac_output_files+$ac_output_files }$file"
+  XE_APPEND($file, ac_output_files)
 done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
-if test "$with_modules" = "yes"; then
-  ac_output_files="$ac_output_files lib-src/ellcc.h"
-fi
+test "$with_modules" = "yes" && XE_APPEND(lib-src/ellcc.h, ac_output_files)
 
 AC_OUTPUT($ac_output_files,
 [for dir in . $MAKE_SUBDIR; do

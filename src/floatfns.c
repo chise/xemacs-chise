@@ -55,9 +55,13 @@ Boston, MA 02111-1307, USA.  */
 #define THIS_FILENAME floatfns
 #include "sysfloat.h"
 
-#ifndef HAVE_RINT
+/* The code uses emacs_rint, so that it works to undefine HAVE_RINT
+   if `rint' exists but does not work right.  */
+#ifdef HAVE_RINT
+#define emacs_rint rint
+#else
 static double
-rint (double x)
+emacs_rint (double x)
 {
   double r = floor (x + 0.5);
   double diff = fabs (r - x);
@@ -108,15 +112,15 @@ static CONST char *float_error_fn_name;
 
 
 #define arith_error(op,arg) \
-  Fsignal (Qarith_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qarith_error, list2 (build_string (op), arg))
 #define range_error(op,arg) \
-  Fsignal (Qrange_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qrange_error, list2 (build_string (op), arg))
 #define range_error2(op,a1,a2) \
-  Fsignal (Qrange_error, list3 (build_string ((op)), (a1), (a2)))
+  Fsignal (Qrange_error, list3 (build_string (op), a1, a2))
 #define domain_error(op,arg) \
-  Fsignal (Qdomain_error, list2 (build_string ((op)), (arg)))
+  Fsignal (Qdomain_error, list2 (build_string (op), arg))
 #define domain_error2(op,a1,a2) \
-  Fsignal (Qdomain_error, list3 (build_string ((op)), (a1), (a2)))
+  Fsignal (Qdomain_error, list3 (build_string (op), a1, a2))
 
 
 /* Convert float to Lisp Integer if it fits, else signal a range
@@ -160,7 +164,7 @@ in_float_error (void)
 
 
 static Lisp_Object
-mark_float (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_float (Lisp_Object obj)
 {
   return Qnil;
 }
@@ -831,7 +835,7 @@ Return the nearest integer to ARG.
     {
       double d;
       /* Screw the prevailing rounding mode.  */
-      IN_FLOAT ((d = rint (XFLOAT_DATA (arg))), "round", arg);
+      IN_FLOAT ((d = emacs_rint (XFLOAT_DATA (arg))), "round", arg);
       return (float_to_int (d, "round", arg, Qunbound));
     }
 #endif /* LISP_FLOAT_TYPE */
@@ -891,7 +895,7 @@ Return the nearest integer to ARG, as a float.
        (arg))
 {
   double d = extract_float (arg);
-  IN_FLOAT (d = rint (d), "fround", arg);
+  IN_FLOAT (d = emacs_rint (d), "fround", arg);
   return make_float (d);
 }
 

@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 3.12s from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -162,7 +162,7 @@ For example,
 
 produces
 
-      - Command: forward-word COUNT
+      - Command: forward-word count
           This function moves point forward COUNT words (or backward if
           COUNT is negative). ...
 
@@ -205,7 +205,7 @@ Thus,
 
 produces
 
-      - Function: buffer-end FLAG
+      - Function: buffer-end flag
           This function returns `(point-min)' if FLAG is less than 1,
           `(point-max)' otherwise.  ...
 
@@ -806,7 +806,7 @@ and it is followed, on the same line, by the parameter list.
   Here is a definition from *Note Calling Functions: (lispref)Calling
 Functions.
 
-      - Function: apply FUNCTION &rest ARGUMENTS
+      - Function: apply function &rest arguments
           `apply' calls FUNCTION with ARGUMENTS, just like `funcall'
           but with one difference: the last of ARGUMENTS is a list of
           arguments to give to FUNCTION, rather than a single argument.
@@ -881,7 +881,7 @@ Footnotes
 *********
 
   A "footnote" is for a reference that documents or elucidates the
-primary text.(1) (*note Footnotes-Footnotes::)
+primary text.(1) (*note Footnotes-Footnote-1::)
 
 * Menu:
 
@@ -915,7 +915,7 @@ text being footnoted, with no intervening space; otherwise, the
 formatters the footnote mark might end up starting up a line.
 
   For example, this clause is followed by a sample footnote(1) (*note
-Footnote Commands-Footnotes::); in the Texinfo source, it looks like
+Footnote Commands-Footnote-1::); in the Texinfo source, it looks like
 this:
 
      ...a sample footnote@footnote{Here is the sample
@@ -1071,7 +1071,7 @@ File: texinfo.info,  Node: Conditional Not Commands,  Next: Raw Formatter Comman
 Conditional Not Commands
 ========================
 
-  You can specify text to be included in any output format *other* than
+  You can specify text to be included in any output format _other_ than
 some given one with the `@ifnot...' commands:
      @ifnothtml ... @end ifnothtml
      @ifnotinfo ... @end ifnotinfo
@@ -1157,7 +1157,7 @@ File: texinfo.info,  Node: ifset ifclear,  Next: value,  Prev: set clear value, 
 
   When a FLAG is set, the Texinfo formatting commands format text
 between subsequent pairs of `@ifset FLAG' and `@end ifset' commands.
-When the FLAG is cleared, the Texinfo formatting commands do *not*
+When the FLAG is cleared, the Texinfo formatting commands do _not_
 format the text.
 
   Use the `@set FLAG' command to turn on, or "set", a FLAG; a "flag"
@@ -1197,7 +1197,7 @@ like this:
 
 Write the command on a line of its own.
 
-  When FLAG is cleared, the Texinfo formatting commands do *not* format
+  When FLAG is cleared, the Texinfo formatting commands do _not_ format
 the text between `@ifset FLAG' and `@end ifset'; that text is ignored
 and does not appear in either printed or Info output.
 
@@ -1212,7 +1212,7 @@ dig up shrubs without hurting them.  Remember to replant promptly ...".
   If a flag is cleared with an `@clear FLAG' command, then the
 formatting commands format text between subsequent pairs of `@ifclear'
 and `@end ifclear' commands.  But if the flag is set with `@set FLAG',
-then the formatting commands do *not* format text between an `@ifclear'
+then the formatting commands do _not_ format text between an `@ifclear'
 and an `@end ifclear' command; rather, they ignore that text.  An
 `@ifclear' command looks like this:
 
@@ -1360,7 +1360,7 @@ sequence of text and/or existing commands (including other macros).  The
 macro can have any number of "parameters"--text you supply each time
 you use the macro.  (This has nothing to do with the `@defmac' command,
 which is for documenting macros in the subject of the manual; *note Def
-Cmd Template::..)
+Cmd Template::.)
 
 * Menu:
 

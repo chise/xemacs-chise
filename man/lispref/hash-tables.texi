@@ -72,19 +72,25 @@ The structure syntax accepts the same keywords as @code{make-hash-table}
 (without the @code{:} character), as well as the additional keyword
 @code{data}, which specifies the initial hash table contents.
 
-@defun make-hash-table &key @code{:size} @code{:test} @code{:type} @code{:rehash-size} @code{:rehash-threshold}
+@defun make-hash-table &key @code{test} @code{size} @code{rehash-size} @code{rehash-threshold} @code{weakness}
 This function returns a new empty hash table object.
-
-Keyword @code{:size} specifies the number of keys likely to be inserted.
-This number of entries can be inserted without enlarging the hash table.
 
 Keyword @code{:test} can be @code{eq}, @code{eql} (default) or @code{equal}.
 Comparison between keys is done using this function.
 If speed is important, consider using @code{eq}.
 When storing strings in the hash table, you will likely need to use @code{equal}.
 
-Keyword @code{:type} can be @code{non-weak} (default), @code{weak},
-@code{key-weak} or @code{value-weak}.
+Keyword @code{:size} specifies the number of keys likely to be inserted.
+This number of entries can be inserted without enlarging the hash table.
+
+Keyword @code{:rehash-size} must be a float greater than 1.0, and specifies
+the factor by which to increase the size of the hash table when enlarging.
+
+Keyword @code{:rehash-threshold} must be a float between 0.0 and 1.0,
+and specifies the load factor of the hash table which triggers enlarging.
+
+Keyword @code{:weakness} can be @code{nil} (default), @code{t},
+@code{key} or @code{value}.
 
 A weak hash table is one whose pointers do not count as GC referents:
 for any key-value pair in the hash table, if the only remaining pointer
@@ -104,12 +110,6 @@ that a key-value pair will be removed only if the value remains
 unmarked outside of weak hash tables.  The pair will remain in the
 hash table if the value is pointed to by something other than a weak
 hash table, even if the key is not.
-
-Keyword @code{:rehash-size} must be a float greater than 1.0, and specifies
-the factor by which to increase the size of the hash table when enlarging.
-
-Keyword @code{:rehash-threshold} must be a float between 0.0 and 1.0,
-and specifies the load factor of the hash table which triggers enlarging.
 @end defun
 
 @defun copy-hash-table hash-table
@@ -122,20 +122,14 @@ copied.
 This function returns the number of entries in @var{hash-table}.
 @end defun
 
-@defun hash-table-size hash-table
-This function returns the current number of slots in @var{hash-table},
-whether occupied or not.
-@end defun
-
-@defun hash-table-type hash-table
-This function returns the type of @var{hash-table}.
-This can be one of @code{non-weak}, @code{weak}, @code{key-weak} or
-@code{value-weak}.
-@end defun
-
 @defun hash-table-test hash-table
 This function returns the test function of @var{hash-table}.
 This can be one of @code{eq}, @code{eql} or @code{equal}.
+@end defun
+
+@defun hash-table-size hash-table
+This function returns the current number of slots in @var{hash-table},
+whether occupied or not.
 @end defun
 
 @defun hash-table-rehash-size hash-table
@@ -148,6 +142,11 @@ is enlarged when the rehash threshold is exceeded.
 This function returns the current rehash threshold of @var{hash-table}.
 This is a float between 0.0 and 1.0; the maximum @dfn{load factor} of
 @var{hash-table}, beyond which the @var{hash-table} is enlarged by rehashing.
+@end defun
+
+@defun hash-table-weakness hash-table
+This function returns the weakness of @var{hash-table}.
+This can be one of @code{nil}, @code{t}, @code{key} or @code{value}.
 @end defun
 
 @node Working With Hash Tables
@@ -180,6 +179,7 @@ calling it with two args, each key and value in the hash table.
 that @var{function} may remhash or puthash the entry currently being
 processed by @var{function}.
 @end defun
+
 
 @node Weak Hash Tables
 @section Weak Hash Tables
@@ -220,5 +220,5 @@ of the table, regardless of how the key is referenced.
 
 Also see @ref{Weak Lists}.
 
-Weak hash tables are created by specifying the @code{:type} keyword to
+Weak hash tables are created by specifying the @code{:weakness} keyword to
 @code{make-hash-table}.

@@ -282,6 +282,7 @@ void defsubr_macro (Lisp_Subr *);
 #define DEFSUBR_MACRO(Fname) defsubr_macro (&S##Fname)
 
 void defsymbol (Lisp_Object *location, CONST char *name);
+void defsymbol_nodump (Lisp_Object *location, CONST char *name);
 
 void defkeyword (Lisp_Object *location, CONST char *name);
 

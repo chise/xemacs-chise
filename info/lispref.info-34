@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -195,7 +195,7 @@ fonts, colors, and face-boolean specifiers.  *Note Glyphs::, for more
 information about image specifiers.  *Note Toolbar::, for more
 information on toolbar specifiers.
 
- - Function: specifier-type SPECIFIER
+ - Function: specifier-type specifier
      This function returns the type of SPECIFIER.  The returned value
      will be a symbol: one of `integer', `boolean', etc., as listed in
      the above table.
@@ -203,32 +203,32 @@ information on toolbar specifiers.
    Functions are also provided to query whether an object is a
 particular kind of specifier:
 
- - Function: boolean-specifier-p OBJECT
+ - Function: boolean-specifier-p object
      This function returns non-`nil' if OBJECT is a boolean specifier.
 
- - Function: integer-specifier-p OBJECT
+ - Function: integer-specifier-p object
      This function returns non-`nil' if OBJECT is an integer specifier.
 
- - Function: natnum-specifier-p OBJECT
+ - Function: natnum-specifier-p object
      This function returns non-`nil' if OBJECT is a natnum specifier.
 
- - Function: generic-specifier-p OBJECT
+ - Function: generic-specifier-p object
      This function returns non-`nil' if OBJECT is a generic specifier.
 
- - Function: face-boolean-specifier-p OBJECT
+ - Function: face-boolean-specifier-p object
      This function returns non-`nil' if OBJECT is a face-boolean
      specifier.
 
- - Function: toolbar-specifier-p OBJECT
+ - Function: toolbar-specifier-p object
      This function returns non-`nil' if OBJECT is a toolbar specifier.
 
- - Function: font-specifier-p OBJECT
+ - Function: font-specifier-p object
      This function returns non-`nil' if OBJECT is a font specifier.
 
- - Function: color-specifier-p OBJECT
+ - Function: color-specifier-p object
      This function returns non-`nil' if OBJECT is a color specifier.
 
- - Function: image-specifier-p OBJECT
+ - Function: image-specifier-p object
      This function returns non-`nil' if OBJECT is an image specifier.
 
 
@@ -237,8 +237,8 @@ File: lispref.info,  Node: Adding Specifications,  Next: Retrieving Specificatio
 Adding specifications to a Specifier
 ====================================
 
- - Function: add-spec-to-specifier SPECIFIER INSTANTIATOR &optional
-          LOCALE TAG-SET HOW-TO-ADD
+ - Function: add-spec-to-specifier specifier instantiator &optional
+          locale tag-set how-to-add
      This function adds a specification to SPECIFIER.  The
      specification maps from LOCALE (which should be a window, buffer,
      frame, device, or the symbol `global', and defaults to `global')
@@ -290,8 +290,8 @@ Adding specifications to a Specifier
      locale type with the function `specifier-spec-list' or
      `specifier-specs'.
 
- - Function: add-spec-list-to-specifier SPECIFIER SPEC-LIST &optional
-          HOW-TO-ADD
+ - Function: add-spec-list-to-specifier specifier spec-list &optional
+          how-to-add
      This function adds a "spec-list" (a list of specifications) to
      SPECIFIER.  The format of a spec-list is
 
@@ -304,7 +304,7 @@ Adding specifications to a Specifier
         * TAG-SET := an unordered list of zero or more TAGS, each of
           which is a symbol
 
-        * TAG := a device class (*note Consoles and Devices::.), a
+        * TAG := a device class (*note Consoles and Devices::), a
           device type, or a tag defined with `define-specifier-tag'
 
         * INSTANTIATOR := format determined by the type of specifier
@@ -321,7 +321,7 @@ Adding specifications to a Specifier
      In many circumstances, the higher-level function `set-specifier' is
      more convenient and should be used instead.
 
- - Macro: let-specifier SPECIFIER-LIST &rest BODY
+ - Macro: let-specifier specifier-list &rest body
      This special form temporarily adds specifications to specifiers,
      evaluates forms in BODY and restores the specifiers to their
      previous states.  The specifiers and their temporary
@@ -355,7 +355,7 @@ Adding specifications to a Specifier
           (let-specifier ((modeline-shadow-thickness 0 (selected-window)))
             (sit-for 1))
 
- - Function: set-specifier SPECIFIER VALUE &optional HOW-TO-ADD
+ - Function: set-specifier specifier value &optional how-to-add
      This function adds some specifications to SPECIFIER.  VALUE can be
      a single instantiator or tagged instantiator (added as a global
      specification), a list of tagged and/or untagged instantiators
@@ -382,8 +382,8 @@ Adding specifications to a Specifier
      functions always work with fully-qualified spec-lists; thus, there
      is no ambiguity.
 
- - Function: canonicalize-inst-pair INST-PAIR SPECIFIER-TYPE &optional
-          NOERROR
+ - Function: canonicalize-inst-pair inst-pair specifier-type &optional
+          noerror
      This function canonicalizes the given INST-PAIR.
 
      SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
@@ -397,8 +397,8 @@ Adding specifications to a Specifier
      If NOERROR is non-`nil', signal an error if the inst-pair is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-inst-list INST-LIST SPECIFIER-TYPE &optional
-          NOERROR
+ - Function: canonicalize-inst-list inst-list specifier-type &optional
+          noerror
      This function canonicalizes the given INST-LIST (a list of
      inst-pairs).
 
@@ -413,7 +413,7 @@ Adding specifications to a Specifier
      If NOERROR is non-`nil', signal an error if the inst-list is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-spec SPEC SPECIFIER-TYPE &optional NOERROR
+ - Function: canonicalize-spec spec specifier-type &optional noerror
      This function canonicalizes the given SPEC (a specification).
 
      SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
@@ -427,8 +427,8 @@ Adding specifications to a Specifier
      If NOERROR is `nil', signal an error if the specification is
      invalid; otherwise return `t'.
 
- - Function: canonicalize-spec-list SPEC-LIST SPECIFIER-TYPE &optional
-          NOERROR
+ - Function: canonicalize-spec-list spec-list specifier-type &optional
+          noerror
      This function canonicalizes the given SPEC-LIST (a list of
      specifications).
 
@@ -455,8 +455,8 @@ File: lispref.info,  Node: Retrieving Specifications,  Next: Specifier Tag Funct
 Retrieving the Specifications from a Specifier
 ==============================================
 
- - Function: specifier-spec-list SPECIFIER &optional LOCALE TAG-SET
-          EXACT-P
+ - Function: specifier-spec-list specifier &optional locale tag-set
+          exact-p
      This function returns the spec-list of specifications for
      SPECIFIER in LOCALE.
 
@@ -482,7 +482,7 @@ Retrieving the Specifications from a Specifier
      is non-`nil', however, TAG-SET must be equal to an instantiator's
      tag set for the instantiator to be returned.
 
- - Function: specifier-specs SPECIFIER &optional LOCALE TAG-SET EXACT-P
+ - Function: specifier-specs specifier &optional locale tag-set exact-p
      This function returns the specification(s) for SPECIFIER in LOCALE.
 
      If LOCALE is a single locale or is a list of one element
@@ -507,7 +507,7 @@ Retrieving the Specifications from a Specifier
           from there being no instantiators at all.
 
 
- - Function: specifier-fallback SPECIFIER
+ - Function: specifier-fallback specifier
      This function returns the fallback value for SPECIFIER.  Fallback
      values are provided by the C code for certain built-in specifiers
      to make sure that instancing won't fail even if all specs are
@@ -556,25 +556,25 @@ all tags in the tag set attached to that instantiator.
    Most of the time, a tag set is not specified, and the instantiator
 gets a null tag set, which matches all devices.
 
- - Function: valid-specifier-tag-p TAG
+ - Function: valid-specifier-tag-p tag
      This function returns non-`nil' if TAG is a valid specifier tag.
 
- - Function: valid-specifier-tag-set-p TAG-SET
+ - Function: valid-specifier-tag-set-p tag-set
      This function returns non-`nil' if TAG-SET is a valid specifier
      tag set.
 
- - Function: canonicalize-tag-set TAG-SET
+ - Function: canonicalize-tag-set tag-set
      This function canonicalizes the given tag set.  Two canonicalized
      tag sets can be compared with `equal' to see if they represent the
      same tag set. (Specifically, canonicalizing involves sorting by
      symbol name and removing duplicates.)
 
- - Function: device-matches-specifier-tag-set-p DEVICE TAG-SET
+ - Function: device-matches-specifier-tag-set-p device tag-set
      This function returns non-`nil' if DEVICE matches specifier tag
      set TAG-SET.  This means that DEVICE matches each tag in the tag
      set.
 
- - Function: define-specifier-tag TAG &optional PREDICATE
+ - Function: define-specifier-tag tag &optional predicate
      This function defines a new specifier tag.  If PREDICATE is
      specified, it should be a function of one argument (a device) that
      specifies whether the tag matches that particular device.  If
@@ -584,7 +584,7 @@ gets a null tag set, which matches all devices.
      you cannot redefine the built-in specifier tags (the device types
      and classes) or the symbols `nil', `t', `all', or `global'.
 
- - Function: device-matching-specifier-tag-list &optional DEVICE
+ - Function: device-matching-specifier-tag-list &optional device
      This function returns a list of all specifier tags matching
      DEVICE.  DEVICE defaults to the selected device if omitted.
 
@@ -593,7 +593,7 @@ gets a null tag set, which matches all devices.
      tags.  This includes the built-in ones (the device types and
      classes).
 
- - Function: specifier-tag-predicate TAG
+ - Function: specifier-tag-predicate tag
      This function returns the predicate for the given specifier tag.
 
 
@@ -602,8 +602,8 @@ File: lispref.info,  Node: Specifier Instancing Functions,  Next: Specifier Exam
 Functions for Instancing a Specifier
 ====================================
 
- - Function: specifier-instance SPECIFIER &optional DOMAIN DEFAULT
-          NO-FALLBACK
+ - Function: specifier-instance specifier &optional domain default
+          no-fallback
      This function instantiates SPECIFIER (return its value) in DOMAIN.
      If no instance can be generated for this domain, return DEFAULT.
 
@@ -655,8 +655,8 @@ Functions for Instancing a Specifier
      function), the returned value will be a font-instance object.  For
      images, the returned value will be a string, pixmap, or subwindow.
 
- - Function: specifier-instance-from-inst-list SPECIFIER DOMAIN
-          INST-LIST &optional DEFAULT
+ - Function: specifier-instance-from-inst-list specifier domain
+          inst-list &optional default
      This function attempts to convert a particular inst-list into an
      instance.  This attempts to instantiate INST-LIST in the given
      DOMAIN, as if INST-LIST existed in a specification in SPECIFIER.
@@ -738,7 +738,7 @@ File: lispref.info,  Node: Creating Specifiers,  Next: Specifier Validation Func
 Creating New Specifier Objects
 ==============================
 
- - Function: make-specifier TYPE
+ - Function: make-specifier type
      This function creates a new specifier.
 
      A specifier is an object that can be used to keep track of a
@@ -763,8 +763,8 @@ Creating New Specifier Objects
      `font-specifier-p', `image-specifier-p',
      `face-boolean-specifier-p', and `toolbar-specifier-p'.
 
- - Function: make-specifier-and-init TYPE SPEC-LIST &optional
-          DONT-CANONICALIZE
+ - Function: make-specifier-and-init type spec-list &optional
+          dont-canonicalize
      This function creates and initialize a new specifier.
 
      This is a front-end onto `make-specifier' that allows you to create
@@ -783,53 +783,53 @@ File: lispref.info,  Node: Specifier Validation Functions,  Next: Other Specific
 Functions for Checking the Validity of Specifier Components
 ===========================================================
 
- - Function: valid-specifier-domain-p DOMAIN
+ - Function: valid-specifier-domain-p domain
      This function returns non-`nil' if DOMAIN is a valid specifier
      domain.  A domain is used to instance a specifier (i.e. determine
      the specifier's value in that domain).  Valid domains are a
      window, frame, or device.  (`nil' is not valid.)
 
- - Function: valid-specifier-locale-p LOCALE
+ - Function: valid-specifier-locale-p locale
      This function returns non-`nil' if LOCALE is a valid specifier
      locale.  Valid locales are a device, a frame, a window, a buffer,
      and `global'.  (`nil' is not valid.)
 
- - Function: valid-specifier-locale-type-p LOCALE-TYPE
+ - Function: valid-specifier-locale-type-p locale-type
      Given a specifier LOCALE-TYPE, this function returns non-nil if it
      is valid.  Valid locale types are the symbols `global', `device',
      `frame', `window', and `buffer'. (Note, however, that in functions
      that accept either a locale or a locale type, `global' is
      considered an individual locale.)
 
- - Function: valid-specifier-type-p SPECIFIER-TYPE
+ - Function: valid-specifier-type-p specifier-type
      Given a SPECIFIER-TYPE, this function returns non-`nil' if it is
      valid.  Valid types are `generic', `integer', `boolean', `color',
      `font', `image', `face-boolean', and `toolbar'.
 
- - Function: valid-specifier-tag-p TAG
+ - Function: valid-specifier-tag-p tag
      This function returns non-`nil' if TAG is a valid specifier tag.
 
- - Function: valid-instantiator-p INSTANTIATOR SPECIFIER-TYPE
+ - Function: valid-instantiator-p instantiator specifier-type
      This function returns non-`nil' if INSTANTIATOR is valid for
      SPECIFIER-TYPE.
 
- - Function: valid-inst-list-p INST-LIST TYPE
+ - Function: valid-inst-list-p inst-list type
      This function returns non-`nil' if INST-LIST is valid for
      specifier type TYPE.
 
- - Function: valid-spec-list-p SPEC-LIST TYPE
+ - Function: valid-spec-list-p spec-list type
      This function returns non-`nil' if SPEC-LIST is valid for
      specifier type TYPE.
 
- - Function: check-valid-instantiator INSTANTIATOR SPECIFIER-TYPE
+ - Function: check-valid-instantiator instantiator specifier-type
      This function signals an error if INSTANTIATOR is invalid for
      SPECIFIER-TYPE.
 
- - Function: check-valid-inst-list INST-LIST TYPE
+ - Function: check-valid-inst-list inst-list type
      This function signals an error if INST-LIST is invalid for
      specifier type TYPE.
 
- - Function: check-valid-spec-list SPEC-LIST TYPE
+ - Function: check-valid-spec-list spec-list type
      This function signals an error if SPEC-LIST is invalid for
      specifier type TYPE.
 
@@ -839,8 +839,8 @@ File: lispref.info,  Node: Other Specification Functions,  Prev: Specifier Valid
 Other Functions for Working with Specifications in a Specifier
 ==============================================================
 
- - Function: copy-specifier SPECIFIER &optional DEST LOCALE TAG-SET
-          EXACT-P HOW-TO-ADD
+ - Function: copy-specifier specifier &optional dest locale tag-set
+          exact-p how-to-add
      This function copies SPECIFIER to DEST, or creates a new one if
      DEST is `nil'.
 
@@ -869,7 +869,7 @@ Other Functions for Working with Specifications in a Specifier
      types are copied will first be completely erased in DEST.
      Otherwise, it is the same as in `add-spec-to-specifier'.
 
- - Function: remove-specifier SPECIFIER &optional LOCALE TAG-SET EXACT-P
+ - Function: remove-specifier specifier &optional locale tag-set exact-p
      This function removes specification(s) for SPECIFIER.
 
      If LOCALE is a particular locale (a buffer, window, frame, device,
@@ -894,7 +894,7 @@ Other Functions for Working with Specifications in a Specifier
      is non-`nil', however, TAG-SET must be equal to an instantiator's
      tag set for the instantiator to be removed.
 
- - Function: map-specifier SPECIFIER FUNC &optional LOCALE MAPARG
+ - Function: map-specifier specifier func &optional locale maparg
      This function applies FUNC to the specification(s) for LOCALE in
      SPECIFIER.
 
@@ -909,7 +909,7 @@ Other Functions for Working with Specifications in a Specifier
      will stop and the returned value becomes the value returned from
      `map-specifier'.  Otherwise, `map-specifier' returns `nil'.
 
- - Function: specifier-locale-type-from-locale LOCALE
+ - Function: specifier-locale-type-from-locale locale
      Given a specifier LOCALE, this function returns its type.
 
 
@@ -945,11 +945,11 @@ for more information.
 
    The face named `default' is used for ordinary text.  The face named
 `modeline' is used for displaying the modeline.  The face named
-`highlight' is used for highlighted extents (*note Extents::.).  The
+`highlight' is used for highlighted extents (*note Extents::).  The
 faces named `left-margin' and `right-margin' are used for the left and
-right margin areas, respectively (*note Annotations::.).  The face
-named `zmacs-region' is used for the highlighted region between point
-and mark.
+right margin areas, respectively (*note Annotations::).  The face named
+`zmacs-region' is used for the highlighted region between point and
+mark.
 
 * Menu:
 
@@ -1019,7 +1019,7 @@ the corresponding property of the `default' face.
 
    Here are the basic primitives for working with faces.
 
- - Function: make-face NAME &optional DOC-STRING TEMPORARY
+ - Function: make-face name &optional doc-string temporary
      This function defines and returns a new face named NAME, initially
      with all properties unspecified.  It does nothing if there is
      already a face named NAME.  Optional argument DOC-STRING specifies
@@ -1029,20 +1029,20 @@ the corresponding property of the `default' face.
      or Lisp code (otherwise, the face will continue to exist
      indefinitely even if it is not used).
 
- - Function: face-list &optional TEMPORARY
+ - Function: face-list &optional temporary
      This function returns a list of the names of all defined faces.  If
      TEMPORARY is `nil', only the permanent faces are included.  If it
      is `t', only the temporary faces are included.  If it is any other
      non-`nil' value both permanent and temporary are included.
 
- - Function: facep OBJECT
+ - Function: facep object
      This function returns whether the given object is a face.
 
- - Function: copy-face OLD-FACE NEW-NAME &optional LOCALE HOW-TO-ADD
+ - Function: copy-face old-face new-name &optional locale how-to-add
      This function defines a new face named NEW-NAME which is a copy of
      the existing face named OLD-FACE.  If there is already a face
      named NEW-NAME, then it alters the face to have the same
      properties as OLD-FACE.  LOCALE and HOW-TO-ADD let you copy just
      parts of the old face rather than the whole face, and are as in
-     `copy-specifier' (*note Specifiers::.).
+     `copy-specifier' (*note Specifiers::).
 

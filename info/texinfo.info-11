@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 3.12s from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -103,7 +103,7 @@ three things.
      prompt.
 
   Please note that if you are running TeX inside Emacs, you need to
-switch to the shell buffer and line at which TeX offers the `?'  prompt.
+switch to the shell buffer and line at which TeX offers the `?' prompt.
 
   Sometimes TeX will format a file without producing error messages even
 though there is a problem.  This usually occurs if a command is not
@@ -417,7 +417,7 @@ Refilling Paragraphs
 ********************
 
   The `@refill' command refills and, optionally, indents the first line
-of a paragraph.(1) (*note Refilling Paragraphs-Footnotes::) The
+of a paragraph.(1) (*note Refilling Paragraphs-Footnote-1::) The
 `@refill' command is no longer important, but we describe it here
 because you once needed it.  You will see it in many old Texinfo files.
 
@@ -432,7 +432,7 @@ automatically.)  Now, all the Info formatters automatically fill and
 indent those paragraphs that need to be filled and indented.
 
   The `@refill' command causes `texinfo-format-region' and
-`texinfo-format-buffer' to refill a paragraph in the Info file *after*
+`texinfo-format-buffer' to refill a paragraph in the Info file _after_
 all the other processing has been done.  For this reason, you can not
 use `@refill' with a paragraph containing either `@*' or `@w{ ... }'
 since the refilling action will override those two commands.
@@ -503,7 +503,7 @@ uses the rest of the line as its argument.
 Emacs paragraph and filling commands work properly.  There is only one
 exception to this rule: the command `@refill', which is always used at
 the end of a paragraph immediately following the final period or other
-punctuation character.  `@refill' takes no argument and does *not*
+punctuation character.  `@refill' takes no argument and does _not_
 require braces.  `@refill' never confuses the Emacs paragraph commands
 because it cannot appear at the beginning of a line.
 
@@ -562,6 +562,7 @@ the TeX Users Group co-sponsors a complete CD-ROM TeX distribution.
      sites: please add to the base cost, if desired, $20.00 for
      shipment via air parcel post, or $30.00 for shipment via courier.
 
+
   Many other TeX distributions are available; see `http://tug.org/'.
 
 
@@ -592,8 +593,8 @@ the commands are listed without their preceding `@'.
 * @ (single @):                          Inserting An Atsign.
 * ^:                                     Inserting Accents.
 * `:                                     Inserting Accents.
-* aa:                                    Inserting Accents.
 * AA:                                    Inserting Accents.
+* aa:                                    Inserting Accents.
 * AE:                                    Inserting Accents.
 * ae:                                    Inserting Accents.
 * afourpaper:                            A4 Paper.
@@ -623,8 +624,8 @@ the commands are listed without their preceding `@'.
 * columnfractions:                       Multitable Column Widths.
 * comment:                               Comments.
 * contents:                              Contents.
-* copyright <1>:                         Copyright & Permissions.
-* copyright:                             copyright symbol.
+* copyright <1>:                         copyright symbol.
+* copyright:                             Copyright & Permissions.
 * cropmarks:                             Cropmarks and Magnification.
 * defcodeindex:                          New Indices.
 * defcv:                                 Abstract Objects.
@@ -703,9 +704,9 @@ the commands are listed without their preceding `@'.
 * input (TeX command):                   Minimum.
 * isearch-backward:                      deffnx.
 * isearch-forward:                       deffnx.
-* item <1>:                              itemize.
-* item <2>:                              Multitable Rows.
-* item:                                  table.
+* item <1>:                              Multitable Rows.
+* item <2>:                              table.
+* item:                                  itemize.
 * itemize:                               itemize.
 * itemx:                                 itemx.
 * kbd:                                   kbd.
@@ -730,14 +731,14 @@ the commands are listed without their preceding `@'.
 * need:                                  need.
 * next-error:                            makeinfo in Emacs.
 * noindent:                              noindent.
-* o:                                     Inserting Accents.
 * O:                                     Inserting Accents.
+* o:                                     Inserting Accents.
 * occur:                                 Using occur.
 * occur-mode-goto-occurrence:            Showing the Structure.
 * oddfooting:                            Custom Headings.
 * oddheading:                            Custom Headings.
-* oe:                                    Inserting Accents.
 * OE:                                    Inserting Accents.
+* oe:                                    Inserting Accents.
 * page:                                  page.
 * paragraphindent:                       paragraphindent.
 * pindex:                                Indexing Commands.
@@ -804,8 +805,8 @@ the commands are listed without their preceding `@'.
 * texinfo-multiple-files-update:         texinfo-multiple-files-update.
 * texinfo-multiple-files-update (in brief): Other Updating Commands.
 * texinfo-sequential-node-update:        Other Updating Commands.
-* texinfo-show-structure <1>:            Showing the Structure.
-* texinfo-show-structure:                Using texinfo-show-structure.
+* texinfo-show-structure <1>:            Using texinfo-show-structure.
+* texinfo-show-structure:                Showing the Structure.
 * texinfo-start-menu-description:        Inserting.
 * texinfo-tex-buffer:                    Printing.
 * texinfo-tex-print:                     Printing.

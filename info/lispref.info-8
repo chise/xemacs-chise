@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -91,7 +91,7 @@ macro, or special form.
    The first step in evaluating a nonempty list is to examine its first
 element.  This element alone determines what kind of form the list is
 and how the rest of the list is to be processed.  The first element is
-*not* evaluated, as it would be in some Lisp dialects such as Scheme.
+_not_ evaluated, as it would be in some Lisp dialects such as Scheme.
 
 
 File: lispref.info,  Node: Function Indirection,  Next: Function Forms,  Prev: Classifying Lists,  Up: Forms
@@ -122,7 +122,7 @@ these types, the error `invalid-function' is signaled.
 
    The following example illustrates the symbol indirection process.  We
 use `fset' to set the function cell of a symbol and `symbol-function'
-to get the function cell contents (*note Function Cells::.).
+to get the function cell contents (*note Function Cells::).
 Specifically, we store the symbol `car' into the function cell of
 `first', and the symbol `first' into the function cell of `erste'.
 
@@ -133,13 +133,10 @@ Specifically, we store the symbol `car' into the function cell of
 
      (symbol-function 'car)
           => #<subr car>
-
      (fset 'first 'car)
           => car
-
      (fset 'erste 'first)
           => first
-
      (erste '(1 2 3))   ; Call the function referenced by `erste'.
           => 1
 
@@ -157,7 +154,7 @@ symbol function indirection when calling `erste'.
    The built-in function `indirect-function' provides an easy way to
 perform symbol function indirection explicitly.
 
- - Function: indirect-function FUNCTION
+ - Function: indirect-function function
      This function returns the meaning of FUNCTION as a function.  If
      FUNCTION is a symbol, then it finds FUNCTION's function definition
      and starts over with that value.  If FUNCTION is not a symbol,
@@ -186,9 +183,9 @@ a "function call".  For example, here is a call to the function `+':
 remaining elements of the list from left to right.  The results are the
 actual argument values, one value for each list element.  The next step
 is to call the function with this list of arguments, effectively using
-the function `apply' (*note Calling Functions::.).  If the function is
+the function `apply' (*note Calling Functions::).  If the function is
 written in Lisp, the arguments are used to bind the argument variables
-of the function (*note Lambda Expressions::.); then the forms in the
+of the function (*note Lambda Expressions::); then the forms in the
 function body are evaluated in order, and the value of the last body
 form becomes the value of the function call.
 
@@ -200,7 +197,7 @@ Lisp Macro Evaluation
 
    If the first element of a list being evaluated is a macro object,
 then the list is a "macro call".  When a macro call is evaluated, the
-elements of the rest of the list are *not* initially evaluated.
+elements of the rest of the list are _not_ initially evaluated.
 Instead, these elements themselves are used as the arguments of the
 macro.  The macro definition computes a replacement form, called the
 "expansion" of the macro, to be evaluated in place of the original
@@ -250,82 +247,82 @@ evaluated may depend on the results of evaluating other arguments.
 XEmacs Lisp with a reference to where each is described.
 
 `and'
-     *note Combining Conditions::.
+     *note Combining Conditions::
 
 `catch'
-     *note Catch and Throw::.
+     *note Catch and Throw::
 
 `cond'
-     *note Conditionals::.
+     *note Conditionals::
 
 `condition-case'
-     *note Handling Errors::.
+     *note Handling Errors::
 
 `defconst'
-     *note Defining Variables::.
+     *note Defining Variables::
 
 `defmacro'
-     *note Defining Macros::.
+     *note Defining Macros::
 
 `defun'
-     *note Defining Functions::.
+     *note Defining Functions::
 
 `defvar'
-     *note Defining Variables::.
+     *note Defining Variables::
 
 `function'
-     *note Anonymous Functions::.
+     *note Anonymous Functions::
 
 `if'
-     *note Conditionals::.
+     *note Conditionals::
 
 `interactive'
-     *note Interactive Call::.
+     *note Interactive Call::
 
 `let'
 `let*'
-     *note Local Variables::.
+     *note Local Variables::
 
 `or'
-     *note Combining Conditions::.
+     *note Combining Conditions::
 
 `prog1'
 `prog2'
 `progn'
-     *note Sequencing::.
+     *note Sequencing::
 
 `quote'
-     *note Quoting::.
+     *note Quoting::
 
 `save-current-buffer'
-     *note Excursions::.
+     *note Excursions::
 
 `save-excursion'
-     *note Excursions::.
+     *note Excursions::
 
 `save-restriction'
-     *note Narrowing::.
+     *note Narrowing::
 
 `save-selected-window'
-     *note Excursions::.
+     *note Excursions::
 
 `save-window-excursion'
-     *note Window Configurations::.
+     *note Window Configurations::
 
 `setq'
-     *note Setting Variables::.
+     *note Setting Variables::
 
 `setq-default'
-     *note Creating Buffer-Local::.
+     *note Creating Buffer-Local::
 
 `unwind-protect'
-     *note Nonlocal Exits::.
+     *note Nonlocal Exits::
 
 `while'
-     *note Iteration::.
+     *note Iteration::
 
 `with-output-to-temp-buffer'
-     *note Temporary Displays::.
+     *note Temporary Displays::
 
      Common Lisp note: here are some comparisons of special forms in
      XEmacs Lisp and Common Lisp.  `setq', `if', and `catch' are
@@ -361,7 +358,7 @@ and lists, which are not self-evaluating objects, in a program.  (It is
 not necessary to quote self-evaluating objects such as numbers, strings,
 and vectors.)
 
- - Special Form: quote OBJECT
+ - Special Form: quote object
      This special form returns OBJECT, without evaluating it.
 
    Because `quote' is used so often in programs, Lisp provides a
@@ -386,9 +383,9 @@ syntax `'x' is an abbreviation for `(quote x)'.
           => [(quote foo)]
 
    Other quoting constructs include `function' (*note Anonymous
-Functions::.), which causes an anonymous lambda expression written in
-Lisp to be compiled, and ``' (*note Backquote::.), which is used to
-quote only part of a list, while computing and substituting other parts.
+Functions::), which causes an anonymous lambda expression written in
+Lisp to be compiled, and ``' (*note Backquote::), which is used to quote
+only part of a list, while computing and substituting other parts.
 
 
 File: lispref.info,  Node: Control Structures,  Next: Variables,  Prev: Evaluation,  Up: Top
@@ -396,7 +393,7 @@ File: lispref.info,  Node: Control Structures,  Next: Variables,  Prev: Evaluati
 Control Structures
 ******************
 
-   A Lisp program consists of expressions or "forms" (*note Forms::.).
+   A Lisp program consists of expressions or "forms" (*note Forms::).
 We control the order of execution of the forms by enclosing them in
 "control structures".  Control structures are special forms which
 control when, whether, or how many times to execute the forms they
@@ -418,7 +415,7 @@ other varieties of sequencing, conditionals, iteration, and (controlled)
 jumps--all discussed below.  The built-in control structures are
 special forms since their subforms are not necessarily evaluated or not
 evaluated sequentially.  You can use macros to define your own control
-structure constructs (*note Macros::.).
+structure constructs (*note Macros::).
 
 * Menu:
 
@@ -458,7 +455,7 @@ structures likewise contain an implicit `progn'.  As a result, `progn'
 is not used as often as it used to be.  It is needed now most often
 inside an `unwind-protect', `and', `or', or in the THEN-part of an `if'.
 
- - Special Form: progn FORMS...
+ - Special Form: progn forms...
      This special form evaluates all of the FORMS, in textual order,
      returning the result of the final form.
 
@@ -473,7 +470,7 @@ inside an `unwind-protect', `and', `or', or in the THEN-part of an `if'.
    Two other control constructs likewise evaluate a series of forms but
 return a different value:
 
- - Special Form: prog1 FORM1 FORMS...
+ - Special Form: prog1 form1 forms...
      This special form evaluates FORM1 and all of the FORMS, in textual
      order, returning the result of FORM1.
 
@@ -490,7 +487,7 @@ return a different value:
 
           (prog1 (car x) (setq x (cdr x)))
 
- - Special Form: prog2 FORM1 FORM2 FORMS...
+ - Special Form: prog2 form1 form2 forms...
      This special form evaluates FORM1, FORM2, and all of the following
      FORMS, in textual order, returning the result of FORM2.
 
@@ -512,7 +509,7 @@ Conditionals
 Lisp has two conditional forms: `if', which is much the same as in other
 languages, and `cond', which is a generalized case statement.
 
- - Special Form: if CONDITION THEN-FORM ELSE-FORMS...
+ - Special Form: if condition then-form else-forms...
      `if' chooses between the THEN-FORM and the ELSE-FORMS based on the
      value of CONDITION.  If the evaluated CONDITION is non-`nil',
      THEN-FORM is evaluated and the result returned.  Otherwise, the
@@ -532,7 +529,7 @@ languages, and `cond', which is a generalized case statement.
             'very-false)
           => very-false
 
- - Special Form: cond CLAUSE...
+ - Special Form: cond clause...
      `cond' chooses among an arbitrary number of alternatives.  Each
      CLAUSE in the `cond' must be a list.  The CAR of this list is the
      CONDITION; the remaining elements, if any, the BODY-FORMS.  Thus,
@@ -603,13 +600,13 @@ with `if' and `cond' to express complicated conditions.  The constructs
 `and' and `or' can also be used individually as kinds of multiple
 conditional constructs.
 
- - Function: not CONDITION
+ - Function: not condition
      This function tests for the falsehood of CONDITION.  It returns
      `t' if CONDITION is `nil', and `nil' otherwise.  The function
      `not' is identical to `null', and we recommend using the name
      `null' if you are testing for an empty list.
 
- - Special Form: and CONDITIONS...
+ - Special Form: and conditions...
      The `and' special form tests whether all the CONDITIONS are true.
      It works by evaluating the CONDITIONS one by one in the order
      written.
@@ -648,7 +645,7 @@ conditional constructs.
           ==
           (cond (ARG1 (cond (ARG2 ARG3))))
 
- - Special Form: or CONDITIONS...
+ - Special Form: or conditions...
      The `or' special form tests whether at least one of the CONDITIONS
      is true.  It works by evaluating all the CONDITIONS one by one in
      the order written.
@@ -696,7 +693,7 @@ example, you might want to repeat some computation once for each element
 of a list, or once for each integer from 0 to N.  You can do this in
 XEmacs Lisp with the special form `while':
 
- - Special Form: while CONDITION FORMS...
+ - Special Form: while condition forms...
      `while' first evaluates CONDITION.  If the result is non-`nil', it
      evaluates FORMS in textual order.  Then it reevaluates CONDITION,
      and if the result is non-`nil', it evaluates FORMS again.  This
@@ -704,8 +701,7 @@ XEmacs Lisp with the special form `while':
 
      There is no limit on the number of iterations that may occur.  The
      loop will continue until either CONDITION evaluates to `nil' or
-     until an error or `throw' jumps out of it (*note Nonlocal
-     Exits::.).
+     until an error or `throw' jumps out of it (*note Nonlocal Exits::).
 
      The value of a `while' form is always `nil'.
 
@@ -786,12 +782,12 @@ innermost one takes precedence.
 `catch', including function calls.  When binding constructs such as
 `let' or function calls are exited in this way, the bindings are
 unbound, just as they are when these constructs exit normally (*note
-Local Variables::.).  Likewise, `throw' restores the buffer and
-position saved by `save-excursion' (*note Excursions::.), and the
-narrowing status saved by `save-restriction' and the window selection
-saved by `save-window-excursion' (*note Window Configurations::.).  It
-also runs any cleanups established with the `unwind-protect' special
-form when it exits that form (*note Cleanups::.).
+Local Variables::).  Likewise, `throw' restores the buffer and position
+saved by `save-excursion' (*note Excursions::), and the narrowing
+status saved by `save-restriction' and the window selection saved by
+`save-window-excursion' (*note Window Configurations::).  It also runs
+any cleanups established with the `unwind-protect' special form when it
+exits that form (*note Cleanups::).
 
    The `throw' need not appear lexically within the `catch' that it
 jumps to.  It can equally well be called from another function called
@@ -799,14 +795,14 @@ within the `catch'.  As long as the `throw' takes place chronologically
 after entry to the `catch', and chronologically before exit from it, it
 has access to that `catch'.  This is why `throw' can be used in
 commands such as `exit-recursive-edit' that throw back to the editor
-command loop (*note Recursive Editing::.).
+command loop (*note Recursive Editing::).
 
      Common Lisp note: Most other versions of Lisp, including Common
      Lisp, have several ways of transferring control nonsequentially:
      `return', `return-from', and `go', for example.  XEmacs Lisp has
      only `throw'.
 
- - Special Form: catch TAG BODY...
+ - Special Form: catch tag body...
      `catch' establishes a return point for the `throw' function.  The
      return point is distinguished from other such return points by TAG,
      which may be any Lisp object.  The argument TAG is evaluated
@@ -821,7 +817,7 @@ command loop (*note Recursive Editing::.).
      the `catch' exits immediately; the value it returns is whatever
      was specified as the second argument of `throw'.
 
- - Function: throw TAG VALUE
+ - Function: throw tag value
      The purpose of `throw' is to return from a return point previously
      established with `catch'.  The argument TAG is used to choose
      among the various existing return points; it must be `eq' to the
@@ -947,10 +943,10 @@ can also signal errors explicitly with the functions `error' and
    Quitting, which happens when the user types `C-g', is not considered
 an error, but it is handled almost like an error.  *Note Quitting::.
 
- - Function: error FORMAT-STRING &rest ARGS
+ - Function: error format-string &rest args
      This function signals an error with an error message constructed by
-     applying `format' (*note String Conversion::.) to FORMAT-STRING
-     and ARGS.
+     applying `format' (*note String Conversion::) to FORMAT-STRING and
+     ARGS.
 
      These examples show typical uses of `error':
 
@@ -971,7 +967,7 @@ an error, but it is handled almost like an error.  *Note Quitting::.
      will be interpreted as a format specifier, with undesirable
      results.  Instead, use `(error "%s" STRING)'.
 
- - Function: signal ERROR-SYMBOL DATA
+ - Function: signal error-symbol data
      This function signals an error named by ERROR-SYMBOL.  The
      argument DATA is a list of additional Lisp objects relevant to the
      circumstances of the error.
@@ -990,15 +986,15 @@ an error, but it is handled almost like an error.  *Note Quitting::.
      Both ERROR-SYMBOL and DATA are available to any error handlers
      that handle the error: `condition-case' binds a local variable to
      a list of the form `(ERROR-SYMBOL .  DATA)' (*note Handling
-     Errors::.).  If the error is not handled, these two values are
-     used in printing the error message.
+     Errors::).  If the error is not handled, these two values are used
+     in printing the error message.
 
      The function `signal' never returns (though in older Emacs versions
      it could sometimes return).
 
           (signal 'wrong-number-of-arguments '(x y))
                error--> Wrong number of arguments: x, y
-
+          
           (signal 'no-such-error '("My unknown error condition."))
                error--> peculiar error: "My unknown error condition."
 
@@ -1028,8 +1024,8 @@ print an error message.
 
    An error that has no explicit handler may call the Lisp debugger.
 The debugger is enabled if the variable `debug-on-error' (*note Error
-Debugging::.) is non-`nil'.  Unlike error handlers, the debugger runs
-in the environment of the error, so that you can examine values of
+Debugging::) is non-`nil'.  Unlike error handlers, the debugger runs in
+the environment of the error, so that you can examine values of
 variables precisely as they were at the time of the error.
 
 
@@ -1099,7 +1095,7 @@ caught by a `catch', and a `throw' cannot be handled by an error
 handler (though using `throw' when there is no suitable `catch' signals
 an error that can be handled).
 
- - Special Form: condition-case VAR PROTECTED-FORM HANDLERS...
+ - Special Form: condition-case var protected-form handlers...
      This special form establishes the error handlers HANDLERS around
      the execution of PROTECTED-FORM.  If PROTECTED-FORM executes
      without error, the value it returns becomes the value of the
@@ -1123,9 +1119,9 @@ an error that can be handled).
 
      Each error that occurs has an "error symbol" that describes what
      kind of error it is.  The `error-conditions' property of this
-     symbol is a list of condition names (*note Error Symbols::.).
-     Emacs searches all the active `condition-case' forms for a handler
-     that specifies one or more of these condition names; the innermost
+     symbol is a list of condition names (*note Error Symbols::).  Emacs
+     searches all the active `condition-case' forms for a handler that
+     specifies one or more of these condition names; the innermost
      matching `condition-case' handles the error.  Within this
      `condition-case', the first applicable handler handles the error.
 
@@ -1157,7 +1153,7 @@ message and returns a very large number.
           (princ (format "Arithmetic error: %s" err))
           1000000)))
      => safe-divide
-
+     
      (safe-divide 5 0)
           -| Arithmetic error: (arith-error)
      => 1000000
@@ -1174,7 +1170,7 @@ including those signaled with `error':
 
      (setq baz 34)
           => 34
-
+     
      (condition-case err
          (if (eq baz 35)
              t
@@ -1236,7 +1232,7 @@ classification; and `error', which is the widest of all.
 not end with a period.  This is for consistency with the rest of Emacs.
 
    Naturally, XEmacs will never signal `new-error' on its own; only an
-explicit call to `signal' (*note Signaling Errors::.) in your code can
+explicit call to `signal' (*note Signaling Errors::) in your code can
 do this:
 
      (signal 'new-error '(x y))

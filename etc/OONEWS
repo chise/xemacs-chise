@@ -2403,7 +2403,7 @@ source; if you're going to use this, you'd better be able to.
 *** utils/bench.el
 Commentary:
 
-Adapted from Shane Holder's bench.el by steve@altair.xemacs.org.
+Adapted from Shane Holder's bench.el by steve@xemacs.org.
 
 To run
 Extract the shar file in /tmp, or modify bench-lisp-file to

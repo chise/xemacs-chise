@@ -1,6 +1,7 @@
 #ifndef _LWLIB_UTILS_H_
 #define _LWLIB_UTILS_H_
 
+void destroy_all_children (Widget widget);
 void XtNoClearRefreshWidget (Widget);
 
 typedef void (*XtApplyToWidgetsProc) (Widget, XtPointer);

@@ -7,6 +7,103 @@
 
 	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
 
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-12-13  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c: Fix warning: `_GNU_SOURCE' redefined.
+
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-29  Andreas Jaeger  <aj@suse.de>
+
+	* Makefile.in.in (INSTALLABLE_SCRIPTS): Removed pstogif.
+	pstogif: Moved to package tm.
+
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-20  Martin Buchholz  <martin@xemacs.org>
+
+	* process-gnu-depends.sh: Deleted.  Obsolete.
+	* process-depends.sh: Deleted.  Obsolete.
+
+1999-11-20  Jan Vroonhof  <jan@xemacs.org>
+
+	* Makefile.in.in (instvardir): Added. From
+	Jeff Miller <jmiller@smart.net>
+
+1999-11-19  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c: Upgrade to pot etags version 13.33.
+	Make `etags --version' print out `XEmacs', not `GNU Emacs'
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c (canonicalize_filename): Typo fix
+
+1999-11-05  Martin Buchholz  <martin@xemacs.org>
+
+	* etags.c:
+	* ../etc/etags.1:
+	* ../etc/NEWS:
+	Upgrade to etags version 13.32.
+	etags.c has warnings removed, in addition.
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuserv.c (ipc_spawn_watchdog): Use pid_t instead of int.
+
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-11-04  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuserv.c (handle_response): Warning suppression
+
+1999-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* ellcc.c:
+	ANSIfy.
+	Remove MSDOS cruft.
+	Remove WINDOWS cruft.
+	Remove VMS cruft.
+	(main): The wrong number of bytes were being read during argument
+	processing.
+	Delete ANSI imitations like ellcc_strchr().
+	Call functions with the right number of arguments.
+	Fix a typo.
+	Make functions static.
+	Remove compiler warnings.
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* cvtmail.c (main): ANSIfy
+	* digest-doc.c (main): ANSIfy
+	* hexl.c (main): ANSIfy
+
+	* make-path.c: Remove declaration for errno.
+	* mmencode.c (nextcharin): ANSIfy
+	* movemail.c (pop_retr): ANSIfy
+
+1999-07-30  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* pop.c (pop_quit): use CLOSESOCKET() instead of close()
+
+	* run.c (build_cmdline): Fix NT native build unreferenced variable
+ 	warning
+	(WinMain): Fix release mode build unreferenced variable warning
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released
@@ -56,14 +153,14 @@
 	* Makefile.in.in (cppflags): Add -I$(top_srcdir)/src.
 
 1999-04-29  Andy Piper  <andy@xemacs.org>
-	
-	* make-docfile.c: build fixes for mingw32.	
+
+	* make-docfile.c: build fixes for mingw32.
 	* movemail.c: ditto.
 	* run.c: ditto.
 	* yow.c: ditto.
 	* profile.c: ditto.
 	(gettimeofday): new function copied from nt.c.
-	
+
 	* fakemail.c (make_file_preface): make buildable under windows.
 
 	* Makefile.in.in: fix some build targets for when we are building
@@ -162,7 +259,7 @@
 
 	* pop.c: mess with includes so that it builds under native NT.
 	From Fabrice Popineau <popineau@ese-metz.fr>
-	
+
 1998-12-16  Andy Piper  <andy@xemacs.org>
 
 	* XEmacs 21.2.6 is released
@@ -348,7 +445,7 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-04-19  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
 	* gnuclient.c (main): Read eval from from stdin if just "-batch"
-	is given. 
+	is given.
 	* gnudoit: Support this.
 	* gnuserv.1: Document this behavior.
 
@@ -420,13 +517,13 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-01-13  Martin Buchholz  <martin@xemacs.org>
 
-	* lib-src/add-little-package.sh: 
-	* lib-src/add-big-package.sh: 
+	* lib-src/add-little-package.sh:
+	* lib-src/add-big-package.sh:
 	Use proper paranoid quoting for sh variables.
 	-batch implies -q.
 
 Thu Jan 08 09:42:36 1998    <andyp@parallax.co.uk>
-	
+
 	* gnuserv.h: only set UNIX_DOMAIN_SOCKETS if HAVE_SYS_UN_H is
 	set.
 
@@ -570,7 +667,7 @@ Thu Jan 08 09:42:36 1998    <andyp@parallax.co.uk>
 	missing a variable called "configuration. This messed up archilibdir.
 
 	* Added highlighting to text suggesting to do "make gzip-el" in top
-	level Makefile.in.  Added code to do make maybe-blessmail after a 
+	level Makefile.in.  Added code to do make maybe-blessmail after a
 	make install is done.
 
 1997-08-07  Jan Vroonhof  <vroonhof@math.ethz.ch>
@@ -638,7 +735,7 @@ Thu Jan 08 09:42:36 1998    <andyp@parallax.co.uk>
 
 	* Makefile.in.in (INSTALLABLE_SCRIPTS): Readd Gnuattach.
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 1997-06-13  Steven L Baur  <steve@altair.xemacs.org>
 
 	* update-elc.sh (mule_p): Ignore lisp/language when building

@@ -180,37 +180,56 @@ order until the package is found.  As a special case, `site-name' can be
 			 (list :tag "Remote" host-name directory) ))
   :group 'package-get)
 
+;;;###autoload
 (defcustom package-get-download-sites
   '(
     ;; North America
     ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages")
-    ("cso.uiuc.edu" "ftp.cso.uiuc.edu" "pub/packages/xemacs/packages")
+    ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages")
+    ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages")
+    ("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages")
+    ("unc.edu (United States)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages")
+    ("utk.edu (United States)" "ftp.sunsite.utk.edu" "pub/xemacs/packages")
 
     ;; South America
-    ("unicamp.br" "ftp.unicamp.br" "pub/xemacs/packages")
+    ("unicamp.br (Brazil)" "ftp.unicamp.br" "pub/xemacs/packages")
 
     ;; Europe
-    ("sunsite.cnlab-switch.ch" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages")
-    ("tu-darmstadt.de" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages")
-    ("sunsite.auc.dk" "sunsite.auc.dk" "pub/emacs/xemacs/packages")
-    ("pasteur.fr" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
-    ("cenatls.cena.dgac.fr" "ftp.cenatls.cena.dgac.fr" "pub/Emacs/xemacs/packages")
-    ("kfki.hu" "ftp.kfki.hu" "pub/packages/xemacs/packages")
-    ("uniroma2.it" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages")
-    ("icm.edu.pl" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages")
-    ("sunet.se" "ftp.sunet.se" "pub/gnu/xemacs/packages")
-    ("doc.ic.ac.uk" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages")
-    ("srcc.msu.su" "ftp1.srcc.msu.su" "mirror/ftp.xemacs.org/packages")
+    ("tuwien.ac.at (Austria)" "gd.tuwien.ac.at" "editors/xemacs/packages")
+    ("auc.dk (Denmark)" "sunsite.auc.dk" "pub/emacs/xemacs/packages")
+    ("doc.ic.ac.uk (England)" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages")
+    ("funet.fi (Finland)" "ftp.funet.fi" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages")
+    ("cenatls.cena.dgac.fr (France)" "ftp.cenatls.cena.dgac.fr" "Emacs/xemacs/packages")
+    ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
+    ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages")
+    ("kfki.hu (Hungary)" "ftp.kfki.hu" "pub/packages/xemacs/packages")
+    ("eunet.ie (Ireland)" "ftp.eunet.ie" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
+    ("uniroma2.it (Italy)" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages")
+    ("uio.no (Norway)" "sunsite.uio.no" "pub/xemacs/packages")
+    ("icm.edu.pl (Poland)" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages")
+    ("srcc.msu.su (Russia)" "ftp.srcc.msu.su" "mirror/ftp.xemacs.org/packages")
+    ("sunet.se (Sweden)" "ftp.sunet.se" "pub/gnu/xemacs/packages")
+    ("cnlab-switch.ch (Switzerland)" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages")
 
     ;; Asia
-    ("usyd.edu.au" "ftp.usyd.edu.au" "pub/Xemacs/packages")
-    ("netlab.is.tsukuba.ac.jp" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages")
-    ("jaist.ac.jp" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages")
-    ("ring.aist.go.jp" "ring.aist.go.jp" "pub/text/xemacs/packages")
-    ("ring.asahi-net.or.jp" "ring.asahi-net.or.jp" "pub/text/xemacs/packages")
-    ("SunSITE.sut.ac.jp" "SunSITE.sut.ac.jp" "pub/archives/packages/xemacs/packages")
-    ("dti.ad.jp" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages")
-    ("kreonet.re.kr" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages")
+    ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages")
+    ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages")
+    ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages")
+    ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages")
+    ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages")
+    ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages")
+    ("tsukuba.ac.jp (Japan)" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages")
+    ("kreonet.re.kr (Korea)" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages")
+    ("nctu.edu.tw (Taiwan)" "coda.nctu.edu.tw" "Editors/xemacs/packages")
+
+    ;; Africa
+    ("sun.ac.za (South Africa)" "ftp.sun.ac.za" "xemacs/packages")
+
+    ;; Middle East
+    ("isu.net.sa (Saudi Arabia)" "ftp.isu.net.sa" "pub/mirrors/ftp.xemacs.org/packages")
+
+    ;; Australia
+    ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")
     )
   "*List of remote sites available for downloading packages.
 List format is '(site-description site-name directory-on-site).
@@ -224,7 +243,7 @@ variable actually used to specify package download sites."
   :group 'package-get)
 
 (defcustom package-get-remove-copy t
-  "*After copying and installing a package, if this is T, then remove the
+  "*After copying and installing a package, if this is t, then remove the
 copy.  Otherwise, keep it around."
   :type 'boolean
   :group 'package-get)
@@ -238,6 +257,10 @@ This may either be a relative path, in which case it is interpreted
 with respect to `package-get-remote', or an absolute path."
   :type 'file
   :group 'package-get)
+
+(defvar package-get-user-index-filename
+  (paths-construct-path (list user-init-directory package-get-base-filename))
+  "Name for the user-specific location of the package-get database file.")
 
 (defcustom package-get-always-update nil
   "*If Non-nil always make sure we are using the latest package index (base).
@@ -261,11 +284,16 @@ When nil, updates which are not PGP signed are allowed without confirmation."
 (defun package-get-download-menu ()
   "Build the `Add Download Site' menu."
   (mapcar (lambda (site)
-            (vector (car site)
-               `(package-ui-add-site (quote ,(cdr site)))
-		    :style 'toggle :selected
-		    `(member (quote ,(cdr site)) package-get-remote)))
-          package-get-download-sites))
+	    (vector (car site)
+		    `(if (member (quote ,(cdr site))
+				 package-get-remote)
+			 (setq package-get-remote
+			       (delete (quote ,(cdr site)) package-get-remote))
+		       (package-ui-add-site (quote ,(cdr site))))
+		    :style 'toggle
+		    :selected `(member (quote ,(cdr site))
+				       package-get-remote)))
+	  package-get-download-sites))
 
 ;;;###autoload
 (defun package-get-require-base (&optional force-current)
@@ -328,23 +356,21 @@ If NO-REMOTE is non-nil never search remote locations."
   "Locate the package-get index file.  Do not return remote paths if NO-REMOTE
 is non-nil."
   (or (package-get-locate-file package-get-base-filename t no-remote)
-      (locate-data-file package-get-base-filename)
-      package-get-base-filename))
-
-(defvar package-get-user-package-location user-init-directory)
+      (if (file-exists-p package-get-user-index-filename)
+	  package-get-user-index-filename)))
 
 (defun package-get-maybe-save-index (filename)
   "Offer to save the current buffer as the local package index file,
 if different."
   (let ((location (package-get-locate-index-file t)))
     (unless (and filename (equal filename location))
-      (unless (equal (md5 (current-buffer))
-		     (with-temp-buffer
-		       (insert-file-contents location)
-		       (md5 (current-buffer))))
-	(unless (file-writable-p location)
-	  (setq location (expand-file-name package-get-base-filename
-		(expand-file-name "etc/" package-get-user-package-location))))
+      (unless (and location
+		   (equal (md5 (current-buffer))
+			  (with-temp-buffer
+			    (insert-file-contents-literally location)
+			    (md5 (current-buffer)))))
+	(unless (and location (file-writable-p location))
+	  (setq location package-get-user-index-filename))
 	(when (y-or-n-p (concat "Update package index in" location "? "))
 	  (write-file location))))))
       
@@ -1001,6 +1027,10 @@ lead to Emacs accessing remote sites."
 			 (package-get-info-prop (car this-package) 'version))))
 	    (setq this-package (cdr this-package)))))
       (setq packages (cdr packages)))
+    (when (interactive-p)
+      (if found
+          (message "%S" found)
+        (message "No appropriate package found")))
     found))
 
 ;;

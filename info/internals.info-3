@@ -1,5 +1,5 @@
-This is Info file ../../info/internals.info, produced by Makeinfo
-version 1.68 from the input file internals.texi.
+This is ../info/internals.info, produced by makeinfo version 3.12s from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -255,7 +255,7 @@ General Guidelines for Writing Mule-Aware Code
    This section contains some general guidance on how to write
 Mule-aware code, as well as some pitfalls you should avoid.
 
-*Never use `char' and `char *'.*
+_Never use `char' and `char *'._
      In XEmacs, the use of `char' and `char *' is almost always a
      mistake.  If you want to manipulate an Emacs character from "C",
      use `Emchar'.  If you want to examine a specific octet in the
@@ -264,12 +264,12 @@ Mule-aware code, as well as some pitfalls you should avoid.
      pointer to move through the internal text, use `Bufbyte *'.  Also
      note that you almost certainly do not need `Emchar *'.
 
-*Be careful not to confuse `Charcount', `Bytecount', and `Bufpos'.*
+_Be careful not to confuse `Charcount', `Bytecount', and `Bufpos'._
      The whole point of using different types is to avoid confusion
      about the use of certain variables.  Lest this effect be
      nullified, you need to be careful about using the right types.
 
-*Always convert external data*
+_Always convert external data_
      It is extremely important to always convert external data, because
      XEmacs can crash if unexpected 8bit sequences are copied to its
      internal buffers literally.
@@ -405,12 +405,11 @@ you can try to improve the test suite in `tests/automated'.
      The basic rule is that you should assume builds using `--srcdir'
      and the `#include <...>' syntax needs to be used when the
      to-be-included generated file is in a potentially different
-     directory *at compile time*.  The non-obvious C rule is that
-     `#include "..."'  means to search for the included file in the
-     same directory as the including file, *not* in the current
-     directory.
+     directory _at compile time_.  The non-obvious C rule is that
+     `#include "..."' means to search for the included file in the same
+     directory as the including file, _not_ in the current directory.
 
-   * Header files should *not* include `<config.h>' and `"lisp.h"'.  It
+   * Header files should _not_ include `<config.h>' and `"lisp.h"'.  It
      is the responsibility of the `.c' files that use it to do so.
 
    * If the header uses `INLINE', either directly or through
@@ -522,7 +521,7 @@ file linked, respectively. (Actually, this is not really true.
 should be made constant, and before all other Emacs files and all
 libraries.  In particular, the allocation modules `gmalloc.c',
 `alloca.c', etc. are normally placed past `lastfile.c', and all of the
-files that implement Xt widget classes *must* be placed after
+files that implement Xt widget classes _must_ be placed after
 `lastfile.c' because they contain various structures that must be
 statically initialized and into which Xt writes at various times.)
 `pre-crt0.c' and `lastfile.c' contain exported symbols that are used to
@@ -737,7 +736,7 @@ functions, traversing stack frames, and binding variables; the control
 primitives and other special forms such as `while', `if', `eval',
 `let', `and', `or', `progn', etc.; handling of non-local exits,
 unwind-protects, and exception handlers; entering the debugger; methods
-for the subr Lisp object type; etc.  It does *not* include the `read'
+for the subr Lisp object type; etc.  It does _not_ include the `read'
 function, the `print' function, or the handling of symbols and obarrays.
 
    `backtrace.h' contains some structures related to stack frames and
@@ -796,7 +795,7 @@ arithmetic.
 
    `bytecode.c' implements the byte-code interpreter and
 compiled-function objects, and `bytecode.h' contains associated
-structures.  Note that the byte-code *compiler* is written in Lisp.
+structures.  Note that the byte-code _compiler_ is written in Lisp.
 
 
 File: internals.info,  Node: Modules for Standard Editing Operations,  Next: Editor-Level Control Flow Modules,  Prev: Basic Lisp Modules,  Up: A Summary of the Various XEmacs Modules
@@ -814,7 +813,7 @@ by other properties; manipulate lists of buffers (remember that buffers
 are permanent objects and stored in various ordered lists); retrieve or
 change buffer properties; etc.  It also contains the definitions of all
 the built-in buffer-local variables (which can be viewed as buffer
-properties).  It does *not* contain code to manipulate buffer-local
+properties).  It does _not_ contain code to manipulate buffer-local
 variables (that's in `symbols.c', described above); or code to
 manipulate the text in a buffer.
 
@@ -973,7 +972,7 @@ provide another implementation of those API functions.
 
    Note that the choice of whether to use `event-Xt.c' or `event-tty.c'
 is made at compile time!  Or at the very latest, it is made at startup
-time.  `event-Xt.c' handles events for *both* X and TTY frames;
+time.  `event-Xt.c' handles events for _both_ X and TTY frames;
 `event-tty.c' is only used when X support is not compiled into XEmacs.
 The reason for this is that there is only one event loop in XEmacs:
 thus, it needs to be able to receive events from all different kinds of

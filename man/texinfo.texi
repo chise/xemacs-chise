@@ -1,5 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@c $Id: texinfo.txi,v 1.50 1998/02/27 21:21:34 karl Exp $
+@c $Id: texinfo.texi,v 1.8.2.4 1999/12/05 19:02:24 martinb Exp $
 @c %**start of header
 
 @c All text is ignored before the setfilename.
@@ -7448,13 +7448,6 @@ Here is an example written in the small font used by the
 @tex
 % Remove extra vskip; this is a kludge to counter the effect of display
 \vskip-3\baselineskip
-{\ninett
-\dots{} to make sure that you have the freedom to
-distribute copies of free software (and charge for
-this service if you wish), that you receive source
-code or can get it if you want it, that you can
-change the software or use pieces of it in new free
-programs; and that you know you can do these things.}
 @end tex
 @end display
 @end ifclear
@@ -14206,7 +14199,7 @@ Start a new page in a printed manual if fewer than @var{n} mils
 (thousandths of an inch) remain on the current page.  @xref{need, ,
 @code{@@need}}.@refill
 
-@item @@node @var{name, next, previous, up}
+@item @@node @var{name}, @var{next}, @var{previous}, @var{up}
 Define the beginning of a new node in Info, and serve as a locator for
 references for @TeX{}.  @xref{node, , @code{@@node}}.@refill
 

@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -58,22 +58,22 @@ Big5 and Shift-JIS Functions
    These are special functions for working with the non-standard
 Shift-JIS and Big5 encodings.
 
- - Function: decode-shift-jis-char CODE
+ - Function: decode-shift-jis-char code
      This function decodes a JISX0208 character of Shift-JIS
      coding-system.  CODE is the character code in Shift-JIS as a cons
      of type bytes.  The corresponding character is returned.
 
- - Function: encode-shift-jis-char CH
+ - Function: encode-shift-jis-char ch
      This function encodes a JISX0208 character CH to SHIFT-JIS
      coding-system.  The corresponding character code in SHIFT-JIS is
      returned as a cons of two bytes.
 
- - Function: decode-big5-char CODE
+ - Function: decode-big5-char code
      This function decodes a Big5 character CODE of BIG5 coding-system.
      CODE is the character code in BIG5.  The corresponding character
      is returned.
 
- - Function: encode-big5-char CH
+ - Function: encode-big5-char ch
      This function encodes the Big5 character CHAR to BIG5
      coding-system.  The corresponding character code in Big5 is
      returned.
@@ -320,30 +320,30 @@ subexpressions, this is implicitly `r7'.  This means that `>8', `//',
 they return parts of their values in `r7'.  Y may be an expression,
 register, or integer, while Z must be a register or an integer.
 
-Name             Operator   Code   C-like Description                       
-CCL_PLUS         `+'        0x00   X = Y + Z                                
-CCL_MINUS        `-'        0x01   X = Y - Z                                
-CCL_MUL          `*'        0x02   X = Y * Z                                
-CCL_DIV          `/'        0x03   X = Y / Z                                
-CCL_MOD          `%'        0x04   X = Y % Z                                
-CCL_AND          `&'        0x05   X = Y & Z                                
-CCL_OR           `|'        0x06   X = Y | Z                                
-CCL_XOR          `^'        0x07   X = Y ^ Z                                
-CCL_LSH          `<<'       0x08   X = Y << Z                               
-CCL_RSH          `>>'       0x09   X = Y >> Z                               
-CCL_LSH8         `<8'       0x0A   X = (Y << 8) | Z                         
-CCL_RSH8         `>8'       0x0B   X = Y >> 8, r[7] = Y & 0xFF              
-CCL_DIVMOD       `//'       0x0C   X = Y / Z, r[7] = Y % Z                  
-CCL_LS           `<'        0x10   X = (X < Y)                              
-CCL_GT           `>'        0x11   X = (X > Y)                              
-CCL_EQ           `=='       0x12   X = (X == Y)                             
-CCL_LE           `<='       0x13   X = (X <= Y)                             
-CCL_GE           `>='       0x14   X = (X >= Y)                             
-CCL_NE           `!='       0x15   X = (X != Y)                             
-CCL_ENCODE_SJIS  `en-sjis'  0x16   X = HIGHER_BYTE (SJIS (Y, Z))            
-                                   r[7] = LOWER_BYTE (SJIS (Y, Z)           
-CCL_DECODE_SJIS  `de-sjis'  0x17   X = HIGHER_BYTE (DE-SJIS (Y, Z))         
-                                   r[7] = LOWER_BYTE (DE-SJIS (Y, Z))       
+Name             Operator   Code   C-like Description
+CCL_PLUS         `+'        0x00   X = Y + Z
+CCL_MINUS        `-'        0x01   X = Y - Z
+CCL_MUL          `*'        0x02   X = Y * Z
+CCL_DIV          `/'        0x03   X = Y / Z
+CCL_MOD          `%'        0x04   X = Y % Z
+CCL_AND          `&'        0x05   X = Y & Z
+CCL_OR           `|'        0x06   X = Y | Z
+CCL_XOR          `^'        0x07   X = Y ^ Z
+CCL_LSH          `<<'       0x08   X = Y << Z
+CCL_RSH          `>>'       0x09   X = Y >> Z
+CCL_LSH8         `<8'       0x0A   X = (Y << 8) | Z
+CCL_RSH8         `>8'       0x0B   X = Y >> 8, r[7] = Y & 0xFF
+CCL_DIVMOD       `//'       0x0C   X = Y / Z, r[7] = Y % Z
+CCL_LS           `<'        0x10   X = (X < Y)
+CCL_GT           `>'        0x11   X = (X > Y)
+CCL_EQ           `=='       0x12   X = (X == Y)
+CCL_LE           `<='       0x13   X = (X <= Y)
+CCL_GE           `>='       0x14   X = (X >= Y)
+CCL_NE           `!='       0x15   X = (X != Y)
+CCL_ENCODE_SJIS  `en-sjis'  0x16   X = HIGHER_BYTE (SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (SJIS (Y, Z)
+CCL_DECODE_SJIS  `de-sjis'  0x17   X = HIGHER_BYTE (DE-SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (DE-SJIS (Y, Z))
 
    The CCL operators are as in C, with the addition of CCL_LSH8,
 CCL_RSH8, CCL_DIVMOD, CCL_ENCODE_SJIS, and CCL_DECODE_SJIS.  The
@@ -363,10 +363,10 @@ Calling CCL
    CCL programs are called automatically during Emacs buffer I/O when
 the external representation has a coding system type of `shift-jis',
 `big5', or `ccl'.  The program is specified by the coding system (*note
-Coding Systems::.).  You can also call CCL programs from other CCL
+Coding Systems::).  You can also call CCL programs from other CCL
 programs, and from Lisp using these functions:
 
- - Function: ccl-execute CCL-PROGRAM STATUS
+ - Function: ccl-execute ccl-program status
      Execute CCL-PROGRAM with registers initialized by STATUS.
      CCL-PROGRAM is a vector of compiled CCL code created by
      `ccl-compile'.  It is an error for the program to try to execute a
@@ -379,8 +379,8 @@ programs, and from Lisp using these functions:
      side-effect) to contain the ending values for the corresponding
      registers and IC.
 
- - Function: ccl-execute-on-string CCL-PROGRAM STATUS STR &optional
-          CONTINUE
+ - Function: ccl-execute-on-string ccl-program status str &optional
+          continue
      Execute CCL-PROGRAM with initial STATUS on STRING.  CCL-PROGRAM is
      a vector of compiled CCL code created by `ccl-compile'.  STATUS
      must be a vector of nine values, specifying the initial value for
@@ -398,7 +398,7 @@ programs, and from Lisp using these functions:
    To call a CCL program from another CCL program, it must first be
 registered:
 
- - Function: register-ccl-program NAME CCL-PROGRAM
+ - Function: register-ccl-program name ccl-program
      Register NAME for CCL program PROGRAM in `ccl-program-table'.
      PROGRAM should be the compiled form of a CCL program, or nil.
      Return index number of the registered CCL program.
@@ -451,10 +451,10 @@ the character is in that category.
    Special Lisp functions are provided that abstract this, so you do not
 have to directly manipulate bit vectors.
 
- - Function: category-table-p OBJ
+ - Function: category-table-p obj
      This function returns `t' if ARG is a category table.
 
- - Function: category-table &optional BUFFER
+ - Function: category-table &optional buffer
      This function returns the current category table.  This is the one
      specified by the current buffer, or by BUFFER if it is non-`nil'.
 
@@ -462,21 +462,21 @@ have to directly manipulate bit vectors.
      This function returns the standard category table.  This is the
      one used for new buffers.
 
- - Function: copy-category-table &optional TABLE
+ - Function: copy-category-table &optional table
      This function constructs a new category table and return it.  It
      is a copy of the TABLE, which defaults to the standard category
      table.
 
- - Function: set-category-table TABLE &optional BUFFER
+ - Function: set-category-table table &optional buffer
      This function selects a new category table for BUFFER.  One
      argument, a category table.  BUFFER defaults to the current buffer
      if omitted.
 
- - Function: category-designator-p OBJ
+ - Function: category-designator-p obj
      This function returns `t' if ARG is a category designator (a char
      in the range `' '' to `'~'').
 
- - Function: category-table-value-p OBJ
+ - Function: category-table-value-p obj
      This function returns `t' if ARG is a category table value.  Valid
      values are `nil' or a bit vector of size 95.
 
@@ -553,7 +553,7 @@ intended for widespread use:
      right.  *Note Compiling Macros::.
 
      Using `eval-when-compile' avoids loading BAR when the compiled
-     version of FOO is *used*.
+     version of FOO is _used_.
 
    * If you define a major mode, make sure to run a hook variable using
      `run-hooks', just as the existing major modes do.  *Note Hooks::.
@@ -612,7 +612,7 @@ intended for widespread use:
    * When a package provides a modification of ordinary Emacs behavior,
      it is good to include a command to enable and disable the feature,
      Provide a command named `WHATEVER-mode' which turns the feature on
-     or off, and make it autoload (*note Autoload::.).  Design the
+     or off, and make it autoload (*note Autoload::).  Design the
      package so that simply loading it has no visible effect--that
      should not enable the feature.  Users will request the feature by
      invoking the command.
@@ -734,8 +734,8 @@ programs.
      the function is handled specially.
 
      For example, the following input will show you that `aref' is
-     compiled specially (*note Array Functions::.) while `elt' is not
-     (*note Sequence Functions::.):
+     compiled specially (*note Array Functions::) while `elt' is not
+     (*note Sequence Functions::):
 
           (get 'aref 'byte-compile)
                => byte-compile-two-args

@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
 
-;; Author: Steven L Baur <steve@altair.xemacs.org>
-;; Maintainer: Steven L Baur <steve@altair.xemacs.org>
+;; Author: Steven L Baur <steve@xemacs.org>
+;; Maintainer: Steven L Baur <steve@xemacs.org>
 ;; Keywords: internal, lisp, dumped
 
 ;; This file is part of XEmacs.
@@ -84,17 +84,8 @@
 (defvar last-package-load-path nil
   "Load path for packages last in the load path.")
 
-(defvar package-locations
-  (list
-   (list (paths-construct-path '("~" ".xemacs" "mule-packages"))
-                             'early #'(lambda () (featurep 'mule)))
-   (list (paths-construct-path '("~" ".xemacs" "xemacs-packages"))
-                             'early #'(lambda () t))
-   (list "site-packages"     'late  #'(lambda () t))
-   (list "infodock-packages" 'late  #'(lambda () (featurep 'infodock)))
-   (list "mule-packages"     'late  #'(lambda () (featurep 'mule)))
-   (list "xemacs-packages"   'late  #'(lambda () t)))
-  "Locations of the various package directories.
+(defun packages-compute-package-locations (user-init-directory)
+  "Compute locations of the various package directories.
 This is a list each of whose elements describes one directory.
 A directory description is a three-element list.
 The first element is either an absolute path or a subdirectory
@@ -103,7 +94,16 @@ The second component is one of the symbols EARLY, LATE, LAST,
 depending on the load-path segment the hierarchy is supposed to
 show up in.
 The third component is a thunk which, if it returns NIL, causes
-the directory to be ignored.")
+the directory to be ignored."
+  (list
+   (list (paths-construct-path (list user-init-directory "mule-packages"))
+	 'early #'(lambda () (featurep 'mule)))
+   (list (paths-construct-path (list user-init-directory "xemacs-packages"))
+	 'early #'(lambda () t))
+   (list "site-packages"     'late  #'(lambda () t))
+   (list "infodock-packages" 'late  #'(lambda () (featurep 'infodock)))
+   (list "mule-packages"     'late  #'(lambda () (featurep 'mule)))
+   (list "xemacs-packages"   'late  #'(lambda () t))))
 
 (defun package-get-key-1 (info key)
   "Locate keyword `key' in list."
@@ -429,7 +429,7 @@ DEFAULT is a default list of packages."
 	  (setq package-locations (cdr package-locations)))
 	packages)))
 
-(defun packages-find-packages (roots)
+(defun packages-find-packages (roots package-locations)
   "Find the packages."
   (let ((envvar-value (getenv "EMACSPACKAGEPATH")))
     (if envvar-value
@@ -494,7 +494,7 @@ PACKAGES is a list of package directories."
 (defun packages-load-package-lisps (package-load-path base)
   "Load all Lisp files of a certain name along a load path.
 BASE is the base name of the files."
-  (mapc #'(lambda (dir)
+  (mapcar #'(lambda (dir)
 	    (let ((file-name (expand-file-name base dir)))
 	      (condition-case error
 		  (load file-name t t)
@@ -513,7 +513,7 @@ BASE is the base name of the files."
 (defun packages-handle-package-dumped-lisps (handle package-load-path)
   "Load dumped-lisp.el files along a load path.
 Call HANDLE on each file off definitions of PACKAGE-LISP there."
-  (mapc #'(lambda (dir)
+  (mapcar #'(lambda (dir)
 	    (let ((file-name (expand-file-name "dumped-lisp.el" dir)))
 	      (if (file-exists-p file-name)
 		  (let (package-lisp
@@ -522,7 +522,7 @@ Call HANDLE on each file off definitions of PACKAGE-LISP there."
 		    (load file-name)
 		    ;; dumped-lisp.el could have set this ...
 		    (if package-lisp
-			(mapc #'(lambda (base)
+			(mapcar #'(lambda (base)
 				  (funcall handle base))
 			      package-lisp))))))
 	package-load-path))

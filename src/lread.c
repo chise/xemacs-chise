@@ -443,12 +443,6 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
   Lisp_Object list = Vload_force_doc_string_list;
   Lisp_Object tail;
   int fd = XINT (XCAR (Vload_descriptor_list));
-  /* NOTE: If purify_flag is true, we're in-place modifying objects that
-     may be in purespace (and if not, they will be).  Therefore, we have
-     to be VERY careful to make sure that all objects that we create
-     are purecopied -- objects in purespace are not marked for GC, and
-     if we leave any impure objects inside of pure ones, we're really
-     screwed. */
 
   GCPRO1 (list);
   /* restore the old value first just in case an error occurs. */
@@ -479,13 +473,12 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
 	      ivan = Fread (juan);
 	      if (!CONSP (ivan))
 		signal_simple_error ("invalid lazy-loaded byte code", ivan);
-	      /* Remember to purecopy; see above. */
-	      XCOMPILED_FUNCTION (john)->instructions = Fpurecopy (XCAR (ivan));
+	      XCOMPILED_FUNCTION (john)->instructions = XCAR (ivan);
 	      /* v18 or v19 bytecode file.  Need to Ebolify. */
 	      if (XCOMPILED_FUNCTION (john)->flags.ebolified
 		  && VECTORP (XCDR (ivan)))
 		ebolify_bytecode_constants (XCDR (ivan));
-	      XCOMPILED_FUNCTION (john)->constants = Fpurecopy (XCDR (ivan));
+	      XCOMPILED_FUNCTION (john)->constants = XCDR (ivan);
 	      NUNGCPRO;
 	    }
 	  doc = compiled_function_documentation (XCOMPILED_FUNCTION (john));
@@ -910,22 +903,23 @@ locate_file_find_directory_hash_table (Lisp_Object directory)
    nil, a list, or a string (for backward compatibility), with the
    following semantics:
 
-   a) nil    - no suffix, just search for file name intact (semantically
-               different from "empty suffix list")
+   a) nil    - no suffix, just search for file name intact
+               (semantically different from "empty suffix list", which
+               would be meaningless.)
    b) list   - list of suffixes to append to file name.  Each of these
                must be a string.
    c) string - colon-separated suffixes to append to file name (backward
                compatibility).
 
-   All of this got hairy, so I decided to use write a mapper.  Calling
-   a function for each suffix shouldn't slow things down, since
-   locate_file is rarely call with enough suffixes for it to make a
-   difference.  */
+   All of this got hairy, so I decided to use a mapper.  Calling a
+   function for each suffix shouldn't slow things down, since
+   locate_file is rarely called with enough suffixes for funcalls to
+   make any difference.  */
 
 /* Map FUN over SUFFIXES, as described above.  FUN will be called with a
    char * containing the current file name, and ARG.  Mapping stops when
    FUN returns non-zero. */
-void
+static void
 locate_file_map_suffixes (Lisp_Object filename, Lisp_Object suffixes,
 			  int (*fun) (char *, void *),
 			  void *arg)
@@ -984,7 +978,7 @@ locate_file_map_suffixes (Lisp_Object filename, Lisp_Object suffixes,
   else
     {
       /* Case c) */
-      CONST char *nsuffix = XSTRING_DATA (suffixes);
+      CONST char *nsuffix = (CONST char *) XSTRING_DATA (suffixes);
 
       while (1)
 	{
@@ -1966,7 +1960,6 @@ read_atom (Lisp_Object readcharfun,
       sym = Fmake_symbol ( make_string ((Bufbyte *) read_ptr, len));
     else
       {
-	/* intern will purecopy pname if necessary */
 	Lisp_Object name = make_string ((Bufbyte *) read_ptr, len);
 	sym = Fintern (name, Qnil);
       }
@@ -3024,12 +3017,7 @@ read_vector (Lisp_Object readcharfun,
        i++, p++)
   {
     struct Lisp_Cons *otem = XCONS (tem);
-#if 0 /* FSFmacs defun hack */
-    if (read_pure)
-      tem = Fpurecopy (Fcar (tem));
-    else
-#endif
-      tem = Fcar (tem);
+    tem = Fcar (tem);
     *p = tem;
     tem = otem->cdr;
     free_cons (otem);
@@ -3168,8 +3156,17 @@ structure_type_create (void)
 }
 
 void
+reinit_vars_of_lread (void)
+{
+  Vread_buffer_stream = Qnil;
+  staticpro_nodump (&Vread_buffer_stream);
+}
+
+void
 vars_of_lread (void)
 {
+  reinit_vars_of_lread ();
+
   DEFVAR_LISP ("values", &Vvalues /*
 List of values of all expressions which were read, evaluated and printed.
 Order is reverse chronological.
@@ -3286,9 +3283,6 @@ character escape syntaxes or just read them incorrectly.
   /* This must be initialized in init_lread otherwise it may start out
      with values saved when the image is dumped. */
   staticpro (&Vload_descriptor_list);
-
-  Vread_buffer_stream = Qnil;
-  staticpro (&Vread_buffer_stream);
 
   /* Initialized in init_lread. */
   staticpro (&Vload_force_doc_string_list);

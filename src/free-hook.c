@@ -85,14 +85,14 @@ void *malloc (size_t);
 /* System function prototypes don't belong in C source files */
 /* extern void free (void *); */
 
-struct hash_table *pointer_table;
+static struct hash_table *pointer_table;
 
 extern void (*__free_hook) (void *);
 extern void *(*__malloc_hook) (size_t);
 
 static void *check_malloc (size_t);
 
-typedef void (*fun_ptr) ();
+typedef void (*fun_ptr) (void);
 
 /* free_queue is not too useful without backtrace logging */
 #define FREE_QUEUE_LIMIT 1
@@ -110,11 +110,11 @@ typedef struct {
   unsigned long length;
 } free_queue_entry;
 
-free_queue_entry free_queue[FREE_QUEUE_LIMIT];
+static free_queue_entry free_queue[FREE_QUEUE_LIMIT];
 
-int current_free;
+static int current_free;
 
-int strict_free_check;
+static int strict_free_check;
 
 static void
 check_free (void *ptr)

@@ -1,5 +1,4 @@
-This is Info file ../info/cl.info, produced by Makeinfo version 1.68
-from the input file cl.texi.
+This is ../info/cl.info, produced by makeinfo version 4.0 from cl.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -231,7 +230,7 @@ name:
      mod*          rem*          random*
 
    Internal function and variable names in the package are prefixed by
-`cl-'.  Here is a complete list of functions *not* prefixed by `cl-'
+`cl-'.  Here is a complete list of functions _not_ prefixed by `cl-'
 which were not taken from Common Lisp:
 
      member        delete        remove        remq
@@ -297,13 +296,13 @@ this package to implement Common Lisp argument lists seamlessly.
 Instead, this package defines alternates for several Lisp forms which
 you must use if you need Common Lisp argument lists.
 
- - Special Form: defun* NAME ARGLIST BODY...
+ - Special Form: defun* name arglist body...
      This form is identical to the regular `defun' form, except that
      ARGLIST is allowed to be a full Common Lisp argument list.  Also,
      the function body is enclosed in an implicit block called NAME;
-     *note Blocks and Exits::..
+     *note Blocks and Exits::.
 
- - Special Form: defsubst* NAME ARGLIST BODY...
+ - Special Form: defsubst* name arglist body...
      This is just like `defun*', except that the function that is
      defined is automatically proclaimed `inline', i.e., calls to it
      may be expanded into in-line code by the byte compiler.  This is
@@ -314,7 +313,7 @@ you must use if you need Common Lisp argument lists.
      processing of keyword arguments, default values, etc., to be done
      at compile-time whenever possible.
 
- - Special Form: defmacro* NAME ARGLIST BODY...
+ - Special Form: defmacro* name arglist body...
      This is identical to the regular `defmacro' form, except that
      ARGLIST is allowed to be a full Common Lisp argument list.  The
      `&environment' keyword is supported as described in Steele.  The
@@ -323,7 +322,7 @@ you must use if you need Common Lisp argument lists.
      Emacs Lisp interpreter.  The macro expander body is enclosed in an
      implicit block called NAME.
 
- - Special Form: function* SYMBOL-OR-LAMBDA
+ - Special Form: function* symbol-or-lambda
      This is identical to the regular `function' form, except that if
      the argument is a `lambda' form then that form may use a full
      Common Lisp argument list.
@@ -332,7 +331,7 @@ you must use if you need Common Lisp argument lists.
 package that include ARGLISTs in their syntax allow full Common Lisp
 argument lists.
 
-   Note that it is *not* necessary to use `defun*' in order to have
+   Note that it is _not_ necessary to use `defun*' in order to have
 access to most "CL" features in your function.  These features are
 always present; `defun*''s only difference from `defun' is its more
 flexible argument lists and its implicit block.
@@ -426,7 +425,7 @@ the scan for keyword arguments by calling `memq' to search for keywords
 in a "rest" argument.  Technically speaking, this is incorrect, since
 `memq' looks at the odd-numbered values as well as the even-numbered
 keywords.  The net effect is that if you happen to pass a keyword symbol
-as the *value* of another keyword argument, where that keyword symbol
+as the _value_ of another keyword argument, where that keyword symbol
 happens to equal the name of a valid keyword argument of the same
 function, then the keyword parser will become confused.  This minor bug
 can only affect you if you use keyword symbols as general-purpose data
@@ -473,7 +472,7 @@ dotted, so that the argument list `(a b . c)' is functionally
 equivalent to `(a b &rest c)'.
 
    If the optimization quality `safety' is set to 0 (*note
-Declarations::.), error checking for wrong number of arguments and
+Declarations::), error checking for wrong number of arguments and
 invalid keyword arguments is disabled.  By default, argument lists are
 rigorously checked.
 
@@ -492,7 +491,7 @@ certain top-level forms evaluated at compile-time.  For example, the
 compiler effectively evaluates `defmacro' forms at compile-time so that
 later parts of the file can refer to the macros that are defined.
 
- - Special Form: eval-when (SITUATIONS...) FORMS...
+ - Special Form: eval-when (situations...) forms...
      This form controls when the body FORMS are evaluated.  The
      SITUATIONS list may contain any set of the symbols `compile',
      `load', and `eval' (or their long-winded ANSI equivalents,
@@ -563,7 +562,7 @@ construct and is described below.  This package defines a version of
 `(eval-when (compile load eval) ...)' and so is not itself defined by
 this package.
 
- - Special Form: eval-when-compile FORMS...
+ - Special Form: eval-when-compile forms...
      The FORMS are evaluated at compile-time; at execution time, this
      form acts like a quoted constant of the resulting value.  Used at
      top-level, `eval-when-compile' is just like `eval-when (compile
@@ -572,7 +571,7 @@ this package.
 
      This form is similar to the `#.' syntax of true Common Lisp.
 
- - Special Form: load-time-value FORM
+ - Special Form: load-time-value form
      The FORM is evaluated at load-time; at execution time, this form
      acts like a quoted constant of the resulting value.
 
@@ -617,7 +616,7 @@ Function Aliases
 This section describes a feature from GNU Emacs 19 which this package
 makes available in other versions of Emacs.
 
- - Function: defalias SYMBOL FUNCTION
+ - Function: defalias symbol function
      This function sets SYMBOL's function cell to FUNCTION.  It is
      equivalent to `fset', except that in GNU Emacs 19 it also records
      the setting in `load-history' so that it can be undone by a later
@@ -647,7 +646,7 @@ Type Predicates
 
 The "CL" package defines a version of the Common Lisp `typep' predicate.
 
- - Function: typep OBJECT TYPE
+ - Function: typep object type
      Check if OBJECT is of type TYPE, where TYPE is a (quoted) type
      name of the sort used by Common Lisp.  For example, `(typep foo
      'integer)' is equivalent to `(integerp foo)'.
@@ -704,7 +703,7 @@ beginning with a symbol.
    The following function and macro (not technically predicates) are
 related to `typep'.
 
- - Function: coerce OBJECT TYPE
+ - Function: coerce object type
      This function attempts to convert OBJECT to the specified TYPE.
      If OBJECT is already of that type as determined by `typep', it is
      simply returned.  Otherwise, certain types of conversions will be
@@ -715,13 +714,13 @@ related to `typep'.
      integers can be coerced in versions of Emacs that support floats.
      In all other circumstances, `coerce' signals an error.
 
- - Special Form: deftype NAME ARGLIST FORMS...
+ - Special Form: deftype name arglist forms...
      This macro defines a new type called NAME.  It is similar to
      `defmacro' in many ways; when NAME is encountered as a type name,
      the body FORMS are evaluated and should return a type specifier
      that is equivalent to the type.  The ARGLIST is a Common Lisp
      argument list of the sort accepted by `defmacro*'.  The type
-     specifier `(NAME ARGS...)'  is expanded by calling the expander
+     specifier `(NAME ARGS...)' is expanded by calling the expander
      with those arguments; the type symbol `NAME' is expanded by
      calling the expander with no arguments.  The ARGLIST is processed
      the same as for `defmacro*' except that optional arguments without
@@ -753,7 +752,7 @@ Equality Predicates
 
 This package defines two Common Lisp predicates, `eql' and `equalp'.
 
- - Function: eql A B
+ - Function: eql a b
      This function is almost the same as `eq', except that if A and B
      are numbers of the same type, it compares them for numeric
      equality (as if by `equal' instead of `eq').  This makes a
@@ -784,7 +783,7 @@ This package defines two Common Lisp predicates, `eql' and `equalp'.
      fact the only known way to distinguish between the two zeros in
      Emacs Lisp is to `format' them and check for a minus sign.
 
- - Function: equalp A B
+ - Function: equalp a b
      This function is a more flexible version of `equal'.  In
      particular, it compares strings and characters case-insensitively,
      and it compares numbers without regard to type (so that `(equalp 3
@@ -831,7 +830,7 @@ Assignment
 The `psetq' form is just like `setq', except that multiple assignments
 are done in parallel rather than sequentially.
 
- - Special Form: psetq [SYMBOL FORM]...
+ - Special Form: psetq [symbol form]...
      This special form (actually a macro) is used to assign to several
      variables simultaneously.  Given only one SYMBOL and FORM, it has
      the same effect as `setq'.  Given several SYMBOL and FORM pairs,
@@ -853,7 +852,7 @@ are done in parallel rather than sequentially.
 
      The simplest use of `psetq' is `(psetq x y y x)', which exchanges
      the values of two variables.  (The `rotatef' form provides an even
-     more convenient way to swap two variables; *note Modify Macros::..)
+     more convenient way to swap two variables; *note Modify Macros::.)
 
      `psetq' always returns `nil'.
 
@@ -896,7 +895,7 @@ Basic Setf
 The `setf' macro is the most basic way to operate on generalized
 variables.
 
- - Special Form: setf [PLACE FORM]...
+ - Special Form: setf [place form]...
      This macro evaluates FORM and stores it in PLACE, which must be a
      valid generalized variable form.  If there are several PLACE and
      FORM pairs, the assignments are done sequentially just as with

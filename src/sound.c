@@ -25,6 +25,7 @@ Boston, MA 02111-1307, USA.  */
    Hacked on quite a bit by various others. */
 
 #include <config.h>
+#include <time.h>
 #include "lisp.h"
 
 #include "buffer.h"
@@ -44,7 +45,14 @@ Boston, MA 02111-1307, USA.  */
 # include <netdb.h>
 #endif
 
+#ifdef HAVE_ESD_SOUND
+extern int esd_play_sound_file (char *file, int vol);
+extern int esd_play_sound_data (unsigned char *data, size_t length, int vol);
+# define DEVICE_CONNECTED_TO_ESD_P(x) 1 /* FIXME: better check */
+#endif
+
 int bell_volume;
+int bell_inhibit_time;
 Lisp_Object Vsound_alist;
 Lisp_Object Vsynchronous_sounds;
 Lisp_Object Vnative_sound_only_on_console;
@@ -77,7 +85,8 @@ Windows the sound file must be in WAV format.
 {
   /* This function can call lisp */
   int vol;
-#if defined (HAVE_NATIVE_SOUND) || defined (HAVE_NAS_SOUND)
+#if defined (HAVE_NATIVE_SOUND) || defined (HAVE_NAS_SOUND) \
+       || defined (HAVE_ESD_SOUND)
   struct device *d = decode_device (device);
 #endif
   struct gcpro gcpro1;
@@ -123,6 +132,17 @@ Windows the sound file must be in WAV format.
 	return Qnil;
     }
 #endif /* HAVE_NAS_SOUND */
+
+#ifdef HAVE_ESD_SOUND
+  if (DEVICE_CONNECTED_TO_ESD_P (d))
+    {
+      char *fileext;
+
+      GET_C_STRING_FILENAME_DATA_ALLOCA (file, fileext);
+      if (esd_play_sound_file (fileext, vol))
+       return Qnil;
+    }
+#endif /* HAVE_ESD_SOUND */
 
 #ifdef HAVE_NATIVE_SOUND
   if (NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
@@ -300,6 +320,18 @@ See the variable `sound-alist'.
     }
 #endif /* HAVE_NAS_SOUND */
 
+#ifdef HAVE_ESD_SOUND
+  if (DEVICE_CONNECTED_TO_ESD_P (d) && STRINGP (sound))
+    {
+      Extbyte *soundext;
+      Extcount soundextlen;
+
+      GET_STRING_BINARY_DATA_ALLOCA (sound, soundext, soundextlen);
+      if (esd_play_sound_data (soundext, soundextlen, vol))
+       return Qnil;
+    }
+#endif /* HAVE_ESD_SOUND */
+
 #ifdef HAVE_NATIVE_SOUND
   if ((NILP (Vnative_sound_only_on_console) || DEVICE_ON_CONSOLE_P (d))
       && STRINGP (sound))
@@ -347,25 +379,28 @@ device).
 */
        (arg, sound, device))
 {
-  struct device *d = decode_device (device);
+  static time_t last_bell_time;
+  static struct device *last_bell_device;
+  time_t now;
+  struct device *d = decode_device (device);     
 
   XSETDEVICE (device, d);
+  now = time (0);
 
-  /* #### This is utterly disgusting, and is probably a remnant from
-     legacy code that used `ding'+`message' to signal error instead
-     calling `error'.  As a result, there is no way to beep from Lisp
-     directly, without also invoking this aspect.  Maybe we should
-     define a `ring-bell' function that simply beeps on the console,
-     which `ding' should invoke?  --hniksic */
   if (NILP (arg) && !NILP (Vexecuting_macro))
     /* Stop executing a keyboard macro. */
     error ("Keyboard macro terminated by a command ringing the bell");
+  
+  if (d == last_bell_device && now-last_bell_time < bell_inhibit_time)
+    return Qnil;
   else if (visible_bell && DEVMETH (d, flash, (d)))
     ;
   else
     Fplay_sound (sound, Qnil, device);
-
-  return Qnil;
+  
+  last_bell_time = now;
+  last_bell_device = d;
+  return Qnil;    
 }
 
 DEFUN ("wait-for-sounds", Fwait_for_sounds, 0, 1, 0, /*
@@ -527,11 +562,19 @@ vars_of_sound (void)
 #ifdef HAVE_NAS_SOUND
   Fprovide (intern ("nas-sound"));
 #endif
+#ifdef HAVE_ESD_SOUND
+  Fprovide (intern ("esd-sound"));
+#endif
 
   DEFVAR_INT ("bell-volume", &bell_volume /*
 *How loud to be, from 0 to 100.
 */ );
   bell_volume = 50;
+  
+  DEFVAR_INT ("bell-inhibit-time", &bell_inhibit_time /*
+*Don't ring the bell on the same device more than once within this many seconds.
+*/ );
+  bell_inhibit_time = 0;
 
   DEFVAR_LISP ("sound-alist", &Vsound_alist /*
 An alist associating names with sounds.
@@ -559,8 +602,8 @@ You should probably add things to this list by calling the function
 load-sound-file.
 
 Caveats:
- - You can only play audio data if running on the console screen of a
-   Sun SparcStation, SGI, or HP9000s700.
+ - XEmacs must be built with sound support for your system.  Not all
+   systems support sound. 
 
  - The pitch, duration, and volume options are available everywhere, but
    many X servers ignore the `pitch' option.

@@ -70,6 +70,12 @@ console_type_create_mswindows (void)
 }
 
 void
+reinit_console_type_create_mswindows (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (mswindows);
+}
+
+void
 vars_of_console_mswindows (void)
 {
   Fprovide (Qmswindows);

@@ -42,14 +42,13 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "opaque.h"
 
-Lisp_Object Qcase_table_p;
+Lisp_Object Qcase_tablep;
 Lisp_Object Vascii_downcase_table, Vascii_upcase_table;
 Lisp_Object Vascii_canon_table, Vascii_eqv_table;
 #ifdef MULE
 Lisp_Object Vmirror_ascii_downcase_table, Vmirror_ascii_upcase_table;
 Lisp_Object Vmirror_ascii_canon_table, Vmirror_ascii_eqv_table;
 #endif
-Lisp_Object Qtranslate_table;
 
 static void compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse);
 
@@ -81,7 +80,7 @@ check_case_table (Lisp_Object obj)
   REGISTER Lisp_Object tem;
 
   while (tem = Fcase_table_p (obj), NILP (tem))
-    obj = wrong_type_argument (Qcase_table_p, obj);
+    obj = wrong_type_argument (Qcase_tablep, obj);
   return (obj);
 }
 
@@ -289,8 +288,7 @@ compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse)
 void
 syms_of_casetab (void)
 {
-  defsymbol (&Qcase_table_p, "case-table-p");
-  defsymbol (&Qtranslate_table, "translate-table");
+  defsymbol (&Qcase_tablep, "case-table-p");
 
   DEFSUBR (Fcase_table_p);
   DEFSUBR (Fcurrent_case_table);
@@ -309,6 +307,13 @@ complex_vars_of_casetab (void)
   staticpro (&Vascii_upcase_table);
   staticpro (&Vascii_canon_table);
   staticpro (&Vascii_eqv_table);
+
+#ifdef MULE
+  staticpro (&Vmirror_ascii_downcase_table);
+  staticpro (&Vmirror_ascii_upcase_table);
+  staticpro (&Vmirror_ascii_canon_table);
+  staticpro (&Vmirror_ascii_eqv_table);
+#endif
 
   tem = MAKE_TRT_TABLE ();
   Vascii_downcase_table = tem;

@@ -4,7 +4,7 @@
 
 ;; Author: Joe Wells <jbw@bigbird.bu.edu>
 ;; Rewritten: Daniel.Pfeiffer@Informatik.START.dbp.de, fax (+49 69) 7588-2389
-;; Maintainer: SL Baur <steve@altair.xemacs.org>
+;; Maintainer: SL Baur <steve@xemacs.org>
 ;; Keywords: help
 
 ;; This file is part of XEmacs.
@@ -107,6 +107,7 @@ This looks good, but slows down the commands several times.")
 (defvar apropos-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map [(control m)] 'apropos-follow)
+    (define-key map [return] 'apropos-follow)
     (define-key map [(button2up)] 'apropos-mouse-follow)
     (define-key map [(button2)] 'undefined)
     map)
@@ -377,7 +378,7 @@ Returns list of symbols and documentation found."
 
 (defun apropos-documentation-check-doc-file ()
   (let (type symbol (sepa 2) sepb beg end)
-    (princ ?\^_)
+    (insert ?\^_)
     (backward-char)
     (insert-file-contents (concat doc-directory internal-doc-file-name))
     (forward-char)
@@ -508,6 +509,9 @@ found."
 	   (let ((p apropos-accumulator)
 		 (old-buffer (current-buffer))
 		 symbol item point1 point2)
+	     ;; Mostly useless but to provide better keymap
+	     ;; explanation. help-mode-map will be used instead.
+	     (use-local-map apropos-mode-map)
 	     ;; XEmacs change from (if window-system
 	     (if (device-on-window-system-p)
 		 (progn
@@ -575,6 +579,8 @@ found."
 				    apropos-item))
 	       (if apropos-symbol-face
 		   (put-text-property point1 point2 'face apropos-symbol-face))
+	       ;; Add text-property on symbol, too.
+	       (put-text-property point1 point2 'keymap apropos-mode-map)
 	       (apropos-print-doc 'describe-function 1
 				  (if (commandp symbol)
 				      "Command"

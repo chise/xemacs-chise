@@ -4,8 +4,8 @@
 ;;
 ;; Author: Per Abrahamsen <abraham@dina.kvl.dk>, then
 ;;         Richard Stallman <rms@gnu.ai.mit.edu>, then
-;;         Hrvoje Niksic <hniksic@srce.hr>       (rewritten for XEmacs)
-;; Maintainer: Hrvoje Niksic <hniksic@srce.hr>
+;;         Hrvoje Niksic <hniksic@xemacs.org>       (rewritten for XEmacs)
+;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.

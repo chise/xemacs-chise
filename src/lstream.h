@@ -95,7 +95,7 @@ typedef struct lstream_implementation
   /* The omniscient mly, blinded by the irresistable thrall of Common
      Lisp, thinks that it is bogus that the types and implementations
      of input and output streams are the same. */
-  int (*reader) (Lstream *stream, unsigned char *data, size_t size);
+  ssize_t (*reader) (Lstream *stream, unsigned char *data, size_t size);
   /* Send some data to the stream's end.  Data to be sent is in DATA
      and is SIZE bytes.  Return the number of bytes sent.  This
      function can send and return fewer bytes than is passed in; in
@@ -106,7 +106,7 @@ typedef struct lstream_implementation
      data. (This is useful, e.g., of you're dealing with a
      non-blocking file descriptor and are getting EWOULDBLOCK errors.)
      This function can be NULL if the stream is input-only. */
-  int (*writer) (Lstream *stream, CONST unsigned char *data, size_t size);
+  ssize_t (*writer) (Lstream *stream, CONST unsigned char *data, size_t size);
   /* Return non-zero if the last write operation on the stream resulted
      in an attempt to block (EWOULDBLOCK). If this method does not
      exists, the implementation returns 0 */
@@ -129,7 +129,7 @@ typedef struct lstream_implementation
   int (*closer) (Lstream *stream);
   /* Mark this object for garbage collection.  Same semantics as
      a standard Lisp_Object marker.  This function can be NULL. */
-  Lisp_Object (*marker) (Lisp_Object lstream, void (*markfun) (Lisp_Object));
+  Lisp_Object (*marker) (Lisp_Object lstream);
 } Lstream_implementation;
 
 #define DEFINE_LSTREAM_IMPLEMENTATION(name,c_name,size)	\
@@ -209,8 +209,8 @@ int Lstream_flush_out (Lstream *lstr);
 int Lstream_fputc (Lstream *lstr, int c);
 int Lstream_fgetc (Lstream *lstr);
 void Lstream_fungetc (Lstream *lstr, int c);
-int Lstream_read (Lstream *lstr, void *data, size_t size);
-int Lstream_write (Lstream *lstr, CONST void *data, size_t size);
+ssize_t Lstream_read (Lstream *lstr, void *data, size_t size);
+ssize_t Lstream_write (Lstream *lstr, CONST void *data, size_t size);
 int Lstream_was_blocked_p (Lstream *lstr);
 void Lstream_unread (Lstream *lstr, CONST void *data, size_t size);
 int Lstream_rewind (Lstream *lstr);

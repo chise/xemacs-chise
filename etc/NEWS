@@ -33,30 +33,6 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
-** The functions in rect.el have been almost completely rewritten...
-to avoid inserting undesirable spaces, notably at the end of lines.
-Two typical examples of this old behavior are `string-rectangle', which filled
-all lines up to the right side of the rectangle, and `clear-rectangle', which
-filled even empty lines up to the left side.
-
-This is not the case any more. All these functions have been rewritten to
-avoid inserting unwanted spaces, and an optional prefix now allows them to
-behave the old way.
-
-As a side effect, `move-to-column' now also accepts 'coerce as its second
-argument, meaning that the line shouldn't be filled if its too short to reach
-the desired column.
-
-** You can now customize and save comments for faces and variables.
-
-In Custom buffers, a new menu entry allows you to add and edit a comment.
-Comments for variables can also be assigned by calling
-`customize-set-(value|variable)' with a prefix argument.
-
-** XEmacs now locates the early package hierarchy at ~/.xemacs/packages.
-
-This has changed from simply ~/.xemacs.
-
 ** `delete-key-deletes-forward' now defaults to t.
 
 `delete-key-deletes-forward' is the variable that regulates the
@@ -82,6 +58,33 @@ uppercase characters, the searching is forced to be case-sensitive,
 The new behavior affects all functions performing interactive
 searches, like `zap-to-char', `list-matching-lines', `tags-search'
 etc.  The incremental search facility has always behaved that way.
+
+** The rectangle functions have been almost completely rewritten in
+order to avoid inserting undesirable spaces, notably at the end of
+lines.  Two typical examples of the old behavior were
+`string-rectangle', which filled all lines up to the right side of the
+rectangle, and `clear-rectangle', which filled even empty lines up to
+the left side.  All functions have been rewritten to avoid inserting
+unwanted spaces, and an optional prefix now allows them to behave the
+old way.
+
+As a side effect, the FORCE argument to `move-to-column' now
+understands the special value `coerce', which means that the line
+should not be filled if it is too short to reach the desired column.
+
+** Incremental search will now highlight all visible matches, making
+it easier to anticipate where consecutive C-s or C-r will place the
+point.  If you want to disable the feature, set
+`isearch-highlight-all-matches' to nil.
+
+** You can now customize and save comments for faces and variables.
+In Custom buffers, a new menu entry allows you to add and edit a
+comment.  Comments for variables can also be assigned by calling
+`customize-set-(value|variable)' with a prefix argument.
+
+** XEmacs now locates the early package hierarchies at
+~/.xemacs/mule-packages/ and ~/.xemacs/xemacs-packages/.  Previously,
+the early packages were located in ~/.xemacs/.
 
 ** You can now create "indirect buffers", like in GNU Emacs.  An
 indirect buffer shares its text with another buffer ("base buffer"),
@@ -112,23 +115,16 @@ maintained internally.
 The new primitives available for this purpose are functions named
 `user-name-completion' and `user-name-all-completions'.
 
-** Native widgets can be displayed in buffers.
+** XEmacs can now play sound using Enlightenment Sound Daemon (ESD).
+It will try NAS first, then ESD, then playing native sound directly.
 
-The glyph system has been extended to allow the display of glyphs that
-are implemented as native window-system widgets. Thus you can embed
-buttons, scrollbars, combo boxes, edit fields and progress gauges in a
-buffer. As a side effect subwindow support now works once again.
-
-This support is currently only available under MS-Windows.
-
-** X-Face support is now available under MS-Windows
-
+** X-Face support is now available under MS-Windows.
 If an X-Face libary built under MS-Windows is available then XEmacs
 will use this at build time.
 
-** The font-menu is now available under MS-Windows
+** The font-menu is now available under MS-Windows.
 
-** MS-Windows support for selection is much more robust
+** MS-Windows support for selection is now much more robust.
 
 Generally selection should now do what you would expect under
 MS-Windows: the middle mouse button will paste your current selection
@@ -137,12 +133,77 @@ clipboard can be made; the kill-ring and friends will be updated as
 per X.
 
 The only thing selection doesn't do is set the clipboard automatically
-as this would break the MS-Windows model. If you want this behaviour
+as this would break the MS-Windows model.  If you want this behaviour
 then set `selection-sets-clipboard' to t
+
+** New command-line switches -user-init-file and -user-init-directory.
+These can be used to specify alternate locations for what is normally
+~/.emacs and ~/.xemacs.
+
+Moreover, -user <user> (which used to only work in unpredictable ways)
+is now equivalent to
+-user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
+
+** Etags changes.
+
+*** In DOS, etags looks for file.cgz if it cannot find file.c.
+
+*** New option --ignore-case-regex is an alternative to --regex.  It is now
+possible to bind a regexp to a language, by prepending the regexp with
+{lang}, where lang is one of the languages that `etags --help' prints out.
+This feature is useful especially for regex files, where each line contains
+a regular expression.  The manual contains details.
+
+*** In C and derived languages, etags creates tags for function
+declarations when given the --declarations option.
+
+*** In C++, tags are created for "operator".  The tags have the form
+"operator+", without spaces between the keyword and the operator.
+
+*** New language Ada: tags are functions, procedures, packages, tasks, and
+types.
+
+*** In Fortran, procedure is no more tagged.
+
+*** In Java, tags are created for "interface".
+
+*** In Lisp, "(defstruct (foo", "(defun (operator" and similar constructs
+are now tagged.
+
+*** In Perl, the --globals option tags global variables.  my and local
+variables are tagged.
+
+*** New language Python: def and class at the beginning of a line are tags.
+
+*** .ss files are Scheme files, .pdb is Postscript with C syntax, .psw is
+for PSWrap.
 
 
 * Lisp and internal changes in XEmacs 21.2
 ==========================================
+
+** A new portable dumper is available.
+
+Olivier Galibert has written a portable dumper for XEmacs, based on
+initial work by Kyle Jones.  Normally, XEmacs C sources link into an
+executable called `temacs', which loads the Lisp code and "unexecs"
+into a proper `xemacs' executable.  The unexec() process is hard to
+implement correctly and makes XEmacs very hard to port to new
+operating systems, or even to new releases of old systems.
+
+A portable dumper is a different approach to dumping: instead of
+dumping full-fledged executable, it only dumps out the initialized
+data structures (both Lisp and C) into an external file.  A normally
+running XEmacs only needs to mmap() that file and relocate a bit to
+get to the initialized data.  In that scheme, there is no difference
+between `temacs' and `xemacs'.
+
+This is all very experimental, though.  Configure with `--pdump' to
+try testing it.  NOTE: it is expected that `make' will fail after
+dumping `xemacs.dmp'.  This is because Makefiles have not yet been
+modified to not expect `temacs' producing an `xemacs' executable.  You
+can try it out by simply running `src/temacs'.  If it starts without
+failure, the portable dumping worked.
 
 ** Much effort has been invested to make XEmacs Lisp faster:
 
@@ -180,6 +241,23 @@ Many operations do not see any improvement.  Surprisingly, running
 Speeding up your favorite slow operation is an excellent project to
 improve XEmacs.  Don't forget to profile!
 
+** Native widgets can be displayed in buffers.
+
+The glyph system has been extended to allow the display of glyphs that
+are implemented as native window-system widgets.  Thus you can embed
+buttons, scrollbars, combo boxes, edit fields and progress gauges in a
+buffer.  As a side effect subwindow support now works once again.
+
+All of this is still very experimental.  This feature is currently
+more complete under MS-Windows.
+
+** user-init-directory is now an absolute, unexpanded path.
+Previously, `user-init-directory' used to be relative to
+(concat "~" init-file-user).  This turned out to be too complicated
+for most packages (and some core Lisp files) to use correctly.
+
+Also, `init-file-user' has been obsoleted in the process.
+
 ** XEmacs finally has an automated test suite!
 Although this is not yet very sophisticated, it is already responsible
 for several important bug fixes in XEmacs.  To try it out, simply use
@@ -211,14 +289,12 @@ now results in something like this:
 An extra bonus is that checking for circularities is not just
 friendlier, but actually faster than checking for C-g.
 
-** The new form `ignore-file-errors', similar to `ignore-errors' may
-be used as a short-hand for condition-case when you wish to ignore
-file-related error.  For example:
+** Functions for decoding base64 encoding are now available; see
+`base64-encode-region', `base64-encode-string', `base64-decode-region'
+and `base64-decode-string'.
 
-    (ignore-file-errors (delete-file "foo"))
-
-** The arguments to `locate-file' are now much more "lispy".  As
-before, the usage is:
+** The arguments to `locate-file' are now more Lisp-like.  As before,
+the usage is:
 
     (locate-file FILENAME PATH-LIST &optional SUFFIXES MODE)
 
@@ -226,21 +302,44 @@ Except that SUFFIXES are now a list of strings instead of a single,
 colon-separated string.  MODE is now a symbol or a list of symbols
 (symbols `exists', `executable', `writable', and `readable' are
 supported) instead of an integer code.  See the documentation for
-details.
+details.  Of course, the old form is still accepted for backward
+compatibility.
 
-Of course, the old form is still accepted for backward compatibility.
+Several bugs in locate-file have been fixed, most notably its failure
+to call expand-file-name on elements of PATH-LIST.  Because of that
+elements of load-path of the form "~/..." used to not work.
+locate-file is now guaranteed to expand files during its course of
+operation.
 
 ** `translate-region' has been improved in several ways.  Its TABLE
 argument used to be a 256-character string.  In addition to this, it
-can now also be a vector or a char-table (which is useful for Mule.)
-If TABLE a vector or a generic char-table, you can map characters to
-strings instead of to other characters.  For instance:
+can now also be a vector or a char-table, which makes the function
+useful for Mule, which it wasn't.  If TABLE a vector or a generic
+char-table, you can map characters to strings instead of to other
+characters.  For instance:
 
     (let ((table (make-char-table 'generic)))
       (put-char-table ?a "the letter a" table)
       (put-char-table ?b "" table)
       (put-char-table ?c ?\n table)
       (translate-region (point-min) (point-max) table))
+
+** The new form `ignore-file-errors', similar to `ignore-errors' may
+be used as a short-hand for condition-case when you wish to ignore
+file-related error.  For example:
+
+    (ignore-file-errors (delete-file "foo"))
+
+** The first argument to `intern-soft' may now also be a symbol, like
+with `unintern'.  If given a symbol, `intern-soft' will look for that
+exact symbol rather than for any string.  This is useful when you want
+to check whether a specific symbol is interned in an obarray, e.g.:
+
+    (intern "foo")
+    (intern-soft "foo")
+      => foo
+    (intern-soft (make-symbol "foo"))
+      => nil
 
 ** The `keywordp' function now returns non-nil only on symbols
 interned in the global obarray.  For example:
@@ -254,21 +353,6 @@ This behaviour is compatible with other code which treats symbols
 beginning with colon as keywords only if they are interned in the
 global obarray.  `keywordp' used to wrongly return t in both cases
 above.
-
-** The first argument to `intern-soft' may now also be a symbol, like
-with `unintern'.  If given a symbol, `intern-soft' will look for that
-exact symbol rather than for any string.  This is useful when you want
-to check whether a specific symbol is interned in an obarray, e.g.:
-
-    (intern "foo")
-    (intern-soft "foo")
-      => foo
-    (intern-soft (make-symbol "foo"))
-      => nil
-
-** Functions for decoding base64 encoding are now available; see
-`base64-encode-region', `base64-encode-string', `base64-decode-region'
-and `base64-decode-string'.
 
 
 * Changes in XEmacs 21.0
@@ -752,7 +836,7 @@ directory hierarchy has been rewritten to support the package system.
 Look under "Startup Paths" in the Info documentation for more
 information.
 
-*** site-lisp is now longer part of the load-path by default.
+*** site-lisp is no longer part of the load-path by default.
 Its use is deprecated, but you can specify --with-site-lisp=yes at the
 configure command line to get it back.
 

@@ -1,5 +1,5 @@
-This is Info file ../info/custom.info, produced by Makeinfo version
-1.68 from the input file custom.texi.
+This is ../info/custom.info, produced by makeinfo version 3.12s from
+custom.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -58,7 +58,7 @@ Declaring Groups
 
    Use `defgroup' to declare new customization groups.
 
- - Function: defgroup SYMBOL MEMBERS DOC [KEYWORD VALUE]...
+ - Function: defgroup symbol members doc [keyword value]...
      Declare SYMBOL as a customization group containing MEMBERS.
      SYMBOL does not need to be quoted.
 
@@ -89,7 +89,7 @@ Declaring Variables
 
    Use `defcustom' to declare user editable variables.
 
- - Function: defcustom SYMBOL VALUE DOC [KEYWORD VALUE]...
+ - Function: defcustom symbol value doc [keyword value]...
      Declare SYMBOL as a customizable variable that defaults to VALUE.
      Neither SYMBOL nor VALUE needs to be quoted.  If SYMBOL is not
      already bound, initialize it to VALUE.
@@ -156,7 +156,7 @@ default value, `saved-value' for a value saved by the user, and
    Use `custom-add-option' to specify that a specific function is
 useful as an member of a hook.
 
- - Function: custom-add-option SYMBOL OPTION
+ - Function: custom-add-option symbol option
      To the variable SYMBOL add OPTION.
 
      If SYMBOL is a hook variable, OPTION should be a hook member.  For
@@ -170,7 +170,7 @@ Declaring Faces
 
    Faces are declared with `defface'.
 
- - Function: defface FACE SPEC DOC [KEYWORD VALUE]...
+ - Function: defface face spec doc [keyword value]...
      Declare FACE as a customizable face that defaults to SPEC.  FACE
      does not need to be quoted.
 
@@ -225,7 +225,7 @@ subgroups, with each subgroup being member of the top level group.
 
    The top level group for the package should itself be member of one or
 more of the standard customization groups.  There exists a group for
-each *finder* keyword.  Press `C-h p' to see a list of finder keywords,
+each _finder_ keyword.  Press `C-h p' to see a list of finder keywords,
 and add you group to each of them, using the `:group' keyword.
 
 
@@ -240,18 +240,18 @@ Utilities
      Widget type for specifying the info manual entry for a
      customization option.  It takes one argument, an info address.
 
- - Function: custom-add-to-group GROUP MEMBER WIDGET
+ - Function: custom-add-to-group group member widget
      To existing GROUP add a new MEMBER of type WIDGET, If there
      already is an entry for that member, overwrite it.
 
- - Function: custom-add-link SYMBOL WIDGET
+ - Function: custom-add-link symbol widget
      To the custom option SYMBOL add the link WIDGET.
 
- - Function: custom-add-load SYMBOL LOAD
+ - Function: custom-add-load symbol load
      To the custom option SYMBOL add the dependency LOAD.  LOAD should
      be either a library file name, or a feature name.
 
- - Function: customize-menu-create SYMBOL &optional NAME
+ - Function: customize-menu-create symbol &optional name
      Create menu for customization group SYMBOL.  If optional NAME is
      given, use that as the name of the menu.  Otherwise the menu will
      be named `Customize'.  The menu is in a format applicable to
@@ -378,15 +378,16 @@ Wishlist
      Add colors.
 
 
+
 
 Tag Table:
-Node: Top230
-Node: Declaring Groups1651
-Node: Declaring Variables2752
-Node: Declaring Faces5843
-Node: Usage for Package Authors7541
-Node: Utilities8320
-Node: The Init File9404
-Node: Wishlist9856
+Node: Top206
+Node: Declaring Groups1627
+Node: Declaring Variables2728
+Node: Declaring Faces5819
+Node: Usage for Package Authors7517
+Node: Utilities8296
+Node: The Init File9380
+Node: Wishlist9832
 
 End Tag Table

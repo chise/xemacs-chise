@@ -150,7 +150,8 @@ static char *concat (char *, char *, char *);
 static long *xmalloc (unsigned int);
 #ifdef MAIL_USE_POP
 static int popmail (char *, char *, char *);
-static int pop_retr (popserver server, int msgno, int (*action)(), void *arg);
+static int pop_retr (popserver server, int msgno,
+		     int (*action)(char *, FILE *), void *arg);
 static int mbx_write (char *, FILE *);
 static int mbx_delimit_begin (FILE *);
 static int mbx_delimit_end (FILE *);
@@ -730,7 +731,7 @@ popmail (char *user, char *outfile, char *password)
 }
 
 static int
-pop_retr (popserver server, int msgno, int (*action)(), void *arg)
+pop_retr (popserver server, int msgno, int (*action)(char *, FILE *), void *arg)
 {
   char *line;
   int ret;

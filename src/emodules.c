@@ -215,7 +215,7 @@ find_make_module (CONST char *mod, CONST char *name, CONST char *ver, int mof)
   if (modules == (emodules_list *)0)
     modules = (emodules_list *)xmalloc (sizeof(emodules_list));
   modnum++;
-  modules = xrealloc (modules, modnum * sizeof(emodules_list));
+  modules = (emodules_list *) xrealloc (modules, modnum * sizeof(emodules_list));
 
   fs = modnum - 1;
   memset (&modules[fs], 0, sizeof(emodules_list));
@@ -526,8 +526,18 @@ syms_of_module (void)
 }
 
 void
+reinit_vars_of_module (void)
+{
+  emodules_depth = 0;
+  modules = (emodules_list *)0;
+  modnum = 0;
+}
+
+void
 vars_of_module (void)
 {
+  reinit_vars_of_module ();
+
   DEFVAR_LISP ("module-version", &Vmodule_version /*
 Emacs dynamic loading mechanism version, as a string.
 
@@ -537,7 +547,7 @@ This variable can be used to distinquish between different versions of
 the dynamic loading technology used in Emacs, if required.  It is not
 a given that this value will be the same as the Emacs version number.
 */ );
-  Vmodule_version = Fpurecopy (build_string (EMODULES_VERSION));
+  Vmodule_version = build_string (EMODULES_VERSION);
 
   DEFVAR_BOOL ("load-modules-quietly", &load_modules_quietly /*
 *Set to t if module loading is to be silent.
@@ -575,9 +585,6 @@ when a dynamic module is loaded.
   staticpro (&Vmodule_extensions);
 
   load_modules_quietly = 0;
-  emodules_depth = 0;
-  modules = (emodules_list *)0;
-  modnum = 0;
   Vmodule_load_path = Qnil;
   Fprovide (intern ("modules"));
 }

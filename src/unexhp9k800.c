@@ -52,6 +52,7 @@ Boston, MA 02111-1307, USA.  */
 
 
 #include <config.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -80,7 +81,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef HPUX_USE_SHLIBS
 #include <dl.h>			/* User-space dynamic loader entry points */
-void Save_Shared_Data();
+void Save_Shared_Data(void);
 int run_time_remap();
 #endif
 

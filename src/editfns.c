@@ -45,6 +45,7 @@ Boston, MA 02111-1307, USA.  */
 #include "systime.h"
 #include "sysdep.h"
 #include "syspwd.h"
+#include "sysfile.h"			/* for getcwd */
 
 /* Some static data, and a function to initialize it for each run */
 
@@ -64,8 +65,6 @@ Lisp_Object Vuser_login_name;	/* user name from LOGNAME or USER.  */
    keep it. */
 Lisp_Object Vuser_full_name;
 EXFUN (Fuser_full_name, 1);
-
-char *get_system_name (void);
 
 Lisp_Object Qformat;
 
@@ -638,17 +637,17 @@ ignored and this function returns the login name for that UID, or nil.
        (uid))
 {
   char *returned_name;
-  int local_uid;
+  uid_t local_uid;
 
   if (!NILP (uid))
     {
       CHECK_INT (uid);
-      local_uid = XINT(uid);
-      returned_name = user_login_name(&local_uid);
+      local_uid = XINT (uid);
+      returned_name = user_login_name (&local_uid);
     }
   else
     {
-      returned_name = user_login_name(NULL);
+      returned_name = user_login_name (NULL);
     }
   /* #### - I believe this should return nil instead of "unknown" when pw==0
      pw=0 is indicated by a null return from user_login_name
@@ -664,14 +663,12 @@ ignored and this function returns the login name for that UID, or nil.
    corresponds to a nil argument to Fuser_login_name.
 */
 char*
-user_login_name (int *uid)
+user_login_name (uid_t *uid)
 {
-  struct passwd *pw = NULL;
-
   /* uid == NULL to return name of this user */
   if (uid != NULL)
     {
-      pw = getpwuid (*uid);
+      struct passwd *pw = getpwuid (*uid);
       return pw ? pw->pw_name : NULL;
     }
   else
@@ -692,7 +689,7 @@ user_login_name (int *uid)
 	return (user_name);
       else
 	{
-	  pw = getpwuid (geteuid ());
+	  struct passwd *pw = getpwuid (geteuid ());
 #ifdef __CYGWIN32__
 	  /* Since the Cygwin environment may not have an /etc/passwd,
 	     return "unknown" instead of the null if the username
@@ -910,14 +907,6 @@ Return the name of the machine you are running on, as a string.
        ())
 {
     return Fcopy_sequence (Vsystem_name);
-}
-
-/* For the benefit of callers who don't want to include lisp.h.
-   Caller must free! */
-char *
-get_system_name (void)
-{
-  return xstrdup ((char *) XSTRING_DATA (Vsystem_name));
 }
 
 DEFUN ("emacs-pid", Femacs_pid, 0, 0, 0, /*

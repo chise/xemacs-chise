@@ -4,7 +4,7 @@
 
 ;; Keywords: extensions
 ;; Version: 2.4
-;; Maintainer: Hrvoje Niksic <hniksic@srce.hr>
+;; Maintainer: Hrvoje Niksic <hniksic@xemacs.org>
 
 ;; This file is part of XEmacs.
 
@@ -25,8 +25,8 @@
 
 ;;; Synched up with: Not in FSF.
 
-;; Original code: Jamie Zawinski <jwz@netscape.com>
-;; Text: Ben Wing <ben@xemacs.org>, Jamie Zawinski <jwz@netscape.com>
+;; Original code: Jamie Zawinski <jwz@jwz.org>
+;; Text: Ben Wing <ben@xemacs.org>, Jamie Zawinski <jwz@jwz.org>
 ;; Hard: Amiga 1000, Progressive Peripherals Frame Grabber.
 ;; Soft: FG 2.0, DigiPaint 3.0, pbmplus (dec 91), xv 3.0.
 ;; Modified for 19.11 by Eduardo Pelegri-Llopart <pelegri@eng.sun.com>
@@ -35,7 +35,7 @@
 ;; 19.13 and 19.14 updating done by Chuck Thompson.
 ;; 19.15 and 20.0 updating done by Steve Baur and Martin Buchholz.
 
-;; Completely rewritten for 20.3 by Hrvoje Niksic <hniksic@srce.hr>.
+;; Completely rewritten for 20.3 by Hrvoje Niksic <hniksic@xemacs.org>.
 ;; The original had no version numbers; I numbered the rewrite as 2.0.
 
 ;; Many things in this file are to gag.  Ideally, we should just use
@@ -57,19 +57,19 @@
 (defvar xemacs-hackers
   '((ajc      "Andrew Cosgriff"   "ajc@bing.wattle.id.au")
     (baw      "Barry Warsaw"      "bwarsaw@python.org")
-    (bw       "Bob Weiner"        "weiner@altrasoft.com")
+    (bw       "Bob Weiner"        "weiner@beopen.com")
     (chr      "Christian Nybø"    "chr@mediascience.no")
     (cthomp   "Chuck Thompson"    "cthomp@xemacs.org")
     (dmoore   "David Moore"       "dmoore@ucsd.edu")
     (dkindred "Darrell Kindred"	  "dkindred@cmu.edu")
     (dv       "Didier Verna"      "verna@inf.enst.fr")
-    (hniksic  "Hrvoje Niksic"     "hniksic@srce.hr")
+    (hniksic  "Hrvoje Niksic"     "hniksic@xemacs.org")
     (jareth   "Jareth Hein"       "jareth@camelot.co.jp")
     (jason    "Jason Mastaler"	  "jason@xemacs.org")
     (jens     "Jens Lautenbacher" "jens@lemcbed.lem.uni-karlsruhe.de")
     (jmiller  "Jeff Miller"       "jmiller@smart.net")
     (juhp     "Jens-Ulrik Holger Petersen" "petersen@kurims.kyoto-u.ac.jp")
-    (jwz      "Jamie Zawinski"    "jwz@netscape.com")
+    (jwz      "Jamie Zawinski"    "jwz@jwz.org")
     (kazz     "IENAGA Kazuyuki"   "ienaga@jsys.co.jp")
     (kyle     "Kyle Jones"        "kyle_jones@wonderworks.com")
     (larsi    "Lars Magne Ingebrigtsen" "larsi@gnus.org")
@@ -89,7 +89,7 @@
     (stig     "Jonathan Stigelman" "stig@hackvan.com")
     (stigb    "Stig Bjorlykke"	  "stigb@tihlde.hist.no")
     (thiessel "Marcus Thiessel"   "marcus@xemacs.org")
-    (vladimir "Vladimir Ivanovic" "vladimir@mri.com")
+    (vladimir "Vladimir Ivanovic" "vladimir@acm.com")
     (wing     "Ben Wing"          "ben@xemacs.org")
     (wmperry  "William Perry"     "wmperry@aventail.com"))
   "Alist of XEmacs hackers.")
@@ -98,29 +98,29 @@
 ;; It is preferred to a simple string, because it makes maintenance
 ;; easier.  Please add new URLs to this list.
 (defvar about-url-alist
-  '((ajc       . "http://www-personal.monash.edu.au/~ajc/")
-    (altrasoft . "http://www.altrasoft.com/")
-    (ben       . "http://www.666.com/ben/")
+  '((ajc        . "http://www-personal.monash.edu.au/~ajc/")
+    (beopen     . "http://www.beopen.com/")
+    (ben        . "http://www.666.com/ben/")
     (ben-xemacs . "http://www.666.com/xemacs/")
-    (baw       . "http://www.python.org/~bwarsaw/")
-    (cc-mode   . "http://www.python.org/ftp/emacs/")
-    (chr       . "http://www.xemacs.org/faq/")
-    (dkindred  . "http://www.cs.cmu.edu/People/dkindred/me.html")
-    (dmoore    . "http://oj.egbt.org/dmoore/")
-    (jason     . "http://www.mastaler.com/")
-    (juhp      . "http://www.kurims.kyoto-u.ac.jp/~petersen/")
-    (jwz       . "http://people.netscape.com/jwz/")
-    (kazz      . "http://www.imasy.or.jp/~kazz/")
-    (kyle      . "http://www.wonderworks.com/kyle/")
-    (larsi     . "http://www.ifi.uio.no/~larsi/")
-    (marcpa    . "http://www.positron911.com/products/power.htm")
-    (ograf     . "http://www.fga.de/~ograf/")
-    (pez       . "http://www.dwwc.com/")
-    (piper     . "http://www.xemacs.freeserve.co.uk/")
-    (vin       . "http://www.upa.org/")
-    (stigb     . "http://www.tihlde.hist.no/~stigb/")
-    (wget      . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
-    (xemacs    . "http://www.xemacs.org/"))
+    (baw        . "http://www.python.org/~bwarsaw/")
+    (cc-mode    . "http://www.python.org/ftp/emacs/")
+    (chr        . "http://www.xemacs.org/faq/")
+    (dkindred   . "http://www.cs.cmu.edu/People/dkindred/me.html")
+    (dmoore     . "http://oj.egbt.org/dmoore/")
+    (jason      . "http://www.mastaler.com/")
+    (juhp       . "http://www.kurims.kyoto-u.ac.jp/~petersen/")
+    (jwz        . "http://www.jwz.org/")
+    (kazz       . "http://www.imasy.or.jp/~kazz/")
+    (kyle       . "http://www.wonderworks.com/kyle/")
+    (larsi      . "http://www.ifi.uio.no/~larsi/")
+    (marcpa     . "http://www.positron911.com/products/power.htm")
+    (ograf      . "http://www.fga.de/~ograf/")
+    (pez        . "http://www.dwwc.com/")
+    (piper      . "http://www.xemacs.freeserve.co.uk/")
+    (vin        . "http://www.upa.org/")
+    (stigb      . "http://www.tihlde.hist.no/~stigb/")
+    (wget       . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
+    (xemacs     . "http://www.xemacs.org/"))
   "Some of the more important URLs.")
 
 (defvar about-left-margin 3)
@@ -659,8 +659,8 @@ Come visit his glorified .plan file at\n\n")
      (widget-insert "Cars are evil.  Ride a bike.\n"))
     (vladimir
      (widget-insert "\
-Former technical lead for XEmacs at Sun.  He is now with Microtec
-Research Inc., working on embedded systems development tools.\n"))
+Former technical lead for XEmacs at Sun.  He is now with a startup
+marketing embedded Java databases.\n"))
     (stig
      (widget-insert "\
 Stig is sort of a tool fetishist.  He has a hate/love relationship
@@ -717,12 +717,12 @@ MS Windows operating systems.\n"))
      (widget-insert "\
 Author of the Hyperbole everyday information management hypertext
 system and the OO-Browser multi-language code browser.  He also
-designed the Altrasoft InfoDock integrated development environment
+designed the BeOpen InfoDock integrated development environment
 for software engineers.  It runs atop XEmacs and is available from
-his firm, Altrasoft, which offers distributions, custom development,
+his firm, BeOpen, which offers distributions, custom development,
 support, and training packages for corporate users of XEmacs, GNU
 Emacs and InfoDock.  See ")
-     (about-url-link 'altrasoft "Visit Altrasoft WWW page")
+     (about-url-link 'beopen "Visit BeOpen WWW page")
      (widget-insert ".
 
 His interests include user interfaces, information management,
@@ -1042,8 +1042,8 @@ Like most free software, XEmacs is a collaborative effort.  These are
 some of the contributors.  We have no doubt forgotten someone; we
 apologize!  You can see some of our faces under the links.\n\n")
     (about-show-linked-info 'vladimir "\
-Former technical lead for XEmacs at Sun Microsystems.  He is now with
-Microtec Research Inc., working on embedded systems development tools.\n")
+Former technical lead for XEmacs at Sun.  He is now with a startup
+marketing embedded Java databases.\n")
     (about-show-linked-info 'stig "\
 Peripatetic uninominal Emacs hacker.  Stig sometimes operates out of a
 big white van set up for nomadic living and hacking.  Implemented the
@@ -1063,9 +1063,9 @@ to cygwin under MS-Windows.\n")
     (about-show-linked-info 'bw "\
 Author of the Hyperbole everyday information management hypertext
 system and the OO-Browser multi-language code browser.  He also
-designed the Altrasoft InfoDock integrated development environment
+designed the BeOpen InfoDock integrated development environment
 for software engineers.  It runs atop XEmacs and is available from
-his firm, Altrasoft, which offers custom development and support packages
+his firm, BeOpen, which offers custom development and support packages
 for corporate users of XEmacs, GNU Emacs and InfoDock.  His interests
 include user interfaces, information management, CASE tools,
 communications and enterprise integration.\n")
@@ -1313,7 +1313,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Jonathan Edwards" "edwards@intranet.com")
        (print-short "Eric Eide" "eeide@asylum.cs.utah.edu")
        (print-short "EKR" "ekr@terisa.com")
-       (print-short "Gunnar Evermann" "Gunnar.Evermann@nats.informatik.uni-hamburg.de")
+       (print-short "Gunnar Evermann" "ge204@eng.cam.ac.uk")
        (print-short "Oscar Figueiredo" "Oscar.Figueiredo@di.epfl.ch")
        (print-short "David Fletcher" "frodo@tsunami.com")
        (print-short "Paul Flinders" "ptf@delcam.co.uk")

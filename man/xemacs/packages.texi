@@ -116,6 +116,17 @@ Hint to system administrators of multi-user systems: it might be a good
 idea to install all packages and not interfere with the wishes of your
 users.
 
+If you can't find which package provides the feature you require, try
+using the @code{package-get-package-provider} function. Eg., if you know 
+that you need @code{thingatpt}, type:
+
+@example
+M-x package-get-package-provider RET thingatpt
+@end example
+
+which will return something like (fsf-compat "1.06"). You can the use
+one of the methods above for installing the package you want.
+
 @subsection XEmacs and Installing Packages
 
 Normally, packages are installed over the network, using EFS

@@ -73,7 +73,7 @@ main ()
 #ifdef SYSV_IPC
 
 int ipc_qid = 0;		/* ipc message queue id */
-int ipc_wpid = 0;		/* watchdog task pid */
+pid_t ipc_wpid = 0;		/* watchdog task pid */
 
 
 /*
@@ -111,7 +111,7 @@ ipc_spawn_watchdog (void)
 {
   if ((ipc_wpid = fork ()) == 0)
     { /* child process */
-      int ppid = getppid ();	/* parent's process id */
+      pid_t ppid = getppid ();	/* parent's process id */
 
       setpgrp();		/* gnu kills process group on exit */
 
@@ -323,7 +323,7 @@ handle_response (void)
   char buf[GSERV_BUFSZ+1];
   int offset=0;
   int s;
-  int len;
+  int len = 0;
   int result_len;
 
   /* read in "n/m:" (n=client fd, m=message length) */

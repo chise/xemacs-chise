@@ -272,6 +272,7 @@ char *alloca();
 #undef HAVE_GETTIMEOFDAY
 #undef HAVE_GETWD
 #undef HAVE_GETCWD
+#undef HAVE_GETPT
 #undef HAVE_LOGB
 #undef HAVE_LRAND48
 #undef HAVE_MATHERR
@@ -294,6 +295,7 @@ char *alloca();
 #undef HAVE_SIGPROCMASK
 #undef HAVE_SIGSETJMP
 #undef HAVE_SNPRINTF
+#undef HAVE_STPCPY
 #undef HAVE_STRCASECMP
 #undef HAVE_STRERROR
 #undef HAVE_TZSET
@@ -553,6 +555,7 @@ extern "C" {
 #endif
 
 /* Allow the source to use standard types */
+#undef ssize_t
 #undef size_t
 #undef pid_t
 #undef mode_t
@@ -581,6 +584,9 @@ extern "C" {
 #undef HAVE_NAS_SOUND
 #undef NAS_NO_ERROR_JUMP
 
+/* Compile in support for ESD (Enlightened Sound Daemon)? */
+#undef HAVE_ESD_SOUND
+
 /* Compile in support for SunPro usage-tracking code? */
 #undef USAGE_TRACKING
 
@@ -601,12 +607,16 @@ extern "C" {
 #undef LWLIB_DIALOGS_MOTIF
 #undef LWLIB_DIALOGS_ATHENA
 #undef LWLIB_DIALOGS_ATHENA3D
+#undef LWLIB_TABS_LUCID
+#undef LWLIB_WIDGETS_MOTIF
+#undef LWLIB_WIDGETS_ATHENA
 
 /* Other things that can be disabled by configure. */
 #undef HAVE_MENUBARS
 #undef HAVE_SCROLLBARS
 #undef HAVE_DIALOGS
 #undef HAVE_TOOLBARS
+#undef HAVE_WIDGETS
 
 
 #if defined (HAVE_MENUBARS) || defined (HAVE_DIALOGS)
@@ -815,5 +825,7 @@ on various systems. */
 #undef LOCKDIR_USER_DEFINED
 #undef INFODIR_USER_DEFINED
 #undef INFOPATH_USER_DEFINED
+
+#undef PDUMP
 
 #endif /* _SRC_CONFIG_H_ */

@@ -93,7 +93,6 @@ DECLARE_LRECORD (compiled_function, Lisp_Compiled_Function);
 				       Lisp_Compiled_Function)
 #define XSETCOMPILED_FUNCTION(x, p) XSETRECORD (x, p, compiled_function)
 #define COMPILED_FUNCTIONP(x) RECORDP (x, compiled_function)
-#define GC_COMPILED_FUNCTIONP(x) GC_RECORDP (x, compiled_function)
 #define CHECK_COMPILED_FUNCTION(x) CHECK_RECORD (x, compiled_function)
 #define CONCHECK_COMPILED_FUNCTION(x) CONCHECK_RECORD (x, compiled_function)
 

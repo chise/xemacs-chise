@@ -151,7 +151,7 @@ Lisp_Object Vdata_directory, Vconfigure_data_directory;
 Lisp_Object Vdoc_directory, Vconfigure_doc_directory;
 Lisp_Object Vconfigure_lock_directory;
 Lisp_Object Vdata_directory_list;
-Lisp_Object Vinfo_directory, Vconfigure_info_directory;
+Lisp_Object Vconfigure_info_directory;
 Lisp_Object Vsite_directory, Vconfigure_site_directory;
 Lisp_Object Vconfigure_info_path;
 Lisp_Object Vinternal_error_checking;
@@ -221,8 +221,8 @@ int inhibit_autoloads;
 int debug_paths;
 
 /* Save argv and argc.  */
-char **initial_argv;
-int initial_argc;
+static char **initial_argv;
+static int initial_argc;
 
 static void sort_args (int argc, char **argv);
 
@@ -547,7 +547,8 @@ main_1 (int argc, char **argv, char **envp, int restart)
   extern int malloc_cookie;
 #endif
 
-#if !defined(SYSTEM_MALLOC) && !defined(HAVE_LIBMCHECK)
+#if (!defined (SYSTEM_MALLOC) && !defined (HAVE_LIBMCHECK)	\
+     && !defined (DOUG_LEA_MALLOC))
   /* Make sure that any libraries we link against haven't installed a
      hook for a gmalloc of a potentially incompatible version. */
   /* If we're using libmcheck, the hooks have already been initialized, */
@@ -555,7 +556,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
   __malloc_hook = NULL;
   __realloc_hook = NULL;
   __free_hook = NULL;
-#endif /* not SYSTEM_MALLOC */
+#endif /* not SYSTEM_MALLOC or HAVE_LIBMCHECK or DOUG_LEA_MALLOC */
 
   noninteractive = 0;
 
@@ -855,6 +856,22 @@ main_1 (int argc, char **argv, char **envp, int restart)
      We try to do things in an order that minimizes the non-obvious
      dependencies between functions. */
 
+  /* purify_flag 1 is correct even if CANNOT_DUMP.
+   * loadup.el will set to nil at end. */
+
+  purify_flag = 0;
+#ifdef PDUMP
+  if (restart)
+    initialized = 1;
+  else {
+    initialized = pdump_load ();
+    purify_flag = !initialized;
+  }
+#else
+  if (!initialized)
+    purify_flag = 1;
+#endif
+
   if (!initialized)
     {
       /* Initialize things so that new Lisp objects
@@ -1013,6 +1030,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui_x ();
 #endif
+#ifdef HAVE_XIM
+#ifdef XIM_XLIB
+      syms_of_input_method_xlib ();
+#endif
+#endif /* HAVE_XIM */
 #endif /* HAVE_X_WINDOWS */
 
 #ifdef HAVE_MS_WINDOWS
@@ -1081,6 +1103,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       syms_of_eldap ();
+#endif
+
+#ifdef HAVE_GPM
+	  syms_of_gpmevent ();
 #endif
 
       /* Now create the subtypes for the types that have them.
@@ -1253,7 +1279,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 staticpro()
 	 Fprovide(symbol)
 	 intern()
-	 pure_put()
+	 Fput()
 	 xmalloc()
 	 defsymbol(), if it's absolutely necessary and you're sure that
 	   the symbol isn't referenced anywhere else in the initialization
@@ -1266,7 +1292,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 Any of the object-creating functions on alloc.c: e.g.
 
 	 make_pure_*()
-	 Fpurecopy()
 	 make_string()
 	 build_string()
 	 make_vector()
@@ -1276,13 +1301,15 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 Fcons()
 	 listN()
 	 make_opaque_ptr()
-	 make_opaque_long()
 
 	 perhaps a few others.
        */
 
       /* Now allow Fprovide() statements to be made. */
       init_provide_once ();
+
+      /* Do that before any specifier creation (esp. vars_of_glyphs()) */
+      vars_of_specifier ();
 
       vars_of_abbrev ();
       vars_of_alloc ();
@@ -1393,7 +1420,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_search ();
       vars_of_select ();
       vars_of_sound ();
-      vars_of_specifier ();
       vars_of_symbols ();
       vars_of_syntax ();
 #ifdef HAVE_TOOLBARS
@@ -1476,6 +1502,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       vars_of_eldap ();
+#endif
+
+#ifdef HAVE_GPM
+	  vars_of_gpmevent ();
 #endif
 
       /* Now initialize any specifier variables.  We do this later
@@ -1609,7 +1639,112 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	  garbage_collect_1 ();
       }
 #endif
+#ifdef PDUMP
+    } else if (!restart) {
+      reinit_alloc_once_early ();
+      reinit_opaque_once_early ();
+
+      reinit_console_type_create_stream ();
+#ifdef HAVE_TTY
+      reinit_console_type_create_tty ();
+#endif
+#ifdef HAVE_X_WINDOWS
+      reinit_console_type_create_x ();
+      reinit_console_type_create_device_x ();
+#endif
+#ifdef HAVE_MS_WINDOWS
+      reinit_console_type_create_mswindows ();
+#endif
+
+      reinit_specifier_type_create ();
+      reinit_specifier_type_create_image ();
+      reinit_specifier_type_create_gutter ();
+      reinit_specifier_type_create_objects ();
+#ifdef HAVE_TOOLBARS
+      reinit_specifier_type_create_toolbar ();
+#endif
+
+      structure_type_create ();
+
+      structure_type_create_chartab ();
+      structure_type_create_faces ();
+      structure_type_create_rangetab ();
+      structure_type_create_hash_table ();
+
+      lstream_type_create ();
+#ifdef FILE_CODING
+      lstream_type_create_file_coding ();
+#endif
+#if defined (HAVE_MS_WINDOWS) && !defined(HAVE_MSG_SELECT)
+      lstream_type_create_mswindows_selectable ();
+#endif
+#ifdef HAVE_UNIX_PROCESSES
+      process_type_create_unix ();
+#endif
+#ifdef HAVE_WIN32_PROCESSES
+      process_type_create_nt ();
+#endif
+
+      reinit_vars_of_buffer ();
+      reinit_vars_of_console ();
+#ifdef DEBUG_XEMACS
+      reinit_vars_of_debug ();
+#endif
+      reinit_vars_of_device ();
+      reinit_vars_of_eval ();
+#ifdef HAVE_X_WINDOWS
+      reinit_vars_of_event_Xt ();
+#endif
+#if defined(HAVE_TTY) && (defined (DEBUG_TTY_EVENT_STREAM) || !defined (HAVE_X_WINDOWS))
+      reinit_vars_of_event_tty ();
+#endif
+#ifdef HAVE_MS_WINDOWS
+      reinit_vars_of_event_mswindows ();
+#endif
+      reinit_vars_of_event_stream ();
+      reinit_vars_of_events ();
+      reinit_vars_of_extents ();
+      reinit_vars_of_font_lock ();
+      reinit_vars_of_glyphs ();
+      reinit_vars_of_glyphs_widget ();
+      reinit_vars_of_insdel ();
+      reinit_vars_of_lread ();
+      reinit_vars_of_lstream ();
+      reinit_vars_of_minibuf ();
+      reinit_vars_of_module ();
+      reinit_vars_of_objects ();
+      reinit_vars_of_print ();
+      reinit_vars_of_redisplay ();
+      reinit_vars_of_search ();
+      reinit_vars_of_scrollbar_x ();
+      reinit_vars_of_undo ();
+      reinit_vars_of_window ();
+
+#ifdef HAVE_MS_WINDOWS
+      reinit_vars_of_frame_mswindows ();
+#endif
+
+#ifdef HAVE_X_WINDOWS
+      reinit_vars_of_device_x ();
+#ifdef HAVE_MENUBARS
+      reinit_vars_of_menubar_x ();
+#endif
+      reinit_vars_of_xselect ();
+#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
+      reinit_vars_of_gui_x ();
+#endif
+#endif
+
+#if defined(MULE) && defined(HAVE_WNN)
+      reinit_vars_of_mule_wnn ();
+#endif
+
+      reinit_complex_vars_of_buffer ();
+      reinit_complex_vars_of_console ();
+      reinit_complex_vars_of_minibuf ();
+#endif
     }
+
 
   /* CONGRATULATIONS!!!  We have successfully initialized the Lisp
      engine. */
@@ -2200,9 +2335,13 @@ voodoo_free_hook (void *mem)
 {
   /* Disable all calls to free() when XEmacs is exiting and it doesn't */
   /* matter. */
-  __free_hook = voodoo_free_hook;
-}
+  __free_hook =
+#ifdef __GNUC__ /* prototype of __free_hook varies with glibc version */
+    (__typeof__ (__free_hook))
 #endif
+    voodoo_free_hook;
+}
+#endif /* GNU_MALLOC */
 
 DEFUN ("kill-emacs", Fkill_emacs, 0, 1, "P", /*
 Exit the XEmacs job and kill it.  Ask for confirmation, without argument.
@@ -2256,13 +2395,17 @@ all of which are called before XEmacs is actually killed.
 
   UNGCPRO;
 
-  shut_down_emacs (0, ((STRINGP (arg)) ? arg : Qnil));
+  shut_down_emacs (0, STRINGP (arg) ? arg : Qnil);
 
 #if defined(GNU_MALLOC)
-  __free_hook = voodoo_free_hook;
+  __free_hook =
+#ifdef __GNUC__ /* prototype of __free_hook varies with glibc version */
+    (__typeof__ (__free_hook))
+#endif
+    voodoo_free_hook;
 #endif
 
-  exit ((INTP (arg)) ? XINT (arg) : 0);
+  exit (INTP (arg) ? XINT (arg) : 0);
   /* NOTREACHED */
   return Qnil; /* I'm sick of the compiler warning */
 }
@@ -2318,12 +2461,16 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	("Your files have been auto-saved.\n"
 	 "Use `M-x recover-session' to recover them.\n"
 	 "\n"
+         "If you have access to the PROBLEMS file that came with your\n"
+         "version of XEmacs, please check to see if your crash is described\n"
+         "there, as there may be a workaround available.\n"
 #ifdef INFODOCK
-	 "Please report this bug by selecting `Report-Bug' in the InfoDock\n"
-	 "menu.\n"
+	 "Otherwise, please report this bug by selecting `Report-Bug'\n"
+         "in the InfoDock menu.\n"
 #else
-	 "Please report this bug by running the send-pr script included\n"
-	 "with XEmacs, or selecting `Send Bug Report' from the help menu.\n"
+	 "Otherwise, please report this bug by running the send-pr\n"
+         "script included with XEmacs, or selecting `Send Bug Report'\n"
+         "from the help menu.\n"
 	 "As a last resort send ordinary email to `crashes@xemacs.org'.\n"
 #endif
 	 "*MAKE SURE* to include the information in the command\n"
@@ -2344,11 +2491,11 @@ shut_down_emacs (int sig, Lisp_Object stuff)
 	/* Now try to determine the actual path to the executable,
 	   to try to make the backtrace-determination process as foolproof
 	   as possible. */
-	if (GC_STRINGP (Vinvocation_name))
+	if (STRINGP (Vinvocation_name))
 	  name = (char *) XSTRING_DATA (Vinvocation_name);
 	else
 	  name = "xemacs";
-	if (GC_STRINGP (Vinvocation_directory))
+	if (STRINGP (Vinvocation_directory))
 	  dir = (char *) XSTRING_DATA (Vinvocation_directory);
 	if (!dir || dir[0] != '/')
 	  stderr_out ("`which %s`", name);
@@ -2512,6 +2659,11 @@ and announce itself normally when it is run.
       symname_ext = 0;
 
     garbage_collect_1 ();
+
+#ifdef PDUMP
+    pdump ();
+#else
+
 #ifdef DOUG_LEA_MALLOC
     malloc_state_ptr = malloc_get_state ();
 #endif
@@ -2525,6 +2677,7 @@ and announce itself normally when it is run.
 #ifdef DOUG_LEA_MALLOC
     free (malloc_state_ptr);
 #endif
+#endif /* not PDUMP */
   }
 #endif /* not MSDOS and EMX */
 
@@ -2784,7 +2937,7 @@ Symbol indicating type of operating system you are using.
   DEFVAR_LISP ("system-configuration", &Vsystem_configuration /*
 String naming the configuration XEmacs was built for.
 */ );
-  Vsystem_configuration = Fpurecopy (build_string (EMACS_CONFIGURATION));
+  Vsystem_configuration = build_string (EMACS_CONFIGURATION);
 
 #ifndef EMACS_CONFIG_OPTIONS
 # define EMACS_CONFIG_OPTIONS "UNKNOWN"
@@ -2792,8 +2945,7 @@ String naming the configuration XEmacs was built for.
   DEFVAR_LISP ("system-configuration-options", &Vsystem_configuration_options /*
 String containing the configuration options XEmacs was built with.
 */ );
-  Vsystem_configuration_options = Fpurecopy (build_string
-					     (EMACS_CONFIG_OPTIONS));
+  Vsystem_configuration_options = build_string (EMACS_CONFIG_OPTIONS);
 
   DEFVAR_LISP ("emacs-major-version", &Vemacs_major_version /*
 Major version number of this version of Emacs, as an integer.
@@ -2859,7 +3011,7 @@ Codename of this version of Emacs (a string).
 #ifndef XEMACS_CODENAME
 #define XEMACS_CODENAME "Noname"
 #endif
-  Vxemacs_codename = Fpurecopy (build_string (XEMACS_CODENAME));
+  Vxemacs_codename = build_string (XEMACS_CODENAME);
 
   DEFVAR_BOOL ("noninteractive", &noninteractive1 /*
 Non-nil means XEmacs is running without interactive terminal.
@@ -2933,7 +3085,6 @@ bufpos		- check buffer positions.
   Vinternal_error_checking = Fcons (intern ("bufpos"),
 				    Vinternal_error_checking);
 #endif
-  Vinternal_error_checking = Fpurecopy (Vinternal_error_checking);
 
   DEFVAR_LISP ("path-separator", &Vpath_separator /*
 The directory separator in search paths, as a string.
@@ -3160,7 +3311,7 @@ The configured initial path for info documentation.
 #endif
 }
 
-#ifdef __sgi
+#if defined(__sgi) && !defined(PDUMP)
 /* This is so tremendously ugly I'd puke. But then, it works.
  * The target is to override the static constructor from the
  * libiflPNG.so library which is maskerading as libz, and

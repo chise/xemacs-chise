@@ -21,6 +21,215 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-12-13  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	* configure.usage:
+	- Autodetect NAS.  Change Docs accordingly.
+
+	* configure.in: Warn if configure --with-xpm --without-x11.
+
+1999-12-09  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Clean up sound support.
+	- variable `old_nas' was used but never set.
+	- change `with_esd' to `with_esd_sound' for consistency.
+	- Don't trust the output of `esd-config --libs`; test it.
+	- Add `esd-config --cflags` to c_switch_site.
+	- Die if ESD sound requested, but not available.
+	- ESD is not dependent on X, therefore use LIBS, not libs_x.
+
+1999-12-07  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (--with-sound): Variable with_esd was mispelled.
+
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Fix module support.
+	--with-modules=yes was completely broken.
+	AC_DEFINE(HAVE_DLFCN_H) was invoked twice.
+	Remove linking test for _dlopen - seems totally bogus.
+	Die if --with-modules=yes but no module support found.
+	Do nothing, not even msg, if --with-modules=no.
+
+1999-11-17  Isaac Hollander  <ysh@mindspring.com>
+
+        * Makefile.in.in: add and use TAR macro.  Sometimes tar only copies
+        symlinks instead of the actual files
+
+1999-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* aclocal.m4: Shared library support for hpux >= version 11
+
+1999-11-29  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (beta): `make beta' should rebuild info.
+
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-26  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	Add configure support for Unix 98 type ssize_t.
+
+1999-11-27  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in:
+	Make sure config.values.sh is up to date.
+	Use $(SHELL) instead of sh or /bin/sh consistently.
+	Delegate `depend' target to src/Makefile.in.in.
+
+1999-10-27  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* INSTALL: Update configure option.
+
+1999-10-12  Alexandre Oliva  <oliva@lsd.ic.unicamp.br>
+	
+	* configure.in (native_sound_lib, *-sgi-*): Check for audio.h.
+	(LIBS): Check for libCsup.
+
+	* etc/sample.Xdefaults: adds a reference to beNiceToColormap,
+	  so that the user can guess what to do if xemacs' dialogs are
+	  butt ugly.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* config.h.in: define HAVE_ESD_SOUND
+
+	* configure.in: Add support for esd sound. --with-sound
+	now accepts a list of options.
+	* configure.usage (--native-sound-lib): ditto.
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (install-arch-dep): 
+	Fix `make install' if prefix != exec_prefix.
+
+1999-11-15  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	- Accept --with-database=gdbm as an alias for
+	--with-database=gnudbm.
+	- rename with_database_gnudbm to with_database_gdbm.
+
+	* aclocal.m4 (ld_dynamic_link_flags): Just use empty value for
+	ld_dynamic_link_flags on Solaris.  Else CC gives us:
+	CC: Warning: Option -Wl,-Bdynamic passed to ld, if ld is invoked, ignored otherwise
+	/usr/ccs/bin/ld: illegal option -- W
+
+
+1999-11-13  Jason R Mastaler  <jason@mastaler.com>
+
+	* etc/FTP: Updated FTP mirrors list.  Replaced GNU FTP document
+ 	with a URL.
+
+1999-11-13  Jason R Mastaler  <jason@mastaler.com>
+
+	* etc/MAILINGLISTS: Updated mailing list subscription information.
+  	Replaced GNU MAILINGLISTS document with a URL.
+
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-09-21   Martin Buchholz <martin@xemacs.org>
+	* configure.in: Autodetect Unix98 PTY
+
+1999-08-30  Robert Pluim  <rpluim@bigfoot.com>
+
+	* README.packages: Add description of package-get-provider
+
+1999-10-22  Vin Shelton  <acs@xemacs.org>
+
+	* INSTALL: Added more information about README.packages, and
+	re-numbered some bullets.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* INSTALL: Update disk requirements. Refer to README.packages
+
+1999-10-21  Andy Piper  <andy@xemacs.org>
+
+	* configure.in (all_widgets): Only use xaw3d if we really have it.
+
+1999-10-06  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in: use WINDOWSNT for mingw install.
+
+1999-08-01  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* etc/DISTRIB: Update IP address of ftp.xemacs.org.
+	* etc/NEWS: Fix typo
+
+1999-09-25  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: check for Xaw3d and use in preference to Xaw
+
+1999-09-21  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in: All Makefiles should #include config.h
+
+1999-09-19  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in (EMACS_CONFIGURATION): Use $configuration, not
+	$canonical, so that installation paths and dynamic path setup will 
+	stay in synch.
+
+1999-09-20  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in: use __CYGWIN32__ and __MINGW32__ to predicate
+ 	installation linkage.
+
+1999-08-29  Andreas Jaeger  <aj@arthur.rhein-neckar.de>
+
+	* configure.in (machine): Recognize MIPS/Linux.
+
+1999-08-27  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* modules/zlib/Makefile (distclean): 
+	* modules/ldap/Makefile (distclean): 
+	* modules/sample/Makefile (distclean): 
+	* modules/base64/Makefile (distclean): new target
+
+	* Makefile.in.in (top_distclean): Add package directories
+	(SUBDIR_DISTCLEAN): New variable, add module directories
+
+1999-09-01  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Warn, but otherwise ignore, obsolete arguments.
+
+1999-08-20  Olivier Galibert  <galibert@pobox.com>
+  
+	* configure.in: Add --pdump option.
+	* configure.usage:  Ditto.
+  
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: report widget usage correctly. beef up setting.
+
+	* Makefile.in.in: fix install-arch-dep for mingw32.
+
+1999-07-28  Andy Piper  <andy@xemacs.org>
+
+	* config.h.in: add new LWLIB defines.
+
+	* configure.in: fix definitions of widget defines with various
+ 	toolkit options.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released
@@ -1899,7 +2108,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-10-18  SL Baur  <steve@altair.xemacs.org>
 
-        * XEmacs 20.3-beta91 is released.
+	* XEmacs 20.3-beta91 is released.
 
 1997-10-16  Hrvoje Niksic <hniksic@srce.hr>
 
@@ -3221,7 +3430,7 @@ Sat Mar 22 16:47:08 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 Sat Mar 22 21:27:41 1997  Tomasz J. Cholewo  <t.cholewo@ieee.org>
 
-        * configure.in: Echo only current configuration using 'tee -a'.
+	* configure.in: Echo only current configuration using 'tee -a'.
 
 Fri Mar 21 21:26:01 1997  Steven L Baur  <steve@altair.xemacs.org>
 

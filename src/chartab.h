@@ -42,7 +42,6 @@ DECLARE_LRECORD (char_table_entry, struct Lisp_Char_Table_Entry);
   XRECORD (x, char_table_entry, struct Lisp_Char_Table_Entry)
 #define XSETCHAR_TABLE_ENTRY(x, p) XSETRECORD (x, p, char_table_entry)
 #define CHAR_TABLE_ENTRYP(x) RECORDP (x, char_table_entry)
-#define GC_CHAR_TABLE_ENTRYP(x) GC_RECORDP (x, char_table_entry)
 /* #define CHECK_CHAR_TABLE_ENTRY(x) CHECK_RECORD (x, char_table_entry)
    char table entries should never escape to Lisp */
 
@@ -63,7 +62,6 @@ DECLARE_LRECORD (char_table, struct Lisp_Char_Table);
   XRECORD (x, char_table, struct Lisp_Char_Table)
 #define XSETCHAR_TABLE(x, p) XSETRECORD (x, p, char_table)
 #define CHAR_TABLEP(x) RECORDP (x, char_table)
-#define GC_CHAR_TABLEP(x) GC_RECORDP (x, char_table)
 #define CHECK_CHAR_TABLE(x) CHECK_RECORD (x, char_table)
 #define CONCHECK_CHAR_TABLE(x) CONCHECK_RECORD (x, char_table)
 
@@ -190,7 +188,7 @@ int map_char_table (struct Lisp_Char_Table *ct,
 		    int (*fn) (struct chartab_range *range,
 			       Lisp_Object val, void *arg),
 		    void *arg);
-void prune_syntax_tables (int (*obj_marked_p) (Lisp_Object));
+void prune_syntax_tables (void);
 
 EXFUN (Fcopy_char_table, 1);
 EXFUN (Fmake_char_table, 1);

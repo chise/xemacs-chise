@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 3.12s from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -149,7 +149,7 @@ other than Mayan; for the Mayan calendar, see the following section.
    These commands ask you for a date on the other calendar, move point
 to the Gregorian calendar date equivalent to that date, and display the
 other calendar's date in the echo area.  Emacs uses strict completion
-(*note Completion::.) whenever it asks you to type a month name, so you
+(*note Completion::) whenever it asks you to type a month name, so you
 don't have to worry about the spelling of Hebrew, Islamic, or French
 names.
 
@@ -227,14 +227,14 @@ date and moves point to the previous occurrence of that date.
 Similarly, type `g m n h' to go to the next occurrence of a haab date.
 
    The Maya also used the combination of the tzolkin date and the haab
-date.  This combination is a cycle of about 52 years called a *calendar
-round*.  If you type `g m p c', Emacs asks you for both a haab and a
+date.  This combination is a cycle of about 52 years called a _calendar
+round_.  If you type `g m p c', Emacs asks you for both a haab and a
 tzolkin date and then moves point to the previous occurrence of that
 combination.  Use `g m n c' to move point to the next occurrence of a
 combination.  These commands signal an error if the haab/tzolkin date
 combination you have typed is impossible.
 
-   Emacs uses strict completion (*note Completion::.) whenever it asks
+   Emacs uses strict completion (*note Completion::) whenever it asks
 you to type a Mayan name, so you don't have to worry about spelling.
 
 
@@ -271,7 +271,7 @@ of the entries.  Such formatting is purely a matter of taste.
    Although you probably will start by creating a diary manually, Emacs
 provides a number of commands to let you view, add, and change diary
 entries.  You can also share diary entries with other users (*note
-Included Diary Files::.).
+Included Diary Files::).
 
 * Menu:
 
@@ -334,7 +334,7 @@ different face (or places a `+' after these dates, if display with
 multiple faces is not available).  The command applies both to the
 currently visible months and to other months that subsequently become
 visible by scrolling.  To turn marking off and erase the current marks,
-type `u', which also turns off holiday marks (*note Holidays::.).
+type `u', which also turns off holiday marks (*note Holidays::).
 
    To see the full diary file, rather than just some of the entries, use
 the `s' command.
@@ -344,15 +344,14 @@ to hide entries that don't apply.
 
    The diary buffer as you see it is an illusion, so simply printing the
 buffer does not print what you see on your screen.  There is a special
-command to print hard copy of the diary buffer *as it appears*; this
+command to print hard copy of the diary buffer _as it appears_; this
 command is `M-x print-diary-entries'.  It sends the data directly to
-the printer.  You can customize it like `lpr-region' (*note
-Hardcopy::.).
+the printer.  You can customize it like `lpr-region' (*note Hardcopy::).
 
    The command `M-x diary' displays the diary entries for the current
 date, independently of the calendar display, and optionally for the next
 few days as well; the variable `number-of-diary-entries' specifies how
-many days to include (*note Customization::.).
+many days to include (*note Customization::).
 
    If you put `(diary)' in your `.emacs' file, this automatically
 displays a window with the day's diary entries, when you enter Emacs.
@@ -412,13 +411,13 @@ entries, but can cause confusion if you ask for more than one day's
 entries.
 
    You can edit the diary entries as they appear in the window, but it
-is important to remember that the buffer displayed contains the *entire*
+is important to remember that the buffer displayed contains the _entire_
 diary file, with portions of it concealed from view.  This means, for
 instance, that the `C-f' (`forward-char') command can put point at what
 appears to be the end of the line, but what is in reality the middle of
 some concealed line.
 
-   *Be careful when editing the diary entries!*  Inserting additional
+   _Be careful when editing the diary entries!_  Inserting additional
 lines or adding/deleting characters in the middle of a visible line
 cannot cause problems, but editing at the end of a line may not do what
 you expect.  Deleting a line may delete other invisible entries that
@@ -466,7 +465,7 @@ any day in March of any year; so does `march *'.
 
    If you prefer the European style of writing dates--in which the day
 comes before the month--type `M-x european-calendar' while in the
-calendar, or set the variable `european-calendar-style' to `t' *before*
+calendar, or set the variable `european-calendar-style' to `t' _before_
 using any calendar or diary command.  This mode interprets all dates in
 the diary in the European manner, and also uses European style for
 displaying diary dates.  (Note that there is no comma after the
@@ -598,7 +597,7 @@ calendar style, the month and day are interchanged.)
 nonmarking entry, give a numeric argument to the command.  For example,
 `C-u i a' makes a nonmarking anniversary diary entry.
 
-   Marking sexp diary entries in the calendar is *extremely*
+   Marking sexp diary entries in the calendar is _extremely_
 time-consuming, since every date visible in the calendar window must be
 individually checked.  So it's a good idea to make sexp diary entries
 nonmarking (with `&') when possible.
@@ -624,7 +623,7 @@ year.
 based on any Emacs Lisp expression.  You can use the library of built-in
 functions or you can write your own functions.  The built-in functions
 include the ones shown in this section, plus a few others (*note Sexp
-Diary Entries::.).
+Diary Entries::).
 
    The generality of sexps lets you specify any diary entry that you can
 describe algorithmically.  Suppose you get paid on the 21st of the month
@@ -641,7 +640,7 @@ to just those dates.  This example illustrates how the sexp can depend
 on the variable `date'; this variable is a list (MONTH DAY YEAR) that
 gives the Gregorian date for which the diary entries are being found.
 If the value of the sexp is `t', the entry applies to that date.  If
-the sexp evaluates to `nil', the entry does *not* apply to that date.
+the sexp evaluates to `nil', the entry does _not_ apply to that date.
 
 
 File: xemacs.info,  Node: Calendar Customization,  Prev: Diary,  Up: Calendar/Diary
@@ -692,7 +691,7 @@ period.  The holiday list appears in a separate window.
    You can set the variable `mark-diary-entries-in-calendar' to `t' in
 order to mark any dates with diary entries.  This takes effect whenever
 the calendar window contents are recomputed.  There are two ways of
-marking these dates: by changing the face (*note Faces::.), if the
+marking these dates: by changing the face (*note Faces::), if the
 display supports that, or by placing a plus sign (`+') beside the date
 otherwise.
 
@@ -738,7 +737,7 @@ default for this variable when Emacs supports multiple faces on your
 terminal.
 
 A similar normal hook, `today-invisible-calendar-hook' is run if the
-current date is *not* visible in the window.
+current date is _not_ visible in the window.
 
 
 File: xemacs.info,  Node: Holiday Customizing,  Next: Date Display Format,  Prev: Calendar Customizing,  Up: Calendar Customization
@@ -1051,8 +1050,8 @@ order by day and time.
 the standard American nor European styles suits your needs, by setting
 the variable `diary-date-forms'.  This variable is a list of patterns
 for recognizing a date.  Each date pattern is a list whose elements may
-be regular expressions (*note Regexps::.) or the symbols `month',
-`day', `year', `monthname', and `dayname'.  All these elements serve as
+be regular expressions (*note Regexps::) or the symbols `month', `day',
+`year', `monthname', and `dayname'.  All these elements serve as
 patterns that match certain kinds of text in the diary file.  In order
 for the date pattern, as a whole, to match, all of its elements must
 match consecutively.
@@ -1083,11 +1082,11 @@ standard syntax table from Fundamental mode (*note Syntax Tables:
 (lispref)Syntax Tables.), but with the `*' changed so that it is a word
 constituent.
 
-   The date patterns in the list must be *mutually exclusive* and must
+   The date patterns in the list must be _mutually exclusive_ and must
 not match any portion of the diary entry itself, just the date and one
 character of whitespace.  If, to be mutually exclusive, the pattern
 must match a portion of the diary entry text--beyond the whitespace
-that ends the date--then the first element of the date pattern *must*
+that ends the date--then the first element of the date pattern _must_
 be `backup'.  This causes the date recognizer to back up to the
 beginning of the current word of the diary entry, after finishing the
 match.  Even if you use `backup', the date pattern must absolutely not

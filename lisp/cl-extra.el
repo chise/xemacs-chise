@@ -183,16 +183,14 @@ the elements themselves."
       (nreverse cl-res))))
 
 
-;; mapc is now in C, renamed from `mapc-internal'.
-
-;(defun mapc (cl-func cl-seq &rest cl-rest)
-;  "Like `mapcar', but does not accumulate values returned by the function."
-;  (if cl-rest
-;      (apply 'map nil cl-func cl-seq cl-rest)
-;    ;; XEmacs change: we call mapc-internal, which really doesn't
-;    ;; accumulate any results.
-;    (mapc-internal cl-func cl-seq))
-;  cl-seq)
+(defun mapc (cl-func cl-seq &rest cl-rest)
+  "Like `mapcar', but does not accumulate values returned by the function."
+  (if cl-rest
+      (apply 'map nil cl-func cl-seq cl-rest)
+    ;; XEmacs change: in the simplest case we call mapc-internal,
+    ;; which really doesn't accumulate any results.
+    (mapc-internal cl-func cl-seq))
+  cl-seq)
 
 (defun mapl (cl-func cl-list &rest cl-rest)
   "Like `maplist', but does not accumulate values returned by the function."
@@ -674,13 +672,13 @@ PROPLIST is a list of the sort returned by `symbol-plist'."
 ;; The `regular' Common Lisp hash-table stuff has been moved into C.
 ;; Only backward compatibility stuff remains here.
 (defun make-hashtable (size &optional test)
-  (make-hash-table :size size :test test :type 'non-weak))
+  (make-hash-table :test test :size size))
 (defun make-weak-hashtable (size &optional test)
-  (make-hash-table :size size :test test :type 'weak))
+  (make-hash-table :test test :size size :weakness t))
 (defun make-key-weak-hashtable (size &optional test)
-  (make-hash-table :size size :test test :type 'key-weak))
+  (make-hash-table :test test :size size :weakness 'key))
 (defun make-value-weak-hashtable (size &optional test)
-  (make-hash-table :size size :test test :type 'value-weak))
+  (make-hash-table :test test :size size :weakness 'value))
 
 (define-obsolete-function-alias 'hashtablep 'hash-table-p)
 (define-obsolete-function-alias 'hashtable-fullness 'hash-table-count)
@@ -693,6 +691,7 @@ PROPLIST is a list of the sort returned by `symbol-plist'."
 (make-obsolete 'make-weak-hashtable       'make-hash-table)
 (make-obsolete 'make-key-weak-hashtable   'make-hash-table)
 (make-obsolete 'make-value-weak-hashtable 'make-hash-table)
+(make-obsolete 'hash-table-type           'hash-table-weakness)
 
 (when (fboundp 'x-keysym-hash-table)
   (make-obsolete 'x-keysym-hashtable 'x-keysym-hash-table))

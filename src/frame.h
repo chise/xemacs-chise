@@ -94,6 +94,9 @@ struct frame
   /* subwindow cache elements for this frame */
   subwindow_cachel_dynarr *subwindow_cachels;
 
+  struct expose_ignore* subwindow_exposures;
+  struct expose_ignore* subwindow_exposures_tail;
+
 #ifdef HAVE_SCROLLBARS
   /* frame-local scrollbar information.  See scrollbar.c. */
   int scrollbar_y_offset;
@@ -178,6 +181,7 @@ Value : Emacs meaning                           :f-v-p : X meaning
   unsigned int faces_changed :1;
   unsigned int frame_changed :1;
   unsigned int subwindows_changed :1;
+  unsigned int subwindows_state_changed :1;
   unsigned int glyphs_changed :1;
   unsigned int icon_changed :1;
   unsigned int menubar_changed :1;
@@ -233,7 +237,6 @@ DECLARE_LRECORD (frame, struct frame);
 #define XFRAME(x) XRECORD (x, frame, struct frame)
 #define XSETFRAME(x, p) XSETRECORD (x, p, frame)
 #define FRAMEP(x) RECORDP (x, frame)
-#define GC_FRAMEP(x) GC_RECORDP (x, frame)
 #define CHECK_FRAME(x) CHECK_RECORD (x, frame)
 #define CONCHECK_FRAME(x) CONCHECK_RECORD (x, frame)
 
@@ -260,7 +263,7 @@ error_check_frame_type (struct frame * f, Lisp_Object sym)
   return f;
 }
 # define FRAME_TYPE_DATA(f, type)			\
- ((struct type##_frame *) (error_check_frame_type (f, Q##type))->frame_data)
+ ((struct type##_frame *) error_check_frame_type (f, Q##type)->frame_data)
 #else
 # define FRAME_TYPE_DATA(f, type)			\
   ((struct type##_frame *) (f)->frame_data)
@@ -338,6 +341,19 @@ extern int frame_changed;
     }							\
   else							\
     subwindows_changed = 1;					\
+} while (0)
+
+#define MARK_FRAME_SUBWINDOWS_STATE_CHANGED(f) do {	\
+  struct frame *mfgc_f = (f);				\
+  mfgc_f->subwindows_state_changed = 1;		\
+  mfgc_f->modiff++;					\
+  if (!NILP (mfgc_f->device))				\
+    {							\
+      struct device *mfgc_d = XDEVICE (mfgc_f->device);	\
+      MARK_DEVICE_SUBWINDOWS_STATE_CHANGED (mfgc_d);	\
+    }							\
+  else							\
+    subwindows_state_changed = 1;			\
 } while (0)
 
 #define MARK_FRAME_TOOLBARS_CHANGED(f) do {		\

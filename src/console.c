@@ -53,6 +53,7 @@ Lisp_Object Qsuspend_resume_hook;
    list of consoles and stores into each console that does not say
    it has a local value.  */
 Lisp_Object Vconsole_defaults;
+static void *console_defaults_saved_slots;
 
 /* This structure marks which slots in a console have corresponding
    default values in console_defaults.
@@ -69,7 +70,7 @@ Lisp_Object Vconsole_defaults;
    consoles.
 
    If a slot is -1, then there is a DEFVAR_CONSOLE_LOCAL for it
-   as well as a default value which is used to initialize newly-created
+  as well as a default value which is used to initialize newly-created
    consoles and as a reset-value when local-vars are killed.
 
    If a slot is -2, there is no DEFVAR_CONSOLE_LOCAL for it.
@@ -87,6 +88,7 @@ struct console console_local_flags;
 /* This structure holds the names of symbols whose values may be
    console-local.  It is indexed and accessed in the same way as the above. */
 static Lisp_Object Vconsole_local_symbols;
+static void *console_local_symbols_saved_slots;
 
 DEFINE_CONSOLE_TYPE (dead);
 
@@ -96,19 +98,19 @@ console_type_entry_dynarr *the_console_type_entry_dynarr;
 
 
 static Lisp_Object
-mark_console (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_console (Lisp_Object obj)
 {
   struct console *con = XCONSOLE (obj);
 
-#define MARKED_SLOT(x) ((void) (markobj (con->x)));
+#define MARKED_SLOT(x) mark_object (con->x)
 #include "conslots.h"
 #undef MARKED_SLOT
 
   /* Can be zero for Vconsole_defaults, Vconsole_local_symbols */
   if (con->conmeths)
     {
-      markobj (con->conmeths->symbol);
-      MAYBE_CONMETH (con, mark_console, (con, markobj));
+      mark_object (con->conmeths->symbol);
+      MAYBE_CONMETH (con, mark_console, (con));
     }
 
   return Qnil;
@@ -1096,10 +1098,44 @@ syms_of_console (void)
   defsymbol (&Qsuspend_resume_hook, "suspend-resume-hook");
 }
 
+static const struct lrecord_description cte_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(console_type_entry, symbol), 1 },
+  { XD_STRUCT_PTR,  offsetof(console_type_entry, meths), 1, &console_methods_description },
+  { XD_END }
+};
+
+static const struct struct_description cte_description = {
+  sizeof(console_type_entry),
+  cte_description_1
+};
+
+static const struct lrecord_description cted_description_1[] = {
+  XD_DYNARR_DESC(console_type_entry_dynarr, &cte_description),
+  { XD_END }
+};
+
+const struct struct_description cted_description = {
+  sizeof(console_type_entry_dynarr),
+  cted_description_1
+};
+
+static const struct lrecord_description console_methods_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(struct console_methods, symbol), 2 },
+  { XD_LISP_OBJECT, offsetof(struct console_methods, image_conversion_list), 1 },
+  { XD_END }
+};
+
+const struct struct_description console_methods_description = {
+  sizeof(struct console_methods),
+  console_methods_description_1
+};
+
+
 void
 console_type_create (void)
 {
   the_console_type_entry_dynarr = Dynarr_new (console_type_entry);
+  dumpstruct(&the_console_type_entry_dynarr, &cted_description);
 
   Vconsole_type_list = Qnil;
   staticpro (&Vconsole_type_list);
@@ -1114,8 +1150,19 @@ console_type_create (void)
 }
 
 void
+reinit_vars_of_console (void)
+{
+  staticpro_nodump (&Vconsole_list);
+  Vconsole_list = Qnil;
+  staticpro_nodump (&Vselected_console);
+  Vselected_console = Qnil;
+}
+
+void
 vars_of_console (void)
 {
+  reinit_vars_of_console ();
+
   DEFVAR_LISP ("create-console-hook", &Vcreate_console_hook /*
 Function or functions to call when a console is created.
 One argument, the newly-created console.
@@ -1130,11 +1177,6 @@ Function or functions to call when a console is deleted.
 One argument, the to-be-deleted console.
 */ );
   Vdelete_console_hook = Qnil;
-
-  staticpro (&Vconsole_list);
-  Vconsole_list = Qnil;
-  staticpro (&Vselected_console);
-  Vselected_console = Qnil;
 
 #ifdef HAVE_WINDOW_SYSTEM
   Fprovide (intern ("window-system"));
@@ -1184,13 +1226,13 @@ nuke_all_console_slots (struct console *con, Lisp_Object zap)
 {
   zero_lcrecord (con);
 
-#define MARKED_SLOT(x)	con->x = (zap);
+#define MARKED_SLOT(x)	con->x = zap
 #include "conslots.h"
 #undef MARKED_SLOT
 }
 
-void
-complex_vars_of_console (void)
+static void
+common_init_complex_vars_of_console (void)
 {
   /* Make sure all markable slots in console_defaults
      are initialized reasonably, so mark_console won't choke.
@@ -1198,8 +1240,8 @@ complex_vars_of_console (void)
   struct console *defs = alloc_lcrecord_type (struct console, &lrecord_console);
   struct console *syms = alloc_lcrecord_type (struct console, &lrecord_console);
 
-  staticpro (&Vconsole_defaults);
-  staticpro (&Vconsole_local_symbols);
+  staticpro_nodump (&Vconsole_defaults);
+  staticpro_nodump (&Vconsole_local_symbols);
   XSETCONSOLE (Vconsole_defaults, defs);
   XSETCONSOLE (Vconsole_local_symbols, syms);
 
@@ -1254,6 +1296,53 @@ complex_vars_of_console (void)
        currently allowable due to the XINT() handling of this value.
        With some rearrangement you can get 4 more bits. */
   }
+}
+
+
+#define CONSOLE_SLOTS_SIZE (offsetof (struct console, CONSOLE_SLOTS_LAST_NAME) - offsetof (struct console, CONSOLE_SLOTS_FIRST_NAME) + sizeof (Lisp_Object))
+#define CONSOLE_SLOTS_COUNT (CONSOLE_SLOTS_SIZE / sizeof (Lisp_Object))
+
+void
+reinit_complex_vars_of_console (void)
+{
+  struct console *defs, *syms;
+
+  common_init_complex_vars_of_console ();
+
+  defs = XCONSOLE (Vconsole_defaults);
+  syms = XCONSOLE (Vconsole_local_symbols);
+  memcpy (&defs->CONSOLE_SLOTS_FIRST_NAME,
+	  console_defaults_saved_slots,
+	  CONSOLE_SLOTS_SIZE);
+  memcpy (&syms->CONSOLE_SLOTS_FIRST_NAME,
+	  console_local_symbols_saved_slots,
+	  CONSOLE_SLOTS_SIZE);
+}
+
+
+static const struct lrecord_description console_slots_description_1[] = {
+  { XD_LISP_OBJECT, 0, CONSOLE_SLOTS_COUNT },
+  { XD_END }
+};
+
+static const struct struct_description console_slots_description = {
+  CONSOLE_SLOTS_SIZE,
+  console_slots_description_1
+};
+
+void
+complex_vars_of_console (void)
+{
+  struct console *defs, *syms;
+
+  common_init_complex_vars_of_console ();
+
+  defs = XCONSOLE (Vconsole_defaults);
+  syms = XCONSOLE (Vconsole_local_symbols);
+  console_defaults_saved_slots      = &defs->CONSOLE_SLOTS_FIRST_NAME;
+  console_local_symbols_saved_slots = &syms->CONSOLE_SLOTS_FIRST_NAME;
+  dumpstruct (&console_defaults_saved_slots,      &console_slots_description);
+  dumpstruct (&console_local_symbols_saved_slots, &console_slots_description);
 
   DEFVAR_CONSOLE_DEFAULTS ("default-function-key-map", function_key_map /*
 Default value of `function-key-map' for consoles that don't override it.

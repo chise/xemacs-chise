@@ -131,13 +131,13 @@ static struct passwd the_passwd =
   the_passwd_shell,
 };
 
-int 
+uid_t
 getuid () 
 { 
   return the_passwd.pw_uid;
 }
 
-int 
+uid_t 
 geteuid () 
 { 
   /* I could imagine arguing for checking to see whether the user is
@@ -146,20 +146,20 @@ geteuid ()
   return getuid (); 
 }
 
-int 
+gid_t
 getgid () 
 { 
   return the_passwd.pw_gid;
 }
 
-int 
+gid_t
 getegid () 
 { 
   return getgid ();
 }
 
 struct passwd *
-getpwuid (int uid)
+getpwuid (uid_t uid)
 {
   if (uid == the_passwd.pw_uid)
     return &the_passwd;
@@ -608,7 +608,9 @@ init_environment ()
       "EMACSLOCKDIR",
       "INFOPATH"
     };
-
+#ifdef HEAP_IN_DATA
+    cache_system_info ();
+#endif
     for (i = 0; i < countof (env_vars); i++) 
       {
 	if (!getenv (env_vars[i]) &&
@@ -1312,6 +1314,40 @@ generate_inode_val (const char * name)
 }
 
 #endif
+
+/* Since stat is encapsulated on Windows NT, we need to encapsulate
+   the equally broken fstat as well. */
+int
+fstat (int handle, struct stat *buffer)
+{
+  int ret;
+  BY_HANDLE_FILE_INFORMATION lpFileInfo;
+  /* Initialize values */
+  buffer->st_mode = 0;
+  buffer->st_size = 0;
+  buffer->st_dev = 0;
+  buffer->st_rdev = 0;
+  buffer->st_atime = 0;
+  buffer->st_ctime = 0;
+  buffer->st_mtime = 0;
+  buffer->st_nlink = 0;
+  ret = GetFileInformationByHandle((HANDLE) handle, &lpFileInfo);
+  if (!ret)
+    {
+      return -1;
+    }
+  else
+    {
+      buffer->st_mtime = convert_time (lpFileInfo.ftLastWriteTime);
+      buffer->st_atime = convert_time (lpFileInfo.ftLastAccessTime);
+      if (buffer->st_atime == 0) buffer->st_atime = buffer->st_mtime;
+      buffer->st_ctime = convert_time (lpFileInfo.ftCreationTime);
+      if (buffer->st_ctime == 0) buffer->st_ctime = buffer->st_mtime;
+      buffer->st_size = lpFileInfo.nFileSizeLow;
+      buffer->st_nlink = (short) lpFileInfo.nNumberOfLinks;
+      return 0;
+    }
+}
 
 /* MSVC stat function can't cope with UNC names and has other bugs, so
    replace it with our own.  This also allows us to calculate consistent

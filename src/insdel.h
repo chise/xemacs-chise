@@ -140,11 +140,11 @@ void buffer_reset_changes (struct buffer *buf);
 /************************************************************************/
 
 Memind do_marker_adjustment (Memind mpos, Memind from,
-			     Memind to, int amount);
+			     Memind to, Bytecount amount);
 
 void fixup_internal_substring (CONST Bufbyte *nonreloc,
 			       Lisp_Object reloc,
-			       int offset, int *len);
+			       Bytecount offset, Bytecount *len);
 
 /* In font-lock.c */
 void font_lock_maybe_update_syntactic_caches (struct buffer *buf,

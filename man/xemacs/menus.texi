@@ -430,18 +430,18 @@ items and disabling or enabling existing menu items.
  
 The following functions are available: 
 @table @kbd
-@item add-menu: @var{(menu-path menu-name menu-items &optional before)}
+@item add-menu: (@var{menu-path} @var{menu-name} @var{menu-items} &optional @var{before})
 Add a menu to the menu bar or one of its submenus.
-@item add-menu-item: @var{(menu-path item-name function enabled-p
-&optional before)}
+@item add-menu-item: (@var{menu-path} @var{item-name} @var{function}
+@var{enabled-p} &optional @var{before})
 Add a menu item to a menu, creating the menu first if necessary.
-@item delete-menu-item: @var{(path)}
+@item delete-menu-item: (@var{path})
 Remove the menu item defined by @var{path} from the menu hierarchy.
-@item disable-menu-item: @var{(path)}
+@item disable-menu-item: (@var{path})
 Disable the specified menu item.
-@item enable-menu-item: @var{(path)}
+@item enable-menu-item: (@var{path})
 Enable the specified previously disabled menu item.
-@item relabel-menu-item: @var{(path new-name)}
+@item relabel-menu-item: (@var{path} @var{new-name})
 Change the string of the menu item specified by @var{path} to
 @var{new-name}.
 

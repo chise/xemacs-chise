@@ -327,6 +327,7 @@ syntax table.
 }
 
 
+
 #ifdef MULE
 /* Return 1 if there is a word boundary between two word-constituent
    characters C1 and C2 if they appear in this order, else return 0.
@@ -337,16 +338,6 @@ syntax table.
    && word_boundary_p (c1, c2))
 
 extern int word_boundary_p (Emchar c1, Emchar c2);
-#else
-static int
-word_constituent_p (struct buffer *buf, Bufpos pos,
-		    struct Lisp_Char_Table *tab)
-{
-  enum syntaxcode code = SYNTAX_UNSAFE (tab, BUF_FETCH_CHAR (buf, pos));
-  return ((words_include_escapes &&
-	   (code == Sescape || code == Scharquote))
-	  || (code == Sword));
-}
 #endif
 
 /* Return the position across COUNT words from FROM.
@@ -358,11 +349,10 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 {
   Bufpos limit = count > 0 ? BUF_ZV (buf) : BUF_BEGV (buf);
   struct Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
-#ifdef MULE
   Emchar ch0, ch1;
   enum syntaxcode code;
-#endif
 
+  /* #### is it really worth it to hand expand both cases? JV */
   while (count > 0)
     {
       QUIT;
@@ -371,40 +361,36 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-#ifdef MULE
+
 	  ch0 = BUF_FETCH_CHAR (buf, from);
 	  code = SYNTAX_UNSAFE (mirrortab, ch0);
-#else
-	  if (word_constituent_p (buf, from, mirrortab))
-	    break;
-#endif
-	  from++;
-#ifdef MULE
+
 	  if (words_include_escapes
 	      && (code == Sescape || code == Scharquote))
 	    break;
 	  if (code == Sword)
 	    break;
-#endif
+
+	  from++;
 	}
 
       QUIT;
 
-      while ((from != limit)
-#ifndef MULE
-	     && word_constituent_p (buf, from, mirrortab)
-#endif
-	     )
+      while (from != limit)
 	{
-#ifdef MULE
 	  ch1 = BUF_FETCH_CHAR (buf, from);
 	  code = SYNTAX_UNSAFE (mirrortab, ch1);
 	  if (!(words_include_escapes
 		&& (code == Sescape || code == Scharquote)))
-	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	    if (code != Sword
+#ifdef MULE
+		|| WORD_BOUNDARY_P (ch0, ch1)
+#endif		
+		)
 	      break;
+#ifdef MULE
 	  ch0 = ch1;
-#endif
+#endif	  
 	  from++;
 	}
       count--;
@@ -418,12 +404,7 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-#ifndef MULE
-	  if (word_constituent_p (buf, from - 1, mirrortab))
-	    break;
-#endif
-	  from--;
-#ifdef MULE
+
 	  ch1 = BUF_FETCH_CHAR (buf, from - 1);
 	  code = SYNTAX_UNSAFE (mirrortab, ch1);
 	  if (words_include_escapes
@@ -431,24 +412,25 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	    break;
 	  if (code == Sword)
 	    break;
-#endif
+
+	  from--;
 	}
 
       QUIT;
 
-      while ((from != limit)
-#ifndef MULE
-	     && word_constituent_p (buf, from - 1, mirrortab)
-#endif
-	     )
+      while (from != limit)
 	{
-#ifdef MULE
 	  ch0 = BUF_FETCH_CHAR (buf, from - 1);
 	  code = SYNTAX_UNSAFE (mirrortab, ch0);
 	  if (!(words_include_escapes
 		&& (code == Sescape || code == Scharquote)))
-	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	    if (code != Sword
+#ifdef MULE
+		|| WORD_BOUNDARY_P (ch0, ch1)
+#endif
+		)
 	      break;
+#ifdef MULE
 	  ch1 = ch0;
 #endif
 	  from--;
@@ -679,7 +661,7 @@ Optional argument BUFFER defaults to the current buffer.
   Bufpos stop;
   Emchar c;
   enum syntaxcode code;
-  int count;
+  EMACS_INT count;
   struct buffer *buf = decode_buffer (buffer, 0);
   struct Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
 
@@ -1708,9 +1690,18 @@ Non-nil means `forward-word', etc., should treat escape chars part of words.
   no_quit_in_re_search = 0;
 }
 
+static void
+define_standard_syntax (CONST char *p, enum syntaxcode syn)
+{
+  for (; *p; p++)
+    Fput_char_table (make_char (*p), make_int (syn), Vstandard_syntax_table);
+}
+
 void
 complex_vars_of_syntax (void)
 {
+  Emchar i;
+  CONST char *p;
   /* Set this now, so first buffer creation can refer to it. */
   /* Make it nil before calling copy-syntax-table
      so that copy-syntax-table will know not to try to copy from garbage */
@@ -1722,68 +1713,31 @@ complex_vars_of_syntax (void)
 							Smax);
   staticpro (&Vsyntax_designator_chars_string);
 
-  fill_char_table (XCHAR_TABLE (Vstandard_syntax_table),
-		   make_int (Spunct));
+  fill_char_table (XCHAR_TABLE (Vstandard_syntax_table), make_int (Spunct));
 
-  {
-    Emchar i;
-
-    for (i = 0; i <= 32; i++)
-      Fput_char_table (make_char (i), make_int ((int) Swhitespace),
-		       Vstandard_syntax_table);
-    for (i = 127; i <= 159; i++)
-      Fput_char_table (make_char (i), make_int ((int) Swhitespace),
-		       Vstandard_syntax_table);
-
-    for (i = 'a'; i <= 'z'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    for (i = 'A'; i <= 'Z'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    for (i = '0'; i <= '9'; i++)
-      Fput_char_table (make_char (i), make_int ((int) Sword),
-		       Vstandard_syntax_table);
-    Fput_char_table (make_char ('$'), make_int ((int) Sword),
+  for (i = 0; i <= 32; i++)	/* Control 0 plus SPACE */
+    Fput_char_table (make_char (i), make_int (Swhitespace),
 		     Vstandard_syntax_table);
-    Fput_char_table (make_char ('%'), make_int ((int) Sword),
+  for (i = 127; i <= 159; i++)	/* DEL plus Control 1 */
+    Fput_char_table (make_char (i), make_int (Swhitespace),
 		     Vstandard_syntax_table);
 
+  define_standard_syntax ("abcdefghijklmnopqrstuvwxyz"
+			  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			  "0123456789"
+			  "$%", Sword);
+  define_standard_syntax ("\"", Sstring);
+  define_standard_syntax ("\\", Sescape);
+  define_standard_syntax ("_-+*/&|<>=", Ssymbol);
+  define_standard_syntax (".,;:?!#@~^'`", Spunct);
+
+  for (p = "()[]{}"; *p; p+=2)
     {
-      Fput_char_table (make_char ('('), Fcons (make_int ((int) Sopen),
-					       make_char (')')),
+      Fput_char_table (make_char (p[0]),
+		       Fcons (make_int (Sopen), make_char (p[1])),
 		       Vstandard_syntax_table);
-      Fput_char_table (make_char (')'), Fcons (make_int ((int) Sclose),
-					       make_char ('(')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('['), Fcons (make_int ((int) Sopen),
-					       make_char (']')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char (']'), Fcons (make_int ((int) Sclose),
-					       make_char ('[')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('{'), Fcons (make_int ((int) Sopen),
-					       make_char ('}')),
-		       Vstandard_syntax_table);
-      Fput_char_table (make_char ('}'), Fcons (make_int ((int) Sclose),
-					       make_char ('{')),
+      Fput_char_table (make_char (p[1]),
+		       Fcons (make_int (Sclose), make_char (p[0])),
 		       Vstandard_syntax_table);
     }
-
-    Fput_char_table (make_char ('"'), make_int ((int) Sstring),
-		     Vstandard_syntax_table);
-    Fput_char_table (make_char ('\\'), make_int ((int) Sescape),
-		     Vstandard_syntax_table);
-
-    {
-      CONST char *p;
-      for (p = "_-+*/&|<>="; *p; p++)
-	Fput_char_table (make_char (*p), make_int ((int) Ssymbol),
-			 Vstandard_syntax_table);
-
-      for (p = ".,;:?!#@~^'`"; *p; p++)
-	Fput_char_table (make_char (*p), make_int ((int) Spunct),
-			 Vstandard_syntax_table);
-    }
-  }
 }

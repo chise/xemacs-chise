@@ -356,11 +356,15 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
 #define XCHARSET_BYTE_OFFSET(cs)  CHARSET_BYTE_OFFSET(XCHARSET(cs))
 
-/* Table of charsets indexed by (leading byte - 128). */
-extern Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
+struct charset_lookup {
+  /* Table of charsets indexed by (leading byte - 128). */
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
+  
+  /* Table of charsets indexed by type/final-byte/direction. */
+  Lisp_Object charset_by_attributes[4][128];
+};
 
-/* Table of charsets indexed by type/final-byte. */
-extern Lisp_Object charset_by_attributes[4][128];
+extern struct charset_lookup *chlook;
 
 #ifdef ERROR_CHECK_TYPECHECK
 /* int not Bufbyte even though that is the actual type of a leading byte.
@@ -372,18 +376,18 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 {
   assert (lb >= MIN_LEADING_BYTE &&
 	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
-  return charset_by_leading_byte[lb - MIN_LEADING_BYTE];
+  return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
 #else
 
 #define CHARSET_BY_LEADING_BYTE(lb) \
-  (charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
+  (chlook->charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
 
 #endif
 
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
-  (charset_by_attributes[type][final])
+  (chlook->charset_by_attributes[type][final])
 
 
 /************************************************************************/
@@ -404,22 +408,21 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_THAI		0x0E00
 #define MAX_CHAR_THAI		0x0E5F
 
+/*
 #define MIN_CHAR_HIRAGANA	0x3041
 #define MAX_CHAR_HIRAGANA	0x3093
 
 #define MIN_CHAR_KATAKANA	0x30A1
 #define MAX_CHAR_KATAKANA	0x30F6
+*/
 
 #define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
-#define MIN_CHAR_OBS_94x94	0xE00000
-#define MIN_CHAR_JIS_X0208_1990	0xE04508
-#define MAX_CHAR_JIS_X0208_1990	0XE0678B
-#define MAX_CHAR_OBS_94x94	0XE1E337
+#define MAX_CHAR_BMP		0x00FFFF
 
-#define MIN_CHAR_DAIKANWA	0xE50000
-#define MAX_CHAR_DAIKANWA	0xE5FFFF
+#define MIN_CHAR_DAIKANWA	0xE00000
+#define MAX_CHAR_DAIKANWA	0xE0FFFF
 
 #define MIN_CHAR_94		0xE90940
 #define MAX_CHAR_94		(MIN_CHAR_94 + 94 * 80 - 1)
@@ -427,7 +430,9 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MAX_CHAR_96		(MIN_CHAR_96 + 96 * 80 - 1)
 
 #define MIN_CHAR_94x94		0xE9F6C0
+#define MIN_CHAR_JIS_X0208_1990	(MIN_CHAR_94x94 + 94 * 94 * 79)
 #define MAX_CHAR_94x94		(MIN_CHAR_94x94 + 94 * 94 * 80 - 1)
+#define MAX_CHAR_JIS_X0208_1990	MAX_CHAR_94x94
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 

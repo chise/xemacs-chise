@@ -25,6 +25,8 @@ MODTITLE="LDAP Client Interface for XEmacs"
 
 all: $(MODNAME).ell
 
+distclean: clean
+
 clean:
 	rm -f $(MODNAME).ell $(OBJS) eldap_i.o eldap_i.c
 

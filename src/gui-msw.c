@@ -46,7 +46,7 @@ mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, WORD id)
   if (NILP (data) || UNBOUNDP (data))
     return Qnil;
 
-  MARK_SUBWINDOWS_CHANGED;
+  MARK_SUBWINDOWS_STATE_CHANGED;
   /* Ok, this is our one. Enqueue it. */
   get_gui_callback (data, &fn, &arg);
   XSETFRAME (frame, f);

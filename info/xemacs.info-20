@@ -1,5 +1,5 @@
-This is Info file ../../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 3.12s from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -37,11 +37,11 @@ Command and Function Index
 
 * Menu:
 
-* abbrev-mode <1>:                       Abbrevs.
-* abbrev-mode:                           Minor Modes.
+* abbrev-mode <1>:                       Minor Modes.
+* abbrev-mode:                           Abbrevs.
 * abbrev-prefix-mark:                    Expanding Abbrevs.
-* abort-recursive-edit <1>:              Recursive Edit.
-* abort-recursive-edit:                  Quitting.
+* abort-recursive-edit <1>:              Quitting.
+* abort-recursive-edit:                  Recursive Edit.
 * add-change-log-entry:                  Change Log.
 * add-global-abbrev:                     Defining Abbrevs.
 * add-menu:                              Menu Customization.
@@ -61,11 +61,11 @@ Command and Function Index
 * back-to-indentation:                   Indentation Commands.
 * backward-char:                         Basic.
 * backward-delete-char-untabify:         Program Modes.
-* backward-kill-sentence <1>:            Kill Errors.
-* backward-kill-sentence <2>:            Sentences.
+* backward-kill-sentence <1>:            Sentences.
+* backward-kill-sentence <2>:            Kill Errors.
 * backward-kill-sentence:                Killing.
-* backward-kill-word <1>:                Kill Errors.
-* backward-kill-word <2>:                Words.
+* backward-kill-word <1>:                Words.
+* backward-kill-word <2>:                Kill Errors.
 * backward-kill-word:                    Killing.
 * backward-list:                         Lists.
 * backward-page:                         Pages.
@@ -143,8 +143,8 @@ Command and Function Index
 * calendar-unmark:                       Holidays.
 * call-last-kbd-macro:                   Basic Kbd Macro.
 * cancel-debug-on-entry:                 Lisp Debug.
-* capitalize-word <1>:                   Fixing Case.
-* capitalize-word:                       Case.
+* capitalize-word <1>:                   Case.
+* capitalize-word:                       Fixing Case.
 * center-line:                           Fill Commands.
 * clear-rectangle:                       Rectangles.
 * comint-delchar-or-maybe-eof:           Shell Mode.
@@ -188,9 +188,9 @@ Command and Function Index
 * define-abbrevs:                        Saving Abbrevs.
 * define-key <1>:                        Programmatic Rebinding.
 * define-key:                            Interactive Rebinding.
-* delete-backward-char <1>:              Basic.
+* delete-backward-char <1>:              Kill Errors.
 * delete-backward-char <2>:              Killing.
-* delete-backward-char:                  Kill Errors.
+* delete-backward-char:                  Basic.
 * delete-blank-lines <1>:                Killing.
 * delete-blank-lines:                    Blank Lines.
 * delete-char <1>:                       Basic Picture.
@@ -211,8 +211,8 @@ Command and Function Index
 * describe-coding-system:                Coding Systems.
 * describe-copying:                      Help.
 * describe-distribution:                 Help.
-* describe-function <1>:                 Help.
-* describe-function:                     Documentation.
+* describe-function <1>:                 Documentation.
+* describe-function:                     Help.
 * describe-input-method:                 Select Input Method.
 * describe-key:                          Help.
 * describe-key-briefly:                  Help.
@@ -220,16 +220,16 @@ Command and Function Index
 * describe-mode:                         Help.
 * describe-no-warranty:                  Help.
 * describe-syntax:                       Syntax Change.
-* describe-variable <1>:                 Documentation.
-* describe-variable <2>:                 Examining.
+* describe-variable <1>:                 Examining.
+* describe-variable <2>:                 Documentation.
 * describe-variable:                     Help.
 * diary:                                 Diary Commands.
-* diary-anniversary <1>:                 Special Diary Entries.
-* diary-anniversary:                     Sexp Diary Entries.
+* diary-anniversary <1>:                 Sexp Diary Entries.
+* diary-anniversary:                     Special Diary Entries.
 * diary-astro-day-number:                Sexp Diary Entries.
 * diary-block:                           Special Diary Entries.
-* diary-cyclic <1>:                      Special Diary Entries.
-* diary-cyclic:                          Sexp Diary Entries.
+* diary-cyclic <1>:                      Sexp Diary Entries.
+* diary-cyclic:                          Special Diary Entries.
 * diary-day-of-year:                     Sexp Diary Entries.
 * diary-float:                           Special Diary Entries.
 * diary-french-date:                     Sexp Diary Entries.
@@ -303,8 +303,8 @@ Command and Function Index
 * fill-region-as-paragraph:              Fill Commands.
 * find-alternate-file:                   Visiting.
 * find-file:                             Visiting.
-* find-file-other-frame <1>:             XEmacs under X.
-* find-file-other-frame:                 Visiting.
+* find-file-other-frame <1>:             Visiting.
+* find-file-other-frame:                 XEmacs under X.
 * find-file-other-window <1>:            Pop Up Window.
 * find-file-other-window:                Visiting.
 * find-tag:                              Find Tag.
@@ -329,8 +329,8 @@ Command and Function Index
 * forward-sexp:                          Lists.
 * forward-text-line:                     Nroff Mode.
 * forward-word:                          Words.
-* global-set-key <1>:                    Interactive Rebinding.
-* global-set-key:                        Programmatic Rebinding.
+* global-set-key <1>:                    Programmatic Rebinding.
+* global-set-key:                        Interactive Rebinding.
 * goto-char:                             Basic.
 * goto-line:                             Basic.
 * hanoi:                                 Amusements.
@@ -402,8 +402,8 @@ Command and Function Index
 * kill-output-from-shell:                Shell Mode.
 * kill-rectangle:                        Rectangles.
 * kill-region:                           Killing.
-* kill-sentence <1>:                     Killing.
-* kill-sentence:                         Sentences.
+* kill-sentence <1>:                     Sentences.
+* kill-sentence:                         Killing.
 * kill-sexp <1>:                         Lists.
 * kill-sexp:                             Killing.
 * kill-some-buffers:                     Kill Buffer.
@@ -433,8 +433,8 @@ Command and Function Index
 * load:                                  Loading.
 * load-default-sounds:                   Audible Bell.
 * load-file:                             Loading.
-* load-library <1>:                      Startup Paths.
-* load-library:                          Loading.
+* load-library <1>:                      Loading.
+* load-library:                          Startup Paths.
 * load-sound-file:                       Audible Bell.
 * local-set-key:                         Interactive Rebinding.
 * local-unset-key:                       Interactive Rebinding.
@@ -445,8 +445,8 @@ Command and Function Index
 * mail-cc:                               Mail Mode.
 * mail-fill-yanked-message:              Mail Mode.
 * mail-interactive-insert-alias:         Mail Headers.
-* mail-other-window <1>:                 Pop Up Window.
-* mail-other-window:                     Sending Mail.
+* mail-other-window <1>:                 Sending Mail.
+* mail-other-window:                     Pop Up Window.
 * mail-send:                             Mail Mode.
 * mail-send-and-exit:                    Mail Mode.
 * mail-signature:                        Mail Mode.
@@ -481,8 +481,8 @@ Command and Function Index
 * mark-page:                             Marking Objects.
 * mark-paragraph <1>:                    Paragraphs.
 * mark-paragraph:                        Marking Objects.
-* mark-sexp <1>:                         Marking Objects.
-* mark-sexp:                             Lists.
+* mark-sexp <1>:                         Lists.
+* mark-sexp:                             Marking Objects.
 * mark-whole-buffer:                     Marking Objects.
 * mark-word <1>:                         Words.
 * mark-word:                             Marking Objects.
@@ -555,8 +555,8 @@ Command and Function Index
 * picture-tab-search:                    Tabs in Picture.
 * picture-yank-rectangle:                Rectangles in Picture.
 * picture-yank-rectangle-from-register:  Rectangles in Picture.
-* plain-tex-mode:                        TeX Mode.
 * plain-TeX-mode:                        TeX Mode.
+* plain-tex-mode:                        TeX Mode.
 * play-sound:                            Audible Bell.
 * point-to-register:                     RegPos.
 * prefer-coding-system:                  Recognize Coding.
@@ -600,8 +600,8 @@ Command and Function Index
 * scroll-calendar-right-three-months:    Scroll Calendar.
 * scroll-down:                           Scrolling.
 * scroll-left:                           Horizontal Scrolling.
-* scroll-other-window <1>:               Other Window.
-* scroll-other-window:                   General Calendar.
+* scroll-other-window <1>:               General Calendar.
+* scroll-other-window:                   Other Window.
 * scroll-right:                          Horizontal Scrolling.
 * scroll-up:                             Scrolling.
 * search-backward:                       Non-Incremental Search.
@@ -663,13 +663,13 @@ Command and Function Index
 * sunrise-sunset:                        Sunrise/Sunset.
 * suspend-emacs:                         Exiting.
 * switch-to-buffer:                      Select Buffer.
-* switch-to-buffer-other-frame <1>:      XEmacs under X.
-* switch-to-buffer-other-frame:          Select Buffer.
-* switch-to-buffer-other-window <1>:     Select Buffer.
-* switch-to-buffer-other-window:         Pop Up Window.
+* switch-to-buffer-other-frame <1>:      Select Buffer.
+* switch-to-buffer-other-frame:          XEmacs under X.
+* switch-to-buffer-other-window <1>:     Pop Up Window.
+* switch-to-buffer-other-window:         Select Buffer.
 * switch-to-other-buffer:                Select Buffer.
-* tab-to-tab-stop <1>:                   Tab Stops.
-* tab-to-tab-stop:                       Text Mode.
+* tab-to-tab-stop <1>:                   Text Mode.
+* tab-to-tab-stop:                       Tab Stops.
 * tabify:                                Just Spaces.
 * tags-apropos:                          List Tags.
 * tags-loop-continue:                    Tags Search.
@@ -683,8 +683,8 @@ Command and Function Index
 * tex-insert-braces:                     TeX Editing.
 * tex-insert-quote:                      TeX Editing.
 * tex-kill-job:                          TeX Print.
-* TeX-mode:                              TeX Mode.
 * tex-mode:                              TeX Mode.
+* TeX-mode:                              TeX Mode.
 * tex-print:                             TeX Print.
 * tex-recenter-output-buffer:            TeX Print.
 * tex-region:                            TeX Print.
@@ -693,15 +693,15 @@ Command and Function Index
 * text-mode:                             Text Mode.
 * toggle-input-method:                   Select Input Method.
 * toggle-read-only:                      Misc Buffer.
-* top-level <1>:                         Recursive Edit.
-* top-level:                             Quitting.
-* transpose-chars <1>:                   Basic.
-* transpose-chars:                       Transpose.
+* top-level <1>:                         Quitting.
+* top-level:                             Recursive Edit.
+* transpose-chars <1>:                   Transpose.
+* transpose-chars:                       Basic.
 * transpose-lines:                       Transpose.
 * transpose-sexps <1>:                   Lists.
 * transpose-sexps:                       Transpose.
-* transpose-words <1>:                   Transpose.
-* transpose-words:                       Words.
+* transpose-words <1>:                   Words.
+* transpose-words:                       Transpose.
 * undo:                                  Undo.
 * unexpand-abbrev:                       Expanding Abbrevs.
 * universal-argument:                    Arguments.
@@ -709,8 +709,8 @@ Command and Function Index
 * untabify:                              Just Spaces.
 * up-list:                               TeX Editing.
 * upcase-region:                         Case.
-* upcase-word <1>:                       Fixing Case.
-* upcase-word:                           Case.
+* upcase-word <1>:                       Case.
+* upcase-word:                           Fixing Case.
 * validate-tex-buffer:                   TeX Editing.
 * vc-cancel-version:                     Editing with VC.
 * vc-create-snapshot:                    Making Snapshots.

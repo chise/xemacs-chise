@@ -3,7 +3,7 @@
 ;; Copyright (C) 1985, 1986, 1992-1995, 1997 Free Software Foundation, Inc.
 
 ;; Author: Unknown
-;; Maintainer: Steven L Baur <steve@altair.xemacs.org>
+;; Maintainer: Steven L Baur <steve@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.

@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -59,7 +59,7 @@ Cleaning Up from Nonlocal Exits
 put a data structure in an inconsistent state; it permits you to ensure
 the data are consistent in the event of an error or throw.
 
- - Special Form: unwind-protect BODY CLEANUP-FORMS...
+ - Special Form: unwind-protect body cleanup-forms...
      `unwind-protect' executes the BODY with a guarantee that the
      CLEANUP-FORMS will be evaluated if control leaves BODY, no matter
      how that happens.  The BODY may complete normally, or execute a
@@ -73,14 +73,14 @@ the data are consistent in the event of an error or throw.
 
      Only the BODY is actually protected by the `unwind-protect'.  If
      any of the CLEANUP-FORMS themselves exits nonlocally (e.g., via a
-     `throw' or an error), `unwind-protect' is *not* guaranteed to
+     `throw' or an error), `unwind-protect' is _not_ guaranteed to
      evaluate the rest of them.  If the failure of one of the
      CLEANUP-FORMS has the potential to cause trouble, then protect it
      with another `unwind-protect' around that form.
 
      The number of currently active `unwind-protect' forms counts,
      together with the number of local variable bindings, against the
-     limit `max-specpdl-size' (*note Local Variables::.).
+     limit `max-specpdl-size' (*note Local Variables::).
 
    For example, here we make an invisible buffer for temporary use, and
 make sure to kill it before finishing:
@@ -100,7 +100,7 @@ another `save-excursion' around the body, to ensure that the temporary
 buffer becomes current in time to kill it.)
 
    Here is an actual example taken from the file `ftp.el'.  It creates
-a process (*note Processes::.) to try to establish a connection to a
+a process (*note Processes::) to try to establish a connection to a
 remote machine.  As the function `ftp-login' is highly susceptible to
 numerous problems that the writer of the function cannot anticipate, it
 is protected with a form that guarantees deletion of the process in the
@@ -247,7 +247,7 @@ variables; these last until exit from the `let' form.
 one) of the variable.  When the life span of the local value is over,
 the previous value is restored.  In the mean time, we say that the
 previous value is "shadowed" and "not visible".  Both global and local
-values may be shadowed (*note Scope::.).
+values may be shadowed (*note Scope::).
 
    If you set a variable (such as with `setq') while it is local, this
 replaces the local value; it does not alter the global value, or
@@ -277,7 +277,7 @@ binding.
 
    The special forms `let' and `let*' exist to create local bindings.
 
- - Special Form: let (BINDINGS...) FORMS...
+ - Special Form: let (bindings...) forms...
      This special form binds variables according to BINDINGS and then
      evaluates all of the FORMS in textual order.  The `let'-form
      returns the value of the last form in FORMS.
@@ -288,7 +288,7 @@ binding.
      evaluating VALUE-FORM.  If VALUE-FORM is omitted, `nil' is used.
 
      All of the VALUE-FORMs in BINDINGS are evaluated in the order they
-     appear and *before* any of the symbols are bound.  Here is an
+     appear and _before_ any of the symbols are bound.  Here is an
      example of this: `Z' is bound to the old value of `Y', which is 2,
      not the new value, 1.
 
@@ -299,7 +299,7 @@ binding.
             (list Y Z))
                => (1 2)
 
- - Special Form: let* (BINDINGS...) FORMS...
+ - Special Form: let* (bindings...) forms...
      This special form is like `let', but it binds each variable right
      after computing its local value, before computing the local value
      for the next variable.  Therefore, an expression in BINDINGS can
@@ -317,21 +317,21 @@ binding.
    Here is a complete list of the other facilities that create local
 bindings:
 
-   * Function calls (*note Functions::.).
+   * Function calls (*note Functions::).
 
-   * Macro calls (*note Macros::.).
+   * Macro calls (*note Macros::).
 
-   * `condition-case' (*note Errors::.).
+   * `condition-case' (*note Errors::).
 
    Variables can also have buffer-local bindings (*note Buffer-Local
-Variables::.).  These kinds of bindings work somewhat like ordinary
-local bindings, but they are localized depending on "where" you are in
-Emacs, rather than localized in time.
+Variables::).  These kinds of bindings work somewhat like ordinary local
+bindings, but they are localized depending on "where" you are in Emacs,
+rather than localized in time.
 
  - Variable: max-specpdl-size
      This variable defines the limit on the total number of local
      variable bindings and `unwind-protect' cleanups (*note Nonlocal
-     Exits::.)  that are allowed before signaling an error (with data
+     Exits::) that are allowed before signaling an error (with data
      `"Variable binding depth exceeds max-specpdl-size"').
 
      This limit, with the associated error when it is exceeded, is one
@@ -356,13 +356,13 @@ value.
 
    Note that a value of `nil' is not the same as void.  The symbol
 `nil' is a Lisp object and can be the value of a variable just as any
-other object can be; but it is *a value*.  A void variable does not
+other object can be; but it is _a value_.  A void variable does not
 have any value.
 
    After you have given a variable a value, you can make it void once
 more using `makunbound'.
 
- - Function: makunbound SYMBOL
+ - Function: makunbound symbol
      This function makes the current binding of SYMBOL void.
      Subsequent attempts to use this symbol's value as a variable will
      signal the error `void-variable', unless or until you set it again.
@@ -390,7 +390,6 @@ more using `makunbound'.
             (makunbound 'x)        ; Void the local binding.
             x)
           error--> Symbol's value as variable is void: x
-
           x                        ; The global binding is unchanged.
                => 1
           
@@ -399,7 +398,7 @@ more using `makunbound'.
               (makunbound 'x)      ; Void the innermost-local binding.
               x))                  ; And refer: it's void.
           error--> Symbol's value as variable is void: x
-
+          
           (let ((x 2))
             (let ((x 3))
               (makunbound 'x))     ; Void inner binding, then remove it.
@@ -413,24 +412,20 @@ always been void.
    You can use the function `boundp' to test whether a variable is
 currently void.
 
- - Function: boundp VARIABLE
+ - Function: boundp variable
      `boundp' returns `t' if VARIABLE (a symbol) is not void; more
      precisely, if its current binding is not void.  It returns `nil'
      otherwise.
 
           (boundp 'abracadabra)          ; Starts out void.
                => nil
-
           (let ((abracadabra 5))         ; Locally bind it.
             (boundp 'abracadabra))
                => t
-
           (boundp 'abracadabra)          ; Still globally void.
                => nil
-
           (setq abracadabra 5)           ; Make it globally nonvoid.
                => 5
-
           (boundp 'abracadabra)
                => t
 
@@ -445,7 +440,7 @@ with a "variable definition": a special form, either `defconst' or
 `defvar'.
 
    In XEmacs Lisp, definitions serve three purposes.  First, they inform
-people who read the code that certain symbols are *intended* to be used
+people who read the code that certain symbols are _intended_ to be used
 a certain way (as variables).  Second, they inform the Lisp system of
 these things, supplying a value and documentation.  Third, they provide
 information to utilities such as `etags' and `make-docfile', which
@@ -467,7 +462,7 @@ Users would like to be able to set user options in their init files,
 and override the default values given in the definitions.  For this
 reason, user options must be defined with `defvar'.
 
- - Special Form: defvar SYMBOL [VALUE [DOC-STRING]]
+ - Special Form: defvar symbol [value [doc-string]]
      This special form defines SYMBOL as a value and initializes it.
      The definition informs a person reading your code that SYMBOL is
      used as a variable that programs are likely to set or change.  It
@@ -495,7 +490,7 @@ reason, user options must be defined with `defvar'.
      for the variable.  (This opportunity to specify documentation is
      one of the main benefits of defining the variable.)  The
      documentation is stored in the symbol's `variable-documentation'
-     property.  The XEmacs help functions (*note Documentation::.) look
+     property.  The XEmacs help functions (*note Documentation::) look
      for this property.
 
      If the first character of DOC-STRING is `*', it means that this
@@ -539,7 +534,7 @@ reason, user options must be defined with `defvar'.
      The `defvar' form returns SYMBOL, but it is normally used at top
      level in a file where its value does not matter.
 
- - Special Form: defconst SYMBOL [VALUE [DOC-STRING]]
+ - Special Form: defconst symbol [value [doc-string]]
      This special form defines SYMBOL as a value and initializes it.
      It informs a person reading your code that SYMBOL has a global
      value, established here, that will not normally be changed or
@@ -570,7 +565,7 @@ reason, user options must be defined with `defvar'.
           pi
                => 3
 
- - Function: user-variable-p VARIABLE
+ - Function: user-variable-p variable
      This function returns `t' if VARIABLE is a user option--a variable
      intended to be set by the user for customization--and `nil'
      otherwise.  (Variables other than user options exist for the
@@ -601,12 +596,12 @@ Accessing Variable Values
 =========================
 
    The usual way to reference a variable is to write the symbol which
-names it (*note Symbol Forms::.).  This requires you to specify the
+names it (*note Symbol Forms::).  This requires you to specify the
 variable name when you write the program.  Usually that is exactly what
 you want to do.  Occasionally you need to choose at run time which
 variable to reference; then you can use `symbol-value'.
 
- - Function: symbol-value SYMBOL
+ - Function: symbol-value symbol
      This function returns the value of SYMBOL.  This is the value in
      the innermost local binding of the symbol, or its global value if
      it has no local bindings.
@@ -645,7 +640,7 @@ How to Alter a Variable Value
 form `setq'.  When you need to compute the choice of variable at run
 time, use the function `set'.
 
- - Special Form: setq [SYMBOL FORM]...
+ - Special Form: setq [symbol form]...
      This special form is the most common method of changing a
      variable's value.  Each SYMBOL is given a new value, which is the
      result of evaluating the corresponding FORM.  The most-local
@@ -676,7 +671,7 @@ time, use the function `set'.
                 y (1+ x))     ;   the value of `y' is computed.
                => 11
 
- - Function: set SYMBOL VALUE
+ - Function: set symbol value
      This function sets SYMBOL's value to VALUE, then returns VALUE.
      Since `set' is a function, the expression written for SYMBOL is
      evaluated to obtain the symbol to set.
@@ -725,7 +720,7 @@ time, use the function `set'.
    One other function for setting a variable is designed to add an
 element to a list if it is not already present in the list.
 
- - Function: add-to-list SYMBOL ELEMENT
+ - Function: add-to-list symbol element
      This function sets the variable SYMBOL by consing ELEMENT onto the
      old value, if ELEMENT is not already a member of that value.  It
      returns the resulting list, whether updated or not.  The value of
@@ -766,10 +761,10 @@ binding.  The most recently established binding takes precedence over
 the others.
 
    Local bindings in XEmacs Lisp have "indefinite scope" and "dynamic
-extent".  "Scope" refers to *where* textually in the source code the
+extent".  "Scope" refers to _where_ textually in the source code the
 binding can be accessed.  Indefinite scope means that any part of the
 program can potentially access the variable binding.  "Extent" refers
-to *when*, as the program is executing, the binding exists.  Dynamic
+to _when_, as the program is executing, the binding exists.  Dynamic
 extent means that the binding lasts as long as the activation of the
 construct that established it.
 
@@ -822,7 +817,7 @@ established in `binder', depending on circumstances:
             (user))
 
    * If we define `foo' as follows and call `binder', then the binding
-     made in `binder' *will not* be seen in `user':
+     made in `binder' _will not_ be seen in `user':
 
           (defun foo (x)
             (user))
@@ -1017,7 +1012,7 @@ File: lispref.info,  Node: Creating Buffer-Local,  Next: Default Value,  Prev: I
 Creating and Deleting Buffer-Local Bindings
 -------------------------------------------
 
- - Command: make-local-variable VARIABLE
+ - Command: make-local-variable variable
      This function creates a buffer-local binding in the current buffer
      for VARIABLE (a symbol).  Other buffers are not affected.  The
      value returned is VARIABLE.
@@ -1051,21 +1046,21 @@ Creating and Deleting Buffer-Local Bindings
      *Please note:* do not use `make-local-variable' for a hook
      variable.  Instead, use `make-local-hook'.  *Note Hooks::.
 
- - Command: make-variable-buffer-local VARIABLE
+ - Command: make-variable-buffer-local variable
      This function marks VARIABLE (a symbol) automatically
      buffer-local, so that any subsequent attempt to set it will make it
      local to the current buffer at the time.
 
      The value returned is VARIABLE.
 
- - Function: local-variable-p VARIABLE &optional BUFFER
+ - Function: local-variable-p variable &optional buffer
      This returns `t' if VARIABLE is buffer-local in buffer BUFFER
      (which defaults to the current buffer); otherwise, `nil'.
 
- - Function: buffer-local-variables &optional BUFFER
+ - Function: buffer-local-variables &optional buffer
      This function returns a list describing the buffer-local variables
      in buffer BUFFER.  It returns an association list (*note
-     Association Lists::.) in which each association contains one
+     Association Lists::) in which each association contains one
      buffer-local variable and its value.  When a buffer-local variable
      is void in BUFFER, then it appears directly in the resulting list.
      If BUFFER is omitted, the current buffer is used.
@@ -1087,9 +1082,9 @@ Creating and Deleting Buffer-Local Bindings
               (bind-me . 69))
 
      Note that storing new values into the CDRs of cons cells in this
-     list does *not* change the local values of the variables.
+     list does _not_ change the local values of the variables.
 
- - Command: kill-local-variable VARIABLE
+ - Command: kill-local-variable variable
      This function deletes the buffer-local binding (if any) for
      VARIABLE (a symbol) in the current buffer.  As a result, the
      global (default) binding of VARIABLE becomes visible in this
@@ -1151,13 +1146,13 @@ buffer-local value for this variable.
    The special forms `defvar' and `defconst' also set the default value
 (if they set the variable at all), rather than any local value.
 
- - Function: default-value SYMBOL
+ - Function: default-value symbol
      This function returns SYMBOL's default value.  This is the value
      that is seen in buffers that do not have their own values for this
      variable.  If SYMBOL is not buffer-local, this is equivalent to
-     `symbol-value' (*note Accessing Variables::.).
+     `symbol-value' (*note Accessing Variables::).
 
- - Function: default-boundp SYMBOL
+ - Function: default-boundp symbol
      The function `default-boundp' tells you whether SYMBOL's default
      value is nonvoid.  If `(default-boundp 'foo)' returns `nil', then
      `(default-value 'foo)' would get an error.
@@ -1165,7 +1160,7 @@ buffer-local value for this variable.
      `default-boundp' is to `default-value' as `boundp' is to
      `symbol-value'.
 
- - Special Form: setq-default SYMBOL VALUE
+ - Special Form: setq-default symbol value
      This sets the default value of SYMBOL to VALUE.  It does not
      evaluate SYMBOL, but does evaluate VALUE.  The value of the
      `setq-default' form is VALUE.
@@ -1205,7 +1200,7 @@ buffer-local value for this variable.
           (default-value 'local)
                => another-default
 
- - Function: set-default SYMBOL VALUE
+ - Function: set-default symbol value
      This function is like `setq-default', except that SYMBOL is
      evaluated.
 

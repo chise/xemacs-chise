@@ -299,7 +299,7 @@
 
 ;;;###autoload
 (defun ccl-program-p (obj)
-  "T if OBJECT is a valid CCL compiled code."
+  "Return t if OBJECT is a valid CCL compiled code."
   (and (vectorp obj)
        (let ((i 0) (len (length obj)) (flag t))
 	 (if (> len 1)

@@ -445,16 +445,8 @@ create_child (CONST char *exe, char *cmdline, char *env,
   cp->procinfo.hThread=NULL;
   cp->procinfo.hProcess=NULL;
 
-  /* Hack for Windows 95, which assigns large (ie negative) pids */
-  if (cp->pid < 0)
-    cp->pid = -cp->pid;
-
   /* pid must fit in a Lisp_Int */
-#ifdef USE_UNION_TYPE
-  cp->pid = (cp->pid & ((1U << VALBITS) - 1));
-#else
-  cp->pid = (cp->pid & VALMASK);
-#endif
+
 
   *pPid = cp->pid;
   
@@ -1456,8 +1448,8 @@ syms_of_ntproc ()
 void
 vars_of_ntproc (void)
 {
-  Qhigh = intern ("high");
-  Qlow = intern ("low");
+  defsymbol (&Qhigh, "high");
+  defsymbol (&Qlow, "low");
 
   DEFVAR_LISP ("win32-quote-process-args", &Vwin32_quote_process_args /*
     Non-nil enables quoting of process arguments to ensure correct parsing.

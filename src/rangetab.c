@@ -41,13 +41,13 @@ Lisp_Object Qrange_table;
    is not hard but just requires moving that stuff out of that file. */
 
 static Lisp_Object
-mark_range_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_range_table (Lisp_Object obj)
 {
   struct Lisp_Range_Table *rt = XRANGE_TABLE (obj);
   int i;
 
   for (i = 0; i < Dynarr_length (rt->entries); i++)
-    markobj (Dynarr_at (rt->entries, i).val);
+    mark_object (Dynarr_at (rt->entries, i).val);
   return Qnil;
 }
 
@@ -132,9 +132,35 @@ range_table_hash (Lisp_Object obj, int depth)
   return hash;
 }
 
+static const struct lrecord_description rte_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(range_table_entry, val), 1 },
+  { XD_END }
+};
+
+static const struct struct_description rte_description = {
+  sizeof(range_table_entry),
+  rte_description_1
+};
+
+static const struct lrecord_description rted_description_1[] = {
+  XD_DYNARR_DESC(range_table_entry_dynarr, &rte_description),
+  { XD_END }
+};
+
+static const struct struct_description rted_description = {
+  sizeof(range_table_entry_dynarr),
+  rted_description_1
+};
+
+static const struct lrecord_description range_table_description[] = {
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Range_Table, entries),  1, &rted_description },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("range-table", range_table,
                                mark_range_table, print_range_table, 0,
-			       range_table_equal, range_table_hash, 0,
+			       range_table_equal, range_table_hash,
+			       range_table_description,
 			       struct Lisp_Range_Table);
 
 /************************************************************************/

@@ -562,7 +562,6 @@ size_t sndcnvULaw_2mono(void **data,size_t *sz,void **outbuf)
 
 size_t sndcnv16swap(void **data,size_t *sz,void **outbuf)
 {
-  /* #### Not aliasing-safe!!  Must convert to use unions instead! */
   size_t cnt = *sz / 2;
   unsigned short *p;
 

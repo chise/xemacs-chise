@@ -298,6 +298,12 @@ console_type_create_stream (void)
 }
 
 void
+reinit_console_type_create_stream (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (stream);
+}
+
+void
 vars_of_console_stream (void)
 {
   DEFVAR_LISP ("terminal-console", &Vterminal_console /*
@@ -320,6 +326,7 @@ The initial frame-object, which represents XEmacs' stdout.
   staticpro (&Vstdio_str);
 }
 
+#ifndef PDUMP
 void
 init_console_stream (void)
 {
@@ -339,3 +346,22 @@ init_console_stream (void)
         event_stream_select_console (XCONSOLE (Vterminal_console));
     }
 }
+
+#else
+
+void
+init_console_stream (void)
+{
+  /* This function can GC */
+  Vterminal_device = Fmake_device (Qstream, Qnil, Qnil);
+  Vterminal_console = Fdevice_console (Vterminal_device);
+  Vterminal_frame = Fmake_frame (Qnil, Vterminal_device);
+  minibuf_window = XFRAME (Vterminal_frame)->minibuffer_window;
+  if (initialized)
+    {
+      stream_init_console (XCONSOLE (Vterminal_console), Qnil);
+      if (noninteractive)
+	event_stream_select_console (XCONSOLE (Vterminal_console));
+    }
+}
+#endif

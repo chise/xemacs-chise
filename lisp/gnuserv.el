@@ -3,9 +3,9 @@
 
 ;; Version: 3.11
 ;; Author: Andy Norman (ange@hplb.hpl.hp.com), originally based on server.el
-;;         Hrvoje Niksic <hniksic@srce.hr>
+;;         Hrvoje Niksic <hniksic@xemacs.org>
 ;; Maintainer: Jan Vroonhof <vroonhof@math.ethz.ch>,
-;;             Hrvoje Niksic <hniksic@srce.hr>
+;;             Hrvoje Niksic <hniksic@xemacs.org>
 ;; Keywords: environment, processes, terminals
 
 ;; This file is part of XEmacs.
@@ -73,7 +73,7 @@
 ;; Jan Vroonhof
 ;;     Customized.
 ;;
-;; Hrvoje Niksic <hniksic@srce.hr> May/1997
+;; Hrvoje Niksic <hniksic@xemacs.org> May/1997
 ;;     Completely rewritten.  Now uses `defstruct' and other CL stuff
 ;;     to define clients cleanly.  Many thanks to Dave Gillespie!
 ;;
@@ -440,6 +440,7 @@ If a flag is `view', view the files read-only."
 	   (client (make-gnuclient :id gnuserv-current-client
 				   :device device
 				   :frame new-frame)))
+      (select-frame frame)
       (setq gnuserv-current-client nil)
       ;; If the device was created by this client, push it to the list.
       (and (/= old-device-num (length (device-list)))

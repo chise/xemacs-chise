@@ -42,10 +42,14 @@
   "Depth of load-path searches in core Lisp paths.")
 
 (defvar paths-default-info-directories
-  (list (paths-construct-path '("usr" "local" "info")
-			      (char-to-string directory-sep-char))
-	(paths-construct-path '("usr" "info")
-			      (char-to-string directory-sep-char)))
+  (mapcar (function
+	   (lambda (dirlist)
+	     (paths-construct-path
+	      dirlist (char-to-string directory-sep-char))))
+	  '(("usr" "local" "info")
+	    ("usr" "info")
+	    ("usr" "local" "share" "info")
+	    ("usr" "share" "info")))
   "Directories appended to the end of the info path by default.")
 
 (defun paths-find-site-lisp-directory (roots)
@@ -69,7 +73,7 @@
 (defun paths-find-module-directory (roots)
   "Find the main modules directory of the XEmacs hierarchy."
   (paths-find-architecture-directory roots "modules"
-				configure-module-directory))
+				     nil configure-module-directory))
 
 (defun paths-construct-load-path
   (roots early-package-load-path late-package-load-path last-package-load-path
@@ -137,7 +141,7 @@
 
 (defun paths-find-doc-directory (roots)
   "Find the documentation directory."
-  (paths-find-architecture-directory roots "lib-src"))
+  (paths-find-architecture-directory roots "lib-src" nil configure-doc-directory))
 
 (defun paths-find-lock-directory (roots)
   "Find the lock directory."
@@ -158,7 +162,8 @@
 
 (defun paths-find-exec-directory (roots)
   "Find the binary directory."
-  (paths-find-architecture-directory roots "lib-src" configure-exec-directory))
+  (paths-find-architecture-directory roots "lib-src"
+				     nil configure-exec-directory))
 
 (defun paths-construct-exec-path (roots exec-directory
 				  early-packages late-packages last-packages)

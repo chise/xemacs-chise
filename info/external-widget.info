@@ -1,5 +1,5 @@
-This is Info file ../info/external-widget.info, produced by Makeinfo
-version 1.68 from the input file external-widget.texi.
+This is ../info/external-widget.info, produced by makeinfo version 4.0
+from external-widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -129,9 +129,9 @@ are not seen by Emacs.
 
 
 Tag Table:
-Node: Top258
-Node: Using an External Client Widget688
-Node: External Client Widget Resource Settings2403
-Node: Motif-Specific Info About the External Client Widget5146
+Node: Top232
+Node: Using an External Client Widget662
+Node: External Client Widget Resource Settings2377
+Node: Motif-Specific Info About the External Client Widget5120
 
 End Tag Table

@@ -103,29 +103,29 @@ zero_event (struct Lisp_Event *e)
 }
 
 static Lisp_Object
-mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_event (Lisp_Object obj)
 {
   struct Lisp_Event *event = XEVENT (obj);
 
   switch (event->event_type)
     {
     case key_press_event:
-      markobj (event->event.key.keysym);
+      mark_object (event->event.key.keysym);
       break;
     case process_event:
-      markobj (event->event.process.process);
+      mark_object (event->event.process.process);
       break;
     case timeout_event:
-      markobj (event->event.timeout.function);
-      markobj (event->event.timeout.object);
+      mark_object (event->event.timeout.function);
+      mark_object (event->event.timeout.object);
       break;
     case eval_event:
     case misc_user_event:
-      markobj (event->event.eval.function);
-      markobj (event->event.eval.object);
+      mark_object (event->event.eval.function);
+      mark_object (event->event.eval.object);
       break;
     case magic_eval_event:
-      markobj (event->event.magic_eval.object);
+      mark_object (event->event.magic_eval.object);
       break;
     case button_press_event:
     case button_release_event:
@@ -137,7 +137,7 @@ mark_event (Lisp_Object obj, void (*markobj) (Lisp_Object))
     default:
       abort ();
     }
-  markobj (event->channel);
+  mark_object (event->channel);
   return event->next;
 }
 
@@ -763,7 +763,7 @@ DEFUN ("copy-event", Fcopy_event, 1, 2, 0, /*
 Make a copy of the given event object.
 If a second argument is given, the first event is copied into the second
 and the second is returned.  If the second argument is not supplied (or
-is nil) then a new event will be made as with `allocate-event.'  See also
+is nil) then a new event will be made as with `make-event'.  See also
 the function `deallocate-event'.
 */
        (event1, event2))
@@ -771,19 +771,26 @@ the function `deallocate-event'.
   CHECK_LIVE_EVENT (event1);
   if (NILP (event2))
     event2 = Fmake_event (Qnil, Qnil);
-  else CHECK_LIVE_EVENT (event2);
-  if (EQ (event1, event2))
-    return signal_simple_continuable_error_2
-      ("copy-event called with `eq' events", event1, event2);
+  else
+    {
+      CHECK_LIVE_EVENT (event2);
+      if (EQ (event1, event2))
+	return signal_simple_continuable_error_2
+	  ("copy-event called with `eq' events", event1, event2);
+    }
 
   assert (XEVENT_TYPE (event1) <= last_event_type);
   assert (XEVENT_TYPE (event2) <= last_event_type);
 
   {
-    Lisp_Object save_next = XEVENT_NEXT (event2);
+    Lisp_Event *ev2 = XEVENT (event2);
+    Lisp_Event *ev1 = XEVENT (event1);
 
-    *XEVENT (event2) = *XEVENT (event1);
-    XSET_EVENT_NEXT (event2, save_next);
+    ev2->event_type = ev1->event_type;
+    ev2->channel    = ev1->channel;
+    ev2->timestamp  = ev1->timestamp;
+    ev2->event      = ev1->event;
+
     return event2;
   }
 }
@@ -2229,11 +2236,28 @@ syms_of_events (void)
   defsymbol (&Qbutton_release, "button-release");
   defsymbol (&Qmisc_user, "misc-user");
   defsymbol (&Qascii_character, "ascii-character");
+
+  defsymbol (&QKbackspace, "backspace");
+  defsymbol (&QKtab, "tab");
+  defsymbol (&QKlinefeed, "linefeed");
+  defsymbol (&QKreturn, "return");
+  defsymbol (&QKescape, "escape");
+  defsymbol (&QKspace, "space");
+  defsymbol (&QKdelete, "delete");
+}
+
+
+void
+reinit_vars_of_events (void)
+{
+  Vevent_resource = Qnil;
 }
 
 void
 vars_of_events (void)
 {
+  reinit_vars_of_events ();
+
   DEFVAR_LISP ("character-set-property", &Vcharacter_set_property /*
 A symbol used to look up the 8-bit character of a keysym.
 To convert a keysym symbol to an 8-bit code, as when that key is
@@ -2243,22 +2267,4 @@ system-specific code will set up appropriate properties and set this
 variable.
 */ );
   Vcharacter_set_property = Qnil;
-
-  Vevent_resource = Qnil;
-
-  QKbackspace = KEYSYM ("backspace");
-  QKtab       = KEYSYM ("tab");
-  QKlinefeed  = KEYSYM ("linefeed");
-  QKreturn    = KEYSYM ("return");
-  QKescape    = KEYSYM ("escape");
-  QKspace     = KEYSYM ("space");
-  QKdelete    = KEYSYM ("delete");
-
-  staticpro (&QKbackspace);
-  staticpro (&QKtab);
-  staticpro (&QKlinefeed);
-  staticpro (&QKreturn);
-  staticpro (&QKescape);
-  staticpro (&QKspace);
-  staticpro (&QKdelete);
 }

@@ -40,9 +40,6 @@ Boston, MA 02111-1307, USA.  */
 /* Current depth in recursive edits.  */
 int command_loop_level;
 
-/* Total number of times command_loop has read a key sequence.  */
-int num_input_keys;
-
 #ifndef LISP_COMMAND_LOOP
 /* Form to evaluate (if non-nil) when Emacs is started.  */
 Lisp_Object Vtop_level;

@@ -54,6 +54,19 @@ Boston, MA 02111-1307, USA.  */
 #define SHGFI_EXETYPE 0x2000
 #define NSIG 23
 
+#ifndef SPI_GETWHEELSCROLLLINES
+#define SPI_GETWHEELSCROLLLINES 104
+#endif
+#ifndef WHEEL_PAGESCROLL
+#define WHEEL_PAGESCROLL (UINT_MAX)
+#endif
+#ifndef WHEEL_DELTA
+#define WHEEL_DELTA 120
+#endif
+#ifndef WM_MOUSEWHEEL
+#define WM_MOUSEWHEEL 0x20A
+#endif
+
 /* translate NT world unexec stuff to our a.out definitions */
 
 #define strnicmp strncasecmp
@@ -202,10 +215,15 @@ int kill (int pid, int sig);
 #define popen     _popen
 #define pclose    _pclose
 
+typedef int uid_t;
+typedef int gid_t;
+typedef int pid_t;
+typedef int ssize_t;
+
 /* Encapsulation of system calls */
 #ifndef DONT_ENCAPSULATE
 #define getpid sys_getpid
-int getpid (void);
+pid_t getpid (void);
 #endif
 
 #define DONT_USE_LITOUT
@@ -222,12 +240,12 @@ char *getwd (char *dir);
 void *sbrk (unsigned long increment);
 
 struct passwd;
-struct passwd *getpwuid (int uid);
+struct passwd *getpwuid (uid_t uid);
 struct passwd *getpwnam (const char *name);
-int getuid ();
-int geteuid ();
-int getgid (void);
-int getegid ();
+uid_t getuid (void);
+uid_t geteuid (void);
+gid_t getgid (void);
+gid_t getegid (void);
 #define _timeb timeb
 
 /* Stuff that gets set wrongly or otherwise */

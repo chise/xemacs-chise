@@ -20,19 +20,34 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include <stdlib.h> /* for abort () */
+#include <stdio.h> /* for abort () */
 #include <limits.h>
 
 #include "lwlib-Xlw.h"
+#include "lwlib-utils.h"
 #include <X11/StringDefs.h>
 #include <X11/IntrinsicP.h>
 #include <X11/ObjectP.h>
 #include <X11/CompositeP.h>
 #include <X11/Shell.h>
+#ifdef HAVE_WIDGETS
+#include "../src/EmacsManager.h"
+#endif
 #ifdef LWLIB_MENUBARS_LUCID
 #include "xlwmenu.h"
 #endif
 #ifdef LWLIB_SCROLLBARS_LUCID
 #include "xlwscrollbar.h"
+#endif
+#ifdef LWLIB_TABS_LUCID
+#ifdef NEED_MOTIF
+#include "lwlib-Xm.h"
+#endif
+#ifdef NEED_ATHENA
+#include "lwlib-Xaw.h"
+#endif
+#include "../src/xmu.h"
+#include "xlwtabs.h"
 #endif
 
 
@@ -301,6 +316,172 @@ xlw_update_scrollbar (widget_instance *instance, Widget widget,
 
 #endif /* LWLIB_SCROLLBARS_LUCID */
 
+#ifdef LWLIB_TABS_LUCID
+/* tab control
+   
+   lwlib is such an incredible hairy crock. I just cannot believe
+   it! There are random dependencies between functions, there is a
+   total lack of genericity, even though it initially appears to be
+   generic. It should all be junked and begun again. Building tabs are
+   an example - in theory we should be able to reuse a lot of the
+   general stuff because we want to put labels of whatever toolkit we
+   are using in the tab. Instead we have to hack it by hand. */
+static void
+xlw_tab_control_callback (Widget w, XtPointer client_data, XtPointer call_data)
+{
+  /* call data is the topmost widget */
+  widget_instance* instance = (widget_instance*)client_data;
+  Widget top = (Widget)call_data;
+  char *name = XtName (top);
+  widget_value* widget_val;
+  XtPointer widget_arg;
+  LWLIB_ID id;
+  lw_callback post_activate_cb;
+
+  if (w->core.being_destroyed)
+    return;
+
+  /* Grab these values before running any functions, in case running
+     the selection_cb causes the widget to be destroyed. */
+  id = instance->info->id;
+  post_activate_cb = instance->info->post_activate_cb;
+
+  /* search for the widget_val for the selected tab */
+  for (widget_val = instance->info->val->contents; widget_val; 
+       widget_val = widget_val->next)
+    {
+      if (!strcmp (widget_val->name, name))
+	break;
+    }
+
+  widget_arg = widget_val ? widget_val->call_data : NULL;
+
+  if (instance->info->selection_cb &&
+      widget_val &&
+      widget_val->enabled &&
+      !widget_val->contents)
+    instance->info->selection_cb (w, id, widget_arg);
+
+  if (post_activate_cb)
+    post_activate_cb (w, id, widget_arg);
+}
+
+static Widget
+xlw_create_tab_control (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget tab = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNorientation, XtorientHorizontal);	ac++;
+  XtSetArg (al [ac], XtNresizable, False);			ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  tab = XtCreateManagedWidget (val->name, tabsWidgetClass,
+			       instance->parent, al, ac);
+  XtRemoveAllCallbacks (tab, XtNcallback);
+  XtAddCallback (tab, XtNcallback, xlw_tab_control_callback, (XtPointer)instance);
+
+  XtManageChild (tab);
+
+  return tab;
+}
+
+static void build_tabs_in_widget (widget_instance* instance, Widget widget, 
+				  widget_value* val)
+{
+  widget_value* cur = val;
+  for (cur = val; cur; cur = cur->next)
+    {
+      if (cur->value)
+	{
+#ifdef LWLIB_WIDGETS_MOTIF
+	  xm_create_label (widget, cur);
+#else
+	  xaw_create_label (widget, cur);
+#endif
+	}
+      cur->change = NO_CHANGE;
+    }
+}
+
+static void
+xlw_update_tab_control (widget_instance* instance, Widget widget, widget_value* val)
+{
+  Widget* children;
+  unsigned int num_children;
+  int i;
+  widget_value *cur = 0;
+
+  XtRemoveAllCallbacks (widget, XtNcallback);
+  XtAddCallback (widget, XtNcallback, xlw_tab_control_callback, (XtPointer)instance);
+
+  if (val->change == STRUCTURAL_CHANGE
+      ||
+      (val->contents && val->contents->change == STRUCTURAL_CHANGE))
+    {
+      destroy_all_children (widget);
+      build_tabs_in_widget (instance, widget, val->contents);
+    }
+
+  children = XtCompositeChildren (widget, &num_children);
+  if (children)
+    {
+      for (i = 0, cur = val->contents; i < num_children; i++)
+	{
+	  if (!cur)
+	    abort ();
+	  if (children [i]->core.being_destroyed
+	      || strcmp (XtName (children [i]), cur->name))
+	    continue;
+#ifdef NEED_MOTIF
+	  if (lw_motif_widget_p (children [i]))
+	    xm_update_one_widget (instance, children [i], cur, False);
+#endif
+#ifdef NEED_ATHENA
+	  if (lw_xaw_widget_p (children [i]))
+	    xaw_update_one_widget (instance, children [i], cur, False);
+#endif
+	  cur = cur->next;
+	}
+      XtFree ((char *) children);
+    }
+  if (cur)
+    abort ();
+}
+#endif /* LWLIB_TABS_LUCID */
+
+#ifdef HAVE_WIDGETS
+static Widget
+xlw_create_clip_window (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget clip = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XtNsensitive, TRUE);		ac++;
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  /* Create a clip window to contain the subwidget. Incredibly the
+     XEmacs manager seems to be the most appropriate widget for
+     this. Nothing else is simple enough and yet does what is
+     required. */
+  clip = XtCreateManagedWidget (val->name,
+				emacsManagerWidgetClass,
+				instance->parent, al, ac);
+
+  return clip;
+}
+#endif
+
 widget_creation_entry 
 xlw_creation_table [] =
 {
@@ -311,6 +492,12 @@ xlw_creation_table [] =
 #ifdef LWLIB_SCROLLBARS_LUCID
   {"vertical-scrollbar",	xlw_create_vertical_scrollbar},
   {"horizontal-scrollbar",	xlw_create_horizontal_scrollbar},
+#endif
+#ifdef LWLIB_TABS_LUCID
+  {"tab-control",	xlw_create_tab_control},
+#endif
+#ifdef HAVE_WIDGETS
+  {"clip-window", xlw_create_clip_window},
 #endif
   {NULL, NULL}
 };
@@ -327,11 +514,19 @@ lw_lucid_widget_p (Widget widget)
   if (the_class == xlwScrollBarWidgetClass)
     return True;
 #endif
+#ifdef LWLIB_TABS_LUCID
+  if (the_class == tabsWidgetClass)
+    return True;
+#endif
 #ifdef LWLIB_MENUBARS_LUCID
   if (the_class == overrideShellWidgetClass)
     return
       XtClass (((CompositeWidget)widget)->composite.children [0])
 	== xlwMenuWidgetClass;
+#endif
+#ifdef HAVE_WIDGETS
+  if (the_class == emacsManagerWidgetClass)
+    return True;
 #endif
   return False;
 }
@@ -340,9 +535,7 @@ void
 xlw_update_one_widget (widget_instance* instance, Widget widget,
 		       widget_value* val, Boolean deep_p)
 {
-  WidgetClass class;
-
-  class = XtClass (widget);
+  WidgetClass class = XtClass (widget);
 
   if (0)
     ;
@@ -363,6 +556,12 @@ xlw_update_one_widget (widget_instance* instance, Widget widget,
   else if (class == xlwScrollBarWidgetClass)
     {
       xlw_update_scrollbar (instance, widget, val);
+    }
+#endif
+#ifdef LWLIB_TABS_LUCID
+  else if (class == tabsWidgetClass)
+    {
+      xlw_update_tab_control (instance, widget, val);
     }
 #endif
 }

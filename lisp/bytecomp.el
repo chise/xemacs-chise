@@ -3,7 +3,7 @@
 ;;; Copyright (C) 1985-1987, 1991-1994 Free Software Foundation, Inc.
 ;;; Copyright (C) 1996 Ben Wing.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;;	Hallvard Furuseth <hbf@ulrik.uio.no>
 ;; Keywords: internal
 

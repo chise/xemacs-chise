@@ -71,7 +71,7 @@ Lisp_Object Qrun, Qstop;
 /* Qrun => Qopen, Qexit => Qclosed for "network connection" processes */
 Lisp_Object Qopen, Qclosed;
 /* Protocol families */
-Lisp_Object Qtcpip;
+Lisp_Object Qtcp, Qudp;
 
 #ifdef HAVE_MULTICAST
 Lisp_Object Qmulticast; /* Will be used for occasional warnings */
@@ -111,22 +111,22 @@ extern Lisp_Object Vlisp_EXEC_SUFFIXES;
 
 
 static Lisp_Object
-mark_process (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_process (Lisp_Object obj)
 {
   struct Lisp_Process *proc = XPROCESS (obj);
-  MAYBE_PROCMETH (mark_process_data, (proc, markobj));
-  markobj (proc->name);
-  markobj (proc->command);
-  markobj (proc->filter);
-  markobj (proc->sentinel);
-  markobj (proc->buffer);
-  markobj (proc->mark);
-  markobj (proc->pid);
-  markobj (proc->pipe_instream);
-  markobj (proc->pipe_outstream);
+  MAYBE_PROCMETH (mark_process_data, (proc));
+  mark_object (proc->name);
+  mark_object (proc->command);
+  mark_object (proc->filter);
+  mark_object (proc->sentinel);
+  mark_object (proc->buffer);
+  mark_object (proc->mark);
+  mark_object (proc->pid);
+  mark_object (proc->pipe_instream);
+  mark_object (proc->pipe_outstream);
 #ifdef FILE_CODING
-  markobj (proc->coding_instream);
-  markobj (proc->coding_outstream);
+  mark_object (proc->coding_instream);
+  mark_object (proc->coding_outstream);
 #endif
   return proc->status_symbol;
 }
@@ -147,10 +147,10 @@ print_process (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   else
     {
       int netp = network_connection_p (obj);
-      write_c_string (((netp) ? GETTEXT ("#<network connection ") :
+      write_c_string ((netp ? GETTEXT ("#<network connection ") :
 		       GETTEXT ("#<process ")), printcharfun);
       print_internal (proc->name, printcharfun, 1);
-      write_c_string (((netp) ? " " : " pid "), printcharfun);
+      write_c_string ((netp ? " " : " pid "), printcharfun);
       print_internal (proc->pid, printcharfun, 1);
       write_c_string (" state:", printcharfun);
       print_internal (proc->status_symbol, printcharfun, 1);
@@ -245,7 +245,7 @@ connected_via_filedesc_p (struct Lisp_Process *p)
 int
 network_connection_p (Lisp_Object process)
 {
-  return GC_CONSP (XPROCESS (process)->pid);
+  return CONSP (XPROCESS (process)->pid);
 }
 #endif
 
@@ -272,7 +272,7 @@ Return the process named NAME, or nil if there is none.
 {
   Lisp_Object tail;
 
-  if (GC_PROCESSP (name))
+  if (PROCESSP (name))
     return name;
 
   if (!gc_in_progress)
@@ -280,7 +280,7 @@ Return the process named NAME, or nil if there is none.
        of a signal or crash. */
     CHECK_STRING (name);
 
-  for (tail = Vprocess_list; GC_CONSP (tail); tail = XCDR (tail))
+  for (tail = Vprocess_list; CONSP (tail); tail = XCDR (tail))
     {
       Lisp_Object proc = XCAR (tail);
       QUIT;
@@ -298,18 +298,18 @@ BUFFER may be a buffer or the name of one.
 {
   Lisp_Object buf, tail, proc;
 
-  if (GC_NILP (name)) return Qnil;
+  if (NILP (name)) return Qnil;
   buf = Fget_buffer (name);
-  if (GC_NILP (buf)) return Qnil;
+  if (NILP (buf)) return Qnil;
 
-  for (tail = Vprocess_list; GC_CONSP (tail); tail = XCDR (tail))
+  for (tail = Vprocess_list; CONSP (tail); tail = XCDR (tail))
     {
       /* jwz: do not quit here - it isn't necessary, as there is no way for
 	 Vprocess_list to get circular or overwhelmingly long, and this
 	 function is called from layout_mode_element under redisplay. */
       /* QUIT; */
       proc = XCAR (tail);
-      if (GC_PROCESSP (proc) && EQ (XPROCESS (proc)->buffer, buf))
+      if (PROCESSP (proc) && EQ (XPROCESS (proc)->buffer, buf))
 	return proc;
     }
   return Qnil;
@@ -331,28 +331,28 @@ get_process (Lisp_Object name)
 
   /* This may be called during a GC from process_send_signal() from
      kill_buffer_processes() if emacs decides to abort(). */
-  if (GC_PROCESSP (name))
+  if (PROCESSP (name))
     return name;
 
-  if (GC_STRINGP (name))
+  if (STRINGP (name))
     {
       obj = Fget_process (name);
-      if (GC_NILP (obj))
+      if (NILP (obj))
         obj = Fget_buffer (name);
-      if (GC_NILP (obj))
+      if (NILP (obj))
         error ("Process %s does not exist", XSTRING_DATA (name));
     }
-  else if (GC_NILP (name))
+  else if (NILP (name))
     obj = Fcurrent_buffer ();
   else
     obj = name;
 
   /* Now obj should be either a buffer object or a process object.
    */
-  if (GC_BUFFERP (obj))
+  if (BUFFERP (obj))
     {
       proc = Fget_buffer_process (obj);
-      if (GC_NILP (proc))
+      if (NILP (proc))
 	error ("Buffer %s has no process", XSTRING_DATA (XBUFFER(obj)->name));
     }
   else
@@ -659,7 +659,7 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
 
 DEFUN ("open-network-stream-internal", Fopen_network_stream_internal, 4, 5, 0, /*
 Open a TCP connection for a service to a host.
-Returns a subprocess-object to represent the connection.
+Return a subprocess-object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 
 NAME is name for process.  It is modified if necessary to make it unique.
@@ -671,10 +671,18 @@ BUFFER is the buffer (or buffer-name) to associate with the process.
 Third arg is name of the host to connect to, or its IP address.
 Fourth arg SERVICE is name of the service desired, or an integer
  specifying a port number to connect to.
-Fifth argument FAMILY is a protocol family. When omitted, 'tcp/ip
-\(Internet protocol family TCP/IP) is assumed.
+Fifth argument PROTOCOL is a network protocol.  Currently 'tcp
+ (Transmission Control Protocol) and 'udp (User Datagram Protocol) are
+ supported.  When omitted, 'tcp is assumed.
+
+Ouput via `process-send-string' and input via buffer or filter (see
+`set-process-filter') are stream-oriented.  That means UDP datagrams are
+not guaranteed to be sent and received in discrete packets. (But small
+datagrams around 500 bytes that are not truncated by `process-send-string'
+are usually fine.)  Note further that UDP protocol does not guard against
+lost packets.
 */
-       (name, buffer, host, service, family))
+       (name, buffer, host, service, protocol))
 {
   /* !!#### This function has not been Mule-ized */
   /* This function can GC */
@@ -682,17 +690,17 @@ Fifth argument FAMILY is a protocol family. When omitted, 'tcp/ip
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4, gcpro5, ngcpro1;
   void *inch, *outch;
 
-  GCPRO5 (name, buffer, host, service, family);
+  GCPRO5 (name, buffer, host, service, protocol);
   CHECK_STRING (name);
 
-  if (NILP(family))
-    family = Qtcpip;
+  if (NILP(protocol))
+    protocol = Qtcp;
   else
-    CHECK_SYMBOL (family);
+    CHECK_SYMBOL (protocol);
 
   /* Since this code is inside HAVE_SOCKETS, existence of
      open_network_stream is mandatory */
-  PROCMETH (open_network_stream, (name, host, service, family,
+  PROCMETH (open_network_stream, (name, host, service, protocol,
 				  &inch, &outch));
 
   if (!NILP (buffer))
@@ -716,7 +724,7 @@ Fifth argument FAMILY is a protocol family. When omitted, 'tcp/ip
 
 DEFUN ("open-multicast-group-internal", Fopen_multicast_group_internal, 5, 5, 0, /*
 Open a multicast connection on the specified dest/port/ttl.
-Returns a subprocess-object to represent the connection.
+Return a subprocess-object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 
 NAME is name for process.  It is modified if necessary to make it unique.
@@ -965,7 +973,7 @@ send_process (Lisp_Object proc,
   if (nonrelocatable)
     lstream =
       make_fixed_buffer_input_stream (nonrelocatable + start, len);
-  else if (GC_BUFFERP (relocatable))
+  else if (BUFFERP (relocatable))
     lstream = make_lisp_buffer_input_stream (XBUFFER (relocatable),
 					     start, start + len, 0);
   else
@@ -1898,12 +1906,12 @@ kill_buffer_processes (Lisp_Object buffer)
 {
   Lisp_Object tail;
 
-  for (tail = Vprocess_list; GC_CONSP (tail);
+  for (tail = Vprocess_list; CONSP (tail);
        tail = XCDR (tail))
     {
       Lisp_Object proc = XCAR (tail);
-      if (GC_PROCESSP (proc)
-	  && (GC_NILP (buffer) || GC_EQ (XPROCESS (proc)->buffer, buffer)))
+      if (PROCESSP (proc)
+	  && (NILP (buffer) || EQ (XPROCESS (proc)->buffer, buffer)))
 	{
 	  if (network_connection_p (proc))
 	    Fdelete_process (proc);
@@ -1975,7 +1983,8 @@ syms_of_process (void)
   defsymbol (&Qopen, "open");
   defsymbol (&Qclosed, "closed");
 
-  defsymbol (&Qtcpip, "tcp/ip");
+  defsymbol (&Qtcp, "tcp");
+  defsymbol (&Qudp, "udp");
 
 #ifdef HAVE_MULTICAST
   defsymbol(&Qmulticast, "multicast"); /* Used for occasional warnings */

@@ -81,7 +81,7 @@ emacs_tparam (CONST char *string, char *outstring, int len, int arg1,
   temp = (char *) tparm (string, arg1, arg2, arg3, arg4, arg5, arg6, arg7,
 			 arg8, arg9);
   if (outstring == 0)
-    outstring = ((char *) (xmalloc ((strlen (temp)) + 1)));
+    outstring = (char *) xmalloc (strlen (temp) + 1);
   strcpy (outstring, temp);
   return outstring;
 }

@@ -244,7 +244,7 @@ Boston, MA 02111-1307, USA.  */
    Other encapsulations are declared in the appropriate sys*.h file. */
 
 #ifdef ENCAPSULATE_READ
-int sys_read (int, void *, size_t);
+ssize_t sys_read (int, void *, size_t);
 #endif
 #if defined (ENCAPSULATE_READ) && !defined (DONT_ENCAPSULATE)
 # undef read
@@ -255,7 +255,7 @@ int sys_read (int, void *, size_t);
 #endif
 
 #ifdef ENCAPSULATE_WRITE
-int sys_write (int, CONST void *, size_t);
+ssize_t sys_write (int, CONST void *, size_t);
 #endif
 #if defined (ENCAPSULATE_WRITE) && !defined (DONT_ENCAPSULATE)
 # undef write
@@ -378,6 +378,18 @@ int sys_readlink (CONST char *path, char *buf, size_t bufsiz);
 #endif
 #if !defined (ENCAPSULATE_READLINK) && defined (DONT_ENCAPSULATE)
 # define sys_readlink readlink
+#endif
+
+#ifdef ENCAPSULATE_FSTAT
+int sys_fstat (int fd, struct stat *buf);
+#endif
+#if defined (ENCAPSULATE_FSTAT) && !defined (DONT_ENCAPSULATE)
+# undef fstat
+/* Need to use arguments to avoid messing with struct stat */
+# define fstat(fd, buf) sys_fstat (fd, buf)
+#endif
+#if !defined (ENCAPSULATE_FSTAT) && defined (DONT_ENCAPSULATE)
+# define sys_fstat fstat
 #endif
 
 #ifdef ENCAPSULATE_STAT

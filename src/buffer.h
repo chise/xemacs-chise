@@ -222,7 +222,6 @@ DECLARE_LRECORD (buffer, struct buffer);
 #define XBUFFER(x) XRECORD (x, buffer, struct buffer)
 #define XSETBUFFER(x, p) XSETRECORD (x, p, buffer)
 #define BUFFERP(x) RECORDP (x, buffer)
-#define GC_BUFFERP(x) GC_RECORDP (x, buffer)
 #define CHECK_BUFFER(x) CHECK_RECORD (x, buffer)
 #define CONCHECK_BUFFER(x) CONCHECK_RECORD (x, buffer)
 
@@ -323,9 +322,9 @@ INLINE Bytind BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr);
 INLINE Bytind
 BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr)
 {
-  return ((ptr) - (buf)->text->beg + 1
-	  - ((ptr - (buf)->text->beg + 1) > (buf)->text->gpt
-	     ? (buf)->text->gap_size : 0));
+  return (ptr - buf->text->beg + 1
+	  - ((ptr - buf->text->beg + 1) > buf->text->gpt
+	     ? buf->text->gap_size : 0));
 }
 
 #define BUF_PTR_BYTE_POS(buf, ptr) \
@@ -336,8 +335,8 @@ INLINE Bufbyte * BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos);
 INLINE Bufbyte *
 BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos)
 {
-  return ((buf)->text->beg +
-	  ((pos >= (buf)->text->gpt ? (pos + (buf)->text->gap_size) : pos)
+  return (buf->text->beg +
+	  ((pos >= buf->text->gpt ? (pos + buf->text->gap_size) : pos)
 	   - 1));
 }
 
@@ -349,8 +348,8 @@ INLINE Bufbyte * BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos);
 INLINE Bufbyte *
 BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos)
 {
-  return ((buf)->text->beg +
-	  ((pos > (buf)->text->gpt ? (pos + (buf)->text->gap_size) : pos)
+  return (buf->text->beg +
+	  ((pos > buf->text->gpt ? (pos + buf->text->gap_size) : pos)
 	   - 2));
 }
 
@@ -365,16 +364,16 @@ INLINE int valid_memind_p (struct buffer *buf, Memind x);
 INLINE int
 valid_memind_p (struct buffer *buf, Memind x)
 {
-  return ((x >= 1 && x <= (Memind) (buf)->text->gpt) ||
-	  (x  > (Memind) ((buf)->text->gpt + (buf)->text->gap_size) &&
-	   x <= (Memind) ((buf)->text->z   + (buf)->text->gap_size)));
+  return ((x >= 1 && x <= (Memind) buf->text->gpt) ||
+	  (x  > (Memind) (buf->text->gpt + buf->text->gap_size) &&
+	   x <= (Memind) (buf->text->z   + buf->text->gap_size)));
 }
 
 INLINE Memind bytind_to_memind (struct buffer *buf, Bytind x);
 INLINE Memind
 bytind_to_memind (struct buffer *buf, Bytind x)
 {
-  return (Memind) ((x > (buf)->text->gpt) ? (x + (buf)->text->gap_size) : x);
+  return (Memind) ((x > buf->text->gpt) ? (x + buf->text->gap_size) : x);
 }
 
 
@@ -385,8 +384,8 @@ memind_to_bytind (struct buffer *buf, Memind x)
 #ifdef ERROR_CHECK_BUFPOS
   assert (valid_memind_p (buf, x));
 #endif
-  return (Bytind) ((x > (Memind) (buf)->text->gpt) ?
-		   x - (buf)->text->gap_size :
+  return (Bytind) ((x > (Memind) buf->text->gpt) ?
+		   x - buf->text->gap_size :
 		   x);
 }
 

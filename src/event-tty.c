@@ -245,7 +245,7 @@ emacs_tty_delete_stream_pair (Lisp_Object instream, Lisp_Object outstream)
 /************************************************************************/
 
 void
-vars_of_event_tty (void)
+reinit_vars_of_event_tty (void)
 {
   tty_event_stream = xnew (struct event_stream);
 
@@ -261,6 +261,12 @@ vars_of_event_tty (void)
   tty_event_stream->quit_p_cb		= emacs_tty_quit_p;
   tty_event_stream->create_stream_pair_cb = emacs_tty_create_stream_pair;
   tty_event_stream->delete_stream_pair_cb = emacs_tty_delete_stream_pair;
+}
+
+void
+vars_of_event_tty (void)
+{
+  reinit_vars_of_event_tty ();
 }
 
 void

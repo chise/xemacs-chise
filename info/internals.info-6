@@ -1,5 +1,5 @@
-This is Info file ../../info/internals.info, produced by Makeinfo
-version 1.68 from the input file internals.texi.
+This is ../info/internals.info, produced by makeinfo version 3.12s from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -204,8 +204,8 @@ is replaced but the rest stays the same.
 system-specific event loop can be operating at a time, and must be able
 to receive all kinds of events simultaneously.  For the two existing
 event loops (implemented in `event-tty.c' and `event-Xt.c',
-respectively), the TTY event loop *only* handles TTY consoles, while
-the Xt event loop handles *both* TTY and X consoles.  This situation is
+respectively), the TTY event loop _only_ handles TTY consoles, while
+the Xt event loop handles _both_ TTY and X consoles.  This situation is
 different from all of the output handlers, where you simply have one
 per console type.
 
@@ -954,12 +954,12 @@ characters back again).  Once the buffer is killed, the memory allocated
 for the buffer text will be freed, but it will still be sitting on the
 heap, taking up virtual memory, and will not be released back to the
 operating system. (However, if you have compiled XEmacs with rel-alloc,
-the situation is different.  In this case, the space *will* be released
+the situation is different.  In this case, the space _will_ be released
 back to the operating system.  However, this tends to result in a
 noticeable speed penalty.)
 
    Astute readers may notice that the text in a buffer is represented as
-an array of *bytes*, while (at least in the MULE case) an Emchar is a
+an array of _bytes_, while (at least in the MULE case) an Emchar is a
 19-bit integer, which clearly cannot fit in a byte.  This means (of
 course) that the text in a buffer uses a different representation from
 an Emchar: specifically, the 19-bit Emchar becomes a series of one to
@@ -986,7 +986,7 @@ at that position, we need to follow these steps:
      so, adding the size of the gap to it.  By convention, memory
      indices begin at 1, just like buffer positions and byte indices,
      and when referring to the position that is "at" the gap, we always
-     use the memory position at the *beginning*, not at the end, of the
+     use the memory position at the _beginning_, not at the end, of the
      gap.
 
   3. Fetch the appropriate bytes at the determined memory position.

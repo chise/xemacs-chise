@@ -1,5 +1,5 @@
-This is Info file ../info/widget.info, produced by Makeinfo version
-1.68 from the input file widget.texi.
+This is ../info/widget.info, produced by makeinfo version 3.12s from
+widget.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -212,34 +212,34 @@ called "buttons".  The default commands for activating a button are:
    There are several different kind of buttons, all of which are
 present in the example:
 
-*The Option Field Tags.*
+_The Option Field Tags._
      When you invoke one of these buttons, you will be asked to choose
      between a number of different options.  This is how you edit an
      option field.  Option fields are created by the `menu-choice'
      widget.  In the example, `Choose' is an option field tag.
 
-*The `[INS]' and `[DEL]' buttons.*
+_The `[INS]' and `[DEL]' buttons._
      Activating these will insert or delete elements from a editable
      list.  The list is created by the `editable-list' widget.
 
-*Embedded Buttons.*
+_Embedded Buttons._
      The `_other work_' is an example of an embedded button. Embedded
      buttons are not associated with a fields, but can serve any
      purpose, such as implementing hypertext references.  They are
      usually created by the `link' widget.
 
-*The `[ ]' and `[X]' buttons.*
+_The `[ ]' and `[X]' buttons._
      Activating one of these will convert it to the other.  This is
      useful for implementing multiple-choice fields.  You can create it
      wit
 
-*The `( )' and `(*)' buttons.*
+_The `( )' and `(*)' buttons._
      Only one radio button in a `radio-button-choice' widget can be
      selected at any time.  When you invoke one of the unselected radio
      buttons, it will be selected and the previous selected radio
      button will become unselected.
 
-*The `[Apply Form]' `[Reset Form]' buttons.*
+_The `[Apply Form]' `[Reset Form]' buttons._
      These are explicit buttons made with the `push-button' widget.
      The main difference from the `link' widget is that the buttons are
      will be displayed as GUI buttons when possible.  enough.
@@ -259,11 +259,11 @@ Navigation
 buffer, plus you will have these additional commands:
 
 `<TAB>'
-      - Command: widget-forward &optional COUNT
+      - Command: widget-forward &optional count
           Move point COUNT buttons or editing fields forward.
 
 `<M-TAB>'
-      - Command: widget-backward &optional COUNT
+      - Command: widget-backward &optional count
           Move point COUNT buttons or editing fields backward.
 
 
@@ -369,14 +369,14 @@ object.  This object can be queried and manipulated by other widget
 functions, until it is deleted with `widget-delete'.  After the widgets
 have been created, `widget-setup' must be called to enable them.
 
- - Function: widget-create TYPE [ KEYWORD ARGUMENT ]...
+ - Function: widget-create type [ keyword argument ]...
      Create and return a widget of type TYPE.  The syntax for the TYPE
      argument is described in *Note Basic Types::.
 
      The keyword arguments can be used to overwrite the keyword
      arguments that are part of TYPE.
 
- - Function: widget-delete WIDGET
+ - Function: widget-delete widget
      Delete WIDGET and remove it from the buffer.
 
  - Function: widget-setup
@@ -480,13 +480,13 @@ widget specific way.
      Text around %[ %] in the format.
 
      These can be
-    *nil*
+    _nil_
           No text is inserted.
 
-    *a string*
+    _a string_
           The string is inserted literally.
 
-    *a symbol*
+    _a symbol_
           The value of the symbol is expanded according to this table.
 
 `:doc'
@@ -545,7 +545,7 @@ widget specific way.
 
      The following predefined function can be used:
 
-      - Function: widget-children-validate WIDGET
+      - Function: widget-children-validate widget
           All the `:children' of WIDGET must be valid.
 
 `:tab-order'
@@ -800,7 +800,7 @@ arguments.
 widget after it has been created with the function
 `widget-radio-add-item'.
 
- - Function: widget-radio-add-item WIDGET TYPE
+ - Function: widget-radio-add-item widget type
      Add to `radio-button-choice' widget WIDGET a new radio button item
      of type TYPE.
 
@@ -1198,15 +1198,15 @@ Properties
    You can examine or set the value of a widget by using the widget
 object that was returned by `widget-create'.
 
- - Function: widget-value WIDGET
+ - Function: widget-value widget
      Return the current value contained in WIDGET.  It is an error to
      call this function on an uninitialized widget.
 
- - Function: widget-value-set WIDGET VALUE
+ - Function: widget-value-set widget value
      Set the value contained in WIDGET to VALUE.  It is an error to
      call this function with an invalid VALUE.
 
-   *Important:* You *must* call `widget-setup' after modifying the
+   *Important:* You _must_ call `widget-setup' after modifying the
 value of a widget before the user is allowed to edit the widget again.
 It is enough to call `widget-setup' once if you modify multiple
 widgets.  This is currently only necessary if the widget contains an
@@ -1217,22 +1217,22 @@ widget objects, for example a reference to the item being edited, it
 can be done with `widget-put' and `widget-get'.  The property names
 must begin with a `:'.
 
- - Function: widget-put WIDGET PROPERTY VALUE
+ - Function: widget-put widget property value
      In WIDGET set PROPERTY to VALUE.  PROPERTY should be a symbol,
      while VALUE can be anything.
 
- - Function: widget-get WIDGET PROPERTY
+ - Function: widget-get widget property
      In WIDGET return the value for PROPERTY.  PROPERTY should be a
      symbol, the value is what was last set by `widget-put' for
      PROPERTY.
 
- - Function: widget-member WIDGET PROPERTY
+ - Function: widget-member widget property
      Non-nil if WIDGET has a value (even nil) for property PROPERTY.
 
    Occasionally it can be useful to know which kind of widget you have,
 i.e. the name of the widget type you gave when the widget was created.
 
- - Function: widget-type WIDGET
+ - Function: widget-type widget
      Return the name of WIDGET, a symbol.
 
    Widgets can be in two states: active, which means they are
@@ -1278,7 +1278,7 @@ you to create a shorthand for more complex widgets, including specifying
 component widgets and default new default values for the keyword
 arguments.
 
- - Function: widget-define NAME CLASS DOC &rest ARGS
+ - Function: widget-define name class doc &rest args
      Define a new widget type named NAME from `class'.
 
      NAME and class should both be symbols, `class' should be one of
@@ -1312,10 +1312,10 @@ new widgets:
 
      The following predefined functions can be used here:
 
-      - Function: widget-types-convert-widget WIDGET
+      - Function: widget-types-convert-widget widget
           Convert `:args' as widget types in WIDGET.
 
-      - Function: widget-value-convert-widget WIDGET
+      - Function: widget-value-convert-widget widget
           Initialize `:value' from `:args' in WIDGET.
 
 `:value-to-internal'
@@ -1354,7 +1354,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-children-value-delete WIDGET
+      - Function: widget-children-value-delete widget
           Delete all `:children' and `:buttons' in WIDGET.
 
 `:value-get'
@@ -1363,7 +1363,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-value-value-get WIDGET
+      - Function: widget-value-value-get widget
           Return the `:value' property of WIDGET.
 
 `:format-handler'
@@ -1382,7 +1382,7 @@ new widgets:
 
      The following predefined function can be used here:
 
-      - Function: widget-parent-action WIDGET &optional EVENT
+      - Function: widget-parent-action widget &optional event
           Tell `:parent' of WIDGET to handle the `:action'.
           Optional EVENT is the event that triggered the action.
 
@@ -1450,12 +1450,12 @@ File: widget.info,  Node: Utilities,  Next: Widget Wishlist,  Prev: Widget Minor
 Utilities.
 ==========
 
- - Function: widget-prompt-value WIDGET PROMPT [ VALUE UNBOUND ]
+ - Function: widget-prompt-value widget prompt [ value unbound ]
      Prompt for a value matching WIDGET, using PROMPT.
      The current value is assumed to be VALUE, unless UNBOUND is
      non-nil.
 
- - Function: widget-get-sibling WIDGET
+ - Function: widget-get-sibling widget
      Get the item WIDGET is assumed to toggle.
      This is only meaningful for radio buttons or checkboxes in a list.
 
@@ -1514,39 +1514,40 @@ Wishlist
      symbol, it should pop up a menu.
 
 
+
 
 Tag Table:
-Node: Top227
-Node: Introduction607
-Node: User Interface4090
-Node: Programming Example8985
-Node: Setting Up the Buffer12302
-Node: Basic Types14019
-Node: link20064
-Node: url-link20578
-Node: info-link20890
-Node: push-button21181
-Node: editable-field21754
-Node: text23093
-Node: menu-choice23391
-Node: radio-button-choice24256
-Node: item25835
-Node: choice-item26223
-Node: toggle26721
-Node: checkbox27446
-Node: checklist27752
-Node: editable-list29196
-Node: group30378
-Node: Sexp Types30665
-Node: constants30978
-Node: generic32057
-Node: atoms32590
-Node: composite34537
-Node: Widget Properties37003
-Node: Defining New Widgets40066
-Node: Widget Browser45366
-Node: Widget Minor Mode46224
-Node: Utilities46781
-Node: Widget Wishlist47262
+Node: Top203
+Node: Introduction583
+Node: User Interface4066
+Node: Programming Example8961
+Node: Setting Up the Buffer12278
+Node: Basic Types13995
+Node: link20040
+Node: url-link20554
+Node: info-link20866
+Node: push-button21157
+Node: editable-field21730
+Node: text23069
+Node: menu-choice23367
+Node: radio-button-choice24232
+Node: item25811
+Node: choice-item26199
+Node: toggle26697
+Node: checkbox27422
+Node: checklist27728
+Node: editable-list29172
+Node: group30354
+Node: Sexp Types30641
+Node: constants30954
+Node: generic32033
+Node: atoms32566
+Node: composite34513
+Node: Widget Properties36979
+Node: Defining New Widgets40042
+Node: Widget Browser45342
+Node: Widget Minor Mode46200
+Node: Utilities46757
+Node: Widget Wishlist47238
 
 End Tag Table

@@ -72,12 +72,12 @@ struct lrecord_header
 struct lrecord_implementation;
 int lrecord_type_index (CONST struct lrecord_implementation *implementation);
 
-# define set_lheader_implementation(header,imp) do {	\
+#define set_lheader_implementation(header,imp) do {	\
   struct lrecord_header* SLI_header = (header);		\
-  (SLI_header)->type = lrecord_type_index (imp);	\
-  (SLI_header)->mark = 0;				\
-  (SLI_header)->c_readonly = 0;				\
-  (SLI_header)->lisp_readonly = 0;			\
+  SLI_header->type = lrecord_type_index (imp);		\
+  SLI_header->mark = 0;					\
+  SLI_header->c_readonly = 0;				\
+  SLI_header->lisp_readonly = 0;			\
 } while (0)
 
 struct lcrecord_header
@@ -119,8 +119,7 @@ struct free_lcrecord_header
 };
 
 /* see alloc.c for an explanation */
-Lisp_Object this_one_is_unmarkable (Lisp_Object obj,
-				    void (*markobj) (Lisp_Object));
+Lisp_Object this_one_is_unmarkable (Lisp_Object obj);
 
 struct lrecord_implementation
 {
@@ -134,7 +133,7 @@ struct lrecord_implementation
      recursion, so the object returned should preferably be the one
      with the deepest level of Lisp_Object pointers.  This function
      can be NULL, meaning no GC marking is necessary. */
-  Lisp_Object (*marker) (Lisp_Object, void (*mark_object) (Lisp_Object));
+  Lisp_Object (*marker) (Lisp_Object);
   /* This can be NULL if the object is an lcrecord; the
      default_object_printer() in print.c will be used. */
   void (*printer) (Lisp_Object, Lisp_Object printcharfun, int escapeflag);
@@ -208,7 +207,7 @@ extern int gc_in_progress;
    structure.  Following values  are parameters, their  presence, type
    and number is type-dependant.
 
-   The description ends with a "XD_END" record.
+   The description ends with a "XD_END" or "XD_SPECIFIER_END" record.
 
    Some example descriptions :
    static const struct lrecord_description cons_description[] = {
@@ -219,19 +218,25 @@ extern int gc_in_progress;
    Which means "two lisp objects starting at the 'car' element"
 
   static const struct lrecord_description string_description[] = {
-    { XD_STRING_DATA, offsetof(Lisp_String, data) },
-    { XD_LISP_OBJECT, offsetof(Lisp_String, plist), 1 },
+    { XD_BYTECOUNT,       offsetof(Lisp_String, size) },
+    { XD_OPAQUE_DATA_PTR, offsetof(Lisp_String, data), XD_INDIRECT(0, 1) },
+    { XD_LISP_OBJECT,     offsetof(Lisp_String, plist), 1 },
     { XD_END }
   };
-  "A string data pointer at 'data', one lisp object at 'plist'"
+  "A pointer to string data at 'data', the size of the pointed array being the value
+   of the size variable plus 1, and one lisp object at 'plist'"
 
   The existing types :
     XD_LISP_OBJECT
   Lisp objects.  The third element is the count.  This is also the type to use
   for pointers to other lrecords.
 
-    XD_STRING_DATA
-  Pointer to string data.
+    XD_LO_RESET_NIL
+  Lisp objects which will be reset to Qnil when dumping.  Useful for cleaning
+  up caches.
+
+    XD_LO_LINK
+  Link in a linked list of objects of the same type.
 
     XD_OPAQUE_PTR
   Pointer to undumpable data.  Must be NULL when dumping.
@@ -244,6 +249,16 @@ extern int gc_in_progress;
   Pointer to dumpable opaque data.  Parameter is the size of the data.
   Pointed data must be relocatable without changes.
 
+    XD_C_STRING
+  Pointer to a C string.
+
+    XD_DOC_STRING
+  Pointer to a doc string (C string if positive, opaque value if negative)
+
+    XD_INT_RESET
+  An integer which will be reset to a given value in the dump file.
+
+
     XD_SIZE_T
   size_t value.  Used for counts.
 
@@ -253,30 +268,40 @@ extern int gc_in_progress;
     XD_LONG
   long value.  Used for counts.
 
+    XD_BYTECOUNT
+  bytecount value.  Used for counts.
+
     XD_END
   Special type indicating the end of the array.
 
+    XD_SPECIFIER_END
+  Special type indicating the end of the array for a specifier.  Extra
+  description is going to be fetched from the specifier methods.
+
 
   Special macros:
-    XD_INDIRECT(line)
-  Usable where a "count" or "size" is requested.  Gives the value of the element
-  which is at line number 'line' in the description (count starts at zero).
-
-    XD_PARENT_INDIRECT(line)
-  Same as XD_INDIRECT but the element number refers to the parent structure.
-  Usable only in struct descriptions.
+    XD_INDIRECT(line, delta)
+  Usable where  a "count" or "size"  is requested.  Gives the value of
+  the element which is at line number 'line' in the description (count
+  starts at zero) and adds delta to it.
 */
 
 enum lrecord_description_type {
   XD_LISP_OBJECT,
-  XD_STRING_DATA,
+  XD_LO_RESET_NIL,
+  XD_LO_LINK,
   XD_OPAQUE_PTR,
   XD_STRUCT_PTR,
   XD_OPAQUE_DATA_PTR,
+  XD_C_STRING,
+  XD_DOC_STRING,
+  XD_INT_RESET,
   XD_SIZE_T,
   XD_INT,
   XD_LONG,
-  XD_END
+  XD_BYTECOUNT,
+  XD_END,
+  XD_SPECIFIER_END
 };
 
 struct lrecord_description {
@@ -291,12 +316,16 @@ struct struct_description {
   const struct lrecord_description *description;
 };
 
-#define XD_INDIRECT(count) (-1-(count))
-#define XD_PARENT_INDIRECT(count) (-1000-(count))
+#define XD_INDIRECT(val, delta) (-1-((val)|(delta<<8)))
+
+#define XD_IS_INDIRECT(code) (code<0)
+#define XD_INDIRECT_VAL(code) ((-1-code) & 255)
+#define XD_INDIRECT_DELTA(code) (((-1-code)>>8) & 255)
 
 #define XD_DYNARR_DESC(base_type, sub_desc) \
-  { XD_STRUCT_PTR, offsetof(base_type, base), XD_INDIRECT(1), sub_desc }, \
-  { XD_INT,        offsetof(base_type, max) }
+  { XD_STRUCT_PTR, offsetof(base_type, base), XD_INDIRECT(1, 0), sub_desc }, \
+  { XD_INT,        offsetof(base_type, cur) }, \
+  { XD_INT_RESET,  offsetof(base_type, max), XD_INDIRECT(1, 0) }
 
 /* Declaring the following structures as const puts them in the
    text (read-only) segment, which makes debugging inconvenient
@@ -345,7 +374,7 @@ CONST_IF_NOT_DEBUG struct lrecord_implementation lrecord_##c_name =	\
     getprop, putprop, remprop, props, size, sizer,			\
     &(lrecord_##c_name##_lrecord_type_index), basic_p }			\
 
-#define LRECORDP(a) (XTYPE ((a)) == Lisp_Type_Record)
+#define LRECORDP(a) (XTYPE (a) == Lisp_Type_Record)
 #define XRECORD_LHEADER(a) ((struct lrecord_header *) XPNTR (a))
 
 #define RECORD_TYPEP(x, ty) \
@@ -370,8 +399,7 @@ INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
 INLINE structtype *						\
 error_check_##c_name (Lisp_Object obj)				\
 {								\
-  assert (RECORD_TYPEP (obj, &lrecord_##c_name) ||		\
-	  MARKED_RECORD_P (obj));				\
+  assert (RECORD_TYPEP (obj, &lrecord_##c_name));		\
   return (structtype *) XPNTR (obj);				\
 }								\
 extern Lisp_Object Q##c_name##p
@@ -381,7 +409,7 @@ INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
 INLINE structtype *						\
 error_check_##c_name (Lisp_Object obj)				\
 {								\
-  assert (XGCTYPE (obj) == type_enum);				\
+  assert (XTYPE (obj) == type_enum);				\
   return (structtype *) XPNTR (obj);				\
 }								\
 extern Lisp_Object Q##c_name##p
@@ -392,8 +420,7 @@ extern Lisp_Object Q##c_name##p
 # define XSETRECORD(var, p, c_name) do				\
 {								\
   XSETOBJ (var, Lisp_Type_Record, p);				\
-  assert (RECORD_TYPEP (var, &lrecord_##c_name) ||		\
-	  MARKED_RECORD_P (var));				\
+  assert (RECORD_TYPEP (var, &lrecord_##c_name));		\
 } while (0)
 
 #else /* not ERROR_CHECK_TYPECHECK */
@@ -412,7 +439,6 @@ extern Lisp_Object Q##c_name##p
 #endif /* not ERROR_CHECK_TYPECHECK */
 
 #define RECORDP(x, c_name) RECORD_TYPEP (x, &lrecord_##c_name)
-#define GC_RECORDP(x, c_name) gc_record_type_p (x, &lrecord_##c_name)
 
 /* Note: we now have two different kinds of type-checking macros.
    The "old" kind has now been renamed CONCHECK_foo.  The reason for
@@ -459,19 +485,16 @@ void *alloc_lcrecord (size_t size, CONST struct lrecord_implementation *);
 #define alloc_lcrecord_type(type, lrecord_implementation) \
   ((type *) alloc_lcrecord (sizeof (type), lrecord_implementation))
 
-int gc_record_type_p (Lisp_Object frob,
-		      CONST struct lrecord_implementation *type);
-
 /* Copy the data from one lcrecord structure into another, but don't
    overwrite the header information. */
 
 #define copy_lcrecord(dst, src)					\
-  memcpy ((char *) dst + sizeof (struct lcrecord_header),	\
-	  (char *) src + sizeof (struct lcrecord_header),	\
-	  sizeof (*dst) - sizeof (struct lcrecord_header))
+  memcpy ((char *) (dst) + sizeof (struct lcrecord_header),	\
+	  (char *) (src) + sizeof (struct lcrecord_header),	\
+	  sizeof (*(dst)) - sizeof (struct lcrecord_header))
 
 #define zero_lcrecord(lcr)					\
-   memset ((char *) lcr + sizeof (struct lcrecord_header), 0,	\
-	   sizeof (*lcr) - sizeof (struct lcrecord_header))
+   memset ((char *) (lcr) + sizeof (struct lcrecord_header), 0,	\
+	   sizeof (*(lcr)) - sizeof (struct lcrecord_header))
 
 #endif /* _XEMACS_LRECORD_H_ */

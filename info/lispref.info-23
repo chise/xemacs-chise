@@ -1,5 +1,5 @@
-This is Info file ../../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 3.12s from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -61,7 +61,7 @@ mode bits that control access permission, the owner and group numbers,
 the number of names, the inode number, the size, and the times of access
 and modification.
 
- - Function: file-modes FILENAME
+ - Function: file-modes filename
      This function returns the mode bits of FILENAME, as an integer.
      The mode bits are also called the file permissions, and they
      specify access control in the usual Unix fashion.  If the
@@ -87,7 +87,7 @@ and modification.
           % ls -l diffs
             -rw-rw-rw-  1 lewis 0 3063 Oct 30 16:00 diffs
 
- - Function: file-nlinks FILENAME
+ - Function: file-nlinks filename
      This functions returns the number of names (i.e., hard links) that
      file FILENAME has.  If the file does not exist, then this function
      returns `nil'.  Note that symbolic links have no effect on this
@@ -103,7 +103,7 @@ and modification.
           (file-nlinks "doesnt-exist")
                => nil
 
- - Function: file-attributes FILENAME
+ - Function: file-attributes filename
      This function returns a list of attributes of file FILENAME.  If
      the specified file cannot be opened, it returns `nil'.
 
@@ -115,7 +115,7 @@ and modification.
        1. The number of names the file has.  Alternate names, also
           known as hard links, can be created by using the
           `add-name-to-file' function (*note Changing File
-          Attributes::.).
+          Attributes::).
 
        2. The file's UID.
 
@@ -227,8 +227,8 @@ of the argument OK-IF-ALREADY-EXISTS:
    * Replace the old file without confirmation if OK-IF-ALREADY-EXISTS
      is any other value.
 
- - Command: add-name-to-file OLDNAME NEWNAME &optional
-          OK-IF-ALREADY-EXISTS
+ - Command: add-name-to-file oldname newname &optional
+          ok-if-already-exists
      This function gives the file named OLDNAME the additional name
      NEWNAME.  This means that NEWNAME becomes a new "hard link" to
      OLDNAME.
@@ -272,7 +272,7 @@ of the argument OK-IF-ALREADY-EXISTS:
 
      See also `file-nlinks' in *Note File Attributes::.
 
- - Command: rename-file FILENAME NEWNAME &optional OK-IF-ALREADY-EXISTS
+ - Command: rename-file filename newname &optional ok-if-already-exists
      This command renames the file FILENAME as NEWNAME.
 
      If FILENAME has additional names aside from FILENAME, it continues
@@ -284,7 +284,7 @@ of the argument OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Command: copy-file OLDNAME NEWNAME &optional OK-IF-EXISTS TIME
+ - Command: copy-file oldname newname &optional ok-if-exists time
      This command copies the file OLDNAME to NEWNAME.  An error is
      signaled if OLDNAME does not exist.
 
@@ -296,7 +296,7 @@ of the argument OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Command: delete-file FILENAME
+ - Command: delete-file filename
      This command deletes the file FILENAME, like the shell command `rm
      FILENAME'.  If the file has multiple names, it continues to exist
      under the other names.
@@ -307,7 +307,7 @@ of the argument OK-IF-ALREADY-EXISTS:
 
      See also `delete-directory' in *Note Create/Delete Dirs::.
 
- - Command: make-symbolic-link FILENAME NEWNAME &optional OK-IF-EXISTS
+ - Command: make-symbolic-link filename newname &optional ok-if-exists
      This command makes a symbolic link to FILENAME, named NEWNAME.
      This is like the shell command `ln -s FILENAME NEWNAME'.
 
@@ -315,15 +315,15 @@ of the argument OK-IF-ALREADY-EXISTS:
      NEWNAME in the minibuffer; also, it requests confirmation if
      NEWNAME already exists.
 
- - Function: define-logical-name VARNAME STRING
+ - Function: define-logical-name varname string
      This function defines the logical name NAME to have the value
      STRING.  It is available only on VMS.
 
- - Function: set-file-modes FILENAME MODE
+ - Function: set-file-modes filename mode
      This function sets mode bits of FILENAME to MODE (which must be an
      integer).  Only the low 12 bits of MODE are used.
 
- - Function: set-default-file-modes MODE
+ - Function: set-default-file-modes mode
      This function sets the default file protection for new files
      created by XEmacs and its subprocesses.  Every file created with
      XEmacs initially has this protection.  On Unix, the default
@@ -404,7 +404,7 @@ number, but most of the time the file name actually used in XEmacs
 omits the version number.  Version numbers are found mostly in
 directory lists.
 
- - Function: file-name-directory FILENAME
+ - Function: file-name-directory filename
      This function returns the directory part of FILENAME (or `nil' if
      FILENAME does not include a directory part).  On Unix, the
      function returns a string ending in a slash.  On VMS, it returns a
@@ -417,7 +417,7 @@ directory lists.
           (file-name-directory "[X]FOO.TMP") ; VMS example
                => "[X]"
 
- - Function: file-name-nondirectory FILENAME
+ - Function: file-name-nondirectory filename
      This function returns the nondirectory part of FILENAME.
 
           (file-name-nondirectory "lewis/foo")
@@ -428,8 +428,8 @@ directory lists.
           (file-name-nondirectory "[X]FOO.TMP")
                => "FOO.TMP"
 
- - Function: file-name-sans-versions FILENAME &optional
-          KEEP-BACKUP-VERSION
+ - Function: file-name-sans-versions filename &optional
+          keep-backup-version
      This function returns FILENAME without any file version numbers,
      backup version numbers, or trailing tildes.
 
@@ -446,7 +446,7 @@ directory lists.
           (file-name-sans-versions "foo;23")
                => "foo"
 
- - Function: file-name-sans-extension FILENAME
+ - Function: file-name-sans-extension filename
      This function returns FILENAME minus its "extension," if any.  The
      extension, in a file name, is the part that starts with the last
      `.' in the last name component.  For example,
@@ -479,7 +479,7 @@ acceptable.
 names.  They do nothing special with environment variable substitutions
 such as `$HOME', and the constructs `~', and `..'.
 
- - Function: file-name-as-directory FILENAME
+ - Function: file-name-as-directory filename
      This function returns a string representing FILENAME in a form
      that the operating system will interpret as the name of a
      directory.  In Unix, this means appending a slash to the string.
@@ -489,7 +489,7 @@ such as `$HOME', and the constructs `~', and `..'.
           (file-name-as-directory "~rms/lewis")
                => "~rms/lewis/"
 
- - Function: directory-file-name DIRNAME
+ - Function: directory-file-name dirname
      This function returns a string representing DIRNAME in a form that
      the operating system will interpret as the name of a file.  On
      Unix, this means removing a final slash from the string.  On VMS,
@@ -508,7 +508,7 @@ abbreviation instead.
    If you wish to convert a directory name to its abbreviation, use this
 function:
 
- - Function: abbreviate-file-name DIRNAME &optional HACK-HOMEDIR
+ - Function: abbreviate-file-name dirname &optional hack-homedir
      This function applies abbreviations from `directory-abbrev-alist'
      to its argument, and substitutes `~' for the user's home directory.
 
@@ -549,7 +549,7 @@ relative to a default directory; then it is called a "relative" file
 name.  On Unix, an absolute file name starts with a slash or a tilde
 (`~'), and a relative one does not.  The rules on VMS are complicated.
 
- - Function: file-name-absolute-p FILENAME
+ - Function: file-name-absolute-p filename
      This function returns `t' if file FILENAME is an absolute file
      name, `nil' otherwise.  On VMS, this function understands both
      Unix syntax and VMS syntax.
@@ -573,7 +573,7 @@ you must specify the default directory name as well as the file name to
 be expanded.  Expansion also simplifies file names by eliminating
 redundancies such as `./' and `NAME/../'.
 
- - Function: expand-file-name FILENAME &optional DIRECTORY
+ - Function: expand-file-name filename &optional directory
      This function converts FILENAME to an absolute file name.  If
      DIRECTORY is supplied, it is the directory to start with if
      FILENAME is relative.  (The value of DIRECTORY should itself be an
@@ -599,10 +599,10 @@ redundancies such as `./' and `NAME/../'.
      `~/' at the beginning is expanded into the user's home directory.
      A `/' or `~' following a `/'.
 
-     Note that `expand-file-name' does *not* expand environment
+     Note that `expand-file-name' does _not_ expand environment
      variables; only `substitute-in-file-name' does that.
 
- - Function: file-relative-name FILENAME &optional DIRECTORY
+ - Function: file-relative-name filename &optional directory
      This function does the inverse of expansion--it tries to return a
      relative name that is equivalent to FILENAME when interpreted
      relative to DIRECTORY.
@@ -628,7 +628,7 @@ redundancies such as `./' and `NAME/../'.
           default-directory
                => "/user/lewis/manual/"
 
- - Function: substitute-in-file-name FILENAME
+ - Function: substitute-in-file-name filename
      This function replaces environment variable references in FILENAME
      with the environment variable values.  Following standard Unix
      shell syntax, `$' is the prefix to substitute an environment
@@ -683,7 +683,7 @@ processes from trying to use the same name.
      Note that the `temp-directory' function does not exist under FSF
      Emacs.
 
- - Function: make-temp-name PREFIX
+ - Function: make-temp-name prefix
      This function generates a temporary file name starting with
      PREFIX.  The Emacs process number forms part of the result, so
      there is no danger of generating a name being used by another
@@ -708,7 +708,7 @@ File Name Completion
    This section describes low-level subroutines for completing a file
 name.  For other completion functions, see *Note Completion::.
 
- - Function: file-name-all-completions PARTIAL-FILENAME DIRECTORY
+ - Function: file-name-all-completions partial-filename directory
      This function returns a list of all possible completions for a file
      whose name starts with PARTIAL-FILENAME in directory DIRECTORY.
      The order of the completions is the order of the files in the
@@ -730,7 +730,7 @@ name.  For other completion functions, see *Note Completion::.
           (file-name-all-completions "fo" "")
                => ("foo")
 
- - Function: file-name-completion FILENAME DIRECTORY
+ - Function: file-name-completion filename directory
      This function completes the file name FILENAME in directory
      DIRECTORY.  It returns the longest prefix common to all file names
      in directory DIRECTORY that start with FILENAME.
@@ -775,7 +775,7 @@ User Name Completion
    This section describes low-level subroutines for completing a user
 name.  For other completion functions, see *Note Completion::.
 
- - Function: user-name-all-completions PARTIAL-USERNAME
+ - Function: user-name-all-completions partial-username
      This function returns a list of all possible completions for a user
      whose name starts with PARTIAL-USERNAME.  The order of the
      completions is unpredictable and conveys no useful information.
@@ -783,7 +783,7 @@ name.  For other completion functions, see *Note Completion::.
      The argument PARTIAL-USERNAME must be a partial user name
      containing no tilde character and no slash.
 
- - Function: user-name-completion USERNAME
+ - Function: user-name-completion username
      This function completes the user name USERNAME.  It returns the
      longest prefix common to all user names that start with USERNAME.
 
@@ -791,7 +791,7 @@ name.  For other completion functions, see *Note Completion::.
      function returns `t'.  The function returns `nil' if no user name
      starting with USERNAME exists.
 
- - Function: user-name-completion-1 USERNAME
+ - Function: user-name-completion-1 username
      This function completes the user name USERNAME, like
      `user-name-completion', differing only in the return value.  This
      function returns the cons of the completion returned by
@@ -812,8 +812,8 @@ or display the names in a buffer using the `ls' shell command.  In the
 latter case, it can optionally display information about each file,
 depending on the value of switches passed to the `ls' command.
 
- - Function: directory-files DIRECTORY &optional FULL-NAME MATCH-REGEXP
-          NOSORT FILES-ONLY
+ - Function: directory-files directory &optional full-name match-regexp
+          nosort files-only
      This function returns a list of the names of the files in the
      directory DIRECTORY.  By default, the list is in alphabetical
      order.
@@ -847,8 +847,8 @@ depending on the value of switches passed to the `ls' command.
      An error is signaled if DIRECTORY is not the name of a directory
      that can be read.
 
- - Function: insert-directory FILE SWITCHES &optional WILDCARD
-          FULL-DIRECTORY-P
+ - Function: insert-directory file switches &optional wildcard
+          full-directory-p
      This function inserts (in the current buffer) a directory listing
      for directory FILE, formatted with `ls' according to SWITCHES.  It
      leaves point after the inserted text.
@@ -883,7 +883,7 @@ files that are directories.  For example, you cannot delete a directory
 with `delete-file'.  These special functions exist to create and delete
 directories.
 
- - Command: make-directory DIRNAME &optional PARENTS
+ - Command: make-directory dirname &optional parents
      This function creates a directory named DIRNAME.  Interactively,
      the default choice of directory to create is the current default
      directory for file names.  That is useful when you have visited a
@@ -893,7 +893,7 @@ directories.
      create parent directories if they don't exist. (Interactively, this
      always happens.)
 
- - Command: delete-directory DIRNAME
+ - Command: delete-directory dirname
      This function deletes the directory named DIRNAME.  The function
      `delete-file' does not work for files that are directories; you
      must use `delete-directory' in that case.
@@ -991,14 +991,14 @@ that have two file names that may each have handlers.
  - Variable: inhibit-file-name-operation
      The operation for which certain handlers are presently inhibited.
 
- - Function: find-file-name-handler FILE OPERATION
+ - Function: find-file-name-handler file operation
      This function returns the handler function for file name FILE, or
      `nil' if there is none.  The argument OPERATION should be the
      operation to be performed on the file--the value you will pass to
      the handler as its first argument when you call it.  The operation
      is needed for comparison with `inhibit-file-name-operation'.
 
- - Function: file-local-copy FILENAME
+ - Function: file-local-copy filename
      This function copies file FILENAME to an ordinary non-magic file,
      if it isn't one already.
 
@@ -1009,7 +1009,7 @@ that have two file names that may each have handlers.
      If FILENAME is an ordinary file name, not magic, then this function
      does nothing and returns `nil'.
 
- - Function: unhandled-file-name-directory FILENAME
+ - Function: unhandled-file-name-directory filename
      This function returns the name of a directory that is not magic.
      It uses the directory part of FILENAME if that is not magic.
      Otherwise, it asks the handler what to do.
@@ -1062,7 +1062,7 @@ File: lispref.info,  Node: Creating a Partial File,  Next: Detached Partial File
 Creating a Partial File
 -----------------------
 
- - Function: make-file-part &optional START END NAME BUFFER
+ - Function: make-file-part &optional start end name buffer
      Make a file part on buffer BUFFER out of the region.  Call it
      NAME.  This command creates a new buffer containing the contents
      of the region and marks the buffer as referring to the specified
@@ -1197,13 +1197,13 @@ buffer-local variable `buffer-file-format'.
 encoding functions for the formats listed in `buffer-file-format', in
 the order of appearance in the list.
 
- - Function: format-write-file FILE FORMAT
+ - Function: format-write-file file format
      This command writes the current buffer contents into the file FILE
      in format FORMAT, and makes that format the default for future
      saves of the buffer.  The argument FORMAT is a list of format
      names.
 
- - Function: format-find-file FILE FORMAT
+ - Function: format-find-file file format
      This command finds the file FILE, converting it according to
      format FORMAT.  It also makes FORMAT the default if the buffer is
      saved later.
@@ -1212,11 +1212,11 @@ the order of appearance in the list.
      `nil', no conversion takes place.  Interactively, typing just
      <RET> for FORMAT specifies `nil'.
 
- - Function: format-insert-file FILE FORMAT &optional BEG END
+ - Function: format-insert-file file format &optional beg end
      This command inserts the contents of file FILE, converting it
      according to format FORMAT.  If BEG and END are non-`nil', they
      specify which part of the file to read, as in
-     `insert-file-contents' (*note Reading from Files::.).
+     `insert-file-contents' (*note Reading from Files::).
 
      The return value is like what `insert-file-contents' returns: a
      list of the absolute file name and the length of the data inserted
@@ -1226,7 +1226,7 @@ the order of appearance in the list.
      `nil', no conversion takes place.  Interactively, typing just
      <RET> for FORMAT specifies `nil'.
 
- - Function: format-find-file FILE FORMAT
+ - Function: format-find-file file format
      This command finds the file FILE, converting it according to
      format FORMAT.  It also makes FORMAT the default if the buffer is
      saved later.
@@ -1235,11 +1235,11 @@ the order of appearance in the list.
      `nil', no conversion takes place.  Interactively, typing just
      <RET> for FORMAT specifies `nil'.
 
- - Function: format-insert-file FILE FORMAT &optional BEG END
+ - Function: format-insert-file file format &optional beg end
      This command inserts the contents of file FILE, converting it
      according to format FORMAT.  If BEG and END are non-`nil', they
      specify which part of the file to read, as in
-     `insert-file-contents' (*note Reading from Files::.).
+     `insert-file-contents' (*note Reading from Files::).
 
      The return value is like what `insert-file-contents' returns: a
      list of the absolute file name and the length of the data inserted

@@ -234,8 +234,11 @@ wait_without_blocking (void)
 #endif /* NO_SUBPROCESSES */
 
 
-void
-wait_for_termination (int pid)
+#ifdef WINDOWSNT
+void wait_for_termination (HANDLE pHandle)
+#else
+void wait_for_termination (int pid)
+#endif
 {
   /* #### With the new improved SIGCHLD handling stuff, there is much
      less danger of race conditions and some of the comments below
@@ -345,6 +348,49 @@ wait_for_termination (int pid)
 
      Since implementations may add their own error indicators on top,
      we ignore it by default.  */
+#elif defined (WINDOWSNT)
+  int ret = 0, status = 0;
+  if (pHandle == NULL)
+    {
+      warn_when_safe (Qprocess, Qwarning, "Cannot wait for unknown process to terminate");
+      return;
+    }
+  do
+    {
+      QUIT;
+      ret = WaitForSingleObject(pHandle, 100);
+    }
+  while (ret == WAIT_TIMEOUT);
+  if (ret == WAIT_FAILED)
+    {
+      warn_when_safe (Qprocess, Qwarning, "waiting for process failed");
+    }
+  if (ret == WAIT_ABANDONED)
+    {
+      warn_when_safe (Qprocess, Qwarning,
+		      "process to wait for has been abandoned");
+    }
+  if (ret == WAIT_OBJECT_0)
+    {
+      ret = GetExitCodeProcess(pHandle, &status);
+      if (ret)
+	{
+	  synch_process_alive = 0;
+	  synch_process_retcode = status;
+	}
+      else
+	{
+	  /* GetExitCodeProcess() didn't return a valid exit status,
+	     nothing to do.  APA */
+	  warn_when_safe (Qprocess, Qwarning,
+			  "failure to obtain process exit value");
+	}
+    }
+  if (pHandle != NULL && !CloseHandle(pHandle)) 
+    {
+      warn_when_safe (Qprocess, Qwarning,
+		      "failure to close unknown process");
+    }
 #elif defined (EMACS_BLOCK_SIGNAL) && !defined (BROKEN_WAIT_FOR_SIGNAL) && defined (SIGCHLD)
   while (1)
     {
@@ -376,7 +422,7 @@ wait_for_termination (int pid)
 	   Try defining BROKEN_WAIT_FOR_SIGNAL. */
 	EMACS_WAIT_FOR_SIGNAL (SIGCHLD);
     }
-#else /* not HAVE_WAITPID and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
+#else /* not HAVE_WAITPID and not WINDOWSNT and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
   /* This approach is kind of cheesy but is guaranteed(?!) to work
      for all systems. */
   while (1)
@@ -424,7 +470,7 @@ void
 child_setup_tty (int out)
 {
   struct emacs_tty s;
-  EMACS_GET_TTY (out, &s);
+  emacs_get_tty (out, &s);
 
 #if defined (HAVE_TERMIO) || defined (HAVE_TERMIOS)
   assert (isatty(out));
@@ -516,7 +562,7 @@ child_setup_tty (int out)
   s.lmode = LLITOUT | s.lmode;        /* Don't strip 8th bit */
 
 #endif /* not HAVE_TERMIO */
-  EMACS_SET_TTY (out, &s, 0);
+  emacs_set_tty (out, &s, 0);
 
 #ifdef RTU
   {
@@ -567,7 +613,7 @@ restore_signal_handlers (struct save_signal *saved_handlers)
 }
 
 #ifdef WINDOWSNT
-int
+pid_t
 sys_getpid (void)
 {
   return abs (getpid ());
@@ -578,7 +624,11 @@ sys_getpid (void)
 static void
 sys_subshell (void)
 {
+#ifdef WINDOWSNT
+  HANDLE pid;
+#else
   int pid;
+#endif
   struct save_signal saved_handlers[5];
   Lisp_Object dir;
   unsigned char *str = 0;
@@ -617,7 +667,7 @@ sys_subshell (void)
  xyzzy:
 
 #ifdef WINDOWSNT
-  pid = -1;
+  pid = NULL;
 #else /* not WINDOWSNT */
 
   pid = fork ();
@@ -651,7 +701,7 @@ sys_subshell (void)
 #ifdef WINDOWSNT
       /* Waits for process completion */
       pid = _spawnlp (_P_WAIT, sh, sh, NULL);
-      if (pid == -1)
+      if (pid == NULL)
         write (1, "Can't execute subshell", 22);
 
 #else   /* not WINDOWSNT */
@@ -1372,7 +1422,8 @@ emacs_get_tty (int fd, struct emacs_tty *settings)
 
 /* Set the parameters of the tty on FD according to the contents of
    *SETTINGS.  If FLUSHP is non-zero, we discard input.
-   Return 0 if all went well, and -1 if anything failed.  */
+   Return 0 if all went well, and -1 if anything failed.
+   #### All current callers use FLUSHP == 0. */
 
 int
 emacs_set_tty (int fd, struct emacs_tty *settings, int flushp)
@@ -1482,7 +1533,7 @@ tty_init_sys_modes_on_device (struct device *d)
   input_fd = CONSOLE_TTY_DATA (con)->infd;
   output_fd = CONSOLE_TTY_DATA (con)->outfd;
 
-  EMACS_GET_TTY (input_fd, &CONSOLE_TTY_DATA (con)->old_tty);
+  emacs_get_tty (input_fd, &CONSOLE_TTY_DATA (con)->old_tty);
   tty = CONSOLE_TTY_DATA (con)->old_tty;
 
   con->tty_erase_char = Qnil;
@@ -1649,7 +1700,7 @@ tty_init_sys_modes_on_device (struct device *d)
   tty.ltchars = new_ltchars;
 #endif /* HAVE_LTCHARS */
 
-  EMACS_SET_TTY (input_fd, &tty, 0);
+  emacs_set_tty (input_fd, &tty, 0);
 
   /* This code added to insure that, if flow-control is not to be used,
      we have an unlocked terminal at the start. */
@@ -1756,7 +1807,7 @@ tabs_safe_p (struct device *d)
     {
       struct emacs_tty tty;
 
-      EMACS_GET_TTY (DEVICE_INFD (d), &tty);
+      emacs_get_tty (DEVICE_INFD (d), &tty);
       return EMACS_TTY_TABS_OK (&tty);
     }
 #endif
@@ -1829,7 +1880,7 @@ eight_bit_tty (struct device *d)
   assert (DEVICE_TTY_P (d));
   input_fd = DEVICE_INFD (d);
 
-  EMACS_GET_TTY (input_fd, &s);
+  emacs_get_tty (input_fd, &s);
 
 #if defined (HAVE_TERMIO) || defined (HAVE_TERMIOS)
   eight_bit = (s.main.c_cflag & CSIZE) == CS8;
@@ -1879,7 +1930,7 @@ tty_reset_sys_modes_on_device (struct device *d)
   fsync (output_fd);
 #endif
 
-  while (EMACS_SET_TTY (input_fd, &CONSOLE_TTY_DATA (con)->old_tty, 0)
+  while (emacs_set_tty (input_fd, &CONSOLE_TTY_DATA (con)->old_tty, 0)
 	 < 0 && errno == EINTR)
     ;
 
@@ -2573,8 +2624,8 @@ mswindows_set_last_errno (void)
 
 /* Ben sez: read Dick Gabriel's essay about the Worse Is Better
    approach to programming and its connection to the silly
-   interruptible-system-call business.  To find it, look at
-   Jamie's home page (http://www.netscape.com/people/jwz). */
+   interruptible-system-call business.  To find it, look on
+   Jamie's home page (http://www.jwz.org/worse-is-better.html). */
 
 #ifdef ENCAPSULATE_OPEN
 int
@@ -2638,13 +2689,13 @@ interruptible_open (CONST char *path, int oflag, int mode)
 
 #ifdef ENCAPSULATE_CLOSE
 int
-sys_close (int fd)
+sys_close (int filedes)
 {
 #ifdef INTERRUPTIBLE_CLOSE
   int did_retry = 0;
   REGISTER int rtnval;
 
-  while ((rtnval = close (fd)) == -1
+  while ((rtnval = close (filedes)) == -1
 	 && (errno == EINTR))
     did_retry = 1;
 
@@ -2656,15 +2707,15 @@ sys_close (int fd)
 
   return rtnval;
 #else
-  return close (fd);
+  return close (filedes);
 #endif
 }
 #endif /* ENCAPSULATE_CLOSE */
 
-int
+ssize_t
 sys_read_1 (int fildes, void *buf, size_t nbyte, int allow_quit)
 {
-  int rtnval;
+  ssize_t rtnval;
 
   /* No harm in looping regardless of the INTERRUPTIBLE_IO setting. */
   while ((rtnval = read (fildes, buf, nbyte)) == -1
@@ -2677,24 +2728,23 @@ sys_read_1 (int fildes, void *buf, size_t nbyte, int allow_quit)
 }
 
 #ifdef ENCAPSULATE_READ
-int
+ssize_t
 sys_read (int fildes, void *buf, size_t nbyte)
 {
   return sys_read_1 (fildes, buf, nbyte, 0);
 }
 #endif /* ENCAPSULATE_READ */
 
-int
+ssize_t
 sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
 {
-  int rtnval;
-  int bytes_written = 0;
+  ssize_t bytes_written = 0;
   CONST char *b = (CONST char *) buf;
 
   /* No harm in looping regardless of the INTERRUPTIBLE_IO setting. */
   while (nbyte > 0)
     {
-      rtnval = write (fildes, b, nbyte);
+      ssize_t rtnval = write (fildes, b, nbyte);
 
       if (allow_quit)
 	REALLY_QUIT;
@@ -2704,17 +2754,17 @@ sys_write_1 (int fildes, CONST void *buf, size_t nbyte, int allow_quit)
 	  if (errno == EINTR)
 	    continue;
 	  else
-            return (bytes_written ? bytes_written : -1);
+            return bytes_written ? bytes_written : -1;
 	}
       b += rtnval;
       nbyte -= rtnval;
       bytes_written += rtnval;
     }
-  return (bytes_written);
+  return bytes_written;
 }
 
 #ifdef ENCAPSULATE_WRITE
-int
+ssize_t
 sys_write (int fildes, CONST void *buf, size_t nbyte)
 {
   return sys_write_1 (fildes, buf, nbyte, 0);
@@ -3036,6 +3086,15 @@ sys_readlink (CONST char *path, char *buf, size_t bufsiz)
   return readlink (path, buf, bufsiz);
 }
 #endif /* ENCAPSULATE_READLINK */
+
+
+#ifdef ENCAPSULATE_FSTAT
+int
+sys_fstat (int fd, struct stat *buf)
+{
+  return fstat (fd, buf);
+}
+#endif /* ENCAPSULATE_FSTAT */
 
 
 #ifdef ENCAPSULATE_STAT

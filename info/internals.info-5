@@ -1,5 +1,5 @@
-This is Info file ../../info/internals.info, produced by Makeinfo
-version 1.68 from the input file internals.texi.
+This is ../info/internals.info, produced by makeinfo version 3.12s from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -654,8 +654,8 @@ create one of these, copy an existing model and modify as necessary.
 
      WARNING #1: The finalize method is also called at the end of the
      dump phase; this time with the for_disksave parameter set to
-     non-zero.  The object is *not* about to disappear, so you have to
-     make sure to *not* free any extra `malloc()'ed memory if you're
+     non-zero.  The object is _not_ about to disappear, so you have to
+     make sure to _not_ free any extra `malloc()'ed memory if you're
      going to need it later.  (Also, signal an error if there are any
      operating-system and window-system resources here, because they
      can't be dumped.)
@@ -667,12 +667,12 @@ create one of these, copy an existing model and modify as necessary.
      `for_disksave' proviso), we've gotten nastily burned in some cases
      by not doing this.
 
-     WARNING #2: The finalize method is *only* called for lcrecords,
-     *not* for simply lrecords.  If you need a finalize method for
+     WARNING #2: The finalize method is _only_ called for lcrecords,
+     _not_ for simply lrecords.  If you need a finalize method for
      simple lrecords, you have to stick it in the
      `ADDITIONAL_FREE_foo()' macro in `alloc.c'.
 
-     WARNING #3: Things are in an *extremely* bizarre state when
+     WARNING #3: Things are in an _extremely_ bizarre state when
      `ADDITIONAL_FREE_foo()' is called, so you have to be incredibly
      careful when writing one of these functions.  See the comment in
      `gc_sweep()'.  If you ever have to add one of these, consider
@@ -692,11 +692,11 @@ create one of these, copy an existing model and modify as necessary.
 
   5. A "hash" method.  This is used to hash objects when they are to be
      compared with `equal'.  The rule here is that if two objects are
-     `equal', they *must* hash to the same value; i.e. your hash
+     `equal', they _must_ hash to the same value; i.e. your hash
      function should use some subset of the sub-fields of the object
      that are compared in the "equal" method.  If you specify this
      method as `NULL', the object's pointer will be used as the hash,
-     which will *fail* if the object has an `equal' method, so don't do
+     which will _fail_ if the object has an `equal' method, so don't do
      this.
 
      To hash a sub-Lisp-object, call `internal_hash()'.  Bump the depth
@@ -816,7 +816,7 @@ immediately puts the conses onto the cons free list, and decrements the
 statistics on memory allocation appropriately.  This is used to good
 effect by some extremely commonly-used code, to avoid generating extra
 objects and thereby triggering GC sooner.  However, you have to be
-*extremely* careful when doing this.  If you mess this up, you will get
+_extremely_ careful when doing this.  If you mess this up, you will get
 BADLY BURNED, and it has happened before.
 
 
@@ -829,7 +829,7 @@ Vector
 all are threaded through the variable `all_vectors'.  Vectors are
 marked strangely during garbage collection, by kludging the size field.
 Note that the `struct Lisp_Vector' is declared with its `contents'
-field being a *stretchy* array of one element.  It is actually
+field being a _stretchy_ array of one element.  It is actually
 `malloc()'ed with the right size, however, and access to any element
 through the `contents' array works fine.
 

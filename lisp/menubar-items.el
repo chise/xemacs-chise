@@ -990,7 +990,7 @@
 Adds `Load .emacs' button to menubar when starting up with -q."
   ;; by Stig@hackvan.com
   (cond
-   (init-file-user nil)
+   (load-user-init-file-p nil)
    ((file-exists-p (expand-file-name ".emacs" "~"))
     (add-menu-button nil
 		     ["Load .emacs"
@@ -1108,7 +1108,7 @@ returns a whole bunch of info about a buffer."
   'sort-buffers-menu-by-mode-then-alphabetically
   "*If non-nil, a function to sort the list of buffers in the buffers menu.
 It will be passed two arguments (two buffers to compare) and should return
-T if the first is \"less\" than the second.  One possible value is
+t if the first is \"less\" than the second.  One possible value is
 `sort-buffers-menu-alphabetically'; another is
 `sort-buffers-menu-by-mode-then-alphabetically'."
   :type '(choice (const :tag "None" nil)

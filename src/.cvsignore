@@ -10,3 +10,4 @@ temacs
 xemacs
 SATISFIED
 update-elc.stamp
+*.so.*

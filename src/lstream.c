@@ -95,12 +95,12 @@ int Lstream_fgetc (Lstream *stream)
 void Lstream_fungetc (Lstream *stream, int c)
 	Function equivalents of the above macros.
 
-int Lstream_read (Lstream *stream, void *data, size_t size)
+ssize_t Lstream_read (Lstream *stream, void *data, size_t size)
 	Read SIZE bytes of DATA from the stream.  Return the number of
 	bytes read.  0 means EOF. -1 means an error occurred and no
 	bytes were read.
 
-int Lstream_write (Lstream *stream, void *data, size_t size)
+ssize_t Lstream_write (Lstream *stream, void *data, size_t size)
 	Write SIZE bytes of DATA to the stream.  Return the number of
 	bytes written.  -1 means an error occurred and no bytes were
 	written.
@@ -134,10 +134,10 @@ void Lstream_rewind (Lstream *stream)
 #define MAX_READ_SIZE 512
 
 static Lisp_Object
-mark_lstream (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_lstream (Lisp_Object obj)
 {
   Lstream *lstr = XLSTREAM (obj);
-  return lstr->imp->marker ? (lstr->imp->marker) (obj, markobj) : Qnil;
+  return lstr->imp->marker ? (lstr->imp->marker) (obj) : Qnil;
 }
 
 static void
@@ -302,11 +302,11 @@ Lstream_reopen (Lstream *lstr)
 int
 Lstream_flush_out (Lstream *lstr)
 {
-  int num_written;
+  ssize_t num_written;
 
   while (lstr->out_buffer_ind > 0)
     {
-      int size = lstr->out_buffer_ind;
+      size_t size = lstr->out_buffer_ind;
       if (! (lstr->flags & LSTREAM_FL_IS_OPEN))
 	Lstream_internal_error ("lstream not open", lstr);
       if (! (lstr->flags & LSTREAM_FL_WRITE))
@@ -347,7 +347,7 @@ Lstream_flush_out (Lstream *lstr)
 	   the attempt to write the data might have resulted in an
 	   EWOULDBLOCK error. */
 	return 0;
-      else if (num_written >= (int) lstr->out_buffer_ind)
+      else if (num_written >= lstr->out_buffer_ind)
 	lstr->out_buffer_ind = 0;
       else if (num_written > 0)
 	{
@@ -389,31 +389,36 @@ Lstream_flush (Lstream *lstr)
    if it's getting EWOULDBLOCK errors.   We have to keep stocking them
    up until they can be written, so as to avoid losing data. */
 
-static int
+static size_t
 Lstream_adding (Lstream *lstr, size_t num, int force)
 {
-  /* Compute the size that the outbuffer needs to be after the
-     chars are added. */
-  size_t size_needed = max (lstr->out_buffer_size,
-			    num + lstr->out_buffer_ind);
+  size_t size = num + lstr->out_buffer_ind;
+
+  if (size <= lstr->out_buffer_size)
+    return num;
+
   /* Maybe chop it down so that we don't buffer more characters
      than our advertised buffering size. */
-  if (!force)
-    size_needed = min (lstr->buffering_size, size_needed);
-  DO_REALLOC (lstr->out_buffer, lstr->out_buffer_size,
-	      size_needed, unsigned char);
-  /* There might be more data buffered than the buffering size,
-     so make sure we don't return a negative number here. */
-  return max (0, min (num, size_needed - lstr->out_buffer_ind));
+  if ((size > lstr->buffering_size) && !force)
+    {
+      size = lstr->buffering_size;
+      /* There might be more data buffered than the buffering size. */
+      if (size <= lstr->out_buffer_ind)
+	return 0;
+    }
+
+  DO_REALLOC (lstr->out_buffer, lstr->out_buffer_size, size, unsigned char);
+
+  return size - lstr->out_buffer_ind;
 }
 
 /* Like Lstream_write(), but does not handle line-buffering correctly. */
 
-static int
+static ssize_t
 Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
 {
   CONST unsigned char *p = (CONST unsigned char *) data;
-  int off = 0;
+  ssize_t off = 0;
   if (! (lstr->flags & LSTREAM_FL_IS_OPEN))
     Lstream_internal_error ("lstream not open", lstr);
   if (! (lstr->flags & LSTREAM_FL_WRITE))
@@ -424,7 +429,7 @@ Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
     while (1)
       {
 	/* Figure out how much we can add to the buffer */
-	int chunk = Lstream_adding (lstr, size, 0);
+	size_t chunk = Lstream_adding (lstr, size, 0);
 	if (chunk == 0)
 	  {
 	    if (couldnt_write_last_time)
@@ -469,17 +474,17 @@ Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
    repeatedly call Lstream_putc(), which knows how to handle
    line buffering. */
 
-int
+ssize_t
 Lstream_write (Lstream *lstr, CONST void *data, size_t size)
 {
-  int i;
+  size_t i;
   CONST unsigned char *p = (CONST unsigned char *) data;
 
   if (size == 0)
     return size;
   if (lstr->buffering != LSTREAM_LINE_BUFFERED)
     return Lstream_write_1 (lstr, data, size);
-  for (i = 0; i < (int) size; i++)
+  for (i = 0; i < size; i++)
     {
       if (Lstream_putc (lstr, p[i]) < 0)
 	break;
@@ -490,10 +495,7 @@ Lstream_write (Lstream *lstr, CONST void *data, size_t size)
 int
 Lstream_was_blocked_p (Lstream *lstr)
 {
-  if (lstr->imp->was_blocked_p)
-    return (lstr->imp->was_blocked_p) (lstr);
-  else
-    return 0;
+  return lstr->imp->was_blocked_p ? lstr->imp->was_blocked_p (lstr) : 0;
 }
 
 static int
@@ -511,16 +513,16 @@ Lstream_raw_read (Lstream *lstr, unsigned char *buffer, size_t size)
 
 /* Assuming the buffer is empty, fill it up again. */
 
-static int
+static ssize_t
 Lstream_read_more (Lstream *lstr)
 {
 #if 0
-  int size_needed = max (1, min (MAX_READ_SIZE, lstr->buffering_size));
+  ssize_t size_needed = max (1, min (MAX_READ_SIZE, lstr->buffering_size));
 #else
   /* If someone requested a larger buffer size, so be it! */
-  int size_needed = max (1, lstr->buffering_size);
+  ssize_t size_needed = max (1, lstr->buffering_size);
 #endif
-  int size_gotten;
+  ssize_t size_gotten;
 
   DO_REALLOC (lstr->in_buffer, lstr->in_buffer_size,
 	      size_needed, unsigned char);
@@ -530,11 +532,11 @@ Lstream_read_more (Lstream *lstr)
   return size_gotten < 0 ? -1 : size_gotten;
 }
 
-int
+ssize_t
 Lstream_read (Lstream *lstr, void *data, size_t size)
 {
   unsigned char *p = (unsigned char *) data;
-  int off = 0;
+  size_t off = 0;
   size_t chunk;
   int error_occurred = 0;
 
@@ -546,7 +548,7 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
   if (chunk > 0)
     {
       /* The bytes come back in reverse order. */
-      for (; off < (int) chunk; off++)
+      for (; off < chunk; off++)
 	p[off] = lstr->unget_buffer[--lstr->unget_buffer_ind];
       lstr->byte_count += chunk;
       size -= chunk;
@@ -568,7 +570,7 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
       /* If we need some more, try to get some more from the stream's end */
       if (size > 0)
 	{
-	  int retval = Lstream_read_more (lstr);
+	  ssize_t retval = Lstream_read_more (lstr);
 	  if (retval < 0)
 	    error_occurred = 1;
 	  if (retval <= 0)
@@ -592,7 +594,7 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
 	  VALIDATE_CHARPTR_BACKWARD (dataend);
 	  if (dataend + REP_BYTES_BY_FIRST_BYTE (*dataend) != p + off)
 	    {
-	      int newoff = dataend - p;
+	      size_t newoff = dataend - p;
 	      /* If not, chop the size down to ignore the last char
 		 and stash it away for next time. */
 	      Lstream_unread (lstr, dataend, off - newoff);
@@ -601,25 +603,24 @@ Lstream_read (Lstream *lstr, void *data, size_t size)
 	}
     }
 
-  return ((off == 0 && error_occurred) ? -1 : off);
+  return off == 0 && error_occurred ? -1 : (ssize_t) off;
 }
 
 void
 Lstream_unread (Lstream *lstr, CONST void *data, size_t size)
 {
-  int i;
-  unsigned char *p = (unsigned char *) data;
+  CONST unsigned char *p = (CONST unsigned char *) data;
 
   /* Make sure buffer is big enough */
-
   DO_REALLOC (lstr->unget_buffer, lstr->unget_buffer_size,
 	      lstr->unget_buffer_ind + size, unsigned char);
 
+  lstr->byte_count -= size;
+
   /* Bytes have to go on in reverse order -- they are reversed
      again when read back. */
-  for (i = size - 1; i >= 0; i--)
-    lstr->unget_buffer[lstr->unget_buffer_ind++] = p[i];
-  lstr->byte_count -= size;
+  while (size--)
+    lstr->unget_buffer[lstr->unget_buffer_ind++] = p[size];
 }
 
 int
@@ -646,15 +647,11 @@ Lstream_seekable_p (Lstream *lstr)
 static int
 Lstream_pseudo_close (Lstream *lstr)
 {
-  int rc;
-
   if (!lstr->flags & LSTREAM_FL_IS_OPEN)
     Lstream_internal_error ("lstream is not open", lstr);
 
   /* don't check errors here -- best not to risk file descriptor loss */
-  rc = Lstream_flush (lstr);
-
-  return rc;
+  return Lstream_flush (lstr);
 }
 
 int
@@ -729,7 +726,7 @@ int
 Lstream_fputc (Lstream *lstr, int c)
 {
   unsigned char ch = (unsigned char) c;
-  int retval = Lstream_write_1 (lstr, &ch, 1);
+  ssize_t retval = Lstream_write_1 (lstr, &ch, 1);
   if (retval >= 0 && lstr->buffering == LSTREAM_LINE_BUFFERED && ch == '\n')
     return Lstream_flush_out (lstr);
   return retval < 0 ? -1 : 0;
@@ -792,24 +789,42 @@ make_stdio_output_stream (FILE *stream, int flags)
   return make_stdio_stream_1 (stream, flags, "w");
 }
 
-static int
+/* #### From reading the Unix 98 specification, it appears that if we
+   want stdio_reader() to be completely correct, we should check for
+   0 < val < size and if so, check to see if an error has occurred.
+   If an error has occurred, but val is non-zero, we should go ahead
+   and act as if the read was successful, but remember in some fashion
+   or other, that an error has occurred, and report that on the next
+   call to stdio_reader instead of calling fread() again.
+
+   Currently, in such a case, we end up calling fread() twice and we
+   assume that
+
+   1) this is not harmful, and
+   2) the error will still be reported on the second read.
+
+   This is probably reasonable, so I don't think we should change this
+   code (it could even be argued that the error might have fixed
+   itself, so we should do the fread() again.  */
+
+static ssize_t
 stdio_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct stdio_stream *str = STDIO_STREAM_DATA (stream);
-  size_t val = fread (data, 1, (size_t) size, str->file);
+  size_t val = fread (data, 1, size, str->file);
   if (!val && ferror (str->file))
     return -1;
-  return (int) val;
+  return val;
 }
 
-static int
+static ssize_t
 stdio_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct stdio_stream *str = STDIO_STREAM_DATA (stream);
   size_t val = fwrite (data, 1, size, str->file);
   if (!val && ferror (str->file))
     return -1;
-  return (int) val;
+  return val;
 }
 
 static int
@@ -837,9 +852,6 @@ stdio_flusher (Lstream *stream)
   if (stream->flags & LSTREAM_FL_WRITE)
     return fflush (str->file);
   else
-    /* call fpurge?  Only exists on some systems.  #### Why not add a
-       configure check for HAVE_FPURGE and utilize it on systems that
-       support it?  --hniksic */
     return 0;
 }
 
@@ -853,7 +865,6 @@ stdio_closer (Lstream *stream)
   if (stream->flags & LSTREAM_FL_WRITE)
     return fflush (str->file);
   else
-    /* call fpurge?  Only exists on some systems. */
     return 0;
 }
 
@@ -921,14 +932,16 @@ make_filedesc_output_stream (int filedesc, int offset, int count, int flags)
   return make_filedesc_stream_1 (filedesc, offset, count, flags, "w");
 }
 
-static int
+static ssize_t
 filedesc_reader (Lstream *stream, unsigned char *data, size_t size)
 {
-  int nread;
+  ssize_t nread;
   struct filedesc_stream *str = FILEDESC_STREAM_DATA (stream);
   if (str->end_pos >= 0)
     size = min (size, (size_t) (str->end_pos - str->current_pos));
-  nread = (str->allow_quit ? read_allowing_quit : read) (str->fd, data, size);
+  nread = str->allow_quit ?
+    read_allowing_quit (str->fd, data, size) :
+    read (str->fd, data, size);
   if (nread > 0)
     str->current_pos += nread;
   return nread;
@@ -948,11 +961,11 @@ errno_would_block_p (int val)
   return 0;
 }
 
-static int
+static ssize_t
 filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct filedesc_stream *str = FILEDESC_STREAM_DATA (stream);
-  int retval;
+  ssize_t retval;
   int need_newline = 0;
 
   /* This function would be simple if it were not for the blasted
@@ -981,8 +994,9 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 
   /**** start of non-PTY-crap ****/
   if (size > 0)
-    retval = ((str->allow_quit ? write_allowing_quit : write)
-	      (str->fd, data, size));
+    retval = str->allow_quit ?
+      write_allowing_quit (str->fd, data, size) :
+      write (str->fd, data, size);
   else
     retval = 0;
   if (retval < 0 && errno_would_block_p (errno) && str->blocked_ok)
@@ -1005,8 +1019,10 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 	 out for EWOULDBLOCK. */
       if (str->chars_sans_newline >= str->pty_max_bytes)
 	{
-	  int retval2 = ((str->allow_quit ? write_allowing_quit : write)
-			 (str->fd, &str->eof_char, 1));
+	  ssize_t retval2 = str->allow_quit ?
+	    write_allowing_quit (str->fd, &str->eof_char, 1) :
+	    write (str->fd, &str->eof_char, 1);
+
 	  if (retval2 > 0)
 	    str->chars_sans_newline = 0;
 	  else if (retval2 < 0)
@@ -1036,8 +1052,10 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
   if (need_newline)
     {
       Bufbyte nl = '\n';
-      int retval2 = ((str->allow_quit ? write_allowing_quit : write)
-		     (str->fd, &nl, 1));
+      ssize_t retval2 = str->allow_quit ?
+	write_allowing_quit (str->fd, &nl, 1) :
+	write (str->fd, &nl, 1);
+
       if (retval2 > 0)
         {
           str->chars_sans_newline = 0;
@@ -1170,7 +1188,7 @@ make_lisp_string_input_stream (Lisp_Object string, Bytecount offset,
   return obj;
 }
 
-static int
+static ssize_t
 lisp_string_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct lisp_string_stream *str = LISP_STRING_STREAM_DATA (stream);
@@ -1214,7 +1232,7 @@ lisp_string_rewinder (Lstream *stream)
 }
 
 static Lisp_Object
-lisp_string_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+lisp_string_marker (Lisp_Object stream)
 {
   struct lisp_string_stream *str = LISP_STRING_STREAM_DATA (XLSTREAM (stream));
   return str->obj;
@@ -1260,7 +1278,7 @@ make_fixed_buffer_output_stream (unsigned char *buf, size_t size)
   return obj;
 }
 
-static int
+static ssize_t
 fixed_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct fixed_buffer_stream *str = FIXED_BUFFER_STREAM_DATA (stream);
@@ -1270,7 +1288,7 @@ fixed_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
   return size;
 }
 
-static int
+static ssize_t
 fixed_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct fixed_buffer_stream *str = FIXED_BUFFER_STREAM_DATA (stream);
@@ -1332,7 +1350,7 @@ make_resizing_buffer_output_stream (void)
   return obj;
 }
 
-static int
+static ssize_t
 resizing_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct resizing_buffer_stream *str = RESIZING_BUFFER_STREAM_DATA (stream);
@@ -1394,7 +1412,7 @@ make_dynarr_output_stream (unsigned_char_dynarr *dyn)
   return obj;
 }
 
-static int
+static ssize_t
 dynarr_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct dynarr_stream *str = DYNARR_STREAM_DATA (stream);
@@ -1518,7 +1536,7 @@ make_lisp_buffer_output_stream (struct buffer *buf, Bufpos pos, int flags)
   return lstr;
 }
 
-static int
+static ssize_t
 lisp_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
 {
   struct lisp_buffer_stream *str = LISP_BUFFER_STREAM_DATA (stream);
@@ -1576,7 +1594,7 @@ lisp_buffer_reader (Lstream *stream, unsigned char *data, size_t size)
   return data - orig_data;
 }
 
-static int
+static ssize_t
 lisp_buffer_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 {
   struct lisp_buffer_stream *str = LISP_BUFFER_STREAM_DATA (stream);
@@ -1612,13 +1630,13 @@ lisp_buffer_rewinder (Lstream *stream)
 }
 
 static Lisp_Object
-lisp_buffer_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
+lisp_buffer_marker (Lisp_Object stream)
 {
   struct lisp_buffer_stream *str =
     LISP_BUFFER_STREAM_DATA (XLSTREAM (stream));
 
-  markobj (str->start);
-  markobj (str->end);
+  mark_object (str->start);
+  mark_object (str->end);
   return str->buffer;
 }
 
@@ -1673,13 +1691,19 @@ lstream_type_create (void)
 }
 
 void
-vars_of_lstream (void)
+reinit_vars_of_lstream (void)
 {
   int i;
 
   for (i = 0; i < countof (Vlstream_free_list); i++)
     {
       Vlstream_free_list[i] = Qnil;
-      staticpro (&Vlstream_free_list[i]);
+      staticpro_nodump (&Vlstream_free_list[i]);
     }
+}
+
+void
+vars_of_lstream (void)
+{
+  reinit_vars_of_lstream ();
 }

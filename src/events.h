@@ -435,6 +435,29 @@ union magic_data
 #endif
 };
 
+struct Lisp_Timeout
+{
+  struct lcrecord_header header;
+  int id; /* Id we use to identify the timeout over its lifetime */
+  int interval_id; /* Id for this particular interval; this may
+		      be different each time the timeout is
+		      signalled.*/
+  Lisp_Object function, object; /* Function and object associated
+				   with timeout. */
+  EMACS_TIME next_signal_time;  /* Absolute time when the timeout
+				   is next going to be signalled. */
+  unsigned int resignal_msecs;  /* How far after the next timeout
+				   should the one after that
+				   occur? */
+};
+
+DECLARE_LRECORD (timeout, struct Lisp_Timeout);
+#define XTIMEOUT(x) XRECORD (x, timeout, struct Lisp_Timeout)
+#define XSETTIMEOUT(x, p) XSETRECORD (x, p, timeout)
+#define TIMEOUTP(x) RECORDP (x, timeout)
+#define CHECK_TIMEOUT(x) CHECK_RECORD (x, timeout)
+#define CONCHECK_TIMEOUT(x) CONCHECK_RECORD (x, timeout)
+
 struct Lisp_Event
 {
   /* header->next (aka XEVENT_NEXT ()) is used as follows:
@@ -466,7 +489,6 @@ DECLARE_LRECORD (event, struct Lisp_Event);
 #define XEVENT(x) XRECORD (x, event, struct Lisp_Event)
 #define XSETEVENT(x, p) XSETRECORD (x, p, event)
 #define EVENTP(x) RECORDP (x, event)
-#define GC_EVENTP(x) GC_RECORDP (x, event)
 #define CHECK_EVENT(x) CHECK_RECORD (x, event)
 #define CONCHECK_EVENT(x) CONCHECK_RECORD (x, event)
 

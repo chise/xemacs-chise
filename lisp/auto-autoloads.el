@@ -572,7 +572,9 @@ If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value." t nil)
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
 
 (autoload 'customize-set-variable "cus-edit" "\
 Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
@@ -587,7 +589,9 @@ If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value. " t nil)
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
 
 (autoload 'customize-save-variable "cus-edit" "\
 Set the default for VARIABLE to VALUE, and save it for future sessions.
@@ -601,7 +605,9 @@ If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value. " t nil)
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
 
 (autoload 'customize "cus-edit" "\
 Select a customization buffer which you can use to set user options.
@@ -698,7 +704,7 @@ The format is suitable for use with `easy-menu-define'." nil nil)
 
 ;;;***
 
-;;;### (autoloads (custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp/cus-face.el")
+;;;### (autoloads (custom-reset-faces custom-theme-reset-faces custom-theme-face-value custom-theme-set-faces custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp/cus-face.el")
 
 (autoload 'custom-declare-face "cus-face" "\
 Like `defface', but FACE is evaluated as a normal argument." nil nil)
@@ -709,14 +715,34 @@ Customize the FACE for display types matching DISPLAY, merging
 
 (autoload 'custom-set-faces "cus-face" "\
 Initialize faces according to user preferences.
+This asociates the setting with the USER theme.
 The arguments should be a list where each entry has the form:
 
-  (FACE SPEC [NOW])
+  (FACE SPEC [NOW [COMMENT]])
 
 SPEC will be stored as the saved value for FACE.  If NOW is present
 and non-nil, FACE will also be created according to SPEC.
+COMMENT is a string comment about FACE.
 
 See `defface' for the format of SPEC." nil nil)
+
+(autoload 'custom-theme-set-faces "cus-face" "\
+Initialize faces according to settings specified by args.
+Records the settings as belonging to THEME.
+
+See `custom-set-faces' for a description of the arguments ARGS." nil nil)
+
+(autoload 'custom-theme-face-value "cus-face" "\
+Return spec of FACE in THEME if the THEME modifies the
+FACE.  Nil otherwise." nil nil)
+
+(autoload 'custom-theme-reset-faces "cus-face" nil nil nil)
+
+(autoload 'custom-reset-faces "cus-face" "\
+Reset the value of the face to values previously defined.
+Assosiate this setting with the 'user' theme.
+
+ARGS is defined as for `custom-theme-reset-faces'" nil nil)
 
 ;;;***
 
@@ -1057,11 +1083,11 @@ This can take a while for large buffers." t nil)
 
 ;;;***
 
-;;;### (autoloads (mswindows-font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp/font-menu.el")
+;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp/font-menu.el")
 
-(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'x)
+(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
 
-(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'x)
+(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
 
 (fset 'install-font-menus 'reset-device-font-menus)
 
@@ -1077,7 +1103,7 @@ or if you change your font path, you can call this to re-initialize the menus." 
 
 (autoload 'font-menu-size-constructor "font-menu" nil nil nil)
 
-(autoload 'mswindows-font-menu-weight-constructor "font-menu" nil nil nil)
+(autoload 'font-menu-weight-constructor "font-menu" nil nil nil)
 
 ;;;***
 
@@ -1262,7 +1288,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (capitalize (match-string 2 name))) (setq size (string-to-int (match-string 4 name)))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 2 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 4 truename)))) (setq slant (capitalize (match-string 5 truename)))) (vector entry family size weight slant)))
+(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (match-string 4 name)))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 4 truename)))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
 
 ;;;***
 
@@ -1334,6 +1360,8 @@ For version information, it is assumed things are listed in most
 recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
+
+(defcustom package-get-download-sites '(("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages") ("cso.uiuc.edu" "ftp.cso.uiuc.edu" "pub/packages/xemacs/packages") ("unicamp.br" "ftp.unicamp.br" "pub/xemacs/packages") ("sunsite.cnlab-switch.ch" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages") ("tu-darmstadt.de" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages") ("sunsite.auc.dk" "sunsite.auc.dk" "pub/emacs/xemacs/packages") ("pasteur.fr" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("cenatls.cena.dgac.fr" "ftp.cenatls.cena.dgac.fr" "pub/Emacs/xemacs/packages") ("kfki.hu" "ftp.kfki.hu" "pub/packages/xemacs/packages") ("uniroma2.it" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages") ("icm.edu.pl" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages") ("sunet.se" "ftp.sunet.se" "pub/gnu/xemacs/packages") ("doc.ic.ac.uk" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages") ("srcc.msu.su" "ftp1.srcc.msu.su" "mirror/ftp.xemacs.org/packages") ("usyd.edu.au" "ftp.usyd.edu.au" "pub/Xemacs/packages") ("netlab.is.tsukuba.ac.jp" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages") ("jaist.ac.jp" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages") ("ring.aist.go.jp" "ring.aist.go.jp" "pub/text/xemacs/packages") ("ring.asahi-net.or.jp" "ring.asahi-net.or.jp" "pub/text/xemacs/packages") ("SunSITE.sut.ac.jp" "SunSITE.sut.ac.jp" "pub/archives/packages/xemacs/packages") ("dti.ad.jp" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("kreonet.re.kr" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list hostname directory)) :group 'package-get)
 
 (autoload 'package-get-download-menu "package-get" "\
 Build the `Add Download Site' menu." nil nil)
@@ -1512,29 +1540,38 @@ they are not defaultly assigned to keys." t nil)
 
 ;;;***
 
-;;;### (autoloads (clear-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle kill-rectangle extract-rectangle delete-extract-rectangle delete-rectangle) "rect" "lisp/rect.el")
-
-(autoload 'delete-rectangle "rect" "\
-Delete (don't save) text in rectangle with point and mark as corners.
-The same range of columns is deleted in each line starting with the line
-where the region begins and ending with the line where the region ends." t nil)
-
-(autoload 'delete-extract-rectangle "rect" "\
-Delete contents of rectangle and return it as a list of strings.
-Arguments START and END are the corners of the rectangle.
-The value is list of strings, one for each line of the rectangle." nil nil)
-
-(autoload 'extract-rectangle "rect" "\
-Return contents of rectangle with corners at START and END.
-Value is list of strings, one for each line of the rectangle." nil nil)
+;;;### (autoloads (clear-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle extract-rectangle delete-extract-rectangle delete-rectangle kill-rectangle) "rect" "lisp/rect.el")
 
 (defvar killed-rectangle nil "\
-Rectangle for yank-rectangle to insert.")
+Rectangle for `yank-rectangle' to insert.")
 
 (autoload 'kill-rectangle "rect" "\
-Delete rectangle with corners at point and mark; save as last killed one.
-Calling from program, supply two args START and END, buffer positions.
-But in programs you might prefer to use `delete-extract-rectangle'." t nil)
+Delete the region-rectangle and save it as the last killed one.
+You might prefer to use `delete-extract-rectangle' from a program.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill lines where nothing has to be
+deleted." t nil)
+
+(autoload 'delete-rectangle "rect" "\
+Delete the text in the region-rectangle without saving it.
+The same range of columns is deleted in each line starting with the line
+where the region begins and ending with the line where the region ends.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill lines where nothing has to be
+deleted." t nil)
+
+(autoload 'delete-extract-rectangle "rect" "\
+Delete the contents of the rectangle with corners at START and END, and
+return it as a list of strings, one for each line of the rectangle.
+
+With an optional FILL argument, also fill lines where nothing has to be
+deleted." nil nil)
+
+(autoload 'extract-rectangle "rect" "\
+Return the contents of the rectangle with corners at START and END,
+as a list of strings, one for each line of the rectangle." nil nil)
 
 (autoload 'yank-rectangle "rect" "\
 Yank the last killed rectangle with upper left corner at point." t nil)
@@ -1548,21 +1585,26 @@ After this command, the mark is at the upper left corner
 and point is at the lower right corner." nil nil)
 
 (autoload 'open-rectangle "rect" "\
-Blank out rectangle with corners at point and mark, shifting text right.
-The text previously in the region is not overwritten by the blanks,
-but instead winds up to the right of the rectangle." t nil)
+Blank out the region-rectangle, shifting text right.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, fill with blanks even if there is no text
+on the right side of the rectangle." t nil)
 
 (autoload 'string-rectangle "rect" "\
 Insert STRING on each line of the region-rectangle, shifting text right.
-The left edge of the rectangle specifies the column for insertion.
-This command does not delete or overwrite any existing text.
+The left edge of the rectangle specifies the column for insertion. This
+command does not delete or overwrite any existing text.
 
-Called from a program, takes three args; START, END and STRING." t nil)
+When called from a program, the rectangle's corners are START and END." t nil)
 
 (autoload 'clear-rectangle "rect" "\
-Blank out rectangle with corners at point and mark.
-The text previously in the region is overwritten by the blanks.
-When called from a program, requires two args which specify the corners." t nil)
+Blank out the region-rectangle.
+The text previously in the region is overwritten with blanks.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill with blanks the parts of the
+rectangle which were empty." t nil)
 
 ;;;***
 
@@ -1767,7 +1809,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(defun* x-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
+(defun* x-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from x-font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 

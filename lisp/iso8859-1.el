@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1992, 1997 Free Software Foundation, Inc.
 
-;; Author: Jamie Zawinski <jwz@netscape.com>
+;; Author: Jamie Zawinski <jwz@jwz.org>
 ;; Created: 19-aug-92
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: internal, dumped

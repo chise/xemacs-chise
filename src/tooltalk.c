@@ -22,7 +22,7 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 /* Written by John Rose <john.rose@eng.sun.com>.
-   Heavily modified and cleaned up by Ben Wing <ben.wing@eng.sun.com>. */
+   Heavily modified and cleaned up by Ben Wing <ben@xemacs.org>. */
 
 #include <config.h>
 #include "lisp.h"
@@ -151,9 +151,9 @@ struct Lisp_Tooltalk_Message
 };
 
 static Lisp_Object
-mark_tooltalk_message (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_tooltalk_message (Lisp_Object obj)
 {
-  markobj (XTOOLTALK_MESSAGE (obj)->callback);
+  mark_object (XTOOLTALK_MESSAGE (obj)->callback);
   return XTOOLTALK_MESSAGE (obj)->plist_sym;
 }
 
@@ -225,9 +225,9 @@ struct Lisp_Tooltalk_Pattern
 };
 
 static Lisp_Object
-mark_tooltalk_pattern (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_tooltalk_pattern (Lisp_Object obj)
 {
-  markobj (XTOOLTALK_PATTERN (obj)->callback);
+  mark_object (XTOOLTALK_PATTERN (obj)->callback);
   return XTOOLTALK_PATTERN (obj)->plist_sym;
 }
 
@@ -502,7 +502,7 @@ tt_state_symbol (Tt_state n)
 static Lisp_Object
 tt_build_string (char *s)
 {
-  return build_string ((s) ? s : "");
+  return build_string (s ? s : "");
 }
 
 static Lisp_Object

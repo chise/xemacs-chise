@@ -38,10 +38,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "syssignal.h" /* for SIGWINCH */
 
-#ifdef HAVE_GPM
-#include <gpm.h>
-#endif
-
 #include <errno.h>
 
 Lisp_Object Qinit_pre_tty_win, Qinit_post_tty_win;
@@ -155,15 +151,6 @@ tty_asynch_device_change (void)
 	  CONSOLE_TTY_DATA (con)->width = width;
 	  CONSOLE_TTY_DATA (con)->height = height;
 
-#ifdef HAVE_GPM
-	  /* We need to tell GPM how big our screen is now
-	  ** I am pretty sure the GPM library will get incredibly confused
-	  ** if you try to connect to more than one mouse-capable device,
-	  ** so I don't think it will cause any more damage in that case.
-	  */
-	  gpm_mx = width;
-	  gpm_my = height;
-#endif
 	  for (tail = DEVICE_FRAME_LIST (d);
 	       !NILP (tail);
 	       tail = XCDR (tail))

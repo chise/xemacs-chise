@@ -11,7 +11,7 @@
 #include <stdio.h>
 
 int
-main ()
+main (int argc, char *argv[])
 {
   register int ch;
   register int notfirst = 0;

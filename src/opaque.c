@@ -32,67 +32,23 @@ Boston, MA 02111-1307, USA.  */
    OPAQUE OBJECTS SHOULD NEVER ESCAPE TO THE LISP LEVEL.  Some code
    depends on this.  As such, opaque objects are a generalization
    of the Qunbound marker.
-
-   "Opaque lists" are used to keep track of lots of opaque objects
-   of a particular size so that they can be efficiently "freed" and
-   re-used again without actually entering the Lisp allocation system
-   (and consequently doing a malloc()).
  */
 
 #include <config.h>
 #include "lisp.h"
 #include "opaque.h"
 
-Lisp_Object Qopaquep;
-
-static int in_opaque_list_marking;
-
-/* Holds freed opaque objects created with make_opaque_ptr().
-   We do this quite often so it's a noticeable win if we don't
-   create GC junk. */
 Lisp_Object Vopaque_ptr_free_list;
-
-static Lisp_Object
-mark_opaque (Lisp_Object obj, void (*markobj) (Lisp_Object))
-{
-  Lisp_Opaque *p = XOPAQUE (obj);
-  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-  Lisp_Object size_or_chain = p->size_or_chain;
-#ifdef ERROR_CHECK_GC
-  if (!in_opaque_list_marking)
-    /* size is non-int for objects on an opaque free list.  We sure
-       as hell better not be marking any of these objects unless
-       we're marking an opaque list. */
-    assert (GC_INTP (size_or_chain));
-  else
-    /* marking an opaque on the free list doesn't do any recursive
-       markings, so we better not have non-freed opaques on a free
-       list. */
-    assert (!GC_INTP (size_or_chain));
-#endif
-  if (GC_INTP (size_or_chain) && OPAQUE_MARKFUN (p))
-    return OPAQUE_MARKFUN (p) (obj, markobj);
-  else
-    return size_or_chain;
-}
 
 /* Should never, ever be called. (except by an external debugger) */
 static void
 print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   CONST Lisp_Opaque *p = XOPAQUE (obj);
-  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-  Lisp_Object size_or_chain = p->size_or_chain;
   char buf[200];
-  char size_buf[50];
 
-  if (INTP (size_or_chain))
-    sprintf (size_buf, "size=%lu", (unsigned long) OPAQUE_SIZE (p));
-  else
-    sprintf (size_buf, "freed");
-
-  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque, %s) 0x%lx>",
-	   size_buf, (unsigned long) p);
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque, size=%lu) 0x%lx>",
+	   (long)(p->size), (unsigned long) p);
   write_c_string (buf, printcharfun);
 }
 
@@ -100,10 +56,7 @@ static size_t
 sizeof_opaque (CONST void *header)
 {
   CONST Lisp_Opaque *p = (CONST Lisp_Opaque *) header;
-  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-  Lisp_Object size_or_chain = p->size_or_chain;
-  return offsetof (Lisp_Opaque, data)
-    + (GC_INTP (size_or_chain) ? XINT (size_or_chain) : 0);
+  return offsetof (Lisp_Opaque, data) + p->size;
 }
 
 /* Return an opaque object of size SIZE.
@@ -115,8 +68,7 @@ make_opaque (size_t size, CONST void *data)
 {
   Lisp_Opaque *p = (Lisp_Opaque *)
     alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, &lrecord_opaque);
-  p->markfun = 0;
-  p->size_or_chain = make_int (size);
+  p->size = size;
 
   if (data == OPAQUE_CLEAR)
     memset (p->data, '\0', size);
@@ -137,21 +89,9 @@ make_opaque (size_t size, CONST void *data)
 static int
 equal_opaque (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-#ifdef DEBUG_XEMACS
-  {
-    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-    Lisp_Object size_or_chain_1 = XOPAQUE (obj1)->size_or_chain;
-    Lisp_Object size_or_chain_2 = XOPAQUE (obj2)->size_or_chain;
-    assert (INTP (size_or_chain_1));
-    assert (INTP (size_or_chain_2));
-    assert (!XOPAQUE_MARKFUN (obj1) && !XOPAQUE_MARKFUN (obj2));
-  }
-#endif
-  {
-    size_t size;
-    return ((size = XOPAQUE_SIZE (obj1)) == XOPAQUE_SIZE (obj2) &&
-	    !memcmp (XOPAQUE_DATA (obj1), XOPAQUE_DATA (obj2), size));
-  }
+  size_t size;
+  return ((size = XOPAQUE_SIZE (obj1)) == XOPAQUE_SIZE (obj2) &&
+	  !memcmp (XOPAQUE_DATA (obj1), XOPAQUE_DATA (obj2), size));
 }
 
 /* This will not work correctly for opaques with subobjects! */
@@ -159,102 +99,59 @@ equal_opaque (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 hash_opaque (Lisp_Object obj, int depth)
 {
-#ifdef DEBUG_XEMACS
-  {
-    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-    Lisp_Object size_or_chain = XOPAQUE (obj)->size_or_chain;
-    assert (INTP (size_or_chain));
-    assert (!XOPAQUE_MARKFUN (obj));
-  }
-#endif
   if (XOPAQUE_SIZE (obj) == sizeof (unsigned long))
     return *((unsigned long *) XOPAQUE_DATA (obj));
   else
     return memory_hash (XOPAQUE_DATA (obj), XOPAQUE_SIZE (obj));
 }
 
+static const struct lrecord_description opaque_description[] = {
+  { XD_END }
+};
+
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("opaque", opaque,
-					mark_opaque, print_opaque, 0,
-					equal_opaque, hash_opaque, 0,
+					0, print_opaque, 0,
+					equal_opaque, hash_opaque,
+					opaque_description,
 					sizeof_opaque, Lisp_Opaque);
-
-static Lisp_Object
-mark_opaque_list (Lisp_Object obj, void (*markobj) (Lisp_Object))
-{
-  in_opaque_list_marking++;
-  markobj (XOPAQUE_LIST (obj)->free);
-  in_opaque_list_marking--;
-  return Qnil;
-}
-
-Lisp_Object
-make_opaque_list (size_t size,
-		  Lisp_Object (*markfun) (Lisp_Object obj,
-					  void (*markobj) (Lisp_Object)))
-{
-  Lisp_Object val;
-  Lisp_Opaque_List *p =
-    alloc_lcrecord_type (Lisp_Opaque_List, &lrecord_opaque_list);
-
-  p->markfun = markfun;
-  p->size = size;
-  p->free = Qnil;
-  XSETOPAQUE_LIST (val, p);
-  return val;
-}
-
-DEFINE_LRECORD_IMPLEMENTATION ("opaque-list", opaque_list,
-			       mark_opaque_list, internal_object_printer,
-			       0, 0, 0, 0, Lisp_Opaque_List);
-
-Lisp_Object
-allocate_managed_opaque (Lisp_Object opaque_list, CONST void *data)
-{
-  Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
-  Lisp_Object val;
-
-  if (!NILP (li->free))
-    {
-      val = li->free;
-      li->free = XOPAQUE (val)->size_or_chain;
-#ifdef ERROR_CHECK_GC
-      assert (NILP (li->free) || OPAQUEP (li->free));
-#endif
-      XOPAQUE (val)->size_or_chain = make_int (li->size);
-      if (data)
-	memcpy (XOPAQUE (val)->data, data, li->size);
-      else
-	memset (XOPAQUE (val)->data, 0, li->size);
-    }
-  else
-    val = make_opaque (li->size, data);
-  XOPAQUE (val)->markfun = li->markfun;
-  return val;
-}
-
-void
-free_managed_opaque (Lisp_Object opaque_list, Lisp_Object opaque)
-{
-  Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
-
-#ifdef ERROR_CHECK_GC
-  {
-    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
-    Lisp_Object size_or_chain = XOPAQUE (opaque)->size_or_chain;
-    assert (INTP (size_or_chain));
-  }
-#endif
-  XOPAQUE (opaque)->size_or_chain = li->free;
-  li->free = opaque;
-}
 
 /* stuff to handle opaque pointers */
 
-Lisp_Object
-make_opaque_ptr (CONST void *val)
+/* Should never, ever be called. (except by an external debugger) */
+static void
+print_opaque_ptr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  return allocate_managed_opaque (Vopaque_ptr_free_list,
-				  (CONST void *) &val);
+  CONST Lisp_Opaque_Ptr *p = XOPAQUE_PTR (obj);
+  char buf[200];
+
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque_ptr, adr=0x%lx) 0x%lx>",
+	   (long)(p->ptr), (unsigned long) p);
+  write_c_string (buf, printcharfun);
+}
+
+static int
+equal_opaque_ptr (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  return (XOPAQUE_PTR (obj1)->ptr == XOPAQUE_PTR (obj2)->ptr);
+}
+
+static unsigned long
+hash_opaque_ptr (Lisp_Object obj, int depth)
+{
+  return (unsigned long) XOPAQUE_PTR (obj)->ptr;
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("opaque_ptr", opaque_ptr,
+			       0, print_opaque_ptr, 0,
+			       equal_opaque_ptr, hash_opaque_ptr, 0,
+			       Lisp_Opaque_Ptr);
+
+Lisp_Object
+make_opaque_ptr (void *val)
+{
+  Lisp_Object res = allocate_managed_lcrecord(Vopaque_ptr_free_list);
+  set_opaque_ptr (res, val);
+  return res;
 }
 
 /* Be very very careful with this.  Same admonitions as with
@@ -263,18 +160,18 @@ make_opaque_ptr (CONST void *val)
 void
 free_opaque_ptr (Lisp_Object ptr)
 {
-  free_managed_opaque (Vopaque_ptr_free_list, ptr);
+  free_managed_lcrecord (Vopaque_ptr_free_list, ptr);
 }
 
-Lisp_Object
-make_opaque_long (long val)
+void
+reinit_opaque_once_early (void)
 {
-  return make_opaque (sizeof (val), (void *) &val);
+  Vopaque_ptr_free_list = make_lcrecord_list (sizeof (Lisp_Opaque_Ptr), &lrecord_opaque_ptr);
+  staticpro_nodump (&Vopaque_ptr_free_list);
 }
 
 void
 init_opaque_once_early (void)
 {
-  Vopaque_ptr_free_list = make_opaque_list (sizeof (void *), 0);
-  staticpro (&Vopaque_ptr_free_list);
+  reinit_opaque_once_early ();
 }

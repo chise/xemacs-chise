@@ -8,6 +8,9 @@ extern widget_creation_entry xaw_creation_table [];
 Widget 
 xaw_create_dialog (widget_instance* instance);
 
+Widget
+xaw_create_label (Widget parent, widget_value* val);
+
 Boolean
 lw_xaw_widget_p (Widget widget);
 

@@ -108,7 +108,7 @@ if test "$XEGCC" = yes; then
 else
   # PORTME Check for PIC flags for the system compiler.
   case "$xehost_os" in
-  hpux9* | hpux10*)
+  hpux9* | hpux1[[0-9]]*)
     # Is there a better link_static_flag that works with the bundled CC?
     wl='-Wl,'
     dll_cflags='+Z'
@@ -569,7 +569,7 @@ if test -z "$ld_dynamic_link_flags"; then
     ;;
 
   solaris2* | solaris7*)
-    ld_dynamic_link_flags="${wl}-Bdynamic"
+    ld_dynamic_link_flags=
     ;;
 
   sco3.2v5* | unixware* | sysv5* | sysv4*)

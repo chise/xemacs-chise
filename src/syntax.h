@@ -238,9 +238,9 @@ extern CONST unsigned char syntax_spec_code[0400];
 
 extern CONST unsigned char syntax_code_spec[];
 
-Lisp_Object scan_lists (struct buffer *buf, int from, int count,
+Lisp_Object scan_lists (struct buffer *buf, Bufpos from, int count,
 			int depth, int sexpflag, int no_error);
-int char_quoted (struct buffer *buf, int pos);
+int char_quoted (struct buffer *buf, Bufpos pos);
 
 /* NOTE: This does not refer to the mirror table, but to the
    syntax table itself. */

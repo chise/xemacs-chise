@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 3.12s
+from xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -17,7 +17,7 @@ section is devoted to Customization and screen settings.
 
 * Menu:
 
-Customization--Emacs Lisp and `.emacs':
+Customization---Emacs Lisp and `.emacs':
 * Q3.0.1::      What version of Emacs am I running?
 * Q3.0.2::      How do I evaluate Elisp expressions?
 * Q3.0.3::      `(setq tab-width 6)' behaves oddly.
@@ -61,9 +61,9 @@ The Modeline:
 * Q3.5.1::      How can I bind complex functions (or macros) to keys?
 * Q3.5.2::      How can I stop down-arrow from adding empty lines to the bottom of my buffers?
 * Q3.5.3::      How do I bind C-. and C-; to scroll one line up and down?
-* Q3.5.4::      Globally binding `Delete'?
+* Q3.5.4::      Globally binding Delete?
 * Q3.5.5::      Scrolling one line at a time.
-* Q3.5.6::      How to map `Help' key alone on Sun type4 keyboard?
+* Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
 * Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
 * Q3.5.9::      How do I make the Delete key delete forward?
@@ -83,7 +83,7 @@ The Mouse and Highlighting:
 * Q3.7.5::      Why does cut-and-paste not work between XEmacs and a cmdtool?
 * Q3.7.6::      How I can set XEmacs up so that it pastes where the text cursor is?
 * Q3.7.7::      How do I select a rectangular region?
-* Q3.7.8::      Why does `M-w' take so long?
+* Q3.7.8::      Why does M-w take so long?
 
 The Menubar and Toolbar:
 * Q3.8.1::      How do I get rid of the menu (or menubar)?
@@ -102,7 +102,7 @@ Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
 * Q3.10.2::     How do I get that typing on an active region removes it?
 * Q3.10.3::     Can I turn off the highlight during isearch?
-* Q3.10.4::     How do I turn off highlighting after `C-x C-p' (mark-page)?
+* Q3.10.4::     How do I turn off highlighting after C-x C-p (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
 
 
@@ -228,7 +228,7 @@ Q3.0.7: Font selections in don't get saved after `Save Options'.
 
      You have to go to Options->Frame Appearance and unselect
      `Frame-Local Font Menu'.  If this option is selected, font changes
-     are only applied to the *current* frame and do *not* get saved
+     are only applied to the _current_ frame and do _not_ get saved
      when you save options.
 
    For XEmacs 19.15 and later:
@@ -437,7 +437,7 @@ Q3.1.8: `-iconic' doesn't work.
 `-unmapped' on the command line, and setting the `initiallyUnmapped' X
 Resource don't seem to help much either...
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      Ugh, this stuff is such an incredible mess that I've about given up
      getting it to work.  The principal problem is numerous
@@ -763,7 +763,7 @@ bound to keys.
 
    This is fine if you only need a few functions within the lambda body.
 If you're doing more it's cleaner to define a separate function as in
-question 3.5.3 (*note Q3.5.3::.).
+question 3.5.3 (*note Q3.5.3::).
 
 
 File: xemacs-faq.info,  Node: Q3.5.2,  Next: Q3.5.3,  Prev: Q3.5.1,  Up: Customization
@@ -799,7 +799,7 @@ and Wayne Newberry <wayne@zen.cac.stratus.com>) to `.emacs':
 
    The key point is that you can only bind simple functions to keys; you
 can not bind a key to a function that you're also passing arguments to.
-(*note Q3.5.1::. for a better answer).
+(*note Q3.5.1:: for a better answer).
 
 
 File: xemacs-faq.info,  Node: Q3.5.4,  Next: Q3.5.5,  Prev: Q3.5.3,  Up: Customization
@@ -876,8 +876,8 @@ Q3.5.6: How to map `Help' key alone on Sun type4 keyboard?
      (global-set-key [(shift help)] 'help-command);; Help
 
    But it doesn't work alone.  This is in the file `PROBLEMS' which
-should have come with your XEmacs installation: *Emacs ignores the
-`help' key when running OLWM*.
+should have come with your XEmacs installation: _Emacs ignores the
+`help' key when running OLWM_.
 
    OLWM grabs the `help' key, and retransmits it to the appropriate
 client using `XSendEvent'.  Allowing Emacs to react to synthetic events
@@ -987,7 +987,7 @@ effect of being able to press and release Shift and have the next
 character typed come out in upper case.  This will affect all the other
 modifier keys like Control and Meta as well.
 
-   Ben Wing <ben@666.com> writes:
+   Ben Wing <ben@xemacs.org> writes:
 
      One thing about the sticky modifiers is that if you move the mouse
      out of the frame and back in, it cancels all currently "stuck"

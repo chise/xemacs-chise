@@ -1,3 +1,70 @@
+1999-12-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.24 is released.
+
+1999-11-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (depend): Only update `depend' if there were changes.
+	Use "perl ./make-src-depend" instead of "mkdepend".
+
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-27  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (SRCDIR): Make path to xemacs absolute to
+	facilitate building info in man subdirs.  Echo all cd commands,
+	not just some of them.  
+
+	(makeinfo-test): Test for availability of `texinfo' package to
+	build info.  Recommend use of external `makeinfo' program for
+	building info docs faster.
+
+	(info): cd into man subdirs to support use of external `makeinfo'
+	program.
+
+1999-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs.mak: Remove references to index.unperm, index.perm.
+	Fix dependencies.
+	Shouldn't .obj and .info be in SUFFIXES?
+	Remove extra `\'.
+
+1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.22 is released
+
+1999-11-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.21 is released.
+
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-10-07  Norbert Koch  <n.koch@eai-delta.de>
+
+	* xemacs.mak: Ignore return code of 'del' calls. Use a make
+	variable for 'del'.
+
+1999-09-26  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (all): Update $(LISP)/auto-autoloads.elc? and
+ 	$(LISP)/custom-load.el using XEmacs itself, like xemacs-packages
+ 	do.
+	($(LISP)\auto-autoloads.el): Add new rule.
+	($(LISP)\custom-load.el): Ditto.
+
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* xemacs.mak (HAVE_WIDGETS): add define to appropriate places.
+
+1999-07-26  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak ($(MANDIR)\lispref\lispref.texi): Replace bad
+	dependency.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released

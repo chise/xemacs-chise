@@ -154,6 +154,10 @@ typedef struct position_redisplay_data_type
 			   (those off the left side of the screen) need
 			   to be skipped before anything is displayed. */
   Bytind bi_start_col_enabled;
+  int start_col_xoffset;	/* Number of pixels that still need to
+			   be skipped.  This is used for
+			   horizontal scrolling of glyphs, where we want 
+			   to be able to scroll over part of the glyph. */
 
   int hscroll_glyph_width_adjust;  /* how much the width of the hscroll
 				      glyph differs from space_width (w).
@@ -259,8 +263,7 @@ static prop_block_dynarr *add_glyph_rune (pos_data *data,
 					  int pos_type, int allow_cursor,
 					  struct glyph_cachel *cachel);
 static Bytind create_text_block (struct window *w, struct display_line *dl,
-				 Bytind bi_start_pos, int start_col,
-				 prop_block_dynarr **prop,
+				 Bytind bi_start_pos, prop_block_dynarr **prop,
 				 int type);
 static int create_overlay_glyph_block (struct window *w,
 				       struct display_line *dl);
@@ -275,9 +278,6 @@ static void free_display_line (struct display_line *dl);
 static void update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 				     Bufpos point, int no_regen);
 static int point_visible (struct window *w, Bufpos point, int type);
-extern Bytind bi_find_next_emchar_in_string (struct Lisp_String* str, Emchar target, 
-					     Bytind st, EMACS_INT count);
-extern int string_column_at_point (struct Lisp_String* s, Bufpos init_pos, int tab_width);
 
 /* This used to be 10 but 30 seems to give much better performance. */
 #define INIT_MAX_PREEMPTS	30
@@ -302,8 +302,8 @@ display_line_dynarr *cmotion_display_lines;
 
 /* Used by generate_formatted_string.  Global because they get used so
    much that the dynamic allocation time adds up. */
-Emchar_dynarr *formatted_string_emchar_dynarr;
-struct display_line formatted_string_display_line;
+static Emchar_dynarr *formatted_string_emchar_dynarr;
+static struct display_line formatted_string_display_line;
 /* We store the extents that we need to generate in a Dynarr and then
    frob them all on at the end of generating the string.  We do it
    this way rather than adding them as we generate the string because
@@ -311,9 +311,9 @@ struct display_line formatted_string_display_line;
    (to avoid having to resize the string multiple times), and we don't
    want to go around adding extents to a string when the extents might
    stretch off the end of the string. */
-EXTENT_dynarr *formatted_string_extent_dynarr;
-Bytecount_dynarr *formatted_string_extent_start_dynarr;
-Bytecount_dynarr *formatted_string_extent_end_dynarr;
+static EXTENT_dynarr *formatted_string_extent_dynarr;
+static Bytecount_dynarr *formatted_string_extent_start_dynarr;
+static Bytecount_dynarr *formatted_string_extent_end_dynarr;
 
 
 /* #### probably temporary */
@@ -338,7 +338,7 @@ int vertical_clip;
 int horizontal_clip;
 
 /* Set if currently inside update_line_start_cache. */
-int updating_line_start_cache;
+static int updating_line_start_cache;
 
 /* Nonzero means reading single-character input with prompt
    so put cursor on minibuffer after the prompt.  */
@@ -377,6 +377,11 @@ int glyphs_changed_set;
    somewhere. */
 int subwindows_changed;
 int subwindows_changed_set;
+
+/* non-zero if any displayed subwindow is in need of updating
+   somewhere. */
+int subwindows_state_changed;
+int subwindows_state_changed_set;
 
 /* This variable is 1 if the icon has to be updated.
  It is set to 1 when `frame-icon-glyph' changes. */
@@ -453,7 +458,7 @@ Lisp_Object Voverlay_arrow_position;
 Lisp_Object Voverlay_arrow_string;
 
 Lisp_Object Vwindow_size_change_functions;
-Lisp_Object Qwindow_scroll_functions, Vwindow_scroll_functions;
+Lisp_Object Vwindow_scroll_functions;
 Lisp_Object Qredisplay_end_trigger_functions, Vredisplay_end_trigger_functions;
 
 #define INHIBIT_REDISPLAY_HOOKS  /* #### Until we've thought about
@@ -465,7 +470,7 @@ Lisp_Object Vpre_redisplay_hook, Vpost_redisplay_hook;
 Lisp_Object Qpre_redisplay_hook, Qpost_redisplay_hook;
 #endif /* INHIBIT_REDISPLAY_HOOKS */
 
-int last_display_warning_tick, display_warning_tick;
+static int last_display_warning_tick, display_warning_tick;
 Lisp_Object Qdisplay_warning_buffer;
 int inhibit_warning_display;
 
@@ -475,6 +480,10 @@ Lisp_Object Vuse_left_overflow, Vuse_right_overflow;
 Lisp_Object Vtext_cursor_visible_p;
 
 int column_number_start_at_one;
+
+#define WINDOW_SCROLLED(w) \
+(w->hscroll > 0 || w->left_xoffset)
+
 
 /***************************************************************************/
 /*									   */
@@ -644,8 +653,8 @@ next_tab_position (struct window *w, int start_pixpos, int left_pixpos)
   int pix_tab_width = tab_pix_width (w);
 
   /* Adjust n_pos for any hscrolling which has happened. */
-  if (w->hscroll > 1)
-    n_pos -= space_width (w) * (w->hscroll - 1);
+  if (WINDOW_SCROLLED (w))
+    n_pos -= space_width (w) * (w->hscroll - 1) + w->left_xoffset;
 
   while (n_pos <= start_pixpos)
     n_pos += pix_tab_width;
@@ -697,8 +706,7 @@ calculate_display_line_boundaries (struct window *w, int modeline)
 
 static Bufpos
 generate_display_line (struct window *w, struct display_line *dl, int bounds,
-		       Bufpos start_pos, int start_col,
-		       prop_block_dynarr **prop,
+		       Bufpos start_pos, prop_block_dynarr **prop,
 		       int type)
 {
   Bufpos ret_bufpos;
@@ -731,7 +739,7 @@ generate_display_line (struct window *w, struct display_line *dl, int bounds,
     /* #### urk urk urk!!! Chuck fix this shit! */
     Bytind hacked_up_bytind =
       create_text_block (w, dl, bufpos_to_bytind (b, start_pos),
-			 start_col, prop, type);
+			 prop, type);
     if (hacked_up_bytind > BI_BUF_ZV (b))
       ret_bufpos = BUF_ZV (b) + 1;
     else
@@ -1548,7 +1556,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       if (!width)
 	return NULL;
 
-      if (data->start_col)
+      if (data->start_col || data->start_col_xoffset)
 	{
 	  prop_block_dynarr *retval;
 	  int glyph_char_width = width / space_width (w);
@@ -1782,8 +1790,7 @@ add_glyph_runes (pos_data *data, int pos_type)
 
 static Bytind
 create_text_block (struct window *w, struct display_line *dl,
-		   Bytind bi_start_pos, int start_col,
-		   prop_block_dynarr **prop,
+		   Bytind bi_start_pos, prop_block_dynarr **prop,
 		   int type)
 {
   struct frame *f = XFRAME (w->frame);
@@ -1927,6 +1934,7 @@ create_text_block (struct window *w, struct display_line *dl,
   data.cursor_x = -1;
 
   data.start_col = w->hscroll;
+  data.start_col_xoffset = w->left_xoffset;
   data.bi_start_col_enabled = (w->hscroll ? bi_start_pos : 0);
   data.hscroll_glyph_width_adjust = 0;
 
@@ -2246,6 +2254,7 @@ create_text_block (struct window *w, struct display_line *dl,
 		  data.blank_width = DEVMETH (d, eol_cursor_width, ());
 		  data.findex = DEFAULT_INDEX;
 		  data.start_col = 0;
+		  data.start_col_xoffset = 0;
 		  data.bi_start_col_enabled = 0;
 
 		  add_emchar_rune (&data);
@@ -2279,7 +2288,8 @@ create_text_block (struct window *w, struct display_line *dl,
 	      int prop_width = 0;
 
 	      if (data.start_col > 1)
-		tab_start_pixpos -= (space_width (w) * (data.start_col - 1));
+		tab_start_pixpos -= (space_width (w) * (data.start_col - 1)) 
+		  + data.start_col_xoffset;
 
 	      next_tab_start =
 		next_tab_position (w, tab_start_pixpos,
@@ -2486,6 +2496,7 @@ done:
       data.blank_width = DEVMETH (d, eol_cursor_width, ());
       data.findex = DEFAULT_INDEX;
       data.start_col = 0;
+      data.start_col_xoffset = 0;
       data.bi_start_col_enabled = 0;
 
       data.max_pixpos += data.blank_width;
@@ -4234,8 +4245,10 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
   struct frame *f = XFRAME (w->frame);
   /* Note that a lot of the buffer controlled stuff has been left in
      because you might well want to make use of it (selective display
-     etc), its just the buffer text that we do not use. */
-  struct buffer *b = XBUFFER (w->buffer);
+     etc), its just the buffer text that we do not use. However, it
+     seems to be possible for buffer to be nil sometimes so protect
+     against this case. */
+  struct buffer *b = BUFFERP (w->buffer) ? XBUFFER (w->buffer) : 0;
   struct device *d = XDEVICE (f->device);
   struct Lisp_String* s = XSTRING (disp_string);
 
@@ -4246,7 +4259,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 
   pos_data data;
 
-  int truncate_win = window_truncation_on (w);
+  int truncate_win = b ? window_truncation_on (w) : 0;
   int end_glyph_width = 0;
 
   /* we're going to ditch selective display for static text, its an
@@ -4296,10 +4309,10 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 
      Since more than one display table is possible, you have
      great flexibility in mapping ranges of characters.  */
-  Emchar printable_min = (CHAR_OR_CHAR_INTP (b->ctl_arrow)
+  Emchar printable_min = b ? (CHAR_OR_CHAR_INTP (b->ctl_arrow)
 			  ? XCHAR_OR_CHAR_INT (b->ctl_arrow)
 			  : ((EQ (b->ctl_arrow, Qt) || EQ (b->ctl_arrow, Qnil))
-			     ? 255 : 160));
+			     ? 255 : 160)) : 255;
 
   Lisp_Object face_dt, window_dt;
 
@@ -4730,27 +4743,10 @@ done:
     }
   else if (data.bi_bufpos == bi_string_zv)
     {
-      /* We need to add a marker to the end of the line since there is no
-         newline character in order for the cursor to get drawn.  We label
-         it as a newline so that it gets handled correctly by the
-         whitespace routines below. */
-
-      data.ch = '\n';
-      data.blank_width = DEVMETH (d, eol_cursor_width, ());
-      data.findex = default_face;
-      data.start_col = 0;
-      data.bi_start_col_enabled = 0;
-
-      data.max_pixpos += data.blank_width;
-      add_emchar_rune (&data);
-      data.max_pixpos -= data.blank_width;
-
-      /* #### urk!  Chuck, this shit is bad news.  Going around
-	 manipulating invalid positions is guaranteed to result in
-	 trouble sooner or later. */
-      data.bi_bufpos = bi_string_zv + 1;
+      /* create_text_block () adds a bogus \n marker here which screws
+	 up subwindow display. Since we never have a cursor in the
+	 gutter we can safely ignore it. */
     }
-
   /* Calculate left whitespace boundary. */
   {
     int elt = 0;
@@ -4854,7 +4850,7 @@ done:
     dl->end_bufpos = buffer_or_string_bytind_to_bufpos (disp_string, data.bi_bufpos) - 1;
   if (truncate_win)
     data.dl->num_chars = 
-      string_column_at_point (s, dl->end_bufpos, XINT (b->tab_width));
+      string_column_at_point (s, dl->end_bufpos, b ? XINT (b->tab_width) : 8);
   else
     /* This doesn't correctly take into account tabs and control
        characters but if the window isn't being truncated then this
@@ -4909,7 +4905,7 @@ generate_string_display_line (struct window *w, Lisp_Object disp_string,
   Bufpos ret_bufpos;
 
   /* you must set bounds before calling this. */
-
+  
   /* Reset what this line is using. */
   if (dl->display_blocks)
     Dynarr_reset (dl->display_blocks);
@@ -4970,7 +4966,7 @@ generate_displayable_area (struct window *w, Lisp_Object disp_string,
   if (NILP (disp_string))
     return;
 
-  s_zv = XSTRING_CHAR_LENGTH (disp_string) - 1;
+  s_zv = XSTRING_CHAR_LENGTH (disp_string);
 
   bounds.left_out = xpos;
   bounds.right_out = xpos + width;
@@ -5066,6 +5062,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
   struct buffer *b = XBUFFER (w->buffer);
   int ypos = WINDOW_TEXT_TOP (w);
   int yend;	/* set farther down */
+  int yclip = WINDOW_TEXT_TOP_CLIP (w);
 
   prop_block_dynarr *prop;
   layout_bounds bounds;
@@ -5140,17 +5137,37 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 
       dlp->bounds = bounds;
       dlp->offset = 0;
-      start_pos = generate_display_line (w, dlp, 1, start_pos,
-					 w->hscroll, &prop, type);
-      dlp->ypos = ypos + dlp->ascent;
+      start_pos = generate_display_line (w, dlp, 1, start_pos, &prop, type);
+
+      if (yclip > dlp->ascent)
+	{
+	  /* this should never happen, but if it does just display the
+	     whole line */
+	  yclip = 0;
+	}
+
+      dlp->ypos = (ypos + dlp->ascent) - yclip;
       ypos = dlp->ypos + dlp->descent;
+
+      /* See if we've been asked to start midway through a line, for
+         partial display line scrolling. */
+      if (yclip)		
+	{
+	  dlp->top_clip = yclip;
+	  yclip = 0;
+	}
+      else
+	dlp->top_clip = 0;
 
       if (ypos > yend)
 	{
 	  int visible_height = dlp->ascent + dlp->descent;
 
 	  dlp->clip = (ypos - yend);
-	  visible_height -= dlp->clip;
+	  /* Although this seems strange we could have a single very
+	     tall line visible for which we need to account for both
+	     the top clip and the bottom clip. */
+	  visible_height -= (dlp->clip + dlp->top_clip);
 
 	  if (visible_height < VERTICAL_CLIP (w, 1))
 	    {
@@ -5393,7 +5410,7 @@ regenerate_window_extents_only_changed (struct window *w, Bufpos startp,
 	return 0;
 
       new_start = generate_display_line (w, ddl, 0, ddl->bufpos + ddl->offset,
-					 w->hscroll, &prop, DESIRED_DISP);
+					 &prop, DESIRED_DISP);
       ddl->offset = 0;
 
       /* #### If there is propagated stuff the fail.  We could
@@ -5412,6 +5429,7 @@ regenerate_window_extents_only_changed (struct window *w, Bufpos startp,
       if (cdl->ypos != ddl->ypos
 	  || cdl->ascent != ddl->ascent
 	  || cdl->descent != ddl->descent
+	  || cdl->top_clip != ddl->top_clip
 	  || (cdl->cursor_elt != -1 && ddl->cursor_elt == -1)
 	  || (cdl->cursor_elt == -1 && ddl->cursor_elt != -1)
 	  || old_start != ddl->bufpos
@@ -5555,7 +5573,7 @@ regenerate_window_incrementally (struct window *w, Bufpos startp,
 	return 0;
 
       new_start = generate_display_line (w, ddl, 0, ddl->bufpos + ddl->offset,
-					 w->hscroll, &prop, DESIRED_DISP);
+					 &prop, DESIRED_DISP);
       ddl->offset = 0;
 
       /* If there is propagated stuff then it is pretty much a
@@ -5585,6 +5603,7 @@ regenerate_window_incrementally (struct window *w, Bufpos startp,
       if (cdl->ypos != ddl->ypos
 	  || cdl->ascent != ddl->ascent
 	  || cdl->descent != ddl->descent
+	  || cdl->top_clip != ddl->top_clip
 	  || (cdl->cursor_elt != -1 && ddl->cursor_elt == -1)
 	  || (cdl->cursor_elt == -1 && ddl->cursor_elt != -1))
 	{
@@ -5877,10 +5896,11 @@ redisplay_window (Lisp_Object window, int skip_selected)
   else
     mark_face_cachels_as_not_updated (w);
 
-  /* Ditto the glyph cache elements. */
+  /* Ditto the glyph cache elements, although we do *not* invalidate
+     the cache purely because glyphs have changed - this is now
+     handled by the dirty flag.*/
   if ((!echo_active && b != window_display_buffer (w))
-      || !Dynarr_length (w->glyph_cachels)
-      || f->glyphs_changed)
+      || !Dynarr_length (w->glyph_cachels))
     reset_glyph_cachels (w);
   else
     mark_glyph_cachels_as_not_updated (w);
@@ -5966,6 +5986,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	  && !f->faces_changed
 	  && !f->glyphs_changed
 	  && !f->subwindows_changed
+	  && !f->subwindows_state_changed
 	  && !f->point_changed
 	  && !f->windows_structure_changed)
 	{
@@ -5987,6 +6008,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	      && !f->faces_changed
 	      && !f->glyphs_changed
 	      && !f->subwindows_changed
+	      && !f->subwindows_state_changed
 	      && !f->windows_structure_changed)
 	    {
 	      if (point_visible (w, pointm, CURRENT_DISP)
@@ -6045,6 +6067,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	   && !f->faces_changed
 	   && !f->glyphs_changed
 	   && !f->subwindows_changed
+	   && !f->subwindows_state_changed
 	   && !f->windows_structure_changed
 	   && !f->frame_changed
 	   && !truncation_changed
@@ -6140,6 +6163,10 @@ regeneration_done:
   /* #### This should be dependent on face changes and will need to be
      somewhere else once tty updates occur on a per-frame basis. */
   mark_face_cachels_as_clean (w);
+
+  /* The glyph cachels only get dirty if someone changed something. */
+  if (glyphs_changed)
+    mark_glyph_cachels_as_clean (w);
 
   w->windows_changed = 0;
 }
@@ -6262,7 +6289,6 @@ redisplay_frame (struct frame *f, int preemption_check)
      being handled. */
   update_frame_menubars (f);
 #endif /* HAVE_MENUBARS */
-  update_frame_gutters (f);
   /* widgets are similar to menus in that they can call lisp to
      determine activation etc. Therefore update them before we get
      into redisplay. This is primarily for connected widgets such as
@@ -6272,6 +6298,30 @@ redisplay_frame (struct frame *f, int preemption_check)
   /* Update the toolbars. */
   update_frame_toolbars (f);
 #endif /* HAVE_TOOLBARS */
+
+  /* If we clear the frame we have to force its contents to be redrawn. */
+  if (f->clear)
+    f->frame_changed = 1;
+
+  /* invalidate the subwindow cache. We use subwindows_changed here to
+     cause subwindows to get instantiated. This is because
+     subwindows_state_changed is less strict - dealing with things
+     like the clicked state of button. We have to do this before
+     redisplaying the gutters as subwindows get unmapped in the
+     process.*/
+  if (!Dynarr_length (f->subwindow_cachels)
+      || f->subwindows_changed
+      || f->frame_changed)
+    {
+      reset_subwindow_cachels (f);
+      /* we have to do this so the gutter gets regenerated. */
+      reset_gutter_display_lines (f);
+    }
+  else
+    mark_subwindow_cachels_as_not_updated (f);
+  /* We can now update the gutters, safe in the knowledge that our
+     efforts won't get undone. */
+  update_frame_gutters (f);
 
   hold_frame_size_changes ();
 
@@ -6299,26 +6349,11 @@ redisplay_frame (struct frame *f, int preemption_check)
      #### If a frame-size change does occur we should probably
      actually be preempting redisplay. */
 
-  /* If we clear the frame we have to force its contents to be redrawn. */
-  if (f->clear)
-    f->frame_changed = 1;
-
   /* Erase the frame before outputting its contents. */
   if (f->clear)
     {
       DEVMETH (d, clear_frame, (f));
     }
-
-  /* invalidate the subwindow cache. we are going to reuse the glyphs
-     flag here to cause subwindows to get instantiated. This is
-     because subwindows changed is less strict - dealing with things
-     like the clicked state of button. */
-  if (!Dynarr_length (f->subwindow_cachels)
-      || f->glyphs_changed
-      || f->frame_changed)
-    reset_subwindow_cachels (f);
-  else
-    mark_subwindow_cachels_as_not_updated (f);
 
   /* Do the selected window first. */
   redisplay_window (FRAME_SELECTED_WINDOW (f), 0);
@@ -6334,24 +6369,9 @@ redisplay_frame (struct frame *f, int preemption_check)
 
   update_frame_title (f);
 
-  f->buffers_changed  = 0;
-  f->clip_changed     = 0;
-  f->extents_changed  = 0;
-  f->faces_changed    = 0;
-  f->frame_changed    = 0;
-  f->glyphs_changed   = 0;
-  f->subwindows_changed   = 0;
-  f->icon_changed     = 0;
-  f->menubar_changed  = 0;
-  f->modeline_changed = 0;
-  f->point_changed    = 0;
-  f->toolbar_changed  = 0;
-  f->gutter_changed  = 0;
-  f->windows_changed  = 0;
-  f->windows_structure_changed = 0;
+  CLASS_RESET_CHANGED_FLAGS (f);
   f->window_face_cache_reset = 0;
   f->echo_area_garbaged = 0;
-
   f->clear = 0;
 
   if (!f->size_change_pending)
@@ -6401,12 +6421,7 @@ redisplay_device (struct device *d)
 
   if (FRAME_REPAINT_P (f))
     {
-      if (f->buffers_changed  || f->clip_changed  || f->extents_changed ||
-	  f->faces_changed    || f->frame_changed || f->menubar_changed ||
-	  f->modeline_changed || f->point_changed || f->size_changed    ||
-	  f->toolbar_changed  || f->windows_changed || f->size_slipped  ||
-	  f->windows_structure_changed || f->glyphs_changed || 
-	  f->subwindows_changed || f->gutter_changed)
+      if (CLASS_REDISPLAY_FLAGS_CHANGEDP(f))
 	{
 	  preempted = redisplay_frame (f, 0);
 	}
@@ -6436,12 +6451,7 @@ redisplay_device (struct device *d)
 
       if (FRAME_REPAINT_P (f))
 	{
-	  if (f->buffers_changed  || f->clip_changed  || f->extents_changed ||
-	      f->faces_changed    || f->frame_changed || f->menubar_changed ||
-	      f->modeline_changed || f->point_changed || f->size_changed    ||
-	      f->toolbar_changed  || f->windows_changed ||
-	      f->windows_structure_changed || f->gutter_changed ||
-	      f->glyphs_changed || f->subwindows_changed)
+	  if (CLASS_REDISPLAY_FLAGS_CHANGEDP (f))
 	    {
 	      preempted = redisplay_frame (f, 0);
 	    }
@@ -6456,21 +6466,7 @@ redisplay_device (struct device *d)
 
   /* If we get here then we redisplayed all of our frames without
      getting preempted so mark ourselves as clean. */
-  d->buffers_changed  = 0;
-  d->clip_changed     = 0;
-  d->extents_changed  = 0;
-  d->faces_changed    = 0;
-  d->frame_changed    = 0;
-  d->glyphs_changed   = 0;
-  d->subwindows_changed   = 0;
-  d->icon_changed     = 0;
-  d->menubar_changed  = 0;
-  d->modeline_changed = 0;
-  d->point_changed    = 0;
-  d->toolbar_changed  = 0;
-  d->gutter_changed  = 0;
-  d->windows_changed  = 0;
-  d->windows_structure_changed = 0;
+  CLASS_RESET_CHANGED_FLAGS (d);
 
   if (!size_change_failed)
     d->size_changed = 0;
@@ -6505,12 +6501,7 @@ redisplay_without_hooks (void)
   if (asynch_device_change_pending)
     handle_asynch_device_change ();
 
-  if (!buffers_changed && !clip_changed     && !extents_changed &&
-      !faces_changed   && !frame_changed    && !icon_changed    &&
-      !menubar_changed && !modeline_changed && !point_changed   &&
-      !size_changed    && !toolbar_changed  && !windows_changed &&
-      !glyphs_changed  && !subwindows_changed &&
-      !gutter_changed && !windows_structure_changed &&
+  if (!GLOBAL_REDISPLAY_FLAGS_CHANGEDP &&
       !disable_preemption && preemption_count < max_preempts)
     goto done;
 
@@ -6519,12 +6510,7 @@ redisplay_without_hooks (void)
       struct device *d = XDEVICE (XCAR (devcons));
       int preempted;
 
-      if (d->buffers_changed  || d->clip_changed     || d->extents_changed ||
-	  d->faces_changed    || d->frame_changed    || d->icon_changed    ||
-	  d->menubar_changed  || d->modeline_changed || d->point_changed   ||
-	  d->size_changed     || d->toolbar_changed  || d->windows_changed ||
-	  d->windows_structure_changed || d->gutter_changed ||
-	  d->glyphs_changed || d->subwindows_changed)
+      if (CLASS_REDISPLAY_FLAGS_CHANGEDP (d))
 	{
 	  preempted = redisplay_device (d);
 
@@ -6543,20 +6529,7 @@ redisplay_without_hooks (void)
   preemption_count = 0;
 
   /* Mark redisplay as accurate */
-  buffers_changed  = 0;
-  clip_changed     = 0;
-  extents_changed  = 0;
-  frame_changed    = 0;
-  glyphs_changed   = 0;
-  subwindows_changed   = 0;
-  icon_changed     = 0;
-  menubar_changed  = 0;
-  modeline_changed = 0;
-  point_changed    = 0;
-  toolbar_changed  = 0;
-  gutter_changed  = 0;
-  windows_changed  = 0;
-  windows_structure_changed = 0;
+  GLOBAL_RESET_CHANGED_FLAGS;
   RESET_CHANGED_SET_FLAGS;
 
   if (faces_changed)
@@ -6787,7 +6760,6 @@ decode_mode_spec (struct window *w, Emchar spec, int type)
     case 'p':
     {
       Bufpos pos = marker_position (w->start[type]);
-      Charcount total = BUF_ZV (b) - BUF_BEGV (b);
 
       /* This had better be while the desired lines are being done. */
       if (w->window_end_pos[type] <= BUF_Z (b) - BUF_ZV (b))
@@ -6804,15 +6776,20 @@ decode_mode_spec (struct window *w, Emchar spec, int type)
 	  /* This hard limit is ok since the string it will hold has a
              fixed maximum length of 3.  But just to be safe... */
 	  char buf[10];
+	  Charcount chars = pos - BUF_BEGV (b);
+	  Charcount total = BUF_ZV (b) - BUF_BEGV (b);
 
-	  total = ((pos - BUF_BEGV (b)) * 100 + total - 1) / total;
+	  /* Avoid overflow on big buffers */
+	  int percent = total > LONG_MAX/200 ?
+	    (chars + total/200) / (total / 100) :
+	    (chars * 100 + total/2) / total;
 
 	  /* We can't normally display a 3-digit number, so get us a
              2-digit number that is close. */
-	  if (total == 100)
-	    total = 99;
+	  if (percent == 100)
+	    percent = 99;
 
-	  sprintf (buf, "%2d%%", total);
+	  sprintf (buf, "%d%%", percent);
 	  Dynarr_add_many (mode_spec_bufbyte_string, (Bufbyte *) buf,
 			   strlen (buf));
 
@@ -6827,7 +6804,6 @@ decode_mode_spec (struct window *w, Emchar spec, int type)
     {
       Bufpos toppos = marker_position (w->start[type]);
       Bufpos botpos = BUF_Z (b) - w->window_end_pos[type];
-      Charcount total = BUF_ZV (b) - BUF_BEGV (b);
 
       /* botpos is only accurate as of the last redisplay, so we can
          only treat it as a hint.  In particular, after erase-buffer,
@@ -6847,18 +6823,23 @@ decode_mode_spec (struct window *w, Emchar spec, int type)
 	  /* This hard limit is ok since the string it will hold has a
              fixed maximum length of around 6.  But just to be safe... */
 	  char buf[10];
+	  Charcount chars = botpos - BUF_BEGV (b);
+	  Charcount total = BUF_ZV (b) - BUF_BEGV (b);
 
-	  total = ((botpos - BUF_BEGV (b)) * 100 + total - 1) / total;
+	  /* Avoid overflow on big buffers */
+	  int percent = total > LONG_MAX/200 ?
+	    (chars + total/200) / (total / 100) :
+	    (chars * 100 + total/2) / max (total, 1);
 
 	  /* We can't normally display a 3-digit number, so get us a
              2-digit number that is close. */
-	  if (total == 100)
-	    total = 99;
+	  if (percent == 100)
+	    percent = 99;
 
 	  if (toppos <= BUF_BEGV (b))
-	    sprintf (buf, "Top%2d%%", total);
+	    sprintf (buf, "Top%d%%", percent);
 	  else
-	    sprintf (buf, "%2d%%", total);
+	    sprintf (buf, "%d%%", percent);
 
 	  Dynarr_add_many (mode_spec_bufbyte_string, (Bufbyte *) buf,
 			   strlen (buf));
@@ -6961,7 +6942,7 @@ free_display_line (struct display_line *dl)
 /* Given an array of display lines, free them and all data structures
    contained within them. */
 
-static void
+void
 free_display_lines (display_line_dynarr *dla)
 {
   int line;
@@ -6994,7 +6975,7 @@ free_display_structs (struct window_mirror *mir)
 
 
 static void
-mark_glyph_block_dynarr (glyph_block_dynarr *gba, void (*markobj) (Lisp_Object))
+mark_glyph_block_dynarr (glyph_block_dynarr *gba)
 {
   if (gba)
     {
@@ -7004,15 +6985,15 @@ mark_glyph_block_dynarr (glyph_block_dynarr *gba, void (*markobj) (Lisp_Object))
       for (; gb < gb_last; gb++)
 	{
 	  if (!NILP (gb->glyph))
-	    markobj (gb->glyph);
+	    mark_object (gb->glyph);
 	  if (!NILP (gb->extent))
-	    markobj (gb->extent);
+	    mark_object (gb->extent);
 	}
     }
 }
 
 static void
-mark_redisplay_structs (display_line_dynarr *dla, void (*markobj) (Lisp_Object))
+mark_redisplay_structs (display_line_dynarr *dla)
 {
   display_line *dl = Dynarr_atp (dla, 0);
   display_line *dl_last = Dynarr_atp (dla, Dynarr_length (dla));
@@ -7034,35 +7015,35 @@ mark_redisplay_structs (display_line_dynarr *dla, void (*markobj) (Lisp_Object))
 	      if (r->type == RUNE_DGLYPH)
 		{
 		  if (!NILP (r->object.dglyph.glyph))
-		    markobj (r->object.dglyph.glyph);
+		    mark_object (r->object.dglyph.glyph);
 		  if (!NILP (r->object.dglyph.extent))
-		    markobj (r->object.dglyph.extent);
+		    mark_object (r->object.dglyph.extent);
 		}
 	    }
 	}
 
-      mark_glyph_block_dynarr (dl->left_glyphs,  markobj);
-      mark_glyph_block_dynarr (dl->right_glyphs, markobj);
+      mark_glyph_block_dynarr (dl->left_glyphs);
+      mark_glyph_block_dynarr (dl->right_glyphs);
     }
 }
 
 static void
-mark_window_mirror (struct window_mirror *mir, void (*markobj)(Lisp_Object))
+mark_window_mirror (struct window_mirror *mir)
 {
-  mark_redisplay_structs (mir->current_display_lines, markobj);
-  mark_redisplay_structs (mir->desired_display_lines, markobj);
+  mark_redisplay_structs (mir->current_display_lines);
+  mark_redisplay_structs (mir->desired_display_lines);
 
   if (mir->next)
-    mark_window_mirror (mir->next, markobj);
+    mark_window_mirror (mir->next);
 
   if (mir->hchild)
-    mark_window_mirror (mir->hchild, markobj);
+    mark_window_mirror (mir->hchild);
   else if (mir->vchild)
-    mark_window_mirror (mir->vchild, markobj);
+    mark_window_mirror (mir->vchild);
 }
 
 void
-mark_redisplay (void (*markobj)(Lisp_Object))
+mark_redisplay (void)
 {
   Lisp_Object frmcons, devcons, concons;
 
@@ -7070,7 +7051,7 @@ mark_redisplay (void (*markobj)(Lisp_Object))
     {
       struct frame *f = XFRAME (XCAR (frmcons));
       update_frame_window_mirror (f);
-      mark_window_mirror (f->root_mirror, markobj);
+      mark_window_mirror (f->root_mirror);
     }
 }
 
@@ -7134,7 +7115,7 @@ mark_redisplay (void (*markobj)(Lisp_Object))
 
 /* This will get used quite a bit so we don't want to be constantly
    allocating and freeing it. */
-line_start_cache_dynarr *internal_cache;
+static line_start_cache_dynarr *internal_cache;
 
 /* Makes internal_cache represent the TYPE display structs and only
    the TYPE display structs. */
@@ -7428,7 +7409,7 @@ int
 point_would_be_visible (struct window *w, Bufpos startp, Bufpos point)
 {
   struct buffer *b = XBUFFER (w->buffer);
-  int pixpos = 0;
+  int pixpos = -WINDOW_TEXT_TOP_CLIP(w);
   int bottom = WINDOW_TEXT_HEIGHT (w);
   int start_elt;
 
@@ -7653,7 +7634,7 @@ start_with_line_at_pixpos (struct window *w, Bufpos point, int pixpos)
 	}
 
       cur_elt--;
-      if (cur_elt < 0)
+      while (cur_elt < 0)
 	{
 	  Bufpos from, to;
 	  int win_char_height;
@@ -7673,7 +7654,20 @@ start_with_line_at_pixpos (struct window *w, Bufpos point, int pixpos)
 	  update_line_start_cache (w, from, to, point, 0);
 
 	  cur_elt = point_in_line_start_cache (w, cur_pos, 2) - 1;
-	  assert (cur_elt >= 0);
+	  assert (cur_elt >= -1);
+	  /* This used to be cur_elt>=0 under the assumption that if
+	     point is in the top line and not at BUF_BEGV, then
+	     setting the window_start to a newline before the start of 
+	     the first line will always cause scrolling.
+
+	     However in my (jv) opinion this is wrong.  That new line
+	     can be hidden in various ways: invisible extents, an
+	     explicit window-start not at a newline character etc.
+	     The existence of those are indeed known to create crashes
+	     on that assert.  So we have no option but to continue the
+	     search if we found point at the top of the line_start_cache
+	     again. */
+	  cur_pos = Dynarr_atp (w->line_start_cache,0)->start;	     
 	}
       prev_pos = cur_pos;
     }
@@ -8969,6 +8963,8 @@ redisplay_variable_changed (Lisp_Object sym, Lisp_Object *val,
   return 0;
 }
 
+/* This is called if the built-in glyphs have their properties
+   changed. */
 void
 redisplay_glyph_changed (Lisp_Object glyph, Lisp_Object property,
 			 Lisp_Object locale)
@@ -9091,7 +9087,9 @@ init_redisplay (void)
   preemption_count = 0;
   max_preempts = INIT_MAX_PREEMPTS;
 
+#ifndef PDUMP
   if (!initialized)
+#endif
     {
       cmotion_display_lines = Dynarr_new (display_line);
       mode_spec_bufbyte_string = Dynarr_new (Bufbyte);
@@ -9171,7 +9169,6 @@ syms_of_redisplay (void)
 #endif /* INHIBIT_REDISPLAY_HOOKS */
   defsymbol (&Qdisplay_warning_buffer, "display-warning-buffer");
   defsymbol (&Qbar_cursor, "bar-cursor");
-  defsymbol (&Qwindow_scroll_functions, "window-scroll-functions");
   defsymbol (&Qredisplay_end_trigger_functions,
 	     "redisplay-end-trigger-functions");
 
@@ -9185,16 +9182,22 @@ syms_of_redisplay (void)
 }
 
 void
+reinit_vars_of_redisplay (void)
+{
+  updating_line_start_cache = 0;
+}
+
+void
 vars_of_redisplay (void)
 {
+  reinit_vars_of_redisplay ();
+
 #if 0
   staticpro (&last_arrow_position);
   staticpro (&last_arrow_string);
   last_arrow_position = Qnil;
   last_arrow_string = Qnil;
 #endif /* 0 */
-
-  updating_line_start_cache = 0;
 
   /* #### Probably temporary */
   DEFVAR_INT ("redisplay-cache-adjustment", &cache_adjustment /*
@@ -9280,7 +9283,7 @@ instead.
   Vwindow_system = Qnil;
 
   /* #### Temporary shit until window-system is eliminated. */
-  DEFVAR_LISP ("initial-window-system", &Vinitial_window_system /*
+  DEFVAR_CONST_LISP ("initial-window-system", &Vinitial_window_system /*
 DON'T TOUCH
 */ );
   Vinitial_window_system = Qnil;

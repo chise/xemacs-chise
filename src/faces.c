@@ -73,26 +73,26 @@ Lisp_Object Vbuilt_in_face_specifiers;
 
 
 static Lisp_Object
-mark_face (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_face (Lisp_Object obj)
 {
   struct Lisp_Face *face =  XFACE (obj);
 
-  markobj (face->name);
-  markobj (face->doc_string);
+  mark_object (face->name);
+  mark_object (face->doc_string);
 
-  markobj (face->foreground);
-  markobj (face->background);
-  markobj (face->font);
-  markobj (face->display_table);
-  markobj (face->background_pixmap);
-  markobj (face->underline);
-  markobj (face->strikethru);
-  markobj (face->highlight);
-  markobj (face->dim);
-  markobj (face->blinking);
-  markobj (face->reverse);
+  mark_object (face->foreground);
+  mark_object (face->background);
+  mark_object (face->font);
+  mark_object (face->display_table);
+  mark_object (face->background_pixmap);
+  mark_object (face->underline);
+  mark_object (face->strikethru);
+  mark_object (face->highlight);
+  mark_object (face->dim);
+  mark_object (face->blinking);
+  mark_object (face->reverse);
 
-  markobj (face->charsets_warned_about);
+  mark_object (face->charsets_warned_about);
 
   return face->plist;
 }
@@ -171,18 +171,18 @@ face_getprop (Lisp_Object obj, Lisp_Object prop)
   struct Lisp_Face *f = XFACE (obj);
 
   return
-    ((EQ (prop, Qforeground))	     ? f->foreground	    :
-     (EQ (prop, Qbackground))	     ? f->background	    :
-     (EQ (prop, Qfont))		     ? f->font		    :
-     (EQ (prop, Qdisplay_table))     ? f->display_table	    :
-     (EQ (prop, Qbackground_pixmap)) ? f->background_pixmap :
-     (EQ (prop, Qunderline))	     ? f->underline	    :
-     (EQ (prop, Qstrikethru))	     ? f->strikethru	    :
-     (EQ (prop, Qhighlight))	     ? f->highlight	    :
-     (EQ (prop, Qdim))		     ? f->dim		    :
-     (EQ (prop, Qblinking))	     ? f->blinking	    :
-     (EQ (prop, Qreverse))	     ? f->reverse	    :
-     (EQ (prop, Qdoc_string))	     ? f->doc_string	    :
+    (EQ (prop, Qforeground)	   ? f->foreground	  :
+     EQ (prop, Qbackground)	   ? f->background	  :
+     EQ (prop, Qfont)		   ? f->font		  :
+     EQ (prop, Qdisplay_table)	   ? f->display_table	  :
+     EQ (prop, Qbackground_pixmap) ? f->background_pixmap :
+     EQ (prop, Qunderline)	   ? f->underline	  :
+     EQ (prop, Qstrikethru)	   ? f->strikethru	  :
+     EQ (prop, Qhighlight)	   ? f->highlight	  :
+     EQ (prop, Qdim)		   ? f->dim		  :
+     EQ (prop, Qblinking)	   ? f->blinking	  :
+     EQ (prop, Qreverse)	   ? f->reverse		  :
+     EQ (prop, Qdoc_string)	   ? f->doc_string	  :
      external_plist_get (&f->plist, prop, 0, ERROR_ME));
 }
 
@@ -264,9 +264,15 @@ face_plist (Lisp_Object obj)
   return result;
 }
 
+static const struct lrecord_description face_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Face, name),       2 },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Face, foreground), 13 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("face", face,
 					  mark_face, print_face, 0, face_equal,
-					  face_hash, 0, face_getprop,
+					  face_hash, face_description, face_getprop,
 					  face_putprop, face_remprop,
 					  face_plist, struct Lisp_Face);
 
@@ -981,8 +987,7 @@ Here's an approach that should keep things clean and unconfused:
 /* mark for GC a dynarr of face cachels. */
 
 void
-mark_face_cachels (face_cachel_dynarr *elements,
-		   void (*markobj) (Lisp_Object))
+mark_face_cachels (face_cachel_dynarr *elements)
 {
   int elt;
 
@@ -998,13 +1003,13 @@ mark_face_cachels (face_cachel_dynarr *elements,
 
 	for (i = 0; i < NUM_LEADING_BYTES; i++)
 	  if (!NILP (cachel->font[i]) && !UNBOUNDP (cachel->font[i]))
-	    markobj (cachel->font[i]);
+	    mark_object (cachel->font[i]);
       }
-      markobj (cachel->face);
-      markobj (cachel->foreground);
-      markobj (cachel->background);
-      markobj (cachel->display_table);
-      markobj (cachel->background_pixmap);
+      mark_object (cachel->face);
+      mark_object (cachel->foreground);
+      mark_object (cachel->background);
+      mark_object (cachel->display_table);
+      mark_object (cachel->background_pixmap);
     }
 }
 

@@ -2,8 +2,8 @@
 emacs_is_beta=t
 emacs_major_version=21
 emacs_minor_version=2
-emacs_beta_version=19
-xemacs_codename="Shinjuku"
+emacs_beta_version=24
+xemacs_codename="Hecate"
 infodock_major_version=4
 infodock_minor_version=0
 infodock_build_version=8

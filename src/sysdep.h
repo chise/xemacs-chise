@@ -27,10 +27,6 @@ Boston, MA 02111-1307, USA.  */
 
 extern char **environ;
 
-struct emacs_tty;
-int emacs_get_tty (int fd, struct emacs_tty *settings);
-int emacs_set_tty (int fd, struct emacs_tty *settings, int waitp);
-
 int eight_bit_tty (struct device *d);
 
 void stuff_char (struct console *con, int c);
@@ -48,7 +44,12 @@ Bufbyte get_eof_char (int fd);
 
 /* Wait for subprocess with process id `pid' to terminate and
    make sure it will get eliminated (not remain forever as a zombie) */
+#ifdef WINDOWSNT
+#include <windows.h>
+void wait_for_termination (HANDLE pid);
+#else
 void wait_for_termination (int pid);
+#endif
 
 /* flush any pending output
  * (may flush input as well; it does not matter the way we use it)
@@ -78,10 +79,10 @@ void reset_poll_for_quit (void);
 extern JMP_BUF break_system_call_jump;
 extern volatile int can_break_system_calls;
 
-int sys_write_1 (int fildes, CONST void *buf, size_t nbyte,
-		 int allow_quit);
-int sys_read_1 (int fildes, void *buf, size_t nbyte,
-		int allow_quit);
+ssize_t sys_write_1 (int fildes, CONST void *buf, size_t nbyte,
+		     int allow_quit);
+ssize_t sys_read_1 (int fildes, void *buf, size_t nbyte,
+		    int allow_quit);
 
 /* Call these functions if you want to change some terminal parameter --
    reset the console, change the parameter, and init it again. */

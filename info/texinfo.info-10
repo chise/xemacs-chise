@@ -1,5 +1,5 @@
-This is Info file ../info/texinfo.info, produced by Makeinfo version
-1.68 from the input file texinfo.texi.
+This is ../info/texinfo.info, produced by makeinfo version 3.12s from
+texinfo.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
@@ -247,7 +247,7 @@ In this case, the text should be formatted with `@table', `@item', and
 Periods Outside of Quotes
 .........................
 
-  Place periods and other punctuation marks *outside* of quotations,
+  Place periods and other punctuation marks _outside_ of quotations,
 unless the punctuation is part of the quotation.  This practice goes
 against publishing conventions in the United States, but enables the
 reader to distinguish between the contents of the quotation and the
@@ -258,7 +258,7 @@ outside the end quotation marks:
 
      Evidently, `au' is an abbreviation for ``author''.
 
-since `au' does *not* serve as an  abbreviation for `author.' (with a
+since `au' does _not_ serve as an  abbreviation for `author.' (with a
 period following the word).
 
 Introducing New Terms
@@ -371,6 +371,7 @@ A Sample Texinfo File
   Here is a complete, short sample Texinfo file, without any commentary.
 You can see this file, with comments, in the first chapter.  *Note A
 Short Sample Texinfo File: Short Sample.
+
 
      \input texinfo   @c -*-texinfo-*-
      @c %**start of header
@@ -724,8 +725,8 @@ hierarchical level in the file structure.  Usually, each is an
 each included file contains one, and only one, chapter or
 equivalent-level node.
 
-  The outer file should contain only *one* node, the `Top' node.  It
-should *not* contain any nodes besides the single `Top' node.  The
+  The outer file should contain only _one_ node, the `Top' node.  It
+should _not_ contain any nodes besides the single `Top' node.  The
 `texinfo-multiple-files-update' command will not process them.
 
 
@@ -1064,7 +1065,7 @@ and `@end iftex' commands.
      For `@include' files only: expands to the name of the current
      `@include' file.  If the current Texinfo source file is not an
      `@include' file, this command has no effect.  This command does
-     *not* provide the name of the current Texinfo source file unless
+     _not_ provide the name of the current Texinfo source file unless
      it is an `@include' file.  (*Note Include Files::, for more
      information about `@include' files.)
 

@@ -139,7 +139,9 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.lpfnWndProc = (WNDPROC) mswindows_wnd_proc;
   wc.cbClsExtra = 0;
   wc.cbWndExtra = MSWINDOWS_WINDOW_EXTRA_BYTES;
-  wc.hInstance = NULL;	/* ? */
+  /* This must match whatever is passed to CreateWIndowEx, NULL is ok
+     for this. */
+  wc.hInstance = NULL;	
   wc.hIcon = LoadIcon (GetModuleHandle(NULL), XEMACS_CLASS);
   wc.hCursor = LoadCursor (NULL, IDC_ARROW);
   /* Background brush is only used during sizing, when XEmacs cannot
@@ -151,6 +153,17 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   wc.hIconSm = LoadImage (GetModuleHandle (NULL), XEMACS_CLASS,
 			  IMAGE_ICON, 16, 16, 0);
   RegisterClassEx (&wc);
+
+#ifdef HAVE_WIDGETS
+  xzero (wc);
+  /* Register the main window class */
+  wc.cbSize = sizeof (WNDCLASSEX);
+  wc.lpfnWndProc = (WNDPROC) mswindows_control_wnd_proc;
+  wc.lpszClassName = XEMACS_CONTROL_CLASS;
+  wc.hInstance = NULL;
+  RegisterClassEx (&wc);
+#endif
+
 #ifdef HAVE_TOOLBARS
   InitCommonControls ();
 #endif
