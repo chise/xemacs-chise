@@ -162,10 +162,29 @@
     (=hanziku-12	. #xB9E5)	; &I-HZK12-B9E5;
     ))
 (define-char
-  '((ideographic-radical . 189)	; ⾼
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 189)	; ⾼
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 82)	; ⽑
+    (ideographic-strokes@cns . 10)
     (total-strokes	 . 14)
-    (=daikanwa		. 45319)	; &M-45319;
+    (=ucs		. #x29AC1)	; 𩫁
+    (->subsumptive
+     ((ideographic-radical . 189)	; ⾼
+      (ideographic-strokes . 4)
+      (=daikanwa	  . 45319)	; &M-45319;
+      )
+     ((ideographic-radical . 189)	; ⾼
+      (ideographic-strokes . 4)
+      (hanyu-dazidian	  7 4594 7)
+      (=hanziku-12	  . #xB9E8)	; &HZK12-B9E8;
+      (=ucs@iso		  . #x29AC1)	; &HZK12-B9E8;
+      )
+     ((ideographic-radical . 82)	; ⽑
+      (ideographic-strokes . 10)
+      (=cns11643-5	  . #x4664)	; &C5-4664; [38-68]
+      ))
     ))
 (define-char
   '((=>ucs		. #x9ADA)	; 髚
@@ -227,14 +246,6 @@
     (hanyu-dazidian	7 4594 5)
     (=ucs		. #x29AC7)	; 𩫇
     (=hanziku-12	. #xB9E6)	; &I-HZK12-B9E6;
-    ))
-(define-char
-  '((ideographic-radical . 189)	; ⾼
-    (ideographic-strokes . 4)
-    (total-strokes	 . 14)
-    (hanyu-dazidian	7 4594 7)
-    (=ucs		. #x29AC1)	; 𩫁
-    (=hanziku-12	. #xB9E8)	; &I-HZK12-B9E8;
     ))
 (define-char
   '((=>ucs		. #x9ADB)	; 髛
