@@ -768,7 +768,8 @@
     (ideograph-hanziku-1	. #xE742)	; ý¢€ž‚
     ))
 (define-char
-  '((ideographic-radical . 26)	; â¼™
+  '((=>ucs		. #x537D)	; å½
+    (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (shinjigen-2	. 860)

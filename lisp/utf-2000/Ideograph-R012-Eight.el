@@ -209,11 +209,10 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 491)
+     (:char	((shinjigen-1	     . 491)
 		 (ideograph-daikanwa . 01455)	; ø¸€–¯
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 241 5)
     (shinjigen-1	. 492)
     (chinese-cns11643-6		. #x2141)	; ø»›µ

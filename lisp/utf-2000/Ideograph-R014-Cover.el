@@ -515,8 +515,32 @@
     (chinese-isoir165		. #x5429)	; ø»¹–
     (chinese-cns11643-1		. #x5441)	; ø»’¶
     (japanese-jisx0208-1990	. #x514D)	; ø½Š½ˆ
-    (china3-jef			. #x43F0)	; øº„°
     (ucs			. #x51A4)	; å†¤
+    ))
+(define-char
+  '((=>ucs		. #x51A4)	; å†¤
+    (morohashi-daikanwa	1587 0 4)
+    (ideographic-radical . 14)	; â¼
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x5196)	; å†–
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(ucs		    . #x2FF7)	; â¿·
+	)
+       ((japanese-jisx0208-1978	    . #x4C48)	; ø»‚»±
+	(japanese-jisx0208	    . #x4C48)	; ø»‡¹
+	(japanese-jisx0208-1990	    . #x4C48)	; ø½Šµ­
+	)
+       ((ucs		    . #x4E36)	; ä¸¶
+	))
+      ))
+    (china3-jef		. #x43F0)	; øº„°
     ))
 (define-char
   '((=>ucs		. #x51A5)	; å†¥

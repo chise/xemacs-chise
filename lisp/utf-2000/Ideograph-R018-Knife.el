@@ -5761,7 +5761,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->identical
+    (->same-ideograph
      ((ideograph-daikanwa . 00938)	; ø¸€Žª
       )
      (:sources	(shuowen inkaiho morohashi-daikanwa)
@@ -5776,8 +5776,23 @@
       )
      ((ucs		  . #x5261)	; å‰¡
       ))
-    (chinese-cns11643-5 . #x3663)	; ø»šŠ¤
     (ideograph-daikanwa . 02134)	; ø¸€¡–
+    ))
+(define-char
+  '((=>ucs		. #x202F4)	; ð ‹´
+    (morohashi-daikanwa	2134 0 0)
+    (ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x4EBB)	; äº»
+      )
+     ((chinese-cns11643-2 . #x2E29)	; ø»“Ÿ®
+      ))
+    (chinese-cns11643-5 . #x3663)	; ø»šŠ¤
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
@@ -7653,26 +7668,40 @@
     (ucs		. #x5291)	; åŠ‘
     ))
 (define-char
-  '((ideographic-radical . 18)	; â¼‘
+  '((=>ucs		. #x207FC)	; ð Ÿ¼
+    (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 02242)	; ø¸€£‚
+    ))
+(define-char
+  '((morohashi-daikanwa	2242 0 0)
+    (ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ucs		. #x207FC)	; ð Ÿ¼
+    ))
+(define-char
+  '((=>ucs		. #x207FC)	; ð Ÿ¼
+    (morohashi-daikanwa	2242 0 5)
+    (ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (chinese-cns11643-5 . #x5A77)	; ø»š¿°
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (->same-ideograph
-     (:sources	(gyokuhen morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 02228)	; ø¸€¢´
+     (:char	((ideograph-daikanwa . 02228)	; ø¸€¢´
 		 )
-      ))
+      :sources	(gyokuhen morohashi-daikanwa)))
     (<-ancient-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 653)
+     (:char	((shinjigen-1	     . 653)
 		 (ideograph-daikanwa . 02228)	; ø¸€¢´
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -7993,19 +8022,6 @@
     (chinese-cns11643-7 . #x367D)	; ø»žŸ†
     (ideograph-daikanwa . 02264)	; ø¸€£˜
     (ucs		. #x2081E)	; ð  ž
-    ))
-(define-char
-  '((ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 15)
-    (total-strokes	 . 17)
-    (ucs		. #x207FC)	; ð Ÿ¼
-    ))
-(define-char
-  '((=>ucs		. #x207FC)	; ð Ÿ¼
-    (ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 15)
-    (total-strokes	 . 17)
-    (chinese-cns11643-5 . #x5A77)	; ø»š¿°
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
