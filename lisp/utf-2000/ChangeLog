@@ -1,3 +1,13 @@
+2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el (M-43265): Separate G0-5274, J0-323B,
+	K0-6B65 and U+97F3; unify JC3-6CD8.
+
+	* Ideograph-R128-Ear.el (J90-3F26): Separate C1-772A.
+	(JC3-60D2): New character.
+
+	* Ideograph-R075-Tree.el (GT-19861): Unify JC3-53FA.
+
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R031-Enclosure.el (J0-5421): Unify B-B0E9.
