@@ -1,3 +1,14 @@
+2003-01-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Vcharset_ideograph_cbeta): Deleted.
+	(Qideograph_cbeta): Deleted.
+	(syms_of_mule_charset): Don't define `ideograph-cbeta'.
+	(complex_vars_of_mule_charset): Likewise.
+
+	* char-ucs.h (LEADING_BYTE_CBETA): Deleted.
+	(MIN_CHAR_CBETA): Comment out.
+	(MAX_CHAR_CBETA): Likewise.
+
 2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (charset_lookup_description_1): Use
