@@ -1,3 +1,8 @@
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (charset_code_point): Unify code about
+	`code-offset'.
+
 2001-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (charset_code_point): Merge code about builtin
