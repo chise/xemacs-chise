@@ -1,5 +1,13 @@
 2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R037-Big.el (J0-4537): Unify B-A4D1.
+	(U+5929): Separate B-A4D1; unify GT-K00468.
+
+	* Ideograph-R029-Again.el (J0-3A35): Unify B-A465.
+	(U+53C9): Separate B-A465; unify GT-K00254 and GT-03946.
+	(GT-K00255): New character.
+	(U+53CD): Unify GT-K00476.
+
 	* u02E00-CJK-Radical-Supplement.el (U+2E84): Unify GT-K00008.
 	(GT-K00007): New character.
 	(U+2E86): Add `<-radical' for U+5182; separate BC-8BF2.
