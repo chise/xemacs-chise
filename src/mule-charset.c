@@ -176,7 +176,7 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if (!EQ (XCHARSET_NAME (ccs), Qucs)
+  if (!EQ (XCHARSET_NAME (ccs), Qmap_ucs)
       || !INTP (value)
       || (XCHAR (character) != XINT (value)))
     {
@@ -302,7 +302,7 @@ Lisp_Object Qascii,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
-  Qucs,
+  Qmap_ucs, Qucs,
   Qucs_bmp,
   Qucs_smp,
   Qucs_sip,
@@ -2647,6 +2647,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
+  defsymbol (&Qmap_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_smp,			"ucs-smp");
@@ -2733,7 +2734,7 @@ complex_vars_of_mule_charset (void)
 #ifdef UTF2000
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
-    make_charset (LEADING_BYTE_UCS, Qucs, 256, 4,
+    make_charset (LEADING_BYTE_UCS, Qmap_ucs, 256, 4,
 		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS"),
 		  build_string ("UCS"),
