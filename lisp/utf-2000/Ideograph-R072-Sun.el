@@ -4956,7 +4956,7 @@
     (mojikyo			. 050218)	; ý €Œª
     ))
 (define-char
-  '((->ucs		. #x66DC)	; æ›œ
+  '((=>ucs		. #x66DC)	; æ›œ
     (morohashi-daikanwa	14227 1 1)
     (ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 14)
