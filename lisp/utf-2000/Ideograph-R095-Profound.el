@@ -65,6 +65,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (japanese-jisx0208-1990	. #x4E28)	; ø½Š¸‰
+    (mojikyo			. 050282)	; ø¸Œ‘ª
     ))
 (define-char
   '((morohashi-daikanwa	20817 1 0)
