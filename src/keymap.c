@@ -285,9 +285,16 @@ print_keymap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description keymap_description[] = {
+  { XD_LISP_OBJECT, offsetof(Lisp_Keymap, parents), 6 },
+  { XD_LISP_OBJECT, offsetof(Lisp_Keymap, name), 1 },
+  { XD_END }
+};
+
 /* No need for keymap_equal #### Why not? */
 DEFINE_LRECORD_IMPLEMENTATION ("keymap", keymap,
                                mark_keymap, print_keymap, 0, 0, 0,
+			       keymap_description,
 			       Lisp_Keymap);
 
 /************************************************************************/

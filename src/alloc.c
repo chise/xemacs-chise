@@ -967,6 +967,11 @@ cons_equal (Lisp_Object ob1, Lisp_Object ob2, int depth)
   return 0;
 }
 
+static const struct lrecord_description cons_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Cons, car), 2 },
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("cons", cons,
 				     mark_cons, print_cons, 0,
 				     cons_equal,
@@ -976,6 +981,7 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION ("cons", cons,
 				      * handle conses.
 				      */
 				     0,
+				     cons_description,
 				     struct Lisp_Cons);
 
 DEFUN ("cons", Fcons, 2, 2, 0, /*
@@ -1166,6 +1172,11 @@ vector_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
   return 1;
 }
 
+static const struct lrecord_description vector_description[] = {
+  { XD_LONG,        offsetof(struct Lisp_Vector, size) },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Vector, contents), XD_INDIRECT(0) }
+};
+
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION("vector", vector,
 				       mark_vector, print_vector, 0,
 				       vector_equal,
@@ -1174,6 +1185,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION("vector", vector,
 				        * vectors.  internal_hash
 				        * knows how to handle vectors.
 				        */
+				       0,
 				       0,
 				       size_vector, Lisp_Vector);
 
@@ -1743,6 +1755,12 @@ string_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	  !memcmp (XSTRING_DATA (obj1), XSTRING_DATA (obj2), len));
 }
 
+static const struct lrecord_description string_description[] = {
+  { XD_STRING_DATA, offsetof(Lisp_String, data) },
+  { XD_LISP_OBJECT, offsetof(Lisp_String, plist), 1 },
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("string", string,
 				     mark_string, print_string,
 				     /*
@@ -1756,6 +1774,7 @@ DEFINE_BASIC_LRECORD_IMPLEMENTATION ("string", string,
 				      * SWEEP_FIXED_TYPE_BLOCK().
 				      */
 				     0, string_equal, 0,
+				     string_description,
 				     struct Lisp_String);
 
 /* String blocks contain this many useful bytes. */
@@ -2243,7 +2262,7 @@ mark_lcrecord_list (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
 DEFINE_LRECORD_IMPLEMENTATION ("lcrecord-list", lcrecord_list,
 			       mark_lcrecord_list, internal_object_printer,
-			       0, 0, 0, struct lcrecord_list);
+			       0, 0, 0, 0, struct lcrecord_list);
 Lisp_Object
 make_lcrecord_list (size_t size,
 		    CONST struct lrecord_implementation *implementation)

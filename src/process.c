@@ -186,7 +186,7 @@ finalize_process (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("process", process,
                                mark_process, print_process, finalize_process,
-                               0, 0, struct Lisp_Process);
+                               0, 0, 0, struct Lisp_Process);
 
 /************************************************************************/
 /*                       basic process accessors                        */

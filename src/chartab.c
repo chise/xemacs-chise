@@ -2,6 +2,8 @@
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
+   Licensed to the Free Software Foundation.
 
 This file is part of XEmacs.
 
@@ -35,6 +37,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
 
 #include "buffer.h"
 #include "chartab.h"
@@ -50,6 +53,9 @@ Lisp_Object Qcategory_designator_p;
 Lisp_Object Qcategory_table_value_p;
 
 Lisp_Object Vstandard_category_table;
+
+/* Variables to determine word boundary.  */
+Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #endif /* MULE */
 
 
@@ -124,10 +130,16 @@ char_table_entry_hash (Lisp_Object obj, int depth)
   return internal_array_hash (cte->level2, 96, depth);
 }
 
+static const struct lrecord_description char_table_entry_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table_Entry, level2), 96 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("char-table-entry", char_table_entry,
                                mark_char_table_entry, internal_object_printer,
 			       0, char_table_entry_equal,
 			       char_table_entry_hash,
+			       char_table_entry_description,
 			       struct Lisp_Char_Table_Entry);
 #endif /* MULE */
 
@@ -415,9 +427,18 @@ char_table_hash (Lisp_Object obj, int depth)
   return hashval;
 }
 
+static const struct lrecord_description char_table_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
+#ifdef MULE
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, level1), NUM_LEADING_BYTES },
+#endif
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("char-table", char_table,
                                mark_char_table, print_char_table, 0,
 			       char_table_equal, char_table_hash,
+			       char_table_description,
 			       struct Lisp_Char_Table);
 
 DEFUN ("char-table-p", Fchar_table_p, 1, 1, 0, /*
@@ -1709,6 +1730,68 @@ Valid values are nil or a bit vector of size 95.
   return CATEGORY_TABLE_VALUEP (obj) ? Qt : Qnil;
 }
 
+
+#define CATEGORYP(x) \
+  (CHARP ((x)) && XCHAR ((x)) >= 0x20 && XCHAR ((x)) <= 0x7E)
+
+#define CATEGORY_SET(c)						\
+  (get_char_table(c, XCHAR_TABLE(current_buffer->category_table)))
+
+/* Return 1 if CATEGORY_SET contains CATEGORY, else return 0.
+   The faster version of `!NILP (Faref (category_set, category))'.  */
+#define CATEGORY_MEMBER(category, category_set)		 	\
+  (bit_vector_bit(XBIT_VECTOR (category_set), category - 32))
+
+/* Return 1 if there is a word boundary between two word-constituent
+   characters C1 and C2 if they appear in this order, else return 0.
+   Use the macro WORD_BOUNDARY_P instead of calling this function
+   directly.  */
+
+int
+word_boundary_p (Emchar c1, Emchar c2)
+{
+  Lisp_Object category_set1, category_set2;
+  Lisp_Object tail;
+  int default_result;
+
+#if 0
+  if (COMPOSITE_CHAR_P (c1))
+    c1 = cmpchar_component (c1, 0, 1);
+  if (COMPOSITE_CHAR_P (c2))
+    c2 = cmpchar_component (c2, 0, 1);
+#endif
+
+  if (EQ (CHAR_CHARSET (c1), CHAR_CHARSET (c2)))
+    {
+      tail = Vword_separating_categories;
+      default_result = 0;
+    }
+  else
+    {
+      tail = Vword_combining_categories;
+      default_result = 1;
+    }
+
+  category_set1 = CATEGORY_SET (c1);
+  if (NILP (category_set1))
+    return default_result;
+  category_set2 = CATEGORY_SET (c2);
+  if (NILP (category_set2))
+    return default_result;
+
+  for (; CONSP (tail); tail = XCONS (tail)->cdr)
+    {
+      Lisp_Object elt = XCONS(tail)->car;
+
+      if (CONSP (elt)
+	  && CATEGORYP (XCONS (elt)->car)
+	  && CATEGORYP (XCONS (elt)->cdr)
+	  && CATEGORY_MEMBER (XCHAR (XCONS (elt)->car), category_set1)
+	  && CATEGORY_MEMBER (XCHAR (XCONS (elt)->cdr), category_set2))
+	return !default_result;
+    }
+  return default_result;
+}
 #endif /* MULE */
 
 
@@ -1780,5 +1863,50 @@ complex_vars_of_chartab (void)
   Vstandard_category_table = Qnil;
   Vstandard_category_table = Fcopy_category_table (Qnil);
   staticpro (&Vstandard_category_table);
+
+  DEFVAR_LISP ("word-combining-categories", &Vword_combining_categories /*
+List of pair (cons) of categories to determine word boundary.
+
+Emacs treats a sequence of word constituent characters as a single
+word (i.e. finds no word boundary between them) iff they belongs to
+the same charset.  But, exceptions are allowed in the following cases.
+
+(1) The case that characters are in different charsets is controlled
+by the variable `word-combining-categories'.
+
+Emacs finds no word boundary between characters of different charsets
+if they have categories matching some element of this list.
+
+More precisely, if an element of this list is a cons of category CAT1
+and CAT2, and a multibyte character C1 which has CAT1 is followed by
+C2 which has CAT2, there's no word boundary between C1 and C2.
+
+For instance, to tell that ASCII characters and Latin-1 characters can
+form a single word, the element `(?l . ?l)' should be in this list
+because both characters have the category `l' (Latin characters).
+
+(2) The case that character are in the same charset is controlled by
+the variable `word-separating-categories'.
+
+Emacs find a word boundary between characters of the same charset
+if they have categories matching some element of this list.
+
+More precisely, if an element of this list is a cons of category CAT1
+and CAT2, and a multibyte character C1 which has CAT1 is followed by
+C2 which has CAT2, there's a word boundary between C1 and C2.
+
+For instance, to tell that there's a word boundary between Japanese
+Hiragana and Japanese Kanji (both are in the same charset), the
+element `(?H . ?C) should be in this list.
+*/ );
+
+  Vword_combining_categories = Qnil;
+
+  DEFVAR_LISP ("word-separating-categories", &Vword_separating_categories /*
+List of pair (cons) of categories to determine word boundary.
+See the documentation of the variable `word-combining-categories'.
+*/ );
+
+  Vword_separating_categories = Qnil;
 #endif /* MULE */
 }

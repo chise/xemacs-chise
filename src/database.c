@@ -195,7 +195,7 @@ finalize_database (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("database", database,
                                mark_database, print_database,
-			       finalize_database, 0, 0,
+			       finalize_database, 0, 0, 0,
 			       Lisp_Database);
 
 DEFUN ("close-database", Fclose_database, 1, 1, 0, /*

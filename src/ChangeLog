@@ -1,3 +1,101 @@
+1999-06-23  Olivier Galibert  <galibert@pobox.com>
+
+	* config.h.in: Add missing #undef *_USER_DEFINED.
+
+1999-06-23  SL Baur  <steve@miho.m17n.org>
+
+	* lisp.h (set_bit_vector_bit): Force promotion to unsigned long
+	int (fixes a 64-bit problem).
+
+	* chartab.c (word_boundary_p): Use EQ not == for lisp_object
+	comparison.
+
+1999-03-23  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* paths.h.in (PATH_DOC): Made doc-directory configurable.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added basic external description system.
+
+	* symbols.c: Added symbol, symbol-value-buffer-local,
+ 	symbol-value-lisp-magic and symbol-value-varalias description.
+	* mule-charset.c: Added charset description.
+	* marker.c: Added marker description.
+	* keymap.c: Added keymap description.
+	* glyphs.c: Added glyph description.
+	* floatfns.c: Added float description.
+	* file-coding.c: Added coding-system description.
+	* extents.c: Added extent description.
+	* elhash.c: Added hash-table description.
+	* data.c: Added weak-list desciption.
+	* chartab.c: Added char-table-entry and char-table description.
+	* bytecode.c: Added compiled-function description.
+	* alloc.c: Added cons, vector and string description.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h (struct lrecord_header): Reduced size to 4 bytes.
+	Updated everything to the removal of the "flags" substructure.
+
+	* lisp.h (subr_lheader_initializer): Updated.
+	* symeval.h (symbol_value_forward_lheader_initializer): Updated.
+
+1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* syntax.c (word_constituent_p): Deleted.
+	(scan_words): Use `WORD_BOUNDARY_P'.
+
+	* chartab.c (Vword_combining_categories): New variable.
+	(Vword_separating_categories): Likewise.
+	(CATEGORYP): New macro.
+	(CATEGORY_SET): Likewise.
+	(CATEGORY_MEMBER): Likewise.
+	(word_boundary_p): New function.
+	(complex_vars_of_chartab): Set up new variable
+	`word-combining-categories' and `word-separating-categories'.
+
+1999-06-18  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added description as a placehold in the lrecord
+ 	implementation structures.  Added the parameter to all constructor
+ 	defines.
+
+	* alloc.c: Added placeholders.
+	* buffer.c: Ditto.
+	* bytecode.c: Ditto.
+	* chartab.c: Ditto.
+	* console.c: Ditto.
+	* data.c: Ditto.
+	* database.c: Ditto.
+	* device.c: Ditto.
+	* eldap.c: Ditto.
+	* elhash.c: Ditto.
+	* eval.c: Ditto.
+	* event-stream.c: Ditto.
+	* events.c: Ditto.
+	* extents.c: Ditto.
+	* faces.c: Ditto.
+	* file-coding.c: Ditto.
+	* floatfns.c: Ditto.
+	* fns.c: Ditto.
+	* frame.c: Ditto.
+	* glyphs.c: Ditto.
+	* gui-x.c: Ditto.
+	* keymap.c: Ditto.
+	* lstream.c: Ditto.
+	* marker.c: Ditto.
+	* mule-charset.c: Ditto.
+	* objects.c: Ditto.
+	* opaque.c: Ditto.
+	* process.c: Ditto.
+	* rangetab.c: Ditto.
+	* specifier.c: Ditto.
+	* symbols.c: Ditto.
+	* toolbar.c: Ditto.
+	* tooltalk.c: Ditto.
+	* window.c: Ditto.
+
 1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.17 is released

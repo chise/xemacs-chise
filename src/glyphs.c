@@ -911,7 +911,7 @@ image_instance_hash (Lisp_Object obj, int depth)
 DEFINE_LRECORD_IMPLEMENTATION ("image-instance", image_instance,
 			       mark_image_instance, print_image_instance,
 			       finalize_image_instance, image_instance_equal,
-			       image_instance_hash,
+			       image_instance_hash, 0,
 			       struct Lisp_Image_Instance);
 
 static Lisp_Object
@@ -2926,9 +2926,14 @@ glyph_plist (Lisp_Object obj)
   return result;
 }
 
+static const struct lrecord_description glyph_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Glyph, image), 5 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS ("glyph", glyph,
 					  mark_glyph, print_glyph, 0,
-					  glyph_equal, glyph_hash,
+					  glyph_equal, glyph_hash, glyph_description,
 					  glyph_getprop, glyph_putprop,
 					  glyph_remprop, glyph_plist,
 					  struct Lisp_Glyph);

@@ -219,10 +219,10 @@ Other options:
                         Defaults to `${statedir}/xemacs/lock'.
 
 You may also specify any of the `path' variables found in Makefile.in,
-including --bindir, --libdir, --lispdir, --sitelispdir, --datadir,
---infodir, --mandir and so on.  Note that we recommend against
-explicitly setting any of these variables.  See the INSTALL file for a
-complete list plus the reasons we advise not changing them.
+including --bindir, --libdir, --docdir, --lispdir, --sitelispdir,
+--datadir, --infodir, --mandir and so on.  Note that we recommend
+against explicitly setting any of these variables.  See the INSTALL
+file for a complete list plus the reasons we advise not changing them.
 
 If successful, configure leaves its status in config.status.  If
 unsuccessful after disturbing the status quo, it removes config.status.

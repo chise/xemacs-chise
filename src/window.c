@@ -231,7 +231,7 @@ finalize_window (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("window", window,
                                mark_window, print_window, finalize_window,
-			       0, 0, struct window);
+			       0, 0, 0, struct window);
 
 
 #define INIT_DISP_VARIABLE(field, initialization)	\
@@ -4711,7 +4711,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("window-configuration",
 					window_configuration,
 					mark_window_config,
 					print_window_config,
-					0, 0, 0, sizeof_window_config,
+					0, 0, 0, 0, sizeof_window_config,
 					struct window_config);
 
 

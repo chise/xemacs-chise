@@ -25,6 +25,8 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include <stddef.h>
+
 #include "buffer.h"
 #include "elhash.h"
 #include "insdel.h"
@@ -244,10 +246,46 @@ static Lisp_Object mark_coding_system (Lisp_Object, void (*) (Lisp_Object));
 static void print_coding_system (Lisp_Object, Lisp_Object, int);
 static void finalize_coding_system (void *header, int for_disksave);
 
+#ifdef MULE
+static const struct lrecord_description ccs_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(charset_conversion_spec, from_charset), 2 },
+  { XD_END }
+};
+
+static const struct struct_description ccs_description = {
+  sizeof(charset_conversion_spec),
+  ccs_description_1
+};
+  
+static const struct lrecord_description ccsd_description_1[] = {
+  XD_DYNARR_DESC(charset_conversion_spec_dynarr, &ccs_description),
+  { XD_END }
+};
+
+static const struct struct_description ccsd_description = {
+  sizeof(charset_conversion_spec_dynarr),
+  ccsd_description_1
+};
+#endif
+
+static const struct lrecord_description coding_system_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, name), 2 },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, mnemonic), 3 },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, eol_lf), 3 },
+#ifdef MULE
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, iso2022.initial_charset), 4 },
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.input_conv),  1, &ccsd_description },
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.output_conv), 1, &ccsd_description },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, ccl.decode), 2 },
+#endif
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("coding-system", coding_system,
 			       mark_coding_system, print_coding_system,
 			       finalize_coding_system,
-			       0, 0, struct Lisp_Coding_System);
+			       0, 0, coding_system_description,
+			       struct Lisp_Coding_System);
 
 static Lisp_Object
 mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))

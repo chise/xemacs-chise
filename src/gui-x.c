@@ -108,7 +108,7 @@ mark_popup_data (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
 DEFINE_LRECORD_IMPLEMENTATION ("popup-data", popup_data,
                                mark_popup_data, internal_object_printer,
-			       0, 0, 0, struct popup_data);
+			       0, 0, 0, 0, struct popup_data);
 
 /* This is like FRAME_MENUBAR_DATA (f), but contains an alist of
    (id . popup-data) for GCPRO'ing the callbacks of the popup menus

@@ -53,6 +53,7 @@ Sextword is a word-constituent but a word boundary may exist between
 two such characters.  */
 
 /* Mule 2.4 doesn't seem to have Sextword - I'm removing it -- mrb */
+/* Recovered by tomo */
 
 Lisp_Object Qsyntax_table_p;
 
@@ -327,15 +328,15 @@ syntax table.
 
 
 
-static int
-word_constituent_p (struct buffer *buf, Bufpos pos,
-		    struct Lisp_Char_Table *tab)
-{
-  enum syntaxcode code = SYNTAX_UNSAFE (tab, BUF_FETCH_CHAR (buf, pos));
-  return ((words_include_escapes &&
-	   (code == Sescape || code == Scharquote))
-	  || (code == Sword));
-}
+/* Return 1 if there is a word boundary between two word-constituent
+   characters C1 and C2 if they appear in this order, else return 0.
+   There is no word boundary between two word-constituent ASCII
+   characters.  */
+#define WORD_BOUNDARY_P(c1, c2)			\
+  (!(CHAR_ASCII_P (c1) && CHAR_ASCII_P (c2))	\
+   && word_boundary_p (c1, c2))
+
+extern int word_boundary_p (Emchar c1, Emchar c2);
 
 /* Return the position across COUNT words from FROM.
    If that many words cannot be found before the end of the buffer, return 0.
@@ -346,6 +347,9 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 {
   Bufpos limit = count > 0 ? BUF_ZV (buf) : BUF_BEGV (buf);
   struct Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+  Emchar ch0, ch1;
+  enum syntaxcode code;
+
   while (count > 0)
     {
       QUIT;
@@ -354,16 +358,28 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-	  if (word_constituent_p (buf, from, mirrortab))
-	    break;
+	  ch0 = BUF_FETCH_CHAR (buf, from);
+	  code = SYNTAX_UNSAFE (mirrortab, ch0);
 	  from++;
+	  if (words_include_escapes
+	      && (code == Sescape || code == Scharquote))
+	    break;
+	  if (code == Sword)
+	    break;
 	}
 
       QUIT;
 
-      while ((from != limit) && word_constituent_p (buf, from, mirrortab))
+      while ( from != limit )
 	{
+	  ch1 = BUF_FETCH_CHAR (buf, from);
+	  code = SYNTAX_UNSAFE (mirrortab, ch1);
+	  if (!(words_include_escapes
+		&& (code == Sescape || code == Scharquote)))
+	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	      break;
 	  from++;
+	  ch0 = ch1;
 	}
       count--;
     }
@@ -376,16 +392,28 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-	  if (word_constituent_p (buf, from - 1, mirrortab))
-	    break;
 	  from--;
+	  ch1 = BUF_FETCH_CHAR (buf, from - 1);
+	  code = SYNTAX_UNSAFE (mirrortab, ch1);
+	  if (words_include_escapes
+	      && (code == Sescape || code == Scharquote))
+	    break;
+	  if (code == Sword)
+	    break;
 	}
 
       QUIT;
 
-      while ((from != limit) && word_constituent_p (buf, from - 1, mirrortab))
+      while ( from != limit )
 	{
+	  ch0 = BUF_FETCH_CHAR (buf, from - 1);
+	  code = SYNTAX_UNSAFE (mirrortab, ch0);
+	  if (!(words_include_escapes
+		&& (code == Sescape || code == Scharquote)))
+	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	      break;
 	  from--;
+	  ch1 = ch0;
 	}
       count++;
     }

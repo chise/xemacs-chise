@@ -60,15 +60,13 @@ Boston, MA 02111-1307, USA.  */
 struct lrecord_header
 {
   /* index into lrecord_implementations_table[] */
-  unsigned char type;
-  struct {
-    /* 1 if the object is marked during GC. */
-    unsigned mark :1;
-    /* 1 if the object resides in read-only space */
-    unsigned c_readonly : 1;
-    /* 1 if the object is readonly from lisp */
-    unsigned lisp_readonly : 1;
-  } flags;
+  unsigned type :8;
+  /* 1 if the object is marked during GC. */
+  unsigned mark :1;
+  /* 1 if the object resides in read-only space */
+  unsigned c_readonly : 1;
+  /* 1 if the object is readonly from lisp */
+  unsigned lisp_readonly : 1;
 };
 
 struct lrecord_implementation;
@@ -77,9 +75,9 @@ int lrecord_type_index (CONST struct lrecord_implementation *implementation);
 # define set_lheader_implementation(header,imp) do {	\
   struct lrecord_header* SLI_header = (header);		\
   (SLI_header)->type = lrecord_type_index (imp);	\
-  (SLI_header)->flags.mark = 0;				\
-  (SLI_header)->flags.c_readonly = 0;			\
-  (SLI_header)->flags.lisp_readonly = 0;		\
+  (SLI_header)->mark = 0;				\
+  (SLI_header)->c_readonly = 0;				\
+  (SLI_header)->lisp_readonly = 0;			\
 } while (0)
 
 struct lcrecord_header
@@ -156,6 +154,10 @@ struct lrecord_implementation
      `equal', they *must* hash to the same value or the hashing won't
      work). */
   unsigned long (*hash) (Lisp_Object, int);
+
+  /* External data layout description */
+  const struct lrecord_description *description;
+
   Lisp_Object (*getprop) (Lisp_Object obj, Lisp_Object prop);
   int (*putprop) (Lisp_Object obj, Lisp_Object prop, Lisp_Object val);
   int (*remprop) (Lisp_Object obj, Lisp_Object prop);
@@ -184,20 +186,117 @@ extern CONST struct lrecord_implementation *lrecord_implementations_table[];
 
 extern int gc_in_progress;
 
-#define MARKED_RECORD_P(obj) (gc_in_progress && XRECORD_LHEADER (obj)->flags.mark)
-#define MARKED_RECORD_HEADER_P(lheader) ((lheader)->flags.mark)
-#define MARK_RECORD_HEADER(lheader)   ((void) ((lheader)->flags.mark = 1))
-#define UNMARK_RECORD_HEADER(lheader) ((void) ((lheader)->flags.mark = 0))
+#define MARKED_RECORD_P(obj) (gc_in_progress && XRECORD_LHEADER (obj)->mark)
+#define MARKED_RECORD_HEADER_P(lheader) ((lheader)->mark)
+#define MARK_RECORD_HEADER(lheader)   ((void) ((lheader)->mark = 1))
+#define UNMARK_RECORD_HEADER(lheader) ((void) ((lheader)->mark = 0))
 
 #define UNMARKABLE_RECORD_HEADER_P(lheader) \
   (LHEADER_IMPLEMENTATION (lheader)->marker == this_one_is_unmarkable)
 
-#define C_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->flags.c_readonly)
-#define LISP_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->flags.lisp_readonly)
+#define C_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->c_readonly)
+#define LISP_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->lisp_readonly)
 #define SET_C_READONLY_RECORD_HEADER(lheader) \
-  ((void) ((lheader)->flags.c_readonly = (lheader)->flags.lisp_readonly = 1))
+  ((void) ((lheader)->c_readonly = (lheader)->lisp_readonly = 1))
 #define SET_LISP_READONLY_RECORD_HEADER(lheader) \
-  ((void) ((lheader)->flags.lisp_readonly = 1))
+  ((void) ((lheader)->lisp_readonly = 1))
+
+/* External description stuff
+
+   A lrecord external description  is an array  of values.  The  first
+   value of each line is a type, the second  the offset in the lrecord
+   structure.  Following values  are parameters, their  presence, type
+   and number is type-dependant.
+
+   The description ends with a "XD_END" record.
+
+   Some example descriptions :
+   static const struct lrecord_description cons_description[] = {
+     { XD_LISP_OBJECT, offsetof(struct Lisp_Cons, car), 2 },
+     { XD_END }
+   };
+
+   Which means "two lisp objects starting at the 'car' element"
+
+  static const struct lrecord_description string_description[] = {
+    { XD_STRING_DATA, offsetof(Lisp_String, data) },
+    { XD_LISP_OBJECT, offsetof(Lisp_String, plist), 1 },
+    { XD_END }
+  };
+  "A string data pointer at 'data', one lisp object at 'plist'"
+
+  The existing types :
+    XD_LISP_OBJECT
+  Lisp objects.  The third element is the count.  This is also the type to use
+  for pointers to other lrecords.
+
+    XD_STRING_DATA
+  Pointer to string data.
+
+    XD_OPAQUE_PTR
+  Pointer to undumpable data.  Must be NULL when dumping.
+
+    XD_STRUCT_PTR
+  Pointer to described struct.  Parameters are number of structures and
+  struct_description.
+
+    XD_OPAQUE_DATA_PTR
+  Pointer to dumpable opaque data.  Parameter is the size of the data.
+  Pointed data must be relocatable without changes.
+
+    XD_SIZE_T
+  size_t value.  Used for counts.
+
+    XD_INT
+  int value.  Used for counts.
+
+    XD_LONG
+  long value.  Used for counts.
+
+    XD_END
+  Special type indicating the end of the array.
+
+
+  Special macros:
+    XD_INDIRECT(line)
+  Usable where a "count" or "size" is requested.  Gives the value of the element
+  which is at line number 'line' in the description (count starts at zero).
+
+    XD_PARENT_INDIRECT(line)
+  Same as XD_INDIRECT but the element number refers to the parent structure.
+  Usable only in struct descriptions.
+*/
+
+enum lrecord_description_type {
+  XD_LISP_OBJECT,
+  XD_STRING_DATA,
+  XD_OPAQUE_PTR,
+  XD_STRUCT_PTR,
+  XD_OPAQUE_DATA_PTR,
+  XD_SIZE_T,
+  XD_INT,
+  XD_LONG,
+  XD_END
+};
+
+struct lrecord_description {
+  enum lrecord_description_type type;
+  int offset;
+  EMACS_INT data1;
+  const struct struct_description *data2;
+};
+
+struct struct_description {
+  size_t size;
+  const struct lrecord_description *description;
+};
+
+#define XD_INDIRECT(count) (-1-(count))
+#define XD_PARENT_INDIRECT(count) (-1000-(count))
+
+#define XD_DYNARR_DESC(base_type, sub_desc) \
+  { XD_STRUCT_PTR, offsetof(base_type, base), XD_INDIRECT(1), sub_desc }, \
+  { XD_INT,        offsetof(base_type, max) }
 
 /* Declaring the following structures as const puts them in the
    text (read-only) segment, which makes debugging inconvenient
@@ -220,29 +319,29 @@ extern int gc_in_progress;
 # define DECLARE_ERROR_CHECK_TYPECHECK(c_name, structtype)
 #endif
 
-#define DEFINE_BASIC_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,structtype) \
-DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,0,0,0,0,structtype)
+#define DEFINE_BASIC_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,structtype) \
+DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,structtype)
 
-#define DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,sizeof(structtype),0,1,structtype)
+#define DEFINE_BASIC_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizeof(structtype),0,1,structtype)
 
-#define DEFINE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,structtype) \
-DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,0,0,0,0,structtype)
+#define DEFINE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,structtype) \
+DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,structtype)
 
-#define DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,sizeof (structtype),0,0,structtype)
+#define DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizeof (structtype),0,0,structtype)
 
-#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,sizer,structtype) \
-DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,0,0,0,0,sizer,structtype)
+#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,sizer,structtype) \
+DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,0,0,0,0,sizer,structtype)
 
-#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,sizer,structtype) \
-MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,0,sizer,0,structtype) \
+#define DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,sizer,structtype) \
+MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,0,sizer,0,structtype) \
 
-#define MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,getprop,putprop,remprop,props,size,sizer,basic_p,structtype) \
+#define MAKE_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,props,size,sizer,basic_p,structtype) \
 DECLARE_ERROR_CHECK_TYPECHECK(c_name, structtype)			\
 static int lrecord_##c_name##_lrecord_type_index;			\
 CONST_IF_NOT_DEBUG struct lrecord_implementation lrecord_##c_name =	\
-  { name, marker, printer, nuker, equal, hash,				\
+  { name, marker, printer, nuker, equal, hash, desc,			\
     getprop, putprop, remprop, props, size, sizer,			\
     &(lrecord_##c_name##_lrecord_type_index), basic_p }			\
 

@@ -357,6 +357,7 @@ package_path=''
 etcdir='${datadir}/${PROGNAME}-${version}/etc'
 lockdir='${statedir}/${PROGNAME}/lock'
 archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
+docdir='${archlibdir}'
 with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
@@ -709,6 +710,8 @@ while test $# != 0; do
            dnl You need to synchronize this with the way the
            dnl default values are built.
 	   case "$opt" in
+	     prefix ) AC_DEFINE(PREFIX_USER_DEFINED) ;;
+	     exec_prefix ) AC_DEFINE(EXEC_PREFIX_USER_DEFINED) ;;
              lispdir ) AC_DEFINE(LISPDIR_USER_DEFINED) ;;
              sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
              moduledir ) AC_DEFINE(MODULEDIR_USER_DEFINED) ;;
@@ -722,6 +725,7 @@ while test $# != 0; do
             AC_DEFINE(MODULEDIR_USER_DEFINED)
 	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
              statedir | lockdir ) AC_DEFINE(LOCKDIR_USER_DEFINED) ;;
+	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
 	;;
@@ -3741,6 +3745,7 @@ AC_SUBST(libdir)
 AC_SUBST(mandir)
 
 AC_SUBST(prefix)
+AC_SUBST(PREFIX_USER_DEFINED)
 dnl Yo, Stephen Bourne!  I want to marry you!
 PREFIX=$prefix
 while true; do
@@ -3752,6 +3757,7 @@ done
 AC_SUBST(PREFIX)
 
 AC_SUBST(exec_prefix)
+AC_SUBST(EXEC_PREFIX_USER_DEFINED)
 EXEC_PREFIX=$exec_prefix
 while true; do
   case "$EXEC_PREFIX" in
@@ -3859,6 +3865,17 @@ while true; do
   esac
 done
 AC_SUBST(LOCKDIR)
+
+AC_SUBST(docdir)
+AC_SUBST(DOCDIR_USER_DEFINED)
+DOCDIR=$docdir
+while true; do
+  case "$DOCDIR" in
+    *\$* ) eval "DOCDIR=$DOCDIR" ;;
+    *) break ;;
+  esac
+done
+AC_SUBST(DOCDIR)
 
 AC_SUBST(archlibdir)
 AC_SUBST(ARCHLIBDIR_USER_DEFINED)

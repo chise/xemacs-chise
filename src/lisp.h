@@ -1113,9 +1113,9 @@ set_bit_vector_bit (Lisp_Bit_Vector *v, int i, int value)
 {
   unsigned int ui = (unsigned int) i;
   if (value)
-    (v)->bits[ui >> LONGBITS_LOG2] |= (1U << (ui & (LONGBITS_POWER_OF_2 - 1)));
+    (v)->bits[ui >> LONGBITS_LOG2] |= (1UL << (ui & (LONGBITS_POWER_OF_2 - 1)));
   else
-    (v)->bits[ui >> LONGBITS_LOG2] &= ~(1U << (ui & (LONGBITS_POWER_OF_2 - 1)));
+    (v)->bits[ui >> LONGBITS_LOG2] &= ~(1UL << (ui & (LONGBITS_POWER_OF_2 - 1)));
 }
 
 /* Number of longs required to hold LEN bits */
@@ -1551,7 +1551,7 @@ Lisp_Object,Lisp_Object,Lisp_Object
 /* Can't be const, because then subr->doc is read-only and
    Snarf_documentation chokes */
 
-#define subr_lheader_initializer { 0, { 0, 0, 0 } }
+#define subr_lheader_initializer { 0, 0, 0, 0 }
 
 #define DEFUN(lname, Fname, min_args, max_args, prompt, arglist)	\
   Lisp_Object Fname (EXFUN_##max_args);					\

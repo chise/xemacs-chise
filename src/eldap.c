@@ -149,7 +149,7 @@ finalize_ldap (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("ldap", ldap,
                                mark_ldap, print_ldap, finalize_ldap,
-                               NULL, NULL, struct Lisp_LDAP);
+                               NULL, NULL, 0, struct Lisp_LDAP);
 
 
 

@@ -375,7 +375,7 @@ event_hash (Lisp_Object obj, int depth)
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("event", event,
 				     mark_event, print_event, 0, event_equal,
-				     event_hash, struct Lisp_Event);
+				     event_hash, 0, struct Lisp_Event);
 
 
 DEFUN ("make-event", Fmake_event, 0, 2, 0, /*

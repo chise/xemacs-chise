@@ -176,7 +176,7 @@ hash_opaque (Lisp_Object obj, int depth)
 
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("opaque", opaque,
 					mark_opaque, print_opaque, 0,
-					equal_opaque, hash_opaque,
+					equal_opaque, hash_opaque, 0,
 					sizeof_opaque, Lisp_Opaque);
 
 static Lisp_Object
@@ -206,7 +206,7 @@ make_opaque_list (size_t size,
 
 DEFINE_LRECORD_IMPLEMENTATION ("opaque-list", opaque_list,
 			       mark_opaque_list, internal_object_printer,
-			       0, 0, 0, Lisp_Opaque_List);
+			       0, 0, 0, 0, Lisp_Opaque_List);
 
 Lisp_Object
 allocate_managed_opaque (Lisp_Object opaque_list, CONST void *data)
