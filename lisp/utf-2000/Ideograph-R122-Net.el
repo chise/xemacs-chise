@@ -128,6 +128,13 @@
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=ucs		. #x26270)	; 𦉰
+    (=jis-x0213-2-2000	. #x7469)	; &I-JX2-7469; [84-73]
+    ))
+(define-char
+  '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs		. #x2626C)	; 𦉬
