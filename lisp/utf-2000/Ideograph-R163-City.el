@@ -1433,7 +1433,8 @@
     (ucs		. #x90D4)	; 郔
     ))
 (define-char
-  '((morohashi-daikanwa	39408 0 1)
+  '((->ucs		. #x90D4)	; 郔
+    (morohashi-daikanwa	39408 0 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -3706,7 +3707,8 @@
     (ucs		. #x912C)	; 鄬
     ))
 (define-char
-  '((morohashi-daikanwa	39644 0 4)
+  '((->ucs		. #x912C)	; 鄬
+    (morohashi-daikanwa	39644 0 4)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
