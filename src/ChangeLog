@@ -1,5 +1,10 @@
 2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c (Fclose_char_attribute_table): Set Qnil on
+	`ct->db_file' unconditionally.
+
+2002-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* chartab.c (mark_char_table): Mark `ct->db_file' and `ct->db' in
 	UTF-2000.
 	(char_table_description): Add description for `db_file' and `db'
