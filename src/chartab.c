@@ -3596,6 +3596,26 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 
 Lisp_Char_Table* char_attribute_table_to_load;
 
+#ifdef CHISE
+int
+load_char_attribute_table_map_func (CHISE_Feature_Table *db,
+				    CHISE_Char_ID cid,
+				    CHISE_Value *valdatum);
+int
+load_char_attribute_table_map_func (CHISE_Feature_Table *db,
+				    CHISE_Char_ID cid,
+				    CHISE_Value *valdatum)
+{
+  Emchar code = cid;
+  Lisp_Object ret = get_char_id_table_0 (char_attribute_table_to_load, code);
+
+  if (EQ (ret, Qunloaded))
+    put_char_id_table_0 (char_attribute_table_to_load, code,
+			 Fread (make_string ((Bufbyte *) valdatum->data,
+					     valdatum->size)));
+  return 0;
+}
+#else
 Lisp_Object Qload_char_attribute_table_map_function;
 
 DEFUN ("load-char-attribute-table-map-function",
@@ -3612,6 +3632,7 @@ For internal use.  Don't use it.
     put_char_id_table_0 (char_attribute_table_to_load, code, Fread (value));
   return Qnil;
 }
+#endif
 
 DEFUN ("load-char-attribute-table", Fload_char_attribute_table, 1, 1, 0, /*
 Load values of ATTRIBUTE into database file.
@@ -3623,6 +3644,61 @@ Load values of ATTRIBUTE into database file.
 				Qunbound);
   if (CHAR_TABLEP (table))
     {
+#ifdef CHISE
+      Lisp_Char_Table *cit = XCHAR_TABLE (table);
+
+      Lisp_Object db_dir = Vexec_directory;
+      CHISE_DS ds;
+      CHISE_Feature_Table *ft_feature;
+      int modemask;
+      int accessmask = 0;
+      DBTYPE real_subtype;
+      int status;
+
+      if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
+	{
+	  Fclose_database (cit->db);
+	  cit->db = Qnil;
+	}
+
+      if (NILP (db_dir))
+	db_dir = build_string ("../lib-src");
+      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+      status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
+				       XSTRING_DATA (db_dir));
+      if (status)
+	{
+	  chise_close_data_source (&ds);
+	  return -1;
+	}
+
+      modemask = 0755;		/* rwxr-xr-x */
+      real_subtype = DB_HASH;
+      accessmask = DB_RDONLY;
+
+      status
+	= chise_open_feature_table (&ft_feature, &ds,
+				    XSTRING_DATA (Fsymbol_name (attribute)),
+				    real_subtype, accessmask, modemask);
+      if (status)
+	{
+	  chise_close_feature_table (ft_feature);
+	  chise_close_data_source (&ds);
+	  return -1;
+	}
+
+      char_attribute_table_to_load = XCHAR_TABLE (table);
+      {
+	struct gcpro gcpro1;
+
+	GCPRO1 (table);
+	chise_ft_iterate (ft_feature, &load_char_attribute_table_map_func);
+	UNGCPRO;
+      }
+      chise_close_feature_table (ft_feature);
+      chise_close_data_source (&ds);
+#else
       Lisp_Char_Table *ct = XCHAR_TABLE (table);
 
       if (NILP (Fdatabase_live_p (ct->db)))
@@ -3646,6 +3722,7 @@ Load values of ATTRIBUTE into database file.
 	  XCHAR_TABLE_UNLOADED(table) = 0;
 	  return Qt;
 	}
+#endif
     }
   return Qnil;
 }
@@ -4176,9 +4253,11 @@ syms_of_chartab (void)
   DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
   DEFSUBR (Fclose_char_attribute_table);
+#ifndef CHISE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
   DEFSUBR (Fload_char_attribute_table_map_function);
+#endif
   DEFSUBR (Fload_char_attribute_table);
 #endif
   DEFSUBR (Fchar_attribute_alist);
