@@ -116,7 +116,7 @@
 			      ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
-		     (not (eq (or (get-char-attribute chr 'ucs)
+		     (not (eq (or (encode-char chr '=ucs 'defined-only)
 				  (and (not (eq ucs-ccs 'ucs-jis))
 				       (get-char-attribute chr '=>ucs)))
 			      ucs)))
