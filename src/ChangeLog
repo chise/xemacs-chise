@@ -1,3 +1,10 @@
+2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}original[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}original[^*]*'.
+
 2004-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-canna.c (m2c): Fix problem with XEmacs CHISE.
@@ -35,7 +42,7 @@
 
 2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* chartab.c (Fput_char_attribute): Convert char-refs in value of
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
 	`{<-|->}wrong[^*]*' to characters and put reverse links.
 	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
 	for `{<-|->}wrong[^*]*'.
@@ -44,7 +51,7 @@
 
 	* chartab.c (Q_vulgar): New variable.
 	(Q_vulgar_of): New variable.
-	(Fput_char_attribute): Convert char-refs in value of
+	(Fput_char_attribute): Convert char-specs in value of
 	`{->|<-}vulgar' to characters and put reverse links.
 	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
 	for `{->|<-}vulgar'.
@@ -104,8 +111,8 @@
 
 	* chartab.c (Q_same): New variable.
 	(Q_same_of): New variable.
-	(Fput_char_attribute): Convert char-refs in value of `{->|<-}same'
-	to characters and put reverse links.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{->|<-}same' to characters and put reverse links.
 	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
 	for `{->|<-}same'.
 	(syms_of_chartab): Add new symbols `{->|<-}same'.
@@ -114,7 +121,7 @@
 
 	* chartab.c (Q_component): New variable.
 	(Q_component_of): Likewise.
-	(Fput_char_attribute): Convert char-refs in value of
+	(Fput_char_attribute): Convert char-specs in value of
 	`{->|<-}ideographic-component-forms' to characters and put reverse
 	links.
 	(syms_of_chartab): Add new symbols
@@ -151,7 +158,7 @@
 
 2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* chartab.c (Fput_char_attribute): Convert char-refs in value of
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
 	`<-simplified[^*]*' to characters and put reverse links.
 
 2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
