@@ -1,3 +1,24 @@
+2001-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Merge GB 12345 code points.
+
+2001-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (U+66F1): Delete `kangxi-radical' and
+	`kangxi-strokes'; unify G1-7C21.
+	(U+7535): Add `total-strokes'.
+	(U+66F8): Separate C6-3836; unify G1-4A69.
+	(U+6703): Unify G1-3B61.
+
+	* Ideograph-R066-Rap.el: Merge GB 12345 code points.
+
+2001-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el, Ideograph-R070-Square.el,
+	Ideograph-R069-Axe.el: Merge GB 12345 code points.
+
+	* Ideograph-R067-Script.el (U+6595): Unify G1-6C35.
+
 2001-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el: Merge GB 12345 code points.
