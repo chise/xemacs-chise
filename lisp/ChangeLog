@@ -1,3 +1,9 @@
+2003-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el: `japanese-jisx0208-1978' is renamed to
+	`=jis-x0208-1978'.
+	(japanese-jisx0208-1978): New alias for `=jis-x0208-1978'.
+
 2003-04-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=iso-ir165): Renamed from `chinese-isoir165'.
