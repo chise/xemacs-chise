@@ -491,6 +491,13 @@
     (=ucs		. #x23A95)	; ð£ª•
     ))
 (define-char
+  '((=>ucs		. #x23A95)	; ð£ª•
+    (ideographic-radical . 79)	; â½Ž
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=jef-china3	. #x93C8)	; øº‰ˆ
+    ))
+(define-char
   '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)

@@ -942,6 +942,7 @@
     (=jis-x0212		. #x517D)	; ø»‹¬Œ
     (=jis-x0213-2-2000	. #x7345)	; ø»¦–€
     (=daikanwa		. 25946)	; ø¸†•š
+    (=jef-china3	. #x5DF1)	; øº…·±
     (=ucs		. #x7B2F)	; ç¬¯
     ))
 (define-char
@@ -951,7 +952,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=cns11643-2	. #x377C)	; ø»“®
-    (=jef-china3	. #x5DF1)	; øº…·±
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ

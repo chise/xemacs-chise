@@ -1,3 +1,164 @@
+2003-06-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R106-White.el: Add mappings for Big5 code points.
+
+2003-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-00020086): Use `ideographic-radical',
+	`ideographic-strokes@{ucs|gt}', `total-strokes@{ucs|gt}' and
+	`ideographic-strokes@ucs*sources' instead of `ideographic-'.
+	(U+53CA): Use `ideographic-{radical|strokes}@{ucs|gt}',
+	`total-strokes@{ucs|gt}' and `ideographic-radical@ucs*sources'
+	instead of `ideographic-'.
+	(M-00129): Don't use char-ref format in `->same-ideograph'; use
+	`->same-ideograph*sources' instead.
+	(U+5C39): Copied from Ideograph-R044-Corpse.el; add
+	`ideographic-{radical|strokes}@cns'.
+	(U+738D): Copied from Ideograph-R096-Jade.el; add
+	`ideographic-{radical|strokes}@cns'.
+
+2003-06-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el (C6-5675): Map to U-00026714.
+	(U-00026714): Unify M-29745'.
+
+	* ideograph-util.el (char-ideographic-radical): Refer
+	`char-db-feature-domains'.
+	(char-ideographic-strokes): Likewise; refer `ideographic-radical'
+	as the default attribute.
+	(update-ideograph-radical-table): Refer `char-db-feature-domains'.
+
+	* char-db-util.el (char-db-feature-domains): New variable.
+	(insert-char-attributes): Insert `ideographic-radical' before
+	`ideographic-radical@DOMAIN'; refer `char-db-feature-domains';
+	support `total-strokes@DOMAIN'; support
+	`{ideographic-strokes|total-strokes}@DOMAIN*sources'.
+
+2003-06-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (U+53CA): Use
+	`ideographic-{radical|strokes}@{ucs|gt}', `total-strokes@{ucs|gt}'
+	and `ideographic-radical@ucs*sources' instead of `ideographic-'.
+
+2003-06-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R039-Child.el (M-06947): New character.
+	(U-00021946): Relate to M-06947.
+	(C6-2676): Likewise.
+	(U-00024605): Unify M-19911; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs and
+	`ideographic-radical@ucs*sources'.
+	(U-0002194F): Use `ideographic-strokes@daikanwa' and
+	`total-strokes@daikanwa' instead of `ideographic-strokes' and
+	`total-strokes'; use `total-strokes@cns' instead of
+	`cns-total-strokes'; add `ideographic-strokes@cns'.
+	(M-07011): Unify C3-4072; map to U+5B76 instead of 5B73.
+	(U+5B76): Separate C3-4072; relate to M-07011.
+
+	* Ideograph-R092-Fang.el (M-19911): Unify C5-2368 and U-00024605;
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources' and
+	`ideographic-{radical|strokes}@cns'.
+
+2003-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (U+738D): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'.
+
+	* Ideograph-R044-Corpse.el (U+5C39): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources'; use `ideographic-radical@cns'
+	instead of `cns-radical'; add `ideographic-strokes@cns'.
+
+	* Ideograph-R017-Open-Box.el (U+342B): Copied from
+	Ideograph-R008-Lid.el.
+	(M-01841): Move C5-5A75 to M-23906; add `->identical' for M-23906.
+	(U-00025390): Copied from Ideograph-R110-Spear.el; unify C5-5A75.
+
+	* Ideograph-R008-Lid.el (U+342B): Use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add
+	`ideographic-radical@ucs*sources' and `ideographic-radical@cns'.
+
+	* Ideograph-R110-Spear.el (U-00025390): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@{ucs|cns}*sources' and
+	`ideographic-{radical|strokes}@cns'; unify C5-5A75.
+
+	* Ideograph-R120-Silk.el: Add some missing mappings to JEF-CHINA3
+	code points.
+
+	* Ideograph-R128-Ear.el (GT-K04926): New character.
+	(BC-8C5B): New character.
+
+	* Ideograph-R124-Feather.el, Ideograph-R121-Jar.el: Add some
+	missing mappings to JEF-CHINA3 code points.
+
+2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R119-Rice.el (U+7CE9): Separate C7-4857; unify
+	JC3-5EDB.
+
+	* Ideograph-R079-Weapon.el (JC3-93C8): New character.
+
+	* Ideograph-R123-Sheep.el (U+7FA1): Unify JC3-5FF7.
+	(M-28545): Unify JC3-98F3.
+	(B-F5EE): Unify JC3-5FFB.
+
+	* Ideograph-R118-Bamboo.el (U+7B2F): Unify JC3-5DF1.
+	(C2-377C): Separate JC3-5DF1.
+
+2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R125-Old.el (U+800A): Unify JC3-60B6.
+
+	* Ideograph-R122-Net.el (U+7F87): Unify JC3-64BC.
+
+	* Ideograph-R040-Roof.el (M-07062): Unify JC3-4AA3.
+
+2003-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+36A8): Unify MH-0117.
+	(C3-2349): Relate to MH-0117.
+	(U-000216F8): New character.
+	(U-00021757): New character.
+	(MH-0120): New character.
+	(MH-0121): New character.
+	(U-000217D5): Relate to MH-0117.
+	(M-06569): Separate C3-4062 and U+3706.
+	(U+3706): Separate M-06569 and C3-4062; fix strokes.
+	(U-00021809): New character.
+	(MH-0123): New character.
+	(MH-0124): New character.
+	(C3-464B): Relate to MH-0124.
+	(U+3715): Relate to MH-0124.
+	(MH-0125): New character.
+	(MH-0126): New character.
+	(U-000218B1): Unify MH-0127.
+	(C5-537E): Relate to MH-0127.
+	(U-000218F6): New character.
+	(MH-0129): New character.
+	(U-00021909): New character.
+
+	* Ideograph-R036-Evening.el (U-00021585): Unify MH-0111 and
+	CB07125; add strokes.
+	(U+3C54): Unify MH-0112.
+	(C3-2B7B): Relate to MH-0112.
+
+	* Ideograph-R037-Big.el (MH-0113): New character.
+	(U-000215F1): Relate to MH-0113; add strokes.
+	(MH-0114): New character.
+	(U-0002161A): Relate to MH-0114; add strokes.
+	(U+7275): Add `total-strokes'.
+	(U-00021693): Unify MH-0115; add strokes.
+	(U-0002168D): Unify MH-0116; add strokes.
+
 2003-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el, Ideograph-R208-Rat.el,
