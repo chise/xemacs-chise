@@ -1,4 +1,23 @@
+2002-11-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R078-Death.el: Add some missing mappings to CBETA
+	numbers.
+
 2002-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el: Add some missing mappings to CBETA
+	numbers.
+
+	* Ideograph-R030-Mouth.el: Modify some `ideographic-structure'
+	properties.
+	(M-03374): Separate C3-2470, H2-CC78 and U+543A.
+	(C5-3676): Separate CB-00773 and U+35B6.
+	(U+35F6): Separate C7-214E.
+	(H2-E378): Separate U-00021135.
+	(C5-6F6E): Unify U-00021135.
+	(U-00021167): New character.
+	(CB-03326): Map to U-00021167.
+	(C3-602D): Separate M053227 and U+361A.
 
 	* Ideograph-R032-Earth.el: Modify some `ideographic-structure'
 	properties.
