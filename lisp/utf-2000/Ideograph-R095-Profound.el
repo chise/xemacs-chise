@@ -139,9 +139,7 @@
     (ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 291)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 291 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
@@ -193,9 +191,7 @@
     (ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 292)
-    (hanyu-dazidian-char . 3)
+    (hanyu-dazidian	1 292 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰

@@ -574,7 +574,6 @@
      ((ideograph-daikanwa . 08684)	; ø¸‚‡¬
       ))
     (chinese-cns11643-1 . #x4B56)	; ø»’€½
-    (chinese-big5	. #xA8B5)	; øºŸ­ž
     ))
 (define-char
   '((ideographic-radical . 162)	; â¾¡

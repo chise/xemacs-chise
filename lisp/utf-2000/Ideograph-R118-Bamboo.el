@@ -3228,17 +3228,15 @@
     (total-strokes	 . 14)
     (ideograph-cdp	. 3231)
     (ideographic-structure
-     (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (ucs		     . #x2FF0)	; â¿°
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
       )
      ((ucs		  . #x7B54)	; ç­”
       )
-     ((ucs		  . #xF4E7)	; ï“§
+     ((chinese-big5-cdp	  . #x8B4D)	; ý¢€ˆ­
       ))
     (chinese-cns11643-2 . #x4C61)	; ø»”Œª
-    (chinese-big5	. #xE35A)	; øº¢¥
+    (chinese-big5	. #xE35A)	; ý¢€Žš
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ

@@ -92,7 +92,7 @@
     (hanyu-dazidian	1 42 11)
     (chinese-cns11643-1 . #x443A)	; ø»‘¶
     (ideograph-gt-pj-2	. #x306A)	; ý¡€€‚„
-    (chinese-big5	. #xA459)	; øºŸ¢°
+    (chinese-big5	. #xA459)	; ý¢€Š‘™
     (ideograph-daikanwa . 00095)	; ø¸€Ÿ
     (ideograph-gt	. 00132)	; ý¡€€‚„
     ))
@@ -176,14 +176,6 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (hanyu-dazidian	1 42 13)
-    (chinese-big5-cdp	. #x87D6)	; ý¢€ˆŸ–
-    (ucs		. #x225A9)	; ð¢–©
-    ))
-(define-char
-  '((ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
     (ideograph-gt-pj-9	. #x4C4C)	; ý¡€€‚†
     (ideograph-gt	. 00134)	; ý¡€€‚†
     ))
@@ -202,7 +194,7 @@
     (chinese-cns11643-1		. #x4465)	; ø»‘¶º
     (japanese-jisx0208-1990	. #x4330)	; ø½Š¨‡
     (ideograph-gt-pj-1		. #x4330)	; ý¡€€‚ˆ
-    (chinese-big5		. #xA4A6)	; øºŸ£›
+    (chinese-big5		. #xA4A6)	; ý¢€Š’¦
     (ideograph-daikanwa		. 00099)	; ø¸€£
     (ideograph-gt		. 00136)	; ý¡€€‚ˆ
     (ucs			. #x4E39)	; ä¸¹
@@ -283,7 +275,7 @@
     (chinese-cns11643-1		. #x4564)	; ø»‘¸—
     (japanese-jisx0208-1990	. #x3C67)	; ø½Šž¬
     (ideograph-gt-pj-1		. #x3C67)	; ý¡€€‚Š
-    (chinese-big5		. #xA544)	; øºŸ¤¸
+    (chinese-big5		. #xA544)	; ý¢€Š•„
     (ideograph-gt		. 00138)	; ý¡€€‚Š
     (ucs			. #x4E3B)	; ä¸»
     ))
@@ -307,7 +299,7 @@
     (chinese-cns11643-2		. #x2144)	; ø»“ƒ
     (japanese-jisx0208-1990	. #x5027)	; ø½Š»„
     (ideograph-gt-pj-1		. #x5027)	; ý¡€€‚‹
-    (chinese-big5		. #xC964)	; øº¡¥¨
+    (chinese-big5		. #xC964)	; ý¢€Œ¥¤
     (ideograph-daikanwa		. 00101)	; ø¸€¥
     (ideograph-gt		. 00139)	; ý¡€€‚‹
     (ucs			. #x4E3C)	; ä¸¼
@@ -530,9 +522,7 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (hanyu-dazidian-vol	 . 2)
-    (hanyu-dazidian-page . 1526)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	2 1526 1)
     (chinese-cns11643-6		. #x5050)	; ø»œº¡
     (ideograph-gt-pj-2		. #x3072)	; ý¡€€‚“
     (ideograph-daikanwa		. 00105)	; ø¸€©

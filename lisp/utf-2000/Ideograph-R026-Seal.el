@@ -110,7 +110,7 @@
     (japanese-jisx0212		. #x343E)	; ø»‹€§
     (chinese-cns11643-2		. #x2137)	; ø»“Œ¶
     (japanese-jisx0213-2	. #x2355)	; ø»¤ °
-    (chinese-big5		. #xC957)	; øº¡¥›
+    (chinese-big5		. #xC957)	; ý¢€Œ¥—
     (ideograph-daikanwa		. 02841)	; ø¸€¬™
     (china3-jef			. #x45D0)	; øº„—
     (ucs			. #x536C)	; å¬
@@ -197,7 +197,7 @@
     (chinese-isoir165		. #x5834)	; ø»¿™
     (chinese-cns11643-1		. #x4629)	; ø»‘¸º
     (japanese-jisx0208-1990	. #x5248)	; ø½Š¾¡
-    (chinese-big5		. #xA567)	; øºŸ¥›
+    (chinese-big5		. #xA567)	; ý¢€Š•§
     (ideograph-daikanwa		. 02846)	; ø¸€¬ž
     (ucs			. #x536E)	; å®
     ))
@@ -225,7 +225,7 @@
     (chinese-isoir165		. #x432E)	; ø» 
     (chinese-cns11643-1		. #x4628)	; ø»‘¸¹
     (japanese-jisx0208-1990	. #x312C)	; ø½Š§
-    (chinese-big5		. #xA566)	; øºŸ¥š
+    (chinese-big5		. #xA566)	; ý¢€Š•¦
     (ideograph-daikanwa		. 02847)	; ø¸€¬Ÿ
     (ucs			. #x536F)	; å¯
     ))
@@ -278,7 +278,7 @@
     (chinese-gb2312	. #x5321)	; ø»… 
     (chinese-isoir165	. #x5321)	; ø»·°
     (chinese-cns11643-1 . #x474D)	; ø»‘º¼
-    (chinese-big5	. #xA64C)	; øºŸ§
+    (chinese-big5	. #xA64C)	; ý¢€Š™Œ
     (ucs		. #x5370)	; å°
     ))
 (define-char
@@ -316,7 +316,7 @@
     (chinese-isoir165		. #x4E23)	; ø»°œ
     (chinese-cns11643-1		. #x474E)	; ø»‘º½
     (japanese-jisx0208-1990	. #x346D)	; ø½Š“‚
-    (chinese-big5		. #xA64D)	; øºŸ§ž
+    (chinese-big5		. #xA64D)	; ý¢€Š™
     (ucs			. #x5371)	; å±
     ))
 (define-char
@@ -373,7 +373,7 @@
       ))
     (japanese-jisx0212	. #x3440)	; ø»‹€©
     (chinese-cns11643-2 . #x2335)	; ø»“°
-    (chinese-big5	. #xCA73)	; øº¡¨”
+    (chinese-big5	. #xCA73)	; ý¢€Œ©³
     (ideograph-daikanwa . 02854)	; ø¸€¬¦
     (china3-jef		. #x45D2)	; øº„—’
     (ucs		. #x5372)	; å²
@@ -407,7 +407,7 @@
     (chinese-isoir165		. #x3C34)	; ø»–‘
     (chinese-cns11643-1		. #x493B)	; ø»‘½¦
     (japanese-jisx0208-1990	. #x4228)	; ø½Š¦¡
-    (chinese-big5		. #xA759)	; øºŸª‡
+    (chinese-big5		. #xA759)	; ý¢€Š™
     (ideograph-daikanwa		. 02855)	; ø¸€¬§
     (ucs			. #x5373)	; å³
     ))
@@ -462,7 +462,7 @@
     (chinese-isoir165		. #x4251)	; ø»Ÿ¢
     (chinese-cns11643-1		. #x493C)	; ø»‘½§
     (japanese-jisx0208-1990	. #x4D71)	; ø½Š·´
-    (chinese-big5		. #xA75A)	; øºŸªˆ
+    (chinese-big5		. #xA75A)	; ý¢€Šš
     (ideograph-daikanwa		. 02857)	; ø¸€¬©
     (ucs			. #x5375)	; åµ
     ))
@@ -532,7 +532,7 @@
     (chinese-gb2312	. #x3E6D)	; ø»„±¶
     (chinese-isoir165	. #x3E6D)	; ø»š†
     (chinese-cns11643-1 . #x4C3A)	; ø»’¿
-    (chinese-big5	. #xA8F7)	; øºŸ® 
+    (chinese-big5	. #xA8F7)	; ý¢€Š£·
     (ucs		. #x5377)	; å·
     ))
 (define-char
@@ -555,7 +555,7 @@
     (chinese-gb2312	. #x5036)	; ø»…‹›
     (chinese-isoir165	. #x5036)	; ø»³«
     (chinese-cns11643-1 . #x4C3B)	; ø»’‚€
-    (chinese-big5	. #xA8F8)	; øºŸ®¡
+    (chinese-big5	. #xA8F8)	; ý¢€Š£¸
     (ideograph-daikanwa . 02861)	; ø¸€¬­
     (ucs		. #x5378)	; å¸
     ))
@@ -588,7 +588,7 @@
       ))
     (japanese-jisx0212	. #x3441)	; ø»‹€ª
     (chinese-cns11643-1 . #x4C3C)	; ø»’‚
-    (chinese-big5	. #xA8F9)	; øºŸ®¢
+    (chinese-big5	. #xA8F9)	; ý¢€Š£¹
     (ideograph-daikanwa . 02862)	; ø¸€¬®
     (china3-jef		. #x45D3)	; øº„—“
     (ucs		. #x5379)	; å¹
@@ -685,7 +685,7 @@
     (japanese-jisx0208		. #x524A)	; ø»‡˜¯
     (chinese-cns11643-1		. #x5033)	; ø»’‡°
     (japanese-jisx0208-1990	. #x524A)	; ø½Š¾£
-    (chinese-big5		. #xAB6F)	; øºŸ´‘
+    (chinese-big5		. #xAB6F)	; ý¢€Š­¯
     (ideograph-daikanwa		. 02867)	; ø¸€¬³
     (ucs			. #x537B)	; å»
     ))
@@ -702,7 +702,7 @@
      ((ucs		  . #x5371)	; å±
       ))
     (chinese-cns11643-2 . #x2937)	; ø»“˜¦
-    (chinese-big5	. #xCDF5)	; øº¡±‹
+    (chinese-big5	. #xCDF5)	; ý¢€Œ·µ
     (ideograph-daikanwa . 02868)	; ø¸€¬´
     (ucs		. #x537C)	; å¼
     ))
@@ -931,7 +931,7 @@
     (shinjigen-2	. 868)
     (japanese-jisx0208-1978	. #x362A)	; ø»‚š¿
     (korean-ksc5601		. #x4C4F)	; ø»‰š„
-    (chinese-big5		. #xADEB)	; øºŸº¥
+    (chinese-big5		. #xADEB)	; ý¢€Š·«
     (ideograph-daikanwa		. 02880)	; ø¸€­€
     ))
 (define-char
