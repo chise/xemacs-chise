@@ -200,7 +200,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=jis-x0212		. #x3A70)	; ø»‹Š
-    (chinese-cns11643-3 . #x255F)	; ø»•š
+    (=cns11643-3	. #x255F)	; ø»•š
     (=jis-x0213-1-2000	. #x4F5E)	; ø»£—
     (ideograph-daikanwa . 07559)	; ø¸¶‡
     (=cbeta		. 00460)	; ø¸ ‡Œ
@@ -400,7 +400,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 554 9)
-    (chinese-cns11643-3 . #x2C35)	; ø»•§‚
+    (=cns11643-3	. #x2C35)	; ø»•§‚
     (ideograph-daikanwa . 07574)	; ø¸¶–
     (=hanziku-2		. #xC1E4)	; ý¢€¬‡¤
     (=ucs		. #x5C2F)	; å°¯
@@ -1051,7 +1051,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=jis-x0212		. #x3A76)	; ø»‹Š“
-    (chinese-cns11643-3 . #x5454)	; ø»–¢‘
+    (=cns11643-3	. #x5454)	; ø»–¢‘
     (ideograph-daikanwa . 07624)	; ø¸·ˆ
     (=ucs@jis		. #x5C36)	; ø»‹Š“
     ))

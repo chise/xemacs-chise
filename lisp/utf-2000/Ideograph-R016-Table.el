@@ -109,7 +109,7 @@
       )
      ((=ucs		  . #x51E0)	; å‡ 
       ))
-    (chinese-cns11643-3 . #x2135)	; ø»•–¸
+    (=cns11643-3	. #x2135)	; ø»•–¸
     (=cbeta		. 04891)	; ø¸¡Œ›
     (=ucs		. #x51E3)	; å‡£
     ))
@@ -145,7 +145,7 @@
       ))
     (=gb2312		. #x376F)	; ø»„§¦
     (=iso-ir165		. #x376F)	; ø»¶
-    (chinese-cns11643-3 . #x2151)	; ø»•—”
+    (=cns11643-3	. #x2151)	; ø»•—”
     (ideograph-daikanwa . 01743)	; ø¸€›
     (=hanziku-1		. #xDEEE)	; ý¢€»®
     (=ucs		. #x51E4)	; å‡¤
@@ -173,7 +173,7 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=jis-x0212		. #x332A)	; ø»Š¾µ
-    (chinese-cns11643-3 . #x217B)	; ø»•—¾
+    (=cns11643-3	. #x217B)	; ø»•—¾
     (ideograph-daikanwa . 01744)	; ø¸€›
     (=hanziku-1		. #xDEF5)	; ý¢€»µ
     (=jef-china3	. #x44AA)	; øº„’ª
@@ -189,7 +189,7 @@
       (=ucs		  . #x2FFA)	; â¿º
       )
      ((=jis-x0208	  . #x5469)	; ø½‹¾
-      (chinese-cns11643-3 . #x2139)	; ø»•–¼
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (ideograph-daikanwa . 05691)	; ø¸˜»
       )
      ((=ucs		  . #x51E0)	; å‡ 
@@ -350,7 +350,7 @@
       )
      ((=ucs		  . #x4E91)	; äº‘
       ))
-    (chinese-cns11643-3 . #x2322)	; ø»•™¡
+    (=cns11643-3	. #x2322)	; ø»•™¡
     (ideograph-daikanwa . 01756)	; ø¸€›œ
     (=hanziku-1		. #xDF49)	; ý¢€½‰
     (=ucs		. #x51E8)	; å‡¨
@@ -477,7 +477,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 277 11)
-    (chinese-cns11643-3 . #x245B)	; ø»•›¸
+    (=cns11643-3	. #x245B)	; ø»•›¸
     (ideograph-daikanwa . 01765)	; ø¸€›¥
     (=hanziku-1		. #xDF53)	; ý¢€½“
     (=jef-china3	. #x44AC)	; øº„’¬
@@ -522,7 +522,7 @@
       )
      ((=ucs		  . #x51E0)	; å‡ 
       ))
-    (chinese-cns11643-3 . #x2759)	; ø»• 
+    (=cns11643-3	. #x2759)	; ø»• 
     ))
 (define-char
   '((ideographic-radical . 16)	; â¼
@@ -1006,7 +1006,7 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=jis-x0212		. #x332E)	; ø»Š¾¹
-    (chinese-cns11643-3 . #x457A)	; ø»–Œµ
+    (=cns11643-3	. #x457A)	; ø»–Œµ
     (=jis-x0213-2-2000	. #x2334)	; ø»¤ 
     (ideograph-daikanwa . 01798)	; ø¸€œ†
     (=hanziku-1		. #xDF7B)	; ý¢€½»

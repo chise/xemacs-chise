@@ -122,7 +122,7 @@
     (ideographic-radical . 111)	; â½®
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (chinese-cns11643-3 . #x2E36)	; ø»•©¿
+    (=cns11643-3	. #x2E36)	; ø»•©¿
     (=big5-cdp		. #x8AC7)	; ý¢€ˆ«‡
     ))
 (define-char

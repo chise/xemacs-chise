@@ -199,7 +199,7 @@
     (ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-3 . #x2863)	; ø»•¡¸
+    (=cns11643-3	. #x2863)	; ø»•¡¸
     (=ucs		. #x5E77)	; å¹·
     ))
 (define-char

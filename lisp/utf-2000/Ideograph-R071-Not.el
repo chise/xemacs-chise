@@ -7,7 +7,7 @@
     (=jis-x0208		. #x5A5B)	; ø½‹Š¤
     (=ks-x1001		. #x5969)	; ø»‰­¤
     (=iso-ir165		. #x4E5E)	; ø»±—
-    (chinese-cns11643-3 . #x2169)	; ø»•—¬
+    (=cns11643-3	. #x2169)	; ø»•—¬
     (=gt-pj-1		. #x5A5B)	; æ— 
     (ideograph-daikanwa . 13716)	; ø¸ƒ–”
     (=gt-k		. 00532)	; ý¡„€ˆ”
@@ -102,7 +102,7 @@
     (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-3 . #x3641)	; ø»•µº
+    (=cns11643-3	. #x3641)	; ø»•µº
     ))
 (define-char
   '((=>ucs		. #x65E3)	; æ—£
@@ -118,7 +118,7 @@
     (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-3 . #x3640)	; ø»•µ¹
+    (=cns11643-3	. #x3640)	; ø»•µ¹
     (=ucs		. #x2F8CB)	; ð¯£‹
     ))
 (define-char
@@ -222,7 +222,7 @@
       )
      ((=cns11643-2	  . #x213E)	; ø»“Œ½
       ))
-    (chinese-cns11643-3 . #x4150)	; ø»–†“
+    (=cns11643-3	. #x4150)	; ø»–†“
     ))
 (define-char
   '((=>ucs		. #x65E4)	; æ—¤

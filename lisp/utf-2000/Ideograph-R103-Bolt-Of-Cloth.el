@@ -123,7 +123,7 @@
     (shinjigen-2	. 5087)
     (=jis-x0208		. #x4142)	; ø½Š¥
     (=ks-x1001		. #x6143)	; ø»‰¸®
-    (chinese-cns11643-3 . #x3D45)	; ø»–€
+    (=cns11643-3	. #x3D45)	; ø»–€
     (ideograph-daikanwa . 22002)	; ø¸…—²
     (=ucs		. #x758E)	; ç–Ž
     ))
@@ -218,7 +218,7 @@
   '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-3 . #x4D41)	; ø»–—¬
+    (=cns11643-3	. #x4D41)	; ø»–—¬
     (=ucs		. #x3684)	; ãš„
     ))
 (define-char

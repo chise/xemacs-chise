@@ -5,7 +5,7 @@
     (=gb2312		. #x5B48)	; ø»…›·
     (=jis-x0208		. #x572E)	; ø½‹…
     (=iso-ir165		. #x5B48)	; ø»Ž„‡
-    (chinese-cns11643-3 . #x213F)	; ø»•—‚
+    (=cns11643-3	. #x213F)	; ø»•—‚
     (=gt-pj-1		. #x572E)	; å»´
     (ideograph-daikanwa . 09566)	; ø¸‚•ž
     (=gt-k		. 00230)	; ý¡„€ƒ¦
@@ -30,7 +30,7 @@
   '((ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (chinese-cns11643-3 . #x2361)	; ø»•š 
+    (=cns11643-3	. #x2361)	; ø»•š 
     (ideograph-daikanwa . 09568)	; ø¸‚• 
     (=ucs		. #x5EF5)	; å»µ
     ))
@@ -150,7 +150,7 @@
   '((ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-3 . #x286A)	; ø»•¡¿
+    (=cns11643-3	. #x286A)	; ø»•¡¿
     (=ucs		. #x38A0)	; ã¢ 
     ))
 (define-char
@@ -158,7 +158,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=jis-x0208		. #x572F)	; ø½‹…ž
-    (chinese-cns11643-3 . #x2869)	; ø»•¡¾
+    (=cns11643-3	. #x2869)	; ø»•¡¾
     (=gt-pj-1		. #x572F)	; å»¸
     (=ucs		. #x5EF8)	; å»¸
     ))
@@ -166,7 +166,7 @@
   '((ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-3 . #x286B)	; ø»•¢€
+    (=cns11643-3	. #x286B)	; ø»•¢€
     (=ucs		. #x5EF9)	; å»¹
     ))
 (define-char
@@ -201,7 +201,7 @@
     (shinjigen-2	. 2239)
     (=jis-x0208		. #x3276)	; ø½Š
     (=ks-x1001		. #x7C5F)	; ø»Š ´
-    (chinese-cns11643-3 . #x2C4C)	; ø»•§™
+    (=cns11643-3	. #x2C4C)	; ø»•§™
     (=gt-pj-1		. #x3276)	; å»»
     (ideograph-daikanwa . 09575)	; ø¸‚•§
     (=cbeta		. 00327)	; ø¸ …‡
@@ -213,7 +213,7 @@
     (total-strokes	 . 9)
     (shinjigen-2	. 8258)
     (=jis-x0208		. #x4736)	; ø½Š®…
-    (chinese-cns11643-3 . #x2C4B)	; ø»•§˜
+    (=cns11643-3	. #x2C4B)	; ø»•§˜
     (=gt-pj-1		. #x4736)	; å»¼
     (ideograph-daikanwa . 09576)	; ø¸‚•¨
     (=cbeta		. 02626)	; ø¸ ©‚
@@ -223,7 +223,7 @@
   '((ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (chinese-cns11643-3 . #x306E)	; ø»•­³
+    (=cns11643-3	. #x306E)	; ø»•­³
     (=jis-x0213-2-2000	. #x2C2C)	; ø»¤­•
     (ideograph-daikanwa . 09577)	; ø¸‚•©
     (=ucs		. #x5EFD)	; å»½

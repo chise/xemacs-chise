@@ -107,7 +107,7 @@
   '((ideographic-radical . 185)	; â¾¸
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (chinese-cns11643-3 . #x4F6C)	; ø»–›“
+    (=cns11643-3	. #x4F6C)	; ø»–›“
     (ideograph-daikanwa . 44500)	; ø¸Š·”
     (=ucs		. #x4B6B)	; ä­«
     ))
@@ -134,7 +134,7 @@
   '((ideographic-radical . 185)	; â¾¸
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (chinese-cns11643-3 . #x5367)	; ø»–¡†
+    (=cns11643-3	. #x5367)	; ø»–¡†
     (ideograph-daikanwa . 49900)	; ø¸Œ‹¬
     (=ucs		. #x4B6C)	; ä­¬
     ))

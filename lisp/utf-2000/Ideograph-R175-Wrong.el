@@ -121,7 +121,7 @@
   '((ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x4021)	; ø»–„†
+    (=cns11643-3	. #x4021)	; ø»–„†
     (ideograph-daikanwa . 42596)	; ø¸Š™¤
     (=ucs		. #x975F)	; éŸ
     ))

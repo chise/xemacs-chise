@@ -6,7 +6,7 @@
     (=gb2312		. #x583C)	; ø»…—‘
     (=jis-x0208		. #x5026)	; ø½Š»ƒ
     (=iso-ir165		. #x583C)	; ø»¿¡
-    (chinese-cns11643-3 . #x2122)	; ø»•–¥
+    (=cns11643-3	. #x2122)	; ø»•–¥
     (=gt-pj-1		. #x5026)	; ý¡€€‚€
     (ideograph-daikanwa . 00091)	; ø¸€›
     (=big5-cdp		. #x8B41)	; ý¢€ˆ­
@@ -428,7 +428,7 @@
 	  ))
 	))
       ))
-    (chinese-cns11643-3 . #x2740)	; ø»•Ÿ·
+    (=cns11643-3	. #x2740)	; ø»•Ÿ·
     (=gt-pj-2		. #x3071)	; ý¡€€‚‘
     (ideograph-daikanwa . 00104)	; ø¸€¨
     (=ucs@cns		. #x4E3D)	; ø»•Ÿ·

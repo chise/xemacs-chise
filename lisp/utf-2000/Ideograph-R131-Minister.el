@@ -62,7 +62,7 @@
     (->identical
      ((ideograph-daikanwa . 02808)	; ø¸€«¸
       ))
-    (chinese-cns11643-3 . #x2A5C)	; ø»•¤­
+    (=cns11643-3	. #x2A5C)	; ø»•¤­
     ))
 (define-char
   '((ideographic-radical . 131)	; â¾‚

@@ -35,7 +35,7 @@
   '((ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x4025)	; ø»–„Š
+    (=cns11643-3	. #x4025)	; ø»–„Š
     (ideograph-daikanwa . 43266)	; ø¸Š¤‚
     (=ucs		. #x4AA6)	; äª¦
     ))
@@ -52,7 +52,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x4026)	; ø»–„‹
+    (=cns11643-3	. #x4026)	; ø»–„‹
     ))
 (define-char
   '((=>ucs		. #x4AA8)	; äª¨
@@ -66,7 +66,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x4027)	; ø»–„Œ
+    (=cns11643-3	. #x4027)	; ø»–„Œ
     (=ucs		. #x4AA8)	; äª¨
     ))
 (define-char
@@ -83,7 +83,7 @@
   '((ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4551)	; ø»–ŒŒ
+    (=cns11643-3	. #x4551)	; ø»–ŒŒ
     (ideograph-daikanwa . 43270)	; ø¸Š¤†
     (=ucs		. #x4AA9)	; äª©
     ))
@@ -112,7 +112,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4550)	; ø»–Œ‹
+    (=cns11643-3	. #x4550)	; ø»–Œ‹
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³
@@ -373,7 +373,7 @@
   '((ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x5953)	; ø»–©¦
+    (=cns11643-3	. #x5953)	; ø»–©¦
     (ideograph-daikanwa . 43302)	; ø¸Š¤¦
     (=ucs		. #x4AAD)	; äª­
     ))
@@ -464,7 +464,7 @@
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (chinese-cns11643-3 . #x5D53)	; ø»–¯ž
+    (=cns11643-3	. #x5D53)	; ø»–¯ž
     (=ucs		. #x97FC)	; éŸ¼
     ))
 (define-char
@@ -584,7 +584,7 @@
   '((ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
-    (chinese-cns11643-3 . #x5F75)	; ø»–²¼
+    (=cns11643-3	. #x5F75)	; ø»–²¼
     (ideograph-daikanwa . 43324)	; ø¸Š¤¼
     (=ucs		. #x4AB0)	; äª°
     ))

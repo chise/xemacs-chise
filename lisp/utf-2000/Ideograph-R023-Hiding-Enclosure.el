@@ -6,7 +6,7 @@
     (shinjigen-1	. 800)
     (shinjigen-2	. 800)
     (=jis-x0208		. #x523E)	; ø½Š¾—
-    (chinese-cns11643-3 . #x2129)	; ø»•–¬
+    (=cns11643-3	. #x2129)	; ø»•–¬
     (=gt-pj-1		. #x523E)	; åŒ¸
     (ideograph-daikanwa . 02672)	; ø¸€©°
     (=big5-cdp		. #x8A70)	; ý¢€ˆ©°
@@ -91,7 +91,7 @@
       )
      ((=ucs		  . #x3405)	; ã…
       ))
-    (chinese-cns11643-3 . #x2157)	; ø»•—š
+    (=cns11643-3	. #x2157)	; ø»•—š
     (ideograph-daikanwa . 02674)	; ø¸€©²
     ))
 (define-char
@@ -199,7 +199,7 @@
       )
      ((=ucs		  . #x77E2)	; çŸ¢
       ))
-    (chinese-cns11643-3 . #x2466)	; ø»•œƒ
+    (=cns11643-3	. #x2466)	; ø»•œƒ
     (ideograph-daikanwa . 02680)	; ø¸€©¸
     (=big5-cdp		. #x8CD3)	; ý¢€ˆ³“
     ))
@@ -317,7 +317,7 @@
       )
      ((=ucs		  . #x5338)	; åŒ¸
       )
-     ((chinese-cns11643-3 . #x2551)	; ø»•Œ
+     ((=cns11643-3	  . #x2551)	; ø»•Œ
       ))
     (=cns11643-2	. #x2936)	; ø»“˜¥
     ))
