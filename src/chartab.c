@@ -3372,28 +3372,25 @@ Save values of ATTRIBUTE into database file.
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
+  Lisp_Object db_file;
+  Lisp_Object db;
 
   if (CHAR_TABLEP (table))
     ct = XCHAR_TABLE (table);
   else
     return Qnil;
 
-  if (NILP (Fdatabase_live_p (ct->db)))
-    {
-      Lisp_Object db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
-
-      ct->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-    }
-  if (!NILP (ct->db))
+  db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+  db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
+  if (!NILP (db))
     {
       if (UINT8_BYTE_TABLE_P (ct->table))
-	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, ct->db, 0, 3);
+	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db, 0, 3);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, ct->db, 0, 3);
+	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db, 0, 3);
       else if (BYTE_TABLE_P (ct->table))
-	save_byte_table (XBYTE_TABLE(ct->table), ct, ct->db, 0, 3);
-      Fclose_database (ct->db);
-      ct->db = Qnil;
+	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3);
+      Fclose_database (db);
       return Qt;
     }
   else
@@ -3473,7 +3470,7 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 	  Lisp_Object db_file
 	    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-	  cit->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+	  cit->db = Fopen_database (db_file, Qnil, Qnil, build_string ("r"), Qnil);
 	}
       if (!NILP (cit->db))
 	{
@@ -3528,7 +3525,7 @@ Load values of ATTRIBUTE into database file.
 	  Lisp_Object db_file
 	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-	  ct->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+	  ct->db = Fopen_database (db_file, Qnil, Qnil, build_string ("r"), Qnil);
 	}
       if (!NILP (ct->db))
 	{
