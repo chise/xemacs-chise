@@ -3218,12 +3218,19 @@
     (=ucs@jis		. #x4A04)	; ø»¦¢ 
     ))
 (define-char
-  '((morohashi-daikanwa	42144 0 1)
+  '((=>ucs		. #x4A04)	; ä¨„
+    (morohashi-daikanwa	42144 0 1)
+    (ideographic-radical . 172)	; â¾«
+    (ideographic-strokes . 11)
+    (total-strokes	 . 19)
+    (=cns11643-3	. #x5B55)	; ø»–¬¤
+    ))
+(define-char
+  '((morohashi-daikanwa	42144 0 2)
     (ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
     (=ucs		. #x4A04)	; ä¨„
-    (=cns11643-3	. #x5B55)	; ø»–¬¤
     ))
 (define-char
   '((=>ucs*		. #x96E3)	; é›£
