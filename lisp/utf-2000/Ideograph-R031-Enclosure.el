@@ -178,29 +178,27 @@
     (=cns11643-4	. #x216E)	; &C4-216E; [01-78]
     ))
 (define-char
-  '((=>ucs		. #x56DB)	; 四
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (shinjigen-2	. 1299)
-    (=jis-x0208		. #x3B4D)	; &GT-05901; [27-45]
-    (=ks-x1001		. #x5E4C)	; &I-K0-5E4C; [62-44]
-    (=gt		. 05901)	; &I-GT-05901;
-    (=gt-k		. 00942)	; &I-GT-K00942;
-    (=gt-pj-1		. #x3B4D)	; &I-GT-05901; [27-45]
-    (=daikanwa		. 04682)	; &I-M-04682;
-    (=ucs@jis		. #x56DB)	; &GT-05901;
-    ))
-(define-char
-  '((morohashi-daikanwa	4682 0 0)
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 710 16)
     (=ucs		. #x56DB)	; 四
-    (=gb2312		. #x4B44)	; &I-G0-4B44; [43-36]
-    (=cns11643-1	. #x463E)	; &I-C1-463E; [38-30]
     (=big5		. #xA57C)	; &I-B-A57C;
+    (->subsumptive
+     ((shinjigen-2	  . 1299)
+      (=jis-x0208	  . #x3B4D)	; &GT-05901; [27-45]
+      (=ks-x1001	  . #x5E4C)	; &I-K0-5E4C; [62-44]
+      (=gt		  . 05901)	; &I-GT-05901;
+      (=gt-k		  . 00942)	; &I-GT-K00942;
+      (=gt-pj-1		  . #x3B4D)	; &I-GT-05901; [27-45]
+      (=daikanwa	  . 04682)	; &I-M-04682;
+      (=ucs@jis		  . #x56DB)	; &GT-05901;
+      )
+     ((=gb2312		  . #x4B44)	; &G0-4B44; [43-36]
+      (=ucs@unicode	  . #x56DB)	; &G0-4B44;
+      )
+     ((=cns11643-1	  . #x463E)	; &C1-463E; [38-30]
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -651,20 +649,51 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 715 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56DB)	; 四
-      )
-     ((=big5-cdp	  . #x8BC0)	; &CDP-8BC0;
-      ))
     (=ucs		. #x56E7)	; 囧
-    (=jis-x0212		. #x367A)	; &I-JSP-367A; [22-90]
-    (=cns11643-2	. #x2348)	; &I-C2-2348; [03-40]
-    (=big5		. #xCAA8)	; &I-B-CAA8;
-    (=daikanwa		. 04707)	; &I-M-04707;
-    (=jef-china3	. #x47BF)	; &I-JC3-47BF;
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x56E7)	; 囧
+      ))
+    (=big5		. #xCAA8)	; &B-CAA8;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=jis-x0208	    . #x3B4D)	; &GT-05901; [27-45]
+	(=ks-x1001	    . #x5E4C)	; &I-K0-5E4C; [62-44]
+	(=daikanwa	    . 04682)	; &I-M-04682;
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	))
+      (=jis-x0212	  . #x367A)	; &M-04707; [22-90]
+      (=daikanwa	  . 04707)	; &I-M-04707;
+      (=jef-china3	  . #x47BF)	; &I-JC3-47BF;
+      (=ucs@jis		  . #x56E7)	; &M-04707;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=cns11643-1	    . #x463E)	; &C1-463E; [38-30]
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	))
+      (=cns11643-2	  . #x2348)	; &C2-2348; [03-40]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x56E7)	; 囧
+      ))
+    (=ucs@unicode	. #x56E7)	; &UU+56E7;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -826,6 +855,7 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 715 5)
     (=ucs		. #x56EE)	; 囮
     (=big5		. #xCAA7)	; &I-B-CAA7;
     (->subsumptive
@@ -854,14 +884,13 @@
       (=cns11643-2	  . #x2347)	; &C2-2347; [03-39]
       (=ucs@cns		  . #x56EE)	; &C2-2347;
       )
-     ((hanyu-dazidian	  1 715 5)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
 	(=ucs		    . #x2FF4)	; ⿴
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@unicode	    . #x5316)	; &UU+5316;
+       ((=daikanwa	    . 02572)	; &M-02572;
 	))
       (=gt		  . 05931)	; &GT-05931;
       (=gt-pj-1		  . #x5379)	; &GT-05931; [51-89]
