@@ -416,7 +416,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c < MIN_CHAR_HEBREW)
+  if (c < MIN_CHAR_94)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -430,7 +430,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	    }
 	  charsets = Fcdr (charsets);	      
 	}
-      /* otherwise */
+      /* otherwise --- maybe for bootstrap */
       if (c <= MAX_CHAR_BASIC_LATIN)
 	{
 	  *charset = Vcharset_ascii;
@@ -461,55 +461,31 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c1 = c - MIN_CHAR_CYRILLIC + 0x20;
 	  *c2 = 0;
 	}
+      else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
+	{
+	  *charset = Vcharset_hebrew_iso8859_8;
+	  *c1 = c - MIN_CHAR_HEBREW + 0x20;
+	  *c2 = 0;
+	}
+      else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
+	{
+	  *charset = Vcharset_thai_tis620;
+	  *c1 = c - MIN_CHAR_THAI + 0x20;
+	  *c2 = 0;
+	}
+      else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
+	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
+	{
+	  *charset = Vcharset_katakana_jisx0201;
+	  *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
+	  *c2 = 0;
+	}
       else
 	{
 	  *charset = Vcharset_ucs_bmp;
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
 	}
-    }
-  else if (c <= MAX_CHAR_HEBREW)
-    {
-      *charset = Vcharset_hebrew_iso8859_8;
-      *c1 = c - MIN_CHAR_HEBREW + 0x20;
-      *c2 = 0;
-    }
-  else if (c < MIN_CHAR_THAI)
-    {
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
-    }
-  else if (c <= MAX_CHAR_THAI)
-    {
-      *charset = Vcharset_thai_tis620;
-      *c1 = c - MIN_CHAR_THAI + 0x20;
-      *c2 = 0;
-    }
-  else if (c < MIN_CHAR_HALFWIDTH_KATAKANA)
-    {
-      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
-      while (!EQ (charsets, Qnil))
-	{
-	  *charset = Ffind_charset (Fcar (charsets));
-	  if (!EQ (*charset, Qnil)
-	      && (*c1 = charset_get_byte1 (*charset, c)) )
-	    {
-	      *c2 = charset_get_byte2 (*charset, c);
-	      return;
-	    }
-	  charsets = Fcdr (charsets);	      
-	}
-      /* otherwise */
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
-    }
-  else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
-    {
-      *charset = Vcharset_katakana_jisx0201;
-      *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
-      *c2 = 0;
     }
   else if (c <= MAX_CHAR_94)
     {
