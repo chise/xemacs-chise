@@ -1,3 +1,18 @@
+2004-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add some Japanese vocal sounds.
+	(U+4E8F): Use `<-original-ideograph*sources' instead of char-ref
+	in `<-original-ideograph'.
+	(U+4E94): Add `decimal-digit-value', `digit-value' and
+	`numeric-value'.
+	(J0-5034): Moved into U+4E9F.
+	(U+4E9F): Use `->subsumptive'.
+
+	* Ideograph-R005-Second.el: Add some Japanese vocal sounds; use
+	`->subsumptive' for some characters.
+	(U+4E80): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
 2004-03-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R001-One.el: Add some Japanese vocal sounds.
@@ -28,6 +43,13 @@
 	* Ideograph-R002-Line.el (U+4E2D): Use Kunrei-based transcription
 	in `sound@ja/on'.
 	(U+4E32): Use Kunrei-based transcription in `sound@ja/kun'.
+
+2004-03-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el (U+51E1): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-';
+	add `sound@ja/{kun|on/{go|kan}}'.
 
 2004-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
