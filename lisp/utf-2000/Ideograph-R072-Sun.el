@@ -5251,6 +5251,17 @@
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 15)
+      (->same
+       ((=ucs		    . #x6635)	; 昵
+	(=daikanwa	    . 13866)	; &I-M-13866;
+	))
+      (->same*sources
+       shuowen daikanwa)
+      (->synonyms
+       ((=daikanwa	    . 00279)	; &I-M-00279;
+	))
+      (->synonyms*sources
+       shuowen-tongxun-dingsheng daikanwa)
       (=daikanwa	  . 14132)	; &M-14132;
       (=jef-china3	  . #x51EA)	; &I-JC3-51EA;
       )
@@ -5266,8 +5277,8 @@
       (total-strokes	   . 15)
       (<-original
        ((shinjigen-1	    . 3299)
+	(=ucs		    . #x6635)	; 昵
 	(=jis-x0208	    . #x5A63)	; &I-J90-5A63; [58-67]
-	(=daikanwa	    . 13866)	; &I-M-13866;
 	))
       (<-original*sources
        shinjigen-1)
