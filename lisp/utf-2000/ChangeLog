@@ -1,5 +1,23 @@
 2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R005-Second.el (U+9FB4): New character; unify BC-8B69.
+
+	* char-db-util.el (insert-char-data-with-variant): Don't refer
+	`->ucs'; fix problem about cyclic relations.
+
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F65): Add `<-denotational' for
+	J97-4927.
+	(J97-4927): New abstract character.
+	(U+5F66): Add `<-denotational' for J97-4927.
+
+	* Ideograph-R030-Mouth.el (U+356F): Changed to abstract character.
+	(U+5436): Use `->subsumptive'.
+	(U+5468): Changed to abstract character.
+
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R059-Bristle.el (U+5F65): Use `->subsumptive'.
 	(U+5F66): Likewise.
 
