@@ -1,0 +1,1081 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Coding System Properties,  Next: Basic Coding System Functions,  Prev: EOL Conversion,  Up: Coding Systems
+
+Coding System Properties
+------------------------
+
+`mnemonic'
+     String to be displayed in the modeline when this coding system is
+     active.
+
+`eol-type'
+     End-of-line conversion to be used.  It should be one of the types
+     listed in *Note EOL Conversion::.
+
+`eol-lf'
+     The coding system which is the same as this one, except that it
+     uses the Unix line-breaking convention.
+
+`eol-crlf'
+     The coding system which is the same as this one, except that it
+     uses the DOS line-breaking convention.
+
+`eol-cr'
+     The coding system which is the same as this one, except that it
+     uses the Macintosh line-breaking convention.
+
+`post-read-conversion'
+     Function called after a file has been read in, to perform the
+     decoding.  Called with two arguments, START and END, denoting a
+     region of the current buffer to be decoded.
+
+`pre-write-conversion'
+     Function called before a file is written out, to perform the
+     encoding.  Called with two arguments, START and END, denoting a
+     region of the current buffer to be encoded.
+
+   The following additional properties are recognized if TYPE is
+`iso2022':
+
+`charset-g0'
+`charset-g1'
+`charset-g2'
+`charset-g3'
+     The character set initially designated to the G0 - G3 registers.
+     The value should be one of
+
+        * A charset object (designate that character set)
+
+        * `nil' (do not ever use this register)
+
+        * `t' (no character set is initially designated to the
+          register, but may be later on; this automatically sets the
+          corresponding `force-g*-on-output' property)
+
+`force-g0-on-output'
+`force-g1-on-output'
+`force-g2-on-output'
+`force-g3-on-output'
+     If non-`nil', send an explicit designation sequence on output
+     before using the specified register.
+
+`short'
+     If non-`nil', use the short forms `ESC $ @', `ESC $ A', and `ESC $
+     B' on output in place of the full designation sequences `ESC $ (
+     @', `ESC $ ( A', and `ESC $ ( B'.
+
+`no-ascii-eol'
+     If non-`nil', don't designate ASCII to G0 at each end of line on
+     output.  Setting this to non-`nil' also suppresses other
+     state-resetting that normally happens at the end of a line.
+
+`no-ascii-cntl'
+     If non-`nil', don't designate ASCII to G0 before control chars on
+     output.
+
+`seven'
+     If non-`nil', use 7-bit environment on output.  Otherwise, use
+     8-bit environment.
+
+`lock-shift'
+     If non-`nil', use locking-shift (SO/SI) instead of single-shift or
+     designation by escape sequence.
+
+`no-iso6429'
+     If non-`nil', don't use ISO6429's direction specification.
+
+`escape-quoted'
+     If non-`nil', literal control characters that are the same as the
+     beginning of a recognized ISO 2022 or ISO 6429 escape sequence (in
+     particular, ESC (0x1B), SO (0x0E), SI (0x0F), SS2 (0x8E), SS3
+     (0x8F), and CSI (0x9B)) are "quoted" with an escape character so
+     that they can be properly distinguished from an escape sequence.
+     (Note that doing this results in a non-portable encoding.) This
+     encoding flag is used for byte-compiled files.  Note that ESC is a
+     good choice for a quoting character because there are no escape
+     sequences whose second byte is a character from the Control-0 or
+     Control-1 character sets; this is explicitly disallowed by the ISO
+     2022 standard.
+
+`input-charset-conversion'
+     A list of conversion specifications, specifying conversion of
+     characters in one charset to another when decoding is performed.
+     Each specification is a list of two elements: the source charset,
+     and the destination charset.
+
+`output-charset-conversion'
+     A list of conversion specifications, specifying conversion of
+     characters in one charset to another when encoding is performed.
+     The form of each specification is the same as for
+     `input-charset-conversion'.
+
+   The following additional properties are recognized (and required) if
+TYPE is `ccl':
+
+`decode'
+     CCL program used for decoding (converting to internal format).
+
+`encode'
+     CCL program used for encoding (converting to external format).
+
+   The following properties are used internally:  EOL-CR, EOL-CRLF,
+EOL-LF, and BASE.
+
+
+File: lispref.info,  Node: Basic Coding System Functions,  Next: Coding System Property Functions,  Prev: Coding System Properties,  Up: Coding Systems
+
+Basic Coding System Functions
+-----------------------------
+
+ - Function: find-coding-system coding-system-or-name
+     This function retrieves the coding system of the given name.
+
+     If CODING-SYSTEM-OR-NAME is a coding-system object, it is simply
+     returned.  Otherwise, CODING-SYSTEM-OR-NAME should be a symbol.
+     If there is no such coding system, `nil' is returned.  Otherwise
+     the associated coding system object is returned.
+
+ - Function: get-coding-system name
+     This function retrieves the coding system of the given name.  Same
+     as `find-coding-system' except an error is signalled if there is no
+     such coding system instead of returning `nil'.
+
+ - Function: coding-system-list
+     This function returns a list of the names of all defined coding
+     systems.
+
+ - Function: coding-system-name coding-system
+     This function returns the name of the given coding system.
+
+ - Function: coding-system-base coding-system
+     Returns the base coding system (undecided EOL convention) coding
+     system.
+
+ - Function: make-coding-system name type &optional doc-string props
+     This function registers symbol NAME as a coding system.
+
+     TYPE describes the conversion method used and should be one of the
+     types listed in *Note Coding System Types::.
+
+     DOC-STRING is a string describing the coding system.
+
+     PROPS is a property list, describing the specific nature of the
+     character set.  Recognized properties are as in *Note Coding
+     System Properties::.
+
+ - Function: copy-coding-system old-coding-system new-name
+     This function copies OLD-CODING-SYSTEM to NEW-NAME.  If NEW-NAME
+     does not name an existing coding system, a new one will be created.
+
+ - Function: subsidiary-coding-system coding-system eol-type
+     This function returns the subsidiary coding system of
+     CODING-SYSTEM with eol type EOL-TYPE.
+
+
+File: lispref.info,  Node: Coding System Property Functions,  Next: Encoding and Decoding Text,  Prev: Basic Coding System Functions,  Up: Coding Systems
+
+Coding System Property Functions
+--------------------------------
+
+ - Function: coding-system-doc-string coding-system
+     This function returns the doc string for CODING-SYSTEM.
+
+ - Function: coding-system-type coding-system
+     This function returns the type of CODING-SYSTEM.
+
+ - Function: coding-system-property coding-system prop
+     This function returns the PROP property of CODING-SYSTEM.
+
+
+File: lispref.info,  Node: Encoding and Decoding Text,  Next: Detection of Textual Encoding,  Prev: Coding System Property Functions,  Up: Coding Systems
+
+Encoding and Decoding Text
+--------------------------
+
+ - Function: decode-coding-region start end coding-system &optional
+          buffer
+     This function decodes the text between START and END which is
+     encoded in CODING-SYSTEM.  This is useful if you've read in
+     encoded text from a file without decoding it (e.g. you read in a
+     JIS-formatted file but used the `binary' or `no-conversion' coding
+     system, so that it shows up as `^[$B!<!+^[(B').  The length of the
+     encoded text is returned.  BUFFER defaults to the current buffer
+     if unspecified.
+
+ - Function: encode-coding-region start end coding-system &optional
+          buffer
+     This function encodes the text between START and END using
+     CODING-SYSTEM.  This will, for example, convert Japanese
+     characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
+     encoding.  The length of the encoded text is returned.  BUFFER
+     defaults to the current buffer if unspecified.
+
+
+File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
+
+Detection of Textual Encoding
+-----------------------------
+
+ - Function: coding-category-list
+     This function returns a list of all recognized coding categories.
+
+ - Function: set-coding-priority-list list
+     This function changes the priority order of the coding categories.
+     LIST should be a list of coding categories, in descending order of
+     priority.  Unspecified coding categories will be lower in priority
+     than all specified ones, in the same relative order they were in
+     previously.
+
+ - Function: coding-priority-list
+     This function returns a list of coding categories in descending
+     order of priority.
+
+ - Function: set-coding-category-system coding-category coding-system
+     This function changes the coding system associated with a coding
+     category.
+
+ - Function: coding-category-system coding-category
+     This function returns the coding system associated with a coding
+     category.
+
+ - Function: detect-coding-region start end &optional buffer
+     This function detects coding system of the text in the region
+     between START and END.  Returned value is a list of possible coding
+     systems ordered by priority.  If only ASCII characters are found,
+     it returns `autodetect' or one of its subsidiary coding systems
+     according to a detected end-of-line type.  Optional arg BUFFER
+     defaults to the current buffer.
+
+
+File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Next: Predefined Coding Systems,  Prev: Detection of Textual Encoding,  Up: Coding Systems
+
+Big5 and Shift-JIS Functions
+----------------------------
+
+   These are special functions for working with the non-standard
+Shift-JIS and Big5 encodings.
+
+ - Function: decode-shift-jis-char code
+     This function decodes a JIS X 0208 character of Shift-JIS
+     coding-system.  CODE is the character code in Shift-JIS as a cons
+     of type bytes.  The corresponding character is returned.
+
+ - Function: encode-shift-jis-char character
+     This function encodes a JIS X 0208 character CHARACTER to
+     SHIFT-JIS coding-system.  The corresponding character code in
+     SHIFT-JIS is returned as a cons of two bytes.
+
+ - Function: decode-big5-char code
+     This function decodes a Big5 character CODE of BIG5 coding-system.
+     CODE is the character code in BIG5.  The corresponding character
+     is returned.
+
+ - Function: encode-big5-char character
+     This function encodes the Big5 character CHARACTER to BIG5
+     coding-system.  The corresponding character code in Big5 is
+     returned.
+
+
+File: lispref.info,  Node: Predefined Coding Systems,  Prev: Big5 and Shift-JIS Functions,  Up: Coding Systems
+
+Coding Systems Implemented
+--------------------------
+
+   MULE initializes most of the commonly used coding systems at XEmacs's
+startup.  A few others are initialized only when the relevant language
+environment is selected and support libraries are loaded.  (NB: The
+following list is based on XEmacs 21.2.19, the development branch at the
+time of writing.  The list may be somewhat different for other
+versions.  Recent versions of GNU Emacs 20 implement a few more rare
+coding systems; work is being done to port these to XEmacs.)
+
+   Unfortunately, there is not a consistent naming convention for
+character sets, and for practical purposes coding systems often take
+their name from their principal character sets (ASCII, KOI8-R, Shift
+JIS).  Others take their names from the coding system (ISO-2022-JP,
+EUC-KR), and a few from their non-text usages (internal, binary).  To
+provide for this, and for the fact that many coding systems have
+several common names, an aliasing system is provided.  Finally, some
+effort has been made to use names that are registered as MIME charsets
+(this is why the name 'shift_jis contains that un-Lisp-y underscore).
+
+   There is a systematic naming convention regarding end-of-line (EOL)
+conventions for different systems.  A coding system whose name ends in
+"-unix" forces the assumptions that lines are broken by newlines (0x0A).
+A coding system whose name ends in "-mac" forces the assumptions that
+lines are broken by ASCII CRs (0x0D).  A coding system whose name ends
+in "-dos" forces the assumptions that lines are broken by CRLF sequences
+(0x0D 0x0A).  These subsidiary coding systems are automatically derived
+from a base coding system.  Use of the base coding system implies
+autodetection of the text file convention.  (The fact that the -unix,
+-mac, and -dos are derived from a base system results in them showing up
+as "aliases" in `list-coding-systems'.)  These subsidiaries have a
+consistent modeline indicator as well.  "-dos" coding systems have ":T"
+appended to their modeline indicator, while "-mac" coding systems have
+":t" appended (eg, "ISO8:t" for iso-2022-8-mac).
+
+   In the following table, each coding system is given with its mode
+line indicator in parentheses.  Non-textual coding systems are listed
+first, followed by textual coding systems and their aliases. (The
+coding system subsidiary modeline indicators ":T" and ":t" will be
+omitted from the table of coding systems.)
+
+   ### SJT 1999-08-23 Maybe should order these by language?  Definitely
+need language usage for the ISO-8859 family.
+
+   Note that although true coding system aliases have been implemented
+for XEmacs 21.2, the coding system initialization has not yet been
+converted as of 21.2.19.  So coding systems described as aliases have
+the same properties as the aliased coding system, but will not be equal
+as Lisp objects.
+
+`automatic-conversion'
+`undecided'
+`undecided-dos'
+`undecided-mac'
+`undecided-unix'
+     Modeline indicator: `Auto'.  A type `undecided' coding system.
+     Attempts to determine an appropriate coding system from file
+     contents or the environment.
+
+`raw-text'
+`no-conversion'
+`raw-text-dos'
+`raw-text-mac'
+`raw-text-unix'
+`no-conversion-dos'
+`no-conversion-mac'
+`no-conversion-unix'
+     Modeline indicator: `Raw'.  A type `no-conversion' coding system,
+     which converts only line-break-codes.  An implementation quirk
+     means that this coding system is also used for ISO8859-1.
+
+`binary'
+     Modeline indicator: `Binary'.  A type `no-conversion' coding
+     system which does no character coding or EOL conversions.  An
+     alias for `raw-text-unix'.
+
+`alternativnyj'
+`alternativnyj-dos'
+`alternativnyj-mac'
+`alternativnyj-unix'
+     Modeline indicator: `Cy.Alt'.  A type `ccl' coding system used for
+     Alternativnyj, an encoding of the Cyrillic alphabet.
+
+`big5'
+`big5-dos'
+`big5-mac'
+`big5-unix'
+     Modeline indicator: `Zh/Big5'.  A type `big5' coding system used
+     for BIG5, the most common encoding of traditional Chinese as used
+     in Taiwan.
+
+`cn-gb-2312'
+`cn-gb-2312-dos'
+`cn-gb-2312-mac'
+`cn-gb-2312-unix'
+     Modeline indicator: `Zh-GB/EUC'.  A type `iso2022' coding system
+     used for simplified Chinese (as used in the People's Republic of
+     China), with the `ascii' (G0), `chinese-gb2312' (G1), and `sisheng'
+     (G2) character sets initially designated.  Chinese EUC (Extended
+     Unix Code).
+
+`ctext-hebrew'
+`ctext-hebrew-dos'
+`ctext-hebrew-mac'
+`ctext-hebrew-unix'
+     Modeline indicator: `CText/Hbrw'.  A type `iso2022' coding system
+     with the `ascii' (G0) and `hebrew-iso8859-8' (G1) character sets
+     initially designated for Hebrew.
+
+`ctext'
+`ctext-dos'
+`ctext-mac'
+`ctext-unix'
+     Modeline indicator: `CText'.  A type `iso2022' 8-bit coding system
+     with the `ascii' (G0) and `latin-iso8859-1' (G1) character sets
+     initially designated.  X11 Compound Text Encoding.  Often
+     mistakenly recognized instead of EUC encodings; usual cause is
+     inappropriate setting of `coding-priority-list'.
+
+`escape-quoted'
+     Modeline indicator: `ESC/Quot'.  A type `iso2022' 8-bit coding
+     system with the `ascii' (G0) and `latin-iso8859-1' (G1) character
+     sets initially designated and escape quoting.  Unix EOL conversion
+     (ie, no conversion).  It is used for .ELC files.
+
+`euc-jp'
+`euc-jp-dos'
+`euc-jp-mac'
+`euc-jp-unix'
+     Modeline indicator: `Ja/EUC'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0), `japanese-jisx0208' (G1), `katakana-jisx0201'
+     (G2), and `japanese-jisx0212' (G3) initially designated.  Japanese
+     EUC (Extended Unix Code).
+
+`euc-kr'
+`euc-kr-dos'
+`euc-kr-mac'
+`euc-kr-unix'
+     Modeline indicator: `ko/EUC'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
+     Korean EUC (Extended Unix Code).
+
+`hz-gb-2312'
+     Modeline indicator: `Zh-GB/Hz'.  A type `no-conversion' coding
+     system with Unix EOL convention (ie, no conversion) using
+     post-read-decode and pre-write-encode functions to translate the
+     Hz/ZW coding system used for Chinese.
+
+`iso-2022-7bit'
+`iso-2022-7bit-unix'
+`iso-2022-7bit-dos'
+`iso-2022-7bit-mac'
+`iso-2022-7'
+     Modeline indicator: `ISO7'.  A type `iso2022' 7-bit coding system
+     with `ascii' (G0) initially designated.  Other character sets must
+     be explicitly designated to be used.
+
+`iso-2022-7bit-ss2'
+`iso-2022-7bit-ss2-dos'
+`iso-2022-7bit-ss2-mac'
+`iso-2022-7bit-ss2-unix'
+     Modeline indicator: `ISO7/SS'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated.  Other character
+     sets must be explicitly designated to be used.  SS2 is used to
+     invoke a 96-charset, one character at a time.
+
+`iso-2022-8'
+`iso-2022-8-dos'
+`iso-2022-8-mac'
+`iso-2022-8-unix'
+     Modeline indicator: `ISO8'.  A type `iso2022' 8-bit coding system
+     with `ascii' (G0) and `latin-iso8859-1' (G1) initially designated.
+     Other character sets must be explicitly designated to be used.
+     No single-shift or locking-shift.
+
+`iso-2022-8bit-ss2'
+`iso-2022-8bit-ss2-dos'
+`iso-2022-8bit-ss2-mac'
+`iso-2022-8bit-ss2-unix'
+     Modeline indicator: `ISO8/SS'.  A type `iso2022' 8-bit coding
+     system with `ascii' (G0) and `latin-iso8859-1' (G1) initially
+     designated.  Other character sets must be explicitly designated to
+     be used.  SS2 is used to invoke a 96-charset, one character at a
+     time.
+
+`iso-2022-int-1'
+`iso-2022-int-1-dos'
+`iso-2022-int-1-mac'
+`iso-2022-int-1-unix'
+     Modeline indicator: `INT-1'.  A type `iso2022' 7-bit coding system
+     with `ascii' (G0) and `korean-ksc5601' (G1) initially designated.
+     ISO-2022-INT-1.
+
+`iso-2022-jp-1978-irv'
+`iso-2022-jp-1978-irv-dos'
+`iso-2022-jp-1978-irv-mac'
+`iso-2022-jp-1978-irv-unix'
+     Modeline indicator: `Ja-78/7bit'.  A type `iso2022' 7-bit coding
+     system.  For compatibility with old Japanese terminals; if you
+     need to know, look at the source.
+
+`iso-2022-jp'
+`iso-2022-jp-2 (ISO7/SS)'
+`iso-2022-jp-dos'
+`iso-2022-jp-mac'
+`iso-2022-jp-unix'
+`iso-2022-jp-2-dos'
+`iso-2022-jp-2-mac'
+`iso-2022-jp-2-unix'
+     Modeline indicator: `MULE/7bit'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated, and complex
+     specifications to insure backward compatibility with old Japanese
+     systems.  Used for communication with mail and news in Japan.  The
+     "-2" versions also use SS2 to invoke a 96-charset one character at
+     a time.
+
+`iso-2022-kr'
+     Modeline indicator: `Ko/7bit'  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) and `korean-ksc5601' (G1) initially
+     designated.  Used for e-mail in Korea.
+
+`iso-2022-lock'
+`iso-2022-lock-dos'
+`iso-2022-lock-mac'
+`iso-2022-lock-unix'
+     Modeline indicator: `ISO7/Lock'.  A type `iso2022' 7-bit coding
+     system with `ascii' (G0) initially designated, using Locking-Shift
+     to invoke a 96-charset.
+
+`iso-8859-1'
+`iso-8859-1-dos'
+`iso-8859-1-mac'
+`iso-8859-1-unix'
+     Due to implementation, this is not a type `iso2022' coding system,
+     but rather an alias for the `raw-text' coding system.
+
+`iso-8859-2'
+`iso-8859-2-dos'
+`iso-8859-2-mac'
+`iso-8859-2-unix'
+     Modeline indicator: `MIME/Ltn-2'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-2' (G1) initially invoked.
+
+`iso-8859-3'
+`iso-8859-3-dos'
+`iso-8859-3-mac'
+`iso-8859-3-unix'
+     Modeline indicator: `MIME/Ltn-3'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-3' (G1) initially invoked.
+
+`iso-8859-4'
+`iso-8859-4-dos'
+`iso-8859-4-mac'
+`iso-8859-4-unix'
+     Modeline indicator: `MIME/Ltn-4'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-4' (G1) initially invoked.
+
+`iso-8859-5'
+`iso-8859-5-dos'
+`iso-8859-5-mac'
+`iso-8859-5-unix'
+     Modeline indicator: `ISO8/Cyr'.  A type `iso2022' coding system
+     with `ascii' (G0) and `cyrillic-iso8859-5' (G1) initially invoked.
+
+`iso-8859-7'
+`iso-8859-7-dos'
+`iso-8859-7-mac'
+`iso-8859-7-unix'
+     Modeline indicator: `Grk'.  A type `iso2022' coding system with
+     `ascii' (G0) and `greek-iso8859-7' (G1) initially invoked.
+
+`iso-8859-8'
+`iso-8859-8-dos'
+`iso-8859-8-mac'
+`iso-8859-8-unix'
+     Modeline indicator: `MIME/Hbrw'.  A type `iso2022' coding system
+     with `ascii' (G0) and `hebrew-iso8859-8' (G1) initially invoked.
+
+`iso-8859-9'
+`iso-8859-9-dos'
+`iso-8859-9-mac'
+`iso-8859-9-unix'
+     Modeline indicator: `MIME/Ltn-5'.  A type `iso2022' coding system
+     with `ascii' (G0) and `latin-iso8859-9' (G1) initially invoked.
+
+`koi8-r'
+`koi8-r-dos'
+`koi8-r-mac'
+`koi8-r-unix'
+     Modeline indicator: `KOI8'.  A type `ccl' coding-system used for
+     KOI8-R, an encoding of the Cyrillic alphabet.
+
+`shift_jis'
+`shift_jis-dos'
+`shift_jis-mac'
+`shift_jis-unix'
+     Modeline indicator: `Ja/SJIS'.  A type `shift-jis' coding-system
+     implementing the Shift-JIS encoding for Japanese.  The underscore
+     is to conform to the MIME charset implementing this encoding.
+
+`tis-620'
+`tis-620-dos'
+`tis-620-mac'
+`tis-620-unix'
+     Modeline indicator: `TIS620'.  A type `ccl' encoding for Thai.  The
+     external encoding is defined by TIS620, the internal encoding is
+     peculiar to MULE, and called `thai-xtis'.
+
+`viqr'
+     Modeline indicator: `VIQR'.  A type `no-conversion' coding system
+     with Unix EOL convention (ie, no conversion) using
+     post-read-decode and pre-write-encode functions to translate the
+     VIQR coding system for Vietnamese.
+
+`viscii'
+`viscii-dos'
+`viscii-mac'
+`viscii-unix'
+     Modeline indicator: `VISCII'.  A type `ccl' coding-system used for
+     VISCII 1.1 for Vietnamese.  Differs slightly from VSCII; VISCII is
+     given priority by XEmacs.
+
+`vscii'
+`vscii-dos'
+`vscii-mac'
+`vscii-unix'
+     Modeline indicator: `VSCII'.  A type `ccl' coding-system used for
+     VSCII 1.1 for Vietnamese.  Differs slightly from VISCII, which is
+     given priority by XEmacs.  Use `(prefer-coding-system
+     'vietnamese-vscii)' to give priority to VSCII.
+
+
+File: lispref.info,  Node: CCL,  Next: Category Tables,  Prev: Coding Systems,  Up: MULE
+
+CCL
+===
+
+   CCL (Code Conversion Language) is a simple structured programming
+language designed for character coding conversions.  A CCL program is
+compiled to CCL code (represented by a vector of integers) and executed
+by the CCL interpreter embedded in Emacs.  The CCL interpreter
+implements a virtual machine with 8 registers called `r0', ..., `r7', a
+number of control structures, and some I/O operators.  Take care when
+using registers `r0' (used in implicit "set" statements) and especially
+`r7' (used internally by several statements and operations, especially
+for multiple return values and I/O operations).
+
+   CCL is used for code conversion during process I/O and file I/O for
+non-ISO2022 coding systems.  (It is the only way for a user to specify a
+code conversion function.)  It is also used for calculating the code
+point of an X11 font from a character code.  However, since CCL is
+designed as a powerful programming language, it can be used for more
+generic calculation where efficiency is demanded.  A combination of
+three or more arithmetic operations can be calculated faster by CCL than
+by Emacs Lisp.
+
+   *Warning:*  The code in `src/mule-ccl.c' and
+`$packages/lisp/mule-base/mule-ccl.el' is the definitive description of
+CCL's semantics.  The previous version of this section contained
+several typos and obsolete names left from earlier versions of MULE,
+and many may remain.  (I am not an experienced CCL programmer; the few
+who know CCL well find writing English painful.)
+
+   A CCL program transforms an input data stream into an output data
+stream.  The input stream, held in a buffer of constant bytes, is left
+unchanged.  The buffer may be filled by an external input operation,
+taken from an Emacs buffer, or taken from a Lisp string.  The output
+buffer is a dynamic array of bytes, which can be written by an external
+output operation, inserted into an Emacs buffer, or returned as a Lisp
+string.
+
+   A CCL program is a (Lisp) list containing two or three members.  The
+first member is the "buffer magnification", which indicates the
+required minimum size of the output buffer as a multiple of the input
+buffer.  It is followed by the "main block" which executes while there
+is input remaining, and an optional "EOF block" which is executed when
+the input is exhausted.  Both the main block and the EOF block are CCL
+blocks.
+
+   A "CCL block" is either a CCL statement or list of CCL statements.
+A "CCL statement" is either a "set statement" (either an integer or an
+"assignment", which is a list of a register to receive the assignment,
+an assignment operator, and an expression) or a "control statement" (a
+list starting with a keyword, whose allowable syntax depends on the
+keyword).
+
+* Menu:
+
+* CCL Syntax::          CCL program syntax in BNF notation.
+* CCL Statements::      Semantics of CCL statements.
+* CCL Expressions::     Operators and expressions in CCL.
+* Calling CCL::         Running CCL programs.
+* CCL Examples::        The encoding functions for Big5 and KOI-8.
+
+
+File: lispref.info,  Node: CCL Syntax,  Next: CCL Statements,  Up: CCL
+
+CCL Syntax
+----------
+
+   The full syntax of a CCL program in BNF notation:
+
+CCL_PROGRAM :=
+        (BUFFER_MAGNIFICATION
+         CCL_MAIN_BLOCK
+         [ CCL_EOF_BLOCK ])
+
+BUFFER_MAGNIFICATION := integer
+CCL_MAIN_BLOCK := CCL_BLOCK
+CCL_EOF_BLOCK := CCL_BLOCK
+
+CCL_BLOCK :=
+        STATEMENT | (STATEMENT [STATEMENT ...])
+STATEMENT :=
+        SET | IF | BRANCH | LOOP | REPEAT | BREAK | READ | WRITE
+        | CALL | END
+
+SET :=
+        (REG = EXPRESSION)
+        | (REG ASSIGNMENT_OPERATOR EXPRESSION)
+        | integer
+
+EXPRESSION := ARG | (EXPRESSION OPERATOR ARG)
+
+IF := (if EXPRESSION CCL_BLOCK [CCL_BLOCK])
+BRANCH := (branch EXPRESSION CCL_BLOCK [CCL_BLOCK ...])
+LOOP := (loop STATEMENT [STATEMENT ...])
+BREAK := (break)
+REPEAT :=
+        (repeat)
+        | (write-repeat [REG | integer | string])
+        | (write-read-repeat REG [integer | ARRAY])
+READ :=
+        (read REG ...)
+        | (read-if (REG OPERATOR ARG) CCL_BLOCK CCL_BLOCK)
+        | (read-branch REG CCL_BLOCK [CCL_BLOCK ...])
+WRITE :=
+        (write REG ...)
+        | (write EXPRESSION)
+        | (write integer) | (write string) | (write REG ARRAY)
+        | string
+CALL := (call ccl-program-name)
+END := (end)
+
+REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
+ARG := REG | integer
+OPERATOR :=
+        + | - | * | / | % | & | '|' | ^ | << | >> | <8 | >8 | //
+        | < | > | == | <= | >= | != | de-sjis | en-sjis
+ASSIGNMENT_OPERATOR :=
+        += | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
+ARRAY := '[' integer ... ']'
+
+
+File: lispref.info,  Node: CCL Statements,  Next: CCL Expressions,  Prev: CCL Syntax,  Up: CCL
+
+CCL Statements
+--------------
+
+   The Emacs Code Conversion Language provides the following statement
+types: "set", "if", "branch", "loop", "repeat", "break", "read",
+"write", "call", and "end".
+
+Set statement:
+==============
+
+   The "set" statement has three variants with the syntaxes `(REG =
+EXPRESSION)', `(REG ASSIGNMENT_OPERATOR EXPRESSION)', and `INTEGER'.
+The assignment operator variation of the "set" statement works the same
+way as the corresponding C expression statement does.  The assignment
+operators are `+=', `-=', `*=', `/=', `%=', `&=', `|=', `^=', `<<=',
+and `>>=', and they have the same meanings as in C.  A "naked integer"
+INTEGER is equivalent to a SET statement of the form `(r0 = INTEGER)'.
+
+I/O statements:
+===============
+
+   The "read" statement takes one or more registers as arguments.  It
+reads one byte (a C char) from the input into each register in turn.
+
+   The "write" takes several forms.  In the form `(write REG ...)' it
+takes one or more registers as arguments and writes each in turn to the
+output.  The integer in a register (interpreted as an Emchar) is
+encoded to multibyte form (ie, Bufbytes) and written to the current
+output buffer.  If it is less than 256, it is written as is.  The forms
+`(write EXPRESSION)' and `(write INTEGER)' are treated analogously.
+The form `(write STRING)' writes the constant string to the output.  A
+"naked string" `STRING' is equivalent to the statement `(write
+STRING)'.  The form `(write REG ARRAY)' writes the REGth element of the
+ARRAY to the output.
+
+Conditional statements:
+=======================
+
+   The "if" statement takes an EXPRESSION, a CCL BLOCK, and an optional
+SECOND CCL BLOCK as arguments.  If the EXPRESSION evaluates to
+non-zero, the first CCL BLOCK is executed.  Otherwise, if there is a
+SECOND CCL BLOCK, it is executed.
+
+   The "read-if" variant of the "if" statement takes an EXPRESSION, a
+CCL BLOCK, and an optional SECOND CCL BLOCK as arguments.  The
+EXPRESSION must have the form `(REG OPERATOR OPERAND)' (where OPERAND is
+a register or an integer).  The `read-if' statement first reads from
+the input into the first register operand in the EXPRESSION, then
+conditionally executes a CCL block just as the `if' statement does.
+
+   The "branch" statement takes an EXPRESSION and one or more CCL
+blocks as arguments.  The CCL blocks are treated as a zero-indexed
+array, and the `branch' statement uses the EXPRESSION as the index of
+the CCL block to execute.  Null CCL blocks may be used as no-ops,
+continuing execution with the statement following the `branch'
+statement in the containing CCL block.  Out-of-range values for the
+EXPRESSION are also treated as no-ops.
+
+   The "read-branch" variant of the "branch" statement takes an
+REGISTER, a CCL BLOCK, and an optional SECOND CCL BLOCK as arguments.
+The `read-branch' statement first reads from the input into the
+REGISTER, then conditionally executes a CCL block just as the `branch'
+statement does.
+
+Loop control statements:
+========================
+
+   The "loop" statement creates a block with an implied jump from the
+end of the block back to its head.  The loop is exited on a `break'
+statement, and continued without executing the tail by a `repeat'
+statement.
+
+   The "break" statement, written `(break)', terminates the current
+loop and continues with the next statement in the current block.
+
+   The "repeat" statement has three variants, `repeat', `write-repeat',
+and `write-read-repeat'.  Each continues the current loop from its
+head, possibly after performing I/O.  `repeat' takes no arguments and
+does no I/O before jumping.  `write-repeat' takes a single argument (a
+register, an integer, or a string), writes it to the output, then jumps.
+`write-read-repeat' takes one or two arguments.  The first must be a
+register.  The second may be an integer or an array; if absent, it is
+implicitly set to the first (register) argument.  `write-read-repeat'
+writes its second argument to the output, then reads from the input
+into the register, and finally jumps.  See the `write' and `read'
+statements for the semantics of the I/O operations for each type of
+argument.
+
+Other control statements:
+=========================
+
+   The "call" statement, written `(call CCL-PROGRAM-NAME)', executes a
+CCL program as a subroutine.  It does not return a value to the caller,
+but can modify the register status.
+
+   The "end" statement, written `(end)', terminates the CCL program
+successfully, and returns to caller (which may be a CCL program).  It
+does not alter the status of the registers.
+
+
+File: lispref.info,  Node: CCL Expressions,  Next: Calling CCL,  Prev: CCL Statements,  Up: CCL
+
+CCL Expressions
+---------------
+
+   CCL, unlike Lisp, uses infix expressions.  The simplest CCL
+expressions consist of a single OPERAND, either a register (one of `r0',
+..., `r0') or an integer.  Complex expressions are lists of the form `(
+EXPRESSION OPERATOR OPERAND )'.  Unlike C, assignments are not
+expressions.
+
+   In the following table, X is the target resister for a "set".  In
+subexpressions, this is implicitly `r7'.  This means that `>8', `//',
+`de-sjis', and `en-sjis' cannot be used freely in subexpressions, since
+they return parts of their values in `r7'.  Y may be an expression,
+register, or integer, while Z must be a register or an integer.
+
+Name             Operator   Code   C-like Description
+CCL_PLUS         `+'        0x00   X = Y + Z
+CCL_MINUS        `-'        0x01   X = Y - Z
+CCL_MUL          `*'        0x02   X = Y * Z
+CCL_DIV          `/'        0x03   X = Y / Z
+CCL_MOD          `%'        0x04   X = Y % Z
+CCL_AND          `&'        0x05   X = Y & Z
+CCL_OR           `|'        0x06   X = Y | Z
+CCL_XOR          `^'        0x07   X = Y ^ Z
+CCL_LSH          `<<'       0x08   X = Y << Z
+CCL_RSH          `>>'       0x09   X = Y >> Z
+CCL_LSH8         `<8'       0x0A   X = (Y << 8) | Z
+CCL_RSH8         `>8'       0x0B   X = Y >> 8, r[7] = Y & 0xFF
+CCL_DIVMOD       `//'       0x0C   X = Y / Z, r[7] = Y % Z
+CCL_LS           `<'        0x10   X = (X < Y)
+CCL_GT           `>'        0x11   X = (X > Y)
+CCL_EQ           `=='       0x12   X = (X == Y)
+CCL_LE           `<='       0x13   X = (X <= Y)
+CCL_GE           `>='       0x14   X = (X >= Y)
+CCL_NE           `!='       0x15   X = (X != Y)
+CCL_ENCODE_SJIS  `en-sjis'  0x16   X = HIGHER_BYTE (SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (SJIS (Y, Z)
+CCL_DECODE_SJIS  `de-sjis'  0x17   X = HIGHER_BYTE (DE-SJIS (Y, Z))
+                                   r[7] = LOWER_BYTE (DE-SJIS (Y, Z))
+
+   The CCL operators are as in C, with the addition of CCL_LSH8,
+CCL_RSH8, CCL_DIVMOD, CCL_ENCODE_SJIS, and CCL_DECODE_SJIS.  The
+CCL_ENCODE_SJIS and CCL_DECODE_SJIS treat their first and second bytes
+as the high and low bytes of a two-byte character code.  (SJIS stands
+for Shift JIS, an encoding of Japanese characters used by Microsoft.
+CCL_ENCODE_SJIS is a complicated transformation of the Japanese
+standard JIS encoding to Shift JIS.  CCL_DECODE_SJIS is its inverse.)
+It is somewhat odd to represent the SJIS operations in infix form.
+
+
+File: lispref.info,  Node: Calling CCL,  Next: CCL Examples,  Prev: CCL Expressions,  Up: CCL
+
+Calling CCL
+-----------
+
+   CCL programs are called automatically during Emacs buffer I/O when
+the external representation has a coding system type of `shift-jis',
+`big5', or `ccl'.  The program is specified by the coding system (*note
+Coding Systems::).  You can also call CCL programs from other CCL
+programs, and from Lisp using these functions:
+
+ - Function: ccl-execute ccl-program status
+     Execute CCL-PROGRAM with registers initialized by STATUS.
+     CCL-PROGRAM is a vector of compiled CCL code created by
+     `ccl-compile'.  It is an error for the program to try to execute a
+     CCL I/O command.  STATUS must be a vector of nine values,
+     specifying the initial value for the R0, R1 .. R7 registers and
+     for the instruction counter IC.  A `nil' value for a register
+     initializer causes the register to be set to 0.  A `nil' value for
+     the IC initializer causes execution to start at the beginning of
+     the program.  When the program is done, STATUS is modified (by
+     side-effect) to contain the ending values for the corresponding
+     registers and IC.
+
+ - Function: ccl-execute-on-string ccl-program status string &optional
+          continue
+     Execute CCL-PROGRAM with initial STATUS on STRING.  CCL-PROGRAM is
+     a vector of compiled CCL code created by `ccl-compile'.  STATUS
+     must be a vector of nine values, specifying the initial value for
+     the R0, R1 .. R7 registers and for the instruction counter IC.  A
+     `nil' value for a register initializer causes the register to be
+     set to 0.  A `nil' value for the IC initializer causes execution
+     to start at the beginning of the program.  An optional fourth
+     argument CONTINUE, if non-`nil', causes the IC to remain on the
+     unsatisfied read operation if the program terminates due to
+     exhaustion of the input buffer.  Otherwise the IC is set to the end
+     of the program.  When the program is done, STATUS is modified (by
+     side-effect) to contain the ending values for the corresponding
+     registers and IC.  Returns the resulting string.
+
+   To call a CCL program from another CCL program, it must first be
+registered:
+
+ - Function: register-ccl-program name ccl-program
+     Register NAME for CCL program CCL-PROGRAM in `ccl-program-table'.
+     CCL-PROGRAM should be the compiled form of a CCL program, or
+     `nil'.  Return index number of the registered CCL program.
+
+   Information about the processor time used by the CCL interpreter can
+be obtained using these functions:
+
+ - Function: ccl-elapsed-time
+     Returns the elapsed processor time of the CCL interpreter as cons
+     of user and system time, as floating point numbers measured in
+     seconds.  If only one overall value can be determined, the return
+     value will be a cons of that value and 0.
+
+ - Function: ccl-reset-elapsed-time
+     Resets the CCL interpreter's internal elapsed time registers.
+
+
+File: lispref.info,  Node: CCL Examples,  Prev: Calling CCL,  Up: CCL
+
+CCL Examples
+------------
+
+   This section is not yet written.
+
+
+File: lispref.info,  Node: Category Tables,  Prev: CCL,  Up: MULE
+
+Category Tables
+===============
+
+   A category table is a type of char table used for keeping track of
+categories.  Categories are used for classifying characters for use in
+regexps--you can refer to a category rather than having to use a
+complicated [] expression (and category lookups are significantly
+faster).
+
+   There are 95 different categories available, one for each printable
+character (including space) in the ASCII charset.  Each category is
+designated by one such character, called a "category designator".  They
+are specified in a regexp using the syntax `\cX', where X is a category
+designator. (This is not yet implemented.)
+
+   A category table specifies, for each character, the categories that
+the character is in.  Note that a character can be in more than one
+category.  More specifically, a category table maps from a character to
+either the value `nil' (meaning the character is in no categories) or a
+95-element bit vector, specifying for each of the 95 categories whether
+the character is in that category.
+
+   Special Lisp functions are provided that abstract this, so you do not
+have to directly manipulate bit vectors.
+
+ - Function: category-table-p object
+     This function returns `t' if OBJECT is a category table.
+
+ - Function: category-table &optional buffer
+     This function returns the current category table.  This is the one
+     specified by the current buffer, or by BUFFER if it is non-`nil'.
+
+ - Function: standard-category-table
+     This function returns the standard category table.  This is the
+     one used for new buffers.
+
+ - Function: copy-category-table &optional category-table
+     This function returns a new category table which is a copy of
+     CATEGORY-TABLE, which defaults to the standard category table.
+
+ - Function: set-category-table category-table &optional buffer
+     This function selects CATEGORY-TABLE as the new category table for
+     BUFFER.  BUFFER defaults to the current buffer if omitted.
+
+ - Function: category-designator-p object
+     This function returns `t' if OBJECT is a category designator (a
+     char in the range `' '' to `'~'').
+
+ - Function: category-table-value-p object
+     This function returns `t' if OBJECT is a category table value.
+     Valid values are `nil' or a bit vector of size 95.
+
+
+File: lispref.info,  Node: Tips,  Next: Building XEmacs and Object Allocation,  Prev: MULE,  Up: Top
+
+Tips and Standards
+******************
+
+   This chapter describes no additional features of XEmacs Lisp.
+Instead it gives advice on making effective use of the features
+described in the previous chapters.
+
+* Menu:
+
+* Style Tips::                Writing clean and robust programs.
+* Compilation Tips::          Making compiled code run fast.
+* Documentation Tips::        Writing readable documentation strings.
+* Comment Tips::	      Conventions for writing comments.
+* Library Headers::           Standard headers for library packages.
+
