@@ -1,3 +1,12 @@
+1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el (chinese-cns11643-3): Don't define if `utf-2000'
+	is provided because it is defined as builtin charset.
+	(chinese-cns11643-4): Likewise.
+	(chinese-cns11643-5): Likewise.
+	(chinese-cns11643-6): Likewise.
+	(chinese-cns11643-7): Likewise.
+
 1999-08-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-cmds.el (reset-language-environment): Fix problem when
