@@ -9076,6 +9076,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (=jis-x0208		. #x6459)	; ø½‹™Ž
+    (=ucs@jis		. #x7C4F)	; ø½‹™Ž
     (mojikyo		. 050025)	; ý €Œ©
     ))
 (define-char
