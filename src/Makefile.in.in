@@ -309,18 +309,10 @@ mo_dir = ${etcdir}
 mo_file = ${mo_dir}emacs.mo
 #endif
 
-#ifdef WINDOWSNT
-LOADPATH   =  EMACSBOOTSTRAPLOADPATH="${lispdir};${blddir}"
-MODULEPATH =  EMACSBOOTSTRAPMODULEPATH="${moduledir};${blddir}"
-#else
-LOADPATH   =  EMACSBOOTSTRAPLOADPATH="${lispdir}:${blddir}"
-MODULEPATH =  EMACSBOOTSTRAPMODULEPATH="${moduledir}:${blddir}"
-#endif
-DUMPENV = $(LOADPATH) $(MODULEPATH)
-temacs_loadup = $(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el
+temacs_loadup = ./temacs -batch -l ${srcdir}/../lisp/loadup.el
 dump_temacs   = ${temacs_loadup} dump
 run_temacs    = ${temacs_loadup} run-temacs
-debug_temacs = $(DUMPENV) gdb temacs
+debug_temacs = gdb temacs
 
 release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 #ifdef CANNOT_DUMP
@@ -329,7 +321,7 @@ release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 	-if [ -w ${srcdir}/../lisp ]; then \
 	  w=`pwd`; cd ${srcdir} && $${w}/temacs -batch -l ${srcdir}/../lisp/inc-vers; \
 	else true; fi
-	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
+	-./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
 	touch release
 #endif /* ! defined (CANNOT_DUMP) */
 
@@ -362,7 +354,7 @@ FRC.update-elc.stamp :
 
 update-elc.stamp : temacs FRC.update-elc.stamp
 	@touch NOBYTECOMPILE
-	${DUMPENV} ./temacs -batch -l ${srcdir}/../lisp/update-elc.el
+	./temacs -batch -l ${srcdir}/../lisp/update-elc.el
 	@if test ! -f $@ -o -f NOBYTECOMPILE; then touch $@; fi; \
 	 $(RM) NOBYTECOMPILE
 

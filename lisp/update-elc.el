@@ -62,7 +62,8 @@
 ;		    ;; -batch gets filtered out.
 ;		    (nthcdr 3 command-line-args))))
 
-(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
+(let ((build-root (expand-file-name ".." invocation-directory)))
+  (setq load-path (list (expand-file-name "lisp" build-root))))
 
 (load "very-early-lisp" nil t)
 

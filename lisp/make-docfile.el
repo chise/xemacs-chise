@@ -75,7 +75,8 @@
   (setq command-line-args (cdr command-line-args)))
 
 ;; Then process the list of Lisp files.
-(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
+(let ((build-root (expand-file-name ".." invocation-directory)))
+  (setq load-path (list (expand-file-name "lisp" build-root))))
 
 (load "very-early-lisp" nil t)
 
@@ -85,10 +86,6 @@
 (load "packages.el")
 (load "setup-paths.el")
 (load "dump-paths.el")
-
-(setq
- load-path
- (nconc load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH"))))
 
 (let (preloaded-file-list)
   (load (expand-file-name "../lisp/dumped-lisp.el"))

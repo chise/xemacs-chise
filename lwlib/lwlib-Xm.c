@@ -791,8 +791,6 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
   /* Common to all widget types */
   XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
   XtSetArg (al [ac], XmNuserData,  val->call_data);	ac++;
-  lw_add_value_args_to_args (val, al, &ac);
-
   XtSetValues (widget, al, ac);
 
 #if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
@@ -856,6 +854,9 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
       xm_update_scrollbar (instance, widget, val);
     }
 #endif
+  /* Lastly update our global arg values. */
+  if (val->args && val->args->nargs)
+    XtSetValues (widget, val->args->args, val->args->nargs);
 }
 
 /* getting the value back */

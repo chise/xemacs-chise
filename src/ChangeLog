@@ -1,3 +1,26 @@
+2000-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.31 is released.
+
+2000-02-22  Ben Wing <ben@xemacs.org>
+
+	* ntheap.c (allocate_heap): Make sure `ptr' is initialized.
+
+2000-02-22  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): don't explicitly resize here.
+
+2000-02-21  Mike Sperber <mike@xemacs.org>
+
+	* .dbxrc: 
+	* .gdbinit:
+	* Makefile.in.in: Remove obsolete EMACSBOOTSTRAP... environment
+	variables.
+
+2000-02-21  Mike Sperber <mike@xemacs.org>
+
+	* s/aix4.h: Declare getaddrinfo broken for AIX 4, which it is.
+
 2000-02-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.30 is released.

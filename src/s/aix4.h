@@ -24,3 +24,9 @@
 struct ether_addr;
 struct sockaddr_dl;
 #endif /* C code */
+
+/* getaddrinfo is broken in AIX 4.3 as per IY04165.
+   At this time (2/21/2000), there's no PTF available.
+   -- Mike Sperber <mike@xemacs.org> */
+
+#undef HAVE_GETADDRINFO
