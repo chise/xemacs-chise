@@ -713,6 +713,34 @@ CHARSET_BYTE_SIZE (Lisp_Charset* cs)
 
 #define XCHARSET_BYTE_SIZE(ccs)	CHARSET_BYTE_SIZE (XCHARSET (ccs))
 
+int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
+int
+decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
+{
+  int i;
+
+  if (XVECTOR_LENGTH (v) > ccs_len)
+    return -1;
+
+  for (i = 0; i < XVECTOR_LENGTH (v); i++)
+    {
+      Lisp_Object c = XVECTOR_DATA(v)[i];
+
+      if (!NILP (c) && !CHARP (c))
+	{
+	  if (VECTORP (c))
+	    {
+	      int ret = decoding_table_check_elements (c, dim - 1, ccs_len);
+	      if (ret)
+		return ret;
+	    }
+	  else
+	    return -2;
+	}
+    }
+  return 0;
+}
+
 INLINE_HEADER void
 decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
 			    int code_point);
@@ -2503,11 +2531,8 @@ DEFUN ("set-charset-mapping-table", Fset_charset_mapping_table, 2, 2, 0, /*
 Set mapping-table of CHARSET to TABLE.
 */
        (charset, table))
-{ /* [tomo] Current implementation does not have complete error
-     handling mechanism.  It seems better to recover encoding/decoding
-     tables when TABLE is broken. */
+{
   struct Lisp_Charset *cs;
-  /* Lisp_Object old_table; */
   size_t i;
   int byte_offset;
 
@@ -2522,18 +2547,24 @@ Set mapping-table of CHARSET to TABLE.
   else if (VECTORP (table))
     {
       int ccs_len = CHARSET_BYTE_SIZE (cs);
-
-      if (XVECTOR_LENGTH (table) > ccs_len)
-	args_out_of_range (table, make_int (CHARSET_CHARS (cs)));
-      /* old_table = CHARSET_DECODING_TABLE(cs); */
-      /* CHARSET_DECODING_TABLE(cs) = table; */
+      int ret = decoding_table_check_elements (table,
+					       CHARSET_DIMENSION (cs),
+					       ccs_len);
+      if (ret)
+	{
+	  if (ret == -1)
+	    signal_simple_error ("Too big table", table);
+	  else if (ret == -2)
+	    signal_simple_error ("Invalid element is found", table);
+	  else
+	    signal_simple_error ("Something wrong", table);
+	}
       CHARSET_DECODING_TABLE(cs) = Qnil;
     }
   else
     signal_error (Qwrong_type_argument,
 		  list2 (build_translated_string ("vector-or-nil-p"),
 			 table));
-  /* signal_simple_error ("Wrong type argument: vector-or-nil-p", table); */
 
   byte_offset = CHARSET_BYTE_OFFSET (cs);
   switch (CHARSET_DIMENSION (cs))
@@ -2557,11 +2588,6 @@ Set mapping-table of CHARSET to TABLE.
 	    {
 	      size_t j;
 
-	      if (XVECTOR_LENGTH (v) > CHARSET_CHARS (cs))
-		{
-		  /* CHARSET_DECODING_TABLE(cs) = old_table; */
-		  args_out_of_range (v, make_int (CHARSET_CHARS (cs)));
-		}
 	      for (j = 0; j < XVECTOR_LENGTH (v); j++)
 		{
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
