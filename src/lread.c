@@ -1815,6 +1815,25 @@ read_escape (Lisp_Object readcharfun)
 	  }
 	return i;
       }
+    case 'u':
+      {
+	REGISTER Emchar i = 0;
+	REGISTER int count = 0;
+	while (++count <= 6)
+	  {
+	    c = readchar (readcharfun);
+	    /* Remember, can't use isdigit(), isalpha() etc. on Emchars */
+	    if      (c >= '0' && c <= '9')  i = (i << 4) + (c - '0');
+	    else if (c >= 'a' && c <= 'f')  i = (i << 4) + (c - 'a') + 10;
+            else if (c >= 'A' && c <= 'F')  i = (i << 4) + (c - 'A') + 10;
+	    else
+	      {
+		unreadchar (readcharfun, c);
+		break;
+	      }
+	  }
+	return i;
+      }
 
 #ifdef MULE
       /* #### need some way of reading an extended character with

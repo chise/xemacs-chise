@@ -97,7 +97,11 @@ struct buffer_text
      This information is text-only so it goes here. */
   Bufpos mule_bufmin, mule_bufmax;
   Bytind mule_bytmin, mule_bytmax;
+#ifdef UTF2000
+  int mule_size;
+#else
   int mule_shifter, mule_three_p;
+#endif
 
   /* And we also cache 16 positions for fairly fast access near those
      positions. */
@@ -546,6 +550,9 @@ charptr_copy_char (const Bufbyte *src, Bufbyte *dst)
 
 #ifdef MULE
 
+#ifdef UTF2000
+#define valid_char_p(ch) 1
+#else
 int non_ascii_valid_char_p (Emchar ch);
 
 INLINE_HEADER int valid_char_p (Emchar ch);
@@ -554,6 +561,7 @@ valid_char_p (Emchar ch)
 {
   return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
 }
+#endif
 
 #else /* not MULE */
 
@@ -581,10 +589,14 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
     x = wrong_type_argument (Qcharacterp, x);	\
 } while (0)
 
+#ifdef UTF2000
+# define MAX_EMCHAR_LEN 6
+#else
 #ifdef MULE
 # define MAX_EMCHAR_LEN 4
 #else
 # define MAX_EMCHAR_LEN 1
+#endif
 #endif
 
 
@@ -972,7 +984,9 @@ Bufpos bytind_to_bufpos_func (struct buffer *buf, Bytind x);
    64K for width-three characters.
    */
 
+#ifndef UTF2000
 extern short three_to_one_table[];
+#endif
 
 INLINE_HEADER int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
 INLINE_HEADER int
@@ -980,8 +994,13 @@ real_bufpos_to_bytind (struct buffer *buf, Bufpos x)
 {
   if (x >= buf->text->mule_bufmin && x <= buf->text->mule_bufmax)
     return (buf->text->mule_bytmin +
+#ifdef UTF2000
+	    (x - buf->text->mule_bufmin) * buf->text->mule_size
+#else
 	    ((x - buf->text->mule_bufmin) << buf->text->mule_shifter) +
-	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0));
+	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0)
+#endif
+	    );
   else
     return bufpos_to_bytind_func (buf, x);
 }
@@ -992,9 +1011,15 @@ real_bytind_to_bufpos (struct buffer *buf, Bytind x)
 {
   if (x >= buf->text->mule_bytmin && x <= buf->text->mule_bytmax)
     return (buf->text->mule_bufmin +
+#ifdef UTF2000
+	    (buf->text->mule_size == 0 ? 0 :
+	     (x - buf->text->mule_bytmin) / buf->text->mule_size)
+#else
 	    ((buf->text->mule_three_p
 	      ? three_to_one_table[x - buf->text->mule_bytmin]
-	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter)));
+	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter))
+#endif
+	    );
   else
     return bytind_to_bufpos_func (buf, x);
 }

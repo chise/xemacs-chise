@@ -105,12 +105,16 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   /* 0x80 - 0x8f are for Dimension-1 official charsets */
-  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+  2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3,
   /* 0x90 - 0x9d are for Dimension-2 official charsets */
   /* 0x9e is for Dimension-1 private charsets */
   /* 0x9f is for Dimension-2 private charsets */
   3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4
 };
+
+Lisp_Object Vutf_2000_version;
+
+int leading_code_private_11;
 
 Lisp_Object Qcharsetp;
 
@@ -193,11 +197,54 @@ Bytecount
 non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
 {
   Bufbyte *p;
+#ifndef UTF2000
   Bufbyte lb;
   int c1, c2;
   Lisp_Object charset;
+#endif
 
   p = str;
+#ifdef UTF2000
+  if ( c <= 0x7f )
+    {
+      *p++ = c;
+    }
+  else if ( c <= 0x7ff )
+    {
+      *p++ = (c >> 6) | 0xc0;
+      *p++ = (c & 0x3f) | 0x80;
+    }
+  else if ( c <= 0xffff )
+    {
+      *p++ =  (c >> 12) | 0xe0;
+      *p++ = ((c >>  6) & 0x3f) | 0x80;
+      *p++ =  (c        & 0x3f) | 0x80;
+    }
+  else if ( c <= 0x1fffff )
+    {
+      *p++ =  (c >> 18) | 0xf0;
+      *p++ = ((c >> 12) & 0x3f) | 0x80;
+      *p++ = ((c >>  6) & 0x3f) | 0x80;
+      *p++ =  (c        & 0x3f) | 0x80;
+    }
+  else if ( c <= 0x3ffffff )
+    {
+      *p++ =  (c >> 24) | 0xf8;
+      *p++ = ((c >> 18) & 0x3f) | 0x80;
+      *p++ = ((c >> 12) & 0x3f) | 0x80;
+      *p++ = ((c >>  6) & 0x3f) | 0x80;
+      *p++ =  (c        & 0x3f) | 0x80;
+    }
+  else
+    {
+      *p++ =  (c >> 30) | 0xfc;
+      *p++ = ((c >> 24) & 0x3f) | 0x80;
+      *p++ = ((c >> 18) & 0x3f) | 0x80;
+      *p++ = ((c >> 12) & 0x3f) | 0x80;
+      *p++ = ((c >>  6) & 0x3f) | 0x80;
+      *p++ =  (c        & 0x3f) | 0x80;
+    }
+#else
   BREAKUP_CHAR (c, charset, c1, c2);
   lb = CHAR_LEADING_BYTE (c);
   if (LEADING_BYTE_PRIVATE_P (lb))
@@ -208,7 +255,7 @@ non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
   *p++ = c1 | 0x80;
   if (c2)
     *p++ = c2 | 0x80;
-
+#endif
   return (p - str);
 }
 
@@ -219,6 +266,49 @@ non_ascii_set_charptr_emchar (Bufbyte *str, Emchar c)
 Emchar
 non_ascii_charptr_emchar (const Bufbyte *str)
 {
+#ifdef UTF2000
+  Bufbyte b;
+  Emchar ch;
+  int len;
+
+  b = *str++;
+  if ( b >= 0xfc )
+    {
+      ch = (b & 0x01);
+      len = 5;
+    }
+  else if ( b >= 0xf8 )
+    {
+      ch = b & 0x03;
+      len = 4;
+    }
+  else if ( b >= 0xf0 )
+    {
+      ch = b & 0x07;
+      len = 3;
+    }
+  else if ( b >= 0xe0 )
+    {
+      ch = b & 0x0f;
+      len = 2;
+    }
+  else if ( b >= 0xc0 )
+    {
+      ch = b & 0x1f;
+      len = 1;
+    }
+  else
+    {
+      ch = b;
+      len = 0;
+    }
+  for( ; len > 0; len-- )
+    {
+      b = *str++;
+      ch = ( ch << 6 ) | ( b & 0x3f );
+    }
+  return ch;
+#else
   Bufbyte i0 = *str, i1, i2 = 0;
   Lisp_Object charset;
 
@@ -235,11 +325,13 @@ non_ascii_charptr_emchar (const Bufbyte *str)
     i2 = *++str & 0x7F;
 
   return MAKE_CHAR (charset, i1, i2);
+#endif
 }
 
 /* Return whether CH is a valid Emchar, assuming it's non-ASCII.
    Do not call this directly.  Use the macro valid_char_p() instead. */
 
+#ifndef UTF2000
 int
 non_ascii_valid_char_p (Emchar ch)
 {
@@ -316,6 +408,7 @@ non_ascii_valid_char_p (Emchar ch)
       return (XCHARSET_CHARS (charset) == 96);
     }
 }
+#endif
 
 
 /************************************************************************/
@@ -1313,6 +1406,19 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
 
   defsymbol (&Qcomposite,		"composite");
+
+#ifdef UTF2000
+  Vutf_2000_version = build_string("0.2 (JR NAMBA)");
+  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
+Version number of UTF-2000.
+*/ );
+#endif
+
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
+  DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
+Leading-code of private TYPE9N charset of column-width 1.
+*/ );
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
 }
 
 void

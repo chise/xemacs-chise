@@ -163,7 +163,7 @@
 	(when-feature mule "thai-xtis-chars")
 	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
-	(when-feature mule "vietnamese")
+	(when-feature (and mule (not utf-2000)) "vietnamese")
 
 	;; Specialized language support
 	(when-feature (and mule CANNA) "canna-leim")
