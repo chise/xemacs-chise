@@ -1,3 +1,8 @@
+2001-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Comment out `chinese-gb12345'.
+
 2001-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* bytecomp.el (byte-compile-insert-header): Fixed.
