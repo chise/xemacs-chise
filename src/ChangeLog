@@ -1,3 +1,11 @@
+2003-04-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Compact non-ISO-IR charset-ids.
+	(LEADING_BYTE_UCS): Changed to -177.
+	(LEADING_BYTE_CONTROL_1): Changed to -77.
+	(LEADING_BYTE_UCS_BMP): Changed to -176.
+	(LEADING_BYTE_JAPANESE_JISX0208_1990): Changed to -168.
+
 2003-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h: Change charset-id of ISO-IR sets from ISO-IR-number
