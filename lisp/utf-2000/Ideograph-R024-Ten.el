@@ -418,6 +418,7 @@
     (total-strokes	 . 6)
     (chinese-cns11643-3 . #x232D)	; ø»•™¬
     (ideograph-daikanwa . 48950)	; ø¸‹¼¶
+    (ideograph-cbeta	. 00017)	; ø¸ €‘
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -1009,6 +1010,7 @@
     (total-strokes	 . 21)
     (japanese-jisx0212	. #x343A)	; ø»‹€£
     (ideograph-daikanwa . 02772)	; ø¸€«”
+    (ideograph-cbeta	. 01465)	; ø¸ –¹
     (ucs		. #x535B)	; å›
     ))
 (define-char
