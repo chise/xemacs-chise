@@ -4167,6 +4167,28 @@
     (ucs			. #x54A2)	; 咢
     ))
 (define-char
+  '((morohashi-daikanwa	3529 0 9)
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; ⿰
+	)
+       ((ucs		    . #x53E3)	; 口
+	)
+       ((ucs		    . #x53E3)	; 口
+	))
+      )
+     ((ucs		  . #x4E90)	; 亐
+      ))
+    (mojikyo		. 071135)	; ������
+    ))
+(define-char
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
