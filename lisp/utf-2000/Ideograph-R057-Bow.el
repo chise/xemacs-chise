@@ -201,14 +201,12 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 37)
-    (hanyu-dazidian-char . 4)
-    (<-original-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 09698)	; &I-M-09698;
-		 )
+    (<-original
+     ((=daikanwa	  . 09698)	; &I-M-09698;
       ))
+    (<-original*sources
+     daikanwa)
+    (hanyu-dazidian	1 37 4)
     (=ucs		. #x223A3)	; 𢎣
     (=cns11643-6	. #x2322)	; &I-C6-2322; [03-02]
     (=big5-cdp		. #x87DB)	; &I-CDP-87DB;
