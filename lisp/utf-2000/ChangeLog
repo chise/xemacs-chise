@@ -1,5 +1,15 @@
 2003-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL GRASS TWO): Don't
+	map to U+8279; separate C4-2153, JX2-7575, M-30639 and BC-8AFE;
+	add `<-radical' for U+FA5E.
+	(CJK RADICAL GRASS THREE): Separate JX2-7574; add `<-radical' for
+	U+FA5D.
+
+	* Ideograph-R162-Walk.el (JSP-6138): Unify JX2-796C.
+	(JSP-6139): Unify JX2-796D.
+	(JX2-615C): Unify JX2-797C.
+
 	* Ideograph-R146-West.el (U+8980): Unify JX2-7845.
 
 	* Ideograph-R119-Rice.el (JSP-5334): Separate C4-4574; unify
