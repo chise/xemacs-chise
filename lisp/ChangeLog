@@ -1,3 +1,11 @@
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el:
+	- Change category for the charset `thai-xtis' to `?x' from `?T'.
+	- Add syntax entries.
+	- Put `preferred-coding-system' of the charset `thai-xtis' to
+	  `tis-620'.
+
 1999-06-28  TAKAHASHI Naoto  <ntakahas@etl.go.jp>
 
 	* mule/thai-xtis.el: ccl-decode-thai-xtis and subroutines
