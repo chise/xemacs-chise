@@ -3281,6 +3281,41 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
+static Lisp_Object
+find_char_feature_in_family (Lisp_Object character,
+			     Lisp_Object con_feature,
+			     Lisp_Object feature,
+			     Lisp_Object feature_rel_max)
+{
+  Lisp_Object ancestors
+    = Fget_char_attribute (character, con_feature, Qnil);
+
+  while (!NILP (ancestors))
+    {
+      Lisp_Object ancestor = XCAR (ancestors);
+      Lisp_Object ret;
+
+      if (EQ (ancestor, character))
+	return Qunbound;
+
+      ret = Fchar_feature (ancestor, feature, Qunbound,
+			   Qnil, make_int (0));
+      if (!UNBOUNDP (ret))
+	return ret;
+
+      ancestors = XCDR (ancestors);
+
+      ret = Fget_char_attribute (ancestor, Q_subsumptive_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+
+      ret = Fget_char_attribute (ancestor, Q_denotational_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+    }
+  return Qunbound;
+}
+
 DEFUN ("char-feature", Fchar_feature, 2, 5, 0, /*
 Return the value of CHARACTER's FEATURE.
 Return DEFAULT-VALUE if the value is not exist.
@@ -3331,38 +3366,20 @@ Return DEFAULT-VALUE if the value is not exist.
 
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
-	  Lisp_Object ancestors
-	    = Fget_char_attribute (character, Q_identical, Qnil);
+	  ret = find_char_feature_in_family (character, Q_identical,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  if (NILP (ancestors))
-	    ancestors
-	      = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
+	  ret = find_char_feature_in_family (character, Q_subsumptive_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  if (NILP (ancestors))
-	    ancestors
-	      = Fget_char_attribute (character, Q_denotational_from, Qnil);
-
-	  while (!NILP (ancestors))
-	    {
-	      Lisp_Object ancestor = XCAR (ancestors);
-
-	      if (!EQ (ancestor, character))
-		{
-		  ret = Fchar_feature (ancestor, attribute, Qunbound,
-				       Qnil, make_int (0));
-		  if (!UNBOUNDP (ret))
-		    return ret;
-
-		  ancestors = XCDR (ancestors);
-		  ret = Fget_char_attribute (ancestor,
-					     Q_subsumptive_from, Qnil);
-		  if (!NILP (ret))
-		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
-		}
-	      else
-		return default_value;
-	      /* ancestors = XCDR (ancestors); */
-	    }
+	  ret = find_char_feature_in_family (character, Q_denotational_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 	}
     }
   return default_value;
