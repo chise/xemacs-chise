@@ -1258,6 +1258,39 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
+*** Mandrake (all versions)
+
+Cannot be fully supported by XEmacs developers because they insist on
+applying known broken patches.
+
+One known issue is that on keyboards with both a Meta key (typically
+the Windows key on PCs) and an Alt key, XEmacs wants to bind the Meta
+modifier to the Meta key.  Mandrake has a policy that XEmacs
+Meta-chords should use the Alt key, which they enforce by patching
+XEmacs's modifier-handling code, making the Meta and Alt modifiers
+synonymous.  This will break planned upgrades to XEmacs to allow menu
+hotkeys; be warned.  See next topic for how to implement Meta-on-Alt
+portably.
+
+*** I want XEmacs to use the Alt key, not the XXX key, for Meta commands
+
+For historical reasons, XEmacs looks for a Meta key, then an Alt key.
+It binds Meta commands to the X11 modifier bit attached to the first
+of these it finds.  On PCs, the Windows key is often assigned the Meta
+bit, but many desktop environments go to great lengths to get all apps
+to use the Alt key, and reserve the Windows key to (sensibly enough)
+the window manager.
+
+One correct way to implement this was suggested on comp.emacs.xemacs
+(by Kilian Foth and in more detail by Michael Piotrowski): unmap the
+Meta modifier using xmodmap or xkb, and then map the Meta/Windows key
+to the Super or Hyper modifier.  XEmacs will not find the Meta keysym,
+and default to using the Alt key for Meta keybindings.  Typically few
+applications use the (X11) Meta modifier (sawfish is one); it is
+tedious but not too much so to teach them to use Super instead of
+Meta.  There may be further useful hints in the discussion of
+keymapping on non-Linux platforms.
+
 *** You get crashes in a non-C locale with Linux GNU Libc 2.0.
 
 Internationalization was not the top priority for GNU Libc 2.0.
@@ -1285,16 +1318,20 @@ XFree86 3.1.2 works.
 *** Slow startup on Linux.
 
 People using systems based on the Linux kernel sometimes report that
-startup takes 10 to 15 seconds longer than `usual'.
+startup takes 10 to 15 seconds longer than `usual'.  There are two
+problems, one older, one newer.
 
-This is because Emacs looks up the host name when it starts.
-Normally, this takes negligible time; the extra delay is due to
-improper system configuration.  This problem can occur for both
-networked and non-networked machines.
+**** Old problem: IPv4 host lookup
+
+On older systems, this is because Emacs looks up the host name when it
+starts.  Normally, this takes negligible time; the extra delay is due
+to improper system configuration.  (Recent Linux distros usually have
+this configuration correct "out of the box".)  This problem can occur
+for both networked and non-networked machines.
 
 Here is how to fix the configuration.  It requires being root.
 
-**** Networked Case
+***** Networked Case
 
 First, make sure the files `/etc/hosts' and `/etc/host.conf' both
 exist.  The first line in the `/etc/hosts' file should look like this
@@ -1313,13 +1350,52 @@ indicated in the `/etc/hosts' file, since it acts a limited local
 database of addresses and names (e.g., some SLIP connections
 dynamically allocate ip addresses).
 
-**** Non-Networked Case
+***** Non-Networked Case
 
 The solution described in the networked case applies here as well.
 However, if you never intend to network your machine, you can use a
 simpler solution: create an empty `/etc/host.conf' file.  The command
 `touch /etc/host.conf' suffices to create the file.  The `/etc/hosts'
 file is not necessary with this approach.
+
+**** New problem: IPv6 CNAME lookup
+
+A newer problem is due to XEmacs changing to use the modern
+getaddrinfo() interface from the older gethostbyname() interface.  The
+solution above is insufficient, because getaddrinfo() by default tries
+to get IPv6 information for localhost.  This always involves a dns
+lookup to get the CNAME, and the strategies above don't work.  It then
+falls back to IPv4 behavior.  This is good[tm]; trust us.
+
+***** Robust network case
+
+Configure your network so that there are no nameservers configured
+until the network is actually running.  getaddrinfo() will not try to
+access a nameserver that isn't configured.
+
+***** Flaky network case
+
+If you have a flaky modem or DSL connection that can be relied on only
+to go down whenever you want to bring XEmacs up, you need to force
+IPv4 behavior.  Explicitly setting DISPLAY=127.0.0.1:0.0 (or whatever
+is appropriate) works in most cases.
+
+If you cannot or do not want to do that, you can hard code IPv4
+behavior in src/process-unix.c.  This is bad[tm], on your own head be
+it.  In the function unix_canonicalize_host_name() about ten lines
+down, change the statement
+
+  hints.ai_family = AF_UNSPEC;
+
+to
+
+  hints.ai_family = PF_INET;
+
+and rebuild XEmacs.
+
+getaddrinfo() is also called in src/sysdep.c:init_system_name() and in
+src/process-unix.c:unix_open_network_stream().  It should not be
+useful to make this change in either of those places.
 
 
 ** IRIX

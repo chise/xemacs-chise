@@ -1,3 +1,21 @@
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-02-02   Daiki Ueno	<ueno@ueda.info.waseda.ac.jp>
+
+	* configure.in: Added check if the berkdb has db_create or not.
+
+2000-10-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.in: Fix broken gcc detection for 2.7.2.
+
+2000-12-11  Andy Piper  <andy@xemacs.org>
+
+	* configure.in (XE_COMPUTE_RUNPATH): add netinstall as a subdirectory.
+
+	* netinstall: new net installer for MS-Windows.
+
 2000-12-05  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.38 is released.
