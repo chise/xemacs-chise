@@ -745,6 +745,27 @@
     (=ucs		. #x4E12)	; ä¸’
     ))
 (define-char
+  '((ideographic-radical@ucs . 12)	; â¼‹
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     cns11643 ucs)
+    (ideographic-radical@daikanwa . 1)	; â¼€
+    (ideographic-strokes@daikanwa . 3)
+    (total-strokes	 . 4)
+    (<-vulgar-ideograph
+     ((shinjigen-1	  . 491)
+      (=daikanwa	  . 01455)	; ø¸€–¯
+      ))
+    (<-vulgar-ideograph*sources
+     daikanwa shinjigen-1)
+    (hanyu-dazidian	1 241 5)
+    (shinjigen-1	. 492)
+    (=cns11643-6	. #x2141)	; ø»›µ
+    (=daikanwa		. 48904)	; ø¸‹¼ˆ
+    (=hanziku-1		. #xD7D7)	; ý¢€Ÿ—
+    (=ucs		. #x20503)	; ð ”ƒ
+    ))
+(define-char
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
