@@ -4805,7 +4805,24 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 	    }
 	}
       if (reg == -1)
-	BREAKUP_CHAR (ch, charset, byte1, byte2);
+	{
+	  Lisp_Object original_default_coded_charset_priority_list
+	    = Vdefault_coded_charset_priority_list;
+
+	  while (!EQ (Vdefault_coded_charset_priority_list, Qnil))
+	    {
+	      BREAKUP_CHAR (ch, charset, byte1, byte2);
+	      if (XCHARSET_FINAL (charset))
+		goto found;
+	      Vdefault_coded_charset_priority_list
+		= Fcdr (Fmemq (XCHARSET_NAME (charset),
+			       Vdefault_coded_charset_priority_list));
+	    }
+	  BREAKUP_CHAR (ch, charset, byte1, byte2);
+	found:
+	  Vdefault_coded_charset_priority_list
+	    = original_default_coded_charset_priority_list;
+	}
       ensure_correct_direction (XCHARSET_DIRECTION (charset),
 				codesys, dst, flags, 0);
       
