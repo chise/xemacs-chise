@@ -1,3 +1,44 @@
+2001-11-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R081-Compare.el: Merge KS X 1001 code points.
+
+2001-11-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R092-Fang.el (J0-3267): Unify K0-6433.
+
+	* Ideograph-R091-Slice.el, Ideograph-R089-Double-X.el,
+	Ideograph-R088-Father.el, Ideograph-R087-Claw.el,
+	Ideograph-R083-Clan.el, Ideograph-R080-Do-Not.el,
+	Ideograph-R078-Death.el: Merge KS X 1001 code points.
+
+2001-11-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U+556B): Separate CB-00065 and M059207;
+	unify G1-7C2F; fix `ideographic-structure'.
+	(U+5622): Unify G1-7C34.
+
+2001-11-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R085-Water.el:
+	Merge KS X 1001 code points.
+
+	* Ideograph-R084-Steam.el (U+6C23): Unify K0-5128.
+
+	* Ideograph-R082-Fur.el: Merge KS X 1001 code points.
+
+2001-11-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el: Merge KS X 1001 code points.
+
+	* Ideograph-R074-Moon.el (M-14364): Relate to U-0002F8D8; delete
+	`kangxi-strokes'; separate C4-323E; separate U+F929; unify JU+F929
+	and KU+6717.
+	(U+F929): Relate to U-0002F8D8 and M-14364; unify K0-5228.
+	(C4-323E): Unify U-0002F8D8.
+
+	* Ideograph-R077-Stop.el, Ideograph-R072-Sun.el: Merge KS X 1001
+	code points.
+
 2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el:
