@@ -3837,7 +3837,36 @@ simplify_char_spec (Lisp_Object char_spec)
 #if 0
       Lisp_Object ret = Ffind_char (char_spec);
 #else
-      Lisp_Object ret = Fdefine_char (char_spec);
+      Lisp_Object ret;
+      Lisp_Object rest = char_spec;
+      int have_ccs = 0;
+
+      while (CONSP (rest))
+	{
+	  Lisp_Object cell = Fcar (rest);
+	  Lisp_Object ccs;
+
+#if 0
+	  if (!LISTP (cell))
+	    signal_simple_error ("Invalid argument", char_spec);
+#endif
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell))))
+	    {
+	      cell = Fcdr (cell);
+	      if (CONSP (cell))
+		ret = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+	      else
+		ret = Fdecode_char (ccs, cell, Qt, Qt);
+	      have_ccs = 1;
+	      if (CHARP (ret))
+		return ret;
+	    }
+	  rest = Fcdr (rest);
+	}
+      if (have_ccs)
+	ret = Fdefine_char (char_spec);
+      else
+	ret = Qnil;
 #endif
 
       if (CHARP (ret))
