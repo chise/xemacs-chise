@@ -1513,10 +1513,13 @@
     (hanyu-dazidian-page . 273)
     (hanyu-dazidian-char . 11)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (ucs		  . #x2FF5)	; â¿µ
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
        ((chinese-big5-cdp   . #x8B54)	; ý¢€ˆ­”
 	)
        ((ucs		    . #x5196)	; å†–
