@@ -1,3 +1,61 @@
+2001-09-01  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* chartab.c (copy_uint8_byte_table): New function.
+	(copy_uint16_byte_table): New function.
+	(copy_byte_table): New function.
+	(map_over_uint8_byte_table): Modify to avoid huge numbers of
+	characters to call.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_byte_table): Move prototype to chartab.h.
+	(put_byte_table): Likewise.
+	(put_char_id_table_0): Moved to chartab.h.
+	(mark_char_table_entry): Don't define in XEmacs UTF-2000.
+	(char_table_entry_equal): Likewise.
+	(char_table_entry_hash): Likewise.
+	(char_table_entry_description): Likewise.
+	(char_table_entry): Likewise.
+	(make_char_table_entry): Likewise.
+	(copy_char_table_entry): Likewise.
+	(get_non_ascii_char_table_value): Likewise.
+	(map_over_charset_ascii): Likewise.
+	(map_over_charset_control_1): Likewise.
+	(map_over_charset_row): Likewise.
+	(map_over_other_charset): Likewise.
+	(mark_char_table): Modify for new structure in XEmacs UTF-2000.
+	(print_char_table): Likewise.
+	(char_table_equal): Likewise.
+	(char_table_hash): Likewise.
+	(char_table_description): Likewise.
+	(fill_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(get_char_table): Likewise.
+	(Fget_range_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_char_table): Likewise.
+	(syms_of_chartab): Don't define `char_table_entry' in XEmacs
+	UTF-2000.
+
+2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* cmds.c (vars_of_cmds): Use `put_char_id_table_0' for
+	`Vauto_fill_chars' in XEmacs UTF-2000.
+
+	* chartab.h (get_byte_table): New prototype [moved from
+	chartab.c].
+	(put_byte_table): Likewise [moved from chartab.c].
+	(put_char_id_table_0): New inline function [moved from chartab.c].
+	(struct Lisp_Char_Table_Entry): Don't define in XEmacs UTF-2000.
+	(Lisp_Char_Table_Entry): Likewise.
+	(char_table_entry): Likewise.
+	(XCHAR_TABLE_ENTRY): Likewise.
+	(XSETCHAR_TABLE_ENTRY): Likewise.
+	(CHAR_TABLE_ENTRYP): Likewise.
+	(CHECK_CHAR_TABLE_ENTRY): Likewise.
+	(NUM_ASCII_CHARS): Likewise.
+	(struct Lisp_Char_Table): New implementation in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Likewise.
+
 2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (get_char_id_table): Change interface.
