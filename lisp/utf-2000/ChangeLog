@@ -1,5 +1,37 @@
 2003-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R196-Bird.el (C1-7B4E): Unify U+9DB4.
+
+	* Ideograph-R195-Fish.el (M-46019): Separate U+9B72; unify
+	JX1-7E43.
+
+	* Ideograph-R181-Leaf.el (U+9834): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'; unify M-24824 instead of using
+	`->same-ideograph'.
+
+	* Ideograph-R142-Insect.el (U+459D): Unify JX1-7B51.
+
+	* Ideograph-R113-Spirit.el (U+9834): Copied from
+	Ideograph-R181-Leaf.el.
+
+	* Ideograph-R085-Water.el (JX1-7653): New character.
+	(U+6CFA): Add `total-strokes'.
+	(U+6CFB): Likewise.
+	(JX1-765A): New character.
+	(U+6CFC): Add `total-strokes'.
+	(U+6CFD): Likewise.
+	(U+6CFE): Likewise.
+
+	* Ideograph-R075-Tree.el (B-E256): Unify JX1-757D.
+
+	* Ideograph-R054-Long-Stride.el (JX1-7430): New character.
+
+	* Ideograph-R009-Man.el (U+346A): New character.
+	(JX2-2156): Likewise.
+
 	* Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el,
 	Ideograph-R108-Dish.el: Add some GT code points.
 
