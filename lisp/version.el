@@ -42,9 +42,7 @@ Warning, this variable did not exist in XEmacs versions prior to 20.3")
 	  (if emacs-patch-level
 	      (format "(patch %d)" emacs-patch-level)
 	    "")
-	  (if xemacs-betaname
-	      (concat " " xemacs-betaname)
-	    "")
+	  (or xemacs-betaname "")
 	  (if xemacs-codename
 	      (concat " \"" xemacs-codename "\"")
 	    "")
@@ -79,7 +77,7 @@ Warning, this variable did not exist in XEmacs versions prior to 20.3")
 
 (defconst emacs-build-system (system-name))
 
-(defun emacs-version  (&optional arg)
+(defun emacs-version (&optional arg)
   "Return string describing the version of Emacs that is running.
 When called interactively with a prefix argument, insert string at point.
 Don't use this function in programs to choose actions according
@@ -88,7 +86,7 @@ to the system configuration; look at `system-configuration' instead."
   (save-match-data
     (let ((version-string
 	   (format
-	    "XEmacs %s %s(%s%s) of %s %s on %s"
+	    "XEmacs %s %s(%s%s)%s of %s %s on %s"
 	    (substring emacs-version 0 (string-match " XEmacs" emacs-version))
 	    (if (not (featurep 'infodock))
 		"[Lucid] "
@@ -97,6 +95,11 @@ to the system configuration; look at `system-configuration' instead."
 	    (cond ((or (and (fboundp 'featurep)
 			    (featurep 'mule))
 		       (memq 'mule features)) ", Mule")
+		  (t ""))
+	    (cond ((or (and (fboundp 'featurep)
+			    (featurep 'utf-2000))
+		       (memq 'utf-2000 features))
+		   (concat "  UTF-2000 v" utf-2000-version))
 		  (t ""))
 	    (substring emacs-build-time 0
 		       (string-match " *[0-9]*:" emacs-build-time))
