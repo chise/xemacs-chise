@@ -7,7 +7,7 @@
     (ucs		. #x9751)	; 靑
     ))
 (define-char
-  '((->ucs		. #x9751)	; 靑
+  '((=>ucs		. #x9751)	; 靑
     (morohashi-daikanwa	42564 0 0)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 0)
@@ -27,7 +27,7 @@
     (ucs			. #x9752)	; 青
     ))
 (define-char
-  '((->ucs		. #x9752)	; 青
+  '((=>ucs		. #x9752)	; 青
     (morohashi-daikanwa	42564 1 0)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 0)
@@ -48,13 +48,22 @@
     (chinese-cns11643-6 . #x3479)	; �����
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
+  '((=>ucs		. #x291D5)	; 𩇕
+    (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 42565)	; �����
     ))
 (define-char
-  '((morohashi-daikanwa	42565 0 5)
+  '((morohashi-daikanwa	42565 0 4)
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 11)
+    (ucs		. #x291D5)	; 𩇕
+    ))
+(define-char
+  '((=>ucs		. #x291D5)	; 𩇕
+    (morohashi-daikanwa	42565 0 5)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
@@ -93,7 +102,7 @@
     (ucs		. #x9754)	; 靔
     ))
 (define-char
-  '((->ucs		. #x9755)	; 靕
+  '((=>ucs		. #x9755)	; 靕
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 5)
     (japanese-strokes	 . 4)
@@ -112,7 +121,7 @@
     (ucs		. #x9755)	; 靕
     ))
 (define-char
-  '((->ucs		. #x9756)	; 靖
+  '((=>ucs		. #x9756)	; 靖
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
@@ -132,7 +141,7 @@
     (ucs			. #x9756)	; 靖
     ))
 (define-char
-  '((->ucs		. #x9756)	; 靖
+  '((=>ucs		. #x9756)	; 靖
     (morohashi-daikanwa	42570 1 0)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 5)
@@ -153,20 +162,29 @@
     (chinese-cns11643-6 . #x597D)	; �����
     ))
 (define-char
-  '((ideographic-radical . 174)	; ⾭
+  '((=>ucs		. #x291DC)	; 𩇜
+    (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 42572)	; �����
     ))
 (define-char
-  '((morohashi-daikanwa	42572 0 5)
+  '((morohashi-daikanwa	42572 0 4)
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 6)
+    (total-strokes	 . 14)
+    (ucs		. #x291DC)	; 𩇜
+    ))
+(define-char
+  '((=>ucs		. #x291DC)	; 𩇜
+    (morohashi-daikanwa	42572 0 5)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
     (chinese-cns11643-4 . #x4836)	; �����
     ))
 (define-char
-  '((->ucs		. #x9757)	; 靗
+  '((=>ucs		. #x9757)	; 靗
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
@@ -183,7 +201,7 @@
     (ucs		. #x9757)	; 靗
     ))
 (define-char
-  '((->ucs		. #x9758)	; 靘
+  '((=>ucs		. #x9758)	; 靘
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
@@ -211,7 +229,7 @@
     (ucs			. #x9759)	; 静
     ))
 (define-char
-  '((->ucs		. #x9759)	; 静
+  '((=>ucs		. #x9759)	; 静
     (morohashi-daikanwa	42574 1 0)
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
@@ -219,7 +237,7 @@
     (chinese-cns11643-3 . #x4A4C)	; �����
     ))
 (define-char
-  '((->ucs		. #x975A)	; 靚
+  '((=>ucs		. #x975A)	; 靚
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
@@ -244,7 +262,7 @@
     (chinese-cns11643-2 . #x5559)	; �����
     ))
 (define-char
-  '((->ucs		. #x975B)	; 靛
+  '((=>ucs		. #x975B)	; 靛
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
@@ -263,7 +281,7 @@
     (ucs		. #x975B)	; 靛
     ))
 (define-char
-  '((->ucs		. #x975C)	; 靜
+  '((=>ucs		. #x975C)	; 靜
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
@@ -297,7 +315,7 @@
     (chinese-cns11643-7 . #x353D)	; �����
     ))
 (define-char
-  '((->ucs		. #x975D)	; 靝
+  '((=>ucs		. #x975D)	; 靝
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
@@ -338,7 +356,7 @@
     (chinese-cns11643-5 . #x7162)	; �����
     ))
 (define-char
-  '((->ucs		. #x4A3C)	; 䨼
+  '((=>ucs		. #x4A3C)	; 䨼
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 14)
     (total-strokes	 . 22)

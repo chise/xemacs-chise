@@ -190,11 +190,21 @@
     (ucs			. #x8F9E)	; è¾ž
     ))
 (define-char
-  '((ideographic-radical . 160)	; â¾Ÿ
+  '((=>ucs		. #x28414)	; ð¨”
+    (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (chinese-cns11643-4 . #x412E)	; ø»˜µ
     (ideograph-daikanwa . 38639)	; ø¸‰›¯
+    ))
+(define-char
+  '((morohashi-daikanwa	38639 0 0)
+    (ideographic-radical . 160)	; â¾Ÿ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	6 4037 6)
+    (chinese-cns11643-4		. #x412E)	; ø»˜µ
+    (ideograph-hanziku-10	. #xF15F)	; ý¢‚¯…Ÿ
+    (ucs			. #x28414)	; ð¨”
     ))
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
@@ -645,7 +655,8 @@
     (chinese-cns11643-7 . #x4A75)	; ø»ž¼–
     ))
 (define-char
-  '((ideographic-radical . 160)	; â¾Ÿ
+  '((=>ucs		. #x28436)	; ð¨¶
+    (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (ideograph-daikanwa . 38673)	; ø¸‰œ‘
@@ -655,7 +666,10 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (chinese-cns11643-4 . #x615C)	; ø»˜¿£
+    (hanyu-dazidian	6 4044 3)
+    (chinese-cns11643-4		. #x615C)	; ø»˜¿£
+    (ideograph-hanziku-10	. #xF2C1)	; ý¢‚¯‹
+    (ucs			. #x28436)	; ð¨¶
     ))
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
@@ -773,12 +787,6 @@
     ))
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
-    (hanyu-dazidian	6 4037 6)
-    (ideograph-hanziku-10	. #xF15F)	; ý¢‚¯…Ÿ
-    (ucs			. #x28414)	; ð¨”
-    ))
-(define-char
-  '((ideographic-radical . 160)	; â¾Ÿ
     (hanyu-dazidian	6 4037 7)
     (ideograph-hanziku-10	. #xF160)	; ý¢‚¯… 
     (ucs			. #x28415)	; ð¨•
@@ -890,12 +898,6 @@
     (hanyu-dazidian	6 4044 2)
     (ideograph-hanziku-10	. #xF2C0)	; ý¢‚¯‹€
     (ucs			. #x28435)	; ð¨µ
-    ))
-(define-char
-  '((ideographic-radical . 160)	; â¾Ÿ
-    (hanyu-dazidian	6 4044 3)
-    (ideograph-hanziku-10	. #xF2C1)	; ý¢‚¯‹
-    (ucs			. #x28436)	; ð¨¶
     ))
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
