@@ -258,7 +258,6 @@ DESCRIPTION (string) is the description string of the charset."
 (when (featurep 'utf-2000)
   (setq default-coded-charset-priority-list
 	'(ascii
-          ;; latin-iso646-irv
 	  control-1
 	  latin-iso8859-1
 	  latin-iso8859-2
@@ -269,9 +268,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
-          ;; hiragana-jisx0208
-          ;; katakana-jisx0208
 	  japanese-jisx0208
+	  japanese-jisx0208-1978
 	  japanese-jisx0212
 	  chinese-cns11643-1
 	  chinese-cns11643-2
@@ -291,6 +289,28 @@ DESCRIPTION (string) is the description string of the charset."
 	  ethiopic-ucs
 	  ethiopic
 	  ucs-bmp
-	  arabic-iso8859-6)))
+	  arabic-iso8859-6
+	  mojikyo-pj-1
+	  mojikyo-pj-2
+	  mojikyo-pj-3
+	  mojikyo-pj-4
+	  mojikyo-pj-5
+	  mojikyo-pj-6
+	  mojikyo-pj-7
+	  mojikyo-pj-8
+	  mojikyo-pj-9
+	  mojikyo-pj-10
+	  mojikyo-pj-11
+	  mojikyo-pj-12
+	  mojikyo-pj-13
+	  mojikyo-pj-14
+	  mojikyo-pj-15
+	  mojikyo-pj-16
+	  mojikyo-pj-17
+	  mojikyo-pj-18
+	  mojikyo-pj-19
+	  mojikyo-pj-20
+	  mojikyo-pj-21
+	  ideograph-daikanwa)))
 
 ;;; mule-charset.el ends here
