@@ -231,7 +231,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x20089)	; ð ‚‰
+     ((name*		  . "ideographic component person for top")
+      (ucs		  . #x20089)	; ð ‚‰
       )
      ((ucs		  . #x4E59)	; ä¹™
       ))
@@ -482,8 +483,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((name		  . "cjk radical person for top")
-      (chinese-big5-cdp	  . #x8B4A)	; ý¢€ˆ­Š
+     ((name*		  . "ideographic component person for top")
+      (ucs		  . #x20089)	; ð ‚‰
       )
      ((ucs		  . #x4E5F)	; ä¹Ÿ
       ))
@@ -499,6 +500,15 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name*		  . "ideographic component person for top")
+      (ucs		  . #x20089)	; ð ‚‰
+      )
+     ((chinese-cns11643-1 . #x443E)	; ø»‘¶“
+      ))
     (chinese-cns11643-4 . #x2157)	; ø»—¡ž
     ))
 (define-char
@@ -856,7 +866,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8D54)	; ý¢€ˆµ”
+     ((ucs		  . #x4E5B)	; ä¹›
       )
      ((ucs		  . #x5934)	; å¤´
       ))
@@ -998,7 +1008,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x5D21)	; ø»‰²”
+     ((=jis-x0208	  . #x5555)	; ø½‹ƒˆ
+      (korean-ksc5601	  . #x5D21)	; ø»‰²”
       (ideograph-daikanwa . 06948)	; ø¸¬¤
       )
      ((ucs		  . #x4E5A)	; ä¹š
@@ -1246,7 +1257,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8C49)	; ý¢€ˆ±‰
+     ((ucs		  . #x2099D)	; ð ¦
       )
      ((ucs		  . #x4E5A)	; ä¹š
       ))
@@ -1288,7 +1299,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideograph-daikanwa . 41937)	; ø¸Š‘
+     ((=jis-x0208	  . #x7032)	; ø½‹ª
+      (ideograph-daikanwa . 41937)	; ø¸Š‘
       )
      ((ucs		  . #x4E5A)	; ä¹š
       ))
@@ -1555,7 +1567,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8C49)	; ý¢€ˆ±‰
+     ((ucs		  . #x2099D)	; ð ¦
       )
      ((ucs		  . #x4E5E)	; ä¹ž
       ))
