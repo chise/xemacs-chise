@@ -1,5 +1,14 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/mule-conf.el (japanese-jisx0213-1): New coded-charset.
+	(japanese-jisx0213-2): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"Ideograph-R028-Private", "Ideograph-R029-Again" and
+	"Ideograph-R030-Mouth".
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/char-db-util.el (char-db-update-comment): Use
 	mapping-table for `japanese-jisx0213-*'.
 
