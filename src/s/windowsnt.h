@@ -269,8 +269,8 @@ int kill (int pid, int sig);
 #define putw      _putw
 #define umask     _umask
 /* #define utime     _utime */
-#define index     strchr
-#define rindex    strrchr
+/* #define index     strchr */
+/* #define rindex    strrchr */
 #define read	  _read
 #define write	  _write
 #define getcwd    _getcwd

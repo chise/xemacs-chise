@@ -65,7 +65,14 @@ Boston, MA 02111-1307, USA.  */
 
 EXFUN (Fgarbage_collect, 0);
 
-/* #define GDB_SUCKS */
+/* Return the true size of a struct with a variable-length array field.  */
+#define STRETCHY_STRUCT_SIZEOF(stretchy_struct_type,		\
+			       stretchy_array_field,		\
+			       stretchy_array_length)		\
+  (offsetof (stretchy_struct_type, stretchy_array_field) +	\
+   (offsetof (stretchy_struct_type, stretchy_array_field[1]) -	\
+    offsetof (stretchy_struct_type, stretchy_array_field[0])) *	\
+   (stretchy_array_length))
 
 #if 0 /* this is _way_ too slow to be part of the standard debug options */
 #if defined(DEBUG_XEMACS) && defined(MULE)
@@ -1303,23 +1310,24 @@ mark_vector (Lisp_Object obj, void (*markobj) (Lisp_Object))
 static size_t
 size_vector (CONST void *lheader)
 {
-  return offsetof (Lisp_Vector, contents[((Lisp_Vector *) lheader)->size]);
+  return STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents,
+				 ((Lisp_Vector *) lheader)->size);
 }
 
 static int
 vector_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  int indice;
   int len = XVECTOR_LENGTH (obj1);
   if (len != XVECTOR_LENGTH (obj2))
     return 0;
-  for (indice = 0; indice < len; indice++)
-    {
-      if (!internal_equal (XVECTOR_DATA (obj1) [indice],
-			   XVECTOR_DATA (obj2) [indice],
-			   depth + 1))
+
+  {
+    Lisp_Object *ptr1 = XVECTOR_DATA (obj1);
+    Lisp_Object *ptr2 = XVECTOR_DATA (obj2);
+    while (len--)
+      if (!internal_equal (*ptr1++, *ptr2++, depth + 1))
 	return 0;
-    }
+  }
   return 1;
 }
 
@@ -1339,7 +1347,7 @@ static Lisp_Vector *
 make_vector_internal (size_t sizei)
 {
   /* no vector_next */
-  size_t sizem = offsetof (Lisp_Vector, contents[sizei]);
+  size_t sizem = STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents, sizei);
   Lisp_Vector *p = (Lisp_Vector *) alloc_lcrecord (sizem, lrecord_vector);
 
   p->size = sizei;
@@ -1355,7 +1363,7 @@ static Lisp_Vector *
 make_vector_internal (size_t sizei)
 {
   /* + 1 to account for vector_next */
-  size_t sizem = offsetof (Lisp_Vector, contents[sizei+1]);
+  size_t sizem = STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents, sizei+1);
   Lisp_Vector *p = (Lisp_Vector *) allocate_lisp_storage (sizem);
 
   INCREMENT_CONS_COUNTER (sizem, "vector");
@@ -1369,36 +1377,19 @@ make_vector_internal (size_t sizei)
 #endif /* ! LRECORD_VECTOR */
 
 Lisp_Object
-make_vector (EMACS_INT length, Lisp_Object init)
+make_vector (size_t length, Lisp_Object init)
 {
-  int elt;
-  Lisp_Object vector;
-  Lisp_Vector *p;
+  Lisp_Vector *vecp = make_vector_internal (length);
+  Lisp_Object *p = vector_data (vecp);
 
-  if (length < 0)
-    length = XINT (wrong_type_argument (Qnatnump, make_int (length)));
+  while (length--)
+    *p++ = init;
 
-  p = make_vector_internal (length);
-  XSETVECTOR (vector, p);
-
-#if 0
-  /* Initialize big arrays full of 0's quickly, for what that's worth */
   {
-    char *travesty = (char *) &init;
-    for (i = 1; i < sizeof (Lisp_Object); i++)
-    {
-      if (travesty[i] != travesty[0])
-        goto fill;
-    }
-    memset (vector_data (p), travesty[0], length * sizeof (Lisp_Object));
+    Lisp_Object vector;
+    XSETVECTOR (vector, vecp);
     return vector;
   }
- fill:
-#endif
-  for (elt = 0; elt < length; elt++)
-    vector_data(p)[elt] = init;
-
-  return vector;
 }
 
 DEFUN ("make-vector", Fmake_vector, 2, 2, 0, /*
@@ -1407,7 +1398,7 @@ See also the function `vector'.
 */
        (length, init))
 {
-  CHECK_NATNUM (length);
+  CONCHECK_NATNUM (length);
   return make_vector (XINT (length), init);
 }
 
@@ -1417,15 +1408,17 @@ Any number of arguments, even zero arguments, are allowed.
 */
        (int nargs, Lisp_Object *args))
 {
-  Lisp_Object vector;
-  int elt;
-  Lisp_Vector *p = make_vector_internal (nargs);
+  Lisp_Vector *vecp = make_vector_internal (nargs);
+  Lisp_Object *p = vector_data (vecp);
 
-  for (elt = 0; elt < nargs; elt++)
-    vector_data(p)[elt] = args[elt];
+  while (nargs--)
+    *p++ = *args++;
 
-  XSETVECTOR (vector, p);
-  return vector;
+  {
+    Lisp_Object vector;
+    XSETVECTOR (vector, vecp);
+    return vector;
+  }
 }
 
 Lisp_Object
@@ -1538,8 +1531,8 @@ static Lisp_Object all_bit_vectors;
 static struct Lisp_Bit_Vector *
 make_bit_vector_internal (size_t sizei)
 {
-  size_t sizem =
-    offsetof (Lisp_Bit_Vector, bits[BIT_VECTOR_LONG_STORAGE (sizei)]);
+  size_t num_longs = BIT_VECTOR_LONG_STORAGE (sizei);
+  size_t sizem = STRETCHY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits, num_longs);
   Lisp_Bit_Vector *p = (Lisp_Bit_Vector *) allocate_lisp_storage (sizem);
   set_lheader_implementation (&(p->lheader), lrecord_bit_vector);
 
@@ -1549,56 +1542,52 @@ make_bit_vector_internal (size_t sizei)
   bit_vector_next   (p) = all_bit_vectors;
   /* make sure the extra bits in the last long are 0; the calling
      functions might not set them. */
-  p->bits[BIT_VECTOR_LONG_STORAGE (sizei) - 1] = 0;
+  p->bits[num_longs - 1] = 0;
   XSETBIT_VECTOR (all_bit_vectors, p);
   return p;
 }
 
 Lisp_Object
-make_bit_vector (EMACS_INT length, Lisp_Object init)
+make_bit_vector (size_t length, Lisp_Object init)
 {
-  Lisp_Object bit_vector;
-  struct Lisp_Bit_Vector *p;
-  EMACS_INT num_longs;
+  struct Lisp_Bit_Vector *p = make_bit_vector_internal (length);
+  size_t num_longs = BIT_VECTOR_LONG_STORAGE (length);
 
   CHECK_BIT (init);
-
-  num_longs = BIT_VECTOR_LONG_STORAGE (length);
-  p = make_bit_vector_internal (length);
-  XSETBIT_VECTOR (bit_vector, p);
 
   if (ZEROP (init))
     memset (p->bits, 0, num_longs * sizeof (long));
   else
     {
-      EMACS_INT bits_in_last = length & (LONGBITS_POWER_OF_2 - 1);
+      size_t bits_in_last = length & (LONGBITS_POWER_OF_2 - 1);
       memset (p->bits, ~0, num_longs * sizeof (long));
       /* But we have to make sure that the unused bits in the
-	 last integer are 0, so that equal/hash is easy. */
+	 last long are 0, so that equal/hash is easy. */
       if (bits_in_last)
 	p->bits[num_longs - 1] &= (1 << bits_in_last) - 1;
     }
 
-  return bit_vector;
+  {
+    Lisp_Object bit_vector;
+    XSETBIT_VECTOR (bit_vector, p);
+    return bit_vector;
+  }
 }
 
 Lisp_Object
-make_bit_vector_from_byte_vector (unsigned char *bytevec, EMACS_INT length)
+make_bit_vector_from_byte_vector (unsigned char *bytevec, size_t length)
 {
-  Lisp_Object bit_vector;
-  struct Lisp_Bit_Vector *p;
   int i;
-
-  if (length < 0)
-    length = XINT (wrong_type_argument (Qnatnump, make_int (length)));
-
-  p = make_bit_vector_internal (length);
-  XSETBIT_VECTOR (bit_vector, p);
+  Lisp_Bit_Vector *p = make_bit_vector_internal (length);
 
   for (i = 0; i < length; i++)
     set_bit_vector_bit (p, i, bytevec[i]);
 
-  return bit_vector;
+  {
+    Lisp_Object bit_vector;
+    XSETBIT_VECTOR (bit_vector, p);
+    return bit_vector;
+  }
 }
 
 DEFUN ("make-bit-vector", Fmake_bit_vector, 2, 2, 0, /*
@@ -1618,20 +1607,20 @@ Any number of arguments, even zero arguments, are allowed.
 */
        (int nargs, Lisp_Object *args))
 {
-  Lisp_Object bit_vector;
-  int elt;
-  struct Lisp_Bit_Vector *p;
+  int i;
+  Lisp_Bit_Vector *p = make_bit_vector_internal (nargs);
 
-  for (elt = 0; elt < nargs; elt++)
-    CHECK_BIT (args[elt]);
+  for (i = 0; i < nargs; i++)
+    {
+      CHECK_BIT (args[i]);
+      set_bit_vector_bit (p, i, !ZEROP (args[i]));
+    }
 
-  p = make_bit_vector_internal (nargs);
-
-  for (elt = 0; elt < nargs; elt++)
-    set_bit_vector_bit (p, elt, !ZEROP (args[elt]));
-
-  XSETBIT_VECTOR (bit_vector, p);
-  return bit_vector;
+  {
+    Lisp_Object bit_vector;
+    XSETBIT_VECTOR (bit_vector, p);
+    return bit_vector;
+  }
 }
 
 
@@ -2113,13 +2102,13 @@ allocate_string_chars_struct (struct Lisp_String *string_it_goes_with,
   else
     {
       /* Make a new current string chars block */
-      struct string_chars_block *new = xnew (struct string_chars_block);
+      struct string_chars_block *new_scb = xnew (struct string_chars_block);
 
-      current_string_chars_block->next = new;
-      new->prev = current_string_chars_block;
-      new->next = 0;
-      current_string_chars_block = new;
-      new->pos = fullsize;
+      current_string_chars_block->next = new_scb;
+      new_scb->prev = current_string_chars_block;
+      new_scb->next = 0;
+      current_string_chars_block = new_scb;
+      new_scb->pos = fullsize;
       s_chars = (struct string_chars *)
 	current_string_chars_block->string_chars;
     }
@@ -2307,12 +2296,10 @@ resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta)
 void
 set_string_char (struct Lisp_String *s, Charcount i, Emchar c)
 {
-  Bytecount oldlen, newlen;
   Bufbyte newstr[MAX_EMCHAR_LEN];
   Bytecount bytoff = charcount_to_bytecount (string_data (s), i);
-
-  oldlen = charcount_to_bytecount (string_data (s) + bytoff, 1);
-  newlen = set_charptr_emchar (newstr, c);
+  Bytecount oldlen = charcount_to_bytecount (string_data (s) + bytoff, 1);
+  Bytecount newlen = set_charptr_emchar (newstr, c);
 
   if (oldlen != newlen)
     resize_string (s, bytoff, newlen - oldlen);
@@ -2593,9 +2580,8 @@ Lisp_Object
 make_pure_string (CONST Bufbyte *data, Bytecount length,
 		  Lisp_Object plist, int no_need_to_copy_data)
 {
-  Lisp_Object new;
-  struct Lisp_String *s;
-  size_t size = sizeof (struct Lisp_String) +
+  Lisp_String *s;
+  size_t size = sizeof (Lisp_String) +
     (no_need_to_copy_data ? 0 : (length + 1)); /* + 1 for terminating 0 */
   size = ALIGN_SIZE (size, ALIGNOF (Lisp_Object));
 
@@ -2607,15 +2593,19 @@ make_pure_string (CONST Bufbyte *data, Bytecount length,
 	{
 	  s = XSYMBOL (tem)->name;
 	  if (!PURIFIED (s)) abort ();
-	  XSETSTRING (new, s);
-	  return new;
+
+	  {
+	    Lisp_Object string;
+	    XSETSTRING (string, s);
+	    return string;
+	  }
 	}
     }
 
   if (!check_purespace (size))
     return make_string (data, length);
 
-  s = (struct Lisp_String *) (PUREBEG + pure_bytes_used);
+  s = (Lisp_String *) (PUREBEG + pure_bytes_used);
 #ifdef LRECORD_STRING
   set_lheader_implementation (&(s->lheader), lrecord_string);
 #ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
@@ -2629,7 +2619,7 @@ make_pure_string (CONST Bufbyte *data, Bytecount length,
     }
   else
     {
-      set_string_data (s, (Bufbyte *) s + sizeof (struct Lisp_String));
+      set_string_data (s, (Bufbyte *) s + sizeof (Lisp_String));
       memcpy (string_data (s), data, length);
       set_string_byte (s, length, 0);
     }
@@ -2645,8 +2635,11 @@ make_pure_string (CONST Bufbyte *data, Bytecount length,
   /* Do this after the official "completion" of the purecopying. */
   s->plist = Fpurecopy (plist);
 
-  XSETSTRING (new, s);
-  return new;
+  {
+    Lisp_Object string;
+    XSETSTRING (string, s);
+    return string;
+  }
 }
 
 
@@ -2668,26 +2661,29 @@ make_pure_pname (CONST Bufbyte *data, Bytecount length,
 Lisp_Object
 pure_cons (Lisp_Object car, Lisp_Object cdr)
 {
-  Lisp_Object new;
-  struct Lisp_Cons *c;
+  Lisp_Cons *c;
 
-  if (!check_purespace (sizeof (struct Lisp_Cons)))
+  if (!check_purespace (sizeof (Lisp_Cons)))
     return Fcons (Fpurecopy (car), Fpurecopy (cdr));
 
-  c = (struct Lisp_Cons *) (PUREBEG + pure_bytes_used);
+  c = (Lisp_Cons *) (PUREBEG + pure_bytes_used);
 #ifdef LRECORD_CONS
   set_lheader_implementation (&(c->lheader), lrecord_cons);
 #ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
   c->lheader.pure = 1;
 #endif
 #endif
-  pure_bytes_used += sizeof (struct Lisp_Cons);
-  bump_purestat (&purestat_cons, sizeof (struct Lisp_Cons));
+  pure_bytes_used += sizeof (Lisp_Cons);
+  bump_purestat (&purestat_cons, sizeof (Lisp_Cons));
 
   c->car = Fpurecopy (car);
   c->cdr = Fpurecopy (cdr);
-  XSETCONS (new, c);
-  return new;
+
+  {
+    Lisp_Object cons;
+    XSETCONS (cons, c);
+    return cons;
+  }
 }
 
 Lisp_Object
@@ -2756,9 +2752,8 @@ make_pure_float (double num)
 Lisp_Object
 make_pure_vector (size_t len, Lisp_Object init)
 {
-  Lisp_Object new;
   Lisp_Vector *v;
-  size_t size = offsetof (Lisp_Vector, contents[len]);
+  size_t size = STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents, len);
 
   init = Fpurecopy (init);
 
@@ -2780,8 +2775,11 @@ make_pure_vector (size_t len, Lisp_Object init)
   for (size = 0; size < len; size++)
     v->contents[size] = init;
 
-  XSETVECTOR (new, v);
-  return new;
+  {
+    Lisp_Object vector;
+    XSETVECTOR (vector, v);
+    return vector;
+  }
 }
 
 #if 0
@@ -3338,7 +3336,7 @@ pure_sizeof (Lisp_Object obj)
     }
 #ifndef LRECORD_VECTOR
   else if (VECTORP (obj))
-    return offsetof (Lisp_Vector, contents[XVECTOR_LENGTH (obj)]);
+    return STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents, XVECTOR_LENGTH (obj));
 #endif /* !LRECORD_VECTOR */
 
 #ifndef LRECORD_CONS
@@ -3523,7 +3521,8 @@ sweep_vectors_1 (Lisp_Object *prev,
 	  v->size = len;
 	  total_size += len;
           total_storage +=
-	    MALLOC_OVERHEAD + offsetof (Lisp_Vector, contents[len + 1]);
+	    MALLOC_OVERHEAD +
+	    STRETCHY_STRUCT_SIZEOF (Lisp_Vector, contents, len + 1);
 	  num_used++;
 	  prev = &(vector_next (v));
 	  vector = *prev;
@@ -3563,8 +3562,9 @@ sweep_bit_vectors_1 (Lisp_Object *prev,
 	  UNMARK_RECORD_HEADER (&(v->lheader));
 	  total_size += len;
           total_storage +=
-	    MALLOC_OVERHEAD
-	    + offsetof (Lisp_Bit_Vector, bits[BIT_VECTOR_LONG_STORAGE (len)]);
+	    MALLOC_OVERHEAD +
+	    STRETCHY_STRUCT_SIZEOF (Lisp_Bit_Vector, bits,
+				    BIT_VECTOR_LONG_STORAGE (len));
 	  num_used++;
 	  prev = &(bit_vector_next (v));
 	  bit_vector = *prev;

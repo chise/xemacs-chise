@@ -1732,10 +1732,10 @@ init_image_instance_from_xbm_inline (struct Lisp_Image_Instance *ii,
 	if (NILP (background))
 	  background = pointer_bg;
 
-	XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii), 
-		 find_keyword_in_vector (instantiator, Q_hotspot_x));
-	XSETINT (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii), 
-		 find_keyword_in_vector (instantiator, Q_hotspot_y));
+	IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (ii) = 
+	  find_keyword_in_vector (instantiator, Q_hotspot_x);
+	IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (ii) = 
+	  find_keyword_in_vector (instantiator, Q_hotspot_y);
 	IMAGE_INSTANCE_PIXMAP_FG (ii) = foreground;
 	IMAGE_INSTANCE_PIXMAP_BG (ii) = background;
 	if (COLOR_INSTANCEP (foreground))

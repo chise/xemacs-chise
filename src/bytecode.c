@@ -2336,7 +2336,7 @@ If the byte code for compiled function FUNCTION is lazy-loaded, fetch it now.
   if (OPAQUEP (f->instructions) || STRINGP (f->instructions))
     return function;
 
-  if (CONSP (XCOMPILED_FUNCTION (function)->instructions))
+  if (CONSP (f->instructions))
     {
       Lisp_Object tem = read_doc_string (f->instructions);
       if (!CONSP (tem))
@@ -2346,8 +2346,8 @@ If the byte code for compiled function FUNCTION is lazy-loaded, fetch it now.
 	ebolify_bytecode_constants (XCDR (tem));
       /* VERY IMPORTANT to purecopy here!!!!!
 	 See load_force_doc_string_unwind. */
-      /* f->instructions = Fpurecopy (XCAR (tem)); */
-      f->constants = Fpurecopy (XCDR (tem));
+      f->instructions = Fpurecopy (XCAR (tem));
+      f->constants    = Fpurecopy (XCDR (tem));
       return function;
     }
   abort ();

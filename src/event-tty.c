@@ -71,6 +71,8 @@ tty_timeout_to_emacs_event (struct Lisp_Event *emacs_event)
   emacs_event->timestamp  = 0; /* #### */
   emacs_event->event.timeout.interval_id =
     pop_low_level_timeout (&tty_timer_queue, 0);
+  emacs_event->event.timeout.function = Qnil;
+  emacs_event->event.timeout.object = Qnil;
 }
 
 

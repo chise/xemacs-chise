@@ -393,7 +393,8 @@ struct timeout_data
 {
   int		    interval_id;
   int		    id_number;
-  Lisp_Object	    function, object;
+  Lisp_Object	    function;
+  Lisp_Object	    object;
 };
 
 struct eval_data

@@ -1,3 +1,48 @@
+1998-12-16  Andy Piper  <andy@xemacs.org>
+
+	* XEmacs 21.2.6 is released
+
+1998-11-30  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* cus-dep.el (Custom-make-dependencies): Be smarter about trapping 
+	errors.
+
+1998-12-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* wid-edit.el (widget-echo-this-extent): Set
+	help-echo-owns-message to t.
+
+1998-11-30  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-download-menu): use toggles for
+	  each site in the download site menu.
+
+1998-12-01  Jan Vroonhof <vroonhof@math.ethz.ch>
+
+	* package-get.el (package-get): If we cannot find a package
+	  because package-get-remote is not set, give a more helpful
+	  error message.
+
+1998-11-30  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-remote-filename): use an EFS path
+	with user anonymous if no user is specified.
+
+1998-12-10  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* faces.el (face-spec-set): Re-init fallfacks for default after
+	calling reset-face on the default face.
+
+1998-12-10  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-admin.el (package-admin-default-install-function):
+	Behave as advertised.  Make sure the pkg-dir is proper for
+	default-directory.
+	(package-admin-add-binary-package): Make sure the pkg-dir is
+	proper for default-directory.
+	(package-admin-install-function-mswindows): Make sure the pkg-dir
+	is proper for default-directory.
+
 1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.5 is released

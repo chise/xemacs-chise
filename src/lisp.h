@@ -2160,12 +2160,12 @@ typedef unsigned long uintptr_t;
 /* Defined in alloc.c */
 void release_breathing_space (void);
 Lisp_Object noseeum_cons (Lisp_Object, Lisp_Object);
-Lisp_Object make_vector (EMACS_INT, Lisp_Object);
+Lisp_Object make_vector (size_t, Lisp_Object);
 Lisp_Object vector1 (Lisp_Object);
 Lisp_Object vector2 (Lisp_Object, Lisp_Object);
 Lisp_Object vector3 (Lisp_Object, Lisp_Object, Lisp_Object);
-Lisp_Object make_bit_vector (EMACS_INT, Lisp_Object);
-Lisp_Object make_bit_vector_from_byte_vector (unsigned char *, EMACS_INT);
+Lisp_Object make_bit_vector (size_t, Lisp_Object);
+Lisp_Object make_bit_vector_from_byte_vector (unsigned char *, size_t);
 Lisp_Object noseeum_make_marker (void);
 void garbage_collect_1 (void);
 Lisp_Object acons (Lisp_Object, Lisp_Object, Lisp_Object);

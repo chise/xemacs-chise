@@ -1446,6 +1446,8 @@ mswindows_wm_timer_callback (HWND hwnd, UINT umsg, UINT id_timer, DWORD dwtime)
   event->timestamp = dwtime;
   event->event_type = timeout_event;
   event->event.timeout.interval_id = id_timer;
+  event->event.timeout.function = Qnil;
+  event->event.timeout.object = Qnil;
 
   mswindows_enqueue_dispatch_event (emacs_event);
 }

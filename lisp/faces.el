@@ -1209,6 +1209,8 @@ See `defface' for information about SPEC."
 	(init-face-from-resources face frame))
     (let ((frames (relevant-custom-frames)))
       (reset-face face)
+      (if (and (eq 'default face) (featurep 'x))
+	  (x-init-global-faces))
       (face-display-set face spec)
       (while frames
 	(face-display-set face spec (car frames))

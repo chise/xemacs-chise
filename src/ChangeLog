@@ -1,3 +1,115 @@
+1998-12-16  Andy Piper  <andy@xemacs.org>
+
+	* XEmacs 21.2.6 is released
+
+1998-12-08  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* md5.c (Fmd5): Correctly initiate string input stream.
+
+	* Makefile.in.in (tests): Add md5-tests.el.
+
+1998-12-06  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h:
+	* alloc.c (make_vector): remove travesty
+	(Fmake_vector):
+	(make_pure_vector):
+	(pure_cons):
+	(make_bit_vector_internal):
+	(make_bit_vector):
+	(make_bit_vector_from_byte_vector):
+	(Fmake_bit_vector):
+	- make vector_equal a little faster.
+	- Don't use variable name `new'.
+	- Use size_t instead of EMACS_INT.
+	- usual Martin-style pointless bit-twiddling.
+	
+	* fns.c (mapcar1): 
+	(Fmapconcat): 
+	(Fmapcar): 
+	(Fmapvector): 
+	Make mapcar faster.  In particular, make
+	  (mapc #'identity long-string)
+	MUCH faster under Mule.
+	* tests/automated/lisp-tests.el: Test 'em!
+
+1998-12-06  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecode.c (Ffetch_bytecode): Fix crash when loading lazy-loaded 
+	bytecode.
+
+1998-12-13  Martin Buchholz  <martin@xemacs.org>
+
+	* console-msw.c: Function definitions follow coding standards
+	- This prevents e.g. find-tag on Lisp_Event finding DEVENT
+
+1998-12-11  Martin Buchholz  <martin@xemacs.org>
+
+	* events.h (struct timeout_data): 
+	* event-tty.c (tty_timeout_to_emacs_event): 
+	* event-msw.c (mswindows_wm_timer_callback): 
+	* event-Xt.c (Xt_timeout_to_emacs_event): 
+	* event-msw.c (mswindows_cancel_dispatch_event):
+	Make sure Lisp_Objects inside events are initialized to Qnil, not
+	Qnull_pointer, which is now illegal.
+
+1998-12-10  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h: Fix up prototypes to match alloc.c
+
+1998-12-09  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (init_image_instance_from_xbm_inline): don't use
+ 	XSETINT for assigning lisp objects.
+
+1998-12-07  Martin Buchholz  <martin@xemacs.org>
+
+	* opaque.h:
+	* console-msw.c (DHEADER): 
+	(DOPAQUE_DATA): 
+	(DEVENT): 
+	(DCONS): 
+	(DCONSCDR): 
+	(DSTRING): 
+	(DVECTOR): 
+	(DSYMBOL): 
+	(DSYMNAME): 
+	- max_align_t should not be visible to the user of the
+	  XOPAQUE_DATA macro.
+	- use Bufbyte instead of char
+	- parens around (FOOP (obj)) are always redundant.
+	  If they were necessary, we should fix the macro instead.
+	- Always use string_data(foo) instead of foo->data.
+
+1998-12-07  Martin Buchholz  <martin@xemacs.org>
+
+	* sysdep.c (set_descriptor_non_blocking): 
+	Since O_NONBLOCK is now always #defined, make use of fcntl
+	conditional on F_SETFL being defined.
+
+1998-12-09  Andy Piper  <andy@xemacs.org>
+
+	* menubar-msw.c (mswindows_handle_wm_command): add back in checks
+ 	that got removed in the merge
+
+1998-11-30  Greg Klanderman  <greg@alphatech.com>
+
+	* dired.c (vars_of_dired): bugfix for previous conditionalization
+	of user-name-completion on non- Windows NT.
+
+1998-12-08  Martin Buchholz  <martin@xemacs.org>
+
+	* windowsnt.h: Remove `support' for using index and rindex
+
+	* filelock.c (current_lock_owner): 
+	- Change uses of index -> strchr, rindex -> strrchr
+
+1998-12-06  Martin Buchholz  <martin@xemacs.org>
+
+	* frame-msw.c (mswindows_init_frame_1):
+	- use make_lisp_hash_table, not Fmake_hash_table
+	- include elhash.h
+
 1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.5 is released

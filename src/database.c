@@ -498,19 +498,21 @@ berkdb_map (Lisp_Database *db, Lisp_Object func)
       call2 (func, key, val);
     }
 #else
-  DBC *dbcp;
+  {
+    DBC *dbcp;
 
-  status = dbp->cursor (dbp, NULL, &dbcp);
-  for (status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_FIRST);
-       status == 0;
-       status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_NEXT))
-    {
-      /* ### Needs mule-izing */
-      key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
-      val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
-      call2 (func, key, val);
-    }
-  dbcp->c_close (dbcp);
+    status = dbp->cursor (dbp, NULL, &dbcp);
+    for (status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_FIRST);
+	 status == 0;
+	 status = dbcp->c_get (dbcp, &keydatum, &valdatum, DB_NEXT))
+      {
+	/* ### Needs mule-izing */
+	key = make_string ((Bufbyte *) keydatum.data, keydatum.size);
+	val = make_string ((Bufbyte *) valdatum.data, valdatum.size);
+	call2 (func, key, val);
+      }
+    dbcp->c_close (dbcp);
+  }
 #endif /* DB_VERSION_MAJOR */
 }
 

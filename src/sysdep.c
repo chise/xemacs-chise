@@ -212,7 +212,9 @@ set_descriptor_non_blocking (int fd)
   }
 #endif
 
+#ifdef F_SETFL
   fcntl (fd, F_SETFL, O_NONBLOCK);
+#endif
 }
 
 #if defined (NO_SUBPROCESSES)

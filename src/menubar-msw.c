@@ -623,7 +623,11 @@ mswindows_handle_wm_command (struct frame* f, WORD id)
   Lisp_Object data, fn, arg, frame;
   struct gcpro gcpro1;
 
+  if (NILP (current_hash_table))
+    return Qnil;
+
   data = Fgethash (make_int (id), current_hash_table, Qunbound);
+
   if (UNBOUNDP (data))
     {
       menu_cleanup (f);

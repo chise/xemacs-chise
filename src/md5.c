@@ -563,7 +563,7 @@ file-coding or Mule support.  Otherwise, they are ignored.
       CHECK_STRING (object);
       get_string_range_byte (object, start, end, &bstart, &bend,
 			     GB_HISTORICAL_STRING_BEHAVIOR);
-      instream = make_lisp_string_input_stream (object, bstart, bend);
+      instream = make_lisp_string_input_stream (object, bstart, bend - bstart);
     }
   GCPRO1 (instream);
 
