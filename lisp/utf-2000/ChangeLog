@@ -1,3 +1,38 @@
+2003-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (M-33508): Separate C2-5F34 and U+87B7.
+	(M-33509): New character.
+	(U-000222DC): New character.
+
+	* Ideograph-R055-Two-Hands.el (U+5F00): Use
+	`ideographic-radical@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; unify
+	M051106.
+	(U-0002233D): Add `->identical' for M-00060.
+	(M-09614): Map to U-00022345.
+	(M009614): New character.
+	(C6-3071): Relate to M-9614.
+
+	* Ideograph-R001-One.el (M-00060): Map to U-0002233D; add
+	`->identical' for M-09608.
+
+	* Ideograph-R051-Dry.el (U+5F00): Use
+	`ideographic-radical@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; unify
+	M051106.
+
+2003-05-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R054-Long-Stride.el (U+38A0): Unify M083554.
+	(U+5EF8): Separate J0-572F; unify M054558.
+	(M079178): New character.
+
+	* Ideograph-R036-Evening.el (U+3C54): Separate C3-2B7B; unify
+	M067416.
+
+	* Ideograph-R032-Earth.el (M085284): New character.
+	(M053139): New character.
+
 2003-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el: Add missing mappings between CJK Ext B
