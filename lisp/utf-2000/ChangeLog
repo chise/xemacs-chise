@@ -1,3 +1,17 @@
+2003-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (M000941): Separate C2-3A43 and B-D85F.
+	(U+5087): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+	(M-01324): Separate M001324.
+
+	* Ideograph-R140-Grass.el (M030918): New character.
+
+2003-12-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (C1-442C): Separate U+516B and G0-304B;
+	unify M001450.
+
 2003-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u00180-Latin-Extended-B.el (JX1-2874): Add JU+01F8.
