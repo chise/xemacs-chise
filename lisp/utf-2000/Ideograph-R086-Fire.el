@@ -29,7 +29,9 @@
     (=jis-x0212		. #x4944)	; ø»‹Ÿ£
     (=cns11643-4	. #x2150)	; ø»—¡—
     (=jis-x0213-2-2000	. #x6F58)	; ø»¦›
+    (=gt-pj-k1		. #x376C)	; ç¬
     (=daikanwa		. 18851)	; ø¸„¦£
+    (=gt-k		. 00601)	; ý¡„€‰™
     (=jef-china3	. #x57CA)	; øº…ŸŠ
     (=ucs		. #x706C)	; ç¬
     ))
@@ -146,8 +148,10 @@
     (total-strokes	 . 6)
     (=gb2312		. #x3B52)	; ø»„­
     (=ks-x1001		. #x7C69)	; ø»Š ¾
+    (=gt-pj-k1		. #x3B6A)	; ç°
     (=big5		. #xA6C7)	; ý¢€Š›‡
     (=daikanwa		. 18858)	; ø¸„¦ª
+    (=gt-k		. 01577)	; ý¡„€˜©
     (=ucs		. #x7070)	; ç°
     ))
 (define-char
