@@ -179,9 +179,7 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
-#ifdef CHISE
-  CHISE_Feature_Table *feature_table;
-#else
+#ifndef CHISE
   Lisp_Object db;
 #endif
   unsigned char unloaded;
