@@ -1,5 +1,14 @@
 1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* file-coding.c (reset_encoding_stream): Set 0 to
+	`str->iso2022.current_char_boundary' in UTF2000.
+	(encode_utf8): Don't define in UTF2000.
+	(encode_coding_utf8): New implementation for UTF-8 representation
+	of UTF2000.
+	(complex_vars_of_file_coding): Define coding-system `utf-8'.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule.c (vars_of_mule): Provide `utf-2000' in UTF2000.
 
 	* mule-charset.h (BUFBYTE_FIRST_BYTE_P): Modify for UTF-8 in
