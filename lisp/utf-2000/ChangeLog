@@ -1,5 +1,12 @@
 2004-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R003-Dot.el (C3-2740): Use `cns11643' instead of
+	`cns-11643' in `ideographic-radical@cns*sources'.
+
+	* Ideograph-R001-One.el (C3-2740): Use `cns11643' instead of
+	`cns-11643' in `ideographic-radical@cns*sources'.
+	(U-00024CCF): Add `ideographic-radical@cns*sources'.
+
 	* Ideograph-R103-Bolt-Of-Cloth.el (C5-4057): Moved into
 	U-00024CA3.
 
