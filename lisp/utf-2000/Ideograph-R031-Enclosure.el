@@ -2154,8 +2154,17 @@
   '((ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (chinese-cns11643-6 . #x5145)	; ø»œ»´
-    (ideograph-daikanwa . 04821)	; ø¸‹•
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8DDD)	; ý¢€ˆ·
+      )
+     ((chinese-cns11643-6 . #x2F5C)	; ø»œŠ
+      ))
+    (chinese-cns11643-6		. #x5145)	; ø»œ»´
+    (ideograph-daikanwa		. 04821)	; ø¸‹•
+    (ideograph-hanziku-1	. #xA9A2)	; ý¢€š¦¢
     ))
 (define-char
   '((ideographic-radical . 31)	; â¼ž
