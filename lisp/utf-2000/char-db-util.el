@@ -74,11 +74,6 @@
 (defvar char-db-ignored-attributes nil)
 
 ;;;###autoload
-(defun char-ref-p (obj)
-  (and (consp obj)
-       (keywordp (car obj))))
-
-;;;###autoload
 (defun char-ref= (cr1 cr2)
   (cond ((char-ref-p cr1)
 	 (if (char-ref-p cr2)
