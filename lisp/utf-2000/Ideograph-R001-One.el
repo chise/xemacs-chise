@@ -511,7 +511,8 @@
     (ideograph-daikanwa		#x00 #x21)	; ø¹€¡
     ))
 (define-char
-  '((morohashi-daikanwa	34)
+  '((ucs		. #x3400)
+    (morohashi-daikanwa	34)
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
@@ -600,7 +601,8 @@
     (chinese-gb2312	#x4B #x3F)	; ø»…„Ž
     ))
 (define-char
-  '((morohashi-daikanwa	39)
+  '((ucs		. #x3401)
+    (morohashi-daikanwa	39)
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
