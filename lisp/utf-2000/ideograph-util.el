@@ -303,7 +303,7 @@
       (encode-char char '=daikanwa-rev2 'defined-only)
       (let ((ret (char-feature char '=>daikanwa)))
 	(and ret
-	     (if (or (get-char-attribute char '<-unified)
+	     (if (or (get-char-attribute char '<-subsumptive)
 		     (get-char-attribute char '<-denotational))
 		 (list ret 0)
 	       ret)))
