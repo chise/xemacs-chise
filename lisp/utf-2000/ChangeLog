@@ -1,3 +1,15 @@
+2001-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el: Merge CHINA3-JEF code points.
+
+2001-12-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R063-Door.el:
+	- Add some Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Add some CBETA numbers.
+	- Use `=>ucs' instead of `->ucs'.
+
 2001-12-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R022-Right-Open-Box.el (JSP-342E): Separate U+532C.
