@@ -104,6 +104,7 @@ Lisp_Object Vcharset_ideograph_gt_pj_8;
 Lisp_Object Vcharset_ideograph_gt_pj_9;
 Lisp_Object Vcharset_ideograph_gt_pj_10;
 Lisp_Object Vcharset_ideograph_gt_pj_11;
+Lisp_Object Vcharset_ideograph_daikanwa_2;
 Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_mojikyo;
 Lisp_Object Vcharset_mojikyo_2022_1;
@@ -461,6 +462,7 @@ Lisp_Object Qascii,
   Qideograph_hanziku_12,
   Qchina3_jef,
   Qideograph_cbeta,
+  Qideograph_daikanwa_2,
   Qideograph_daikanwa,
   Qideograph_gt,
   Qideograph_gt_pj_1,
@@ -2410,6 +2412,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_gt_pj_9,	"ideograph-gt-pj-9");
   defsymbol (&Qideograph_gt_pj_10,	"ideograph-gt-pj-10");
   defsymbol (&Qideograph_gt_pj_11,	"ideograph-gt-pj-11");
+  defsymbol (&Qideograph_daikanwa_2,	"ideograph-daikanwa-2");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp");
@@ -2952,9 +2955,19 @@ complex_vars_of_mule_charset (void)
   DEF_GT_PJ (10);
   DEF_GT_PJ (11);
 
+  staticpro (&Vcharset_ideograph_daikanwa_2);
+  Vcharset_ideograph_daikanwa_2 =
+    make_charset (LEADING_BYTE_DAIKANWA_2, Qideograph_daikanwa_2, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Daikanwa Rev."),
+		  build_string ("Morohashi's Daikanwa Rev."),
+		  build_string
+		  ("Daikanwa dictionary (revised version)"),
+		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-2"),
+		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_ideograph_daikanwa);
   Vcharset_ideograph_daikanwa =
-    make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa, 256, 2,
+    make_charset (LEADING_BYTE_DAIKANWA_3, Qideograph_daikanwa, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Daikanwa"),
 		  build_string ("Morohashi's Daikanwa Rev.2"),
