@@ -1,22 +1,31 @@
 (define-char
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 0)
-    (japanese-jisx0213-1	. #x4F62)	; ø»£—¡
-    (ideograph-daikanwa		. 07825)	; ø¸º‘
-    ))
-(define-char
-  '((ideographic-radical . 45)	; â¼¬
-    (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (japanese-jisx0208-1978	. #x5625)	; ø»ƒ‰º
     (chinese-gb2312		. #x6578)	; ø»…«“
-    (japanese-jisx0208		. #x5625)	; ø»‡ž‚
     (chinese-isoir165		. #x6578)	; ø»Ž“£
     (chinese-cns11643-2		. #x212B)	; ø»“Œª
+    (japanese-jisx0213-1	. #x4F62)	; ø»£—¡
+    (chinese-big5		. #xC94B)	; øº¡¥
+    (ideograph-daikanwa		. 07825)	; ø¸º‘
+    (ucs			. #x5C6E)	; å±®
+    ))
+(define-char
+  '((=>ucs		. #x5C6E)	; å±®
+    (ideographic-radical . 45)	; â¼¬
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (->synonyms
+     (:sources	(shuowen morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 08720)	; ø¸‚ˆ
+		 )
+      ))
+    (comment		. "M-07825 is a different char.")
+    (japanese-jisx0208-1978	. #x5625)	; ø»ƒ‰º
+    (japanese-jisx0208		. #x5625)	; ø»‡ž‚
     (chinese-cns11643-4		. #x2135)	; ø»— ¼
     (japanese-jisx0208-1990	. #x5625)	; ø½‹ƒ¶
     (ideograph-daikanwa		. 07826)	; ø¸º’
-    (ucs			. #x5C6E)	; å±®
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
@@ -26,19 +35,27 @@
     (ideograph-daikanwa . 07827)	; ø¸º“
     ))
 (define-char
-  '((ideographic-radical . 45)	; â¼¬
+  '((=>ucs		. #x5C6F)	; å±¯
+    (ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (shinjigen-2	. 1953)
     (japanese-jisx0208-1978	. #x4656)	; ø»‚³‹
-    (chinese-gb2312		. #x4D4D)	; ø»…‡˜
     (japanese-jisx0208		. #x4656)	; ø»‡‡“
     (korean-ksc5601		. #x546A)	; ø»‰¦
-    (chinese-isoir165		. #x4D4D)	; ø»¯¨
-    (chinese-cns11643-1		. #x453A)	; ø»‘·­
     (japanese-jisx0208-1990	. #x4656)	; ø½Š­‡
     (ideograph-daikanwa		. 07828)	; ø¸º”
-    (ucs			. #x5C6F)	; å±¯
+    ))
+(define-char
+  '((morohashi-daikanwa	7828 0 0)
+    (ideographic-radical . 45)	; â¼¬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (chinese-gb2312	. #x4D4D)	; ø»…‡˜
+    (chinese-isoir165	. #x4D4D)	; ø»¯¨
+    (chinese-cns11643-1 . #x453A)	; ø»‘·­
+    (chinese-big5	. #xA4D9)	; øºŸ¤Ž
+    (ucs		. #x5C6F)	; å±¯
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
