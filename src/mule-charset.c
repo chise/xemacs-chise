@@ -229,7 +229,7 @@ mark_uint8_byte_table (Lisp_Object obj)
 
 static void
 print_uint8_byte_table (Lisp_Object obj,
-			 Lisp_Object printcharfun, int escapeflag)
+			Lisp_Object printcharfun, int escapeflag)
 {
   Lisp_Uint8_Byte_Table *bte = XUINT8_BYTE_TABLE (obj);
   int i;
@@ -487,6 +487,24 @@ make_uint16_byte_table (unsigned short initval)
   return obj;
 }
 
+static Lisp_Object
+expand_uint8_byte_table_to_uint16 (Lisp_Object table)
+{
+  Lisp_Object obj;
+  int i;
+  Lisp_Uint8_Byte_Table* bte = XUINT8_BYTE_TABLE(table);
+  Lisp_Uint16_Byte_Table* cte;
+
+  cte = alloc_lcrecord_type (Lisp_Uint16_Byte_Table,
+			     &lrecord_uint16_byte_table);
+  for (i = 0; i < 256; i++)
+    {
+      cte->property[i] = UINT8_TO_UINT16 (bte->property[i]);
+    }
+  XSETUINT16_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
 static int
 uint16_byte_table_same_value_p (Lisp_Object obj)
 {
@@ -652,14 +670,8 @@ put_byte_table (Lisp_Object table, unsigned char idx, Lisp_Object value)
 	}
       else if (UINT16_VALUE_P (value))
 	{
-	  Lisp_Object new = make_uint16_byte_table (Qnil);
-	  int i;
+	  Lisp_Object new = expand_uint8_byte_table_to_uint16 (table);
 
-	  for (i = 0; i < 256; i++)
-	    {
-	      XUINT16_BYTE_TABLE(new)->property[i]
-		= UINT8_TO_UINT16 (XUINT8_BYTE_TABLE(table)->property[i]);
-	    }
 	  XUINT16_BYTE_TABLE(new)->property[idx] = UINT16_ENCODE (value);
 	  return new;
 	}
