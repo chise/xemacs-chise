@@ -3007,9 +3007,15 @@ change_frame_size (struct frame *f, int newheight, int newwidth, int delay)
      So deal. */
   check_frame_size (f, &newheight, &newwidth);
 
+  /* Unconditionally mark that the frame has changed size. This is
+     because many things need to know after the
+     fact. f->size_change_pending will get reset below. The most that
+     can happen is that we will cycle through redisplay once more
+     --andy. */
+  MARK_FRAME_SIZE_CHANGED (f);
+
   if (delay || in_display || gc_in_progress)
     {
-      MARK_FRAME_SIZE_CHANGED (f);
       f->new_width = newwidth;
       f->new_height = newheight;
       return;

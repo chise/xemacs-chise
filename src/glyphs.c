@@ -382,7 +382,7 @@ process_image_string_instantiator (Lisp_Object data,
 	 skip it. */
       if (!(dest_mask &
 	    IIFORMAT_METH (decode_image_instantiator_format
-			   (XVECTOR_DATA (typevec)[0], ERROR_ME),
+			   (INSTANTIATOR_TYPE (typevec), ERROR_ME),
 			   possible_dest_types, ())))
 	continue;
       if (fast_string_match (exp, 0, data, 0, -1, 0, ERROR_ME, 0) >= 0)
@@ -689,7 +689,7 @@ get_image_instantiator_governing_domain (Lisp_Object instantiator,
   int governing_domain;
 
   struct image_instantiator_methods *meths =
-    decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
+    decode_image_instantiator_format (INSTANTIATOR_TYPE (instantiator),
 				      ERROR_ME);
   governing_domain = IIFORMAT_METH_OR_GIVEN (meths, governing_domain, (),
 					     GOVERNING_DOMAIN_DEVICE);
@@ -742,7 +742,7 @@ normalize_image_instantiator (Lisp_Object instantiator,
 
     GCPRO1 (instantiator);
 
-    meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
+    meths = decode_image_instantiator_format (INSTANTIATOR_TYPE (instantiator),
 					      ERROR_ME);
     RETURN_UNGCPRO (IIFORMAT_METH_OR_GIVEN (meths, normalize,
 					    (instantiator, contype, dest_mask),
@@ -765,20 +765,20 @@ instantiate_image_instantiator (Lisp_Object governing_domain,
   struct gcpro gcpro1;
 
   GCPRO1 (ii);
-  if (!valid_image_instantiator_format_p (XVECTOR_DATA (instantiator)[0],
+  if (!valid_image_instantiator_format_p (INSTANTIATOR_TYPE (instantiator),
 					  DOMAIN_DEVICE (governing_domain)))
     signal_simple_error
       ("Image instantiator format is invalid in this locale.",
        instantiator);
 
-  meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
+  meths = decode_image_instantiator_format (INSTANTIATOR_TYPE (instantiator),
 					    ERROR_ME);
   MAYBE_IIFORMAT_METH (meths, instantiate, (ii, instantiator, pointer_fg,
 					    pointer_bg, dest_mask, domain));
 
   /* Now do device specific instantiation. */
   device_meths = decode_device_ii_format (DOMAIN_DEVICE (governing_domain),
-					  XVECTOR_DATA (instantiator)[0],
+					  INSTANTIATOR_TYPE (instantiator),
 					  ERROR_ME_NOT);
 
   if (!HAS_IIFORMAT_METH_P (meths, instantiate)
@@ -1469,7 +1469,7 @@ make_image_instance_1 (Lisp_Object data, Lisp_Object domain,
   GCPRO1 (data);
   /* After normalizing the data, it's always either an image instance (which
      we filtered out above) or a vector. */
-  if (EQ (XVECTOR_DATA (data)[0], Qinherit))
+  if (EQ (INSTANTIATOR_TYPE (data), Qinherit))
     signal_simple_error ("Inheritance not allowed here", data);
   governing_domain =
     get_image_instantiator_governing_domain (data, domain);
@@ -1992,9 +1992,6 @@ image_instance_layout (Lisp_Object image_instance,
   assert (XIMAGE_INSTANCE_YOFFSET (image_instance) >= 0
 	  && XIMAGE_INSTANCE_XOFFSET (image_instance) >= 0);
 
-  type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
-  meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
-
   /* If geometry is unspecified then get some reasonable values for it. */
   if (width == IMAGE_UNSPECIFIED_GEOMETRY
       ||
@@ -2002,20 +1999,11 @@ image_instance_layout (Lisp_Object image_instance,
     {
       int dwidth = IMAGE_UNSPECIFIED_GEOMETRY;
       int dheight = IMAGE_UNSPECIFIED_GEOMETRY;
-
       /* Get the desired geometry. */
-      if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
-	{
-	  IIFORMAT_METH (meths, query_geometry, (image_instance, &dwidth, &dheight,
-						 IMAGE_DESIRED_GEOMETRY,
-						 domain));
-	}
-      else
-	{
-	  dwidth = IMAGE_INSTANCE_WIDTH (ii);
-	  dheight = IMAGE_INSTANCE_HEIGHT (ii);
-	}
-
+      image_instance_query_geometry (image_instance,
+				     &dwidth, &dheight,
+				     IMAGE_DESIRED_GEOMETRY,
+				     domain);
       /* Compare with allowed geometry. */
       if (width == IMAGE_UNSPECIFIED_GEOMETRY)
 	width = dwidth;
@@ -2042,12 +2030,15 @@ image_instance_layout (Lisp_Object image_instance,
   IMAGE_INSTANCE_WIDTH (ii) = width;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
 
-  if (IIFORMAT_METH_OR_GIVEN (meths, layout,
-			      (image_instance, width, height, xoffset, yoffset,
-			       domain), 1))
-    /* Do not clear the dirty flag here - redisplay will do this for
-       us at the end. */
-    IMAGE_INSTANCE_LAYOUT_CHANGED (ii) = 0;
+  type = encode_image_instance_type (IMAGE_INSTANCE_TYPE (ii));
+  meths = decode_device_ii_format (Qnil, type, ERROR_ME_NOT);
+
+  MAYBE_IIFORMAT_METH (meths, layout,
+		       (image_instance, width, height, xoffset, yoffset,
+			domain));
+  /* Do not clear the dirty flag here - redisplay will do this for
+     us at the end. */
+  IMAGE_INSTANCE_LAYOUT_CHANGED (ii) = 0;
 }
 
 /* Update an image instance from its changed instantiator. */
@@ -3054,6 +3045,44 @@ image_mark (Lisp_Object obj)
   mark_object (IMAGE_SPECIFIER_ATTACHEE_PROPERTY (image));
 }
 
+static int
+instantiator_eq_equal (Lisp_Object obj1, Lisp_Object obj2)
+{
+  if (EQ (obj1, obj2))
+    return 1;
+
+  else if (CONSP (obj1) && CONSP (obj2))
+    {
+      return instantiator_eq_equal (XCAR (obj1), XCAR (obj2))
+	&&
+	instantiator_eq_equal (XCDR (obj1), XCDR (obj2));
+    }
+  return 0;
+}
+
+static hashcode_t
+instantiator_eq_hash (Lisp_Object obj)
+{
+  if (CONSP (obj))
+    {
+      /* no point in worrying about tail recursion, since we're not
+	 going very deep */
+      return HASH2 (instantiator_eq_hash (XCAR (obj)),
+		    instantiator_eq_hash (XCDR (obj)));
+    }
+  return LISP_HASH (obj);
+}
+
+/* We need a special hash table for storing image instances. */
+Lisp_Object
+make_image_instance_cache_hash_table (void)
+{
+  return make_general_lisp_hash_table
+    (instantiator_eq_hash, instantiator_eq_equal,
+     30, -1.0, -1.0,
+     HASH_TABLE_KEY_CAR_VALUE_WEAK);
+}
+
 static Lisp_Object
 image_instantiate_cache_result (Lisp_Object locative)
 {
@@ -3110,7 +3139,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 			       instantiator, domain);
     }
   else if (VECTORP (instantiator)
-	   && EQ (XVECTOR_DATA (instantiator)[0], Qinherit))
+	   && EQ (INSTANTIATOR_TYPE (instantiator), Qinherit))
     {
       assert (XVECTOR_LENGTH (instantiator) == 3);
       return (FACE_PROPERTY_INSTANCE
@@ -3121,7 +3150,8 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
     {
       Lisp_Object instance = Qnil;
       Lisp_Object subtable = Qnil;
-      Lisp_Object ls3 = Qnil;
+      /* #### Should this be GCPRO'd? */
+      Lisp_Object hash_key = Qnil;
       Lisp_Object pointer_fg = Qnil;
       Lisp_Object pointer_bg = Qnil;
       Lisp_Object governing_domain =
@@ -3139,8 +3169,15 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	{
 	  pointer_fg = FACE_FOREGROUND (Vpointer_face, domain);
 	  pointer_bg = FACE_BACKGROUND (Vpointer_face, domain);
-	  ls3 = list3 (glyph, pointer_fg, pointer_bg);
+	  hash_key = list4 (glyph, INSTANTIATOR_TYPE (instantiator), 
+			    pointer_fg, pointer_bg);
 	}
+      else
+	/* We cannot simply key on the glyph since fallbacks could use
+	   the same glyph but have a totally different instantiator
+	   type. Thus we key on the glyph and the type (but not any
+	   other parts of the instantiator. */
+	hash_key = list2 (glyph, INSTANTIATOR_TYPE (instantiator));
 
       /* First look in the device cache. */
       if (DEVICEP (governing_domain))
@@ -3167,20 +3204,15 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 		 have to use EQUAL because we massaged the
 		 instantiator into a cons3 also containing the
 		 foreground and background of the pointer face.  */
+	      subtable = make_image_instance_cache_hash_table ();
 
-	      subtable = make_lisp_hash_table
-		(20, pointerp ? HASH_TABLE_KEY_CAR_WEAK
-		 : HASH_TABLE_KEY_WEAK,
-		 pointerp ? HASH_TABLE_EQUAL
-		 : HASH_TABLE_EQ);
 	      Fputhash (make_int (dest_mask), subtable,
 			XDEVICE (governing_domain)->image_instance_cache);
 	      instance = Qunbound;
 	    }
 	  else
 	    {
-	      instance = Fgethash (pointerp ? ls3 : glyph,
-				   subtable, Qunbound);
+	      instance = Fgethash (hash_key, subtable, Qunbound);
 	    }
 	}
       else if (WINDOWP (governing_domain))
@@ -3188,7 +3220,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	  /* Subwindows have a per-window cache and have to be treated
 	     differently. */
 	  instance =
-	    Fgethash (pointerp ? ls3 : glyph,
+	    Fgethash (hash_key,
 		      XWINDOW (governing_domain)->subwindow_instance_cache,
 		      Qunbound);
 	}
@@ -3201,7 +3233,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	{
 	  Lisp_Object locative =
 	    noseeum_cons (Qnil,
-			  noseeum_cons (pointerp ? ls3 : glyph,
+			  noseeum_cons (hash_key,
 					DEVICEP (governing_domain) ? subtable
 					: XWINDOW (governing_domain)
 					->subwindow_instance_cache));
@@ -3234,7 +3266,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 #ifdef ERROR_CHECK_GLYPHS
 	  if (image_instance_type_to_mask (XIMAGE_INSTANCE_TYPE (instance))
 	      & (IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK))
-	    assert (EQ (Fgethash ((pointerp ? ls3 : glyph),
+	    assert (EQ (Fgethash (hash_key,
 				  XWINDOW (governing_domain)
 				  ->subwindow_instance_cache,
 				  Qunbound), instance));
@@ -3258,7 +3290,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	     possible to make changes that don't get reflected in the
 	     display. */
 	  update_image_instance (instance, instantiator);
-	  free_list (ls3);
+	  free_list (hash_key);
 	}
 
 #ifdef ERROR_CHECK_GLYPHS

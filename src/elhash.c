@@ -434,7 +434,44 @@ compute_hash_table_derived_values (Lisp_Hash_Table *ht)
 }
 
 Lisp_Object
-make_general_lisp_hash_table (enum hash_table_test test,
+make_standard_lisp_hash_table (enum hash_table_test test,
+			       size_t size,
+			       double rehash_size,
+			       double rehash_threshold,
+			       enum hash_table_weakness weakness)
+{
+  hash_table_hash_function_t hash_function =  0;
+  hash_table_test_function_t test_function = 0;
+
+  switch (test)
+    {
+    case HASH_TABLE_EQ:
+      test_function = 0;
+      hash_function = 0;
+      break;
+
+    case HASH_TABLE_EQL:
+      test_function = lisp_object_eql_equal;
+      hash_function = lisp_object_eql_hash;
+      break;
+
+    case HASH_TABLE_EQUAL:
+      test_function = lisp_object_equal_equal;
+      hash_function = lisp_object_equal_hash;
+      break;
+
+    default:
+      abort ();
+    }
+
+  return make_general_lisp_hash_table (hash_function, test_function,
+				       size, rehash_size, rehash_threshold,
+				       weakness);
+}
+
+Lisp_Object
+make_general_lisp_hash_table (hash_table_hash_function_t hash_function,
+			      hash_table_test_function_t test_function,
 			      size_t size,
 			      double rehash_size,
 			      double rehash_threshold,
@@ -443,27 +480,8 @@ make_general_lisp_hash_table (enum hash_table_test test,
   Lisp_Object hash_table;
   Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, &lrecord_hash_table);
 
-  switch (test)
-    {
-    case HASH_TABLE_EQ:
-      ht->test_function = 0;
-      ht->hash_function = 0;
-      break;
-
-    case HASH_TABLE_EQL:
-      ht->test_function = lisp_object_eql_equal;
-      ht->hash_function = lisp_object_eql_hash;
-      break;
-
-    case HASH_TABLE_EQUAL:
-      ht->test_function = lisp_object_equal_equal;
-      ht->hash_function = lisp_object_equal_hash;
-      break;
-
-    default:
-      abort ();
-    }
-
+  ht->test_function = test_function;
+  ht->hash_function = hash_function;
   ht->weakness = weakness;
 
   ht->rehash_size =
@@ -505,7 +523,7 @@ make_lisp_hash_table (size_t size,
 		      enum hash_table_weakness weakness,
 		      enum hash_table_test test)
 {
-  return make_general_lisp_hash_table (test, size, -1.0, -1.0, weakness);
+  return make_standard_lisp_hash_table (test, size, -1.0, -1.0, weakness);
 }
 
 /* Pretty reading of hash tables.
@@ -722,7 +740,7 @@ hash_table_instantiate (Lisp_Object plist)
     }
 
   /* Create the hash table.  */
-  hash_table = make_general_lisp_hash_table
+  hash_table = make_standard_lisp_hash_table
     (decode_hash_table_test (test),
      decode_hash_table_size (size),
      decode_hash_table_rehash_size (rehash_size),
@@ -872,7 +890,7 @@ if (!NILP (var)) hash_table_##var##_validate (Q##var, var, ERROR_ME);
   VALIDATE_VAR (rehash_threshold);
   VALIDATE_VAR (weakness);
 
-  return make_general_lisp_hash_table
+  return make_standard_lisp_hash_table
     (decode_hash_table_test (test),
      decode_hash_table_size (size),
      decode_hash_table_rehash_size (rehash_size),
@@ -1303,6 +1321,24 @@ finish_marking_weak_hash_tables (void)
 		  MARK_OBJ (e->key);
 		  MARK_OBJ (e->value);
 		}
+	  break;
+
+	  /* We seem to be sprouting new weakness types at an alarming
+	     rate. At least this is not externally visible - and in
+	     fact all of these KEY_CAR_* types are only used by the
+	     glyph code. */
+	case HASH_TABLE_KEY_CAR_VALUE_WEAK:
+	  for (; e < sentinel; e++)
+	    if (!HENTRY_CLEAR_P (e))
+	      {
+		if (!CONSP (e->key) || marked_p (XCAR (e->key)))
+		  {
+		    MARK_OBJ (e->key);
+		    MARK_OBJ (e->value);
+		  }
+		else if (marked_p (e->value))
+		  MARK_OBJ (e->key);
+	      }
 	  break;
 
 	case HASH_TABLE_VALUE_CAR_WEAK:

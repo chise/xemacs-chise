@@ -1,3 +1,98 @@
+2001-01-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.40 is released.
+
+2001-01-06  Golubev I. N.  <gin@mo.msk.ru>
+
+	* regex.c: Replace PREFETCH with REGEX_PREFETCH.
+
+2001-01-06  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c (dbg_valmask): Make const.
+	* alloc.c (dbg_typemask): Make const.
+	* alloc.c (dbg_USE_UNION_TYPE): Make const.
+	* alloc.c (dbg_valbits): Make const.
+	* alloc.c (dbg_gctypebits): Make const.
+
+2001-01-06  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* redisplay-x.c (x_bevel_area):
+	redisplay.h (struct rune):
+	Typo fixes in comments.
+
+2001-01-05  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_redisplay_widget): use size changed for offset
+	adjustment.
+
+	* menubar.c (menubar_visible_p_changed): don't mark frame changed.
+
+2001-01-05  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c (pure-bytes-used): Remove unused mendacious variable.
+
+	* mule-ccl.c (stack_idx_of_map_multiple):
+	Non const global data must not be initialized!
+	Found by MIYASHITA Hisashi.
+
+2001-01-02  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (change_frame_size): make sure frame size is always
+	marked as changed.
+
+	* glyphs.c (image_instance_layout): minor code reuse.
+
+	* window.c (Fcurrent_window_configuration): revert previous
+	change.
+
+2001-01-02  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs.h:
+	* glyphs.c (make_image_instance_cache_hash_table): Use ANSI prototypes.
+
+2000-12-31  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_unmap_subwindow): return focus to enclosing frame
+	when widget gets unmapped.
+
+	* event-Xt.c (emacs_Xt_handle_widget_losing_focus): new
+	function. Make sure widgets losing focus don't just drop it.
+	(handle_focus_event_1): record the widget with focus.
+
+2000-12-31  Andy Piper  <andy@xemacs.org>
+
+	* window.c (allocate_window): use
+	make_image_instance_cache_hash_table.
+	(make_dummy_parent): ditto.
+	(Fset_window_configuration): ditto.
+
+	* glyphs.h (INSTANTIATOR_TYPE): new macro.  declare new functions.
+
+	* glyphs.c (process_image_string_instantiator): use
+	INSTANTIATOR_TYPE.
+	(get_image_instantiator_governing_domain): ditto.
+	(normalize_image_instantiator): ditto.
+	(instantiate_image_instantiator): ditto.
+	(make_image_instance_1): ditto.
+	(image_instantiate): ditto. Key on glyph *and* instantiator type.
+	(instantiator_eq_equal): new function for use with instance hash
+	tables.
+	(instantiator_eq_hash): ditto.
+	(make_image_instance_cache_hash_table): create a suitable hash
+	table for storing image instances.
+
+	* elhash.h (hash_table_weakness): new internal weakness type
+	HASH_TABLE_KEY_CAR_VALUE_WEAK.
+	declare new functions.
+
+	* elhash.c (finish_marking_weak_hash_tables): introduce yet
+	another weakness type for glyphs.
+	(make_standard_lisp_hash_table): new function split out from
+	make_general_lisp_hash_table.
+	(make_lisp_hash_table): call make_standard_lisp_hash_table.
+	(hash_table_instantiate): ditto.
+	(Fmake_hash_table): ditto.
+
 2000-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.39 is released.

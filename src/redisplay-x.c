@@ -514,7 +514,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 /*****************************************************************************
  x_bevel_area
 
- Draw a shadows for the given area in the given face.
+ Draw shadows for the given area in the given face.
  ****************************************************************************/
 static void
 x_bevel_area (struct window *w, face_index findex,
