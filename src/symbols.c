@@ -3264,6 +3264,11 @@ init_symbols_once_early (void)
 
   XSYMBOL (Qnil)->function = Qunbound;
 
+#ifdef UTF2000
+  /* [tomo:2002-01-22] We should not define Qunloaded as a normal symbol */
+  defsymbol (&Qunloaded, "#<unloaded>");
+#endif
+
   defsymbol (&Qt, "t");
   XSYMBOL (Qt)->value = Qt;	/* Veritas aeterna */
   Vquit_flag = Qnil;

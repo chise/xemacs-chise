@@ -31,21 +31,26 @@
 ;; read in before the code that creates those sets is evaluated.
 
 ;; Vietnamese VISCII with two tables.
-(make-charset 'vietnamese-viscii-lower "VISCII lower (Vietnamese)"
-	      '(registry "VISCII1.1"
-		dimension 1
-		chars 96
-		final ?1
-		graphic 1
-		))
+(unless (featurep 'utf-2000)
+  (make-charset 'latin-viscii-lower "VISCII lower (Vietnamese)"
+		'(registry "VISCII1.1"
+		  dimension 1
+		  chars 96
+		  final ?1
+		  graphic 1
+		  ))
 
-(make-charset 'vietnamese-viscii-upper "VISCII upper (Vietnamese)"
-	      '(registry "VISCII1.1"
-		dimension 1
-		chars 96
-		final ?2
-		graphic 1
-		))
+  (make-charset 'latin-viscii-upper "VISCII upper (Vietnamese)"
+		'(registry "VISCII1.1"
+		  dimension 1
+		  chars 96
+		  final ?2
+		  graphic 1
+		  ))
+  )
+
+(define-charset-alias 'vietnamese-viscii-lower 'latin-viscii-lower)
+(define-charset-alias 'vietnamese-viscii-upper 'latin-viscii-upper)
 
 (modify-syntax-entry 'vietnamese-viscii-lower "w")
 (modify-syntax-entry 'vietnamese-viscii-upper "w")

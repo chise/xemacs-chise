@@ -2265,7 +2265,7 @@ query_string_geometry (Lisp_Object string, Lisp_Object face,
 		       int* width, int* height, int* descent, Lisp_Object domain)
 {
   struct font_metric_info fm;
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   struct face_cachel frame_cachel;
   struct face_cachel *cachel;
   Lisp_Object frame = DOMAIN_FRAME (domain);
@@ -2317,7 +2317,7 @@ query_string_geometry (Lisp_Object string, Lisp_Object face,
 Lisp_Object
 query_string_font (Lisp_Object string, Lisp_Object face, Lisp_Object domain)
 {
-  unsigned char charsets[NUM_LEADING_BYTES];
+  Charset_ID charsets[NUM_LEADING_BYTES];
   struct face_cachel frame_cachel;
   struct face_cachel *cachel;
   int i;

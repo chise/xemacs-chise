@@ -221,7 +221,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
   else if (crb->type != drb->type)
     return 0;
   else if (crb->type == RUNE_CHAR &&
-	   (crb->object.chr.ch != drb->object.chr.ch))
+	   !CHARC_EQ (crb->object.cglyph, drb->object.cglyph))
     return 0;
   else if (crb->type == RUNE_HLINE &&
 	   (crb->object.hline.thickness != drb->object.hline.thickness ||
@@ -1314,7 +1314,7 @@ redisplay_output_layout (Lisp_Object domain,
 {
   Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object rest, window = DOMAIN_WINDOW (domain);
-  Emchar_dynarr *buf = Dynarr_new (Emchar);
+  Charc_dynarr *buf = Dynarr_new (Charc);
   struct window *w = XWINDOW (window);
   struct device *d = DOMAIN_XDEVICE (domain);
   int layout_height, layout_width;
@@ -1450,7 +1450,7 @@ redisplay_output_layout (Lisp_Object domain,
 			struct display_line dl;	/* this is fake */
 			Lisp_Object string =
 			  IMAGE_INSTANCE_TEXT_STRING (childii);
-			unsigned char charsets[NUM_LEADING_BYTES];
+			Charset_ID charsets[NUM_LEADING_BYTES];
 			struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, findex);
 
 			find_charsets_in_bufbyte_string (charsets,
@@ -1458,8 +1458,9 @@ redisplay_output_layout (Lisp_Object domain,
 							 XSTRING_LENGTH (string));
 			ensure_face_cachel_complete (cachel, window, charsets);
 
-			convert_bufbyte_string_into_emchar_dynarr
-			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
+			convert_bufbyte_string_into_charc_dynarr
+			  (XSTRING_DATA (string), XSTRING_LENGTH (string),
+			   buf);
 
 			redisplay_normalize_display_box (&cdb, &cdga);
 			/* Offsets are now +ve again so be careful

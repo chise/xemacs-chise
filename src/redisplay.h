@@ -25,6 +25,8 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_redisplay_h_
 #define INCLUDED_redisplay_h_
 
+#include "character.h"
+
 /* Redisplay DASSERT types */
 #define DB_DISP_POS		1
 #define DB_DISP_TEXT_LAYOUT	2
@@ -155,10 +157,7 @@ struct rune
     } dglyph;
 
     /* CHAR */
-    struct
-    {
-      Emchar ch;		/* Character of this rune. */
-    } chr;
+    struct Charc cglyph;	/* Character of this rune. */
 
     /* HLINE */
     struct
