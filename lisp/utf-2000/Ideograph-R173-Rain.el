@@ -1410,27 +1410,25 @@
     (=daikanwa		. 42309)	; &I-M-42309;
     ))
 (define-char
-  '((morohashi-daikanwa	42309 1)
-    (ideographic-radical . 173)	; ⾬
+  '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9748)	; 靈
-      (=jis-x0208	  . #x704D)	; &I-J90-704D; [80-45]
-      ))
     (=ucs		. #x970A)	; 霊
-    (=jis-x0208		. #x4E6E)	; &I-J90-4E6E; [46-78]
-    (=gt		. 56803)	; &I-GT-56803;
-    (=gt-k		. 11961)	; &I-GT-K11961;
-    (=gt-pj-1		. #x4E6E)	; &I-GT-56803; [46-78]
-    ))
-(define-char
-  '((=>ucs		. #x970A)	; 霊
-    (morohashi-daikanwa	42309 1 0)
-    (ideographic-radical . 173)	; ⾬
-    (ideographic-strokes . 7)
-    (total-strokes	 . 15)
-    (=cns11643-3	. #x4F60)	; &C3-4F60; [47-64]
+    (->subsumptive
+     ((morohashi-daikanwa	42309 1)
+      (<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x704D)	; &GT-57085; [80-45]
+	(=ks-x1001	    . #x5644)	; &I-K0-5644; [54-36]
+	(=daikanwa	    . 42532)	; &I-M-42532;
+	))
+      (=jis-x0208	  . #x4E6E)	; &GT-56803; [46-78]
+      (=gt		  . 56803)	; &I-GT-56803;
+      (=gt-k		  . 11961)	; &I-GT-K11961;
+      (=gt-pj-1		  . #x4E6E)	; &I-GT-56803; [46-78]
+      (=ucs@unicode	  . #x970A)	; &GT-56803;
+      )
+     ((=cns11643-3	  . #x4F60)	; &C3-4F60; [47-64]
+      ))
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
@@ -4582,10 +4580,16 @@
     (=cns11643-7	. #x5F7D)	; &C7-5F7D; [63-93]
     ))
 (define-char
-  '((=>ucs		. #x9746)	; 靆
-    (ideographic-radical . 173)	; ⾬
+  '((ideographic-radical . 173)	; ⾬
+    (=ucs		. #x9746)	; 靆
+    ))
+(define-char
+  '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
+    (<-denotational
+     ((=ucs		  . #x9746)	; 靆
+      ))
     (shinjigen-2	. 9029)
     (=jis-x0208		. #x704C)	; &GT-57079; [80-44]
     (=gt		. 57079)	; &I-GT-57079;
@@ -4594,58 +4598,57 @@
     (=ucs@jis		. #x9746)	; &GT-57079;
     ))
 (define-char
-  '((=>ucs		. #x9746)	; 靆
-    (morohashi-daikanwa	42530 0 2)
-    (ideographic-radical . 173)	; ⾬
+  '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
+    (<-denotational
+     ((=ucs		  . #x9746)	; 靆
+      ))
     (=cns11643-2	. #x705C)	; &C2-705C; [80-60]
     ))
 (define-char
-  '((morohashi-daikanwa	42530 0 3)
-    (ideographic-radical . 173)	; ⾬
+  '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 15)
     (total-strokes	 . 23)
-    (=ucs		. #x9746)	; 靆
-    (=gt		. 57068)	; &I-GT-57068;
-    (=gt-pj-10		. #x4623)	; &I-GT-57068; [38-03]
+    (<-denotational
+     ((=ucs		  . #x9746)	; 靆
+      ))
+    (=gt		. 57068)	; &GT-57068;
+    (=gt-pj-10		. #x4623)	; &GT-57068; [38-03]
+    (=ucs@unicode	. #x9746)	; &GT-57068;
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
     (=ucs		. #x9747)	; 靇
-    (=jis-x0213-2-2000	. #x7B7B)	; &I-JX2-7B7B; [91-91]
-    (=daikanwa		. 42531)	; &I-M-42531;
-    ))
-(define-char
-  '((=>ucs		. #x9747)	; 靇
-    (morohashi-daikanwa	42531 0 0)
-    (ideographic-radical . 173)	; ⾬
-    (ideographic-strokes . 16)
-    (total-strokes	 . 24)
-    (=cns11643-2	. #x705E)	; &C2-705E; [80-62]
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x7B7B)	; &M-42531; [91-91]
+      (=daikanwa	  . 42531)	; &I-M-42531;
+      (=ucs@jis		  . #x9747)	; &M-42531;
+      )
+     ((=ucs@unicode	  . #x9747)	; &UU+9747;
+      )
+     ((=cns11643-2	  . #x705E)	; &C2-705E; [80-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
-    (shinjigen-2	. 9006)
     (=ucs		. #x9748)	; 靈
-    (=jis-x0208		. #x704D)	; &I-J90-704D; [80-45]
-    (=ks-x1001		. #x5644)	; &I-K0-5644; [54-36]
-    (=gb12345		. #x4169)	; 靈 [33-73]
-    (=gt		. 57085)	; &I-GT-57085;
-    (=gt-pj-1		. #x704D)	; &I-GT-57085; [80-45]
-    (=daikanwa		. 42532)	; &I-M-42532;
-    ))
-(define-char
-  '((=>ucs		. #x9748)	; 靈
-    (morohashi-daikanwa	42532 0 0)
-    (ideographic-radical . 173)	; ⾬
-    (ideographic-strokes . 16)
-    (total-strokes	 . 24)
-    (=cns11643-1	. #x7C71)	; &C1-7C71; [92-81]
+    (->subsumptive
+     ((shinjigen-2	  . 9006)
+      (=jis-x0208	  . #x704D)	; &GT-57085; [80-45]
+      (=ks-x1001	  . #x5644)	; &I-K0-5644; [54-36]
+      (=gb12345		  . #x4169)	; &GT-57085; [33-73]
+      (=gt		  . 57085)	; &I-GT-57085;
+      (=gt-pj-1		  . #x704D)	; &I-GT-57085; [80-45]
+      (=daikanwa	  . 42532)	; &I-M-42532;
+      (=ucs@unicode	  . #x9748)	; &GT-57085;
+      )
+     ((=cns11643-1	  . #x7C71)	; &C1-7C71; [92-81]
+      ))
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
