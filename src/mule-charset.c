@@ -862,12 +862,12 @@ decode_defined_char (Lisp_Object ccs, int code_point)
     }
   if (CHARP (decoding_table))
     return XCHAR (decoding_table);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   if (EQ (decoding_table, Qunloaded))
     {
       char_id = load_char_decoding_entry_maybe (ccs, code_point);
     }
-#endif
+#endif /* HAVE_CHISE */
   if (char_id >= 0)
     return char_id;
   else if ( CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
@@ -2070,7 +2070,7 @@ Set mapping-table of CHARSET to TABLE.
   return table;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 DEFUN ("save-charset-mapping-table", Fsave_charset_mapping_table, 1, 1, 0, /*
 Save mapping-table of CHARSET.
 */
@@ -2080,10 +2080,10 @@ Save mapping-table of CHARSET.
   int byte_min, byte_max;
 #ifdef HAVE_LIBCHISE
   CHISE_CCS dt_ccs;
-#else
+#else /* HAVE_LIBCHISE */
   Lisp_Object db;
   Lisp_Object db_file;
-#endif
+#endif /* not HAVE_LIBCHISE */
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
@@ -2101,11 +2101,11 @@ Save mapping-table of CHARSET.
 	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
       return -1;
     }
-#else
+#else /* HAVE_LIBCHISE */
   db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
 					   Qsystem_char_id, 1);
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
-#endif
+#endif /* not HAVE_LIBCHISE */
 
   byte_min = CHARSET_BYTE_OFFSET (cs);
   byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
@@ -2124,11 +2124,11 @@ Save mapping-table of CHARSET.
 	      {
 #ifdef HAVE_LIBCHISE
 		chise_ccs_set_decoded_char (dt_ccs, cell, XCHAR (c));
-#else
+#else /* HAVE_LIBCHISE */
 		Fput_database (Fprin1_to_string (make_int (cell), Qnil),
 			       Fprin1_to_string (c, Qnil),
 			       db, Qt);
-#endif
+#endif /* not HAVE_LIBCHISE */
 	      }
 	  }
       }
@@ -2153,13 +2153,13 @@ Save mapping-table of CHARSET.
 		    chise_ccs_set_decoded_char
 		      (dt_ccs,
 		       (row << 8) | cell, XCHAR (c));
-#else
+#else /* HAVE_LIBCHISE */
 		    Fput_database (Fprin1_to_string (make_int ((row << 8)
 							       | cell),
 						     Qnil),
 				   Fprin1_to_string (c, Qnil),
 				   db, Qt);
-#endif
+#endif /* not HAVE_LIBCHISE */
 		  }
 	      }
 	  }
@@ -2195,7 +2195,7 @@ Save mapping-table of CHARSET.
 			   (plane << 16)
 			   | (row <<  8)
 			   | cell, XCHAR (c));
-#else
+#else /* HAVE_LIBCHISE */
 			Fput_database (Fprin1_to_string
 				       (make_int ((plane << 16)
 						  | (row <<  8)
@@ -2203,7 +2203,7 @@ Save mapping-table of CHARSET.
 					Qnil),
 				       Fprin1_to_string (c, Qnil),
 				       db, Qt);
-#endif
+#endif /* not HAVE_LIBCHISE */
 		      }
 		  }
 	      }
@@ -2247,7 +2247,7 @@ Save mapping-table of CHARSET.
 			       | (plane << 16)
 			       | (row   <<  8)
 			       |  cell, XCHAR (c));
-#else
+#else /* HAVE_LIBCHISE */
 			    Fput_database (Fprin1_to_string
 					   (make_int ((  group << 24)
 						      | (plane << 16)
@@ -2256,7 +2256,7 @@ Save mapping-table of CHARSET.
 					    Qnil),
 					   Fprin1_to_string (c, Qnil),
 					   db, Qt);
-#endif
+#endif /* not HAVE_LIBCHISE */
 			  }
 		      }
 		  }
@@ -2267,9 +2267,9 @@ Save mapping-table of CHARSET.
 #ifdef HAVE_LIBCHISE
   chise_ccs_sync (dt_ccs);
   return Qnil;
-#else
+#else /* HAVE_LIBCHISE */
   return Fclose_database (db);
-#endif
+#endif /* not HAVE_LIBCHISE */
 }
 
 DEFUN ("reset-charset-mapping-table", Freset_charset_mapping_table, 1, 1, 0, /*
@@ -2277,13 +2277,35 @@ Reset mapping-table of CCS with database file.
 */
        (ccs))
 {
+#ifdef HAVE_CHISE
+  CHISE_CCS chise_ccs;
+#else
   Lisp_Object db_file;
+#endif
 
   ccs = Fget_charset (ccs);
+
+#ifdef HAVE_CHISE
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  chise_ccs = chise_ds_get_ccs (default_chise_data_source,
+				XSTRING_DATA (Fsymbol_name
+					      (XCHARSET_NAME(ccs))));
+  if (chise_ccs == NULL)
+    return Qnil;
+#else
   db_file = char_attribute_system_db_file (XCHARSET_NAME(ccs),
 					   Qsystem_char_id, 0);
+#endif
 
-  if (!NILP (Ffile_exists_p (db_file)))
+  if (
+#ifdef HAVE_CHISE
+      chise_ccs_setup_db (chise_ccs, 0) == 0
+#else
+      !NILP (Ffile_exists_p (db_file))
+#endif
+      )
     {
       XCHARSET_DECODING_TABLE(ccs) = Qunloaded;
       return Qt;
@@ -2311,7 +2333,7 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 
   /* chise_ccst_close (dt_ccs); */
   return char_id;
-#else
+#else /* HAVE_LIBCHISE */
   Lisp_Object db;
   Lisp_Object db_file
     = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
@@ -2337,9 +2359,9 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
       Fclose_database (db);
     }
   return -1;
-#endif
+#endif /* not HAVE_LIBCHISE */
 }
-#endif /* HAVE_CHISE_CLIENT */
+#endif /* HAVE_CHISE */
 #endif /* UTF2000 */
 
 
@@ -2671,18 +2693,19 @@ syms_of_mule_charset (void)
   DEFSUBR (Fcharset_id);
   DEFSUBR (Fset_charset_ccl_program);
   DEFSUBR (Fset_charset_registry);
+
 #ifdef UTF2000
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
   DEFSUBR (Freset_charset_mapping_table);
-#endif
-
+#endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
   DEFSUBR (Fencode_char);
 #endif
+
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
   DEFSUBR (Fchar_octet);
