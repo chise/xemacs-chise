@@ -8,6 +8,11 @@
 	* dumped-lisp.el (preloaded-file-list): Dump
 	"Ideograph-R028-Private" with XEmacs UTF-2000.
 
+2001-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-gb12345'.
+
 2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
