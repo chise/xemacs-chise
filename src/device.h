@@ -238,9 +238,9 @@ DECLARE_LRECORD (device, struct device);
 #define DEVICE_TYPE_P(d, type)	EQ (DEVICE_TYPE (d), Q##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct device *
+INLINE_HEADER struct device *
 error_check_device_type (struct device *d, Lisp_Object sym);
-INLINE struct device *
+INLINE_HEADER struct device *
 error_check_device_type (struct device *d, Lisp_Object sym)
 {
   assert (EQ (DEVICE_TYPE (d), sym));

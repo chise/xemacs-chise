@@ -1410,11 +1410,11 @@ consoles, for example), it is set to nil.
   /* While this should be const it can't be because some things
      (i.e. edebug) do manipulate it. */
   DEFVAR_CONSOLE_LOCAL ("defining-kbd-macro", defining_kbd_macro /*
-Non-nil while a console macro is being defined.  Don't set this!
+Non-nil while a keyboard macro is being defined.  Don't set this!
 */ );
 
   DEFVAR_CONSOLE_LOCAL ("last-kbd-macro", last_kbd_macro /*
-Last kbd macro defined, as a vector of events; nil if none defined.
+Last keyboard macro defined, as a vector of events; nil if none defined.
 */ );
 
   DEFVAR_CONSOLE_LOCAL ("prefix-arg", prefix_arg /*

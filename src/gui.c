@@ -27,6 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 #include "gui.h"
 #include "elhash.h"
+#include "buffer.h"
 #include "bytecode.h"
 
 Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
@@ -108,7 +109,7 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
 			  Lisp_Object key, Lisp_Object val,
 			  Error_behavior errb)
 {
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   if (!KEYWORDP (key))
     signal_simple_error_2 ("Non-keyword in gui item", key, pgui_item->name);
@@ -132,7 +133,8 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
 	signal_simple_error ("Bad keyboard accelerator", val);
     }
   else if (ERRB_EQ (errb, ERROR_ME))
-    signal_simple_error_2 ("Unknown keyword in gui item", key, pgui_item->name);
+    signal_simple_error_2 ("Unknown keyword in gui item", key,
+			   pgui_item->name);
 }
 
 void
@@ -179,7 +181,7 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
   int length, plist_p, start;
   Lisp_Object *contents;
   Lisp_Object gui_item = allocate_gui_item ();
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   CHECK_VECTOR (item);
   length = XVECTOR_LENGTH (item);
@@ -251,7 +253,7 @@ gui_parse_item_keywords_no_errors (Lisp_Object item)
 void
 gui_add_item_keywords_to_plist (Lisp_Object plist, Lisp_Object gui_item)
 {
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   if (!NILP (pgui_item->callback))
     Fplist_put (plist, Q_callback, pgui_item->callback);
@@ -293,7 +295,7 @@ gui_item_active_p (Lisp_Object gui_item)
 Lisp_Object
 gui_item_accelerator (Lisp_Object gui_item)
 {
-  Lisp_Gui_Item* pgui = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui = XGUI_ITEM (gui_item);
 
   if (!NILP (pgui->accelerator))
     return pgui->accelerator;
@@ -305,23 +307,26 @@ gui_item_accelerator (Lisp_Object gui_item)
 Lisp_Object
 gui_name_accelerator (Lisp_Object nm)
 {
-  /* !!#### This function has not been Mule-ized */
-  char* name = (char*)XSTRING_DATA (nm);
+  Bufbyte *name = XSTRING_DATA (nm);
 
-  while (*name) {
-    if (*name=='%') {
-      ++name;
-      if (!(*name))
-	return Qnil;
-      if (*name=='_' && *(name+1))
+  while (*name)
+    {
+      if (*name == '%')
 	{
-	  int accelerator = (int) (unsigned char) (*(name+1));
-	  return make_char (tolower (accelerator));
+	  ++name;
+	  if (!(*name))
+	    return Qnil;
+	  if (*name == '_' && *(name + 1))
+	    {
+	      Emchar accelerator = charptr_emchar (name + 1);
+	      /* #### bogus current_buffer dependency */
+	      return make_char (DOWNCASE (current_buffer, accelerator));
+	    }
 	}
+	INC_CHARPTR (name);
     }
-    ++name;
-  }
-  return Qnil;
+  return make_char (DOWNCASE (current_buffer,
+			      charptr_emchar (XSTRING_DATA (nm))));
 }
 
 /*
@@ -347,7 +352,7 @@ int
 gui_item_included_p (Lisp_Object gui_item, Lisp_Object conflist)
 {
   /* This function can call lisp */
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   /* Evaluate :included first. Shortcut to avoid evaluating Qt each time */
   if (!EQ (pgui_item->included, Qt)
@@ -379,13 +384,13 @@ signal_too_long_error (Lisp_Object name)
  * buffer.
  */
 unsigned int
-gui_item_display_flush_left  (Lisp_Object gui_item,
-			      char* buf, Bytecount buf_len)
+gui_item_display_flush_left (Lisp_Object gui_item,
+			     char *buf, Bytecount buf_len)
 {
   /* This function can call lisp */
   char *p = buf;
   Bytecount len;
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
 
   /* Copy item name first */
   CHECK_STRING (pgui_item->name);
@@ -429,9 +434,9 @@ gui_item_display_flush_left  (Lisp_Object gui_item,
  */
 unsigned int
 gui_item_display_flush_right (Lisp_Object gui_item,
-			      char* buf, Bytecount buf_len)
+			      char *buf, Bytecount buf_len)
 {
-  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
   *buf = 0;
 
 #ifdef HAVE_MENUBARS
@@ -444,16 +449,17 @@ gui_item_display_flush_right (Lisp_Object gui_item,
   if (!NILP (pgui_item->keys))
     {
       CHECK_STRING (pgui_item->keys);
-      if (XSTRING_LENGTH (pgui_item->keys) > buf_len)
+      if (XSTRING_LENGTH (pgui_item->keys) + 1 > buf_len)
 	signal_too_long_error (pgui_item->name);
-      strcpy (buf, (const char *) XSTRING_DATA (pgui_item->keys));
+      memcpy (buf, XSTRING_DATA (pgui_item->keys),
+	      XSTRING_LENGTH (pgui_item->keys) + 1);
       return XSTRING_LENGTH (pgui_item->keys);
     }
 
   /* See if we can derive keys out of callback symbol */
   if (SYMBOLP (pgui_item->callback))
     {
-      char buf2 [1024];
+      char buf2[1024]; /* #### */
       Bytecount len;
 
       where_is_to_char (pgui_item->callback, buf2);
@@ -491,7 +497,7 @@ mark_gui_item (Lisp_Object obj)
 }
 
 static unsigned long
-gui_item_hash (Lisp_Object obj, int depth)
+gui_item_hash_internal (Lisp_Object obj, int depth)
 {
   Lisp_Gui_Item *p = XGUI_ITEM (obj);
 
@@ -507,10 +513,29 @@ gui_item_hash (Lisp_Object obj, int depth)
 		       internal_hash (p->keys, depth + 1)));
 }
 
+static unsigned long
+gui_item_hash (Lisp_Object obj, int depth)
+{
+  Lisp_Gui_Item *p = XGUI_ITEM (obj);
+
+  /* Note that this evaluates the active and selected slots so that
+     the hash changes when the result of these changes. */
+  return HASH2 (HASH5 (internal_hash (p->name, depth + 1),
+		       internal_hash (p->callback, depth + 1),
+		       internal_hash (p->suffix, depth + 1),
+		       gui_item_active_p (obj),
+		       internal_hash (p->included, depth + 1)),
+		HASH5 (internal_hash (p->config, depth + 1),
+		       internal_hash (p->filter, depth + 1),
+		       internal_hash (p->style, depth + 1),
+		       gui_item_selected_p (obj),
+		       internal_hash (p->keys, depth + 1)));
+}
+
 int
 gui_item_id_hash (Lisp_Object hashtable, Lisp_Object gitem, int slot)
 {
-  int hashid = gui_item_hash (gitem, 0);
+  int hashid = gui_item_hash_internal (gitem, 0);
   int id = GUI_ITEM_ID_BITS (hashid, slot);
   while (!NILP (Fgethash (make_int (id),
 			  hashtable, Qnil)))
@@ -570,12 +595,17 @@ print_gui_item (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    The gui_item slot of an image instance can be a single item or an
    arbitrarily nested hierarchy of item lists. */
 
-static Lisp_Object parse_gui_item_tree_item (Lisp_Object entry)
+static Lisp_Object
+parse_gui_item_tree_item (Lisp_Object entry)
 {
   Lisp_Object ret = entry;
+  struct gcpro gcpro1;
+
+  GCPRO1 (ret);
+
   if (VECTORP (entry))
     {
-      ret =  gui_parse_item_keywords_no_errors (entry);
+      ret = gui_parse_item_keywords_no_errors (entry);
     }
   else if (STRINGP (entry))
     {
@@ -584,17 +614,20 @@ static Lisp_Object parse_gui_item_tree_item (Lisp_Object entry)
   else
     signal_simple_error ("item must be a vector or a string", entry);
 
-  return ret;
+  RETURN_UNGCPRO (ret);
 }
 
-Lisp_Object parse_gui_item_tree_children (Lisp_Object list)
+Lisp_Object
+parse_gui_item_tree_children (Lisp_Object list)
 {
-  Lisp_Object rest, ret = Qnil;
+  Lisp_Object rest, ret = Qnil, sub = Qnil;
+  struct gcpro gcpro1, gcpro2;
+
+  GCPRO2 (ret, sub);
   CHECK_CONS (list);
   /* recursively add items to the tree view */
   LIST_LOOP (rest, list)
     {
-      Lisp_Object sub;
       if (CONSP (XCAR (rest)))
 	sub = parse_gui_item_tree_list (XCAR (rest));
       else
@@ -603,21 +636,30 @@ Lisp_Object parse_gui_item_tree_children (Lisp_Object list)
       ret = Fcons (sub, ret);
     }
   /* make the order the same as the items we have parsed */
-  return Fnreverse (ret);
+  RETURN_UNGCPRO (Fnreverse (ret));
 }
 
-static Lisp_Object parse_gui_item_tree_list (Lisp_Object list)
+static Lisp_Object
+parse_gui_item_tree_list (Lisp_Object list)
 {
   Lisp_Object ret;
+  struct gcpro gcpro1;
   CHECK_CONS (list);
   /* first one can never be a list */
   ret = parse_gui_item_tree_item (XCAR (list));
-  return Fcons (ret, parse_gui_item_tree_children (XCDR (list)));
+  GCPRO1 (ret);
+  ret = Fcons (ret, parse_gui_item_tree_children (XCDR (list)));
+  RETURN_UNGCPRO (ret);
+}
+
+static void
+finalize_gui_item (void* header, int for_disksave)
+{
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("gui-item", gui_item,
 			       mark_gui_item, print_gui_item,
-			       0, gui_item_equal,
+			       finalize_gui_item, gui_item_equal,
 			       gui_item_hash,
 			       0,
 			       Lisp_Gui_Item);

@@ -41,9 +41,21 @@ At the bottom of each XEmacs frame is the @dfn{echo area} or @dfn{minibuffer
 window}(@pxref{Echo Area}).  It is used by XEmacs to exchange information
 with the user.  There is only one echo area per XEmacs frame.
 @item
-If you are running XEmacs under the X Window System, a
+If you are running XEmacs under a graphical windowing system, a
 menu bar at the top of the frame makes shortcuts to several of the
 commands available (@pxref{Pull-down Menus}).
+@item
+If you are running XEmacs under a graphical windowing system, a
+toolbar at the top of the frame, just under the menu bar if it exists,
+provides ``one-touch'' shortcuts to several commands.  (Not yet
+documented.)
+@item
+If you are running XEmacs under a graphical windowing system, a
+gutter at the top (under the toolbar) and/or bottom of the frame
+provides advanced GUI facilities like tab controls for rapid switching
+among related windows and progress bars for time-consuming operations
+like downloads across the Internet.  Gutters are an experimental feature
+introduced in XEmacs version 21.2.  (Not yet documented.)
 @end itemize
 
   You can subdivide the XEmacs frame into multiple text windows, and use

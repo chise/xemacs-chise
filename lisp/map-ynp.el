@@ -104,7 +104,7 @@ Returns the number of actions taken."
  	      ;; (objects (capitalize (or (nth 1 help) "objects")))
 	      ;; (action (capitalize (or (nth 2 help) "act on")))
 	      )
-	  (setq map `(("Yes" . act) ("No" . skip)
+	  (setq map `(("%_Yes" . act) ("%_No" . skip)
 ; bogus crap.  --ben
 ;			((, (if help
 ;				(capitalize
@@ -119,9 +119,9 @@ Returns the number of actions taken."
 ;			((, (capitalize
 ;			     (or (and help (nth 5 help)) "Quit")))
 ;			 . exit)
-			("Yes All" . automatic)
-			("No All" . exit)
-			("Cancel" . quit)
+			("Yes %_All" . automatic)
+			("No A%_ll" . exit)
+			("%_Cancel" . quit)
 			,@(mapcar #'(lambda (elt)
 				      (cons (capitalize (nth 2 elt))
 					    (vector (nth 1 elt))))
@@ -231,7 +231,8 @@ ESC or `q' to exit;\n"
 					    (lambda (elt)
 					      (format "%c to %s"
 						      (nth 0 elt)
-						      (nth 2 elt))))
+						      (normalize-menu-item-name
+						       (nth 2 elt)))))
 					   action-alist
 					   ";\n")
 				(if action-alist ";\n")

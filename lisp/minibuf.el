@@ -1,8 +1,8 @@
 ;;; minibuf.el --- Minibuffer functions for XEmacs
 
 ;; Copyright (C) 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
-;; Copyright (C) 1995 Tinker Systems
-;; Copyright (C) 1995, 1996 Ben Wing
+;; Copyright (C) 1995 Tinker Systems.
+;; Copyright (C) 1995, 1996, 2000 Ben Wing.
 
 ;; Author: Richard Mlynarik
 ;; Created: 2-Oct-92
@@ -111,8 +111,12 @@ minibuffer is reinvoked while it is the selected window."
 ;(defvar minibuffer-setup-hook nil
 ;  "Normal hook run just after entry to minibuffer.")
 
+;; see comment at list-mode-hook.
+(put 'minibuffer-setup-hook 'permanent-local t)
+
 (defvar minibuffer-exit-hook nil
   "Normal hook run just after exit from minibuffer.")
+(put 'minibuffer-exit-hook 'permanent-local t)
 
 (defvar minibuffer-help-form nil
   "Value that `help-form' takes on inside the minibuffer.")
@@ -608,7 +612,7 @@ See also the variable completion-highlight-first-word-only for control over
 
 
 ;; Used by minibuffer-do-completion
-(defvar last-exact-completion)
+(defvar last-exact-completion nil)
 
 (defun temp-minibuffer-message (m)
   (let ((savemax (point-max)))
@@ -1446,7 +1450,10 @@ Prompts with PROMPT.  By default, return DEFAULT-VALUE."
 Prompts with PROMPT.  By default, return DEFAULT-VALUE.
 A user variable is one whose documentation starts with a `*' character."
   (intern (completing-read prompt obarray 'user-variable-p t nil
-			   'variable-history default-value)))
+			   'variable-history
+			   (if (symbolp default-value)
+			       (symbol-name default-value)
+			     default-value))))
 
 (defun read-buffer (prompt &optional default require-match)
   "Read the name of a buffer and return as a string.
@@ -1638,30 +1645,24 @@ If DEFAULT-VALUE is non-nil, return that if user enters an empty
       ;; this calls read-file-name-2
       (mouse-read-file-name-1 history prompt dir default must-match
 			      initial-contents completer)
-    (let ((rfhookfun
-	   (lambda ()
-	     ;; #### SCREAM!  Create a `file-system-ignore-case'
-	     ;; function, so this kind of stuff is generalized!
-	     (and (eq system-type 'windows-nt)
-		  (set (make-local-variable 'completion-ignore-case) t))
-	     (set
-	      (make-local-variable
-	       'completion-display-completion-list-function)
-	      #'(lambda (completions)
-		  (display-completion-list
-		   completions
-		   :user-data (not (eq completer 'read-file-name-internal))
-		   :activate-callback
-		   'read-file-name-activate-callback)))
-	     ;; kludge!
-	     (remove-hook 'minibuffer-setup-hook rfhookfun)
-	     )))
-      (unwind-protect
-	  (progn
-	    (add-hook 'minibuffer-setup-hook rfhookfun)
-	    (read-file-name-2 history prompt dir default must-match
-			      initial-contents completer))
-	(remove-hook 'minibuffer-setup-hook rfhookfun)))))
+    (add-one-shot-hook
+     'minibuffer-setup-hook
+     (lambda ()
+       ;; #### SCREAM!  Create a `file-system-ignore-case'
+       ;; function, so this kind of stuff is generalized!
+       (and (eq system-type 'windows-nt)
+	    (set (make-local-variable 'completion-ignore-case) t))
+       (set
+	(make-local-variable
+	 'completion-display-completion-list-function)
+	#'(lambda (completions)
+	    (display-completion-list
+	     completions
+	     :user-data (not (eq completer 'read-file-name-internal))
+	     :activate-callback
+	     'read-file-name-activate-callback)))))
+    (read-file-name-2 history prompt dir default must-match
+		      initial-contents completer)))
 
 (defun read-file-name (prompt
                        &optional dir default must-match initial-contents
@@ -1925,18 +1926,38 @@ whether it is a file(/result) or a directory (/result/)."
 	   result)
 	  (t file))))
 
+(defun mouse-rfn-setup-vars (prompt)
+  ;; a specifier would be nice.
+  (set (make-local-variable 'frame-title-format)
+       (capitalize-string-as-title
+	;; Delete ": " off the end.  There must be an easier way!
+	(let ((end-pos (length prompt)))
+	  (if (and (> end-pos 0) (eq (aref prompt (1- end-pos)) ? ))
+	      (setq end-pos (1- end-pos)))
+	  (if (and (> end-pos 0) (eq (aref prompt (1- end-pos)) ?:))
+	      (setq end-pos (1- end-pos)))
+	  (substring prompt 0 end-pos))))
+  ;; ensure that killing the frame works right,
+  ;; instead of leaving us in the minibuffer.
+  (add-local-hook 'delete-frame-hook
+		  #'(lambda (frame)
+		      (abort-recursive-edit))))
+
 (defun mouse-file-display-completion-list (window dir minibuf user-data)
   (let ((standard-output (window-buffer window)))
     (condition-case nil
 	(display-completion-list
 	 (directory-files dir nil nil nil t)
-	 :window-width (* 2 (window-width window))
+	 :window-width (window-width window)
+	 :window-height (window-text-area-height window)
+	 :completion-string ""
 	 :activate-callback
 	 'mouse-read-file-name-activate-callback
 	 :user-data user-data
 	 :reference-buffer minibuf
 	 :help-string "")
-      (t nil))))
+      (t nil))
+    ))
 
 (defun mouse-directory-display-completion-list (window dir minibuf user-data)
   (let ((standard-output (window-buffer window)))
@@ -1944,21 +1965,25 @@ whether it is a file(/result) or a directory (/result/)."
 	(display-completion-list
 	 (delete "." (directory-files dir nil nil nil 1))
 	 :window-width (window-width window)
+	 :window-height (window-text-area-height window)
+	 :completion-string ""
 	 :activate-callback
 	 'mouse-read-file-name-activate-callback
 	 :user-data user-data
 	 :reference-buffer minibuf
 	 :help-string "")
-      (t nil))))
+      (t nil))
+    ))
 
 (defun mouse-read-file-name-activate-callback (event extent user-data)
   (let* ((file (extent-string extent))
 	 (minibuf (symbol-value-in-buffer 'completion-reference-buffer
 					  (extent-object extent)))
-	 (in-dir (buffer-substring nil nil minibuf))
+	 (ministring (buffer-substring nil nil minibuf))
+	 (in-dir (file-name-directory ministring))
 	 (full (expand-file-name file in-dir))
 	 (filebuf (nth 0 user-data))
-	 (dirbuff (nth 1 user-data))
+	 (dirbuf (nth 1 user-data))
 	 (filewin (nth 2 user-data))
 	 (dirwin (nth 3 user-data)))
     (if (file-regular-p full)
@@ -1967,29 +1992,34 @@ whether it is a file(/result) or a directory (/result/)."
       (insert-string (file-name-as-directory
 		      (abbreviate-file-name full t)) minibuf)
       (reset-buffer filebuf)
-      (if (not dirbuff)
+      (if (not dirbuf)
 	  (mouse-directory-display-completion-list filewin full minibuf
 						   user-data)
 	(mouse-file-display-completion-list filewin full minibuf user-data)
-	(reset-buffer dirbuff)
+	(reset-buffer dirbuf)
 	(mouse-directory-display-completion-list dirwin full minibuf
 						 user-data)))))
 
-;; this is rather cheesified but gets the job done.
+;; our cheesy but god-awful time consuming file dialog box implementation.
+;; this will be replaced with use of the native file dialog box (when
+;; available).
 (defun mouse-read-file-name-1 (history prompt dir default
-				 must-match initial-contents
-				 completer)
+				       must-match initial-contents
+				       completer)
+  ;; file-p is t if we're reading files, nil if directories.
   (let* ((file-p (eq 'read-file-name-internal completer))
 	 (filebuf (get-buffer-create "*Completions*"))
-	 (dirbuff (and file-p (generate-new-buffer " *mouse-read-file*")))
-	 (butbuff (generate-new-buffer " *mouse-read-file*"))
+	 (dirbuf (and file-p (generate-new-buffer " *mouse-read-file*")))
+	 (butbuf (generate-new-buffer " *mouse-read-file*"))
 	 (frame (make-dialog-frame))
 	 filewin dirwin
 	 user-data)
     (unwind-protect
 	(progn
 	  (reset-buffer filebuf)
-	  (select-frame frame)
+
+	  ;; set up the frame.
+	  (focus-frame frame)
 	  (let ((window-min-height 1))
 	    ;; #### should be 2 not 3, but that causes
 	    ;; "window too small to split" errors for some
@@ -2002,16 +2032,80 @@ whether it is a file(/result) or a directory (/result/)."
 		(setq filewin (frame-rightmost-window frame)
 		      dirwin (frame-leftmost-window frame))
 		(set-window-buffer filewin filebuf)
-		(set-window-buffer dirwin dirbuff))
+		(set-window-buffer dirwin dirbuf))
 	    (setq filewin (frame-highest-window frame))
 	    (set-window-buffer filewin filebuf))
-	  (setq user-data (list filebuf dirbuff filewin dirwin))
-	  (set-window-buffer (frame-lowest-window frame) butbuff)
-	  (set-buffer butbuff)
+	  (setq user-data (list filebuf dirbuf filewin dirwin))
+	  (set-window-buffer (frame-lowest-window frame) butbuf)
+
+	  ;; set up completion buffers.
+	  (let ((rfcshookfun
+		 ;; kludge!
+		 ;; #### I really need to flesh out the object
+		 ;; hierarchy better to avoid these kludges.
+		 ;; (?? I wrote this comment above some time ago,
+		 ;; and I don't understand what I'm referring to
+		 ;; any more. --ben
+		 (lambda ()
+		   (mouse-rfn-setup-vars prompt)
+		   (when (featurep 'scrollbar)
+		     (set-specifier scrollbar-width 0 (current-buffer)))
+		   (setq truncate-lines t))))
+	    
+	    (set-buffer filebuf)
+	    (add-local-hook 'completion-setup-hook rfcshookfun)
+	    (when file-p
+	      (set-buffer dirbuf)
+	      (add-local-hook 'completion-setup-hook rfcshookfun)))
+
+	  ;; set up minibuffer.
+	  (add-one-shot-hook
+	   'minibuffer-setup-hook
+	   (lambda ()
+	     (if (not file-p)
+		 (mouse-directory-display-completion-list
+		  filewin dir (current-buffer) user-data)
+	       (mouse-file-display-completion-list
+		filewin dir (current-buffer) user-data)
+	       (mouse-directory-display-completion-list
+		dirwin dir (current-buffer) user-data))
+	     (set
+	      (make-local-variable
+	       'completion-display-completion-list-function)
+	      (lambda (completions)
+		(display-completion-list
+		 completions
+		 :help-string ""
+		 :window-width (window-width filewin)
+		 :window-height (window-text-area-height filewin)
+		 :completion-string ""
+		 :activate-callback
+		 'mouse-read-file-name-activate-callback
+		 :user-data user-data)))
+	     (mouse-rfn-setup-vars prompt)
+	     (save-selected-window
+	       ;; kludge to ensure the frame title is correct.
+	       ;; the minibuffer leaves the frame title the way
+	       ;; it was before (i.e. of the selected window before
+	       ;; the dialog box was opened), so to get it correct
+	       ;; we have to be tricky.
+	       (select-window filewin)
+	       (redisplay-frame nil t)
+	       ;; #### another kludge.  sometimes the focus ends up
+	       ;; back in the main window, not the dialog box.  it
+	       ;; occurs randomly and it's not possible to reliably
+	       ;; reproduce.  We try to fix it by draining non-user
+	       ;; events and then setting the focus back on the frame.
+	       (sit-for 0 t)
+	       (focus-frame frame))))
+
+	  ;; set up button buffer.
+	  (set-buffer butbuf)
+	  (mouse-rfn-setup-vars prompt)
 	  (when dir
 	    (setq default-directory dir))
 	  (when (featurep 'scrollbar)
-	    (set-specifier scrollbar-width 0 butbuff))
+	    (set-specifier scrollbar-width 0 butbuf))
 	  (insert "                 ")
 	  (insert-gui-button (make-gui-button "OK"
 					      (lambda (foo)
@@ -2020,51 +2114,20 @@ whether it is a file(/result) or a directory (/result/)."
 	  (insert-gui-button (make-gui-button "Cancel"
 					      (lambda (foo)
 						(abort-recursive-edit))))
-	  (let ((rfhookfun
-		 (lambda ()
-		   (if (not file-p)
-		       (mouse-directory-display-completion-list
-			filewin dir (current-buffer) user-data)
-		     (mouse-file-display-completion-list filewin dir
-							 (current-buffer)
-							 user-data)
-		     (mouse-directory-display-completion-list dirwin dir
-							      (current-buffer)
-							      user-data))
-		   (set
-		    (make-local-variable
-		     'completion-display-completion-list-function)
-		    #'(lambda (completions)
-			(display-completion-list
-			 completions
-			 :help-string ""
-			 :activate-callback
-			 'mouse-read-file-name-activate-callback
-			 :user-data user-data)))
-		   ;; kludge!
-		   (remove-hook 'minibuffer-setup-hook rfhookfun)
-		   ))
-		(rfcshookfun
-		 ;; kludge!
-		 ;; #### I really need to flesh out the object
-		 ;; hierarchy better to avoid these kludges.
-		 (lambda ()
-		   (save-excursion
-		     (set-buffer standard-output)
-		     (setq truncate-lines t)))))
-	    (unwind-protect
-		(progn
-		  (add-hook 'minibuffer-setup-hook rfhookfun)
-		  (add-hook 'completion-setup-hook rfcshookfun)
-		  (read-file-name-2 history prompt dir default
-				    must-match initial-contents
-				    completer))
-	      (remove-hook 'minibuffer-setup-hook rfhookfun)
-	      (remove-hook 'completion-setup-hook rfcshookfun))))
+
+	  ;; now start reading filename.
+	  (read-file-name-2 history prompt dir default
+			    must-match initial-contents
+			    completer))
+
+      ;; always clean up.
+      ;; get rid of our hook that calls abort-recursive-edit -- not a good
+      ;; idea here.
+      (kill-local-variable 'delete-frame-hook)
       (delete-frame frame)
       (kill-buffer filebuf)
-      (kill-buffer butbuff)
-      (and dirbuff (kill-buffer dirbuff)))))
+      (kill-buffer butbuf)
+      (and dirbuf (kill-buffer dirbuf)))))
 
 (defun read-face (prompt &optional must-match)
   "Read the name of a face from the minibuffer and return it as a symbol."

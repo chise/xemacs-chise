@@ -417,7 +417,7 @@ entry according to the value of WITHDN.
   LDAPMessage *e;
   BerElement *ptr;
   char *a, *dn;
-  int i, rc, rc2;
+  int i, rc;
   int  matches;
   struct ldap_unwind_struct unwind;
 
@@ -426,10 +426,11 @@ entry according to the value of WITHDN.
 
   int speccount = specpdl_depth ();
 
-  Lisp_Object list, entry, result;
+  Lisp_Object list   = Qnil;
+  Lisp_Object entry  = Qnil;
+  Lisp_Object result = Qnil;
   struct gcpro gcpro1, gcpro2, gcpro3;
 
-  list = entry = result = Qnil;
   GCPRO3 (list, entry, result);
 
   unwind.res = NULL;
@@ -489,9 +490,9 @@ entry according to the value of WITHDN.
 
   /* Perform the search */
   if (ldap_search (ld,
-                   NILP (base) ? "" : (char *) XSTRING_DATA (base),
+                   NILP (base) ? (char *) "" : (char *) XSTRING_DATA (base),
                    ldap_scope,
-                   NILP (filter) ? "" : (char *) XSTRING_DATA (filter),
+                   NILP (filter) ? (char *) "" : (char *) XSTRING_DATA (filter),
                    ldap_attributes,
                    NILP (attrsonly) ? 0 : 1)
       == -1)
@@ -538,7 +539,7 @@ entry according to the value of WITHDN.
             {
               for (i = 0; unwind.vals[i] != NULL; i++)
                 {
-                  list = Fcons (make_ext_string (unwind.vals[i]->bv_val,
+                  list = Fcons (make_ext_string ((Extbyte *) unwind.vals[i]->bv_val,
                                                  unwind.vals[i]->bv_len,
                                                  Qnative),
                                 list);
@@ -558,11 +559,13 @@ entry according to the value of WITHDN.
     }
 
 #if defined HAVE_LDAP_PARSE_RESULT
-  rc2 = ldap_parse_result (ld, unwind.res,
-                           &rc,
-                           NULL, NULL, NULL, NULL, 0);
-  if (rc2 != LDAP_SUCCESS)
-    rc = rc2;
+  {
+    int rc2 = ldap_parse_result (ld, unwind.res,
+				 &rc,
+				 NULL, NULL, NULL, NULL, 0);
+    if (rc2 != LDAP_SUCCESS)
+      rc = rc2;
+  }
 #else
   if (rc == 0)
     signal_ldap_error (ld, NULL, LDAP_TIMELIMIT_EXCEEDED);
@@ -604,9 +607,12 @@ containing attribute/value string pairs.
   struct berval *bervals;
   int rc;
   int i, j;
+  size_t len;
 
-  Lisp_Object current, values;
+  Lisp_Object current = Qnil;
+  Lisp_Object values  = Qnil;
   struct gcpro gcpro1, gcpro2;
+
   GCPRO2 (current, values);
 
   /* Do all the parameter checking  */
@@ -622,8 +628,9 @@ containing attribute/value string pairs.
     signal_simple_error ("Cannot add void entry", entry);
 
   /* Build the ldap_mods array */
-  ldap_mods = alloca_array (LDAPMod, XINT (Flength (entry)));
-  ldap_mods_ptrs = alloca_array (LDAPMod *, 1 + XINT (Flength (entry)));
+  len = XINT (Flength (entry));
+  ldap_mods = alloca_array (LDAPMod, len);
+  ldap_mods_ptrs = alloca_array (LDAPMod *, 1 + len);
   i = 0;
   EXTERNAL_LIST_LOOP (entry, entry)
     {
@@ -638,10 +645,10 @@ containing attribute/value string pairs.
       values = XCDR (current);
       if (CONSP (values))
         {
-          bervals =
-            alloca_array (struct berval, XINT (Flength (values)));
+	  len = XINT (Flength (values));
+          bervals = alloca_array (struct berval, len);
           ldap_mods[i].mod_vals.modv_bvals =
-            alloca_array (struct berval *, 1 + XINT (Flength (values)));
+            alloca_array (struct berval *, 1 + len);
           j = 0;
           EXTERNAL_LIST_LOOP (values, values)
             {
@@ -676,6 +683,7 @@ containing attribute/value string pairs.
     signal_ldap_error (ld, NULL, rc);
 
   UNGCPRO;
+  return Qnil;
 }
 
 DEFUN ("ldap-modify", Fldap_modify, 3, 3, 0, /*
@@ -686,7 +694,7 @@ MODS is a list of modifications to apply.
 A modification is a list of the form (MOD-OP ATTR VALUE1 VALUE2 ...)
 MOD-OP and ATTR are mandatory, VALUEs are optional depending on MOD-OP.
 MOD-OP is the type of modification, one of the symbols `add', `delete'
-or `replace'. ATTR is the LDAP attribute type to modify
+or `replace'. ATTR is the LDAP attribute type to modify.
 */
        (ldap, dn, mods))
 {
@@ -694,8 +702,11 @@ or `replace'. ATTR is the LDAP attribute type to modify
   LDAPMod *ldap_mods, **ldap_mods_ptrs;
   struct berval *bervals;
   int i, j, rc;
+  Lisp_Object mod_op;
+  size_t len;
 
-  Lisp_Object current, mod_op, values;
+  Lisp_Object current = Qnil;
+  Lisp_Object values  = Qnil;
   struct gcpro gcpro1, gcpro2;
 
   GCPRO2 (current, values);
@@ -713,8 +724,9 @@ or `replace'. ATTR is the LDAP attribute type to modify
     return Qnil;
 
   /* Build the ldap_mods array */
-  ldap_mods = alloca_array (LDAPMod, XINT (Flength (mods)));
-  ldap_mods_ptrs = alloca_array (LDAPMod *, 1 + XINT (Flength (mods)));
+  len = XINT (Flength (mods));
+  ldap_mods = alloca_array (LDAPMod, len);
+  ldap_mods_ptrs = alloca_array (LDAPMod *, 1 + len);
   i = 0;
   EXTERNAL_LIST_LOOP (mods, mods)
     {
@@ -738,9 +750,10 @@ or `replace'. ATTR is the LDAP attribute type to modify
 			  C_STRING_ALLOCA, ldap_mods[i].mod_type,
 			  Qnative);
       values = XCDR (current);
-      bervals = alloca_array (struct berval, XINT (Flength (values)));
+      len = XINT (Flength (values));
+      bervals = alloca_array (struct berval, len);
       ldap_mods[i].mod_vals.modv_bvals =
-        alloca_array (struct berval *, 1 + XINT (Flength (values)));
+        alloca_array (struct berval *, 1 + len);
       j = 0;
       EXTERNAL_LIST_LOOP (values, values)
         {
@@ -762,6 +775,7 @@ or `replace'. ATTR is the LDAP attribute type to modify
     signal_ldap_error (ld, NULL, rc);
 
   UNGCPRO;
+  return Qnil;
 }
 
 
@@ -783,6 +797,8 @@ DN is the distinguished name of the entry to delete.
   rc = ldap_delete_s (ld, (char *) XSTRING_DATA (dn));
   if (rc != LDAP_SUCCESS)
     signal_ldap_error (ld, NULL, rc);
+
+  return Qnil;
 }
 
 void

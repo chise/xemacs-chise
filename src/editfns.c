@@ -822,10 +822,18 @@ uncache_home_directory (void)
 				   of a few bytes */
 }
 
+/* !!#### not Mule correct. */
+
 /* Returns the home directory, in external format */
 Extbyte *
 get_home_directory (void)
 {
+  /* !!#### this is hopelessly bogus.  Rule #1: Do not make any assumptions
+     about what format an external string is in.  Could be Unicode, for all
+     we know, and then all the operations below are totally bogus.
+     Instead, convert all data to internal format *right* at the juncture
+     between XEmacs and the outside world, the very moment we first get
+     the data.  --ben */
   int output_home_warning = 0;
 
   if (cached_home_directory == NULL)
@@ -847,7 +855,9 @@ get_home_directory (void)
 	    }
 	  else
 	    {
-# if 1
+# if 0 /* changed by ben.  This behavior absolutely stinks, and the
+	  possibility being addressed here occurs quite commonly.
+	  Using the current directory makes absolutely no sense. */
 	      /*
 	       * Use the current directory.
 	       * This preserves the existing XEmacs behavior, but is different

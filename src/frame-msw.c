@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #define POPUP_WIDTH 30
 #define POPUP_HEIGHT 10
 
-/* Default popup size, in characters */
+/* Default regular frame size, in characters */
 #define DEFAULT_FRAME_WIDTH 80
 #define DEFAULT_FRAME_HEIGHT 35
 
@@ -133,6 +133,7 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   FRAME_MSWINDOWS_DATA(f)->ignore_next_lbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->ignore_next_rbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->sizing = 0;
+  FRAME_MSWINDOWS_DATA(f)->paint_pending = 0;
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
   FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = 
@@ -203,7 +204,6 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 
   SetWindowLong (hwnd, XWL_FRAMEOBJ, (LONG)LISP_TO_VOID(frame_obj));
   FRAME_MSWINDOWS_DC(f) = GetDC (hwnd);
-  FRAME_MSWINDOWS_CDC(f) = CreateCompatibleDC (FRAME_MSWINDOWS_CDC(f));
   SetTextAlign (FRAME_MSWINDOWS_DC(f), TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
 }
 
@@ -273,7 +273,6 @@ mswindows_delete_frame (struct frame *f)
 {
   if (f->frame_data)
     {
-      DeleteDC(FRAME_MSWINDOWS_CDC(f));
       ReleaseDC(FRAME_MSWINDOWS_HANDLE(f), FRAME_MSWINDOWS_DC(f));
       DestroyWindow(FRAME_MSWINDOWS_HANDLE(f));
       xfree (f->frame_data);
@@ -610,11 +609,10 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
 
 void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
 {
-  RECT rect;
+  RECT rect, ws_rect;
   int pixel_width, pixel_height;
   int size_p = (dest->width >=0 || dest->height >=0);
   int move_p = (dest->top >=0 || dest->left >=0);
-  struct device* d = XDEVICE (FRAME_DEVICE (f));
   char_to_real_pixel_size (f, dest->width, dest->height, &pixel_width, &pixel_height);
   
   if (dest->width < 0)
@@ -637,32 +635,44 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
 		      GetMenu (FRAME_MSWINDOWS_HANDLE(f)) != NULL,
 		      GetWindowLong (FRAME_MSWINDOWS_HANDLE(f), GWL_EXSTYLE));
 
-  /* resize and move the window so that it fits on the screen. This is
+  /* resize and move the window so that it fits in the workspace. This is
   not restrictive since this will happen later anyway in WM_SIZE.  We
   have to do this after adjusting the rect to account for menubar
   etc. */
+  msw_get_workspace_coords (&ws_rect);
   pixel_width = rect.right - rect.left;
   pixel_height = rect.bottom - rect.top;
-  if (pixel_width > DEVICE_MSWINDOWS_HORZRES(d))
+  if (pixel_width > ws_rect.right - ws_rect.left)
     {
-      pixel_width = DEVICE_MSWINDOWS_HORZRES(d);
+      pixel_width = ws_rect.right - ws_rect.left;
       size_p=1;
     }
-  if (pixel_height > DEVICE_MSWINDOWS_VERTRES(d))
+  if (pixel_height > ws_rect.bottom - ws_rect.top)
     {
-      pixel_height = DEVICE_MSWINDOWS_VERTRES(d);
+      pixel_height = ws_rect.bottom - ws_rect.top;
       size_p=1;
     }
 
-  /* adjust position so window is on screen */
-  if (dest->left + pixel_width > DEVICE_MSWINDOWS_HORZRES(d))
+  /* adjust position so window is in workspace */
+  if (dest->left + pixel_width > ws_rect.right)
     {
-      dest->left = DEVICE_MSWINDOWS_HORZRES(d) - pixel_width;
+      dest->left = ws_rect.right - pixel_width;
       move_p=1;
     }
-  if (dest->top + pixel_height > DEVICE_MSWINDOWS_VERTRES(d))
+  if (dest->left < ws_rect.left)
     {
-      dest->top = DEVICE_MSWINDOWS_VERTRES(d) - pixel_height;
+      dest->left = ws_rect.left;
+      move_p=1;
+    }
+
+  if (dest->top + pixel_height > ws_rect.bottom)
+    {
+      dest->top = ws_rect.bottom - pixel_height;
+      move_p=1;
+    }
+  if (dest->top < ws_rect.top)
+    {
+      dest->top = ws_rect.top;
       move_p=1;
     }
 
@@ -766,7 +776,7 @@ msprinter_init_frame_3 (struct frame *f)
 {
   DOCINFO di;
   struct device *device = XDEVICE (FRAME_DEVICE (f));
-  HDC hdc = DEVICE_MSPRINTER_HDC (device);
+  HDC hdc;
   int frame_left, frame_top, frame_width, frame_height;
 
   /* Change printer parameters */
@@ -798,8 +808,13 @@ msprinter_init_frame_3 (struct frame *f)
 	  abort();
       }
 
+    assert (!FRAME_MSPRINTER_PAGE_STARTED (f));
     msprinter_apply_devmode (device, devmode);
   }
+
+  /* DC might be recreated in msprinter_apply_devmode,
+     so do not initialize until now */
+  hdc = DEVICE_MSPRINTER_HDC (device);
 
   /* Compute geometry properties */
   frame_left = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
@@ -878,7 +893,6 @@ msprinter_init_frame_3 (struct frame *f)
     error ("Cannot start print job");
 
   /* Finish frame setup */
-  FRAME_MSPRINTER_CDC(f) = CreateCompatibleDC (hdc);
   FRAME_MSPRINTER_JOB_STARTED (f) = 1;
   FRAME_VISIBLE_P(f) = 0;
 }
@@ -904,8 +918,6 @@ msprinter_delete_frame (struct frame *f)
 	EndPage (hdc);
       if (FRAME_MSPRINTER_JOB_STARTED (f))
 	EndDoc (hdc);
-      if (FRAME_MSPRINTER_CDC(f))
-	DeleteDC (FRAME_MSPRINTER_CDC(f));
       xfree (f->frame_data);
     }
 

@@ -634,6 +634,11 @@ The R column contains a % for buffers that are read-only."
 			     files-only))
     buffer))
 
+(defun buffers-menu-omit-invisible-buffers (buf)
+  "For use as a value of `buffers-menu-omit-function'.
+Omits normally invisible buffers (those whose name begins with a space)."
+  (not (null (string-match "\\` " (buffer-name buf)))))
+
 (provide 'buff-menu)
 
 ;;; buff-menu.el ends here

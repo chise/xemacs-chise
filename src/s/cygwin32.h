@@ -42,26 +42,26 @@ Boston, MA 02111-1307, USA.  */
 
 /* cheesy way to determine cygwin version */
 #ifndef NOT_C_CODE
-#include <signal.h>
-#ifdef HAVE_CYGWIN_VERSION_H
-#include <cygwin/version.h>
-#else
-#ifdef SIGIO
-#define CYGWIN_VERSION_DLL_MAJOR 19
-#define CYGWIN_VERSION_DLL_MINOR 0
-#define CYGWIN_B19
-#else
-#define CYGWIN_VERSION_DLL_MAJOR 18
-#define CYGWIN_VERSION_DLL_MINOR 0
-#define BROKEN_CYGWIN
-#endif
-#endif
+# include <signal.h>
+# ifdef HAVE_CYGWIN_VERSION_H
+#  include <cygwin/version.h>
+# else
+#  ifdef SIGIO
+#   define CYGWIN_VERSION_DLL_MAJOR 19
+#   define CYGWIN_VERSION_DLL_MINOR 0
+#   define CYGWIN_B19
+#  else
+#   define CYGWIN_VERSION_DLL_MAJOR 18
+#   define CYGWIN_VERSION_DLL_MINOR 0
+#   define BROKEN_CYGWIN
+#  endif
+# endif
 
 extern void cygwin32_win32_to_posix_path_list(const char*, char*);
 extern int cygwin32_win32_to_posix_path_list_buf_size(const char*);
 extern void cygwin32_posix_to_win32_path_list(const char*, char*);
 extern int cygwin32_posix_to_win32_path_list_buf_size(const char*);
-#if CYGWIN_VERSION_DLL_MAJOR < 20
+# if CYGWIN_VERSION_DLL_MAJOR < 20
 struct timeval;
 struct timezone;
 struct itimerval;
@@ -85,28 +85,27 @@ extern int utimes(char *file, struct timeval *tvp);
 extern int srandom( unsigned seed);
 extern long random();
 
-#define SND_ASYNC		1
-#define SND_NODEFAULT		2
-#define SND_MEMORY		4
-#define SND_FILENAME		0x2000L
-#define VK_APPS			0x5D
-#define SIF_TRACKPOS	0x0010
-#define ICC_BAR_CLASSES 4
-#define FW_BLACK	FW_HEAVY
-#define FW_ULTRABOLD	FW_EXTRABOLD
-#define FW_DEMIBOLD	FW_SEMIBOLD
-#define FW_ULTRALIGHT	FW_EXTRALIGHT
-#define APPCMD_FILTERINITS	0x20L
-#define CBF_FAIL_SELFCONNECTIONS 0x1000
-#define CBF_SKIP_ALLNOTIFICATIONS	0x3C0000
-#define CBF_FAIL_ADVISES	0x4000
-#define CBF_FAIL_POKES		0x10000
-#define CBF_FAIL_REQUESTS	0x20000
-#define SZDDESYS_TOPIC		"System"
-#define JOHAB_CHARSET 		130
-#define MAC_CHARSET 		77
-
-#endif
+# define SND_ASYNC		1
+# define SND_NODEFAULT		2
+# define SND_MEMORY		4
+# define SND_FILENAME		0x2000L
+# define VK_APPS			0x5D
+# define SIF_TRACKPOS	0x0010
+# define ICC_BAR_CLASSES 4
+# define FW_BLACK	FW_HEAVY
+# define FW_ULTRABOLD	FW_EXTRABOLD
+# define FW_DEMIBOLD	FW_SEMIBOLD
+# define FW_ULTRALIGHT	FW_EXTRALIGHT
+# define APPCMD_FILTERINITS	0x20L
+# define CBF_FAIL_SELFCONNECTIONS 0x1000
+# define CBF_SKIP_ALLNOTIFICATIONS	0x3C0000
+# define CBF_FAIL_ADVISES	0x4000
+# define CBF_FAIL_POKES		0x10000
+# define CBF_FAIL_REQUESTS	0x20000
+# define SZDDESYS_TOPIC		"System"
+# define JOHAB_CHARSET 		130
+# define MAC_CHARSET 		77
+# endif
 #endif
 
 #ifndef SPI_GETWHEELSCROLLLINES
@@ -160,6 +159,7 @@ extern long random();
 #define TEXT_END -1
 #define DATA_END -1
 #define HEAP_IN_DATA
+#define NO_LIM_DATA
 #define UNEXEC "unexcw.o"
 
 #ifdef CYGWIN_VERSION_DLL_MAJOR

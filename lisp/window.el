@@ -351,5 +351,4 @@ Any other non-nil value means search frames on all devices."
                   minibuf all-frames device)
     wins))
 
-
 ;;; window.el ends here

@@ -1,3 +1,66 @@
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-15  Mike Alexander <mta@arbortext.com>
+
+	* xemacs.mak: Fix for generation of $(XEMACS)\Installation.
+
+2000-03-14  Adrian Aichner  <adrain@xemacs.org>
+
+	* xemacs.mak (LIB_SRC_TOOLS): LIB_SRC_TOOLS depend on
+	XEMACS_INCLUDES when we USE_PORTABLE_DUMPER.
+
+2000-03-13  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak (TEMACS_ENTRYPOINT):
+	Fix for portable dumper.
+
+2000-03-12  Ben Wing  <ben@xemacs.org>
+
+        * xemacs.mak (*): 
+        * config.inc: New.
+
+        a) Added a file called config.inc which makes it easier to set
+        build options for MS Windows. (Previously, the only way to do this
+        was through command line options to nmake.) 
+
+        b) Cleaned the file up a bit.
+
+        c) Changed xemacs to be a windows application and not a console
+        application, now that runemacs.exe is no longer necessary.
+
+        d) Added support for building the tags file.
+
+        * xemacs.dsw: New.
+        * xemacs.dsp: New.
+        For compiling, editing, and debugging XEmacs using the VC++ 5.0
+        GUI.  They may well work under other versions of VC++, but I don't
+        have access to them to test them. 
+
+2000-03-11  Andy Piper  <andy@xemacs.org>
+
+	* PROBLEMS: Doc fix from Reini Urban <rurban@x-ray.at>.
+
+2000-02-27  Mike Alexander  <mta@arbortext.com>
+
+	* xemacs.rc: Include the portable dump data if INCLUDE_DUMP is defined
+
+	* xemacs.mak: Add the portable dump data to the EXE as a resource
+
+2000-03-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak (TEMACS_LIBS): Add ole32.lib and uuid.lib.
+	(installation): Always regenerate installation report.
+
+2000-02-25  Craig Lanning  <CraigL@DyCon.com>
+
+	* inc\sys\time.h: MinGW defines struct timeval in <winsock.h>.
+
+2000-02-24  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h (INLINE_HEADER): Define properly (?) for Windows.
+
 2000-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.31 is released.

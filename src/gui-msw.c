@@ -36,7 +36,7 @@ Boston, MA 02111-1307, USA.  */
  * command if we return nil
  */
 Lisp_Object
-mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id)
+mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, LPARAM id)
 {
   /* Try to map the command id through the proper hash table */
   Lisp_Object data, fn, arg, frame;
@@ -50,11 +50,14 @@ mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id)
   if (NILP (data) || UNBOUNDP (data))
     return Qnil;
 
-  MARK_SUBWINDOWS_STATE_CHANGED;
   /* Ok, this is our one. Enqueue it. */
   get_gui_callback (data, &fn, &arg);
   XSETFRAME (frame, f);
   mswindows_enqueue_misc_user_event (frame, fn, arg);
+  /* The result of this evaluation could cause other instances to change so 
+     enqueue an update callback to check this. */
+  mswindows_enqueue_misc_user_event (frame, Qeval, 
+				     list2 (Qupdate_widget_instances, frame));
 
   return Qt;
 }
@@ -137,9 +140,9 @@ otherwise it is an integer representing a ShowWindow flag:
   if (ret > 32)
     return Qt;
   
-  if (ret == ERROR_FILE_NOT_FOUND || ret == SE_ERR_FNF)
+  if (ret == ERROR_FILE_NOT_FOUND)
     signal_simple_error ("file not found", document);
-  else if (ret == ERROR_PATH_NOT_FOUND || ret == SE_ERR_PNF)
+  else if (ret == ERROR_PATH_NOT_FOUND)
     signal_simple_error ("path not found", current_dir);
   else if (ret == ERROR_BAD_FORMAT)
     signal_simple_error ("bad executable format", document);

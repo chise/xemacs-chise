@@ -1626,11 +1626,11 @@ stuffs a pointer together with a tag, as follows:
 
 A tag of 00 is used for all pointer object types, a tag of 10 is used
 for characters, and the other two tags 01 and 11 are joined together to
-form the integer object type.  This representation gives us 31 bits
-integers, 30 bits characters and pointers are represented directly
-without any bit masking.  This representation, though, assumes that
-pointers to structs are always aligned to multiples of 4, so the lower 2
-bits are always zero.
+form the integer object type.  This representation gives us 31 bit
+integers and 30 bit characters, while pointers are represented directly
+without any bit masking or shifting.  This representation, though,
+assumes that pointers to structs are always aligned to multiples of 4,
+so the lower 2 bits are always zero.
 
 Lisp objects use the typedef @code{Lisp_Object}, but the actual C type
 used for the Lisp object can vary.  It can be either a simple type
@@ -1641,24 +1641,24 @@ preferable because it ensures that the compiler will actually use a
 machine word to represent the object (some compilers will use more
 general and less efficient code for unions and structs even if they can
 fit in a machine word).  The union type, however, has the advantage of
-stricter type checking (if you accidentally pass an integer where a Lisp
-object is desired, you get a compile error), and it makes it easier to
-decode Lisp objects when debugging.  The choice of which type to use is
-determined by the preprocessor constant @code{USE_UNION_TYPE} which is
-defined via the @code{--use-union-type} option to @code{configure}.
+stricter type checking.  If you accidentally pass an integer where a Lisp
+object is desired, you get a compile error.  The choice of which type
+to use is determined by the preprocessor constant @code{USE_UNION_TYPE}
+which is defined via the @code{--use-union-type} option to
+@code{configure}.
 
-Various macros are used to construct Lisp objects and extract the
-components.  Macros of the form @code{XINT()}, @code{XCHAR()},
-@code{XSTRING()}, @code{XSYMBOL()}, etc. shift out the tag field if
-needed cast it to the appropriate type.  @code{XINT()} needs to be a bit
-tricky so that negative numbers are properly sign-extended.  Since
+Various macros are used to convert between Lisp_Objects and the
+corresponding C type.  Macros of the form @code{XINT()}, @code{XCHAR()},
+@code{XSTRING()}, @code{XSYMBOL()}, do any required bit shifting and/or
+masking and cast it to the appropriate type.  @code{XINT()} needs to be
+a bit tricky so that negative numbers are properly sign-extended.  Since
 integers are stored left-shifted, if the right-shift operator does an
 arithmetic shift (i.e. it leaves the most-significant bit as-is rather
 than shifting in a zero, so that it mimics a divide-by-two even for
 negative numbers) the shift to remove the tag bit is enough.  This is
 the case on all the systems we support.
 
-Note that when @code{ERROR_CHECK_TYPECHECK} is defined, the extractor
+Note that when @code{ERROR_CHECK_TYPECHECK} is defined, the converter
 macros become more complicated---they check the tag bits and/or the
 type field in the first four bytes of a record type to ensure that the
 object is really of the correct type.  This is great for catching places
@@ -1668,25 +1668,29 @@ unpredictable (and sometimes not easily traceable) results.
 
 There are similar @code{XSET@var{TYPE}()} macros that construct a Lisp
 object.  These macros are of the form @code{XSET@var{TYPE}
-(@var{lvalue}, @var{result})},
-i.e. they have to be a statement rather than just used in an expression.
-The reason for this is that standard C doesn't let you ``construct'' a
-structure (but GCC does).  Granted, this sometimes isn't too convenient;
-for the case of integers, at least, you can use the function
-@code{make_int()}, which constructs and @emph{returns} an integer
-Lisp object.  Note that the @code{XSET@var{TYPE}()} macros are also
-affected by @code{ERROR_CHECK_TYPECHECK} and make sure that the
-structure is of the right type in the case of record types, where the
-type is contained in the structure.
+(@var{lvalue}, @var{result})}, i.e. they have to be a statement rather
+than just used in an expression.  The reason for this is that standard C
+doesn't let you ``construct'' a structure (but GCC does).  Granted, this
+sometimes isn't too convenient; for the case of integers, at least, you
+can use the function @code{make_int()}, which constructs and
+@emph{returns} an integer Lisp object.  Note that the
+@code{XSET@var{TYPE}()} macros are also affected by
+@code{ERROR_CHECK_TYPECHECK} and make sure that the structure is of the
+right type in the case of record types, where the type is contained in
+the structure.
 
 The C programmer is responsible for @strong{guaranteeing} that a
-Lisp_Object is is the correct type before using the @code{X@var{TYPE}}
+Lisp_Object is the correct type before using the @code{X@var{TYPE}}
 macros.  This is especially important in the case of lists.  Use
 @code{XCAR} and @code{XCDR} if a Lisp_Object is certainly a cons cell,
 else use @code{Fcar()} and @code{Fcdr()}.  Trust other C code, but not
 Lisp code.  On the other hand, if XEmacs has an internal logic error,
-it's better to crash immediately, so sprinkle ``unreachable''
-@code{abort()}s liberally about the source code.
+it's better to crash immediately, so sprinkle @code{assert()}s and
+``unreachable'' @code{abort()}s liberally about the source code.  Where
+performance is an issue, use @code{type_checking_assert},
+@code{bufpos_checking_assert}, and @code{gc_checking_assert}, which do
+nothing unless the corresponding configure error checking flag was
+specified.
 
 @node Rules When Writing New C Code, A Summary of the Various XEmacs Modules, How Lisp Objects Are Represented in C, Top
 @chapter Rules When Writing New C Code
@@ -1740,13 +1744,14 @@ system header files) to ensure that certain tricks played by various
 @file{s/} and @file{m/} files work out correctly.
 
 When including header files, always use angle brackets, not double
-quotes, except when the file to be included is in the same directory as
-the including file.  If either file is a generated file, then that is
-not likely to be the case.  In order to understand why we have this
-rule, imagine what happens when you do a build in the source directory
-using @samp{./configure} and another build in another directory using
-@samp{../work/configure}.  There will be two different @file{config.h}
-files.  Which one will be used if you @samp{#include "config.h"}?
+quotes, except when the file to be included is always in the same
+directory as the including file.  If either file is a generated file,
+then that is not likely to be the case.  In order to understand why we
+have this rule, imagine what happens when you do a build in the source
+directory using @samp{./configure} and another build in another
+directory using @samp{../work/configure}.  There will be two different
+@file{config.h} files.  Which one will be used if you @samp{#include
+"config.h"}?
 
 @strong{All global and static variables that are to be modifiable must
 be declared uninitialized.}  This means that you may not use the
@@ -1791,7 +1796,7 @@ The C source code makes heavy use of C preprocessor macros.  One popular
 macro style is:
 
 @example
-#define FOO(var, value) do @{           \
+#define FOO(var, value) do @{            \
   Lisp_Object FOO_value = (value);      \
   ... /* compute using FOO_value */     \
   (var) = bar;                          \
@@ -2597,13 +2602,19 @@ proceed writing new Mule-aware code.
 @node Techniques for XEmacs Developers,  , Coding for Mule, Rules When Writing New C Code
 @section Techniques for XEmacs Developers
 
+To make a purified XEmacs, do: @code{make puremacs}.
 To make a quantified XEmacs, do: @code{make quantmacs}.
 
-You simply can't dump Quantified and Purified images.  Run the image
-like so:  @code{quantmacs -batch -l loadup.el run-temacs @var{xemacs-args...}}.
+You simply can't dump Quantified and Purified images (unless using the
+portable dumper).  Purify gets confused when xemacs frees memory in one
+process that was allocated in a @emph{different} process on a different
+machine!.  Run it like so:
+@example
+temacs -batch -l loadup.el run-temacs @var{xemacs-args...}
+@end example
 
 Before you go through the trouble, are you compiling with all
-debugging and error-checking off?  If not try that first.  Be warned
+debugging and error-checking off?  If not, try that first.  Be warned
 that while Quantify is directly responsible for quite a few
 optimizations which have been made to XEmacs, doing a run which
 generates results which can be acted upon is not necessarily a trivial
@@ -2642,14 +2653,116 @@ Unfortunately, Emacs Lisp is slow, and is going to stay slow.  Function
 calls in elisp are especially expensive.  Iterating over a long list is
 going to be 30 times faster implemented in C than in Elisp.
 
+Heavily used small code fragments need to be fast.  The traditional way
+to implement such code fragments in C is with macros.  But macros in C
+are known to be broken.
+
+Macro arguments that are repeatedly evaluated may suffer from repeated
+side effects or suboptimal performance.
+
+Variable names used in macros may collide with caller's variables,
+causing (at least) unwanted compiler warnings.
+
+In order to solve these problems, and maintain statement semantics, one
+should use the @code{do @{ ... @} while (0)} trick while trying to
+reference macro arguments exactly once using local variables.
+
+Let's take a look at this poor macro definition:
+
+@example
+#define MARK_OBJECT(obj) \
+  if (!marked_p (obj)) mark_object (obj), did_mark = 1
+@end example
+
+This macro evaluates its argument twice, and also fails if used like this:
+@example
+  if (flag) MARK_OBJECT (obj); else do_something();
+@end example
+
+A much better definition is
+
+@example
+#define MARK_OBJECT(obj) do @{ \
+  Lisp_Object mo_obj = (obj); \
+  if (!marked_p (mo_obj))     \
+    @{                         \
+      mark_object (mo_obj);   \
+      did_mark = 1;           \
+    @}                         \
+@} while (0)
+@end example
+
+Notice the elimination of double evaluation by using the local variable
+with the obscure name.  Writing safe and efficient macros requires great
+care.  The one problem with macros that cannot be portably worked around
+is, since a C block has no value, a macro used as an expression rather
+than a statement cannot use the techniques just described to avoid
+multiple evaluation.
+
+In most cases where a macro has function semantics, an inline function
+is a better implementation technique.  Modern compiler optimizers tend
+to inline functions even if they have no @code{inline} keyword, and
+configure magic ensures that the @code{inline} keyword can be safely
+used as an additional compiler hint.  Inline functions used in a single
+.c files are easy.  The function must already be defined to be
+@code{static}.  Just add another @code{inline} keyword to the
+definition.
+
+@example
+inline static int
+heavily_used_small_function (int arg)
+@{
+  ...
+@}
+@end example
+
+Inline functions in header files are trickier, because we would like to
+make the following optimization if the function is @emph{not} inlined
+(for example, because we're compiling for debugging).  We would like the
+function to be defined externally exactly once, and each calling
+translation unit would create an external reference to the function,
+instead of including a definition of the inline function in the object
+code of every translation unit that uses it.  This optimization is
+currently only available for gcc.  But you don't have to worry about the
+trickiness; just define your inline functions in header files using this
+pattern:
+
+@example
+INLINE_HEADER int
+i_used_to_be_a_crufty_macro_but_look_at_me_now (int arg);
+INLINE_HEADER int
+i_used_to_be_a_crufty_macro_but_look_at_me_now (int arg)
+@{
+  ...
+@}
+@end example
+
+The declaration right before the definition is to prevent warnings when
+compiling with @code{gcc -Wmissing-declarations}.  I consider issuing
+this warning for inline functions a gcc bug, but the gcc maintainers disagree.
+
+Every header which contains inline functions, either directly by using
+@code{INLINE_HEADER} or indirectly by using @code{DECLARE_LRECORD} must
+be added to @file{inline.c}'s includes to make the optimization
+described above work.  (Optimization note: if all INLINE_HEADER
+functions are in fact inlined in all translation units, then the linker
+can just discard @code{inline.o}, since it contains only unreferenced code).
+
 To get started debugging XEmacs, take a look at the @file{.gdbinit} and
-@file{.dbxrc} files in the @file{src} directory.
-@xref{Q2.1.15 - How to Debug an XEmacs problem with a debugger,,,
-xemacs-faq, XEmacs FAQ}.
+@file{.dbxrc} files in the @file{src} directory.  See the section in the
+XEmacs FAQ on How to Debug an XEmacs problem with a debugger.
 
 After making source code changes, run @code{make check} to ensure that
-you haven't introduced any regressions.  If you're feeling ambitious,
-you can try to improve the test suite in @file{tests/automated}.
+you haven't introduced any regressions.  If you want to make xemacs more
+reliable, please improve the test suite in @file{tests/automated}.
+
+Did you make sure you didn't introduce any new compiler warnings?
+
+Before submitting a patch, please try compiling at least once with
+
+@example
+configure --with-mule --with-union-type --error-checking=all
+@end example
 
 Here are things to know when you create a new source file:
 
@@ -2676,23 +2789,6 @@ Header files should @emph{not} include @code{<config.h>} and
 @code{"lisp.h"}.  It is the responsibility of the @file{.c} files that
 use it to do so.
 
-@item
-If the header uses @code{INLINE}, either directly or through
-@code{DECLARE_LRECORD}, then it must be added to @file{inline.c}'s
-includes.
-
-@item
-Try compiling at least once with
-
-@example
-gcc --with-mule --with-union-type --error-checking=all
-@end example
-
-@item
-Did I mention that you should run the test suite?
-@example
-make check
-@end example
 @end itemize
 
 Here is a checklist of things to do when creating a new lisp object type
@@ -2704,17 +2800,20 @@ create @var{foo}.h
 @item
 create @var{foo}.c
 @item
-add definitions of syms_of_@var{foo}, etc. to @var{foo}.c
+add definitions of @code{syms_of_@var{foo}}, etc. to @file{@var{foo}.c}
 @item
-add declarations of syms_of_@var{foo}, etc. to symsinit.h
+add declarations of @code{syms_of_@var{foo}}, etc. to @file{symsinit.h}
 @item
-add calls to syms_of_@var{foo}, etc. to emacs.c(main_1)
+add calls to @code{syms_of_@var{foo}}, etc. to @file{emacs.c}
 @item
-add definitions of macros like CHECK_FOO and FOOP to @var{foo}.h
+add definitions of macros like @code{CHECK_@var{FOO}} and
+@code{@var{FOO}P} to @file{@var{foo}.h}
 @item
-add the new type index to enum lrecord_type
+add the new type index to @code{enum lrecord_type}
 @item
-add DEFINE_LRECORD_IMPLEMENTATION call to @var{foo}.c
+add a DEFINE_LRECORD_IMPLEMENTATION call to @file{@var{foo}.c}
+@item
+add an INIT_LRECORD_IMPLEMENTATION call to @code{syms_of_@var{foo}.c}
 @end enumerate
 
 @node A Summary of the Various XEmacs Modules, Allocation of Objects in XEmacs Lisp, Rules When Writing New C Code, Top
@@ -5166,7 +5265,9 @@ more defensive but less efficient and is used for error-checking.)
 
   All lrecords have at the beginning of their structure a @code{struct
 lrecord_header}.  This just contains a type number and some flags,
-including the mark bit.  The type number, thru the
+including the mark bit.  All builtin type numbers are defined as
+constants in @code{enum lrecord_type}, to allow the compiler to generate
+more efficient code for @code{@var{type}P}.  The type number, thru the
 @code{lrecord_implementation_table}, gives access to a @code{struct
 lrecord_implementation}, which is a structure containing method pointers
 and such.  There is one of these for each type, and it is a global,
@@ -5201,21 +5302,21 @@ type.
 Whenever you create an lrecord, you need to call either
 @code{DEFINE_LRECORD_IMPLEMENTATION()} or
 @code{DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()}.  This needs to be
-specified in a C file, at the top level.  What this actually does is
-define and initialize the implementation structure for the lrecord. (And
-possibly declares a function @code{error_check_foo()} that implements
-the @code{XFOO()} macro when error-checking is enabled.)  The arguments
-to the macros are the actual type name (this is used to construct the C
-variable name of the lrecord implementation structure and related
-structures using the @samp{##} macro concatenation operator), a string
-that names the type on the Lisp level (this may not be the same as the C
-type name; typically, the C type name has underscores, while the Lisp
-string has dashes), various method pointers, and the name of the C
-structure that contains the object.  The methods are used to encapsulate
-type-specific information about the object, such as how to print it or
-mark it for garbage collection, so that it's easy to add new object
-types without having to add a specific case for each new type in a bunch
-of different places.
+specified in a @file{.c} file, at the top level.  What this actually
+does is define and initialize the implementation structure for the
+lrecord. (And possibly declares a function @code{error_check_foo()} that
+implements the @code{XFOO()} macro when error-checking is enabled.)  The
+arguments to the macros are the actual type name (this is used to
+construct the C variable name of the lrecord implementation structure
+and related structures using the @samp{##} macro concatenation
+operator), a string that names the type on the Lisp level (this may not
+be the same as the C type name; typically, the C type name has
+underscores, while the Lisp string has dashes), various method pointers,
+and the name of the C structure that contains the object.  The methods
+are used to encapsulate type-specific information about the object, such
+as how to print it or mark it for garbage collection, so that it's easy
+to add new object types without having to add a specific case for each
+new type in a bunch of different places.
 
   The difference between @code{DEFINE_LRECORD_IMPLEMENTATION()} and
 @code{DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()} is that the former is
@@ -5229,21 +5330,20 @@ to determine the actual size of a particular object of that type.
   For the purpose of keeping allocation statistics, the allocation
 engine keeps a list of all the different types that exist.  Note that,
 since @code{DEFINE_LRECORD_IMPLEMENTATION()} is a macro that is
-specified at top-level, there is no way for it to add to the list of all
-existing types.  What happens instead is that each implementation
-structure contains in it a dynamically assigned number that is
-particular to that type. (Or rather, it contains a pointer to another
-structure that contains this number.  This evasiveness is done so that
-the implementation structure can be declared const.) In the sweep stage
-of garbage collection, each lrecord is examined to see if its
-implementation structure has its dynamically-assigned number set.  If
-not, it must be a new type, and it is added to the list of known types
-and a new number assigned.  The number is used to index into an array
-holding the number of objects of each type and the total memory
-allocated for objects of that type.  The statistics in this array are
-also computed during the sweep stage.  These statistics are returned by
-the call to @code{garbage-collect} and are printed out at the end of the
-loadup phase.
+specified at top-level, there is no way for it to initialize the global
+data structures containing type information, like
+@code{lrecord_implementations_table}.  For this reason a call to
+@code{INIT_LRECORD_IMPLEMENTATION} must be added to the same source file
+containing @code{DEFINE_LRECORD_IMPLEMENTATION}, but instead of to the
+top level, to one of the init functions, typically
+@code{syms_of_@var{foo}.c}.  @code{INIT_LRECORD_IMPLEMENTATION} must be
+called before an object of this type is used.
+
+The type number is also used to index into an array holding the number
+of objects of each type and the total memory allocated for objects of
+that type.  The statistics in this array are computed during the sweep
+stage.  These statistics are returned by the call to
+@code{garbage-collect}.
 
   Note that for every type defined with a @code{DEFINE_LRECORD_*()}
 macro, there needs to be a @code{DECLARE_LRECORD_IMPLEMENTATION()}
@@ -5449,16 +5549,15 @@ warning system, when memory gets to 75%, 85%, and 95% full.
 (On some systems, the memory warnings are not functional.)
 
   Allocated memory that is going to be used to make a Lisp object
-is created using @code{allocate_lisp_storage()}.  This calls @code{xmalloc()}
-but also verifies that the pointer to the memory can fit into
-a Lisp word (remember that some bits are taken away for a type
-tag and a mark bit).  If not, an error is issued through @code{memory_full()}.
-@code{allocate_lisp_storage()} is called by @code{alloc_lcrecord()},
-@code{ALLOCATE_FIXED_TYPE()}, and the vector and bit-vector creation
-routines.  These routines also call @code{INCREMENT_CONS_COUNTER()} at the
-appropriate times; this keeps statistics on how much memory is
-allocated, so that garbage-collection can be invoked when the
-threshold is reached.
+is created using @code{allocate_lisp_storage()}.  This just calls
+@code{xmalloc()}.  It used to verify that the pointer to the memory can
+fit into a Lisp word, before the current Lisp object representation was
+introduced.  @code{allocate_lisp_storage()} is called by
+@code{alloc_lcrecord()}, @code{ALLOCATE_FIXED_TYPE()}, and the vector
+and bit-vector creation routines.  These routines also call
+@code{INCREMENT_CONS_COUNTER()} at the appropriate times; this keeps
+statistics on how much memory is allocated, so that garbage-collection
+can be invoked when the threshold is reached.
 
 @node Cons, Vector, Low-level allocation, Allocation of Objects in XEmacs Lisp
 @section Cons
@@ -8798,4 +8897,3 @@ Not yet documented.
 @c That's all
 
 @bye
-

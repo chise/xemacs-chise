@@ -635,8 +635,10 @@ In Unix-syntax, this function just removes the final slash.
    This implementation is better than what one usually finds in libc.
    --hniksic */
 
+static unsigned int temp_name_rand;
+
 DEFUN ("make-temp-name", Fmake_temp_name, 1, 1, 0, /*
-Generate temporary file name starting with PREFIX.
+Generate a temporary file name starting with PREFIX.
 The Emacs process number forms part of the result, so there is no
 danger of generating a name being used by another process.
 
@@ -646,7 +648,8 @@ be an absolute file name.
 */
        (prefix))
 {
-  static char tbl[64] = {
+  static const char tbl[64] =
+  {
     'A','B','C','D','E','F','G','H',
     'I','J','K','L','M','N','O','P',
     'Q','R','S','T','U','V','W','X',
@@ -654,13 +657,12 @@ be an absolute file name.
     'g','h','i','j','k','l','m','n',
     'o','p','q','r','s','t','u','v',
     'w','x','y','z','0','1','2','3',
-    '4','5','6','7','8','9','-','_' };
-  static unsigned count, count_initialized_p;
+    '4','5','6','7','8','9','-','_'
+  };
 
   Lisp_Object val;
   Bytecount len;
   Bufbyte *p, *data;
-  unsigned pid;
 
   CHECK_STRING (prefix);
 
@@ -686,40 +688,33 @@ be an absolute file name.
 
   /* VAL is created by adding 6 characters to PREFIX.  The first three
      are the PID of this process, in base 64, and the second three are
-     incremented if the file already exists.  This ensures 262144
-     unique file names per PID per PREFIX.  */
+     a pseudo-random number seeded from process startup time.  This
+     ensures 262144 unique file names per PID per PREFIX per machine.  */
 
-  pid = (unsigned)getpid ();
-  *p++ = tbl[pid & 63], pid >>= 6;
-  *p++ = tbl[pid & 63], pid >>= 6;
-  *p++ = tbl[pid & 63], pid >>= 6;
+  {
+    unsigned int pid = (unsigned int) getpid ();
+    *p++ = tbl[(pid >>  0) & 63];
+    *p++ = tbl[(pid >>  6) & 63];
+    *p++ = tbl[(pid >> 12) & 63];
+  }
 
   /* Here we try to minimize useless stat'ing when this function is
      invoked many times successively with the same PREFIX.  We achieve
-     this by initializing count to a random value, and incrementing it
-     afterwards.  */
-  if (!count_initialized_p)
-    {
-      count = (unsigned)time (NULL);
-      /* Dumping temacs with a non-zero count_initialized_p wouldn't
-         make much sense.  */
-      if (NILP (Frunning_temacs_p ()))
-	count_initialized_p = 1;
-    }
+     this by using a very pseudo-random number generator to generate
+     file names unique to this process, with a very long cycle. */
 
   while (1)
     {
       struct stat ignored;
-      unsigned num = count;
 
-      p[0] = tbl[num & 63], num >>= 6;
-      p[1] = tbl[num & 63], num >>= 6;
-      p[2] = tbl[num & 63], num >>= 6;
+      p[0] = tbl[(temp_name_rand >>  0) & 63];
+      p[1] = tbl[(temp_name_rand >>  6) & 63];
+      p[2] = tbl[(temp_name_rand >> 12) & 63];
 
       /* Poor man's congruential RN generator.  Replace with ++count
          for debugging.  */
-      count += 25229;
-      count %= 225307;
+      temp_name_rand += 25229;
+      temp_name_rand %= 225307;
 
       QUIT;
 
@@ -1846,7 +1841,7 @@ Create a directory.  One argument, a file name string.
     {
       return Fsignal (Qfile_error,
 		      list3 (build_translated_string ("Creating directory"),
-			     build_translated_string ("pathame too long"),
+			     build_translated_string ("pathname too long"),
 			     dirname_));
     }
   strncpy (dir, (char *) XSTRING_DATA (dirname_),
@@ -2075,7 +2070,6 @@ This is what happens in interactive use with M-x.
   return Qnil;
 }
 
-#ifdef S_IFLNK
 DEFUN ("make-symbolic-link", Fmake_symbolic_link, 2, 3,
        "FMake symbolic link to file: \nFMake symbolic link to file %s: \np", /*
 Make a symbolic link to FILENAME, named LINKNAME.  Both args strings.
@@ -2087,6 +2081,7 @@ This happens for interactive use with M-x.
        (filename, linkname, ok_if_already_exists))
 {
   /* This function can GC.  GC checked 1997.06.04. */
+  /* XEmacs change: run handlers even if local machine doesn't have symlinks */
   Lisp_Object handler;
   struct gcpro gcpro1, gcpro2;
 
@@ -2114,6 +2109,7 @@ This happens for interactive use with M-x.
     RETURN_UNGCPRO (call4 (handler, Qmake_symbolic_link, filename,
 			   linkname, ok_if_already_exists));
 
+#ifdef S_IFLNK
   if (NILP (ok_if_already_exists)
       || INTP (ok_if_already_exists))
     barf_or_query_if_file_exists (linkname, "make it a link",
@@ -2126,10 +2122,11 @@ This happens for interactive use with M-x.
       report_file_error ("Making symbolic link",
 			 list2 (filename, linkname));
     }
+#endif /* S_IFLNK */
+
   UNGCPRO;
   return Qnil;
 }
-#endif /* S_IFLNK */
 
 #ifdef HPUX_NET
 
@@ -2351,11 +2348,13 @@ Otherwise returns nil.
        (filename))
 {
   /* This function can GC.  GC checked 1997.04.10. */
+  /* XEmacs change: run handlers even if local machine doesn't have symlinks */
 #ifdef S_IFLNK
   char *buf;
   int bufsize;
   int valsize;
   Lisp_Object val;
+#endif
   Lisp_Object handler;
   struct gcpro gcpro1;
 
@@ -2370,6 +2369,7 @@ Otherwise returns nil.
   if (!NILP (handler))
     return call2 (handler, Qfile_symlink_p, filename);
 
+#ifdef S_IFLNK
   bufsize = 100;
   while (1)
     {
@@ -4185,9 +4185,7 @@ syms_of_fileio (void)
   DEFSUBR (Fdelete_file);
   DEFSUBR (Frename_file);
   DEFSUBR (Fadd_name_to_file);
-#ifdef S_IFLNK
   DEFSUBR (Fmake_symbolic_link);
-#endif /* S_IFLNK */
 #ifdef HPUX_NET
   DEFSUBR (Fsysnetunam);
 #endif /* HPUX_NET */
@@ -4316,6 +4314,28 @@ what the normal separator is.
 #ifdef WINDOWSNT
   Vdirectory_sep_char = make_char ('\\');
 #else
-   Vdirectory_sep_char = make_char ('/');
+  Vdirectory_sep_char = make_char ('/');
 #endif
+
+  reinit_vars_of_fileio ();
+}
+
+void
+reinit_vars_of_fileio (void)
+{
+  /* We want temp_name_rand to be initialized to a value likely to be
+     unique to the process, not to the executable.  The danger is that
+     two different XEmacs processes using the same binary on different
+     machines creating temp files in the same directory will be
+     unlucky enough to have the same pid.  If we randomize using
+     process startup time, then in practice they will be unlikely to
+     collide. We use the microseconds field so that scripts that start
+     simultaneous XEmacs processes on multiple machines will have less
+     chance of collision.  */
+  {
+    EMACS_TIME thyme;
+
+    EMACS_GET_TIME (thyme);
+    temp_name_rand = (unsigned int) (EMACS_SECS (thyme) ^ EMACS_USECS (thyme));
+  }
 }

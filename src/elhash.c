@@ -1218,6 +1218,15 @@ elisp_map_remhash (maphash_function_t predicate,
 /************************************************************************/
 /*		   garbage collecting weak hash tables			*/
 /************************************************************************/
+#define MARK_OBJ(obj) do {		\
+  Lisp_Object mo_obj = (obj);		\
+  if (!marked_p (mo_obj))		\
+    {					\
+      mark_object (mo_obj);		\
+      did_mark = 1;			\
+    }					\
+} while (0)
+
 
 /* Complete the marking for semi-weak hash tables. */
 int
@@ -1241,9 +1250,6 @@ finish_marking_weak_hash_tables (void)
       /* Now, scan over all the pairs.  For all pairs that are
 	 half-marked, we may need to mark the other half if we're
 	 keeping this pair. */
-#define MARK_OBJ(obj) \
-do { if (!marked_p (obj)) mark_object (obj), did_mark = 1; } while (0)
-
       switch (ht->weakness)
 	{
 	case HASH_TABLE_KEY_WEAK:

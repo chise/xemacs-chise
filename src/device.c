@@ -891,6 +891,7 @@ behavior cannot necessarily be determined automatically.
 	  MARK_FRAME_GLYPHS_CHANGED (f);
 	  MARK_FRAME_SUBWINDOWS_CHANGED (f);
 	  MARK_FRAME_TOOLBARS_CHANGED (f);
+	  MARK_FRAME_GUTTERS_CHANGED (f);
 	  f->menubar_changed = 1;
 	}
     }
@@ -990,7 +991,7 @@ size-workspace        Workspace size in pixels. This can be less than or
                       decorations. For printers, this is the size of
                       printable area.
 offset-workspace      Offset of workspace area from the top left corner
-                      of screen or paper.
+                      of screen or paper, in pixels.
 size-device-mm        Device screen size in millimeters.
 device-dpi            Device resolution, in dots per inch.
 num-bit-planes        Integer, number of device bit planes.

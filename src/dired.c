@@ -23,16 +23,16 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
-#include "buffer.h"
-#include "commands.h"
-#include "elhash.h"
-#include "regex.h"
-#include "opaque.h"
 #include "sysfile.h"
 #include "sysdir.h"
 #include "systime.h"
 #include "sysdep.h"
 #include "syspwd.h"
+#include "buffer.h"
+#include "commands.h"
+#include "elhash.h"
+#include "regex.h"
+#include "opaque.h"
 
 Lisp_Object Vcompletion_ignored_extensions;
 Lisp_Object Qdirectory_files;

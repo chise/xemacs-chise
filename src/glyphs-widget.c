@@ -149,6 +149,13 @@ check_valid_callback (Lisp_Object data)
 }
 
 static void
+check_valid_int_or_function (Lisp_Object data)
+{
+  if (!INTP (data) && !CONSP (data))
+    signal_simple_error ("must be an integer or expresssion", data);
+}
+
+static void
 check_valid_symbol (Lisp_Object data)
 {
     CHECK_SYMBOL (data);
@@ -360,6 +367,8 @@ widget_query_geometry (Lisp_Object image_instance,
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
+  Lisp_Object dynamic_width = Qnil;
+  Lisp_Object dynamic_height = Qnil;
 
   /* First just set up what we already have. */
   if (width)	*width = IMAGE_INSTANCE_WIDTH (ii);
@@ -401,6 +410,19 @@ widget_query_geometry (Lisp_Object image_instance,
 	      if (IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii))
 		*height = h +  2 * WIDGET_BORDER_HEIGHT;
 	    }
+	}
+      /* Finish off with dynamic sizing. */
+      if (!NILP (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii)))
+	{
+	  dynamic_width = Feval (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii));
+	  if (INTP (dynamic_width))
+	    *width = XINT (dynamic_width);
+	}
+      if (!NILP (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii)))
+	{
+	  dynamic_height = Feval (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii));
+	  if (INTP (dynamic_height))
+	    *height = XINT (dynamic_height);
 	}
     }
 }
@@ -484,6 +506,9 @@ initialize_widget_image_instance (Lisp_Image_Instance *ii, Lisp_Object type)
   IMAGE_INSTANCE_WIDGET_PROPS (ii) = Qnil;
   SET_IMAGE_INSTANCE_WIDGET_FACE (ii, Qnil);
   IMAGE_INSTANCE_WIDGET_ITEMS (ii) = allocate_gui_item ();
+  IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = Qnil;
+  IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii) = Qnil;
+  IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii) = Qnil;
   IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 1;
   IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 1;
   IMAGE_INSTANCE_SUBWINDOW_ORIENT (ii) = 0;
@@ -618,8 +643,13 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      geometry gets called. */
   if (!NILP (pixwidth))		/* pixwidth takes precendent */
     {
-      pw = XINT (pixwidth);
-      IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 0;
+      if (!INTP (pixwidth))
+	IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (ii) = pixwidth;
+      else
+	{
+	  pw = XINT (pixwidth);
+	  IMAGE_INSTANCE_SUBWINDOW_H_RESIZEP (ii) = 0;
+	}
     }
   else if (!NILP (width))
     {
@@ -629,8 +659,13 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   if (!NILP (pixheight))
     {
-      ph = XINT (pixheight);
-      IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 0;
+      if (!INTP (pixwidth))
+	IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (ii) = pixheight;
+      else
+	{
+	  ph = XINT (pixheight);
+	  IMAGE_INSTANCE_SUBWINDOW_V_RESIZEP (ii) = 0;
+	}
     }
   else if (!NILP (height) && XINT (height) > 1)
     {
@@ -756,12 +791,16 @@ tab_control_set_property (Lisp_Object image_instance,
   if (EQ (prop, Q_items))
     {
       Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
-      check_valid_item_list_1 (val);
 
-      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
-	       parse_gui_item_tree_children (val));
+      check_valid_item_list_1 (val);
       
+      /* Don't set the actual items since we might decide not to use
+         the new ones (because nothing has really changed). If we did
+         set them and didn't use them then we would get into whole
+         heaps of trouble when the old items get GC'd. */
+      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
+	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)), 
+	       parse_gui_item_tree_children (val));
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
 
       return Qt;
@@ -1099,8 +1138,8 @@ syms_of_glyphs_widget (void)
 #define VALID_WIDGET_KEYWORDS(type) do {				\
   IIFORMAT_VALID_KEYWORD (type, Q_width, check_valid_int);		\
   IIFORMAT_VALID_KEYWORD (type, Q_height, check_valid_int);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_pixel_width, check_valid_int);	\
-  IIFORMAT_VALID_KEYWORD (type, Q_pixel_height, check_valid_int);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_width, check_valid_int_or_function);\
+  IIFORMAT_VALID_KEYWORD (type, Q_pixel_height, check_valid_int_or_function);\
   IIFORMAT_VALID_KEYWORD (type, Q_face, check_valid_face);		\
 } while (0)
 
@@ -1146,7 +1185,7 @@ static void image_instantiator_combo_box (void)
 
   IIFORMAT_VALID_KEYWORD (combo_box, Q_width, check_valid_int);
   IIFORMAT_VALID_KEYWORD (combo_box, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width, check_valid_int_or_function);
   IIFORMAT_VALID_KEYWORD (combo_box, Q_face, check_valid_face);
   IIFORMAT_VALID_KEYWORD (combo_box, Q_properties, check_valid_item_list);
 }
@@ -1159,8 +1198,8 @@ static void image_instantiator_scrollbar (void)
   IIFORMAT_HAS_SHARED_METHOD (scrollbar, instantiate, widget);
   VALID_GUI_KEYWORDS (scrollbar);
 
-  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_height, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_width, check_valid_int_or_function);
+  IIFORMAT_VALID_KEYWORD (scrollbar, Q_pixel_height, check_valid_int_or_function);
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_face, check_valid_face);
 }
 
@@ -1218,8 +1257,8 @@ static void image_instantiator_layout (void)
   IIFORMAT_HAS_METHOD (layout, normalize);
   IIFORMAT_HAS_METHOD (layout, query_geometry);
   IIFORMAT_HAS_METHOD (layout, layout);
-  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_height, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_width, check_valid_int_or_function);
+  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_height, check_valid_int_or_function);
   IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation);
   IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);
   IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);

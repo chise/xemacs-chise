@@ -317,6 +317,23 @@ definitions to shadow the loaded ones for use in file byte-compilation."
 
 (defvar *gensym-counter* (* (logand (cl-random-time) 1023) 100))
 
+(defun gensym (&optional arg)
+  "Generate a new uninterned symbol.
+The name is made by appending a number to PREFIX, default \"G\"."
+  (let ((prefix (if (stringp arg) arg "G"))
+	(num (if (integerp arg) arg
+	       (prog1 *gensym-counter*
+		 (setq *gensym-counter* (1+ *gensym-counter*))))))
+    (make-symbol (format "%s%d" prefix num))))
+
+(defun gentemp (&optional arg)
+  "Generate a new interned symbol with a unique name.
+The name is made by appending a number to PREFIX, default \"G\"."
+  (let ((prefix (if (stringp arg) arg "G"))
+	name)
+    (while (intern-soft (setq name (format "%s%d" prefix *gensym-counter*)))
+      (setq *gensym-counter* (1+ *gensym-counter*)))
+    (intern name)))
 
 ;;; Numbers.
 

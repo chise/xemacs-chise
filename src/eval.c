@@ -267,10 +267,16 @@ Lisp_Object Vdebugger;
 static Lisp_Object Vcondition_handlers;
 
 
-#if 0 /* no longer used */
+#define DEFEND_AGAINST_THROW_RECURSION
+
+#ifdef DEFEND_AGAINST_THROW_RECURSION
 /* Used for error catching purposes by throw_or_bomb_out */
 static int throw_level;
-#endif /* unused */
+#endif
+
+#ifdef ERROR_CHECK_TYPECHECK
+void check_error_state_sanity (void);
+#endif
 
 
 /************************************************************************/
@@ -1304,6 +1310,9 @@ internal_catch (Lisp_Object tag,
   c.val = (*func) (arg);
   if (threw) *threw = 0;
   catchlist = c.next;
+#ifdef ERROR_CHECK_TYPECHECK
+  check_error_state_sanity ();
+#endif
   return c.val;
 }
 
@@ -1360,19 +1369,25 @@ unwind_to_catch (struct catchtag *c, Lisp_Object val)
       unbind_to (catchlist->pdlcount, Qnil);
       handlerlist = catchlist->handlerlist;
       catchlist = catchlist->next;
+#ifdef ERROR_CHECK_TYPECHECK
+      check_error_state_sanity ();
+#endif
     }
   while (! last_time);
 #else /* Actual XEmacs code */
   /* Unwind the specpdl stack */
   unbind_to (c->pdlcount, Qnil);
   catchlist = c->next;
+#ifdef ERROR_CHECK_TYPECHECK
+  check_error_state_sanity ();
+#endif
 #endif
 
   gcprolist = c->gcpro;
   backtrace_list = c->backlist;
   lisp_eval_depth = c->lisp_eval_depth;
 
-#if 0 /* no longer used */
+#ifdef DEFEND_AGAINST_THROW_RECURSION
   throw_level = 0;
 #endif
   LONGJMP (c->jmp, 1);
@@ -1382,7 +1397,7 @@ static DOESNT_RETURN
 throw_or_bomb_out (Lisp_Object tag, Lisp_Object val, int bomb_out_p,
 		   Lisp_Object sig, Lisp_Object data)
 {
-#if 0
+#ifdef DEFEND_AGAINST_THROW_RECURSION
   /* die if we recurse more than is reasonable */
   if (++throw_level > 20)
     abort();
@@ -1635,6 +1650,9 @@ condition_case_1 (Lisp_Object handlers,
      have this code here, and it doesn't cost anything, so I'm leaving it.*/
   UNGCPRO;
   catchlist = c.next;
+#ifdef ERROR_CHECK_TYPECHECK
+  check_error_state_sanity ();
+#endif
   Vcondition_handlers = XCDR (c.tag);
 
   return unbind_to (speccount, c.val);
@@ -1851,6 +1869,8 @@ signal_1 (Lisp_Object sig, Lisp_Object data)
     {
       /* who knows how much has been initialized?  Safest bet is
          just to bomb out immediately. */
+      /* let's not use stderr_out() here, because that does a bunch of
+	 things that might not be safe yet. */
       fprintf (stderr, "Error before initialization is complete!\n");
       abort ();
     }
@@ -2036,16 +2056,25 @@ signal_error (Lisp_Object sig, Lisp_Object data)
   for (;;)
     Fsignal (sig, data);
 }
-
-static Lisp_Object
-call_with_suspended_errors_1 (Lisp_Object opaque_arg)
+#ifdef ERROR_CHECK_TYPECHECK
+void
+check_error_state_sanity (void)
 {
-  Lisp_Object val;
-  Lisp_Object *kludgy_args = (Lisp_Object *) get_opaque_ptr (opaque_arg);
-  PRIMITIVE_FUNCALL (val, get_opaque_ptr (kludgy_args[0]),
-		     kludgy_args + 2, XINT (kludgy_args[1]));
-  return val;
+  struct catchtag *c;
+  int found_error_tag = 0;
+
+  for (c = catchlist; c; c = c->next)
+    {
+      if (EQ (c->tag, Qunbound_suspended_errors_tag))
+	{
+	  found_error_tag = 1;
+	  break;
+	}
+    }
+
+  assert (found_error_tag || NILP (Vcurrent_error_state));
 }
+#endif
 
 static Lisp_Object
 restore_current_warning_class (Lisp_Object warning_class)
@@ -2059,6 +2088,25 @@ restore_current_error_state (Lisp_Object error_state)
 {
   Vcurrent_error_state = error_state;
   return Qnil;
+}
+
+static Lisp_Object
+call_with_suspended_errors_1 (Lisp_Object opaque_arg)
+{
+  Lisp_Object val;
+  Lisp_Object *kludgy_args = (Lisp_Object *) get_opaque_ptr (opaque_arg);
+  Lisp_Object no_error = kludgy_args[2];
+  int speccount = specpdl_depth ();
+
+  if (!EQ (Vcurrent_error_state, no_error))
+    {
+      record_unwind_protect (restore_current_error_state,
+			     Vcurrent_error_state);
+      Vcurrent_error_state = no_error;
+    }
+  PRIMITIVE_FUNCALL (val, get_opaque_ptr (kludgy_args[0]),
+		     kludgy_args + 3, XINT (kludgy_args[1]));
+  return unbind_to (speccount, val);
 }
 
 /* Many functions would like to do one of three things if an error
@@ -2083,8 +2131,8 @@ call_with_suspended_errors (lisp_fn_t fun, volatile Lisp_Object retval,
 {
   va_list vargs;
   int speccount;
-  Lisp_Object kludgy_args[22];
-  Lisp_Object *args = kludgy_args + 2;
+  Lisp_Object kludgy_args[23];
+  Lisp_Object *args = kludgy_args + 3;
   int i;
   Lisp_Object no_error;
 
@@ -2126,7 +2174,7 @@ call_with_suspended_errors (lisp_fn_t fun, volatile Lisp_Object retval,
       return val;
     }
 
-  speccount = specpdl_depth();
+  speccount = specpdl_depth ();
   if (NILP (class) || NILP (Vcurrent_warning_class))
     {
       /* If we're currently calling for no warnings, then make it so.
@@ -2136,12 +2184,6 @@ call_with_suspended_errors (lisp_fn_t fun, volatile Lisp_Object retval,
       record_unwind_protect (restore_current_warning_class,
 			     Vcurrent_warning_class);
       Vcurrent_warning_class = class;
-    }
-  if (!EQ (Vcurrent_error_state, no_error))
-    {
-      record_unwind_protect (restore_current_error_state,
-			     Vcurrent_error_state);
-      Vcurrent_error_state = no_error;
     }
 
   {
@@ -2154,6 +2196,7 @@ call_with_suspended_errors (lisp_fn_t fun, volatile Lisp_Object retval,
     GCPRO2 (opaque1, opaque2);
     kludgy_args[0] = opaque2;
     kludgy_args[1] = make_int (nargs);
+    kludgy_args[2] = no_error;
     the_retval = internal_catch (Qunbound_suspended_errors_tag,
 				 call_with_suspended_errors_1,
 				 opaque1, &threw);
@@ -5057,7 +5100,7 @@ reinit_vars_of_eval (void)
   /* XEmacs change: increase these values. */
   max_specpdl_size = 3000;
   max_lisp_eval_depth = 500;
-#if 0 /* no longer used */
+#ifdef DEFEND_AGAINST_THROW_RECURSION
   throw_level = 0;
 #endif
 }

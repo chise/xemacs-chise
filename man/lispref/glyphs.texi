@@ -462,65 +462,64 @@ pairs.  The @dfn{format} field should be a symbol, one of
 
 @table @code
 @item nothing
-(Don't display anything; no keywords are valid for this.  Can only be
-instanced as @code{nothing}.)
+Don't display anything; no keywords are valid for this.  Can only be
+instanced as @code{nothing}.
 @item string
-(Display this image as a text string.  Can only be instanced
+Display this image as a text string.  Can only be instanced
 as @code{text}, although support for instancing as @code{mono-pixmap}
-should be added.)
+should be added.
 @item formatted-string
-(Display this image as a text string with replaceable fields,
-similar to a modeline format string; not currently implemented.)
+Display this image as a text string with replaceable fields,
+similar to a modeline format string; not currently implemented.
 @item xbm
-(An X bitmap; only if X support was compiled into this XEmacs.  Can be
+An X bitmap; only if X support was compiled into this XEmacs.  Can be
 instanced as @code{mono-pixmap}, @code{color-pixmap}, or
-@code{pointer}.)
+@code{pointer}.
 @item xpm
-(An XPM pixmap; only if XPM support was compiled into this XEmacs.  Can
+An XPM pixmap; only if XPM support was compiled into this XEmacs.  Can
 be instanced as @code{color-pixmap}, @code{mono-pixmap}, or
 @code{pointer}.  XPM is an add-on library for X that was designed to
 rectify the shortcomings of the XBM format.  Most implementations of X
 include the XPM library as a standard part.  If your vendor does not, it
 is highly recommended that you download it and install it.  You can get
-it from the standard XEmacs FTP site, among other places.)
+it from the standard XEmacs FTP site, among other places.
 @item xface
-(An X-Face bitmap, used to encode people's faces in e-mail messages;
+An X-Face bitmap, used to encode people's faces in e-mail messages;
 only if X-Face support was compiled into this XEmacs.  Can be instanced
-as @code{mono-pixmap}, @code{color-pixmap}, or @code{pointer}.)
+as @code{mono-pixmap}, @code{color-pixmap}, or @code{pointer}.
 @item gif
-(A GIF87 or GIF89 image; only if GIF support was compiled into this
+A GIF87 or GIF89 image; only if GIF support was compiled into this
 XEmacs.  Can be instanced as @code{color-pixmap}.  Note that XEmacs
 includes GIF decoding functions as a standard part of it, so if you have
 X support, you will normally have GIF support, unless you explicitly
-disable it at configure time.)
+disable it at configure time.
 @item jpeg
-(A JPEG-format image; only if JPEG support was compiled into this
+A JPEG-format image; only if JPEG support was compiled into this
 XEmacs.  Can be instanced as @code{color-pixmap}.  If you have the JPEG
 libraries present on your system when XEmacs is built, XEmacs will
 automatically detect this and use them, unless you explicitly disable it
-at configure time.)
+at configure time.
 @item png
-(A PNG/GIF24 image; only if PNG support was compiled into this XEmacs.
-Can be instanced as @code{color-pixmap}.)
+A PNG/GIF24 image; only if PNG support was compiled into this XEmacs.
+Can be instanced as @code{color-pixmap}.
 @item tiff
-(A TIFF-format image; only if TIFF support was compiled into this XEmacs.
-Not currently implemented.)
+A TIFF-format image; only if TIFF support was compiled into this XEmacs.
 @item cursor-font
-(One of the standard cursor-font names, such as @samp{watch} or
+One of the standard cursor-font names, such as @samp{watch} or
 @samp{right_ptr} under X.  Under X, this is, more specifically, any of
 the standard cursor names from appendix B of the Xlib manual [also known
 as the file @file{<X11/cursorfont.h>}] minus the @samp{XC_} prefix.  On
 other window systems, the valid names will be specific to the type of
-window system.  Can only be instanced as @code{pointer}.)
+window system.  Can only be instanced as @code{pointer}.
 @item font
-(A glyph from a font; i.e. the name of a font, and glyph index into it
+A glyph from a font; i.e. the name of a font, and glyph index into it
 of the form @samp{@var{font} fontname index [[mask-font] mask-index]}.
 Only if X support was compiled into this XEmacs.  Currently can only be
-instanced as @code{pointer}, although this should probably be fixed.)
+instanced as @code{pointer}, although this should probably be fixed.
 @item subwindow
-(An embedded X window; not currently implemented.)
+An embedded X window; not currently implemented.
 @item autodetect
-(XEmacs tries to guess what format the data is in.  If X support exists,
+XEmacs tries to guess what format the data is in.  If X support exists,
 the data string will be checked to see if it names a filename.  If so,
 and this filename contains XBM or XPM data, the appropriate sort of
 pixmap or pointer will be created. [This includes picking up any
@@ -528,66 +527,66 @@ specified hotspot or associated mask file.] Otherwise, if @code{pointer}
 is one of the allowable image-instance types and the string names a
 valid cursor-font name, the image will be created as a pointer.
 Otherwise, the image will be displayed as text.  If no X support exists,
-the image will always be displayed as text.)
+the image will always be displayed as text.
 @end table
 
 The valid keywords are:
 
 @table @code
 @item :data
-(Inline data.  For most formats above, this should be a string.  For
+Inline data.  For most formats above, this should be a string.  For
 XBM images, this should be a list of three elements: width, height, and
 a string of bit data.  This keyword is not valid for instantiator
-format @code{nothing}.)
+format @code{nothing}.
 
 @item :file
-(Data is contained in a file.  The value is the name of this file.  If
+Data is contained in a file.  The value is the name of this file.  If
 both @code{:data} and @code{:file} are specified, the image is created
 from what is specified in @code{:data} and the string in @code{:file}
 becomes the value of the @code{image-instance-file-name} function when
 applied to the resulting image-instance.  This keyword is not valid for
 instantiator formats @code{nothing}, @code{string},
 @code{formatted-string}, @code{cursor-font}, @code{font}, and
-@code{autodetect}.)
+@code{autodetect}.
 
 @item :foreground
 @itemx :background
-(For @code{xbm}, @code{xface}, @code{cursor-font}, and @code{font}.
+For @code{xbm}, @code{xface}, @code{cursor-font}, and @code{font}.
 These keywords allow you to explicitly specify foreground and background
 colors.  The argument should be anything acceptable to
 @code{make-color-instance}.  This will cause what would be a
 @code{mono-pixmap} to instead be colorized as a two-color color-pixmap,
 and specifies the foreground and/or background colors for a pointer
-instead of black and white.)
+instead of black and white.
 
 @item :mask-data
-(For @code{xbm} and @code{xface}.  This specifies a mask to be used with the
+For @code{xbm} and @code{xface}.  This specifies a mask to be used with the
 bitmap.  The format is a list of width, height, and bits, like for
-@code{:data}.)
+@code{:data}.
 
 @item :mask-file
-(For @code{xbm} and @code{xface}.  This specifies a file containing the
+For @code{xbm} and @code{xface}.  This specifies a file containing the
 mask data.  If neither a mask file nor inline mask data is given for an
 XBM image, and the XBM image comes from a file, XEmacs will look for a
 mask file with the same name as the image file but with @samp{Mask} or
 @samp{msk} appended.  For example, if you specify the XBM file
 @file{left_ptr} [usually located in @file{/usr/include/X11/bitmaps}],
 the associated mask file @file{left_ptrmsk} will automatically be picked
-up.)
+up.
 
 @item :hotspot-x
 @itemx :hotspot-y
-(For @code{xbm} and @code{xface}.  These keywords specify a hotspot if
+For @code{xbm} and @code{xface}.  These keywords specify a hotspot if
 the image is instantiated as a @code{pointer}.  Note that if the XBM
 image file specifies a hotspot, it will automatically be picked up if no
-explicit hotspot is given.)
+explicit hotspot is given.
 
 @item :color-symbols
-(Only for @code{xpm}.  This specifies an alist that maps strings that
+Only for @code{xpm}.  This specifies an alist that maps strings that
 specify symbolic color names to the actual color to be used for that
 symbolic color (in the form of a string or a color-specifier object).
 If this is not specified, the contents of @code{xpm-color-symbols} are
-used to generate the alist.)
+used to generate the alist.
 @end table
 
 If instead of a vector, the instantiator is a string, it will be

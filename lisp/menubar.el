@@ -128,19 +128,6 @@ See `current-menubar' for a description of the syntax of a menubar."
 			     menuitem)))
 	  (setq plistp (or (>= L 5)
 			   (and (> L 2) (keywordp (aref menuitem 2)))))
-	  (or (stringp (aref menuitem 0))
-	      (signal 'error
-		      (list
-		       "first element of a button must be a string (the label)"
-		       menuitem)))
-	  (or plistp
-	      (< L 4)
-	      (null (aref menuitem 3))
-	      (stringp (aref menuitem 3))
-	      (signal 'error
-		      (list
-		       "fourth element of a button must be a string (the label suffix)"
-		       menuitem)))
 	  (if plistp
 	      (let ((i 2)
 		    selp

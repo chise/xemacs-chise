@@ -139,6 +139,8 @@ Additional features:
 --with-dnet (*)         Compile with support for DECnet.
 --with-ldap (*)         Compile with support for the LDAP protocol (requires
                         installed LDAP libraries on the system).
+--with-postgresql (*)	Compile with support for the PostgreSQL RDBMS (requires
+			installed PostreSQL libraries on the system).
 --mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
                         concurrent updates of mail spool files. Valid types
                         are `lockf', `flock', and `dot'.

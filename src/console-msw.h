@@ -45,22 +45,6 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/xpm.h>
 #endif
 
-/*
- * XXX FIXME: The following X modifier defs in events-mod.h clash with win32
- * hotkey defs in winuser.h. For the moment lose the win32 versions.
- * Maybe we should rename all of MOD_* to something that doesn't clash.
- */
-#ifdef MOD_CONTROL
-#  undef MOD_CONTROL
-#endif  
-#ifdef MOD_ALT
-#  undef MOD_ALT
-#endif  
-#ifdef MOD_SHIFT
-#  undef MOD_SHIFT
-#endif  
-
-
 /* The name of the main window class */
 #define XEMACS_CLASS "XEmacs"
 
@@ -93,6 +77,7 @@ struct mswindows_device
   int horzsize, vertsize;	/* Size in mm */
   int bitspixel;
   Lisp_Object fontlist;		/* List of strings, device fonts */
+  HDC hcdc;			/* Compatible DC */
 };
 
 #define DEVICE_MSWINDOWS_DATA(d) DEVICE_TYPE_DATA (d, mswindows)
@@ -106,10 +91,11 @@ struct mswindows_device
 #define DEVICE_MSWINDOWS_VERTSIZE(d) 	(DEVICE_MSWINDOWS_DATA (d)->vertsize)
 #define DEVICE_MSWINDOWS_BITSPIXEL(d) 	(DEVICE_MSWINDOWS_DATA (d)->bitspixel)
 #define DEVICE_MSWINDOWS_FONTLIST(d) 	(DEVICE_MSWINDOWS_DATA (d)->fontlist)
+#define DEVICE_MSWINDOWS_HCDC(d)	(DEVICE_MSWINDOWS_DATA (d)->hcdc)
 
 struct msprinter_device
 {
-  HDC hdc;
+  HDC hdc, hcdc;		/* Printer and the comp. DCs */
   HANDLE hprinter;
   Lisp_Object fontlist;
   char* name;
@@ -119,6 +105,7 @@ struct msprinter_device
 
 #define DEVICE_MSPRINTER_DATA(d) DEVICE_TYPE_DATA (d, msprinter)
 #define DEVICE_MSPRINTER_HDC(d) 	(DEVICE_MSPRINTER_DATA (d)->hdc)
+#define DEVICE_MSPRINTER_HCDC(d)	(DEVICE_MSPRINTER_DATA (d)->hcdc)
 #define DEVICE_MSPRINTER_HPRINTER(d) 	(DEVICE_MSPRINTER_DATA (d)->hprinter)
 #define DEVICE_MSPRINTER_FONTLIST(d) 	(DEVICE_MSPRINTER_DATA (d)->fontlist)
 #define DEVICE_MSPRINTER_NAME(d) 	(DEVICE_MSPRINTER_DATA (d)->name)
@@ -140,6 +127,24 @@ void msprinter_apply_devmode (struct device *d, DEVMODE *devmode);
 /* Printer functions in frame-msw.c */
 void msprinter_start_page (struct frame *f);
 
+/* Common checks */
+
+#define DEVICE_MSGDI_P(dev) (DEVICE_MSWINDOWS_P(dev) || DEVICE_MSPRINTER_P(dev))
+#define CHECK_MSGDI_DEVICE(d)				\
+  do {							\
+    CHECK_DEVICE (d);					\
+    if (!(DEVICEP (d) && DEVICE_MSGDI_P(XDEVICE(d))))	\
+      dead_wrong_type_argument				\
+	(list3 (Qor, Qmswindows, Qmsprinter), d);	\
+  } while (0)
+#define CONCHECK_MSGDI_DEVICE(d)			\
+  do {							\
+    CHECK_DEVICE (d);					\
+    if (!(DEVICEP (d) && DEVICE_MSGDI_P(XDEVICE(d))))	\
+      wrong_type_argument				\
+	(list3 (Qor, Qmswindows, Qmsprinter), d);	\
+  } while (0)
+
 /*
  * Frame
  */
@@ -158,9 +163,6 @@ struct mswindows_frame
 
   /* DC for this win32 window */
   HDC hdc;
-
-  /* compatible DC for bitmap operations */
-  HDC cdc;
 
   /* Time of last click event, for button 2 emul */
   DWORD last_click_time;
@@ -196,6 +198,7 @@ struct mswindows_frame
   int ignore_next_lbutton_up : 1;
   int ignore_next_rbutton_up : 1;
   int sizing : 1;
+  int paint_pending : 1; /* Whether a WM_PAINT magic event has been queued */
 
   /* Geometry, in characters, as specified by proplist during frame
      creation. Memebers are set to -1 for unspecified */
@@ -206,7 +209,6 @@ struct mswindows_frame
 
 #define FRAME_MSWINDOWS_HANDLE(f)	   (FRAME_MSWINDOWS_DATA (f)->hwnd)
 #define FRAME_MSWINDOWS_DC(f)		   (FRAME_MSWINDOWS_DATA (f)->hdc)
-#define FRAME_MSWINDOWS_CDC(f)		   (FRAME_MSWINDOWS_DATA (f)->cdc)
 #define FRAME_MSWINDOWS_MENU_HASH_TABLE(f) (FRAME_MSWINDOWS_DATA (f)->menu_hash_table)
 #define FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_hash_table)
@@ -236,7 +238,6 @@ struct mswindows_frame
 
 struct msprinter_frame
 {
-  HDC hcdc;				/* Compatoble DC */
   int left_margin, top_margin,		/* All in twips */
     right_margin, bottom_margin;
   int charheight, charwidth;		/* As per proplist or -1 if not gven */
@@ -250,7 +251,6 @@ struct msprinter_frame
 #define FRAME_MSPRINTER_RIGHT_MARGIN(f)	 (FRAME_MSPRINTER_DATA (f)->top_margin)
 #define FRAME_MSPRINTER_TOP_MARGIN(f)	 (FRAME_MSPRINTER_DATA (f)->right_margin)
 #define FRAME_MSPRINTER_BOTTOM_MARGIN(f) (FRAME_MSPRINTER_DATA (f)->bottom_margin)
-#define FRAME_MSPRINTER_CDC(f)	  	 (FRAME_MSPRINTER_DATA (f)->hcdc)
 #define FRAME_MSPRINTER_JOB_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->job_started)
 #define FRAME_MSPRINTER_PAGE_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->page_started)
 #define FRAME_MSPRINTER_ORIENTATION(f)	 (FRAME_MSPRINTER_DATA (f)->orientation)
@@ -293,7 +293,8 @@ extern HSZ mswindows_dde_service;
 extern HSZ mswindows_dde_topic_system;
 extern HSZ mswindows_dde_item_open;
 HDDEDATA CALLBACK mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
-					  HSZ hszTopic, HSZ hszItem, HDDEDATA hdata,
+					  HSZ hszTopic, HSZ hszItem,
+					  HDDEDATA hdata,
 					  DWORD dwData1, DWORD dwData2);
 
 void mswindows_enqueue_misc_user_event (Lisp_Object channel,
@@ -301,18 +302,11 @@ void mswindows_enqueue_misc_user_event (Lisp_Object channel,
 					Lisp_Object object);
 Lisp_Object mswindows_cancel_dispatch_event (Lisp_Event* event);
 Lisp_Object mswindows_pump_outstanding_events (void);
-Lisp_Object mswindows_protect_modal_loop (Lisp_Object (*bfun) (Lisp_Object barg),
+Lisp_Object mswindows_protect_modal_loop (Lisp_Object (*bfun)
+					  (Lisp_Object barg),
 					  Lisp_Object barg);
 void mswindows_unmodalize_signal_maybe (void);
 
-#ifdef HAVE_TOOLBARS
-Lisp_Object
-mswindows_get_toolbar_button_text ( struct frame* f, int command_id );
-Lisp_Object
-mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
-#endif
-Lisp_Object
-mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, DWORD id);
 COLORREF mswindows_string_to_color (const char *name);
 USID emacs_mswindows_create_stream_pair (void* inhandle, void* outhandle,
 					 Lisp_Object* instream,
@@ -328,13 +322,29 @@ HANDLE get_nt_process_handle (Lisp_Process *p);
 extern Lisp_Object Vmswindows_frame_being_created;
 extern Lisp_Object mswindows_frame_being_created;
 
+void msw_get_workspace_coords (RECT *rc);
+
+HWND msw_get_console_hwnd (void);
+void msw_hide_console (void);
+void msw_show_console (void);
+int msw_output_console_string (CONST Extbyte *str, Extcount len);
+
 Lisp_Object mswindows_enumerate_fonts (HDC hdc);
 
+int msw_char_is_accelerator (struct frame *f, Emchar ch);
+Bytecount msw_translate_menu_or_dialog_item (Bufbyte *item, Bytecount len,
+					     Bytecount maxlen, Emchar *accel,
+					     Lisp_Object error_name);
+
+#ifdef HAVE_TOOLBARS
 Lisp_Object mswindows_get_toolbar_button_text (struct frame* f,
 					       int command_id);
 Lisp_Object mswindows_handle_toolbar_wm_command (struct frame* f,
 						 HWND ctrl, WORD id);
+#endif
 Lisp_Object mswindows_handle_gui_wm_command (struct frame* f,
-					     HWND ctrl, DWORD id);
+					     HWND ctrl, LPARAM id);
+
+int msw_windows9x_p (void);
 
 #endif /* INCLUDED_console_msw_h_ */

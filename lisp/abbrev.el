@@ -419,6 +419,17 @@ The argument FILE is the file name to write."
    (write-region 1 (point-max) file)
    (erase-buffer)))
 
+(defun abbrev-string-to-be-defined (arg)
+  "Return the string for which an abbrev will be defined.
+ARG is the argument to `add-global-abbrev' or `add-mode-abbrev'."
+  (if (and (not arg) (region-active-p)) (setq arg 0)
+    (setq arg (prefix-numeric-value arg)))
+  (and (>= arg 0)
+       (buffer-substring
+	(point)
+	(if (= arg 0) (mark)
+	  (save-excursion (forward-word (- arg)) (point))))))
+
 (defun add-mode-abbrev (arg)
   "Define mode-specific abbrev for last word(s) before point.
 Argument is how many words before point form the expansion;
@@ -450,13 +461,7 @@ Don't use this function in a Lisp program; use `define-abbrev' instead."
 
 (defun add-abbrev (table type arg)
   ;; XEmacs change:
-  (if (and (not arg) (region-active-p)) (setq arg 0)
-    (setq arg (prefix-numeric-value arg)))
-  (let ((exp (and (>= arg 0)
-		  (buffer-substring
-		   (point)
-		   (if (= arg 0) (mark)
-		     (save-excursion (forward-word (- arg)) (point))))))
+  (let ((exp (abbrev-string-to-be-defined arg))
 	name)
     (setq name
 	  (read-string (format (if exp "%s abbrev for \"%s\": "
@@ -468,6 +473,14 @@ Don't use this function in a Lisp program; use `define-abbrev' instead."
 	    (y-or-n-p (format "%s expands to \"%s\"; redefine? "
 			      name (abbrev-expansion name table))))
 	(define-abbrev table (downcase name) exp))))
+
+(defun inverse-abbrev-string-to-be-defined (arg)
+  "Return the string for which an inverse abbrev will be defined.
+ARG is the argument to `inverse-add-global-abbrev' or
+`inverse-add-mode-abbrev'."
+  (save-excursion
+    (forward-word (- arg))
+    (buffer-substring (point) (progn (forward-word 1) (point)))))
 
 (defun inverse-add-mode-abbrev (arg)
   "Define last word before point as a mode-specific abbrev.

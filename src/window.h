@@ -184,6 +184,9 @@ struct window
      must run the redisplay-end-trigger-functions.  */
   Lisp_Object redisplay_end_trigger;
 
+  /* Set by the extent code when extents in the gutter are changed. */
+  int gutter_extent_modiff[4];
+
   /* Set by redisplay to the last position seen.  This is used
      to implement the redisplay-end-trigger-functions. */
   Bufpos last_redisplay_pos;

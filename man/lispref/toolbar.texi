@@ -3,7 +3,7 @@
 @c Copyright (C) 1995, 1996 Ben Wing.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/toolbar.info
-@node Toolbar, Scrollbars, Dialog Boxes, top
+@node Toolbar, Gutter, Dialog Boxes, top
 @chapter Toolbar
 @cindex toolbar
 

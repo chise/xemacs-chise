@@ -177,8 +177,8 @@ void flush_cached_extent_info (Lisp_Object extent_info);
 
 #define extent_no_chase_normal_field(e, field) ((e)->flags.field)
 
-INLINE struct extent_auxiliary *extent_aux_or_default (EXTENT e);
-INLINE struct extent_auxiliary *
+INLINE_HEADER struct extent_auxiliary *extent_aux_or_default (EXTENT e);
+INLINE_HEADER struct extent_auxiliary *
 extent_aux_or_default (EXTENT e)
 {
   return e->flags.has_aux ?
@@ -259,8 +259,8 @@ extent_aux_or_default (EXTENT e)
 #define extent_internal_p(e)	     extent_normal_field (e, internal)
 #define extent_in_red_event_p(e)     extent_normal_field (e, in_red_event)
 
-INLINE Lisp_Object * extent_no_chase_plist_addr (EXTENT e);
-INLINE Lisp_Object *
+INLINE_HEADER Lisp_Object * extent_no_chase_plist_addr (EXTENT e);
+INLINE_HEADER Lisp_Object *
 extent_no_chase_plist_addr (EXTENT e)
 {
   return e->flags.has_aux ? &XCDR (e->plist) : &e->plist;
@@ -339,8 +339,8 @@ EXTENT extent_ancestor_1 (EXTENT e);
 /* extent_ancestor() chases all the parent links until there aren't any
    more.  extent_ancestor_1() does the same thing but it a function;
    the following optimizes the most common case. */
-INLINE EXTENT extent_ancestor (EXTENT e);
-INLINE EXTENT
+INLINE_HEADER EXTENT extent_ancestor (EXTENT e);
+INLINE_HEADER EXTENT
 extent_ancestor (EXTENT e)
 {
   return e->flags.has_parent ? extent_ancestor_1 (e) : e;

@@ -93,6 +93,11 @@ Boston, MA 02111-1307, USA.  */
 #include "ntheap.h"
 #endif
 
+#ifdef HAVE_MMAP
+#include <unistd.h>
+#include <sys/mman.h>
+#endif
+
 /* ------------------------------- */
 /*         TTY definitions         */
 /* ------------------------------- */
@@ -612,20 +617,20 @@ restore_signal_handlers (struct save_signal *saved_handlers)
 }
 
 #ifdef WINDOWSNT
+
 pid_t
 sys_getpid (void)
 {
   return abs (getpid ());
 }
+
 #endif /* WINDOWSNT */
 
 /* Fork a subshell.  */
 static void
 sys_subshell (void)
 {
-#ifdef WINDOWSNT
-  HANDLE pid;
-#else
+#ifndef WINDOWSNT
   int pid;
 #endif
   struct save_signal saved_handlers[5];
@@ -660,21 +665,17 @@ sys_subshell (void)
   str = (unsigned char *) alloca (XSTRING_LENGTH (dir) + 2);
   len = XSTRING_LENGTH (dir);
   memcpy (str, XSTRING_DATA (dir), len);
-  /* #### Unix specific */
-  if (str[len - 1] != '/') str[len++] = '/';
+  if (!IS_ANY_SEP (str[len - 1]))
+    str[len++] = DIRECTORY_SEP;
   str[len] = 0;
  xyzzy:
 
-#ifdef WINDOWSNT
-  pid = NULL;
-#else /* not WINDOWSNT */
-
+#ifndef WINDOWSNT
   pid = fork ();
 
   if (pid == -1)
     error ("Can't spawn subshell");
   if (pid == 0)
-
 #endif /* not WINDOWSNT */
   {
       char *sh = 0;
@@ -688,7 +689,18 @@ sys_subshell (void)
     if (str)
       sys_chdir (str);
 
-#if !defined (NO_SUBPROCESSES) && !defined (WINDOWSNT)
+#ifdef WINDOWSNT
+
+    /* Waits for process completion */
+    if (_spawnlp (_P_WAIT, sh, sh, NULL) != 0)
+      error ("Can't spawn subshell");
+    else
+      return; /* we're done, no need to wait for termination */
+  }
+
+#else
+
+#if !defined (NO_SUBPROCESSES)
     close_process_descs ();	/* Close Emacs's pipes/ptys */
 #endif
 
@@ -697,23 +709,18 @@ sys_subshell (void)
       nice (-emacs_priority);   /* Give the new shell the default priority */
 #endif
 
-#ifdef WINDOWSNT
-      /* Waits for process completion */
-      pid = (HANDLE) _spawnlp (_P_WAIT, sh, sh, NULL);
-      if (pid == NULL)
-        write (1, "Can't execute subshell", 22);
-
-#else   /* not WINDOWSNT */
     execlp (sh, sh, 0);
     write (1, "Can't execute subshell", 22);
     _exit (1);
-#endif /* not WINDOWSNT */
   }
 
   save_signal_handlers (saved_handlers);
   synch_process_alive = 1;
   wait_for_termination (pid);
   restore_signal_handlers (saved_handlers);
+
+#endif /* not WINDOWSNT */
+
 }
 
 #endif /* !defined (SIGTSTP) && !defined (USG_JOBCTRL) */
@@ -2191,7 +2198,7 @@ start_of_text (void)
  *
  */
 
-#ifdef ORDINARY_LINK
+#if defined(ORDINARY_LINK) && !defined(__MINGW32__)
 extern char **environ;
 #endif
 
@@ -2208,7 +2215,7 @@ start_of_data (void)
    * is known to live at or near the start of the system crt0.c, and
    * we don't sweat the handful of bytes that might lose.
    */
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   extern char* static_heap_base;
   if (!initialized)
     return static_heap_base;

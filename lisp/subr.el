@@ -3,6 +3,7 @@
 ;; Copyright (C) 1985, 1986, 1992, 1994-5, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
 ;; Copyright (C) 1995 Sun Microsystems.
+;; Copyright (C) 2000 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: extensions, dumped
@@ -117,7 +118,9 @@ one.
 This function does nothing if HOOK is already local in the current
 buffer.
 
-Do not use `make-local-variable' to make a hook variable buffer-local."
+Do not use `make-local-variable' to make a hook variable buffer-local.
+
+See also `add-local-hook' and `remove-local-hook'."
   (if (local-variable-p hook (current-buffer)) ; XEmacs
       nil
     (or (boundp hook) (set hook nil))
@@ -139,7 +142,11 @@ To make a hook variable buffer-local, always use
 
 HOOK should be a symbol, and FUNCTION may be any valid function.  If
 HOOK is void, it is first set to nil.  If HOOK's value is a single
-function, it is changed to a list of functions."
+function, it is changed to a list of functions.
+
+You can remove this hook yourself using `remove-hook'.
+
+See also `add-local-hook' and `add-one-shot-hook'."
   (or (boundp hook) (set hook nil))
   (or (default-boundp hook) (set-default hook nil))
   ;; If the hook value is a single function, turn it into a list.
@@ -185,25 +192,114 @@ To make a hook variable buffer-local, always use
 	  (null (symbol-value hook))	;value is nil, or
 	  (null function))		;function is nil, then
       nil				;Do nothing.
-    (if (or local
-	    ;; Detect the case where make-local-variable was used on a hook
-	    ;; and do what we used to do.
-	    (and (local-variable-p hook (current-buffer))
-		 (not (memq t (symbol-value hook)))))
-	(let ((hook-value (symbol-value hook)))
-	  (if (and (consp hook-value) (not (functionp hook-value)))
-	      (if (member function hook-value)
-		  (setq hook-value (delete function (copy-sequence hook-value))))
-	    (if (equal hook-value function)
-		(setq hook-value nil)))
-	  (set hook hook-value))
-      (let ((hook-value (default-value hook)))
-	(if (and (consp hook-value) (not (functionp hook-value)))
-	    (if (member function hook-value)
-		(setq hook-value (delete function (copy-sequence hook-value))))
-	  (if (equal hook-value function)
-	      (setq hook-value nil)))
-	(set-default hook hook-value)))))
+    (flet ((hook-remove
+	    (function hook-value)
+	    (flet ((hook-test
+		    (fn hel)
+		    (or (equal fn hel)
+			(and (symbolp hel)
+			     (equal fn
+				    (get hel 'one-shot-hook-fun))))))
+	      (if (and (consp hook-value)
+		       (not (functionp hook-value)))
+		  (if (member* function hook-value :test 'hook-test)
+		      (setq hook-value
+			    (delete* function (copy-sequence hook-value)
+				     :test 'hook-test)))
+		(if (equal hook-value function)
+		    (setq hook-value nil)))
+	      hook-value)))
+      (if (or local
+	      ;; Detect the case where make-local-variable was used on a hook
+	      ;; and do what we used to do.
+	      (and (local-variable-p hook (current-buffer))
+		   (not (memq t (symbol-value hook)))))
+	  (set hook (hook-remove function (symbol-value hook)))
+	(set-default hook (hook-remove function (default-value hook)))))))
+
+;; XEmacs addition
+;; #### we need a coherent scheme for indicating compatibility info,
+;; so that it can be programmatically retrieved.
+(defun add-local-hook (hook function &optional append)
+  "Add to the local value of HOOK the function FUNCTION.
+This modifies only the buffer-local value for the hook (which is
+automatically make buffer-local, if necessary), not its default value.
+FUNCTION is not added if already present.
+FUNCTION is added (if necessary) at the beginning of the hook list
+unless the optional argument APPEND is non-nil, in which case
+FUNCTION is added at the end.
+
+HOOK should be a symbol, and FUNCTION may be any valid function.  If
+HOOK is void, it is first set to nil.  If HOOK's value is a single
+function, it is changed to a list of functions.
+
+You can remove this hook yourself using `remove-local-hook'.
+
+See also `add-hook' and `make-local-hook'."
+  (make-local-hook hook)
+  (add-hook hook function append t))
+
+;; XEmacs addition
+(defun remove-local-hook (hook function)
+  "Remove from the local value of HOOK the function FUNCTION.
+This modifies only the buffer-local value for the hook, not its default
+value. (Nothing happens if the hook is not buffer-local.)
+HOOK should be a symbol, and FUNCTION may be any valid function.  If
+FUNCTION isn't the value of HOOK, or, if FUNCTION doesn't appear in the
+list of hooks to run in HOOK, then nothing is done.  See `add-hook'.
+
+See also `add-local-hook' and `make-local-hook'."
+  (if (local-variable-p hook (current-buffer))
+      (remove-hook hook function t)))
+
+(defun add-one-shot-hook (hook function &optional append local)
+  "Add to the value of HOOK the one-shot function FUNCTION.
+FUNCTION will automatically be removed from the hook the first time
+after it runs (whether to completion or to an error).
+FUNCTION is not added if already present.
+FUNCTION is added (if necessary) at the beginning of the hook list
+unless the optional argument APPEND is non-nil, in which case
+FUNCTION is added at the end.
+
+HOOK should be a symbol, and FUNCTION may be any valid function.  If
+HOOK is void, it is first set to nil.  If HOOK's value is a single
+function, it is changed to a list of functions.
+
+You can remove this hook yourself using `remove-hook'.
+
+See also `add-hook', `add-local-hook', and `add-local-one-shot-hook'."
+  (let ((sym (gensym)))
+    (fset sym `(lambda (&rest args)
+		 (unwind-protect
+		     (apply ',function args)
+		   (remove-hook ',hook ',sym ',local))))
+    (put sym 'one-shot-hook-fun function)
+    (add-hook hook sym append local)))
+
+(defun add-local-one-shot-hook (hook function &optional append)
+  "Add to the local value of HOOK the one-shot function FUNCTION.
+FUNCTION will automatically be removed from the hook the first time
+after it runs (whether to completion or to an error).
+FUNCTION is not added if already present.
+FUNCTION is added (if necessary) at the beginning of the hook list
+unless the optional argument APPEND is non-nil, in which case
+FUNCTION is added at the end.
+
+The optional fourth argument, LOCAL, if non-nil, says to modify
+the hook's buffer-local value rather than its default value.
+This makes no difference if the hook is not buffer-local.
+To make a hook variable buffer-local, always use
+`make-local-hook', not `make-local-variable'.
+
+HOOK should be a symbol, and FUNCTION may be any valid function.  If
+HOOK is void, it is first set to nil.  If HOOK's value is a single
+function, it is changed to a list of functions.
+
+You can remove this hook yourself using `remove-local-hook'.
+
+See also `add-hook', `add-local-hook', and `add-local-one-shot-hook'."
+  (make-local-hook hook)
+  (add-one-shot-hook hook function append t))
 
 (defun add-to-list (list-var element)
   "Add to the value of LIST-VAR the element ELEMENT if it isn't there yet.
@@ -345,7 +441,8 @@ If PATTERN is omitted, it defaults to \"[ \\f\\t\\n\\r\\v]+\"."
   "Collect output to `standard-output' while evaluating FORMS and return
 it as a string."
   ;; by "William G. Dubuque" <wgd@zurich.ai.mit.edu> w/ mods from Stig
-  `(with-current-buffer (get-buffer-create " *string-output*")
+  `(with-current-buffer (get-buffer-create
+			 (generate-new-buffer-name " *string-output*"))
      (setq buffer-read-only nil)
      (buffer-disable-undo (current-buffer))
      (erase-buffer)
@@ -399,16 +496,10 @@ See also `with-temp-file' and `with-output-to-string'."
   "With the contents of the current buffer being STR, run BODY.
 Returns the new contents of the buffer, as modified by BODY.
 The original current buffer is restored afterwards."
-  `(let ((tempbuf (get-buffer-create " *string-as-buffer-contents*")))
-     (with-current-buffer tempbuf
-       (unwind-protect
-	   (progn
-	     (buffer-disable-undo (current-buffer))
-	     (erase-buffer)
-	     (insert ,str)
-	     ,@body
-	     (buffer-string))
-	 (erase-buffer tempbuf)))))
+  `(with-temp-buffer
+     (insert ,str)
+     ,@body
+     (buffer-string)))
 
 (defun insert-face (string face)
   "Insert STRING and highlight with FACE.  Return the extent created."

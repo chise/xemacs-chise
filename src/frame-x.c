@@ -50,6 +50,7 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "window.h"
+#include "gutter.h"
 
 #ifdef HAVE_DRAGNDROP
 #include "dragdrop.h"
@@ -1146,12 +1147,12 @@ WARNING: can only handle plain/text and file: transfers!
 	  x_event.xbutton.y_root = lisp_event->event.button.y;
 	}
       modifier = lisp_event->event.button.modifiers;
-      if (modifier & MOD_SHIFT)   state |= ShiftMask;
-      if (modifier & MOD_CONTROL) state |= ControlMask;
-      if (modifier & MOD_META)    state |= xd->MetaMask;
-      if (modifier & MOD_SUPER)   state |= xd->SuperMask;
-      if (modifier & MOD_HYPER)   state |= xd->HyperMask;
-      if (modifier & MOD_ALT)     state |= xd->AltMask;
+      if (modifier & XEMACS_MOD_SHIFT)   state |= ShiftMask;
+      if (modifier & XEMACS_MOD_CONTROL) state |= ControlMask;
+      if (modifier & XEMACS_MOD_META)    state |= xd->MetaMask;
+      if (modifier & XEMACS_MOD_SUPER)   state |= xd->SuperMask;
+      if (modifier & XEMACS_MOD_HYPER)   state |= xd->HyperMask;
+      if (modifier & XEMACS_MOD_ALT)     state |= xd->AltMask;
       state |= Button1Mask << (lisp_event->event.button.button-1);
 
       x_event.xbutton.state = state;
@@ -1412,12 +1413,12 @@ The type defaults to DndText (4).
 	}
 
       modifier = lisp_event->event.button.modifiers;
-      if (modifier & MOD_SHIFT)   state |= ShiftMask;
-      if (modifier & MOD_CONTROL) state |= ControlMask;
-      if (modifier & MOD_META)    state |= xd->MetaMask;
-      if (modifier & MOD_SUPER)   state |= xd->SuperMask;
-      if (modifier & MOD_HYPER)   state |= xd->HyperMask;
-      if (modifier & MOD_ALT)     state |= xd->AltMask;
+      if (modifier & XEMACS_MOD_SHIFT)   state |= ShiftMask;
+      if (modifier & XEMACS_MOD_CONTROL) state |= ControlMask;
+      if (modifier & XEMACS_MOD_META)    state |= xd->MetaMask;
+      if (modifier & XEMACS_MOD_SUPER)   state |= xd->SuperMask;
+      if (modifier & XEMACS_MOD_HYPER)   state |= xd->HyperMask;
+      if (modifier & XEMACS_MOD_ALT)     state |= xd->AltMask;
       state |= Button1Mask << (lisp_event->event.button.button-1);
 
       x_event.xbutton.state = state;
@@ -1550,13 +1551,16 @@ x_initialize_frame_size (struct frame *f)
   {
     struct window *win = XWINDOW (f->root_window);
 
-    WINDOW_LEFT (win) = FRAME_LEFT_BORDER_END (f);
-    WINDOW_TOP (win) = FRAME_TOP_BORDER_END (f);
+    WINDOW_LEFT (win) = FRAME_LEFT_BORDER_END (f)
+      + FRAME_LEFT_GUTTER_BOUNDS (f);
+    WINDOW_TOP (win) = FRAME_TOP_BORDER_END (f)
+      + FRAME_TOP_GUTTER_BOUNDS (f);
 
     if (!NILP (f->minibuffer_window))
       {
 	win = XWINDOW (f->minibuffer_window);
-	WINDOW_LEFT (win) = FRAME_LEFT_BORDER_END (f);
+	WINDOW_LEFT (win) = FRAME_LEFT_BORDER_END (f)
+	  + FRAME_LEFT_GUTTER_BOUNDS (f);
       }
   }
 

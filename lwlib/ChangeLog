@@ -1,3 +1,17 @@
+2000-03-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.32 is released.
+
+2000-03-14  Ben Wing  <ben@xemacs.org>
+
+	* xlwmenu.c (massage_resource_name): Handle %_ and %%.
+
+2000-02-20  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xlwscrollbar.c (get_gc): Always check for XmUNSPECIFIED_PIXMAP
+	even if we are only 'compatible' with the Motif resources.
+	(XmUNSPECIFIED_PIXMAP): Define unconditionally.
+
 2000-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.31 is released.
@@ -126,7 +140,7 @@
 
 1999-12-12  Daniel Pittman  <daniel@danann.net>
 
-	* lwlib-Xaw.c: 
+	* lwlib-Xaw.c:
 	* xlwcheckbox.c:
 	* xlwgauge.h:
 	* xlwgaugeP.h:
@@ -241,11 +255,11 @@
 	Include <stdlib.h> to get prototype for atoi().
 	(GaugeSelect): Call GaugeExpose with the right number of args.
 	(GaugeLoseSel): Call GaugeExpose with the right number of args.
-	(GaugeConvert): This is a XtConvertSelectionProc, 
+	(GaugeConvert): This is a XtConvertSelectionProc,
 	so 5th parameter must be of type XtPointer, not XPointer.
-	(GaugeGetValue): This is a XtTimerCallbackProc, 
+	(GaugeGetValue): This is a XtTimerCallbackProc,
 	so 2nd parameter must be of type XtIntervalId *, not XtIntervalId.
-	
+
 
 1999-09-01  Martin Buchholz  <martin@xemacs.org>
 
@@ -281,7 +295,7 @@
 	* xlwradio.c:
 	* xlwcheckbox.c:
 	* xlwgauge.c: Fix for losing systems without Xmu.
-	
+
 1999-08-31  Andy Piper  <andy@xemacs.org>
 
 	* lwlib-Xm.c (xm_update_one_widget): fix for AIX compiler lossage.
@@ -413,7 +427,7 @@
 
 	* XEmacs 21.2.18 is released
 
-1999-07-05  Didier Verna  <verna@inf.enst.fr>
+1999-07-05  Didier Verna  <didier@xemacs.org>
 
 	* lwlib-Xm.c (xm_update_one_widget): add missing #ifdefs around
 	call to xm_update_label.

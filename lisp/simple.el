@@ -2,6 +2,7 @@
 
 ;; Copyright (C) 1985-7, 1993-5, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
+;; Copyright (C) 2000 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: lisp, extensions, internal, dumped
@@ -1087,22 +1088,50 @@ Repeating \\[universal-argument] without digits or minus sign
   (skip-chars-forward " \t"))
 
 (defcustom kill-whole-line nil
-  "*If non-nil, `kill-line' with no arg at beg of line kills the whole line."
-  :type 'boolean
+  "*Control when and whether `kill-line' removes entire lines.
+Note: This only applies when `kill-line' is called interactively;
+otherwise, it behaves \"historically\".
+
+If `always', `kill-line' with no arg always kills the whole line,
+wherever point is in the line. (If you want to just kill to the end
+of the line, use \\[historical-kill-line].)
+
+If not `always' but non-nil, `kill-line' with no arg kills the whole
+line if point is at the beginning, and otherwise behaves historically.
+
+If nil, `kill-line' behaves historically."
+  :type '(radio (const :tag "Kill to end of line" nil)
+		(const :tag "Kill whole line" always)
+		(const
+		 :tag "Kill whole line at beginning, otherwise end of line" t))
   :group 'killing)
 
+(defun historical-kill-line (&optional arg)
+  "Same as `kill-line' but ignores value of `kill-whole-line'."
+  (interactive "*P")
+  (let ((kill-whole-line nil))
+    (if (interactive-p)
+	(call-interactively 'kill-line)
+      (kill-line arg))))
+
 (defun kill-line (&optional arg)
-  "Kill the rest of the current line; if no nonblanks there, kill thru newline.
+  "Kill the rest of the current line, or the entire line.
+If no nonblanks there, kill thru newline.
+If called interactively, may kill the entire line; see `kill-whole-line'.
+when given no argument at the beginning of a line.
 With prefix argument, kill that many lines from point.
 Negative arguments kill lines backward.
 
 When calling from a program, nil means \"no arg\",
-a number counts as a prefix arg.
-
-If `kill-whole-line' is non-nil, then kill the whole line
-when given no argument at the beginning of a line."
+a number counts as a prefix arg."
   (interactive "*P")
-  (kill-region (point)
+  (kill-region (if (and (interactive-p)
+			(not arg)
+			(eq kill-whole-line 'always))
+		   (save-excursion
+		     (beginning-of-line)
+		     (point))
+		 (point))
 	       ;; Don't shift point before doing the delete; that way,
 	       ;; undo will record the right position of point.
 ;; FSF
@@ -1117,7 +1146,10 @@ when given no argument at the beginning of a line."
 		     (forward-line (prefix-numeric-value arg))
 		   (if (eobp)
 		       (signal 'end-of-buffer nil))
-		   (if (or (looking-at "[ \t]*$") (and kill-whole-line (bolp)))
+		   (if (or (looking-at "[ \t]*$")
+			   (and (interactive-p)
+				(or (eq kill-whole-line 'always)
+				    (and kill-whole-line (bolp)))))
 		       (forward-line 1)
 		     (end-of-line)))
 		 (point))))
@@ -1154,7 +1186,7 @@ kill become the X Clipboard selection."
 ;;; the cut buffers.  I'm afraid to change interface of `kill-hooks',
 ;;; so I add it. (1997-11-03 by MORIOKA Tomohiko)
 
-(defvar interprogram-cut-function nil
+(defcustom interprogram-cut-function 'own-clipboard
   "Function to call to make a killed region available to other programs.
 
 Most window systems provide some sort of facility for cutting and
@@ -1167,9 +1199,15 @@ The function takes one or two arguments.
 The first argument, TEXT, is a string containing
 the text which should be made available.
 The second, PUSH, if non-nil means this is a \"new\" kill;
-nil means appending to an \"old\" kill.")
+nil means appending to an \"old\" kill."
+  :type '(radio (function-item :tag "Send to Clipboard"
+			       :format "%t\n"
+			       own-clipboard)
+		(const :tag "None" nil)
+		(function :tag "Other"))
+  :group 'killing)
 
-(defvar interprogram-paste-function nil
+(defcustom interprogram-paste-function 'get-clipboard
   "Function to call to get text cut from other programs.
 
 Most window systems provide some sort of facility for cutting and
@@ -1187,7 +1225,13 @@ than Emacs has provided a string for pasting; if Emacs provided the
 most recent string, the function should return nil.  If it is
 difficult to tell whether Emacs or some other program provided the
 current string, it is probably good enough to return nil if the string
-is equal (according to `string=') to the last text Emacs provided.")
+is equal (according to `string=') to the last text Emacs provided."
+  :type '(radio (function-item :tag "Get from Clipboard"
+			       :format "%t\n"
+			       get-clipboard)
+		(const :tag "None" nil)
+		(function :tag "Other"))
+  :group 'killing)
 
 
 ;;;; The kill ring data structure.
@@ -1804,6 +1848,53 @@ We think it is an unnecessary and unwanted side-effect."
   :type 'boolean
   :group 'editing-basics)
 
+(defcustom shifted-motion-keys-select-region t
+  "*If non-nil, shifted motion keys select text, like in MS Windows.
+See also `unshifted-motion-keys-deselect-region'."
+  :type 'boolean
+  :group 'editing-basics)
+
+(defcustom unshifted-motion-keys-deselect-region t
+  "*If non-nil, unshifted motion keys deselect a shifted-motion region.
+This only occurs after a region has been selected using shifted motion keys
+(not when using the traditional set-mark-then-move method), and has no effect
+if `shifted-motion-keys-select-region' is nil."
+  :type 'boolean
+  :group 'editing-basics)
+
+(defun handle-pre-motion-command-current-command-is-motion ()
+  (and (key-press-event-p last-input-event)
+  (memq (event-key last-input-event)
+	'(left right up down home end prior next
+	       kp-left kp-right kp-up kp-down
+	       kp-home kp-end kp-prior kp-next))))
+  
+(defun handle-pre-motion-command ()
+  (if
+      (and
+       (handle-pre-motion-command-current-command-is-motion)
+       zmacs-regions
+       shifted-motion-keys-select-region
+       (not (region-active-p))
+       (memq 'shift (event-modifiers last-input-event)))
+      (push-mark nil nil t)))
+
+(defun handle-post-motion-command ()
+  (if
+      (and
+       (handle-pre-motion-command-current-command-is-motion)
+       zmacs-regions
+       (region-active-p))
+      (cond ((memq 'shift (event-modifiers last-input-event))
+	     (if shifted-motion-keys-select-region
+		 (putf this-command-properties 'shifted-motion-command t))
+	     (setq zmacs-region-stays t))
+	    ((and (getf last-command-properties 'shifted-motion-command)
+		  unshifted-motion-keys-deselect-region)
+	     (setq zmacs-region-stays nil))
+	    (t
+	     (setq zmacs-region-stays t)))))
+
 (defun forward-char-command (&optional arg buffer)
   "Move point right ARG characters (left if ARG negative) in BUFFER.
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
@@ -1889,7 +1980,7 @@ in `goal-column', which is nil when there is none.
 If you are thinking of using this in a Lisp program, consider
 using `forward-line' instead.  It is usually easier to use
 and more reliable (no dependence on goal column, etc.)."
-  (interactive "_p") ; XEmacs
+  (interactive "_p")
   (if (and next-line-add-newlines (= arg 1))
       (let ((opoint (point)))
 	(end-of-line)
@@ -1920,7 +2011,7 @@ Then it does not try to move vertically.
 If you are thinking of using this in a Lisp program, consider using
 `forward-line' with a negative argument instead.  It is usually easier
 to use and more reliable (no dependence on goal column, etc.)."
-  (interactive "_p") ; XEmacs
+  (interactive "_p")
   (if (interactive-p)
       (condition-case nil
 	  (line-move (- arg))
@@ -1929,6 +2020,25 @@ to use and more reliable (no dependence on goal column, etc.)."
 	   (ding nil 'buffer-bound))))
     (line-move (- arg)))
   nil)
+
+(defcustom block-movement-size 6
+  "*Number of lines that \"block movement\" commands (\\[forward-block-of-lines], \\[backward-block-of-lines]) move by."
+  :type 'integer
+  :group 'editing-basics)
+
+(defun backward-block-of-lines ()
+  "Move backward by one \"block\" of lines.
+The number of lines that make up a block is controlled by
+`block-movement-size', which defaults to 6."
+  (interactive "_")
+  (forward-line (- block-movement-size)))
+
+(defun forward-block-of-lines ()
+  "Move forward by one \"block\" of lines.
+The number of lines that make up a block is controlled by
+`block-movement-size', which defaults to 6."
+  (interactive "_")
+  (forward-line block-movement-size))
 
 (defcustom track-eol nil
   "*Non-nil means vertical motion starting at end of line keeps to ends of lines.
@@ -3418,6 +3528,43 @@ Otherwise, this function always returns false."
       (downcase-region (region-beginning) (region-end))
     (downcase-word arg)))
 
+;; #### not localized
+(defvar uncapitalized-title-words
+  '("the" "a" "an" "in" "of" "for" "to" "and" "but" "at" "on" "as" "by"))
+
+(defvar uncapitalized-title-word-regexp
+  (concat "[ \t]*\\(" (mapconcat #'identity uncapitalized-title-words "\\|")
+	  "\\)\\>"))
+
+(defun capitalize-string-as-title (string)
+  "Capitalize the words in the string, except for small words (as in titles).
+The words not capitalized are specified in `uncapitalized-title-words'."
+  (let ((buffer (get-buffer-create " *capitalize-string-as-title*")))
+    (unwind-protect
+	(progn
+	  (insert-string string buffer)
+	  (capitalize-region-as-title 1 (point-max buffer) buffer)
+	  (buffer-string buffer))
+      (kill-buffer buffer))))
+
+(defun capitalize-region-as-title (b e &optional buffer)
+  "Capitalize the words in the region, except for small words (as in titles).
+The words not capitalized are specified in `uncapitalized-title-words'."
+  (interactive "r")
+  (save-excursion
+    (and buffer
+	 (set-buffer buffer))
+    (save-restriction
+      (narrow-to-region b e)
+      (goto-char (point-min))
+      (let ((first t))
+	(while (< (point) (point-max))
+	  (if (or first
+		  (not (looking-at uncapitalized-title-word-regexp)))
+	      (capitalize-word 1)
+	    (forward-word 1))
+	  (setq first nil))))))
+
 ;; Most of the zmacs code is now in elisp.  The only thing left in C
 ;; are the variables zmacs-regions, zmacs-region-active-p and
 ;; zmacs-region-stays plus the function zmacs_update_region which
@@ -4097,5 +4244,5 @@ The C code calls this periodically, right before redisplay."
   (cond ((featurep 'infodock) "InfoDock")
 	((featurep 'xemacs) "XEmacs")
 	(t "Emacs")))
-
+	  
 ;;; simple.el ends here

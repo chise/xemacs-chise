@@ -3,7 +3,7 @@
 @c Copyright (C) 1998 Free Software Foundation, Inc. 
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/ldap.info
-@node LDAP Support, Internationalization, ToolTalk Support, top
+@node LDAP Support, PostgreSQL Support, ToolTalk Support, top
 @chapter LDAP Support
 @cindex LDAP
 

@@ -37,8 +37,8 @@ Takes one argument, which is the string to display to ask the question."
 	event)	 
     (popup-dialog-box
      ;; "Non-violent language please!" says Robin.
-     (cons prompt '(["Yes" yes t] ["No" no t] nil ["Cancel" abort t])))
-;     (cons prompt '(["Yes" yes t] ["No" no t] nil ["Abort" abort t])))
+     (cons prompt '(["%_Yes" yes t] ["%_No" no t] nil ["%_Cancel" abort t])))
+;     (cons prompt '(["%_Yes" yes t] ["%_No" no t] nil ["A%_bort" abort t])))
     (catch 'ynp-done
       (while t
 	(setq event (next-command-event event))
@@ -138,7 +138,7 @@ minibuffer contents show."
 	nil)
     (let ((str (apply 'format fmt args)))
       (if (device-on-window-system-p)
-	  (get-dialog-box-response nil (list str (cons "OK" t)))
+	  (get-dialog-box-response nil (list str (cons "%_OK" t)))
 	(display-message 'message str))
       str)))
 

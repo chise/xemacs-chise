@@ -367,7 +367,7 @@ Boston, MA 02111-1307, USA.
 #endif
 
 /* How to really get more memory.  */
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
 /* once dumped, free() & realloc() on static heap space will fail */
 #define PURE_DATA(x) \
 ((static_heap_dumped && (char*)x >= static_heap_base \
@@ -446,7 +446,7 @@ static int initialize __P ((void));
 static int
 initialize ()
 {
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   if (static_heap_dumped && __morecore == more_static_core)
     {
       __morecore = __default_morecore;

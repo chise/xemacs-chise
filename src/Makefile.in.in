@@ -25,7 +25,20 @@
 
 PROGNAME=@PROGNAME@
 
-all: ${PROGNAME}
+#define NOT_C_CODE
+#include "config.h"
+
+#ifdef PDUMP
+DUMP_TARGET = ${PROGNAME}.dmp
+EXE_TARGET  = ${PROGNAME}
+ID_FILE     = dump-id.c
+#else
+DUMP_TARGET = ${PROGNAME}
+EXE_TARGET  = temacs
+ID_FILE     =
+#endif
+
+all: ${DUMP_TARGET}
 .PHONY : all release dump-elc dump-elcs all-elc all-elcs lint
 
 ## For performance and consistency, no built-in rules.
@@ -73,8 +86,6 @@ LD=@ld@
 lib_gcc=@lib_gcc@
 ##libmcheck=@libmcheck@
 
-#define NOT_C_CODE
-#include "config.h"
 
 ## With the traditional VPATH setting, it is not possible to
 ## simultaneously compile in-place and in another directory.  The
@@ -98,6 +109,7 @@ vpath config.h
 vpath paths.h
 vpath Emacs.ad.h
 vpath sheap-adjust.h
+vpath dump-id.c
 #else
 VPATH=@srcdir@
 #endif
@@ -126,7 +138,7 @@ LIBI18N = -li18n
 X11_libs = $(LIBI18N)
 #endif /* HAVE_X_WINDOWS */
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
 sheap_obj=sheap.o
 #endif
 
@@ -309,25 +321,25 @@ mo_dir = ${etcdir}
 mo_file = ${mo_dir}emacs.mo
 #endif
 
-temacs_loadup = ./temacs -batch -l ${srcdir}/../lisp/loadup.el
+temacs_loadup = ./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/loadup.el
 dump_temacs   = ${temacs_loadup} dump
 run_temacs    = ${temacs_loadup} run-temacs
-debug_temacs = gdb temacs
+debug_temacs = gdb ${EXE_TARGET}
 
-release: temacs ${libsrc}DOC $(mo_file) ${other_files}
+release: ${EXE_TARGET} ${libsrc}DOC $(mo_file) ${other_files}
 #ifdef CANNOT_DUMP
-	ln temacs ${PROGNAME}
+	ln ${EXE_TARGET} ${PROGNAME}
 #else
 	-if [ -w ${srcdir}/../lisp ]; then \
-	  w=`pwd`; cd ${srcdir} && $${w}/temacs -batch -l ${srcdir}/../lisp/inc-vers; \
+	  w=`pwd`; cd ${srcdir} && $${w}/${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/inc-vers; \
 	else true; fi
-	-./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
+	-./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/loadup.el dump
 	touch release
 #endif /* ! defined (CANNOT_DUMP) */
 
-${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
+${DUMP_TARGET}: ${EXE_TARGET} ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
 #ifdef HEAP_IN_DATA
-	@$(RM) $@ $@.exe && touch SATISFIED
+	@$(RM) $@ && touch SATISFIED
 	-${dump_temacs}
 	@if test -f $@;        then if test -f SATISFIED; then \
 		echo "Testing for Lisp shadows ..."; \
@@ -336,25 +348,22 @@ ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
 	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi; \
 	$(RECURSIVE_MAKE) $@;
 #else
-	@$(RM) $@ xemacs.dmp
+	@$(RM) $@
 	${dump_temacs}
-#ifdef PDUMP
-	@mv temacs $@
-#endif
 	@echo "Testing for Lisp shadows ..."
 	@./${PROGNAME} -batch -vanilla -f list-load-path-shadows
 #endif
 
-fastdump: temacs
-	@$(RM) ${PROGNAME} && touch SATISFIED
+fastdump: ${EXE_TARGET}
+	@$(RM) ${DUMP_TARGET} && touch SATISFIED
 	-${dump_temacs}
 	@./${PROGNAME} -batch -vanilla -f list-load-path-shadows
 
 FRC.update-elc.stamp :
 
-update-elc.stamp : temacs FRC.update-elc.stamp
+update-elc.stamp : ${EXE_TARGET} FRC.update-elc.stamp
 	@touch NOBYTECOMPILE
-	./temacs -batch -l ${srcdir}/../lisp/update-elc.el
+	./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/update-elc.el
 	@if test ! -f $@ -o -f NOBYTECOMPILE; then touch $@; fi; \
 	 $(RM) NOBYTECOMPILE
 
@@ -373,16 +382,16 @@ dynodump_deps = ../dynodump/dynodump.so
 	cd ../dynodump && $(RECURSIVE_MAKE)
 #endif /* DYNODUMP */
 
-${libsrc}DOC: temacs update-elc.stamp
+${libsrc}DOC: ${EXE_TARGET} update-elc.stamp
 	$(RM) ${libsrc}DOC; \
-	${DUMPENV} ./temacs -batch -l ${srcdir}/../lisp/make-docfile.el -- \
+	${DUMPENV} ./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/make-docfile.el -- \
 		-o ${libsrc}DOC -d ${srcdir} -i ${libsrc}../site-packages \
 		${obj_src} ${mallocdocsrc} ${rallocdocsrc}
 
 dump_elcs: dump-elcs
 
-dump-elcs: temacs
-	-${DUMPENV} ./temacs -batch -l ${srcdir}/../lisp/update-elc.el
+dump-elcs: ${EXE_TARGET}
+	-${DUMPENV} ./${EXE_TARGET} -nd -batch -l ${srcdir}/../lisp/update-elc.el
 
 all-elc all-elcs:
 	cd .. && $(RECURSIVE_MAKE) all-elc
@@ -416,6 +425,9 @@ ${libsrc}make-po:
 
 #endif /* I18N3 */
 
+${libsrc}make-dump-id:
+	cd ${libsrc} && $(RECURSIVE_MAKE) make-dump-id
+
 ${libsrc}make-docfile:
 	cd ${libsrc} && $(RECURSIVE_MAKE) make-docfile
 
@@ -429,23 +441,26 @@ lint: $(LINTFILES)
 	$(LINT.c) $(LINTFILES)
 ## end of Lint Section
 
-temacs_deps=\
+link_deps=\
  $(start_files) ${objs} ${otherobjs}\
  $(lwlib_deps) $(dynodump_deps)
 
-temacs_link_args=\
- ${start_flags} ${ldflags}\
- -o $@ ${start_files} ${objs} ${otherobjs} ${LIBES}
+temacs_deps=\
+ $(link_deps) $(ID_FILE)
 
-temacs: $(temacs_deps)
+temacs_link_args=\
+ ${start_flags} ${ldflags} -I${srcdir} \
+ -o $@ ${start_files} ${objs} ${otherobjs} ${ID_FILE} ${LIBES}
+
+${EXE_TARGET}: $(temacs_deps)
 	$(LD) $(temacs_link_args)
-#ifdef PDUMP
-	@$(RM) xemacs.dmp
-#endif
+
+dump-id.c: ${libsrc}make-dump-id ${link_deps}
+	${libsrc}make-dump-id
 
 .PHONY : run-temacs
 
-run-temacs: temacs
+run-temacs: ${EXE_TARGET}
 	-${run_temacs}
 
 ## We have automated tests!!
@@ -470,8 +485,8 @@ rtc_patch.o:
 	rtc_patch_area -o $@
 
 rtcmacs: $(temacs_deps) rtc_patch.o
-	$(RM) temacs; $(RECURSIVE_MAKE) temacs RTC_patch_objs=rtc_patch.o
-	mv temacs rtcmacs
+	$(RM) ${EXE_TARGET}; $(RECURSIVE_MAKE) ${EXE_TARGET} RTC_patch_objs=rtc_patch.o
+	mv ${EXE_TARGET} rtcmacs
 
 .PHONY: run-rtcmacs
 run-rtcmacs: rtcmacs
@@ -484,7 +499,7 @@ run-rtcmacs: rtcmacs
 	runargs -batch -l ${srcdir}/../lisp/loadup.el run-temacs -q; \
 	run' rtcmacs
 
-debug-temacs: temacs
+debug-temacs: ${EXE_TARGET}
 	-${debug_temacs}
 
 ## Purify, Quantify, PureCoverage are software quality products from
@@ -502,7 +517,7 @@ PURIFY_FLAGS =\
 PURIFY_LIBS  = -lpthread
 puremacs: $(temacs_deps)
 	$(PURIFY_PROG) $(PURIFY_FLAGS) $(LD) $(temacs_link_args) $(PURIFY_LIBS)
-	cp $@ temacs
+	cp $@ ${EXE_TARGET}
 
 ## Quantify
 #ifdef  QUANTIFY
@@ -514,7 +529,7 @@ temacs_link_args += $(QUANTIFY_HOME)/quantify_stubs.a
 
 quantmacs: $(temacs_deps)
 	$(QUANTIFY_PROG) $(QUANTIFY_FLAGS) $(LD) $(temacs_link_args)
-	cp $@ temacs
+	cp $@ ${EXE_TARGET}
 #endif /* QUANTIFY */
 
 

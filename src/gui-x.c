@@ -213,6 +213,7 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
   Lisp_Object fn, arg;
   Lisp_Object data;
   Lisp_Object frame;
+  int update_subwindows_p = 0;
   struct device *d = get_device_from_display (XtDisplay (widget));
   struct frame *f = x_any_widget_or_parent_to_frame (d, widget);
 
@@ -245,7 +246,7 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
     }
   else
     {
-      MARK_SUBWINDOWS_STATE_CHANGED;
+      update_subwindows_p = 1;
       get_gui_callback (data, &fn, &arg);
     }
 
@@ -258,6 +259,11 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
   DEVICE_X_MOUSE_TIMESTAMP (d) = DEVICE_X_GLOBAL_MOUSE_TIMESTAMP (d);
 #endif
   signal_special_Xt_user_event (frame, fn, arg);
+  /* The result of this evaluation could cause other instances to change so 
+     enqueue an update callback to check this. */
+  if (update_subwindows_p)
+    signal_special_Xt_user_event (frame, Qeval,
+				  list2 (Qupdate_widget_instances, frame));
 }
 
 #if 1
@@ -303,6 +309,30 @@ menu_separator_style (const char *s)
   return NULL;
 }
 
+char *
+strdup_and_add_accel (char *name)
+{
+  int i;
+  int found_accel = 0;
+
+  for (i=0; name[i]; ++i)
+    if (name[i] == '%' && name[i+1] == '_')
+      {
+	found_accel = 1;
+	break;
+      }
+
+  if (found_accel)
+    return xstrdup (name);
+  else
+    {
+      char *chars = (char *) alloca (strlen (name) + 3);
+      chars[0] = '%';
+      chars[1] = '_';
+      memcpy (chars+2, name, strlen (name) + 1);
+      return xstrdup (chars);
+    }
+}
 
 /* This does the dirty work.  gc_currently_forbidden is 1 when this is called.
  */
@@ -320,7 +350,7 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
     {
       wv->type = TEXT_TYPE;
       wv->name = (char *) XSTRING_DATA (gui_item);
-      wv->name = xstrdup (wv->name);
+      wv->name = strdup_and_add_accel (wv->name);
       return 1;
     }
   else if (!GUI_ITEMP (gui_item))
@@ -338,6 +368,9 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
       return 0;
     }
 #endif /* HAVE_MENUBARS */
+
+  if (!STRINGP (pgui->name))
+    pgui->name = Feval (pgui->name);
 
   CHECK_STRING (pgui->name);
   wv->name = (char *) XSTRING_DATA (pgui->name);
@@ -388,7 +421,7 @@ button_item_to_widget_value (Lisp_Object gui_item, widget_value *wv,
     }
   else if (SYMBOLP (pgui->callback))	/* Show the binding of this command. */
     {
-      char buf [1024];
+      char buf[1024]; /* #### */
       /* #### Warning, dependency here on current_buffer and point */
       where_is_to_char (pgui->callback, buf);
       if (buf [0])

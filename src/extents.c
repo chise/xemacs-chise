@@ -227,6 +227,7 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 #include "process.h"
 #include "redisplay.h"
+#include "gutter.h"
 
 /* ------------------------------- */
 /*            gap array            */
@@ -460,7 +461,6 @@ Lisp_Object Vextent_face_reverse_memoize_hash_table;
 Lisp_Object Vextent_face_reusable_list;
 /* FSFmacs bogosity */
 Lisp_Object Vdefault_text_properties;
-
 
 EXFUN (Fextent_properties, 1);
 EXFUN (Fset_extent_property, 3);
@@ -1589,33 +1589,46 @@ extent_changed_for_redisplay (EXTENT extent, int descendants_too,
 
   object = extent_object (extent);
 
-  if (!BUFFERP (object) || extent_detached_p (extent))
-    /* #### Can changes to string extents affect redisplay?
-       I will have to think about this.  What about string glyphs?
-       Things in the modeline? etc. */
-    /* #### changes to string extents can certainly affect redisplay
-       if the extent is in some generated-modeline-string: when
-       we change an extent in generated-modeline-string, this changes
-       its parent, which is in `modeline-format', so we should
-       force the modeline to be updated.  But how to determine whether
-       a string is a `generated-modeline-string'?  Looping through
-       all buffers is not very efficient.  Should we add all
-       `generated-modeline-string' strings to a hash table?
-       Maybe efficiency is not the greatest concern here and there's
-       no big loss in looping over the buffers. */
+  if (extent_detached_p (extent))
     return;
 
-  {
-    struct buffer *b;
-    b = XBUFFER (object);
-    BUF_FACECHANGE (b)++;
-    MARK_EXTENTS_CHANGED;
-    if (invisibility_change)
-      MARK_CLIP_CHANGED;
-    buffer_extent_signal_changed_region (b,
-					 extent_endpoint_bufpos (extent, 0),
-					 extent_endpoint_bufpos (extent, 1));
-  }
+  else if (STRINGP (object))
+    {
+    /* #### Changes to string extents can affect redisplay if they are
+       in the modeline or in the gutters. 
+       
+       If the extent is in some generated-modeline-string: when we
+       change an extent in generated-modeline-string, this changes its
+       parent, which is in `modeline-format', so we should force the
+       modeline to be updated.  But how to determine whether a string
+       is a `generated-modeline-string'?  Looping through all buffers
+       is not very efficient.  Should we add all
+       `generated-modeline-string' strings to a hash table?  Maybe
+       efficiency is not the greatest concern here and there's no big
+       loss in looping over the buffers. 
+
+       If the extent is in a gutter we mark the gutter as
+       changed. This means (a) we can update extents in the gutters
+       when we need it. (b) we don't have to update the gutters when
+       only extents attached to buffers have changed. */
+
+      MARK_EXTENTS_CHANGED;
+      gutter_extent_signal_changed_region_maybe (object,
+						 extent_endpoint_bufpos (extent, 0),
+						 extent_endpoint_bufpos (extent, 1));
+    }
+  else if (BUFFERP (object))
+    {
+      struct buffer *b;
+      b = XBUFFER (object);
+      BUF_FACECHANGE (b)++;
+      MARK_EXTENTS_CHANGED;
+      if (invisibility_change)
+	MARK_CLIP_CHANGED;
+      buffer_extent_signal_changed_region (b,
+					   extent_endpoint_bufpos (extent, 0),
+					   extent_endpoint_bufpos (extent, 1));
+    }
 }
 
 /* A change to an extent occurred that might affect redisplay.
@@ -4989,7 +5002,7 @@ static Lisp_Object
 set_extent_glyph_1 (Lisp_Object extent_obj, Lisp_Object glyph, int endp,
 		    Lisp_Object layout_obj)
 {
-  EXTENT extent = decode_extent (extent_obj, DE_MUST_HAVE_BUFFER);
+  EXTENT extent = decode_extent (extent_obj, 0);
   glyph_layout layout = symbol_to_glyph_layout (layout_obj);
 
   /* Make sure we've actually been given a valid glyph or it's nil

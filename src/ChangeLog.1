@@ -50,7 +50,7 @@
 	* This change adds four scrollbar specifiers:
 	  {horizontal,vertical}-scrollbar-visible-p and
 	  scrollbar-on-{top,left}-p.
-	  Spare parts supplied by Didier Verna <verna@inf.enst.fr> 
+	  Spare parts supplied by Didier Verna <didier@xemacs.org>
 
 	* frameslots.h: Added slots for the four specifier caching.
 
@@ -80,7 +80,7 @@
 	(specifier_vars_of_scrollbar): Declared the four specifiers.
 
 	* window.h (struct window): Defined slots for caching the new
-	specifiers. 
+	specifiers.
 
 	* window.c (mark_window): Mark them.
 	(allocate_window): Initialize them.
@@ -123,7 +123,7 @@
 
 1998-05-10  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* EmacsFrame.c (update_various_frame_slots): Do not store internal 
+	* EmacsFrame.c (update_various_frame_slots): Do not store internal
 	border width there.
 	(EmacsFrameInitialize): Do it rather here.
 	(EmacsFrameSetValues): If EditRes has changed internal border
@@ -135,11 +135,11 @@
 	variables and access macros
 	Added size_slipped redisplay bit and mark/clear macros.
 
-	* redisplay.c (redisplay_frame): Adjust frame size if size slipped 
+	* redisplay.c (redisplay_frame): Adjust frame size if size slipped
 	bit is set.
 	(redisplay_device): Call redisplay_frame if size slipped bit is set.
-	
-	* frame.c (adjust_frame_size): Redisplay beats frame back in shape 
+
+	* frame.c (adjust_frame_size): Redisplay beats frame back in shape
 	with this. Added.
 	(frame_size_slipped): Added.
 	(internal_set_frame_size): Clear size slipped bit.
@@ -183,7 +183,7 @@
 	(EmacsFrameSetValues): Simulate a call to resize callback when no
 	actual geometry change happened.
 
-	* console.h (struct console_methods): Removed declarations for all 
+	* console.h (struct console_methods): Removed declarations for all
 	<specifier>_changed_in_frame methods for toolbars and scrollbars.
 	Added frame_size_fixed_p method.
 
@@ -267,7 +267,7 @@
 	the system.
 
 	* ntproc.c: Removed select emulation crap and dynamic Windock
-	loading. 
+	loading.
 
 	* nt.c: Removed a lot of terrible wrappers for socket functions.
 
@@ -395,9 +395,9 @@
 
 1998-05-04  Martin Buchholz  <martin@xemacs.org>
 
-	* rangetab.c: 
+	* rangetab.c:
 	* rangetab.h: Move #include's from rangetab.h into rangetab.c for
-	consistency. 
+	consistency.
 	* inline.c: include rangetab.h to get GCC inlines
 
 1998-05-03  SL Baur  <steve@altair.xemacs.org>
@@ -466,17 +466,17 @@
 
 	* specifier.h: Corrected documentation on magic specifiers.
 	Documented DEPTH parameter to instantiate_method.
-	Renamed	reveal->unlock_ghost_specifiers_protected(). 
+	Renamed	reveal->unlock_ghost_specifiers_protected().
 
 	* specifier.c: Removed the reveal mechanism and made ghost
 	specifiers read-only, so they are accessible as fallbacks of magic
 	specifier, but aren't modifiable unless C code enables so.
 	 (specifier_equal): Compare specifier fallbacks as well.
 
-	* scrollbar.c (init_frame_scrollbars): 
-	(init_device_scrollbars): 
+	* scrollbar.c (init_frame_scrollbars):
+	(init_device_scrollbars):
 	(init_global_scrollbars): Renamed
-	reveal->unlock_ghost_specifiers_protected(). 
+	reveal->unlock_ghost_specifiers_protected().
 
 1998-05-01  Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -613,7 +613,7 @@
 	Compute new character sizes passed to change_frame_size, do not
 	use the old (pre-toolbar-change) ones.
 	(update_frame_toolbars): Honor frame_changed and clear frame bits.
-	(recompute_overlaying_specifier): New helper function, called from 
+	(recompute_overlaying_specifier): New helper function, called from
 	default toolbar specifier change handlers.
 	(default_toolbar_specs_changed): Use it.
 	(default_toolbar_size_changed_in_frame): Ditto.
@@ -622,7 +622,7 @@
 	(toolbar_geometry_changed_in_window): New handler. The old one,
 	some_windows_value_changed, did not do the trick.
 	(default_toolbar_size_changed_in_window): New handler for default
-	toolbar. 
+	toolbar.
 	(default_toolbar_border_width_changed_in_window): Ditto.
 	(default_toolbar_visible_p_changed_in_window): Ditto.
 	(specifier_vars_of_toolbar): Use one of the above four handlers
@@ -765,8 +765,8 @@ Sun Apr 23 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-24  Martin Buchholz  <martin@xemacs.org>
 
-	* mule-charset.h: 
-	* mule-charset.c: 
+	* mule-charset.h:
+	* mule-charset.c:
 	Use ints instead of bitfields for Lisp_Charset fields.  This
 	should work around bugs in the latest egcs snapshot, and make
 	XEmacs faster.  Introduce dimension and chars as fields in
@@ -812,7 +812,7 @@ Sat Apr 24 1998  Andy Piper  <andyp@parallax.co.uk>
 	* data.c (Fnot): There has traditionally been kludgy startup lisp
 	code that called `null' even if `not' was more appropriate,
 	because `not' was defined in lisp.  This is one primitive
-	sufficiently important that it should ALWAYS be defined. 
+	sufficiently important that it should ALWAYS be defined.
 
 Sat Apr 24 1998  Andy Piper  <andyp@parallax.co.uk>
 
@@ -874,10 +874,10 @@ Thu Apr 23 19:38:19 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-23  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* fns.c (Fload_average): Respect errno when reporting getloadavg() 
+	* fns.c (Fload_average): Respect errno when reporting getloadavg()
 	errors.
 
-	* getloadavg.c (getloadavg): Cleaner Solaris implementation, based 
+	* getloadavg.c (getloadavg): Cleaner Solaris implementation, based
 	on sample code by Casper Dik.
 
 1998-04-23  SL Baur  <steve@altair.xemacs.org>
@@ -903,7 +903,7 @@ Thu Apr 23 19:38:19 1998  Andy Piper  <andyp@parallax.co.uk>
 	* toolbar-msw.c (mswindows_clear_toolbar): Fixed wabbit buttons.
 	(mswindows_output_toolbar): Gave 3D look to toolbars. Still no
 	pretty, needs more work.
-	(mswindows_move_toolbar): Renamed so because it does not deal with 
+	(mswindows_move_toolbar): Renamed so because it does not deal with
 	redrawing exposed toolbars.
 	Properly position toolbars.
 	(mswindows_redraw_exposed_toolbars): Changed calls to the above.
@@ -1026,7 +1026,7 @@ Wed Apr 22 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* eldap.c: (print_ldap): Ignore escapeflag
 	(Fldap_search_internal): Added unwind protection to appropriately
-	free the LDAP temporary structures in case of interruption.  Added 
+	free the LDAP temporary structures in case of interruption.  Added
 	a QUIT to the result fetching loop.
 
 1998-04-19  SL Baur  <steve@altair.xemacs.org>
@@ -1193,7 +1193,7 @@ Fri Apr 17 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* indent.c (vertical_motion_1): new helper function to share
 	common code between Fvertical_motion and Fvertical_motion_pixels.
-	Properly handle the WINDOW argument as the doc string indicates it 
+	Properly handle the WINDOW argument as the doc string indicates it
 	should.  Update docstrings to be more clear and concise.
 	(Fvertical_motion): use vertical_motion_1.
 	(Fvertical_motion_pixels): use vertical_motion_1.
@@ -1206,7 +1206,7 @@ Fri Apr 17 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* specifier.c: Reworked many functions to support magic
 	specifiers.
 
-	* scrollbar.c (specifier_vars_of_scrollbar): Made magic specifiers 
+	* scrollbar.c (specifier_vars_of_scrollbar): Made magic specifiers
 	Vscrollbar_width and Vscrollbar_height.
 	(init_frame_scrollbars): Enabled critical lisp code operate on
 	ghost specifiers.
@@ -1215,7 +1215,7 @@ Fri Apr 17 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* scrollbar-msw.c (Fmswindows_init_scrollbar_metrics): Scrollbar
 	init function, called from init-scrollbars-from-resuorce in
-	lisp/scrollbar.c 
+	lisp/scrollbar.c
 	(syms_of_scrollbar_mswindows): DEFSUBR it.
 
 	* emacs.c (main_1): Called syms_of_scrollbar_mswindows()
@@ -1252,7 +1252,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* data.c (pure_write_error): Accept an argument.
 
-	* emacs.c (vars_of_emacs): New variable `internal-error-checking'; 
+	* emacs.c (vars_of_emacs): New variable `internal-error-checking';
 	initialize it.
 
 1998-04-16  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1301,7 +1301,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* device-x.c (have_xemacs_resources_in_xrdb): adhere to coding
 	standards and avoid opening display twice by breaking
-	XtOpenDisplay into XOpenDisplay and XtDisplayInitialize. 
+	XtOpenDisplay into XOpenDisplay and XtDisplayInitialize.
 	(x_init_device): Ditto.
 
 1998-04-15  Olivier Galibert  <galibert@pobox.com>
@@ -1359,7 +1359,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-13  Greg Klanderman  <greg@alphatech.com>
 
-	* redisplay.c (redisplay_window): When echo area is active, and we 
+	* redisplay.c (redisplay_window): When echo area is active, and we
 	swap in the echo area buffer, restore the minibuffer's pointm and
 	startp when we restore the minibuffer to the window.  This avoids
 	having the minibuffer point randomly change when it is active but
@@ -1391,9 +1391,9 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	(emacs_mswindows_select_process): Get Win32 process handle
 	directly from process lrecord.
 	(get_process_handle): Removed function.
-	(emacs_mswindows_handle_magic_event): Removed handling of 
+	(emacs_mswindows_handle_magic_event): Removed handling of
 	XM_BUMPQUEUE magic event.
-	(mswindows_wnd_proc): Removed handling of WM_EXITMENULOOP message, 
+	(mswindows_wnd_proc): Removed handling of WM_EXITMENULOOP message,
 	which called a do-nothing handler in menubar-msw.c
 	(mswindows_wnd_proc, WM_EXITSIZEMOVE): Queue an empty event
 	instead of magic event, via mswindows_bump_queue().
@@ -1410,18 +1410,18 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* event-stream.c (event_stream_deal_with_async_timeout):
 	Conditionalized timer-based polling for finished processes on
-	HAVE_UNIX_PROCESSES. 
+	HAVE_UNIX_PROCESSES.
 
 	* menubar-msw.c (mswindows_handle_wm_command): Queued proper bump
 	queue event.
 	(mswindows_handle_wm_exitmenuloop): Removed function.
-	
+
 	* menubar-msw.h: Removed unused function prototype.
 
 	* process-nt.c (get_nt_process_handle): Added function.
 
 	* signal.c (init_poll_for_sigchld): Conditionalized on
-	HAVE_UNIX_PROCESSES. 
+	HAVE_UNIX_PROCESSES.
 
 1998-04-13  Kirill M. Katsnelson  <kkm@kis.ru>
 
@@ -1455,40 +1455,40 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* callproc.c (init_callproc): Correctly initialize
 	`shell-file-name' for WINDOWSNT
-	
+
 	* emacs.c (main_1): Properly called new functions (see symsinit.h
 	entry for which).
 
-	* event-msw.c (struct ntpipe_slurp_stream): 
-	(slurp_thread): 
-	(make_ntpipe_input_stream): 
-	(get_ntpipe_input_stream_waitable): 
-	(get_ntpipe_input_stream_param): 
-	(ntpipe_slurp_reader): 
-	(ntpipe_slurp_closer): 
+	* event-msw.c (struct ntpipe_slurp_stream):
+	(slurp_thread):
+	(make_ntpipe_input_stream):
+	(get_ntpipe_input_stream_waitable):
+	(get_ntpipe_input_stream_param):
+	(ntpipe_slurp_reader):
+	(ntpipe_slurp_closer):
 	(init_slurp_stream): Win32 pipe input stream implementation.
-	(struct ntpipe_shove_stream): 
-	(shove_thread): 
-	(make_ntpipe_output_stream): 
-	(get_ntpipe_output_stream_param): 
-	(ntpipe_shove_writer): 
-	(ntpipe_shove_was_blocked_p): 
-	(ntpipe_shove_flusher): 
-	(ntpipe_shove_closer): 
+	(struct ntpipe_shove_stream):
+	(shove_thread):
+	(make_ntpipe_output_stream):
+	(get_ntpipe_output_stream_param):
+	(ntpipe_shove_writer):
+	(ntpipe_shove_was_blocked_p):
+	(ntpipe_shove_flusher):
+	(ntpipe_shove_closer):
 	(init_shove_stream): Win32 pipe output stream implementation.
 	(mswindows_enqueue_process_event): Dispatch helper.
-	(find_waitable_handle): 
-	(add_waitable_handle): 
+	(find_waitable_handle):
+	(add_waitable_handle):
 	(remove_waitable_handle): New three, waitable handles handling.
 	(mswindows_need_event_in_modal_loop): Simplified.
 	(mswindows_need_event): Simplified.
-	(mswindows_need_event): Generate process events on process output; 
+	(mswindows_need_event): Generate process events on process output;
 	kick status_notify when a process ends.
 	(mswindows_find_console): Simplified.
 	(emacs_mswindows_event_pending_p): Adjusted parameters to
 	mswindows_need_event().
 	(emacs_mswindows_next_event): Ditto.
-	(get_process_input_waitable): 
+	(get_process_input_waitable):
 	(get_process_handle): Process select/unselect helpers.
 	(emacs_mswindows_select_process): Implemented.
 	(emacs_mswindows_unselect_process): Implemented.
@@ -1521,7 +1521,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-10  Martin Buchholz  <martin@xemacs.org>
 
-	* fns.c (Fnthcdr): 
+	* fns.c (Fnthcdr):
 	Most times through the loop will get a cons, so optimize for that.
 
 	* bytecode.c (Fbyte_code): Remove '91 vintage compiler bug workaround.
@@ -1572,8 +1572,8 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* event-msw.c (mswindows_wnd_proc): Fix member access macro names.
 
-	* frame-msw.c (mswindows_frame_property): 
-	(mswindows_internal_frame_property_p): 
+	* frame-msw.c (mswindows_frame_property):
+	(mswindows_internal_frame_property_p):
 	(mswindows_frame_properties): Implemented for the 'left and 'top
 	properties.
 	(console_type_create_frame_mswindows): Regsitered the above.
@@ -1650,10 +1650,10 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* insdel.c (make_gap): Thou shan't cast EMACS_INT_MAX to int.
 	(buffer_insert_string_1): ditto.
 
-	* regex.c (print_partial_compiled_pattern): Neither EMACS_INTs nor 
+	* regex.c (print_partial_compiled_pattern): Neither EMACS_INTs nor
 	ptrdiff_t are portably printable as an int.
 
-	* redisplay.c (window_line_number): Don't assume that an EMACS_INT 
+	* redisplay.c (window_line_number): Don't assume that an EMACS_INT
 	in an int.
 
 	* alloc.c (report_pure_usage): Don't assume that a size_t is
@@ -1717,24 +1717,24 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	(sys_chmod):
 	(sys_creat):
 
-	* sysdep.c (sys_read_1): 
-	(sys_read): 
-	(sys_write_1): 
-	(sys_write): 
-	(sys_mkdir): 
-	(sys_readlink): 
-	(sys_chmod): 
-	(sys_creat): 
+	* sysdep.c (sys_read_1):
+	(sys_read):
+	(sys_write_1):
+	(sys_write):
+	(sys_mkdir):
+	(sys_readlink):
+	(sys_chmod):
+	(sys_creat):
 
-	* nt.c (sys_read): 
-	(sys_chmod): 
-	(sys_creat): 
+	* nt.c (sys_read):
+	(sys_chmod):
+	(sys_creat):
 	(sys_write): Change types of sys_* in accordance with published
 	standards. Use size_t and mode_t instead of unsigned int and int.
 
 1998-04-03  Martin Buchholz  <martin@xemacs.org>
 
-	* config.h.in (enum_field): 
+	* config.h.in (enum_field):
 	* lisp-union.h:
 	* extents.h:
 	* redisplay.c (add_margin_runes):
@@ -1798,7 +1798,7 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 	* window.c (set_window_pixsize): Move up call to
 	check_min_window_sizes.
 
-	* indent.c (vmotion_1): renamed from vmotion() and added 
+	* indent.c (vmotion_1): renamed from vmotion() and added
 	additional argument to optionally return the pixel motion.
 	(vpix_motion): Helper for vmotion_1.
 	(vmotion): Wrapper - just call vmotion_1() with the right args.
@@ -1807,36 +1807,36 @@ Thu Apr 16 12:59:35 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-04-02  Martin Buchholz  <martin@xemacs.org>
 
-	* xselect.c: 
-	* event-Xt.c: 
-	* emacs.c: 
+	* xselect.c:
+	* event-Xt.c:
+	* emacs.c:
 	Remove last vestiges of #ifdef EPOCH code.  It had no chance of
-	working anyways.  In honour of seeing Marc Andreesen in person for 
+	working anyways.  In honour of seeing Marc Andreesen in person for
 	the first time today.
 
 1998-04-01  Martin Buchholz  <martin@xemacs.org>
 
-	* extents.h: 
-	* lisp-union.h: 
+	* extents.h:
+	* lisp-union.h:
 	Don't use enums as bitfields - only unsigned ints.
 	Fixes: warning: nonportable bit-field type
 
 	* eval.c (call_with_suspended_errors): More volatilizing to
 	appease Sunpro cc.
 
-	* mem-limits.h: 
+	* mem-limits.h:
 	* ralloc.c: Remove #undef NULL; they're not even used!
 
-	* process-unix.c (unix_send_process): send_process is a method, so 
+	* process-unix.c (unix_send_process): send_process is a method, so
 	we can't include volatile in the prototype.  We make the argument
-	non-volatile, make a volatile copy, and then use that instead. 
+	non-volatile, make a volatile copy, and then use that instead.
 
-	* frame-x.c (x_delete_frame): The `frame' variable is initialized 
+	* frame-x.c (x_delete_frame): The `frame' variable is initialized
 	but not actually used.
 
 	* Makefile.in.in (xselect.o): The last line of b34-pre2's
 	src/Makefile.in.in contains a dependency that should have been
-	patched away.  
+	patched away.
 	(mostlyclean): Remove the removal of depend.* - no such files
 	exist anymore
 
@@ -1908,7 +1908,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-30  Martin Buchholz  <martin@xemacs.org>
 
-	* redisplay.c (create_right_glyph_block): glyph_type should really 
+	* redisplay.c (create_right_glyph_block): glyph_type should really
 	be glyph_layout.
 
 1998-03-29  Martin Buchholz  <martin@xemacs.org>
@@ -1918,7 +1918,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	#include sysfile.h.
 	Check all .o files for missing #includes.
 	* config.h.in:
-	Discovered that config.h.in was missing ENCAPSULATE_CLOSEDIR, as a 
+	Discovered that config.h.in was missing ENCAPSULATE_CLOSEDIR, as a
 	result of fixing the above.
 
 	* gui.c (gui_item_add_keyval_pair): We should not use the idiom
@@ -1927,7 +1927,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	(signal_too_long_error): Ditto.
 
 	* glyphs.c (image_instantiate_cache_result): Use XC[AD]R instead
-	of Fc[ad]r.  This is always called with valid conses, and in fact, 
+	of Fc[ad]r.  This is always called with valid conses, and in fact,
 	already assumed it.
 
 	* font-lock.c (find_context): Use context_none with context
@@ -1940,7 +1940,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-28  Martin Buchholz  <martin@xemacs.org>
 
-	* fns.c (string_putprop): 
+	* fns.c (string_putprop):
 	(string_getprop): Make method functions static.
 
 	* window.c (find_window_by_pixel_pos): Warning suppression.
@@ -1949,7 +1949,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* redisplay-x.c (x_output_eol_cursor): Remove redundant XSETWINDOW.
 
-	* glyphs-x.c (signal_image_error): 
+	* glyphs-x.c (signal_image_error):
 	(signal_image_error_2):
 	(convert_EImage_to_XImage):  Make functions static.
 
@@ -1966,7 +1966,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-27  Martin Buchholz  <martin@xemacs.org>
 
-	* console-tty.c (free_tty_console_struct): 
+	* console-tty.c (free_tty_console_struct):
 	Replace con->console_data with CONSOLE_type_DATA (con)
 
 	* *.[ch]:  C++ compilability of xemacs, on Linux and Solaris.
@@ -1976,7 +1976,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	* eval.c:
 	* bytecode.c:
 	Rename Fcondition_case_3 to condition_case_3 - it's not a DEFUN.
-	
+
 	* buffer.h:
 	Remove all *BUFFER_OR_STRING* macros - unused.
 	(memind_to_bytind): Merge two versions of function by moving
@@ -1998,27 +1998,27 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* marker.c (print_marker): Fix compiler warning, real bug!
 
-	* device.h (MARK_DEVICE_FRAMES_FACES_CHANGED): 
-	* frame.h (MARK_FRAME_FACES_CHANGED): 
-	(MARK_FRAME_TOOLBARS_CHANGED): 
-	(MARK_FRAME_SIZE_CHANGED): 
-	(MARK_FRAME_CHANGED): 
-	(MARK_FRAME_WINDOWS_CHANGED): 
-	(MARK_FRAME_WINDOWS_STRUCTURE_CHANGED): 
+	* device.h (MARK_DEVICE_FRAMES_FACES_CHANGED):
+	* frame.h (MARK_FRAME_FACES_CHANGED):
+	(MARK_FRAME_TOOLBARS_CHANGED):
+	(MARK_FRAME_SIZE_CHANGED):
+	(MARK_FRAME_CHANGED):
+	(MARK_FRAME_WINDOWS_CHANGED):
+	(MARK_FRAME_WINDOWS_STRUCTURE_CHANGED):
 	Fix multiple evaluation of macro arguments.
 	Macros are a fact of life.  Callers have to use temp variables to
 	avoid multiple evaluation of arguments.
 
 	* data.c (Ftrue_list_p): New function, with obvious meaning.
-	This is terminology from Cltl2.  
+	This is terminology from Cltl2.
 	Also define a corresponding macro TRUE_LIST_P.
 
 	* device-x.c (validify_resource_component): Optimize. Rename.
 	Use the standard technique of using a precomputed table of valid chars.
-	
-	(x_get_resource_prefix): 
-	(Fx_get_resource): 
-	(Fx_get_resource_prefix): 
+
+	(x_get_resource_prefix):
+	(Fx_get_resource):
+	(Fx_get_resource_prefix):
 	Avoid fixed buffer sizes.  Use a char_dynarr.
 	Run validify_resource_component on all computed components.
 
@@ -2033,50 +2033,50 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	Use acons in functions which create alists.
 	* lisp/cl.el (acons): Add docstring.  Really otta be a macro, tho.
 
-	* buffer.c (Fbuffer_memory_usage): 
+	* buffer.c (Fbuffer_memory_usage):
 	* window.c (Fwindow_memory_usage):
 	Clean up horrible consing code using new acons function.
 	Fix incorrect value reported for gap-overhead.
-	
+
 	* fns.c (Fmember):
-	(Fold_member): 
-	(Fmemq): 
-	(Fold_memq): 
-	(memq_no_quit): 
-	(Fassoc): 
-	(Fold_assoc): 
-	(Fassq): 
-	(Fold_assq): 
-	(assq_no_quit): 
-	(Frassoc): 
-	(Fold_rassoc): 
-	(Frassq): 
-	(Fold_rassq): 
-	(rassq_no_quit): 
-	(Fdelete): 
-	(Fold_delete): 
-	(Fdelq): 
-	(Fold_delq): 
-	(delq_no_quit): 
-	(delq_no_quit_and_free_cons): 
-	(Fremassoc): 
-	(Fremassq): 
-	(remassq_no_quit): 
-	(Fremrassoc): 
-	(Fremrassq): 
-	(remrassq_no_quit): 
-	(Fnreverse): 
-	(Freverse): 
-	(Fnthcdr): 
-	Optimize.  
-	Replace calls to Fcar, Fcdr, Fsetcar with XCAR and XCDR. 
+	(Fold_member):
+	(Fmemq):
+	(Fold_memq):
+	(memq_no_quit):
+	(Fassoc):
+	(Fold_assoc):
+	(Fassq):
+	(Fold_assq):
+	(assq_no_quit):
+	(Frassoc):
+	(Fold_rassoc):
+	(Frassq):
+	(Fold_rassq):
+	(rassq_no_quit):
+	(Fdelete):
+	(Fold_delete):
+	(Fdelq):
+	(Fold_delq):
+	(delq_no_quit):
+	(delq_no_quit_and_free_cons):
+	(Fremassoc):
+	(Fremassq):
+	(remassq_no_quit):
+	(Fremrassoc):
+	(Fremrassq):
+	(remrassq_no_quit):
+	(Fnreverse):
+	(Freverse):
+	(Fnthcdr):
+	Optimize.
+	Replace calls to Fcar, Fcdr, Fsetcar with XCAR and XCDR.
 	Simplify logic.
 	Many of these functions wouldn't QUIT if called on cyclic lists.
 	e.g. try (progn (setq x '(nil)) (setcdr x x) (reverse x))
 	One benchmark of delq showed it to be 3 times faster.
 
 	* emacs.c:
-	* database.c: 
+	* database.c:
 	Cleanup of database functions.
 	Make the get_subtype and get_type methods return Lisp_Objects,
 	instead of C strings.  No more need for both dbm_type and dbm_lisp_type.
@@ -2084,7 +2084,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	Replace old `dbm' names with `database'.
 	Rename struct database to struct Lisp_Database.
 	Rename DEFUN arguments to `database', when applicable.
-	
+
 	* buffer.c:
 	* chartab.c:
 	* console.c:
@@ -2112,7 +2112,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	* window.c:
 	Place DEFINE_LRECORD_* after definition of static object methods, to
 	avoid redundant declarations.
-	
+
 	* console.c:
 	* console.h:
 	* device.c:
@@ -2142,7 +2142,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-03-21  Martin Buchholz  <martin@xemacs.org>
 
 	* alloc.c (list*): Optimize recursion levels.
-	
+
 	* alloc.c: Add debugger support via enum dbg_constants.
 	* gdbinit: Complete rewrite.
 	* gdbinit.union: Remove
@@ -2153,7 +2153,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	Support all combinations of Kylish DEFINEs.
 	Work out of the box with no user customizations.
 	See the updated faq for details.
-	
+
 	* emacsfns.h: Remove.  Move declarations to lisp.h
 	* dynarr.h: Remove.  Move declarations to lisp.h
 	* lisp.h.
@@ -2161,8 +2161,8 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	Introduce EXFUN macro for external declaration to correspond to DEFUN.
 	Include header files only when necessary, i.e. not from lisp.h:
 	- unistd.h, limits.h, fnctl.h, blocktype.h, dynarr.h, emacsfns.h
-	
-	
+
+
 	* lisp.h:
 	* lisp-union.h:
 	* lisp-disunion.h:
@@ -2217,7 +2217,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 	* depend: New file. Generated by make-src-depend
 	* make-src-depend: New file. generates up-to-date dependencies.
 	Makefile dependencies are now automagically maintained, and
-	CORRECT.  lisp.h and friends are now included in the dependencies, 
+	CORRECT.  lisp.h and friends are now included in the dependencies,
 	since this complies with the principle of least astonishment.
 
 	* symbols.c (symbol_is_constant): Optimize.
@@ -2230,7 +2230,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-03-29  SL Baur  <steve@altair.xemacs.org>
 
 	* emacs.c (voodoo_free_hook): ELF libraries built with newer
-	versions of GCC do horrible things in dumped binaries after exit() 
+	versions of GCC do horrible things in dumped binaries after exit()
 	is called.
 	(Fkill_emacs): Use it.
 
@@ -2288,8 +2288,8 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	   glyph_changed_set variables, mimicking
 	   clip_changed and clip_changed_set.
 
-	   (redisplay_window): Reset the window's glyph cache is 
-	   f->glyphs_changed is non-zero.  Call regenerate_window 
+	   (redisplay_window): Reset the window's glyph cache is
+	   f->glyphs_changed is non-zero.  Call regenerate_window
 	   if f->glyphs_changed is non-zero.
 
 	   (redisplay_frame): Clear f->glyphs_changed after
@@ -2311,12 +2311,12 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	   related, mark all frames.
 
 	* redisplay-output.c (compare_display_blocks):
-	   Output the whole display block if f->glyphs_changed is 
+	   Output the whole display block if f->glyphs_changed is
 	   non-nil.
 
 1998-03-27  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* callproc.c (Fcall_process_internal): In the case where 
+	* callproc.c (Fcall_process_internal): In the case where
 	  fd_error and fd1 are the same don't close that
 	  descriptor twice.
 
@@ -2352,7 +2352,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	(mswindows_init_frame_1): Fixed support for popup frames.
 	(mswindows_delete_frame): Fixed memory leak.
 	(mswindows_get_frame_parent): Implemented.
-	(mswindows_update_frame_external_traits): Moved part of the former 
+	(mswindows_update_frame_external_traits): Moved part of the former
 	update_EmacsFrame() here.
 	(console_type_create_frame_mswindows): Declare get_frame_parent
 	and update_frame_external_traits methods.
@@ -2366,16 +2366,16 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	windows does not yet have associated frame object
 	(mswindows_find_frame): Casted long to Lisp_Object properly.
 
-	* device.c (window_system_pixelated_geometry): Changed to call the 
+	* device.c (window_system_pixelated_geometry): Changed to call the
 	device_implementation_flags device method.
 
 	* device-msw.c (mswindows_device_implementation_flags):
-	Implemented. 
+	Implemented.
 	(console_type_create_device_mswindows): Declared the above.
 
 	* console.h (struct console_methods): Added
 	device_implementation_flags_method and
-	update_frame_external_traits_method. 
+	update_frame_external_traits_method.
 	Defined flags retuned by device_implementation_flags_method.
 
 	* console-msw.h (struct mswindows_frame): Added charheight and
@@ -2384,7 +2384,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	Moved Windows-specific macros from frame.h here.
 	(typedef struct XEMACS_RECT_WH): Added.
 	Declared global variables.
-	
+
 1998-03-19  Kirill M. Katsnelson  <kkm@kis.ru>
 
 	* console-msw.h: Added prototypes for
@@ -2408,8 +2408,8 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	indication to fake font size to 1.
 	(char_to_pixel_size): Ditto.
 	(round_size_to_char): Ditto.
-	(pixel_to_real_char_size): 
-	(char_to_real_pixel_size): 
+	(pixel_to_real_char_size):
+	(char_to_real_pixel_size):
 	(round_size_to_real_char): New three counterparts of the above
 	metioned functions, which always use real character metrics.
 	(change_frame_size_1): Use real character metrics when computing
@@ -2423,7 +2423,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	(mswindows_init_frame_2): Commented out, unused.
 	(mswindows_after_init_frame): Added frame method.
 	(mswindows_set_frame_size): Reworked to support pixel base
-	geometry. 
+	geometry.
 	(mswindows_set_frame_position): Cahnged to use SetWindowPos.
 	(mswindows_lower_frame): Ditto.
 	(mswindows_set_frame_properties): Fixed to perform correct
@@ -2432,7 +2432,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	after_init_frame added.
 
 	* faces.c (default_face_height_and_width_1): Added.
-	(update_EmacsFrame): Changed method of notifying mswindwows frame, 
+	(update_EmacsFrame): Changed method of notifying mswindwows frame,
 	so modeline border gets redrawn.
 
 	* faces.h: Prototype for default_face_height_and_width_1().
@@ -2443,13 +2443,13 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	char if window is maximized.
 	Use real char metrics for rounding.
 	Call DefWindowProc to process WM_GETMINMAXINFO
-	(mswindows_set_chord_timer): Changed chord timeout from 1/2 to 1/3 
+	(mswindows_set_chord_timer): Changed chord timeout from 1/2 to 1/3
 	system double click time
 
 	* device.c (domain_device_type): New function.
-	(window_system_pixelated_geometry): New function. 
+	(window_system_pixelated_geometry): New function.
 	(Fdomain_device_type): New function, lisp interface to
-	domain_device_type(). 
+	domain_device_type().
 	(syms_of_device): DEFSUBRed the above.
 
 	* device.h: Ptorotypes for domain_device_type() and
@@ -2492,7 +2492,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-27  P. E. Jareth Hein  <jareth@camelot-soft.com>
 
-	* glyphs-x.c: 
+	* glyphs-x.c:
 	* imgproc.c:
 	* imgproc.h:
 	* glyphs-x.h: Added in a colormap variable in the X specific image
@@ -2501,7 +2501,7 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 	coding standards.
 
 	* glyphs.h:
-	* glyphs.c: 
+	* glyphs.c:
 	* glyphs-x.c: added image-conversion-error type
 
 	* objects-x.c (allocate_nearest_color): Corrected a minor bug involving
@@ -2530,13 +2530,13 @@ Sat Mar 28 10:16:29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-24  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* fileio.c (Ffile_readable_p): GC protect fix, MS Windows specific. 
+	* fileio.c (Ffile_readable_p): GC protect fix, MS Windows specific.
 
 Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* configure.in: compile in glyphs-msw.o when compiling fopr
 	mswindows.
-	
+
 Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* msw-glyphs.el: add support for xpm and bmp. change
@@ -2547,7 +2547,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	* Makefile.in.in: fastdump - new target for dumping bypassing
 	bytecompilation, DOC. Add dependencies for glyphs-msw.o. Move
 	imgproc.o to object list.
-	
+
 	* glyphs-msw.h:
 	* glyphs-msw.c: new files adding support for xpm and bmp and
 	EImages.
@@ -2557,7 +2557,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	* console-msw.h: add bitspixel field to mswindows frame.
 
 	* device-msw.c: initialise bitspixel field in mswindows frame.
-	
+
 	* glyphs-x.c (xpm_instantiate): call mswindows_xpm_instantiate if
 	the device type is mswindows.
 
@@ -2565,7 +2565,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	mswindows.
 
 	* symsinit.h: add prototypes for glyphs-msw.c functions.
-	
+
 	* sheap.c: make includes src-dir compliant.
 
 	* events.c: remove cygwin ^H <-> erase hack.
@@ -2609,7 +2609,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	if the symbol is in Vobarray.
 
 	* symbols.c (reject_constant_symbols): Signal error when
-	attempting to assign a value to a keyword, unless the value is the 
+	attempting to assign a value to a keyword, unless the value is the
 	keyword itself.
 
 	* symbols.c (Fintern): Initialize symbol's ->obarray to t only
@@ -2716,7 +2716,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	* config.h.in: Add HAVE_LIBMCHECK and HAVE_MCHECK_H.
 
 	* hash.c (grow_hashtable): Fix tests to compare against
-	Qnull_pointer since this function may be called before any symbols 
+	Qnull_pointer since this function may be called before any symbols
 	or the Lisp engine is initialized.
 
 	* emacs.c (main_1): Restore usage of free-hook.c.
@@ -2730,7 +2730,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	control variable is being modified underneath us.
 	- Avoid calling delete_console_internal on stream consoles.
 
-	* console-tty.c (free_tty_console_struct): NULL out pointers after 
+	* console-tty.c (free_tty_console_struct): NULL out pointers after
 	xfree'ing.
 
 	* console-stream.c (allocate_stream_console_struct): Fix memory
@@ -2758,7 +2758,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	(Fwrite_region_internal): Ditto.
 	(decide_buffer_type): Function removed.
 	(buf_decide_buffer_type): Function removed.
-	(Many places): References to DOS_NT replaced with WINDOWSNT. MSDOS- 
+	(Many places): References to DOS_NT replaced with WINDOWSNT. MSDOS-
 	specific code removed.
 
 	* lread.c (Fload_internal): Removed ugly DOS style re-opening a
@@ -2774,7 +2774,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 	implemented in nt.c
 
 	* fileio.c (Ffile_readable_p): Conditionalized declared never used
-	variables. 
+	variables.
 	(Fexpand_file_name): Ditto.
 	(check_executable): Ditto.
 
@@ -2823,7 +2823,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-15  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* console.h: Added set_final_cursor_coords method to console 
+	* console.h: Added set_final_cursor_coords method to console
 	  struct.
 
 	* console-tty.h: Added final_cursor_x and final_cursor_y
@@ -2872,7 +2872,7 @@ Mon Mar 23 22:14:12 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* glyphs-x.c (png_instantiate): Added in override support
 	for png backgrounds.
-	
+
 1998-03-13  P. E. Jareth Hein  <jareth@camelot-soft.com>
 
 	* glyphs-x.c (png_instantiate): Fixed a bug that was causing
@@ -3058,7 +3058,7 @@ Mon Mar 09 13:00:55 1998  Andy Piper  <andyp@parallax.co.uk>
 	(Fenlarge_window_pixels): New function.
 	(Fshrink_window_pixels): New function.
 	(window_displayed_pixel_height): New, helper for
-	Fwindow_displayed_pixel_height. 
+	Fwindow_displayed_pixel_height.
 	(change_window_height): Add `inpixels' argument.
 	(syms_of_window): 3 new DEFSUBR's.
 
@@ -3179,16 +3179,16 @@ Fri Feb 20 21:22:34 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	(get_eof_char): Ditto
 
 	* symsinit.h: Prototypes for initialization functions called from
-	emacs.c: process_type_create_mswindows, process_type_create_unix, 
+	emacs.c: process_type_create_mswindows, process_type_create_unix,
 	vars_of_process_mswindows, vars_of_process_unix.
 
-	* procimpl.h: New file. Includes prototypes and other stuff shared 
+	* procimpl.h: New file. Includes prototypes and other stuff shared
 	by process.c and implementation files (process-unix.c,
 	process-msw.c in future).
 
 	* process.h (PROCESS_LIVE_P): Changed to test against stream
 	existence, to avoid dependency on fds.
-	
+
 	* process.c: Only process implementation independent code is now
 	in this file. Moved the rest into process-unix.c
 	(Fopen_network_stream_internal): Added 5th parameter, protocol
@@ -3198,7 +3198,7 @@ Fri Feb 20 21:22:34 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	processes. UNIX-specific code from the old process.c is here.
 
 	* Lstream.c (Lstream_was_blocked_p): New function. Replaces
-	filedesc_stream_was_blocked_p. 
+	filedesc_stream_was_blocked_p.
 	(filedesc_was_blocked_p): Implementation of the method for
 	filedesc stream
 	(filedesc_stream_set_pty_flushing): set pty_flushing flag
@@ -3208,10 +3208,10 @@ Fri Feb 20 21:22:34 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	optional lstream method.
 	Added prototypes for functions in lstream.c
 
-	* lisp.h: (USID): Typedef for Unique Stream IDentifier. Reuqired 
+	* lisp.h: (USID): Typedef for Unique Stream IDentifier. Reuqired
 	by the new code in many places.
 
-	* events.h (struct event_stream): Declaration of the two mandatory 
+	* events.h (struct event_stream): Declaration of the two mandatory
 	event stream methods, required by process support.
 
 	* event-unixoid.c (event_stream_unixoid_create_stream_pair):
@@ -3235,7 +3235,7 @@ Fri Feb 20 21:22:34 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	(emacs_Xt_delete_stream_pair): Ditto
 
 	* emacs.c (main_1): Added calls to process_type_create*() and
-	vars_of_process() 
+	vars_of_process()
 
 	* callproc.c: (many places): removed DOS support
 
@@ -3290,7 +3290,7 @@ Mon Mar 02 11:37:36 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-01  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* file-coding.c (setup_eol_coding_systems): Don't try 
+	* file-coding.c (setup_eol_coding_systems): Don't try
 	  to copy the mnemonic property of the coding system
 	  unless it is a string.
 
@@ -3304,7 +3304,7 @@ Mon Mar 02 11:37:36 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-01  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* callint.c: Read coding system names for the 'z' and 
+	* callint.c: Read coding system names for the 'z' and
 	  'Z' interactive specs if FILE_CODING or MULE is defined.
 	  Previously, coding system names were read only if MULE was
 	  defined.
@@ -3393,7 +3393,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* mule-coding.c: #if 0 out functionality until file-coding is
 	split up.
 
-	* file-coding.h: 
+	* file-coding.h:
 	* file-coding.c: new files. copies of mule-coding.h and
  	mule-coding.c. The mule case is unchanged. The non-mule case
  	removes coding relating to other charsets - iso2022, big5, sjis,
@@ -3431,7 +3431,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	case, the application class is chosen based on whether the user
 	has any resources with application class `XEmacs' set in the
 	resource database.
-	(vars_of_device_x): make x-emacs-application-class nil by default 
+	(vars_of_device_x): make x-emacs-application-class nil by default
 	and document new behavior in its doc string.
 
 1998-02-23  Aki Vehtari  <Aki.Vehtari@hut.fi>
@@ -3451,11 +3451,11 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	* s/sol2.h: define HAVE_GETLOADAVG for late edition Solaris
 	From Georg Nikodym <georgn@Canada.Sun.COM>
 
-1998-02-24  Didier Verna  <verna@inf.enst.fr>
+1998-02-24  Didier Verna  <didier@xemacs.org>
 
 	* redisplay.c (generate_fstring_runes): fixed the modeline
 	scrolling lossage (the % constructs appearing in the
-	modeline). Now that we can have negative positions and boundaries, 
+	modeline). Now that we can have negative positions and boundaries,
 	max_pos == -1 can't mean 'no limit' anymore. Me, stupido!
 	(add_string_to_fstring_db_runes): Ditto.
 	(add_glyph_to_fstring_db_runes): Ditto.
@@ -3508,7 +3508,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* unexelf.c: The proper way to check for GNU libc is with __GLIBC__.
 	Suggested by Andreas Jaeger <aj@arthur.rhein-neckar.de>
-	
+
 1998-02-18  SL Baur  <steve@altair.xemacs.org>
 
 	* Makefile.in.in: Remove all references to prefix-args.
@@ -3536,28 +3536,28 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	  (Fset-window-configuration): Restore window-cached
 	  specifier values.
 
-1998-02-18  Didier Verna  <verna@inf.enst.fr>
+1998-02-18  Didier Verna  <didier@xemacs.org>
 
 	* modeline.el (mouse-drag-modeline): added the horizontal
 	scrolling functionality for the modeline. This could still be
 	improved, for instance when the mouse goes out of the modeline.
 
-1998-02-18  Didier Verna  <verna@inf.enst.fr>
+1998-02-18  Didier Verna  <didier@xemacs.org>
 
 	* redisplay.c:
  	(generate_formatted_string_db): new flag to distinguish a modeline
 	string from a title or icon one, plus use a negative first pos to
-	indicate the modeline hscroll ammount. 
+	indicate the modeline hscroll ammount.
 	(add_string_to_fstring_db_runes): completely rewrote this function
 	to handle the case of scrolled modelines.
 	(add_glyph_to_fstring_db_runes): handle the case of scrolled
-	modelines. 
+	modelines.
 
 	* window.c:
 	(Fmodeline_hscroll): new function to return the	modeline current
-	horizontal scroll ammount. 
+	horizontal scroll ammount.
 	(Fset_modeline_hscroll): new function to scroll the modeline
-	horizontaly. 
+	horizontaly.
 	Plus some updates related to this new functionality (windows
 	configuration, notably).
 
@@ -3604,8 +3604,8 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-02-14  Martin Buchholz  <martin@xemacs.org>
 
-	* event-Xt.c (x_reset_key_mapping): 
-	* device-x.c: 
+	* event-Xt.c (x_reset_key_mapping):
+	* device-x.c:
 	(x-keysym-on-keyboard-p):
 	(x-keysym-on-keyboard-sans-modifiers-p):
 	Use x-keysym-on-keyboard-sans-modifiers-p instead of
@@ -3677,7 +3677,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 	(gui_item_display_flush_left): Ditto
 	(gui_item_display_flush_right): Ditto. The above listen new
 	functions manipulate on properties common to menu items and GUI
-	buttons. 
+	buttons.
 
 	* menubar.c (current_frame_menubar): Moved from menubar-msw.c
 	(menu_parse_submenu_keywords): New function
@@ -3771,7 +3771,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 Wed Jan 28 13:41:22 1998  Andy Piper  <andyp@parallax.co.uk>
 
 	* Makefile.in.in: add support for sheap-adjust.h generation for
-	static heap. 
+	static heap.
 
 Wed Jan 28 13:41:22 1998  Andy Piper  <andyp@parallax.co.uk>
 
@@ -3906,7 +3906,7 @@ Wed Jan 28 13:41:22 1998  Andy Piper  <andyp@parallax.co.uk>
  	* frame-msw.c:
 	Added file-based drag and drop support. The "System/Open" DDE command
 	is also implemented as if it were a drag and drop operation.
-	
+
 	* emacsfns.h:
 	* event-stream.c:
 	* events.c:
@@ -4004,7 +4004,7 @@ Wed Jan 21 10:49:47 1998  Andy Piper  <andyp@parallax.co.uk>
 	* unexcw.cc: new file for cygwin32 unexec() requires cygwin32
 	b19. Predicated on HAVE_COFF_H.
 
-	* console.c: 
+	* console.c:
 	* device-msw.c:
 	* event-msw.c:
 	* frame-msw.c:
@@ -4034,7 +4034,7 @@ Wed Jan 21 10:49:47 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-01-23  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* print.c (print_cons): Use XCAR/XCDR.
-	(print_string): Fix up so it Vprint_string_length works under Mule 
+	(print_string): Fix up so it Vprint_string_length works under Mule
 	correctly.
 
 	* eval.c (Feval): Increase profile call count.
@@ -4122,15 +4122,15 @@ Wed Jan 21 10:49:47 1998  Andy Piper  <andyp@parallax.co.uk>
 	* offix-cursors.h (cursor_bits):
 	Warning elimination.
 
-	* redisplay.c (add_blank_rune): 
-	* redisplay.c (add_glyph_rune): 
-	* redisplay.c (add_emchar_rune): 
+	* redisplay.c (add_blank_rune):
+	* redisplay.c (add_glyph_rune):
+	* redisplay.c (add_emchar_rune):
 	Warning elimination. Avoid useless computation in non-mule case.
 
 	* config.h.in:
 	Define HAVE_INVERSE_HYPERBOLIC using 1 configure test, not 3.
-	* src/alloc.c: 
-	* src/events.c: 
+	* src/alloc.c:
+	* src/events.c:
 	Rearrange order of declarations and definitions to avoid forward
 	* src/mem-limits.h: Add motivating comment for future cleanup.
 
@@ -4140,7 +4140,7 @@ Wed Jan 21 10:49:47 1998  Andy Piper  <andyp@parallax.co.uk>
 	Always define _GNU_SOURCE when using GNU libc.
 	Support --without-FOO as a synonym for --with-FOO=no.
 	Always use $srcdir to locate config.guess.
-	Make it clear that CONFIGURATION is optional.  
+	Make it clear that CONFIGURATION is optional.
 	De-emphasize CONFIGURATION parameter. Random cleanup.
 	More compatible with standard GNU install instructions.
 	--with-menubars=athena3d ==> --with-menubars=lucid.
@@ -4247,7 +4247,7 @@ Sat Jan 10 11:36:11 1998  Andy Piper  <andyp@parallax.co.uk>
 	Suggested by Aki Vehtari <Aki.Vehtari@hut.fi>
 
 	* src/symbols.c (Fsetq_default): Fix docstring.
-	From Didier Verna <verna@inf.enst.fr>
+	From Didier Verna <didier@xemacs.org>
 
 1998-01-07  Kirill M. Katsnelson  <kkm@kis.ru>
 
@@ -4283,13 +4283,13 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 	* lread.c (Fload_internal): On Win32, this reopened the file
 	without first closing the handle. This caused running out of
 	handles.
-	
+
 	* nt.c (sys_open): This one made big mess when opening a handle
 	next after MAXDESC-1. Fixed.
 
 1998-01-06  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* objects-msw.c (mswindows_string_to_color): Patched not to modify 
+	* objects-msw.c (mswindows_string_to_color): Patched not to modify
 	const char* parameter.
 	(hexval): Modified to accept uppercase hex digits.
 
@@ -4321,7 +4321,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 	* nt.h: Removed FD_* macros. Rely on definitions in winsock.h.
 	Changed EMACSDEBUG references to DEBUG_XEMACS
 
-	* event-msw.c (mswindows_cancel_dispatch_event): Returns Qnil when 
+	* event-msw.c (mswindows_cancel_dispatch_event): Returns Qnil when
 	event not found in the queue. Used to return undefined value.
 
 1998-01-07  SL Baur  <steve@altair.xemacs.org>
@@ -4362,7 +4362,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-29  Kirill M. Katsnelson  <kkm@kis.ru>
 
-	* msw-proc.c (mswindows_enqueue_magic_event): Made extern. User by 
+	* msw-proc.c (mswindows_enqueue_magic_event): Made extern. User by
 	menubar-msw.c
 
 	* event-msw.h: Prototype for mswindows_enqueue_magic_event
@@ -4410,7 +4410,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 	* alloc.c (disksave_object_finalization): Don't zero out
 	load-history if history of pure symbols is desired.
 
-	* lread.c (build_load_history): If LOADHIST_DUMPED is defined, add 
+	* lread.c (build_load_history): If LOADHIST_DUMPED is defined, add
 	pure symbols to load-history.
 
 	* emacsfns.h: New symbols added -- LOADHIST_DUMPED, define to get
@@ -4432,7 +4432,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 1997-12-26  Kirill M. Katsnelson  <kkm@kis.ru>
 
 	* menubar-msw.c, menubar-msw.h: New files. Menus support.
-	
+
 	* console-msw.h: Added frame menu hashtable variable.
 
 	* gui.c: popup_up_p variable and Fpopup_up_p and
@@ -4458,7 +4458,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 	  can be compared with 'equal. Menubar uses opaque pointers as
 	  hash keys in an 'equal style hastable.
 
-	* Most of the above touched files: Eliminated compiler warnings. 
+	* Most of the above touched files: Eliminated compiler warnings.
 
 1997-12-18  Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -4471,7 +4471,7 @@ Thu Jan 08 09:42:36 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1997-12-26  P. E. Jareth Hein  <jareth@camelot-soft.com>
 
-	* glyphs-x.c (imagick_instantiate): Add in error and 
+	* glyphs-x.c (imagick_instantiate): Add in error and
 	warning handling for ImageMagick files
 
 1997-12-26  SL Baur  <steve@altair.xemacs.org>
@@ -4587,7 +4587,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	* fileio.c (Finsert_file_contents_internal): Use
 	report_file_error() to report reading error.
 
-	* cmds.c (internal_self_insert): Don't self-insert if the expanded 
+	* cmds.c (internal_self_insert): Don't self-insert if the expanded
 	symbol's hook has a non-nil `no-self-insert' property; synch with
 	FSF 20.2.
 
@@ -4622,22 +4622,22 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	* dired.c (file_name_completion): Use noseeum_cons.
 	(file_name_completion_unwind): Free the cons.
 
-1997-12-16    <jsparkes@internetivity.com (Jeff Sparkes)> 
- 
+1997-12-16    <jsparkes@internetivity.com (Jeff Sparkes)>
+
 	* scrollbar.c: Add HAVE_MS_WINDOWS to scrollbar-page functions.
- 
+
 	* msw-proc.c: Handle scrolling events.
- 
+
 	* frame-msw.c: Initialize scrollbar width and height.  This should
 	  not be necessary, since the window shouldn't be created until
 	  init_frame_2
- 
+
 	* emacs.c: Call mswindows scrolbar setup when appropriate.
- 
+
 	* scrollbar-msw.c: Created for mswindows-scrollbar support.
- 
+
 	* scrollbar-msw.h: Ditto.
- 
+
 1997-12-16  Kirill M. Katsnelson <kkm@kis.ru>
 
 	* msw-proc.c: Minor bug in the middle button emulation code
@@ -4706,7 +4706,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 
 1997-12-12  SL Baur  <steve@altair.xemacs.org>
 
-	* input-method-xlib.c (describe_XIC): Add casts, use unsigned long 
+	* input-method-xlib.c (describe_XIC): Add casts, use unsigned long
 	int.
 
 	* eval.c (funcall_subr): Ifdef out as it is now unused.
@@ -4786,9 +4786,9 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	* input-method-xfs.c (Initialize_Locale): Ditto.
 	* input-method-motif.c (Initialize_Locale): Ditto.
 	* input-method-xlib.c (Initialize_Locale): Ditto.
-	Suggested by Didier Verna <verna@inf.enst.fr> and
+	Suggested by Didier Verna <didier@xemacs.org> and
 	Martin Buchholz <martin@xemacs.org>
-	
+
 1997-12-10  Karl M. Hegbloom  <karlheg@bittersweet.inetarena.com>
 
 	* config.h.in: #undef MAGICK_HEADERS_ARE_UNDER_X11
@@ -4902,11 +4902,11 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	  set the correct window size.
 
 1997-12-04  Jeff Sparkes <jsparkes@internetivity.com>
- 
+
 	* frame-msw.c: added frame functions for move, resize,
 	 iconify, raise, lower, visible_p, iconified_p, focus,
 	 make visible, make invisible, set title.
- 
+
 1997-12-01  Jonathon Harris <jhar@tardis.ed.ac.uk>
 
 	* event-msw.c, event-msw.h, frame-msw.c, msw-proc.c:
@@ -4931,7 +4931,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 
 	* menubar-x.c: change #ifdef LWLIB_MENUBARS_MOTIF to
           #if defined LWLIB_MENUBARS_LUCID || defined LWLIB_MENUBARS_MOTIF
-	  around code for incremental menu build.           
+	  around code for incremental menu build.
 
 	* event-stream.c: Changed HAVE_MENUBARS to HAVE_MENUBARS_LUCID in
 	  the #ifdef wrappers around menubar accelerator stuff.
@@ -5033,7 +5033,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	vector and call mapcar1 with its data.
 
 1997-12-02  P E Jareth Hein  <jareth@camelot-soft.com>
- 
+
 	* objects-x.c: Added colormap/visual support, rewrote
 	allocate_nearest_color, and changed the x-color-instance to deal
 	with possibly not freeing a color.
@@ -5142,7 +5142,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	  (Fredisplay_echo_area): Clear echo_area_garbaged
 	  flag on frame after displaying in echo area.
 
-	* redisplay.c: Added hscroll_glyph_width_adjust field 
+	* redisplay.c: Added hscroll_glyph_width_adjust field
 	  to position_redisplay_data_type struct.
 
 	  (add_hscroll_rune): Compute the difference in width
@@ -5178,7 +5178,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 
 1997-11-17  Marc Paquette  <marcpa@cam.org>
 
-	* callproc.c (Fcall_process_internal): Fix for bug in 
+	* callproc.c (Fcall_process_internal): Fix for bug in
 	CRLF -> LF conversion.
 
 1997-11-19  Jonathan Harris <jhar@tardis.ed.ac.uk>
@@ -5199,7 +5199,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 
 	* callproc.c (Fcall_process_internal): Close fd_error.
 
-1997-11-19  Didier Verna  <verna@inf.enst.fr>
+1997-11-19  Didier Verna  <didier@xemacs.org>
 
 	* emacs.c (main_1): Added the missing argmatch call to check
  	for the '-h' option.
@@ -5255,7 +5255,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	* frame.c: Document new toolbar border width
 	   speciifer as being usable as frame properties.
 
-	   (frame_conversion_internal): Factor the toolbar border 
+	   (frame_conversion_internal): Factor the toolbar border
 	   widths into the geometry calculations.
 
 	   (change_frame_size_1): Ditto.
@@ -5274,11 +5274,11 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 	   support for drawing a border along with the blank
 	   button.  Accept border_width and vertical args.
 
-	   (x_output_toolbar_button): Added support for drawing a 
+	   (x_output_toolbar_button): Added support for drawing a
 	   border along with the button.
 
 	   (X_OUTPUT_BUTTONS_LOOP): Pass border_width and vert
-	   args to x_draw_blank_toolbar_button.  Set vertical and 
+	   args to x_draw_blank_toolbar_button.  Set vertical and
 	   border_width fields in toolbar button.
 
 	   (x_output_toolbar): Support toolbar border widths.
@@ -5324,7 +5324,7 @@ Thu Dec 18 09:53:12 1997    <jsparkes@internetivity.com (Jeff Sparkes)>
 
 1997-11-16  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* events.c (print_event): Use `event-x-pixel' and `event-y-pixel', 
+	* events.c (print_event): Use `event-x-pixel' and `event-y-pixel',
 	to be consistent with `make-event' and `event-properties'.
 	(Fmake_event): Allow nil dnd-data.
 
@@ -5630,7 +5630,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 	* redisplay.c: init_redisplay
 	  Initialise window system to w32, conditioned on HAVE_W32GUI.
-  
+
 	* symsinit.h: Added syms_of_*_w32, vars_of_*_w32 and
 	  init_event_w32_late.
 
@@ -5717,33 +5717,33 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-11-02  Andreas Jaeger  <aj@arthur.rhein-neckar.de>
 
-	* m/vax.h: 
-	* s/cxux.h: 
-	* s/xenix.h: 
-	* s/umax.h: 
-	* s/msdos.h: 
-	* s/template.h: 
-	* termcap.c: 
-	* signal.c: 
-	* lread.c: 
+	* m/vax.h:
+	* s/cxux.h:
+	* s/xenix.h:
+	* s/umax.h:
+	* s/msdos.h:
+	* s/template.h:
+	* termcap.c:
+	* signal.c:
+	* lread.c:
 	* callproc.c
 	* buffer.c: Remove VMS dependent code.
 
 1997-11-02  Andreas Jaeger  <aj@arthur.rhein-neckar.de>
 
 	* syspwd.h:
-	* systty.h: 
-	* systime.h: 
-	* syssignal.h: 
-	* sysproc.h: 
-	* sysfloat.h: 
-	* sysfile.h: 
-	* regex.h: 
-	* process.h: 
-	* ndir.h: 
-	* mule-mcpath.h: 
-	* getpagesize.h: 
-	* sysdep.h: 
+	* systty.h:
+	* systime.h:
+	* syssignal.h:
+	* sysproc.h:
+	* sysfloat.h:
+	* sysfile.h:
+	* regex.h:
+	* process.h:
+	* ndir.h:
+	* mule-mcpath.h:
+	* getpagesize.h:
+	* sysdep.h:
 	* fileio.c:
 	* process.c: Remove old VMS code.
 
@@ -5753,8 +5753,8 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-11-02  Andreas Jaeger  <aj@arthur.rhein-neckar.de>
 
-	* sysdep.c: 
-	* getloadavg.c: 
+	* sysdep.c:
+	* getloadavg.c:
 	* malloc.c: Remove old VMS code.
 
 1997-11-02  Hrvoje Niksic  <hniksic@srce.hr>
@@ -5803,12 +5803,12 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-10-31  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* callproc.c: GC protect current_dir while infile and 
+	* callproc.c: GC protect current_dir while infile and
 	  error_file are being initialized.
 
 1997-10-30  SL Baur  <steve@altair.xemacs.org>
 
-	* config.h.in: Remove HAVE_GIF, HAVE_JPEG, HAVE_PNG, HAVE_TIFF and 
+	* config.h.in: Remove HAVE_GIF, HAVE_JPEG, HAVE_PNG, HAVE_TIFF and
 	replace with HAVE_IMAGEMAGICK.
 
 1997-10-30  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -5824,7 +5824,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-10-28  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* Under LRECORD_VECTOR, moved vectors from being an basic 
+	* Under LRECORD_VECTOR, moved vectors from being an basic
 	  lrecord tpye to an lcrecord.
 	  Added support for 31 bits Lisp integers.
 	  Added support for maskless pointers to Lisp objects.
@@ -5854,7 +5854,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	   type checking code on an uninitialized implementation
 	   pointer.
 
-	(Fpurecopy): return if given a null pointer.  THis can 
+	(Fpurecopy): return if given a null pointer.  THis can
 	   happen when initializing Qnil.
 
 	(mark_object): return if passed a null pointer.  I
@@ -5870,7 +5870,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	   indirect children list gets reset to a null pointer
 	   when a bfufer is killed.
 
-	(complex_vars_of_buffer): initialize indirect_children 
+	(complex_vars_of_buffer): initialize indirect_children
 	   slow of Vbuffer_local_symbols and Vbuffer_defaults to
 	   nil.
 
@@ -6010,11 +6010,11 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 	* README: Remove references to VMS.
 
-	* vlimit.h: 
-	* s/vms5-5.h: 
-	* s/vms4-4.h: 
-	* s/vms4-2.h: 
-	* s/vms4-0.h: 
+	* vlimit.h:
+	* s/vms5-5.h:
+	* s/vms4-4.h:
+	* s/vms4-2.h:
+	* s/vms4-0.h:
 	* s/vms.h: Remove files since VMS isn't supported any more.
 
 1997-10-25  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -6030,7 +6030,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	* alloc.c: Disable purespace statistics unless --debug is in
 	effect.
 
-	* console-stream.c (init_console_stream): At the price of a tiny 
+	* console-stream.c (init_console_stream): At the price of a tiny
 	memory leak, reinitialize FILE fields of the console.
 	From Tonny Madsen <tma@nettest.dk>
 
@@ -6072,15 +6072,15 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 	   separate function so that it could be used as a
 	   `print' method for lrecord-based strings.
 
-1997-10-20  Jan Vroonhof  <vroonhof@math.ethz.ch> 
- 
+1997-10-20  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
 	* extents.c: Renamed shot property to initial-redisplay-function
 	(extent_fragment_update): Changed the bookkeeping whether an event
 	has been spawned. The initial-redisplay-function property is no
 	longer set to nil.
- 
+
 	* extents.h: ditto
- 
+
 1997-10-20  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* Added support for conses and vectors to be lrecords.
@@ -6153,7 +6153,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 	(make-coding-system, coding-system-type, detect-coding-region):
 	Rename `Qautomatic_conversion' -> `Qundecided'.
-	
+
 	* general.c (syms_of_general): Rename `automatic-conversion' ->
 	`undecided' to sync with Emacs 20.2.
 
@@ -6202,7 +6202,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 1997-10-11  SL Baur  <steve@altair.xemacs.org>
 
-	* realpath.c (realpath): CONST IS LOSING but removing it conflicts 
+	* realpath.c (realpath): CONST IS LOSING but removing it conflicts
 	with system headers.
 
 	* callproc.c: New variable infopath-internal.
@@ -6272,7 +6272,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 	* regex.c: Global change: register -> REGISTER.
 	- Ensure REGISTER is always defined.
-	
+
 	* nt.c: Global change: register -> REGISTER.
 
 	* linuxplay.c: Global change: register -> REGISTER.
@@ -6281,7 +6281,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 
 	* gifalloc.c: Global change: register -> REGISTER.
 	- Ensure REGISTER is always defined.
-	
+
 	* getloadavg.c (getloadavg): register -> REGISTER.
 
 	* eval.c (unwind_to_catch): [Unused variable] register -> REGISTER.
@@ -6344,7 +6344,7 @@ Sun November 01 12:00:00 1997 <jhar@tardis.ed.ac.uk>
 Fri Oct  3 12:28:08 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* lisp-disunion.h: Move markbit to be between the
-	  type bits and the value bits.  Previously it was always 
+	  type bits and the value bits.  Previously it was always
 	  the sign bit of a EMACS_INT, unless modified by a
 	  #define in a machine dependent .h file.
 
@@ -6446,7 +6446,7 @@ Fri Oct  3 12:28:08 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	is a cons.
 	(Fremrassoc): Ditto.
 
-	* dired.c (Fdirectory_files): Nreverse the list only if it will be 
+	* dired.c (Fdirectory_files): Nreverse the list only if it will be
 	sorted.
 
 Fri Sep 26 13:55:28 1997  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -6458,7 +6458,7 @@ Fri Sep 26 13:55:28 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 1997-09-26  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* dired.c (close_directory_fd): New function.
-	(Fdirectory_files): Use it to set up an unwind-protection to close 
+	(Fdirectory_files): Use it to set up an unwind-protection to close
 	the descriptor.
 	(Fdirectory_files): Allow QUIT in re_search.
 	(Fdirectory_files): If the file is too big, allocate necessary
@@ -6494,7 +6494,7 @@ Fri Sep 26 13:55:28 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* syntax.c (Fchar_syntax): convert nil input to \000 for
 	compatibility.
 
-	* alloc.c (report_pure_usage): Increase slop to 512 bytes in betas 
+	* alloc.c (report_pure_usage): Increase slop to 512 bytes in betas
 	and reduce it to 4 bytes in releases.
 
 1997-09-23  SL Baur  <steve@altair.xemacs.org>
@@ -6535,7 +6535,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* eval.c (Fapply): replace Flength call with for-loop
 	  to compute list length.
-	
+
 	* eval.c (apply_lambda):Use XCAR and XCDR in some
 	  places where it is safe to do so.
 
@@ -6577,7 +6577,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* events.c (Fmake_event): Add default case, remove unused variables.
 
 1997-08-21  Jan Vroonhof  <vroonhof@math.ethz.ch>
- 
+
 	* extents.c (extent_fragment_update): Trigger one_shot_function
 
 	* extents.c (set-extent-one-shot-function): New function
@@ -6629,7 +6629,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 1997-08-05  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
 
-	* eval.c (vars_of_eval): Updated docstring for `debug_on_error' to 
+	* eval.c (vars_of_eval): Updated docstring for `debug_on_error' to
 	mention `debug-ignored-errors'.
 
 1997-08-01  SL Baur  <steve@altair.xemacs.org>
@@ -6644,7 +6644,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* frame-x.c (x_offix_drop_event_handler): Use stderr_out instead
 	of fprintf.
 
-	* mule-coding.c (parse_iso2022_esc): Add abort() trap on unhandled 
+	* mule-coding.c (parse_iso2022_esc): Add abort() trap on unhandled
 	condition.
 
 	* mule-wnnfns.c (Fwnn_dict_search): Remove unused variable.
@@ -6719,7 +6719,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	New variable Vpackage_path.
 	(vars_of_emacs): Use it.
 
-	* editfns.c (Fstring_to_char): Return nil instead of `0' for empty 
+	* editfns.c (Fstring_to_char): Return nil instead of `0' for empty
 	string.
 
 1997-07-10  Hrvoje Niksic  <hniksic@srce.hr>
@@ -6760,7 +6760,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	Was forgotten cut & paste identical clone to
 	Fcompiled_function_interactive?
 
-	* Makefile.in.in (alloc.o): Remove dependency on puresize_adjust.h 
+	* Makefile.in.in (alloc.o): Remove dependency on puresize_adjust.h
 	so alloc.c need not be recompiled when puresize changes.
 
 	* alloc.c (PURIFIED): Use get_PURESIZE() instead of constant.
@@ -6775,7 +6775,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	(get_PURESIZE): New function -- declare it.
 
 	* pure.c: Move final PURESIZE computation and include of
-	puresize_adjust.h into here so alloc.c need not be recompiled each 
+	puresize_adjust.h into here so alloc.c need not be recompiled each
 	time the puresize is adjusted.
 	(get_PURESIZE): New function.
 
@@ -6795,7 +6795,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	I am still not sure what this buys us, but I guess it doesn't hurt
 	to have it.
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 	* glyphs.c (make_string_from_file): Use
 	insert-file-contents-literally instead of
 	insert-file-contents-internal.
@@ -6925,7 +6925,7 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 1997-06-18  Martin Buchholz  <mrb@eng.sun.com>
 
-	* Makefile.in: 
+	* Makefile.in:
 	* s/*.h:
 	* m/*.h:
 	* config.h.in:
@@ -6946,10 +6946,10 @@ Sun Sep 21 14:14:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	- Make quoted pre-processor string tokens out of all macro values
 	  to be used only by configure.
 	* xmu.c: DON'T use Xos.h
-	* sysdep.c (wait_for_termination): 
-	* search.c: 
-	* editfns.c: 
-	* console-*: 
+	* sysdep.c (wait_for_termination):
+	* search.c:
+	* editfns.c:
+	* console-*:
 
 1997-06-18  Steven L Baur  <steve@altair.xemacs.org>
 
@@ -7049,7 +7049,7 @@ Fri Jun 13 00:25:46 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* syntax.c (Fchar_syntax): Handle case of being passed nil.
 
-	* data.c (eq_with_ebola_notice): Add more legitimate places in the 
+	* data.c (eq_with_ebola_notice): Add more legitimate places in the
 	bytecompiler that should not get Ebola notices.
 
 Tue Jun 10 00:34:40 1997  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -7097,7 +7097,7 @@ Tue Jun 10 00:34:40 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* keydefs.c (get_relevant_extent_keymaps): Choose correct keymap
 	at extent boundaries.
-	
+
 Mon Jun  9 19:35:19 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* redisplay.c (pixel_to_glyph_translation):
@@ -7119,7 +7119,7 @@ Sat Jun  7 22:07:41 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* sysdep.c: MS Windows NT doesn't (yet) do child TTY processes.
 	From David Hobley <davidh@wr.com.au>
-	
+
 Sat Jun  7 22:00:54 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* device-x.c (x_delete_device):
@@ -7130,7 +7130,7 @@ Sat Jun  7 22:00:54 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* frame.c (Fmake_frame): Correct checking of first_frame_on_device.
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 1997-06-04  Steven L Baur  <steve@altair.xemacs.org>
 
 	* device.c (delete_deviceless_console): New function.
@@ -7170,7 +7170,7 @@ Mon Jun  2 02:49:44 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 Sat May 31 19:59:49 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* frame-tty.c (tty_init_frame_3:
-	  Defer selection of the newly created frame until 
+	  Defer selection of the newly created frame until
 	  an event is read.
 
 1997-06-02  Steven L Baur  <steve@altair.xemacs.org>
@@ -7233,7 +7233,7 @@ Thu May 29 03:00:16 1997  Kyle Jones  <kyle@crystal.wonderworks.com>
 	(Fset_recent_keys_ring_size): New function.  Modifies the above.
 
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 	* event-stream.c: New variable recent_keys_ring_size replacing a
 	hard-coded macro.
 
@@ -7251,7 +7251,7 @@ Thu May 29 03:00:16 1997  Kyle Jones  <kyle@crystal.wonderworks.com>
 Wed May 21 11:58:17 1997  Kyle Jones  <kyle@crystal.wonderworks.com>
 
 	* insdel.c (signal_first_change):
-          record the current buffer for the unwind instead of the 
+          record the current buffer for the unwind instead of the
           buffer that's about to become the current buffer.
 
 Tue May 20 23:23:39 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -7333,7 +7333,7 @@ Wed Apr 30 18:07:18 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* lread.c: New variable featurep.
 	(read1): Add processing for #- and #+.
-	(read_list_conser): Handle case where a feature test has removed a 
+	(read_list_conser): Handle case where a feature test has removed a
 	portion of the input stream.
 	(vars_of_lread): New feature `xemacs'.
 
@@ -7362,7 +7362,7 @@ Tue Apr 22 11:54:02 1997  Steven L Baur  <steve@altair.xemacs.org>
 	HAVE_X_WINDOWS.
 	(main_1): Add vars_of_balloon_x and guard with HAVE_X_WINDOWS.
 
-	* process.c (get_process): This function can be passed a BUFFER as 
+	* process.c (get_process): This function can be passed a BUFFER as
 	a parameter.
 
 Tue Apr 22 01:32:00 1997  Kyle Jones  <kyle@crystal.WonderWorks.COM>
@@ -7493,7 +7493,7 @@ Sun Apr  6 18:03:47 1997  David Moore  <dmoore@ucsd.edu>
 
 	* dired.c (Fdirectory_files): Clean up GC protection.
 
-	* insdel.c (signal_after_change): Don't run after_change_functions 
+	* insdel.c (signal_after_change): Don't run after_change_functions
 	on special Vprin1_to_string_buffer.
 	(signal_before_change): Ditto for before_change_functions.
 
@@ -7551,7 +7551,7 @@ Sun Apr  6 08:08:33 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* config.h.in: Strip unimplemented NeXTStep/Epoch stuff out.
 
-	* Makefile.in.in: Remove unused NeXTStep support.  It's all in the 
+	* Makefile.in.in: Remove unused NeXTStep support.  It's all in the
 	cvs attic if someone wishes to revive it.
 	(epoch.o): Remove last vestiges of non-existent epoch support.
 
@@ -7566,7 +7566,7 @@ Thu Apr  3 08:01:50 1997  Steve Carney  <carney@gvc.dec.com>
 
 Tue Apr  1 12:22:32 1997  Steven L Baur  <steve@altair.xemacs.org>
 
-	* config.h.in: MAIL_USE_POP, KERBEROS, HESIOD -- new parameters to 
+	* config.h.in: MAIL_USE_POP, KERBEROS, HESIOD -- new parameters to
 	deal with upgraded movemail.c.
 
 Fri Mar 28 19:25:22 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -7613,7 +7613,7 @@ Mon Mar 24 21:50:13 1997  Steven L Baur  <steve@altair.xemacs.org>
 Mon Mar 24 12:40:56 1997  David Moore  <dmoore@ucsd.edu>
 
 	* profile.c: Fixed some comments about GC status of functions.
-	
+
 	* profile.c (inside_profiling): New variable to lock the
 	profiling table.
 	(sigprof_handler): Check it.
@@ -7647,7 +7647,7 @@ Fri Mar 21 18:54:04 1997  David Moore  <dmoore@ucsd.edu>
 	(Fset_file_modes): ditto
 	(Ffile_newer_than_file_p): ditto
 	(Fset_visited_file_modtime): ditto
-	
+
 	*fileio.c (Ffile_truename): Unneccessary GC protection.
 	(Fdelete_directory): Fix broken caller-must-GC-protect call.
 
@@ -7684,7 +7684,7 @@ Wed Mar 19 10:49:05 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* glyphs-x.c (x_print_image_instance): Move define of
 	HAVE_SUBWINDOWS to glyphs-x.h.
-	(our_skip_input_data): Implement with some error checking based on 
+	(our_skip_input_data): Implement with some error checking based on
 	patch by Dominic Froud.
 
 	* glyphs-x.h (HAVE_SUBWINDOWS): Define to keep inline.c from
@@ -7755,7 +7755,7 @@ Mon Mar 10 23:51:04 1997  Martin Buchholz  <mrb@eng.sun.com>
 
 Sun Mar  9 21:46:53 1997  Tomasz J. Cholewo  <t.cholewo@ieee.org>
 
-	* minibuf.c (regexp_ignore_completion_p): Reverse meaning of 
+	* minibuf.c (regexp_ignore_completion_p): Reverse meaning of
         completion-regexp-list.
 
 Thu Mar  6 19:15:29 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -7843,7 +7843,7 @@ Mon Feb 24 17:35:05 1997  Jonathan Edwards  <edwards@intranet.com>
 
 	* process.c (record_exited_processes): Fix obvious typo in
 	checking for SIGCLD.
-	
+
 Sun Feb 23 01:45:49 1997  Martin Buchholz  <mrb@eng.sun.com>
 
 	* scrollbar.c (update_scrollbar_instance): Fix for
@@ -8312,4 +8312,3 @@ Sat Dec  7 15:48:39 1996  Steven L Baur  <steve@altair.xemacs.org>
 Wed Dec  4 23:38:03 1996  Steven L Baur  <steve@altair.xemacs.org>
 
 	* redisplay.c: Allow column numbers in modeline to start from 1.
-

@@ -100,8 +100,8 @@ Lisp_Object;
 } while (0)
 # define XPNTRVAL(x) ((x).ui)
 
-INLINE Lisp_Object make_int (EMACS_INT val);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object make_int (EMACS_INT val);
+INLINE_HEADER Lisp_Object
 make_int (EMACS_INT val)
 {
   Lisp_Object obj;
@@ -109,8 +109,8 @@ make_int (EMACS_INT val)
   return obj;
 }
 
-INLINE Lisp_Object make_char (Emchar val);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object make_char (Emchar val);
+INLINE_HEADER Lisp_Object
 make_char (Emchar val)
 {
   Lisp_Object obj;

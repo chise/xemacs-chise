@@ -68,6 +68,7 @@ int popup_handled_p (LWLIB_ID id);
 void free_popup_widget_value_tree (widget_value *wv);
 void popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 			       XtPointer client_data);
+char *strdup_and_add_accel (char *name);
 int button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 				 int allow_text_field_p, int no_keys_p);
 widget_value * gui_items_to_widget_values (Lisp_Object items);

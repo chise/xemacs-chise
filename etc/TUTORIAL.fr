@@ -1,9 +1,9 @@
-Copyright (c) 1997, Didier Verna <verna@inf.enst.fr>.
+Copyright (c) 1997-2000, Didier Verna <didier@xemacs.org>.
 Se reporter à la fin du document pour les conditions.
 
 Vous lisez actuellement la version française du tutoriel d'Emacs.
 
-Cette version a été produite à partir de la version anglaise, qui est 
+Cette version a été produite à partir de la version anglaise, qui est
 Copyright (c) 1985, 1996 Free Software Foundation, Inc.
 
 
@@ -29,7 +29,7 @@ disponibles dans Emacs, les conventions suivantes sont utilisées:
 
 NOTE IMPORTANTE: pour quitter Emacs, tapez C-x C-c (deux caractères).
 
-Quand vous trouvez les caractères >> au début d'une ligne, cette ligne 
+Quand vous trouvez les caractères >> au début d'une ligne, cette ligne
 vous donne des directives pour essayer une commande. Par exemple:
 <<Lignes blanches à but pédagogique. Le texte continue ci-dessous.>>
 >> Maintenant, tapez C-v («view next screen») pour passer à l'écran
@@ -37,7 +37,7 @@ vous donne des directives pour essayer une commande. Par exemple:
    enfoncée et tapez 'v'). À partir de maintenant, refaites la même
    chose quand vous avez fini de lire tout l'écran.
 
-Remarquez que quand vous changez d'écran, les deux dernières lignes de 
+Remarquez que quand vous changez d'écran, les deux dernières lignes de
 l'écran précédent sont conservées, ceci afin de conserver un minimum
 de continuité dans la lecture.
 
@@ -70,7 +70,7 @@ Les commandes suivantes sont utiles pour voir des écrans entiers:
 * MOUVEMENTS DE BASE DU CURSEUR
 -------------------------------
 
-Passer d'un écran à l'autre, c'est bien ... mais comment faire pour se 
+Passer d'un écran à l'autre, c'est bien ... mais comment faire pour se
 déplacer dans le texte d'un seul écran?
 
 Il existe plusieurs manières de faire. La plus simple est d'utiliser
@@ -98,8 +98,8 @@ car vous vous en servirez très souvent.
 
 >> Amenez le curseur sur cette ligne avec quelques C-n.
 
->> Déplacez vous sur la ligne avec des C-f, puis vers le haut avec des 
-   C-p. Remarquez ce que fait C-p quand le curseur est au milieu de la 
+>> Déplacez vous sur la ligne avec des C-f, puis vers le haut avec des
+   C-p. Remarquez ce que fait C-p quand le curseur est au milieu de la
    ligne.
 
 Chaque ligne de texte se termine avec un caractère nommé Newline, qui
@@ -125,7 +125,7 @@ opération est appelée «scrolling».
    se passe.
 
 Si vous trouvez que le déplacement caractère par caractère est trop
-lent, vous pouvez vous déplacer mot par mot. M-f et M-b vous déplacent 
+lent, vous pouvez vous déplacer mot par mot. M-f et M-b vous déplacent
 respectivement d'un mot en avant et en arrière.
 
 >> Tapez quelques M-f et M-b.
@@ -143,7 +143,7 @@ unités de langage (mots, phrases, paragraphes etc.) tandis que les
 commandes Control agissent sur des unités plus primaires (caractères,
 lignes etc.).
 
-Ce parallèle existe encore entre les lignes et les phrases: C-a et C-e 
+Ce parallèle existe encore entre les lignes et les phrases: C-a et C-e
 vous positionnent au début ou à la fin d'une ligne, tandis que M-a et
 M-e vous déplacent au début ou à la fin d'une phrase.
 
@@ -157,7 +157,7 @@ La position du curseur sur dans le texte est aussi appelée le
 «point». En d'autres termes, le curseur à l'écran se trouve où le
 point est dans le texte.
 
-Voici un résumé des commandes simples de déplacement, y compris celles 
+Voici un résumé des commandes simples de déplacement, y compris celles
 relatives aux mots et aux phrases:
 
 	C-f	En avant d'un caractère
@@ -203,21 +203,21 @@ clavier. Enfin, quand vous aurez l'habitude d'utiliser la touche
 déplacement plus complexes.
 
 La plupart des commandes d'Emacs acceptent un argument numérique, qui
-sert souvent comme compteur de répétition. Pour donner un tel argument 
+sert souvent comme compteur de répétition. Pour donner un tel argument
 à une fonction, tapez C-u puis les chiffres, et enfin entrez la
 commande. Si vous disposez de la touche <Meta> (ou <Edit> ou <Alt>), vous
 pouvez aussi tapez directement les chiffres tout en maintenant la
-touche <Meta> enfoncée. Il est préférable d'apprendre la méthode C-u car 
+touche <Meta> enfoncée. Il est préférable d'apprendre la méthode C-u car
 elle fonctionne sur tous les terminaux.
 
 Par exemple, C-u 8 C-f vous déplace de huit caractères en avant.
-	
+
 >> Essayez d'utiliser C-n avec un argument numérique pour vous
    déplacer d'un seul coup sur une autre ligne.
 
 Certaines commandes n'interprètent pas leur argument numérique comme
-un compteur de répétition. C'est le cas de C-v et M-v qui déplacent le 
-texte d'autant de lignes plutôt que d'écrans entiers. Par exemple, C-u 
+un compteur de répétition. C'est le cas de C-v et M-v qui déplacent le
+texte d'autant de lignes plutôt que d'écrans entiers. Par exemple, C-u
 4 C-v déroulera l'écran de 4 lignes.
 
 >> Essayez C-u 8 C-v.
@@ -253,14 +253,14 @@ fichier. Si enfin votre pavé numérique dispose des touches <PgUp> et
 <PgDn>, celles-ci vous déplaceront d'écran en écran comme C-v et M-v.
 
 Toutes ces commandes acceptent des arguments numériques comme décrit
-précédemment. 
+précédemment.
 
 
 * QUAND EMACS EST BLOQUÉ
 ------------------------
 
 Si jamais Emacs ne répond plus à vos ordres, vous pouvez l'arrêter en
-toute sécurité en tapant C-g. C-g peut aussi être utilisé pour stopper 
+toute sécurité en tapant C-g. C-g peut aussi être utilisé pour stopper
 une commande qui met trop de temps à s'exécuter.
 
 C-g sert également à annuler un argument numérique, ou une commande
@@ -271,7 +271,7 @@ que vous ne voulez plus mener à terme.
    Maintenant, tapez C-f. Le curseur doit finalement ne bouger que
    d'un seul caractère, puisque vous avez annulé l'argument.
 
-Si vous avez tapé un <Esc> par erreur, vous pourrez toujours l'annuler 
+Si vous avez tapé un <Esc> par erreur, vous pourrez toujours l'annuler
 avec C-g.
 
 
@@ -296,12 +296,12 @@ espace. Sinon, répondez à la question en tapant 'n'.
 
 Emacs peut afficher plusieurs fenêtres, chacune avec un texte
 différent. Le terme «fenêtre» signifie ici une zone particulière dans
-la fenêtre d'Emacs; il ne s'agit pas de fenêtres pouvant se superposer 
+la fenêtre d'Emacs; il ne s'agit pas de fenêtres pouvant se superposer
 dans votre système de multifenétrage. Emacs peut aussi ouvrir
-plusieurs fenêtres X (appelées «frames» en jargon Emacsien), mais ceci 
+plusieurs fenêtres X (appelées «frames» en jargon Emacsien), mais ceci
 est décrit ultérieurement.
 
-Pour l'instant, mieux vaut ne pas trop s'occuper de plusieurs fenêtres 
+Pour l'instant, mieux vaut ne pas trop s'occuper de plusieurs fenêtres
 simultanées, sauf peut-être pour savoir les éliminer toutes sauf
 une. Ceci est effectué par la commande C-x 1 ('un', pas 'L'). Cette
 commande tue toutes les fenêtres sauf celle dans laquelle vous vous
@@ -335,7 +335,7 @@ quelques fois être utilisée de la même manière, mais pas tout le
 temps!
 
 Plus généralement, <Delete> efface le caractère situé juste avant le
-curseur. 
+curseur.
 
 >> Maintenant, tapez quelques caractères, puis effacez-les avec
    <Delete>. Ne vous inquiétez pas pour le contenu de ce tutoriel, ce
@@ -364,11 +364,11 @@ précédente.
 >> Tapez <Return> pour réinsérer le Newline que vous avez effacé.
 
 Rappelez-vous bien que la plupart des commandes acceptent un argument
-numérique, y compris l'insertion de caractères: 
+numérique, y compris l'insertion de caractères:
 
 >>  Tapez C-u 8 *, vous obtiendrez "********".
 
-Vous connaissez maintenant les commandes de base pour insérer du texte 
+Vous connaissez maintenant les commandes de base pour insérer du texte
 et corriger des erreurs. Toujours grâce aux touches <Control> et
 <Meta>, vous pouvez aussi effacer du texte par mot ou par ligne:
 
@@ -386,7 +386,7 @@ Quand vous supprimez plus d'un caractère à la fois, Emacs sauvegarde le
 texte pour vous donner la possibilité de le réintroduire. L'opération
 de réintroduction s'appelle le «yanking». Vous pouvez réintroduire le
 texte à la même place ou ailleurs. Vous pouvez même le réintroduire
-plusieurs fois, pourquoi pas à des endroits différents. La commande de 
+plusieurs fois, pourquoi pas à des endroits différents. La commande de
 «yanking» est C-y.
 
 Notez bien la différence entre «effacer» et «supprimer». Un texte
@@ -396,7 +396,7 @@ vides ne sauvegardent rien.
 
 >> Placez le curseur au début d'une ligne non vide.
    Tapez C-k pour supprimer le texte sur cette ligne.
->> Tapez C-k une deuxième fois. Vous remarquerez que cette fois-ci, la 
+>> Tapez C-k une deuxième fois. Vous remarquerez que cette fois-ci, la
    ligne elle-même est supprimée (le caractère Newline).
 
 C-k traite son argument numérique de manière spéciale: il supprime
@@ -455,7 +455,7 @@ de C-x u à taper ensuite.
 
 Une alternative à C-x u est C-_. C-x u existe car c'est plus facile à
 taper sur certains claviers. Sur d'autres vous pouvez également
-obtenir C-_ en tapant C-/. 
+obtenir C-_ en tapant C-/.
 
 Enfin, la commande d'annulation accepte les argument numériques.
 
@@ -466,18 +466,18 @@ Enfin, la commande d'annulation accepte les argument numériques.
 Pour sauver votre texte, vous avez besoin de le mettre dans un
 fichier, sans quoi il disparaîtra quand vous quitterez Emacs. On dit
 «trouver» un fichier («finding»), ou encore «visiter» un fichier
-(«visiting»), ou bien «ouvrir». 
+(«visiting»), ou bien «ouvrir».
 
 Visiter un fichier revient à voir son contenu dans Emacs. Si vous
-modifiez le texte du fichier dans Emacs, ces changements ne deviennent 
-pas permanent, sauf si vous «sauvez» le fichier. Cela permet de ne pas 
+modifiez le texte du fichier dans Emacs, ces changements ne deviennent
+pas permanent, sauf si vous «sauvez» le fichier. Cela permet de ne pas
 avoir des fichiers à moitié modifiés sur votre système, à moins que
 vous ne le souhaitiez vraiment. D'autre part, quand Emacs «sauve» un
-fichier, il commence par copier l'ancienne version sous un nouveau nom 
+fichier, il commence par copier l'ancienne version sous un nouveau nom
 afin que vous puissiez toujours revenir en arrière.
 
 Regardez en bas de la fenêtre d'Emacs. Vous trouverez une ligne
-contenant des tirets '-', et la chaîne de caractères 
+contenant des tirets '-', et la chaîne de caractères
 «Emacs: TUTORIAL.FRANCAIS». Cela vous donne le nom du fichier que vous
 êtes en train de visiter. En ce moment, vous visitez le fichier
 «TUTORIAL.FRANCAIS» qui correspond au Tutoriel d'Emacs, version
@@ -501,14 +501,14 @@ de la fenêtre. Quand cette ligne sert à entrer des données de cette
 manière, on l'appelle «minibuffer». Les commandes d'édition ordinaires
 peuvent être utilisées pour éditer le nom du fichier.
 
-Pendant que vous êtes en train de taper le nom du fichier, vous pouvez 
+Pendant que vous êtes en train de taper le nom du fichier, vous pouvez
 annuler la commande grâce à C-g.
 
 >> Tapez C-x C-f puis C-g. Cela annule le minibuffer ainsi que la
    commande C-x C-f. Vous n'allez finalement pas visiter de fichier.
 
 Quand le nom du fichier est correct, tapez <Return>. La commande
-prendra alors effet et ira chercher le fichier. Après avoir terminé la 
+prendra alors effet et ira chercher le fichier. Après avoir terminé la
 saisie du nom, le minibuffer disparaît.
 
 Au bout d'un petit moment, le contenu du fichier apparaît et vous
@@ -519,7 +519,7 @@ C-x C-s («save»)
 
 Cette commande copie le texte contenu dans Emacs vers le fichier
 lui-même. La première fois que vous le faites, Emacs sauvegarde la
-version initiale du fichier sous un autre nom, en ajoutant un '~' à la 
+version initiale du fichier sous un autre nom, en ajoutant un '~' à la
 fin du nom.
 
 Quand la sauvegarde est terminée, Emacs affiche le nom du fichier dans
@@ -528,17 +528,17 @@ souvent les fichiers pour éviter de tout perdre en cas de crash
 système (non pas qu'Emacs ne puisse jamais crasher lui-même ...).
 
 >> Tapez C-x C-s pour sauver votre copie du tutoriel.
-   Vous devriez voir apparaître «Wrote ...TUTORIAL.FRANCAIS" tout en bas 
+   Vous devriez voir apparaître «Wrote ...TUTORIAL.FRANCAIS" tout en bas
    de la fenêtre.
 
 NOTE: Sur certains systèmes, C-x C-s bloque l'écran et Emacs ne dit
 plus rien. Cela signifie qu'une «fonctionnalité» système que l'on
-appelle le «flow control» intercepte le C-s et l'empêche de parvenir à 
+appelle le «flow control» intercepte le C-s et l'empêche de parvenir à
 Emacs. Pour débloquer la situation, tapez C-q. Reportez-vous dans ce
 cas à la section «Spontaneous Entry to Incremental Search» du manuel
-d'Emacs pour plus d'information sur cette ... «particularité». 
+d'Emacs pour plus d'information sur cette ... «particularité».
 
-Vous pouvez visiter des fichiers existant, mais aussi des fichiers qui 
+Vous pouvez visiter des fichiers existant, mais aussi des fichiers qui
 n'existent pas. C'est en fait comme cela que l'on crée un nouveau
 fichier dans Emacs. Initialement, le fichier sera inexistant, et la
 première fois que vous demanderez à Emacs de le sauver, il créera
@@ -572,7 +572,7 @@ buffers non attachés à des fichiers, par exemple, le buffer nommé
 C-b. Par contre, TOUT texte que vous pouvez voir dans Emacs appartient
 à un buffer.
 
->> Tapez C-x 1 pour faire disparaître le buffer contenant la liste des 
+>> Tapez C-x 1 pour faire disparaître le buffer contenant la liste des
    buffers.
 
 Quand vous éditez un fichier, puis que vous en ouvrez un autre, le
@@ -608,7 +608,7 @@ son équivalent clavier sur le bouton.
 
 Remarquez qu'il existe des boutons n'ayant aucun équivalent
 clavier. Par exemple, le menu «Buffers» donne la liste de tous les
-buffers par ordre de plus récente utilisation. Vous pouvez passer d'un 
+buffers par ordre de plus récente utilisation. Vous pouvez passer d'un
 buffer à l'autre en les sélectionnant par leur nom dans ce menu.
 
 
@@ -622,12 +622,12 @@ déplaçant la souris avec le bouton de gauche enfoncé, ou bien en
 cliquant le bouton de gauche au début de la portion à sélectionner,
 puis en Shift-cliquant à l'autre bout.
 
-Pour supprimer un morceau de texte, utilisez C-w ou le bouton «Cut» du 
+Pour supprimer un morceau de texte, utilisez C-w ou le bouton «Cut» du
 menu «Edit». Notez bien que ces deux commandes ne sont pas
-équivalentes: C-w ne fait que supprimer le texte en le sauvegardant de 
+équivalentes: C-w ne fait que supprimer le texte en le sauvegardant de
 manière interne (comme C-k), mais «Cut» sauvegarde en plus le texte
 dans le clipboard de X Window, où il pourra être accédé par d'autres
-applications. 
+applications.
 
 Pour récupérer du texte en provenance d'autres applications, utilisez
 «Paste» du menu «Edit».
@@ -664,11 +664,11 @@ utilise la commande X (eXtension) qui se présente sous deux aspects:
 Ces commandes, bien que très utiles, sont utilisées moins souvent que
 celles que vous avez déjà apprises. Vous en connaissez déjà deux: les
 commandes relatives aux fichiers (C-x C-f et C-x C-s). Un autre
-exemple est la commande pour quitter définitivement Emacs, C-x C-c (ne 
+exemple est la commande pour quitter définitivement Emacs, C-x C-c (ne
 vous inquiétez pas des éventuels changements qui seraient perdus, C-x
 C-c vous propose de sauver ces changements avant de tuer Emacs).
 
-C-z est la commande qui vous permet de quitter Emacs «temporairement», 
+C-z est la commande qui vous permet de quitter Emacs «temporairement»,
 pour que vous puissiez y revenir plus tard.
 
 Sur les systèmes le permettant, C-z «suspend» Emacs, ce qui signifie
@@ -688,7 +688,7 @@ ceux-ci ne sachant pas forcément comment gérer les suspensions. Dans
 des circonstances où vous ne vous déloguez pas, mieux vaut suspendre
 par C-z au lieu de sortir véritablement d'Emacs.
 
-Il existe de nombreuses commandes sous C-x. Voici celles que vous avez 
+Il existe de nombreuses commandes sous C-x. Voici celles que vous avez
 apprises jusque là:
 
 	C-x C-f		Visiter un fichier (Find File).
@@ -702,7 +702,7 @@ souvent, ou disponibles seulement sous certains modes. Par exemple, la
 commande «replace-string» substitue globalement une chaîne de
 caractères par une autre. Si vous tapez M-x, Emacs vous affichera M-x
 en bas de la fenêtre et vous pourrez alors taper le nom d'une
-commande, ici replace-string. Tapez simplement 'repl <Espace> s <Tab>' 
+commande, ici replace-string. Tapez simplement 'repl <Espace> s <Tab>'
 et Emacs complétera le nom pour vous. Terminez le nom avec <Return>
 
 La commande replace-string requiert deux arguments: la chaîne à
@@ -710,12 +710,12 @@ remplacer et la chaîne de remplacement. Terminez chacune de ces
 chaînes par <Return>.
 
 >> Déplacez le curseur sur la ligne blanche en dessous de ce
-   paragraphe, puis tapez 
-   M-x repls<Return>Remarquez<Return>Notez<Return>. 
+   paragraphe, puis tapez
+   M-x repls<Return>Remarquez<Return>Notez<Return>.
 
    Remarquez comme cette ligne a changé: le mot R-e-m-a-r-q-u-e-z a
    été remplacé par N-o-t-e-z partout où il est apparu après le
-   curseur. 
+   curseur.
 
 
 * SAUVEGARDE AUTOMATIQUE
@@ -749,15 +749,15 @@ area»). Cette zone contient la dernière ligne de la fenêtre d'Emacs.
 La ligne juste au dessus de la zone d'écho s'appelle ligne de mode
 («modeline»). Elle dit actuellement quelque chose comme ça:
 
---**-XEmacs: TUTORIAL.FRANCAIS     (Fundamental)--L752--67%--------- 
+--**-XEmacs: TUTORIAL.FRANCAIS     (Fundamental)--L752--67%---------
 
-Cette ligne fournit des renseignements utiles sur le status d'Emacs et 
+Cette ligne fournit des renseignements utiles sur le status d'Emacs et
 le texte que vous éditez.
 
 Vous connaissez déjà la signification du nom de fichier: c'est celui
-que vous êtes en train d'éditer. -xx%- indique le pourcentage de texte 
+que vous êtes en train d'éditer. -xx%- indique le pourcentage de texte
 situé au dessus du curseur. Si vous pouvez voir le début du fichier à
-l'écran, --Top-- sera indiqué au lieu de --00%--. Si le bas du fichier 
+l'écran, --Top-- sera indiqué au lieu de --00%--. Si le bas du fichier
 est visible, il y aura --Bot-- à la place. Si votre texte est tout
 entier contenu dans la fenêtre, vous verrez --All--.
 
@@ -793,7 +793,7 @@ pouvez constater par exemple que M-b et M-f traitent les apostrophes
 comme faisant partie des mots. Auparavant, ces caractères étaient
 considérés comme des séparateurs de mots. En général, les modes
 majeurs ne changent que très peu le comportement des commandes
-habituelles. 
+habituelles.
 
 Pour voir la documentation du mode majeur courant, tapez C-h m.
 
@@ -808,7 +808,7 @@ comportement de tel ou tel mode majeur. Ils peuvent être activés ou
 désactivés indépendamment du mode majeur courant. Vous pouvez en
 utiliser autant que possible en même temps.
 
-Un mode mineur très utile pour éditer du texte est le mode 
+Un mode mineur très utile pour éditer du texte est le mode
 «Auto Fill». Quand ce mode est activé, Emacs coupe lui-même les lignes
 si vous tapez du texte trop long pour être contenu sur une seule.
 
@@ -828,7 +828,7 @@ numérique.
    Tapez du texte jusqu'à ce que la ligne soit coupée, puis replacez
    la marge à 70.
 
-Si vous faites des changements au milieu d'un paragraphe, le mode Auto 
+Si vous faites des changements au milieu d'un paragraphe, le mode Auto
 Fill ne recoupera pas les lignes tout seul. Pour réajuster les lignes
 d'un tel paragraphe, tapez M-q avec le curseur n'importe où dans le
 paragraphe.
@@ -847,7 +847,7 @@ prochain (ou précédent) endroit ou la chaîne apparaît.
 La commande de recherche d'Emacs est un peu différente de celle des
 autres éditeurs de texte dans la mesure où elle est incrémentale: la
 recherche intervient au fur et à  mesure que vous tapez la chaîne à
-rechercher. 
+rechercher.
 
 Pour démarrer une recherche, tapez C-s (en avant) ou C-r (en
 arrière). MAIS PAS TOUT DE SUITE !! Attendez un peu pour tester ...
@@ -872,10 +872,10 @@ n'existe, C-s produira un «bip», et la zone d'écho affichera
 
 NOTE: Sur certains systèmes, C-x C-s bloque l'écran et Emacs ne dit
 plus rien. Cela signifie qu'une «fonctionnalité» système que l'on
-appelle le «flow control» intercepte le C-s et l'empêche de parvenir à 
+appelle le «flow control» intercepte le C-s et l'empêche de parvenir à
 Emacs. Pour débloquer la situation, tapez C-q. Reportez-vous dans ce
 cas à la section «Spontaneous Entry to Incremental Search» du manuel
-d'Emacs pour plus d'information sur cette ... «particularité». 
+d'Emacs pour plus d'information sur cette ... «particularité».
 
 Si vous êtes au milieu d'une recherche incrémentale et que vous tapez
 <Delete>, vous constaterez que le dernier caractère de la chaîne est
@@ -923,7 +923,7 @@ référence. Vous pouvez avancer dans l'autre grâce à C-M-v.
 
 C-M-v (ou <Esc> C-v si vous n'avez pas de touche <Meta>) est un
 exemple de Control-Méta caractère. L'ordre dans lequel les touches
-<Control> et <Meta> sont enfoncées n'a pas d'importance. Ce sont juste 
+<Control> et <Meta> sont enfoncées n'a pas d'importance. Ce sont juste
 des modificateurs. Par contre, <Esc> n'est pas un modificateur, donc
 vous êtes obligés de taper d'abord <Esc>, et C-v ensuite.
 
@@ -959,7 +959,7 @@ Pour sortir d'un niveau récursif d'édition, tapez <Esc> <Esc>
 l'utiliser pour sortir du minibuffer ou éliminer des fenêtres
 superflues.
 
->> Tapez M-x pour vous rendre dans le minibuffer, puis tapez 
+>> Tapez M-x pour vous rendre dans le minibuffer, puis tapez
    <Esc> <Esc> <Esc> pour en sortir.
 
 Il n'est pas possible d'utiliser C-g pour sortir d'un niveau récursif
@@ -985,7 +985,7 @@ Emacs vous indiquera quelles sortes d'aide il peut vous fournir. Si
 vous ne désirez finalement pas d'aide après avoir tapé C-h, tapez
 simplement C-g.
 
-(Quelques sites redéfinissent la commande C-h. Cela ne devrait vraiment 
+(Quelques sites redéfinissent la commande C-h. Cela ne devrait vraiment
 pas être fait, donc allez vous plaindre à votre administrateur système.
 Si C-h ne marche pas, tapez M-x help<Return>.)
 
@@ -994,7 +994,7 @@ séquence comme C-x f), et Emacs vous donnera une brève description de
 la commande en question.
 
 >> Tapez C-h c C-p.
-   Le message doit ressembler à quelque chose comme 
+   Le message doit ressembler à quelque chose comme
 
 	C-p runs the command previous-line
 
@@ -1041,11 +1041,11 @@ C-c. Pour quitter temporairement (et pour pouvoir revenir), tapez C-z
 
 Ce tutoriel est fait pour être compréhensible par tout nouvel
 utilisateur. Donc si quelque chose n'est pas clair, n'hésitez pas à
-vous plaindre !! 
+vous plaindre !!
 
 Si vous avez plus particulièrement des remarques à faire sur la
 version française, vous pouvez aussi me contacter directement
-(Didier Verna <verna@inf.enst.fr>).
+(Didier Verna <didier@xemacs.org>).
 
 
 COPIES / DISTRIBUTION
@@ -1057,7 +1057,7 @@ Un peu d'histoire ...
   Cracraft.
 * Ben Wing l'a mis à jour pour X Windows.
 * Martin Buchholz et Hrvoje Niksic y ont apporté des corrections pour
-  XEmacs. 
+  XEmacs.
 * J'en (Didier Verna) ai fait une version française un beau jour de 1997.
 
 Cette version du tutoriel, tout comme Emacs, est copyrightée, et vous
@@ -1082,4 +1082,3 @@ dans le même état d'esprit. Vous êtes conviés à lire le fichier
 COPYING et à distribuer Emacs à vos amis. Aidez-nous à tuer
 l'obstructionnisme logiciel en utilisant, écrivant et partageant du
 logiciel libre!
-

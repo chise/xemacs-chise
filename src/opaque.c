@@ -124,7 +124,7 @@ print_opaque_ptr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   const Lisp_Opaque_Ptr *p = XOPAQUE_PTR (obj);
   char buf[200];
 
-  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque_ptr, adr=0x%lx) 0x%lx>",
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (opaque-ptr, adr=0x%lx) 0x%lx>",
 	   (long)(p->ptr), (unsigned long) p);
   write_c_string (buf, printcharfun);
 }
@@ -141,7 +141,7 @@ hash_opaque_ptr (Lisp_Object obj, int depth)
   return (unsigned long) XOPAQUE_PTR (obj)->ptr;
 }
 
-DEFINE_LRECORD_IMPLEMENTATION ("opaque_ptr", opaque_ptr,
+DEFINE_LRECORD_IMPLEMENTATION ("opaque-ptr", opaque_ptr,
 			       0, print_opaque_ptr, 0,
 			       equal_opaque_ptr, hash_opaque_ptr, 0,
 			       Lisp_Opaque_Ptr);

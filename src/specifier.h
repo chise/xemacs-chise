@@ -267,9 +267,9 @@ extern const struct lrecord_description specifier_empty_extra_description[];
 #ifdef ERROR_CHECK_TYPECHECK
 #define DECLARE_SPECIFIER_TYPE(type)					\
 extern struct specifier_methods * type##_specifier_methods;		\
-INLINE struct type##_specifier *					\
+INLINE_HEADER struct type##_specifier *					\
 error_check_##type##_specifier_data (Lisp_Specifier *sp);		\
-INLINE struct type##_specifier *					\
+INLINE_HEADER struct type##_specifier *					\
 error_check_##type##_specifier_data (Lisp_Specifier *sp)		\
 {									\
   if (SPECIFIERP (sp->magic_parent))					\
@@ -282,9 +282,9 @@ error_check_##type##_specifier_data (Lisp_Specifier *sp)		\
   assert (SPECIFIER_TYPE_P (sp, type));					\
   return (struct type##_specifier *) sp->data;				\
 }									\
-INLINE Lisp_Specifier *							\
+INLINE_HEADER Lisp_Specifier *						\
 error_check_##type##_specifier_type (Lisp_Object obj);			\
-INLINE Lisp_Specifier *							\
+INLINE_HEADER Lisp_Specifier *						\
 error_check_##type##_specifier_type (Lisp_Object obj)			\
 {									\
   Lisp_Specifier *sp = XSPECIFIER (obj);				\
@@ -293,11 +293,11 @@ error_check_##type##_specifier_type (Lisp_Object obj)			\
 }									\
 DECLARE_NOTHING
 #else
-#define DECLARE_SPECIFIER_TYPE(type)				\
+#define DECLARE_SPECIFIER_TYPE(type)					\
 extern struct specifier_methods * type##_specifier_methods
 #endif /* ERROR_CHECK_TYPECHECK */
 
-#define DEFINE_SPECIFIER_TYPE(type)			\
+#define DEFINE_SPECIFIER_TYPE(type)					\
 struct specifier_methods * type##_specifier_methods
 
 #define INITIALIZE_SPECIFIER_TYPE(type, obj_name, pred_sym) do {	\
@@ -305,12 +305,12 @@ struct specifier_methods * type##_specifier_methods
   type##_specifier_methods->name = obj_name;				\
   type##_specifier_methods->extra_description =				\
     specifier_empty_extra_description;					\
-  defsymbol_nodump (&type##_specifier_methods->predicate_symbol, pred_sym);	\
-  add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);	\
-  dumpstruct (&type##_specifier_methods, &specifier_methods_description); \
+  defsymbol_nodump (&type##_specifier_methods->predicate_symbol, pred_sym); \
+  add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);	    \
+  dumpstruct (&type##_specifier_methods, &specifier_methods_description);   \
 } while (0)
 
-#define REINITIALIZE_SPECIFIER_TYPE(type) do {	\
+#define REINITIALIZE_SPECIFIER_TYPE(type) do {				\
   staticpro_nodump (&type##_specifier_methods->predicate_symbol);	\
 } while (0)
 
@@ -366,7 +366,7 @@ do {									\
 # define XSETSPECIFIER_TYPE(x, p, type) XSETSPECIFIER (x, p)
 #endif /* ERROR_CHECK_TYPE_CHECK */
 
-#define SPECIFIER_TYPEP(x, type)				\
+#define SPECIFIER_TYPEP(x, type)			\
   (SPECIFIERP (x) && SPECIFIER_TYPE_P (XSPECIFIER (x), type))
 #define CHECK_SPECIFIER_TYPE(x, type) do {		\
   CHECK_SPECIFIER (x);					\

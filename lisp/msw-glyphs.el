@@ -30,11 +30,24 @@
 ;; Initialization code for MS Windows glyphs.
 
 ;; This file is dumped with XEmacs (when MS Windows support is
-;; compiled in).
+;; compiled in). Make sure this is the first of msw-*.el files
+;; dumped.
 
 ;;; Code:
 
+(defun msgdi-device-p (&optional device)
+  "Return non-nil if DEVICE is a GDI device, that is 'mswindows or 'msprinter.
+MS GDI devices are mutuially WYSIWIG-compatible, so that many common glyph,
+color and font properties apply to them equally.
+
+This function is also a predicate for 'msgdi device tag, matching this
+device class."
+  (memq (device-type device) '(mswindows msprinter)))
+
 (progn
+
+  (define-specifier-tag 'msgdi (function msgdi-device-p))
+
   (set-console-type-image-conversion-list
    'mswindows
    `(("\\.bmp\\'" [bmp :file nil] 2)
@@ -59,11 +72,14 @@
      ;; strings are not allowed so they will be ignored.
      ("" [nothing])))
 
+  (set-console-type-image-conversion-list
+   'msprinter (console-type-image-conversion-list 'mswindows))
+
   (set-face-font 'border-glyph "WingDings:Regular:11::Symbol"
-		 'global 'mswindows)
-  (set-glyph-image continuation-glyph "\xC3" 'global 'mswindows)
-  (set-glyph-image truncation-glyph "\xF0" 'global 'mswindows)
-  (set-glyph-image hscroll-glyph "\xEF" 'global 'mswindows)
+		 'global 'msgdi)
+  (set-glyph-image continuation-glyph "\xC3" 'global 'msgdi)
+  (set-glyph-image truncation-glyph "\xF0" 'global 'msgdi)
+  (set-glyph-image hscroll-glyph "\xEF" 'global 'msgdi)
 
   (set-glyph-image octal-escape-glyph "\\")
   (set-glyph-image control-arrow-glyph "^")
@@ -78,11 +94,11 @@
 				  (if emacs-beta-version
 				      "xemacs-beta.xpm"
 				    "xemacs.xpm"))
-			  'global 'mswindows))
+			  'global 'msgdi))
 	(t
 	 (set-glyph-image xemacs-logo
 			  "XEmacs <insert spiffy graphic logo here>"
-			  'global 'mswindows)))
+			  'global 'msgdi)))
 )
 
 ;;; msw-glyphs.el ends here

@@ -87,7 +87,8 @@
 (setq completion-ignored-extensions
       (mapcar 'purecopy
 	      '(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
-		".dvi" ".toc" ".log" ".aux" ".a" ".ln"
+		".dvi" ".toc" ;".log"
+		".aux" ".a" ".ln"
 		".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
 		".diff" ".oi" ".class")))
 

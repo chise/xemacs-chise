@@ -40,7 +40,16 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "sysdep.h"
 
+#if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
+	CYGWIN_VERSION_DLL_MAJOR < 21
+extern BOOL WINAPI DdeFreeStringHandle(DWORD,HSZ);
+#else
 #include <winspool.h>
+#endif
+
+#if !(defined (__CYGWIN32__) || defined(__MINGW32__))
+# include <objbase.h>	/* For CoInitialize */
+#endif
 
 /* win32 DDE management library globals */
 #ifdef HAVE_DRAGNDROP
@@ -129,8 +138,8 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   DEVICE_MSWINDOWS_VERTSIZE(d) = GetDeviceCaps(hdc, VERTSIZE);
   DEVICE_MSWINDOWS_BITSPIXEL(d) = GetDeviceCaps(hdc, BITSPIXEL);
   DEVICE_MSWINDOWS_FONTLIST (d) = mswindows_enumerate_fonts (hdc);
-
-  DeleteDC (hdc);
+  
+  DEVICE_MSWINDOWS_HCDC(d) = hdc;
 
   /* Register the main window class */
   wc.cbSize = sizeof (WNDCLASSEX);
@@ -174,13 +183,20 @@ mswindows_finish_init_device (struct device *d, Lisp_Object props)
   /* Initialize DDE management library and our related globals. We execute a
    * dde Open("file") by simulating a drop, so this depends on dnd support. */
 #ifdef HAVE_DRAGNDROP
+# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+  CoInitialize (NULL);
+# endif
+
   mswindows_dde_mlid = 0;
   DdeInitialize (&mswindows_dde_mlid, (PFNCALLBACK)mswindows_dde_callback,
 		 APPCMD_FILTERINITS|CBF_FAIL_SELFCONNECTIONS|CBF_FAIL_ADVISES|
-		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS, 0);
+		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS,
+		 0);
   
-  mswindows_dde_service = DdeCreateStringHandle (mswindows_dde_mlid, XEMACS_CLASS, 0);
-  mswindows_dde_topic_system = DdeCreateStringHandle (mswindows_dde_mlid, SZDDESYS_TOPIC, 0);
+  mswindows_dde_service = DdeCreateStringHandle (mswindows_dde_mlid,
+						 XEMACS_CLASS, 0);
+  mswindows_dde_topic_system = DdeCreateStringHandle (mswindows_dde_mlid,
+						      SZDDESYS_TOPIC, 0);
   mswindows_dde_item_open = DdeCreateStringHandle (mswindows_dde_mlid,
 						   TEXT(MSWINDOWS_DDE_ITEM_OPEN), 0);
   DdeNameService (mswindows_dde_mlid, mswindows_dde_service, 0L, DNS_REGISTER);
@@ -196,9 +212,20 @@ mswindows_delete_device (struct device *d)
   DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_topic_system);
   DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_service);
   DdeUninitialize (mswindows_dde_mlid);
+
+# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+  CoUninitialize ();
+# endif
 #endif
 
+  DeleteDC (DEVICE_MSWINDOWS_HCDC(d));
   free (d->device_data);
+}
+
+void
+msw_get_workspace_coords (RECT *rc)
+{
+  SystemParametersInfo (SPI_GETWORKAREA, 0, rc, 0);
 }
 
 static void
@@ -271,10 +298,18 @@ mswindows_device_system_metrics (struct device *d,
     case DM_size_workspace:
       {
 	RECT rc;
-	SystemParametersInfo (SPI_GETWORKAREA, 0, &rc, 0);
+	msw_get_workspace_coords (&rc);
 	return Fcons (make_int (rc.right - rc.left),
 		      make_int (rc.bottom - rc.top));
       }
+
+    case DM_offset_workspace:
+      {
+	RECT rc;
+	msw_get_workspace_coords (&rc);
+	return Fcons (make_int (rc.left), make_int (rc.top));
+      }
+
       /*
 	case DM_size_toolbar:
 	case DM_size_toolbar_button:
@@ -344,8 +379,11 @@ msprinter_init_device (struct device *d, Lisp_Object props)
   if (DEVICE_MSPRINTER_HDC (d) == NULL)
     signal_open_printer_error (d);
 
+  DEVICE_MSPRINTER_HCDC(d) =
+    CreateCompatibleDC (DEVICE_MSPRINTER_HDC (d));
+
   /* Determinie DEVMODE size and store the default DEVMODE */
-  DEVICE_MSPRINTER_DEVMODE_SIZE(d) = 
+  DEVICE_MSPRINTER_DEVMODE_SIZE(d) =
     DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
 			printer_name, NULL, NULL, 0);
   if (DEVICE_MSPRINTER_DEVMODE_SIZE(d) <= 0)
@@ -411,6 +449,8 @@ msprinter_delete_device (struct device *d)
 	ClosePrinter (DEVICE_MSPRINTER_HPRINTER (d));
       if (DEVICE_MSPRINTER_HDC (d))
 	DeleteDC (DEVICE_MSPRINTER_HDC (d));
+      if (DEVICE_MSPRINTER_HCDC (d))
+	DeleteDC (DEVICE_MSPRINTER_HCDC (d));
       if (DEVICE_MSPRINTER_NAME (d))
 	free (DEVICE_MSPRINTER_NAME (d));
       if (DEVICE_MSPRINTER_DEVMODE (d))
@@ -481,7 +521,15 @@ msprinter_apply_devmode (struct device *d, DEVMODE *devmode)
 		      devmode, devmode,
 		      DM_IN_BUFFER | DM_OUT_BUFFER);
 
-  ResetDC (DEVICE_MSPRINTER_HDC (d), devmode);
+  /* #### ResetDC fails sometimes, Bill only know s why.
+     The solution below looks more like a workaround to me,
+     although it might be fine. --kkm */
+  if (ResetDC (DEVICE_MSPRINTER_HDC (d), devmode) == NULL)
+    {
+      DeleteDC (DEVICE_MSPRINTER_HDC (d));
+      DEVICE_MSPRINTER_HDC (d) =
+	CreateDC ("WINSPOOL", DEVICE_MSPRINTER_NAME(d), NULL, devmode);
+    }
 }
 
 
