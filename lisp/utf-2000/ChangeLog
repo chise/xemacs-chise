@@ -1,3 +1,16 @@
+2005-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R033-Scholar.el (U+58F2): Add S-7905.
+
+2005-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R011-Enter.el (M-01421): Unify H1-B943; map to
+	U-000204DE.
+	(U-000204DE): Moved from Ideograph-R009-Man.el; use
+	`->subsumptive'.
+	(U+34B0): Use `->subsumptive'.
+	(U+FA72): Add S-4875.
+
 2005-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (map-char-family): Add autoload cookie.
