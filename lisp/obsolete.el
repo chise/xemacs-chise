@@ -57,7 +57,7 @@ This makes referencing or setting OLDVAR equivalent to referencing or
 setting NEWVAR and marks OLDVAR as obsolete.
 If OLDVAR was bound and NEWVAR was not, Set NEWVAR to OLDVAR.
 
-Note: Use this before any other references (defvar/defcustom) to NEWVAR"
+Note: Use this before any other references (defvar/defcustom) to NEWVAR."
   (let ((needs-setting (and (boundp oldvar) (not (boundp newvar))))
         (value (and (boundp oldvar) (symbol-value oldvar))))
      (defvaralias oldvar newvar)
@@ -106,6 +106,8 @@ setting NEWVAR and marks OLDVAR as provided for compatibility only."
 (make-obsolete 'set-window-dot 'set-window-point)
 
 (define-obsolete-function-alias 'extent-buffer 'extent-object)
+(define-compatible-variable-alias 'parse-sexp-lookup-properties
+  'lookup-syntax-properties)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; frames
 (defun frame-first-window (frame)
@@ -171,6 +173,10 @@ If you want to change the locations where XEmacs looks for info files,
 set Info-directory-list.")
 (make-obsolete-variable 'Info-default-directory-list 'Info-directory-list)
 
+(defvar init-file-user nil
+  "This used to be the name of the user whose init file was read at startup.")
+(make-obsolete-variable 'init-file-user 'load-user-init-file-p)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; hooks
 
 (make-compatible-variable 'lisp-indent-hook 'lisp-indent-function)
@@ -215,8 +221,8 @@ set Info-directory-list.")
 
 (defun add-menu (menu-path menu-name menu-items &optional before)
   "See the function `add-submenu'."
-  (or menu-name (error (gettext "must specify a menu name")))
-  (or menu-items (error (gettext "must specify some menu items")))
+  (or menu-name (error "must specify a menu name"))
+  (or menu-items (error "must specify some menu items"))
   (add-submenu menu-path (cons menu-name menu-items) before))
 ;; Can't make this obsolete.  easymenu depends on it.
 (make-compatible 'add-menu 'add-submenu)
@@ -242,11 +248,21 @@ set Info-directory-list.")
 (define-compatible-function-alias 'byte-code-function-p
   'compiled-function-p) ;FSFmacs
 
+(define-obsolete-function-alias 'isearch-yank-x-selection
+  'isearch-yank-selection)
+(define-obsolete-function-alias 'isearch-yank-x-clipboard
+  'isearch-yank-clipboard)
+
 ;; too bad there's not a way to check for aref, assq, and nconc
 ;; being called on the values of functions known to return keymaps,
 ;; or known to return vectors of events instead of strings...
 
 (make-obsolete-variable 'executing-macro 'executing-kbd-macro)
+
+(define-compatible-function-alias 'interactive-form 
+  'function-interactive) ;GNU 21.1
+(define-compatible-function-alias 'assq-delete-all
+  'remassq) ;GNU 21.1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; modeline
 
@@ -329,13 +345,13 @@ Multibyte characters are concerned."
   "Return a vector of characters in STRING."
   (mapvector #'identity string))
 
-(defun store-substring (string idx obj)
-  "Embed OBJ (string or character) at index IDX of STRING."
-  (let* ((str (cond ((stringp obj) obj)
-		    ((characterp obj) (char-to-string obj))
+(defun store-substring (string idx object)
+  "Embed OBJECT (string or character) at index IDX of STRING."
+  (let* ((str (cond ((stringp object) object)
+		    ((characterp object) (char-to-string object))
 		    (t (error
 			"Invalid argument (should be string or character): %s"
-			obj))))
+			object))))
 	 (string-len (length string))
 	 (len (length str))
 	 (i 0))
@@ -344,9 +360,9 @@ Multibyte characters are concerned."
       (setq idx (1+ idx) i (1+ i)))
     string))
 
-;; ### This function is not compatible with FSF in some cases.  Hard
+;; #### This function is not compatible with FSF in some cases.  Hard
 ;; to fix, because it is hard to trace the logic of the FSF function.
-;; In case we need the exact behaviour, we can always copy the FSF
+;; In case we need the exact behavior, we can always copy the FSF
 ;; version, which is very long and does lots of unnecessary stuff.
 (defun truncate-string-to-width (str end-column &optional start-column padding)
   "Truncate string STR to end at column END-COLUMN.
@@ -377,4 +393,8 @@ the resulting string may be narrower than END-COLUMN."
 
 (make-obsolete 'function-called-at-point 'function-at-point)
 
+(when (featurep 'utf-2000)
+  (make-obsolete-variable 'utf-2000-version 'xemacs-chise-version))
+
+(provide 'obsolete)
 ;;; obsolete.el ends here
