@@ -1062,16 +1062,18 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
       Lisp_Object mother = XCHARSET_MOTHER (charset);
       int min = XCHARSET_MIN_CODE (charset);
       int max = XCHARSET_MAX_CODE (charset);
-      int code;
+      int code = -1;
 
       if ( CHARSETP (mother) )
 	code = charset_code_point (mother, ch, defined_only);
       else if (defined_only)
 	return -1;
-      else
+      else if ( ((max == 0) && CHARSETP (mother)
+		 && (XCHARSET_FINAL (charset) == 0))
+		|| ((min <= ch) && (ch <= max)) )
 	code = ch;
-      if ( ((max == 0) && CHARSETP (mother)) ||
-	   ((min <= code) && (code <= max)) )
+      if ( ((max == 0) && CHARSETP (mother) && (code >= 0))
+	   || ((min <= code) && (code <= max)) )
 	{
 	  int d = code - XCHARSET_CODE_OFFSET (charset);
 
