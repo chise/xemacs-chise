@@ -1,5 +1,10 @@
 1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R009-Man.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R010-Legs.el: Merge `japanese-jisx0213-1' and
 	`japanese-jisx0213-2'.
 
