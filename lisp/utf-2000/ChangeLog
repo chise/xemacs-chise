@@ -1,3 +1,61 @@
+2001-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R143-Blood.el (M-33999'): Unify M050438.
+
+2001-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (M-33775'): Unify M050434.
+	(M-33907'): Unify M050435.
+	(M-33908): New character.
+	(M-33908'): New character; unify M050436.
+	(M-33909): Separate C5-7944.
+	(M-33931'): Unify M050437.
+
+	* Ideograph-R141-Tiger.el (M-32678'): Unify M050430.
+	(M-32710): Delete `general-category' and `bidi-category'; fix
+	`total-strokes'; separate `chinese-cns11643-1'
+	(K0-5657): Unify C1-663F.
+	(U+865C): Delete `japanese-strokes'; fix `ideographic-strokes';
+	unify M-32720' and M050431.
+	(M-32723): New character; unify K0-6965 and C1-663E.
+	(U+865E): Unify M053920.
+	(M-32723'): Separate U+865E = G0-535D and K0-6965 = C1-663E; unify
+	M050432.
+
+2001-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el: Separate CNS code points which have
+	radical <KANGXI RADICAL DRY>/<KANGXI RADICAL MOUSE> from
+	Morohashi's Daikanwa numbers which have <KANGXI RADICAL TONGUE>.
+	(M-30323'): Unify M050384.
+
+	* Ideograph-R130-Meat.el: Separate CNS code points which have moon
+	form of meat (U+2EBC <CJK RADICAL MEAT>) from Morohashi's Daikanwa
+	numbers.
+	(M-29263'): Separate C1-4B39; unify M050368.
+	(M-29396): New character; unify G0-307B, K0-7860 and U+80DE.
+	(C1-5330): Relate to M-29396.
+	(M-29396'): Separate G0-307B, K0-7860, U+80DE and C1-5330; unify
+	M050369.
+	(M-29421'): Delete `daikanwa-radical', `daikanwa-strokes' and
+	`kangxi-strokes'; unify M050370.
+	(M-29539'): Unify M050372.
+	(M-29567'): Unify M050373.
+	(M-29745'): New character; unify M050374.
+	(C6-5675): Relate to M-29745'.
+	(U+4430): Unify M-29807' and M050375; separate C6-606F.
+	(C6-606F): Relate to M-29807'.
+	(M-29808'): Unify M050376.
+	(M-29965'): New character; unify M050377.
+	(C7-487E): Relate to M-29965'.
+	(M-29966'): New character; unify M050378.
+	(C5-6924): Relate to M-29966'.
+	(M-29995'): Unify M050379.
+
+2001-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R132-Self.el (M-30103'): Unify M050380.
+
 2001-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R124-Feather.el (M-28635'): Unify M050359.
