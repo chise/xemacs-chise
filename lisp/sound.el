@@ -113,7 +113,7 @@
   :group 'sound
   :type 'string)
 
-(defcustom default-sound-directory-list ( list default-sound-directory )
+(defcustom default-sound-directory-list (locate-data-directory-list "sounds")
 
   "List of directories which to search for sound files"
   :group 'sound

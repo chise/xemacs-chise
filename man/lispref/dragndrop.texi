@@ -12,7 +12,7 @@
 interface may change! The current implementation is considered experimental.
 
   Drag'n'drop is a way to transfer information between multiple applications.
-To do this serveral GUIs define their own protocols. Examples are OffiX, CDE,
+To do this several GUIs define their own protocols. Examples are OffiX, CDE,
 Motif, KDE, MSWindows, GNOME, and many more. To catch all these protocols,
 XEmacs provides a generic API.
 
@@ -32,7 +32,7 @@ powerful interfaces to support these types of data (tm and w3).
 @section Supported Protocols
 
 The current release of XEmacs only support a small set of Drag'n'drop
-protocols. Some of these only support limited options avaiable in the API.
+protocols. Some of these only support limited options available in the API.
 
 @menu
 * OffiX DND::           A generic X based protocol.
@@ -63,7 +63,7 @@ is dragged from XEmacs (well, not yet...).
 XEmacs supports both MIME and URL drags and drops using this API. No application 
 interaction is possible while dragging is in progress.
 
-For infomation about the OffiX project have a look at http://leb.net/~offix/
+For information about the OffiX project have a look at http://leb.net/~offix/
 
 @node CDE dt
 @subsection CDE dt
@@ -110,7 +110,7 @@ This misc-user-event has its function argument set to
 @code{experimental-dragdrop-drop-functions} for a function that can handle the 
 dropped data.
 
-To modify the drop behaviour, the user can modify the variable
+To modify the drop behavior, the user can modify the variable
 @code{experimental-dragdrop-drop-functions}. Each element of this list
 specifies a possible handler for dropped data. The first one that can handle
 the data will return @code{t} and exit. Another possibility is to set a

@@ -243,6 +243,7 @@ in `substitute-in-file-name'."
        (delete-region (point-min) (point)))
   (insert ?~))
 
+
 (defvar read-file-name-map
   (let ((map (make-sparse-keymap 'read-file-name-map)))
     (set-keymap-parents map (list minibuffer-local-completion-map))
@@ -447,12 +448,14 @@ See also the variable completion-highlight-first-word-only for control over
 		 (insert initial-contents)
 		 (setq current-minibuffer-contents initial-contents
 		       current-minibuffer-point (point))))
-           (use-local-map (or keymap minibuffer-local-map))
+           (use-local-map (help-keymap-with-help-key
+			   (or keymap minibuffer-local-map)
+			   minibuffer-help-form))
            (let ((mouse-grabbed-buffer
 		  (and minibuffer-smart-completion-tracking-behavior
 		       (current-buffer)))
                  (current-prefix-arg current-prefix-arg)
-                 (help-form minibuffer-help-form)
+;;                 (help-form minibuffer-help-form)
                  (minibuffer-history-variable (cond ((not _history_)
                                                      'minibuffer-history)
                                                     ((consp _history_)
@@ -1452,6 +1455,7 @@ only existing buffer names are allowed."
 		      (read-from-minibuffer
 		       prompt (if num (prin1-to-string num)) nil t
 		       t)) ;no history
+		  (input-error nil)
 		  (invalid-read-syntax nil)
 		  (end-of-file nil)))
       (or (funcall pred num) (beep)))
@@ -1669,7 +1673,7 @@ DIR defaults to current buffer's directory default."
     'read-directory-name-internal))
 
 
-;; Environment-variable completion hack
+;; Environment-variable and ~username completion hack
 (defun read-file-name-internal-1 (string dir action completer)
   (if (not (string-match
 	    "\\([^$]\\|\\`\\)\\(\\$\\$\\)*\\$\\([A-Za-z0-9_]*\\|{[^}]*\\)\\'"
@@ -1677,14 +1681,38 @@ DIR defaults to current buffer's directory default."
       ;; Not doing environment-variable completion hack
       (let* ((orig (if (equal string "") nil string))
              (sstring (if orig (substitute-in-file-name string) string))
-             (specdir (if orig (file-name-directory sstring) nil)))
-        (funcall completer
-                 action
-                 orig
-                 sstring
-                 specdir
-                 (if specdir (expand-file-name specdir dir) dir)
-                 (if orig (file-name-nondirectory sstring) string)))
+             (specdir (if orig (file-name-directory sstring) nil))
+             (name    (if orig (file-name-nondirectory sstring) string))
+             (direct  (if specdir (expand-file-name specdir dir) dir)))
+        ;; ~username completion
+        (if (and (fboundp 'user-name-completion-1)
+                 (string-match "^[~]" name))
+            (let ((user (substring name 1)))
+              (cond ((eq action 'lambda)
+                     (file-directory-p name))
+                    ((eq action 't)
+                     ;; all completions
+                     (mapcar #'(lambda (p) (concat "~" p))
+                             (user-name-all-completions user)))
+                    (t;; 'nil
+                     ;; complete
+                     (let* ((val+uniq (user-name-completion-1 user))
+                            (val  (car val+uniq))
+                            (uniq (cdr val+uniq)))
+                       (cond ((stringp val)
+                              (if uniq
+                                  (file-name-as-directory (concat "~" val))
+                                (concat "~" val)))
+                             ((eq val t)
+                              (file-name-as-directory name))
+                             (t nil))))))
+          (funcall completer
+                   action
+                   orig
+                   sstring
+                   specdir
+                   direct
+                   name)))
       ;; An odd number of trailing $'s
       (let* ((start (match-beginning 3))
              (env (substring string

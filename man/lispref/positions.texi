@@ -901,7 +901,7 @@ before you try it.
 
 If @var{body} changes the current buffer, @code{save-restriction} still
 restores the restrictions on the original buffer (the buffer whose
-restructions it saved from), but it does not restore the identity of the
+restrictions it saved from), but it does not restore the identity of the
 current buffer.
 
 @code{save-restriction} does @emph{not} restore point and the mark; use

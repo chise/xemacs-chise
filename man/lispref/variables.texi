@@ -95,10 +95,12 @@ x
 @vindex t
 @kindex setting-constant
 
-  XEmacs Lisp has two special symbols, @code{nil} and @code{t}, that
-always evaluate to themselves.  These symbols cannot be rebound, nor can
-their value cells be changed.  An attempt to change the value of
-@code{nil} or @code{t} signals a @code{setting-constant} error.
+In XEmacs Lisp, some symbols always evaluate to themselves: the two
+special symbols @code{nil} and @code{t}, as well as @dfn{keyword
+symbols}, that is, symbols whose name begins with the character
+@samp{@code{:}}.  These symbols cannot be rebound, nor can their value
+cells be changed.  An attempt to change the value of @code{nil} or
+@code{t} signals a @code{setting-constant} error.
 
 @example
 @group
@@ -433,7 +435,7 @@ XEmacs help functions (@pxref{Documentation}) look for this property.
 
 If the first character of @var{doc-string} is @samp{*}, it means that
 this variable is considered a user option.  This lets users set the
-variable conventiently using the commands @code{set-variable} and
+variable conveniently using the commands @code{set-variable} and
 @code{edit-options}.
 
 For example, this form defines @code{foo} but does not set its value:

@@ -598,6 +598,8 @@ A timeline for Emacs 20 is
 version 20.1 released September 17, 1997.
 @item
 version 20.2 released September 20, 1997.
+@item
+version 20.3 released August 19, 1998.
 @end itemize
 
 @node XEmacs
@@ -1654,6 +1656,7 @@ often in code far away from where the actual breakage is.
 * General Coding Rules::
 * Writing Lisp Primitives::
 * Adding Global Lisp Variables::
+* Coding for Mule::
 * Techniques for XEmacs Developers::
 @end menu
 
@@ -1754,7 +1757,7 @@ If all args return nil, return nil.
     @{
       val = Feval (XCAR (args));
       if (!NILP (val))
-	break;
+        break;
       args = XCDR (args);
     @}
 
@@ -2023,6 +2026,352 @@ garbage-collection mechanism won't know that the object in this variable
 is in use, and will happily collect it and reuse its storage for another
 Lisp object, and you will be the one who's unhappy when you can't figure
 out how your variable got overwritten.
+
+@node Coding for Mule
+@section Coding for Mule
+@cindex Coding for Mule
+
+Although Mule support is not compiled by default in XEmacs, many people
+are using it, and we consider it crucial that new code works correctly
+with multibyte characters.  This is not hard; it is only a matter of
+following several simple user-interface guidelines.  Even if you never
+compile with Mule, with a little practice you will find it quite easy
+to code Mule-correctly.
+
+Note that these guidelines are not necessarily tied to the current Mule
+implementation; they are also a good idea to follow on the grounds of
+code generalization for future I18N work.
+
+@menu
+* Character-Related Data Types::
+* Working With Character and Byte Positions::
+* Conversion of External Data::
+* General Guidelines for Writing Mule-Aware Code::
+* An Example of Mule-Aware Code::
+@end menu
+
+@node Character-Related Data Types
+@subsection Character-Related Data Types
+
+First, we will list the basic character-related datatypes used by
+XEmacs.  Note that the separate @code{typedef}s are not required for the 
+code to work (all of them boil down to @code{unsigned char} or
+@code{int}), but they improve clarity of code a great deal, because one
+glance at the declaration can tell the intended use of the variable.
+
+@table @code
+@item Emchar
+@cindex Emchar
+An @code{Emchar} holds a single Emacs character.
+
+Obviously, the equality between characters and bytes is lost in the Mule
+world.  Characters can be represented by one or more bytes in the
+buffer, and @code{Emchar} is the C type large enough to hold any
+character.
+
+Without Mule support, an @code{Emchar} is equivalent to an
+@code{unsigned char}.
+
+@item Bufbyte
+@cindex Bufbyte
+The data representing the text in a buffer or string is logically a set
+of @code{Bufbyte}s.
+
+XEmacs does not work with character formats all the time; when reading
+characters from the outside, it decodes them to an internal format, and
+likewise encodes them when writing.  @code{Bufbyte} (in fact
+@code{unsigned char}) is the basic unit of XEmacs internal buffers and
+strings format.
+
+One character can correspond to one or more @code{Bufbyte}s.  In the
+current implementation, an ASCII character is represented by the same
+@code{Bufbyte}, and extended characters are represented by a sequence of
+@code{Bufbyte}s.
+
+Without Mule support, a @code{Bufbyte} is equivalent to an
+@code{Emchar}.
+
+@item Bufpos
+@itemx Charcount
+A @code{Bufpos} represents a character position in a buffer or string.
+A @code{Charcount} represents a number (count) of characters.
+Logically, subtracting two @code{Bufpos} values yields a
+@code{Charcount} value.  Although all of these are @code{typedef}ed to
+@code{int}, we use them in preference to @code{int} to make it clear
+what sort of position is being used.
+
+@code{Bufpos} and @code{Charcount} values are the only ones that are
+ever visible to Lisp.
+
+@item Bytind
+@itemx Bytecount
+A @code{Bytind} represents a byte position in a buffer or string.  A
+@code{Bytecount} represents the distance between two positions in bytes.
+The relationship between @code{Bytind} and @code{Bytecount} is the same
+as the relationship between @code{Bufpos} and @code{Charcount}.
+
+@item Extbyte
+@itemx Extcount
+When dealing with the outside world, XEmacs works with @code{Extbyte}s,
+which are equivalent to @code{unsigned char}.  Obviously, an
+@code{Extcount} is the distance between two @code{Extbyte}s.  Extbytes
+and Extcounts are not all that frequent in XEmacs code.
+@end table
+
+@node Working With Character and Byte Positions
+@subsection Working With Character and Byte Positions
+
+Now that we have defined the basic character-related types, we can look
+at the macros and functions designed for work with them and for
+conversion between them.  Most of these macros are defined in
+@file{buffer.h}, and we don't discuss all of them here, but only the
+most important ones.  Examining the existing code is the best way to
+learn about them.
+
+@table @code
+@item MAX_EMCHAR_LEN
+This preprocessor constant is the maximum number of buffer bytes per
+Emacs character, i.e. the byte length of an @code{Emchar}.  It is useful
+when allocating temporary strings to keep a known number of characters.
+For instance:
+
+@example
+@group
+@{
+  Charcount cclen;
+  ...
+  @{
+    /* Allocate place for @var{cclen} characters. */
+    Bufbyte *tmp_buf = (Bufbyte *)alloca (cclen * MAX_EMCHAR_LEN);
+...
+@end group
+@end example
+
+If you followed the previous section, you can guess that, logically,
+multiplying a @code{Charcount} value with @code{MAX_EMCHAR_LEN} produces 
+a @code{Bytecount} value.
+
+In the current Mule implementation, @code{MAX_EMCHAR_LEN} equals 4.
+Without Mule, it is 1.
+
+@item charptr_emchar
+@item set_charptr_emchar
+@code{charptr_emchar} macro takes a @code{Bufbyte} pointer and returns
+the underlying @code{Emchar}.  If it were a function, its prototype
+would be:
+
+@example
+Emchar charptr_emchar (Bufbyte *p);
+@end example
+
+@code{set_charptr_emchar} stores an @code{Emchar} to the specified byte
+position.  It returns the number of bytes stored:
+
+@example
+Bytecount set_charptr_emchar (Bufbyte *p, Emchar c);
+@end example
+
+It is important to note that @code{set_charptr_emchar} is safe only for
+appending a character at the end of a buffer, not for overwriting a
+character in the middle.  This is because the width of characters
+varies, and @code{set_charptr_emchar} cannot resize the string if it
+writes, say, a two-byte character where a single-byte character used to
+reside.
+
+A typical use of @code{set_charptr_emchar} can be demonstrated by this
+example, which copies characters from buffer @var{buf} to a temporary
+string of Bufbytes.
+
+@example
+@group
+@{
+  Bufpos pos;
+  for (pos = beg; pos < end; pos++)
+    @{
+      Emchar c = BUF_FETCH_CHAR (buf, pos);
+      p += set_charptr_emchar (buf, c);
+    @}
+@}
+@end group
+@end example
+
+Note how @code{set_charptr_emchar} is used to store the @code{Emchar}
+and increment the counter, at the same time.
+
+@item INC_CHARPTR
+@itemx DEC_CHARPTR
+These two macros increment and decrement a @code{Bufbyte} pointer,
+respectively.  The pointer needs to be correctly positioned at the
+beginning of a valid character position.
+
+Without Mule support, @code{INC_CHARPTR (p)} and @code{DEC_CHARPTR (p)}
+simply expand to @code{p++} and @code{p--}, respectively.
+
+@item bytecount_to_charcount
+Given a pointer to a text string and a length in bytes, return the
+equivalent length in characters.
+
+@example
+Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
+@end example
+
+@item charcount_to_bytecount
+Given a pointer to a text string and a length in characters, return the
+equivalent length in bytes.
+
+@example
+Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
+@end example
+
+@item charptr_n_addr
+Return a pointer to the beginning of the character offset @var{cc} (in
+characters) from @var{p}.
+
+@example
+Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
+@end example
+@end table
+
+@node Conversion of External Data
+@subsection Conversion of External Data
+
+When an external function, such as a C library function, returns a
+@code{char} pointer, you should never treat it as @code{Bufbyte}.  This
+is because these returned strings may contain 8bit characters which can
+be misinterpreted by XEmacs, and cause a crash.  Instead, you should use
+a conversion macro.  Many different conversion macros are defined in
+@file{buffer.h}, so I will try to order them logically, by direction and
+by format.
+
+Thus the basic conversion macros are @code{GET_CHARPTR_INT_DATA_ALLOCA}
+and @code{GET_CHARPTR_EXT_DATA_ALLOCA}.  The former is used to convert
+external data to internal format, and the latter is used to convert the
+other way around.  The arguments each of these receives are @var{ptr}
+(pointer to the text in external format), @var{len} (length of texts in
+bytes), @var{fmt} (format of the external text), @var{ptr_out} (lvalue
+to which new text should be copied), and @var{len_out} (lvalue which
+will be assigned the length of the internal text in bytes).  The
+resulting text is stored to a stack-allocated buffer.  If the text
+doesn't need changing, these macros will do nothing, except for setting
+@var{len_out}.
+
+Currently meaningful formats are @code{FORMAT_BINARY},
+@code{FORMAT_FILENAME}, @code{FORMAT_OS}, and @code{FORMAT_CTEXT}.
+
+The two macros above take many arguments which makes them unwieldy.  For
+this reason, several convenience macros are defined with obvious
+functionality, but accepting less arguments:
+
+@table @code
+@item GET_C_CHARPTR_EXT_DATA_ALLOCA
+@itemx GET_C_CHARPTR_INT_DATA_ALLOCA
+These two macros work on ``C char pointers'', which are zero-terminated, 
+and thus do not need @var{len} or @var{len_out} parameters.
+
+@item GET_STRING_EXT_DATA_ALLOCA
+@itemx GET_C_STRING_EXT_DATA_ALLOCA
+These two macros work on Lisp strings, thus also not needing a @var{len}
+parameter.  However, @code{GET_STRING_EXT_DATA_ALLOCA} still provides a
+@var{len_out} parameter.  Note that for Lisp strings only one conversion
+direction makes sense.
+
+@item GET_C_CHARPTR_EXT_BINARY_DATA_ALLOCA
+@itemx GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA
+@itemx GET_C_CHARPTR_EXT_CTEXT_DATA_ALLOCA
+@itemx ...
+These macros are a combination of the above, but with the @var{fmt}
+argument encoded into the name of the macro.
+@end table
+
+@node General Guidelines for Writing Mule-Aware Code
+@subsection General Guidelines for Writing Mule-Aware Code
+
+This section contains some general guidance on how to write Mule-aware
+code, as well as some pitfalls you should avoid.
+
+@table @emph
+@item Never use @code{char} and @code{char *}.
+In XEmacs, the use of @code{char} and @code{char *} is almost always a
+mistake.  If you want to manipulate an Emacs character from ``C'', use
+@code{Emchar}.  If you want to examine a specific octet in the internal
+format, use @code{Bufbyte}.  If you want a Lisp-visible character, use a
+@code{Lisp_Object} and @code{make_char}.  If you want a pointer to move
+through the internal text, use @code{Bufbyte *}.  Also note that you
+almost certainly do not need @code{Emchar *}.
+
+@item Be careful not to confuse @code{Charcount}, @code{Bytecount}, and @code{Bufpos}.
+The whole point of using different types is to avoid confusion about the 
+use of certain variables.  Lest this effect be nullified, you need to be 
+careful about using the right types.
+
+@item Always convert external data
+It is extremely important to always convert external data, because
+XEmacs can crash if unexpected 8bit sequences are copied to its internal 
+buffers literally.
+
+This means that when a system function, such as @code{readdir}, returns
+a string, you need to convert it using one of the conversion macros
+described in the previous chapter, before passing it further to Lisp.
+In the case of @code{readdir}, you would use the
+@code{GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA} macro.
+
+Also note that many internal functions, such as @code{make_string},
+accept Bufbytes, which removes the need for them to convert the data
+they receive.  This increases efficiency because that way external data
+needs to be decoded only once, when it is read.  After that, it is
+passed around in internal format.
+@end table
+
+@node An Example of Mule-Aware Code
+@subsection An Example of Mule-Aware Code
+
+As an example of Mule-aware code, we shall will analyze the
+@code{string} function, which conses up a Lisp string from the character
+arguments it receives.  Here is the definition, pasted from
+@code{alloc.c}:
+
+@example
+@group
+DEFUN ("string", Fstring, 0, MANY, 0, /*
+Concatenate all the argument characters and make the result a string.
+*/
+       (int nargs, Lisp_Object *args))
+@{
+  Bufbyte *storage = alloca_array (Bufbyte, nargs * MAX_EMCHAR_LEN);
+  Bufbyte *p = storage;
+
+  for (; nargs; nargs--, args++)
+    @{
+      Lisp_Object lisp_char = *args;
+      CHECK_CHAR_COERCE_INT (lisp_char);
+      p += set_charptr_emchar (p, XCHAR (lisp_char));
+    @}
+  return make_string (storage, p - storage);
+@}
+@end group
+@end example
+
+Now we can analyze the source line by line.
+
+Obviously, string will be as long as there are arguments to the
+function.  This is why we allocate @code{MAX_EMCHAR_LEN} * @var{nargs}
+bytes on the stack, i.e. the worst-case number of bytes for @var{nargs}
+@code{Emchar}s to fit in the string.
+
+Then, the loop checks that each element is a character, converting
+integers in the process.  Like many other functions in XEmacs, this
+function silently accepts integers where characters are expected, for
+historical and compatibility reasons.  Unless you know what you are
+doing, @code{CHECK_CHAR} will also suffice.  @code{XCHAR (lisp_char)}
+extracts the @code{Emchar} from the @code{Lisp_Object}, and
+@code{set_charptr_emchar} stores it to storage, increasing @code{p} in
+the process.
+
+Other instructing examples of correct coding under Mule can be found all
+over XEmacs code.  For starters, I recommend
+@code{Fnormalize_menu_item_name} in @file{menubar.c}.  After you have
+understood this section of the manual and studied the examples, you can
+proceed writing new Mule-aware code.
 
 @node Techniques for XEmacs Developers
 @section Techniques for XEmacs Developers

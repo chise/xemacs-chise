@@ -834,7 +834,7 @@ at the time and the position of the pointer at the time.
 also specify the modifier keys that were held down at the time.
 
 @item misc-user event
-  A menu item was selected, the scrollbar was used, or a drag or a drop occured.
+  A menu item was selected, the scrollbar was used, or a drag or a drop occurred.
 
 @item process event
   Input is available on a process.
@@ -1388,7 +1388,7 @@ Here are some basic examples of usage:
 @end group
 
 @group
-;; @r{Create a simmilar button-release event.}
+;; @r{Create a similar button-release event.}
 (make-event 'button-release `(button 1 modifiers (meta) x ,x y ,x))
      @result{} #<buttonup-event meta-button1up>
 @end group

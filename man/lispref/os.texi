@@ -1540,7 +1540,7 @@ computer):
 This function is used to open a @dfn{termscript file} that will record
 all the characters sent by XEmacs to the terminal. (If there are
 multiple tty or stream devices, all characters sent to all such devices
-are recorded.) The funcion returns @code{nil}.  Termscript files are
+are recorded.) The function returns @code{nil}.  Termscript files are
 useful for investigating problems where XEmacs garbles the screen,
 problems that are due to incorrect Termcap entries or to undesirable
 settings of terminal options more often than to actual XEmacs bugs.

@@ -284,6 +284,7 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
        :user-data
        :reference-buffer
        (:help-string completion-default-help-string)
+       (:completion-string "Possible completions are:")
        :window-width)
       ()
     (let ((old-buffer (current-buffer))
@@ -341,7 +342,8 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 			      (if (/= (% count cols) 0) ; want ceiling...
 				  (1+ (/ count cols))
                                 (/ count cols)))))))
-	      (princ (gettext "Possible completions are:"))
+	      (if (stringp cl-completion-string)
+		  (princ (gettext cl-completion-string)))
 	      (let ((tail completions)
 		    (r 0)
 		    (regexp-string

@@ -6,9 +6,9 @@
 ;; Keywords: lisp
 ;; Created: 15 December 1995
 
-;; This file is part of GNU Emacs.
+;; This file is part of XEmacs.
 
-;; GNU Emacs is free software; you can redistribute it and/or modify
+;; XEmacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
 ;; any later version.
@@ -51,6 +51,8 @@
 ;; Thanks to Francesco Potorti` <pot@cnuce.cnr.it> for suggestions,
 ;; rewritings & speedups.
 
+;; 1998-08-15 Martin Buchholz: Speed up using hashtables instead of lists.
+
 ;;; Code:
 
 (defun find-emacs-lisp-shadows (&optional path)
@@ -64,50 +66,49 @@ are stripped from the file names in the list.
 
 See the documentation for `list-load-path-shadows' for further information."
   
-  (or path (setq path load-path))
-
-  (let (true-names			; List of dirs considered.
-	shadows				; List of shadowings, to be returned.
-	files				; File names ever seen, with dirs.
+  (let (shadows				; List of shadowings, to be returned.
 	dir				; The dir being currently scanned.
 	curr-files			; This dir's Emacs Lisp files.
 	orig-dir			; Where the file was first seen.
-	files-seen-this-dir		; Files seen so far in this dir.
-	file)				; The current file.
-
+	(file-dirs
+	 (make-hashtable 2000 'equal))	; File names ever seen, with dirs.
+	(true-names
+	 (make-hashtable 50 'equal))	; Dirs ever considered.
+	(files-seen-this-dir
+	 (make-hashtable 100 'equal))	; Files seen so far in this dir.
+	)
   
-    (while path
+    (dolist (path-elt (or path load-path))
 
-      (setq dir (file-truename (or (car path) ".")))
-      (if (member dir true-names)
+      (setq dir (file-truename (or path-elt ".")))
+      (if (gethash dir true-names)
 	  ;; We have already considered this PATH redundant directory.
-	  ;; Show the redundancy if we are interactiver, unless the PATH
+	  ;; Show the redundancy if we are interactive, unless the PATH
 	  ;; dir is nil or "." (these redundant directories are just a
 	  ;; result of the current working directory, and are therefore
 	  ;; not always redundant).
 	  (or noninteractive
-	      (and (car path)
-		   (not (string= (car path) "."))
-		   (message "Ignoring redundant directory %s" (car path))))
-	
-	(setq true-names (append true-names (list dir)))
-	(setq dir (or (car path) "."))
+	      (and path-elt
+		   (not (string= path-elt "."))
+		   (message "Ignoring redundant directory %s" path-elt)))
+
+	(puthash dir t true-names)
+	(setq dir (or path-elt "."))
 	(setq curr-files (if (file-accessible-directory-p dir)
                                (directory-files dir nil ".\\.elc?$" t)))
 	(and curr-files
 	     (not noninteractive)
 	     (message "Checking %d files in %s..." (length curr-files) dir))
 	
-	(setq files-seen-this-dir nil)
+	(clrhash files-seen-this-dir)
 
-	(while curr-files
+	(dolist (file curr-files)
 
-	  (setq file (car curr-files))
 	  (setq file (substring
 		      file 0 (if (string= (substring file -1) "c") -4 -3)))
 
 	  ;; FILE now contains the current file name, with no suffix.
-	  (unless (or (member file files-seen-this-dir)
+	  (unless (or (gethash file files-seen-this-dir)
 		      ;; Ignore these files.
 		      (member file
 			      '("subdirs"
@@ -119,22 +120,19 @@ See the documentation for `list-load-path-shadows' for further information."
 	    ;; File has not been seen yet in this directory.
 	    ;; This test prevents us declaring that XXX.el shadows
 	    ;; XXX.elc (or vice-versa) when they are in the same directory.
-	    (setq files-seen-this-dir (cons file files-seen-this-dir))
+	    (puthash file t files-seen-this-dir)
 	      
-	    (if (setq orig-dir (assoc file files))
+	    (if (setq orig-dir (gethash file file-dirs))
 		;; This file was seen before, we have a shadowing.
 		(setq shadows
-		      (append shadows
-			      (list (concat (file-name-as-directory (cdr orig-dir))
-					    file)
-				    (concat (file-name-as-directory dir)
-					    file))))
+		      (nconc shadows
+			     (list (concat (file-name-as-directory orig-dir)
+					   file)
+				   (concat (file-name-as-directory dir)
+					   file))))
 
 	      ;; Not seen before, add it to the list of seen files.
-	      (setq files (cons (cons file dir) files))))
-
-	  (setq curr-files (cdr curr-files))))
-	(setq path (cdr path)))
+	      (puthash file dir file-dirs))))))
 
     ;; Return the list of shadowings.
     shadows))

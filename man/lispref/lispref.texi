@@ -140,6 +140,7 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Functions::               A function is a Lisp program
                               that can be invoked from other functions.
 * Macros::                  Macros are a way to extend the Lisp language.
+* Customization::           Writing customization declarations.
 
 * Loading::                 Reading files of Lisp code into Lisp.
 * Byte Compilation::        Compilation makes programs run faster.
@@ -1144,6 +1145,7 @@ Building XEmacs and Object Allocation
 @include variables.texi
 @include functions.texi
 @include macros.texi
+@include customize.texi
 
 @include loading.texi
 @include compile.texi

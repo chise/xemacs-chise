@@ -225,7 +225,7 @@ nulls (use @code{arg_bval}).
 
 @defun create-tooltalk-message
 Create a new ToolTalk message.  The message's session attribute is
-initialized to the default session.  Other attributes can be intialized
+initialized to the default session.  Other attributes can be initialized
 with @code{set-tooltalk-message-attribute}.
 @code{make-tooltalk-message} is the preferred way to create and
 initialize a message.

@@ -1731,6 +1731,8 @@ Example: (defsetf nth (n x) (v) (list 'setcar (list 'nthcdr n x) v))."
 ;; Avoid adding various face and glyph functions.
 (defsetf frame-selected-window (&optional f) (v)
   `(set-frame-selected-window ,f ,v))
+(defsetf glyph-image (glyph &optional domain) (i)
+  (list 'set-glyph-image glyph i domain))
 (defsetf itimer-function set-itimer-function)
 (defsetf itimer-function-arguments set-itimer-function-arguments)
 (defsetf itimer-is-idle set-itimer-is-idle)

@@ -1,3 +1,59 @@
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-19  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* tiff.mak: New file provided by Charles Wilson
+	  <cwilson@ee.gatech.edu>
+
+	* README: Update provided by Charles Wilson
+	  <cwilson@ee.gatech.edu>.  Documenting use of the newly
+	  introduced tiff.mak.  Renumbering subsequent build instruction
+	  items.
+
+1998-09-20  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* PROBLEMS: New file.
+
+	* xemacs.mak: Install the PROBLEMS file in the root directory of
+	  the XEmacs installation.
+
+1998-08-31  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak: Detect failure to supply PNG_DIR or XLIB_DIR
+	  when building with PNG support.
+
+1998-08-31  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: Document the PNG, ZLIB, JPEG, TIFF and GIF build
+	  options.
+
+1998-08-12  Jeff Sparkes  <jsparkes@internetivity.com>
+
+	* xemacs.mak: Link in GIF, fix HAVE_JPEG default.
+
+1998-08-09  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak (install): Win95 fixes:
+	  DOS mkdir doesn't create intermediate directories. xcopy does
+	  so use it to create the install and lock directories.
+	  Removed trailing backslashes from copy commands since DOS
+	  copy doesn't like them.
+
+1998-08-05  Charles G. Waldman <cgw@pgt.com>
+
+	* xemacs.mak: change "copy" to "xcopy" in install target
+
+1998-08-04  Jeff Sparkes  <jsparkes@internetivity.com> 
+
+	* xemacs.mak: Link in PNG, TIFF and JPEG in native build.
+
+1998-08-04  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: XEmacs has been successfully built with MSVC 4.0.
+	  Mention the vcvars32.bat file installed with the MSVC tools.
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

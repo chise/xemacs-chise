@@ -1240,6 +1240,7 @@ as well as Unix syntax.
 * File Name Expansion::   Converting relative file names to absolute ones.
 * Unique File Names::     Generating names for temporary files.
 * File Name Completion::  Finding the completions for a given file name.
+* User Name Completion::  Finding the completions for a given user name.
 @end menu
 
 @node File Name Components
@@ -1762,6 +1763,41 @@ completion-ignored-extensions
 @end group
 @end example
 @end defopt
+
+@node User Name Completion
+@subsection User Name Completion
+@cindex user name completion subroutines
+@cindex completion, user name
+
+  This section describes low-level subroutines for completing a user
+name.  For other completion functions, see @ref{Completion}.
+
+@defun user-name-all-completions partial-username
+This function returns a list of all possible completions for a user
+whose name starts with @var{partial-username}.  The order of the 
+completions is unpredictable and conveys no useful information.
+
+The argument @var{partial-username} must be a partial user name 
+containing no tilde character and no slash.
+@end defun
+
+@defun user-name-completion username
+This function completes the user name @var{username}.  It returns the 
+longest prefix common to all user names that start with @var{username}.
+
+If only one match exists and @var{username} matches it exactly, the
+function returns @code{t}.  The function returns @code{nil} if no user 
+name starting with @var{username} exists.
+@end defun
+
+@defun user-name-completion-1 username
+This function completes the user name @var{username}, like 
+@code{user-name-completion}, differing only in the return value.  
+This function returns the cons of the completion returned by
+@code{user-name-completion}, and a boolean indicating whether that
+completion was unique.
+@end defun
+
 
 @node Contents of Directories
 @section Contents of Directories
