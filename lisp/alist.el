@@ -4,7 +4,7 @@
 
 ;; Author: MORIOKA Tomohiko <morioka@jaist.ac.jp>
 ;; Version:
-;;	$Id: alist.el,v 1.1 1997/11/29 20:37:43 steve Exp $
+;;	$Id: alist.el,v 0.0 1997/02/28 02:18:23 tmorioka Exp $
 ;; Keywords: alist
 
 ;; This file is part of SEMI (SEMI is Emacs MIME Interfaces).

@@ -941,15 +941,19 @@ It first checks if FILENAME already is a remote filename.  If it is
 not, then it uses the (car search) as the remote site-name and the (cadr
 search) as the remote-directory and concatenates filename.  In other
 words
-	site-name:remote-directory/filename
+	site-name:remote-directory/filename.
+
+If (car search) is nil, (cadr search is interpreted as  a local directory).
 "
-  (if (efs-ftp-path filename)
+  (if (file-remote-p filename)
       filename
     (let ((dir (cadr search)))
-      (concat (if (string-match "@" (car search))
-		  "/"
-		"/anonymous@")
-	      (car search) ":"
+      (concat (when (car search)
+		(concat
+		 (if (string-match "@" (car search))
+		     "/"
+		   "/anonymous@")
+		 (car search) ":"))
 	      (if (string-match "/$" dir)
 		  dir
 		(concat dir "/"))
