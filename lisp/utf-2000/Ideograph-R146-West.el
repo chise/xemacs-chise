@@ -21,8 +21,18 @@
     (ucs		. #x897F)	; è¥¿
     ))
 (define-char
-  '((ideographic-radical . 146)	; â¾‘
+  '((=>ucs		. #x8980)	; è¦€
+    (morohashi-daikanwa	34763 0 1)
+    (ideographic-radical . 146)	; â¾‘
     (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (chinese-big5-cdp	. #x8BD5)	; ý¢€ˆ¯•
+    ))
+(define-char
+  '((morohashi-daikanwa	34763 0 2)
+    (ideographic-radical . 146)	; â¾‘
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
     (chinese-isoir165	. #x2F7A)	; ø»„‘
     (ucs		. #x8980)	; è¦€
     ))

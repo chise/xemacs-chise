@@ -1100,3 +1100,8 @@
     (chinese-big5-eten	. #xC6DD)	; ý¢€Œ›
     (ucs		. #x309E)	; ã‚ž
     ))
+(define-char
+  '((name		. "HIRAGANA DIGRAPH YORI")
+    (japanese-jisx0213-1	. #x2239)	; ø»¢”²
+    (ucs			. #x309F)	; ã‚Ÿ
+    ))

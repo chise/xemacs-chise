@@ -128,13 +128,23 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideograph-gt-pj-k1 . #x3233)	; âºŒ
+    (chinese-big5-cdp	. #x8B54)	; ý¢€ˆ­”
+    (ideograph-gt-k	. 00303)	; ý¡„€„¯
     (ucs		. #x2E8C)	; âºŒ
+    ))
+(define-char
+  '((=>ucs		. #x2E8C)	; âºŒ
+    (ideograph-gt-pj-k1 . #x324E)	; ý¡„€„±
+    (ideograph-gt-k	. 00305)	; ý¡„€„±
     ))
 (define-char
   '((name		. "CJK RADICAL SMALL TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideograph-gt-pj-k1 . #x3251)	; âº
+    (ideograph-gt-k	. 00325)	; ý¡„€……
     (ucs		. #x2E8D)	; âº
     ))
 (define-char
@@ -225,7 +235,9 @@
     (<-radical
      ((ucs		  . #x5FC4)	; å¿„
       ))
+    (ideograph-gt-pj-3	. #x4D5F)	; âº–
     (chinese-big5-cdp	. #x8B51)	; ý¢€ˆ­‘
+    (ideograph-gt-k	. 00302)	; ý¡„€„®
     (ucs		. #x2E96)	; âº–
     ))
 (define-char
@@ -518,7 +530,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5-cdp	. #x8970)	; ý¢€ˆ¥°
     (ucs		. #x2EB6)	; âº¶
+    ))
+(define-char
+  '((=>ucs		. #x2EB6)	; âº¶
+    (chinese-big5-cdp	. #x8CCC)	; ý¢€ˆ³Œ
     ))
 (define-char
   '((name		. "CJK RADICAL RAM")
@@ -569,14 +586,27 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((ideograph-daikanwa . 29237)	; ø¸‡ˆµ
-      ))
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideograph-daikanwa . 29237)	; ø¸‡ˆµ
     (ucs		. #x2EBC)	; âº¼
     ))
 (define-char
   '((=>ucs		. #x2EBC)	; âº¼
+    (morohashi-daikanwa	29237 0 1)
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (chinese-big5-cdp	. #x8958)	; ý¢€ˆ¥˜
+    ))
+(define-char
+  '((=>ucs		. #x2EBC)	; âº¼
+    (morohashi-daikanwa	29237 0 0)
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (chinese-big5-cdp	. #x8A73)	; ý¢€ˆ©³
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")

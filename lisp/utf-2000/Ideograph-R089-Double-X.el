@@ -243,13 +243,27 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 7)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; â¿»
       )
-     ((name		  . "cjk radical person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(ucs		    . #x2FFB)	; â¿»
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (ucs		      . #x2FF1)	; â¿±
+	  )
+	 ((name*	      . "ideographic component person as roof")
+	  (chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	  )
+	 ((chinese-big5-cdp   . #x8B54)	; ý¢€ˆ­”
+	  ))
+	)
+       ((ucs		    . #x5182)	; å†‚
+	))
       )
-     ((chinese-big5-cdp	  . #x85AE)	; ý¢€ˆ–®
+     ((ucs		  . #x3E1A)	; ã¸š
       ))
     (chinese-cns11643-7		. #x247C)	; ø»ž„©
     (ideograph-daikanwa		. 19753)	; ø¸„´©
@@ -305,24 +319,41 @@
     (chinese-cns11643-7 . #x476E)	; ø»ž·µ
     ))
 (define-char
-  '((=>ucs		. #x20442)	; ð ‘‚
-    (ideographic-radical . 89)	; â½˜
-    (ideographic-strokes . 15)
+  '((ideographic-	(:radical	89 ; â½˜
+			 :strokes	15
+			 :sources	(morohashi-daikanwa cns-11643))
+			(:radical	9 ; â¼ˆ
+			 :strokes	17
+			 :sources	(ucs)))
     (total-strokes	 . 19)
-    (->identical
-     ((ucs		  . #x20442)	; ð ‘‚
-      ))
+    (hanyu-dazidian	1 237 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; â¿»
       )
-     ((name		  . "cjk radical person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(ucs		    . #x2FFB)	; â¿»
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	  (ucs		      . #x2FF3)	; â¿³
+	  )
+	 ((name*	      . "ideographic component person as roof")
+	  (chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	  )
+	 ((ucs		      . #x6B62)	; æ­¢
+	  )
+	 ((ideograph-gt-k     . 00305)	; ý¡„€„±
+	  ))
+	)
+       ((ucs		    . #x5182)	; å†‚
+	))
       )
-     ((ucs		  . #x6B62)	; æ­¢
-      )
-     ((chinese-big5-cdp	  . #x88D6)	; ý¢€ˆ£–
+     ((ucs		  . #x3E1A)	; ã¸š
       ))
-    (chinese-cns11643-7 . #x476F)	; ø»ž·¶
-    (ideograph-daikanwa . 19757)	; ø¸„´­
+    (chinese-cns11643-7		. #x476F)	; ø»ž·¶
+    (ideograph-daikanwa		. 19757)	; ø¸„´­
+    (ideograph-hanziku-1	. #xD6F4)	; ý¢€›´
+    (ucs			. #x20442)	; ð ‘‚
     ))

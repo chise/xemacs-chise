@@ -420,7 +420,7 @@
       )
      ((ucs		  . #x3405)	; ã…
       )
-     ((chinese-big5-cdp	  . #x8CEB)	; ý¢€ˆ³«
+     ((ucs		  . #x53B7)	; åŽ·
       ))
     (chinese-cns11643-4 . #x2249)	; ø»—¢®
     (ideograph-daikanwa . 48956)	; ø¸‹¼¼
@@ -549,7 +549,8 @@
       )
      ((ucs		  . #x53BD)	; åŽ½
       )
-     ((chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+     ((name*		  . "ideographic component person as roof")
+      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       ))
     (ideograph-daikanwa . 03088)	; ø¸€°
     ))

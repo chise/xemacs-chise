@@ -6,12 +6,20 @@
     (shinjigen-2	. 9037)
     (=jis-x0208		. #x4873)	; ø½Š° 
     (korean-ksc5601	. #x5E2A)	; ø»‰³»
-    (chinese-cns11643-1 . #x4F66)	; ø»’‡…
     (ideograph-daikanwa . 42585)	; ø¸Š™™
     (ucs-jis		. #x975E)	; ø½Š° 
     ))
 (define-char
-  '((morohashi-daikanwa	42585 0 0)
+  '((=>ucs		. #x975E)	; éž
+    (morohashi-daikanwa	42585 0 0)
+    (ideographic-radical . 175)	; â¾®
+    (ideographic-strokes . 0)
+    (total-strokes	 . 8)
+    (chinese-cns11643-1 . #x4F66)	; ø»’‡…
+    (ucs-cns		. #x975E)	; ø»’‡…
+    ))
+(define-char
+  '((morohashi-daikanwa	42585 0 1)
     (ideographic-radical . 175)	; â¾®
     (ideographic-strokes . 0)
     (total-strokes	 . 8)

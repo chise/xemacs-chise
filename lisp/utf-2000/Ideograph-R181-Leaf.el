@@ -1996,7 +1996,9 @@
     (ucs		. #x983A)	; é º
     ))
 (define-char
-  '((=>ucs		. #x983B)	; é »
+  '((=>ucs*		. #x983B)	; é »
+    (=>ucs-gb		. #x983B)	; é »
+    (=>ucs-cns		. #x983B)	; é »
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (japanese-strokes	 . 8)
@@ -2005,9 +2007,12 @@
     (korean-ksc5601		. #x5E3A)	; ø»‰´‹
     (japanese-jisx0213-1	. #x7D7B)	; ø»¤›ž
     (ideograph-daikanwa		. 43519)	; ø¸Š§¿
+    (ucs-ks			. #x983B)	; ï©ª
+    (ucs			. #xFA6A)	; ï©ª
     ))
 (define-char
-  '((morohashi-daikanwa	43519 0 0)
+  '((=>ucs-jis		. #xFA6A)	; ï©ª
+    (morohashi-daikanwa	43519 0 0)
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (japanese-strokes	 . 8)
@@ -3362,15 +3367,16 @@
     (japanese-jisx0213-1	. #x7E24)	; ø»¤›¥
     (chinese-gb12345		. #x4060)	; é¡ž
     (ideograph-daikanwa		. 43636)	; ø¸Š©´
+    (ucs-jis			. #xF9D0)	; é¡ž
     (ucs			. #x985E)	; é¡ž
     ))
 (define-char
   '((name		. "CJK COMPATIBILITY IDEOGRAPH-F9D0")
+    (=>ucs*		. #x985E)	; é¡ž
     (morohashi-daikanwa	43636 0 0)
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (->decomposition	#x985E)
     (korean-ksc5601	. #x6B3A)	; ø»Š‡‘
     (ucs		. #xF9D0)	; ï§
     ))

@@ -1,4 +1,9 @@
 (define-char
+  '((name		. "KATAKANA-HIRAGANA DOUBLE HYPHEN")
+    (japanese-jisx0213-1	. #x237B)	; ø»¢—’
+    (ucs			. #x30A0)	; ã‚ 
+    ))
+(define-char
   '((name		. "KATAKANA LETTER SMALL A")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
@@ -1140,4 +1145,9 @@
     (=jis-x0208		. #x2134)	; ø½‰¶
     (chinese-big5-eten	. #xC6DB)	; ý¢€Œ››
     (ucs		. #x30FE)	; ãƒ¾
+    ))
+(define-char
+  '((name		. "KATAKANA DIGRAPH KOTO")
+    (japanese-jisx0213-1	. #x2238)	; ø»¢”±
+    (ucs			. #x30FF)	; ãƒ¿
     ))

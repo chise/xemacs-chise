@@ -54,13 +54,20 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 117 1)
     (ideographic-structure
-     (:cdp-combinator	4)
-     ((name		  . "cjk radical person as roof")
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name*		  . "ideographic component person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
-     ((ucs		  . #x4E28)	; ä¸¨
-      )
-     ((chinese-big5-cdp	  . #x8B71)	; ý¢€ˆ­±
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((ucs		    . #x4E28)	; ä¸¨
+	)
+       ((ucs		    . #x5F61)	; å½¡
+	))
       ))
     (chinese-cns11643-6		. #x2471)	; ø»›ºš
     (ideograph-daikanwa		. 09967)	; ø¸‚›¯

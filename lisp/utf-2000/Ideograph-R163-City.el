@@ -1102,9 +1102,17 @@
     (=jis-x0208		. #x306A)	; ø½Š‡
     (korean-ksc5601	. #x6974)	; ø»Š…
     (chinese-isoir165	. #x5374)	; ø»¹ƒ
-    (chinese-cns11643-1 . #x5368)	; ø»’Œ¿
     (ideograph-daikanwa . 39371)	; ø¸‰§‹
     (ucs		. #x90C1)	; éƒ
+    ))
+(define-char
+  '((=>ucs		. #x90C1)	; éƒ
+    (morohashi-daikanwa	39371 0 0)
+    (ideographic-radical . 163)	; â¾¢
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (chinese-cns11643-1 . #x5368)	; ø»’Œ¿
+    (ucs-cns		. #x90C1)	; ø»’Œ¿
     ))
 (define-char
   '((ideographic-radical . 163)	; â¾¢

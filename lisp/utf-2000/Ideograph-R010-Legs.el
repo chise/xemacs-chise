@@ -202,7 +202,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B7E)	; ý¢€ˆ­¾
+     ((ucs		  . #x20AD3)	; ð «“
       )
      ((ucs		  . #x513F)	; å„¿
       ))
@@ -339,7 +339,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B66)	; ý¢€ˆ­¦
+     ((name		  . "CJK RADICAL COW")
+      (ucs		  . #x2EA7)	; âº§
       )
      ((ucs		  . #x513F)	; å„¿
       ))
@@ -432,7 +433,8 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x8AF8)	; ý¢€ˆ«¸
+     ((=jis-x0208	  . #x555F)	; ø½‹ƒ’
+      (ideograph-daikanwa . 07054)	; ø¸®Ž
       )
      ((ucs		  . #x513F)	; å„¿
       ))
@@ -451,7 +453,8 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x8AF8)	; ý¢€ˆ«¸
+     ((=jis-x0208	  . #x555F)	; ø½‹ƒ’
+      (ideograph-daikanwa . 07054)	; ø¸®Ž
       )
      ((ucs		  . #x513F)	; å„¿
       ))
@@ -551,7 +554,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x7822)	; ø»Š™¿
+     ((=jis-x0208	  . #x482C)	; ø½Š¯™
+      (korean-ksc5601	  . #x7822)	; ø»Š™¿
       (ideograph-daikanwa . 01450)	; ø¸€–ª
       )
      ((ucs		  . #x5144)	; å…„
@@ -636,8 +640,20 @@
     (ideograph-daikanwa		. 01358)	; ø¸€•Ž
     (chinese-big5-cdp		. #xA74B)	; ý¢€Š‹
     (china3-jef			. #x43D5)	; øº„•
-    (mojikyo			. 054447)	; ý €’¯
-    (ucs			. #x2F80E)	; ð¯ Ž
+    (ucs-cns			. #x2F80E)	; ï¨²
+    (ucs			. #xFA32)	; ï¨²
+    ))
+(define-char
+  '((=>ucs*		. #x514D)	; å…
+    (morohashi-daikanwa	1358 0 0)
+    (ideographic-radical . 10)	; â¼‰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (->identical
+     ((ucs		  . #xFA32)	; ï¨²
+      ))
+    (mojikyo		. 054447)	; ý €’¯
+    (ucs		. #x2F80E)	; ð¯ Ž
     ))
 (define-char
   '((morohashi-daikanwa	1358 0 4)
@@ -844,7 +860,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B55)	; ý¢€ˆ­•
+     ((ucs		  . #x4E37)	; ä¸·
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -989,7 +1005,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (ucs		  . #x2FF7)	; â¿·
       )
-     ((ucs		  . #x2F80E)	; ð¯ Ž
+     ((ucs		  . #xFA32)	; ï¨²
       )
      ((ucs		  . #x4E36)	; ä¸¶
       ))
@@ -1136,7 +1152,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x573F)	; ø»‰©¾
+     ((=jis-x0208	  . #x4F3B)	; ø½Š¹º
+      (korean-ksc5601	  . #x573F)	; ø»‰©¾
       (ideograph-daikanwa . 01453)	; ø¸€–­
       )
      ((ucs		  . #x5141)	; å…
@@ -1176,7 +1193,8 @@
       )
      ((ucs		  . #x5143)	; å…ƒ
       )
-     ((korean-ksc5601	  . #x7564)	; ø»Š–§
+     ((=jis-x0208	  . #x312F)	; ø½Šª
+      (korean-ksc5601	  . #x7564)	; ø»Š–§
       (chinese-cns11643-1 . #x4460)	; ø»‘¶µ
       (ideograph-daikanwa . 00023)	; ø¸€€—
       ))
@@ -1210,7 +1228,8 @@
       )
      ((=jis-x0208	  . #x5035)	; ø½Š»’
       )
-     ((korean-ksc5601	  . #x773A)	; ø»Š˜¹
+     ((=jis-x0208	  . #x513C)	; ø½Š¼·
+      (korean-ksc5601	  . #x773A)	; ø»Š˜¹
       (ideograph-daikanwa . 01356)	; ø¸€•Œ
       ))
     (shinjigen-1	. 472)
@@ -1707,9 +1726,7 @@
       )
      ((ucs		  . #x5143)	; å…ƒ
       )
-     ((japanese-jisx0208-1978	  . #x513D)	; ø»ƒ‚¼
-      (chinese-cns11643-3	  . #x2753)	; ø»• Š
-      (ideograph-daikanwa	  . 01368)	; ø¸€•˜
+     ((ucs		  . #x2F80F)	; ð¯ 
       ))
     (ideograph-hanziku-1	. #xDEA8)	; ý¢€º¨
     ))
@@ -2268,7 +2285,8 @@
       )
      ((ucs		  . #x5149)	; å…‰
       )
-     ((korean-ksc5601	  . #x4E46)	; ø»‰œ·
+     ((=jis-x0208	  . #x5722)	; ø½‹…‘
+      (korean-ksc5601	  . #x4E46)	; ø»‰œ·
       (ideograph-daikanwa . 09493)	; ø¸‚”•
       ))
     (japanese-jisx0212	. #x326D)	; ø»Š¾š

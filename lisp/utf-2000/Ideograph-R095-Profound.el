@@ -117,7 +117,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x7A5C)	; ø»Šµ
+     ((=jis-x0208	  . #x383C)	; ø½Š˜‰
+      (korean-ksc5601	  . #x7A5C)	; ø»Šµ
       (ideograph-daikanwa . 20814)	; ø¸……Ž
       )
      ((ideographic-structure
@@ -130,8 +131,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((name		      . "cjk radical person for top")
-	  (chinese-big5-cdp   . #x8B4A)	; ý¢€ˆ­Š
+	 ((name*	      . "ideographic component person for top")
+	  (ucs		      . #x20089)	; ð ‚‰
 	  )
 	 ((name		      . "CJK RADICAL DIVINATION")
 	  (ucs		      . #x2E8A)	; âºŠ
@@ -162,8 +163,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((name		      . "cjk radical person for top")
-	  (chinese-big5-cdp   . #x8B4A)	; ý¢€ˆ­Š
+	 ((name*	      . "ideographic component person for top")
+	  (ucs		      . #x20089)	; ð ‚‰
 	  )
 	 ((name		      . "CJK RADICAL DIVINATION")
 	  (ucs		      . #x2E8A)	; âºŠ
@@ -183,7 +184,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x7A5C)	; ø»Šµ
+     ((=jis-x0208	  . #x383C)	; ø½Š˜‰
+      (korean-ksc5601	  . #x7A5C)	; ø»Šµ
       (ideograph-daikanwa . 20814)	; ø¸……Ž
       )
      ((ucs		  . #x66F7)	; æ›·

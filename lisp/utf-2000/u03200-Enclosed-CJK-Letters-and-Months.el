@@ -578,6 +578,81 @@
     (ucs		. #x3243)	; ã‰ƒ
     ))
 (define-char
+  '((name		. "CIRCLED NUMBER TWENTY ONE")
+    (japanese-jisx0213-1	. #x2841)	; ø»¢®
+    (ucs			. #x3251)	; ã‰‘
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY TWO")
+    (japanese-jisx0213-1	. #x2842)	; ø»¢¯
+    (ucs			. #x3252)	; ã‰’
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY THREE")
+    (japanese-jisx0213-1	. #x2843)	; ø»¢°
+    (ucs			. #x3253)	; ã‰“
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY FOUR")
+    (japanese-jisx0213-1	. #x2844)	; ø»¢±
+    (ucs			. #x3254)	; ã‰”
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY FIVE")
+    (japanese-jisx0213-1	. #x2845)	; ø»¢²
+    (ucs			. #x3255)	; ã‰•
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY SIX")
+    (japanese-jisx0213-1	. #x2846)	; ø»¢³
+    (ucs			. #x3256)	; ã‰–
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY SEVEN")
+    (japanese-jisx0213-1	. #x2847)	; ø»¢´
+    (ucs			. #x3257)	; ã‰—
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY EIGHT")
+    (japanese-jisx0213-1	. #x2848)	; ø»¢µ
+    (ucs			. #x3258)	; ã‰˜
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER TWENTY NINE")
+    (japanese-jisx0213-1	. #x2849)	; ø»¢¶
+    (ucs			. #x3259)	; ã‰™
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY")
+    (japanese-jisx0213-1	. #x284A)	; ø»¢·
+    (ucs			. #x325A)	; ã‰š
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY ONE")
+    (japanese-jisx0213-1	. #x284B)	; ø»¢¸
+    (ucs			. #x325B)	; ã‰›
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY TWO")
+    (japanese-jisx0213-1	. #x284C)	; ø»¢¹
+    (ucs			. #x325C)	; ã‰œ
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY THREE")
+    (japanese-jisx0213-1	. #x284D)	; ø»¢º
+    (ucs			. #x325D)	; ã‰
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY FOUR")
+    (japanese-jisx0213-1	. #x284E)	; ø»¢»
+    (ucs			. #x325E)	; ã‰ž
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY FIVE")
+    (japanese-jisx0213-1	. #x284F)	; ø»¢¼
+    (ucs			. #x325F)	; ã‰Ÿ
+    ))
+(define-char
   '((name		. "CIRCLED HANGUL KIYEOK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
@@ -1259,6 +1334,81 @@
     (->decomposition	circle #x591C)
     (china3-jef		. #x78DD)	; øº‡£
     (ucs		. #x32B0)	; ãŠ°
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY SIX")
+    (japanese-jisx0213-1	. #x2850)	; ø»¢½
+    (ucs			. #x32B1)	; ãŠ±
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY SEVEN")
+    (japanese-jisx0213-1	. #x2851)	; ø»¢¾
+    (ucs			. #x32B2)	; ãŠ²
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY EIGHT")
+    (japanese-jisx0213-1	. #x2852)	; ø»¢¿
+    (ucs			. #x32B3)	; ãŠ³
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER THIRTY NINE")
+    (japanese-jisx0213-1	. #x2853)	; ø»¢ž€
+    (ucs			. #x32B4)	; ãŠ´
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY")
+    (japanese-jisx0213-1	. #x2854)	; ø»¢ž
+    (ucs			. #x32B5)	; ãŠµ
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY ONE")
+    (japanese-jisx0213-1	. #x2855)	; ø»¢ž‚
+    (ucs			. #x32B6)	; ãŠ¶
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY TWO")
+    (japanese-jisx0213-1	. #x2856)	; ø»¢žƒ
+    (ucs			. #x32B7)	; ãŠ·
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY THREE")
+    (japanese-jisx0213-1	. #x2857)	; ø»¢ž„
+    (ucs			. #x32B8)	; ãŠ¸
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY FOUR")
+    (japanese-jisx0213-1	. #x2858)	; ø»¢ž…
+    (ucs			. #x32B9)	; ãŠ¹
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY FIVE")
+    (japanese-jisx0213-1	. #x2859)	; ø»¢ž†
+    (ucs			. #x32BA)	; ãŠº
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY SIX")
+    (japanese-jisx0213-1	. #x285A)	; ø»¢ž‡
+    (ucs			. #x32BB)	; ãŠ»
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY SEVEN")
+    (japanese-jisx0213-1	. #x285B)	; ø»¢žˆ
+    (ucs			. #x32BC)	; ãŠ¼
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY EIGHT")
+    (japanese-jisx0213-1	. #x285C)	; ø»¢ž‰
+    (ucs			. #x32BD)	; ãŠ½
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FORTY NINE")
+    (japanese-jisx0213-1	. #x285D)	; ø»¢žŠ
+    (ucs			. #x32BE)	; ãŠ¾
+    ))
+(define-char
+  '((name		. "CIRCLED NUMBER FIFTY")
+    (japanese-jisx0213-1	. #x285E)	; ø»¢ž‹
+    (ucs			. #x32BF)	; ãŠ¿
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY")

@@ -529,7 +529,7 @@
       )
      ((ucs		  . #x6C14)	; æ°”
       )
-     ((chinese-cns11643-1 . #x5259)	; ø»’‹’
+     ((ucs		  . #x76C6)	; ç›†
       ))
     (chinese-cns11643-6 . #x5432)	; ø»œ¿»
     (mojikyo		. 017073)	; ý €„Š±

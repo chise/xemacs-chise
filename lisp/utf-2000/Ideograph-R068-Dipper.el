@@ -206,29 +206,11 @@
     (shinjigen-2	. 3213)
     (=jis-x0208		. #x5A4F)	; ø½‹Š˜
     (korean-ksc5601	. #x4D57)	; ø»‰›ª
+    (chinese-cns11643-1 . #x5A7C)	; ø»’—¥
     (chinese-big5	. #xB1D8)	; ý¢€‹‡˜
     (ideograph-daikanwa . 13508)	; ø¸ƒ“„
+    (ucs-cns		. #x659B)	; ø½‹Š˜
     (ucs-jis		. #x659B)	; ø½‹Š˜
-    ))
-(define-char
-  '((=>ucs		. #x659B)	; æ–›
-    (morohashi-daikanwa	13508 0 0)
-    (ideographic-radical . 68)	; â½ƒ
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((=jis-x0208	  . #x3351)	; ø½Š‘ˆ
-      (korean-ksc5601	  . #x4A47)	; ø»‰—€
-      (chinese-cns11643-1 . #x4B45)	; ø»’€¬
-      (ideograph-daikanwa . 35003)	; ø¸ˆ¢»
-      )
-     ((chinese-cns11643-1 . #x4547)	; ø»‘·º
-      ))
-    (chinese-cns11643-1 . #x5A7C)	; ø»’—¥
-    (ucs-cns		. #x659B)	; ø»’—¥
     ))
 (define-char
   '((morohashi-daikanwa	13508 0 2)

@@ -1856,6 +1856,16 @@
     (ucs			. #xFF5E)	; ï½ž
     ))
 (define-char
+  '((name		. "FULLWIDTH LEFT WHITE PARENTHESIS")
+    (japanese-jisx0213-1	. #x2256)	; ø»¢•
+    (ucs			. #xFF5F)	; ï½Ÿ
+    ))
+(define-char
+  '((name		. "FULLWIDTH RIGHT WHITE PARENTHESIS")
+    (japanese-jisx0213-1	. #x2257)	; ø»¢•
+    (ucs			. #xFF60)	; ï½ 
+    ))
+(define-char
   '((name		. "HALFWIDTH IDEOGRAPHIC FULL STOP")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")

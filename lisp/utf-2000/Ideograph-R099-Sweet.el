@@ -225,7 +225,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x6424)	; ø»‰¼©
+     ((=jis-x0208	  . #x3F53)	; ø½Š¢²
+      (korean-ksc5601	  . #x6424)	; ø»‰¼©
       (ideograph-daikanwa . 21648)	; ø¸…’
       )
      ((ucs		  . #x5198)	; å†˜
@@ -295,7 +296,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x6424)	; ø»‰¼©
+     ((=jis-x0208	  . #x3F53)	; ø½Š¢²
+      (korean-ksc5601	  . #x6424)	; ø»‰¼©
       (ideograph-daikanwa . 21648)	; ø¸…’
       )
      ((chinese-big5-cdp	  . #x85C1)	; ý¢€ˆ—

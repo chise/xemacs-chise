@@ -78,7 +78,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (ucs		  . #x2FFA)	; â¿º
       )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (chinese-cns11643-3 . #x2139)	; ø»•–¼
       (ideograph-daikanwa . 05691)	; ø¸˜»
       )
      ((ucs		  . #x535C)	; åœ
@@ -98,7 +99,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (ucs		  . #x2FFA)	; â¿º
       )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (chinese-cns11643-3 . #x2139)	; ø»•–¼
       (ideograph-daikanwa . 05691)	; ø¸˜»
       )
      ((ucs		  . #x4EBA)	; äºº
@@ -256,10 +258,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x6632)	; ø»‰¿³
+     ((=jis-x0208	  . #x4B72)	; ø½Š´¹
+      (korean-ksc5601	  . #x6632)	; ø»‰¿³
       (ideograph-daikanwa . 00293)	; ø¸€„¥
       )
-     ((ideograph-daikanwa . 05708)	; ø¸™Œ
+     ((=jis-x0208	  . #x546A)	; ø½‹¿
+      (ideograph-daikanwa . 05708)	; ø¸™Œ
       ))
     (ideograph-daikanwa . 05703)	; ø¸™‡
     ))
@@ -273,7 +277,8 @@
     (chinese-cns11643-3 . #x2B79)	; ø»•¦¨
     ))
 (define-char
-  '((morohashi-daikanwa	5703 0 1)
+  '((=>ucs		. #x5909)	; å¤‰
+    (morohashi-daikanwa	5703 0 1)
     (ideographic-radical . 34)	; â¼¡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -281,14 +286,33 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x6632)	; ø»‰¿³
+     ((=jis-x0208	  . #x4B72)	; ø½Š´¹
+      (korean-ksc5601	  . #x6632)	; ø»‰¿³
       (ideograph-daikanwa . 00293)	; ø¸€„¥
       )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (chinese-cns11643-3 . #x2139)	; ø»•–¼
       (ideograph-daikanwa . 05691)	; ø¸˜»
       ))
     (shinjigen-2	. 3201)
     (=jis-x0208		. #x4A51)	; ø½Š²º
+    (ucs-jis		. #x5909)	; ø½Š²º
+    ))
+(define-char
+  '((morohashi-daikanwa	5703 0 2)
+    (ideographic-radical . 34)	; â¼¡
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4EA6)	; äº¦
+      )
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (chinese-cns11643-3 . #x2139)	; ø»•–¼
+      (ideograph-daikanwa . 05691)	; ø¸˜»
+      ))
     (ucs		. #x5909)	; å¤‰
     ))
 (define-char

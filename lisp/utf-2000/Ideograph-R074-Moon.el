@@ -523,7 +523,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x584C)	; ø»‰«©
+     ((=jis-x0208	  . #x4B34)	; ø½Š³»
+      (korean-ksc5601	  . #x584C)	; ø»‰«©
       )
      ((ucs		  . #x660E)	; æ˜Ž
       ))

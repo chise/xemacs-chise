@@ -1450,8 +1450,16 @@
     (total-strokes	 . 10)
     (chinese-gb2312	. #x5E49)	; ø»… ’
     (chinese-isoir165	. #x5E49)	; ø»Žˆ¢
-    (chinese-cns11643-1 . #x5471)	; ø»’Ž¦
     (ucs		. #x595A)	; å¥š
+    ))
+(define-char
+  '((=>ucs		. #x595A)	; å¥š
+    (morohashi-daikanwa	5930 0 3)
+    (ideographic-radical . 37)	; â¼¤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (chinese-cns11643-1 . #x5471)	; ø»’Ž¦
+    (ucs-cns		. #x595A)	; ø»’Ž¦
     ))
 (define-char
   '((=>ucs		. #x20AFB)	; ð «»
@@ -1981,7 +1989,7 @@
       )
      ((ucs		  . #x5782)	; åž‚
       )
-     ((ideograph-daikanwa . 05836)	; ø¸›Œ
+     ((ucs		  . #x592C)	; å¤¬
       ))
     (japanese-jisx0213-2	. #x2547)	; ø»¤£ž
     (ideograph-daikanwa		. 05963)	; ø¸‹
@@ -2349,7 +2357,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x6632)	; ø»‰¿³
+     ((=jis-x0208	  . #x4B72)	; ø½Š´¹
+      (korean-ksc5601	  . #x6632)	; ø»‰¿³
       (ideograph-daikanwa . 00293)	; ø¸€„¥
       )
      ((ucs		  . #x593E)	; å¤¾
@@ -2586,7 +2595,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((name		  . "cjk radical person as roof")
+     ((name*		  . "ideographic component person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
      ((chinese-big5-cdp	  . #x857C)	; ý¢€ˆ•¼
@@ -2654,7 +2663,8 @@
       )
      ((ucs		  . #x5927)	; å¤§
       )
-     ((korean-ksc5601	  . #x7322)	; ø»Š’©
+     ((=jis-x0208	  . #x3D38)	; ø½ŠŸ›
+      (korean-ksc5601	  . #x7322)	; ø»Š’©
       (ideograph-daikanwa . 41974)	; ø¸Š¶
       ))
     (ideograph-daikanwa . 06004)	; ø¸´

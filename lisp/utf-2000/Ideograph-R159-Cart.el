@@ -2229,12 +2229,20 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (korean-ksc5601		. #x5B54)	; ø»‰°‹
-    (chinese-cns11643-1		. #x6F45)	; ø»’µ¤
     (japanese-jisx0208-1990	. #x475A)	; ø½Š®©
     (ucs-jis			. #x8F29)	; ø»‰°‹
     ))
 (define-char
-  '((morohashi-daikanwa	38398 0 1)
+  '((=>ucs		. #x8F29)	; è¼©
+    (morohashi-daikanwa	38398 0 1)
+    (ideographic-radical . 159)	; â¾ž
+    (ideographic-strokes . 8)
+    (total-strokes	 . 15)
+    (chinese-cns11643-1 . #x6F45)	; ø»’µ¤
+    (ucs-cns		. #x8F29)	; ø»’µ¤
+    ))
+(define-char
+  '((morohashi-daikanwa	38398 0 2)
     (ideographic-radical . 159)	; â¾ž
     (ideographic-strokes . 8)
     (total-strokes	 . 15)

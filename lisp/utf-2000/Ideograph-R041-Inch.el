@@ -552,6 +552,7 @@
       (ucs		  . #x2FF0)	; â¿°
       )
      ((chinese-cns11643-1 . #x5C41)	; ø»’™¦
+      (ideograph-daikanwa . 24694)	; ø¸†¶
       )
      ((ucs		  . #x5BF8)	; å¯¸
       ))

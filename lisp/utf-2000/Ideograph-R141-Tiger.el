@@ -365,10 +365,18 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (korean-ksc5601		. #x7A48)	; ø»Š¡
-    (chinese-cns11643-1		. #x6170)	; ø»’¡«
     (japanese-jisx0213-1	. #x7B4E)	; ø»¤—µ
     (ideograph-daikanwa		. 32709)	; ø¸‡¿…
     (ucs			. #x865B)	; è™›
+    ))
+(define-char
+  '((=>ucs		. #x865B)	; è™›
+    (morohashi-daikanwa	32709 0 0)
+    (ideographic-radical . 141)	; â¾Œ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (chinese-cns11643-1 . #x6170)	; ø»’¡«
+    (ucs-cns		. #x865B)	; ø»’¡«
     ))
 (define-char
   '((=>ucs		. #x865C)	; è™œ

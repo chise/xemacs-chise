@@ -18,10 +18,10 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; â¿´
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; â¿¹
       )
-     ((chinese-big5-cdp	  . #x8B57)	; ý¢€ˆ­—
+     ((ucs		  . #x52F9)	; å‹¹
       )
      ((ucs		  . #x4E00)	; ä¸€
       ))
@@ -358,12 +358,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     (:cdp-combinator	3
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-		 (ucs		     . #x2FFB)	; â¿»
-		 )
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; â¿»
       )
-     ((chinese-big5-cdp	  . #x8B57)	; ý¢€ˆ­—
+     ((ucs		  . #x52F9)	; å‹¹
       )
      ((ucs		  . #x5DF1)	; å·±
       ))
@@ -689,12 +687,10 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
-     (:cdp-combinator	3
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-		 (ucs		     . #x2FF4)	; â¿´
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; â¿¹
       )
-     ((chinese-big5-cdp	  . #x8B57)	; ý¢€ˆ­—
+     ((ucs		  . #x52F9)	; å‹¹
       )
      ((chinese-cns11643-1 . #x484D)	; ø»‘¼š
       ))
@@ -1283,7 +1279,10 @@
       )
      ((ucs		  . #x52F9)	; å‹¹
       )
-     ((chinese-big5-cdp	  . #x8AE0)	; ý¢€ˆ« 
+     ((japanese-jisx0212	  . #x6050)	; ø»Œ¡
+      (chinese-cns11643-3	  . #x497D)	; ø»–’°
+      (japanese-jisx0213-2	  . #x7955)	; ø»¦Ÿ„
+      (ideograph-daikanwa	  . 38089)	; ø¸‰“‰
       ))
     (chinese-cns11643-3 . #x5038)	; ø»–›½
     (ideograph-daikanwa . 02563)	; ø¸€¨ƒ

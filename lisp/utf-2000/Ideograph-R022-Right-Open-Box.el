@@ -170,7 +170,8 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((korean-ksc5601	  . #x7971)	; ø»Šœ¬
+     ((=jis-x0208	  . #x5036)	; ø½Š»“
+      (korean-ksc5601	  . #x7971)	; ø»Šœ¬
       (ideograph-daikanwa . 00288)	; ø¸€„ 
       ))
     (japanese-jisx0212	. #x3428)	; ø»‹€‘
@@ -682,13 +683,12 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((ucs		  . #x975E)	; éž
+     ((chinese-cns11643-1 . #x4F66)	; ø»’‡…
       ))
     (shinjigen-1	. 791)
     (shinjigen-2	. 791)
     (=jis-x0208		. #x485B)	; ø½Š°ˆ
     (chinese-cns11643-1 . #x544D)	; ø»’Ž‚
-    (chinese-big5	. #xADEA)	; ý¢€Š·ª
     (ideograph-daikanwa . 02629)	; ø¸€©…
     (ucs-jis		. #x532A)	; ø½Š°ˆ
     ))
@@ -704,9 +704,13 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((ideograph-daikanwa . 42585)	; ø¸Š™™
+     ((=jis-x0208	  . #x4873)	; ø½Š° 
+      (korean-ksc5601	  . #x5E2A)	; ø»‰³»
+      (ideograph-daikanwa . 42585)	; ø¸Š™™
       ))
     (korean-ksc5601	. #x5D63)	; ø»‰³–
+    (chinese-big5	. #xADEA)	; ý¢€Š·ª
+    (ucs-big5		. #x532A)	; ø»‰³–
     ))
 (define-char
   '((morohashi-daikanwa	2629 0 2)
@@ -820,7 +824,9 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((ideograph-daikanwa . 01437)	; ø¸€–
+     ((=jis-x0208	  . #x5141)	; ø½Š¼¼
+      (korean-ksc5601	  . #x6A64)	; ø»Š†
+      (ideograph-daikanwa . 01437)	; ø¸€–
       ))
     (japanese-jisx0212	. #x342E)	; ø»‹€—
     (ideograph-daikanwa . 02637)	; ø¸€©
@@ -1031,13 +1037,15 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((korean-ksc5601	  . #x7C67)	; ø»Š ¼
+     ((=jis-x0208	  . #x5E4E)	; ø½‹
+      (korean-ksc5601	  . #x7C67)	; ø»Š ¼
       (ideograph-daikanwa . 17682)	; ø¸„”’
       ))
     (shinjigen-1	. 793)
     (shinjigen-2	. 793)
     (=jis-x0208		. #x523B)	; ø½Š¾”
     (korean-ksc5601	. #x7C5D)	; ø»Š ²
+    (chinese-big5	. #xB6D7)	; ý¢€‹›—
     (ideograph-daikanwa . 02644)	; ø¸€©”
     (ucs-jis		. #x532F)	; ø½Š¾”
     ))
@@ -1057,7 +1065,6 @@
       ))
     (chinese-cns11643-1 . #x633E)	; ø»’£µ
     (chinese-gb12345	. #x3B63)	; åŒ¯
-    (chinese-big5	. #xB6D7)	; ý¢€‹›—
     (ucs		. #x532F)	; åŒ¯
     ))
 (define-char
@@ -1501,7 +1508,8 @@
       )
      ((ucs		  . #x531A)	; åŒš
       )
-     ((korean-ksc5601	  . #x4F3A)	; ø»‰ž‰
+     ((=jis-x0208	  . #x625A)	; ø½‹–“
+      (korean-ksc5601	  . #x4F3A)	; ø»‰ž‰
       (ideograph-daikanwa . 23747)	; ø¸…³ƒ
       ))
     (chinese-big5	. #xF3FD)	; ý¢€½

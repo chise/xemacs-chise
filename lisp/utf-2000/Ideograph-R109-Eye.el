@@ -2632,13 +2632,21 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 189 5)
     (ideographic-structure
-     (:cdp-combinator	4)
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
-     ((chinese-cns11643-3 . #x2139)	; ø»•–¼
-      (ideograph-daikanwa . 05691)	; ø¸˜»
-      )
-     ((ucs		  . #x76EE)	; ç›®
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((=jis-x0208	    . #x5469)	; ø½‹¾
+	(chinese-cns11643-3 . #x2139)	; ø»•–¼
+	(ideograph-daikanwa . 05691)	; ø¸˜»
+	)
+       ((ucs		    . #x76EE)	; ç›®
+	))
       ))
     (chinese-cns11643-5		. #x3421)	; ø»š†¦
     (ideograph-daikanwa		. 23328)	; ø¸…¬ 

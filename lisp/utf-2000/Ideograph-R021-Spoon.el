@@ -211,7 +211,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-daikanwa . 02571)	; ø¸€¨‹
+     ((ucs		  . #x2090E)	; ð ¤Ž
       )
      ((ucs		  . #x77E2)	; çŸ¢
       ))
@@ -222,9 +222,6 @@
     (ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 262)
-    (hanyu-dazidian-char . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±

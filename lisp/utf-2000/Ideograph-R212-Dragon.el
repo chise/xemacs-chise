@@ -3,6 +3,7 @@
     (ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
+    (shinjigen-1	. 9913)
     (shinjigen-2	. 9913)
     (=jis-x0208		. #x4E36)	; ø½Š¸—
     (korean-ksc5601	. #x5723)	; ø»‰©¢
@@ -25,6 +26,15 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (chinese-cns11643-1 . #x733E)	; ø»’»•
+    ))
+(define-char
+  '((=>ucs		. #x9F8D)	; é¾
+    (morohashi-daikanwa	48818 0 2)
+    (ideographic-radical . 212)	; â¿“
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (shinjigen-1	. 9914)
+    (china3-jef		. #x70A4)	; øº‡‚¤
     ))
 (define-char
   '((ideographic-radical . 212)	; â¿“

@@ -51,11 +51,26 @@
     (ucs		. #x7678)	; ç™¸
     ))
 (define-char
-  '((ideographic-radical . 105)	; â½¨
+  '((=>ucs		. #x7679)	; ç™¹
+    (ideographic-radical . 105)	; â½¨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideograph-daikanwa . 22661)	; ø¸…¢…
+    ))
+(define-char
+  '((=>ucs		. #x7679)	; ç™¹
+    (morohashi-daikanwa	22661 0 0)
+    (ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-cns11643-2 . #x2C40)	; ø»“‰
-    (ideograph-daikanwa . 22661)	; ø¸…¢…
+    (ucs-cns		. #x7679)	; ø»“‰
+    ))
+(define-char
+  '((morohashi-daikanwa	22661 0 1)
+    (ideographic-radical . 105)	; â½¨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
     (ucs		. #x7679)	; ç™¹
     ))
 (define-char

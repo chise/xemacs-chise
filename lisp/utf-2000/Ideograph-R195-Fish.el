@@ -756,8 +756,9 @@
   '((ideographic-radical . 195)	; â¿‚
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
-    (japanese-jisx0212	. #x6A50)	; ø»Œ
-    (ucs		. #x9B79)	; é­¹
+    (japanese-jisx0212		. #x6A50)	; ø»Œ
+    (japanese-jisx0213-1	. #x7E41)	; ø»¤œ‚
+    (ucs			. #x9B79)	; é­¹
     ))
 (define-char
   '((ideographic-radical . 195)	; â¿‚

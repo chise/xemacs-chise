@@ -1340,7 +1340,6 @@
 (define-char
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 7)
-    (japanese-strokes	 . 6)
     (total-strokes	 . 11)
     (chinese-gb2312		. #x4374)	; ø»„¹“
     (korean-ksc5601		. #x5A42)	; ø»‰®›
@@ -1350,7 +1349,16 @@
     (chinese-big5		. #xB1D3)	; ý¢€‹‡“
     (ideograph-daikanwa		. 13217)	; ø¸ƒŽ¡
     (china3-jef			. #x50CA)	; øº…ƒŠ
+    (ucs-jis			. #xFA41)	; æ•
     (ucs			. #x654F)	; æ•
+    ))
+(define-char
+  '((=>ucs*		. #x654F)	; æ•
+    (morohashi-daikanwa	13217 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ucs		. #xFA41)	; ï©
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
@@ -1465,13 +1473,20 @@
     (shinjigen-2	. 3173)
     (=jis-x0208		. #x5A44)	; ø½‹Š
     (korean-ksc5601	. #x6779)	; ø»Š‚˜
-    (chinese-big5	. #xB1CE)	; ý¢€‹‡Ž
     (ideograph-daikanwa . 13226)	; ø¸ƒŽª
     (ucs-jis		. #x6556)	; ø½‹Š
     ))
 (define-char
   '((=>ucs		. #x6556)	; æ•–
-    (morohashi-daikanwa	13226 0 1)
+    (morohashi-daikanwa	13226 0 2)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (chinese-big5	. #xB1CE)	; ý¢€‹‡Ž
+    ))
+(define-char
+  '((=>ucs		. #x6556)	; æ•–
+    (morohashi-daikanwa	13226 0 3)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -3148,12 +3163,19 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 218 7)
     (ideographic-structure
-     (:cdp-combinator	4)
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
-     ((chinese-big5-cdp	  . #x8DA2)	; ý¢€ˆ¶¢
-      )
-     ((chinese-big5-cdp	  . #x8B6B)	; ý¢€ˆ­«
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x6534)	; æ”´
+	)
+       ((chinese-big5-cdp   . #x8B6B)	; ý¢€ˆ­«
+	))
       ))
     (ideograph-hanziku-1	. #xD34B)	; ý¢€‹
     (ucs			. #x22FC5)	; ð¢¿…
