@@ -1,5 +1,8 @@
 2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el (U+78CC): Use `->subsumptive'; add
+	JC3-5CB9.
+
 	* Ideograph-R109-Eye.el (U+7784): Use `->subsumptive'; add
 	JC3-8FA2.
 
@@ -20,6 +23,9 @@
 	(U+6962): Unify JC3-70C5.
 	(U+6994): Unify JC3-70C8.
 	(U+69CC): Unify JC3-70C4.
+
+	* Ideograph-R069-Axe.el (U+65B5): Use `->subsumptive'; add
+	JC3-50E5.
 
 	* Ideograph-R064-Hand.el (U+62D0): Use `->subsumptive'; add
 	JC3-4FBA.
