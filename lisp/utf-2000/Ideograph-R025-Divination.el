@@ -325,6 +325,14 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; â¿´
+      )
+     ((ucs		  . #x5360)	; å 
+      )
+     ((ucs		  . #x3405)	; ã…
+      ))
     (chinese-gb2312	. #x4231)	; ø»„¶²
     (chinese-isoir165	. #x4231)	; ø»Ÿ‚
     (chinese-cns11643-4 . #x234D)	; ø»—¤
