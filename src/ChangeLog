@@ -1,5 +1,11 @@
 2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (Fchar_feature): Check `<-denotational' to avoid
+	inheritance itself; fix typo; stop recursive search if cyclic
+	inheritance is found.
+
+2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (Q_denotational): New variable.
 	(Q_denotational_from): New variable.
 	(Fchar_feature): Refer `<-denotational' as same as `<-unified'.
