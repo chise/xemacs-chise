@@ -73,6 +73,7 @@
     (chinese-cns11643-1		. #x4439)	; ø»‘¶Ž
     (japanese-jisx0213-2	. #x2126)	; ø»¤…
     (ideograph-gt-pj-2		. #x3056)	; ý¡€€¨
+    (chinese-big5		. #xA458)	; øºŸ¢¯
     (ideograph-daikanwa		. 00071)	; ø¸€‡
     (ideograph-gt		. 00104)	; ý¡€€¨
     (mojikyo			. 000071)	; ý €€‡
@@ -114,6 +115,7 @@
     (chinese-cns11643-1		. #x4463)	; ø»‘¶¸
     (japanese-jisx0208-1990	. #x4366)	; ø½Š¨½
     (ideograph-gt-pj-1		. #x4366)	; ý¡€€­
+    (chinese-big5		. #xA4A4)	; øºŸ£™
     (ideograph-daikanwa		. 00073)	; ø¸€‰
     (ideograph-gt		. 00109)	; ý¡€€­
     (mojikyo			. 000073)	; ý €€‰
@@ -127,6 +129,7 @@
     (chinese-cns11643-2		. #x2130)	; ø»“Œ¯
     (japanese-jisx0213-2	. #x2127)	; ø»¤†
     (ideograph-gt-pj-2		. #x3058)	; ý¡€€¬
+    (chinese-big5		. #xC950)	; øº¡¥”
     (ideograph-daikanwa		. 00074)	; ø¸€Š
     (ideograph-gt		. 00108)	; ý¡€€¬
     (mojikyo			. 000074)	; ý €€Š
@@ -162,12 +165,13 @@
     (ucs			. #x4E30)	; ä¸°
     ))
 (define-char
-  '((->ucs		. #x4E30)	; ä¸°
+  '((=>ucs		. #x4E30)	; ä¸°
     (morohashi-daikanwa	76 0 2)
     (ideographic-radical . 2)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (chinese-cns11643-1 . #x4464)	; ø»‘¶¹
+    (chinese-big5	. #xA4A5)	; øºŸ£š
     ))
 (define-char
   '((ideographic-radical . 2)	; â¼
@@ -187,6 +191,7 @@
     (chinese-cns11643-2		. #x2143)	; ø»“‚
     (japanese-jisx0208-1990	. #x5025)	; ø½Š»‚
     (ideograph-gt-pj-1		. #x5025)	; ý¡€€±
+    (chinese-big5		. #xC963)	; øº¡¥§
     (ideograph-daikanwa		. 00077)	; ø¸€
     (ideograph-gt		. 00113)	; ý¡€€±
     (mojikyo			. 000077)	; ý €€
@@ -226,6 +231,7 @@
     (chinese-cns11643-1		. #x486B)	; ø»‘¼¸
     (japanese-jisx0208-1990	. #x367A)	; ø½Š–‹
     (ideograph-gt-pj-1		. #x367A)	; ý¡€€³
+    (chinese-big5		. #xA6EA)	; øºŸ©™
     (ideograph-daikanwa		. 00080)	; ø¸€
     (ideograph-gt		. 00115)	; ý¡€€³
     (mojikyo			. 000080)	; ý €€
@@ -255,6 +261,7 @@
     (total-strokes	 . 8)
     (chinese-cns11643-2 . #x2531)	; ø»“’¨
     (ideograph-gt-pj-2	. #x305E)	; ý¡€€µ
+    (chinese-big5	. #xCBB1)	; øº¡«
     (ideograph-daikanwa . 00082)	; ø¸€’
     (ideograph-gt	. 00117)	; ý¡€€µ
     (mojikyo		. 000082)	; ý €€’
