@@ -2142,6 +2142,8 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
+    (=gt		. 58906)	; ý¡€Ž˜š
+    (=gt-pj-8		. #x4534)	; ý¡€Ž˜š
     (mojikyo		. 050579)	; ý €Œ–“
     ))
 (define-char
