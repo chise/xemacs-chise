@@ -176,10 +176,9 @@
       (=daikanwa	  . 00360)	; ø¸€…¨
       ))
     (<-original-ideograph
-     ((=daikanwa	  . 01612)	; ø¸€™Œ
-      ))
-    (<-original-ideograph*sources
-     daikanwa)
+     (:char	((=daikanwa	     . 01612)	; ø¸€™Œ
+		 )
+      :sources	(morohashi-daikanwa)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -2407,18 +2406,24 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (<-vulgar-ideograph
-     ((shinjigen-1	  . 561)
-      (=daikanwa	  . 01717)	; ø¸€šµ
-      ))
-    (<-vulgar-ideograph*sources
-     pianhai daikanwa shinjigen-1)
+     (:char	((shinjigen-1	     . 561)
+		 (=daikanwa	     . 01717)	; ø¸€šµ
+		 )
+      :sources	(henkai morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=daikanwa	  . 24742)	; ø¸†‚¦
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=daikanwa	    . 00300)	; ø¸€„¬
+	)
+       ((=daikanwa	    . 24623)	; ø¸†€¯
+	))
       ))
     (shinjigen-1	. 563)
     (shinjigen-2	. 563)
@@ -2438,7 +2443,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=cns11643-3	  . #x433D)	; ø»–ˆ¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=ucs		    . #x342D)	; ã­
+	)
+       ((=daikanwa	    . 24623)	; ø¸†€¯
+	))
       ))
     (=cns11643-3	. #x4B30)	; ø»–”Ÿ
     ))
@@ -2454,7 +2466,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=jis-x0208	  . #x6349)	; ø½‹— 
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=daikanwa	    . 00300)	; ø¸€„¬
+	)
+       ((=ucs		    . #x793A)	; ç¤º
+	))
       ))
     (=jis-x0208-1990	. #x515B)	; ø½Š½–
     (=gt		. 02257)	; ý¡€€£‘
@@ -2473,7 +2492,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=ucs		  . #x7980)	; ç¦€
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=ucs		    . #x342D)	; ã­
+	)
+       ((=ucs		    . #x793A)	; ç¤º
+	))
       ))
     (=ucs		. #x51DB)	; å‡›
     (=gb2312		. #x415D)	; ø»„¶€

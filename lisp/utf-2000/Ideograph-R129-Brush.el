@@ -80,7 +80,6 @@
 (define-char
   '((ideographic-radical . 129)	; â¾€
     (ideographic-strokes . 4)
-    (total-strokes	 . 8)
     (=ucs		. #x8083)	; è‚ƒ
     (=gb2312		. #x4B60)	; ø»…„¯
     ))
@@ -105,10 +104,6 @@
     (ideographic-radical . 129)	; â¾€
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8085)	; è‚…
-      (=jis-x0208	  . #x6669)	; ø½‹œš
-      ))
     (=ucs		. #x7C9B)	; ç²›
     (=jis-x0208		. #x3D4D)	; ø½ŠŸ°
     (=gt		. 37838)	; ý¡€‰Ž

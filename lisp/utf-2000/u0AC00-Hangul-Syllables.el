@@ -5720,7 +5720,6 @@
 (define-char
   '((=ucs		. #xC5EC)	; ì—¬
     (=ks-x1001		. #x3F29)	; ø»‰†˜
-    (=jef-china3	. #x94B6)	; øº‰’¶
     ))
 (define-char
   '((=ucs		. #xC5ED)	; ì—­
@@ -6011,10 +6010,6 @@
   '((=ucs		. #xC6B8)	; ìš¸
     (=ks-x1001		. #x3F6F)	; ø»‰‡ž
     (=jef-china3	. #x94D7)	; øº‰“—
-    ))
-(define-char
-  '((=>ucs		. #xC6B8)	; ìš¸
-    (=jef-china3	. #x94C0)	; øº‰“€
     ))
 (define-char
   '((=ucs		. #xC6B9)	; ìš¹

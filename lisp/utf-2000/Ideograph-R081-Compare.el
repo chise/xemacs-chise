@@ -25,7 +25,6 @@
 (define-char
   '((ideographic-radical . 81)	; â½
     (ideographic-strokes . 2)
-    (total-strokes	 . 6)
     (=ucs		. #x6BD5)	; æ¯•
     (=gb2312		. #x314F)	; ø»„ž’
     ))
@@ -250,7 +249,6 @@
 (define-char
   '((ideographic-radical . 81)	; â½
     (ideographic-strokes . 6)
-    (total-strokes	 . 10)
     (=ucs		. #x6BD9)	; æ¯™
     (=gb2312		. #x3150)	; ø»„ž“
     ))

@@ -796,13 +796,11 @@
     (ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (<-simplified
-     ((shinjigen-1	  . 1550)
-      (=cns11643-1	  . #x6842)	; ø»’«
-      (=daikanwa	  . 05802)	; ø¸šª
-      ))
-    (<-simplified*sources
-     shinjigen-1)
+    (<-simplified-ideograph
+     (:char	((shinjigen-1	     . 1550)
+		 (=daikanwa	     . 05802)	; ø¸šª
+		 )
+      :sources	(shinjigen-1)))
     (shinjigen-1	. 1549)
     (=ucs		. #x5922)	; å¤¢
     (=jis-x0208		. #x4C34)	; ø½Šµ™

@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -703,30 +703,6 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
   return encode_builtin_char_1 (ch, charset);
 }
 
-INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
-INLINE_HEADER int
-encode_char_2 (Emchar ch, Lisp_Object* charset)
-{
-  Lisp_Object charsets = Vdefault_coded_charset_priority_list;
-
-  while (!NILP (charsets))
-    {
-      *charset = Ffind_charset (Fcar (charsets));
-      if ( !NILP (*charset)
-	   && (XCHARSET_DIMENSION (*charset) <= 2) )
-	{
-	  int code_point = charset_code_point (*charset, ch, 0);
-
-	  if (code_point >= 0)
-	    return code_point;
-	}
-      charsets = Fcdr (charsets);	      
-    }
-  
-  /* otherwise --- maybe for bootstrap */
-  return encode_builtin_char_1 (ch, charset);
-}
-
 #define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
 
 INLINE_HEADER void
@@ -785,7 +761,7 @@ CHAR_TO_CHARC (Emchar ch)
 {
   Charc cc;
 
-  cc.code_point = encode_char_2 (ch, &cc.charset);
+  cc.code_point = encode_char_1 (ch, &cc.charset);
   return cc;
 }
 
