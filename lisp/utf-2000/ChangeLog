@@ -1,6 +1,6 @@
 2004-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R038-Woman.el:
+	* Ideograph-R042-Small.el, Ideograph-R038-Woman.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
