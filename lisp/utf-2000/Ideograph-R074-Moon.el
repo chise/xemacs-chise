@@ -732,6 +732,15 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=jis-x0208@1997	. #x442B)	; &J97-442B; [36-11]
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x442B)	; &J97-442B; [36-11]
+      ))
     (=daikanwa		. 14374)	; &M-14374;
     (=jef-china3	. #x52AF)	; &I-JC3-52AF;
     ))
@@ -740,6 +749,9 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x442B)	; &J97-442B; [36-11]
+      ))
     (=ucs		. #x671D)	; 朝
     (=jis-x0208		. #x442B)	; &I-J90-442B; [36-11]
     (=gb2312		. #x332F)	; &I-G0-332F; [19-15]
