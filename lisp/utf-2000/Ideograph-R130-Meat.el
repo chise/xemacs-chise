@@ -1906,6 +1906,7 @@
   '((ideographic-radical . 130)	; â¾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (hanyu-dazidian	3 2059 9)
     (shinjigen-2	. 6464)
     (japanese-jisx0208-1978	. #x6674)	; ø»ƒ¢©
     (chinese-gb2312		. #x6B50)	; ø»…³Ÿ
@@ -1913,6 +1914,7 @@
     (korean-ksc5601		. #x7130)	; ø»Š»
     (chinese-isoir165		. #x6B50)	; ø»Ž›¯
     (japanese-jisx0208-1990	. #x6674)	; ø½‹œ¥
+    (chinese-big5		. #xAD48)	; ý¢€Šµˆ
     (ideograph-daikanwa		. 29349)	; ø¸‡Š¥
     (ucs			. #x80C4)	; èƒ„
     ))
@@ -5078,6 +5080,7 @@
     (korean-ksc5601		. #x623B)	; ø»‰º„
     (chinese-isoir165		. #x2C78)	; ø»Œ¿µ
     (japanese-jisx0208-1990	. #x667B)	; ø½‹œ¬
+    (chinese-big5		. #xB2E7)	; ý¢€‹‹§
     (ideograph-daikanwa		. 29535)	; ø¸‡Ÿ
     (ucs			. #x8129)	; è„©
     ))

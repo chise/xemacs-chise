@@ -22,6 +22,36 @@
     (ucs		. #x26933)	; ð¦¤³
     ))
 (define-char
+  '((ideographic-	(:radical	18 ; â¼‘
+			 :strokes	6
+			 :sources	(morohashi-daikanwa ucs))
+			(:radical	133 ; â¾„
+			 :strokes	2
+			 :sources	(shinjigen-1)))
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 334 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x81F3)	; è‡³
+      )
+     ((ucs		  . #x5202)	; åˆ‚
+      ))
+    (shinjigen-1	. 6602)
+    (shinjigen-2	. 6602)
+    (japanese-jisx0208-1978	. #x457E)	; ø»‚²•
+    (chinese-gb2312		. #x353D)	; ø»„£¸
+    (japanese-jisx0208		. #x457E)	; ø»‡†
+    (korean-ksc5601		. #x5370)	; ø»‰¤·
+    (chinese-isoir165		. #x353D)	; ø»Œˆ
+    (chinese-cns11643-1		. #x4C2F)	; ø»’´
+    (japanese-jisx0208-1990	. #x457E)	; ø½Š¬‘
+    (chinese-big5		. #xA8EC)	; ý¢€Š£¬
+    (ideograph-daikanwa		. 01950)	; ø¸€žž
+    (ucs			. #x5230)	; åˆ°
+    ))
+(define-char
   '((ideographic-radical . 133)	; â¾„
     (ideographic-strokes . 2)
     (total-strokes	 . 8)

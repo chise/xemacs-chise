@@ -34,6 +34,7 @@
     (chinese-cns11643-3		. #x2141)	; ø»•—„
     (japanese-jisx0208-1990	. #x5740)	; ø½‹…¯
     (ideograph-daikanwa		. 09909)	; ø¸‚šµ
+    (chinese-big5-cdp		. #x8C53)	; ý¢€ˆ±“
     (ucs			. #x5F51)	; å½‘
     ))
 (define-char
@@ -42,11 +43,10 @@
     (ideographic-radical . 58)	; â¼¹
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (vulgar-ideograph-of
-     ((sources		  morohashi-daikanwa)
-      (char . ((ideograph-daikanwa . 16349)	; ø¸ƒ¿
-	       ))
-      ))
+    (<-vulgar-ideograph
+     (:char	((ideograph-daikanwa . 16349)	; ø¸ƒ¿
+		 )
+      :sources	(morohashi-daikanwa)))
     (chinese-cns11643-3 . #x224A)	; ø»•˜«
     ))
 (define-char

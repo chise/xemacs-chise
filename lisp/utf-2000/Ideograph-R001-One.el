@@ -968,9 +968,7 @@
 			(:radical	5 ; â¼„
 			 :strokes	4))
     (total-strokes	 . 5)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 9)
+    (hanyu-dazidian	1 52 9)
     (chinese-cns11643-6 . #x222A)	; ø»›¶—
     (chinese-big5-cdp	. #x87CF)	; ý¢€ˆŸ
     (ucs		. #x200E0)	; ð ƒ 
