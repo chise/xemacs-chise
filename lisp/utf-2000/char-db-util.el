@@ -1090,8 +1090,9 @@
 
 (defun write-char-range-data-to-file (min max file
 					  &optional script excluded-script)
-  (let ((coding-system-for-write 'utf-8))
+  (let ((coding-system-for-write 'utf-8-mcs))
     (with-temp-buffer
+      (insert ";; -*- coding: utf-8-mcs -*-\n")
       (insert-char-range-data min max script excluded-script)
       (write-region (point-min)(point-max) file))))
 
