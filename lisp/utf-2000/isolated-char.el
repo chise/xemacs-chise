@@ -209,30 +209,30 @@
 			   'japanese-jisx0208))
       )))
 
-;; (define-char
-;;   '((=gt-pj-4   . #x3844)
-;;     (=gt        . 19655)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x3845)
-;;     (=gt        . 19656)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-9   . #x4D7B)
-;;     (=gt        . 19861)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x493C)
-;;     (=gt        . 21862)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-4   . #x6D51)
-;;     (=gt        . 26606)
-;;     ))
-;; (define-char
-;;   '((=gt-pj-5   . #x4579)
-;;     (=gt        . 30254)
-;;     ))
+(define-char
+  '((=gt-pj-4	. #x3844)
+    (=gt	. 19655)
+    ))
+(define-char
+  '((=gt-pj-4	. #x3845)
+    (=gt	. 19656)
+    ))
+(define-char
+  '((=gt-pj-9	. #x4D7B)
+    (=gt	. 19861)
+    ))
+(define-char
+  '((=gt-pj-4	. #x493C)
+    (=gt	. 21862)
+    ))
+(define-char
+  '((=gt-pj-4	. #x6D51)
+    (=gt	. 26606)
+    ))
+(define-char
+  '((=gt-pj-5	. #x4579)
+    (=gt	. 30254)
+    ))
 (define-char
   '((=gt-pj-11 . #x5277)
     (=gt	. 40268)
