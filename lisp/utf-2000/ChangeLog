@@ -1,3 +1,23 @@
+2004-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (U-00021641): Use `<-vulgar*sources'
+	instead of char-ref in `<-vulgar'.
+
+	* Ideograph-R027-Cliff.el (U+53A0): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
+	(M-02993): Moved into U+53A6.
+	(C3-3A28): Likewise.
+	(U+53A6): Use `->subsumptive'; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(U+53A8): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'.
+	(U+53AE): Likewise.
+	(M-03033): Likewise; moved into U+3551.
+	(U+3551): Use `->subsumptive'.
+	(J0-5252): Moved into U+53B0; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(U+53B0): Use `->subsumptive'.
+
 2004-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el (U+53CE): Delete `=>daikanwa'.
