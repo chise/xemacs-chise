@@ -455,6 +455,7 @@
       (=cns11643-4	  . #x4F24)	; &M-45799; [47-04]
       (=jis-x0213-2-2000  . #x7D3F)	; &I-JX2-7D3F; [93-31]
       (=daikanwa	  . 45799)	; &I-M-45799;
+      (=ucs@jis		  . #x4C20)	; &M-45799;
       )
      ((total-strokes	   . 14)
       (=ucs@unicode	  . #x4C20)	; &UU+4C20;

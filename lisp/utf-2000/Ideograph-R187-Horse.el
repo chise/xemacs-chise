@@ -3249,6 +3249,7 @@
     (->subsumptive
      ((=jis-x0213-2-2000  . #x7C7D)	; &M-44853; [92-93]
       (=daikanwa	  . 44853)	; &I-M-44853;
+      (=ucs@jis		  . #x9A1A)	; &M-44853;
       )
      ((=ucs@unicode	  . #x9A1A)	; &UU+9A1A;
       )
