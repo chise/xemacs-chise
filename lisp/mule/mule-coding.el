@@ -175,8 +175,6 @@
   (setq coded-charset-entity-reference-alist
 	'(((ideograph-gt . isolated)            "I-GT-" 5 d)
 	  ( ideograph-gt   		          "GT-" 5 d)
-	  ((=ruimoku-v6 . isolated)	      "I-RUI6-" 4 X)
-	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ((chinese-big5-cdp . isolated)       "I-CDP-" 4 X)
 	  ( chinese-big5-cdp		         "CDP-" 4 X)
 	  ((ideograph-daikanwa . isolated)       "I-M-" 5 d)

@@ -744,7 +744,6 @@
     (total-strokes	 . 7)
     (<-simplified
      ((shinjigen-1	  . 716)
-      (=cns11643-1	  . #x7344)	; ø»’»›
       (=daikanwa	  . 02472)	; ø¸€¦¨
       ))
     (<-simplified*sources

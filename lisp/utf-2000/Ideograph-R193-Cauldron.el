@@ -37,22 +37,19 @@
     (=cns11643-4	. #x4224)	; ø»˜‘‰
     ))
 (define-char
-  '((=>daikanwa		. 45674)	; ø¸‹‰ª
+  '((=>ucs		. #x29C2C)	; ð©°¬
+    (ideographic-radical . 193)	; â¿€
+    (ideographic-strokes . 3)
+    (total-strokes	 . 13)
+    (=daikanwa		. 45674)	; ø¸‹‰ª
+    ))
+(define-char
+  '((morohashi-daikanwa	45674 0 2)
     (ideographic-radical . 193)	; â¿€
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
     (=ucs		. #x29C2C)	; ð©°¬
-    (->subsumptive
-     ((=daikanwa	  . 45674)	; ø¸‹‰ª
-      )
-     ((->subsumptive
-       ((sources	    bos=A016374-00004)
-	(=ruimoku-v6	    . #xE00A)	; øº€Š
-	(=ucs@unicode	    . #x29C2C)	; øº€Š
-	)
-       ((=cns11643-6	    . #x5A4E)	; ø»‰‹
-	))
-      ))
+    (=cns11643-6	. #x5A4E)	; ø»‰‹
     ))
 (define-char
   '((=>ucs		. #x4C19)	; ä°™

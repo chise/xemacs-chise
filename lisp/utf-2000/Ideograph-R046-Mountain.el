@@ -43,12 +43,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C72)	; å±²
-    (->subsumptive
-     ((=iso-ir165	  . #x2E39)	; ø»²
-      (=ucs@unicode	  . #x5C72)	; ø»²
-      )
-     ((=jef-china3	  . #x8EFA)	; øºˆ»º
-      ))
+    (=iso-ir165		. #x2E39)	; ø»²
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
@@ -9106,21 +9101,6 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x5DBF)	; å¶¿
-    ))
-(define-char
-  '((ideographic-radical . 46)	; â¼­
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x5C71)	; å±±
-      )
-     ((=ucs		  . #x96A0)	; éš 
-      ))
-    (sources		bos=A015330-00006)
-    (=ruimoku-v6	. #xE008)	; øº€ˆ
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­

@@ -709,11 +709,10 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (<-simplified
-     ((=ks-x1001	  . #x5374)	; ø»‰¤»
-      (=daikanwa	  . 07465)	; ø¸´©
+     (:sources	(morohashi-daikanwa)
+      :char	((=daikanwa	     . 07465)	; ø¸´©
+		 )
       ))
-    (<-simplified*sources
-     daikanwa)
     (=ucs		. #x5C0E)	; å°Ž
     (=jis-x0208		. #x4633)	; ø½Š¬¤
     (=gb12345		. #x353C)	; å°Ž
