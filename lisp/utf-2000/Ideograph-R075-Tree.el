@@ -16675,8 +16675,7 @@
     (=cns11643-3	. #x4C4D)	; ø»––š
     ))
 (define-char
-  '((=>ucs		. #x901A)	; é€š
-    (morohashi-daikanwa	15415 0 3)
+  '((morohashi-daikanwa	15415 0 3)
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
