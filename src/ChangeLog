@@ -1,3 +1,22 @@
+1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* redisplay-x.c (separate_textual_runs): Run `ccl_driver' with
+	`CCL_MODE_ENCODING'.
+
+	* file-coding.c (mule_decode): Run `ccl_driver' with
+	`CCL_MODE_DECODING'.
+	(mule_encode): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+
+	* mule-ccl.c (CCL_WRITE_CHAR): Refer `conversion_mode'.
+	(ccl_driver): Add new argument `conversion_mode'.
+	(Fccl_execute): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+	(Fccl_execute_on_string): Likewise [perhaps it is better to add
+	new optional argument].
+
+	* mule-ccl.h (CCL_MODE_ENCODING): New macro.
+	(CCL_MODE_DECODING): New macro.
+	(ccl_driver): Add new argument `conversion_mode'.
+
 1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (coding_system_from_mask): Use `raw-text' instead

@@ -1,3 +1,8 @@
+1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Use NBSP of ISO
+	8859-5 instead of ISO 8859-1.
+
 1999-06-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Set 32 for
