@@ -1,0 +1,151 @@
+@c -*-texinfo-*-
+@c This is part of the XEmacs Lisp Reference Manual.
+@c Copyright (C) 1996 Ben Wing.
+@c See the file lispref.texi for copying conditions.
+@setfilename ../../info/hash-tables.info
+@node Hash Tables, Range Tables, Display, top
+@chapter Hash Tables
+@cindex hash table
+
+@defun hashtablep object
+This function returns non-@code{nil} if @var{object} is a hash table.
+@end defun
+
+@menu
+* Introduction to Hash Tables::	Hash tables are fast data structures for
+                                implementing simple tables (i.e. finite
+                                mappings from keys to values).
+* Working With Hash Tables::    Hash table functions.
+* Weak Hash Tables::            Hash tables with special garbage-collection
+                                behavior.
+@end menu
+
+@node Introduction to Hash Tables
+@section Introduction to Hash Tables
+
+A hash table is a data structure that provides mappings from
+arbitrary Lisp objects (called @dfn{keys}) to other arbitrary Lisp
+objects (called @dfn{values}).  There are many ways other than
+hash tables of implementing the same sort of mapping, e.g.
+association lists (@pxref{Association Lists}) and property lists
+(@pxref{Property Lists}), but hash tables provide much faster lookup.
+
+When you create a hash table, you specify a size, which indicates the
+expected number of elements that the table will hold.  You are not
+bound by this size, however; hash tables automatically resize themselves
+if the number of elements becomes too large.
+
+(Internally, hash tables are hashed using a modification of the
+@dfn{linear probing} hash table method.  This method hashes each
+key to a particular spot in the hash table, and then scans forward
+sequentially until a blank entry is found.  To look up a key, hash
+to the appropriate spot, then search forward for the key until either
+a key is found or a blank entry stops the search.  The modification
+actually used is called @dfn{double hashing} and involves moving forward
+by a fixed increment, whose value is computed from the original hash
+value, rather than always moving forward by one.  This eliminates
+problems with clustering that can arise from the simple linear probing
+method.  For more information, see @cite{Algorithms} (second edition)
+by Robert Sedgewick, pp. 236-241.)
+
+@defun make-hashtable size &optional test-fun
+This function makes a hash table of initial size @var{size}.  Comparison
+between keys is normally done with @code{eql}; i.e. two keys must be the
+same object to be considered equivalent.  However, you can explicitly
+specify the comparison function using @var{test-fun}, which must be
+one of @code{eq}, @code{eql}, or @code{equal}.
+
+Note that currently, @code{eq} and @code{eql} are the same.  This will
+change when bignums are implemented.
+@end defun
+
+@defun copy-hashtable old-table
+This function makes a new hash table which contains the same keys and
+values as the given table.  The keys and values will not themselves be
+copied.
+@end defun
+
+@defun hashtable-fullness table
+This function returns number of entries in @var{table}.
+@end defun
+
+@node Working With Hash Tables
+@section Working With Hash Tables
+
+@defun puthash key val table
+This function hashes @var{key} to @var{val} in @var{table}.
+@end defun
+
+@defun gethash key table &optional default
+This function finds the hash value for @var{key} in @var{table}.  If
+there is no corresponding value, @var{default} is returned (defaults to
+@code{nil}).
+@end defun
+
+@defun remhash key table
+This function removes the hash value for @var{key} in @var{table}.
+@end defun
+
+@defun clrhash table
+This function flushes @var{table}.  Afterwards, the hash table will
+contain no entries.
+@end defun
+
+@defun maphash function table
+This function maps @var{function} over entries in @var{table}, calling
+it with two args, each key and value in the table.
+@end defun
+
+@node Weak Hash Tables
+@section Weak Hash Tables
+@cindex hash table, weak
+@cindex weak hash table
+
+A @dfn{weak hash table} is a special variety of hash table whose
+elements do not count as GC referents.  For any key-value pair in such a
+hash table, if either the key or value (or in some cases, if one
+particular one of the two) has no references to it outside of weak hash
+tables (and similar structures such as weak lists), the pair will be
+removed from the table, and the key and value collected.  A non-weak
+hash table (or any other pointer) would prevent the objects from being
+collected.
+
+Weak hash tables are useful for keeping track of information in a
+non-obtrusive way, for example to implement caching.  If the cache
+contains objects such as buffers, markers, image instances, etc. that
+will eventually disappear and get garbage-collected, using a weak hash
+table ensures that these objects are collected normally rather than
+remaining around forever, long past their actual period of use.
+(Otherwise, you'd have to explicitly map over the hash table every so
+often and remove unnecessary elements.)
+
+There are three types of weak hash tables:
+
+@table @asis
+@item fully weak hash tables
+In these hash tables, a pair disappears if either the key or the value
+is unreferenced outside of the table.
+@item key-weak hash tables
+In these hash tables, a pair disappears if the key is unreferenced outside
+of the table, regardless of how the value is referenced.
+@item value-weak hash tables
+In these hash tables, a pair disappears if the value is unreferenced outside
+of the table, regardless of how the key is referenced.
+@end table
+
+Also see @ref{Weak Lists}.
+
+@defun make-weak-hashtable size &optional test-fun
+This function makes a fully weak hash table of initial size @var{size}.
+@var{test-fun} is as in @code{make-hashtable}.
+@end defun
+
+@defun make-key-weak-hashtable size &optional test-fun
+This function makes a key-weak hash table of initial size @var{size}.
+@var{test-fun} is as in @code{make-hashtable}.
+@end defun
+
+@defun make-value-weak-hashtable size &optional test-fun
+This function makes a value-weak hash table of initial size @var{size}.
+@var{test-fun} is as in @code{make-hashtable}.
+@end defun

@@ -1,0 +1,119 @@
+	     Building and Installing XEmacs on Windows NT
+
+			     David Hobley
+			    Marc Paquette
+			   Jonathan Harris
+
+The port was made much easier by the groundbreaking work of Geoff Voelker
+and others who worked on the GNU Emacs port to NT. Their version is available
+from http://www.cs.washington.edu/homes/voelker/ntemacs.html
+
+To get it working you will need:
+
+1.  You will need Visual C++ V4.2 or later to compile everything. Personally we
+    have tested V4.2 and V5.0.
+    Note that Visual C++ assumes a couple of environment variables INCLUDE and
+    LIB to be set which specify the location of the includes and libraries.
+    At this point you can select X or Win32 native support.
+
+2.  Grab the latest XEmacs source from ftp.xemacs.org if necessary. All Win32
+    support is in the nt\ subdirectory. You'll also need the xemacs-base
+    package from the binary-packages subdirectory and you'll probably also
+    want at least the edit-utils, text-utils, cc-mode and prog-utils packages.
+    Unpack the packages into, say, "c:\Program Files\XEmacs\packages".
+
+
+If you want to build for native GUI:
+
+1.  If you want XPM and toolbar support grab the latest version of the xpm
+    sources (xpm-3.4k.tar.gz at time of writing) and unpack them somewhere.
+    Copy nt\xpm.mak from the xemacs sources to the lib subdirectory of the
+    xpm sources, cd to that directory and build xpm with `nmake -f xpm.mak`.
+
+2.  cd to the nt subdirectory of the xemacs distribution and build xemacs:
+    `nmake install -f xemacs.mak`, but read on before hitting Enter.
+
+3.  If you're building with XPM support, add this to the nmake command line:
+	HAVE_XPM=1 XPM_DIR="x:\location\of\your\xpm\source\tree"
+
+4.  By default, XEmacs will look for packages in
+    "c:\Program Files\XEmacs\packages". If you want it to look elsewhere,
+    add this to the nmake command line:
+	PACKAGEPATH="x:\\location\\of\\your\\packages"
+    Note the doubled-up backslashes in that path. If you want to change the
+    package path after you've already built XEmacs, delete the file
+    .\obj\emacs.obj and rebuild with the new value of PACKAGEPATH.
+
+5.  By default, XEmacs will be installed in directories under the directory
+    "c:\Program Files\XEmacs\XEmacs-21.0". If you want to install it
+    elsewhere, add this to the nmake command line:
+	INSTALL_DIR="x:\your\installation\directory"
+
+6.  Now you can press Enter. nmake will build temacs, the DOC file, update the
+    elc's, dump xemacs and install the relevant files in the directories under
+    the installation directory. Unless you set INSTALL_DIR in step 5 above, the
+    file that you should run to start XEmacs will be installed as
+    "c:\Program Files\XEmacs\XEmacs-21.0\i386-pc-win32\runemacs.exe". You may
+    want to create a shortcut to that file from your Desktop or Start Menu.
+
+7.  The build process always creates debugging and "Source Browser" information
+    in the source tree for use with MS DevStudio. If you actually want to debug
+    XEmacs you should run XEmacs from the source directory instead of from the
+    installation directory. You should probably also build a debug version of
+    XEmacs; to do this start with a clean source tree and add DEBUG_XEMACS=1 to
+    the nmake command line. You probably don't want to install your debug build
+    so you should tell nmake to build the 'all' target instead of the 'install'
+    target.
+
+    To make use of the debugging and "Source Browser" information, create a new
+    "console" project in MS DevStudio and, under Project/Settings, set:
+	Debug: executable name = full path of src\xemacs.exe
+	Link: output file name = full path of src\temacs.exe
+	Browse Info: browse info file name = full path of src\temacs.bsc
+    Remember to close the Source Browser file in DevStudio before rebuilding.
+
+
+If you want support for X you will need:
+
+1.  An X server. MI/X is available on the Internet for free; It is 
+    available from:  http://www.microimages.com/www/html/freestuf/mixdlfrm.htm
+
+2.  The MIT X11R6.3 libraries available from: ftp.x.org
+
+3.  You'll need to compile the MIT libraries without multi-thread support.
+    To do this, there is an example Win32.cf and site.def provided which
+    set the relevant flags. You will also need to apply the patch in 
+    nt/X11.patch in the xc/lib/X11 directory which will fix the DLL definition
+    file. Once compiled and installed, you will need to apply the following
+    patch to Xmd.h. This is messy and better solutions would be appreciated. 
+
+4.  Goto 2 under 'native GUI' above and add this to the nmake command line:
+	HAVE_X=1 X11_DIR=x:\root\directory\of\your\X11\installation
+
+--- Xmd.h~	Thu Jun 08 23:20:40 1995
++++ Xmd.h	Sun Mar 16 13:09:10 1997
+@@ -150,8 +150,9 @@
+ typedef CARD16		BITS16;
+ typedef CARD8		BYTE;
+ 
++#ifndef WIN32
+ typedef CARD8           BOOL;
+-
++#endif
+ 
+Known Problems:
+Please look at the TODO list for the current list of problems and people 
+working on them.
+
+Any other problems you need clarified, please email us and we will endeavour
+to provide any assistance we can:
+
+The XEmacs NT Mailing List: xemacs-nt@xemacs.org
+Subscribe address:          xemacs-nt-request@xemacs.org
+
+David Hobley
+Marc Paquette
+August Hill
+Jonathan Harris
+
+and others.
