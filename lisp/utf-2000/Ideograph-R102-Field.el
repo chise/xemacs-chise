@@ -226,6 +226,10 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x756B)	; ç•«
+      (=jis-x0208	  . #x6141)	; ø½‹”œ
+      ))
     (shinjigen-1	. 5023)
     (=jis-x0208		. #x3268)	; ø½Š
     (=gt		. 27920)	; ý¡€†´
@@ -1795,6 +1799,10 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x758A)	; ç–Š
+      (=jis-x0208	  . #x6148)	; ø½‹”£
+      ))
     (=ucs		. #x7573)	; ç•³
     (=jis-x0208		. #x3E76)	; ø½Š¡·
     (=gt		. 28062)	; ý¡€†¶ž
