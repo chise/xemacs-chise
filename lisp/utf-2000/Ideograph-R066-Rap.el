@@ -824,6 +824,16 @@
     (mojikyo			. 050208)	; ø¸Œ 
     ))
 (define-char
+  '((morohashi-daikanwa	30285 0 0)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (chinese-gb2312	. #x3550)	; ø»„¤‹
+    (chinese-isoir165	. #x3550)	; ø»Œ›
+    (chinese-cns11643-4 . #x2D44)	; ø»—²³
+    (ucs		. #x654C)	; æ•Œ
+    ))
+(define-char
   '((ideographic-radical . 66)	; â½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
