@@ -1,3 +1,12 @@
+2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (Vutf_2000_version): New variable [moved from chartab.c].
+	(vars_of_mule): Add new variable `utf-2000-version' [moved from
+	chartab.c].
+
+	* chartab.c (Vutf_2000_version): Moved to mule.c.
+	(vars_of_chartab): Move code about `utf-2000-version' into mule.c.
+
 2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (load_char_decoding_entry_maybe): Don't define it
