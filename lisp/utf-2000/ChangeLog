@@ -1,3 +1,13 @@
+2003-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el, Ideograph-R090-Half-Tree-Trunk.el,
+	Ideograph-R085-Water.el, Ideograph-R083-Clan.el,
+	Ideograph-R076-Lack.el, Ideograph-R075-Tree.el: Add some GT code
+	points.
+
+	* Ideograph-R064-Hand.el (C3-5076): Separate JSP-4128 and CB02695.
+	(J0-5A22): Separate G0-475C and U+64D2; unify GT-20067.
+
 2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-attributes): Ignore `->ucs-unified'
