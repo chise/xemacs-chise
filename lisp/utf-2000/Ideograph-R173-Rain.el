@@ -3060,6 +3060,14 @@
     (=cns11643-4	. #x6174)	; ø»˜¿»
     ))
 (define-char
+  '((morohashi-daikanwa	42417 1)
+    (ideographic-radical . 173)	; â¾¬
+    (ideographic-strokes . 11)
+    (total-strokes	 . 19)
+    (=gt		. 56959)	; ý¡€¹¿
+    (=gt-pj-8		. #x3571)	; ý¡€¹¿
+    ))
+(define-char
   '((morohashi-daikanwa	42417 1 0)
     (ideographic-radical . 173)	; â¾¬
     (ideographic-strokes . 11)
