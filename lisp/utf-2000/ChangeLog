@@ -1,3 +1,36 @@
+2001-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (M-45363): Separate C3-4561.
+	(M-45365): Separate C6-645E.
+	(M-45372): Separate C3-4A6F.
+	(M-45376): New character.
+	(M-45384): Separate C5-4B57.
+	(C4-654B): Moved from Ideograph-R193-Cauldron.el; Unify M-45538
+	instead of M-45508.
+
+2001-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R192-Sacrificial-Wine.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
+	* Ideograph-R184-Eat.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+	* Ideograph-R020-Wrap.el (C5-213D): Fix `morohashi-daikanwa'
+	property.
+
+	* Ideograph-R017-Open-Box.el (C5-2129): Fix `morohashi-daikanwa'
+	property.
+
+2001-04-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el, Ideograph-R186-Fragrant.el:
+	Resorted; add some missing Morohashi's Daikanwa characters; add
+	missing `ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+
 2001-04-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R185-Head.el: Resorted; add some missing Morohashi's
