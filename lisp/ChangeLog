@@ -1,5 +1,11 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Delete "ccs-viscii.el".
+
+	* utf-2000/ccs-viscii.el: Deleted.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add "u013A0-Cherokee.el",
 	"u01400-Canadian.el", "u01680-Ogham.el", "u016A0-Runic.el",
 	"u01780-Khmer.el", "u01800-Mongolian.el",
