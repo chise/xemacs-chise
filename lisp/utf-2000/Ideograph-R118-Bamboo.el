@@ -3555,7 +3555,8 @@
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
     (->same
-     ((=daikanwa	  . 26149)	; ø¸†˜¥
+     ((=ucs		  . #x7B9A)	; ç®š
+      (=daikanwa	  . 26149)	; ø¸†˜¥
       ))
     (->same*sources
      kouin kangxi daikanwa)
