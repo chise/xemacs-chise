@@ -1,3 +1,10 @@
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Don't add "mojikyo".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`mojikyo' instead of `mojikyo-pj-[1..21]'.
+
 2000-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/vietnamese.el (vscii-2): Delete abolished property
