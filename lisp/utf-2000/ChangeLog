@@ -1,3 +1,13 @@
+2003-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EBC): Unify GT-37857.
+
+	* Ideograph-R130-Meat.el: Add some GT code points.
+	(M-29250): Unify H6-A472, GT-37865 and U-0002662D.
+	(C6-2548): Map to U-0002662D.
+	(U-00026630): Unify GT-37869; add strokes.
+	(M-29966'): Unify GT-38818.
+
 2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R072-Sun.el (GT-K03318): New character.
