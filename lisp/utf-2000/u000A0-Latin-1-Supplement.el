@@ -233,7 +233,7 @@
     (japanese-jisx0208		. #x212F)	; ø»†–
     (korean-ksc5601		. #x2127)	; ø»ˆš’
     (japanese-jisx0208-1990	. #x212F)	; ø½‰¶Š
-    (chinese-big5		. #xA14C)	; øºŸ›Œ
+    (chinese-big5		. #xC6D8)	; øº ·§
     ))
 (define-char
   '((name		. "COPYRIGHT SIGN")
