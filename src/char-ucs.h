@@ -100,7 +100,7 @@ DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
    char table entries should never escape to Lisp */
 
 
-Lisp_Object get_char_id_table (Emchar ch, Lisp_Object table);
+Lisp_Object get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch);
 
 
 extern Lisp_Object Vcharset_mojikyo;
@@ -663,7 +663,8 @@ charset_code_point (Lisp_Object charset, Emchar ch)
   Lisp_Object ret;
 
   if ( CHAR_ID_TABLE_P (encoding_table)
-       && INTP (ret = get_char_id_table (ch, encoding_table)) )
+       && INTP (ret = get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+					 ch)) )
     return XINT (ret);
   else
     return range_charset_code_point (charset, ch);
@@ -687,7 +688,9 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
 	  Lisp_Object ret;
 
 	  if ( CHAR_ID_TABLE_P (encoding_table)
-	       && INTP (ret = get_char_id_table (ch, encoding_table)) )
+	       && INTP (ret
+			= get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+					     ch)) )
 	    return XINT (ret);
 	  else
 	    {
