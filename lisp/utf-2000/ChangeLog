@@ -1,6 +1,17 @@
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R015-Ice.el (M-01718): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'; simplify `ideographic-structure'.
+	(C3-4B30): Simplify `ideographic-structure'.
+	(J90-515B): Likewise.
+	(U+51DB): Likewise.
+
+	* Ideograph-R009-Man.el (U+4F7E): Use `->subsumptive'.
+
 	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
+
+2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (M-05334): Simplify
 	`ideographic-structure'.
