@@ -6,6 +6,7 @@
     (mirrored		. nil)
     (ascii		#x20)	;  
     (ipa		#x7F)	; .0N
+    (latin-viscii	#x20)	;  
     ))
 (define-char
   '((name		. "EXCLAMATION MARK")
@@ -15,6 +16,7 @@
     (mirrored		. nil)
     (ascii		#x21)	; !
     (latin-jisx0201	#x21)	; (J!(B
+    (latin-viscii	#x21)	; !
     ))
 (define-char
   '((name		. "QUOTATION MARK")
@@ -24,6 +26,7 @@
     (mirrored		. nil)
     (ascii		#x22)	; "
     (latin-jisx0201	#x22)	; (J"(B
+    (latin-viscii	#x22)	; "
     ))
 (define-char
   '((name		. "NUMBER SIGN")
@@ -33,6 +36,7 @@
     (mirrored		. nil)
     (ascii		#x23)	; #
     (latin-jisx0201	#x23)	; (J#(B
+    (latin-viscii	#x23)	; #
     ))
 (define-char
   '((name		. "DOLLAR SIGN")
@@ -42,6 +46,7 @@
     (mirrored		. nil)
     (ascii		#x24)	; $
     (latin-jisx0201	#x24)	; (J$(B
+    (latin-viscii	#x24)	; $
     ))
 (define-char
   '((name		. "PERCENT SIGN")
@@ -51,6 +56,7 @@
     (mirrored		. nil)
     (ascii		#x25)	; %
     (latin-jisx0201	#x25)	; (J%(B
+    (latin-viscii	#x25)	; %
     ))
 (define-char
   '((name		. "AMPERSAND")
@@ -60,6 +66,7 @@
     (mirrored		. nil)
     (ascii		#x26)	; &
     (latin-jisx0201	#x26)	; (J&(B
+    (latin-viscii	#x26)	; &
     ))
 (define-char
   '((name		. "APOSTROPHE")
@@ -69,6 +76,7 @@
     (mirrored		. nil)
     (ascii		#x27)	; '
     (latin-jisx0201	#x27)	; (J'(B
+    (latin-viscii	#x27)	; '
     ))
 (define-char
   '((name		. "LEFT PARENTHESIS")
@@ -78,6 +86,7 @@
     (mirrored		. t)
     (ascii		#x28)	; (
     (latin-jisx0201	#x28)	; (J((B
+    (latin-viscii	#x28)	; (
     ))
 (define-char
   '((name		. "RIGHT PARENTHESIS")
@@ -87,6 +96,7 @@
     (mirrored		. t)
     (ascii		#x29)	; )
     (latin-jisx0201	#x29)	; (J)(B
+    (latin-viscii	#x29)	; )
     ))
 (define-char
   '((name		. "ASTERISK")
@@ -96,6 +106,7 @@
     (mirrored		. nil)
     (ascii		#x2A)	; *
     (latin-jisx0201	#x2A)	; (J*(B
+    (latin-viscii	#x2A)	; *
     ))
 (define-char
   '((name		. "PLUS SIGN")
@@ -105,6 +116,7 @@
     (mirrored		. nil)
     (ascii		#x2B)	; +
     (latin-jisx0201	#x2B)	; (J+(B
+    (latin-viscii	#x2B)	; +
     ))
 (define-char
   '((name		. "COMMA")
@@ -114,6 +126,7 @@
     (mirrored		. nil)
     (ascii		#x2C)	; ,
     (latin-jisx0201	#x2C)	; (J,(B
+    (latin-viscii	#x2C)	; ,
     ))
 (define-char
   '((name		. "HYPHEN-MINUS")
@@ -123,6 +136,7 @@
     (mirrored		. nil)
     (ascii		#x2D)	; -
     (latin-jisx0201	#x2D)	; (J-(B
+    (latin-viscii	#x2D)	; -
     ))
 (define-char
   '((name		. "FULL STOP")
@@ -132,6 +146,7 @@
     (mirrored		. nil)
     (ascii		#x2E)	; .
     (latin-jisx0201	#x2E)	; (J.(B
+    (latin-viscii	#x2E)	; .
     ))
 (define-char
   '((name		. "SOLIDUS")
@@ -141,126 +156,137 @@
     (mirrored		. nil)
     (ascii		#x2F)	; /
     (latin-jisx0201	#x2F)	; (J/(B
+    (latin-viscii	#x2F)	; /
     ))
 (define-char
   '((name		. "DIGIT ZERO")
     (ucs		. #x0030)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 0)
-    (digit-value	. 0)
-    (numeric-value	. 0)
     (mirrored		. nil)
+    (decimal-digit-value . 0)
+    (digit-value	 . 0)
+    (numeric-value	 . 0)
     (ascii		#x30)	; 0
     (latin-jisx0201	#x30)	; (J0(B
+    (latin-viscii	#x30)	; 0
     ))
 (define-char
   '((name		. "DIGIT ONE")
     (ucs		. #x0031)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 1)
-    (digit-value	. 1)
-    (numeric-value	. 1)
     (mirrored		. nil)
+    (decimal-digit-value . 1)
+    (digit-value	 . 1)
+    (numeric-value	 . 1)
     (ascii		#x31)	; 1
     (latin-jisx0201	#x31)	; (J1(B
+    (latin-viscii	#x31)	; 1
     ))
 (define-char
   '((name		. "DIGIT TWO")
     (ucs		. #x0032)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 2)
-    (digit-value	. 2)
-    (numeric-value	. 2)
     (mirrored		. nil)
+    (decimal-digit-value . 2)
+    (digit-value	 . 2)
+    (numeric-value	 . 2)
     (ascii		#x32)	; 2
     (latin-jisx0201	#x32)	; (J2(B
+    (latin-viscii	#x32)	; 2
     ))
 (define-char
   '((name		. "DIGIT THREE")
     (ucs		. #x0033)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 3)
-    (digit-value	. 3)
-    (numeric-value	. 3)
     (mirrored		. nil)
+    (decimal-digit-value . 3)
+    (digit-value	 . 3)
+    (numeric-value	 . 3)
     (ascii		#x33)	; 3
     (latin-jisx0201	#x33)	; (J3(B
+    (latin-viscii	#x33)	; 3
     ))
 (define-char
   '((name		. "DIGIT FOUR")
     (ucs		. #x0034)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 4)
-    (digit-value	. 4)
-    (numeric-value	. 4)
     (mirrored		. nil)
+    (decimal-digit-value . 4)
+    (digit-value	 . 4)
+    (numeric-value	 . 4)
     (ascii		#x34)	; 4
     (latin-jisx0201	#x34)	; (J4(B
+    (latin-viscii	#x34)	; 4
     ))
 (define-char
   '((name		. "DIGIT FIVE")
     (ucs		. #x0035)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 5)
-    (digit-value	. 5)
-    (numeric-value	. 5)
     (mirrored		. nil)
+    (decimal-digit-value . 5)
+    (digit-value	 . 5)
+    (numeric-value	 . 5)
     (ascii		#x35)	; 5
     (latin-jisx0201	#x35)	; (J5(B
+    (latin-viscii	#x35)	; 5
     ))
 (define-char
   '((name		. "DIGIT SIX")
     (ucs		. #x0036)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 6)
-    (digit-value	. 6)
-    (numeric-value	. 6)
     (mirrored		. nil)
+    (decimal-digit-value . 6)
+    (digit-value	 . 6)
+    (numeric-value	 . 6)
     (ascii		#x36)	; 6
     (latin-jisx0201	#x36)	; (J6(B
+    (latin-viscii	#x36)	; 6
     ))
 (define-char
   '((name		. "DIGIT SEVEN")
     (ucs		. #x0037)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 7)
-    (digit-value	. 7)
-    (numeric-value	. 7)
     (mirrored		. nil)
+    (decimal-digit-value . 7)
+    (digit-value	 . 7)
+    (numeric-value	 . 7)
     (ascii		#x37)	; 7
     (latin-jisx0201	#x37)	; (J7(B
+    (latin-viscii	#x37)	; 7
     ))
 (define-char
   '((name		. "DIGIT EIGHT")
     (ucs		. #x0038)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 8)
-    (digit-value	. 8)
-    (numeric-value	. 8)
     (mirrored		. nil)
+    (decimal-digit-value . 8)
+    (digit-value	 . 8)
+    (numeric-value	 . 8)
     (ascii		#x38)	; 8
     (latin-jisx0201	#x38)	; (J8(B
+    (latin-viscii	#x38)	; 8
     ))
 (define-char
   '((name		. "DIGIT NINE")
     (ucs		. #x0039)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "EN")
-    (decimal-digit-value . 9)
-    (digit-value	. 9)
-    (numeric-value	. 9)
     (mirrored		. nil)
+    (decimal-digit-value . 9)
+    (digit-value	 . 9)
+    (numeric-value	 . 9)
     (ascii		#x39)	; 9
     (latin-jisx0201	#x39)	; (J9(B
+    (latin-viscii	#x39)	; 9
     ))
 (define-char
   '((name		. "COLON")
@@ -270,6 +296,7 @@
     (mirrored		. nil)
     (ascii		#x3A)	; :
     (latin-jisx0201	#x3A)	; (J:(B
+    (latin-viscii	#x3A)	; :
     ))
 (define-char
   '((name		. "SEMICOLON")
@@ -279,6 +306,7 @@
     (mirrored		. nil)
     (ascii		#x3B)	; ;
     (latin-jisx0201	#x3B)	; (J;(B
+    (latin-viscii	#x3B)	; ;
     ))
 (define-char
   '((name		. "LESS-THAN SIGN")
@@ -288,6 +316,7 @@
     (mirrored		. t)
     (ascii		#x3C)	; <
     (latin-jisx0201	#x3C)	; (J<(B
+    (latin-viscii	#x3C)	; <
     ))
 (define-char
   '((name		. "EQUALS SIGN")
@@ -297,6 +326,7 @@
     (mirrored		. nil)
     (ascii		#x3D)	; =
     (latin-jisx0201	#x3D)	; (J=(B
+    (latin-viscii	#x3D)	; =
     ))
 (define-char
   '((name		. "GREATER-THAN SIGN")
@@ -306,6 +336,7 @@
     (mirrored		. t)
     (ascii		#x3E)	; >
     (latin-jisx0201	#x3E)	; (J>(B
+    (latin-viscii	#x3E)	; >
     ))
 (define-char
   '((name		. "QUESTION MARK")
@@ -315,6 +346,7 @@
     (mirrored		. nil)
     (ascii		#x3F)	; ?
     (latin-jisx0201	#x3F)	; (J?(B
+    (latin-viscii	#x3F)	; ?
     ))
 (define-char
   '((name		. "COMMERCIAL AT")
@@ -324,6 +356,7 @@
     (mirrored		. nil)
     (ascii		#x40)	; @
     (latin-jisx0201	#x40)	; (J@(B
+    (latin-viscii	#x40)	; @
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A")
@@ -334,6 +367,7 @@
     (->lowercase	#x0061)
     (ascii		#x41)	; A
     (latin-jisx0201	#x41)	; (JA(B
+    (latin-viscii	#x41)	; A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER B")
@@ -344,6 +378,7 @@
     (->lowercase	#x0062)
     (ascii		#x42)	; B
     (latin-jisx0201	#x42)	; (JB(B
+    (latin-viscii	#x42)	; B
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER C")
@@ -354,6 +389,7 @@
     (->lowercase	#x0063)
     (ascii		#x43)	; C
     (latin-jisx0201	#x43)	; (JC(B
+    (latin-viscii	#x43)	; C
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER D")
@@ -364,6 +400,7 @@
     (->lowercase	#x0064)
     (ascii		#x44)	; D
     (latin-jisx0201	#x44)	; (JD(B
+    (latin-viscii	#x44)	; D
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E")
@@ -374,6 +411,7 @@
     (->lowercase	#x0065)
     (ascii		#x45)	; E
     (latin-jisx0201	#x45)	; (JE(B
+    (latin-viscii	#x45)	; E
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER F")
@@ -384,6 +422,7 @@
     (->lowercase	#x0066)
     (ascii		#x46)	; F
     (latin-jisx0201	#x46)	; (JF(B
+    (latin-viscii	#x46)	; F
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER G")
@@ -394,6 +433,7 @@
     (->lowercase	#x0067)
     (ascii		#x47)	; G
     (latin-jisx0201	#x47)	; (JG(B
+    (latin-viscii	#x47)	; G
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER H")
@@ -404,6 +444,7 @@
     (->lowercase	#x0068)
     (ascii		#x48)	; H
     (latin-jisx0201	#x48)	; (JH(B
+    (latin-viscii	#x48)	; H
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I")
@@ -414,6 +455,7 @@
     (->lowercase	#x0069)
     (ascii		#x49)	; I
     (latin-jisx0201	#x49)	; (JI(B
+    (latin-viscii	#x49)	; I
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER J")
@@ -424,6 +466,7 @@
     (->lowercase	#x006A)
     (ascii		#x4A)	; J
     (latin-jisx0201	#x4A)	; (JJ(B
+    (latin-viscii	#x4A)	; J
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER K")
@@ -434,6 +477,7 @@
     (->lowercase	#x006B)
     (ascii		#x4B)	; K
     (latin-jisx0201	#x4B)	; (JK(B
+    (latin-viscii	#x4B)	; K
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER L")
@@ -444,6 +488,7 @@
     (->lowercase	#x006C)
     (ascii		#x4C)	; L
     (latin-jisx0201	#x4C)	; (JL(B
+    (latin-viscii	#x4C)	; L
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER M")
@@ -454,6 +499,7 @@
     (->lowercase	#x006D)
     (ascii		#x4D)	; M
     (latin-jisx0201	#x4D)	; (JM(B
+    (latin-viscii	#x4D)	; M
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER N")
@@ -464,6 +510,7 @@
     (->lowercase	#x006E)
     (ascii		#x4E)	; N
     (latin-jisx0201	#x4E)	; (JN(B
+    (latin-viscii	#x4E)	; N
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O")
@@ -474,6 +521,7 @@
     (->lowercase	#x006F)
     (ascii		#x4F)	; O
     (latin-jisx0201	#x4F)	; (JO(B
+    (latin-viscii	#x4F)	; O
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER P")
@@ -484,6 +532,7 @@
     (->lowercase	#x0070)
     (ascii		#x50)	; P
     (latin-jisx0201	#x50)	; (JP(B
+    (latin-viscii	#x50)	; P
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Q")
@@ -494,6 +543,7 @@
     (->lowercase	#x0071)
     (ascii		#x51)	; Q
     (latin-jisx0201	#x51)	; (JQ(B
+    (latin-viscii	#x51)	; Q
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER R")
@@ -504,6 +554,7 @@
     (->lowercase	#x0072)
     (ascii		#x52)	; R
     (latin-jisx0201	#x52)	; (JR(B
+    (latin-viscii	#x52)	; R
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER S")
@@ -514,6 +565,7 @@
     (->lowercase	#x0073)
     (ascii		#x53)	; S
     (latin-jisx0201	#x53)	; (JS(B
+    (latin-viscii	#x53)	; S
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER T")
@@ -524,6 +576,7 @@
     (->lowercase	#x0074)
     (ascii		#x54)	; T
     (latin-jisx0201	#x54)	; (JT(B
+    (latin-viscii	#x54)	; T
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U")
@@ -534,6 +587,7 @@
     (->lowercase	#x0075)
     (ascii		#x55)	; U
     (latin-jisx0201	#x55)	; (JU(B
+    (latin-viscii	#x55)	; U
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER V")
@@ -544,6 +598,7 @@
     (->lowercase	#x0076)
     (ascii		#x56)	; V
     (latin-jisx0201	#x56)	; (JV(B
+    (latin-viscii	#x56)	; V
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER W")
@@ -554,6 +609,7 @@
     (->lowercase	#x0077)
     (ascii		#x57)	; W
     (latin-jisx0201	#x57)	; (JW(B
+    (latin-viscii	#x57)	; W
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER X")
@@ -564,6 +620,7 @@
     (->lowercase	#x0078)
     (ascii		#x58)	; X
     (latin-jisx0201	#x58)	; (JX(B
+    (latin-viscii	#x58)	; X
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y")
@@ -574,6 +631,7 @@
     (->lowercase	#x0079)
     (ascii		#x59)	; Y
     (latin-jisx0201	#x59)	; (JY(B
+    (latin-viscii	#x59)	; Y
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Z")
@@ -584,6 +642,7 @@
     (->lowercase	#x007A)
     (ascii		#x5A)	; Z
     (latin-jisx0201	#x5A)	; (JZ(B
+    (latin-viscii	#x5A)	; Z
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET")
@@ -593,6 +652,7 @@
     (mirrored		. t)
     (ascii		#x5B)	; [
     (latin-jisx0201	#x5B)	; (J[(B
+    (latin-viscii	#x5B)	; [
     ))
 (define-char
   '((name		. "REVERSE SOLIDUS")
@@ -601,6 +661,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ascii		#x5C)	; \
+    (latin-viscii	#x5C)	; \
     ))
 (define-char
   '((name		. "RIGHT SQUARE BRACKET")
@@ -610,6 +671,7 @@
     (mirrored		. t)
     (ascii		#x5D)	; ]
     (latin-jisx0201	#x5D)	; (J](B
+    (latin-viscii	#x5D)	; ]
     ))
 (define-char
   '((name		. "CIRCUMFLEX ACCENT")
@@ -619,6 +681,7 @@
     (mirrored		. nil)
     (ascii		#x5E)	; ^
     (latin-jisx0201	#x5E)	; (J^(B
+    (latin-viscii	#x5E)	; ^
     ))
 (define-char
   '((name		. "LOW LINE")
@@ -628,6 +691,7 @@
     (mirrored		. nil)
     (ascii		#x5F)	; _
     (latin-jisx0201	#x5F)	; (J_(B
+    (latin-viscii	#x5F)	; _
     ))
 (define-char
   '((name		. "GRAVE ACCENT")
@@ -637,6 +701,7 @@
     (mirrored		. nil)
     (ascii		#x60)	; `
     (latin-jisx0201	#x60)	; (J`(B
+    (latin-viscii	#x60)	; `
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A")
@@ -648,7 +713,8 @@
     (->titlecase	#x0041)
     (ascii		#x61)	; a
     (latin-jisx0201	#x61)	; (Ja(B
-    (ipa	#x25)	; .0N%
+    (ipa		#x25)	; .0N%
+    (latin-viscii	#x61)	; a
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER B")
@@ -661,6 +727,7 @@
     (ascii		#x62)	; b
     (latin-jisx0201	#x62)	; (Jb(B
     (ipa		#x41)	; .0NA
+    (latin-viscii	#x62)	; b
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C")
@@ -672,6 +739,7 @@
     (->titlecase	#x0043)
     (ascii		#x63)	; c
     (latin-jisx0201	#x63)	; (Jc(B
+    (latin-viscii	#x63)	; c
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D")
@@ -683,7 +751,8 @@
     (->titlecase	#x0044)
     (ascii		#x64)	; d
     (latin-jisx0201	#x64)	; (Jd(B
-    (ipa	#x43)	; .0NC
+    (ipa		#x43)	; .0NC
+    (latin-viscii	#x64)	; d
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E")
@@ -695,7 +764,8 @@
     (->titlecase	#x0045)
     (ascii		#x65)	; e
     (latin-jisx0201	#x65)	; (Je(B
-    (ipa	#x22)	; .0N"
+    (ipa		#x22)	; .0N"
+    (latin-viscii	#x65)	; e
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER F")
@@ -707,7 +777,8 @@
     (->titlecase	#x0046)
     (ascii		#x66)	; f
     (latin-jisx0201	#x66)	; (Jf(B
-    (ipa	#x46)	; .0NF
+    (ipa		#x46)	; .0NF
+    (latin-viscii	#x66)	; f
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER G")
@@ -719,7 +790,8 @@
     (->titlecase	#x0047)
     (ascii		#x67)	; g
     (latin-jisx0201	#x67)	; (Jg(B
-    (ipa	#x45)	; .0NE
+    (ipa		#x45)	; .0NE
+    (latin-viscii	#x67)	; g
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER H")
@@ -731,7 +803,8 @@
     (->titlecase	#x0048)
     (ascii		#x68)	; h
     (latin-jisx0201	#x68)	; (Jh(B
-    (ipa	#x51)	; .0NQ
+    (ipa		#x51)	; .0NQ
+    (latin-viscii	#x68)	; h
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I")
@@ -743,7 +816,8 @@
     (->titlecase	#x0049)
     (ascii		#x69)	; i
     (latin-jisx0201	#x69)	; (Ji(B
-    (ipa	#x20)	; .0N 
+    (ipa		#x20)	; .0N 
+    (latin-viscii	#x69)	; i
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER J")
@@ -755,7 +829,8 @@
     (->titlecase	#x004A)
     (ascii		#x6A)	; j
     (latin-jisx0201	#x6A)	; (Jj(B
-    (ipa	#x59)	; .0NY
+    (ipa		#x59)	; .0NY
+    (latin-viscii	#x6A)	; j
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER K")
@@ -767,7 +842,8 @@
     (->titlecase	#x004B)
     (ascii		#x6B)	; k
     (latin-jisx0201	#x6B)	; (Jk(B
-    (ipa	#x44)	; .0ND
+    (ipa		#x44)	; .0ND
+    (latin-viscii	#x6B)	; k
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L")
@@ -779,7 +855,8 @@
     (->titlecase	#x004C)
     (ascii		#x6C)	; l
     (latin-jisx0201	#x6C)	; (Jl(B
-    (ipa	#x5A)	; .0NZ
+    (ipa		#x5A)	; .0NZ
+    (latin-viscii	#x6C)	; l
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M")
@@ -791,7 +868,8 @@
     (->titlecase	#x004D)
     (ascii		#x6D)	; m
     (latin-jisx0201	#x6D)	; (Jm(B
-    (ipa	#x52)	; .0NR
+    (ipa		#x52)	; .0NR
+    (latin-viscii	#x6D)	; m
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N")
@@ -803,7 +881,8 @@
     (->titlecase	#x004E)
     (ascii		#x6E)	; n
     (latin-jisx0201	#x6E)	; (Jn(B
-    (ipa	#x53)	; .0NS
+    (ipa		#x53)	; .0NS
+    (latin-viscii	#x6E)	; n
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O")
@@ -815,7 +894,8 @@
     (->titlecase	#x004F)
     (ascii		#x6F)	; o
     (latin-jisx0201	#x6F)	; (Jo(B
-    (ipa	#x36)	; .0N6
+    (ipa		#x36)	; .0N6
+    (latin-viscii	#x6F)	; o
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER P")
@@ -827,7 +907,8 @@
     (->titlecase	#x0050)
     (ascii		#x70)	; p
     (latin-jisx0201	#x70)	; (Jp(B
-    (ipa	#x40)	; .0N@
+    (ipa		#x40)	; .0N@
+    (latin-viscii	#x70)	; p
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Q")
@@ -839,6 +920,7 @@
     (->titlecase	#x0051)
     (ascii		#x71)	; q
     (latin-jisx0201	#x71)	; (Jq(B
+    (latin-viscii	#x71)	; q
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R")
@@ -850,7 +932,8 @@
     (->titlecase	#x0052)
     (ascii		#x72)	; r
     (latin-jisx0201	#x72)	; (Jr(B
-    (ipa	#x56)	; .0NV
+    (ipa		#x56)	; .0NV
+    (latin-viscii	#x72)	; r
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S")
@@ -862,7 +945,8 @@
     (->titlecase	#x0053)
     (ascii		#x73)	; s
     (latin-jisx0201	#x73)	; (Js(B
-    (ipa	#x4A)	; .0NJ
+    (ipa		#x4A)	; .0NJ
+    (latin-viscii	#x73)	; s
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER T")
@@ -874,7 +958,8 @@
     (->titlecase	#x0054)
     (ascii		#x74)	; t
     (latin-jisx0201	#x74)	; (Jt(B
-    (ipa	#x42)	; .0NB
+    (ipa		#x42)	; .0NB
+    (latin-viscii	#x74)	; t
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U")
@@ -886,7 +971,8 @@
     (->titlecase	#x0055)
     (ascii		#x75)	; u
     (latin-jisx0201	#x75)	; (Ju(B
-    (ipa	#x34)	; .0N4
+    (ipa		#x34)	; .0N4
+    (latin-viscii	#x75)	; u
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER V")
@@ -898,7 +984,8 @@
     (->titlecase	#x0056)
     (ascii		#x76)	; v
     (latin-jisx0201	#x76)	; (Jv(B
-    (ipa	#x47)	; .0NG
+    (ipa		#x47)	; .0NG
+    (latin-viscii	#x76)	; v
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER W")
@@ -911,6 +998,7 @@
     (ascii		#x77)	; w
     (latin-jisx0201	#x77)	; (Jw(B
     (ipa		#x5E)	; .0N^
+    (latin-viscii	#x77)	; w
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER X")
@@ -922,7 +1010,8 @@
     (->titlecase	#x0058)
     (ascii		#x78)	; x
     (latin-jisx0201	#x78)	; (Jx(B
-    (ipa	#x4F)	; .0NO
+    (ipa		#x4F)	; .0NO
+    (latin-viscii	#x78)	; x
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y")
@@ -934,7 +1023,8 @@
     (->titlecase	#x0059)
     (ascii		#x79)	; y
     (latin-jisx0201	#x79)	; (Jy(B
-    (ipa	#x2D)	; .0N-
+    (ipa		#x2D)	; .0N-
+    (latin-viscii	#x79)	; y
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z")
@@ -946,7 +1036,8 @@
     (->titlecase	#x005A)
     (ascii		#x7A)	; z
     (latin-jisx0201	#x7A)	; (Jz(B
-    (ipa	#x4B)	; .0NK
+    (ipa		#x4B)	; .0NK
+    (latin-viscii	#x7A)	; z
     ))
 (define-char
   '((name		. "LEFT CURLY BRACKET")
@@ -956,6 +1047,7 @@
     (mirrored		. t)
     (ascii		#x7B)	; {
     (latin-jisx0201	#x7B)	; (J{(B
+    (latin-viscii	#x7B)	; {
     ))
 (define-char
   '((name		. "VERTICAL LINE")
@@ -965,6 +1057,7 @@
     (mirrored		. nil)
     (ascii		#x7C)	; |
     (latin-jisx0201	#x7C)	; (J|(B
+    (latin-viscii	#x7C)	; |
     ))
 (define-char
   '((name		. "RIGHT CURLY BRACKET")
@@ -974,6 +1067,7 @@
     (mirrored		. t)
     (ascii		#x7D)	; }
     (latin-jisx0201	#x7D)	; (J}(B
+    (latin-viscii	#x7D)	; }
     ))
 (define-char
   '((name		. "TILDE")
@@ -982,6 +1076,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ascii		#x7E)	; ~
+    (latin-viscii	#x7E)	; ~
     ))
 (define-char
   '((ucs		. #x007F)
@@ -989,4 +1084,5 @@
     (bidi-category	. "BN")
     (mirrored		. nil)
     (ascii		#x7F)
+    (latin-viscii	#x7F)
     ))
