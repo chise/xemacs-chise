@@ -1,3 +1,215 @@
+2001-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el (M-37034'): Add `simplified-ideograph-of'
+	for M-37034.
+	(M-37035): Add `original-ideograph-of' for M-37034.
+	(J0-6C62): Unify M054693; fix strokes.
+
+2001-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (M-36380): Unify M036380.
+	(U+8C62): Unify M055749.
+
+	* Ideograph-R144-Walk-Enclosure.el (M-34038): Separate C4-2F6F and
+	U+4615; unify M034038.
+	(M-34046): Unify M034046.
+	(M-34047): Unify C6-444F.
+	(M034047): New character; relate to M-34047.
+	(M-34073): Unify M034073.
+	(J83-3152): Fix strokes; unify M054025.
+	(K0-6A5B): Fix strokes; relate to M054025.
+	(M-34076): Unify M034076.
+	(M053307): New character; relate to U+8860 and M-34076.
+	(C4-534B): Relate M053307.
+	(M-34090): Separate G0-6169, C1-7C68 and U+8862; unify M034090.
+
+2001-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el (U+46A2): Unify M-35118; separate
+	C4-5361.
+
+	* Ideograph-R147-See.el (U+89C1): Add `total-strokes'.
+	(U+89C2): Likewise.
+
+	* Ideograph-R146-West.el (M-34768): Unify M034768.
+	(M034789): New character; relate to U+8986 and M-34789.
+	(M-34791): Unify M034791.
+
+	* Ideograph-R145-Clothes.el (M-34162): Separate C6-3B7A; unify
+	M034162.
+	(U+891C): Add `total-strokes'.
+	(U+891D): Likewise.
+
+	* Ideograph-R143-Blood.el (M-33969): Separate C2-2D4B and U+8841;
+	unify M033969.
+	(M-33971): Unify M033971.
+	(J0-6A49): Unify M054685.
+
+	* Ideograph-R142-Insect.el (M-32810): Separate C2-2868; unify
+	M032810.
+	(M-32835): Separate G0-7235, C1-534D and U+867B.
+	(C1-534D): Unify M057316; relate to M-32835.
+	(G0-7235): Unify U+867B; relate to M-32835 and M057316.
+
+	* Ideograph-R136-Oppose.el (M-30338): Separate S2-6636, K0-743F
+	and C1-4860.
+	(C1-4860): Unify S1-6636 and S2-6636.
+	(K0-743F): Unify M054189.
+	(M-30342): Unify M030342.
+
+2001-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el (M-30277): Unify S1-6628 and M030277.
+	(C1-485F): Add `original-ideograph-of' for M030277; unify S1-6629
+	and M075115.
+	(M-30278): Unify M030278.
+
+2001-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R132-Self.el (M030105): New character; relate to
+	M-30105.
+
+	* Ideograph-R128-Ear.el (M-29074): Unify M029074.
+	(M-29074'): Add `total-strokes'.
+
+2001-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R129-Brush.el (U+8080): Add `total-strokes'.
+
+	* Ideograph-R127-Plow.el (M-28907): Unify M028907.
+	(M-28909): Unify M028909.
+
+	* Ideograph-R109-Eye.el (M-23122): Add `original-ideograph-of' for
+	M-01473; unify M023122 and U-000250F2.
+	(M-23123): Unify M023123.
+	(M-23210): Add `ideograph=' for U-000250F2; add
+	`original-ideograph-of' for M-01473; unify U-0002F942.
+	(M023210): New character; relate to M-23210 and U-0002F942.
+	(U+770C): Add `total-strokes'.
+
+	* Ideograph-R096-Jade.el (M-20900): Separate C2-3070; fix
+	`total-strokes'.
+	(M-20901): Delete `comment'; unify M020901.
+	(M-20902): Delete `comment'; unify M020902.
+	(M-20903): Delete `comment'; unify M020903.
+	(M-20904): Delete `comment'; unify M020904.
+	(M-20905): Delete `comment'; unify M020905.
+	(M-20906): Delete `comment'; unify M020906.
+	(M-20907): Delete `comment'; separate C2-2C35 and U+73C3; unify
+	M020907.
+	(M-20909): Delete `comment'; unify M020909.
+	(M-20910): Delete `comment'; unify M020910.
+	(M-20912): Delete `comment'; unify M020912.
+	(M-20914): Delete `comment'; unify M020914.
+	(M-20916): Delete `comment'; unify M020916.
+	(M-20917): Separate J0-3B39, G0-493A, K0-5F26, C1-5243, U+73CA and
+	S2-4885; unify M058161 and S1-4884.
+	(M020917): New character; unify S1-4885, S2-4885, J82-3B39,
+	K0-5F26, C1-5243 and J90-3B39; relate to U+73CA and M-20917.
+	(U+73CA): Unify S1-4886, J78-3B39, G0-493A and M054140.
+	(M-20949): Delete `comment'; separate C2-3076; unify M020949.
+	(M-20950): Delete `comment'; unify M020950.
+	(M-20952): Separate C2-3078 and U+73DD; unify M020952.
+	(M-20953): Delete `comment'; unify M020953.
+	(M-20954): Delete `comment'; unify M020954.
+	(M-21149): Unify M021149.
+	(M-21150): Unify M021150.
+
+2001-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (M022972): New character; relate to
+	U+76CA and M-22972.
+	(M-23001'): Add `simplified-ideograph-of' for M-23005.
+	(U+76D8): Add `script' and `total-strokes'; unify M052191.
+
+	* Ideograph-R124-Feather.el (M-28614): Unify M028614.
+	(M028635): New character; relate to U+7FC1 and M-28635.
+	(M-28635'): Separate M050359.
+	(U+7FC1): Unify M050359.
+	(M-28657): Unify M028657.
+	(M-28672): Unify M028672.
+
+	* Ideograph-R122-Net.el (M-28312): Delete `morohashi-daikanwa' and
+	`non-morohashi'.
+
+2001-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (M-24626): Unify M024626.
+	(M-24631): Unify M024631.
+	(M-24640): Unify M024640.
+	(M-24641): Unify M024641.
+	(M-24652): Unify M024652.
+	(M-24664): Unify M024664.
+	(M-24672): Unify M024672.
+	(M-24673): Use `ideographic-variants' instead of
+	`->decomposition'; unify M024673.
+	(M-24689): Unify M024689.
+	(M-24766): Unify M024766.
+	(M-24766'): Separate U+798D.
+	(U+798D): Relate to M-24766' and M050313; unify M057178.
+	(M-24767): Unify M024767.
+	(M-24768): Unify M024768.
+
+	* Ideograph-R119-Rice.el (M-26997): Unify M026997.
+
+	* Ideograph-R115-Grain.el (M-25016): Unify C3-327C and M025016.
+	(M-25016'): Separate C3-327C.
+	(M-25081): Unify M025081.
+	(U+7A25): Delete `kangxi-radical' and `kangxi-strokes'.
+	(M-25188'): Unify J0-3972 and C4-455F; separate M050322.
+	(M-25280): Unify M025280.
+
+2001-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (M-16618'): Separate M050242.
+	(C3-2959): Relate to M050242.
+	(M-16629): Unify S1-3996, S2-3996, J90-3B26 and U+6BBA.
+	(M016629): New character; relate to U+6BBA and M-16629.
+	(C4-2D65): Relate to M073347.
+	(M073347): New character; relate to U+6BBA and M-16629.
+	(M-16630): Unify C4-324C.
+	(M016630): New character; relate to M016630.
+	(M-16631): Unify C4-324D.
+	(M016631): New character; relate to M-16631.
+	(M-16632): Unify C4-324F and U+3C80.
+	(M016632): New character; relate to M-16632 and U+3C80.
+	(M-16633): Unify JSP-4630, C4-324E and U+6BB8.
+	(M016633): New character; relate to M-16633 and U+6BB8.
+	(M-16635): Unify C6-4078 and U-00023A8D.
+	(M016635): New character; relate to U-00023A8D and M-16635.
+	(M-16636): Add `wrong-ideograph-of' for M-04033; unify C6-4079 and
+	U-00023A8E.
+	(M016636): New character; relate to U-00023A8E and M-16636.
+	(C5-332D): Cancel relation to M-16636.
+
+2001-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7677): Add `total-strokes';
+	unify M059789.
+
+	* Ideograph-R104-Sickness.el (C5-2464): Unify M-22018, M022018 and
+	U-00024D26.
+	(U+7596): Add `total-strokes'.
+	(U+7597): Likewise.
+
+	* Ideograph-R102-Field.el (M-21727): Add `total-strokes'.
+	(U+753C): Likewise; add `ideographic-variants' for M021735; unify
+	M054615.
+	(M-21739): Unify M021739.
+	(M-021805): New character; relate to U+7556 and M0021805.
+
+2001-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (M-20511'): Separate C3-3D29; unify
+	M020534.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+758D): Unify M057305.
+
+	* Ideograph-R100-Life.el (M-21684): Unify M021684.
+
+	* Ideograph-R095-Profound.el (M-20817): Unify M020817.
+	(U+7387): Relate to M050282.
+
 2001-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Support
