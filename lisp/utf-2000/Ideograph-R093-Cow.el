@@ -1047,8 +1047,10 @@
 (define-char
   '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (chinese-gb2312	. #x6A78)	; ø»…²©
     (chinese-isoir165	. #x6A78)	; ø»Žš¹
+    (chinese-cns11643-2 . #x3D70)	; ø»“¶·
     (ucs		. #x728B)	; çŠ‹
     ))
 (define-char
