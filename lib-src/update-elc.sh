@@ -115,7 +115,7 @@ fi
 # Only use UTF-2000 XEmacs to compile UTF-2000-specific elisp dirs
 echon "Checking for UTF-2000 support..."
 lisp_prog='(princ (featurep (quote utf-2000)))'
-mule_p="`$EMACS -batch -vanilla -eval \"$lisp_prog\"`"
+utf_2000_p="`$EMACS -batch -vanilla -eval \"$lisp_prog\"`"
 if test "$utf_2000_p" = nil ; then
 	echo No
 	ignore_dirs="$ignore_dirs utf-2000"
