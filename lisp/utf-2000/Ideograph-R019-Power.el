@@ -2213,7 +2213,6 @@
       )
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x52A9)	; åŠ©
       ))
@@ -3053,11 +3052,10 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (<-simplified-ideograph
-     (:sources	(sougen-irai-zokujifu morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 751)
+     (:char	((shinjigen-1	     . 751)
 		 (ideograph-daikanwa . 02486)	; ø¸€¦¶
 		 )
-      ))
+      :sources	(sougen-irai-zokujifu morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
