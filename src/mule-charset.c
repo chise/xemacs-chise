@@ -58,11 +58,6 @@ Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
-Lisp_Object Vcharset_chinese_cns11643_3;
-Lisp_Object Vcharset_chinese_cns11643_4;
-Lisp_Object Vcharset_chinese_cns11643_5;
-Lisp_Object Vcharset_chinese_cns11643_6;
-Lisp_Object Vcharset_chinese_cns11643_7;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
@@ -1034,11 +1029,6 @@ Lisp_Object Qascii,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
-  Qchinese_cns11643_3,
-  Qchinese_cns11643_4,
-  Qchinese_cns11643_5,
-  Qchinese_cns11643_6,
-  Qchinese_cns11643_7,
   Qucs_bmp,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
@@ -2536,11 +2526,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
-  defsymbol (&Qchinese_cns11643_3,	"chinese-cns11643-3");
-  defsymbol (&Qchinese_cns11643_4,	"chinese-cns11643-4");
-  defsymbol (&Qchinese_cns11643_5,	"chinese-cns11643-5");
-  defsymbol (&Qchinese_cns11643_6,	"chinese-cns11643-6");
-  defsymbol (&Qchinese_cns11643_7,	"chinese-cns11643-7");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qlatin_viscii_upper,	"vietnamese-viscii-upper");
@@ -2839,56 +2824,6 @@ complex_vars_of_mule_charset (void)
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
 		  NULL, 0, 0, 33);
 #ifdef UTF2000
-  Vcharset_chinese_cns11643_3 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3,
-		  CHARSET_TYPE_94X94, 2, 0, 'I',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-3"),
-		  build_string ("CNS11643-3 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 3 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("3")),
-		  NULL, 0, 0, 33);
-  Vcharset_chinese_cns11643_4 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_4, Qchinese_cns11643_4,
-		  CHARSET_TYPE_94X94, 2, 0, 'J',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-4"),
-		  build_string ("CNS11643-4 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 4 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("4")),
-		  NULL, 0, 0, 33);
-  Vcharset_chinese_cns11643_5 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_5, Qchinese_cns11643_5,
-		  CHARSET_TYPE_94X94, 2, 0, 'K',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-5"),
-		  build_string ("CNS11643-5 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 5 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("5")),
-		  NULL, 0, 0, 33);
-  Vcharset_chinese_cns11643_6 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_6, Qchinese_cns11643_6,
-		  CHARSET_TYPE_94X94, 2, 0, 'L',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-6"),
-		  build_string ("CNS11643-6 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 6 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("6")),
-		  NULL, 0, 0, 33);
-  Vcharset_chinese_cns11643_7 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_7, Qchinese_cns11643_7,
-		  CHARSET_TYPE_94X94, 2, 0, 'M',
-		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("CNS11643-7"),
-		  build_string ("CNS11643-7 (Chinese traditional)"),
-		  build_string
-		  ("CNS 11643 Plane 7 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("7")),
-		  NULL, 0, 0, 33);
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
 		  CHARSET_TYPE_96, 1, 1, '1',
