@@ -276,6 +276,8 @@
     (total-strokes	 . 6)
     (<-vulgar
      ((shinjigen-1	  . 4092)
+      (=ucs		  . #x6C96)	; 沖
+      (=jis-x0208	  . #x322D)	; &I-J90-322D;
       (=daikanwa	  . 17209)	; &I-M-17209;
       ))
     (<-vulgar*sources
@@ -309,6 +311,8 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4080)
+	(=jis-x0208	    . #x3768)	; &GT-21966;
+	(=ks-x1001	    . #x4C3D)	; &I-K0-4C3D;
 	(=daikanwa	    . 17174)	; &I-M-17174;
 	))
       (<-vulgar*sources
@@ -375,6 +379,8 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 4122)
+      (=ucs		  . #x6CC1)	; 況
+      (=jis-x0208	  . #x3637)	; &I-J90-3637;
       (=daikanwa	  . 17264)	; &I-M-17264;
       ))
     (<-vulgar*sources
@@ -1232,6 +1238,7 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4308)
+	(=jis-x0208	    . #x4E43)	; &GT-22670;
 	(=daikanwa	    . 17606)	; &I-M-17606;
 	))
       (<-vulgar*sources
@@ -1919,6 +1926,8 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4378)
+	(=jis-x0208	    . #x3D60)	; &GT-22976;
+	(=ks-x1001	    . #x715E)	; &I-K0-715E;
 	(=daikanwa	    . 17934)	; &I-M-17934;
 	))
       (<-vulgar*sources
