@@ -417,7 +417,7 @@
 		 (ucs		     . #x2FF3)	; ⿳
 		 )
       )
-     ((ucs		  . #xF537)	; 
+     ((chinese-big5-cdp	  . #x8BBF)	; 
       )
      ((ucs		  . #x4E00)	; 一
       ))
@@ -615,9 +615,9 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((ucs		  . #xF4F9)	; 
+     ((chinese-big5-cdp	  . #x8B5F)	; 
       )
-     ((ucs		  . #xF56A)	; 
+     ((chinese-big5-cdp	  . #x8BF2)	; 
       ))
     (chinese-cns11643-2 . #x212E)	; �����
     (chinese-big5	. #xC94E)	; �����
@@ -784,7 +784,7 @@
       )
      ((ucs		  . #x4E00)	; 一
       )
-     ((ucs		  . #xF58E)	; 
+     ((chinese-big5-cdp	  . #x8C57)	; 
       ))
     (shinjigen-1	. 27)
     (shinjigen-2	. 27)
@@ -1232,9 +1232,9 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((ucs		  . #xF4E5)	; 
+     ((chinese-big5-cdp	  . #x8B4B)	; 
       )
-     ((ucs		  . #xF4FA)	; 
+     ((chinese-big5-cdp	  . #x8B60)	; 
       ))
     (shinjigen-1	. 5732)
     (shinjigen-2	. 5732)
