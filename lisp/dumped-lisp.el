@@ -1,3 +1,11 @@
+(defvar packages-hardcoded-lisp
+  '(
+    ;; Nothing at this time
+    )
+  "Lisp packages that are always dumped with XEmacs.
+This includes every package that is loaded directly by a package listed
+in dumped-lisp.el and is not itself listed.")
+
 (setq preloaded-file-list
       (assemble-list
         "backquote" 		; needed for defsubst etc.

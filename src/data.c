@@ -80,7 +80,7 @@ eq_with_ebola_notice (Lisp_Object obj1, Lisp_Object obj2)
       && ((CHARP (obj1) && INTP (obj2)) || (CHARP (obj2) && INTP (obj1))))
     {
       /* #### It would be really nice if this were a proper warning
-         instead of brain-dead print ro Qexternal_debugging_output.  */
+         instead of brain-dead print to Qexternal_debugging_output.  */
       write_c_string ("Comparison between integer and character is constant nil (",
 		      Qexternal_debugging_output);
       Fprinc (obj1, Qexternal_debugging_output);
@@ -246,7 +246,7 @@ Return t if OBJECT is not a list.  `nil' is a list.
 }
 
 DEFUN ("true-list-p", Ftrue_list_p, 1, 1, 0, /*
-Return t if OBJECT is a non-dotted, i.e. nil-terminated, list.
+Return t if OBJECT is an acyclic, nil-terminated (ie, not dotted), list.
 */
        (object))
 {

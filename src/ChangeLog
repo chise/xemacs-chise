@@ -1,3 +1,90 @@
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2004-01-30  Glynn Clements  <glynn.clements@virgin.net>
+
+	* device-x.c (x_error_handler): Don't call stderr_out
+
+2003-11-07  Katsumi Yamaoka <yamaoka@jpl.org>
+
+	* buffer.c (other-buffer): Clarify documentation of order of
+	arguments for FSF Emacs.
+
+2003-10-11  Olivier Galibert  <galibert@pobox.com>
+
+	* window.c (Fdelete_window): Dirty the mirror structure _before_
+	marking the window deleted.
+
+2003-09-15  Jerry James  <james@xemacs.org>
+
+	* event-msw.c (debug_mswin_messages): Conditionally compile
+	messages missing from the Cygwin headers.
+
+2003-06-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* data.c (eq_with_ebola_notice): Fix typo in comment.
+	(Ftrue_list_p): Improve docstring.
+
+2003-10-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* frame-x.c (x_update_frame_external_traits): Fix XtSetArg idiom.
+
+2003-09-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (trivial_regexp_p): Regexps containing "\{" are
+	nontrivial.  Thanks to Manfred Bartz for reporting the bug and
+	Stefan Monnier for suggesting a diagnosis.
+
+2003-09-25  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* elhash.c (make-hash-table): Clarify use of :test #'equal.
+
+2003-09-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (Fsearch_forward):
+	(Fsearch_backward):
+	Document negative count.
+
+2003-09-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_max_failures): Bump to 20000 for REGEX_MALLOC, too.
+
+2003-09-13  Martin Buchholz  <martin@xemacs.org>
+
+	* s/sol2.h: Use OS_RELEASE=os_release_major*100+os_release_minor
+
+2003-09-15  Vin Shelton  <acs@xemacs.org>
+
+	* .gdbinit (pobj): Remove Ilya's fix that was only intended for
+	21.5.
+
+2003-09-12  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* regex.c (TRANSLATE_EXTENDED_UNSAFE): Remove.
+	(re_search_2): Match the first byte of Bufbyte, not Emchar.
+	(re_match_2_internal): Use TRANSLATE instead of
+	TRANSLATE_EXTENDED_UNSAFE.  The latter was a hack to bypass
+	non-ASCII char case conversion.
+
+2003-09-08  Mike Sperber  <mike@xemacs.org>
+
+	* symbols.c (Fvariable_binding_locus): Add, as per suggestion from
+	RMS at: http://article.gmane.org/gmane.emacs.pretest.bugs/1010
+
+2003-06-14  Ilya N. Golubev  <gin@mo.msk.ru>
+
+       * .gdbinit (pobj): fix printing of symbol name.
+
+2003-08-01  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* frame-x.c (x_layout_widgets): When resizing is about to cause
+	frame size slip, mark it for redisplay.
+
+2003-08-18  Jerry James  <james@xemacs.org>
+
+	* opaque.h: Remove unused (X)OPAQUE_MARKFUN definitions.
+
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released

@@ -1,4 +1,4 @@
-This is ../info/info.info, produced by makeinfo version 4.0 from
+This is ../info/info.info, produced by makeinfo version 4.6 from
 info.texi.
 
 INFO-DIR-SECTION Texinfo documentation system
@@ -31,7 +31,7 @@ File: info.info,  Node: Top,  Next: Getting Started,  Up: (dir)
 Info: An Introduction
 *********************
 
-   Info is a program for reading documentation, which you might be using
+Info is a program for reading documentation, which you might be using
 now to read this.
 
    To learn how to use Info, type the command `h' while using the Info
@@ -49,7 +49,7 @@ File: info.info,  Node: Getting Started,  Next: Advanced Info,  Prev: Top,  Up: 
 Getting Started
 ***************
 
-   This first part of the Info manual describes how to get around inside
+This first part of the Info manual describes how to get around inside
 of Info.  The second part of the manual describes various advanced Info
 commands, and how to write an Info as distinct from a Texinfo file.
 The third part is about how to generate Info files from Texinfo files.
@@ -70,7 +70,7 @@ File: info.info,  Node: Help-Small-Screen,  Next: Help,  Up: Getting Started
 Starting Info on a Small Screen
 ===============================
 
-   Since your terminal has an unusually small number of lines on its
+Since your terminal has an unusually small number of lines on its
 screen, it is necessary to give you special advice at the beginning.
 
    If you see the text `--All----' at near the bottom right corner of
@@ -134,7 +134,7 @@ File: info.info,  Node: Help,  Next: Help-P,  Prev: Help-Small-Screen,  Up: Gett
 How to use Info
 ===============
 
-   You are talking to the program Info, for reading documentation.
+You are talking to the program Info, for reading documentation.
 
    Right now you are looking at one "Node" of Information.  A node
 contains text describing a specific topic at a specific level of
@@ -161,7 +161,7 @@ File: info.info,  Node: Help-P,  Next: Help-^L,  Prev: Help,  Up: Getting Starte
 Returning to the Previous node
 ==============================
 
-   This node is called `Help-P'.  The `Previous' node, as you see, is
+This node is called `Help-P'.  The `Previous' node, as you see, is
 `Help', which is the one you just came from using the `n' command.
 Another `n' command now would take you to the next node, `Help-^L'.
 
@@ -182,7 +182,7 @@ File: info.info,  Node: Help-^L,  Next: Help-M,  Prev: Help-P,  Up: Getting Star
 The Space, Delete, B and ^L commands.
 =====================================
 
-   This node's header tells you that you are now at node `Help-^L', and
+This node's header tells you that you are now at node `Help-^L', and
 that `p' would get you back to `Help-P'.  The node's title is
 underlined; it says what the node is about (most nodes have titles).
 
@@ -246,7 +246,7 @@ File: info.info,  Node: Help-M,  Next: Help-Adv,  Prev: Help-^L,  Up: Getting St
 Menus
 =====
 
-   Menus and the `m' command
+Menus and the `m' command
 
    With only the `n' and `p' commands for moving between nodes, nodes
 are restricted to a linear sequence.  Menus allow a branching
@@ -382,12 +382,12 @@ File: info.info,  Node: Help-FOO,  Up: Help-M
 The `u' command
 ---------------
 
-   Congratulations!  This is the node `Help-FOO'.  Unlike the other
-nodes you have seen, this one has an `Up': `Help-M', the node you just
-came from via the `m' command.  This is the usual convention--the nodes
-you reach from a menu have `Up' nodes that lead back to the menu.
-Menus move Down in the tree, and `Up' moves Up.  `Previous', on the
-other hand, is usually used to "stay on the same level but go backwards"
+Congratulations!  This is the node `Help-FOO'.  Unlike the other nodes
+you have seen, this one has an `Up': `Help-M', the node you just came
+from via the `m' command.  This is the usual convention--the nodes you
+reach from a menu have `Up' nodes that lead back to the menu.  Menus
+move Down in the tree, and `Up' moves Up.  `Previous', on the other
+hand, is usually used to "stay on the same level but go backwards"
 
    You can go back to the node `Help-M' by typing the command `u' for
 "Up".  That puts you at the _front_ of the node--to get back to where
@@ -401,7 +401,7 @@ File: info.info,  Node: Help-Adv,  Next: Help-Q,  Prev: Help-M,  Up: Getting Sta
 Some advanced Info commands
 ===========================
 
-   The course is almost over, so please stick with it to the end.
+The course is almost over, so please stick with it to the end.
 
    If you have been moving around to different nodes and wish to
 retrace your steps, the `l' command (`l' for "last") will do that, one
@@ -465,7 +465,7 @@ File: info.info,  Node: Help-Cross,  Up: Help-Adv
 The node reached by the cross reference in Info
 -----------------------------------------------
 
-   This is the node reached by the cross reference named `Cross'.
+This is the node reached by the cross reference named `Cross'.
 
    While this node is specifically intended to be reached by a cross
 reference, most cross references lead to nodes that "belong" someplace
@@ -482,7 +482,7 @@ File: info.info,  Node: Help-Q,  Prev: Help-Adv,  Up: Getting Started
 Quitting Info
 =============
 
-   To get out of Info, back to what you were doing before, type `q' for
+To get out of Info, back to what you were doing before, type `q' for
 "Quit".
 
    This is the end of the course on using Info.  There are some other
@@ -501,9 +501,9 @@ File: info.info,  Node: Advanced Info,  Next: Creating an Info File,  Prev: Gett
 Info for Experts
 ****************
 
-   This chapter describes various advanced Info commands, and how to
-write an Info as distinct from a Texinfo file.  (However, in most
-cases, writing a Texinfo file is better, since you can use it _both_ to
+This chapter describes various advanced Info commands, and how to write
+an Info as distinct from a Texinfo file.  (However, in most cases,
+writing a Texinfo file is better, since you can use it _both_ to
 generate an Info file and to make a printed manual.  *Note Overview of
 Texinfo: (texinfo)Top.)
 
@@ -524,7 +524,7 @@ File: info.info,  Node: Expert,  Next: Add,  Up: Advanced Info
 Advanced Info Commands
 ======================
 
-   `g', `s', `1', - `9', and `e'
+`g', `s', `1', - `9', and `e'
 
    If you know a node's name, you can go there by typing `g', the name,
 and <RET>.  Thus, `gTop<RET>' would go to the node called `Top' in this
@@ -579,7 +579,7 @@ File: info.info,  Node: Add,  Next: Menus,  Prev: Expert,  Up: Advanced Info
 Adding a new node to Info
 =========================
 
-   To add a new topic to the list in the Info directory, you must:
+To add a new topic to the list in the Info directory, you must:
   1. Create some nodes, in some file, to document that topic.
 
   2. Put that topic in the menu in the directory.  *Note Menu: Menus.
@@ -646,7 +646,7 @@ File: info.info,  Node: Menus,  Next: Cross-refs,  Prev: Add,  Up: Advanced Info
 How to Create Menus
 ===================
 
-   Any node in the Info hierarchy may have a "menu"--a list of subnodes.
+Any node in the Info hierarchy may have a "menu"--a list of subnodes.
 The `m' command searches the current node's menu for the topic which it
 reads from the terminal.
 
@@ -701,7 +701,7 @@ File: info.info,  Node: Cross-refs,  Next: Tags,  Prev: Menus,  Up: Advanced Inf
 Creating Cross References
 =========================
 
-   A cross reference can be placed anywhere in the text, unlike a menu
+A cross reference can be placed anywhere in the text, unlike a menu
 item which must go at the front of a line.  A cross reference looks
 like a menu item except that it has `*note' instead of `*'.  It
 _cannot_ be terminated by a `)', because `)''s are so often part of
@@ -720,9 +720,9 @@ File: info.info,  Node: Tags,  Next: Checking,  Prev: Cross-refs,  Up: Advanced 
 Tag Tables for Info Files
 =========================
 
-   You can speed up the access to nodes of a large Info file by giving
-it a tag table.  Unlike the tag table for a program, the tag table for
-an Info file lives inside the file itself and is used automatically
+You can speed up the access to nodes of a large Info file by giving it
+a tag table.  Unlike the tag table for a program, the tag table for an
+Info file lives inside the file itself and is used automatically
 whenever Info reads in the file.
 
    To make a tag table, go to a node in the file using Emacs Info mode
@@ -756,10 +756,10 @@ File: info.info,  Node: Checking,  Next: Emacs Info Variables,  Prev: Tags,  Up:
 Checking an Info File
 =====================
 
-   When creating an Info file, it is easy to forget the name of a node
-when you are making a pointer to it from another node.  If you put in
-the wrong name for a node, this is not detected until someone tries to
-go through the pointer using Info.  Verification of the Info file is an
+When creating an Info file, it is easy to forget the name of a node when
+you are making a pointer to it from another node.  If you put in the
+wrong name for a node, this is not detected until someone tries to go
+through the pointer using Info.  Verification of the Info file is an
 automatic process which checks all pointers to nodes and reports any
 pointers which are invalid.  Every `Next', `Previous', and `Up' is
 checked, as is every menu item and every cross reference.  In addition,
@@ -776,10 +776,10 @@ File: info.info,  Node: Emacs Info Variables,  Prev: Checking,  Up: Advanced Inf
 Emacs Info-mode Variables
 =========================
 
-   The following variables may modify the behavior of Info-mode in
-Emacs; you may wish to set one or several of these variables
-interactively, or in your `~/.emacs' init file.  *Note Examining and
-Setting Variables: (xemacs)Examining.
+The following variables may modify the behavior of Info-mode in Emacs;
+you may wish to set one or several of these variables interactively, or
+in your `~/.emacs' init file.  *Note Examining and Setting Variables:
+(xemacs)Examining.
 
 `Info-enable-edit'
      Set to `nil', disables the `e' (`Info-edit') command.  A non-`nil'
@@ -804,7 +804,7 @@ File: info.info,  Node: Creating an Info File,  Prev: Advanced Info,  Up: Top
 Creating an Info File
 *********************
 
-   *Note Overview of Texinfo: (texinfo)Top, to learn how to write a
+*Note Overview of Texinfo: (texinfo)Top, to learn how to write a
 Texinfo file.
 
    *Note Creating an Info File: (texinfo)Create an Info File, to learn
@@ -817,24 +817,24 @@ learn how to install an Info file after you have created one.
 
 Tag Table:
 Node: Top1067
-Node: Getting Started1612
-Node: Help-Small-Screen2360
-Node: Help4109
-Node: Help-P5139
-Node: Help-^L6001
-Node: Help-M8879
-Node: Help-FOO14859
-Node: Help-Adv15597
-Node: Help-Cross18272
-Node: Help-Q18918
-Node: Advanced Info19545
-Node: Expert20523
-Node: Add23037
-Node: Menus26397
-Node: Cross-refs29271
-Node: Tags29973
-Node: Checking31275
-Node: Emacs Info Variables32228
-Node: Creating an Info File33217
+Node: Getting Started1609
+Node: Help-Small-Screen2354
+Node: Help4100
+Node: Help-P5127
+Node: Help-^L5986
+Node: Help-M8861
+Node: Help-FOO14838
+Node: Help-Adv15574
+Node: Help-Cross18246
+Node: Help-Q18889
+Node: Advanced Info19513
+Node: Expert20488
+Node: Add22999
+Node: Menus26356
+Node: Cross-refs29227
+Node: Tags29926
+Node: Checking31225
+Node: Emacs Info Variables32175
+Node: Creating an Info File33161
 
 End Tag Table

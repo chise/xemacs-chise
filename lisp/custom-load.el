@@ -73,7 +73,7 @@
 (custom-add-loads 'fill '("simple" "fill"))
 (custom-add-loads 'custom-magic-faces '("cus-edit"))
 (custom-add-loads 'display '("modeline" "auto-show" "scrollbar" "toolbar"))
-(custom-add-loads 'faces '("faces" "font" "cus-edit" "font-lock" "hyper-apropos" "info" "wid-edit"))
+(custom-add-loads 'faces '("faces" "cus-edit" "font-lock" "font" "hyper-apropos" "info" "wid-edit"))
 (custom-add-loads 'emacs '("faces" "help" "files" "cus-edit" "package-get"))
 (custom-add-loads 'processes '("process" "gnuserv"))
 (custom-add-loads 'hyper-apropos '("hyper-apropos"))

@@ -1,4 +1,4 @@
-This is ../info/emodules.info, produced by makeinfo version 4.0 from
+This is ../info/emodules.info, produced by makeinfo version 4.6 from
 emodules.texi.
 
    This file documents the module loading technology of XEmacs.
@@ -75,7 +75,7 @@ File: emodules.info,  Node: Introduction,  Next: Anatomy of a Module,  Prev: Top
 Introduction
 ************
 
-   XEmacs is a powerful, extensible editor.  The traditional way of
+XEmacs is a powerful, extensible editor.  The traditional way of
 extending the functionality of XEmacs is to use its built-in Lisp
 language (called Emacs Lisp, or Elisp for short).  However, while Elisp
 is a full programming language and capable of extending XEmacs in more
@@ -159,8 +159,8 @@ File: emodules.info,  Node: Anatomy of a Module,  Next: Using ellcc,  Prev: Intr
 Anatomy of a Module
 *******************
 
-   Each dynamically loadable XEmacs extension (hereafter referred to as
-a module) has a certain compulsory format, and must contain several
+Each dynamically loadable XEmacs extension (hereafter referred to as a
+module) has a certain compulsory format, and must contain several
 pieces of information and several mandatory functions.  This chapter
 describes the basic layout of a module, and provides a very simple
 sample.  The source for this sample can be found in the file
@@ -179,14 +179,14 @@ File: emodules.info,  Node: Required Header File,  Next: Required Functions,  Pr
 Required Header File
 ====================
 
-   Every module must include the file `<emodules.h>'.  This will
-include several other XEmacs internal header files, and will set up
-certain vital macros.  One of the most important files included by
-`emodules.h' is the generated `config.h' file, which contains all of
-the required system abstraction macros and definitions.  Most modules
-will probably require some pre-processor conditionals based on
-constants defined in `config.h'.  Please read that file to familiarize
-yourself with the macros defined there.
+Every module must include the file `<emodules.h>'.  This will include
+several other XEmacs internal header files, and will set up certain
+vital macros.  One of the most important files included by `emodules.h'
+is the generated `config.h' file, which contains all of the required
+system abstraction macros and definitions.  Most modules will probably
+require some pre-processor conditionals based on constants defined in
+`config.h'.  Please read that file to familiarize yourself with the
+macros defined there.
 
    Depending on exactly what your module will be doing, you will
 probably need to include one or more of the XEmacs internal header
@@ -228,7 +228,7 @@ File: emodules.info,  Node: Required Functions,  Next: Required Variables,  Prev
 Required Functions
 ==================
 
-   Every module requires several initialization functions.  It is the
+Every module requires several initialization functions.  It is the
 responsibility of these functions to load in any dependent modules, and
 to declare all variables and functions which are to be made visible to
 the XEmacs Lisp reader.  Each of these functions performs a very
@@ -280,7 +280,7 @@ File: emodules.info,  Node: Required Variables,  Next: Loading other Modules,  P
 Required Variables
 ==================
 
-   Not only does a module need to declare the initialization functions
+Not only does a module need to declare the initialization functions
 mentioned above, it is also required to provide certain variables which
 the module loading code searches for in order to determine the viability
 of a module.  You are _not_ required to provide these variables in your
@@ -334,12 +334,11 @@ File: emodules.info,  Node: Loading other Modules,  Prev: Required Variables,  U
 Loading other Modules
 =====================
 
-   During the loading of a module, it is the responsibility of the
-function `modules_of_module' to load in any modules which the current
-module depends on.  If the module is stand-alone, and does not depend
-on other modules, then this function can be left empty or even
-undeclared.  However, if it does have dependencies, it must call
-`emodules_load':
+During the loading of a module, it is the responsibility of the function
+`modules_of_module' to load in any modules which the current module
+depends on.  If the module is stand-alone, and does not depend on other
+modules, then this function can be left empty or even undeclared.
+However, if it does have dependencies, it must call `emodules_load':
 
      int emodules_load (const char *module,
                         const char *modname,
@@ -371,15 +370,29 @@ unloaded.  This means that if any child modules fail to load, then
 their parents will also fail to load.  This does not include previous
 successful calls to `emodules_load' at the top level.
 
+   *Warning:* Modules are _not_ loaded with the `RTLD_GLOBAL' flag.
+The practical upshot is that individual modules do not have access to
+each other's C symbols.  One module cannot make a C function call to a
+function defined in another module, nor can it read or set a C variable
+in another module.  All interaction between modules must, therefore,
+take place at the Lisp level.  This is by design.  Other projects have
+attempted to use `RTLD_GLOBAL', only to find that spurious symbol name
+clashes were the result.  Helper functions often have simple names,
+increasing the probability of such a clash.  If you really need to
+share symbols between modules, create a shared library containing those
+symbols, and link your modules with that library.  Otherwise,
+interactions between modules must take place via Lisp function calls
+and Lisp variables accesses.
+
 
 File: emodules.info,  Node: Using ellcc,  Next: Defining Functions,  Prev: Anatomy of a Module,  Up: Top
 
 Using `ellcc'
 *************
 
-   Before discussing the anatomy of a module in greater detail, you
-should be aware of the steps required in order to correctly compile and
-link a module for use within XEmacs.  There is little difference between
+Before discussing the anatomy of a module in greater detail, you should
+be aware of the steps required in order to correctly compile and link a
+module for use within XEmacs.  There is little difference between
 compiling normal C code and compiling a module.  In fact, all that
 changes is the command used to compile the module, and a few extra
 arguments to the compiler.
@@ -415,10 +428,10 @@ File: emodules.info,  Node: Compile Mode,  Next: Initialization Mode,  Prev: Usi
 Compile Mode
 ============
 
-   By default, `ellcc' is in "compile" mode.  This means that it
-assumes that all of the command line arguments are C compiler arguments,
-and that you want to compile the specified source file or files.  You
-can force compile mode by specifying the `--mode=compile' argument to
+By default, `ellcc' is in "compile" mode.  This means that it assumes
+that all of the command line arguments are C compiler arguments, and
+that you want to compile the specified source file or files.  You can
+force compile mode by specifying the `--mode=compile' argument to
 `ellcc'.
 
    In this mode, `ellcc' is simply a front-end to the same C compiler
@@ -449,7 +462,7 @@ File: emodules.info,  Node: Initialization Mode,  Next: Link Mode,  Prev: Compil
 Initialization Mode
 ===================
 
-   XEmacs uses a rather bizarre way of documenting variables and
+XEmacs uses a rather bizarre way of documenting variables and
 functions.  Rather than have the documentation for compiled functions
 and variables passed as static strings in the source code, the
 documentation is included as a C comment.  A special program, called
@@ -540,7 +553,7 @@ required to populate the `docs_of_module' function.  Below is a sample
 sample module, and optionally install it.  The `--mod-location'
 argument to `ellcc' will produce, on the standard output, the base
 location of the XEmacs module directory.  Each sub-directory of that
-directory is automatically searched for for modules when they are loaded
+directory is automatically searched for modules when they are loaded
 with `load-module'.  An alternative location would be
 `/usr/local/lib/xemacs/site-modules'.  That path can change depending
 on the options the person who compiled XEmacs chose, so you can always
@@ -557,7 +570,7 @@ File: emodules.info,  Node: Link Mode,  Next: Other ellcc options,  Prev: Initia
 Link Mode
 =========
 
-   Once all of your source code files have been compiled (including the
+Once all of your source code files have been compiled (including the
 generated init file) you need to link them all together to create the
 loadable module.  To do this, you invoke `ellcc' in link mode, by
 passing the `--mode=link' option.  You need to specify the final output
@@ -581,7 +594,7 @@ File: emodules.info,  Node: Other ellcc options,  Next: Environment Variables,  
 Other `ellcc' options
 =====================
 
-   Aside from the three main `ellcc' modes described above, `ellcc' can
+Aside from the three main `ellcc' modes described above, `ellcc' can
 accept several other options.  These are typically used in a `Makefile'
 to determine installation paths.  `ellcc' also allows you to over-ride
 several of its built-in compiler and linker options using environment
@@ -649,11 +662,11 @@ File: emodules.info,  Node: Environment Variables,  Prev: Other ellcc options,  
 Environment Variables
 =====================
 
-   During its normal operation, `ellcc' uses the compiler and linker
-flags that were determined at the time XEmacs was configured.  In
-certain rare circumstances you may wish to over-ride the flags passed to
-the compiler or linker, and you can do so using environment variables.
-The table below lists all of the environment variables that `ellcc'
+During its normal operation, `ellcc' uses the compiler and linker flags
+that were determined at the time XEmacs was configured.  In certain
+rare circumstances you may wish to over-ride the flags passed to the
+compiler or linker, and you can do so using environment variables.  The
+table below lists all of the environment variables that `ellcc'
 recognizes.
 
 `ELLCC'
@@ -696,8 +709,8 @@ File: emodules.info,  Node: Defining Functions,  Next: Defining Variables,  Prev
 Defining Functions
 ******************
 
-   One of the main reasons you would ever write a module is to provide
-one or more "functions" for the user or the editor to use.  The term
+One of the main reasons you would ever write a module is to provide one
+or more "functions" for the user or the editor to use.  The term
 "function" is a bit overloaded here, as it refers to both a C function
 and the way it appears to Lisp, which is a "subroutine", or simply a
 "subr".  A Lisp subr is also known as a Lisp primitive, but that term
@@ -736,8 +749,8 @@ File: emodules.info,  Node: Using DEFUN,  Next: Declaring Functions,  Prev: Defi
 Using `DEFUN'
 =============
 
-   Although the full syntax of a function declaration is discussed in
-the XEmacs internals manual in greater depth, what follows is a brief
+Although the full syntax of a function declaration is discussed in the
+XEmacs internals manual in greater depth, what follows is a brief
 description of how to define and implement a new Lisp primitive in a
 module.  This is done using the `DEFUN' macro.  Here is a small example:
 
@@ -779,7 +792,7 @@ File: emodules.info,  Node: Declaring Functions,  Prev: Using DEFUN,  Up: Defini
 Declaring Functions
 ===================
 
-   Simply writing the code for a function is not enough to make it
+Simply writing the code for a function is not enough to make it
 available to the Lisp reader.  You have to, during module
 initialization, let the Lisp reader know about the new function.  This
 is done by calling `DEFSUBR' with the name of the function.  This is
@@ -810,7 +823,7 @@ File: emodules.info,  Node: Defining Variables,  Next: Index,  Prev: Defining Fu
 Defining Variables
 ******************
 
-   Rarely will you write a module that only contains functions.  It is
+Rarely will you write a module that only contains functions.  It is
 common to also provide variables which can be used to control the
 behavior of the function, or store the results of the function being
 executed.  The actual C variable types are the same for modules and
@@ -939,21 +952,21 @@ Index
 Tag Table:
 Node: Top1536
 Node: Introduction2883
-Node: Anatomy of a Module7391
-Node: Required Header File8205
-Node: Required Functions10124
-Node: Required Variables12848
-Node: Loading other Modules15534
-Node: Using ellcc17591
-Node: Compile Mode19385
-Node: Initialization Mode20753
-Node: Link Mode25787
-Node: Other ellcc options26932
-Node: Environment Variables29511
-Node: Defining Functions31202
-Node: Using DEFUN33213
-Node: Declaring Functions34924
-Node: Defining Variables36267
-Node: Index38510
+Node: Anatomy of a Module7388
+Node: Required Header File8199
+Node: Required Functions10115
+Node: Required Variables12836
+Node: Loading other Modules15519
+Node: Using ellcc18432
+Node: Compile Mode20223
+Node: Initialization Mode21588
+Node: Link Mode26615
+Node: Other ellcc options27757
+Node: Environment Variables30333
+Node: Defining Functions32022
+Node: Using DEFUN34030
+Node: Declaring Functions35738
+Node: Defining Variables37078
+Node: Index39318
 
 End Tag Table

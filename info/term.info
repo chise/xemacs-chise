@@ -1,4 +1,4 @@
-This is ../info/term.info, produced by makeinfo version 4.0 from
+This is ../info/term.info, produced by makeinfo version 4.6 from
 term.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -50,7 +50,7 @@ File: term.info,  Node: Overview,  Next: Connecting to remote computers,  Up: te
 Overview
 ========
 
-   The `term' mode is used to control a program (an "inferior process").
+The `term' mode is used to control a program (an "inferior process").
 It sends most keyboard input characters to the program, and displays
 output from the program in the buffer.  This is similar to the
 traditional comint mode, and modes derived from it (such as shell and
@@ -72,12 +72,12 @@ File: term.info,  Node: Output from the inferior,  Next: subbuffer,  Up: Overvie
 Output from the inferior
 ------------------------
 
-   In typical usage, output from the inferior is added to the end of
-the buffer.  If needed, the window will be scrolled, just like a
-regular terminal.  (Only one line at a time will be scrolled, just like
-regular terminals, and in contrast to the old shell mode.)  Thus the
-buffer becomes a log of your interaction with the inferior, just like
-the old shell mode.
+In typical usage, output from the inferior is added to the end of the
+buffer.  If needed, the window will be scrolled, just like a regular
+terminal.  (Only one line at a time will be scrolled, just like regular
+terminals, and in contrast to the old shell mode.)  Thus the buffer
+becomes a log of your interaction with the inferior, just like the old
+shell mode.
 
    Like a real terminal, term maintains a "cursor position."  This is
 the `process-mark' of the inferior process.  If the process-mark is not
@@ -104,9 +104,9 @@ File: term.info,  Node: subbuffer,  Next: altsubbuffer,  Prev: Output from the i
 The sub-buffer
 --------------
 
-   A program that talks to terminal expects the terminal to have a
-fixed size.  If the program is talking a terminal emulator program such
-as `xterm', that size can be changed (if the xterm window is re-sized),
+A program that talks to terminal expects the terminal to have a fixed
+size.  If the program is talking a terminal emulator program such as
+`xterm', that size can be changed (if the xterm window is re-sized),
 but programs still assume a logical terminal that has a fixed size
 independent of the amount of output transmitted by the programs.
 
@@ -137,10 +137,10 @@ File: term.info,  Node: altsubbuffer,  Next: Input to the inferior,  Prev: subbu
 The alternate sub-buffer
 ------------------------
 
-   When a "graphical" program finishes, it is nice to restore the
-screen state to what it was before the program started.  Many people
-are used to this behavior from `xterm', and its also offered by the
-`term' emulator.
+When a "graphical" program finishes, it is nice to restore the screen
+state to what it was before the program started.  Many people are used
+to this behavior from `xterm', and its also offered by the `term'
+emulator.
 
  - Function: term-switch-to-alternate-sub-buffer set
      If SET is true, and we're not already using the alternate
@@ -161,7 +161,7 @@ File: term.info,  Node: Input to the inferior,  Prev: altsubbuffer,  Up: Overvie
 Input to the inferior
 ---------------------
 
-   Characters typed by the user are sent to the inferior.  How this is
+Characters typed by the user are sent to the inferior.  How this is
 done depends on whether the `term' buffer is in "character" mode or
 "line" mode.  (A `term' buffer can also be in "pager" mode.  This is
 discussed <later>.)  Which of these is currently active is specified in
@@ -180,8 +180,8 @@ typed, the entire current line of the buffer (except possibly the
 prompt) is sent to the inferior process.  Line mode is basically the
 original shell mode from earlier Emacs versions.
 
-   To switch from line mode to character mode type `C-c c'.  To switch
-from character mode to line mode type `C-c l'.
+   To switch from line mode to character mode type `C-c C-k'.  To
+switch from character mode to line mode type `C-c C-j'.
 
    In either mode, "echoing" of user input is handled by the inferior.
 Therefor, in line mode after an input line at the end of the buffer is
@@ -194,8 +194,8 @@ File: term.info,  Node: Connecting to remote computers,  Next: Paging,  Prev: Ov
 Connecting to remote computers
 ==============================
 
-   If you want to login to a remove computer, you can do that just as
-you would expect, using whatever commands you would normally use.
+If you want to login to a remove computer, you can do that just as you
+would expect, using whatever commands you would normally use.
 
    (This is worth emphasizing, because earlier versions of `shell' mode
 would not work properly if you tried to log in to some other computer,
@@ -233,8 +233,8 @@ File: term.info,  Node: Paging,  Next: Terminal escapes,  Prev: Connecting to re
 Paging
 ======
 
-   When the pager is enabled, Emacs will "pause" after each screenful
-of output (since the last input sent to the inferior).  It will enter
+When the pager is enabled, Emacs will "pause" after each screenful of
+output (since the last input sent to the inferior).  It will enter
 "pager" mode, which feels a lot like the "more" program:  Typing a
 space requests another screenful of output.  Other commands request
 more or less output, or scroll backwards in the `term' buffer.  In
@@ -250,8 +250,8 @@ File: term.info,  Node: Terminal escapes,  Prev: Paging,  Up: term mode
 Terminal Escape sequences
 =========================
 
-   A program that does "graphics" on a terminal controls the terminal
-by sending strings called "terminal escape sequences" that the terminal
+A program that does "graphics" on a terminal controls the terminal by
+sending strings called "terminal escape sequences" that the terminal
 (or terminal emulator) interprets as special commands.  The `term' mode
 includes a terminal emulator that understands standard ANSI escape
 sequences, originally popularized by VT100 terminals, and now used by
@@ -306,10 +306,10 @@ File: term.info,  Node: Erasing,  Next: Inserting and deleting,  Prev: Cursor mo
 Escape commands for erasing text
 --------------------------------
 
-   These commands "erase" part of the sub-buffer.  Erasing means
-replacing by white space; it is not the same as deleting.  The relative
-screen positions of things that are not erased remain unchanged with
-each other, as does the relative cursor position.
+These commands "erase" part of the sub-buffer.  Erasing means replacing
+by white space; it is not the same as deleting.  The relative screen
+positions of things that are not erased remain unchanged with each
+other, as does the relative cursor position.
 
 `E [ J'
      Erase from cursor to end of screen.
@@ -375,9 +375,9 @@ File: term.info,  Node: Command hook,  Next: Miscellaneous escapes,  Prev: Scrol
 Command hook
 ------------
 
-   If `C-z' is seen, any text up to a following <LF> is scanned.  The
-text in between (not counting the initial C-z or the final LF) is
-passed to the function that is the value of `term-command-hook'.
+If `C-z' is seen, any text up to a following <LF> is scanned.  The text
+in between (not counting the initial C-z or the final LF) is passed to
+the function that is the value of `term-command-hook'.
 
    The default value of the `term-command-hook' variable is the
 function `term-command-hook', which handles the following:
@@ -424,18 +424,18 @@ Tag Table:
 Node: Top201
 Node: term mode367
 Node: Overview1190
-Node: Output from the inferior1940
-Node: subbuffer3520
-Node: altsubbuffer4843
-Node: Input to the inferior5868
-Node: Connecting to remote computers7388
-Node: Paging9293
-Node: Terminal escapes9962
-Node: Cursor motion10830
-Node: Erasing11490
-Node: Inserting and deleting12285
-Node: Scrolling12675
-Node: Command hook13121
-Node: Miscellaneous escapes14157
+Node: Output from the inferior1937
+Node: subbuffer3514
+Node: altsubbuffer4834
+Node: Input to the inferior5856
+Node: Connecting to remote computers7377
+Node: Paging9279
+Node: Terminal escapes9945
+Node: Cursor motion10810
+Node: Erasing11470
+Node: Inserting and deleting12262
+Node: Scrolling12652
+Node: Command hook13098
+Node: Miscellaneous escapes14131
 
 End Tag Table

@@ -1,3 +1,79 @@
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2004-01-30  Vin Shelton  <acs@xemacs.org>
+
+ 	* etc/OXYMORONS: Inserted "Corporate Culture" for 21.4.15.
+
+2004-01-25  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/package-index.LATEST.gpg: New, replaces
+	`package-index.LATEST.pgp'. 
+
+	* etc/package-index.LATEST.pgp: Removed, replaced with
+	`package-index.LATEST.gpg'. 
+
+2004-01-20  Jerry James  <james@xemacs.org>
+
+	* configure.in: The icc compiler pretends to be gcc.  It isn't.
+
+2003-11-28  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/PACKAGES (ERC): new.
+
+2003-11-19  Vin Shelton  <acs@xemacs.org>
+
+	* configure.usage (--with-widgets): widgets now defaults to
+	--with-widgets=no.  Patch inspired by Jim Schumacher.
+
+2003-10-25  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/PACKAGES (riece): New package.
+	* etc/PACKAGES (liece): Mark as deprecated.
+
+2003-10-26  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in: Add Intel C++ compiler detection to compiler
+	version reporting.
+
+2003-10-16  Valdis Kletnieks <valdis.kletnieks@vt.edu>
+	* configure.in: record additional info about compiler and libc
+	versions, to assist in debugging.
+
+2003-08-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (line 3573):
+	(Mule input methods):
+	Deprecate Motif for Linux.
+	(Installation): Report when LessTif is used.
+
+2003-10-11  Jerry James  <james@xemacs.org>
+
+	* configure.in: installexe.sh is under srcdir, not blddir.
+
+2003-10-16  Jerry James  <james@xemacs.org>
+	* aclocal.m4: Add icc (Intel compiler) support.
+	* configure.in: Ditto.
+
+2003-09-13  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (OS_RELEASE): Add support for SunOS 5.10.
+	On current OSes produced by Sun, `uname -r' prints "5.9".
+	It seems likely that on future OSes, `uname -r' will print "5.10".
+	We need to accept multi-digit release numbers.
+
+2003-09-12  Rodney Sparapani <rsparapa@mcw.edu>
+
+	* PROBLEMS: Propose bash as an alternative to buggy Solaris
+	/bin/sh.
+
+2003-09-10  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: XEmacs failed to build on Solaris9.
+	Solaris9 comes with /usr/demo/SOUND, but no headers or libraries
+	therein.
+
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
 	* XEmacs 21.4.14 is released

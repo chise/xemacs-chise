@@ -1,4 +1,4 @@
-This is ../info/custom.info, produced by makeinfo version 4.0 from
+This is ../info/custom.info, produced by makeinfo version 4.6 from
 custom.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -12,7 +12,7 @@ File: custom.info,  Node: Top,  Next: Declaring Groups,  Prev: (dir),  Up: (dir)
 The Customization Library
 *************************
 
-   This manual describes how to declare customization groups, variables,
+This manual describes how to declare customization groups, variables,
 and faces.  It doesn't contain any examples, but please look at the file
 `cus-edit.el' which contains many declarations you can learn from.
 
@@ -56,7 +56,7 @@ File: custom.info,  Node: Declaring Groups,  Next: Declaring Variables,  Prev: T
 Declaring Groups
 ================
 
-   Use `defgroup' to declare new customization groups.
+Use `defgroup' to declare new customization groups.
 
  - Function: defgroup symbol members doc [keyword value]...
      Declare SYMBOL as a customization group containing MEMBERS.
@@ -87,7 +87,7 @@ File: custom.info,  Node: Declaring Variables,  Next: Declaring Faces,  Prev: De
 Declaring Variables
 ===================
 
-   Use `defcustom' to declare user editable variables.
+Use `defcustom' to declare user editable variables.
 
  - Function: defcustom symbol value doc [keyword value]...
      Declare SYMBOL as a customizable variable that defaults to VALUE.
@@ -145,6 +145,7 @@ Declaring Variables
           required when the `defcustom' is evaluated, or when Emacs is
           started if the user has saved this option.
 
+
      *Note Sexp Types: (widget)Sexp Types, for information about
      widgets to use together with the `:type' keyword.
 
@@ -168,7 +169,7 @@ File: custom.info,  Node: Declaring Faces,  Next: Usage for Package Authors,  Pr
 Declaring Faces
 ===============
 
-   Faces are declared with `defface'.
+Faces are declared with `defface'.
 
  - Function: defface face spec doc [keyword value]...
      Declare FACE as a customizable face that defaults to SPEC.  FACE
@@ -217,11 +218,11 @@ File: custom.info,  Node: Usage for Package Authors,  Next: Utilities,  Prev: De
 Usage for Package Authors
 =========================
 
-   The recommended usage for the author of a typical emacs lisp package
-is to create one group identifying the package, and make all user
-options and faces members of that group.  If the package has more than
-around 20 such options, they should be divided into a number of
-subgroups, with each subgroup being member of the top level group.
+The recommended usage for the author of a typical emacs lisp package is
+to create one group identifying the package, and make all user options
+and faces members of that group.  If the package has more than around 20
+such options, they should be divided into a number of subgroups, with
+each subgroup being member of the top level group.
 
    The top level group for the package should itself be member of one or
 more of the standard customization groups.  There exists a group for
@@ -234,7 +235,7 @@ File: custom.info,  Node: Utilities,  Next: The Init File,  Prev: Usage for Pack
 Utilities
 =========
 
-   These utilities can come in handy when adding customization support.
+These utilities can come in handy when adding customization support.
 
  - Widget: custom-manual
      Widget type for specifying the info manual entry for a
@@ -263,11 +264,24 @@ File: custom.info,  Node: The Init File,  Next: Wishlist,  Prev: Utilities,  Up:
 The Init File
 =============
 
-   When you save the customizations, call to `custom-set-variables',
-`custom-set-faces' are inserted into the file specified by
-`custom-file'.  By default `custom-file' is your `.emacs' file.  If you
-use another file, you must explicitly load it yourself.  The two
-functions will initialize variables and faces as you have specified.
+Customizations are saved to the file specified by `custom-file', as
+calls to `custom-set-variables' and `custom-set-faces'.
+
+   When you save customizations, the current implementation removes the
+calls to `custom-set-variables' and `custom-set-faces', and replaces
+them with code generated on the basis of the current customization
+state in Emacs.
+
+   By default `custom-file' is your `.emacs' file (for GNU Emacs and
+older XEmacs) and is `custom.el' in the same directory as `init.el' (in
+XEmacs 21.4 and later).  If you use another file, you must explicitly
+load it yourself.
+
+   As of XEmacs 21.4.7, when `custom-file' is present, it is loaded
+_after_ `init.el'.  This is likely to change in the future, because (1)
+actions in `init.el' often would like to depend on customizations for
+consistent appearance and (2) Custom is quite brutal about enforcing
+its idea of the correct values at initialization.
 
 
 File: custom.info,  Node: Wishlist,  Prev: The Init File,  Up: Top
@@ -382,12 +396,12 @@ Wishlist
 
 Tag Table:
 Node: Top204
-Node: Declaring Groups1625
-Node: Declaring Variables2726
-Node: Declaring Faces5817
-Node: Usage for Package Authors7515
-Node: Utilities8294
-Node: The Init File9378
-Node: Wishlist9830
+Node: Declaring Groups1622
+Node: Declaring Variables2720
+Node: Declaring Faces5809
+Node: Usage for Package Authors7504
+Node: Utilities8280
+Node: The Init File9361
+Node: Wishlist10388
 
 End Tag Table
