@@ -1,3 +1,14 @@
+2003-04-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (chinese-isoir165): Specify iso-ir 165.
+	(chinese-cns11643-3): Specify iso-ir 183.
+	(chinese-cns11643-4): Specify iso-ir 184.
+	(chinese-cns11643-5): Specify iso-ir 185.
+	(chinese-cns11643-6): Specify iso-ir 186.
+	(chinese-cns11643-7): Specify iso-ir 187.
+	(=jis-x0213-1-2000): In XEmacs CHISE, specify iso-ir 228.
+	(=jis-x0213-2-2000): In XEmacs CHISE, specify iso-ir 229.
+
 2003-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* bytecomp.el (byte-compile-insert-header): In XEmacs CHISE, check
