@@ -1,3 +1,10 @@
+2002-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qutf_8_mcs): New variable.
+	(syms_of_file_coding): Add new symbol `utf-8-mcs' in UTF-2000.
+	(complex_vars_of_file_coding): Define coding-system `utf-8-mcs'
+	instead of `utf-8' in UTF-2000.
+
 2002-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (charset_code_point): If CHARSET_CONVERSION is
