@@ -1,3 +1,8 @@
+2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R164-Wine.el, Ideograph-R160-Bitter.el: Add some GT
+	code points.
+
 2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R165-Distinguish.el, Ideograph-R163-City.el: Add some
@@ -12,6 +17,9 @@
 2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Add some GT code points.
+
+	* maps-conf.el: Don't add `=gt-pj-1' features into some JIS X
+	0208:1990 code points.
 
 2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
