@@ -1,12 +1,65 @@
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F4E4): Separate Big5-8B4A and
+	Big5-CDP-8B4A.
+	(U+F580): Separate Big5-8C49 and Big5-CDP-8C49.
+
+	* Ideograph-R024-Ten.el (Big5-CDP-8C49): New character; separated
+	from U+F580 and moved from u0E000-Private-Use.el.
+
+	* Ideograph-R009-Man.el: Unify or relate missing combinations of
+	M-XXXXX and CNS.
+	(cjk radical person for top): New character.
+	(C3-2148): Add M-01512 into `->same-ideograph'.
+	(cjk radical sunrise): New character.
+	(M-00981): Separate M000981; add `<-ancient-ideograph' for
+	M-00702.
+	(C6-4653): Relate to M-00981.
+	(C6-4654): Relate to M-00993 instead of M-00981.
+
+	* Ideograph-R044-Corpse.el: Use `=>ucs' instead of `->ucs'.
+	(C6-244F): Unify Big5-8D6C and Big5-CDP-8D6C.
+	(M-07705): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+	(C3-2C37): Use `->same-ideograph' instead of `ideograph='.
+	(C3-3545): Unify M-07748.
+	(C4-372E): Add `->same-ideograph' for M-07001.
+
+	* Ideograph-R213-Turtle.el (C3-396C): Separate from U+4E80 and
+	moved from Ideograph-R005-Second.el.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R205-Frog.el (M-48258): Add `<-vulgar-ideograph' for
+	M-48257.
+
+	* Ideograph-R135-Tongue.el (U+820C): Unify Big5-88EF and
+	Big5-CDP-88EF.
+	(C1-485F): Use `<-original-ideograph' instead of
+	`original-ideograph-of'.
+
+	* Ideograph-R119-Rice.el (EGB-2F7B): Separate C3-3E22, JSP-5332
+	and JX2-7376; delete `japanese-strokes'; unify Big5-8CB9 and
+	Big5-CDP-8CB9.
+
+	* Ideograph-R102-Field.el (C3-2E26): Unify Big5-8BF0 and
+	Big5-CDP-8BF0.
+
+	* Ideograph-R086-Fire.el:
+	- Unify or relate missing combinations of M-XXXXX and CNS.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R038-Woman.el (C3-4650): Separated from U+5626 and
+	moved from Ideograph-R030-Mouth.el.
+
 2001-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R031-Enclosure.el: - Use `=>ucs' instead of `->ucs'.
+	* Ideograph-R031-Enclosure.el: Use `=>ucs' instead of `->ucs'.
 	(C6-2651): New character; relate to M-04726.
 	(C6-2A3E): Add `->same-ideograph' for M-04718.
 
 2001-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R118-Bamboo.el: - Use `=>ucs' instead of `->ucs'.
+	* Ideograph-R118-Bamboo.el: Use `=>ucs' instead of `->ucs'.
 	(C2-4C61): Separated from JX2-233D and moved from
 	Ideograph-R018-Knife.el.
 
