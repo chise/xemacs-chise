@@ -287,13 +287,6 @@
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=ucs		. #x245B4)	; 𤖴
-    (=cns11643-6	. #x3257)	; &I-C6-3257; [18-55]
-    ))
-(define-char
-  '((ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x24576)	; 𤕶
