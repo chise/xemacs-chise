@@ -156,6 +156,7 @@
       (=gt-pj-1		  . #x3C37)	; &I-GT-00004;
       (=daikanwa	  . 00006)	; &I-M-00006;
       (=ucs@unicode	  . #x4E03)	; &GT-00004;
+      (mojikyo		  . 000006)	; &MCS-60000006;
       )
      ((=cns11643-1	  . #x4424)	; &C1-4424;
       (=ucs@cns		  . #x4E03)	; &C1-4424;
@@ -467,7 +468,6 @@
     (=gt		. 00010)	; &GT-00010;
     (=gt-k		. 00176)	; &I-GT-K00176;
     (=gt-pj-9		. #x4A2B)	; &GT-00010;
-    (mojikyo		. 051101)	; &MCS-6000C79D;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
