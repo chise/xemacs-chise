@@ -1,3 +1,48 @@
+2003-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+36A8): Unify MH-0117.
+	(C3-2349): Relate to MH-0117.
+	(U-000216F8): New character.
+	(M085224): New character.
+	(U-00021757): New character.
+	(M050651): New character.
+	(MH-0120): New character.
+	(M065111): New character.
+	(MH-0121): New character.
+	(U-000217D5): Relate to MH-0117.
+	(M-06569): Separate C3-4062 and U+3706.
+	(U+3706): Separate M-06569 and C3-4062; fix strokes.
+	(U-00021809): New character.
+	(MH-0123): New character.
+	(MH-0124): New character.
+	(M083523): Relate to MH-0124.
+	(C3-464B): Relate to MH-0124.
+	(U+3715): Relate to MH-0124.
+	(MH-0125): New character.
+	(MH-0126): New character.
+	(M085456): New character.
+	(U-000218B1): Unify MH-0127.
+	(M085489): Relate to MH-0127.
+	(C5-537E): Relate to MH-0127.
+	(U-000218F6): New character.
+	(M067842): New character.
+	(MH-0129): New character.
+	(U-00021909): New character.
+	(M085592): New character.
+
+	* Ideograph-R036-Evening.el (U-00021585): Unify MH-0111, CB07125
+	and M070847; add strokes.
+	(U+3C54): Unify MH-0112.
+	(C3-2B7B): Relate to MH-0112.
+
+	* Ideograph-R037-Big.el (MH-0113): New character.
+	(U-000215F1): Relate to MH-0113; add strokes.
+	(MH-0114): New character.
+	(U-0002161A): Relate to MH-0114; add strokes.
+	(U+7275): Add `total-strokes'.
+	(U-00021693): Unify MH-0115 and M085487; add strokes.
+	(U-0002168D): Unify MH-0116 and M085488; add strokes.
+
 2003-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el, Ideograph-R208-Rat.el,
