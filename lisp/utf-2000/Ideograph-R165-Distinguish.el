@@ -77,8 +77,13 @@
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (mojikyo		. 050545)	; ý €Œ•±
-    (ucs		. #x91C8)	; é‡ˆ
+    (<-simplified-ideograph
+     ((japanese-jisx0208-1990	  . #x6E59)	; ø½‹§º
+      (ideograph-daikanwa	  . 40129)	; ø¸‰³
+      ))
+    (japanese-jisx0208-1990	. #x3C61)	; ø½Šž¦
+    (mojikyo			. 050545)	; ý €Œ•±
+    (ucs			. #x91C8)	; é‡ˆ
     ))
 (define-char
   '((ideographic-radical . 165)	; â¾¤
