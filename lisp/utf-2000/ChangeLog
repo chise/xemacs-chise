@@ -1,3 +1,37 @@
+2004-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R129-Brush.el, Ideograph-R124-Feather.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U+7568): Use `->subsumptive'.
+	(C6-4B56): Unify U-0002F938.
+
+	* Ideograph-R132-Self.el (J0-3D2D): Unify JC3-60E3.
+	(U+FA5C): Separate JC3-60E3.
+	(M-30123): Map to U-00026917.
+	(M-30129): Unify U-0002691C.
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R130-Meat.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el, Ideograph-R125-Old.el: Use
+	`=jis-x0208@{1978|1983|1990}' instead of
+	`=jis-x0208-{1978|1983|1990}'.
+
 2004-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el, Ideograph-R113-Spirit.el,
