@@ -99,6 +99,13 @@
     ))
 (define-char
   '((ideographic-radical . 93)	; â½œ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideograph-cbeta	. 05457)	; ø¸¡•‘
+    (chinese-big5-cdp	. #x8C68)	; ý¢€ˆ±¨
+    ))
+(define-char
+  '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (chinese-cns11643-3 . #x2665)	; ø»•ž¾

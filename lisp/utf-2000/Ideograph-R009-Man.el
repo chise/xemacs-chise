@@ -783,6 +783,7 @@
      ((chinese-big5-cdp	  . #x8971)	; ý¢€ˆ¥±
       ))
     (chinese-gb12345	. #x7D73)	; ä»’
+    (chinese-big5-cdp	. #x8BAC)	; ý¢€ˆ®¬
     (mojikyo		. 059030)	; ý €Žš–
     (ucs		. #x4ED2)	; ä»’
     ))
