@@ -1,3 +1,7 @@
+2003-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el: Add `=ucs@big5' features.
+
 2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el, Ideograph-R072-Sun.el: Add `=ucs@big5'
