@@ -1,3 +1,8 @@
+2003-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+654F): Unify JU+FA41.
+	(U+FA41): New character.
+
 2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R032-Earth.el (U+FA39): New character.
