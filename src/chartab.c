@@ -1138,8 +1138,8 @@ Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_denotational;
 Lisp_Object Q_denotational_from;
-Lisp_Object Q_unified;
-Lisp_Object Q_unified_from;
+Lisp_Object Q_subsumptive;
+Lisp_Object Q_subsumptive_from;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3313,7 +3313,7 @@ Return DEFAULT-VALUE if the value is not exist.
 	}
     }
 
-  if ( !(EQ (attribute, Q_unified_from)) &&
+  if ( !(EQ (attribute, Q_subsumptive_from)) &&
        !(EQ (attribute, Q_denotational_from)) &&
        ( (NILP (char_rel_max)
 	  || (INTP (char_rel_max) &&
@@ -3325,7 +3325,7 @@ Return DEFAULT-VALUE if the value is not exist.
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
 	  Lisp_Object ancestors
-	    = Fget_char_attribute (character, Q_unified_from, Qnil);
+	    = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
 
 	  if (NILP (ancestors))
 	    ancestors
@@ -3343,7 +3343,8 @@ Return DEFAULT-VALUE if the value is not exist.
 		    return ret;
 
 		  ancestors = XCDR (ancestors);
-		  ret = Fget_char_attribute (ancestor, Q_unified_from, Qnil);
+		  ret = Fget_char_attribute (ancestor,
+					     Q_subsumptive_from, Qnil);
 		  if (!NILP (ret))
 		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
 		}
@@ -3477,8 +3478,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	Fput_char_attribute (make_char (c), Q_ucs_unified,
 			     Fcons (character, ret));
     }
-  else if ( EQ (attribute, Q_unified) ||
-	    EQ (attribute, Q_unified_from) ||
+  else if ( EQ (attribute, Q_subsumptive) ||
+	    EQ (attribute, Q_subsumptive_from) ||
 	    EQ (attribute, Q_denotational) ||
 	    EQ (attribute, Q_denotational_from) )
     {
@@ -3497,10 +3498,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      Lisp_Object rev_feature;
 	      Lisp_Object ffv;
 
-	      if (EQ (attribute, Q_unified))
-		rev_feature = Q_unified_from;
-	      else if (EQ (attribute, Q_unified_from))
-		rev_feature = Q_unified;
+	      if (EQ (attribute, Q_subsumptive))
+		rev_feature = Q_subsumptive_from;
+	      else if (EQ (attribute, Q_subsumptive_from))
+		rev_feature = Q_subsumptive;
 	      else if (EQ (attribute, Q_denotational))
 		rev_feature = Q_denotational_from;
 	      else /* if (EQ (attribute, Q_denotational_from)) */
@@ -4514,8 +4515,8 @@ syms_of_chartab (void)
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
-  defsymbol (&Q_unified,		"->unified");
-  defsymbol (&Q_unified_from,		"<-unified");
+  defsymbol (&Q_subsumptive,		"->subsumptive");
+  defsymbol (&Q_subsumptive_from,	"<-subsumptive");
   defsymbol (&Q_denotational,		"->denotational");
   defsymbol (&Q_denotational_from,	"<-denotational");
   defsymbol (&Qcomposition,		"composition");
