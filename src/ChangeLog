@@ -1,5 +1,26 @@
 2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c: Don't include <chise.h> because it is included in
+	chartab.h.
+	(Fmake_char_table): Initialize `ct->feature_table' when `CHISE' is
+	defined.
+	(Fcopy_char_table): Copy `ct->ds' and `ct->feature_table' when
+	`CHISE' is defined.
+	(Fmount_char_attribute_table): Initialize `ct->feature_table' when
+	`CHISE' is defined.
+	(Fclose_char_attribute_table): Close `ct->feature_table' and
+	`ct->ds' when `CHISE' is defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `cit->ds' and
+	`cit->feature_table' when `CHISE' is defined.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h: Include <chise.h> when `CHISE' is defined.
+	(struct Lisp_Char_Table): Add new member `ds' and `feature_table'
+	when `CHISE' is defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* chartab.c (mark_char_table): Member `db' is deleted when `CHISE'
 	is defined.
 	(char_table_description): Likewise.
