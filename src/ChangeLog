@@ -1,3 +1,9 @@
+1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Registry of
+	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
+	"jisc6226.1983".
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released
