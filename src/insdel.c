@@ -3107,7 +3107,7 @@ barf_if_buffer_read_only (struct buffer *buf, Bufpos from, Bufpos to)
 }
 
 void
-find_charsets_in_bufbyte_string (unsigned char *charsets, CONST Bufbyte *str,
+find_charsets_in_bufbyte_string (Charset_ID *charsets, CONST Bufbyte *str,
 				 Bytecount len)
 {
 #ifndef MULE
@@ -3115,18 +3115,19 @@ find_charsets_in_bufbyte_string (unsigned char *charsets, CONST Bufbyte *str,
   charsets[0] = 1;
 #else
   CONST Bufbyte *strend = str + len;
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
 
   while (str < strend)
     {
-      charsets[CHAR_LEADING_BYTE (charptr_emchar (str)) - 128] = 1;
+      charsets[CHAR_LEADING_BYTE (charptr_emchar (str))
+	      - MIN_LEADING_BYTE] = 1;
       INC_CHARPTR (str);
     }
 #endif
 }
 
 void
-find_charsets_in_emchar_string (unsigned char *charsets, CONST Emchar *str,
+find_charsets_in_emchar_string (Charset_ID *charsets, CONST Emchar *str,
 				Charcount len)
 {
 #ifndef MULE
@@ -3135,10 +3136,10 @@ find_charsets_in_emchar_string (unsigned char *charsets, CONST Emchar *str,
 #else
   int i;
 
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
   for (i = 0; i < len; i++)
     {
-      charsets[CHAR_LEADING_BYTE (str[i]) - 128] = 1;
+      charsets[CHAR_LEADING_BYTE (str[i]) - MIN_LEADING_BYTE] = 1;
     }
 #endif
 }
@@ -3264,7 +3265,9 @@ convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
 void
 vars_of_insdel (void)
 {
+#ifndef UTF2000
   int i;
+#endif
 
   inside_change_hook = 0;
   in_first_change = 0;
