@@ -1,3 +1,8 @@
+1999-07-13 Daiki Ueno <ueno@ueda.info.waseda.ac.jp>
+
+	* file-coding.c (encode_coding_sjis): New implementation for
+	UTF2000.  (decode_coding_sjis): Ditto.
+
 1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c, character.h (Bytecount rep_bytes_by_first_byte):
