@@ -1233,7 +1233,9 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((ucs		  . #x4EAC)	; äº¬
+     ((=jis-x0208	  . #x357E)	; ø½Š”±
+      (korean-ksc5601	  . #x4C48)	; ø»‰™½
+      (ideograph-daikanwa . 00299)	; ø¸€„«
       ))
     (shinjigen-1	. 4309)
     (shinjigen-2	. 4310)
@@ -2263,7 +2265,30 @@
     (ucs			. #x51DA)	; å‡š
     ))
 (define-char
-  '((ideographic-radical . 15)	; â¼Ž
+  '((=>ucs		. #x51DC)	; å‡œ
+    (ideographic-radical . 15)	; â¼Ž
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x51AB)	; å†«
+      )
+     ((=jis-x0208	  . #x6348)	; ø½‹—Ÿ
+      (korean-ksc5601	  . #x7922)	; ø»Š›
+      (ideograph-daikanwa . 25127)	; ø¸†ˆ§
+      ))
+    (shinjigen-1	. 561)
+    (shinjigen-2	. 561)
+    (korean-ksc5601		. #x574F)	; ø»‰ªŽ
+    (japanese-jisx0208-1990	. #x7425)	; ø½‹¯º
+    (chinese-big5		. #xBBFE)	; ý¢€‹¯¾
+    (ideograph-daikanwa		. 01717)	; ø¸€šµ
+    ))
+(define-char
+  '((morohashi-daikanwa	1717 0 0)
+    (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 301 13)
@@ -2275,14 +2300,8 @@
       )
      ((ucs		  . #x7A1F)	; ç¨Ÿ
       ))
-    (shinjigen-1	. 561)
-    (shinjigen-2	. 561)
-    (korean-ksc5601		. #x574F)	; ø»‰ªŽ
-    (japanese-jisx0208-1990	. #x7425)	; ø½‹¯º
-    (chinese-big5		. #xBBFE)	; ý¢€‹¯¾
-    (ideograph-daikanwa		. 01717)	; ø¸€šµ
-    (china3-jef			. #x44A4)	; øº„’¤
-    (ucs			. #x51DC)	; å‡œ
+    (china3-jef		. #x44A4)	; øº„’¤
+    (ucs		. #x51DC)	; å‡œ
     ))
 (define-char
   '((=>ucs		. #x51DC)	; å‡œ
@@ -2291,10 +2310,8 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (ideographic-structure
-     (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (ucs		     . #x2FF0)	; â¿°
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
       )
      ((chinese-big5-cdp	  . #x8BEE)	; ý¢€ˆ¯®
       (ucs		  . #x51AB)	; å†«
