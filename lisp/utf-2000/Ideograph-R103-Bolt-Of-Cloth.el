@@ -62,7 +62,7 @@
   '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (mojikyo		. 057305)	; ø¸¿™
+    (mojikyo		. 057305)	; ý €¿™
     (ucs		. #x758D)	; ç–
     ))
 (define-char
@@ -80,7 +80,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (japanese-jisx0208-1990	. #x4141)	; ø½Š¥œ
-    (mojikyo			. 058127)	; ø¸ŽŒ
+    (mojikyo			. 058127)	; ý €ŽŒ
     ))
 (define-char
   '((morohashi-daikanwa	22000 0 1 0)
