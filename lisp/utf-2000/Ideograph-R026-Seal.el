@@ -227,21 +227,6 @@
     (=daikanwa		. 02847)	; ø¸€¬Ÿ
     ))
 (define-char
-  '((ideographic-radical . 26)	; â¼™
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x5F0B)	; å¼‹
-      )
-     ((=ucs		  . #x5369)	; å©
-      ))
-    (sources		bos=A016728-00002)
-    (=ruimoku-v6	. #xE00F)	; øº€
-    ))
-(define-char
   '((=>ucs		. #x5370)	; å°
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 4)
@@ -367,23 +352,6 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (<-error@abos/2001
-     ((=ruimoku-v6	  . #xE00F)	; øº€
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x6208)	; æˆˆ
-      )
-     ((=ucs		  . #x5369)	; å©
-      ))
-    (=ruimoku-v6	. #xE007)	; øº€‡
-    ))
-(define-char
-  '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 313 3)
@@ -403,19 +371,15 @@
     (=jef-china3	. #x45D2)	; øº„—’
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
+  '((script		JP-Jouyou Ideograph)
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x537D)	; å½
-      (=jis-x0213-1-2000  . #x2E71)	; ø»¢§’
-      ))
     (<-vulgar-ideograph
-     ((=daikanwa	  . 02873)	; ø¸€¬¹
+     (:sources	(shinjigen-1)
+      :char	((=daikanwa	     . 02873)	; ø¸€¬¹
+		 )
       ))
-    (<-vulgar-ideograph*sources
-     shinjigen-1)
     (hanyu-dazidian	1 314 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -539,7 +503,6 @@
     (=gt-pj-1		. #x524B)	; ý¡€€¸´
     (=daikanwa		. 02860)	; ø¸€¬¬
     (=ucs@jis		. #x5377)	; ø½Š¾¤
-    (=ucs@big5		. #x5377)	; ø½Š¾¤
     ))
 (define-char
   '((morohashi-daikanwa	2860 0 1)
@@ -960,7 +923,6 @@
     (=ks-x1001		. #x4C4F)	; ø»‰š„
     (=big5		. #xADEB)	; ý¢€Š·«
     (=daikanwa		. 02880)	; ø¸€­€
-    (=ucs@big5		. #x537F)	; ø»‚š¿
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™

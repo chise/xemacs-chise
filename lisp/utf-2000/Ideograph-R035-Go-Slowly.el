@@ -157,7 +157,6 @@
     (=big5		. #xCC42)	; ý¢€Œ±‚
     (=jef-china3	. #x48D1)	; øº„£‘
     (=ucs@jis		. #x590C)	; ø»‹‡ƒ
-    (=ucs@big5		. #x590C)	; ø»‹‡ƒ
     ))
 (define-char
   '((morohashi-daikanwa	5714 0 3)
@@ -644,12 +643,6 @@
     (total-strokes	 . 18)
     (=ucs		. #x2157D)	; ð¡•½
     (=cns11643-7	. #x3F3A)	; ø»ž«‘
-    ))
-(define-char
-  '((ideographic-radical . 35)	; â¼¢
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=ucs		. #x5911)	; å¤‘
     ))
 (define-char
   '((ideographic-radical . 35)	; â¼¢

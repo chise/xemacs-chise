@@ -253,10 +253,6 @@
   '((ideographic-radical . 16)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8655)	; è™•
-      (=jis-x0208	  . #x515D)	; ø½Š½˜
-      ))
     (hanyu-dazidian	1 276 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -871,8 +867,8 @@
 (define-char
   '((morohashi-daikanwa	1786 0 5)
     (ideographic-radical . 16)	; â¼
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (hanyu-dazidian	1 278 9)
     (=ucs		. #x34D8)	; ã“˜
     (=hanziku-1		. #xDF71)	; ý¢€½±
@@ -1014,7 +1010,7 @@
       (=ucs		  . #x2FF3)	; â¿³
       )
      ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (=gt		  . 00458)	; ý¡€€‡Š
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

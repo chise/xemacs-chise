@@ -41,7 +41,6 @@
     (=gt-pj-1		. #x4537)	; ý¡€³Š
     (=daikanwa		. 05833)	; ø¸›‰
     (=ucs@jis		. #x5929)	; ø½Š«Š
-    (=ucs@big5		. #x5929)	; ø½Š«Š
     ))
 (define-char
   '((morohashi-daikanwa	5833 0 1)
@@ -647,12 +646,12 @@
     (=hanziku-2		. #xBCD9)	; ý¢€«³™
     ))
 (define-char
-  '((script		CN Simplified Ideograph)
+  '((script		C-Simplified Ideograph)
     (ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-simplified
-     ((=gb12345		  . #x5E46)	; ó°€”
+    (<-simplified-ideograph
+     ((=daikanwa	  . 05991)	; ø¸§
       ))
     (hanyu-dazidian	1 529 9)
     (=ucs		. #x5941)	; å¥
@@ -1255,7 +1254,6 @@
     (=gt-pj-1		. #x5476)	; ý¡€´¢
     (=daikanwa		. 05916)	; ø¸œœ
     (=ucs@jis		. #x5950)	; ø½‹‚‹
-    (=ucs@big5		. #x5950)	; ø½‹‚‹
     ))
 (define-char
   '((morohashi-daikanwa	5916 0 2)
@@ -1284,7 +1282,6 @@
     (=gt-k		. 05057)	; ý¡„
     (=gt-pj-2		. #x6735)	; ý¡€´¨
     (=daikanwa		. 05917)	; ø¸œ
-    (=ucs@big5		. #x5951)	; ý¢€Š®´
     ))
 (define-char
   '((=>ucs		. #x5951)	; å¥‘
@@ -1527,7 +1524,6 @@
     (=gt-pj-1		. #x5478)	; ý¡€´¸
     (=daikanwa		. 05930)	; ø¸œª
     (=ucs@jis		. #x595A)	; ø½‹‚
-    (=ucs@big5		. #x595A)	; ø½‹‚
     ))
 (define-char
   '((morohashi-daikanwa	5930 0 2)
@@ -2268,26 +2264,15 @@
   '((ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5967)	; å¥§
-      (=jis-x0208	  . #x547C)	; ø½‹‚‘
-      ))
     (shinjigen-2	. 1589)
     (=ucs		. #x5965)	; å¥¥
     (=jis-x0208		. #x317C)	; ø½ŠŽ·
     (=gb2312		. #x3042)	; ø»„œ§
+    (=cns11643-4	. #x3679)	; ø»˜€¶
     (=gt		. 07520)	; ý¡€µ 
     (=gt-k		. 09000)	; ý¡„‚Œ¨
     (=gt-pj-1		. #x317C)	; ý¡€µ 
     (=daikanwa		. 05981)	; ø¸
-    ))
-(define-char
-  '((=>ucs		. #x5965)	; å¥¥
-    (morohashi-daikanwa	5981 0 0)
-    (ideographic-radical . 37)	; â¼¤
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=cns11643-4	. #x3679)	; ø»˜€¶
     ))
 (define-char
   '((=>ucs		. #x2164C)	; ð¡™Œ
@@ -2497,10 +2482,6 @@
     (ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x596C)	; å¥¬
-      (=jis-x0208	  . #x547D)	; ø½‹‚’
-      ))
     (hanyu-dazidian	1 547 4)
     (=ucs		. #x5968)	; å¥¨
     (=jis-x0208		. #x3E29)	; ø½Š ª
@@ -2517,31 +2498,18 @@
     (=cns11643-3	. #x4061)	; ø»–…†
     ))
 (define-char
-  '((=>daikanwa		. 05991)	; ø½‹‚“
-    (ideographic-radical . 37)	; â¼¤
+  '((ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (shinjigen-2	. 799)
     (=ucs		. #x5969)	; å¥©
-    (->subsumptive
-     ((<-vulgar-ideograph
-       ((shinjigen-1	    . 796)
-	(=ucs		    . #x5333)	; åŒ³
-	))
-      (<-vulgar-ideograph*sources
-       shinjigen-1)
-      (shinjigen-1	  . 799)
-      (shinjigen-2	  . 799)
-      (=jis-x0208	  . #x547E)	; ø½‹‚“
-      (=cns11643-1	  . #x6845)	; ø»’«’
-      (=big5		  . #xB9DD)	; ý¢€‹§
-      (=gt		  . 07573)	; ý¡€¶•
-      (=gt-pj-1		  . #x547E)	; ý¡€¶•
-      (=daikanwa	  . 05991)	; ø¸§
-      (=ucs@jis		  . #x5969)	; ø½‹‚“
-      )
-     ((=gb12345		  . #x5E46)	; ó°€”
-      (=ucs@unicode	  . #x5969)	; ó°€”
-      ))
+    (=jis-x0208		. #x547E)	; ø½‹‚“
+    (=cns11643-1	. #x6845)	; ø»’«’
+    (=gb12345		. #x5E46)	; å¥©
+    (=big5		. #xB9DD)	; ý¢€‹§
+    (=gt		. 07573)	; ý¡€¶•
+    (=gt-pj-1		. #x547E)	; ý¡€¶•
+    (=daikanwa		. 05991)	; ø¸§
     ))
 (define-char
   '((=>ucs		. #x2166C)	; ð¡™¬
@@ -2721,7 +2689,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (=gt		  . 00458)	; ý¡€€‡Š
       )
      ((=big5-cdp	  . #x857C)	; ý¢€ˆ•¼
       ))
@@ -3498,13 +3466,4 @@
     (hanyu-dazidian	1 551 4)
     (=ucs		. #x2169F)	; ð¡šŸ
     (=hanziku-2		. #xC15D)	; ý¢€¬…
-    ))
-(define-char
-  '((ideographic-radical . 37)	; â¼¤
-    (<-unknown
-     ((=ucs		  . #x215DB)	; ð¡—›
-      ))
-    (sources		bos=A016462-00003 bos=A016430-00004
-			bos=A016594-00007)
-    (=ruimoku-v6	. #xE006)	; øº€†
     ))

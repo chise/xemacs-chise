@@ -54,7 +54,6 @@
     (=big5		. #xA556)	; ý¢€Š•–
     (=daikanwa		. 01610)	; ø¸€™Š
     (=jef-china3	. #x43F5)	; øº„µ
-    (=ucs@big5		. #x51AC)	; ø»‰¥´
     ))
 (define-char
   '((morohashi-daikanwa	1610 0 1)
@@ -176,10 +175,9 @@
       (=daikanwa	  . 00360)	; ø¸€…¨
       ))
     (<-original-ideograph
-     ((=daikanwa	  . 01612)	; ø¸€™Œ
-      ))
-    (<-original-ideograph*sources
-     daikanwa)
+     (:char	((=daikanwa	     . 01612)	; ø¸€™Œ
+		 )
+      :sources	(morohashi-daikanwa)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -468,7 +466,6 @@
     (=gt-pj-1		. #x4E64)	; ý¡€€¡¨
     (=daikanwa		. 01622)	; ø¸€™–
     (=ucs@jis		. #x51B7)	; ø½Š¹…
-    (=ucs@big5		. #x51B7)	; ø½Š¹…
     ))
 (define-char
   '((=>ucs		. #x51B7)	; å†·
@@ -1128,7 +1125,6 @@
     (=gt-pj-1		. #x3D5A)	; ý¡€€¢‹
     (=daikanwa		. 01661)	; ø¸€™½
     (=ucs@jis		. #x51C6)	; ø½ŠŸ½
-    (=ucs@big5		. #x51C6)	; ø½ŠŸ½
     ))
 (define-char
   '((morohashi-daikanwa	1661 0 1)
@@ -1223,7 +1219,6 @@
     (=daikanwa		. 01664)	; ø¸€š€
     (=jef-china3	. #x43FA)	; øº„º
     (=ucs@jis		. #x51C8)	; ø»Š¾¬
-    (=ucs@big5		. #x51C8)	; ø»Š¾¬
     ))
 (define-char
   '((morohashi-daikanwa	1664 0 2)
@@ -1312,7 +1307,6 @@
     (=daikanwa		. 01666)	; ø¸€š‚
     (=jef-china3	. #x43FB)	; øº„»
     (=ucs@jis		. #x51CA)	; ø»¢¦·
-    (=ucs@big5		. #x51CA)	; ø»¢¦·
     ))
 (define-char
   '((morohashi-daikanwa	1666 0 4)
@@ -1463,7 +1457,6 @@
     (=gt		. 02202)	; ý¡€€¢š
     (=gt-pj-1		. #x4E3F)	; ý¡€€¢š
     (=ucs@jis		. #x51CC)	; ø½Š¸ 
-    (=ucs@big5		. #x51CC)	; ø½Š¸ 
     ))
 (define-char
   '((morohashi-daikanwa	1669 0 2)
@@ -2033,7 +2026,6 @@
       ))
     (=big5		. #xDCC5)	; ý¢€³…
     (=daikanwa		. 01699)	; ø¸€š£
-    (=ucs@big5		. #x51D7)	; ý¢€³…
     ))
 (define-char
   '((morohashi-daikanwa	1699 0 1)
@@ -2365,9 +2357,7 @@
     (=gt		. 02256)	; ý¡€€£
     (=gt-pj-1		. #x7425)	; ý¡€€£
     (=daikanwa		. 01717)	; ø¸€šµ
-    (=jef-china3	. #x44A4)	; øº„’¤
     (=ucs@jis		. #x51DC)	; ø»‰ªŽ
-    (=ucs@big5		. #x51DC)	; ø»‰ªŽ
     ))
 (define-char
   '((morohashi-daikanwa	1717 0 0)
@@ -2384,6 +2374,7 @@
      ((=ucs		  . #x7A1F)	; ç¨Ÿ
       ))
     (=ucs		. #x51DC)	; å‡œ
+    (=jef-china3	. #x44A4)	; øº„’¤
     ))
 (define-char
   '((=>ucs		. #x51DC)	; å‡œ
@@ -2407,18 +2398,24 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (<-vulgar-ideograph
-     ((shinjigen-1	  . 561)
-      (=daikanwa	  . 01717)	; ø¸€šµ
-      ))
-    (<-vulgar-ideograph*sources
-     pianhai daikanwa shinjigen-1)
+     (:char	((shinjigen-1	     . 561)
+		 (=daikanwa	     . 01717)	; ø¸€šµ
+		 )
+      :sources	(henkai morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=daikanwa	  . 24742)	; ø¸†‚¦
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=daikanwa	    . 00300)	; ø¸€„¬
+	)
+       ((=daikanwa	    . 24623)	; ø¸†€¯
+	))
       ))
     (shinjigen-1	. 563)
     (shinjigen-2	. 563)
@@ -2438,7 +2435,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=cns11643-3	  . #x433D)	; ø»–ˆ¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=ucs		    . #x342D)	; ã­
+	)
+       ((=daikanwa	    . 24623)	; ø¸†€¯
+	))
       ))
     (=cns11643-3	. #x4B30)	; ø»–”Ÿ
     ))
@@ -2454,7 +2458,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=jis-x0208	  . #x6349)	; ø½‹— 
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=daikanwa	    . 00300)	; ø¸€„¬
+	)
+       ((=ucs		    . #x793A)	; ç¤º
+	))
       ))
     (=jis-x0208-1990	. #x515B)	; ø½Š½–
     (=gt		. 02257)	; ý¡€€£‘
@@ -2473,7 +2484,14 @@
       )
      ((=ucs		  . #x51AB)	; å†«
       )
-     ((=ucs		  . #x7980)	; ç¦€
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=ucs		    . #x342D)	; ã­
+	)
+       ((=ucs		    . #x793A)	; ç¤º
+	))
       ))
     (=ucs		. #x51DB)	; å‡›
     (=gb2312		. #x415D)	; ø»„¶€
