@@ -50,6 +50,124 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Completion Commands,  Next: High-Level Completion,  Prev: Minibuffer Completion,  Up: Completion
+
+Minibuffer Commands That Do Completion
+--------------------------------------
+
+   This section describes the keymaps, commands and user options used in
+the minibuffer to do completion.
+
+ - Variable: minibuffer-local-completion-map
+     `completing-read' uses this value as the local keymap when an
+     exact match of one of the completions is not required.  By
+     default, this keymap makes the following bindings:
+
+    `?'
+          `minibuffer-completion-help'
+
+    <SPC>
+          `minibuffer-complete-word'
+
+    <TAB>
+          `minibuffer-complete'
+
+     with other characters bound as in `minibuffer-local-map' (*note
+     Text from Minibuffer::).
+
+ - Variable: minibuffer-local-must-match-map
+     `completing-read' uses this value as the local keymap when an
+     exact match of one of the completions is required.  Therefore, no
+     keys are bound to `exit-minibuffer', the command that exits the
+     minibuffer unconditionally.  By default, this keymap makes the
+     following bindings:
+
+    `?'
+          `minibuffer-completion-help'
+
+    <SPC>
+          `minibuffer-complete-word'
+
+    <TAB>
+          `minibuffer-complete'
+
+    `C-j'
+          `minibuffer-complete-and-exit'
+
+    <RET>
+          `minibuffer-complete-and-exit'
+
+     with other characters bound as in `minibuffer-local-map'.
+
+ - Variable: minibuffer-completion-table
+     The value of this variable is the alist or obarray used for
+     completion in the minibuffer.  This is the global variable that
+     contains what `completing-read' passes to `try-completion'.  It is
+     used by minibuffer completion commands such as
+     `minibuffer-complete-word'.
+
+ - Variable: minibuffer-completion-predicate
+     This variable's value is the predicate that `completing-read'
+     passes to `try-completion'.  The variable is also used by the other
+     minibuffer completion functions.
+
+ - Command: minibuffer-complete-word
+     This function completes the minibuffer contents by at most a single
+     word.  Even if the minibuffer contents have only one completion,
+     `minibuffer-complete-word' does not add any characters beyond the
+     first character that is not a word constituent.  *Note Syntax
+     Tables::.
+
+ - Command: minibuffer-complete
+     This function completes the minibuffer contents as far as possible.
+
+ - Command: minibuffer-complete-and-exit
+     This function completes the minibuffer contents, and exits if
+     confirmation is not required, i.e., if
+     `minibuffer-completion-confirm' is `nil'.  If confirmation _is_
+     required, it is given by repeating this command immediately--the
+     command is programmed to work without confirmation when run twice
+     in succession.
+
+ - Variable: minibuffer-completion-confirm
+     When the value of this variable is non-`nil', XEmacs asks for
+     confirmation of a completion before exiting the minibuffer.  The
+     function `minibuffer-complete-and-exit' checks the value of this
+     variable before it exits.
+
+ - Command: minibuffer-completion-help
+     This function creates a list of the possible completions of the
+     current minibuffer contents.  It works by calling `all-completions'
+     using the value of the variable `minibuffer-completion-table' as
+     the COLLECTION argument, and the value of
+     `minibuffer-completion-predicate' as the PREDICATE argument.  The
+     list of completions is displayed as text in a buffer named
+     `*Completions*'.
+
+ - Function: display-completion-list completions &rest cl-keys
+     This function displays COMPLETIONS to the stream in
+     `standard-output', usually a buffer.  (*Note Read and Print::, for
+     more information about streams.)  The argument COMPLETIONS is
+     normally a list of completions just returned by `all-completions',
+     but it does not have to be.  Each element may be a symbol or a
+     string, either of which is simply printed, or a list of two
+     strings, which is printed as if the strings were concatenated.
+
+     This function is called by `minibuffer-completion-help'.  The most
+     common way to use it is together with
+     `with-output-to-temp-buffer', like this:
+
+          (with-output-to-temp-buffer "*Completions*"
+            (display-completion-list
+              (all-completions (buffer-string) my-alist)))
+
+ - User Option: completion-auto-help
+     If this variable is non-`nil', the completion commands
+     automatically display a list of possible completions whenever
+     nothing can be completed because the next character is not
+     uniquely determined.
+
+
 File: lispref.info,  Node: High-Level Completion,  Next: Reading File Names,  Prev: Completion Commands,  Up: Completion
 
 High-Level Completion  Functions
@@ -94,12 +212,18 @@ Defining Commands::.
           ;; The user types `minibuffer.t <RET>'.
                => "minibuffer.texi"
 
- - Function: read-command prompt
+ - Function: read-command prompt &optinal default-value
      This function reads the name of a command and returns it as a Lisp
      symbol.  The argument PROMPT is used as in `read-from-minibuffer'.
      Recall that a command is anything for which `commandp' returns
      `t', and a command name is a symbol for which `commandp' returns
      `t'.  *Note Interactive Call::.
+
+     The argument DEFAULT-VALUE specifies what to return if the user
+     enters null input.  It can be a symbol or a string; if it is a
+     string, `read-command' interns it before returning it.  If DEFAULT
+     is `nil', that means no default has been specified; then if the
+     user enters null input, the return value is `nil'.
 
           (read-command "Command name? ")
           
@@ -123,9 +247,15 @@ Defining Commands::.
           (intern (completing-read PROMPT obarray
                                    'commandp t nil))
 
- - Function: read-variable prompt
+ - Function: read-variable prompt &optional default-value
      This function reads the name of a user variable and returns it as a
      symbol.
+
+     The argument DEFAULT-VALUE specifies what to return if the user
+     enters null input.  It can be a symbol or a string; if it is a
+     string, `read-variable' interns it before returning it.  If DEFAULT
+     is `nil', that means no default has been specified; then if the
+     user enters null input, the return value is `nil'.
 
           (read-variable "Variable name? ")
           
@@ -160,7 +290,7 @@ a file name.  It provides special features including automatic insertion
 of the default directory.
 
  - Function: read-file-name prompt &optional directory default existing
-          initial
+          initial history
      This function reads a file name in the minibuffer, prompting with
      PROMPT and providing completion.  If DEFAULT is non-`nil', then
      the function returns DEFAULT if the user just types <RET>.
@@ -1083,129 +1213,4 @@ Examples of Using `interactive'
           => three-b
      (three-b "*scratch*" "declarations.texi" "*mail*")
           => nil
-
-
-File: lispref.info,  Node: Interactive Call,  Next: Command Loop Info,  Prev: Defining Commands,  Up: Command Loop
-
-Interactive Call
-================
-
-   After the command loop has translated a key sequence into a
-definition, it invokes that definition using the function
-`command-execute'.  If the definition is a function that is a command,
-`command-execute' calls `call-interactively', which reads the arguments
-and calls the command.  You can also call these functions yourself.
-
- - Function: commandp object
-     Returns `t' if OBJECT is suitable for calling interactively; that
-     is, if OBJECT is a command.  Otherwise, returns `nil'.
-
-     The interactively callable objects include strings and vectors
-     (treated as keyboard macros), lambda expressions that contain a
-     top-level call to `interactive', compiled-function objects made
-     from such lambda expressions, autoload objects that are declared
-     as interactive (non-`nil' fourth argument to `autoload'), and some
-     of the primitive functions.
-
-     A symbol is `commandp' if its function definition is `commandp'.
-
-     Keys and keymaps are not commands.  Rather, they are used to look
-     up commands (*note Keymaps::).
-
-     See `documentation' in *Note Accessing Documentation::, for a
-     realistic example of using `commandp'.
-
- - Function: call-interactively command &optional record-flag
-     This function calls the interactively callable function COMMAND,
-     reading arguments according to its interactive calling
-     specifications.  An error is signaled if COMMAND is not a function
-     or if it cannot be called interactively (i.e., is not a command).
-     Note that keyboard macros (strings and vectors) are not accepted,
-     even though they are considered commands, because they are not
-     functions.
-
-     If RECORD-FLAG is the symbol `lambda', the interactive calling
-     arguments for `command' are read and returned as a list, but the
-     function is not called on them.
-
-     If RECORD-FLAG is `t', then this command and its arguments are
-     unconditionally added to the list `command-history'.  Otherwise,
-     the command is added only if it uses the minibuffer to read an
-     argument.  *Note Command History::.
-
- - Function: command-execute command &optional record-flag
-     This function executes COMMAND as an editing command.  The
-     argument COMMAND must satisfy the `commandp' predicate; i.e., it
-     must be an interactively callable function or a keyboard macro.
-
-     A string or vector as COMMAND is executed with
-     `execute-kbd-macro'.  A function is passed to
-     `call-interactively', along with the optional RECORD-FLAG.
-
-     A symbol is handled by using its function definition in its place.
-     A symbol with an `autoload' definition counts as a command if it
-     was declared to stand for an interactively callable function.
-     Such a definition is handled by loading the specified library and
-     then rechecking the definition of the symbol.
-
- - Command: execute-extended-command prefix-argument
-     This function reads a command name from the minibuffer using
-     `completing-read' (*note Completion::).  Then it uses
-     `command-execute' to call the specified command.  Whatever that
-     command returns becomes the value of `execute-extended-command'.
-
-     If the command asks for a prefix argument, it receives the value
-     PREFIX-ARGUMENT.  If `execute-extended-command' is called
-     interactively, the current raw prefix argument is used for
-     PREFIX-ARGUMENT, and thus passed on to whatever command is run.
-
-     `execute-extended-command' is the normal definition of `M-x', so
-     it uses the string `M-x ' as a prompt.  (It would be better to
-     take the prompt from the events used to invoke
-     `execute-extended-command', but that is painful to implement.)  A
-     description of the value of the prefix argument, if any, also
-     becomes part of the prompt.
-
-          (execute-extended-command 1)
-          ---------- Buffer: Minibuffer ----------
-          1 M-x forward-word RET
-          ---------- Buffer: Minibuffer ----------
-               => t
-
- - Function: interactive-p
-     This function returns `t' if the containing function (the one that
-     called `interactive-p') was called interactively, with the function
-     `call-interactively'.  (It makes no difference whether
-     `call-interactively' was called from Lisp or directly from the
-     editor command loop.)  If the containing function was called by
-     Lisp evaluation (or with `apply' or `funcall'), then it was not
-     called interactively.
-
-     The most common use of `interactive-p' is for deciding whether to
-     print an informative message.  As a special exception,
-     `interactive-p' returns `nil' whenever a keyboard macro is being
-     run.  This is to suppress the informative messages and speed
-     execution of the macro.
-
-     For example:
-
-          (defun foo ()
-            (interactive)
-            (and (interactive-p)
-                 (message "foo")))
-               => foo
-          
-          (defun bar ()
-            (interactive)
-            (setq foobar (list (foo) (interactive-p))))
-               => bar
-          
-          ;; Type `M-x foo'.
-               -| foo
-          
-          ;; Type `M-x bar'.
-          ;; This does not print anything.
-          
-          foobar
-               => (nil t)
 

@@ -30,6 +30,288 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Keymaps,  Next: Rebinding,  Up: Key Bindings
+
+Keymaps
+-------
+
+   The bindings between characters and command functions are recorded in
+data structures called "keymaps".  Emacs has many of these.  One, the
+"global" keymap, defines the meanings of the single-character keys that
+are defined regardless of major mode.  It is the value of the variable
+`global-map'.
+
+   Each major mode has another keymap, its "local keymap", which
+contains overriding definitions for the single-character keys that are
+redefined in that mode.  Each buffer records which local keymap is
+installed for it at any time, and the current buffer's local keymap is
+the only one that directly affects command execution.  The local keymaps
+for Lisp mode, C mode, and many other major modes always exist even when
+not in use.  They are the values of the variables `lisp-mode-map',
+`c-mode-map', and so on.  For less frequently used major modes, the
+local keymap is sometimes constructed only when the mode is used for the
+first time in a session, to save space.
+
+   There are local keymaps for the minibuffer, too; they contain various
+completion and exit commands.
+
+   * `minibuffer-local-map' is used for ordinary input (no completion).
+
+   * `minibuffer-local-ns-map' is similar, except that <SPC> exits just
+     like <RET>.  This is used mainly for Mocklisp compatibility.
+
+   * `minibuffer-local-completion-map' is for permissive completion.
+
+   * `minibuffer-local-must-match-map' is for strict completion and for
+     cautious completion.
+
+   * `repeat-complex-command-map' is for use in `C-x <ESC>'.
+
+   * `isearch-mode-map' contains the bindings of the special keys which
+     are bound in the pseudo-mode entered with `C-s' and `C-r'.
+
+   Finally, each prefix key has a keymap which defines the key sequences
+that start with it.  For example, `ctl-x-map' is the keymap used for
+characters following a `C-x'.
+
+   * `ctl-x-map' is the variable name for the map used for characters
+     that follow `C-x'.
+
+   * `help-map' is used for characters that follow `C-h'.
+
+   * `esc-map' is for characters that follow <ESC>. All Meta characters
+     are actually defined by this map.
+
+   * `ctl-x-4-map' is for characters that follow `C-x 4'.
+
+   * `mode-specific-map' is for characters that follow `C-c'.
+
+   The definition of a prefix key is the keymap to use for looking up
+the following character.  Sometimes the definition is actually a Lisp
+symbol whose function definition is the following character keymap.  The
+effect is the same, but it provides a command name for the prefix key
+that you can use as a description of what the prefix key is for.  Thus
+the binding of `C-x' is the symbol `Ctl-X-Prefix', whose function
+definition is the keymap for `C-x' commands, the value of `ctl-x-map'.
+
+   Prefix key definitions can appear in either the global map or a
+local map.  The definitions of `C-c', `C-x', `C-h', and <ESC> as prefix
+keys appear in the global map, so these prefix keys are always
+available.  Major modes can locally redefine a key as a prefix by
+putting a prefix key definition for it in the local map.
+
+   A mode can also put a prefix definition of a global prefix character
+such as `C-x' into its local map.  This is how major modes override the
+definitions of certain keys that start with `C-x'.  This case is
+special, because the local definition does not entirely replace the
+global one.  When both the global and local definitions of a key are
+other keymaps, the next character is looked up in both keymaps, with
+the local definition overriding the global one.  The character after the
+`C-x' is looked up in both the major mode's own keymap for redefined
+`C-x' commands and in `ctl-x-map'.  If the major mode's own keymap for
+`C-x' commands contains `nil', the definition from the global keymap
+for `C-x' commands is used.
+
+
+File: xemacs.info,  Node: Rebinding,  Next: Disabling,  Prev: Keymaps,  Up: Key Bindings
+
+Changing Key Bindings
+---------------------
+
+   You can redefine an Emacs key by changing its entry in a keymap.
+You can change the global keymap, in which case the change is effective
+in all major modes except those that have their own overriding local
+definitions for the same key.  Or you can change the current buffer's
+local map, which affects all buffers using the same major mode.
+
+* Menu:
+
+* Interactive Rebinding::      Changing Key Bindings Interactively
+* Programmatic Rebinding::     Changing Key Bindings Programmatically
+* Key Bindings Using Strings:: Using Strings for Changing Key Bindings
+
+
+File: xemacs.info,  Node: Interactive Rebinding,  Next: Programmatic Rebinding,  Up: Rebinding
+
+Changing Key Bindings Interactively
+...................................
+
+`M-x global-set-key <RET> KEY CMD <RET>'
+     Defines KEY globally to run CMD.
+
+`M-x local-set-key <RET> KEYS CMD <RET>'
+     Defines KEY locally (in the major mode now in effect) to run CMD.
+
+`M-x local-unset-key <RET> KEYS <RET>'
+     Removes the local binding of KEY.
+
+   CMD is a symbol naming an interactively-callable function.
+
+   When called interactively, KEY is the next complete key sequence
+that you type.  When called as a function, KEY is a string, a vector of
+events, or a vector of key-description lists as described in the
+`define-key' function description.  The binding goes in the current
+buffer's local map, which is shared with other buffers in the same
+major mode.
+
+   The following example:
+
+     M-x global-set-key <RET> C-f next-line <RET>
+
+redefines `C-f' to move down a line.  The fact that CMD is read second
+makes it serve as a kind of confirmation for KEY.
+
+   These functions offer no way to specify a particular prefix keymap as
+the one to redefine in, but that is not necessary, as you can include
+prefixes in KEY.  KEY is read by reading characters one by one until
+they amount to a complete key (that is, not a prefix key).  Thus, if
+you type `C-f' for KEY, Emacs enters the minibuffer immediately to read
+CMD.  But if you type `C-x', another character is read; if that
+character is `4', another character is read, and so on.  For example,
+
+     M-x global-set-key <RET> C-x 4 $ spell-other-window <RET>
+
+redefines `C-x 4 $' to run the (fictitious) command
+`spell-other-window'.
+
+   The most general way to modify a keymap is the function
+`define-key', used in Lisp code (such as your `.emacs' file).
+`define-key' takes three arguments: the keymap, the key to modify in
+it, and the new definition.  *Note Init File::, for an example.
+`substitute-key-definition' is used similarly; it takes three
+arguments, an old definition, a new definition, and a keymap, and
+redefines in that keymap all keys that were previously defined with the
+old definition to have the new definition instead.
+
+
+File: xemacs.info,  Node: Programmatic Rebinding,  Next: Key Bindings Using Strings,  Prev: Interactive Rebinding,  Up: Rebinding
+
+Changing Key Bindings Programmatically
+......................................
+
+   You can use the functions `global-set-key' and `define-key' to
+rebind keys under program control.
+
+``(global-set-key KEYS CMD)''
+     Defines KEYS globally to run CMD.
+
+``(define-key KEYMAP KEYS DEF)''
+     Defines KEYS to run DEF in the keymap KEYMAP.
+
+   KEYMAP is a keymap object.
+
+   KEYS is the sequence of keystrokes to bind.
+
+   DEF is anything that can be a key's definition:
+
+   * `nil', meaning key is undefined in this keymap
+
+   * A command, that is, a Lisp function suitable for interactive
+     calling
+
+   * A string or key sequence vector, which is treated as a keyboard
+     macro
+
+   * A keymap to define a prefix key
+
+   * A symbol so that when the key is looked up, the symbol stands for
+     its function definition, which should at that time be one of the
+     above, or another symbol whose function definition is used, and so
+     on
+
+   * A cons, `(string . defn)', meaning that DEFN is the definition
+     (DEFN should be a valid definition in its own right)
+
+   * A cons, `(keymap . char)', meaning use the definition of CHAR in
+     map KEYMAP
+
+   For backward compatibility, XEmacs allows you to specify key
+sequences as strings.  However, the preferred method is to use the
+representations of key sequences as vectors of keystrokes.  *Note
+Keystrokes::, for more information about the rules for constructing key
+sequences.
+
+   Emacs allows you to abbreviate representations for key sequences in
+most places where there is no ambiguity.  Here are some rules for
+abbreviation:
+
+   * The keysym by itself is equivalent to a list of just that keysym,
+     i.e., `f1' is equivalent to `(f1)'.
+
+   * A keystroke by itself is equivalent to a vector containing just
+     that keystroke, i.e.,  `(control a)' is equivalent to `[(control
+     a)]'.
+
+   * You can use ASCII codes for keysyms that have them. i.e., `65' is
+     equivalent to `A'. (This is not so much an abbreviation as an
+     alternate representation.)
+
+   Here are some examples of programmatically binding keys:
+
+
+     ;;;  Bind `my-command' to <f1>
+     (global-set-key 'f1 'my-command)
+     
+     ;;;  Bind `my-command' to Shift-f1
+     (global-set-key '(shift f1) 'my-command)
+     
+     ;;; Bind `my-command' to C-c Shift-f1
+     (global-set-key '[(control c) (shift f1)] 'my-command)
+     
+     ;;; Bind `my-command' to the middle mouse button.
+     (global-set-key 'button2 'my-command)
+     
+     ;;; Bind `my-command' to <META> <CTL> <Right Mouse Button>
+     ;;; in the keymap that is in force when you are running `dired'.
+     (define-key dired-mode-map '(meta control button3) 'my-command)
+
+
+File: xemacs.info,  Node: Key Bindings Using Strings,  Prev: Programmatic Rebinding,  Up: Rebinding
+
+Using Strings for Changing Key Bindings
+.......................................
+
+   For backward compatibility, you can still use strings to represent
+key sequences.  Thus you can use commands like the following:
+
+     ;;; Bind `end-of-line' to C-f
+     (global-set-key "\C-f" 'end-of-line)
+
+   Note, however, that in some cases you may be binding more than one
+key sequence by using a single command.  This situation can arise
+because in ASCII, `C-i' and <TAB> have the same representation.
+Therefore, when Emacs sees:
+
+     (global-set-key "\C-i" 'end-of-line)
+
+   it is unclear whether the user intended to bind `C-i' or <TAB>.  The
+solution XEmacs adopts is to bind both of these key sequences.
+
+   After binding a command to two key sequences with a form like:
+
+             (define-key global-map "\^X\^I" 'command-1)
+
+   it is possible to redefine only one of those sequences like so:
+
+             (define-key global-map [(control x) (control i)] 'command-2)
+             (define-key global-map [(control x) tab] 'command-3)
+
+   This applies only when running under a window system.  If you are
+talking to Emacs through an ASCII-only channel, you do not get any of
+these features.
+
+   Here is a table of pairs of key sequences that behave in a similar
+fashion:
+
+             control h      backspace
+             control l      clear
+             control i      tab
+             control m      return
+             control j      linefeed
+             control [      escape
+             control @      control space
+
+
 File: xemacs.info,  Node: Disabling,  Prev: Rebinding,  Up: Key Bindings
 
 Disabling Commands
@@ -603,7 +885,7 @@ kernel of Emacs uses.
      You type something other than `yes' or `no'
 
 
-File: xemacs.info,  Node: Faces,  Next: X Resources,  Prev: Audible Bell,  Up: Customization
+File: xemacs.info,  Node: Faces,  Next: Frame Components,  Prev: Audible Bell,  Up: Customization
 
 Faces
 =====
@@ -720,7 +1002,20 @@ argument is provided, the face is changed only in that frame;
 otherwise, it is changed in all frames.
 
 
-File: xemacs.info,  Node: X Resources,  Prev: Faces,  Up: Customization
+File: xemacs.info,  Node: Frame Components,  Next: X Resources,  Prev: Faces,  Up: Customization
+
+Frame Components
+================
+
+   You can control the presence and position of most frame components,
+such as the menubar, toolbars, and gutters.
+
+   This section is not written yet.  Try the Lisp Reference Manual:
+*Note Menubar: (lispref)Menubar, *Note Toolbar Intro: (lispref)Toolbar
+Intro, and *Note Gutter Intro: (lispref)Gutter Intro.
+
+
+File: xemacs.info,  Node: X Resources,  Prev: Frame Components,  Up: Customization
 
 X Resources
 ===========
@@ -984,302 +1279,4 @@ Resource List
      The foreground and background colors of the mouse cursor.  These
      resources are used to initialize the variables
      `x-pointer-foreground-color' and `x-pointer-background-color'.
-
-
-File: xemacs.info,  Node: Face Resources,  Next: Widgets,  Prev: Resource List,  Up: X Resources
-
-Face Resources
---------------
-
-   The attributes of faces are also per-frame. They can be specified as:
-
-     Emacs.FACE_NAME.parameter: value
-
-or
-
-     Emacs*FRAME_NAME.FACE_NAME.parameter: value
-
-Faces accept the following resources:
-
-`attributeFont' (class `AttributeFont'): font-name
-     The font of this face.
-
-`attributeForeground' (class `AttributeForeground'): color-name
-`attributeBackground' (class `AttributeBackground'): color-name
-     The foreground and background colors of this face.
-
-`attributeBackgroundPixmap' (class `AttributeBackgroundPixmap'): file-name
-     The name of an XBM file (or XPM file, if your version of Emacs
-     supports XPM), to use as a background stipple.
-
-`attributeUnderline' (class `AttributeUnderline'): boolean
-     Whether text in this face should be underlined.
-
-   All text is displayed in some face, defaulting to the face named
-`default'.  To set the font of normal text, use
-`Emacs*default.attributeFont'. To set it in the frame named `fred', use
-`Emacs*fred.default.attributeFont'.
-
-   These are the names of the predefined faces:
-
-`default'
-     Everything inherits from this.
-
-`bold'
-     If this is not specified in the resource database, Emacs tries to
-     find a bold version of the font of the default face.
-
-`italic'
-     If this is not specified in the resource database, Emacs tries to
-     find an italic version of the font of the default face.
-
-`bold-italic'
-     If this is not specified in the resource database, Emacs tries to
-     find a bold-italic version of the font of the default face.
-
-`modeline'
-     This is the face that the modeline is displayed in.  If not
-     specified in the resource database, it is determined from the
-     default face by reversing the foreground and background colors.
-
-`highlight'
-     This is the face that highlighted extents (for example, Info
-     cross-references and possible completions, when the mouse passes
-     over them) are displayed in.
-
-`left-margin'
-`right-margin'
-     These are the faces that the left and right annotation margins are
-     displayed in.
-
-`zmacs-region'
-     This is the face that mouse selections are displayed in.
-
-`isearch'
-     This is the face that the matched text being searched for is
-     displayed in.
-
-`info-node'
-     This is the face of info menu items.  If unspecified, it is copied
-     from `bold-italic'.
-
-`info-xref'
-     This is the face of info cross-references.  If unspecified, it is
-     copied from `bold'. (Note that, when the mouse passes over a
-     cross-reference, the cross-reference's face is determined from a
-     combination of the `info-xref' and `highlight' faces.)
-
-   Other packages might define their own faces; to see a list of all
-faces, use any of the interactive face-manipulation commands such as
-`set-face-font' and type `?' when you are prompted for the name of a
-face.
-
-   If the `bold', `italic', and `bold-italic' faces are not specified
-in the resource database, then XEmacs attempts to derive them from the
-font of the default face.  It can only succeed at this if you have
-specified the default font using the XLFD (X Logical Font Description)
-format, which looks like
-
-     *-courier-medium-r-*-*-*-120-*-*-*-*-*-*
-
-If you use any of the other, less strict font name formats, some of
-which look like
-
-     lucidasanstypewriter-12
-     fixed
-     9x13
-
-   then XEmacs won't be able to guess the names of the bold and italic
-versions.  All X fonts can be referred to via XLFD-style names, so you
-should use those forms.  See the man pages for `X(1)', `xlsfonts(1)',
-and `xfontsel(1)'.
-
-
-File: xemacs.info,  Node: Widgets,  Next: Menubar Resources,  Prev: Face Resources,  Up: X Resources
-
-Widgets
--------
-
-   There are several structural widgets between the terminal EmacsFrame
-widget and the top level ApplicationShell; the exact names and types of
-these widgets change from release to release (for example, they changed
-between 19.8 and 19.9, 19.9 and 19.10, and 19.10 and 19.12) and are
-subject to further change in the future, so you should avoid mentioning
-them in your resource database.  The above-mentioned syntaxes should be
-forward- compatible.  As of 19.13, the exact widget hierarchy is as
-follows:
-
-     INVOCATION-NAME            "shell"       "container"     FRAME-NAME
-     x-emacs-application-class  "EmacsShell"  "EmacsManager"  "EmacsFrame"
-
-   where INVOCATION-NAME is the terminal component of the name of the
-XEmacs executable (usually `xemacs'), and `x-emacs-application-class'
-is generally `Emacs'.
-
-
-File: xemacs.info,  Node: Menubar Resources,  Prev: Widgets,  Up: X Resources
-
-Menubar Resources
------------------
-
-   As the menubar is implemented as a widget which is not a part of
-XEmacs proper, it does not use the fac" mechanism for specifying fonts
-and colors: It uses whatever resources are appropriate to the type of
-widget which is used to implement it.
-
-   If Emacs was compiled to use only the Motif-lookalike menu widgets,
-then one way to specify the font of the menubar would be
-
-     Emacs*menubar*font: *-courier-medium-r-*-*-*-120-*-*-*-*-*-*
-
-   If the Motif library is being used, then one would have to use
-
-     Emacs*menubar*fontList: *-courier-medium-r-*-*-*-120-*-*-*-*-*-*
-
-   because the Motif library uses the `fontList' resource name instead
-of `font', which has subtly different semantics.
-
-   The same is true of the scrollbars: They accept whichever resources
-are appropriate for the toolkit in use.
-
-
-File: xemacs.info,  Node: Quitting,  Next: Lossage,  Prev: Customization,  Up: Top
-
-Quitting and Aborting
-=====================
-
-`C-g'
-     Quit.  Cancel running or partially typed command.
-
-`C-]'
-     Abort innermost recursive editing level and cancel the command
-     which invoked it (`abort-recursive-edit').
-
-`M-x top-level'
-     Abort all recursive editing levels that are currently executing.
-
-`C-x u'
-     Cancel an already-executed command, usually (`undo').
-
-   There are two ways of cancelling commands which are not finished
-executing: "quitting" with `C-g', and "aborting" with `C-]' or `M-x
-top-level'.  Quitting is cancelling a partially typed command or one
-which is already running.  Aborting is getting out of a recursive
-editing level and cancelling the command that invoked the recursive
-edit.
-
-   Quitting with `C-g' is used for getting rid of a partially typed
-command or a numeric argument that you don't want.  It also stops a
-running command in the middle in a relatively safe way, so you can use
-it if you accidentally start executing a command that takes a long
-time.  In particular, it is safe to quit out of killing; either your
-text will ALL still be there, or it will ALL be in the kill ring (or
-maybe both).  Quitting an incremental search does special things
-documented under searching; in general, it may take two successive
-`C-g' characters to get out of a search.  `C-g' works by setting the
-variable `quit-flag' to `t' the instant `C-g' is typed; Emacs Lisp
-checks this variable frequently and quits if it is non-`nil'.  `C-g' is
-only actually executed as a command if it is typed while Emacs is
-waiting for input.
-
-   If you quit twice in a row before the first `C-g' is recognized, you
-activate the "emergency escape" feature and return to the shell.  *Note
-Emergency Escape::.
-
-   You can use `C-]' (`abort-recursive-edit') to get out of a recursive
-editing level and cancel the command which invoked it.  Quitting with
-`C-g' does not do this, and could not do this because it is used to
-cancel a partially typed command within the recursive editing level.
-Both operations are useful.  For example, if you are in the Emacs
-debugger (*note Lisp Debug::) and have typed `C-u 8' to enter a numeric
-argument, you can cancel that argument with `C-g' and remain in the
-debugger.
-
-   The command `M-x top-level' is equivalent to "enough" `C-]' commands
-to get you out of all the levels of recursive edits that you are in.
-`C-]' only gets you out one level at a time, but `M-x top-level' goes
-out all levels at once.  Both `C-]' and `M-x top-level' are like all
-other commands and unlike `C-g' in that they are effective only when
-Emacs is ready for a command.  `C-]' is an ordinary key and has its
-meaning only because of its binding in the keymap.  *Note Recursive
-Edit::.
-
-   `C-x u' (`undo') is not strictly speaking a way of cancelling a
-command, but you can think of it as cancelling a command already
-finished executing.  *Note Undo::.
-
-
-File: xemacs.info,  Node: Lossage,  Next: Bugs,  Prev: Quitting,  Up: Top
-
-Dealing With Emacs Trouble
-==========================
-
-   This section describes various conditions in which Emacs fails to
-work, and how to recognize them and correct them.
-
-* Menu:
-
-* Stuck Recursive::    `[...]' in mode line around the parentheses.
-* Screen Garbled::     Garbage on the screen.
-* Text Garbled::       Garbage in the text.
-* Unasked-for Search:: Spontaneous entry to incremental search.
-* Emergency Escape::   Emergency escape---
-                        What to do if Emacs stops responding.
-* Total Frustration::  When you are at your wits' end.
-
-
-File: xemacs.info,  Node: Stuck Recursive,  Next: Screen Garbled,  Prev: Lossage,  Up: Lossage
-
-Recursive Editing Levels
-------------------------
-
-   Recursive editing levels are important and useful features of Emacs,
-but they can seem like malfunctions to the user who does not understand
-them.
-
-   If the mode line has square brackets `[...]' around the parentheses
-that contain the names of the major and minor modes, you have entered a
-recursive editing level.  If you did not do this on purpose, or if you
-don't understand what that means, you should just get out of the
-recursive editing level.  To do so, type `M-x top-level'.  This is
-called getting back to top level.  *Note Recursive Edit::.
-
-
-File: xemacs.info,  Node: Screen Garbled,  Next: Text Garbled,  Prev: Stuck Recursive,  Up: Lossage
-
-Garbage on the Screen
----------------------
-
-   If the data on the screen looks wrong, the first thing to do is see
-whether the text is actually wrong.  Type `C-l', to redisplay the
-entire screen.  If the text appears correct after this, the problem was
-entirely in the previous screen update.
-
-   Display updating problems often result from an incorrect termcap
-entry for the terminal you are using.  The file `etc/TERMS' in the Emacs
-distribution gives the fixes for known problems of this sort.
-`INSTALL' contains general advice for these problems in one of its
-sections.  Very likely there is simply insufficient padding for certain
-display operations.  To investigate the possibility that you have this
-sort of problem, try Emacs on another terminal made by a different
-manufacturer.  If problems happen frequently on one kind of terminal but
-not another kind, the real problem is likely to be a bad termcap entry,
-though it could also be due to a bug in Emacs that appears for terminals
-that have or lack specific features.
-
-
-File: xemacs.info,  Node: Text Garbled,  Next: Unasked-for Search,  Prev: Screen Garbled,  Up: Lossage
-
-Garbage in the Text
--------------------
-
-   If `C-l' shows that the text is wrong, try undoing the changes to it
-using `C-x u' until it gets back to a state you consider correct.  Also
-try `C-h l' to find out what command you typed to produce the observed
-results.
-
-   If a large portion of text appears to be missing at the beginning or
-end of the buffer, check for the word `Narrow' in the mode line.  If it
-appears, the text is still present, but marked off-limits.  To make it
-visible again, type `C-x n w'.  *Note Narrowing::.
 

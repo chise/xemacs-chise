@@ -50,1048 +50,1123 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
+File: lispref.info,  Node: Asynchronous Interface Functions,  Next: Large Object Support,  Prev: Synchronous Interface Functions,  Up: XEmacs PostgreSQL libpq API
 
-Detection of Textual Encoding
+Asynchronous Interface Functions
+--------------------------------
+
+   Making command by command examples is too complex with the
+asynchronous interface functions.  See the examples section for
+complete calling sequences.
+
+ - Function: pq-connect-start conninfo
+     Begin establishing an asynchronous database connection.  CONNINFO
+     A string containing the connection options.  See the documentation
+     of `pq-connectdb' for a listing of all the available flags.
+
+ - Function: pq-connect-poll conn
+     An intermediate function to be called during an asynchronous
+     database connection.  CONN A database connection object.  The
+     result codes are documented in a previous section.
+
+ - Function: pq-is-busy conn
+     Returns t if `pq-get-result' would block waiting for input.  CONN
+     A database connection object.
+
+ - Function: pq-consume-input conn
+     Consume any available input from the backend.  CONN A database
+     connection object.
+
+     Nil is returned if anything bad happens.
+
+ - Function: pq-reset-start conn
+     Reset connection to the backend asynchronously.  CONN A database
+     connection object.
+
+ - Function: pq-reset-poll conn
+     Poll an asynchronous reset for completion CONN A database
+     connection object.
+
+ - Function: pq-reset-cancel conn
+     Attempt to request cancellation of the current operation.  CONN A
+     database connection object.
+
+     The return value is t if the cancel request was successfully
+     dispatched, nil if not (in which case conn->errorMessage is set).
+     Note: successful dispatch is no guarantee that there will be any
+     effect at the backend.  The application must read the operation
+     result as usual.
+
+ - Function: pq-send-query conn query
+     Submit a query to Postgres and don't wait for the result.  CONN A
+     database connection object.  Returns: t if successfully submitted
+            nil if error (conn->errorMessage is set)
+
+ - Function: pq-get-result conn
+     Retrieve an asynchronous result from a query.  CONN A database
+     connection object.
+
+     NIL is returned when no more query work remains.
+
+ - Function: pq-set-nonblocking conn arg
+     Sets the PGconn's database connection non-blocking if the arg is
+     TRUE or makes it non-blocking if the arg is FALSE, this will not
+     protect you from PQexec(), you'll only be safe when using the
+     non-blocking API.  CONN A database connection object.
+
+ - Function: pq-is-nonblocking conn
+     Return the blocking status of the database connection CONN A
+     database connection object.
+
+ - Function: pq-flush conn
+     Force the write buffer to be written (or at least try) CONN A
+     database connection object.
+
+ - Function: PQsetenvStart conn
+     Start asynchronously passing environment variables to a backend.
+     CONN A database connection object.
+
+     Compatibility note: this function is only available with libpq-7.0.
+
+ - Function: PQsetenvPoll conn
+     Check an asynchronous enviroment variables transfer for completion.
+     CONN A database connection object.
+
+     Compatibility note: this function is only available with libpq-7.0.
+
+ - Function: PQsetenvAbort conn
+     Attempt to terminate an asynchronous environment variables
+     transfer.  CONN A database connection object.
+
+     Compatibility note: this function is only available with libpq-7.0.
+
+
+File: lispref.info,  Node: Large Object Support,  Next: Other libpq Functions,  Prev: Asynchronous Interface Functions,  Up: XEmacs PostgreSQL libpq API
+
+Large Object Support
+--------------------
+
+ - Function: pq-lo-import conn filename
+     Import a file as a large object into the database.  CONN a
+     database connection object FILENAME filename to import
+
+     On success, the object id is returned.
+
+ - Function: pq-lo-export conn oid filename
+     Copy a large object in the database into a file.  CONN a database
+     connection object.  OID object id number of a large object.
+     FILENAME filename to export to.
+
+
+File: lispref.info,  Node: Other libpq Functions,  Next: Unimplemented libpq Functions,  Prev: Large Object Support,  Up: XEmacs PostgreSQL libpq API
+
+Other libpq Functions
+---------------------
+
+ - Function: pq-finish conn
+     Destroy a database connection object by calling free on it.  CONN
+     a database connection object
+
+     It is possible to not call this routine because the usual XEmacs
+     garbage collection mechanism will call the underlying libpq
+     routine whenever it is releasing stale `PGconn' objects.  However,
+     this routine is useful in `unwind-protect' clauses to make
+     connections go away quickly when unrecoverable errors have
+     occurred.
+
+     After calling this routine, the printed representation of the
+     XEmacs wrapper object will contain the string "DEAD".
+
+ - Function: pq-client-encoding conn
+     Return the client encoding as an integer code.  CONN a database
+     connection object
+
+          (pq-client-encoding P)
+               => 1
+
+     Compatibility note: This function did not exist prior to libpq-7.0
+     and does not exist in a non-Mule XEmacs.
+
+ - Function: pq-set-client-encoding conn encoding
+     Set client coding system.  CONN a database connection object
+     ENCODING a string representing the desired coding system
+
+          (pq-set-client-encoding P "EUC_JP")
+               => 0
+
+     The current idiom for ensuring proper coding system conversion is
+     the following (illustrated for EUC Japanese encoding):
+          (setq P (pq-connectdb "..."))
+          (let ((file-name-coding-system 'euc-jp)
+                (pg-coding-system 'euc-jp))
+            (pq-set-client-encoding "EUC_JP")
+            ...)
+          (pq-finish P)
+     Compatibility note: This function did not exist prior to libpq-7.0
+     and does not exist in a non-Mule XEmacs.
+
+ - Function: pq-env-2-encoding
+     Return the integer code representing the coding system in
+     PGCLIENTENCODING.
+
+          (pq-env-2-encoding)
+               => 0
+     Compatibility note: This function did not exist prior to libpq-7.0
+     and does not exist in a non-Mule XEmacs.
+
+ - Function: pq-clear res
+     Destroy a query result object by calling free() on it.  RES a
+     query result object
+
+     Note:  The memory allocation systems of libpq and XEmacs are
+     different.  The XEmacs representation of a query result object
+     will have both the XEmacs version and the libpq version freed at
+     the next garbage collection when the object is no longer being
+     referenced.  Calling this function does not release the XEmacs
+     object, it is still subject to the usual rules for Lisp objects.
+     The printed representation of the XEmacs object will contain the
+     string "DEAD" after this routine is called indicating that it is no
+     longer useful for anything.
+
+ - Function: pq-conn-defaults
+     Return a data structure that represents the connection defaults.
+     The data is returned as a list of lists, where each sublist
+     contains info regarding a single option.
+
+
+File: lispref.info,  Node: Unimplemented libpq Functions,  Prev: Other libpq Functions,  Up: XEmacs PostgreSQL libpq API
+
+Unimplemented libpq Functions
 -----------------------------
 
- - Function: coding-category-list
-     This function returns a list of all recognized coding categories.
+ - Unimplemented Function: PGconn *PQsetdbLogin (char *pghost, char
+          *pgport, char *pgoptions, char *pgtty, char *dbName, char
+          *login, char *pwd)
+     Synchronous database connection.  PGHOST is the hostname of the
+     PostgreSQL backend to connect to.  PGPORT is the TCP port number
+     to use.  PGOPTIONS specifies other backend options.  PGTTY
+     specifies the debugging tty to use.  DBNAME specifies the database
+     name to use.  LOGIN specifies the database user name.  PWD
+     specifies the database user's password.
 
- - Function: set-coding-priority-list list
-     This function changes the priority order of the coding categories.
-     LIST should be a list of coding categories, in descending order of
-     priority.  Unspecified coding categories will be lower in priority
-     than all specified ones, in the same relative order they were in
-     previously.
+     This routine is deprecated as of libpq-7.0, and its functionality
+     can be replaced by external Lisp code if needed.
 
- - Function: coding-priority-list
-     This function returns a list of coding categories in descending
-     order of priority.
+ - Unimplemented Function: PGconn *PQsetdb (char *pghost, char *pgport,
+          char *pgoptions, char *pgtty, char *dbName)
+     Synchronous database connection.  PGHOST is the hostname of the
+     PostgreSQL backend to connect to.  PGPORT is the TCP port number
+     to use.  PGOPTIONS specifies other backend options.  PGTTY
+     specifies the debugging tty to use.  DBNAME specifies the database
+     name to use.
 
- - Function: set-coding-category-system coding-category coding-system
-     This function changes the coding system associated with a coding
-     category.
+     This routine was deprecated in libpq-6.5.
 
- - Function: coding-category-system coding-category
-     This function returns the coding system associated with a coding
-     category.
+ - Unimplemented Function: int PQsocket (PGconn *conn)
+     Return socket file descriptor to a backend database process.  CONN
+     database connection object.
 
- - Function: detect-coding-region start end &optional buffer
-     This function detects coding system of the text in the region
-     between START and END.  Returned value is a list of possible coding
-     systems ordered by priority.  If only ASCII characters are found,
-     it returns `autodetect' or one of its subsidiary coding systems
-     according to a detected end-of-line type.  Optional arg BUFFER
-     defaults to the current buffer.
+ - Unimplemented Function: void PQprint (FILE *fout, PGresult *res,
+          PGprintOpt *ps)
+     Print out the results of a query to a designated C stream.  FOUT C
+     stream to print to RES the query result object to print PS the
+     print options structure.
+
+     This routine is deprecated as of libpq-7.0 and cannot be sensibly
+     exported to XEmacs Lisp.
+
+ - Unimplemented Function: void PQdisplayTuples (PGresult *res, FILE
+          *fp, int fillAlign, char *fieldSep, int printHeader, int
+          quiet)
+     RES query result object to print FP C stream to print to FILLALIGN
+     pad the fields with spaces FIELDSEP field separator PRINTHEADER
+     display headers?  QUIET
+
+     This routine was deprecated in libpq-6.5.
+
+ - Unimplemented Function: void PQprintTuples (PGresult *res, FILE
+          *fout, int printAttName, int terseOutput, int width)
+     RES query result object to print FOUT C stream to print to
+     PRINTATTNAME print attribute names TERSEOUTPUT delimiter bars
+     WIDTH width of column, if 0, use variable width
+
+     This routine was deprecated in libpq-6.5.
+
+ - Unimplemented Function: int PQmblen (char *s, int encoding)
+     Determine length of a multibyte encoded char at `*s'.  S encoded
+     string ENCODING type of encoding
+
+     Compatibility note:  This function was introduced in libpq-7.0.
+
+ - Unimplemented Function: void PQtrace (PGconn *conn, FILE *debug_port)
+     Enable tracing on `debug_port'.  CONN database connection object.
+     DEBUG_PORT C output stream to use.
+
+ - Unimplemented Function: void PQuntrace (PGconn *conn)
+     Disable tracing.  CONN database connection object.
+
+ - Unimplemented Function: char *PQoidStatus (PGconn *conn)
+     Return the object id as a string of the last tuple inserted.  CONN
+     database connection object.
+
+     Compatibility note: This function is deprecated in libpq-7.0,
+     however it is used internally by the XEmacs binding code when
+     linked against versions prior to 7.0.
+
+ - Unimplemented Function: PGresult *PQfn (PGconn *conn, int fnid, int
+          *result_buf, int *result_len, int result_is_int, PQArgBlock
+          *args, int nargs)
+     "Fast path" interface -- not really recommended for application use
+     CONN A database connection object.  FNID RESULT_BUF RESULT_LEN
+     RESULT_IS_INT ARGS NARGS
+
+   The following set of very low level large object functions aren't
+appropriate to be exported to Lisp.
+
+ - Unimplemented Function: int pq-lo-open (PGconn *conn, int lobjid,
+          int mode)
+     CONN a database connection object.  LOBJID a large object ID.
+     MODE opening modes.
+
+ - Unimplemented Function: int pq-lo-close (PGconn *conn, int fd)
+     CONN a database connection object.  FD a large object file
+     descriptor
+
+ - Unimplemented Function: int pq-lo-read (PGconn *conn, int fd, char
+          *buf, int len)
+     CONN a database connection object.  FD a large object file
+     descriptor.  BUF buffer to read into.  LEN size of buffer.
+
+ - Unimplemented Function: int pq-lo-write (PGconn *conn, int fd, char
+          *buf, size_t len)
+     CONN a database connection object.  FD a large object file
+     descriptor.  BUF buffer to write from.  LEN size of buffer.
+
+ - Unimplemented Function: int pq-lo-lseek (PGconn *conn, int fd, int
+          offset, int whence)
+     CONN a database connection object.  FD a large object file
+     descriptor.  OFFSET WHENCE
+
+ - Unimplemented Function: int pq-lo-creat (PGconn *conn, int mode)
+     CONN a database connection object.  MODE opening modes.
+
+ - Unimplemented Function: int pq-lo-tell (PGconn *conn, int fd)
+     CONN a database connection object.  FD a large object file
+     descriptor.
+
+ - Unimplemented Function: int pq-lo-unlink (PGconn *conn, int lobjid)
+     CONN a database connection object.  LBOJID a large object ID.
 
 
-File: lispref.info,  Node: Big5 and Shift-JIS Functions,  Prev: Detection of Textual Encoding,  Up: Coding Systems
+File: lispref.info,  Node: XEmacs PostgreSQL libpq Examples,  Prev: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
 
-Big5 and Shift-JIS Functions
-----------------------------
+XEmacs PostgreSQL libpq Examples
+================================
 
-   These are special functions for working with the non-standard
-Shift-JIS and Big5 encodings.
+   This is an example of one method of establishing an asynchronous
+connection.
 
- - Function: decode-shift-jis-char code
-     This function decodes a JISX0208 character of Shift-JIS
-     coding-system.  CODE is the character code in Shift-JIS as a cons
-     of type bytes.  The corresponding character is returned.
+     (defun database-poller (P)
+       (message "%S before poll" (pq-pgconn P 'pq::status))
+       (pq-connect-poll P)
+       (message "%S after poll" (pq-pgconn P 'pq::status))
+       (if (eq (pq-pgconn P 'pq::status) 'pg::connection-ok)
+           (message "Done!")
+         (add-timeout .1 'database-poller P)))
+          => database-poller
+     (progn
+       (setq P (pq-connect-start ""))
+       (add-timeout .1 'database-poller P))
+          => pg::connection-started before poll
+          => pg::connection-made after poll
+          => pg::connection-made before poll
+          => pg::connection-awaiting-response after poll
+          => pg::connection-awaiting-response before poll
+          => pg::connection-auth-ok after poll
+          => pg::connection-auth-ok before poll
+          => pg::connection-setenv after poll
+          => pg::connection-setenv before poll
+          => pg::connection-ok after poll
+          => Done!
+     P
+          => #<PGconn localhost:25432 steve/steve>
 
- - Function: encode-shift-jis-char ch
-     This function encodes a JISX0208 character CH to SHIFT-JIS
-     coding-system.  The corresponding character code in SHIFT-JIS is
-     returned as a cons of two bytes.
+   Here is an example of one method of doing an asynchronous reset.
 
- - Function: decode-big5-char code
-     This function decodes a Big5 character CODE of BIG5 coding-system.
-     CODE is the character code in BIG5.  The corresponding character
-     is returned.
+     (defun database-poller (P)
+       (let (PS)
+         (message "%S before poll" (pq-pgconn P 'pq::status))
+         (setq PS (pq-reset-poll P))
+         (message "%S after poll [%S]" (pq-pgconn P 'pq::status) PS)
+         (if (eq (pq-pgconn P 'pq::status) 'pg::connection-ok)
+     	(message "Done!")
+           (add-timeout .1 'database-poller P))))
+          => database-poller
+     (progn
+       (pq-reset-start P)
+       (add-timeout .1 'database-poller P))
+          => pg::connection-started before poll
+          => pg::connection-made after poll [pgres::polling-writing]
+          => pg::connection-made before poll
+          => pg::connection-awaiting-response after poll [pgres::polling-reading]
+          => pg::connection-awaiting-response before poll
+          => pg::connection-setenv after poll [pgres::polling-reading]
+          => pg::connection-setenv before poll
+          => pg::connection-ok after poll [pgres::polling-ok]
+          => Done!
+     P
+          => #<PGconn localhost:25432 steve/steve>
 
- - Function: encode-big5-char ch
-     This function encodes the Big5 character CHAR to BIG5
-     coding-system.  The corresponding character code in Big5 is
-     returned.
+   And finally, an asynchronous query.
+
+     (defun database-poller (P)
+       (let (R)
+         (pq-consume-input P)
+         (if (pq-is-busy P)
+     	(add-timeout .1 'database-poller P)
+           (setq R (pq-get-result P))
+           (if R
+     	  (progn
+     	    (push R result-list)
+     	    (add-timeout .1 'database-poller P))))))
+          => database-poller
+     (when (pq-send-query P "SELECT * FROM xemacs_test;")
+       (setq result-list nil)
+       (add-timeout .1 'database-poller P))
+          => 885
+     ;; wait a moment
+     result-list
+          => (#<PGresult PGRES_TUPLES_OK - SELECT>)
+
+   Here is an example showing how multiple SQL statements in a single
+query can have all their results collected.
+     ;; Using the same `database-poller' function from the previous example
+     (when (pq-send-query P "SELECT * FROM xemacs_test;
+     SELECT * FROM pg_database;
+     SELECT * FROM pg_user;")
+       (setq result-list nil)
+       (add-timeout .1 'database-poller P))
+          => 1782
+     ;; wait a moment
+     result-list
+          => (#<PGresult PGRES_TUPLES_OK - SELECT> #<PGresult PGRES_TUPLES_OK - SELECT> #<PGresult PGRES_TUPLES_OK - SELECT>)
+
+   Here is an example which illustrates collecting all data from a
+query, including the field names.
+
+     (defun pg-util-query-results (results)
+       "Retrieve results of last SQL query into a list structure."
+       (let ((i (1- (pq-ntuples R)))
+     	j l1 l2)
+         (while (>= i 0)
+           (setq j (1- (pq-nfields R)))
+           (setq l2 nil)
+           (while (>= j 0)
+     	(push (pq-get-value R i j) l2)
+     	(decf j))
+           (push l2 l1)
+           (decf i))
+         (setq j (1- (pq-nfields R)))
+         (setq l2 nil)
+         (while (>= j 0)
+           (push (pq-fname R j) l2)
+           (decf j))
+         (push l2 l1)
+         l1))
+          => pg-util-query-results
+     (setq R (pq-exec P "SELECT * FROM xemacs_test ORDER BY field2 DESC;"))
+          => #<PGresult PGRES_TUPLES_OK - SELECT>
+     (pg-util-query-results R)
+          => (("f1" "field2") ("a" "97") ("b" "97") ("stuff" "42") ("a string" "12") ("foo" "10") ("string" "2") ("text" "1"))
+
+   Here is an example of a query that uses a database cursor.
+
+     (let (data R)
+       (setq R (pq-exec P "BEGIN;"))
+       (setq R (pq-exec P "DECLARE k_cursor CURSOR FOR SELECT * FROM xemacs_test ORDER BY f1 DESC;"))
+     
+       (setq R (pq-exec P "FETCH k_cursor;"))
+       (while (eq (pq-ntuples R) 1)
+         (push (list (pq-get-value R 0 0) (pq-get-value R 0 1)) data)
+         (setq R (pq-exec P "FETCH k_cursor;")))
+       (setq R (pq-exec P "END;"))
+       data)
+          => (("a" "97") ("a string" "12") ("b" "97") ("foo" "10") ("string" "2") ("stuff" "42") ("text" "1"))
+
+   Here's another example of cursors, this time with a Lisp macro to
+implement a mapping function over a table.
+
+     (defmacro map-db (P table condition callout)
+       `(let (R)
+          (pq-exec ,P "BEGIN;")
+          (pq-exec ,P (concat "DECLARE k_cursor CURSOR FOR SELECT * FROM "
+     			 ,table
+     			 " "
+     			 ,condition
+     			 " ORDER BY f1 DESC;"))
+          (setq R (pq-exec P "FETCH k_cursor;"))
+          (while (eq (pq-ntuples R) 1)
+            (,callout (pq-get-value R 0 0) (pq-get-value R 0 1))
+            (setq R (pq-exec P "FETCH k_cursor;")))
+          (pq-exec P "END;")))
+          => map-db
+     (defun callback (arg1 arg2)
+       (message "arg1 = %s, arg2 = %s" arg1 arg2))
+          => callback
+     (map-db P "xemacs_test" "WHERE field2 > 10" callback)
+          => arg1 = stuff, arg2 = 42
+          => arg1 = b, arg2 = 97
+          => arg1 = a string, arg2 = 12
+          => arg1 = a, arg2 = 97
+          => #<PGresult PGRES_COMMAND_OK - COMMIT>
 
 
-File: lispref.info,  Node: CCL,  Next: Category Tables,  Prev: Coding Systems,  Up: MULE
+File: lispref.info,  Node: Internationalization,  Next: MULE,  Prev: PostgreSQL Support,  Up: Top
 
-CCL
-===
-
-   CCL (Code Conversion Language) is a simple structured programming
-language designed for character coding conversions.  A CCL program is
-compiled to CCL code (represented by a vector of integers) and executed
-by the CCL interpreter embedded in Emacs.  The CCL interpreter
-implements a virtual machine with 8 registers called `r0', ..., `r7', a
-number of control structures, and some I/O operators.  Take care when
-using registers `r0' (used in implicit "set" statements) and especially
-`r7' (used internally by several statements and operations, especially
-for multiple return values and I/O operations).
-
-   CCL is used for code conversion during process I/O and file I/O for
-non-ISO2022 coding systems.  (It is the only way for a user to specify a
-code conversion function.)  It is also used for calculating the code
-point of an X11 font from a character code.  However, since CCL is
-designed as a powerful programming language, it can be used for more
-generic calculation where efficiency is demanded.  A combination of
-three or more arithmetic operations can be calculated faster by CCL than
-by Emacs Lisp.
-
-   *Warning:*  The code in `src/mule-ccl.c' and
-`$packages/lisp/mule-base/mule-ccl.el' is the definitive description of
-CCL's semantics.  The previous version of this section contained
-several typos and obsolete names left from earlier versions of MULE,
-and many may remain.  (I am not an experienced CCL programmer; the few
-who know CCL well find writing English painful.)
-
-   A CCL program transforms an input data stream into an output data
-stream.  The input stream, held in a buffer of constant bytes, is left
-unchanged.  The buffer may be filled by an external input operation,
-taken from an Emacs buffer, or taken from a Lisp string.  The output
-buffer is a dynamic array of bytes, which can be written by an external
-output operation, inserted into an Emacs buffer, or returned as a Lisp
-string.
-
-   A CCL program is a (Lisp) list containing two or three members.  The
-first member is the "buffer magnification", which indicates the
-required minimum size of the output buffer as a multiple of the input
-buffer.  It is followed by the "main block" which executes while there
-is input remaining, and an optional "EOF block" which is executed when
-the input is exhausted.  Both the main block and the EOF block are CCL
-blocks.
-
-   A "CCL block" is either a CCL statement or list of CCL statements.
-A "CCL statement" is either a "set statement" (either an integer or an
-"assignment", which is a list of a register to receive the assignment,
-an assignment operator, and an expression) or a "control statement" (a
-list starting with a keyword, whose allowable syntax depends on the
-keyword).
+Internationalization
+********************
 
 * Menu:
 
-* CCL Syntax::          CCL program syntax in BNF notation.
-* CCL Statements::      Semantics of CCL statements.
-* CCL Expressions::     Operators and expressions in CCL.
-* Calling CCL::         Running CCL programs.
-* CCL Examples::        The encoding functions for Big5 and KOI-8.
+* I18N Levels 1 and 2:: Support for different time, date, and currency formats.
+* I18N Level 3::        Support for localized messages.
+* I18N Level 4::        Support for Asian languages.
 
 
-File: lispref.info,  Node: CCL Syntax,  Next: CCL Statements,  Prev: CCL,  Up: CCL
+File: lispref.info,  Node: I18N Levels 1 and 2,  Next: I18N Level 3,  Up: Internationalization
 
-CCL Syntax
-----------
+I18N Levels 1 and 2
+===================
 
-   The full syntax of a CCL program in BNF notation:
+   XEmacs is now compliant with I18N levels 1 and 2.  Specifically,
+this means that it is 8-bit clean and correctly handles time and date
+functions.  XEmacs will correctly display the entire ISO-Latin 1
+character set.
 
-CCL_PROGRAM :=
-        (BUFFER_MAGNIFICATION
-         CCL_MAIN_BLOCK
-         [ CCL_EOF_BLOCK ])
-
-BUFFER_MAGNIFICATION := integer
-CCL_MAIN_BLOCK := CCL_BLOCK
-CCL_EOF_BLOCK := CCL_BLOCK
-
-CCL_BLOCK :=
-        STATEMENT | (STATEMENT [STATEMENT ...])
-STATEMENT :=
-        SET | IF | BRANCH | LOOP | REPEAT | BREAK | READ | WRITE
-        | CALL | END
-
-SET :=
-        (REG = EXPRESSION)
-        | (REG ASSIGNMENT_OPERATOR EXPRESSION)
-        | integer
-
-EXPRESSION := ARG | (EXPRESSION OPERATOR ARG)
-
-IF := (if EXPRESSION CCL_BLOCK [CCL_BLOCK])
-BRANCH := (branch EXPRESSION CCL_BLOCK [CCL_BLOCK ...])
-LOOP := (loop STATEMENT [STATEMENT ...])
-BREAK := (break)
-REPEAT :=
-        (repeat)
-        | (write-repeat [REG | integer | string])
-        | (write-read-repeat REG [integer | ARRAY])
-READ :=
-        (read REG ...)
-        | (read-if (REG OPERATOR ARG) CCL_BLOCK CCL_BLOCK)
-        | (read-branch REG CCL_BLOCK [CCL_BLOCK ...])
-WRITE :=
-        (write REG ...)
-        | (write EXPRESSION)
-        | (write integer) | (write string) | (write REG ARRAY)
-        | string
-CALL := (call ccl-program-name)
-END := (end)
-
-REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
-ARG := REG | integer
-OPERATOR :=
-        + | - | * | / | % | & | '|' | ^ | << | >> | <8 | >8 | //
-        | < | > | == | <= | >= | != | de-sjis | en-sjis
-ASSIGNMENT_OPERATOR :=
-        += | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
-ARRAY := '[' integer ... ']'
+   The compose key may now be used to create any character in the
+ISO-Latin 1 character set not directly available via the keyboard..  In
+order for the compose key to work it is necessary to load the file
+`x-compose.el'.  At any time while composing a character, `C-h' will
+display all valid completions and the character which would be produced.
 
 
-File: lispref.info,  Node: CCL Statements,  Next: CCL Expressions,  Prev: CCL Syntax,  Up: CCL
+File: lispref.info,  Node: I18N Level 3,  Next: I18N Level 4,  Prev: I18N Levels 1 and 2,  Up: Internationalization
 
-CCL Statements
+I18N Level 3
+============
+
+* Menu:
+
+* Level 3 Basics::
+* Level 3 Primitives::
+* Dynamic Messaging::
+* Domain Specification::
+* Documentation String Extraction::
+
+
+File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
+
+Level 3 Basics
 --------------
 
-   The Emacs Code Conversion Language provides the following statement
-types: "set", "if", "branch", "loop", "repeat", "break", "read",
-"write", "call", and "end".
+   XEmacs now provides alpha-level functionality for I18N Level 3.
+This means that everything necessary for full messaging is available,
+but not every file has been converted.
 
-Set statement:
-==============
+   The two message files which have been created are `src/emacs.po' and
+`lisp/packages/mh-e.po'.  Both files need to be converted using
+`msgfmt', and the resulting `.mo' files placed in some locale's
+`LC_MESSAGES' directory.  The test "translations" in these files are
+the original messages prefixed by `TRNSLT_'.
 
-   The "set" statement has three variants with the syntaxes `(REG =
-EXPRESSION)', `(REG ASSIGNMENT_OPERATOR EXPRESSION)', and `INTEGER'.
-The assignment operator variation of the "set" statement works the same
-way as the corresponding C expression statement does.  The assignment
-operators are `+=', `-=', `*=', `/=', `%=', `&=', `|=', `^=', `<<=',
-and `>>=', and they have the same meanings as in C.  A "naked integer"
-INTEGER is equivalent to a SET statement of the form `(r0 = INTEGER)'.
-
-I/O statements:
-===============
-
-   The "read" statement takes one or more registers as arguments.  It
-reads one byte (a C char) from the input into each register in turn.
-
-   The "write" takes several forms.  In the form `(write REG ...)' it
-takes one or more registers as arguments and writes each in turn to the
-output.  The integer in a register (interpreted as an Emchar) is
-encoded to multibyte form (ie, Bufbytes) and written to the current
-output buffer.  If it is less than 256, it is written as is.  The forms
-`(write EXPRESSION)' and `(write INTEGER)' are treated analogously.
-The form `(write STRING)' writes the constant string to the output.  A
-"naked string" `STRING' is equivalent to the statement `(write
-STRING)'.  The form `(write REG ARRAY)' writes the REGth element of the
-ARRAY to the output.
-
-Conditional statements:
-=======================
-
-   The "if" statement takes an EXPRESSION, a CCL BLOCK, and an optional
-SECOND CCL BLOCK as arguments.  If the EXPRESSION evaluates to
-non-zero, the first CCL BLOCK is executed.  Otherwise, if there is a
-SECOND CCL BLOCK, it is executed.
-
-   The "read-if" variant of the "if" statement takes an EXPRESSION, a
-CCL BLOCK, and an optional SECOND CCL BLOCK as arguments.  The
-EXPRESSION must have the form `(REG OPERATOR OPERAND)' (where OPERAND is
-a register or an integer).  The `read-if' statement first reads from
-the input into the first register operand in the EXPRESSION, then
-conditionally executes a CCL block just as the `if' statement does.
-
-   The "branch" statement takes an EXPRESSION and one or more CCL
-blocks as arguments.  The CCL blocks are treated as a zero-indexed
-array, and the `branch' statement uses the EXPRESSION as the index of
-the CCL block to execute.  Null CCL blocks may be used as no-ops,
-continuing execution with the statement following the `branch'
-statement in the containing CCL block.  Out-of-range values for the
-EXPRESSION are also treated as no-ops.
-
-   The "read-branch" variant of the "branch" statement takes an
-REGISTER, a CCL BLOCK, and an optional SECOND CCL BLOCK as arguments.
-The `read-branch' statement first reads from the input into the
-REGISTER, then conditionally executes a CCL block just as the `branch'
-statement does.
-
-Loop control statements:
-========================
-
-   The "loop" statement creates a block with an implied jump from the
-end of the block back to its head.  The loop is exited on a `break'
-statement, and continued without executing the tail by a `repeat'
-statement.
-
-   The "break" statement, written `(break)', terminates the current
-loop and continues with the next statement in the current block.
-
-   The "repeat" statement has three variants, `repeat', `write-repeat',
-and `write-read-repeat'.  Each continues the current loop from its
-head, possibly after performing I/O.  `repeat' takes no arguments and
-does no I/O before jumping.  `write-repeat' takes a single argument (a
-register, an integer, or a string), writes it to the output, then jumps.
-`write-read-repeat' takes one or two arguments.  The first must be a
-register.  The second may be an integer or an array; if absent, it is
-implicitly set to the first (register) argument.  `write-read-repeat'
-writes its second argument to the output, then reads from the input
-into the register, and finally jumps.  See the `write' and `read'
-statements for the semantics of the I/O operations for each type of
-argument.
-
-Other control statements:
-=========================
-
-   The "call" statement, written `(call CCL-PROGRAM-NAME)', executes a
-CCL program as a subroutine.  It does not return a value to the caller,
-but can modify the register status.
-
-   The "end" statement, written `(end)', terminates the CCL program
-successfully, and returns to caller (which may be a CCL program).  It
-does not alter the status of the registers.
+   The domain for a variable is stored on the variable's property list
+under the property name VARIABLE-DOMAIN.  The function
+`documentation-property' uses this information when translating a
+variable's documentation.
 
 
-File: lispref.info,  Node: CCL Expressions,  Next: Calling CCL,  Prev: CCL Statements,  Up: CCL
+File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: Level 3 Basics,  Up: I18N Level 3
 
-CCL Expressions
----------------
+Level 3 Primitives
+------------------
 
-   CCL, unlike Lisp, uses infix expressions.  The simplest CCL
-expressions consist of a single OPERAND, either a register (one of `r0',
-..., `r0') or an integer.  Complex expressions are lists of the form `(
-EXPRESSION OPERATOR OPERAND )'.  Unlike C, assignments are not
-expressions.
+ - Function: gettext string
+     This function looks up STRING in the default message domain and
+     returns its translation.  If `I18N3' was not enabled when XEmacs
+     was compiled, it just returns STRING.
 
-   In the following table, X is the target resister for a "set".  In
-subexpressions, this is implicitly `r7'.  This means that `>8', `//',
-`de-sjis', and `en-sjis' cannot be used freely in subexpressions, since
-they return parts of their values in `r7'.  Y may be an expression,
-register, or integer, while Z must be a register or an integer.
+ - Function: dgettext domain string
+     This function looks up STRING in the specified message domain and
+     returns its translation.  If `I18N3' was not enabled when XEmacs
+     was compiled, it just returns STRING.
 
-Name             Operator   Code   C-like Description
-CCL_PLUS         `+'        0x00   X = Y + Z
-CCL_MINUS        `-'        0x01   X = Y - Z
-CCL_MUL          `*'        0x02   X = Y * Z
-CCL_DIV          `/'        0x03   X = Y / Z
-CCL_MOD          `%'        0x04   X = Y % Z
-CCL_AND          `&'        0x05   X = Y & Z
-CCL_OR           `|'        0x06   X = Y | Z
-CCL_XOR          `^'        0x07   X = Y ^ Z
-CCL_LSH          `<<'       0x08   X = Y << Z
-CCL_RSH          `>>'       0x09   X = Y >> Z
-CCL_LSH8         `<8'       0x0A   X = (Y << 8) | Z
-CCL_RSH8         `>8'       0x0B   X = Y >> 8, r[7] = Y & 0xFF
-CCL_DIVMOD       `//'       0x0C   X = Y / Z, r[7] = Y % Z
-CCL_LS           `<'        0x10   X = (X < Y)
-CCL_GT           `>'        0x11   X = (X > Y)
-CCL_EQ           `=='       0x12   X = (X == Y)
-CCL_LE           `<='       0x13   X = (X <= Y)
-CCL_GE           `>='       0x14   X = (X >= Y)
-CCL_NE           `!='       0x15   X = (X != Y)
-CCL_ENCODE_SJIS  `en-sjis'  0x16   X = HIGHER_BYTE (SJIS (Y, Z))
-                                   r[7] = LOWER_BYTE (SJIS (Y, Z)
-CCL_DECODE_SJIS  `de-sjis'  0x17   X = HIGHER_BYTE (DE-SJIS (Y, Z))
-                                   r[7] = LOWER_BYTE (DE-SJIS (Y, Z))
+ - Function: bind-text-domain domain pathname
+     This function associates a pathname with a message domain.  Here's
+     how the path to message file is constructed under SunOS 5.x:
 
-   The CCL operators are as in C, with the addition of CCL_LSH8,
-CCL_RSH8, CCL_DIVMOD, CCL_ENCODE_SJIS, and CCL_DECODE_SJIS.  The
-CCL_ENCODE_SJIS and CCL_DECODE_SJIS treat their first and second bytes
-as the high and low bytes of a two-byte character code.  (SJIS stands
-for Shift JIS, an encoding of Japanese characters used by Microsoft.
-CCL_ENCODE_SJIS is a complicated transformation of the Japanese
-standard JIS encoding to Shift JIS.  CCL_DECODE_SJIS is its inverse.)
-It is somewhat odd to represent the SJIS operations in infix form.
+          `{pathname}/{LANG}/LC_MESSAGES/{domain}.mo'
+
+     If `I18N3' was not enabled when XEmacs was compiled, this function
+     does nothing.
+
+ - Special Form: domain string
+     This function specifies the text domain used for translating
+     documentation strings and interactive prompts of a function.  For
+     example, write:
+
+          (defun foo (arg) "Doc string" (domain "emacs-foo") ...)
+
+     to specify `emacs-foo' as the text domain of the function `foo'.
+     The "call" to `domain' is actually a declaration rather than a
+     function; when actually called, `domain' just returns `nil'.
+
+ - Function: domain-of function
+     This function returns the text domain of FUNCTION; it returns
+     `nil' if it is the default domain.  If `I18N3' was not enabled
+     when XEmacs was compiled, it always returns `nil'.
 
 
-File: lispref.info,  Node: Calling CCL,  Next: CCL Examples,  Prev: CCL Expressions,  Up: CCL
+File: lispref.info,  Node: Dynamic Messaging,  Next: Domain Specification,  Prev: Level 3 Primitives,  Up: I18N Level 3
 
-Calling CCL
------------
+Dynamic Messaging
+-----------------
 
-   CCL programs are called automatically during Emacs buffer I/O when
-the external representation has a coding system type of `shift-jis',
-`big5', or `ccl'.  The program is specified by the coding system (*note
-Coding Systems::).  You can also call CCL programs from other CCL
-programs, and from Lisp using these functions:
-
- - Function: ccl-execute ccl-program status
-     Execute CCL-PROGRAM with registers initialized by STATUS.
-     CCL-PROGRAM is a vector of compiled CCL code created by
-     `ccl-compile'.  It is an error for the program to try to execute a
-     CCL I/O command.  STATUS must be a vector of nine values,
-     specifying the initial value for the R0, R1 .. R7 registers and
-     for the instruction counter IC.  A `nil' value for a register
-     initializer causes the register to be set to 0.  A `nil' value for
-     the IC initializer causes execution to start at the beginning of
-     the program.  When the program is done, STATUS is modified (by
-     side-effect) to contain the ending values for the corresponding
-     registers and IC.
-
- - Function: ccl-execute-on-string ccl-program status str &optional
-          continue
-     Execute CCL-PROGRAM with initial STATUS on STRING.  CCL-PROGRAM is
-     a vector of compiled CCL code created by `ccl-compile'.  STATUS
-     must be a vector of nine values, specifying the initial value for
-     the R0, R1 .. R7 registers and for the instruction counter IC.  A
-     `nil' value for a register initializer causes the register to be
-     set to 0.  A `nil' value for the IC initializer causes execution
-     to start at the beginning of the program.  An optional fourth
-     argument CONTINUE, if non-nil, causes the IC to remain on the
-     unsatisfied read operation if the program terminates due to
-     exhaustion of the input buffer.  Otherwise the IC is set to the end
-     of the program.  When the program is done, STATUS is modified (by
-     side-effect) to contain the ending values for the corresponding
-     registers and IC.  Returns the resulting string.
-
-   To call a CCL program from another CCL program, it must first be
-registered:
-
- - Function: register-ccl-program name ccl-program
-     Register NAME for CCL program PROGRAM in `ccl-program-table'.
-     PROGRAM should be the compiled form of a CCL program, or nil.
-     Return index number of the registered CCL program.
-
-   Information about the processor time used by the CCL interpreter can
-be obtained using these functions:
-
- - Function: ccl-elapsed-time
-     Returns the elapsed processor time of the CCL interpreter as cons
-     of user and system time, as floating point numbers measured in
-     seconds.  If only one overall value can be determined, the return
-     value will be a cons of that value and 0.
-
- - Function: ccl-reset-elapsed-time
-     Resets the CCL interpreter's internal elapsed time registers.
+   The `format' function has been extended to permit you to change the
+order of parameter insertion.  For example, the conversion format
+`%1$s' inserts parameter one as a string, while `%2$s' inserts
+parameter two.  This is useful when creating translations which require
+you to change the word order.
 
 
-File: lispref.info,  Node: CCL Examples,  Prev: Calling CCL,  Up: CCL
+File: lispref.info,  Node: Domain Specification,  Next: Documentation String Extraction,  Prev: Dynamic Messaging,  Up: I18N Level 3
 
-CCL Examples
-------------
+Domain Specification
+--------------------
 
-   This section is not yet written.
+   The default message domain of XEmacs is `emacs'.  For add-on
+packages, it is best to use a different domain.  For example, let us
+say we want to convert the "gorilla" package to use the domain
+`emacs-gorilla'.  To translate the message "What gorilla?", use
+`dgettext' as follows:
 
-
-File: lispref.info,  Node: Category Tables,  Prev: CCL,  Up: MULE
+     (dgettext "emacs-gorilla" "What gorilla?")
 
-Category Tables
-===============
+   A function (or macro) which has a documentation string or an
+interactive prompt needs to be associated with the domain in order for
+the documentation or prompt to be translated.  This is done with the
+`domain' special form as follows:
 
-   A category table is a type of char table used for keeping track of
-categories.  Categories are used for classifying characters for use in
-regexps--you can refer to a category rather than having to use a
-complicated [] expression (and category lookups are significantly
-faster).
+     (defun scratch (location)
+       "Scratch the specified location."
+       (domain "emacs-gorilla")
+       (interactive "sScratch: ")
+       ... )
 
-   There are 95 different categories available, one for each printable
-character (including space) in the ASCII charset.  Each category is
-designated by one such character, called a "category designator".  They
-are specified in a regexp using the syntax `\cX', where X is a category
-designator. (This is not yet implemented.)
+   It is most efficient to specify the domain in the first line of the
+function body, before the `interactive' form.
 
-   A category table specifies, for each character, the categories that
-the character is in.  Note that a character can be in more than one
-category.  More specifically, a category table maps from a character to
-either the value `nil' (meaning the character is in no categories) or a
-95-element bit vector, specifying for each of the 95 categories whether
-the character is in that category.
+   For variables and constants which have documentation strings,
+specify the domain after the documentation.
 
-   Special Lisp functions are provided that abstract this, so you do not
-have to directly manipulate bit vectors.
+ - Special Form: defvar symbol [value [doc-string [domain]]]
+     Example:
+          (defvar weight 250 "Weight of gorilla, in pounds." "emacs-gorilla")
 
- - Function: category-table-p obj
-     This function returns `t' if ARG is a category table.
+ - Special Form: defconst symbol [value [doc-string [domain]]]
+     Example:
+          (defconst limbs 4 "Number of limbs" "emacs-gorilla")
 
- - Function: category-table &optional buffer
-     This function returns the current category table.  This is the one
-     specified by the current buffer, or by BUFFER if it is non-`nil'.
+   Autoloaded functions which are specified in `loaddefs.el' do not need
+to have a domain specification, because their documentation strings are
+extracted into the main message base.  However, for autoloaded functions
+which are specified in a separate package, use following syntax:
 
- - Function: standard-category-table
-     This function returns the standard category table.  This is the
-     one used for new buffers.
-
- - Function: copy-category-table &optional table
-     This function constructs a new category table and return it.  It
-     is a copy of the TABLE, which defaults to the standard category
-     table.
-
- - Function: set-category-table table &optional buffer
-     This function selects a new category table for BUFFER.  One
-     argument, a category table.  BUFFER defaults to the current buffer
-     if omitted.
-
- - Function: category-designator-p obj
-     This function returns `t' if ARG is a category designator (a char
-     in the range `' '' to `'~'').
-
- - Function: category-table-value-p obj
-     This function returns `t' if ARG is a category table value.  Valid
-     values are `nil' or a bit vector of size 95.
+ - Function: autoload symbol filename &optional docstring interactive
+          macro domain
+     Example:
+          (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")
 
 
-File: lispref.info,  Node: Tips,  Next: Building XEmacs and Object Allocation,  Prev: MULE,  Up: Top
+File: lispref.info,  Node: Documentation String Extraction,  Prev: Domain Specification,  Up: I18N Level 3
 
-Tips and Standards
-******************
+Documentation String Extraction
+-------------------------------
 
-   This chapter describes no additional features of XEmacs Lisp.
-Instead it gives advice on making effective use of the features
-described in the previous chapters.
+   The utility `etc/make-po' scans the file `DOC' to extract
+documentation strings and creates a message file `doc.po'.  This file
+may then be inserted within `emacs.po'.
+
+   Currently, `make-po' is hard-coded to read from `DOC' and write to
+`doc.po'.  In order to extract documentation strings from an add-on
+package, first run `make-docfile' on the package to produce the `DOC'
+file.  Then run `make-po -p' with the `-p' argument to indicate that we
+are extracting documentation for an add-on package.
+
+   (The `-p' argument is a kludge to make up for a subtle difference
+between pre-loaded documentation and add-on documentation:  For add-on
+packages, the final carriage returns in the strings produced by
+`make-docfile' must be ignored.)
+
+
+File: lispref.info,  Node: I18N Level 4,  Prev: I18N Level 3,  Up: Internationalization
+
+I18N Level 4
+============
+
+   The Asian-language support in XEmacs is called "MULE".  *Note MULE::.
+
+
+File: lispref.info,  Node: MULE,  Next: Tips,  Prev: Internationalization,  Up: Top
+
+MULE
+****
+
+   "MULE" is the name originally given to the version of GNU Emacs
+extended for multi-lingual (and in particular Asian-language) support.
+"MULE" is short for "MUlti-Lingual Emacs".  It is an extension and
+complete rewrite of Nemacs ("Nihon Emacs" where "Nihon" is the Japanese
+word for "Japan"), which only provided support for Japanese.  XEmacs
+refers to its multi-lingual support as "MULE support" since it is based
+on "MULE".
 
 * Menu:
 
-* Style Tips::                Writing clean and robust programs.
-* Compilation Tips::          Making compiled code run fast.
-* Documentation Tips::        Writing readable documentation strings.
-* Comment Tips::	      Conventions for writing comments.
-* Library Headers::           Standard headers for library packages.
+* Internationalization Terminology::
+                        Definition of various internationalization terms.
+* Charsets::            Sets of related characters.
+* MULE Characters::     Working with characters in XEmacs/MULE.
+* Composite Characters:: Making new characters by overstriking other ones.
+* Coding Systems::      Ways of representing a string of chars using integers.
+* CCL::                 A special language for writing fast converters.
+* Category Tables::     Subdividing charsets into groups.
 
 
-File: lispref.info,  Node: Style Tips,  Next: Compilation Tips,  Up: Tips
+File: lispref.info,  Node: Internationalization Terminology,  Next: Charsets,  Up: MULE
 
-Writing Clean Lisp Programs
-===========================
+Internationalization Terminology
+================================
 
-   Here are some tips for avoiding common errors in writing Lisp code
-intended for widespread use:
+   In internationalization terminology, a string of text is divided up
+into "characters", which are the printable units that make up the text.
+A single character is (for example) a capital `A', the number `2', a
+Katakana character, a Hangul character, a Kanji ideograph (an
+"ideograph" is a "picture" character, such as is used in Japanese
+Kanji, Chinese Hanzi, and Korean Hanja; typically there are thousands
+of such ideographs in each language), etc.  The basic property of a
+character is that it is the smallest unit of text with semantic
+significance in text processing.
 
-   * Since all global variables share the same name space, and all
-     functions share another name space, you should choose a short word
-     to distinguish your program from other Lisp programs.  Then take
-     care to begin the names of all global variables, constants, and
-     functions with the chosen prefix.  This helps avoid name conflicts.
+   Human beings normally process text visually, so to a first
+approximation a character may be identified with its shape.  Note that
+the same character may be drawn by two different people (or in two
+different fonts) in slightly different ways, although the "basic shape"
+will be the same.  But consider the works of Scott Kim; human beings
+can recognize hugely variant shapes as the "same" character.
+Sometimes, especially where characters are extremely complicated to
+write, completely different shapes may be defined as the "same"
+character in national standards.  The Taiwanese variant of Hanzi is
+generally the most complicated; over the centuries, the Japanese,
+Koreans, and the People's Republic of China have adopted
+simplifications of the shape, but the line of descent from the original
+shape is recorded, and the meanings and pronunciation of different
+forms of the same character are considered to be identical within each
+language.  (Of course, it may take a specialist to recognize the
+related form; the point is that the relations are standardized, despite
+the differing shapes.)
 
-     This recommendation applies even to names for traditional Lisp
-     primitives that are not primitives in XEmacs Lisp--even to `cadr'.
-     Believe it or not, there is more than one plausible way to define
-     `cadr'.  Play it safe; append your name prefix to produce a name
-     like `foo-cadr' or `mylib-cadr' instead.
+   In some cases, the differences will be significant enough that it is
+actually possible to identify two or more distinct shapes that both
+represent the same character.  For example, the lowercase letters `a'
+and `g' each have two distinct possible shapes--the `a' can optionally
+have a curved tail projecting off the top, and the `g' can be formed
+either of two loops, or of one loop and a tail hanging off the bottom.
+Such distinct possible shapes of a character are called "glyphs".  The
+important characteristic of two glyphs making up the same character is
+that the choice between one or the other is purely stylistic and has no
+linguistic effect on a word (this is the reason why a capital `A' and
+lowercase `a' are different characters rather than different
+glyphs--e.g.  `Aspen' is a city while `aspen' is a kind of tree).
 
-     If you write a function that you think ought to be added to Emacs
-     under a certain name, such as `twiddle-files', don't call it by
-     that name in your program.  Call it `mylib-twiddle-files' in your
-     program, and send mail to `bug-gnu-emacs@prep.ai.mit.edu'
-     suggesting we add it to Emacs.  If and when we do, we can change
-     the name easily enough.
+   Note that "character" and "glyph" are used differently here than
+elsewhere in XEmacs.
 
-     If one prefix is insufficient, your package may use two or three
-     alternative common prefixes, so long as they make sense.
+   A "character set" is essentially a set of related characters.  ASCII,
+for example, is a set of 94 characters (or 128, if you count
+non-printing characters).  Other character sets are ISO8859-1 (ASCII
+plus various accented characters and other international symbols), JIS
+X 0201 (ASCII, more or less, plus half-width Katakana), JIS X 0208
+(Japanese Kanji), JIS X 0212 (a second set of less-used Japanese Kanji),
+GB2312 (Mainland Chinese Hanzi), etc.
 
-     Separate the prefix from the rest of the symbol name with a hyphen,
-     `-'.  This will be consistent with XEmacs itself and with most
-     Emacs Lisp programs.
+   The definition of a character set will implicitly or explicitly give
+it an "ordering", a way of assigning a number to each character in the
+set.  For many character sets, there is a natural ordering, for example
+the "ABC" ordering of the Roman letters.  But it is not clear whether
+digits should come before or after the letters, and in fact different
+European languages treat the ordering of accented characters
+differently.  It is useful to use the natural order where available, of
+course.  The number assigned to any particular character is called the
+character's "code point".  (Within a given character set, each
+character has a unique code point.  Thus the word "set" is ill-chosen;
+different orderings of the same characters are different character sets.
+Identifying characters is simple enough for alphabetic character sets,
+but the difference in ordering can cause great headaches when the same
+thousands of characters are used by different cultures as in the Hanzi.)
 
-   * It is often useful to put a call to `provide' in each separate
-     library program, at least if there is more than one entry point to
-     the program.
+   A code point may be broken into a number of "position codes".  The
+number of position codes required to index a particular character in a
+character set is called the "dimension" of the character set.  For
+practical purposes, a position code may be thought of as a byte-sized
+index.  The printing characters of ASCII, being a relatively small
+character set, is of dimension one, and each character in the set is
+indexed using a single position code, in the range 1 through 94.  Use of
+this unusual range, rather than the familiar 33 through 126, is an
+intentional abstraction; to understand the programming issues you must
+break the equation between character sets and encodings.
 
-   * If a file requires certain other library programs to be loaded
-     beforehand, then the comments at the beginning of the file should
-     say so.  Also, use `require' to make sure they are loaded.
+   JIS X 0208, i.e. Japanese Kanji, has thousands of characters, and is
+of dimension two - every character is indexed by two position codes,
+each in the range 1 through 94.  (This number "94" is not a
+coincidence; we shall see that the JIS position codes were chosen so
+that JIS kanji could be encoded without using codes that in ASCII are
+associated with device control functions.)  Note that the choice of the
+range here is somewhat arbitrary.  You could just as easily index the
+printing characters in ASCII using numbers in the range 0 through 93, 2
+through 95, 3 through 96, etc.  In fact, the standardized _encoding_
+for the ASCII _character set_ uses the range 33 through 126.
 
-   * If one file FOO uses a macro defined in another file BAR, FOO
-     should contain this expression before the first use of the macro:
+   An "encoding" is a way of numerically representing characters from
+one or more character sets into a stream of like-sized numerical values
+called "words"; typically these are 8-bit, 16-bit, or 32-bit
+quantities.  If an encoding encompasses only one character set, then the
+position codes for the characters in that character set could be used
+directly.  (This is the case with the trivial cipher used by children,
+assigning 1 to `A', 2 to `B', and so on.)  However, even with ASCII,
+other considerations intrude.  For example, why are the upper- and
+lowercase alphabets separated by 8 characters?  Why do the digits start
+with `0' being assigned the code 48?  In both cases because semantically
+interesting operations (case conversion and numerical value extraction)
+become convenient masking operations.  Other artificial aspects (the
+control characters being assigned to codes 0-31 and 127) are historical
+accidents.  (The use of 127 for `DEL' is an artifact of the "punch
+once" nature of paper tape, for example.)
 
-          (eval-when-compile (require 'BAR))
+   Naive use of the position code is not possible, however, if more than
+one character set is to be used in the encoding.  For example, printed
+Japanese text typically requires characters from multiple character sets
+- ASCII, JIS X 0208, and JIS X 0212, to be specific.  Each of these is
+indexed using one or more position codes in the range 1 through 94, so
+the position codes could not be used directly or there would be no way
+to tell which character was meant.  Different Japanese encodings handle
+this differently - JIS uses special escape characters to denote
+different character sets; EUC sets the high bit of the position codes
+for JIS X 0208 and JIS X 0212, and puts a special extra byte before each
+JIS X 0212 character; etc.  (JIS, EUC, and most of the other encodings
+you will encounter in files are 7-bit or 8-bit encodings.  There is one
+common 16-bit encoding, which is Unicode; this strives to represent all
+the world's characters in a single large character set.  32-bit
+encodings are often used internally in programs, such as XEmacs with
+MULE support, to simplify the code that manipulates them; however, they
+are not used externally because they are not very space-efficient.)
 
-     (And BAR should contain `(provide 'BAR)', to make the `require'
-     work.)  This will cause BAR to be loaded when you byte-compile
-     FOO.  Otherwise, you risk compiling FOO without the necessary
-     macro loaded, and that would produce compiled code that won't work
-     right.  *Note Compiling Macros::.
+   A general method of handling text using multiple character sets
+(whether for multilingual text, or simply text in an extremely
+complicated single language like Japanese) is defined in the
+international standard ISO 2022.  ISO 2022 will be discussed in more
+detail later (*note ISO 2022::), but for now suffice it to say that text
+needs control functions (at least spacing), and if escape sequences are
+to be used, an escape sequence introducer.  It was decided to make all
+text streams compatible with ASCII in the sense that the codes 0-31
+(and 128-159) would always be control codes, never graphic characters,
+and where defined by the character set the `SPC' character would be
+assigned code 32, and `DEL' would be assigned 127.  Thus there are 94
+code points remaining if 7 bits are used.  This is the reason that most
+character sets are defined using position codes in the range 1 through
+94.  Then ISO 2022 compatible encodings are produced by shifting the
+position codes 1 to 94 into character codes 33 to 126, or (if 8 bit
+codes are available) into character codes 161 to 254.
 
-     Using `eval-when-compile' avoids loading BAR when the compiled
-     version of FOO is _used_.
+   Encodings are classified as either "modal" or "non-modal".  In a
+"modal encoding", there are multiple states that the encoding can be
+in, and the interpretation of the values in the stream depends on the
+current global state of the encoding.  Special values in the encoding,
+called "escape sequences", are used to change the global state.  JIS,
+for example, is a modal encoding.  The bytes `ESC $ B' indicate that,
+from then on, bytes are to be interpreted as position codes for JIS X
+0208, rather than as ASCII.  This effect is cancelled using the bytes
+`ESC ( B', which mean "switch from whatever the current state is to
+ASCII".  To switch to JIS X 0212, the escape sequence `ESC $ ( D'.
+(Note that here, as is common, the escape sequences do in fact begin
+with `ESC'.  This is not necessarily the case, however.  Some encodings
+use control characters called "locking shifts" (effect persists until
+cancelled) to switch character sets.)
 
-   * If you define a major mode, make sure to run a hook variable using
-     `run-hooks', just as the existing major modes do.  *Note Hooks::.
+   A "non-modal encoding" has no global state that extends past the
+character currently being interpreted.  EUC, for example, is a
+non-modal encoding.  Characters in JIS X 0208 are encoded by setting
+the high bit of the position codes, and characters in JIS X 0212 are
+encoded by doing the same but also prefixing the character with the
+byte 0x8F.
 
-   * If the purpose of a function is to tell you whether a certain
-     condition is true or false, give the function a name that ends in
-     `p'.  If the name is one word, add just `p'; if the name is
-     multiple words, add `-p'.  Examples are `framep' and
-     `frame-live-p'.
+   The advantage of a modal encoding is that it is generally more
+space-efficient, and is easily extendable because there are essentially
+an arbitrary number of escape sequences that can be created.  The
+disadvantage, however, is that it is much more difficult to work with
+if it is not being processed in a sequential manner.  In the non-modal
+EUC encoding, for example, the byte 0x41 always refers to the letter
+`A'; whereas in JIS, it could either be the letter `A', or one of the
+two position codes in a JIS X 0208 character, or one of the two
+position codes in a JIS X 0212 character.  Determining exactly which
+one is meant could be difficult and time-consuming if the previous
+bytes in the string have not already been processed, or impossible if
+they are drawn from an external stream that cannot be rewound.
 
-   * If a user option variable records a true-or-false condition, give
-     it a name that ends in `-flag'.
+   Non-modal encodings are further divided into "fixed-width" and
+"variable-width" formats.  A fixed-width encoding always uses the same
+number of words per character, whereas a variable-width encoding does
+not.  EUC is a good example of a variable-width encoding: one to three
+bytes are used per character, depending on the character set.  16-bit
+and 32-bit encodings are nearly always fixed-width, and this is in fact
+one of the main reasons for using an encoding with a larger word size.
+The advantages of fixed-width encodings should be obvious.  The
+advantages of variable-width encodings are that they are generally more
+space-efficient and allow for compatibility with existing 8-bit
+encodings such as ASCII.  (For example, in Unicode ASCII characters are
+simply promoted to a 16-bit representation.  That means that every
+ASCII character contains a `NUL' byte; evidently all of the standard
+string manipulation functions will lose badly in a fixed-width Unicode
+environment.)
 
-   * Please do not define `C-c LETTER' as a key in your major modes.
-     These sequences are reserved for users; they are the *only*
-     sequences reserved for users, so we cannot do without them.
-
-     Instead, define sequences consisting of `C-c' followed by a
-     non-letter.  These sequences are reserved for major modes.
-
-     Changing all the major modes in Emacs 18 so they would follow this
-     convention was a lot of work.  Abandoning this convention would
-     make that work go to waste, and inconvenience users.
-
-   * Sequences consisting of `C-c' followed by `{', `}', `<', `>', `:'
-     or `;' are also reserved for major modes.
-
-   * Sequences consisting of `C-c' followed by any other punctuation
-     character are allocated for minor modes.  Using them in a major
-     mode is not absolutely prohibited, but if you do that, the major
-     mode binding may be shadowed from time to time by minor modes.
-
-   * You should not bind `C-h' following any prefix character (including
-     `C-c').  If you don't bind `C-h', it is automatically available as
-     a help character for listing the subcommands of the prefix
-     character.
-
-   * You should not bind a key sequence ending in <ESC> except following
-     another <ESC>.  (That is, it is ok to bind a sequence ending in
-     `<ESC> <ESC>'.)
-
-     The reason for this rule is that a non-prefix binding for <ESC> in
-     any context prevents recognition of escape sequences as function
-     keys in that context.
-
-   * Applications should not bind mouse events based on button 1 with
-     the shift key held down.  These events include `S-mouse-1',
-     `M-S-mouse-1', `C-S-mouse-1', and so on.  They are reserved for
-     users.
-
-   * Modes should redefine `mouse-2' as a command to follow some sort of
-     reference in the text of a buffer, if users usually would not want
-     to alter the text in that buffer by hand.  Modes such as Dired,
-     Info, Compilation, and Occur redefine it in this way.
-
-   * When a package provides a modification of ordinary Emacs behavior,
-     it is good to include a command to enable and disable the feature,
-     Provide a command named `WHATEVER-mode' which turns the feature on
-     or off, and make it autoload (*note Autoload::).  Design the
-     package so that simply loading it has no visible effect--that
-     should not enable the feature.  Users will request the feature by
-     invoking the command.
-
-   * It is a bad idea to define aliases for the Emacs primitives.  Use
-     the standard names instead.
-
-   * Redefining an Emacs primitive is an even worse idea.  It may do
-     the right thing for a particular program, but there is no telling
-     what other programs might break as a result.
-
-   * If a file does replace any of the functions or library programs of
-     standard XEmacs, prominent comments at the beginning of the file
-     should say which functions are replaced, and how the behavior of
-     the replacements differs from that of the originals.
-
-   * Please keep the names of your XEmacs Lisp source files to 13
-     characters or less.  This way, if the files are compiled, the
-     compiled files' names will be 14 characters or less, which is
-     short enough to fit on all kinds of Unix systems.
-
-   * Don't use `next-line' or `previous-line' in programs; nearly
-     always, `forward-line' is more convenient as well as more
-     predictable and robust.  *Note Text Lines::.
-
-   * Don't call functions that set the mark, unless setting the mark is
-     one of the intended features of your program.  The mark is a
-     user-level feature, so it is incorrect to change the mark except
-     to supply a value for the user's benefit.  *Note The Mark::.
-
-     In particular, don't use these functions:
-
-        * `beginning-of-buffer', `end-of-buffer'
-
-        * `replace-string', `replace-regexp'
-
-     If you just want to move point, or replace a certain string,
-     without any of the other features intended for interactive users,
-     you can replace these functions with one or two lines of simple
-     Lisp code.
-
-   * Use lists rather than vectors, except when there is a particular
-     reason to use a vector.  Lisp has more facilities for manipulating
-     lists than for vectors, and working with lists is usually more
-     convenient.
-
-     Vectors are advantageous for tables that are substantial in size
-     and are accessed in random order (not searched front to back),
-     provided there is no need to insert or delete elements (only lists
-     allow that).
-
-   * The recommended way to print a message in the echo area is with
-     the `message' function, not `princ'.  *Note The Echo Area::.
-
-   * When you encounter an error condition, call the function `error'
-     (or `signal').  The function `error' does not return.  *Note
-     Signaling Errors::.
-
-     Do not use `message', `throw', `sleep-for', or `beep' to report
-     errors.
-
-   * An error message should start with a capital letter but should not
-     end with a period.
-
-   * Try to avoid using recursive edits.  Instead, do what the Rmail `e'
-     command does: use a new local keymap that contains one command
-     defined to switch back to the old local keymap.  Or do what the
-     `edit-options' command does: switch to another buffer and let the
-     user switch back at will.  *Note Recursive Editing::.
-
-   * In some other systems there is a convention of choosing variable
-     names that begin and end with `*'.  We don't use that convention
-     in Emacs Lisp, so please don't use it in your programs.  (Emacs
-     uses such names only for program-generated buffers.)  The users
-     will find Emacs more coherent if all libraries use the same
-     conventions.
-
-   * Indent each function with `C-M-q' (`indent-sexp') using the
-     default indentation parameters.
-
-   * Don't make a habit of putting close-parentheses on lines by
-     themselves; Lisp programmers find this disconcerting.  Once in a
-     while, when there is a sequence of many consecutive
-     close-parentheses, it may make sense to split them in one or two
-     significant places.
-
-   * Please put a copyright notice on the file if you give copies to
-     anyone.  Use the same lines that appear at the top of the Lisp
-     files in XEmacs itself.  If you have not signed papers to assign
-     the copyright to the Foundation, then place your name in the
-     copyright notice in place of the Foundation's name.
+   The bytes in an 8-bit encoding are often referred to as "octets"
+rather than simply as bytes.  This terminology dates back to the days
+before 8-bit bytes were universal, when some computers had 9-bit bytes,
+others had 10-bit bytes, etc.
 
 
-File: lispref.info,  Node: Compilation Tips,  Next: Documentation Tips,  Prev: Style Tips,  Up: Tips
+File: lispref.info,  Node: Charsets,  Next: MULE Characters,  Prev: Internationalization Terminology,  Up: MULE
 
-Tips for Making Compiled Code Fast
-==================================
+Charsets
+========
 
-   Here are ways of improving the execution speed of byte-compiled Lisp
-programs.
+   A "charset" in MULE is an object that encapsulates a particular
+character set as well as an ordering of those characters.  Charsets are
+permanent objects and are named using symbols, like faces.
 
-   * Use the `profile' library to profile your program.  See the file
-     `profile.el' for instructions.
-
-   * Use iteration rather than recursion whenever possible.  Function
-     calls are slow in XEmacs Lisp even when a compiled function is
-     calling another compiled function.
-
-   * Using the primitive list-searching functions `memq', `member',
-     `assq', or `assoc' is even faster than explicit iteration.  It may
-     be worth rearranging a data structure so that one of these
-     primitive search functions can be used.
-
-   * Certain built-in functions are handled specially in byte-compiled
-     code, avoiding the need for an ordinary function call.  It is a
-     good idea to use these functions rather than alternatives.  To see
-     whether a function is handled specially by the compiler, examine
-     its `byte-compile' property.  If the property is non-`nil', then
-     the function is handled specially.
-
-     For example, the following input will show you that `aref' is
-     compiled specially (*note Array Functions::) while `elt' is not
-     (*note Sequence Functions::):
-
-          (get 'aref 'byte-compile)
-               => byte-compile-two-args
-          
-          (get 'elt 'byte-compile)
-               => nil
-
-   * If calling a small function accounts for a  substantial part of
-     your program's running time, make the function inline.  This
-     eliminates the function call overhead.  Since making a function
-     inline reduces the flexibility of changing the program, don't do
-     it unless it gives a noticeable speedup in something slow enough
-     that users care about the speed.  *Note Inline Functions::.
-
-
-File: lispref.info,  Node: Documentation Tips,  Next: Comment Tips,  Prev: Compilation Tips,  Up: Tips
-
-Tips for Documentation Strings
-==============================
-
-   Here are some tips for the writing of documentation strings.
-
-   * Every command, function, or variable intended for users to know
-     about should have a documentation string.
-
-   * An internal variable or subroutine of a Lisp program might as well
-     have a documentation string.  In earlier Emacs versions, you could
-     save space by using a comment instead of a documentation string,
-     but that is no longer the case.
-
-   * The first line of the documentation string should consist of one
-     or two complete sentences that stand on their own as a summary.
-     `M-x apropos' displays just the first line, and if it doesn't
-     stand on its own, the result looks bad.  In particular, start the
-     first line with a capital letter and end with a period.
-
-     The documentation string can have additional lines that expand on
-     the details of how to use the function or variable.  The
-     additional lines should be made up of complete sentences also, but
-     they may be filled if that looks good.
-
-   * For consistency, phrase the verb in the first sentence of a
-     documentation string as an infinitive with "to" omitted.  For
-     instance, use "Return the cons of A and B." in preference to
-     "Returns the cons of A and B."  Usually it looks good to do
-     likewise for the rest of the first paragraph.  Subsequent
-     paragraphs usually look better if they have proper subjects.
-
-   * Write documentation strings in the active voice, not the passive,
-     and in the present tense, not the future.  For instance, use
-     "Return a list containing A and B." instead of "A list containing
-     A and B will be returned."
-
-   * Avoid using the word "cause" (or its equivalents) unnecessarily.
-     Instead of, "Cause Emacs to display text in boldface," write just
-     "Display text in boldface."
-
-   * Do not start or end a documentation string with whitespace.
-
-   * Format the documentation string so that it fits in an Emacs window
-     on an 80-column screen.  It is a good idea for most lines to be no
-     wider than 60 characters.  The first line can be wider if
-     necessary to fit the information that ought to be there.
-
-     However, rather than simply filling the entire documentation
-     string, you can make it much more readable by choosing line breaks
-     with care.  Use blank lines between topics if the documentation
-     string is long.
-
-   * *Do not* indent subsequent lines of a documentation string so that
-     the text is lined up in the source code with the text of the first
-     line.  This looks nice in the source code, but looks bizarre when
-     users view the documentation.  Remember that the indentation
-     before the starting double-quote is not part of the string!
-
-   * A variable's documentation string should start with `*' if the
-     variable is one that users would often want to set interactively.
-     If the value is a long list, or a function, or if the variable
-     would be set only in init files, then don't start the
-     documentation string with `*'.  *Note Defining Variables::.
-
-   * The documentation string for a variable that is a yes-or-no flag
-     should start with words such as "Non-nil means...", to make it
-     clear that all non-`nil' values are equivalent and indicate
-     explicitly what `nil' and non-`nil' mean.
-
-   * When a function's documentation string mentions the value of an
-     argument of the function, use the argument name in capital letters
-     as if it were a name for that value.  Thus, the documentation
-     string of the function `/' refers to its second argument as
-     `DIVISOR', because the actual argument name is `divisor'.
-
-     Also use all caps for meta-syntactic variables, such as when you
-     show the decomposition of a list or vector into subunits, some of
-     which may vary.
-
-   * When a documentation string refers to a Lisp symbol, write it as it
-     would be printed (which usually means in lower case), with
-     single-quotes around it.  For example: `lambda'.  There are two
-     exceptions: write t and nil without single-quotes.  (In this
-     manual, we normally do use single-quotes for those symbols.)
-
-   * Don't write key sequences directly in documentation strings.
-     Instead, use the `\\[...]' construct to stand for them.  For
-     example, instead of writing `C-f', write `\\[forward-char]'.  When
-     Emacs displays the documentation string, it substitutes whatever
-     key is currently bound to `forward-char'.  (This is normally `C-f',
-     but it may be some other character if the user has moved key
-     bindings.)  *Note Keys in Documentation::.
-
-   * In documentation strings for a major mode, you will want to refer
-     to the key bindings of that mode's local map, rather than global
-     ones.  Therefore, use the construct `\\<...>' once in the
-     documentation string to specify which key map to use.  Do this
-     before the first use of `\\[...]'.  The text inside the `\\<...>'
-     should be the name of the variable containing the local keymap for
-     the major mode.
-
-     It is not practical to use `\\[...]' very many times, because
-     display of the documentation string will become slow.  So use this
-     to describe the most important commands in your major mode, and
-     then use `\\{...}' to display the rest of the mode's keymap.
-
-
-File: lispref.info,  Node: Comment Tips,  Next: Library Headers,  Prev: Documentation Tips,  Up: Tips
-
-Tips on Writing Comments
-========================
-
-   We recommend these conventions for where to put comments and how to
-indent them:
-
-`;'
-     Comments that start with a single semicolon, `;', should all be
-     aligned to the same column on the right of the source code.  Such
-     comments usually explain how the code on the same line does its
-     job.  In Lisp mode and related modes, the `M-;'
-     (`indent-for-comment') command automatically inserts such a `;' in
-     the right place, or aligns such a comment if it is already present.
-
-     This and following examples are taken from the Emacs sources.
-
-          (setq base-version-list                 ; there was a base
-                (assoc (substring fn 0 start-vn)  ; version to which
-                       file-version-assoc-list))  ; this looks like
-                                                  ; a subversion
-
-`;;'
-     Comments that start with two semicolons, `;;', should be aligned to
-     the same level of indentation as the code.  Such comments usually
-     describe the purpose of the following lines or the state of the
-     program at that point.  For example:
-
-          (prog1 (setq auto-fill-function
-                       ...
-                       ...
-            ;; update modeline
-            (redraw-modeline)))
-
-     Every function that has no documentation string (because it is use
-     only internally within the package it belongs to), should have
-     instead a two-semicolon comment right before the function,
-     explaining what the function does and how to call it properly.
-     Explain precisely what each argument means and how the function
-     interprets its possible values.
-
-`;;;'
-     Comments that start with three semicolons, `;;;', should start at
-     the left margin.  Such comments are used outside function
-     definitions to make general statements explaining the design
-     principles of the program.  For example:
-
-          ;;; This Lisp code is run in XEmacs
-          ;;; when it is to operate as a server
-          ;;; for other processes.
-
-     Another use for triple-semicolon comments is for commenting out
-     lines within a function.  We use triple-semicolons for this
-     precisely so that they remain at the left margin.
-
-          (defun foo (a)
-          ;;; This is no longer necessary.
-          ;;;  (force-mode-line-update)
-            (message "Finished with %s" a))
-
-`;;;;'
-     Comments that start with four semicolons, `;;;;', should be aligned
-     to the left margin and are used for headings of major sections of a
-     program.  For example:
-
-          ;;;; The kill ring
-
-The indentation commands of the Lisp modes in XEmacs, such as `M-;'
-(`indent-for-comment') and <TAB> (`lisp-indent-line') automatically
-indent comments according to these conventions, depending on the number
-of semicolons.  *Note Manipulating Comments: (emacs)Comments.
-
-
-File: lispref.info,  Node: Library Headers,  Prev: Comment Tips,  Up: Tips
-
-Conventional Headers for XEmacs Libraries
-=========================================
-
-   XEmacs has conventions for using special comments in Lisp libraries
-to divide them into sections and give information such as who wrote
-them.  This section explains these conventions.  First, an example:
-
-     ;;; lisp-mnt.el --- minor mode for Emacs Lisp maintainers
-     
-     ;; Copyright (C) 1992 Free Software Foundation, Inc.
-     
-     ;; Author: Eric S. Raymond <esr@snark.thyrsus.com>
-     ;; Maintainer: Eric S. Raymond <esr@snark.thyrsus.com>
-     ;; Created: 14 Jul 1992
-     ;; Version: 1.2
-     ;; Keywords: docs
-     
-     ;; This file is part of XEmacs.
-     COPYING PERMISSIONS...
-
-   The very first line should have this format:
-
-     ;;; FILENAME --- DESCRIPTION
-
-The description should be complete in one line.
-
-   After the copyright notice come several "header comment" lines, each
-beginning with `;; HEADER-NAME:'.  Here is a table of the conventional
-possibilities for HEADER-NAME:
-
-`Author'
-     This line states the name and net address of at least the principal
-     author of the library.
-
-     If there are multiple authors, you can list them on continuation
-     lines led by `;;' and a tab character, like this:
-
-          ;; Author: Ashwin Ram <Ram-Ashwin@cs.yale.edu>
-          ;;      Dave Sill <de5@ornl.gov>
-          ;;      Dave Brennan <brennan@hal.com>
-          ;;      Eric Raymond <esr@snark.thyrsus.com>
-
-`Maintainer'
-     This line should contain a single name/address as in the Author
-     line, or an address only, or the string `FSF'.  If there is no
-     maintainer line, the person(s) in the Author field are presumed to
-     be the maintainers.  The example above is mildly bogus because the
-     maintainer line is redundant.
-
-     The idea behind the `Author' and `Maintainer' lines is to make
-     possible a Lisp function to "send mail to the maintainer" without
-     having to mine the name out by hand.
-
-     Be sure to surround the network address with `<...>' if you
-     include the person's full name as well as the network address.
-
-`Created'
-     This optional line gives the original creation date of the file.
-     For historical interest only.
-
-`Version'
-     If you wish to record version numbers for the individual Lisp
-     program, put them in this line.
-
-`Adapted-By'
-     In this header line, place the name of the person who adapted the
-     library for installation (to make it fit the style conventions, for
-     example).
-
-`Keywords'
-     This line lists keywords for the `finder-by-keyword' help command.
-     This field is important; it's how people will find your package
-     when they're looking for things by topic area.  To separate the
-     keywords, you can use spaces, commas, or both.
-
-   Just about every Lisp library ought to have the `Author' and
-`Keywords' header comment lines.  Use the others if they are
-appropriate.  You can also put in header lines with other header
-names--they have no standard meanings, so they can't do any harm.
-
-   We use additional stylized comments to subdivide the contents of the
-library file.  Here is a table of them:
-
-`;;; Commentary:'
-     This begins introductory comments that explain how the library
-     works.  It should come right after the copying permissions.
-
-`;;; Change log:'
-     This begins change log information stored in the library file (if
-     you store the change history there).  For most of the Lisp files
-     distributed with XEmacs, the change history is kept in the file
-     `ChangeLog' and not in the source file at all; these files do not
-     have a `;;; Change log:' line.
-
-`;;; Code:'
-     This begins the actual code of the program.
-
-`;;; FILENAME ends here'
-     This is the "footer line"; it appears at the very end of the file.
-     Its purpose is to enable people to detect truncated versions of
-     the file from the lack of a footer line.
-
-
-File: lispref.info,  Node: Building XEmacs and Object Allocation,  Next: Standard Errors,  Prev: Tips,  Up: Top
-
-Building XEmacs; Allocation of Objects
-**************************************
-
-   This chapter describes how the runnable XEmacs executable is dumped
-with the preloaded Lisp libraries in it and how storage is allocated.
-
-   There is an entire separate document, the `XEmacs Internals Manual',
-devoted to the internals of XEmacs from the perspective of the C
-programmer.  It contains much more detailed information about the build
-process, the allocation and garbage-collection process, and other
-aspects related to the internals of XEmacs.
+ - Function: charsetp object
+     This function returns non-`nil' if OBJECT is a charset.
 
 * Menu:
 
-* Building XEmacs::     How to preload Lisp libraries into XEmacs.
-* Pure Storage::        A kludge to make preloaded Lisp functions sharable.
-* Garbage Collection::  Reclaiming space for Lisp objects no longer used.
+* Charset Properties::          Properties of a charset.
+* Basic Charset Functions::     Functions for working with charsets.
+* Charset Property Functions::  Functions for accessing charset properties.
+* Predefined Charsets::         Predefined charset objects.
+
+
+File: lispref.info,  Node: Charset Properties,  Next: Basic Charset Functions,  Up: Charsets
+
+Charset Properties
+------------------
+
+   Charsets have the following properties:
+
+`name'
+     A symbol naming the charset.  Every charset must have a different
+     name; this allows a charset to be referred to using its name
+     rather than the actual charset object.
+
+`doc-string'
+     A documentation string describing the charset.
+
+`registry'
+     A regular expression matching the font registry field for this
+     character set.  For example, both the `ascii' and `latin-iso8859-1'
+     charsets use the registry `"ISO8859-1"'.  This field is used to
+     choose an appropriate font when the user gives a general font
+     specification such as `-*-courier-medium-r-*-140-*', i.e. a
+     14-point upright medium-weight Courier font.
+
+`dimension'
+     Number of position codes used to index a character in the
+     character set.  XEmacs/MULE can only handle character sets of
+     dimension 1 or 2.  This property defaults to 1.
+
+`chars'
+     Number of characters in each dimension.  In XEmacs/MULE, the only
+     allowed values are 94 or 96. (There are a couple of pre-defined
+     character sets, such as ASCII, that do not follow this, but you
+     cannot define new ones like this.) Defaults to 94.  Note that if
+     the dimension is 2, the character set thus described is 94x94 or
+     96x96.
+
+`columns'
+     Number of columns used to display a character in this charset.
+     Only used in TTY mode. (Under X, the actual width of a character
+     can be derived from the font used to display the characters.)  If
+     unspecified, defaults to the dimension. (This is almost always the
+     correct value, because character sets with dimension 2 are usually
+     ideograph character sets, which need two columns to display the
+     intricate ideographs.)
+
+`direction'
+     A symbol, either `l2r' (left-to-right) or `r2l' (right-to-left).
+     Defaults to `l2r'.  This specifies the direction that the text
+     should be displayed in, and will be left-to-right for most
+     charsets but right-to-left for Hebrew and Arabic. (Right-to-left
+     display is not currently implemented.)
+
+`final'
+     Final byte of the standard ISO 2022 escape sequence designating
+     this charset.  Must be supplied.  Each combination of (DIMENSION,
+     CHARS) defines a separate namespace for final bytes, and each
+     charset within a particular namespace must have a different final
+     byte.  Note that ISO 2022 restricts the final byte to the range
+     0x30 - 0x7E if dimension == 1, and 0x30 - 0x5F if dimension == 2.
+     Note also that final bytes in the range 0x30 - 0x3F are reserved
+     for user-defined (not official) character sets.  For more
+     information on ISO 2022, see *Note Coding Systems::.
+
+`graphic'
+     0 (use left half of font on output) or 1 (use right half of font on
+     output).  Defaults to 0.  This specifies how to convert the
+     position codes that index a character in a character set into an
+     index into the font used to display the character set.  With
+     `graphic' set to 0, position codes 33 through 126 map to font
+     indices 33 through 126; with it set to 1, position codes 33
+     through 126 map to font indices 161 through 254 (i.e. the same
+     number but with the high bit set).  For example, for a font whose
+     registry is ISO8859-1, the left half of the font (octets 0x20 -
+     0x7F) is the `ascii' charset, while the right half (octets 0xA0 -
+     0xFF) is the `latin-iso8859-1' charset.
+
+`ccl-program'
+     A compiled CCL program used to convert a character in this charset
+     into an index into the font.  This is in addition to the `graphic'
+     property.  If a CCL program is defined, the position codes of a
+     character will first be processed according to `graphic' and then
+     passed through the CCL program, with the resulting values used to
+     index the font.
+
+     This is used, for example, in the Big5 character set (used in
+     Taiwan).  This character set is not ISO-2022-compliant, and its
+     size (94x157) does not fit within the maximum 96x96 size of
+     ISO-2022-compliant character sets.  As a result, XEmacs/MULE
+     splits it (in a rather complex fashion, so as to group the most
+     commonly used characters together) into two charset objects
+     (`big5-1' and `big5-2'), each of size 94x94, and each charset
+     object uses a CCL program to convert the modified position codes
+     back into standard Big5 indices to retrieve a character from a
+     Big5 font.
+
+   Most of the above properties can only be set when the charset is
+initialized, and cannot be changed later.  *Note Charset Property
+Functions::.
+
+
+File: lispref.info,  Node: Basic Charset Functions,  Next: Charset Property Functions,  Prev: Charset Properties,  Up: Charsets
+
+Basic Charset Functions
+-----------------------
+
+ - Function: find-charset charset-or-name
+     This function retrieves the charset of the given name.  If
+     CHARSET-OR-NAME is a charset object, it is simply returned.
+     Otherwise, CHARSET-OR-NAME should be a symbol.  If there is no
+     such charset, `nil' is returned.  Otherwise the associated charset
+     object is returned.
+
+ - Function: get-charset name
+     This function retrieves the charset of the given name.  Same as
+     `find-charset' except an error is signalled if there is no such
+     charset instead of returning `nil'.
+
+ - Function: charset-list
+     This function returns a list of the names of all defined charsets.
+
+ - Function: make-charset name doc-string props
+     This function defines a new character set.  This function is for
+     use with MULE support.  NAME is a symbol, the name by which the
+     character set is normally referred.  DOC-STRING is a string
+     describing the character set.  PROPS is a property list,
+     describing the specific nature of the character set.  The
+     recognized properties are `registry', `dimension', `columns',
+     `chars', `final', `graphic', `direction', and `ccl-program', as
+     previously described.
+
+ - Function: make-reverse-direction-charset charset new-name
+     This function makes a charset equivalent to CHARSET but which goes
+     in the opposite direction.  NEW-NAME is the name of the new
+     charset.  The new charset is returned.
+
+ - Function: charset-from-attributes dimension chars final &optional
+          direction
+     This function returns a charset with the given DIMENSION, CHARS,
+     FINAL, and DIRECTION.  If DIRECTION is omitted, both directions
+     will be checked (left-to-right will be returned if character sets
+     exist for both directions).
+
+ - Function: charset-reverse-direction-charset charset
+     This function returns the charset (if any) with the same dimension,
+     number of characters, and final byte as CHARSET, but which is
+     displayed in the opposite direction.
+
+
+File: lispref.info,  Node: Charset Property Functions,  Next: Predefined Charsets,  Prev: Basic Charset Functions,  Up: Charsets
+
+Charset Property Functions
+--------------------------
+
+   All of these functions accept either a charset name or charset
+object.
+
+ - Function: charset-property charset prop
+     This function returns property PROP of CHARSET.  *Note Charset
+     Properties::.
+
+   Convenience functions are also provided for retrieving individual
+properties of a charset.
+
+ - Function: charset-name charset
+     This function returns the name of CHARSET.  This will be a symbol.
+
+ - Function: charset-doc-string charset
+     This function returns the doc string of CHARSET.
+
+ - Function: charset-registry charset
+     This function returns the registry of CHARSET.
+
+ - Function: charset-dimension charset
+     This function returns the dimension of CHARSET.
+
+ - Function: charset-chars charset
+     This function returns the number of characters per dimension of
+     CHARSET.
+
+ - Function: charset-columns charset
+     This function returns the number of display columns per character
+     (in TTY mode) of CHARSET.
+
+ - Function: charset-direction charset
+     This function returns the display direction of CHARSET--either
+     `l2r' or `r2l'.
+
+ - Function: charset-final charset
+     This function returns the final byte of the ISO 2022 escape
+     sequence designating CHARSET.
+
+ - Function: charset-graphic charset
+     This function returns either 0 or 1, depending on whether the
+     position codes of characters in CHARSET map to the left or right
+     half of their font, respectively.
+
+ - Function: charset-ccl-program charset
+     This function returns the CCL program, if any, for converting
+     position codes of characters in CHARSET into font indices.
+
+   The only property of a charset that can currently be set after the
+charset has been created is the CCL program.
+
+ - Function: set-charset-ccl-program charset ccl-program
+     This function sets the `ccl-program' property of CHARSET to
+     CCL-PROGRAM.
 

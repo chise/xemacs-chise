@@ -30,6 +30,72 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Mule Intro,  Next: Language Environments,  Prev: Mule,  Up: Mule
+
+Introduction to world scripts
+=============================
+
+   The users of these scripts have established many more-or-less
+standard coding systems for storing files.  XEmacs translates between
+the internal character encoding and various other coding systems when
+reading and writing files, when exchanging data with subprocesses, and
+(in some cases) in the `C-q' command (see below).
+
+   The command `C-h h' (`view-hello-file') displays the file
+`etc/HELLO', which shows how to say "hello" in many languages.  This
+illustrates various scripts.
+
+   Keyboards, even in the countries where these character sets are used,
+generally don't have keys for all the characters in them.  So XEmacs
+supports various "input methods", typically one for each script or
+language, to make it convenient to type them.
+
+   The prefix key `C-x <RET>' is used for commands that pertain to
+world scripts, coding systems, and input methods.
+
+
+File: xemacs.info,  Node: Language Environments,  Next: Input Methods,  Prev: Mule Intro,  Up: Mule
+
+Language Environments
+=====================
+
+   All supported character sets are supported in XEmacs buffers if it is
+compile with mule; there is no need to select a particular language in
+order to display its characters in an XEmacs buffer.  However, it is
+important to select a "language environment" in order to set various
+defaults.  The language environment really represents a choice of
+preferred script (more or less) rather that a choice of language.
+
+   The language environment controls which coding systems to recognize
+when reading text (*note Recognize Coding::).  This applies to files,
+incoming mail, netnews, and any other text you read into XEmacs.  It may
+also specify the default coding system to use when you create a file.
+Each language environment also specifies a default input method.
+
+   The command to select a language environment is `M-x
+set-language-environment'.  It makes no difference which buffer is
+current when you use this command, because the effects apply globally to
+the XEmacs session.  The supported language environments include:
+
+     Chinese-BIG5, Chinese-CNS, Chinese-GB, Cyrillic-ISO, English,
+     Ethiopic, Greek, Japanese, Korean, Latin-1, Latin-2, Latin-3,
+     Latin-4, Latin-5.
+
+   Some operating systems let you specify the language you are using by
+setting locale environment variables.  XEmacs handles one common special
+case of this: if your locale name for character types contains the
+string `8859-N', XEmacs automatically selects the corresponding
+language environment.
+
+   To display information about the effects of a certain language
+environment LANG-ENV, use the command `C-h L LANG-ENV <RET>'
+(`describe-language-environment').  This tells you which languages this
+language environment is useful for, and lists the character sets,
+coding systems, and input methods that go with it.  It also shows some
+sample text to illustrate scripts used in this language environment.
+By default, this command describes the chosen language environment.
+
+
 File: xemacs.info,  Node: Input Methods,  Next: Select Input Method,  Prev: Language Environments,  Up: Mule
 
 Input Methods
@@ -1071,70 +1137,4 @@ invisible.
 * Format: Outline Format.	  What the text of an outline looks like.
 * Motion: Outline Motion.	  Special commands for moving through outlines.
 * Visibility: Outline Visibility. Commands to control what is visible.
-
-
-File: xemacs.info,  Node: Outline Format,  Next: Outline Motion,  Prev: Outline Mode,  Up: Outline Mode
-
-Format of Outlines
-..................
-
-   Outline mode assumes that the lines in the buffer are of two types:
-"heading lines" and "body lines".  A heading line represents a topic in
-the outline.  Heading lines start with one or more stars; the number of
-stars determines the depth of the heading in the outline structure.
-Thus, a heading line with one star is a major topic; all the heading
-lines with two stars between it and the next one-star heading are its
-subtopics; and so on.  Any line that is not a heading line is a body
-line.  Body lines belong to the preceding heading line.  Here is an
-example:
-
-     * Food
-     
-     This is the body,
-     which says something about the topic of food.
-     
-     ** Delicious Food
-     
-     This is the body of the second-level header.
-     
-     ** Distasteful Food
-     
-     This could have
-     a body too, with
-     several lines.
-     
-     *** Dormitory Food
-     
-     * Shelter
-     
-     A second first-level topic with its header line.
-
-   A heading line together with all following body lines is called
-collectively an "entry".  A heading line together with all following
-deeper heading lines and their body lines is called a "subtree".
-
-   You can customize the criterion for distinguishing heading lines by
-setting the variable `outline-regexp'.  Any line whose beginning has a
-match for this regexp is considered a heading line.  Matches that start
-within a line (not at the beginning) do not count.  The length of the
-matching text determines the level of the heading; longer matches make
-a more deeply nested level.  Thus, for example, if a text formatter has
-commands `@chapter', `@section' and `@subsection' to divide the
-document into chapters and sections, you can make those lines count as
-heading lines by setting `outline-regexp' to
-`"@chap\\|@\\(sub\\)*section"'.  Note the trick: the two words
-`chapter' and `section' are the same length, but by defining the regexp
-to match only `chap' we ensure that the length of the text matched on a
-chapter heading is shorter, so that Outline mode will know that
-sections are contained in chapters.  This works as long as no other
-command starts with `@chap'.
-
-   Outline mode makes a line invisible by changing the newline before it
-into an ASCII Control-M (code 015).  Most editing commands that work on
-lines treat an invisible line as part of the previous line because,
-strictly speaking, it is part of that line, since there is no longer a
-newline in between.  When you save the file in Outline mode, Control-M
-characters are saved as newlines, so the invisible lines become ordinary
-lines in the file.  Saving does not change the visibility status of a
-line inside Emacs.
 

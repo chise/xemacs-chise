@@ -30,6 +30,175 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
+
+   Source packages are available from the `packages/source-packages'
+subdirectory of your favorite XEmacs distribution site.  Alternatively,
+they are available via CVS from `cvs.xemacs.org'.  Look at
+`http://cvs.xemacs.org' for instructions.
+
+Prerequisites for Building Source Packages
+------------------------------------------
+
+   You must have GNU `cp', GNU `install' (or a BSD compatible `install'
+program) GNU `make' (3.75 or later preferred), `makeinfo' (1.68 from
+`texinfo-3.11' or later required), GNU `tar' and XEmacs 21.0.  The
+source packages will untar into a correct directory structure.  At the
+top level you must have `XEmacs.rules' and `package-compile.el'.  These
+files are available from the XEmacs FTP site from the same place you
+obtained your source package distributions.
+
+What You Can Do With Source Packages
+------------------------------------
+
+   NB:  A global build operation doesn't exist yet as of 13 January
+1998.
+
+   Source packages are most useful for creating XEmacs package tarballs
+for installation into your own XEmacs installations or for distributing
+to others.
+
+   Supported operations from `make' are:
+
+`clean'
+     Remove all built files except `auto-autoloads.el' and
+     `custom-load.el'.
+
+`distclean'
+     Remove XEmacs backups as well as the files deleted by `make clean'.
+
+`all'
+     Bytecompile all files, build and bytecompile byproduct files like
+     `auto-autoloads.el' and `custom-load.el'.  Create info version of
+     TeXinfo documentation if present.
+
+`srckit'
+     Usually aliased to `make srckit-std'.  This does a `make
+     distclean' and creates a package source tarball in the staging
+     directory.  This is generally only of use for package maintainers.
+
+`binkit'
+     May be aliased to `binkit-sourceonly', `binkit-sourceinfo',
+     `binkit-sourcedata', or `binkit-sourcedatainfo'. `sourceonly'
+     indicates there is nothing to install in a data directory or info
+     directory.  `sourceinfo' indicates that source and info files are
+     to be installed.  `sourcedata' indicates that source and etc
+     (data) files are to be installed.  `sourcedatainfo' indicates
+     source, etc (data), and info files are to be installed.  A few
+     packages have needs beyond the basic templates so this is not yet
+     complete.
+
+`dist'
+     Runs the rules `srckit' followed by `binkit'.  This is primarily
+     of use by XEmacs maintainers producing files for distribution.
+
+
+File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Packages,  Up: Top
+
+Abbrevs
+*******
+
+   An "abbrev" is a word which "expands" into some different text.
+Abbrevs are defined by the user to expand in specific ways.  For
+example, you might define `foo' as an abbrev expanding to `find outer
+otter'.  With this abbrev defined, you would be able to get `find outer
+otter ' into the buffer by typing `f o o <SPC>'.
+
+   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
+Disabling Abbrev mode does not cause abbrev definitions to be discarded,
+but they do not expand until Abbrev mode is enabled again.  The command
+`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
+turns Abbrev mode on if the argument is positive, off otherwise.  *Note
+Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
+when the variable is non-`nil'.  The variable `abbrev-mode'
+automatically becomes local to the current buffer when it is set.
+
+   Abbrev definitions can be "mode-specific"--active only in one major
+mode.  Abbrevs can also have "global" definitions that are active in
+all major modes.  The same abbrev can have a global definition and
+various mode-specific definitions for different major modes.  A
+mode-specific definition for the current major mode overrides a global
+definition.
+
+   You can define Abbrevs interactively during an editing session.  You
+can also save lists of abbrev definitions in files and reload them in
+later sessions.  Some users keep extensive lists of abbrevs that they
+load in every session.
+
+   A second kind of abbreviation facility is called the "dynamic
+expansion".  Dynamic abbrev expansion happens only when you give an
+explicit command and the result of the expansion depends only on the
+current contents of the buffer.  *Note Dynamic Abbrevs::.
+
+* Menu:
+
+* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
+* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
+* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
+* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
+* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
+
+
+File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+`C-x a g'
+     Define an abbrev to expand into some text before point
+     (`add-global-abbrev').
+
+`C-x a l'
+     Similar, but define an abbrev available only in the current major
+     mode (`add-mode-abbrev').
+
+`C-x a i g'
+     Define a word in the buffer as an abbrev
+     (`inverse-add-global-abbrev').
+
+`C-x a i l'
+     Define a word in the buffer as a mode-specific abbrev
+     (`inverse-add-mode-abbrev').
+
+`M-x kill-all-abbrevs'
+     After this command, no abbrev definitions remain in effect.
+
+   The usual way to define an abbrev is to enter the text you want the
+abbrev to expand to, position point after it, and type `C-x a g'
+(`add-global-abbrev').  This reads the abbrev itself using the
+minibuffer, and then defines it as an abbrev for one or more words
+before point.  Use a numeric argument to say how many words before point
+should be taken as the expansion.  For example, to define the abbrev
+`foo' as in the example above, insert the text `find outer otter', then
+type
+`C-u 3 C-x a g f o o <RET>'.
+
+   An argument of zero to `C-x a g' means to use the contents of the
+region as the expansion of the abbrev being defined.
+
+   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
+mode-specific abbrev.  Mode-specific abbrevs are active only in a
+particular major mode.  `C-x a l' defines an abbrev for the major mode
+in effect at the time `C-x a l' is typed.  The arguments work the same
+way they do for `C-x a g'.
+
+   If the text of an abbrev you want is already in the buffer instead of
+the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
+instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
+instead of `C-x a l'.  These commands are called "inverse" because they
+invert the meaning of the argument found in the buffer and the argument
+read using the minibuffer.
+
+   To change the definition of an abbrev, just add the new definition.
+You will be asked to confirm if the abbrev has a prior definition.  To
+remove an abbrev definition, give a negative argument to `C-x a g' or
+`C-x a l'.  You must choose the command to specify whether to kill a
+global definition or a mode-specific definition for the current mode,
+since those two definitions are independent for one abbrev.
+
+   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
+
+
 File: xemacs.info,  Node: Expanding Abbrevs,  Next: Editing Abbrevs,  Prev: Defining Abbrevs,  Up: Abbrevs
 
 Controlling Abbrev Expansion
@@ -1057,191 +1226,4 @@ the mark was, restores the mark from the ring of former marks, and
 stores the previous point at the end of the mark ring.  So, repeated
 use of this command moves point through all the old marks on the ring,
 one by one.
-
-
-File: xemacs.info,  Node: General Calendar,  Next: LaTeX Calendar,  Prev: Mark and Region,  Up: Calendar/Diary
-
-Miscellaneous Calendar Commands
--------------------------------
-
-`p d'
-     Display day-in-year (`calendar-print-day-of-year').
-
-`?'
-     Briefly describe calendar commands (`describe-calendar-mode').
-
-`C-c C-l'
-     Regenerate the calendar window (`redraw-calendar').
-
-`SPC'
-     Scroll the next window (`scroll-other-window').
-
-`q'
-     Exit from calendar (`exit-calendar').
-
-   If you want to know how many days have elapsed since the start of
-the year, or the number of days remaining in the year, type the `p d'
-command (`calendar-print-day-of-year').  This displays both of those
-numbers in the echo area.
-
-   To display a brief description of the calendar commands, type `?'
-(`describe-calendar-mode').  For a fuller description, type `C-h m'.
-
-   You can use `SPC' (`scroll-other-window') to scroll the other
-window.  This is handy when you display a list of holidays or diary
-entries in another window.
-
-   If the calendar window text gets corrupted, type `C-c C-l'
-(`redraw-calendar') to redraw it.  (This can only happen if you use
-non-Calendar-mode editing commands.)
-
-   In Calendar mode, you can use `SPC' (`scroll-other-window') to
-scroll the other window.  This is handy when you display a list of
-holidays or diary entries in another window.
-
-   To exit from the calendar, type `q' (`exit-calendar').  This buries
-all buffers related to the calendar, selecting other buffers.  (If a
-frame contains a dedicated calendar window, exiting from the calendar
-iconifies that frame.)
-
-
-File: xemacs.info,  Node: LaTeX Calendar,  Next: Holidays,  Prev: General Calendar,  Up: Calendar/Diary
-
-LaTeX Calendar
-==============
-
-   The Calendar LaTeX commands produce a buffer of LaTeX code that
-prints as a calendar.  Depending on the command you use, the printed
-calendar covers the day, week, month or year that point is in.
-
-`t m'
-     Generate a one-month calendar (`cal-tex-cursor-month').
-
-`t M'
-     Generate a sideways-printing one-month calendar
-     (`cal-tex-cursor-month-landscape').
-
-`t d'
-     Generate a one-day calendar (`cal-tex-cursor-day').
-
-`t w 1'
-     Generate a one-page calendar for one week (`cal-tex-cursor-week').
-
-`t w 2'
-     Generate a two-page calendar for one week (`cal-tex-cursor-week2').
-
-`t w 3'
-     Generate an ISO-style calendar for one week
-     (`cal-tex-cursor-week-iso').
-
-`t w 4'
-     Generate a calendar for one Monday-starting week
-     (`cal-tex-cursor-week-monday').
-
-`t f w'
-     Generate a Filofax-style two-weeks-at-a-glance calendar
-     (`cal-tex-cursor-filofax-2week').
-
-`t f W'
-     Generate a Filofax-style one-week-at-a-glance calendar
-     (`cal-tex-cursor-filofax-week').
-
-`t y'
-     Generate a calendar for one year (`cal-tex-cursor-year').
-
-`t Y'
-     Generate a sideways-printing calendar for one year
-     (`cal-tex-cursor-year-landscape').
-
-`t f y'
-     Generate a Filofax-style calendar for one year
-     (`cal-tex-cursor-filofax-year').
-
-   Some of these commands print the calendar sideways (in "landscape
-mode"), so it can be wider than it is long.  Some of them use Filofax
-paper size (3.75in x 6.75in).  All of these commands accept a prefix
-argument which specifies how many days, weeks, months or years to print
-(starting always with the selected one).
-
-   If the variable `cal-tex-holidays' is non-`nil' (the default), then
-the printed calendars show the holidays in `calendar-holidays'.  If the
-variable `cal-tex-diary' is non-`nil' (the default is `nil'), diary
-entries are included also (in weekly and monthly calendars only).
-
-
-File: xemacs.info,  Node: Holidays,  Next: Sunrise/Sunset,  Prev: LaTeX Calendar,  Up: Calendar/Diary
-
-Holidays
---------
-
-   The Emacs calendar knows about all major and many minor holidays,
-and can display them.
-
-`h'
-     Display holidays for the selected date
-     (`calendar-cursor-holidays').
-
-`Button2 Holidays'
-     Display any holidays for the date you click on.
-
-`x'
-     Mark holidays in the calendar window (`mark-calendar-holidays').
-
-`u'
-     Unmark calendar window (`calendar-unmark').
-
-`a'
-     List all holidays for the displayed three months in another window
-     (`list-calendar-holidays').
-
-`M-x holidays'
-     List all holidays for three months around today's date in another
-     window.
-
-`M-x list-holidays'
-     List holidays in another window for a specified range of years.
-
-   To see if any holidays fall on a given date, position point on that
-date in the calendar window and use the `h' command.  Alternatively,
-click on that date with `Button2' and then choose `Holidays' from the
-menu that appears.  Either way, this displays the holidays for that
-date, in the echo area if they fit there, otherwise in a separate
-window.
-
-   To view the distribution of holidays for all the dates shown in the
-calendar, use the `x' command.  This displays the dates that are
-holidays in a different face (or places a `*' after these dates, if
-display with multiple faces is not available). The command applies both
-to the currently visible months and to other months that subsequently
-become visible by scrolling.  To turn marking off and erase the current
-marks, type `u', which also erases any diary marks (*note Diary::).
-
-   To get even more detailed information, use the `a' command, which
-displays a separate buffer containing a list of all holidays in the
-current three-month range.  You can use <SPC> in the calendar window to
-scroll that list.
-
-   The command `M-x holidays' displays the list of holidays for the
-current month and the preceding and succeeding months; this works even
-if you don't have a calendar window.  If you want the list of holidays
-centered around a different month, use `C-u M-x holidays', which
-prompts for the month and year.
-
-   The holidays known to Emacs include United States holidays and the
-major Christian, Jewish, and Islamic holidays; also the solstices and
-equinoxes.
-
-   The command `M-x list-holidays' displays the list of holidays for a
-range of years.  This function asks you for the starting and stopping
-years, and allows you to choose all the holidays or one of several
-categories of holidays.  You can use this command even if you don't have
-a calendar window.
-
-   The dates used by Emacs for holidays are based on _current
-practice_, not historical fact.  Historically, for instance, the start
-of daylight savings time and even its existence have varied from year to
-year, but present United States law mandates that daylight savings time
-begins on the first Sunday in April.  When the daylight savings rules
-are set up for the United States, Emacs always uses the present
-definition, even though it is wrong for some prior years.
 

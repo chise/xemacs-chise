@@ -30,6 +30,141 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: ForIndent Conv,  Next: ForIndent Vars,  Prev: ForIndent Num,  Up: Fortran Indent
+
+Syntactic Conventions
+.....................
+
+   Fortran mode assumes that you follow certain conventions that
+simplify the task of understanding a Fortran program well enough to
+indent it properly:
+
+   * Two nested `do' loops never share a `continue' statement.
+
+   * The same character appears in column 5 of all continuation lines.
+     It is the value of the variable `fortran-continuation-char'.  By
+     default, this character is `$'.
+
+If you fail to follow these conventions, the indentation commands may
+indent some lines unaesthetically.  However, a correct Fortran program
+will retain its meaning when reindented even if the conventions are not
+followed.
+
+
+File: xemacs.info,  Node: ForIndent Vars,  Prev: ForIndent Conv,  Up: Fortran Indent
+
+Variables for Fortran Indentation
+.................................
+
+   Several additional variables control how Fortran indentation works.
+
+`fortran-do-indent'
+     Extra indentation within each level of `do' statement (the default
+     is 3).
+
+`fortran-if-indent'
+     Extra indentation within each level of `if' statement (the default
+     is 3).
+
+`fortran-continuation-indent'
+     Extra indentation for bodies of continuation lines (the default is
+     5).
+
+`fortran-check-all-num-for-matching-do'
+     If this is `nil', indentation assumes that each `do' statement
+     ends on a `continue' statement.  Therefore, when computing
+     indentation for a statement other than `continue', it can save
+     time by not checking for a `do' statement ending there.  If this
+     is non-`nil', indenting any numbered statement must check for a
+     `do' that ends there.  The default is `nil'.
+
+`fortran-minimum-statement-indent'
+     Minimum indentation for Fortran statements.  For standard Fortran,
+     this is 6.  Statement bodies are always indented at least this
+     much.
+
+
+File: xemacs.info,  Node: Fortran Comments,  Next: Fortran Columns,  Prev: Fortran Indent,  Up: Fortran
+
+Comments
+--------
+
+   The usual Emacs comment commands assume that a comment can follow a
+line of code.  In Fortran, the standard comment syntax requires an
+entire line to be just a comment.  Therefore, Fortran mode replaces the
+standard Emacs comment commands and defines some new variables.
+
+   Fortran mode can also handle a non-standard comment syntax where
+comments start with `!' and can follow other text.  Because only some
+Fortran compilers accept this syntax, Fortran mode will not insert such
+comments unless you have specified to do so in advance by setting the
+variable `comment-start' to `"!"' (*note Variables::).
+
+`M-;'
+     Align comment or insert new comment (`fortran-comment-indent').
+
+`C-x ;'
+     Applies to nonstandard `!' comments only.
+
+`C-c ;'
+     Turn all lines of the region into comments, or (with arg) turn
+     them back into real code (`fortran-comment-region').
+
+   `M-;' in Fortran mode is redefined as the command
+`fortran-comment-indent'.  Like the usual `M-;' command, it recognizes
+an existing comment and aligns its text appropriately.  If there is no
+existing comment, a comment is inserted and aligned.
+
+   Inserting and aligning comments is not the same in Fortran mode as in
+other modes.  When a new comment must be inserted, a full-line comment
+is inserted if the current line is blank.  On a non-blank line, a
+non-standard `!' comment is inserted if you previously specified you
+wanted to use them.  Otherwise a full-line comment is inserted on a new
+line before the current line.
+
+   Non-standard `!' comments are aligned like comments in other
+languages, but full-line comments are aligned differently.  In a
+standard full-line comment, the comment delimiter itself must always
+appear in column zero.  What can be aligned is the text within the
+comment.  You can choose from three styles of alignment by setting the
+variable `fortran-comment-indent-style' to one of these values:
+
+`fixed'
+     The text is aligned at a fixed column, which is the value of
+     `fortran-comment-line-column'.  This is the default.
+
+`relative'
+     The text is aligned as if it were a line of code, but with an
+     additional `fortran-comment-line-column' columns of indentation.
+
+`nil'
+     Text in full-line columns is not moved automatically.
+
+   You can also specify the character to be used to indent within
+full-line comments by setting the variable `fortran-comment-indent-char'
+to the character you want to use.
+
+   Fortran mode introduces two variables `comment-line-start' and
+`comment-line-start-skip', which do for full-line comments what
+`comment-start' and `comment-start-skip' do for ordinary text-following
+comments.  Normally these are set properly by Fortran mode, so you do
+not need to change them.
+
+   The normal Emacs comment command `C-x ;' has not been redefined.  It
+can therefore be used if you use `!' comments, but is useless in
+Fortran mode otherwise.
+
+   The command `C-c ;' (`fortran-comment-region') turns all the lines
+of the region into comments by inserting the string `C$$$' at the front
+of each one.  With a numeric arg, the region is turned back into live
+code by deleting `C$$$' from the front of each line.  You can control
+the string used for the comments by setting the variable
+`fortran-comment-region'.  Note that here we have an example of a
+command and a variable with the same name; the two uses of the name
+never conflict because in Lisp and in Emacs it is always clear from the
+context which one is referred to.
+
+
 File: xemacs.info,  Node: Fortran Columns,  Next: Fortran Abbrev,  Prev: Fortran Comments,  Up: Fortran
 
 Columns
@@ -1020,173 +1155,4 @@ it's best to exit XEmacs before upgrading an existing package.
   5. That's it.  Quit and restart XEmacs to get it to recognize any new
      or changed packages.
 
-
-
-File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
-
-   Source packages are available from the `packages/source-packages'
-subdirectory of your favorite XEmacs distribution site.  Alternatively,
-they are available via CVS from `cvs.xemacs.org'.  Look at
-`http://cvs.xemacs.org' for instructions.
-
-Prerequisites for Building Source Packages
-------------------------------------------
-
-   You must have GNU `cp', GNU `install' (or a BSD compatible `install'
-program) GNU `make' (3.75 or later preferred), `makeinfo' (1.68 from
-`texinfo-3.11' or later required), GNU `tar' and XEmacs 21.0.  The
-source packages will untar into a correct directory structure.  At the
-top level you must have `XEmacs.rules' and `package-compile.el'.  These
-files are available from the XEmacs FTP site from the same place you
-obtained your source package distributions.
-
-What You Can Do With Source Packages
-------------------------------------
-
-   NB:  A global build operation doesn't exist yet as of 13 January
-1998.
-
-   Source packages are most useful for creating XEmacs package tarballs
-for installation into your own XEmacs installations or for distributing
-to others.
-
-   Supported operations from `make' are:
-
-`clean'
-     Remove all built files except `auto-autoloads.el' and
-     `custom-load.el'.
-
-`distclean'
-     Remove XEmacs backups as well as the files deleted by `make clean'.
-
-`all'
-     Bytecompile all files, build and bytecompile byproduct files like
-     `auto-autoloads.el' and `custom-load.el'.  Create info version of
-     TeXinfo documentation if present.
-
-`srckit'
-     Usually aliased to `make srckit-std'.  This does a `make
-     distclean' and creates a package source tarball in the staging
-     directory.  This is generally only of use for package maintainers.
-
-`binkit'
-     May be aliased to `binkit-sourceonly', `binkit-sourceinfo',
-     `binkit-sourcedata', or `binkit-sourcedatainfo'. `sourceonly'
-     indicates there is nothing to install in a data directory or info
-     directory.  `sourceinfo' indicates that source and info files are
-     to be installed.  `sourcedata' indicates that source and etc
-     (data) files are to be installed.  `sourcedatainfo' indicates
-     source, etc (data), and info files are to be installed.  A few
-     packages have needs beyond the basic templates so this is not yet
-     complete.
-
-`dist'
-     Runs the rules `srckit' followed by `binkit'.  This is primarily
-     of use by XEmacs maintainers producing files for distribution.
-
-
-File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Packages,  Up: Top
-
-Abbrevs
-*******
-
-   An "abbrev" is a word which "expands" into some different text.
-Abbrevs are defined by the user to expand in specific ways.  For
-example, you might define `foo' as an abbrev expanding to `find outer
-otter'.  With this abbrev defined, you would be able to get `find outer
-otter ' into the buffer by typing `f o o <SPC>'.
-
-   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
-Disabling Abbrev mode does not cause abbrev definitions to be discarded,
-but they do not expand until Abbrev mode is enabled again.  The command
-`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
-turns Abbrev mode on if the argument is positive, off otherwise.  *Note
-Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
-when the variable is non-`nil'.  The variable `abbrev-mode'
-automatically becomes local to the current buffer when it is set.
-
-   Abbrev definitions can be "mode-specific"--active only in one major
-mode.  Abbrevs can also have "global" definitions that are active in
-all major modes.  The same abbrev can have a global definition and
-various mode-specific definitions for different major modes.  A
-mode-specific definition for the current major mode overrides a global
-definition.
-
-   You can define Abbrevs interactively during an editing session.  You
-can also save lists of abbrev definitions in files and reload them in
-later sessions.  Some users keep extensive lists of abbrevs that they
-load in every session.
-
-   A second kind of abbreviation facility is called the "dynamic
-expansion".  Dynamic abbrev expansion happens only when you give an
-explicit command and the result of the expansion depends only on the
-current contents of the buffer.  *Note Dynamic Abbrevs::.
-
-* Menu:
-
-* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
-* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
-* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
-* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
-* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
-
-
-File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
-
-Defining Abbrevs
-================
-
-`C-x a g'
-     Define an abbrev to expand into some text before point
-     (`add-global-abbrev').
-
-`C-x a l'
-     Similar, but define an abbrev available only in the current major
-     mode (`add-mode-abbrev').
-
-`C-x a i g'
-     Define a word in the buffer as an abbrev
-     (`inverse-add-global-abbrev').
-
-`C-x a i l'
-     Define a word in the buffer as a mode-specific abbrev
-     (`inverse-add-mode-abbrev').
-
-`M-x kill-all-abbrevs'
-     After this command, no abbrev definitions remain in effect.
-
-   The usual way to define an abbrev is to enter the text you want the
-abbrev to expand to, position point after it, and type `C-x a g'
-(`add-global-abbrev').  This reads the abbrev itself using the
-minibuffer, and then defines it as an abbrev for one or more words
-before point.  Use a numeric argument to say how many words before point
-should be taken as the expansion.  For example, to define the abbrev
-`foo' as in the example above, insert the text `find outer otter', then
-type
-`C-u 3 C-x a g f o o <RET>'.
-
-   An argument of zero to `C-x a g' means to use the contents of the
-region as the expansion of the abbrev being defined.
-
-   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
-mode-specific abbrev.  Mode-specific abbrevs are active only in a
-particular major mode.  `C-x a l' defines an abbrev for the major mode
-in effect at the time `C-x a l' is typed.  The arguments work the same
-way they do for `C-x a g'.
-
-   If the text of an abbrev you want is already in the buffer instead of
-the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
-instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
-instead of `C-x a l'.  These commands are called "inverse" because they
-invert the meaning of the argument found in the buffer and the argument
-read using the minibuffer.
-
-   To change the definition of an abbrev, just add the new definition.
-You will be asked to confirm if the abbrev has a prior definition.  To
-remove an abbrev definition, give a negative argument to `C-x a g' or
-`C-x a l'.  You must choose the command to specify whether to kill a
-global definition or a mode-specific definition for the current mode,
-since those two definitions are independent for one abbrev.
-
-   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
 

@@ -30,6 +30,63 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Horizontal Scrolling,  Prev: Scrolling,  Up: Display
+
+Horizontal Scrolling
+====================
+
+`C-x <'
+     Scroll text in current window to the left (`scroll-left').
+
+`C-x >'
+     Scroll to the right (`scroll-right').
+
+   The text in a window can also be scrolled horizontally.  This means
+that each line of text is shifted sideways in the window, and one or
+more characters at the beginning of each line are not displayed at all.
+When a window has been scrolled horizontally in this way, text lines
+are truncated rather than continued (*note Continuation Lines::), with
+a `$' appearing in the first column when there is text truncated to the
+left, and in the last column when there is text truncated to the right.
+
+   The command `C-x <' (`scroll-left') scrolls the selected window to
+the left by N columns with argument N.  With no argument, it scrolls by
+almost the full width of the window (two columns less, to be precise).
+`C-x >' (`scroll-right') scrolls similarly to the right.  The window
+cannot be scrolled any farther to the right once it is displaying
+normally (with each line starting at the window's left margin);
+attempting to do so has no effect.
+
+
+File: xemacs.info,  Node: Selective Display,  Next: Display Vars,  Prev: Display,  Up: Display
+
+Selective Display
+=================
+
+   XEmacs can hide lines indented more than a certain number of columns
+(you specify how many columns).  This allows you  to get an overview of
+a part of a program.
+
+   To hide lines, type `C-x $' (`set-selective-display') with a numeric
+argument N.  (*Note Arguments::, for information on giving the
+argument.)  Lines with at least N columns of indentation disappear from
+the screen.  The only indication of their presence are three dots
+(`...'), which appear at the end of each visible line that is followed
+by one or more invisible ones.
+
+   The invisible lines are still present in the buffer, and most editing
+commands see them as usual, so it is very easy to put point in the
+middle of invisible text.  When this happens, the cursor appears at the
+end of the previous line, after the three dots.  If point is at the end
+of the visible line, before the newline that ends it, the cursor
+appears before the three dots.
+
+   The commands `C-n' and `C-p' move across the invisible lines as if
+they were not there.
+
+   To make everything visible again, type `C-x $' with no argument.
+
+
 File: xemacs.info,  Node: Display Vars,  Prev: Selective Display,  Up: Display
 
 Variables Controlling Display
@@ -1089,86 +1146,4 @@ rename, and append to files, and operate on file directories.
 * Dired::            ``Editing'' a directory to delete, rename, etc.
                      the files in it.
 * Misc File Ops::    Other things you can do on files.
-
-
-File: xemacs.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
-
-File Names
-==========
-
-   Most Emacs commands that operate on a file require you to specify the
-file name.  (Saving and reverting are exceptions; the buffer knows which
-file name to use for them.)  File names are specified in the minibuffer
-(*note Minibuffer::).  "Completion" is available, to make it easier to
-specify long file names.  *Note Completion::.
-
-   There is always a "default file name" which is used if you enter an
-empty argument by typing just <RET>.  Normally the default file name is
-the name of the file visited in the current buffer; this makes it easy
-to operate on that file with any of the Emacs file commands.
-
-   Each buffer has a default directory, normally the same as the
-directory of the file visited in that buffer.  When Emacs reads a file
-name, the default directory is used if you do not specify a directory.
-If you specify a directory in a relative fashion, with a name that does
-not start with a slash, it is interpreted with respect to the default
-directory.  The default directory of the current buffer is kept in the
-variable `default-directory', which has a separate value in every
-buffer.  The value of the variable should end with a slash.
-
-   For example, if the default file name is `/u/rms/gnu/gnu.tasks' then
-the default directory is `/u/rms/gnu/'.  If you type just `foo', which
-does not specify a directory, it is short for `/u/rms/gnu/foo'.
-`../.login' would stand for `/u/rms/.login'.  `new/foo' would stand for
-the filename `/u/rms/gnu/new/foo'.
-
-   The variable `default-directory-alist' takes an alist of major modes
-and their opinions on `default-directory' as a Lisp expression to
-evaluate.  A resulting value of `nil' is ignored in favor of
-`default-directory'.
-
-   You can create a new directory with the function `make-directory',
-which takes as an argument a file name string. The current directory is
-displayed in the minibuffer when the function is called; you can delete
-the old directory name and supply a new directory name. For example, if
-the current directory is `/u/rms/gnu', you can delete `gnu' and type
-`oryx' and <RET> to create `/u/rms/oryx'.  Removing a directory is
-similar to creating one.  To remove a directory, use
-`remove-directory'; it takes one argument, a file name string.
-
-   The command `M-x pwd' prints the current buffer's default directory,
-and the command `M-x cd' sets it (to a value read using the
-minibuffer).  A buffer's default directory changes only when the `cd'
-command is used.  A file-visiting buffer's default directory is
-initialized to the directory of the file that is visited there.  If a
-buffer is created with `C-x b', its default directory is copied from
-that of the buffer that was current at the time.
-
-   The default directory name actually appears in the minibuffer when
-the minibuffer becomes active to read a file name.  This serves two
-purposes: it shows you what the default is, so that you can type a
-relative file name and know with certainty what it will mean, and it
-allows you to edit the default to specify a different directory.  To
-inhibit the insertion of the default directory, set the variable
-`insert-default-directory' to `nil'.
-
-   Note that it is legitimate to type an absolute file name after you
-enter the minibuffer, ignoring the presence of the default directory
-name.  The final minibuffer contents may look invalid, but that is not
-so.  *Note Minibuffer File::.
-
-   `$' in a file name is used to substitute environment variables.  For
-example, if you have used the shell command `setenv FOO rms/hacks' to
-set up an environment variable named `FOO', then you can use
-`/u/$FOO/test.c' or `/u/${FOO}/test.c' as an abbreviation for
-`/u/rms/hacks/test.c'.  The environment variable name consists of all
-the alphanumeric characters after the `$'; alternatively, it may be
-enclosed in braces after the `$'.  Note that the `setenv' command
-affects Emacs only if done before Emacs is started.
-
-   To access a file with `$' in its name, type `$$'.  This pair is
-converted to a single `$' at the same time variable substitution is
-performed for single `$'.  The Lisp function that performs the
-substitution is called `substitute-in-file-name'.  The substitution is
-performed only on filenames read as such using the minibuffer.
 

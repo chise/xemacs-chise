@@ -286,7 +286,9 @@ lrecords
 
    All lrecords have at the beginning of their structure a `struct
 lrecord_header'.  This just contains a type number and some flags,
-including the mark bit.  The type number, thru the
+including the mark bit.  All builtin type numbers are defined as
+constants in `enum lrecord_type', to allow the compiler to generate
+more efficient code for `TYPEP'.  The type number, thru the
 `lrecord_implementation_table', gives access to a `struct
 lrecord_implementation', which is a structure containing method pointers
 and such.  There is one of these for each type, and it is a global,
@@ -319,20 +321,21 @@ allocation function for each lrecord type.
    Whenever you create an lrecord, you need to call either
 `DEFINE_LRECORD_IMPLEMENTATION()' or
 `DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()'.  This needs to be specified
-in a C file, at the top level.  What this actually does is define and
-initialize the implementation structure for the lrecord. (And possibly
-declares a function `error_check_foo()' that implements the `XFOO()'
-macro when error-checking is enabled.)  The arguments to the macros are
-the actual type name (this is used to construct the C variable name of
-the lrecord implementation structure and related structures using the
-`##' macro concatenation operator), a string that names the type on the
-Lisp level (this may not be the same as the C type name; typically, the
-C type name has underscores, while the Lisp string has dashes), various
-method pointers, and the name of the C structure that contains the
-object.  The methods are used to encapsulate type-specific information
-about the object, such as how to print it or mark it for garbage
-collection, so that it's easy to add new object types without having to
-add a specific case for each new type in a bunch of different places.
+in a `.c' file, at the top level.  What this actually does is define
+and initialize the implementation structure for the lrecord. (And
+possibly declares a function `error_check_foo()' that implements the
+`XFOO()' macro when error-checking is enabled.)  The arguments to the
+macros are the actual type name (this is used to construct the C
+variable name of the lrecord implementation structure and related
+structures using the `##' macro concatenation operator), a string that
+names the type on the Lisp level (this may not be the same as the C
+type name; typically, the C type name has underscores, while the Lisp
+string has dashes), various method pointers, and the name of the C
+structure that contains the object.  The methods are used to
+encapsulate type-specific information about the object, such as how to
+print it or mark it for garbage collection, so that it's easy to add
+new object types without having to add a specific case for each new
+type in a bunch of different places.
 
    The difference between `DEFINE_LRECORD_IMPLEMENTATION()' and
 `DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()' is that the former is used
@@ -346,21 +349,20 @@ for keeping allocation statistics.)
    For the purpose of keeping allocation statistics, the allocation
 engine keeps a list of all the different types that exist.  Note that,
 since `DEFINE_LRECORD_IMPLEMENTATION()' is a macro that is specified at
-top-level, there is no way for it to add to the list of all existing
-types.  What happens instead is that each implementation structure
-contains in it a dynamically assigned number that is particular to that
-type. (Or rather, it contains a pointer to another structure that
-contains this number.  This evasiveness is done so that the
-implementation structure can be declared const.) In the sweep stage of
-garbage collection, each lrecord is examined to see if its
-implementation structure has its dynamically-assigned number set.  If
-not, it must be a new type, and it is added to the list of known types
-and a new number assigned.  The number is used to index into an array
-holding the number of objects of each type and the total memory
-allocated for objects of that type.  The statistics in this array are
-also computed during the sweep stage.  These statistics are returned by
-the call to `garbage-collect' and are printed out at the end of the
-loadup phase.
+top-level, there is no way for it to initialize the global data
+structures containing type information, like
+`lrecord_implementations_table'.  For this reason a call to
+`INIT_LRECORD_IMPLEMENTATION' must be added to the same source file
+containing `DEFINE_LRECORD_IMPLEMENTATION', but instead of to the top
+level, to one of the init functions, typically `syms_of_FOO.c'.
+`INIT_LRECORD_IMPLEMENTATION' must be called before an object of this
+type is used.
+
+   The type number is also used to index into an array holding the
+number of objects of each type and the total memory allocated for
+objects of that type.  The statistics in this array are computed during
+the sweep stage.  These statistics are returned by the call to
+`garbage-collect'.
 
    Note that for every type defined with a `DEFINE_LRECORD_*()' macro,
 there needs to be a `DECLARE_LRECORD_IMPLEMENTATION()' somewhere in a
@@ -559,10 +561,9 @@ system, when memory gets to 75%, 85%, and 95% full.  (On some systems,
 the memory warnings are not functional.)
 
    Allocated memory that is going to be used to make a Lisp object is
-created using `allocate_lisp_storage()'.  This calls `xmalloc()' but
-also verifies that the pointer to the memory can fit into a Lisp word
-(remember that some bits are taken away for a type tag and a mark bit).
-If not, an error is issued through `memory_full()'.
+created using `allocate_lisp_storage()'.  This just calls `xmalloc()'.
+It used to verify that the pointer to the memory can fit into a Lisp
+word, before the current Lisp object representation was introduced.
 `allocate_lisp_storage()' is called by `alloc_lcrecord()',
 `ALLOCATE_FIXED_TYPE()', and the vector and bit-vector creation
 routines.  These routines also call `INCREMENT_CONS_COUNTER()' at the

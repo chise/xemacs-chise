@@ -30,6 +30,72 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Outline Format,  Next: Outline Motion,  Prev: Outline Mode,  Up: Outline Mode
+
+Format of Outlines
+..................
+
+   Outline mode assumes that the lines in the buffer are of two types:
+"heading lines" and "body lines".  A heading line represents a topic in
+the outline.  Heading lines start with one or more stars; the number of
+stars determines the depth of the heading in the outline structure.
+Thus, a heading line with one star is a major topic; all the heading
+lines with two stars between it and the next one-star heading are its
+subtopics; and so on.  Any line that is not a heading line is a body
+line.  Body lines belong to the preceding heading line.  Here is an
+example:
+
+     * Food
+     
+     This is the body,
+     which says something about the topic of food.
+     
+     ** Delicious Food
+     
+     This is the body of the second-level header.
+     
+     ** Distasteful Food
+     
+     This could have
+     a body too, with
+     several lines.
+     
+     *** Dormitory Food
+     
+     * Shelter
+     
+     A second first-level topic with its header line.
+
+   A heading line together with all following body lines is called
+collectively an "entry".  A heading line together with all following
+deeper heading lines and their body lines is called a "subtree".
+
+   You can customize the criterion for distinguishing heading lines by
+setting the variable `outline-regexp'.  Any line whose beginning has a
+match for this regexp is considered a heading line.  Matches that start
+within a line (not at the beginning) do not count.  The length of the
+matching text determines the level of the heading; longer matches make
+a more deeply nested level.  Thus, for example, if a text formatter has
+commands `@chapter', `@section' and `@subsection' to divide the
+document into chapters and sections, you can make those lines count as
+heading lines by setting `outline-regexp' to
+`"@chap\\|@\\(sub\\)*section"'.  Note the trick: the two words
+`chapter' and `section' are the same length, but by defining the regexp
+to match only `chap' we ensure that the length of the text matched on a
+chapter heading is shorter, so that Outline mode will know that
+sections are contained in chapters.  This works as long as no other
+command starts with `@chap'.
+
+   Outline mode makes a line invisible by changing the newline before it
+into an ASCII Control-M (code 015).  Most editing commands that work on
+lines treat an invisible line as part of the previous line because,
+strictly speaking, it is part of that line, since there is no longer a
+newline in between.  When you save the file in Outline mode, Control-M
+characters are saved as newlines, so the invisible lines become ordinary
+lines in the file.  Saving does not change the visibility status of a
+line inside Emacs.
+
+
 File: xemacs.info,  Node: Outline Motion,  Next: Outline Visibility,  Prev: Outline Format,  Up: Outline Mode
 
 Outline Motion Commands
@@ -1082,154 +1148,4 @@ a symbol, SYMBOL
      makes a difference when the indentation is computed by `C-M-q'; if
      the value is a number, `C-M-q' need not recalculate indentation
      for the following lines until the end of the list.
-
-
-File: xemacs.info,  Node: C Indent,  Prev: Lisp Indent,  Up: Grinding
-
-Customizing C Indentation
--------------------------
-
-   Two variables control which commands perform C indentation and when.
-
-   If `c-auto-newline' is non-`nil', newlines are inserted both before
-and after braces that you insert and after colons and semicolons.
-Correct C indentation is done on all the lines that are made this way.
-
-   If `c-tab-always-indent' is non-`nil', the <TAB> command in C mode
-does indentation only if point is at the left margin or within the
-line's indentation.  If there is non-whitespace to the left of point,
-<TAB> just inserts a tab character in the buffer.  Normally, this
-variable is `nil', and <TAB> always reindents the current line.
-
-   C does not have anything analogous to particular function names for
-which special forms of indentation are desirable.  However, it has a
-different need for customization facilities: many different styles of C
-indentation are in common use.
-
-   There are six variables you can set to control the style that Emacs C
-mode will use.
-
-`c-indent-level'
-     Indentation of C statements within surrounding block.  The
-     surrounding block's indentation is the indentation of the line on
-     which the open-brace appears.
-
-`c-continued-statement-offset'
-     Extra indentation given to a substatement, such as the then-clause
-     of an `if' or body of a `while'.
-
-`c-brace-offset'
-     Extra indentation for lines that start with an open brace.
-
-`c-brace-imaginary-offset'
-     An open brace following other text is treated as if it were this
-     far to the right of the start of its line.
-
-`c-argdecl-indent'
-     Indentation level of declarations of C function arguments.
-
-`c-label-offset'
-     Extra indentation for a line that is a label, case, or default.
-
-   The variable `c-indent-level' controls the indentation for C
-statements with respect to the surrounding block.  In the example:
-
-         {
-           foo ();
-
-the difference in indentation between the lines is `c-indent-level'.
-Its standard value is 2.
-
-   If the open-brace beginning the compound statement is not at the
-beginning of its line, the `c-indent-level' is added to the indentation
-of the line, not the column of the open-brace.  For example,
-
-     if (losing) {
-       do_this ();
-
-One popular indentation style is that which results from setting
-`c-indent-level' to 8 and putting open-braces at the end of a line in
-this way.  Another popular style prefers to put the open-brace on a
-separate line.
-
-   In fact, the value of the variable `c-brace-imaginary-offset' is
-also added to the indentation of such a statement.  Normally this
-variable is zero.  Think of this variable as the imaginary position of
-the open brace, relative to the first non-blank character on the line.
-By setting the variable to 4 and `c-indent-level' to 0, you can get
-this style:
-
-     if (x == y) {
-         do_it ();
-         }
-
-   When `c-indent-level' is zero, the statements inside most braces
-line up exactly under the open brace.  An exception are braces in column
-zero, like those surrounding a function's body.  The statements inside
-those braces are not placed at column zero.  Instead, `c-brace-offset'
-and `c-continued-statement-offset' (see below) are added to produce a
-typical offset between brace levels, and the statements are indented
-that far.
-
-   `c-continued-statement-offset' controls the extra indentation for a
-line that starts within a statement (but not within parentheses or
-brackets).  These lines are usually statements inside other statements,
-like the then-clauses of `if' statements and the bodies of `while'
-statements.  The `c-continued-statement-offset' parameter determines
-the difference in indentation between the two lines in:
-
-     if (x == y)
-       do_it ();
-
-The default value for `c-continued-statement-offset' is 2.  Some
-popular indentation styles correspond to a value of zero for
-`c-continued-statement-offset'.
-
-   `c-brace-offset' is the extra indentation given to a line that
-starts with an open-brace.  Its standard value is zero; compare:
-
-     if (x == y)
-       {
-
-with:
-
-     if (x == y)
-       do_it ();
-
-If you set `c-brace-offset' to 4, the first example becomes:
-
-     if (x == y)
-           {
-
-   `c-argdecl-indent' controls the indentation of declarations of the
-arguments of a C function.  It is absolute: argument declarations
-receive exactly `c-argdecl-indent' spaces.  The standard value is 5 and
-results in code like this:
-
-     char *
-     index (string, char)
-          char *string;
-          int char;
-
-   `c-label-offset' is the extra indentation given to a line that
-contains a label, a case statement, or a `default:' statement.  Its
-standard value is -2 and results in code like this:
-
-     switch (c)
-       {
-       case 'x':
-
-If `c-label-offset' were zero, the same code would be indented as:
-
-     switch (c)
-       {
-         case 'x':
-
-This example assumes that the other variables above also have their
-default values.
-
-   Using the indentation style produced by the default settings of the
-variables just discussed and putting open braces on separate lines
-produces clear and readable files.  For an example, look at any of the C
-source files of XEmacs.
 

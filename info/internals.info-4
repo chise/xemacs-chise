@@ -38,6 +38,85 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Modules for Interfacing with the File System,  Next: Modules for Other Aspects of the Lisp Interpreter and Object System,  Prev: Modules for the Redisplay Mechanism,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Interfacing with the File System
+============================================
+
+     lstream.c
+     lstream.h
+
+   These modules implement the "stream" Lisp object type.  This is an
+internal-only Lisp object that implements a generic buffering stream.
+The idea is to provide a uniform interface onto all sources and sinks of
+data, including file descriptors, stdio streams, chunks of memory, Lisp
+buffers, Lisp strings, etc.  That way, I/O functions can be written to
+the stream interface and can transparently handle all possible sources
+and sinks.  (For example, the `read' function can read data from a
+file, a string, a buffer, or even a function that is called repeatedly
+to return data, without worrying about where the data is coming from or
+what-size chunks it is returned in.)
+
+   Note that in the C code, streams are called "lstreams" (for "Lisp
+streams") to distinguish them from other kinds of streams, e.g. stdio
+streams and C++ I/O streams.
+
+   Similar to other subsystems in XEmacs, lstreams are separated into
+generic functions and a set of methods for the different types of
+lstreams.  `lstream.c' provides implementations of many different types
+of streams; others are provided, e.g., in `mule-coding.c'.
+
+     fileio.c
+
+   This implements the basic primitives for interfacing with the file
+system.  This includes primitives for reading files into buffers,
+writing buffers into files, checking for the presence or accessibility
+of files, canonicalizing file names, etc.  Note that these primitives
+are usually not invoked directly by the user: There is a great deal of
+higher-level Lisp code that implements the user commands such as
+`find-file' and `save-buffer'.  This is similar to the distinction
+between the lower-level primitives in `editfns.c' and the higher-level
+user commands in `commands.c' and `simple.el'.
+
+     filelock.c
+
+   This file provides functions for detecting clashes between different
+processes (e.g. XEmacs and some external process, or two different
+XEmacs processes) modifying the same file.  (XEmacs can optionally use
+the `lock/' subdirectory to provide a form of "locking" between
+different XEmacs processes.)  This module is also used by the low-level
+functions in `insdel.c' to ensure that, if the first modification is
+being made to a buffer whose corresponding file has been externally
+modified, the user is made aware of this so that the buffer can be
+synched up with the external changes if necessary.
+
+     filemode.c
+
+   This file provides some miscellaneous functions that construct a
+`rwxr-xr-x'-type permissions string (as might appear in an `ls'-style
+directory listing) given the information returned by the `stat()'
+system call.
+
+     dired.c
+     ndir.h
+
+   These files implement the XEmacs interface to directory searching.
+This includes a number of primitives for determining the files in a
+directory and for doing filename completion. (Remember that generic
+completion is handled by a different mechanism, in `minibuf.c'.)
+
+   `ndir.h' is a header file used for the directory-searching emulation
+functions provided in `sysdep.c' (see section J below), for systems
+that don't provide any directory-searching functions. (On those
+systems, directories can be read directly as files, and parsed.)
+
+     realpath.c
+
+   This file provides an implementation of the `realpath()' function
+for expanding symbolic links, on systems that don't implement it or have
+a broken implementation.
+
+
 File: internals.info,  Node: Modules for Other Aspects of the Lisp Interpreter and Object System,  Next: Modules for Interfacing with the Operating System,  Prev: Modules for Interfacing with the File System,  Up: A Summary of the Various XEmacs Modules
 
 Modules for Other Aspects of the Lisp Interpreter and Object System

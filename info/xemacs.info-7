@@ -30,6 +30,88 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: File Names,  Next: Visiting,  Prev: Files,  Up: Files
+
+File Names
+==========
+
+   Most Emacs commands that operate on a file require you to specify the
+file name.  (Saving and reverting are exceptions; the buffer knows which
+file name to use for them.)  File names are specified in the minibuffer
+(*note Minibuffer::).  "Completion" is available, to make it easier to
+specify long file names.  *Note Completion::.
+
+   There is always a "default file name" which is used if you enter an
+empty argument by typing just <RET>.  Normally the default file name is
+the name of the file visited in the current buffer; this makes it easy
+to operate on that file with any of the Emacs file commands.
+
+   Each buffer has a default directory, normally the same as the
+directory of the file visited in that buffer.  When Emacs reads a file
+name, the default directory is used if you do not specify a directory.
+If you specify a directory in a relative fashion, with a name that does
+not start with a slash, it is interpreted with respect to the default
+directory.  The default directory of the current buffer is kept in the
+variable `default-directory', which has a separate value in every
+buffer.  The value of the variable should end with a slash.
+
+   For example, if the default file name is `/u/rms/gnu/gnu.tasks' then
+the default directory is `/u/rms/gnu/'.  If you type just `foo', which
+does not specify a directory, it is short for `/u/rms/gnu/foo'.
+`../.login' would stand for `/u/rms/.login'.  `new/foo' would stand for
+the filename `/u/rms/gnu/new/foo'.
+
+   The variable `default-directory-alist' takes an alist of major modes
+and their opinions on `default-directory' as a Lisp expression to
+evaluate.  A resulting value of `nil' is ignored in favor of
+`default-directory'.
+
+   You can create a new directory with the function `make-directory',
+which takes as an argument a file name string. The current directory is
+displayed in the minibuffer when the function is called; you can delete
+the old directory name and supply a new directory name. For example, if
+the current directory is `/u/rms/gnu', you can delete `gnu' and type
+`oryx' and <RET> to create `/u/rms/oryx'.  Removing a directory is
+similar to creating one.  To remove a directory, use
+`remove-directory'; it takes one argument, a file name string.
+
+   The command `M-x pwd' prints the current buffer's default directory,
+and the command `M-x cd' sets it (to a value read using the
+minibuffer).  A buffer's default directory changes only when the `cd'
+command is used.  A file-visiting buffer's default directory is
+initialized to the directory of the file that is visited there.  If a
+buffer is created with `C-x b', its default directory is copied from
+that of the buffer that was current at the time.
+
+   The default directory name actually appears in the minibuffer when
+the minibuffer becomes active to read a file name.  This serves two
+purposes: it shows you what the default is, so that you can type a
+relative file name and know with certainty what it will mean, and it
+allows you to edit the default to specify a different directory.  To
+inhibit the insertion of the default directory, set the variable
+`insert-default-directory' to `nil'.
+
+   Note that it is legitimate to type an absolute file name after you
+enter the minibuffer, ignoring the presence of the default directory
+name.  The final minibuffer contents may look invalid, but that is not
+so.  *Note Minibuffer File::.
+
+   `$' in a file name is used to substitute environment variables.  For
+example, if you have used the shell command `setenv FOO rms/hacks' to
+set up an environment variable named `FOO', then you can use
+`/u/$FOO/test.c' or `/u/${FOO}/test.c' as an abbreviation for
+`/u/rms/hacks/test.c'.  The environment variable name consists of all
+the alphanumeric characters after the `$'; alternatively, it may be
+enclosed in braces after the `$'.  Note that the `setenv' command
+affects Emacs only if done before Emacs is started.
+
+   To access a file with `$' in its name, type `$$'.  This pair is
+converted to a single `$' at the same time variable substitution is
+performed for single `$'.  The Lisp function that performs the
+substitution is called `substitute-in-file-name'.  The substitution is
+performed only on filenames read as such using the minibuffer.
+
+
 File: xemacs.info,  Node: Visiting,  Next: Saving,  Prev: File Names,  Up: Files
 
 Visiting Files
@@ -990,119 +1072,4 @@ Then the text in `ChangeLog' looks like this:
 For example, if you merely fix some misspellings in comments, you can
 log the change with an entry beginning with `#' to avoid putting such
 trivia into `ChangeLog'.
-
-
-File: xemacs.info,  Node: Old Versions,  Next: VC Status,  Prev: Change Logs and VC,  Up: Version Control
-
-Examining And Comparing Old Versions
-------------------------------------
-
-`C-x v ~ VERSION <RET>'
-     Examine version VERSION of the visited file, in a buffer of its
-     own (`vc-version-other-window').
-
-`C-x v ='
-     Compare the current buffer contents with the latest checked-in
-     version of the file.
-
-`C-u C-x v = FILE <RET> OLDVERS <RET> NEWVERS <RET>'
-     Compare the specified two versions of FILE.
-
-   You can examine any version of a file by first visiting it, and then
-using `C-x v ~ VERSION <RET>' (`vc-version-other-window').  This puts
-the text of version VERSION in a file named `FILENAME.~VERSION~', then
-visits it in a separate window.
-
-   To compare two versions of a file, use the command `C-x v ='
-(`vc-diff').
-
-   Plain `C-x v =' compares the current buffer contents (saving them in
-the file if necessary) with the last checked-in version of the file.
-With a prefix argument, `C-x v =' reads a file name and two version
-numbers, then compares those versions of the specified file.
-
-   If you supply a directory name instead of the name of a work file,
-this command compares the two specified versions of all registered files
-in that directory and its subdirectories.  You can also specify a
-snapshot name (*note Snapshots::) instead of one or both version
-numbers.
-
-   You can specify a checked-in version by its number; you can specify
-the most recent checked-in version with an empty version number.
-
-   This command works by running the `vcdiff' utility, getting the
-options from the variable `diff-switches'.  It displays the output in a
-special buffer in another window.  Unlike the `M-x diff' command, `C-x
-v =' does not try to find the changes in the old and new versions.
-This is because one or both versions normally do not exist as files.
-They exist only in the records of the master file.  *Note Comparing
-Files::, for more information about `M-x diff'.
-
-
-File: xemacs.info,  Node: VC Status,  Next: Renaming and VC,  Prev: Old Versions,  Up: Version Control
-
-VC Status Commands
-------------------
-
-   To view the detailed version control status and history of a file,
-type `C-x v l' (`vc-print-log').  It displays the history of changes to
-the current file, including the text of the log entries.  The output
-appears in a separate window.
-
-   When you are working on a large program, it's often useful to find
-all the files that are currently locked, or all the files maintained in
-version control at all.  You can use `C-x v d' (`vc-directory') to show
-all the locked files in or beneath the current directory.  This
-includes all files that are locked by any user.  `C-u C-x v d' lists
-all files in or beneath the current directory that are maintained with
-version control.
-
-   The list of files is displayed as a buffer that uses an augmented
-Dired mode.  The names of the users locking various files are shown (in
-parentheses) in place of the owner and group.  All the normal Dired
-commands work in this buffer.  Most interactive VC commands work also,
-and apply to the file name on the current line.
-
-   The `C-x v v' command (`vc-next-action'), when used in the augmented
-Dired buffer, operates on all the marked files (or the file on the
-current line).  If it operates on more than one file, it handles each
-file according to its current state; thus, it may check out one file
-and check in another (because it is already checked out).  If it has to
-check in any files, it reads a single log entry, then uses that text
-for all the files being checked in.  This can be convenient for
-registering or checking in several files at once, as part of the same
-change.
-
-
-File: xemacs.info,  Node: Renaming and VC,  Next: Snapshots,  Prev: VC Status,  Up: Version Control
-
-Renaming VC Work Files and Master Files
----------------------------------------
-
-   When you rename a registered file, you must also rename its master
-file correspondingly to get proper results.  Use `vc-rename-file' to
-rename the source file as you specify, and rename its master file
-accordingly.  It also updates any snapshots (*note Snapshots::) that
-mention the file, so that they use the new name; despite this, the
-snapshot thus modified may not completely work (*note Snapshot
-Caveats::).
-
-   You cannot use `vc-rename-file' on a file that is locked by someone
-else.
-
-
-File: xemacs.info,  Node: Snapshots,  Next: Version Headers,  Prev: Renaming and VC,  Up: Version Control
-
-Snapshots
----------
-
-   A "snapshot" is a named set of file versions (one for each
-registered file) that you can treat as a unit.  One important kind of
-snapshot is a "release", a (theoretically) stable version of the system
-that is ready for distribution to users.
-
-* Menu:
-
-* Making Snapshots::		The snapshot facilities.
-* Snapshot Caveats::		Things to be careful of when using snapshots.
 

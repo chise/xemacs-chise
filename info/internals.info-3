@@ -286,13 +286,17 @@ File: internals.info,  Node: Techniques for XEmacs Developers,  Prev: Coding for
 Techniques for XEmacs Developers
 ================================
 
-   To make a quantified XEmacs, do: `make quantmacs'.
+   To make a purified XEmacs, do: `make puremacs'.  To make a
+quantified XEmacs, do: `make quantmacs'.
 
-   You simply can't dump Quantified and Purified images.  Run the image
-like so:  `quantmacs -batch -l loadup.el run-temacs XEMACS-ARGS...'.
+   You simply can't dump Quantified and Purified images (unless using
+the portable dumper).  Purify gets confused when xemacs frees memory in
+one process that was allocated in a _different_ process on a different
+machine!.  Run it like so:
+     temacs -batch -l loadup.el run-temacs XEMACS-ARGS...
 
    Before you go through the trouble, are you compiling with all
-debugging and error-checking off?  If not try that first.  Be warned
+debugging and error-checking off?  If not, try that first.  Be warned
 that while Quantify is directly responsible for quite a few
 optimizations which have been made to XEmacs, doing a run which
 generates results which can be acted upon is not necessarily a trivial
@@ -328,14 +332,105 @@ out where the cycles are going.  Specific projects:
 Function calls in elisp are especially expensive.  Iterating over a
 long list is going to be 30 times faster implemented in C than in Elisp.
 
+   Heavily used small code fragments need to be fast.  The traditional
+way to implement such code fragments in C is with macros.  But macros
+in C are known to be broken.
+
+   Macro arguments that are repeatedly evaluated may suffer from
+repeated side effects or suboptimal performance.
+
+   Variable names used in macros may collide with caller's variables,
+causing (at least) unwanted compiler warnings.
+
+   In order to solve these problems, and maintain statement semantics,
+one should use the `do { ... } while (0)' trick while trying to
+reference macro arguments exactly once using local variables.
+
+   Let's take a look at this poor macro definition:
+
+     #define MARK_OBJECT(obj) \
+       if (!marked_p (obj)) mark_object (obj), did_mark = 1
+
+   This macro evaluates its argument twice, and also fails if used like
+this:
+       if (flag) MARK_OBJECT (obj); else do_something();
+
+   A much better definition is
+
+     #define MARK_OBJECT(obj) do { \
+       Lisp_Object mo_obj = (obj); \
+       if (!marked_p (mo_obj))     \
+         {                         \
+           mark_object (mo_obj);   \
+           did_mark = 1;           \
+         }                         \
+     } while (0)
+
+   Notice the elimination of double evaluation by using the local
+variable with the obscure name.  Writing safe and efficient macros
+requires great care.  The one problem with macros that cannot be
+portably worked around is, since a C block has no value, a macro used
+as an expression rather than a statement cannot use the techniques just
+described to avoid multiple evaluation.
+
+   In most cases where a macro has function semantics, an inline
+function is a better implementation technique.  Modern compiler
+optimizers tend to inline functions even if they have no `inline'
+keyword, and configure magic ensures that the `inline' keyword can be
+safely used as an additional compiler hint.  Inline functions used in a
+single .c files are easy.  The function must already be defined to be
+`static'.  Just add another `inline' keyword to the definition.
+
+     inline static int
+     heavily_used_small_function (int arg)
+     {
+       ...
+     }
+
+   Inline functions in header files are trickier, because we would like
+to make the following optimization if the function is _not_ inlined
+(for example, because we're compiling for debugging).  We would like the
+function to be defined externally exactly once, and each calling
+translation unit would create an external reference to the function,
+instead of including a definition of the inline function in the object
+code of every translation unit that uses it.  This optimization is
+currently only available for gcc.  But you don't have to worry about the
+trickiness; just define your inline functions in header files using this
+pattern:
+
+     INLINE_HEADER int
+     i_used_to_be_a_crufty_macro_but_look_at_me_now (int arg);
+     INLINE_HEADER int
+     i_used_to_be_a_crufty_macro_but_look_at_me_now (int arg)
+     {
+       ...
+     }
+
+   The declaration right before the definition is to prevent warnings
+when compiling with `gcc -Wmissing-declarations'.  I consider issuing
+this warning for inline functions a gcc bug, but the gcc maintainers
+disagree.
+
+   Every header which contains inline functions, either directly by
+using `INLINE_HEADER' or indirectly by using `DECLARE_LRECORD' must be
+added to `inline.c''s includes to make the optimization described above
+work.  (Optimization note: if all INLINE_HEADER functions are in fact
+inlined in all translation units, then the linker can just discard
+`inline.o', since it contains only unreferenced code).
+
    To get started debugging XEmacs, take a look at the `.gdbinit' and
-`.dbxrc' files in the `src' directory.  *Note Q2.1.15 - How to Debug an
-XEmacs problem with a debugger: (xemacs-faq)Q2.1.15 - How to Debug an
-XEmacs problem with a debugger.
+`.dbxrc' files in the `src' directory.  See the section in the XEmacs
+FAQ on How to Debug an XEmacs problem with a debugger.
 
    After making source code changes, run `make check' to ensure that
-you haven't introduced any regressions.  If you're feeling ambitious,
-you can try to improve the test suite in `tests/automated'.
+you haven't introduced any regressions.  If you want to make xemacs more
+reliable, please improve the test suite in `tests/automated'.
+
+   Did you make sure you didn't introduce any new compiler warnings?
+
+   Before submitting a patch, please try compiling at least once with
+
+     configure --with-mule --with-union-type --error-checking=all
 
    Here are things to know when you create a new source file:
 
@@ -358,15 +453,6 @@ you can try to improve the test suite in `tests/automated'.
    * Header files should _not_ include `<config.h>' and `"lisp.h"'.  It
      is the responsibility of the `.c' files that use it to do so.
 
-   * If the header uses `INLINE', either directly or through
-     `DECLARE_LRECORD', then it must be added to `inline.c''s includes.
-
-   * Try compiling at least once with
-
-          gcc --with-mule --with-union-type --error-checking=all
-
-   * Did I mention that you should run the test suite?
-          make check
 
    Here is a checklist of things to do when creating a new lisp object
 type named FOO:
@@ -375,17 +461,19 @@ type named FOO:
 
   2. create FOO.c
 
-  3. add definitions of syms_of_FOO, etc. to FOO.c
+  3. add definitions of `syms_of_FOO', etc. to `FOO.c'
 
-  4. add declarations of syms_of_FOO, etc. to symsinit.h
+  4. add declarations of `syms_of_FOO', etc. to `symsinit.h'
 
-  5. add calls to syms_of_FOO, etc. to emacs.c(main_1)
+  5. add calls to `syms_of_FOO', etc. to `emacs.c'
 
-  6. add definitions of macros like CHECK_FOO and FOOP to FOO.h
+  6. add definitions of macros like `CHECK_FOO' and `FOOP' to `FOO.h'
 
-  7. add the new type index to enum lrecord_type
+  7. add the new type index to `enum lrecord_type'
 
-  8. add DEFINE_LRECORD_IMPLEMENTATION call to FOO.c
+  8. add a DEFINE_LRECORD_IMPLEMENTATION call to `FOO.c'
+
+  9. add an INIT_LRECORD_IMPLEMENTATION call to `syms_of_FOO.c'
 
 
 File: internals.info,  Node: A Summary of the Various XEmacs Modules,  Next: Allocation of Objects in XEmacs Lisp,  Prev: Rules When Writing New C Code,  Up: Top
@@ -1122,83 +1210,4 @@ TTY.
 
    These files provide some miscellaneous TTY-output functions and
 should probably be merged into `redisplay-tty.c'.
-
-
-File: internals.info,  Node: Modules for Interfacing with the File System,  Next: Modules for Other Aspects of the Lisp Interpreter and Object System,  Prev: Modules for the Redisplay Mechanism,  Up: A Summary of the Various XEmacs Modules
-
-Modules for Interfacing with the File System
-============================================
-
-     lstream.c
-     lstream.h
-
-   These modules implement the "stream" Lisp object type.  This is an
-internal-only Lisp object that implements a generic buffering stream.
-The idea is to provide a uniform interface onto all sources and sinks of
-data, including file descriptors, stdio streams, chunks of memory, Lisp
-buffers, Lisp strings, etc.  That way, I/O functions can be written to
-the stream interface and can transparently handle all possible sources
-and sinks.  (For example, the `read' function can read data from a
-file, a string, a buffer, or even a function that is called repeatedly
-to return data, without worrying about where the data is coming from or
-what-size chunks it is returned in.)
-
-   Note that in the C code, streams are called "lstreams" (for "Lisp
-streams") to distinguish them from other kinds of streams, e.g. stdio
-streams and C++ I/O streams.
-
-   Similar to other subsystems in XEmacs, lstreams are separated into
-generic functions and a set of methods for the different types of
-lstreams.  `lstream.c' provides implementations of many different types
-of streams; others are provided, e.g., in `mule-coding.c'.
-
-     fileio.c
-
-   This implements the basic primitives for interfacing with the file
-system.  This includes primitives for reading files into buffers,
-writing buffers into files, checking for the presence or accessibility
-of files, canonicalizing file names, etc.  Note that these primitives
-are usually not invoked directly by the user: There is a great deal of
-higher-level Lisp code that implements the user commands such as
-`find-file' and `save-buffer'.  This is similar to the distinction
-between the lower-level primitives in `editfns.c' and the higher-level
-user commands in `commands.c' and `simple.el'.
-
-     filelock.c
-
-   This file provides functions for detecting clashes between different
-processes (e.g. XEmacs and some external process, or two different
-XEmacs processes) modifying the same file.  (XEmacs can optionally use
-the `lock/' subdirectory to provide a form of "locking" between
-different XEmacs processes.)  This module is also used by the low-level
-functions in `insdel.c' to ensure that, if the first modification is
-being made to a buffer whose corresponding file has been externally
-modified, the user is made aware of this so that the buffer can be
-synched up with the external changes if necessary.
-
-     filemode.c
-
-   This file provides some miscellaneous functions that construct a
-`rwxr-xr-x'-type permissions string (as might appear in an `ls'-style
-directory listing) given the information returned by the `stat()'
-system call.
-
-     dired.c
-     ndir.h
-
-   These files implement the XEmacs interface to directory searching.
-This includes a number of primitives for determining the files in a
-directory and for doing filename completion. (Remember that generic
-completion is handled by a different mechanism, in `minibuf.c'.)
-
-   `ndir.h' is a header file used for the directory-searching emulation
-functions provided in `sysdep.c' (see section J below), for systems
-that don't provide any directory-searching functions. (On those
-systems, directories can be read directly as files, and parsed.)
-
-     realpath.c
-
-   This file provides an implementation of the `realpath()' function
-for expanding symbolic links, on systems that don't implement it or have
-a broken implementation.
 
