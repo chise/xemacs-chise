@@ -80,6 +80,7 @@
 (define-char
   '((ideographic-radical . 129)	; â¾€
     (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (=ucs		. #x8083)	; è‚ƒ
     (=gb2312		. #x4B60)	; ø»…„¯
     ))
