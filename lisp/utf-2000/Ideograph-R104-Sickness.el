@@ -3683,12 +3683,12 @@
   '((->ucs		. #x7629)	; ç˜©
     (morohashi-daikanwa	22437 0 2)
     (ideographic-radical . 104)	; â½§
-    (japanese-strokes	 . 9)
+    (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (japanese-jisx0212	. #x4D78)	; ø»‹¦
     ))
 (define-char
-  '((morohashi-daikanwa	22437 0 2 0)
+  '((morohashi-daikanwa	22437 0 3)
     (ideographic-radical . 104)	; â½§
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
