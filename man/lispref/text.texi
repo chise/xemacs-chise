@@ -2761,7 +2761,7 @@ implemented in C, with an appropriate interface for Lisp programmers.
 Examples of algorithms thus provided are MD5 and base64 support.
 
 MD5 is an algorithm for calculating message digests, as described in
-rfc1321.  Given a message of arbitrary length, MD5 produces an 128-bit
+rfc1321.  Given a message of arbitrary length, MD5 produces a 128-bit
 ``fingerprint'' (``message digest'') corresponding to that message.  It
 is considered computationally infeasible to produce two messages having
 the same MD5 digest, or to produce a message having a prespecified

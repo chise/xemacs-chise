@@ -131,22 +131,19 @@ be used only with -batch." nil nil)
 ;;;### (autoloads (build-report) "build-report" "lisp/build-report.el")
 
 (autoload 'build-report "build-report" "\
-Report build information including Installation and make output.
-
-Prompts for status (usually \"Success\" or \"Failure\").  Then uses
-`compose-mail' to create a mail message.  The Subject header contains
-status and version information.  Point is left at the beginning of the
-mail text.  Add some notes if you like, and send the report.
-
-Looks for Installation and the make output file (`beta.err' by
-default, customizable via `build-report-make-output-files') in the
-build directory of the running XEmacs by default (customizable via
-`build-report-make-output-dir').  The output from make is filtered
-through `build-report-keep-regexp' and `build-report-delete-regexp'
-before including in the message.
-
-See also `mail-user-agent', `build-report-destination', and
-`build-report-installation-file'." t nil)
+Composes a fresh mail message with the contents of the built XEmacs
+Installation file and excerpts from XEmacs make output.
+`compose-mail' is used to create the mail message.  Point is left at
+the beginning of the mail text.  You may add some personal notes if
+you like and send the report.
+See also
+  `compose-mail', `mail-user-agent',
+  `build-report-destination',
+  `build-report-keep-regexp',
+  `build-report-delete-regexp',
+  `build-report-make-output-dir',
+  `build-report-make-output-files', and
+  `build-report-installation-file'." t nil)
 
 ;;;***
 
@@ -864,8 +861,7 @@ in the tag table that matches the tagname used in the previous find-tag.
 the tag.
 
 This version of this function supports multiple active tags tables,
-and completion. See also the commands `\\[push-tag-mark]' and
-`\\[pop-tag-mark]'.
+and completion.
 
 Variables of note:
 
@@ -1227,8 +1223,7 @@ or if you change your font path, you can call this to re-initialize the menus." 
 
 ;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp/font.el")
 
-(autoload 'font-create-object "font" "\
-Return a font descriptor object for FONTNAME, appropriate for DEVICE." nil nil)
+(autoload 'font-create-object "font" nil nil nil)
 
 (autoload 'font-default-font-for-device "font" nil nil nil)
 

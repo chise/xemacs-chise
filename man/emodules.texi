@@ -478,6 +478,20 @@ will be unloaded.  This means that if any child modules fail to load,
 then their parents will also fail to load.  This does not include
 previous successful calls to @code{emodules_load} at the top level.
 
+@strong{Warning:} Modules are @emph{not} loaded with the
+@code{RTLD_GLOBAL} flag.  The practical upshot is that individual
+modules do not have access to each other's C symbols.  One module cannot
+make a C function call to a function defined in another module, nor can
+it read or set a C variable in another module.  All interaction between
+modules must, therefore, take place at the Lisp level.  This is by
+design.  Other projects have attempted to use @code{RTLD_GLOBAL}, only
+to find that spurious symbol name clashes were the result.  Helper
+functions often have simple names, increasing the probability of such a
+clash.  If you really need to share symbols between modules, create a
+shared library containing those symbols, and link your modules with
+that library.  Otherwise, interactions between modules must take place
+via Lisp function calls and Lisp variables accesses.
+
 @node Using ellcc, Defining Functions, Anatomy of a Module, Top
 @chapter Using @code{ellcc}
 @cindex @code{ellcc}

@@ -149,6 +149,9 @@ struct rune
                                    If this is a rune in the modeline
                                    then this might be nil. */
 
+      int ascent;               /* Ascent of this glyph, in pixels. */
+      int descent;              /* Descent of this glyph, in pixels. */
+      int yoffset;              /* Offset from line top to reach glyph top */
       int xoffset;		/* Number of pixels that need to be
 				   chopped off the left of the glyph.
 				   This has the effect of shifting the
@@ -476,6 +479,10 @@ extern int size_changed;
 /* Nonzero if some device has signaled that it wants to change size. */
 extern int asynch_device_change_pending;
 
+/* Nonzero if some frame has changed the layout of internal elements
+   (gutters or toolbars). */
+extern int frame_layout_changed;
+
 /* Nonzero if any toolbar has changed. */
 extern int toolbar_changed;
 extern int toolbar_changed_set;
@@ -535,6 +542,7 @@ extern int windows_structure_changed;
   (p)->extents_changed = 0;			\
   (p)->faces_changed = 0;			\
   (p)->frame_changed = 0;			\
+  (p)->frame_layout_changed = 0;		\
   (p)->icon_changed = 0;			\
   (p)->menubar_changed = 0;			\
   (p)->modeline_changed = 0;			\
@@ -553,6 +561,7 @@ extern int windows_structure_changed;
   clip_changed = 0;				\
   extents_changed = 0;				\
   frame_changed = 0;				\
+  frame_layout_changed = 0;			\
   icon_changed = 0;				\
   menubar_changed = 0;				\
   modeline_changed = 0;				\
@@ -572,6 +581,7 @@ extern int windows_structure_changed;
     (p)->extents_changed ||			\
     (p)->faces_changed ||			\
     (p)->frame_changed ||			\
+    (p)->frame_layout_changed ||		\
     (p)->icon_changed ||			\
     (p)->menubar_changed ||			\
     (p)->modeline_changed ||			\
@@ -591,6 +601,7 @@ extern int windows_structure_changed;
     extents_changed ||				\
     faces_changed ||				\
     frame_changed ||				\
+    frame_layout_changed ||			\
     icon_changed ||				\
     menubar_changed ||				\
     modeline_changed ||				\
@@ -767,8 +778,8 @@ void redisplay_output_pixmap (struct window *w,
 			      face_index findex, int cursor_start, int cursor_width,
 			      int cursor_height, int offset_bitmap);
 int redisplay_calculate_display_boxes (struct display_line *dl, int xpos,
-				       int xoffset, int start_pixpos, int width,
-				       struct display_box* dest,
+				       int xoffset, int yoffset, int start_pixpos,
+                                       int width, struct display_box* dest,
 				       struct display_glyph_area* src);
 int redisplay_normalize_glyph_area (struct display_box* dest,
 				    struct display_glyph_area* glyphsrc);

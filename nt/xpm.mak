@@ -10,7 +10,7 @@ DEBUG=0
 !endif
 
 !if !defined(USE_CRTDLL)
-USE_CRTDLL=0
+USE_CRTDLL=1
 !endif
 
 !if $(DEBUG)
@@ -67,9 +67,4 @@ all: ..\X11\xpm.h Xpm.lib
 	mkdir ..\X11
 
 Xpm.lib: $(OBJS)
-!if $(USE_CRTDLL)
-# Target is ok, link builds lib as a side effect.
-	link -nologo -dll -def:xpm.def -out:Xpm.dll gdi32.lib $(OBJS) 
-!else
 	lib -nologo -out:$@ $(OBJS)
-!endif

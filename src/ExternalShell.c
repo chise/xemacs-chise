@@ -612,7 +612,7 @@ hack_event_masks_1 (Display *display, Window w, int this_window_propagate)
 {
   Window root, parent, *children;
   unsigned int nchildren;
-  int i;
+  unsigned int i;
 
   if (!XQueryTree (display, w, &root, &parent, &children, &nchildren))
     return;

@@ -506,7 +506,7 @@ request_sigio (void)
 }
 #endif /* 0 */
 
-#define REG_ROOT "SOFTWARE\\GNU\\XEmacs"
+#define REG_ROOT "SOFTWARE\\XEmacs\\XEmacs"
 
 LPBYTE 
 nt_get_resource (char *key, LPDWORD lpdwtype)
@@ -1474,6 +1474,7 @@ mswindows_stat (const char * path, struct stat * buf)
   int permission;
   int len;
   int rootdir = FALSE;
+  int errm;
 
   if (path == NULL || buf == NULL)
     {
@@ -1496,13 +1497,16 @@ mswindows_stat (const char * path, struct stat * buf)
   rootdir = (path >= name + len - 1
 	     && (IS_DIRECTORY_SEP (*path) || *path == 0));
   name = strcpy ((char *)alloca (len + 2), name);
-
+  errm = SetErrorMode (SEM_FAILCRITICALERRORS
+		       | SEM_NOOPENFILEERRORBOX);
   if (rootdir)
     {
       if (!IS_DIRECTORY_SEP (name[len-1]))
 	strcat (name, "\\");
+
       if (GetDriveType (name) < 2)
 	{
+	  SetErrorMode (errm);
 	  errno = ENOENT;
 	  return -1;
 	}
@@ -1532,14 +1536,15 @@ mswindows_stat (const char * path, struct stat * buf)
 	}
       else
 	{
-      fh = FindFirstFile (name, &wfd);
-      if (fh == INVALID_HANDLE_VALUE)
-	{
-	  errno = ENOENT;
-	  return -1;
+	  fh = FindFirstFile (name, &wfd);
+	  if (fh == INVALID_HANDLE_VALUE)
+	    {
+	      SetErrorMode (errm);
+	      errno = ENOENT;
+	      return -1;
+	    }
+	  FindClose (fh);
 	}
-      FindClose (fh);
-    }
     }
 
   if (wfd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
@@ -1585,6 +1590,7 @@ mswindows_stat (const char * path, struct stat * buf)
 	}
       else
 	{
+	  SetErrorMode (errm);
 	  errno = EACCES;
 	  return -1;
 	}
@@ -1596,6 +1602,8 @@ mswindows_stat (const char * path, struct stat * buf)
       buf->st_nlink = 1;
       fake_inode = 0;
     }
+
+  SetErrorMode (errm);
 
 #if 0
   /* Not sure if there is any point in this.  */

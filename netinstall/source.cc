@@ -29,22 +29,14 @@
 static int rb[] = { IDC_SOURCE_NETINST, IDC_SOURCE_DOWNLOAD, IDC_SOURCE_CWD, 0 };
 
 static void
-check_if_enable_next (HWND h)
-{
-  EnableWindow (GetDlgItem (h, IDOK), source ? 1 : 0);
-}
-
-static void
 load_dialog (HWND h)
 {
-  int i;
   rbset (h, rb, source);
 }
 
 static void
 save_dialog (HWND h)
 {
-  int i;
   source = rbget (h, rb);
 }
 

@@ -47,7 +47,7 @@
 #include "reginfo.h"
 #include "log.h"
 #include "hash.h"
-
+#include "desktop.h"
 #include "port.h"
 
 static HWND ins_dialog = 0;
@@ -231,6 +231,10 @@ uninstall_one (char *name, int action, int type)
     {
       SetWindowText (ins_pkgname, name);
       SetWindowText (ins_action, "Uninstalling...");
+      // remove shortcuts and registry entries
+      if (type != TY_GENERIC)
+	remove_xemacs_setup();
+
       if (action == ACTION_UPGRADE)
 	log (0, "Uninstalling old %s", name);
       else
@@ -278,6 +282,7 @@ install_one (char *name, char *file, int file_size, int action, int type)
   for (cp=local; *cp; cp++)
     if (*cp == '/' || *cp == '\\' || *cp == ':')
       base = cp+1;
+
   SetWindowText (ins_pkgname, base);
 
   if (!exists (local) && exists (base))
@@ -311,14 +316,27 @@ install_one (char *name, char *file, int file_size, int action, int type)
   tar_open (local);
   while ((fn = tar_next_file ()))
     {
-      char *dest_file;
+      char *dest_file, *disp_file;
+      int len;
 
       if (lst)
 	fprintf (lst, "%s\n", fn);
 
       dest_file = map_filename (fn, type);
+      
+      // The installer uses a variable width font. Assume roughly 32 chars
+      // will fit and munge the file accordingly.
+#define MAX_DISP_SIZE 50
+      disp_file = strdup(dest_file);
+      if ((len = strlen(dest_file)) > MAX_DISP_SIZE) {
+	disp_file += (len - MAX_DISP_SIZE);
+	disp_file[0] = '.';
+	disp_file[1] = '.';
+	disp_file[2] = '.';
+      }
+#undef MAX_DISP_SIZE
+      SetWindowText (ins_filename, disp_file);
 
-      SetWindowText (ins_filename, dest_file);
       log (LOG_BABBLE, "Installing file %s", dest_file);
       if (tar_read_file (dest_file) != 0)
 	{

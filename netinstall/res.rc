@@ -33,7 +33,7 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
 BEGIN
-    PUSHBUTTON      "Next >",IDOK,199,176,45,15, WS_GROUP
+    PUSHBUTTON      "Next >",IDOK,199,176,45,15,WS_GROUP
     PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
     CONTROL         "Download from the Internet",IDC_SOURCE_DOWNLOAD,"Button",
                     BS_AUTORADIOBUTTON | WS_TABSTOP,127,102,152,10
@@ -203,7 +203,7 @@ BEGIN
     LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "Installing Packages",IDC_STATIC,112,10,170,17
     LTEXT           "(PKG)",IDC_INS_PKG,112,26,170,11
-    LTEXT           "(FILE)",IDC_INS_FILE,112,41,166,11
+    LTEXT           "(FILE)",IDC_INS_FILE,112,41,183,11
     CONTROL         "Progress1",IDC_INS_DISKFULL,"msctls_progress32",
                     WS_BORDER,123,143,165,10
     CONTROL         "Progress1",IDC_INS_IPROGRESS,"msctls_progress32",
@@ -516,17 +516,17 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.2.2.1 2001/12/17 05:49:18 stephent Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.2.2.2 2002/08/20 11:36:07 stephent Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"
     IDS_ERR_CHDIR           "Could not change dir to %s"
-    IDS_CREATE_DIR           "The directory %s does not exist, create it?"
     IDS_OLD_SETUP_VERSION   "This setup is version %s, but setup.ini claims version %s is available.\nYou might want to upgrade to get the latest features and bug fixes."
     IDS_DOWNLOAD_FAILED     "Unable to download %s"
     IDS_DOWNLOAD_INCOMPLETE "Download Incomplete.  Try again?"
     IDS_INSTALL_INCOMPLETE  "Installation incomplete.  Check /setup.log.full for details"
     IDS_ROOT_NOCYGWIN       "You should not install the Cygwin version without Cygwin installed.  Proceed anyway?"
+    IDS_CREATE_DIR          "The directory %s does not exist, create it?"
 END
 
 #endif    // English (U.S.) resources

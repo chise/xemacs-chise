@@ -333,43 +333,45 @@ mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta,
 {
   int hasVertBar, hasHorzBar;	/* Indicates presence of scroll bars */
   unsigned wheelScrollLines = 0; /* Number of lines per wheel notch */
-  Lisp_Object win;
+  Lisp_Object win, corpore, sano;
   struct window_mirror *mirror;
+  int mene, _mene, tekel, upharsin;
+  Bufpos mens, sana;
+  Charcount in;
+  struct window *needle_in_haystack = 0;
   POINT donde_esta;
 
   donde_esta.x = where.x;
   donde_esta.y = where.y;
 
-  ScreenToClient (FRAME_MSWINDOWS_HANDLE (XFRAME (frame)), &donde_esta);
-
   /* Find the window to scroll */
-  {
-    int mene, _mene, tekel, upharsin;
-    Bufpos mens, sana;
-    Charcount in;
-    Lisp_Object corpore, sano;
-    struct window *needle_in_haystack;
 
-    // stderr_out ("donde_esta: %d %d\n", donde_esta.x, donde_esta.y);
-    pixel_to_glyph_translation (XFRAME (frame), donde_esta.x, donde_esta.y,
-				&mene, &_mene, &tekel, &upharsin,
-				&needle_in_haystack,
-				&mens, &sana, &in, &corpore, &sano);
+  /* The mouse event could actually occur outside of the emacs
+     frame. */
+  if (ScreenToClient (FRAME_MSWINDOWS_HANDLE (XFRAME (frame)), 
+		      &donde_esta) != 0)
+    {
+      /* stderr_out ("donde_esta: %d %d\n", donde_esta.x, donde_esta.y); */
+      pixel_to_glyph_translation (XFRAME (frame), donde_esta.x, donde_esta.y,
+				  &mene, &_mene, &tekel, &upharsin,
+				  &needle_in_haystack,
+				  &mens, &sana, &in, &corpore, &sano);
+      
+      if (needle_in_haystack)
+	{
+	  XSETWINDOW (win, needle_in_haystack);
+	  /* stderr_out ("found needle\n");
+	     debug_print (win); */
+	}
+    }
+  
+  if (!needle_in_haystack)
+    {
+      win = FRAME_SELECTED_WINDOW (XFRAME (frame));
+      needle_in_haystack = XWINDOW (win);
+    }
 
-    if (needle_in_haystack)
-      {
-	XSETWINDOW (win, needle_in_haystack);
-	// stderr_out ("found needle\n");
-	// debug_print (win);
-      }
-    else
-      {
-	win = FRAME_SELECTED_WINDOW (XFRAME (frame));
-	needle_in_haystack = XWINDOW (win);
-      }
-
-    mirror = find_window_mirror (needle_in_haystack);
-  }
+  mirror = find_window_mirror (needle_in_haystack);
 
   /* Check that there is something to scroll */
   hasVertBar = can_scroll (mirror->scrollbar_vertical_instance);

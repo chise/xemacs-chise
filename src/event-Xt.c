@@ -310,9 +310,11 @@ maybe_define_x_key_as_self_inserting_character (KeySym keysym, Lisp_Object symbo
     {
       extern Lisp_Object Vcurrent_global_map;
       extern Lisp_Object Qascii_character;
-      Fput (symbol, Qascii_character, character);
-      if (NILP (Flookup_key (Vcurrent_global_map, symbol, Qnil)))
-	Fdefine_key (Vcurrent_global_map, symbol, Qself_insert_command);
+      if (NILP (Flookup_key (Vcurrent_global_map, symbol, Qnil))) 
+        {
+	  Fput (symbol, Qascii_character, character);
+	  Fdefine_key (Vcurrent_global_map, symbol, Qself_insert_command); 
+        }
     }
 }
 

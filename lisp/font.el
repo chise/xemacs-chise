@@ -99,6 +99,7 @@
 
 (defconst font-window-system-mappings
   '((x         . (x-font-create-name x-font-create-object))
+    (gtk       . (x-font-create-name x-font-create-object))
     (ns        . (ns-font-create-name ns-font-create-object))
     (mswindows . (mswindows-font-create-name mswindows-font-create-object))
     (pm        . (x-font-create-name x-font-create-object)) ; Change? FIXME

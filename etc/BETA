@@ -151,7 +151,7 @@ and go play minesweep for a while on an older XEmacs while the binary
 is rebuilt.
 
 ** Building XEmacs from a full distribution
-==============================================
+===========================================
 
 Locate a convenient place where you have at least 100MB of free space
 and issue the command
@@ -266,7 +266,97 @@ build report should include:
    of the developers.
 
 
-* Patching XEmacs
+* Packages
+==========
+
+[Note: these instructions have been partly updated, but not carefully
+reviewed in some time.  Caveat tester.]
+
+Starting with XEmacs 21.1, much of the functionality of XEmacs has
+been unbundled into "the packages."  For more information about the
+package system, see the Info nodes on Packages (in the XEmacs User
+Manual) and on Packaging (in the Lisp Reference).
+
+When bootstrapping XEmacs, you may need to manually install some
+packages (at least xemacs-base and efs).  These packages are available
+by FTP at ftp://ftp.xemacs.org/pub/xemacs/packages/.
+
+** Binary package installation
+==============================
+
+Prerequisite:  XEmacs 21.0-b1.
+
+Binary packages are complete entities that can be untarred at the top
+level of an XEmacs package hierarchy and work at runtime.  To install files
+in this directory, run the command `M-x package-admin-add-binary-package'
+and fill in appropriate values to the prompts.
+
+** Manual procedures for package management
+===========================================
+
+Prerequisite: XEmacs 21.0
+
+When adding and deleting files from a lisp directory the
+auto-autoloads.el (global symbols) and custom-load.el (Customization
+groups) must be kept in synch.  Assuming one is manipulating a
+directory called `lisp-utils', the command to rebuild the
+auto-autoloads.el file is:
+
+xemacs -vanilla -batch -l autoload -f batch-update-directory lisp-utils
+
+The command to rebuild the custom-load.el file is:
+
+xemacs -vanilla -batch -l cus-dep -f Custom-make-dependencies lisp-utils
+
+To bytecompile both of these files the command is:
+
+xemacs -vanilla -batch -f batch-byte-compile \
+	lisp-utils/auto-autoloads.el lisp-utils/custom-load.el
+
+** Building XEmacs and XEmacs packages from scratch
+===================================================
+
+To build everything completely from scratch (not a high priority as a
+design goal), the following procedure should work.  (I don't recommend
+building this way).
+
+*** Phase 1 -- Get a minimal XEmacs binary with mule to build the package
+    lisp with.
+
+**** Grab a mule-base tarball and install it into a newly created package
+     directory.
+
+**** Configure XEmacs with mule and a package-path including the
+     directory created above.
+
+**** Do a `make dist' to build an XEmacs binary.
+
+*** Phase 2 -- Build and install the package lisp.
+
+**** Modify XEmacs.rules for local paths and the XEmacs binary created in 
+     Phase 1.
+
+**** Do a make from the top level package lisp source directory.[1]
+
+**** Do `make bindist's on all the packages you wish to install and
+     remove the byproduct .tar.gz's.
+
+*** Phase 3 -- If necessary, redump XEmacs
+    with the packages that require dump-time support and install it.
+
+**** Reconfigure without Mule if you don't wish a Mule-ish XEmacs, and
+     rebuild XEmacs.
+
+- or -
+
+**** rm lib-src/DOC src/xemacs; make
+
+**** Install or run in-place.
+
+Note that this is in essence what `make all-elc' has always done.
+
+
+* Improving XEmacs
 =================
 
 ** Creating patches for submission
@@ -386,91 +476,93 @@ then post a short COMMIT notice to xemacs-patches when you commit to
 CVS.  Members of the Review Board will also post short notices of
 administrative action (APPROVE, VETO, QUERY, etc) to xemacs-patches.
 
-* Packages
-====================================
+** Large contributions
+======================
 
-[Note: these instructions have been partly updated, but not carefully
-reviewed in some time.  Caveat tester.]
+Perhaps you have a whole new mode, or a major synchronization with
+upstream for a neglected package, or a synchronization with GNU Emacs
+you would like to contribute.  We welcome such contributions, but they
+are likely to be relatively controversial, generate more comments and
+requests for revision, and take longer to integrate.  Please be
+patient with the process.
 
-Starting with XEmacs 21.1, much of the functionality of XEmacs has
-been unbundled into "the packages."  For more information about the
-package system, see the Info nodes on Packages (in the XEmacs User
-Manual) and on Packaging (in the Lisp Reference).
+*** Updates to existing packages
+--------------------------------
 
-When bootstrapping XEmacs, you may need to manually install some
-packages (at least xemacs-base and efs).  These packages are available
-by FTP at ftp://ftp.xemacs.org/pub/xemacs/packages/.
+If a package has gotten a bit out of date, or even started to bitrot,
+we welcome patches to synchronize it with upstream/GNU Emacs versions.
+Most packages end up varying somewhat from their GNU origins.  See
+"Syncing with GNU Emacs" for hints.  Note that if you do a reasonably
+large amount of syncing with GNU Emacs, you should log this in the
+file itself as well as in the ChangeLog.
 
-** Binary package installation
-================================================
+If the package is important to you, please consider becoming the
+maintainer.  (See "New packages", below.)
 
-Prerequisite:  XEmacs 21.0-b1.
+*** New packages
+----------------
 
-Binary packages are complete entities that can be untarred at the top
-level of an XEmacs package hierarchy and work at runtime.  To install files
-in this directory, run the command `M-x package-admin-add-binary-package'
-and fill in appropriate values to the prompts.
+If you have a new mode or other large addition that does not require
+changes to the core, please consider submitting it as a package, and
+becoming the maintainer.  You get direct commit privileges to the
+repository for your package, "approval" privileges for your own
+patches as well as third party patches to your package, and some
+degree of veto power over patches you don't like.  In return, you are
+expected to maintain friendly liaison with the upstream developer (if
+you aren't the upstream developer), keep watch on the XEmacs Patches
+list for relevant patches, and be available by email to other
+developers for discussion of changes that impact your package.  It's
+also a pretty standard route to the "core" development group, where we
+have plenty of extra work waiting for volunteers.
 
-** Manual procedures for package management
-===========================================
+You don't have to become the maintainer, but it virtually ensures
+rapid acceptance of the package.
 
-Prerequisite: XEmacs 21.0
+For help in creating new packages, see the (rather sparse) discussions
+in the XEmacs User's Guide and the Lisp Reference Manual.  The XEmacs
+Package Release Engineer (Ville Skyttä <ville.skytta@xemacs.org> is
+currently serving with Peter Brown <rendhalver@users.sourceforge.net>
+assisting; Steve Youngs <youngs@xemacs.org> and Stephen Turnbull
+<stephen@xemacs.org> also can help) is the most likely source of advice.
 
-When adding and deleting files from a lisp directory the
-auto-autoloads.el (global symbols) and custom-load.el (Customization
-groups) must be kept in synch.  Assuming one is manipulating a
-directory called `lisp-utils', the command to rebuild the
-auto-autoloads.el file is:
+*** Syncing with GNU Emacs
+--------------------------
 
-xemacs -vanilla -batch -l autoload -f batch-update-directory lisp-utils
+Syncing with GNU Emacs is an important activity.  Although each
+version has its advantages and areas of concentration, it is very
+desirable that common functionality share specifications and APIs.
+When porting GNU code to XEmacs, the following points should be given
+special attention:
 
-The command to rebuild the custom-load.el file is:
+  o Recent GNU Emacsen cannot be built without Mule, but XEmacs can.
+    Make sure your changes do not assume the presence of Mule.
 
-xemacs -vanilla -batch -l cus-dep -f Custom-make-dependencies lisp-utils
+  o GNU Emacs nomenclature often differs from that of XEmacs.
+    Sometimes syncing the names is desirable, other times not.
 
-To bytecompile both of these files the command is:
+  o GNU Emacs functionality often differs from that of XEmacs.
+    Syncing functionality is often controversial.
 
-xemacs -vanilla -batch -f batch-byte-compile \
-	lisp-utils/auto-autoloads.el lisp-utils/custom-load.el
+It is important that you let other developers know that
+synchronization has taken place, to what degree, and when.  For this
+purpose, we use comments of the form
 
-** Building XEmacs and XEmacs packages from scratch
-===================================================
+/* Synched up with: FSF 21.3 by Stephen Turnbull */
 
-To build everything completely from scratch (not a high priority as a
-design goal), the following procedure should work.  (I don't recommend
-building this way).
+in the source file itself, as the last element of the prefatory
+material (copyright notice and commentary).  Obviously the comment
+marker needs to be changed to leading semicolons for Lisp, but
+otherwise the format is the same.
 
-*** Phase 1 -- Get a minimal XEmacs binary with mule to build the package
-    lisp with.
+Of course you should note syncing as the purpose in the ChangeLog,
+too.  But entries get buried deep in the ChangeLog file, and may even
+get moved to a separate ChangeLog.OLD file for rarely synched files.
 
-**** Grab a mule-base tarball and install it into a newly created package
-     directory.
+Rather than dates we use the version of GNU Emacs to sync to.  If the
+synchronization is partial, add a new comment describing what has
+actually been synched, leaving the description of the last full sync
+in place.  At each full sync, remove all previous synchronization
+comments.
 
-**** Configure XEmacs with mule and a package-path including the
-     directory created above.
-
-**** Do a `make dist' to build an XEmacs binary.
-
-*** Phase 2 -- Build and install the package lisp.
-
-**** Modify XEmacs.rules for local paths and the XEmacs binary created in 
-     Phase 1.
-
-**** Do a make from the top level package lisp source directory.[1]
-
-**** Do `make bindist's on all the packages you wish to install and
-     remove the byproduct .tar.gz's.
-
-*** Phase 3 -- If necessary, redump XEmacs
-    with the packages that require dump-time support and install it.
-
-**** Reconfigure without Mule if you don't wish a Mule-ish XEmacs, and
-     rebuild XEmacs.
-
-- or -
-
-**** rm lib-src/DOC src/xemacs; make
-
-**** Install or run in-place.
-
-Note that this is in essence what `make all-elc' has always done.
+This applies to Lisp that we have broken out into packages, but
+remains in the GNU Emacs core, as well to core Lisp in XEmacs.

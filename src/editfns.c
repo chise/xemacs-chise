@@ -1107,10 +1107,11 @@ characters appearing in the day and month names may be incorrect.
 {
   time_t value;
   size_t size;
+  struct tm * tm;
 
   CHECK_STRING (format_string);
 
-  if (! lisp_to_time (time_, &value))
+  if (! lisp_to_time (time_, &value) || ! (tm = localtime (&value)))
     error ("Invalid time specification");
 
   /* This is probably enough.  */
@@ -1122,7 +1123,7 @@ characters appearing in the day and month names may be incorrect.
       *buf = 1;
       if (emacs_strftime (buf, size,
 			  (const char *) XSTRING_DATA (format_string),
-			  localtime (&value))
+			  tm)
 	  || !*buf)
 	return build_ext_string (buf, Qbinary);
       /* If buffer was too small, make it bigger.  */
@@ -1151,10 +1152,10 @@ ZONE is an integer indicating the number of seconds east of Greenwich.
   struct tm *decoded_time;
   Lisp_Object list_args[9];
 
-  if (! lisp_to_time (specified_time, &time_spec))
+  if (! lisp_to_time (specified_time, &time_spec)
+      || ! (decoded_time = localtime (&time_spec)))
     error ("Invalid time specification");
 
-  decoded_time = localtime (&time_spec);
   list_args[0] = make_int (decoded_time->tm_sec);
   list_args[1] = make_int (decoded_time->tm_min);
   list_args[2] = make_int (decoded_time->tm_hour);
@@ -1179,10 +1180,10 @@ static void set_time_zone_rule (char *tzstring);
 /* from GNU Emacs 21, per Simon Josefsson, modified by stephen
    The slight inefficiency is justified since negative times are weird. */
 Lisp_Object
-make_time (time_t time)
+make_time (time_t tval)
 {
-  return list2 (make_int (time < 0 ? time / 0x10000 : time >> 16),
-		make_int (time & 0xFFFF));
+  return list2 (make_int (tval < 0 ? tval / 0x10000 : tval >> 16),
+		make_int (tval & 0xFFFF));
 }
 
 DEFUN ("encode-time", Fencode_time, 6, MANY, 0, /*

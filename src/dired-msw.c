@@ -173,6 +173,7 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
   int				findex, len;
   char				win32pattern[MAXNAMLEN+3];
   HANDLE			fh;
+  int				errm;
 
   /*
    * Much of the following code and comments were taken from dired.c.
@@ -214,6 +215,8 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
        */
       findex = 0;
       fh = INVALID_HANDLE_VALUE;
+      errm = SetErrorMode (SEM_FAILCRITICALERRORS
+			   | SEM_NOOPENFILEERRORBOX);
 
       while (1)
 	{
@@ -226,6 +229,7 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
 	      fh = FindFirstFile(win32pattern, &files[findex]);
 	      if (fh == INVALID_HANDLE_VALUE)
 		{
+		  SetErrorMode (errm);
 		  report_file_error ("Opening directory",
 				     list1(build_string(dirfile)));
 		}
@@ -239,6 +243,7 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
 		      break;
 		    }
 		  FindClose(fh);
+		  SetErrorMode (errm);
 		  report_file_error ("Reading directory",
 				     list1(build_string(dirfile)));
 		}
@@ -277,6 +282,8 @@ mswindows_get_files (char *dirfile, int nowild, Lisp_Object pattern,
       *nfiles = findex;
       break;
     }
+
+  SetErrorMode (errm);
   return (files);
 }
 

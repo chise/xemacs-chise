@@ -571,23 +571,25 @@ Go to the window from which completion was requested."
   (and (button-event-p event)
        ;; Give temporary modes such as isearch a chance to turn off.
        (run-hooks 'mouse-leave-buffer-hook))
-  (or buffer (setq buffer (symbol-value-in-buffer
-			   'completion-reference-buffer
-			   (or (and (button-event-p event)
-				    (event-buffer event))
-			       (current-buffer)))))
-  (save-selected-window
-   (and (button-event-p event)
-	(select-window (event-window event)))
-   (if (and (one-window-p t 'selected-frame)
-	    (window-dedicated-p (selected-window)))
-       ;; This is a special buffer's frame
-       (iconify-frame (selected-frame))
-     (or (window-dedicated-p (selected-window))
-	 (bury-buffer))))
-  (choose-completion-string (extent-string extent)
-			    buffer
-			    completion-base-size))
+  (let ((list-buffer (or (and (button-event-p event)
+			      (event-buffer event))
+			 (current-buffer))))
+    (or buffer (setq buffer (symbol-value-in-buffer
+			     'completion-reference-buffer
+			     list-buffer)))
+    (save-selected-window
+      (and (button-event-p event)
+	   (select-window (event-window event)))
+      (if (and (one-window-p t 'selected-frame)
+	       (window-dedicated-p (selected-window)))
+	  ;; This is a special buffer's frame
+	  (iconify-frame (selected-frame))
+	(or (window-dedicated-p (selected-window))
+	    (bury-buffer))))
+    (choose-completion-string (extent-string extent)
+			      buffer
+			      (symbol-value-in-buffer 'completion-base-size
+						      list-buffer))))
 
 ;; Delete the longest partial match for STRING
 ;; that can be found before POINT.

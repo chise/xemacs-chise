@@ -209,10 +209,7 @@ vectors and cons cells.  It does not make copies of other objects such
 as symbols, but just returns them unchanged.  It signals an error if
 asked to copy markers.
 
-This function is a no-op except while XEmacs is being built and dumped;
-it is usually called only in the file
-@file{xemacs/lisp/prim/loaddefs.el}, but a few packages call it just in
-case you decide to preload them.
+This function is a no-op in XEmacs, and its use in new code is deprecated.
 @end defun
 
 @defvar pure-bytes-used

@@ -449,11 +449,12 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	      Lisp_Object instance;
 	      struct display_box dbox;
 	      struct display_glyph_area dga;
-	      redisplay_calculate_display_boxes (dl, rb->xpos, rb->object.dglyph.xoffset,
-						 start_pixpos, rb->width,
-						 &dbox, &dga);
 
-	      XSETWINDOW (window, w);
+	      redisplay_calculate_display_boxes (dl, rb->xpos, rb->object.dglyph.xoffset,
+						 rb->object.dglyph.yoffset, start_pixpos,
+                                                 rb->width, &dbox, &dga);
+
+              XSETWINDOW (window, w);
 	      instance = glyph_image_instance (rb->object.dglyph.glyph,
 					       window, ERROR_ME_NOT, 1);
 	      findex = rb->findex;
@@ -981,7 +982,8 @@ x_output_string (struct window *w, struct display_line *dl,
       /* We draw underlines in the same color as the text. */
       if (cachel->underline)
 	{
-	  unsigned long upos, uthick;
+	  long upos;
+	  long uthick;
 	  XFontStruct *xfont;
 
 	  xfont = FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font));

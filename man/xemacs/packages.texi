@@ -95,28 +95,19 @@ where you grabbed the core distribution from, and are located in the
 subdirectory @file{packages}.  Package file names follow
 the naming convention @file{<package-name>-<version>-pkg.tar.gz}.
 
-If you have EFS @ref{(EFS)}, packages can be installed over the network.
+If you have @ref{(EFS)}, packages can be installed over the network.
 Alternatively, if you have copies of the packages locally, you can
 install packages from a local disk or CDROM.
 
 The file @file{etc/PACKAGES} in the core distribution contains a list of
-the @ref{Available Packages} at the time of the XEmacs release.  Packages are
-also listed on the @code{Options} menu under:
-
-@example
-        Options->Customize->Emacs->Packages
-@end example
-
-However, don't select any of these menu picks unless you actually want 
-to install the given package (and have properly configured your system 
-to do so).
+the @ref{Available Packages} at the time of the XEmacs release.
 
 You can also get a list of available packages, and whether or not they
 are installed, using the visual package browser and installer.  You can
 access it via the menus:
 
 @example
-        Options->Manage Packages->List & Install
+        Tools -> Packages -> List and Install
 @end example
 
 Or, you can get to it via the keyboard:
@@ -244,14 +235,10 @@ and optionally:
 After installing these by hand, fire up XEmacs and follow these
 steps.
 
-Note: The menus in XEmacs 21.2.x and up have changed slightly, so
-where I mention "Options -> Manage Packages", substitute "Tools ->
-Packages".
-
 @enumerate 1
 @item
 Choose a download site.
-via menu: Options -> Manages Packages -> Add Download Site 
+via menu: Tools -> Packages -> Add Download Site 
 via keyb: @code{M-x customize-variable RET package-get-remote RET}
 (put in the details of remote host and directory)
 
@@ -261,7 +248,7 @@ local directory, you can: @code{M-x pui-add-install-directory RET}
 @item
 Obtain a list of packages and display the list in a buffer named
 @file{*Packages*}.
-menu: Options -> Manage Packages -> List & Install
+menu: Tools -> Packages -> List & Install
 keyb: @code{M-x pui-list-packages RET}
 
 XEmacs will now connect to the remote site and download the
@@ -677,7 +664,7 @@ xemacs.org and it's mirrors.  If a particular package that you are
 looking for isn't here, please send a message to the
 @email{xemacs-beta@@xemacs.org, XEmacs Beta list}.
 
-This data is up-to-date as of May 15, 2001.
+This data is up-to-date as of August 8, 2002.
 
 @subsection Normal Packages
 A very broad selection of elisp packages.
@@ -696,7 +683,7 @@ A Portable Emacs Library.  Used by XEmacs MIME support.
 Basic TeX/LaTeX support.
 
 @item bbdb
-The Big Brother Data Base
+The Big Brother Data Base: a rolodex-like database program.
 
 @item build
 Build XEmacs using custom widgets.
@@ -713,8 +700,12 @@ Calendar and diary support.
 @item cc-mode
 C, C++ and Java language support.
 
+@item clearcase
+Support for the Clearcase version control system.
+
 @item cookie
-Spook and Yow (Zippy quotes).
+"Fortune cookie"-style messages. Includes Spook (suspicious phrases) 
+and Yow (Zippy quotes).
 
 @item crisp
 Crisp/Brief emulation.
@@ -722,9 +713,18 @@ Crisp/Brief emulation.
 @item debug
 GUD, gdb, dbx debugging support.
 
+@item dictionary
+Interface to RFC2229 dictionary servers.
+
 @item dired
 The DIRectory EDitor is for manipulating, and running commands on
 files in a directory.
+
+@item docbookide
+DocBook editing support.
+
+@item ecrypto
+Crypto functionality in Emacs Lisp.
 
 @item edebug
 A Lisp debugger.
@@ -742,10 +742,6 @@ DEC EDIT/EDT emulation.
 @item efs
 Treat files on remote systems the same as local files.
 
-@item eicq
-ICQ Client developed and tested on Linux x86; 
-only supported on that platform
-
 @item eieio
 Enhanced Implementation of Emacs Interpreted Objects.
 
@@ -757,6 +753,9 @@ Another interface over patch.
 
 @item eshell
 Command shell implemented entirely in Emacs Lisp.
+
+@item ess
+ESS: Emacs Speaks Statistics.
 
 @item eterm
 Terminal emulator.
@@ -785,8 +784,14 @@ XEmacs bug reports.
 @item gnus
 The Gnus Newsreader and Mailreader.
 
+@item haskell-mode
+Haskell editing support.
+
 @item hm--html-menus
 HTML editing.
+
+@item ibuffer
+Advanced replacement for buffer-menu.
 
 @item idlwave
 Editing and Shell mode for the Interactive Data Language.
@@ -795,13 +800,16 @@ Editing and Shell mode for the Interactive Data Language.
 Enhanced front-end for Grep.
 
 @item ilisp
-Front-end for Inferior Lisp.
+Front-end for interacting with Inferior Lisp (external lisps).
 
 @item ispell
 Spell-checking with ispell.
 
 @item jde
 Java language and development support.
+
+@item liece
+IRC (Internet Relay Chat) client for Emacs.
 
 @item mail-lib
 Fundamental lisp files for providing email support.
@@ -810,16 +818,19 @@ Fundamental lisp files for providing email support.
 Support for messaging encryption with PGP.
 
 @item mew
-Messaging in an Emacs World.
+Messaging in an Emacs World; a MIME-based email program.
 
 @item mh-e
 Front end support for MH.
 
 @item mine
-Minehunt.
+Elisp implementation of the game 'Minehunt'.
 
 @item misc-games
 Other amusements and diversions.
+
+@item mmm-mode
+Support for Multiple Major Modes within a single buffer.
 
 @item net-utils
 Miscellaneous Networking Utilities.  This is a single-file package and 
@@ -828,6 +839,9 @@ files may be deleted at will.
 @item os-utils
 Miscellaneous single-file O/S utilities, for printing, archiving,
 compression, remote shells, etc.
+
+@item ocaml
+Objective Caml editing support.
 
 @item pc
 PC style interface emulation.
@@ -841,8 +855,8 @@ Provides programmatic completion.
 @item prog-modes
 Miscellaneous single-file lisp files for various programming languages.
 
-@item ps-print-nomule
-Old, but no-Mule safe ps-print.
+@item ps-print
+Print buffers to PostScript printers.
 
 @item psgml
 Validated HTML/SGML editing.
@@ -852,6 +866,9 @@ Emacs support for LaTeX cross-references, citations.
 
 @item rmail
 An obsolete Emacs mailer.  If you do not already use it don't start.
+
+@item sasl
+Simple Authentication and Security Layer (SASL) library.
 
 @item scheme
 Front-end support for Inferior Scheme.
@@ -865,8 +882,14 @@ SGML/Linuxdoc-SGML editing.
 @item sh-script
 Support for editing shell scripts.
 
+@item sieve
+Manage Sieve email filtering scripts.
+
 @item slider
 User interface tool.
+
+@item sml-mode
+Standard ML editing support.
 
 @item sounds-au
 XEmacs Sun sound files.
@@ -904,6 +927,10 @@ Support for building with Tooltalk.
 @item tpu
 DEC EDIT/TPU support.
 
+@item tramp
+Remote shell-based file editing.  This is similar to EFS or Ange-FTP,
+but works with rsh/ssh and rcp/scp.
+
 @item vc
 Version Control for Free systems.
 
@@ -935,6 +962,9 @@ XEmacs Lisp developer support.  This package contains utilities for
 supporting Lisp development.  It is a single-file package so it may be 
 tailored.
 
+@item xslide
+XSL editing support.
+
 @item xslt-process
 A minor mode for (X)Emacs which allows running an XSLT processor on a
 buffer.
@@ -958,6 +988,12 @@ Lisp Interface to EDICT, Kanji Dictionary.
 Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
 XEmacs build.
 
+@item latin-unity
+Unify character sets in a buffer. When characters belong to disjoint
+character sets, this attempts to translate the characters so
+that they belong to one character set. If the buffer coding system is
+not sufficient, this suggests different coding systems.
+
 @item leim
 Quail.  Used for everything other than English and Japanese.
 
@@ -970,6 +1006,9 @@ Dictionary support. (This isn't an English dictionary program)
 
 @item mule-base
 Basic Mule support.  Must be installed prior to building with Mule.
+
+@item mule-ucs
+Extended coding systems (including Unicode) for XEmacs.
 
 @item skk
 Another Japanese Language Input Method.  Can be used without a

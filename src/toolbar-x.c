@@ -348,7 +348,8 @@ x_get_button_size (struct frame *f, Lisp_Object window,
 	    || tb->y != y						\
 	    || tb->width != width					\
 	    || tb->height != height					\
-	    || tb->dirty)						\
+	    || tb->dirty						\
+	    || f->clear) /* This is clearly necessary. */		\
 	  {								\
 	    if (width && height)					\
 	      {								\
@@ -557,22 +558,30 @@ x_output_frame_toolbars (struct frame *f)
 
   if (FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, TOP_TOOLBAR);
-  else if (f->top_toolbar_was_visible)
-    x_clear_toolbar (f, TOP_TOOLBAR, 0);
-
   if (FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, BOTTOM_TOOLBAR);
-  else if (f->bottom_toolbar_was_visible)
-    x_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
-
   if (FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, LEFT_TOOLBAR);
-  else if (f->left_toolbar_was_visible)
-    x_clear_toolbar (f, LEFT_TOOLBAR, 0);
-
   if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     x_output_toolbar (f, RIGHT_TOOLBAR);
-  else if (f->right_toolbar_was_visible)
+}
+
+static void
+x_clear_frame_toolbars (struct frame *f)
+{
+  assert (FRAME_X_P (f));
+
+  if (f->top_toolbar_was_visible
+      && !FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, TOP_TOOLBAR, 0);
+  if (f->bottom_toolbar_was_visible
+      && !FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
+  if (f->left_toolbar_was_visible 
+      && !FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
+    x_clear_toolbar (f, LEFT_TOOLBAR, 0);
+  if (f->right_toolbar_was_visible 
+      && !FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     x_clear_toolbar (f, RIGHT_TOOLBAR, 0);
 }
 
@@ -793,6 +802,7 @@ void
 console_type_create_toolbar_x (void)
 {
   CONSOLE_HAS_METHOD (x, output_frame_toolbars);
+  CONSOLE_HAS_METHOD (x, clear_frame_toolbars);
   CONSOLE_HAS_METHOD (x, initialize_frame_toolbars);
   CONSOLE_HAS_METHOD (x, free_frame_toolbars);
   CONSOLE_HAS_METHOD (x, output_toolbar_button);

@@ -180,6 +180,9 @@ typedef NMHDR *LPNMHDR;
 #ifndef MAC_CHARSET
 #define MAC_CHARSET 		77
 #endif
+#ifndef LOCALE_RETURN_NUMBER
+#define LOCALE_RETURN_NUMBER	0x20000000
+#endif
 
 /***************************************************************/
 

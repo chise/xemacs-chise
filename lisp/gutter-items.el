@@ -39,7 +39,8 @@ Do not set this. Use `set-glyph-image' to change the properties of the tab.")
 (defcustom gutter-buffers-tab-visible-p
   (gutter-element-visible-p default-gutter-visible-p 'buffers-tab)
   "Whether the buffers tab is globally visible. 
-This option should be set through the options menu."
+
+There are side-effects, so don't setq it; use Customize or the options menu."
   :group 'buffers-tab
   :type 'boolean
   :set #'(lambda (var val)
@@ -75,7 +76,7 @@ a large number or nil will slow down tab responsiveness."
   :group 'buffers-tab)
 
 (defcustom buffers-tab-omit-function 'buffers-menu-omit-invisible-buffers
-  "*If non-nil, a function specifying the buffers to omit from the buffers tab.
+  "*A function specifying the buffers to omit from the buffers tab, or nil.
 This is passed a buffer and should return non-nil if the buffer should be
 omitted.  The default value `buffers-menu-omit-invisible-buffers' omits
 buffers that are normally considered \"invisible\" (those whose name
@@ -84,27 +85,27 @@ begins with a space)."
 		 function)
   :group 'buffers-tab)
 
-(defcustom buffers-tab-selection-function 'select-buffers-tab-buffers-by-mode
-  "*If non-nil, a function specifying the buffers to select from the
-buffers tab.  This is passed two buffers and should return non-nil if
-the second buffer should be selected.  The default value
-`select-buffers-tab-buffers-by-mode' groups buffers by major mode and
-by `buffers-tab-grouping-regexp'."
+(make-obsolete-variable 'buffers-tab-selection-function
+			'buffers-tab-filter-functions)
+(defcustom buffers-tab-selection-function nil
+  "*A function specifying buffers to display in the buffers tab, or nil.
+Don't use this---it is never consulted.  Use `buffers-tab-filter-functions'
+instead.
 
-  :type '(choice (const :tag "None" nil)
-		 function)
+The function must take arguments (BUF1 BUF2).  BUF1 is a candidate for
+display in the buffers tab control.  BUF2 is current (first in the buffers
+list).  Return non-nil if BUF1 should be added to the tab control."
+  :type '(choice function (const :tag "None" nil))
   :group 'buffers-tab)
 
-(defcustom buffers-tab-filter-functions (list buffers-tab-selection-function)
-  "*If non-nil, a list of functions specifying the buffers to select 
-from the buffers tab.
-Each function in the list is passed two buffers, the buffer to
-potentially select and the context buffer, and should return non-nil
-if the first buffer should be selected.  The default value groups
-buffers by major mode and by `buffers-tab-grouping-regexp'."
-
-  :type '(choice (const :tag "None" nil)
-		 sexp)
+(defcustom buffers-tab-filter-functions '(select-buffers-tab-buffers-by-mode)
+  "*A list of functions specifying buffers to display in the buffers tab.
+May be empty.  Each function in the list must take arguments (BUF1 BUF2).
+BUF1 is the candidate, and BUF2 is the current buffer (first in the buffers
+list).  Return non-nil if BUF1 should be added to the buffers tab.  The
+default adds BUF1 if BUF1 and BUF2 have the same major mode, or if both
+match `buffers-tab-grouping-regexp'."
+  :type '(repeat function)
   :group 'buffers-tab)
 
 (defcustom buffers-tab-sort-function nil

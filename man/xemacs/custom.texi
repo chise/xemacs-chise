@@ -1416,8 +1416,9 @@ is used to specify the syntactic class of opening delimiters.  Here is a
 table of syntactic classes, with the characters that specify them.
 
 @table @samp
-@item @w{ }
-The class of whitespace characters.
+@item @w{-}
+The class of whitespace characters.  Please don't use the formerly
+advertised @w{ }, which is not supported by GNU Emacs.
 @item w
 The class of word-constituent characters.
 @item _

@@ -1186,7 +1186,7 @@ can be used if the internal tables grow too large, or when dumping.
 
    MODE nonnegative means don't open the files,
    just look for one for which access(file,MODE) succeeds.  In this case,
-   returns 1 on success.
+   returns a nonnegative value on success.  On failure, returns -1.
 
    If STOREPTR is nonzero, it points to a slot where the name of
    the file actually found should be stored as a Lisp string.

@@ -285,6 +285,14 @@ free_dynarr_opaque_ptr (Lisp_Object arg)
   return arg;
 }
 
+/* Unwind protection decrements dialog count */
+static Lisp_Object
+dialog_popped_down (Lisp_Object arg)
+{
+  popup_up_p--;
+  return Qnil;
+}
+
 
 #define ALIGN_TEMPLATE					\
 {							\
@@ -434,12 +442,13 @@ handle_directory_dialog_box (struct frame *f, Lisp_Object keys)
 	pMalloc->lpVtbl->Free(pMalloc, pidl);
 	pMalloc->lpVtbl->Release(pMalloc);
 	return ret;
-      } 
+      }
       else if (pd.unknown_fname != 0) {
 	ret = tstr_to_local_file_format (pd.unknown_fname);
 	xfree(pd.unknown_fname);
       }
-      
+      else while (1)
+	signal_quit ();
     }
   else
     signal_type_error (Qdialog_box_error,
@@ -791,16 +800,21 @@ static Lisp_Object
 mswindows_make_dialog_box_internal (struct frame* f, Lisp_Object type,
 				    Lisp_Object keys)
 {
+  int unbind_count = specpdl_depth ();
+  record_unwind_protect (dialog_popped_down, Qnil);
+  popup_up_p++;
+
   if (EQ (type, Qfile))
-    return handle_file_dialog_box (f, keys);
+    return unbind_to (unbind_count, handle_file_dialog_box (f, keys));
   else if (EQ (type, Qdirectory))
-    return handle_directory_dialog_box (f, keys);
+    return unbind_to (unbind_count, handle_directory_dialog_box (f, keys));
   else if (EQ (type, Qquestion))
-    return handle_question_dialog_box (f, keys);
+    return unbind_to (unbind_count, handle_question_dialog_box (f, keys));
   else if (EQ (type, Qprint))
-    return mswindows_handle_print_dialog_box (f, keys);
+    return unbind_to (unbind_count, mswindows_handle_print_dialog_box (f, keys));
   else if (EQ (type, Qpage_setup))
-    return mswindows_handle_page_setup_dialog_box (f, keys);
+    return unbind_to (unbind_count, 
+		      mswindows_handle_page_setup_dialog_box (f, keys));
   else
     signal_type_error (Qunimplemented, "Dialog box type", type);
   return Qnil;

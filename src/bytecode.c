@@ -211,6 +211,7 @@ typedef enum Opcode Opcode;
 typedef unsigned char Opbyte;
 
 
+static void check_opcode (Opcode opcode);
 static void invalid_byte_code_error (char *error_message, ...);
 
 Lisp_Object * execute_rare_opcode (Lisp_Object *stack_ptr,
@@ -637,6 +638,7 @@ execute_optimized_program (const Opbyte *program,
 	invalid_byte_code_error ("byte code stack overflow");
       if (stack_ptr < stack_beg)
 	invalid_byte_code_error ("byte code stack underflow");
+      check_opcode (opcode);
 #endif
 
 #ifdef BYTE_CODE_METER

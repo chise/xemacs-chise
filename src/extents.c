@@ -2753,9 +2753,10 @@ invisible_ellipsis_p (REGISTER Lisp_Object propval, Lisp_Object list)
 
 face_index
 extent_fragment_update (struct window *w, struct extent_fragment *ef,
-			Bytind pos)
+			Bytind pos, Lisp_Object last_glyph)
 {
   int i;
+  int seen_glyph = NILP (last_glyph) ? 1 : 0;
   Extent_List *sel =
     buffer_or_string_stack_of_extents_force (ef->object)->extents;
   EXTENT lhe = 0;
@@ -2796,11 +2797,15 @@ extent_fragment_update (struct window *w, struct extent_fragment *ef,
       if (extent_start (e) == mempos && !NILP (extent_begin_glyph (e)))
 	{
 	  Lisp_Object glyph = extent_begin_glyph (e);
-	  struct glyph_block gb;
-
-	  gb.glyph = glyph;
-	  XSETEXTENT (gb.extent, e);
-	  Dynarr_add (ef->begin_glyphs, gb);
+	  if (seen_glyph) {
+	    struct glyph_block gb;
+	    
+	    gb.glyph = glyph;
+	    XSETEXTENT (gb.extent, e);
+	    Dynarr_add (ef->begin_glyphs, gb);
+	  }
+	  else if (EQ (glyph, last_glyph))
+	    seen_glyph = 1;
 	}
     }
 
@@ -2811,11 +2816,15 @@ extent_fragment_update (struct window *w, struct extent_fragment *ef,
       if (extent_end (e) == mempos && !NILP (extent_end_glyph (e)))
 	{
 	  Lisp_Object glyph = extent_end_glyph (e);
-	  struct glyph_block gb;
+	  if (seen_glyph) {
+	    struct glyph_block gb;
 
-	  gb.glyph = glyph;
-	  XSETEXTENT (gb.extent, e);
-	  Dynarr_add (ef->end_glyphs, gb);
+	    gb.glyph = glyph;
+	    XSETEXTENT (gb.extent, e);
+	    Dynarr_add (ef->end_glyphs, gb);
+	  }
+	  else if (EQ (glyph, last_glyph))
+	    seen_glyph = 1;
 	}
     }
 
@@ -2950,9 +2959,9 @@ print_extent_1 (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   if (extent_detached_p (ext))
     strcpy (bp, "detached");
   else
-    sprintf (bp, "%ld, %ld",
-	     (long) XINT (Fextent_start_position (obj)),
-	     (long) XINT (Fextent_end_position (obj)));
+    sprintf (bp, "%d, %d",
+	     XINT (Fextent_start_position (obj)),
+	     XINT (Fextent_end_position (obj)));
   bp += strlen (bp);
   *bp++ = (extent_end_open_p (anc) ? ')': ']');
   if (!NILP (extent_end_glyph (anc))) *bp++ = '*';

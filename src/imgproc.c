@@ -50,7 +50,7 @@ get_histogram(quant_table *qt, unsigned char *pic,
 {
   register unsigned char *inptr;
   register int red, green, blue;
-  register unsigned int j, i;
+  register int j, i;
 
   box->rmin = box->gmin = box->bmin = 999;
   box->rmax = box->gmax = box->bmax = -1;

@@ -3654,8 +3654,9 @@ make_dummy_parent (Lisp_Object window)
 DEFUN ("split-window", Fsplit_window, 0, 3, "", /*
 Split WINDOW, putting SIZE lines in the first of the pair.
 WINDOW defaults to the selected one and SIZE to half its size.
-If optional third arg HORFLAG is non-nil, split side by side
-and put SIZE columns in the first of the pair.
+If optional third arg HORFLAG is non-nil, split side by side and put
+SIZE columns in the first of the pair. The newly created window is
+returned.
 */
        (window, size, horflag))
 {
@@ -3679,7 +3680,7 @@ and put SIZE columns in the first of the pair.
 	/* In the new scheme, we are symmetric with respect to separators
 	   so there is no need to do weird things here. */
 	{
-	  psize = WINDOW_WIDTH (o) >> 1;
+	  psize = (WINDOW_WIDTH (o) + window_divider_width (o)) >> 1;
 	  csize = window_pixel_width_to_char_width (o, psize, 0);
         }
       else

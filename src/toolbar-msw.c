@@ -22,7 +22,7 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* This implementation by Andy Piper <andyp@parallax.co.uk>, with bits
+/* This implementation by Andy Piper <andy@xemacs.org>, with bits
    borrowed from toolbar-x.c */
 
 /* Synched up with: Not in FSF. */
@@ -544,22 +544,30 @@ mswindows_output_frame_toolbars (struct frame *f)
 
   if (FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
     mswindows_output_toolbar (f, TOP_TOOLBAR);
-  else if (f->top_toolbar_was_visible)
-    mswindows_clear_toolbar (f, TOP_TOOLBAR, 0);
-
   if (FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
     mswindows_output_toolbar (f, BOTTOM_TOOLBAR);
-  else if (f->bottom_toolbar_was_visible)
-    mswindows_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
-
   if (FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
     mswindows_output_toolbar (f, LEFT_TOOLBAR);
-  else if (f->left_toolbar_was_visible)
-    mswindows_clear_toolbar (f, LEFT_TOOLBAR, 0);
-
   if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     mswindows_output_toolbar (f, RIGHT_TOOLBAR);
-  else if (f->right_toolbar_was_visible)
+}
+
+static void
+mswindows_clear_frame_toolbars (struct frame *f)
+{
+  assert (FRAME_MSWINDOWS_P (f));
+
+  if (f->top_toolbar_was_visible
+      && !FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
+    mswindows_clear_toolbar (f, TOP_TOOLBAR, 0);
+  if (f->bottom_toolbar_was_visible
+      && !FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
+    mswindows_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
+  if (f->left_toolbar_was_visible 
+      && !FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
+    mswindows_clear_toolbar (f, LEFT_TOOLBAR, 0);
+  if (f->right_toolbar_was_visible 
+      && !FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     mswindows_clear_toolbar (f, RIGHT_TOOLBAR, 0);
 }
 
@@ -641,6 +649,7 @@ void
 console_type_create_toolbar_mswindows (void)
 {
   CONSOLE_HAS_METHOD (mswindows, output_frame_toolbars);
+  CONSOLE_HAS_METHOD (mswindows, clear_frame_toolbars);
   CONSOLE_HAS_METHOD (mswindows, initialize_frame_toolbars);
   CONSOLE_HAS_METHOD (mswindows, free_frame_toolbars);
   CONSOLE_HAS_METHOD (mswindows, redraw_exposed_toolbars);

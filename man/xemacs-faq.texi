@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/04/30 16:06:09 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/08/20 11:35:32 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -151,6 +151,7 @@ Installation and Trouble Shooting
 * Q2.0.12::     Why can't I strip XEmacs?
 * Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
 * Q2.0.14::     How do I figure out which packages to install? (NEW)
+* Q2.0.15::     EFS fails with "500 AUTH not understood" (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -267,6 +268,7 @@ Text Selections:
 * Q3.10.3::     Can I turn off the highlight during isearch?
 * Q3.10.4::     How do I turn off highlighting after @kbd{C-x C-p} (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
+* Q3.10.6::     Why is killing so slow? (NEW)
 
 Major Subsystems
 
@@ -1061,7 +1063,7 @@ modification to @email{ava@@math.jhu.ed, Valery Alexeev's} @file{russian.el}
 which can be obtained from
 @end quotation
 
-@uref{http://ftpsearch.lycos.com/?query=russian.el.Z&form=medium}.
+@uref{http://www.math.uga.edu/~valery/russian.el}.
 
 @email{d.barsky@@ee.surrey.ac.uk, Dima Barsky} writes:
 
@@ -1272,6 +1274,7 @@ Installation:
 * Q2.0.12::     Why can't I strip XEmacs?
 * Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
 * Q2.0.14::     I don't want to install a million .els one at a time! (NEW)
+* Q2.0.15::     EFS fails with "500 AUTH not understood" (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -1644,8 +1647,8 @@ any packages installed.  However, only the most basic editing functions
 will be available with no packages installed, so installing packages is
 an essential part of making your installed XEmacs _useful_.
 
-@node Q2.0.14, Q2.1.1, Q2.0.13, Installation
-@unnumberedsubsec Q2.0.12: How do I figure out which packages to install? (NEW)
+@node Q2.0.14, Q2.0.15, Q2.0.13, Installation
+@unnumberedsubsec Q2.0.14: How do I figure out which packages to install? (NEW)
 
 Many people really liked the old way that packages were bundled and do
 not want to mess with packages at all.  You can grab all the packages at
@@ -1671,7 +1674,22 @@ As the Sumo tarballs are not regenerated as often as the individual
 packages, it is recommended that you use the automatic package tools
 afterwards to pick up any recent updates.
 
-@node Q2.1.1, Q2.1.2, Q2.0.14, Installation
+@node Q2.0.15, Q2.1.1, Q2.0.14, Installation
+@unnumberedsubsec Q2.0.15: EFS fails with "500 AUTH not understood" (NEW)
+
+A typical error: FTP Error: USER request failed; 500 AUTH not understood.
+
+Thanks to giacomo boffi @email{giacomo.boffi@@polimi.it} who recommends
+on comp.emacs.xemacs:
+
+   tell your ftp client to not attempt AUTH authentication (or do not
+   use FTP servers that don't understand AUTH)
+
+and notes that you need to add an element (often "-u") to
+`efs-ftp-program-args'.  Use M-x customize-variable, and verify the
+needed flag with `man ftp' or other local documentation.
+
+@node Q2.1.1, Q2.1.2, Q2.0.15, Installation
 @unnumberedsec 2.1: Trouble Shooting
 @unnumberedsubsec Q2.1.1: Help!  XEmacs just crashed on me!
 
@@ -2498,6 +2516,7 @@ Text Selections:
 * Q3.10.3::     Can I turn off the highlight during isearch?
 * Q3.10.4::     How do I turn off highlighting after @kbd{C-x C-p} (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
+* Q3.10.6::      Why is killing so slow?
 @end menu
 
 @node Q3.0.1, Q3.0.2, Customization, Customization
@@ -3790,7 +3809,7 @@ Put this in your @code{.emacs}:
 
 Also see @ref{Q3.10.1}.
 
-@node Q3.10.5,  , Q3.10.4, Customization
+@node Q3.10.5, Q3.10.6, Q3.10.4, Customization
 @unnumberedsubsec Q3.10.5: The region disappears when I hit the end of buffer while scrolling.
 
 This has been fixed by default starting with XEmacs-20.3.
@@ -3820,6 +3839,68 @@ off like this:
 
 Thanks to @email{raman@@adobe.com, T. V. Raman} for assistance in deriving this
 answer.
+
+@node Q3.10.6,  , Q3.10.5, Customization
+@unnumberedsubsec Q3.10.6: Why is killing so slow?
+
+This actually is an X Windows question, although you'll notice it with
+keyboard operations as well as while using the GUI.  Basically, there
+are four ways to communicate interprogram via the X server:
+
+@table @strong
+@item Primary selection
+a transient selection that gets replaced every time a new selection is made
+
+@item Secondary selection
+for "exchanging" with the primary selection
+
+@item Cut buffers
+a clipboard internal to the X server (deprecated)
+
+@item Clipboard selection
+a selection with a notification protocol that allows a separate app to
+manage the clipboard
+@end table
+
+The cut buffers are deprecated because managing them is even more
+inefficient than the clipboard notification protocol.  The primary
+selection works fine for many users and applications, but is not very
+robust under intensive or sophisticated use.
+
+In Motif and MS Windows, a clipboard has become the primary means for
+managing cut and paste.  These means that "modern" applications tend to
+be oriented toward a true clipboard, rather than the primary selection.
+(On Windows, there is nothing equivalent to the primary selection.)
+It's not that XEmacs doesn't support the simple primary selection
+method, it's that more and more other applications don't.
+
+So the slowdown occurs because XEmacs now engages in the clipboard
+notification protocol on @emph{every} kill.  This is especially slow on
+Motif.
+
+With most people running most clients and server on the same host, and
+many of the rest working over very fast communication, you may expect
+that the situation is not going to improve.
+
+There are a number of workarounds.  The most effective is to use a
+special command to do selection ownership only when you intend to paste
+to another application.  Useful commands are @code{kill-primary-selection}
+and @code{copy-primary-selection'}.  These work only on text selected
+with the mouse (probably; experiment), and are bound by default to the
+Cut and Copy, respectively, buttons on the toolbar.
+
+If you are communicating by cut and paste with applications that use the
+primary selection, then you can customize @code{interprogram-cut-function}
+to @code{nil}, restoring the XEmacs version 20 behavior.  How can you
+tell if a program will support this?  Motifly-correct programs require
+the clipboard; you lose.  For others, only by trying it.  You usually
+don't need to customize the complementary @code{interprogram-paste-function}
+to @code{nil}; presumably you're willing to wait for a paste from another
+program if delays only happen when you specifically request a paste.
+
+You can get some relief on Motif by setting
+@code{x-selection-strict-motif-ownership} to nil, but this means you will
+only intermittently be able to paste XEmacs kills to Motif applications.
 
 @node Subsystems, Miscellaneous, Customization, Top
 @unnumbered 4 Major Subsystems

@@ -103,7 +103,7 @@ static POINTER virtual_break_value;
 static POINTER break_value;
 
 /* This is the size of a page.  We round memory requests to this boundary.  */
-static int page_size;
+static size_t page_size;
 
 /* Whenever we get memory from the system, get this many extra bytes.  This
    must be a multiple of page_size.  */
@@ -889,7 +889,7 @@ r_alloc_sbrk (ptrdiff_t size)
     }
   else /* size < 0 */
     {
-      size_t excess = (char *)first_heap->bloc_start
+      EMACS_INT excess = (char *)first_heap->bloc_start
 		      - ((char *)virtual_break_value + size);
 
       address = virtual_break_value;
@@ -2022,6 +2022,10 @@ init_ralloc (void)
   if (r_alloc_initialized > 1)
     return;	/* used to return 1 */
 
+#ifdef PDUMP
+  /* Under pdump, we need to activate ralloc on the first go. */
+  ++r_alloc_initialized;
+#endif
   if (++r_alloc_initialized == 1)
     return;	/* used to return 1 */
 

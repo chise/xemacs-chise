@@ -701,7 +701,8 @@ reset_key_echo (struct command_builder *command_builder,
   /* This function can GC */
   struct frame *f = selected_frame ();
 
-  command_builder->echo_buf_index = -1;
+  if (command_builder)
+    command_builder->echo_buf_index = -1;
 
   if (remove_echo_area_echo)
     clear_echo_area (f, Qcommand, 0);
@@ -2203,8 +2204,6 @@ The returned event will be one of the following types:
 
   switch (XEVENT_TYPE (event))
     {
-    default:
-      goto RETURN;
     case button_release_event:
     case misc_user_event:
       /* don't echo menu accelerator keys */
@@ -2214,6 +2213,8 @@ The returned event will be one of the following types:
       goto STORE_AND_EXECUTE_KEY;
     case key_press_event:         /* any key input can trigger autosave */
       break;
+    default:
+      goto RETURN;
     }
 
   maybe_do_auto_save ();
@@ -3504,16 +3505,24 @@ Set the maximum number of events to be stored internally.
 void
 reset_this_command_keys (Lisp_Object console, int clear_echo_area_p)
 {
-  struct command_builder *command_builder =
-    XCOMMAND_BUILDER (XCONSOLE (console)->command_builder);
+  if (!NILP (console))
+    {
+      /* console is nil if we just deleted the console as a result of C-x 5
+	 0.  Unfortunately things are currently in a messy situation where
+	 some stuff is console-local and other stuff isn't, so we need to
+	 do everything that's not console-local. */
+      struct command_builder *command_builder =
+	XCOMMAND_BUILDER (XCONSOLE (console)->command_builder);
 
-  reset_key_echo (command_builder, clear_echo_area_p);
+      reset_key_echo (command_builder, clear_echo_area_p);
+      reset_current_events (command_builder);
+    }
+  else
+    reset_key_echo (0, clear_echo_area_p);
 
   deallocate_event_chain (Vthis_command_keys);
   Vthis_command_keys = Qnil;
   Vthis_command_keys_tail = Qnil;
-
-  reset_current_events (command_builder);
 }
 
 static void
@@ -3917,7 +3926,8 @@ execute_command_event (struct command_builder *command_builder,
 
     post_command_hook ();
 
-    if (!NILP (con->prefix_arg))
+    /* Console might have been deleted by command */
+    if (CONSOLE_LIVE_P (con) && !NILP (con->prefix_arg))
       {
 	/* Commands that set the prefix arg don't update last-command, don't
 	   reset the echoing state, and don't go into keyboard macros unless
@@ -3946,7 +3956,8 @@ execute_command_event (struct command_builder *command_builder,
 	   so we don't either */
 
 	if (!is_scrollbar_event (event))
-	  reset_this_command_keys (make_console (con), 0);
+	  reset_this_command_keys (CONSOLE_LIVE_P (con) ? make_console (con)
+				   : Qnil, 0);
       }
   }
 

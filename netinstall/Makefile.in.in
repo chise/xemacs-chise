@@ -96,6 +96,7 @@ XEMACS=${blddir}/src/${PROGNAME}
 
 CYGWIN_SIZE=0
 WIN32_SIZE=0
+KIT_VERSION=""
 
 CONFIG_H = ../src/config.h
 
@@ -162,6 +163,7 @@ setup-bin.ini:
 	$(XEMACS) -batch -vanilla \
 		-eval '(setq package-net-cygwin32-binary-size $(CYGWIN_SIZE) \
 			package-net-win32-binary-size $(WIN32_SIZE) \
+			package-net-kit-version "$(KIT_VERSION)" \
 			package-net-setup-version "'$$V'")' \
 		-l ${srcdir}/../lisp/package-net.el \
 		-f package-net-batch-generate-bin-ini
@@ -215,7 +217,7 @@ choose.o: choose.cc win32.h dialog.h resource.h state.h ini.h concat.h \
  msg.h log.h find.h reginfo.h
 concat.o: concat.cc
 desktop.o: desktop.cc win32.h resource.h ini.h msg.h state.h concat.h \
- mkdir.h dialog.h version.h port.h reginfo.h
+ mkdir.h dialog.h version.h port.h reginfo.h desktop.h
 dialog.o: dialog.cc win32.h dialog.h msg.h log.h
 diskfull.o: diskfull.cc win32.h diskfull.h
 download.o: download.cc win32.h resource.h msg.h ini.h dialog.h \
@@ -236,11 +238,11 @@ iniparse.o: iniparse.c ini.h \
  port.h
 install.o: install.cc win32.h \
  resource.h ini.h dialog.h concat.h geturl.h mkdir.h state.h tar.h \
- diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h
+ diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h desktop.h
 init.o: init.cc win32.h resource.h dialog.h state.h msg.h log.h 
 uninstall.o: uninstall.cc win32.h \
  resource.h ini.h dialog.h concat.h geturl.h mkdir.h state.h tar.h \
- diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h
+ diskfull.h msg.h regedit.h reginfo.h log.h hash.h port.h desktop.h
 localdir.o: localdir.cc win32.h dialog.h resource.h state.h msg.h \
  concat.h log.h
 log.o: log.cc win32.h resource.h msg.h log.h dialog.h state.h concat.h \

@@ -598,7 +598,8 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	      char *text_to_print =
 		alloca_array (char, 32 +
 			      max (spec->minwidth,
-				   max (sizeof (double), sizeof (long)) * 3 +
+				   (EMACS_INT)
+				    max (sizeof (double), sizeof (long)) * 3 +
 				   max (spec->precision, 0)));
 	      char constructed_spec[100];
 	      char *p = constructed_spec;

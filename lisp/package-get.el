@@ -567,7 +567,8 @@ This is just an interactive wrapper for `package-admin-delete-binary-package'."
 	      (if (not (package-get (car pkg) nil 'never))
 		  (throw 'exit nil)		;; Bail out if error detected
 		  ))
-	    packages-package-list)))
+	    packages-package-list))
+  (package-net-update-installed-db))
 
 ;;;###autoload
 (defun package-get-all (package version &optional fetched-packages install-dir)

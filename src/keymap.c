@@ -1015,10 +1015,8 @@ get_keymap (Lisp_Object object, int errorp, int autoload)
                && EQ (XCAR (tem), Qautoload)
                && EQ (Fcar (Fcdr (Fcdr (Fcdr (Fcdr (tem))))), Qkeymap))
 	{
-	  struct gcpro gcpro1, gcpro2;
-	  GCPRO2 (tem, object);
+	  /* do_autoload GCPROs both arguments */
 	  do_autoload (tem, object);
-	  UNGCPRO;
 	}
       else if (errorp)
 	object = wrong_type_argument (Qkeymapp, object);

@@ -2270,6 +2270,8 @@ query_string_geometry (Lisp_Object string, Lisp_Object face,
   struct face_cachel *cachel;
   Lisp_Object frame = DOMAIN_FRAME (domain);
 
+  CHECK_STRING (string);
+
   /* Compute height */
   if (height)
     {
@@ -4421,9 +4423,9 @@ check_for_ignored_expose (struct frame* f, int x, int y, int width, int height)
 	 we have to check for overlaps. Being conservative, we will
 	 check for exposures wholly contained by the subwindow - this
 	 might give us what we want.*/
-      if (ei->x <= x && ei->y <= y
-	  && ei->x + ei->width >= x + width
-	  && ei->y + ei->height >= y + height)
+      if (ei->x <= (unsigned) x && ei->y <= (unsigned) y
+	  && ei->x + ei->width >= (unsigned) (x + width)
+	  && ei->y + ei->height >= (unsigned) (y + height))
 	{
 #ifdef DEBUG_WIDGETS
 	  stderr_out ("ignored %d+%d, %dx%d for exposure %d+%d, %dx%d\n",
@@ -4491,15 +4493,15 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
 
       if (IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii)
 	  &&
-	  IMAGE_INSTANCE_DISPLAY_X (ii) <= x
+	  IMAGE_INSTANCE_DISPLAY_X (ii) <= (unsigned) x
 	  &&
-	  IMAGE_INSTANCE_DISPLAY_Y (ii) <= y
+	  IMAGE_INSTANCE_DISPLAY_Y (ii) <= (unsigned) y
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_X (ii)
-	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) >= x + width
+	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) >= (unsigned) (x + width)
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_Y (ii)
-	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) >= y + height)
+	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) >= (unsigned) (y + height))
 	{
 	  return 1;
 	}

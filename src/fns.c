@@ -74,7 +74,7 @@ print_bit_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   size_t last = len;
 
   if (INTP (Vprint_length))
-    last = min (len, XINT (Vprint_length));
+    last = min ((EMACS_INT) len, XINT (Vprint_length));
   write_c_string ("#*", printcharfun);
   for (i = 0; i < last; i++)
     {

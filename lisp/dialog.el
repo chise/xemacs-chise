@@ -40,8 +40,8 @@
 ;;; Code:
 (defun yes-or-no-p-dialog-box (prompt)
   "Ask user a yes-or-no question with a popup dialog box.
-Return t if the answer is \"yes\".
-Takes one argument, which is the string to display to ask the question."
+Return t if the answer is \"yes\", nil if \"no\".  Takes one argument,
+the question string to display."
   (save-selected-frame
     (make-dialog-box 'question
 		     :question prompt

@@ -400,7 +400,7 @@ Newsreaders known by default are gnus, rn, nn, trn, xrn, slrn, pine
   (let ((command (cdr-safe
 		  (assq toolbar-news-reader toolbar-news-commands-alist))))
     (or command
-	(error "Unkown news reader %s" toolbar-news-reader))
+	(error "Unknown news reader %s" toolbar-news-reader))
     (if (symbolp command)
 	(call-interactively command)
       (eval command))))

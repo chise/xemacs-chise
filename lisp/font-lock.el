@@ -282,7 +282,7 @@ available for buffers in `c-mode', and level 1 decoration otherwise."
 				      (symbol :tag "name"))
 			       (radio :tag "Decoration"
 				      (const :tag "default" nil)
-				      (const :tag "maximum" t) 
+				      (const :tag "maximum" t)
 				      (integer :tag "level" 1)))))
   :group 'font-lock)
 
@@ -626,7 +626,7 @@ This is normally set via `font-lock-defaults'.")
 ;; #### barf gag retch.  Horrid FSF lossage that we need to
 ;; keep around for compatibility with font-lock-keywords that
 ;; forget to properly quote their faces.  I tried just let-binding
-;; them when we eval the face expression, but that failes because
+;; them when we eval the face expression, but that fails because
 ;; some	files actually use the variables directly in their init code
 ;; without quoting them. --ben
 (defvar font-lock-comment-face 'font-lock-comment-face
@@ -639,12 +639,20 @@ The corresponding face should be set using `edit-faces' or the
 It is present only for horrid FSF compatibility reasons.
 The corresponding face should be set using `edit-faces' or the
 `set-face-*' functions.")
+;; GNU compatibility
+(define-compatible-variable-alias
+  'font-lock-doc-face 'font-lock-doc-string-face)
 (defvar font-lock-string-face 'font-lock-string-face
   "This variable should not be set.
 It is present only for horrid FSF compatibility reasons.
 The corresponding face should be set using `edit-faces' or the
 `set-face-*' functions.")
 (defvar font-lock-keyword-face 'font-lock-keyword-face
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
+(defvar font-lock-builtin-face 'font-lock-builtin-face
   "This variable should not be set.
 It is present only for horrid FSF compatibility reasons.
 The corresponding face should be set using `edit-faces' or the
@@ -660,6 +668,11 @@ It is present only for horrid FSF compatibility reasons.
 The corresponding face should be set using `edit-faces' or the
 `set-face-*' functions.")
 (defvar font-lock-type-face 'font-lock-type-face
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
+(defvar font-lock-constant-face 'font-lock-constant-face
   "This variable should not be set.
 It is present only for horrid FSF compatibility reasons.
 The corresponding face should be set using `edit-faces' or the
@@ -680,9 +693,11 @@ The corresponding face should be set using `edit-faces' or the
     font-lock-string-face
     font-lock-doc-string-face
     font-lock-keyword-face
+    font-lock-builtin-face
     font-lock-function-name-face
     font-lock-variable-name-face
     font-lock-type-face
+    font-lock-constant-face
     font-lock-reference-face
     font-lock-preprocessor-face
     font-lock-warning-face))
@@ -731,6 +746,15 @@ on the major mode's symbol."
   "Font Lock mode face used to highlight keywords."
   :group 'font-lock-faces)
 
+(defface font-lock-builtin-face
+  '((((class color) (background light)) (:foreground "Purple"))
+    (((class color) (background dark)) (:foreground "Cyan"))
+    (((class grayscale) (background light)) (:foreground "LightGray" :bold t))
+    (((class grayscale) (background dark)) (:foreground "DimGray" :bold t))
+    (t (:bold t)))
+  "Font Lock mode face used to highlight builtins."
+:group 'font-lock-faces)
+
 (defface font-lock-function-name-face
   '((((class color) (background dark)) (:foreground "aquamarine"))
     ;; brown4 is hardly different from black on windows.
@@ -763,6 +787,17 @@ on the major mode's symbol."
   "Font Lock mode face used to highlight types."
   :group 'font-lock-faces)
 
+(defface font-lock-constant-face
+  '((((class color) (background light)) (:foreground "CadetBlue"))
+    (((class color) (background dark)) (:foreground "Aquamarine"))
+    (((class grayscale) (background light))
+     (:foreground "LightGray" :bold t :underline t))
+    (((class grayscale) (background dark))
+     (:foreground "Gray50" :bold t :underline t))
+    (t (:bold t :underline t)))
+  "Font Lock mode face used to highlight constants and labels."
+:group 'font-lock-faces)
+
 (defface font-lock-reference-face
   '((((class color) (background dark)) (:foreground "cadetblue2"))
     (((class color) (background light)) (:foreground "red3"))
@@ -773,8 +808,6 @@ on the major mode's symbol."
   "Font Lock mode face used to highlight references."
   :group 'font-lock-faces)
 
-;; #### FSF has font-lock-builtin-face.
-
 (defface font-lock-preprocessor-face
   '((((class color) (background dark)) (:foreground "steelblue1"))
     (((class color) (background light)) (:foreground "blue3"))
@@ -782,7 +815,6 @@ on the major mode's symbol."
   "Font Lock Mode face used to highlight preprocessor conditionals."
   :group 'font-lock-faces)
 
-;; #### Currently unused
 (defface font-lock-warning-face
   '((((class color) (background light)) (:foreground "Red" :bold t))
     (((class color) (background dark)) (:foreground "Pink" :bold t))
@@ -1453,8 +1485,8 @@ Optional argument OBJECT is the string or buffer containing the text."
 
 (defun font-lock-apply-syntactic-highlight (highlight)
   "Apply HIGHLIGHT following a match.
- HIGHLIGHT should be of the form MATCH-HIGHLIGHT,
- see `font-lock-syntactic-keywords'."
+HIGHLIGHT should be of the form MATCH-HIGHLIGHT,
+see `font-lock-syntactic-keywords'."
   (let* ((match (nth 0 highlight))
  	 (start (match-beginning match)) (end (match-end match))
  	 (value (nth 1 highlight))
@@ -1532,8 +1564,7 @@ START should be at the beginning of a line."
 	      (font-lock-apply-syntactic-highlight (car highlights))
 	    (font-lock-fontify-syntactic-anchored-keywords (car highlights)
 							   end))
-	  (setq highlights (cdr highlights)))
-	)
+	  (setq highlights (cdr highlights))))
       (setq keywords (cdr keywords)))))
 
 ;;; Regexp fontification functions.
@@ -1677,8 +1708,9 @@ START should be at the beginning of a line."
 ;; Various functions.
 
 (defun font-lock-compile-keywords (&optional keywords)
-  ;; Compile `font-lock-keywords' into the form (t KEYWORD ...) where KEYWORD
-  ;; is the (MATCHER HIGHLIGHT ...) shown in the variable's doc string.
+  "Compile KEYWORDS into the form (t KEYWORD ...).
+Here KEYWORD is of the form (MATCHER HIGHLIGHT ...) as shown in the
+`font-lock-keywords' doc string."
   (let ((keywords (or keywords font-lock-keywords)))
     (setq font-lock-keywords 
      (if (eq (car-safe keywords) t)
@@ -1700,7 +1732,7 @@ START should be at the beginning of a line."
 	 keyword)))
 
 (defun font-lock-eval-keywords (keywords)
-  ;; Evalulate KEYWORDS if a function (funcall) or variable (eval) name.
+  "Evaluate KEYWORDS if a function (funcall) or variable (eval) name."
   (if (listp keywords)
       keywords
     (font-lock-eval-keywords (if (fboundp keywords)

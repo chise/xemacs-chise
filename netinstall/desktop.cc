@@ -41,6 +41,7 @@
 #include "regedit.h"
 #include "port.h"
 #include "log.h"
+#include "desktop.h"
 
 extern "C" {
   void make_link_2 (char *exepath, char *args, char *icon, char *lname);
@@ -102,13 +103,23 @@ make_link (char *linkpath, char *title, char *target, char* args)
 }
 
 static char* 
+find_xemacs_version ()
+{
+  char* v = strdup (xemacs_package->info[xemacs_package->trust].version);
+  char* dash = strrchr (v, '-');
+  if (dash)
+    *dash = 0;
+  return v;
+}
+
+static char* 
 find_xemacs_exe_path ()
 {
   if (xemacs_package->type == TY_CYGWIN)
     return backslash (concat (root_dir, "/bin/", XEMACS_CYGWIN_ARCH_NAME, 0));
   else
     return backslash (concat (root_dir, "\\XEmacs-",
-			      xemacs_package->info[xemacs_package->trust].version, 
+			      find_xemacs_version (), 
 			      "\\", XEMACS_NATIVE_ARCH_NAME, 0));
 }
 
@@ -121,7 +132,7 @@ find_xemacs_exe_name ()
     return strdup ("runemacs.exe");
   else if (xemacs_package->type == TY_CYGWIN)
     return backslash (concat ("xemacs-",
-			      xemacs_package->info[xemacs_package->trust].version, 
+			      find_xemacs_version (), 
 			      ".exe", 0));
   else
     return strdup ("xemacs.exe");
@@ -220,21 +231,27 @@ save_icon ()
 }
 
 void
-remove_desktop_setup()
+remove_xemacs_setup()
 {
+  if (xemacs_package == 0)
+    return;
+
   start_menu ("XEmacs", 0, 1, 0);
-  start_menu ("Uninstall XEmacs", 0, 1, 0);
-  start_menu (0, 0, 1, 0);
   desktop_icon ("XEmacs", 0, 1);
 
-  if (xemacs_package != 0)
-    {
 #define FROB(exe)	  remove_app_path (exe)
-      FROB (find_xemacs_exe_name ());
-      FROB ("runemacs.exe");
-      FROB ("xemacs.exe");
+  FROB (find_xemacs_exe_name ());
+  FROB ("runemacs.exe");
+  FROB ("xemacs.exe");
 #undef FROB
-    }
+}
+
+void
+remove_desktop_setup()
+{
+  remove_xemacs_setup();
+  start_menu ("Uninstall XEmacs", 0, 1, 0);
+  start_menu (0, 0, 1, 0);
 }
 
 static void
@@ -298,7 +315,10 @@ do_desktop_setup()
 	      log (0, "Registering .cpp files");
 	      setup_explorer ("cpp", "C++ Source file", batname);
 	      setup_explorer ("cc", "C++ Source file", batname);
+	      setup_explorer ("cxx", "C++ Source file", batname);
 	      setup_explorer ("hh", "C++ Header file", batname);
+	      setup_explorer ("hpp", "C++ Header file", batname);
+	      setup_explorer ("hxx", "C++ Header file", batname);
 	    }
 	  if (reg_c)
 	    {

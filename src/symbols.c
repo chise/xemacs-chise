@@ -3297,8 +3297,8 @@ defsymbol_massage_name_1 (Lisp_Object *location, const char *name, int dump_p,
 			  int multiword_predicate_p)
 {
   char temp[500];
-  int len = strlen (name) - 1;
-  int i;
+  size_t len = strlen (name) - 1;
+  size_t i;
 
   if (multiword_predicate_p)
     assert (len + 1 < sizeof (temp));
@@ -3374,7 +3374,7 @@ void
 defkeyword_massage_name (Lisp_Object *location, const char *name)
 {
   char temp[500];
-  int len = strlen (name);
+  size_t len = strlen (name);
 
   assert (len < sizeof (temp));
   strcpy (temp, name);
@@ -3509,8 +3509,8 @@ deferror_massage_name_and_message (Lisp_Object *symbol, const char *name,
 				   Lisp_Object inherits_from)
 {
   char temp[500];
-  int i;
-  int len = strlen (name) - 1;
+  size_t i;
+  size_t len = strlen (name) - 1;
 
   assert (len < sizeof (temp));
   strcpy (temp, name + 1); /* Remove initial Q */

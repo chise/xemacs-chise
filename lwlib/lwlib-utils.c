@@ -118,7 +118,7 @@ XtApplyUntilToWidgets (Widget w, XtApplyUntilToWidgetsProc proc, XtPointer arg)
   if (XtIsComposite (w))
     {
       CompositeWidget cw = (CompositeWidget)w;
-      int i;
+      unsigned int i;
       for (i = 0; i < cw->composite.num_children; i++)
 	if (XtIsWidget (cw->composite.children [i])){
 	  result = proc (cw->composite.children [i], arg);

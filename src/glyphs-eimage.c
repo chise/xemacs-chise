@@ -234,7 +234,7 @@ our_skip_input_data (j_decompress_ptr cinfo, long num_bytes)
   if (!src)
     {
       return;
-    } else if (num_bytes > src->bytes_in_buffer)
+    } else if (num_bytes > (long) src->bytes_in_buffer)
       {
 	ERREXIT(cinfo, JERR_INPUT_EOF);
 	/*NOTREACHED*/
@@ -444,7 +444,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
        */
       while (cinfo.output_scanline < cinfo.output_height)
 	{
-	  int i;
+	  unsigned int i;
 
 	  /* jpeg_read_scanlines expects an array of pointers to scanlines.
 	   * Here the array is only one element long, but you could ask for
@@ -568,7 +568,7 @@ gif_read_from_memory(GifByteType *buf, size_t size, VoidPtr data)
 {
   gif_memory_storage *mem = (gif_memory_storage*)data;
 
-  if (size > (mem->len - mem->index))
+  if ((ssize_t) size > (mem->len - mem->index))
     return (size_t) -1;
   memcpy(buf, mem->bytes + mem->index, size);
   mem->index = mem->index + size;
@@ -785,7 +785,7 @@ png_read_from_memory(png_structp png_ptr, png_bytep data,
    struct png_memory_storage *tbr =
      (struct png_memory_storage *) png_get_io_ptr (png_ptr);
 
-   if (length > (tbr->len - tbr->index))
+   if ((ssize_t) length > (tbr->len - tbr->index))
      png_error (png_ptr, (png_const_charp) "Read Error");
    memcpy (data,tbr->bytes + tbr->index,length);
    tbr->index = tbr->index + length;
@@ -1277,7 +1277,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     raster = (uint32*) _TIFFmalloc (width * height * sizeof (uint32));
     if (raster != NULL)
       {
-	int i,j;
+	unsigned int i,j;
 	uint32 *rp;
 	ep = unwind.eimage;
 	rp = raster;

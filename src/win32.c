@@ -182,19 +182,25 @@ otherwise it is an integer representing a ShowWindow flag:
       if ((fname1 = strchr (doc, ':')) != NULL 
 	  && *++fname1 == '/' && *++fname1 == '/')
 	{
-	  fname1++;
-	  pos = fname1 - doc;
-	  if (!(isalpha (fname1[0]) && (IS_DEVICE_SEP (fname1[1]))))
+	  // URL-style if we get here, but we must only convert file
+	  // arguments, since win32 paths are illegal in http etc.
+	  if (strncmp (doc, "file://", 7) == 0)
 	    {
-	      sz = cygwin_posix_to_win32_path_list_buf_size (fname1);
-	      fname2 = alloca (sz + pos);
-	      strncpy (fname2, doc, pos);
-	      doc = fname2;
-	      fname2 += pos;
-	      cygwin_posix_to_win32_path_list (fname1, fname2);
+	      fname1++;
+	      pos = fname1 - doc;
+	      if (!(isalpha (fname1[0]) && (IS_DEVICE_SEP (fname1[1]))))
+		{
+		  sz = cygwin_posix_to_win32_path_list_buf_size (fname1);
+		  fname2 = alloca (sz + pos);
+		  strncpy (fname2, doc, pos);
+		  doc = fname2;
+		  fname2 += pos;
+		  cygwin_posix_to_win32_path_list (fname1, fname2);
+		}
 	    }
 	}
       else {
+	// Not URL-style, must be a straight filename.
 	LOCAL_TO_WIN32_FILE_FORMAT (document, doc);
       }
 #endif

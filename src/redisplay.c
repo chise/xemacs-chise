@@ -147,9 +147,9 @@ typedef struct position_redisplay_data_type
 			   to be skipped before anything is displayed. */
   Bytind bi_start_col_enabled;
   int start_col_xoffset;	/* Number of pixels that still need to
-			   be skipped.  This is used for
-			   horizontal scrolling of glyphs, where we want
-			   to be able to scroll over part of the glyph. */
+                                   be skipped.  This is used for
+                                   horizontal scrolling of glyphs, where we want
+                                   to be able to scroll over part of the glyph. */
 
   int hscroll_glyph_width_adjust;  /* how much the width of the hscroll
 				      glyph differs from space_width (w).
@@ -163,18 +163,20 @@ typedef struct position_redisplay_data_type
   struct extent_fragment *ef;
   face_index findex;
 
-  /* The height of a pixmap may either be predetermined if the user
-     has set a baseline value, or it may be dependent on whatever the
-     line ascent and descent values end up being, based just on font
-     information.  In the first case we can immediately update the
-     values, thus their inclusion here.  In the last case we cannot
-     determine the actual contribution to the line height until we
-     have finished laying out all text on the line.  Thus we propagate
-     the max height of such pixmaps and do a final calculation after
-     all text has been added to the line. */
+  /* The height of a pixmap may either be predetermined if the user has set a
+     baseline value, or it may be dependent on whatever the line ascent and
+     descent values end up being, based just on font and pixmap-ascent
+     information.  In the first case we can immediately update the values, thus
+     their inclusion here.  In the last case we cannot determine the actual
+     contribution to the line height until we have finished laying out all text
+     on the line.  Thus we propagate the max height of such pixmaps and do a
+     final calculation (in calculate_baseline()) after all text has been added
+     to the line. */
   int new_ascent;
   int new_descent;
   int max_pixmap_height;
+  int need_baseline_computation;
+  int end_glyph_width;		/* Well, it is the kitchen sink after all ... */
 
   Lisp_Object result_str; /* String where we put the result of
 			     generating a formatted string in the modeline. */
@@ -192,14 +194,23 @@ enum prop_type
   PROP_STRING,
   PROP_CHAR,
   PROP_MINIBUF_PROMPT,
-  PROP_BLANK
+  PROP_BLANK,
+  PROP_GLYPH
 };
 
 /* Data that should be propagated to the next line.  Either a single
-   Emchar or a string of Bufbyte's.
+   Emchar, a string of Bufbyte's or a glyph.
 
    The actual data that is propagated ends up as a Dynarr of these
    blocks.
+
+   prop_blocks are used to indicate that data that was supposed to go
+   on the previous line couldn't actually be displayed. Generally this
+   shouldn't happen if we are clipping the end of lines. If we are
+   wrapping then we need to display the propagation data before moving
+   on. Its questionable whether we should wrap or clip glyphs in this
+   instance. Most e-lisp relies on clipping so we preserve this
+   behavior.
 
    #### It's unclean that both Emchars and Bufbytes are here.
    */
@@ -229,6 +240,14 @@ struct prop_block
       int width;
       face_index findex;
     } p_blank;
+
+    struct
+    {
+      /* Not used as yet, but could be used to wrap rather than clip glyphs. */
+      int width;		
+      Lisp_Object glyph;
+    } p_glyph;
+
   } data;
 };
 
@@ -265,6 +284,9 @@ static void free_display_line (struct display_line *dl);
 static void update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 				     Bufpos point, int no_regen);
 static int point_visible (struct window *w, Bufpos point, int type);
+static void calculate_yoffset (struct display_line *dl,
+                               struct display_block *fixup);
+static void calculate_baseline (pos_data *data);
 
 /* This used to be 10 but 30 seems to give much better performance. */
 #define INIT_MAX_PREEMPTS	30
@@ -391,6 +413,10 @@ int asynch_device_change_pending;
 /* non-nil if any toolbar has changed */
 int toolbar_changed;
 int toolbar_changed_set;
+
+/* Nonzero if some frame has changed the layout of internal elements
+   (gutters or toolbars). */
+int frame_layout_changed;
 
 /* non-nil if any gutter has changed */
 int gutter_changed;
@@ -680,6 +706,108 @@ calculate_display_line_boundaries (struct window *w, int modeline)
   return bounds;
 }
 
+/* This takes a display_block and its containing line and corrects the yoffset
+   of each glyph in the block to cater for the ascent of the line as a
+   whole. Must be called *after* the line-ascent is known! */
+
+static void
+calculate_yoffset (struct display_line *dl, struct display_block *fixup)
+{
+  int i;
+  for (i=0; i<Dynarr_length (fixup->runes); i++)
+    {
+      struct rune *r = Dynarr_atp (fixup->runes,i);
+      if (r->type == RUNE_DGLYPH)
+        {
+          if (r->object.dglyph.ascent < dl->ascent)
+            r->object.dglyph.yoffset = dl->ascent - r->object.dglyph.ascent +
+	      r->object.dglyph.descent;
+        }
+    }
+}
+
+/* Calculate the textual baseline (the ascent and descent values for the
+   display_line as a whole).
+
+   If the baseline is completely blank, or contains no manually positioned
+   glyphs, then the textual baseline is simply the baseline of the default font.
+   (The `contains no manually positioned glyphs' part is actually done for
+   us by `add_emchar_rune'.)
+
+   If the baseline contains pixmaps, and they're all manually positioned, then
+   the textual baseline location is constrained that way, and we need do no
+   work.
+
+   If the baseline contains pixmaps, and at least one is automatically
+   positioned, then the textual ascent is the largest ascent on the line, and
+   the textual descent is the largest descent (which is how things are set up at
+   entry to this function anyway): except that if the max_ascent + max_descent
+   is too small for the height of the line (say you've adjusted the baseline of
+   a short glyph, and there's a tall one next to it), then take the ascent and
+   descent for the line individually from the largest of the explicitly set
+   ascent/descent, and the rescaled ascent/descent of the default font, scaled
+   such that the largest glyph will fit.
+
+   This means that if you have a short glyph (but taller than the default
+   font's descent) forced right under the baseline, and a really tall
+   automatically positioned glyph, that the descent for the line is just big
+   enough for the manually positioned short glyph, and the tall one uses as
+   much of that space as the default font would were it as tall as the tall
+   glyph; but that the ascent is big enough for the tall glyph to fit.
+
+   This behaviour means that under no circumstances will changing the baseline
+   of a short glyph cause a tall glyph to move around; nor will it move the
+   textual baseline more than necessary. (Changing a tall glyph's baseline
+   might move the text's baseline arbitrarily, of course.) */
+
+static void
+calculate_baseline (pos_data *data)
+{
+  /* Blank line: baseline is default font's baseline. */
+
+  if (!data->new_ascent && !data->new_descent)
+    {
+      /* We've got a blank line so initialize these values from the default
+         face. */
+      default_face_font_info (data->window, &data->new_ascent,
+			      &data->new_descent, 0, 0, 0);
+    }
+  
+  /* No automatically positioned glyphs? Return at once. */
+  if (!data->need_baseline_computation)
+    return;
+
+  /* Is the tallest glyph on the line automatically positioned?
+     If it's manually positioned, or it's automatically positioned
+     and there's enough room for it anyway, we need do no more work. */
+  if (data->max_pixmap_height > data->new_ascent + data->new_descent)
+    {
+      int default_font_ascent, default_font_descent, default_font_height;
+      int scaled_default_font_ascent, scaled_default_font_descent;
+      
+      default_face_font_info (data->window, &default_font_ascent,
+			      &default_font_descent, &default_font_height,
+			      0, 0);
+
+      scaled_default_font_ascent = data->max_pixmap_height *
+	default_font_ascent / default_font_height;
+
+      data->new_ascent = max (data->new_ascent, scaled_default_font_ascent);
+
+      /* The ascent may have expanded now. Do we still need to grow the descent,
+         or are things big enough?
+
+         The +1 caters for the baseline row itself. */
+      if (data->max_pixmap_height > data->new_ascent + data->new_descent)
+        {
+          scaled_default_font_descent = (data->max_pixmap_height *
+					 default_font_descent / default_font_height) + 1;
+
+          data->new_descent = max (data->new_descent, scaled_default_font_descent);
+        }
+    }
+}
+
 /* Given a display line and a starting position, ensure that the
    contents of the display line accurately represent the visual
    representation of the buffer contents starting from the given
@@ -811,12 +939,14 @@ add_hscroll_rune (pos_data *data)
   return retval;
 }
 
-/* Adds a character rune to a display block.  If there is not enough
-   room to fit the rune on the display block (as determined by the
-   MAX_PIXPOS) then it adds nothing and returns ADD_FAILED. */
+/* Adds a character rune to a display block.  If there is not enough room
+   to fit the rune on the display block (as determined by the MAX_PIXPOS)
+   then it adds nothing and returns ADD_FAILED.  If
+   NO_CONTRIBUTE_TO_LINE_HEIGHT is non-zero, don't allow the char's height
+   to affect the total line height. (See add_intbyte_string_runes()). */
 
 static prop_block_dynarr *
-add_emchar_rune (pos_data *data)
+add_emchar_rune_1 (pos_data *data, int no_contribute_to_line_height)
 {
   struct rune rb, *crb;
   int width, local;
@@ -873,8 +1003,13 @@ add_emchar_rune (pos_data *data)
 	    data->last_char_width = fi->width;
 	  else
 	    data->last_char_width = -1;
-	  data->new_ascent  = max (data->new_ascent,  (int) fi->ascent);
-	  data->new_descent = max (data->new_descent, (int) fi->descent);
+
+	  if (!no_contribute_to_line_height)
+	    {
+	      data->new_ascent  = max (data->new_ascent,  (int) fi->ascent);
+	      data->new_descent = max (data->new_descent, (int) fi->descent);
+	    }
+
 	  data->last_charset = charset;
 	  data->last_findex = data->findex;
 	}
@@ -961,13 +1096,24 @@ add_emchar_rune (pos_data *data)
   return NULL;
 }
 
-/* Given a string C_STRING of length C_LENGTH, call add_emchar_rune
-   for each character in the string.  Propagate any left-over data
-   unless NO_PROP is non-zero. */
-
+static prop_block_dynarr *
+add_emchar_rune (pos_data *data)
+{
+  return add_emchar_rune_1 (data, 0);
+}
+  
+/* Given a string C_STRING of length C_LENGTH, call add_emchar_rune for
+   each character in the string.  Propagate any left-over data unless
+   NO_PROP is non-zero.  If NO_CONTRIBUTE_TO_LINE_HEIGHT is non-zero, don't
+   allow this character to increase the total height of the line. (This is
+   used when the character is part of a text glyph.  In that case, the
+   glyph code itself adjusts the line height as necessary, depending on
+   whether glyph-contrib-p is true.) */
+  
 static prop_block_dynarr *
 add_bufbyte_string_runes (pos_data *data, Bufbyte *c_string,
-			  Bytecount c_length, int no_prop)
+			  Bytecount c_length, int no_prop,
+			  int no_contribute_to_line_height)
 {
   Bufbyte *pos, *end = c_string + c_length;
   prop_block_dynarr *prop;
@@ -984,7 +1130,7 @@ add_bufbyte_string_runes (pos_data *data, Bufbyte *c_string,
 
       data->ch = charptr_emchar (pos);
 
-      prop = add_emchar_rune (data);
+      prop = add_emchar_rune_1 (data, no_contribute_to_line_height);
 
       if (prop)
 	{
@@ -1119,12 +1265,11 @@ add_blank_rune (pos_data *data, struct window *w, int char_tab_width)
 static prop_block_dynarr *
 add_octal_runes (pos_data *data)
 {
-  prop_block_dynarr *prop, *add_failed;
+  prop_block_dynarr *add_failed, *prop = 0;
   Emchar orig_char = data->ch;
   unsigned int orig_cursor_type = data->cursor_type;
 
   /* Initialize */
-  prop = NULL;
   add_failed = NULL;
 
   if (data->start_col)
@@ -1184,7 +1329,7 @@ add_octal_runes (pos_data *data)
   ADD_NEXT_OCTAL_RUNE_CHAR;
 
   data->cursor_type = orig_cursor_type;
-  return prop;
+  return NULL;
 }
 
 #undef ADD_NEXT_OCTAL_RUNE_CHAR
@@ -1269,7 +1414,7 @@ add_disp_table_entry_runes_1 (pos_data *data, Lisp_Object entry)
       prop = add_bufbyte_string_runes (data,
 				       XSTRING_DATA   (entry),
 				       XSTRING_LENGTH (entry),
-				       0);
+				       0, 0);
     }
   else if (GLYPHP (entry))
     {
@@ -1328,7 +1473,7 @@ add_disp_table_entry_runes_1 (pos_data *data, Lisp_Object entry)
 		    }
 		}
 	    }
-	  prop = add_bufbyte_string_runes (data, result, dst - result, 0);
+	  prop = add_bufbyte_string_runes (data, result, dst - result, 0, 0);
 	}
     }
 
@@ -1557,6 +1702,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       Lisp_Object face;
       Lisp_Object instance;
       face_index findex;
+      prop_block_dynarr *retval = 0;
 
       if (cachel)
 	width = cachel->width;
@@ -1568,7 +1714,6 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 
       if (data->start_col || data->start_col_xoffset)
 	{
-	  prop_block_dynarr *retval;
 	  int glyph_char_width = width / space_width (w);
 
 	  /* If we still have not fully scrolled horizontally after
@@ -1604,17 +1749,41 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       if (data->pixpos + width > data->max_pixpos)
 	{
 	  /* If this is the first object we are attempting to add to
-             the line then we ignore the horizontal_clip threshold.
-             Otherwise we will loop until the bottom of the window
-             continually failing to add this glyph because it is wider
-             than the window.  We could alternatively just completely
-             ignore the glyph and proceed from there but I think that
-             this is a better solution. */
+	     the line then we ignore the horizontal_clip threshold.
+	     Otherwise we will loop until the bottom of the window
+	     continually failing to add this glyph because it is wider
+	     than the window.  We could alternatively just completely
+	     ignore the glyph and proceed from there but I think that
+	     this is a better solution.
+	     
+	     This does, however, create a different problem in that we
+	     can end up adding the object to every single line, never
+	     getting any further - for instance an extent with a long
+	     start-glyph that covers multitple following
+	     characters.  */
 	  if (Dynarr_length (data->db->runes)
 	      && data->max_pixpos - data->pixpos < horizontal_clip)
 	    return ADD_FAILED;
-	  else
+	  else {
+	    struct prop_block pb;
+
+	    /* We need to account for the width of the end-of-line
+	       glyph if there is nothing more in the line to display,
+	       since we will not display it in this instance. It seems
+	       kind of gross doing it here, but otherwise we have to
+	       search the runes in create_text_block(). */
+	    if (data->ch == '\n')
+	      data->max_pixpos += data->end_glyph_width;
 	    width = data->max_pixpos - data->pixpos;
+	    /* Add the glyph we are displaying, but clipping, to the
+	       propagation data so that we don't try and do it
+	       again. */ 
+	    retval = Dynarr_new (prop_block);
+	    pb.type = PROP_GLYPH;
+	    pb.data.p_glyph.glyph = gb->glyph;
+	    pb.data.p_glyph.width = width;
+	    Dynarr_add (retval, pb);
+	  }
 	}
 
       if (cachel)
@@ -1630,6 +1799,8 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 
       baseline = glyph_baseline (gb->glyph, data->window);
 
+      rb.object.dglyph.descent = 0; /* Gets reset lower down, if it is known. */
+
       if (glyph_contrib_p (gb->glyph, data->window))
 	{
 	  /* A pixmap that has not had a baseline explicitly set.  Its
@@ -1637,6 +1808,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 	  if (NILP (baseline))
 	    {
 	      int height = ascent + descent;
+	      data->need_baseline_computation = 1;
 	      data->max_pixmap_height = max (data->max_pixmap_height, height);
 	    }
 
@@ -1659,6 +1831,9 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 
 	      data->new_ascent = max (data->new_ascent, pix_ascent);
 	      data->new_descent = max (data->new_descent, pix_descent);
+	      data->max_pixmap_height = max (data->max_pixmap_height, height);
+	      
+	      rb.object.dglyph.descent = pix_descent;
 	    }
 
 	  /* Otherwise something is screwed up. */
@@ -1686,11 +1861,11 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 	  if (!allow_cursor)
 	    data->bi_bufpos = 0;
 	  add_bufbyte_string_runes (data, XSTRING_DATA (string),
-				    XSTRING_LENGTH (string), 0);
+				    XSTRING_LENGTH (string), 0, 1);
 	  data->findex = orig_findex;
 	  data->bi_bufpos = orig_bufpos;
 	  data->bi_start_col_enabled = orig_start_col_enabled;
-	  return NULL;
+	  return retval;
 	}
 
       rb.findex = findex;
@@ -1707,6 +1882,9 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       rb.object.dglyph.glyph = gb->glyph;
       rb.object.dglyph.extent = gb->extent;
       rb.object.dglyph.xoffset = xoffset;
+      rb.object.dglyph.ascent = ascent;
+      rb.object.dglyph.yoffset = 0;   /* Until we know better, assume that it has
+					 a normal (textual) baseline. */
 
       if (allow_cursor)
 	{
@@ -1742,7 +1920,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
       Dynarr_add (data->db->runes, rb);
       data->pixpos += width;
 
-      return NULL;
+      return retval;
     }
   else
     {
@@ -1771,7 +1949,7 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
 	abort ();	/* there are no unknown types */
     }
 
-  return NULL;	/* shut up compiler */
+  return NULL;
 }
 
 /* Add all glyphs at position POS_TYPE that are contained in the given
@@ -1831,7 +2009,6 @@ create_text_block (struct window *w, struct display_line *dl,
 			   is_surrogate_for_selected_frame (f));
 
   int truncate_win = window_truncation_on (w);
-  int end_glyph_width;
 
   /* If the buffer's value of selective_display is an integer then
      only lines that start with less than selective_display columns of
@@ -1929,10 +2106,10 @@ create_text_block (struct window *w, struct display_line *dl,
      glyph.  Save the width of the end glyph for later use. */
   data.max_pixpos = dl->bounds.right_in;
   if (truncate_win)
-    end_glyph_width = GLYPH_CACHEL_WIDTH (w, TRUN_GLYPH_INDEX);
+    data.end_glyph_width = GLYPH_CACHEL_WIDTH (w, TRUN_GLYPH_INDEX);
   else
-    end_glyph_width = GLYPH_CACHEL_WIDTH (w, CONT_GLYPH_INDEX);
-  data.max_pixpos -= end_glyph_width;
+    data.end_glyph_width = GLYPH_CACHEL_WIDTH (w, CONT_GLYPH_INDEX);
+  data.max_pixpos -= data.end_glyph_width;
 
   if (cursor_in_echo_area && MINI_WINDOW_P (w) && echo_area_active (f))
     {
@@ -2025,10 +2202,25 @@ create_text_block (struct window *w, struct display_line *dl,
       /* Check for face changes. */
       if (initial || (!no_more_frags && data.bi_bufpos == data.ef->end))
 	{
+	  Lisp_Object last_glyph = Qnil;
+
+	  /* Deal with glyphs that we have already displayed. The
+	     theory is that if we end up with a PROP_GLYPH in the
+	     propagation data then we are clipping the glyph and there
+	     can be no propagation data before that point. The theory
+	     works because we always recalculate the extent-fragments
+	     for propagated data, we never actually propagate the
+	     fragments that still need to be displayed. */
+	  if (*prop && Dynarr_atp (*prop, 0)->type == PROP_GLYPH) 
+	    {
+	      last_glyph = Dynarr_atp (*prop, 0)->data.p_glyph.glyph;
+	      Dynarr_free (*prop);
+	      *prop = 0;
+	    }
 	  /* Now compute the face and begin/end-glyph information. */
 	  data.findex =
 	    /* Remember that the extent-fragment routines deal in Bytind's. */
-	    extent_fragment_update (w, data.ef, data.bi_bufpos);
+	    extent_fragment_update (w, data.ef, data.bi_bufpos, last_glyph);
 
 	  get_display_tables (w, data.findex, &face_dt, &window_dt);
 
@@ -2098,9 +2290,9 @@ create_text_block (struct window *w, struct display_line *dl,
 	}
 
       /* If there is propagation data, then it represents the current
-         buffer position being displayed.  Add them and advance the
-         position counter.  This might also add the minibuffer
-         prompt. */
+	 buffer position being displayed.  Add them and advance the
+	 position counter.  This might also add the minibuffer
+	 prompt. */
       else if (*prop)
 	{
 	  dl->used_prop_data = 1;
@@ -2122,19 +2314,59 @@ create_text_block (struct window *w, struct display_line *dl,
 	 here rather than doing them at the end of handling the
 	 previous run so that glyphs at the beginning and end of
 	 a line are handled correctly. */
-      else if (Dynarr_length (data.ef->end_glyphs) > 0)
+      else if (Dynarr_length (data.ef->end_glyphs) > 0
+	       || Dynarr_length (data.ef->begin_glyphs) > 0)
 	{
-	  *prop = add_glyph_runes (&data, END_GLYPHS);
-	  if (*prop)
-	    goto done;
-	}
+	  glyph_block_dynarr* tmpglyphs = 0;
+	  /* #### I think this is safe, but could be wrong. */
+	  data.ch = BI_BUF_FETCH_CHAR (b, data.bi_bufpos);
 
-      /* If there are begin glyphs, add them to the line. */
-      else if (Dynarr_length (data.ef->begin_glyphs) > 0)
-	{
-	  *prop = add_glyph_runes (&data, BEGIN_GLYPHS);
-	  if (*prop)
-	    goto done;
+	  if (Dynarr_length (data.ef->end_glyphs) > 0) 
+	    {
+	      *prop = add_glyph_runes (&data, END_GLYPHS);
+	      tmpglyphs = data.ef->end_glyphs;
+	    }
+
+	  /* If there are begin glyphs, add them to the line. */
+	  if (!*prop && Dynarr_length (data.ef->begin_glyphs) > 0) 
+	    {
+	      *prop = add_glyph_runes (&data, BEGIN_GLYPHS);
+	      tmpglyphs = data.ef->begin_glyphs;
+	    }
+
+	  if (*prop) 
+	    {
+	      /* If we just clipped a glyph and we are at the end of a
+		 line and there are more glyphs to display then do
+		 appropriate processing to not get a continuation
+		 glyph. */
+	      if (*prop != ADD_FAILED 
+		  && Dynarr_atp (*prop, 0)->type == PROP_GLYPH
+		  && data.ch == '\n')
+		{ 
+		  /* If there are no more glyphs then do the normal
+		     processing. 
+
+		     #### This doesn't actually work if the same glyph is
+		     present more than once in the block. To solve
+		     this we would have to carry the index around
+		     which might be problematic since the fragment is
+		     recalculated for each line. */
+		  if (EQ (Dynarr_end (tmpglyphs)->glyph,
+			  Dynarr_atp (*prop, 0)->data.p_glyph.glyph))
+		    {
+		      Dynarr_free (*prop);
+		      *prop = 0;
+		    }
+		  else {
+		    data.blank_width = DEVMETH (d, eol_cursor_width, ());
+		    add_emchar_rune (&data); /* discard prop data. */
+		    goto done;
+		  }
+		}
+	      else
+		goto done;
+	    }
 	}
 
       /* If at end-of-buffer, we've already processed begin and
@@ -2168,7 +2400,7 @@ create_text_block (struct window *w, struct display_line *dl,
 	      /* We aren't going to be adding an end glyph so give its
                  space back in order to make sure that the cursor can
                  fit. */
-	      data.max_pixpos += end_glyph_width;
+	      data.max_pixpos += data.end_glyph_width;
 
 	      if (selective > 0
 		  && (bi_spaces_at_point
@@ -2249,7 +2481,7 @@ create_text_block (struct window *w, struct display_line *dl,
 
 	      /* We won't be adding a truncation or continuation glyph
                  so give up the room allocated for them. */
-	      data.max_pixpos += end_glyph_width;
+	      data.max_pixpos += data.end_glyph_width;
 
 	      if (!NILP (b->selective_display_ellipses))
 		{
@@ -2458,7 +2690,7 @@ done:
              for the next newline.  We also add the end-of-line glyph which
              we know will fit because we adjusted the right border before
              we starting laying out the line. */
-	  data.max_pixpos += end_glyph_width;
+	  data.max_pixpos += data.end_glyph_width;
 	  data.findex = DEFAULT_INDEX;
 	  gb.extent = Qnil;
 
@@ -2592,26 +2824,7 @@ done:
   else
     db->end_pos = dl->bounds.right_white;
 
-  /* update line height parameters */
-  if (!data.new_ascent && !data.new_descent)
-    {
-      /* We've got a blank line so initialize these values from the default
-         face. */
-      default_face_font_info (data.window, &data.new_ascent,
-			      &data.new_descent, 0, 0, 0);
-    }
-
-  if (data.max_pixmap_height)
-    {
-      int height = data.new_ascent + data.new_descent;
-      int pix_ascent, pix_descent;
-
-      pix_descent = data.max_pixmap_height * data.new_descent / height;
-      pix_ascent = data.max_pixmap_height - pix_descent;
-
-      data.new_ascent = max (data.new_ascent, pix_ascent);
-      data.new_descent = max (data.new_descent, pix_descent);
-    }
+  calculate_baseline (&data);
 
   dl->ascent = data.new_ascent;
   dl->descent = data.new_descent;
@@ -2628,6 +2841,8 @@ done:
     if (dl->descent < descent)
       dl->descent = descent;
   }
+
+  calculate_yoffset (dl, db);
 
   dl->cursor_elt = data.cursor_x;
   /* #### lossage lossage lossage! Fix this shit! */
@@ -2707,7 +2922,7 @@ create_overlay_glyph_block (struct window *w, struct display_line *dl)
 	(&data,
 	 XSTRING_DATA   (Voverlay_arrow_string),
 	 XSTRING_LENGTH (Voverlay_arrow_string),
-	 1);
+	 1, 0);
     }
   else if (GLYPHP (Voverlay_arrow_string))
     {
@@ -2718,23 +2933,15 @@ create_overlay_glyph_block (struct window *w, struct display_line *dl)
       add_glyph_rune (&data, &gb, BEGIN_GLYPHS, 0, 0);
     }
 
-  if (data.max_pixmap_height)
-    {
-      int height = data.new_ascent + data.new_descent;
-      int pix_ascent, pix_descent;
-
-      pix_descent = data.max_pixmap_height * data.new_descent / height;
-      pix_ascent = data.max_pixmap_height - pix_descent;
-
-      data.new_ascent = max (data.new_ascent, pix_ascent);
-      data.new_descent = max (data.new_descent, pix_descent);
-    }
+  calculate_baseline (&data);
 
   dl->ascent = data.new_ascent;
   dl->descent = data.new_descent;
 
   data.db->start_pos = dl->bounds.left_in;
   data.db->end_pos = data.pixpos;
+
+  calculate_yoffset (dl, data.db);
 
   return data.pixpos - dl->bounds.left_in;
 }
@@ -2807,19 +3014,12 @@ add_margin_runes (struct display_line *dl, struct display_block *db, int start,
       (reverse ? elt-- : elt++);
     }
 
-  if (data.max_pixmap_height)
-    {
-      int height = data.new_ascent + data.new_descent;
-      int pix_ascent, pix_descent;
-
-      pix_descent = data.max_pixmap_height * data.new_descent / height;
-      pix_ascent = data.max_pixmap_height - pix_descent;
-      data.new_ascent = max (data.new_ascent, pix_ascent);
-      data.new_descent = max (data.new_descent, pix_descent);
-    }
+  calculate_baseline (&data);
 
   dl->ascent = data.new_ascent;
   dl->descent = data.new_descent;
+
+  calculate_yoffset (dl, data.db);
 
   return data.pixpos;
 }
@@ -4251,9 +4451,9 @@ real_current_modeline_height (struct window *w)
 
 
 /***************************************************************************/
-/*								*/
-/*                            displayable string routines			*/
-/*								*/
+/*                                                                         */
+/*                            displayable string routines                  */
+/*                                                                         */
 /***************************************************************************/
 
 /* Given a position for a string in a window, ensure that the given
@@ -4295,7 +4495,6 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
   pos_data data;
 
   int truncate_win = b ? window_truncation_on (w) : 0;
-  int end_glyph_width = 0;
 
   /* We're going to ditch selective display for static text, it's an
      FSF thing and invisible extents are the way to go here.
@@ -4403,13 +4602,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
   /* Set the right boundary adjusting it to take into account any end
      glyph.  Save the width of the end glyph for later use. */
   data.max_pixpos = dl->bounds.right_in;
-#if 0
-  if (truncate_win)
-    end_glyph_width = GLYPH_CACHEL_WIDTH (w, TRUN_GLYPH_INDEX);
-  else
-    end_glyph_width = GLYPH_CACHEL_WIDTH (w, CONT_GLYPH_INDEX);
-#endif
-  data.max_pixpos -= end_glyph_width;
+  data.max_pixpos -= data.end_glyph_width;
 
   data.cursor_type = NO_CURSOR;
   data.cursor_x = -1;
@@ -4465,10 +4658,18 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
       /* Check for face changes. */
       if (initial || (!no_more_frags && data.bi_bufpos == data.ef->end))
 	{
+	  Lisp_Object last_glyph = Qnil;
+	  /* Deal with clipped glyphs that we have already displayed. */
+	  if (*prop && Dynarr_atp (*prop, 0)->type == PROP_GLYPH) 
+	    {
+	      last_glyph = Dynarr_atp (*prop, 0)->data.p_glyph.glyph;
+	      Dynarr_free (*prop);
+	      *prop = 0;
+	    }
 	  /* Now compute the face and begin/end-glyph information. */
 	  data.findex =
 	    /* Remember that the extent-fragment routines deal in Bytind's. */
-	    extent_fragment_update (w, data.ef, data.bi_bufpos);
+	    extent_fragment_update (w, data.ef, data.bi_bufpos, last_glyph);
 	  /* This is somewhat cheesy but the alternative is to
              propagate default_face into extent_fragment_update. */
 	  if (data.findex == DEFAULT_INDEX)
@@ -4560,17 +4761,23 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 	 a line are handled correctly. */
       else if (Dynarr_length (data.ef->end_glyphs) > 0)
 	{
+	  data.ch = string_char (s, data.bi_bufpos);
 	  *prop = add_glyph_runes (&data, END_GLYPHS);
-	  if (*prop)
+
+	  if (*prop) {
 	    goto done;
+	  }
 	}
 
       /* If there are begin glyphs, add them to the line. */
       else if (Dynarr_length (data.ef->begin_glyphs) > 0)
 	{
+	  data.ch = string_char (s, data.bi_bufpos);
 	  *prop = add_glyph_runes (&data, BEGIN_GLYPHS);
-	  if (*prop)
+
+	  if (*prop) {
 	    goto done;
+	  }
 	}
 
       /* If at end-of-buffer, we've already processed begin and
@@ -4604,7 +4811,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 	      /* We aren't going to be adding an end glyph so give its
                  space back in order to make sure that the cursor can
                  fit. */
-	      data.max_pixpos += end_glyph_width;
+	      data.max_pixpos += data.end_glyph_width;
 	      goto done;
 	    }
 
@@ -4646,7 +4853,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 	      *prop = add_blank_rune (&data, w, char_tab_width);
 
 	      /* add_blank_rune is only supposed to be called with
-                 sizes guaranteed to fit in the available space. */
+		 sizes guaranteed to fit in the available space. */
 	      assert (!(*prop));
 
 	      if (prop_width)
@@ -4702,7 +4909,7 @@ create_string_text_block (struct window *w, Lisp_Object disp_string,
 	}
     }
 
-done:
+ done:
 
   /* Determine the starting point of the next line if we did not hit the
      end of the buffer. */
@@ -4735,7 +4942,7 @@ done:
              for the next newline.  We also add the end-of-line glyph which
              we know will fit because we adjusted the right border before
              we starting laying out the line. */
-	  data.max_pixpos += end_glyph_width;
+	  data.max_pixpos += data.end_glyph_width;
 	  data.findex = default_face;
 	  gb.extent = Qnil;
 
@@ -4763,7 +4970,7 @@ done:
 	      cachel = GLYPH_CACHEL (w, CONT_GLYPH_INDEX);
 	    }
 
-	  if (end_glyph_width)
+	  if (data.end_glyph_width)
 	    add_glyph_rune (&data, &gb, BEGIN_GLYPHS, 0, cachel);
 
 	  if (truncate_win && data.bi_bufpos == bi_string_zv)
@@ -4841,26 +5048,7 @@ done:
   else
     db->end_pos = dl->bounds.right_white;
 
-  /* update line height parameters */
-  if (!data.new_ascent && !data.new_descent)
-    {
-      /* We've got a blank line so initialize these values from the default
-         face. */
-      default_face_font_info (data.window, &data.new_ascent,
-			      &data.new_descent, 0, 0, 0);
-    }
-
-  if (data.max_pixmap_height)
-    {
-      int height = data.new_ascent + data.new_descent;
-      int pix_ascent, pix_descent;
-
-      pix_descent = data.max_pixmap_height * data.new_descent / height;
-      pix_ascent = data.max_pixmap_height - pix_descent;
-
-      data.new_ascent = max (data.new_ascent, pix_ascent);
-      data.new_descent = max (data.new_descent, pix_descent);
-    }
+  calculate_baseline (&data);
 
   dl->ascent = data.new_ascent;
   dl->descent = data.new_descent;
@@ -4877,6 +5065,8 @@ done:
     if (dl->descent < descent)
       dl->descent = descent;
   }
+
+  calculate_yoffset (dl, db);
 
   dl->cursor_elt = data.cursor_x;
   /* #### lossage lossage lossage! Fix this shit! */
@@ -6332,8 +6522,13 @@ redisplay_frame (struct frame *f, int preemption_check)
   update_frame_menubars (f);
 #endif /* HAVE_MENUBARS */
 #ifdef HAVE_TOOLBARS
-  /* Update the toolbars. */
-  update_frame_toolbars (f);
+  /* Update the toolbars geometry. We don't update the toolbars
+     themselves at this point since the space they are trying to
+     occupy may currently by occupied by gutter elements. Instead we
+     update the geometry, then update the gutter geometry, then update
+     the gutters - which will cause mapped windows to be repositioned
+     - and finally update the toolbars. */
+  update_frame_toolbars_geometry (f);
 #endif /* HAVE_TOOLBARS */
   /* Gutter update proper has to be done inside display when no frame
      size changes can occur, thus we separately update the gutter
@@ -6412,6 +6607,14 @@ redisplay_frame (struct frame *f, int preemption_check)
   MAYBE_DEVMETH (d, frame_output_end, (f));
 
   update_frame_title (f);
+
+#ifdef HAVE_TOOLBARS
+  /* Finally update the toolbars. It seems its possible to get in a
+     cycle between updating the gutter and the toolbars. Basically we
+     want to end up with both being up-to-date and this doesn't seem
+     possible in a single pass. */
+  update_frame_toolbars (f);
+#endif /* HAVE_TOOLBARS */
 
   CLASS_RESET_CHANGED_FLAGS (f);
   f->window_face_cache_reset = 0;
@@ -7107,11 +7310,6 @@ mark_redisplay (void)
   FRAME_LOOP_NO_BREAK (frmcons, devcons, concons)
     {
       struct frame *f = XFRAME (XCAR (frmcons));
-      /* #### urk!  this does tons o' crap, such as creating lots of
-	 structs, doing window system actions, etc.  we DO NOT want to
-	 be doing this -- marking should never change any state.
-	 i think we can just delete this. --ben */
-      update_frame_window_mirror (f);
       mark_window_mirror (f->root_mirror);
       mark_gutters (f);
     }
@@ -7283,7 +7481,8 @@ point_in_line_start_cache (struct window *w, Bufpos point, int min_past)
 {
   struct buffer *b = XBUFFER (w->buffer);
   line_start_cache_dynarr *cache = w->line_start_cache;
-  unsigned int top, bottom, pos;
+  unsigned int top, bottom;
+  EMACS_INT pos;
 
   validate_line_start_cache (w);
   w->line_cache_validation_override++;

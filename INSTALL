@@ -373,11 +373,16 @@ supports.
 MAIL LOCKING
 ============
 
-Find out what the preferred method for locking mail spool files is in
-your environment.  Presently, XEmacs supports lockf, flock, and dot
-locking.  Specify the locking method via the --mail-locking=METHOD
-option to configure.  Valid values for METHOD are --mail-locking are
-`lockf', `flock', and `dot'.
+For most platforms, configure or the src/s file have the preferred
+method for locking mail spool files preconfigured.  Otherwise you must
+find out for youself.  Do not choose a locking protocol "on the
+objective merits."  XEmacs must use the same method as other mail
+utilities on your system, or you will lose mail.
+
+Presently, XEmacs supports lockf, flock, and dot locking.  Specify the
+locking method via the --mail-locking=METHOD option to configure.
+Valid values for METHOD are --mail-locking are `lockf', `flock', and
+`dot'.
 
 RUNNING CONFIGURE
 =================

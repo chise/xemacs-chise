@@ -712,13 +712,26 @@ compute_frame_toolbars_data (struct frame *f)
   set_frame_toolbar (f, RIGHT_TOOLBAR);
 }
 
+/* Update the toolbar geometry separately from actually displaying the
+   toolbar. This is necessary because both the gutter and the toolbar
+   are competing for redisplay cycles and, unfortunately, gutter
+   updates happen late in the game. Firstly they are done inside of
+   redisplay proper and secondly subcontrols may not get moved until
+   the next screen refresh. Only after subcontrols have been moved to
+   their final destinations can we be certain of updating the
+   toolbar. Under X this probably is exacerbated by the toolbar button
+   dirty flags which prevent updates happening when they possibly
+   should. */
 void
-update_frame_toolbars (struct frame *f)
+update_frame_toolbars_geometry (struct frame *f)
 {
   struct device *d = XDEVICE (f->device);
 
   if (DEVICE_SUPPORTS_TOOLBARS_P (d)
-      && (f->toolbar_changed || f->frame_changed || f->clear))
+      && (f->toolbar_changed 
+	  || f->frame_layout_changed
+	  || f->frame_changed
+	  || f->clear))
     {
       int pos;
 
@@ -738,18 +751,39 @@ update_frame_toolbars (struct frame *f)
 	    pixel_to_char_size (f, FRAME_PIXWIDTH (f), FRAME_PIXHEIGHT (f),
 				&width, &height);
 	    change_frame_size (f, height, width, 0);
+	    MARK_FRAME_LAYOUT_CHANGED (f);
 	    break;
 	  }
 
-      for (pos = 0; pos < 4; pos++)
+      for (pos = 0; pos < 4; pos++) {
 	f->current_toolbar_size[pos] = FRAME_REAL_TOOLBAR_SIZE (f, pos);
+      }
 
       /* Removed the check for the minibuffer here.  We handle this
 	 more correctly now by consistently using
 	 FRAME_LAST_NONMINIBUF_WINDOW instead of FRAME_SELECTED_WINDOW
 	 throughout the toolbar code. */
       compute_frame_toolbars_data (f);
+      
+      /* Clear the previous toolbar locations. If we do it later
+	 (after redisplay) we end up clearing what we have just
+	 displayed. */
+      MAYBE_DEVMETH (d, clear_frame_toolbars, (f));
+    }
+}
 
+/* Actually redisplay the toolbar buttons. */
+void
+update_frame_toolbars (struct frame *f)
+{
+  struct device *d = XDEVICE (f->device);
+
+  if (DEVICE_SUPPORTS_TOOLBARS_P (d)
+      && (f->toolbar_changed 
+	  || f->frame_layout_changed
+	  || f->frame_changed 
+	  || f->clear))
+    {
       DEVMETH (d, output_frame_toolbars, (f));
     }
 
