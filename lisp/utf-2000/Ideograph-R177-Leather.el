@@ -956,6 +956,7 @@
 (define-char
   '((morohashi-daikanwa	42820 0 9)
     (ideographic-radical . 177)	; â¾°
+    (ideographic-strokes . 6)
     (total-strokes	 . 15)
     (chinese-cns11643-5 . #x524B)	; ø»š³”
     ))
