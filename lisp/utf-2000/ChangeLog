@@ -1,5 +1,12 @@
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el: Add some mappings into CJK Ext-B code
+	points.
+	(C6-246E): Unify U-00022450; use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R055-Two-Hands.el: Add some mappings into CJK Ext-B
 	code points.
 	(C6-2467): Add `->identical' for U-00020020; add
