@@ -435,6 +435,40 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
 
+Emchar make_builtin_char (Lisp_Object charset, int c1, int c2);
+
+INLINE Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point)
+{
+  int dim = XCHARSET_DIMENSION (charset);
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
+  int idx;
+  Lisp_Object ch;
+
+  while (dim > 0)
+    {
+      dim--;
+      if ( VECTORP (decoding_table)
+	   && ( 0 <= (idx = ((code_point >> (dim * 8))
+			     & 255) - XCHARSET_BYTE_OFFSET (charset)) )
+	   && ( idx < XVECTOR_LENGTH (decoding_table) )
+	   && !NILP (ch = XVECTOR_DATA(decoding_table)[idx]) )
+	{
+	  if (CHARP (ch))
+	    return XCHAR (ch);
+	  else
+	    decoding_table = ch;
+	}
+      else
+	break;
+    }
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return make_builtin_char (charset, code_point, 0);
+  else
+    return make_builtin_char (charset, code_point >> 8, code_point & 255);
+}
+
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2. */
 
@@ -442,71 +476,10 @@ INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
 INLINE Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
-  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
-  int idx;
-  Lisp_Object ch;
-
-  if (!EQ (decoding_table, Qnil)
-      && (0 <= (idx = c1 - XCHARSET_BYTE_OFFSET (charset)))
-      && (idx < XVECTOR_LENGTH (decoding_table))
-      && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
-    {
-      if (VECTORP (ch))
-	{
-	  if ((0 <= (idx = c2 - XCHARSET_BYTE_OFFSET (charset)))
-	      && (idx < XVECTOR_LENGTH (ch))
-	      && !EQ (ch = XVECTOR_DATA(ch)[idx], Qnil))
-	    return XCHAR (ch);
-	}
-      else
-	return XCHAR (ch);
-    }
-  if (XCHARSET_UCS_MAX (charset))
-    {
-      Emchar code
-	= (XCHARSET_DIMENSION (charset) == 1
-	   ?
-	   c1 - XCHARSET_BYTE_OFFSET (charset)
-	   :
-	   (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
-	   + c2  - XCHARSET_BYTE_OFFSET (charset))
-	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
-      if ((code < XCHARSET_UCS_MIN (charset))
-	  || (XCHARSET_UCS_MAX (charset) < code))
-	signal_simple_error ("Arguments makes invalid character",
-			     make_char (code));
-      return code;
-    }
-  else if (XCHARSET_DIMENSION (charset) == 1)
-    {
-      switch (XCHARSET_CHARS (charset))
-	{
-	case 94:
-	  return MIN_CHAR_94
-	    + (XCHARSET_FINAL (charset) - '0') * 94 + (c1 - 33);
-	case 96:
-	  return MIN_CHAR_96
-	    + (XCHARSET_FINAL (charset) - '0') * 96 + (c1 - 32);
-	default:
-	  abort ();
-	}
-    }
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return DECODE_CHAR (charset, c1);
   else
-    {
-      switch (XCHARSET_CHARS (charset))
-	{
-	case 94:
-	  return MIN_CHAR_94x94
-	    + (XCHARSET_FINAL (charset) - '0') * 94 * 94
-	    + (c1 - 33) * 94 + (c2 - 33);
-	case 96:
-	  return MIN_CHAR_96x96
-	    + (XCHARSET_FINAL (charset) - '0') * 96 * 96
-	    + (c1 - 32) * 96 + (c2 - 32);
-	default:
-	  abort ();
-	}
-    }
+    return DECODE_CHAR (charset, (c1 << 8) | c2);
 }
 
 extern Lisp_Object Vcharacter_attribute_table;
