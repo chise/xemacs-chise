@@ -1,3 +1,14 @@
+2000-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/ideograph-util.el (char-ideographic-radical): Renamed
+	from `char-ideograph-radical'.
+	(ideograph-radical-strokes-vector): New variable.
+	(char-ideographic-strokes): Renamed from `char-ideograph-strokes';
+	detect `ideographic-strokes' using
+	`ideograph-radical-strokes-vector' if `total-strokes' is found.
+	(int-list<): New function.
+	(ideograph-char<): New implementation.
+
 2000-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Copy `attributes'
