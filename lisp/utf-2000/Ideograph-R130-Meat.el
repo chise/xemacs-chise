@@ -496,19 +496,28 @@
     (=cns11643-3	. #x2726)	; ø»•Ÿ
     ))
 (define-char
-  '((ideographic-radical . 130)	; â¾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs		. #x8095)	; è‚•
-    (=daikanwa		. 29262)	; ø¸‡‰Ž
-    ))
-(define-char
-  '((=>ucs		. #x8095)	; è‚•
-    (morohashi-daikanwa	29262 0 0)
+  '((=>daikanwa		. 29262)	; ø¸‡‰Ž
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-2	. #x2474)	; ø»“’
+    (->synonyms@jiyun
+     ((=daikanwa	  . 43109)	; ø¸Š¡¥
+      )
+     ((=daikanwa	  . 42715)	; ø¸Š››
+      )
+     ((=daikanwa	  . 10312)	; ø¸‚¡ˆ
+      )
+     ((=daikanwa	  . 01848)	; ø¸€œ¸
+      ))
+    (->synonyms@jiyun*sources
+     jiyun daikanwa)
+    (=ucs		. #x8095)	; è‚•
+    (->subsumptive
+     ((=daikanwa	  . 29262)	; ø¸‡‰Ž
+      (=ucs@unicode	  . #x8095)	; ø¸‡‰Ž
+      )
+     ((=cns11643-2	  . #x2474)	; ø»“’
+      ))
     ))
 (define-char
   '((=>ucs		. #x8096)	; è‚–
@@ -10448,7 +10457,7 @@
     (->identical
      ((=cns11643-6	  . #x5D5C)	; ø»³
       ))
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49158)	; ø¸Œ€†
       ))
     (hanyu-dazidian	3 2104 5)
@@ -10459,7 +10468,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 49158)	; ø¸Œ€†
       )
      ((=cns11643-6	  . #x5D5C)	; ø»³
@@ -11293,7 +11302,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (->same-ideograph
+    (->same
      ((=jis-x0208	  . #x6733)	; ø½‹‚
       ))
     (=ucs		. #x81A4)	; è†¤

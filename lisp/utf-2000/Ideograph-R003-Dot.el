@@ -4,6 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 42 8)
+    (sound@ja/kun	"ten")
+    (sound@ja/on	"tyu")
     (=ucs		. #x4E36)	; ä¸¶
     (=jis-x0208		. #x5026)	; ø½Š»ƒ
     (=gb2312		. #x583C)	; ø»…—‘
@@ -81,6 +83,8 @@
     (total-strokes	 . 3)
     (shinjigen-1	. 39)
     (shinjigen-2	. 39)
+    (sound@ja/kun	"maru" "maru+i")
+    (sound@ja/on/go	"gan")
     (=ucs		. #x4E38)	; ä¸¸
     (=jis-x0208		. #x345D)	; ø½Š’²
     (=gb2312		. #x4D68)	; ø»…‡³
@@ -163,10 +167,14 @@
     (=gt-pj-2		. #x306D)	; ý¡€€‚Ž
     ))
 (define-char
-  '((ideographic-	(:radical	3 ; â¼‚
-			 :strokes	2)
-			(:radical	16 ; â¼
-			 :strokes	1))
+  '((ideographic-radical@ucs . 16)	; â¼
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 3)	; â¼‚
+    (ideographic-strokes@cns . 2)
+    (ideographic-radical@cns*sources
+     shinjigen-1 cns11643)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 276 3)
     (ideographic-structure
@@ -179,6 +187,9 @@
       ))
     (shinjigen-1	. 566)
     (shinjigen-2	. 566)
+    (sound@ja/kun	"oyo-so" "arayu-ru")
+    (sound@ja/on/go	"bon")
+    (sound@ja/on/kan	"han")
     (=ucs		. #x51E1)	; å‡¡
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
     (=gb2312		. #x3732)	; ø»„¦©
@@ -217,6 +228,8 @@
     (hanyu-dazidian	1 44 1)
     (shinjigen-1	. 41)
     (shinjigen-2	. 41)
+    (sound@ja/kun	"ni")
+    (sound@ja/on	"tan")
     (=ucs		. #x4E39)	; ä¸¹
     (=jis-x0208		. #x4330)	; ø½Š¨‡
     (=gb2312		. #x3524)	; ø»„£Ÿ
@@ -251,10 +264,8 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2007E)	; ð ¾
-      )
-     ((=daikanwa	  . 02840)	; ø¸€¬˜
       ))
     (hanyu-dazidian	1 52 1)
     (=big5-cdp		. #x87D2)	; ý¢€ˆŸ’
@@ -264,6 +275,9 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (sound@ja/kun	"nusi" "aruzi" "omo-na")
+    (sound@ja/on/go	"su")
+    (sound@ja/on/kan	"syu")
     (=ucs		. #x4E3B)	; ä¸»
     (->subsumptive
      ((ideographic-structure
@@ -319,6 +333,8 @@
       ))
     (shinjigen-1	. 44)
     (shinjigen-2	. 44)
+    (sound@ja/kun	"donburi" "don")
+    (sound@ja/on/go	"ton")
     (=ucs		. #x4E3C)	; ä¸¼
     (=jis-x0208		. #x5027)	; ø½Š»„
     (=cns11643-2	. #x2144)	; ø»“ƒ
@@ -404,8 +420,8 @@
     (ideographic-radical@cns*sources
      cns11643)
     (total-strokes	 . 8)
-    (->same-ideograph
-     ((ideographic-radical . 1)	; â¼€
+    (->same
+     ((=cns11643-6	  . #x2936)	; ø»œ€µ
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph

@@ -694,7 +694,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS ONE")
-    (=>daikanwa		. 30639)	; ⺿
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -737,7 +736,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS THREE")
-    (=>daikanwa		. 30639)	; ⺿
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)

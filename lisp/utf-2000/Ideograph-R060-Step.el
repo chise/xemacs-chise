@@ -847,10 +847,12 @@
     (ideographic-radical . 60)	; â¼»
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (->same-ideograph
-     ((=daikanwa	  . 00522)	; ø¸€ˆŠ
+    (->same
+     ((=jis-x0212	  . #x3070)	; ø»Š»¡
+      (=jis-x0213-1-2000  . #x2E31)	; ø»¢¦’
+      (=daikanwa	  . 00522)	; ø¸€ˆŠ
       ))
-    (->same-ideograph*sources
+    (->same*sources
      chuanpian daikanwa)
     (=daikanwa		. 10104)	; ø¸‚¸
     (=jef-china3	. #x4DB3)	; øº„¶³

@@ -642,20 +642,20 @@
     (mojikyo		. 053386)	; ý €‚Š
     ))
 (define-char
-  '((=>daikanwa		. 38729)	; ø¸‰‰
-    (ideographic-radical . 162)	; â¾¡
+  '((ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x28460)	; ð¨‘ 
     (->subsumptive
      ((total-strokes	   . 7)
       (=daikanwa	  . 38729)	; ø¸‰‰
+      (=hanziku-10	  . #xC1C0)	; ý¢‚¬‡€
       )
      ((total-strokes	   . 7)
       (=cns11643-5	  . #x2478)	; ø»™°
       )
      ((total-strokes	   . 6)
-      (=ucs@iso		  . #x28460)	; ó°€ž
+      (=ucs@iso		  . #x28460)	; ó°€£
       ))
     ))
 (define-char
@@ -820,7 +820,7 @@
       (=cns11643-5	  . #x276A)	; ø»™´©
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x28463)	; ó°€Ÿ
+      (=ucs@iso		  . #x28463)	; ó°€¤
       ))
     ))
 (define-char
@@ -849,7 +849,7 @@
       (=cns11643-5	  . #x2770)	; ø»™´¯
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x28465)	; ó°€ 
+      (=ucs@iso		  . #x28465)	; ó°€¥
       ))
     ))
 (define-char
@@ -891,7 +891,7 @@
       (=cns11643-3	  . #x2A6F)	; ø»•¥€
       )
      ((total-strokes	   . 7)
-      (=ucs@unicode	  . #x488D)	; ó°€¡
+      (=ucs@unicode	  . #x488D)	; ó°€¦
       ))
     ))
 (define-char
@@ -1054,7 +1054,7 @@
       (=cns11643-5	  . #x2771)	; ø»™´°
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x2846A)	; ó°€¢
+      (=ucs@iso		  . #x2846A)	; ó°€§
       ))
     ))
 (define-char
@@ -1101,7 +1101,7 @@
       (=cns11643-5	  . #x276D)	; ø»™´¬
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x2846B)	; ó°€£
+      (=ucs@iso		  . #x2846B)	; ó°€¨
       ))
     ))
 (define-char
@@ -1278,7 +1278,7 @@
       (=cns11643-5	  . #x2769)	; ø»™´¨
       )
      ((total-strokes	   . 7)
-      (=ucs@unicode	  . #x488E)	; ó°€¤
+      (=ucs@unicode	  . #x488E)	; ó°€©
       ))
     ))
 (define-char
@@ -1338,7 +1338,7 @@
       (=cns11643-5	  . #x2768)	; ø»™´§
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x2847D)	; ó°€¥
+      (=ucs@iso		  . #x2847D)	; ó°€ª
       ))
     ))
 (define-char
@@ -1354,7 +1354,7 @@
       (=cns11643-5	  . #x276C)	; ø»™´«
       )
      ((total-strokes	   . 7)
-      (=ucs@iso		  . #x2847F)	; ó°€¦
+      (=ucs@iso		  . #x2847F)	; ó°€«
       ))
     ))
 (define-char
@@ -1551,7 +1551,7 @@
       (=cns11643-5	  . #x2B4F)	; ø»™º†
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x28483)	; ó°€§
+      (=ucs@iso		  . #x28483)	; ó°€¬
       ))
     ))
 (define-char
@@ -1567,7 +1567,7 @@
       (=cns11643-5	  . #x2B56)	; ø»™º
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x28484)	; ó°€¨
+      (=ucs@iso		  . #x28484)	; ó°€­
       ))
     ))
 (define-char
@@ -1654,7 +1654,7 @@
       (=cns11643-5	  . #x2B52)	; ø»™º‰
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x28485)	; ó°€©
+      (=ucs@iso		  . #x28485)	; ó°€®
       ))
     ))
 (define-char
@@ -1713,7 +1713,7 @@
       (=cns11643-5	  . #x2B51)	; ø»™ºˆ
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x28487)	; ó°€ª
+      (=ucs@iso		  . #x28487)	; ó°€¯
       ))
     ))
 (define-char
@@ -1824,7 +1824,7 @@
       (=cns11643-5	  . #x2B55)	; ø»™ºŒ
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x28489)	; ó°€«
+      (=ucs@iso		  . #x28489)	; ó°€°
       ))
     ))
 (define-char
@@ -1840,7 +1840,7 @@
       (=cns11643-5	  . #x2B53)	; ø»™ºŠ
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x2848A)	; ó°€¬
+      (=ucs@iso		  . #x2848A)	; ó°€±
       ))
     ))
 (define-char
@@ -2092,7 +2092,7 @@
       (=cns11643-5	  . #x2B50)	; ø»™º‡
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x2848D)	; ó°€­
+      (=ucs@iso		  . #x2848D)	; ó°€²
       ))
     ))
 (define-char
@@ -2294,7 +2294,7 @@
       (=cns11643-5	  . #x2B57)	; ø»™ºŽ
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x284A2)	; ó°€®
+      (=ucs@iso		  . #x284A2)	; ó°€³
       ))
     ))
 (define-char
@@ -2310,7 +2310,7 @@
       (=cns11643-5	  . #x2B54)	; ø»™º‹
       )
      ((total-strokes	   . 8)
-      (=ucs@iso		  . #x284A3)	; ó°€¯
+      (=ucs@iso		  . #x284A3)	; ó°€´
       ))
     ))
 (define-char
@@ -2453,7 +2453,7 @@
       (=cns11643-5	  . #x305B)	; ø»š¨
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284A6)	; ó°€°
+      (=ucs@iso		  . #x284A6)	; ó°€µ
       ))
     ))
 (define-char
@@ -2601,7 +2601,7 @@
       (=cns11643-5	  . #x3056)	; ø»š£
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284A8)	; ó°€±
+      (=ucs@iso		  . #x284A8)	; ó°€¶
       ))
     ))
 (define-char
@@ -2669,7 +2669,7 @@
       (=cns11643-5	  . #x305A)	; ø»š§
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284A9)	; ó°€²
+      (=ucs@iso		  . #x284A9)	; ó°€·
       ))
     ))
 (define-char
@@ -2685,7 +2685,7 @@
       (=cns11643-5	  . #x3057)	; ø»š¤
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284AB)	; ó°€³
+      (=ucs@iso		  . #x284AB)	; ó°€¸
       ))
     ))
 (define-char
@@ -2731,7 +2731,7 @@
       (=cns11643-5	  . #x3059)	; ø»š¦
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284AC)	; ó°€´
+      (=ucs@iso		  . #x284AC)	; ó°€¹
       ))
     ))
 (define-char
@@ -3240,7 +3240,7 @@
       (=cns11643-5	  . #x3058)	; ø»š¥
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284BE)	; ó°€µ
+      (=ucs@iso		  . #x284BE)	; ó°€º
       ))
     ))
 (define-char
@@ -3305,7 +3305,7 @@
       (=cns11643-5	  . #x305C)	; ø»š©
       )
      ((total-strokes	   . 9)
-      (=ucs@iso		  . #x284C1)	; ó°€¶
+      (=ucs@iso		  . #x284C1)	; ó°€»
       ))
     ))
 (define-char
@@ -3323,7 +3323,7 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 11)
-      (=ucs@iso		  . #x284C2)	; ó°€·
+      (=ucs@iso		  . #x284C2)	; ó°€¼
       ))
     ))
 (define-char
@@ -3341,7 +3341,7 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 9)
-      (=ucs@iso		  . #x284C3)	; ó°€¸
+      (=ucs@iso		  . #x284C3)	; ó°€½
       ))
     ))
 (define-char
@@ -3857,7 +3857,7 @@
       (=cns11643-5	  . #x362C)	; ø»š‰­
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284C7)	; ó°€¹
+      (=ucs@iso		  . #x284C7)	; ó°€¾
       ))
     ))
 (define-char
@@ -4023,7 +4023,7 @@
       (=cns11643-5	  . #x362B)	; ø»š‰¬
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284CA)	; ó°€º
+      (=ucs@iso		  . #x284CA)	; ó°€¿
       ))
     ))
 (define-char
@@ -4394,7 +4394,7 @@
       (=cns11643-5	  . #x3629)	; ø»š‰ª
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284CD)	; ó°€»
+      (=ucs@iso		  . #x284CD)	; ó°€
       ))
     ))
 (define-char
@@ -4438,7 +4438,7 @@
       (=cns11643-5	  . #x362A)	; ø»š‰«
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284E5)	; ó°€¼
+      (=ucs@iso		  . #x284E5)	; ó°
       ))
     ))
 (define-char
@@ -4489,7 +4489,7 @@
       (=cns11643-5	  . #x362D)	; ø»š‰®
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284E8)	; ó°€½
+      (=ucs@iso		  . #x284E8)	; ó°‚
       ))
     ))
 (define-char
@@ -4505,7 +4505,7 @@
       (=cns11643-5	  . #x3628)	; ø»š‰©
       )
      ((total-strokes	   . 10)
-      (=ucs@iso		  . #x284E9)	; ó°€¾
+      (=ucs@iso		  . #x284E9)	; ó°ƒ
       ))
     ))
 (define-char
@@ -4749,7 +4749,7 @@
       (=cns11643-5	  . #x3C76)	; ø»š“«
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x284EC)	; ó°€¿
+      (=ucs@iso		  . #x284EC)	; ó°„
       ))
     ))
 (define-char
@@ -4764,7 +4764,7 @@
      ((->subsumptive
        ((=cns11643-5	    . #x3C72)	; ø»š“§
 	)
-       ((=ucs@iso	    . #x284ED)	; ó°
+       ((=ucs@iso	    . #x284ED)	; ó°†
 	))
       ))
     ))
@@ -4879,7 +4879,7 @@
       (=cns11643-3	  . #x3F55)	; ø»–ƒœ
       )
      ((total-strokes	   . 11)
-      (=ucs@unicode	  . #x9030)	; ó°‚
+      (=ucs@unicode	  . #x9030)	; ó°‡
       ))
     ))
 (define-char
@@ -4910,7 +4910,7 @@
       (=cns11643-5	  . #x3C77)	; ø»š“¬
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x284EF)	; ó°ƒ
+      (=ucs@iso		  . #x284EF)	; ó°ˆ
       ))
     ))
 (define-char
@@ -5027,7 +5027,7 @@
       (=cns11643-5	  . #x3C79)	; ø»š“®
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x284F4)	; ó°„
+      (=ucs@iso		  . #x284F4)	; ó°‰
       ))
     ))
 (define-char
@@ -5367,7 +5367,7 @@
       (=cns11643-5	  . #x3C75)	; ø»š“ª
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x28516)	; ó°…
+      (=ucs@iso		  . #x28516)	; ó°Š
       ))
     ))
 (define-char
@@ -5409,7 +5409,7 @@
       (=cns11643-5	  . #x3C74)	; ø»š“©
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x28519)	; ó°†
+      (=ucs@iso		  . #x28519)	; ó°‹
       ))
     ))
 (define-char
@@ -5425,7 +5425,7 @@
       (=cns11643-5	  . #x3C73)	; ø»š“¨
       )
      ((total-strokes	   . 11)
-      (=ucs@iso		  . #x2851A)	; ó°‡
+      (=ucs@iso		  . #x2851A)	; ó°Œ
       ))
     ))
 (define-char
@@ -6153,7 +6153,7 @@
       (=cns11643-5	  . #x4359)	; ø»š 
       )
      ((total-strokes	   . 12)
-      (=ucs@iso		  . #x28526)	; ó°ˆ
+      (=ucs@iso		  . #x28526)	; ó°
       ))
     ))
 (define-char
@@ -6623,7 +6623,7 @@
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 12)
-      (=ucs@iso		  . #x2852F)	; ó°‰
+      (=ucs@iso		  . #x2852F)	; ó°Ž
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 12)
@@ -6684,7 +6684,7 @@
       (=cns11643-5	  . #x4358)	; ø»šŸ
       )
      ((total-strokes	   . 12)
-      (=ucs@iso		  . #x2855A)	; ó°Š
+      (=ucs@iso		  . #x2855A)	; ó°
       ))
     ))
 (define-char
@@ -6700,7 +6700,7 @@
       (=cns11643-5	  . #x4356)	; ø»š
       )
      ((total-strokes	   . 12)
-      (=ucs@iso		  . #x2855C)	; ó°‹
+      (=ucs@iso		  . #x2855C)	; ó°
       ))
     ))
 (define-char
@@ -7055,7 +7055,7 @@
       (=cns11643-5	  . #x4A54)	; ø»š§­
       )
      ((total-strokes	   . 13)
-      (=ucs@iso		  . #x28562)	; ó°Œ
+      (=ucs@iso		  . #x28562)	; ó°‘
       ))
     ))
 (define-char
@@ -7328,7 +7328,7 @@
       (=cns11643-5	  . #x4A53)	; ø»š§¬
       )
      ((total-strokes	   . 13)
-      (=ucs@iso		  . #x28566)	; ó°
+      (=ucs@iso		  . #x28566)	; ó°’
       ))
     ))
 (define-char
@@ -7344,7 +7344,7 @@
       (=cns11643-5	  . #x4A56)	; ø»š§¯
       )
      ((total-strokes	   . 13)
-      (=ucs@iso		  . #x28567)	; ó°Ž
+      (=ucs@iso		  . #x28567)	; ó°“
       ))
     ))
 (define-char
@@ -7393,7 +7393,7 @@
       (=cns11643-5	  . #x4A55)	; ø»š§®
       )
      ((total-strokes	   . 13)
-      (=ucs@iso		  . #x28583)	; ó°
+      (=ucs@iso		  . #x28583)	; ó°”
       ))
     ))
 (define-char
@@ -7816,7 +7816,7 @@
       (=cns11643-5	  . #x5164)	; ø»š²
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x2858C)	; ó°
+      (=ucs@iso		  . #x2858C)	; ó°•
       ))
     ))
 (define-char
@@ -7893,7 +7893,7 @@
       (=cns11643-5	  . #x5168)	; ø»š²“
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x2858E)	; ó°‘
+      (=ucs@iso		  . #x2858E)	; ó°–
       ))
     ))
 (define-char
@@ -7978,7 +7978,7 @@
       (=cns11643-3	  . #x4F3B)	; ø»–š¢
       )
      ((total-strokes	   . 14)
-      (=ucs@unicode	  . #x9071)	; ó°’
+      (=ucs@unicode	  . #x9071)	; ó°—
       ))
     ))
 (define-char
@@ -7994,7 +7994,7 @@
       (=cns11643-5	  . #x5165)	; ø»š²
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x2858F)	; ó°“
+      (=ucs@iso		  . #x2858F)	; ó°˜
       ))
     ))
 (define-char
@@ -8103,7 +8103,7 @@
       (=cns11643-5	  . #x5169)	; ø»š²”
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x285AC)	; ó°”
+      (=ucs@iso		  . #x285AC)	; ó°™
       ))
     ))
 (define-char
@@ -8119,7 +8119,7 @@
       (=cns11643-5	  . #x5167)	; ø»š²’
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x285AD)	; ó°•
+      (=ucs@iso		  . #x285AD)	; ó°š
       ))
     ))
 (define-char
@@ -8135,7 +8135,7 @@
       (=cns11643-5	  . #x516C)	; ø»š²—
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x285AE)	; ó°–
+      (=ucs@iso		  . #x285AE)	; ó°›
       ))
     ))
 (define-char
@@ -8166,7 +8166,7 @@
       (=cns11643-5	  . #x516A)	; ø»š²•
       )
      ((total-strokes	   . 14)
-      (=ucs@iso		  . #x285B0)	; ó°—
+      (=ucs@iso		  . #x285B0)	; ó°œ
       ))
     ))
 (define-char
@@ -8287,7 +8287,7 @@
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
-      (=ucs@iso		  . #x285B3)	; ó°˜
+      (=ucs@iso		  . #x285B3)	; ó°
       ))
     ))
 (define-char
@@ -8374,7 +8374,7 @@
       (=cns11643-5	  . #x587C)	; ø»š¼¹
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285B5)	; ó°™
+      (=ucs@iso		  . #x285B5)	; ó°ž
       ))
     ))
 (define-char
@@ -8390,7 +8390,7 @@
       (=cns11643-5	  . #x587B)	; ø»š¼¸
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285B6)	; ó°š
+      (=ucs@iso		  . #x285B6)	; ó°Ÿ
       ))
     ))
 (define-char
@@ -8475,7 +8475,7 @@
       (=cns11643-5	  . #x5879)	; ø»š¼¶
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285B7)	; ó°›
+      (=ucs@iso		  . #x285B7)	; ó° 
       ))
     ))
 (define-char
@@ -8576,7 +8576,7 @@
       (=cns11643-5	  . #x5877)	; ø»š¼´
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285B9)	; ó°œ
+      (=ucs@iso		  . #x285B9)	; ó°¡
       ))
     ))
 (define-char
@@ -8915,7 +8915,7 @@
       (=cns11643-5	  . #x5878)	; ø»š¼µ
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285DE)	; ó°
+      (=ucs@iso		  . #x285DE)	; ó°¢
       ))
     ))
 (define-char
@@ -8933,7 +8933,7 @@
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
-      (=ucs@iso		  . #x285B1)	; ó°ž
+      (=ucs@iso		  . #x285B1)	; ó°£
       ))
     ))
 (define-char
@@ -8949,7 +8949,7 @@
       (=cns11643-5	  . #x587D)	; ø»š¼º
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285DF)	; ó°Ÿ
+      (=ucs@iso		  . #x285DF)	; ó°¤
       ))
     ))
 (define-char
@@ -8988,7 +8988,7 @@
       (=cns11643-5	  . #x587A)	; ø»š¼·
       )
      ((total-strokes	   . 15)
-      (=ucs@iso		  . #x285E1)	; ó° 
+      (=ucs@iso		  . #x285E1)	; ó°¥
       ))
     ))
 (define-char
@@ -9251,7 +9251,7 @@
       (=cns11643-5	  . #x5F2F)	; ø»›…¾
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x285E5)	; ó°¡
+      (=ucs@iso		  . #x285E5)	; ó°¦
       ))
     ))
 (define-char
@@ -9527,7 +9527,7 @@
       (=cns11643-4	  . #x5939)	; ø»˜³
       )
      ((total-strokes	   . 16)
-      (=ucs@unicode	  . #x48AE)	; ó°¢
+      (=ucs@unicode	  . #x48AE)	; ó°§
       ))
     ))
 (define-char
@@ -9617,7 +9617,7 @@
       (=cns11643-5	  . #x5F32)	; ø»›†
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x285F0)	; ó°£
+      (=ucs@iso		  . #x285F0)	; ó°¨
       ))
     ))
 (define-char
@@ -9633,7 +9633,7 @@
       (=cns11643-5	  . #x5F36)	; ø»›†…
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x28601)	; ó°¤
+      (=ucs@iso		  . #x28601)	; ó°©
       ))
     ))
 (define-char
@@ -9649,7 +9649,7 @@
       (=cns11643-5	  . #x5F37)	; ø»›††
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x28602)	; ó°¥
+      (=ucs@iso		  . #x28602)	; ó°ª
       ))
     ))
 (define-char
@@ -9665,7 +9665,7 @@
       (=cns11643-5	  . #x5F31)	; ø»›†€
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x28603)	; ó°¦
+      (=ucs@iso		  . #x28603)	; ó°«
       ))
     ))
 (define-char
@@ -9681,7 +9681,7 @@
       (=cns11643-5	  . #x5F30)	; ø»›…¿
       )
      ((total-strokes	   . 16)
-      (=ucs@iso		  . #x28604)	; ó°§
+      (=ucs@iso		  . #x28604)	; ó°¬
       ))
     ))
 (define-char
@@ -9866,7 +9866,7 @@
       (=cns11643-5	  . #x653D)	; ø»›€
       )
      ((total-strokes	   . 17)
-      (=ucs@iso		  . #x28607)	; ó°¨
+      (=ucs@iso		  . #x28607)	; ó°­
       ))
     ))
 (define-char
@@ -9973,7 +9973,7 @@
       (=cns11643-5	  . #x6539)	; ø»›Ž¼
       )
      ((total-strokes	   . 17)
-      (=ucs@iso		  . #x28619)	; ó°©
+      (=ucs@iso		  . #x28619)	; ó°®
       ))
     ))
 (define-char
@@ -10004,7 +10004,7 @@
       )
      ((ideographic-strokes . 13)
       (total-strokes	   . 16)
-      (=ucs@iso		  . #x2860C)	; ó°ª
+      (=ucs@iso		  . #x2860C)	; ó°¯
       ))
     ))
 (define-char
@@ -10076,7 +10076,7 @@
       (=cns11643-5	  . #x6538)	; ø»›Ž»
       )
      ((total-strokes	   . 17)
-      (=ucs@iso		  . #x2861F)	; ó°«
+      (=ucs@iso		  . #x2861F)	; ó°°
       ))
     ))
 (define-char
@@ -10295,7 +10295,7 @@
       (=cns11643-5	  . #x6A21)	; ø»›•º
       )
      ((total-strokes	   . 18)
-      (=ucs@iso		  . #x28632)	; ó°¬
+      (=ucs@iso		  . #x28632)	; ó°±
       ))
     ))
 (define-char
@@ -10326,7 +10326,7 @@
       (=cns11643-5	  . #x697E)	; ø»›•¹
       )
      ((total-strokes	   . 18)
-      (=ucs@iso		  . #x28635)	; ó°­
+      (=ucs@iso		  . #x28635)	; ó°²
       ))
     ))
 (define-char
@@ -10477,7 +10477,7 @@
       (=cns11643-5	  . #x6E29)	; ø»››º
       )
      ((total-strokes	   . 19)
-      (=ucs@iso		  . #x28638)	; ó°®
+      (=ucs@iso		  . #x28638)	; ó°³
       ))
     ))
 (define-char
@@ -10506,7 +10506,7 @@
       (=cns11643-5	  . #x6E28)	; ø»››¹
       )
      ((total-strokes	   . 19)
-      (=ucs@iso		  . #x28640)	; ó°¯
+      (=ucs@iso		  . #x28640)	; ó°´
       ))
     ))
 (define-char
@@ -10570,7 +10570,7 @@
       (=cns11643-5	  . #x7151)	; ø»› ¼
       )
      ((total-strokes	   . 20)
-      (=ucs@iso		  . #x28644)	; ó°°
+      (=ucs@iso		  . #x28644)	; ó°µ
       ))
     ))
 (define-char
@@ -10627,7 +10627,7 @@
       (=cns11643-5	  . #x7150)	; ø»› »
       )
      ((total-strokes	   . 20)
-      (=ucs@iso		  . #x2864F)	; ó°±
+      (=ucs@iso		  . #x2864F)	; ó°¶
       ))
     ))
 (define-char
@@ -10658,7 +10658,7 @@
       (=cns11643-4	  . #x6952)	; ø»™‹‰
       )
      ((total-strokes	   . 21)
-      (=ucs@unicode	  . #x908E)	; ó°²
+      (=ucs@unicode	  . #x908E)	; ó°·
       ))
     ))
 (define-char
@@ -10674,7 +10674,7 @@
       (=cns11643-5	  . #x7152)	; ø»› ½
       )
      ((total-strokes	   . 20)
-      (=ucs@iso		  . #x28652)	; ó°³
+      (=ucs@iso		  . #x28652)	; ó°¸
       ))
     ))
 (define-char
@@ -10690,7 +10690,7 @@
       (=cns11643-5	  . #x7452)	; ø»›¥—
       )
      ((total-strokes	   . 21)
-      (=ucs@iso		  . #x28653)	; ó°´
+      (=ucs@iso		  . #x28653)	; ó°¹
       ))
     ))
 (define-char

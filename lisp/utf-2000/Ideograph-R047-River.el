@@ -242,7 +242,7 @@
   '((ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (->same-ideograph
+    (->same
      ((=daikanwa	  . 03081)	; ø¸€°‰
       ))
     (hanyu-dazidian	2 1097 16)

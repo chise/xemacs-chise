@@ -295,7 +295,7 @@
     (->subsumptive
      ((=daikanwa	  . 41145)	; ø¸Š‚¹
       )
-     ((=ucs@iso		  . #x28C86)	; ó°‚Ÿ
+     ((=ucs@iso		  . #x28C86)	; ó°‚¤
       )
      ((=cns11643-5	  . #x4A6B)	; ø»š¨„
       ))
@@ -331,7 +331,7 @@
       )
      ((=cns11643-5	  . #x5221)	; ø»š²ª
       )
-     ((=ucs@iso		  . #x28C87)	; ó°‚ 
+     ((=ucs@iso		  . #x28C87)	; ó°‚¥
       ))
     ))
 (define-char
@@ -576,7 +576,7 @@
      ((=cns11643-5	  . #x6557)	; ø»›š
       (=daikanwa	  . 41180)	; ø¸Šƒœ
       )
-     ((=ucs@iso		  . #x28CA9)	; ó°‚¡
+     ((=ucs@iso		  . #x28CA9)	; ó°‚¦
       ))
     ))
 (define-char
@@ -725,7 +725,7 @@
     (->subsumptive
      ((=daikanwa	  . 41203)	; ø¸Šƒ³
       )
-     ((=ucs@iso		  . #x28CC1)	; ó°‚¢
+     ((=ucs@iso		  . #x28CC1)	; ó°‚§
       )
      ((=cns11643-5	  . #x7660)	; ø»›¨¡
       ))

@@ -1666,11 +1666,12 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->same-ideograph
+    (->same
      ((shinjigen-1	  . 735)
       (=jis-x0208	  . #x4A59)	; ø½Š³‚
+      (=cns11643-6	  . #x3558)	; ø»œ’¿
       ))
-    (->same-ideograph*sources
+    (->same*sources
      shinjigen-1)
     (hanyu-dazidian	1 372 3)
     (ideographic-structure

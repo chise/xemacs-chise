@@ -656,7 +656,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (<-simplified
-     ((=gb12345		  . #x5E46)	; ó°€”
+     ((=gb12345		  . #x5E46)	; ó°€—
       ))
     (hanyu-dazidian	1 529 9)
     (=ucs		. #x5941)	; å¥
@@ -2565,8 +2565,8 @@
       (=daikanwa	  . 05991)	; ø¸§
       (=ucs@jis		  . #x5969)	; ø½‹‚“
       )
-     ((=gb12345		  . #x5E46)	; ó°€”
-      (=ucs@unicode	  . #x5969)	; ó°€”
+     ((=gb12345		  . #x5E46)	; ó°€—
+      (=ucs@unicode	  . #x5969)	; ó°€—
       ))
     ))
 (define-char

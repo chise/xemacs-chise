@@ -834,11 +834,12 @@
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (->same-ideograph
-     (:sources	(chuuka-daijiten morohashi-daikanwa)
-      :char	((=daikanwa	     . 02879)	; ø¸€¬¿
-		 )
+    (->same
+     ((=ucs		  . #x2F833)	; ð¯ ³
+      (=daikanwa	  . 02879)	; ø¸€¬¿
       ))
+    (->same*sources
+     zhonghua-dazidian daikanwa)
     (=daikanwa		. 02875)	; ø¸€¬»
     ))
 (define-char

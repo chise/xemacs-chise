@@ -32,6 +32,7 @@
     (shinjigen-1	. 9804)
     (shinjigen-2	. 9804)
     (=jis-x0208		. #x4B63)	; ø½Š´ª
+    (=big5-cdp		. #x8A5F)	; ý¢€ˆ©Ÿ
     (=gt		. 65257)	; ý¡€»©
     (=gt-k		. 07878)	; ý¡„»†
     (=gt-pj-1		. #x4B63)	; ý¡€»©

@@ -604,7 +604,7 @@
      ((=cns11643-4	  . #x2D2F)	; ø»—²ž
       (=daikanwa	  . 11583)	; ø¸‚´¿
       )
-     ((=ucs@unicode	  . #x39B4)	; ó°€–
+     ((=ucs@unicode	  . #x39B4)	; ó°€™
       ))
     ))
 (define-char

@@ -178,10 +178,11 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (->same-ideograph
-     ((=daikanwa	  . 21735)	; ø¸…“§
+    (->same
+     ((=ucs		  . #x753A)	; ç”º
+      (=daikanwa	  . 21735)	; ø¸…“§
       ))
-    (->same-ideograph*sources
+    (->same*sources
      daikanwa)
     (=ucs		. #x753C)	; ç”¼
     (=jis-x0208		. #x6136)	; ø½‹”‘

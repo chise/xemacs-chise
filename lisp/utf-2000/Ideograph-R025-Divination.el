@@ -31,14 +31,14 @@
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (->same-ideograph
-     ((=daikanwa	  . 00069)	; ø¸€…
+    (->same
+     ((=ucs		  . #x20061)	; ð ¡
       ))
     (<-ancient-ideograph
-     (:sources	(shuowen morohashi-daikanwa)
-      :char	((=daikanwa	     . 02774)	; ø¸€«–
-		 )
+     ((=daikanwa	  . 02774)	; ø¸€«–
       ))
+    (<-ancient-ideograph*sources
+     shuowen daikanwa)
     (=cns11643-6	. #x212C)	; ø»›´»
     (=daikanwa		. 02775)	; ø¸€«—
     ))

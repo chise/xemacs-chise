@@ -4,6 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 28 3)
+    (sound@ja/on/kan	"ketu")
     (=ucs		. #x4E85)	; äº…
     (=jis-x0208		. #x502D)	; ø½Š»Š
     (=iso-ir165		. #x2F7C)	; ø»„“
@@ -50,6 +51,8 @@
     (hanyu-dazidian	1 48 6)
     (shinjigen-1	. 66)
     (shinjigen-2	. 66)
+    (sound@ja/kun/name	"satoru")
+    (sound@ja/on	"rEu")
     (=ucs		. #x4E86)	; äº†
     (=jis-x0208		. #x4E3B)	; ø½Š¸œ
     (=gb2312		. #x414B)	; ø»„µ®
@@ -178,6 +181,8 @@
     (hanyu-dazidian	1 52 2)
     (shinjigen-1	. 67)
     (shinjigen-2	. 67)
+    (sound@ja/kun	"arakazi-me" "kane-te")
+    (sound@ja/on	"yo")
     (=ucs		. #x4E88)	; äºˆ
     (=jis-x0208		. #x4D3D)	; ø½Š·€
     (=gb2312		. #x5368)	; ø»…§
@@ -298,6 +303,8 @@
       ))
     (shinjigen-1	. 4698)
     (shinjigen-2	. 4698)
+    (sound@ja/kun	"araso+H5" "araga+H5")
+    (sound@ja/on/kan	"sAu")
     (=ucs		. #x4E89)	; äº‰
     (=jis-x0208		. #x4168)	; ø½Š¦ƒ
     (=gb2312		. #x5579)	; ø»…“´
@@ -382,12 +389,15 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 69)
-		 (=daikanwa	     . 00241)	; ø¸€ƒ±
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 69)
+      (=daikanwa	  . 00241)	; ø¸€ƒ±
+      ))
+    (<-vulgar-ideograph*sources
+     shinjigen-1)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
+    (sound@ja/kun	"koto")
+    (sound@ja/on/go	"zi")
     (=ucs		. #x4E8A)	; äºŠ
     (=jis-x0208		. #x502F)	; ø½Š»Œ
     (=gt		. 00315)	; ý¡€€„»
@@ -421,6 +431,8 @@
     (hanyu-dazidian	1 23 3)
     (shinjigen-1	. 69)
     (shinjigen-2	. 69)
+    (sound@ja/kun	"koto")
+    (sound@ja/on/go	"zi")
     (=ucs		. #x4E8B)	; äº‹
     (=jis-x0208		. #x3B76)	; ø½Š
     (=gb2312		. #x4A42)	; ø»…‚³

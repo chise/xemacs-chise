@@ -3304,7 +3304,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x70EE)	; çƒ®
     (->subsumptive
-     ((=ucs@unicode	  . #x70EE)	; ý €Ž¥¡
+     ((=ucs@unicode	  . #x70EE)	; ó°€œ
       (mojikyo		  . 059745)	; ý €Ž¥¡
       )
      ((=cns11643-3	  . #x3230)	; ø»•¯±

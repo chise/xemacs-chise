@@ -4692,11 +4692,17 @@
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (->same-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 17427)	; ø¸„“
-		 )
+    (->same
+     ((=ucs		  . #x6D3E)	; æ´¾
+      (=daikanwa	  . 17427)	; ø¸„“
       ))
+    (->same*sources
+     daikanwa)
+    (->vulgar-ideograph
+     ((=daikanwa	  . 17427)	; ø¸„“
+      ))
+    (->vulgar-ideograph*sources
+     zhengzi-tong)
     (shinjigen-1	. 4197)
     (shinjigen-2	. 4197)
     (=jis-x0208-1978	. #x4749)	; ø»‚´œ

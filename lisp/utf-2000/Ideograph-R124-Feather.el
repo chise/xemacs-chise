@@ -4590,11 +4590,11 @@
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (->mojikyo		. 050362)	; ø½Š·¦
-    (->same-ideograph
-     (:char	((=daikanwa	     . 28818)	; ø¸‡‚’
-		 )
-      :sources	(morohashi-daikanwa)))
+    (->same
+     ((=daikanwa	  . 28818)	; ø¸‡‚’
+      ))
+    (->same*sources
+     daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±

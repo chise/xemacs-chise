@@ -139,12 +139,18 @@
   '((ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 4051)
-		 (=daikanwa	     . 17087)	; ø¸„Š¿
-		 )
+    (->same
+     ((=cns11643-3	  . #x214C)	; ø»•—
+      (=daikanwa	  . 00360)	; ø¸€…¨
       ))
+    (->same*sources
+     shuowen kanjo ronkou jiyun daikanwa)
+    (<-original-ideograph
+     ((shinjigen-1	  . 4051)
+      (=daikanwa	  . 17087)	; ø¸„Š¿
+      ))
+    (<-original-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -165,32 +171,6 @@
     (=gt-k		. 01713)	; ý¡„€š±
     (=gt-pj-1		. #x5156)	; ý¡€€¡›
     (=daikanwa		. 01612)	; ø¸€™Œ
-    ))
-(define-char
-  '((=>ucs*		. #x4ECC)	; ä»Œ
-    (morohashi-daikanwa	1612 0 7)
-    (ideographic-radical . 15)	; â¼Ž
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (->same-ideograph
-     ((ideographic-radical . 9)	; â¼ˆ
-      (=daikanwa	  . 00360)	; ø¸€…¨
-      ))
-    (<-original-ideograph
-     ((=daikanwa	  . 01612)	; ø¸€™Œ
-      ))
-    (<-original-ideograph*sources
-     daikanwa)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x4EBA)	; äºº
-      )
-     ((=ucs		  . #x4EBA)	; äºº
-      ))
-    (=ucs		. #x2F819)	; ð¯ ™
-    (=cns11643-4	. #x213F)	; ø»—¡†
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž

@@ -6821,7 +6821,7 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (->same-ideograph
+    (->same
      ((=ucs		  . #x2F9BB)	; 蝹
       ))
     (=ucs		. #x8779)	; 蝹
