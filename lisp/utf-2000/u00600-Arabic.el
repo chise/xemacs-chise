@@ -3,6 +3,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "CS")
     (mirrored		. nil)
+    (arabic-1-column	. #x25)	; øº©ž
     (arabic-iso8859-6	. #xAC)	; ØŒ
     (ucs		. #x060C)	; ØŒ
     ))
@@ -11,6 +12,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (arabic-1-column	. #x28)	; øº©¡
     (arabic-iso8859-6	. #xBB)	; Ø›
     (ucs		. #x061B)	; Ø›
     ))
@@ -19,6 +21,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (arabic-1-column	. #x29)	; øº©¢
     (arabic-iso8859-6	. #xBF)	; ØŸ
     (ucs		. #x061F)	; ØŸ
     ))
@@ -416,6 +419,7 @@
     (decimal-digit-value . 0)
     (digit-value	 . 0)
     (numeric-value	 . 0)
+    (arabic-digit	. #x21)	; øº§¼
     (ucs		. #x0660)	; Ù 
     ))
 (define-char
@@ -426,6 +430,7 @@
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
+    (arabic-digit	. #x22)	; øº§½
     (ucs		. #x0661)	; Ù¡
     ))
 (define-char
@@ -436,6 +441,7 @@
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
+    (arabic-digit	. #x23)	; øº§¾
     (ucs		. #x0662)	; Ù¢
     ))
 (define-char
@@ -446,6 +452,7 @@
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
+    (arabic-digit	. #x24)	; øº§¿
     (ucs		. #x0663)	; Ù£
     ))
 (define-char
@@ -456,6 +463,7 @@
     (decimal-digit-value . 4)
     (digit-value	 . 4)
     (numeric-value	 . 4)
+    (arabic-digit	. #x25)	; øº¨€
     (ucs		. #x0664)	; Ù¤
     ))
 (define-char
@@ -466,6 +474,7 @@
     (decimal-digit-value . 5)
     (digit-value	 . 5)
     (numeric-value	 . 5)
+    (arabic-digit	. #x26)	; øº¨
     (ucs		. #x0665)	; Ù¥
     ))
 (define-char
@@ -476,6 +485,7 @@
     (decimal-digit-value . 6)
     (digit-value	 . 6)
     (numeric-value	 . 6)
+    (arabic-digit	. #x27)	; øº¨‚
     (ucs		. #x0666)	; Ù¦
     ))
 (define-char
@@ -486,6 +496,7 @@
     (decimal-digit-value . 7)
     (digit-value	 . 7)
     (numeric-value	 . 7)
+    (arabic-digit	. #x28)	; øº¨ƒ
     (ucs		. #x0667)	; Ù§
     ))
 (define-char
@@ -496,6 +507,7 @@
     (decimal-digit-value . 8)
     (digit-value	 . 8)
     (numeric-value	 . 8)
+    (arabic-digit	. #x29)	; øº¨„
     (ucs		. #x0668)	; Ù¨
     ))
 (define-char
@@ -506,6 +518,7 @@
     (decimal-digit-value . 9)
     (digit-value	 . 9)
     (numeric-value	 . 9)
+    (arabic-digit	. #x2A)	; øº¨…
     (ucs		. #x0669)	; Ù©
     ))
 (define-char
