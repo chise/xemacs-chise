@@ -1,5 +1,8 @@
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`=>ucs-cns'.
+
 	* Ideograph-R075-Tree.el (C1-644D): Unify J90-3335.
 
 	* Ideograph-R175-Wrong.el (J83-7051): Separate J90-7051 and
