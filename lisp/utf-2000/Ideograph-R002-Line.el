@@ -86,8 +86,8 @@
     (chinese-cns11643-3 . #x212C)	; ø»•–¯
     (ideograph-gt-pj-1	. #x5024)	; ý¡€€©
     (ideograph-daikanwa . 00070)	; ø¸€†
-    (ideograph-cbeta	. 00286)	; ø¸ „ž
     (chinese-big5-cdp	. #x8A4B)	; ý¢€ˆ©‹
+    (ideograph-cbeta	. 00286)	; ø¸ „ž
     (ideograph-gt	. 00105)	; ý¡€€©
     (ucs		. #x4E2A)	; ä¸ª
     ))

@@ -135,8 +135,8 @@
     (japanese-jisx0212	. #x332F)	; ø»Š¾º
     (chinese-cns11643-4 . #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
-    (ideograph-cbeta	. 00631)	; ø¸ ‰·
     (chinese-big5-cdp	. #x8DC7)	; ý¢€ˆ·‡
+    (ideograph-cbeta	. 00631)	; ø¸ ‰·
     (ucs		. #x51F7)	; å‡·
     ))
 (define-char
@@ -481,8 +481,8 @@
     (shinjigen-2	. 586)
     (=jis-x0208			. #x5162)	; ø½Š½
     (ideograph-daikanwa		. 01830)	; ø¸€œ¦
-    (ideograph-cbeta		. 00630)	; ø¸ ‰¶
     (ideograph-hanziku-1	. #xE5C8)	; ý¢€ž—ˆ
+    (ideograph-cbeta		. 00630)	; ø¸ ‰¶
     (ucs			. #x51FE)	; å‡¾
     ))
 (define-char

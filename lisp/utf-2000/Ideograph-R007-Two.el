@@ -321,8 +321,8 @@
     (chinese-isoir165	. #x5828)	; ø»¿
     (chinese-cns11643-3 . #x2266)	; ø»•™‡
     (ideograph-daikanwa . 00262)	; ø¸€„†
-    (ideograph-cbeta	. 00040)	; ø¸ €¨
     (chinese-big5-cdp	. #x8CEE)	; ý¢€ˆ³®
+    (ideograph-cbeta	. 00040)	; ø¸ €¨
     (ucs		. #x4E98)	; äº˜
     ))
 (define-char

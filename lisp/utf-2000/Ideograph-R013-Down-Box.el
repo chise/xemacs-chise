@@ -370,8 +370,8 @@
     (hanyu-dazidian	1 100 3)
     (chinese-cns11643-6 . #x235A)	; ø»›¸¥
     (ideograph-daikanwa . 01523)	; ø¸€—³
-    (ideograph-cbeta	. 04693)	; ø¸¡‰•
     (chinese-big5-cdp	. #x8AF1)	; ý¢€ˆ«±
+    (ideograph-cbeta	. 04693)	; ø¸¡‰•
     (ucs		. #x2054B)	; ð •‹
     ))
 (define-char

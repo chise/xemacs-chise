@@ -408,8 +408,8 @@
       )
      ((ucs		  . #x51F6)	; å‡¶
       ))
-    (ideograph-cbeta	. 04846)	; ø¸¡‹®
     (chinese-big5-cdp	. #x8C5E)	; ý¢€ˆ±ž
+    (ideograph-cbeta	. 04846)	; ø¸¡‹®
     (china3-jef		. #x8DCD)	; øºˆ·
     ))
 (define-char

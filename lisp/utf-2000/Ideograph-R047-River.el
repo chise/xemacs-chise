@@ -8,8 +8,8 @@
     (chinese-isoir165	. #x675D)	; ø»Ž–„
     (chinese-cns11643-3 . #x213C)	; ø»•–¿
     (ideograph-daikanwa . 08669)	; ø¸‚‡
-    (ideograph-cbeta	. 02655)	; ø¸ ©Ÿ
     (chinese-big5-cdp	. #x8B74)	; ý¢€ˆ­´
+    (ideograph-cbeta	. 02655)	; ø¸ ©Ÿ
     (ucs		. #x5DDB)	; å·›
     ))
 (define-char
