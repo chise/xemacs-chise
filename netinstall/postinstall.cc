@@ -102,13 +102,19 @@ do_postinstall (HINSTANCE h)
   next_dialog = 0;
   char* cygroot = find_cygwin_root (&issystem);
   int i;
-  for (i=0; shells[i]; i++)
+
+  sh = 0;
+
+  if (cygroot)
     {
-      sh = backslash (concat (cygroot, shells[i], 0));
-      if (_access (sh, 0) == 0)
-	break;
-      free (sh);
-      sh = 0;
+      for (i=0; shells[i]; i++)
+	{
+	  sh = backslash (concat (cygroot, shells[i], 0));
+	  if (_access (sh, 0) == 0)
+	    break;
+	  free (sh);
+	  sh = 0;
+	}
     }
 
   char old_path[_MAX_PATH];

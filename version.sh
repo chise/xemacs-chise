@@ -2,8 +2,8 @@
 emacs_is_beta=t
 emacs_major_version=21
 emacs_minor_version=2
-emacs_beta_version=40
-xemacs_codename="Persephone"
+emacs_beta_version=41
+xemacs_codename="Polyhymnia"
 infodock_major_version=4
 infodock_minor_version=0
 infodock_build_version=8

@@ -20,7 +20,7 @@ Copyright (C) 2000 Andy Piper. */
 #define XEMACS_PACKAGE_DIR \
   ((char*)(install_type == IDC_INSTALL_NATIVE ? "\\xemacs-packages\\" \
 				    : "/lib/xemacs/xemacs-packages/"))
-#define XEMACS_NATIVE_ARCH_NAME "i586-pc-win32"
+#define XEMACS_NATIVE_ARCH_NAME "i386-pc-win32"
 #define XEMACS_CYGWIN_ARCH_NAME "i686-pc-cygwin32"
 
 /*
@@ -36,7 +36,7 @@ Copyright (C) 2000 Andy Piper. */
  * 			\site-packages
  *			\mule-packages
  *			\XEmacs-21.2
- *				\i586-pc-win32
+ *				\i386-pc-win32
  *				\etc
  *				\info
  *				\lisp
