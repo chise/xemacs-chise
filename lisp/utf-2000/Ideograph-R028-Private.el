@@ -590,12 +590,14 @@
     (ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-simplified
-     (:sources	(morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 893)
-		 (=daikanwa	     . 03098)	; ø¸€°š
-		 )
+    (<-simplified@JP/Jouyou
+     ((shinjigen-1	  . 893)
+      (=ucs		  . #x53C3)	; åƒ
+      (=jis-x0208	  . #x5254)	; ø½Š¾­
+      (=daikanwa	  . 03098)	; ø¸€°š
       ))
+    (<-simplified@JP/Jouyou*sources
+     daikanwa shinjigen-1 JP/Jouyou)
     (hanyu-dazidian	1 386 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -768,12 +768,16 @@
     (=ucs		. #x5351)	; å‘
     ))
 (define-char
-  '((script		JP-Jouyou Ideograph)
+  '((script		JP Jouyou Ideograph)
     (=>ucs		. #x5351)	; å‘
     (morohashi-daikanwa	2738 0 1)
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #xFA35)	; ï¨µ
+      (=jis-x0213-1-2000  . #x2E6E)	; ø»¢§
+      ))
     (<-vulgar-ideograph
      ((shinjigen-1	  . 830)
       (=daikanwa	  . 02738)	; ø¸€ª²
@@ -1090,15 +1094,18 @@
     (=daikanwa		. 02751)	; ø¸€ª¿
     ))
 (define-char
-  '((script		JP-Jouyou Ideograph)
+  '((script		JP Jouyou Ideograph)
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-simplified
-     (:char	((shinjigen-1	     . 1170)
-		 (=daikanwa	     . 03993)	; ø¸€¾™
-		 )
-      :sources	(morohashi-daikanwa shinjigen-1)))
+    (<-simplified@JP/Jouyou
+     ((shinjigen-1	  . 1170)
+      (=ucs		  . #x55AE)	; å–®
+      (=jis-x0208	  . #x5345)	; ø½Š¿¼
+      (=daikanwa	  . 03993)	; ø¸€¾™
+      ))
+    (<-simplified@JP/Jouyou*sources
+     daikanwa shinjigen-1 JP/Jouyou)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
