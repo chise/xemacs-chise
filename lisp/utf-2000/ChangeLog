@@ -1,8 +1,19 @@
 2004-11-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R025-Divination.el (U+5368): Changed to abstract
+	character.
+
+	* Ideograph-R024-Ten.el (U+534C): Use `->subsumptive'.
+
+2004-11-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R021-Spoon.el (U+5317): Use `->subsumptive'.
 
 2004-11-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (U-000200E0): Use `->subsumptive'.
+	(U-0002001A): Likewise.
+	(U+4E20): Likewise.
 
 	* Ideograph-R004-Slash.el (U+4E47): Use `->subsumptive'.
 
