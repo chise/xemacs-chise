@@ -229,12 +229,6 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ucs		. #x22398)	; 𢎘
-    ))
-(define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 49)
     (hanyu-dazidian-char . 4)
