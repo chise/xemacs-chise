@@ -2539,6 +2539,7 @@
     (total-strokes	 . 10)
     (=ks-x1001		. #x755A)	; ø»Š–
     (=daikanwa		. 38836)	; ø¸‰ž´
+    (=jef-china3	. #x67BA)	; øº†žº
     ))
 (define-char
   '((morohashi-daikanwa	38836 1)
@@ -3666,6 +3667,7 @@
     (total-strokes	 . 11)
     (=ks-x1001		. #x7757)	; ø»Š™–
     (=daikanwa		. 38892)	; ø¸‰Ÿ¬
+    (=jef-china3	. #x67C6)	; øº†Ÿ†
     ))
 (define-char
   '((morohashi-daikanwa	38892 1)
@@ -4606,6 +4608,7 @@
     (total-strokes	 . 12)
     (=ks-x1001		. #x7264)	; ø»Š’
     (=daikanwa		. 38943)	; ø¸‰ Ÿ
+    (=jef-china3	. #x67D1)	; øº†Ÿ‘
     ))
 (define-char
   '((morohashi-daikanwa	38943 1)

@@ -1,3 +1,64 @@
+2003-08-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R154-Shell.el (M-36750): Unify JC3-65F3.
+
+	* Ideograph-R144-Walk-Enclosure.el (M-34046): Separate C1-5D34;
+	unify JC3-63E7.
+
+	* Ideograph-R075-Tree.el (U+6A0B): Unify JC3-70C6.
+
+	* Ideograph-R041-Inch.el (JC3-4ACE): New character.
+
+	* Ideograph-R030-Mouth.el (M-03987): Separate JC3-46EC; unify
+	B-B3F0 and GT-04889.
+	(U+55AB): Separate B-B3F0; unify JC3-46EC.
+	(M-04015): Unify GT-04938.
+
+2003-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44144): Unify C1-6F72 and JC3-6DAC.
+
+	* Ideograph-R162-Walk.el (M-38836): Unify JC3-67BA.
+	(M-38892): Unify JC3-67C6.
+	(M-38943): Unify JC3-67D1.
+
+	* Ideograph-R149-Speech.el: Add missing `=ucs@jis' features.
+
+	* Ideograph-R148-Horn.el (JSP-5D36): Add JU+89D6.
+	(JSP-5D3A): Add JU+89E9.
+	(JSP-5D3B): Add JU+89EB.
+	(JSP-5D3E): Add JU+89F3.
+
+	* Ideograph-R145-Clothes.el: Add missing `=ucs@jis' features.
+
+	* Ideograph-R142-Insect.el (JSP-5A74): Add JU+870B.
+	(JSP-5A7A): Add JU+8719.
+	(JSP-5B4C): Add JU+87AD.
+	(JSP-5B67): Add JU+87FF.
+
+	* Ideograph-R141-Tiger.el (JSP-5A41): Add JU+8661.
+	(JSP-5A42): Add JU+8662.
+	(JSP-5A43): Add JU+8663.
+
+	* Ideograph-R128-Ear.el (JSP-555E): Add JU+8039.
+	(JSP-5561): Add JU+803E.
+	(JSP-5566): Add JU+8066.
+
+	* Ideograph-R109-Eye.el (JSP-4E6F): Add JU+773E.
+	(JSP-4F35): Add JU+77A7.
+	(JSP-4F3D): Add JU+77C9.
+	(JSP-4F41): Add JU+77D9.
+
+	* Ideograph-R108-Dish.el (JX1-786B): Add JU+76E6.
+
+	* Ideograph-R107-Skin.el (JSP-4E48): Add JU+76BD.
+
+	* Ideograph-R037-Big.el (U+369A): Unify GT-K05614.
+	(GT-07451): Unify GT-K05365.
+	(GT-07464): Unify GT-K05057.
+
+	* Ideograph-R150-Valley.el (JX2-787B): Add JU+8C45.
+
 2003-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el: Add mappings for Big5 code points.

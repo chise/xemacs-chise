@@ -1217,6 +1217,7 @@
     (=cns11643-3	. #x2B7D)	; ø»•¦¬
     (=gt-pj-2		. #x6733)	; ý¡€´¬
     (=daikanwa		. 05914)	; ø¸œš
+    (=gt-k		. 05614)	; ý¡„—®
     (=gt		. 07468)	; ý¡€´¬
     (=ucs		. #x369A)	; ãšš
     ))
@@ -1227,6 +1228,7 @@
     (total-strokes	 . 9)
     (=gt-pj-2		. #x6734)	; ý¡€´›
     (=daikanwa		. 05915)	; ø¸œ›
+    (=gt-k		. 05365)	; ý¡„“µ
     (=gt		. 07451)	; ý¡€´›
     ))
 (define-char
@@ -1293,6 +1295,7 @@
     (=gt-pj-2		. #x6735)	; ý¡€´¨
     (=big5		. #xABB4)	; ý¢€Š®´
     (=daikanwa		. 05917)	; ø¸œ
+    (=gt-k		. 05057)	; ý¡„
     (=gt		. 07464)	; ý¡€´¨
     ))
 (define-char

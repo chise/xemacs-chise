@@ -16576,7 +16576,8 @@
     (=cns11643-3	. #x4C4D)	; ø»––š
     ))
 (define-char
-  '((morohashi-daikanwa	15415 0 3)
+  '((=>ucs		. #x901A)	; é€š
+    (morohashi-daikanwa	15415 0 3)
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
@@ -16586,6 +16587,7 @@
     (=jis-x0208-1990	. #x4875)	; ø½Š°¢
     (=gt-pj-1		. #x4875)	; ý¡€„²ƒ
     (=hanziku-4		. #xADD0)	; ý¢Š·
+    (=jef-china3	. #x70C6)	; øº‡ƒ†
     (=gt		. 19587)	; ý¡€„²ƒ
     (=ucs		. #x6A0B)	; æ¨‹
     ))

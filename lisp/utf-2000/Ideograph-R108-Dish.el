@@ -1208,6 +1208,7 @@
     (=jis-x0213-1-2000	. #x786B)	; ø»¤“¸
     (=big5		. #xEA75)	; ý¢€Ž©µ
     (=daikanwa		. 23044)	; ø¸…¨„
+    (=ucs@jis		. #x76E6)	; ø»‹§‡
     ))
 (define-char
   '((morohashi-daikanwa	23044 0 0)

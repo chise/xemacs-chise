@@ -381,6 +381,14 @@
     (=ucs		. #x5C08)	; å°ˆ
     ))
 (define-char
+  '((=>ucs		. #x5C08)	; å°ˆ
+    (morohashi-daikanwa	7439 0 1)
+    (ideographic-radical . 41)	; â¼¨
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=jef-china3	. #x4ACE)	; øº„«Ž
+    ))
+(define-char
   '((morohashi-daikanwa	7439 0 5)
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 6)

@@ -310,25 +310,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
-	  =gt-pj-1
-	  =gt-pj-2
-	  =gt-pj-3
-	  =gt-pj-4
-	  =gt-pj-5
-	  =gt-pj-6
-	  =gt-pj-7
-	  =gt-pj-8
-	  =gt-pj-9
-	  =gt-pj-10
-	  =gt-pj-11
-	  =gt-pj-k1
-	  =gt-pj-k2
 	  ideograph-daikanwa-2
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  ucs-sip
 	  ideograph-daikanwa
-	  =jef-china3
 	  =hanziku-1
 	  =hanziku-2
 	  =hanziku-3
@@ -342,6 +328,20 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-11
 	  =hanziku-12
 	  =cbeta
+	  =jef-china3
+	  =gt-pj-1
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2
 	  ucs-bmp
 	  arabic-iso8859-6
 	  chinese-big5-1
