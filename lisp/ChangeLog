@@ -1,5 +1,22 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ethiopic-ucs' and `ethiopic'.
+
+	* dumped-lisp.el (preloaded-file-list): Add "u010A0-Georgian.el",
+	"u01100-Hangul-Jamo.el" and "u01200-Ethiopic.el".
+
+	* mule/mule-conf.el: Move definition of coded-charset `ethiopic'
+	from mule/ethiopic.el.
+
+	* mule/ethiopic.el: Move definition of coded-charset `ethiopic' to
+	mule/mule-conf.el.
+
+	* utf-2000/u010A0-Georgian.el, utf-2000/u01100-Hangul-Jamo.el,
+	utf-2000/u01200-Ethiopic.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/char-db-util.el (char-db-update-comment): Use
 	mapping-table for `arabic-iso8859-6'.
 	(insert-char-data-with-variant): New function.
