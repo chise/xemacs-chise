@@ -7102,6 +7102,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=jis-x0212		. #x5B4A)	; ø»‹º…
+    (=jis-x0213-2-2000	. #x7766)	; ø»¦œ™
     (=ucs		. #x87A7)	; èž§
     ))
 (define-char
@@ -9205,6 +9206,8 @@
 (define-char
   '((ideographic-radical . 142)	; â¾
     (ideographic-strokes . 12)
+    (total-strokes	 . 18)
+    (=jis-x0213-2-2000	. #x7771)	; ø»¦œ¤
     (=ucs		. #x87F5)	; èŸµ
     ))
 (define-char
