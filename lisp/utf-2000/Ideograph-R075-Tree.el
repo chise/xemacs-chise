@@ -5041,67 +5041,57 @@
     (=daikanwa		. 14706)	; &I-M-14706;
     ))
 (define-char
-  '((=>ucs		. #x681E)	; 栞
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (hanyu-dazidian	2 1193 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=jis-x0208	  . #x5674)	; &GT-11552;
-      (=daikanwa	  . 09169)	; &I-M-09169;
-      )
-     ((=ucs		  . #x6728)	; 木
-      ))
-    (shinjigen-2	. 3593)
-    (=jis-x0208		. #x5B59)	; &GT-18694;
-    (=gt		. 18694)	; &I-GT-18694;
-    (=gt-k		. 06602)	; &I-GT-K06602;
-    (=gt-pj-1		. #x5B59)	; &I-GT-18694;
-    (=daikanwa		. 14708)	; &I-M-14708;
-    (=hanziku-3		. #xF3AE)	; &I-HZK03-F3AE;
-    (=ucs@jis		. #x681E)	; &GT-18694;
-    ))
-(define-char
-  '((morohashi-daikanwa	14708 0 0)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5E75)	; 幵
-      )
-     ((=ucs		  . #x6728)	; 木
-      ))
     (=ucs		. #x681E)	; 栞
-    ))
-(define-char
-  '((=>ucs		. #x681E)	; 栞
-    (morohashi-daikanwa	14708 0 1)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+    (->subsumptive
+     ((hanyu-dazidian	  2 1193 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x5674)	; &GT-11552;
+	(=daikanwa	    . 09169)	; &I-M-09169;
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (shinjigen-2	  . 3593)
+      (=jis-x0208	  . #x5B59)	; &GT-18694;
+      (=gt		  . 18694)	; &I-GT-18694;
+      (=gt-k		  . 06602)	; &I-GT-K06602;
+      (=gt-pj-1		  . #x5B59)	; &I-GT-18694;
+      (=daikanwa	  . 14708)	; &I-M-14708;
+      (=hanziku-3	  . #xF3AE)	; &I-HZK03-F3AE;
+      (=ucs@jis		  . #x681E)	; &GT-18694;
       )
-     ((=cns11643-2	  . #x223B)	; &C2-223B;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5E75)	; 幵
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (=ucs@unicode	  . #x681E)	; &UU+681E;
       )
-     ((=ucs		  . #x6728)	; 木
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-2	    . #x223B)	; &C2-223B;
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (=cbeta		  . 06054)	; &CB06054;
+      )
+     ((=cns11643-3	  . #x315B)	; &C3-315B;
       ))
-    (=cbeta		. 06054)	; &CB06054;
     ))
 (define-char
-  '((=>ucs		. #x681E)	; 栞
-    (morohashi-daikanwa	14708 0 2)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=cns11643-3	. #x315B)	; &C3-315B;
+  '((ideographic-radical . 75)	; ⽊
+    (=ucs		. #x681F)	; 栟
+    (=big5		. #xD1D9)	; &I-B-D1D9;
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
@@ -5127,66 +5117,50 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6820)	; 栠
-    (=big5		. #xD1F4)	; &I-B-D1F4;
-    (=daikanwa		. 14711)	; &I-M-14711;
-    ))
-(define-char
-  '((=>ucs		. #x6820)	; 栠
-    (morohashi-daikanwa	14711 0 1)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=cns11643-2	. #x2F76)	; &C2-2F76;
+    (->subsumptive
+     ((=big5		  . #xD1F4)	; &M-14711;
+      (=daikanwa	  . 14711)	; &I-M-14711;
+      (=ucs@unicode	  . #x6820)	; &M-14711;
+      )
+     ((=cns11643-2	  . #x2F76)	; &C2-2F76;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (hanyu-dazidian	2 1201 3)
     (=ucs		. #x6823)	; 栣
-    (=daikanwa		. 14712)	; &I-M-14712;
-    (=hanziku-3		. #xF553)	; &I-HZK03-F553;
+    (->subsumptive
+     ((hanyu-dazidian	  2 1201 3)
+      (=daikanwa	  . 14712)	; &M-14712;
+      (=hanziku-3	  . #xF553)	; &I-HZK03-F553;
+      (=ucs@unicode	  . #x6823)	; &M-14712;
+      )
+     ((=cns11643-3	  . #x3164)	; &C3-3164;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x6823)	; 栣
-    (morohashi-daikanwa	14712 0 1)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=cns11643-3	. #x3164)	; &C3-3164;
-    ))
-(define-char
-  '((=>ucs		. #x6821)	; 校
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=jis-x0208-1978	. #x393B)	; &M-14713;
-    (=jis-x0208-1983	. #x393B)	; &I-J83-393B;
-    (=ks-x1001		. #x4E68)	; &I-K0-4E68;
-    (=big5		. #xAED5)	; &I-B-AED5;
-    (=daikanwa		. 14713)	; &I-M-14713;
-    (=jef-china3	. #x53C2)	; &I-JC3-53C2;
-    (=ucs@big5		. #x6821)	; &M-14713;
-    ))
-(define-char
-  '((=>ucs		. #x6821)	; 校
-    (morohashi-daikanwa	14713 0 0)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=jis-x0208-1990	. #x393B)	; &GT-18734;
-    (=gt		. 18734)	; &I-GT-18734;
-    (=gt-pj-1		. #x393B)	; &I-GT-18734;
-    (=ucs@jis		. #x6821)	; &GT-18734;
-    ))
-(define-char
-  '((morohashi-daikanwa	14713 0 1)
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6821)	; 校
-    (=gb2312		. #x5023)	; &I-G0-5023;
-    (=cns11643-1	. #x5577)	; &I-C1-5577;
+    (=big5		. #xAED5)	; &I-B-AED5;
+    (->subsumptive
+     ((=jis-x0208-1978	  . #x393B)	; &M-14713;
+      (=jis-x0208-1983	  . #x393B)	; &I-J83-393B;
+      (=ks-x1001	  . #x4E68)	; &I-K0-4E68;
+      (=daikanwa	  . 14713)	; &I-M-14713;
+      (=jef-china3	  . #x53C2)	; &I-JC3-53C2;
+      )
+     ((=jis-x0208-1990	  . #x393B)	; &GT-18734;
+      (=gt		  . 18734)	; &I-GT-18734;
+      (=gt-pj-1		  . #x393B)	; &I-GT-18734;
+      (=ucs@jis		  . #x6821)	; &GT-18734;
+      )
+     ((=gb2312		  . #x5023)	; &C1-5577;
+      (=cns11643-1	  . #x5577)	; &I-C1-5577;
+      (=ucs@unicode	  . #x6821)	; &C1-5577;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
@@ -6178,11 +6152,6 @@
     (=jis-x0208		. #x3A79)	; &I-J90-3A79;
     (=gt		. 18686)	; &I-GT-18686;
     (=gt-pj-1		. #x3A79)	; &I-GT-18686;
-    ))
-(define-char
-  '((ideographic-radical . 75)	; ⽊
-    (=ucs		. #x681F)	; 栟
-    (=big5		. #xD1D9)	; &I-B-D1D9;
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
