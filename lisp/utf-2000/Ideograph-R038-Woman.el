@@ -882,6 +882,7 @@
     (japanese-jisx0212		. #x392E)	; ø»‹‡­
     (japanese-jisx0213-2	. #x254B)	; ø»¤£¢
     (ideograph-daikanwa		. 06099)	; ø¸Ÿ“
+    (chinese-big5-cdp		. #x8DD2)	; ý¢€ˆ·’
     (china3-jef			. #x48F0)	; øº„£°
     (ucs			. #x599F)	; å¦Ÿ
     ))

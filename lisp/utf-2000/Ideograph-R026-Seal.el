@@ -706,16 +706,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 859)
+     (:char	((shinjigen-1	     . 859)
 		 (ideograph-daikanwa . 02855)	; ø¸€¬§
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8ABE)	; ý¢€ˆª¾
+     ((ucs		  . #x7680)	; çš€
       )
      ((ucs		  . #x5369)	; å©
       ))
