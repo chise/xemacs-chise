@@ -5012,12 +5012,19 @@
     (=ucs@jis		. #x9037)	; ø»Œƒˆ
     ))
 (define-char
-  '((morohashi-daikanwa	38950 0 2)
+  '((=>ucs		. #x9037)	; é€·
+    (morohashi-daikanwa	38950 0 2)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs		. #x9037)	; é€·
     (=cns11643-3	. #x3F56)	; ø»–ƒ
+    ))
+(define-char
+  '((morohashi-daikanwa	38950 0 3)
+    (ideographic-radical . 162)	; â¾¡
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs		. #x9037)	; é€·
     ))
 (define-char
   '((=>ucs*		. #x9038)	; é€¸
