@@ -731,10 +731,13 @@
 		      value line-breaking))
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
-    (when (and (not readable)
-	       (memq '->ucs-variants attributes))
-      (setq attributes (delq '->ucs-variants attributes))
-      )
+    (unless readable
+      (when (memq '->ucs-variants attributes)
+	(setq attributes (delq '->ucs-variants attributes))
+	)
+      (when (memq 'composition attributes)
+	(setq attributes (delq 'composition attributes))
+	))
     (setq rest ccs-attributes)
     (while (and rest
 		(progn
