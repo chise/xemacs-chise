@@ -119,7 +119,7 @@ place.
           also have to be marked manually. That is done by the function
           `mark_profiling_info'
 
-  9. Hash tables in Xemacs belong to a kind of special objects that
+  9. Hash tables in XEmacs belong to a kind of special objects that
      make use of a concept often called 'weak pointers'.  To make a
      long story short, these kind of pointers are not followed during
      the estimation of the live objects during garbage collection.  Any
