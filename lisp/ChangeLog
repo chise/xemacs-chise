@@ -1,3 +1,15 @@
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R021-Spoon.el (M02574): Separate C1-4621.
+	(M02576): Separate C6-2630.
+	(M02579): Separate C5-234A.
+	(M02581): Separate C4-284D.
+	(M02582): Separate C6-2F2F.
+	(M02588): Separate C6-3560.
+
+	* utf-2000/Ideograph-R020-Wrap.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
 1999-11-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R019-Power.el,
