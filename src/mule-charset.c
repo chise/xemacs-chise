@@ -62,6 +62,7 @@ Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
+Lisp_Object Vcharset_ethiopic_ucs;
 Lisp_Object Vcharset_hiragana_jisx0208;
 Lisp_Object Vcharset_katakana_jisx0208;
 #endif
@@ -793,6 +794,7 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
+  Qethiopic_ucs,
   Qhiragana_jisx0208,
   Qkatakana_jisx0208,
 #endif
@@ -2505,6 +2507,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
   defsymbol (&Qhiragana_jisx0208, 	"hiragana-jisx0208");
   defsymbol (&Qkatakana_jisx0208, 	"katakana-jisx0208");
 #endif
@@ -2833,6 +2836,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII 1.1 (Vietnamese)"),
 		  build_string ("VISCII1\\.1"),
 		  Qnil, 0, 0, 0, 0);
+  Vcharset_ethiopic_ucs =
+    make_charset (LEADING_BYTE_ETHIOPIC_UCS, Qethiopic_ucs,
+		  CHARSET_TYPE_256X256, 2, 2, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Ethiopic (UCS)"),
+		  build_string ("Ethiopic (UCS)"),
+		  build_string ("Ethiopic of UCS"),
+		  build_string ("Ethiopic-Unicode"),
+		  Qnil, 0x1200, 0x137F, 0x1200, 0);
   Vcharset_hiragana_jisx0208 =
     make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
