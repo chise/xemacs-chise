@@ -1,3 +1,72 @@
+2001-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el: - Use `=>ucs' instead of `->ucs'.
+	(C6-2651): New character; relate to M-04726.
+	(C6-2A3E): Add `->same-ideograph' for M-04718.
+
+2001-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el: - Use `=>ucs' instead of `->ucs'.
+	(C2-4C61): Separated from JX2-233D and moved from
+	Ideograph-R018-Knife.el.
+
+	* char-db-util.el (insert-char-attributes): Regard
+	`->wrong-ideograph' and `<-wrong-ideograph' as
+	character-references.
+
+2001-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F390): Separate Big5-88EF and
+	Big5-CDP-88EF.
+	(U+F547): Separate Big5-8BCF and Big5-CDP-8BCF.
+	(U+F568): Separate Big5-8BF0 and Big5-CDP-8BF0.
+	(U+F56F): Separate Big5-8BF7 and Big5-CDP-8BF7.
+	(U+F5CE): Separate Big5-8CB9 and Big5-CDP-8CB9.
+	(U+F640): Separate Big5-8D6C and Big5-CDP-8D6C.
+
+	* Ideograph-R005-Second.el (J0-3535): Delete `kangxi-radical' and
+	`kangxi-strokes'; separate S1-9917, S2-9917 and C3-396C; move them
+	to Ideograph-R213-Turtle.el.
+	(M-00215): Separate C2-4156; fix `total-strokes'.
+
+	* Ideograph-R002-Line.el (M-00072): Unify U+3404.
+	(C7-2C3C): Add `->same-ideograph' for M-00246.
+
+	* Ideograph-R001-One.el (M-00020): Add `->synonyms'.
+
+	* Ideograph-R018-Knife.el (U+5202): Unify Big5-8B4D and
+	Big5-CDP-8B4D.
+	(S1-0597): Use `<-wrong-ideograph' instead of
+	`wrong-char-of-shinjigen-1'.
+	(M-01880): Delete C4-2239; unify C4-223A.
+	(M-01892): Unify C4-2239.
+	(U+524A): Unify Big5-AB64.
+	(C1-5028): Separate Big5-AB64.
+	(JX2-233D): Separate C2-4C61 and Big5-E35A and move them to
+	Ideograph-R118-Bamboo.el; delete `kangxi-radical' and
+	`kangxi-strokes'; add `->same-ideograph'.
+	- Add `ideograph-cdp' and `ideographic-structure'.
+	- Unify or relate missing combinations of M-XXXXX and CNS.
+
+	* Ideograph-R008-Lid.el (C6-3D23): Relate to M-00319.
+	(M-00320): Delete C6-3D23; unify C6-3D22.
+	(U+4EB8): Fix strokes.
+
+	* Ideograph-R004-Slash.el: Add `ideograph-cdp' and
+	`ideographic-structure'.
+	(U+4E3F): Unify Big5-8B47 and Big5-CDP-8B47.
+	(U+4E46): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el: Use `=>ucs' instead of `->ucs'.
+	(C1-7948): Unify Big5-C3FB.
+
+	* Ideograph-R003-Dot.el: Add `ideograph-cdp' and
+	`ideographic-structure'.
+	(U+4E36): Unify Big5-8B41 and Big5-CDP-8B41.
+
 2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0E000-Private-Use.el: Unify `chinese-big5-cdp'.
