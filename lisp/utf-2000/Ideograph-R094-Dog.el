@@ -2899,7 +2899,7 @@
   '((->ucs		. #x732C)	; çŒ¬
     (morohashi-daikanwa	20536 0 0)
     (ideographic-radical . 94)	; â½
-    (kangxi-strokes	 . 9)
+    (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (chinese-cns11643-3 . #x3D2A)	; ø»•¿µ
     ))
