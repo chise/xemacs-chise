@@ -481,14 +481,6 @@
     (ucs		. #x516A)	; 兪
     ))
 (define-char
-  '((=>ucs		. #x516A)	; 兪
-    (morohashi-daikanwa	1437 0 3)
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (shinjigen-1	. 488)
-    ))
-(define-char
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
