@@ -23,6 +23,15 @@
     (=cns11643-1	. #x4B50)	; ø»’€·
     ))
 (define-char
+  '((=>ucs		. #x8F9B)	; è¾›
+    (morohashi-daikanwa	38630 0 5)
+    (ideographic-radical . 160)	; â¾Ÿ
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (=gt-k		. 02585)	; ý¡„€¨™
+    (=gt-pj-k1		. #x3D69)	; ý¡„€¨™
+    ))
+(define-char
   '((morohashi-daikanwa	38630 1)
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 0)
