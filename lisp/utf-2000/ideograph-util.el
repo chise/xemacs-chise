@@ -169,7 +169,8 @@
 
 ;;;###autoload
 (defun char-representative-of-daikanwa (char)
-  (if (get-char-attribute char 'ideograph-daikanwa)
+  (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
+	  (encode-char char '=daikanwa-rev2 'defined-only))
       char
     (let ((m (get-char-attribute char 'morohashi-daikanwa))
 	  m-m m-s pat)
@@ -177,7 +178,8 @@
 	    (setq m-m (pop m))
 	    (setq m-s (pop m))
 	    (if (= m-s 0)
-		(decode-char 'ideograph-daikanwa m-m)
+		(or (decode-char '=daikanwa-rev2 m-m 'defined-only)
+		    (decode-char 'ideograph-daikanwa m-m))
 	      (when m
 		(setq pat (list m-m m-s))
 		(map-char-attribute (lambda (c v)
@@ -231,7 +233,8 @@
 
 ;;;###autoload
 (defun char-daikanwa (char)
-  (or (get-char-attribute char 'ideograph-daikanwa)
+  (or (encode-char char 'ideograph-daikanwa 'defined-only)
+      (encode-char char '=daikanwa-rev2 'defined-only)
       (get-char-attribute char 'morohashi-daikanwa)))
 
 ;;;###autoload
