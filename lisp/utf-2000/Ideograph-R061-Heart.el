@@ -9159,6 +9159,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=jis-x0213-2-2000	. #x2C57)	; ø»¤®€
+    (=ucs@jis		. #x60EE)	; ø»¤®€
     ))
 (define-char
   '((ideographic-radical . 61)	; â¼¼
