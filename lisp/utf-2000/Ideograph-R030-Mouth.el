@@ -1119,6 +1119,7 @@
       ))
     (chinese-cns11643-3		. #x2339)	; ø»•™¸
     (ideograph-daikanwa		. 03282)	; ø¸€³’
+    (ideograph-cbeta		. 08105)	; ø¸¡¾©
     (ideograph-hanziku-2	. #xC954)	; ý¢€¬¥”
     (ucs			. #x5405)	; å…
     ))
@@ -16667,6 +16668,7 @@
     (total-strokes	 . 12)
     (chinese-cns11643-4 . #x3663)	; ø»˜€ 
     (ideograph-daikanwa . 03989)	; ø¸€¾•
+    (ideograph-cbeta	. 07362)	; ø¸¡³‚
     (china3-jef		. #x91B5)	; øº‰†µ
     (ucs		. #x35CA)	; ã—Š
     ))
