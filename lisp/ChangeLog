@@ -1,3 +1,15 @@
+2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table):
+	Don't refer 50101 or greater code range of coded-charset
+	`ideograph-daikanwa'.
+
+2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/Ideograph-R105-Dotted-Tent.el:
+	- Add missing J78 and J83 characters.
+	- Add missing Morohashi's Daikanwa characters.
+
 2000-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Use
