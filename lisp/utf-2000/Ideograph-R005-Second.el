@@ -264,8 +264,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((name		  . "cjk radical person for top")
-      (chinese-big5-cdp	  . #x8B4A)	; ý¢€ˆ­Š
+     ((ucs		  . #x20089)	; ð ‚‰
       )
      ((ucs		  . #x4E59)	; ä¹™
       ))
@@ -1792,13 +1791,15 @@
       ))
     (japanese-jisx0212	. #x303C)	; ø»Šº­
     (ideograph-gt-pj-2	. #x3167)	; ý¡€€„”
+    (chinese-big5	. #xD44B)	; øº¢€Ž
     (ideograph-daikanwa . 00205)	; ø¸€ƒ
     (china3-jef		. #x41C5)	; øº„‡…
     (ideograph-gt	. 00276)	; ý¡€€„”
     (mojikyo		. 000205)	; ý €€ƒ
     ))
 (define-char
-  '((morohashi-daikanwa	205 0 2)
+  '((=>ucs		. #x4E7F)	; ä¹¿
+    (morohashi-daikanwa	205 0 2)
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
@@ -1813,8 +1814,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((name		    . "CJK RADICAL PAW ONE")
-	(ucs		    . #x2EA4)	; âº¤
+       ((ucs		    . #x722B)	; çˆ«
 	)
        ((ideograph-daikanwa . 27221)	; ø¸†©•
 	))
@@ -1824,11 +1824,35 @@
     (chinese-cns11643-2 . #x334E)	; ø»“§©
     (ideograph-gt-pj-9	. #x507E)	; ý¡€€„•
     (ideograph-gt	. 00277)	; ý¡€€„•
+    ))
+(define-char
+  '((morohashi-daikanwa	205 0 3)
+    (ideographic-radical . 5)	; â¼„
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 57)
+    (hanyu-dazidian-char . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x722B)	; çˆ«
+	)
+       ((ucs		    . #x7CF8)	; ç³¸
+	))
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (ucs		. #x4E7F)	; ä¹¿
     ))
 (define-char
   '((=>ucs		. #x4E7F)	; ä¹¿
-    (morohashi-daikanwa	205 0 3)
+    (morohashi-daikanwa	205 0 4)
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
@@ -1851,7 +1875,6 @@
       )
      ((ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-big5	. #xD44B)	; øº¢€Ž
     (mojikyo		. 059022)	; ý €ŽšŽ
     ))
 (define-char
