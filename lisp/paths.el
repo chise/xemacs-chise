@@ -129,28 +129,7 @@ the terminal-initialization file to be loaded.")
 (defconst abbrev-file-name (purecopy "~/.abbrev_defs")
   "*Default name of file to read abbrevs from.")
 
-(defconst directory-abbrev-alist
-  (list
-   ;;
-   ;; This matches the default Sun automounter temporary mount points.  These
-   ;; temporary mount points may go away, so it's important that we only try
-   ;; to read files under the "advertised" mount point, rather than the
-   ;; temporary one, or it will look like files have been deleted on us.
-   ;; Whoever came up with this design is clearly a moron of the first order,
-   ;; but now we're stuck with it, no doubt until the end of time.
-   ;;
-   ;; For best results, automounter junk should go near the front of this
-   ;; list, and other user translations should come after it.
-   ;;
-   ;; You may need to change this if you're not running the Sun automounter,
-   ;; if you're not running in the default configuration.  Because the
-   ;; designers (and I use that term loosely) of the automounters failed to
-   ;; provide any uniform way of disambiguating a pathname, emacs needs to
-   ;; have knowledge about exactly how the automounter mangles pathnames
-   ;; (and this knowledge is basically impossible to derive at run-time.)
-   ;;
-   (cons (purecopy "\\`/tmp_mnt/") (purecopy "/"))
-   ))
+(defconst directory-abbrev-alist nil)
 
 ;; Formerly, the values of these variables were computed once
 ;; (at dump time).  However, with the advent of pre-compiled binaries
@@ -203,7 +182,7 @@ Will not override settings in site-init.el or site-run.el."
      l 'rmail-spool-directory
      (cond ((string-match "^[^-]+-[^-]+-sco3.2v4" system-configuration)
 	    "/usr/spool/mail/")
-	   ;; On The Bull DPX/2 /usr/spool/mail is used although 
+	   ;; On The Bull DPX/2 /usr/spool/mail is used although
 	   ;; it is usg-unix-v.
 	   ((string-match "^m68k-bull-sysv3" system-configuration)
 	    "/usr/spool/mail/")
@@ -256,8 +235,42 @@ Will not override settings in site-init.el or site-run.el."
      ;; Solaris 2 has both of these files; prefer /usr/ucb/man
      ;; because the other has nonstandard argument conventions.
      (if (file-exists-p "/usr/ucb/man")
-	 "/usr/ucb/man" "/usr/bin/man")))
-)
+	 "/usr/ucb/man" "/usr/bin/man"))
+
+    (funcall
+     l 'directory-abbrev-alist
+     ;; Try to match various conventions for automounter temporary
+     ;; mount points.  These temporary mount points may go away, so
+     ;; it's important that we only try to read files under the
+     ;; "advertised" mount point, rather than the temporary one, or it
+     ;; will look like files have been deleted on us.  Whoever came up
+     ;; with this design is clearly a moron of the first order, but
+     ;; now we're stuck with it, no doubt until the end of time.
+     ;;
+     ;; For best results, automounter junk should go near the front of this
+     ;; list, and other user translations should come after it.
+     ;;
+     ;; Our code handles the following empirically observed conventions:
+     ;; /net is an actual directory! (some systems are not broken!)
+     ;; /net/HOST -> /tmp_mnt/net/HOST (`standard' old Sun automounter)
+     ;; /net/HOST -> /tmp_mnt/HOST (BSDI 4.0)
+     ;; /net/HOST -> /a/HOST (Freebsd 2.2.x)
+     ;; /net/HOST -> /amd/HOST (seen in amd sample config files)
+     ;;
+     ;; If your system has a different convention, you may have to change this.
+     ;; Don't forget to send in a patch!
+     (when (file-directory-p "/net")
+       (append
+	(when (file-directory-p "/tmp_mnt")
+	  (if (file-directory-p "/tmp_mnt/net")
+	      '(("\\`/tmp_mnt/net/" . "/net/"))
+	    '(("\\`/tmp_mnt/" . "/net/"))))
+	(when (file-directory-p "/a")
+	  '(("\\`/a/" . "/net/")))
+	(when (file-directory-p "/amd")
+	  '(("\\`/amd/" . "/net/")))
+	)))
+))
 
 (if (running-temacs-p)
     (initialize-xemacs-paths))

@@ -396,16 +396,12 @@ variable gets by default!  Make sure you know what kind of value the
 variable should have.  If you don't pay attention to what you are
 doing, you'll make a mistake.
 
-Things may malfunction if the variable `directory-abbrev-alist' is not set
-up to translate "temporary" automounter mount points into the canonical
-form.  The default value of this variable contains the translation
-
-	("^/tmp_mnt/" . "/")
-
-meaning translate "/tmp_mnt/net/FOO" into "/net/FOO", which is appropriate
-for the default configuration of the Sun automounter, but which may be
-inappropriate for different vendor's automounters, or if you have customized
-your mount-point names.
+Things may malfunction if the variable `directory-abbrev-alist' is not
+set up to translate "temporary" automounter mount points into the
+canonical form.  XEmacs tries to detect how your automounter is
+configured.  If you have an unusual automounter configuration that
+XEmacs cannot detect, you may need to change the value of
+`directory-abbrev-alist'.
 
 5) Put into `./lisp/site-init.el' or `./lisp/site-load.el' any Emacs
 Lisp code you want XEmacs to load before it is dumped out.  Use

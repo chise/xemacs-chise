@@ -127,7 +127,12 @@ extern long random();
 #define UNEXEC "unexcw.o"
 
 #ifdef CYGWIN_VERSION_DLL_MAJOR
+#if 0
+/* ### FIXME: although defining BROKEN_SIGIO is correct for proper ^G
+   behavior, bugs in cygwin mean that xemacs locks up frequently if
+   this is defined.  */
 #define BROKEN_SIGIO
+#endif
 #else
 #define PROCESS_IO_BLOCKING
 #endif

@@ -1,3 +1,35 @@
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-25  SL Baur  <steve@xemacs.org>
+
+	* mule-charset.c (Qleading_byte): New variable to implement
+	charset-leading-byte function.
+	(Fcharset_property): Use it.
+	(syms_of_mule_charset): Initialize it.
+	From Kazuyuki IENAGA <ienaga@jsys.co.jp>
+
+1999-02-17  Kazuo Oishi <oishi@ae.agr.yamaguchi-u.ac.jp>
+
+	* glyphs-x.c (cononvert_EImage_to_XImage): correct 
+	bytes per pixel counting.
+
+1999-02-15  Andy Piper  <andy@xemacs.org>
+
+	* s/cygwin32.h (BROKEN_SIGIO): don't define this as it causes
+	major lockups.
+
+1999-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* gdbinit:  Fix up commands to run temacs.  Add lisp-shadows command.
+	* alloc.c (xcalloc):  undef xcalloc, just like xmalloc
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* s/bsdos4.h: New file.  Port to BSDI BSD/OS 4.0.
+	* xintrinsic.h:  Redo CONST support for X11 R4 compatibility.
+
 1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.10 is released

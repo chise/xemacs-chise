@@ -1,4 +1,14 @@
 							-*- indented-text -*-
+to 21.2 beta11 "Calliope"
+-- Dialog box fix from Jan Vroonhof
+-- unified mswindows and tty event loops from Andy Piper
+-- miscellaneous patches from Gleb Arshinov
+-- miscellaneous patches from Charles Waldman and Adrian Aichner
+-- Mule dump time files remerged from mule-base package
+-- Documentation fixes from Jan Vroonhof
+-- 24bit color image fix from Kazuo OISHI
+-- various build fixes from Martin Buchholz
+
 to 21.2 beta10 "Boreas"
 -- package UI fix from Jan Vroonhof
 -- MS Windows NT process fix from Gleb Arshinov

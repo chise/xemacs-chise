@@ -337,7 +337,7 @@ Fourth arg SERVICE is name of the service desired, or an integer
 process as a string"
   ;; by "William G. Dubuque" <wgd@zurich.ai.mit.edu>
   (with-output-to-string
-    (call-process shell-file-name nil t nil "-c" command)))
+    (call-process shell-file-name nil t nil shell-command-switch command)))
 
 (defalias 'shell-command-to-string 'exec-to-string)
 

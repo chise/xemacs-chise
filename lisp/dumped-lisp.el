@@ -126,11 +126,11 @@
 
 	(when-feature mule "arabic")
 	(when-feature mule "chinese")
-	(when-feature mule "mule-base/cyrillic") ; overloaded in leim/quail
+	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
 ;;	(when-feature mule "ethiopic")
 	(when-feature mule "european")
-	(when-feature mule "mule-base/greek") ; overloaded in leim/quail
+	(when-feature mule "mule/greek") ; overloaded in leim/quail
 	(when-feature mule "hebrew")
 	(when-feature mule "japanese")
 	(when-feature mule "korean")

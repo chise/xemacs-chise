@@ -1,3 +1,21 @@
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-17  SL Baur  <steve@xemacs.org>
+
+	* update-elc.sh (ignore_dirs): Ignore lisp/mule subdirectory when
+	running latin-1 XEmacs.  Eliminate 20.4 bundled kludges.
+	* update-custom.sh (ignore_dirs): Ditto.
+
+1999-02-15  Martin Buchholz  <martin@xemacs.org>
+
+	* update-elc.sh:
+	* update-autoloads.sh:
+	* update-custom.sh:
+	- improved automounter tmp directory support.
+	- support 4 (!) empirically discovered automounter conventions
+
 1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.10 is released

@@ -382,6 +382,10 @@ xmalloc (size_t size)
   return val;
 }
 
+#ifdef xcalloc
+#undef xcalloc
+#endif
+
 static void *
 xcalloc (size_t nelem, size_t elsize)
 {

@@ -108,6 +108,7 @@ Lisp_Object Qregistry, Qfinal, Qgraphic;
 Lisp_Object Qdirection;
 Lisp_Object Qreverse_direction_charset;
 Lisp_Object Qccl_program;
+Lisp_Object Qleading_byte;
 
 Lisp_Object Qascii, Qcontrol_1,
 
@@ -922,6 +923,7 @@ Recognized properties are those listed in `make-charset', as well as
   if (EQ (prop, Qchars))       return make_int (CHARSET_CHARS (cs));
   if (EQ (prop, Qregistry))    return CHARSET_REGISTRY (cs);
   if (EQ (prop, Qccl_program)) return CHARSET_CCL_PROGRAM (cs);
+  if (EQ (prop, Qleading_byte)) return make_char (CHARSET_LEADING_BYTE (cs));
   if (EQ (prop, Qdirection))
     return CHARSET_DIRECTION (cs) == CHARSET_LEFT_TO_RIGHT ? Ql2r : Qr2l;
   if (EQ (prop, Qreverse_direction_charset))
@@ -1173,6 +1175,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qdirection, "direction");
   defsymbol (&Qreverse_direction_charset, "reverse-direction-charset");
   defsymbol (&Qccl_program, "ccl-program");
+  defsymbol (&Qleading_byte, "leading-byte");
 
   defsymbol (&Ql2r, "l2r");
   defsymbol (&Qr2l, "r2l");

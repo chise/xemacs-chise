@@ -876,13 +876,22 @@ for dir in lisp etc man info; do
   fi
 done
 
+dnl Do our best to deal with automounter brokenness
+dnl CANONICALIZE_PATH(varname)
+define([CANONICALIZE_PATH],
+[if test -d "/net"; then
+  if test -d "/tmp_mnt/net"; then tdir="tmp_mnt/net"; else tdir="tmp_mnt"; fi
+  $1=`echo "[$]$1" | \
+   sed -e "s|^${tdir}/|/net/|" -e "s|^/a/|/net/|" -e "s|^/amd/|/net/|"`
+fi])dnl
+
 dnl Calculate canonical name for blddir (i.e. current directory).
 dnl PWD may already be the preferable absolute name for ".",
 dnl but we can't trust it - it is sometimes inaccurate.
 absolute_pwd="`pwd`";
 if test -n "$PWD" -a "`cd $PWD && pwd`" = "$absolute_pwd"
 then blddir="$PWD"
-else blddir="$absolute_pwd"
+else blddir="$absolute_pwd"; CANONICALIZE_PATH(blddir)
 fi
 AC_SUBST(blddir)
 
@@ -892,7 +901,7 @@ dnl give you automounter prefixes, which can go away.
 case "$srcdir" in
   /* ) ;;
   .  ) srcdir="$blddir" ;;
-  *  ) srcdir="`cd $srcdir && pwd`" ;;
+  *  ) srcdir="`cd $srcdir && pwd`"; CANONICALIZE_PATH(srcdir) ;;
 esac
 
 dnl Check if the source directory already has a configured system in it.
@@ -1456,6 +1465,7 @@ case "$canonical" in
       *-xenix* )		opsys=xenix ;;
       *-sco3.2v4* )		opsys=sco4 NON_GNU_CPP=/lib/cpp  ;;
       *-bsd386* | *-bsdi1* )	opsys=bsd386 ;;
+      *-bsdi4* )		opsys=bsdos4 ;;
       *-bsdi3* )		opsys=bsdos3 ;;
       *-bsdi2.1* )		opsys=bsdos2-1 ;;
       *-bsdi2* )		opsys=bsdos2 ;;
@@ -1941,7 +1951,7 @@ if test "$add_runtime_path" = "yes"; then
   AC_MSG_CHECKING("for runtime libraries flag")
   case "$opsys" in
     sol2 ) dash_r="-R" ;;
-    decosf* | linux* ) dash_r="-rpath " ;;
+    decosf* | linux* | irix*) dash_r="-rpath " ;;
     *)
       dash_r=""
       for try_dash_r in "-R" "-R " "-rpath "; do
@@ -2535,7 +2545,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix session xim xmu 
+  for feature in tooltalk cde offix session xim xmu
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -2985,10 +2995,11 @@ if test "$with_mule" = "yes" ; then
   dnl test -z "$with_xim" -a "$opsys" != "sol2" && with_xim=no
   case "$with_xim" in "" | "yes" )
     AC_CHECKING(for XIM)
+    AC_CHECK_LIB(X11, XOpenIM, with_xim=xlib, with_xim=no)
     dnl XIM + Lesstif is not (yet?) usable
-    if test "$have_lesstif" = "yes"; then with_xim=xlib
-    else AC_CHECK_LIB(Xm, XmImMbLookupString, with_xim=motif, with_xim=xlib)
-    fi
+    if test "$have_motif $have_lesstif" = "yes no"; then
+      AC_CHECK_LIB(Xm, XmImMbLookupString, with_xim=motif)
+    fi ;;
   esac
   if test "$with_xim" != "no"; then
     AC_DEFINE(HAVE_XIM)
@@ -3006,7 +3017,7 @@ if test "$with_mule" = "yes" ; then
     fi
   fi
 
-  dnl "with_xim" = "yes"
+  dnl "with_xfs" = "yes"
   if test "$with_xfs" = "yes" ; then
     AC_CHECKING(for XFontSet)
     AC_CHECK_LIB(X11, XmbDrawString, [:], with_xfs=no)
@@ -3016,7 +3027,7 @@ if test "$with_mule" = "yes" ; then
         XE_ADD_OBJS(input-method-xfs.o)
       fi
     fi
-  fi dnl with_xim
+  fi dnl with_xfs
 
   dnl Autodetect WNN
   test "$with_wnn6" = "yes" && with_wnn=yes # wnn6 implies wnn support
@@ -4090,7 +4101,15 @@ case "$with_scrollbars" in
   athena3d ) echo "  Using Athena-3d scrollbars." ;;
 esac
 case "$with_dialogs" in
-  motif    ) echo "  Using Motif dialog boxes."     ;;
+  motif    )
+    echo "  Using Motif dialog boxes."
+    if test "$unexec" = "unexaix.o" -a `uname -v` = 4 -a `uname -r` -ge 3; then
+      echo "  *WARNING*  The Motif dialog boxes cause problems on AIX 4.3 and higher."
+      echo "             We recommend using the Athena dialog boxes instead."
+      echo "             Install libXaw and re-run configure with --with-dialogs='athena'."
+      echo "             Read the PROBLEMS file for more information."
+    fi	
+    ;;
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
 esac

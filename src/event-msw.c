@@ -65,6 +65,7 @@ Boston, MA 02111-1307, USA.  */
 #include "events-mod.h"
 #ifdef HAVE_MSG_SELECT
 #include "sysfile.h"
+#include "console-tty.h"
 #elif defined(__CYGWIN32__)
 typedef unsigned int SOCKET;
 #endif
@@ -121,10 +122,10 @@ static Lisp_Object mswindows_s_dispatch_event_queue, mswindows_s_dispatch_event_
 /* The number of things we can wait on */
 #define MAX_WAITABLE (MAXIMUM_WAIT_OBJECTS - 1)
 
+#ifndef HAVE_MSG_SELECT
 /* List of mswindows waitable handles. */
 static HANDLE mswindows_waitable_handles[MAX_WAITABLE];
 
-#ifndef HAVE_MSG_SELECT
 /* Number of wait handles */
 static int mswindows_waitable_count=0;
 #endif /* HAVE_MSG_SELECT */
@@ -1322,28 +1323,6 @@ mswindows_need_event (int badly_p)
 	  pointer_to_this = &select_time_to_block;
 	}
 
-      /* select() is slow and buggy so if we don't have any processes
-         just wait as normal */
-      if (memcmp (&process_only_mask, &zero_mask, sizeof(SELECT_TYPE))==0)
-	{
-	  /* Now try getting a message or process event */
-	  active = MsgWaitForMultipleObjects (0, mswindows_waitable_handles,
-					      FALSE, badly_p ? INFINITE : 0,
-					      QS_ALLINPUT);
-	  
-	  if (active == WAIT_TIMEOUT)
-	    {
-	      /* No luck trying - just return what we've already got */
-	      return;
-	    }
-	  else if (active == WAIT_OBJECT_0)
-	    {
-	      /* Got your message, thanks */
-	      mswindows_drain_windows_queue ();
-	      continue;
-	    }
-	}
-
       active = select (MAXDESC, &temp_mask, 0, 0, pointer_to_this);
       
       if (active == 0)
@@ -1356,7 +1335,28 @@ mswindows_need_event (int badly_p)
 	    {
 	      mswindows_drain_windows_queue ();
 	    }
-	  
+#ifdef HAVE_TTY	  
+	  /* Look for a TTY event */
+	  for (i = 0; i < MAXDESC-1; i++)
+	    {
+	      /* To avoid race conditions (among other things, an infinite
+		 loop when called from Fdiscard_input()), we must return
+		 user events ahead of process events. */
+	      if (FD_ISSET (i, &temp_mask) && FD_ISSET (i, &tty_only_mask))
+		{
+		  struct console *c = tty_find_console_from_fd (i);
+		  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
+		  struct Lisp_Event* event = XEVENT (emacs_event);
+		  
+		  assert (c);
+		  if (read_event_from_tty_or_stream_desc (event, c, i))
+		    {
+		      mswindows_enqueue_dispatch_event (emacs_event);
+		      return;
+		    }
+		}
+	    }
+#endif
 	  /* Look for a process event */
 	  for (i = 0; i < MAXDESC-1; i++)
 	    {
@@ -1368,11 +1368,6 @@ mswindows_need_event (int badly_p)
 			get_process_from_usid (FD_TO_USID(i));
 		      
 		      mswindows_enqueue_process_event (p);
-		    }
-		  else if (FD_ISSET (i, &tty_only_mask))
-		    {
-				/* do we care about tty events? Do we
-                                   ever get tty events? */
 		    }
 		  else
 		    {
@@ -2674,11 +2669,23 @@ emacs_mswindows_unselect_process (struct Lisp_Process *process)
 static void
 emacs_mswindows_select_console (struct console *con)
 {
+#ifdef HAVE_MSG_SELECT
+  if (CONSOLE_MSWINDOWS_P (con))
+    return; /* mswindows consoles are automatically selected */
+
+  event_stream_unixoid_select_console (con);
+#endif
 }
 
 static void
 emacs_mswindows_unselect_console (struct console *con)
 {
+#ifdef HAVE_MSG_SELECT
+  if (CONSOLE_MSWINDOWS_P (con))
+    return; /* mswindows consoles are automatically selected */
+
+  event_stream_unixoid_unselect_console (con);
+#endif
 }
 
 static void

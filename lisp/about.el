@@ -283,7 +283,7 @@ developers responsible for this release are:\n\n")
 			     :value who)
 	      (widget-insert (format "  <%s>\n" address)))))
       ;; Setup persons responsible for this release.
-      (mapc 'setup-person '(slb hniksic kyle martin))
+      (mapc 'setup-person '(slb hniksic kyle martin piper))
       (widget-insert "\n\t* ")
       (widget-create 'link :help-echo "A legion of XEmacs hackers"
 		     :action 'about-hackers

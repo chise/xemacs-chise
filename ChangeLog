@@ -1,3 +1,56 @@
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-16  Andy Piper  <andy@xemacs.org>
+
+	* PROBLEMS: add entries for building under Cygwin.
+
+1999-02-14  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* README.packages: Clear up that mule-sumo packages is used _in
+	addition_ to the normal sumo.
+
+1999-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.usage: Move quantify/purify into debug flags section
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	- Fixup xfs comments and redundant option checking
+
+	* configure.in: 
+	* INSTALL: 
+	* lisp/paths.el:
+	- improved automounter tmp directory support.
+	- support 4 (!) empirically discovered automounter conventions
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib/lwlib.h: 
+	- redo CONST hacking to deal with X11 R4, which was 
+	broken in a previous patch.
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	- irix uses -rpath
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	- Check for XOpenIM before using xim=xlib
+	- only use XmIm if $have_motif = yes
+
+1999-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in.  Port to BSDI BSD/OS 4.0.
+
+1999-01-07  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in: Warn if using Motif dialog boxes on AIX 4.3.
+
 1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.10 is released

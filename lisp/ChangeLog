@@ -1,3 +1,84 @@
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-22  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* userlock.el (ask-user-about-supersession-threat-dbox): Guard
+	against window close (Fix Bug #460).
+	(ask-user-about-lock-dbox): Idem.
+
+1999-02-25  SL Baur  <steve@xemacs.org>
+
+	* mule/mule-charset.el (charset-leading-byte): New function.
+	From Kazuyuki IENAGA <ienaga@jsys.co.jp>
+
+1999-02-12  Andy Piper  <andy@xemacs.org>
+
+	* about.el (xemacs-hackers): change andy's email address.
+	(about-url-alist): change andy's web page address.
+	(about-xemacs): add piper.
+
+1999-02-16  SL Baur  <steve@xemacs.org>
+
+	* dumped-lisp.el (preloaded-file-list): Core mule files moved out
+	of mule-base into lisp/mule.
+
+1999-02-16  SL Baur  <steve@xemacs.org>
+
+	* mule/arabic.el:
+	mule/canna-leim.el:
+	mule/chinese.el:
+	mule/cyrillic.el:
+	mule/english.el:
+	mule/european.el:
+	mule/greek.el:
+	mule/hebrew.el:
+	mule/japanese.el:
+	mule/kinsoku.el:
+	mule/korean.el:
+	mule/misc-lang.el:
+	mule/mule-category.el:
+	mule/mule-ccl.el:
+	mule/mule-charset.el:
+	mule/mule-cmds.el:
+	mule/mule-coding.el:
+	mule/mule-files.el:
+	mule/mule-help.el:
+	mule/mule-init.el:
+	mule/mule-misc.el:
+	mule/mule-tty-init.el:
+	mule/mule-x-init.el:
+	mule/viet-chars.el:  Remerge from mule-base.
+
+	* dumped-lisp.el (preloaded-file-list): Core mule files moved out
+	of mule-base into lisp/mule.
+
+1999-02-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* process.el (exec-to-string): Use `shell-command-switch' in place
+	of hard-wired "-c" (for WindowsNT).
+
+1999-02-08  Charles G Waldman  <cgw@pgt.com>
+
+	* menubar-items.el (default-menubar):  Remove obsolete
+	"Gopher" item
+
+1999-02-06  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-admin.el (package-admin-get-install-dir): First fall
+	back to the location of xemacs-base for non-mule packages.
+
+1999-02-15  Martin Buchholz  <martin@xemacs.org>
+
+	* paths.el: 
+	- improved automounter tmp directory support.
+	- support 4 (!) empirically discovered automounter conventions
+
+1999-02-12  SL Baur  <steve@xemacs.org>
+
+	* etags.el (pop-tag-mark): autoload to match key binding.
+
 1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.10 is released
