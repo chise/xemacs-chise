@@ -439,7 +439,8 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((korean-ksc5601	  . #x5635)	; ø»‰¨–
+     ((=jis-x0208	  . #x4E61)	; ø½Š¹‚
+      (korean-ksc5601	  . #x5635)	; ø»‰¨–
       (ideograph-daikanwa . 00387)	; ø¸€†ƒ
       ))
     (shinjigen-1	. 547)
@@ -1095,7 +1096,8 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((ideograph-daikanwa . 41937)	; ø¸Š‘
+     ((=jis-x0208	  . #x7032)	; ø½‹ª
+      (ideograph-daikanwa . 41937)	; ø¸Š‘
       ))
     (shinjigen-1	. 550)
     (shinjigen-2	. 550)
@@ -1191,7 +1193,8 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((korean-ksc5601	  . #x6E33)	; ø»Š‹¤
+     ((=jis-x0208	  . #x6027)	; ø½‹’¤
+      (korean-ksc5601	  . #x6E33)	; ø»Š‹¤
       (ideograph-daikanwa . 19663)	; ø¸„³
       ))
     (japanese-jisx0212	. #x3321)	; ø»Š¾¬
@@ -1831,7 +1834,8 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((korean-ksc5601	  . #x5922)	; ø»‰¬
+     ((=jis-x0208	  . #x4C3D)	; ø½Šµ¢
+      (korean-ksc5601	  . #x5922)	; ø»‰¬
       (ideograph-daikanwa . 01588)	; ø¸€˜´
       ))
     (japanese-jisx0212	. #x3326)	; ø»Š¾±
@@ -1889,16 +1893,16 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (<-vulgar-ideograph
-     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 4378)
+     (:char	((shinjigen-1	     . 4378)
 		 (ideograph-daikanwa . 17934)	; ø¸„˜Ž
 		 )
-      ))
+      :sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x7157)	; ø»Š¢
+     ((=jis-x0208	  . #x3D5A)	; ø½ŠŸ½
+      (korean-ksc5601	  . #x7157)	; ø»Š¢
       (ideograph-daikanwa . 01661)	; ø¸€™½
       )
      ((ucs		  . #x5341)	; å
@@ -1975,7 +1979,8 @@
       )
      ((ucs		  . #x51AB)	; å†«
       )
-     ((korean-ksc5601	  . #x754B)	; ø»Š–Ž
+     ((=jis-x0208	  . #x5643)	; ø½‹„”
+      (korean-ksc5601	  . #x754B)	; ø»Š–Ž
       (ideograph-daikanwa . 08178)	; ø¸¿²
       ))
     (chinese-big5	. #xDCC5)	; ý¢€³…
@@ -2319,8 +2324,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8BEE)	; ý¢€ˆ¯®
-      (ucs		  . #x51AB)	; å†«
+     ((ucs		  . #x51AB)	; å†«
       )
      ((chinese-cns11643-1 . #x6562)	; ø»’§•
       ))
@@ -2332,11 +2336,10 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (<-vulgar-ideograph
-     (:sources	(henkai morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 561)
+     (:char	((shinjigen-1	     . 561)
 		 (ideograph-daikanwa . 01717)	; ø¸€šµ
 		 )
-      ))
+      :sources	(henkai morohashi-daikanwa shinjigen-1)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
