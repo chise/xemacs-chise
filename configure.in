@@ -492,6 +492,7 @@ while test $# != 0; do
 	with_i18n3	| \
 	with_mule	| \
 	with_utf_2000	| \
+	with_ucs4	| \
 	with_file_coding| \
 	with_canna	| \
 	with_wnn	| \
@@ -2971,7 +2972,10 @@ if test "$with_mule" = "yes" ; then
   AC_CHECK_LIB(intl, strerror)
 
   if test "$with_utf_2000" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
     AC_DEFINE(UTF2000)
+  elif test "$with_ucs4" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
   fi
 
   AC_CHECKING(for Mule input methods)
