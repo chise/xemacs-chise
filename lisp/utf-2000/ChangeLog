@@ -1,3 +1,32 @@
+2004-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (U+4E03): Use `->unified'.
+	(U-00020055): Unify M-00064; use
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`{ideographic|total}-strokes'.
+
+2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (mapping-table-read-file): Use `char-feature'
+	instead of `get-char-attribute'.
+
+	* ideograph-util.el (char-ideographic-radical): Use `char-feature'
+	instead of `get-char-attribute'.
+	(char-ideographic-strokes-from-domains): Likewise.
+	(char-ideographic-strokes): Likewise.
+	(char-representative-of-daikanwa): Refer `=>daikanwa'.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R006-Hook.el (U-00020116): Use `->unified'.
+
+2004-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el: Add some GT code points.
+	(U+784E): Separate JC3-5CA7; unify GT-30888.
+	(M-24244): Unify JC3-5CA7; add `=>ucs*' for U+784E.
+	(U-0002F94E): Add `=>ucs*' for U+784E.
+
 2004-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el: Add some GT code points.
