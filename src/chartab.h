@@ -31,12 +31,12 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
-#ifdef HAVE_LIBCHISE
-#include <chise.h>
-#endif
-
-#ifdef HAVE_CHISE_CLIENT
-#include "database.h"
+#ifdef HAVE_CHISE
+#  ifdef HAVE_LIBCHISE
+#    include <chise.h>
+#  else /* HAVE_LIBCHISE */
+#    include "database.h"
+#  endif /* not HAVE_LIBCHISE */
 #endif
 
 EXFUN (Fmake_char, 3);
@@ -363,13 +363,13 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
 #ifdef HAVE_CHISE
 Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
 
-#ifdef HAVE_CHISE_CLIENT
+#ifndef HAVE_LIBCHISE
 extern Lisp_Object Qsystem_char_id;
 
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode);
-#endif /* HAVE_CHISE_CLIENT */
+#endif /* not HAVE_LIBCHISE */
 #endif /* HAVE_CHISE */
 
 INLINE_HEADER Lisp_Object
