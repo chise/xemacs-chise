@@ -821,6 +821,7 @@ uncache_home_directory (void)
 				   of a few bytes */
 }
 
+/* Returns the home directory, in external format */
 char *
 get_home_directory (void)
 {
@@ -878,16 +879,16 @@ get_home_directory (void)
 	}
       if (initialized && output_home_warning)
 	{
-	  warn_when_safe(Quser_files_and_directories, Qwarning, "\n"
+	  warn_when_safe (Quser_files_and_directories, Qwarning, "\n"
 "	XEmacs was unable to determine a good value for the user's $HOME\n"
 "	directory, and will be using the value:\n"
 "		%s\n"
 "	This is probably incorrect.",
-			 cached_home_directory
-			 );
+			  cached_home_directory
+			  );
 	}
     }
-  return (cached_home_directory);
+  return cached_home_directory;
 }
 
 DEFUN ("user-home-directory", Fuser_home_directory, 0, 0, 0, /*
@@ -895,18 +896,12 @@ Return the user's home directory, as a string.
 */
        ())
 {
-  Lisp_Object directory;
-  char *path;
+  char *path = get_home_directory ();
 
-  directory = Qnil;
-  path = get_home_directory ();
-  if (path != NULL)
-    {
-      directory =
-	Fexpand_file_name (Fsubstitute_in_file_name (build_string (path)),
-			   Qnil);
-    }
-  return (directory);
+  return path == NULL ? Qnil :
+    Fexpand_file_name (Fsubstitute_in_file_name
+		       (build_ext_string (path, FORMAT_FILENAME)),
+		       Qnil);
 }
 
 DEFUN ("system-name", Fsystem_name, 0, 0, 0, /*

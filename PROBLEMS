@@ -1148,6 +1148,16 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
+*** You get crashes in a non-C locale with Linux GNU Libc 2.0.
+
+Internationalization was not the top priority for GNU Libc 2.0.
+As of this writing (1998-12-28) you may get crashes while running
+XEmacs in a non-C locale.  For example, `LC_ALL=en_US xemacs' crashes
+while `LC_ALL=C xemacs' runs fine.  This happens for example with GNU
+libc 2.0.7.  Installing libintl.a and libintl.h built from gettext
+0.10.35 and re-building XEmacs solves the crashes.  Presumably soon 
+everyone will upgrade to GNU Libc 2.1 and this problem will go away.
+
 *** `C-z', or `M-x suspend-emacs' hangs instead of suspending.
 
 If you build with `gpm' support on Linux, you cannot suspend XEmacs
