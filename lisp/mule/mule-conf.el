@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999,2000 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000,2002 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -115,5 +115,70 @@
    chars 94
    final ?P
    graphic 0))
+
+(when (featurep 'utf-2000)
+  (make-charset
+   'chinese-big5-pua
+   "Big5-PUA"
+   `(long-name "Big5 with private used area"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother chinese-big5
+	       registry "Big5\\.ETEN"))
+  (make-charset
+   'chinese-big5-eten
+   "Big5-ETEN"
+   `(long-name "Big5 ETEN"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother chinese-big5
+	       min-code #x8140 max-code #xFEFE
+	       registry "Big5\\.ETEN"))
+  (make-charset
+   'chinese-big5-eten-a
+   "Big5-ETEN-a"
+   `(long-name "Big5 ETEN (#xF9D6 .. #xF9FE)"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother chinese-big5
+	       min-code #xF9D6 max-code #xF9FE
+	       registry "Big5\\.ETEN"))
+  (make-charset
+   'chinese-big5-eten-b
+   "Big5-ETEN-b"
+   `(long-name "Big5 ETEN (#xC6A1 .. #xC8FE)"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother chinese-big5
+	       min-code #xC6A1 max-code #xC8FE
+	       registry "Big5\\.ETEN"))
+  (make-charset
+   'chinese-big5-cdp
+   "Big5-CDP"
+   `(long-name "Big5 with CDP extension"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "big5\\.cdp-0"
+	       ;; min-code ,(lsh #x6200 16)
+	       ;; max-code ,(+ (lsh #x6200 16) #xFFFF)
+	       ;; code-offset ,(lsh #x6200 16)
+	       mother chinese-big5
+	       min-code #x8140 max-code #x8DFE))
+  )
 
 ;;; mule-conf.el ends here

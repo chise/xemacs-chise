@@ -1,3 +1,16 @@
+2002-04-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-big5-eten-a' and `chinese-big5-eten-b'.
+
+2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (chinese-big5-pua): New coded-charset.
+	(chinese-big5-eten-a): Likewise.
+	(chinese-big5-eten-b): Likewise.
+	(chinese-big5-cdp): Declare as a subset of `chinese-big5' whose
+	code range is #x8140 .. #x8DFE.
+
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (chinese-big5-eten): New coded-charset in

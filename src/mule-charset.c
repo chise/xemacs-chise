@@ -950,8 +950,10 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	      + (row - (18 + 32)) * 94
 	      + cell - 33;
 	}
-      return DECODE_CHAR (mother, code + XCHARSET_CODE_OFFSET(charset));
+      return
+	decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
     }
+#if 0
   else if (EQ (charset, Vcharset_chinese_big5))
     {
       int c1 = code_point >> 8;
@@ -978,6 +980,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	  code_point = ((I / 94 + 33) << 8) | (I % 94 + 33);
 	}
     }
+#endif
   if ((final = XCHARSET_FINAL (charset)) >= '0')
     {
       if (XCHARSET_DIMENSION (charset) == 1)
@@ -3063,11 +3066,10 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5"),
 		  build_string ("Big5"),
 		  build_string ("Big5 Chinese traditional"),
-		  build_string ("big5"),
+		  build_string ("big5-0"),
 		  Qnil,
-		  0 /* MIN_CHAR_BIG5_CDP */,
-		  0 /* MAX_CHAR_BIG5_CDP */, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
+		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
 #if 0
   staticpro (&Vcharset_chinese_big5_cdp);
   Vcharset_chinese_big5_cdp =
