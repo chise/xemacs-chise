@@ -63,6 +63,10 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #endif /* MULE */
 
 
+#ifdef CHISE
+CHISE_DS *default_chise_data_source = NULL;
+#endif
+
 #ifdef UTF2000
 
 EXFUN (Fchar_refs_simplify_char_specs, 1);
@@ -1888,7 +1892,6 @@ as CHAR-TABLE.  The values will not themselves be copied.
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
 #ifdef CHISE
-  ctnew->ds = ct->ds;
   ctnew->feature_table = ct->feature_table;
 #else
   ctnew->db = ct->db;
@@ -3334,6 +3337,41 @@ void char_table_close_db_maybe (Lisp_Char_Table* cit);
 Lisp_Object char_table_get_db (Lisp_Char_Table* cit, Emchar ch);
 
 int
+open_chise_data_source_maybe ()
+{
+  if (default_chise_data_source == NULL)
+    {
+      Lisp_Object db_dir = Vexec_directory;
+
+      if (NILP (db_dir))
+	db_dir = build_string ("../lib-src");
+      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+      default_chise_data_source
+	= chise_open_data_source (CHISE_DS_Berkeley_DB,
+				  XSTRING_DATA (db_dir));
+      if (default_chise_data_source == NULL)
+	return -1;
+    }
+  return 0;
+}
+
+DEFUN ("close-char-data-source", Fclose_char_data_source, 0, 0, 0, /*
+Close data-source of CHISE.
+*/
+       ())
+{
+#ifdef CHISE
+  int status = chise_ds_close (default_chise_data_source);
+
+  default_chise_data_source = NULL;
+  if (status)
+    return Qt;
+#endif
+  return Qnil;
+}
+
+int
 char_table_open_db_maybe (Lisp_Char_Table* cit)
 {
   Lisp_Object attribute = CHAR_TABLE_NAME (cit);
@@ -3344,40 +3382,24 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
       int modemask;
       int accessmask = 0;
       DBTYPE real_subtype;
-      int status;
 
       if (cit->feature_table == NULL)
 	{
-	  Lisp_Object db_dir = Vexec_directory;
-
-	  if (NILP (db_dir))
-	    db_dir = build_string ("../lib-src");
-	  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-
-	  status = chise_open_data_source (&cit->ds, CHISE_DS_Berkeley_DB,
-					   XSTRING_DATA (db_dir));
-	  if (status)
-	    {
-	      chise_close_data_source (&cit->ds);
-	      return -1;
-	    }
+	  if ( open_chise_data_source_maybe () )
+	    return -1;
 
 	  modemask = 0755;		/* rwxr-xr-x */
 	  real_subtype = DB_HASH;
 	  accessmask = DB_RDONLY;
 
-	  status = chise_open_feature_table (&cit->feature_table, &cit->ds,
-					     XSTRING_DATA
-					     (Fsymbol_name (attribute)),
-					     real_subtype,
-					     accessmask, modemask);
-	  if (status)
-	    {
-	      chise_close_feature_table (cit->feature_table);
-	      chise_close_data_source (&cit->ds);
-	      cit->feature_table = NULL;
-	      return -1;
-	    }
+	  cit->feature_table
+	    = chise_ds_open_feature_table (default_chise_data_source,
+					   XSTRING_DATA (Fsymbol_name
+							 (attribute)),
+					   real_subtype,
+					   accessmask, modemask);
+	  if (cit->feature_table == NULL)
+	    return -1;
 	}
 #else
       if (NILP (Fdatabase_live_p (cit->db)))
@@ -3403,8 +3425,7 @@ char_table_close_db_maybe (Lisp_Char_Table* cit)
 #ifdef CHISE
   if (cit->feature_table != NULL)
     {
-      chise_close_feature_table (cit->feature_table);
-      chise_close_data_source (&cit->ds);
+      chise_ft_close (cit->feature_table);
       cit->feature_table = NULL;
     }
 #else
@@ -4243,6 +4264,7 @@ syms_of_chartab (void)
   DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
   DEFSUBR (Fclose_char_attribute_table);
+  DEFSUBR (Fclose_char_data_source);
 #ifndef CHISE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
