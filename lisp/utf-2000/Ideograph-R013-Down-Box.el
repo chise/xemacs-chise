@@ -432,9 +432,18 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 46)
     (hanyu-dazidian-char . 2)
-    (chinese-cns11643-6 . #x2358)	; ø»›¸£
-    (ideograph-daikanwa . 01527)	; ø¸€—·
-    (ucs		. #x2054D)	; ð •
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
+      )
+     ((chinese-big5-cdp	  . #x8BD6)	; ý¢€ˆ¯–
+      )
+     ((chinese-big5-cdp	  . #x88C1)	; ý¢€ˆ£
+      ))
+    (chinese-cns11643-6		. #x2358)	; ø»›¸£
+    (ideograph-daikanwa		. 01527)	; ø¸€—·
+    (ideograph-hanziku-1	. #xAD7C)	; ý¢€šµ¼
+    (ucs			. #x2054D)	; ð •
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
