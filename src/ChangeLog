@@ -1,3 +1,8 @@
+2004-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* syntax.h (SYNTAX_CODE_UNSAFE): Use <Lisp_Object> and <EMACS_INT>
+	instead of <int>.
+
 2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (put_char_composition): Use DECODE_CHAR to get
