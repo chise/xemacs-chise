@@ -167,9 +167,19 @@
 		  direction	l2r
 		  mother	ucs))
 
+  (make-charset 'ideograph-daikanwa-2
+		"Daikanwa Rev."
+		`(long-name	"Daikanwa dictionary (revised version)"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"))
+
   (make-charset 'ideograph-daikanwa
 		"Daikanwa"
-		`(long-name	"Morohashi's Daikanwa Rev.2"
+		`(long-name	"Daikanwa dictionary (revised version 2)"
 		  chars		256
 		  dimension	2
 		  columns	2
