@@ -1,5 +1,30 @@
 2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+53FE): Add `total-strokes'.
+	(U+549E): Use `->identical' instead of `->same-ideograph' for
+	U-0002F83C.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+	(U+35A2): Separate C5-3670; modify strokes.
+	(M-03919): Unify U+35BC.
+	(C4-3659): Separate U+35BC.
+	(U+5577): Separate B-D86A.
+	(B-DCD8): Modify strokes.
+	(C2-417B): Unify JC3-46F1.
+	(U+55D2): Separate JC3-46F1.
+	(M-04143): Modify `ideographic-structure'.
+	(C3-462E): Likewise.
+	(U+5620): Modify `strokes'.
+	(U+35FB): Modify `strokes'.
+	(U+56BA): Fix strokes.
+	(U-00021109): Unify C7-476E instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U+56B0): Add `total-strokes'.
+	(U+56B9): Add strokes.
+	(CB00772): Fix `ideographic-strokes'.
+	(U+56D5): Fix `total-strokes'.
+
 	* Ideograph-R205-Frog.el (U-0002FA18): Use
 	`<-vulgar-ideograph*sources' instead of char-ref in
 	`<-vulgar-ideograph'.
