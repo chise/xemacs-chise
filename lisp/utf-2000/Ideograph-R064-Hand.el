@@ -58,6 +58,13 @@
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x9FB5)	; 龵
+    (=big5-cdp		. #x8B6D)	; &I-CDP-8B6D;
+    ))
+(define-char
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (shinjigen-2	. 2808)
