@@ -168,7 +168,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xC6D9)	; øº ·¨
+    (chinese-big5-eten	. #xC6D9)	; ý¢€Œ›™
     (ucs		. #x02C6)	; Ë†
     ))
 (define-char
@@ -206,7 +206,7 @@
     (japanese-jisx0212		. #x2230)	; ø»Š¥½
     (chinese-cns11643-1		. #x256F)	; ø»‘‰¢
     (japanese-jisx0213-1	. #x2A31)	; ø»¢ š
-    (chinese-big5		. #xA3BE)	; øºŸ¡–
+    (chinese-big5		. #xA3BE)	; ý¢€ŠŽ¾
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -259,7 +259,7 @@
       ))
     (chinese-gb2312	. #x2125)	; ø»„†ˆ
     (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
-    (chinese-big5	. #xA3BC)	; øºŸ¡”
+    (chinese-big5	. #xA3BC)	; ý¢€ŠŽ¼
     ))
 (define-char
   '((name		. "MODIFIER LETTER ACUTE ACCENT")
@@ -286,7 +286,7 @@
       (ucs		  . #x02CA)	; ËŠ
       ))
     (chinese-cns11643-1 . #x256E)	; ø»‘‰¡
-    (chinese-big5	. #xA3BD)	; øºŸ¡•
+    (chinese-big5	. #xA3BD)	; ý¢€ŠŽ½
     ))
 (define-char
   '((name		. "MODIFIER LETTER GRAVE ACCENT")
@@ -313,7 +313,7 @@
       (ucs		  . #x02CB)	; Ë‹
       ))
     (chinese-cns11643-1 . #x2570)	; ø»‘‰£
-    (chinese-big5	. #xA3BF)	; øºŸ¡—
+    (chinese-big5	. #xA3BF)	; ý¢€ŠŽ¿
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW VERTICAL LINE")
@@ -519,7 +519,7 @@
     (japanese-jisx0212		. #x2232)	; ø»Š¥¿
     (chinese-cns11643-1		. #x256C)	; ø»‘‰Ÿ
     (japanese-jisx0213-1	. #x2A58)	; ø»¢¡
-    (chinese-big5		. #xA3BB)	; øºŸ¡“
+    (chinese-big5		. #xA3BB)	; ý¢€ŠŽ»
     ))
 (define-char
   '((name		. "RING ABOVE")
