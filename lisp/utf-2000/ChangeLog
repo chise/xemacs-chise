@@ -3,6 +3,10 @@
 	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Unify some
 	GT-Kddddd numbers.
 
+2003-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el: Read "../etc/char-data/GT-fmap-K4.txt".
+
 2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R036-Evening.el (J0-546D): Add S1-1552.
