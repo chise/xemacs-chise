@@ -1,3 +1,9 @@
+2001-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U+4E54): Delete `kangxi-radical',
+	`kangxi-strokes', `daikanwa-radical', `daikanwa-strokes' and
+	`non-morohashi'; add `cns-radical'.
+
 2001-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R179-Leek.el: Resorted; add missing
