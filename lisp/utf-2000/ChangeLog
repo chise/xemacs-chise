@@ -1,3 +1,15 @@
+2003-06-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R118-Bamboo.el (U+5284): Add
+	`ideographic-radical@ucs*sources'; use `daikanwa' instead of
+	`morohashi-daikanwa' as source specifier.
+
+2003-06-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R020-Wrap.el (MH-0055): New character.
+	(U-000208F2): Likewise.
+	(U-000208F3): Unify MH-0056.
+
 2003-06-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R018-Knife.el (GT-02691): Unify GT-K08026.
