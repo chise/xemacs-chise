@@ -1,5 +1,10 @@
 2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R165-Distinguish.el, Ideograph-R163-City.el: Add some
+	GT code points.
+
+2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* README.en: Rename ``UTF-2000'' -> ``CHISE''.
 	(Character Reference): Complete Pinyin names of sources [by
 	Christian Wittern <wittern@kanji.zinbun.kyoto-u.ac.jp>]
