@@ -308,7 +308,7 @@ Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 #ifdef UTF2000
 Lisp_Object Qmin_code, Qmax_code, Qcode_offset;
-Lisp_Object Qmother, Qconversion, Q94x60, Q94x94x60;
+Lisp_Object Qmother, Qconversion, Q94x60, Q94x94x60, Qbig5_1, Qbig5_2;
 #endif
 
 Lisp_Object Qascii,
@@ -941,6 +941,29 @@ decode_defined_char (Lisp_Object ccs, int code_point)
 	  else
 	    return decode_defined_char (mother, code_point);
 	}
+      else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_1 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  return decode_defined_char (mother, (b1 << 8) | b2);
+	}
+      else if ( XCHARSET_CONVERSION (ccs) == CONVERSION_BIG5_2 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33)
+	    + BIG5_SAME_ROW * (0xC9 - 0xA1);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  return decode_defined_char (mother, (b1 << 8) | b2);
+	}
     }
   return -1;
 }
@@ -989,6 +1012,29 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	      = (plane - 33) * 94 * 60
 	      + (row - (18 + 32)) * 94
 	      + cell - 33;
+	}
+      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_1 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  code = (b1 << 8) | b2;
+	}
+      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_2 )
+	{
+	  unsigned int I
+	    = (((code_point >> 8) & 0x7F) - 33) * 94
+	    + (( code_point       & 0x7F) - 33)
+	    + BIG5_SAME_ROW * (0xC9 - 0xA1);
+	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  code = (b1 << 8) | b2;
 	}
       return
 	decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
@@ -1120,6 +1166,31 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	      else
 		row += 18 + 32;
 	      return (row << 8) | cell;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_1 )
+	    {
+	      int B1 = d >> 8, B2 = d & 0xFF;
+	      unsigned int I
+		= (B1 - 0xA1) * BIG5_SAME_ROW + B2
+		- (B2 < 0x7F ? 0x40 : 0x62);
+
+	      if (B1 < 0xC9)
+		{
+		  return ((I / 94 + 33) << 8) | (I % 94 + 33);
+		}
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_2 )
+	    {
+	      int B1 = d >> 8, B2 = d & 0xFF;
+	      unsigned int I
+		= (B1 - 0xA1) * BIG5_SAME_ROW + B2
+		- (B2 < 0x7F ? 0x40 : 0x62);
+
+	      if (B1 >= 0xC9)
+		{
+		  I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
+		  return ((I / 94 + 33) << 8) | (I % 94 + 33);
+		}
 	    }
 	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94 )
 	    return ((d / 94 + 33) << 8) | (d % 94 + 33);
@@ -1499,7 +1570,7 @@ character set.  Recognized properties are:
 'code-offset	[UTF-2000 only] Offset for a code-point of a base
 		coded-charset.
 'conversion	[UTF-2000 only] Conversion for a code-point of a base
-		coded-charset (94x60 or 94x94x60).
+		coded-charset (94x60, 94x94x60, big5-1 or big5-2).
 */
        (name, doc_string, props))
 {
@@ -1639,6 +1710,10 @@ character set.  Recognized properties are:
 	      conversion = CONVERSION_94x60;
 	    else if (EQ (value, Q94x94x60))
 	      conversion = CONVERSION_94x94x60;
+	    else if (EQ (value, Qbig5_1))
+	      conversion = CONVERSION_BIG5_1;
+	    else if (EQ (value, Qbig5_2))
+	      conversion = CONVERSION_BIG5_2;
 	    else
 	      signal_simple_error ("Unrecognized conversion", value);
 	  }
@@ -2610,6 +2685,8 @@ syms_of_mule_charset (void)
   defsymbol (&Qconversion, "conversion");
   defsymbol (&Q94x60, "94x60");
   defsymbol (&Q94x94x60, "94x94x60");
+  defsymbol (&Qbig5_1, "big5-1");
+  defsymbol (&Qbig5_2, "big5-2");
 #endif
 
   defsymbol (&Ql2r, "l2r");
@@ -3242,7 +3319,8 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-1 Chinese traditional"),
 		  build_string ("big5"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, /* Qnil, CONVERSION_IDENTICAL */
+		  Vcharset_chinese_big5, CONVERSION_BIG5_1);
   staticpro (&Vcharset_chinese_big5_2);
   Vcharset_chinese_big5_2 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2, 94, 2,
@@ -3252,7 +3330,8 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-2 Chinese traditional"),
 		  build_string ("big5"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33, /* Qnil, CONVERSION_IDENTICAL */
+		  Vcharset_chinese_big5, CONVERSION_BIG5_2);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   /* #### For simplicity, we put composite chars into a 96x96 charset.
