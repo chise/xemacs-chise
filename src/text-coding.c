@@ -2779,53 +2779,50 @@ text_encode_generic (Lstream *encoding, CONST unsigned char *src,
     {
       c = *src++;
 
-      switch (char_boundary)
+      if (char_boundary == 0)
 	{
-	case 0:
-	  if ( c >= 0xfc )
+	  if (c >= 0xfc)
 	    {
 	      ch = c & 0x01;
 	      char_boundary = 5;
 	    }
-	  else if ( c >= 0xf8 )
+	  else if (c >= 0xf8)
 	    {
 	      ch = c & 0x03;
 	      char_boundary = 4;
 	    }
-	  else if ( c >= 0xf0 )
+	  else if (c >= 0xf0)
 	    {
 	      ch = c & 0x07;
 	      char_boundary = 3;
 	    }
-	  else if ( c >= 0xe0 )
+	  else if (c >= 0xe0)
 	    {
 	      ch = c & 0x0f;
 	      char_boundary = 2;
 	    }
-	  else if ( c >= 0xc0 )
+	  else if (c >= 0xc0)
 	    {
 	      ch = c & 0x1f;
 	      char_boundary = 1;
 	    }
 	  else
-	    {
-	      (*str->encode_char) (str, c, dst, &flags);
-	      ch = 0;
-	      char_boundary = 0;
-	    }
-	  break;
-	case 1:
+	    (*str->encode_char) (str, c, dst, &flags);
+	}
+      else if (char_boundary == 1)
+	{
 	  (*str->encode_char) (str, (ch << 6) | (c & 0x3f), dst, &flags);
 	  ch =0;
 	  char_boundary = 0;
-	  break;
-	default:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
+	}
+      else
+	{
+	  ch = (ch << 6) | (c & 0x3f);
 	  char_boundary--;
 	}
     }
 
-  if ( (char_boundary == 0) && flags & CODING_STATE_END)
+  if ((char_boundary == 0) && (flags & CODING_STATE_END))
     {
       (*str->finish) (str, dst, &flags);
     }
@@ -2833,8 +2830,6 @@ text_encode_generic (Lstream *encoding, CONST unsigned char *src,
   str->flags = flags;
   str->ch    = ch;
   str->iso2022.current_char_boundary = char_boundary;
-
-  /* Verbum caro factum est! */
 }
 
 
@@ -2952,6 +2947,11 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
 	      Dynarr_add (dst, c);
 #endif
 	    }
+#ifdef UTF2000
+	  else if (c > 32)
+	    DECODE_ADD_UCS_CHAR(MAKE_CHAR(Vcharset_latin_jisx0201,
+					  c, 0), dst);
+#endif
 	  else
 	    DECODE_ADD_BINARY_CHAR (c, dst);
 	}
