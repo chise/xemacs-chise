@@ -600,25 +600,18 @@
       (if (setq value (get-char-attribute char name))
 	  (insert
 	   (format
-	    (if has-long-ccs-name
-		(cond ((eq name 'ideograph-daikanwa)
+	    (cond ((memq name '(ideograph-daikanwa ideograph-gt))
+		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
-		       )
-		      ((eq name 'mojikyo)
+		     "(%-18s . %05d)\t; %c%s"))
+		  ((eq name 'mojikyo)
+		   (if has-long-ccs-name
 		       "(%-26s . %06d)\t; %c%s"
-		       )
-		      (t
+		     "(%-18s . %06d)\t; %c%s"))
+		  (t
+		   (if has-long-ccs-name
 		       "(%-26s . #x%X)\t; %c%s"
-		       ))
-	      (cond ((eq name 'ideograph-daikanwa)
-		     "(%-18s . %05d)\t; %c%s"
-		     )
-		    ((eq name 'mojikyo)
-		     "(%-18s . %06d)\t; %c%s"
-		     )
-		    (t
-		     "(%-18s . #x%X)\t; %c%s"
-		     )))
+		     "(%-18s . #x%X)\t; %c%s")))
 	    name
 	    (if (= (charset-iso-graphic-plane name) 1)
 		(logior value
