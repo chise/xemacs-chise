@@ -166,7 +166,9 @@
       (map-char-attribute
        (lambda (chr radical)
 	 (dolist (char (cons chr
-			     (get-char-attribute chr '->denotational)))
+			     (append
+			      (get-char-attribute chr '<-identical)
+			      (get-char-attribute chr '->denotational))))
 	   (when (and radical
 		      (eq radical
 			  (char-ideographic-radical char radical))
