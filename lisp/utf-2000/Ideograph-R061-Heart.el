@@ -222,27 +222,39 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x5FCD)	; 忍
-    (=gb2312		. #x484C)	; &I-G0-484C; [40-44]
-    (=ks-x1001		. #x6C5B)	; &I-K0-6C5B; [76-59]
-    (=daikanwa		. 10312)	; &I-M-10312;
-    (=jef-china3	. #x4DC5)	; &I-JC3-4DC5;
     ))
 (define-char
-  '((=>ucs		. #x5FCD)	; 忍
-    (morohashi-daikanwa	10312 0 2)
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x5FCD)	; 忍
+      ))
+    (=big5		. #xA7D4)	; &B-A7D4;
+    (=ucs@big5		. #x5FCD)	; &B-A7D4;
+    (->subsumptive
+     ((=daikanwa	  . 10312)	; &M-10312;
+      )
+     ((=cns11643-1	  . #x4A36)	; &C1-4A36; [42-22]
+      )
+     ((=gb2312		  . #x484C)	; &GT-13085; [40-44]
+      (=ks-x1001	  . #x6C5B)	; &I-K0-6C5B; [76-59]
+      (=gt		  . 13085)	; &I-GT-13085;
+      (=gt-k		  . 02629)	; &I-GT-K02629;
+      (=gt-pj-3		  . #x4D6C)	; &I-GT-13085; [45-76]
+      (=ucs@unicode	  . #x5FCD)	; &GT-13085;
+      )
+     ((=jef-china3	  . #x4DC5)	; &JC3-4DC5;
+      ))
+    ))
+(define-char
+  '((morohashi-daikanwa	10312 1)
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-1	. #x4A36)	; &C1-4A36; [42-22]
-    (=big5		. #xA7D4)	; &I-B-A7D4;
-    (=ucs@big5		. #x5FCD)	; &C1-4A36;
-    ))
-(define-char
-  '((=>ucs		. #x5FCD)	; 忍
-    (morohashi-daikanwa	10312 1)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x5FCD)	; 忍
+      ))
     (=jis-x0208		. #x4726)	; &GT-13086; [39-06]
     (=cns11643-6	. #x275F)	; &I-C6-275F; [07-63]
     (=gt		. 13086)	; &I-GT-13086;
