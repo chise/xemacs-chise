@@ -1,3 +1,27 @@
+2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u03200-Enclosed-CJK-Letters-and-Months.el, u030A0-Katakana.el,
+	u03040-Hiragana.el, u03000-CJK-Symbols-and-Punctuation.el,
+	u02F00-Kangxi-Radicals.el, u02E00-CJK-Radical-Supplement.el,
+	u02700-Dingbats.el, u02580-Block-Elements.el,
+	u02500-Box-Drawing.el, u02460-Enclosed-Alphanumerics.el,
+	u02190-Arrows.el, u02150-Number-Forms.el,
+	u02100-Letterlike-Symbols.el, u00400-Cyrillic.el,
+	u002B0-Spacing-Modifier-Letters.el: Use `chinese-big5-eten' for
+	Big5-ETEN code points.
+
+	* u0FE50-Small-Form-Variants.el,
+	u0FE30-CJK-Compatibility-Forms.el, u0E000-Private-Use.el,
+	u03300-CJK-Compatibility.el, u03100-Bopomofo.el,
+	u02600-Miscellaneous-Symbols.el, u025A0-Geometric-Shapes.el,
+	u02200-Mathematical-Operators.el, u020A0-Currency-Symbols.el,
+	u02000-General-Punctuation.el, u00370-Greek.el: Reformatted.
+
+	* u000A0-Latin-1-Supplement.el: Use `chinese-big5-eten' for
+	Big5-ETEN code points.
+	(fullwidth acute accent): Delete B-A1A6.
+
 2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-attributes): Don't insert attribute
