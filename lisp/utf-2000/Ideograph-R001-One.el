@@ -603,7 +603,6 @@
      ((chinese-big5-cdp	  . #x8B5F)	; ï“¹
       )
      ((name		  . "CJK RADICAL BOX")
-      (chinese-big5-cdp	  . #x8BF2)	; âº†
       (ucs		  . #x2E86)	; âº†
       ))
     (chinese-cns11643-2 . #x212E)	; ø»“Œ­
