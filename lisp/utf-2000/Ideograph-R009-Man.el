@@ -14742,6 +14742,20 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=ucs		. #x346A)	; ã‘ª
+    ))
+(define-char
+  '((=>ucs		. #x346A)	; ã‘ª
+    (ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=jis-x0213-2-2000	. #x2156)	; ø»¤µ
+    (=ucs@jis		. #x346A)	; ø»¤µ
+    ))
+(define-char
+  '((ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	1 170 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
