@@ -17,7 +17,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
-    (japanese-jisx0208-1978	. #x737D)	; ø»ƒµ¸
+    (=jis-x0208-1978	. #x737D)	; ø»ƒµ¸
     ))
 (define-char
   '((=>ucs		. #x9F9C)	; é¾œ
@@ -264,7 +264,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 5)
     (total-strokes	 . 21)
-    (japanese-jisx0208-1978	. #x6354)	; ø»ƒ¯
+    (=jis-x0208-1978	. #x6354)	; ø»ƒ¯
     ))
 (define-char
   '((morohashi-daikanwa	48869 0 2)

@@ -451,13 +451,13 @@
   '((ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
-    (japanese-jisx0208-1978	. #x3834)	; ø»‚ž…
-    (japanese-jisx0212		. #x6C5B)	; ø»Œ“”
-    (chinese-cns11643-1		. #x7C7B)	; ø»“‰ 
-    (=jis-x0213-1-2000		. #x7E6A)	; ø»¤œ«
-    (chinese-gb12345		. #x3C6F)	; é¹¼
-    (ideograph-daikanwa		. 47576)	; ø¸‹§˜
-    (=ucs			. #x9E7C)	; é¹¼
+    (=jis-x0208-1978	. #x3834)	; ø»‚ž…
+    (japanese-jisx0212	. #x6C5B)	; ø»Œ“”
+    (chinese-cns11643-1 . #x7C7B)	; ø»“‰ 
+    (=jis-x0213-1-2000	. #x7E6A)	; ø»¤œ«
+    (chinese-gb12345	. #x3C6F)	; é¹¼
+    (ideograph-daikanwa . 47576)	; ø¸‹§˜
+    (=ucs		. #x9E7C)	; é¹¼
     ))
 (define-char
   '((ideographic-radical . 197)	; â¿„

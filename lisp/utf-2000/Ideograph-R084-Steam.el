@@ -510,10 +510,10 @@
       )
      ((=ucs		  . #x6C14)	; æ°”
       )
-     ((japanese-jisx0208-1978	  . #x4B5F)	; ø»‚ºª
-      (japanese-jisx0208	  . #x4B5F)	; ø»‡Ž²
-      (korean-ksc5601		  . #x5D4E)	; ø»‰³
-      (ideograph-daikanwa	  . 22959)	; ø¸…¦¯
+     ((=jis-x0208-1978	  . #x4B5F)	; ø»‚ºª
+      (japanese-jisx0208  . #x4B5F)	; ø»‡Ž²
+      (korean-ksc5601	  . #x5D4E)	; ø»‰³
+      (ideograph-daikanwa . 22959)	; ø¸…¦¯
       ))
     (ideograph-daikanwa . 17073)	; ø¸„Š±
     (=cbeta		. 00645)	; ø¸ Š…

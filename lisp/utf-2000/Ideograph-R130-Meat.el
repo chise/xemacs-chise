@@ -4197,9 +4197,9 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (japanese-jisx0208-1978	. #x4C2E)	; ø»‚»—
-    (japanese-jisx0208		. #x4C2E)	; ø»‡Ÿ
-    (ideograph-daikanwa		. 29470)	; ø¸‡Œž
+    (=jis-x0208-1978	. #x4C2E)	; ø»‚»—
+    (japanese-jisx0208	. #x4C2E)	; ø»‡Ÿ
+    (ideograph-daikanwa . 29470)	; ø¸‡Œž
     ))
 (define-char
   '((=>ucs		. #x8108)	; è„ˆ
@@ -6927,9 +6927,9 @@
     (total-strokes	 . 12)
     (shinjigen-1	. 6519)
     (shinjigen-2	. 6519)
-    (japanese-jisx0208-1978	. #x6724)	; ø»ƒ¢·
-    (japanese-jisx0208		. #x6724)	; ø»‡¶¿
-    (ideograph-daikanwa		. 29629)	; ø¸‡Ž½
+    (=jis-x0208-1978	. #x6724)	; ø»ƒ¢·
+    (japanese-jisx0208	. #x6724)	; ø»‡¶¿
+    (ideograph-daikanwa . 29629)	; ø¸‡Ž½
     ))
 (define-char
   '((=>ucs		. #x8153)	; è…“
@@ -8982,9 +8982,9 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x425C)	; ø»‚­™
-    (korean-ksc5601		. #x775A)	; ø»Š™™
-    (ideograph-daikanwa		. 29747)	; ø¸‡³
+    (=jis-x0208-1978	. #x425C)	; ø»‚­™
+    (korean-ksc5601	. #x775A)	; ø»Š™™
+    (ideograph-daikanwa . 29747)	; ø¸‡³
     ))
 (define-char
   '((=>ucs		. #x817F)	; è…¿
@@ -9632,8 +9632,8 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x672E)	; ø»ƒ£
-    (japanese-jisx0208		. #x672E)	; ø»‡·‰
+    (=jis-x0208-1978	. #x672E)	; ø»ƒ£
+    (japanese-jisx0208	. #x672E)	; ø»‡·‰
     ))
 (define-char
   '((ideographic-radical . 130)	; â¾
@@ -11993,8 +11993,8 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (japanese-jisx0208-1978	. #x6739)	; ø»ƒ£Œ
-    (japanese-jisx0208		. #x6739)	; ø»‡·”
+    (=jis-x0208-1978	. #x6739)	; ø»ƒ£Œ
+    (japanese-jisx0208	. #x6739)	; ø»‡·”
     ))
 (define-char
   '((morohashi-daikanwa	29920 0 2)
@@ -12924,9 +12924,9 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (japanese-jisx0208-1978	. #x6741)	; ø»ƒ£”
-    (japanese-jisx0208		. #x6741)	; ø»‡·œ
-    (korean-ksc5601		. #x7030)	; ø»ŠŽ
+    (=jis-x0208-1978	. #x6741)	; ø»ƒ£”
+    (japanese-jisx0208	. #x6741)	; ø»‡·œ
+    (korean-ksc5601	. #x7030)	; ø»ŠŽ
     ))
 (define-char
   '((=>ucs		. #x26890)	; ð¦¢

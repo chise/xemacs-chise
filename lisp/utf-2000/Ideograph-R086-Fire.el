@@ -522,10 +522,10 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (japanese-jisx0208-1978	. #x3C5E)	; ø»‚¤§
-    (korean-ksc5601		. #x6D47)	; ø»ŠŠš
-    (chinese-big5		. #xA860)	; ý¢€Š¡ 
-    (ideograph-daikanwa		. 18878)	; ø¸„¦¾
+    (=jis-x0208-1978	. #x3C5E)	; ø»‚¤§
+    (korean-ksc5601	. #x6D47)	; ø»ŠŠš
+    (chinese-big5	. #xA860)	; ý¢€Š¡ 
+    (ideograph-daikanwa . 18878)	; ø¸„¦¾
     ))
 (define-char
   '((morohashi-daikanwa	18878 0 2)
@@ -4980,13 +4980,13 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (japanese-jisx0208-1978	. #x316B)	; ø»‚”ª
-    (korean-ksc5601		. #x667B)	; ø»Š€¼
-    (japanese-jisx0212		. #x496F)	; ø»‹ Ž
-    (=jis-x0213-1-2000		. #x7751)	; ø»¤’€
-    (chinese-big5		. #xB54B)	; ý¢€‹•‹
-    (ideograph-daikanwa		. 19141)	; ø¸„«…
-    (=ucs@jis			. #x7130)	; ø»‚”ª
+    (=jis-x0208-1978	. #x316B)	; ø»‚”ª
+    (korean-ksc5601	. #x667B)	; ø»Š€¼
+    (japanese-jisx0212	. #x496F)	; ø»‹ Ž
+    (=jis-x0213-1-2000	. #x7751)	; ø»¤’€
+    (chinese-big5	. #xB54B)	; ý¢€‹•‹
+    (ideograph-daikanwa . 19141)	; ø¸„«…
+    (=ucs@jis		. #x7130)	; ø»‚”ª
     ))
 (define-char
   '((morohashi-daikanwa	19141 0 0)
@@ -5758,12 +5758,12 @@
   '((ideographic-radical . 86)	; â½•
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (japanese-jisx0208-1978	. #x4E7B)	; ø»‚¿ 
-    (korean-ksc5601		. #x5621)	; ø»‰¨‚
-    (chinese-gb12345		. #x4136)	; ç…‰
-    (chinese-big5		. #xB7D2)	; ý¢€‹Ÿ’
-    (ideograph-daikanwa		. 19178)	; ø¸„«ª
-    (=ucs			. #x7149)	; ç…‰
+    (=jis-x0208-1978	. #x4E7B)	; ø»‚¿ 
+    (korean-ksc5601	. #x5621)	; ø»‰¨‚
+    (chinese-gb12345	. #x4136)	; ç…‰
+    (chinese-big5	. #xB7D2)	; ý¢€‹Ÿ’
+    (ideograph-daikanwa . 19178)	; ø¸„«ª
+    (=ucs		. #x7149)	; ç…‰
     ))
 (define-char
   '((=>ucs		. #x7149)	; ç…‰
@@ -5883,9 +5883,9 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (japanese-jisx0208-1978	. #x4079)	; ø»‚ªº
-    (korean-ksc5601		. #x6F21)	; ø»ŠŒ°
-    (ideograph-daikanwa		. 19184)	; ø¸„«°
+    (=jis-x0208-1978	. #x4079)	; ø»‚ªº
+    (korean-ksc5601	. #x6F21)	; ø»ŠŒ°
+    (ideograph-daikanwa . 19184)	; ø¸„«°
     ))
 (define-char
   '((morohashi-daikanwa	19184 0 1)
@@ -7382,7 +7382,7 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x407A)	; ø»‚ª»
+    (=jis-x0208-1978	. #x407A)	; ø»‚ª»
     ))
 (define-char
   '((=>ucs		. #x717D)	; ç…½
@@ -8040,7 +8040,7 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x4D50)	; ø»‚½—
+    (=jis-x0208-1978	. #x4D50)	; ø»‚½—
     ))
 (define-char
   '((=>ucs		. #x2431C)	; ð¤Œœ
@@ -8488,9 +8488,9 @@
       )
      ((=ucs		  . #x706B)	; ç«
       )
-     ((japanese-jisx0208-1978	  . #x3029)	; ø»‚’Š
-      (korean-ksc5601		  . #x5C71)	; ø»‰²†
-      (ideograph-daikanwa	  . 38901)	; ø¸‰Ÿµ
+     ((=jis-x0208-1978	  . #x3029)	; ø»‚’Š
+      (korean-ksc5601	  . #x5C71)	; ø»‰²†
+      (ideograph-daikanwa . 38901)	; ø¸‰Ÿµ
       ))
     (korean-ksc5601	. #x5C6C)	; ø»‰²
     (=cbeta		. 00201)	; ø¸ ƒ‰
@@ -11947,11 +11947,11 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (japanese-jisx0208-1978	. #x6022)	; ø»ƒ˜£
-    (japanese-jisx0208		. #x6022)	; ø»‡¬«
-    (korean-ksc5601		. #x687C)	; ø»Šƒ¹
-    (chinese-big5		. #xEFFA)	; ý¢€Ž¿º
-    (ideograph-daikanwa		. 19520)	; ø¸„±€
+    (=jis-x0208-1978	. #x6022)	; ø»ƒ˜£
+    (japanese-jisx0208	. #x6022)	; ø»‡¬«
+    (korean-ksc5601	. #x687C)	; ø»Šƒ¹
+    (chinese-big5	. #xEFFA)	; ý¢€Ž¿º
+    (ideograph-daikanwa . 19520)	; ø¸„±€
     ))
 (define-char
   '((=>ucs		. #x71FF)	; ç‡¿
@@ -12231,8 +12231,8 @@
       )
      ((=ucs		  . #x706B)	; ç«
       )
-     ((japanese-jisx0208-1978	  . #x4B29)	; ø»‚¹´
-      (korean-ksc5601		  . #x5C6F)	; ø»‰²„
+     ((=jis-x0208-1978	  . #x4B29)	; ø»‚¹´
+      (korean-ksc5601	  . #x5C6F)	; ø»‰²„
       ))
     (=cbeta		. 02412)	; ø¸ ¥¬
     ))

@@ -1284,12 +1284,12 @@
   '((ideographic-radical . 145)	; â¾
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (japanese-jisx0208-1978	. #x6A51)	; ø»ƒ§¾
-    (japanese-jisx0208		. #x6A51)	; ø»‡¼†
-    (korean-ksc5601		. #x4D65)	; ø»‰›¸
-    (chinese-big5		. #xB34F)	; ý¢€‹
-    (ideograph-daikanwa		. 34203)	; ø¸ˆ–›
-    (=ucs			. #x889E)	; è¢ž
+    (=jis-x0208-1978	. #x6A51)	; ø»ƒ§¾
+    (japanese-jisx0208	. #x6A51)	; ø»‡¼†
+    (korean-ksc5601	. #x4D65)	; ø»‰›¸
+    (chinese-big5	. #xB34F)	; ý¢€‹
+    (ideograph-daikanwa . 34203)	; ø¸ˆ–›
+    (=ucs		. #x889E)	; è¢ž
     ))
 (define-char
   '((=>ucs		. #x889E)	; è¢ž
@@ -2457,9 +2457,9 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (japanese-jisx0208-1978	. #x6A64)	; ø»ƒ¨‘
-    (japanese-jisx0208		. #x6A64)	; ø»‡¼™
-    (ideograph-daikanwa		. 34312)	; ø¸ˆ˜ˆ
+    (=jis-x0208-1978	. #x6A64)	; ø»ƒ¨‘
+    (japanese-jisx0208	. #x6A64)	; ø»‡¼™
+    (ideograph-daikanwa . 34312)	; ø¸ˆ˜ˆ
     ))
 (define-char
   '((=>ucs		. #x88D8)	; è£˜
@@ -3074,9 +3074,9 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x6A6A)	; ø»ƒ¨—
-    (japanese-jisx0208		. #x6A6A)	; ø»‡¼Ÿ
-    (ideograph-daikanwa		. 34362)	; ø¸ˆ˜º
+    (=jis-x0208-1978	. #x6A6A)	; ø»ƒ¨—
+    (japanese-jisx0208	. #x6A6A)	; ø»‡¼Ÿ
+    (ideograph-daikanwa . 34362)	; ø¸ˆ˜º
     ))
 (define-char
   '((=>ucs		. #x88F4)	; è£´
@@ -3706,10 +3706,10 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (japanese-jisx0208-1978	. #x6A6F)	; ø»ƒ¨œ
-    (chinese-cns11643-1		. #x6E73)	; ø»’´´
-    (chinese-big5		. #xBDCA)	; ý¢€‹·Š
-    (ideograph-daikanwa		. 34420)	; ø¸ˆ™´
+    (=jis-x0208-1978	. #x6A6F)	; ø»ƒ¨œ
+    (chinese-cns11643-1 . #x6E73)	; ø»’´´
+    (chinese-big5	. #xBDCA)	; ý¢€‹·Š
+    (ideograph-daikanwa . 34420)	; ø¸ˆ™´
     ))
 (define-char
   '((=>ucs		. #x890A)	; è¤Š
@@ -4739,12 +4739,12 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (japanese-jisx0208-1978	. #x6A75)	; ø»ƒ¨¢
-    (chinese-gb2312		. #x715D)	; ø»…¼ 
-    (japanese-jisx0208		. #x6A75)	; ø»‡¼ª
-    (=iso-ir165			. #x715D)	; ø»Ž¤°
-    (chinese-big5		. #xBFC9)	; ý¢€‹¿‰
-    (=ucs			. #x892B)	; è¤«
+    (=jis-x0208-1978	. #x6A75)	; ø»ƒ¨¢
+    (chinese-gb2312	. #x715D)	; ø»…¼ 
+    (japanese-jisx0208	. #x6A75)	; ø»‡¼ª
+    (=iso-ir165		. #x715D)	; ø»Ž¤°
+    (chinese-big5	. #xBFC9)	; ý¢€‹¿‰
+    (=ucs		. #x892B)	; è¤«
     ))
 (define-char
   '((ideographic-radical . 145)	; â¾
@@ -5100,8 +5100,8 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (japanese-jisx0208-1978	. #x6A78)	; ø»ƒ¨¥
-    (japanese-jisx0208		. #x6A78)	; ø»‡¼­
+    (=jis-x0208-1978	. #x6A78)	; ø»ƒ¨¥
+    (japanese-jisx0208	. #x6A78)	; ø»‡¼­
     ))
 (define-char
   '((morohashi-daikanwa	34536 0 1)
@@ -6099,9 +6099,9 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (japanese-jisx0208-1978	. #x3228)	; ø»‚•…
-    (chinese-cns11643-1		. #x7878)	; ø»“ƒ¥
-    (ideograph-daikanwa		. 34629)	; ø¸ˆ…
+    (=jis-x0208-1978	. #x3228)	; ø»‚•…
+    (chinese-cns11643-1 . #x7878)	; ø»“ƒ¥
+    (ideograph-daikanwa . 34629)	; ø¸ˆ…
     ))
 (define-char
   '((morohashi-daikanwa	34629 0 3)
@@ -6781,8 +6781,8 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (japanese-jisx0208-1978	. #x6B24)	; ø»ƒ¨¯
-    (japanese-jisx0208		. #x6B24)	; ø»‡¼·
+    (=jis-x0208-1978	. #x6B24)	; ø»ƒ¨¯
+    (japanese-jisx0208	. #x6B24)	; ø»‡¼·
     ))
 (define-char
   '((ideographic-radical . 145)	; â¾
@@ -6980,8 +6980,8 @@
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 16)
     (total-strokes	 . 22)
-    (japanese-jisx0208-1978	. #x6B25)	; ø»ƒ¨°
-    (japanese-jisx0208		. #x6B25)	; ø»‡¼¸
+    (=jis-x0208-1978	. #x6B25)	; ø»ƒ¨°
+    (japanese-jisx0208	. #x6B25)	; ø»‡¼¸
     ))
 (define-char
   '((ideographic-radical . 145)	; â¾

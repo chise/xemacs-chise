@@ -486,10 +486,10 @@
       ))
     (shinjigen-1	. 529)
     (shinjigen-2	. 529)
-    (japanese-jisx0208-1978	. #x514D)	; ø»ƒƒŒ
-    (chinese-cns11643-6		. #x3544)	; ø»œ’«
-    (chinese-big5		. #xADDE)	; ý¢€Š·ž
-    (ideograph-daikanwa		. 01587)	; ø¸€˜³
+    (=jis-x0208-1978	. #x514D)	; ø»ƒƒŒ
+    (chinese-cns11643-6 . #x3544)	; ø»œ’«
+    (chinese-big5	. #xADDE)	; ý¢€Š·ž
+    (ideograph-daikanwa . 01587)	; ø¸€˜³
     ))
 (define-char
   '((morohashi-daikanwa	1587 0 3)

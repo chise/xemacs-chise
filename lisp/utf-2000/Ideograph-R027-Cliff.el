@@ -2131,8 +2131,8 @@
       )
      ((korean-ksc5601	  . #x507E)	; ø»‰ «
       ))
-    (japanese-jisx0208-1978	. #x3139)	; ø»‚“¸
-    (=cbeta			. 01085)	; ø¸ ½
+    (=jis-x0208-1978	. #x3139)	; ø»‚“¸
+    (=cbeta		. 01085)	; ø¸ ½
     ))
 (define-char
   '((=>ucs		. #x53A9)	; åŽ©
@@ -3032,8 +3032,8 @@
        ((=ucs		    . #x5382)	; åŽ‚
 	))
       )
-     ((japanese-jisx0208-1978	  . #x343A)	; ø»‚˜“
-      (japanese-jisx0208	  . #x343A)	; ø»†¬›
+     ((=jis-x0208-1978	  . #x343A)	; ø»‚˜“
+      (japanese-jisx0208  . #x343A)	; ø»†¬›
       ))
     (shinjigen-1	. 1285)
     (shinjigen-2	. 1285)

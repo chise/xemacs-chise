@@ -3867,10 +3867,10 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (japanese-jisx0208-1978	. #x4D32)	; ø»‚¼¹
-    (korean-ksc5601		. #x6B23)	; ø»Š†º
-    (chinese-big5		. #xB7DF)	; ý¢€‹ŸŸ
-    (ideograph-daikanwa		. 20558)	; ø¸…Ž
+    (=jis-x0208-1978	. #x4D32)	; ø»‚¼¹
+    (korean-ksc5601	. #x6B23)	; ø»Š†º
+    (chinese-big5	. #xB7DF)	; ý¢€‹ŸŸ
+    (ideograph-daikanwa . 20558)	; ø¸…Ž
     ))
 (define-char
   '((morohashi-daikanwa	20558 0 2)

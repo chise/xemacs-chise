@@ -265,16 +265,16 @@
     (total-strokes	 . 3)
     (shinjigen-1	. 10)
     (shinjigen-2	. 10)
-    (japanese-jisx0208-1978	. #x3E66)	; ø»‚§«
-    (japanese-jisx0208		. #x3E66)	; ø»†»³
-    (korean-ksc5601		. #x6D5B)	; ø»ŠŠ®
-    (=gt-pj-2			. #x3027)	; ý¡€€€’
-    (chinese-big5		. #xA456)	; ý¢€Š‘–
-    (ideograph-daikanwa		. 00011)	; ø¸€€‹
-    (=gt-k			. 00189)	; ý¡„€‚½
-    (=jef-china3		. #x41A5)	; øº„†¥
-    (=ucs@big5			. #x4E08)	; ø»‚§«
-    (=gt			. 00018)	; ý¡€€€’
+    (=jis-x0208-1978	. #x3E66)	; ø»‚§«
+    (japanese-jisx0208	. #x3E66)	; ø»†»³
+    (korean-ksc5601	. #x6D5B)	; ø»ŠŠ®
+    (=gt-pj-2		. #x3027)	; ý¡€€€’
+    (chinese-big5	. #xA456)	; ý¢€Š‘–
+    (ideograph-daikanwa . 00011)	; ø¸€€‹
+    (=gt-k		. 00189)	; ý¡„€‚½
+    (=jef-china3	. #x41A5)	; øº„†¥
+    (=ucs@big5		. #x4E08)	; ø»‚§«
+    (=gt		. 00018)	; ý¡€€€’
     ))
 (define-char
   '((morohashi-daikanwa	11 0 0)
@@ -638,10 +638,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; â¿º
       )
-     ((japanese-jisx0208-1978	  . #x3E66)	; ø»‚§«
-      (japanese-jisx0208	  . #x3E66)	; ø»†»³
-      (korean-ksc5601		  . #x6D5B)	; ø»ŠŠ®
-      (ideograph-daikanwa	  . 00011)	; ø¸€€‹
+     ((=jis-x0208-1978	  . #x3E66)	; ø»‚§«
+      (japanese-jisx0208  . #x3E66)	; ø»†»³
+      (korean-ksc5601	  . #x6D5B)	; ø»ŠŠ®
+      (ideograph-daikanwa . 00011)	; ø¸€€‹
       )
      ((=ucs		  . #x4E36)	; ä¸¶
       ))

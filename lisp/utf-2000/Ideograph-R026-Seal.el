@@ -917,10 +917,10 @@
     (hanyu-dazidian	1 318 3)
     (shinjigen-1	. 868)
     (shinjigen-2	. 868)
-    (japanese-jisx0208-1978	. #x362A)	; ø»‚š¿
-    (korean-ksc5601		. #x4C4F)	; ø»‰š„
-    (chinese-big5		. #xADEB)	; ý¢€Š·«
-    (ideograph-daikanwa		. 02880)	; ø¸€­€
+    (=jis-x0208-1978	. #x362A)	; ø»‚š¿
+    (korean-ksc5601	. #x4C4F)	; ø»‰š„
+    (chinese-big5	. #xADEB)	; ý¢€Š·«
+    (ideograph-daikanwa . 02880)	; ø¸€­€
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™

@@ -1595,9 +1595,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
     (shinjigen-2	. 8603)
-    (japanese-jisx0208-1978	. #x385A)	; ø»‚ž«
-    (japanese-jisx0208		. #x385A)	; ø»†²³
-    (ideograph-daikanwa		. 40270)	; ø¸‰µŽ
+    (=jis-x0208-1978	. #x385A)	; ø»‚ž«
+    (japanese-jisx0208	. #x385A)	; ø»†²³
+    (ideograph-daikanwa . 40270)	; ø¸‰µŽ
     ))
 (define-char
   '((morohashi-daikanwa	40270 0 0)
@@ -2016,9 +2016,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
     (shinjigen-2	. 8597)
-    (japanese-jisx0208-1978	. #x3174)	; ø»‚”³
-    (japanese-jisx0208		. #x3174)	; ø»†¨»
-    (ideograph-daikanwa		. 40310)	; ø¸‰µ¶
+    (=jis-x0208-1978	. #x3174)	; ø»‚”³
+    (japanese-jisx0208	. #x3174)	; ø»†¨»
+    (ideograph-daikanwa . 40310)	; ø¸‰µ¶
     ))
 (define-char
   '((=>ucs		. #x925B)	; é‰›
@@ -5044,8 +5044,8 @@
     (ideographic-radical . 167)	; â¾¦
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (japanese-jisx0208-1978	. #x3B2C)	; ø»‚¢—
-    (ideograph-daikanwa		. 40523)	; ø¸‰¹‹
+    (=jis-x0208-1978	. #x3B2C)	; ø»‚¢—
+    (ideograph-daikanwa . 40523)	; ø¸‰¹‹
     ))
 (define-char
   '((morohashi-daikanwa	40523 0 4)
@@ -7418,9 +7418,9 @@
     (ideographic-radical . 167)	; â¾¦
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (japanese-jisx0208-1978	. #x444A)	; ø»‚°ƒ
-    (korean-ksc5601		. #x7560)	; ø»Š–£
-    (ideograph-daikanwa		. 40715)	; ø¸‰¼‹
+    (=jis-x0208-1978	. #x444A)	; ø»‚°ƒ
+    (korean-ksc5601	. #x7560)	; ø»Š–£
+    (ideograph-daikanwa . 40715)	; ø¸‰¼‹
     ))
 (define-char
   '((=>ucs		. #x939A)	; éŽš
@@ -10699,8 +10699,8 @@
     (ideographic-radical . 167)	; â¾¦
     (ideographic-strokes . 14)
     (total-strokes	 . 22)
-    (japanese-jisx0208-1978	. #x4C7A)	; ø»‚¼£
-    (ideograph-daikanwa		. 40998)	; ø¸Š€¦
+    (=jis-x0208-1978	. #x4C7A)	; ø»‚¼£
+    (ideograph-daikanwa . 40998)	; ø¸Š€¦
     ))
 (define-char
   '((morohashi-daikanwa	40998 0 3)
@@ -11450,9 +11450,9 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 26)
     (shinjigen-2	. 8787)
-    (japanese-jisx0208-1978	. #x6F52)	; ø»ƒ¯•
-    (japanese-jisx0208		. #x6F52)	; ø»ˆƒ
-    (ideograph-daikanwa		. 41069)	; ø¸Š­
+    (=jis-x0208-1978	. #x6F52)	; ø»ƒ¯•
+    (japanese-jisx0208	. #x6F52)	; ø»ˆƒ
+    (ideograph-daikanwa . 41069)	; ø¸Š­
     ))
 (define-char
   '((morohashi-daikanwa	41069 0 1)

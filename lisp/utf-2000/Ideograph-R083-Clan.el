@@ -86,9 +86,9 @@
     (ideographic-radical . 83)	; â½’
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (japanese-jisx0208-1978	. #x5D62)	; ø»ƒ•‰
-    (japanese-jisx0208		. #x5D62)	; ø»‡©‘
-    (korean-ksc5601		. #x586C)	; ø»‰¬‰
+    (=jis-x0208-1978	. #x5D62)	; ø»ƒ•‰
+    (japanese-jisx0208	. #x5D62)	; ø»‡©‘
+    (korean-ksc5601	. #x586C)	; ø»‰¬‰
     ))
 (define-char
   '((morohashi-daikanwa	17030 0 2)

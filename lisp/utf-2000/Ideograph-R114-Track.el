@@ -36,10 +36,10 @@
     (ideographic-radical . 114)	; â½±
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (japanese-jisx0208-1978	. #x633C)	; ø»ƒ—
-    (japanese-jisx0208		. #x633C)	; ø»‡±Ÿ
-    (chinese-cns11643-1		. #x526E)	; ø»’‹§
-    (ideograph-daikanwa		. 24886)	; ø¸†„¶
+    (=jis-x0208-1978	. #x633C)	; ø»ƒ—
+    (japanese-jisx0208	. #x633C)	; ø»‡±Ÿ
+    (chinese-cns11643-1 . #x526E)	; ø»’‹§
+    (ideograph-daikanwa . 24886)	; ø¸†„¶
     ))
 (define-char
   '((morohashi-daikanwa	24886 0 0)

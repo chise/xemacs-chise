@@ -1011,11 +1011,11 @@
   '((ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
-    (japanese-jisx0208-1978	. #x6C69)	; ø»ƒ«’
-    (chinese-gb2312		. #x7547)	; ø»†‚‚
-    (=iso-ir165			. #x7547)	; ø»Žª’
-    (ideograph-daikanwa		. 37477)	; ø¸‰‰¥
-    (=ucs			. #x8DDA)	; è·š
+    (=jis-x0208-1978	. #x6C69)	; ø»ƒ«’
+    (chinese-gb2312	. #x7547)	; ø»†‚‚
+    (=iso-ir165		. #x7547)	; ø»Žª’
+    (ideograph-daikanwa . 37477)	; ø¸‰‰¥
+    (=ucs		. #x8DDA)	; è·š
     ))
 (define-char
   '((=>ucs		. #x8DDA)	; è·š
@@ -1518,9 +1518,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (shinjigen-2	. 8008)
-    (japanese-jisx0208-1978	. #x4437)	; ø»‚¯°
-    (japanese-jisx0208		. #x4437)	; ø»‡ƒ¸
-    (ideograph-daikanwa		. 37533)	; ø¸‰Š
+    (=jis-x0208-1978	. #x4437)	; ø»‚¯°
+    (japanese-jisx0208	. #x4437)	; ø»‡ƒ¸
+    (ideograph-daikanwa . 37533)	; ø¸‰Š
     ))
 (define-char
   '((morohashi-daikanwa	37533 0 0)
@@ -2048,7 +2048,7 @@
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x6C74)	; ø»ƒ«
+    (=jis-x0208-1978	. #x6C74)	; ø»ƒ«
     ))
 (define-char
   '((ideographic-radical . 157)	; â¾œ
@@ -5867,9 +5867,9 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
     (shinjigen-2	. 8088)
-    (japanese-jisx0208-1978	. #x6D36)	; ø»ƒ«½
-    (japanese-jisx0208		. #x6D36)	; ø»ˆ€…
-    (ideograph-daikanwa		. 37963)	; ø¸‰‘‹
+    (=jis-x0208-1978	. #x6D36)	; ø»ƒ«½
+    (japanese-jisx0208	. #x6D36)	; ø»ˆ€…
+    (ideograph-daikanwa . 37963)	; ø¸‰‘‹
     ))
 (define-char
   '((=>ucs		. #x8E91)	; èº‘
@@ -6347,9 +6347,9 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 25)
     (shinjigen-2	. 8095)
-    (japanese-jisx0208-1978	. #x6D3A)	; ø»ƒ¬
-    (japanese-jisx0208		. #x6D3A)	; ø»ˆ€‰
-    (ideograph-daikanwa		. 38009)	; ø¸‰‘¹
+    (=jis-x0208-1978	. #x6D3A)	; ø»ƒ¬
+    (japanese-jisx0208	. #x6D3A)	; ø»ˆ€‰
+    (ideograph-daikanwa . 38009)	; ø¸‰‘¹
     ))
 (define-char
   '((=>ucs		. #x8EA1)	; èº¡
