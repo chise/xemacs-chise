@@ -958,7 +958,7 @@ strings, so that kill, yank, and undo commands will restore or copy it.
    * When a string is created using `buffer-substring' or
      `buffer-string', any duplicable extents in the region corresponding
      to the string will be copied into the string (*note Buffer
-     Contents::).  When the string in inserted into a buffer using
+     Contents::).  When the string is inserted into a buffer using
      `insert', `insert-before-markers', `insert-buffer' or
      `insert-buffer-substring', the extents in the string will be copied
      back into the buffer (*note Insertion::).  The extents in a string
