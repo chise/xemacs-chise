@@ -945,7 +945,7 @@
       )
      ((=ucs		  . #x6797)	; æž—
       ))
-    (chinese-cns11643-4 . #x2B6A)	; ø»—°
+    (=cns11643-4	. #x2B6A)	; ø»—°
     ))
 (define-char
   '((ideographic-radical . 11)	; â¼Š
@@ -1117,7 +1117,7 @@
       )
      ((=ucs		  . #x723D)	; çˆ½
       ))
-    (chinese-cns11643-4 . #x3C31)	; ø»˜ˆ¢
+    (=cns11643-4	. #x3C31)	; ø»˜ˆ¢
     ))
 (define-char
   '((ideographic-radical . 11)	; â¼Š

@@ -281,6 +281,6 @@
     (ideographic-radical . 80)	; â½
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-4 . #x4A53)	; ø»˜¨
+    (=cns11643-4	. #x4A53)	; ø»˜¨
     (=ucs		. #x23AFA)	; ð£«º
     ))

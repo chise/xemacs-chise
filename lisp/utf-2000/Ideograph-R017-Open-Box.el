@@ -34,7 +34,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 306 17)
-    (chinese-cns11643-4 . #x212E)	; ø»— µ
+    (=cns11643-4	. #x212E)	; ø»— µ
     (ideograph-daikanwa . 01802)	; ø¸€œŠ
     (=hanziku-1		. #xE54B)	; ý¢€ž•‹
     (=ucs		. #x20675)	; ð ™µ
@@ -153,7 +153,7 @@
      ((=ucs		  . #x571F)	; åœŸ
       ))
     (=jis-x0212		. #x332F)	; ø»Š¾º
-    (chinese-cns11643-4 . #x2160)	; ø»—¡§
+    (=cns11643-4	. #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
     (=big5-cdp		. #x8DC7)	; ý¢€ˆ·‡
     (=cbeta		. 00631)	; ø¸ ‰·

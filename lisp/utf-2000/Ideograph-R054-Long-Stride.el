@@ -23,7 +23,7 @@
     (ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-4 . #x2429)	; ø»—¥Š
+    (=cns11643-4	. #x2429)	; ø»—¥Š
     (=ucs		. #x389F)	; ã¢Ÿ
     ))
 (define-char

@@ -29,7 +29,7 @@
       :sources	(shuowen morohashi-daikanwa)))
     (comment		. "M-07825 is a different char.")
     (=jis-x0208		. #x5625)	; ø½‹ƒ¶
-    (chinese-cns11643-4 . #x2135)	; ø»— ¼
+    (=cns11643-4	. #x2135)	; ø»— ¼
     (=gt-pj-1		. #x5625)	; ð¯¡¸
     (ideograph-daikanwa . 07826)	; ø¸º’
     (=gt-k		. 00270)	; ý¡„€„Ž
@@ -100,7 +100,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=jis-x0212		. #x3B22)	; ø»‹Š
-    (chinese-cns11643-4 . #x225F)	; ø»—£„
+    (=cns11643-4	. #x225F)	; ø»—£„
     (=jis-x0213-2-2000	. #x2836)	; ø»¤§§
     (ideograph-daikanwa . 07833)	; ø¸º™
     (=jef-china3	. #x99E5)	; øº‰§¥
@@ -142,7 +142,7 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-4 . #x2377)	; ø»—¤º
+    (=cns11643-4	. #x2377)	; ø»—¤º
     (ideograph-daikanwa . 07838)	; ø¸ºž
     (=ucs		. #x37A3)	; ãž£
     ))
@@ -158,14 +158,14 @@
     (ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-4 . #x2375)	; ø»—¤¸
+    (=cns11643-4	. #x2375)	; ø»—¤¸
     (=ucs		. #x21D06)	; ð¡´†
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (chinese-cns11643-4 . #x2376)	; ø»—¤¹
+    (=cns11643-4	. #x2376)	; ø»—¤¹
     (ideograph-daikanwa . 07840)	; ø¸º 
     (=ucs		. #x37B7)	; ãž·
     ))
@@ -188,7 +188,7 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-4 . #x262D)	; ø»—¨Š
+    (=cns11643-4	. #x262D)	; ø»—¨Š
     (ideograph-daikanwa . 07842)	; ø¸º¢
     (=ucs		. #x21D0B)	; ð¡´‹
     ))

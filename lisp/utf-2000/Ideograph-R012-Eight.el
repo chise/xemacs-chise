@@ -372,7 +372,7 @@
       )
      ((=ucs		  . #x5929)	; å¤©
       ))
-    (chinese-cns11643-4 . #x2234)	; ø»—¢™
+    (=cns11643-4	. #x2234)	; ø»—¢™
     ))
 (define-char
   '((morohashi-daikanwa	1459 0 1)
@@ -410,7 +410,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 243 3)
-    (chinese-cns11643-4 . #x2235)	; ø»—¢š
+    (=cns11643-4	. #x2235)	; ø»—¢š
     (=hanziku-1		. #xD856)	; ý¢€¡–
     ))
 (define-char
@@ -1244,7 +1244,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 252 4)
-    (chinese-cns11643-4 . #x423A)	; ø»˜‘Ÿ
+    (=cns11643-4	. #x423A)	; ø»˜‘Ÿ
     (=hanziku-1		. #xD9FC)	; ý¢€§¼
     ))
 (define-char

@@ -85,7 +85,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 6)
-    (chinese-cns11643-4 . #x2128)	; ø»— ¯
+    (=cns11643-4	. #x2128)	; ø»— ¯
     (ideograph-daikanwa . 00228)	; ø¸€ƒ¤
     (=big5-cdp		. #x866A)	; ý¢€ˆ™ª
     (=ucs		. #x2010E)	; ð „Ž
