@@ -4471,9 +4471,8 @@ if test "$with_database_gdbm $with_database_dbm $with_database_berkdb" \
      != "no no no"; then
   AC_DEFINE(HAVE_DATABASE)
   XE_ADD_OBJS(database.o)
-  if test "$with_utf_2000" = "yes"; then
+  if test "$with_utf_2000" = "yes" -a "$with_chise" != "yes" ; then
     AC_DEFINE(HAVE_CHISE)
-    AC_DEFINE(HAVE_CHISE_CLIENT)
   fi
 fi
 
