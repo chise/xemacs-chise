@@ -662,7 +662,7 @@
     (->uppercase
      ((name . "fullwidth latin capital letter d with stroke")
       ))
-    (korean-ksc5601	. #x2922)	; ø»ˆ¥½
+    (=ks-x1001		. #x2922)	; ø»ˆ¥½
     (=jis-x0212		. #x2942)	; ø»Š°¡
     (=jis-x0213-1-2000	. #x2A50)	; ø»¢ ¹
     (=jef-china3	. #x83AE)	; øºˆŽ®
@@ -1337,7 +1337,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth latin capital letter h with stroke")
-      (korean-ksc5601	  . #x2824)	; ø»ˆ¤¡
+      (=ks-x1001	  . #x2824)	; ø»ˆ¤¡
+      (=jis-x0212	  . #x2924)	; ø»Š°ƒ
+      (=ucs@jis		  . #x0126)	; ø»ˆ¤¡
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER H WITH STROKE")
@@ -1360,7 +1362,7 @@
      ((name		  . "LATIN CAPITAL LETTER H WITH STROKE")
       (=ucs		  . #x0126)	; Ä¦
       ))
-    (korean-ksc5601	. #x2824)	; ø»ˆ¤¡
+    (=ks-x1001		. #x2824)	; ø»ˆ¤¡
     (=jis-x0212		. #x2924)	; ø»Š°ƒ
     (=ucs@jis		. #x0126)	; ø»ˆ¤¡
     ))
@@ -1371,7 +1373,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small letter h with stroke")
-      (korean-ksc5601	  . #x2924)	; ø»ˆ¥¿
+      (=ks-x1001	  . #x2924)	; ø»ˆ¥¿
+      (=jis-x0212	  . #x2944)	; ø»Š°£
+      (=jis-x0213-1-2000  . #x2A7D)	; ø»¢¡¦
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER H WITH STROKE")
@@ -1394,7 +1398,7 @@
      ((name		  . "LATIN SMALL LETTER H WITH STROKE")
       (=ucs		  . #x0127)	; Ä§
       ))
-    (korean-ksc5601	. #x2924)	; ø»ˆ¥¿
+    (=ks-x1001		. #x2924)	; ø»ˆ¥¿
     (=jis-x0212		. #x2944)	; ø»Š°£
     (=jis-x0213-1-2000	. #x2A7D)	; ø»¢¡¦
     (=ucs@jis		. #x0127)	; ø»ˆ¥¿
@@ -1703,7 +1707,7 @@
     (->uppercase
      ((name		  . "fullwidth latin capital letter dotless i")
       ))
-    (korean-ksc5601	. #x2925)	; ø»ˆ¦€
+    (=ks-x1001		. #x2925)	; ø»ˆ¦€
     (=jis-x0212		. #x2945)	; ø»Š°¤
     (=jef-china3	. #x83B3)	; øºˆŽ³
     (=ucs@jis		. #x0131)	; ø»ˆ¦€
@@ -1718,7 +1722,7 @@
      ((name		  . "LATIN SMALL LIGATURE IJ")
       (=ucs		  . #x0133)	; Ä³
       ))
-    (korean-ksc5601	. #x2826)	; ø»ˆ¤£
+    (=ks-x1001		. #x2826)	; ø»ˆ¤£
     (=jis-x0212		. #x2926)	; ø»Š°…
     (=ucs		. #x0132)	; Ä²
     ))
@@ -1730,7 +1734,9 @@
     (->decomposition	compat #x0069 #x006A)
     (->fullwidth
      ((name		  . "fullwidth latin small ligature ij")
-      (korean-ksc5601	  . #x2926)	; ø»ˆ¦
+      (=ks-x1001	  . #x2926)	; ø»ˆ¦
+      (=jis-x0212	  . #x2946)	; ø»Š°¥
+      (=ucs@jis		  . #x0133)	; ø»ˆ¦
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LIGATURE IJ")
@@ -1753,7 +1759,7 @@
      ((name		  . "LATIN SMALL LIGATURE IJ")
       (=ucs		  . #x0133)	; Ä³
       ))
-    (korean-ksc5601	. #x2926)	; ø»ˆ¦
+    (=ks-x1001		. #x2926)	; ø»ˆ¦
     (=jis-x0212		. #x2946)	; ø»Š°¥
     (=ucs@jis		. #x0133)	; ø»ˆ¦
     ))
@@ -1909,7 +1915,9 @@
     (iso-10646-comment	. "Greenlandic")
     (->fullwidth
      ((name		  . "fullwidth latin small letter kra")
-      (korean-ksc5601	  . #x2927)	; ø»ˆ¦‚
+      (=ks-x1001	  . #x2927)	; ø»ˆ¦‚
+      (=jis-x0212	  . #x2947)	; ø»Š°¦
+      (=ucs@jis		  . #x0138)	; ø»ˆ¦‚
       ))
     (latin-iso8859-4	. #xA2)	; øº’¸¢
     (=ucs		. #x0138)	; Ä¸
@@ -1926,7 +1934,7 @@
      ((name		  . "LATIN SMALL LETTER KRA")
       (=ucs		  . #x0138)	; Ä¸
       ))
-    (korean-ksc5601	. #x2927)	; ø»ˆ¦‚
+    (=ks-x1001		. #x2927)	; ø»ˆ¦‚
     (=jis-x0212		. #x2947)	; ø»Š°¦
     (=ucs@jis		. #x0138)	; ø»ˆ¦‚
     ))
@@ -2158,7 +2166,9 @@
     (->decomposition	compat #x004C #x00B7)
     (->fullwidth
      ((name . "fullwidth latin capital letter l with middle dot")
-      (korean-ksc5601	  . #x2828)	; ø»ˆ¤¥
+      (=ks-x1001	  . #x2828)	; ø»ˆ¤¥
+      (=jis-x0212	  . #x2929)	; ø»Š°ˆ
+      (=ucs@jis		  . #x013F)	; ø»ˆ¤¥
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER L WITH MIDDLE DOT")
@@ -2180,7 +2190,7 @@
      ((name		  . "LATIN CAPITAL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x013F)	; Ä¿
       ))
-    (korean-ksc5601	. #x2828)	; ø»ˆ¤¥
+    (=ks-x1001		. #x2828)	; ø»ˆ¤¥
     (=jis-x0212		. #x2929)	; ø»Š°ˆ
     (=ucs@jis		. #x013F)	; ø»ˆ¤¥
     ))
@@ -2192,7 +2202,9 @@
     (->decomposition	compat #x006C #x00B7)
     (->fullwidth
      ((name . "fullwidth latin small letter l with middle dot")
-      (korean-ksc5601	  . #x2928)	; ø»ˆ¦ƒ
+      (=ks-x1001	  . #x2928)	; ø»ˆ¦ƒ
+      (=jis-x0212	  . #x2949)	; ø»Š°¨
+      (=ucs@jis		  . #x0140)	; ø»ˆ¦ƒ
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER L WITH MIDDLE DOT")
@@ -2214,7 +2226,7 @@
      ((name		  . "LATIN SMALL LETTER L WITH MIDDLE DOT")
       (=ucs		  . #x0140)	; Å€
       ))
-    (korean-ksc5601	. #x2928)	; ø»ˆ¦ƒ
+    (=ks-x1001		. #x2928)	; ø»ˆ¦ƒ
     (=jis-x0212		. #x2949)	; ø»Š°¨
     (=ucs@jis		. #x0140)	; ø»ˆ¦ƒ
     ))
@@ -2225,7 +2237,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth latin capital letter l with stroke")
-      (korean-ksc5601	  . #x2829)	; ø»ˆ¤¦
+      (=ks-x1001	  . #x2829)	; ø»ˆ¤¦
+      (=jis-x0212	  . #x2928)	; ø»Š°‡
+      (=jis-x0213-1-2000  . #x2A23)	; ø»¢ Œ
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER L WITH STROKE")
@@ -2248,7 +2262,7 @@
      ((name		  . "LATIN CAPITAL LETTER L WITH STROKE")
       (=ucs		  . #x0141)	; Å
       ))
-    (korean-ksc5601	. #x2829)	; ø»ˆ¤¦
+    (=ks-x1001		. #x2829)	; ø»ˆ¤¦
     (=jis-x0212		. #x2928)	; ø»Š°‡
     (=jis-x0213-1-2000	. #x2A23)	; ø»¢ Œ
     (=jef-china3	. #x83A1)	; øºˆŽ¡
@@ -2261,7 +2275,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small letter l with stroke")
-      (korean-ksc5601	  . #x2929)	; ø»ˆ¦„
+      (=ks-x1001	  . #x2929)	; ø»ˆ¦„
+      (=jis-x0212	  . #x2948)	; ø»Š°§
+      (=jis-x0213-1-2000  . #x2A2E)	; ø»¢ —
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER L WITH STROKE")
@@ -2288,7 +2304,7 @@
      ((name		  . "LATIN SMALL LETTER L WITH STROKE")
       (=ucs		  . #x0142)	; Å‚
       ))
-    (korean-ksc5601	. #x2929)	; ø»ˆ¦„
+    (=ks-x1001		. #x2929)	; ø»ˆ¦„
     (=jis-x0212		. #x2948)	; ø»Š°§
     (=jis-x0213-1-2000	. #x2A2E)	; ø»¢ —
     (=ucs@jis		. #x0142)	; ø»ˆ¦„
@@ -2521,7 +2537,9 @@
     (->decomposition	compat #x02BC #x006E)
     (->fullwidth
      ((name . "fullwidth latin small letter n preceded by apostrophe")
-      (korean-ksc5601	  . #x2930)	; ø»ˆ¦‹
+      (=ks-x1001	  . #x2930)	; ø»ˆ¦‹
+      (=jis-x0212	  . #x294A)	; ø»Š°©
+      (=ucs@jis		  . #x0149)	; ø»ˆ¦‹
       ))
     (=ucs		. #x0149)	; Å‰
     ))
@@ -2536,7 +2554,7 @@
      ((name . "LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
       (=ucs		  . #x0149)	; Å‰
       ))
-    (korean-ksc5601	. #x2930)	; ø»ˆ¦‹
+    (=ks-x1001		. #x2930)	; ø»ˆ¦‹
     (=jis-x0212		. #x294A)	; ø»Š°©
     (=ucs@jis		. #x0149)	; ø»ˆ¦‹
     ))
@@ -2548,7 +2566,9 @@
     (iso-10646-comment	. "Sami")
     (->fullwidth
      ((name		  . "fullwidth latin capital letter eng")
-      (korean-ksc5601	  . #x282F)	; ø»ˆ¤¬
+      (=ks-x1001	  . #x282F)	; ø»ˆ¤¬
+      (=jis-x0212	  . #x292B)	; ø»Š°Š
+      (=ucs@jis		  . #x014A)	; ø»ˆ¤¬
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER ENG")
@@ -2572,7 +2592,7 @@
      ((name		  . "LATIN CAPITAL LETTER ENG")
       (=ucs		  . #x014A)	; ÅŠ
       ))
-    (korean-ksc5601	. #x282F)	; ø»ˆ¤¬
+    (=ks-x1001		. #x282F)	; ø»ˆ¤¬
     (=jis-x0212		. #x292B)	; ø»Š°Š
     (=ucs@jis		. #x014A)	; ø»ˆ¤¬
     ))
@@ -2584,7 +2604,9 @@
     (iso-10646-comment	. "Sami")
     (->fullwidth
      ((name		  . "fullwidth latin small letter eng")
-      (korean-ksc5601	  . #x292F)	; ø»ˆ¦Š
+      (=ks-x1001	  . #x292F)	; ø»ˆ¦Š
+      (=jis-x0212	  . #x294B)	; ø»Š°ª
+      (=jis-x0213-1-2000  . #x2A7A)	; ø»¢¡£
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER ENG")
@@ -2609,7 +2631,7 @@
      ((name		  . "LATIN SMALL LETTER ENG")
       (=ucs		  . #x014B)	; Å‹
       ))
-    (korean-ksc5601	. #x292F)	; ø»ˆ¦Š
+    (=ks-x1001		. #x292F)	; ø»ˆ¦Š
     (=jis-x0212		. #x294B)	; ø»Š°ª
     (=jis-x0213-1-2000	. #x2A7A)	; ø»¢¡£
     (=ucs@jis		. #x014B)	; ø»ˆ¦Š
@@ -2795,7 +2817,7 @@
      ((name		  . "LATIN SMALL LIGATURE OE")
       (=ucs		  . #x0153)	; Å“
       ))
-    (korean-ksc5601	. #x282B)	; ø»ˆ¤¨
+    (=ks-x1001		. #x282B)	; ø»ˆ¤¨
     (=jis-x0212		. #x292D)	; ø»Š°Œ
     (=jis-x0213-1-2000	. #x2B2B)	; ø»¢¡²
     (=jef-china3	. #x83A6)	; øºˆŽ¦
@@ -2808,7 +2830,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small ligature oe")
-      (korean-ksc5601	  . #x292B)	; ø»ˆ¦†
+      (=ks-x1001	  . #x292B)	; ø»ˆ¦†
+      (=jis-x0212	  . #x294D)	; ø»Š°¬
+      (=jis-x0213-1-2000  . #x2B2A)	; ø»¢¡±
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LIGATURE OE")
@@ -2831,7 +2855,7 @@
      ((name		  . "LATIN SMALL LIGATURE OE")
       (=ucs		  . #x0153)	; Å“
       ))
-    (korean-ksc5601	. #x292B)	; ø»ˆ¦†
+    (=ks-x1001		. #x292B)	; ø»ˆ¦†
     (=jis-x0212		. #x294D)	; ø»Š°¬
     (=jis-x0213-1-2000	. #x2B2A)	; ø»¢¡±
     (=jef-china3	. #x83B1)	; øºˆŽ±
@@ -3515,7 +3539,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth latin capital letter t with stroke")
-      (korean-ksc5601	  . #x282E)	; ø»ˆ¤«
+      (=ks-x1001	  . #x282E)	; ø»ˆ¤«
+      (=jis-x0212	  . #x292F)	; ø»Š°Ž
+      (=ucs@jis		  . #x0166)	; ø»ˆ¤«
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER T WITH STROKE")
@@ -3538,7 +3564,7 @@
      ((name		  . "LATIN CAPITAL LETTER T WITH STROKE")
       (=ucs		  . #x0166)	; Å¦
       ))
-    (korean-ksc5601	. #x282E)	; ø»ˆ¤«
+    (=ks-x1001		. #x282E)	; ø»ˆ¤«
     (=jis-x0212		. #x292F)	; ø»Š°Ž
     (=ucs@jis		. #x0166)	; ø»ˆ¤«
     ))
@@ -3549,7 +3575,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small letter t with stroke")
-      (korean-ksc5601	  . #x292E)	; ø»ˆ¦‰
+      (=ks-x1001	  . #x292E)	; ø»ˆ¦‰
+      (=jis-x0212	  . #x294F)	; ø»Š°®
+      (=ucs@jis		  . #x0167)	; ø»ˆ¦‰
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER T WITH STROKE")
@@ -3572,7 +3600,7 @@
      ((name		  . "LATIN SMALL LETTER T WITH STROKE")
       (=ucs		  . #x0167)	; Å§
       ))
-    (korean-ksc5601	. #x292E)	; ø»ˆ¦‰
+    (=ks-x1001		. #x292E)	; ø»ˆ¦‰
     (=jis-x0212		. #x294F)	; ø»Š°®
     (=ucs@jis		. #x0167)	; ø»ˆ¦‰
     ))

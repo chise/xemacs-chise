@@ -4,7 +4,7 @@
     (total-strokes	 . 15)
     (shinjigen-2	. 9883)
     (=jis-x0208		. #x736F)	; ø½‹¯¦
-    (korean-ksc5601	. #x764D)	; ø»Š—®
+    (=ks-x1001		. #x764D)	; ø»Š—®
     (chinese-cns11643-1 . #x702F)	; ø»’¶¬
     (chinese-gb12345	. #x335D)	; é½’
     (ideograph-daikanwa . 48583)	; ø¸‹·‡
@@ -417,7 +417,7 @@
     (total-strokes	 . 20)
     (shinjigen-2	. 9893)
     (=jis-x0208		. #x7372)	; ø½‹¯©
-    (korean-ksc5601	. #x6E52)	; ø»ŠŒƒ
+    (=ks-x1001		. #x6E52)	; ø»ŠŒƒ
     (chinese-cns11643-1 . #x7A5F)	; ø»“†ˆ
     (chinese-gb12345	. #x7634)	; é½Ÿ
     (ideograph-daikanwa . 48627)	; ø¸‹·³
@@ -464,7 +464,7 @@
     (total-strokes	 . 20)
     (shinjigen-2	. 9897)
     (=jis-x0208		. #x7374)	; ø½‹¯«
-    (korean-ksc5601	. #x5646)	; ø»‰¨§
+    (=ks-x1001		. #x5646)	; ø»‰¨§
     (ideograph-daikanwa . 48632)	; ø¸‹·¸
     (=ucs@jis		. #x9F61)	; ø½‹¯«
     (mojikyo		. 048632)	; ý €‹·¸
@@ -686,7 +686,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 21)
     (=jis-x0208		. #x7376)	; ø½‹¯­
-    (korean-ksc5601	. #x6065)	; ø»‰·²
+    (=ks-x1001		. #x6065)	; ø»‰·²
     (chinese-cns11643-1 . #x7B56)	; ø»“‡
     (ideograph-daikanwa . 48651)	; ø¸‹¸‹
     (=ucs		. #x9F67)	; é½§
@@ -821,7 +821,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 22)
     (=jis-x0208		. #x7378)	; ø½‹¯¯
-    (korean-ksc5601	. #x733B)	; ø»Š“‚
+    (=ks-x1001		. #x733B)	; ø»Š“‚
     (chinese-cns11643-1 . #x7C32)	; ø»“ˆ—
     (chinese-gb12345	. #x763A)	; é½ª
     (ideograph-daikanwa . 48669)	; ø¸‹¸
@@ -906,7 +906,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 22)
     (=jis-x0208		. #x7377)	; ø½‹¯®
-    (korean-ksc5601	. #x6561)	; ø»‰¿„
+    (=ks-x1001		. #x6561)	; ø»‰¿„
     (chinese-cns11643-1 . #x7C31)	; ø»“ˆ–
     (chinese-gb12345	. #x7639)	; é½¬
     (ideograph-daikanwa . 48680)	; ø¸‹¸¨
@@ -1319,7 +1319,7 @@
     (total-strokes	 . 24)
     (shinjigen-2	. 9905)
     (=jis-x0208		. #x7379)	; ø½‹¯°
-    (korean-ksc5601	. #x644B)	; ø»‰½
+    (=ks-x1001		. #x644B)	; ø»‰½
     (chinese-cns11643-1 . #x7C7E)	; ø»“‰£
     (chinese-gb12345	. #x763B)	; é½·
     (ideograph-daikanwa . 48727)	; ø¸‹¹—

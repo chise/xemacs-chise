@@ -39,7 +39,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth inverted exclamation mark")
-      (korean-ksc5601	  . #x222E)	; ø»ˆ›·
+      (=ks-x1001	  . #x222E)	; ø»ˆ›·
+      (=jis-x0212	  . #x2242)	; ø»Š¦
+      (=jis-x0213-1-2000  . #x2923)	; ø»¢ž®
       ))
     (latin-iso8859-1	. #xA1)	; øº’´
     (latin-iso8859-9	. #xA1)	; øº“†
@@ -55,7 +57,7 @@
      ((name		  . "INVERTED EXCLAMATION MARK")
       (=ucs		  . #x00A1)	; Â¡
       ))
-    (korean-ksc5601	. #x222E)	; ø»ˆ›·
+    (=ks-x1001		. #x222E)	; ø»ˆ›·
     (=jis-x0212		. #x2242)	; ø»Š¦
     (=jis-x0213-1-2000	. #x2923)	; ø»¢ž®
     (=ucs@jis		. #x00A1)	; ø»ˆ›·
@@ -98,7 +100,6 @@
     (->fullwidth
      ((name		  . "fullwidth currency sign")
       (chinese-gb2312	  . #x2168)	; ø»„‡‹
-      (korean-ksc5601	  . #x2234)	; ø»ˆ›½
       ))
     (latin-iso8859-1	. #xA4)	; øº’´„
     (latin-iso8859-2	. #xA4)	; øº’µ¤
@@ -119,7 +120,7 @@
       (=ucs		  . #x00A4)	; Â¤
       ))
     (chinese-gb2312	. #x2168)	; ø»„‡‹
-    (korean-ksc5601	. #x2234)	; ø»ˆ›½
+    (=ks-x1001		. #x2234)	; ø»ˆ›½
     (=jis-x0212		. #x2270)	; ø»Š¦½
     (=jis-x0213-1-2000	. #x2924)	; ø»¢ž¯
     (=ucs@jis		. #x00A4)	; ø»„‡‹
@@ -162,7 +163,6 @@
     (->fullwidth
      ((name		  . "fullwidth section sign")
       (chinese-gb2312	  . #x216C)	; ø»„‡
-      (korean-ksc5601	  . #x2157)	; ø»ˆ›‚
       (chinese-cns11643-1 . #x2170)	; ø»‘ƒ«
       ))
     (latin-iso8859-1	. #xA7)	; øº’´‡
@@ -187,7 +187,7 @@
       ))
     (chinese-gb2312	. #x216C)	; ø»„‡
     (=jis-x0208		. #x2178)	; ø½‰·“
-    (korean-ksc5601	. #x2157)	; ø»ˆ›‚
+    (=ks-x1001		. #x2157)	; ø»ˆ›‚
     (chinese-cns11643-1 . #x2170)	; ø»‘ƒ«
     (chinese-big5	. #xA1B1)	; ý¢€Š†±
     (=ucs@jis		. #x00A7)	; ø»„‡
@@ -201,7 +201,6 @@
     (->fullwidth
      ((name		  . "fullwidth diaeresis")
       (chinese-gb2312	  . #x2127)	; ø»„†Š
-      (korean-ksc5601	  . #x2127)	; ø»ˆš’
       ))
     (latin-iso8859-1	. #xA8)	; øº’´ˆ
     (latin-iso8859-2	. #xA8)	; øº’µ¨
@@ -224,7 +223,7 @@
       ))
     (chinese-gb2312	. #x2127)	; ø»„†Š
     (=jis-x0208		. #x212F)	; ø½‰¶Š
-    (korean-ksc5601	. #x2127)	; ø»ˆš’
+    (=ks-x1001		. #x2127)	; ø»ˆš’
     (=big5-eten		. #xC6D8)	; ý¢€Œ›˜
     (=jef-china3	. #x81AA)	; øºˆ†ª
     (=ucs@jis		. #x00A8)	; ø»„†Š
@@ -267,7 +266,9 @@
     (->decomposition	super #x0061)
     (->fullwidth
      ((name		  . "fullwidth feminine ordinal indicator")
-      (korean-ksc5601	  . #x2823)	; ø»ˆ¤ 
+      (=ks-x1001	  . #x2823)	; ø»ˆ¤ 
+      (=jis-x0212	  . #x226C)	; ø»Š¦¹
+      (=jis-x0213-1-2000  . #x2927)	; ø»¢ž²
       ))
     (latin-iso8859-1	. #xAA)	; øº’´Š
     (latin-iso8859-9	. #xAA)	; øº“†Š
@@ -283,7 +284,7 @@
      ((name		  . "FEMININE ORDINAL INDICATOR")
       (=ucs		  . #x00AA)	; Âª
       ))
-    (korean-ksc5601	. #x2823)	; ø»ˆ¤ 
+    (=ks-x1001		. #x2823)	; ø»ˆ¤ 
     (=jis-x0212		. #x226C)	; ø»Š¦¹
     (=jis-x0213-1-2000	. #x2927)	; ø»¢ž²
     (=ucs@jis		. #x00AA)	; ø»ˆ¤ 
@@ -339,7 +340,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth soft hyphen")
-      (korean-ksc5601	  . #x2129)	; ø»ˆš”
+      (=ks-x1001	  . #x2129)	; ø»ˆš”
+      (=jis-x0213-1-2000  . #x2929)	; ø»¢ž´
       ))
     (latin-iso8859-1	. #xAD)	; øº’´
     (latin-iso8859-2	. #xAD)	; øº’µ­
@@ -361,7 +363,7 @@
      ((name		  . "SOFT HYPHEN")
       (=ucs		  . #x00AD)	; Â­
       ))
-    (korean-ksc5601	. #x2129)	; ø»ˆš”
+    (=ks-x1001		. #x2129)	; ø»ˆš”
     (=jis-x0213-1-2000	. #x2929)	; ø»¢ž´
     (=ucs@jis		. #x00AD)	; ø»ˆš”
     ))
@@ -418,7 +420,6 @@
     (->fullwidth
      ((name		  . "fullwidth degree sign")
       (chinese-gb2312	  . #x2163)	; ø»„‡†
-      (korean-ksc5601	  . #x2146)	; ø»ˆš±
       (chinese-cns11643-1 . #x2278)	; ø»‘…‘
       ))
     (latin-iso8859-1	. #xB0)	; øº’´
@@ -442,7 +443,7 @@
       ))
     (chinese-gb2312	. #x2163)	; ø»„‡†
     (=jis-x0208		. #x216B)	; ø½‰·†
-    (korean-ksc5601	. #x2146)	; ø»ˆš±
+    (=ks-x1001		. #x2146)	; ø»ˆš±
     (chinese-cns11643-1 . #x2278)	; ø»‘…‘
     (chinese-big5	. #xA258)	; ý¢€Š‰˜
     (=ucs@jis		. #x00B0)	; ø»„‡†
@@ -455,7 +456,6 @@
     (->fullwidth
      ((name		  . "fullwidth plus-minus sign")
       (chinese-gb2312	  . #x2140)	; ø»„†£
-      (korean-ksc5601	  . #x213E)	; ø»ˆš©
       (chinese-cns11643-1 . #x2234)	; ø»‘„
       ))
     (latin-iso8859-1	. #xB1)	; øº’´‘
@@ -476,7 +476,7 @@
       ))
     (chinese-gb2312	. #x2140)	; ø»„†£
     (=jis-x0208		. #x215E)	; ø½‰¶¹
-    (korean-ksc5601	. #x213E)	; ø»ˆš©
+    (=ks-x1001		. #x213E)	; ø»ˆš©
     (chinese-cns11643-1 . #x2234)	; ø»‘„
     (chinese-big5	. #xA1D3)	; ý¢€Š‡“
     (=ucs@jis		. #x00B1)	; ø»„†£
@@ -492,7 +492,8 @@
     (->decomposition	super #x0032)
     (->fullwidth
      ((name		  . "fullwidth superscript two")
-      (korean-ksc5601	  . #x2977)	; ø»ˆ§’
+      (=ks-x1001	  . #x2977)	; ø»ˆ§’
+      (=jis-x0213-1-2000  . #x292C)	; ø»¢ž·
       ))
     (latin-iso8859-1	. #xB2)	; øº’´’
     (latin-iso8859-3	. #xB2)	; øº’·’
@@ -514,7 +515,7 @@
      ((name		  . "SUPERSCRIPT TWO")
       (=ucs		  . #x00B2)	; Â²
       ))
-    (korean-ksc5601	. #x2977)	; ø»ˆ§’
+    (=ks-x1001		. #x2977)	; ø»ˆ§’
     (=jis-x0213-1-2000	. #x292C)	; ø»¢ž·
     (=ucs@jis		. #x00B2)	; ø»ˆ§’
     ))
@@ -529,7 +530,8 @@
     (->decomposition	super #x0033)
     (->fullwidth
      ((name		  . "fullwidth superscript three")
-      (korean-ksc5601	  . #x2978)	; ø»ˆ§“
+      (=ks-x1001	  . #x2978)	; ø»ˆ§“
+      (=jis-x0213-1-2000  . #x292D)	; ø»¢ž¸
       ))
     (latin-iso8859-1	. #xB3)	; øº’´“
     (latin-iso8859-3	. #xB3)	; øº’·“
@@ -551,7 +553,7 @@
      ((name		  . "SUPERSCRIPT THREE")
       (=ucs		  . #x00B3)	; Â³
       ))
-    (korean-ksc5601	. #x2978)	; ø»ˆ§“
+    (=ks-x1001		. #x2978)	; ø»ˆ§“
     (=jis-x0213-1-2000	. #x292D)	; ø»¢ž¸
     (=ucs@jis		. #x00B3)	; ø»ˆ§“
     ))
@@ -563,7 +565,8 @@
     (->decomposition	compat #x0020 #x0301)
     (->fullwidth
      ((name		  . "fullwidth acute accent")
-      (korean-ksc5601	  . #x2225)	; ø»ˆ›®
+      (=jis-x0208	  . #x212D)	; ø½‰¶ˆ
+      (=ks-x1001	  . #x2225)	; ø»ˆ›®
       ))
     (latin-iso8859-1	. #xB4)	; øº’´”
     (latin-iso8859-2	. #xB4)	; øº’µ´
@@ -584,7 +587,7 @@
       (=ucs		  . #x00B4)	; Â´
       ))
     (=jis-x0208		. #x212D)	; ø½‰¶ˆ
-    (korean-ksc5601	. #x2225)	; ø»ˆ›®
+    (=ks-x1001		. #x2225)	; ø»ˆ›®
     (=jef-china3	. #x81A4)	; øºˆ†¤
     (=ucs@jis		. #x00B4)	; ø½‰¶ˆ
     ))
@@ -607,7 +610,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth pilcrow sign")
-      (korean-ksc5601	  . #x2252)	; ø»ˆœ›
+      (=jis-x0208-1983	  . #x2279)	; ø»†’¾
+      (=ks-x1001	  . #x2252)	; ø»ˆœ›
+      (=jis-x0208-1990	  . #x2279)	; ø½‰¸²
       ))
     (latin-iso8859-1	. #xB6)	; øº’´–
     (hebrew-iso8859-8	. #xB6)	; øº’¾¶
@@ -625,7 +630,7 @@
       (=ucs		  . #x00B6)	; Â¶
       ))
     (=jis-x0208-1983	. #x2279)	; ø»†’¾
-    (korean-ksc5601	. #x2252)	; ø»ˆœ›
+    (=ks-x1001		. #x2252)	; ø»ˆœ›
     (=jis-x0208-1990	. #x2279)	; ø½‰¸²
     (=ucs@jis		. #x00B6)	; ø»†’¾
     ))
@@ -636,7 +641,6 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth middle dot")
-      (korean-ksc5601	  . #x2124)	; ø»ˆš
       (chinese-cns11643-1 . #x2126)	; ø»‘‚¡
       ))
     (latin-iso8859-1	. #xB7)	; øº’´—
@@ -656,7 +660,7 @@
      ((name		  . "MIDDLE DOT")
       (=ucs		  . #x00B7)	; Â·
       ))
-    (korean-ksc5601	. #x2124)	; ø»ˆš
+    (=ks-x1001		. #x2124)	; ø»ˆš
     (chinese-cns11643-1 . #x2126)	; ø»‘‚¡
     (=jis-x0213-1-2000	. #x292E)	; ø»¢ž¹
     (chinese-big5	. #xA150)	; ý¢€Š…
@@ -670,7 +674,9 @@
     (->decomposition	compat #x0020 #x0327)
     (->fullwidth
      ((name		  . "fullwidth cedilla")
-      (korean-ksc5601	  . #x222C)	; ø»ˆ›µ
+      (=ks-x1001	  . #x222C)	; ø»ˆ›µ
+      (=jis-x0212	  . #x2231)	; ø»Š¥¾
+      (=jis-x0213-1-2000  . #x292F)	; ø»¢žº
       ))
     (latin-iso8859-1	. #xB8)	; øº’´˜
     (latin-iso8859-2	. #xB8)	; øº’µ¸
@@ -690,7 +696,7 @@
      ((name		  . "CEDILLA")
       (=ucs		  . #x00B8)	; Â¸
       ))
-    (korean-ksc5601	. #x222C)	; ø»ˆ›µ
+    (=ks-x1001		. #x222C)	; ø»ˆ›µ
     (=jis-x0212		. #x2231)	; ø»Š¥¾
     (=jis-x0213-1-2000	. #x292F)	; ø»¢žº
     (=jef-china3	. #x81B2)	; øºˆ†²
@@ -707,7 +713,8 @@
     (->decomposition	super #x0031)
     (->fullwidth
      ((name		  . "fullwidth superscript one")
-      (korean-ksc5601	  . #x2976)	; ø»ˆ§‘
+      (=ks-x1001	  . #x2976)	; ø»ˆ§‘
+      (=jis-x0213-1-2000  . #x2930)	; ø»¢ž»
       ))
     (latin-iso8859-1	. #xB9)	; øº’´™
     (hebrew-iso8859-8	. #xB9)	; øº’¾¹
@@ -727,7 +734,7 @@
      ((name		  . "SUPERSCRIPT ONE")
       (=ucs		  . #x00B9)	; Â¹
       ))
-    (korean-ksc5601	. #x2976)	; ø»ˆ§‘
+    (=ks-x1001		. #x2976)	; ø»ˆ§‘
     (=jis-x0213-1-2000	. #x2930)	; ø»¢ž»
     (=ucs@jis		. #x00B9)	; ø»ˆ§‘
     ))
@@ -739,7 +746,9 @@
     (->decomposition	super #x006F)
     (->fullwidth
      ((name		  . "fullwidth masculine ordinal indicator")
-      (korean-ksc5601	  . #x282C)	; ø»ˆ¤©
+      (=ks-x1001	  . #x282C)	; ø»ˆ¤©
+      (=jis-x0212	  . #x226B)	; ø»Š¦¸
+      (=jis-x0213-1-2000  . #x2931)	; ø»¢ž¼
       ))
     (latin-iso8859-1	. #xBA)	; øº’´š
     (latin-iso8859-9	. #xBA)	; øº“†š
@@ -755,7 +764,7 @@
      ((name		  . "MASCULINE ORDINAL INDICATOR")
       (=ucs		  . #x00BA)	; Âº
       ))
-    (korean-ksc5601	. #x282C)	; ø»ˆ¤©
+    (=ks-x1001		. #x282C)	; ø»ˆ¤©
     (=jis-x0212		. #x226B)	; ø»Š¦¸
     (=jis-x0213-1-2000	. #x2931)	; ø»¢ž¼
     (=ucs@jis		. #x00BA)	; ø»ˆ¤©
@@ -798,7 +807,8 @@
     (->decomposition	fraction #x0031 #x2044 #x0034)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction one quarter")
-      (korean-ksc5601	  . #x2879)	; ø»ˆ¥¶
+      (=ks-x1001	  . #x2879)	; ø»ˆ¥¶
+      (=jis-x0213-1-2000  . #x2933)	; ø»¢ž¾
       ))
     (latin-iso8859-1	. #xBC)	; øº’´œ
     (hebrew-iso8859-8	. #xBC)	; øº’¾¼
@@ -816,7 +826,7 @@
      ((name		  . "VULGAR FRACTION ONE QUARTER")
       (=ucs		  . #x00BC)	; Â¼
       ))
-    (korean-ksc5601	. #x2879)	; ø»ˆ¥¶
+    (=ks-x1001		. #x2879)	; ø»ˆ¥¶
     (=jis-x0213-1-2000	. #x2933)	; ø»¢ž¾
     (=ucs@jis		. #x00BC)	; ø»ˆ¥¶
     ))
@@ -829,7 +839,8 @@
     (->decomposition	fraction #x0031 #x2044 #x0032)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction one half")
-      (korean-ksc5601	  . #x2876)	; ø»ˆ¥³
+      (=ks-x1001	  . #x2876)	; ø»ˆ¥³
+      (=jis-x0213-1-2000  . #x2934)	; ø»¢ž¿
       ))
     (latin-iso8859-1	. #xBD)	; øº’´
     (latin-iso8859-3	. #xBD)	; øº’·
@@ -849,7 +860,7 @@
      ((name		  . "VULGAR FRACTION ONE HALF")
       (=ucs		  . #x00BD)	; Â½
       ))
-    (korean-ksc5601	. #x2876)	; ø»ˆ¥³
+    (=ks-x1001		. #x2876)	; ø»ˆ¥³
     (=jis-x0213-1-2000	. #x2934)	; ø»¢ž¿
     (=ucs@jis		. #x00BD)	; ø»ˆ¥³
     ))
@@ -862,7 +873,8 @@
     (->decomposition	fraction #x0033 #x2044 #x0034)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction three quarters")
-      (korean-ksc5601	  . #x287A)	; ø»ˆ¥·
+      (=ks-x1001	  . #x287A)	; ø»ˆ¥·
+      (=jis-x0213-1-2000  . #x2935)	; ø»¢Ÿ€
       ))
     (latin-iso8859-1	. #xBE)	; øº’´ž
     (hebrew-iso8859-8	. #xBE)	; øº’¾¾
@@ -880,7 +892,7 @@
      ((name		  . "VULGAR FRACTION THREE QUARTERS")
       (=ucs		  . #x00BE)	; Â¾
       ))
-    (korean-ksc5601	. #x287A)	; ø»ˆ¥·
+    (=ks-x1001		. #x287A)	; ø»ˆ¥·
     (=jis-x0213-1-2000	. #x2935)	; ø»¢Ÿ€
     (=ucs@jis		. #x00BE)	; ø»ˆ¥·
     ))
@@ -891,7 +903,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth inverted question mark")
-      (korean-ksc5601	  . #x222F)	; ø»ˆ›¸
+      (=ks-x1001	  . #x222F)	; ø»ˆ›¸
+      (=jis-x0212	  . #x2244)	; ø»Š¦‘
+      (=jis-x0213-1-2000  . #x2936)	; ø»¢Ÿ
       ))
     (latin-iso8859-1	. #xBF)	; øº’´Ÿ
     (latin-iso8859-9	. #xBF)	; øº“†Ÿ
@@ -907,7 +921,7 @@
      ((name		  . "INVERTED QUESTION MARK")
       (=ucs		  . #x00BF)	; Â¿
       ))
-    (korean-ksc5601	. #x222F)	; ø»ˆ›¸
+    (=ks-x1001		. #x222F)	; ø»ˆ›¸
     (=jis-x0212		. #x2244)	; ø»Š¦‘
     (=jis-x0213-1-2000	. #x2936)	; ø»¢Ÿ
     (=ucs@jis		. #x00BF)	; ø»ˆ›¸
@@ -1179,7 +1193,7 @@
     (->lowercase
      ((name		  . "fullwidth latin small letter ae")
       ))
-    (korean-ksc5601	. #x2821)	; ø»ˆ¤ž
+    (=ks-x1001		. #x2821)	; ø»ˆ¤ž
     (=jis-x0212		. #x2921)	; ø»Š°€
     (=jis-x0213-1-2000	. #x293D)	; ø»¢Ÿˆ
     (=jef-china3	. #x83A5)	; øºˆŽ¥
@@ -1555,7 +1569,8 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin capital letter eth")
-      (korean-ksc5601	  . #x2822)	; ø»ˆ¤Ÿ
+      (=ks-x1001	  . #x2822)	; ø»ˆ¤Ÿ
+      (=jis-x0213-1-2000  . #x2947)	; ø»¢Ÿ’
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER ETH")
@@ -1578,7 +1593,7 @@
      ((name		  . "LATIN CAPITAL LETTER ETH")
       (=ucs		  . #x00D0)	; Ã
       ))
-    (korean-ksc5601	. #x2822)	; ø»ˆ¤Ÿ
+    (=ks-x1001		. #x2822)	; ø»ˆ¤Ÿ
     (=jis-x0213-1-2000	. #x2947)	; ø»¢Ÿ’
     (=ucs@jis		. #x00D0)	; ø»ˆ¤Ÿ
     ))
@@ -1832,7 +1847,6 @@
     (->fullwidth
      ((name		  . "fullwidth multiplication sign")
       (chinese-gb2312	  . #x2141)	; ø»„†¤
-      (korean-ksc5601	  . #x213F)	; ø»ˆšª
       (chinese-cns11643-1 . #x2232)	; ø»‘„‹
       ))
     (latin-iso8859-1	. #xD7)	; øº’´·
@@ -1855,7 +1869,7 @@
       ))
     (chinese-gb2312	. #x2141)	; ø»„†¤
     (=jis-x0208		. #x215F)	; ø½‰¶º
-    (korean-ksc5601	. #x213F)	; ø»ˆšª
+    (=ks-x1001		. #x213F)	; ø»ˆšª
     (chinese-cns11643-1 . #x2232)	; ø»‘„‹
     (chinese-big5	. #xA1D1)	; ý¢€Š‡‘
     (=ucs@jis		. #x00D7)	; ø»„†¤
@@ -1883,7 +1897,7 @@
     (->lowercase
      ((name		  . "fullwidth latin small letter o with stroke")
       ))
-    (korean-ksc5601	. #x282A)	; ø»ˆ¤§
+    (=ks-x1001		. #x282A)	; ø»ˆ¤§
     (=jis-x0212		. #x292C)	; ø»Š°‹
     (=jis-x0213-1-2000	. #x294E)	; ø»¢Ÿ™
     (=jef-china3	. #x83A2)	; øºˆŽ¢
@@ -2089,7 +2103,9 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin capital letter thorn")
-      (korean-ksc5601	  . #x282D)	; ø»ˆ¤ª
+      (=ks-x1001	  . #x282D)	; ø»ˆ¤ª
+      (=jis-x0212	  . #x2930)	; ø»Š°
+      (=jis-x0213-1-2000  . #x2954)	; ø»¢ŸŸ
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER THORN")
@@ -2112,7 +2128,7 @@
      ((name		  . "LATIN CAPITAL LETTER THORN")
       (=ucs		  . #x00DE)	; Ãž
       ))
-    (korean-ksc5601	. #x282D)	; ø»ˆ¤ª
+    (=ks-x1001		. #x282D)	; ø»ˆ¤ª
     (=jis-x0212		. #x2930)	; ø»Š°
     (=jis-x0213-1-2000	. #x2954)	; ø»¢ŸŸ
     (=jef-china3	. #x83A4)	; øºˆŽ¤
@@ -2126,7 +2142,9 @@
     (iso-10646-comment	. "German")
     (->fullwidth
      ((name		  . "fullwidth latin small letter sharp s")
-      (korean-ksc5601	  . #x292C)	; ø»ˆ¦‡
+      (=ks-x1001	  . #x292C)	; ø»ˆ¦‡
+      (=jis-x0212	  . #x294E)	; ø»Š°­
+      (=jis-x0213-1-2000  . #x2955)	; ø»¢Ÿ 
       ))
     (latin-iso8859-1	. #xDF)	; øº’´¿
     (latin-iso8859-2	. #xDF)	; øº’¶Ÿ
@@ -2146,7 +2164,7 @@
      ((name		  . "LATIN SMALL LETTER SHARP S")
       (=ucs		  . #x00DF)	; ÃŸ
       ))
-    (korean-ksc5601	. #x292C)	; ø»ˆ¦‡
+    (=ks-x1001		. #x292C)	; ø»ˆ¦‡
     (=jis-x0212		. #x294E)	; ø»Š°­
     (=jis-x0213-1-2000	. #x2955)	; ø»¢Ÿ 
     (=jef-china3	. #x83B7)	; øºˆŽ·
@@ -2406,7 +2424,9 @@
     (iso-10646-comment	. "ash *")
     (->fullwidth
      ((name		  . "fullwidth latin small letter ae")
-      (korean-ksc5601	  . #x2921)	; ø»ˆ¥¼
+      (=ks-x1001	  . #x2921)	; ø»ˆ¥¼
+      (=jis-x0212	  . #x2941)	; ø»Š° 
+      (=jis-x0213-1-2000  . #x295C)	; ø»¢Ÿ§
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER AE")
@@ -2432,7 +2452,7 @@
      ((name		  . "LATIN SMALL LETTER AE")
       (=ucs		  . #x00E6)	; Ã¦
       ))
-    (korean-ksc5601	. #x2921)	; ø»ˆ¥¼
+    (=ks-x1001		. #x2921)	; ø»ˆ¥¼
     (=jis-x0212		. #x2941)	; ø»Š° 
     (=jis-x0213-1-2000	. #x295C)	; ø»¢Ÿ§
     (=jef-china3	. #x83B0)	; øºˆŽ°
@@ -2817,7 +2837,7 @@
     (->uppercase
      ((name		  . "fullwidth latin capital letter eth")
       ))
-    (korean-ksc5601	. #x2923)	; ø»ˆ¥¾
+    (=ks-x1001		. #x2923)	; ø»ˆ¥¾
     (=jis-x0212		. #x2943)	; ø»Š°¢
     (=jis-x0213-1-2000	. #x2966)	; ø»¢Ÿ±
     (=jef-china3	. #x83B4)	; øºˆŽ´
@@ -3076,7 +3096,6 @@
     (->fullwidth
      ((name		  . "fullwidth division sign")
       (chinese-gb2312	  . #x2142)	; ø»„†¥
-      (korean-ksc5601	  . #x2140)	; ø»ˆš«
       (chinese-cns11643-1 . #x2233)	; ø»‘„Œ
       ))
     (latin-iso8859-1	. #xF7)	; øº’µ—
@@ -3099,7 +3118,7 @@
       ))
     (chinese-gb2312	. #x2142)	; ø»„†¥
     (=jis-x0208		. #x2160)	; ø½‰¶»
-    (korean-ksc5601	. #x2140)	; ø»ˆš«
+    (=ks-x1001		. #x2140)	; ø»ˆš«
     (chinese-cns11643-1 . #x2233)	; ø»‘„Œ
     (chinese-big5	. #xA1D2)	; ý¢€Š‡’
     (=ucs@jis		. #x00F7)	; ø»„†¥
@@ -3111,7 +3130,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with stroke")
-      (korean-ksc5601	  . #x292A)	; ø»ˆ¦…
+      (=ks-x1001	  . #x292A)	; ø»ˆ¦…
+      (=jis-x0212	  . #x294C)	; ø»Š°«
+      (=jis-x0213-1-2000  . #x296D)	; ø»¢Ÿ¸
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH STROKE")
@@ -3136,7 +3157,7 @@
      ((name		  . "LATIN SMALL LETTER O WITH STROKE")
       (=ucs		  . #x00F8)	; Ã¸
       ))
-    (korean-ksc5601	. #x292A)	; ø»ˆ¦…
+    (=ks-x1001		. #x292A)	; ø»ˆ¦…
     (=jis-x0212		. #x294C)	; ø»Š°«
     (=jis-x0213-1-2000	. #x296D)	; ø»¢Ÿ¸
     (=jef-china3	. #x83AD)	; øºˆŽ­
@@ -3353,7 +3374,9 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin small letter thorn")
-      (korean-ksc5601	  . #x292D)	; ø»ˆ¦ˆ
+      (=ks-x1001	  . #x292D)	; ø»ˆ¦ˆ
+      (=jis-x0212	  . #x2950)	; ø»Š°¯
+      (=jis-x0213-1-2000  . #x2973)	; ø»¢Ÿ¾
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER THORN")
@@ -3376,7 +3399,7 @@
      ((name		  . "LATIN SMALL LETTER THORN")
       (=ucs		  . #x00FE)	; Ã¾
       ))
-    (korean-ksc5601	. #x292D)	; ø»ˆ¦ˆ
+    (=ks-x1001		. #x292D)	; ø»ˆ¦ˆ
     (=jis-x0212		. #x2950)	; ø»Š°¯
     (=jis-x0213-1-2000	. #x2973)	; ø»¢Ÿ¾
     (=jef-china3	. #x83AF)	; øºˆŽ¯

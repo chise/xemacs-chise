@@ -45,7 +45,7 @@
     (total-strokes	 . 16)
     (shinjigen-2	. 8938)
     (=jis-x0208		. #x4E6C)	; ø½Š¹
-    (korean-ksc5601	. #x564B)	; ø»‰¨¬
+    (=ks-x1001		. #x564B)	; ø»‰¨¬
     (ideograph-daikanwa . 41928)	; ø¸Šˆ
     (=ucs		. #x96B7)	; éš·
     ))

@@ -5,7 +5,7 @@
     (shinjigen-2	. 4037)
     (chinese-gb2312	. #x4A4F)	; ø»…ƒ€
     (=jis-x0208		. #x3B61)	; ø½Šˆ
-    (korean-ksc5601	. #x642B)	; ø»‰¼°
+    (=ks-x1001		. #x642B)	; ø»‰¼°
     (=iso-ir165		. #x4A4F)	; ø»«
     (chinese-cns11643-1 . #x4554)	; ø»‘¸‡
     (=gt-pj-1		. #x3B61)	; æ°
@@ -43,7 +43,7 @@
     (shinjigen-2	. 4039)
     (chinese-gb2312	. #x4371)	; ø»„¹
     (=jis-x0208		. #x4C31)	; ø½Šµ–
-    (korean-ksc5601	. #x5A45)	; ø»‰®ž
+    (=ks-x1001		. #x5A45)	; ø»‰®ž
     (=iso-ir165		. #x4371)	; ø»¡ 
     (chinese-cns11643-1 . #x4661)	; ø»‘¹²
     (=gt-pj-1		. #x4C31)	; æ°‘
@@ -88,7 +88,7 @@
     (total-strokes	 . 8)
     (=jis-x0208-1978	. #x5D62)	; ø»ƒ•‰
     (=jis-x0208-1983	. #x5D62)	; ø»‡©‘
-    (korean-ksc5601	. #x586C)	; ø»‰¬‰
+    (=ks-x1001		. #x586C)	; ø»‰¬‰
     ))
 (define-char
   '((morohashi-daikanwa	17030 0 2)

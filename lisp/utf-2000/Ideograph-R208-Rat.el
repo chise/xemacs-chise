@@ -5,7 +5,7 @@
     (shinjigen-2	. 9866)
     (chinese-gb2312	. #x4A73)	; ø»…ƒ¤
     (=jis-x0208		. #x414D)	; ø½Š¥¨
-    (korean-ksc5601	. #x6029)	; ø»‰¶¶
+    (=ks-x1001		. #x6029)	; ø»‰¶¶
     (=iso-ir165		. #x4A73)	; ø»«´
     (=gt-pj-1		. #x414D)	; é¼ 
     (ideograph-daikanwa . 48390)	; ø¸‹´†

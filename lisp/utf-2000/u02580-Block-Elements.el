@@ -159,7 +159,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	. #x2246)	; ø»ˆœ
+    (=ks-x1001		. #x2246)	; ø»ˆœ
     (=ucs		. #x2592)	; â–’
     ))
 (define-char

@@ -73,7 +73,7 @@
     (total-strokes	 . 15)
     (shinjigen-2	. 9493)
     (=jis-x0208		. #x7229)	; ø½‹­‚
-    (korean-ksc5601	. #x5722)	; ø»‰©¡
+    (=ks-x1001		. #x5722)	; ø»‰©¡
     (chinese-cns11643-1 . #x7023)	; ø»’¶ 
     (chinese-gb12345	. #x4456)	; é¬§
     (ideograph-daikanwa . 45639)	; ø¸‹‰‡
@@ -173,7 +173,7 @@
     (total-strokes	 . 20)
     (shinjigen-2	. 9498)
     (=jis-x0208		. #x722C)	; ø½‹­…
-    (korean-ksc5601	. #x7763)	; ø»Š™¢
+    (=ks-x1001		. #x7763)	; ø»Š™¢
     (chinese-cns11643-3 . #x5D62)	; ø»–¯­
     (ideograph-daikanwa . 45649)	; ø¸‹‰‘
     (=ucs		. #x9B2A)	; é¬ª

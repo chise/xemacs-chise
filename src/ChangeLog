@@ -1,3 +1,11 @@
+2003-04-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qmap_ks_x1001): Renamed from `Qkorean_ksc5601'.
+	(syms_of_mule_charset): Add new symbol `=ks-x1001' instead of
+	`korean-ksc5601'.
+	(complex_vars_of_mule_charset): Rename `korean-ksc5601' to
+	`=ks-x1001'.
+
 2003-04-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Qmap_jis_x0212): Renamed from

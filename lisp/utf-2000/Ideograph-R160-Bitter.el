@@ -5,7 +5,7 @@
     (shinjigen-2	. 8196)
     (chinese-gb2312	. #x5041)	; ø»…‹¦
     (=jis-x0208		. #x3F49)	; ø½Š¢¨
-    (korean-ksc5601	. #x6374)	; ø»‰¼›
+    (=ks-x1001		. #x6374)	; ø»‰¼›
     (=iso-ir165		. #x5041)	; ø»³¶
     (chinese-cns11643-1 . #x4B50)	; ø»’€·
     (=gt-pj-1		. #x3F49)	; è¾›
@@ -58,8 +58,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((korean-ksc5601	    . #x5821)	; ø»‰ª¾
-	(ideograph-daikanwa . 25721)	; ø¸†‘¹
+       ((ideograph-daikanwa . 25721)	; ø¸†‘¹
 	)
        ((=big5-cdp	    . #x8B75)	; ý¢€ˆ­µ
 	))
@@ -148,7 +147,7 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 8198)
     (=jis-x0208		. #x6D63)	; ø½‹¦¦
-    (korean-ksc5601	. #x4D50)	; ø»‰›£
+    (=ks-x1001		. #x4D50)	; ø»‰›£
     (=gt-pj-1		. #x6D63)	; ø½‹¦¦
     (ideograph-daikanwa . 38636)	; ø¸‰›¬
     (=gt-k		. 09237)	; ý¡„‚•
@@ -295,7 +294,7 @@
     (total-strokes	 . 14)
     (shinjigen-2	. 8203)
     (=jis-x0208		. #x6D65)	; ø½‹¦¨
-    (korean-ksc5601	. #x5538)	; ø»‰¦»
+    (=ks-x1001		. #x5538)	; ø»‰¦»
     (ideograph-daikanwa . 38646)	; ø¸‰›¶
     (=ucs@jis		. #x8FA3)	; ø½‹¦¨
     ))
@@ -409,7 +408,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (korean-ksc5601	. #x777D)	; ø»Š™¼
+    (=ks-x1001		. #x777D)	; ø»Š™¼
     (=jis-x0212		. #x6132)	; ø»Œ‚¡
     (chinese-cns11643-1 . #x7256)	; ø»’º
     (=jis-x0213-1-2000	. #x7C52)	; ø»¤™—
@@ -474,7 +473,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (korean-ksc5601	. #x5C29)	; ø»‰°¾
+    (=ks-x1001		. #x5C29)	; ø»‰°¾
     ))
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
@@ -640,7 +639,7 @@
     (total-strokes	 . 19)
     (shinjigen-2	. 8200)
     (=jis-x0208		. #x6D66)	; ø½‹¦©
-    (korean-ksc5601	. #x5E76)	; ø»‰µ‡
+    (=ks-x1001		. #x5E76)	; ø»‰µ‡
     (ideograph-daikanwa . 38671)	; ø¸‰œ
     (=ucs@jis		. #x8FAD)	; ø½‹¦©
     ))
@@ -711,7 +710,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
     (=jis-x0208		. #x6D67)	; ø½‹¦ª
-    (korean-ksc5601	. #x5C2A)	; ø»‰°¿
+    (=ks-x1001		. #x5C2A)	; ø»‰°¿
     (ideograph-daikanwa . 38677)	; ø¸‰œ•
     (=ucs@jis		. #x8FAF)	; ø½‹¦ª
     ))

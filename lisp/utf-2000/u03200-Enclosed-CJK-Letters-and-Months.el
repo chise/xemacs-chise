@@ -4,7 +4,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x0029)
-    (korean-ksc5601	. #x2931)	; ø»ˆ¦Œ
+    (=ks-x1001		. #x2931)	; ø»ˆ¦Œ
     (=ucs		. #x3200)	; ãˆ€
     ))
 (define-char
@@ -13,7 +13,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x0029)
-    (korean-ksc5601	. #x2932)	; ø»ˆ¦
+    (=ks-x1001		. #x2932)	; ø»ˆ¦
     (=ucs		. #x3201)	; ãˆ
     ))
 (define-char
@@ -22,7 +22,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x0029)
-    (korean-ksc5601	. #x2933)	; ø»ˆ¦Ž
+    (=ks-x1001		. #x2933)	; ø»ˆ¦Ž
     (=ucs		. #x3202)	; ãˆ‚
     ))
 (define-char
@@ -31,7 +31,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x0029)
-    (korean-ksc5601	. #x2934)	; ø»ˆ¦
+    (=ks-x1001		. #x2934)	; ø»ˆ¦
     (=ucs		. #x3203)	; ãˆƒ
     ))
 (define-char
@@ -40,7 +40,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x0029)
-    (korean-ksc5601	. #x2935)	; ø»ˆ¦
+    (=ks-x1001		. #x2935)	; ø»ˆ¦
     (=ucs		. #x3204)	; ãˆ„
     ))
 (define-char
@@ -49,7 +49,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x0029)
-    (korean-ksc5601	. #x2936)	; ø»ˆ¦‘
+    (=ks-x1001		. #x2936)	; ø»ˆ¦‘
     (=ucs		. #x3205)	; ãˆ…
     ))
 (define-char
@@ -58,7 +58,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x0029)
-    (korean-ksc5601	. #x2937)	; ø»ˆ¦’
+    (=ks-x1001		. #x2937)	; ø»ˆ¦’
     (=ucs		. #x3206)	; ãˆ†
     ))
 (define-char
@@ -67,7 +67,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x0029)
-    (korean-ksc5601	. #x2938)	; ø»ˆ¦“
+    (=ks-x1001		. #x2938)	; ø»ˆ¦“
     (=ucs		. #x3207)	; ãˆ‡
     ))
 (define-char
@@ -76,7 +76,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x0029)
-    (korean-ksc5601	. #x2939)	; ø»ˆ¦”
+    (=ks-x1001		. #x2939)	; ø»ˆ¦”
     (=ucs		. #x3208)	; ãˆˆ
     ))
 (define-char
@@ -85,7 +85,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x0029)
-    (korean-ksc5601	. #x293A)	; ø»ˆ¦•
+    (=ks-x1001		. #x293A)	; ø»ˆ¦•
     (=ucs		. #x3209)	; ãˆ‰
     ))
 (define-char
@@ -94,7 +94,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x0029)
-    (korean-ksc5601	. #x293B)	; ø»ˆ¦–
+    (=ks-x1001		. #x293B)	; ø»ˆ¦–
     (=ucs		. #x320A)	; ãˆŠ
     ))
 (define-char
@@ -103,7 +103,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x0029)
-    (korean-ksc5601	. #x293C)	; ø»ˆ¦—
+    (=ks-x1001		. #x293C)	; ø»ˆ¦—
     (=ucs		. #x320B)	; ãˆ‹
     ))
 (define-char
@@ -112,7 +112,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x0029)
-    (korean-ksc5601	. #x293D)	; ø»ˆ¦˜
+    (=ks-x1001		. #x293D)	; ø»ˆ¦˜
     (=ucs		. #x320C)	; ãˆŒ
     ))
 (define-char
@@ -121,7 +121,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x0029)
-    (korean-ksc5601	. #x293E)	; ø»ˆ¦™
+    (=ks-x1001		. #x293E)	; ø»ˆ¦™
     (=ucs		. #x320D)	; ãˆ
     ))
 (define-char
@@ -130,7 +130,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x1161 #x0029)
-    (korean-ksc5601	. #x293F)	; ø»ˆ¦š
+    (=ks-x1001		. #x293F)	; ø»ˆ¦š
     (=ucs		. #x320E)	; ãˆŽ
     ))
 (define-char
@@ -139,7 +139,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x1161 #x0029)
-    (korean-ksc5601	. #x2940)	; ø»ˆ¦›
+    (=ks-x1001		. #x2940)	; ø»ˆ¦›
     (=ucs		. #x320F)	; ãˆ
     ))
 (define-char
@@ -148,7 +148,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x1161 #x0029)
-    (korean-ksc5601	. #x2941)	; ø»ˆ¦œ
+    (=ks-x1001		. #x2941)	; ø»ˆ¦œ
     (=ucs		. #x3210)	; ãˆ
     ))
 (define-char
@@ -157,7 +157,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x1161 #x0029)
-    (korean-ksc5601	. #x2942)	; ø»ˆ¦
+    (=ks-x1001		. #x2942)	; ø»ˆ¦
     (=ucs		. #x3211)	; ãˆ‘
     ))
 (define-char
@@ -166,7 +166,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x1161 #x0029)
-    (korean-ksc5601	. #x2943)	; ø»ˆ¦ž
+    (=ks-x1001		. #x2943)	; ø»ˆ¦ž
     (=ucs		. #x3212)	; ãˆ’
     ))
 (define-char
@@ -175,7 +175,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x1161 #x0029)
-    (korean-ksc5601	. #x2944)	; ø»ˆ¦Ÿ
+    (=ks-x1001		. #x2944)	; ø»ˆ¦Ÿ
     (=ucs		. #x3213)	; ãˆ“
     ))
 (define-char
@@ -184,7 +184,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x1161 #x0029)
-    (korean-ksc5601	. #x2945)	; ø»ˆ¦ 
+    (=ks-x1001		. #x2945)	; ø»ˆ¦ 
     (=ucs		. #x3214)	; ãˆ”
     ))
 (define-char
@@ -193,7 +193,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x1161 #x0029)
-    (korean-ksc5601	. #x2946)	; ø»ˆ¦¡
+    (=ks-x1001		. #x2946)	; ø»ˆ¦¡
     (=ucs		. #x3215)	; ãˆ•
     ))
 (define-char
@@ -202,7 +202,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x1161 #x0029)
-    (korean-ksc5601	. #x2947)	; ø»ˆ¦¢
+    (=ks-x1001		. #x2947)	; ø»ˆ¦¢
     (=ucs		. #x3216)	; ãˆ–
     ))
 (define-char
@@ -211,7 +211,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x1161 #x0029)
-    (korean-ksc5601	. #x2948)	; ø»ˆ¦£
+    (=ks-x1001		. #x2948)	; ø»ˆ¦£
     (=ucs		. #x3217)	; ãˆ—
     ))
 (define-char
@@ -220,7 +220,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x1161 #x0029)
-    (korean-ksc5601	. #x2949)	; ø»ˆ¦¤
+    (=ks-x1001		. #x2949)	; ø»ˆ¦¤
     (=ucs		. #x3218)	; ãˆ˜
     ))
 (define-char
@@ -229,7 +229,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x1161 #x0029)
-    (korean-ksc5601	. #x294A)	; ø»ˆ¦¥
+    (=ks-x1001		. #x294A)	; ø»ˆ¦¥
     (=ucs		. #x3219)	; ãˆ™
     ))
 (define-char
@@ -238,7 +238,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x1161 #x0029)
-    (korean-ksc5601	. #x294B)	; ø»ˆ¦¦
+    (=ks-x1001		. #x294B)	; ø»ˆ¦¦
     (=ucs		. #x321A)	; ãˆš
     ))
 (define-char
@@ -247,7 +247,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x1161 #x0029)
-    (korean-ksc5601	. #x294C)	; ø»ˆ¦§
+    (=ks-x1001		. #x294C)	; ø»ˆ¦§
     (=ucs		. #x321B)	; ãˆ›
     ))
 (define-char
@@ -256,7 +256,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x116E #x0029)
-    (korean-ksc5601	. #x225F)	; ø»ˆœ¨
+    (=ks-x1001		. #x225F)	; ø»ˆœ¨
     (=ucs		. #x321C)	; ãˆœ
     ))
 (define-char
@@ -658,7 +658,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1100)
-    (korean-ksc5601	. #x2831)	; ø»ˆ¤®
+    (=ks-x1001		. #x2831)	; ø»ˆ¤®
     (=ucs		. #x3260)	; ã‰ 
     ))
 (define-char
@@ -667,7 +667,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1102)
-    (korean-ksc5601	. #x2832)	; ø»ˆ¤¯
+    (=ks-x1001		. #x2832)	; ø»ˆ¤¯
     (=ucs		. #x3261)	; ã‰¡
     ))
 (define-char
@@ -676,7 +676,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1103)
-    (korean-ksc5601	. #x2833)	; ø»ˆ¤°
+    (=ks-x1001		. #x2833)	; ø»ˆ¤°
     (=ucs		. #x3262)	; ã‰¢
     ))
 (define-char
@@ -685,7 +685,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1105)
-    (korean-ksc5601	. #x2834)	; ø»ˆ¤±
+    (=ks-x1001		. #x2834)	; ø»ˆ¤±
     (=ucs		. #x3263)	; ã‰£
     ))
 (define-char
@@ -694,7 +694,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1106)
-    (korean-ksc5601	. #x2835)	; ø»ˆ¤²
+    (=ks-x1001		. #x2835)	; ø»ˆ¤²
     (=ucs		. #x3264)	; ã‰¤
     ))
 (define-char
@@ -703,7 +703,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1107)
-    (korean-ksc5601	. #x2836)	; ø»ˆ¤³
+    (=ks-x1001		. #x2836)	; ø»ˆ¤³
     (=ucs		. #x3265)	; ã‰¥
     ))
 (define-char
@@ -712,7 +712,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1109)
-    (korean-ksc5601	. #x2837)	; ø»ˆ¤´
+    (=ks-x1001		. #x2837)	; ø»ˆ¤´
     (=ucs		. #x3266)	; ã‰¦
     ))
 (define-char
@@ -721,7 +721,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110B)
-    (korean-ksc5601	. #x2838)	; ø»ˆ¤µ
+    (=ks-x1001		. #x2838)	; ø»ˆ¤µ
     (=ucs		. #x3267)	; ã‰§
     ))
 (define-char
@@ -730,7 +730,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110C)
-    (korean-ksc5601	. #x2839)	; ø»ˆ¤¶
+    (=ks-x1001		. #x2839)	; ø»ˆ¤¶
     (=ucs		. #x3268)	; ã‰¨
     ))
 (define-char
@@ -739,7 +739,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110E)
-    (korean-ksc5601	. #x283A)	; ø»ˆ¤·
+    (=ks-x1001		. #x283A)	; ø»ˆ¤·
     (=ucs		. #x3269)	; ã‰©
     ))
 (define-char
@@ -748,7 +748,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110F)
-    (korean-ksc5601	. #x283B)	; ø»ˆ¤¸
+    (=ks-x1001		. #x283B)	; ø»ˆ¤¸
     (=ucs		. #x326A)	; ã‰ª
     ))
 (define-char
@@ -757,7 +757,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1110)
-    (korean-ksc5601	. #x283C)	; ø»ˆ¤¹
+    (=ks-x1001		. #x283C)	; ø»ˆ¤¹
     (=ucs		. #x326B)	; ã‰«
     ))
 (define-char
@@ -766,7 +766,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1111)
-    (korean-ksc5601	. #x283D)	; ø»ˆ¤º
+    (=ks-x1001		. #x283D)	; ø»ˆ¤º
     (=ucs		. #x326C)	; ã‰¬
     ))
 (define-char
@@ -775,7 +775,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1112)
-    (korean-ksc5601	. #x283E)	; ø»ˆ¤»
+    (=ks-x1001		. #x283E)	; ø»ˆ¤»
     (=ucs		. #x326D)	; ã‰­
     ))
 (define-char
@@ -784,7 +784,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1100 #x1161)
-    (korean-ksc5601	. #x283F)	; ø»ˆ¤¼
+    (=ks-x1001		. #x283F)	; ø»ˆ¤¼
     (=ucs		. #x326E)	; ã‰®
     ))
 (define-char
@@ -793,7 +793,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1102 #x1161)
-    (korean-ksc5601	. #x2840)	; ø»ˆ¤½
+    (=ks-x1001		. #x2840)	; ø»ˆ¤½
     (=ucs		. #x326F)	; ã‰¯
     ))
 (define-char
@@ -802,7 +802,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1103 #x1161)
-    (korean-ksc5601	. #x2841)	; ø»ˆ¤¾
+    (=ks-x1001		. #x2841)	; ø»ˆ¤¾
     (=ucs		. #x3270)	; ã‰°
     ))
 (define-char
@@ -811,7 +811,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1105 #x1161)
-    (korean-ksc5601	. #x2842)	; ø»ˆ¤¿
+    (=ks-x1001		. #x2842)	; ø»ˆ¤¿
     (=ucs		. #x3271)	; ã‰±
     ))
 (define-char
@@ -820,7 +820,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1106 #x1161)
-    (korean-ksc5601	. #x2843)	; ø»ˆ¥€
+    (=ks-x1001		. #x2843)	; ø»ˆ¥€
     (=ucs		. #x3272)	; ã‰²
     ))
 (define-char
@@ -829,7 +829,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1107 #x1161)
-    (korean-ksc5601	. #x2844)	; ø»ˆ¥
+    (=ks-x1001		. #x2844)	; ø»ˆ¥
     (=ucs		. #x3273)	; ã‰³
     ))
 (define-char
@@ -838,7 +838,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1109 #x1161)
-    (korean-ksc5601	. #x2845)	; ø»ˆ¥‚
+    (=ks-x1001		. #x2845)	; ø»ˆ¥‚
     (=ucs		. #x3274)	; ã‰´
     ))
 (define-char
@@ -847,7 +847,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110B #x1161)
-    (korean-ksc5601	. #x2846)	; ø»ˆ¥ƒ
+    (=ks-x1001		. #x2846)	; ø»ˆ¥ƒ
     (=ucs		. #x3275)	; ã‰µ
     ))
 (define-char
@@ -856,7 +856,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110C #x1161)
-    (korean-ksc5601	. #x2847)	; ø»ˆ¥„
+    (=ks-x1001		. #x2847)	; ø»ˆ¥„
     (=ucs		. #x3276)	; ã‰¶
     ))
 (define-char
@@ -865,7 +865,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110E #x1161)
-    (korean-ksc5601	. #x2848)	; ø»ˆ¥…
+    (=ks-x1001		. #x2848)	; ø»ˆ¥…
     (=ucs		. #x3277)	; ã‰·
     ))
 (define-char
@@ -874,7 +874,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x110F #x1161)
-    (korean-ksc5601	. #x2849)	; ø»ˆ¥†
+    (=ks-x1001		. #x2849)	; ø»ˆ¥†
     (=ucs		. #x3278)	; ã‰¸
     ))
 (define-char
@@ -883,7 +883,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1110 #x1161)
-    (korean-ksc5601	. #x284A)	; ø»ˆ¥‡
+    (=ks-x1001		. #x284A)	; ø»ˆ¥‡
     (=ucs		. #x3279)	; ã‰¹
     ))
 (define-char
@@ -892,7 +892,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1111 #x1161)
-    (korean-ksc5601	. #x284B)	; ø»ˆ¥ˆ
+    (=ks-x1001		. #x284B)	; ø»ˆ¥ˆ
     (=ucs		. #x327A)	; ã‰º
     ))
 (define-char
@@ -901,7 +901,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	circle #x1112 #x1161)
-    (korean-ksc5601	. #x284C)	; ø»ˆ¥‰
+    (=ks-x1001		. #x284C)	; ø»ˆ¥‰
     (=ucs		. #x327B)	; ã‰»
     ))
 (define-char
@@ -909,7 +909,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (korean-ksc5601	. #x225E)	; ø»ˆœ§
+    (=ks-x1001		. #x225E)	; ø»ˆœ§
     (=ucs		. #x327F)	; ã‰¿
     ))
 (define-char

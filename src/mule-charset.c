@@ -298,7 +298,7 @@ Lisp_Object Qascii,
   Qchinese_gb2312,
   Qchinese_gb12345,
   Qmap_jis_x0208_1983,
-  Qkorean_ksc5601,
+  Qmap_ks_x1001,
   Qmap_jis_x0212,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
@@ -2376,7 +2376,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
   defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
-  defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
+  defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
   defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
@@ -2726,7 +2726,7 @@ complex_vars_of_mule_charset (void)
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
-    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601, 94, 2,
+    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qmap_ks_x1001, 94, 2,
 		  2, 0, 'C', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("KSC5601"),
 		  build_string ("KSC5601 (Korean"),

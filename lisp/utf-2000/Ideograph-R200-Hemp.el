@@ -4,7 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (shinjigen-1	. 9805)
-    (korean-ksc5601	. #x582B)	; ø»‰«ˆ
+    (=ks-x1001		. #x582B)	; ø»‰«ˆ
     (ideograph-daikanwa . 47887)	; ø¸‹¬
     ))
 (define-char
@@ -158,7 +158,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (=jis-x0208		. #x5D60)	; ø½‹ƒ
-    (korean-ksc5601	. #x7D4B)	; ø»Š¡¾
+    (=ks-x1001		. #x7D4B)	; ø»Š¡¾
     (chinese-cns11643-1 . #x702C)	; ø»’¶©
     (ideograph-daikanwa . 47899)	; ø¸‹¬›
     (=ucs@jis		. #x9EBE)	; ø½‹ƒ

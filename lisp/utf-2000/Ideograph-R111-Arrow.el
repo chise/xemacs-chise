@@ -5,7 +5,7 @@
     (shinjigen-2	. 5389)
     (chinese-gb2312	. #x4A38)	; ø»…‚©
     (=jis-x0208		. #x4C70)	; ø½Š¶•
-    (korean-ksc5601	. #x6345)	; ø»‰»¬
+    (=ks-x1001		. #x6345)	; ø»‰»¬
     (=iso-ir165		. #x4A38)	; ø»ª¹
     (chinese-cns11643-1 . #x467A)	; ø»‘º‹
     (=gt-pj-1		. #x4C70)	; çŸ¢
@@ -20,7 +20,7 @@
     (shinjigen-2	. 5390)
     (chinese-gb2312	. #x5253)	; ø»…Ž´
     (=jis-x0208		. #x6263)	; ø½‹–œ
-    (korean-ksc5601	. #x6B78)	; ø»Šˆ
+    (=ks-x1001		. #x6B78)	; ø»Šˆ
     (=iso-ir165		. #x5253)	; ø»·„
     (=gt-pj-1		. #x6263)	; çŸ£
     (ideograph-daikanwa . 23931)	; ø¸…µ»
@@ -83,7 +83,7 @@
     (total-strokes	 . 8)
     (chinese-gb2312	. #x562A)	; ø»…”ƒ
     (=jis-x0208		. #x434E)	; ø½Š¨¥
-    (korean-ksc5601	. #x7231)	; ø»Š‘š
+    (=ks-x1001		. #x7231)	; ø»Š‘š
     (=iso-ir165		. #x562A)	; ø»¼“
     (chinese-cns11643-1 . #x4F21)	; ø»’†€
     (=gt-pj-1		. #x434E)	; çŸ¥
@@ -224,7 +224,7 @@
     (total-strokes	 . 10)
     (chinese-gb2312	. #x3E58)	; ø»„±¡
     (=jis-x0208		. #x366B)	; ø½Š•¼
-    (korean-ksc5601	. #x4F3B)	; ø»‰žŠ
+    (=ks-x1001		. #x4F3B)	; ø»‰žŠ
     (=iso-ir165		. #x3E58)	; ø»™±
     (=gt-pj-1		. #x366B)	; çŸ©
     (=gt-k		. 06406)	; ý¡„¤†
@@ -560,7 +560,7 @@
     (shinjigen-2	. 5395)
     (chinese-gb2312	. #x364C)	; ø»„¥¥
     (=jis-x0208		. #x433B)	; ø½Š¨’
-    (korean-ksc5601	. #x532D)	; ø»‰£´
+    (=ks-x1001		. #x532D)	; ø»‰£´
     (=iso-ir165		. #x364C)	; ø»µ
     (chinese-cns11643-1 . #x607B)	; ø»’ ˜
     (ideograph-daikanwa . 23978)	; ø¸…¶ª
@@ -701,7 +701,7 @@
     (shinjigen-2	. 5396)
     (chinese-gb2312	. #x302B)	; ø»„œ
     (=jis-x0208		. #x6264)	; ø½‹–
-    (korean-ksc5601	. #x6861)	; ø»Šƒž
+    (=ks-x1001		. #x6861)	; ø»Šƒž
     (=iso-ir165		. #x302B)	; ø»„ 
     (ideograph-daikanwa . 23995)	; ø¸…¶»
     (=ucs		. #x77EE)	; çŸ®
@@ -889,7 +889,7 @@
     (total-strokes	 . 17)
     (shinjigen-2	. 5397)
     (=jis-x0208		. #x363A)	; ø½Š•‹
-    (korean-ksc5601	. #x4E6C)	; ø»‰
+    (=ks-x1001		. #x4E6C)	; ø»‰
     (chinese-cns11643-1 . #x744C)	; ø»’½
     (chinese-gb12345	. #x3D43)	; çŸ¯
     (ideograph-daikanwa . 24015)	; ø¸…·

@@ -50,7 +50,7 @@
     (shinjigen-2	. 566)
     (chinese-gb2312	. #x3732)	; ø»„¦©
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
-    (korean-ksc5601	. #x5B6D)	; ø»‰°¤
+    (=ks-x1001		. #x5B6D)	; ø»‰°¤
     (=iso-ir165		. #x3732)	; ø»Ž¹
     (chinese-cns11643-1 . #x443B)	; ø»‘¶
     (=gt-pj-1		. #x4B5E)	; å‡¡
@@ -739,7 +739,7 @@
     (shinjigen-2	. 576)
     (chinese-gb2312	. #x3B4B)	; ø»„¬º
     (=jis-x0208		. #x5160)	; ø½Š½›
-    (korean-ksc5601	. #x7C45)	; ø»Š š
+    (=ks-x1001		. #x7C45)	; ø»Š š
     (=iso-ir165		. #x3B4B)	; ø»•Š
     (chinese-cns11643-1 . #x5929)	; ø»’”´
     (=gt-pj-1		. #x5160)	; å‡°
@@ -838,7 +838,7 @@
     (shinjigen-1	. 577)
     (shinjigen-2	. 577)
     (=jis-x0208		. #x332E)	; ø½Š¥
-    (korean-ksc5601	. #x4B42)	; ø»‰˜™
+    (=ks-x1001		. #x4B42)	; ø»‰˜™
     (chinese-cns11643-1 . #x5E33)	; ø»’œ”
     (chinese-gb12345	. #x3F2D)	; å‡±
     (=gt-pj-1		. #x332E)	; å‡±

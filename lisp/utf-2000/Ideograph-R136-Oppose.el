@@ -26,7 +26,7 @@
     (ideographic-radical . 136)	; â¾‡
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (korean-ksc5601	. #x743F)	; ø»Š”¤
+    (=ks-x1001		. #x743F)	; ø»Š”¤
     (mojikyo		. 054189)	; ý €Ž­
     ))
 (define-char
@@ -54,7 +54,7 @@
     (total-strokes	 . 12)
     (=jis-x0208-1978	. #x3D58)	; ø»‚¥¿
     (=jis-x0208-1983	. #x3D58)	; ø»†º‡
-    (korean-ksc5601	. #x626F)	; ø»‰º¸
+    (=ks-x1001		. #x626F)	; ø»‰º¸
     ))
 (define-char
   '((=>ucs		. #x821C)	; èˆœ
@@ -121,7 +121,7 @@
     (total-strokes	 . 15)
     (shinjigen-1	. 6639)
     (=jis-x0208		. #x4971)	; ø½Š±¼
-    (korean-ksc5601	. #x5971)	; ø»‰­¬
+    (=ks-x1001		. #x5971)	; ø»‰­¬
     (=gt-pj-1		. #x4971)	; ø½Š±¼
     (=gt-k		. 11948)	; ý¡„‚º¬
     (=ucs@jis		. #x821E)	; ø½Š±¼

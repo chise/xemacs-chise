@@ -166,7 +166,7 @@
     (ideographic-strokes . 19)
     (total-strokes	 . 29)
     (=jis-x0208		. #x5D35)	; ø½‹Ž˜
-    (korean-ksc5601	. #x6A26)	; ø»Š…Ÿ
+    (=ks-x1001		. #x6A26)	; ø»Š…Ÿ
     (chinese-gb12345	. #x5374)	; é¬±
     (ideograph-daikanwa . 45671)	; ø¸‹‰§
     (=ucs		. #x9B31)	; é¬±
