@@ -43,6 +43,22 @@
     (ucs		. #x7F53)	; ç½“
     ))
 (define-char
+  '((=>ucs		. #x5188)	; å†ˆ
+    (morohashi-daikanwa	28201 0 0)
+    (ideographic-radical . 122)	; â½¹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; â¿´
+      )
+     ((chinese-big5-cdp	  . #x8B46)	; ý¢€ˆ­†
+      )
+     ((ucs		  . #x3405)	; ã…
+      ))
+    (chinese-cns11643-4 . #x2152)	; ø»—¡™
+    ))
+(define-char
   '((ideographic-radical . 122)	; â½¹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
