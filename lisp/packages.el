@@ -86,13 +86,14 @@
 
 (defvar package-locations
   (list
-   (list (paths-construct-path '("~" ".xemacs"))
+   (list (paths-construct-path '("~" ".xemacs" "mule-packages"))
+                             'early #'(lambda () (featurep 'mule)))
+   (list (paths-construct-path '("~" ".xemacs" "xemacs-packages"))
                              'early #'(lambda () t))
    (list "site-packages"     'late  #'(lambda () t))
    (list "infodock-packages" 'late  #'(lambda () (featurep 'infodock)))
    (list "mule-packages"     'late  #'(lambda () (featurep 'mule)))
-   (list "xemacs-packages"   'late  #'(lambda () t))
-   (list "packages"          'late  #'(lambda () t)))
+   (list "xemacs-packages"   'late  #'(lambda () t)))
   "Locations of the various package directories.
 This is a list each of whose elements describes one directory.
 A directory description is a three-element list.

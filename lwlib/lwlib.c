@@ -155,6 +155,12 @@ free_widget_value_contents (widget_value *wv)
       free_widget_value_tree (wv->contents);
       wv->contents = (widget_value *) 0xDEADBEEF;
     }
+  if (wv->args && wv->free_args)
+    {
+      free (wv->args);
+      wv->args = (void *) 0xDEADBEEF;
+      wv->nargs = 0;
+    }
   if (wv->next)
     {
       free_widget_value_tree (wv->next);
@@ -263,6 +269,13 @@ copy_widget_value_tree (widget_value *val, change_type change)
       copy->next = copy_widget_value_tree (val->next, change);
       copy->toolkit_data = NULL;
       copy->free_toolkit_data = False;
+      if (val->nargs)
+	{
+	  copy->args = (ArgList)malloc (sizeof (Arg) * val->nargs);
+	  memcpy (copy->args, val->args, sizeof(Arg) * val->nargs);
+	  copy->nargs = val->nargs;
+	  copy->free_args = True;
+	}
 #ifdef NEED_SCROLLBARS
       copy_scrollbar_values (val, copy);
 #endif
@@ -1298,5 +1311,18 @@ lw_show_busy (Widget w, Boolean busy)
 	      show_one_widget_busy (next->widget, busy);
 	  info->busy = busy;
 	}
+    }
+}
+
+void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
+{
+  int i;
+  if (wv->nargs && wv->args)
+    {
+      for (i = 0; i<wv->nargs; i++)
+	{
+	  addto[i + *offset] = wv->args[i];
+	}
+      *offset += wv->nargs;
     }
 }

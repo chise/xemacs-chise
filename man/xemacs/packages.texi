@@ -258,12 +258,17 @@ it depends upon.
 @subsection Manual Binary Package Installation
 
 Pre-compiled, binary packages can be installed in either a system
-package directory (this is determined when XEmacs is compiled), or in a
-subdirectory of your @file{$HOME} directory:
+package directory (this is determined when XEmacs is compiled), or in
+one of the following
+subdirectories of your @file{$HOME} directory:
 
 @example
-~/.xemacs/packages
+~/.xemacs/mule-packages
+~/.xemacs/xemacs-packages
 @end example
+
+Packages in the former directory will only be found by a Mule-enabled
+XEmacs.
 
 XEmacs does not have to be running to install binary packages, although
 XEmacs will not know about any newly-installed packages until you
@@ -278,12 +283,13 @@ To install binary packages manually:
 Download the package(s) that you want to install.  Each binary package
 will typically be a gzip'd tarball.
 
-@item
-Decide where to install the packages: in the system package directory,
-or in @file{~/.xemacs/packages}.  If you want to install the
-packages in the system package directory, make sure you can write into
-that directory.  If you want to install in your @file{$HOME} directory,
-create the directory, @file{~/.xemacs/packages}.
+@item Decide where to install the packages: in the system package
+directory, or in @file{~/.xemacs/mule-packages} or
+@file{~/.xemacs/xemacs-packages}, respectively.  If you want to install
+the packages in the system package directory, make sure you can write
+into that directory.  If you want to install in your @file{$HOME}
+directory, create the directory, @file{~/.xemacs/mule-packages} or
+@file{~/.xemacs/xemacs-packages}, respectively.
 
 @item
 Next, @code{cd} to the directory under which you want to install the

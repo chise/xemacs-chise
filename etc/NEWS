@@ -108,6 +108,18 @@ will use this at build time.
 
 ** The font-menu is now available under MS-Windows
 
+** MS-Windows support for selection is much more robust
+
+Generally selection should now do what you would expect under
+MS-Windows: the middle mouse button will paste your current selection
+or the clipboard; conversions from different types of selection to the
+clipboard can be made; the kill-ring and friends will be updated as
+per X.
+
+The only thing selection doesn't do is set the clipboard automatically
+as this would break the MS-Windows model. If you want this behaviour
+then set `selection-sets-clipboard' to t
+
 
 * Lisp and internal changes in XEmacs 21.2
 ==========================================

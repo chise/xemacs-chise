@@ -213,9 +213,9 @@ User Package directories
 ------------------------
 
 In addition to the system wide packages, each user can have his own
-packages installed in "~/.xemacs/packages". If you want to
+packages installed in "~/.xemacs/xemacs-packages". If you want to
 install packages there using the interactive tools, you need to set
-'pui-package-install-dest-dir' to "~/xemacs/packages"
+'pui-package-install-dest-dir' to "~/.xemacs/xemacs-packages"
 
 Site lisp/Site start
 --------------------

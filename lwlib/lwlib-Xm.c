@@ -60,15 +60,17 @@ Boston, MA 02111-1307, USA.  */
 #include <Xm/Separator.h>
 #include <Xm/DialogS.h>
 #include <Xm/Form.h>
+#include <Xm/Scale.h>
+#if XmVERSION > 1
+#include <Xm/ComboBox.h>
+#endif
 
 #ifdef LWLIB_MENUBARS_MOTIF
 static void xm_pull_down_callback (Widget, XtPointer, XtPointer);
-#if 0
-static void xm_pop_down_callback (Widget, XtPointer, XtPointer);
-#endif /* 0 */
 #endif
 static void xm_internal_update_other_instances (Widget, XtPointer,
 						XtPointer);
+static void xm_pop_down_callback (Widget, XtPointer, XtPointer);
 static void xm_generic_callback (Widget, XtPointer, XtPointer);
 #ifdef LWLIB_DIALOGS_MOTIF
 static void xm_nosel_callback (Widget, XtPointer, XtPointer);
@@ -658,8 +660,6 @@ xm_update_menu (widget_instance* instance, Widget widget, widget_value* val,
 #endif /* LWLIB_MENUBARS_MOTIF */
 
 
-#ifdef LWLIB_DIALOGS_MOTIF
-
 /* update text widgets */
 
 static void
@@ -685,7 +685,6 @@ xm_update_text_field (widget_instance* instance, Widget widget,
 		 xm_internal_update_other_instances, instance);
 }
 
-#endif /* LWLIB_DIALOGS_MOTIF */
 
 #ifdef LWLIB_SCROLLBARS_MOTIF
 
@@ -778,11 +777,9 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
   XtSetArg (al [1], XmNuserData,  val->call_data);
   XtSetValues (widget, al, 2);
 
-#if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF)
   /* Common to all label like widgets */
   if (XtIsSubclass (widget, xmLabelWidgetClass))
     xm_update_label (instance, widget, val);
-#endif
   
   class = XtClass (widget);
   /* Class specific things */
@@ -816,7 +813,6 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
 	xm_update_menu (instance, widget, val, deep_p);
 #endif
     }
-#ifdef LWLIB_DIALOGS_MOTIF
   else if (class == xmTextWidgetClass)
     {
       xm_update_text (instance, widget, val);
@@ -825,7 +821,6 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
     {
       xm_update_text_field (instance, widget, val);
     }
-#endif
   else if (class == xmListWidgetClass)
     {
       xm_update_list (instance, widget, val);
@@ -861,7 +856,6 @@ xm_update_one_value (widget_instance* instance, Widget widget,
       XtGetValues (widget, al, 1);
       val->edited = True;
     }
-#ifdef LWLIB_DIALOGS_MOTIF
   else if (class == xmTextWidgetClass)
     {
       if (val->value)
@@ -876,7 +870,6 @@ xm_update_one_value (widget_instance* instance, Widget widget,
       val->value = XmTextFieldGetString (widget);
       val->edited = True;
     }
-#endif
   else if (class == xmRowColumnWidgetClass)
     {
       Boolean radiobox = 0;
@@ -946,7 +939,7 @@ xm_update_one_value (widget_instance* instance, Widget widget,
 /* This function is for activating a button from a program.  It's wrong because
    we pass a NULL argument in the call_data which is not Motif compatible.
    This is used from the XmNdefaultAction callback of the List widgets to
-   have a dble-click put down a dialog box like the button woudl do. 
+   have a double-click put down a dialog box like the button would do. 
    I could not find a way to do that with accelerators.
  */
 static void
@@ -1571,7 +1564,151 @@ make_horizontal_scrollbar (widget_instance *instance)
 
 #endif /* LWLIB_SCROLLBARS_MOTIF */
 
-/* Table of functions to create widgets */
+/* glyph widgets */
+static Widget
+make_button (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget button = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
+  XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
+  XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  if (!val->call_data)
+    button = XmCreateLabel (instance->parent, val->name, al, ac);
+  
+  else if (val->type == TOGGLE_TYPE || val->type == RADIO_TYPE)
+    {
+      XtSetArg (al [ac], XmNset, val->selected);	ac++;
+      XtSetArg (al [ac], XmNindicatorType,
+		(val->type == TOGGLE_TYPE ?
+		 XmN_OF_MANY : XmONE_OF_MANY));    ac++;
+      XtSetArg (al [ac], XmNvisibleWhenOff, True); ac++;
+      button = XmCreateToggleButton (instance->parent, val->name, al, ac);
+      XtRemoveAllCallbacks (button, XmNvalueChangedCallback);
+      XtAddCallback (button, XmNvalueChangedCallback, xm_generic_callback,
+		     (XtPointer)instance);
+    }
+  else
+    {
+      button = XmCreatePushButton (instance->parent, val->name, al, ac);
+      XtAddCallback (button, XmNactivateCallback, xm_generic_callback,
+		     (XtPointer)instance);
+    }
+
+  XtManageChild (button);
+
+  return button;
+}
+
+static Widget
+make_progress (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget scale = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
+  XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
+  XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
+  XtSetArg (al [ac], XmNorientation, XmHORIZONTAL);	ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+  if (!val->call_data)
+    XtSetArg (al [ac], XmNsensitive, False);		ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  scale = XmCreateScale (instance->parent, val->name, al, ac);
+  if (val->call_data)
+    XtAddCallback (scale, XmNvalueChangedCallback, xm_generic_callback,
+		   (XtPointer)instance);
+
+  XtManageChild (scale);
+
+  return scale;
+}
+
+static Widget
+make_text_field (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget text = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XmNsensitive, val->enabled && val->call_data);		ac++;
+  XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
+  XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
+  XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  text = XmCreateTextField (instance->parent, val->name, al, ac);
+  if (val->call_data)
+    XtAddCallback (text, XmNvalueChangedCallback, xm_generic_callback,
+		   (XtPointer)instance);
+
+  XtManageChild (text);
+
+  return text;
+}
+
+#if XmVERSION > 1
+static Widget
+make_combo_box (widget_instance *instance)
+{
+  Arg al[20];
+  int ac = 0;
+  Widget combo = 0;
+  widget_value* val = instance->info->val;
+
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
+  XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
+  XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
+  XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;
+  /* The highlight doesn't appear to be dynamically set which makes it
+     look ugly.  I think this may be a LessTif bug but for now we just
+     get rid of it. */
+  XtSetArg (al [ac], XmNhighlightThickness, (Dimension)0);ac++;
+
+  /* add any args the user supplied for creation time */
+  lw_add_value_args_to_args (val, al, &ac);
+
+  combo = XmCreateComboBox (instance->parent, val->name, al, ac);
+  if (val->call_data)
+    XtAddCallback (combo, XmNselectionCallback, xm_generic_callback,
+		   (XtPointer)instance);
+
+  XtManageChild (combo);
+
+  return combo;
+}
+#endif
+
+
+/* Table of functions to create widgets */
 
 widget_creation_entry
 xm_creation_table [] = 
@@ -1583,6 +1720,12 @@ xm_creation_table [] =
 #ifdef LWLIB_SCROLLBARS_MOTIF
   {"vertical-scrollbar",	make_vertical_scrollbar},
   {"horizontal-scrollbar",	make_horizontal_scrollbar},
+#endif
+  {"button",		make_button},
+  {"progress",		make_progress},
+  {"text-field",		make_text_field},
+#if XmVERSION > 1
+  {"combo-box",		make_combo_box},
 #endif
   {NULL, NULL}
 };
@@ -1795,6 +1938,12 @@ xm_generic_callback (Widget widget, XtPointer closure, XtPointer call_data)
   do_call (widget, closure, selection);
 }
 
+static void
+xm_pop_down_callback (Widget widget, XtPointer closure, XtPointer call_data)
+{
+  do_call (widget, closure, post_activate);
+}
+
 #ifdef LWLIB_DIALOGS_MOTIF
 
 static void
@@ -1829,14 +1978,6 @@ xm_pull_down_callback (Widget widget, XtPointer closure, XtPointer call_data)
 #endif 
     do_call (widget, closure, pre_activate);
 }
-
-#if 0
-static void
-xm_pop_down_callback (Widget widget, XtPointer closure, XtPointer call_data)
-{
-  do_call (widget, closure, post_activate);
-}
-#endif /* 0 */
 
 #endif /* LWLIB_MENUBARS_MOTIF */
 

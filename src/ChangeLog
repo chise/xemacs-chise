@@ -72,6 +72,130 @@
 	(ccl_driver): New case lable `CCL_Extention'.
 	(setup_ccl_program): Initialize the member `private_state' of CCL.
 
+1999-06-29  Andy Piper  <andy@xemacs.org>
+
+	* event-msw.c: fix definition booboo.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c: change tree -> tree-view, progress ->
+ 	progress_gauge, edit -> edit-field, tab -> tab-control, combo ->
+ 	combo-box.
+	(complex_vars_of_glyphs_x): provide-on-console the implemented
+ 	widget types.
+
+	* glyphs-msw.c: ditto.
+	(complex_vars_of_glyphs_mswindows): ditto.
+
+	* lisp.h: add Fprovide_on_console.
+
+	* fns.c (Ffeaturep): add extra optional console argument.
+	(Fprovide_on_console): like Fprovide but provides only on the
+ 	specified console-type.
+	(Frequire): check console-features as well as global features.
+
+	* console.c (Fconsole_features): new function. return features for
+ 	this console.
+	(syms_of_console): add Fconsole_features.
+
+	* console.h (CONMETH_FEATURES): new function for accessing features.
+	(CONSOLE_FEATURES): ditto.
+	(struct console_methods): add features slot.
+	(INITIALIZE_CONSOLE_TYPE): initialize features slot.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* event-Xt.c (handle_focus_event_1): conditionally compile for
+ 	X11R5.
+
+	* s/cygwin32.h: fix me website address.
+	
+	* event-msw.c: add NMHDR for pre b20 cygwin builds.
+
+	* gui-x.c (button_item_to_widget_value): only add callback if it
+ 	is non-nil.
+
+	* glyphs-x.c: add progress, edit and combo instantiators.
+	(x_widget_set_property): new function. uses lwlib to set widget
+ 	values.
+	(x_widget_property): new function. uses lwlib to get widget
+ 	values.
+	(x_button_instantiate): support images in buttons.
+	(x_button_property): new function. use lwlib to get the selected
+ 	state.
+	(x_progress_instantiate): new function for instantiating progress
+ 	gauges.
+	(x_progress_set_property): new function. sets the progress gauge
+ 	position.
+	(x_edit_instantiate): new function. for instantiating edit fields.
+	(x_combo_instantiate): new function. for instantiating combo
+ 	boxes.
+	(image_instantiator_format_create_glyphs_x): add new device ii
+ 	formats.
+
+	* glyphs-msw.c (mswindows_tab_instantiate): remove redundant var.
+
+	* console.h (CONSOLE_FEATURES): new features accesor.
+
+	* conslots.h (MARKED_SLOT): add features entry.
+
+1999-06-25  Andy Piper  <andy@xemacs.org>
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): use new
+ 	gui functions.
+
+	* menubar-msw.c: move MAX_MENUITEM_LENGTH to gui.h
+
+	* gui.h (struct Lisp_Gui_Item): add accelerator.
+
+	* gui.c (gui_item_add_keyval_pair): deal with accelerators.
+	(gui_item_init): ditto.
+	(gui_add_item_keywords_to_plist): ditto.
+	(mark_gui_item): ditto.
+	(gui_item_hash): ditto.
+	(gui_item_accelerator): new function.
+	(gui_name_accelerator): new function stolen from gui-x.c
+
+	* gui-x.c (popup_selection_callback): always define. mark
+ 	subwindows changed after calling a callback.
+	(menu_name_to_accelerator): deleted.
+	(button_item_to_widget_value): forward gui_item things to gui_item
+ 	functions.
+
+	* glyphs-x.h (struct x_subwindow_data): add data for widgets. add
+ 	appropriate accesors.
+
+	* glyphs-x.c: declare new glyph formats.
+	(x_finalize_image_instance): unmanage and destroy widgets if they
+ 	exist.
+	(x_unmap_subwindow): handle widgets specially.
+	(x_map_subwindow): ditto. offset display of widgets by offset of
+ 	text widget within container.
+	(x_update_subwindow): new function. call lw_modify_all_widgets
+ 	when we are a widget.
+	(x_widget_instantiate): new function for generically creating
+ 	widgets-glyphs. toolkit specifics forwarded to lwlib.
+	(x_button_instantiate): new function for instantiating
+ 	widgets-glyph buttons.
+	(console_type_create_glyphs_x): register update_subwindow.
+	(image_instantiator_format_create_glyphs_x): register widget and
+ 	button types.
+
+	* event-msw.c (mswindows_wnd_proc): remove redundant variable.
+
+	* event-Xt.c (x_event_to_emacs_event): call handle_focus_event_1
+ 	when we get a button press in case we do not have the focus.
+	(handle_focus_event_1): set the keyboard focus to the text widget
+ 	if we do not have it.
+
+	* dialog-x.c (dbox_descriptor_to_widget_value): use new gui_item
+ 	functions.
+
+1999-06-24  SL Baur  <steve@miho.m17n.org>
+
+	* syntax.c (scan_words): Restore non-Mule code.
+	(word_constituent_p): Restore.
+
 1999-06-23  Olivier Galibert  <galibert@pobox.com>
 
 	* config.h.in: Add missing #undef *_USER_DEFINED.
