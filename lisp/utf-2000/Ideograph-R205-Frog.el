@@ -14,6 +14,11 @@
   '((ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (<-vulgar-ideograph
+     (:sources	(seiji-tsuu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 48257)	; ø¸‹²
+		 )
+      ))
     (chinese-cns11643-4 . #x2834)	; ø»—«
     (ideograph-daikanwa . 48258)	; ø¸‹²‚
     ))
