@@ -1,5 +1,38 @@
 2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (MH-575): Put `(ho 575)' to
+	`morohashi-daikanwa'; delete `morohashi-daikanwa-ho'.
+
+	* Ideograph-R130-Meat.el (MH-247): Use `morohashi-daikanwa'
+	property instead of `morohashi-daikanwa-ho' property.
+	(M055481): Add `morohashi-daikanwa'.
+
+	* Ideograph-R120-Silk.el (MH-486): Put `(ho 486)' into
+	`morohashi-daikanwa'; delete `morohashi-daikanwa-ho'.
+
+	* Ideograph-R118-Bamboo.el (MH-460): Use `morohashi-daikanwa'
+	property instead of `morohashi-daikanwa-ho'.
+	(MH-465): Likewise.
+
+	* Ideograph-R112-Stone.el (MH-382): Add `total-strokes'; use
+	`morohashi-daikanwa' property instead of `morohashi-daikanwa-ho'.
+
+	* Ideograph-R076-Lack.el (M-15992): Unify M015992.
+
+	* Ideograph-R072-Sun.el (U+66FB): Separate JSP-423F; fix
+	`ideographic-strokes'; add `total-strokes'; unify MH-234.
+	(JSP-423F): Relate to MH-234.
+	(C4-3238): Unify M-13932 and M013932.
+	(C5-3F61): Add `morohashi-daikanwa' for M-13995.
+	(M057064): New character; relate to U+66DC and M-14227'.
+	(U+66DC): Relate to M057064.
+
+	* Ideograph-R030-Mouth.el (MH-64): Use `morohashi-daikanwa'
+	property instead of `morohashi-daikanwa-ho' property.
+
+	* Ideograph-R001-One.el (MH-1): Use `morohashi-daikanwa' property
+	instead of `morohashi-daikanwa-ho' property.
+
 	* ideograph-util.el (morohashi-daikanwa<): New function.
 	(ideograph-char<): Use `morohashi-daikanwa<'.
 
