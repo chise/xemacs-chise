@@ -1,5 +1,8 @@
 2003-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R210-Even.el (U-0002A5CB): Map to M-34664; add
+	strokes.
+
 	* Ideograph-R147-See.el, Ideograph-R145-Clothes.el: Add some
 	mappings between CNS 11643-5 and CJK Ext-B code points.
 
