@@ -2881,16 +2881,18 @@
     (korean-ksc5601		. #x6E44)	; ø»Š‹µ
     (japanese-jisx0213-1	. #x776F)	; ø»¤’ž
     (ideograph-daikanwa		. 20534)	; ø¸…€¶
+    (ucs-ks			. #x732A)	; ï¨–
     (mojikyo			. 020534)	; ý €…€¶
     (ucs			. #xFA16)	; ï¨–
     ))
 (define-char
-  '((->ucs		. #x732A)	; çŒª
+  '((->ucs		. #xFA16)	; ï¨–
     (morohashi-daikanwa	20534 0 0)
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (chinese-cns11643-3 . #x3D29)	; ø»•¿´
+    (ucs-cns		. #x732A)	; ø»•¿´
     ))
 (define-char
   '((->ucs		. #x732B)	; çŒ«
