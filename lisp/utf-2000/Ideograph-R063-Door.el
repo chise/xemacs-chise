@@ -130,6 +130,12 @@
     (ideographic-radical . 63)	; â¼¾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5568)	; ø»‰§«
+      (=cns11643-1	  . #x4D53)	; ø»’ƒ¶
+      (=jis-x0213-1-2000  . #x7463)	; ø»¤¸
+      (=daikanwa	  . 11712)	; ø¸‚·€
+      ))
     (=jis-x0208		. #x4C61)	; ø½Š¶†
     (=gt		. 14766)	; ý¡€ƒ¦®
     (=gt-k		. 02658)	; ý¡„€©¢
@@ -150,11 +156,11 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 848)
-		 (=daikanwa	     . 02847)	; ø¸€¬Ÿ
-		 )
+     ((shinjigen-1	  . 848)
+      (=daikanwa	  . 02847)	; ø¸€¬Ÿ
       ))
+    (<-original-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 53 15)
     (shinjigen-1	. 849)
     (=ucs		. #x623C)	; æˆ¼
