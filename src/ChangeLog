@@ -1,5 +1,30 @@
 2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+
+	* mule-charset.c (put_char_ccs_code_point): Use `XCHAR_TABLE'
+	instead of `XCHAR_ID_TABLE'.
+	(remove_char_ccs): Likewise.
+
+	* chartab.c (put_char_id_table): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fget_composite_char): Likewise.
+	(Fchar_variants): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Likewise.
+	(Fchar_attribute_alist): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (map_char_id_table): Use `Lisp_Char_Table' instead of
 	`Lisp_Char_ID_Table'.
 	(mark_char_id_table): Deleted.
