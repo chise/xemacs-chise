@@ -289,8 +289,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8655)	; 處
-      (=jis-x0208	  . #x515D)	; &I-J90-515D; [49-61]
+     ((=jis-x0208	  . #x515D)	; &GT-44206; [49-61]
+      (=ks-x1001	  . #x7425)	; &I-K0-7425; [84-05]
+      (=daikanwa	  . 32697)	; &I-M-32697;
       ))
     (hanyu-dazidian	1 276 13)
     (ideographic-structure
