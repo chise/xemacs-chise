@@ -120,6 +120,9 @@
 	      (if (looking-at
 		   "[ \t]*U[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
 		  (string-to-int (match-string 1) 16)))
+	(if (and ucs-ccs ucs (not ucs-code))
+	    (setq ucs-code ucs
+		  ucs nil))
 	(when (setq chr (decode-char ccs code))
 	  (unless (eq (encode-char chr ccs 'defined-only)
 		      code)
