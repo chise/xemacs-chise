@@ -355,18 +355,28 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
 #endif
 
-INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table_0 (Lisp_Char_Table* cit, Emchar ch)
+{
+  return get_byte_table (get_byte_table
+			 (get_byte_table
+			  (get_byte_table
+			   (cit->table,
+			    (unsigned char)(ch >> 24)),
+			   (unsigned char) (ch >> 16)),
+			  (unsigned char)  (ch >> 8)),
+			 (unsigned char)    ch);
+}
+
+INLINE_HEADER Lisp_Object
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
 INLINE_HEADER Lisp_Object
 get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
-  Lisp_Object val = get_byte_table (get_byte_table
-				    (get_byte_table
-				     (get_byte_table
-				      (cit->table,
-				       (unsigned char)(ch >> 24)),
-				      (unsigned char) (ch >> 16)),
-				     (unsigned char)  (ch >> 8)),
-				    (unsigned char)    ch);
+  Lisp_Object val = get_char_id_table_0 (cit, ch);
+
 #ifdef HAVE_DATABASE
   if (EQ (val, Qunloaded))
     {
