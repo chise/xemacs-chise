@@ -900,7 +900,7 @@ put_char_id_table (Lisp_Char_Table* cit,
 	Emchar c;
 	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range.charset);
 
-	if ( CHAR_ID_TABLE_P (encoding_table) )
+	if ( CHAR_TABLEP (encoding_table) )
 	  {
 	    for (c = 0; c < 1 << 24; c++)
 	      {
@@ -1231,14 +1231,14 @@ Return character corresponding with list.
       rest = Fcdr (rest);
       if (NILP (rest))
 	{
-	  if (!CHAR_ID_TABLE_P (ret))
+	  if (!CHAR_TABLEP (ret))
 	    return ret;
 	  else
 	    return Qt;
 	}
       else if (!CONSP (rest))
 	break;
-      else if (CHAR_ID_TABLE_P (ret))
+      else if (CHAR_TABLEP (ret))
 	table = ret;
       else
 	signal_simple_error ("Invalid table is found with", list);
@@ -2372,7 +2372,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	/* printf ("put-char-table: range = charset: %d\n",
 	   XCHARSET_LEADING_BYTE (range->charset));
 	*/
-	if ( CHAR_ID_TABLE_P (encoding_table) )
+	if ( CHAR_TABLEP (encoding_table) )
 	  {
 	    for (c = 0; c < 1 << 24; c++)
 	      {
@@ -3076,7 +3076,8 @@ add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
   /* This function can GC */
   struct char_attribute_alist_closure *caacl =
     (struct char_attribute_alist_closure*) char_attribute_alist_closure;
-  Lisp_Object ret = get_char_id_table (XCHAR_TABLE(caacl->char_id), value);
+  Lisp_Object ret
+    = get_char_id_table (XCHAR_TABLE(value), caacl->char_id);
   if (!UNBOUNDP (ret))
     {
       Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
@@ -3117,7 +3118,7 @@ Return the alist of attributes of CHARACTER.
 	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 	  Lisp_Object cpos;
 
-	  if ( CHAR_ID_TABLE_P (encoding_table)
+	  if ( CHAR_TABLEP (encoding_table)
 	       && INTP (cpos
 			= get_char_id_table (XCHAR_TABLE(encoding_table),
 					     XCHAR (character))) )
@@ -3142,7 +3143,7 @@ Return DEFAULT-VALUE if the value is not exist.
     {
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-      if (CHAR_ID_TABLE_P (encoding_table))
+      if (CHAR_TABLEP (encoding_table))
 	return get_char_id_table (XCHAR_TABLE(encoding_table),
 				  XCHAR (character));
     }
@@ -3215,7 +3216,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      else
 		{
 		  ntable = get_char_id_table (XCHAR_TABLE(table), c);
-		  if (!CHAR_ID_TABLE_P (ntable))
+		  if (!CHAR_TABLEP (ntable))
 		    {
 		      ntable = make_char_id_table (Qnil);
 		      put_char_id_table (XCHAR_TABLE(table),
@@ -3330,7 +3331,7 @@ the entire table.
     {
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-      if (CHAR_ID_TABLE_P (encoding_table))
+      if (CHAR_TABLEP (encoding_table))
 	ct = XCHAR_TABLE (encoding_table);
       else
 	return Qnil;
@@ -3340,7 +3341,7 @@ the entire table.
       Lisp_Object table = Fgethash (attribute,
 				    Vchar_attribute_hash_table,
 				    Qunbound);
-      if (CHAR_ID_TABLE_P (table))
+      if (CHAR_TABLEP (table))
 	ct = XCHAR_TABLE (table);
       else
 	return Qnil;
