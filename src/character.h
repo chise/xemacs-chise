@@ -32,6 +32,44 @@ Boston, MA 02111-1307, USA.  */
 # include "char-ucs.h"
 #endif /* CHAR_IS_UCS4 */
 
+/********************************/
+/*                              */
+/*   Interface for characters   */
+/*                              */
+/********************************/
+/*
+   valid_char_p (ch):
+	Return whether the given Emchar is valid.
+
+   CHARP (ch):
+	Return whether the given Lisp_Object is a character.
+
+   CHECK_CHAR_COERCE_INT (ch):
+	Signal an error if CH is not a valid character or integer
+	Lisp_Object.
+	If CH is an integer Lisp_Object, convert it to a character
+	Lisp_Object, but merely by repackaging, without performing
+	tests for char validity.
+
+Functions/macros when MULE is defined:
+
+   CHAR_ASCII_P (ch):
+        Return whether the given Emchar is ASCII.
+
+   MAKE_CHAR (CHARSET, B1, B2):
+	Return a character whose coded-charset is CHARSET and
+	position-codes are B1 and B2.  1 byte character ignores B2.
+
+   BREAKUP_CHAR (ch, charset, B1, B2):
+	Break up the given Emchar, and store found coded-charset and
+	position-codes to CHARSET, B1 and B2.
+
+   CHAR_CHARSET (CH):
+        Return coded-charset object of Emchar CH.
+
+   CHAR_LEADING_BYTE (CH):
+        Return Charset-ID of Emchar CH.
+*/
 
 #define CHAR_INTP(x) (INTP (x) && valid_char_p (XINT (x)))
 
