@@ -1385,11 +1385,18 @@
     (shinjigen-2	. 2186)
     (japanese-jisx0208-1978	. #x446D)	; ø»‚°¦
     (japanese-jisx0208		. #x446D)	; ø»‡„®
-    (japanese-jisx0208-1990	. #x446D)	; ø½Šª¢
     (ideograph-daikanwa		. 09337)	; ø¸‚‘¹
     ))
 (define-char
-  '((morohashi-daikanwa	9337 0 0)
+  '((->ucs		. #x5EAD)	; åº­
+    (morohashi-daikanwa	9337 0 0)
+    (ideographic-radical . 53)	; â¼´
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (japanese-jisx0208-1990	. #x446D)	; ø½Šª¢
+    ))
+(define-char
+  '((morohashi-daikanwa	9337 0 1)
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
