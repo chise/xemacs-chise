@@ -1,3 +1,35 @@
+2001-12-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el: Merge some CHINA3-JEF code points.
+
+	* Ideograph-R010-Legs.el:
+	- Add some missing `ideographic-structure' properties.
+	- Add some Hanziku-1 code points.
+
+	* Ideograph-R003-Dot.el (M-00093): Unify H1-ACC5 and U-0002007C;
+	add `ideographic-structure'.
+	(U-0002007F): Unify H1-AD5C; add `ideographic-structure'.
+	(U-00020081): New character.
+	(U-0002592C): New character.
+	(U+4E3E): Unify H1-ADBF.
+
+2001-12-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R002-Line.el (U+4E34): Unify H1-AA56.
+	(H1-AA59): New character.
+	(H1-AA72): Likewise.
+
+2001-12-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R013-Down-Box.el (U-0002054D): Add
+	`ideographic-structure'; unify H1-AD7C.
+
+	* Ideograph-R007-Two.el ((C6-2566): Relate to U-00020122.
+
+	* Ideograph-R001-One.el:
+	- Add some missing `ideographic-structure' properties.
+	- Add some Hanziku-1 code points.
+
 2001-12-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R099-Sweet.el (M-21660): Separate C4-3E65 and U+3F4E;
