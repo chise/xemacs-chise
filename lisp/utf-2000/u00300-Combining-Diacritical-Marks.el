@@ -458,18 +458,18 @@
     (ucs		. #x0340)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
-    (->decomposition	#x0300)
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
+    (->decomposition	#x0300)
     ))
 (define-char
   '((name		. "COMBINING ACUTE TONE MARK")
     (ucs		. #x0341)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
-    (->decomposition	#x0301)
     (mirrored		. nil)
     (iso-10646-comment	. "Vietnamese")
+    (->decomposition	#x0301)
     ))
 (define-char
   '((name		. "COMBINING GREEK PERISPOMENI")
@@ -483,16 +483,16 @@
     (ucs		. #x0343)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
-    (->decomposition	#x0313)
     (mirrored		. nil)
+    (->decomposition	#x0313)
     ))
 (define-char
   '((name		. "COMBINING GREEK DIALYTIKA TONOS")
     (ucs		. #x0344)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
-    (->decomposition	#x0308 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0308 #x0301)
     ))
 (define-char
   '((name		. "COMBINING GREEK YPOGEGRAMMENI")

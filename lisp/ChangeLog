@@ -1,3 +1,309 @@
+2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* setup-paths.el (paths-find-utf-2000-lisp-directory): Use
+	`configure-utf-2000-lisp-directory'.
+	(paths-construct-load-path): Prefer `utf-2000-lisp-load-path' to
+	`mule-lisp-load-path'.
+
+2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* startup.el (startup-setup-paths): Set and use
+	`utf-2000-lisp-directory'.
+	(startup-setup-paths-warning): Check `utf-2000-lisp-directory' in
+	UTF-2000.
+
+2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* setup-paths.el (paths-utf-2000-load-path-depth): New variable.
+	(paths-find-utf-2000-lisp-directory): New function.
+	(paths-construct-load-path): Add new optional argument
+	`utf-2000-lisp-directory'.
+
+	* dump-paths.el: Set and use `utf-2000-lisp-directory'.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u031A0-Extended-Bopomofo" in UTF-2000.
+
+	* utf-2000/u031A0-Extended-Bopomofo.el: New file.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): u02E00-CJK-Radicals was
+	renamed to u02E00-CJK-Radical-Supplement.
+
+	* utf-2000/u02E00-CJK-Radical-Supplement.el: Renamed from
+	u02E00-CJK-Radicals.el.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u03000-CJK-Symbols-and-Punctuation", "u03040-Hiragana",
+	"u030A0-Katakana", "u03100-Bopomofo",
+	"u03130-Hangul-Compatibility-Jamo", "u03190-Kanbun",
+	"u03200-Enclosed-CJK-Letters-and-Months" and
+	"u03300-CJK-Compatibility".
+
+	* utf-2000/u03000-CJK-Symbols-and-Punctuation.el,
+	utf-2000/u03040-Hiragana.el, utf-2000/u030A0-Katakana.el,
+	utf-2000/u03100-Bopomofo.el,
+	utf-2000/u03130-Hangul-Compatibility-Jamo.el,
+	utf-2000/u03190-Kanbun.el,
+	utf-2000/u03200-Enclosed-CJK-Letters-and-Months.el,
+	utf-2000/u03300-CJK-Compatibility.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u02E00-CJK-Radicals",
+	"u02F00-Kangxi-Radicals" and
+	"u02FF0-Ideographic-Description-Characters".
+
+	* utf-2000/u02E00-CJK-Radicals.el,
+	utf-2000/u02F00-Kangxi-Radicals.el,
+	utf-2000/u02FF0-Ideographic-Description-Characters.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02600-Miscellaneous-Symbols", "u02700-Dingbats" and
+	"u02800-Braille-Patterns" in UTF-2000.
+
+	* utf-2000/u02600-Miscellaneous-Symbols.el,
+	utf-2000/u02700-Dingbats.el, utf-2000/u02800-Braille-Patterns.el:
+	New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Load "uXXXXX-*" instead of
+	"uXXXXX-*.el" in UTF-2000.
+
+	* bytecomp.el (byte-compile-insert-header): Delete comments if
+	non-ASCII characters are found; allow `byte-compile-dynamic' and
+	`byte-compile-dynamic-docstrings' if *.elc will be encoded by
+	`raw-text'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02500-Box-Drawing.el", "u02580-Block-Elements.el" and
+	"u025A0-Geometric-Shapes.el".
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02580-Block-Elements.el,
+	utf-2000/u025A0-Geometric-Shapes.el: New file.
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02580-Block-Elements.el,
+	utf-2000/u025A0-Geometric-Shapes.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02400-Control-Pictures.el", "u02440-OCR.el" and
+	"u02460-Enclosed-Alphanumerics.el".
+
+	* utf-2000/u02400-Control-Pictures.el, utf-2000/u02440-OCR.el,
+	utf-2000/u02460-Enclosed-Alphanumerics.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-gb2312'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02200-Mathematical-Operators.el" and
+	"u02300-Miscellaneous-Technical.el".
+
+	* utf-2000/u02200-Mathematical-Operators.el,
+	utf-2000/u02300-Miscellaneous-Technical.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-cns11643-*'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02100-Letterlike-Symbols.el", "u02150-Number-Forms.el" and
+	"u02190-Arrows.el" in UTF-2000.
+
+	* utf-2000/u02100-Letterlike-Symbols.el,
+	utf-2000/u02150-Number-Forms.el, utf-2000/u02190-Arrows.el: New
+	files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`korean-ksc5601'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02000-General-Punctuation.el", "u02070-Superscripts.el",
+	"u02080-Subscripts.el", "u020A0-Currency-Symbols.el" and
+	"u020D0-Combining-Diacritical-Marks-for-Symbols.el" in UTF-2000.
+
+	* utf-2000/u02000-General-Punctuation.el,
+	utf-2000/u02070-Superscripts.el, utf-2000/u02080-Subscripts.el,
+	utf-2000/u020A0-Currency-Symbols.el,
+	utf-2000/u020D0-Combining-Diacritical-Marks-for-Symbols.el: New
+	files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/u00180-Latin-Extended-B.el: Reformatted to print
+	code-point of GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Modify order when
+	CHAR does not have `decimal-digit-value' property.
+
+	* utf-2000/u00100-Latin-Extended-A.el: Reformatted to print
+	code-point of GR-set as GR value.
+	(FULLWIDTH LATIN SMALL LIGATURE IJ): Separated from <LATIN SMALL
+	LIGATURE IJ>.
+
+	* utf-2000/u000A0-Latin-1-Supplement.el: Reformatted to print
+	code-point of GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Delete "ccs-viscii.el".
+
+	* utf-2000/ccs-viscii.el: Deleted.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u013A0-Cherokee.el",
+	"u01400-Canadian.el", "u01680-Ogham.el", "u016A0-Runic.el",
+	"u01780-Khmer.el", "u01800-Mongolian.el",
+	"u01E00-Latin-Extended-Additional.el" and
+	"u01F00-Greek-Extended.el" in UTF-2000.
+
+	* utf-2000/u013A0-Cherokee.el, utf-2000/u01400-Canadian.el,
+	utf-2000/u01680-Ogham.el, utf-2000/u016A0-Runic.el,
+	utf-2000/u01780-Khmer.el, utf-2000/u01800-Mongolian.el,
+	utf-2000/u01E00-Latin-Extended-Additional.el,
+	utf-2000/u01F00-Greek-Extended.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Print GR value for
+	GR-set.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ethiopic-ucs' and `ethiopic'.
+
+	* dumped-lisp.el (preloaded-file-list): Add "u010A0-Georgian.el",
+	"u01100-Hangul-Jamo.el" and "u01200-Ethiopic.el".
+
+	* mule/mule-conf.el: Move definition of coded-charset `ethiopic'
+	from mule/ethiopic.el.
+
+	* mule/ethiopic.el: Move definition of coded-charset `ethiopic' to
+	mule/mule-conf.el.
+
+	* utf-2000/u010A0-Georgian.el, utf-2000/u01100-Hangul-Jamo.el,
+	utf-2000/u01200-Ethiopic.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (char-db-update-comment): Use
+	mapping-table for `arabic-iso8859-6'.
+	(insert-char-data-with-variant): New function.
+	(insert-char-range-data): Use `insert-char-data-with-variant'.
+	(what-char-definition): Use `insert-char-data-with-variant'
+	instead of `insert-char-data'; use `char-db-update-comment'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`lao'.
+
+	* mule/mule-conf.el (lao): New coded-charset.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u00900-Devanagari.el", "u00980-Bengali.el", "u00A00-Gurmukhi.el",
+	"u00A80-Gujarati.el", "u00B00-Oriya.el", "u00B80-Tamil.el",
+	"u00C00-Telugu.el", "u00C80-Kannada.el", "u00D00-Malayalam.el",
+	"u00D80-Sinhala.el", "u00E00-Thai.el", "u00E80-Lao.el",
+	"u00F00-Tibetan.el" and "u01000-Myanmar.el".
+
+	* utf-2000/u00900-Devanagari.el, utf-2000/u00980-Bengali.el,
+	utf-2000/u00A00-Gurmukhi.el, utf-2000/u00A80-Gujarati.el,
+	utf-2000/u00B00-Oriya.el, utf-2000/u00B80-Tamil.el,
+	utf-2000/u00C00-Telugu.el, utf-2000/u00C80-Kannada.el,
+	utf-2000/u00D00-Malayalam.el, utf-2000/u00D80-Sinhala.el,
+	utf-2000/u00E00-Thai.el, utf-2000/u00E80-Lao.el,
+	utf-2000/u00F00-Tibetan.el, utf-2000/u01000-Myanmar.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs-bmp' and `arabic-iso8859-6'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "u00400-Cyrillic.el",
+	"u00530-Armenian.el", "u00590-Hebrew.el", "u00600-Arabic.el",
+	"u00700-Syriac.el" and "u00780-Thaana.el" in UTF-2000.
+
+	* utf-2000/u00400-Cyrillic.el, utf-2000/u00530-Armenian.el,
+	utf-2000/u00590-Hebrew.el, utf-2000/u00600-Arabic.el,
+	utf-2000/u00700-Syriac.el, utf-2000/u00780-Thaana.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/u00370-Greek.el (FULLWIDTH GREEK SMALL LETTER BETA):
+	Fix typo.
+
+	* utf-2000/u00300-Combining-Diacritical-Marks.el: Reformatted.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/u002B0-Spacing-Modifier-Letters.el,
+	utf-2000/u00250-IPA-Extensions.el: Reformatted.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Fix format of
+	`iso-10646-comment'; swap order of `->lowercase' and
+	`->titlecase'.
+
+	* utf-2000/u00180-Latin-Extended-B.el: Merge `latin-viscii'
+	code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (char-attribute-name<): New function.
+	(insert-char-data): Use `char-attribute-name<' to sort; change
+	order of `iso-10646-comment'.
+	(char-db-update-comment): Use mapping-table for `latin-viscii-*'.
+
+	* utf-2000/u00100-Latin-Extended-A.el,
+	utf-2000/u000A0-Latin-1-Supplement.el: Merge `latin-viscii'
+	code-points.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order.
+	(insert-char-range-data): Insert variants.
+	(char-db-update-comment): Fix problem with ascii and
+	non-ISO-2022-sets; don't insert control-characters.
+
+	* utf-2000/u00020-Basic-Latin.el: Merge `latin-viscii'
+	code-points.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* startup.el (normal-top-level): Load autoload file for UTF-2000
+	in UTF-2000.
+
+	* utf-2000/auto-autoloads.el: New file.
+
+	* utf-2000/char-db-util.el: New file.
+
 1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/u00020-Basic-Latin.el (SPACE): Add `(ipa #x7F)'.
@@ -10,7 +316,8 @@
 	"u000A0-Latin-1-Supplement.el", "u00100-Latin-Extended-A.el",
 	"u00180-Latin-Extended-B.el", "u00250-IPA-Extensions.el",
 	"u002B0-Spacing-Modifier-Letters.el",
-	"u00300-Combining-Diacritical-Marks.el" and "u00370-Greek.el".
+	"u00300-Combining-Diacritical-Marks.el" and "u00370-Greek.el" in
+	UTF-2000.
 
 	* utf-2000/ccs-iso8859-2.el, utf-2000/ccs-iso8859-3.el,
 	utf-2000/ccs-iso8859-4.el, utf-2000/ccs-iso8859-9.el: Delete.

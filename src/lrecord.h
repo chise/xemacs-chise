@@ -152,6 +152,7 @@ enum lrecord_type
   lrecord_type_process,
   lrecord_type_charset,
   lrecord_type_char_byte_table,
+  lrecord_type_char_code_table,
   lrecord_type_coding_system,
   lrecord_type_char_table,
   lrecord_type_char_table_entry,

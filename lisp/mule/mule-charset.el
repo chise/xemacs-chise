@@ -282,10 +282,24 @@ DESCRIPTION (string) is the description string of the charset."
           ;; katakana-jisx0208
 	  japanese-jisx0208
 	  japanese-jisx0212
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+	  chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
+	  korean-ksc5601
+	  chinese-gb2312
 	  hebrew-iso8859-8
 	  latin-viscii
 	  latin-viscii-lower
 	  latin-viscii-upper
-	  ipa)))
+	  ipa
+	  lao
+	  ethiopic-ucs
+	  ethiopic
+	  ucs-bmp
+	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here

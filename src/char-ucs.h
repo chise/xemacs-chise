@@ -39,10 +39,27 @@ typedef struct Lisp_Char_Byte_Table Lisp_Char_Byte_Table;
 
 DECLARE_LRECORD (char_byte_table, Lisp_Char_Byte_Table);
 #define XCHAR_BYTE_TABLE(x) \
-  XRECORD (x, char_byte_table, struct Lisp_Char_Byte_Table)
+  XRECORD (x, char_byte_table, Lisp_Char_Byte_Table)
 #define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
 #define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
 /* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Char_Code_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object table;
+};
+typedef struct Lisp_Char_Code_Table Lisp_Char_Code_Table;
+
+DECLARE_LRECORD (char_code_table, Lisp_Char_Code_Table);
+#define XCHAR_CODE_TABLE(x) \
+  XRECORD (x, char_code_table, Lisp_Char_Code_Table)
+#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
+#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
+/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
    char table entries should never escape to Lisp */
 
 Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
@@ -88,11 +105,13 @@ typedef int Charset_ID;
 /* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
 #define LEADING_BYTE_CHINESE_BIG5_2	(CHARSET_ID_OFFSET - 7)
 
-#define LEADING_BYTE_HIRAGANA_JISX0208	(CHARSET_ID_OFFSET - 8)
-#define LEADING_BYTE_KATAKANA_JISX0208	(CHARSET_ID_OFFSET - 9)
+#define LEADING_BYTE_ETHIOPIC_UCS	(CHARSET_ID_OFFSET - 8)
+
+#define LEADING_BYTE_HIRAGANA_JISX0208	(CHARSET_ID_OFFSET - 9)
+#define LEADING_BYTE_KATAKANA_JISX0208	(CHARSET_ID_OFFSET - 10)
 
 #define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
-#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 10)
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 11)
 
 
 /* #define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0') */
@@ -479,6 +498,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 
 extern Lisp_Object Vcharacter_attribute_table;
 
+Lisp_Object split_builtin_char (Emchar c);
 Lisp_Object range_charset_code_point (Lisp_Object charset, Emchar ch);
 Lisp_Object charset_code_point (Lisp_Object charset, Emchar ch);
 
@@ -512,97 +532,7 @@ SPLIT_CHAR (Emchar c)
     }
   
   /* otherwise --- maybe for bootstrap */
-  if (c < MIN_CHAR_OBS_94x94)
-    {
-      if (c <= MAX_CHAR_BASIC_LATIN)
-	{
-	  return list2 (Vcharset_ascii, make_int (c));
-	}
-      else if (c < 0xA0)
-	{
-	  return list2 (Vcharset_control_1, make_int (c & 0x7F));
-	}
-      else if (c <= 0xff)
-	{
-	  return list2 (Vcharset_latin_iso8859_1, make_int (c & 0x7F));
-	}
-      else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
-	{
-	  return list2 (Vcharset_greek_iso8859_7,
-			make_int (c - MIN_CHAR_GREEK + 0x20));
-	}
-      else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
-	{
-	  return list2 (Vcharset_cyrillic_iso8859_5,
-			make_int (c - MIN_CHAR_CYRILLIC + 0x20));
-	}
-      else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
-	{
-	  return list2 (Vcharset_hebrew_iso8859_8,
-			make_int (c - MIN_CHAR_HEBREW + 0x20));
-	}
-      else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
-	{
-	  return list2 (Vcharset_thai_tis620,
-			make_int (c - MIN_CHAR_THAI + 0x20));
-	}
-      else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
-	{
-	  return list2 (Vcharset_katakana_jisx0201,
-			make_int (c - MIN_CHAR_HALFWIDTH_KATAKANA + 33));
-	}
-      else
-	{
-	  return list3 (Vcharset_ucs_bmp,
-			make_int (c >> 8), make_int (c & 0xff));
-	}
-    }
-  else if (c <= MAX_CHAR_OBS_94x94)
-    {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94,
-		     ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33),
-		    make_int (((c - MIN_CHAR_OBS_94x94) % 94) + 33));
-    }
-  else if (c <= MAX_CHAR_94)
-    {
-      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
-					   ((c - MIN_CHAR_94) / 94) + '0',
-					   CHARSET_LEFT_TO_RIGHT),
-		    make_int (((c - MIN_CHAR_94) % 94) + 33));
-    }
-  else if (c <= MAX_CHAR_96)
-    {
-      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
-					   ((c - MIN_CHAR_96) / 96) + '0',
-					   CHARSET_LEFT_TO_RIGHT),
-		    make_int (((c - MIN_CHAR_96) % 96) + 32));
-    }
-  else if (c <= MAX_CHAR_94x94)
-    {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94,
-		     ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_94x94) / 94) % 94) + 33),
-		    make_int (((c - MIN_CHAR_94x94) % 94) + 33));
-    }
-  else if (c <= MAX_CHAR_96x96)
-    {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_96X96,
-		     ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_96x96) / 96) % 96) + 32),
-		    make_int (((c - MIN_CHAR_96x96) % 96) + 32));
-    }
-  else
-    {
-      return Qnil;
-    }
+  return split_builtin_char (c);
 }
 
 INLINE_HEADER void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);

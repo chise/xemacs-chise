@@ -3,20 +3,20 @@
     (ucs		. #x0100)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x0304)
     (->lowercase	#x0101)
-    (latin-iso8859-4	#x40)	; -DÀ-A
+    (latin-iso8859-4	#xC0)	; -DÀ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")
     (->ucs		. #x0100)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0100)
     (mirrored		. nil)
+    (->decomposition	wide #x0100)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER A WITH MACRON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER A WITH MACRON")))
     (japanese-jisx0212	#x2A #x27)	; $(D*'(B
     ))
 (define-char
@@ -24,23 +24,23 @@
     (ucs		. #x0101)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x0304)
     (->uppercase	#x0100)
     (->titlecase	#x0100)
-    (latin-iso8859-4	#x60)	; -Dà-A
+    (latin-iso8859-4	#xE0)	; -Dà-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH MACRON")
     (->ucs		. #x0101)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0101)
     (mirrored		. nil)
+    (->decomposition	wide #x0101)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH MACRON")))
     (chinese-gb2312	#x28 #x21)	; $(D+'(B
     (japanese-jisx0212	#x2B #x27)	; $(D+'(B
     ))
@@ -49,21 +49,22 @@
     (ucs		. #x0102)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x0306)
     (->lowercase	#x0103)
-    (latin-iso8859-2	#x43)	; -BÃ-A
-    (latin-viscii-upper	#x65)	; -BÃ-A
+    (latin-iso8859-2	#xC3)	; -BÃ-A
+    (latin-viscii-upper #xE5)	; -BÃ-A
+    (latin-viscii	#xC5)	; -BÃ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH BREVE")
     (->ucs		. #x0102)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0102)
     (mirrored		. nil)
+    (->decomposition	wide #x0102)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER A WITH BREVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER A WITH BREVE")))
     (japanese-jisx0212	#x2A #x25)	; $(D*%(B
     ))
 (define-char
@@ -71,24 +72,25 @@
     (ucs		. #x0103)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x0306)
     (->uppercase	#x0102)
     (->titlecase	#x0102)
-    (latin-iso8859-2	#x63)	; -Bã-A
-    (latin-viscii-lower	#x65)	; -Bã-A
+    (latin-iso8859-2	#xE3)	; -Bã-A
+    (latin-viscii-lower #xE5)	; -Bã-A
+    (latin-viscii	#xE5)	; -Bã-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH BREVE")
     (->ucs		. #x0103)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0103)
     (mirrored		. nil)
+    (->decomposition	wide #x0103)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH BREVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH BREVE")))
     (japanese-jisx0212	#x2B #x25)	; $(D+%(B
     ))
 (define-char
@@ -96,21 +98,21 @@
     (ucs		. #x0104)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x0328)
     (->lowercase	#x0105)
-    (latin-iso8859-2	#x21)	; -B¡-A
-    (latin-iso8859-4	#x21)	; -B¡-A
+    (latin-iso8859-2	#xA1)	; -B¡-A
+    (latin-iso8859-4	#xA1)	; -D¡-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")
     (->ucs		. #x0104)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0104)
     (mirrored		. nil)
+    (->decomposition	wide #x0104)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER A WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER A WITH OGONEK")))
     (japanese-jisx0212	#x2A #x28)	; $(D*((B
     ))
 (define-char
@@ -118,24 +120,24 @@
     (ucs		. #x0105)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x0328)
     (->uppercase	#x0104)
     (->titlecase	#x0104)
-    (latin-iso8859-2	#x31)	; -B±-A
-    (latin-iso8859-4	#x31)	; -B±-A
+    (latin-iso8859-2	#xB1)	; -B±-A
+    (latin-iso8859-4	#xB1)	; -D±-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER A WITH OGONEK")
     (->ucs		. #x0105)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0105)
     (mirrored		. nil)
+    (->decomposition	wide #x0105)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH OGONEK")))
     (japanese-jisx0212	#x2B #x28)	; $(D+((B
     ))
 (define-char
@@ -143,20 +145,20 @@
     (ucs		. #x0106)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0043 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0043 #x0301)
     (->lowercase	#x0107)
-    (latin-iso8859-2	#x46)	; -BÆ-A
+    (latin-iso8859-2	#xC6)	; -BÆ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")
     (->ucs		. #x0106)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0106)
     (mirrored		. nil)
+    (->decomposition	wide #x0106)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER C WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER C WITH ACUTE")))
     (japanese-jisx0212	#x2A #x2B)	; $(D*+(B
     ))
 (define-char
@@ -164,23 +166,23 @@
     (ucs		. #x0107)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0063 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0063 #x0301)
     (->uppercase	#x0106)
     (->titlecase	#x0106)
-    (latin-iso8859-2	#x66)	; -Bæ-A
+    (latin-iso8859-2	#xE6)	; -Bæ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH ACUTE")
     (->ucs		. #x0107)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0107)
     (mirrored		. nil)
+    (->decomposition	wide #x0107)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH ACUTE")))
     (japanese-jisx0212	#x2B #x2B)	; $(D++(B
     ))
 (define-char
@@ -188,20 +190,20 @@
     (ucs		. #x0108)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0043 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0043 #x0302)
     (->lowercase	#x0109)
-    (latin-iso8859-3	#x46)	; -CÆ-A
+    (latin-iso8859-3	#xC6)	; -CÆ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")
     (->ucs		. #x0108)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0108)
     (mirrored		. nil)
+    (->decomposition	wide #x0108)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER C WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x2C)	; $(D*,(B
     ))
 (define-char
@@ -209,23 +211,23 @@
     (ucs		. #x0109)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0063 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0063 #x0302)
     (->uppercase	#x0108)
     (->titlecase	#x0108)
-    (latin-iso8859-3	#x66)	; -Cæ-A
+    (latin-iso8859-3	#xE6)	; -Cæ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CIRCUMFLEX")
     (->ucs		. #x0109)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0109)
     (mirrored		. nil)
+    (->decomposition	wide #x0109)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x2C)	; $(D+,(B
     ))
 (define-char
@@ -233,20 +235,20 @@
     (ucs		. #x010A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0043 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0043 #x0307)
     (->lowercase	#x010B)
-    (latin-iso8859-3	#x45)	; -CÅ-A
+    (latin-iso8859-3	#xC5)	; -CÅ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")
     (->ucs		. #x010A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010A)
     (mirrored		. nil)
+    (->decomposition	wide #x010A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER C WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER C WITH DOT ABOVE")))
     (japanese-jisx0212	#x2A #x2F)	; $(D*/(B
     ))
 (define-char
@@ -254,23 +256,23 @@
     (ucs		. #x010B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0063 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0063 #x0307)
     (->uppercase	#x010A)
     (->titlecase	#x010A)
-    (latin-iso8859-3	#x65)	; -Cå-A
+    (latin-iso8859-3	#xE5)	; -Cå-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH DOT ABOVE")
     (->ucs		. #x010B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010B)
     (mirrored		. nil)
+    (->decomposition	wide #x010B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH DOT ABOVE")))
     (japanese-jisx0212	#x2B #x2F)	; $(D+/(B
     ))
 (define-char
@@ -278,21 +280,21 @@
     (ucs		. #x010C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0043 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0043 #x030C)
     (->lowercase	#x010D)
-    (latin-iso8859-2	#x48)	; -BÈ-A
-    (latin-iso8859-4	#x48)	; -BÈ-A
+    (latin-iso8859-2	#xC8)	; -BÈ-A
+    (latin-iso8859-4	#xC8)	; -DÈ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CARON")
     (->ucs		. #x010C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010C)
     (mirrored		. nil)
+    (->decomposition	wide #x010C)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER C WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER C WITH CARON")))
     (japanese-jisx0212	#x2A #x2D)	; $(D*-(B
     ))
 (define-char
@@ -300,24 +302,24 @@
     (ucs		. #x010D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0063 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0063 #x030C)
     (->uppercase	#x010C)
     (->titlecase	#x010C)
-    (latin-iso8859-2	#x68)	; -Bè-A
-    (latin-iso8859-4	#x68)	; -Bè-A
+    (latin-iso8859-2	#xE8)	; -Bè-A
+    (latin-iso8859-4	#xE8)	; -Dè-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CARON")
     (->ucs		. #x010D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010D)
     (mirrored		. nil)
+    (->decomposition	wide #x010D)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER C WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER C WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER C WITH CARON")))
     (japanese-jisx0212	#x2B #x2D)	; $(D+-(B
     ))
 (define-char
@@ -325,20 +327,20 @@
     (ucs		. #x010E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0044 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0044 #x030C)
     (->lowercase	#x010F)
-    (latin-iso8859-2	#x4F)	; -BÏ-A
+    (latin-iso8859-2	#xCF)	; -BÏ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")
     (->ucs		. #x010E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010E)
     (mirrored		. nil)
+    (->decomposition	wide #x010E)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER D WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER D WITH CARON")))
     (japanese-jisx0212	#x2A #x30)	; $(D*0(B
     ))
 (define-char
@@ -346,23 +348,23 @@
     (ucs		. #x010F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0064 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0064 #x030C)
     (->uppercase	#x010E)
     (->titlecase	#x010E)
-    (latin-iso8859-2	#x6F)	; -Bï-A
+    (latin-iso8859-2	#xEF)	; -Bï-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER D WITH CARON")
     (->ucs		. #x010F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x010F)
     (mirrored		. nil)
+    (->decomposition	wide #x010F)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER D WITH CARON")))
     (japanese-jisx0212	#x2B #x30)	; $(D+0(B
     ))
 (define-char
@@ -372,19 +374,20 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0111)
-    (latin-iso8859-2	#x50)	; -BÐ-A
-    (latin-iso8859-4	#x50)	; -BÐ-A
-    (latin-viscii-upper	#x70)	; -BÐ-A
+    (latin-iso8859-2	#xD0)	; -BÐ-A
+    (latin-iso8859-4	#xD0)	; -DÐ-A
+    (latin-viscii-upper #xF0)	; -BÐ-A
+    (latin-viscii	#xD0)	; -BÐ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")
     (->ucs		. #x0110)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0110)
     (mirrored		. nil)
+    (->decomposition	wide #x0110)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER D WITH STROKE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER D WITH STROKE")))
     (japanese-jisx0212	#x29 #x22)	; $(D)"(B
     ))
 (define-char
@@ -395,9 +398,10 @@
     (mirrored		. nil)
     (->uppercase	#x0110)
     (->titlecase	#x0110)
-    (latin-iso8859-2	#x70)	; -Bð-A
-    (latin-iso8859-4	#x70)	; -Bð-A
-    (latin-viscii-lower	#x70)	; -Bð-A
+    (latin-iso8859-2	#xF0)	; -Bð-A
+    (latin-iso8859-4	#xF0)	; -Dð-A
+    (latin-viscii-lower #xF0)	; -Bð-A
+    (latin-viscii	#xF0)	; -Bð-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER D WITH STROKE")
@@ -406,9 +410,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")))
     (korean-ksc5601	#x29 #x22)	; $(D)B(B
     (japanese-jisx0212	#x29 #x42)	; $(D)B(B
     ))
@@ -417,20 +421,20 @@
     (ucs		. #x0112)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0304)
     (->lowercase	#x0113)
-    (latin-iso8859-4	#x2A)	; -Dª-A
+    (latin-iso8859-4	#xAA)	; -Dª-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")
     (->ucs		. #x0112)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0112)
     (mirrored		. nil)
+    (->decomposition	wide #x0112)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER E WITH MACRON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH MACRON")))
     (japanese-jisx0212	#x2A #x37)	; $(D*7(B
     ))
 (define-char
@@ -438,23 +442,23 @@
     (ucs		. #x0113)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0304)
     (->uppercase	#x0112)
     (->titlecase	#x0112)
-    (latin-iso8859-4	#x3A)	; -Dº-A
+    (latin-iso8859-4	#xBA)	; -Dº-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH MACRON")
     (->ucs		. #x0113)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0113)
     (mirrored		. nil)
+    (->decomposition	wide #x0113)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH MACRON")))
     (chinese-gb2312	#x28 #x25)	; $(D+7(B
     (japanese-jisx0212	#x2B #x37)	; $(D+7(B
     ))
@@ -463,8 +467,8 @@
     (ucs		. #x0114)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0306)
     (->lowercase	#x0115)
     ))
 (define-char
@@ -472,8 +476,8 @@
     (ucs		. #x0115)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0306)
     (->uppercase	#x0114)
     (->titlecase	#x0114)
     ))
@@ -482,20 +486,20 @@
     (ucs		. #x0116)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0307)
     (->lowercase	#x0117)
-    (latin-iso8859-4	#x4C)	; -DÌ-A
+    (latin-iso8859-4	#xCC)	; -DÌ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
     (->ucs		. #x0116)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0116)
     (mirrored		. nil)
+    (->decomposition	wide #x0116)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")))
     (japanese-jisx0212	#x2A #x36)	; $(D*6(B
     ))
 (define-char
@@ -503,23 +507,23 @@
     (ucs		. #x0117)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0307)
     (->uppercase	#x0116)
     (->titlecase	#x0116)
-    (latin-iso8859-4	#x6C)	; -Dì-A
+    (latin-iso8859-4	#xEC)	; -Dì-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
     (->ucs		. #x0117)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0117)
     (mirrored		. nil)
+    (->decomposition	wide #x0117)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")))
     (japanese-jisx0212	#x2B #x36)	; $(D+6(B
     ))
 (define-char
@@ -527,21 +531,21 @@
     (ucs		. #x0118)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0328)
     (->lowercase	#x0119)
-    (latin-iso8859-2	#x4A)	; -BÊ-A
-    (latin-iso8859-4	#x4A)	; -BÊ-A
+    (latin-iso8859-2	#xCA)	; -BÊ-A
+    (latin-iso8859-4	#xCA)	; -DÊ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")
     (->ucs		. #x0118)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0118)
     (mirrored		. nil)
+    (->decomposition	wide #x0118)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER E WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH OGONEK")))
     (japanese-jisx0212	#x2A #x38)	; $(D*8(B
     ))
 (define-char
@@ -549,24 +553,24 @@
     (ucs		. #x0119)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0328)
     (->uppercase	#x0118)
     (->titlecase	#x0118)
-    (latin-iso8859-2	#x6A)	; -Bê-A
-    (latin-iso8859-4	#x6A)	; -Bê-A
+    (latin-iso8859-2	#xEA)	; -Bê-A
+    (latin-iso8859-4	#xEA)	; -Dê-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH OGONEK")
     (->ucs		. #x0119)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0119)
     (mirrored		. nil)
+    (->decomposition	wide #x0119)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH OGONEK")))
     (japanese-jisx0212	#x2B #x38)	; $(D+8(B
     ))
 (define-char
@@ -574,20 +578,20 @@
     (ucs		. #x011A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x030C)
     (->lowercase	#x011B)
-    (latin-iso8859-2	#x4C)	; -BÌ-A
+    (latin-iso8859-2	#xCC)	; -BÌ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")
     (->ucs		. #x011A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011A)
     (mirrored		. nil)
+    (->decomposition	wide #x011A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER E WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH CARON")))
     (japanese-jisx0212	#x2A #x35)	; $(D*5(B
     ))
 (define-char
@@ -595,23 +599,23 @@
     (ucs		. #x011B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x030C)
     (->uppercase	#x011A)
     (->titlecase	#x011A)
-    (latin-iso8859-2	#x6C)	; -Bì-A
+    (latin-iso8859-2	#xEC)	; -Bì-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH CARON")
     (->ucs		. #x011B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011B)
     (mirrored		. nil)
+    (->decomposition	wide #x011B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH CARON")))
     (chinese-gb2312	#x28 #x27)	; $(D+5(B
     (japanese-jisx0212	#x2B #x35)	; $(D+5(B
     ))
@@ -620,20 +624,20 @@
     (ucs		. #x011C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x0302)
     (->lowercase	#x011D)
-    (latin-iso8859-3	#x58)	; -CØ-A
+    (latin-iso8859-3	#xD8)	; -CØ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH CIRCUMFLEX")
     (->ucs		. #x011C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011C)
     (mirrored		. nil)
+    (->decomposition	wide #x011C)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x3A)	; $(D*:(B
     ))
 (define-char
@@ -641,23 +645,23 @@
     (ucs		. #x011D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x0302)
     (->uppercase	#x011C)
     (->titlecase	#x011C)
-    (latin-iso8859-3	#x78)	; -Cø-A
+    (latin-iso8859-3	#xF8)	; -Cø-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")
     (->ucs		. #x011D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011D)
     (mirrored		. nil)
+    (->decomposition	wide #x011D)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x3A)	; $(D+:(B
     ))
 (define-char
@@ -665,21 +669,21 @@
     (ucs		. #x011E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x0306)
     (->lowercase	#x011F)
-    (latin-iso8859-3	#x2B)	; -C«-A
-    (latin-iso8859-9	#x50)	; -C«-A
+    (latin-iso8859-3	#xAB)	; -C«-A
+    (latin-iso8859-9	#xD0)	; -MÐ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")
     (->ucs		. #x011E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011E)
     (mirrored		. nil)
+    (->decomposition	wide #x011E)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")))
     (japanese-jisx0212	#x2A #x3B)	; $(D*;(B
     ))
 (define-char
@@ -687,24 +691,24 @@
     (ucs		. #x011F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x0306)
     (->uppercase	#x011E)
     (->titlecase	#x011E)
-    (latin-iso8859-3	#x3B)	; -C»-A
-    (latin-iso8859-9	#x70)	; -C»-A
+    (latin-iso8859-3	#xBB)	; -C»-A
+    (latin-iso8859-9	#xF0)	; -Mð-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")
     (->ucs		. #x011F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x011F)
     (mirrored		. nil)
+    (->decomposition	wide #x011F)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")))
     (japanese-jisx0212	#x2B #x3B)	; $(D+;(B
     ))
 (define-char
@@ -712,20 +716,20 @@
     (ucs		. #x0120)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x0307)
     (->lowercase	#x0121)
-    (latin-iso8859-3	#x55)	; -CÕ-A
+    (latin-iso8859-3	#xD5)	; -CÕ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
     (->ucs		. #x0120)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0120)
     (mirrored		. nil)
+    (->decomposition	wide #x0120)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")))
     (japanese-jisx0212	#x2A #x3D)	; $(D*=(B
     ))
 (define-char
@@ -733,23 +737,23 @@
     (ucs		. #x0121)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x0307)
     (->uppercase	#x0120)
     (->titlecase	#x0120)
-    (latin-iso8859-3	#x75)	; -Cõ-A
+    (latin-iso8859-3	#xF5)	; -Cõ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
     (->ucs		. #x0121)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0121)
     (mirrored		. nil)
+    (->decomposition	wide #x0121)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")))
     (japanese-jisx0212	#x2B #x3D)	; $(D+=(B
     ))
 (define-char
@@ -757,20 +761,20 @@
     (ucs		. #x0122)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x0327)
     (->lowercase	#x0123)
-    (latin-iso8859-4	#x2B)	; -D«-A
+    (latin-iso8859-4	#xAB)	; -D«-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH CEDILLA")
     (->ucs		. #x0122)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0122)
     (mirrored		. nil)
+    (->decomposition	wide #x0122)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER G WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x3C)	; $(D*<(B
     ))
 (define-char
@@ -778,31 +782,31 @@
     (ucs		. #x0123)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x0327)
     (->uppercase	#x0122)
     (->titlecase	#x0122)
-    (latin-iso8859-4	#x3B)	; -D»-A
+    (latin-iso8859-4	#xBB)	; -D»-A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
     (ucs		. #x0124)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0048 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0048 #x0302)
     (->lowercase	#x0125)
-    (latin-iso8859-3	#x26)	; -C¦-A
+    (latin-iso8859-3	#xA6)	; -C¦-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
     (->ucs		. #x0124)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0124)
     (mirrored		. nil)
+    (->decomposition	wide #x0124)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER H WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER H WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x3E)	; $(D*>(B
     ))
 (define-char
@@ -810,23 +814,23 @@
     (ucs		. #x0125)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0068 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0068 #x0302)
     (->uppercase	#x0124)
     (->titlecase	#x0124)
-    (latin-iso8859-3	#x36)	; -C¶-A
+    (latin-iso8859-3	#xB6)	; -C¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H WITH CIRCUMFLEX")
     (->ucs		. #x0125)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0125)
     (mirrored		. nil)
+    (->decomposition	wide #x0125)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER H WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x3E)	; $(D+>(B
     ))
 (define-char
@@ -836,17 +840,17 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0127)
-    (latin-iso8859-3	#x21)	; -C¡-A
+    (latin-iso8859-3	#xA1)	; -C¡-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER H WITH STROKE")
     (->ucs		. #x0126)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0126)
     (mirrored		. nil)
+    (->decomposition	wide #x0126)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER H WITH STROKE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER H WITH STROKE")))
     (korean-ksc5601	#x28 #x24)	; $(D)$(B
     (japanese-jisx0212	#x29 #x24)	; $(D)$(B
     ))
@@ -858,15 +862,15 @@
     (mirrored		. nil)
     (->uppercase	#x0126)
     (->titlecase	#x0126)
-    (latin-iso8859-3	#x31)	; -C±-A
+    (latin-iso8859-3	#xB1)	; -C±-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER H WITH STROKE")
     (->ucs		. #x0127)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0127)
     (mirrored		. nil)
+    (->decomposition	wide #x0127)
     (->uppercase	#x0126)
     (->titlecase	#x0126)
     (korean-ksc5601	#x29 #x24)	; $(D)D(B
@@ -877,21 +881,22 @@
     (ucs		. #x0128)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0303)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0303)
     (->lowercase	#x0129)
-    (latin-iso8859-4	#x25)	; -D¥-A
-    (latin-viscii-upper	#x6E)	; -D¥-A
+    (latin-iso8859-4	#xA5)	; -D¥-A
+    (latin-viscii-upper #xEE)	; -D¥-A
+    (latin-viscii	#xCE)	; -D¥-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH TILDE")
     (->ucs		. #x0128)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0128)
     (mirrored		. nil)
+    (->decomposition	wide #x0128)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH TILDE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH TILDE")))
     (japanese-jisx0212	#x2A #x47)	; $(D*G(B
     ))
 (define-char
@@ -899,24 +904,25 @@
     (ucs		. #x0129)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x0303)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x0303)
     (->uppercase	#x0128)
     (->titlecase	#x0128)
-    (latin-iso8859-4	#x35)	; -Dµ-A
-    (latin-viscii-lower	#x6E)	; -Dµ-A
+    (latin-iso8859-4	#xB5)	; -Dµ-A
+    (latin-viscii-lower #xEE)	; -Dµ-A
+    (latin-viscii	#xEE)	; -Dµ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH TILDE")
     (->ucs		. #x0129)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0129)
     (mirrored		. nil)
+    (->decomposition	wide #x0129)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH TILDE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH TILDE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH TILDE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH TILDE")))
     (japanese-jisx0212	#x2B #x47)	; $(D+G(B
     ))
 (define-char
@@ -924,20 +930,20 @@
     (ucs		. #x012A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0304)
     (->lowercase	#x012B)
-    (latin-iso8859-4	#x4F)	; -DÏ-A
+    (latin-iso8859-4	#xCF)	; -DÏ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")
     (->ucs		. #x012A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x012A)
     (mirrored		. nil)
+    (->decomposition	wide #x012A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH MACRON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH MACRON")))
     (japanese-jisx0212	#x2A #x45)	; $(D*E(B
     ))
 (define-char
@@ -945,23 +951,23 @@
     (ucs		. #x012B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x0304)
     (->uppercase	#x012A)
     (->titlecase	#x012A)
-    (latin-iso8859-4	#x6F)	; -Dï-A
+    (latin-iso8859-4	#xEF)	; -Dï-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH MACRON")
     (->ucs		. #x012B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x012B)
     (mirrored		. nil)
+    (->decomposition	wide #x012B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH MACRON")))
     (chinese-gb2312	#x28 #x29)	; $(D+E(B
     (japanese-jisx0212	#x2B #x45)	; $(D+E(B
     ))
@@ -970,8 +976,8 @@
     (ucs		. #x012C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0306)
     (->lowercase	#x012D)
     ))
 (define-char
@@ -979,8 +985,8 @@
     (ucs		. #x012D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x0306)
     (->uppercase	#x012C)
     (->titlecase	#x012C)
     ))
@@ -989,20 +995,20 @@
     (ucs		. #x012E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0328)
     (->lowercase	#x012F)
-    (latin-iso8859-4	#x47)	; -DÇ-A
+    (latin-iso8859-4	#xC7)	; -DÇ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")
     (->ucs		. #x012E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x012E)
     (mirrored		. nil)
+    (->decomposition	wide #x012E)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH OGONEK")))
     (japanese-jisx0212	#x2A #x46)	; $(D*F(B
     ))
 (define-char
@@ -1010,23 +1016,23 @@
     (ucs		. #x012F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x0328)
     (->uppercase	#x012E)
     (->titlecase	#x012E)
-    (latin-iso8859-4	#x67)	; -Dç-A
+    (latin-iso8859-4	#xE7)	; -Dç-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER I WITH OGONEK")
     (->ucs		. #x012F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x012F)
     (mirrored		. nil)
+    (->decomposition	wide #x012F)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER I WITH OGONEK")))
     (japanese-jisx0212	#x2B #x46)	; $(D+F(B
     ))
 (define-char
@@ -1034,21 +1040,21 @@
     (ucs		. #x0130)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0307)
     (->lowercase	#x0069)
-    (latin-iso8859-3	#x29)	; -C©-A
-    (latin-iso8859-9	#x5D)	; -C©-A
+    (latin-iso8859-3	#xA9)	; -C©-A
+    (latin-iso8859-9	#xDD)	; -MÝ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER I WITH DOT ABOVE")
     (->ucs		. #x0130)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0130)
     (mirrored		. nil)
+    (->decomposition	wide #x0130)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH DOT ABOVE")))
     (japanese-jisx0212	#x2A #x44)	; $(D*D(B
     ))
 (define-char
@@ -1059,8 +1065,8 @@
     (mirrored		. nil)
     (->uppercase	#x0049)
     (->titlecase	#x0049)
-    (latin-iso8859-3	#x39)	; -C¹-A
-    (latin-iso8859-9	#x7D)	; -C¹-A
+    (latin-iso8859-3	#xB9)	; -C¹-A
+    (latin-iso8859-9	#xFD)	; -Mý-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER DOTLESS I")
@@ -1069,9 +1075,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER DOTLESS I")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER DOTLESS I")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER DOTLESS I")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER DOTLESS I")))
     (korean-ksc5601	#x29 #x25)	; $(D)E(B
     (japanese-jisx0212	#x29 #x45)	; $(D)E(B
     ))
@@ -1080,10 +1086,10 @@
     (ucs		. #x0132)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0049 #x004A)
     (mirrored		. nil)
+    (->decomposition	compat #x0049 #x004A)
     (->lowercase	#x0133)
-    (korean-ksc5601	#x28 #x26)	; $(D)&(B
+    (korean-ksc5601	#x28 #x26)	; $(C(&(B
     (japanese-jisx0212	#x29 #x26)	; $(D)&(B
     ))
 (define-char
@@ -1091,11 +1097,21 @@
     (ucs		. #x0133)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0069 #x006A)
     (mirrored		. nil)
+    (->decomposition	compat #x0069 #x006A)
     (->uppercase	#x0132)
     (->titlecase	#x0132)
-    (korean-ksc5601	#x29 #x26)	; $(D)F(B
+    ))
+(define-char
+  '((name		. "FULLWIDTH LATIN SMALL LIGATURE IJ")
+    (->ucs		. #x0133)
+    (general-category	letter lowercase) ; Normative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
+    (->decomposition	wide #x0133)
+    (->uppercase	#x0132)
+    (->titlecase	#x0132)
+    (korean-ksc5601	#x29 #x26)	; $(C)&(B
     (japanese-jisx0212	#x29 #x46)	; $(D)F(B
     ))
 (define-char
@@ -1103,20 +1119,20 @@
     (ucs		. #x0134)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004A #x0302)
     (mirrored		. nil)
+    (->decomposition	#x004A #x0302)
     (->lowercase	#x0135)
-    (latin-iso8859-3	#x2C)	; -C¬-A
+    (latin-iso8859-3	#xAC)	; -C¬-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")
     (->ucs		. #x0134)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0134)
     (mirrored		. nil)
+    (->decomposition	wide #x0134)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER J WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER J WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x48)	; $(D*H(B
     ))
 (define-char
@@ -1124,23 +1140,23 @@
     (ucs		. #x0135)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006A #x0302)
     (mirrored		. nil)
+    (->decomposition	#x006A #x0302)
     (->uppercase	#x0134)
     (->titlecase	#x0134)
-    (latin-iso8859-3	#x3C)	; -C¼-A
+    (latin-iso8859-3	#xBC)	; -C¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER J WITH CIRCUMFLEX")
     (->ucs		. #x0135)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0135)
     (mirrored		. nil)
+    (->decomposition	wide #x0135)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER J WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x48)	; $(D+H(B
     ))
 (define-char
@@ -1148,20 +1164,20 @@
     (ucs		. #x0136)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004B #x0327)
     (mirrored		. nil)
+    (->decomposition	#x004B #x0327)
     (->lowercase	#x0137)
-    (latin-iso8859-4	#x53)	; -DÓ-A
+    (latin-iso8859-4	#xD3)	; -DÓ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")
     (->ucs		. #x0136)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0136)
     (mirrored		. nil)
+    (->decomposition	wide #x0136)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER K WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER K WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x49)	; $(D*I(B
     ))
 (define-char
@@ -1169,23 +1185,23 @@
     (ucs		. #x0137)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006B #x0327)
     (mirrored		. nil)
+    (->decomposition	#x006B #x0327)
     (->uppercase	#x0136)
     (->titlecase	#x0136)
-    (latin-iso8859-4	#x73)	; -Dó-A
+    (latin-iso8859-4	#xF3)	; -Dó-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER K WITH CEDILLA")
     (->ucs		. #x0137)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0137)
     (mirrored		. nil)
+    (->decomposition	wide #x0137)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER K WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x49)	; $(D+I(B
     ))
 (define-char
@@ -1195,16 +1211,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Greenlandic")
-    (latin-iso8859-4	#x22)	; -D¢-A
+    (latin-iso8859-4	#xA2)	; -D¢-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER KRA")
     (->ucs		. #x0138)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0138)
     (mirrored		. nil)
     (iso-10646-comment	. "Greenlandic")
+    (->decomposition	wide #x0138)
     (korean-ksc5601	#x29 #x27)	; $(D)G(B
     (japanese-jisx0212	#x29 #x47)	; $(D)G(B
     ))
@@ -1213,20 +1229,20 @@
     (ucs		. #x0139)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004C #x0301)
     (mirrored		. nil)
+    (->decomposition	#x004C #x0301)
     (->lowercase	#x013A)
-    (latin-iso8859-2	#x45)	; -BÅ-A
+    (latin-iso8859-2	#xC5)	; -BÅ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")
     (->ucs		. #x0139)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0139)
     (mirrored		. nil)
+    (->decomposition	wide #x0139)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER L WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER L WITH ACUTE")))
     (japanese-jisx0212	#x2A #x4A)	; $(D*J(B
     ))
 (define-char
@@ -1234,23 +1250,23 @@
     (ucs		. #x013A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006C #x0301)
     (mirrored		. nil)
+    (->decomposition	#x006C #x0301)
     (->uppercase	#x0139)
     (->titlecase	#x0139)
-    (latin-iso8859-2	#x65)	; -Bå-A
+    (latin-iso8859-2	#xE5)	; -Bå-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH ACUTE")
     (->ucs		. #x013A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013A)
     (mirrored		. nil)
+    (->decomposition	wide #x013A)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH ACUTE")))
     (japanese-jisx0212	#x2B #x4A)	; $(D+J(B
     ))
 (define-char
@@ -1258,20 +1274,20 @@
     (ucs		. #x013B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004C #x0327)
     (mirrored		. nil)
+    (->decomposition	#x004C #x0327)
     (->lowercase	#x013C)
-    (latin-iso8859-4	#x26)	; -D¦-A
+    (latin-iso8859-4	#xA6)	; -D¦-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")
     (->ucs		. #x013B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013B)
     (mirrored		. nil)
+    (->decomposition	wide #x013B)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x4C)	; $(D*L(B
     ))
 (define-char
@@ -1279,23 +1295,23 @@
     (ucs		. #x013C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006C #x0327)
     (mirrored		. nil)
+    (->decomposition	#x006C #x0327)
     (->uppercase	#x013B)
     (->titlecase	#x013B)
-    (latin-iso8859-4	#x36)	; -D¶-A
+    (latin-iso8859-4	#xB6)	; -D¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH CEDILLA")
     (->ucs		. #x013C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013C)
     (mirrored		. nil)
+    (->decomposition	wide #x013C)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x4C)	; $(D+L(B
     ))
 (define-char
@@ -1303,20 +1319,20 @@
     (ucs		. #x013D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004C #x030C)
     (mirrored		. nil)
+    (->decomposition	#x004C #x030C)
     (->lowercase	#x013E)
-    (latin-iso8859-2	#x25)	; -B¥-A
+    (latin-iso8859-2	#xA5)	; -B¥-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")
     (->ucs		. #x013D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013D)
     (mirrored		. nil)
+    (->decomposition	wide #x013D)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER L WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER L WITH CARON")))
     (japanese-jisx0212	#x2A #x4B)	; $(D*K(B
     ))
 (define-char
@@ -1324,23 +1340,23 @@
     (ucs		. #x013E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006C #x030C)
     (mirrored		. nil)
+    (->decomposition	#x006C #x030C)
     (->uppercase	#x013D)
     (->titlecase	#x013D)
-    (latin-iso8859-2	#x35)	; -Bµ-A
+    (latin-iso8859-2	#xB5)	; -Bµ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH CARON")
     (->ucs		. #x013E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013E)
     (mirrored		. nil)
+    (->decomposition	wide #x013E)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH CARON")))
     (japanese-jisx0212	#x2B #x4B)	; $(D+K(B
     ))
 (define-char
@@ -1348,19 +1364,19 @@
     (ucs		. #x013F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x004C #x00B7)
     (mirrored		. nil)
+    (->decomposition	compat #x004C #x00B7)
     (->lowercase	#x0140)
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")
     (->ucs		. #x013F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x013F)
     (mirrored		. nil)
+    (->decomposition	wide #x013F)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER L WITH MIDDLE DOT")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER L WITH MIDDLE DOT")))
     (korean-ksc5601	#x28 #x28)	; $(D))(B
     (japanese-jisx0212	#x29 #x29)	; $(D))(B
     ))
@@ -1369,8 +1385,8 @@
     (ucs		. #x0140)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x006C #x00B7)
     (mirrored		. nil)
+    (->decomposition	compat #x006C #x00B7)
     (->uppercase	#x013F)
     (->titlecase	#x013F)
     ))
@@ -1379,12 +1395,12 @@
     (->ucs		. #x0140)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0140)
     (mirrored		. nil)
+    (->decomposition	wide #x0140)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH MIDDLE DOT")))
     (korean-ksc5601	#x29 #x28)	; $(D)I(B
     (japanese-jisx0212	#x29 #x49)	; $(D)I(B
     ))
@@ -1395,17 +1411,17 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0142)
-    (latin-iso8859-2	#x23)	; -B£-A
+    (latin-iso8859-2	#xA3)	; -B£-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")
     (->ucs		. #x0141)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0141)
     (mirrored		. nil)
+    (->decomposition	wide #x0141)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER L WITH STROKE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER L WITH STROKE")))
     (korean-ksc5601	#x28 #x29)	; $(D)((B
     (japanese-jisx0212	#x29 #x28)	; $(D)((B
     ))
@@ -1417,19 +1433,19 @@
     (mirrored		. nil)
     (->uppercase	#x0141)
     (->titlecase	#x0141)
-    (latin-iso8859-2	#x33)	; -B³-A
+    (latin-iso8859-2	#xB3)	; -B³-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER L WITH STROKE")
     (->ucs		. #x0142)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0142)
     (mirrored		. nil)
+    (->decomposition	wide #x0142)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER L WITH STROKE")))
     (korean-ksc5601	#x29 #x29)	; $(D)H(B
     (japanese-jisx0212	#x29 #x48)	; $(D)H(B
     ))
@@ -1438,20 +1454,20 @@
     (ucs		. #x0143)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004E #x0301)
     (mirrored		. nil)
+    (->decomposition	#x004E #x0301)
     (->lowercase	#x0144)
-    (latin-iso8859-2	#x51)	; -BÑ-A
+    (latin-iso8859-2	#xD1)	; -BÑ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")
     (->ucs		. #x0143)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0143)
     (mirrored		. nil)
+    (->decomposition	wide #x0143)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER N WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER N WITH ACUTE")))
     (japanese-jisx0212	#x2A #x4D)	; $(D*M(B
     ))
 (define-char
@@ -1459,23 +1475,23 @@
     (ucs		. #x0144)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006E #x0301)
     (mirrored		. nil)
+    (->decomposition	#x006E #x0301)
     (->uppercase	#x0143)
     (->titlecase	#x0143)
-    (latin-iso8859-2	#x71)	; -Bñ-A
+    (latin-iso8859-2	#xF1)	; -Bñ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH ACUTE")
     (->ucs		. #x0144)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0144)
     (mirrored		. nil)
+    (->decomposition	wide #x0144)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH ACUTE")))
     (japanese-jisx0212	#x2B #x4D)	; $(D+M(B
     ))
 (define-char
@@ -1483,20 +1499,20 @@
     (ucs		. #x0145)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004E #x0327)
     (mirrored		. nil)
+    (->decomposition	#x004E #x0327)
     (->lowercase	#x0146)
-    (latin-iso8859-4	#x51)	; -DÑ-A
+    (latin-iso8859-4	#xD1)	; -DÑ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")
     (->ucs		. #x0145)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0145)
     (mirrored		. nil)
+    (->decomposition	wide #x0145)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER N WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x4F)	; $(D*O(B
     ))
 (define-char
@@ -1504,32 +1520,44 @@
     (ucs		. #x0146)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006E #x0327)
     (mirrored		. nil)
+    (->decomposition	#x006E #x0327)
     (->uppercase	#x0145)
     (->titlecase	#x0145)
-    (latin-iso8859-4	#x71)	; -Dñ-A
-    (japanese-jisx0212	#x2B #x4F)	; -Dñ-A
+    (latin-iso8859-4	#xF1)	; -Dñ-A
+    ))
+(define-char
+  '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CEDILLA")
+    (->ucs		. #x0146)
+    (general-category	letter lowercase) ; Normative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
+    (->decomposition	wide #x0146)
+    (->uppercase
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
+    (->titlecase
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER N WITH CEDILLA")))
+    (japanese-jisx0212	#x2B #x4F)	; $(D+O(B
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER N WITH CARON")
     (ucs		. #x0147)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004E #x030C)
     (mirrored		. nil)
+    (->decomposition	#x004E #x030C)
     (->lowercase	#x0148)
-    (latin-iso8859-2	#x52)	; -BÒ-A
+    (latin-iso8859-2	#xD2)	; -BÒ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER N WITH CARON")
     (->ucs		. #x0147)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0147)
     (mirrored		. nil)
+    (->decomposition	wide #x0147)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER N WITH CARON")))
     (japanese-jisx0212	#x2A #x4E)	; $(D*N(B
     ))
 (define-char
@@ -1537,19 +1565,19 @@
     (ucs		. #x0148)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006E #x030C)
     (mirrored		. nil)
+    (->decomposition	#x006E #x030C)
     (->uppercase	#x0147)
     (->titlecase	#x0147)
-    (latin-iso8859-2	#x72)	; -Bò-A
+    (latin-iso8859-2	#xF2)	; -Bò-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER N WITH CARON")
     (->ucs		. #x0148)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0148)
     (mirrored		. nil)
+    (->decomposition	wide #x0148)
     (->uppercase	#x0147)
     (->titlecase	#x0147)
     (japanese-jisx0212	#x2B #x4E)	; $(D+N(B
@@ -1559,16 +1587,16 @@
     (ucs		. #x0149)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x02BC #x006E)
     (mirrored		. nil)
+    (->decomposition	compat #x02BC #x006E)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
-    (->ucs	. #x0149)
+  '((name . "FULLWIDTH LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
+    (->ucs		. #x0149)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0149)
     (mirrored		. nil)
+    (->decomposition	wide #x0149)
     (korean-ksc5601	#x29 #x30)	; $(D)J(B
     (japanese-jisx0212	#x29 #x4A)	; $(D)J(B
     ))
@@ -1580,18 +1608,18 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Sami")
     (->lowercase	#x014B)
-    (latin-iso8859-4	#x3D)	; -D½-A
+    (latin-iso8859-4	#xBD)	; -D½-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER ENG")
     (->ucs		. #x014A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x014A)
     (mirrored		. nil)
     (iso-10646-comment	. "Sami")
+    (->decomposition	wide #x014A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER ENG")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER ENG")))
     (korean-ksc5601	#x28 #x2F)	; $(D)+(B
     (japanese-jisx0212	#x29 #x2B)	; $(D)+(B
     ))
@@ -1604,21 +1632,21 @@
     (iso-10646-comment	. "Sami")
     (->uppercase	#x014A)
     (->titlecase	#x014A)
-    (latin-iso8859-4	#x3F)	; -D¿-A
-    (ipa		#x55)
+    (latin-iso8859-4	#xBF)	; -D¿-A
+    (ipa		#xD5)	; -0Õ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER ENG")
     (->ucs		. #x014B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x014B)
     (mirrored		. nil)
     (iso-10646-comment	. "Sami")
+    (->decomposition	wide #x014B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER ENG")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER ENG")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER ENG")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER ENG")))
     (korean-ksc5601	#x29 #x2F)	; $(D)K(B
     (japanese-jisx0212	#x29 #x4B)	; $(D)K(B
     ))
@@ -1627,20 +1655,20 @@
     (ucs		. #x014C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x0304)
     (mirrored		. nil)
+    (->decomposition	#x004F #x0304)
     (->lowercase	#x014D)
-    (latin-iso8859-4	#x52)	; -DÒ-A
+    (latin-iso8859-4	#xD2)	; -DÒ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")
     (->ucs		. #x014C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x014C)
     (mirrored		. nil)
+    (->decomposition	wide #x014C)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER O WITH MACRON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER O WITH MACRON")))
     (japanese-jisx0212	#x2A #x57)	; $(D*W(B
     ))
 (define-char
@@ -1648,23 +1676,23 @@
     (ucs		. #x014D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x0304)
     (mirrored		. nil)
+    (->decomposition	#x006F #x0304)
     (->uppercase	#x014C)
     (->titlecase	#x014C)
-    (latin-iso8859-4	#x72)	; -Dò-A
+    (latin-iso8859-4	#xF2)	; -Dò-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER O WITH MACRON")
     (->ucs		. #x014D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x014D)
     (mirrored		. nil)
+    (->decomposition	wide #x014D)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH MACRON")))
     (chinese-gb2312	#x28 #x2D)	; $(D+W(B
     (japanese-jisx0212	#x2B #x57)	; $(D+W(B
     ))
@@ -1673,8 +1701,8 @@
     (ucs		. #x014E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x0306)
     (mirrored		. nil)
+    (->decomposition	#x004F #x0306)
     (->lowercase	#x014F)
     ))
 (define-char
@@ -1682,8 +1710,8 @@
     (ucs		. #x014F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x0306)
     (mirrored		. nil)
+    (->decomposition	#x006F #x0306)
     (->uppercase	#x014E)
     (->titlecase	#x014E)
     ))
@@ -1692,20 +1720,20 @@
     (ucs		. #x0150)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x030B)
     (mirrored		. nil)
+    (->decomposition	#x004F #x030B)
     (->lowercase	#x0151)
-    (latin-iso8859-2	#x55)	; -BÕ-A
+    (latin-iso8859-2	#xD5)	; -BÕ-A
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")
     (->ucs		. #x0150)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0150)
     (mirrored		. nil)
+    (->decomposition	wide #x0150)
     (->lowercase
-     ((name	. "FULLWIDTH LATIN SMALL LETTER O WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER O WITH DOUBLE ACUTE")))
     (japanese-jisx0212	#x2A #x56)	; $(D*V(B
     ))
 (define-char
@@ -1713,23 +1741,23 @@
     (ucs		. #x0151)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x030B)
     (mirrored		. nil)
+    (->decomposition	#x006F #x030B)
     (->uppercase	#x0150)
     (->titlecase	#x0150)
-    (latin-iso8859-2	#x75)	; -Bõ-A
+    (latin-iso8859-2	#xF5)	; -Bõ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN SMALL LETTER O WITH DOUBLE ACUTE")
+  '((name . "FULLWIDTH LATIN SMALL LETTER O WITH DOUBLE ACUTE")
     (->ucs		. #x0151)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0151)
     (mirrored		. nil)
+    (->decomposition	wide #x0151)
     (->uppercase
-     ((name	. "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")))
     (->titlecase
-     ((name	. "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")))
     (japanese-jisx0212	#x2B #x56)	; $(D+V(B
     ))
 (define-char
@@ -1739,7 +1767,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0153)
-    (korean-ksc5601	#x28 #x2B)	; $(D)-(B
+    (korean-ksc5601	#x28 #x2B)	; $(C(+(B
     (japanese-jisx0212	#x29 #x2D)	; $(D)-(B
     ))
 (define-char
@@ -1750,7 +1778,17 @@
     (mirrored		. nil)
     (->uppercase	#x0152)
     (->titlecase	#x0152)
-    (ipa		#x30)	; $(D)M(B
+    (ipa		#xB0)	; -0°-A
+    ))
+(define-char
+  '((name		. "FULLWIDTH LATIN SMALL LIGATURE OE")
+    (->ucs		. #x0153)
+    (general-category	letter lowercase) ; Normative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
+    (->decomposition	wide #x0153)
+    (->uppercase	#x0152)
+    (->titlecase	#x0152)
     (korean-ksc5601	#x29 #x2B)	; $(D)M(B
     (japanese-jisx0212	#x29 #x4D)	; $(D)M(B
     ))
@@ -1759,20 +1797,20 @@
     (ucs		. #x0154)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0052 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0052 #x0301)
     (->lowercase	#x0155)
-    (latin-iso8859-2	#x40)	; -BÀ-A
+    (latin-iso8859-2	#xC0)	; -BÀ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")
     (->ucs		. #x0154)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0154)
     (mirrored		. nil)
+    (->decomposition	wide #x0154)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER R WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER R WITH ACUTE")))
     (japanese-jisx0212	#x2A #x59)	; $(D*Y(B
     ))
 (define-char
@@ -1780,23 +1818,23 @@
     (ucs		. #x0155)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0072 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0072 #x0301)
     (->uppercase	#x0154)
     (->titlecase	#x0154)
-    (latin-iso8859-2	#x60)	; -Bà-A
+    (latin-iso8859-2	#xE0)	; -Bà-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH ACUTE")
     (->ucs		. #x0155)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0155)
     (mirrored		. nil)
+    (->decomposition	wide #x0155)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH ACUTE")))
     (japanese-jisx0212	#x2B #x59)	; $(D+Y(B
     ))
 (define-char
@@ -1804,20 +1842,20 @@
     (ucs		. #x0156)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0052 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0052 #x0327)
     (->lowercase	#x0157)
-    (latin-iso8859-4	#x23)	; -D£-A
+    (latin-iso8859-4	#xA3)	; -D£-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")
     (->ucs		. #x0156)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0156)
     (mirrored		. nil)
+    (->decomposition	wide #x0156)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER R WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x5B)	; $(D*[(B
     ))
 (define-char
@@ -1825,23 +1863,23 @@
     (ucs		. #x0157)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0072 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0072 #x0327)
     (->uppercase	#x0156)
     (->titlecase	#x0156)
-    (latin-iso8859-4	#x33)	; -D³-A
+    (latin-iso8859-4	#xB3)	; -D³-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CEDILLA")
     (->ucs		. #x0157)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0157)
     (mirrored		. nil)
+    (->decomposition	wide #x0157)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x5B)	; $(D+[(B
     ))
 (define-char
@@ -1849,20 +1887,20 @@
     (ucs		. #x0158)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0052 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0052 #x030C)
     (->lowercase	#x0159)
-    (latin-iso8859-2	#x58)	; -BØ-A
+    (latin-iso8859-2	#xD8)	; -BØ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")
     (->ucs		. #x0158)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0158)
     (mirrored		. nil)
+    (->decomposition	wide #x0158)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER R WITH CARON")))
     (japanese-jisx0212	#x2A #x5A)	; $(D*Z(B
     ))
 (define-char
@@ -1870,23 +1908,23 @@
     (ucs		. #x0159)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0072 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0072 #x030C)
     (->uppercase	#x0158)
     (->titlecase	#x0158)
-    (latin-iso8859-2	#x78)	; -Bø-A
+    (latin-iso8859-2	#xF8)	; -Bø-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER R WITH CARON")
     (->ucs		. #x0159)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0159)
     (mirrored		. nil)
+    (->decomposition	wide #x0159)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CARON")))
     (japanese-jisx0212	#x2B #x5A)	; $(D+Z(B
     ))
 (define-char
@@ -1894,20 +1932,20 @@
     (ucs		. #x015A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0053 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0053 #x0301)
     (->lowercase	#x015B)
-    (latin-iso8859-2	#x26)	; -B¦-A
+    (latin-iso8859-2	#xA6)	; -B¦-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")
     (->ucs		. #x015A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015A)
     (mirrored		. nil)
+    (->decomposition	wide #x015A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER S WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER S WITH ACUTE")))
     (japanese-jisx0212	#x2A #x5C)	; $(D*\(B
     ))
 (define-char
@@ -1915,23 +1953,23 @@
     (ucs		. #x015B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0073 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0073 #x0301)
     (->uppercase	#x015A)
     (->titlecase	#x015A)
-    (latin-iso8859-2	#x36)	; -B¶-A
+    (latin-iso8859-2	#xB6)	; -B¶-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH ACUTE")
     (->ucs		. #x015B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015B)
     (mirrored		. nil)
+    (->decomposition	wide #x015B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")))
     (japanese-jisx0212	#x2B #x5C)	; $(D+\(B
     ))
 (define-char
@@ -1939,20 +1977,20 @@
     (ucs		. #x015C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0053 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0053 #x0302)
     (->lowercase	#x015D)
-    (latin-iso8859-3	#x5E)	; -CÞ-A
+    (latin-iso8859-3	#xDE)	; -CÞ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")
     (->ucs		. #x015C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015C)
     (mirrored		. nil)
+    (->decomposition	wide #x015C)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER S WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x5D)	; $(D*](B
     ))
 (define-char
@@ -1960,23 +1998,23 @@
     (ucs		. #x015D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0073 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0073 #x0302)
     (->uppercase	#x015C)
     (->titlecase	#x015C)
-    (latin-iso8859-3	#x7E)	; -Cþ-A
+    (latin-iso8859-3	#xFE)	; -Cþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CIRCUMFLEX")
     (->ucs		. #x015D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015D)
     (mirrored		. nil)
+    (->decomposition	wide #x015D)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x5D)	; $(D+](B
     ))
 (define-char
@@ -1984,24 +2022,24 @@
     (ucs		. #x015E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0053 #x0327)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0053 #x0327)
     (->lowercase	#x015F)
-    (latin-iso8859-2	#x2A)	; -Bª-A
-    (latin-iso8859-3	#x2A)	; -Bª-A
-    (latin-iso8859-9	#x5E)	; -Bª-A
+    (latin-iso8859-2	#xAA)	; -Bª-A
+    (latin-iso8859-3	#xAA)	; -Cª-A
+    (latin-iso8859-9	#xDE)	; -MÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")
     (->ucs		. #x015E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015E)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	wide #x015E)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER S WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x5F)	; $(D*_(B
     ))
 (define-char
@@ -2009,27 +2047,27 @@
     (ucs		. #x015F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0073 #x0327)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0073 #x0327)
     (->uppercase	#x015E)
     (->titlecase	#x015E)
-    (latin-iso8859-2	#x3A)	; -Bº-A
-    (latin-iso8859-3	#x3A)	; -Bº-A
-    (latin-iso8859-9	#x7E)	; -Bº-A
+    (latin-iso8859-2	#xBA)	; -Bº-A
+    (latin-iso8859-3	#xBA)	; -Cº-A
+    (latin-iso8859-9	#xFE)	; -Mþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CEDILLA")
     (->ucs		. #x015F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x015F)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	wide #x015F)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x5F)	; $(D+_(B
     ))
 (define-char
@@ -2037,21 +2075,21 @@
     (ucs		. #x0160)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0053 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0053 #x030C)
     (->lowercase	#x0161)
-    (latin-iso8859-2	#x29)	; -B©-A
-    (latin-iso8859-4	#x29)	; -B©-A
+    (latin-iso8859-2	#xA9)	; -B©-A
+    (latin-iso8859-4	#xA9)	; -D©-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")
     (->ucs		. #x0160)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0160)
     (mirrored		. nil)
+    (->decomposition	wide #x0160)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER S WITH CARON")))
     (japanese-jisx0212	#x2A #x5E)	; $(D*^(B
     ))
 (define-char
@@ -2059,24 +2097,24 @@
     (ucs		. #x0161)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0073 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0073 #x030C)
     (->uppercase	#x0160)
     (->titlecase	#x0160)
-    (latin-iso8859-2	#x39)	; -B¹-A
-    (latin-iso8859-4	#x39)	; -B¹-A
+    (latin-iso8859-2	#xB9)	; -B¹-A
+    (latin-iso8859-4	#xB9)	; -D¹-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER S WITH CARON")
     (->ucs		. #x0161)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0161)
     (mirrored		. nil)
+    (->decomposition	wide #x0161)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH CARON")))
     (japanese-jisx0212	#x2B #x5E)	; $(D+^(B
     ))
 (define-char
@@ -2084,22 +2122,22 @@
     (ucs		. #x0162)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0054 #x0327)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0054 #x0327)
     (->lowercase	#x0163)
-    (latin-iso8859-2	#x5E)	; -BÞ-A
+    (latin-iso8859-2	#xDE)	; -BÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")
     (->ucs		. #x0162)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0162)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	wide #x0162)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER T WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER T WITH CEDILLA")))
     (japanese-jisx0212	#x2A #x61)	; $(D*a(B
     ))
 (define-char
@@ -2107,25 +2145,25 @@
     (ucs		. #x0163)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0074 #x0327)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0074 #x0327)
     (->uppercase	#x0162)
     (->titlecase	#x0162)
-    (latin-iso8859-2	#x7E)	; -Bþ-A
+    (latin-iso8859-2	#xFE)	; -Bþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH CEDILLA")
     (->ucs		. #x0163)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0163)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	wide #x0163)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH CEDILLA")))
     (japanese-jisx0212	#x2B #x61)	; $(D+a(B
     ))
 (define-char
@@ -2133,20 +2171,20 @@
     (ucs		. #x0164)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0054 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0054 #x030C)
     (->lowercase	#x0165)
-    (latin-iso8859-2	#x2B)	; -B«-A
+    (latin-iso8859-2	#xAB)	; -B«-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")
     (->ucs		. #x0164)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0164)
     (mirrored		. nil)
+    (->decomposition	wide #x0164)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
     (japanese-jisx0212	#x2A #x60)	; $(D*`(B
     ))
 (define-char
@@ -2154,23 +2192,23 @@
     (ucs		. #x0165)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0074 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0074 #x030C)
     (->uppercase	#x0164)
     (->titlecase	#x0164)
-    (latin-iso8859-2	#x3B)	; -B»-A
+    (latin-iso8859-2	#xBB)	; -B»-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH CARON")
     (->ucs		. #x0165)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0165)
     (mirrored		. nil)
+    (->decomposition	wide #x0165)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH CARON")))
     (japanese-jisx0212	#x2B #x60)	; $(D+`(B
     ))
 (define-char
@@ -2180,17 +2218,17 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase	#x0167)
-    (latin-iso8859-4	#x2C)	; -D¬-A
+    (latin-iso8859-4	#xAC)	; -D¬-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")
     (->ucs		. #x0166)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0166)
     (mirrored		. nil)
+    (->decomposition	wide #x0166)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER T WITH STROKE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER T WITH STROKE")))
     (korean-ksc5601	#x28 #x2E)	; $(D)/(B
     (japanese-jisx0212	#x29 #x2F)	; $(D)/(B
     ))
@@ -2202,19 +2240,19 @@
     (mirrored		. nil)
     (->uppercase	#x0166)
     (->titlecase	#x0166)
-    (latin-iso8859-4	#x3C)	; -D¼-A
+    (latin-iso8859-4	#xBC)	; -D¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER T WITH STROKE")
     (->ucs		. #x0167)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0167)
     (mirrored		. nil)
+    (->decomposition	wide #x0167)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER T WITH STROKE")))
     (korean-ksc5601	#x29 #x2E)	; $(D)O(B
     (japanese-jisx0212	#x29 #x4F)	; $(D)O(B
     ))
@@ -2223,21 +2261,22 @@
     (ucs		. #x0168)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x0303)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x0303)
     (->lowercase	#x0169)
-    (latin-iso8859-4	#x5D)	; -DÝ-A
-    (latin-viscii-upper	#x7B)	; -DÝ-A
+    (latin-iso8859-4	#xDD)	; -DÝ-A
+    (latin-viscii-upper #xFB)	; -DÝ-A
+    (latin-viscii	#x9D)	; -DÝ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")
     (->ucs		. #x0168)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0168)
     (mirrored		. nil)
+    (->decomposition	wide #x0168)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
     (japanese-jisx0212	#x2A #x6C)	; $(D*l(B
     ))
 (define-char
@@ -2245,24 +2284,25 @@
     (ucs		. #x0169)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x0303)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x0303)
     (->uppercase	#x0168)
     (->titlecase	#x0168)
-    (latin-iso8859-4	#x7D)	; -Dý-A
-    (latin-viscii-lower	#x7B)	; -Dý-A
+    (latin-iso8859-4	#xFD)	; -Dý-A
+    (latin-viscii-lower #xFB)	; -Dý-A
+    (latin-viscii	#xFB)	; -Dý-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH TILDE")
     (->ucs		. #x0169)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0169)
     (mirrored		. nil)
+    (->decomposition	wide #x0169)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH TILDE")))
     (japanese-jisx0212	#x2B #x6C)	; $(D+l(B
     ))
 (define-char
@@ -2270,20 +2310,20 @@
     (ucs		. #x016A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x0304)
     (->lowercase	#x016B)
-    (latin-iso8859-4	#x5E)	; -DÞ-A
+    (latin-iso8859-4	#xDE)	; -DÞ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")
     (->ucs		. #x016A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016A)
     (mirrored		. nil)
+    (->decomposition	wide #x016A)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH MACRON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH MACRON")))
     (japanese-jisx0212	#x2A #x69)	; $(D*i(B
     ))
 (define-char
@@ -2291,23 +2331,23 @@
     (ucs		. #x016B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x0304)
     (->uppercase	#x016A)
     (->titlecase	#x016A)
-    (latin-iso8859-4	#x7E)	; -Dþ-A
+    (latin-iso8859-4	#xFE)	; -Dþ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH MACRON")
     (->ucs		. #x016B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016B)
     (mirrored		. nil)
+    (->decomposition	wide #x016B)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH MACRON")))
     (chinese-gb2312	#x28 #x31)	; $(D+i(B
     (japanese-jisx0212	#x2B #x69)	; $(D+i(B
     ))
@@ -2316,20 +2356,20 @@
     (ucs		. #x016C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x0306)
     (->lowercase	#x016D)
-    (latin-iso8859-3	#x5D)	; -CÝ-A
+    (latin-iso8859-3	#xDD)	; -CÝ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")
     (->ucs		. #x016C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016C)
     (mirrored		. nil)
+    (->decomposition	wide #x016C)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH BREVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH BREVE")))
     (japanese-jisx0212	#x2A #x66)	; $(D*f(B
     ))
 (define-char
@@ -2337,23 +2377,23 @@
     (ucs		. #x016D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x0306)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x0306)
     (->uppercase	#x016C)
     (->titlecase	#x016C)
-    (latin-iso8859-3	#x7D)	; -Cý-A
+    (latin-iso8859-3	#xFD)	; -Cý-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH BREVE")
     (->ucs		. #x016D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016D)
     (mirrored		. nil)
+    (->decomposition	wide #x016D)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH BREVE")))
     (japanese-jisx0212	#x2B #x66)	; $(D+f(B
     ))
 (define-char
@@ -2361,20 +2401,20 @@
     (ucs		. #x016E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x030A)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x030A)
     (->lowercase	#x016F)
-    (latin-iso8859-2	#x59)	; -BÙ-A
+    (latin-iso8859-2	#xD9)	; -BÙ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")
     (->ucs		. #x016E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016E)
     (mirrored		. nil)
+    (->decomposition	wide #x016E)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH RING ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH RING ABOVE")))
     (japanese-jisx0212	#x2A #x6B)	; $(D*k(B
     ))
 (define-char
@@ -2382,23 +2422,23 @@
     (ucs		. #x016F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x030A)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x030A)
     (->uppercase	#x016E)
     (->titlecase	#x016E)
-    (latin-iso8859-2	#x79)	; -Bù-A
+    (latin-iso8859-2	#xF9)	; -Bù-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH RING ABOVE")
     (->ucs		. #x016F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x016F)
     (mirrored		. nil)
+    (->decomposition	wide #x016F)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH RING ABOVE")))
     (japanese-jisx0212	#x2B #x6B)	; $(D+k(B
     ))
 (define-char
@@ -2406,20 +2446,20 @@
     (ucs		. #x0170)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x030B)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x030B)
     (->lowercase	#x0171)
-    (latin-iso8859-2	#x5B)	; -BÛ-A
+    (latin-iso8859-2	#xDB)	; -BÛ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")
     (->ucs		. #x0170)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0170)
     (mirrored		. nil)
+    (->decomposition	wide #x0170)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DOUBLE ACUTE")))
     (japanese-jisx0212	#x2A #x68)	; $(D*h(B
     ))
 (define-char
@@ -2427,23 +2467,23 @@
     (ucs		. #x0171)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x030B)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x030B)
     (->uppercase	#x0170)
     (->titlecase	#x0170)
-    (latin-iso8859-2	#x7B)	; -Bû-A
+    (latin-iso8859-2	#xFB)	; -Bû-A
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH DOUBLE ACUTE")
+  '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DOUBLE ACUTE")
     (->ucs		. #x0171)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0171)
     (mirrored		. nil)
+    (->decomposition	wide #x0171)
     (->uppercase
-     ((name	. "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")))
     (->titlecase
-     ((name	. "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")))
     (japanese-jisx0212	#x2B #x68)	; $(D+h(B
     ))
 (define-char
@@ -2451,20 +2491,20 @@
     (ucs		. #x0172)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x0328)
     (->lowercase	#x0173)
-    (latin-iso8859-4	#x59)	; -DÙ-A
+    (latin-iso8859-4	#xD9)	; -DÙ-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")
     (->ucs		. #x0172)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0172)
     (mirrored		. nil)
+    (->decomposition	wide #x0172)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH OGONEK")))
     (japanese-jisx0212	#x2A #x6A)	; $(D*j(B
     ))
 (define-char
@@ -2472,23 +2512,23 @@
     (ucs		. #x0173)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x0328)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x0328)
     (->uppercase	#x0172)
     (->titlecase	#x0172)
-    (latin-iso8859-4	#x79)	; -Dù-A
+    (latin-iso8859-4	#xF9)	; -Dù-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER U WITH OGONEK")
     (->ucs		. #x0173)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0173)
     (mirrored		. nil)
+    (->decomposition	wide #x0173)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH OGONEK")))
     (japanese-jisx0212	#x2B #x6A)	; $(D+j(B
     ))
 (define-char
@@ -2496,19 +2536,19 @@
     (ucs		. #x0174)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0057 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0057 #x0302)
     (->lowercase	#x0175)
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")
     (->ucs		. #x0174)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0174)
     (mirrored		. nil)
+    (->decomposition	wide #x0174)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER W WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER W WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x71)	; $(D*q(B
     ))
 (define-char
@@ -2516,8 +2556,8 @@
     (ucs		. #x0175)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0077 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0077 #x0302)
     (->uppercase	#x0174)
     (->titlecase	#x0174)
     ))
@@ -2526,12 +2566,12 @@
     (->ucs		. #x0175)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0175)
     (mirrored		. nil)
+    (->decomposition	wide #x0175)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER W WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x71)	; $(D+q(B
     ))
 (define-char
@@ -2539,19 +2579,19 @@
     (ucs		. #x0176)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0059 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0059 #x0302)
     (->lowercase	#x0177)
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")
     (->ucs		. #x0176)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0176)
     (mirrored		. nil)
+    (->decomposition	wide #x0176)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER Y WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER Y WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2A #x74)	; $(D*t(B
     ))
 (define-char
@@ -2559,8 +2599,8 @@
     (ucs		. #x0177)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0079 #x0302)
     (mirrored		. nil)
+    (->decomposition	#x0079 #x0302)
     (->uppercase	#x0176)
     (->titlecase	#x0176)
     ))
@@ -2569,12 +2609,12 @@
     (->ucs		. #x0177)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0177)
     (mirrored		. nil)
+    (->decomposition	wide #x0177)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")))
     (japanese-jisx0212	#x2B #x74)	; $(D+t(B
     ))
 (define-char
@@ -2582,8 +2622,8 @@
     (ucs		. #x0178)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0059 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x0059 #x0308)
     (->lowercase	#x00FF)
     ))
 (define-char
@@ -2591,10 +2631,10 @@
     (->ucs		. #x0178)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0178)
     (mirrored		. nil)
+    (->decomposition	wide #x0178)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER Y WITH DIAERESIS")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER Y WITH DIAERESIS")))
     (japanese-jisx0212	#x2A #x73)	; $(D*s(B
     ))
 (define-char
@@ -2602,20 +2642,20 @@
     (ucs		. #x0179)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x005A #x0301)
     (mirrored		. nil)
+    (->decomposition	#x005A #x0301)
     (->lowercase	#x017A)
-    (latin-iso8859-2	#x2C)	; -B¬-A
+    (latin-iso8859-2	#xAC)	; -B¬-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")
     (->ucs		. #x0179)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0179)
     (mirrored		. nil)
+    (->decomposition	wide #x0179)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER Z WITH ACUTE")))
     (japanese-jisx0212	#x2A #x75)	; $(D*u(B
     ))
 (define-char
@@ -2623,23 +2663,23 @@
     (ucs		. #x017A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x007A #x0301)
     (mirrored		. nil)
+    (->decomposition	#x007A #x0301)
     (->uppercase	#x0179)
     (->titlecase	#x0179)
-    (latin-iso8859-2	#x3C)	; -B¼-A
+    (latin-iso8859-2	#xBC)	; -B¼-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH ACUTE")
     (->ucs		. #x017A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x017A)
     (mirrored		. nil)
+    (->decomposition	wide #x017A)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH ACUTE")))
     (japanese-jisx0212	#x2B #x75)	; $(D+u(B
     ))
 (define-char
@@ -2647,21 +2687,21 @@
     (ucs		. #x017B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x005A #x0307)
     (mirrored		. nil)
+    (->decomposition	#x005A #x0307)
     (->lowercase	#x017C)
-    (latin-iso8859-2	#x2F)	; -B¯-A
-    (latin-iso8859-3	#x2F)	; -B¯-A
+    (latin-iso8859-2	#xAF)	; -B¯-A
+    (latin-iso8859-3	#xAF)	; -C¯-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")
     (->ucs		. #x017B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x017B)
     (mirrored		. nil)
+    (->decomposition	wide #x017B)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER Z WITH DOT ABOVE")))
     (japanese-jisx0212	#x2A #x77)	; $(D*w(B
     ))
 (define-char
@@ -2669,24 +2709,24 @@
     (ucs		. #x017C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x007A #x0307)
     (mirrored		. nil)
+    (->decomposition	#x007A #x0307)
     (->uppercase	#x017B)
     (->titlecase	#x017B)
-    (latin-iso8859-2	#x3F)	; -B¿-A
-    (latin-iso8859-3	#x3F)	; -B¿-A
+    (latin-iso8859-2	#xBF)	; -B¿-A
+    (latin-iso8859-3	#xBF)	; -C¿-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH DOT ABOVE")
     (->ucs		. #x017C)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x017C)
     (mirrored		. nil)
+    (->decomposition	wide #x017C)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH DOT ABOVE")))
     (japanese-jisx0212	#x2B #x77)	; $(D+w(B
     ))
 (define-char
@@ -2694,21 +2734,21 @@
     (ucs		. #x017D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x005A #x030C)
     (mirrored		. nil)
+    (->decomposition	#x005A #x030C)
     (->lowercase	#x017E)
-    (latin-iso8859-2	#x2E)	; -B®-A
-    (latin-iso8859-4	#x2E)	; -B®-A
+    (latin-iso8859-2	#xAE)	; -B®-A
+    (latin-iso8859-4	#xAE)	; -D®-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")
     (->ucs		. #x017D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x017D)
     (mirrored		. nil)
+    (->decomposition	wide #x017D)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER Z WITH CARON")))
     (japanese-jisx0212	#x2A #x76)	; $(D*v(B
     ))
 (define-char
@@ -2716,24 +2756,24 @@
     (ucs		. #x017E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x007A #x030C)
     (mirrored		. nil)
+    (->decomposition	#x007A #x030C)
     (->uppercase	#x017D)
     (->titlecase	#x017D)
-    (latin-iso8859-2	#x3E)	; -B¾-A
-    (latin-iso8859-4	#x3E)	; -B¾-A
+    (latin-iso8859-2	#xBE)	; -B¾-A
+    (latin-iso8859-4	#xBE)	; -D¾-A
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN SMALL LETTER Z WITH CARON")
     (->ucs		. #x017E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x017E)
     (mirrored		. nil)
+    (->decomposition	wide #x017E)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER Z WITH CARON")))
     (japanese-jisx0212	#x2B #x76)	; $(D+v(B
     ))
 (define-char
@@ -2741,8 +2781,8 @@
     (ucs		. #x017F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0073)
     (mirrored		. nil)
+    (->decomposition	compat #x0073)
     (->uppercase	#x0053)
     (->titlecase	#x0053)
     ))

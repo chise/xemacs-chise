@@ -3,9 +3,9 @@
     (ucs		. #x0374)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	#x02B9)
     (mirrored		. nil)
     (iso-10646-comment	. "Dexia keraia")
+    (->decomposition	#x02B9)
     ))
 (define-char
   '((name		. "GREEK LOWER NUMERAL SIGN")
@@ -20,25 +20,25 @@
     (ucs		. #x037A)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0020 #x0345)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x0345)
     ))
 (define-char
   '((name		. "GREEK QUESTION MARK")
     (ucs		. #x037E)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	#x003B)
     (mirrored		. nil)
     (iso-10646-comment	. "Erotimatiko")
+    (->decomposition	#x003B)
     ))
 (define-char
   '((name		. "GREEK TONOS")
     (ucs		. #x0384)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x0301)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x0301)
     (greek-iso8859-7	#x34)	; -F´-A
     ))
 (define-char
@@ -46,8 +46,8 @@
     (->ucs		. #x0384)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x0384)
     (mirrored		. nil)
+    (->decomposition	wide #x0384)
     (japanese-jisx0212	#x22 #x38)	; $(D"8(B
     ))
 (define-char
@@ -55,8 +55,8 @@
     (ucs		. #x0385)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	#x00A8 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00A8 #x0301)
     (greek-iso8859-7	#x35)	; -Fµ-A
     ))
 (define-char
@@ -64,8 +64,8 @@
     (->ucs		. #x0385)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x0385)
     (mirrored		. nil)
+    (->decomposition	wide #x0385)
     (japanese-jisx0212	#x22 #x39)	; $(D"9(B
     ))
 (define-char
@@ -73,8 +73,8 @@
     (ucs		. #x0386)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0391 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0391 #x0301)
     (->lowercase	#x03AC)
     (greek-iso8859-7	#x36)	; -F¶-A
     ))
@@ -83,10 +83,10 @@
     (->ucs		. #x0386)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0386)
     (mirrored		. nil)
+    (->decomposition	wide #x0386)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER ALPHA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER ALPHA WITH TONOS")))
     (japanese-jisx0212	#x26 #x61)	; $(D&a(B
     ))
 (define-char
@@ -94,28 +94,28 @@
     (ucs		. #x0387)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	#x00B7)
     (mirrored		. nil)
+    (->decomposition	#x00B7)
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER EPSILON WITH TONOS")
     (ucs		. #x0388)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0395 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0395 #x0301)
     (->lowercase	#x03AD)
     (greek-iso8859-7	#x38)	; -F¸-A
     ))
 (define-char
-  '((name		. "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")
+  '((name . "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")
     (->ucs		. #x0388)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0388)
     (mirrored		. nil)
+    (->decomposition	wide #x0388)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER EPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER EPSILON WITH TONOS")))
     (japanese-jisx0212	#x26 #x62)	; $(D&b(B
     ))
 (define-char
@@ -123,8 +123,8 @@
     (ucs		. #x0389)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0397 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0397 #x0301)
     (->lowercase	#x03AE)
     (greek-iso8859-7	#x39)	; -F¹-A
     ))
@@ -133,10 +133,10 @@
     (->ucs		. #x0389)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0389)
     (mirrored		. nil)
+    (->decomposition	wide #x0389)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER ETA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER ETA WITH TONOS")))
     (japanese-jisx0212	#x26 #x63)	; $(D&c(B
     ))
 (define-char
@@ -144,8 +144,8 @@
     (ucs		. #x038A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0399 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0399 #x0301)
     (->lowercase	#x03AF)
     (greek-iso8859-7	#x3A)	; -Fº-A
     ))
@@ -154,10 +154,10 @@
     (->ucs		. #x038A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x038A)
     (mirrored		. nil)
+    (->decomposition	wide #x038A)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER IOTA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER IOTA WITH TONOS")))
     (japanese-jisx0212	#x26 #x64)	; $(D&d(B
     ))
 (define-char
@@ -165,20 +165,20 @@
     (ucs		. #x038C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x039F #x0301)
     (mirrored		. nil)
+    (->decomposition	#x039F #x0301)
     (->lowercase	#x03CC)
     (greek-iso8859-7	#x3C)	; -F¼-A
     ))
 (define-char
-  '((name		. "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")
+  '((name . "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")
     (->ucs		. #x038C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x038C)
     (mirrored		. nil)
+    (->decomposition	wide #x038C)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER OMICRON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER OMICRON WITH TONOS")))
     (japanese-jisx0212	#x26 #x67)	; $(D&g(B
     ))
 (define-char
@@ -186,20 +186,20 @@
     (ucs		. #x038E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03A5 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03A5 #x0301)
     (->lowercase	#x03CD)
     (greek-iso8859-7	#x3E)	; -F¾-A
     ))
 (define-char
-  '((name		. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")
+  '((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")
     (->ucs		. #x038E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x038E)
     (mirrored		. nil)
+    (->decomposition	wide #x038E)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER UPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER UPSILON WITH TONOS")))
     (japanese-jisx0212	#x26 #x69)	; $(D&i(B
     ))
 (define-char
@@ -207,8 +207,8 @@
     (ucs		. #x038F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03A9 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03A9 #x0301)
     (->lowercase	#x03CE)
     (greek-iso8859-7	#x3F)	; -F¿-A
     ))
@@ -217,28 +217,28 @@
     (->ucs		. #x038F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x038F)
     (mirrored		. nil)
+    (->decomposition	wide #x038F)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER OMEGA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER OMEGA WITH TONOS")))
     (japanese-jisx0212	#x26 #x6C)	; $(D&l(B
     ))
 (define-char
   '((name . "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
-    (ucs  . #x0390)
+    (ucs		. #x0390)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03CA #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03CA #x0301)
     (greek-iso8859-7	#x40)	; -FÀ-A
     ))
 (define-char
   '((name . "FULLWIDTH GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS")
-    (->ucs  . #x0390)
+    (->ucs		. #x0390)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0390)
     (mirrored		. nil)
+    (->decomposition	wide #x0390)
     (japanese-jisx0212	#x26 #x76)	; $(D&v(B
     ))
 (define-char
@@ -255,13 +255,13 @@
     (->ucs		. #x0391)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0391)
     (mirrored		. nil)
+    (->decomposition	wide #x0391)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER ALPHA")))
-    (japanese-jisx0208-1978	#x26 #x21)	; $B&!(B
-    (chinese-gb2312		#x26 #x21)	; $A&!(B
-    (japanese-jisx0208		#x26 #x21)	; $B&!(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER ALPHA")))
+    (japanese-jisx0208-1978	#x26 #x21)	; $(B&!(B
+    (chinese-gb2312		#x26 #x21)	; $(A&!(B
+    (japanese-jisx0208		#x26 #x21)	; $(B&!(B
     (korean-ksc5601		#x25 #x41)	; $(C%A(B
     (chinese-cns11643-1		#x24 #x75)	; $(G$u(B
     ))
@@ -279,13 +279,13 @@
     (->ucs		. #x0392)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0392)
     (mirrored		. nil)
+    (->decomposition	wide #x0392)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER BETA")))
-    (japanese-jisx0208-1978	#x26 #x22)	; $B&"(B
-    (chinese-gb2312		#x26 #x22)	; $A&"(B
-    (japanese-jisx0208		#x26 #x22)	; $B&"(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER BETA")))
+    (japanese-jisx0208-1978	#x26 #x22)	; $(B&"(B
+    (chinese-gb2312		#x26 #x22)	; $(A&"(B
+    (japanese-jisx0208		#x26 #x22)	; $(B&"(B
     (korean-ksc5601		#x25 #x42)	; $(C%B(B
     (chinese-cns11643-1		#x24 #x76)	; $(G$v(B
     ))
@@ -303,13 +303,13 @@
     (->ucs		. #x0393)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0393)
     (mirrored		. nil)
+    (->decomposition	wide #x0393)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER GAMMA")))
-    (japanese-jisx0208-1978	#x26 #x23)	; $B&#(B
-    (chinese-gb2312		#x26 #x23)	; $A&#(B
-    (japanese-jisx0208		#x26 #x23)	; $B&#(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER GAMMA")))
+    (japanese-jisx0208-1978	#x26 #x23)	; $(B&#(B
+    (chinese-gb2312		#x26 #x23)	; $(A&#(B
+    (japanese-jisx0208		#x26 #x23)	; $(B&#(B
     (korean-ksc5601		#x25 #x43)	; $(C%C(B
     (chinese-cns11643-1		#x24 #x77)	; $(G$w(B
     ))
@@ -327,13 +327,13 @@
     (->ucs		. #x0394)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0394)
     (mirrored		. nil)
+    (->decomposition	wide #x0394)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER DELTA")))
-    (japanese-jisx0208-1978	#x26 #x24)	; $B&$(B
-    (chinese-gb2312		#x26 #x24)	; $A&$(B
-    (japanese-jisx0208		#x26 #x24)	; $B&$(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER DELTA")))
+    (japanese-jisx0208-1978	#x26 #x24)	; $(B&$(B
+    (chinese-gb2312		#x26 #x24)	; $(A&$(B
+    (japanese-jisx0208		#x26 #x24)	; $(B&$(B
     (korean-ksc5601		#x25 #x44)	; $(C%D(B
     (chinese-cns11643-1		#x24 #x78)	; $(G$x(B
     ))
@@ -351,13 +351,13 @@
     (->ucs		. #x0395)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0395)
     (mirrored		. nil)
+    (->decomposition	wide #x0395)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER EPSILON")))
-    (japanese-jisx0208-1978	#x26 #x25)	; $B&%(B
-    (chinese-gb2312		#x26 #x25)	; $A&%(B
-    (japanese-jisx0208		#x26 #x25)	; $B&%(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER EPSILON")))
+    (japanese-jisx0208-1978	#x26 #x25)	; $(B&%(B
+    (chinese-gb2312		#x26 #x25)	; $(A&%(B
+    (japanese-jisx0208		#x26 #x25)	; $(B&%(B
     (korean-ksc5601		#x25 #x45)	; $(C%E(B
     (chinese-cns11643-1		#x24 #x79)	; $(G$y(B
     ))
@@ -375,13 +375,13 @@
     (->ucs		. #x0396)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0396)
     (mirrored		. nil)
+    (->decomposition	wide #x0396)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER ZETA")))
-    (japanese-jisx0208-1978	#x26 #x26)	; $B&&(B
-    (chinese-gb2312		#x26 #x26)	; $A&&(B
-    (japanese-jisx0208		#x26 #x26)	; $B&&(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER ZETA")))
+    (japanese-jisx0208-1978	#x26 #x26)	; $(B&&(B
+    (chinese-gb2312		#x26 #x26)	; $(A&&(B
+    (japanese-jisx0208		#x26 #x26)	; $(B&&(B
     (korean-ksc5601		#x25 #x46)	; $(C%F(B
     (chinese-cns11643-1		#x24 #x7A)	; $(G$z(B
     ))
@@ -399,13 +399,13 @@
     (->ucs		. #x0397)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0397)
     (mirrored		. nil)
+    (->decomposition	wide #x0397)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER ETA")))
-    (japanese-jisx0208-1978	#x26 #x27)	; $B&'(B
-    (chinese-gb2312		#x26 #x27)	; $A&'(B
-    (japanese-jisx0208		#x26 #x27)	; $B&'(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER ETA")))
+    (japanese-jisx0208-1978	#x26 #x27)	; $(B&'(B
+    (chinese-gb2312		#x26 #x27)	; $(A&'(B
+    (japanese-jisx0208		#x26 #x27)	; $(B&'(B
     (korean-ksc5601		#x25 #x47)	; $(C%G(B
     (chinese-cns11643-1		#x24 #x7B)	; $(G${(B
     ))
@@ -423,13 +423,13 @@
     (->ucs		. #x0398)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0398)
     (mirrored		. nil)
+    (->decomposition	wide #x0398)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER THETA")))
-    (japanese-jisx0208-1978	#x26 #x28)	; $B&((B
-    (chinese-gb2312		#x26 #x28)	; $A&((B
-    (japanese-jisx0208		#x26 #x28)	; $B&((B
+     ((name . "FULLWIDTH GREEK SMALL LETTER THETA")))
+    (japanese-jisx0208-1978	#x26 #x28)	; $(B&((B
+    (chinese-gb2312		#x26 #x28)	; $(A&((B
+    (japanese-jisx0208		#x26 #x28)	; $(B&((B
     (korean-ksc5601		#x25 #x48)	; $(C%H(B
     (chinese-cns11643-1		#x24 #x7C)	; $(G$|(B
     ))
@@ -447,13 +447,13 @@
     (->ucs		. #x0399)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x0399)
     (mirrored		. nil)
+    (->decomposition	wide #x0399)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER IOTA")))
-    (japanese-jisx0208-1978	#x26 #x29)	; $B&)(B
-    (chinese-gb2312		#x26 #x29)	; $A&)(B
-    (japanese-jisx0208		#x26 #x29)	; $B&)(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER IOTA")))
+    (japanese-jisx0208-1978	#x26 #x29)	; $(B&)(B
+    (chinese-gb2312		#x26 #x29)	; $(A&)(B
+    (japanese-jisx0208		#x26 #x29)	; $(B&)(B
     (korean-ksc5601		#x25 #x49)	; $(C%I(B
     (chinese-cns11643-1		#x24 #x7D)	; $(G$}(B
     ))
@@ -471,13 +471,13 @@
     (->ucs		. #x039A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039A)
     (mirrored		. nil)
+    (->decomposition	wide #x039A)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER KAPPA")))
-    (japanese-jisx0208-1978	#x26 #x2A)	; $B&*(B
-    (chinese-gb2312		#x26 #x2A)	; $A&*(B
-    (japanese-jisx0208		#x26 #x2A)	; $B&*(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER KAPPA")))
+    (japanese-jisx0208-1978	#x26 #x2A)	; $(B&*(B
+    (chinese-gb2312		#x26 #x2A)	; $(A&*(B
+    (japanese-jisx0208		#x26 #x2A)	; $(B&*(B
     (korean-ksc5601		#x25 #x4A)	; $(C%J(B
     (chinese-cns11643-1		#x24 #x7E)	; $(G$~(B
     ))
@@ -495,13 +495,13 @@
     (->ucs		. #x039B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039B)
     (mirrored		. nil)
+    (->decomposition	wide #x039B)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER LAMDA")))
-    (japanese-jisx0208-1978	#x26 #x2B)	; $B&+(B
-    (chinese-gb2312		#x26 #x2B)	; $A&+(B
-    (japanese-jisx0208		#x26 #x2B)	; $B&+(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER LAMDA")))
+    (japanese-jisx0208-1978	#x26 #x2B)	; $(B&+(B
+    (chinese-gb2312		#x26 #x2B)	; $(A&+(B
+    (japanese-jisx0208		#x26 #x2B)	; $(B&+(B
     (korean-ksc5601		#x25 #x4B)	; $(C%K(B
     (chinese-cns11643-1		#x25 #x21)	; $(G%!(B
     ))
@@ -519,13 +519,13 @@
     (->ucs		. #x039C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039C)
     (mirrored		. nil)
+    (->decomposition	wide #x039C)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER MU")))
-    (japanese-jisx0208-1978	#x26 #x2C)	; $B&,(B
-    (chinese-gb2312		#x26 #x2C)	; $A&,(B
-    (japanese-jisx0208		#x26 #x2C)	; $B&,(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER MU")))
+    (japanese-jisx0208-1978	#x26 #x2C)	; $(B&,(B
+    (chinese-gb2312		#x26 #x2C)	; $(A&,(B
+    (japanese-jisx0208		#x26 #x2C)	; $(B&,(B
     (korean-ksc5601		#x25 #x4C)	; $(C%L(B
     (chinese-cns11643-1		#x25 #x22)	; $(G%"(B
     ))
@@ -543,13 +543,13 @@
     (->ucs		. #x039D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039D)
     (mirrored		. nil)
+    (->decomposition	wide #x039D)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER NU")))
-    (japanese-jisx0208-1978	#x26 #x2D)	; $B&-(B
-    (chinese-gb2312		#x26 #x2D)	; $A&-(B
-    (japanese-jisx0208		#x26 #x2D)	; $B&-(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER NU")))
+    (japanese-jisx0208-1978	#x26 #x2D)	; $(B&-(B
+    (chinese-gb2312		#x26 #x2D)	; $(A&-(B
+    (japanese-jisx0208		#x26 #x2D)	; $(B&-(B
     (korean-ksc5601		#x25 #x4D)	; $(C%M(B
     (chinese-cns11643-1		#x25 #x23)	; $(G%#(B
     ))
@@ -567,13 +567,13 @@
     (->ucs		. #x039E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039E)
     (mirrored		. nil)
+    (->decomposition	wide #x039E)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER XI")))
-    (japanese-jisx0208-1978	#x26 #x2E)	; $B&.(B
-    (chinese-gb2312		#x26 #x2E)	; $A&.(B
-    (japanese-jisx0208		#x26 #x2E)	; $B&.(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER XI")))
+    (japanese-jisx0208-1978	#x26 #x2E)	; $(B&.(B
+    (chinese-gb2312		#x26 #x2E)	; $(A&.(B
+    (japanese-jisx0208		#x26 #x2E)	; $(B&.(B
     (korean-ksc5601		#x25 #x4E)	; $(C%N(B
     (chinese-cns11643-1		#x25 #x24)	; $(G%$(B
     ))
@@ -591,13 +591,13 @@
     (->ucs		. #x039F)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x039F)
     (mirrored		. nil)
+    (->decomposition	wide #x039F)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER OMICRON")))
-    (japanese-jisx0208-1978	#x26 #x2F)	; $B&/(B
-    (chinese-gb2312		#x26 #x2F)	; $A&/(B
-    (japanese-jisx0208		#x26 #x2F)	; $B&/(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER OMICRON")))
+    (japanese-jisx0208-1978	#x26 #x2F)	; $(B&/(B
+    (chinese-gb2312		#x26 #x2F)	; $(A&/(B
+    (japanese-jisx0208		#x26 #x2F)	; $(B&/(B
     (korean-ksc5601		#x25 #x4F)	; $(C%O(B
     (chinese-cns11643-1		#x25 #x25)	; $(G%%(B
     ))
@@ -615,13 +615,13 @@
     (->ucs		. #x03A0)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A0)
     (mirrored		. nil)
+    (->decomposition	wide #x03A0)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER PI")))
-    (japanese-jisx0208-1978	#x26 #x30)	; $B&0(B
-    (chinese-gb2312		#x26 #x30)	; $A&0(B
-    (japanese-jisx0208		#x26 #x30)	; $B&0(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER PI")))
+    (japanese-jisx0208-1978	#x26 #x30)	; $(B&0(B
+    (chinese-gb2312		#x26 #x30)	; $(A&0(B
+    (japanese-jisx0208		#x26 #x30)	; $(B&0(B
     (korean-ksc5601		#x25 #x50)	; $(C%P(B
     (chinese-cns11643-1		#x25 #x26)	; $(G%&(B
     ))
@@ -639,13 +639,13 @@
     (->ucs		. #x03A1)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A1)
     (mirrored		. nil)
+    (->decomposition	wide #x03A1)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER RHO")))
-    (japanese-jisx0208-1978	#x26 #x31)	; $B&1(B
-    (chinese-gb2312		#x26 #x31)	; $A&1(B
-    (japanese-jisx0208		#x26 #x31)	; $B&1(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER RHO")))
+    (japanese-jisx0208-1978	#x26 #x31)	; $(B&1(B
+    (chinese-gb2312		#x26 #x31)	; $(A&1(B
+    (japanese-jisx0208		#x26 #x31)	; $(B&1(B
     (korean-ksc5601		#x25 #x51)	; $(C%Q(B
     (chinese-cns11643-1		#x25 #x27)	; $(G%'(B
     ))
@@ -663,13 +663,13 @@
     (->ucs		. #x03A3)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A3)
     (mirrored		. nil)
+    (->decomposition	wide #x03A3)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER SIGMA")))
-    (japanese-jisx0208-1978	#x26 #x32)	; $B&2(B
-    (chinese-gb2312		#x26 #x32)	; $A&2(B
-    (japanese-jisx0208		#x26 #x32)	; $B&2(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER SIGMA")))
+    (japanese-jisx0208-1978	#x26 #x32)	; $(B&2(B
+    (chinese-gb2312		#x26 #x32)	; $(A&2(B
+    (japanese-jisx0208		#x26 #x32)	; $(B&2(B
     (korean-ksc5601		#x25 #x52)	; $(C%R(B
     (chinese-cns11643-1		#x25 #x28)	; $(G%((B
     ))
@@ -687,13 +687,13 @@
     (->ucs		. #x03A4)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A4)
     (mirrored		. nil)
+    (->decomposition	wide #x03A4)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER TAU")))
-    (japanese-jisx0208-1978	#x26 #x33)	; $B&3(B
-    (chinese-gb2312		#x26 #x33)	; $A&3(B
-    (japanese-jisx0208		#x26 #x33)	; $B&3(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER TAU")))
+    (japanese-jisx0208-1978	#x26 #x33)	; $(B&3(B
+    (chinese-gb2312		#x26 #x33)	; $(A&3(B
+    (japanese-jisx0208		#x26 #x33)	; $(B&3(B
     (korean-ksc5601		#x25 #x53)	; $(C%S(B
     (chinese-cns11643-1		#x25 #x29)	; $(G%)(B
     ))
@@ -711,13 +711,13 @@
     (->ucs		. #x03A5)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A5)
     (mirrored		. nil)
+    (->decomposition	wide #x03A5)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER UPSILON")))
-    (japanese-jisx0208-1978	#x26 #x34)	; $B&4(B
-    (chinese-gb2312		#x26 #x34)	; $A&4(B
-    (japanese-jisx0208		#x26 #x34)	; $B&4(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER UPSILON")))
+    (japanese-jisx0208-1978	#x26 #x34)	; $(B&4(B
+    (chinese-gb2312		#x26 #x34)	; $(A&4(B
+    (japanese-jisx0208		#x26 #x34)	; $(B&4(B
     (korean-ksc5601		#x25 #x54)	; $(C%T(B
     (chinese-cns11643-1		#x25 #x2A)	; $(G%*(B
     ))
@@ -735,13 +735,13 @@
     (->ucs		. #x03A6)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A6)
     (mirrored		. nil)
+    (->decomposition	wide #x03A6)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER PHI")))
-    (japanese-jisx0208-1978	#x26 #x35)	; $B&5(B
-    (chinese-gb2312		#x26 #x35)	; $A&5(B
-    (japanese-jisx0208		#x26 #x35)	; $B&5(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER PHI")))
+    (japanese-jisx0208-1978	#x26 #x35)	; $(B&5(B
+    (chinese-gb2312		#x26 #x35)	; $(A&5(B
+    (japanese-jisx0208		#x26 #x35)	; $(B&5(B
     (korean-ksc5601		#x25 #x55)	; $(C%U(B
     (chinese-cns11643-1		#x25 #x2B)	; $(G%+(B
     ))
@@ -759,13 +759,13 @@
     (->ucs		. #x03A7)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A7)
     (mirrored		. nil)
+    (->decomposition	wide #x03A7)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER CHI")))
-    (japanese-jisx0208-1978	#x26 #x36)	; $B&6(B
-    (chinese-gb2312		#x26 #x36)	; $A&6(B
-    (japanese-jisx0208		#x26 #x36)	; $B&6(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER CHI")))
+    (japanese-jisx0208-1978	#x26 #x36)	; $(B&6(B
+    (chinese-gb2312		#x26 #x36)	; $(A&6(B
+    (japanese-jisx0208		#x26 #x36)	; $(B&6(B
     (korean-ksc5601		#x25 #x56)	; $(C%V(B
     (chinese-cns11643-1		#x25 #x2C)	; $(G%,(B
     ))
@@ -783,13 +783,13 @@
     (->ucs		. #x03A8)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A8)
     (mirrored		. nil)
+    (->decomposition	wide #x03A8)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER PSI")))
-    (japanese-jisx0208-1978	#x26 #x37)	; $B&7(B
-    (chinese-gb2312		#x26 #x37)	; $A&7(B
-    (japanese-jisx0208		#x26 #x37)	; $B&7(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER PSI")))
+    (japanese-jisx0208-1978	#x26 #x37)	; $(B&7(B
+    (chinese-gb2312		#x26 #x37)	; $(A&7(B
+    (japanese-jisx0208		#x26 #x37)	; $(B&7(B
     (korean-ksc5601		#x25 #x57)	; $(C%W(B
     (chinese-cns11643-1		#x25 #x2D)	; $(G%-(B
     ))
@@ -807,13 +807,13 @@
     (->ucs		. #x03A9)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03A9)
     (mirrored		. nil)
+    (->decomposition	wide #x03A9)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER OMEGA")))
-    (japanese-jisx0208-1978	#x26 #x38)	; $B&8(B
-    (chinese-gb2312		#x26 #x38)	; $A&8(B
-    (japanese-jisx0208		#x26 #x38)	; $B&8(B
+     ((name . "FULLWIDTH GREEK SMALL LETTER OMEGA")))
+    (japanese-jisx0208-1978	#x26 #x38)	; $(B&8(B
+    (chinese-gb2312		#x26 #x38)	; $(A&8(B
+    (japanese-jisx0208		#x26 #x38)	; $(B&8(B
     (korean-ksc5601		#x25 #x58)	; $(C%X(B
     (chinese-cns11643-1		#x25 #x2E)	; $(G%.(B
     ))
@@ -822,20 +822,20 @@
     (ucs		. #x03AA)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0399 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x0399 #x0308)
     (->lowercase	#x03CA)
     (greek-iso8859-7	#x5A)	; -FÚ-A
     ))
 (define-char
-  '((name		. "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
+  '((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
     (->ucs		. #x03AA)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AA)
     (mirrored		. nil)
+    (->decomposition	wide #x03AA)
     (->lowercase
-     ((name		. "FULLWIDTH GREEK SMALL LETTER IOTA WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER IOTA WITH DIALYTIKA")))
     (japanese-jisx0212	#x26 #x65)	; $(D&e(B
     ))
 (define-char
@@ -843,20 +843,20 @@
     (ucs		. #x03AB)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03A5 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x03A5 #x0308)
     (->lowercase	#x03CB)
     (greek-iso8859-7	#x5B)	; -FÛ-A
     ))
 (define-char
-  '((name	. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
+  '((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
     (->ucs		. #x03AB)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AB)
     (mirrored		. nil)
+    (->decomposition	wide #x03AB)
     (->lowercase
-     ((name	. "FULLWIDTH GREEK SMALL LETTER UPSILON WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK SMALL LETTER UPSILON WITH DIALYTIKA")))
     (japanese-jisx0212	#x26 #x6A)	; $(D&j(B
     ))
 (define-char
@@ -864,8 +864,8 @@
     (ucs		. #x03AC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03B1 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03B1 #x0301)
     (->uppercase	#x0386)
     (->titlecase	#x0386)
     (greek-iso8859-7	#x5C)	; -FÜ-A
@@ -875,12 +875,12 @@
     (->ucs		. #x03AC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AC)
     (mirrored		. nil)
+    (->decomposition	wide #x03AC)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ALPHA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ALPHA WITH TONOS")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ALPHA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ALPHA WITH TONOS")))
     (japanese-jisx0212	#x26 #x71)	; $(D&q(B
     ))
 (define-char
@@ -888,8 +888,8 @@
     (ucs		. #x03AD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03B5 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03B5 #x0301)
     (->uppercase	#x0388)
     (->titlecase	#x0388)
     (greek-iso8859-7	#x5D)	; -FÝ-A
@@ -899,12 +899,12 @@
     (->ucs		. #x03AD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AD)
     (mirrored		. nil)
+    (->decomposition	wide #x03AD)
     (->uppercase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")))
     (->titlecase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER EPSILON WITH TONOS")))
     (japanese-jisx0212	#x26 #x72)	; $(D&r(B
     ))
 (define-char
@@ -912,8 +912,8 @@
     (ucs		. #x03AE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03B7 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03B7 #x0301)
     (->uppercase	#x0389)
     (->titlecase	#x0389)
     (greek-iso8859-7	#x5E)	; -FÞ-A
@@ -923,12 +923,12 @@
     (->ucs		. #x03AE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AE)
     (mirrored		. nil)
+    (->decomposition	wide #x03AE)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ETA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ETA WITH TONOS")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ETA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ETA WITH TONOS")))
     (japanese-jisx0212	#x26 #x73)	; $(D&s(B
     ))
 (define-char
@@ -936,8 +936,8 @@
     (ucs		. #x03AF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03B9 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03B9 #x0301)
     (->uppercase	#x038A)
     (->titlecase	#x038A)
     (greek-iso8859-7	#x5F)	; -Fß-A
@@ -947,30 +947,30 @@
     (->ucs		. #x03AF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03AF)
     (mirrored		. nil)
+    (->decomposition	wide #x03AF)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH TONOS")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH TONOS")))
     (japanese-jisx0212	#x26 #x74)	; $(D&t(B
     ))
 (define-char
   '((name . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
-    (ucs  . #x03B0)
+    (ucs		. #x03B0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03CB #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03CB #x0301)
     (greek-iso8859-7	#x60)	; -Fà-A
     ))
 (define-char
   '((name . "FULLWIDTH GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS")
-    (->ucs  . #x03B0)
+    (->ucs		. #x03B0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B0)
     (mirrored		. nil)
+    (->decomposition	wide #x03B0)
     (japanese-jisx0212	#x26 #x7B)	; $(D&{(B
     ))
 (define-char
@@ -988,15 +988,15 @@
     (->ucs		. #x03B1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B1)
     (mirrored		. nil)
+    (->decomposition	wide #x03B1)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ALPHA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ALPHA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ALPHA")))
-    (japanese-jisx0208-1978	#x26 #x41)	; $B&A(B
-    (chinese-gb2312		#x26 #x41)	; $A&A(B
-    (japanese-jisx0208		#x26 #x41)	; $B&A(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ALPHA")))
+    (japanese-jisx0208-1978	#x26 #x41)	; $(B&A(B
+    (chinese-gb2312		#x26 #x41)	; $(A&A(B
+    (japanese-jisx0208		#x26 #x41)	; $(B&A(B
     (korean-ksc5601		#x25 #x61)	; $(C%a(B
     (chinese-cns11643-1		#x25 #x2F)	; $(G%/(B
     ))
@@ -1012,18 +1012,18 @@
     ))
 (define-char
   '((name		. "FULLWIDTH GREEK SMALL LETTER BETA")
-    (ucs		. #x03B2)
+    (->ucs		. #x03B2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B2)
     (mirrored		. nil)
+    (->decomposition	wide #x03B2)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER BETA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER BETA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER BETA")))
-    (japanese-jisx0208-1978	#x26 #x42)	; $@&B(B
-    (chinese-gb2312		#x26 #x42)	; $A&B(B
-    (japanese-jisx0208		#x26 #x42)	; $B&B(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER BETA")))
+    (japanese-jisx0208-1978	#x26 #x42)	; $(@&B(B
+    (chinese-gb2312		#x26 #x42)	; $(A&B(B
+    (japanese-jisx0208		#x26 #x42)	; $(B&B(B
     (korean-ksc5601		#x25 #x62)	; $(C%b(B
     (chinese-cns11643-1		#x25 #x30)	; $(G%0(B
     ))
@@ -1042,15 +1042,15 @@
     (->ucs		. #x03B3)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B3)
     (mirrored		. nil)
+    (->decomposition	wide #x03B3)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER GAMMA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER GAMMA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER GAMMA")))
-    (japanese-jisx0208-1978	#x26 #x43)	; $B&C(B
-    (chinese-gb2312		#x26 #x43)	; $A&C(B
-    (japanese-jisx0208		#x26 #x43)	; $B&C(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER GAMMA")))
+    (japanese-jisx0208-1978	#x26 #x43)	; $(B&C(B
+    (chinese-gb2312		#x26 #x43)	; $(A&C(B
+    (japanese-jisx0208		#x26 #x43)	; $(B&C(B
     (korean-ksc5601		#x25 #x63)	; $(C%c(B
     (chinese-cns11643-1		#x25 #x31)	; $(G%1(B
     ))
@@ -1069,15 +1069,15 @@
     (->ucs		. #x03B4)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B4)
     (mirrored		. nil)
+    (->decomposition	wide #x03B4)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER DELTA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER DELTA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER DELTA")))
-    (japanese-jisx0208-1978	#x26 #x44)	; $B&D(B
-    (chinese-gb2312		#x26 #x44)	; $A&D(B
-    (japanese-jisx0208		#x26 #x44)	; $B&D(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER DELTA")))
+    (japanese-jisx0208-1978	#x26 #x44)	; $(B&D(B
+    (chinese-gb2312		#x26 #x44)	; $(A&D(B
+    (japanese-jisx0208		#x26 #x44)	; $(B&D(B
     (korean-ksc5601		#x25 #x64)	; $(C%d(B
     (chinese-cns11643-1		#x25 #x32)	; $(G%2(B
     ))
@@ -1096,15 +1096,15 @@
     (->ucs		. #x03B5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B5)
     (mirrored		. nil)
+    (->decomposition	wide #x03B5)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER EPSILON")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER EPSILON")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER EPSILON")))
-    (japanese-jisx0208-1978	#x26 #x45)	; $B&E(B
-    (chinese-gb2312		#x26 #x45)	; $A&E(B
-    (japanese-jisx0208		#x26 #x45)	; $B&E(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER EPSILON")))
+    (japanese-jisx0208-1978	#x26 #x45)	; $(B&E(B
+    (chinese-gb2312		#x26 #x45)	; $(A&E(B
+    (japanese-jisx0208		#x26 #x45)	; $(B&E(B
     (korean-ksc5601		#x25 #x65)	; $(C%e(B
     (chinese-cns11643-1		#x25 #x33)	; $(G%3(B
     ))
@@ -1123,15 +1123,15 @@
     (->ucs		. #x03B6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B6)
     (mirrored		. nil)
+    (->decomposition	wide #x03B6)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ZETA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ZETA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ZETA")))
-    (japanese-jisx0208-1978	#x26 #x46)	; $B&F(B
-    (chinese-gb2312		#x26 #x46)	; $A&F(B
-    (japanese-jisx0208		#x26 #x46)	; $B&F(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ZETA")))
+    (japanese-jisx0208-1978	#x26 #x46)	; $(B&F(B
+    (chinese-gb2312		#x26 #x46)	; $(A&F(B
+    (japanese-jisx0208		#x26 #x46)	; $(B&F(B
     (korean-ksc5601		#x25 #x66)	; $(C%f(B
     (chinese-cns11643-1		#x25 #x34)	; $(G%4(B
     ))
@@ -1150,15 +1150,15 @@
     (->ucs		. #x03B7)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B7)
     (mirrored		. nil)
+    (->decomposition	wide #x03B7)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ETA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ETA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER ETA")))
-    (japanese-jisx0208-1978	#x26 #x47)	; $B&G(B
-    (chinese-gb2312		#x26 #x47)	; $A&G(B
-    (japanese-jisx0208		#x26 #x47)	; $B&G(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER ETA")))
+    (japanese-jisx0208-1978	#x26 #x47)	; $(B&G(B
+    (chinese-gb2312		#x26 #x47)	; $(A&G(B
+    (japanese-jisx0208		#x26 #x47)	; $(B&G(B
     (korean-ksc5601		#x25 #x67)	; $(C%g(B
     (chinese-cns11643-1		#x25 #x35)	; $(G%5(B
     ))
@@ -1178,15 +1178,15 @@
     (->ucs		. #x03B8)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B8)
     (mirrored		. nil)
+    (->decomposition	wide #x03B8)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER THETA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER THETA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER THETA")))
-    (japanese-jisx0208-1978	#x26 #x48)	; $B&H(B
-    (chinese-gb2312		#x26 #x48)	; $A&H(B
-    (japanese-jisx0208		#x26 #x48)	; $B&H(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER THETA")))
+    (japanese-jisx0208-1978	#x26 #x48)	; $(B&H(B
+    (chinese-gb2312		#x26 #x48)	; $(A&H(B
+    (japanese-jisx0208		#x26 #x48)	; $(B&H(B
     (korean-ksc5601		#x25 #x68)	; $(C%h(B
     (chinese-cns11643-1		#x25 #x36)	; $(G%6(B
     ))
@@ -1205,15 +1205,15 @@
     (->ucs		. #x03B9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03B9)
     (mirrored		. nil)
+    (->decomposition	wide #x03B9)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER IOTA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER IOTA")))
-    (japanese-jisx0208-1978	#x26 #x49)	; $B&I(B
-    (chinese-gb2312		#x26 #x49)	; $A&I(B
-    (japanese-jisx0208		#x26 #x49)	; $B&I(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA")))
+    (japanese-jisx0208-1978	#x26 #x49)	; $(B&I(B
+    (chinese-gb2312		#x26 #x49)	; $(A&I(B
+    (japanese-jisx0208		#x26 #x49)	; $(B&I(B
     (korean-ksc5601		#x25 #x69)	; $(C%i(B
     (chinese-cns11643-1		#x25 #x37)	; $(G%7(B
     ))
@@ -1232,13 +1232,13 @@
     (->ucs		. #x03BA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BA)
     (mirrored		. nil)
+    (->decomposition	wide #x03BA)
     (->uppercase	#x039A)
     (->titlecase	#x039A)
-    (japanese-jisx0208-1978	#x26 #x4A)	; $B&J(B
-    (chinese-gb2312		#x26 #x4A)	; $A&J(B
-    (japanese-jisx0208		#x26 #x4A)	; $B&J(B
+    (japanese-jisx0208-1978	#x26 #x4A)	; $(B&J(B
+    (chinese-gb2312		#x26 #x4A)	; $(A&J(B
+    (japanese-jisx0208		#x26 #x4A)	; $(B&J(B
     (korean-ksc5601		#x25 #x6A)	; $(C%j(B
     (chinese-cns11643-1		#x25 #x38)	; $(G%8(B
     ))
@@ -1257,15 +1257,15 @@
     (->ucs		. #x03BB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BB)
     (mirrored		. nil)
+    (->decomposition	wide #x03BB)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER LAMDA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER LAMDA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER LAMDA")))
-    (japanese-jisx0208-1978	#x26 #x4B)	; $B&K(B
-    (chinese-gb2312		#x26 #x4B)	; $A&K(B
-    (japanese-jisx0208		#x26 #x4B)	; $B&K(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER LAMDA")))
+    (japanese-jisx0208-1978	#x26 #x4B)	; $(B&K(B
+    (chinese-gb2312		#x26 #x4B)	; $(A&K(B
+    (japanese-jisx0208		#x26 #x4B)	; $(B&K(B
     (korean-ksc5601		#x25 #x6B)	; $(C%k(B
     (chinese-cns11643-1		#x25 #x39)	; $(G%9(B
     ))
@@ -1284,15 +1284,15 @@
     (->ucs		. #x03BC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BC)
     (mirrored		. nil)
+    (->decomposition	wide #x03BC)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER MU")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER MU")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER MU")))
-    (japanese-jisx0208-1978	#x26 #x4C)	; $B&L(B
-    (chinese-gb2312		#x26 #x4C)	; $A&L(B
-    (japanese-jisx0208		#x26 #x4C)	; $B&L(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER MU")))
+    (japanese-jisx0208-1978	#x26 #x4C)	; $(B&L(B
+    (chinese-gb2312		#x26 #x4C)	; $(A&L(B
+    (japanese-jisx0208		#x26 #x4C)	; $(B&L(B
     (korean-ksc5601		#x25 #x6C)	; $(C%l(B
     (chinese-cns11643-1		#x25 #x3A)	; $(G%:(B
     ))
@@ -1311,15 +1311,15 @@
     (->ucs		. #x03BD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BD)
     (mirrored		. nil)
+    (->decomposition	wide #x03BD)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER NU")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER NU")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER NU")))
-    (japanese-jisx0208-1978	#x26 #x4D)	; $B&M(B
-    (chinese-gb2312		#x26 #x4D)	; $A&M(B
-    (japanese-jisx0208		#x26 #x4D)	; $B&M(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER NU")))
+    (japanese-jisx0208-1978	#x26 #x4D)	; $(B&M(B
+    (chinese-gb2312		#x26 #x4D)	; $(A&M(B
+    (japanese-jisx0208		#x26 #x4D)	; $(B&M(B
     (korean-ksc5601		#x25 #x6D)	; $(C%m(B
     (chinese-cns11643-1		#x25 #x3B)	; $(G%;(B
     ))
@@ -1338,15 +1338,15 @@
     (->ucs		. #x03BE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BE)
     (mirrored		. nil)
+    (->decomposition	wide #x03BE)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER XI")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER XI")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER XI")))
-    (japanese-jisx0208-1978	#x26 #x4E)	; $B&N(B
-    (chinese-gb2312		#x26 #x4E)	; $A&N(B
-    (japanese-jisx0208		#x26 #x4E)	; $B&N(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER XI")))
+    (japanese-jisx0208-1978	#x26 #x4E)	; $(B&N(B
+    (chinese-gb2312		#x26 #x4E)	; $(A&N(B
+    (japanese-jisx0208		#x26 #x4E)	; $(B&N(B
     (korean-ksc5601		#x25 #x6E)	; $(C%n(B
     (chinese-cns11643-1		#x25 #x3C)	; $(G%<(B
     ))
@@ -1365,15 +1365,15 @@
     (->ucs		. #x03BF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03BF)
     (mirrored		. nil)
+    (->decomposition	wide #x03BF)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMICRON")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMICRON")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMICRON")))
-    (japanese-jisx0208-1978	#x26 #x4F)	; $B&O(B
-    (chinese-gb2312		#x26 #x4F)	; $A&O(B
-    (japanese-jisx0208		#x26 #x4F)	; $B&O(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMICRON")))
+    (japanese-jisx0208-1978	#x26 #x4F)	; $(B&O(B
+    (chinese-gb2312		#x26 #x4F)	; $(A&O(B
+    (japanese-jisx0208		#x26 #x4F)	; $(B&O(B
     (korean-ksc5601		#x25 #x6F)	; $(C%o(B
     (chinese-cns11643-1		#x25 #x3D)	; $(G%=(B
     ))
@@ -1392,15 +1392,15 @@
     (->ucs		. #x03C0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C0)
     (mirrored		. nil)
+    (->decomposition	wide #x03C0)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PI")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PI")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PI")))
-    (japanese-jisx0208-1978	#x26 #x50)	; $B&P(B
-    (chinese-gb2312		#x26 #x50)	; $A&P(B
-    (japanese-jisx0208		#x26 #x50)	; $B&P(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PI")))
+    (japanese-jisx0208-1978	#x26 #x50)	; $(B&P(B
+    (chinese-gb2312		#x26 #x50)	; $(A&P(B
+    (japanese-jisx0208		#x26 #x50)	; $(B&P(B
     (korean-ksc5601		#x25 #x70)	; $(C%p(B
     (chinese-cns11643-1		#x25 #x3E)	; $(G%>(B
     ))
@@ -1419,15 +1419,15 @@
     (->ucs		. #x03C1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C1)
     (mirrored		. nil)
+    (->decomposition	wide #x03C1)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER RHO")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER RHO")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER RHO")))
-    (japanese-jisx0208-1978	#x26 #x51)	; $B&Q(B
-    (chinese-gb2312		#x26 #x51)	; $A&Q(B
-    (japanese-jisx0208		#x26 #x51)	; $B&Q(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER RHO")))
+    (japanese-jisx0208-1978	#x26 #x51)	; $(B&Q(B
+    (chinese-gb2312		#x26 #x51)	; $(A&Q(B
+    (japanese-jisx0208		#x26 #x51)	; $(B&Q(B
     (korean-ksc5601		#x25 #x71)	; $(C%q(B
     (chinese-cns11643-1		#x25 #x3F)	; $(G%?(B
     ))
@@ -1446,12 +1446,12 @@
     (->ucs		. #x03C2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C2)
     (mirrored		. nil)
+    (->decomposition	wide #x03C2)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER FINAL SIGMA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER FINAL SIGMA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER FINAL SIGMA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER FINAL SIGMA")))
     (japanese-jisx0212	#x26 #x78)	; $(D&x(B
     ))
 (define-char
@@ -1469,15 +1469,15 @@
     (->ucs		. #x03C3)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C3)
     (mirrored		. nil)
+    (->decomposition	wide #x03C3)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER SIGMA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER SIGMA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER SIGMA")))
-    (japanese-jisx0208-1978	#x26 #x52)	; $B&R(B
-    (chinese-gb2312		#x26 #x52)	; $A&R(B
-    (japanese-jisx0208		#x26 #x52)	; $B&R(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER SIGMA")))
+    (japanese-jisx0208-1978	#x26 #x52)	; $(B&R(B
+    (chinese-gb2312		#x26 #x52)	; $(A&R(B
+    (japanese-jisx0208		#x26 #x52)	; $(B&R(B
     (korean-ksc5601		#x25 #x72)	; $(C%r(B
     (chinese-cns11643-1		#x25 #x40)	; $(G%@(B
     ))
@@ -1496,15 +1496,15 @@
     (->ucs		. #x03C4)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C4)
     (mirrored		. nil)
+    (->decomposition	wide #x03C4)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER TAU")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER TAU")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER TAU")))
-    (japanese-jisx0208-1978	#x26 #x53)	; $B&S(B
-    (chinese-gb2312		#x26 #x53)	; $A&S(B
-    (japanese-jisx0208		#x26 #x53)	; $B&S(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER TAU")))
+    (japanese-jisx0208-1978	#x26 #x53)	; $(B&S(B
+    (chinese-gb2312		#x26 #x53)	; $(A&S(B
+    (japanese-jisx0208		#x26 #x53)	; $(B&S(B
     (korean-ksc5601		#x25 #x73)	; $(C%s(B
     (chinese-cns11643-1		#x25 #x41)	; $(G%A(B
     ))
@@ -1523,15 +1523,15 @@
     (->ucs		. #x03C5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C5)
     (mirrored		. nil)
+    (->decomposition	wide #x03C5)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER UPSILON")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER UPSILON")))
-    (japanese-jisx0208-1978	#x26 #x54)	; $B&T(B
-    (chinese-gb2312		#x26 #x54)	; $A&T(B
-    (japanese-jisx0208		#x26 #x54)	; $B&T(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON")))
+    (japanese-jisx0208-1978	#x26 #x54)	; $(B&T(B
+    (chinese-gb2312		#x26 #x54)	; $(A&T(B
+    (japanese-jisx0208		#x26 #x54)	; $(B&T(B
     (korean-ksc5601		#x25 #x74)	; $(C%t(B
     (chinese-cns11643-1		#x25 #x42)	; $(G%B(B
     ))
@@ -1550,15 +1550,15 @@
     (->ucs		. #x03C6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C6)
     (mirrored		. nil)
+    (->decomposition	wide #x03C6)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PHI")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PHI")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PHI")))
-    (japanese-jisx0208-1978	#x26 #x55)	; $B&U(B
-    (chinese-gb2312		#x26 #x55)	; $A&U(B
-    (japanese-jisx0208		#x26 #x55)	; $B&U(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PHI")))
+    (japanese-jisx0208-1978	#x26 #x55)	; $(B&U(B
+    (chinese-gb2312		#x26 #x55)	; $(A&U(B
+    (japanese-jisx0208		#x26 #x55)	; $(B&U(B
     (korean-ksc5601		#x25 #x75)	; $(C%u(B
     (chinese-cns11643-1		#x25 #x43)	; $(G%C(B
     ))
@@ -1577,15 +1577,15 @@
     (->ucs		. #x03C7)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C7)
     (mirrored		. nil)
+    (->decomposition	wide #x03C7)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER CHI")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER CHI")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER CHI")))
-    (japanese-jisx0208-1978	#x26 #x56)	; $B&V(B
-    (chinese-gb2312		#x26 #x56)	; $A&V(B
-    (japanese-jisx0208		#x26 #x56)	; $B&V(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER CHI")))
+    (japanese-jisx0208-1978	#x26 #x56)	; $(B&V(B
+    (chinese-gb2312		#x26 #x56)	; $(A&V(B
+    (japanese-jisx0208		#x26 #x56)	; $(B&V(B
     (korean-ksc5601		#x25 #x76)	; $(C%v(B
     (chinese-cns11643-1		#x25 #x44)	; $(G%D(B
     ))
@@ -1604,15 +1604,15 @@
     (->ucs		. #x03C8)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C8)
     (mirrored		. nil)
+    (->decomposition	wide #x03C8)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PSI")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PSI")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER PSI")))
-    (japanese-jisx0208-1978	#x26 #x57)	; $B&W(B
-    (chinese-gb2312		#x26 #x57)	; $A&W(B
-    (japanese-jisx0208		#x26 #x57)	; $B&W(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER PSI")))
+    (japanese-jisx0208-1978	#x26 #x57)	; $(B&W(B
+    (chinese-gb2312		#x26 #x57)	; $(A&W(B
+    (japanese-jisx0208		#x26 #x57)	; $(B&W(B
     (korean-ksc5601		#x25 #x77)	; $(C%w(B
     (chinese-cns11643-1		#x25 #x45)	; $(G%E(B
     ))
@@ -1631,15 +1631,15 @@
     (->ucs		. #x03C9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03C9)
     (mirrored		. nil)
+    (->decomposition	wide #x03C9)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMEGA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMEGA")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMEGA")))
-    (japanese-jisx0208-1978	#x26 #x58)	; $B&X(B
-    (chinese-gb2312		#x26 #x58)	; $A&X(B
-    (japanese-jisx0208		#x26 #x58)	; $B&X(B
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMEGA")))
+    (japanese-jisx0208-1978	#x26 #x58)	; $(B&X(B
+    (chinese-gb2312		#x26 #x58)	; $(A&X(B
+    (japanese-jisx0208		#x26 #x58)	; $(B&X(B
     (korean-ksc5601		#x25 #x78)	; $(C%x(B
     (chinese-cns11643-1		#x25 #x46)	; $(G%F(B
     ))
@@ -1648,23 +1648,23 @@
     (ucs		. #x03CA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03B9 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x03B9 #x0308)
     (->uppercase	#x03AA)
     (->titlecase	#x03AA)
     (greek-iso8859-7	#x7A)	; -Fú-A
     ))
 (define-char
-  '((name		. "FULLWIDTH GREEK SMALL LETTER IOTA WITH DIALYTIKA")
+  '((name . "FULLWIDTH GREEK SMALL LETTER IOTA WITH DIALYTIKA")
     (->ucs		. #x03CA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03CA)
     (mirrored		. nil)
+    (->decomposition	wide #x03CA)
     (->uppercase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")))
     (->titlecase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")))
     (japanese-jisx0212	#x26 #x75)	; $(D&u(B
     ))
 (define-char
@@ -1672,23 +1672,23 @@
     (ucs		. #x03CB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03C5 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x03C5 #x0308)
     (->uppercase	#x03AB)
     (->titlecase	#x03AB)
     (greek-iso8859-7	#x7B)	; -Fû-A
     ))
 (define-char
-  '((name	. "FULLWIDTH GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
+  '((name . "FULLWIDTH GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
     (->ucs		. #x03CB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03CB)
     (mirrored		. nil)
+    (->decomposition	wide #x03CB)
     (->uppercase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")))
     (->titlecase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")))
     (japanese-jisx0212	#x26 #x7A)	; $(D&z(B
     ))
 (define-char
@@ -1696,8 +1696,8 @@
     (ucs		. #x03CC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03BF #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03BF #x0301)
     (->uppercase	#x038C)
     (->titlecase	#x038C)
     (greek-iso8859-7	#x7C)	; -Fü-A
@@ -1707,12 +1707,12 @@
     (->ucs		. #x03CC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03CC)
     (mirrored		. nil)
+    (->decomposition	wide #x03CC)
     (->uppercase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")))
     (->titlecase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMICRON WITH TONOS")))
     (japanese-jisx0212	#x26 #x77)	; $(D&w(B
     ))
 (define-char
@@ -1720,8 +1720,8 @@
     (ucs		. #x03CD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03C5 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03C5 #x0301)
     (->uppercase	#x038E)
     (->titlecase	#x038E)
     (greek-iso8859-7	#x7D)	; -Fý-A
@@ -1731,12 +1731,12 @@
     (->ucs		. #x03CD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03CD)
     (mirrored		. nil)
+    (->decomposition	wide #x03CD)
     (->uppercase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")))
     (->titlecase
-     ((name	. "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER UPSILON WITH TONOS")))
     (japanese-jisx0212	#x26 #x79)	; $(D&y(B
     ))
 (define-char
@@ -1744,8 +1744,8 @@
     (ucs		. #x03CE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03C9 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03C9 #x0301)
     (->uppercase	#x038F)
     (->titlecase	#x038F)
     (greek-iso8859-7	#x7E)	; -Fþ-A
@@ -1755,12 +1755,12 @@
     (->ucs		. #x03CE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x03CE)
     (mirrored		. nil)
+    (->decomposition	wide #x03CE)
     (->uppercase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMEGA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMEGA WITH TONOS")))
     (->titlecase
-     ((name		. "FULLWIDTH GREEK CAPITAL LETTER OMEGA WITH TONOS")))
+     ((name . "FULLWIDTH GREEK CAPITAL LETTER OMEGA WITH TONOS")))
     (japanese-jisx0212	#x26 #x7C)	; $(D&|(B
     ))
 (define-char
@@ -1768,8 +1768,8 @@
     (ucs		. #x03D0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03B2)
     (mirrored		. nil)
+    (->decomposition	compat #x03B2)
     (->uppercase	#x0392)
     (->titlecase	#x0392)
     ))
@@ -1778,8 +1778,8 @@
     (ucs		. #x03D1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03B8)
     (mirrored		. nil)
+    (->decomposition	compat #x03B8)
     (->uppercase	#x0398)
     (->titlecase	#x0398)
     ))
@@ -1788,32 +1788,32 @@
     (ucs		. #x03D2)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03A5)
     (mirrored		. nil)
+    (->decomposition	compat #x03A5)
     ))
 (define-char
   '((name		. "GREEK UPSILON WITH ACUTE AND HOOK SYMBOL")
     (ucs		. #x03D3)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03D2 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x03D2 #x0301)
     ))
 (define-char
   '((name		. "GREEK UPSILON WITH DIAERESIS AND HOOK SYMBOL")
     (ucs		. #x03D4)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x03D2 #x0308)
     (mirrored		. nil)
+    (->decomposition	#x03D2 #x0308)
     ))
 (define-char
   '((name		. "GREEK PHI SYMBOL")
     (ucs		. #x03D5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03C6)
     (mirrored		. nil)
+    (->decomposition	compat #x03C6)
     (->uppercase	#x03A6)
     (->titlecase	#x03A6)
     ))
@@ -1822,8 +1822,8 @@
     (ucs		. #x03D6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03C0)
     (mirrored		. nil)
+    (->decomposition	compat #x03C0)
     (->uppercase	#x03A0)
     (->titlecase	#x03A0)
     ))
@@ -2026,8 +2026,8 @@
     (ucs		. #x03F0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03BA)
     (mirrored		. nil)
+    (->decomposition	compat #x03BA)
     (->uppercase	#x039A)
     (->titlecase	#x039A)
     ))
@@ -2036,8 +2036,8 @@
     (ucs		. #x03F1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03C1)
     (mirrored		. nil)
+    (->decomposition	compat #x03C1)
     (->uppercase	#x03A1)
     (->titlecase	#x03A1)
     ))
@@ -2046,8 +2046,8 @@
     (ucs		. #x03F2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x03C2)
     (mirrored		. nil)
+    (->decomposition	compat #x03C2)
     (->uppercase	#x03A3)
     (->titlecase	#x03A3)
     ))

@@ -1,3 +1,131 @@
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qsquare): New variable.
+	(to_char_code): Add `Qsquare'.
+	(syms_of_mule_charset): Add new symbol `square'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qcircle): New variable.
+	(to_char_code): Add `Qcircle'.
+	(syms_of_mule_charset): Add new symbol `circle'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qfont): New variable.
+	(to_char_code): Add `Qfont'.
+	(syms_of_mule_charset): Add new symbol `font'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Qsub): New variable.
+	(to_char_code): Add `Qsub'.
+	(syms_of_mule_charset): Add new symbol `sub'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Convert each element of
+	VALUE to GL position if ATTRIBUTE is a GR-set,
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Allow GR code-point if a
+	coded-charset is a GR-set.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fput_char_attribute): Check each element of
+	VALUE is a byte if ATTRIBUTE is a coded-charset or its name.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_ethiopic_ucs): New variable in
+	UTF-2000.
+	(Qethiopic_ucs): New variable in UTF-2000.
+	(syms_of_mule_charset): Add new symbol `ethiopic-ucs' in UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ethiopic-ucs' in UTF-2000.
+
+	* char-ucs.h (LEADING_BYTE_ETHIOPIC_UCS): New macro.
+	(LEADING_BYTE_HIRAGANA_JISX0208): Changed to `(CHARSET_ID_OFFSET -
+	9)'.
+	(LEADING_BYTE_KATAKANA_JISX0208): Changed to `(CHARSET_ID_OFFSET -
+	10)'.
+	(LEADING_BYTE_PRIVATE): Changed to `(CHARSET_ID_OFFSET - 11)'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fset_charset_mapping_table): Fix problem with
+	`ascii'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharacter_variant_table): New variable.
+	(Q_ucs): New variable.
+	(Fchar_variants): New function.
+	(Fput_char_attribute): Register `->ucs' value to
+	`Vcharacter_variant_table'.
+	(syms_of_mule_charset): Add new function `char-variants' and new
+	symbol `->ucs'.
+	(vars_of_mule_charset): Setup `Vcharacter_variant_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (get_char_code_table): Allow negative character
+	code.
+	(put_char_code_table): Likewise.
+	(Vcharacter_composition_table): New variable.
+	(Q_decomposition): New variable.
+	(Qwide): New variable.
+	(Qnarrow): New variable.
+	(Qcompat): New variable.
+	(QnoBreak): New variable.
+	(Qsuper): New variable.
+	(Qfraction): New variable.
+	(to_char_code): New function.
+	(Fget_composite_char): New function.
+	(Fput_char_attribute): Register `->decomposition' value to
+	`Vcharacter_composition_table'.
+	(syms_of_mule_charset): Add new function `get-composite-char', new
+	symbol `->decomposition', `wide', `narrow', `compat', `noBreak',
+	`super' and `fraction'.
+	(vars_of_mule_charset): Setup `Vcharacter_composition_table'.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fchar_attribute_alist): Check the argument is a
+	character; copy the return value.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): Use `split_builtin_char'.
+
+	* mule-charset.c (range_charset_code_point): Must use make_int.
+	(split_builtin_char): New function.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (char_byte_table): Change name from
+	"char-code-table" to "char-byte-table".
+	(mark_char_code_table): New function.
+	(char_code_table_equal): New function.
+	(char_code_table_hash): New function.
+	(char_code_table_description): New constant.
+	(char_code_table): New type.
+	(make_char_code_table): New function.
+	(copy_char_code_table): New function.
+	(get_char_code_table): Modify for `char_code_table' type.
+	(put_char_code_table): Likewise.
+	(vars_of_mule_charset): Update `utf-2000-version' to 0.12
+	(Kashiwara).
+
+	* char-ucs.h (char_code_table): New type.
+	(XCHAR_CODE_TABLE): New macro.
+	(XSETCHAR_CODE_TABLE): New macro.
+	(CHAR_CODE_TABLE_P): New macro.
+	(GC_CHAR_CODE_TABLE_P): New macro.
+	(struct Lisp_Char_Code_Table): New structure.
+
 1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_charset): Setup byte_offset for

@@ -72,6 +72,16 @@
 			   mule-lisp-directory)
 		   'external-debugging-output)))
     (setq mule-lisp-directory '()))
+  (if (featurep 'utf-2000)
+      (progn
+	(setq utf-2000-lisp-directory
+	      (paths-find-utf-2000-lisp-directory roots
+						  lisp-directory))
+	(if debug-paths
+	    (princ (format "utf-2000-lisp-directory:\n%S\n"
+			   utf-2000-lisp-directory)
+		   'external-debugging-output)))
+    (setq utf-2000-lisp-directory '()))
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
   (if (and debug-paths (null inhibit-site-lisp))
@@ -84,7 +94,8 @@
 					     '()
 					     lisp-directory
 					     site-directory
-					     mule-lisp-directory))
+					     mule-lisp-directory
+					     utf-2000-lisp-directory))
 
   (setq module-directory (paths-find-module-directory roots))
   (if debug-paths
