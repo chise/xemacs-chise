@@ -190,6 +190,7 @@ CHARSET_BYTE_SIZE (Lisp_Charset* cs)
 
 #define XCHARSET_BYTE_SIZE(ccs)	CHARSET_BYTE_SIZE (XCHARSET (ccs))
 
+int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
 int
 decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
 {
@@ -225,8 +226,12 @@ put_char_ccs_code_point (Lisp_Object character,
       || !INTP (value)
       || (XCHAR (character) != XINT (value)))
     {
+#if 0
+      Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
+#else
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       int ccs_len = XCHARSET_BYTE_SIZE (ccs);
+#endif
       int code_point;
 
       if (CONSP (value))
@@ -271,6 +276,15 @@ put_char_ccs_code_point (Lisp_Object character,
       else
 	signal_simple_error ("Invalid value for coded-charset", value);
 
+#if 0
+      if (CHAR_TABLEP (decoding_table))
+	{
+	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
+
+	  if (INTP (cpos))
+	    decoding_table_remove_char (ccs, XINT (cpos));
+	}
+#else
       if (VECTORP (v))
 	{
 	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
@@ -284,6 +298,7 @@ put_char_ccs_code_point (Lisp_Object character,
 	  XCHARSET_DECODING_TABLE (ccs)
 	    = v = make_vector (ccs_len, Qnil);
 	}
+#endif
 
       decoding_table_put_char (ccs, code_point, character);
     }
@@ -296,6 +311,17 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
   Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
+#if 0
+  if (CHAR_TABLEP (decoding_table))
+    {
+      Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
+
+      if (!NILP (cpos))
+	{
+	  decoding_table_remove_char (ccs, XINT (cpos));
+	}
+    }
+#else
   if (VECTORP (decoding_table))
     {
       Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
@@ -305,9 +331,10 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 	  decoding_table_remove_char (ccs, XINT (cpos));
 	}
     }
+#endif
   if (CHAR_TABLEP (encoding_table))
     {
-      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qnil);
+      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qunbound);
     }
   return Qt;
 }
@@ -837,7 +864,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
-  CHARSET_DECODING_TABLE(cs) = Qnil;
+  CHARSET_DECODING_TABLE(cs) = Qunbound;
   CHARSET_MIN_CODE	(cs) = min_code;
   CHARSET_MAX_CODE	(cs) = max_code;
   CHARSET_CODE_OFFSET	(cs) = code_offset;
