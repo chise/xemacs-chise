@@ -1,3 +1,27 @@
+2005-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R193-Cauldron.el (U+9B32): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96C6): Use
+	`->subsumptive'.
+	(U+96C8): Likewise.
+
+	* Ideograph-R160-Bitter.el (U+8F9B): Use `->subsumptive'.
+	(GT-K02585): Use `<-denotational' instead `=>ucs' for U+8F9B;
+	don't use `morohashi-daikanwa'; add
+	`<-ideographic-component-forms' for U+8F9B.
+
+	* Ideograph-R158-Body.el (U+8EAC): Use `->subsumptive'.
+
+2005-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el: Add mappings for Big5 code points.
+	(M-30599): Map to U-00026ACD.
+	(U-00026ACD): New character.
+
+	* Ideograph-R132-Self.el: Add mappings for Big5 code points.
+
 2005-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R136-Oppose.el: Add mappings for Big5 code points.
