@@ -1,5 +1,31 @@
 2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SHEEP>): Add
+	`<-ideographic-component-forms' for U+7F8A; separate BC-8970.
+	(GT-K01701): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `<-ideographic-component-forms' for U+7F8A.
+	(BC-8CCC): Likewise.
+
+	* u02500-Box-Drawing.el:
+	- Separate *fullwidth characters* from UCS characters.
+	- Use `=jis-x0208@{1983|1990}' instead of
+	  `=jis-x0208-{1983|1990}'.
+	(C1-2344): Add `=ucs@big5/cns11643' and `=ucs@cns11643' for
+	U+2501.
+	(BE-F9F9): Use `<-denotational' instead of `=>ucs' for U+2550; add
+	`<-fullwidth' for U+2550.
+	(B-A15A): Unify C1-213B.
+
+	* char-db-util.el (insert-char-data-with-variant): Fix problem
+	about characters which have `<-subsumptive' feature.
+
+2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (GT-K01701): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(BC-8970): Likewise.
+	(BC-8CCC): Likewise.
+
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (<FULLWIDTH SOLIDUS>):
 	Unify C1-225F.
 	(C1-2226): Map to U+02CD instead of U+FF3F; moved to
