@@ -1,5 +1,11 @@
 2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* ideograph-util.el (char-ideographic-strokes-from-domains): Add
+	autoload cookie.
+	(char-ideographic-strokes): Add autoload cookie.
+	(char-total-strokes-from-domains): New function.
+	(char-total-strokes): New function.
+
 	* Ideograph-R040-Roof.el (M-07097): New character.
 	(U+374E): Map to M-07097.
 	(M-07354): Map to U-00021AD2.
