@@ -3136,6 +3136,36 @@ Remove CHARACTER's ATTRIBUTE.
   return Qnil;
 }
 
+#ifdef HAVE_DATABASE
+Lisp_Object
+load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
+{
+  Lisp_Object db;
+  Lisp_Object db_dir = Vdata_directory;
+  Lisp_Object db_file;
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../etc");
+  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db_file = Fexpand_file_name (attribute, db_dir);
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+  if (!NILP (db))
+    {
+      Lisp_Object val
+	= Fget_database (Fprin1_to_string (make_char (ch), Qnil),
+			 db, Qunbound);
+      if (!UNBOUNDP (val))
+	val = Fread (val);
+      else
+	val = Qunbound;
+      Fclose_database (db);
+      return val;
+    }
+  else
+    return Qunbound;
+}
+#endif
+
 DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 3, 0, /*
 Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
 each key and value in the table.
