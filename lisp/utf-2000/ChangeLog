@@ -1,3 +1,60 @@
+2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (M-02134): Use `<-denotational' for
+	U-000202F4; use `->identical' for M-00938 instead of U-000202F4.
+	(U-000202F4): Separate all; copied from Ideograph-R009-Man.el.
+	(C5-3663): Use `<-denotational' for U-000202F4.
+
+	* Ideograph-R013-Down-Box.el (C6-2150): Use `<-denotational' for
+	U+5185.
+	(U+5185): Separate all; add `<-vulgar-ideograph' for U+5167.
+	(J0-4662): Use `<-denotational' for U+5185.
+
+	* Ideograph-R009-Man.el (M-00353): Moved into U+4EC5.
+	(U+4EC5): Use `->subsumptive'.
+	(JX2-2139): Moved into U+4EC8.
+	(U+4EC8): Use `->subsumptive'.
+	(U+4ECC): Use `->subsumptive'; use `<-original-ideograph*sources'
+	instead of char-ref in `<-original-ideograph'; add U-0002F819.
+	(U+5185): Copied from Ideograph-R013-Down-Box.el.
+	(C3-2148): Add `<-denotational' for U+5185.
+	(M-00938): Separate U-0002F819; use `<-denotational' for
+	U-000202F4.
+	(U-000202F4): Separate all.
+
+2004-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el: Add some Japanese vocal sounds.
+	(C1-4572): Use `<-denotational' for U+5145.
+	(U+5145): Separate all.
+	(J0-3D3C): Use `<-denotational' for U+5145; modify
+	`ideographic-structure'.
+	(G0-3364): Likewise.
+	(J78-437B): Moved into U+5146.
+	(U+5146): Use `->subsumptive'.
+	(J0-513C): Moved into U+514C.
+	(U+514C): Use `->subsumptive'.
+	(U+514D): Separate all.
+	(G0-4362): Use `<-denotational' for U+514D.
+	(J0-4C48): Likewise.
+	(U+FA32): Likewise.
+	(U+514E): Use `->subsumptive'.
+	(J0-4546): Moved into U+514E.
+	(U+515A): Simplify `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el: Use Kunrei-based new transcription
+	method to describe Japanese vocal sounds.
+	(J0-355A): Use `<-denotational' for U+53CA instead of unify it.
+	(J0-4737): Moved into U+4E4B.
+	(U+4E4B): Use `->subsumptive'.
+	(J0-4B33): Moved into U+4E4F.
+	(U+4E4F): Use `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U+53CA): Separate all; add some
+	Japanese vocal sounds.
+	(K0-5060): Use `<-denotational' for U+53CA.
+	(J0-355A): Likewise.
+
 2004-03-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R007-Two.el: Add some Japanese vocal sounds.
@@ -53,9 +110,13 @@
 
 2004-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el (U+5C39): Add `sound@ja/on'.
+
 	* Ideograph-R004-Slash.el: Add some Japanese vocal sounds.
 
 2004-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+8207): Add S1-6626.
 
 	* Ideograph-R002-Line.el: Add some Japanese vocal sounds.
 
