@@ -2728,7 +2728,7 @@
     (=ucs@jis		. #x5FB4)	; ø½Š©œ
     ))
 (define-char
-  '((morohashi-daikanwa	10238 1 1)
+  '((morohashi-daikanwa	10238 1 0)
     (ideographic-radical . 60)	; â¼»
     (ideographic-strokes . 11)
     (total-strokes	 . 14)

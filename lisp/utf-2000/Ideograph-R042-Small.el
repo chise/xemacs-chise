@@ -65,20 +65,14 @@
     (=daikanwa		. 07476)	; ø¸´´
     ))
 (define-char
-  '((=>daikanwa		. 07477)	; ø¸´µ
-    (ideographic-radical . 42)	; â¼©
+  '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5C12)	; å°’
-    (->subsumptive
-     ((=daikanwa	  . 07477)	; ø¸´µ
-      (=jef-china3	  . #x41E1)	; øº„‡¡
-      )
-     ((=cns11643-2	  . #x2155)	; ø»“”
-      (=jis-x0213-1-2000  . #x4F5B)	; ø»£—š
-      (=big5		  . #xC974)	; ý¢€Œ¥´
-      (=ucs@unicode	  . #x5C12)	; ø»“”
-      ))
+    (=cns11643-2	. #x2155)	; ø»“”
+    (=jis-x0213-1-2000	. #x4F5B)	; ø»£—š
+    (=big5		. #xC974)	; ý¢€Œ¥´
+    (=daikanwa		. 07477)	; ø¸´µ
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©

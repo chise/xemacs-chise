@@ -70,11 +70,8 @@
       (=jis-x0213-1-2000  . #x752B)	; ø»¤Žž
       ))
     (<-simplified@daikanwa
-     ((=ucs		  . #x65E3)	; æ—£
-      (=daikanwa	  . 13724)	; ø¸ƒ–œ
+     ((=daikanwa	  . 13724)	; ø¸ƒ–œ
       ))
-    (<-simplified@daikanwa*sources
-     daikanwa)
     (shinjigen-2	. 3260)
     (=jis-x0208		. #x347B)	; ø½Š“
     (=big5		. #xAC4A)	; ý¢€Š±Š

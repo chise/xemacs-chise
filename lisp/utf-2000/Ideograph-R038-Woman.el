@@ -12036,7 +12036,7 @@
     ))
 (define-char
   '((=>ucs		. #x5B22)	; 嬢
-    (morohashi-daikanwa	6807 1 2)
+    (morohashi-daikanwa	6807 1 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
