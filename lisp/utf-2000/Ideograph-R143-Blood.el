@@ -201,6 +201,7 @@
     (total-strokes	 . 11)
     (=jis-x0212		. #x5C25)	; ø»‹º¾
     (=daikanwa		. 33980)	; ø¸ˆ’¼
+    (=jef-china3	. #x63E2)	; øº†¢
     (=ucs@jis		. #x8845)	; ø»‹º¾
     ))
 (define-char
