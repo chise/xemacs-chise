@@ -1,3 +1,19 @@
+2003-05-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R096-Jade.el (U+7496): Unify JC3-59F6.
+
+	* Ideograph-R046-Mountain.el (M-08650): Unify JC3-4BE3.
+
+	* Ideograph-R032-Earth.el (U+80AD): Unify JC3-80AD.
+	(U+5881): Unify JC3-48B3.
+	(U+58E9): Unify JC3-48C5.
+
+2003-05-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (M-19767): Unify JC3-92AC.
+
+	* Ideograph-R070-Square.el (M-13627): Unify JC3-50EA.
+
 2003-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (M058091): New character.
