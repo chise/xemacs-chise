@@ -1684,19 +1684,32 @@
     (=cns11643-7	. #x2B2C)	; &C7-2B2C;
     ))
 (define-char
-  '((morohashi-daikanwa	24824 0 1)
-    (ideographic-radical@ucs . 181)	; ⾴
+  '((ideographic-radical@ucs . 181)	; ⾴
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@cns . 113)	; ⽰
     (ideographic-strokes@cns . 11)
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 16)
-    (shinjigen-2	. 5660)
     (=ucs		. #x9834)	; 頴
-    (=jis-x0208		. #x3150)	; &I-J90-3150;
-    (=gt		. 31942)	; &I-GT-31942;
-    (=gt-pj-1		. #x3150)	; &I-GT-31942;
+    (->subsumptive
+     ((<-vulgar
+       ((=jis-x0208	    . #x314F)	; &GT-32559;
+	(=ks-x1001	    . #x6744)	; &I-K0-6744;
+	(=daikanwa	    . 25267)	; &I-M-25267;
+	))
+      (<-vulgar*sources
+       zhengzi-tong daikanwa)
+      (=daikanwa	  . 24824)	; &M-24824;
+      )
+     ((=cns11643-3	  . #x5228)	; &C3-5228;
+      )
+     ((shinjigen-2	  . 5660)
+      (=jis-x0208	  . #x3150)	; &GT-31942;
+      (=gt		  . 31942)	; &I-GT-31942;
+      (=gt-pj-1		  . #x3150)	; &I-GT-31942;
+      (=ucs@unicode	  . #x9834)	; &GT-31942;
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
