@@ -286,10 +286,13 @@
     "
 				   )
 				 (charset-name ret)
-				 (mapconcat (lambda (b)
-					      (format "#x%02X" b)
-					      )
-					    (cdr cell) " "))))
+				 (mapconcat
+				  (lambda (b)
+				    (format "#x%02X"
+					    (if (= (charset-graphic ret) 1)
+						(logior b #x80)
+					      b)))
+				  (cdr cell) " "))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
