@@ -1001,6 +1001,9 @@
   '((ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 21)
+    (hanyu-dazidian-char . 9)
     (shinjigen-2	. 240)
     (japanese-jisx0208-1978	. #x4D68)	; ø»‚½¯
     (chinese-gb2312		. #x4034)	; ø»„³¹
@@ -1009,6 +1012,7 @@
     (chinese-cns11643-4		. #x2446)	; ø»—¥§
     (japanese-jisx0208-1990	. #x4D68)	; ø½Š·«
     (ideograph-daikanwa		. 14489)	; ø¸ƒ¢™
+    (chinese-big5-cdp		. #x8A68)	; ý¢€ˆ©¨
     (ucs			. #x6765)	; æ¥
     ))
 (define-char
