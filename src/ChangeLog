@@ -1,3 +1,8 @@
+2001-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fdecode_builtin_char): Use `latin-viscii-lower'
+	and `latin-viscii-upper' for `latin-viscii'.
+
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fdecode_builtin_char): Comment out
