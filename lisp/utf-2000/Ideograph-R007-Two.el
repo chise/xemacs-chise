@@ -288,6 +288,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 10)
     (hanyu-dazidian-char . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E8C)	; äºŒ
+      )
+     ((ucs		  . #x4E8C)	; äºŒ
+      ))
     (japanese-jisx0212	. #x303E)	; ø»Šº¯
     (chinese-cns11643-4 . #x213B)	; ø»—¡‚
     (ideograph-daikanwa . 00259)	; ø¸€„ƒ
@@ -314,6 +322,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 760)
     (hanyu-dazidian-char . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x5C71)	; å±±
+      )
+     ((ucs		  . #x4E8C)	; äºŒ
+      ))
     (japanese-jisx0212	. #x303F)	; ø»Šº°
     (chinese-cns11643-3 . #x216C)	; ø»•—¯
     (ideograph-daikanwa . 00261)	; ø¸€„…
@@ -544,6 +560,28 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 386)
     (hanyu-dazidian-char . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x53B6)	; åŽ¶
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (ucs		      . #x2FF0)	; â¿°
+	  )
+	 ((ucs		      . #x53B6)	; åŽ¶
+	  )
+	 ((ucs		      . #x53B6)	; åŽ¶
+	  ))
+	))
+      )
+     ((ucs		  . #x4E8C)	; äºŒ
+      ))
     (japanese-jisx0212		. #x3040)	; ø»Šº±
     (chinese-cns11643-3		. #x2742)	; ø»•Ÿ¹
     (japanese-jisx0213-2	. #x2131)	; ø»¤
