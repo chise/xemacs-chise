@@ -821,6 +821,10 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
+#ifdef UTF2000
+  if (ty == CODESYS_NO_CONVERSION)
+    codesys->fixed.size = 1;
+#endif
   EXTERNAL_PROPERTY_LIST_LOOP (rest, key, value, props)
     {
       if (EQ (key, Qmnemonic))
@@ -5565,10 +5569,92 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
   unsigned int flags  = str->flags;
   unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+#ifdef UTF2000
+  unsigned char char_boundary = str->iso2022.current_char_boundary;
+#endif
 
   while (n--)
     {
-      c = *src++;
+      c = *src++;	  
+#ifdef UTF2000
+      switch (char_boundary)
+	{
+	case 0:
+	  if ( c >= 0xfc )
+	    {
+	      ch = c & 0x01;
+	      char_boundary = 5;
+	    }
+	  else if ( c >= 0xf8 )
+	    {
+	      ch = c & 0x03;
+	      char_boundary = 4;
+	    }
+	  else if ( c >= 0xf0 )
+	    {
+	      ch = c & 0x07;
+	      char_boundary = 3;
+	    }
+	  else if ( c >= 0xe0 )
+	    {
+	      ch = c & 0x0f;
+	      char_boundary = 2;
+	    }
+	  else if ( c >= 0xc0 )
+	    {
+	      ch = c & 0x1f;
+	      char_boundary = 1;
+	    }
+	  else
+	    {
+	      ch = 0;
+
+	      if (c == '\n')
+		{
+		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+		    Dynarr_add (dst, '\r');
+		  if (eol_type != EOL_CR)
+		    Dynarr_add (dst, c);
+		}
+	      else
+		Dynarr_add (dst, c);
+	      char_boundary = 0;
+	    }
+	  break;
+	case 1:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  switch ( str->codesys->fixed.size )
+	    {
+	    case 1:
+	      Dynarr_add (dst, ch & 0xff);
+	      break;
+	    case 2:
+	      Dynarr_add (dst, (ch >> 8) & 0xff);
+	      Dynarr_add (dst,  ch       & 0xff);
+	      break;
+	    case 3:
+	      Dynarr_add (dst, (ch >> 16) & 0xff);
+	      Dynarr_add (dst, (ch >>  8) & 0xff);
+	      Dynarr_add (dst,  ch        & 0xff);
+	      break;
+	    case 4:
+	      Dynarr_add (dst, (ch >> 24) & 0xff);
+	      Dynarr_add (dst, (ch >> 16) & 0xff);
+	      Dynarr_add (dst, (ch >>  8) & 0xff);
+	      Dynarr_add (dst,  ch        & 0xff);
+	      break;
+	    default:
+	      fprintf(stderr, "It seems %d bytes stream.\n",
+		      str->codesys->fixed.size);
+	      abort ();
+	    }
+	  char_boundary = 0;
+	  break;
+	default:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  char_boundary--;
+	}
+#else /* not UTF2000 */
       if (c == '\n')
 	{
 	  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
@@ -5579,25 +5665,9 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 	}
       else if (BYTE_ASCII_P (c))
 	{
-#ifdef UTF2000
-	  ch =0;
-#else
 	  assert (ch == 0);
-#endif
 	  Dynarr_add (dst, c);
 	}
-#ifdef UTF2000
-      else if ( (0xc0 <= c) && (c < 0xe0) )
-	ch = c;
-      else
-	{
-	  c = ((ch & 0x1f) << 6) | (c & 0x3f);
-	  if ( c <= 0xff )
-	    Dynarr_add (dst, c);
-	  else
-	    Dynarr_add (dst, '~'); /* untranslatable character */
-	}
-#else /* not UTF2000 */
       else if (BUFBYTE_LEADING_BYTE_P (c))
 	{
 	  assert (ch == 0);
@@ -5625,6 +5695,9 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 
   str->flags = flags;
   str->ch    = ch;
+#ifdef UTF2000
+  str->iso2022.current_char_boundary = char_boundary;
+#endif
 }
 
 
