@@ -226,8 +226,12 @@
   '((morohashi-daikanwa	8759 1)
     (ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 6)
-    (kangxi-radical	 . 26)	; â¼™
     (total-strokes	 . 9)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x524B)	; ø½Š¾¤
+      (=ks-x1001	  . #x4F69)	; ø»‰ž¸
+      (=daikanwa	  . 02860)	; ø¸€¬¬
+      ))
     (=ucs		. #x5DFB)	; å·»
     (=jis-x0208		. #x342C)	; ø½Š’
     (=cns11643-3	. #x2C44)	; ø»•§‘
