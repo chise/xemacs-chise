@@ -90,26 +90,29 @@
     (pureload file))
   ))
 
-(defun char-ref= (cr1 cr2)
+(defun char-ref= (cr1 cr2 &optional tester)
   (cond ((char-ref-p cr1)
 	 (if (char-ref-p cr2)
 	     (char-spec= (plist-get cr1 :char)
-			 (plist-get cr2 :char))
-	   (char-spec= (plist-get cr1 :char) cr2)))
+			 (plist-get cr2 :char) tester)
+	   (char-spec= (plist-get cr1 :char) cr2 tester)))
 	(t
 	 (char-spec= cr1
 		     (if (char-ref-p cr2)
 			 (plist-get cr2 :char)
-		       cr2)))))
+		       cr2)
+		     tester))))
 
-(defun char-spec= (cs1 cs2)
+(defun char-spec= (cs1 cs2 &optional tester)
+  (unless tester
+    (setq tester #'eq))
   (if (characterp cs1)
       (if (characterp cs2)
-	  (eq cs1 cs2)
-	(eq cs1 (find-char cs2)))
+	  (funcall tester cs1 cs2)
+	(funcall tester cs1 (find-char cs2)))
     (if (characterp cs2)
-	(eq (find-char cs1) cs2)
-      (eq (find-char cs1) (find-char cs2)))))
+	(funcall tester (find-char cs1) cs2)
+      (funcall tester (find-char cs1) (find-char cs2)))))
 
 (let (ret)
   (map-char-attribute
