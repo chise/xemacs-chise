@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -74,6 +74,8 @@ CHISE_DS *default_chise_data_source = NULL;
 
 EXFUN (Fchar_refs_simplify_char_specs, 1);
 extern Lisp_Object Qideographic_structure;
+
+EXFUN (Fdefine_char, 1);
 
 EXFUN (Fmap_char_attribute, 3);
 
@@ -1133,6 +1135,8 @@ Lisp_Object Qsystem_char_id;
 
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
+Lisp_Object Q_unified;
+Lisp_Object Q_unified_from;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3371,6 +3375,22 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 			       Fcons (character, ret));
 	}
     }
+  else if (EQ (attribute, Q_unified))
+    {
+      Lisp_Object rest = value;
+      Lisp_Object ret;
+
+      while (CONSP (rest))
+	{
+	  ret = Fdefine_char (XCAR (rest));
+	  if (!NILP (ret))
+	    {
+	      Fput_char_attribute (ret, Q_unified_from, list1 (character));
+	      Fsetcar (rest, ret);
+	    }
+	  rest = XCDR (rest);
+	}
+    }
 #if 0
   else if (EQ (attribute, Qideographic_structure))
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
@@ -4370,6 +4390,8 @@ syms_of_chartab (void)
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
+  defsymbol (&Q_unified,		"->unified");
+  defsymbol (&Q_unified_from,		"<-unified");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
