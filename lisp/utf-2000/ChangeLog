@@ -1,3 +1,11 @@
+2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R006-Hook.el (MH-0006): New character.
+	(U+4E8A): Unify MH-0007 and M054501.
+
+	* Ideograph-R005-Second.el (U-000200CC): Unify GT-00301, M070646
+	and MH-0006.
+
 2003-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Add settings for
