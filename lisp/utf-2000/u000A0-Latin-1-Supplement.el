@@ -225,8 +225,8 @@
     (chinese-gb2312	. #x2127)	; ø»„†Š
     (=jis-x0208		. #x212F)	; ø½‰¶Š
     (korean-ksc5601	. #x2127)	; ø»ˆš’
-    (china3-jef		. #x81AA)	; øºˆ†ª
     (chinese-big5-eten	. #xC6D8)	; ý¢€Œ›˜
+    (china3-jef		. #x81AA)	; øºˆ†ª
     ))
 (define-char
   '((name		. "COPYRIGHT SIGN")

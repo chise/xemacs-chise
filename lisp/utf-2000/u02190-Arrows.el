@@ -675,8 +675,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (japanese-jisx0213-1	. #x232C)	; ø»¢–ƒ
-    (china3-jef			. #x76B1)	; øº‡š±
     (chinese-big5-eten		. #xC876)	; ý¢€Œ¡¶
+    (china3-jef			. #x76B1)	; øº‡š±
     (ucs			. #x21E7)	; â‡§
     ))
 (define-char

@@ -583,8 +583,8 @@
     (chinese-cns11643-3		. #x2E26)	; ø»•©¯
     (japanese-jisx0213-2	. #x713B)	; ø»¦’º
     (ideograph-daikanwa		. 21787)	; ø¸…”›
-    (china3-jef			. #x5ACA)	; øº…«Š
     (chinese-big5-cdp		. #x8BF0)	; ý¢€ˆ¯°
+    (china3-jef			. #x5ACA)	; øº…«Š
     (ucs			. #x7550)	; ç•
     ))
 (define-char

@@ -23,8 +23,8 @@
   '((ideographic-radical . 100)	; â½£
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (china3-jef		. #x72FD)	; øº‡‹½
     (chinese-big5-cdp	. #x8B77)	; ý¢€ˆ­·
+    (china3-jef		. #x72FD)	; øº‡‹½
     ))
 (define-char
   '((ideographic-radical . 100)	; â½£

@@ -3291,8 +3291,8 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	5 3193 11)
     (japanese-jisx0212		. #x5761)	; ø»‹´¤
-    (china3-jef			. #x61DB)	; øº†‡›
     (ideograph-hanziku-8	. #xEBAE)	; ý¢‚Ž®®
+    (china3-jef			. #x61DB)	; øº†‡›
     (ucs			. #x830A)	; èŒŠ
     ))
 (define-char

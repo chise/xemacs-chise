@@ -1645,8 +1645,8 @@
       ))
     (chinese-cns11643-4 . #x3157)	; ø»—¸¾
     (ideograph-daikanwa . 10168)	; ø¸‚ž¸
-    (china3-jef		. #x99F0)	; øº‰§°
     (ideograph-cbeta	. 05518)	; ø¸¡–Ž
+    (china3-jef		. #x99F0)	; øº‰§°
     (ucs		. #x5FA3)	; å¾£
     ))
 (define-char

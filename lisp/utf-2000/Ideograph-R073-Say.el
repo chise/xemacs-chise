@@ -37,8 +37,8 @@
     (total-strokes	 . 5)
     (chinese-gb2312	. #x3567)	; ø»„¤¢
     (chinese-isoir165	. #x3567)	; ø»Œ²
-    (china3-jef		. #x81E2)	; øºˆ‡¢
     (ideograph-cbeta	. 02169)	; ø¸ ¡¹
+    (china3-jef		. #x81E2)	; øºˆ‡¢
     (ucs		. #x7535)	; ç”µ
     ))
 (define-char

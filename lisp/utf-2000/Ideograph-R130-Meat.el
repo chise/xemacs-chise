@@ -2853,8 +2853,8 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	3 2056 7)
     (ideograph-daikanwa		. 29401)	; ø¸‡‹™
-    (china3-jef			. #x8DCA)	; øºˆ·Š
     (ideograph-hanziku-6	. #xA77E)	; ý¢ª¾
+    (china3-jef			. #x8DCA)	; øºˆ·Š
     (ucs			. #x26676)	; ð¦™¶
     ))
 (define-char
@@ -11175,8 +11175,8 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	3 2114 10)
     (ideograph-daikanwa		. 29871)	; ø¸‡’¯
-    (china3-jef			. #x9FE0)	; øº‰¿ 
     (ideograph-hanziku-6	. #xB365)	; ý¢«¥
+    (china3-jef			. #x9FE0)	; øº‰¿ 
     (ucs			. #x26806)	; ð¦ †
     ))
 (define-char
