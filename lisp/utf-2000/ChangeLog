@@ -1,3 +1,7 @@
+2002-10-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2ECC): Unify BC-8966.
+
 2002-10-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R085-Water.el (U+6E13): Unify M054093.
