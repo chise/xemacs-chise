@@ -1,3 +1,16 @@
+2001-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_chinese_big5_cdp): New variable in
+	XEmacs UTF-2000.
+	(Qchinese_big5_cdp): New variable in XEmacs UTF-2000.
+	(syms_of_mule_charset): Add new symbol `chinese-big5-cdp' in
+	XEmacs UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`chinese-big5-cdp' in XEmacs UTF-2000; change registry of
+	`ideograph-gt-pj-*'.
+
+	* char-ucs.h (LEADING_BYTE_CHINESE_BIG5_CDP): New macro.
+
 2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (encode_builtin_char_1): Purge codes about
