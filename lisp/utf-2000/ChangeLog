@@ -1,3 +1,44 @@
+2004-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+531D): Use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+
+	* Ideograph-R008-Lid.el (M-00316): Moved into U-00020158; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U-00020158): Use `->subsumptive'.
+	(M-00317): Moved into U-00020159; use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
+	(U-00020159): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (G0-3373): Add `<-vulgar*sources'.
+
+2004-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el, Ideograph-R189-Tall.el,
+	Ideograph-R205-Frog.el, Ideograph-R177-Leather.el,
+	Ideograph-R165-Distinguish.el, Ideograph-R140-Grass.el,
+	Ideograph-R135-Tongue.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R113-Spirit.el, Ideograph-R112-Stone.el,
+	Ideograph-R106-White.el, Ideograph-R096-Jade.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R079-Weapon.el, Ideograph-R075-Tree.el,
+	Ideograph-R072-Sun.el, Ideograph-R061-Heart.el,
+	Ideograph-R058-Snout.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R044-Corpse.el, Ideograph-R040-Roof.el,
+	Ideograph-R038-Woman.el, Ideograph-R037-Big.el,
+	Ideograph-R036-Evening.el, Ideograph-R030-Mouth.el,
+	Ideograph-R029-Again.el, Ideograph-R028-Private.el,
+	Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R024-Ten.el,
+	Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R009-Man.el,
+	Ideograph-R006-Hook.el, Ideograph-R008-Lid.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R001-One.el: Rename `<-vulgar-ideograph' to `<-vulgar'.
+
 2004-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R164-Wine.el (J0-3D39): Moved into U+919C.
