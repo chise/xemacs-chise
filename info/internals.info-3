@@ -558,7 +558,7 @@ requires intimate knowledge of the executable format and the memory map
 of the process.) Only one of these modules is actually used; this is
 chosen by `configure'.
 
-     crt0.c
+     ecrt0.c
      lastfile.c
      pre-crt0.c
 
@@ -669,11 +669,6 @@ checks during code development.  This system is not currently used;
 instead the simpler `assert()' macro is used along with the various
 checks provided by the `--error-check-*' configuration options.
 
-     prefix-args.c
-
-   This is actually the source for a small, self-contained program used
-during building.
-
      universe.h
 
    This is not currently used.
@@ -684,7 +679,6 @@ File: internals.info,  Node: Basic Lisp Modules,  Next: Modules for Standard Edi
 Basic Lisp Modules
 ==================
 
-     emacsfns.h
      lisp-disunion.h
      lisp-union.h
      lisp.h
@@ -965,8 +959,12 @@ Editor-Level Control Flow Modules
 =================================
 
      event-Xt.c
+     event-msw.c
      event-stream.c
      event-tty.c
+     events-mod.h
+     gpmevent.c
+     gpmevent.h
      events.c
      events.h
 
@@ -1011,9 +1009,9 @@ that associate event descriptions with functions to be called to
 "execute" those events; `dispatch-event' looks up events in the
 relevant keymaps.)
 
-     keyboard.c
+     cmdloop.c
 
-   `keyboard.c' contains functions that implement the actual editor
+   `cmdloop.c' contains functions that implement the actual editor
 command loop--i.e. the event loop that cyclically retrieves and
 dispatches events.  This code is also rather tricky, just like
 `event-stream.c'.
@@ -1044,13 +1042,27 @@ File: internals.info,  Node: Modules for the Basic Displayable Lisp Objects,  Ne
 Modules for the Basic Displayable Lisp Objects
 ==============================================
 
-     device-ns.h
-     device-stream.c
-     device-stream.h
+     console-msw.c
+     console-msw.h
+     console-stream.c
+     console-stream.h
+     console-tty.c
+     console-tty.h
+     console-x.c
+     console-x.h
+     console.c
+     console.h
+
+   These modules implement the "console" Lisp object type.  A console
+contains multiple display devices, but only one keyboard and mouse.
+Most of the time, a console will contain exactly one device.
+
+   Consoles are the top of a lisp object inclusion hierarchy.  Consoles
+contain devices, which contain frames, which contain windows.
+
+     device-msw.c
      device-tty.c
-     device-tty.h
      device-x.c
-     device-x.h
      device.c
      device.h
 
@@ -1067,10 +1079,9 @@ menubar, scrollbar, toolbar, and other displayable-object subsystems.
 The reason for this is that all of these subsystems have the same
 subtypes (X, TTY, NeXTstep, Microsoft Windows, etc.) as devices do.
 
-     frame-ns.h
+     frame-msw.c
      frame-tty.c
      frame-x.c
-     frame-x.h
      frame.c
      frame.h
 
@@ -1111,13 +1122,17 @@ Modules for other Display-Related Lisp Objects
      faces.h
 
      bitmaps.h
-     glyphs-ns.h
+     glyphs-eimage.c
+     glyphs-msw.c
+     glyphs-msw.h
+     glyphs-widget.c
      glyphs-x.c
      glyphs-x.h
      glyphs.c
      glyphs.h
 
-     objects-ns.h
+     objects-msw.c
+     objects-msw.h
      objects-tty.c
      objects-tty.h
      objects-x.c
@@ -1125,14 +1140,20 @@ Modules for other Display-Related Lisp Objects
      objects.c
      objects.h
 
+     menubar-msw.c
+     menubar-msw.h
      menubar-x.c
      menubar.c
+     menubar.h
 
+     scrollbar-msw.c
+     scrollbar-msw.h
      scrollbar-x.c
      scrollbar-x.h
      scrollbar.c
      scrollbar.h
 
+     toolbar-msw.c
      toolbar-x.c
      toolbar.c
      toolbar.h
@@ -1150,6 +1171,7 @@ this is fast.
      gifalloc.c
 
    These modules decode GIF-format image files, for use with glyphs.
+These files were removed due to Unisys patent infringement concerns.
 
 
 File: internals.info,  Node: Modules for the Redisplay Mechanism,  Next: Modules for Interfacing with the File System,  Prev: Modules for other Display-Related Lisp Objects,  Up: A Summary of the Various XEmacs Modules
@@ -1158,6 +1180,7 @@ Modules for the Redisplay Mechanism
 ===================================
 
      redisplay-output.c
+     redisplay-msw.c
      redisplay-tty.c
      redisplay-x.c
      redisplay.c

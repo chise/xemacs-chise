@@ -30,6 +30,91 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Basic Indent,  Next: Multi-line Indent,  Prev: Grinding,  Up: Grinding
+
+Basic Program Indentation Commands
+----------------------------------
+
+`<TAB>'
+     Adjust indentation of current line.
+
+`<LFD>'
+     Equivalent to <RET> followed by <TAB> (`newline-and-indent').
+
+   The basic indentation command is <TAB>, which gives the current line
+the correct indentation as determined from the previous lines.  The
+function that <TAB> runs depends on the major mode; it is
+`lisp-indent-line' in Lisp mode, `c-indent-line' in C mode, etc.  These
+functions understand different syntaxes for different languages, but
+they all do about the same thing.  <TAB> in any programming language
+major mode inserts or deletes whitespace at the beginning of the
+current line, independent of where point is in the line.  If point is
+inside the whitespace at the beginning of the line, <TAB> leaves it at
+the end of that whitespace; otherwise, <TAB> leaves point fixed with
+respect to the characters around it.
+
+   Use `C-q <TAB>' to insert a tab at point.
+
+   When entering a large amount of new code, use <LFD>
+(`newline-and-indent'), which is equivalent to a <RET> followed by a
+<TAB>.  <LFD> creates a blank line, then gives it the appropriate
+indentation.
+
+   <TAB> indents the second and following lines of the body of a
+parenthetical grouping each under the preceding one; therefore, if you
+alter one line's indentation to be nonstandard, the lines below tend to
+follow it.  This is the right behavior in cases where the standard
+result of <TAB> does not look good.
+
+   Remember that Emacs assumes that an open-parenthesis, open-brace, or
+other opening delimiter at the left margin (including the indentation
+routines) is the start of a function.  You should therefore never have
+an opening delimiter in column zero that is not the beginning of a
+function, not even inside a string.  This restriction is vital for
+making the indentation commands fast. *Note Defuns::, for more
+information on this behavior.
+
+
+File: xemacs.info,  Node: Multi-line Indent,  Next: Lisp Indent,  Prev: Basic Indent,  Up: Grinding
+
+Indenting Several Lines
+-----------------------
+
+   Several commands are available to re-indent several lines of code
+which have been altered or moved to a different level in a list
+structure.
+
+`C-M-q'
+     Re-indent all the lines within one list (`indent-sexp').
+
+`C-u <TAB>'
+     Shift an entire list rigidly sideways so that its first line is
+     properly indented.
+
+`C-M-\'
+     Re-indent all lines in the region (`indent-region').
+
+   To re-indent the contents of a single list, position point before the
+beginning of it and type `C-M-q'. This key is bound to `indent-sexp' in
+Lisp mode, `indent-c-exp' in C mode, and bound to other suitable
+functions in other modes.  The indentation of the line the sexp starts
+on is not changed; therefore, only the relative indentation within the
+list, and not its position, is changed.  To correct the position as
+well, type a <TAB> before `C-M-q'.
+
+   If the relative indentation within a list is correct but the
+indentation of its beginning is not, go to the line on which the list
+begins and type `C-u <TAB>'.  When you give <TAB> a numeric argument,
+it moves all the lines in the group, starting on the current line,
+sideways the same amount that the current line moves.  The command does
+not move lines that start inside strings, or C preprocessor lines when
+in C mode.
+
+   Another way to specify a range to be re-indented is with point and
+mark.  The command `C-M-\' (`indent-region') applies <TAB> to every
+line whose first character is between point and mark.
+
+
 File: xemacs.info,  Node: Lisp Indent,  Next: C Indent,  Prev: Multi-line Indent,  Up: Grinding
 
 Customizing Lisp Indentation
@@ -1031,166 +1116,4 @@ containing Lisp libraries) that includes all the Lisp libraries and all
 the C sources of Emacs.  By specifying this file with `visit-tags-table'
 and then using `M-.' you can quickly look at the source of any Emacs
 function.
-
-
-File: xemacs.info,  Node: Tags Search,  Next: List Tags,  Prev: Find Tag,  Up: Tags
-
-Searching and Replacing with Tags Tables
-----------------------------------------
-
-   The commands in this section visit and search all the files listed
-in the selected tags table, one by one.  For these commands, the tags
-table serves only to specify a sequence of files to search.  A related
-command is `M-x grep' (*note Compilation::).
-
-`M-x tags-search <RET> REGEXP <RET>'
-     Search for REGEXP through the files in the selected tags table.
-
-`M-x tags-query-replace <RET> REGEXP <RET> REPLACEMENT <RET>'
-     Perform a `query-replace-regexp' on each file in the selected tags
-     table.
-
-`M-,'
-     Restart one of the commands above, from the current location of
-     point (`tags-loop-continue').
-
-   `M-x tags-search' reads a regexp using the minibuffer, then searches
-for matches in all the files in the selected tags table, one file at a
-time.  It displays the name of the file being searched so you can
-follow its progress.  As soon as it finds an occurrence, `tags-search'
-returns.
-
-   Having found one match, you probably want to find all the rest.  To
-find one more match, type `M-,' (`tags-loop-continue') to resume the
-`tags-search'.  This searches the rest of the current buffer, followed
-by the remaining files of the tags table.
-
-   `M-x tags-query-replace' performs a single `query-replace-regexp'
-through all the files in the tags table.  It reads a regexp to search
-for and a string to replace with, just like ordinary `M-x
-query-replace-regexp'.  It searches much like `M-x tags-search', but
-repeatedly, processing matches according to your input.  *Note
-Replace::, for more information on query replace.
-
-   It is possible to get through all the files in the tags table with a
-single invocation of `M-x tags-query-replace'.  But often it is useful
-to exit temporarily, which you can do with any input event that has no
-special query replace meaning.  You can resume the query replace
-subsequently by typing `M-,'; this command resumes the last tags search
-or replace command that you did.
-
-   The commands in this section carry out much broader searches than the
-`find-tag' family.  The `find-tag' commands search only for definitions
-of tags that match your substring or regexp.  The commands
-`tags-search' and `tags-query-replace' find every occurrence of the
-regexp, as ordinary search commands and replace commands do in the
-current buffer.
-
-   These commands create buffers only temporarily for the files that
-they have to search (those which are not already visited in Emacs
-buffers).  Buffers in which no match is found are quickly killed; the
-others continue to exist.
-
-   It may have struck you that `tags-search' is a lot like `grep'.  You
-can also run `grep' itself as an inferior of Emacs and have Emacs show
-you the matching lines one by one.  This works much like running a
-compilation; finding the source locations of the `grep' matches works
-like finding the compilation errors.  *Note Compilation::.
-
-   If you wish to process all the files in a selected tags table, but
-`M-x tags-search' and `M-x tags-query-replace' are not giving you the
-desired result, you can use `M-x next-file'.
-
-`C-u M-x next-file'
-     With a numeric argument, regardless of its value, visit the first
-     file in the tags table and prepare to advance sequentially by
-     files.
-
-`M-x next-file'
-     Visit the next file in the selected tags table.
-
-
-File: xemacs.info,  Node: List Tags,  Prev: Tags Search,  Up: Tags
-
-Tags Table Inquiries
---------------------
-
-`M-x list-tags'
-     Display a list of the tags defined in a specific program file.
-
-`M-x tags-apropos'
-     Display a list of all tags matching a specified regexp.
-
-   `M-x list-tags' reads the name of one of the files described by the
-selected tags table, and displays a list of all the tags defined in that
-file.  The "file name" argument is really just a string to compare
-against the names recorded in the tags table; it is read as a string
-rather than a file name.  Therefore, completion and defaulting are not
-available, and you must enter the string the same way it appears in the
-tag table.  Do not include a directory as part of the file name unless
-the file name recorded in the tags table contains that directory.
-
-   `M-x tags-apropos' is like `apropos' for tags.  It reads a regexp,
-then finds all the tags in the selected tags table whose entries match
-that regexp, and displays the tag names found.
-
-
-File: xemacs.info,  Node: Fortran,  Next: Asm Mode,  Prev: Tags,  Up: Programs
-
-Fortran Mode
-============
-
-   Fortran mode provides special motion commands for Fortran statements
-and subprograms, and indentation commands that understand Fortran
-conventions of nesting, line numbers, and continuation statements.
-
-   Special commands for comments are provided because Fortran comments
-are unlike those of other languages.
-
-   Built-in abbrevs optionally save typing when you insert Fortran
-keywords.
-
-   Use `M-x fortran-mode' to switch to this major mode.  Doing so calls
-the value of `fortran-mode-hook' as a function of no arguments if that
-variable has a non-`nil' value.
-
-* Menu:
-
-* Motion: Fortran Motion.     Moving point by statements or subprograms.
-* Indent: Fortran Indent.     Indentation commands for Fortran.
-* Comments: Fortran Comments. Inserting and aligning comments.
-* Columns: Fortran Columns.   Measuring columns for valid Fortran.
-* Abbrev: Fortran Abbrev.     Built-in abbrevs for Fortran keywords.
-
-   Fortran mode was contributed by Michael Prange.
-
-
-File: xemacs.info,  Node: Fortran Motion,  Next: Fortran Indent,  Prev: Fortran,  Up: Fortran
-
-Motion Commands
----------------
-
-   Fortran mode provides special commands to move by subprograms
-(functions and subroutines) and by statements.  There is also a command
-to put the region around one subprogram, which is convenient for
-killing it or moving it.
-
-`C-M-a'
-     Move to beginning of subprogram
-     (`beginning-of-fortran-subprogram').
-
-`C-M-e'
-     Move to end of subprogram (`end-of-fortran-subprogram').
-
-`C-M-h'
-     Put point at beginning of subprogram and mark at end
-     (`mark-fortran-subprogram').
-
-`C-c C-n'
-     Move to beginning of current or next statement (`fortran-next-
-     statement').
-
-`C-c C-p'
-     Move to beginning of current or previous statement (`fortran-
-     previous-statement').
 

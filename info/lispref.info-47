@@ -109,6 +109,7 @@ Index
 * >=:                                    Comparison of Numbers.
 * ? in character constant:               Character Type.
 * ? in regexp:                           Syntax of Regexps.
+* ?? in regexp:                          Syntax of Regexps.
 * @ in interactive:                      Using Interactive.
 * [ in regexp:                           Syntax of Regexps.
 * [...] (Edebug):                        Specification List.
@@ -2582,6 +2583,7 @@ Index
 * process-name:                          Process Information.
 * process-send-eof:                      Input to Processes.
 * process-send-region:                   Input to Processes.
+* process-send-signal:                   Signals to Processes.
 * process-send-string:                   Input to Processes.
 * process-sentinel:                      Sentinels.
 * process-status:                        Process Information.

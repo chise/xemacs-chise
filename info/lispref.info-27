@@ -1179,11 +1179,11 @@ particular "class", which describes other characteristics of the device
 
  - Function: valid-device-type-p device-type
      This function returns whether DEVICE-TYPE (which should be a
-     symbol) species a valid device type.
+     symbol) specifies a valid device type.
 
  - Function: valid-device-class-p device-class
      This function returns whether DEVICE-CLASS (which should be a
-     symbol) species a valid device class.
+     symbol) specifies a valid device class.
 
  - Variable: terminal-device
      This variable holds the initial terminal device object, which

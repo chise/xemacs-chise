@@ -747,7 +747,7 @@ hierarchy is updated from its corresponding widget_instance by walking
 the widget_instance tree recursively.
 
    This has desirable properties such as lw_modify_all_widgets which is
-called from glyphs-x.c and updates all the properties of a widget
+called from `glyphs-x.c' and updates all the properties of a widget
 without having to know what the widget is or what toolkit it is from.
 Unfortunately this also has hairy properties such as making the lwlib
 code quite complex. And of course lwlib has to know at some level what

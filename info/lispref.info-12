@@ -400,7 +400,7 @@ reclaim memory for other Lisp objects.  To do this, use the function
      This command unloads the library that provided feature FEATURE.
      It undefines all functions, macros, and variables defined in that
      library with `defconst', `defvar', `defun', `defmacro',
-     `defsubst', `definf-function' and `defalias'.  It then restores
+     `defsubst', `define-function' and `defalias'.  It then restores
      any autoloads formerly associated with those symbols.  (Loading
      saves these in the `autoload' property of the symbol.)
 

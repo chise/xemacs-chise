@@ -886,6 +886,7 @@ Key (Character) Index
 * M-a (Calendar mode):                   Move to Beginning or End.
 * M-b:                                   Words.
 * M-c:                                   Case.
+* M-C-r:                                 Regexp Search.
 * M-C-s:                                 Regexp Search.
 * M-d <1>:                               Words.
 * M-d:                                   Killing.

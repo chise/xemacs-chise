@@ -64,7 +64,7 @@ streams and C++ I/O streams.
    Similar to other subsystems in XEmacs, lstreams are separated into
 generic functions and a set of methods for the different types of
 lstreams.  `lstream.c' provides implementations of many different types
-of streams; others are provided, e.g., in `mule-coding.c'.
+of streams; others are provided, e.g., in `file-coding.c'.
 
      fileio.c
 
@@ -419,12 +419,6 @@ numerous bugs in early releases of SunOS 4.1.
    This module provides some terminal-control code necessary on
 versions of AIX prior to 4.1.
 
-     msdos.c
-     msdos.h
-
-   These modules are used for MS-DOS support, which does not work in
-XEmacs.
-
 
 File: internals.info,  Node: Modules for Interfacing with X Windows,  Next: Modules for Internationalization,  Prev: Modules for Interfacing with the Operating System,  Up: A Summary of the Various XEmacs Modules
 
@@ -475,7 +469,10 @@ developers.
 (graphics contexts) under the X Window System.  This code is junky and
 needs to be rewritten.
 
-     xselect.c
+     select-msw.c
+     select-x.c
+     select.c
+     select.h
 
    This module provides an interface to the X Window System's concept of
 "selections", the standard way for X applications to communicate with
@@ -539,8 +536,8 @@ Modules for Internationalization
      mule-ccl.c
      mule-charset.c
      mule-charset.h
-     mule-coding.c
-     mule-coding.h
+     file-coding.c
+     file-coding.h
      mule-mcpath.c
      mule-mcpath.h
      mule-wnnfns.c
@@ -551,13 +548,13 @@ MULE actually provides a general interface for all sorts of languages,
 not just Asian languages (although they are generally the most
 complicated to support).  This code is still in beta.
 
-   `mule-charset.*' and `mule-coding.*' provide the heart of the XEmacs
+   `mule-charset.*' and `file-coding.*' provide the heart of the XEmacs
 MULE support.  `mule-charset.*' implements the "charset" Lisp object
 type, which encapsulates a character set (an ordered one- or
 two-dimensional set of characters, such as US ASCII or JISX0208 Japanese
 Kanji).
 
-   `mule-coding.*' implements the "coding-system" Lisp object type,
+   `file-coding.*' implements the "coding-system" Lisp object type,
 which encapsulates a method of converting between different encodings.
 An encoding is a representation of a stream of characters, possibly
 from multiple character sets, using a stream of bytes or words, and

@@ -669,7 +669,7 @@ Saving
 
 Scrolling
      Scrolling means shifting the text in the Emacs window to make a
-     different part ot the buffer visible.  *Note Scrolling: Display.
+     different part of the buffer visible.  *Note Scrolling: Display.
 
 Searching
      Searching means moving point to the next occurrence of a specified
