@@ -1130,10 +1130,6 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
-#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
-Lisp_Object Qsystem_char_id;
-#endif
-
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
