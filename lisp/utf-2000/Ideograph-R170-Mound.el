@@ -2247,10 +2247,12 @@
     (chinese-cns11643-1		. #x626E)	; ø»’£‡
     (japanese-jisx0213-1	. #x7D5D)	; ø»¤›€
     (ideograph-daikanwa		. 41746)	; ø¸ŠŒ’
+    (ucs-jis			. #xF9DC)	; éš†
     (ucs			. #x9686)	; éš†
     ))
 (define-char
-  '((morohashi-daikanwa	41746 0 0)
+  '((=>ucs*		. #x9686)	; éš†
+    (morohashi-daikanwa	41746 0 0)
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
