@@ -437,6 +437,7 @@
     (japanese-jisx0208-1990	. #x5626)	; ø½‹ƒ·
     (ideograph-gt-pj-1		. #x5626)	; ý¡€€ƒ©
     (ideograph-daikanwa		. 00175)	; ø¸€‚¯
+    (ideograph-hanziku-2	. #xEE79)	; ý¢€®¹¹
     (ideograph-gt		. 00233)	; ý¡€€ƒ©
     (mojikyo			. 000175)	; ý €€‚¯
     (ucs			. #x4E62)	; ä¹¢
@@ -1846,6 +1847,7 @@
     (japanese-jisx0208		. #x3535)	; ø»†­´
     (japanese-jisx0208-1990	. #x3535)	; ø½Š“¨
     (ideograph-daikanwa		. 00210)	; ø¸€ƒ’
+    (ideograph-hanziku-12	. #xEBBD)	; ý¢ƒŽ®½
     (mojikyo			. 000210)	; ý €€ƒ’
     (ucs			. #x4E80)	; äº€
     ))
