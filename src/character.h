@@ -1,4 +1,4 @@
-/* Header for UCS-4 character representation.
+/* Header for character representation.
    Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
 
