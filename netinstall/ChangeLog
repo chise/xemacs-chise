@@ -1,3 +1,7 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.
@@ -350,6 +354,6 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.17 2002/08/23 16:44:34 stephent Exp $
-$Revision: 1.2.2.17 $
+%%% $Id: ChangeLog,v 1.2.2.19 2002/12/12 06:21:23 stephent Exp $
+$Revision: 1.2.2.19 $
 

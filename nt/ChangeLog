@@ -1,3 +1,16 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2002-12-14  Ben Wing  <ben@xemacs.org>
+
+	* minitar.c:
+	* xemacs.mak (DEPEND):
+	* xemacs.mak (CFLAGS_NO_LIB): New.
+	* xemacs.mak (ETAGS_DEPS):
+	* xemacs.mak (LIB_SRC_TOOLS):
+	Various couple problems.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

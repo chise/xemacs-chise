@@ -685,6 +685,41 @@ microsoft website.
 * Problems with running XEmacs
 ==============================
 ** General
+
+*** XEmacs crashes mysteriously.
+
+Check whether XEmacs was configured --use-union-type.  Many compilers
+are known to treat union types incompatibly with proper functioning of
+the Lisp_Object type.  (Whether this is a compiler bug or nonstandard-
+conforming code in XEmacs is a moot point.)  Especially with
+--with-mule, --pdump, and/or non-null --error-checking, this is known
+to produce an unreliable build with many versions of MS VC++ and GCC,
+and similar problems are likely to occur with other compilers.
+
+Symptoms are similar to garbage collection and other "wild pointer"
+bugs, ie, stack-smashing and other hard-to-debug crashes in unrelated
+code.  Try reconfiguring and building without --use-union-type.
+
+--use-union-type _is_ useful to get improved _static_ type checking of
+Lisp objects.  It is theoretically possible that it might help with
+aliasing bugs under optimization and improve runtime stability, but in
+practice exactly the opposite seems to be true.  If you don't work on
+XEmacs C code directly, then avoid --use-union-type entirely for now.
+
+*** XEmacs crashes mysteriously in regexp-intensive applications (eg, Gnus)
+
+The regexp implementation used in XEmacs uses alloca by default for
+efficiency.  alloca provides no reliable way to check for out of
+memory (in this case, stack).  Normally not a problem, except for
+systems with very small default stack allocations, and applications
+that use multi-line regular expressions (ie, explicitly including ?\n)
+in moderately large files (> 100kB or so).
+
+You may get relief by increasing the amount of stack space allocated
+to your XEmacs process (a system-dependent operation, ask your
+administrator or local experts for help), or by recompiling the regexp
+module regex.c with REGEX_MALLOC defined, relinking, and redumping.
+
 *** At startup I get a warning on stderr about missing charsets:
 
     Warning: Missing charsets in String to FontSet conversion
@@ -1427,6 +1462,27 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
+*** XEmacs crashes on exit.
+
+This is known to happen with Lesstif version 0.93.36.  It is
+apparently due to breakage in Lesstif.  There is a patch for Lesstif.
+
+Frank McIngvale <frankm@hiwaay.net> says:
+
+    Ok, 0.93.34 works, and I tracked down the crash to a section
+    marked "experimental" in 0.93.36. Patch attached, "works for me".
+
+diff -u -r lesstif-0.93.36/lib/Xm/ImageCache.c lesstif-0.93.36-mod/lib/Xm/ImageCache.c
+--- lesstif-0.93.36/lib/Xm/ImageCache.c	2002-08-05 14:53:24.000000000 -0500
++++ lesstif-0.93.36-mod/lib/Xm/ImageCache.c	2002-11-11 11:13:12.000000000 -0600
+@@ -1166,5 +1166,4 @@
+ 	DEBUGOUT(_LtDebug0(__FILE__, NULL, "_LtImageCacheScreenDestroy (XmGetPixmapByDepth) %p\n",
+ 		s));
+ 
+-	(void) _LTHashTableForEachItem(PixmapCache, YowIter, (XtPointer)s);
+ }
+
+
 *** XEmacs crashes on startup, in make-frame.
 
 Typically the Lisp backtrace includes

@@ -759,8 +759,8 @@ against lost packets.
 
   event_stream_select_process (XPROCESS (process));
 
-  UNGCPRO;
   NUNGCPRO;
+  UNGCPRO;
   return process;
 }
 

@@ -29,6 +29,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "console-stream.h"
 #include "dumper.h"
+#include "sysdep.h"
 
 #ifdef WIN32_NATIVE
 #include "nt.h"
@@ -994,7 +995,7 @@ pdump (void)
   t_frame   = Vterminal_frame;   Vterminal_frame   = Qnil;
   t_device  = Vterminal_device;  Vterminal_device  = Qnil;
 
-  dump_add_opaque (&lrecord_implementations_table,
+  dump_add_opaque ((void *) &lrecord_implementations_table,
 		   lrecord_type_count * sizeof (lrecord_implementations_table[0]));
   dump_add_opaque (&lrecord_markers,
 		   lrecord_type_count * sizeof (lrecord_markers[0]));
@@ -1368,9 +1369,11 @@ pdump_file_try (char *exe_path)
 int
 pdump_load (const char *argv0)
 {
-  char exe_path[PATH_MAX];
+  char exe_path[PATH_MAX], real_exe_path[PATH_MAX];
 #ifdef WIN32_NATIVE
   GetModuleFileName (NULL, exe_path, PATH_MAX);
+  /* #### urk, needed for xrealpath() below */
+  Vdirectory_sep_char = make_char ('\\');
 #else /* !WIN32_NATIVE */
   char *w;
   const char *dir, *p;
@@ -1434,7 +1437,11 @@ pdump_load (const char *argv0)
     }
 #endif /* WIN32_NATIVE */
 
-  if (pdump_file_try (exe_path))
+  /* Save exe_path because pdump_file_try() modifies it */
+  strcpy(real_exe_path, exe_path);
+  if (pdump_file_try (exe_path)
+      || (xrealpath(real_exe_path, real_exe_path)
+	  && pdump_file_try (real_exe_path)))
     {
       pdump_load_finish ();
       return 1;

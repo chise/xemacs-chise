@@ -2459,10 +2459,13 @@ Lisp_Object decode_path (const char *);
 /* Nonzero means don't do interactive redisplay and don't change tty modes */
 extern int noninteractive, noninteractive1;
 extern int fatal_error_in_progress;
+extern int inhibit_non_essential_printing_operations;
 extern int preparing_for_armageddon;
 extern Fixnum emacs_priority;
 extern int running_asynch_code;
 extern int suppress_early_error_handler_backtrace;
+void debug_break (void);
+int debug_can_access_memory (void *ptr, Bytecount len);
 
 /* Defined in eval.c */
 DECLARE_DOESNT_RETURN (signal_error (Lisp_Object, Lisp_Object));

@@ -889,6 +889,21 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2002-12-27  Ville Skyttä  <scop@xemacs.org>
+
+	* files.el (auto-mode-alist): Remove redundant entries for modes
+	that live in packages.
+	(interpreter-mode-alist): Ditto.
+
+2002-03-17  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* menubar-items.el (default-menubar): Sync with current
+	browse-url-xemacs.el.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

@@ -57,6 +57,9 @@ typedef uint64_t u_int64_t;
 #ifndef DB_VERSION_MAJOR
 # define DB_VERSION_MAJOR 1
 #endif /* DB_VERSION_MAJOR */
+#ifndef DB_VERSION_MINOR
+# define DB_VERSION_MINOR 0
+#endif /* DB_VERSION_MINOR */
 Lisp_Object Qberkeley_db;
 Lisp_Object Qhash, Qbtree, Qrecno, Qunknown;
 #if DB_VERSION_MAJOR > 2
@@ -688,8 +691,13 @@ and defaults to 0755.
       status = db_create (&dbase, NULL, 0);
       if (status)
         return Qnil;
+#if DB_VERSION_MAJOR < 4 || (DB_VERSION_MAJOR == 4 && DB_VERSION_MINOR < 1)
       status = dbase->open (dbase, filename, NULL,
                             real_subtype, accessmask, modemask);
+#else /* DB_VERSION >= 4.1 */
+      status = dbase->open (dbase, NULL, filename, NULL, real_subtype,
+			    accessmask | DB_AUTO_COMMIT, modemask);
+#endif /* DB_VERSION < 4.1 */
       if (status)
         {
           dbase->close (dbase, 0);

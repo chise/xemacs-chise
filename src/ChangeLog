@@ -4640,6 +4640,81 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2002-12-14  Ben Wing  <ben@xemacs.org>
+
+	* callint.c: Declaration error.
+	* dumper.c (pdump):
+	* dumper.c (pdump_load): Warning fix.
+	* process.c: GCPRO error.
+	* glyphs.c (unmap_subwindow):
+	* glyphs.c (map_subwindow): Parenthesizing errors with ! and &&.
+	* event-stream.c (maybe_kbd_translate): Wrong argument to
+	character_to_event().
+
+	* alloc.c (garbage_collect_1):
+	* emacs.c:
+	* emacs.c (debug_can_access_memory):
+	* emacs.c (fatal_error_signal):
+	* emacs.c (mswindows_handle_hardware_exceptions):
+	* emacs.c (main_1):
+	* emacs.c (main):
+	* emacs.c (assert_failed):
+	* emacs.c (syms_of_emacs):
+	* lisp.h:
+	* print.c:
+	* print.c (std_handle_out_va):
+	* print.c (write_string_to_stdio_stream):
+	* print.c (write_fmt_string):
+	* print.c (printing_badness):
+	* print.c (printing_major_badness):
+	* print.c (print_internal):
+	* print.c (debug_print_no_newline):
+	* print.c (debug_backtrace):
+	Be more defensive in handling bad values when printing.  Add code
+	from trunk involving inhibit_non_essential_printing_operations.
+	When going down or in debug_print(), don't do external conversion
+	and such and try really, really hard when printing to avoid core
+	dumping.  Add force-debugging-signal, debug_break().
+
+2002-12-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* dumper.c (pdump_load): Include sysdep.h; retry with truename.
+	Analysis and original patch by Vin Shelton <acs@xemacs.org>.
+
+2002-12-02  Greg Allen  <greg_allen@westlb-systems.co.uk>
+
+	* database.c: Fix open_database. Berkeley DB API has changed in
+	4.1. see: http://www.sleepycat.com/docs/ref/upgrade.4.1/fop.html
+
+2002-11-26  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* specifier.c (Fvalid_specifier_type_p): Typo in comment.
+
+2002-11-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* event-Xt.c (Xt_timeout):
+	(Xt_timeout_callback):
+	(emacs_Xt_add_timeout):
+	(emacs_Xt_remove_timeout):
+	(Xt_timeout_to_emacs_event):
+	Turn completed_timeouts from a stack into a queue.  Fixes
+	deadlocks <15829.21626.171573.994716@sinisa.nasamreza.org>.
+
+2002-11-07  Wolfram Gloger  <wg@malloc.de>
+
+	* alloc.c (reinit_alloc_once_early): Disable mmap in Doug Lea malloc.
+	* emacs.c (main): Assert that mmap'd allocation is disabled.
+
+2002-10-14  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (layout_query_geometry): add in fiddle
+	factor. Include border text in width layout calculation.
+	(layout_layout): use BORDER_FIDDLE_FACTOR instead of 10.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

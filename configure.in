@@ -375,7 +375,8 @@ with_toolbars=""
 with_tty=""
 use_union_type="no"
 with_dnet=""
-pdump="no"
+dnl pdump now defaults by opsys
+pdump=''
 dnl dragndrop is still experimental.  When it is stable, comment out the following line:
 with_dragndrop="no"
 dnl Too annoying, even if mandated by IPv6 (and I'm not even sure of that)
@@ -1220,7 +1221,6 @@ case "$canonical" in
   *-*-darwin*)
     opsys=darwin
     RANLIB="ranlib -c" dnl Avoids a link error with lwlib-config.c
-    pdump=yes          dnl No "native" working dumper available
     ;;
 
   dnl Data General AViiON Machines
@@ -1575,6 +1575,17 @@ else
   echo "Using configure-time autodetection only."
 fi
 
+dnl --------------------------------------------------------------
+dnl $opsys detection complete; defaults depending on $opsys follow
+dnl --------------------------------------------------------------
+
+if test -z "$pdump"; then
+  case "$opsys" in
+    linux* )      pdump=yes ;;    dnl glibc 2.3.1 seems to hose unexec
+    *-*-darwin* ) pdump=yes ;;    dnl No "native" working dumper available
+    *)            pdump=no ;;
+  esac
+fi
 
 if test -z "$dynamic"; then
   case "$opsys" in
@@ -3823,7 +3834,7 @@ AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo
 dnl getaddrinfo() is borked under hpux11
 if test "$ac_cv_func_getaddrinfo" != "no" ; then
   case "$opsys" in
-    hpux11 )
+    hpux11* )
       AC_MSG_WARN([Use of getaddrinfo is disabled for HP-UX 11.XX.])
       ac_cv_func_getaddrinfo=no
       ;;
@@ -4503,19 +4514,25 @@ dnl executables to fail to run.  Also any tests using AC_TRY_RUN will
 dnl have reported incorrect results.
 AC_TRY_RUN([int main(int c,char *v[]){return 0;}],[:],[
   echo ""
-  echo "*** PANIC *** The C compiler can no longer build working executables."
-  echo "*** PANIC *** Please examine the tail of config.log for runtime errors."
-  echo "*** PANIC *** The most likely reason for this problem is that configure"
-  echo "*** PANIC *** links with shared libraries, but those libraries cannot be"
-  echo "*** PANIC *** found at run time."
-  echo "*** PANIC ***"
-  echo "*** PANIC *** On a Linux system, edit /etc/ld.so.conf and re-run ldconfig."
-  echo "*** PANIC *** On other systems, try telling configure where to find the"
-  echo "*** PANIC *** shared libraries using the --site-runtime-libraries option"
-  echo "*** PANIC ***"
-  echo "*** PANIC *** Another way to shoot yourself in the foot is to specify"
-  echo "*** PANIC *** --with-FEATURE when FEATURE is not actually installed"
-  echo "*** PANIC *** on your system.  Don't do that."
+  echo "*** PANIC *** configure forgot how to build working executables!"
+  echo ""
+  echo "*** This is most commonly due to an unforeseen environment, causing"
+  echo "*** configure to incorrectly compute the sequence of libraries to link."
+  echo "*** Please examine the tail of config.log for runtime errors."
+  echo "*** Pay special attention to the -l flags, and perhaps -I and -L."
+  echo "*** Often adding or removing explicit options in the configure"
+  echo "*** invocation can work around this kind of problem.  If so, please"
+  echo "*** report it as a bug to xemacs-beta@xemacs.org."
+  echo "***"
+  echo "*** Other possible causes are inability to write to the file system"
+  echo "*** (bogus permissions or disk full) or a misconfiguration of the dynamic"
+  echo "*** linker.  On Linux, check /etc/ld.conf and rerun ldconfig if"
+  echo "*** necessary.  On other systems, try telling configure where to find"
+  echo "*** the shared libraries using the --site-runtime-libraries option."
+  echo "***"
+  echo "*** Another way to shoot yourself in the foot is to specify"
+  echo "*** --with-FEATURE when FEATURE is not actually installed on your"
+  echo "*** system.  Don't do that."
   exit 1])
 
 dnl Process support
@@ -5075,7 +5092,13 @@ test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
 test "$with_socks" = yes && echo "  Compiling in support for SOCKS."
 test "$with_dnet" = yes && echo "  Compiling in support for DNET."
 test "$with_modules" = "yes" && echo "  Compiling in support for dynamic shared object modules."
-test "$use_union_type" = yes && echo "  Using the union type for Lisp_Objects."
+if test "$use_union_type" = yes; then
+  echo "  WARNING: ---------------------------------------------------------"
+  echo "  Using the union type for Lisp_Objects."
+  echo "  Union type has been implicated in hard-to-debug runtime crashes."
+  echo "  Do NOT use this build of XEmacs for ordinary work.  See PROBLEMS."
+  echo "  WARNING: ---------------------------------------------------------"
+fi
 test "$pdump" = yes && echo "  Using the new portable dumper."
 test "$debug" = yes && echo "  Compiling in support for extra debugging code."
 test "$usage_tracking" = yes && echo "  Compiling in support for active usage tracking (Sun internal)."

@@ -37,7 +37,7 @@ Boston, MA 02111-1307, USA.  */
 #include "insdel.h"
 #include "window.h"
 
-extern int num_input_chars;
+extern Charcount num_input_chars;
 
 Lisp_Object Vcurrent_prefix_arg;
 Lisp_Object Qcall_interactively;

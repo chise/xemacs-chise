@@ -1,3 +1,12 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2002-12-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* automated/regexp-tests.el (Mule character class): New test
+	cases.  Based on draft patch by Daiki Ueno <daiki@xemacs.org>.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

@@ -1841,16 +1841,43 @@ Lisp objects use the typedef @code{Lisp_Object}, but the actual C type
 used for the Lisp object can vary.  It can be either a simple type
 (@code{long} on the DEC Alpha, @code{int} on other machines) or a
 structure whose fields are bit fields that line up properly (actually, a
-union of structures is used).  Generally the simple integral type is
-preferable because it ensures that the compiler will actually use a
-machine word to represent the object (some compilers will use more
-general and less efficient code for unions and structs even if they can
-fit in a machine word).  The union type, however, has the advantage of
-stricter type checking.  If you accidentally pass an integer where a Lisp
-object is desired, you get a compile error.  The choice of which type
-to use is determined by the preprocessor constant @code{USE_UNION_TYPE}
-which is defined via the @code{--use-union-type} option to
-@code{configure}.
+union of structures is used).  The choice of which type to use is
+determined by the preprocessor constant @code{USE_UNION_TYPE} which is
+defined via the @code{--use-union-type} option to @code{configure}.
+
+Generally the simple integral type is preferable because it ensures that
+the compiler will actually use a machine word to represent the object
+(some compilers will use more general and less efficient code for unions
+and structs even if they can fit in a machine word).  The union type,
+however, has the advantage of stricter @emph{static} type checking.
+Places where a @code{Lisp_Object} is mistakenly passed to a routine
+expecting an @code{int} (or vice-versa), or a check is written @samp{if
+(foo)} (instead of @samp{if (!NILP (foo))}, will be flagged as errors.
+None of these lead to the expected results!  @code{Qnil} is not
+represented as 0 (so @samp{if (foo)} will *ALWAYS* be true for a
+@code{Lisp_Object}), and the representation of an integer as a
+@code{Lisp_Object} is not just the integer's numeric value, but usually
+2x the integer +/- 1.)
+
+There used to be a claim that the union type simplified debugging.
+There may have been a grain of truth to this pre-19.8, when there was no
+@samp{lrecord} type and all objects had a separate type appearing in the
+tag.  Nowadays, however, there is no debugging gain, and in fact
+frequent debugging *@emph{loss}*, since many debuggers don't handle
+unions very well, and usually there is no way to directly specify a
+union from a debugging prompt.
+
+Furthermore, release builds should *@emph{not}* be done with union type
+because (a) you may get less efficiency, with compilers that can't
+figure out how to optimize the union into a machine word; (b) even
+worse, the union type often triggers miscompilation, especially when
+combined with Mule and error-checking.  This has been the case at
+various times when using GCC and MS VC, at least with @samp{--pdump}.
+Therefore, be warned!
+
+As of 2002 4Q, miscompilation is known to happen with current versions
+of @strong{Microsoft VC++} and @strong{GCC in combination with Mule,
+pdump, and KKCC} (no error checking).
 
 Various macros are used to convert between Lisp_Objects and the
 corresponding C type.  Macros of the form @code{XINT()}, @code{XCHAR()},
@@ -4145,6 +4172,11 @@ highlighting different syntactic constructs of a source file in
 different colors, for easy reading.  The C support is provided so that
 this is fast.
 
+As of 21.4.10, bugs introduced at the very end of the 21.2 series in the
+``syntax properties'' code were fixed, and highlighting is acceptably
+quick again.  However, presumably more improvements are possible, and
+the places to look are probably here, in the defun-traversing code, and
+in @file{syntax.c}, in the comment-traversing code.
 
 
 @example

@@ -1,3 +1,28 @@
+2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
+
+2003-01-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (How Lisp Objects Are Represented in	C):
+	Deprecate --use-union-type except for static error checking.
+
+2002-12-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (Regression Testing XEmacs): Hints for
+	test design.
+
+2002-10-29  Ville Skyttä  <scop@xemacs.org>
+
+	* xemacs-faq.texi (Top):
+	The canonical location for FAQ on the website is /FAQ/.
+
+2002-11-12  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* xemacs/custom.texi (Face Customization):
+	(Faces):
+	Document face-frob-from-locale-first variable.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

@@ -3391,6 +3391,7 @@ garbage_collect_1 (void)
   /***** Now we actually start the garbage collection. */
 
   gc_in_progress = 1;
+  inhibit_non_essential_printing_operations = 1;
 
   gc_generation_number[0]++;
 
@@ -3515,6 +3516,7 @@ garbage_collect_1 (void)
     gc_cons_threshold = 10000;
 #endif
 
+  inhibit_non_essential_printing_operations = 0;
   gc_in_progress = 0;
 
   run_post_gc_actions ();
@@ -3886,8 +3888,8 @@ reinit_alloc_once_early (void)
 #ifdef DOUG_LEA_MALLOC
   mallopt (M_TRIM_THRESHOLD, 128*1024); /* trim threshold */
   mallopt (M_MMAP_THRESHOLD, 64*1024); /* mmap threshold */
-#if 0 /* Moved to emacs.c */
-  mallopt (M_MMAP_MAX, 64); /* max. number of mmap'ed areas */
+#if 1 /* Moved to emacs.c */
+  mallopt (M_MMAP_MAX, 0); /* max. number of mmap'ed areas */
 #endif
 #endif
   init_string_alloc ();
