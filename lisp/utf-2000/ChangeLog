@@ -1,3 +1,33 @@
+2004-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el (C3-2740): Compact
+	`ideographic-structure'.
+
+	* Ideograph-R001-One.el (BC-88C7): Add `<-denotational' for
+	U-00025605; add `ideographic-component-forms' for M-24624 and
+	M-24623.
+	(GT-K00615): New character.
+	(GT-K00616): New character.
+	(C6-2936): Add `ideographic-structure'.
+	(C3-2740): Compact `ideographic-structure'.
+
+	* Ideograph-R019-Power.el: Use `=jis-x0208@1990' instead of
+	`=jis-x0208-1990'.
+
+	* Ideograph-R012-Eight.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+516C): Add J97-3878.
+	(U+34B8): Use `->subsumptive'.
+
+	* Ideograph-R010-Legs.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+5146): Add J97-437B.
+	(U+514A): Use `->subsumptive'.
+	(U+5154): Changed to an abstract character.
+	(U-0002F80F): Use `<-denotational' for U+5154.
+	(G0-4D43): Likewise; use `->subsumptive' to integrate GT-K05208.
+	(U+515D): Use `->subsumptive'.
+
 2004-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R001-One.el: Use `=jis-x0208@{1978|1983|1990}' instead
