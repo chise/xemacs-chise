@@ -1,3 +1,10 @@
+2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* emacs.c (Vutf_2000_lisp_directory): New variable.
+	(Vconfigure_utf_2000_lisp_directory): Likewise.
+	(complex_vars_of_emacs): Add new variable
+	`utf-2000-lisp-directory' and `configure-utf-2000-lisp-directory'.
+
 2002-08-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h (DECODE_CHAR): Delete special code for
