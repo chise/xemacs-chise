@@ -1,5 +1,10 @@
 2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R074-Moon.el, Ideograph-R072-Sun.el: Add `=ucs@big5'
+	features.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-{5877|592D|5A61}.
+
 	* Ideograph-R073-Say.el: Add `=ucs@big5' features.
 	(U+52D7): Add `ideographic-structure'.
 
