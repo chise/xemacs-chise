@@ -382,7 +382,7 @@
     (ideographic-radical@cns . 1)	; ⼀
     (ideographic-strokes@cns . 7)
     (ideographic-radical@cns*sources
-     cns-11643)
+     cns11643)
     (total-strokes	 . 8)
     (->same-ideograph
      ((ideographic-radical . 1)	; ⼀
