@@ -3049,7 +3049,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS-BMP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
 		  build_string
-		  ("\\(ISO10646.*-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
+		  ("\\(ISO10646\\(\\.[0-9]+\\)?-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_smp);
   Vcharset_ucs_smp =
