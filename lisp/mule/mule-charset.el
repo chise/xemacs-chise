@@ -3,6 +3,8 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
+;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
+;; Licensed to the Free Software Foundation.
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -257,5 +259,26 @@ DESCRIPTION (string) is the description string of the charset."
   (while l
     (put-char-table (car l) t auto-fill-chars)
     (setq l (cdr l))))
+
+
+;;; @ Coded character set
+;;;
+
+(when (featurep 'utf-2000)
+  (setq default-coded-charset-priority-list
+	'(ascii
+	  control-1
+	  latin-iso8859-1
+	  latin-iso8859-2
+	  latin-iso8859-3
+	  latin-iso8859-4
+	  latin-iso8859-9
+	  latin-jisx0201
+	  cyrillic-iso8859-5
+	  greek-iso8859-7
+	  thai-tis620
+	  hebrew-iso8859-8
+	  vietnamese-viscii-lower
+	  vietnamese-viscii-upper)))
 
 ;;; mule-charset.el ends here

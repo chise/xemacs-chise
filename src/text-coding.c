@@ -186,8 +186,11 @@ static int detect_coding_sjis (struct detection_state *st,
 			       const Extbyte *src, Lstream_data_count n);
 static void decode_coding_sjis (Lstream *decoding, const Extbyte *src,
 				unsigned_char_dynarr *dst, Lstream_data_count n);
-static void encode_coding_sjis (Lstream *encoding, const Bufbyte *src,
-				unsigned_char_dynarr *dst, Lstream_data_count n);
+void char_encode_shift_jis (struct encoding_stream *str, Emchar c,
+			    unsigned_char_dynarr *dst, unsigned int *flags);
+void char_finish_shift_jis (struct encoding_stream *str,
+			    unsigned_char_dynarr *dst, unsigned int *flags);
+
 static int detect_coding_big5 (struct detection_state *st,
 			       const Extbyte *src, Lstream_data_count n);
 static void decode_coding_big5 (Lstream *decoding, const Extbyte *src,
@@ -198,8 +201,11 @@ static int detect_coding_ucs4 (struct detection_state *st,
 			       const Extbyte *src, Lstream_data_count n);
 static void decode_coding_ucs4 (Lstream *decoding, const Extbyte *src,
 				unsigned_char_dynarr *dst, Lstream_data_count n);
-static void encode_coding_ucs4 (Lstream *encoding, const Bufbyte *src,
-				unsigned_char_dynarr *dst, Lstream_data_count n);
+void char_encode_ucs4 (struct encoding_stream *str, Emchar c,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
+void char_finish_ucs4 (struct encoding_stream *str,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
+
 static int detect_coding_utf8 (struct detection_state *st,
 			       const Extbyte *src, Lstream_data_count n);
 static void decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
@@ -904,10 +910,6 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
-#ifdef UTF2000
-  if (ty == CODESYS_NO_CONVERSION)
-    codesys->fixed.size = 1;
-#endif
   {
     EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, props)
       {
@@ -2817,6 +2819,15 @@ reset_encoding_stream (struct encoding_stream *str)
     case CODESYS_UTF8:
       str->encode_char = &char_encode_utf8;
       str->finish = &char_finish_utf8;
+      break;
+    case CODESYS_UCS4:
+      str->encode_char = &char_encode_ucs4;
+      str->finish = &char_finish_ucs4;
+      break;
+    case CODESYS_SHIFT_JIS:
+      str->encode_char = &char_encode_shift_jis;
+      str->finish = &char_finish_shift_jis;
+      break;
     default:
       break;
     }
@@ -2932,14 +2943,8 @@ mule_encode (Lstream *encoding, const Bufbyte *src,
       encode_coding_no_conversion (encoding, src, dst, n);
       break;
 #ifdef MULE
-    case CODESYS_SHIFT_JIS:
-      encode_coding_sjis (encoding, src, dst, n);
-      break;
     case CODESYS_BIG5:
       encode_coding_big5 (encoding, src, dst, n);
-      break;
-    case CODESYS_UCS4:
-      encode_coding_ucs4 (encoding, src, dst, n);
       break;
     case CODESYS_CCL:
       str->ccl.last_block = str->flags & CODING_STATE_END;
@@ -3030,64 +3035,57 @@ text_encode_generic (Lstream *encoding, const Bufbyte *src,
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
   unsigned int flags          = str->flags;
   Emchar ch                   = str->ch;
-  Lisp_Object charset;
-  int half;
 
   char_boundary = str->iso2022.current_char_boundary;
-  charset = str->iso2022.current_charset;
-  half = str->iso2022.current_half;
 
   while (n--)
     {
       c = *src++;
 
-      switch (char_boundary)
+      if (char_boundary == 0)
 	{
-	case 0:
-	  if ( c >= 0xfc )
+	  if (c >= 0xfc)
 	    {
 	      ch = c & 0x01;
 	      char_boundary = 5;
 	    }
-	  else if ( c >= 0xf8 )
+	  else if (c >= 0xf8)
 	    {
 	      ch = c & 0x03;
 	      char_boundary = 4;
 	    }
-	  else if ( c >= 0xf0 )
+	  else if (c >= 0xf0)
 	    {
 	      ch = c & 0x07;
 	      char_boundary = 3;
 	    }
-	  else if ( c >= 0xe0 )
+	  else if (c >= 0xe0)
 	    {
 	      ch = c & 0x0f;
 	      char_boundary = 2;
 	    }
-	  else if ( c >= 0xc0 )
+	  else if (c >= 0xc0)
 	    {
 	      ch = c & 0x1f;
 	      char_boundary = 1;
 	    }
 	  else
-	    {
-	      (*str->encode_char) (str, c, dst, &flags);
-	      ch = 0;
-	      char_boundary = 0;
-	    }
-	  break;
-	case 1:
+	    (*str->encode_char) (str, c, dst, &flags);
+	}
+      else if (char_boundary == 1)
+	{
 	  (*str->encode_char) (str, (ch << 6) | (c & 0x3f), dst, &flags);
 	  ch =0;
 	  char_boundary = 0;
-	  break;
-	default:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
+	}
+      else
+	{
+	  ch = (ch << 6) | (c & 0x3f);
 	  char_boundary--;
 	}
     }
 
-  if ( (char_boundary == 0) && flags & CODING_STATE_END)
+  if ((char_boundary == 0) && (flags & CODING_STATE_END))
     {
       (*str->finish) (str, dst, &flags);
     }
@@ -3095,10 +3093,6 @@ text_encode_generic (Lstream *encoding, const Bufbyte *src,
   str->flags = flags;
   str->ch    = ch;
   str->iso2022.current_char_boundary = char_boundary;
-  str->iso2022.current_charset = charset;
-  str->iso2022.current_half = half;
-
-  /* Verbum caro factum est! */
 }
 
 
@@ -3212,6 +3206,11 @@ decode_coding_sjis (Lstream *decoding, const Extbyte *src,
 	      Dynarr_add (dst, c);
 #endif
 	    }
+#ifdef UTF2000
+	  else if (c > 32)
+	    DECODE_ADD_UCS_CHAR(MAKE_CHAR(Vcharset_latin_jisx0201,
+					  c, 0), dst);
+#endif
 	  else
 	    DECODE_ADD_BINARY_CHAR (c, dst);
 	}
@@ -3224,136 +3223,61 @@ decode_coding_sjis (Lstream *decoding, const Extbyte *src,
   str->ch    = ch;
 }
 
-/* Convert internally-formatted data to Shift-JIS. */
+/* Convert internal character representation to Shift_JIS. */
 
-static void
-encode_coding_sjis (Lstream *encoding, const Bufbyte *src,
-		    unsigned_char_dynarr *dst, Lstream_data_count n)
+void
+char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
+		       unsigned_char_dynarr *dst, unsigned int *flags)
 {
-  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
-#ifdef UTF2000
-  unsigned char char_boundary = str->iso2022.current_char_boundary;
-#endif
 
-  while (n--)
+  if (ch == '\n')
     {
-      Bufbyte c = *src++;
-#ifdef UTF2000
-      switch (char_boundary)
-	{
-	case 0:
-	  if ( c >= 0xfc )
-	    {
-	      ch = c & 0x01;
-	      char_boundary = 5;
-	    }
-	  else if ( c >= 0xf8 )
-	    {
-	      ch = c & 0x03;
-	      char_boundary = 4;
-	    }
-	  else if ( c >= 0xf0 )
-	    {
-	      ch = c & 0x07;
-	      char_boundary = 3;
-	    }
-	  else if ( c >= 0xe0 )
-	    {
-	      ch = c & 0x0f;
-	      char_boundary = 2;
-	    }
-	  else if ( c >= 0xc0 )
-	    {
-	      ch = c & 0x1f;
-	      char_boundary = 1;
-	    }
-	  else
-	    {
-	      ch = 0;
-	      if (c == '\n')
-		{
-		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-		    Dynarr_add (dst, '\r');
-		  if (eol_type != EOL_CR)
-		    Dynarr_add (dst, c);
-		}
-	      else
-		Dynarr_add (dst, c);
-	      char_boundary = 0;
-	    }
-	  break;
-	case 1:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  {
-	    Lisp_Object charset;
-	    unsigned int c1, c2, s1, s2;
-	    
-	    BREAKUP_CHAR (ch, charset, c1, c2);
-	    if (EQ(charset, Vcharset_katakana_jisx0201))
-	      {
-		Dynarr_add (dst, c1 | 0x80);
-	      }
-	    else if (EQ(charset, Vcharset_japanese_jisx0208))
-	      {
-		ENCODE_SJIS (c1 | 0x80, c2 | 0x80, s1, s2);
-		Dynarr_add (dst, s1);
-		Dynarr_add (dst, s2);
-	      }
-	  }
-	  char_boundary = 0;
-	  break;
-	default:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  char_boundary--;
-	}
-#else
-      if (c == '\n')
-	{
-	  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-	    Dynarr_add (dst, '\r');
-	  if (eol_type != EOL_CR)
-	    Dynarr_add (dst, '\n');
-	  ch = 0;
-	}
-      else if (BYTE_ASCII_P (c))
-	{
-	  Dynarr_add (dst, c);
-	  ch = 0;
-	}
-      else if (BUFBYTE_LEADING_BYTE_P (c))
-	ch = (c == LEADING_BYTE_KATAKANA_JISX0201 ||
-	      c == LEADING_BYTE_JAPANESE_JISX0208_1978 ||
-	      c == LEADING_BYTE_JAPANESE_JISX0208) ? c : 0;
-      else if (ch)
-	{
-	  if (ch == LEADING_BYTE_KATAKANA_JISX0201)
-	    {
-	      Dynarr_add (dst, c);
-	      ch = 0;
-	    }
-	  else if (ch == LEADING_BYTE_JAPANESE_JISX0208_1978 ||
-		   ch == LEADING_BYTE_JAPANESE_JISX0208)
-	    ch = c;
-	  else
-	    {
-	      unsigned char j1, j2;
-	      ENCODE_SJIS (ch, c, j1, j2);
-	      Dynarr_add (dst, j1);
-	      Dynarr_add (dst, j2);
-	      ch = 0;
-	    }
-	}
-#endif
+      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+	Dynarr_add (dst, '\r');
+      if (eol_type != EOL_CR)
+	Dynarr_add (dst, ch);
     }
-
-  str->flags = flags;
-  str->ch    = ch;
+  else
+    {
+      Lisp_Object charset;
+      unsigned int c1, c2, s1, s2;
+      
 #ifdef UTF2000
-  str->iso2022.current_char_boundary = char_boundary;
+      if ( (c1 =
+	    get_byte_from_character_table (ch, Vcharset_latin_jisx0201))
+	   >= 0 )
+	{
+	  charset = Vcharset_latin_jisx0201;
+	  c2 = 0;
+	}
+      else
 #endif
+	BREAKUP_CHAR (ch, charset, c1, c2);
+	  
+      if (EQ(charset, Vcharset_katakana_jisx0201))
+	{
+	  Dynarr_add (dst, c1 | 0x80);
+	}
+      else if (c2 == 0)
+	{
+	  Dynarr_add (dst, c1);
+	}
+      else if (EQ(charset, Vcharset_japanese_jisx0208))
+	{
+	  ENCODE_SJIS (c1 | 0x80, c2 | 0x80, s1, s2);
+	  Dynarr_add (dst, s1);
+	  Dynarr_add (dst, s2);
+	}
+      else
+	Dynarr_add (dst, '?');
+    }
+}
+
+void
+char_finish_shift_jis (struct encoding_stream *str, unsigned_char_dynarr *dst,
+		       unsigned int *flags)
+{
 }
 
 DEFUN ("decode-shift-jis-char", Fdecode_shift_jis_char, 1, 1, 0, /*
@@ -3692,163 +3616,7 @@ Return the corresponding character code in Big5.
 
 /************************************************************************/
 /*                           UCS-4 methods                              */
-/*                                                                      */
-/*  UCS-4 character codes are implemented as nonnegative integers.      */
-/*                                                                      */
 /************************************************************************/
-
-
-DEFUN ("set-ucs-char", Fset_ucs_char, 2, 2, 0, /*
-Map UCS-4 code CODE to Mule character CHARACTER.
-
-Return T on success, NIL on failure.
-*/
-       (code, character))
-{
-  size_t c;
-
-  CHECK_CHAR (character);
-  CHECK_NATNUM (code);
-  c = XINT (code);
-
-  if (c < countof (fcd->ucs_to_mule_table))
-    {
-      fcd->ucs_to_mule_table[c] = character;
-      return Qt;
-    }
-  else
-    return Qnil;
-}
-
-static Lisp_Object
-ucs_to_char (unsigned long code)
-{
-  if (code < countof (fcd->ucs_to_mule_table))
-    {
-      return fcd->ucs_to_mule_table[code];
-    }
-  else if ((0xe00000 <= code) && (code <= 0xe00000 + 94 * 94 * 14))
-    {
-      unsigned int c;
-
-      code -= 0xe00000;
-      c = code % (94 * 94);
-      return make_char
-	(MAKE_CHAR (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94, code / (94 * 94) + '@',
-		     CHARSET_LEFT_TO_RIGHT),
-		    c / 94 + 33, c % 94 + 33));
-    }
-  else
-    return Qnil;
-}
-
-DEFUN ("ucs-char", Fucs_char, 1, 1, 0, /*
-Return Mule character corresponding to UCS code CODE (a positive integer).
-*/
-       (code))
-{
-  CHECK_NATNUM (code);
-  return ucs_to_char (XINT (code));
-}
-
-DEFUN ("set-char-ucs", Fset_char_ucs, 2, 2, 0, /*
-Map Mule character CHARACTER to UCS code CODE (a positive integer).
-*/
-       (character, code))
-{
-  /* #### Isn't this gilding the lily?  Fput_char_table checks its args.
-          Fset_char_ucs is more restrictive on index arg, but should
-          check code arg in a char_table method. */
-  CHECK_CHAR (character);
-  CHECK_NATNUM (code);
-  return Fput_char_table (character, code, mule_to_ucs_table);
-}
-
-DEFUN ("char-ucs", Fchar_ucs, 1, 1, 0, /*
-Return the UCS code (a positive integer) corresponding to CHARACTER.
-*/
-       (character))
-{
-  return Fget_char_table (character, mule_to_ucs_table);
-}
-
-#ifdef UTF2000
-#define decode_ucs4 DECODE_ADD_UCS_CHAR
-#else
-/* Decode a UCS-4 character into a buffer.  If the lookup fails, use
-   <GETA MARK> (U+3013) of JIS X 0208, which means correct character
-   is not found, instead.
-   #### do something more appropriate (use blob?)
-        Danger, Will Robinson!  Data loss.  Should we signal user? */
-static void
-decode_ucs4 (unsigned long ch, unsigned_char_dynarr *dst)
-{
-  Lisp_Object chr = ucs_to_char (ch);
-
-  if (! NILP (chr))
-    {
-      Bufbyte work[MAX_EMCHAR_LEN];
-      int len;
-
-      ch = XCHAR (chr);
-      len = (ch < 128) ?
-	simple_set_charptr_emchar (work, ch) :
-	non_ascii_set_charptr_emchar (work, ch);
-      Dynarr_add_many (dst, work, len);
-    }
-  else
-    {
-      Dynarr_add (dst, LEADING_BYTE_JAPANESE_JISX0208);
-      Dynarr_add (dst, 34 + 128);
-      Dynarr_add (dst, 46 + 128);
-    }
-}
-#endif
-
-static unsigned long
-mule_char_to_ucs4 (Lisp_Object charset,
-		   unsigned char h, unsigned char l)
-{
-  Lisp_Object code
-    = Fget_char_table (make_char (MAKE_CHAR (charset, h & 127, l & 127)),
-		       mule_to_ucs_table);
-
-  if (INTP (code))
-    {
-      return XINT (code);
-    }
-  else if ( (XCHARSET_DIMENSION (charset) == 2) &&
-	    (XCHARSET_CHARS (charset) == 94) )
-    {
-      unsigned char final = XCHARSET_FINAL (charset);
-
-      if ( ('@' <= final) && (final < 0x7f) )
-	{
-	  return 0xe00000 + (final - '@') * 94 * 94
-	    + ((h & 127) - 33) * 94 + (l & 127) - 33;
-	}
-      else
-	{
-	  return '?';
-	}
-    }
-  else
-    {
-      return '?';
-    }
-}
-
-static void
-encode_ucs4 (Lisp_Object charset,
-	     unsigned char h, unsigned char l, unsigned_char_dynarr *dst)
-{
-  unsigned long code = mule_char_to_ucs4 (charset, h, l);
-  Dynarr_add (dst,  code >> 24);
-  Dynarr_add (dst, (code >> 16) & 255);
-  Dynarr_add (dst, (code >>  8) & 255);
-  Dynarr_add (dst,  code        & 255);
-}
 
 static int
 detect_coding_ucs4 (struct detection_state *st, const Extbyte *src, Lstream_data_count n)
@@ -3893,7 +3661,7 @@ decode_coding_ucs4 (Lstream *decoding, const Extbyte *src,
 	  counter = 3;
 	  break;
 	case 1:
-	  decode_ucs4 ( ( ch << 8 ) | c, dst);
+	  DECODE_ADD_UCS_CHAR ((ch << 8) | c, dst);
 	  ch = 0;
 	  counter = 0;
 	  break;
@@ -3910,140 +3678,20 @@ decode_coding_ucs4 (Lstream *decoding, const Extbyte *src,
   str->counter = counter;
 }
 
-static void
-encode_coding_ucs4 (Lstream *encoding, const Bufbyte *src,
-		    unsigned_char_dynarr *dst, Lstream_data_count n)
+void
+char_encode_ucs4 (struct encoding_stream *str, Emchar ch,
+		  unsigned_char_dynarr *dst, unsigned int *flags)
 {
-#ifndef UTF2000
-  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags = str->flags;
-  unsigned int ch = str->ch;
-  unsigned char char_boundary = str->iso2022.current_char_boundary;
-  Lisp_Object charset = str->iso2022.current_charset;
+  Dynarr_add (dst, ch >> 24);
+  Dynarr_add (dst, ch >> 16);
+  Dynarr_add (dst, ch >>  8);
+  Dynarr_add (dst, ch      );
+}
 
-#ifdef ENABLE_COMPOSITE_CHARS
-  /* flags for handling composite chars.  We do a little switcharoo
-     on the source while we're outputting the composite char. */
-  unsigned int saved_n = 0;
-  const unsigned char *saved_src = NULL;
-  int in_composite = 0;
-
- back_to_square_n:
-#endif
-
-  while (n--)
-    {
-      unsigned char c = *src++;
-
-      if (BYTE_ASCII_P (c))
-	{		/* Processing ASCII character */
-	  ch = 0;
-	  encode_ucs4 (Vcharset_ascii, c, 0, dst);
-	  char_boundary = 1;
-	}
-      else if (BUFBYTE_LEADING_BYTE_P (c) || BUFBYTE_LEADING_BYTE_P (ch))
-	{ /* Processing Leading Byte */
-	  ch = 0;
-	  charset = CHARSET_BY_LEADING_BYTE (c);
-	  if (LEADING_BYTE_PREFIX_P(c))
-	    ch = c;
-	  char_boundary = 0;
-	}
-      else
-	{			/* Processing Non-ASCII character */
-	  char_boundary = 1;
-	  if (EQ (charset, Vcharset_control_1))
-	    {
-	      encode_ucs4 (Vcharset_control_1, c, 0, dst);
-	    }
-	  else
-	    {
-	      switch (XCHARSET_REP_BYTES (charset))
-		{
-		case 2:
-		  encode_ucs4 (charset, c, 0, dst);
-		  break;
-		case 3:
-		  if (XCHARSET_PRIVATE_P (charset))
-		    {
-		      encode_ucs4 (charset, c, 0, dst);
-		      ch = 0;
-		    }
-		  else if (ch)
-		    {
-#ifdef ENABLE_COMPOSITE_CHARS
-		      if (EQ (charset, Vcharset_composite))
-			{
-			  if (in_composite)
-			    {
-			      /* #### Bother! We don't know how to
-				 handle this yet. */
-			      Dynarr_add (dst, '\0');
-			      Dynarr_add (dst, '\0');
-			      Dynarr_add (dst, '\0');
-			      Dynarr_add (dst, '~');
-			    }
-			  else
-			    {
-			      Emchar emch = MAKE_CHAR (Vcharset_composite,
-						       ch & 0x7F, c & 0x7F);
-			      Lisp_Object lstr = composite_char_string (emch);
-			      saved_n = n;
-			      saved_src = src;
-			      in_composite = 1;
-			      src = XSTRING_DATA   (lstr);
-			      n   = XSTRING_LENGTH (lstr);
-			    }
-			}
-		      else
-#endif /* ENABLE_COMPOSITE_CHARS */
-			{
-			  encode_ucs4(charset, ch, c, dst);
-			}
-		      ch = 0;
-		    }
-		  else
-		    {
-		      ch = c;
-		      char_boundary = 0;
-		    }
-		  break;
-		case 4:
-		  if (ch)
-		    {
-		      encode_ucs4 (charset, ch, c, dst);
-		      ch = 0;
-		    }
-		  else
-		    {
-		      ch = c;
-		      char_boundary = 0;
-		    }
-		  break;
-		default:
-		  abort ();
-		}
-	    }
-	}
-    }
-
-#ifdef ENABLE_COMPOSITE_CHARS
-  if (in_composite)
-    {
-      n = saved_n;
-      src = saved_src;
-      in_composite = 0;
-      goto back_to_square_n; /* Wheeeeeeeee ..... */
-    }
-#endif /* ENABLE_COMPOSITE_CHARS */
-
-  str->flags = flags;
-  str->ch = ch;
-  str->iso2022.current_char_boundary = char_boundary;
-  str->iso2022.current_charset = charset;
-
-  /* Verbum caro factum est! */
-#endif
+void
+char_finish_ucs4 (struct encoding_stream *str, unsigned_char_dynarr *dst,
+		  unsigned int *flags)
+{
 }
 
 
@@ -4129,12 +3777,12 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	  else
 	    {
 	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
-	      decode_ucs4 (c, dst);
+	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
 	  break;
 	case 1:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  decode_ucs4 (ch, dst);
+	  DECODE_ADD_UCS_CHAR (ch, dst);
 	  ch = 0;
 	  counter = 0;
 	  break;
@@ -4154,47 +3802,56 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 }
 
 void
-char_encode_utf8 (struct encoding_stream *str, Emchar code,
+char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 		  unsigned_char_dynarr *dst, unsigned int *flags)
 {
-  if ( code <= 0x7f )
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+
+  if (ch == '\n')
     {
-      Dynarr_add (dst, code);
+      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+	Dynarr_add (dst, '\r');
+      if (eol_type != EOL_CR)
+	Dynarr_add (dst, ch);
     }
-  else if ( code <= 0x7ff )
+  else if (ch <= 0x7f)
     {
-      Dynarr_add (dst, (code >> 6) | 0xc0);
-      Dynarr_add (dst, (code & 0x3f) | 0x80);
+      Dynarr_add (dst, ch);
     }
-  else if ( code <= 0xffff )
+  else if (ch <= 0x7ff)
     {
-      Dynarr_add (dst,  (code >> 12) | 0xe0);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst, (ch >> 6) | 0xc0);
+      Dynarr_add (dst, (ch & 0x3f) | 0x80);
     }
-  else if ( code <= 0x1fffff )
+  else if (ch <= 0xffff)
     {
-      Dynarr_add (dst,  (code >> 18) | 0xf0);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 12) | 0xe0);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
-  else if ( code <= 0x3ffffff )
+  else if (ch <= 0x1fffff)
     {
-      Dynarr_add (dst,  (code >> 24) | 0xf8);
-      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 18) | 0xf0);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
+    }
+  else if (ch <= 0x3ffffff)
+    {
+      Dynarr_add (dst,  (ch >> 24) | 0xf8);
+      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
   else
     {
-      Dynarr_add (dst,  (code >> 30) | 0xfc);
-      Dynarr_add (dst, ((code >> 24) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 30) | 0xfc);
+      Dynarr_add (dst, ((ch >> 24) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
 }
 
@@ -5144,9 +4801,23 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		    charset = new_charset;
 		}
 
-#ifndef UTF2000
+#ifdef UTF2000
+	      if (XCHARSET_DIMENSION (charset) == 1)
+		{
+		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
+		  DECODE_ADD_UCS_CHAR
+		    (MAKE_CHAR (charset, c & 0x7F, 0), dst);
+		}
+	      else if (ch)
+		{
+		  DECODE_ADD_UCS_CHAR
+		    (MAKE_CHAR (charset, ch & 0x7F, c & 0x7F), dst);
+		  ch = 0;
+		}
+	      else
+		ch = c;
+#else
 	      lb = XCHARSET_LEADING_BYTE (charset);
-#endif
 	      switch (XCHARSET_REP_BYTES (charset))
 		{
 		case 1:	/* ASCII */
@@ -5156,44 +4827,25 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 
 		case 2:	/* one-byte official */
 		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
-#ifdef UTF2000
-		  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c & 0x7F, 0), dst);
-#else
 		  Dynarr_add (dst, lb);
 		  Dynarr_add (dst, c | 0x80);
-#endif
 		  break;
 
 		case 3:	/* one-byte private or two-byte official */
-#ifdef UTF2000
-		  if (XCHARSET_DIMENSION (charset) == 1)
-#else
 		  if (XCHARSET_PRIVATE_P (charset))
-#endif
 		    {
 		      DECODE_OUTPUT_PARTIAL_CHAR (ch);
-#ifdef UTF2000
-		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c & 0x7F, 0),
-					  dst);
-#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_1);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, c | 0x80);
-#endif
 		    }
 		  else
 		    {
 		      if (ch)
 			{
-#ifdef UTF2000
-			  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset,
-							ch & 0x7F,
-							c & 0x7F), dst);
-#else
 			  Dynarr_add (dst, lb);
 			  Dynarr_add (dst, ch | 0x80);
 			  Dynarr_add (dst, c | 0x80);
-#endif
 			  ch = 0;
 			}
 		      else
@@ -5204,21 +4856,16 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		default:	/* two-byte private */
 		  if (ch)
 		    {
-#ifdef UTF2000
-		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset,
-						    ch & 0x7F,
-						    c & 0x7F), dst);
-#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_2);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, ch | 0x80);
 		      Dynarr_add (dst, c | 0x80);
-#endif
 		      ch = 0;
 		    }
 		  else
 		    ch = c;
 		}
+#endif
 	    }
 
 	  if (!ch)
@@ -5334,8 +4981,8 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
   Lisp_Coding_System* codesys = str->codesys;
   eol_type_t eol_type         = CODING_SYSTEM_EOL_TYPE (str->codesys);
   int i;
-  Lisp_Object charset;
-  int half;
+  Lisp_Object charset = str->iso2022.current_charset;
+  int half = str->iso2022.current_half;
   unsigned int byte1, byte2;
 
   if (ch <= 0x7F)
@@ -5493,6 +5140,8 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 	  abort ();
 	}
     }
+  str->iso2022.current_charset = charset;
+  str->iso2022.current_half = half;
 }
 
 void
@@ -5561,80 +5210,54 @@ encode_coding_no_conversion (Lstream *encoding, const Bufbyte *src,
     {
       c = *src++;	  
 #ifdef UTF2000
-      switch (char_boundary)
+      if (char_boundary == 0)
+	if ( c >= 0xfc )
+	  {
+	    ch = c & 0x01;
+	    char_boundary = 5;
+	  }
+	else if ( c >= 0xf8 )
+	  {
+	    ch = c & 0x03;
+	    char_boundary = 4;
+	  }
+	else if ( c >= 0xf0 )
+	  {
+	    ch = c & 0x07;
+	    char_boundary = 3;
+	  }
+	else if ( c >= 0xe0 )
+	  {
+	    ch = c & 0x0f;
+	    char_boundary = 2;
+	  }
+	else if ( c >= 0xc0 )
+	  {
+	    ch = c & 0x1f;
+	    char_boundary = 1;
+	  }
+	else
+	  {
+	    ch = 0;
+	    if (c == '\n')
+	      {
+		if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+		  Dynarr_add (dst, '\r');
+		if (eol_type != EOL_CR)
+		  Dynarr_add (dst, c);
+	      }
+	    else
+	      Dynarr_add (dst, c);
+	    char_boundary = 0;
+	  }
+      else if (char_boundary == 1)
 	{
-	case 0:
-	  if ( c >= 0xfc )
-	    {
-	      ch = c & 0x01;
-	      char_boundary = 5;
-	    }
-	  else if ( c >= 0xf8 )
-	    {
-	      ch = c & 0x03;
-	      char_boundary = 4;
-	    }
-	  else if ( c >= 0xf0 )
-	    {
-	      ch = c & 0x07;
-	      char_boundary = 3;
-	    }
-	  else if ( c >= 0xe0 )
-	    {
-	      ch = c & 0x0f;
-	      char_boundary = 2;
-	    }
-	  else if ( c >= 0xc0 )
-	    {
-	      ch = c & 0x1f;
-	      char_boundary = 1;
-	    }
-	  else
-	    {
-	      ch = 0;
-
-	      if (c == '\n')
-		{
-		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-		    Dynarr_add (dst, '\r');
-		  if (eol_type != EOL_CR)
-		    Dynarr_add (dst, c);
-		}
-	      else
-		Dynarr_add (dst, c);
-	      char_boundary = 0;
-	    }
-	  break;
-	case 1:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  switch ( str->codesys->fixed.size )
-	    {
-	    case 1:
-	      Dynarr_add (dst, ch & 0xff);
-	      break;
-	    case 2:
-	      Dynarr_add (dst, (ch >> 8) & 0xff);
-	      Dynarr_add (dst,  ch       & 0xff);
-	      break;
-	    case 3:
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    case 4:
-	      Dynarr_add (dst, (ch >> 24) & 0xff);
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    default:
-	      fprintf(stderr, "It seems %d bytes stream.\n",
-		      str->codesys->fixed.size);
-	      abort ();
-	    }
+	  Dynarr_add (dst, ch & 0xff);
 	  char_boundary = 0;
-	  break;
-	default:
+	}
+      else
+	{
 	  ch = ( ch << 6 ) | ( c & 0x3f );
 	  char_boundary--;
 	}
@@ -5731,10 +5354,6 @@ syms_of_file_coding (void)
   DEFSUBR (Fencode_shift_jis_char);
   DEFSUBR (Fdecode_big5_char);
   DEFSUBR (Fencode_big5_char);
-  DEFSUBR (Fset_ucs_char);
-  DEFSUBR (Fucs_char);
-  DEFSUBR (Fset_char_ucs);
-  DEFSUBR (Fchar_ucs);
 #endif /* MULE */
   defsymbol (&Qcoding_systemp, "coding-system-p");
   defsymbol (&Qno_conversion, "no-conversion");
@@ -5971,15 +5590,4 @@ complex_vars_of_file_coding (void)
   fcd->coding_category_system[CODING_CATEGORY_UTF8]
     = Fget_coding_system (Qutf8);
 #endif
-
-#if defined(MULE) && !defined(UTF2000)
-  {
-    size_t i;
-
-    for (i = 0; i < countof (fcd->ucs_to_mule_table); i++)
-      fcd->ucs_to_mule_table[i] = Qnil;
-  }
-  staticpro (&mule_to_ucs_table);
-  mule_to_ucs_table = Fmake_char_table(Qgeneric);
-#endif /* defined(MULE) && !defined(UTF2000) */
 }

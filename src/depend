@@ -216,6 +216,7 @@ sysdll.o: config.h sysdll.h
 termcap.o: $(LISP_H) conslots.h console.h device.h
 terminfo.o: config.h
 tests.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h lstream.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h opaque.h
+text-coding.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h elhash.h file-coding.h insdel.h lstream.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-ccl.h mule-charset.h multibyte.h opaque.h
 toolbar.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h conslots.h console.h device.h frame.h frameslots.h glyphs.h gui.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
 tooltalk.o: $(LISP_H) buffer.h bufslots.h casetab.h char-1byte.h char-lb.h char-ucs.h character.h chartab.h elhash.h mb-1byte.h mb-lb.h mb-multibyte.h mb-utf-8.h mule-charset.h multibyte.h process.h syssignal.h tooltalk.h
 tparam.o: config.h

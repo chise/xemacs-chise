@@ -892,10 +892,6 @@ if TYPE is 'ccl:
     CHECK_STRING (doc_string);
   CODING_SYSTEM_DOC_STRING (codesys) = doc_string;
 
-#ifdef UTF2000
-  if (ty == CODESYS_NO_CONVERSION)
-    codesys->fixed.size = 1;
-#endif
   {
     EXTERNAL_PROPERTY_LIST_LOOP_3 (key, value, props)
       {
@@ -5290,9 +5286,23 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		    charset = new_charset;
 		}
 
-#ifndef UTF2000
+#ifdef UTF2000
+	      if (XCHARSET_DIMENSION (charset) == 1)
+		{
+		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
+		  DECODE_ADD_UCS_CHAR
+		    (MAKE_CHAR (charset, c & 0x7F, 0), dst);
+		}
+	      else if (ch)
+		{
+		  DECODE_ADD_UCS_CHAR
+		    (MAKE_CHAR (charset, ch & 0x7F, c & 0x7F), dst);
+		  ch = 0;
+		}
+	      else
+		ch = c;
+#else
 	      lb = XCHARSET_LEADING_BYTE (charset);
-#endif
 	      switch (XCHARSET_REP_BYTES (charset))
 		{
 		case 1:	/* ASCII */
@@ -5302,44 +5312,25 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 
 		case 2:	/* one-byte official */
 		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
-#ifdef UTF2000
-		  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c & 0x7F, 0), dst);
-#else
 		  Dynarr_add (dst, lb);
 		  Dynarr_add (dst, c | 0x80);
-#endif
 		  break;
 
 		case 3:	/* one-byte private or two-byte official */
-#ifdef UTF2000
-		  if (XCHARSET_DIMENSION (charset) == 1)
-#else
 		  if (XCHARSET_PRIVATE_P (charset))
-#endif
 		    {
 		      DECODE_OUTPUT_PARTIAL_CHAR (ch);
-#ifdef UTF2000
-		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c & 0x7F, 0),
-					  dst);
-#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_1);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, c | 0x80);
-#endif
 		    }
 		  else
 		    {
 		      if (ch)
 			{
-#ifdef UTF2000
-			  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset,
-							ch & 0x7F,
-							c & 0x7F), dst);
-#else
 			  Dynarr_add (dst, lb);
 			  Dynarr_add (dst, ch | 0x80);
 			  Dynarr_add (dst, c | 0x80);
-#endif
 			  ch = 0;
 			}
 		      else
@@ -5350,21 +5341,16 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		default:	/* two-byte private */
 		  if (ch)
 		    {
-#ifdef UTF2000
-		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset,
-						    ch & 0x7F,
-						    c & 0x7F), dst);
-#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_2);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, ch | 0x80);
 		      Dynarr_add (dst, c | 0x80);
-#endif
 		      ch = 0;
 		    }
 		  else
 		    ch = c;
 		}
+#endif
 	    }
 
 	  if (!ch)
@@ -6088,31 +6074,7 @@ encode_coding_no_conversion (Lstream *encoding, const Bufbyte *src,
 	  break;
 	case 1:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  switch ( str->codesys->fixed.size )
-	    {
-	    case 1:
-	      Dynarr_add (dst, ch & 0xff);
-	      break;
-	    case 2:
-	      Dynarr_add (dst, (ch >> 8) & 0xff);
-	      Dynarr_add (dst,  ch       & 0xff);
-	      break;
-	    case 3:
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    case 4:
-	      Dynarr_add (dst, (ch >> 24) & 0xff);
-	      Dynarr_add (dst, (ch >> 16) & 0xff);
-	      Dynarr_add (dst, (ch >>  8) & 0xff);
-	      Dynarr_add (dst,  ch        & 0xff);
-	      break;
-	    default:
-	      fprintf(stderr, "It seems %d bytes stream.\n",
-		      str->codesys->fixed.size);
-	      abort ();
-	    }
+	  Dynarr_add (dst, ch & 0xff);
 	  char_boundary = 0;
 	  break;
 	default:

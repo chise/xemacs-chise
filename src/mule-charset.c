@@ -135,18 +135,25 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 #endif
 
 #ifdef UTF2000
-unsigned char
-get_byte_from_character_table (Emchar ch,
-			       Emchar* table, size_t size, unsigned char offset)
+int
+get_byte_from_character_table (Emchar ch, Lisp_Object ccs)
 {
-  size_t i;
+  Lisp_Charset* cs = XCHARSET(ccs);
 
-  for (i = 0; i < size; i++)
+  if (CHARSET_DIMENSION (cs) == 1)
     {
-      if (table[i] == ch)
-	return i + offset;
+      Emchar* table = CHARSET_DECODING_TABLE (cs);
+      size_t size = CHARSET_CHARS (cs);
+      unsigned char offset = CHARSET_CODE_OFFSET (cs);
+      size_t i;
+
+      for (i = 0; i < size; i++)
+	{
+	  if (table[i] == ch)
+	    return i + offset;
+	}
     }
-  return 0;
+  return -1;
 }
 
 #define CHAR96(ft,b)	(MIN_CHAR_96 + (ft - '0') * 96 + (b & 0x7f) - 32)
@@ -248,7 +255,6 @@ Emchar latin_jisx0201_to_ucs[94] =
   0x007D /* 0x7D	RIGHT CURLY BRACKET */,
   0x203E /* 0x7E	OVERLINE */
 };
-
 
 Emchar latin_iso8859_2_to_ucs[96] =
 {
@@ -850,7 +856,6 @@ Emchar latin_viscii_upper_to_ucs[96] =
   CHAR96('2', 0x7f)
 };
 
-
 Emchar latin_tcvn5712_to_ucs[96] =
 {
   0x00A0 /* 0xA0  NO-BREAK SPACE */,
@@ -949,399 +954,6 @@ Emchar latin_tcvn5712_to_ucs[96] =
   0x00FD /* 0xFD  LATIN SMALL LETTER Y WITH ACUTE */,
   0x1EF5 /* 0xFE  LATIN SMALL LETTER Y WITH DOT BELOW */,
   0x1ED0 /* 0xFF  LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE */
-};
-
-Charset_ID latin_a_char_to_charset[128] = {
-  /* U+0100 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0101 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0102 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0103 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0104 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0105 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0106 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0107 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0108 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0109 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+010A */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+010B */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+010C */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+010D */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+010E */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+010F */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0110 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0111 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0112 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0113 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0114 */ LEADING_BYTE_UCS_BMP,
-  /* U+0115 */ LEADING_BYTE_UCS_BMP,
-  /* U+0116 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0117 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0118 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0119 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+011A */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+011B */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+011C */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+011D */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+011E */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+011F */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0120 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0121 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0122 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0123 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0124 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0125 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0126 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0127 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0128 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0129 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+012A */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+012B */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+012C */ LEADING_BYTE_UCS_BMP,
-  /* U+012D */ LEADING_BYTE_UCS_BMP,
-  /* U+012E */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+012F */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0130 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0131 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0132 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0133 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0134 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0135 */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+0136 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0137 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0138 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0139 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+013A */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+013B */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+013C */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+013D */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+013E */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+013F */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0140 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0141 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0142 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0143 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0144 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0145 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0146 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0147 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0148 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0149 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+014A */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+014B */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+014C */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+014D */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+014E */ LEADING_BYTE_UCS_BMP,
-  /* U+014F */ LEADING_BYTE_UCS_BMP,
-  /* U+0150 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0151 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0152 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0153 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0154 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0155 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0156 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0157 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0158 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0159 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+015A */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+015B */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+015C */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+015D */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+015E */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+015F */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0160 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0161 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0162 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0163 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0164 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0165 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0166 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0167 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0168 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0169 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+016A */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+016B */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+016C */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+016D */ LEADING_BYTE_LATIN_ISO8859_3,
-  /* U+016E */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+016F */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0170 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0171 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+0172 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0173 */ LEADING_BYTE_LATIN_ISO8859_4,
-  /* U+0174 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0175 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0176 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0177 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0178 */ LEADING_BYTE_JAPANESE_JISX0212,
-  /* U+0179 */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017A */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017B */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017C */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017D */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017E */ LEADING_BYTE_LATIN_ISO8859_2,
-  /* U+017F */ LEADING_BYTE_UCS_BMP
-};
-
-unsigned char latin_a_char_to_byte1[128] = {
-  /* U+0100 */ 0xC0 - 0x80,
-  /* U+0101 */ 0xE0 - 0x80,
-  /* U+0102 */ 0xC3 - 0x80,
-  /* U+0103 */ 0xE3 - 0x80,
-  /* U+0104 */ 0xA1 - 0x80,
-  /* U+0105 */ 0xB1 - 0x80,
-  /* U+0106 */ 0xC6 - 0x80,
-  /* U+0107 */ 0xE6 - 0x80,
-  /* U+0108 */ 0xC6 - 0x80,
-  /* U+0109 */ 0xE6 - 0x80,
-  /* U+010A */ 0xC5 - 0x80,
-  /* U+010B */ 0xE5 - 0x80,
-  /* U+010C */ 0xC8 - 0x80,
-  /* U+010D */ 0xE8 - 0x80,
-  /* U+010E */ 0xCF - 0x80,
-  /* U+010F */ 0xEF - 0x80,
-  /* U+0110 */ 0xD0 - 0x80,
-  /* U+0111 */ 0xF0 - 0x80,
-  /* U+0112 */ 0xAA - 0x80,
-  /* U+0113 */ 0xBA - 0x80,
-  /* U+0114 */ 0x01,
-  /* U+0115 */ 0x01,
-  /* U+0116 */ 0xCC - 0x80,
-  /* U+0117 */ 0xEC - 0x80,
-  /* U+0118 */ 0xCA - 0x80,
-  /* U+0119 */ 0xEA - 0x80,
-  /* U+011A */ 0xCC - 0x80,
-  /* U+011B */ 0xEC - 0x80,
-  /* U+011C */ 0xD8 - 0x80,
-  /* U+011D */ 0xF8 - 0x80,
-  /* U+011E */ 0xAB - 0x80,
-  /* U+011F */ 0xBB - 0x80,
-  /* U+0120 */ 0xD5 - 0x80,
-  /* U+0121 */ 0xF5 - 0x80,
-  /* U+0122 */ 0xAB - 0x80,
-  /* U+0123 */ 0xBB - 0x80,
-  /* U+0124 */ 0xA6 - 0x80,
-  /* U+0125 */ 0xB6 - 0x80,
-  /* U+0126 */ 0xA1 - 0x80,
-  /* U+0127 */ 0xB1 - 0x80,
-  /* U+0128 */ 0xA5 - 0x80,
-  /* U+0129 */ 0xB5 - 0x80,
-  /* U+012A */ 0xCF - 0x80,
-  /* U+012B */ 0xEF - 0x80,
-  /* U+012C */ 0x01,
-  /* U+012D */ 0x01,
-  /* U+012E */ 0xC7 - 0x80,
-  /* U+012F */ 0xE7 - 0x80,
-  /* U+0130 */ 0xA9 - 0x80,
-  /* U+0131 */ 0xB9 - 0x80,
-  /* U+0132 */ 0x29,
-  /* U+0133 */ 0x29,
-  /* U+0134 */ 0xAC - 0x80,
-  /* U+0135 */ 0xBC - 0x80,
-  /* U+0136 */ 0xD3 - 0x80,
-  /* U+0137 */ 0xF3 - 0x80,
-  /* U+0138 */ 0xA2 - 0x80,
-  /* U+0139 */ 0xC5 - 0x80,
-  /* U+013A */ 0xE5 - 0x80,
-  /* U+013B */ 0xA6 - 0x80,
-  /* U+013C */ 0xB6 - 0x80,
-  /* U+013D */ 0xA5 - 0x80,
-  /* U+013E */ 0xB5 - 0x80,
-  /* U+013F */ 0x29,
-  /* U+0140 */ 0x29,
-  /* U+0141 */ 0xA3 - 0x80,
-  /* U+0142 */ 0xB3 - 0x80,
-  /* U+0143 */ 0xD1 - 0x80,
-  /* U+0144 */ 0xF1 - 0x80,
-  /* U+0145 */ 0xD1 - 0x80,
-  /* U+0146 */ 0xF1 - 0x80,
-  /* U+0147 */ 0xD2 - 0x80,
-  /* U+0148 */ 0xF2 - 0x80,
-  /* U+0149 */ 0x29,
-  /* U+014A */ 0xBD - 0x80,
-  /* U+014B */ 0xBF - 0x80,
-  /* U+014C */ 0xD2 - 0x80,
-  /* U+014D */ 0xF2 - 0x80,
-  /* U+014E */ 0x01,
-  /* U+014F */ 0x01,
-  /* U+0150 */ 0xD5 - 0x80,
-  /* U+0151 */ 0xF5 - 0x80,
-  /* U+0152 */ 0x29,
-  /* U+0153 */ 0x29,
-  /* U+0154 */ 0xC0 - 0x80,
-  /* U+0155 */ 0xE0 - 0x80,
-  /* U+0156 */ 0xA3 - 0x80,
-  /* U+0157 */ 0xB3 - 0x80,
-  /* U+0158 */ 0xD8 - 0x80,
-  /* U+0159 */ 0xF8 - 0x80,
-  /* U+015A */ 0xA6 - 0x80,
-  /* U+015B */ 0xB6 - 0x80,
-  /* U+015C */ 0xDE - 0x80,
-  /* U+015D */ 0xFE - 0x80,
-  /* U+015E */ 0xAA - 0x80,
-  /* U+015F */ 0xBA - 0x80,
-  /* U+0160 */ 0xA9 - 0x80,
-  /* U+0161 */ 0xB9 - 0x80,
-  /* U+0162 */ 0xDE - 0x80,
-  /* U+0163 */ 0xFE - 0x80,
-  /* U+0164 */ 0xAB - 0x80,
-  /* U+0165 */ 0xBB - 0x80,
-  /* U+0166 */ 0xAC - 0x80,
-  /* U+0167 */ 0xBC - 0x80,
-  /* U+0168 */ 0xDD - 0x80,
-  /* U+0169 */ 0xFD - 0x80,
-  /* U+016A */ 0xDE - 0x80,
-  /* U+016B */ 0xFE - 0x80,
-  /* U+016C */ 0xDD - 0x80,
-  /* U+016D */ 0xFD - 0x80,
-  /* U+016E */ 0xD9 - 0x80,
-  /* U+016F */ 0xF9 - 0x80,
-  /* U+0170 */ 0xDB - 0x80,
-  /* U+0171 */ 0xFB - 0x80,
-  /* U+0172 */ 0xD9 - 0x80,
-  /* U+0173 */ 0xF9 - 0x80,
-  /* U+0174 */ 0x2A,
-  /* U+0175 */ 0x2B,
-  /* U+0176 */ 0x2A,
-  /* U+0177 */ 0x2B,
-  /* U+0178 */ 0x2A,
-  /* U+0179 */ 0xAC - 0x80,
-  /* U+017A */ 0xBC - 0x80,
-  /* U+017B */ 0xAF - 0x80,
-  /* U+017C */ 0xBF - 0x80,
-  /* U+017D */ 0xAE - 0x80,
-  /* U+017E */ 0xBE - 0x80,
-  /* U+017F */ 0x01
-};
-
-unsigned char latin_a_char_to_byte2[128] = {
-  /* U+0100 */ 0x00,
-  /* U+0101 */ 0x00,
-  /* U+0102 */ 0x00,
-  /* U+0103 */ 0x00,
-  /* U+0104 */ 0x00,
-  /* U+0105 */ 0x00,
-  /* U+0106 */ 0x00,
-  /* U+0107 */ 0x00,
-  /* U+0108 */ 0x00,
-  /* U+0109 */ 0x00,
-  /* U+010A */ 0x00,
-  /* U+010B */ 0x00,
-  /* U+010C */ 0x00,
-  /* U+010D */ 0x00,
-  /* U+010E */ 0x00,
-  /* U+010F */ 0x00,
-  /* U+0110 */ 0x00,
-  /* U+0111 */ 0x00,
-  /* U+0112 */ 0x00,
-  /* U+0113 */ 0x00,
-  /* U+0114 */ 0x14,
-  /* U+0115 */ 0x15,
-  /* U+0116 */ 0x00,
-  /* U+0117 */ 0x00,
-  /* U+0118 */ 0x00,
-  /* U+0119 */ 0x00,
-  /* U+011A */ 0x00,
-  /* U+011B */ 0x00,
-  /* U+011C */ 0x00,
-  /* U+011D */ 0x00,
-  /* U+011E */ 0x00,
-  /* U+011F */ 0x00,
-  /* U+0120 */ 0x00,
-  /* U+0121 */ 0x00,
-  /* U+0122 */ 0x00,
-  /* U+0123 */ 0x00,
-  /* U+0124 */ 0x00,
-  /* U+0125 */ 0x00,
-  /* U+0126 */ 0x00,
-  /* U+0127 */ 0x00,
-  /* U+0128 */ 0x00,
-  /* U+0129 */ 0x00,
-  /* U+012A */ 0x00,
-  /* U+012B */ 0x00,
-  /* U+012C */ 0x2C,
-  /* U+012D */ 0x2D,
-  /* U+012E */ 0x00,
-  /* U+012F */ 0x00,
-  /* U+0130 */ 0x00,
-  /* U+0131 */ 0x00,
-  /* U+0132 */ 0x26,
-  /* U+0133 */ 0x46,
-  /* U+0134 */ 0x00,
-  /* U+0135 */ 0x00,
-  /* U+0136 */ 0x00,
-  /* U+0137 */ 0x00,
-  /* U+0138 */ 0x00,
-  /* U+0139 */ 0x00,
-  /* U+013A */ 0x00,
-  /* U+013B */ 0x00,
-  /* U+013C */ 0x00,
-  /* U+013D */ 0x00,
-  /* U+013E */ 0x00,
-  /* U+013F */ 0x29,
-  /* U+0140 */ 0x49,
-  /* U+0141 */ 0x00,
-  /* U+0142 */ 0x00,
-  /* U+0143 */ 0x00,
-  /* U+0144 */ 0x00,
-  /* U+0145 */ 0x00,
-  /* U+0146 */ 0x00,
-  /* U+0147 */ 0x00,
-  /* U+0148 */ 0x00,
-  /* U+0149 */ 0x4A,
-  /* U+014A */ 0x00,
-  /* U+014B */ 0x00,
-  /* U+014C */ 0x00,
-  /* U+014D */ 0x00,
-  /* U+014E */ 0x4E,
-  /* U+014F */ 0x4F,
-  /* U+0150 */ 0x00,
-  /* U+0151 */ 0x00,
-  /* U+0152 */ 0x2D,
-  /* U+0153 */ 0x4D,
-  /* U+0154 */ 0x00,
-  /* U+0155 */ 0x00,
-  /* U+0156 */ 0x00,
-  /* U+0157 */ 0x00,
-  /* U+0158 */ 0x00,
-  /* U+0159 */ 0x00,
-  /* U+015A */ 0x00,
-  /* U+015B */ 0x00,
-  /* U+015C */ 0x00,
-  /* U+015D */ 0x00,
-  /* U+015E */ 0x00,
-  /* U+015F */ 0x00,
-  /* U+0160 */ 0x00,
-  /* U+0161 */ 0x00,
-  /* U+0162 */ 0x00,
-  /* U+0163 */ 0x00,
-  /* U+0164 */ 0x00,
-  /* U+0165 */ 0x00,
-  /* U+0166 */ 0x00,
-  /* U+0167 */ 0x00,
-  /* U+0168 */ 0x00,
-  /* U+0169 */ 0x00,
-  /* U+016A */ 0x00,
-  /* U+016B */ 0x00,
-  /* U+016C */ 0x00,
-  /* U+016D */ 0x00,
-  /* U+016E */ 0x00,
-  /* U+016F */ 0x00,
-  /* U+0170 */ 0x00,
-  /* U+0171 */ 0x00,
-  /* U+0172 */ 0x00,
-  /* U+0173 */ 0x00,
-  /* U+0174 */ 0x71,
-  /* U+0175 */ 0x71,
-  /* U+0176 */ 0x74,
-  /* U+0177 */ 0x74,
-  /* U+0178 */ 0x73,
-  /* U+0179 */ 0x00,
-  /* U+017A */ 0x00,
-  /* U+017B */ 0x00,
-  /* U+017C */ 0x00,
-  /* U+017D */ 0x00,
-  /* U+017E */ 0x00,
-  /* U+017F */ 0x7F
 };
 
 Lisp_Object Vutf_2000_version;
@@ -1781,17 +1393,20 @@ static const struct lrecord_description charset_description[] = {
 };
 
 DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
-                               mark_charset, print_charset, 0, 0, 0, charset_description,
+                               mark_charset, print_charset, 0, 0, 0,
+			       charset_description,
 			       Lisp_Charset);
 
 /* Make a new charset. */
 /* #### SJT Should generic properties be allowed? */
 static Lisp_Object
-make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
+make_charset (Charset_ID id, Lisp_Object name,
 	      unsigned char type, unsigned char columns, unsigned char graphic,
-	      Bufbyte final, unsigned char direction,  Lisp_Object short_name,
+	      Bufbyte final, unsigned char direction, Lisp_Object short_name,
 	      Lisp_Object long_name, Lisp_Object doc,
-	      Lisp_Object reg)
+	      Lisp_Object reg,
+	      Emchar* decoding_table,
+	      Emchar ucs_min, Emchar ucs_max, Emchar code_offset)
 {
   Lisp_Object obj;
   Lisp_Charset *cs = alloc_lcrecord_type (Lisp_Charset, &lrecord_charset);
@@ -1804,7 +1419,6 @@ make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
   CHARSET_NAME		(cs) = name;
   CHARSET_SHORT_NAME	(cs) = short_name;
   CHARSET_LONG_NAME	(cs) = long_name;
-  CHARSET_REP_BYTES	(cs) = rep_bytes;
   CHARSET_DIRECTION	(cs) = direction;
   CHARSET_TYPE		(cs) = type;
   CHARSET_COLUMNS	(cs) = columns;
@@ -1814,7 +1428,13 @@ make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
   CHARSET_REGISTRY	(cs) = reg;
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
-
+#ifdef UTF2000
+  CHARSET_DECODING_TABLE(cs) = decoding_table;
+  CHARSET_UCS_MIN(cs) = ucs_min;
+  CHARSET_UCS_MAX(cs) = ucs_max;
+  CHARSET_CODE_OFFSET(cs) = code_offset;
+#endif
+  
   switch ( CHARSET_TYPE (cs) )
     {
     case CHARSET_TYPE_94:
@@ -1845,6 +1465,15 @@ make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
 #endif
     }
 
+#ifndef UTF2000
+  if (id == LEADING_BYTE_ASCII)
+    CHARSET_REP_BYTES (cs) = 1;
+  else if (id < 0xA0)
+    CHARSET_REP_BYTES (cs) = CHARSET_DIMENSION (cs) + 1;
+  else
+    CHARSET_REP_BYTES (cs) = CHARSET_DIMENSION (cs) + 2;
+#endif
+  
   if (final)
     {
       /* some charsets do not have final characters.  This includes
@@ -1861,6 +1490,11 @@ make_charset (Charset_ID id, Lisp_Object name, unsigned char rep_bytes,
 
   assert (NILP (chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE]));
   chlook->charset_by_leading_byte[id - MIN_LEADING_BYTE] = obj;
+#ifndef UTF2000
+  if (id < 0xA0)
+    /* official leading byte */
+    rep_bytes_by_first_byte[id] = CHARSET_REP_BYTES (cs);
+#endif
 
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
@@ -1896,6 +1530,87 @@ get_unallocated_leading_byte (int dimension)
 
   return lb;
 }
+
+#ifdef UTF2000
+unsigned char
+charset_get_byte1 (Lisp_Object charset, Emchar ch)
+{
+  Emchar* table = XCHARSET_DECODING_TABLE (charset);
+  int d;
+
+  if ( (table != NULL) &&
+       (XCHARSET_DIMENSION (charset) == 1) &&
+       ( (d = get_byte_from_character_table (ch, charset)) >= 0) )
+    return d;
+  else if ((CHARSET_UCS_MIN (XCHARSET (charset)) <= ch)
+	   && (ch <= CHARSET_UCS_MAX (XCHARSET (charset))))
+    return ch - CHARSET_UCS_MIN (XCHARSET (charset))
+      +  CHARSET_CODE_OFFSET (XCHARSET (charset));
+  else if (XCHARSET_DIMENSION (charset) == 1)
+    {
+      if (XCHARSET_CHARS (charset) == 94)
+	{
+	  if (((d = ch - (MIN_CHAR_94
+			  + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
+	      && (d < 94))
+	    return d + 32;
+	}
+      else if (XCHARSET_CHARS (charset) == 96)
+	{
+	  if (((d = ch - (MIN_CHAR_96
+			  + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
+	      && (d < 96))
+	    return d + 33;
+	}
+      else
+	return 0;
+    }
+  else if (XCHARSET_DIMENSION (charset) == 2)
+    {
+      if (XCHARSET_CHARS (charset) == 94)
+	{
+	  if (((d = ch - (MIN_CHAR_94x94
+			  + (XCHARSET_FINAL (charset) - '0') * 94 * 94)) >= 0)
+	      && (d < 94 * 94))
+	    return (d / 94) + 33;
+	}
+      else if (XCHARSET_CHARS (charset) == 96)
+	{
+	  if (((d = ch - (MIN_CHAR_96x96
+			  + (XCHARSET_FINAL (charset) - '0') * 96 * 96)) >= 0)
+	      && (d < 96 * 96))
+	    return (d / 96) + 32;
+	}
+    }
+  return 0;
+}
+
+unsigned char
+charset_get_byte2 (Lisp_Object charset, Emchar ch)
+{
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return 0;
+  else
+    {
+      if (EQ (charset, Vcharset_ucs_bmp))
+	return (ch >> 8) & 0xff;
+      else if (XCHARSET_CHARS (charset) == 94)
+	return (MIN_CHAR_94x94
+		+ (XCHARSET_FINAL (charset) - '0') * 94 * 94 <= ch)
+	  && (ch < MIN_CHAR_94x94
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 94 * 94) ?
+	  ((ch - MIN_CHAR_94x94) % 94) + 33 : 0;
+      else /* if (XCHARSET_CHARS (charset) == 96) */
+	return (MIN_CHAR_96x96
+		+ (XCHARSET_FINAL (charset) - '0') * 96 * 96 <= ch)
+	  && (ch < MIN_CHAR_96x96
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 96 * 96) ?
+	  ((ch - MIN_CHAR_96x96) % 96) + 32 : 0;
+    }
+}
+
+Lisp_Object Vdefault_coded_charset_priority_list;
+#endif
 
 
 /************************************************************************/
@@ -2208,8 +1923,11 @@ character set.  Recognized properties are:
 
   if (columns == -1)
     columns = dimension;
-  charset = make_charset (id, name, dimension + 2, type, columns, graphic,
-			  final, direction, short_name, long_name, doc_string, registry);
+  charset = make_charset (id, name, type, columns, graphic,
+			  final, direction, short_name, long_name,
+			  doc_string, registry,
+			  NULL,
+			  0, 0, 0);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -2254,9 +1972,11 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   long_name = CHARSET_LONG_NAME (cs);
   registry = CHARSET_REGISTRY (cs);
 
-  new_charset = make_charset (id, new_name, dimension + 2, type, columns,
+  new_charset = make_charset (id, new_name, type, columns,
 			      graphic, final, direction, short_name, long_name,
-			      doc_string, registry);
+			      doc_string, registry,
+			      NULL,
+			      0, 0, 0);
 
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = new_charset;
   XCHARSET_REVERSE_DIRECTION_CHARSET (new_charset) = charset;
@@ -2789,9 +2509,15 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.6 (Tōbushijō-mae)");
+  Vutf_2000_version = build_string("0.7 (Hirano)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
+*/ );
+
+  Vdefault_coded_charset_priority_list = Qnil;
+  DEFVAR_LISP ("default-coded-charset-priority-list",
+	       &Vdefault_coded_charset_priority_list /*
+Default order of preferred coded-character-set.
 */ );
 #endif
 }
@@ -2809,296 +2535,331 @@ complex_vars_of_mule_charset (void)
 #ifdef UTF2000
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
-    make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 1,
+    make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp,
 		  CHARSET_TYPE_256X256, 1, 0, 0,
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("BMP"),
 		  build_string ("BMP"),
 		  build_string ("BMP"),
-		  build_string (""));
+		  build_string (""),
+		  NULL, 0, 0xFFFF, 0);
 #endif
   staticpro (&Vcharset_ascii);
   Vcharset_ascii =
-    make_charset (LEADING_BYTE_ASCII, Qascii, 1,
+    make_charset (LEADING_BYTE_ASCII, Qascii,
 		  CHARSET_TYPE_94, 1, 0, 'B',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ASCII"),
 		  build_string ("ASCII)"),
 		  build_string ("ASCII (ISO646 IRV)"),
-		  build_string ("\\(iso8859-[0-9]*\\|-ascii\\)"));
+		  build_string ("\\(iso8859-[0-9]*\\|-ascii\\)"),
+		  NULL, 0, 0x7F, 0);
   staticpro (&Vcharset_control_1);
   Vcharset_control_1 =
-    make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1, 2,
+    make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1,
 		  CHARSET_TYPE_94, 1, 1, 0,
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("C1"),
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
-		  build_string (""));
+		  build_string (""),
+		  NULL, 0x80, 0x9F, 0);
   staticpro (&Vcharset_latin_iso8859_1);
   Vcharset_latin_iso8859_1 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1, 2,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1,
 		  CHARSET_TYPE_96, 1, 1, 'A',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-1"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
-		  build_string ("iso8859-1"));
+		  build_string ("iso8859-1"),
+		  NULL, 0xA0, 0xFF, 32);
   staticpro (&Vcharset_latin_iso8859_2);
   Vcharset_latin_iso8859_2 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2, 2,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2,
 		  CHARSET_TYPE_96, 1, 1, 'B',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-2"),
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("ISO8859-2 (Latin-2)"),
-		  build_string ("iso8859-2"));
+		  build_string ("iso8859-2"),
+		  latin_iso8859_2_to_ucs, 0, 0, 32);
   staticpro (&Vcharset_latin_iso8859_3);
   Vcharset_latin_iso8859_3 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3, 2,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3,
 		  CHARSET_TYPE_96, 1, 1, 'C',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-3"),
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("ISO8859-3 (Latin-3)"),
-		  build_string ("iso8859-3"));
+		  build_string ("iso8859-3"),
+		  latin_iso8859_3_to_ucs, 0, 0, 32);
   staticpro (&Vcharset_latin_iso8859_4);
   Vcharset_latin_iso8859_4 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4, 2,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4,
 		  CHARSET_TYPE_96, 1, 1, 'D',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-4"),
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("ISO8859-4 (Latin-4)"),
-		  build_string ("iso8859-4"));
+		  build_string ("iso8859-4"),
+		  latin_iso8859_4_to_ucs, 0, 0, 32);
   staticpro (&Vcharset_thai_tis620);
   Vcharset_thai_tis620 =
-    make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620, 2,
+    make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620,
 		  CHARSET_TYPE_96, 1, 1, 'T',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("TIS620"),
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
-		  build_string ("tis620"));
+		  build_string ("tis620"),
+		  NULL, MIN_CHAR_THAI, MAX_CHAR_THAI, 32);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
-    make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 2,
+    make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7,
 		  CHARSET_TYPE_96, 1, 1, 'F',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ISO8859-7"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
-		  build_string ("iso8859-7"));
+		  build_string ("iso8859-7"),
+		  NULL, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 32);
   staticpro (&Vcharset_arabic_iso8859_6);
   Vcharset_arabic_iso8859_6 =
-    make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6, 2,
+    make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6,
 		  CHARSET_TYPE_96, 1, 1, 'G',
 		  CHARSET_RIGHT_TO_LEFT,
 		  build_string ("ISO8859-6"),
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("ISO8859-6 (Arabic)"),
-		  build_string ("iso8859-6"));
+		  build_string ("iso8859-6"),
+		  NULL, 0, 0, 32);
   staticpro (&Vcharset_hebrew_iso8859_8);
   Vcharset_hebrew_iso8859_8 =
-    make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8, 2,
+    make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8,
 		  CHARSET_TYPE_96, 1, 1, 'H',
 		  CHARSET_RIGHT_TO_LEFT,
 		  build_string ("ISO8859-8"),
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("ISO8859-8 (Hebrew)"),
-		  build_string ("iso8859-8"));
+		  build_string ("iso8859-8"),
+		  NULL, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 32);
   staticpro (&Vcharset_katakana_jisx0201);
   Vcharset_katakana_jisx0201 =
-    make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201, 2,
+    make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201,
 		  CHARSET_TYPE_94, 1, 1, 'I',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0201 Kana"),
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
-		  build_string ("jisx0201.1976"));
+		  build_string ("jisx0201.1976"),
+		  NULL,
+		  MIN_CHAR_HALFWIDTH_KATAKANA,
+		  MAX_CHAR_HALFWIDTH_KATAKANA, 33);
   staticpro (&Vcharset_latin_jisx0201);
   Vcharset_latin_jisx0201 =
-    make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201, 2,
+    make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201,
 		  CHARSET_TYPE_94, 1, 0, 'J',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0201 Roman"),
 		  build_string ("JISX0201.1976 (Japanese Roman)"),
 		  build_string ("JISX0201.1976 Japanese Roman"),
-		  build_string ("jisx0201.1976"));
+		  build_string ("jisx0201.1976"),
+		  latin_jisx0201_to_ucs, 0, 0, 33);
   staticpro (&Vcharset_cyrillic_iso8859_5);
   Vcharset_cyrillic_iso8859_5 =
-    make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5, 2,
+    make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5,
 		  CHARSET_TYPE_96, 1, 1, 'L',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("ISO8859-5"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
-		  build_string ("iso8859-5"));
+		  build_string ("iso8859-5"),
+		  NULL, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 32);
   staticpro (&Vcharset_latin_iso8859_9);
   Vcharset_latin_iso8859_9 =
-    make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9, 2,
+    make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9,
 		  CHARSET_TYPE_96, 1, 1, 'M',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Latin-5"),
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("ISO8859-9 (Latin-5)"),
-		  build_string ("iso8859-9"));
+		  build_string ("iso8859-9"),
+		  latin_iso8859_9_to_ucs, 0, 0, 32);
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978, Qjapanese_jisx0208_1978, 3,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978, Qjapanese_jisx0208_1978,
 		  CHARSET_TYPE_94X94, 2, 0, '@',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208.1978"),
 		  build_string ("JISX0208.1978 (Japanese)"),
 		  build_string
 		  ("JISX0208.1978 Japanese Kanji (so called \"old JIS\")"),
-		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"));
+		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
-    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 3,
+    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312,
 		  CHARSET_TYPE_94X94, 2, 0, 'A',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("GB2312"),
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
-		  build_string ("gb2312"));
+		  build_string ("gb2312"),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_japanese_jisx0208);
   Vcharset_japanese_jisx0208 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208, 3,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208"),
 		  build_string ("JISX0208.1983/1990 (Japanese)"),
 		  build_string ("JISX0208.1983/1990 Japanese Kanji"),
-		  build_string ("jisx0208.19\\(83\\|90\\)"));
+		  build_string ("jisx0208.19\\(83\\|90\\)"),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
-    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601, 3,
+    make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
 		  CHARSET_TYPE_94X94, 2, 0, 'C',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("KSC5601"),
 		  build_string ("KSC5601 (Korean"),
 		  build_string ("KSC5601 Korean Hangul and Hanja"),
-		  build_string ("ksc5601"));
+		  build_string ("ksc5601"),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_japanese_jisx0212);
   Vcharset_japanese_jisx0212 =
-    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212, 3,
+    make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212,
 		  CHARSET_TYPE_94X94, 2, 0, 'D',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0212"),
 		  build_string ("JISX0212 (Japanese)"),
 		  build_string ("JISX0212 Japanese Supplement"),
-		  build_string ("jisx0212"));
+		  build_string ("jisx0212"),
+		  NULL, 0, 0, 33);
 
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   staticpro (&Vcharset_chinese_cns11643_1);
   Vcharset_chinese_cns11643_1 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qchinese_cns11643_1, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_1, Qchinese_cns11643_1,
 		  CHARSET_TYPE_94X94, 2, 0, 'G',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-1"),
 		  build_string ("CNS11643-1 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 1 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("1")));
+		  build_string (CHINESE_CNS_PLANE_RE("1")),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2,
 		  CHARSET_TYPE_94X94, 2, 0, 'H',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-2"),
 		  build_string ("CNS11643-2 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("2")));
+		  build_string (CHINESE_CNS_PLANE_RE("2")),
+		  NULL, 0, 0, 33);
 #ifdef UTF2000
   staticpro (&Vcharset_chinese_cns11643_3);
   Vcharset_chinese_cns11643_3 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3,
 		  CHARSET_TYPE_94X94, 2, 0, 'I',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-3"),
 		  build_string ("CNS11643-3 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 3 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("3")));
+		  build_string (CHINESE_CNS_PLANE_RE("3")),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_4);
   Vcharset_chinese_cns11643_4 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_4, Qchinese_cns11643_4, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_4, Qchinese_cns11643_4,
 		  CHARSET_TYPE_94X94, 2, 0, 'J',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-4"),
 		  build_string ("CNS11643-4 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 4 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("4")));
+		  build_string (CHINESE_CNS_PLANE_RE("4")),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_5);
   Vcharset_chinese_cns11643_5 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_5, Qchinese_cns11643_5, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_5, Qchinese_cns11643_5,
 		  CHARSET_TYPE_94X94, 2, 0, 'K',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-5"),
 		  build_string ("CNS11643-5 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 5 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("5")));
+		  build_string (CHINESE_CNS_PLANE_RE("5")),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_6);
   Vcharset_chinese_cns11643_6 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_6, Qchinese_cns11643_6, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_6, Qchinese_cns11643_6,
 		  CHARSET_TYPE_94X94, 2, 0, 'L',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-6"),
 		  build_string ("CNS11643-6 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 6 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("6")));
+		  build_string (CHINESE_CNS_PLANE_RE("6")),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_cns11643_7);
   Vcharset_chinese_cns11643_7 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_7, Qchinese_cns11643_7, 3,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_7, Qchinese_cns11643_7,
 		  CHARSET_TYPE_94X94, 2, 0, 'M',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-7"),
 		  build_string ("CNS11643-7 (Chinese traditional)"),
 		  build_string
 		  ("CNS 11643 Plane 7 Chinese traditional"),
-		  build_string (CHINESE_CNS_PLANE_RE("7")));
+		  build_string (CHINESE_CNS_PLANE_RE("7")),
+		  NULL, 0, 0, 33);
+  staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
-    make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower, 2,
+    make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
 		  CHARSET_TYPE_96, 1, 1, '1',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("VISCII lower"),
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("VISCII lower (Vietnamese)"),
-		  build_string ("VISCII1.1"));
+		  build_string ("VISCII1.1"),
+		  latin_viscii_lower_to_ucs, 0, 0, 32);
+  staticpro (&Vcharset_latin_viscii_upper);
   Vcharset_latin_viscii_upper =
-    make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper, 2,
+    make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper,
 		  CHARSET_TYPE_96, 1, 1, '2',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("VISCII upper"),
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII upper (Vietnamese)"),
-		  build_string ("VISCII1.1"));
+		  build_string ("VISCII1.1"),
+		  latin_viscii_upper_to_ucs, 0, 0, 32);
 #endif
   staticpro (&Vcharset_chinese_big5_1);
   Vcharset_chinese_big5_1 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1, 3,
+    make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1,
 		  CHARSET_TYPE_94X94, 2, 0, '0',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5 (Level-1)"),
 		  build_string
 		  ("Big5 Level-1 Chinese traditional"),
-		  build_string ("big5"));
+		  build_string ("big5"),
+		  NULL, 0, 0, 33);
   staticpro (&Vcharset_chinese_big5_2);
   Vcharset_chinese_big5_2 =
-    make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2, 3,
+    make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2,
 		  CHARSET_TYPE_94X94, 2, 0, '1',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Big5"),
 		  build_string ("Big5 (Level-2)"),
 		  build_string
 		  ("Big5 Level-2 Chinese traditional"),
-		  build_string ("big5"));
+		  build_string ("big5"),
+		  NULL, 0, 0, 33);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   /* #### For simplicity, we put composite chars into a 96x96 charset.
@@ -3106,7 +2867,7 @@ complex_vars_of_mule_charset (void)
      room, esp. as we don't yet recycle numbers. */
   staticpro (&Vcharset_composite);
   Vcharset_composite =
-    make_charset (LEADING_BYTE_COMPOSITE, Qcomposite, 3,
+    make_charset (LEADING_BYTE_COMPOSITE, Qcomposite,
 		  CHARSET_TYPE_96X96, 2, 0, 0,
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("Composite"),
