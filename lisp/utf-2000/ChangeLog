@@ -1,11 +1,21 @@
 2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R053-Dotted-Cliff.el (GT-11901): Rearrangement
+	`<-vulgar-ideograph'.
+
+	* Ideograph-R018-Knife.el (U+5263): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (M-00338): Modify `ideographic-structure'.
+
+2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R134-Mortar.el, Ideograph-R123-Sheep.el,
 	Ideograph-R120-Silk.el, Ideograph-R119-Rice.el,
-	Ideograph-R101-Use.el, Ideograph-R053-Dotted-Cliff.el,
-	Ideograph-R029-Again.el, Ideograph-R026-Seal.el,
-	Ideograph-R017-Open-Box.el, Ideograph-R012-Eight.el,
-	Ideograph-R004-Slash.el, Ideograph-R003-Dot.el: Reformatted.
+	Ideograph-R101-Use.el, Ideograph-R029-Again.el,
+	Ideograph-R026-Seal.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el: Reformatted.
 
 2003-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
