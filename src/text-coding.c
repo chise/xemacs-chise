@@ -4351,10 +4351,17 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	  cpos = ( cpos << 6 ) | ( c & 0x3f );
 	  if (counter == 1)
 	    {
-	      Emchar char_id = decode_defined_char (ccs, cpos);
+	      Emchar char_id;
 
-	      if (char_id < 0)
-		char_id = cpos;
+	      if (!NILP (ccs))
+		{
+		  char_id = decode_defined_char (ccs, cpos);
+
+		  if (char_id < 0)
+		    char_id = cpos;
+		}
+	      else
+		ccs = char_id;
 	      COMPOSE_ADD_CHAR (str, char_id, dst);
 	      cpos = 0;
 	      counter = 0;
