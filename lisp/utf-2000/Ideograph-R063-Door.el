@@ -176,6 +176,7 @@
     (japanese-jisx0213-1	. #x7463)	; ø»¤¸
     (chinese-big5		. #xA9D1)	; øºŸ°—
     (ideograph-daikanwa		. 11712)	; ø¸‚·€
+    (china3-jef			. #x4EFB)	; øº„»»
     ))
 (define-char
   '((morohashi-daikanwa	11712 0 4)
