@@ -1,3 +1,22 @@
+2002-08-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.h: Add extern declarations for Qdowncase, Qflippedcase,
+	Q_lowercase, Q_uppercase in UTF-2000.
+
+	* chartab.c (get_char_table): Add special code for the standard
+	case table to use character attribute `->downcase' and
+	`->uppercase' for case operations in UTF-2000.
+
+	* casetab.c (Qflippedcase): New variable in UTF-2000.
+	(Q_lowercase): Likewise.
+	(Q_uppercase): Likewise.
+	(syms_of_casetab): Add new symbols `flippedcase', `->lowercase'
+	and `->uppercase' in UTF-2000.
+	(complex_vars_of_casetab): Assign attribute name `downcase' to
+	downcase and CANON table of Vstandard_case_table in UTF-2000;
+	assign attribute name `flippedcase' to upcase and EQV table of
+	Vstandard_case_table in UTF-2000.
+
 2002-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (decode_add_er_char): Support isolated-chars.
