@@ -315,6 +315,7 @@
     (japanese-jisx0208		. #x587D)	; ø»‡¢–
     (chinese-cns11643-2		. #x2670)	; ø»“•…
     (japanese-jisx0208-1990	. #x587D)	; ø½‹ˆŠ
+    (chinese-gb12345		. #x6A27)	; æˆ”
     (ideograph-daikanwa		. 11559)	; ø¸‚´§
     (ucs			. #x6214)	; æˆ”
     ))
@@ -1000,12 +1001,20 @@
     (ideograph-daikanwa . 49122)	; ø¸‹¿¢
     ))
 (define-char
-  '((ideographic-radical . 62)	; â¼½
+  '((=>ucs		. #x6227)	; æˆ§
+    (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (japanese-jisx0212	. #x3F2E)	; ø»‹¡
     (chinese-cns11643-2 . #x4A3E)	; ø»”‰‹
     (ideograph-daikanwa . 11632)	; ø¸‚µ°
+    ))
+(define-char
+  '((morohashi-daikanwa	11632 0 1)
+    (ideographic-radical . 62)	; â¼½
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (chinese-gb12345	. #x6A28)	; æˆ§
     (ucs		. #x6227)	; æˆ§
     ))
 (define-char
@@ -1044,6 +1053,7 @@
     (japanese-jisx0212		. #x3F2F)	; ø»‹¢
     (chinese-cns11643-2		. #x4A3D)	; ø»”‰Š
     (japanese-jisx0213-2	. #x2C75)	; ø»¤®ž
+    (chinese-gb12345		. #x6A2F)	; æˆ©
     (ideograph-daikanwa		. 11637)	; ø¸‚µµ
     (ucs			. #x6229)	; æˆ©
     ))
@@ -1339,6 +1349,7 @@
     (korean-ksc5601		. #x6E7A)	; ø»ŠŒ«
     (chinese-cns11643-1		. #x705D)	; ø»’·š
     (japanese-jisx0208-1990	. #x5925)	; ø½‹ˆ
+    (chinese-gb12345		. #x553D)	; æˆ°
     (ideograph-daikanwa		. 11667)	; ø¸‚¶“
     (ucs			. #x6230)	; æˆ°
     ))
@@ -1448,10 +1459,18 @@
     (shinjigen-2	. 2786)
     (japanese-jisx0208-1978	. #x5926)	; ø»ƒŽ•
     (japanese-jisx0208		. #x5926)	; ø»‡¢
-    (chinese-cns11643-1		. #x7361)	; ø»’»¸
     (japanese-jisx0208-1990	. #x5926)	; ø½‹ˆ‘
+    (chinese-gb12345		. #x4F37)	; æˆ²
     (ideograph-daikanwa		. 11681)	; ø¸‚¶¡
     (ucs			. #x6232)	; æˆ²
+    ))
+(define-char
+  '((=>ucs		. #x6232)	; æˆ²
+    (morohashi-daikanwa	11681 0 0)
+    (ideographic-radical . 62)	; â¼½
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (chinese-cns11643-1 . #x7361)	; ø»’»¸
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
