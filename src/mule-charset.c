@@ -2064,7 +2064,7 @@ Save mapping-table of CHARSET.
 {
 #ifdef HAVE_DATABASE
   struct Lisp_Charset *cs;
-  int byte_offset, chars;
+  int byte_min, byte_max;
   Lisp_Object db;
   Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
@@ -2086,8 +2086,8 @@ Save mapping-table of CHARSET.
   db_file = Fexpand_file_name (build_string ("system-char-id"), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       
-  byte_offset = CHARSET_BYTE_OFFSET (cs);
-  chars = CHARSET_CHARS (cs);
+  byte_min = CHARSET_BYTE_OFFSET (cs);
+  byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
   switch (CHARSET_DIMENSION (cs))
     {
     case 1:
@@ -2095,15 +2095,15 @@ Save mapping-table of CHARSET.
 	Lisp_Object table_c = XCHARSET_DECODING_TABLE (charset);
 	int cell;
 
-	for (cell = byte_offset; cell < byte_offset + chars; cell++)
-	{
-	  Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
+	for (cell = byte_min; cell < byte_max; cell++)
+	  {
+	    Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
-	  if (CHARP (c))
-	    Fput_database (Fprin1_to_string (make_int (cell), Qnil),
-			   Fprin1_to_string (c, Qnil),
-			   db, Qt);
-	}
+	    if (CHARP (c))
+	      Fput_database (Fprin1_to_string (make_int (cell), Qnil),
+			     Fprin1_to_string (c, Qnil),
+			     db, Qt);
+	  }
       }
       break;
     case 2:
@@ -2111,12 +2111,12 @@ Save mapping-table of CHARSET.
 	Lisp_Object table_r = XCHARSET_DECODING_TABLE (charset);
 	int row;
 
-	for (row = byte_offset; row < byte_offset + chars; row++)
+	for (row = byte_min; row < byte_max; row++)
 	  {
 	    Lisp_Object table_c = get_ccs_octet_table (table_r, charset, row);
 	    int cell;
 
-	    for (cell = byte_offset; cell < byte_offset + chars; cell++)
+	    for (cell = byte_min; cell < byte_max; cell++)
 	      {
 		Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
@@ -2135,19 +2135,19 @@ Save mapping-table of CHARSET.
 	Lisp_Object table_p = XCHARSET_DECODING_TABLE (charset);
 	int plane;
 
-	for (plane = byte_offset; plane < byte_offset + chars; plane++)
+	for (plane = byte_min; plane < byte_max; plane++)
 	  {
 	    Lisp_Object table_r
 	      = get_ccs_octet_table (table_p, charset, plane);
 	    int row;
 
-	    for (row = byte_offset; row < byte_offset + chars; row++)
+	    for (row = byte_min; row < byte_max; row++)
 	      {
 		Lisp_Object table_c
 		  = get_ccs_octet_table (table_r, charset, row);
 		int cell;
 
-		for (cell = byte_offset; cell < byte_offset + chars; cell++)
+		for (cell = byte_min; cell < byte_max; cell++)
 		  {
 		    Lisp_Object c = get_ccs_octet_table (table_c, charset,
 							 cell);
@@ -2168,26 +2168,25 @@ Save mapping-table of CHARSET.
 	Lisp_Object table_g = XCHARSET_DECODING_TABLE (charset);
 	int group;
 
-	for (group = byte_offset; group < byte_offset + chars; group++)
+	for (group = byte_min; group < byte_max; group++)
 	  {
 	    Lisp_Object table_p
 	      = get_ccs_octet_table (table_g, charset, group);
 	    int plane;
 
-	    for (plane = byte_offset; plane < byte_offset + chars; plane++)
+	    for (plane = byte_min; plane < byte_max; plane++)
 	      {
 		Lisp_Object table_r
 		  = get_ccs_octet_table (table_p, charset, plane);
 		int row;
 
-		for (row = byte_offset; row < byte_offset + chars; row++)
+		for (row = byte_min; row < byte_max; row++)
 		  {
 		    Lisp_Object table_c
 		      = get_ccs_octet_table (table_r, charset, row);
 		    int cell;
 
-		    for (cell = byte_offset; cell < byte_offset + chars;
-			 cell++)
+		    for (cell = byte_min; cell < byte_max; cell++)
 		      {
 			Lisp_Object c
 			  = get_ccs_octet_table (table_c, charset, cell);
