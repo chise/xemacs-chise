@@ -1144,8 +1144,6 @@ Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
 Lisp_Object Q_component;
 Lisp_Object Q_component_of;
-Lisp_Object Q_same;
-Lisp_Object Q_same_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3514,11 +3512,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_identical_from) ||
 	    EQ (attribute, Q_component) ||
 	    EQ (attribute, Q_component_of) ||
-	    EQ (attribute, Q_same) ||
-	    EQ (attribute, Q_same_of) ||
 	    !NILP (Fstring_match
 		   (build_string ("^\\(<-\\|->\\)\\(simplified"
-				  "\\|vulgar\\|wrong"
+				  "\\|same\\|vulgar\\|wrong"
 				  "\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )
@@ -3545,10 +3541,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_component_of;
       else if (EQ (attribute, Q_component_of))
 	rev_feature = Q_component;
-      else if (EQ (attribute, Q_same))
-	rev_feature = Q_same_of;
-      else if (EQ (attribute, Q_same_of))
-	rev_feature = Q_same;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
@@ -3842,11 +3834,9 @@ Save values of ATTRIBUTE into database file.
       if ( EQ (attribute, Qideographic_structure)
 	   || EQ (attribute, Q_identical)
 	   || EQ (attribute, Q_identical_from)
-	   || EQ (attribute, Q_same)
-	   || EQ (attribute, Q_same_of)
 	   || !NILP (Fstring_match
 		     (build_string ("^\\(<-\\|->\\)\\(simplified"
-				    "\\|vulgar\\|wrong"
+				    "\\|same\\|vulgar\\|wrong"
 				    "\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
@@ -4623,8 +4613,6 @@ syms_of_chartab (void)
   defsymbol (&Q_identical_from,		"<-identical");
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
-  defsymbol (&Q_same,			"->same");
-  defsymbol (&Q_same_of,		"<-same");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
