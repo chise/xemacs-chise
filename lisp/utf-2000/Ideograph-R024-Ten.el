@@ -682,6 +682,8 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 910)
+      (=ucs		  . #x53D4)	; 叔
+      (=jis-x0208	  . #x3D47)	; &I-J90-3D47;
       (=daikanwa	  . 03154)	; &I-M-03154;
       ))
     (<-vulgar*sources

@@ -1468,7 +1468,8 @@
       (=jis-x0208	  . #x5A45)	; &I-J90-5A45;
       ))
     (<-vulgar
-     ((=daikanwa	  . 02380)	; &I-M-02380;
+     ((=ucs		  . #x52D1)	; 勑
+      (=daikanwa	  . 02380)	; &I-M-02380;
       ))
     (<-vulgar*sources
      zhengzi-tong daikanwa)

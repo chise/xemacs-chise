@@ -622,7 +622,8 @@
     (->mistakable*sources
      zihui daikanwa)
     (<-vulgar
-     ((=daikanwa	  . 02867)	; &I-M-02867;
+     ((=jis-x0208	  . #x524A)	; &GT-03647;
+      (=daikanwa	  . 02867)	; &I-M-02867;
       ))
     (<-vulgar*sources
      zhengzi-tong daikanwa)
