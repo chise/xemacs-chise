@@ -1,3 +1,29 @@
+2004-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+9115): Use `->subsumptive'; moved into
+	intersection between U+9115 and U+9109.
+	(U+9109): Likewise.
+
+	* Ideograph-R120-Silk.el (J0-652F): Moved into U+7D72.
+	(U+7D72): Use `->subsumptive'.
+
+	* Ideograph-R011-Enter.el (J0-5140): Moved into U+5169.
+	(U+5169): Use `->subsumptive'.
+
+2004-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+8207): Use `->subsumptive'.
+	(C1-6A58): Moved into U+8207.
+	(U+8209): Use `->subsumptive'.
+	(B-C17C): Moved into U+8209.
+
+	* Ideograph-R003-Dot.el: Add some `<-simplified@CN' features.
+	(C3-2740): Add `<-denotational' for U+4E3D.
+	(GT-K04581): Likewise; add `<-ideographic-component-forms' for
+	C3-2740.
+	(G0-4076): Separate U+4E3D; add `<-denotational' for U+4E3D.
+	(U-0002592C): Use `->subsumptive'.
+
 2004-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R198-Deer.el (J83-4E6F): Moved into U+9E97.
