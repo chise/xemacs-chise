@@ -41,15 +41,18 @@
     (=daikanwa		. 01566)	; &I-M-01566;
     ))
 (define-char
-  '((morohashi-daikanwa	1566 0 5)
+  '((=>ucs*		. #x5197)	; 冗
+    (=>daikanwa		. 01566)	; 冗
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-vulgar
-     (:char	((shinjigen-1	     . 525)
-		 (=daikanwa	     . 01566)	; &I-M-01566;
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 525)
+      (=ucs		  . #x5197)	; 冗
+      (=jis-x0208	  . #x3E69)	; &I-J90-3E69;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -673,11 +676,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 1852)
-		 (=daikanwa	     . 07230)	; &I-M-07230;
-		 )
+     ((shinjigen-1	  . 1852)
+      (=daikanwa	  . 07230)	; &I-M-07230;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 305 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
