@@ -1,5 +1,24 @@
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (latin_iso8859_2_to_ucs NULL): Add pseudo
+	definition for non-UTF-2000 Mule.
+	(latin_iso8859_3_to_ucs): Likewise.
+	(latin_iso8859_4_to_ucs): Likewise.
+	(latin_iso8859_9_to_ucs): Likewise.
+	(latin_jisx0201_to_ucs): Likewise.
+	(MIN_CHAR_THAI): Likewise.
+	(MAX_CHAR_THAI): Likewise.
+	(MIN_CHAR_GREEK): Likewise.
+	(MAX_CHAR_GREEK): Likewise.
+	(MIN_CHAR_HEBREW): Likewise.
+	(MAX_CHAR_HEBREW): Likewise.
+	(MIN_CHAR_HALFWIDTH_KATAKANA): Likewise.
+	(MAX_CHAR_HALFWIDTH_KATAKANA): Likewise.
+	(MIN_CHAR_CYRILLIC): Likewise.
+	(MAX_CHAR_CYRILLIC): Likewise.
+
+1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* char-ucs.h (breakup_char_1): Use
 	`Vdefault_coded_charset_priority_list' for hebrew-iso8859-8,
 	thai-tis620 and katakana-jisx0201 area.
