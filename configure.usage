@@ -139,7 +139,7 @@ explicitly specify which library to link against.
                         *WARNING*  The Motif menubar is currently broken.
 --with-scrollbars=TYPE  (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
 --with-dialogs=TYPE     (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
---with-widgets=TYPE     (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
+--with-widgets=TYPE     (Enum) Types: `lucid', `motif', `athena', or `no'(*).
 --with-athena=TYPE      (Enum) Link with the TYPE Athena library.  Types:
                         `xaw' [flat], `3d', `next', `95', or `xpm'.
 --with-dragndrop (*)    Support generic drag and drop API. (EXPERIMENTAL)

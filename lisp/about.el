@@ -358,11 +358,27 @@
 		   :format "%t"
 		   :tag-glyph xemacs-logo)
     (widget-insert "\n")
-    (let* ((emacs-short-version (format "%d.%d"
+    (let* ((emacs-short-version (format "%d.%d.%d"
 					emacs-major-version
-					emacs-minor-version))
-	   (emacs-about-version (format "version %s; April 2001"
-					emacs-short-version)))
+					emacs-minor-version
+					emacs-patch-level))
+	   (emacs-about-version (format "version %s; %s %s"
+					emacs-short-version
+					(cdr (assoc (substring emacs-build-time
+							       4 7)
+						    '(("Jan" . "January")
+						      ("Feb" . "February")
+						      ("Mar" . "March")
+						      ("Apr" . "April")
+						      ("May" . "May")
+						      ("Jun" . "June")
+						      ("Jul" . "July")
+						      ("Aug" . "August")
+						      ("Sep" . "September")
+						      ("Oct" . "October")
+						      ("Nov" . "November")
+						      ("Dec" . "December"))))
+					(substring emacs-build-time -4))))
       (widget-insert (about-center emacs-about-version))
       (widget-create 'link :help-echo "What's new in XEmacs"
 		     :action 'about-news
@@ -1288,7 +1304,7 @@ Assistant Professor of Biostatistics at the University of Washington
 and the Fred Hutchinson Cancer Research Center.
 
 See ")
-     (about-url-link 'rossini nil "Visit Anothony's home page")
+     (about-url-link 'rossini nil "Visit Anthony's home page")
      (widget-insert ".\n"))
     (slb
      (widget-insert "\

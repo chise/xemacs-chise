@@ -1000,8 +1000,8 @@ The ordering is for this frame; If second optional argument FRAME
 is provided, then the ordering is for that frame.  If the second arg
 is t, then the global ordering is returned.
 
-Note: In FSF Emacs, this function takes two arguments: BUFFER and
-VISIBLE-OK.
+Note: In FSF Emacs, this function takes the arguments in the order of
+BUFFER, VISIBLE-OK and FRAME.
 */
        (buffer, frame, visible_ok))
 {

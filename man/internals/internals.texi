@@ -12,7 +12,7 @@
 
 Copyright @copyright{} 1992 - 1996 Ben Wing.
 Copyright @copyright{} 1996, 1997 Sun Microsystems.
-Copyright @copyright{} 1994 - 1998 Free Software Foundation.
+Copyright @copyright{} 1994 - 1998, 2002, 2003 Free Software Foundation.
 Copyright @copyright{} 1994, 1995 Board of Trustees, University of Illinois.
 
 
@@ -1938,6 +1938,7 @@ get something that appears to work, but which will crash in odd
 situations, often in code far away from where the actual breakage is.
 
 @menu
+* A Reader's Guide to XEmacs Coding Conventions::
 * General Coding Rules::
 * Writing Lisp Primitives::
 * Writing Good Comments::
@@ -1946,6 +1947,99 @@ situations, often in code far away from where the actual breakage is.
 * Coding for Mule::
 * Techniques for XEmacs Developers::
 @end menu
+
+@node A Reader's Guide to XEmacs Coding Conventions
+@section A Reader's Guide to XEmacs Coding Conventions
+@cindex coding conventions
+@cindex reader's guide
+@cindex coding rules, naming
+
+Of course the low-level implementation language of XEmacs is C, but much
+of that uses the Lisp engine to do its work.  However, because the code
+is ``inside'' of the protective containment shell around the ``reactor
+core,'' you'll see lots of complex ``plumbing'' needed to do the work
+and ``safety mechanisms,'' whose failure results in a meltdown.  This
+section provides a quick overview (or review) of the various components
+of the implementation of Lisp objects.
+
+  Two typographic conventions help to identify C objects that implement
+Lisp objects.  The first is that capitalized identifiers, especially
+beginning with the letters @samp{Q}, @samp{V}, @samp{F}, and @samp{S},
+for C variables and functions, and C macros with beginning with the
+letter @samp{X}, are used to implement Lisp.  The second is that where
+Lisp uses the hyphen @samp{-} in symbol names, the corresponding C
+identifiers use the underscore @samp{_}.  Of course, since XEmacs Lisp
+contains interfaces to many external libraries, those external names
+will follow the coding conventions their authors chose, and may overlap
+the ``XEmacs name space.''  However these cases are usually pretty
+obvious.
+
+  All Lisp objects are handled indirectly.  The @code{Lisp_Object}
+type is usually a pointer to a structure, except for a very small number
+of types with immediate representations (currently characters and
+integers).  However, these types cannot be directly operated on in C
+code, either, so they can also be considered indirect.  Types that do
+not have an immediate representation always have a C typedef
+@code{Lisp_@var{type}} for a corresponding structure.
+@c #### mention l(c)records here?
+
+  In older code, it was common practice to pass around pointers to
+@code{Lisp_@var{type}}, but this is now deprecated in favor of using
+@code{Lisp_Object} for all function arguments and return values that are
+Lisp objects.  The @code{X@var{type}} macro is used to extract the
+pointer and cast it to @code{(Lisp_@var{type} *)} for the desired type.
+
+  @strong{Convention}: macros whose names begin with @samp{X} operate on
+@code{Lisp_Object}s and do no type-checking.  Many such macros are type
+extractors, but others implement Lisp operations in C (@emph{e.g.},
+@code{XCAR} implements the Lisp @code{car} function).  These are unsafe,
+and must only be used where types of all data have already been checked.
+Such macros are only applied to @code{Lisp_Object}s.  In internal
+implementations where the pointer has already been converted, the
+structure is operated on directly using the C @code{->} member access
+operator.
+
+  The @code{@var{type}P}, @code{CHECK_@var{type}}, and
+@code{CONCHECK_@var{type}} macros are used to test types.  The first
+returns a Boolean value, and the latter signal errors.  (The
+@samp{CONCHECK} variety allows execution to be CONtinued under some
+circumstances, thus the name.)  Functions which expect to be passed user
+data invariably call @samp{CHECK} macros on arguments.
+
+  There are many types of specialized Lisp objects implemented in C, but
+the most pervasive type is the @dfn{symbol}.  Symbols are used as
+identifiers, variables, and functions.
+
+  @strong{Convention}: Global variables whose names begin with @samp{Q}
+are constants whose value is a symbol.  The name of the variable should
+be derived from the name of the symbol using the same rules as for Lisp
+primitives.  Such variables allow the C code to check whether a
+particular @code{Lisp_Object} is equal to a given symbol.  Symbols are
+Lisp objects, so these variables may be passed to Lisp primitives.  (An
+alternative to the use of @samp{Q...} variables is to call the
+@code{intern} function at initialization in the
+@code{vars_of_@var{module}} function, which is hardly less efficient.)
+
+  @strong{Convention}: Global variables whose names begin with @samp{V}
+are variables that contain Lisp objects.  The convention here is that
+all global variables of type @code{Lisp_Object} begin with @samp{V}, and
+no others do (not even integer and boolean variables that have Lisp
+equivalents). Most of the time, these variables have equivalents in
+Lisp, which are defined via the @samp{DEFVAR} family of macros, but some
+don't.  Since the variable's value is a @code{Lisp_Object}, it can be
+passed to Lisp primitives.
+
+  The implementation of Lisp primitives is more complex.
+@strong{Convention}: Global variables with names beginning with @samp{S}
+contain a structure that allows the Lisp engine to identify and call a C
+function.  In modern versions of XEmacs, these identifiers are almost
+always completely hidden in the @code{DEFUN} and @code{SUBR} macros, but
+you will encounter them if you look at very old versions of XEmacs or at
+GNU Emacs.  @strong{Convention}: Functions with names beginning with
+@samp{F} implement Lisp primitives.  Of course all their arguments and
+their return values must be Lisp_Objects.  (This is hidden in the
+@code{DEFUN} macro.)
+
 
 @node General Coding Rules
 @section General Coding Rules
@@ -2406,10 +2500,15 @@ XEmacs crash!].)
 @code{defsymbol()} are no problem, but some linkers will complain about
 multiply-defined symbols.  The most insidious aspect of this is that
 often the link will succeed anyway, but then the resulting executable
-will sometimes crash in obscure ways during certain operations!  To
-avoid this problem, declare any symbols with common names (such as
+will sometimes crash in obscure ways during certain operations!
+
+To avoid this problem, declare any symbols with common names (such as
 @code{text}) that are not obviously associated with this particular
-module in the module @file{general.c}.
+module in the file @file{general-slots.h}.  The ``-slots'' suffix
+indicates that this is a file that is included multiple times in
+@file{general.c}.  Redefinition of preprocessor macros allows the
+effects to be different in each context, so this is actually more
+convenient and less error-prone than doing it in your module.
 
   Global variables whose names begin with @samp{V} are variables that
 contain Lisp objects.  The convention here is that all global variables
@@ -4986,7 +5085,7 @@ respectively.  This is currently in beta.
 
 @file{mule-mcpath.c} provides some functions to allow for pathnames
 containing extended characters.  This code is fragmentary, obsolete, and
-completely non-working.  Instead, @var{pathname-coding-system} is used
+completely non-working.  Instead, @code{pathname-coding-system} is used
 to specify conversions of names of files and directories.  The standard
 C I/O functions like @samp{open()} are wrapped so that conversion occurs
 automatically.
@@ -5315,7 +5414,7 @@ different section of code.
 
 If you don't understand whether to @code{GCPRO} in a particular
 instance, ask on the mailing lists.  A general hint is that @code{prog1}
-is the canonical example
+is the canonical example.
 
 @cindex garbage collection, conservative
 @cindex conservative garbage collection

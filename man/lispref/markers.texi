@@ -508,7 +508,7 @@ However, if @var{force} is non-@code{nil}, then @code{mark} returns the
 mark position anyway---or @code{nil}, if the mark is not yet set for
 the buffer.
 
-(Remember that if @var{zmacs-regions} is @code{nil}, the mark is
+(Remember that if @code{zmacs-regions} is @code{nil}, the mark is
 always active as long as it exists, and the @var{force} argument
 will have no effect.)
 
@@ -687,8 +687,8 @@ these functions, however.  A command designed to operate on a region
 should normally use @code{interactive} with the @samp{r} specification
 to find the beginning and end of the region.  This lets other Lisp
 programs specify the bounds explicitly as arguments and automatically
-respects the user's setting for @var{zmacs-regions}.  (@xref{Interactive
-Codes}.)
+respects the user's setting for @code{zmacs-regions}.
+(@xref{Interactive Codes}.)
 
 @defun region-beginning &optional buffer
 This function returns the position of the beginning of @var{buffer}'s
@@ -730,7 +730,7 @@ region or on something else (e.g. the word or paragraph at point).
 @defvar zmacs-region-stays
 If a command sets this variable to true, the currently active region
 will remain activated when the command finishes. (Normally the region is
-deactivated when each command terminates.) If @var{zmacs-regions} is
+deactivated when each command terminates.) If @code{zmacs-regions} is
 false, however, this has no effect.  Under normal circumstances, you do
 not need to set this; use the interactive specification @samp{_}
 instead, if you want the region to remain active.
@@ -740,15 +740,15 @@ instead, if you want the region to remain active.
 This function activates the region in the current buffer (this is
 equivalent to activating the current buffer's mark).  This will normally
 also highlight the text in the active region and set
-@var{zmacs-region-stays} to @code{t}. (If @var{zmacs-regions} is false,
-however, this function has no effect.)
+@code{zmacs-region-stays} to @code{t}. (If @code{zmacs-regions} is
+false, however, this function has no effect.)
 @end defun
 
 @defun zmacs-deactivate-region
 This function deactivates the region in the current buffer (this is
 equivalent to deactivating the current buffer's mark).  This will
 normally also unhighlight the text in the active region and set
-@var{zmacs-region-stays} to @code{nil}. (If @var{zmacs-regions} is
+@code{zmacs-region-stays} to @code{nil}. (If @code{zmacs-regions} is
 false, however, this function has no effect.)
 @end defun
 
@@ -768,21 +768,21 @@ happens as a result of a command that activates the region, such as
 @code{set-mark-command}, @code{activate-region}, or
 @code{exchange-point-and-mark}.) Note that calling
 @file{zmacs-activate-region} will call this hook, even if the region is
-already active.  If @var{zmacs-regions} is false, however, this hook
+already active.  If @code{zmacs-regions} is false, however, this hook
 will never get called under any circumstances.
 @end defvar
 
 @defvar zmacs-deactivate-region-hook
 This normal hook is called when an active region becomes inactive.
 (Calling @file{zmacs-deactivate-region} when the region is inactive will
-@emph{not} cause this hook to be called.)  If @var{zmacs-regions} is
+@emph{not} cause this hook to be called.)  If @code{zmacs-regions} is
 false, this hook will never get called.
 @end defvar
 
 @defvar zmacs-update-region-hook
 This normal hook is called when an active region is "updated" by
 @code{zmacs-update-region}.  This normally gets called at the end
-of each command that sets @var{zmacs-region-stays} to @code{t},
+of each command that sets @code{zmacs-region-stays} to @code{t},
 indicating that the region should remain activated.  The motion
 commands do this.
 @end defvar

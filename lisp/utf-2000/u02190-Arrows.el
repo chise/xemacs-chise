@@ -1,16 +1,31 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "LEFTWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2190)	; â†
-    (=jis-x0208		. #x222B)	; ø½‰·¤
-    (=gb2312		. #x217B)	; ø»„‡ž
-    (=ks-x1001		. #x2167)	; ø»ˆ›’
-    (=cns11643-1	. #x2258)	; ø»‘„±
-    (=big5		. #xA1F6)	; ý¢€Š‡¶
-    (=jef-china3	. #x7BCE)	; øº‡¯Ž
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFTWARDS ARROW")
+      (=ucs		  . #x2190)	; â†
+      ))
+    (<-fullwidth
+     ((name		  . "LEFTWARDS ARROW")
+      (=ucs		  . #x2190)	; â†
+      ))
+    (=jis-x0208		. #x222B)	; &J90-222B; [02-11]
+    (=gb2312		. #x217B)	; &I-G0-217B; [01-91]
+    (=ks-x1001		. #x2167)	; &I-K0-2167; [01-71]
+    (=cns11643-1	. #x2258)	; &I-C1-2258; [02-56]
+    (=big5		. #xA1F6)	; &I-B-A1F6;
+    (=jef-china3	. #x7BCE)	; &I-JC3-7BCE;
+    (=ucs@gb		. #x2190)	; &J90-222B;
+    (=ucs@cns		. #x2190)	; &J90-222B;
+    (=ucs@jis		. #x2190)	; &J90-222B;
+    (=ucs@ks		. #x2190)	; &J90-222B;
+    (=ucs@big5		. #x2190)	; &J90-222B;
     ))
 (define-char
   '((name		. "UPWARDS ARROW")
@@ -18,12 +33,27 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2191)	; â†‘
-    (=jis-x0208		. #x222C)	; ø½‰·¥
-    (=gb2312		. #x217C)	; ø»„‡Ÿ
-    (=ks-x1001		. #x2168)	; ø»ˆ›“
-    (=cns11643-1	. #x2255)	; ø»‘„®
-    (=big5		. #xA1F4)	; ý¢€Š‡´
-    (=jef-china3	. #x7BCF)	; øº‡¯
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "UPWARDS ARROW")
+      (=ucs		  . #x2191)	; â†‘
+      ))
+    (<-fullwidth
+     ((name		  . "UPWARDS ARROW")
+      (=ucs		  . #x2191)	; â†‘
+      ))
+    (=jis-x0208		. #x222C)	; &J90-222C; [02-12]
+    (=gb2312		. #x217C)	; &I-G0-217C; [01-92]
+    (=ks-x1001		. #x2168)	; &I-K0-2168; [01-72]
+    (=cns11643-1	. #x2255)	; &I-C1-2255; [02-53]
+    (=big5		. #xA1F4)	; &I-B-A1F4;
+    (=jef-china3	. #x7BCF)	; &I-JC3-7BCF;
+    (=ucs@gb		. #x2191)	; &J90-222C;
+    (=ucs@cns		. #x2191)	; &J90-222C;
+    (=ucs@jis		. #x2191)	; &J90-222C;
+    (=ucs@ks		. #x2191)	; &J90-222C;
+    (=ucs@big5		. #x2191)	; &J90-222C;
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW")
@@ -31,12 +61,27 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2192)	; â†’
-    (=jis-x0208		. #x222A)	; ø½‰·£
-    (=gb2312		. #x217A)	; ø»„‡
-    (=ks-x1001		. #x2166)	; ø»ˆ›‘
-    (=cns11643-1	. #x2257)	; ø»‘„°
-    (=big5		. #xA1F7)	; ý¢€Š‡·
-    (=jef-china3	. #x7BCD)	; øº‡¯
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHTWARDS ARROW")
+      (=ucs		  . #x2192)	; â†’
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHTWARDS ARROW")
+      (=ucs		  . #x2192)	; â†’
+      ))
+    (=jis-x0208		. #x222A)	; &J90-222A; [02-10]
+    (=gb2312		. #x217A)	; &I-G0-217A; [01-90]
+    (=ks-x1001		. #x2166)	; &I-K0-2166; [01-70]
+    (=cns11643-1	. #x2257)	; &I-C1-2257; [02-55]
+    (=big5		. #xA1F7)	; &I-B-A1F7;
+    (=jef-china3	. #x7BCD)	; &I-JC3-7BCD;
+    (=ucs@gb		. #x2192)	; &J90-222A;
+    (=ucs@cns		. #x2192)	; &J90-222A;
+    (=ucs@jis		. #x2192)	; &J90-222A;
+    (=ucs@ks		. #x2192)	; &J90-222A;
+    (=ucs@big5		. #x2192)	; &J90-222A;
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW")
@@ -44,12 +89,27 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2193)	; â†“
-    (=jis-x0208		. #x222D)	; ø½‰·¦
-    (=gb2312		. #x217D)	; ø»„‡ 
-    (=ks-x1001		. #x2169)	; ø»ˆ›”
-    (=cns11643-1	. #x2256)	; ø»‘„¯
-    (=big5		. #xA1F5)	; ý¢€Š‡µ
-    (=jef-china3	. #x7BD0)	; øº‡¯
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOWNWARDS ARROW")
+      (=ucs		  . #x2193)	; â†“
+      ))
+    (<-fullwidth
+     ((name		  . "DOWNWARDS ARROW")
+      (=ucs		  . #x2193)	; â†“
+      ))
+    (=jis-x0208		. #x222D)	; &J90-222D; [02-13]
+    (=gb2312		. #x217D)	; &I-G0-217D; [01-93]
+    (=ks-x1001		. #x2169)	; &I-K0-2169; [01-73]
+    (=cns11643-1	. #x2256)	; &I-C1-2256; [02-54]
+    (=big5		. #xA1F5)	; &I-B-A1F5;
+    (=jef-china3	. #x7BD0)	; &I-JC3-7BD0;
+    (=ucs@gb		. #x2193)	; &J90-222D;
+    (=ucs@cns		. #x2193)	; &J90-222D;
+    (=ucs@jis		. #x2193)	; &J90-222D;
+    (=ucs@ks		. #x2193)	; &J90-222D;
+    (=ucs@big5		. #x2193)	; &J90-222D;
     ))
 (define-char
   '((name		. "LEFT RIGHT ARROW")
@@ -57,8 +117,20 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2194)	; â†”
-    (=ks-x1001		. #x216A)	; ø»ˆ›•
-    (=jis-x0213-1-2000	. #x2271)	; ø»¢•ª
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFT RIGHT ARROW")
+      (=ucs		  . #x2194)	; â†”
+      ))
+    (<-fullwidth
+     ((name		  . "LEFT RIGHT ARROW")
+      (=ucs		  . #x2194)	; â†”
+      ))
+    (=ks-x1001		. #x216A)	; &JX1-2271; [01-74]
+    (=jis-x0213-1-2000	. #x2271)	; &I-JX1-2271; [02-81]
+    (=ucs@jis		. #x2194)	; &JX1-2271;
+    (=ucs@ks		. #x2194)	; &JX1-2271;
     ))
 (define-char
   '((name		. "UP DOWN ARROW")
@@ -66,7 +138,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2195)	; â†•
-    (=ks-x1001		. #x2255)	; ø»ˆœž
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "UP DOWN ARROW")
+      (=ucs		  . #x2195)	; â†•
+      ))
+    (<-fullwidth
+     ((name		  . "UP DOWN ARROW")
+      (=ucs		  . #x2195)	; â†•
+      ))
+    (=ks-x1001		. #x2255)	; &K0-2255; [02-53]
+    (=ucs@ks		. #x2195)	; &K0-2255;
     ))
 (define-char
   '((name		. "NORTH WEST ARROW")
@@ -74,10 +157,24 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2196)	; â†–
-    (=ks-x1001		. #x2258)	; ø»ˆœ¡
-    (=cns11643-1	. #x2259)	; ø»‘„²
-    (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
-    (=big5		. #xA1F8)	; ý¢€Š‡¸
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "NORTH WEST ARROW")
+      (=ucs		  . #x2196)	; â†–
+      ))
+    (<-fullwidth
+     ((name		  . "NORTH WEST ARROW")
+      (=ucs		  . #x2196)	; â†–
+      ))
+    (=ks-x1001		. #x2258)	; &JX1-2327; [02-56]
+    (=cns11643-1	. #x2259)	; &I-C1-2259; [02-57]
+    (=jis-x0213-1-2000	. #x2327)	; &I-JX1-2327; [03-07]
+    (=big5		. #xA1F8)	; &I-B-A1F8;
+    (=ucs@cns		. #x2196)	; &JX1-2327;
+    (=ucs@jis		. #x2196)	; &JX1-2327;
+    (=ucs@ks		. #x2196)	; &JX1-2327;
+    (=ucs@big5		. #x2196)	; &JX1-2327;
     ))
 (define-char
   '((name		. "NORTH EAST ARROW")
@@ -85,10 +182,24 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2197)	; â†—
-    (=ks-x1001		. #x2256)	; ø»ˆœŸ
-    (=cns11643-1	. #x225A)	; ø»‘„³
-    (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
-    (=big5		. #xA1F9)	; ý¢€Š‡¹
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "NORTH EAST ARROW")
+      (=ucs		  . #x2197)	; â†—
+      ))
+    (<-fullwidth
+     ((name		  . "NORTH EAST ARROW")
+      (=ucs		  . #x2197)	; â†—
+      ))
+    (=ks-x1001		. #x2256)	; &JX1-2325; [02-54]
+    (=cns11643-1	. #x225A)	; &I-C1-225A; [02-58]
+    (=jis-x0213-1-2000	. #x2325)	; &I-JX1-2325; [03-05]
+    (=big5		. #xA1F9)	; &I-B-A1F9;
+    (=ucs@cns		. #x2197)	; &JX1-2325;
+    (=ucs@jis		. #x2197)	; &JX1-2325;
+    (=ucs@ks		. #x2197)	; &JX1-2325;
+    (=ucs@big5		. #x2197)	; &JX1-2325;
     ))
 (define-char
   '((name		. "SOUTH EAST ARROW")
@@ -96,10 +207,24 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2198)	; â†˜
-    (=ks-x1001		. #x2259)	; ø»ˆœ¢
-    (=cns11643-1	. #x225C)	; ø»‘„µ
-    (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
-    (=big5		. #xA1FB)	; ý¢€Š‡»
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "SOUTH EAST ARROW")
+      (=ucs		  . #x2198)	; â†˜
+      ))
+    (<-fullwidth
+     ((name		  . "SOUTH EAST ARROW")
+      (=ucs		  . #x2198)	; â†˜
+      ))
+    (=ks-x1001		. #x2259)	; &JX1-2326; [02-57]
+    (=cns11643-1	. #x225C)	; &I-C1-225C; [02-60]
+    (=jis-x0213-1-2000	. #x2326)	; &I-JX1-2326; [03-06]
+    (=big5		. #xA1FB)	; &I-B-A1FB;
+    (=ucs@cns		. #x2198)	; &JX1-2326;
+    (=ucs@jis		. #x2198)	; &JX1-2326;
+    (=ucs@ks		. #x2198)	; &JX1-2326;
+    (=ucs@big5		. #x2198)	; &JX1-2326;
     ))
 (define-char
   '((name		. "SOUTH WEST ARROW")
@@ -107,10 +232,24 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2199)	; â†™
-    (=ks-x1001		. #x2257)	; ø»ˆœ 
-    (=cns11643-1	. #x225B)	; ø»‘„´
-    (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
-    (=big5		. #xA1FA)	; ý¢€Š‡º
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "SOUTH WEST ARROW")
+      (=ucs		  . #x2199)	; â†™
+      ))
+    (<-fullwidth
+     ((name		  . "SOUTH WEST ARROW")
+      (=ucs		  . #x2199)	; â†™
+      ))
+    (=ks-x1001		. #x2257)	; &JX1-2328; [02-55]
+    (=cns11643-1	. #x225B)	; &I-C1-225B; [02-59]
+    (=jis-x0213-1-2000	. #x2328)	; &I-JX1-2328; [03-08]
+    (=big5		. #xA1FA)	; &I-B-A1FA;
+    (=ucs@cns		. #x2199)	; &JX1-2328;
+    (=ucs@jis		. #x2199)	; &JX1-2328;
+    (=ucs@ks		. #x2199)	; &JX1-2328;
+    (=ucs@big5		. #x2199)	; &JX1-2328;
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH STROKE")
@@ -331,7 +470,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21B8)	; â†¸
-    (=big5-eten		. #xC877)	; ý¢€Œ¡·
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "NORTH WEST ARROW TO LONG BAR")
+      (=ucs		  . #x21B8)	; â†¸
+      ))
+    (<-fullwidth
+     ((name		  . "NORTH WEST ARROW TO LONG BAR")
+      (=ucs		  . #x21B8)	; â†¸
+      ))
+    (=big5-eten		. #xC877)	; &B-C877;
+    (=ucs@big5		. #x21B8)	; &B-C877;
     ))
 (define-char
   '((name . "LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR")
@@ -339,7 +489,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21B9)	; â†¹
-    (=big5-eten		. #xC878)	; ý¢€Œ¡¸
+    ))
+(define-char
+  '((<-denotational
+     ((name . "LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR")
+      (=ucs		  . #x21B9)	; â†¹
+      ))
+    (<-fullwidth
+     ((name . "LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR")
+      (=ucs		  . #x21B9)	; â†¹
+      ))
+    (=big5-eten		. #xC878)	; &B-C878;
+    (=ucs@big5		. #x21B9)	; &B-C878;
     ))
 (define-char
   '((name		. "ANTICLOCKWISE OPEN CIRCLE ARROW")
@@ -417,7 +578,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21C4)	; â‡„
-    (=jis-x0213-1-2000	. #x2329)	; ø»¢–€
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHTWARDS ARROW OVER LEFTWARDS ARROW")
+      (=ucs		  . #x21C4)	; â‡„
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHTWARDS ARROW OVER LEFTWARDS ARROW")
+      (=ucs		  . #x21C4)	; â‡„
+      ))
+    (=jis-x0213-1-2000	. #x2329)	; &JX1-2329; [03-09]
+    (=ucs@jis		. #x21C4)	; &JX1-2329;
     ))
 (define-char
   '((name		. "UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW")
@@ -519,10 +691,22 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21D2)	; â‡’
-    (=jis-x0208-1983	. #x224D)	; ø»†’’
-    (=ks-x1001		. #x2221)	; ø»ˆ›ª
-    (=jis-x0208-1990	. #x224D)	; ø½‰¸†
-    (=jef-china3	. #x7FDA)	; øº‡¿š
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHTWARDS DOUBLE ARROW")
+      (=ucs		  . #x21D2)	; â‡’
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHTWARDS DOUBLE ARROW")
+      (=ucs		  . #x21D2)	; â‡’
+      ))
+    (=jis-x0208@1983	. #x224D)	; &J90-224D; [02-45]
+    (=ks-x1001		. #x2221)	; &I-K0-2221; [02-01]
+    (=jis-x0208@1990	. #x224D)	; &I-J90-224D; [02-45]
+    (=jef-china3	. #x7FDA)	; &I-JC3-7FDA;
+    (=ucs@jis		. #x21D2)	; &J90-224D;
+    (=ucs@ks		. #x21D2)	; &J90-224D;
     ))
 (define-char
   '((name		. "DOWNWARDS DOUBLE ARROW")
@@ -537,10 +721,22 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21D4)	; â‡”
-    (=jis-x0208-1983	. #x224E)	; ø»†’“
-    (=ks-x1001		. #x2222)	; ø»ˆ›«
-    (=jis-x0208-1990	. #x224E)	; ø½‰¸‡
-    (=jef-china3	. #x7FDB)	; øº‡¿›
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFT RIGHT DOUBLE ARROW")
+      (=ucs		  . #x21D4)	; â‡”
+      ))
+    (<-fullwidth
+     ((name		  . "LEFT RIGHT DOUBLE ARROW")
+      (=ucs		  . #x21D4)	; â‡”
+      ))
+    (=jis-x0208@1983	. #x224E)	; &J90-224E; [02-46]
+    (=ks-x1001		. #x2222)	; &I-K0-2222; [02-02]
+    (=jis-x0208@1990	. #x224E)	; &I-J90-224E; [02-46]
+    (=jef-china3	. #x7FDB)	; &I-JC3-7FDB;
+    (=ucs@jis		. #x21D4)	; &J90-224E;
+    (=ucs@ks		. #x21D4)	; &J90-224E;
     ))
 (define-char
   '((name		. "UP DOWN DOUBLE ARROW")
@@ -667,8 +863,19 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E6)	; â‡¦
-    (=jis-x0213-1-2000	. #x232B)	; ø»¢–‚
-    (=jef-china3	. #x76B2)	; øº‡š²
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "LEFTWARDS WHITE ARROW")
+      (=ucs		  . #x21E6)	; â‡¦
+      ))
+    (<-fullwidth
+     ((name		  . "LEFTWARDS WHITE ARROW")
+      (=ucs		  . #x21E6)	; â‡¦
+      ))
+    (=jis-x0213-1-2000	. #x232B)	; &JX1-232B; [03-11]
+    (=jef-china3	. #x76B2)	; &I-JC3-76B2;
+    (=ucs@jis		. #x21E6)	; &JX1-232B;
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW")
@@ -676,9 +883,21 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E7)	; â‡§
-    (=jis-x0213-1-2000	. #x232C)	; ø»¢–ƒ
-    (=big5-eten		. #xC876)	; ý¢€Œ¡¶
-    (=jef-china3	. #x76B1)	; øº‡š±
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "UPWARDS WHITE ARROW")
+      (=ucs		  . #x21E7)	; â‡§
+      ))
+    (<-fullwidth
+     ((name		  . "UPWARDS WHITE ARROW")
+      (=ucs		  . #x21E7)	; â‡§
+      ))
+    (=jis-x0213-1-2000	. #x232C)	; &JX1-232C; [03-12]
+    (=big5-eten		. #xC876)	; &B-C876;
+    (=jef-china3	. #x76B1)	; &I-JC3-76B1;
+    (=ucs@jis		. #x21E7)	; &JX1-232C;
+    (=ucs@big5		. #x21E7)	; &JX1-232C;
     ))
 (define-char
   '((name		. "RIGHTWARDS WHITE ARROW")
@@ -686,8 +905,19 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E8)	; â‡¨
-    (=jis-x0213-1-2000	. #x232A)	; ø»¢–
-    (=jef-china3	. #x76B3)	; øº‡š³
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "RIGHTWARDS WHITE ARROW")
+      (=ucs		  . #x21E8)	; â‡¨
+      ))
+    (<-fullwidth
+     ((name		  . "RIGHTWARDS WHITE ARROW")
+      (=ucs		  . #x21E8)	; â‡¨
+      ))
+    (=jis-x0213-1-2000	. #x232A)	; &JX1-232A; [03-10]
+    (=jef-china3	. #x76B3)	; &I-JC3-76B3;
+    (=ucs@jis		. #x21E8)	; &JX1-232A;
     ))
 (define-char
   '((name		. "DOWNWARDS WHITE ARROW")
@@ -695,8 +925,19 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x21E9)	; â‡©
-    (=jis-x0213-1-2000	. #x232D)	; ø»¢–„
-    (=jef-china3	. #x76B0)	; øº‡š°
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "DOWNWARDS WHITE ARROW")
+      (=ucs		  . #x21E9)	; â‡©
+      ))
+    (<-fullwidth
+     ((name		  . "DOWNWARDS WHITE ARROW")
+      (=ucs		  . #x21E9)	; â‡©
+      ))
+    (=jis-x0213-1-2000	. #x232D)	; &JX1-232D; [03-13]
+    (=jef-china3	. #x76B0)	; &I-JC3-76B0;
+    (=ucs@jis		. #x21E9)	; &JX1-232D;
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW FROM BAR")
