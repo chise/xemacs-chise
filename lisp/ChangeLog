@@ -1,3 +1,8 @@
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R024-Ten.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
 1999-11-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R023-Hiding-Enclosure.el: Merge
