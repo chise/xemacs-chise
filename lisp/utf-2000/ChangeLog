@@ -1,4 +1,38 @@
+2002-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R016-Table.el (U+51E1): Unify C1-443B; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for C1-443B.
+
+	* Ideograph-R003-Dot.el (C1-443B): Unify U+51E1; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for U+51E1.
+
 2002-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (C4-2152): Unify U+5188; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'.
+
+	* Ideograph-R037-Big.el (C3-2345): Unify U+4E54; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Unify C4-2152; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for C4-2152.
+
+	* Ideograph-R006-Hook.el (M-00239): Unify U-00020029; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for U-00020029.
+
+	* Ideograph-R004-Slash.el (U+4E54): Unify C3-2345; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for C3-2345.
+
+	* Ideograph-R001-One.el (U-00020029): Unify M-00239; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for M-00239.
 
 	* ideograph-util.el (insert-ideograph-radical-char-data): Specify
 	optional argument `radical' of `ideograph-char<' instead of bind
