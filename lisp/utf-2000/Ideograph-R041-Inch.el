@@ -789,7 +789,8 @@
      ((ideographic-strokes . 14)
       (total-strokes	   . 17)
       (<-ancient
-       ((=daikanwa	    . 07465)	; &I-M-07465;
+       ((=ks-x1001	    . #x5374)	; &M-07465; [51-84]
+	(=daikanwa	    . 07465)	; &I-M-07465;
 	))
       (<-ancient*sources
        daikanwa)
@@ -821,7 +822,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (<-ancient
-     ((=daikanwa	  . 07465)	; &I-M-07465;
+     ((=ks-x1001	  . #x5374)	; &M-07465; [51-84]
+      (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (=ucs		. #x21B51)	; 𡭑
     (=cns11643-7	. #x4659)	; &I-C7-4659; [38-57]
