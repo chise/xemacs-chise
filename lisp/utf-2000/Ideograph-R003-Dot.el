@@ -197,6 +197,14 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E28)	; ä¸¨
+      )
+     ((ucs		  . #x738B)	; çŽ‹
+      ))
     (shinjigen-1	. 42)
     (shinjigen-2	. 42)
     (ideograph-gt-pj-2	. #x306E)	; ý¡€€‚‰
