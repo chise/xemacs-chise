@@ -96,6 +96,7 @@
     (total-strokes	 . 6)
     (japanese-jisx0208-1978	. #x4675)	; ø»‚³ª
     (japanese-jisx0208		. #x4675)	; ø»‡‡²
+    (japanese-jisx0208-1990	. #x4675)	; ø½Š­¦
     (ucs			. #x5F10)	; å¼
     ))
 (define-char
