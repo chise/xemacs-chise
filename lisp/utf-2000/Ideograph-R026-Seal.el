@@ -368,10 +368,11 @@
     (chinese-cns11643-6 . #x2A24)	; ø»œ‚
     ))
 (define-char
-  '((ideographic-radical . 26)	; â¼™
+  '((->ucs		. #x7F37)	; ç¼·
+    (morohashi-daikanwa	28110 0 0)
+    (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (non-morohashi	2866 9)
     (chinese-cns11643-4 . #x2557)	; ø»—§–
     ))
 (define-char
