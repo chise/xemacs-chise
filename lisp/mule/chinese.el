@@ -46,8 +46,10 @@
 (modify-syntax-entry 'chinese-cns11643-5 "w")
 (modify-syntax-entry 'chinese-cns11643-6 "w")
 (modify-syntax-entry 'chinese-cns11643-7 "w")
-(modify-syntax-entry 'chinese-big5-1 "w")
-(modify-syntax-entry 'chinese-big5-2 "w")
+(if (featurep 'utf-2000)
+    (modify-syntax-entry 'chinese-big5 "w")
+  (modify-syntax-entry 'chinese-big5-1 "w")
+  (modify-syntax-entry 'chinese-big5-2 "w"))
 
 (modify-category-entry 'chinese-cns11643-3 ?t)
 (modify-category-entry 'chinese-cns11643-4 ?t)
