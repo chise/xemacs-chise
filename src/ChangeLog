@@ -1,3 +1,76 @@
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fcharset_name): Define `byte_offset' in
+	non-UTF-2000 configuration.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_shift_jis): Use `charset_code_point'
+	not to use `XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201)'.
+
+	* mule-charset.c (mark_charset): `cs->encoding_table' has been
+	deleted.
+	(make_charset): Don't use `CHARSET_ENCODING_TABLE(cs)'.
+	(Fset_charset_mapping_table): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Delete `encoding_table'.
+	(CHARSET_ENCODING_TABLE): Delete.
+	(XCHARSET_ENCODING_TABLE): Delete.
+	(charset_code_point): New interface.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (char_encode_iso2022): Use `charset_code_point'
+	instead of `charset_get_byte1' and `charset_get_byte2'.
+
+	* mule-charset.c, char-ucs.h (charset_get_byte1): Deleted.
+	(charset_get_byte2): Deleted.
+
+1999-10-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): New inline function.
+	(breakup_char_1): Use `SPLIT_CHAR'.
+
+	* mule-charset.c (range_charset_code_point): New function.
+	(charset_code_point): New function.
+
+	* char-ucs.h (range_charset_code_point): New interface.
+	(breakup_char_1): Use `range_charset_code_point'.
+
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Delete unused local variable
+	`code_offset'.
+
+	* char-ucs.h (Vcharacter_attribute_table): New extern variable.
+	(breakup_char_1): Find a charset and code-point in
+	`Vcharacter_attribute_table'.
+
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.10 (Yao).
+
+1999-10-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharacter_attribute_table): New variable.
+	(Fchar_attribute_alist): New function.
+	(Fget_char_attribute): New function.
+	(Fput_char_attribute): New function.
+	(Fset_charset_mapping_table): Setup `Vcharacter_attribute_table'
+	too.
+	(syms_of_mule_charset): Add new function `char-attribute-alist',
+	`get-char-attribute' and `put-char-attribute'.
+	(vars_of_mule_charset): Setup `Vcharacter_attribute_table'.
+
+1999-10-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Just use
+	`get_unallocated_leading_byte'.
+
+	* char-ucs.h (LEADING_BYTE_*): Use ISO-IR numbers for official
+	sets; don't use final-byte based number for private sets.
+
 1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'

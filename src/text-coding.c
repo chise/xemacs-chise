@@ -3240,16 +3240,16 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      Lisp_Object charset, value;
+      Lisp_Object charset;
       unsigned int c1, c2, s1, s2;
-      
 #ifdef UTF2000
-      if (INTP (value =
-		get_char_code_table
-		(ch, XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201))))
+      Lisp_Object value = charset_code_point (Vcharset_latin_jisx0201, ch);
+      Lisp_Object ret = Fcar (value);
+
+      if (INTP (ret))
 	{
 	  charset = Vcharset_latin_jisx0201;
-	  c1 = XINT (value);
+	  c1 = XINT (ret);
 	  c2 = 0;
 	}
       else
@@ -5046,15 +5046,33 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       reg = -1;
       for (i = 0; i < 4; i++)
 	{
+	  Lisp_Object code_point;
+
 	  if ((CHARSETP (charset = str->iso2022.charset[i])
-	       && (byte1 = charset_get_byte1 (charset, ch))) ||
+	       && !EQ (code_point = charset_code_point (charset, ch), Qnil))
+	      ||
 	      (CHARSETP
 	       (charset
 		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
-	       && (byte1 = charset_get_byte1 (charset, ch))))
+	       && !EQ (code_point = charset_code_point (charset, ch), Qnil)))
 	    {
+	      Lisp_Object ret = Fcar (code_point);
+
+	      if (INTP (ret))
+		{
+		  byte1 = XINT (ret);
+		  ret = Fcar (Fcdr (code_point));
+		  if (INTP (ret))
+		    byte2 = XINT (ret);
+		  else
+		    byte2 = 0;
+		}
+	      else
+		{
+		  byte1 = 0;
+		  byte2 = 0;
+		}
 	      reg = i;
-	      byte2 = charset_get_byte2 (charset, ch);
 	      break;
 	    }
 	}
