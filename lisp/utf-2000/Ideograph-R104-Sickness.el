@@ -4424,12 +4424,12 @@
     (=ucs@jis		. #x7613)	; �����
     ))
 (define-char
-  '((=>ucs		. #x7613)	; 瘓
-    (morohashi-daikanwa	22351 0 2)
+  '((morohashi-daikanwa	22351 0 2)
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=gb12345		. #x3B3E)	; 􇘓
+    (=ucs		. #x7613)	; 瘓
+    (=gb12345		. #x3B3E)	; 瘓
     ))
 (define-char
   '((=>ucs		. #x7613)	; 瘓
