@@ -1,3 +1,20 @@
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
+2001-05-10  Paul Stodghill  <stodghil@cs.cornell.edu>
+
+	* configure.in: Reverse the order of Windows and Linux sound tests
+	so that	Cygwin will find Windows first.
+
+2001-05-15  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/photos/{youngs,youngsm}.png:  New photos.
+
+2001-05-15  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/PACKAGES: Update to reflect new package dir tree.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.

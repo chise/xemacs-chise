@@ -1,3 +1,26 @@
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c: Define DECLARE_NOTHING when "lisp.h" is not included.
+
+2001-05-08  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c (Vcase_fold_search): Remove obsolete
+	  comment about non ASCII case-fold-search.  This
+	  bug has been fixed by case-table changes.
+
+2001-05-11  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* event-msw.c: Restore include of events-mod.h.
+
+2001-04-22   zhaoway  <zw@debian.org>
+
+	* event-stream.c (is_scrollbar_event): Noop returning 0 if
+	!HAVE_SCROLLBARS.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
@@ -37,11 +60,6 @@
 
 	* s/aix4.h: Fix crash with xlc -O3.
 	Improve comment explaining how -O3 works.
-
-2001-04-22   zhaoway  <zw@debian.org>
-
-	* event-stream.c (is_scrollbar_event): Noop returning 0 if
-	!HAVE_SCROLLBARS.
 
 2001-04-15  Ben Wing  <ben@xemacs.org>
 

@@ -1,3 +1,13 @@
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
+2001-05-15  Steve Youngs  <youngs@xemacs.org>
+
+	* xemacs/packages.texi (Local.rules): Update to reflect new dir tree.
+	(Creating Packages): Ditto.
+	(Available Packages): Ditto.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
