@@ -1,5 +1,12 @@
 2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R041-Inch.el (U+5C0A): Changed to abstract character.
+	(K0-706E): Use `<-denotational' for U+5C0A; use `->subsumptive';
+	unify GT-09378 and GT-K09091.
+	(J0-423A): Use `<-denotational' for U+5C0A; use `->subsumptive'.
+
+2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for
 	J90-{507C|417C|5371|3766|3E7D}.
 
