@@ -13225,18 +13225,49 @@
     (ucs			. #x5008)	; å€ˆ
     ))
 (define-char
-  '((ideographic-radical . 9)	; â¼ˆ
+  '((=>ucs		. #x5009)	; å€‰
+    (ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; â¿¸
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((chinese-big5-cdp   . #x8AFC)	; ý¢€ˆ«¼
+	)
+       ((chinese-big5-cdp   . #x89CE)	; ý¢€ˆ§Ž
+	))
+      )
+     ((ucs		  . #x53E3)	; å£
+      ))
+    (shinjigen-1	. 1091)
+    (shinjigen-2	. 1092)
+    (japanese-jisx0208-1978	. #x4152)	; ø»‚«±
+    (japanese-jisx0208		. #x4152)	; ø»†¿¹
+    (korean-ksc5601		. #x735A)	; ø»Š“¡
+    (chinese-cns11643-1		. #x543F)	; ø»’´
+    (japanese-jisx0208-1990	. #x4152)	; ø½Š¥­
+    (chinese-big5		. #xADDC)	; øºŸº–
+    (ideograph-daikanwa		. 00756)	; ø¸€‹´
+    (mojikyo			. 000756)	; ý €€‹´
+    ))
+(define-char
+  '((morohashi-daikanwa	756 0 0)
+    (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 169)
     (hanyu-dazidian-char . 15)
-    (comment		. "S:R030")
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+     ((ucs		  . #x4EBD)	; äº½
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -13247,18 +13278,8 @@
        ((ucs		    . #x53E3)	; å£
 	))
       ))
-    (shinjigen-1	. 1091)
-    (shinjigen-2	. 1092)
-    (japanese-jisx0208-1978	. #x4152)	; ø»‚«±
-    (japanese-jisx0208		. #x4152)	; ø»†¿¹
-    (korean-ksc5601		. #x735A)	; ø»Š“¡
-    (chinese-cns11643-1		. #x543F)	; ø»’´
-    (japanese-jisx0208-1990	. #x4152)	; ø½Š¥­
-    (chinese-gb12345		. #x3256)	; å€‰
-    (chinese-big5		. #xADDC)	; øºŸº–
-    (ideograph-daikanwa		. 00756)	; ø¸€‹´
-    (mojikyo			. 000756)	; ý €€‹´
-    (ucs			. #x5009)	; å€‰
+    (chinese-gb12345	. #x3256)	; å€‰
+    (ucs		. #x5009)	; å€‰
     ))
 (define-char
   '((=>ucs		. #x500A)	; å€Š
@@ -17045,7 +17066,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((chinese-big5-cdp	  . #x8CAD)	; ý¢€ˆ²­
+     ((ucs		  . #x67BC)	; æž¼
       ))
     (ideograph-daikanwa . 00867)	; ø¸€£
     (mojikyo		. 000867)	; ý €€£
