@@ -3163,7 +3163,7 @@ Make a character from CHARSET and code-point CODE.
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
   c = DECODE_CHAR (charset, c);
-  return c ? make_char (c) : Qnil;
+  return c >= 0 ? make_char (c) : Qnil;
 }
 
 DEFUN ("decode-builtin-char", Fdecode_builtin_char, 2, 2, 0, /*
