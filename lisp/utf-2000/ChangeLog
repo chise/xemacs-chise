@@ -1,3 +1,8 @@
+2005-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5D11): Use `->subsumptive'.
+	(U-00021E1C): Likewise.
+
 2005-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R071-Not.el (J0-5A5B): Unify CB07099.
