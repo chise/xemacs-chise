@@ -1,5 +1,58 @@
 2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R196-Bird.el (U+9D48): Unify J78-727E and J83-727E.
+	(J83-7337): New character.
+
+	* Ideograph-R195-Fish.el (J90-724F): Separate U+9BF1.
+	(U+9BF1): Unify J78-724F and J83-724F.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J0-7033): Add
+	`jisx0208-difference'.
+
+	* Ideograph-R109-Eye.el (M-23314): Separate G0-4C77, C1-5C3C,
+	J90-442F and U+773A; unify J78-442F and J83-442F.
+	(M-23694): Unify G0-4B32 and U+77AC.
+	(C1-7449): Separate G0-4B32, J90-3D56 and U+77AC.
+	(J83-3D56): New character.
+
+	* Ideograph-R108-Dish.el (M-22959): Separate S2-5238, G0-4568,
+	C1-5259, J90-4B5F and U+76C6; unify J78-4B5F and J83-4B5F.
+
+	* Ideograph-R104-Sickness.el (J90-6221): Separate S2-5189.
+	(S2-5189): Unify J78-6221 and J83-6221.
+
+	* Ideograph-R098-Tile.el (M-21586): Separate S1-4996, S2-4996 and
+	C1-7148; unify J78-612E and J83-612E.
+
+	* Ideograph-R097-Melon.el (J83-6121): New character; unify
+	J78-6121; relate to U+74E0 and M-21392.
+
+	* Ideograph-R088-Father.el (M-19721): Separate G0-3838, C1-4558,
+	J90-4963 and U+7236; unify J78-4963 and J83-4963.
+
+	* Ideograph-R086-Fire.el (M-19520): Separate EGB-2D6C, C2-6228,
+	J90-6022 and U+71FF; unify J78-6022 and J83-6022.
+
+	* Ideograph-R082-Fur.el (J90-5D61): Separate S2-4033.
+	(S2-4033): Unify K0-6E7D.
+	(J83-5D61): New character; relate to U+6C08 and M-16982.
+
+	* Ideograph-R075-Tree.el:
+	- Add missing JIS X 0208 code points.
+	- Fix some code points.
+
+	* Ideograph-R067-Script.el (M-13469): Unify J78-4865 and J83-4865.
+
+	* Ideograph-R064-Hand.el (M-11824): Separate J90-592E and U+6268;
+	unify J78-592E and J83-592E; add `total-strokes'.
+	(M-12557'): Separate J90-405D; unify J78-405D and J83-405D; add
+	`total-strokes'.
+
+	* README.en (Character Reference): Modify characters of
+	`chuuka-daijiten' and `seiji-tsuu'.
+
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R162-Walk.el (J0-4A55): Unify JIS X 0208:1978 and 1983
 	code points.
 	(J78-4454): Add `jisx0208-type' instead of `jisx0208-difference'.
