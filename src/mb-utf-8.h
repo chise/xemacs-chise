@@ -1,4 +1,4 @@
-/* Header for UTF-8 buffer/string representation.
+/* Header for UTF-8 string representation.
    Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
 
@@ -19,7 +19,7 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
+/* Author: MORIOKA Tomohiko <tomo@m17n.org>. */
 
 #ifndef _XEMACS_MB_UTF_8_H
 #define _XEMACS_MB_UTF_8_H
