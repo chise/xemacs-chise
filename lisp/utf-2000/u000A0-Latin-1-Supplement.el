@@ -7,7 +7,7 @@
     (->decomposition	noBreak #x0020)
     (->fullwidth
      ((name		  . "fullwidth no-break space")
-      (=jis-x0213-1-2000  . #x2922)	; &JX1-2922;
+      (=jis-x0213-1-2000  . #x2922)	; &JX1-2922; [09-02]
       ))
     (=ucs		. #x00A0)	;  
     (latin-iso8859-1	. #xA0)	; &I-LATIN1-20;
@@ -30,7 +30,7 @@
      ((name		  . "NO-BREAK SPACE")
       (=ucs		  . #x00A0)	;  
       ))
-    (=jis-x0213-1-2000	. #x2922)	; &JX1-2922;
+    (=jis-x0213-1-2000	. #x2922)	; &JX1-2922; [09-02]
     (=ucs@jis		. #x00A0)	; &JX1-2922;
     ))
 (define-char
@@ -40,9 +40,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth inverted exclamation mark")
-      (=ks-x1001	  . #x222E)	; &JX1-2923;
-      (=jis-x0212	  . #x2242)	; &I-JSP-2242;
-      (=jis-x0213-1-2000  . #x2923)	; &I-JX1-2923;
+      (=ks-x1001	  . #x222E)	; &JX1-2923; [02-14]
+      (=jis-x0212	  . #x2242)	; &I-JSP-2242; [02-34]
+      (=jis-x0213-1-2000  . #x2923)	; &I-JX1-2923; [09-03]
       ))
     (=ucs		. #x00A1)	; ¡
     (latin-iso8859-1	. #xA1)	; &I-LATIN1-21;
@@ -58,9 +58,9 @@
      ((name		  . "INVERTED EXCLAMATION MARK")
       (=ucs		  . #x00A1)	; ¡
       ))
-    (=ks-x1001		. #x222E)	; &JX1-2923;
-    (=jis-x0212		. #x2242)	; &I-JSP-2242;
-    (=jis-x0213-1-2000	. #x2923)	; &I-JX1-2923;
+    (=ks-x1001		. #x222E)	; &JX1-2923; [02-14]
+    (=jis-x0212		. #x2242)	; &I-JSP-2242; [02-34]
+    (=jis-x0213-1-2000	. #x2923)	; &I-JX1-2923; [09-03]
     (=ucs@jis		. #x00A1)	; &JX1-2923;
     ))
 (define-char
@@ -100,10 +100,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth currency sign")
-      (=gb2312		  . #x2168)	; &JX1-2924;
-      (=ks-x1001	  . #x2234)	; &I-K0-2234;
-      (=jis-x0212	  . #x2270)	; &I-JSP-2270;
-      (=jis-x0213-1-2000  . #x2924)	; &I-JX1-2924;
+      (=gb2312		  . #x2168)	; &JX1-2924; [01-72]
+      (=ks-x1001	  . #x2234)	; &I-K0-2234; [02-20]
+      (=jis-x0212	  . #x2270)	; &I-JSP-2270; [02-80]
+      (=jis-x0213-1-2000  . #x2924)	; &I-JX1-2924; [09-04]
       ))
     (=ucs		. #x00A4)	; ¤
     (latin-iso8859-1	. #xA4)	; &I-LATIN1-24;
@@ -123,10 +123,10 @@
      ((name		  . "CURRENCY SIGN")
       (=ucs		  . #x00A4)	; ¤
       ))
-    (=gb2312		. #x2168)	; &JX1-2924;
-    (=ks-x1001		. #x2234)	; &I-K0-2234;
-    (=jis-x0212		. #x2270)	; &I-JSP-2270;
-    (=jis-x0213-1-2000	. #x2924)	; &I-JX1-2924;
+    (=gb2312		. #x2168)	; &JX1-2924; [01-72]
+    (=ks-x1001		. #x2234)	; &I-K0-2234; [02-20]
+    (=jis-x0212		. #x2270)	; &I-JSP-2270; [02-80]
+    (=jis-x0213-1-2000	. #x2924)	; &I-JX1-2924; [09-04]
     (=ucs@jis		. #x00A4)	; &JX1-2924;
     ))
 (define-char
@@ -166,10 +166,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth section sign")
-      (=jis-x0208	  . #x2178)	; &J90-2178;
-      (=gb2312		  . #x216C)	; &I-G0-216C;
-      (=ks-x1001	  . #x2157)	; &I-K0-2157;
-      (=cns11643-1	  . #x2170)	; &I-C1-2170;
+      (=jis-x0208	  . #x2178)	; &J90-2178; [01-88]
+      (=gb2312		  . #x216C)	; &I-G0-216C; [01-76]
+      (=ks-x1001	  . #x2157)	; &I-K0-2157; [01-55]
+      (=cns11643-1	  . #x2170)	; &I-C1-2170; [01-80]
       ))
     (=ucs		. #x00A7)	; §
     (latin-iso8859-1	. #xA7)	; &I-LATIN1-27;
@@ -191,10 +191,10 @@
      ((name		  . "SECTION SIGN")
       (=ucs		  . #x00A7)	; §
       ))
-    (=jis-x0208		. #x2178)	; &J90-2178;
-    (=gb2312		. #x216C)	; &I-G0-216C;
-    (=ks-x1001		. #x2157)	; &I-K0-2157;
-    (=cns11643-1	. #x2170)	; &I-C1-2170;
+    (=jis-x0208		. #x2178)	; &J90-2178; [01-88]
+    (=gb2312		. #x216C)	; &I-G0-216C; [01-76]
+    (=ks-x1001		. #x2157)	; &I-K0-2157; [01-55]
+    (=cns11643-1	. #x2170)	; &I-C1-2170; [01-80]
     (=big5		. #xA1B1)	; &I-B-A1B1;
     (=ucs@jis		. #x00A7)	; &J90-2178;
     ))
@@ -206,9 +206,9 @@
     (->decomposition	compat #x0020 #x0308)
     (->fullwidth
      ((name		  . "fullwidth diaeresis")
-      (=jis-x0208	  . #x212F)	; &J90-212F;
-      (=gb2312		  . #x2127)	; &I-G0-2127;
-      (=ks-x1001	  . #x2127)	; &I-K0-2127;
+      (=jis-x0208	  . #x212F)	; &J90-212F; [01-15]
+      (=gb2312		  . #x2127)	; &I-G0-2127; [01-07]
+      (=ks-x1001	  . #x2127)	; &I-K0-2127; [01-07]
       ))
     (=ucs		. #x00A8)	; ¨
     (latin-iso8859-1	. #xA8)	; &I-LATIN1-28;
@@ -229,9 +229,9 @@
      ((name		  . "DIAERESIS")
       (=ucs		  . #x00A8)	; ¨
       ))
-    (=jis-x0208		. #x212F)	; &J90-212F;
-    (=gb2312		. #x2127)	; &I-G0-2127;
-    (=ks-x1001		. #x2127)	; &I-K0-2127;
+    (=jis-x0208		. #x212F)	; &J90-212F; [01-15]
+    (=gb2312		. #x2127)	; &I-G0-2127; [01-07]
+    (=ks-x1001		. #x2127)	; &I-K0-2127; [01-07]
     (=big5-eten		. #xC6D8)	; &B-C6D8;
     (=jef-china3	. #x81AA)	; &I-JC3-81AA;
     (=ucs@jis		. #x00A8)	; &J90-212F;
@@ -243,8 +243,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth copyright sign")
-      (=jis-x0212	  . #x226D)	; &JX1-2926;
-      (=jis-x0213-1-2000  . #x2926)	; &I-JX1-2926;
+      (=jis-x0212	  . #x226D)	; &JX1-2926; [02-77]
+      (=jis-x0213-1-2000  . #x2926)	; &I-JX1-2926; [09-06]
       ))
     (=ucs		. #x00A9)	; ©
     (latin-iso8859-1	. #xA9)	; &I-LATIN1-29;
@@ -262,8 +262,8 @@
      ((name		  . "COPYRIGHT SIGN")
       (=ucs		  . #x00A9)	; ©
       ))
-    (=jis-x0212		. #x226D)	; &JX1-2926;
-    (=jis-x0213-1-2000	. #x2926)	; &I-JX1-2926;
+    (=jis-x0212		. #x226D)	; &JX1-2926; [02-77]
+    (=jis-x0213-1-2000	. #x2926)	; &I-JX1-2926; [09-06]
     (=ucs@jis		. #x00A9)	; &JX1-2926;
     ))
 (define-char
@@ -274,9 +274,9 @@
     (->decomposition	super #x0061)
     (->fullwidth
      ((name		  . "fullwidth feminine ordinal indicator")
-      (=ks-x1001	  . #x2823)	; &JX1-2927;
-      (=jis-x0212	  . #x226C)	; &I-JSP-226C;
-      (=jis-x0213-1-2000  . #x2927)	; &I-JX1-2927;
+      (=ks-x1001	  . #x2823)	; &JX1-2927; [08-03]
+      (=jis-x0212	  . #x226C)	; &I-JSP-226C; [02-76]
+      (=jis-x0213-1-2000  . #x2927)	; &I-JX1-2927; [09-07]
       ))
     (=ucs		. #x00AA)	; ª
     (latin-iso8859-1	. #xAA)	; &I-LATIN1-2A;
@@ -292,9 +292,9 @@
      ((name		  . "FEMININE ORDINAL INDICATOR")
       (=ucs		  . #x00AA)	; ª
       ))
-    (=ks-x1001		. #x2823)	; &JX1-2927;
-    (=jis-x0212		. #x226C)	; &I-JSP-226C;
-    (=jis-x0213-1-2000	. #x2927)	; &I-JX1-2927;
+    (=ks-x1001		. #x2823)	; &JX1-2927; [08-03]
+    (=jis-x0212		. #x226C)	; &I-JSP-226C; [02-76]
+    (=jis-x0213-1-2000	. #x2927)	; &I-JX1-2927; [09-07]
     (=ucs@jis		. #x00AA)	; &JX1-2927;
     ))
 (define-char
@@ -304,7 +304,7 @@
     (mirrored		. t)
     (->fullwidth
      ((name . "fullwidth left-pointing double angle quotation mark")
-      (=jis-x0213-1-2000  . #x2928)	; &JX1-2928;
+      (=jis-x0213-1-2000  . #x2928)	; &JX1-2928; [09-08]
       ))
     (=ucs		. #x00AB)	; «
     (latin-iso8859-1	. #xAB)	; &I-LATIN1-2B;
@@ -323,7 +323,7 @@
      ((name		  . "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK")
       (=ucs		  . #x00AB)	; «
       ))
-    (=jis-x0213-1-2000	. #x2928)	; &JX1-2928;
+    (=jis-x0213-1-2000	. #x2928)	; &JX1-2928; [09-08]
     (=ucs@jis		. #x00AB)	; &JX1-2928;
     ))
 (define-char
@@ -348,8 +348,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth soft hyphen")
-      (=ks-x1001	  . #x2129)	; &JX1-2929;
-      (=jis-x0213-1-2000  . #x2929)	; &I-JX1-2929;
+      (=ks-x1001	  . #x2129)	; &JX1-2929; [01-09]
+      (=jis-x0213-1-2000  . #x2929)	; &I-JX1-2929; [09-09]
       ))
     (=ucs		. #x00AD)	; ­
     (latin-iso8859-1	. #xAD)	; &I-LATIN1-2D;
@@ -371,8 +371,8 @@
      ((name		  . "SOFT HYPHEN")
       (=ucs		  . #x00AD)	; ­
       ))
-    (=ks-x1001		. #x2129)	; &JX1-2929;
-    (=jis-x0213-1-2000	. #x2929)	; &I-JX1-2929;
+    (=ks-x1001		. #x2129)	; &JX1-2929; [01-09]
+    (=jis-x0213-1-2000	. #x2929)	; &I-JX1-2929; [09-09]
     (=ucs@jis		. #x00AD)	; &JX1-2929;
     ))
 (define-char
@@ -382,8 +382,8 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth registered sign")
-      (=jis-x0212	  . #x226E)	; &JX1-292A;
-      (=jis-x0213-1-2000  . #x292A)	; &I-JX1-292A;
+      (=jis-x0212	  . #x226E)	; &JX1-292A; [02-78]
+      (=jis-x0213-1-2000  . #x292A)	; &I-JX1-292A; [09-10]
       ))
     (=ucs		. #x00AE)	; ®
     (latin-iso8859-1	. #xAE)	; &I-LATIN1-2E;
@@ -400,8 +400,8 @@
      ((name		  . "REGISTERED SIGN")
       (=ucs		  . #x00AE)	; ®
       ))
-    (=jis-x0212		. #x226E)	; &JX1-292A;
-    (=jis-x0213-1-2000	. #x292A)	; &I-JX1-292A;
+    (=jis-x0212		. #x226E)	; &JX1-292A; [02-78]
+    (=jis-x0213-1-2000	. #x292A)	; &I-JX1-292A; [09-10]
     (=jef-china3	. #x81A1)	; &I-JC3-81A1;
     (=ucs@jis		. #x00AE)	; &JX1-292A;
     ))
@@ -427,10 +427,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth degree sign")
-      (=jis-x0208	  . #x216B)	; &J90-216B;
-      (=gb2312		  . #x2163)	; &I-G0-2163;
-      (=ks-x1001	  . #x2146)	; &I-K0-2146;
-      (=cns11643-1	  . #x2278)	; &I-C1-2278;
+      (=jis-x0208	  . #x216B)	; &J90-216B; [01-75]
+      (=gb2312		  . #x2163)	; &I-G0-2163; [01-67]
+      (=ks-x1001	  . #x2146)	; &I-K0-2146; [01-38]
+      (=cns11643-1	  . #x2278)	; &I-C1-2278; [02-88]
       ))
     (=ucs		. #x00B0)	; °
     (latin-iso8859-1	. #xB0)	; &I-LATIN1-30;
@@ -451,10 +451,10 @@
      ((name		  . "DEGREE SIGN")
       (=ucs		  . #x00B0)	; °
       ))
-    (=jis-x0208		. #x216B)	; &J90-216B;
-    (=gb2312		. #x2163)	; &I-G0-2163;
-    (=ks-x1001		. #x2146)	; &I-K0-2146;
-    (=cns11643-1	. #x2278)	; &I-C1-2278;
+    (=jis-x0208		. #x216B)	; &J90-216B; [01-75]
+    (=gb2312		. #x2163)	; &I-G0-2163; [01-67]
+    (=ks-x1001		. #x2146)	; &I-K0-2146; [01-38]
+    (=cns11643-1	. #x2278)	; &I-C1-2278; [02-88]
     (=big5		. #xA258)	; &I-B-A258;
     (=ucs@jis		. #x00B0)	; &J90-216B;
     ))
@@ -465,10 +465,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth plus-minus sign")
-      (=jis-x0208	  . #x215E)	; &J90-215E;
-      (=gb2312		  . #x2140)	; &I-G0-2140;
-      (=ks-x1001	  . #x213E)	; &I-K0-213E;
-      (=cns11643-1	  . #x2234)	; &I-C1-2234;
+      (=jis-x0208	  . #x215E)	; &J90-215E; [01-62]
+      (=gb2312		  . #x2140)	; &I-G0-2140; [01-32]
+      (=ks-x1001	  . #x213E)	; &I-K0-213E; [01-30]
+      (=cns11643-1	  . #x2234)	; &I-C1-2234; [02-20]
       ))
     (=ucs		. #x00B1)	; ±
     (latin-iso8859-1	. #xB1)	; &I-LATIN1-31;
@@ -486,10 +486,10 @@
      ((name		  . "PLUS-MINUS SIGN")
       (=ucs		  . #x00B1)	; ±
       ))
-    (=jis-x0208		. #x215E)	; &J90-215E;
-    (=gb2312		. #x2140)	; &I-G0-2140;
-    (=ks-x1001		. #x213E)	; &I-K0-213E;
-    (=cns11643-1	. #x2234)	; &I-C1-2234;
+    (=jis-x0208		. #x215E)	; &J90-215E; [01-62]
+    (=gb2312		. #x2140)	; &I-G0-2140; [01-32]
+    (=ks-x1001		. #x213E)	; &I-K0-213E; [01-30]
+    (=cns11643-1	. #x2234)	; &I-C1-2234; [02-20]
     (=big5		. #xA1D3)	; &I-B-A1D3;
     (=ucs@jis		. #x00B1)	; &J90-215E;
     ))
@@ -504,8 +504,8 @@
     (->decomposition	super #x0032)
     (->fullwidth
      ((name		  . "fullwidth superscript two")
-      (=ks-x1001	  . #x2977)	; &JX1-292C;
-      (=jis-x0213-1-2000  . #x292C)	; &I-JX1-292C;
+      (=ks-x1001	  . #x2977)	; &JX1-292C; [09-87]
+      (=jis-x0213-1-2000  . #x292C)	; &I-JX1-292C; [09-12]
       ))
     (=ucs		. #x00B2)	; ²
     (latin-iso8859-1	. #xB2)	; &I-LATIN1-32;
@@ -527,8 +527,8 @@
      ((name		  . "SUPERSCRIPT TWO")
       (=ucs		  . #x00B2)	; ²
       ))
-    (=ks-x1001		. #x2977)	; &JX1-292C;
-    (=jis-x0213-1-2000	. #x292C)	; &I-JX1-292C;
+    (=ks-x1001		. #x2977)	; &JX1-292C; [09-87]
+    (=jis-x0213-1-2000	. #x292C)	; &I-JX1-292C; [09-12]
     (=ucs@jis		. #x00B2)	; &JX1-292C;
     ))
 (define-char
@@ -542,8 +542,8 @@
     (->decomposition	super #x0033)
     (->fullwidth
      ((name		  . "fullwidth superscript three")
-      (=ks-x1001	  . #x2978)	; &JX1-292D;
-      (=jis-x0213-1-2000  . #x292D)	; &I-JX1-292D;
+      (=ks-x1001	  . #x2978)	; &JX1-292D; [09-88]
+      (=jis-x0213-1-2000  . #x292D)	; &I-JX1-292D; [09-13]
       ))
     (=ucs		. #x00B3)	; ³
     (latin-iso8859-1	. #xB3)	; &I-LATIN1-33;
@@ -565,8 +565,8 @@
      ((name		  . "SUPERSCRIPT THREE")
       (=ucs		  . #x00B3)	; ³
       ))
-    (=ks-x1001		. #x2978)	; &JX1-292D;
-    (=jis-x0213-1-2000	. #x292D)	; &I-JX1-292D;
+    (=ks-x1001		. #x2978)	; &JX1-292D; [09-88]
+    (=jis-x0213-1-2000	. #x292D)	; &I-JX1-292D; [09-13]
     (=ucs@jis		. #x00B3)	; &JX1-292D;
     ))
 (define-char
@@ -577,8 +577,8 @@
     (->decomposition	compat #x0020 #x0301)
     (->fullwidth
      ((name		  . "fullwidth acute accent")
-      (=jis-x0208	  . #x212D)	; &J90-212D;
-      (=ks-x1001	  . #x2225)	; &I-K0-2225;
+      (=jis-x0208	  . #x212D)	; &J90-212D; [01-13]
+      (=ks-x1001	  . #x2225)	; &I-K0-2225; [02-05]
       ))
     (=ucs		. #x00B4)	; ´
     (latin-iso8859-1	. #xB4)	; &I-LATIN1-34;
@@ -598,8 +598,8 @@
      ((name		  . "ACUTE ACCENT")
       (=ucs		  . #x00B4)	; ´
       ))
-    (=jis-x0208		. #x212D)	; &J90-212D;
-    (=ks-x1001		. #x2225)	; &I-K0-2225;
+    (=jis-x0208		. #x212D)	; &J90-212D; [01-13]
+    (=ks-x1001		. #x2225)	; &I-K0-2225; [02-05]
     (=jef-china3	. #x81A4)	; &I-JC3-81A4;
     (=ucs@jis		. #x00B4)	; &J90-212D;
     ))
@@ -622,9 +622,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth pilcrow sign")
-      (=jis-x0208-1983	  . #x2279)	; &J90-2279;
-      (=ks-x1001	  . #x2252)	; &I-K0-2252;
-      (=jis-x0208-1990	  . #x2279)	; &I-J90-2279;
+      (=jis-x0208-1983	  . #x2279)	; &J90-2279; [02-89]
+      (=ks-x1001	  . #x2252)	; &I-K0-2252; [02-50]
+      (=jis-x0208-1990	  . #x2279)	; &I-J90-2279; [02-89]
       ))
     (=ucs		. #x00B6)	; ¶
     (latin-iso8859-1	. #xB6)	; &I-LATIN1-36;
@@ -641,9 +641,9 @@
      ((name		  . "PILCROW SIGN")
       (=ucs		  . #x00B6)	; ¶
       ))
-    (=jis-x0208-1983	. #x2279)	; &J90-2279;
-    (=ks-x1001		. #x2252)	; &I-K0-2252;
-    (=jis-x0208-1990	. #x2279)	; &I-J90-2279;
+    (=jis-x0208-1983	. #x2279)	; &J90-2279; [02-89]
+    (=ks-x1001		. #x2252)	; &I-K0-2252; [02-50]
+    (=jis-x0208-1990	. #x2279)	; &I-J90-2279; [02-89]
     (=ucs@jis		. #x00B6)	; &J90-2279;
     ))
 (define-char
@@ -653,9 +653,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth middle dot")
-      (=ks-x1001	  . #x2124)	; &JX1-292E;
-      (=cns11643-1	  . #x2126)	; &I-C1-2126;
-      (=jis-x0213-1-2000  . #x292E)	; &I-JX1-292E;
+      (=ks-x1001	  . #x2124)	; &JX1-292E; [01-04]
+      (=cns11643-1	  . #x2126)	; &I-C1-2126; [01-06]
+      (=jis-x0213-1-2000  . #x292E)	; &I-JX1-292E; [09-14]
       ))
     (=ucs		. #x00B7)	; ·
     (latin-iso8859-1	. #xB7)	; &I-LATIN1-37;
@@ -674,9 +674,9 @@
      ((name		  . "MIDDLE DOT")
       (=ucs		  . #x00B7)	; ·
       ))
-    (=ks-x1001		. #x2124)	; &JX1-292E;
-    (=cns11643-1	. #x2126)	; &I-C1-2126;
-    (=jis-x0213-1-2000	. #x292E)	; &I-JX1-292E;
+    (=ks-x1001		. #x2124)	; &JX1-292E; [01-04]
+    (=cns11643-1	. #x2126)	; &I-C1-2126; [01-06]
+    (=jis-x0213-1-2000	. #x292E)	; &I-JX1-292E; [09-14]
     (=big5		. #xA150)	; &I-B-A150;
     (=ucs@jis		. #x00B7)	; &JX1-292E;
     ))
@@ -688,9 +688,9 @@
     (->decomposition	compat #x0020 #x0327)
     (->fullwidth
      ((name		  . "fullwidth cedilla")
-      (=ks-x1001	  . #x222C)	; &JX1-292F;
-      (=jis-x0212	  . #x2231)	; &I-JSP-2231;
-      (=jis-x0213-1-2000  . #x292F)	; &I-JX1-292F;
+      (=ks-x1001	  . #x222C)	; &JX1-292F; [02-12]
+      (=jis-x0212	  . #x2231)	; &I-JSP-2231; [02-17]
+      (=jis-x0213-1-2000  . #x292F)	; &I-JX1-292F; [09-15]
       ))
     (=ucs		. #x00B8)	; ¸
     (latin-iso8859-1	. #xB8)	; &I-LATIN1-38;
@@ -710,9 +710,9 @@
      ((name		  . "CEDILLA")
       (=ucs		  . #x00B8)	; ¸
       ))
-    (=ks-x1001		. #x222C)	; &JX1-292F;
-    (=jis-x0212		. #x2231)	; &I-JSP-2231;
-    (=jis-x0213-1-2000	. #x292F)	; &I-JX1-292F;
+    (=ks-x1001		. #x222C)	; &JX1-292F; [02-12]
+    (=jis-x0212		. #x2231)	; &I-JSP-2231; [02-17]
+    (=jis-x0213-1-2000	. #x292F)	; &I-JX1-292F; [09-15]
     (=jef-china3	. #x81B2)	; &I-JC3-81B2;
     (=ucs@jis		. #x00B8)	; &JX1-292F;
     ))
@@ -727,8 +727,8 @@
     (->decomposition	super #x0031)
     (->fullwidth
      ((name		  . "fullwidth superscript one")
-      (=ks-x1001	  . #x2976)	; &JX1-2930;
-      (=jis-x0213-1-2000  . #x2930)	; &I-JX1-2930;
+      (=ks-x1001	  . #x2976)	; &JX1-2930; [09-86]
+      (=jis-x0213-1-2000  . #x2930)	; &I-JX1-2930; [09-16]
       ))
     (=ucs		. #x00B9)	; ¹
     (latin-iso8859-1	. #xB9)	; &I-LATIN1-39;
@@ -748,8 +748,8 @@
      ((name		  . "SUPERSCRIPT ONE")
       (=ucs		  . #x00B9)	; ¹
       ))
-    (=ks-x1001		. #x2976)	; &JX1-2930;
-    (=jis-x0213-1-2000	. #x2930)	; &I-JX1-2930;
+    (=ks-x1001		. #x2976)	; &JX1-2930; [09-86]
+    (=jis-x0213-1-2000	. #x2930)	; &I-JX1-2930; [09-16]
     (=ucs@jis		. #x00B9)	; &JX1-2930;
     ))
 (define-char
@@ -760,9 +760,9 @@
     (->decomposition	super #x006F)
     (->fullwidth
      ((name		  . "fullwidth masculine ordinal indicator")
-      (=ks-x1001	  . #x282C)	; &JX1-2931;
-      (=jis-x0212	  . #x226B)	; &I-JSP-226B;
-      (=jis-x0213-1-2000  . #x2931)	; &I-JX1-2931;
+      (=ks-x1001	  . #x282C)	; &JX1-2931; [08-12]
+      (=jis-x0212	  . #x226B)	; &I-JSP-226B; [02-75]
+      (=jis-x0213-1-2000  . #x2931)	; &I-JX1-2931; [09-17]
       ))
     (=ucs		. #x00BA)	; º
     (latin-iso8859-1	. #xBA)	; &I-LATIN1-3A;
@@ -778,9 +778,9 @@
      ((name		  . "MASCULINE ORDINAL INDICATOR")
       (=ucs		  . #x00BA)	; º
       ))
-    (=ks-x1001		. #x282C)	; &JX1-2931;
-    (=jis-x0212		. #x226B)	; &I-JSP-226B;
-    (=jis-x0213-1-2000	. #x2931)	; &I-JX1-2931;
+    (=ks-x1001		. #x282C)	; &JX1-2931; [08-12]
+    (=jis-x0212		. #x226B)	; &I-JSP-226B; [02-75]
+    (=jis-x0213-1-2000	. #x2931)	; &I-JX1-2931; [09-17]
     (=ucs@jis		. #x00BA)	; &JX1-2931;
     ))
 (define-char
@@ -790,7 +790,7 @@
     (mirrored		. t)
     (->fullwidth
      ((name . "fullwidth right-pointing double angle quotation mark")
-      (=jis-x0213-1-2000  . #x2932)	; &JX1-2932;
+      (=jis-x0213-1-2000  . #x2932)	; &JX1-2932; [09-18]
       ))
     (=ucs		. #x00BB)	; »
     (latin-iso8859-1	. #xBB)	; &I-LATIN1-3B;
@@ -809,7 +809,7 @@
      ((name		  . "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK")
       (=ucs		  . #x00BB)	; »
       ))
-    (=jis-x0213-1-2000	. #x2932)	; &JX1-2932;
+    (=jis-x0213-1-2000	. #x2932)	; &JX1-2932; [09-18]
     (=ucs@jis		. #x00BB)	; &JX1-2932;
     ))
 (define-char
@@ -821,8 +821,8 @@
     (->decomposition	fraction #x0031 #x2044 #x0034)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction one quarter")
-      (=ks-x1001	  . #x2879)	; &JX1-2933;
-      (=jis-x0213-1-2000  . #x2933)	; &I-JX1-2933;
+      (=ks-x1001	  . #x2879)	; &JX1-2933; [08-89]
+      (=jis-x0213-1-2000  . #x2933)	; &I-JX1-2933; [09-19]
       ))
     (=ucs		. #x00BC)	; ¼
     (latin-iso8859-1	. #xBC)	; &I-LATIN1-3C;
@@ -840,8 +840,8 @@
      ((name		  . "VULGAR FRACTION ONE QUARTER")
       (=ucs		  . #x00BC)	; ¼
       ))
-    (=ks-x1001		. #x2879)	; &JX1-2933;
-    (=jis-x0213-1-2000	. #x2933)	; &I-JX1-2933;
+    (=ks-x1001		. #x2879)	; &JX1-2933; [08-89]
+    (=jis-x0213-1-2000	. #x2933)	; &I-JX1-2933; [09-19]
     (=ucs@jis		. #x00BC)	; &JX1-2933;
     ))
 (define-char
@@ -853,8 +853,8 @@
     (->decomposition	fraction #x0031 #x2044 #x0032)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction one half")
-      (=ks-x1001	  . #x2876)	; &JX1-2934;
-      (=jis-x0213-1-2000  . #x2934)	; &I-JX1-2934;
+      (=ks-x1001	  . #x2876)	; &JX1-2934; [08-86]
+      (=jis-x0213-1-2000  . #x2934)	; &I-JX1-2934; [09-20]
       ))
     (=ucs		. #x00BD)	; ½
     (latin-iso8859-1	. #xBD)	; &I-LATIN1-3D;
@@ -874,8 +874,8 @@
      ((name		  . "VULGAR FRACTION ONE HALF")
       (=ucs		  . #x00BD)	; ½
       ))
-    (=ks-x1001		. #x2876)	; &JX1-2934;
-    (=jis-x0213-1-2000	. #x2934)	; &I-JX1-2934;
+    (=ks-x1001		. #x2876)	; &JX1-2934; [08-86]
+    (=jis-x0213-1-2000	. #x2934)	; &I-JX1-2934; [09-20]
     (=ucs@jis		. #x00BD)	; &JX1-2934;
     ))
 (define-char
@@ -887,8 +887,8 @@
     (->decomposition	fraction #x0033 #x2044 #x0034)
     (->fullwidth
      ((name		  . "fullwidth vulgar fraction three quarters")
-      (=ks-x1001	  . #x287A)	; &JX1-2935;
-      (=jis-x0213-1-2000  . #x2935)	; &I-JX1-2935;
+      (=ks-x1001	  . #x287A)	; &JX1-2935; [08-90]
+      (=jis-x0213-1-2000  . #x2935)	; &I-JX1-2935; [09-21]
       ))
     (=ucs		. #x00BE)	; ¾
     (latin-iso8859-1	. #xBE)	; &I-LATIN1-3E;
@@ -906,8 +906,8 @@
      ((name		  . "VULGAR FRACTION THREE QUARTERS")
       (=ucs		  . #x00BE)	; ¾
       ))
-    (=ks-x1001		. #x287A)	; &JX1-2935;
-    (=jis-x0213-1-2000	. #x2935)	; &I-JX1-2935;
+    (=ks-x1001		. #x287A)	; &JX1-2935; [08-90]
+    (=jis-x0213-1-2000	. #x2935)	; &I-JX1-2935; [09-21]
     (=ucs@jis		. #x00BE)	; &JX1-2935;
     ))
 (define-char
@@ -917,9 +917,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth inverted question mark")
-      (=ks-x1001	  . #x222F)	; &JX1-2936;
-      (=jis-x0212	  . #x2244)	; &I-JSP-2244;
-      (=jis-x0213-1-2000  . #x2936)	; &I-JX1-2936;
+      (=ks-x1001	  . #x222F)	; &JX1-2936; [02-15]
+      (=jis-x0212	  . #x2244)	; &I-JSP-2244; [02-36]
+      (=jis-x0213-1-2000  . #x2936)	; &I-JX1-2936; [09-22]
       ))
     (=ucs		. #x00BF)	; ¿
     (latin-iso8859-1	. #xBF)	; &I-LATIN1-3F;
@@ -935,9 +935,9 @@
      ((name		  . "INVERTED QUESTION MARK")
       (=ucs		  . #x00BF)	; ¿
       ))
-    (=ks-x1001		. #x222F)	; &JX1-2936;
-    (=jis-x0212		. #x2244)	; &I-JSP-2244;
-    (=jis-x0213-1-2000	. #x2936)	; &I-JX1-2936;
+    (=ks-x1001		. #x222F)	; &JX1-2936; [02-15]
+    (=jis-x0212		. #x2244)	; &I-JSP-2244; [02-36]
+    (=jis-x0213-1-2000	. #x2936)	; &I-JX1-2936; [09-22]
     (=ucs@jis		. #x00BF)	; &JX1-2936;
     ))
 (define-char
@@ -948,8 +948,8 @@
     (->decomposition	#x0041 #x0300)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with grave")
-      (=jis-x0212	  . #x2A22)	; &JX1-2937;
-      (=jis-x0213-1-2000  . #x2937)	; &I-JX1-2937;
+      (=jis-x0212	  . #x2A22)	; &JX1-2937; [10-02]
+      (=jis-x0213-1-2000  . #x2937)	; &I-JX1-2937; [09-23]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
@@ -975,8 +975,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
       (=ucs		  . #x00C0)	; À
       ))
-    (=jis-x0212		. #x2A22)	; &JX1-2937;
-    (=jis-x0213-1-2000	. #x2937)	; &I-JX1-2937;
+    (=jis-x0212		. #x2A22)	; &JX1-2937; [10-02]
+    (=jis-x0213-1-2000	. #x2937)	; &I-JX1-2937; [09-23]
     (=jef-china3	. #x85B9)	; &I-JC3-85B9;
     (=ucs@jis		. #x00C0)	; &JX1-2937;
     ))
@@ -988,8 +988,8 @@
     (->decomposition	#x0041 #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with acute")
-      (=jis-x0212	  . #x2A21)	; &JX1-2938;
-      (=jis-x0213-1-2000  . #x2938)	; &I-JX1-2938;
+      (=jis-x0212	  . #x2A21)	; &JX1-2938; [10-01]
+      (=jis-x0213-1-2000  . #x2938)	; &I-JX1-2938; [09-24]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
@@ -1017,8 +1017,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
       (=ucs		  . #x00C1)	; Á
       ))
-    (=jis-x0212		. #x2A21)	; &JX1-2938;
-    (=jis-x0213-1-2000	. #x2938)	; &I-JX1-2938;
+    (=jis-x0212		. #x2A21)	; &JX1-2938; [10-01]
+    (=jis-x0213-1-2000	. #x2938)	; &I-JX1-2938; [09-24]
     (=jef-china3	. #x85D5)	; &I-JC3-85D5;
     (=ucs@jis		. #x00C1)	; &JX1-2938;
     ))
@@ -1030,8 +1030,8 @@
     (->decomposition	#x0041 #x0302)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with circumflex")
-      (=jis-x0212	  . #x2A24)	; &JX1-2939;
-      (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939;
+      (=jis-x0212	  . #x2A24)	; &JX1-2939; [10-04]
+      (=jis-x0213-1-2000  . #x2939)	; &I-JX1-2939; [09-25]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
@@ -1060,8 +1060,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00C2)	; Â
       ))
-    (=jis-x0212		. #x2A24)	; &JX1-2939;
-    (=jis-x0213-1-2000	. #x2939)	; &I-JX1-2939;
+    (=jis-x0212		. #x2A24)	; &JX1-2939; [10-04]
+    (=jis-x0213-1-2000	. #x2939)	; &I-JX1-2939; [09-25]
     (=jef-china3	. #x86B7)	; &I-JC3-86B7;
     (=ucs@jis		. #x00C2)	; &JX1-2939;
     ))
@@ -1073,8 +1073,8 @@
     (->decomposition	#x0041 #x0303)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with tilde")
-      (=jis-x0212	  . #x2A2A)	; &JX1-293A;
-      (=jis-x0213-1-2000  . #x293A)	; &I-JX1-293A;
+      (=jis-x0212	  . #x2A2A)	; &JX1-293A; [10-10]
+      (=jis-x0213-1-2000  . #x293A)	; &I-JX1-293A; [09-26]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
@@ -1100,8 +1100,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
       (=ucs		  . #x00C3)	; Ã
       ))
-    (=jis-x0212		. #x2A2A)	; &JX1-293A;
-    (=jis-x0213-1-2000	. #x293A)	; &I-JX1-293A;
+    (=jis-x0212		. #x2A2A)	; &JX1-293A; [10-10]
+    (=jis-x0213-1-2000	. #x293A)	; &I-JX1-293A; [09-26]
     (=jef-china3	. #x86E2)	; &I-JC3-86E2;
     (=ucs@jis		. #x00C3)	; &JX1-293A;
     ))
@@ -1113,8 +1113,8 @@
     (->decomposition	#x0041 #x0308)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with diaeresis")
-      (=jis-x0212	  . #x2A23)	; &JX1-293B;
-      (=jis-x0213-1-2000  . #x293B)	; &I-JX1-293B;
+      (=jis-x0212	  . #x2A23)	; &JX1-293B; [10-03]
+      (=jis-x0213-1-2000  . #x293B)	; &I-JX1-293B; [09-27]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
@@ -1140,8 +1140,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00C4)	; Ä
       ))
-    (=jis-x0212		. #x2A23)	; &JX1-293B;
-    (=jis-x0213-1-2000	. #x293B)	; &I-JX1-293B;
+    (=jis-x0212		. #x2A23)	; &JX1-293B; [10-03]
+    (=jis-x0213-1-2000	. #x293B)	; &I-JX1-293B; [09-27]
     (=jef-china3	. #x88C5)	; &I-JC3-88C5;
     (=ucs@jis		. #x00C4)	; &JX1-293B;
     ))
@@ -1153,8 +1153,8 @@
     (->decomposition	#x0041 #x030A)
     (->fullwidth
      ((name . "fullwidth latin capital letter a with ring above")
-      (=jis-x0212	  . #x2A29)	; &JX1-293C;
-      (=jis-x0213-1-2000  . #x293C)	; &I-JX1-293C;
+      (=jis-x0212	  . #x2A29)	; &JX1-293C; [10-09]
+      (=jis-x0213-1-2000  . #x293C)	; &I-JX1-293C; [09-28]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
@@ -1178,8 +1178,8 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00C5)	; Å
       ))
-    (=jis-x0212		. #x2A29)	; &JX1-293C;
-    (=jis-x0213-1-2000	. #x293C)	; &I-JX1-293C;
+    (=jis-x0212		. #x2A29)	; &JX1-293C; [10-09]
+    (=jis-x0213-1-2000	. #x293C)	; &I-JX1-293C; [09-28]
     (=jef-china3	. #x88FD)	; &I-JC3-88FD;
     (=ucs@jis		. #x00C5)	; &JX1-293C;
     ))
@@ -1207,9 +1207,9 @@
     (->lowercase
      ((name		  . "fullwidth latin small letter ae")
       ))
-    (=ks-x1001		. #x2821)	; &JX1-293D;
-    (=jis-x0212		. #x2921)	; &I-JSP-2921;
-    (=jis-x0213-1-2000	. #x293D)	; &I-JX1-293D;
+    (=ks-x1001		. #x2821)	; &JX1-293D; [08-01]
+    (=jis-x0212		. #x2921)	; &I-JSP-2921; [09-01]
+    (=jis-x0213-1-2000	. #x293D)	; &I-JX1-293D; [09-29]
     (=jef-china3	. #x83A5)	; &I-JC3-83A5;
     (=ucs@jis		. #x00C6)	; &JX1-293D;
     ))
@@ -1221,8 +1221,8 @@
     (->decomposition	#x0043 #x0327)
     (->fullwidth
      ((name . "fullwidth latin capital letter c with cedilla")
-      (=jis-x0212	  . #x2A2E)	; &JX1-293E;
-      (=jis-x0213-1-2000  . #x293E)	; &I-JX1-293E;
+      (=jis-x0212	  . #x2A2E)	; &JX1-293E; [10-14]
+      (=jis-x0213-1-2000  . #x293E)	; &I-JX1-293E; [09-30]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
@@ -1247,8 +1247,8 @@
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
       (=ucs		  . #x00C7)	; Ç
       ))
-    (=jis-x0212		. #x2A2E)	; &JX1-293E;
-    (=jis-x0213-1-2000	. #x293E)	; &I-JX1-293E;
+    (=jis-x0212		. #x2A2E)	; &JX1-293E; [10-14]
+    (=jis-x0213-1-2000	. #x293E)	; &I-JX1-293E; [09-30]
     (=jef-china3	. #x89F5)	; &I-JC3-89F5;
     (=ucs@jis		. #x00C7)	; &JX1-293E;
     ))
@@ -1260,8 +1260,8 @@
     (->decomposition	#x0045 #x0300)
     (->fullwidth
      ((name . "fullwidth latin capital letter e with grave")
-      (=jis-x0212	  . #x2A32)	; &JX1-293F;
-      (=jis-x0213-1-2000  . #x293F)	; &I-JX1-293F;
+      (=jis-x0212	  . #x2A32)	; &JX1-293F; [10-18]
+      (=jis-x0213-1-2000  . #x293F)	; &I-JX1-293F; [09-31]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
@@ -1287,8 +1287,8 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
       (=ucs		  . #x00C8)	; È
       ))
-    (=jis-x0212		. #x2A32)	; &JX1-293F;
-    (=jis-x0213-1-2000	. #x293F)	; &I-JX1-293F;
+    (=jis-x0212		. #x2A32)	; &JX1-293F; [10-18]
+    (=jis-x0213-1-2000	. #x293F)	; &I-JX1-293F; [09-31]
     (=jef-china3	. #x85BA)	; &I-JC3-85BA;
     (=ucs@jis		. #x00C8)	; &JX1-293F;
     ))
@@ -1300,8 +1300,8 @@
     (->decomposition	#x0045 #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter e with acute")
-      (=jis-x0212	  . #x2A31)	; &JX1-2940;
-      (=jis-x0213-1-2000  . #x2940)	; &I-JX1-2940;
+      (=jis-x0212	  . #x2A31)	; &JX1-2940; [10-17]
+      (=jis-x0213-1-2000  . #x2940)	; &I-JX1-2940; [09-32]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
@@ -1329,8 +1329,8 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
       (=ucs		  . #x00C9)	; É
       ))
-    (=jis-x0212		. #x2A31)	; &JX1-2940;
-    (=jis-x0213-1-2000	. #x2940)	; &I-JX1-2940;
+    (=jis-x0212		. #x2A31)	; &JX1-2940; [10-17]
+    (=jis-x0213-1-2000	. #x2940)	; &I-JX1-2940; [09-32]
     (=jef-china3	. #x85D8)	; &I-JC3-85D8;
     (=ucs@jis		. #x00C9)	; &JX1-2940;
     ))
@@ -1342,8 +1342,8 @@
     (->decomposition	#x0045 #x0302)
     (->fullwidth
      ((name . "fullwidth latin capital letter e with circumflex")
-      (=jis-x0212	  . #x2A34)	; &JX1-2941;
-      (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941;
+      (=jis-x0212	  . #x2A34)	; &JX1-2941; [10-20]
+      (=jis-x0213-1-2000  . #x2941)	; &I-JX1-2941; [09-33]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
@@ -1370,8 +1370,8 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00CA)	; Ê
       ))
-    (=jis-x0212		. #x2A34)	; &JX1-2941;
-    (=jis-x0213-1-2000	. #x2941)	; &I-JX1-2941;
+    (=jis-x0212		. #x2A34)	; &JX1-2941; [10-20]
+    (=jis-x0213-1-2000	. #x2941)	; &I-JX1-2941; [09-33]
     (=jef-china3	. #x86B9)	; &I-JC3-86B9;
     (=ucs@jis		. #x00CA)	; &JX1-2941;
     ))
@@ -1383,8 +1383,8 @@
     (->decomposition	#x0045 #x0308)
     (->fullwidth
      ((name . "fullwidth latin capital letter e with diaeresis")
-      (=jis-x0212	  . #x2A33)	; &JX1-2942;
-      (=jis-x0213-1-2000  . #x2942)	; &I-JX1-2942;
+      (=jis-x0212	  . #x2A33)	; &JX1-2942; [10-19]
+      (=jis-x0213-1-2000  . #x2942)	; &I-JX1-2942; [09-34]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
@@ -1410,8 +1410,8 @@
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00CB)	; Ë
       ))
-    (=jis-x0212		. #x2A33)	; &JX1-2942;
-    (=jis-x0213-1-2000	. #x2942)	; &I-JX1-2942;
+    (=jis-x0212		. #x2A33)	; &JX1-2942; [10-19]
+    (=jis-x0213-1-2000	. #x2942)	; &I-JX1-2942; [09-34]
     (=jef-china3	. #x88C7)	; &I-JC3-88C7;
     (=ucs@jis		. #x00CB)	; &JX1-2942;
     ))
@@ -1423,8 +1423,8 @@
     (->decomposition	#x0049 #x0300)
     (->fullwidth
      ((name . "fullwidth latin capital letter i with grave")
-      (=jis-x0212	  . #x2A40)	; &JX1-2943;
-      (=jis-x0213-1-2000  . #x2943)	; &I-JX1-2943;
+      (=jis-x0212	  . #x2A40)	; &JX1-2943; [10-32]
+      (=jis-x0213-1-2000  . #x2943)	; &I-JX1-2943; [09-35]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
@@ -1450,8 +1450,8 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
       (=ucs		  . #x00CC)	; Ì
       ))
-    (=jis-x0212		. #x2A40)	; &JX1-2943;
-    (=jis-x0213-1-2000	. #x2943)	; &I-JX1-2943;
+    (=jis-x0212		. #x2A40)	; &JX1-2943; [10-32]
+    (=jis-x0213-1-2000	. #x2943)	; &I-JX1-2943; [09-35]
     (=jef-china3	. #x85BB)	; &I-JC3-85BB;
     (=ucs@jis		. #x00CC)	; &JX1-2943;
     ))
@@ -1463,8 +1463,8 @@
     (->decomposition	#x0049 #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter i with acute")
-      (=jis-x0212	  . #x2A3F)	; &JX1-2944;
-      (=jis-x0213-1-2000  . #x2944)	; &I-JX1-2944;
+      (=jis-x0212	  . #x2A3F)	; &JX1-2944; [10-31]
+      (=jis-x0213-1-2000  . #x2944)	; &I-JX1-2944; [09-36]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
@@ -1492,8 +1492,8 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
       (=ucs		  . #x00CD)	; Í
       ))
-    (=jis-x0212		. #x2A3F)	; &JX1-2944;
-    (=jis-x0213-1-2000	. #x2944)	; &I-JX1-2944;
+    (=jis-x0212		. #x2A3F)	; &JX1-2944; [10-31]
+    (=jis-x0213-1-2000	. #x2944)	; &I-JX1-2944; [09-36]
     (=jef-china3	. #x85DB)	; &I-JC3-85DB;
     (=ucs@jis		. #x00CD)	; &JX1-2944;
     ))
@@ -1505,8 +1505,8 @@
     (->decomposition	#x0049 #x0302)
     (->fullwidth
      ((name . "fullwidth latin capital letter i with circumflex")
-      (=jis-x0212	  . #x2A42)	; &JX1-2945;
-      (=jis-x0213-1-2000  . #x2945)	; &I-JX1-2945;
+      (=jis-x0212	  . #x2A42)	; &JX1-2945; [10-34]
+      (=jis-x0213-1-2000  . #x2945)	; &I-JX1-2945; [09-37]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
@@ -1532,8 +1532,8 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00CE)	; Î
       ))
-    (=jis-x0212		. #x2A42)	; &JX1-2945;
-    (=jis-x0213-1-2000	. #x2945)	; &I-JX1-2945;
+    (=jis-x0212		. #x2A42)	; &JX1-2945; [10-34]
+    (=jis-x0213-1-2000	. #x2945)	; &I-JX1-2945; [09-37]
     (=jef-china3	. #x86BC)	; &I-JC3-86BC;
     (=ucs@jis		. #x00CE)	; &JX1-2945;
     ))
@@ -1545,8 +1545,8 @@
     (->decomposition	#x0049 #x0308)
     (->fullwidth
      ((name . "fullwidth latin capital letter i with diaeresis")
-      (=jis-x0212	  . #x2A41)	; &JX1-2946;
-      (=jis-x0213-1-2000  . #x2946)	; &I-JX1-2946;
+      (=jis-x0212	  . #x2A41)	; &JX1-2946; [10-33]
+      (=jis-x0213-1-2000  . #x2946)	; &I-JX1-2946; [09-38]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH DIAERESIS")
@@ -1570,8 +1570,8 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH DIAERESIS")
       (=ucs		  . #x00CF)	; Ï
       ))
-    (=jis-x0212		. #x2A41)	; &JX1-2946;
-    (=jis-x0213-1-2000	. #x2946)	; &I-JX1-2946;
+    (=jis-x0212		. #x2A41)	; &JX1-2946; [10-33]
+    (=jis-x0213-1-2000	. #x2946)	; &I-JX1-2946; [09-38]
     (=jef-china3	. #x88C9)	; &I-JC3-88C9;
     (=ucs@jis		. #x00CF)	; &JX1-2946;
     ))
@@ -1583,8 +1583,8 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin capital letter eth")
-      (=ks-x1001	  . #x2822)	; &JX1-2947;
-      (=jis-x0213-1-2000  . #x2947)	; &I-JX1-2947;
+      (=ks-x1001	  . #x2822)	; &JX1-2947; [08-02]
+      (=jis-x0213-1-2000  . #x2947)	; &I-JX1-2947; [09-39]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER ETH")
@@ -1607,8 +1607,8 @@
      ((name		  . "LATIN CAPITAL LETTER ETH")
       (=ucs		  . #x00D0)	; Ð
       ))
-    (=ks-x1001		. #x2822)	; &JX1-2947;
-    (=jis-x0213-1-2000	. #x2947)	; &I-JX1-2947;
+    (=ks-x1001		. #x2822)	; &JX1-2947; [08-02]
+    (=jis-x0213-1-2000	. #x2947)	; &I-JX1-2947; [09-39]
     (=ucs@jis		. #x00D0)	; &JX1-2947;
     ))
 (define-char
@@ -1619,8 +1619,8 @@
     (->decomposition	#x004E #x0303)
     (->fullwidth
      ((name . "fullwidth latin capital letter n with tilde")
-      (=jis-x0212	  . #x2A50)	; &JX1-2948;
-      (=jis-x0213-1-2000  . #x2948)	; &I-JX1-2948;
+      (=jis-x0212	  . #x2A50)	; &JX1-2948; [10-48]
+      (=jis-x0213-1-2000  . #x2948)	; &I-JX1-2948; [09-40]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
@@ -1644,8 +1644,8 @@
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
       (=ucs		  . #x00D1)	; Ñ
       ))
-    (=jis-x0212		. #x2A50)	; &JX1-2948;
-    (=jis-x0213-1-2000	. #x2948)	; &I-JX1-2948;
+    (=jis-x0212		. #x2A50)	; &JX1-2948; [10-48]
+    (=jis-x0213-1-2000	. #x2948)	; &I-JX1-2948; [09-40]
     (=jef-china3	. #x86E6)	; &I-JC3-86E6;
     (=ucs@jis		. #x00D1)	; &JX1-2948;
     ))
@@ -1657,8 +1657,8 @@
     (->decomposition	#x004F #x0300)
     (->fullwidth
      ((name . "fullwidth latin capital letter o with grave")
-      (=jis-x0212	  . #x2A52)	; &JX1-2949;
-      (=jis-x0213-1-2000  . #x2949)	; &I-JX1-2949;
+      (=jis-x0212	  . #x2A52)	; &JX1-2949; [10-50]
+      (=jis-x0213-1-2000  . #x2949)	; &I-JX1-2949; [09-41]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
@@ -1684,8 +1684,8 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
       (=ucs		  . #x00D2)	; Ò
       ))
-    (=jis-x0212		. #x2A52)	; &JX1-2949;
-    (=jis-x0213-1-2000	. #x2949)	; &I-JX1-2949;
+    (=jis-x0212		. #x2A52)	; &JX1-2949; [10-50]
+    (=jis-x0213-1-2000	. #x2949)	; &I-JX1-2949; [09-41]
     (=jef-china3	. #x85BD)	; &I-JC3-85BD;
     (=ucs@jis		. #x00D2)	; &JX1-2949;
     ))
@@ -1697,8 +1697,8 @@
     (->decomposition	#x004F #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter o with acute")
-      (=jis-x0212	  . #x2A51)	; &JX1-294A;
-      (=jis-x0213-1-2000  . #x294A)	; &I-JX1-294A;
+      (=jis-x0212	  . #x2A51)	; &JX1-294A; [10-49]
+      (=jis-x0213-1-2000  . #x294A)	; &I-JX1-294A; [09-42]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
@@ -1725,8 +1725,8 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
       (=ucs		  . #x00D3)	; Ó
       ))
-    (=jis-x0212		. #x2A51)	; &JX1-294A;
-    (=jis-x0213-1-2000	. #x294A)	; &I-JX1-294A;
+    (=jis-x0212		. #x2A51)	; &JX1-294A; [10-49]
+    (=jis-x0213-1-2000	. #x294A)	; &I-JX1-294A; [09-42]
     (=jef-china3	. #x85E0)	; &I-JC3-85E0;
     (=ucs@jis		. #x00D3)	; &JX1-294A;
     ))
@@ -1738,8 +1738,8 @@
     (->decomposition	#x004F #x0302)
     (->fullwidth
      ((name . "fullwidth latin capital letter o with circumflex")
-      (=jis-x0212	  . #x2A54)	; &JX1-294B;
-      (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B;
+      (=jis-x0212	  . #x2A54)	; &JX1-294B; [10-52]
+      (=jis-x0213-1-2000  . #x294B)	; &I-JX1-294B; [09-43]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
@@ -1768,8 +1768,8 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00D4)	; Ô
       ))
-    (=jis-x0212		. #x2A54)	; &JX1-294B;
-    (=jis-x0213-1-2000	. #x294B)	; &I-JX1-294B;
+    (=jis-x0212		. #x2A54)	; &JX1-294B; [10-52]
+    (=jis-x0213-1-2000	. #x294B)	; &I-JX1-294B; [09-43]
     (=jef-china3	. #x86BF)	; &I-JC3-86BF;
     (=ucs@jis		. #x00D4)	; &JX1-294B;
     ))
@@ -1781,8 +1781,8 @@
     (->decomposition	#x004F #x0303)
     (->fullwidth
      ((name . "fullwidth latin capital letter o with tilde")
-      (=jis-x0212	  . #x2A58)	; &JX1-294C;
-      (=jis-x0213-1-2000  . #x294C)	; &I-JX1-294C;
+      (=jis-x0212	  . #x2A58)	; &JX1-294C; [10-56]
+      (=jis-x0213-1-2000  . #x294C)	; &I-JX1-294C; [09-44]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
@@ -1808,8 +1808,8 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
       (=ucs		  . #x00D5)	; Õ
       ))
-    (=jis-x0212		. #x2A58)	; &JX1-294C;
-    (=jis-x0213-1-2000	. #x294C)	; &I-JX1-294C;
+    (=jis-x0212		. #x2A58)	; &JX1-294C; [10-56]
+    (=jis-x0213-1-2000	. #x294C)	; &I-JX1-294C; [09-44]
     (=jef-china3	. #x86E7)	; &I-JC3-86E7;
     (=ucs@jis		. #x00D5)	; &JX1-294C;
     ))
@@ -1821,8 +1821,8 @@
     (->decomposition	#x004F #x0308)
     (->fullwidth
      ((name . "fullwidth latin capital letter o with diaeresis")
-      (=jis-x0212	  . #x2A53)	; &JX1-294D;
-      (=jis-x0213-1-2000  . #x294D)	; &I-JX1-294D;
+      (=jis-x0212	  . #x2A53)	; &JX1-294D; [10-51]
+      (=jis-x0213-1-2000  . #x294D)	; &I-JX1-294D; [09-45]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
@@ -1848,8 +1848,8 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00D6)	; Ö
       ))
-    (=jis-x0212		. #x2A53)	; &JX1-294D;
-    (=jis-x0213-1-2000	. #x294D)	; &I-JX1-294D;
+    (=jis-x0212		. #x2A53)	; &JX1-294D; [10-51]
+    (=jis-x0213-1-2000	. #x294D)	; &I-JX1-294D; [09-45]
     (=jef-china3	. #x88CB)	; &I-JC3-88CB;
     (=ucs@jis		. #x00D6)	; &JX1-294D;
     ))
@@ -1860,10 +1860,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth multiplication sign")
-      (=jis-x0208	  . #x215F)	; &J90-215F;
-      (=gb2312		  . #x2141)	; &I-G0-2141;
-      (=ks-x1001	  . #x213F)	; &I-K0-213F;
-      (=cns11643-1	  . #x2232)	; &I-C1-2232;
+      (=jis-x0208	  . #x215F)	; &J90-215F; [01-63]
+      (=gb2312		  . #x2141)	; &I-G0-2141; [01-33]
+      (=ks-x1001	  . #x213F)	; &I-K0-213F; [01-31]
+      (=cns11643-1	  . #x2232)	; &I-C1-2232; [02-18]
       ))
     (=ucs		. #x00D7)	; ×
     (latin-iso8859-1	. #xD7)	; &I-LATIN1-57;
@@ -1883,10 +1883,10 @@
      ((name		  . "MULTIPLICATION SIGN")
       (=ucs		  . #x00D7)	; ×
       ))
-    (=jis-x0208		. #x215F)	; &J90-215F;
-    (=gb2312		. #x2141)	; &I-G0-2141;
-    (=ks-x1001		. #x213F)	; &I-K0-213F;
-    (=cns11643-1	. #x2232)	; &I-C1-2232;
+    (=jis-x0208		. #x215F)	; &J90-215F; [01-63]
+    (=gb2312		. #x2141)	; &I-G0-2141; [01-33]
+    (=ks-x1001		. #x213F)	; &I-K0-213F; [01-31]
+    (=cns11643-1	. #x2232)	; &I-C1-2232; [02-18]
     (=big5		. #xA1D1)	; &I-B-A1D1;
     (=ucs@jis		. #x00D7)	; &J90-215F;
     ))
@@ -1913,9 +1913,9 @@
     (->lowercase
      ((name		  . "fullwidth latin small letter o with stroke")
       ))
-    (=ks-x1001		. #x282A)	; &JX1-294E;
-    (=jis-x0212		. #x292C)	; &I-JSP-292C;
-    (=jis-x0213-1-2000	. #x294E)	; &I-JX1-294E;
+    (=ks-x1001		. #x282A)	; &JX1-294E; [08-10]
+    (=jis-x0212		. #x292C)	; &I-JSP-292C; [09-12]
+    (=jis-x0213-1-2000	. #x294E)	; &I-JX1-294E; [09-46]
     (=jef-china3	. #x83A2)	; &I-JC3-83A2;
     (=ucs@jis		. #x00D8)	; &JX1-294E;
     ))
@@ -1946,8 +1946,8 @@
     (->lowercase
      ((name		  . "fullwidth latin small letter u with grave")
       ))
-    (=jis-x0212		. #x2A63)	; &JX1-294F;
-    (=jis-x0213-1-2000	. #x294F)	; &I-JX1-294F;
+    (=jis-x0212		. #x2A63)	; &JX1-294F; [10-67]
+    (=jis-x0213-1-2000	. #x294F)	; &I-JX1-294F; [09-47]
     (=jef-china3	. #x85BF)	; &I-JC3-85BF;
     (=ucs@jis		. #x00D9)	; &JX1-294F;
     ))
@@ -1959,8 +1959,8 @@
     (->decomposition	#x0055 #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter u with acute")
-      (=jis-x0212	  . #x2A62)	; &JX1-2950;
-      (=jis-x0213-1-2000  . #x2950)	; &I-JX1-2950;
+      (=jis-x0212	  . #x2A62)	; &JX1-2950; [10-66]
+      (=jis-x0213-1-2000  . #x2950)	; &I-JX1-2950; [09-48]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
@@ -1988,8 +1988,8 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
       (=ucs		  . #x00DA)	; Ú
       ))
-    (=jis-x0212		. #x2A62)	; &JX1-2950;
-    (=jis-x0213-1-2000	. #x2950)	; &I-JX1-2950;
+    (=jis-x0212		. #x2A62)	; &JX1-2950; [10-66]
+    (=jis-x0213-1-2000	. #x2950)	; &I-JX1-2950; [09-48]
     (=jef-china3	. #x85E6)	; &I-JC3-85E6;
     (=ucs@jis		. #x00DA)	; &JX1-2950;
     ))
@@ -2001,8 +2001,8 @@
     (->decomposition	#x0055 #x0302)
     (->fullwidth
      ((name . "fullwidth latin capital letter u with circumflex")
-      (=jis-x0212	  . #x2A65)	; &JX1-2951;
-      (=jis-x0213-1-2000  . #x2951)	; &I-JX1-2951;
+      (=jis-x0212	  . #x2A65)	; &JX1-2951; [10-69]
+      (=jis-x0213-1-2000  . #x2951)	; &I-JX1-2951; [09-49]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
@@ -2027,8 +2027,8 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00DB)	; Û
       ))
-    (=jis-x0212		. #x2A65)	; &JX1-2951;
-    (=jis-x0213-1-2000	. #x2951)	; &I-JX1-2951;
+    (=jis-x0212		. #x2A65)	; &JX1-2951; [10-69]
+    (=jis-x0213-1-2000	. #x2951)	; &I-JX1-2951; [09-49]
     (=jef-china3	. #x86C1)	; &I-JC3-86C1;
     (=ucs@jis		. #x00DB)	; &JX1-2951;
     ))
@@ -2040,8 +2040,8 @@
     (->decomposition	#x0055 #x0308)
     (->fullwidth
      ((name . "fullwidth latin capital letter u with diaeresis")
-      (=jis-x0212	  . #x2A64)	; &JX1-2952;
-      (=jis-x0213-1-2000  . #x2952)	; &I-JX1-2952;
+      (=jis-x0212	  . #x2A64)	; &JX1-2952; [10-68]
+      (=jis-x0213-1-2000  . #x2952)	; &I-JX1-2952; [09-50]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
@@ -2067,8 +2067,8 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00DC)	; Ü
       ))
-    (=jis-x0212		. #x2A64)	; &JX1-2952;
-    (=jis-x0213-1-2000	. #x2952)	; &I-JX1-2952;
+    (=jis-x0212		. #x2A64)	; &JX1-2952; [10-68]
+    (=jis-x0213-1-2000	. #x2952)	; &I-JX1-2952; [09-50]
     (=jef-china3	. #x88CE)	; &I-JC3-88CE;
     (=ucs@jis		. #x00DC)	; &JX1-2952;
     ))
@@ -2080,8 +2080,8 @@
     (->decomposition	#x0059 #x0301)
     (->fullwidth
      ((name . "fullwidth latin capital letter y with acute")
-      (=jis-x0212	  . #x2A72)	; &JX1-2953;
-      (=jis-x0213-1-2000  . #x2953)	; &I-JX1-2953;
+      (=jis-x0212	  . #x2A72)	; &JX1-2953; [10-82]
+      (=jis-x0213-1-2000  . #x2953)	; &I-JX1-2953; [09-51]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
@@ -2106,8 +2106,8 @@
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
       (=ucs		  . #x00DD)	; Ý
       ))
-    (=jis-x0212		. #x2A72)	; &JX1-2953;
-    (=jis-x0213-1-2000	. #x2953)	; &I-JX1-2953;
+    (=jis-x0212		. #x2A72)	; &JX1-2953; [10-82]
+    (=jis-x0213-1-2000	. #x2953)	; &I-JX1-2953; [09-51]
     (=jef-china3	. #x85E9)	; &I-JC3-85E9;
     (=ucs@jis		. #x00DD)	; &JX1-2953;
     ))
@@ -2119,9 +2119,9 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin capital letter thorn")
-      (=ks-x1001	  . #x282D)	; &JX1-2954;
-      (=jis-x0212	  . #x2930)	; &I-JSP-2930;
-      (=jis-x0213-1-2000  . #x2954)	; &I-JX1-2954;
+      (=ks-x1001	  . #x282D)	; &JX1-2954; [08-13]
+      (=jis-x0212	  . #x2930)	; &I-JSP-2930; [09-16]
+      (=jis-x0213-1-2000  . #x2954)	; &I-JX1-2954; [09-52]
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER THORN")
@@ -2144,9 +2144,9 @@
      ((name		  . "LATIN CAPITAL LETTER THORN")
       (=ucs		  . #x00DE)	; Þ
       ))
-    (=ks-x1001		. #x282D)	; &JX1-2954;
-    (=jis-x0212		. #x2930)	; &I-JSP-2930;
-    (=jis-x0213-1-2000	. #x2954)	; &I-JX1-2954;
+    (=ks-x1001		. #x282D)	; &JX1-2954; [08-13]
+    (=jis-x0212		. #x2930)	; &I-JSP-2930; [09-16]
+    (=jis-x0213-1-2000	. #x2954)	; &I-JX1-2954; [09-52]
     (=jef-china3	. #x83A4)	; &I-JC3-83A4;
     (=ucs@jis		. #x00DE)	; &JX1-2954;
     ))
@@ -2158,9 +2158,9 @@
     (iso-10646-comment	. "German")
     (->fullwidth
      ((name		  . "fullwidth latin small letter sharp s")
-      (=ks-x1001	  . #x292C)	; &JX1-2955;
-      (=jis-x0212	  . #x294E)	; &I-JSP-294E;
-      (=jis-x0213-1-2000  . #x2955)	; &I-JX1-2955;
+      (=ks-x1001	  . #x292C)	; &JX1-2955; [09-12]
+      (=jis-x0212	  . #x294E)	; &I-JSP-294E; [09-46]
+      (=jis-x0213-1-2000  . #x2955)	; &I-JX1-2955; [09-53]
       ))
     (=ucs		. #x00DF)	; ß
     (latin-iso8859-1	. #xDF)	; &I-LATIN1-5F;
@@ -2180,9 +2180,9 @@
      ((name		  . "LATIN SMALL LETTER SHARP S")
       (=ucs		  . #x00DF)	; ß
       ))
-    (=ks-x1001		. #x292C)	; &JX1-2955;
-    (=jis-x0212		. #x294E)	; &I-JSP-294E;
-    (=jis-x0213-1-2000	. #x2955)	; &I-JX1-2955;
+    (=ks-x1001		. #x292C)	; &JX1-2955; [09-12]
+    (=jis-x0212		. #x294E)	; &I-JSP-294E; [09-46]
+    (=jis-x0213-1-2000	. #x2955)	; &I-JX1-2955; [09-53]
     (=jef-china3	. #x83B7)	; &I-JC3-83B7;
     (=ucs@jis		. #x00DF)	; &JX1-2955;
     ))
@@ -2194,9 +2194,9 @@
     (->decomposition	#x0061 #x0300)
     (->fullwidth
      ((name		  . "fullwidth latin small letter a with grave")
-      (=gb2312		  . #x2824)	; &JX1-2956;
-      (=jis-x0212	  . #x2B22)	; &I-JSP-2B22;
-      (=jis-x0213-1-2000  . #x2956)	; &I-JX1-2956;
+      (=gb2312		  . #x2824)	; &JX1-2956; [08-04]
+      (=jis-x0212	  . #x2B22)	; &I-JSP-2B22; [11-02]
+      (=jis-x0213-1-2000  . #x2956)	; &I-JX1-2956; [09-54]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH GRAVE")
@@ -2223,9 +2223,9 @@
      ((name		  . "LATIN SMALL LETTER A WITH GRAVE")
       (=ucs		  . #x00E0)	; à
       ))
-    (=gb2312		. #x2824)	; &JX1-2956;
-    (=jis-x0212		. #x2B22)	; &I-JSP-2B22;
-    (=jis-x0213-1-2000	. #x2956)	; &I-JX1-2956;
+    (=gb2312		. #x2824)	; &JX1-2956; [08-04]
+    (=jis-x0212		. #x2B22)	; &I-JSP-2B22; [11-02]
+    (=jis-x0213-1-2000	. #x2956)	; &I-JX1-2956; [09-54]
     (=jef-china3	. #x85C1)	; &I-JC3-85C1;
     (=ucs@jis		. #x00E0)	; &JX1-2956;
     ))
@@ -2237,9 +2237,9 @@
     (->decomposition	#x0061 #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter a with acute")
-      (=gb2312		  . #x2822)	; &JX1-2957;
-      (=jis-x0212	  . #x2B21)	; &I-JSP-2B21;
-      (=jis-x0213-1-2000  . #x2957)	; &I-JX1-2957;
+      (=gb2312		  . #x2822)	; &JX1-2957; [08-02]
+      (=jis-x0212	  . #x2B21)	; &I-JSP-2B21; [11-01]
+      (=jis-x0213-1-2000  . #x2957)	; &I-JX1-2957; [09-55]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH ACUTE")
@@ -2268,9 +2268,9 @@
      ((name		  . "LATIN SMALL LETTER A WITH ACUTE")
       (=ucs		  . #x00E1)	; á
       ))
-    (=gb2312		. #x2822)	; &JX1-2957;
-    (=jis-x0212		. #x2B21)	; &I-JSP-2B21;
-    (=jis-x0213-1-2000	. #x2957)	; &I-JX1-2957;
+    (=gb2312		. #x2822)	; &JX1-2957; [08-02]
+    (=jis-x0212		. #x2B21)	; &I-JSP-2B21; [11-01]
+    (=jis-x0213-1-2000	. #x2957)	; &I-JX1-2957; [09-55]
     (=jef-china3	. #x85EB)	; &I-JC3-85EB;
     (=ucs@jis		. #x00E1)	; &JX1-2957;
     ))
@@ -2282,8 +2282,8 @@
     (->decomposition	#x0061 #x0302)
     (->fullwidth
      ((name . "fullwidth latin small letter a with circumflex")
-      (=jis-x0212	  . #x2B24)	; &JX1-2958;
-      (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958;
+      (=jis-x0212	  . #x2B24)	; &JX1-2958; [11-04]
+      (=jis-x0213-1-2000  . #x2958)	; &I-JX1-2958; [09-56]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX")
@@ -2312,8 +2312,8 @@
      ((name		  . "LATIN SMALL LETTER A WITH CIRCUMFLEX")
       (=ucs		  . #x00E2)	; â
       ))
-    (=jis-x0212		. #x2B24)	; &JX1-2958;
-    (=jis-x0213-1-2000	. #x2958)	; &I-JX1-2958;
+    (=jis-x0212		. #x2B24)	; &JX1-2958; [11-04]
+    (=jis-x0213-1-2000	. #x2958)	; &I-JX1-2958; [09-56]
     (=jef-china3	. #x86C4)	; &I-JC3-86C4;
     (=ucs@jis		. #x00E2)	; &JX1-2958;
     ))
@@ -2325,8 +2325,8 @@
     (->decomposition	#x0061 #x0303)
     (->fullwidth
      ((name		  . "fullwidth latin small letter a with tilde")
-      (=jis-x0212	  . #x2B2A)	; &JX1-2959;
-      (=jis-x0213-1-2000  . #x2959)	; &I-JX1-2959;
+      (=jis-x0212	  . #x2B2A)	; &JX1-2959; [11-10]
+      (=jis-x0213-1-2000  . #x2959)	; &I-JX1-2959; [09-57]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH TILDE")
@@ -2353,8 +2353,8 @@
      ((name		  . "LATIN SMALL LETTER A WITH TILDE")
       (=ucs		  . #x00E3)	; ã
       ))
-    (=jis-x0212		. #x2B2A)	; &JX1-2959;
-    (=jis-x0213-1-2000	. #x2959)	; &I-JX1-2959;
+    (=jis-x0212		. #x2B2A)	; &JX1-2959; [11-10]
+    (=jis-x0213-1-2000	. #x2959)	; &I-JX1-2959; [09-57]
     (=jef-china3	. #x86EF)	; &I-JC3-86EF;
     (=ucs@jis		. #x00E3)	; &JX1-2959;
     ))
@@ -2366,8 +2366,8 @@
     (->decomposition	#x0061 #x0308)
     (->fullwidth
      ((name . "fullwidth latin small letter a with diaeresis")
-      (=jis-x0212	  . #x2B23)	; &JX1-295A;
-      (=jis-x0213-1-2000  . #x295A)	; &I-JX1-295A;
+      (=jis-x0212	  . #x2B23)	; &JX1-295A; [11-03]
+      (=jis-x0213-1-2000  . #x295A)	; &I-JX1-295A; [09-58]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH DIAERESIS")
@@ -2393,8 +2393,8 @@
      ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS")
       (=ucs		  . #x00E4)	; ä
       ))
-    (=jis-x0212		. #x2B23)	; &JX1-295A;
-    (=jis-x0213-1-2000	. #x295A)	; &I-JX1-295A;
+    (=jis-x0212		. #x2B23)	; &JX1-295A; [11-03]
+    (=jis-x0213-1-2000	. #x295A)	; &I-JX1-295A; [09-58]
     (=jef-china3	. #x88D2)	; &I-JC3-88D2;
     (=ucs@jis		. #x00E4)	; &JX1-295A;
     ))
@@ -2406,8 +2406,8 @@
     (->decomposition	#x0061 #x030A)
     (->fullwidth
      ((name . "fullwidth latin small letter a with ring above")
-      (=jis-x0212	  . #x2B29)	; &JX1-295B;
-      (=jis-x0213-1-2000  . #x295B)	; &I-JX1-295B;
+      (=jis-x0212	  . #x2B29)	; &JX1-295B; [11-09]
+      (=jis-x0213-1-2000  . #x295B)	; &I-JX1-295B; [09-59]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER A WITH RING ABOVE")
@@ -2431,8 +2431,8 @@
      ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE")
       (=ucs		  . #x00E5)	; å
       ))
-    (=jis-x0212		. #x2B29)	; &JX1-295B;
-    (=jis-x0213-1-2000	. #x295B)	; &I-JX1-295B;
+    (=jis-x0212		. #x2B29)	; &JX1-295B; [11-09]
+    (=jis-x0213-1-2000	. #x295B)	; &I-JX1-295B; [09-59]
     (=jef-china3	. #x89A7)	; &I-JC3-89A7;
     (=ucs@jis		. #x00E5)	; &JX1-295B;
     ))
@@ -2444,9 +2444,9 @@
     (iso-10646-comment	. "ash *")
     (->fullwidth
      ((name		  . "fullwidth latin small letter ae")
-      (=ks-x1001	  . #x2921)	; &JX1-295C;
-      (=jis-x0212	  . #x2941)	; &I-JSP-2941;
-      (=jis-x0213-1-2000  . #x295C)	; &I-JX1-295C;
+      (=ks-x1001	  . #x2921)	; &JX1-295C; [09-01]
+      (=jis-x0212	  . #x2941)	; &I-JSP-2941; [09-33]
+      (=jis-x0213-1-2000  . #x295C)	; &I-JX1-295C; [09-60]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER AE")
@@ -2472,9 +2472,9 @@
      ((name		  . "LATIN SMALL LETTER AE")
       (=ucs		  . #x00E6)	; æ
       ))
-    (=ks-x1001		. #x2921)	; &JX1-295C;
-    (=jis-x0212		. #x2941)	; &I-JSP-2941;
-    (=jis-x0213-1-2000	. #x295C)	; &I-JX1-295C;
+    (=ks-x1001		. #x2921)	; &JX1-295C; [09-01]
+    (=jis-x0212		. #x2941)	; &I-JSP-2941; [09-33]
+    (=jis-x0213-1-2000	. #x295C)	; &I-JX1-295C; [09-60]
     (=jef-china3	. #x83B0)	; &I-JC3-83B0;
     (=ucs@jis		. #x00E6)	; &JX1-295C;
     ))
@@ -2486,8 +2486,8 @@
     (->decomposition	#x0063 #x0327)
     (->fullwidth
      ((name . "fullwidth latin small letter c with cedilla")
-      (=jis-x0212	  . #x2B2E)	; &JX1-295D;
-      (=jis-x0213-1-2000  . #x295D)	; &I-JX1-295D;
+      (=jis-x0212	  . #x2B2E)	; &JX1-295D; [11-14]
+      (=jis-x0213-1-2000  . #x295D)	; &I-JX1-295D; [09-61]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER C WITH CEDILLA")
@@ -2513,8 +2513,8 @@
      ((name		  . "LATIN SMALL LETTER C WITH CEDILLA")
       (=ucs		  . #x00E7)	; ç
       ))
-    (=jis-x0212		. #x2B2E)	; &JX1-295D;
-    (=jis-x0213-1-2000	. #x295D)	; &I-JX1-295D;
+    (=jis-x0212		. #x2B2E)	; &JX1-295D; [11-14]
+    (=jis-x0213-1-2000	. #x295D)	; &I-JX1-295D; [09-61]
     (=jef-china3	. #x89FB)	; &I-JC3-89FB;
     (=ucs@jis		. #x00E7)	; &JX1-295D;
     ))
@@ -2526,9 +2526,9 @@
     (->decomposition	#x0065 #x0300)
     (->fullwidth
      ((name		  . "fullwidth latin small letter e with grave")
-      (=gb2312		  . #x2828)	; &JX1-295E;
-      (=jis-x0212	  . #x2B32)	; &I-JSP-2B32;
-      (=jis-x0213-1-2000  . #x295E)	; &I-JX1-295E;
+      (=gb2312		  . #x2828)	; &JX1-295E; [08-08]
+      (=jis-x0212	  . #x2B32)	; &I-JSP-2B32; [11-18]
+      (=jis-x0213-1-2000  . #x295E)	; &I-JX1-295E; [09-62]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH GRAVE")
@@ -2555,9 +2555,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH GRAVE")
       (=ucs		  . #x00E8)	; è
       ))
-    (=gb2312		. #x2828)	; &JX1-295E;
-    (=jis-x0212		. #x2B32)	; &I-JSP-2B32;
-    (=jis-x0213-1-2000	. #x295E)	; &I-JX1-295E;
+    (=gb2312		. #x2828)	; &JX1-295E; [08-08]
+    (=jis-x0212		. #x2B32)	; &I-JSP-2B32; [11-18]
+    (=jis-x0213-1-2000	. #x295E)	; &I-JX1-295E; [09-62]
     (=jef-china3	. #x85C2)	; &I-JC3-85C2;
     (=ucs@jis		. #x00E8)	; &JX1-295E;
     ))
@@ -2569,9 +2569,9 @@
     (->decomposition	#x0065 #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter e with acute")
-      (=gb2312		  . #x2826)	; &JX1-295F;
-      (=jis-x0212	  . #x2B31)	; &I-JSP-2B31;
-      (=jis-x0213-1-2000  . #x295F)	; &I-JX1-295F;
+      (=gb2312		  . #x2826)	; &JX1-295F; [08-06]
+      (=jis-x0212	  . #x2B31)	; &I-JSP-2B31; [11-17]
+      (=jis-x0213-1-2000  . #x295F)	; &I-JX1-295F; [09-63]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH ACUTE")
@@ -2600,9 +2600,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH ACUTE")
       (=ucs		  . #x00E9)	; é
       ))
-    (=gb2312		. #x2826)	; &JX1-295F;
-    (=jis-x0212		. #x2B31)	; &I-JSP-2B31;
-    (=jis-x0213-1-2000	. #x295F)	; &I-JX1-295F;
+    (=gb2312		. #x2826)	; &JX1-295F; [08-06]
+    (=jis-x0212		. #x2B31)	; &I-JSP-2B31; [11-17]
+    (=jis-x0213-1-2000	. #x295F)	; &I-JX1-295F; [09-63]
     (=jef-china3	. #x85EE)	; &I-JC3-85EE;
     (=ucs@jis		. #x00E9)	; &JX1-295F;
     ))
@@ -2614,9 +2614,9 @@
     (->decomposition	#x0065 #x0302)
     (->fullwidth
      ((name . "fullwidth latin small letter e with circumflex")
-      (=gb2312		  . #x283A)	; &JX1-2960;
-      (=jis-x0212	  . #x2B34)	; &I-JSP-2B34;
-      (=jis-x0213-1-2000  . #x2960)	; &I-JX1-2960;
+      (=gb2312		  . #x283A)	; &JX1-2960; [08-26]
+      (=jis-x0212	  . #x2B34)	; &I-JSP-2B34; [11-20]
+      (=jis-x0213-1-2000  . #x2960)	; &I-JX1-2960; [09-64]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX")
@@ -2643,9 +2643,9 @@
      ((name		  . "LATIN SMALL LETTER E WITH CIRCUMFLEX")
       (=ucs		  . #x00EA)	; ê
       ))
-    (=gb2312		. #x283A)	; &JX1-2960;
-    (=jis-x0212		. #x2B34)	; &I-JSP-2B34;
-    (=jis-x0213-1-2000	. #x2960)	; &I-JX1-2960;
+    (=gb2312		. #x283A)	; &JX1-2960; [08-26]
+    (=jis-x0212		. #x2B34)	; &I-JSP-2B34; [11-20]
+    (=jis-x0213-1-2000	. #x2960)	; &I-JX1-2960; [09-64]
     (=jef-china3	. #x86C6)	; &I-JC3-86C6;
     (=ucs@jis		. #x00EA)	; &JX1-2960;
     ))
@@ -2657,8 +2657,8 @@
     (->decomposition	#x0065 #x0308)
     (->fullwidth
      ((name . "fullwidth latin small letter e with diaeresis")
-      (=jis-x0212	  . #x2B33)	; &JX1-2961;
-      (=jis-x0213-1-2000  . #x2961)	; &I-JX1-2961;
+      (=jis-x0212	  . #x2B33)	; &JX1-2961; [11-19]
+      (=jis-x0213-1-2000  . #x2961)	; &I-JX1-2961; [09-65]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER E WITH DIAERESIS")
@@ -2684,8 +2684,8 @@
      ((name		  . "LATIN SMALL LETTER E WITH DIAERESIS")
       (=ucs		  . #x00EB)	; ë
       ))
-    (=jis-x0212		. #x2B33)	; &JX1-2961;
-    (=jis-x0213-1-2000	. #x2961)	; &I-JX1-2961;
+    (=jis-x0212		. #x2B33)	; &JX1-2961; [11-19]
+    (=jis-x0213-1-2000	. #x2961)	; &I-JX1-2961; [09-65]
     (=jef-china3	. #x88D4)	; &I-JC3-88D4;
     (=ucs@jis		. #x00EB)	; &JX1-2961;
     ))
@@ -2697,9 +2697,9 @@
     (->decomposition	#x0069 #x0300)
     (->fullwidth
      ((name		  . "fullwidth latin small letter i with grave")
-      (=gb2312		  . #x282C)	; &JX1-2962;
-      (=jis-x0212	  . #x2B40)	; &I-JSP-2B40;
-      (=jis-x0213-1-2000  . #x2962)	; &I-JX1-2962;
+      (=gb2312		  . #x282C)	; &JX1-2962; [08-12]
+      (=jis-x0212	  . #x2B40)	; &I-JSP-2B40; [11-32]
+      (=jis-x0213-1-2000  . #x2962)	; &I-JX1-2962; [09-66]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH GRAVE")
@@ -2726,9 +2726,9 @@
      ((name		  . "LATIN SMALL LETTER I WITH GRAVE")
       (=ucs		  . #x00EC)	; ì
       ))
-    (=gb2312		. #x282C)	; &JX1-2962;
-    (=jis-x0212		. #x2B40)	; &I-JSP-2B40;
-    (=jis-x0213-1-2000	. #x2962)	; &I-JX1-2962;
+    (=gb2312		. #x282C)	; &JX1-2962; [08-12]
+    (=jis-x0212		. #x2B40)	; &I-JSP-2B40; [11-32]
+    (=jis-x0213-1-2000	. #x2962)	; &I-JX1-2962; [09-66]
     (=ucs@jis		. #x00EC)	; &JX1-2962;
     ))
 (define-char
@@ -2739,9 +2739,9 @@
     (->decomposition	#x0069 #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter i with acute")
-      (=gb2312		  . #x282A)	; &JX1-2963;
-      (=jis-x0212	  . #x2B3F)	; &I-JSP-2B3F;
-      (=jis-x0213-1-2000  . #x2963)	; &I-JX1-2963;
+      (=gb2312		  . #x282A)	; &JX1-2963; [08-10]
+      (=jis-x0212	  . #x2B3F)	; &I-JSP-2B3F; [11-31]
+      (=jis-x0213-1-2000  . #x2963)	; &I-JX1-2963; [09-67]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH ACUTE")
@@ -2770,9 +2770,9 @@
      ((name		  . "LATIN SMALL LETTER I WITH ACUTE")
       (=ucs		  . #x00ED)	; í
       ))
-    (=gb2312		. #x282A)	; &JX1-2963;
-    (=jis-x0212		. #x2B3F)	; &I-JSP-2B3F;
-    (=jis-x0213-1-2000	. #x2963)	; &I-JX1-2963;
+    (=gb2312		. #x282A)	; &JX1-2963; [08-10]
+    (=jis-x0212		. #x2B3F)	; &I-JSP-2B3F; [11-31]
+    (=jis-x0213-1-2000	. #x2963)	; &I-JX1-2963; [09-67]
     (=ucs@jis		. #x00ED)	; &JX1-2963;
     ))
 (define-char
@@ -2783,8 +2783,8 @@
     (->decomposition	#x0069 #x0302)
     (->fullwidth
      ((name . "fullwidth latin small letter i with circumflex")
-      (=jis-x0212	  . #x2B42)	; &JX1-2964;
-      (=jis-x0213-1-2000  . #x2964)	; &I-JX1-2964;
+      (=jis-x0212	  . #x2B42)	; &JX1-2964; [11-34]
+      (=jis-x0213-1-2000  . #x2964)	; &I-JX1-2964; [09-68]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER I WITH CIRCUMFLEX")
@@ -2810,8 +2810,8 @@
      ((name		  . "LATIN SMALL LETTER I WITH CIRCUMFLEX")
       (=ucs		  . #x00EE)	; î
       ))
-    (=jis-x0212		. #x2B42)	; &JX1-2964;
-    (=jis-x0213-1-2000	. #x2964)	; &I-JX1-2964;
+    (=jis-x0212		. #x2B42)	; &JX1-2964; [11-34]
+    (=jis-x0213-1-2000	. #x2964)	; &I-JX1-2964; [09-68]
     (=ucs@jis		. #x00EE)	; &JX1-2964;
     ))
 (define-char
@@ -2839,8 +2839,8 @@
     (->uppercase
      ((name . "fullwidth latin capital letter i with diaeresis")
       ))
-    (=jis-x0212		. #x2B41)	; &JX1-2965;
-    (=jis-x0213-1-2000	. #x2965)	; &I-JX1-2965;
+    (=jis-x0212		. #x2B41)	; &JX1-2965; [11-33]
+    (=jis-x0213-1-2000	. #x2965)	; &I-JX1-2965; [09-69]
     (=jef-china3	. #x88D6)	; &I-JC3-88D6;
     (=ucs@jis		. #x00EF)	; &JX1-2965;
     ))
@@ -2868,9 +2868,9 @@
     (->uppercase
      ((name		  . "fullwidth latin capital letter eth")
       ))
-    (=ks-x1001		. #x2923)	; &JX1-2966;
-    (=jis-x0212		. #x2943)	; &I-JSP-2943;
-    (=jis-x0213-1-2000	. #x2966)	; &I-JX1-2966;
+    (=ks-x1001		. #x2923)	; &JX1-2966; [09-03]
+    (=jis-x0212		. #x2943)	; &I-JSP-2943; [09-35]
+    (=jis-x0213-1-2000	. #x2966)	; &I-JX1-2966; [09-70]
     (=jef-china3	. #x83B4)	; &I-JC3-83B4;
     (=ucs@jis		. #x00F0)	; &JX1-2966;
     ))
@@ -2882,8 +2882,8 @@
     (->decomposition	#x006E #x0303)
     (->fullwidth
      ((name		  . "fullwidth latin small letter n with tilde")
-      (=jis-x0212	  . #x2B50)	; &JX1-2967;
-      (=jis-x0213-1-2000  . #x2967)	; &I-JX1-2967;
+      (=jis-x0212	  . #x2B50)	; &JX1-2967; [11-48]
+      (=jis-x0213-1-2000  . #x2967)	; &I-JX1-2967; [09-71]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER N WITH TILDE")
@@ -2907,8 +2907,8 @@
      ((name		  . "LATIN SMALL LETTER N WITH TILDE")
       (=ucs		  . #x00F1)	; ñ
       ))
-    (=jis-x0212		. #x2B50)	; &JX1-2967;
-    (=jis-x0213-1-2000	. #x2967)	; &I-JX1-2967;
+    (=jis-x0212		. #x2B50)	; &JX1-2967; [11-48]
+    (=jis-x0213-1-2000	. #x2967)	; &I-JX1-2967; [09-71]
     (=jef-china3	. #x86F3)	; &I-JC3-86F3;
     (=ucs@jis		. #x00F1)	; &JX1-2967;
     ))
@@ -2920,9 +2920,9 @@
     (->decomposition	#x006F #x0300)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with grave")
-      (=gb2312		  . #x2830)	; &JX1-2968;
-      (=jis-x0212	  . #x2B52)	; &I-JSP-2B52;
-      (=jis-x0213-1-2000  . #x2968)	; &I-JX1-2968;
+      (=gb2312		  . #x2830)	; &JX1-2968; [08-16]
+      (=jis-x0212	  . #x2B52)	; &I-JSP-2B52; [11-50]
+      (=jis-x0213-1-2000  . #x2968)	; &I-JX1-2968; [09-72]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH GRAVE")
@@ -2949,9 +2949,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH GRAVE")
       (=ucs		  . #x00F2)	; ò
       ))
-    (=gb2312		. #x2830)	; &JX1-2968;
-    (=jis-x0212		. #x2B52)	; &I-JSP-2B52;
-    (=jis-x0213-1-2000	. #x2968)	; &I-JX1-2968;
+    (=gb2312		. #x2830)	; &JX1-2968; [08-16]
+    (=jis-x0212		. #x2B52)	; &I-JSP-2B52; [11-50]
+    (=jis-x0213-1-2000	. #x2968)	; &I-JX1-2968; [09-72]
     (=jef-china3	. #x85C5)	; &I-JC3-85C5;
     (=ucs@jis		. #x00F2)	; &JX1-2968;
     ))
@@ -2963,9 +2963,9 @@
     (->decomposition	#x006F #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with acute")
-      (=gb2312		  . #x282E)	; &JX1-2969;
-      (=jis-x0212	  . #x2B51)	; &I-JSP-2B51;
-      (=jis-x0213-1-2000  . #x2969)	; &I-JX1-2969;
+      (=gb2312		  . #x282E)	; &JX1-2969; [08-14]
+      (=jis-x0212	  . #x2B51)	; &I-JSP-2B51; [11-49]
+      (=jis-x0213-1-2000  . #x2969)	; &I-JX1-2969; [09-73]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH ACUTE")
@@ -2993,9 +2993,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH ACUTE")
       (=ucs		  . #x00F3)	; ó
       ))
-    (=gb2312		. #x282E)	; &JX1-2969;
-    (=jis-x0212		. #x2B51)	; &I-JSP-2B51;
-    (=jis-x0213-1-2000	. #x2969)	; &I-JX1-2969;
+    (=gb2312		. #x282E)	; &JX1-2969; [08-14]
+    (=jis-x0212		. #x2B51)	; &I-JSP-2B51; [11-49]
+    (=jis-x0213-1-2000	. #x2969)	; &I-JX1-2969; [09-73]
     (=jef-china3	. #x85F6)	; &I-JC3-85F6;
     (=ucs@jis		. #x00F3)	; &JX1-2969;
     ))
@@ -3007,8 +3007,8 @@
     (->decomposition	#x006F #x0302)
     (->fullwidth
      ((name . "fullwidth latin small letter o with circumflex")
-      (=jis-x0212	  . #x2B54)	; &JX1-296A;
-      (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A;
+      (=jis-x0212	  . #x2B54)	; &JX1-296A; [11-52]
+      (=jis-x0213-1-2000  . #x296A)	; &I-JX1-296A; [09-74]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX")
@@ -3037,8 +3037,8 @@
      ((name		  . "LATIN SMALL LETTER O WITH CIRCUMFLEX")
       (=ucs		  . #x00F4)	; ô
       ))
-    (=jis-x0212		. #x2B54)	; &JX1-296A;
-    (=jis-x0213-1-2000	. #x296A)	; &I-JX1-296A;
+    (=jis-x0212		. #x2B54)	; &JX1-296A; [11-52]
+    (=jis-x0213-1-2000	. #x296A)	; &I-JX1-296A; [09-74]
     (=jef-china3	. #x86CC)	; &I-JC3-86CC;
     (=ucs@jis		. #x00F4)	; &JX1-296A;
     ))
@@ -3050,8 +3050,8 @@
     (->decomposition	#x006F #x0303)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with tilde")
-      (=jis-x0212	  . #x2B58)	; &JX1-296B;
-      (=jis-x0213-1-2000  . #x296B)	; &I-JX1-296B;
+      (=jis-x0212	  . #x2B58)	; &JX1-296B; [11-56]
+      (=jis-x0213-1-2000  . #x296B)	; &I-JX1-296B; [09-75]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH TILDE")
@@ -3078,8 +3078,8 @@
      ((name		  . "LATIN SMALL LETTER O WITH TILDE")
       (=ucs		  . #x00F5)	; õ
       ))
-    (=jis-x0212		. #x2B58)	; &JX1-296B;
-    (=jis-x0213-1-2000	. #x296B)	; &I-JX1-296B;
+    (=jis-x0212		. #x2B58)	; &JX1-296B; [11-56]
+    (=jis-x0213-1-2000	. #x296B)	; &I-JX1-296B; [09-75]
     (=jef-china3	. #x86F4)	; &I-JC3-86F4;
     (=ucs@jis		. #x00F5)	; &JX1-296B;
     ))
@@ -3091,8 +3091,8 @@
     (->decomposition	#x006F #x0308)
     (->fullwidth
      ((name . "fullwidth latin small letter o with diaeresis")
-      (=jis-x0212	  . #x2B53)	; &JX1-296C;
-      (=jis-x0213-1-2000  . #x296C)	; &I-JX1-296C;
+      (=jis-x0212	  . #x2B53)	; &JX1-296C; [11-51]
+      (=jis-x0213-1-2000  . #x296C)	; &I-JX1-296C; [09-76]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH DIAERESIS")
@@ -3118,8 +3118,8 @@
      ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS")
       (=ucs		  . #x00F6)	; ö
       ))
-    (=jis-x0212		. #x2B53)	; &JX1-296C;
-    (=jis-x0213-1-2000	. #x296C)	; &I-JX1-296C;
+    (=jis-x0212		. #x2B53)	; &JX1-296C; [11-51]
+    (=jis-x0213-1-2000	. #x296C)	; &I-JX1-296C; [09-76]
     (=jef-china3	. #x88D8)	; &I-JC3-88D8;
     (=ucs@jis		. #x00F6)	; &JX1-296C;
     ))
@@ -3130,10 +3130,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth division sign")
-      (=jis-x0208	  . #x2160)	; &J90-2160;
-      (=gb2312		  . #x2142)	; &I-G0-2142;
-      (=ks-x1001	  . #x2140)	; &I-K0-2140;
-      (=cns11643-1	  . #x2233)	; &I-C1-2233;
+      (=jis-x0208	  . #x2160)	; &J90-2160; [01-64]
+      (=gb2312		  . #x2142)	; &I-G0-2142; [01-34]
+      (=ks-x1001	  . #x2140)	; &I-K0-2140; [01-32]
+      (=cns11643-1	  . #x2233)	; &I-C1-2233; [02-19]
       ))
     (=ucs		. #x00F7)	; ÷
     (latin-iso8859-1	. #xF7)	; &I-LATIN1-77;
@@ -3153,10 +3153,10 @@
      ((name		  . "DIVISION SIGN")
       (=ucs		  . #x00F7)	; ÷
       ))
-    (=jis-x0208		. #x2160)	; &J90-2160;
-    (=gb2312		. #x2142)	; &I-G0-2142;
-    (=ks-x1001		. #x2140)	; &I-K0-2140;
-    (=cns11643-1	. #x2233)	; &I-C1-2233;
+    (=jis-x0208		. #x2160)	; &J90-2160; [01-64]
+    (=gb2312		. #x2142)	; &I-G0-2142; [01-34]
+    (=ks-x1001		. #x2140)	; &I-K0-2140; [01-32]
+    (=cns11643-1	. #x2233)	; &I-C1-2233; [02-19]
     (=big5		. #xA1D2)	; &I-B-A1D2;
     (=ucs@jis		. #x00F7)	; &J90-2160;
     ))
@@ -3167,9 +3167,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth latin small letter o with stroke")
-      (=ks-x1001	  . #x292A)	; &JX1-296D;
-      (=jis-x0212	  . #x294C)	; &I-JSP-294C;
-      (=jis-x0213-1-2000  . #x296D)	; &I-JX1-296D;
+      (=ks-x1001	  . #x292A)	; &JX1-296D; [09-10]
+      (=jis-x0212	  . #x294C)	; &I-JSP-294C; [09-44]
+      (=jis-x0213-1-2000  . #x296D)	; &I-JX1-296D; [09-77]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER O WITH STROKE")
@@ -3194,9 +3194,9 @@
      ((name		  . "LATIN SMALL LETTER O WITH STROKE")
       (=ucs		  . #x00F8)	; ø
       ))
-    (=ks-x1001		. #x292A)	; &JX1-296D;
-    (=jis-x0212		. #x294C)	; &I-JSP-294C;
-    (=jis-x0213-1-2000	. #x296D)	; &I-JX1-296D;
+    (=ks-x1001		. #x292A)	; &JX1-296D; [09-10]
+    (=jis-x0212		. #x294C)	; &I-JSP-294C; [09-44]
+    (=jis-x0213-1-2000	. #x296D)	; &I-JX1-296D; [09-77]
     (=jef-china3	. #x83AD)	; &I-JC3-83AD;
     (=ucs@jis		. #x00F8)	; &JX1-296D;
     ))
@@ -3208,9 +3208,9 @@
     (->decomposition	#x0075 #x0300)
     (->fullwidth
      ((name		  . "fullwidth latin small letter u with grave")
-      (=gb2312		  . #x2834)	; &JX1-296E;
-      (=jis-x0212	  . #x2B63)	; &I-JSP-2B63;
-      (=jis-x0213-1-2000  . #x296E)	; &I-JX1-296E;
+      (=gb2312		  . #x2834)	; &JX1-296E; [08-20]
+      (=jis-x0212	  . #x2B63)	; &I-JSP-2B63; [11-67]
+      (=jis-x0213-1-2000  . #x296E)	; &I-JX1-296E; [09-78]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH GRAVE")
@@ -3237,9 +3237,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH GRAVE")
       (=ucs		  . #x00F9)	; ù
       ))
-    (=gb2312		. #x2834)	; &JX1-296E;
-    (=jis-x0212		. #x2B63)	; &I-JSP-2B63;
-    (=jis-x0213-1-2000	. #x296E)	; &I-JX1-296E;
+    (=gb2312		. #x2834)	; &JX1-296E; [08-20]
+    (=jis-x0212		. #x2B63)	; &I-JSP-2B63; [11-67]
+    (=jis-x0213-1-2000	. #x296E)	; &I-JX1-296E; [09-78]
     (=jef-china3	. #x85C7)	; &I-JC3-85C7;
     (=ucs@jis		. #x00F9)	; &JX1-296E;
     ))
@@ -3251,9 +3251,9 @@
     (->decomposition	#x0075 #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter u with acute")
-      (=gb2312		  . #x2832)	; &JX1-296F;
-      (=jis-x0212	  . #x2B62)	; &I-JSP-2B62;
-      (=jis-x0213-1-2000  . #x296F)	; &I-JX1-296F;
+      (=gb2312		  . #x2832)	; &JX1-296F; [08-18]
+      (=jis-x0212	  . #x2B62)	; &I-JSP-2B62; [11-66]
+      (=jis-x0213-1-2000  . #x296F)	; &I-JX1-296F; [09-79]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH ACUTE")
@@ -3282,9 +3282,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH ACUTE")
       (=ucs		  . #x00FA)	; ú
       ))
-    (=gb2312		. #x2832)	; &JX1-296F;
-    (=jis-x0212		. #x2B62)	; &I-JSP-2B62;
-    (=jis-x0213-1-2000	. #x296F)	; &I-JX1-296F;
+    (=gb2312		. #x2832)	; &JX1-296F; [08-18]
+    (=jis-x0212		. #x2B62)	; &I-JSP-2B62; [11-66]
+    (=jis-x0213-1-2000	. #x296F)	; &I-JX1-296F; [09-79]
     (=jef-china3	. #x85FC)	; &I-JC3-85FC;
     (=ucs@jis		. #x00FA)	; &JX1-296F;
     ))
@@ -3296,8 +3296,8 @@
     (->decomposition	#x0075 #x0302)
     (->fullwidth
      ((name . "fullwidth latin small letter u with circumflex")
-      (=jis-x0212	  . #x2B65)	; &JX1-2970;
-      (=jis-x0213-1-2000  . #x2970)	; &I-JX1-2970;
+      (=jis-x0212	  . #x2B65)	; &JX1-2970; [11-69]
+      (=jis-x0213-1-2000  . #x2970)	; &I-JX1-2970; [09-80]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH CIRCUMFLEX")
@@ -3322,8 +3322,8 @@
      ((name		  . "LATIN SMALL LETTER U WITH CIRCUMFLEX")
       (=ucs		  . #x00FB)	; û
       ))
-    (=jis-x0212		. #x2B65)	; &JX1-2970;
-    (=jis-x0213-1-2000	. #x2970)	; &I-JX1-2970;
+    (=jis-x0212		. #x2B65)	; &JX1-2970; [11-69]
+    (=jis-x0213-1-2000	. #x2970)	; &I-JX1-2970; [09-80]
     (=jef-china3	. #x86CE)	; &I-JC3-86CE;
     (=ucs@jis		. #x00FB)	; &JX1-2970;
     ))
@@ -3335,9 +3335,9 @@
     (->decomposition	#x0075 #x0308)
     (->fullwidth
      ((name . "fullwidth latin small letter u with diaeresis")
-      (=gb2312		  . #x2839)	; &JX1-2971;
-      (=jis-x0212	  . #x2B64)	; &I-JSP-2B64;
-      (=jis-x0213-1-2000  . #x2971)	; &I-JX1-2971;
+      (=gb2312		  . #x2839)	; &JX1-2971; [08-25]
+      (=jis-x0212	  . #x2B64)	; &I-JSP-2B64; [11-68]
+      (=jis-x0213-1-2000  . #x2971)	; &I-JX1-2971; [09-81]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS")
@@ -3363,9 +3363,9 @@
      ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS")
       (=ucs		  . #x00FC)	; ü
       ))
-    (=gb2312		. #x2839)	; &JX1-2971;
-    (=jis-x0212		. #x2B64)	; &I-JSP-2B64;
-    (=jis-x0213-1-2000	. #x2971)	; &I-JX1-2971;
+    (=gb2312		. #x2839)	; &JX1-2971; [08-25]
+    (=jis-x0212		. #x2B64)	; &I-JSP-2B64; [11-68]
+    (=jis-x0213-1-2000	. #x2971)	; &I-JX1-2971; [09-81]
     (=jef-china3	. #x88DB)	; &I-JC3-88DB;
     (=ucs@jis		. #x00FC)	; &JX1-2971;
     ))
@@ -3377,8 +3377,8 @@
     (->decomposition	#x0079 #x0301)
     (->fullwidth
      ((name		  . "fullwidth latin small letter y with acute")
-      (=jis-x0212	  . #x2B72)	; &JX1-2972;
-      (=jis-x0213-1-2000  . #x2972)	; &I-JX1-2972;
+      (=jis-x0212	  . #x2B72)	; &JX1-2972; [11-82]
+      (=jis-x0213-1-2000  . #x2972)	; &I-JX1-2972; [09-82]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER Y WITH ACUTE")
@@ -3404,8 +3404,8 @@
      ((name		  . "LATIN SMALL LETTER Y WITH ACUTE")
       (=ucs		  . #x00FD)	; ý
       ))
-    (=jis-x0212		. #x2B72)	; &JX1-2972;
-    (=jis-x0213-1-2000	. #x2972)	; &I-JX1-2972;
+    (=jis-x0212		. #x2B72)	; &JX1-2972; [11-82]
+    (=jis-x0213-1-2000	. #x2972)	; &I-JX1-2972; [09-82]
     (=jef-china3	. #x86A1)	; &I-JC3-86A1;
     (=ucs@jis		. #x00FD)	; &JX1-2972;
     ))
@@ -3417,9 +3417,9 @@
     (iso-10646-comment	. "Icelandic")
     (->fullwidth
      ((name		  . "fullwidth latin small letter thorn")
-      (=ks-x1001	  . #x292D)	; &JX1-2973;
-      (=jis-x0212	  . #x2950)	; &I-JSP-2950;
-      (=jis-x0213-1-2000  . #x2973)	; &I-JX1-2973;
+      (=ks-x1001	  . #x292D)	; &JX1-2973; [09-13]
+      (=jis-x0212	  . #x2950)	; &I-JSP-2950; [09-48]
+      (=jis-x0213-1-2000  . #x2973)	; &I-JX1-2973; [09-83]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER THORN")
@@ -3442,9 +3442,9 @@
      ((name		  . "LATIN SMALL LETTER THORN")
       (=ucs		  . #x00FE)	; þ
       ))
-    (=ks-x1001		. #x292D)	; &JX1-2973;
-    (=jis-x0212		. #x2950)	; &I-JSP-2950;
-    (=jis-x0213-1-2000	. #x2973)	; &I-JX1-2973;
+    (=ks-x1001		. #x292D)	; &JX1-2973; [09-13]
+    (=jis-x0212		. #x2950)	; &I-JSP-2950; [09-48]
+    (=jis-x0213-1-2000	. #x2973)	; &I-JX1-2973; [09-83]
     (=jef-china3	. #x83AF)	; &I-JC3-83AF;
     (=ucs@jis		. #x00FE)	; &JX1-2973;
     ))
@@ -3456,8 +3456,8 @@
     (->decomposition	#x0079 #x0308)
     (->fullwidth
      ((name . "fullwidth latin small letter y with diaeresis")
-      (=jis-x0212	  . #x2B73)	; &JX1-2974;
-      (=jis-x0213-1-2000  . #x2974)	; &I-JX1-2974;
+      (=jis-x0212	  . #x2B73)	; &JX1-2974; [11-83]
+      (=jis-x0213-1-2000  . #x2974)	; &I-JX1-2974; [09-84]
       ))
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER Y WITH DIAERESIS")
@@ -3480,7 +3480,7 @@
      ((name		  . "LATIN SMALL LETTER Y WITH DIAERESIS")
       (=ucs		  . #x00FF)	; ÿ
       ))
-    (=jis-x0212		. #x2B73)	; &JX1-2974;
-    (=jis-x0213-1-2000	. #x2974)	; &I-JX1-2974;
+    (=jis-x0212		. #x2B73)	; &JX1-2974; [11-83]
+    (=jis-x0213-1-2000	. #x2974)	; &I-JX1-2974; [09-84]
     (=ucs@jis		. #x00FF)	; &JX1-2974;
     ))

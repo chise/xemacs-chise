@@ -1202,7 +1202,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x0251 #x0300)
-    (=jis-x0213-1-2000	. #x2B46)	; &JX1-2B46;
+    (=jis-x0213-1-2000	. #x2B46)	; &JX1-2B46; [11-38]
     (=ucs@jis		. #x1F70)	; &JX1-2B46;
     ))
 (define-char
@@ -1224,7 +1224,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x0251 #x0301)
-    (=jis-x0213-1-2000	. #x2B47)	; &JX1-2B47;
+    (=jis-x0213-1-2000	. #x2B47)	; &JX1-2B47; [11-39]
     (=ucs@jis		. #x1F71)	; &JX1-2B47;
     ))
 (define-char
@@ -1249,7 +1249,7 @@
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
       ))
-    (=jis-x0213-1-2000	. #x2B50)	; &JX1-2B50;
+    (=jis-x0213-1-2000	. #x2B50)	; &JX1-2B50; [11-48]
     (=ucs@jis		. #x1F72)	; &JX1-2B50;
     ))
 (define-char
@@ -1274,7 +1274,7 @@
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")
       ))
-    (=jis-x0213-1-2000	. #x2B51)	; &JX1-2B51;
+    (=jis-x0213-1-2000	. #x2B51)	; &JX1-2B51; [11-49]
     (=ucs@jis		. #x1F73)	; &JX1-2B51;
     ))
 (define-char

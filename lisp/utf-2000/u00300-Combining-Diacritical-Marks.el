@@ -6,7 +6,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Varia")
     (=ucs		. #x0300)	; ̀
-    (=jis-x0213-1-2000	. #x2B5C)	; &I-JX1-2B5C;
+    (=jis-x0213-1-2000	. #x2B5C)	; &I-JX1-2B5C; [11-60]
     (latin-tcvn5712	. #xB0)	; &I-VSCII2-30;
     ))
 (define-char
@@ -16,7 +16,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Oxia")
     (=ucs		. #x0301)	; ́
-    (=jis-x0213-1-2000	. #x2B5A)	; &I-JX1-2B5A;
+    (=jis-x0213-1-2000	. #x2B5A)	; &I-JX1-2B5A; [11-58]
     (latin-tcvn5712	. #xB3)	; &I-VSCII2-33;
     ))
 (define-char
@@ -25,7 +25,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0302)	; ̂
-    (=jis-x0213-1-2000	. #x2B5F)	; &I-JX1-2B5F;
+    (=jis-x0213-1-2000	. #x2B5F)	; &I-JX1-2B5F; [11-63]
     ))
 (define-char
   '((name		. "COMBINING TILDE")
@@ -33,7 +33,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0303)	; ̃
-    (=jis-x0213-1-2000	. #x2B7D)	; &I-JX1-2B7D;
+    (=jis-x0213-1-2000	. #x2B7D)	; &I-JX1-2B7D; [11-93]
     (latin-tcvn5712	. #xB2)	; &I-VSCII2-32;
     ))
 (define-char
@@ -42,7 +42,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0304)	; ̄
-    (=jis-x0213-1-2000	. #x2B5B)	; &I-JX1-2B5B;
+    (=jis-x0213-1-2000	. #x2B5B)	; &I-JX1-2B5B; [11-59]
     ))
 (define-char
   '((name		. "COMBINING OVERLINE")
@@ -58,7 +58,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Vrachy")
     (=ucs		. #x0306)	; ̆
-    (=jis-x0213-1-2000	. #x2B57)	; &I-JX1-2B57;
+    (=jis-x0213-1-2000	. #x2B57)	; &I-JX1-2B57; [11-55]
     ))
 (define-char
   '((name		. "COMBINING DOT ABOVE")
@@ -74,7 +74,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Dialytika")
     (=ucs		. #x0308)	; ̈
-    (=jis-x0213-1-2000	. #x2B6D)	; &I-JX1-2B6D;
+    (=jis-x0213-1-2000	. #x2B6D)	; &I-JX1-2B6D; [11-77]
     ))
 (define-char
   '((name		. "COMBINING HOOK ABOVE")
@@ -97,7 +97,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x030B)	; ̋
-    (=jis-x0213-1-2000	. #x2B59)	; &I-JX1-2B59;
+    (=jis-x0213-1-2000	. #x2B59)	; &I-JX1-2B59; [11-57]
     ))
 (define-char
   '((name		. "COMBINING CARON")
@@ -105,7 +105,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x030C)	; ̌
-    (=jis-x0213-1-2000	. #x2B5E)	; &I-JX1-2B5E;
+    (=jis-x0213-1-2000	. #x2B5E)	; &I-JX1-2B5E; [11-62]
     ))
 (define-char
   '((name		. "COMBINING VERTICAL LINE ABOVE")
@@ -128,7 +128,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x030F)	; ̏
-    (=jis-x0213-1-2000	. #x2B5D)	; &I-JX1-2B5D;
+    (=jis-x0213-1-2000	. #x2B5D)	; &I-JX1-2B5D; [11-61]
     ))
 (define-char
   '((name		. "COMBINING CANDRABINDU")
@@ -194,7 +194,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0318)	; ̘
-    (=jis-x0213-1-2000	. #x2B78)	; &I-JX1-2B78;
+    (=jis-x0213-1-2000	. #x2B78)	; &I-JX1-2B78; [11-88]
     ))
 (define-char
   '((name		. "COMBINING RIGHT TACK BELOW")
@@ -202,7 +202,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0319)	; ̙
-    (=jis-x0213-1-2000	. #x2B79)	; &I-JX1-2B79;
+    (=jis-x0213-1-2000	. #x2B79)	; &I-JX1-2B79; [11-89]
     ))
 (define-char
   '((name		. "COMBINING LEFT ANGLE ABOVE")
@@ -210,7 +210,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x031A)	; ̚
-    (=jis-x0213-1-2000	. #x2B7E)	; &I-JX1-2B7E;
+    (=jis-x0213-1-2000	. #x2B7E)	; &I-JX1-2B7E; [11-94]
     ))
 (define-char
   '((name		. "COMBINING HORN")
@@ -225,7 +225,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x031C)	; ̜
-    (=jis-x0213-1-2000	. #x2B6A)	; &I-JX1-2B6A;
+    (=jis-x0213-1-2000	. #x2B6A)	; &I-JX1-2B6A; [11-74]
     ))
 (define-char
   '((name		. "COMBINING UP TACK BELOW")
@@ -233,7 +233,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x031D)	; ̝
-    (=jis-x0213-1-2000	. #x2B76)	; &I-JX1-2B76;
+    (=jis-x0213-1-2000	. #x2B76)	; &I-JX1-2B76; [11-86]
     ))
 (define-char
   '((name		. "COMBINING DOWN TACK BELOW")
@@ -241,7 +241,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x031E)	; ̞
-    (=jis-x0213-1-2000	. #x2B77)	; &I-JX1-2B77;
+    (=jis-x0213-1-2000	. #x2B77)	; &I-JX1-2B77; [11-87]
     ))
 (define-char
   '((name		. "COMBINING PLUS SIGN BELOW")
@@ -249,7 +249,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x031F)	; ̟
-    (=jis-x0213-1-2000	. #x2B6B)	; &I-JX1-2B6B;
+    (=jis-x0213-1-2000	. #x2B6B)	; &I-JX1-2B6B; [11-75]
     ))
 (define-char
   '((name		. "COMBINING MINUS SIGN BELOW")
@@ -257,7 +257,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0320)	; ̠
-    (=jis-x0213-1-2000	. #x2B6C)	; &I-JX1-2B6C;
+    (=jis-x0213-1-2000	. #x2B6C)	; &I-JX1-2B6C; [11-76]
     ))
 (define-char
   '((name		. "COMBINING PALATALIZED HOOK BELOW")
@@ -287,7 +287,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0324)	; ̤
-    (=jis-x0213-1-2000	. #x2B72)	; &I-JX1-2B72;
+    (=jis-x0213-1-2000	. #x2B72)	; &I-JX1-2B72; [11-82]
     ))
 (define-char
   '((name		. "COMBINING RING BELOW")
@@ -295,7 +295,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0325)	; ̥
-    (=jis-x0213-1-2000	. #x2B67)	; &I-JX1-2B67;
+    (=jis-x0213-1-2000	. #x2B67)	; &I-JX1-2B67; [11-71]
     ))
 (define-char
   '((name		. "COMBINING COMMA BELOW")
@@ -324,7 +324,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0329)	; ̩
-    (=jis-x0213-1-2000	. #x2B6F)	; &I-JX1-2B6F;
+    (=jis-x0213-1-2000	. #x2B6F)	; &I-JX1-2B6F; [11-79]
     ))
 (define-char
   '((name		. "COMBINING BRIDGE BELOW")
@@ -332,7 +332,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x032A)	; ̪
-    (=jis-x0213-1-2000	. #x2B7A)	; &I-JX1-2B7A;
+    (=jis-x0213-1-2000	. #x2B7A)	; &I-JX1-2B7A; [11-90]
     ))
 (define-char
   '((name		. "COMBINING INVERTED DOUBLE ARCH BELOW")
@@ -347,7 +347,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x032C)	; ̬
-    (=jis-x0213-1-2000	. #x2B68)	; &I-JX1-2B68;
+    (=jis-x0213-1-2000	. #x2B68)	; &I-JX1-2B68; [11-72]
     ))
 (define-char
   '((name		. "COMBINING CIRCUMFLEX ACCENT BELOW")
@@ -369,7 +369,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x032F)	; ̯
-    (=jis-x0213-1-2000	. #x2B70)	; &I-JX1-2B70;
+    (=jis-x0213-1-2000	. #x2B70)	; &I-JX1-2B70; [11-80]
     ))
 (define-char
   '((name		. "COMBINING TILDE BELOW")
@@ -377,7 +377,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0330)	; ̰
-    (=jis-x0213-1-2000	. #x2B73)	; &I-JX1-2B73;
+    (=jis-x0213-1-2000	. #x2B73)	; &I-JX1-2B73; [11-83]
     ))
 (define-char
   '((name		. "COMBINING MACRON BELOW")
@@ -406,7 +406,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0334)	; ̴
-    (=jis-x0213-1-2000	. #x2B75)	; &I-JX1-2B75;
+    (=jis-x0213-1-2000	. #x2B75)	; &I-JX1-2B75; [11-85]
     ))
 (define-char
   '((name		. "COMBINING SHORT STROKE OVERLAY")
@@ -442,7 +442,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0339)	; ̹
-    (=jis-x0213-1-2000	. #x2B69)	; &I-JX1-2B69;
+    (=jis-x0213-1-2000	. #x2B69)	; &I-JX1-2B69; [11-73]
     ))
 (define-char
   '((name		. "COMBINING INVERTED BRIDGE BELOW")
@@ -450,7 +450,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x033A)	; ̺
-    (=jis-x0213-1-2000	. #x2B7B)	; &I-JX1-2B7B;
+    (=jis-x0213-1-2000	. #x2B7B)	; &I-JX1-2B7B; [11-91]
     ))
 (define-char
   '((name		. "COMBINING SQUARE BELOW")
@@ -458,7 +458,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x033B)	; ̻
-    (=jis-x0213-1-2000	. #x2B7C)	; &I-JX1-2B7C;
+    (=jis-x0213-1-2000	. #x2B7C)	; &I-JX1-2B7C; [11-92]
     ))
 (define-char
   '((name		. "COMBINING SEAGULL BELOW")
@@ -466,7 +466,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x033C)	; ̼
-    (=jis-x0213-1-2000	. #x2B74)	; &I-JX1-2B74;
+    (=jis-x0213-1-2000	. #x2B74)	; &I-JX1-2B74; [11-84]
     ))
 (define-char
   '((name		. "COMBINING X ABOVE")
@@ -474,7 +474,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x033D)	; ̽
-    (=jis-x0213-1-2000	. #x2B6E)	; &I-JX1-2B6E;
+    (=jis-x0213-1-2000	. #x2B6E)	; &I-JX1-2B6E; [11-78]
     ))
 (define-char
   '((name		. "COMBINING VERTICAL TILDE")
@@ -618,7 +618,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0361)	; ͡
-    (=jis-x0213-1-2000	. #x2B52)	; &I-JX1-2B52;
+    (=jis-x0213-1-2000	. #x2B52)	; &I-JX1-2B52; [11-50]
     ))
 (define-char
   '((name		. "COMBINING DOUBLE RIGHTWARDS ARROW BELOW")

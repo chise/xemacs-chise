@@ -30,7 +30,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020)
     (=ucs		. #x2003)	;  
-    (=cns11643-1	. #x256D)	; &I-C1-256D;
+    (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     ))
 (define-char
   '((name		. "THREE-PER-EM SPACE")
@@ -129,7 +129,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2010)	; ‐
-    (=jis-x0208		. #x213E)	; &I-J90-213E;
+    (=jis-x0208		. #x213E)	; &I-J90-213E; [01-30]
     ))
 (define-char
   '((name		. "NON-BREAKING HYPHEN")
@@ -152,8 +152,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2013)	; –
-    (=cns11643-1	. #x2139)	; &I-C1-2139;
-    (=jis-x0213-1-2000	. #x237C)	; &I-JX1-237C;
+    (=cns11643-1	. #x2139)	; &I-C1-2139; [01-25]
+    (=jis-x0213-1-2000	. #x237C)	; &I-JX1-237C; [03-92]
     (=big5		. #xA156)	; &I-B-A156;
     ))
 (define-char
@@ -162,8 +162,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2014)	; —
-    (=jis-x0208		. #x213D)	; &I-J90-213D;
-    (=cns11643-1	. #x2137)	; &I-C1-2137;
+    (=jis-x0208		. #x213D)	; &I-J90-213D; [01-29]
+    (=cns11643-1	. #x2137)	; &I-C1-2137; [01-23]
     (=big5		. #xA158)	; &I-B-A158;
     ))
 (define-char
@@ -172,8 +172,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2015)	; ―
-    (=gb2312		. #x212A)	; &I-G0-212A;
-    (=ks-x1001		. #x212A)	; &I-K0-212A;
+    (=gb2312		. #x212A)	; &I-G0-212A; [01-10]
+    (=ks-x1001		. #x212A)	; &I-K0-212A; [01-10]
     ))
 (define-char
   '((name		. "HALFWIDTH HORIZONTAL BAR")
@@ -190,9 +190,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2016)	; ‖
-    (=jis-x0208		. #x2142)	; &I-J90-2142;
-    (=gb2312		. #x212C)	; &I-G0-212C;
-    (=cns11643-1	. #x225D)	; &I-C1-225D;
+    (=jis-x0208		. #x2142)	; &I-J90-2142; [01-34]
+    (=gb2312		. #x212C)	; &I-G0-212C; [01-12]
+    (=cns11643-1	. #x225D)	; &I-C1-225D; [02-61]
     ))
 (define-char
   '((name		. "DOUBLE LOW LINE")
@@ -209,10 +209,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2018)	; ‘
-    (=jis-x0208		. #x2146)	; &I-J90-2146;
-    (=gb2312		. #x212E)	; &I-G0-212E;
-    (=ks-x1001		. #x212E)	; &I-K0-212E;
-    (=cns11643-1	. #x2164)	; &I-C1-2164;
+    (=jis-x0208		. #x2146)	; &I-J90-2146; [01-38]
+    (=gb2312		. #x212E)	; &I-G0-212E; [01-14]
+    (=ks-x1001		. #x212E)	; &I-K0-212E; [01-14]
+    (=cns11643-1	. #x2164)	; &I-C1-2164; [01-68]
     (=big5		. #xA1A5)	; &I-B-A1A5;
     ))
 (define-char
@@ -221,10 +221,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2019)	; ’
-    (=jis-x0208		. #x2147)	; &I-J90-2147;
-    (=gb2312		. #x212F)	; &I-G0-212F;
-    (=ks-x1001		. #x212F)	; &I-K0-212F;
-    (=cns11643-1	. #x2165)	; &I-C1-2165;
+    (=jis-x0208		. #x2147)	; &I-J90-2147; [01-39]
+    (=gb2312		. #x212F)	; &I-G0-212F; [01-15]
+    (=ks-x1001		. #x212F)	; &I-K0-212F; [01-15]
+    (=cns11643-1	. #x2165)	; &I-C1-2165; [01-69]
     (=big5		. #xA1A6)	; &I-B-A1A6;
     ))
 (define-char
@@ -247,10 +247,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201C)	; “
-    (=jis-x0208		. #x2148)	; &I-J90-2148;
-    (=gb2312		. #x2130)	; &I-G0-2130;
-    (=ks-x1001		. #x2130)	; &I-K0-2130;
-    (=cns11643-1	. #x2166)	; &I-C1-2166;
+    (=jis-x0208		. #x2148)	; &I-J90-2148; [01-40]
+    (=gb2312		. #x2130)	; &I-G0-2130; [01-16]
+    (=ks-x1001		. #x2130)	; &I-K0-2130; [01-16]
+    (=cns11643-1	. #x2166)	; &I-C1-2166; [01-70]
     (=big5		. #xA1A7)	; &I-B-A1A7;
     ))
 (define-char
@@ -259,10 +259,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201D)	; ”
-    (=jis-x0208		. #x2149)	; &I-J90-2149;
-    (=gb2312		. #x2131)	; &I-G0-2131;
-    (=ks-x1001		. #x2131)	; &I-K0-2131;
-    (=cns11643-1	. #x2167)	; &I-C1-2167;
+    (=jis-x0208		. #x2149)	; &I-J90-2149; [01-41]
+    (=gb2312		. #x2131)	; &I-G0-2131; [01-17]
+    (=ks-x1001		. #x2131)	; &I-K0-2131; [01-17]
+    (=cns11643-1	. #x2167)	; &I-C1-2167; [01-71]
     (=big5		. #xA1A8)	; &I-B-A1A8;
     ))
 (define-char
@@ -285,9 +285,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2020)	; †
-    (=jis-x0208-1983	. #x2277)	; &I-J83-2277;
-    (=ks-x1001		. #x2253)	; &I-K0-2253;
-    (=jis-x0208-1990	. #x2277)	; &I-J90-2277;
+    (=jis-x0208-1983	. #x2277)	; &I-J83-2277; [02-87]
+    (=ks-x1001		. #x2253)	; &I-K0-2253; [02-51]
+    (=jis-x0208-1990	. #x2277)	; &I-J90-2277; [02-87]
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
@@ -295,9 +295,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2021)	; ‡
-    (=jis-x0208-1983	. #x2278)	; &I-J83-2278;
-    (=ks-x1001		. #x2254)	; &I-K0-2254;
-    (=jis-x0208-1990	. #x2278)	; &I-J90-2278;
+    (=jis-x0208-1983	. #x2278)	; &I-J83-2278; [02-88]
+    (=ks-x1001		. #x2254)	; &I-K0-2254; [02-52]
+    (=jis-x0208-1990	. #x2278)	; &I-J90-2278; [02-88]
     ))
 (define-char
   '((name		. "BULLET")
@@ -305,7 +305,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2022)	; •
-    (=jis-x0213-1-2000	. #x2340)	; &I-JX1-2340;
+    (=jis-x0213-1-2000	. #x2340)	; &I-JX1-2340; [03-32]
     ))
 (define-char
   '((name		. "TRIANGULAR BULLET")
@@ -329,9 +329,9 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E)
     (=ucs		. #x2025)	; ‥
-    (=jis-x0208		. #x2145)	; &I-J90-2145;
-    (=ks-x1001		. #x2125)	; &I-K0-2125;
-    (=cns11643-1	. #x212D)	; &I-C1-212D;
+    (=jis-x0208		. #x2145)	; &I-J90-2145; [01-37]
+    (=ks-x1001		. #x2125)	; &I-K0-2125; [01-05]
+    (=cns11643-1	. #x212D)	; &I-C1-212D; [01-13]
     (=big5		. #xA14C)	; &I-B-A14C;
     ))
 (define-char
@@ -341,10 +341,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
     (=ucs		. #x2026)	; …
-    (=jis-x0208		. #x2144)	; &I-J90-2144;
-    (=gb2312		. #x212D)	; &I-G0-212D;
-    (=ks-x1001		. #x2126)	; &I-K0-2126;
-    (=cns11643-1	. #x212C)	; &I-C1-212C;
+    (=jis-x0208		. #x2144)	; &I-J90-2144; [01-36]
+    (=gb2312		. #x212D)	; &I-G0-212D; [01-13]
+    (=ks-x1001		. #x2126)	; &I-K0-2126; [01-06]
+    (=cns11643-1	. #x212C)	; &I-C1-212C; [01-12]
     (=big5		. #xA14B)	; &I-B-A14B;
     ))
 (define-char
@@ -353,7 +353,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2027)	; ‧
-    (=cns11643-1	. #x2131)	; &I-C1-2131;
+    (=cns11643-1	. #x2131)	; &I-C1-2131; [01-17]
     (=big5		. #xA145)	; &I-B-A145;
     ))
 (define-char
@@ -419,10 +419,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2030)	; ‰
-    (=gb2312		. #x216B)	; &I-G0-216B;
-    (=jis-x0208-1983	. #x2273)	; &I-J83-2273;
-    (=ks-x1001		. #x2236)	; &I-K0-2236;
-    (=jis-x0208-1990	. #x2273)	; &I-J90-2273;
+    (=gb2312		. #x216B)	; &I-G0-216B; [01-75]
+    (=jis-x0208-1983	. #x2273)	; &I-J83-2273; [02-83]
+    (=ks-x1001		. #x2236)	; &I-K0-2236; [02-22]
+    (=jis-x0208-1990	. #x2273)	; &I-J90-2273; [02-83]
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")
@@ -437,10 +437,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2032)	; ′
-    (=jis-x0208		. #x216C)	; &I-J90-216C;
-    (=gb2312		. #x2164)	; &I-G0-2164;
-    (=ks-x1001		. #x2147)	; &I-K0-2147;
-    (=cns11643-1	. #x216B)	; &I-C1-216B;
+    (=jis-x0208		. #x216C)	; &I-J90-216C; [01-76]
+    (=gb2312		. #x2164)	; &I-G0-2164; [01-68]
+    (=ks-x1001		. #x2147)	; &I-K0-2147; [01-39]
+    (=cns11643-1	. #x216B)	; &I-C1-216B; [01-75]
     (=big5		. #xA1AC)	; &I-B-A1AC;
     ))
 (define-char
@@ -450,9 +450,9 @@
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
     (=ucs		. #x2033)	; ″
-    (=jis-x0208		. #x216D)	; &I-J90-216D;
-    (=gb2312		. #x2165)	; &I-G0-2165;
-    (=ks-x1001		. #x2148)	; &I-K0-2148;
+    (=jis-x0208		. #x216D)	; &I-J90-216D; [01-77]
+    (=gb2312		. #x2165)	; &I-G0-2165; [01-69]
+    (=ks-x1001		. #x2148)	; &I-K0-2148; [01-40]
     ))
 (define-char
   '((name		. "TRIPLE PRIME")
@@ -468,7 +468,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2035)	; ‵
-    (=cns11643-1	. #x216A)	; &I-C1-216A;
+    (=cns11643-1	. #x216A)	; &I-C1-216A; [01-74]
     (=big5		. #xA1AB)	; &I-B-A1AB;
     ))
 (define-char
@@ -514,10 +514,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x203B)	; ※
-    (=jis-x0208		. #x2228)	; &I-J90-2228;
-    (=gb2312		. #x2179)	; &I-G0-2179;
-    (=ks-x1001		. #x2158)	; &I-K0-2158;
-    (=cns11643-1	. #x216F)	; &I-C1-216F;
+    (=jis-x0208		. #x2228)	; &I-J90-2228; [02-08]
+    (=gb2312		. #x2179)	; &I-G0-2179; [01-89]
+    (=ks-x1001		. #x2158)	; &I-K0-2158; [01-56]
+    (=cns11643-1	. #x216F)	; &I-C1-216F; [01-79]
     (=big5		. #xA1B0)	; &I-B-A1B0;
     ))
 (define-char
@@ -527,7 +527,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x0021)
     (=ucs		. #x203C)	; ‼
-    (=jis-x0213-1-2000	. #x286B)	; &I-JX1-286B;
+    (=jis-x0213-1-2000	. #x286B)	; &I-JX1-286B; [08-75]
     ))
 (define-char
   '((name		. "INTERROBANG")
@@ -544,10 +544,10 @@
     (->decomposition	compat #x0020 #x0305)
     (->fullwidth
      ((name		  . "FULLWIDTH OVERLINE")
-      (=jis-x0208	  . #x2131)	; &J90-2131;
-      (=gb2312		  . #x237E)	; &I-G0-237E;
-      (=ks-x1001	  . #x237E)	; &I-K0-237E;
-      (=cns11643-1	  . #x2223)	; &I-C1-2223;
+      (=jis-x0208	  . #x2131)	; &J90-2131; [01-17]
+      (=gb2312		  . #x237E)	; &I-G0-237E; [03-94]
+      (=ks-x1001	  . #x237E)	; &I-K0-237E; [03-94]
+      (=cns11643-1	  . #x2223)	; &I-C1-2223; [02-03]
       ))
     (=ucs		. #x203E)	; ‾
     (latin-jisx0201	. #x7E)	; &I-LATINJ-7E;
@@ -559,7 +559,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=cns11643-1	. #x2224)	; &C1-2224;
+    (=cns11643-1	. #x2224)	; &C1-2224; [02-04]
     (=big5		. #xA1C3)	; &I-B-A1C3;
     (=ucs@big5		. #xFFE3)	; &C1-2224;
     ))
@@ -574,10 +574,10 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; ‾
       ))
-    (=jis-x0208		. #x2131)	; &J90-2131;
-    (=gb2312		. #x237E)	; &I-G0-237E;
-    (=ks-x1001		. #x237E)	; &I-K0-237E;
-    (=cns11643-1	. #x2223)	; &I-C1-2223;
+    (=jis-x0208		. #x2131)	; &J90-2131; [01-17]
+    (=gb2312		. #x237E)	; &I-G0-237E; [03-94]
+    (=ks-x1001		. #x237E)	; &I-K0-237E; [03-94]
+    (=cns11643-1	. #x2223)	; &I-C1-2223; [02-03]
     (=big5		. #xA1C2)	; &I-B-A1C2;
     (=ucs@jis		. #x203E)	; &J90-2131;
     ))
@@ -609,7 +609,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2042)	; ⁂
-    (=jis-x0213-1-2000	. #x2C7E)	; &I-JX1-2C7E;
+    (=jis-x0213-1-2000	. #x2C7E)	; &I-JX1-2C7E; [12-94]
     ))
 (define-char
   '((name		. "HYPHEN BULLET")
@@ -624,7 +624,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2044)	; ⁄
-    (=cns11643-1	. #x225F)	; &I-C1-225F;
+    (=cns11643-1	. #x225F)	; &I-C1-225F; [02-63]
     ))
 (define-char
   '((name		. "LEFT SQUARE BRACKET WITH QUILL")
@@ -643,7 +643,7 @@
 (define-char
   '((name		. "DOUBLE QUESTION MARK")
     (=ucs		. #x2047)	; ⁇
-    (=jis-x0213-1-2000	. #x286C)	; &I-JX1-286C;
+    (=jis-x0213-1-2000	. #x286C)	; &I-JX1-286C; [08-76]
     ))
 (define-char
   '((name		. "QUESTION EXCLAMATION MARK")
@@ -652,7 +652,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x003F #x0021)
     (=ucs		. #x2048)	; ⁈
-    (=jis-x0213-1-2000	. #x286D)	; &I-JX1-286D;
+    (=jis-x0213-1-2000	. #x286D)	; &I-JX1-286D; [08-77]
     ))
 (define-char
   '((name		. "EXCLAMATION QUESTION MARK")
@@ -661,7 +661,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0021 #x003F)
     (=ucs		. #x2049)	; ⁉
-    (=jis-x0213-1-2000	. #x286E)	; &I-JX1-286E;
+    (=jis-x0213-1-2000	. #x286E)	; &I-JX1-286E; [08-78]
     ))
 (define-char
   '((name		. "TIRONIAN SIGN ET")
@@ -694,7 +694,7 @@
 (define-char
   '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
     (=ucs		. #x2051)	; ⁑
-    (=jis-x0213-1-2000	. #x2C7D)	; &I-JX1-2C7D;
+    (=jis-x0213-1-2000	. #x2C7D)	; &I-JX1-2C7D; [12-93]
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")

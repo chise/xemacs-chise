@@ -8,7 +8,7 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (=ucs		. #x2F00)	; ⼀
-    (=cns11643-1	. #x2721)	; &I-C1-2721;
+    (=cns11643-1	. #x2721)	; &I-C1-2721; [07-01]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LINE")
@@ -19,7 +19,7 @@
      ((=ucs		  . #x4E28)	; 丨
       ))
     (=ucs		. #x2F01)	; ⼁
-    (=cns11643-1	. #x2722)	; &I-C1-2722;
+    (=cns11643-1	. #x2722)	; &I-C1-2722; [07-02]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOT")
@@ -30,7 +30,7 @@
      ((=ucs		  . #x4E36)	; 丶
       ))
     (=ucs		. #x2F02)	; ⼂
-    (=cns11643-1	. #x2723)	; &I-C1-2723;
+    (=cns11643-1	. #x2723)	; &I-C1-2723; [07-03]
     (=big5-eten		. #xC6BF)	; &B-C6BF;
     ))
 (define-char
@@ -42,7 +42,7 @@
      ((=ucs		  . #x4E3F)	; 丿
       ))
     (=ucs		. #x2F03)	; ⼃
-    (=cns11643-1	. #x2724)	; &I-C1-2724;
+    (=cns11643-1	. #x2724)	; &I-C1-2724; [07-04]
     (=big5-eten		. #xC6C0)	; &B-C6C0;
     ))
 (define-char
@@ -54,7 +54,7 @@
      ((=ucs		  . #x4E59)	; 乙
       ))
     (=ucs		. #x2F04)	; ⼄
-    (=cns11643-1	. #x2725)	; &I-C1-2725;
+    (=cns11643-1	. #x2725)	; &I-C1-2725; [07-05]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HOOK")
@@ -65,7 +65,7 @@
      ((=ucs		  . #x4E85)	; 亅
       ))
     (=ucs		. #x2F05)	; ⼅
-    (=cns11643-1	. #x2726)	; &I-C1-2726;
+    (=cns11643-1	. #x2726)	; &I-C1-2726; [07-06]
     (=big5-eten		. #xC6C1)	; &B-C6C1;
     ))
 (define-char
@@ -77,7 +77,7 @@
      ((=ucs		  . #x4E8C)	; 二
       ))
     (=ucs		. #x2F06)	; ⼆
-    (=cns11643-1	. #x2727)	; &I-C1-2727;
+    (=cns11643-1	. #x2727)	; &I-C1-2727; [07-07]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LID")
@@ -88,7 +88,7 @@
      ((=ucs		  . #x4EA0)	; 亠
       ))
     (=ucs		. #x2F07)	; ⼇
-    (=cns11643-1	. #x2728)	; &I-C1-2728;
+    (=cns11643-1	. #x2728)	; &I-C1-2728; [07-08]
     (=big5-eten		. #xC6C2)	; &B-C6C2;
     ))
 (define-char
@@ -100,7 +100,7 @@
      ((=ucs		  . #x4EBA)	; 人
       ))
     (=ucs		. #x2F08)	; ⼈
-    (=cns11643-1	. #x2729)	; &I-C1-2729;
+    (=cns11643-1	. #x2729)	; &I-C1-2729; [07-09]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEGS")
@@ -111,7 +111,7 @@
      ((=ucs		  . #x513F)	; 儿
       ))
     (=ucs		. #x2F09)	; ⼉
-    (=cns11643-1	. #x272A)	; &I-C1-272A;
+    (=cns11643-1	. #x272A)	; &I-C1-272A; [07-10]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ENTER")
@@ -122,7 +122,7 @@
      ((=ucs		  . #x5165)	; 入
       ))
     (=ucs		. #x2F0A)	; ⼊
-    (=cns11643-1	. #x272B)	; &I-C1-272B;
+    (=cns11643-1	. #x272B)	; &I-C1-272B; [07-11]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EIGHT")
@@ -133,7 +133,7 @@
      ((=ucs		  . #x516B)	; 八
       ))
     (=ucs		. #x2F0B)	; ⼋
-    (=cns11643-1	. #x272C)	; &I-C1-272C;
+    (=cns11643-1	. #x272C)	; &I-C1-272C; [07-12]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOWN BOX")
@@ -144,7 +144,7 @@
      ((=ucs		  . #x5182)	; 冂
       ))
     (=ucs		. #x2F0C)	; ⼌
-    (=cns11643-1	. #x272D)	; &I-C1-272D;
+    (=cns11643-1	. #x272D)	; &I-C1-272D; [07-13]
     (=big5-eten		. #xC6C3)	; &B-C6C3;
     ))
 (define-char
@@ -156,7 +156,7 @@
      ((=ucs		  . #x5196)	; 冖
       ))
     (=ucs		. #x2F0D)	; ⼍
-    (=cns11643-1	. #x272E)	; &I-C1-272E;
+    (=cns11643-1	. #x272E)	; &I-C1-272E; [07-14]
     (=big5-eten		. #xC6C4)	; &B-C6C4;
     ))
 (define-char
@@ -168,7 +168,7 @@
      ((=ucs		  . #x51AB)	; 冫
       ))
     (=ucs		. #x2F0E)	; ⼎
-    (=cns11643-1	. #x272F)	; &I-C1-272F;
+    (=cns11643-1	. #x272F)	; &I-C1-272F; [07-15]
     (=big5-eten		. #xC6C5)	; &B-C6C5;
     ))
 (define-char
@@ -180,7 +180,7 @@
      ((=ucs		  . #x51E0)	; 几
       ))
     (=ucs		. #x2F0F)	; ⼏
-    (=cns11643-1	. #x2730)	; &I-C1-2730;
+    (=cns11643-1	. #x2730)	; &I-C1-2730; [07-16]
     ))
 (define-char
   '((name		. "KANGXI RADICAL OPEN BOX")
@@ -191,7 +191,7 @@
      ((=ucs		  . #x51F5)	; 凵
       ))
     (=ucs		. #x2F10)	; ⼐
-    (=cns11643-1	. #x2731)	; &I-C1-2731;
+    (=cns11643-1	. #x2731)	; &I-C1-2731; [07-17]
     ))
 (define-char
   '((name		. "KANGXI RADICAL KNIFE")
@@ -202,7 +202,7 @@
      ((=ucs		  . #x5200)	; 刀
       ))
     (=ucs		. #x2F11)	; ⼑
-    (=cns11643-1	. #x2732)	; &I-C1-2732;
+    (=cns11643-1	. #x2732)	; &I-C1-2732; [07-18]
     ))
 (define-char
   '((name		. "KANGXI RADICAL POWER")
@@ -213,7 +213,7 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x2F12)	; ⼒
-    (=cns11643-1	. #x2733)	; &I-C1-2733;
+    (=cns11643-1	. #x2733)	; &I-C1-2733; [07-19]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WRAP")
@@ -224,7 +224,7 @@
      ((=ucs		  . #x52F9)	; 勹
       ))
     (=ucs		. #x2F13)	; ⼓
-    (=cns11643-1	. #x2734)	; &I-C1-2734;
+    (=cns11643-1	. #x2734)	; &I-C1-2734; [07-20]
     (=big5-eten		. #xC6C6)	; &B-C6C6;
     ))
 (define-char
@@ -236,7 +236,7 @@
      ((=ucs		  . #x5315)	; 匕
       ))
     (=ucs		. #x2F14)	; ⼔
-    (=cns11643-1	. #x2735)	; &I-C1-2735;
+    (=cns11643-1	. #x2735)	; &I-C1-2735; [07-21]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RIGHT OPEN BOX")
@@ -247,7 +247,7 @@
      ((=ucs		  . #x531A)	; 匚
       ))
     (=ucs		. #x2F15)	; ⼕
-    (=cns11643-1	. #x2736)	; &I-C1-2736;
+    (=cns11643-1	. #x2736)	; &I-C1-2736; [07-22]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HIDING ENCLOSURE")
@@ -258,7 +258,7 @@
      ((=ucs		  . #x5338)	; 匸
       ))
     (=ucs		. #x2F16)	; ⼖
-    (=cns11643-1	. #x2737)	; &I-C1-2737;
+    (=cns11643-1	. #x2737)	; &I-C1-2737; [07-23]
     (=big5-eten		. #xC6C7)	; &B-C6C7;
     ))
 (define-char
@@ -270,7 +270,7 @@
      ((=ucs		  . #x5341)	; 十
       ))
     (=ucs		. #x2F17)	; ⼗
-    (=cns11643-1	. #x2738)	; &I-C1-2738;
+    (=cns11643-1	. #x2738)	; &I-C1-2738; [07-24]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DIVINATION")
@@ -281,7 +281,7 @@
      ((=ucs		  . #x535C)	; 卜
       ))
     (=ucs		. #x2F18)	; ⼘
-    (=cns11643-1	. #x2739)	; &I-C1-2739;
+    (=cns11643-1	. #x2739)	; &I-C1-2739; [07-25]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SEAL")
@@ -292,7 +292,7 @@
      ((=ucs		  . #x5369)	; 卩
       ))
     (=ucs		. #x2F19)	; ⼙
-    (=cns11643-1	. #x273A)	; &I-C1-273A;
+    (=cns11643-1	. #x273A)	; &I-C1-273A; [07-26]
     (=big5-eten		. #xC6C8)	; &B-C6C8;
     ))
 (define-char
@@ -304,7 +304,7 @@
      ((=ucs		  . #x5382)	; 厂
       ))
     (=ucs		. #x2F1A)	; ⼚
-    (=cns11643-1	. #x273B)	; &I-C1-273B;
+    (=cns11643-1	. #x273B)	; &I-C1-273B; [07-27]
     ))
 (define-char
   '((name		. "KANGXI RADICAL PRIVATE")
@@ -315,7 +315,7 @@
      ((=ucs		  . #x53B6)	; 厶
       ))
     (=ucs		. #x2F1B)	; ⼛
-    (=cns11643-1	. #x273C)	; &I-C1-273C;
+    (=cns11643-1	. #x273C)	; &I-C1-273C; [07-28]
     (=big5-eten		. #xC6C9)	; &B-C6C9;
     ))
 (define-char
@@ -327,7 +327,7 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (=ucs		. #x2F1C)	; ⼜
-    (=cns11643-1	. #x273D)	; &I-C1-273D;
+    (=cns11643-1	. #x273D)	; &I-C1-273D; [07-29]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUTH")
@@ -338,7 +338,7 @@
      ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs		. #x2F1D)	; ⼝
-    (=cns11643-1	. #x273E)	; &I-C1-273E;
+    (=cns11643-1	. #x273E)	; &I-C1-273E; [07-30]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ENCLOSURE")
@@ -349,7 +349,7 @@
      ((=ucs		  . #x56D7)	; 囗
       ))
     (=ucs		. #x2F1E)	; ⼞
-    (=cns11643-1	. #x273F)	; &I-C1-273F;
+    (=cns11643-1	. #x273F)	; &I-C1-273F; [07-31]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EARTH")
@@ -360,7 +360,7 @@
      ((=ucs		  . #x571F)	; 土
       ))
     (=ucs		. #x2F1F)	; ⼟
-    (=cns11643-1	. #x2740)	; &I-C1-2740;
+    (=cns11643-1	. #x2740)	; &I-C1-2740; [07-32]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SCHOLAR")
@@ -371,7 +371,7 @@
      ((=ucs		  . #x58EB)	; 士
       ))
     (=ucs		. #x2F20)	; ⼠
-    (=cns11643-1	. #x2741)	; &I-C1-2741;
+    (=cns11643-1	. #x2741)	; &I-C1-2741; [07-33]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GO")
@@ -392,7 +392,7 @@
      ((=ucs		  . #x590A)	; 夊
       ))
     (=ucs		. #x2F22)	; ⼢
-    (=cns11643-1	. #x2742)	; &I-C1-2742;
+    (=cns11643-1	. #x2742)	; &I-C1-2742; [07-34]
     (=big5-eten		. #xC6CA)	; &B-C6CA;
     ))
 (define-char
@@ -404,7 +404,7 @@
      ((=ucs		  . #x5915)	; 夕
       ))
     (=ucs		. #x2F23)	; ⼣
-    (=cns11643-1	. #x2743)	; &I-C1-2743;
+    (=cns11643-1	. #x2743)	; &I-C1-2743; [07-35]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BIG")
@@ -415,7 +415,7 @@
      ((=ucs		  . #x5927)	; 大
       ))
     (=ucs		. #x2F24)	; ⼤
-    (=cns11643-1	. #x2744)	; &I-C1-2744;
+    (=cns11643-1	. #x2744)	; &I-C1-2744; [07-36]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WOMAN")
@@ -426,7 +426,7 @@
      ((=ucs		  . #x5973)	; 女
       ))
     (=ucs		. #x2F25)	; ⼥
-    (=cns11643-1	. #x2745)	; &I-C1-2745;
+    (=cns11643-1	. #x2745)	; &I-C1-2745; [07-37]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CHILD")
@@ -437,7 +437,7 @@
      ((=ucs		  . #x5B50)	; 子
       ))
     (=ucs		. #x2F26)	; ⼦
-    (=cns11643-1	. #x2746)	; &I-C1-2746;
+    (=cns11643-1	. #x2746)	; &I-C1-2746; [07-38]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ROOF")
@@ -448,7 +448,7 @@
      ((=ucs		  . #x5B80)	; 宀
       ))
     (=ucs		. #x2F27)	; ⼧
-    (=cns11643-1	. #x2747)	; &I-C1-2747;
+    (=cns11643-1	. #x2747)	; &I-C1-2747; [07-39]
     (=big5-eten		. #xC6CB)	; &B-C6CB;
     ))
 (define-char
@@ -460,7 +460,7 @@
      ((=ucs		  . #x5BF8)	; 寸
       ))
     (=ucs		. #x2F28)	; ⼨
-    (=cns11643-1	. #x2748)	; &I-C1-2748;
+    (=cns11643-1	. #x2748)	; &I-C1-2748; [07-40]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SMALL")
@@ -471,7 +471,7 @@
      ((=ucs		  . #x5C0F)	; 小
       ))
     (=ucs		. #x2F29)	; ⼩
-    (=cns11643-1	. #x2749)	; &I-C1-2749;
+    (=cns11643-1	. #x2749)	; &I-C1-2749; [07-41]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LAME")
@@ -482,7 +482,7 @@
      ((=ucs		  . #x5C22)	; 尢
       ))
     (=ucs		. #x2F2A)	; ⼪
-    (=cns11643-1	. #x274A)	; &I-C1-274A;
+    (=cns11643-1	. #x274A)	; &I-C1-274A; [07-42]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CORPSE")
@@ -493,7 +493,7 @@
      ((=ucs		  . #x5C38)	; 尸
       ))
     (=ucs		. #x2F2B)	; ⼫
-    (=cns11643-1	. #x274B)	; &I-C1-274B;
+    (=cns11643-1	. #x274B)	; &I-C1-274B; [07-43]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPROUT")
@@ -504,7 +504,7 @@
      ((=ucs		  . #x5C6E)	; 屮
       ))
     (=ucs		. #x2F2C)	; ⼬
-    (=cns11643-1	. #x274C)	; &I-C1-274C;
+    (=cns11643-1	. #x274C)	; &I-C1-274C; [07-44]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUNTAIN")
@@ -515,7 +515,7 @@
      ((=ucs		  . #x5C71)	; 山
       ))
     (=ucs		. #x2F2D)	; ⼭
-    (=cns11643-1	. #x274D)	; &I-C1-274D;
+    (=cns11643-1	. #x274D)	; &I-C1-274D; [07-45]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RIVER")
@@ -526,7 +526,7 @@
      ((=ucs		  . #x5DDB)	; 巛
       ))
     (=ucs		. #x2F2E)	; ⼮
-    (=cns11643-1	. #x274E)	; &I-C1-274E;
+    (=cns11643-1	. #x274E)	; &I-C1-274E; [07-46]
     (=big5-eten		. #xC6CC)	; &B-C6CC;
     ))
 (define-char
@@ -538,7 +538,7 @@
      ((=ucs		  . #x5DE5)	; 工
       ))
     (=ucs		. #x2F2F)	; ⼯
-    (=cns11643-1	. #x274F)	; &I-C1-274F;
+    (=cns11643-1	. #x274F)	; &I-C1-274F; [07-47]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ONESELF")
@@ -549,7 +549,7 @@
      ((=ucs		  . #x5DF1)	; 己
       ))
     (=ucs		. #x2F30)	; ⼰
-    (=cns11643-1	. #x2750)	; &I-C1-2750;
+    (=cns11643-1	. #x2750)	; &I-C1-2750; [07-48]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TURBAN")
@@ -560,7 +560,7 @@
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ucs		. #x2F31)	; ⼱
-    (=cns11643-1	. #x2751)	; &I-C1-2751;
+    (=cns11643-1	. #x2751)	; &I-C1-2751; [07-49]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRY")
@@ -571,7 +571,7 @@
      ((=ucs		  . #x5E72)	; 干
       ))
     (=ucs		. #x2F32)	; ⼲
-    (=cns11643-1	. #x2752)	; &I-C1-2752;
+    (=cns11643-1	. #x2752)	; &I-C1-2752; [07-50]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHORT THREAD")
@@ -582,7 +582,7 @@
      ((=ucs		  . #x5E7A)	; 幺
       ))
     (=ucs		. #x2F33)	; ⼳
-    (=cns11643-1	. #x2753)	; &I-C1-2753;
+    (=cns11643-1	. #x2753)	; &I-C1-2753; [07-51]
     (=big5-eten		. #xC6CD)	; &B-C6CD;
     ))
 (define-char
@@ -594,7 +594,7 @@
      ((=ucs		  . #x5E7F)	; 广
       ))
     (=ucs		. #x2F34)	; ⼴
-    (=cns11643-1	. #x2754)	; &I-C1-2754;
+    (=cns11643-1	. #x2754)	; &I-C1-2754; [07-52]
     (=big5-eten		. #xC6CE)	; &B-C6CE;
     ))
 (define-char
@@ -606,7 +606,7 @@
      ((=ucs		  . #x5EF4)	; 廴
       ))
     (=ucs		. #x2F35)	; ⼵
-    (=cns11643-1	. #x2755)	; &I-C1-2755;
+    (=cns11643-1	. #x2755)	; &I-C1-2755; [07-53]
     (=big5-eten		. #xC6CF)	; &B-C6CF;
     ))
 (define-char
@@ -618,7 +618,7 @@
      ((=ucs		  . #x5EFE)	; 廾
       ))
     (=ucs		. #x2F36)	; ⼶
-    (=cns11643-1	. #x2756)	; &I-C1-2756;
+    (=cns11643-1	. #x2756)	; &I-C1-2756; [07-54]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHOOT")
@@ -629,7 +629,7 @@
      ((=ucs		  . #x5F0B)	; 弋
       ))
     (=ucs		. #x2F37)	; ⼷
-    (=cns11643-1	. #x2757)	; &I-C1-2757;
+    (=cns11643-1	. #x2757)	; &I-C1-2757; [07-55]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOW")
@@ -640,7 +640,7 @@
      ((=ucs		  . #x5F13)	; 弓
       ))
     (=ucs		. #x2F38)	; ⼸
-    (=cns11643-1	. #x2758)	; &I-C1-2758;
+    (=cns11643-1	. #x2758)	; &I-C1-2758; [07-56]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SNOUT")
@@ -651,7 +651,7 @@
      ((=ucs		  . #x5F50)	; 彐
       ))
     (=ucs		. #x2F39)	; ⼹
-    (=cns11643-1	. #x2759)	; &I-C1-2759;
+    (=cns11643-1	. #x2759)	; &I-C1-2759; [07-57]
     (=big5-eten		. #xC6D0)	; &B-C6D0;
     ))
 (define-char
@@ -663,7 +663,7 @@
      ((=ucs		  . #x5F61)	; 彡
       ))
     (=ucs		. #x2F3A)	; ⼺
-    (=cns11643-1	. #x275A)	; &I-C1-275A;
+    (=cns11643-1	. #x275A)	; &I-C1-275A; [07-58]
     (=big5-eten		. #xC6D1)	; &B-C6D1;
     ))
 (define-char
@@ -675,7 +675,7 @@
      ((=ucs		  . #x5F73)	; 彳
       ))
     (=ucs		. #x2F3B)	; ⼻
-    (=cns11643-1	. #x275B)	; &I-C1-275B;
+    (=cns11643-1	. #x275B)	; &I-C1-275B; [07-59]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEART")
@@ -686,7 +686,7 @@
      ((=ucs		  . #x5FC3)	; 心
       ))
     (=ucs		. #x2F3C)	; ⼼
-    (=cns11643-1	. #x275C)	; &I-C1-275C;
+    (=cns11643-1	. #x275C)	; &I-C1-275C; [07-60]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HALBERD")
@@ -697,7 +697,7 @@
      ((=ucs		  . #x6208)	; 戈
       ))
     (=ucs		. #x2F3D)	; ⼽
-    (=cns11643-1	. #x275D)	; &I-C1-275D;
+    (=cns11643-1	. #x275D)	; &I-C1-275D; [07-61]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOOR")
@@ -708,7 +708,7 @@
      ((=ucs		  . #x6236)	; 戶
       ))
     (=ucs		. #x2F3E)	; ⼾
-    (=cns11643-1	. #x275E)	; &I-C1-275E;
+    (=cns11643-1	. #x275E)	; &I-C1-275E; [07-62]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HAND")
@@ -719,7 +719,7 @@
      ((=ucs		  . #x624B)	; 手
       ))
     (=ucs		. #x2F3F)	; ⼿
-    (=cns11643-1	. #x275F)	; &I-C1-275F;
+    (=cns11643-1	. #x275F)	; &I-C1-275F; [07-63]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BRANCH")
@@ -730,7 +730,7 @@
      ((=ucs		  . #x652F)	; 支
       ))
     (=ucs		. #x2F40)	; ⽀
-    (=cns11643-1	. #x2760)	; &I-C1-2760;
+    (=cns11643-1	. #x2760)	; &I-C1-2760; [07-64]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAP")
@@ -741,7 +741,7 @@
      ((=ucs		  . #x6534)	; 攴
       ))
     (=ucs		. #x2F41)	; ⽁
-    (=cns11643-1	. #x2761)	; &I-C1-2761;
+    (=cns11643-1	. #x2761)	; &I-C1-2761; [07-65]
     (=big5-eten		. #xC6D2)	; &B-C6D2;
     ))
 (define-char
@@ -753,7 +753,7 @@
      ((=ucs		  . #x6587)	; 文
       ))
     (=ucs		. #x2F42)	; ⽂
-    (=cns11643-1	. #x2762)	; &I-C1-2762;
+    (=cns11643-1	. #x2762)	; &I-C1-2762; [07-66]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DIPPER")
@@ -764,7 +764,7 @@
      ((=ucs		  . #x6597)	; 斗
       ))
     (=ucs		. #x2F43)	; ⽃
-    (=cns11643-1	. #x2763)	; &I-C1-2763;
+    (=cns11643-1	. #x2763)	; &I-C1-2763; [07-67]
     ))
 (define-char
   '((name		. "KANGXI RADICAL AXE")
@@ -775,7 +775,7 @@
      ((=ucs		  . #x65A4)	; 斤
       ))
     (=ucs		. #x2F44)	; ⽄
-    (=cns11643-1	. #x2764)	; &I-C1-2764;
+    (=cns11643-1	. #x2764)	; &I-C1-2764; [07-68]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SQUARE")
@@ -786,7 +786,7 @@
      ((=ucs		  . #x65B9)	; 方
       ))
     (=ucs		. #x2F45)	; ⽅
-    (=cns11643-1	. #x2765)	; &I-C1-2765;
+    (=cns11643-1	. #x2765)	; &I-C1-2765; [07-69]
     ))
 (define-char
   '((name		. "KANGXI RADICAL NOT")
@@ -797,7 +797,7 @@
      ((=ucs		  . #x65E0)	; 无
       ))
     (=ucs		. #x2F46)	; ⽆
-    (=cns11643-1	. #x2766)	; &I-C1-2766;
+    (=cns11643-1	. #x2766)	; &I-C1-2766; [07-70]
     (=big5-eten		. #xC6D3)	; &B-C6D3;
     ))
 (define-char
@@ -809,7 +809,7 @@
      ((=ucs		  . #x65E5)	; 日
       ))
     (=ucs		. #x2F47)	; ⽇
-    (=cns11643-1	. #x2767)	; &I-C1-2767;
+    (=cns11643-1	. #x2767)	; &I-C1-2767; [07-71]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SAY")
@@ -820,7 +820,7 @@
      ((=ucs		  . #x66F0)	; 曰
       ))
     (=ucs		. #x2F48)	; ⽈
-    (=cns11643-1	. #x2768)	; &I-C1-2768;
+    (=cns11643-1	. #x2768)	; &I-C1-2768; [07-72]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOON")
@@ -831,7 +831,7 @@
      ((=ucs		  . #x6708)	; 月
       ))
     (=ucs		. #x2F49)	; ⽉
-    (=cns11643-1	. #x2769)	; &I-C1-2769;
+    (=cns11643-1	. #x2769)	; &I-C1-2769; [07-73]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TREE")
@@ -842,7 +842,7 @@
      ((=ucs		  . #x6728)	; 木
       ))
     (=ucs		. #x2F4A)	; ⽊
-    (=cns11643-1	. #x276A)	; &I-C1-276A;
+    (=cns11643-1	. #x276A)	; &I-C1-276A; [07-74]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LACK")
@@ -853,7 +853,7 @@
      ((=ucs		  . #x6B20)	; 欠
       ))
     (=ucs		. #x2F4B)	; ⽋
-    (=cns11643-1	. #x276B)	; &I-C1-276B;
+    (=cns11643-1	. #x276B)	; &I-C1-276B; [07-75]
     ))
 (define-char
   '((name		. "KANGXI RADICAL STOP")
@@ -864,7 +864,7 @@
      ((=ucs		  . #x6B62)	; 止
       ))
     (=ucs		. #x2F4C)	; ⽌
-    (=cns11643-1	. #x276C)	; &I-C1-276C;
+    (=cns11643-1	. #x276C)	; &I-C1-276C; [07-76]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DEATH")
@@ -875,7 +875,7 @@
      ((=ucs		  . #x6B79)	; 歹
       ))
     (=ucs		. #x2F4D)	; ⽍
-    (=cns11643-1	. #x276D)	; &I-C1-276D;
+    (=cns11643-1	. #x276D)	; &I-C1-276D; [07-77]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WEAPON")
@@ -886,7 +886,7 @@
      ((=ucs		  . #x6BB3)	; 殳
       ))
     (=ucs		. #x2F4E)	; ⽎
-    (=cns11643-1	. #x276E)	; &I-C1-276E;
+    (=cns11643-1	. #x276E)	; &I-C1-276E; [07-78]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DO NOT")
@@ -897,7 +897,7 @@
      ((=ucs		  . #x6BCB)	; 毋
       ))
     (=ucs		. #x2F4F)	; ⽏
-    (=cns11643-1	. #x276F)	; &I-C1-276F;
+    (=cns11643-1	. #x276F)	; &I-C1-276F; [07-79]
     ))
 (define-char
   '((name		. "KANGXI RADICAL COMPARE")
@@ -908,7 +908,7 @@
      ((=ucs		  . #x6BD4)	; 比
       ))
     (=ucs		. #x2F50)	; ⽐
-    (=cns11643-1	. #x2770)	; &I-C1-2770;
+    (=cns11643-1	. #x2770)	; &I-C1-2770; [07-80]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FUR")
@@ -919,7 +919,7 @@
      ((=ucs		  . #x6BDB)	; 毛
       ))
     (=ucs		. #x2F51)	; ⽑
-    (=cns11643-1	. #x2771)	; &I-C1-2771;
+    (=cns11643-1	. #x2771)	; &I-C1-2771; [07-81]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLAN")
@@ -930,7 +930,7 @@
      ((=ucs		  . #x6C0F)	; 氏
       ))
     (=ucs		. #x2F52)	; ⽒
-    (=cns11643-1	. #x2772)	; &I-C1-2772;
+    (=cns11643-1	. #x2772)	; &I-C1-2772; [07-82]
     ))
 (define-char
   '((name		. "KANGXI RADICAL STEAM")
@@ -941,7 +941,7 @@
      ((=ucs		  . #x6C14)	; 气
       ))
     (=ucs		. #x2F53)	; ⽓
-    (=cns11643-1	. #x2773)	; &I-C1-2773;
+    (=cns11643-1	. #x2773)	; &I-C1-2773; [07-83]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WATER")
@@ -952,7 +952,7 @@
      ((=ucs		  . #x6C34)	; 水
       ))
     (=ucs		. #x2F54)	; ⽔
-    (=cns11643-1	. #x2774)	; &I-C1-2774;
+    (=cns11643-1	. #x2774)	; &I-C1-2774; [07-84]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIRE")
@@ -963,7 +963,7 @@
      ((=ucs		  . #x706B)	; 火
       ))
     (=ucs		. #x2F55)	; ⽕
-    (=cns11643-1	. #x2775)	; &I-C1-2775;
+    (=cns11643-1	. #x2775)	; &I-C1-2775; [07-85]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLAW")
@@ -974,7 +974,7 @@
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x2F56)	; ⽖
-    (=cns11643-1	. #x2776)	; &I-C1-2776;
+    (=cns11643-1	. #x2776)	; &I-C1-2776; [07-86]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FATHER")
@@ -985,7 +985,7 @@
      ((=ucs		  . #x7236)	; 父
       ))
     (=ucs		. #x2F57)	; ⽗
-    (=cns11643-1	. #x2777)	; &I-C1-2777;
+    (=cns11643-1	. #x2777)	; &I-C1-2777; [07-87]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOUBLE X")
@@ -996,7 +996,7 @@
      ((=ucs		  . #x723B)	; 爻
       ))
     (=ucs		. #x2F58)	; ⽘
-    (=cns11643-1	. #x2778)	; &I-C1-2778;
+    (=cns11643-1	. #x2778)	; &I-C1-2778; [07-88]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HALF TREE TRUNK")
@@ -1007,7 +1007,7 @@
      ((=ucs		  . #x723F)	; 爿
       ))
     (=ucs		. #x2F59)	; ⽙
-    (=cns11643-1	. #x2779)	; &I-C1-2779;
+    (=cns11643-1	. #x2779)	; &I-C1-2779; [07-89]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SLICE")
@@ -1018,7 +1018,7 @@
      ((=ucs		  . #x7247)	; 片
       ))
     (=ucs		. #x2F5A)	; ⽚
-    (=cns11643-1	. #x277A)	; &I-C1-277A;
+    (=cns11643-1	. #x277A)	; &I-C1-277A; [07-90]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FANG")
@@ -1029,7 +1029,7 @@
      ((=ucs		  . #x7259)	; 牙
       ))
     (=ucs		. #x2F5B)	; ⽛
-    (=cns11643-1	. #x277B)	; &I-C1-277B;
+    (=cns11643-1	. #x277B)	; &I-C1-277B; [07-91]
     ))
 (define-char
   '((name		. "KANGXI RADICAL COW")
@@ -1040,7 +1040,7 @@
      ((=ucs		  . #x725B)	; 牛
       ))
     (=ucs		. #x2F5C)	; ⽜
-    (=cns11643-1	. #x277C)	; &I-C1-277C;
+    (=cns11643-1	. #x277C)	; &I-C1-277C; [07-92]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DOG")
@@ -1051,7 +1051,7 @@
      ((=ucs		  . #x72AC)	; 犬
       ))
     (=ucs		. #x2F5D)	; ⽝
-    (=cns11643-1	. #x277D)	; &I-C1-277D;
+    (=cns11643-1	. #x277D)	; &I-C1-277D; [07-93]
     ))
 (define-char
   '((name		. "KANGXI RADICAL PROFOUND")
@@ -1062,7 +1062,7 @@
      ((=ucs		  . #x7384)	; 玄
       ))
     (=ucs		. #x2F5E)	; ⽞
-    (=cns11643-1	. #x277E)	; &I-C1-277E;
+    (=cns11643-1	. #x277E)	; &I-C1-277E; [07-94]
     ))
 (define-char
   '((name		. "KANGXI RADICAL JADE")
@@ -1073,7 +1073,7 @@
      ((=ucs		  . #x7389)	; 玉
       ))
     (=ucs		. #x2F5F)	; ⽟
-    (=cns11643-1	. #x2821)	; &I-C1-2821;
+    (=cns11643-1	. #x2821)	; &I-C1-2821; [08-01]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MELON")
@@ -1084,7 +1084,7 @@
      ((=ucs		  . #x74DC)	; 瓜
       ))
     (=ucs		. #x2F60)	; ⽠
-    (=cns11643-1	. #x2822)	; &I-C1-2822;
+    (=cns11643-1	. #x2822)	; &I-C1-2822; [08-02]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TILE")
@@ -1095,7 +1095,7 @@
      ((=ucs		  . #x74E6)	; 瓦
       ))
     (=ucs		. #x2F61)	; ⽡
-    (=cns11643-1	. #x2823)	; &I-C1-2823;
+    (=cns11643-1	. #x2823)	; &I-C1-2823; [08-03]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SWEET")
@@ -1106,7 +1106,7 @@
      ((=ucs		  . #x7518)	; 甘
       ))
     (=ucs		. #x2F62)	; ⽢
-    (=cns11643-1	. #x2824)	; &I-C1-2824;
+    (=cns11643-1	. #x2824)	; &I-C1-2824; [08-04]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LIFE")
@@ -1117,7 +1117,7 @@
      ((=ucs		  . #x751F)	; 生
       ))
     (=ucs		. #x2F63)	; ⽣
-    (=cns11643-1	. #x2825)	; &I-C1-2825;
+    (=cns11643-1	. #x2825)	; &I-C1-2825; [08-05]
     ))
 (define-char
   '((name		. "KANGXI RADICAL USE")
@@ -1128,7 +1128,7 @@
      ((=ucs		  . #x7528)	; 用
       ))
     (=ucs		. #x2F64)	; ⽤
-    (=cns11643-1	. #x2826)	; &I-C1-2826;
+    (=cns11643-1	. #x2826)	; &I-C1-2826; [08-06]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIELD")
@@ -1139,7 +1139,7 @@
      ((=ucs		  . #x7530)	; 田
       ))
     (=ucs		. #x2F65)	; ⽥
-    (=cns11643-1	. #x2827)	; &I-C1-2827;
+    (=cns11643-1	. #x2827)	; &I-C1-2827; [08-07]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOLT OF CLOTH")
@@ -1150,7 +1150,7 @@
      ((=ucs		  . #x758B)	; 疋
       ))
     (=ucs		. #x2F66)	; ⽦
-    (=cns11643-1	. #x2828)	; &I-C1-2828;
+    (=cns11643-1	. #x2828)	; &I-C1-2828; [08-08]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SICKNESS")
@@ -1161,7 +1161,7 @@
      ((=ucs		  . #x7592)	; 疒
       ))
     (=ucs		. #x2F67)	; ⽧
-    (=cns11643-1	. #x2829)	; &I-C1-2829;
+    (=cns11643-1	. #x2829)	; &I-C1-2829; [08-09]
     (=big5-eten		. #xC6D4)	; &B-C6D4;
     ))
 (define-char
@@ -1173,7 +1173,7 @@
      ((=ucs		  . #x7676)	; 癶
       ))
     (=ucs		. #x2F68)	; ⽨
-    (=cns11643-1	. #x282A)	; &I-C1-282A;
+    (=cns11643-1	. #x282A)	; &I-C1-282A; [08-10]
     (=big5-eten		. #xC6D5)	; &B-C6D5;
     ))
 (define-char
@@ -1185,7 +1185,7 @@
      ((=ucs		  . #x767D)	; 白
       ))
     (=ucs		. #x2F69)	; ⽩
-    (=cns11643-1	. #x282B)	; &I-C1-282B;
+    (=cns11643-1	. #x282B)	; &I-C1-282B; [08-11]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SKIN")
@@ -1196,7 +1196,7 @@
      ((=ucs		  . #x76AE)	; 皮
       ))
     (=ucs		. #x2F6A)	; ⽪
-    (=cns11643-1	. #x282C)	; &I-C1-282C;
+    (=cns11643-1	. #x282C)	; &I-C1-282C; [08-12]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DISH")
@@ -1207,7 +1207,7 @@
      ((=ucs		  . #x76BF)	; 皿
       ))
     (=ucs		. #x2F6B)	; ⽫
-    (=cns11643-1	. #x282D)	; &I-C1-282D;
+    (=cns11643-1	. #x282D)	; &I-C1-282D; [08-13]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EYE")
@@ -1218,7 +1218,7 @@
      ((=ucs		  . #x76EE)	; 目
       ))
     (=ucs		. #x2F6C)	; ⽬
-    (=cns11643-1	. #x282E)	; &I-C1-282E;
+    (=cns11643-1	. #x282E)	; &I-C1-282E; [08-14]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPEAR")
@@ -1229,7 +1229,7 @@
      ((=ucs		  . #x77DB)	; 矛
       ))
     (=ucs		. #x2F6D)	; ⽭
-    (=cns11643-1	. #x282F)	; &I-C1-282F;
+    (=cns11643-1	. #x282F)	; &I-C1-282F; [08-15]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ARROW")
@@ -1240,7 +1240,7 @@
      ((=ucs		  . #x77E2)	; 矢
       ))
     (=ucs		. #x2F6E)	; ⽮
-    (=cns11643-1	. #x2830)	; &I-C1-2830;
+    (=cns11643-1	. #x2830)	; &I-C1-2830; [08-16]
     ))
 (define-char
   '((name		. "KANGXI RADICAL STONE")
@@ -1251,7 +1251,7 @@
      ((=ucs		  . #x77F3)	; 石
       ))
     (=ucs		. #x2F6F)	; ⽯
-    (=cns11643-1	. #x2831)	; &I-C1-2831;
+    (=cns11643-1	. #x2831)	; &I-C1-2831; [08-17]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPIRIT")
@@ -1262,7 +1262,7 @@
      ((=ucs		  . #x793A)	; 示
       ))
     (=ucs		. #x2F70)	; ⽰
-    (=cns11643-1	. #x2832)	; &I-C1-2832;
+    (=cns11643-1	. #x2832)	; &I-C1-2832; [08-18]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TRACK")
@@ -1273,7 +1273,7 @@
      ((=ucs		  . #x79B8)	; 禸
       ))
     (=ucs		. #x2F71)	; ⽱
-    (=cns11643-1	. #x2833)	; &I-C1-2833;
+    (=cns11643-1	. #x2833)	; &I-C1-2833; [08-19]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GRAIN")
@@ -1284,7 +1284,7 @@
      ((=ucs		  . #x79BE)	; 禾
       ))
     (=ucs		. #x2F72)	; ⽲
-    (=cns11643-1	. #x2834)	; &I-C1-2834;
+    (=cns11643-1	. #x2834)	; &I-C1-2834; [08-20]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CAVE")
@@ -1295,7 +1295,7 @@
      ((=ucs		  . #x7A74)	; 穴
       ))
     (=ucs		. #x2F73)	; ⽳
-    (=cns11643-1	. #x2835)	; &I-C1-2835;
+    (=cns11643-1	. #x2835)	; &I-C1-2835; [08-21]
     ))
 (define-char
   '((name		. "KANGXI RADICAL STAND")
@@ -1306,7 +1306,7 @@
      ((=ucs		  . #x7ACB)	; 立
       ))
     (=ucs		. #x2F74)	; ⽴
-    (=cns11643-1	. #x2836)	; &I-C1-2836;
+    (=cns11643-1	. #x2836)	; &I-C1-2836; [08-22]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BAMBOO")
@@ -1317,7 +1317,7 @@
      ((=ucs		  . #x7AF9)	; 竹
       ))
     (=ucs		. #x2F75)	; ⽵
-    (=cns11643-1	. #x2837)	; &I-C1-2837;
+    (=cns11643-1	. #x2837)	; &I-C1-2837; [08-23]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RICE")
@@ -1328,7 +1328,7 @@
      ((=ucs		  . #x7C73)	; 米
       ))
     (=ucs		. #x2F76)	; ⽶
-    (=cns11643-1	. #x2838)	; &I-C1-2838;
+    (=cns11643-1	. #x2838)	; &I-C1-2838; [08-24]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SILK")
@@ -1339,7 +1339,7 @@
      ((=ucs		  . #x7CF8)	; 糸
       ))
     (=ucs		. #x2F77)	; ⽷
-    (=cns11643-1	. #x2839)	; &I-C1-2839;
+    (=cns11643-1	. #x2839)	; &I-C1-2839; [08-25]
     ))
 (define-char
   '((name		. "KANGXI RADICAL JAR")
@@ -1350,7 +1350,7 @@
      ((=ucs		  . #x7F36)	; 缶
       ))
     (=ucs		. #x2F78)	; ⽸
-    (=cns11643-1	. #x283A)	; &I-C1-283A;
+    (=cns11643-1	. #x283A)	; &I-C1-283A; [08-26]
     ))
 (define-char
   '((name		. "KANGXI RADICAL NET")
@@ -1361,7 +1361,7 @@
      ((=ucs		  . #x7F51)	; 网
       ))
     (=ucs		. #x2F79)	; ⽹
-    (=cns11643-1	. #x283B)	; &I-C1-283B;
+    (=cns11643-1	. #x283B)	; &I-C1-283B; [08-27]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHEEP")
@@ -1372,7 +1372,7 @@
      ((=ucs		  . #x7F8A)	; 羊
       ))
     (=ucs		. #x2F7A)	; ⽺
-    (=cns11643-1	. #x283C)	; &I-C1-283C;
+    (=cns11643-1	. #x283C)	; &I-C1-283C; [08-28]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FEATHER")
@@ -1383,7 +1383,7 @@
      ((=ucs		  . #x7FBD)	; 羽
       ))
     (=ucs		. #x2F7B)	; ⽻
-    (=cns11643-1	. #x283D)	; &I-C1-283D;
+    (=cns11643-1	. #x283D)	; &I-C1-283D; [08-29]
     ))
 (define-char
   '((name		. "KANGXI RADICAL OLD")
@@ -1394,7 +1394,7 @@
      ((=ucs		  . #x8001)	; 老
       ))
     (=ucs		. #x2F7C)	; ⽼
-    (=cns11643-1	. #x283E)	; &I-C1-283E;
+    (=cns11643-1	. #x283E)	; &I-C1-283E; [08-30]
     ))
 (define-char
   '((name		. "KANGXI RADICAL AND")
@@ -1405,7 +1405,7 @@
      ((=ucs		  . #x800C)	; 而
       ))
     (=ucs		. #x2F7D)	; ⽽
-    (=cns11643-1	. #x283F)	; &I-C1-283F;
+    (=cns11643-1	. #x283F)	; &I-C1-283F; [08-31]
     ))
 (define-char
   '((name		. "KANGXI RADICAL PLOW")
@@ -1416,7 +1416,7 @@
      ((=ucs		  . #x8012)	; 耒
       ))
     (=ucs		. #x2F7E)	; ⽾
-    (=cns11643-1	. #x2840)	; &I-C1-2840;
+    (=cns11643-1	. #x2840)	; &I-C1-2840; [08-32]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EAR")
@@ -1427,7 +1427,7 @@
      ((=ucs		  . #x8033)	; 耳
       ))
     (=ucs		. #x2F7F)	; ⽿
-    (=cns11643-1	. #x2841)	; &I-C1-2841;
+    (=cns11643-1	. #x2841)	; &I-C1-2841; [08-33]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BRUSH")
@@ -1438,7 +1438,7 @@
      ((=ucs		  . #x807F)	; 聿
       ))
     (=ucs		. #x2F80)	; ⾀
-    (=cns11643-1	. #x2842)	; &I-C1-2842;
+    (=cns11643-1	. #x2842)	; &I-C1-2842; [08-34]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MEAT")
@@ -1449,7 +1449,7 @@
      ((=ucs		  . #x8089)	; 肉
       ))
     (=ucs		. #x2F81)	; ⾁
-    (=cns11643-1	. #x2843)	; &I-C1-2843;
+    (=cns11643-1	. #x2843)	; &I-C1-2843; [08-35]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MINISTER")
@@ -1460,7 +1460,7 @@
      ((=ucs		  . #x81E3)	; 臣
       ))
     (=ucs		. #x2F82)	; ⾂
-    (=cns11643-1	. #x2844)	; &I-C1-2844;
+    (=cns11643-1	. #x2844)	; &I-C1-2844; [08-36]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SELF")
@@ -1471,7 +1471,7 @@
      ((=ucs		  . #x81EA)	; 自
       ))
     (=ucs		. #x2F83)	; ⾃
-    (=cns11643-1	. #x2845)	; &I-C1-2845;
+    (=cns11643-1	. #x2845)	; &I-C1-2845; [08-37]
     ))
 (define-char
   '((name		. "KANGXI RADICAL ARRIVE")
@@ -1482,7 +1482,7 @@
      ((=ucs		  . #x81F3)	; 至
       ))
     (=ucs		. #x2F84)	; ⾄
-    (=cns11643-1	. #x2846)	; &I-C1-2846;
+    (=cns11643-1	. #x2846)	; &I-C1-2846; [08-38]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MORTAR")
@@ -1493,7 +1493,7 @@
      ((=ucs		  . #x81FC)	; 臼
       ))
     (=ucs		. #x2F85)	; ⾅
-    (=cns11643-1	. #x2847)	; &I-C1-2847;
+    (=cns11643-1	. #x2847)	; &I-C1-2847; [08-39]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TONGUE")
@@ -1516,7 +1516,7 @@
      ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs		. #x2F86)	; ⾆
-    (=cns11643-1	. #x2848)	; &I-C1-2848;
+    (=cns11643-1	. #x2848)	; &I-C1-2848; [08-40]
     (=big5-cdp		. #x88EF)	; &I-CDP-88EF;
     ))
 (define-char
@@ -1528,7 +1528,7 @@
      ((=ucs		  . #x821B)	; 舛
       ))
     (=ucs		. #x2F87)	; ⾇
-    (=cns11643-1	. #x2849)	; &I-C1-2849;
+    (=cns11643-1	. #x2849)	; &I-C1-2849; [08-41]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BOAT")
@@ -1539,7 +1539,7 @@
      ((=ucs		  . #x821F)	; 舟
       ))
     (=ucs		. #x2F88)	; ⾈
-    (=cns11643-1	. #x284A)	; &I-C1-284A;
+    (=cns11643-1	. #x284A)	; &I-C1-284A; [08-42]
     ))
 (define-char
   '((name		. "KANGXI RADICAL STOPPING")
@@ -1550,7 +1550,7 @@
      ((=ucs		  . #x826E)	; 艮
       ))
     (=ucs		. #x2F89)	; ⾉
-    (=cns11643-1	. #x284B)	; &I-C1-284B;
+    (=cns11643-1	. #x284B)	; &I-C1-284B; [08-43]
     ))
 (define-char
   '((name		. "KANGXI RADICAL COLOR")
@@ -1561,7 +1561,7 @@
      ((=ucs		  . #x8272)	; 色
       ))
     (=ucs		. #x2F8A)	; ⾊
-    (=cns11643-1	. #x284C)	; &I-C1-284C;
+    (=cns11643-1	. #x284C)	; &I-C1-284C; [08-44]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GRASS")
@@ -1572,7 +1572,7 @@
      ((=ucs		  . #x8278)	; 艸
       ))
     (=ucs		. #x2F8B)	; ⾋
-    (=cns11643-1	. #x284D)	; &I-C1-284D;
+    (=cns11643-1	. #x284D)	; &I-C1-284D; [08-45]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TIGER")
@@ -1583,7 +1583,7 @@
      ((=ucs		  . #x864D)	; 虍
       ))
     (=ucs		. #x2F8C)	; ⾌
-    (=cns11643-1	. #x284E)	; &I-C1-284E;
+    (=cns11643-1	. #x284E)	; &I-C1-284E; [08-46]
     ))
 (define-char
   '((name		. "KANGXI RADICAL INSECT")
@@ -1594,7 +1594,7 @@
      ((=ucs		  . #x866B)	; 虫
       ))
     (=ucs		. #x2F8D)	; ⾍
-    (=cns11643-1	. #x284F)	; &I-C1-284F;
+    (=cns11643-1	. #x284F)	; &I-C1-284F; [08-47]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLOOD")
@@ -1605,7 +1605,7 @@
      ((=ucs		  . #x8840)	; 血
       ))
     (=ucs		. #x2F8E)	; ⾎
-    (=cns11643-1	. #x2850)	; &I-C1-2850;
+    (=cns11643-1	. #x2850)	; &I-C1-2850; [08-48]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WALK ENCLOSURE")
@@ -1616,7 +1616,7 @@
      ((=ucs		  . #x884C)	; 行
       ))
     (=ucs		. #x2F8F)	; ⾏
-    (=cns11643-1	. #x2851)	; &I-C1-2851;
+    (=cns11643-1	. #x2851)	; &I-C1-2851; [08-49]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CLOTHES")
@@ -1627,7 +1627,7 @@
      ((=ucs		  . #x8863)	; 衣
       ))
     (=ucs		. #x2F90)	; ⾐
-    (=cns11643-1	. #x2852)	; &I-C1-2852;
+    (=cns11643-1	. #x2852)	; &I-C1-2852; [08-50]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WEST")
@@ -1638,7 +1638,7 @@
      ((=ucs		  . #x897E)	; 襾
       ))
     (=ucs		. #x2F91)	; ⾑
-    (=cns11643-1	. #x2853)	; &I-C1-2853;
+    (=cns11643-1	. #x2853)	; &I-C1-2853; [08-51]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SEE")
@@ -1649,7 +1649,7 @@
      ((=ucs		  . #x898B)	; 見
       ))
     (=ucs		. #x2F92)	; ⾒
-    (=cns11643-1	. #x2854)	; &I-C1-2854;
+    (=cns11643-1	. #x2854)	; &I-C1-2854; [08-52]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HORN")
@@ -1660,7 +1660,7 @@
      ((=ucs		  . #x89D2)	; 角
       ))
     (=ucs		. #x2F93)	; ⾓
-    (=cns11643-1	. #x2855)	; &I-C1-2855;
+    (=cns11643-1	. #x2855)	; &I-C1-2855; [08-53]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SPEECH")
@@ -1671,7 +1671,7 @@
      ((=ucs		  . #x8A00)	; 言
       ))
     (=ucs		. #x2F94)	; ⾔
-    (=cns11643-1	. #x2856)	; &I-C1-2856;
+    (=cns11643-1	. #x2856)	; &I-C1-2856; [08-54]
     ))
 (define-char
   '((name		. "KANGXI RADICAL VALLEY")
@@ -1682,7 +1682,7 @@
      ((=ucs		  . #x8C37)	; 谷
       ))
     (=ucs		. #x2F95)	; ⾕
-    (=cns11643-1	. #x2857)	; &I-C1-2857;
+    (=cns11643-1	. #x2857)	; &I-C1-2857; [08-55]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BEAN")
@@ -1693,7 +1693,7 @@
      ((=ucs		  . #x8C46)	; 豆
       ))
     (=ucs		. #x2F96)	; ⾖
-    (=cns11643-1	. #x2858)	; &I-C1-2858;
+    (=cns11643-1	. #x2858)	; &I-C1-2858; [08-56]
     ))
 (define-char
   '((name		. "KANGXI RADICAL PIG")
@@ -1704,7 +1704,7 @@
      ((=ucs		  . #x8C55)	; 豕
       ))
     (=ucs		. #x2F97)	; ⾗
-    (=cns11643-1	. #x2859)	; &I-C1-2859;
+    (=cns11643-1	. #x2859)	; &I-C1-2859; [08-57]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BADGER")
@@ -1715,7 +1715,7 @@
      ((=ucs		  . #x8C78)	; 豸
       ))
     (=ucs		. #x2F98)	; ⾘
-    (=cns11643-1	. #x285A)	; &I-C1-285A;
+    (=cns11643-1	. #x285A)	; &I-C1-285A; [08-58]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SHELL")
@@ -1726,7 +1726,7 @@
      ((=ucs		  . #x8C9D)	; 貝
       ))
     (=ucs		. #x2F99)	; ⾙
-    (=cns11643-1	. #x285B)	; &I-C1-285B;
+    (=cns11643-1	. #x285B)	; &I-C1-285B; [08-59]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RED")
@@ -1737,7 +1737,7 @@
      ((=ucs		  . #x8D64)	; 赤
       ))
     (=ucs		. #x2F9A)	; ⾚
-    (=cns11643-1	. #x285C)	; &I-C1-285C;
+    (=cns11643-1	. #x285C)	; &I-C1-285C; [08-60]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RUN")
@@ -1748,7 +1748,7 @@
      ((=ucs		  . #x8D70)	; 走
       ))
     (=ucs		. #x2F9B)	; ⾛
-    (=cns11643-1	. #x285D)	; &I-C1-285D;
+    (=cns11643-1	. #x285D)	; &I-C1-285D; [08-61]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FOOT")
@@ -1759,7 +1759,7 @@
      ((=ucs		  . #x8DB3)	; 足
       ))
     (=ucs		. #x2F9C)	; ⾜
-    (=cns11643-1	. #x285E)	; &I-C1-285E;
+    (=cns11643-1	. #x285E)	; &I-C1-285E; [08-62]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BODY")
@@ -1770,7 +1770,7 @@
      ((=ucs		  . #x8EAB)	; 身
       ))
     (=ucs		. #x2F9D)	; ⾝
-    (=cns11643-1	. #x285F)	; &I-C1-285F;
+    (=cns11643-1	. #x285F)	; &I-C1-285F; [08-63]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CART")
@@ -1781,7 +1781,7 @@
      ((=ucs		  . #x8ECA)	; 車
       ))
     (=ucs		. #x2F9E)	; ⾞
-    (=cns11643-1	. #x2860)	; &I-C1-2860;
+    (=cns11643-1	. #x2860)	; &I-C1-2860; [08-64]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BITTER")
@@ -1792,7 +1792,7 @@
      ((=ucs		  . #x8F9B)	; 辛
       ))
     (=ucs		. #x2F9F)	; ⾟
-    (=cns11643-1	. #x2861)	; &I-C1-2861;
+    (=cns11643-1	. #x2861)	; &I-C1-2861; [08-65]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MORNING")
@@ -1803,7 +1803,7 @@
      ((=ucs		  . #x8FB0)	; 辰
       ))
     (=ucs		. #x2FA0)	; ⾠
-    (=cns11643-1	. #x2862)	; &I-C1-2862;
+    (=cns11643-1	. #x2862)	; &I-C1-2862; [08-66]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WALK")
@@ -1814,7 +1814,7 @@
      ((=ucs		  . #x8FB5)	; 辵
       ))
     (=ucs		. #x2FA1)	; ⾡
-    (=cns11643-1	. #x2863)	; &I-C1-2863;
+    (=cns11643-1	. #x2863)	; &I-C1-2863; [08-67]
     (=big5-eten		. #xC6D6)	; &B-C6D6;
     ))
 (define-char
@@ -1826,7 +1826,7 @@
      ((=ucs		  . #x9091)	; 邑
       ))
     (=ucs		. #x2FA2)	; ⾢
-    (=cns11643-1	. #x2864)	; &I-C1-2864;
+    (=cns11643-1	. #x2864)	; &I-C1-2864; [08-68]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WINE")
@@ -1837,7 +1837,7 @@
      ((=ucs		  . #x9149)	; 酉
       ))
     (=ucs		. #x2FA3)	; ⾣
-    (=cns11643-1	. #x2865)	; &I-C1-2865;
+    (=cns11643-1	. #x2865)	; &I-C1-2865; [08-69]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DISTINGUISH")
@@ -1848,7 +1848,7 @@
      ((=ucs		  . #x91C6)	; 釆
       ))
     (=ucs		. #x2FA4)	; ⾤
-    (=cns11643-1	. #x2866)	; &I-C1-2866;
+    (=cns11643-1	. #x2866)	; &I-C1-2866; [08-70]
     ))
 (define-char
   '((name		. "KANGXI RADICAL VILLAGE")
@@ -1859,7 +1859,7 @@
      ((=ucs		  . #x91CC)	; 里
       ))
     (=ucs		. #x2FA5)	; ⾥
-    (=cns11643-1	. #x2867)	; &I-C1-2867;
+    (=cns11643-1	. #x2867)	; &I-C1-2867; [08-71]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GOLD")
@@ -1870,7 +1870,7 @@
      ((=ucs		  . #x91D1)	; 金
       ))
     (=ucs		. #x2FA6)	; ⾦
-    (=cns11643-1	. #x2868)	; &I-C1-2868;
+    (=cns11643-1	. #x2868)	; &I-C1-2868; [08-72]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LONG")
@@ -1881,7 +1881,7 @@
      ((=ucs		  . #x9577)	; 長
       ))
     (=ucs		. #x2FA7)	; ⾧
-    (=cns11643-1	. #x2869)	; &I-C1-2869;
+    (=cns11643-1	. #x2869)	; &I-C1-2869; [08-73]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GATE")
@@ -1892,7 +1892,7 @@
      ((=ucs		  . #x9580)	; 門
       ))
     (=ucs		. #x2FA8)	; ⾨
-    (=cns11643-1	. #x286A)	; &I-C1-286A;
+    (=cns11643-1	. #x286A)	; &I-C1-286A; [08-74]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MOUND")
@@ -1903,7 +1903,7 @@
      ((=ucs		  . #x961C)	; 阜
       ))
     (=ucs		. #x2FA9)	; ⾩
-    (=cns11643-1	. #x286B)	; &I-C1-286B;
+    (=cns11643-1	. #x286B)	; &I-C1-286B; [08-75]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SLAVE")
@@ -1914,7 +1914,7 @@
      ((=ucs		  . #x96B6)	; 隶
       ))
     (=ucs		. #x2FAA)	; ⾪
-    (=cns11643-1	. #x286C)	; &I-C1-286C;
+    (=cns11643-1	. #x286C)	; &I-C1-286C; [08-76]
     (=big5-eten		. #xC6D7)	; &B-C6D7;
     ))
 (define-char
@@ -1926,7 +1926,7 @@
      ((=ucs		  . #x96B9)	; 隹
       ))
     (=ucs		. #x2FAB)	; ⾫
-    (=cns11643-1	. #x286D)	; &I-C1-286D;
+    (=cns11643-1	. #x286D)	; &I-C1-286D; [08-77]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAIN")
@@ -1937,7 +1937,7 @@
      ((=ucs		  . #x96E8)	; 雨
       ))
     (=ucs		. #x2FAC)	; ⾬
-    (=cns11643-1	. #x286E)	; &I-C1-286E;
+    (=cns11643-1	. #x286E)	; &I-C1-286E; [08-78]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLUE")
@@ -1948,7 +1948,7 @@
      ((=ucs		  . #x9751)	; 靑
       ))
     (=ucs		. #x2FAD)	; ⾭
-    (=cns11643-1	. #x286F)	; &I-C1-286F;
+    (=cns11643-1	. #x286F)	; &I-C1-286F; [08-79]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WRONG")
@@ -1959,7 +1959,7 @@
      ((=ucs		  . #x975E)	; 非
       ))
     (=ucs		. #x2FAE)	; ⾮
-    (=cns11643-1	. #x2870)	; &I-C1-2870;
+    (=cns11643-1	. #x2870)	; &I-C1-2870; [08-80]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FACE")
@@ -1970,7 +1970,7 @@
      ((=ucs		  . #x9762)	; 面
       ))
     (=ucs		. #x2FAF)	; ⾯
-    (=cns11643-1	. #x2871)	; &I-C1-2871;
+    (=cns11643-1	. #x2871)	; &I-C1-2871; [08-81]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEATHER")
@@ -1981,7 +1981,7 @@
      ((=ucs		  . #x9769)	; 革
       ))
     (=ucs		. #x2FB0)	; ⾰
-    (=cns11643-1	. #x2872)	; &I-C1-2872;
+    (=cns11643-1	. #x2872)	; &I-C1-2872; [08-82]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TANNED LEATHER")
@@ -1992,7 +1992,7 @@
      ((=ucs		  . #x97CB)	; 韋
       ))
     (=ucs		. #x2FB1)	; ⾱
-    (=cns11643-1	. #x2873)	; &I-C1-2873;
+    (=cns11643-1	. #x2873)	; &I-C1-2873; [08-83]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEEK")
@@ -2003,7 +2003,7 @@
      ((=ucs		  . #x97ED)	; 韭
       ))
     (=ucs		. #x2FB2)	; ⾲
-    (=cns11643-1	. #x2874)	; &I-C1-2874;
+    (=cns11643-1	. #x2874)	; &I-C1-2874; [08-84]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SOUND")
@@ -2014,7 +2014,7 @@
      ((=ucs		  . #x97F3)	; 音
       ))
     (=ucs		. #x2FB3)	; ⾳
-    (=cns11643-1	. #x2875)	; &I-C1-2875;
+    (=cns11643-1	. #x2875)	; &I-C1-2875; [08-85]
     ))
 (define-char
   '((name		. "KANGXI RADICAL LEAF")
@@ -2025,7 +2025,7 @@
      ((=ucs		  . #x9801)	; 頁
       ))
     (=ucs		. #x2FB4)	; ⾴
-    (=cns11643-1	. #x2876)	; &I-C1-2876;
+    (=cns11643-1	. #x2876)	; &I-C1-2876; [08-86]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WIND")
@@ -2036,7 +2036,7 @@
      ((=ucs		  . #x98A8)	; 風
       ))
     (=ucs		. #x2FB5)	; ⾵
-    (=cns11643-1	. #x2877)	; &I-C1-2877;
+    (=cns11643-1	. #x2877)	; &I-C1-2877; [08-87]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FLY")
@@ -2047,7 +2047,7 @@
      ((=ucs		  . #x98DB)	; 飛
       ))
     (=ucs		. #x2FB6)	; ⾶
-    (=cns11643-1	. #x2878)	; &I-C1-2878;
+    (=cns11643-1	. #x2878)	; &I-C1-2878; [08-88]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EAT")
@@ -2058,7 +2058,7 @@
      ((=ucs		  . #x98DF)	; 食
       ))
     (=ucs		. #x2FB7)	; ⾷
-    (=cns11643-1	. #x2879)	; &I-C1-2879;
+    (=cns11643-1	. #x2879)	; &I-C1-2879; [08-89]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEAD")
@@ -2069,7 +2069,7 @@
      ((=ucs		  . #x9996)	; 首
       ))
     (=ucs		. #x2FB8)	; ⾸
-    (=cns11643-1	. #x287A)	; &I-C1-287A;
+    (=cns11643-1	. #x287A)	; &I-C1-287A; [08-90]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FRAGRANT")
@@ -2080,7 +2080,7 @@
      ((=ucs		  . #x9999)	; 香
       ))
     (=ucs		. #x2FB9)	; ⾹
-    (=cns11643-1	. #x287B)	; &I-C1-287B;
+    (=cns11643-1	. #x287B)	; &I-C1-287B; [08-91]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HORSE")
@@ -2091,7 +2091,7 @@
      ((=ucs		  . #x99AC)	; 馬
       ))
     (=ucs		. #x2FBA)	; ⾺
-    (=cns11643-1	. #x287C)	; &I-C1-287C;
+    (=cns11643-1	. #x287C)	; &I-C1-287C; [08-92]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BONE")
@@ -2102,7 +2102,7 @@
      ((=ucs		  . #x9AA8)	; 骨
       ))
     (=ucs		. #x2FBB)	; ⾻
-    (=cns11643-1	. #x287D)	; &I-C1-287D;
+    (=cns11643-1	. #x287D)	; &I-C1-287D; [08-93]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TALL")
@@ -2113,7 +2113,7 @@
      ((=ucs		  . #x9AD8)	; 高
       ))
     (=ucs		. #x2FBC)	; ⾼
-    (=cns11643-1	. #x287E)	; &I-C1-287E;
+    (=cns11643-1	. #x287E)	; &I-C1-287E; [08-94]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HAIR")
@@ -2124,7 +2124,7 @@
      ((=ucs		  . #x9ADF)	; 髟
       ))
     (=ucs		. #x2FBD)	; ⾽
-    (=cns11643-1	. #x2921)	; &I-C1-2921;
+    (=cns11643-1	. #x2921)	; &I-C1-2921; [09-01]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FIGHT")
@@ -2135,7 +2135,7 @@
      ((=ucs		  . #x9B25)	; 鬥
       ))
     (=ucs		. #x2FBE)	; ⾾
-    (=cns11643-1	. #x2922)	; &I-C1-2922;
+    (=cns11643-1	. #x2922)	; &I-C1-2922; [09-02]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SACRIFICIAL WINE")
@@ -2146,7 +2146,7 @@
      ((=ucs		  . #x9B2F)	; 鬯
       ))
     (=ucs		. #x2FBF)	; ⾿
-    (=cns11643-1	. #x2923)	; &I-C1-2923;
+    (=cns11643-1	. #x2923)	; &I-C1-2923; [09-03]
     ))
 (define-char
   '((name		. "KANGXI RADICAL CAULDRON")
@@ -2157,7 +2157,7 @@
      ((=ucs		  . #x9B32)	; 鬲
       ))
     (=ucs		. #x2FC0)	; ⿀
-    (=cns11643-1	. #x2924)	; &I-C1-2924;
+    (=cns11643-1	. #x2924)	; &I-C1-2924; [09-04]
     ))
 (define-char
   '((name		. "KANGXI RADICAL GHOST")
@@ -2168,7 +2168,7 @@
      ((=ucs		  . #x9B3C)	; 鬼
       ))
     (=ucs		. #x2FC1)	; ⿁
-    (=cns11643-1	. #x2925)	; &I-C1-2925;
+    (=cns11643-1	. #x2925)	; &I-C1-2925; [09-05]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FISH")
@@ -2179,7 +2179,7 @@
      ((=ucs		  . #x9B5A)	; 魚
       ))
     (=ucs		. #x2FC2)	; ⿂
-    (=cns11643-1	. #x2926)	; &I-C1-2926;
+    (=cns11643-1	. #x2926)	; &I-C1-2926; [09-06]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BIRD")
@@ -2190,7 +2190,7 @@
      ((=ucs		  . #x9CE5)	; 鳥
       ))
     (=ucs		. #x2FC3)	; ⿃
-    (=cns11643-1	. #x2927)	; &I-C1-2927;
+    (=cns11643-1	. #x2927)	; &I-C1-2927; [09-07]
     ))
 (define-char
   '((name		. "KANGXI RADICAL SALT")
@@ -2201,7 +2201,7 @@
      ((=ucs		  . #x9E75)	; 鹵
       ))
     (=ucs		. #x2FC4)	; ⿄
-    (=cns11643-1	. #x2928)	; &I-C1-2928;
+    (=cns11643-1	. #x2928)	; &I-C1-2928; [09-08]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DEER")
@@ -2212,7 +2212,7 @@
      ((=ucs		  . #x9E7F)	; 鹿
       ))
     (=ucs		. #x2FC5)	; ⿅
-    (=cns11643-1	. #x2929)	; &I-C1-2929;
+    (=cns11643-1	. #x2929)	; &I-C1-2929; [09-09]
     ))
 (define-char
   '((name		. "KANGXI RADICAL WHEAT")
@@ -2223,7 +2223,7 @@
      ((=ucs		  . #x9EA5)	; 麥
       ))
     (=ucs		. #x2FC6)	; ⿆
-    (=cns11643-1	. #x292A)	; &I-C1-292A;
+    (=cns11643-1	. #x292A)	; &I-C1-292A; [09-10]
     ))
 (define-char
   '((name		. "KANGXI RADICAL HEMP")
@@ -2234,7 +2234,7 @@
      ((=ucs		  . #x9EBB)	; 麻
       ))
     (=ucs		. #x2FC7)	; ⿇
-    (=cns11643-1	. #x292B)	; &I-C1-292B;
+    (=cns11643-1	. #x292B)	; &I-C1-292B; [09-11]
     ))
 (define-char
   '((name		. "KANGXI RADICAL YELLOW")
@@ -2245,7 +2245,7 @@
      ((=ucs		  . #x9EC3)	; 黃
       ))
     (=ucs		. #x2FC8)	; ⿈
-    (=cns11643-1	. #x292C)	; &I-C1-292C;
+    (=cns11643-1	. #x292C)	; &I-C1-292C; [09-12]
     ))
 (define-char
   '((name		. "KANGXI RADICAL MILLET")
@@ -2256,7 +2256,7 @@
      ((=ucs		  . #x9ECD)	; 黍
       ))
     (=ucs		. #x2FC9)	; ⿉
-    (=cns11643-1	. #x292D)	; &I-C1-292D;
+    (=cns11643-1	. #x292D)	; &I-C1-292D; [09-13]
     ))
 (define-char
   '((name		. "KANGXI RADICAL BLACK")
@@ -2267,7 +2267,7 @@
      ((=ucs		  . #x9ED1)	; 黑
       ))
     (=ucs		. #x2FCA)	; ⿊
-    (=cns11643-1	. #x292E)	; &I-C1-292E;
+    (=cns11643-1	. #x292E)	; &I-C1-292E; [09-14]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EMBROIDERY")
@@ -2278,7 +2278,7 @@
      ((=ucs		  . #x9EF9)	; 黹
       ))
     (=ucs		. #x2FCB)	; ⿋
-    (=cns11643-1	. #x292F)	; &I-C1-292F;
+    (=cns11643-1	. #x292F)	; &I-C1-292F; [09-15]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FROG")
@@ -2289,7 +2289,7 @@
      ((=ucs		  . #x9EFD)	; 黽
       ))
     (=ucs		. #x2FCC)	; ⿌
-    (=cns11643-1	. #x2930)	; &I-C1-2930;
+    (=cns11643-1	. #x2930)	; &I-C1-2930; [09-16]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TRIPOD")
@@ -2300,7 +2300,7 @@
      ((=ucs		  . #x9F0E)	; 鼎
       ))
     (=ucs		. #x2FCD)	; ⿍
-    (=cns11643-1	. #x2931)	; &I-C1-2931;
+    (=cns11643-1	. #x2931)	; &I-C1-2931; [09-17]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRUM")
@@ -2311,7 +2311,7 @@
      ((=ucs		  . #x9F13)	; 鼓
       ))
     (=ucs		. #x2FCE)	; ⿎
-    (=cns11643-1	. #x2932)	; &I-C1-2932;
+    (=cns11643-1	. #x2932)	; &I-C1-2932; [09-18]
     ))
 (define-char
   '((name		. "KANGXI RADICAL RAT")
@@ -2322,7 +2322,7 @@
      ((=ucs		  . #x9F20)	; 鼠
       ))
     (=ucs		. #x2FCF)	; ⿏
-    (=cns11643-1	. #x2933)	; &I-C1-2933;
+    (=cns11643-1	. #x2933)	; &I-C1-2933; [09-19]
     ))
 (define-char
   '((name		. "KANGXI RADICAL NOSE")
@@ -2333,7 +2333,7 @@
      ((=ucs		  . #x9F3B)	; 鼻
       ))
     (=ucs		. #x2FD0)	; ⿐
-    (=cns11643-1	. #x2934)	; &I-C1-2934;
+    (=cns11643-1	. #x2934)	; &I-C1-2934; [09-20]
     ))
 (define-char
   '((name		. "KANGXI RADICAL EVEN")
@@ -2344,7 +2344,7 @@
      ((=ucs		  . #x9F4A)	; 齊
       ))
     (=ucs		. #x2FD1)	; ⿑
-    (=cns11643-1	. #x2935)	; &I-C1-2935;
+    (=cns11643-1	. #x2935)	; &I-C1-2935; [09-21]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TOOTH")
@@ -2355,7 +2355,7 @@
      ((=ucs		  . #x9F52)	; 齒
       ))
     (=ucs		. #x2FD2)	; ⿒
-    (=cns11643-1	. #x2936)	; &I-C1-2936;
+    (=cns11643-1	. #x2936)	; &I-C1-2936; [09-22]
     ))
 (define-char
   '((name		. "KANGXI RADICAL DRAGON")
@@ -2366,7 +2366,7 @@
      ((=ucs		  . #x9F8D)	; 龍
       ))
     (=ucs		. #x2FD3)	; ⿓
-    (=cns11643-1	. #x2937)	; &I-C1-2937;
+    (=cns11643-1	. #x2937)	; &I-C1-2937; [09-23]
     ))
 (define-char
   '((name		. "KANGXI RADICAL TURTLE")
@@ -2377,7 +2377,7 @@
      ((=ucs		  . #x9F9C)	; 龜
       ))
     (=ucs		. #x2FD4)	; ⿔
-    (=cns11643-1	. #x2938)	; &I-C1-2938;
+    (=cns11643-1	. #x2938)	; &I-C1-2938; [09-24]
     ))
 (define-char
   '((name		. "KANGXI RADICAL FLUTE")
@@ -2388,5 +2388,5 @@
      ((=ucs		  . #x9FA0)	; 龠
       ))
     (=ucs		. #x2FD5)	; ⿕
-    (=cns11643-1	. #x2939)	; &I-C1-2939;
+    (=cns11643-1	. #x2939)	; &I-C1-2939; [09-25]
     ))
