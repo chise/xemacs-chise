@@ -410,7 +410,15 @@
 (define-char
   '((ideographic-radical . 137)	; â¾ˆ
     (ideographic-strokes . 4)
+    (total-strokes	 . 10)
     (ucs		. #x822E)	; èˆ®
+    ))
+(define-char
+  '((=>ucs		. #x822E)	; èˆ®
+    (ideographic-radical . 137)	; â¾ˆ
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (japanese-jisx0208-1990	. #x6764)	; ø½‹³
     ))
 (define-char
   '((ideographic-radical . 137)	; â¾ˆ
