@@ -390,8 +390,8 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 3267)
+      (=ucs		  . #x65E8)	; 旨
       (=jis-x0208	  . #x3B5D)	; &I-J90-3B5D;
-      (=daikanwa	  . 13738)	; &I-M-13738;
       ))
     (<-vulgar*sources
      shinjigen-1)
