@@ -4580,8 +4580,15 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x25C02)	; ð¥°‚
-    (=cns11643-7	. #x2646)	; ø»ž†¯
     (=daikanwa		. 49428)	; ø¸Œ„”
+    ))
+(define-char
+  '((=>ucs		. #x25C02)	; ð¥°‚
+    (morohashi-daikanwa	49428 0 0)
+    (ideographic-radical . 118)	; â½µ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=cns11643-7	. #x2646)	; ø»ž†¯
     ))
 (define-char
   '((=>ucs*		. #x7BC0)	; ç¯€
