@@ -147,6 +147,7 @@
     (total-strokes	 . 4)
     (chinese-cns11643-6 . #x2179)	; ø»›¶ˆ
     (ideograph-daikanwa . 09702)	; ø¸‚—¦
+    (china3-jef		. #x8CD7)	; øºˆ³—
     (ucs		. #x38A7)	; ã¢§
     ))
 (define-char

@@ -985,6 +985,7 @@
       )
      ((ucs		  . #x65E9)	; æ—©
       ))
+    (china3-jef		. #x73FC)	; øº‡¼
     (chinese-big5-cdp	. #x8C49)	; ý¢€ˆ±‰
     ))
 (define-char
