@@ -3443,6 +3443,7 @@
     (=jis-x0212		. #x5346)	; ø»‹®‘
     (=jis-x0213-1-2000	. #x7978)	; ø»¤•£
     (=daikanwa		. 27101)	; ø¸†§
+    (=cbeta		. 00857)	; ø¸ ™
     (=ucs@jis		. #x7CDD)	; ø»‹®‘
     ))
 (define-char

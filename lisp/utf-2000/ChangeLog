@@ -1,3 +1,72 @@
+2003-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,
+	Ideograph-R157-Foot.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
+	* Ideograph-R119-Rice.el (JX1-7978): Unify CB00857.
+
+2003-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el, Ideograph-R156-Run.el: Add some mappings
+	between CNS 11643-5 and CJK Ext-B code points.
+
+	* Ideograph-R018-Knife.el (U-000206F9): Use
+	`<-ancient-ideograph*sources' instead of char-ref in
+	`<-ancient-ideograph'.
+	(U-00020702): Unify M-48938; use `->ideographic-variants*sources'
+	instead of char-ref in `->ideographic-variants'.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL COW>): Add
+	`<-ideographic-component-forms' for U+725B.
+
+	* Ideograph-R093-Cow.el (M-19923): Unify BC-8BA9; add
+	`<-ideographic-component-forms' for U+725B.
+	(U+725C): Add `<-ideographic-component-forms' for U+725B.
+
+2003-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R155-Red.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
+	* Ideograph-R173-Rain.el (U+4A0C): Unify M-42223; separate
+	C3-3F7D.
+	(M-42224): Separate U+96ED.
+	(U-000290CB): New character.
+	(U-000290D2): New character.
+	(C5-5F59): Map to U-000290D2.
+	(M-42330): Separate U+9712.
+	(U+9714): Separate C3-534D.
+	(U+9715): Separate C3-534C.
+	(U+4A2D): Separate C3-5B57.
+	(M-42428): Separate U+4A2E.
+	(M-42452): Separate U+972E.
+	(JSP-672B): Separate U+9731.
+	(M-42467): Separate U+4A31.
+	(M-42477): Separate U+9735.
+	(JX2-7B79): Separate U+9736.
+
+	* Ideograph-R154-Shell.el: Add some mappings between CNS 11643-5
+	and CJK Ext-B code points.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL REPEAT>): Add
+	`<-ideographic-component-forms' for U-00020120.
+	(<CJK RADICAL MEAT>): Add `<-ideographic-component-forms' for
+	U+8089.
+	(BC-8958): Likewise.
+	(BC-8A73): Likewise.
+	(<CJK RADICAL RAIN>): Add `<-ideographic-component-forms' for
+	U+96E8.
+
+	* Ideograph-R130-Meat.el (<CJK RADICAL MEAT>): Add
+	`<-ideographic-component-forms' for U+8089.
+	(BC-8A73): Likewise.
+	(BC-8958): Likewise.
+
+	* Ideograph-R040-Roof.el (J0-355C): Separate U+5BAE and C1-5527.
+	(J0-3A4B): Separate U+5BB0, G0-5457 and C1-5523.
+	(J0-3163): Separate U+5BB4 and G0-5167.
+
 2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el (M-44037'): Unify GT-59087; use
