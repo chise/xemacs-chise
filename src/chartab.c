@@ -3398,9 +3398,8 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 	    return -1;
 
 	  cit->feature_table
-	    = chise_ds_open_feature_table (default_chise_data_source,
-					   XSTRING_DATA (Fsymbol_name
-							 (attribute)));
+	    = chise_ds_get_feature (default_chise_data_source,
+				    XSTRING_DATA (Fsymbol_name (attribute)));
 	  if (cit->feature_table == NULL)
 	    return -1;
 	}
@@ -3428,7 +3427,7 @@ char_table_close_db_maybe (Lisp_Char_Table* cit)
 #ifdef CHISE
   if (cit->feature_table != NULL)
     {
-      chise_ft_close (cit->feature_table);
+      /* chise_ft_close (cit->feature_table); */
       cit->feature_table = NULL;
     }
 #else
