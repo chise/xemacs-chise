@@ -185,6 +185,7 @@
      ((ucs		  . #x4E3F)	; ä¸¿
       ))
     (chinese-gb12345	. #x7D3D)	; ä¸†
+    (chinese-big5-cdp	. #x896C)	; ý¢€ˆ¥¬
     (ucs		. #x4E06)	; ä¸†
     ))
 (define-char
@@ -830,6 +831,13 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((ucs		. #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	. #x89D7)	; ý¢€ˆ§—
+      )
+     ((ucs			. #x4E00)	; ä¸€
+      ))
     (chinese-cns11643-4 . #x2155)	; ø»—¡œ
     ))
 (define-char
