@@ -1589,8 +1589,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-cns11643-5 . #x2161)	; ø»™«¬
-      (ideograph-daikanwa . 03258)	; ø¸€²º
+     ((ucs		  . #x20BA0)	; ð ® 
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
@@ -2293,8 +2292,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-cns11643-6 . #x244F)	; ø»›¹¸
-      (ideograph-daikanwa . 07648)	; ø¸· 
+     ((ucs		  . #x21C2F)	; ð¡°¯
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
