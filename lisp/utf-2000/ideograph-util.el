@@ -468,9 +468,12 @@
               radical))
       (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
                      (encode-char char '=daikanwa-rev2 'defined-only)
-                     (get-char-attribute char 'morohashi-daikanwa)
-                     (get-char-attribute char '=>daikanwa))))
+                     (get-char-attribute char 'morohashi-daikanwa))))
         (or ret
+	    (and (setq ret (get-char-attribute char '=>daikanwa))
+		 (if (numberp ret)
+		     (list ret 0)
+		   (append ret '(0))))
 	    (unless (memq char checked)
 	      (catch 'tag
 		(let ((rest
