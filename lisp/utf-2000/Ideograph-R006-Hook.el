@@ -176,7 +176,8 @@
     (japanese-jisx0208		#x50 #x2F)	; ø»‡•˜
     ))
 (define-char
-  '((morohashi-daikanwa	240)
+  '((ucs		. #x3428)
+    (morohashi-daikanwa	240)
     (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
