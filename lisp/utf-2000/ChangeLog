@@ -1,5 +1,32 @@
 2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R131-Minister.el (C3-2A5C): Separated from U+5367 and
+	moved from Ideograph-R025-Divination.el.
+
+	* Ideograph-R035-Go-Slowly.el: Merge some CJK Ext-B code points.
+
+	* Ideograph-R034-Go.el (J0-5469): Unify BC-8B45.
+	Merge some CJK Ext-B code points.
+
+	* Ideograph-R031-Enclosure.el: Add some CHINA3-JEF code points.
+
+	* Ideograph-R019-Power.el: Add some CHINA3-JEF code points.
+	(M-02305): Unify C4-2240, JC3-44D9 and U+3515.
+	(M-02395): Unify C6-3D4E.
+	(M-02397): Unify C6-3D4F.
+	(M-02401): Unify C6-3D4D.
+
+	* Ideograph-R018-Knife.el: Add some CHINA3-JEF code points.
+	(M-02112): Add `ideographic-structure'.
+
+	* Ideograph-R015-Ice.el: Add some missing `ideographic-structure'
+	properties.
+
+	* Ideograph-R005-Second.el (BC-87D3): Moved to
+	Ideograph-R037-Big.el; unify C6-2167.
+
+2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R181-Leaf.el (JC3-8CE9): New character.
 
 	* Ideograph-R122-Net.el (C4-2152): Separated from U+5188 and moved
