@@ -119,7 +119,7 @@
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
     (setq column (current-column)))
-  (let (char-spec ret al cal key)
+  (let (char-spec ret al cal key temp-char)
     (cond ((characterp char)
 	   (cond ((setq ret (get-char-attribute char 'ucs))
 		  (unless (and (<= #xE000 ret)(<= ret #xF8FF))
@@ -142,23 +142,34 @@
 	  ((consp char)
 	   (setq char-spec char)
 	   (setq char nil)))
-    (if (or char
-	    (setq char (condition-case nil
-			   (find-char char-spec)
-			 (error nil))))
-	(progn
-	  (setq al nil
-		cal nil)
-	  (while char-spec
-	    (setq key (car (car char-spec)))
-	    (if (find-charset key)
-		(setq cal (cons key cal))
-	      (setq al (cons key al)))
-	    (setq char-spec (cdr char-spec)))
-	  (insert-char-attributes char
-				  readable
-				  (or al 'none) cal))
-      (insert (prin1-to-string char-spec)))))
+    (unless (or char
+		(condition-case nil
+		    (setq char (find-char char-spec))
+		  (error nil)))
+      ;; define temporary character
+      ;;   Current implementation is dirty.
+      (setq temp-char (define-char (cons '(ideograph-daikanwa . 0)
+					 char-spec)))
+      (remove-char-attribute temp-char 'ideograph-daikanwa)
+      (setq char temp-char))
+    (setq al nil
+	  cal nil)
+    (while char-spec
+      (setq key (car (car char-spec)))
+      (if (find-charset key)
+	  (setq cal (cons key cal))
+	(setq al (cons key al)))
+      (setq char-spec (cdr char-spec)))
+    (insert-char-attributes char
+			    readable
+			    (or al 'none) cal)
+    (when temp-char
+      ;; undefine temporary character
+      ;;   Current implementation is dirty.
+      (setq char-spec (char-attribute-alist temp-char))
+      (while char-spec
+	(remove-char-attribute temp-char (car (car char-spec)))
+	(setq char-spec (cdr char-spec))))))
 
 (defun char-db-insert-alist (alist &optional readable column)
   (unless column
@@ -245,8 +256,12 @@
       (setq value (pop plist))
       (cond ((eq name :char)
 	     (insert ":char\t")
-	     (if (numberp value)
-		 (setq value (decode-char 'ucs value)))
+	     (cond ((numberp value)
+		    (setq value (decode-char 'ucs value)))
+                   ;; ((consp value)
+                   ;;  (setq value (or (find-char value)
+                   ;;                  value)))
+		   )
 	     (char-db-insert-char-spec value readable)
              (insert line-breaking))
             (t
