@@ -2168,6 +2168,22 @@ Signal an error if VALUE is not a valid value for CHAR-TABLE-TYPE.
   return Qnil;
 }
 
+#ifdef UTF2000
+Lisp_Char_Table* char_attribute_table_to_put;
+Lisp_Object Qput_char_table_map_function;
+Lisp_Object value_to_put;
+
+DEFUN ("put-char-table-map-function",
+       Fput_char_table_map_function, 2, 2, 0, /*
+For internal use.  Don't use it.
+*/
+       (c, value))
+{
+  put_char_id_table_0 (char_attribute_table_to_put, c, value_to_put);
+  return Qnil;
+}
+#endif
+
 /* Assign VAL to all characters in RANGE in char table CT. */
 
 void
@@ -2200,12 +2216,20 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	*/
 	if ( CHAR_TABLEP (encoding_table) )
 	  {
+#if 1
+	    char_attribute_table_to_put = ct;
+	    value_to_put = val;
+	    Fmap_char_attribute (Qput_char_table_map_function,
+				 XCHAR_TABLE_NAME (encoding_table),
+				 Qnil);
+#else
 	    for (c = 0; c < 1 << 24; c++)
 	      {
 		if ( INTP (get_char_id_table (XCHAR_TABLE(encoding_table),
 					      c)) )
 		  put_char_id_table_0 (ct, c, val);
 	      }
+#endif
 	  }
 	else
 	  {
@@ -3079,12 +3103,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  table = make_char_id_table (Qunloaded);
 	  XCHAR_TABLE (table)->default_value = Qunbound;
 	  Fputhash (attribute, table, Vchar_attribute_hash_table);
-	  XCHAR_TABLE_NAME (table) = Fsymbol_name (attribute);
+	  XCHAR_TABLE_NAME (table) = attribute;
 	}
       if (NILP (db_dir))
 	db_dir = build_string ("../etc");
       db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-      db_file = Fexpand_file_name (XCHAR_TABLE_NAME (table), db_dir);
+      db_file = Fexpand_file_name (Fsymbol_name
+				   (XCHAR_TABLE_NAME (table)), db_dir);
       db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       if (!NILP (db))
 	{
@@ -3149,7 +3174,7 @@ load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
   if (NILP (db_dir))
     db_dir = build_string ("../etc");
   db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  db_file = Fexpand_file_name (attribute, db_dir);
+  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
@@ -3744,6 +3769,8 @@ syms_of_chartab (void)
 
   DEFSUBR (Fchar_attribute_list);
   DEFSUBR (Ffind_char_attribute_table);
+  defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
+  DEFSUBR (Fput_char_table_map_function);
 #ifdef HAVE_DATABASE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
