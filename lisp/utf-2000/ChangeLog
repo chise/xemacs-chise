@@ -1,5 +1,9 @@
 2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el (U-00021A5C): New character.
+
+2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R109-Eye.el (BC-8B48): New character.
 
 	* Ideograph-R030-Mouth.el (U+53E7): Use
@@ -35,6 +39,8 @@
 2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R006-Hook.el (U-00020116): Use `->unified'.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Use `->unified'.
 
 2004-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
