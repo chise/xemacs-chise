@@ -1138,6 +1138,14 @@
     (=hanziku-9		. #xF0F9)	; ý¢‚Ÿƒ¹
     ))
 (define-char
+  '((script		Chinese Simplified Ideograph)
+    (ideographic-radical . 154)	; â¾™
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=ucs		. #x8D30)	; è´°
+    (=gb2312		. #x3721)	; ø»„¦˜
+    ))
+(define-char
   '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 5)
     (total-strokes	 . 9)

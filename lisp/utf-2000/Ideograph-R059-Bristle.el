@@ -268,6 +268,7 @@
 (define-char
   '((ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=ucs		. #x987B)	; é¡»
     (=gb2312		. #x506B)	; ø»…Œ
     ))

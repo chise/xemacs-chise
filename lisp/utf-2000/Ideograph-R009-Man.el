@@ -31236,12 +31236,12 @@
     (mojikyo		. 001301)	; ý €€”•
     ))
 (define-char
-  '((ideographic-	(:radical	89 ; â½˜
-			 :strokes	15
-			 :sources	(morohashi-daikanwa cns-11643))
-			(:radical	9 ; â¼ˆ
-			 :strokes	17
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 9)	; â¼ˆ
+    (ideographic-strokes@ucs . 17)
+    (ideographic-radical@cns . 89)	; â½˜
+    (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 19)
     (hanyu-dazidian	1 237 5)
     (ideographic-structure

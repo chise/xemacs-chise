@@ -176,6 +176,17 @@
     (=jis-x0213-1-2000	. #x2E6F)	; ø»¢§
     (=big5		. #xA564)	; ý¢€Š•¤
     (=daikanwa		. 02781)	; ø¸€«
+    (=jef-china3	. #x45CB)	; øº„—‹
+    ))
+(define-char
+  '((=>ucs		. #x5361)	; å¡
+    (morohashi-daikanwa	2781 0 0)
+    (ideographic-radical . 25)	; â¼˜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (->identical
+     ((=jef-china3	  . #x45CB)	; øº„—‹
+      ))
     (=jef-china3	. #x82B5)	; øºˆŠµ
     ))
 (define-char

@@ -34,21 +34,20 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (<-vulgar-ideograph
-     (:char	((=daikanwa	     . 48257)	; ø¸‹²
-		 )
-      :sources	(seiji-tsuu morohashi-daikanwa)))
+     ((=daikanwa	  . 48257)	; ø¸‹²
+      ))
+    (<-vulgar-ideograph*sources
+     zhengzi-tong daikanwa)
     (=ucs		. #x2FA18)	; ð¯¨˜
     (=cns11643-4	. #x2834)	; ø»—«
     (=daikanwa		. 48258)	; ø¸‹²‚
     ))
 (define-char
   '((morohashi-daikanwa	48258 0 2)
-    (ideographic-	(:radical	205 ; â¿Œ
-			 :strokes	0
-			 :sources	(ucs))
-			(:radical	30 ; â¼
-			 :strokes	5
-			 :sources	(cns-11643)))
+    (ideographic-radical@ucs . 205)	; â¿Œ
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@cns . 30)	; â¼
+    (ideographic-strokes@cns . 5)
     (total-strokes	 . 8)
     (=ucs		. #x9EFE)	; é»¾
     (=gb2312		. #x763C)	; ø»†ƒ•

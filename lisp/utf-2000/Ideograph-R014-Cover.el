@@ -147,6 +147,7 @@
 (define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (hanyu-dazidian	1 303 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -642,6 +643,7 @@
 (define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	8 10 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -375,6 +375,7 @@
 (define-char
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
@@ -613,6 +614,7 @@
 (define-char
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
@@ -746,6 +748,7 @@
 (define-char
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

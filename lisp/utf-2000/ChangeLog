@@ -1,3 +1,134 @@
+2003-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0AC00-Hangul-Syllables.el (U+C5EC): Unify JC3-94B6.
+
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (U+5361): Separate JC3-82B5; unify
+	JC3-45CB.
+
+	* Ideograph-R030-Mouth.el (U+53FE): Add `total-strokes'.
+	(U+549E): Use `->identical' instead of `->same-ideograph' for
+	U-0002F83C.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+	(U+35A2): Separate C5-3670; modify strokes.
+	(M-03919): Unify U+35BC.
+	(C4-3659): Separate U+35BC.
+	(U+5577): Separate B-D86A.
+	(B-DCD8): Modify strokes.
+	(C2-417B): Unify JC3-46F1.
+	(U+55D2): Separate JC3-46F1.
+	(M-04143): Modify `ideographic-structure'.
+	(C3-462E): Likewise.
+	(U+5620): Modify `strokes'.
+	(U+35FB): Modify `strokes'.
+	(U+56BA): Fix strokes.
+	(U-00021109): Unify C7-476E instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U+56B0): Add `total-strokes'.
+	(U+56B9): Add strokes.
+	(CB00772): Fix `ideographic-strokes'.
+	(U+56D5): Fix `total-strokes'.
+
+	* Ideograph-R205-Frog.el (U-0002FA18): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R089-Double-X.el (C7-476E): Unify U-00021109 and
+	H2-E2D9 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U-00020442): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R060-Step.el (JC3-4DB3): Use
+	`->same-ideograph*sources' instead of char-ref in `->synonyms'.
+	(U+5F94): Modify strokes.
+	(U+8854): Moved to Ideograph-R144-Walk-Enclosure.el.
+	(U+5F9A): Add `total-strokes'.
+	(J0-4530): Separate U+5FB9 and G1-3339; fix `total-strokes'.
+	(U+5FB9): Likewise.
+	(U+5FBA): Add `total-strokes'.
+
+	* Ideograph-R009-Man.el (U-00020442): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R001-One.el (U+4E0E): Use
+	`ideographic-strokes@{ucs|gt}', `total-strokes@{ucs|gt}' and
+	`{ideographic|total}-strokes@ucs*sources' instead of
+	`ideographic-'; use `->synonyms*sources' instead of char-ref in
+	`->synonyms'.
+
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (U+8D30): Moved from
+	Ideograph-R056-Shoot.el.
+
+	* Ideograph-R144-Walk-Enclosure.el (U+8850): Add `total-strokes'.
+	(U+8854): Moved from Ideograph-R060-Step.el.
+
+	* Ideograph-R056-Shoot.el (U+7519): Add `total-strokes'.
+	(U+8D30): Moved to Ideograph-R154-Shell.el.
+
+	* Ideograph-R042-Small.el (M-07511): Separate all.
+	(U+3779): Modify strokes.
+	(M-07512): Separate all.
+	(U-00021B7F): Modify strokes.
+	(U+8F89): Moved to Ideograph-R159-Cart.el.
+
+	* Ideograph-R040-Roof.el (U+374D): Modify strokes.
+	(M-07151): Likewise.
+	(U+5BAC): Likewise.
+	(U+8D5B): Add `total-strokes'.
+
+	* Ideograph-R036-Evening.el (U+5922): Use
+	`<-simplified-ideograph*sources' instead of char-ref in
+	`<-simplified-ideograph'.
+
+	* Ideograph-R027-Cliff.el (U+539B): Add `total-strokes'.
+	(GT-03811): Use `<-vulgar-ideograph*sources' instead of char-ref
+	in `<-vulgar-ideograph'.
+	(U+53A9): Modify strokes.
+	(C3-4048): Unify H1-B3D0.
+	(U+53AB): Separate H1-B3D0.
+	(M-03024): Unify U+3550.
+	(C5-4C31): Separate U+3550.
+
+	* Ideograph-R005-Second.el (U+4E67): Add `total-strokes'.
+	(U+4E7A): Fix strokes.
+	(U+4E7B): Likewise.
+	(U+4E7C): Likewise.
+	(U+F91B): Add `total-strokes'.
+
+	* Ideograph-R159-Cart.el (U+8F89): Moved from
+	Ideograph-R042-Small.el.
+	(U+8F8B): Add `total-strokes'.
+	(U+8F8C): Add `total-strokes'.
+	(U+8F8D): Add `total-strokes'.
+	(U+8F8E): Add `total-strokes'.
+
+	* Ideograph-R059-Bristle.el (U+987B): Add `total-strokes'.
+
+	* Ideograph-R039-Child.el (U+5B67): Add `total-strokes'.
+
+	* Ideograph-R033-Scholar.el (U+58F6): Add `total-strokes'.
+	(U+58F8): Add `total-strokes'.
+	(U+5900): Add `total-strokes'.
+
+	* Ideograph-R028-Private.el (U+517F): Add `total-strokes'.
+
+	* Ideograph-R016-Table.el (U+34D8): Modify strokes.
+
+	* Ideograph-R014-Cover.el (U+519A): Add `total-strokes'.
+	(U+51A7): Add `total-strokes'.
+
+	* Ideograph-R007-Two.el (U+4E9F): Modify strokes.
+
 2003-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R079-Weapon.el (U-00023A98): New character.
