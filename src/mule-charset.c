@@ -75,7 +75,7 @@ Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_chinese_big5;
 Lisp_Object Vcharset_chinese_big5_cdp;
-Lisp_Object Vcharset_japanese_jef_china3;
+Lisp_Object Vcharset_china3_jef;
 Lisp_Object Vcharset_ideograph_cbeta;
 Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
@@ -436,7 +436,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_upper,
   Qchinese_big5,
   Qchinese_big5_cdp,
-  Qjapanese_jef_china3,
+  Qchina3_jef,
   Qideograph_cbeta,
   Qideograph_daikanwa,
   Qideograph_gt,
@@ -1317,15 +1317,15 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = Vcharset_mojikyo;
       return c - MIN_CHAR_MOJIKYO;
     }
-  else if (c < MIN_CHAR_JEF_CHINA3)
+  else if (c < MIN_CHAR_CHINA3_JEF)
     {
       *charset = Vcharset_ucs;
       return c;
     }
-  else if (c <= MAX_CHAR_JEF_CHINA3)
+  else if (c <= MAX_CHAR_CHINA3_JEF)
     {
-      *charset = Vcharset_japanese_jef_china3;
-      return c - MIN_CHAR_JEF_CHINA3;
+      *charset = Vcharset_china3_jef;
+      return c - MIN_CHAR_CHINA3_JEF;
     }
   else if (c <= MAX_CHAR_CBETA)
     {
@@ -2374,7 +2374,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp");
-  defsymbol (&Qjapanese_jef_china3,	"japanese-jef-china3");
+  defsymbol (&Qchina3_jef,		"china3-jef");
   defsymbol (&Qideograph_cbeta,		"ideograph-cbeta");
   defsymbol (&Qmojikyo,			"mojikyo");
   defsymbol (&Qmojikyo_2022_1,		"mojikyo-2022-1");
@@ -2798,15 +2798,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5 with CDP extension"),
 		  build_string ("big5\\.cdp-0"),
 		  Qnil, 0, 0, 0, 0);
-  staticpro (&Vcharset_japanese_jef_china3);
-  Vcharset_japanese_jef_china3 =
-    make_charset (LEADING_BYTE_JEF_CHINA3, Qjapanese_jef_china3, 256, 2,
+  staticpro (&Vcharset_china3_jef);
+  Vcharset_china3_jef =
+    make_charset (LEADING_BYTE_CHINA3_JEF, Qchina3_jef, 256, 2,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JC3"),
 		  build_string ("JEF + CHINA3"),
 		  build_string ("JEF + CHINA3 private characters"),
 		  build_string ("china3jef-0"),
-		  Qnil, MIN_CHAR_JEF_CHINA3, MAX_CHAR_JEF_CHINA3, 0, 0);
+		  Qnil, MIN_CHAR_CHINA3_JEF, MAX_CHAR_CHINA3_JEF, 0, 0);
   staticpro (&Vcharset_ideograph_cbeta);
   Vcharset_ideograph_cbeta =
     make_charset (LEADING_BYTE_CBETA, Qideograph_cbeta, 256, 2,
