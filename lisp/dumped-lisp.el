@@ -162,6 +162,7 @@
 	(when-feature utf-2000 "u03100-Bopomofo")
 	(when-feature utf-2000 "u03130-Hangul-Compatibility-Jamo")
 	(when-feature utf-2000 "u03190-Kanbun")
+	(when-feature utf-2000 "u031A0-Extended-Bopomofo")
 	(when-feature utf-2000 "u03200-Enclosed-CJK-Letters-and-Months")
 	(when-feature utf-2000 "u03300-CJK-Compatibility")
 	(when-feature mule "mule-charset")
