@@ -1727,8 +1727,7 @@
      ((=daikanwa	  . 11708)	; &I-M-11708;
       ))
     (<-ancient
-     ((=ucs		  . #x9149)	; 酉
-      (=daikanwa	  . 39763)	; &I-M-39763;
+     ((=daikanwa	  . 39763)	; &M-39763;
       ))
     (<-ancient*sources
      daikanwa)
