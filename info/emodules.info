@@ -1,4 +1,4 @@
-This is ../info/emodules.info, produced by makeinfo version 4.0 from
+This is ../info/emodules.info, produced by makeinfo version 4.0b from
 emodules.texi.
 
    This file documents the module loading technology of XEmacs.
@@ -937,23 +937,23 @@ Index
 
 
 Tag Table:
-Node: Top1536
-Node: Introduction2883
-Node: Anatomy of a Module7391
-Node: Required Header File8205
-Node: Required Functions10124
-Node: Required Variables12848
-Node: Loading other Modules15534
-Node: Using ellcc17591
-Node: Compile Mode19385
-Node: Initialization Mode20753
-Node: Link Mode25787
-Node: Other ellcc options26932
-Node: Environment Variables29511
-Node: Defining Functions31202
-Node: Using DEFUN33213
-Node: Declaring Functions34924
-Node: Defining Variables36267
-Node: Index38510
+Node: Top1537
+Node: Introduction2884
+Node: Anatomy of a Module7392
+Node: Required Header File8206
+Node: Required Functions10125
+Node: Required Variables12849
+Node: Loading other Modules15535
+Node: Using ellcc17592
+Node: Compile Mode19386
+Node: Initialization Mode20754
+Node: Link Mode25788
+Node: Other ellcc options26933
+Node: Environment Variables29512
+Node: Defining Functions31203
+Node: Using DEFUN33214
+Node: Declaring Functions34925
+Node: Defining Variables36268
+Node: Index38511
 
 End Tag Table

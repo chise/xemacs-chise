@@ -413,12 +413,12 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 		 'external-debugging-output))
 
       (if (null emacs-roots)
-	  (startup-find-roots-warning)
-	(startup-setup-paths emacs-roots
-			     user-init-directory
-			     inhibit-early-packages
-			     inhibit-site-lisp
-			     debug-paths))
+	  (startup-find-roots-warning))
+      (startup-setup-paths emacs-roots
+			   user-init-directory
+			   inhibit-early-packages
+			   inhibit-site-lisp
+			   debug-paths)
       (startup-setup-paths-warning))
 
     (when (and (not inhibit-autoloads)

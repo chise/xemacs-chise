@@ -85,8 +85,8 @@ EXFUN (Fgarbage_collect, 0);
 #endif
 
 #ifdef DEBUG_XEMACS
-static int debug_allocation;
-static int debug_allocation_backtrace_length;
+static Fixnum debug_allocation;
+static Fixnum debug_allocation_backtrace_length;
 #endif
 
 /* Number of bytes of consing done since the last gc */
@@ -447,17 +447,31 @@ disksave_object_finalization_1 (void)
    about expressions in src/.gdbinit.  See src/.gdbinit or src/.dbxrc
    to see how this is used.  */
 
-const EMACS_UINT dbg_valmask = ((1UL << VALBITS) - 1) << GCBITS;
-const EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
+EMACS_UINT dbg_valmask = ((1UL << VALBITS) - 1) << GCBITS;
+EMACS_UINT dbg_typemask = (1UL << GCTYPEBITS) - 1;
 
 #ifdef USE_UNION_TYPE
-const unsigned char dbg_USE_UNION_TYPE = 1;
+unsigned char dbg_USE_UNION_TYPE = 1;
 #else
-const unsigned char dbg_USE_UNION_TYPE = 0;
+unsigned char dbg_USE_UNION_TYPE = 0;
 #endif
 
-const unsigned char dbg_valbits = VALBITS;
-const unsigned char dbg_gctypebits = GCTYPEBITS;
+unsigned char dbg_valbits = VALBITS;
+unsigned char dbg_gctypebits = GCTYPEBITS;
+
+/* On some systems, the above definitions will be optimized away by
+   the compiler or linker unless they are referenced in some function. */
+long dbg_inhibit_dbg_symbol_deletion (void);
+long
+dbg_inhibit_dbg_symbol_deletion (void)
+{
+  return
+    (dbg_valmask +
+     dbg_typemask +
+     dbg_USE_UNION_TYPE +
+     dbg_valbits +
+     dbg_gctypebits);
+}
 
 /* Macros turned into functions for ease of debugging.
    Debuggers don't know about macros! */

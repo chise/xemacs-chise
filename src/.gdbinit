@@ -69,7 +69,7 @@ define decode_object
   if $type == Lisp_Type_Record
     set $lheader = ((struct lrecord_header *) $val)
     set $lrecord_type = ($lheader->type)
-    set $imp = lrecord_implementations_table[$lrecord_type]
+    set $imp = ((struct lrecord_implementation *) lrecord_implementations_table[(int) $lrecord_type])
   else
     set $lrecord_type = -1
     set $lheader = -1
@@ -177,9 +177,6 @@ Run the dumping part of the build procedure.
 Use when debugging temacs, not xemacs!
 Use this when temacs builds successfully, but xemacs does not.
 end
-
-# if you use Purify, do this:
-# export PURIFYOPTIONS='-pointer-mask=0x0fffffff'
 
 define ldp
   printf "%s", "Lisp => "

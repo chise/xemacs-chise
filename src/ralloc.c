@@ -1438,7 +1438,7 @@ typedef struct alloc_dll
 
 static MMAP_HANDLE mmap_start = 0; /* Head of linked list */
 static size_t page_size = 0;	/* Size of VM pages */
-static int mmap_hysteresis;	/* Should be size_t, really. */
+static Fixnum mmap_hysteresis;	/* Logically a "size_t" */
 
 /* Get a new handle for a fresh block. */
 static MMAP_HANDLE

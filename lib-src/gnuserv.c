@@ -378,7 +378,7 @@ handle_response (void)
 
 #ifdef INTERNET_DOMAIN_SOCKETS
 struct entry {
-  u_long host_addr;
+  unsigned long host_addr;
   struct entry *next;
 };
 
@@ -450,7 +450,7 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
   permitted -- return whether a given host is allowed to connect to the server.
 */
 static int
-permitted (u_long host_addr, int fd)
+permitted (unsigned long host_addr, int fd)
 {
   int key;
   struct entry *entry;
@@ -560,7 +560,7 @@ permitted (u_long host_addr, int fd)
               already there.
 */
 static void
-add_host (u_long host_addr)
+add_host (unsigned long host_addr)
 {
   int key;
   struct entry *new_entry;
@@ -596,7 +596,7 @@ setup_table (void)
   FILE *host_file;
   char *file_name;
   char hostname[HOSTNAMSZ];
-  u_int host_addr;
+  unsigned int host_addr;
   int i, hosts=0;
 
   /* Make sure every entry is null */

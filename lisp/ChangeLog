@@ -572,6 +572,34 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-01-16  Mike Sperber <mike@xemacs.org>
+
+	* startup.el (normal-top-level): Work even if no installation root
+	is found.
+
+2001-01-30  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (progress-abort-glyph): remove instantiator.
+	(set-progress-abort-instantiator): new function.
+	(abort-progress-feedback): use it.
+
+	* gutter.el (set-gutter-dirty-p): new function.
+
+2001-01-30  Didier Verna  <didier@xemacs.org>
+
+	* mwheel.el (mwheel-scroll): unwind-protect the selected window.
+
+2001-01-24  Didier Verna  <didier@xemacs.org>
+
+	* sound.el (sound-extension-list): give a better default value.
+	* sound.el (load-sound-file): improve the doc string, also find
+	files given by absolute names, pass a real extension list to
+	`locate-file'.
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.

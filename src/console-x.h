@@ -373,7 +373,7 @@ extern Lisp_Object Vdefault_x_device;
 /* Number of pixels below each line. */
 extern int x_interline_space; /* #### implement me */
 
-extern int x_selection_timeout;
+extern Fixnum x_selection_timeout;
 
 struct frame *x_any_window_to_frame (struct device *d, Window);
 struct frame *x_any_widget_or_parent_to_frame (struct device *d,

@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #include "window.h"
 
 /* Current depth in recursive edits.  */
-int command_loop_level;
+Fixnum command_loop_level;
 
 #ifndef LISP_COMMAND_LOOP
 /* Form to evaluate (if non-nil) when Emacs is started.  */

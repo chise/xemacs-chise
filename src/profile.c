@@ -60,7 +60,7 @@ Boston, MA 02111-1307, USA.  */
 static struct hash_table *big_profile_table;
 Lisp_Object Vcall_count_profile_table;
 
-int default_profiling_interval;
+Fixnum default_profiling_interval;
 
 int profiling_active;
 

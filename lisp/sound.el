@@ -106,16 +106,19 @@
   )
 
 ;; #### This should really be a list.  --hniksic
-(defcustom sound-extension-list (if (or (eq system-type 'cygwin32)
-					(eq system-type 'windows-nt))
-				    ".wav:" ".au:")
+(defcustom sound-extension-list (cond ((or (eq system-type 'cygwin32)
+					   (eq system-type 'windows-nt))
+				       ".wav:")
+				      ((eq system-type 'linux)
+				       ".wav:.au:")
+				      (t
+				       ".au:"))
   "Filename extensions to complete sound file name with. If more than one
    extension is used, they should be separated by \":\". "
   :group 'sound
   :type 'string)
 
 (defcustom default-sound-directory-list (locate-data-directory-list "sounds")
-
   "List of directories which to search for sound files"
   :group 'sound
   :type '(repeat directory )
@@ -130,6 +133,11 @@
 (defun load-sound-file (filename sound-name &optional volume)
   "Read in an audio-file and add it to the sound-alist.
 
+FILENAME can either be absolute or relative, in which case the file will
+be searched in the directories given by `default-sound-directory-list'.
+When looking for the file, the extensions given by `sound-extension-list' are
+also tried in the given order.
+
 You can only play sound files if you are running on display 0 of the
 console of a machine with native sound support or running a NetAudio
 server and XEmacs has the necessary sound support compiled in.
@@ -143,10 +151,18 @@ nVolume (0 for default): ")
     (error "sound-name not a symbol"))
   (unless (or (null volume) (integerp volume))
     (error "volume not an integer or nil"))
-  (let (buf
-	data
-	(file (locate-file filename default-sound-directory-list
-			   sound-extension-list)))
+  (let ((file (if (file-name-absolute-p filename)
+		  ;; For absolute file names, we don't have on choice on the
+		  ;; location, but sound extensions however can still be tried
+		  (setq file (locate-file filename
+					  (list (file-name-directory filename))
+					  (split-string sound-extension-list
+							":")))
+		(setq file (locate-file filename
+					default-sound-directory-list
+					(split-string sound-extension-list
+						      ":")))))
+	buf data)
     (unless file
       (error "Couldn't load sound file %s" filename))
     (unwind-protect

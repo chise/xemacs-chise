@@ -210,8 +210,8 @@ Lisp_Object Qfind_file_compare_truenames;
 Lisp_Object Qswitch_to_buffer;
 
 /* Two thresholds controlling how much undo information to keep.  */
-int undo_threshold;
-int undo_high_threshold;
+Fixnum undo_threshold;
+Fixnum undo_high_threshold;
 
 int find_file_compare_truenames;
 int find_file_use_truenames;

@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+This is ../info/xemacs.info, produced by makeinfo version 4.0b from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -28,6 +28,447 @@ manual into another language, under the above conditions for modified
 versions, except that the sections entitled "The GNU Manifesto",
 "Distribution" and "GNU General Public License" may be included in a
 translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Available Packages,  Prev: Creating Packages,  Up: Packages
+
+Available Packages:
+===================
+
+   This section lists the Lisp packages that are currently available
+from xemacs.org and it's mirrors.  If a particular package that you are
+looking for isn't here, please send a message to the XEmacs Beta list
+<xemacs-beta@xemacs.org>.
+
+   This data is up-to-date as of January 17, 2001.
+
+Library Packages (libs)
+-----------------------
+
+   These packages are required to build and support most of the rest of
+XEmacs.  By design, xemacs-base is a `regular' package.  Use restraint
+when adding new files there as it is required by almost everything.
+
+`Sun'
+     Support for Sparcworks.
+
+`apel'
+     A Portable Emacs Library.  Used by XEmacs MIME support.
+
+`dired'
+     The DIRectory EDitor is for manipulating, and running commands on
+     files in a directory.
+
+`edebug'
+     A Lisp debugger.
+
+`efs'
+     Treat files on remote systems the same as local files.
+
+`elib'
+     Portable Emacs Lisp utilities library.
+
+`fsf-compat'
+     FSF Emacs compatibility files.
+
+`mail-lib'
+     Fundamental lisp files for providing email support.
+
+`sounds-au'
+     XEmacs Sun sound files.
+
+`sounds-wav'
+     XEmacs Microsoft sound files.
+
+`tooltalk'
+     Support for building with Tooltalk.
+
+`xemacs-base'
+     Fundamental XEmacs support.  Install this unless you wish a totally
+     naked XEmacs.
+
+`xemacs-devel'
+     XEmacs Lisp developer support.  This package contains utilities for
+     supporting Lisp development.  It is a single-file package so it
+     may be tailored.
+
+Communications Packages (comm)
+------------------------------
+
+   These packages provide support for various communications, primarily
+email and usenet.
+
+`bbdb'
+     The Big Brother Data Base
+
+`eicq'
+     ICQ Client developed and tested on Linux x86; only supported on
+     that platform
+
+`eudc'
+     Emacs Unified Directory Client (LDAP, PH).
+
+`footnote'
+     Footnoting in mail message editing modes.
+
+`gnats'
+     XEmacs bug reports.
+
+`gnus'
+     The Gnus Newsreader and Mailreader.
+
+`mailcrypt'
+     Support for messaging encryption with PGP.
+
+`mew'
+     Messaging in an Emacs World.
+
+`mh-e'
+     Front end support for MH.
+
+`net-utils'
+     Miscellaneous Networking Utilities.  This is a single-file package
+     and files may be deleted at will.
+
+`rmail'
+     An obsolete Emacs mailer.  If you do not already use it don't
+     start.
+
+`supercite'
+     An Emacs citation tool.  Useful with all Emacs Mailers and
+     Newsreaders.
+
+`tm'
+     Emacs MIME support. Not needed for Gnus >= 5.8.0
+
+`vm'
+     An Emacs mailer.
+
+`w3'
+     A Web browser.
+
+`zenirc'
+     ZENIRC IRC Client.
+
+Games and Amusements (games)
+----------------------------
+
+   All work and no play...
+
+`cookie'
+     Spook and Yow (Zippy quotes).
+
+`games'
+     Tetris, Sokoban, and Snake.
+
+`mine'
+     Minehunt.
+
+`misc-games'
+     Other amusements and diversions.
+
+Mule Support (mule)
+-------------------
+
+   MULti-lingual Enhancement.  Support for world scripts such as Latin,
+Arabic, Cyrillic, Chinese, Japanese, Greek, Hebrew etc.  To use these
+packages your XEmacs must be compiled with Mule support.
+
+`edict'
+     Lisp Interface to EDICT, Kanji Dictionary.
+
+`egg-its'
+     Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
+     XEmacs build.
+
+`leim'
+     Quail.  Used for everything other than English and Japanese.
+
+`locale'
+     Used for localized menubars (French and Japanese) and localized
+     splash screens (Japanese).
+
+`lookup'
+     Dictionary support. (This isn't an English dictionary program)
+
+`mule-base'
+     Basic Mule support.  Must be installed prior to building with Mule.
+
+`skk'
+     Another Japanese Language Input Method.  Can be used without a
+     separate process running as a dictionary server.
+
+Productivity Packages (oa)
+--------------------------
+
+   Things to make life a little easier.
+
+`calc'
+     Emacs calculator.
+
+`calendar'
+     Calendar and diary support.
+
+`edit-utils'
+     Single file lisp packages for various XEmacs goodies.  Load this
+     and weed out the junk you don't want.
+
+`forms'
+     Forms editing support (obsolete, use the built-in Widget instead).
+
+`frame-icon'
+     Provide a WM icon based on major mode.
+
+`hm--html-menus'
+     HTML editing.
+
+`ispell'
+     Spell-checking with ispell.
+
+`pc'
+     PC style interface emulation.
+
+`psgml'
+     Validated HTML/SGML editing.
+
+`sgml'
+     SGML/Linuxdoc-SGML editing.
+
+`slider'
+     User interface tool.
+
+`speedbar'
+     Provides a separate frame with convenient references.
+
+`strokes'
+     Mouse enhancement utility.
+
+`text-modes'
+     Various single file lisp packages for editing text files.
+
+`time'
+     Display time & date on the modeline.
+
+Operating System Utilities (os)
+-------------------------------
+
+   Tools for working with the operating system.
+
+`eshell'
+     Command shell implemented entirely in Emacs Lisp.
+
+`eterm'
+     Terminal emulator.
+
+`igrep'
+     Enhanced front-end for Grep.
+
+`ilisp'
+     Front-end for Inferior Lisp.
+
+`os-utils'
+     Miscellaneous single-file O/S utilities, for printing, archiving,
+     compression, remote shells, etc.
+
+`pcomplete'
+     Provides programmatic completion.
+
+`ps-print-nomule'
+     Old, but no-Mule safe ps-print.
+
+`view-process'
+     A Unix process browsing tool.
+
+Program Editing Support (prog)
+------------------------------
+
+   XEmacs supports a multitude of programming languages.  These
+packages will help your coding.
+
+`ada'
+     Ada language support.
+
+`c-support'
+     Basic single-file add-ons for editing C code.
+
+`cc-mode'
+     C, C++ and Java language support.
+
+`debug'
+     GUD, gdb, dbx debugging support.
+
+`ediff'
+     Interface over patch.
+
+`emerge'
+     Another interface over patch.
+
+`idlwave'
+     Editing and Shell mode for the Interactive Data Language.
+
+`jde'
+     Java language and development support.
+
+`pcl-cvs'
+     CVS frontend.
+
+`prog-modes'
+     Miscellaneous single-file lisp files for various programming
+     languages.
+
+`scheme'
+     Front-end support for Inferior Scheme.
+
+`semantic'
+     Semantic bovinator.
+
+`sh-script'
+     Support for editing shell scripts.
+
+`vc'
+     Version Control for Free systems.
+
+`vc-cc'
+     Version Control for ClearCase.  This package will shortly be
+     replaced with clearcase.el
+
+`vhdl'
+     Support for VHDL.
+
+Word Processing (wp)
+--------------------
+
+   Working with text.
+
+`auctex'
+     Basic TeX/LaTeX support.
+
+`crisp'
+     Crisp/Brief emulation.
+
+`edt'
+     DEC EDIT/EDT emulation.
+
+`reftex'
+     Emacs support for LaTeX cross-references, citations.
+
+`texinfo'
+     XEmacs TeXinfo support.
+
+`textools'
+     Single-file TeX support.
+
+`tpu'
+     DEC EDIT/TPU support.
+
+`viper'
+     VI emulation support.
+
+
+File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Running,  Up: Top
+
+Abbrevs
+*******
+
+   An "abbrev" is a word which "expands" into some different text.
+Abbrevs are defined by the user to expand in specific ways.  For
+example, you might define `foo' as an abbrev expanding to `find outer
+otter'.  With this abbrev defined, you would be able to get `find outer
+otter ' into the buffer by typing `f o o <SPC>'.
+
+   Abbrevs expand only when Abbrev mode (a minor mode) is enabled.
+Disabling Abbrev mode does not cause abbrev definitions to be discarded,
+but they do not expand until Abbrev mode is enabled again.  The command
+`M-x abbrev-mode' toggles Abbrev mode; with a numeric argument, it
+turns Abbrev mode on if the argument is positive, off otherwise.  *Note
+Minor Modes::.  `abbrev-mode' is also a variable; Abbrev mode is on
+when the variable is non-`nil'.  The variable `abbrev-mode'
+automatically becomes local to the current buffer when it is set.
+
+   Abbrev definitions can be "mode-specific"--active only in one major
+mode.  Abbrevs can also have "global" definitions that are active in
+all major modes.  The same abbrev can have a global definition and
+various mode-specific definitions for different major modes.  A
+mode-specific definition for the current major mode overrides a global
+definition.
+
+   You can define Abbrevs interactively during an editing session.  You
+can also save lists of abbrev definitions in files and reload them in
+later sessions.  Some users keep extensive lists of abbrevs that they
+load in every session.
+
+   A second kind of abbreviation facility is called the "dynamic
+expansion".  Dynamic abbrev expansion happens only when you give an
+explicit command and the result of the expansion depends only on the
+current contents of the buffer.  *Note Dynamic Abbrevs::.
+
+* Menu:
+
+* Defining Abbrevs::  Defining an abbrev, so it will expand when typed.
+* Expanding Abbrevs:: Controlling expansion: prefixes, canceling expansion.
+* Editing Abbrevs::   Viewing or editing the entire list of defined abbrevs.
+* Saving Abbrevs::    Saving the entire list of abbrevs for another session.
+* Dynamic Abbrevs::   Abbreviations for words already in the buffer.
+
+
+File: xemacs.info,  Node: Defining Abbrevs,  Next: Expanding Abbrevs,  Prev: Abbrevs,  Up: Abbrevs
+
+Defining Abbrevs
+================
+
+`C-x a g'
+     Define an abbrev to expand into some text before point
+     (`add-global-abbrev').
+
+`C-x a l'
+     Similar, but define an abbrev available only in the current major
+     mode (`add-mode-abbrev').
+
+`C-x a i g'
+     Define a word in the buffer as an abbrev
+     (`inverse-add-global-abbrev').
+
+`C-x a i l'
+     Define a word in the buffer as a mode-specific abbrev
+     (`inverse-add-mode-abbrev').
+
+`M-x kill-all-abbrevs'
+     After this command, no abbrev definitions remain in effect.
+
+   The usual way to define an abbrev is to enter the text you want the
+abbrev to expand to, position point after it, and type `C-x a g'
+(`add-global-abbrev').  This reads the abbrev itself using the
+minibuffer, and then defines it as an abbrev for one or more words
+before point.  Use a numeric argument to say how many words before point
+should be taken as the expansion.  For example, to define the abbrev
+`foo' as in the example above, insert the text `find outer otter', then
+type
+`C-u 3 C-x a g f o o <RET>'.
+
+   An argument of zero to `C-x a g' means to use the contents of the
+region as the expansion of the abbrev being defined.
+
+   The command `C-x a l' (`add-mode-abbrev') is similar, but defines a
+mode-specific abbrev.  Mode-specific abbrevs are active only in a
+particular major mode.  `C-x a l' defines an abbrev for the major mode
+in effect at the time `C-x a l' is typed.  The arguments work the same
+way they do for `C-x a g'.
+
+   If the text of an abbrev you want is already in the buffer instead of
+the expansion, use command `C-x a i g' (`inverse-add-global-abbrev')
+instead of `C-x a g', or use `C-x a i l' (`inverse-add-mode-abbrev')
+instead of `C-x a l'.  These commands are called "inverse" because they
+invert the meaning of the argument found in the buffer and the argument
+read using the minibuffer.
+
+   To change the definition of an abbrev, just add the new definition.
+You will be asked to confirm if the abbrev has a prior definition.  To
+remove an abbrev definition, give a negative argument to `C-x a g' or
+`C-x a l'.  You must choose the command to specify whether to kill a
+global definition or a mode-specific definition for the current mode,
+since those two definitions are independent for one abbrev.
+
+   `M-x kill-all-abbrevs' removes all existing abbrev definitions.
 
 
 File: xemacs.info,  Node: Expanding Abbrevs,  Next: Editing Abbrevs,  Prev: Defining Abbrevs,  Up: Abbrevs
@@ -937,311 +1378,4 @@ backward or forward.
 
    By default, weeks begin on Sunday.  To make them begin on Monday
 instead, set the variable `calendar-week-start-day' to 1.
-
-
-File: xemacs.info,  Node: Specified Dates,  Prev: Move to Beginning or End,  Up: Calendar Motion
-
-Particular Dates
-................
-
-   Calendar mode provides commands for moving to a particular date
-specified in various ways.
-
-`g d'
-     Move point to specified date (`calendar-goto-date').
-
-`o'
-     Center calendar around specified month (`calendar-other-month').
-
-`.'
-     Move point to today's date (`calendar-goto-today').
-
-   `g d' (`calendar-goto-date') prompts for a year, a month, and a day
-of the month, and then moves to that date.  Because the calendar
-includes all dates from the beginning of the current era, you must type
-the year in its entirety; that is, type `1990', not `90'.
-
-   `o' (`calendar-other-month') prompts for a month and year, then
-centers the three-month calendar around that month.
-
-   You can return to today's date with `.' (`calendar-goto-today').
-
-
-File: xemacs.info,  Node: Scroll Calendar,  Next: Mark and Region,  Prev: Calendar Motion,  Up: Calendar/Diary
-
-Scrolling the Calendar through Time
------------------------------------
-
-   The calendar display scrolls automatically through time when you
-move out of the visible portion.  You can also scroll it manually.
-Imagine that the calendar window contains a long strip of paper with
-the months on it.  Scrolling it means moving the strip so that new
-months become visible in the window.
-
-`C-x <'
-     Scroll calendar one month forward (`scroll-calendar-left').
-
-`C-x >'
-     Scroll calendar one month backward (`scroll-calendar-right').
-
-`C-v'
-`<NEXT>'
-     Scroll calendar three months forward
-     (`scroll-calendar-left-three-months').
-
-`M-v'
-`<PRIOR>'
-     Scroll calendar three months backward
-     (`scroll-calendar-right-three-months').
-
-   The most basic calendar scroll commands scroll by one month at a
-time.  This means that there are two months of overlap between the
-display before the command and the display after.  `C-x <' scrolls the
-calendar contents one month to the left; that is, it moves the display
-forward in time.  `C-x >' scrolls the contents to the right, which
-moves backwards in time.
-
-   The commands `C-v' and `M-v' scroll the calendar by an entire
-"screenful"--three months--in analogy with the usual meaning of these
-commands.  `C-v' makes later dates visible and `M-v' makes earlier
-dates visible.  These commands take a numeric argument as a repeat
-count; in particular, since `C-u' multiplies the next command by four,
-typing `C-u C-v' scrolls the calendar forward by a year and typing `C-u
-M-v' scrolls the calendar backward by a year.
-
-   The function keys <NEXT> and <PRIOR> are equivalent to `C-v' and
-`M-v', just as they are in other modes.
-
-
-File: xemacs.info,  Node: Mark and Region,  Next: General Calendar,  Prev: Scroll Calendar,  Up: Calendar/Diary
-
-The Mark and the Region
------------------------
-
-   The concept of the mark applies to the calendar just as to any other
-buffer, but it marks a _date_, not a _position_ in the buffer.  The
-region consists of the days between the mark and point (including the
-starting and stopping dates).
-
-`C-SPC'
-     Set the mark to today's date (`calendar-set-mark').
-
-`C-@'
-     The same.
-
-`C-x C-x'
-     Interchange mark and point (`calendar-exchange-point-and-mark').
-
-`M-='
-     Display the number of days in the current region
-     (`calendar-count-days-region').
-
-   You set the mark in the calendar, as in any other buffer, by using
-`C-@' or `C-SPC' (`calendar-set-mark').  You return to the marked date
-with the command `C-x C-x' (`calendar-exchange-point-and-mark') which
-puts the mark where point was and point where mark was.  The calendar
-is scrolled as necessary, if the marked date was not visible on the
-screen.  This does not change the extent of the region.
-
-   To determine the number of days in the region, type `M-='
-(`calendar-count-days-region').  The numbers of days printed is
-_inclusive_; that is, it includes the days specified by mark and point.
-
-   The main use of the mark in the calendar is to remember dates that
-you may want to go back to.  To make this feature more useful, the mark
-ring (*note Mark Ring::) operates exactly as in other buffers:  Emacs
-remembers 16 previous locations of the mark.  To return to a marked
-date, type `C-u C-SPC' (or `C-u C-@'); this is the command
-`calendar-set-mark' given a numeric argument.  It moves point to where
-the mark was, restores the mark from the ring of former marks, and
-stores the previous point at the end of the mark ring.  So, repeated
-use of this command moves point through all the old marks on the ring,
-one by one.
-
-
-File: xemacs.info,  Node: General Calendar,  Next: LaTeX Calendar,  Prev: Mark and Region,  Up: Calendar/Diary
-
-Miscellaneous Calendar Commands
--------------------------------
-
-`p d'
-     Display day-in-year (`calendar-print-day-of-year').
-
-`?'
-     Briefly describe calendar commands (`describe-calendar-mode').
-
-`C-c C-l'
-     Regenerate the calendar window (`redraw-calendar').
-
-`SPC'
-     Scroll the next window (`scroll-other-window').
-
-`q'
-     Exit from calendar (`exit-calendar').
-
-   If you want to know how many days have elapsed since the start of
-the year, or the number of days remaining in the year, type the `p d'
-command (`calendar-print-day-of-year').  This displays both of those
-numbers in the echo area.
-
-   To display a brief description of the calendar commands, type `?'
-(`describe-calendar-mode').  For a fuller description, type `C-h m'.
-
-   You can use `SPC' (`scroll-other-window') to scroll the other
-window.  This is handy when you display a list of holidays or diary
-entries in another window.
-
-   If the calendar window text gets corrupted, type `C-c C-l'
-(`redraw-calendar') to redraw it.  (This can only happen if you use
-non-Calendar-mode editing commands.)
-
-   In Calendar mode, you can use `SPC' (`scroll-other-window') to
-scroll the other window.  This is handy when you display a list of
-holidays or diary entries in another window.
-
-   To exit from the calendar, type `q' (`exit-calendar').  This buries
-all buffers related to the calendar, selecting other buffers.  (If a
-frame contains a dedicated calendar window, exiting from the calendar
-iconifies that frame.)
-
-
-File: xemacs.info,  Node: LaTeX Calendar,  Next: Holidays,  Prev: General Calendar,  Up: Calendar/Diary
-
-LaTeX Calendar
-==============
-
-   The Calendar LaTeX commands produce a buffer of LaTeX code that
-prints as a calendar.  Depending on the command you use, the printed
-calendar covers the day, week, month or year that point is in.
-
-`t m'
-     Generate a one-month calendar (`cal-tex-cursor-month').
-
-`t M'
-     Generate a sideways-printing one-month calendar
-     (`cal-tex-cursor-month-landscape').
-
-`t d'
-     Generate a one-day calendar (`cal-tex-cursor-day').
-
-`t w 1'
-     Generate a one-page calendar for one week (`cal-tex-cursor-week').
-
-`t w 2'
-     Generate a two-page calendar for one week (`cal-tex-cursor-week2').
-
-`t w 3'
-     Generate an ISO-style calendar for one week
-     (`cal-tex-cursor-week-iso').
-
-`t w 4'
-     Generate a calendar for one Monday-starting week
-     (`cal-tex-cursor-week-monday').
-
-`t f w'
-     Generate a Filofax-style two-weeks-at-a-glance calendar
-     (`cal-tex-cursor-filofax-2week').
-
-`t f W'
-     Generate a Filofax-style one-week-at-a-glance calendar
-     (`cal-tex-cursor-filofax-week').
-
-`t y'
-     Generate a calendar for one year (`cal-tex-cursor-year').
-
-`t Y'
-     Generate a sideways-printing calendar for one year
-     (`cal-tex-cursor-year-landscape').
-
-`t f y'
-     Generate a Filofax-style calendar for one year
-     (`cal-tex-cursor-filofax-year').
-
-   Some of these commands print the calendar sideways (in "landscape
-mode"), so it can be wider than it is long.  Some of them use Filofax
-paper size (3.75in x 6.75in).  All of these commands accept a prefix
-argument which specifies how many days, weeks, months or years to print
-(starting always with the selected one).
-
-   If the variable `cal-tex-holidays' is non-`nil' (the default), then
-the printed calendars show the holidays in `calendar-holidays'.  If the
-variable `cal-tex-diary' is non-`nil' (the default is `nil'), diary
-entries are included also (in weekly and monthly calendars only).
-
-
-File: xemacs.info,  Node: Holidays,  Next: Sunrise/Sunset,  Prev: LaTeX Calendar,  Up: Calendar/Diary
-
-Holidays
---------
-
-   The Emacs calendar knows about all major and many minor holidays,
-and can display them.
-
-`h'
-     Display holidays for the selected date
-     (`calendar-cursor-holidays').
-
-`Button2 Holidays'
-     Display any holidays for the date you click on.
-
-`x'
-     Mark holidays in the calendar window (`mark-calendar-holidays').
-
-`u'
-     Unmark calendar window (`calendar-unmark').
-
-`a'
-     List all holidays for the displayed three months in another window
-     (`list-calendar-holidays').
-
-`M-x holidays'
-     List all holidays for three months around today's date in another
-     window.
-
-`M-x list-holidays'
-     List holidays in another window for a specified range of years.
-
-   To see if any holidays fall on a given date, position point on that
-date in the calendar window and use the `h' command.  Alternatively,
-click on that date with `Button2' and then choose `Holidays' from the
-menu that appears.  Either way, this displays the holidays for that
-date, in the echo area if they fit there, otherwise in a separate
-window.
-
-   To view the distribution of holidays for all the dates shown in the
-calendar, use the `x' command.  This displays the dates that are
-holidays in a different face (or places a `*' after these dates, if
-display with multiple faces is not available). The command applies both
-to the currently visible months and to other months that subsequently
-become visible by scrolling.  To turn marking off and erase the current
-marks, type `u', which also erases any diary marks (*note Diary::).
-
-   To get even more detailed information, use the `a' command, which
-displays a separate buffer containing a list of all holidays in the
-current three-month range.  You can use <SPC> in the calendar window to
-scroll that list.
-
-   The command `M-x holidays' displays the list of holidays for the
-current month and the preceding and succeeding months; this works even
-if you don't have a calendar window.  If you want the list of holidays
-centered around a different month, use `C-u M-x holidays', which
-prompts for the month and year.
-
-   The holidays known to Emacs include United States holidays and the
-major Christian, Jewish, and Islamic holidays; also the solstices and
-equinoxes.
-
-   The command `M-x list-holidays' displays the list of holidays for a
-range of years.  This function asks you for the starting and stopping
-years, and allows you to choose all the holidays or one of several
-categories of holidays.  You can use this command even if you don't have
-a calendar window.
-
-   The dates used by Emacs for holidays are based on _current
-practice_, not historical fact.  Historically, for instance, the start
-of daylight savings time and even its existence have varied from year to
-year, but present United States law mandates that daylight savings time
-begins on the first Sunday in April.  When the daylight savings rules
-are set up for the United States, Emacs always uses the present
-definition, even though it is wrong for some prior years.
 

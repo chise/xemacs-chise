@@ -1,4 +1,4 @@
-This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+This is ../info/xemacs.info, produced by makeinfo version 4.0b from
 xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
@@ -28,6 +28,279 @@ manual into another language, under the above conditions for modified
 versions, except that the sections entitled "The GNU Manifesto",
 "Distribution" and "GNU General Public License" may be included in a
 translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Holiday Customizing,  Next: Date Display Format,  Prev: Calendar Customizing,  Up: Calendar Customization
+
+Customizing the Holidays
+........................
+
+   Emacs knows about holidays defined by entries on one of several
+lists.  You can customize these lists of holidays to your own needs,
+adding or deleting holidays.  The lists of holidays that Emacs uses are
+for general holidays (`general-holidays'), local holidays
+(`local-holidays'), Christian holidays (`christian-holidays'), Hebrew
+(Jewish) holidays (`hebrew-holidays'), Islamic (Moslem) holidays
+(`islamic-holidays'), and other holidays (`other-holidays').
+
+   The general holidays are, by default, holidays common throughout the
+United States.  To eliminate these holidays, set `general-holidays' to
+`nil'.
+
+   There are no default local holidays (but sites may supply some).  You
+can set the variable `local-holidays' to any list of holidays, as
+described below.
+
+   By default, Emacs does not include all the holidays of the religions
+that it knows, only those commonly found in secular calendars.  For a
+more extensive collection of religious holidays, you can set any (or
+all) of the variables `all-christian-calendar-holidays',
+`all-hebrew-calendar-holidays', or `all-islamic-calendar-holidays' to
+`t'.  If you want to eliminate the religious holidays, set any or all
+of the corresponding variables `christian-holidays', `hebrew-holidays',
+and `islamic-holidays' to `nil'.
+
+   You can set the variable `other-holidays' to any list of holidays.
+This list, normally empty, is intended for individual use.
+
+   Each of the lists (`general-holidays', `local-holidays',
+`christian-holidays', `hebrew-holidays', `islamic-holidays', and
+`other-holidays') is a list of "holiday forms", each holiday form
+describing a holiday (or sometimes a list of holidays).
+
+   Here is a table of the possible kinds of holiday form.  Day numbers
+and month numbers count starting from 1, but "dayname" numbers count
+Sunday as 0.  The element STRING is always the name of the holiday, as
+a string.
+
+`(holiday-fixed MONTH DAY STRING)'
+     A fixed date on the Gregorian calendar.  MONTH and DAY are
+     numbers, STRING is the name of the holiday.
+
+`(holiday-float MONTH DAYNAME K STRING)'
+     The Kth DAYNAME in MONTH on the Gregorian calendar (DAYNAME=0 for
+     Sunday, and so on); negative K means count back from the end of
+     the month.  STRING is the name of the holiday.
+
+`(holiday-hebrew MONTH DAY STRING)'
+     A fixed date on the Hebrew calendar.  MONTH and DAY are numbers,
+     STRING is the name of the holiday.
+
+`(holiday-islamic MONTH DAY STRING)'
+     A fixed date on the Islamic calendar.  MONTH and DAY are numbers,
+     STRING is the name of the holiday.
+
+`(holiday-julian MONTH DAY STRING)'
+     A fixed date on the Julian calendar.  MONTH and DAY are numbers,
+     STRING is the name of the holiday.
+
+`(holiday-sexp SEXP STRING)'
+     A date calculated by the Lisp expression SEXP.  The expression
+     should use the variable `year' to compute and return the date of a
+     holiday, or `nil' if the holiday doesn't happen this year.  The
+     value of SEXP must represent the date as a list of the form
+     `(MONTH DAY YEAR)'.  STRING is the name of the holiday.
+
+`(if CONDITION HOLIDAY-FORM &optional HOLIDAY-FORM)'
+     A holiday that happens only if CONDITION is true.
+
+`(FUNCTION [ARGS])'
+     A list of dates calculated by the function FUNCTION, called with
+     arguments ARGS.
+
+   For example, suppose you want to add Bastille Day, celebrated in
+France on July 14.  You can do this by adding the following line to
+your init file:
+
+     (setq other-holidays '((holiday-fixed 7 14 "Bastille Day")))
+
+   *Note Init File::.
+
+The holiday form `(holiday-fixed 7 14 "Bastille Day")' specifies the
+fourteenth day of the seventh month (July).
+
+   Many holidays occur on a specific day of the week, at a specific time
+of month.  Here is a holiday form describing Hurricane Supplication Day,
+celebrated in the Virgin Islands on the fourth Monday in August:
+
+     (holiday-float 8 1 4 "Hurricane Supplication Day")
+
+Here the 8 specifies August, the 1 specifies Monday (Sunday is 0,
+Tuesday is 2, and so on), and the 4 specifies the fourth occurrence in
+the month (1 specifies the first occurrence, 2 the second occurrence,
+-1 the last occurrence, -2 the second-to-last occurrence, and so on).
+
+   You can specify holidays that occur on fixed days of the Hebrew,
+Islamic, and Julian calendars too.  For example,
+
+     (setq other-holidays
+           '((holiday-hebrew 10 2 "Last day of Hanukkah")
+             (holiday-islamic 3 12 "Mohammed's Birthday")
+             (holiday-julian 4 2 "Jefferson's Birthday")))
+
+adds the last day of Hanukkah (since the Hebrew months are numbered with
+1 starting from Nisan), the Islamic feast celebrating Mohammed's
+birthday (since the Islamic months are numbered from 1 starting with
+Muharram), and Thomas Jefferson's birthday, which is 2 April 1743 on the
+Julian calendar.
+
+   To include a holiday conditionally, use either Emacs Lisp's `if' or
+the `holiday-sexp' form.  For example, American presidential elections
+occur on the first Tuesday after the first Monday in November of years
+divisible by 4:
+
+     (holiday-sexp (if (= 0 (% year 4))
+                        (calendar-gregorian-from-absolute
+                      (1+ (calendar-dayname-on-or-before
+                            1 (+ 6 (calendar-absolute-from-gregorian
+                                     (list 11 1 year))))))
+                   "US Presidential Election"))
+
+or
+
+     (if (= 0 (% displayed-year 4))
+         (fixed 11
+                (extract-calendar-day
+                  (calendar-gregorian-from-absolute
+                    (1+ (calendar-dayname-on-or-before
+                          1 (+ 6 (calendar-absolute-from-gregorian
+                                   (list 11 1 displayed-year)))))))
+                "US Presidential Election"))
+
+   Some holidays just don't fit into any of these forms because special
+calculations are involved in their determination.  In such cases you
+must write a Lisp function to do the calculation.  To include eclipses,
+for example, add `(eclipses)' to `other-holidays' and write an Emacs
+Lisp function `eclipses' that returns a (possibly empty) list of the
+relevant Gregorian dates among the range visible in the calendar
+window, with descriptive strings, like this:
+
+     (((6 27 1991) "Lunar Eclipse") ((7 11 1991) "Solar Eclipse") ... )
+
+
+File: xemacs.info,  Node: Date Display Format,  Next: Time Display Format,  Prev: Holiday Customizing,  Up: Calendar Customization
+
+Date Display Format
+...................
+
+   You can customize the manner of displaying dates in the diary, in
+mode lines, and in messages by setting `calendar-date-display-form'.
+This variable holds a list of expressions that can involve the variables
+`month', `day', and `year', which are all numbers in string form, and
+`monthname' and `dayname', which are both alphabetic strings.  In the
+American style, the default value of this list is as follows:
+
+     ((if dayname (concat dayname ", ")) monthname " " day ", " year)
+
+while in the European style this value is the default:
+
+     ((if dayname (concat dayname ", ")) day " " monthname " " year)
+
+   + The ISO standard date representation is this:
+
+     (year "-" month "-" day)
+
+This specifies a typical American format:
+
+     (month "/" day "/" (substring year -2))
+
+
+File: xemacs.info,  Node: Time Display Format,  Next: Daylight Savings,  Prev: Date Display Format,  Up: Calendar Customization
+
+Time Display Format
+...................
+
+   The calendar and diary by default display times of day in the
+conventional American style with the hours from 1 through 12, minutes,
+and either `am' or `pm'.  If you prefer the European style, also known
+in the US as military, in which the hours go from 00 to 23, you can
+alter the variable `calendar-time-display-form'.  This variable is a
+list of expressions that can involve the variables `12-hours',
+`24-hours', and `minutes', which are all numbers in string form, and
+`am-pm' and `time-zone', which are both alphabetic strings.  The
+default value of `calendar-time-display-form' is as follows:
+
+     (12-hours ":" minutes am-pm
+               (if time-zone " (") time-zone (if time-zone ")"))
+
+Here is a value that provides European style times:
+
+     (24-hours ":" minutes
+               (if time-zone " (") time-zone (if time-zone ")"))
+
+gives military-style times like `21:07 (UT)' if time zone names are
+defined, and times like `21:07' if they are not.
+
+
+File: xemacs.info,  Node: Daylight Savings,  Next: Diary Customizing,  Prev: Time Display Format,  Up: Calendar Customization
+
+Daylight Savings Time
+.....................
+
+   Emacs understands the difference between standard time and daylight
+savings time--the times given for sunrise, sunset, solstices,
+equinoxes, and the phases of the moon take that into account.  The rules
+for daylight savings time vary from place to place and have also varied
+historically from year to year.  To do the job properly, Emacs needs to
+know which rules to use.
+
+   Some operating systems keep track of the rules that apply to the
+place where you are; on these systems, Emacs gets the information it
+needs from the system automatically.  If some or all of this
+information is missing, Emacs fills in the gaps with the rules
+currently used in Cambridge, Massachusetts.  If the resulting rules are
+not what you want, you can tell Emacs the rules to use by setting
+certain variables.
+
+   If the default choice of rules is not appropriate for your location,
+you can tell Emacs the rules to use by setting the variables
+`calendar-daylight-savings-starts' and
+`calendar-daylight-savings-ends'.  Their values should be Lisp
+expressions that refer to the variable `year', and evaluate to the
+Gregorian date on which daylight savings time starts or (respectively)
+ends, in the form of a list `(MONTH DAY YEAR)'.  The values should be
+`nil' if your area does not use daylight savings time.
+
+   Emacs uses these expressions to determine the starting date of
+daylight savings time for the holiday list  and for correcting times of
+day in the solar and lunar calculations.
+
+   The values for Cambridge, Massachusetts are as follows:
+
+     (calendar-nth-named-day 1 0 4 year)
+     (calendar-nth-named-day -1 0 10 year)
+
+That is, the first 0th day (Sunday) of the fourth month (April) in the
+year specified by `year', and the last Sunday of the tenth month
+(October) of that year.  If daylight savings time were changed to start
+on October 1, you would set `calendar-daylight-savings-starts' to this:
+
+     (list 10 1 year)
+
+   For a more complex example, suppose daylight savings time begins on
+the first of Nisan on the Hebrew calendar.  You should set
+`calendar-daylight-savings-starts' to this value:
+
+     (calendar-gregorian-from-absolute
+       (calendar-absolute-from-hebrew
+         (list 1 1 (+ year 3760))))
+
+because Nisan is the first month in the Hebrew calendar and the Hebrew
+year differs from the Gregorian year by 3760 at Nisan.
+
+   If there is no daylight savings time at your location, or if you want
+all times in standard time, set `calendar-daylight-savings-starts' and
+`calendar-daylight-savings-ends' to `nil'.
+
+   The variable `calendar-daylight-time-offset' specifies the
+difference between daylight savings time and standard time, measured in
+minutes.  The value for Cambridge, Massachusetts is 60.
+
+   The two variables `calendar-daylight-savings-starts-time' and
+`calendar-daylight-savings-ends-time' specify the number of minutes
+after midnight local time when the transition to and from daylight
+savings time should occur.  For Cambridge, Massachusetts both variables'
+values are 120.
 
 
 File: xemacs.info,  Node: Diary Customizing,  Next: Hebrew/Islamic Entries,  Prev: Daylight Savings,  Up: Calendar Customization
@@ -931,247 +1204,4 @@ Unix commands `print' and `lpr'.
 based on the value of the variable `lpr-switches'.  Its value should be
 a list of strings, each string a switch starting with `-'.  For
 example, the value could be `("-Pfoo")' to print on printer `foo'.
-
-
-File: xemacs.info,  Node: Recursive Edit,  Next: Dissociated Press,  Prev: Hardcopy,  Up: Top
-
-Recursive Editing Levels
-========================
-
-   A "recursive edit" is a situation in which you are using XEmacs
-commands to perform arbitrary editing while in the middle of another
-XEmacs command.  For example, when you type `C-r' inside a
-`query-replace', you enter a recursive edit in which you can change the
-current buffer.  When you exit from the recursive edit, you go back to
-the `query-replace'.
-
-   "Exiting" a recursive edit means returning to the unfinished
-command, which continues execution.  For example, exiting the recursive
-edit requested by `C-r' in `query-replace' causes query replacing to
-resume.  Exiting is done with `C-M-c' (`exit-recursive-edit').
-
-   You can also "abort" a recursive edit.  This is like exiting, but
-also quits the unfinished command immediately.  Use the command `C-]'
-(`abort-recursive-edit') for this.  *Note Quitting::.
-
-   The mode line shows you when you are in a recursive edit by
-displaying square brackets around the parentheses that always surround
-the major and minor mode names.  Every window's mode line shows the
-square brackets, since XEmacs as a whole, rather than any particular
-buffer, is in a recursive edit.
-
-   It is possible to be in recursive edits within recursive edits.  For
-example, after typing `C-r' in a `query-replace', you might type a
-command that entered the debugger.  In such a case, two or more sets of
-square brackets appear in the mode line(s).  Exiting the inner
-recursive edit (here with the debugger `c' command) resumes the
-query-replace command where it called the debugger.  After the end of
-the query-replace command, you would be able to exit the first
-recursive edit.  Aborting exits only one level of recursive edit; it
-returns to the command level of the previous recursive edit.  You can
-then abort that one as well.
-
-   The command `M-x top-level' aborts all levels of recursive edits,
-returning immediately to the top level command reader.
-
-   The text you edit inside the recursive edit need not be the same text
-that you were editing at top level.  If the command that invokes the
-recursive edit selects a different buffer first, that is the buffer you
-will edit recursively.  You can switch buffers within the recursive edit
-in the normal manner (as long as the buffer-switching keys have not been
-rebound).  While you could theoretically do the rest of your editing
-inside the recursive edit, including visiting files, this could have
-surprising effects (such as stack overflow) from time to time.  It is
-best if you always exit or abort a recursive edit when you no longer
-need it.
-
-   In general, XEmacs tries to avoid using recursive edits.  It is
-usually preferable to allow users to switch among the possible editing
-modes in any order they like.  With recursive edits, the only way to get
-to another state is to go "back" to the state that the recursive edit
-was invoked from.
-
-
-File: xemacs.info,  Node: Dissociated Press,  Next: CONX,  Prev: Recursive Edit,  Up: Top
-
-Dissociated Press
-=================
-
-   `M-x dissociated-press' is a command for scrambling a file of text
-either word by word or character by character.  Starting from a buffer
-of straight English, it produces extremely amusing output.  The input
-comes from the current XEmacs buffer.  Dissociated Press writes its
-output in a buffer named `*Dissociation*', and redisplays that buffer
-after every couple of lines (approximately) to facilitate reading it.
-
-   `dissociated-press' asks every so often whether to continue
-operating.  Answer `n' to stop it.  You can also stop at any time by
-typing `C-g'.  The dissociation output remains in the `*Dissociation*'
-buffer for you to copy elsewhere if you wish.
-
-   Dissociated Press operates by jumping at random from one point in the
-buffer to another.  In order to produce plausible output rather than
-gibberish, it insists on a certain amount of overlap between the end of
-one run of consecutive words or characters and the start of the next.
-That is, if it has just printed out `president' and then decides to
-jump to a different point in the file, it might spot the `ent' in
-`pentagon' and continue from there, producing `presidentagon'.  Long
-sample texts produce the best results.
-
-   A positive argument to `M-x dissociated-press' tells it to operate
-character by character, and specifies the number of overlap characters.
-A negative argument tells it to operate word by word and specifies the
-number of overlap words.  In this mode, whole words are treated as the
-elements to be permuted, rather than characters.  No argument is
-equivalent to an argument of two.  For your againformation, the output
-goes only into the buffer `*Dissociation*'.  The buffer you start with
-is not changed.
-
-   Dissociated Press produces nearly the same results as a Markov chain
-based on a frequency table constructed from the sample text.  It is,
-however, an independent, ignoriginal invention.  Dissociated Press
-techniquitously copies several consecutive characters from the sample
-between random choices, whereas a Markov chain would choose randomly for
-each word or character.  This makes for more plausible sounding results
-and runs faster.
-
-   It is a mustatement that too much use of Dissociated Press can be a
-developediment to your real work.  Sometimes to the point of outragedy.
-And keep dissociwords out of your documentation, if you want it to be
-well userenced and properbose.  Have fun.  Your buggestions are welcome.
-
-
-File: xemacs.info,  Node: CONX,  Next: Amusements,  Prev: Dissociated Press,  Up: Top
-
-CONX
-====
-
-   Besides producing a file of scrambled text with Dissociated Press,
-you can generate random sentences by using CONX.
-
-`M-x conx'
-     Generate random sentences in the `*conx*' buffer.
-
-`M-x conx-buffer'
-     Absorb the text in the current buffer into the `conx' database.
-
-`M-x conx-init'
-     Forget the current word-frequency tree.
-
-`M-x conx-load'
-     Load a `conx' database that has been previously saved with `M-x
-     conx-save'.
-
-`M-x conx-region'
-     Absorb the text in the current buffer into the `conx' database.
-
-`M-x conx-save'
-     Save the current `conx' database to a file for future retrieval.
-
-   Copy text from a buffer using `M-x conx-buffer' or `M-x conx-region'
-and then type `M-x conx'.  Output is continuously generated until you
-type <^G>. You can save the `conx' database to a file with `M-x
-conx-save', which you can retrieve with `M-x conx-load'.  To clear the
-database, use `M-x conx-init'.
-
-
-File: xemacs.info,  Node: Amusements,  Next: Emulation,  Prev: CONX,  Up: Top
-
-Other Amusements
-================
-
-   If you are a little bit bored, you can try `M-x hanoi'.  If you are
-considerably bored, give it a numeric argument.  If you are very, very
-bored, try an argument of 9.  Sit back and watch.
-
-   When you are frustrated, try the famous Eliza program.  Just do `M-x
-doctor'.  End each input by typing `RET' twice.
-
-   When you are feeling strange, type `M-x yow'.
-
-
-File: xemacs.info,  Node: Emulation,  Next: Customization,  Prev: Amusements,  Up: Top
-
-Emulation
-=========
-
-   XEmacs can be programmed to emulate (more or less) most other
-editors.  Standard facilities can emulate these:
-
-Viper (a vi emulator)
-     In XEmacs, Viper is the preferred emulation of vi within XEmacs.
-     Viper is designed to allow you to take advantage of the best
-     features of XEmacs while still doing your basic editing in a
-     familiar, vi-like fashion.  Viper provides various different
-     levels of vi emulation, from a quite complete emulation that
-     allows almost no access to native XEmacs commands, to an "expert"
-     mode that combines the most useful vi commands with the most
-     useful XEmacs commands.
-
-     To start Viper, put the command
-
-          (viper-mode)
-
-     in your init file.  *Note Init File::.
-
-     Viper comes with a separate manual that is provided standard with
-     the XEmacs distribution.
-
-EDT (DEC VMS editor)
-     Turn on EDT emulation with `M-x edt-emulation-on'.  `M-x
-     edt-emulation-off' restores normal Emacs command bindings.
-
-     Most of the EDT emulation commands are keypad keys, and most
-     standard Emacs key bindings are still available.  The EDT
-     emulation rebindings are done in the global keymap, so there is no
-     problem switching buffers or major modes while in EDT emulation.
-
-Gosling Emacs
-     Turn on emulation of Gosling Emacs (aka Unipress Emacs) with `M-x
-     set-gosmacs-bindings'.  This redefines many keys, mostly on the
-     `C-x' and `ESC' prefixes, to work as they do in Gosmacs.  `M-x
-     set-gnu-bindings' returns to normal XEmacs by rebinding the same
-     keys to the definitions they had at the time `M-x
-     set-gosmacs-bindings' was done.
-
-     It is also possible to run Mocklisp code written for Gosling Emacs.
-     *Note Mocklisp::.
-
-
-File: xemacs.info,  Node: Customization,  Next: Quitting,  Prev: Emulation,  Up: Top
-
-Customization
-*************
-
-   This chapter talks about various topics relevant to adapting the
-behavior of Emacs in minor ways.
-
-   All kinds of customization affect only the particular Emacs job that
-you do them in.  They are completely lost when you kill the Emacs job,
-and have no effect on other Emacs jobs you may run at the same time or
-later.  The only way an Emacs job can affect anything outside of it is
-by writing a file; in particular, the only way to make a customization
-`permanent' is to put something in your init file or other appropriate
-file to do the customization in each session.  *Note Init File::.
-
-* Menu:
-
-* Minor Modes::     Each minor mode is one feature you can turn on
-                     independently of any others.
-* Variables::       Many Emacs commands examine Emacs variables
-                     to decide what to do; by setting variables,
-                     you can control their functioning.
-* Keyboard Macros:: A keyboard macro records a sequence of keystrokes
-                     to be replayed with a single command.
-* Key Bindings::    The keymaps say what command each key runs.
-                     By changing them, you can "redefine keys".
-* Syntax::          The syntax table controls how words and expressions
-                     are parsed.
-* Init File::       How to write common customizations in the init file.
-* Audible Bell::    Changing how Emacs sounds the bell.
-* Faces::           Changing the fonts and colors of a region of text.
-* Frame Components::  Controlling the presence and positions of the
-                     menubar, toolbars, and gutters.
-* X Resources::     X resources controlling various aspects of the
-                     behavior of XEmacs.
 

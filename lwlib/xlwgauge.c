@@ -135,11 +135,11 @@ static void GaugeGetValue (XtPointer, XtIntervalId *);
 static void GaugeMercury (Display *, Window, GC, GaugeWidget, Cardinal, Cardinal);
 
 static Boolean GaugeConvert (Widget, Atom *, Atom *, Atom *,
-			     XtPointer *, u_long *, int *);
+			     XtPointer *, unsigned long *, int *);
 static void GaugeLoseSel (Widget, Atom *);
 static void GaugeDoneSel (Widget, Atom *, Atom *);
 static void GaugeGetSelCB (Widget, XtPointer, Atom *, Atom *,
-			   XtPointer, u_long *, int *);
+			   XtPointer, unsigned long *, int *);
 
 static GC Get_GC (GaugeWidget, Pixel);
 
@@ -636,7 +636,7 @@ GaugeConvert (Widget	w,
 	      Atom	*target,	/* requested target */
 	      Atom	*type,		/* returned type */
 	      XtPointer *value,		/* returned value */
-	      u_long	*length,	/* returned length */
+	      unsigned long	*length,	/* returned length */
 	      int	*format)	/* returned format */
 {
 	GaugeWidget	gw = (GaugeWidget)w ;
@@ -650,7 +650,7 @@ GaugeConvert (Widget	w,
 	if( *target == XA_TARGETS(XtDisplay(w)) )
 	{
 	  Atom *rval, *stdTargets ;
-	  u_long stdLength ;
+	  unsigned long stdLength ;
 
 	  /* XmuConvertStandardSelection can handle this.  This function
 	   * will return a list of standard targets.  We prepend TEXT,
@@ -774,7 +774,7 @@ GaugeGetSelCB (Widget    w,
 	       Atom      *selection,
 	       Atom      *type,
 	       XtPointer value,
-	       u_long    *length,
+	       unsigned long    *length,
 	       int       *format)
 {
 	Display	*dpy = XtDisplay(w) ;

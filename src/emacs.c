@@ -304,7 +304,7 @@ Lisp_Object Vconfigure_exec_prefix_directory, Vconfigure_prefix_directory;
 /* If nonzero, set XEmacs to run at this priority.  This is also used
    in child_setup and sys_suspend to make sure subshells run at normal
    priority. */
-int emacs_priority;
+Fixnum emacs_priority;
 
 /* Some FSF junk with running_asynch_code, to preserve the match
    data.  Not necessary because we don't call process filters

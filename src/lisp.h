@@ -218,7 +218,7 @@ typedef union
 # else
 /* C++ is annoying, but it has a big bag of tricks.
    The following doesn't have the "inside out" declaration bug C does. */
-template<class T> struct alignment_trick { char c; T member; };
+template<typename T> struct alignment_trick { char c; T member; };
 #  define ALIGNOF(type) offsetof (alignment_trick<type>, member)
 # endif
 #endif /* ALIGNOF */
@@ -1903,7 +1903,7 @@ extern EMACS_INT consing_since_gc;
 
 /* threshold for doing another gc */
 
-extern EMACS_INT gc_cons_threshold;
+extern Fixnum gc_cons_threshold;
 
 /* Structure for recording stack slots that need marking */
 
@@ -2150,18 +2150,38 @@ void staticpro (Lisp_Object *);
 /* var will not be saved at dump time */
 void staticpro_nodump (Lisp_Object *);
 
-/* Call dump_add_root_struct_ptr (&var, &desc) to dump the structure pointed to by `var'. */
+/* dump_add_root_struct_ptr (&var, &desc) dumps the structure pointed to by `var'. */
 #ifdef PDUMP
 void dump_add_root_struct_ptr (void *, const struct struct_description *);
 #else
 #define dump_add_root_struct_ptr(varaddr,descaddr) DO_NOTHING
 #endif
 
-/* Call dump_add_opaque (&var, size) to dump the opaque static structure `var'. */
+/* dump_add_opaque (&var, size) dumps the opaque static structure `var'. */
 #ifdef PDUMP
 void dump_add_opaque (void *, size_t);
 #else
 #define dump_add_opaque(varaddr,size) DO_NOTHING
+#endif
+
+/* Call dump_add_opaque_int (&int_var) to dump `int_var', of type `int'. */
+#ifdef PDUMP
+#define dump_add_opaque_int(int_varaddr) do {	\
+  int *dao_ = (int_varaddr); /* type check */	\
+  dump_add_opaque (dao_, sizeof (*dao_));	\
+} while (0)
+#else
+#define dump_add_opaque_int(int_varaddr) DO_NOTHING
+#endif
+
+/* Call dump_add_opaque_fixnum (&fixnum_var) to dump `fixnum_var', of type `Fixnum'. */
+#ifdef PDUMP
+#define dump_add_opaque_fixnum(fixnum_varaddr) do {	\
+  Fixnum *dao_ = (fixnum_varaddr); /* type check */	\
+  dump_add_opaque (dao_, sizeof (*dao_));		\
+} while (0)
+#else
+#define dump_add_opaque_fixnum(fixnum_varaddr) DO_NOTHING
 #endif
 
 /* Call dump_add_root_object (&var) to ensure that var is properly updated after pdump. */
@@ -2426,7 +2446,7 @@ Lisp_Object decode_path (const char *);
 extern int noninteractive, noninteractive1;
 extern int fatal_error_in_progress;
 extern int preparing_for_armageddon;
-extern int emacs_priority;
+extern Fixnum emacs_priority;
 extern int running_asynch_code;
 extern int suppress_early_error_handler_backtrace;
 

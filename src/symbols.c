@@ -790,10 +790,15 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
       the symbol-value-forward. (See below.)
 
    SYMVAL_FIXNUM_FORWARD:
-   SYMVAL_BOOLEAN_FORWARD:
-      (declare with DEFVAR_INT or DEFVAR_BOOL)
+      (declare with DEFVAR_INT)
       Similar to SYMVAL_OBJECT_FORWARD except that the C variable
-      is of type "int" and is an integer or boolean, respectively.
+      is of type "Fixnum", a typedef for "EMACS_INT", and the corresponding
+      lisp variable is always the corresponding integer.
+
+   SYMVAL_BOOLEAN_FORWARD:
+      (declare with DEFVAR_BOOL)
+      Similar to SYMVAL_OBJECT_FORWARD except that the C variable
+      is of type "int" and is a boolean.
 
    SYMVAL_CONST_OBJECT_FORWARD:
    SYMVAL_CONST_FIXNUM_FORWARD:
@@ -1073,7 +1078,7 @@ do_symval_forwarding (Lisp_Object valcontents, struct buffer *buffer,
     {
     case SYMVAL_FIXNUM_FORWARD:
     case SYMVAL_CONST_FIXNUM_FORWARD:
-      return make_int (*((int *)symbol_value_forward_forward (fwd)));
+      return make_int (*((Fixnum *)symbol_value_forward_forward (fwd)));
 
     case SYMVAL_BOOLEAN_FORWARD:
     case SYMVAL_CONST_BOOLEAN_FORWARD:
@@ -1246,7 +1251,7 @@ store_symval_forwarding (Lisp_Object sym, Lisp_Object ovalue,
 	  CHECK_INT (newval);
 	  if (magicfun)
 	    magicfun (sym, &newval, Qnil, 0);
-	  *((int *) symbol_value_forward_forward (fwd)) = XINT (newval);
+	  *((Fixnum *) symbol_value_forward_forward (fwd)) = XINT (newval);
 	  return;
 
 	case SYMVAL_BOOLEAN_FORWARD:

@@ -43,7 +43,7 @@ static int connect_to_ipc_server (void);
 static int connect_to_unix_server (void);
 #endif
 #ifdef INTERNET_DOMAIN_SOCKETS
-static int connect_to_internet_server (char *serverhost, u_short port);
+static int connect_to_internet_server (char *serverhost, unsigned short port);
 #endif
 
 /* On some systems, e.g. DGUX, inet_addr returns a 'struct in_addr'. */
@@ -313,7 +313,7 @@ static Xauth *server_xauth = NULL;
 				descriptor for server if successful.
 */
 static int
-connect_to_internet_server (char *serverhost, u_short port)
+connect_to_internet_server (char *serverhost, unsigned short port)
 {
   int s;				/* connected socket descriptor */
   struct servent *sp;			/* pointer to service information */

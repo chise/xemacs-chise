@@ -1,3 +1,27 @@
+2001-02-08  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.44 "Thalia" is released.
+
+2001-02-06  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwgauge.c:
+	* xlwgcs.c:
+	* xlwgcs.c (XtAllocateGC): Fix typo for X11R4.
+	* xlwgcs.h:
+	* xlwradio.c (RadioExpose):
+	* xlwcheckbox.c:
+	Remove use of BSD-specific types.
+	s/u_(char|short|int_long)/unsigned $1/g
+
+2001-02-05  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib-Xm.c (xm_update_one_value):
+	Obey the man page; use XtFree instead of free.
+
+2001-02-02  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in: Use "..." to include config.h
+
 2001-01-26  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.43 "Terspichore" is released.

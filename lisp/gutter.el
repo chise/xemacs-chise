@@ -108,6 +108,21 @@ non-nil if it is visible in optional DOMAIN."
     (or (and (listp spec) (memq 'buffers-tab spec))
  	spec)))
 
+(defun set-gutter-dirty-p (gutter-or-location)
+  "Make GUTTER-OR-LOCATION dirty to force redisplay updates."
+  ;; set-glyph-image will not make the gutter dirty
+  (when (or (gutter-specifier-p gutter-or-location)
+	    (eq gutter-or-location 'top)
+	    (eq gutter-or-location 'bottom)
+	    (eq gutter-or-location 'left)
+	    (eq gutter-or-location 'right))
+    (or (gutter-specifier-p gutter-or-location) 
+	(setq gutter-or-location
+	      (eval (intern (concat 
+			     (symbol-name gutter-or-location)
+			     "-gutter")))))
+    (set-specifier-dirty-flag gutter-or-location)))
+
 (defun make-gutter-specifier (spec-list)
   "Return a new `gutter' specifier object with the given specification list.
 SPEC-LIST can be a list of specifications (each of which is a cons of a

@@ -87,7 +87,7 @@ XtAppContext Xt_app_con;
 int x_allow_sendevents;
 
 #ifdef DEBUG_XEMACS
-int debug_x_events;
+Fixnum debug_x_events;
 #endif
 
 static int process_events_occurred;

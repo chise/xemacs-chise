@@ -90,7 +90,7 @@ Boston, MA 02111-1307, USA.  */
 
 
 static int mswindows_ls_sort_case_insensitive;
-static int mswindows_ls_round_file_size;
+static Fixnum mswindows_ls_round_file_size;
 
 Lisp_Object		Qmswindows_insert_directory;
 

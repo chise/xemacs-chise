@@ -440,7 +440,7 @@ make_standard_lisp_hash_table (enum hash_table_test test,
 			       double rehash_threshold,
 			       enum hash_table_weakness weakness)
 {
-  hash_table_hash_function_t hash_function =  0;
+  hash_table_hash_function_t hash_function = 0;
   hash_table_test_function_t test_function = 0;
 
   switch (test)
@@ -500,13 +500,7 @@ make_general_lisp_hash_table (hash_table_hash_function_t hash_function,
   compute_hash_table_derived_values (ht);
 
   /* We leave room for one never-occupied sentinel hentry at the end.  */
-  ht->hentries = xnew_array (hentry, ht->size + 1);
-
-  {
-    hentry *e, *sentinel;
-    for (e = ht->hentries, sentinel = e + ht->size; e <= sentinel; e++)
-      CLEAR_HENTRY (e);
-  }
+  ht->hentries = xnew_array_and_zero (hentry, ht->size + 1);
 
   XSETHASH_TABLE (hash_table, ht);
 
