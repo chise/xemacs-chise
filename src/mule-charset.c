@@ -353,7 +353,7 @@ put_char_ccs_code_point (Lisp_Object character,
       XCHARSET_ENCODING_TABLE (ccs)
 	= encoding_table = make_char_id_table (Qnil);
     }
-  put_char_id_table (XCHAR_ID_TABLE(encoding_table), character, value);
+  put_char_id_table (XCHAR_TABLE(encoding_table), character, value);
   return Qt;
 }
 
@@ -377,7 +377,7 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
     }
   if (CHAR_ID_TABLE_P (encoding_table))
     {
-      put_char_id_table (XCHAR_ID_TABLE(encoding_table), character, Qnil);
+      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qnil);
     }
   return Qt;
 }
