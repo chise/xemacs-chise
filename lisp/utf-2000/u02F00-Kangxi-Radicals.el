@@ -1515,8 +1515,7 @@
      ((ucs		  . #x53E3)	; å£
       ))
     (chinese-cns11643-1 . #x2848)	; ø»‘•
-    (chinese-big5	. #x88EF)	; â¾†
-    (chinese-big5-cdp	. #x88EF)	; â¾†
+    (chinese-big5-cdp	. #x88EF)	; ý¢€ˆ£¯
     (ucs		. #x2F86)	; â¾†
     ))
 (define-char
