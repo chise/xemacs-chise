@@ -755,6 +755,7 @@
      ((chinese-big5-cdp	  . #x8971)	; ý¢€ˆ¥±
       ))
     (chinese-gb12345	. #x7D73)	; ä»’
+    (chinese-big5-cdp	. #x8BAC)	; ý¢€ˆ®¬
     (ucs		. #x4ED2)	; ä»’
     ))
 (define-char
