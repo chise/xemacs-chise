@@ -677,10 +677,12 @@
     (total-strokes	 . 11)
     (<-vulgar
      ((shinjigen-1	  . 1852)
+      (=jis-x0208	  . #x4959)	; &GT-09112;
+      (=ks-x1001	  . #x5D23)	; &I-K0-5D23;
       (=daikanwa	  . 07230)	; &I-M-07230;
       ))
     (<-vulgar*sources
-     shinjigen-1)
+     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 305 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
