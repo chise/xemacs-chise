@@ -1,5 +1,17 @@
 2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (Fsave_char_attribute_table): Don't use
+	`save_charset_properties'.
+
+	* mule-charset.c (Fsave_charset_properties): Renamed from
+	`save_charset_properties' and changed to Lisp function again;
+	write property `type' as `CCS'; write properties `final-byte' and
+	`mother' if they exists.
+	(syms_of_mule_charset): Revive builtin function
+	`save-charset-properties' when HAVE_LIBCHISE is defined.
+
+2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (open_chise_data_source_maybe): Use Vdata_directory
 	instead of Vexec_directory.
 	(char_attribute_system_db_file): Likewise.
