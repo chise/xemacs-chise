@@ -1,3 +1,49 @@
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-05-09  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak (OS):
+	do not warn about gtk when we're not trying to compile with it.
+
+2001-04-20  Ben Wing  <ben@xemacs.org>
+
+	* .cvsignore: Added stuff for Windows.
+
+2001-05-01  Ben Wing  <ben@xemacs.org>
+
+	* config.inc.samp (MAKEINFO): point at more standard c: not f:.
+
+2001-05-01  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs.mak: Define EMACS_PATCH_LEVEL like configure.in does.
+	* xemacs.mak (XEMACS_VERSION_STRING): Build this more like
+	configure.in does.
+	* xemacs.mak (docfile): Use del instead of $(DEL) in shell
+	command.
+
+2001-04-27  Adrian Aichner  <adrian@xemacs.org>
+
+	* compface.mak (clean): New target.
+	* xemacs.mak: Use $(DEL) everywhere, instead of some occurences of
+	del and @$(DEL).  Add GTK supporting variables and document it as
+	currently unsupported on MSWindows.
+	* xemacs.mak (XEMACS_VERSION_STRING): Initialize according to
+	emacs_is_beta.  Use emacs_beta_version as patch level for non-beta
+	version.
+	* xemacs.mak (HAVE_GTK): New.
+	* xemacs.mak (GTK_DIR): New.
+
+2001-04-19  Andy Piper  <andy@xemacs.org>
+
+	* minitar.mak: Remove
+
+	* xemacs.mak (PROGRAM_DEFINES): Calculate release version
+	correctly.
+	(ETAGS_DEPS): Add mintar as a real target
+	(DOC): Do the right thing when non-beta
+
 2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.1 "Copyleft" is released.

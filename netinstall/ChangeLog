@@ -1,3 +1,16 @@
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-04-19  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (setup-bin.ini): new. Just calculate ini for the
+	binaries
+	(desktop.o): add correct dependency
+
+	* reginfo.h: Update arch to i586 and 21.4
+	* reginfo.h (XEMACS_NATIVE_ARCH_NAME): ditto
+
 2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.1 "Copyleft" is released.
@@ -227,5 +240,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.4 2001/04/19 07:31:14 stephent Exp $
-$Revision: 1.2.2.4 $
+%%% $Id: ChangeLog,v 1.2.2.7 2001/05/10 10:39:06 stephent Exp $
+$Revision: 1.2.2.7 $

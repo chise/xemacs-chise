@@ -633,6 +633,9 @@ error
         malformed-property-list
       circular-list
         circular-property-list
+    invalid-regexp
+    specifier-syntax-error
+
 
   invalid-argument
     wrong-type-argument
@@ -640,28 +643,47 @@ error
     wrong-number-of-arguments
     invalid-function
     no-catch
+    undefined-keystroke-sequence
+    specifier-argument-error
 
   invalid-state
     void-function
     cyclic-function-indirection
     void-variable
     cyclic-variable-indirection
+    protected-field
+    invalid-byte-code
 
   invalid-operation
     invalid-change
       setting-constant
+      specifier-change-error
     editing-error
       beginning-of-buffer
       end-of-buffer
       buffer-read-only
     io-error
+      file-error
+        file-already-exists
+        file-locked
+        file-supersession
       end-of-file
+      coding-system-error
+      image-conversion-error
+      tooltalk-error
     arith-error
       range-error
       domain-error
       singularity-error
       overflow-error
       underflow-error
+    dialog-box-error
+    search-failed
+    selection-conversion-error
+
+  unimplemented
+
+  internal-error
 
 The five most common errors you will probably use or base your new
 errors off of are `syntax-error', `invalid-argument', `invalid-state',

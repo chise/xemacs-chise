@@ -43,7 +43,7 @@ destroy_all_children (Widget widget)
     {
       /* Unmanage all children and destroy them.  They will only be
        * really destroyed when we get out of DispatchEvent. */
-      for (i = 0; i < number; i++)
+      for (i = 0; i < (int) number; i++)
 	{
 	  Widget child = children [i];
 	  if (!child->core.being_destroyed)

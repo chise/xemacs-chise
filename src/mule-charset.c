@@ -693,7 +693,7 @@ character set.  Recognized properties are:
 	    short_name = value;
 	  }
 
-	if (EQ (keyword, Qlong_name))
+	else if (EQ (keyword, Qlong_name))
 	  {
 	    CHECK_STRING (value);
 	    long_name = value;

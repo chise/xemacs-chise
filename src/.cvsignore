@@ -13,3 +13,8 @@ SATISFIED
 update-elc.stamp
 *.so.*
 gmon.out
+NEEDTODUMP
+Xpm.dll
+temacs.bsc
+temacs.pdb
+temacs.map

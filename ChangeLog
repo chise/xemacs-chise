@@ -1,3 +1,30 @@
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-05-04  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (opsys): 
+	Use lower-case `uname -s` as the default value for opsys.
+	The previous code effectively did the non-sensical
+	opsys=$canonical because [] magically disappear in configure.in.
+
+2001-01-31  Jason R. Mastaler  <jason@xemacs.org>
+
+	* etc/FTP: Updated FTP mirrors list.
+
+2001-05-04  Ben Wing  <ben@xemacs.org>
+
+	* etc\NEWS: Remove kill-whole-line changes.
+
+2001-04-25  Ben Wing  <ben@xemacs.org>
+
+	* PROBLEMS:
+	* PROBLEMS (Note):
+	* PROBLEMS (ftp):
+	Correct general info about init file.
+	Fix up Cygwin section.
+
 2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.1 "Copyleft" is released.

@@ -38,3 +38,6 @@ all: libcompface.lib
 
 libcompface.lib: $(OBJS)
 	link.exe -lib -nologo -out:$@ $(OBJS)
+
+clean: $(OBJS)
+	-rm -f $(OBJS) libcompface.lib

@@ -17,14 +17,19 @@ struct sockaddr_dl;
 
 #ifdef __xlC__			/* "eXceLlent C compiler" ?! */
 #if __xlC__ >= 1200
-/* IBM's C compiler miscompiles bytecount_to_charcount at high levels
-   of optimization.  From IBM's docs:
+/* IBM's C compiler option `-O3' is too aggressive.
+   We recommend instead the combination `-O3 -qstrict', which seems safe.
 
-   -qstrict turns off the following optimizations:
+   cc -O3 miscompiles at least two functions.  From IBM's docs:
 
-   Performing code motion and scheduling on computations such as loads
-   and floating-point computations that may trigger an exception. */
+   IBM> -qstrict turns off the following optimizations:
+
+   IBM> Performing code motion and scheduling on computations such as loads
+   IBM> and floating-point computations that may trigger an exception.
+
+   Nevertheless, we try to work with these compiler options. */
 #pragma option_override (bytecount_to_charcount, "opt(strict,yes)")
+#pragma option_override (Fexpand_file_name, "opt(strict,yes)")
 #endif /* recent IBM C compiler */
 #endif /* IBM's C compiler */
 

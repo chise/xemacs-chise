@@ -280,9 +280,9 @@ The keywords allowed are
 Exactly one of these keywords must be given.
 
 The function brings up the Print dialog, where the user can
-select a different printer and/or change printer options. Connection
+select a different printer and/or change printer options.  Connection
 name can change as a result of selecting a different printer device.  If
-a printer is specified, then changes are stored into the settings object
+a device is specified, then changes are stored into the settings object
 currently selected into that printer.  If a settings object is supplied,
 then changes are recorded into it, and, it it is selected into a
 printer, then changes are propagated to that printer 
@@ -307,12 +307,11 @@ See also the `page-setup' and `print-setup' dialog boxes.
 For type `page-setup':
 
 This invokes the Windows standard Page Setup dialog.
-This dialog is usually invoked in response to the Page Setup command, and
-used to choose such parameters as page orientation, print margins etc.
-Note that this dialog contains the \"Printer\" button, which invokes
-the Printer Setup dialog (see `msprinter-print-setup-dialog') so that the
-user can update the printer options or even select a different printer
-as well.
+This dialog is usually invoked in response to the Page Setup command,
+and used to choose such parameters as page orientation, print margins
+etc.  Note that this dialog contains the \"Printer\" button, which
+invokes the Printer Setup dialog so that the user can update the
+printer options or even select a different printer as well.
 
 The keywords allowed are
 
@@ -328,7 +327,7 @@ Exactly one of these keywords must be given.
 The function brings up the Page Setup dialog, where the user
 can select a different printer and/or change printer options.
 Connection name can change as a result of selecting a different printer
-device.  If a printer is specified, then changes are stored into the
+device.  If a device is specified, then changes are stored into the
 settings object currently selected into that printer.  If a settings
 object is supplied, then changes are recorded into it, and, it it is
 selected into a printer, then changes are propagated to that printer
@@ -340,6 +339,9 @@ is used to initialize the dialog.
 
 Return value is nil if the user has canceled the dialog.  Otherwise,
 it is a new plist, containing the new list of properties.
+
+NOTE: The margin properties (returned by this function) are *NOT* stored
+into the print-settings or device object.
 
 The DEVICE is destroyed and an error is signaled in case of
 initialization problem with the new printer.
@@ -641,17 +643,16 @@ The keywords allowed are
 		     (let ((newbuf (generate-new-buffer " *dialog box*")))
 		       (set-buffer-dedicated-frame newbuf frame)
 		       (set-frame-property frame 'dialog-box-buffer newbuf)
+		       (set-window-buffer (frame-root-window frame) newbuf)
 		       (with-current-buffer newbuf
-			 ;; Should be frame specific, so
-			 ;; we don't do this for now.
-			 ;; (setq frame-title-format cl-title)
-			 (make-local-hook 'delete-frame-hook)
-			 (add-hook 'delete-frame-hook
-				   #'(lambda (frame)
-				       (kill-buffer
-					(frame-property
-					 frame
-					 'dialog-box-buffer))))))
+			 (set (make-local-variable 'frame-title-format)
+			      cl-title)
+			 (add-local-hook 'delete-frame-hook
+					 #'(lambda (frame)
+					     (kill-buffer
+					      (frame-property
+					       frame
+					       'dialog-box-buffer))))))
 		     frame)))
 	    (if cl-modal
 		(dialog-box-modal-loop '(create-dialog-box-frame))

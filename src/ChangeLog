@@ -1,3 +1,91 @@
+2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
+
+2001-05-08  Yoshiaki Kasahara  <kasahara@nc.kyushu-u.ac.jp>
+
+	* mule-charset.c (Fmake_charset): Add missing else.
+
+2001-04-23  Ben Wing  <ben@xemacs.org>
+
+	* event-msw.c (FAKE_MOD_QUIT):
+	* event-msw.c (mswindows_dequeue_dispatch_event):
+	* event-msw.c (mswindows_wnd_proc):
+	* event-msw.c (emacs_mswindows_quit_p):
+	Get critical quit working.
+
+2001-05-05  Ben Wing  <ben@xemacs.org>
+
+	* console-msw.h:
+	* device-msw.c:
+	* device-msw.c (mswindows_get_default_margin):
+	* frame-msw.c (mswindows_size_frame_internal):
+	* frame-msw.c (msprinter_init_frame_1):
+	* frame-msw.c (vars_of_frame_mswindows):
+	Change top/bottom margin defaults to 0.5 inches.
+
+2001-05-01  Martin Buchholz  <martin@xemacs.org>
+
+	Fix link error with gcc 3.0 on Linux.
+	* terminfo.c (UP): Remove.
+	* terminfo.c (BC): Remove.
+	* terminfo.c (PC): Remove.
+	They weren't used, and in any case, these symbols should be
+	defined in the *library*.
+
+2001-05-03  Martin Buchholz  <martin@xemacs.org>
+
+	* s/aix4.h: Fix crash with xlc -O3.
+	Improve comment explaining how -O3 works.
+
+2001-04-22   zhaoway  <zw@debian.org>
+
+	* event-stream.c (is_scrollbar_event): Noop returning 0 if
+	!HAVE_SCROLLBARS.
+
+2001-04-15  Ben Wing  <ben@xemacs.org>
+
+	* event-stream.c:
+	* event-stream.c (Fnext_event):
+	* event-stream.c (is_scrollbar_event):
+	* event-stream.c (execute_command_event):
+	Better fix for Yoshiki's `C-x @ h <scrollbar-drag> x causes a
+	crash' problem.  His fix introduces other problems.  We filter
+	out scrollbar events specifically, making them somewhat invisible
+	to command-building, and not appearing in `this-command-keys'.
+	More work is still needed (see comments in event-stream.c), but
+	this fixes all the major problems.
+
+2001-04-20  Ben Wing  <ben@xemacs.org>
+
+	* .cvsignore: Added stuff for Windows.
+
+2001-04-28  Ben Wing  <ben@xemacs.org>
+
+	* buffer.c (Ferase_buffer):
+	* editfns.c (buffer_insert1):
+	* editfns.c (Finsert_before_markers):
+	* editfns.c (Finsert_string):
+	* editfns.c (Finsert_char):
+	* editfns.c (Fdelete_region):
+	* editfns.c (Fwiden):
+	* editfns.c (Fnarrow_to_region):
+	remove bogus lines setting zmacs_region_stays to 0.
+	
+2001-04-15  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* process-unix.c (unix_open_network_stream): If connect() fails
+	invalidate file descriptor after closing it.
+
+2001-03-08  Mike Alexander  <mta@arbortext.com>
+
+	* event-msw.c (mswindows_need_event_in_modal_loop):
+	Don't dispatch a message if we didn't get one.
+	(mswindows_need_event):
+	Terminate the correct process when one exits instead of the first
+	one on Vprocess_list and look for process termination when in
+	mswindows_protect_modal_loop.
+
 2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.1 "Copyleft" is released.

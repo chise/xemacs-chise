@@ -378,6 +378,7 @@ Lisp_Object mswindows_handle_page_setup_dialog_box (struct frame *f,
 						    Lisp_Object keys);
 Lisp_Object mswindows_handle_print_setup_dialog_box (struct frame *f,
 						     Lisp_Object keys);
+int mswindows_get_default_margin (Lisp_Object prop);
 
 void mswindows_register_popup_frame (Lisp_Object frame);
 void mswindows_unregister_popup_frame (Lisp_Object frame);

@@ -811,7 +811,7 @@ installdirs: mkinstalldirs
 @end smallexample
 
 @noindent
-or, if you wish to support @env{DESTDIR},
+or, if you wish to support @code{DESTDIR},
 
 @smallexample
 # Make sure all installation directories (e.g. $(bindir))
