@@ -6882,21 +6882,18 @@
     (=daikanwa		. 37971)	; &I-M-37971;
     ))
 (define-char
-  '((=>ucs		. #x8E95)	; 躕
-    (ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 15)
-    (total-strokes	 . 22)
-    (=jis-x0212		. #x6046)	; &M-37972; [64-38]
-    (=daikanwa		. 37972)	; &I-M-37972;
-    (=ucs@jis-1990	. #x8E95)	; &M-37972;
-    ))
-(define-char
-  '((morohashi-daikanwa	37972 0 0)
-    (ideographic-radical . 157)	; ⾜
+  '((ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
     (=ucs		. #x8E95)	; 躕
-    (=cns11643-2	. #x6E2C)	; &I-C2-6E2C; [78-12]
+    (->subsumptive
+     ((=jis-x0212	  . #x6046)	; &M-37972; [64-38]
+      (=daikanwa	  . 37972)	; &I-M-37972;
+      (=ucs@jis		  . #x8E95)	; &M-37972;
+      )
+     ((=cns11643-2	  . #x6E2C)	; &C2-6E2C; [78-12]
+      (=ucs@unicode	  . #x8E95)	; &C2-6E2C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 157)	; ⾜
