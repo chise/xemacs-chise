@@ -133,6 +133,8 @@
 		       arabic-digit
 		       arabic-1-column
 		       arabic-2-column)))
+	      ((string-match "^ideograph-cbeta" (symbol-name (car rest))))
+	      ((string-match "^china3-jef" (symbol-name (car rest))))
 	      ((string-match "^chinese-big5" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
 	       (unless (memq 'ideograph-gt dest)
@@ -141,7 +143,8 @@
 	       (setq dest (cons (car rest) dest)))))
       (setq rest (cdr rest)))
     (append (sort dest #'char-attribute-name<)
-	    '(chinese-big5-cdp chinese-big5-eten chinese-big5))))
+	    '(chinese-big5-cdp ideograph-cbeta china3-jef
+			       chinese-big5-eten chinese-big5))))
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -435,6 +438,15 @@
 		 "(name               . %S)%s")
 	       value line-breaking))
       (setq attributes (delq 'name attributes))
+      )
+    (when (and (memq 'name* attributes)
+	       (setq value (get-char-attribute char 'name*)))
+      (insert (format
+	       (if (> (+ (current-column) (length value)) 48)
+		   "(name* . %S)%s"
+		 "(name*              . %S)%s")
+	       value line-breaking))
+      (setq attributes (delq 'name* attributes))
       )
     (when (and (memq 'script attributes)
 	       (setq value (get-char-attribute char 'script)))
