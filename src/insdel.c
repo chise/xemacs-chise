@@ -3154,7 +3154,7 @@ bufbyte_string_displayed_columns (CONST Bufbyte *str, Bytecount len)
     {
 #ifdef MULE
       Emchar ch = charptr_emchar (str);
-      cols += XCHARSET_COLUMNS (CHAR_CHARSET (ch));
+      cols += CHAR_COLUMNS (ch);
 #else
       cols++;
 #endif
@@ -3172,7 +3172,7 @@ emchar_string_displayed_columns (CONST Emchar *str, Charcount len)
   int i;
 
   for (i = 0; i < len; i++)
-    cols += XCHARSET_COLUMNS (CHAR_CHARSET (str[i]));
+    cols += CHAR_COLUMNS (str[i]);
 
   return cols;
 #else  /* not MULE */
