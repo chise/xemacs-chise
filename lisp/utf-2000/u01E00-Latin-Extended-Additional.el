@@ -785,7 +785,7 @@
       (=ucs		  . #x1E3E)	; á¸¾
       ))
     (=jis-x0213-1-2000	. #x2872)	; ø»¢žŸ
-    (=ucs@jis		. #x1E3E)	; ø»¢žŸ
+    (ucs-jis		. #x1E3E)	; ø»¢žŸ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH ACUTE")
@@ -822,7 +822,7 @@
       (=ucs		  . #x1E3F)	; á¸¿
       ))
     (=jis-x0213-1-2000	. #x2873)	; ø»¢ž 
-    (=ucs@jis		. #x1E3F)	; ø»¢ž 
+    (ucs-jis		. #x1E3F)	; ø»¢ž 
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER M WITH DOT ABOVE")

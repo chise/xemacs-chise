@@ -20,7 +20,7 @@
     (->decomposition	super #x0034)
     (->fullwidth
      ((name		  . "fullwidth superscript four")
-      (=ks-x1001	  . #x2979)	; ø»ˆ§”
+      (korean-ksc5601	  . #x2979)	; ø»ˆ§”
       ))
     (=ucs		. #x2074)	; â´
     ))
@@ -38,7 +38,7 @@
      ((name		  . "SUPERSCRIPT FOUR")
       (=ucs		  . #x2074)	; â´
       ))
-    (=ks-x1001		. #x2979)	; ø»ˆ§”
+    (korean-ksc5601	. #x2979)	; ø»ˆ§”
     ))
 (define-char
   '((name		. "SUPERSCRIPT FIVE")
@@ -143,7 +143,7 @@
     (->decomposition	super #x006E)
     (->fullwidth
      ((name		  . "fullwidth superscript latin small letter n")
-      (=ks-x1001	  . #x297A)	; ø»ˆ§•
+      (korean-ksc5601	  . #x297A)	; ø»ˆ§•
       ))
     (=ucs		. #x207F)	; â¿
     ))
@@ -158,5 +158,5 @@
      ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
       (=ucs		  . #x207F)	; â¿
       ))
-    (=ks-x1001		. #x297A)	; ø»ˆ§•
+    (korean-ksc5601	. #x297A)	; ø»ˆ§•
     ))
