@@ -1,3 +1,8 @@
+2003-07-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el (M-29965'): Unify H8-B3F3 and U-0002686D.
+	(C7-487E): Map to U-0002686D.
+
 2003-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (U+2ECC): Specify U+FA66
