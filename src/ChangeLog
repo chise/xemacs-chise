@@ -1,5 +1,10 @@
 2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (decode_output_utf8_partial_char): New function.
+	(decode_coding_utf8): Use `decode_output_utf8_partial_char'.
+
+2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (decode_coding_utf8): Output original byte
 	sequence if it is broken; change order of conditions.
 
