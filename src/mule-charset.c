@@ -284,7 +284,7 @@ decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
       if (dim > 0)
 	{
 	  if (!VECTORP (nv))
-	    nv = (XVECTOR_DATA(v)[i] = make_older_vector (ccs_len, Qnil));
+	    nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
 	  v = nv;
 	}
       else
@@ -360,7 +360,7 @@ put_char_ccs_code_point (Lisp_Object character,
       else
 	{
 	  XCHARSET_DECODING_TABLE (ccs)
-	    = v = make_older_vector (ccs_len, Qnil);
+	    = v = make_vector (ccs_len, Qnil);
 	}
 
       decoding_table_put_char (v, dim, byte_offset, code_point, character);
@@ -843,7 +843,7 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->registry);
   mark_object (cs->ccl_program);
 #ifdef UTF2000
-  /* mark_object (cs->decoding_table); */
+  mark_object (cs->decoding_table);
 #endif
   return cs->name;
 }
@@ -1948,8 +1948,6 @@ Set mapping-table of CHARSET to TABLE.
 
   if (NILP (table))
     {
-      if (VECTORP (CHARSET_DECODING_TABLE(cs)))
-	make_vector_newer (CHARSET_DECODING_TABLE(cs));
       CHARSET_DECODING_TABLE(cs) = Qnil;
       return table;
     }
