@@ -1,3 +1,39 @@
+2004-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (JSP-3C4A): Moved into U+5EAC;
+	use `<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U+5EAC): Use `->subsumptive'.
+	(U-00022220): Use `->subsumptive'.
+	(U+5ED0): Define as an abstract character.
+	(J0-567D): Use `<-denotational' for U+5ED0; use `<-vulgar*sources'
+	instead of char-ref in `<-vulgar'; use `->subsumptive' to
+	integrate with C3-4660 and K0-4F2A.
+	(GT-11901): Use `<-denotational' for U+5ED0; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'; use
+	`->subsumptive' to integrate with CB00636.
+	(U+3893): Use `->subsumptive'.
+
+2004-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+5226): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
+	(U+5227): Likewise.
+	(U+5231): Use `->subsumptive'.
+	(C2-2554): Moved into U+5231.
+	(JSP-333A): Likewise.
+	(C3-2B43): Moved into U+524F; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(J0-516C): Likewise.
+	(U+524F): Use `->subsumptive'.
+	(U+5259): Use `->subsumptive'; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(C3-2F62): Moved into U+5259.
+	(U+5265): Add `->same' for U+525D; use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
+	(J0-5179): Moved into U+5294; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(U+5294): Use `->subsumptive'.
+
 2004-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el (C3-224A): Moved into U+5F52; use
@@ -101,6 +137,9 @@
 
 	* Ideograph-R075-Tree.el (U+681F): Use `<-vulgar*sources' instead
 	of char-ref in `<-vulgar'.
+
+	* Ideograph-R073-Say.el (U+52D7): Use `->subsumptive'; moved into
+	Ideograph-R019-Power.el.
 
 	* Ideograph-R030-Mouth.el (U+5451): Use `<-vulgar*sources' instead
 	of char-ref in `<-vulgar'.
