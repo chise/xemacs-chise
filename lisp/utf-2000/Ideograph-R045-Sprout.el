@@ -211,6 +211,20 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (->same-ideograph
+     ((ideograph-daikanwa . 00157)	; ø¸€‚
+      ))
+    (<-original-ideograph
+     (:sources	(seiji-tsuu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 09176)	; ø¸‚˜
+		 )
+      ))
+    (ideograph-daikanwa . 07853)	; ø¸º­
+    ))
+(define-char
+  '((ideographic-radical . 45)	; â¼¬
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3675)	; ø»œ”º
     ))
 (define-char
