@@ -35,6 +35,8 @@
     (ideographic-radical . 166)	; â¾¥
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=gt		. 53970)	; ý¡€‹’
+    (=gt-pj-7		. #x6363)	; ý¡€‹’
     (mojikyo		. 050546)	; ý €Œ•²
     ))
 (define-char
