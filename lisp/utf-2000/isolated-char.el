@@ -201,5 +201,9 @@
   '((ideograph-gt-pj-7	. #x5821)
     (ideograph-gt	. 52349)
     ))
+(define-char
+  '((ideograph-gt-pj-11	. #x5A40)
+    (ideograph-gt	. 60403)
+    ))
 
 ;;; mime-view.el ends here
