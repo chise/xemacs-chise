@@ -17,6 +17,7 @@
     (total-strokes	 . 14)
     (japanese-jisx0208-1978	. #x4921)	; ø»‚¶°
     (japanese-jisx0208		. #x4921)	; ø»‡Š¸
+    (korean-ksc5601		. #x5E2C)	; ø»‰³½
     (chinese-cns11643-4		. #x4877)	; ø»˜›
     (japanese-jisx0208-1990	. #x4921)	; ø½Š°¬
     (mojikyo			. 050611)	; ý €Œ–³
