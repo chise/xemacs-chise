@@ -1,3 +1,20 @@
+2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_put_char): Use `make_vector'
+	instead of `make_older_vector'.
+	(put_char_ccs_code_point): Likewise.
+	(mark_charset): Mark `cs->decoding_table'.
+	(Fset_charset_mapping_table): Don't use `make_vector_newer'.
+
+	* lisp.h (make_older_vector): Deleted.
+	(make_vector_newer): Deleted.
+
+	* config.h.in (HAVE_GGC): Deleted.
+
+	* alloc.c (make_older_vector): Deleted.
+	(make_vector_newer_1): Deleted.
+	(make_vector_newer): Deleted.
+
 2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ideograph_daikanwa_2): New variable.
