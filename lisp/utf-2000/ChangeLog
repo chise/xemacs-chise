@@ -1,3 +1,9 @@
+2001-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2001-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R067-Script.el (M-13450): Unify with J{83|90}-4A38.
