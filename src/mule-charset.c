@@ -67,6 +67,7 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_cns;
+Lisp_Object Vcharset_ucs_jis;
 Lisp_Object Vcharset_ucs_big5;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
@@ -1823,6 +1824,7 @@ Lisp_Object Qascii,
 #ifdef UTF2000
   Qucs_bmp,
   Qucs_cns,
+  Qucs_jis,
   Qucs_big5,
   Qlatin_viscii,
   Qlatin_tcvn5712,
@@ -3761,6 +3763,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_cns,			"ucs-cns");
+  defsymbol (&Qucs_jis,			"ucs-jis");
   defsymbol (&Qucs_big5,		"ucs-big5");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_tcvn5712,		"latin-tcvn5712");
@@ -3917,6 +3920,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CNS"),
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
+		  build_string (""),
+		  Qnil, 0, 0, 0, 0);
+  staticpro (&Vcharset_ucs_jis);
+  Vcharset_ucs_jis =
+    make_charset (LEADING_BYTE_UCS_JIS, Qucs_jis, 256, 3,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS for JIS"),
+		  build_string ("UCS for JIS X 0208, 0212 and 0213"),
+		  build_string ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
 		  build_string (""),
 		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_ucs_big5);
