@@ -1493,6 +1493,7 @@ character set.  Recognized properties are:
 		this character set.
 'dimension	Number of octets used to index a character in this charset.
 		Either 1 or 2.  Defaults to 1.
+		If UTF-2000 feature is enabled, 3 or 4 are also available.
 'columns	Number of columns used to display a character in this charset.
 		Only used in TTY mode. (Under X, the actual width of a
 		character can be derived from the font used to display the
@@ -1501,6 +1502,7 @@ character set.  Recognized properties are:
 'chars		Number of characters in each dimension (94 or 96).
 		Defaults to 94.  Note that if the dimension is 2, the
 		character set thus described is 94x94 or 96x96.
+		If UTF-2000 feature is enabled, 128 or 256 are also available.
 'final		Final byte of ISO 2022 escape sequence.  Must be
 		supplied.  Each combination of (DIMENSION, CHARS) defines a
 		separate namespace for final bytes.  Note that ISO
@@ -1525,6 +1527,13 @@ character set.  Recognized properties are:
 		is passed the octets of the character, with the high
 		bit cleared and set depending upon whether the value
 		of the 'graphic property is 0 or 1.
+'mother		[UTF-2000 only] Base coded-charset.
+'code-min	[UTF-2000 only] Minimum code-point of a base coded-charset.
+'code-max	[UTF-2000 only] Maximum code-point of a base coded-charset.
+'code-offset	[UTF-2000 only] Offset for a code-point of a base
+		coded-charset.
+'conversion	[UTF-2000 only] Conversion for a code-point of a base
+		coded-charset (94x60 or 94x94x60).
 */
        (name, doc_string, props))
 {
