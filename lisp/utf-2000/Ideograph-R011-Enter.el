@@ -156,6 +156,7 @@
     (japanese-jisx0208		. #x4134)	; ø»†¿›
     (chinese-isoir165		. #x482B)	; ø»§°
     (chinese-cns11643-1		. #x4740)	; ø»‘º¯
+    (japanese-jisx0208-1990	. #x4134)	; ø½Š¥
     (ucs			. #x5168)	; å…¨
     ))
 (define-char
