@@ -1,5 +1,44 @@
 2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (U+8D30): Moved from
+	Ideograph-R056-Shoot.el.
+
+	* Ideograph-R144-Walk-Enclosure.el (U+8850): Add `total-strokes'.
+	(U+8854): Moved from Ideograph-R060-Step.el.
+
+	* Ideograph-R056-Shoot.el (U+7519): Add `total-strokes'.
+	(U+8D30): Moved to Ideograph-R154-Shell.el.
+
+	* Ideograph-R042-Small.el (M-07511): Separate all.
+	(U+3779): Modify strokes.
+	(M-07512): Separate all.
+	(U-00021B7F): Modify strokes.
+	(U+8F89): Moved to Ideograph-R159-Cart.el.
+
+	* Ideograph-R040-Roof.el (U+374D): Modify strokes.
+	(M-07151): Likewise.
+	(U+5BAC): Likewise.
+	(U+8D5B): Add `total-strokes'.
+
+	* Ideograph-R036-Evening.el (U+5922): Use
+	`<-simplified-ideograph*sources' instead of char-ref in
+	`<-simplified-ideograph'.
+
+	* Ideograph-R027-Cliff.el (U+539B): Add `total-strokes'.
+	(GT-03811): Use `<-vulgar-ideograph*sources' instead of char-ref
+	in `<-vulgar-ideograph'.
+	(U+53A9): Modify strokes.
+	(C3-4048): Unify H1-B3D0.
+	(U+53AB): Separate H1-B3D0.
+	(M-03024): Unify U+3550.
+	(C5-4C31): Separate U+3550.
+
+	* Ideograph-R005-Second.el (U+4E67): Add `total-strokes'.
+	(U+4E7A): Fix strokes.
+	(U+4E7B): Likewise.
+	(U+4E7C): Likewise.
+	(U+F91B): Add `total-strokes'.
+
 	* Ideograph-R159-Cart.el (U+8F89): Moved from
 	Ideograph-R042-Small.el.
 	(U+8F8B): Add `total-strokes'.
