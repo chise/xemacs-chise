@@ -1,3 +1,11 @@
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): u02E00-CJK-Radicals was
+	renamed to u02E00-CJK-Radical-Supplement.
+
+	* utf-2000/u02E00-CJK-Radical-Supplement.el: Renamed from
+	u02E00-CJK-Radicals.el.
+
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* dumped-lisp.el (preloaded-file-list): Add
