@@ -77,6 +77,9 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 103)
+    (hanyu-dazidian-char . 1)
     (shinjigen-1	. 33)
     (shinjigen-2	. 33)
     (japanese-jisx0208-1978	. #x5024)	; ø»ƒ…
