@@ -2707,7 +2707,8 @@
 (define-char
   '((->decomposition	#xFF33 #x0301)
     (->lowercase
-     ((=jis-x0212	  . #x2B5C)	; &JSP-2B5C; [11-60]
+     ((=jis-x0212	  . #x2B5C)	; &JX1-2A30; [11-60]
+      (=jis-x0213-1-2000  . #x2A30)	; &I-JX1-2A30; [10-16]
       ))
     (<-denotational
      ((name		  . "LATIN CAPITAL LETTER S WITH ACUTE")
@@ -2733,7 +2734,6 @@
       (=ucs		  . #x015A)	; Ś
       ))
     (=ucs		. #x015B)	; ś
-    (=jis-x0213-1-2000	. #x2A30)	; &I-JX1-2A30; [10-16]
     (latin-iso8859-2	. #xB6)	; &I-LATIN2-36;
     ))
 (define-char
@@ -2750,9 +2750,10 @@
      ((name		  . "LATIN SMALL LETTER S WITH ACUTE")
       (=ucs		  . #x015B)	; ś
       ))
-    (=jis-x0212		. #x2B5C)	; &JSP-2B5C; [11-60]
+    (=jis-x0212		. #x2B5C)	; &JX1-2A30; [11-60]
+    (=jis-x0213-1-2000	. #x2A30)	; &I-JX1-2A30; [10-16]
     (=jef-china3	. #x85FA)	; &I-JC3-85FA;
-    (=ucs@jis/fw	. #x015B)	; &JSP-2B5C;
+    (=ucs@jis/fw	. #x015B)	; &JX1-2A30;
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER S WITH CIRCUMFLEX")
