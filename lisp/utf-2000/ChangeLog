@@ -1,3 +1,8 @@
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-attribute-name<): Modify for new
+	charset-id allocation method for private coded-charsets.
+
 2002-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R065-Branch.el, Ideograph-R067-Script.el,
