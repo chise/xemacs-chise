@@ -278,7 +278,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  thai-tis620
 	  =jis-x0208
 	  japanese-jisx0208
-	  japanese-jisx0208-1990
+	  =jis-x0208-1990
 	  japanese-jisx0212
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
@@ -306,34 +306,34 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
-	  ideograph-gt-pj-1
-	  ideograph-gt-pj-2
-	  ideograph-gt-pj-3
-	  ideograph-gt-pj-4
-	  ideograph-gt-pj-5
-	  ideograph-gt-pj-6
-	  ideograph-gt-pj-7
-	  ideograph-gt-pj-8
-	  ideograph-gt-pj-9
-	  ideograph-gt-pj-10
-	  ideograph-gt-pj-11
-	  ideograph-gt-pj-k1
-	  ideograph-gt-pj-k2
+	  =gt-pj-1
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
 	  =big5-cdp
-	  ideograph-hanziku-1
-	  ideograph-hanziku-2
-	  ideograph-hanziku-3
-	  ideograph-hanziku-4
-	  ideograph-hanziku-5
-	  ideograph-hanziku-6
-	  ideograph-hanziku-7
-	  ideograph-hanziku-8
-	  ideograph-hanziku-9
-	  ideograph-hanziku-10
-	  ideograph-hanziku-11
-	  ideograph-hanziku-12
+	  =hanziku-1
+	  =hanziku-2
+	  =hanziku-3
+	  =hanziku-4
+	  =hanziku-5
+	  =hanziku-6
+	  =hanziku-7
+	  =hanziku-8
+	  =hanziku-9
+	  =hanziku-10
+	  =hanziku-11
+	  =hanziku-12
 	  =cbeta
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
