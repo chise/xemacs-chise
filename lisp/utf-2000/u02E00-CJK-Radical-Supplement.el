@@ -404,19 +404,33 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (<-radical
+    (<-denotational
      ((=ucs		  . #x722B)	; 爫
       ))
-    (ideograph-cdp	. -493)
     (=ucs		. #x2EA4)	; ⺤
+    (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
     (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
+    (=ucs@unicode	. #x722B)	; ⺤
+    (=ucs@jis		. #xFA49)	; ⺤
+    (->subsumptive
+     ((=>ucs*		  . #x722B)	; 爫
+      (=ucs		  . #xFA49)	; 爫
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL PAW TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    (<-radical
+     ((=ucs		  . #x722A)	; 爪
+      ))
     (=ucs		. #x2EA5)	; ⺥
     ))
 (define-char
