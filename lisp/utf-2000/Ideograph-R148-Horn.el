@@ -82,6 +82,7 @@
     (=cns11643-1	. #x5352)	; ø»’Œ©
     (=jis-x0213-1-2000	. #x7B7A)	; ø»¤˜¡
     (=daikanwa		. 35008)	; ø¸ˆ£€
+    (=jef-china3	. #x64D0)	; øº†“
     (=ucs		. #x89D4)	; è§”
     ))
 (define-char
@@ -709,6 +710,7 @@
     (=cns11643-2	. #x4744)	; ø»”„·
     (=jis-x0213-1-2000	. #x7B7B)	; ø»¤˜¢
     (=daikanwa		. 35069)	; ø¸ˆ£½
+    (=jef-china3	. #x64D2)	; øº†“’
     (=ucs@jis		. #x89E5)	; ø»‹¼°
     ))
 (define-char
