@@ -76,6 +76,12 @@
       (save-charset-mapping-table ccs))
     )
    (t
+    (reset-char-attribute-table '->lowercase)
+    (let ((i 0))
+      (while (<= i 127)
+	(get-char-attribute (decode-char 'ascii i) '->lowercase)
+	(setq i (1+ i))))
+    (reset-char-attribute-table '->uppercase)
     (mapcar (lambda (file)
 	      (mount-char-attribute-table
 	       (intern (file-name-char-attribute-name file))))
