@@ -220,8 +220,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
   else if (crb->type != drb->type)
     return 0;
   else if (crb->type == RUNE_CHAR &&
-	   (!EQ (crb->object.cglyph.charset, drb->object.cglyph.charset) ||
-	    crb->object.cglyph.code_point != drb->object.cglyph.code_point))
+	   !CHARC_EQ (crb->object.cglyph, drb->object.cglyph))
     return 0;
   else if (crb->type == RUNE_HLINE &&
 	   (crb->object.hline.thickness != drb->object.hline.thickness ||
