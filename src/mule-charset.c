@@ -308,6 +308,49 @@ put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 }
 
 
+Lisp_Object Vcharacter_attribute_table;
+
+DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
+Return the alist of attributes of CHARACTER.
+*/
+       (character))
+{
+  return get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+}
+
+DEFUN ("get-char-attribute", Fget_char_attribute, 2, 2, 0, /*
+Return the value of CHARACTER's ATTRIBUTE.
+*/
+       (character, attribute))
+{
+  Lisp_Object ret
+    = get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+
+  if (EQ (ret, Qnil))
+    return Qnil;
+  
+  return Fcdr (Fassq (attribute, ret));
+}
+
+DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
+Store CHARACTER's ATTRIBUTE with VALUE.
+*/
+       (character, attribute, value))
+{
+  Emchar char_code = XCHAR (character);
+  Lisp_Object ret
+    = get_char_code_table (char_code, Vcharacter_attribute_table);
+  Lisp_Object cell = Fassq (attribute, ret);
+
+  if (EQ (cell, Qnil))
+    ret = Fcons (Fcons (attribute, value), ret);
+  else
+    Fsetcdr (cell, value);
+  put_char_code_table (char_code, ret, Vcharacter_attribute_table);
+  return ret;
+}
+
+
 Lisp_Object Vutf_2000_version;
 #endif
 
@@ -1672,9 +1715,14 @@ Set mapping-table of CHARSET to TABLE.
 	  Lisp_Object c = XVECTOR_DATA(table)[i];
 
 	  if (CHARP (c))
-	    put_char_code_table (XCHAR (c),
-				 make_int (i + CHARSET_BYTE_OFFSET (cs)),
-				 CHARSET_ENCODING_TABLE(cs));
+	    {
+	      put_char_code_table (XCHAR (c),
+				   make_int (i + CHARSET_BYTE_OFFSET (cs)),
+				   CHARSET_ENCODING_TABLE(cs));
+	      Fput_char_attribute (c, charset,
+				   list1
+				   (make_int (i + CHARSET_BYTE_OFFSET (cs))));
+	    }
 	}
       break;
     case 2:
@@ -1697,17 +1745,30 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    put_char_code_table
-		      (XCHAR (c),
-		       make_int (( (i + CHARSET_BYTE_OFFSET (cs)) << 8)
-				 | (j + CHARSET_BYTE_OFFSET (cs))),
-		       CHARSET_ENCODING_TABLE(cs));
+		    {
+		      put_char_code_table
+			(XCHAR (c),
+			 make_int (( (i + CHARSET_BYTE_OFFSET (cs)) << 8)
+				   | (j + CHARSET_BYTE_OFFSET (cs))),
+			 CHARSET_ENCODING_TABLE(cs));
+		      Fput_char_attribute (c, charset,
+					   list2
+					   (make_int
+					    (i + CHARSET_BYTE_OFFSET (cs)),
+					    make_int
+					    (j + CHARSET_BYTE_OFFSET (cs))));
+		    }
 		}
 	    }
 	  else if (CHARP (v))
-	    put_char_code_table (XCHAR (v),
-				 make_int (i + CHARSET_BYTE_OFFSET (cs)),
-				 CHARSET_ENCODING_TABLE(cs));
+	    {
+	      put_char_code_table (XCHAR (v),
+				   make_int (i + CHARSET_BYTE_OFFSET (cs)),
+				   CHARSET_ENCODING_TABLE(cs));
+	      Fput_char_attribute (v, charset,
+				   list1
+				   (make_int (i + CHARSET_BYTE_OFFSET (cs))));
+	    }
 	}
       break;
     }
@@ -1920,6 +1981,9 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_ccl_program);
   DEFSUBR (Fset_charset_registry);
 #ifdef UTF2000
+  DEFSUBR (Fchar_attribute_alist);
+  DEFSUBR (Fget_char_attribute);
+  DEFSUBR (Fput_char_attribute);
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
 #endif
@@ -2029,6 +2093,9 @@ Leading-code of private TYPE9N charset of column-width 1.
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
+
+  staticpro (&Vcharacter_attribute_table);
+  Vcharacter_attribute_table = make_char_code_table (Qnil);
 
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
