@@ -4486,6 +4486,255 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.10 "Military Intelligence" is released.
+
+2002-10-17  Raymond Toy  <toy@rtp.ericsson.se>
+
+	* nas.c: Update for NAS 1.6 and later, from Jon Trulson.  Was
+	using the NAS private array SoundFileInfo that no longer exists in
+	NAS 1.6 and later.  Preserve backward compatibility with NAS 1.5a
+	and earlier.  This is broken for some versions between 1.5a and
+	1.5f.
+
+2002-10-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* realpath.c (win32_readlink): Try to fix truename of wildcard bug.
+
+	* emacs.c (shut_down_emacs): Improve crash message.
+
+2002-10-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* file-coding.c (determine_real_coding_system): Check for coding
+	cookie in first LINES_TO_CHECK lines (currently 2).  Cater to
+	shebangs and Python PEP 263.
+
+2002-10-08  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-widget.c (layout_query_geometry): only resize dynamically
+	if static sizes haven't been set.
+
+2002-08-30  Mike Alexander  <mta@arbortext.com>
+
+	* event-msw.c (winsock_closer): Use closesocket, not CloseHandle
+	to close a socket.
+
+2002-10-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* callproc.c (child_setup): 21.4 doesn't have retry_close.
+
+2002-09-20  Mike Sperber <mike@xemacs.org>
+
+	(This partially gets back my patch from 2002-07-20 without the
+	bug.)
+	* callproc.c (child_setup): Remove Ben's comment noting confusion
+	over the file descriptors >= 3: close_process_descs() doesn't
+	close those.  Fix fd range to go up to MAXDESC-1 instead of 64.
+	* process-unix.c (unix_create_process): Call
+	begin_dont_check_for_quit to inhibit unwanted interaction (and
+	thus breaking of X event synchronicity) in the child.
+
+2002-09-26  Golubev I. N.  <gin@mo.msk.ru>
+
+	* frame-x.c (x_delete_frame): do not call XtDisplay on a destroyed
+	widget.
+
+2002-08-20  Ben Sigelman  <bhsigelm@cs.brown.edu>
+
+	* event-Xt.c (drain_X_queue): loop over while(XEventsQueued())
+	instead of while(XtAppPending()&XtIMXEvent).  Upon a gdm logout,
+	the xemacs process did not exit, but looped infinitely here.  This
+	fixes that problem.
+
+2002-09-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* font-lock.c (SYNTAX_START_STYLE, SYNTAX_END_STYLE): Quiet GCC.
+	(find_context): Improve comments.
+
+	* regex.c (re_compile_fastmap):  Gratuitous #ifdef comment fixes.
+	(re_match_2): An XCHAR_TABLE operation was missing.
+
+	Many of the following changes were inspired by Andy Piper's (now
+	obsolete) patch to make syntax-table text property lookup optional.
+
+	[Documentation]
+
+	* syntax.h (top level): Document semantics of syntax flags.
+	* syntax.c (comstr_start, Fforward_comment): Improve comments.
+	* syntax.c, syntax.h (top level): Document syntax cache better in
+	comments.
+
+	[Instrument syntax caching (temporary change)]
+
+	* syntax.h (enum syntax_cache_statistics_functions, struct
+	syntax_cache_statistics, SCS_STATISTICS_SET_FUNCTION,
+	SYNTAX_CACHE_STATISTICS_COUNT_INIT): New types and macros.
+	* syntax.c (scan_words, Fforward_comment, scan_lists,
+	Fbackward_prefix_characters):
+	* font-lock.c (find_context):
+	Use them to instrument syntax caching. 
+	* syntax.c (struct syntax_cache_statistics, scs_statistics,
+	syntax_cache_statistics_function_names): New type and variables.
+	* syntax.c (update_syntax_cache): Update and report statistics.
+
+	[Major syntax cache optimizations]
+
+	syntax.c (lookup_syntax_properties): Default off.
+
+	* syntax.h (UPDATE_SYNTAX_INTERNAL): New, implements UPDATE_SYNTAX*.
+	* syntax.c (update_syntax_cache):
+	Move init test from update_syntax_cache to UPDATE_SYNTAX_INTERNAL.
+
+	[Minor syntax cache optimizations and code clarifications]
+
+	* syntax.h (SYNTAX_COMMENT_BITS, SYNTAX_START_P, SYNTAX_END_P,
+	SYNTAX_STYLES_MATCH_START_P, SYNTAX_STYLES_MATCH_1CHAR_P,
+	SYNTAX_STYLES_MATCH_END_P, STYLE_FOUND_1CHAR_P, STYLE_FOUND_P,
+	SYNTAX_COMMENT_MASK_END, SYNTAX_COMMENT_MASK_START,
+	SYNTAX_COMMENT_1CHAR_MASK): Remove redundant argument `table'.
+	(Code clarification.)
+
+	* syntax.c (scan_words, find_end_of_comment, scan_sexps_forward,
+	scan_lists): Compute code from syncode, use Boolean macros instead
+	of redundant masking operations.  (Code clarification; any decent
+	compiler can do this optimization.)
+
+	* syntax.c (scan_lists): Rearrange switches (case Sstring_fence)
+	for clarity.
+
+	* syntax.h, syntax.c (NEXT_SINGLE_PROPERTY_CHANGE,
+	PREVIOUS_SINGLE_PROPERTY_CHANGE, update_syntax_cache): Conditionally
+	use F*_single_property_change instead of F*_extent_change.
+	Currently F*_single_property_change is _much_ less efficient.
+
+	* dired.c (Fdirectory_files): Qt not valid in syntax_cache.object.
+	* syntax.h (SETUP_SYNTAX_CACHE_FOR_OBJECT):  Initialize
+	syntax_cache.object properly, don't leave Qt or Qnil.
+	(SYNTAX_CACHE_BYTE_TO_CHAR): Use SETUP_SYNTAX_CACHE_FOR_OBJECT.
+	* syntax.c (update_syntax_cache): Use BUFFERP and STRINGP, not
+	tests for Qt or Qnil.
+
+2002-09-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* redisplay.c (point_in_line_start_cache): 
+	* extents.c (print_extent_1):
+	Fix warnings.
+
+	* extents.c (Fset_extent_property): Document `syntax-table' property.
+
+	* extents.h (Fnext_single_property_change): EXFUN it.
+
+2002-09-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (clear_unused_search_regs): New static function.
+	(search_buffer): 
+	(simple_search): 
+	(boyer_moore):
+	Use it.  Fixes "stale match data" bug reported by Martin Stjernholm.
+	Minor clarifications in comments.
+
+	* regex.c (re_match_2_internal): Ensure no stale submatches.
+
+2002-09-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* event-Xt.c (enqueue_focus_event): Add missing prototype.
+
+2002-08-29  Jerry James  <james@xemacs.org>
+
+	* lisp.h: structrures -> structures.
+
+2002-06-03  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (frame_conversion_internal): add conversion appropriate
+	for setting frame dimensions in pixels.
+
+	* console.h (struct console_methods): add device-specific widget
+	layout functions.
+
+	* emacs.c (main_1): initialize glyph vars.
+
+	* event-Xt.c (handle_focus_event_1): call handle_focus_event_2
+	(handle_focus_event_2): new function. Allow focus to
+	be set to a particular window and widget.
+	(enqueue_focus_event): new function. Create a
+	synthetic focus event.
+	(emacs_Xt_handle_magic_event): call
+	handle_focus_event_2.
+
+	* frame.c (Fset_frame_pixel_height): new function. Allow
+	pixel-based sizing. Does the right thing on character-oriented
+	displays.
+	(Fset_frame_pixel_width): ditto.
+	(Fset_frame_pixel_size): ditto.
+	(syms_of_frame): declare.
+
+	* general-slots.h: add :vertically-justify and
+	:horizontally-justify.
+
+	* glyphs-msw.c (xbm_create_bitmap_from_data): warning fix.
+	(mswindows_widget_border_width): new function.
+	(mswindows_combo_box_instantiate): set border widths.
+	(console_type_create_glyphs_mswindows): declare.
+
+	* glyphs-widget.c:
+	(check_valid_justification): allow vertical and horizontal
+	justification.
+	(widget_border_width): new function. Call device methods.
+	(widget_instance_border_width): ditto.
+	(logical_unit_height): new function. Determine the height of a
+	logical-unit. Logical units are intended to provide grid-like
+	layout for subcontrols in a layout. If the layout is
+	:vertically-justify top then subcontrols will be positioned on
+	logical-unit boundaries, thus allowing adjacent subcontrols to
+	line up.
+	(widget_logical_unit_height): ditto for widgets.
+	(redisplay_widget): misc cleanup.
+	(widget_spacing): new function. Call device specific
+	methods. Intended to be the default gap between adjacent widgets.
+	(widget_query_geometry): use new spacing functions to determine
+	appropriate geometry.
+	(initialize_widget_image_instance): initialize horizontal and
+	vertical justification.
+	(widget_instantiate): use logica-units where appropriate for
+	sizing large widgets.
+	(button_query_geometry): use widget_instance_border_width.
+	(tree_view_query_geometry): ditto.
+	(tab_control_query_geometry): ditto.
+	(edit_field_query_geometry): new function.
+	(layout_update): pick up :justify, :horizontally-justify and
+	:vertically-justify none of which worked previously. :justify is
+	used as a fallback for both horizontal and vertical justification.
+	(layout_query_geometry): use logical units to size appropriately.
+	(layout_layout): ditto.
+	(Fwidget_logical_to_character_width): new function. Allow users to
+	convert from logical units to characters so that frame sizes can
+	be set appropriately.
+	(Fwidget_logical_to_character_height): ditto.
+	(syms_of_glyphs_widget): declare.
+	(image_instantiator_edit_fields): add edit_field_query_geometry.
+	(VALID_LAYOUT_KEYWORDS): declare :vertically-justify and
+	:horizontally-justify.
+	(specifier_vars_of_glyphs_widget): new function. Declare
+	Vwidget_border_width which is not yet used.
+
+	* glyphs-x.c (x_map_subwindow): enqueue appropriate focus events.
+	(x_widget_border_width): new function.
+	(x_widget_instantiate): create a sensible name for widgets.
+	(console_type_create_glyphs_x): declare x_widget_border_width.
+
+	* glyphs.h (DEFAULT_WIDGET_BORDER_WIDTH): new macro.
+	(struct Lisp_Image_Instance): add :vertically-justify and
+	:horizontally-justify.
+	(LAYOUT_JUSTIFY_TOP): new.
+	(IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY): new.
+	(ROUND_UP): new macro. Round argument up to next integral
+	interval.
+
+	* redisplay-output.c (redisplay_output_layout): misc formatting.
+
+	* symsinit.h: declare specifier_vars_of_glyphs_widget.
+
 2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.9 "Informed Management" is released.

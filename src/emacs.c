@@ -1958,6 +1958,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 */
 
       specifier_vars_of_glyphs ();
+      specifier_vars_of_glyphs_widget ();
       specifier_vars_of_gutter ();
 #ifdef HAVE_MENUBARS
       specifier_vars_of_menubar ();
@@ -2950,28 +2951,26 @@ shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save)
 	("Your files have been auto-saved.\n"
 	 "Use `M-x recover-session' to recover them.\n"
 	 "\n"
-         "If you have access to the PROBLEMS file that came with your\n"
-         "version of XEmacs, please check to see if your crash is described\n"
-         "there, as there may be a workaround available.\n"
+         "Your version of XEmacs was distributed with a PROBLEMS file that  may describe\n"
+	 "your crash, and with luck a workaround.  Please check it first, but do report\n"
+	 "the crash anyway.  "
 #ifdef INFODOCK
-	 "Otherwise, please report this bug by selecting `Report-Bug'\n"
-         "in the InfoDock menu.\n"
+	 "\n\nPlease report this bug by selecting `Report-Bug' in the InfoDock menu.\n"
+	 "*BE SURE* to include the XEmacs configuration from M-x describe-installation,\n"
+	 "or the file Installation in the top directory of the build tree.\n"
 #else
-	 "Otherwise, please report this bug by running the send-pr\n"
-         "script included with XEmacs, or selecting `Send Bug Report'\n"
-         "from the help menu.\n"
-	 "As a last resort send ordinary email to `crashes@xemacs.org'.\n"
+	 "Please report this bug by invoking M-x report-emacs-bug,\n"
+	 "or by selecting `Send Bug Report' from the Help menu.  If necessary, send\n"
+	 "ordinary email to `crashes@xemacs.org'.  *MAKE SURE* to include the XEmacs\n"
+	 "configuration from M-x describe-installation, or equivalently the file\n"
+	 "Installation in the top of the build tree.\n"
 #endif
-	 "*MAKE SURE* to include the information in the command\n"
-	 "M-x describe-installation.\n"
 #ifndef _MSC_VER
 	 "\n"
-	 "If at all possible, *please* try to obtain a C stack backtrace;\n"
-	 "it will help us immensely in determining what went wrong.\n"
-	 "To do this, locate the core file that was produced as a result\n"
-	 "of this crash (it's usually called `core' and is located in the\n"
-	 "directory in which you started the editor, or maybe in your home\n"
-	 "directory), and type\n"
+	 "*Please* try *hard* to obtain a C stack backtrace; without it, we are unlikely\n"
+	 "to be able to analyze the problem.  Locate the core file produced as a result\n"
+	 "of this crash (often called `core' or `core.<process-id>', and located in\n"
+	 "the directory in which you started XEmacs or your home directory), and type\n"
 	 "\n"
 	 "  gdb "
 #endif
@@ -2998,11 +2997,12 @@ shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save)
 	  stderr_out ("%s%s", dir, name);
       }
       stderr_out
-	(" core\n\n"
-	 "then type `where' when the debugger prompt comes up.\n"
-	 "(If you don't have GDB on your system, you might have DBX,\n"
-	 "or XDB, or SDB.  A similar procedure should work for all of\n"
-	 "these.  Ask your system administrator if you need more help.)\n");
+	(" core\n"
+	 "\n"
+	 "then type `where' at the debugger prompt.  No GDB on your system?  You may\n"
+	 "have DBX, or XDB, or SDB.  (Ask your system administrator if you need help.)\n"
+	 "If no core file was produced, enable them (often with `ulimit -c unlimited'\n"
+	 "in case of future recurrance of the crash.\n");
 #endif /* _MSC_VER */
     }
 

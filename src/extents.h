@@ -313,6 +313,7 @@ EXFUN (Fextent_end_position, 1);
 EXFUN (Fextent_object, 1);
 EXFUN (Fextent_start_position, 1);
 EXFUN (Fmake_extent, 3);
+EXFUN (Fnext_single_property_change, 4);
 EXFUN (Fprevious_single_property_change, 4);
 EXFUN (Fset_extent_endpoints, 4);
 EXFUN (Fnext_extent_change, 2);

@@ -392,28 +392,30 @@ setup_context_cache (struct buffer *buf, Bufpos pt)
   }
 }
 
+/* GCC 2.95.4 seems to need the casts */
 #define SYNTAX_START_STYLE(c1, c2)					\
-  (SYNTAX_CODES_MATCH_START_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
+  ((enum comment_style)                                                 \
+   (SYNTAX_CODES_MATCH_START_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
    comment_style_a :							\
    SYNTAX_CODES_MATCH_START_P (c1, c2, SYNTAX_COMMENT_STYLE_B) ?	\
    comment_style_b :							\
-   comment_style_none)
+   comment_style_none))
 
 #define SYNTAX_END_STYLE(c1, c2)				\
-  (SYNTAX_CODES_MATCH_END_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
+  ((enum comment_style)                                         \
+   (SYNTAX_CODES_MATCH_END_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
    comment_style_a :						\
    SYNTAX_CODES_MATCH_END_P (c1, c2, SYNTAX_COMMENT_STYLE_B) ?	\
    comment_style_b :						\
-   comment_style_none)
+   comment_style_none))
 
-/* GCC 2.95.4 seems to need the cast */
-#define SINGLE_SYNTAX_STYLE(c)						\
-  ((enum comment_style)                                                 \
-      (SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_A) ?	\
-       comment_style_a :						\
-       SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_B) ?	\
-       comment_style_b :						\
-       comment_style_none))
+#define SINGLE_SYNTAX_STYLE(c)					\
+  ((enum comment_style)                                         \
+   (SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_A) ?	\
+   comment_style_a :						\
+   SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_B) ?	\
+   comment_style_b :						\
+   comment_style_none))
 
 /* Set up context_cache for position PT in BUF. */
 
@@ -435,6 +437,7 @@ find_context (struct buffer *buf, Bufpos pt)
   setup_context_cache (buf, pt);
   pt = context_cache.cur_point;
 
+  SCS_STATISTICS_SET_FUNCTION (scs_find_context);
   SETUP_SYNTAX_CACHE (pt - 1, 1);
   if (pt > BUF_BEGV (buf))
     {
@@ -637,13 +640,18 @@ find_context (struct buffer *buf, Bufpos pt)
       else if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 		SYNTAX_FIRST_CHAR_END) &&
 	       context_cache.context == context_block_comment &&
+#if 0
+	       /* #### pre-Matt code had: */
+	       (context_cache.style ==
+		SYNTAX_END_STYLE (c, BUF_FETCH_CHAR (buf, pt+1))) &&
+	       /* why do these differ here?! */
+#endif
 	       context_cache.style == SINGLE_SYNTAX_STYLE (syncode) &&
 	       (context_cache.ccontext == ccontext_start2 ||
 		context_cache.ccontext == ccontext_end1))
-	/* #### is it right to check for end1 here?? 
-	   yes, because this might be a repetition of the first char
-	   of a comment-end sequence. ie, '/xxx foo xxx/' or
-	   '/xxx foo x/', where 'x' = '*' -- mct */
+	/* check end1, to detect a repetition of the first char of a
+	   comment-end sequence. ie, '/xxx foo xxx/' or '/xxx foo x/',
+	   where 'x' = '*' -- mct */
 	{
 	  if (context_cache.style == comment_style_none) abort ();
 	  context_cache.ccontext = ccontext_end1;

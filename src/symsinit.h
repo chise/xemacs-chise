@@ -388,6 +388,7 @@ void vars_of_gpmevent (void);
 /* Initialize specifier variables (dump-time only). */
 
 void specifier_vars_of_glyphs (void);
+void specifier_vars_of_glyphs_widget (void);
 void specifier_vars_of_gutter (void);
 void specifier_vars_of_menubar (void);
 void specifier_vars_of_redisplay (void);

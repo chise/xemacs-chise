@@ -263,6 +263,11 @@ struct console_methods
   void (*resize_subwindow_method) (Lisp_Image_Instance *, int w, int h);
   void (*redisplay_subwindow_method) (Lisp_Image_Instance *);
   void (*redisplay_widget_method) (Lisp_Image_Instance *);
+  /* Maybe this should be a specifier. Unfortunately specifiers don't
+     allow us to represent things at the toolkit level, which is what
+     is required here. */
+  int (*widget_border_width_method) (void);
+  int (*widget_spacing_method) (Lisp_Image_Instance *);
   int (*image_instance_equal_method) (Lisp_Image_Instance *,
 				      Lisp_Image_Instance *,
 				      int depth);

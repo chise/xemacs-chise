@@ -1385,8 +1385,10 @@ $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 <<
 # Make the resource section read/write since almost all of it is the dump
 # data which needs to be writable.  This avoids having to copy it.
-	editbin -nologo -section:.rsrc,rw xemacs.exe
+	editbin -nologo -stack:0x800000 -section:.rsrc,rw xemacs.exe
 	$(DEL) $(TEMACS_DIR)\xemacs.dmp
+!else
+	editbin -nologo -stack:0x800000 xemacs.exe
 !endif
 	cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
@@ -1497,14 +1499,14 @@ installation::
 OS: $(OS)
 !endif
 
-XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_CONFIGURATION)'.
+XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename) configured for `$(EMACS_CONFIGURATION)'.
 
-  Building XEmacs in \"$(MAKEDIR:\=\\)\".
+  Building XEmacs in "$(MAKEDIR:\=\\)".
 !if defined(CCV)
-  Using compiler \"$(CC) $(CFLAGS)\".
+  Using compiler "$(CC) $(CFLAGS)".
 !endif
-  Installing XEmacs in \"$(INSTALL_DIR:\=\\)\".
-  Package path is $(PATH_PACKAGEPATH:"=\").
+  Installing XEmacs in "$(INSTALL_DIR:\=\\)".
+  Package path is $(PATH_PACKAGEPATH).
 !if $(INFODOCK)
   Building InfoDock.
 !endif

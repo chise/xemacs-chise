@@ -41,6 +41,7 @@ byte compilation.
 @menu
 * Speed of Byte-Code::          An example of speedup from byte compilation.
 * Compilation Functions::       Byte compilation functions.
+* Compilation Options::         Controlling the byte compiler's behavior.
 * Docs and Compilation::        Dynamic loading of documentation strings.
 * Dynamic Loading::             Dynamic loading of individual functions.
 * Eval During Compile::  	Code to be evaluated when you compile.
@@ -255,11 +256,17 @@ command line.
 
 @c XEmacs feature
 @defvar byte-recompile-directory-ignore-errors-p
-  If non-@code{nil}, this specifies that @code{byte-recompile-directory}
-will continue compiling even when an error occurs in a file.  This is
-normally @code{nil}, but is bound to @code{t} by
-@code{batch-byte-recompile-directory}.
+  When non-@code{nil}, @code{byte-recompile-directory} will continue
+compiling even when an error occurs in a file.  Default: @code{nil}, but
+bound to @code{t} by @code{batch-byte-recompile-directory}.
 @end defvar
+
+@c XEmacs feature (?)
+@defvar byte-recompile-directory-recursively
+   When non-@code{nil}, @code{byte-recompile-directory} will recurse on
+subdirectories.  Default: @code{t}.
+@end defvar
+
 
 @defun byte-code instructions constants stack-depth
 @cindex byte-code interpreter
@@ -273,6 +280,287 @@ call to @code{byte-code}.  A byte-compiled function was once actually
 defined with a body that calls @code{byte-code}, but in recent versions
 of Emacs @code{byte-code} is only used to run isolated fragments of lisp
 code without an associated argument list.
+@end defun
+
+@node Compilation Options
+@section Options for the Byte Compiler
+@cindex compilation options
+
+Warning: this node is a quick draft based on docstrings.  There may be
+inaccuracies, as the docstrings occasionally disagree with each other.
+This has not been checked yet.
+
+The byte compiler and optimizer are controlled by the following
+variables.  The @code{byte-compiler-options} macro described below
+provides a convenient way to set most of them on a file-by-file basis.
+
+@defvar emacs-lisp-file-regexp
+Regexp which matches Emacs Lisp source files.
+You may want to redefine @code{byte-compile-dest-file} if you change
+this.  Default: @code{"\\.el$"}.
+@end defvar
+
+@defun byte-compile-dest-file filename
+Convert an Emacs Lisp source file name to a compiled file name.  This
+function may be redefined by the user, if necessary, for compatibility
+with @code{emacs-lisp-file-regexp}.
+@end defun
+
+@c ;; This can be the 'byte-compile property of any symbol.
+@c (autoload 'byte-compile-inline-expand "byte-optimize")
+
+@defvar byte-compile-verbose
+When non-@code{nil}, print messages describing progress of
+byte-compiler.  Default: @code{t} if interactive on a not-too-slow
+terminal (see @code{search-slow-speed}), otherwise @code{nil}.
+@end defvar
+
+@defvar byte-optimize
+Level of optimization in the byte compiler.
+
+@table @code
+@item nil
+Do no optimization.
+
+@item t
+Do all optimizations.
+
+@item source
+Do optimizations manipulating the source code only.
+
+@item byte
+Do optimizations manipulating the byte code (actually, LAP code) only.
+@end table
+Default: @code{t}.
+@end defvar
+
+@defvar byte-compile-delete-errors
+When non-@code{nil}, the optimizer may delete forms that may signal an
+error if that is the only change in the function's behavior.
+This includes variable references and calls to functions such as
+@code{car}.
+Default: @code{t}.
+@end defvar
+
+@defvar byte-optimize-log nil
+When non-@code{nil}, the byte-compiler logs optimizations into
+@file{*Compile-Log*}.
+
+@table @code
+@item nil
+Log no optimization.
+
+@item t
+Log all optimizations.
+
+@item source
+Log optimizations manipulating the source code only.
+
+@item byte
+Log optimizations manipulating the byte code (actually, LAP code) only.
+@end table
+Default: @code{nil}.
+@end defvar
+
+@defvar byte-compile-error-on-warn
+When non-@code{nil}, the byte-compiler reports warnings with @code{error}.
+Default:  @code{nil}.
+@end defvar
+
+@defvar byte-compile-default-warnings
+The warnings used when @code{byte-compile-warnings} is @code{t}.  Called
+@code{byte-compile-warning-types} in GNU Emacs.
+Default: @code{(redefine callargs subr-callargs free-vars unresolved
+unused-vars obsolete)}.
+@end defvar
+
+@defvar byte-compile-warnings
+
+List of warnings that the compiler should issue (@code{t} for the
+default set).  Elements of the list may be:
+
+@table @code
+@item free-vars
+References to variables not in the current lexical scope.
+
+@item unused-vars
+References to non-global variables bound but not referenced.
+
+@item unresolved
+Calls to unknown functions.
+
+@item callargs
+Lambda calls with args that don't match the definition.
+
+@item subr-callargs
+Calls to subrs with args that don't match the definition.
+
+@item redefine
+Function cell redefined from a macro to a lambda or vice
+versa, or redefined to take a different number of arguments.
+
+@item obsolete
+Use of an obsolete function or variable.
+
+@item pedantic
+Warn of use of compatible symbols.
+@end table
+
+The default set is specified by @code{byte-compile-default-warnings} and
+normally encompasses all possible warnings.
+
+See also the macro @code{byte-compiler-options}.  Default: @code{t}.
+@end defvar
+
+The compiler can generate a call graph, which gives information about
+which functions call which functions.
+
+@defvar byte-compile-generate-call-tree
+When non-@code{nil}, the compiler generates a call graph.  This records
+functions that were called and from where.  If the value is @code{t},
+compilation displays the call graph when it finishes.  If the value is
+neither @code{t} nor @code{nil}, compilation asks you whether to display
+the graph.
+
+The call tree only lists functions called, not macros used. Those
+functions which the byte-code interpreter knows about directly
+(@code{eq}, @code{cons}, etc.) are not reported.
+
+The call tree also lists those functions which are not known to be called
+(that is, to which no calls have been compiled).  Functions which can be
+invoked interactively are excluded from this list.  Default: @code{nil}.
+@end defvar
+
+@defvar byte-compile-call-tree nil
+
+Alist of functions and their call tree, used internally.
+Each element takes the form
+
+  (@var{function} @var{callers} @var{calls})
+
+where @var{callers} is a list of functions that call @var{function}, and
+@var{calls} is a list of functions for which calls were generated while
+compiling @var{function}.
+@end defvar
+
+@defvar byte-compile-call-tree-sort
+When non-@code{nil}, sort the call tree.  The values @code{name},
+@code{callers}, @code{calls}, and @code{calls+callers} specify different
+fields to sort on.")  Default: @code{name}.
+@end defvar
+
+@code{byte-compile-overwrite-file} controls treatment of existing
+compiled files.
+
+@defvar byte-compile-overwrite-file
+When non-@code{nil}, do not preserve backups of @file{.elc}s.
+Precisely, if @code{nil}, old @file{.elc} files are deleted before the
+new one is saved, and @file{.elc} files will have the same modes as the
+corresponding @file{.el} file.  Otherwise, existing @file{.elc} files
+will simply be overwritten, and the existing modes will not be changed.
+If this variable is @code{nil}, then an @file{.elc} file which is a
+symbolic link will be turned into a normal file, instead of the file
+which the link points to being overwritten.  Default: @code{t}.
+@end defvar
+
+Variables controlling recompiling directories are described elsewhere
+@xref{Compilation Functions}.  They are
+@code{byte-recompile-directory-ignore-errors-p} and
+@code{byte-recompile-directory-recursively}.
+
+The dynamic loading features are described elsewhere.  These are
+controlled by the variables @code{byte-compile-dynamic} (@pxref{Dynamic
+Loading}) and @code{byte-compile-dynamic-docstrings} (@pxref{Docs and
+Compilation}).
+
+The byte compiler is a relatively recent development, and has evolved
+significantly over the period covering Emacs versions 19 and 20.  The
+following variables control use of newer functionality by the byte
+compiler.  These are rarely needed since the release of XEmacs 21.
+
+Another set of compatibility issues arises between Mule and non-Mule
+XEmacsen; there are no known compatibility issues specific to the byte
+compiler.  There are also compatibility issues between XEmacs and GNU
+Emacs's versions of the byte compiler.  While almost all of the byte
+codes are the same, and code compiled by one version often runs
+perfectly well on the other, this is very dangerous, and can result in
+crashes or data loss.  Always recompile your Lisp when moving between
+XEmacs and GNU Emacs.
+
+@defvar byte-compile-single-version nil
+When non-@code{nil}, the choice of emacs version (v19 or v20) byte-codes
+will be hard-coded into bytecomp when it compiles itself.  If the
+compiler itself is compiled with optimization, this causes a speedup.
+Default: @code{nil}.
+@end defvar
+
+@defvar byte-compile-emacs19-compatibility
+When non-@code{nil} generate output that can run in Emacs 19.
+Default: @code{nil} when Emacs version is 20 or above, otherwise
+@code{t}.
+@end defvar
+
+@defvar byte-compile-print-gensym
+When non-@code{nil}, the compiler may generate code that creates unique
+symbols at run-time.  This is achieved by printing uninterned symbols
+using the @code{#:@var{}} notation, so that they will be read uninterned
+when run.
+
+With this feature, code that uses uninterned symbols in macros will
+not be runnable under pre-21.0 XEmacsen.
+
+Default: When @code{byte-compile-emacs19-compatibility} is non-nil, this
+variable is ignored and considered to be @code{nil}.  Otherwise
+@code{t}.
+@end defvar
+
+@defvar byte-compile-new-bytecodes
+This is completely ignored.  For backwards compatibility.
+@end defvar
+
+@defun byte-compiler-options &rest args
+Set some compilation-parameters for this file.  
+This will affect only the file in which it appears; this does nothing when
+evaluated, or when loaded from a @file{.el} file.
+
+Each argument to this macro must be a list of a key and a value.
+(#### Need to check whether the newer variables are settable here.)
+
+@example
+  Keys:		  Values:		Corresponding variable:
+
+  verbose	  t, nil		byte-compile-verbose
+  optimize	  t, nil, source, byte	byte-optimize
+  warnings	  list of warnings	byte-compile-warnings
+  file-format	  emacs19, emacs20	byte-compile-emacs19-compatibility
+@end example
+
+The value specified with the @code{warnings}option must be a list,
+containing some subset of the following flags:
+
+@example
+  free-vars	references to variables not in the current lexical scope.
+  unused-vars	references to non-global variables bound but not referenced.
+  unresolved	calls to unknown functions.
+  callargs	lambda calls with args that don't match the definition.
+  redefine	function cell redefined from a macro to a lambda or vice
+		versa, or redefined to take a different number of arguments.
+@end example
+
+If the first element if the list is @code{+} or `@code{} then the
+specified elements are added to or removed from the current set of
+warnings, instead of the entire set of warnings being overwritten.
+(#### Need to check whether the newer warnings are settable here.)
+
+For example, something like this might appear at the top of a source file:
+
+@example
+    (byte-compiler-options
+      (optimize t)
+      (warnings (- callargs))		; Don't warn about arglist mismatch
+      (warnings (+ unused-vars))	; Do warn about unused bindings
+      (file-format emacs19))
+@end example
 @end defun
 
 @node Docs and Compilation
@@ -327,6 +615,7 @@ file-local binding for the variable.  Here's one way to do that:
 @defvar byte-compile-dynamic-docstrings
 If this is non-@code{nil}, the byte compiler generates compiled files
 that are set up for dynamic loading of documentation strings.
+Default: t.
 @end defvar
 
 @cindex @samp{#@@@var{count}}
@@ -387,6 +676,7 @@ specific source files with file-local variable bindings, like this:
 @defvar byte-compile-dynamic
 If this is non-@code{nil}, the byte compiler generates compiled files
 that are set up for dynamic function loading.
+Default: nil.
 @end defvar
 
 @defun fetch-bytecode function

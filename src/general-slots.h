@@ -139,6 +139,8 @@ SYMBOL (Qinteger);
 SYMBOL (Qinternal);
 SYMBOL_KEYWORD (Q_items);
 SYMBOL_KEYWORD (Q_justify);
+SYMBOL_KEYWORD (Q_vertically_justify);
+SYMBOL_KEYWORD (Q_horizontally_justify);
 SYMBOL (Qkey);
 SYMBOL (Qkey_assoc);
 SYMBOL_KEYWORD (Q_key_sequence);

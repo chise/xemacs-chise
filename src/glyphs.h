@@ -97,8 +97,9 @@ enum image_instance_geometry
 #define IMAGE_UNSPECIFIED_GEOMETRY -1
 #define IMAGE_UNCHANGED_GEOMETRY -2
 
-#define WIDGET_BORDER_HEIGHT 4
-#define WIDGET_BORDER_WIDTH 4
+#define DEFAULT_WIDGET_BORDER_WIDTH 2
+#define DEFAULT_WIDGET_SPACING 3
+#define DEFAULT_WIDGET_SHADOW_WIDTH 2
 
 enum governing_domain
 {
@@ -587,7 +588,8 @@ struct Lisp_Image_Instance
       unsigned int v_resize : 1;	/* Whether the vsize is allowed to change. */
       unsigned int h_resize : 1;	/* Whether the hsize is allowed to change. */
       unsigned int orientation : 1; /* Vertical or horizontal. */
-      unsigned int justification : 2; /* Left, right or center. */
+      unsigned int h_justification : 2; /* left, right or center. */
+      unsigned int v_justification : 2; /* top, bottom or center. */
       /* Face for colors and font. We specify this here because we
 	 want people to be able to put :face in the instantiator
 	 spec. Using glyph-face is more inconvenient, although more
@@ -616,7 +618,9 @@ struct Lisp_Image_Instance
 #define LAYOUT_VERTICAL	1
 
 #define LAYOUT_JUSTIFY_LEFT 0
+#define LAYOUT_JUSTIFY_TOP 0
 #define LAYOUT_JUSTIFY_RIGHT 1
+#define LAYOUT_JUSTIFY_BOTTOM 1
 #define LAYOUT_JUSTIFY_CENTER 2
 
 #define IMAGE_INSTANCE_HASH_DEPTH 0
@@ -708,8 +712,26 @@ struct Lisp_Image_Instance
 ((i)->u.subwindow.h_resize)
 #define IMAGE_INSTANCE_SUBWINDOW_ORIENT(i) \
 ((i)->u.subwindow.orientation)
-#define IMAGE_INSTANCE_SUBWINDOW_JUSTIFY(i) \
-((i)->u.subwindow.justification)
+#define IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY(i) \
+((i)->u.subwindow.h_justification)
+#define IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY(i) \
+((i)->u.subwindow.v_justification)
+#define IMAGE_INSTANCE_SUBWINDOW_RIGHT_JUSTIFIED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY(i) == LAYOUT_JUSTIFY_RIGHT)
+#define IMAGE_INSTANCE_SUBWINDOW_LEFT_JUSTIFIED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY(i) == LAYOUT_JUSTIFY_LEFT)
+#define IMAGE_INSTANCE_SUBWINDOW_TOP_JUSTIFIED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY(i) == LAYOUT_JUSTIFY_TOP)
+#define IMAGE_INSTANCE_SUBWINDOW_BOTTOM_JUSTIFIED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY(i) == LAYOUT_JUSTIFY_BOTTOM)
+#define IMAGE_INSTANCE_SUBWINDOW_H_CENTERED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_H_JUSTIFY(i) == LAYOUT_JUSTIFY_CENTER)
+#define IMAGE_INSTANCE_SUBWINDOW_V_CENTERED(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_V_JUSTIFY(i) == LAYOUT_JUSTIFY_CENTER)
+#define IMAGE_INSTANCE_SUBWINDOW_LOGICAL_LAYOUT(i) \
+ (IMAGE_INSTANCE_SUBWINDOW_ORIENT (i) \
+  == LAYOUT_VERTICAL && !IMAGE_INSTANCE_SUBWINDOW_V_CENTERED (i))
+
 #define IMAGE_INSTANCE_SUBWINDOW_FACE(i) \
 ((i)->u.subwindow.face)
 
@@ -1147,5 +1169,7 @@ struct expose_ignore
 
 int check_for_ignored_expose (struct frame* f, int x, int y, int width, int height);
 extern int hold_ignored_expose_registration;
+
+#define ROUND_UP(arg, unit) (((int)((arg) + (unit) - 1) / (int)(unit)) * (int)(unit))
 
 #endif /* INCLUDED_glyphs_h_ */

@@ -4,7 +4,7 @@
    Copyright (C) 1995 Tinker Systems
    Copyright (C) 1995, 1996 Ben Wing
    Copyright (C) 1995 Sun Microsystems
-   Copyright (C) 1999, 2000 Andy Piper
+   Copyright (C) 1999, 2000, 2002 Andy Piper
 
 This file is part of XEmacs.
 
@@ -158,6 +158,8 @@ update_tab_widget_face (widget_value* wv,
 #endif
 void
 emacs_Xt_handle_widget_losing_focus (struct frame* f, Widget losing_widget);
+void
+enqueue_focus_event (Widget wants_it, Lisp_Object frame, int in_p);
 
 #include "bitmaps.h"
 
@@ -2172,6 +2174,14 @@ x_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 		    -dga->xoffset, -dga->yoffset);
       if (!IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (p))
 	XtMapWidget (IMAGE_INSTANCE_X_CLIPWIDGET (p));
+      /* See comments in glyphs-msw.c about keyboard focus. */
+      if (IMAGE_INSTANCE_WANTS_INITIAL_FOCUS (p)) {
+	/* #### FIXME to pop-up the find dialog we map the text-field
+	   seven times! This doesn't show on a fast linux box but does
+	   under X on windows. */
+	enqueue_focus_event (IMAGE_INSTANCE_X_WIDGET_ID (p),
+			     IMAGE_INSTANCE_FRAME (p), 1);
+      }
     }
 }
 
@@ -2346,6 +2356,14 @@ x_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = (void*)win;
 }
 
+/* Account for some of the limitations with widget images. */
+static int
+x_widget_border_width (void)
+{
+  return DEFAULT_WIDGET_BORDER_WIDTH * 2;
+}
+
+
 #if 0
 /* #### Should this function exist? If there's any doubt I'm not implementing it --andyp */
 DEFUN ("change-subwindow-property", Fchange_subwindow_property, 3, 3, 0, /*
@@ -2507,6 +2525,10 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			False, 0, 0, 0);
 
   free_widget_value_tree (clip_wv);
+
+  /* create a sensible name. */
+  if (wv->name == 0 || strcmp(wv->name, "") == 0)
+    wv->name = xstrdup (type);
 
   /* copy any args we were given */
   ac = 0;
@@ -2883,6 +2905,7 @@ console_type_create_glyphs_x (void)
   CONSOLE_HAS_METHOD (x, map_subwindow);
   CONSOLE_HAS_METHOD (x, redisplay_widget);
   CONSOLE_HAS_METHOD (x, redisplay_subwindow);
+  CONSOLE_HAS_METHOD (x, widget_border_width);
 }
 
 void

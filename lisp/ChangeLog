@@ -732,6 +732,73 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.10 "Military Intelligence" is released.
+
+2002-10-07  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* font-lock.el (font-lock-fontify-keywords-region): Fix typo.
+
+2002-10-07  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* keydefs.el (global-map): Bind C-xrd to delete-rectangle per GNU.
+
+2001-05-10   Daiki Ueno  <ueno@unixuser.org>
+
+	* font-lock.el (font-lock-compile-keywords): Rewrite as a side
+	effect free function.
+	(font-lock-fontify-keywords-region): Supply the argument to
+	font-lock-compile-keywords.
+
+2002-09-22  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Bring sites list
+	up to date, prefer xx.xemacs.org addresses.
+
+2002-09-27  Andy Piper  <andy@xemacs.org>
+
+	* dialog.el (make-dialog-box): for general dialogs only
+	delete-frame-hook will be run.
+
+2002-09-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* font-lock.el (font-lock-fontify-syntactically-region): Add
+	comment about lookup-syntax-properties, document LOUDLY as unused.
+
+2002-08-26  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (set-progress-feedback-instantiator): Fix bad
+	merge.
+
+2002-09-02  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* bytecomp-runtime.el (make-obsolete): Docstring argument nit.
+	(make-obsolete-variable): Ditto.
+	(make-compatible): Ditto.
+	(make-compatible-variable): Ditto.
+
+2002-09-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* obsolete.el (parse-sexp-lookup-properties): new compatible alias
+	for `lookup-syntax-properties'.  RFE from Alan Mackenzie.
+
+2002-08-28  Andy Piper  <andy@xemacs.org>
+
+	* files.el (revert-buffer): propagate revert-without-query-status.
+
+2002-06-03  Andy Piper  <andy@xemacs.org>
+
+	* dialog-items.el (make-search-dialog): align various subcontrols
+	in visually pleasing ways, allow frame to autosize to the dialog
+	size.
+	* dialog.el (make-dialog-box): add a border inside the frame. Add
+	:autosize property, if t then reset the frame size appropriately
+	before the frame is mapped.
+	* gutter-items.el (set-progress-feedback-instantiator): align
+	various subcontrols.
+	* gutter-items.el (set-progress-abort-instantiator): ditto.
+
 2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.9 "Informed Management" is released.

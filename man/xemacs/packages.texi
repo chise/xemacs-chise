@@ -274,7 +274,7 @@ The package has been marked for installation/update.
 @end table
 
 If there is no character in the first column, the package has been
-installed and is up-to-date.
+installed and is up to date.
 
 From here, you can select or unselect packages for installation using
 the @key{RET} key, the @kbd{Mouse-2} button or selecting "Select" from
@@ -664,7 +664,7 @@ xemacs.org and it's mirrors.  If a particular package that you are
 looking for isn't here, please send a message to the
 @email{xemacs-beta@@xemacs.org, XEmacs Beta list}.
 
-This data is up-to-date as of August 8, 2002.
+This data is up to date as of September 22, 2002.
 
 @subsection Normal Packages
 A very broad selection of elisp packages.
@@ -769,11 +769,14 @@ Footnoting in mail message editing modes.
 @item forms
 Forms editing support (obsolete, use the built-in Widget instead).
 
+@item fortran-modes
+Fortran language support.
+
 @item frame-icon
 Provide a WM icon based on major mode.
 
 @item fsf-compat
-FSF Emacs compatibility files.
+GNU Emacs compatibility files.
 
 @item games
 Tetris, Sokoban, and Snake.
@@ -785,7 +788,7 @@ XEmacs bug reports.
 The Gnus Newsreader and Mailreader.
 
 @item haskell-mode
-Haskell editing support.
+Haskell language support.
 
 @item hm--html-menus
 HTML editing.
@@ -841,7 +844,7 @@ Miscellaneous single-file O/S utilities, for printing, archiving,
 compression, remote shells, etc.
 
 @item ocaml
-Objective Caml editing support.
+Objective Caml language support.
 
 @item pc
 PC style interface emulation.
@@ -852,6 +855,9 @@ CVS frontend.
 @item pcomplete
 Provides programmatic completion.
 
+@item perl-modes
+Perl language support.
+
 @item prog-modes
 Miscellaneous single-file lisp files for various programming languages.
 
@@ -861,11 +867,22 @@ Print buffers to PostScript printers.
 @item psgml
 Validated HTML/SGML editing.
 
+@item psgml-dtds
+A collection of DTDs for psgml.  Note that this package is deprecated
+and will be removed in the future, most likely Q2/2003.  Instead of using
+this, you should install needed DTDs yourself.
+
+@item python-modes
+Python language support.
+
 @item reftex
 Emacs support for LaTeX cross-references, citations.
 
 @item rmail
 An obsolete Emacs mailer.  If you do not already use it don't start.
+
+@item ruby-modes
+Ruby language support.
 
 @item sasl
 Simple Authentication and Security Layer (SASL) library.

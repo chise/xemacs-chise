@@ -195,6 +195,8 @@ The keywords allowed for `general' are
   The frame is made a child of this frame (defaults to the selected frame).
 :properties
   Additional properties of the frame, as well as `dialog-frame-plist'.
+:autosize
+  If t the frame is sized to exactly fit the widgets given by :spec.
 
 ---------------------------------------------------------------------------
 
@@ -547,7 +549,9 @@ The keywords allowed are
 				   'internal-make-dialog-box-exit did)
 				  (remove-hook 'delete-dialog-box-hook
 					       ',sym))))
-		       (add-hook 'delete-dialog-box-hook sym)
+		       (if (framep id)
+			   (add-hook 'delete-frame-hook sym)
+			 (add-hook 'delete-dialog-box-hook sym))
 		       (mapc 'disable-frame frames)
 		       (block nil
 			 (while t
@@ -568,6 +572,7 @@ The keywords allowed are
 	     (:parent (selected-frame))
 	     :modal
 	     :properties
+	     :autosize
 	     :spec)
 	    ()
 	  (flet ((create-dialog-box-frame ()
@@ -615,6 +620,7 @@ The keywords allowed are
 					    vertical-scrollbar-visible-p nil
 					    horizontal-scrollbar-visible-p nil
 					    unsplittable t
+					    internal-border-width 8
 					    left ,(+ fleft (- (/ fwidth 2)
 							      (/ (* dfwidth
 								    fontw)
@@ -625,6 +631,19 @@ The keywords allowed are
 							       2)))))))
 		     (set-face-foreground 'modeline [default foreground] frame)
 		     (set-face-background 'modeline [default background] frame)
+		     ;; resize before mapping
+		     (when cl-autosize
+		       (set-frame-pixel-size 
+			frame
+			(image-instance-width 
+			 (glyph-image-instance cl-spec 
+					       (frame-selected-window frame)))
+			(image-instance-height 
+			 (glyph-image-instance cl-spec 
+					       (frame-selected-window frame)))))
+		     ;; somehow, even though the resizing is supposed
+		     ;; to be while the frame is not visible, a
+		     ;; visible resize is perceptible
 		     (unless unmapped (make-frame-visible frame))
 		     (let ((newbuf (generate-new-buffer " *dialog box*")))
 		       (set-buffer-dedicated-frame newbuf frame)

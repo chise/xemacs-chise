@@ -123,6 +123,11 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	(missing-message-failures 0)
 	(other-failures 0)
 
+	;; #### perhaps this should be a defvar, and output at the very end
+	;; OTOH, this way AC types can use a null EMACSPACKAGEPATH to find
+	;; what stuff is needed, and ways to avoid using them
+	(skipped-test-reasons (make-hash-table :test 'equal))
+
 	(trick-optimizer nil)
 	(unexpected-test-suite-failure nil)
 	(debug-on-error t))
@@ -186,32 +191,44 @@ The output file's name is made by appending `c' to the end of FILENAME."
 			     ,quoted-body ',expected-error error-info))
 	      (incf wrong-error-failures)))))
 
+      (defun Print-Skip (test reason &optional fmt &rest args)
+	(setq fmt (concat "SKIP: %S.  REASON: %S" fmt))
+	(princ (concat (apply #'format fmt test reason args) "\n")))
+
 
       (defmacro Check-Message (expected-message-regexp &rest body)
-	(let ((quoted-body (if (= 1 (length body))
-			       `(quote ,(car body)) `(quote (progn ,@body)))))
-	  `(let ((messages ""))
-	     (defadvice message (around collect activate)
-	       (defvar messages)
-	       (let ((msg-string (apply 'format (ad-get-args 0))))
-		 (setq messages (concat messages msg-string))
-		 msg-string))
-	     (condition-case error-info
-		 (progn
-		   (setq trick-optimizer (progn ,@body))
-		   (if (string-match ,expected-message-regexp messages)
-		       (progn
-			 (princ (format "PASS: %S ==> value %S, message %S, matching %S, as expected\n"
-					,quoted-body trick-optimizer messages ',expected-message-regexp))
-			 (incf passes))
-		     (princ (format "FAIL: %S ==> value %S, message %S, NOT matching expected %S\n"
-				    ,quoted-body  trick-optimizer messages ',expected-message-regexp))
-		     (incf missing-message-failures)))
-	       (error
-		(princ (format "FAIL: %S ==> unexpected error %S\n"
-			       ,quoted-body error-info))
-		(incf other-failures)))
-	     (ad-unadvise 'message))))
+	(if (not (fboundp 'defadvice))
+	    ;; #### This whole thing should go inside a macro Skip-Test
+	    (let* ((reason "advice unavailable")
+		   (count (gethash reason skipped-test-reasons)))
+	      ;(message "%S: %S" reason count)
+	      (puthash reason (if (null count) 1 (1+ count))
+		       skipped-test-reasons)
+	      `(Print-Skip ,expected-message-regexp ,reason))
+	  (let ((quoted-body (if (= 1 (length body))
+				 `(quote ,(car body)) `(quote (progn ,@body)))))
+	    `(let ((messages ""))
+	       (defadvice message (around collect activate)
+		 (defvar messages)
+		 (let ((msg-string (apply 'format (ad-get-args 0))))
+		   (setq messages (concat messages msg-string))
+		   msg-string))
+	       (condition-case error-info
+		   (progn
+		     (setq trick-optimizer (progn ,@body))
+		     (if (string-match ,expected-message-regexp messages)
+			 (progn
+			   (princ (format "PASS: %S ==> value %S, message %S, matching %S, as expected\n"
+					  ,quoted-body trick-optimizer messages ',expected-message-regexp))
+			   (incf passes))
+		       (princ (format "FAIL: %S ==> value %S, message %S, NOT matching expected %S\n"
+				      ,quoted-body  trick-optimizer messages ',expected-message-regexp))
+		       (incf missing-message-failures)))
+		 (error
+		  (princ (format "FAIL: %S ==> unexpected error %S\n"
+				 ,quoted-body error-info))
+		  (incf other-failures)))
+	       (ad-unadvise 'message)))))
 
       (defmacro Ignore-Ebola (&rest body)
 	`(let ((debug-issue-ebola-notices -42)) ,@body))
@@ -270,7 +287,19 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	      (if (> total 0)
 		  (format "%s: %d of %d (%d%%) tests successful."
 			  basename passes total (/ (* 100 passes) total))
-		(format "%s: No tests run" basename))))
+		(format "%s: No tests run" basename)))
+	     (reasons ""))
+	(maphash (lambda (key value)
+		   (setq reasons
+			 (concat reasons
+				 (format "\n    %d tests skipped because %s"
+					 value key))))
+		 skipped-test-reasons)
+	(when (> (length reasons) 1)
+	  (setq summary-msg (concat summary-msg reasons "
+    Probably XEmacs cannot find your installed packages.  Set EMACSPACKAGEPATH
+    to the package hierarchy root or configure with --package-path to enable
+    the skipped tests.")))
 	(message "%s" summary-msg))
       (when unexpected-test-suite-failure
 	(message "Test suite execution failed unexpectedly."))

@@ -106,6 +106,8 @@ setting NEWVAR and marks OLDVAR as provided for compatibility only."
 (make-obsolete 'set-window-dot 'set-window-point)
 
 (define-obsolete-function-alias 'extent-buffer 'extent-object)
+(define-compatible-variable-alias 'parse-sexp-lookup-properties
+  'lookup-syntax-properties)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; frames
 (defun frame-first-window (frame)

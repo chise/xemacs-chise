@@ -914,6 +914,10 @@ unix_create_process (Lisp_Process *p,
 	int xforkin = forkin;
 	int xforkout = forkout;
 
+	/* Checking for quit in the child is bad because that will 
+	   cause I/O, and that, in turn, can confuse the X connection. */
+	begin_dont_check_for_quit();
+
 	/* Disconnect the current controlling terminal, pursuant to
 	   making the pty be the controlling terminal of the process.
 	   Also put us in our own process group. */
