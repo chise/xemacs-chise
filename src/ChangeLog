@@ -1,5 +1,24 @@
 2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Vcharacter_ideographic_radical_table): New
+	variable.
+	(Vcharacter_ideographic_strokes_table): New variable.
+	(Qideographic_radical): New variable.
+	(Qideographic_strokes): New variable.
+	(Fchar_attribute_alist): Use
+	`Vcharacter_ideographic_radical_table' for `ideographic-radical'
+	attribute; use `Vcharacter_ideographic_strokes_table' for
+	`ideographic-strokes' attribute.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(syms_of_mule_charset): Add new symbol `ideographic-radical' and
+	`ideographic-strokes'.
+	(vars_of_mule_charset): Setup
+	`Vcharacter_ideographic_radical_table' and
+	`Vcharacter_ideographic_strokes_table'.
+
+2000-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Vcharacter_total_strokes_table): New variable.
 	(Qtotal_strokes): New variable.
 	(Fchar_attribute_alist): Use `Vcharacter_total_strokes_table' for
