@@ -251,7 +251,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x5C11)	; å°‘
+     ((=jis-x0208	  . #x3E2F)	; ø½Š °
+      (korean-ksc5601	  . #x6134)	; ø»‰¸Ÿ
+      (ideograph-daikanwa . 07475)	; ø¸´³
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
