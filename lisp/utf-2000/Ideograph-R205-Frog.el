@@ -7,6 +7,7 @@
     (japanese-jisx0208		. #x7366)	; ø»ˆ‰©
     (japanese-jisx0208-1990	. #x7366)	; ø½‹¯
     (ideograph-daikanwa		. 48257)	; ø¸‹²
+    (ucs-jis			. #x9EFD)	; ø»ƒµ¡
     ))
 (define-char
   '((=>ucs		. #x9EFD)	; é»½
@@ -504,6 +505,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 25)
     (japanese-jisx0208-1990	. #x7368)	; ø½‹¯Ÿ
+    (ucs-jis			. #x9F08)	; ø½‹¯Ÿ
     ))
 (define-char
   '((=>ucs		. #x9F08)	; é¼ˆ

@@ -215,6 +215,7 @@
     (korean-ksc5601		. #x577C)	; ø»‰ª»
     (japanese-jisx0208-1990	. #x4E57)	; ø½Š¸¸
     (ideograph-daikanwa		. 30087)	; ø¸‡–‡
+    (ucs-jis			. #x81E8)	; ø»‚¾¼
     ))
 (define-char
   '((morohashi-daikanwa	30087 0 0)

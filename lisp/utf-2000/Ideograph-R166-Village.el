@@ -63,7 +63,7 @@
     (chinese-cns11643-5 . #x363C)	; ø»š‰½
     ))
 (define-char
-  '((->ucs		. #x491A)	; ä¤š
+  '((=>ucs		. #x491A)	; ä¤š
     (ideographic-radical . 166)	; â¾¥
     (ideographic-strokes . 4)
     (total-strokes	 . 11)

@@ -549,6 +549,7 @@
     (japanese-jisx0208		. #x736C)	; ø»ˆ‰¯
     (japanese-jisx0208-1990	. #x736C)	; ø½‹¯£
     (ideograph-daikanwa		. 48427)	; ø¸‹´«
+    (ucs-jis			. #x9F2C)	; ø»ƒµ§
     ))
 (define-char
   '((=>ucs		. #x9F2C)	; é¼¬

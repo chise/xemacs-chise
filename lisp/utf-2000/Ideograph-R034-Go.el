@@ -10,6 +10,7 @@
     (japanese-jisx0208-1990	. #x5469)	; ø½‹¾
     (ideograph-daikanwa		. 05691)	; ø¸˜»
     (chinese-big5-cdp		. #x8B45)	; ý¢€ˆ­…
+    (ucs-jis			. #x5902)	; ø»ƒˆ‚
     ))
 (define-char
   '((morohashi-daikanwa	5691 0 1)

@@ -9,6 +9,7 @@
     (korean-ksc5601		. #x7A5C)	; ø»Šµ
     (japanese-jisx0208-1990	. #x383C)	; ø½Š˜‰
     (ideograph-daikanwa		. 20814)	; ø¸……Ž
+    (ucs-jis			. #x7384)	; ø»‚ž
     ))
 (define-char
   '((morohashi-daikanwa	20814 0 0)
@@ -75,6 +76,7 @@
     (japanese-jisx0208		. #x4E28)	; ø»‡’•
     (korean-ksc5601		. #x6163)	; ø»‰¹Ž
     (japanese-jisx0208-1990	. #x4E28)	; ø½Š¸‰
+    (ucs-jis			. #x7387)	; ø»‚¾
     ))
 (define-char
   '((morohashi-daikanwa	20817 1 0)

@@ -70,6 +70,7 @@
     (total-strokes	 . 8)
     (chinese-cns11643-1		. #x4D37)	; ø»’ƒš
     (japanese-jisx0208-1990	. #x3164)	; ø½ŠŽŸ
+    (ucs-jis			. #x5EF6)	; ø»’ƒš
     ))
 (define-char
   '((=>ucs		. #x2231B)	; ð¢Œ›

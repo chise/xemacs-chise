@@ -490,6 +490,7 @@
     (japanese-jisx0208		. #x4D3F)	; ø»‡‘Ž
     (japanese-jisx0208-1990	. #x4D3F)	; ø½Š·‚
     (ideograph-gt-pj-1		. #x4D3F)	; ý¡€€€˜
+    (ucs-jis			. #x4E0E)	; ø»‚½†
     (ideograph-gt		. 00024)	; ý¡€€€˜
     ))
 (define-char
@@ -543,6 +544,7 @@
     (ideograph-gt-pj-1		. #x312F)	; ý¡€€€¡
     (chinese-big5		. #xA4A1)	; ý¢€Š’¡
     (ideograph-daikanwa		. 00023)	; ø¸€€—
+    (ucs-jis			. #x4E11)	; ø»‚“®
     (ideograph-gt		. 00033)	; ý¡€€€¡
     ))
 (define-char

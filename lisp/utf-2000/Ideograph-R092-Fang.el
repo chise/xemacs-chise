@@ -19,6 +19,7 @@
     (korean-ksc5601		. #x6433)	; ø»‰¼¸
     (japanese-jisx0208-1990	. #x3267)	; ø½Š€
     (china3-jef			. #x58C5)	; øº…£…
+    (ucs-jis			. #x7259)	; ø»‚–„
     ))
 (define-char
   '((=>ucs		. #x3E26)	; ã¸¦

@@ -226,6 +226,7 @@
     (korean-ksc5601		. #x652C)	; ø»‰¾
     (japanese-jisx0208-1990	. #x4C6C)	; ø½Š¶‘
     (ideograph-daikanwa		. 19734)	; ø¸„´–
+    (ucs-jis			. #x723A)	; ø»‚¼•
     ))
 (define-char
   '((=>ucs		. #x723A)	; çˆº

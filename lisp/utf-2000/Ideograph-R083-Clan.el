@@ -66,6 +66,7 @@
     (chinese-cns11643-1		. #x4E40)	; ø»’…
     (japanese-jisx0208-1990	. #x5D62)	; ø½‹…
     (ideograph-daikanwa		. 17030)	; ø¸„Š†
+    (ucs-jis			. #x6C13)	; ø»’…
     ))
 (define-char
   '((=>ucs		. #x6C13)	; æ°“

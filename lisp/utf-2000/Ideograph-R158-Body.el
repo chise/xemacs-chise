@@ -911,6 +911,7 @@
     (japanese-jisx0208-1978	. #x6D40)	; ø»ƒ¬‡
     (japanese-jisx0208		. #x6D40)	; ø»ˆ€
     (japanese-jisx0208-1990	. #x6D40)	; ø½‹¦ƒ
+    (ucs-jis			. #x8EC5)	; ø»ƒ¬‡
     ))
 (define-char
   '((ideographic-radical . 158)	; â¾

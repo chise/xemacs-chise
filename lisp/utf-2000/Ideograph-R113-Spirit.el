@@ -200,6 +200,7 @@
     (korean-ksc5601		. #x5E65)	; ø»‰´¶
     (japanese-jisx0208-1990	. #x632B)	; ø½‹—‚
     (ideograph-daikanwa		. 24633)	; ø¸†€¹
+    (ucs-jis			. #x7940)	; ø»ƒ†
     ))
 (define-char
   '((morohashi-daikanwa	24633 0 5)
@@ -792,6 +793,7 @@
     (japanese-jisx0208		. #x6331)	; ø»‡±”
     (japanese-jisx0208-1990	. #x6331)	; ø½‹—ˆ
     (ideograph-daikanwa		. 24658)	; ø¸†’
+    (ucs-jis			. #x7953)	; ø»ƒŒ
     ))
 (define-char
   '((=>ucs		. #x7953)	; ç¥“
@@ -836,6 +838,7 @@
     (japanese-jisx0208		. #x6330)	; ø»‡±“
     (japanese-jisx0208-1990	. #x6330)	; ø½‹—‡
     (ideograph-daikanwa		. 24663)	; ø¸†—
+    (ucs-jis			. #x7955)	; ø»ƒ‹
     ))
 (define-char
   '((morohashi-daikanwa	24663 0 5)
@@ -878,6 +881,7 @@
     (korean-ksc5601		. #x7234)	; ø»Š‘
     (japanese-jisx0208-1990	. #x632D)	; ø½‹—„
     (ideograph-daikanwa		. 24665)	; ø¸†™
+    (ucs-jis			. #x7957)	; ø»ƒˆ
     ))
 (define-char
   '((=>ucs		. #x7957)	; ç¥—
@@ -946,6 +950,7 @@
     (korean-ksc5601		. #x7054)	; ø»Š
     (japanese-jisx0208-1990	. #x632F)	; ø½‹—†
     (ideograph-daikanwa		. 24668)	; ø¸†œ
+    (ucs-jis			. #x795A)	; ø»ƒŠ
     ))
 (define-char
   '((morohashi-daikanwa	24668 0 5)
@@ -1076,6 +1081,7 @@
     (korean-ksc5601		. #x5E66)	; ø»‰´·
     (japanese-jisx0208-1990	. #x632C)	; ø½‹—ƒ
     (ideograph-daikanwa		. 24676)	; ø¸†¤
+    (ucs-jis			. #x7960)	; ø»ƒ‡
     ))
 (define-char
   '((morohashi-daikanwa	24676 0 5)
@@ -2185,6 +2191,7 @@
     (korean-ksc5601		. #x5138)	; ø»‰¡ƒ
     (japanese-jisx0208-1990	. #x6332)	; ø½‹—‰
     (ideograph-daikanwa		. 24733)	; ø¸†‚
+    (ucs-jis			. #x797A)	; ø»ƒ
     ))
 (define-char
   '((morohashi-daikanwa	24733 0 5)
@@ -2271,6 +2278,7 @@
     (korean-ksc5601		. #x565F)	; ø»‰©€
     (japanese-jisx0208-1990	. #x6333)	; ø½‹—Š
     (ideograph-daikanwa		. 24741)	; ø¸†‚¥
+    (ucs-jis			. #x797F)	; ø»ƒŽ
     ))
 (define-char
   '((morohashi-daikanwa	24741 0 5)
@@ -2477,6 +2485,7 @@
     (japanese-jisx0208-1978	. #x4135)	; ø»‚«”
     (japanese-jisx0208		. #x4135)	; ø»†¿œ
     (japanese-jisx0208-1990	. #x4135)	; ø½Š¥
+    (ucs-jis			. #x7985)	; ø»‚«”
     ))
 (define-char
   '((ideographic-radical . 113)	; â½°
@@ -2612,6 +2621,7 @@
     (japanese-jisx0208		. #x6334)	; ø»‡±—
     (japanese-jisx0208-1990	. #x6334)	; ø½‹—‹
     (ideograph-daikanwa		. 24760)	; ø¸†‚¸
+    (ucs-jis			. #x798A)	; ø»ƒ
     ))
 (define-char
   '((=>ucs		. #x798A)	; ç¦Š
@@ -2681,6 +2691,7 @@
     (japanese-jisx0208		. #x3252)	; ø»†©·
     (chinese-cns11643-1		. #x697E)	; ø»’­©
     (japanese-jisx0208-1990	. #x3252)	; ø½Š«
+    (ucs-jis			. #x798D)	; ø»‚•¯
     ))
 (define-char
   '((morohashi-daikanwa	24766 1 3)
@@ -3151,6 +3162,7 @@
     (japanese-jisx0208		. #x6335)	; ø»‡±˜
     (japanese-jisx0208-1990	. #x6335)	; ø½‹—Œ
     (ideograph-daikanwa		. 24792)	; ø¸†ƒ˜
+    (ucs-jis			. #x799D)	; ø»ƒ
     ))
 (define-char
   '((morohashi-daikanwa	24792 0 5)
@@ -3601,6 +3613,7 @@
     (korean-ksc5601		. #x7D7B)	; ø»Š¢®
     (japanese-jisx0208-1990	. #x6336)	; ø½‹—
     (ideograph-daikanwa		. 24828)	; ø¸†ƒ¼
+    (ucs-jis			. #x79A7)	; ø»ƒ‘
     ))
 (define-char
   '((morohashi-daikanwa	24828 0 5)
@@ -3663,6 +3676,7 @@
     (korean-ksc5601		. #x6049)	; ø»‰·–
     (japanese-jisx0208-1990	. #x6338)	; ø½‹—
     (ideograph-daikanwa		. 24835)	; ø¸†„ƒ
+    (ucs-jis			. #x79AA)	; ø»ƒ“
     ))
 (define-char
   '((morohashi-daikanwa	24835 0 5)
@@ -3898,6 +3912,7 @@
     (korean-ksc5601		. #x5649)	; ø»‰¨ª
     (japanese-jisx0208-1990	. #x6339)	; ø½‹—
     (ideograph-daikanwa		. 24844)	; ø¸†„Œ
+    (ucs-jis			. #x79AE)	; ø»ƒ”
     ))
 (define-char
   '((morohashi-daikanwa	24844 0 5)
@@ -4090,6 +4105,7 @@
     (total-strokes	 . 12)
     (japanese-jisx0208		. #x4578)	; ø»‡†—
     (japanese-jisx0208-1990	. #x4578)	; ø½Š¬‹
+    (ucs-jis			. #x7977)	; ø»‡†—
     ))
 (define-char
   '((morohashi-daikanwa	24852 0 7)
@@ -4273,6 +4289,7 @@
     (korean-ksc5601		. #x654C)	; ø»‰¾¯
     (japanese-jisx0208-1990	. #x633A)	; ø½‹—‘
     (ideograph-daikanwa		. 24868)	; ø¸†„¤
+    (ucs-jis			. #x79B3)	; ø»ƒ•
     ))
 (define-char
   '((morohashi-daikanwa	24868 0 5)

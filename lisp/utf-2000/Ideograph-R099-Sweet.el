@@ -72,6 +72,7 @@
     (korean-ksc5601		. #x6424)	; ø»‰¼©
     (japanese-jisx0208-1990	. #x3F53)	; ø½Š¢²
     (ideograph-daikanwa		. 21648)	; ø¸…’
+    (ucs-jis			. #x751A)	; ø»‚¨¶
     ))
 (define-char
   '((=>ucs		. #x751A)	; ç”š
