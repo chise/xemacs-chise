@@ -1,3 +1,36 @@
+2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J0-3D38): Separate
+	EGB-3C2F.
+	(G0-3C2F): Unify EGB-3C2F.
+
+	* Ideograph-R036-Evening.el:
+	- Merge Big5 code points.
+	(U+5918): Use `<-vulgar-ideograph' instead of `comment'.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R162-Walk.el (M-38985): Unify GT-52349.
+	(J90-3F6B): Unify GT-52230.
+
+	* Ideograph-R076-Lack.el (J0-5D41): Separate EGB-2E55 and U+6B54;
+	add S1-3943.
+	(EGB-2E55): Add S1-3944.
+
+	* Ideograph-R035-Go-Slowly.el, Ideograph-R034-Go.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+
+	* Ideograph-R030-Mouth.el:
+	- Merge Big5 code points.
+	(U+53F6): Use `<-ancient-ideograph' instead of
+	`ancient-char-of-shinjigen-1'.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+	(U+5412): Use `<-original-ideograph' instead of
+	`original-char-of-shinjigen-1'.
+
 2001-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* isolated-char.el (GT-52230): New character.
