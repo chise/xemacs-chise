@@ -181,6 +181,8 @@ enum lrecord_type
   lrecord_type_char_table_entry,
   lrecord_type_char_id_table,
   lrecord_type_byte_table,
+  lrecord_type_uint16_byte_table,
+  lrecord_type_uint8_byte_table,
   lrecord_type_range_table,
   lrecord_type_opaque,
   lrecord_type_opaque_ptr,
