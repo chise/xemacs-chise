@@ -771,10 +771,18 @@ get_non_ascii_char_table_value (struct Lisp_Char_Table *ct, int leading_byte,
 			       Emchar c)
 {
   Lisp_Object val;
+#ifdef UTF2000
+  Lisp_Object charset;
+#else
   Lisp_Object charset = CHARSET_BY_LEADING_BYTE (leading_byte);
+#endif
   int byte1, byte2;
 
+#ifdef UTF2000
+  BREAKUP_CHAR (c, charset, byte1, byte2);
+#else
   BREAKUP_CHAR_1_UNSAFE (c, charset, byte1, byte2);
+#endif
   val = ct->level1[leading_byte - MIN_LEADING_BYTE];
   if (CHAR_TABLE_ENTRYP (val))
     {
