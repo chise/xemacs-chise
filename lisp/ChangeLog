@@ -1,3 +1,59 @@
+2000-03-23  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R085-Water.el (U+6E13): Add J{78|83|90}-374C.
+
+	* utf-2000/Ideograph-R066-Rap.el (M13285'): Unify U+656C; separate
+	C1-6439.
+	(M13303): Separate U+656C.
+
+	* utf-2000/Ideograph-R064-Hand.el (M12239): Separate U+6385.
+	(M12311'): Add Mojikyo-50200.
+	(M12312): Separate U+63BD.
+	(M12373): Separate U+63E4.
+	(M12552): Separate U+643D.
+	(M12575): Separate U+6452.
+	(M12597): Separate U+6461.
+	(M12597): Separate U+6461.
+	(M12645): Separate U+6479.
+	(M12678): Separate U+6487.
+	(M12716): Separate U+649D.
+	(M12808): Separate U+64CE.
+	(M12876): Separate U+64ED.
+	(M12894): Separate U+64F3.
+	(M26763): Separate C5-7347.
+
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order of
+	`ideographic-strokes', `kangxi-strokes', `japanese-strokes' and
+	`cns-strokes'.
+
+	* utf-2000/mojikyo.el (M292): Remove mojikyo-pj-1.
+	(M634): Likewise.
+	(M916): Likewise.
+	(M28800): Remove mojikyo-pj-6.
+	(M48869): Remove mojikyo-pj-9.
+	(M50100): Likewise.
+
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R054-Long-Stride.el (M9574): Separate U+5EFA.
+
+	* utf-2000/Ideograph-R038-Woman.el (M6618): Separate U+5ACC.
+
+	* utf-2000/Ideograph-R116-Cave.el (M25406): Separate U+7A74.
+	(M25424): Separate U+7A81.
+	(M25439): Unify U+7A81.
+
+	* utf-2000/Ideograph-R170-Mound.el (M41720'): Separate U+F9DC; add
+	Mojikyo-50557.
+	(U+F9DC): Add K0-6B58.
+	(M41792): Separate J78-3764 and C1-6B61.
+	(M41813): Add J78-3764.
+
+	* utf-2000/Ideograph-R213-Turtle.el (M48869): Add
+	`kangxi-radical', `kangxi-strokes' and comment.
+
 2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/Ideograph-R115-Grain.el (M25218): Separate J78-374E and
@@ -175,6 +231,11 @@
 
 	* utf-2000/Ideograph-R076-Lack.el (M16190): Unify U+6B52.
 	(M16197): Unify U+6B53.
+
+2000-03-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/ideograph-util.el (ideograph-char<): Prefer
+	`non-morohashi' to `morohashi-daikanwa'.
 
 2000-03-02  MORIOKA Tomohiko  <tomo@m17n.org>
 
