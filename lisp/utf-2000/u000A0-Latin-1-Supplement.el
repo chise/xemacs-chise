@@ -25,7 +25,6 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "CS")
     (mirrored		. nil)
-    (->decomposition	wide #x00A0)
     (<-fullwidth
      ((name		  . "NO-BREAK SPACE")
       (ucs		  . #x00A0)	;  
@@ -53,7 +52,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00A1)
     (<-fullwidth
      ((name		  . "INVERTED EXCLAMATION MARK")
       (ucs		  . #x00A1)	; ¡
@@ -118,7 +116,6 @@
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	wide #x00A4)
     (<-fullwidth
      ((name		  . "CURRENCY SIGN")
       (ucs		  . #x00A4)	; ¤
@@ -187,7 +184,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00A7)
     (<-fullwidth
      ((name		  . "SECTION SIGN")
       (ucs		  . #x00A7)	; §
@@ -228,7 +224,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00A8)
     (<-fullwidth
      ((name		  . "DIAERESIS")
       (ucs		  . #x00A8)	; ¨
@@ -262,7 +257,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00A9)
     (<-fullwidth
      ((name		  . "COPYRIGHT SIGN")
       (ucs		  . #x00A9)	; ©
@@ -292,7 +286,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00AA)
     (<-fullwidth
      ((name		  . "FEMININE ORDINAL INDICATOR")
       (ucs		  . #x00AA)	; ª
@@ -322,7 +315,6 @@
     (general-category	punctuation initial-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	wide #x00AB)
     (<-fullwidth
      ((name		  . "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK")
       (ucs		  . #x00AB)	; «
@@ -370,7 +362,6 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00AD)
     (<-fullwidth
      ((name		  . "SOFT HYPHEN")
       (ucs		  . #x00AD)	; ­
@@ -399,7 +390,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00AE)
     (<-fullwidth
      ((name		  . "REGISTERED SIGN")
       (ucs		  . #x00AE)	; ®
@@ -450,7 +440,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	wide #x00B0)
     (<-fullwidth
      ((name		  . "DEGREE SIGN")
       (ucs		  . #x00B0)	; °
@@ -488,7 +477,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (->decomposition	wide #x00B1)
     (<-fullwidth
      ((name		  . "PLUS-MINUS SIGN")
       (ucs		  . #x00B1)	; ±
@@ -531,7 +519,6 @@
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
-    (->decomposition	wide #x00B2)
     (<-fullwidth
      ((name		  . "SUPERSCRIPT TWO")
       (ucs		  . #x00B2)	; ²
@@ -569,7 +556,6 @@
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
-    (->decomposition	wide #x00B3)
     (<-fullwidth
      ((name		  . "SUPERSCRIPT THREE")
       (ucs		  . #x00B3)	; ³
@@ -603,7 +589,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00B4)
     (<-fullwidth
      ((name		  . "ACUTE ACCENT")
       (ucs		  . #x00B4)	; ´
@@ -647,7 +632,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00B6)
     (<-fullwidth
      ((name		  . "PILCROW SIGN")
       (ucs		  . #x00B6)	; ¶
@@ -680,7 +664,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00B7)
     (<-fullwidth
      ((name		  . "MIDDLE DOT")
       (ucs		  . #x00B7)	; ·
@@ -716,7 +699,6 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00B8)
     (<-fullwidth
      ((name		  . "CEDILLA")
       (ucs		  . #x00B8)	; ¸
@@ -753,7 +735,6 @@
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
-    (->decomposition	wide #x00B9)
     (<-fullwidth
      ((name		  . "SUPERSCRIPT ONE")
       (ucs		  . #x00B9)	; ¹
@@ -783,7 +764,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00BA)
     (<-fullwidth
      ((name		  . "MASCULINE ORDINAL INDICATOR")
       (ucs		  . #x00BA)	; º
@@ -813,7 +793,6 @@
     (general-category	punctuation final-quote) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (->decomposition	wide #x00BB)
     (<-fullwidth
      ((name		  . "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK")
       (ucs		  . #x00BB)	; »
@@ -844,7 +823,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/4)
-    (->decomposition	wide #x00BC)
     (<-fullwidth
      ((name		  . "VULGAR FRACTION ONE QUARTER")
       (ucs		  . #x00BC)	; ¼
@@ -878,7 +856,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 1/2)
-    (->decomposition	wide #x00BD)
     (<-fullwidth
      ((name		  . "VULGAR FRACTION ONE HALF")
       (ucs		  . #x00BD)	; ½
@@ -910,7 +887,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 3/4)
-    (->decomposition	wide #x00BE)
     (<-fullwidth
      ((name		  . "VULGAR FRACTION THREE QUARTERS")
       (ucs		  . #x00BE)	; ¾
@@ -939,7 +915,6 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00BF)
     (<-fullwidth
      ((name		  . "INVERTED QUESTION MARK")
       (ucs		  . #x00BF)	; ¿
@@ -976,7 +951,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C0)
     (->lowercase
      ((name . "fullwidth latin small letter a with grave")))
     (<-fullwidth
@@ -1016,7 +990,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C1)
     (->lowercase
      ((name . "fullwidth latin small letter a with acute")))
     (<-fullwidth
@@ -1057,7 +1030,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C2)
     (->lowercase
      ((name . "fullwidth latin small letter a with circumflex")))
     (<-fullwidth
@@ -1095,7 +1067,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C3)
     (->lowercase
      ((name . "fullwidth latin small letter a with tilde")))
     (<-fullwidth
@@ -1133,7 +1104,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C4)
     (->lowercase
      ((name . "fullwidth latin small letter a with diaeresis")))
     (<-fullwidth
@@ -1169,7 +1139,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C5)
     (->lowercase
      ((name . "fullwidth latin small letter a with ring above")))
     (<-fullwidth
@@ -1233,7 +1202,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C7)
     (->lowercase
      ((name . "fullwidth latin small letter c with cedilla")))
     (<-fullwidth
@@ -1271,7 +1239,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C8)
     (->lowercase
      ((name . "fullwidth latin small letter e with grave")))
     (<-fullwidth
@@ -1311,7 +1278,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00C9)
     (->lowercase
      ((name . "fullwidth latin small letter e with acute")))
     (<-fullwidth
@@ -1350,7 +1316,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CA)
     (->lowercase
      ((name . "fullwidth latin small letter e with circumflex")))
     (<-fullwidth
@@ -1388,7 +1353,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CB)
     (->lowercase
      ((name . "fullwidth latin small letter e with diaeresis")))
     (<-fullwidth
@@ -1426,7 +1390,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CC)
     (->lowercase
      ((name . "fullwidth latin small letter i with grave")))
     (<-fullwidth
@@ -1466,7 +1429,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CD)
     (->lowercase
      ((name . "fullwidth latin small letter i with acute")))
     (<-fullwidth
@@ -1504,7 +1466,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CE)
     (->lowercase
      ((name . "fullwidth latin small letter i with circumflex")))
     (<-fullwidth
@@ -1540,7 +1501,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00CF)
     (->lowercase
      ((name . "fullwidth latin small letter i with diaeresis")))
     (<-fullwidth
@@ -1575,7 +1535,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Icelandic")
-    (->decomposition	wide #x00D0)
     (->lowercase
      ((name . "fullwidth latin small letter eth")))
     (<-fullwidth
@@ -1611,7 +1570,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D1)
     (->lowercase
      ((name . "fullwidth latin small letter n with tilde")))
     (<-fullwidth
@@ -1649,7 +1607,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D2)
     (->lowercase
      ((name . "fullwidth latin small letter o with grave")))
     (<-fullwidth
@@ -1688,7 +1645,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D3)
     (->lowercase
      ((name . "fullwidth latin small letter o with acute")))
     (<-fullwidth
@@ -1729,7 +1685,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D4)
     (->lowercase
      ((name . "fullwidth latin small letter o with circumflex")))
     (<-fullwidth
@@ -1767,7 +1722,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D5)
     (->lowercase
      ((name . "fullwidth latin capital letter o with tilde")))
     (<-fullwidth
@@ -1805,7 +1759,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00D6)
     (->lowercase
      ((name . "fullwidth latin capital letter o with diaeresis")))
     (<-fullwidth
@@ -1842,7 +1795,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00D7)
     (<-fullwidth
      ((name		  . "MULTIPLICATION SIGN")
       (ucs		  . #x00D7)	; ×
@@ -1940,7 +1892,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00DA)
     (->lowercase
      ((name . "fullwidth latin small letter u with acute")))
     (<-fullwidth
@@ -1977,7 +1928,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00DB)
     (->lowercase
      ((name . "fullwidth latin small letter u with circumflex")))
     (<-fullwidth
@@ -2015,7 +1965,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00DC)
     (->lowercase
      ((name . "fullwidth latin small letter u with diaeresis")))
     (<-fullwidth
@@ -2052,7 +2001,6 @@
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00DD)
     (->lowercase
      ((name . "fullwidth latin small letter y with acute")))
     (<-fullwidth
@@ -2088,7 +2036,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Icelandic")
-    (->decomposition	wide #x00DE)
     (->lowercase
      ((name . "fullwidth latin small letter thorn")))
     (<-fullwidth
@@ -2125,7 +2072,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "German")
-    (->decomposition	wide #x00DF)
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER SHARP S")
       (ucs		  . #x00DF)	; ß
@@ -2164,7 +2110,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E0)
     (->uppercase
      ((name . "fullwidth latin capital letter a with grave")))
     (<-fullwidth
@@ -2207,7 +2152,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E1)
     (->uppercase
      ((name . "fullwidth latin capital letter a with acute")))
     (<-fullwidth
@@ -2249,7 +2193,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E2)
     (->uppercase
      ((name . "fullwidth latin capital letter a with circumflex")))
     (<-fullwidth
@@ -2288,7 +2231,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E3)
     (->uppercase
      ((name . "fullwidth latin capital letter a with tilde")))
     (<-fullwidth
@@ -2326,7 +2268,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E4)
     (->uppercase
      ((name . "fullwidth latin capital letter a with diaeresis")))
     (<-fullwidth
@@ -2362,7 +2303,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E5)
     (->uppercase
      ((name . "fullwidth latin capital letter a with ring above")))
     (<-fullwidth
@@ -2401,7 +2341,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "ash *")
-    (->decomposition	wide #x00E6)
     (->uppercase
      ((name . "fullwidth latin capital letter ae")))
     (<-fullwidth
@@ -2440,7 +2379,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E7)
     (->uppercase
      ((name . "fullwidth latin capital letter c with cedilla")))
     (<-fullwidth
@@ -2480,7 +2418,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E8)
     (->uppercase
      ((name . "fullwidth latin capital letter e with grave")))
     (<-fullwidth
@@ -2523,7 +2460,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00E9)
     (->uppercase
      ((name . "fullwidth latin capital letter e with acute")))
     (<-fullwidth
@@ -2564,7 +2500,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00EA)
     (->uppercase
      ((name . "fullwidth latin capital letter e with circumflex")))
     (<-fullwidth
@@ -2603,7 +2538,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00EB)
     (->uppercase
      ((name . "fullwidth latin capital letter e with diaeresis")))
     (<-fullwidth
@@ -2643,7 +2577,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00EC)
     (->uppercase
      ((name . "fullwidth latin capital letter i with grave")))
     (<-fullwidth
@@ -2686,7 +2619,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00ED)
     (->uppercase
      ((name . "fullwidth latin capital letter i with acute")))
     (<-fullwidth
@@ -2725,7 +2657,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00EE)
     (->uppercase
      ((name . "fullwidth latin capital letter i with circumflex")))
     (<-fullwidth
@@ -2815,7 +2746,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F1)
     (->uppercase
      ((name . "fullwidth latin capital letter n with tilde")))
     (<-fullwidth
@@ -2855,7 +2785,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F2)
     (->uppercase
      ((name . "fullwidth latin small letter o with grave")))
     (<-fullwidth
@@ -2897,7 +2826,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F3)
     (->uppercase
      ((name . "fullwidth latin capital letter o with acute")))
     (<-fullwidth
@@ -2939,7 +2867,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F4)
     (->uppercase
      ((name . "fullwidth latin capital letter o with circumflex")))
     (<-fullwidth
@@ -2978,7 +2905,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F5)
     (->uppercase
      ((name . "fullwidth latin capital letter o with tilde")))
     (<-fullwidth
@@ -3016,7 +2942,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F6)
     (->uppercase
      ((name . "fullwidth latin capital letter o with diaeresis")))
     (<-fullwidth
@@ -3053,7 +2978,6 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->decomposition	wide #x00F7)
     (<-fullwidth
      ((name		  . "DIVISION SIGN")
       (ucs		  . #x00F7)	; ÷
@@ -3093,7 +3017,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F8)
     (->uppercase
      ((name . "fullwidth latin capital letter o with stroke")))
     (<-fullwidth
@@ -3134,7 +3057,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00F9)
     (->uppercase
      ((name . "fullwidth latin capital letter u with grave")))
     (<-fullwidth
@@ -3177,7 +3099,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00FA)
     (->uppercase
      ((name . "fullwidth latin capital letter u with acute")))
     (<-fullwidth
@@ -3215,7 +3136,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00FB)
     (->uppercase
      ((name . "fullwidth latin capital letter u with circumflex")))
     (<-fullwidth
@@ -3254,7 +3174,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00FC)
     (->uppercase
      ((name . "fullwidth latin capital letter u with diaeresis")))
     (<-fullwidth
@@ -3293,7 +3212,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00FD)
     (->uppercase
      ((name . "fullwidth latin small letter y with acute")))
     (<-fullwidth
@@ -3329,7 +3247,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (iso-10646-comment	. "Icelandic")
-    (->decomposition	wide #x00FE)
     (->uppercase
      ((name . "fullwidth latin capital letter thorn")))
     (<-fullwidth
@@ -3365,7 +3282,6 @@
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->decomposition	wide #x00FF)
     (->uppercase
      ((name . "fullwidth latin capital letter y with diaeresis")))
     (<-fullwidth
