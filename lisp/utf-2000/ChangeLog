@@ -1,5 +1,10 @@
 2004-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R010-Legs.el (U+514D): Unify B-A74B.
+	(U+FA32): Use `->subsumptive' to integrate U-0002F80E; delete
+	BC-A74B.
+	(G0-4362): Separate B-A74B.
+
 	* Ideograph-R109-Eye.el (U-0002032A): Use
 	`ideographic-{radical|strokes}@{ucs|cns}',
 	`total-strokes@{ucs|cns}' and `ideographic-radical@cns*sources'
