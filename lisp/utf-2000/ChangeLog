@@ -1,5 +1,8 @@
 2003-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R079-Weapon.el (U-00023A98): New character.
+	(JX2-6E23): New character.
+
 	* u0AC00-Hangul-Syllables.el (JC3-94C0): New character.
 
 2003-12-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
