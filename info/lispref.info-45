@@ -1,0 +1,1316 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Pure Storage,  Next: Garbage Collection,  Prev: Building XEmacs,  Up: Building XEmacs and Object Allocation
+
+Pure Storage
+============
+
+   XEmacs Lisp uses two kinds of storage for user-created Lisp objects:
+"normal storage" and "pure storage".  Normal storage is where all the
+new data created during an XEmacs session is kept; see the following
+section for information on normal storage.  Pure storage is used for
+certain data in the preloaded standard Lisp files--data that should
+never change during actual use of XEmacs.
+
+   Pure storage is allocated only while `temacs' is loading the
+standard preloaded Lisp libraries.  In the file `xemacs', it is marked
+as read-only (on operating systems that permit this), so that the
+memory space can be shared by all the XEmacs jobs running on the machine
+at once.  Pure storage is not expandable; a fixed amount is allocated
+when XEmacs is compiled, and if that is not sufficient for the preloaded
+libraries, `temacs' aborts with an error message.  If that happens, you
+must increase the compilation parameter `PURESIZE' using the
+`--puresize' option to `configure'.  This normally won't happen unless
+you try to preload additional libraries or add features to the standard
+ones.
+
+ - Function: purecopy object
+     This function makes a copy of OBJECT in pure storage and returns
+     it.  It copies strings by simply making a new string with the same
+     characters in pure storage.  It recursively copies the contents of
+     vectors and cons cells.  It does not make copies of other objects
+     such as symbols, but just returns them unchanged.  It signals an
+     error if asked to copy markers.
+
+     This function is a no-op except while XEmacs is being built and
+     dumped; it is usually called only in the file
+     `xemacs/lisp/prim/loaddefs.el', but a few packages call it just in
+     case you decide to preload them.
+
+ - Variable: pure-bytes-used
+     The value of this variable is the number of bytes of pure storage
+     allocated so far.  Typically, in a dumped XEmacs, this number is
+     very close to the total amount of pure storage available--if it
+     were not, we would preallocate less.
+
+ - Variable: purify-flag
+     This variable determines whether `defun' should make a copy of the
+     function definition in pure storage.  If it is non-`nil', then the
+     function definition is copied into pure storage.
+
+     This flag is `t' while loading all of the basic functions for
+     building XEmacs initially (allowing those functions to be sharable
+     and non-collectible).  Dumping XEmacs as an executable always
+     writes `nil' in this variable, regardless of the value it actually
+     has before and after dumping.
+
+     You should not change this flag in a running XEmacs.
+
+
+File: lispref.info,  Node: Garbage Collection,  Prev: Pure Storage,  Up: Building XEmacs and Object Allocation
+
+Garbage Collection
+==================
+
+   When a program creates a list or the user defines a new function
+(such as by loading a library), that data is placed in normal storage.
+If normal storage runs low, then XEmacs asks the operating system to
+allocate more memory in blocks of 2k bytes.  Each block is used for one
+type of Lisp object, so symbols, cons cells, markers, etc., are
+segregated in distinct blocks in memory.  (Vectors, long strings,
+buffers and certain other editing types, which are fairly large, are
+allocated in individual blocks, one per object, while small strings are
+packed into blocks of 8k bytes. [More correctly, a string is allocated
+in two sections: a fixed size chunk containing the length, list of
+extents, etc.; and a chunk containing the actual characters in the
+string.  It is this latter chunk that is either allocated individually
+or packed into 8k blocks.  The fixed size chunk is packed into 2k
+blocks, as for conses, markers, etc.])
+
+   It is quite common to use some storage for a while, then release it
+by (for example) killing a buffer or deleting the last pointer to an
+object.  XEmacs provides a "garbage collector" to reclaim this
+abandoned storage.  (This name is traditional, but "garbage recycler"
+might be a more intuitive metaphor for this facility.)
+
+   The garbage collector operates by finding and marking all Lisp
+objects that are still accessible to Lisp programs.  To begin with, it
+assumes all the symbols, their values and associated function
+definitions, and any data presently on the stack, are accessible.  Any
+objects that can be reached indirectly through other accessible objects
+are also accessible.
+
+   When marking is finished, all objects still unmarked are garbage.  No
+matter what the Lisp program or the user does, it is impossible to refer
+to them, since there is no longer a way to reach them.  Their space
+might as well be reused, since no one will miss them.  The second
+("sweep") phase of the garbage collector arranges to reuse them.
+
+   The sweep phase puts unused cons cells onto a "free list" for future
+allocation; likewise for symbols, markers, extents, events, floats,
+compiled-function objects, and the fixed-size portion of strings.  It
+compacts the accessible small string-chars chunks so they occupy fewer
+8k blocks; then it frees the other 8k blocks.  Vectors, buffers,
+windows, and other large objects are individually allocated and freed
+using `malloc' and `free'.
+
+     Common Lisp note: unlike other Lisps, XEmacs Lisp does not call
+     the garbage collector when the free list is empty.  Instead, it
+     simply requests the operating system to allocate more storage, and
+     processing continues until `gc-cons-threshold' bytes have been
+     used.
+
+     This means that you can make sure that the garbage collector will
+     not run during a certain portion of a Lisp program by calling the
+     garbage collector explicitly just before it (provided that portion
+     of the program does not use so much space as to force a second
+     garbage collection).
+
+ - Command: garbage-collect
+     This command runs a garbage collection, and returns information on
+     the amount of space in use.  (Garbage collection can also occur
+     spontaneously if you use more than `gc-cons-threshold' bytes of
+     Lisp data since the previous garbage collection.)
+
+     `garbage-collect' returns a list containing the following
+     information:
+
+          ((USED-CONSES . FREE-CONSES)
+           (USED-SYMS . FREE-SYMS)
+           (USED-MARKERS . FREE-MARKERS)
+           USED-STRING-CHARS
+           USED-VECTOR-SLOTS
+           (PLIST))
+          
+          => ((73362 . 8325) (13718 . 164)
+          (5089 . 5098) 949121 118677
+          (conses-used 73362 conses-free 8329 cons-storage 658168
+          symbols-used 13718 symbols-free 164 symbol-storage 335216
+          bit-vectors-used 0 bit-vectors-total-length 0
+          bit-vector-storage 0 vectors-used 7882
+          vectors-total-length 118677 vector-storage 537764
+          compiled-functions-used 1336 compiled-functions-free 37
+          compiled-function-storage 44440 short-strings-used 28829
+          long-strings-used 2 strings-free 7722
+          short-strings-total-length 916657 short-string-storage 1179648
+          long-strings-total-length 32464 string-header-storage 441504
+          floats-used 3 floats-free 43 float-storage 2044 markers-used 5089
+          markers-free 5098 marker-storage 245280 events-used 103
+          events-free 835 event-storage 110656 extents-used 10519
+          extents-free 2718 extent-storage 372736
+          extent-auxiliarys-used 111 extent-auxiliarys-freed 3
+          extent-auxiliary-storage 4440 window-configurations-used 39
+          window-configurations-on-free-list 5
+          window-configurations-freed 10 window-configuration-storage 9492
+          popup-datas-used 3 popup-data-storage 72 toolbar-buttons-used 62
+          toolbar-button-storage 4960 toolbar-datas-used 12
+          toolbar-data-storage 240 symbol-value-buffer-locals-used 182
+          symbol-value-buffer-local-storage 5824
+          symbol-value-lisp-magics-used 22
+          symbol-value-lisp-magic-storage 1496
+          symbol-value-varaliases-used 43
+          symbol-value-varalias-storage 1032 opaque-lists-used 2
+          opaque-list-storage 48 color-instances-used 12
+          color-instance-storage 288 font-instances-used 5
+          font-instance-storage 180 opaques-used 11 opaque-storage 312
+          range-tables-used 1 range-table-storage 16 faces-used 34
+          face-storage 2584 glyphs-used 124 glyph-storage 4464
+          specifiers-used 775 specifier-storage 43869 weak-lists-used 786
+          weak-list-storage 18864 char-tables-used 40
+          char-table-storage 41920 buffers-used 25 buffer-storage 7000
+          extent-infos-used 457 extent-infos-freed 73
+          extent-info-storage 9140 keymaps-used 275 keymap-storage 12100
+          consoles-used 4 console-storage 384 command-builders-used 2
+          command-builder-storage 120 devices-used 2 device-storage 344
+          frames-used 3 frame-storage 624 image-instances-used 47
+          image-instance-storage 3008 windows-used 27 windows-freed 2
+          window-storage 9180 lcrecord-lists-used 15
+          lcrecord-list-storage 360 hash-tables-used 631
+          hash-table-storage 25240 streams-used 1 streams-on-free-list 3
+          streams-freed 12 stream-storage 91))
+
+     Here is a table explaining each element:
+
+    USED-CONSES
+          The number of cons cells in use.
+
+    FREE-CONSES
+          The number of cons cells for which space has been obtained
+          from the operating system, but that are not currently being
+          used.
+
+    USED-SYMS
+          The number of symbols in use.
+
+    FREE-SYMS
+          The number of symbols for which space has been obtained from
+          the operating system, but that are not currently being used.
+
+    USED-MARKERS
+          The number of markers in use.
+
+    FREE-MARKERS
+          The number of markers for which space has been obtained from
+          the operating system, but that are not currently being used.
+
+    USED-STRING-CHARS
+          The total size of all strings, in characters.
+
+    USED-VECTOR-SLOTS
+          The total number of elements of existing vectors.
+
+    PLIST
+          A list of alternating keyword/value pairs providing more
+          detailed information. (As you can see above, quite a lot of
+          information is provided.)
+
+ - User Option: gc-cons-threshold
+     The value of this variable is the number of bytes of storage that
+     must be allocated for Lisp objects after one garbage collection in
+     order to trigger another garbage collection.  A cons cell counts
+     as eight bytes, a string as one byte per character plus a few
+     bytes of overhead, and so on; space allocated to the contents of
+     buffers does not count.  Note that the subsequent garbage
+     collection does not happen immediately when the threshold is
+     exhausted, but only the next time the Lisp evaluator is called.
+
+     The initial threshold value is 500,000.  If you specify a larger
+     value, garbage collection will happen less often.  This reduces the
+     amount of time spent garbage collecting, but increases total
+     memory use.  You may want to do this when running a program that
+     creates lots of Lisp data.
+
+     You can make collections more frequent by specifying a smaller
+     value, down to 10,000.  A value less than 10,000 will remain in
+     effect only until the subsequent garbage collection, at which time
+     `garbage-collect' will set the threshold back to 10,000. (This does
+     not apply if XEmacs was configured with `--debug'.  Therefore, be
+     careful when setting `gc-cons-threshold' in that case!)
+
+ - Function: memory-limit
+     This function returns the address of the last byte XEmacs has
+     allocated, divided by 1024.  We divide the value by 1024 to make
+     sure it fits in a Lisp integer.
+
+     You can use this to get a general idea of how your actions affect
+     the memory usage.
+
+ - Variable: pre-gc-hook
+     This is a normal hook to be run just before each garbage
+     collection.  Interrupts, garbage collection, and errors are
+     inhibited while this hook runs, so be extremely careful in what
+     you add here.  In particular, avoid consing, and do not interact
+     with the user.
+
+ - Variable: post-gc-hook
+     This is a normal hook to be run just after each garbage collection.
+     Interrupts, garbage collection, and errors are inhibited while
+     this hook runs, so be extremely careful in what you add here.  In
+     particular, avoid consing, and do not interact with the user.
+
+ - Variable: gc-message
+     This is a string to print to indicate that a garbage collection is
+     in progress.  This is printed in the echo area.  If the selected
+     frame is on a window system and `gc-pointer-glyph' specifies a
+     value (i.e. a pointer image instance) in the domain of the
+     selected frame, the mouse cursor will change instead of this
+     message being printed.
+
+ - Glyph: gc-pointer-glyph
+     This holds the pointer glyph used to indicate that a garbage
+     collection is in progress.  If the selected window is on a window
+     system and this glyph specifies a value (i.e. a pointer image
+     instance) in the domain of the selected window, the cursor will be
+     changed as specified during garbage collection.  Otherwise, a
+     message will be printed in the echo area, as controlled by
+     `gc-message'.  *Note Glyphs::.
+
+   If XEmacs was configured with `--debug', you can set the following
+two variables to get direct information about all the allocation that
+is happening in a segment of Lisp code.
+
+ - Variable: debug-allocation
+     If non-zero, print out information to stderr about all objects
+     allocated.
+
+ - Variable: debug-allocation-backtrace
+     Length (in stack frames) of short backtrace printed out by
+     `debug-allocation'.
+
+
+File: lispref.info,  Node: Standard Errors,  Next: Standard Buffer-Local Variables,  Prev: Building XEmacs and Object Allocation,  Up: Top
+
+Standard Errors
+***************
+
+   Here is the complete list of the error symbols in standard Emacs,
+grouped by concept.  The list includes each symbol's message (on the
+`error-message' property of the symbol) and a cross reference to a
+description of how the error can occur.
+
+   Each error symbol has an `error-conditions' property that is a list
+of symbols.  Normally this list includes the error symbol itself and
+the symbol `error'.  Occasionally it includes additional symbols, which
+are intermediate classifications, narrower than `error' but broader
+than a single error symbol.  For example, all the errors in accessing
+files have the condition `file-error'.
+
+   As a special exception, the error symbol `quit' does not have the
+condition `error', because quitting is not considered an error.
+
+   *Note Errors::, for an explanation of how errors are generated and
+handled.
+
+`SYMBOL'
+     STRING; REFERENCE.
+
+`error'
+     `"error"'
+     *Note Errors::.
+
+`quit'
+     `"Quit"'
+     *Note Quitting::.
+
+`args-out-of-range'
+     `"Args out of range"'
+     *Note Sequences Arrays Vectors::.
+
+`arith-error'
+     `"Arithmetic error"'
+     See `/' and `%' in *Note Numbers::.
+
+`beginning-of-buffer'
+     `"Beginning of buffer"'
+     *Note Motion::.
+
+`buffer-read-only'
+     `"Buffer is read-only"'
+     *Note Read Only Buffers::.
+
+`cyclic-function-indirection'
+     `"Symbol's chain of function indirections contains a loop"'
+     *Note Function Indirection::.
+
+`domain-error'
+     `"Arithmetic domain error"'
+`end-of-buffer'
+     `"End of buffer"'
+     *Note Motion::.
+
+`end-of-file'
+     `"End of file during parsing"'
+     This is not a `file-error'.
+     *Note Input Functions::.
+
+`file-error'
+     This error and its subcategories do not have error-strings,
+     because the error message is constructed from the data items alone
+     when the error condition `file-error' is present.
+     *Note Files::.
+
+`file-locked'
+     This is a `file-error'.
+     *Note File Locks::.
+
+`file-already-exists'
+     This is a `file-error'.
+     *Note Writing to Files::.
+
+`file-supersession'
+     This is a `file-error'.
+     *Note Modification Time::.
+
+`invalid-byte-code'
+     `"Invalid byte code"'
+     *Note Byte Compilation::.
+
+`invalid-function'
+     `"Invalid function"'
+     *Note Classifying Lists::.
+
+`invalid-read-syntax'
+     `"Invalid read syntax"'
+     *Note Input Functions::.
+
+`invalid-regexp'
+     `"Invalid regexp"'
+     *Note Regular Expressions::.
+
+`mark-inactive'
+     `"The mark is not active now"'
+`no-catch'
+     `"No catch for tag"'
+     *Note Catch and Throw::.
+
+`overflow-error'
+     `"Arithmetic overflow error"'
+`protected-field'
+     `"Attempt to modify a protected field"'
+`range-error'
+     `"Arithmetic range error"'
+`search-failed'
+     `"Search failed"'
+     *Note Searching and Matching::.
+
+`setting-constant'
+     `"Attempt to set a constant symbol"'
+     *Note Variables that Never Change: Constant Variables.
+
+`singularity-error'
+     `"Arithmetic singularity error"'
+`tooltalk-error'
+     `"ToolTalk error"'
+     *Note ToolTalk Support::.
+
+`undefined-keystroke-sequence'
+     `"Undefined keystroke sequence"'
+`void-function'
+     `"Symbol's function definition is void"'
+     *Note Function Cells::.
+
+`void-variable'
+     `"Symbol's value as variable is void"'
+     *Note Accessing Variables::.
+
+`wrong-number-of-arguments'
+     `"Wrong number of arguments"'
+     *Note Classifying Lists::.
+
+`wrong-type-argument'
+     `"Wrong type argument"'
+     *Note Type Predicates::.
+
+   These error types, which are all classified as special cases of
+`arith-error', can occur on certain systems for invalid use of
+mathematical functions.
+
+`domain-error'
+     `"Arithmetic domain error"'
+     *Note Math Functions::.
+
+`overflow-error'
+     `"Arithmetic overflow error"'
+     *Note Math Functions::.
+
+`range-error'
+     `"Arithmetic range error"'
+     *Note Math Functions::.
+
+`singularity-error'
+     `"Arithmetic singularity error"'
+     *Note Math Functions::.
+
+`underflow-error'
+     `"Arithmetic underflow error"'
+     *Note Math Functions::.
+
+
+File: lispref.info,  Node: Standard Buffer-Local Variables,  Next: Standard Keymaps,  Prev: Standard Errors,  Up: Top
+
+Buffer-Local Variables
+**********************
+
+   The table below lists the general-purpose Emacs variables that are
+automatically local (when set) in each buffer.  Many Lisp packages
+define such variables for their internal use; we don't list them here.
+
+`abbrev-mode'
+     *note Abbrevs::
+
+`auto-fill-function'
+     *note Auto Filling::
+
+`buffer-auto-save-file-name'
+     *note Auto-Saving::
+
+`buffer-backed-up'
+     *note Backup Files::
+
+`buffer-display-table'
+     *note Display Tables::
+
+`buffer-file-format'
+     *note Format Conversion::
+
+`buffer-file-name'
+     *note Buffer File Name::
+
+`buffer-file-number'
+     *note Buffer File Name::
+
+`buffer-file-truename'
+     *note Buffer File Name::
+
+`buffer-file-type'
+     *note Files and MS-DOS::
+
+`buffer-invisibility-spec'
+     *note Invisible Text::
+
+`buffer-offer-save'
+     *note Saving Buffers::
+
+`buffer-read-only'
+     *note Read Only Buffers::
+
+`buffer-saved-size'
+     *note Point::
+
+`buffer-undo-list'
+     *note Undo::
+
+`cache-long-line-scans'
+     *note Text Lines::
+
+`case-fold-search'
+     *note Searching and Case::
+
+`ctl-arrow'
+     *note Usual Display::
+
+`comment-column'
+     *note Comments: (emacs)Comments.
+
+`default-directory'
+     *note System Environment::
+
+`defun-prompt-regexp'
+     *note List Motion::
+
+`fill-column'
+     *note Auto Filling::
+
+`goal-column'
+     *note Moving Point: (emacs)Moving Point.
+
+`left-margin'
+     *note Indentation::
+
+`local-abbrev-table'
+     *note Abbrevs::
+
+`local-write-file-hooks'
+     *note Saving Buffers::
+
+`major-mode'
+     *note Mode Help::
+
+`mark-active'
+     *note The Mark::
+
+`mark-ring'
+     *note The Mark::
+
+`minor-modes'
+     *note Minor Modes::
+
+`modeline-format'
+     *note Modeline Data::
+
+`modeline-buffer-identification'
+     *note Modeline Variables::
+
+`modeline-format'
+     *note Modeline Data::
+
+`modeline-modified'
+     *note Modeline Variables::
+
+`modeline-process'
+     *note Modeline Variables::
+
+`mode-name'
+     *note Modeline Variables::
+
+`overwrite-mode'
+     *note Insertion::
+
+`paragraph-separate'
+     *note Standard Regexps::
+
+`paragraph-start'
+     *note Standard Regexps::
+
+`point-before-scroll'
+     Used for communication between mouse commands and scroll-bar
+     commands.
+
+`require-final-newline'
+     *note Insertion::
+
+`selective-display'
+     *note Selective Display::
+
+`selective-display-ellipses'
+     *note Selective Display::
+
+`tab-width'
+     *note Usual Display::
+
+`truncate-lines'
+     *note Truncation::
+
+`vc-mode'
+     *note Modeline Variables::
+
+
+File: lispref.info,  Node: Standard Keymaps,  Next: Standard Hooks,  Prev: Standard Buffer-Local Variables,  Up: Top
+
+Standard Keymaps
+****************
+
+   The following symbols are used as the names for various keymaps.
+Some of these exist when XEmacs is first started, others are loaded
+only when their respective mode is used.  This is not an exhaustive
+list.
+
+   Almost all of these maps are used as local maps.  Indeed, of the
+modes that presently exist, only Vip mode and Terminal mode ever change
+the global keymap.
+
+`bookmark-map'
+     A keymap containing bindings to bookmark functions.
+
+`Buffer-menu-mode-map'
+     A keymap used by Buffer Menu mode.
+
+`c++-mode-map'
+     A keymap used by C++ mode.
+
+`c-mode-map'
+     A keymap used by C mode.  A sparse keymap used by C mode.
+
+`command-history-map'
+     A keymap used by Command History mode.
+
+`ctl-x-4-map'
+     A keymap for subcommands of the prefix `C-x 4'.
+
+`ctl-x-5-map'
+     A keymap for subcommands of the prefix `C-x 5'.
+
+`ctl-x-map'
+     A keymap for `C-x' commands.
+
+`debugger-mode-map'
+     A keymap used by Debugger mode.
+
+`dired-mode-map'
+     A keymap for `dired-mode' buffers.
+
+`edit-abbrevs-map'
+     A keymap used in `edit-abbrevs'.
+
+`edit-tab-stops-map'
+     A keymap used in `edit-tab-stops'.
+
+`electric-buffer-menu-mode-map'
+     A keymap used by Electric Buffer Menu mode.
+
+`electric-history-map'
+     A keymap used by Electric Command History mode.
+
+`emacs-lisp-mode-map'
+     A keymap used by Emacs Lisp mode.
+
+`help-map'
+     A keymap for characters following the Help key.
+
+`Helper-help-map'
+     A keymap used by the help utility package.
+     It has the same keymap in its value cell and in its function cell.
+
+`Info-edit-map'
+     A keymap used by the `e' command of Info.
+
+`Info-mode-map'
+     A keymap containing Info commands.
+
+`isearch-mode-map'
+     A keymap that defines the characters you can type within
+     incremental search.
+
+`itimer-edit-map'
+     A keymap used when in Itimer Edit mode.
+
+`lisp-interaction-mode-map'
+     A keymap used by Lisp mode.
+
+`lisp-mode-map'
+     A keymap used by Lisp mode.
+
+     A keymap for minibuffer input with completion.
+
+`minibuffer-local-isearch-map'
+     A keymap for editing isearch strings in the minibuffer.
+
+`minibuffer-local-map'
+     Default keymap to use when reading from the minibuffer.
+
+`minibuffer-local-must-match-map'
+     A keymap for minibuffer input with completion, for exact match.
+
+`mode-specific-map'
+     The keymap for characters following `C-c'.  Note, this is in the
+     global map.  This map is not actually mode specific: its name was
+     chosen to be informative for the user in `C-h b'
+     (`display-bindings'), where it describes the main use of the `C-c'
+     prefix key.
+
+`modeline-map'
+     The keymap consulted for mouse-clicks on the modeline of a window.
+
+`objc-mode-map'
+     A keymap used in Objective C mode as a local map.
+
+`occur-mode-map'
+     A local keymap used by Occur mode.
+
+`overriding-local-map'
+     A keymap that overrides all other local keymaps.
+
+`query-replace-map'
+     A local keymap used for responses in `query-replace' and related
+     commands; also for `y-or-n-p' and `map-y-or-n-p'.  The functions
+     that use this map do not support prefix keys; they look up one
+     event at a time.
+
+`read-expression-map'
+     The minibuffer keymap used for reading Lisp expressions.
+
+`read-shell-command-map'
+     The minibuffer keymap used by shell-command and related commands.
+
+`shared-lisp-mode-map'
+     A keymap for commands shared by all sorts of Lisp modes.
+
+`text-mode-map'
+     A keymap used by Text mode.
+
+`toolbar-map'
+     The keymap consulted for mouse-clicks over a toolbar.
+
+`view-mode-map'
+     A keymap used by View mode.
+
+
+File: lispref.info,  Node: Standard Hooks,  Next: Index,  Prev: Standard Keymaps,  Up: Top
+
+Standard Hooks
+**************
+
+   The following is a list of hook variables that let you provide
+functions to be called from within Emacs on suitable occasions.
+
+   Most of these variables have names ending with `-hook'.  They are
+"normal hooks", run by means of `run-hooks'.  The value of such a hook
+is a list of functions.  The recommended way to put a new function on
+such a hook is to call `add-hook'.  *Note Hooks::, for more information
+about using hooks.
+
+   The variables whose names end in `-function' have single functions
+as their values.  Usually there is a specific reason why the variable is
+not a normal hook, such as the need to pass arguments to the function.
+(In older Emacs versions, some of these variables had names ending in
+`-hook' even though they were not normal hooks.)
+
+   The variables whose names end in `-hooks' or `-functions' have lists
+of functions as their values, but these functions are called in a
+special way (they are passed arguments, or else their values are used).
+
+`activate-menubar-hook'
+
+`activate-popup-menu-hook'
+
+`ad-definition-hooks'
+
+`adaptive-fill-function'
+
+`add-log-current-defun-function'
+
+`after-change-functions'
+
+`after-delete-annotation-hook'
+
+`after-init-hook'
+
+`after-insert-file-functions'
+
+`after-revert-hook'
+
+`after-save-hook'
+
+`after-set-visited-file-name-hooks'
+
+`after-write-file-hooks'
+
+`auto-fill-function'
+
+`auto-save-hook'
+
+`before-change-functions'
+
+`before-delete-annotation-hook'
+
+`before-init-hook'
+
+`before-revert-hook'
+
+`blink-paren-function'
+
+`buffers-menu-switch-to-buffer-function'
+
+`c++-mode-hook'
+
+`c-delete-function'
+
+`c-mode-common-hook'
+
+`c-mode-hook'
+
+`c-special-indent-hook'
+
+`calendar-load-hook'
+
+`change-major-mode-hook'
+
+`command-history-hook'
+
+`comment-indent-function'
+
+`compilation-buffer-name-function'
+
+`compilation-exit-message-function'
+
+`compilation-finish-function'
+
+`compilation-parse-errors-function'
+
+`compilation-mode-hook'
+
+`create-console-hook'
+
+`create-device-hook'
+
+`create-frame-hook'
+
+`dabbrev-friend-buffer-function'
+
+`dabbrev-select-buffers-function'
+
+`delete-console-hook'
+
+`delete-device-hook'
+
+`delete-frame-hook'
+
+`deselect-frame-hook'
+
+`diary-display-hook'
+
+`diary-hook'
+
+`dired-after-readin-hook'
+
+`dired-before-readin-hook'
+
+`dired-load-hook'
+
+`dired-mode-hook'
+
+`disabled-command-hook'
+
+`display-buffer-function'
+
+`ediff-after-setup-control-frame-hook'
+
+`ediff-after-setup-windows-hook'
+
+`ediff-before-setup-control-frame-hook'
+
+`ediff-before-setup-windows-hook'
+
+`ediff-brief-help-message-function'
+
+`ediff-cleanup-hook'
+
+`ediff-control-frame-position-function'
+
+`ediff-display-help-hook'
+
+`ediff-focus-on-regexp-matches-function'
+
+`ediff-forward-word-function'
+
+`ediff-hide-regexp-matches-function'
+
+`ediff-keymap-setup-hook'
+
+`ediff-load-hook'
+
+`ediff-long-help-message-function'
+
+`ediff-make-wide-display-function'
+
+`ediff-merge-split-window-function'
+
+`ediff-meta-action-function'
+
+`ediff-meta-redraw-function'
+
+`ediff-mode-hook'
+
+`ediff-prepare-buffer-hook'
+
+`ediff-quit-hook'
+
+`ediff-registry-setup-hook'
+
+`ediff-select-hook'
+
+`ediff-session-action-function'
+
+`ediff-session-group-setup-hook'
+
+`ediff-setup-diff-regions-function'
+
+`ediff-show-registry-hook'
+
+`ediff-show-session-group-hook'
+
+`ediff-skip-diff-region-function'
+
+`ediff-split-window-function'
+
+`ediff-startup-hook'
+
+`ediff-suspend-hook'
+
+`ediff-toggle-read-only-function'
+
+`ediff-unselect-hook'
+
+`ediff-window-setup-function'
+
+`edit-picture-hook'
+
+`electric-buffer-menu-mode-hook'
+
+`electric-command-history-hook'
+
+`electric-help-mode-hook'
+
+`emacs-lisp-mode-hook'
+
+`fill-paragraph-function'
+
+`find-file-hooks'
+
+`find-file-not-found-hooks'
+
+`first-change-hook'
+
+`font-lock-after-fontify-buffer-hook'
+
+`font-lock-beginning-of-syntax-function'
+
+`font-lock-mode-hook'
+
+`fume-found-function-hook'
+
+`fume-list-mode-hook'
+
+`fume-rescan-buffer-hook'
+
+`fume-sort-function'
+
+`gnus-startup-hook'
+
+`hack-local-variables-hook'
+
+`highlight-headers-follow-url-function'
+
+`hyper-apropos-mode-hook'
+
+`indent-line-function'
+
+`indent-mim-hook'
+
+`indent-region-function'
+
+`initial-calendar-window-hook'
+
+`isearch-mode-end-hook'
+
+`isearch-mode-hook'
+
+`java-mode-hook'
+
+`kill-buffer-hook'
+
+`kill-buffer-query-functions'
+
+`kill-emacs-hook'
+
+`kill-emacs-query-functions'
+
+`kill-hooks'
+
+`LaTeX-mode-hook'
+
+`latex-mode-hook'
+
+`ledit-mode-hook'
+
+`lisp-indent-function'
+
+`lisp-interaction-mode-hook'
+
+`lisp-mode-hook'
+
+`list-diary-entries-hook'
+
+`load-read-function'
+
+`log-message-filter-function'
+
+`m2-mode-hook'
+
+`mail-citation-hook'
+
+`mail-mode-hook'
+
+`mail-setup-hook'
+
+`make-annotation-hook'
+
+`makefile-mode-hook'
+
+`map-frame-hook'
+
+`mark-diary-entries-hook'
+
+`medit-mode-hook'
+
+`menu-no-selection-hook'
+
+`mh-compose-letter-hook'
+
+`mh-folder-mode-hook'
+
+`mh-letter-mode-hook'
+
+`mim-mode-hook'
+
+`minibuffer-exit-hook'
+
+`minibuffer-setup-hook'
+
+`mode-motion-hook'
+
+`mouse-enter-frame-hook'
+
+`mouse-leave-frame-hook'
+
+`mouse-track-cleanup-hook'
+
+`mouse-track-click-hook'
+
+`mouse-track-down-hook'
+
+`mouse-track-drag-hook'
+
+`mouse-track-drag-up-hook'
+
+`mouse-track-up-hook'
+
+`mouse-yank-function'
+
+`news-mode-hook'
+
+`news-reply-mode-hook'
+
+`news-setup-hook'
+
+`nongregorian-diary-listing-hook'
+
+`nongregorian-diary-marking-hook'
+
+`nroff-mode-hook'
+
+`objc-mode-hook'
+
+`outline-mode-hook'
+
+`perl-mode-hook'
+
+`plain-TeX-mode-hook'
+
+`post-command-hook'
+
+`post-gc-hook'
+
+`pre-abbrev-expand-hook'
+
+`pre-command-hook'
+
+`pre-display-buffer-function'
+
+`pre-gc-hook'
+
+`pre-idle-hook'
+
+`print-diary-entries-hook'
+
+`prolog-mode-hook'
+
+`protect-innocence-hook'
+
+`remove-message-hook'
+
+`revert-buffer-function'
+
+`revert-buffer-insert-contents-function'
+
+`rmail-edit-mode-hook'
+
+`rmail-mode-hook'
+
+`rmail-retry-setup-hook'
+
+`rmail-summary-mode-hook'
+
+`scheme-indent-hook'
+
+`scheme-mode-hook'
+
+`scribe-mode-hook'
+
+`select-frame-hook'
+
+`send-mail-function'
+
+`shell-mode-hook'
+
+`shell-set-directory-error-hook'
+
+`special-display-function'
+
+`suspend-hook'
+
+`suspend-resume-hook'
+
+`temp-buffer-show-function'
+
+`term-setup-hook'
+
+`terminal-mode-hook'
+
+`terminal-mode-break-hook'
+
+`TeX-mode-hook'
+
+`tex-mode-hook'
+
+`text-mode-hook'
+
+`today-visible-calendar-hook'
+
+`today-invisible-calendar-hook'
+
+`tooltalk-message-handler-hook'
+
+`tooltalk-pattern-handler-hook'
+
+`tooltalk-unprocessed-message-hook'
+
+`unmap-frame-hook'
+
+`vc-checkin-hook'
+
+`vc-checkout-writable-buffer-hook'
+
+`vc-log-after-operation-hook'
+
+`vc-make-buffer-writable-hook'
+
+`view-hook'
+
+`vm-arrived-message-hook'
+
+`vm-arrived-messages-hook'
+
+`vm-chop-full-name-function'
+
+`vm-display-buffer-hook'
+
+`vm-edit-message-hook'
+
+`vm-forward-message-hook'
+
+`vm-iconify-frame-hook'
+
+`vm-inhibit-write-file-hook'
+
+`vm-key-functions'
+
+`vm-mail-hook'
+
+`vm-mail-mode-hook'
+
+`vm-menu-setup-hook'
+
+`vm-mode-hook'
+
+`vm-quit-hook'
+
+`vm-rename-current-buffer-function'
+
+`vm-reply-hook'
+
+`vm-resend-bounced-message-hook'
+
+`vm-resend-message-hook'
+
+`vm-retrieved-spooled-mail-hook'
+
+`vm-select-message-hook'
+
+`vm-select-new-message-hook'
+
+`vm-select-unread-message-hook'
+
+`vm-send-digest-hook'
+
+`vm-summary-mode-hook'
+
+`vm-summary-pointer-update-hook'
+
+`vm-summary-redo-hook'
+
+`vm-summary-update-hook'
+
+`vm-undisplay-buffer-hook'
+
+`vm-visit-folder-hook'
+
+`window-setup-hook'
+
+`write-contents-hooks'
+
+`write-file-data-hooks'
+
+`write-file-hooks'
+
+`write-region-annotate-functions'
+
+`x-lost-selection-hooks'
+
+`x-sent-selection-hooks'
+
+`zmacs-activate-region-hook'
+
+`zmacs-deactivate-region-hook'
+
+`zmacs-update-region-hook'
