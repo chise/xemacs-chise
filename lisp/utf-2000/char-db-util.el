@@ -837,7 +837,8 @@
     (unless readable
       (dolist (ignored '(composition
 			 ->denotational <-subsumptive ->ucs-unified
-			 ->ideographic-component-forms))
+			 ->ideographic-component-forms
+			 <-same))
 	(setq attributes (delq ignored attributes))))
     ;; (setq rest ccs-attributes)
     ;; (while (and rest
