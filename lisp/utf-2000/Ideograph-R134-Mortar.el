@@ -1183,6 +1183,7 @@
 	)
        ((=ucs		    . #x81FC)	; 臼
 	))
+      (shinjigen-1	  . 8974)
       (=daikanwa	  . 30249)	; &M-30249;
       )
      ((ideographic-structure
