@@ -3164,6 +3164,31 @@ Make a builtin character from CHARSET and code-point CODE.
 
   charset = Fget_charset (charset);
   CHECK_INT (code);
+  if (EQ (charset, Vcharset_latin_viscii))
+    {
+      Lisp_Object chr = Fdecode_char (charset, code);
+      Lisp_Object ret;
+
+      if (!NILP (chr))
+	{
+	  if (!NILP
+	      (ret = Fget_char_attribute (chr,
+					  Vcharset_latin_viscii_lower,
+					  Qnil)))
+	    {
+	      charset = Vcharset_latin_viscii_lower;
+	      code = ret;
+	    }
+	  else if (!NILP
+		   (ret = Fget_char_attribute (chr,
+					       Vcharset_latin_viscii_upper,
+					       Qnil)))
+	    {
+	      charset = Vcharset_latin_viscii_upper;
+	      code = ret;
+	    }
+	}
+    }
   c = XINT (code);
 #if 0
   if (XCHARSET_GRAPHIC (charset) == 1)
