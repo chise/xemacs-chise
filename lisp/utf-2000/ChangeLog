@@ -1,5 +1,18 @@
 2001-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R008-Lid.el: Add some relations between Hanziku and
+	CJK Ext-B code points.
+
+	* Ideograph-R130-Meat.el (M-29860): Map to U-00026803; add
+	`ideographic-structure'.
+	(U-00026803): New character.
+	(C7-316C): Map to U-00026803; add `ideographic-structure'.
+	(U+6725): Moved to Ideograph-R074-Moon.el.
+	(U+81A5): Add `total-strokes'.
+	(U+81B6): Likewise.
+
+2001-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R189-Tall.el:
 	- Add some Hanziku code points.
 	- Add some `ideographic-structure' properties.
