@@ -265,6 +265,10 @@ void Lstream_set_character_mode (Lstream *str);
 #ifdef MULE
 
 #ifndef BYTE_ASCII_P
+#include "multibyte.h"
+#endif
+
+#ifndef CHAR_ASCII_P
 #include "character.h"
 #endif
 
