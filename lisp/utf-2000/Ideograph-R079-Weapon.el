@@ -672,15 +672,9 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=daikanwa		. 16650)	; ø¸„„Š
-    ))
-(define-char
-  '((=>ucs		. #x6BBE)	; æ®¾
-    (morohashi-daikanwa	16650 0 0)
-    (ideographic-radical . 79)	; â½Ž
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
     (=jis-x0212		. #x4633)	; ø»‹š¸
+    (=jis-x0213-2-2000	. #x6E25)	; ø»¦ŽŠ
+    (=daikanwa		. 16650)	; ø¸„„Š
     (=jef-china3	. #x54EF)	; øº…“¯
     (=ucs@jis		. #x6BBE)	; ø»‹š¸
     ))
