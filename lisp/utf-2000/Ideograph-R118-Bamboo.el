@@ -4556,10 +4556,10 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (<-wrong
-     (:sources	(kangxi morohashi-daikanwa)
-      :char	((=daikanwa	     . 26564)	; &M-26564;
-		 )
+     ((=daikanwa	  . 26564)	; &M-26564;
       ))
+    (<-wrong*sources
+     kangxi daikanwa)
     (=ucs		. #x4227)	; 䈧
     (=cns11643-5	. #x4F36)	; &I-C5-4F36;
     (=daikanwa		. 26295)	; &I-M-26295;
@@ -7436,17 +7436,17 @@
     (=cns11643-7	. #x4136)	; &I-C7-4136;
     ))
 (define-char
-  '((ideographic-radical . 118)	; ⽵
-    (ideographic-strokes . 12)
-    (total-strokes	 . 18)
-    (=daikanwa		. 26564)	; &M-26564;
-    ))
-(define-char
-  '((morohashi-daikanwa	26564 0 2)
+  '((=>ucs*		. #x4227)	; 䈧
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (=cns11643-7	. #x413C)	; &C7-413C;
+    (=ucs		. #x2F964)	; 䈧
+    (->subsumptive
+     ((=daikanwa	  . 26564)	; &M-26564;
+      )
+     ((=cns11643-7	  . #x413C)	; &C7-413C;
+      (=ucs@iso		  . #x2F964)	; &C7-413C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
