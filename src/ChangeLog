@@ -1,3 +1,10 @@
+2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_properties): Use `true-name' only
+	for aliases; write `description'; write
+	`mother-code-{min|max|offset|conversion}' if CHARSET_MAX_CODE is
+	not 0.
+
 2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fsave_char_attribute_table): Don't use
