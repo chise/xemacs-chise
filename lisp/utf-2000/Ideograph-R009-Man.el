@@ -21322,6 +21322,7 @@
      ((chinese-big5-cdp	  . #x89F4)	; ý¢€ˆ§´
       ))
     (ideograph-gt-pj-9	. #x515F)	; ý¡€€‹¿
+    (ideograph-gt-k	. 03991)	; ý¡„€¾—
     (ideograph-gt	. 00767)	; ý¡€€‹¿
     ))
 (define-char
