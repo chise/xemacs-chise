@@ -1,3 +1,23 @@
+2003-08-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R130-Meat.el (U+80F7): Unify JC3-52AA.
+	(JX1-7A4E): Unify JC3-52C5.
+	(U+8118): Separate JC3-52C5.
+	(JSP-5636): Unify JC3-52CE.
+	(U+816D): Unify JC3-52D2.
+	(M-29705): Unify JC3-52D4.
+	(JX2-754E): Unify JC3-52D8.
+	(U+8185): Separate JC3-52D8.
+	(U+819E): Unify JC3-52DB.
+	(U+81AB): Unify JC3-52DC.
+	(U+81AE): Unify JC3-52DD.
+	(U+81C5): Unify JC3-52DE.
+	(JX1-7A56): Unify JC3-52E0.
+	(JSP-565E): Unify JC3-52AC.
+
 2003-08-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R143-Blood.el (C2-6C36): Unify JC3-63E3.
