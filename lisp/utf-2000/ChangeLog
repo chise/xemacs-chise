@@ -1,5 +1,9 @@
 2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el (JSP-5142): Moved into B-EAB0.
+
+2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R163-City.el (U+913C): Use `->subsumptive'.
 	(JSP-6251): Use `=ucs@jis' instead of `=ucs@jis-1990'.
 
