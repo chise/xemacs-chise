@@ -346,6 +346,7 @@
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER U")
+    (script		Bopomofo)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
