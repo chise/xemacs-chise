@@ -1,3 +1,19 @@
+1999-11-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R016-Table.el,
+	utf-2000/Ideograph-R015-Ice.el, utf-2000/Ideograph-R014-Cover.el:
+	Merge `japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R013-Down-Box.el: Merge `japanese-jisx0213-2'
+	with UCS.
+
+1999-11-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R013-Down-Box.el: Merge
+	`japanese-jisx0213-2'.
+	(J78-4B41 = J83-4B41): Moved to R109.
+	(C6-316D): Moved to R072.
+
 1999-11-24  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* utf-2000/Ideograph-R012-Eight.el: Merge `japanese-jisx0213-1'
