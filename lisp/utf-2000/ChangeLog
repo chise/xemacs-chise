@@ -1,3 +1,32 @@
+2002-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44029): Map to U-00020A78; add
+	`->same-ideograph' for M-02979.
+	(M044029): Relate to M-44029.
+
+	* Ideograph-R027-Cliff.el (M070887): New character.
+	(M-02903): Separate U+3542.
+	(U-00020A78): Add `->same-ideograph' for M-44029.
+	(M044029): Moved to Ideograph-R184-Eat.el.
+
+	* Ideograph-R026-Seal.el (M-02873): Map to U+537D.
+
+	* Ideograph-R022-Right-Open-Box.el (M083453): New character.
+
+	* Ideograph-R018-Knife.el (M-02134): Use `->same-ideograph'
+	instead of `->identical'; separate C5-3663.
+	(M-02242): Map to U-000207FC.
+	(U-000207FC): Relate to M-02242.
+	(C5-5A77): Likewise.
+
+	* Ideograph-R014-Cover.el (U+51A4): Separate JC3-43F0.
+	(JC3-43F0): Unify M054509.
+
+	* Ideograph-R012-Eight.el (U+5177): Unify M050941.
+
+	* Ideograph-R009-Man.el (U-000202F4): Add `->same-ideograph' for
+	M-02134 and M-00768.
+
 2002-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R003-Dot.el (M-00104): Use `ideographic-' instead of
