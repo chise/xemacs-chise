@@ -253,21 +253,24 @@
 (defun char-db-decode-isolated-char (ccs code-point)
   (let (ret)
     (setq ret
-	  (if (and (memq ccs '(ideograph-gt-pj-1
-			       ideograph-gt-pj-2
-			       ideograph-gt-pj-3
-			       ideograph-gt-pj-4
-			       ideograph-gt-pj-5
-			       ideograph-gt-pj-6
-			       ideograph-gt-pj-7
-			       ideograph-gt-pj-8
-			       ideograph-gt-pj-9
-			       ideograph-gt-pj-10
-			       ideograph-gt-pj-11))
-		   (setq ret (decode-char ccs code-point))
-		   (setq ret (get-char-attribute ret 'ideograph-gt)))
-	      (decode-builtin-char 'ideograph-gt ret)
-	    (decode-builtin-char ccs code-point)))
+	  (cond ((eq ccs 'arabic-iso8859-6)
+		 (decode-char ccs code-point))
+		((and (memq ccs '(ideograph-gt-pj-1
+				  ideograph-gt-pj-2
+				  ideograph-gt-pj-3
+				  ideograph-gt-pj-4
+				  ideograph-gt-pj-5
+				  ideograph-gt-pj-6
+				  ideograph-gt-pj-7
+				  ideograph-gt-pj-8
+				  ideograph-gt-pj-9
+				  ideograph-gt-pj-10
+				  ideograph-gt-pj-11))
+		      (setq ret (decode-char ccs code-point))
+		      (setq ret (get-char-attribute ret 'ideograph-gt)))
+		 (decode-builtin-char 'ideograph-gt ret))
+		(t
+		 (decode-builtin-char ccs code-point))))
     (cond ((and (<= 0 (char-int ret))
 		(<= (char-int ret) #x1F))
 	   (decode-char 'ucs (+ #x2400 (char-int ret))))
@@ -581,9 +584,11 @@
 			      ->fullwidth <-fullwidth
 			      ->vulgar-ideograph <-vulgar-ideograph
 			      ->ancient-ideograph <-ancient-ideograph
+			      ->original-ideograph <-original-ideograph
 			      ->simplified-ideograph <-simplified-ideograph
 			      ->same-ideograph
-			      ->bopomofo))
+			      ->ideographic <-ideographic
+			      ->bopomofo ->ideograph))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
@@ -790,6 +795,7 @@
 			(if ucs
 			    (delete char (char-variants (int-char ucs)))))))
 	variant vs)
+    (setq variants (sort variants #'<))
     (while variants
       (setq variant (car variants))
       (if (and (or (null script)
