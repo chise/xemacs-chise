@@ -109,6 +109,14 @@
     ))
 (define-char
   '((ideographic-radical . 69)	; â½„
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (chinese-gb2312	. #x5536)	; ø»…’±
+    (chinese-isoir165	. #x5536)	; ø»»
+    (ucs		. #x65A9)	; æ–©
+    ))
+(define-char
+  '((ideographic-radical . 69)	; â½„
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 13545)	; ø¸ƒ“©
