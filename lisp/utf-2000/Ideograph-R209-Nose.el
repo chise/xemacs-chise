@@ -17,6 +17,8 @@
     (=jis-x0208		. #x4921)	; ø½Š°¬
     (korean-ksc5601	. #x5E2C)	; ø»‰³½
     (chinese-cns11643-4 . #x4877)	; ø»˜›
+    (=gt-pj-1		. #x4921)	; ð¯¨œ
+    (=gt-k		. 11267)	; ý¡„‚°ƒ
     (ucs-jis		. #x9F3B)	; ð¯¨œ
     (ucs-ks		. #x9F3B)	; ð¯¨œ
     (ucs		. #x2FA1C)	; ð¯¨œ

@@ -5,7 +5,9 @@
     (total-strokes	 . 10)
     (shinjigen-2	. 9503)
     (=jis-x0208		. #x722F)	; ø½‹­ˆ
+    (=gt-pj-1		. #x722F)	; ø½‹­ˆ
     (ideograph-daikanwa . 45672)	; ø¸‹‰¨
+    (=gt-k		. 06657)	; ý¡„¨
     (ucs-jis		. #x9B32)	; ø½‹­ˆ
     ))
 (define-char

@@ -7,7 +7,9 @@
     (=jis-x0208		. #x414D)	; ø½Š¥¨
     (korean-ksc5601	. #x6029)	; ø»‰¶¶
     (chinese-isoir165	. #x4A73)	; ø»«´
+    (=gt-pj-1		. #x414D)	; é¼ 
     (ideograph-daikanwa . 48390)	; ø¸‹´†
+    (=gt-k		. 10236)	; ý¡„‚Ÿ¼
     (ucs		. #x9F20)	; é¼ 
     ))
 (define-char
@@ -23,6 +25,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (=jis-x0208		. #x736B)	; ø½‹¯¢
+    (=gt-pj-1		. #x736B)	; é¼¡
+    (=gt-k		. 03927)	; ý¡„€½—
     (ucs		. #x9F21)	; é¼¡
     ))
 (define-char

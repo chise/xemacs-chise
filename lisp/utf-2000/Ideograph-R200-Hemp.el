@@ -31,7 +31,9 @@
     (shinjigen-1	. 9804)
     (shinjigen-2	. 9804)
     (=jis-x0208		. #x4B63)	; ø½Š´ª
+    (=gt-pj-1		. #x4B63)	; ø½Š´ª
     (ideograph-daikanwa . 47888)	; ø¸‹¬
+    (=gt-k		. 07878)	; ý¡„»†
     (ucs-jis		. #x9EBB)	; ø½Š´ª
     ))
 (define-char
@@ -64,7 +66,9 @@
     (total-strokes	 . 14)
     (=jis-x0208		. #x5677)	; ø½‹…ˆ
     (chinese-cns11643-1 . #x6B7B)	; ø»’°¢
+    (=gt-pj-1		. #x5677)	; ø½‹…ˆ
     (ideograph-daikanwa . 47892)	; ø¸‹¬”
+    (=gt-k		. 11204)	; ý¡„‚¯„
     (ucs-jis		. #x9EBC)	; ø½‹…ˆ
     ))
 (define-char

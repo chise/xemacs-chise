@@ -5,7 +5,9 @@
     (=jis-x0208		. #x4850)	; ø½Š¯½
     (chinese-isoir165	. #x2F7E)	; ø»„•
     (chinese-cns11643-1 . #x4B5D)	; ø»’„
+    (=gt-pj-1		. #x4850)	; é‡†
     (ideograph-daikanwa . 40115)	; ø¸‰²³
+    (=gt-k		. 02637)	; ý¡„€©
     (ucs		. #x91C6)	; é‡†
     ))
 (define-char
@@ -26,6 +28,8 @@
     (japanese-jisx0208		. #x3A53)	; ø»†µ¨
     (chinese-isoir165		. #x3249)	; ø»‡º
     (japanese-jisx0208-1990	. #x3A53)	; ø½Š›œ
+    (=gt-pj-1			. #x3A53)	; é‡‡
+    (=gt-k			. 03715)	; ý¡„€ºƒ
     (ucs			. #x91C7)	; é‡‡
     ))
 (define-char

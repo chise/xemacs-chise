@@ -6,7 +6,9 @@
     (=jis-x0208		. #x6948)	; ø½‹ “
     (chinese-isoir165	. #x722E)	; ø»Ž¥Ÿ
     (chinese-cns11643-2 . #x226F)	; ø»“Œ
+    (=gt-pj-1		. #x6948)	; è™
     (ideograph-daikanwa . 32674)	; ø¸‡¾¢
+    (=gt-k		. 01740)	; ý¡„€›Œ
     (ucs		. #x864D)	; è™
     ))
 (define-char
@@ -17,7 +19,9 @@
     (shinjigen-2	. 7080)
     (=jis-x0208		. #x3857)	; ø½Š˜¤
     (korean-ksc5601	. #x7B5B)	; ø»ŠŸ’
+    (=gt-pj-1		. #x3857)	; ø½Š˜¤
     (ideograph-daikanwa . 32675)	; ø¸‡¾£
+    (=gt-k		. 03697)	; ý¡„€¹±
     (ucs-jis		. #x864E)	; ø½Š˜¤
     ))
 (define-char
@@ -79,6 +83,8 @@
     (total-strokes	 . 9)
     (=jis-x0208		. #x3554)	; ø½Š”‡
     (chinese-cns11643-6 . #x3447)	; ø»œ‘
+    (=gt-pj-1		. #x3554)	; ø½Š”‡
+    (=gt-k		. 05051)	; ý¡„Ž»
     (ucs-jis		. #x8650)	; ø½Š”‡
     ))
 (define-char
@@ -169,7 +175,9 @@
     (korean-ksc5601	. #x4B73)	; ø»‰™Š
     (chinese-isoir165	. #x722F)	; ø»Ž¥ 
     (chinese-cns11643-1 . #x5825)	; ø»’“’
+    (=gt-pj-1		. #x694A)	; è™”
     (ideograph-daikanwa . 32686)	; ø¸‡¾®
+    (=gt-k		. 06639)	; ý¡„§¯
     (ucs		. #x8654)	; è™”
     ))
 (define-char
@@ -259,7 +267,9 @@
     (=jis-x0208		. #x515D)	; ø½Š½˜
     (korean-ksc5601	. #x7425)	; ø»Š”Š
     (chinese-gb12345	. #x3426)	; è™•
+    (=gt-pj-1		. #x515D)	; è™•
     (ideograph-daikanwa . 32697)	; ø¸‡¾¹
+    (=gt-k		. 07907)	; ý¡„»£
     (ucs		. #x8655)	; è™•
     ))
 (define-char
@@ -356,7 +366,9 @@
     (=jis-x0208		. #x3575)	; ø½Š”¨
     (chinese-isoir165	. #x5069)	; ø»´ž
     (chinese-cns11643-3 . #x3861)	; ø»•¹–
+    (=gt-pj-1		. #x3575)	; è™š
     (ideograph-daikanwa . 32708)	; ø¸‡¿„
+    (=gt-k		. 07745)	; ý¡„¹
     (ucs		. #x865A)	; è™š
     ))
 (define-char
@@ -503,6 +515,8 @@
     (total-strokes	 . 13)
     (=jis-x0208		. #x4E3A)	; ø½Š¸›
     (chinese-gb12345	. #x4232)	; è™œ
+    (=gt-pj-1		. #x4E3A)	; è™œ
+    (=gt-k		. 10421)	; ý¡„‚¢µ
     (ucs		. #x865C)	; è™œ
     ))
 (define-char
@@ -590,7 +604,9 @@
     (total-strokes	 . 13)
     (shinjigen-2	. 940)
     (=jis-x0208		. #x694B)	; ø½‹ –
+    (=gt-pj-1		. #x694B)	; ø½‹ –
     (ideograph-daikanwa . 32726)	; ø¸‡¿–
+    (=gt-k		. 10349)	; ý¡„‚¡­
     (ucs-jis		. #x865F)	; ø½‹ –
     ))
 (define-char

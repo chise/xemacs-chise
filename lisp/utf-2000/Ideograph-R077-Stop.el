@@ -8,8 +8,10 @@
     (korean-ksc5601	. #x722D)	; ø»Š‘–
     (chinese-isoir165	. #x5639)	; ø»¼¢
     (chinese-cns11643-1 . #x454F)	; ø»‘¸‚
+    (=gt-pj-1		. #x3B5F)	; æ­¢
     (chinese-big5	. #xA4EE)	; ý¢€Š“®
     (ideograph-daikanwa . 16253)	; ø¸ƒ½½
+    (=gt-k		. 00438)	; ý¡„€†¶
     (ucs		. #x6B62)	; æ­¢
     ))
 (define-char
@@ -39,8 +41,10 @@
     (korean-ksc5601	. #x6F61)	; ø»Š°
     (chinese-isoir165	. #x557D)	; ø»¼ˆ
     (chinese-cns11643-1 . #x465F)	; ø»‘¹°
+    (=gt-pj-1		. #x4035)	; æ­£
     (chinese-big5	. #xA5BF)	; ý¢€Š–¿
     (ideograph-daikanwa . 16255)	; ø¸ƒ½¿
+    (=gt-k		. 00963)	; ý¡„€ƒ
     (ucs		. #x6B63)	; æ­£
     ))
 (define-char
@@ -89,8 +93,10 @@
     (=jis-x0208		. #x3A21)	; ø½Ššª
     (korean-ksc5601	. #x732E)	; ø»Š’µ
     (chinese-isoir165	. #x344B)	; ø»Š¸
+    (=gt-pj-1		. #x3A21)	; æ­¤
     (chinese-big5	. #xA6B9)	; ý¢€Šš¹
     (ideograph-daikanwa . 16259)	; ø¸ƒ¾ƒ
+    (=gt-k		. 01614)	; ý¡„€™Ž
     (ucs		. #x6B64)	; æ­¤
     ))
 (define-char
@@ -281,8 +287,10 @@
     (korean-ksc5601	. #x596B)	; ø»‰­¦
     (chinese-isoir165	. #x4E64)	; ø»±
     (chinese-cns11643-1 . #x4E3D)	; ø»’„¾
+    (=gt-pj-1		. #x4970)	; æ­¦
     (chinese-big5	. #xAA5A)	; ý¢€Š©š
     (ideograph-daikanwa . 16273)	; ø¸ƒ¾‘
+    (=gt-k		. 03812)	; ý¡„€»¤
     (ucs		. #x6B66)	; æ­¦
     ))
 (define-char
@@ -401,7 +409,9 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 3952)
     (=jis-x0208		. #x4A62)	; ø½Š³‹
+    (=gt-pj-1		. #x4A62)	; ø½Š³‹
     (ideograph-daikanwa . 16284)	; ø¸ƒ¾œ
+    (=gt-k		. 03986)	; ý¡„€¾’
     (ucs-jis		. #x6B69)	; ø½Š³‹
     ))
 (define-char
@@ -933,7 +943,9 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 9882)
     (=jis-x0208		. #x3B75)	; ø½Šœ
+    (=gt-pj-1		. #x3B75)	; æ­¯
     (ideograph-daikanwa . 16323)	; ø¸ƒ¿ƒ
+    (=gt-k		. 09061)	; ý¡„‚¥
     (ucs		. #x6B6F)	; æ­¯
     ))
 (define-char
@@ -1025,6 +1037,8 @@
     (total-strokes	 . 13)
     (=jis-x0208		. #x3A50)	; ø½Š›™
     (chinese-cns11643-3 . #x4221)	; ø»–‡‚
+    (=gt-pj-1		. #x3A50)	; æ­³
+    (=gt-k		. 10209)	; ý¡„‚Ÿ¡
     (ucs		. #x6B73)	; æ­³
     ))
 (define-char
@@ -1138,6 +1152,8 @@
     (total-strokes	 . 14)
     (=jis-x0208		. #x4E72)	; ø½Š¹“
     (chinese-cns11643-3 . #x4753)	; ø»–Š
+    (=gt-pj-1		. #x4E72)	; æ­´
+    (=gt-k		. 11191)	; ý¡„‚®·
     (ucs		. #x6B74)	; æ­´
     ))
 (define-char

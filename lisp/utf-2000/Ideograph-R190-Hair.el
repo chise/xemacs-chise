@@ -7,7 +7,9 @@
     (=jis-x0208		. #x7175)	; ø½‹¬°
     (chinese-isoir165	. #x7754)	; ø»Ž­›
     (chinese-cns11643-2 . #x334C)	; ø»“§§
+    (=gt-pj-1		. #x7175)	; é«Ÿ
     (ideograph-daikanwa . 45355)	; ø¸‹„«
+    (=gt-k		. 06654)	; ý¡„§¾
     (ucs		. #x9ADF)	; é«Ÿ
     ))
 (define-char

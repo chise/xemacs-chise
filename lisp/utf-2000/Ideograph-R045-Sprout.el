@@ -30,7 +30,9 @@
     (comment		. "M-07825 is a different char.")
     (=jis-x0208		. #x5625)	; ø½‹ƒ¶
     (chinese-cns11643-4 . #x2135)	; ø»— ¼
+    (=gt-pj-1		. #x5625)	; ð¯¡¸
     (ideograph-daikanwa . 07826)	; ø¸º’
+    (=gt-k		. 00270)	; ý¡„€„Ž
     (ucs-jis		. #x5C6E)	; ð¯¡¸
     (ucs		. #x2F878)	; ð¯¡¸
     ))
@@ -52,7 +54,9 @@
     (shinjigen-2	. 1953)
     (=jis-x0208		. #x4656)	; ø½Š­‡
     (korean-ksc5601	. #x546A)	; ø»‰¦
+    (=gt-pj-1		. #x4656)	; ø½Š­‡
     (ideograph-daikanwa . 07828)	; ø¸º”
+    (=gt-k		. 00470)	; ý¡„€‡–
     (ucs-jis		. #x5C6F)	; ø½Š­‡
     ))
 (define-char

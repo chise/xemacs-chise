@@ -27,6 +27,8 @@
     (shinjigen-2	. 9132)
     (=jis-x0208		. #x323B)	; ø½Š”
     (korean-ksc5601	. #x6B65)	; ø»Š‡¼
+    (=gt-pj-1		. #x323B)	; ø½Š”
+    (=gt-k		. 05029)	; ý¡„Ž¥
     (ucs-jis		. #x97F3)	; ø½Š”
     ))
 (define-char

@@ -163,8 +163,10 @@
     (korean-ksc5601	. #x5B6D)	; ø»‰°¤
     (chinese-isoir165	. #x3732)	; ø»Ž¹
     (chinese-cns11643-1 . #x443B)	; ø»‘¶
+    (=gt-pj-1		. #x4B5E)	; å‡¡
     (chinese-big5	. #xA45A)	; ý¢€Š‘š
     (ideograph-daikanwa . 01739)	; ø¸€›‹
+    (=gt-k		. 00203)	; ý¡„€ƒ‹
     (ucs		. #x51E1)	; å‡¡
     ))
 (define-char

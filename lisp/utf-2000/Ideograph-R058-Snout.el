@@ -32,8 +32,10 @@
     (total-strokes	 . 3)
     (=jis-x0208		. #x5740)	; ø½‹…¯
     (chinese-cns11643-3 . #x2141)	; ø»•—„
+    (=gt-pj-1		. #x5740)	; å½‘
     (ideograph-daikanwa . 09909)	; ø¸‚šµ
     (=big5-cdp		. #x8C53)	; ý¢€ˆ±“
+    (=gt-k		. 00234)	; ý¡„€ƒª
     (ucs		. #x5F51)	; å½‘
     ))
 (define-char
@@ -107,7 +109,9 @@
     (=jis-x0208		. #x4576)	; ø½Š¬‰
     (chinese-isoir165	. #x3531)	; ø»‹¼
     (chinese-cns11643-3 . #x2351)	; ø»•š
+    (=gt-pj-1		. #x4576)	; å½“
     (ideograph-daikanwa . 09913)	; ø¸‚š¹
+    (=gt-k		. 01674)	; ý¡„€šŠ
     (ucs		. #x5F53)	; å½“
     ))
 (define-char
@@ -215,8 +219,10 @@
     (korean-ksc5601	. #x5327)	; ø»‰£®
     (chinese-isoir165	. #x6568)	; ø»Ž““
     (chinese-cns11643-2 . #x2A3E)	; ø»“š‹
+    (=gt-pj-1		. #x5741)	; å½–
     (chinese-big5	. #xCEBD)	; ý¢€Œº½
     (ideograph-daikanwa . 09920)	; ø¸‚›€
+    (=gt-k		. 05239)	; ý¡„‘·
     (ucs		. #x5F56)	; å½–
     ))
 (define-char
@@ -302,8 +308,10 @@
     (=jis-x0208		. #x5742)	; ø½‹…±
     (korean-ksc5601	. #x7B32)	; ø»Šž©
     (chinese-cns11643-1 . #x5A31)	; ø»’–š
+    (=gt-pj-1		. #x5742)	; ø½‹…±
     (chinese-big5	. #xB16B)	; ý¢€‹…«
     (ideograph-daikanwa . 09927)	; ø¸‚›‡
+    (=gt-k		. 07930)	; ý¡„»º
     (ucs-jis		. #x5F57)	; ø½‹…±
     ))
 (define-char
@@ -404,6 +412,7 @@
     (korean-ksc5601	. #x7D44)	; ø»Š¡·
     (chinese-cns11643-1 . #x6370)	; ø»’¤§
     (chinese-gb12345	. #x783D)	; å½™
+    (=gt-pj-1		. #x5743)	; å½™
     (chinese-big5	. #xB74A)	; ý¢€‹Š
     (ideograph-daikanwa . 09936)	; ø¸‚›
     (ucs		. #x5F59)	; å½™
@@ -529,6 +538,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=jis-x0208		. #x5734)	; ø½‹…£
+    (=gt-pj-1		. #x5734)	; å½œ
     (=cbeta		. 02362)	; ø¸ ¤º
     (ucs		. #x5F5C)	; å½œ
     ))
@@ -583,6 +593,7 @@
     (=jis-x0208		. #x5733)	; ø½‹…¢
     (chinese-isoir165	. #x524D)	; ø»¶¾
     (chinese-cns11643-3 . #x5764)	; ø»–¦»
+    (=gt-pj-1		. #x5733)	; å½
     (chinese-big5	. #xC255)	; ý¢€Œ‰•
     (ideograph-daikanwa . 09950)	; ø¸‚›ž
     (ucs		. #x5F5D)	; å½
