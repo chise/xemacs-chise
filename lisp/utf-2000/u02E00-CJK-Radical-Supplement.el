@@ -431,6 +431,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x725B)	; ç‰›
+      ))
     (=ucs		. #x2EA7)	; âº§
     (=big5-cdp		. #x8B66)	; ý¢€ˆ­¦
     ))
