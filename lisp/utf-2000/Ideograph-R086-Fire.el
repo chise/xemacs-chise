@@ -159,7 +159,7 @@
     (chinese-cns11643-1 . #x4848)	; ø»‘¼•
     ))
 (define-char
-  '((=>ucs		. #x7070)	; ç°
+  '((=>ucs		. #x2F835)	; ð¯ µ
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
@@ -200,6 +200,7 @@
      ((chinese-cns11643-1 . #x4556)	; ø»‘¸‰
       ))
     (chinese-cns11643-3 . #x2429)	; ø»•›†
+    (ucs		. #x2F835)	; ð¯ µ
     ))
 (define-char
   '((=>ucs		. #x24186)	; ð¤††
