@@ -519,6 +519,7 @@
       ))
     (chinese-gb2312	. #x4159)	; ø»„µ¼
     (chinese-isoir165	. #x4159)	; ø»žŒ
+    (china3-jef		. #x82AF)	; øºˆŠ¯
     (ucs		. #x4E34)	; ä¸´
     ))
 (define-char
