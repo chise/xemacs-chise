@@ -13536,12 +13536,12 @@
   '((morohashi-daikanwa	11308 0 2)
     (ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 12)
-    (kangxi-strokes	 . 13)
     (total-strokes	 . 16)
-    (japanese-jisx0212	. #x3E6F)	; ø»‹„
-    (chinese-big5	. #xECE1)	; ý¢€Ž³¡
-    (china3-jef		. #x4DE5)	; øº„·¥
-    (ucs		. #x61BC)	; æ†¼
+    (japanese-jisx0212		. #x3E6F)	; ø»‹„
+    (japanese-jisx0213-1	. #x745F)	; ø»¤´
+    (chinese-big5		. #xECE1)	; ý¢€Ž³¡
+    (china3-jef			. #x4DE5)	; øº„·¥
+    (ucs			. #x61BC)	; æ†¼
     ))
 (define-char
   '((ideographic-radical . 61)	; â¼¼
