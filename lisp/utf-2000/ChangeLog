@@ -1,3 +1,19 @@
+2003-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el: Reformatted.
+
+	* Ideograph-R031-Enclosure.el, Ideograph-R027-Cliff.el:
+	Reformatted.
+
+	* Ideograph-R020-Wrap.el (U+5313): Modify `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (B-D85A): Modify `ideographic-structure'.
+	(M059094): Revived.
+
+2003-02-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el (GT-56364): New character.
+
 2003-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (GT-11901): Rearrangement
