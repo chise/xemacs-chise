@@ -1,3 +1,18 @@
+2003-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (M-35778'): Unify GT-47938; map to
+	U-00027A93.
+	(U-00027A93): Relate to M-35778'; add strokes.
+
+	* Ideograph-R142-Insect.el (M-33907'): Unify GT-45720.
+	(M-33908'): Unify GT-45753 and U-00027553.
+
+	* Ideograph-R152-Pig.el (M-36486'): Unify GT-48918.
+	(GT-48914): New character.
+
+	* Ideograph-R145-Clothes.el (M-34470'): Unify GT-46478.
+	(M-34737'): Unify GT-46764; separate M050446.
+
 2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R042-Small.el (U+5C19): Unify BC-A97C.
