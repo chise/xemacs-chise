@@ -201,7 +201,7 @@
 		  direction	l2r
 		  mother	=ucs))
   (define-charset-alias 'ucs-ks '=ucs@ks)
-  (make-charset 'ucs-big5
+  (make-charset '=ucs@big5
 		"UCS for Big5"
 		`(long-name	"ISO/IEC 10646 for Big5"
 		  chars		256
@@ -210,6 +210,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs))
+  (define-charset-alias 'ucs-big5 '=ucs@big5)
 
   (make-charset 'ideograph-daikanwa
 		"Daikanwa"
