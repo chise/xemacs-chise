@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3446,8 +3446,13 @@ Return the corresponding character code in SHIFT-JIS as a cons of two bytes.
    contains frequently used characters and the latter contains less
    frequently used characters.  */
 
+#ifdef UTF2000
+#define BYTE_BIG5_TWO_BYTE_1_P(c) \
+  ((c) >= 0x81 && (c) <= 0xFE)
+#else
 #define BYTE_BIG5_TWO_BYTE_1_P(c) \
   ((c) >= 0xA1 && (c) <= 0xFE)
+#endif
 
 /* Is this the second byte of a Shift-JIS two-byte char? */
 
@@ -3533,8 +3538,11 @@ detect_coding_big5 (struct detection_state *st, const Extbyte *src, size_t n)
   while (n--)
     {
       unsigned char c = *(unsigned char *)src++;
-      if (c == ISO_CODE_ESC || c == ISO_CODE_SI || c == ISO_CODE_SO ||
-	  (c >= 0x80 && c <= 0xA0))
+      if (c == ISO_CODE_ESC || c == ISO_CODE_SI || c == ISO_CODE_SO
+#ifndef UTF2000
+	  || (c >= 0x80 && c <= 0xA0)
+#endif
+	  )
 	return 0;
       if (st->big5.in_second_byte)
 	{
