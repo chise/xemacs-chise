@@ -1,3 +1,10 @@
+2004-01-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Add some `total-strokes' features.
+
+	* Ideograph-R158-Body.el, Ideograph-R141-Tiger.el: Add some
+	`total-strokes' features.
+
 2004-01-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R165-Distinguish.el (U+91CA): Add `total-strokes'.
