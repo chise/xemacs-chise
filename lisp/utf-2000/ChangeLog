@@ -1,3 +1,12 @@
+2001-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (M-28635'): Unify M050359.
+	(M-28657'): Unify M050360.
+	(M-28672'): Unify M050361.
+	(M-28801'): Unify M050362.
+	(M-28818): New character; relate to U+7FFC.
+	(K0-6C4F): Relate to M-28818 instead of M-28801'.
+
 2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R128-Ear.el (M-29074): Relate to U+8056.
