@@ -35,14 +35,31 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (mojikyo		. 070816)	; ý €‘’ 
+    ))
+(define-char
+  '((ideographic-radical . 25)	; â¼˜
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (ideograph-daikanwa . 02776)	; ø¸€«˜
+    (ideograph-cbeta	. 00855)	; ø¸ —
     ))
 (define-char
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((mojikyo		  . 070816)	; ý €‘’ 
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (ucs		  . #x2E8A)	; âºŠ
+      ))
     (chinese-cns11643-3 . #x215A)	; ø»•—
     (ideograph-daikanwa . 02777)	; ø¸€«™
+    (ideograph-cbeta	. 01453)	; ø¸ –­
     (ucs		. #x535D)	; å
     ))
 (define-char
@@ -50,6 +67,14 @@
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E28)	; ä¸¨
+      )
+     ((ucs		  . #x4E0B)	; ä¸‹
+      ))
     (shinjigen-1	. 835)
     (shinjigen-2	. 835)
     (japanese-jisx0208-1978	. #x5246)	; ø»ƒ„£
@@ -64,10 +89,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((chinese-big5-cdp	  . #x8B41)	; ý¢€ˆ­
       (ucs		  . #x4E36)	; ä¸¶
@@ -512,15 +535,37 @@
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (ucs		  . #x2E8A)	; âºŠ
+      )
+     ((japanese-jisx0208-1978	  . #x5325)	; ø»ƒ… 
+      (japanese-jisx0208	  . #x5325)	; ø»‡™¨
+      (chinese-cns11643-2	  . #x294B)	; ø»“˜º
+      (ideograph-daikanwa	  . 03573)	; ø¸€·µ
+      ))
     (korean-ksc5601	. #x6059)	; ø»‰·¦
     (chinese-cns11643-4 . #x3064)	; ø»—·­
     (ideograph-daikanwa . 02820)	; ø¸€¬„
+    (ideograph-cbeta	. 05348)	; ø¸¡“¤
     ))
 (define-char
   '((morohashi-daikanwa	2820 0 3)
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (ucs		  . #x2E8A)	; âºŠ
+      )
+     ((ucs		  . #x54BC)	; å’¼
+      ))
     (ucs		. #x5368)	; å¨
     ))
 (define-char
