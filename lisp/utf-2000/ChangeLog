@@ -1,3 +1,14 @@
+2002-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el, Ideograph-R077-Stop.el,
+	Ideograph-R074-Moon.el, Ideograph-R075-Tree.el,
+	Ideograph-R066-Rap.el, Ideograph-R067-Script.el,
+	Ideograph-R068-Dipper.el, Ideograph-R069-Axe.el,
+	Ideograph-R070-Square.el, Ideograph-R071-Not.el,
+	Ideograph-R072-Sun.el, Ideograph-R073-Say.el,
+	Ideograph-R042-Small.el: Add some missing mappings for Big5 code
+	points or fix some definitions.
+
 2002-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R125-Old.el, Ideograph-R126-And.el,
