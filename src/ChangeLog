@@ -1,3 +1,34 @@
+2000-01-28  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* text-coding.c (parse_charset_conversion_specs): Use
+	`XCHARSET_CHARS' and `XCHARSET_DIMENSION' instead of
+	`XCHARSET_TYPE'.
+	(iso2022_designate): Likewise.
+
+	* chartab.c (decode_char_table_range): Use `XCHARSET_CHARS' and
+	`XCHARSET_DIMENSION' instead of `XCHARSET_TYPE'.
+
+	* mule-charset.c (Vcharset_ucs): New variable.
+	(print_charset): Change design; use `CHARSET_CHARS' and
+	`CHARSET_DIMENSION' instead of `CHARSET_TYPE'.
+	(make_charset): Change signature to specify `chars' and
+	`dimension' instead of `type'.
+	(range_charset_code_point): Modify for 256^n-set.
+	(encode_builtin_char_1): Encode as `ucs' in default.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(Fsplit_char): Use `ENCODE_CHAR' instead of `BREAKUP_CHAR' in
+	UTF-2000.
+	(complex_vars_of_mule_charset): Add coded-charset `ucs'; modify
+	for `make_charset'.
+
+	* char-ucs.h (Vcharset_ucs): New variable.
+	(LEADING_BYTE_UCS): New macro.
+	(struct Lisp_Charset): Delete `type'; change type of `dimension'
+	and `chars' to `unsigned short' from `unsigned int'.
+	(CHARSET_TYPE): Deleted.
+	(XCHARSET_TYPE): Deleted.
+
 2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* mule-charset.c (charset_code_point): Moved to char-ucs.h.

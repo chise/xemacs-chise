@@ -1,3 +1,8 @@
+2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ucs' in UTF-2000.
+
 2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
