@@ -1705,5 +1705,7 @@ reinit_vars_of_lstream (void)
 void
 vars_of_lstream (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (lstream);
+
   reinit_vars_of_lstream ();
 }

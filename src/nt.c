@@ -290,7 +290,7 @@ init_user_info ()
     putenv ((GetVersion () & 0x80000000) ? "SHELL=command" : "SHELL=cmd");
 
   /* Set dir and shell from environment variables. */
-  strcpy (the_passwd.pw_dir, get_home_directory());
+  strcpy (the_passwd.pw_dir, (char *)get_home_directory());
   strcpy (the_passwd.pw_shell, getenv ("SHELL"));
 }
 
@@ -299,9 +299,7 @@ init_user_info ()
    case path name components to lower case.  */
 
 static void
-normalize_filename (fp, path_sep)
-     REGISTER char *fp;
-     char path_sep;
+normalize_filename (char *fp, char path_sep)
 {
   char sep;
   char *elem;
@@ -357,16 +355,14 @@ normalize_filename (fp, path_sep)
 
 /* Destructively turn backslashes into slashes.  */
 void
-dostounix_filename (p)
-     REGISTER char *p;
+dostounix_filename (char *p)
 {
   normalize_filename (p, '/');
 }
 
 /* Destructively turn slashes into backslashes.  */
 void
-unixtodos_filename (p)
-     REGISTER char *p;
+unixtodos_filename (char *p)
 {
   normalize_filename (p, '\\');
 }
@@ -375,10 +371,7 @@ unixtodos_filename (p)
    (From msdos.c...probably should figure out a way to share it,
    although this code isn't going to ever change.)  */
 int
-crlf_to_lf (n, buf, lf_count)
-     REGISTER int n;
-     REGISTER unsigned char *buf;
-     REGISTER unsigned *lf_count;
+crlf_to_lf (int n, unsigned char *buf, unsigned *lf_count)
 {
   unsigned char *np = buf;
   unsigned char *startp = buf;
@@ -555,9 +548,7 @@ request_sigio (void)
 #define REG_ROOT "SOFTWARE\\GNU\\XEmacs"
 
 LPBYTE 
-nt_get_resource (key, lpdwtype)
-    char *key;
-    LPDWORD lpdwtype;
+nt_get_resource (char *key, LPDWORD lpdwtype)
 {
   LPBYTE lpvalue;
   HKEY hrootkey = NULL;
@@ -1479,7 +1470,7 @@ stat (const char * path, struct stat * buf)
   len = strlen (name);
   rootdir = (path >= name + len - 1
 	     && (IS_DIRECTORY_SEP (*path) || *path == 0));
-  name = strcpy (alloca (len + 2), name);
+  name = strcpy ((char *)alloca (len + 2), name);
 
   if (rootdir)
     {
@@ -2034,11 +2025,11 @@ open_input_file (file_data *p_file, const char *filename)
   if (file_base == 0) 
     return FALSE;
 
-  p_file->name = (char*)filename;
+  p_file->name = (char *)filename;
   p_file->size = size;
   p_file->file = file;
   p_file->file_mapping = file_mapping;
-  p_file->file_base = file_base;
+  p_file->file_base = (char *)file_base;
 
   return TRUE;
 }

@@ -1,3 +1,18 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-21  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: Tidy up.
+	Document need for makeinfo program or texinfo package.
+
+	* Xmd.patch: New file, previously in README.
+
+2000-02-17  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h: Delete unused HAVE_LINUX_VERSION_H.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

@@ -71,7 +71,7 @@ Copy STRING to the mswindows clipboard.
   do
     {
       /* copy next line or remaining bytes including '\0' */
-      next = memccpy (dst, src, '\n', rawsize);
+      next = (char*) memccpy (dst, src, '\n', rawsize);
       if (next)
 	{
 	  /* copied one line ending with '\n' */
@@ -141,7 +141,7 @@ Return the contents of the mswindows clipboard.
       do
 	{
 	  /* copy next line or remaining bytes excluding '\0' */
-	  next = memccpy (dst, src, '\r', rawsize);
+	  next = (char*) memccpy (dst, src, '\r', rawsize);
 	  if (next)
 	    {
 	      /* copied one line ending with '\r' */

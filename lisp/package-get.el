@@ -239,7 +239,7 @@ is the directory on the site in which packages may be found.
 This variable is used to initialize `package-get-remote', the
 variable actually used to specify package download sites."
   :tag "Package download sites"
-  :type '(repeat (list hostname directory))
+  :type '(repeat (list (string :tag "Name") host-name directory))
   :group 'package-get)
 
 (defcustom package-get-remove-copy t

@@ -176,13 +176,9 @@ defaults to "-g -O" for gcc and "-g" for all other compilers.
 The `--dynamic' option specifies that configure should try to link
 emacs dynamically rather than statically.
 
-The `--const-is-losing' option is for use if you have trouble
-compiling due to the `const' storage class in C.  This is defined by
-default.  Most users should have no need to change this.
-
 You can build XEmacs for several different machine types from a single
 source directory.  To do this, you must use a version of `make' that
-supports the `VPATH' variable, such as GNU `make'.  Make separate
+supports the `VPATH' variable, such as GNU `make'.  Create separate
 build directories for the different configuration types, and in each
 one, run the XEmacs `configure' script.  `configure' looks for the
 Emacs source code in the directory that `configure' is in.

@@ -988,6 +988,7 @@ init_floatfns_very_early (void)
 void
 syms_of_floatfns (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (float);
 
   /* Trig functions.  */
 

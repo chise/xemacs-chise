@@ -187,19 +187,6 @@ extern long random();
 
 #define NO_ARG_ARRAY
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#define WORD_MACHINE
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the 24-bit bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Data type of load average, as read out of kmem.  */
 
 #define LOAD_AVE_TYPE long
@@ -217,10 +204,6 @@ extern long random();
 
 /* Text does precede data space, but this is never a safe assumption.  */
 #define VIRT_ADDR_VARIES
-
-/* set this if you have a new version of cygwin
-#define DATA_SEG_BITS 0x10000000
-*/
 
 /* If you are compiling with a non-C calling convention but need to
    declare vararg routines differently, put it here */

@@ -31,15 +31,6 @@ Boston, MA 02111-1307, USA.  */
 #define orion
 #endif
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-#define WORD_MACHINE
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Data type of load average, as read out of kmem.  */
 
 #define LOAD_AVE_TYPE double

@@ -2339,8 +2339,9 @@ The name is assumed to begin with a capital letter.")
 	 '("\\<\\(false\\|null\\|true\\)\\>" (1 font-lock-keyword-face))
 
 	 ;; Class names:
-	 (list (concat "\\<class\\>\\s *" java-font-lock-identifier-regexp)
-	       1 'font-lock-function-name-face)
+	 (list (concat "\\<\\(class\\|interface\\)\\>\\s *"
+								 java-font-lock-identifier-regexp)
+	       2 'font-lock-function-name-face)
         
 	 ;; Package declarations:
 	 (list (concat "\\<\\(package\\|import\\)\\>\\s *"
@@ -2478,7 +2479,7 @@ The name is assumed to begin with a capital letter.")
  
 	 (list
 
-	  ;; Java doc tags
+	  ;; Javadoc tags
 	  '("@\\(author\\|exception\\|throws\\|deprecated\\|param\\|return\\|see\\|since\\|version\\)\\s "
 	    0 font-lock-keyword-face t)
 
@@ -2487,34 +2488,30 @@ The name is assumed to begin with a capital letter.")
 		1 'font-lock-variable-name-face t)
 
 	  ;; Doc tag - Exception types
-	  (list (concat "@exception\\s +"
+	  (list (concat "@\\(exception\\|throws\\)\\s +"
 			java-font-lock-identifier-regexp)
-		'(1 (if (equal (char-after (match-end 0)) ?.)
+		'(2 (if (equal (char-after (match-end 0)) ?.)
 			font-lock-reference-face font-lock-type-face) t)
 		(list (concat "\\=\\." java-font-lock-identifier-regexp)
 		      '(goto-char (match-end 0)) nil
 		      '(1 (if (equal (char-after (match-end 0)) ?.)
 			      'font-lock-reference-face 'font-lock-type-face) t)))
     
-	  ;; Doc tag - Exception types
-	  (list (concat "@exception\\s +"
-			java-font-lock-identifier-regexp)
-		'(1 (if (equal (char-after (match-end 0)) ?.)
-			font-lock-reference-face font-lock-type-face) t)
-		(list (concat "\\=\\." java-font-lock-identifier-regexp)
-		      '(goto-char (match-end 0)) nil
-		      '(1 (if (equal (char-after (match-end 0)) ?.)
-			      'font-lock-reference-face 'font-lock-type-face) t)))
-
 	  ;; Doc tag - Cross-references, usually to methods 
 	  '("@see\\s +\\(\\S *[^][ \t\n\r\f(){},.;:]\\)"
 	    1 font-lock-function-name-face t)
     
-	  ;; Doc tag - Links
-	  '("{@link\\s +\\([^}]*\\)}"
+	  ;; Doc tag - docRoot (1.3)
+	  '("\\({ *@docRoot *}\\)"
+	    0 font-lock-keyword-face t)
+	  ;; Doc tag - beaninfo, unofficial but widely used, even by Sun
+	  '("\\(@beaninfo\\)"
 	    0 font-lock-keyword-face t)
 	  ;; Doc tag - Links
-	  '("{@link\\s +\\(\\S +\\s +\\S +\\)}"
+	  '("{ *@link\\s +\\([^}]+\\)}"
+	    0 font-lock-keyword-face t)
+	  ;; Doc tag - Links
+	  '("{ *@link\\s +\\(\\(\\S +\\)\\|\\(\\S +\\s +\\S +\\)\\) *}"
 	    1 font-lock-function-name-face t)
     
 	  )))

@@ -115,7 +115,7 @@ tty_init_console (struct console *con, Lisp_Object props)
 
   tty_con->instream  = make_filedesc_input_stream  (tty_con->infd,  0, -1, 0);
   tty_con->outstream = make_filedesc_output_stream (tty_con->outfd, 0, -1, 0);
-#ifdef MULE
+#ifdef FILE_CODING
   tty_con->instream =
     make_decoding_input_stream (XLSTREAM (tty_con->instream),
 				Fget_coding_system (Vkeyboard_coding_system));
@@ -123,7 +123,7 @@ tty_init_console (struct console *con, Lisp_Object props)
   tty_con->outstream =
     make_encoding_output_stream (XLSTREAM (tty_con->outstream),
 				 Fget_coding_system (Vterminal_coding_system));
-#endif /* MULE */
+#endif /* FILE_CODING */
   tty_con->terminal_type = terminal_type;
   tty_con->controlling_process = controlling_process;
 

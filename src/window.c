@@ -5773,6 +5773,9 @@ debug_print_windows (struct frame *f)
 void
 syms_of_window (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (window);
+  INIT_LRECORD_IMPLEMENTATION (window_configuration);
+
   defsymbol (&Qwindowp, "windowp");
   defsymbol (&Qwindow_live_p, "window-live-p");
   defsymbol (&Qwindow_configurationp, "window-configuration-p");

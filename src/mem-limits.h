@@ -104,10 +104,8 @@ extern POINTER start_of_data (void);
 #define EXCEEDS_LISP_PTR(ptr) 0
 
 #ifdef BSD
-#ifndef DATA_SEG_BITS
 extern int etext;
 #define start_of_data() &etext
-#endif
 #endif
 
 #else  /* not emacs */

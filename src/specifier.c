@@ -3114,6 +3114,8 @@ Return non-nil if OBJECT is a display-table specifier.
 void
 syms_of_specifier (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (specifier);
+
   defsymbol (&Qspecifierp, "specifierp");
 
   defsymbol (&Qconsole_type, "console-type");

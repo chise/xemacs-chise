@@ -201,9 +201,7 @@ extern void *sbrk ();
 extern char *start_of_data (void);
 
 #ifdef BSD
-#ifndef DATA_SEG_BITS
 #define start_of_data() &etext
-#endif
 #endif
 
 #ifndef emacs

@@ -5,7 +5,7 @@
 ;; Author: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Maintainer: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Created: Jan 1998
-;; Version: $Revision: 1.7.2.6 $
+;; Version: $Revision: 1.7.2.7 $
 ;; Keywords: help comm
 
 ;; This file is part of XEmacs
@@ -34,6 +34,10 @@
 
 
 ;;; Code:
+
+(eval-when '(load)
+  (if (not (fboundp 'ldap-open))
+      (error "No LDAP support compiled in this XEmacs")))
 
 (defgroup ldap nil
   "Lightweight Directory Access Protocol"
@@ -144,6 +148,11 @@ Valid properties include:
 				   (const :tag "Size Limit" sizelimit)
 				   (integer :tag "(number of records)")))))
 :group 'ldap)
+
+(defcustom ldap-verbose nil
+  "*If non-nil, LDAP operations echo progress messages."
+  :type 'boolean
+  :group 'ldap)
 
 (defcustom ldap-ignore-attribute-codings nil
   "*If non-nil, do not perform any encoding/decoding on LDAP attribute values."
@@ -436,8 +445,17 @@ and the corresponding decoder is then retrieved from
 	(cons name (mapcar decoder values))
       attr)))
     
+(defun ldap-search (arg1 &rest args)
+  "Perform an LDAP search."  
+      (apply (if (ldapp arg1)
+		 'ldap-search-basic
+	       'ldap-search-entries) arg1 args))
 
-(defun ldap-search (filter &optional host attributes attrsonly withdn)
+(make-obsolete 'ldap-search 
+	       "Use `ldap-search-entries' instead or 
+`ldap-search-basic' for the low-level search API.")
+
+(defun ldap-search-entries (filter &optional host attributes attrsonly withdn)
   "Perform an LDAP search.
 FILTER is the search filter in RFC1558 syntax, i.e., something that
 looks like \"(cn=John Smith)\".
@@ -459,13 +477,16 @@ entry according to the value of WITHDN."
   (let ((host-plist (cdr (assoc host ldap-host-parameters-alist)))
 	ldap
 	result)
-    (message "Opening LDAP connection to %s..." host)
+    (if ldap-verbose
+	(message "Opening LDAP connection to %s..." host))
     (setq ldap (ldap-open host host-plist))
-    (message "Searching with LDAP on %s..." host)
-    (setq result (ldap-search-internal ldap filter 
-				       (plist-get host-plist 'base)
-				       (plist-get host-plist 'scope)
-				       attributes attrsonly withdn))
+    (if ldap-verbose
+	(message "Searching with LDAP on %s..." host))
+    (setq result (ldap-search ldap filter 
+			      (plist-get host-plist 'base)
+			      (plist-get host-plist 'scope)
+			      attributes attrsonly withdn
+			      ldap-verbose))
     (ldap-close ldap)
     (if ldap-ignore-attribute-codings
 	result
@@ -473,6 +494,120 @@ entry according to the value of WITHDN."
 	       (lambda (record)
 		 (mapcar 'ldap-decode-attribute record)))
 	      result))))
+
+(defun ldap-add-entries (entries &optional host binddn passwd)
+  "Add entries to an LDAP directory.
+ENTRIES is a list of entry specifications of 
+the form (DN (ATTR . VALUE) (ATTR . VALUE) ...) where
+DN is the distinguished name of an entry to add, the following
+are cons cells containing attribute/value string pairs.
+HOST is the LDAP host, defaulting to `ldap-default-host'
+BINDDN is the DN to bind as to the server
+PASSWD is the corresponding password"
+  (or host
+      (setq host ldap-default-host)
+      (error "No LDAP host specified"))
+  (let ((host-plist (cdr (assoc host ldap-host-parameters-alist)))
+	ldap
+	(i 1))
+    (if (or binddn passwd)
+	(setq host-plist (copy-seq host-plist)))
+    (if binddn
+	(setq host-plist (plist-put host-plist 'binddn binddn)))
+    (if passwd
+	(setq host-plist (plist-put host-plist 'passwd passwd)))
+    (if ldap-verbose
+	(message "Opening LDAP connection to %s..." host))
+    (setq ldap (ldap-open host host-plist))
+    (if ldap-verbose
+	(message "Adding LDAP entries..."))
+    (mapcar (function
+	     (lambda (thisentry)
+	       (ldap-add ldap (car thisentry) (cdr thisentry))
+	       (if ldap-verbose
+		   (message "%d added" i))
+	       (setq i (1+ i))))
+	    entries)
+    (ldap-close ldap)))
+
+
+(defun ldap-modify-entries (entry-mods &optional host binddn passwd)
+  "Modify entries of an LDAP directory.
+ENTRY_MODS is a list of entry modifications of the form 
+  (DN MOD-SPEC1 MOD-SPEC2 ...) where DN is the distinguished name of 
+the entry to modify, the following are modification specifications. 
+A modification specification is itself a list of the form 
+(MOD-OP ATTR VALUE1 VALUE2 ...) MOD-OP and ATTR are mandatory, 
+VALUEs are optional depending on MOD-OP.
+MOD-OP is the type of modification, one of the symbols `add', `delete'
+or `replace'. ATTR is the LDAP attribute type to modify.
+HOST is the LDAP host, defaulting to `ldap-default-host'
+BINDDN is the DN to bind as to the server
+PASSWD is the corresponding password"
+  (or host
+      (setq host ldap-default-host)
+      (error "No LDAP host specified"))
+  (let ((host-plist (cdr (assoc host ldap-host-parameters-alist)))
+	ldap
+	(i 1))
+    (if (or binddn passwd)
+	(setq host-plist (copy-seq host-plist)))
+    (if binddn
+	(setq host-plist (plist-put host-plist 'binddn binddn)))
+    (if passwd
+	(setq host-plist (plist-put host-plist 'passwd passwd)))
+    (if ldap-verbose
+	(message "Opening LDAP connection to %s..." host))
+    (setq ldap (ldap-open host host-plist))
+    (if ldap-verbose
+	(message "Modifying LDAP entries..."))
+    (mapcar (function
+	     (lambda (thisentry)
+	       (ldap-modify ldap (car thisentry) (cdr thisentry))
+	       (if ldap-verbose
+		   (message "%d modified" i))
+	       (setq i (1+ i))))
+	    entry-mods)
+    (ldap-close ldap)))
+
+
+(defun ldap-delete-entries (dn &optional host binddn passwd)
+  "Delete an entry from an LDAP directory.
+DN is the distinguished name of an entry to delete or 
+a list of those.
+HOST is the LDAP host, defaulting to `ldap-default-host'
+BINDDN is the DN to bind as to the server
+PASSWD is the corresponding password."
+  (or host
+      (setq host ldap-default-host)
+      (error "No LDAP host specified"))
+  (let ((host-plist (cdr (assoc host ldap-host-parameters-alist)))
+	ldap)
+    (if (or binddn passwd)
+	(setq host-plist (copy-seq host-plist)))
+    (if binddn
+	(setq host-plist (plist-put host-plist 'binddn binddn)))
+    (if passwd
+	(setq host-plist (plist-put host-plist 'passwd passwd)))
+    (if ldap-verbose
+	(message "Opening LDAP connection to %s..." host))
+    (setq ldap (ldap-open host host-plist))
+    (if (consp dn)
+	(let ((i 1))
+	  (if ldap-verbose
+	      (message "Deleting LDAP entries..."))
+	  (mapcar (function
+		   (lambda (thisdn)
+		     (ldap-delete ldap thisdn)
+		     (if ldap-verbose
+			 (message "%d deleted" i))
+		     (setq i (1+ i))))
+		  dn))
+      (if ldap-verbose
+	  (message "Deleting LDAP entry..."))
+      (ldap-delete ldap dn))
+    (ldap-close ldap)))
+
 
 (provide 'ldap)
 		

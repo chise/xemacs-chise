@@ -1,3 +1,33 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-21  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.c (merge_widget_value_args): don't delete the args before
+	copying, lw_copy_widget_value_args will do this for us if
+	necessary.
+	(lw_add_widget_value_arg): Allow existing args to be replaced.
+	(free_widget_value_args): Set args to 0 rather than 0xdeadbeef,
+	reference couting works better that way.
+	(lw_copy_widget_value_args): Do the right thing.
+
+	* lwlib-Xm.c (xm_create_progress): Make sensitive as this looks
+	much better.
+	* lwlib-Xaw.c (xaw_create_progress): ditto.
+
+2000-02-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* xlwmenu.h (XmUNSPECIFIED_PIXMAP): Define this if we are using Motif
+	compatible resource names.
+
+	* xlwmenu.c (make_shadow_gcs): Always check for XmUNSPECIFIED_PIXMAP
+	even if we are only 'compatible' with the Motif resources.
+
+2000-02-15  Andy Piper  <andy@xemacs.org>
+
+	* xlwgauge.c (GaugeExpose): remove shadows.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

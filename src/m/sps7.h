@@ -32,10 +32,6 @@ Boston, MA 02111-1307, USA.  */
 
 #define sps7  
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Data type of load average, as read out of kmem.  */
 /* Suspect there is something weird about this machine, so turn it off.  */
 

@@ -573,9 +573,10 @@ static void
 mswindows_free_frame_toolbars (struct frame *f)
 {
   HWND twnd=NULL;
-#define DELETE_TOOLBAR(pos) \
-  mswindows_clear_toolbar(f, 0, pos); \
-  if ((twnd=GetDlgItem(FRAME_MSWINDOWS_HANDLE(f), TOOLBAR_ID_BIAS + pos))) \
+#define DELETE_TOOLBAR(pos)				\
+  mswindows_clear_toolbar(f, pos, 0);			\
+  if ((twnd=GetDlgItem(FRAME_MSWINDOWS_HANDLE(f),	\
+		       TOOLBAR_ID_BIAS + pos)))		\
       DestroyWindow(twnd)
 
   DELETE_TOOLBAR(TOP_TOOLBAR);

@@ -118,9 +118,6 @@ int windows_fd;
 static Lisp_Object mswindows_u_dispatch_event_queue, mswindows_u_dispatch_event_queue_tail;
 static Lisp_Object mswindows_s_dispatch_event_queue, mswindows_s_dispatch_event_queue_tail;
 
-/* For speed: whether there is a WM_PAINT magic message in the system queue */
-static int mswindows_paint_pending = 0;
-
 /* The number of things we can wait on */
 #define MAX_WAITABLE (MAXIMUM_WAIT_OBJECTS - 1)
 
@@ -636,8 +633,8 @@ struct winsock_stream
   SOCKET s;			/* Socket handle (which is a Win32 handle)   */
   OVERLAPPED ov;		/* Overlapped I/O structure		     */
   void* buffer;			/* Buffer. Allocated for input stream only   */
-  unsigned int bufsize;		/* Number of bytes last read		     */
-  unsigned int bufpos;		/* Position in buffer for next fetch	     */
+  unsigned long bufsize;	/* Number of bytes last read		     */
+  unsigned long bufpos;		/* Position in buffer for next fetch	     */
   unsigned int error_p :1;	/* I/O Error seen			     */
   unsigned int eof_p :1;	/* EOF Error seen			     */
   unsigned int pending_p :1;	/* There is a pending I/O operation	     */
@@ -1257,12 +1254,8 @@ mswindows_drain_windows_queue ()
 	     shouldn't have received a paint message for it here. */
 	  assert (msg.wParam == 0);
 
-	  if (!mswindows_paint_pending)
-	    {
-	      /* Queue a magic event for handling when safe */
-	      mswindows_enqueue_magic_event (msg.hwnd, WM_PAINT);
-	      mswindows_paint_pending = 1;
-	    }
+	  /* Queue a magic event for handling when safe */
+	  mswindows_enqueue_magic_event (msg.hwnd, WM_PAINT);
 
 	  /* Don't dispatch. WM_PAINT is always the last message in the
 	     queue so it's OK to just return. */
@@ -1523,7 +1516,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  { mswindows_dde_service, mswindows_dde_topic_system }, { 0, 0 } };
 
 	if (!(hszItem  || DdeCmpStringHandles (hszItem, mswindows_dde_service)) &&
-	    !(hszTopic || DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system)));
+	    !(hszTopic || DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system)))
 	  return (DdeCreateDataHandle (mswindows_dde_mlid, (LPBYTE)pairs,
 				       sizeof (pairs), 0L, 0, uFmt, 0));
       }
@@ -1533,7 +1526,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
       if (!DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system))
 	{
 	  DWORD len = DdeGetData (hdata, NULL, 0, 0);
-	  char *cmd = alloca (len+1);
+	  LPBYTE cmd = (LPBYTE) alloca (len+1);
 	  char *end;
 	  char *filename;
 	  struct gcpro gcpro1, gcpro2;
@@ -2367,7 +2360,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
       GCPRO3 (emacs_event, l_dndlist, l_item);
 
-      if (!DragQueryPoint ((HANDLE) wParam, &point))
+      if (!DragQueryPoint ((HDROP) wParam, &point))
 	point.x = point.y = -1;		/* outside client area */
 
       event->event_type = misc_user_event;
@@ -2379,10 +2372,10 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       event->event.misc.y = point.y;
       event->event.misc.function = Qdragdrop_drop_dispatch;
 
-      filecount = DragQueryFile ((HANDLE) wParam, 0xffffffff, NULL, 0);
+      filecount = DragQueryFile ((HDROP) wParam, 0xffffffff, NULL, 0);
       for (i=0; i<filecount; i++)
 	{
-	  len = DragQueryFile ((HANDLE) wParam, i, NULL, 0);
+	  len = DragQueryFile ((HDROP) wParam, i, NULL, 0);
 	  /* The URLs that we make here aren't correct according to section
 	   * 3.10 of rfc1738 because they're missing the //<host>/ part and
 	   * because they may contain reserved characters. But that's OK. */
@@ -2396,14 +2389,14 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 #else
 	  filename = (char *)xmalloc (len+6);
 	  strcpy (filename, "file:");
-	  DragQueryFile ((HANDLE) wParam, i, filename+5, len+1);
+	  DragQueryFile ((HDROP) wParam, i, filename+5, len+1);
 	  dostounix_filename (filename+5);
 #endif
 	  l_item = make_string (filename, strlen (filename));
 	  l_dndlist = Fcons (l_item, l_dndlist);
 	  xfree (filename);
 	}
-      DragFinish ((HANDLE) wParam);
+      DragFinish ((HDROP) wParam);
 
       event->event.misc.object = Fcons (Qdragdrop_URL, l_dndlist);
       mswindows_enqueue_dispatch_event (emacs_event);
@@ -2725,7 +2718,6 @@ emacs_mswindows_handle_magic_event (Lisp_Event *emacs_event)
 
     case WM_PAINT:
       mswindows_handle_paint (XFRAME (EVENT_CHANNEL (emacs_event)));
-      mswindows_paint_pending = 0;
       break;
 
     case WM_SETFOCUS:

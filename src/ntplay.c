@@ -51,7 +51,7 @@ void play_sound_file (char *sound_file, int volume)
 	return;
 
       size = lseek (ofd, 0, SEEK_END);
-      data = xmalloc (size);
+      data = (unsigned char *)xmalloc (size);
       lseek (ofd, 0, SEEK_SET);
       
       if (!data)
@@ -90,7 +90,7 @@ static void play_sound_data_1 (unsigned char *data, int length, int volume,
 
   if (convert_to_malloc)
     {
-      sound_data = xmalloc (length);
+      sound_data = (unsigned char *)xmalloc (length);
       memcpy (sound_data, data, length);
     }
   else

@@ -1,3 +1,11 @@
+2000-02-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.30 is released.
+
+2000-02-17  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: Added some fileio tests.
+
 2000-02-16  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.29 is released.

@@ -2809,30 +2809,22 @@ make_shadow_gcs (XlwMenuWidget mw)
   xgcv.foreground = mw->menu.top_shadow_color;
   xgcv.background = mw->core.background_pixel;
 /*  xgcv.stipple = mw->menu.top_shadow_pixmap; gtb */
-#ifdef NEED_MOTIF
   if (mw->menu.top_shadow_pixmap &&
       mw->menu.top_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
      xgcv.stipple = mw->menu.top_shadow_pixmap;
   else
      xgcv.stipple = 0;
-#else
-  xgcv.stipple = mw->menu.top_shadow_pixmap;
-#endif /* NEED_MOTIF */
   pm = (xgcv.stipple ? GCStipple|GCFillStyle : 0);
   mw->menu.shadow_top_gc =
     XtGetGC((Widget)mw, GCForeground|GCBackground|pm, &xgcv);
 
   xgcv.foreground = mw->menu.bottom_shadow_color;
 /*  xgcv.stipple = mw->menu.bottom_shadow_pixmap; gtb */
-#ifdef NEED_MOTIF
   if (mw->menu.bottom_shadow_pixmap &&
       mw->menu.bottom_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
      xgcv.stipple = mw->menu.bottom_shadow_pixmap;
   else
      xgcv.stipple = 0;
-#else
-  xgcv.stipple = mw->menu.bottom_shadow_pixmap;
-#endif /* NEED_MOTIF */
   pm = (xgcv.stipple ? GCStipple|GCFillStyle : 0);
   mw->menu.shadow_bottom_gc =
     XtGetGC ((Widget)mw, GCForeground|GCBackground|pm, &xgcv);

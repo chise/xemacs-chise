@@ -446,8 +446,8 @@ Given a Unix syntax file name, returns a string ending in slash.
   if (p == beg + 2 && beg[1] == ':')
     {
       /* MAXPATHLEN+1 is guaranteed to be enough space for getdefdir.  */
-      Bufbyte *res = alloca (MAXPATHLEN + 1);
-      if (getdefdir (toupper (*beg) - 'A' + 1, res))
+      Bufbyte *res = (Bufbyte*) alloca (MAXPATHLEN + 1);
+      if (getdefdir (toupper (*beg) - 'A' + 1, (char *)res))
 	{
 	  char *c=((char *) res) + strlen ((char *) res);
 	  if (!IS_DIRECTORY_SEP (*c))
@@ -845,12 +845,12 @@ See also the function `substitute-in-file-name'.
 #ifdef WINDOWSNT
   /* We will force directory separators to be either all \ or /, so make
      a local copy to modify, even if there ends up being no change. */
-  nm = strcpy (alloca (strlen (nm) + 1), nm);
+  nm = strcpy ((char *)alloca (strlen ((char *)nm) + 1), (char *)nm);
 
   /* Find and remove drive specifier if present; this makes nm absolute
      even if the rest of the name appears to be relative. */
   {
-    Bufbyte *colon = strrchr (nm, ':');
+    Bufbyte *colon = (Bufbyte *) strrchr ((char *)nm, ':');
 
     if (colon)
       /* Only recognize colon as part of drive specifier if there is a
@@ -1256,10 +1256,6 @@ See also the function `substitute-in-file-name'.
   return make_string (target, o - target);
 }
 
-#if 0 /* FSFmacs */
-/* another older version of expand-file-name; */
-#endif
-
 DEFUN ("file-truename", Ffile_truename, 1, 2, 0, /*
 Return the canonical name of the given FILE.
 Second arg DEFAULT is directory to start with if FILE is relative
@@ -1270,24 +1266,27 @@ No component of the resulting pathname will be a symbolic link, as
 */
        (filename, default_))
 {
-  /* This function can GC.  GC checked 1997.04.06. */
+  /* This function can GC. */
   Lisp_Object expanded_name;
-  Lisp_Object handler;
   struct gcpro gcpro1;
 
   CHECK_STRING (filename);
 
   expanded_name = Fexpand_file_name (filename, default_);
 
+  GCPRO1 (expanded_name);
+
   if (!STRINGP (expanded_name))
     return Qnil;
 
-  GCPRO1 (expanded_name);
-  handler = Ffind_file_name_handler (expanded_name, Qfile_truename);
-  UNGCPRO;
+  {
+    Lisp_Object handler =
+      Ffind_file_name_handler (expanded_name, Qfile_truename);
 
-  if (!NILP (handler))
-    return call2_check_string (handler, Qfile_truename, expanded_name);
+    if (!NILP (handler))
+      RETURN_UNGCPRO
+	(call2_check_string (handler, Qfile_truename, expanded_name));
+  }
 
   {
     char resolved_path[MAXPATHLEN];
@@ -1301,7 +1300,7 @@ No component of the resulting pathname will be a symbolic link, as
     p = path;
     if (elen > MAXPATHLEN)
       goto toolong;
-    
+
     /* Try doing it all at once. */
     /* !! Does realpath() Mule-encapsulate?
        Answer: Nope! So we do it above */
@@ -1312,14 +1311,25 @@ No component of the resulting pathname will be a symbolic link, as
 	   It claims to return a useful value in the "error" case, but since
 	   there is no indication provided of how far along the pathname
 	   the function went before erring, there is no way to use the
-	   partial result returned.  What a piece of junk. */
+	   partial result returned.  What a piece of junk.
+
+	   The above comment refers to historical versions of
+	   realpath().  The Unix98 specs state:
+
+	   "On successful completion, realpath() returns a
+	   pointer to the resolved name. Otherwise, realpath()
+	   returns a null pointer and sets errno to indicate the
+	   error, and the contents of the buffer pointed to by
+	   resolved_name are undefined."
+
+	   Since we depend on undocumented semantics of various system realpath()s,
+	   we just use our own version in realpath.c. */
 	for (;;)
 	  {
 	    p = (Extbyte *) memchr (p + 1, '/', elen - (p + 1 - path));
 	    if (p)
 	      *p = 0;
 
-	    /* memset (resolved_path, 0, sizeof (resolved_path)); */
 	    if (xrealpath ((char *) path, resolved_path))
 	      {
 		if (p)
@@ -1337,7 +1347,8 @@ No component of the resulting pathname will be a symbolic link, as
 		/* "On failure, it returns NULL, sets errno to indicate
 		   the error, and places in resolved_path the absolute pathname
 		   of the path component which could not be resolved." */
-		if (p)
+
+ 		if (p)
 		  {
 		    int plen = elen - (p - path);
 
@@ -1358,17 +1369,20 @@ No component of the resulting pathname will be a symbolic link, as
       }
 
     {
+      Lisp_Object resolved_name;
       int rlen = strlen (resolved_path);
       if (elen > 0 && XSTRING_BYTE (expanded_name, elen - 1) == '/'
           && !(rlen > 0 && resolved_path[rlen - 1] == '/'))
 	{
 	  if (rlen + 1 > countof (resolved_path))
 	    goto toolong;
-	  resolved_path[rlen] = '/';
-	  resolved_path[rlen + 1] = 0;
-	  rlen = rlen + 1;
+	  resolved_path[rlen++] = '/';
+	  resolved_path[rlen] = '\0';
 	}
-      return make_ext_string ((Bufbyte *) resolved_path, rlen, Qbinary);
+      TO_INTERNAL_FORMAT (DATA, (resolved_path, rlen),
+			  LISP_STRING, resolved_name,
+			  Qfile_name);
+      RETURN_UNGCPRO (resolved_name);
     }
 
   toolong:
@@ -1377,7 +1391,7 @@ No component of the resulting pathname will be a symbolic link, as
   lose:
     report_file_error ("Finding truename", list1 (expanded_name));
   }
-  return Qnil;	/* suppress compiler warning */
+  RETURN_UNGCPRO (Qnil);
 }
 
 
@@ -1874,8 +1888,8 @@ Delete a directory.  One argument, a file name or directory name string.
 }
 
 DEFUN ("delete-file", Fdelete_file, 1, 1, "fDelete file: ", /*
-Delete specified file.  One argument, a file name string.
-If file has multiple names, it continues to exist with the other names.
+Delete the file named FILENAME (a string).
+If FILENAME has multiple names, it continues to exist with the other names.
 */
        (filename))
 {
@@ -3221,8 +3235,8 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
   if (desc < 0)
     {
       desc = open ((char *) XSTRING_DATA (fn),
-                   (O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY),
-		   ((auto_saving) ? auto_save_mode_bits : CREAT_MODE));
+                   O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
+		   auto_saving ? auto_save_mode_bits : CREAT_MODE);
     }
 
   if (desc < 0)

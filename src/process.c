@@ -1990,6 +1990,8 @@ t or pty (pty) or stream (socket connection).
 void
 syms_of_process (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (process);
+
   defsymbol (&Qprocessp, "processp");
   defsymbol (&Qprocess_live_p, "process-live-p");
   defsymbol (&Qrun, "run");

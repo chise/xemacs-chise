@@ -2180,41 +2180,33 @@ x_update_subwindow (Lisp_Image_Instance *p)
 static void
 x_update_widget (Lisp_Image_Instance *p)
 {
+  /* This function can GC if IN_REDISPLAY is false. */
 #ifdef HAVE_WIDGETS
   widget_value* wv = 0;
-  Boolean deep_p = False;
-  /* Possibly update the size. */
-  if (IMAGE_INSTANCE_SIZE_CHANGED (p))
-    {
-      Arg al[2];
 
-      assert (IMAGE_INSTANCE_X_WIDGET_ID (p) &&
-	      IMAGE_INSTANCE_X_CLIPWIDGET (p)) ;
-
-      if ( !XtIsManaged(IMAGE_INSTANCE_X_WIDGET_ID (p))
-	   ||
-	   IMAGE_INSTANCE_X_WIDGET_ID (p)->core.being_destroyed )
-	{
-	  Lisp_Object sw;
-	  XSETIMAGE_INSTANCE (sw, p);
-	  signal_simple_error ("XEmacs bug: subwindow is deleted", sw);
-	}
-
-      XtSetArg (al [0], XtNwidth, (Dimension)IMAGE_INSTANCE_WIDTH (p));
-      XtSetArg (al [1], XtNheight, (Dimension)IMAGE_INSTANCE_HEIGHT (p));
-      XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (p), al, 2);
-    }
-
-  /* First get the items if they have changed since this is a structural change. */
+  /* First get the items if they have changed since this is a
+     structural change. As such it will nuke all added values so we
+     need to update most other things after the items have changed.*/
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
       wv = gui_items_to_widget_values
 	(IMAGE_INSTANCE_WIDGET_ITEMS (p));
-      deep_p = True;
+      wv->change = STRUCTURAL_CHANGE;
+      /* now modify the widget */
+      lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
+			     wv, True);
+      free_widget_value_tree (wv);
     }
 
+  /* Now do non structural updates. */
+  wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (p));
+
   /* Possibly update the colors and font */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p))
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p) 
+      ||
+      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (p))->faces_changed
+      ||
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
       update_widget_face (wv, p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
     }
@@ -2230,10 +2222,31 @@ x_update_widget (Lisp_Image_Instance *p)
       wv->value = str;
     }
 
+  /* Possibly update the size. */
+  if (IMAGE_INSTANCE_SIZE_CHANGED (p)
+      ||
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
+    {
+      assert (IMAGE_INSTANCE_X_WIDGET_ID (p) &&
+	      IMAGE_INSTANCE_X_CLIPWIDGET (p)) ;
+
+      if (IMAGE_INSTANCE_X_WIDGET_ID (p)->core.being_destroyed
+	  || !XtIsManaged(IMAGE_INSTANCE_X_WIDGET_ID (p)))
+	{
+	  Lisp_Object sw;
+	  XSETIMAGE_INSTANCE (sw, p);
+	  signal_simple_error ("XEmacs bug: subwindow is deleted", sw);
+	}
+
+      lw_add_widget_value_arg (wv, XtNwidth,
+			       (Dimension)IMAGE_INSTANCE_WIDTH (p));
+      lw_add_widget_value_arg (wv, XtNheight,
+			       (Dimension)IMAGE_INSTANCE_HEIGHT (p));
+    }
+
   /* now modify the widget */
   lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
-			 wv, deep_p);
-  free_widget_value_tree (wv);
+			 wv, False);
 #endif
 }
 
@@ -2432,9 +2445,9 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   lw_add_widget_value_arg (clip_wv, XtNresize, False);
   lw_add_widget_value_arg (clip_wv, XtNwidth,
-			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii));
+			   (Dimension)IMAGE_INSTANCE_WIDTH (ii));
   lw_add_widget_value_arg (clip_wv, XtNheight,
-			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii));
+			   (Dimension)IMAGE_INSTANCE_HEIGHT (ii));
   clip_wv->enabled = True;
 
   clip_wv->name = xstrdup ("clip-window");
@@ -2470,9 +2483,9 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* we cannot allow widgets to resize themselves */
   lw_add_widget_value_arg (wv, XtNresize, False);
   lw_add_widget_value_arg (wv, XtNwidth,
-			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii));
+			   (Dimension)IMAGE_INSTANCE_WIDTH (ii));
   lw_add_widget_value_arg (wv, XtNheight,
-			   (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii));
+			   (Dimension)IMAGE_INSTANCE_HEIGHT (ii));
   /* update the font. */
   update_widget_face (wv, ii, domain);
 
@@ -2671,14 +2684,17 @@ x_tab_control_update (Lisp_Object image_instance)
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   /* Possibly update the face. */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii))
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii) 
+      ||
+      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii))->faces_changed
+      ||
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
       widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
       update_tab_widget_face (wv, ii,
 			      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
 
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, True);
-      free_widget_value_tree (wv);
     }
 }
 

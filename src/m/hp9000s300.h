@@ -39,25 +39,12 @@ NOTE-END */
 
 /* #define HPUX_5 */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically.  */
 
 #ifndef hp9000s300
 #define hp9000s300
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Define CANNOT_DUMP on machines where unexec does not work.
    Then the function dump-emacs will not be defined

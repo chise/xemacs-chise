@@ -56,6 +56,7 @@
 # define XmCTopShadowPixmap	"TopShadowPixmap"
 # define XmNbottomShadowPixmap	"bottomShadowPixmap"
 # define XmCBottomShadowPixmap	"BottomShadowPixmap"
+# define XmUNSPECIFIED_PIXMAP   2
 # define XmRHorizontalDimension	"HorizontalDimension"
 # define XmNspacing		"spacing"
 # define XmCSpacing		"Spacing"

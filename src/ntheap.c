@@ -80,7 +80,7 @@ get_data_end (void)
   return data_region_end;
 }
 
-static char *
+static unsigned char *
 allocate_heap (void)
 {
   /* The base address for our GNU malloc heap is chosen in conjunction
@@ -122,7 +122,7 @@ allocate_heap (void)
   unsigned long base = 0x01B00000;   /*  27MB */
   /* Temporary hack for the non-starting problem - use 28 (256Mb) rather than VALBITS (1Gb) */
   unsigned long end  = 1 << 28;      /* 256MB */
-  void *ptr = NULL;
+  void *ptr;
 
 #define NTHEAP_PROBE_BASE 1
 #if NTHEAP_PROBE_BASE /* This is never normally defined */
@@ -144,7 +144,7 @@ allocate_heap (void)
 		      PAGE_NOACCESS);
 #endif
 
-  return ptr;
+  return (unsigned char*) ptr;
 }
 
 
@@ -227,7 +227,7 @@ sbrk (unsigned long increment)
 void
 recreate_heap (char *executable_path)
 {
-  unsigned char *tmp;
+  void *tmp;
 
   /* First reserve the upper part of our heap.  (We reserve first
      because there have been problems in the past where doing the

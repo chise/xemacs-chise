@@ -619,6 +619,8 @@ sanity_check_lwlib (void)
 void
 syms_of_gui_x (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (popup_data);
+
   defsymbol (&Qmenu_no_selection_hook, "menu-no-selection-hook");
 }
 

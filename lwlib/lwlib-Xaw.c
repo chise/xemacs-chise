@@ -788,7 +788,7 @@ xaw_create_progress (widget_instance *instance)
   int ac = 0;
   Widget scale = 0;
   widget_value* val = instance->info->val;
-
+#if 0		/* This looks too awful, although more correct. */
   if (!val->call_data)
     {
       XtSetArg (al [ac], XtNsensitive, False);		ac++;
@@ -797,6 +797,10 @@ xaw_create_progress (widget_instance *instance)
     {
       XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
     }
+#else
+  XtSetArg (al [ac], XtNsensitive, True);		ac++;
+#endif
+
   XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
   XtSetArg (al [ac], XtNorientation, XtorientHorizontal);	ac++;
   XtSetArg (al [ac], XtNhighlightThickness, (Dimension)0);ac++;

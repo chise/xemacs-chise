@@ -2188,6 +2188,8 @@ This is in the form of a property list (alternating keyword/value pairs).
 void
 syms_of_events (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (event);
+
   DEFSUBR (Fcharacter_to_event);
   DEFSUBR (Fevent_to_character);
 

@@ -1073,6 +1073,8 @@ The elements of this list correspond to the arguments of
 void
 syms_of_console (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (console);
+
   DEFSUBR (Fvalid_console_type_p);
   DEFSUBR (Fconsole_type_list);
   DEFSUBR (Fcdfw_console);
@@ -1195,20 +1197,16 @@ One argument, the to-be-deleted console.
 }
 
 /* The docstrings for DEFVAR_* are recorded externally by make-docfile.  */
-
-/* Declaring this stuff as const produces 'Cannot reinitialize' messages
-   from SunPro C's fix-and-continue feature (a way neato feature that
-   makes debugging unbelievably more bearable) */
 #define DEFVAR_CONSOLE_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
-  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C =		\
+  static const struct symbol_value_forward I_hate_C =				\
   { /* struct symbol_value_forward */						\
     { /* struct symbol_value_magic */						\
       { /* struct lcrecord_header */						\
 	{ /* struct lrecord_header */						\
-	  1, /* type - index into lrecord_implementations_table */		\
-	  0, /* mark bit */							\
-	  0, /* c_readonly bit */						\
-	  0  /* lisp_readonly bit */						\
+	  lrecord_type_symbol_value_forward, /* lrecord_type_index */		\
+	  1, /* mark bit */							\
+	  1, /* c_readonly bit */						\
+	  1  /* lisp_readonly bit */						\
 	},									\
 	0, /* next */								\
 	0, /* uid  */								\

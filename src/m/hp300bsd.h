@@ -36,9 +36,5 @@ Boston, MA 02111-1307, USA.  */
 
 #define HAVE_ALLOCA
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 #define LOAD_AVE_TYPE long
 #define LOAD_AVE_CVT(x) ((int) (((double) (x)) / 2048.0 * 100.0))

@@ -699,7 +699,7 @@ sys_subshell (void)
 
 #ifdef WINDOWSNT
       /* Waits for process completion */
-      pid = _spawnlp (_P_WAIT, sh, sh, NULL);
+      pid = (HANDLE) _spawnlp (_P_WAIT, sh, sh, NULL);
       if (pid == NULL)
         write (1, "Can't execute subshell", 22);
 
@@ -2652,6 +2652,8 @@ sys_open (const char *path, int oflag, ...)
   va_start (ap, oflag);
   mode = va_arg (ap, int);
   va_end (ap);
+
+  PATHNAME_CONVERT_OUT (path);
 
 #ifdef WINDOWSNT
   /* Make all handles non-inheritable */

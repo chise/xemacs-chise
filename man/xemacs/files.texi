@@ -477,8 +477,8 @@ The values are used just after a new backup version is made;
 that newly made backup is included in the count in @code{kept-new-versions}.
 By default, both variables are 2.
 
-@vindex trim-versions-without-asking
-  If @code{trim-versions-without-asking} is non-@code{nil},  excess
+@vindex delete-old-versions
+  If @code{delete-old-versions} is non-@code{nil},  excess
 middle versions are deleted without notification.  If it is @code{nil}, the
 default, you are asked whether the excess middle versions should
 really be deleted.

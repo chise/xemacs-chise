@@ -50,11 +50,6 @@ Prime EXL (-machine=intel386 -opsystem=usg5-3)
   Minor changes merged in 19.1.
 NOTE-END */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -152,17 +147,10 @@ NOTE-END */
 
 #ifdef USG
 
-#if 0 /* ALLOCA is now autodetected */
-#define HAVE_ALLOCA
-#endif
 #define NO_REMAP 
 #define TEXT_START 0
 #endif /* USG */
 #endif /* not XENIX */
-
-#ifdef USG5_4
-#define DATA_SEG_BITS 0x08000000
-#endif
 
 #ifdef MSDOS
 #define NO_REMAP

@@ -30,7 +30,6 @@ NOTE-END  */
 #undef LD_SWITCH_MACHINE
 #undef DATA_START
 #define DATA_START 0x10000000
-#define DATA_SEG_BITS 0x10000000
 
 #if 0
 /* I don't see any such conflict in Ultrix 4.2, 4.2a, or 4.3.  And

@@ -20,28 +20,12 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.31. */
 
-/* The following symbol gives information on
- the size of various data types.  */
-
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically.  */
 
 #ifndef m68k
 #define m68k
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the 24-bit bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Define CANNOT_DUMP on machines where unexec does not work.
    Then the function dump-emacs will not be defined
@@ -59,9 +43,6 @@ Boston, MA 02111-1307, USA.  */
 /* #define VIRT_ADDR_VARIES */
 
 #ifdef linux
-#ifdef __ELF__
-#define DATA_SEG_BITS 0x80000000
-#endif
 
 #define NO_REMAP
 #define TEXT_START 0

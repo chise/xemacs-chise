@@ -25,10 +25,6 @@ Boston, MA 02111-1307, USA.  */
 #define m68000
 #define mc68000 1
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Define NO_REMAP if memory segmentation makes it not work well
    to change the boundary between the text section and data section
    when Emacs is dumped.  If you define this, the preloaded Lisp
@@ -50,17 +46,6 @@ Boston, MA 02111-1307, USA.  */
  */
 
 #define LD_SWITCH_MACHINE "-e __start"
-
-#if	pfa50 || pfa70
-
-/* On A-50/60/70/80, data space has high order byte use. */
-#define VALBITS 26
-#define VALMASK (((1<<VALBITS) - 1) | 0x60000000)
-/* XEmacs: markbit is between type bits and value bits */
-/* #define XTYPE(a) ((enum Lisp_Type) (((a) >> VALBITS) & GCTYPEMASK)) */
-#define XTYPE(a) ((enum Lisp_Type) (((a) >> ((VALBITS) + 1)) & GCTYPEMASK))
-
-#endif /* pfa50, pfa70 */
 
 /* SX/A has alloca in the PW library.  */
 

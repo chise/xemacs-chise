@@ -71,7 +71,7 @@
     (jmiller  "Jeff Miller"       "jmiller@smart.net")
     (juhp     "Jens-Ulrik Holger Petersen" "petersen@kurims.kyoto-u.ac.jp")
     (jwz      "Jamie Zawinski"    "jwz@jwz.org")
-    (kazz     "IENAGA Kazuyuki"   "ienaga@jsys.co.jp")
+    (kazz     "IENAGA Kazuyuki"   "ienaga@xemacs.org")
     (kyle     "Kyle Jones"        "kyle_jones@wonderworks.com")
     (larsi    "Lars Magne Ingebrigtsen" "larsi@gnus.org")
     (marcpa   "Marc Paquette"	  "marcpa@CAM.ORG")

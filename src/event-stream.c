@@ -4910,6 +4910,9 @@ If FILE is nil, close any open dribble file.
 void
 syms_of_event_stream (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (command_builder);
+  INIT_LRECORD_IMPLEMENTATION (timeout);
+
   defsymbol (&Qdisabled, "disabled");
   defsymbol (&Qcommand_event_p, "command-event-p");
 

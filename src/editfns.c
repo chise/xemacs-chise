@@ -779,10 +779,10 @@ value of `user-full-name' is returned.
   /* #### - Stig sez: this should return nil instead of "unknown" when pw==0 */
   /* Ben sez: bad idea because it's likely to break something */
 #ifndef AMPERSAND_FULL_NAME
-  p = ((pw) ? USER_FULL_NAME : "unknown"); /* don't gettext */
+  p = pw ? USER_FULL_NAME : "unknown"; /* don't gettext */
   q = strchr (p, ',');
 #else
-  p = ((pw) ? USER_FULL_NAME : "unknown"); /* don't gettext */
+  p = pw ? USER_FULL_NAME : "unknown"; /* don't gettext */
   q = strchr (p, ',');
 #endif
   tem = ((!NILP (user) && !pw)
@@ -855,12 +855,12 @@ get_home_directory (void)
 	       */
 	      if (initial_directory[0] != '\0')
 		{
-		  cached_home_directory = initial_directory;
+		  cached_home_directory = (Extbyte*) initial_directory;
 		}
 	      else
 		{
 		  /* This will probably give the wrong value */
-		  cached_home_directory = getcwd (NULL, 0);
+		  cached_home_directory = (Extbyte*) getcwd (NULL, 0);
 		}
 # else
 	      /*

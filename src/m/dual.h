@@ -36,10 +36,6 @@ Dual running Uniplus (-machine=dual -opsystem=unipl5-2)
 NOTE-END */
 
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    vax, m68000, ns16000 are the ones defined so far.  */

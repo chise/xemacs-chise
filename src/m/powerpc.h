@@ -43,10 +43,6 @@ Boston, MA 02111-1307, USA.  */
 # endif
 #endif
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 #ifndef __linux__
 /* Data type of load average, as read out of kmem.  */
 
@@ -66,32 +62,12 @@ Boston, MA 02111-1307, USA.  */
 
 #define NO_REMAP
 
-#if 0
-#define TEXT_START 0x00001000
-#define TEXT_END 0
-#define DATA_START 0x01000000
-#define DATA_END 0
-
-/* The data segment in this machine always starts at address 0x10000000.
-   An address of data cannot be stored correctly in a Lisp object;
-   we always lose the high bits.  We must tell XPNTR to add them back.	*/
-
-#define DATA_SEG_BITS 0x10000000
-#endif
-
 /* Use type int rather than a union, to represent Lisp_Object */
 
 /* #define NO_UNION_TYPE */
 
 #ifdef CANNOT_DUMP
-/* Define shared memory segment symbols */
 
-#define PURE_SEG_BITS 0x30000000
-
-/* Use shared memory.  */
-/* This is turned off because it does not always work.	See etc/AIX.DUMP.  */
-/* #define HAVE_SHM */
-#define SHMKEY 5305035		/* used for shared memory code segments */
 #endif /* CANNOT_DUMP */
 
 #define N_BADMAG(x) BADMAG(x)

@@ -326,17 +326,10 @@ release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 #ifdef CANNOT_DUMP
 	ln temacs ${PROGNAME}
 #else
-#ifdef HAVE_SHM
-	-if [ -w ${srcdir}/../lisp ]; then \
-	  w=`pwd`; cd ${srcdir} && $${w}/temacs -nl -batch -l ${srcdir}/../lisp/inc-vers; \
-	else true; fi
-	-$(DUMPENV) ./temacs -nl -batch -l ${srcdir}/../lisp/loadup.el dump
-#else /* ! defined (HAVE_SHM) */
 	-if [ -w ${srcdir}/../lisp ]; then \
 	  w=`pwd`; cd ${srcdir} && $${w}/temacs -batch -l ${srcdir}/../lisp/inc-vers; \
 	else true; fi
 	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
-#endif /* ! defined (HAVE_SHM) */
 	touch release
 #endif /* ! defined (CANNOT_DUMP) */
 

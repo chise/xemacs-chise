@@ -26,11 +26,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "intel386.h"
 
-/* Define how to take a char and sign-extend into an int.
-   On machines where char is signed, this is a no-op.  */
-/* CHECK THIS */
-#define SIGN_EXTEND_CHAR(c) (c)
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
@@ -44,14 +39,6 @@ Boston, MA 02111-1307, USA.  */
 #undef CRT0_DUMMIES
 #define CRT0_DUMMIES dummy1, dummy2, dummy3,
 #endif
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the 24-bit bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Data type of load average, as read out of kmem.  */
 

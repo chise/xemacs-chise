@@ -46,11 +46,6 @@ Gould Power Node (-machine=gould -opsystem=bsd4-2 or bsd4-3)
   A site running a pre-release of 2.1 should #define RELEASE2_1 in config.h.
 NOTE-END */
 
-/* Define WORD_MACHINE if addresses and such have
- * to be corrected before they can be used as byte counts.  */
-
-/* #define WORD_MACHINE */
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically */
 
@@ -61,14 +56,6 @@ NOTE-END */
 /* sel is an old preprocessor name on gould machines 
   - it is no longer needed and interferes with a variable in xmenu.c */
 #undef sel
-
-/* Define EXPLICIT_SIGN_EXTEND if XINT must explicitly sign-extend
-   the bit field into an int.  In other words, if bit fields
-   are always unsigned.
-
-   If you use NO_UNION_TYPE, this flag does not matter.  */
-
-#define EXPLICIT_SIGN_EXTEND
 
 /* Data type of load average, as read out of kmem.  */
 

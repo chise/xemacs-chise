@@ -51,7 +51,7 @@ extern int    	      nt_minor_version;
 
 /* To prevent zero-initialized variables from being placed into the bss
    section, use non-zero values to represent an uninitialized state.  */
-#define UNINIT_PTR ((void *) 0xF0A0F0A0)
+#define UNINIT_PTR ((unsigned char*) 0xF0A0F0A0)
 #define UNINIT_LONG (0xF0A0F0A0L)
 
 /* Emulation of Unix sbrk().  */
@@ -80,11 +80,11 @@ extern unsigned char *round_to_next (unsigned char *address,
 /* Useful routines for manipulating memory-mapped files. */
 
 typedef struct file_data {
-    const char    *name;
-    unsigned long  size;
-    HANDLE         file;
-    HANDLE         file_mapping;
-    unsigned char *file_base;
+  const char    *name;
+  unsigned long  size;
+  HANDLE         file;
+  HANDLE         file_mapping;
+  char *file_base;
 } file_data;
 
 #define OFFSET_TO_RVA(var,section) \

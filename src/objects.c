@@ -1009,6 +1009,9 @@ Valid instantiators for face-boolean specifiers are
 void
 syms_of_objects (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (color_instance);
+  INIT_LRECORD_IMPLEMENTATION (font_instance);
+
   DEFSUBR (Fcolor_specifier_p);
   DEFSUBR (Ffont_specifier_p);
   DEFSUBR (Fface_boolean_specifier_p);

@@ -47,10 +47,6 @@ NOTE-END  */
 /* Sun can't write competent compilers */
 #define COMPILER_REGISTER_BUG
 
-/* XINT must explicitly sign-extend */
-
-#define EXPLICIT_SIGN_EXTEND
-
 /* Data type of load average, as read out of kmem.  */
 
 #define LOAD_AVE_TYPE long
