@@ -109,6 +109,9 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x98DF)	; é£Ÿ
+      ))
     (=gt		. 59030)	; ý¡€Žš–
     (=gt-k		. 06140)	; ý¡„Ÿ¼
     (=gt-pj-9		. #x4F28)	; ý¡€Žš–
