@@ -1623,21 +1623,6 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
     }
 }
 
-int
-charset_code_point (Lisp_Object charset, Emchar ch)
-{
-  Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
-
-  if (!NILP (cdef))
-    {
-      Lisp_Object field = Fassq (charset, cdef);
-
-      if (!NILP (field))
-	return XINT (Fcdr (field));
-    }
-  return range_charset_code_point (charset, ch);
-}
-
 Lisp_Object Vdefault_coded_charset_priority_list;
 #endif
 
