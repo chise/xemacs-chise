@@ -11053,6 +11053,25 @@
     (=cns11643-3	. #x5165)	; ø»–žˆ
     ))
 (define-char
+  '((=>daikanwa		. 49571)	; ø¸Œ†£
+    (ideographic-radical@ucs . 86)	; â½•
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 136)	; â¾‡
+    (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (total-strokes	 . 16)
+    (=ucs		. #x243DE)	; ð¤ž
+    (->subsumptive
+     ((hanyu-dazidian	  3 2236 13)
+      (=daikanwa	  . 49571)	; ø¸Œ†£
+      (=hanziku-6	  . #xCED3)	; ý¢¬»“
+      (=ucs@iso		  . #x243DE)	; ø¸Œ†£
+      )
+     ((=cns11643-7	  . #x317A)	; ø»ž—­
+      ))
+    ))
+(define-char
   '((ideographic-radical . 86)	; â½•
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
@@ -11085,17 +11104,6 @@
     (total-strokes	 . 16)
     (=ucs		. #x243BF)	; ð¤Ž¿
     (=cns11643-7	. #x2F53)	; ø»ž”Š
-    ))
-(define-char
-  '((ideographic-radical . 86)	; â½•
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (->identical
-     ((=daikanwa	  . 49571)	; ø¸Œ†£
-      ))
-    (hanyu-dazidian	3 2236 13)
-    (=ucs		. #x243DE)	; ð¤ž
-    (=hanziku-6		. #xCED3)	; ý¢¬»“
     ))
 (define-char
   '((=>ucs		. #x71DF)	; ç‡Ÿ
@@ -14418,6 +14426,23 @@
     (=cns11643-7	. #x607D)	; ø»Ÿœ²
     ))
 (define-char
+  '((=>daikanwa		. 30268)	; ø¸‡˜¼
+    (ideographic-radical@ucs . 86)	; â½•
+    (ideographic-strokes@ucs . 21)
+    (ideographic-radical@cns . 134)	; â¾…
+    (ideographic-strokes@cns . 18)
+    (total-strokes	 . 25)
+    (=ucs		. #x244DF)	; ð¤“Ÿ
+    (->subsumptive
+     ((hanyu-dazidian	  3 2250 17)
+      (=daikanwa	  . 30268)	; ø¸‡˜¼
+      (=hanziku-6	  . #xD1C0)	; ý¢­‡€
+      (=ucs@iso		  . #x244DF)	; ø¸‡˜¼
+      )
+     ((=cns11643-7	  . #x6138)	; ø»Ÿ‹
+      ))
+    ))
+(define-char
   '((ideographic-radical . 86)	; â½•
     (ideographic-strokes . 21)
     (total-strokes	 . 25)
@@ -14446,17 +14471,6 @@
     (ideographic-strokes . 21)
     (total-strokes	 . 25)
     (=big5		. #xF8F6)	; ý¢€£¶
-    ))
-(define-char
-  '((ideographic-radical . 86)	; â½•
-    (ideographic-strokes . 21)
-    (total-strokes	 . 25)
-    (->identical
-     ((=daikanwa	  . 30268)	; ø¸‡˜¼
-      ))
-    (hanyu-dazidian	3 2250 17)
-    (=ucs		. #x244DF)	; ð¤“Ÿ
-    (=hanziku-6		. #xD1C0)	; ý¢­‡€
     ))
 (define-char
   '((=>ucs		. #x3E11)	; ã¸‘
