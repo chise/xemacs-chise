@@ -1223,7 +1223,8 @@ Return character corresponding with list.
       modifier = Fcar (rest);
       rest = Fcdr (rest);
       base = Fcdr (Fassq (modifier,
-			  Fget_char_attribute (base, Qcomposition, Qnil)));
+			  Fchar_feature (base, Qcomposition, Qnil,
+					 Qnil, Qnil)));
     }
   return base;
 }
@@ -1236,7 +1237,8 @@ Return variants of CHARACTER.
   Lisp_Object ret;
 
   CHECK_CHAR (character);
-  ret = Fget_char_attribute (character, Q_ucs_unified, Qnil);
+  ret = Fchar_feature (character, Q_ucs_unified, Qnil,
+		       Qnil, Qnil);
   if (CONSP (ret))
     return Fcopy_list (ret);
   else
@@ -2154,9 +2156,11 @@ get_char_table (Emchar ch, Lisp_Char_Table *ct)
     if (NILP (ret))
       {
 	if (EQ (CHAR_TABLE_NAME (ct), Qdowncase))
-	  ret = Fget_char_attribute (make_char (ch), Q_lowercase, Qnil);
+	  ret = Fchar_feature (make_char (ch), Q_lowercase, Qnil,
+			       Qnil, Qnil);
 	else if (EQ (CHAR_TABLE_NAME (ct), Qflippedcase))
-	  ret = Fget_char_attribute (make_char (ch), Q_uppercase, Qnil);
+	  ret = Fchar_feature (make_char (ch), Q_uppercase, Qnil,
+			       Qnil, Qnil);
 	if (CONSP (ret))
 	  {
 	    ret = XCAR (ret);
@@ -2449,7 +2453,6 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
   switch (range->type)
     {
     case CHARTAB_RANGE_ALL:
-      /* printf ("put-char-table: range = all\n"); */
       fill_char_table (ct, val);
       return; /* avoid the duplicate call to update_syntax_table() below,
 		 since fill_char_table() also did that. */
@@ -2466,9 +2469,6 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
       {
 	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range->charset);
 
-	/* printf ("put-char-table: range = charset: %d\n",
-	   XCHARSET_LEADING_BYTE (range->charset));
-	*/
 	if ( CHAR_TABLEP (encoding_table) )
 	  {
 	    Lisp_Object mother = XCHARSET_MOTHER (range->charset);
@@ -2554,7 +2554,6 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 
     case CHARTAB_RANGE_CHAR:
 #ifdef UTF2000
-      /* printf ("put-char-table: range = char: 0x%x\n", range->ch); */
       put_char_id_table_0 (ct, range->ch, val);
       break;
 #elif defined(MULE)
@@ -3274,6 +3273,81 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
+DEFUN ("char-feature", Fchar_feature, 2, 5, 0, /*
+Return the value of CHARACTER's FEATURE.
+Return DEFAULT-VALUE if the value is not exist.
+*/
+       (character, attribute, default_value,
+	feature_rel_max, char_rel_max))
+{
+  Lisp_Object ret
+    = Fget_char_attribute (character, attribute, Qunbound);
+
+  if (!UNBOUNDP (ret))
+    return ret;
+
+  if (NILP (feature_rel_max)
+      || (INTP (feature_rel_max) &&
+	  XINT (feature_rel_max) > 0))
+    {
+      Lisp_String* name = symbol_name (XSYMBOL (attribute));
+      Bufbyte *name_str = string_data (name);
+
+      if (name_str[0] == '=' && name_str[1] == '>')
+	{
+	  Bytecount length = string_length (name) - 1;
+	  Lisp_Object map_to = make_uninit_string (length);
+
+	  memcpy (XSTRING_DATA (map_to) + 1, name_str + 2, length - 1);
+	  XSTRING_DATA(map_to)[0] = '=';
+	  ret = Fchar_feature (character, Fintern (map_to, Qnil),
+			       Qunbound,
+			       NILP (feature_rel_max)
+			       ? feature_rel_max
+			       : make_int (XINT (feature_rel_max) - 1),
+			       char_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
+	}
+    }
+
+  if ( !(EQ (attribute, Q_unified_from))
+       && ( (NILP (char_rel_max)
+	     || (INTP (char_rel_max) &&
+		 XINT (char_rel_max) > 0)) ) )
+    {
+      Lisp_String* name = symbol_name (XSYMBOL (attribute));
+      Bufbyte *name_str = string_data (name);
+
+      if ( (name_str[0] != '=') || (name_str[1] == '>') )
+	{
+	  Lisp_Object ancestors
+	    = Fget_char_attribute (character, Q_unified_from, Qnil);
+
+	  while (!NILP (ancestors))
+	    {
+	      Lisp_Object ancestor = XCAR (ancestors);
+
+	      if (!EQ (ancestors, character))
+		{
+		  ret = Fchar_feature (ancestor, attribute, Qunbound,
+				       Qnil, make_int (0));
+		  if (!UNBOUNDP (ret))
+		    return ret;
+
+		  ancestors = XCDR (ancestors);
+		  ret = Fget_char_attribute (ancestor, Q_unified_from, Qnil);
+		  if (!NILP (ret))
+		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+		}
+	      else
+		ancestors = XCDR (ancestors);
+	    }
+	}
+    }
+  return default_value;
+}
+
 void put_char_composition (Lisp_Object character, Lisp_Object value);
 void
 put_char_composition (Lisp_Object character, Lisp_Object value)
@@ -3302,7 +3376,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	  if (CHARP (base))
 	    {
 	      Lisp_Object alist
-		= Fget_char_attribute (base, Qcomposition, Qnil);
+		= Fchar_feature (base, Qcomposition, Qnil,
+				 Qnil, Qnil);
 	      Lisp_Object ret = Fassq (modifier, alist);
 
 	      if (NILP (ret))
@@ -3322,7 +3397,8 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	{
 	  Emchar c = XINT (v);
 	  Lisp_Object ret
-	    = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
+	    = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
+			     Qnil, Qnil);
 
 	  if (!CONSP (ret))
 	    {
@@ -3349,8 +3425,25 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
   if (!NILP (ccs))
     {
+#if 0
+      Lisp_String* name = symbol_name (XSYMBOL (attribute));
+      Bufbyte *name_str = string_data (name);
+#endif
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
+#if 0
+      if (name_str[0] == '=')
+	{
+	  Bytecount length = string_length (name) + 1;
+	  Lisp_Object map_to = make_uninit_string (length);
+
+	  memcpy (XSTRING_DATA (map_to) + 2, name_str + 1, length - 2);
+	  XSTRING_DATA(map_to)[0] = '=';
+	  XSTRING_DATA(map_to)[1] = '>';
+	  Fput_char_attribute (character,
+			       Fintern (map_to, Qnil), value);
+	}
+#endif
     }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
@@ -3364,7 +3457,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
+      ret = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
+			   Qnil, Qnil);
       if (!CONSP (ret))
 	{
 	  Fput_char_attribute (make_char (c), Q_ucs_unified,
@@ -3388,7 +3482,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  if (CONSP (ret))
 	    ret = Fdefine_char (ret);
 	  
-	  if (!NILP (ret))
+	  if ( !NILP (ret) && !EQ (ret, character) )
 	    {
 	      Fput_char_attribute (ret, Q_unified_from, list1 (character));
 	      Fsetcar (rest, ret);
@@ -4446,6 +4540,7 @@ syms_of_chartab (void)
 #endif
   DEFSUBR (Fload_char_attribute_table);
 #endif
+  DEFSUBR (Fchar_feature);
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
