@@ -1,5 +1,10 @@
 2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R070-Square.el (M-13627): New character.
+	(U+3AC4): Relate to M-13627.
+
+2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R006-Hook.el (MH-0006): New character.
 	(U+4E8A): Unify MH-0007 and M054501.
 
