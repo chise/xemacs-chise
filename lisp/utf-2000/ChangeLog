@@ -1,3 +1,11 @@
+2003-03-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R186-Fragrant.el, Ideograph-R196-Bird.el,
+	Ideograph-R142-Insect.el, Ideograph-R109-Eye.el,
+	Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
+	Ideograph-R043-Lame.el, Ideograph-R030-Mouth.el,
+	Ideograph-R018-Knife.el: Rename `ucs-gb' to `=ucs@gb'.
+
 2003-03-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R037-Big.el: Rename `ideograph-daikanwa-2' to
