@@ -393,7 +393,8 @@
     (ucs		. #x65B1)	; 斱
     ))
 (define-char
-  '((morohashi-daikanwa	13573 0 1)
+  '((->ucs		. #x65B1)	; 斱
+    (morohashi-daikanwa	13573 0 0)
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
