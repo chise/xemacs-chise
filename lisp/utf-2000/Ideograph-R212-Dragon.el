@@ -1,12 +1,20 @@
 (define-char
-  '((ideographic-radical . 212)	; â¿“
+  '((=>ucs		. #x9F8D)	; é¾
+    (ideographic-radical . 212)	; â¿“
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (shinjigen-2	. 9913)
     (=jis-x0208		. #x4E36)	; ø½Š¸—
     (korean-ksc5601	. #x5723)	; ø»‰©¢
-    (chinese-gb12345	. #x417A)	; é¾
     (ideograph-daikanwa . 48818)	; ø¸‹º²
+    (ucs-jis		. #x9F8D)	; ø½Š¸—
+    ))
+(define-char
+  '((morohashi-daikanwa	48818 0 0)
+    (ideographic-radical . 212)	; â¿“
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (chinese-gb12345	. #x417A)	; é¾
     (ucs		. #x9F8D)	; é¾
     ))
 (define-char
