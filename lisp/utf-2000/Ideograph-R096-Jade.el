@@ -88,12 +88,13 @@
     (=ucs		. #x248EB)	; ð¤£«
     ))
 (define-char
-  '((ideographic-radical . 96)	; â½Ÿ
-    (ideographic-strokes . 1)
-    (kangxi-radical	 . 4)	; â¼ƒ
-    (kangxi-strokes	 . 4)
+  '((ideographic-radical@ucs . 96)	; â½Ÿ
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@cns . 4)	; â¼ƒ
+    (ideographic-strokes@cns . 4)
     (total-strokes	 . 5)
     (=cns11643-3	. #x216B)	; ø»•—®
+    (mojikyo		. 053003)	; ý €Œ¼‹
     (=ucs		. #x738D)	; çŽ
     ))
 (define-char
