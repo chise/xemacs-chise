@@ -3,9 +3,10 @@
     (general-category	separator space) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (<-ideographic	((name		     . "SPACE")
-			 (ucs		     . #x0020)	;
-			 ))
+    (<-ideographic
+     ((name		  . "SPACE")
+      (ucs		  . #x0020)	;
+      ))
     (japanese-jisx0208-1978	. #x2121)	; ø»¼€
     (chinese-gb2312		. #x2121)	; ø»„†„
     (japanese-jisx0208		. #x2121)	; ø»†ˆ
