@@ -132,7 +132,7 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (ucs		  . #x2E8A)	; ⺊
       )
-     ((ucs		  . #x53E3)	; 口
+     ((ucs		  . #x56D7)	; 囗
       ))
     (shinjigen-1	. 837)
     (shinjigen-2	. 837)
