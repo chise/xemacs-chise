@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -454,7 +454,7 @@ Source File Tag Syntax
      generate a tag.
 
    You can also generate tags based on regexp matching (*note Etags
-Regexps::.) to handle other formats and languages.
+Regexps::) to handle other formats and languages.
 
 
 File: xemacs.info,  Node: Create Tags Table,  Next: Etags Regexps,  Prev: Tag Syntax,  Up: Tags
@@ -533,7 +533,7 @@ the file names that follow it.  Specify `--language=auto' to tell
 `etags' to resume guessing the language from the file names and file
 contents.  Specify `--language=none' to turn off language-specific
 processing entirely; then `etags' recognizes tags by regexp matching
-alone (*note Etags Regexps::.).
+alone (*note Etags Regexps::).
 
    `etags --help' prints the list of the languages `etags' knows, and
 the file name rules for guessing the language. It also prints a list of
@@ -817,7 +817,7 @@ Searching and Replacing with Tags Tables
    The commands in this section visit and search all the files listed
 in the selected tags table, one by one.  For these commands, the tags
 table serves only to specify a sequence of files to search.  A related
-command is `M-x grep' (*note Compilation::.).
+command is `M-x grep' (*note Compilation::).
 
 `M-x tags-search <RET> REGEXP <RET>'
      Search for REGEXP through the files in the selected tags table.
@@ -1115,7 +1115,7 @@ standard Emacs comment commands and defines some new variables.
 comments start with `!' and can follow other text.  Because only some
 Fortran compilers accept this syntax, Fortran mode will not insert such
 comments unless you have specified to do so in advance by setting the
-variable `comment-start' to `"!"' (*note Variables::.).
+variable `comment-start' to `"!"' (*note Variables::).
 
 `M-;'
      Align comment or insert new comment (`fortran-comment-indent').

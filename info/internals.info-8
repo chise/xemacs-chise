@@ -1,5 +1,5 @@
-This is Info file ../info/internals.info, produced by Makeinfo version
-1.68 from the input file internals/internals.texi.
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -308,7 +308,7 @@ structure to be there.
    A list of extents is maintained as a double gap array: one gap array
 is ordered by start index (the "display order") and the other is
 ordered by end index (the "e-order").  Note that positions in an extent
-list should logically be conceived of as referring *to* a particular
+list should logically be conceived of as referring _to_ a particular
 extent (as is the norm in programs) rather than sitting between two
 extents.  Note also that callers of these functions should not be aware
 of the fact that the extent list is implemented as an array, except for
@@ -376,7 +376,7 @@ overlap a range.
      range; this is equivalent to treating a point P as the range [P,
      P].
 
-   * In the case of an *extent* overlapping a point or range, the extent
+   * In the case of an _extent_ overlapping a point or range, the extent
      is normally treated as having closed endpoints.  This applies
      consistently in the discussion of stacks of extents and such below.
      Note that this definition of overlap is not necessarily consistent

@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -69,7 +69,7 @@ effect is to cancel the prefix key as well as any prefix argument.
    In the minibuffer, `C-g' has a different definition: it aborts out
 of the minibuffer.  This means, in effect, that it exits the minibuffer
 and then quits.  (Simply quitting would return to the command loop
-*within* the minibuffer.)  The reason why `C-g' does not quit directly
+_within_ the minibuffer.)  The reason why `C-g' does not quit directly
 when the command reader is reading input is so that its meaning can be
 redefined in the minibuffer in this way.  `C-g' following a prefix key
 is not redefined in the minibuffer, and it has its normal effect of
@@ -225,7 +225,7 @@ argument, either numeric or raw, in the `interactive' declaration.
 value of the prefix argument directly in the variable
 `current-prefix-arg', but this is less clean.
 
- - Function: prefix-numeric-value ARG
+ - Function: prefix-numeric-value arg
      This function returns the numeric meaning of a valid raw prefix
      argument value, ARG.  The argument may be a symbol, a number, or a
      list.  If it is `nil', the value 1 is returned; if it is `-', the
@@ -234,32 +234,32 @@ value of the prefix argument directly in the variable
      returned.
 
  - Variable: current-prefix-arg
-     This variable holds the raw prefix argument for the *current*
+     This variable holds the raw prefix argument for the _current_
      command.  Commands may examine it directly, but the usual way to
      access it is with `(interactive "P")'.
 
  - Variable: prefix-arg
      The value of this variable is the raw prefix argument for the
-     *next* editing command.  Commands that specify prefix arguments for
+     _next_ editing command.  Commands that specify prefix arguments for
      the following command work by setting this variable.
 
    Do not call the functions `universal-argument', `digit-argument', or
 `negative-argument' unless you intend to let the user enter the prefix
-argument for the *next* command.
+argument for the _next_ command.
 
  - Command: universal-argument
      This command reads input and specifies a prefix argument for the
      following command.  Don't call this command yourself unless you
      know what you are doing.
 
- - Command: digit-argument ARG
+ - Command: digit-argument arg
      This command adds to the prefix argument for the following
      command.  The argument ARG is the raw prefix argument as it was
      before this command; it is used to compute the updated prefix
      argument.  Don't call this command yourself unless you know what
      you are doing.
 
- - Command: negative-argument ARG
+ - Command: negative-argument arg
      This command adds to the numeric argument for the next command.
      The argument ARG is the raw prefix argument as it was before this
      command; its value is negated to form the new prefix argument.
@@ -302,7 +302,7 @@ commands.
 `recursive-edit'.  This function contains the command loop; it also
 contains a call to `catch' with tag `exit', which makes it possible to
 exit the recursive editing level by throwing to `exit' (*note Catch and
-Throw::.).  If you throw a value other than `t', then `recursive-edit'
+Throw::).  If you throw a value other than `t', then `recursive-edit'
 returns normally to the function that called it.  The command `C-M-c'
 (`exit-recursive-edit') does this.  Throwing a `t' value causes
 `recursive-edit' to quit, so that control returns to the command loop
@@ -399,12 +399,12 @@ saying the command is disabled includes that string.  For example:
 when a disabled command is invoked interactively.  Disabling a command
 has no effect on calling it as a function from Lisp programs.
 
- - Command: enable-command COMMAND
+ - Command: enable-command command
      Allow COMMAND to be executed without special confirmation from now
      on, and (if the user confirms) alter the user's `.emacs' file so
      that this will apply to future sessions.
 
- - Command: disable-command COMMAND
+ - Command: disable-command command
      Require special confirmation to execute COMMAND from now on, and
      (if the user confirms) alter the user's `.emacs' file so that this
      will apply to future sessions.
@@ -439,7 +439,7 @@ considered complex.
      represented as a form to evaluate.  It continues to accumulate all
      complex commands for the duration of the editing session, but all
      but the first (most recent) thirty elements are deleted when a
-     garbage collection takes place (*note Garbage Collection::.).
+     garbage collection takes place (*note Garbage Collection::).
 
           command-history
           => ((switch-to-buffer "chistory.texi")
@@ -448,7 +448,7 @@ considered complex.
               (find-tag "repeat-complex-command"))
 
    This history list is actually a special case of minibuffer history
-(*note Minibuffer History::.), with one special twist: the elements are
+(*note Minibuffer History::), with one special twist: the elements are
 expressions rather than strings.
 
    There are a number of commands devoted to the editing and recall of
@@ -467,12 +467,12 @@ Keyboard Macros
 considered a command and made the definition of a key.  The Lisp
 representation of a keyboard macro is a string or vector containing the
 events.  Don't confuse keyboard macros with Lisp macros (*note
-Macros::.).
+Macros::).
 
- - Function: execute-kbd-macro MACRO &optional COUNT
+ - Function: execute-kbd-macro macro &optional count
      This function executes MACRO as a sequence of events.  If MACRO is
      a string or vector, then the events in it are executed exactly as
-     if they had been input by the user.  The sequence is *not*
+     if they had been input by the user.  The sequence is _not_
      expected to be a single key sequence; normally a keyboard macro
      definition consists of several key sequences concatenated.
 
@@ -549,7 +549,7 @@ be any Lisp objects, though only certain types are meaningful for
 execution by the command loop).  Given an event (or an event type) and a
 keymap, XEmacs can get the event's definition.  Events mapped in keymaps
 include keypresses, button presses, and button releases (*note
-Events::.).
+Events::).
 
    A sequence of input events that form a unit is called a "key
 sequence", or "key" for short.  A sequence of one event is always a key
@@ -604,7 +604,7 @@ Format of Keymaps
 bindings.  Note that this is different from Emacs 18 and FSF Emacs,
 where keymaps are lists.
 
- - Function: keymapp OBJECT
+ - Function: keymapp object
      This function returns `t' if OBJECT is a keymap, `nil' otherwise.
 
 
@@ -615,7 +615,7 @@ Creating Keymaps
 
    Here we describe the functions for creating keymaps.
 
- - Function: make-keymap &optional NAME
+ - Function: make-keymap &optional name
      This function constructs and returns a new keymap object.  All
      entries in it are `nil', meaning "command undefined".
 
@@ -623,7 +623,7 @@ Creating Keymaps
      as in `set-keymap-name'.  This name is only a debugging
      convenience; it is not used except when printing the keymap.
 
- - Function: make-sparse-keymap &optional NAME
+ - Function: make-sparse-keymap &optional name
      This function constructs and returns a new keymap object.  All
      entries in it are `nil', meaning "command undefined".  The only
      difference between this function and `make-keymap' is that this
@@ -635,16 +635,16 @@ Creating Keymaps
      as in `set-keymap-name'.  This name is only a debugging
      convenience; it is not used except when printing the keymap.
 
- - Function: set-keymap-name KEYMAP NEW-NAME
+ - Function: set-keymap-name keymap new-name
      This function assigns a "name" to a keymap.  The name is only a
      debugging convenience; it is not used except when printing the
      keymap.
 
- - Function: keymap-name KEYMAP
+ - Function: keymap-name keymap
      This function returns the "name" of a keymap, as assigned using
      `set-keymap-name'.
 
- - Function: copy-keymap KEYMAP
+ - Function: copy-keymap keymap
      This function returns a copy of KEYMAP.  Any keymaps that appear
      directly as bindings in KEYMAP are also copied recursively, and so
      on to any number of levels.  However, recursive copying does not
@@ -678,7 +678,7 @@ depth-first search of all the ancestors of the keymap is conducted.
 
    `(current-global-map)' is the default parent of all keymaps.
 
- - Function: set-keymap-parents KEYMAP PARENTS
+ - Function: set-keymap-parents keymap parents
      This function sets the parent keymaps of KEYMAP to the list
      PARENTS.
 
@@ -689,7 +689,7 @@ depth-first search of all the ancestors of the keymap is conducted.
      `define-key' to change KEYMAP, that affects the bindings in that
      map, but has no effect on any of the keymaps in PARENTS.
 
- - Function: keymap-parents KEYMAP
+ - Function: keymap-parents keymap
      This function returns the list of parent keymaps of KEYMAP, or
      `nil' if KEYMAP has no parents.
 
@@ -701,11 +701,11 @@ format.  Note that if you specify a default binding for a keymap,
 neither the keymap's parents nor the current global map are searched for
 key bindings.
 
- - Function: set-keymap-default-binding KEYMAP COMMAND
+ - Function: set-keymap-default-binding keymap command
      This function sets the default binding of KEYMAP to COMMAND, or
      `nil' if no default is desired.
 
- - Function: keymap-default-binding KEYMAP
+ - Function: keymap-default-binding keymap
      This function returns the default binding of KEYMAP, or `nil' if
      it has none.
 
@@ -740,7 +740,7 @@ and `(control 98)'.  A keystroke may also be represented by an event
 object, as returned by the `next-command-event' and `read-key-sequence'
 functions.
 
-   Note that in this context, the keystroke `control-b' is *not*
+   Note that in this context, the keystroke `control-b' is _not_
 represented by the number 2 (the ASCII code for `^B') or the character
 `?\^B'.  See below.
 
@@ -807,7 +807,7 @@ it is possible to redefine only one of those sequences like so:
 system.  If you're talking to XEmacs through a TTY connection, you
 don't get any of these features.
 
- - Function: event-matches-key-specifier-p EVENT KEY-SPECIFIER
+ - Function: event-matches-key-specifier-p event key-specifier
      This function returns non-`nil' if EVENT matches KEY-SPECIFIER,
      which can be any valid form representing a key sequence.  This can
      be useful, e.g., to determine if the user pressed `help-char' or
@@ -845,7 +845,7 @@ their keymaps:
    * `esc-map' is an evil hack that is present for compatibility
      purposes with Emacs 18.  Defining a key in `esc-map' is equivalent
      to defining the same key in `global-map' but with the <META>
-     prefix added.  You should *not* use this in your code. (This map is
+     prefix added.  You should _not_ use this in your code. (This map is
      also the function definition of `ESC-prefix'.)
 
    The binding of a prefix key is the keymap to use for looking up the
@@ -882,7 +882,7 @@ The key sequence `C-p 6' is not found in any active keymap.
      (key-binding "\C-p6")
          => nil
 
- - Function: define-prefix-command SYMBOL &optional MAPVAR
+ - Function: define-prefix-command symbol &optional mapvar
      This function defines SYMBOL as a prefix command: it creates a
      keymap and stores it as SYMBOL's function definition.  Storing the
      symbol as the binding of a key makes the key a prefix key that has
@@ -962,7 +962,7 @@ the maps.
    * the current global map.
 
    Note that if `overriding-local-map' or
-`overriding-terminal-local-map' is non-`nil', *only* those two maps and
+`overriding-terminal-local-map' is non-`nil', _only_ those two maps and
 the current global map are searched.
 
    The procedure for searching a single keymap is called "key lookup";
@@ -985,7 +985,7 @@ completion and exit commands.  *Note Intro to Minibuffers::.
 
    *Note Standard Keymaps::, for a list of standard keymaps.
 
- - Function: current-keymaps &optional EVENT-OR-KEYS
+ - Function: current-keymaps &optional event-or-keys
      This function returns a list of the current keymaps that will be
      searched for bindings.  This lists keymaps such as the current
      local map and the minor-mode maps, but does not list the parents
@@ -1040,13 +1040,13 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      This function returns a list of the keymaps of currently enabled
      minor modes.
 
- - Function: use-global-map KEYMAP
+ - Function: use-global-map keymap
      This function makes KEYMAP the new current global keymap.  It
      returns `nil'.
 
      It is very unusual to change the global keymap.
 
- - Function: use-local-map KEYMAP &optional BUFFER
+ - Function: use-local-map keymap &optional buffer
      This function makes KEYMAP the new local keymap of BUFFER.  BUFFER
      defaults to the current buffer.  If KEYMAP is `nil', then the
      buffer has no local keymap.  `use-local-map' returns `nil'.  Most
@@ -1097,7 +1097,7 @@ completion and exit commands.  *Note Intro to Minibuffers::.
      normal mechanism if there is no binding for that click.  This
      buffer's value of `mode-motion-hook' will be consulted instead of
      the `mode-motion-hook' of the buffer of the window under the mouse.
-     You should *bind* this, not set it.
+     You should _bind_ this, not set it.
 
  - Variable: overriding-local-map
      If non-`nil', this variable holds a keymap to use instead of the

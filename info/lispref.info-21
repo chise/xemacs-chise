@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -64,11 +64,11 @@ visited.
      anything in particular.  Other major modes are defined in effect
      by comparison with this one--their definitions say what to change,
      starting from Fundamental mode.  The `fundamental-mode' function
-     does *not* run any hooks; you're not supposed to customize it.
+     does _not_ run any hooks; you're not supposed to customize it.
      (If you want Emacs to behave differently in Fundamental mode,
-     change the *global* state of Emacs.)
+     change the _global_ state of Emacs.)
 
- - Command: normal-mode &optional FIND-FILE
+ - Command: normal-mode &optional find-file
      This function establishes the proper major mode and local variable
      bindings for the current buffer.  First it calls `set-auto-mode',
      then it runs `hack-local-variables' to parse, and bind or evaluate
@@ -131,7 +131,7 @@ visited.
      property are those such as Dired and Rmail that are useful only
      with text that has been specially prepared.
 
- - Function: set-buffer-major-mode BUFFER
+ - Function: set-buffer-major-mode buffer
      This function sets the major mode of BUFFER to the value of
      `default-major-mode'.  If that variable is `nil', it uses the
      current buffer's major mode (if that is suitable).
@@ -147,7 +147,7 @@ visited.
 
  - Variable: auto-mode-alist
      This variable contains an association list of file name patterns
-     (regular expressions; *note Regular Expressions::.) and
+     (regular expressions; *note Regular Expressions::) and
      corresponding major mode functions.  Usually, the file name
      patterns test for suffixes, such as `.el' and `.c', but this need
      not be the case.  An ordinary element of the alist looks like
@@ -158,14 +158,13 @@ visited.
           (("^/tmp/fol/" . text-mode)
            ("\\.texinfo\\'" . texinfo-mode)
            ("\\.texi\\'" . texinfo-mode)
-
-          ("\\.el\\'" . emacs-lisp-mode)
+           ("\\.el\\'" . emacs-lisp-mode)
            ("\\.c\\'" . c-mode)
            ("\\.h\\'" . c-mode)
            ...)
 
      When you visit a file whose expanded file name (*note File Name
-     Expansion::.) matches a REGEXP, `set-auto-mode' calls the
+     Expansion::) matches a REGEXP, `set-auto-mode' calls the
      corresponding MODE-FUNCTION.  This feature enables XEmacs to select
      the proper major mode for most files.
 
@@ -203,7 +202,7 @@ visited.
      This variable is applicable only when the `auto-mode-alist' does
      not indicate which major mode to use.
 
- - Function: hack-local-variables &optional FORCE
+ - Function: hack-local-variables &optional force
      This function parses, and binds or evaluates as appropriate, any
      local variables for the current buffer.
 
@@ -246,7 +245,7 @@ Defining Derived Modes
    It's often useful to define a new major mode in terms of an existing
 one.  An easy way to do this is to use `define-derived-mode'.
 
- - Macro: define-derived-mode VARIANT PARENT NAME DOCSTRING BODY...
+ - Macro: define-derived-mode variant parent name docstring body...
      This construct defines VARIANT as a major mode command, using NAME
      as the string form of the mode name.
 
@@ -373,7 +372,7 @@ minor modes.
                   (> (prefix-numeric-value arg) 0)))
 
    * Add an element to `minor-mode-alist' for each minor mode (*note
-     Modeline Variables::.).  This element should be a list of the
+     Modeline Variables::).  This element should be a list of the
      following form:
 
           (MODE-VARIABLE STRING)
@@ -433,11 +432,11 @@ appear the same (except for scrolling percentages and line numbers).
    The modeline of a window is normally updated whenever a different
 buffer is shown in the window, or when the buffer's modified-status
 changes from `nil' to `t' or vice-versa.  If you modify any of the
-variables referenced by `modeline-format' (*note Modeline
-Variables::.), you may want to force an update of the modeline so as to
-display the new information.
+variables referenced by `modeline-format' (*note Modeline Variables::),
+you may want to force an update of the modeline so as to display the
+new information.
 
- - Function: redraw-modeline &optional ALL
+ - Function: redraw-modeline &optional all
      Force redisplay of the current buffer's modeline.  If ALL is
      non-`nil', then force redisplay of all modelines.
 
@@ -461,7 +460,7 @@ strings, symbols, and numbers kept in the buffer-local variable
 `mode-line-format'.  The data structure is called a "modeline
 construct", and it is built in recursive fashion out of simpler modeline
 constructs.  The same data structure is used for constructing frame
-titles (*note Frame Titles::.).
+titles (*note Frame Titles::).
 
  - Variable: modeline-format
      The value of this variable is a modeline construct with overall
@@ -524,7 +523,7 @@ value is a list, each element may be a list, a symbol, or a string.
 
    If you do alter `modeline-format' itself, the new value should use
 the same variables that appear in the default value (*note Modeline
-Variables::.), rather than duplicating their contents or displaying the
+Variables::), rather than duplicating their contents or displaying the
 information in another fashion.  This way, customizations made by the
 user or by Lisp programs (such as `display-time' and major modes) via
 changes to those variables remain effective.
@@ -783,8 +782,8 @@ name ends in `-hook'.
    The recommended way to add a hook function to a normal hook is by
 calling `add-hook' (see below).  The hook functions may be any of the
 valid kinds of functions that `funcall' accepts (*note What Is a
-Function::.).  Most normal hook variables are initially void;
-`add-hook' knows how to deal with this.
+Function::).  Most normal hook variables are initially void; `add-hook'
+knows how to deal with this.
 
    As for abnormal hooks, those whose names end in `-function' have a
 value that is a single function.  Those whose names end in `-hooks'
@@ -799,7 +798,7 @@ hook" as the last step of initialization.  This makes it easy for a user
 to customize the behavior of the mode, by overriding the local variable
 assignments already made by the mode.  But hooks are used in other
 contexts too.  For example, the hook `suspend-hook' runs just before
-XEmacs suspends itself (*note Suspending XEmacs::.).
+XEmacs suspends itself (*note Suspending XEmacs::).
 
    Here's an expression that uses a mode hook to turn on Auto Fill mode
 when in Lisp Interaction mode:
@@ -847,7 +846,7 @@ modified for a particular class of buffers only.
 particular hooks.  This function calls the hook functions you have
 added with `add-hooks'.
 
- - Function: run-hooks &rest HOOKVAR
+ - Function: run-hooks &rest hookvar
      This function takes one or more hook variable names as arguments,
      and runs each hook in turn.  Each HOOKVAR argument should be a
      symbol that is a hook variable.  These arguments are processed in
@@ -863,7 +862,7 @@ added with `add-hooks'.
 
           (run-hooks 'emacs-lisp-mode-hook)
 
- - Function: add-hook HOOK FUNCTION &optional APPEND LOCAL
+ - Function: add-hook hook function &optional append local
      This function is the handy way to add function FUNCTION to hook
      variable HOOK.  The argument FUNCTION may be any valid Lisp
      function with the proper number of arguments.  For example,
@@ -892,7 +891,7 @@ added with `add-hooks'.
      buffer-local, then the value of LOCAL makes no difference--the
      hook function is always global.
 
- - Function: remove-hook HOOK FUNCTION &optional LOCAL
+ - Function: remove-hook hook function &optional local
      This function removes FUNCTION from the hook variable HOOK.
 
      If LOCAL is non-`nil', that says to remove FUNCTION from the local
@@ -900,7 +899,7 @@ added with `add-hooks'.
      itself is not buffer-local, then the value of LOCAL makes no
      difference.
 
- - Function: make-local-hook HOOK
+ - Function: make-local-hook hook
      This function makes the hook variable `hook' local to the current
      buffer.  When a hook variable is local, it can have local and
      global hook functions, and `run-hooks' runs all of them.
@@ -979,7 +978,7 @@ rearranges the key bindings.  (*Note Accessing Documentation::.)
 the function or variable that it describes:
 
    * The documentation for a function is stored in the function
-     definition itself (*note Lambda Expressions::.).  The function
+     definition itself (*note Lambda Expressions::).  The function
      `documentation' knows how to extract it.
 
    * The documentation for a variable is stored in the variable's
@@ -991,7 +990,7 @@ variables (including primitive functions and autoloaded functions) is
 stored in the "internal doc file" `DOC'.  The documentation for
 functions and variables loaded during the XEmacs session from
 byte-compiled files is stored in those very same byte-compiled files
-(*note Docs and Compilation::.).
+(*note Docs and Compilation::).
 
    XEmacs does not keep documentation strings in memory unless
 necessary.  Instead, XEmacs maintains, for preloaded symbols, an
@@ -1015,7 +1014,7 @@ File: lispref.info,  Node: Accessing Documentation,  Next: Keys in Documentation
 Access to Documentation Strings
 ===============================
 
- - Function: documentation-property SYMBOL PROPERTY &optional VERBATIM
+ - Function: documentation-property symbol property &optional verbatim
      This function returns the documentation string that is recorded in
      SYMBOL's property list under property PROPERTY.  It retrieves the
      text from a file if necessary, and runs `substitute-command-keys'
@@ -1026,11 +1025,10 @@ Access to Documentation Strings
           (documentation-property 'command-line-processed
              'variable-documentation)
                => "t once command line has been processed"
-
           (symbol-plist 'command-line-processed)
                => (variable-documentation 188902)
 
- - Function: documentation FUNCTION &optional VERBATIM
+ - Function: documentation function &optional verbatim
      This function returns the documentation string of FUNCTION.  It
      reads the text from a file if necessary.  Then (unless VERBATIM is
      non-`nil') it calls `substitute-command-keys', to return a value
@@ -1053,8 +1051,7 @@ several symbols in a `*Help*' buffer.
        (let ((describe-func
               (function
                (lambda (s)
-
-     ;; Print description of symbol.
+                 ;; Print description of symbol.
                  (if (fboundp s)             ; It is a function.
                      (princ
                       (format "%s\t%s\n%s\n\n" s
@@ -1067,29 +1064,26 @@ several symbols in a `*Help*' buffer.
                                               keys " "))
                                 "Keys: none"))
                           "Function")
-
-     (or (documentation s)
+                        (or (documentation s)
                             "not documented"))))
      
                  (if (boundp s)              ; It is a variable.
-
-     (princ
+                     (princ
                       (format "%s\t%s\n%s\n\n" s
                         (if (user-variable-p s)
                             "Option " "Variable")
-
-     (or (documentation-property
+                        (or (documentation-property
                               s 'variable-documentation)
                             "not documented")))))))
              sym-list)
-
-     ;; Build a list of symbols that match pattern.
+     
+         ;; Build a list of symbols that match pattern.
          (mapatoms (function
                     (lambda (sym)
                       (if (string-match pattern (symbol-name sym))
                           (setq sym-list (cons sym sym-list))))))
-
-     ;; Display the data.
+     
+         ;; Display the data.
          (with-output-to-temp-buffer "*Help*"
            (mapcar describe-func (sort sym-list 'string<))
            (print-help-return-message))))
@@ -1102,16 +1096,15 @@ more information.
      ---------- Buffer: *Help* ----------
      goal-column     Option
      *Semipermanent goal column for vertical motion, as set by C-x C-n, or nil.
-
+     
      set-goal-column Command: C-x C-n
      Set the current horizontal position as a goal for C-n and C-p.
-
      Those commands will move to this position in the line moved to
      rather than trying to keep the same horizontal position.
      With a non-nil argument, clears out the goal column
      so that C-n and C-p resume vertical motion.
      The goal column is stored in the variable `goal-column'.
-
+     
      temporary-goal-column   Variable
      Current goal column for vertical motion.
      It is the column where point was
@@ -1119,7 +1112,7 @@ more information.
      When the `track-eol' feature is doing its job, the value is 9999.
      ---------- Buffer: *Help* ----------
 
- - Function: Snarf-documentation FILENAME
+ - Function: Snarf-documentation filename
      This function is used only during XEmacs initialization, just
      before the runnable XEmacs is dumped.  It finds the file offsets
      of the documentation strings stored in the file FILENAME, and

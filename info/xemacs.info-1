@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -80,7 +80,7 @@ Fundamental Editing Commands
 * Help::        Commands for asking XEmacs about its commands.
 
 Important Text-Changing Commands
-* Mark::        The mark: how to delimit a "region" of text.
+* Mark::        The mark: how to delimit a ``region'' of text.
 * Mouse Selection::
                 Selecting text with the mouse.
 * Additional Mouse Operations::
@@ -140,7 +140,7 @@ Recovery from Problems.
 Here are some other nodes which are really inferiors of the ones
 already listed, mentioned here so you can get to them in one step:
 
- -- The Detailed Node Listing --
+ --- The Detailed Node Listing ---
 
 The Organization of the Frame
 
@@ -258,7 +258,7 @@ File Handling
 * Version Control::  Version control systems (RCS and SCCS).
 * ListDir::          Listing the contents of a file directory.
 * Comparing Files::  Finding where two files differ.
-* Dired::            "Editing" a directory to delete, rename, etc.
+* Dired::            ``Editing'' a directory to delete, rename, etc.
                      the files in it.
 * Misc File Ops::    Other things you can do on files.
 
@@ -535,7 +535,7 @@ Dealing with XEmacs Trouble
 * Screen Garbled::     Garbage on the screen.
 * Text Garbled::       Garbage in the text.
 * Unasked-for Search:: Spontaneous entry to incremental search.
-* Emergency Escape::   Emergency escape--
+* Emergency Escape::   Emergency escape---
                         What to do if XEmacs stops responding.
 * Total Frustration::  When you are at your wits' end.
 
@@ -881,9 +881,9 @@ commands relevant to a topic.  *Note Help::.
    "Customizable" means you can change the definitions of XEmacs
 commands.  For example, if you use a programming language in which
 comments start with `<**' and end with `**>', you can tell the XEmacs
-comment manipulation commands to use those strings (*note Comments::.).
-Another sort of customization is rearrangement of the command set.
-For example, you can set up the four basic cursor motion commands (up,
+comment manipulation commands to use those strings (*note Comments::).
+Another sort of customization is rearrangement of the command set.  For
+example, you can set up the four basic cursor motion commands (up,
 down, left and right) on keys in a diamond pattern on the keyboard if
 you prefer.  *Note Customization::.
 
@@ -928,24 +928,24 @@ Window
      look at two buffers a the same time.
 
    * Below each text window's last line is a "mode line" (*note Mode
-     Line::.), which describes what is going on in that window.  The
+     Line::), which describes what is going on in that window.  The
      mode line is in inverse video if the terminal supports that.  If
      there are several XEmacs windows in one frame, each window has its
      own mode line.
 
    * At the bottom of each XEmacs frame is the "echo area" or
-     "minibuffer window"(*note Echo Area::.).  It is used by XEmacs to
+     "minibuffer window"(*note Echo Area::).  It is used by XEmacs to
      exchange information with the user.  There is only one echo area
      per XEmacs frame.
 
    * If you are running XEmacs under the X Window System, a menu bar at
      the top of the frame makes shortcuts to several of the commands
-     available (*note Pull-down Menus::.).
+     available (*note Pull-down Menus::).
 
    You can subdivide the XEmacs frame into multiple text windows, and
-use each window for a different file (*note Windows::.).  Multiple
-XEmacs windows are tiled vertically on the XEmacs frame.  The upper
-XEmacs window is separated from the lower window by its mode line.
+use each window for a different file (*note Windows::).  Multiple XEmacs
+windows are tiled vertically on the XEmacs frame.  The upper XEmacs
+window is separated from the lower window by its mode line.
 
    When there are multiple, tiled XEmacs windows on a single XEmacs
 frame, the XEmacs window receiving input from the keyboard has the
@@ -1029,7 +1029,7 @@ The Echo Area
      as you type it.  This behavior is designed to give confident users
      fast response, while giving hesitant users maximum feedback.  You
      can change this behavior by setting a variable (*note Display
-     Vars::.).
+     Vars::).
 
    *   If you issue a command that cannot be executed, XEmacs may print
      an "error message" in the echo area.  Error messages are

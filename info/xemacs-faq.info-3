@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -58,7 +58,7 @@ Q3.0.7: Font selections in don't get saved after `Save Options'.
 
      You have to go to Options->Frame Appearance and unselect
      `Frame-Local Font Menu'.  If this option is selected, font changes
-     are only applied to the *current* frame and do *not* get saved
+     are only applied to the _current_ frame and do _not_ get saved
      when you save options.
 
    For XEmacs 19.15 and later:
@@ -573,7 +573,7 @@ bound to keys.
 
    This is fine if you only need a few functions within the lambda body.
 If you're doing more it's cleaner to define a separate function as in
-question 3.5.3 (*note Q3.5.3::.).
+question 3.5.3 (*note Q3.5.3::).
 
 
 File: xemacs-faq.info,  Node: Q3.5.2,  Next: Q3.5.3,  Prev: Q3.5.1,  Up: Customization
@@ -609,7 +609,7 @@ and Wayne Newberry <wayne@zen.cac.stratus.com>) to `.emacs':
 
    The key point is that you can only bind simple functions to keys; you
 can not bind a key to a function that you're also passing arguments to.
-(*note Q3.5.1::. for a better answer).
+(*note Q3.5.1:: for a better answer).
 
 
 File: xemacs-faq.info,  Node: Q3.5.4,  Next: Q3.5.5,  Prev: Q3.5.3,  Up: Customization
@@ -686,8 +686,8 @@ Q3.5.6: How to map `Help' key alone on Sun type4 keyboard?
      (global-set-key [(shift help)] 'help-command);; Help
 
    But it doesn't work alone.  This is in the file `PROBLEMS' which
-should have come with your XEmacs installation: *Emacs ignores the
-`help' key when running OLWM*.
+should have come with your XEmacs installation: _Emacs ignores the
+`help' key when running OLWM_.
 
    OLWM grabs the `help' key, and retransmits it to the appropriate
 client using `XSendEvent'.  Allowing Emacs to react to synthetic events

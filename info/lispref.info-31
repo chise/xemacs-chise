@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -118,7 +118,7 @@ target digest.  MD5 is used heavily by various authentication schemes.
 
    Emacs Lisp interface to MD5 consists of a single function `md5':
 
- - Function: md5 OBJECT &optional START END
+ - Function: md5 object &optional start end
      This function returns the MD5 message digest of OBJECT, a buffer
      or string.
 
@@ -146,7 +146,7 @@ binary bodies, and to encode binary characters in message headers.
 
    The Lisp interface to base64 consists of four functions:
 
- - Function: base64-encode-region BEG END &optional NO-LINE-BREAK
+ - Function: base64-encode-region beg end &optional no-line-break
      This function encodes the region between BEG and END of the
      current buffer to base64 format.  This means that the original
      region is deleted, and replaced with its base64 equivalent.
@@ -169,7 +169,7 @@ binary bodies, and to encode binary characters in message headers.
      The function can also be used interactively, in which case it
      works on the currently active region.
 
- - Function: base64-encode-string STRING
+ - Function: base64-encode-string string
      This function encodes STRING to base64, and returns the encoded
      string.
 
@@ -179,7 +179,7 @@ binary bodies, and to encode binary characters in message headers.
           (base64-encode-string "fubar")
               => "ZnViYXI="
 
- - Function: base64-decode-region BEG END
+ - Function: base64-decode-region beg end
      This function decodes the region between BEG and END of the
      current buffer.  The region should be in base64 encoding.
 
@@ -190,7 +190,7 @@ binary bodies, and to encode binary characters in message headers.
           ;; Decode a base64 buffer, and replace it with the decoded version
           (base64-decode-region (point-min) (point-max))
 
- - Function: base64-decode-string STRING
+ - Function: base64-decode-string string
      This function decodes STRING to base64, and returns the decoded
      string.  STRING should be valid base64-encoded text.
 
@@ -240,7 +240,7 @@ buffer.  They are meant for use in programs, but you may call them
 interactively.  If you do so, they prompt for the search string; LIMIT
 and NOERROR are set to `nil', and REPEAT is set to 1.
 
- - Command: search-forward STRING &optional LIMIT NOERROR REPEAT
+ - Command: search-forward string &optional limit noerror repeat
      This function searches forward from point for an exact match for
      STRING.  If successful, it sets point to the end of the occurrence
      found, and returns the new value of point.  If no match is found,
@@ -281,12 +281,12 @@ and NOERROR are set to `nil', and REPEAT is set to 1.
      succeed, the function succeeds, moving point and returning its new
      value.  Otherwise the search fails.
 
- - Command: search-backward STRING &optional LIMIT NOERROR REPEAT
+ - Command: search-backward string &optional limit noerror repeat
      This function searches backward from point for STRING.  It is just
      like `search-forward' except that it searches backwards and leaves
      point at the beginning of the match.
 
- - Command: word-search-forward STRING &optional LIMIT NOERROR REPEAT
+ - Command: word-search-forward string &optional limit noerror repeat
      This function searches forward from point for a "word" match for
      STRING.  If it finds a match, it sets point to the end of the
      match found, and returns the new value of point.
@@ -327,7 +327,7 @@ and NOERROR are set to `nil', and REPEAT is set to 1.
      If REPEAT is non-`nil', then the search is repeated that many
      times.  Point is positioned at the end of the last match.
 
- - Command: word-search-backward STRING &optional LIMIT NOERROR REPEAT
+ - Command: word-search-backward string &optional limit noerror repeat
      This function searches backward from point for a word match to
      STRING.  This function is just like `word-search-forward' except
      that it searches backward and normally leaves point at the
@@ -379,7 +379,7 @@ unless a `\' precedes it.
 
    For example, `f' is not a special character, so it is ordinary, and
 therefore `f' is a regular expression that matches the string `f' and
-no other string.  (It does *not* match the string `ff'.)  Likewise, `o'
+no other string.  (It does _not_ match the string `ff'.)  Likewise, `o'
 is a regular expression that matches only `o'.
 
    Any two regular expressions A and B can be concatenated.  The result
@@ -404,7 +404,7 @@ to use one of the special characters.  Here is a list of them:
      matches one `f' followed by any number of `o's.  The case of zero
      `o's is allowed: `fo*' does match `f'.
 
-     `*' always applies to the *smallest* possible preceding
+     `*' always applies to the _smallest_ possible preceding
      expression.  Thus, `fo*' has a repeating `o', not a repeating `fo'.
 
      The matcher processes a `*' construct by matching, immediately, as
@@ -493,7 +493,7 @@ to use one of the special characters.  Here is a list of them:
 `[^ ... ]'
      `[^' begins a "complement character set", which matches any
      character except the ones specified.  Thus, `[^a-z0-9A-Z]' matches
-     all characters *except* letters and digits.
+     all characters _except_ letters and digits.
 
      `^' is not special in a character set unless it is the first
      character.  The character following the `^' is treated as if it
@@ -527,7 +527,7 @@ to use one of the special characters.  Here is a list of them:
      that matches only `[', and so on.
 
      Note that `\' also has special meaning in the read syntax of Lisp
-     strings (*note String Type::.), and must be quoted with `\'.  For
+     strings (*note String Type::), and must be quoted with `\'.  For
      example, the regular expression that matches the `\' character is
      `\\'.  To write a Lisp string that contains the characters `\\',
      Lisp syntax requires you to quote each `\' with another `\'.
@@ -660,7 +660,7 @@ match depends on the context.
      separate word.
 
 `\B'
-     matches the empty string, but *not* at the beginning or end of a
+     matches the empty string, but _not_ at the beginning or end of a
      word.
 
 `\<'
@@ -675,7 +675,7 @@ exceptions, such as `[]]'), and so is a string that ends with a single
 `\'.  If an invalid regular expression is passed to any of the search
 functions, an `invalid-regexp' error is signaled.
 
- - Function: regexp-quote STRING
+ - Function: regexp-quote string
      This function returns a regular expression string that matches
      exactly STRING and nothing else.  This allows you to request an
      exact string match when calling a function that wants a regular
@@ -760,7 +760,7 @@ incrementally or not.  Incremental search commands are described in the
 (emacs)Regexp Search.  Here we describe only the search functions
 useful in programs.  The principal one is `re-search-forward'.
 
- - Command: re-search-forward REGEXP &optional LIMIT NOERROR REPEAT
+ - Command: re-search-forward regexp &optional limit noerror repeat
      This function searches forward in the current buffer for a string
      of text that is matched by the regular expression REGEXP.  The
      function skips over any amount of text that is not matched by
@@ -801,7 +801,7 @@ useful in programs.  The principal one is `re-search-forward'.
           comes back" twice.
           ---------- Buffer: foo ----------
 
- - Command: re-search-backward REGEXP &optional LIMIT NOERROR REPEAT
+ - Command: re-search-backward regexp &optional limit noerror repeat
      This function searches backward in the current buffer for a string
      of text that is matched by the regular expression REGEXP, leaving
      point at the beginning of the first text found.
@@ -820,7 +820,7 @@ useful in programs.  The principal one is `re-search-forward'.
      feature for matching regexps from end to beginning.  It's not
      worth the trouble of implementing that.
 
- - Function: string-match REGEXP STRING &optional START
+ - Function: string-match regexp string &optional start
      This function returns the index of the start of the first match for
      the regular expression REGEXP in STRING, or `nil' if there is no
      match.  If START is non-`nil', the search starts at that index in
@@ -849,7 +849,7 @@ useful in programs.  The principal one is `re-search-forward'.
           (match-end 0)
                => 32
 
- - Function: split-string STRING &optional PATTERN
+ - Function: split-string string &optional pattern
      This function splits STRING to substrings delimited by PATTERN,
      and returns a list of substrings.  If PATTERN is omitted, it
      defaults to `[ \f\t\n\r\v]+', which means that it splits STRING by
@@ -867,13 +867,13 @@ useful in programs.  The principal one is `re-search-forward'.
           (split-string ":a::b:c" ":")
                => ("" "a" "" "b" "c")
 
- - Function: split-path PATH
+ - Function: split-path path
      This function splits a search path into a list of strings.  The
      path components are separated with the characters specified with
      `path-separator'.  Under Unix, `path-separator' will normally be
      `:', while under Windows, it will be `;'.
 
- - Function: looking-at REGEXP
+ - Function: looking-at regexp
      This function determines whether the text in the current buffer
      directly following point matches the regular expression REGEXP.
      "Directly following" means precisely that: the search is
@@ -904,7 +904,7 @@ POSIX Regular Expression Searching
 
    The usual regular expression functions do backtracking when necessary
 to handle the `\|' and repetition constructs, but they continue this
-only until they find *some* match.  Then they succeed and report the
+only until they find _some_ match.  Then they succeed and report the
 first match found.
 
    This section describes alternative search functions which perform the
@@ -917,22 +917,22 @@ functions only when you really need the longest match.
    In Emacs versions prior to 19.29, these functions did not exist, and
 the functions described above implemented full POSIX backtracking.
 
- - Function: posix-search-forward REGEXP &optional LIMIT NOERROR REPEAT
+ - Function: posix-search-forward regexp &optional limit noerror repeat
      This is like `re-search-forward' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Function: posix-search-backward REGEXP &optional LIMIT NOERROR REPEAT
+ - Function: posix-search-backward regexp &optional limit noerror repeat
      This is like `re-search-backward' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Function: posix-looking-at REGEXP
+ - Function: posix-looking-at regexp
      This is like `looking-at' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
 
- - Function: posix-string-match REGEXP STRING &optional START
+ - Function: posix-string-match regexp string &optional start
      This is like `string-match' except that it performs the full
      backtracking specified by the POSIX standard for regular expression
      matching.
@@ -943,8 +943,8 @@ File: lispref.info,  Node: Search and Replace,  Next: Match Data,  Prev: POSIX R
 Search and Replace
 ==================
 
- - Function: perform-replace FROM-STRING REPLACEMENTS QUERY-FLAG
-          REGEXP-FLAG DELIMITED-FLAG &optional REPEAT-COUNT MAP
+ - Function: perform-replace from-string replacements query-flag
+          regexp-flag delimited-flag &optional repeat-count map
      This function is the guts of `query-replace' and related commands.
      It searches for occurrences of FROM-STRING and replaces some or
      all of them.  If QUERY-FLAG is `nil', it replaces all occurrences;
@@ -1075,7 +1075,7 @@ numbered 1, the second 2, and so on.  Only regular expressions can have
 subexpressions--after a simple string search, the only information
 available is about the entire match.
 
- - Function: match-string COUNT &optional IN-STRING
+ - Function: match-string count &optional in-string
      This function returns, as a string, the text matched in the last
      search or match operation.  It returns the entire text if COUNT is
      zero, or just the portion corresponding to the COUNTth
@@ -1090,7 +1090,7 @@ available is about the entire match.
      make sure that the current buffer when you call `match-string' is
      the one in which you did the searching or matching.
 
- - Function: match-beginning COUNT
+ - Function: match-beginning count
      This function returns the position of the start of text matched by
      the last regular expression searched for, or a subexpression of it.
 
@@ -1102,7 +1102,7 @@ available is about the entire match.
      The value is `nil' for a subexpression inside a `\|' alternative
      that wasn't used in the match.
 
- - Function: match-end COUNT
+ - Function: match-end count
      This function is like `match-beginning' except that it returns the
      position of the end of the match, rather than the position of the
      beginning.
@@ -1164,8 +1164,8 @@ Replacing the Text That Matched
    This function replaces the text matched by the last search with
 REPLACEMENT.
 
- - Function: replace-match REPLACEMENT &optional FIXEDCASE LITERAL
-          STRING
+ - Function: replace-match replacement &optional fixedcase literal
+          string
      This function replaces the text in the buffer (or in STRING) that
      was matched by the last search.  It replaces that text with
      REPLACEMENT.

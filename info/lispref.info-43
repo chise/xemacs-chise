@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -82,7 +82,7 @@ installed.
 
    To create `xemacs', use the command `temacs -batch -l loadup dump'.
 The purpose of `-batch' here is to tell `temacs' to run in
-non-interactive, command-line mode. (`temacs' can *only* run in this
+non-interactive, command-line mode. (`temacs' can _only_ run in this
 fashion.  Part of the code required to initialize frames and faces is
 in Lisp, and must be loaded before XEmacs is able to create any frames.)
 The argument `dump' tells `loadup.el' to dump a new executable named
@@ -112,7 +112,7 @@ files even if they exist.)
    You can specify additional files to preload by writing a library
 named `site-load.el' that loads them.  You may need to increase the
 value of `PURESIZE', in `src/puresize.h', to make room for the
-additional files.  You should *not* modify this file directly, however;
+additional files.  You should _not_ modify this file directly, however;
 instead, use the `--puresize' configuration option. (If you run out of
 pure space while dumping `xemacs', you will be told how much pure space
 you actually will need.) However, the advantage of preloading
@@ -129,11 +129,11 @@ override them if they wish.  *Note Start-up Summary::.
    Before `loadup.el' dumps the new executable, it finds the
 documentation strings for primitive and preloaded functions (and
 variables) in the file where they are stored, by calling
-`Snarf-documentation' (*note Accessing Documentation::.).  These
-strings were moved out of the `xemacs' executable to make it smaller.
-*Note Documentation Basics::.
+`Snarf-documentation' (*note Accessing Documentation::).  These strings
+were moved out of the `xemacs' executable to make it smaller.  *Note
+Documentation Basics::.
 
- - Function: dump-emacs TO-FILE FROM-FILE
+ - Function: dump-emacs to-file from-file
      This function dumps the current state of XEmacs into an executable
      file TO-FILE.  It takes symbols from FROM-FILE (this is normally
      the executable file `temacs').
@@ -142,10 +142,10 @@ strings were moved out of the `xemacs' executable to make it smaller.
      must set `command-line-processed' to `nil' first for good results.
      *Note Command Line Arguments::.
 
- - Function: run-emacs-from-temacs &rest ARGS
+ - Function: run-emacs-from-temacs &rest args
      This is the function that implements the `run-temacs' command-line
      argument.  It is called from `loadup.el' as appropriate.  You
-     should most emphatically *not* call this yourself; it will
+     should most emphatically _not_ call this yourself; it will
      reinitialize your XEmacs process and you'll be sorry.
 
  - Command: emacs-version
@@ -208,7 +208,7 @@ must increase the compilation parameter `PURESIZE' using the
 you try to preload additional libraries or add features to the standard
 ones.
 
- - Function: purecopy OBJECT
+ - Function: purecopy object
      This function makes a copy of OBJECT in pure storage and returns
      it.  It copies strings by simply making a new string with the same
      characters in pure storage.  It recursively copies the contents of
@@ -650,143 +650,143 @@ automatically local (when set) in each buffer.  Many Lisp packages
 define such variables for their internal use; we don't list them here.
 
 `abbrev-mode'
-     *note Abbrevs::.
+     *note Abbrevs::
 
 `auto-fill-function'
-     *note Auto Filling::.
+     *note Auto Filling::
 
 `buffer-auto-save-file-name'
-     *note Auto-Saving::.
+     *note Auto-Saving::
 
 `buffer-backed-up'
-     *note Backup Files::.
+     *note Backup Files::
 
 `buffer-display-table'
-     *note Display Tables::.
+     *note Display Tables::
 
 `buffer-file-format'
-     *note Format Conversion::.
+     *note Format Conversion::
 
 `buffer-file-name'
-     *note Buffer File Name::.
+     *note Buffer File Name::
 
 `buffer-file-number'
-     *note Buffer File Name::.
+     *note Buffer File Name::
 
 `buffer-file-truename'
-     *note Buffer File Name::.
+     *note Buffer File Name::
 
 `buffer-file-type'
-     *note Files and MS-DOS::.
+     *note Files and MS-DOS::
 
 `buffer-invisibility-spec'
-     *note Invisible Text::.
+     *note Invisible Text::
 
 `buffer-offer-save'
-     *note Saving Buffers::.
+     *note Saving Buffers::
 
 `buffer-read-only'
-     *note Read Only Buffers::.
+     *note Read Only Buffers::
 
 `buffer-saved-size'
-     *note Point::.
+     *note Point::
 
 `buffer-undo-list'
-     *note Undo::.
+     *note Undo::
 
 `cache-long-line-scans'
-     *note Text Lines::.
+     *note Text Lines::
 
 `case-fold-search'
-     *note Searching and Case::.
+     *note Searching and Case::
 
 `ctl-arrow'
-     *note Usual Display::.
+     *note Usual Display::
 
 `comment-column'
      *note Comments: (emacs)Comments.
 
 `default-directory'
-     *note System Environment::.
+     *note System Environment::
 
 `defun-prompt-regexp'
-     *note List Motion::.
+     *note List Motion::
 
 `fill-column'
-     *note Auto Filling::.
+     *note Auto Filling::
 
 `goal-column'
      *note Moving Point: (emacs)Moving Point.
 
 `left-margin'
-     *note Indentation::.
+     *note Indentation::
 
 `local-abbrev-table'
-     *note Abbrevs::.
+     *note Abbrevs::
 
 `local-write-file-hooks'
-     *note Saving Buffers::.
+     *note Saving Buffers::
 
 `major-mode'
-     *note Mode Help::.
+     *note Mode Help::
 
 `mark-active'
-     *note The Mark::.
+     *note The Mark::
 
 `mark-ring'
-     *note The Mark::.
+     *note The Mark::
 
 `minor-modes'
-     *note Minor Modes::.
+     *note Minor Modes::
 
 `modeline-format'
-     *note Modeline Data::.
+     *note Modeline Data::
 
 `modeline-buffer-identification'
-     *note Modeline Variables::.
+     *note Modeline Variables::
 
 `modeline-format'
-     *note Modeline Data::.
+     *note Modeline Data::
 
 `modeline-modified'
-     *note Modeline Variables::.
+     *note Modeline Variables::
 
 `modeline-process'
-     *note Modeline Variables::.
+     *note Modeline Variables::
 
 `mode-name'
-     *note Modeline Variables::.
+     *note Modeline Variables::
 
 `overwrite-mode'
-     *note Insertion::.
+     *note Insertion::
 
 `paragraph-separate'
-     *note Standard Regexps::.
+     *note Standard Regexps::
 
 `paragraph-start'
-     *note Standard Regexps::.
+     *note Standard Regexps::
 
 `point-before-scroll'
      Used for communication between mouse commands and scroll-bar
      commands.
 
 `require-final-newline'
-     *note Insertion::.
+     *note Insertion::
 
 `selective-display'
-     *note Selective Display::.
+     *note Selective Display::
 
 `selective-display-ellipses'
-     *note Selective Display::.
+     *note Selective Display::
 
 `tab-width'
-     *note Usual Display::.
+     *note Usual Display::
 
 `truncate-lines'
-     *note Truncation::.
+     *note Truncation::
 
 `vc-mode'
-     *note Modeline Variables::.
+     *note Modeline Variables::
 
 
 File: lispref.info,  Node: Standard Keymaps,  Next: Standard Hooks,  Prev: Standard Buffer-Local Variables,  Up: Top

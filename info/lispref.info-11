@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -80,10 +80,10 @@ macro in the same file where it is used and before its first use.
 the file.  This is in case the file needs the required packages for
 proper compilation.  One way to ensure that necessary macro definitions
 are available during compilation is to require the files that define
-them (*note Named Features::.).  To avoid loading the macro definition
-files when someone *runs* the compiled program, write
+them (*note Named Features::).  To avoid loading the macro definition
+files when someone _runs_ the compiled program, write
 `eval-when-compile' around the `require' calls (*note Eval During
-Compile::.).
+Compile::).
 
 
 File: lispref.info,  Node: Defining Macros,  Next: Backquote,  Prev: Compiling Macros,  Up: Macros
@@ -102,7 +102,7 @@ an anonymous macro to functionals such as `mapcar'.  In practice, all
 Lisp macros have names, and they are usually defined with the special
 form `defmacro'.
 
- - Special Form: defmacro NAME ARGUMENT-LIST BODY-FORMS...
+ - Special Form: defmacro name argument-list body-forms...
      `defmacro' defines the symbol NAME as a macro that looks like this:
 
           (macro lambda ARGUMENT-LIST . BODY-FORMS)
@@ -113,7 +113,7 @@ form `defmacro'.
 
      The shape and meaning of ARGUMENT-LIST is the same as in a
      function, and the keywords `&rest' and `&optional' may be used
-     (*note Argument List::.).  Macros may have a documentation string,
+     (*note Argument List::).  Macros may have a documentation string,
      but any `interactive' declaration is ignored since macros cannot be
      called interactively.
 
@@ -129,7 +129,7 @@ of constants and nonconstant parts.  To make this easier, use the macro
 
    Backquote allows you to quote a list, but selectively evaluate
 elements of that list.  In the simplest case, it is identical to the
-special form `quote' (*note Quoting::.).  For example, these two forms
+special form `quote' (*note Quoting::).  For example, these two forms
 yield identical results:
 
      `(a list of (+ 2 3) elements)
@@ -216,19 +216,18 @@ find in Pascal.
              (cons 'while (cons (list '<= var final)
                                 (append body (list (list 'inc var)))))))
      => for
+     
      (for i from 1 to 3 do
         (setq square (* i i))
         (princ (format "\n%d %d" i square)))
      ==>
-
      (let ((i 1))
        (while (<= i 3)
          (setq square (* i i))
          (princ (format "%d      %d" i square))
          (inc i)))
-
-
-     -|1       1
+     
+          -|1       1
           -|2       4
           -|3       9
      => nil
@@ -292,8 +291,7 @@ number of times:
 
      (defmacro for (var from init to final do &rest body)
        "Execute a simple for loop: (for i from 1 to 10 do (print i))."
-
-     `(let ((,var ,init)
+       `(let ((,var ,init)
               (max ,final))
           (while (<= ,var max)
             ,@body
@@ -314,7 +312,7 @@ supposed to refer to the user's binding of `max', really access the
 binding made by `for'.
 
    The way to correct this is to use an uninterned symbol instead of
-`max' (*note Creating Symbols::.).  The uninterned symbol can be bound
+`max' (*note Creating Symbols::).  The uninterned symbol can be bound
 and referred to just like any other symbol, but since it is created by
 `for', we know that it cannot already appear in the user's program.
 Since it is not interned, there is no way the user can put it into the
@@ -342,7 +340,7 @@ Evaluating Macro Arguments in Expansion
 
    Another problem can happen if you evaluate any of the macro argument
 expressions during the computation of the expansion, such as by calling
-`eval' (*note Eval::.).  If the argument is supposed to refer to the
+`eval' (*note Eval::).  If the argument is supposed to refer to the
 user's variables, you may have trouble if the user happens to use a
 variable with the same name as one of the macro arguments.  Inside the
 macro body, the macro argument binding is the most local binding of this
@@ -397,7 +395,7 @@ example:
 
      (defmacro empty-object ()
        (list 'quote (cons nil nil)))
-
+     
      (defun initialize (condition)
        (let ((object (empty-object)))
          (if condition
@@ -526,7 +524,7 @@ and add your group to each of them using the `:group' keyword.
 
    The way to declare new customization groups is with `defgroup'.
 
- - Macro: defgroup GROUP MEMBERS DOC [KEYWORD VALUE]...
+ - Macro: defgroup group members doc [keyword value]...
      Declare GROUP as a customization group containing MEMBERS.  Do not
      quote the symbol GROUP.  The argument DOC specifies the
      documentation string for the group.
@@ -542,7 +540,7 @@ and add your group to each of them using the `:group' keyword.
      are `custom-variable' for a variable, `custom-face' for a face,
      and `custom-group' for a group.
 
-     In addition to the common keywords (*note Common Keywords::.), you
+     In addition to the common keywords (*note Common Keywords::), you
      can use this keyword in `defgroup':
 
     `:prefix PREFIX'
@@ -560,7 +558,7 @@ Defining Customization Variables
 
    Use `defcustom' to declare user-editable variables.
 
- - Macro: defcustom OPTION DEFAULT DOC [KEYWORD VALUE]...
+ - Macro: defcustom option default doc [keyword value]...
      Declare OPTION as a customizable user option variable.  Do not
      quote OPTION.  The argument DOC specifies the documentation string
      for the variable.
@@ -689,7 +687,7 @@ example:
 symbol, one of the customization type names defined in the following
 sections.  After this symbol come a number of arguments, depending on
 the symbol.  Between the type symbol and its arguments, you can
-optionally write keyword-value pairs (*note Type Keywords::.).
+optionally write keyword-value pairs (*note Type Keywords::).
 
    Some of the type symbols do not use any arguments; those are called
 "simple types".  For a simple type, if you do not use any keyword-value
@@ -1075,7 +1073,7 @@ the forms are function definitions and variable definitions.
 * Autoload::                    Setting up a function to autoload.
 * Repeated Loading::            Precautions about loading a file twice.
 * Named Features::              Loading a library if it isn't already loaded.
-* Unloading::			How to "unload" a library that was loaded.
+* Unloading::			How to ``unload'' a library that was loaded.
 * Hooks for Loading::		Providing code to be run when
 				  particular libraries are loaded.
 
@@ -1088,11 +1086,11 @@ How Programs Do Loading
    XEmacs Lisp has several interfaces for loading.  For example,
 `autoload' creates a placeholder object for a function in a file;
 trying to call the autoloading function loads the file to get the
-function's real definition (*note Autoload::.).  `require' loads a file
-if it isn't already loaded (*note Named Features::.).  Ultimately, all
+function's real definition (*note Autoload::).  `require' loads a file
+if it isn't already loaded (*note Named Features::).  Ultimately, all
 these facilities call the `load' function to do the work.
 
- - Function: load FILENAME &optional MISSING-OK NOMESSAGE NOSUFFIX
+ - Function: load filename &optional missing-ok nomessage nosuffix
      This function finds and opens a file of Lisp code, evaluates all
      the forms in it, and closes the file.
 
@@ -1197,7 +1195,7 @@ these facilities call the `load' function to do the work.
      should bind `load-path' locally with `let' around the calls to
      `load'.
 
- - Function: locate-file FILENAME PATH-LIST &optional SUFFIXES MODE
+ - Function: locate-file filename path-list &optional suffixes mode
      This function searches for a file in the same way that `load' does,
      and returns the file found (if any). (In fact, `load' uses this
      function to search through `load-path'.) It searches for FILENAME
@@ -1212,7 +1210,7 @@ these facilities call the `load' function to do the work.
      you will have to call `locate-file-clear-hashing' to get it back
      on track.  See that function for details.
 
- - Function: locate-file-clear-hashing PATH
+ - Function: locate-file-clear-hashing path
      This function clears the hash records for the specified list of
      directories.  `locate-file' uses a hashing scheme to speed lookup,
      and will correctly track the following environmental changes:

@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -194,12 +194,12 @@ about particular coding systems.  You can specify a coding system name
 as argument; alternatively, with an empty argument, it describes the
 coding systems currently selected for various purposes, both in the
 current buffer and as the defaults, and the priority list for
-recognizing coding systems (*note Recognize Coding::.).
+recognizing coding systems (*note Recognize Coding::).
 
    To display a list of all the supported coding systems, type `M-x
 list-coding-systems'.  The list gives information about each coding
 system, including the letter that stands for it in the mode line (*note
-Mode Line::.).
+Mode Line::).
 
    Each of the coding systems that appear in this list--except for
 `binary', which means no conversion of any kind--specifies how and
@@ -269,7 +269,7 @@ finds a coding system that fits the data.  Then it converts the file
 contents assuming that they are represented in this coding system.
 
    The priority list of coding systems depends on the selected language
-environment (*note Language Environments::.).  For example, if you use
+environment (*note Language Environments::).  For example, if you use
 French, you probably want XEmacs to prefer Latin-1 to Latin-2; if you
 use Czech, you probably want Latin-2 to be preferred.  This is one of
 the reasons to specify a language environment.
@@ -296,7 +296,7 @@ third argument says which coding system to use for these files.
 
    You can specify the coding system for a particular file using the
 `-*-...-*-' construct at the beginning of a file, or a local variables
-list at the end (*note File Variables::.).  You do this by defining a
+list at the end (*note File Variables::).  You do this by defining a
 value for the "variable" named `coding'.  XEmacs does not really have a
 variable `coding'; instead of setting a variable, it uses the specified
 coding system for the file.  For example, `-*-mode: C; coding:
@@ -309,7 +309,7 @@ system, by default, for operations that write from this buffer into a
 file.  This includes the commands `save-buffer' and `write-region'.  If
 you want to write files from this buffer using a different coding
 system, you can specify a different coding system for the buffer using
-`set-buffer-file-coding-system' (*note Specify Coding::.).
+`set-buffer-file-coding-system' (*note Specify Coding::).
 
 
 File: xemacs.info,  Node: Specify Coding,  Prev: Recognize Coding,  Up: Mule
@@ -348,7 +348,7 @@ file is saved.
 the file.  First use the command `C-x <RET> c'
 (`universal-coding-system-argument'); this command uses the minibuffer
 to read a coding system name.  After you exit the minibuffer, the
-specified coding system is used for *the immediately following command*.
+specified coding system is used for _the immediately following command_.
 
    So if the immediately following command is `C-x C-f', for example,
 it reads the file using that coding system (and records the coding
@@ -449,9 +449,9 @@ languages.  Text mode, Nroff mode, TeX mode, and Outline mode are for
 editing English text.  The remaining major modes are not intended for
 use on users' files; they are used in buffers created by Emacs for
 specific purposes and include Dired mode for buffers made by Dired
-(*note Dired::.), Mail mode for buffers made by `C-x m' (*note Sending
-Mail::.), and Shell mode for buffers used for communicating with an
-inferior shell process (*note Interactive Shell::.).
+(*note Dired::), Mail mode for buffers made by `C-x m' (*note Sending
+Mail::), and Shell mode for buffers used for communicating with an
+inferior shell process (*note Interactive Shell::).
 
    Most programming language major modes specify that only blank lines
 separate paragraphs.  This is so that the paragraph commands remain
@@ -754,15 +754,15 @@ Text Mode
 edit files of text in a human language.  Invoke `M-x text-mode' to
 enter Text mode.  In Text mode, <TAB> runs the function
 `tab-to-tab-stop', which allows you to use arbitrary tab stops set with
-`M-x edit-tab-stops' (*note Tab Stops::.).  Features concerned with
+`M-x edit-tab-stops' (*note Tab Stops::).  Features concerned with
 comments in programs are turned off unless they are explicitly invoked.
 The syntax table is changed so that periods are not considered part of a
 word, while apostrophes, backspaces and underlines are.
 
    A similar variant mode is Indented Text mode, intended for editing
 text in which most lines are indented.  This mode defines <TAB> to run
-`indent-relative' (*note Indentation::.), and makes Auto Fill indent
-the lines it creates.  As a result, a line made by Auto Filling, or by
+`indent-relative' (*note Indentation::), and makes Auto Fill indent the
+lines it creates.  As a result, a line made by Auto Filling, or by
 <LFD>, is normally indented just like the previous line.  Use `M-x
 indented-text-mode' to select this mode.
 
@@ -819,7 +819,7 @@ commands that are not available in Text mode:
 
    The other feature of Nroff mode is Electric Nroff newline mode.
 This is a minor mode that you can turn on or off with `M-x
-electric-nroff-mode' (*note Minor Modes::.).  When the mode is on and
+electric-nroff-mode' (*note Minor Modes::).  When the mode is on and
 you use <RET> to end a line containing an nroff command that opens a
 kind of grouping, Emacs automatically inserts the matching nroff
 command to close that grouping on the following line.  For example, if
@@ -948,7 +948,7 @@ paragraph that contains a mismatch, it displays point at the beginning
 of the paragraph for a few seconds and pushes a mark at that spot.
 Scanning continues until the whole buffer has been checked or until you
 type another key.  The positions of the last several paragraphs with
-mismatches can be found in the mark ring (*note Mark Ring::.).
+mismatches can be found in the mark ring (*note Mark Ring::).
 
    Note that square brackets and parentheses, not just braces, are
 matched in TeX mode.  This is wrong if you want to  check TeX syntax.
@@ -1003,7 +1003,7 @@ being printed.
    The console output from TeX, including any error messages, appears
 in a buffer called `*TeX-shell*'.  If TeX gets an error, you can switch
 to this buffer and feed it input (this works as in Shell mode; *note
-Interactive Shell::.).  Without switching to this buffer, you can scroll
+Interactive Shell::).  Without switching to this buffer, you can scroll
 it so that its last line is visible by typing `C-c C-l'.
 
    Type `C-c C-k' (`tex-kill-job') to kill the TeX process if you see

@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -58,7 +58,7 @@ snapshot.  Thus, you need not hesitate to create snapshots whenever
 they are useful.
 
    You can give a snapshot name as an argument to `C-x v =' or `C-x v
-~' (*note Old Versions::.).  Thus, you can use it to compare a snapshot
+~' (*note Old Versions::).  Thus, you can use it to compare a snapshot
 against the current files, or two snapshots against each other, or a
 snapshot against a named version.
 
@@ -344,11 +344,11 @@ delete them.
 
 `#'
      Flag all auto-save files (files whose names start and end with `#')
-     for deletion (*note Auto Save::.).
+     for deletion (*note Auto Save::).
 
 `~'
      Flag all backup files (files whose names end with `~') for deletion
-     (*note Backup::.).
+     (*note Backup::).
 
 `. (Period)'
      Flag excess numeric backup files for deletion.  The oldest and
@@ -455,7 +455,7 @@ NEW.
 
    `M-x delete-file' deletes a specified file, like the `rm' command in
 the shell.  If you are deleting many files in one directory, it may be
-more convenient to use Dired (*note Dired::.).
+more convenient to use Dired (*note Dired::).
 
    `M-x insert-file' inserts a copy of the contents of a specified file
 into the current buffer at point, leaving point unchanged before the
@@ -508,7 +508,7 @@ commands do.
 which is displayed there, but at any time only one of the windows is
 selected and its chosen buffer is the selected buffer.  Each window's
 mode line displays the name of the buffer the window is displaying
-(*note Windows::.).
+(*note Windows::).
 
    Each buffer has a name which can be of any length but is
 case-sensitive.  You can select a buffer using its name.  Most buffers
@@ -519,7 +519,7 @@ can use for evaluating Lisp expressions in Emacs.
 
    Each buffer records what file it is visiting, whether it is
 modified, and what major mode and minor modes are in effect in it
-(*note Major Modes::.).  Any Emacs variable can be made "local to" a
+(*note Major Modes::).  Any Emacs variable can be made "local to" a
 particular buffer, meaning its value in that buffer can be different
 from the value in other buffers.  *Note Locals::.
 
@@ -551,7 +551,7 @@ Creating and Selecting Buffers
    To select a buffer named BUFNAME, type `C-x b BUFNAME <RET>'.  This
 is the command `switch-to-buffer' with argument BUFNAME.  You can use
 completion on an abbreviation for the buffer name you want (*note
-Completion::.).  An empty argument to `C-x b' specifies the most
+Completion::).  An empty argument to `C-x b' specifies the most
 recently selected buffer that is not displayed in any window.
 
    Most buffers are created when you visit files, or use Emacs commands
@@ -559,9 +559,9 @@ that display text.  You can also create a buffer explicitly by typing
 `C-x b BUFNAME <RET>', which creates a new, empty buffer that is not
 visiting any file, and selects it for editing.  The new buffer's major
 mode is determined by the value of `default-major-mode' (*note Major
-Modes::.).  Buffers not visiting files are usually used for making
-notes to yourself.  If you try to save one, you are asked for the file
-name to use.
+Modes::).  Buffers not visiting files are usually used for making notes
+to yourself.  If you try to save one, you are asked for the file name
+to use.
 
    The function `switch-to-buffer-other-frame' is similar to
 `switch-to-buffer' except that it creates a new frame in which to
@@ -588,7 +588,7 @@ Listing Existing Buffers
 in the list shows one buffer's name, major mode, and visited file.  A
 `*' at the beginning of a line indicates the buffer has been
 "modified".  If several buffers are modified, it may be time to save
-some with `C-x s' (*note Saving::.).  A `%' indicates a read-only
+some with `C-x s' (*note Saving::).  A `%' indicates a read-only
 buffer.  A `.' marks the selected buffer.  Here is an example of a
 buffer list:
 
@@ -645,7 +645,7 @@ you specify a name that is used by a different buffer, an error is
 signalled and renaming is not done.
 
    `M-x view-buffer' is similar to `M-x view-file' (*note Misc File
-Ops::.), but it examines an already existing Emacs buffer.  View mode
+Ops::), but it examines an already existing Emacs buffer.  View mode
 provides convenient commands for scrolling through the buffer but not
 for changing it.  When you exit View mode, the resulting value of point
 remains in effect.
@@ -928,7 +928,7 @@ command selects a window on the next or previous frame instead of
 wrapping around to the top or bottom of the current frame, when there
 are no more windows.
 
-   The usual scrolling commands (*note Display::.) apply to the selected
+   The usual scrolling commands (*note Display::) apply to the selected
 window only.  `M-C-v' (`scroll-other-window') scrolls the window that
 `C-x o' would select.  Like `C-v', it takes positive and negative
 arguments.
@@ -972,12 +972,12 @@ buffer to select.
 `C-x 4 m'
      Start composing a mail message in another window.  This runs
      `mail-other-window', and its same-window version is `C-x m' (*note
-     Sending Mail::.).
+     Sending Mail::).
 
 `C-x 4 .'
      Find a tag in the current tag table in another window.  This runs
      `find-tag-other-window', the multiple-window variant of `M-.'
-     (*note Tags::.).
+     (*note Tags::).
 
    If the variable `display-buffer-function' is non-`nil', its value is
 the function to call to handle `display-buffer'. It receives two
@@ -1124,7 +1124,7 @@ defaults.  The language environment really represents a choice of
 preferred script (more or less) rather that a choice of language.
 
    The language environment controls which coding systems to recognize
-when reading text (*note Recognize Coding::.).  This applies to files,
+when reading text (*note Recognize Coding::).  This applies to files,
 incoming mail, netnews, and any other text you read into XEmacs.  It may
 also specify the default coding system to use when you create a file.
 Each language environment also specifies a default input method.

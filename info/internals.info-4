@@ -1,5 +1,5 @@
-This is Info file ../info/internals.info, produced by Makeinfo version
-1.68 from the input file internals/internals.texi.
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -776,7 +776,7 @@ and as such may not look like they normally do.  In particular:
    * Vectors have their size field munged, so anything that looks at
      this field will fail.
 
-   * Note that `XFOOBAR()' macros *will* work correctly on object
+   * Note that `XFOOBAR()' macros _will_ work correctly on object
      pointers with their mark bit set, because the logical shift
      operations that remove the tag also remove the mark bit.
 
@@ -829,7 +829,7 @@ some rules, though:
   1. For every `GCPRON', there have to be declarations of `struct gcpro
      gcpro1, gcpro2', etc.
 
-  2. You *must* `UNGCPRO' anything that's `GCPRO'ed, and you *must not*
+  2. You _must_ `UNGCPRO' anything that's `GCPRO'ed, and you _must not_
      `UNGCPRO' if you haven't `GCPRO'ed.  Getting either of these wrong
      will lead to crashes, often in completely random places unrelated
      to where the problem lies.
@@ -864,7 +864,7 @@ some rules, though:
      with `struct gcpro ngcpro1, ngcpro2', etc.), `NNGCPRON', etc.
      This avoids compiler warnings about shadowed locals.
 
-  7. It is *always* better to err on the side of extra `GCPRO's rather
+  7. It is _always_ better to err on the side of extra `GCPRO's rather
      than too few.  The extra cycles spent on this are almost never
      going to make a whit of difference in the speed of anything.
 
@@ -874,12 +874,12 @@ some rules, though:
 
      One exception from this rule is if you ever plan to change the
      parameter value, and store a new object in it.  In that case, you
-     *must* `GCPRO' the parameter, because otherwise the new object
+     _must_ `GCPRO' the parameter, because otherwise the new object
      will not be protected.
 
      So, if you create any Lisp objects (remember, this happens in all
      sorts of circumstances, e.g. with `Fcons()', etc.), you are
-     responsible for `GCPRO'ing them, unless you are *absolutely sure*
+     responsible for `GCPRO'ing them, unless you are _absolutely sure_
      that there's no possibility that a garbage-collection can occur
      while you need to use the object.  Even then, consider `GCPRO'ing.
 
@@ -887,7 +887,7 @@ some rules, though:
      whenever a QUIT can occur where execution can continue past this.
      (Remember, this is almost anywhere.)
 
- 10. If you have the *least smidgeon of doubt* about whether you need
+ 10. If you have the _least smidgeon of doubt_ about whether you need
      to `GCPRO', you should `GCPRO'.
 
  11. Beware of `GCPRO'ing something that is uninitialized.  If you have
@@ -945,14 +945,14 @@ Invocation
    The first thing that anyone should know about garbage collection is:
 when and how the garbage collector is invoked. One might think that this
 could happen every time new memory is allocated, e.g. new objects are
-created, but this is *not* the case. Instead, we have the following
+created, but this is _not_ the case. Instead, we have the following
 situation:
 
    The entry point of any process of garbage collection is an invocation
 of the function `garbage_collect_1' in file `alloc.c'. The invocation
-can occur *explicitly* by calling the function `Fgarbage_collect' (in
+can occur _explicitly_ by calling the function `Fgarbage_collect' (in
 addition this function provides information about the freed memory), or
-can occur *implicitly* in four different situations:
+can occur _implicitly_ in four different situations:
   1. In function `main_1' in file `emacs.c'. This function is called at
      each startup of xemacs. The garbage collection is invoked after all
      initial creations are completed, but only if a special internal

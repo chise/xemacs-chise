@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -85,7 +85,7 @@ entire match data, all at once.
                     #<marker at 13 in foo>
                     #<marker at 17 in foo>)
 
- - Function: set-match-data MATCH-LIST
+ - Function: set-match-data match-list
      This function sets the match data from the elements of MATCH-LIST,
      which should be a list that was the value of a previous call to
      `match-data'.
@@ -116,7 +116,7 @@ that shows the problem that arises if you fail to save the match data:
 
    You can save and restore the match data with `save-match-data':
 
- - Macro: save-match-data BODY...
+ - Macro: save-match-data body...
      This special form executes BODY, saving and restoring the match
      data around it.
 
@@ -130,8 +130,8 @@ writing code that can run in Emacs 18.  Here is how:
          (set-match-data data)))
 
    Emacs automatically saves and restores the match data when it runs
-process filter functions (*note Filter Functions::.) and process
-sentinels (*note Sentinels::.).
+process filter functions (*note Filter Functions::) and process
+sentinels (*note Sentinels::).
 
 
 File: lispref.info,  Node: Searching and Case,  Next: Standard Regexps,  Prev: Match Data,  Up: Searching and Matching
@@ -190,7 +190,7 @@ used for certain purposes in editing:
      The default value is `"^\014"' (i.e., `"^^L"' or `"^\C-l"'); this
      matches a line that starts with a formfeed character.
 
-   The following two regular expressions should *not* assume the match
+   The following two regular expressions should _not_ assume the match
 always starts at the beginning of a line; they should not use `^' to
 anchor the match.  Most often, the paragraph commands do check for a
 match only at the beginning of a line, which means that `^' would be
@@ -208,7 +208,7 @@ never used.
 
  - Variable: paragraph-start
      This is the regular expression for recognizing the beginning of a
-     line that starts *or* separates paragraphs.  The default value is
+     line that starts _or_ separates paragraphs.  The default value is
      `"[ \t\n\f]"', which matches a line starting with a space, tab,
      newline, or form feed (after its left margin).
 
@@ -236,8 +236,8 @@ Syntax Tables
 character.  This information is used by the parsing commands, the
 complex movement commands, and others to determine where words, symbols,
 and other syntactic constructs begin and end.  The current syntax table
-controls the meaning of the word motion functions (*note Word Motion::.)
-and the list motion functions (*note List Motion::.) as well as the
+controls the meaning of the word motion functions (*note Word Motion::)
+and the list motion functions (*note List Motion::) as well as the
 functions in this chapter.
 
 * Menu:
@@ -262,12 +262,12 @@ the syntactic use of each character in a buffer.  This information is
 used by the parsing commands, the complex movement commands, and others
 to determine where words, symbols, and other syntactic constructs begin
 and end.  The current syntax table controls the meaning of the word
-motion functions (*note Word Motion::.) and the list motion functions
-(*note List Motion::.) as well as the functions in this chapter.
+motion functions (*note Word Motion::) and the list motion functions
+(*note List Motion::) as well as the functions in this chapter.
 
    Under XEmacs 20, a syntax table is a particular subtype of the
-primitive char table type (*note Char Tables::.), and each element of
-the char table is an integer that encodes the syntax of the character in
+primitive char table type (*note Char Tables::), and each element of the
+char table is an integer that encodes the syntax of the character in
 question, or a cons of such an integer and a matching character (for
 characters with parenthesis syntax).
 
@@ -301,7 +301,7 @@ useful with character sets such as ISO Latin-1 that have additional
 alphabetic characters in the range 128 to 255.  Just changing the
 standard syntax for these characters affects all major modes.
 
- - Function: syntax-table-p OBJECT
+ - Function: syntax-table-p object
      This function returns `t' if OBJECT is a vector of length 256
      elements.  This means that the vector may be a syntax table.
      However, according to this test, any vector of length 256 is
@@ -488,11 +488,11 @@ characters `1', `2', `3', `4', `b' and `p'.
 
    All the flags except `p' are used to describe multi-character
 comment delimiters.  The digit flags indicate that a character can
-*also* be part of a comment sequence, in addition to the syntactic
+_also_ be part of a comment sequence, in addition to the syntactic
 properties associated with its character class.  The flags are
 independent of the class and each other for the sake of characters such
-as `*' in C mode, which is a punctuation character, *and* the second
-character of a start-of-comment sequence (`/*'), *and* the first
+as `*' in C mode, which is a punctuation character, _and_ the second
+character of a start-of-comment sequence (`/*'), _and_ the first
 character of an end-of-comment sequence (`*/').
 
    The flags for a character C are:
@@ -571,7 +571,7 @@ Syntax Table Functions
    In this section we describe functions for creating, accessing and
 altering syntax tables.
 
- - Function: make-syntax-table &optional TABLE
+ - Function: make-syntax-table &optional table
      This function creates a new syntax table.  Character codes 0
      through 31 and 128 through 255 are set up to inherit from the
      standard syntax table.  The other character codes are set up by
@@ -579,13 +579,13 @@ altering syntax tables.
 
      Most major mode syntax tables are created in this way.
 
- - Function: copy-syntax-table &optional TABLE
+ - Function: copy-syntax-table &optional table
      This function constructs a copy of TABLE and returns it.  If TABLE
      is not supplied (or is `nil'), it returns a copy of the current
      syntax table.  Otherwise, an error is signaled if TABLE is not a
      syntax table.
 
- - Command: modify-syntax-entry CHAR SYNTAX-DESCRIPTOR &optional TABLE
+ - Command: modify-syntax-entry char syntax-descriptor &optional table
      This function sets the syntax entry for CHAR according to
      SYNTAX-DESCRIPTOR.  The syntax is changed only for TABLE, which
      defaults to the current buffer's syntax table, and not in any
@@ -624,9 +624,9 @@ altering syntax tables.
           (modify-syntax-entry ?/ ". 14")
                => nil
 
- - Function: char-syntax CHARACTER
+ - Function: char-syntax character
      This function returns the syntax class of CHARACTER, represented
-     by its mnemonic designator character.  This *only* returns the
+     by its mnemonic designator character.  This _only_ returns the
      class, not any matching parenthesis or flags.
 
      An error is signaled if CHAR is not a character.
@@ -648,11 +648,11 @@ altering syntax tables.
           (char-to-string (char-syntax ?\())
                => "("
 
- - Function: set-syntax-table TABLE &optional BUFFER
+ - Function: set-syntax-table table &optional buffer
      This function makes TABLE the syntax table for BUFFER, which
      defaults to the current buffer if omitted.  It returns TABLE.
 
- - Function: syntax-table &optional BUFFER
+ - Function: syntax-table &optional buffer
      This function returns the syntax table for BUFFER, which defaults
      to the current buffer if omitted.
 
@@ -666,14 +666,14 @@ Motion and Syntax
 certain syntax classes.  None of these functions exists in Emacs
 version 18 or earlier.
 
- - Function: skip-syntax-forward SYNTAXES &optional LIMIT BUFFER
+ - Function: skip-syntax-forward syntaxes &optional limit buffer
      This function moves point forward across characters having syntax
      classes mentioned in SYNTAXES.  It stops when it encounters the
      end of the buffer, or position LIMIT (if specified), or a
      character it is not supposed to skip.  Optional argument BUFFER
      defaults to the current buffer if omitted.
 
- - Function: skip-syntax-backward SYNTAXES &optional LIMIT BUFFER
+ - Function: skip-syntax-backward syntaxes &optional limit buffer
      This function moves point backward across characters whose syntax
      classes are mentioned in SYNTAXES.  It stops when it encounters
      the beginning of the buffer, or position LIMIT (if specified), or a
@@ -681,7 +681,7 @@ version 18 or earlier.
      defaults to the current buffer if omitted.
 
 
- - Function: backward-prefix-chars &optional BUFFER
+ - Function: backward-prefix-chars &optional buffer
      This function moves point backward over any number of characters
      with expression prefix syntax.  This includes both characters in
      the expression prefix syntax class, and characters with the `p'
@@ -701,8 +701,8 @@ these functions can be used for Lisp expressions when in Lisp mode and
 for C expressions when in C mode.  *Note List Motion::, for convenient
 higher-level functions for moving over balanced expressions.
 
- - Function: parse-partial-sexp START LIMIT &optional TARGET-DEPTH
-          STOP-BEFORE STATE STOP-COMMENT BUFFER
+ - Function: parse-partial-sexp start limit &optional target-depth
+          stop-before state stop-comment buffer
      This function parses a sexp in the current buffer starting at
      START, not scanning past LIMIT.  It stops at position LIMIT or
      when certain criteria described below are met, and sets point to
@@ -757,7 +757,7 @@ higher-level functions for moving over balanced expressions.
      This function is most often used to compute indentation for
      languages that have nested parentheses.
 
- - Function: scan-lists FROM COUNT DEPTH &optional BUFFER NOERROR
+ - Function: scan-lists from count depth &optional buffer noerror
      This function scans forward COUNT balanced parenthetical groupings
      from character number FROM.  It returns the character position
      where the scan stops.
@@ -782,7 +782,7 @@ higher-level functions for moving over balanced expressions.
      If optional arg NOERROR is non-`nil', `scan-lists' will return
      `nil' instead of signalling an error.
 
- - Function: scan-sexps FROM COUNT &optional BUFFER NOERROR
+ - Function: scan-sexps from count &optional buffer noerror
      This function scans forward COUNT sexps from character position
      FROM.  It returns the character position where the scan stops.
 
@@ -813,7 +813,7 @@ higher-level functions for moving over balanced expressions.
    You can use `forward-comment' to move forward or backward over one
 comment or several comments.
 
- - Function: forward-comment COUNT &optional BUFFER
+ - Function: forward-comment count &optional buffer
      This function moves point forward across COUNT comments (backward,
      if COUNT is negative).  If it finds anything other than a comment
      or whitespace, it stops, leaving point at the place where it
@@ -860,7 +860,7 @@ Syntax Table Internals
 of one character: the syntax class, possible matching character, and
 flags.  Lisp programs don't usually work with the elements directly; the
 Lisp-level syntax table functions usually work with syntax descriptors
-(*note Syntax Descriptors::.).
+(*note Syntax Descriptors::).
 
    The low 8 bits of each element of a syntax table indicate the syntax
 class.
@@ -933,7 +933,7 @@ abbrev table.  Normally both are used.
    An abbrev table is represented as an obarray containing a symbol for
 each abbreviation.  The symbol's name is the abbreviation; its value is
 the expansion; its function definition is the hook function to do the
-expansion (*note Defining Abbrevs::.); its property list cell contains
+expansion (*note Defining Abbrevs::); its property list cell contains
 the use count, the number of times the abbreviation has been expanded.
 Because these symbols are not interned in the usual obarray, they will
 never appear as the result of reading a Lisp expression; in fact,
@@ -986,11 +986,11 @@ Abbrev Tables
      This function creates and returns a new, empty abbrev table--an
      obarray containing no symbols.  It is a vector filled with zeros.
 
- - Function: clear-abbrev-table TABLE
+ - Function: clear-abbrev-table table
      This function undefines all the abbrevs in abbrev table TABLE,
      leaving it empty.  The function returns `nil'.
 
- - Function: define-abbrev-table TABNAME DEFINITIONS
+ - Function: define-abbrev-table tabname definitions
      This function defines TABNAME (a symbol) as an abbrev table name,
      i.e., as a variable whose value is an abbrev table.  It defines
      abbrevs in the table according to DEFINITIONS, a list of elements
@@ -1001,7 +1001,7 @@ Abbrev Tables
      This is a list of symbols whose values are abbrev tables.
      `define-abbrev-table' adds the new abbrev table name to this list.
 
- - Function: insert-abbrev-table-description NAME &optional HUMAN
+ - Function: insert-abbrev-table-description name &optional human
      This function inserts before point a description of the abbrev
      table named NAME.  The argument NAME is a symbol whose value is an
      abbrev table.  The value is always `nil'.
@@ -1021,7 +1021,7 @@ Defining Abbrevs
 `define-abbrev' is the low-level basic function, while `add-abbrev' is
 used by commands that ask for information from the user.
 
- - Function: add-abbrev TABLE TYPE ARG
+ - Function: add-abbrev table type arg
      This function adds an abbreviation to abbrev table TABLE based on
      information from the user.  The argument TYPE is a string
      describing in English the kind of abbrev this will be (typically,
@@ -1032,7 +1032,7 @@ used by commands that ask for information from the user.
      abbrev, or `nil' if the user declines to confirm redefining an
      existing abbrev.
 
- - Function: define-abbrev TABLE NAME EXPANSION HOOK
+ - Function: define-abbrev table name expansion hook
      This function defines an abbrev in TABLE named NAME, to expand to
      EXPANSION, and call HOOK.  The return value is an uninterned
      symbol that represents the abbrev inside XEmacs; its name is NAME.
@@ -1063,7 +1063,7 @@ Saving Abbrevs in Files
    A file of saved abbrev definitions is actually a file of Lisp code.
 The abbrevs are saved in the form of a Lisp program to define the same
 abbrev tables with the same contents.  Therefore, you can load the file
-with `load' (*note How Programs Do Loading::.).  However, the function
+with `load' (*note How Programs Do Loading::).  However, the function
 `quietly-read-abbrev-file' is provided as a more convenient interface.
 
    User-level facilities such as `save-some-buffers' can save abbrevs
@@ -1072,7 +1072,7 @@ in a file automatically, under the control of variables described here.
  - User Option: abbrev-file-name
      This is the default file name for reading and saving abbrevs.
 
- - Function: quietly-read-abbrev-file FILENAME
+ - Function: quietly-read-abbrev-file filename
      This function reads abbrev definitions from a file named FILENAME,
      previously written with `write-abbrev-file'.  If FILENAME is
      `nil', the file specified in `abbrev-file-name' is used.
@@ -1090,7 +1090,7 @@ in a file automatically, under the control of variables described here.
      abbrevs.  This serves as a flag for various XEmacs commands to
      offer to save your abbrevs.
 
- - Command: write-abbrev-file FILENAME
+ - Command: write-abbrev-file filename
      Save all abbrev definitions, in all abbrev tables, in the file
      FILENAME, in the form of a Lisp program that when loaded will
      define the same abbrevs.  This function returns `nil'.
@@ -1106,7 +1106,7 @@ including `self-insert-command'.  This section describes the
 subroutines used in writing such functions, as well as the variables
 they use for communication.
 
- - Function: abbrev-symbol ABBREV &optional TABLE
+ - Function: abbrev-symbol abbrev &optional table
      This function returns the symbol representing the abbrev named
      ABBREV.  The value returned is `nil' if that abbrev is not
      defined.  The optional second argument TABLE is the abbrev table
@@ -1114,7 +1114,7 @@ they use for communication.
      the current buffer's local abbrev table, and second the global
      abbrev table.
 
- - Function: abbrev-expansion ABBREV &optional TABLE
+ - Function: abbrev-expansion abbrev &optional table
      This function returns the string that ABBREV would expand into (as
      defined by the abbrev tables used for the current buffer).  The
      optional argument TABLE specifies the abbrev table to use, as in
@@ -1125,7 +1125,7 @@ they use for communication.
      does not follow an abbrev, this command does nothing.  The command
      returns `t' if it did expansion, `nil' otherwise.
 
- - Command: abbrev-prefix-mark &optional ARG
+ - Command: abbrev-prefix-mark &optional arg
      Mark current point as the beginning of an abbrev.  The next call to
      `expand-abbrev' will use the text from here to point (where it is
      then) as the abbrev to expand, rather than using the previous word

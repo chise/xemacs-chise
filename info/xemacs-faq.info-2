@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -102,15 +102,15 @@ still stands true.
 
      These are all Emacs Lisp source code and bytecompiled object code.
      You may safely gzip everything named *.el here.  You may remove
-     any package you don't use.  *Nothing bad will happen if you delete
-     a package that you do not use*.  You must be sure you do not use
+     any package you don't use.  _Nothing bad will happen if you delete
+     a package that you do not use_.  You must be sure you do not use
      it though, so be conservative at first.
 
      Possible candidates for deletion include w3 (newer versions exist,
      or you may just use Lynx or Netscape for web browsing), games,
      hyperbole, mh-e, hm-html-menus (better packages exist), vm, viper,
-     oobr, gnus (new versions exist), etc.  Ask yourself, *Do I ever
-     want to use this package?*  If the answer is no, then it is a
+     oobr, gnus (new versions exist), etc.  Ask yourself, _Do I ever
+     want to use this package?_  If the answer is no, then it is a
      candidate for removal.
 
      First, gzip all the .el files.  Then go about package by package
@@ -280,7 +280,7 @@ ELF libraries are out of date.  You have the following options:
           perl -pi -e 's/_h_errno\0/h_errno\0\0/g' \
           /usr/local/bin/xemacs-19.14
 
-     NB: You *must* patch `/usr/local/bin/xemacs-19.14', and not
+     NB: You _must_ patch `/usr/local/bin/xemacs-19.14', and not
      `xemacs' because `xemacs' is a link to `xemacs-19.14'; the Perl
      `-i' option will cause unwanted side-effects if applied to a
      symbolic link.
@@ -331,8 +331,8 @@ PNG
 Compface
      `ftp://ftp.cs.indiana.edu/pub/faces/compface/'.  This library has
      been frozen for about 6 years, and is distributed without version
-     numbers.  *It should be compiled with the same options that X11 was
-     compiled with on your system*.  The version of this library at
+     numbers.  _It should be compiled with the same options that X11 was
+     compiled with on your system_.  The version of this library at
      XEmacs.org includes the `xbm2xface.pl' script, written by
      <stig@hackvan.com>, which may be useful when generating your own
      xface.
@@ -790,7 +790,7 @@ Q2.1.14: `C-g' doesn't work for me.  Is it broken?
 
    Morten Welinder <terra@diku.dk> writes:
 
-     On some (but *not* all) machines a hung XEmacs can be revived by
+     On some (but _not_ all) machines a hung XEmacs can be revived by
      `kill -FPE <pid>'.  This is a hack, of course, not a solution.
      This technique works on a Sun4 running 4.1.3_U1.  To see if it
      works for you, start another XEmacs and test with that first.  If
@@ -955,6 +955,7 @@ debugger.  Here are some hints:
      `src/gdbinit'.  This had the disadvantage of not being sourced
      automatically by gdb, so you had to set that up yourself.
 
+
 
 File: xemacs-faq.info,  Node: Q2.1.16,  Next: Q2.1.17,  Prev: Q2.1.15,  Up: Installation
 
@@ -1115,7 +1116,7 @@ section is devoted to Customization and screen settings.
 
 * Menu:
 
-Customization--Emacs Lisp and `.emacs':
+Customization---Emacs Lisp and `.emacs':
 * Q3.0.1::      What version of Emacs am I running?
 * Q3.0.2::      How do I evaluate Elisp expressions?
 * Q3.0.3::      `(setq tab-width 6)' behaves oddly.
@@ -1159,9 +1160,9 @@ The Modeline:
 * Q3.5.1::      How can I bind complex functions (or macros) to keys?
 * Q3.5.2::      How can I stop down-arrow from adding empty lines to the bottom of my buffers?
 * Q3.5.3::      How do I bind C-. and C-; to scroll one line up and down?
-* Q3.5.4::      Globally binding `Delete'?
+* Q3.5.4::      Globally binding Delete?
 * Q3.5.5::      Scrolling one line at a time.
-* Q3.5.6::      How to map `Help' key alone on Sun type4 keyboard?
+* Q3.5.6::      How to map Help key alone on Sun type4 keyboard?
 * Q3.5.7::      How can you type in special characters in XEmacs?
 * Q3.5.8::      Why does `(global-set-key [delete-forward] 'delete-char)' complain?
 * Q3.5.9::      How do I make the Delete key delete forward?
@@ -1181,7 +1182,7 @@ The Mouse and Highlighting:
 * Q3.7.5::      Why does cut-and-paste not work between XEmacs and a cmdtool?
 * Q3.7.6::      How I can set XEmacs up so that it pastes where the text cursor is?
 * Q3.7.7::      How do I select a rectangular region?
-* Q3.7.8::      Why does `M-w' take so long?
+* Q3.7.8::      Why does M-w take so long?
 
 The Menubar and Toolbar:
 * Q3.8.1::      How do I get rid of the menu (or menubar)?
@@ -1200,7 +1201,7 @@ Text Selections:
 * Q3.10.1::     How can I turn off or change highlighted selections?
 * Q3.10.2::     How do I get that typing on an active region removes it?
 * Q3.10.3::     Can I turn off the highlight during isearch?
-* Q3.10.4::     How do I turn off highlighting after `C-x C-p' (mark-page)?
+* Q3.10.4::     How do I turn off highlighting after C-x C-p (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
 
 

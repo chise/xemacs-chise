@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -45,7 +45,7 @@ distinction is made only for erasing text in the buffer.)
    The commands' names and individual descriptions use the words `kill'
 and `delete' to indicate what they do.  If you perform a kill or delete
 command by mistake, use the `C-x u' (`undo') command to undo it (*note
-Undo::.). The delete commands include `C-d' (`delete-char') and <DEL>
+Undo::). The delete commands include `C-d' (`delete-char') and <DEL>
 (`delete-backward-char'), which delete only one character at a time,
 and those commands that delete only spaces or newlines.  Commands that
 can destroy significant amounts of nontrivial data usually kill.
@@ -166,8 +166,8 @@ numeric argument acts as a repeat count.  A negative argument means to
 search backward and kill text before point.
 
    Other syntactic units can be killed: words, with `M-<DEL>' and `M-d'
-(*note Words::.); sexps, with `C-M-k' (*note Lists::.); and sentences,
-with `C-x <DEL>' and `M-k' (*note Sentences::.).
+(*note Words::); sexps, with `C-M-k' (*note Lists::); and sentences,
+with `C-x <DEL>' and `M-k' (*note Sentences::).
 
 
 File: xemacs.info,  Node: Yanking,  Next: Using X Selections,  Prev: Killing,  Up: Top
@@ -724,7 +724,7 @@ positions for later use.  Once you save text or a rectangle in a
 register, you can copy it into the buffer once or many times; a position
 saved in a register is used by moving point to that position.
 Rectangles can also be copied into and out of registers (*note
-Rectangles::.).
+Rectangles::).
 
    Each register has a name which is a single character.  A register can
 store a piece of text, a rectangle, a position, a window configuration,
@@ -867,7 +867,7 @@ Keeping Numbers in Registers
 
    There are commands to store a number in a register, to insert the
 number in the buffer in decimal, and to increment it.  These commands
-can be useful in keyboard macros (*note Keyboard Macros::.).
+can be useful in keyboard macros (*note Keyboard Macros::).
 
 `C-u NUMBER C-x r n REG'
      Store NUMBER into register REG (`number-to-register').
@@ -917,7 +917,7 @@ prototypical use of bookmarks is to record "where you were reading" in
 various files.
 
    Note: bookmark.el is distributed in edit-utils package.  You need to
-install that to use bookmark facility (*note Packages::.).
+install that to use bookmark facility (*note Packages::).
 
 `C-x r m <RET>'
      Set the bookmark for the visited file, at point.
@@ -985,7 +985,7 @@ position.
      points to.
 
 `M-x bookmark-insert <RET> BOOKMARK <RET>'
-     Insert in the buffer the *contents* of the file that bookmark
+     Insert in the buffer the _contents_ of the file that bookmark
      BOOKMARK points to.
 
 
@@ -1147,7 +1147,7 @@ Horizontal Scrolling
 that each line of text is shifted sideways in the window, and one or
 more characters at the beginning of each line are not displayed at all.
 When a window has been scrolled horizontally in this way, text lines
-are truncated rather than continued (*note Continuation Lines::.), with
+are truncated rather than continued (*note Continuation Lines::), with
 a `$' appearing in the first column when there is text truncated to the
 left, and in the last column when there is text truncated to the right.
 

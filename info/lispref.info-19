@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -141,7 +141,7 @@ SYMBOL
      its function definition is invalid as a function.  It is, however,
      valid as a key binding.  If the definition is a keyboard macro,
      then the symbol is also valid as an argument to `command-execute'
-     (*note Interactive Call::.).
+     (*note Interactive Call::).
 
      The symbol `undefined' is worth special mention: it means to treat
      the key as undefined.  Strictly speaking, the key is defined, and
@@ -170,7 +170,7 @@ Functions for Key Lookup
 
    Here are the functions and variables pertaining to key lookup.
 
- - Function: lookup-key KEYMAP KEY &optional ACCEPT-DEFAULTS
+ - Function: lookup-key keymap key &optional accept-defaults
      This function returns the definition of KEY in KEYMAP.  If the
      string or vector KEY is not a valid key sequence according to the
      prefix keys specified in KEYMAP (which means it is "too long" and
@@ -203,7 +203,7 @@ Functions for Key Lookup
 
      Unlike `read-key-sequence', this function does not modify the
      specified events in ways that discard information (*note Key
-     Sequence Input::.).  In particular, it does not convert letters to
+     Sequence Input::).  In particular, it does not convert letters to
      lower case.
 
  - Command: undefined
@@ -211,7 +211,7 @@ Functions for Key Lookup
      this, invoking this key sequence causes a "key undefined" error,
      just as if the key sequence had no binding.
 
- - Function: key-binding KEY &optional ACCEPT-DEFAULTS
+ - Function: key-binding key &optional accept-defaults
      This function returns the binding for KEY in the current keymaps,
      trying all the active keymaps.  The result is `nil' if KEY is
      undefined in the keymaps.
@@ -226,21 +226,21 @@ Functions for Key Lookup
           (key-binding [escape escape escape])
               => keyboard-escape-quit
 
- - Function: local-key-binding KEY &optional ACCEPT-DEFAULTS
+ - Function: local-key-binding key &optional accept-defaults
      This function returns the binding for KEY in the current local
      keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Function: global-key-binding KEY &optional ACCEPT-DEFAULTS
+ - Function: global-key-binding key &optional accept-defaults
      This function returns the binding for command KEY in the current
      global keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Function: minor-mode-key-binding KEY &optional ACCEPT-DEFAULTS
+ - Function: minor-mode-key-binding key &optional accept-defaults
      This function returns a list of all the active minor mode bindings
      of KEY.  More precisely, it returns an alist of pairs `(MODENAME .
      BINDING)', where MODENAME is the variable that enables the minor
@@ -259,9 +259,9 @@ Functions for Key Lookup
      This variable is the meta-prefix character code.  It is used when
      translating a two-character sequence to a meta character so it can
      be looked up in a keymap.  For useful results, the value should be
-     a prefix event (*note Prefix Keys::.).  The default value is
-     `?\^[' (integer 27), which is the ASCII character usually produced
-     by the <ESC> key.
+     a prefix event (*note Prefix Keys::).  The default value is `?\^['
+     (integer 27), which is the ASCII character usually produced by the
+     <ESC> key.
 
      As long as the value of `meta-prefix-char' remains `?\^[', key
      lookup translates `<ESC> b' into `M-b', which is normally defined
@@ -274,18 +274,14 @@ Functions for Key Lookup
           meta-prefix-char                    ; The default value.
                => ?\^[   ; Under XEmacs 20.
                => 27     ; Under XEmacs 19.
-
           (key-binding "\eb")
                => backward-word
-
           ?\C-x                               ; The print representation
                                                      ;   of a character.
                => ?\^X   ; Under XEmacs 20.
                => 24     ; Under XEmacs 19.
-
           (setq meta-prefix-char 24)
                => 24
-
           (key-binding "\C-xb")
                => backward-word            ; Now, typing `C-x b' is
                                               ;   like typing `M-b'.
@@ -307,19 +303,19 @@ buffers (though it has no direct effect in buffers that shadow the
 global binding with a local one).  If you change the current buffer's
 local map, that usually affects all buffers using the same major mode.
 The `global-set-key' and `local-set-key' functions are convenient
-interfaces for these operations (*note Key Binding Commands::.).  You
+interfaces for these operations (*note Key Binding Commands::).  You
 can also use `define-key', a more general function; then you must
 specify explicitly the map to change.
 
    The way to specify the key sequence that you want to rebind is
-described above (*note Key Sequences::.).
+described above (*note Key Sequences::).
 
    For the functions below, an error is signaled if KEYMAP is not a
 keymap or if KEY is not a string or vector representing a key sequence.
 You can use event types (symbols) as shorthand for events that are
 lists.
 
- - Function: define-key KEYMAP KEY BINDING
+ - Function: define-key keymap key binding
      This function sets the binding for KEY in KEYMAP.  (If KEY is more
      than one event long, the change is actually made in another keymap
      reached from KEYMAP.)  The argument BINDING can be any Lisp
@@ -339,20 +335,17 @@ bindings in it:
 
      (setq map (make-sparse-keymap))
          => #<keymap 0 entries 0xbee>
-
      (define-key map "\C-f" 'forward-char)
          => forward-char
-
      map
          => #<keymap 1 entry 0xbee>
      (describe-bindings-internal map)
      =>   ; (Inserted in buffer)
      C-f             forward-char
-
+     
      ;; Build sparse submap for `C-x' and bind `f' in that.
      (define-key map "\C-xf" 'forward-word)
          => forward-word
-
      map
          => #<keymap 2 entries 0xbee>
      (describe-bindings-internal map)
@@ -361,16 +354,15 @@ bindings in it:
      C-x             << Prefix Command >>
      
      C-x f           forward-word
-
+     
      ;; Bind `C-p' to the `ctl-x-map'.
      (define-key map "\C-p" ctl-x-map)
      ;; `ctl-x-map'
      => #<keymap Control-X-prefix 77 entries 0x3bf>
-
+     
      ;; Bind `C-f' to `foo' in the `ctl-x-map'.
      (define-key map "\C-p\C-f" 'foo)
      => foo
-
      map
          => #<keymap 3 entries 0xbee>
      (describe-bindings-internal map)
@@ -409,8 +401,8 @@ Note that storing a new binding for `C-p C-f' actually works by
 changing an entry in `ctl-x-map', and this has the effect of changing
 the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
 
- - Function: substitute-key-definition OLDDEF NEWDEF KEYMAP &optional
-          OLDMAP
+ - Function: substitute-key-definition olddef newdef keymap &optional
+          oldmap
      This function replaces OLDDEF with NEWDEF for any keys in KEYMAP
      that were bound to OLDDEF.  In other words, OLDDEF is replaced
      with NEWDEF wherever it appears.  The function returns `nil'.
@@ -434,7 +426,7 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
      are globally bound to the standard deletion command.
 
 
- - Function: suppress-keymap KEYMAP &optional NODIGITS
+ - Function: suppress-keymap keymap &optional nodigits
      This function changes the contents of the full keymap KEYMAP by
      making all the printing characters undefined.  More precisely, it
      binds them to the command `undefined'.  This makes ordinary
@@ -447,7 +439,7 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
      The `suppress-keymap' function does not make it impossible to
      modify a buffer, as it does not suppress commands such as `yank'
      and `quoted-insert'.  To prevent any modification of a buffer, make
-     it read-only (*note Read Only Buffers::.).
+     it read-only (*note Read Only Buffers::).
 
      Since this function modifies KEYMAP, you would normally use it on
      a newly created keymap.  Operating on an existing keymap that is
@@ -461,7 +453,7 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
      from the file `emacs/lisp/dired.el', showing how the local keymap
      for Dired mode is set up:
 
-          ...
+            ...
             (setq dired-mode-map (make-keymap))
             (suppress-keymap dired-mode-map)
             (define-key dired-mode-map "r" 'dired-rename-file)
@@ -501,7 +493,7 @@ redefines `C-x C-\' to move down a line.
 redefines the first (leftmost) mouse button, typed with the Meta key, to
 set point where you click.
 
- - Command: global-set-key KEY DEFINITION
+ - Command: global-set-key key definition
      This function sets the binding of KEY in the current global map to
      DEFINITION.
 
@@ -509,7 +501,7 @@ set point where you click.
           ==
           (define-key (current-global-map) KEY DEFINITION)
 
- - Command: global-unset-key KEY
+ - Command: global-unset-key key
      This function removes the binding of KEY from the current global
      map.
 
@@ -519,7 +511,6 @@ set point where you click.
 
           (global-unset-key "\C-l")
               => nil
-
           (global-set-key "\C-l\C-l" 'redraw-display)
               => nil
 
@@ -529,7 +520,7 @@ set point where you click.
           ==
           (define-key (current-global-map) KEY nil)
 
- - Command: local-set-key KEY DEFINITION
+ - Command: local-set-key key definition
      This function sets the binding of KEY in the current local keymap
      to DEFINITION.
 
@@ -537,7 +528,7 @@ set point where you click.
           ==
           (define-key (current-local-map) KEY DEFINITION)
 
- - Command: local-unset-key KEY
+ - Command: local-unset-key key
      This function removes the binding of KEY from the current local
      map.
 
@@ -555,7 +546,7 @@ Scanning Keymaps
 keymaps, or all keys within a keymap, for the sake of printing help
 information.
 
- - Function: accessible-keymaps KEYMAP &optional PREFIX
+ - Function: accessible-keymaps keymap &optional prefix
      This function returns a list of all the keymaps that can be
      accessed (via prefix keys) from KEYMAP.  The value is an
      association list with elements of the form `(KEY . MAP)', where
@@ -622,7 +613,7 @@ information.
                                     8 entries 0x3ef>)
                         2 entries 0x3f5>))
 
- - Function: map-keymap FUNCTION KEYMAP &optional SORT-FIRST
+ - Function: map-keymap function keymap &optional sort-first
      This function applies FUNCTION to each element of `KEYMAP'.
      FUNCTION will be called with two arguments: a key-description
      list, and the binding.  The order in which the elements of the
@@ -632,7 +623,7 @@ information.
      the function more than once.
 
      The function will not be called on elements of this keymap's
-     parents (*note Inheritance and Keymaps::.) or upon keymaps which
+     parents (*note Inheritance and Keymaps::) or upon keymaps which
      are contained within this keymap (multi-character definitions).
      It will be called on <META> characters since they are not really
      two-character sequences.
@@ -642,11 +633,11 @@ information.
      canonical order.  Otherwise, they will be passed in hash (that is,
      random) order, which is faster.
 
- - Function: keymap-fullness KEYMAP
+ - Function: keymap-fullness keymap
      This function returns the number of bindings in the keymap.
 
- - Function: where-is-internal DEFINITION &optional KEYMAPS FIRSTONLY
-          NOINDIRECT EVENT-OR-KEYS
+ - Function: where-is-internal definition &optional keymaps firstonly
+          noindirect event-or-keys
      This function returns a list of key sequences (of any length) that
      are bound to DEFINITION in a set of keymaps.
 
@@ -678,8 +669,8 @@ information.
           (where-is-internal 'describe-function)
               => ([(control h) d] [(control h) f] [f1 d] [f1 f])
 
- - Function: describe-bindings-internal MAP &optional ALL SHADOW PREFIX
-          MOUSE-ONLY-P
+ - Function: describe-bindings-internal map &optional all shadow prefix
+          mouse-only-p
      This function inserts (into the current buffer) a list of all
      defined keys and their definitions in MAP.  Optional second
      argument ALL says whether to include even "uninteresting"
@@ -694,7 +685,7 @@ information.
    `describe-bindings-internal' is used to implement the help command
 `describe-bindings'.
 
- - Command: describe-bindings PREFIX MOUSE-ONLY-P
+ - Command: describe-bindings prefix mouse-only-p
      This function creates a listing of all defined keys and their
      definitions.  It writes the listing in a buffer named `*Help*' and
      displays it in a window.
@@ -721,13 +712,13 @@ File: lispref.info,  Node: Other Keymap Functions,  Prev: Scanning Keymaps,  Up:
 Other Keymap Functions
 ======================
 
- - Function: set-keymap-prompt KEYMAP NEW-PROMPT
+ - Function: set-keymap-prompt keymap new-prompt
      This function sets the "prompt" of KEYMAP to string NEW-PROMPT, or
      `nil' if no prompt is desired.  The prompt is shown in the
      echo-area when reading a key-sequence to be looked-up in this
      keymap.
 
- - Function: keymap-prompt KEYMAP &optional USE-INHERITED
+ - Function: keymap-prompt keymap &optional use-inherited
      This function returns the "prompt" of the given keymap.  If
      USE-INHERITED is non-`nil', any parent keymaps will also be
      searched for a prompt.
@@ -1023,12 +1014,12 @@ menubar.  They are equivalent to doing the appropriate action to change
 `current-menubar', and then calling `set-menubar-dirty-flag'.  Note
 that these functions copy their argument using `copy-sequence'.
 
- - Function: set-menubar MENUBAR
+ - Function: set-menubar menubar
      This function sets the default menubar to be MENUBAR (*note Menu
-     Format::.).  This is the menubar that will be visible in buffers
+     Format::).  This is the menubar that will be visible in buffers
      that have not defined their own, buffer-local menubar.
 
- - Function: set-buffer-menubar MENUBAR
+ - Function: set-buffer-menubar menubar
      This function sets the buffer-local menubar to be MENUBAR.  This
      does not change the menubar in any buffers other than the current
      one.
@@ -1087,7 +1078,7 @@ also specifies a particular item to be modified.  For example, `("File"
 menu.  `("Menu" "Foo" "Item")' means the menu item called "Item" under
 the "Foo" submenu of "Menu".
 
- - Function: add-submenu MENU-PATH SUBMENU &optional BEFORE
+ - Function: add-submenu menu-path submenu &optional before
      This function adds a menu to the menubar or one of its submenus.
      If the named menu exists already, it is changed.
 
@@ -1095,13 +1086,13 @@ the "Foo" submenu of "Menu".
      inserted.  If MENU-PATH is `nil', then the menu will be added to
      the menubar itself.
 
-     SUBMENU is the new menu to add (*note Menu Format::.).
+     SUBMENU is the new menu to add (*note Menu Format::).
 
      BEFORE, if provided, is the name of a menu before which this menu
      should be added, if this menu is not on its parent already.  If
      the menu is already present, it will not be moved.
 
- - Function: add-menu-button MENU-PATH MENU-LEAF &optional BEFORE
+ - Function: add-menu-button menu-path menu-leaf &optional before
      This function adds a menu item to some menu, creating the menu
      first if necessary.  If the named item exists already, it is
      changed.
@@ -1109,25 +1100,25 @@ the "Foo" submenu of "Menu".
      MENU-PATH identifies the menu under which the new menu item should
      be inserted.
 
-     MENU-LEAF is a menubar leaf node (*note Menu Format::.).
+     MENU-LEAF is a menubar leaf node (*note Menu Format::).
 
      BEFORE, if provided, is the name of a menu before which this item
      should be added, if this item is not on the menu already.  If the
      item is already present, it will not be moved.
 
- - Function: delete-menu-item MENU-ITEM-PATH
+ - Function: delete-menu-item menu-item-path
      This function removes the menu item specified by MENU-ITEM-PATH
      from the menu hierarchy.
 
- - Function: enable-menu-item MENU-ITEM-PATH
+ - Function: enable-menu-item menu-item-path
      This function makes the menu item specified by MENU-ITEM-PATH be
      selectable.
 
- - Function: disable-menu-item MENU-ITEM-PATH
+ - Function: disable-menu-item menu-item-path
      This function makes the menu item specified by MENU-ITEM-PATH be
      unselectable.
 
- - Function: relabel-menu-item MENU-ITEM-PATH NEW-NAME
+ - Function: relabel-menu-item menu-item-path new-name
      This function changes the string of the menu item specified by
      MENU-ITEM-PATH.  NEW-NAME is the string that the menu item will be
      printed as from now on.
@@ -1135,7 +1126,7 @@ the "Foo" submenu of "Menu".
    The following function can be used to search for a particular item in
 a menubar specification, given a path to the item.
 
- - Function: find-menu-item MENUBAR MENU-ITEM-PATH &optional PARENT
+ - Function: find-menu-item menubar menu-item-path &optional parent
      This function searches MENUBAR for the item given by
      MENU-ITEM-PATH starting from PARENT (`nil' means start at the top
      of MENUBAR).  This function returns `(ITEM . PARENT)', where
@@ -1149,7 +1140,7 @@ a menubar specification, given a path to the item.
 existing code can be understood.  You should not use these functions in
 new code.
 
- - Function: add-menu MENU-PATH MENU-NAME MENU-ITEMS &optional BEFORE
+ - Function: add-menu menu-path menu-name menu-items &optional before
      This function adds a menu to the menubar or one of its submenus.
      If the named menu exists already, it is changed.  This is
      obsolete; use `add-submenu' instead.
@@ -1161,14 +1152,14 @@ new code.
      MENU-NAME is the string naming the menu to be added; MENU-ITEMS is
      a list of menu items, strings, and submenus.  These two arguments
      are the same as the first and following elements of a menu
-     description (*note Menu Format::.).
+     description (*note Menu Format::).
 
      BEFORE, if provided, is the name of a menu before which this menu
      should be added, if this menu is not on its parent already.  If the
      menu is already present, it will not be moved.
 
- - Function: add-menu-item MENU-PATH ITEM-NAME FUNCTION ENABLED-P
-          &optional BEFORE
+ - Function: add-menu-item menu-path item-name function enabled-p
+          &optional before
      This function adds a menu item to some menu, creating the menu
      first if necessary.  If the named item exists already, it is
      changed.  This is obsolete; use `add-menu-button' instead.
@@ -1176,7 +1167,7 @@ new code.
      MENU-PATH identifies the menu under which the new menu item should
      be inserted. ITEM-NAME, FUNCTION, and ENABLED-P are the first,
      second, and third elements of a menu item vector (*note Menu
-     Format::.).
+     Format::).
 
      BEFORE, if provided, is the name of a menu item before which this
      item should be added, if this item is not on the menu already.  If
@@ -1192,7 +1183,7 @@ Menu Filters
 `default-menubar'.  You may want to use them in your own menubar
 description.
 
- - Function: file-menu-filter MENU-ITEMS
+ - Function: file-menu-filter menu-items
      This function changes the arguments and sensitivity of these File
      menu items:
 
@@ -1216,7 +1207,7 @@ description.
     `Delete Frame'
           Sensitive only when there is more than one visible frame.
 
- - Function: edit-menu-filter MENU-ITEMS
+ - Function: edit-menu-filter menu-items
      This function changes the arguments and sensitivity of these Edit
      menu items:
 
@@ -1239,7 +1230,7 @@ description.
           Sensitive only when there is undo information.  While in the
           midst of an undo, this is changed to `Undo More'.
 
- - Function: buffers-menu-filter MENU-ITEMS
+ - Function: buffers-menu-filter menu-items
      This function sets up the Buffers menu.  *Note Buffers Menu::, for
      more information.
 

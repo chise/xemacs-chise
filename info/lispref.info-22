@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -84,7 +84,7 @@ also call that function yourself.
    *Please note:* Each `\' must be doubled when written in a string in
 XEmacs Lisp.
 
- - Function: substitute-command-keys STRING
+ - Function: substitute-command-keys string
      This function scans STRING for the above special sequences and
      replaces them by what they stand for, returning the result as a
      string.  This permits display of documentation that refers
@@ -95,7 +95,7 @@ XEmacs Lisp.
      (substitute-command-keys
         "To abort recursive edit, type: \\[abort-recursive-edit]")
      => "To abort recursive edit, type: C-]"
-
+     
      (substitute-command-keys
         "The keys that are defined for the minibuffer here are:
        \\{minibuffer-local-must-match-map}")
@@ -108,11 +108,12 @@ XEmacs Lisp.
      RET             minibuffer-complete-and-exit
      C-g             abort-recursive-edit
      "
+     
      (substitute-command-keys
         "To abort a recursive edit from the minibuffer, type\
      \\<minibuffer-local-must-match-map>\\[abort-recursive-edit].")
      => "To abort a recursive edit from the minibuffer, type C-g."
-
+     
      (substitute-command-keys
        "Substrings of the form \\=\\{MAPVAR} are replaced by summaries
      \(made by describe-bindings) of the value of MAPVAR, taken as a keymap.
@@ -142,14 +143,14 @@ convert non-printing and whitespace characters to sequences of printing
 characters.  The description of a non-whitespace printing character is
 the character itself.
 
- - Function: key-description SEQUENCE
+ - Function: key-description sequence
      This function returns a string containing the XEmacs standard
      notation for the input events in SEQUENCE.  The argument SEQUENCE
      may be a string, vector or list.  *Note Events::, for more
      information about valid events.  See also the examples for
      `single-key-description', below.
 
- - Function: single-key-description KEY
+ - Function: single-key-description key
      This function returns a string describing KEY in the standard
      XEmacs notation for keyboard input.  A normal printing character
      appears as itself, but a control character turns into a string
@@ -160,17 +161,14 @@ the character itself.
 
           (single-key-description ?\C-x)
                => "C-x"
-
           (key-description "\C-x \M-y \n \t \r \f123")
                => "C-x SPC M-y SPC LFD SPC TAB SPC RET SPC C-l 1 2 3"
-
           (single-key-description 'kp_next)
                => "kp_next"
-
           (single-key-description '(shift button1))
                => "Sh-button1"
 
- - Function: text-char-description CHARACTER
+ - Function: text-char-description character
      This function returns a string describing CHARACTER in the
      standard XEmacs notation for characters that appear in text--like
      `single-key-description', except that control characters are
@@ -179,10 +177,8 @@ the character itself.
 
           (text-char-description ?\C-c)
                => "^C"
-
           (text-char-description ?\M-m)
                => "M-m"
-
           (text-char-description ?\C-\M-m)
                => "M-^M"
 
@@ -197,10 +193,10 @@ to the user as subcommands of the prefix `C-h', or on some keyboards,
 `help'.  For more information about them, see *Note Help: (emacs)Help.
 Here we describe some program-level interfaces to the same information.
 
- - Command: apropos REGEXP &optional DO-ALL PREDICATE
+ - Command: apropos regexp &optional do-all predicate
      This function finds all symbols whose names contain a match for the
      regular expression REGEXP, and returns a list of them (*note
-     Regular Expressions::.).  It also displays the symbols in a buffer
+     Regular Expressions::).  It also displays the symbols in a buffer
      named `*Help*', each with a one-line description.
 
      If DO-ALL is non-`nil', then `apropos' also shows key bindings for
@@ -219,7 +215,7 @@ Here we describe some program-level interfaces to the same information.
                => (Buffer-menu-execute command-execute exec-directory
               exec-path execute-extended-command execute-kbd-macro
               executing-kbd-macro executing-macro)
-
+          
           (apropos "exec" nil 'commandp)
                => (Buffer-menu-execute execute-extended-command)
 
@@ -244,7 +240,7 @@ Here we describe some program-level interfaces to the same information.
           (define-key global-map "\C-h" 'help-command)
           (fset 'help-command help-map)
 
- - Function: print-help-return-message &optional FUNCTION
+ - Function: print-help-return-message &optional function
      This function builds a string that explains how to restore the
      previous state of the windows after a help command.  After
      building the message, it applies FUNCTION to it if FUNCTION is
@@ -291,7 +287,7 @@ Here we describe some program-level interfaces to the same information.
      what the input is for and how to enter it properly.
 
      Entry to the minibuffer binds this variable to the value of
-     `minibuffer-help-form' (*note Minibuffer Misc::.).
+     `minibuffer-help-form' (*note Minibuffer Misc::).
 
  - Variable: prefix-help-command
      This variable holds a function to print help for a prefix
@@ -338,7 +334,7 @@ of that function should be told to use the newer one instead.  XEmacs
 Lisp lets you mark a function or variable as "obsolete", and indicate
 what should be used instead.
 
- - Function: make-obsolete FUNCTION NEW
+ - Function: make-obsolete function new
      This function indicates that FUNCTION is an obsolete function, and
      the function NEW should be used instead.  The byte compiler will
      issue a warning to this effect when it encounters a usage of the
@@ -348,16 +344,16 @@ what should be used instead.
      should be a descriptive statement, such as "use FOO or BAR
      instead" or "this function is unnecessary".
 
- - Function: make-obsolete-variable VARIABLE NEW
+ - Function: make-obsolete-variable variable new
      This is like `make-obsolete' but is for variables instead of
      functions.
 
- - Function: define-obsolete-function-alias OLDFUN NEWFUN
+ - Function: define-obsolete-function-alias oldfun newfun
      This function combines `make-obsolete' and `define-function',
      declaring OLDFUN to be an obsolete variant of NEWFUN and defining
      OLDFUN as an alias for NEWFUN.
 
- - Function: define-obsolete-variable-alias OLDVAR NEWVAR
+ - Function: define-obsolete-variable-alias oldvar newvar
      This is like `define-obsolete-function-alias' but for variables.
 
    Note that you should not normally put obsoleteness information
@@ -373,13 +369,13 @@ the user is told about the obsoleteness and is forced to look at the
 documentation of the new function, making it more likely that he will
 use the new function.
 
- - Function: function-obsoleteness-doc FUNCTION
+ - Function: function-obsoleteness-doc function
      If FUNCTION is obsolete, this function returns a string describing
      this.  This is the message that is printed out during byte
      compilation or in the function's documentation.  If FUNCTION is
      not obsolete, `nil' is returned.
 
- - Function: variable-obsoleteness-doc VARIABLE
+ - Function: variable-obsoleteness-doc variable
      This is like `function-obsoleteness-doc' but for variables.
 
    The obsoleteness information is stored internally by putting a
@@ -477,7 +473,7 @@ not alter it, the fastest way is to use `insert-file-contents' in a
 temporary buffer.  Visiting the file is not necessary and takes longer.
 *Note Reading from Files::.
 
- - Command: find-file FILENAME
+ - Command: find-file filename
      This command selects a buffer visiting the file FILENAME, using an
      existing buffer if there is one, and otherwise creating a new
      buffer and reading the file into it.  It also returns that buffer.
@@ -492,7 +488,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
      When `find-file' is called interactively, it prompts for FILENAME
      in the minibuffer.
 
- - Function: find-file-noselect FILENAME &optional NOWARN
+ - Function: find-file-noselect filename &optional nowarn
      This function is the guts of all the file-visiting functions.  It
      finds or creates a buffer visiting the file FILENAME, and returns
      it.  It uses an existing buffer if there is one, and otherwise
@@ -516,7 +512,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
      are suppressed.
 
      The `find-file-noselect' function calls `after-find-file' after
-     reading the file (*note Subroutines of Visiting::.).  That function
+     reading the file (*note Subroutines of Visiting::).  That function
      sets the buffer major mode, parses local variables, warns the user
      if there exists an auto-save file more recent than the file just
      visited, and finishes by running the functions in
@@ -528,21 +524,21 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
           (find-file-noselect "/etc/fstab")
                => #<buffer fstab>
 
- - Command: find-file-other-window FILENAME
+ - Command: find-file-other-window filename
      This command selects a buffer visiting the file FILENAME, but does
      so in a window other than the selected window.  It may use another
      existing window or split a window; see *Note Displaying Buffers::.
 
      When this command is called interactively, it prompts for FILENAME.
 
- - Command: find-file-read-only FILENAME
+ - Command: find-file-read-only filename
      This command selects a buffer visiting the file FILENAME, like
      `find-file', but it marks the buffer as read-only.  *Note Read
      Only Buffers::, for related functions and variables.
 
      When this command is called interactively, it prompts for FILENAME.
 
- - Command: view-file FILENAME
+ - Command: view-file filename
      This command visits FILENAME in View mode, and displays it in a
      recursive edit, returning to the previous buffer when done.  View
      mode is a mode that allows you to skim rapidly through the file
@@ -582,13 +578,13 @@ Subroutines of Visiting
 `after-find-file' functions as subroutines.  Sometimes it is useful to
 call them directly.
 
- - Function: create-file-buffer FILENAME
+ - Function: create-file-buffer filename
      This function creates a suitably named buffer for visiting
      FILENAME, and returns it.  It uses FILENAME (sans directory) as
      the name if that name is free; otherwise, it appends a string such
      as `<2>' to get an unused name.  See also *Note Creating Buffers::.
 
-     *Please note:* `create-file-buffer' does *not* associate the new
+     *Please note:* `create-file-buffer' does _not_ associate the new
      buffer with a file and does not select the buffer.  It also does
      not use the default major mode.
 
@@ -600,13 +596,13 @@ call them directly.
                => #<buffer foo<3>>
 
      This function is used by `find-file-noselect'.  It uses
-     `generate-new-buffer' (*note Creating Buffers::.).
+     `generate-new-buffer' (*note Creating Buffers::).
 
- - Function: after-find-file &optional ERROR WARN NOAUTO
+ - Function: after-find-file &optional error warn noauto
      This function sets the buffer major mode, and parses local
-     variables (*note Auto Major Mode::.).  It is called by
+     variables (*note Auto Major Mode::).  It is called by
      `find-file-noselect' and by the default revert function (*note
-     Reverting::.).
+     Reverting::).
 
      If reading the file got an error because the file does not exist,
      but its directory does exist, the caller should pass a non-`nil'
@@ -635,7 +631,7 @@ copied into the buffer and the copy is what you edit.  Changes to the
 buffer do not change the file until you "save" the buffer, which means
 copying the contents of the buffer into the file.
 
- - Command: save-buffer &optional BACKUP-OPTION
+ - Command: save-buffer &optional backup-option
      This function saves the contents of the current buffer in its
      visited file if the buffer has been modified since it was last
      visited or saved.  Otherwise it does nothing.
@@ -654,7 +650,7 @@ copying the contents of the buffer into the file.
           `save-buffer' function unconditionally backs up the previous
           version of the file before saving it.
 
- - Command: save-some-buffers &optional SAVE-SILENTLY-P EXITING
+ - Command: save-some-buffers &optional save-silently-p exiting
      This command saves some modified file-visiting buffers.  Normally
      it asks the user about each buffer.  But if SAVE-SILENTLY-P is
      non-`nil', it saves all the file-visiting buffers without querying
@@ -674,7 +670,7 @@ copying the contents of the buffer into the file.
      variable is automatically local in all buffers.  Normally, Mail
      mode (used for editing outgoing mail) sets this to `t'.
 
- - Command: write-file FILENAME
+ - Command: write-file filename
      This function writes the current buffer into file FILENAME, makes
      the buffer visit that file, and marks it not modified.  Then it
      renames the buffer based on FILENAME, appending a string like `<2>'
@@ -741,7 +737,7 @@ copying the contents of the buffer into the file.
 
  - User Option: require-final-newline
      This variable determines whether files may be written out that do
-     *not* end with a newline.  If the value of the variable is `t',
+     _not_ end with a newline.  If the value of the variable is `t',
      then `save-buffer' silently adds a newline at the end of the file
      whenever the buffer being saved does not already end in one.  If
      the value of the variable is non-`nil', but not `t', then
@@ -762,8 +758,8 @@ Reading from Files
 the `insert-file-contents' function.  Don't use the user-level command
 `insert-file' in a Lisp program, as that sets the mark.
 
- - Function: insert-file-contents FILENAME &optional VISIT BEG END
-          REPLACE
+ - Function: insert-file-contents filename &optional visit beg end
+          replace
      This function inserts the contents of file FILENAME into the
      current buffer after point.  It returns a list of the absolute
      file name and the length of the data inserted.  An error is
@@ -811,7 +807,7 @@ to a file on disk using the `append-to-file' and `write-region'
 functions.  Don't use these functions to write to files that are being
 visited; that could cause confusion in the mechanisms for visiting.
 
- - Command: append-to-file START END FILENAME
+ - Command: append-to-file start end filename
      This function appends the contents of the region delimited by
      START and END in the current buffer to the end of file FILENAME.
      If that file does not exist, it is created.  If that file exists
@@ -820,7 +816,7 @@ visited; that could cause confusion in the mechanisms for visiting.
      An error is signaled if FILENAME specifies a nonwritable file, or
      a nonexistent file in a directory where files cannot be created.
 
- - Command: write-region START END FILENAME &optional APPEND VISIT
+ - Command: write-region start end filename &optional append visit
      This function writes the region delimited by START and END in the
      current buffer into the file specified by FILENAME.
 
@@ -877,7 +873,7 @@ still warn the user who saves second.  Also, the detection of
 modification of a buffer visiting a file changed on disk catches some
 cases of simultaneous editing; see *Note Modification Time::.
 
- - Function: file-locked-p &optional FILENAME
+ - Function: file-locked-p &optional filename
      This function returns `nil' if the file FILENAME is not locked by
      this XEmacs process.  It returns `t' if it is locked by this
      XEmacs, and it returns the name of the user who has locked it if it
@@ -886,7 +882,7 @@ cases of simultaneous editing; see *Note Modification Time::.
           (file-locked-p "foo")
                => nil
 
- - Function: lock-buffer &optional FILENAME
+ - Function: lock-buffer &optional filename
      This function locks the file FILENAME, if the current buffer is
      modified.  The argument FILENAME defaults to the current buffer's
      visited file.  Nothing is done if the current buffer is not
@@ -898,7 +894,7 @@ cases of simultaneous editing; see *Note Modification Time::.
      the file should not be locked, so this function does nothing.  It
      also does nothing if the current buffer is not visiting a file.
 
- - Function: ask-user-about-lock FILE OTHER-USER
+ - Function: ask-user-about-lock file other-user
      This function is called when the user tries to modify FILE, but it
      is locked by another user named OTHER-USER.  The value it returns
      determines what happens next:
@@ -953,7 +949,7 @@ Testing Accessibility
    These functions test for permission to access a file in specific
 ways.
 
- - Function: file-exists-p FILENAME
+ - Function: file-exists-p filename
      This function returns `t' if a file named FILENAME appears to
      exist.  This does not mean you can necessarily read the file, only
      that you can find out its attributes.  (On Unix, this is true if
@@ -964,7 +960,7 @@ ways.
      prevent you from finding the attributes of the file, this function
      returns `nil'.
 
- - Function: file-readable-p FILENAME
+ - Function: file-readable-p filename
      This function returns `t' if a file named FILENAME exists and you
      can read it.  It returns `nil' otherwise.
 
@@ -975,14 +971,14 @@ ways.
           (file-readable-p "/usr/spool/mqueue")
                => nil
 
- - Function: file-executable-p FILENAME
+ - Function: file-executable-p filename
      This function returns `t' if a file named FILENAME exists and you
      can execute it.  It returns `nil' otherwise.  If the file is a
      directory, execute permission means you can check the existence and
      attributes of files inside the directory, and open those files if
      their modes permit.
 
- - Function: file-writable-p FILENAME
+ - Function: file-writable-p filename
      This function returns `t' if the file FILENAME can be written or
      created by you, and `nil' otherwise.  A file is writable if the
      file exists and you can write it.  It is creatable if it does not
@@ -1000,7 +996,7 @@ ways.
           (file-writable-p "~/no-such-dir/foo")
                => nil
 
- - Function: file-accessible-directory-p DIRNAME
+ - Function: file-accessible-directory-p dirname
      This function returns `t' if you have permission to open existing
      files in the directory whose name as a file is DIRNAME; otherwise
      (or if there is no such directory), it returns `nil'.  The value
@@ -1015,11 +1011,11 @@ ways.
      we can deduce that any attempt to read a file in `/foo/' will give
      an error.
 
- - Function: file-ownership-preserved-p FILENAME
+ - Function: file-ownership-preserved-p filename
      This function returns `t' if deleting the file FILENAME and then
      creating it anew would keep the file's owner unchanged.
 
- - Function: file-newer-than-file-p FILENAME1 FILENAME2
+ - Function: file-newer-than-file-p filename1 filename2
      This function returns `t' if the file FILENAME1 is newer than file
      FILENAME2.  If FILENAME1 does not exist, it returns `nil'.  If
      FILENAME2 does not exist, it returns `t'.
@@ -1049,7 +1045,7 @@ Distinguishing Kinds of Files
    This section describes how to distinguish various kinds of files,
 such as directories, symbolic links, and ordinary files.
 
- - Function: file-symlink-p FILENAME
+ - Function: file-symlink-p filename
      If the file FILENAME is a symbolic link, the `file-symlink-p'
      function returns the file name to which it is linked.  This may be
      the name of a text file, a directory, or even another symbolic
@@ -1068,7 +1064,7 @@ such as directories, symbolic links, and ordinary files.
                => "/pub/bin"
 
 
- - Function: file-directory-p FILENAME
+ - Function: file-directory-p filename
      This function returns `t' if FILENAME is the name of an existing
      directory, `nil' otherwise.
 
@@ -1084,7 +1080,7 @@ such as directories, symbolic links, and ordinary files.
            (substitute-in-file-name "$HOME"))
                => t
 
- - Function: file-regular-p FILENAME
+ - Function: file-regular-p filename
      This function returns `t' if the file FILENAME exists and is a
      regular file (not a directory, symbolic link, named pipe,
      terminal, or other I/O device).
@@ -1096,13 +1092,13 @@ Truenames
 ---------
 
    The "truename" of a file is the name that you get by following
-symbolic links until none remain, then expanding to get rid of `.'  and
+symbolic links until none remain, then expanding to get rid of `.' and
 `..' as components.  Strictly speaking, a file need not have a unique
 truename; the number of distinct truenames a file has is equal to the
 number of hard links to the file.  However, truenames are useful
 because they eliminate symbolic links as a cause of name variation.
 
- - Function: file-truename FILENAME &optional DEFAULT
+ - Function: file-truename filename &optional default
      The function `file-truename' returns the true name of the file
      FILENAME.  This is the name that you get by following symbolic
      links until none remain.

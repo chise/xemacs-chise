@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -69,8 +69,8 @@ order by day and time.
 the standard American nor European styles suits your needs, by setting
 the variable `diary-date-forms'.  This variable is a list of patterns
 for recognizing a date.  Each date pattern is a list whose elements may
-be regular expressions (*note Regexps::.) or the symbols `month',
-`day', `year', `monthname', and `dayname'.  All these elements serve as
+be regular expressions (*note Regexps::) or the symbols `month', `day',
+`year', `monthname', and `dayname'.  All these elements serve as
 patterns that match certain kinds of text in the diary file.  In order
 for the date pattern, as a whole, to match, all of its elements must
 match consecutively.
@@ -101,11 +101,11 @@ standard syntax table from Fundamental mode (*note Syntax Tables:
 (lispref)Syntax Tables.), but with the `*' changed so that it is a word
 constituent.
 
-   The date patterns in the list must be *mutually exclusive* and must
+   The date patterns in the list must be _mutually exclusive_ and must
 not match any portion of the diary entry itself, just the date and one
 character of whitespace.  If, to be mutually exclusive, the pattern
 must match a portion of the diary entry text--beyond the whitespace
-that ends the date--then the first element of the date pattern *must*
+that ends the date--then the first element of the date pattern _must_
 be `backup'.  This causes the date recognizer to back up to the
 beginning of the current word of the diary entry, after finishing the
 match.  Even if you use `backup', the date pattern must absolutely not
@@ -329,7 +329,7 @@ applies to just those dates.  This example illustrates how the sexp can
 depend on the variable `date'; this variable is a list (MONTH DAY YEAR)
 that gives the Gregorian date for which the diary entries are being
 found.  If the value of the expression is `t', the entry applies to
-that date.  If the expression evaluates to `nil', the entry does *not*
+that date.  If the expression evaluates to `nil', the entry does _not_
 apply to that date.
 
    The following sexp diary entries take advantage of the ability (in
@@ -395,7 +395,7 @@ the Hebrew calendar in certain standard ways:
      scripture reading.
 
 `%%(diary-sabbath-candles)'
-     Make a Friday diary entry that tells the *local time* of Sabbath
+     Make a Friday diary entry that tells the _local time_ of Sabbath
      candle lighting.
 
 `%%(diary-omer)'
@@ -403,7 +403,7 @@ the Hebrew calendar in certain standard ways:
 
 `%%(diary-yahrzeit MONTH DAY YEAR) NAME'
      Make a diary entry marking the anniversary of a date of death.
-     The date is the *Gregorian* (civil) date of death.  The diary
+     The date is the _Gregorian_ (civil) date of death.  The diary
      entry appears on the proper Hebrew calendar anniversary and on the
      day before.  (In the European style, the order of the parameters
      is changed to DAY, MONTH, YEAR.)
@@ -775,7 +775,7 @@ and output going to that buffer.
 by XEmacs directly to the subshell, as "terminal input."  Any "echo" of
 your input is the responsibility of the subshell.  (The exception is
 the terminal escape character, which by default is `C-c'. *note Term
-Mode::..)  Any "terminal output" from the subshell goes into the buffer,
+Mode::.)  Any "terminal output" from the subshell goes into the buffer,
 advancing point.
 
    Some programs (such as XEmacs itself) need to control the appearance

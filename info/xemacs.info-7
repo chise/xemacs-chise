@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -80,10 +80,9 @@ the command with the name of the file you wish to visit, terminated by a
 <RET>.  If you are using XEmacs under X, you can also use the Open...
 command from the File menu bar item.
 
-   The file name is read using the minibuffer (*note Minibuffer::.),
-with defaulting and completion in the standard manner (*note File
-Names::.).  While in the minibuffer, you can abort `C-x C-f' by typing
-`C-g'.
+   The file name is read using the minibuffer (*note Minibuffer::), with
+defaulting and completion in the standard manner (*note File Names::).
+While in the minibuffer, you can abort `C-x C-f' by typing `C-g'.
 
    `C-x C-f' has completed successfully when text appears on the screen
 and a new buffer name appears in the mode line.  If the specified file
@@ -132,7 +131,7 @@ modified).  `C-x C-v' is allowed even if the current buffer is not
 visiting a file.
 
    If the file you specify is actually a directory, Dired is called on
-that directory (*note Dired::.).  To inhibit this, set the variable
+that directory (*note Dired::).  To inhibit this, set the variable
 `find-file-run-dired' to `nil'; then it is an error to try to visit a
 directory.
 
@@ -392,7 +391,7 @@ owner is always the person who last edited the file.  Occasionally
 there is a file whose owner should not change.  Since most files should
 change owners, it is a good idea to use local variable lists to set
 `backup-by-copying-when-mismatch' for the special cases where the owner
-should not change (*note File Variables::.).
+should not change (*note File Variables::).
 
    Three variables control the choice of renaming or copying.
 Normally, renaming is done.  If the variable `backup-by-copying' is
@@ -500,7 +499,7 @@ result in very extensive changes, you must confirm it with `yes'.
 
    If the current buffer has been auto-saved more recently than it has
 been saved explicitly, `revert-buffer' offers to read the auto save file
-instead of the visited file (*note Auto Save::.).  Emacs asks you about
+instead of the visited file (*note Auto Save::).  Emacs asks you about
 the auto-save file before the request for confirmation of the
 `revert-buffer' operation, and demands `y' or `n' as an answer.  If you
 have started to type `yes' for confirmation without realizing that the
@@ -594,7 +593,7 @@ Controlling Auto-Saving
 
    Each time you visit a file, auto-saving is turned on for that file's
 buffer if the variable `auto-save-default' is non-`nil' (but not in
-batch mode; *note Entering Emacs::.).  The default for this variable is
+batch mode; *note Entering Emacs::).  The default for this variable is
 `t', so Emacs auto-saves buffers that visit files by default.  You can
 use the command `M-x auto-save-mode' to turn auto-saving for a buffer
 on or off.  Like other minor mode commands, `M-x auto-save-mode' turns
@@ -914,7 +913,7 @@ Change Logs and VC
 ------------------
 
    If you use RCS for a program and also maintain a change log file for
-it (*note Change Log::.), you can generate change log entries
+it (*note Change Log::), you can generate change log entries
 automatically from the version control log entries:
 
 `C-x v a'
@@ -1026,7 +1025,7 @@ numbers, then compares those versions of the specified file.
    If you supply a directory name instead of the name of a work file,
 this command compares the two specified versions of all registered files
 in that directory and its subdirectories.  You can also specify a
-snapshot name (*note Snapshots::.) instead of one or both version
+snapshot name (*note Snapshots::) instead of one or both version
 numbers.
 
    You can specify a checked-in version by its number; you can specify
@@ -1084,10 +1083,10 @@ Renaming VC Work Files and Master Files
    When you rename a registered file, you must also rename its master
 file correspondingly to get proper results.  Use `vc-rename-file' to
 rename the source file as you specify, and rename its master file
-accordingly.  It also updates any snapshots (*note Snapshots::.) that
+accordingly.  It also updates any snapshots (*note Snapshots::) that
 mention the file, so that they use the new name; despite this, the
 snapshot thus modified may not completely work (*note Snapshot
-Caveats::.).
+Caveats::).
 
    You cannot use `vc-rename-file' on a file that is locked by someone
 else.

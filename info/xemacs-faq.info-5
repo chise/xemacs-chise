@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs-faq.info, produced by Makeinfo version
-1.68 from the input file xemacs-faq.texi.
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -131,7 +131,7 @@ performance:
      using the more readable `incf' and `push' forms in your compiled
      code.
 
-     *Interpreted* code, on the other hand, must expand these macros
+     _Interpreted_ code, on the other hand, must expand these macros
      every time they are executed.  For this reason it is strongly
      recommended that code making heavy use of macros be compiled.  (The
      features labelled "Special Form" instead of "Function" in this
@@ -569,10 +569,10 @@ Q5.3.11: How do I add new Info directories?
 
        1. Emacs Info scans `Info-directory-list' from right-to-left
           while XEmacs Info reads it from left-to-right, so append to
-          the *correct* end of the list.
+          the _correct_ end of the list.
 
        2. Use `Info-default-directory-list' to initialize
-          `Info-directory-list' *if* it is available at startup, but not
+          `Info-directory-list' _if_ it is available at startup, but not
           all Emacsen define it.
 
        3. Emacs Info looks for a standard `dir' file in each of the
@@ -750,6 +750,7 @@ ncurses.  MS gui requires no additional libraries.
 
    * has process support in X & tty.
 
+
    The disadvantage is that it requires several Unix utilities and the
 whole Cygwin environment, whereas the native port requires only a
 suitable MS Windows compiler.  Also, it follows the Unix filesystem and
@@ -829,6 +830,7 @@ Some problems to watch out for:
    * The Cygwin version doesn't understand `//machine/path' type paths
      so you will need to manually mount a directory of this form under
      a unix style directory for a build to work on the directory.
+
 
 
 File: xemacs-faq.info,  Node: Q6.1.6,  Next: Q6.2.1,  Prev: Q6.1.5,  Up: MS Windows
@@ -966,6 +968,7 @@ Could you briefly explain the differences between them?
           information can be found at
           `http://www.cs.washington.edu/homes/voelker/ntemacs.html'.
 
+
    * XEmacs
 
         - Beginning with XEmacs 19.12, XEmacs' architecture has been
@@ -988,6 +991,8 @@ Could you briefly explain the differences between them?
           (ported XEmacs to Cygwin environment, contributed Windows
           unexec, Windows-specific glyphs and toolbars code, and more),
           Jeff Sparkes (contributed scrollbars support) and many others.
+
+
 
 
 File: xemacs-faq.info,  Node: Q6.3.3,  Prev: Q6.3.2,  Up: MS Windows

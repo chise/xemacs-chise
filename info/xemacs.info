@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -31,377 +31,377 @@ translation approved by the author instead of in the original English.
 
 
 Indirect:
-xemacs.info-1: 1376
-xemacs.info-2: 47959
-xemacs.info-3: 95919
-xemacs.info-4: 144458
-xemacs.info-5: 189739
-xemacs.info-6: 237817
-xemacs.info-7: 286851
-xemacs.info-8: 336203
-xemacs.info-9: 383958
-xemacs.info-10: 433277
-xemacs.info-11: 483121
-xemacs.info-12: 532985
-xemacs.info-13: 582101
-xemacs.info-14: 631467
-xemacs.info-15: 681294
-xemacs.info-16: 729790
-xemacs.info-17: 778447
-xemacs.info-18: 828082
-xemacs.info-19: 872453
-xemacs.info-20: 921124
-xemacs.info-21: 963031
+xemacs.info-1: 1350
+xemacs.info-2: 47935
+xemacs.info-3: 95892
+xemacs.info-4: 144418
+xemacs.info-5: 189682
+xemacs.info-6: 237752
+xemacs.info-7: 286779
+xemacs.info-8: 336120
+xemacs.info-9: 383861
+xemacs.info-10: 433167
+xemacs.info-11: 483000
+xemacs.info-12: 532860
+xemacs.info-13: 581970
+xemacs.info-14: 631330
+xemacs.info-15: 681149
+xemacs.info-16: 729643
+xemacs.info-17: 778293
+xemacs.info-18: 827922
+xemacs.info-19: 872280
+xemacs.info-20: 920951
+xemacs.info-21: 962858
 
 Tag Table:
 (Indirect)
-Node: Top1376
-Node: License22525
-Node: Distrib35807
-Node: Intro37471
-Node: Frame40342
-Node: Point43614
-Node: Echo Area45581
-Node: Mode Line47959
-Node: XEmacs under X52390
-Node: Keystrokes55568
-Node: Intro to Keystrokes56412
-Node: Representing Keystrokes58515
-Node: Key Sequences59872
-Node: String Key Sequences63212
-Node: Meta Key63595
-Node: Super and Hyper Keys65068
-Node: Character Representation71292
-Node: Commands72312
-Node: Pull-down Menus75161
-Node: File Menu78510
-Node: Edit Menu82332
-Node: Apps Menu84717
-Node: Options Menu85207
-Node: Buffers Menu89187
-Node: Tools Menu89494
-Node: Help Menu89985
-Node: Menu Customization90386
-Node: Entering Emacs94616
-Node: Exiting95919
-Node: Command Switches99011
-Node: Startup Paths108200
-Node: Basic115781
-Node: Blank Lines125264
-Node: Continuation Lines126690
-Node: Position Info128124
-Node: Arguments131258
-Node: Undo134395
-Node: Minibuffer137342
-Node: Minibuffer File139952
-Node: Minibuffer Edit141758
-Node: Completion144458
-Node: Completion Example146389
-Node: Completion Commands147483
-Node: Strict Completion150139
-Node: Completion Options151921
-Node: Minibuffer History153215
-Node: Repetition156400
-Node: M-x159233
-Node: Help164327
-Node: Mark174249
-Node: Setting Mark176103
-Node: Using Region179225
-Node: Marking Objects179970
-Node: Mark Ring181811
-Node: Mouse Selection183527
-Node: Additional Mouse Operations185535
-Node: Killing189739
-Node: Yanking195379
-Node: Kill Ring196182
-Node: Appending Kills197784
-Node: Earlier Kills199821
-Node: Using X Selections202434
-Node: X Clipboard Selection203684
-Node: X Selection Commands205861
-Node: X Cut Buffers206947
-Node: Active Regions208306
-Node: Accumulating Text212886
-Node: Rectangles215959
-Node: Registers219478
-Node: RegPos220933
-Node: RegText222089
-Node: RegRect223195
-Node: RegConfig224074
-Node: RegNumbers225014
-Node: RegFiles225733
-Node: Bookmarks226391
-Node: Display229764
-Node: Scrolling231259
-Node: Horizontal Scrolling235402
-Node: Selective Display236598
-Node: Display Vars237817
-Node: Search240495
-Node: Incremental Search241688
-Node: Non-Incremental Search250615
-Node: Word Search252057
-Node: Regexp Search253675
-Node: Regexps255211
-Node: Search Case265512
-Node: Replace266293
-Node: Unconditional Replace267241
-Node: Regexp Replace268377
-Node: Replacement and Case269312
-Node: Query Replace270292
-Node: Other Repeating Search273525
-Node: Fixit274780
-Node: Kill Errors275360
-Node: Transpose276693
-Node: Fixing Case279098
-Node: Spelling279744
-Node: Files281205
-Node: File Names282513
-Node: Visiting286851
-Node: Saving293541
-Node: Backup298464
-Node: Backup Names299860
-Node: Backup Deletion301343
-Node: Backup Copying302502
-Node: Interlocking304209
-Node: Reverting308337
-Node: Auto Save310250
-Node: Auto Save Files311217
-Node: Auto Save Control313058
-Node: Recover314897
-Node: Version Control316052
-Node: Concepts of VC318090
-Node: Editing with VC319700
-Node: Variables for Check-in/out324956
-Node: Log Entries326855
-Node: Change Logs and VC328035
-Node: Old Versions331303
-Node: VC Status333307
-Node: Renaming and VC335021
-Node: Snapshots335702
-Node: Making Snapshots336203
-Node: Snapshot Caveats337497
-Node: Version Headers339306
-Node: ListDir342005
-Node: Comparing Files344054
-Node: Dired345587
-Node: Dired Enter346258
-Node: Dired Edit347083
-Node: Dired Deletion348830
-Node: Dired Immed352055
-Node: Misc File Ops353331
-Node: Buffers355820
-Node: Select Buffer357980
-Node: List Buffers359777
-Node: Misc Buffer361523
-Node: Kill Buffer363167
-Node: Several Buffers364297
-Node: Windows368163
-Node: Basic Window368874
-Node: Split Window370593
-Node: Other Window372726
-Node: Pop Up Window375156
-Node: Change Window376663
-Node: Mule379571
-Node: Mule Intro380834
-Node: Language Environments381850
-Node: Input Methods383958
-Node: Select Input Method387678
-Node: Coding Systems389833
-Node: Recognize Coding394021
-Node: Specify Coding397350
-Node: Major Modes402281
-Node: Choosing Modes404503
-Node: Indentation406893
-Node: Indentation Commands408988
-Node: Tab Stops411717
-Node: Just Spaces413566
-Node: Text414381
-Node: Text Mode416364
-Node: Nroff Mode418445
-Node: TeX Mode420089
-Node: TeX Editing422341
-Node: TeX Print425776
-Node: Outline Mode428996
-Node: Outline Format430477
-Node: Outline Motion433277
-Node: Outline Visibility434830
-Node: Words437751
-Node: Sentences440698
-Node: Paragraphs442894
-Node: Pages445182
-Node: Filling447782
-Node: Auto Fill448353
-Node: Fill Commands450501
-Node: Fill Prefix452667
-Node: Case454855
-Node: Programs456883
-Node: Program Modes459441
-Node: Lists461673
-Node: Defuns467513
-Node: Grinding470166
-Node: Basic Indent470794
-Node: Multi-line Indent472815
-Node: Lisp Indent474431
-Node: C Indent477881
-Node: Matching483121
-Node: Comments484643
-Node: Balanced Editing491095
-Node: Lisp Completion492109
-Node: Documentation493124
-Node: Change Log494363
-Node: Tags496941
-Node: Tag Syntax498590
-Node: Create Tags Table502535
-Node: Etags Regexps506596
-Node: Select Tags Table511254
-Node: Find Tag514992
-Node: Tags Search517956
-Node: List Tags521413
-Node: Fortran522442
-Node: Fortran Motion523518
-Node: Fortran Indent524338
-Node: ForIndent Commands525023
-Node: ForIndent Num526168
-Node: ForIndent Conv527442
-Node: ForIndent Vars528218
-Node: Fortran Comments529386
-Node: Fortran Columns532985
-Node: Fortran Abbrev534408
-Node: Asm Mode535318
-Node: Running535870
-Node: Compilation536840
-Node: Lisp Modes541691
-Node: Lisp Libraries542965
-Node: Loading543520
-Node: Compiling Libraries547980
-Node: Mocklisp550871
-Node: Lisp Eval551548
-Node: Lisp Debug555188
-Node: Lisp Interaction560614
-Node: External Lisp561969
-Node: Packages564044
-Node: Package Terminology564785
-Node: Using Packages566143
-Node: Building Packages574932
-Node: Abbrevs577454
-Node: Defining Abbrevs579654
-Node: Expanding Abbrevs582101
-Node: Editing Abbrevs584803
-Node: Saving Abbrevs586671
-Node: Dynamic Abbrevs588611
-Node: Picture589913
-Node: Basic Picture592346
-Node: Insert in Picture594633
-Node: Tabs in Picture596055
-Node: Rectangles in Picture597576
-Node: Sending Mail599485
-Node: Mail Format601196
-Node: Mail Headers602546
-Node: Mail Mode608956
-Node: Reading Mail612569
-Node: Calendar/Diary614144
-Node: Calendar Motion615816
-Node: Calendar Unit Motion616699
-Node: Move to Beginning or End619022
-Node: Specified Dates620155
-Node: Scroll Calendar621044
-Node: Mark and Region622835
-Node: General Calendar624742
-Node: LaTeX Calendar626350
-Node: Holidays628364
-Node: Sunrise/Sunset631467
-Node: Lunar Phases634510
-Node: Other Calendars635895
-Node: Calendar Systems637382
-Node: To Other Calendar640493
-Node: From Other Calendar642484
-Node: Mayan Calendar644790
-Node: Diary647986
-Node: Diary Commands649736
-Node: Format of Diary File653045
-Node: Date Formats655915
-Node: Adding to Diary658489
-Node: Special Diary Entries660120
-Node: Calendar Customization665460
-Node: Calendar Customizing666322
-Node: Holiday Customizing669542
-Node: Date Display Format676010
-Node: Time Display Format676968
-Node: Daylight Savings678106
-Node: Diary Customizing681294
-Node: Hebrew/Islamic Entries685916
-Node: Fancy Diary Display689256
-Node: Included Diary Files691153
-Node: Sexp Diary Entries692134
-Node: Appt Customizing697224
-Node: Sorting698270
-Node: Shell703076
-Node: Single Shell704369
-Node: Interactive Shell705968
-Node: Shell Mode709733
-Node: Terminal emulator712224
-Node: Term Mode714534
-Node: Paging in Term715448
-Node: Narrowing716246
-Node: Hardcopy718196
-Node: Recursive Edit719168
-Node: Dissociated Press722155
-Node: CONX724718
-Node: Amusements725742
-Node: Emulation726222
-Node: Customization728066
-Node: Minor Modes729790
-Node: Variables731422
-Node: Examining733380
-Node: Easy Customization734841
-Node: Customization Groups735855
-Node: Changing an Option738784
-Node: Face Customization745040
-Node: Specific Customization746805
-Node: Edit Options749412
-Node: Locals750996
-Node: File Variables754175
-Node: Keyboard Macros758702
-Node: Basic Kbd Macro760873
-Node: Save Kbd Macro762805
-Node: Kbd Macro Query764477
-Node: Key Bindings766419
-Node: Keymaps767293
-Node: Rebinding771143
-Node: Interactive Rebinding771842
-Node: Programmatic Rebinding774034
-Node: Key Bindings Using Strings776841
-Node: Disabling778447
-Node: Syntax780219
-Node: Syntax Entry781100
-Node: Syntax Change785184
-Node: Init File787354
-Node: Init Syntax788862
-Node: Init Examples791215
-Node: Terminal Init795406
-Node: Audible Bell797116
-Node: Faces800547
-Node: X Resources805384
-Node: Geometry Resources807005
-Node: Iconic Resources809453
-Node: Resource List809925
-Node: Face Resources816432
-Node: Widgets820109
-Node: Menubar Resources821048
-Node: Quitting821981
-Node: Lossage824960
-Node: Stuck Recursive825603
-Node: Screen Garbled826309
-Node: Text Garbled827443
-Node: Unasked-for Search828082
-Node: Emergency Escape828867
-Node: Total Frustration830646
-Node: Bugs831277
-Node: Glossary840812
-Node: Manifesto872453
-Node: Key Index895929
-Node: Command Index921124
-Node: Variable Index963031
-Node: Concept Index979168
+Node: Top1350
+Node: License22506
+Node: Distrib35788
+Node: Intro37452
+Node: Frame40323
+Node: Point43591
+Node: Echo Area45558
+Node: Mode Line47935
+Node: XEmacs under X52366
+Node: Keystrokes55543
+Node: Intro to Keystrokes56387
+Node: Representing Keystrokes58490
+Node: Key Sequences59847
+Node: String Key Sequences63187
+Node: Meta Key63570
+Node: Super and Hyper Keys65043
+Node: Character Representation71267
+Node: Commands72287
+Node: Pull-down Menus75136
+Node: File Menu78485
+Node: Edit Menu82307
+Node: Apps Menu84690
+Node: Options Menu85180
+Node: Buffers Menu89160
+Node: Tools Menu89467
+Node: Help Menu89958
+Node: Menu Customization90359
+Node: Entering Emacs94589
+Node: Exiting95892
+Node: Command Switches98983
+Node: Startup Paths108170
+Node: Basic115750
+Node: Blank Lines125228
+Node: Continuation Lines126654
+Node: Position Info128086
+Node: Arguments131219
+Node: Undo134356
+Node: Minibuffer137303
+Node: Minibuffer File139913
+Node: Minibuffer Edit141718
+Node: Completion144418
+Node: Completion Example146349
+Node: Completion Commands147443
+Node: Strict Completion150099
+Node: Completion Options151880
+Node: Minibuffer History153174
+Node: Repetition156358
+Node: M-x159191
+Node: Help164285
+Node: Mark174204
+Node: Setting Mark176058
+Node: Using Region179180
+Node: Marking Objects179917
+Node: Mark Ring181755
+Node: Mouse Selection183471
+Node: Additional Mouse Operations185478
+Node: Killing189682
+Node: Yanking195318
+Node: Kill Ring196121
+Node: Appending Kills197723
+Node: Earlier Kills199760
+Node: Using X Selections202373
+Node: X Clipboard Selection203623
+Node: X Selection Commands205800
+Node: X Cut Buffers206886
+Node: Active Regions208245
+Node: Accumulating Text212825
+Node: Rectangles215898
+Node: Registers219417
+Node: RegPos220871
+Node: RegText222027
+Node: RegRect223133
+Node: RegConfig224012
+Node: RegNumbers224952
+Node: RegFiles225670
+Node: Bookmarks226328
+Node: Display229700
+Node: Scrolling231195
+Node: Horizontal Scrolling235338
+Node: Selective Display236533
+Node: Display Vars237752
+Node: Search240430
+Node: Incremental Search241623
+Node: Non-Incremental Search250550
+Node: Word Search251992
+Node: Regexp Search253610
+Node: Regexps255146
+Node: Search Case265447
+Node: Replace266228
+Node: Unconditional Replace267176
+Node: Regexp Replace268311
+Node: Replacement and Case269246
+Node: Query Replace270226
+Node: Other Repeating Search273453
+Node: Fixit274708
+Node: Kill Errors275288
+Node: Transpose276621
+Node: Fixing Case279025
+Node: Spelling279671
+Node: Files281132
+Node: File Names282442
+Node: Visiting286779
+Node: Saving293465
+Node: Backup298388
+Node: Backup Names299784
+Node: Backup Deletion301267
+Node: Backup Copying302426
+Node: Interlocking304132
+Node: Reverting308260
+Node: Auto Save310172
+Node: Auto Save Files311139
+Node: Auto Save Control312980
+Node: Recover314818
+Node: Version Control315973
+Node: Concepts of VC318011
+Node: Editing with VC319621
+Node: Variables for Check-in/out324877
+Node: Log Entries326776
+Node: Change Logs and VC327956
+Node: Old Versions331223
+Node: VC Status333226
+Node: Renaming and VC334940
+Node: Snapshots335619
+Node: Making Snapshots336120
+Node: Snapshot Caveats337413
+Node: Version Headers339222
+Node: ListDir341921
+Node: Comparing Files343970
+Node: Dired345503
+Node: Dired Enter346174
+Node: Dired Edit346999
+Node: Dired Deletion348746
+Node: Dired Immed351969
+Node: Misc File Ops353245
+Node: Buffers355733
+Node: Select Buffer357891
+Node: List Buffers359686
+Node: Misc Buffer361431
+Node: Kill Buffer363074
+Node: Several Buffers364204
+Node: Windows368070
+Node: Basic Window368781
+Node: Split Window370500
+Node: Other Window372633
+Node: Pop Up Window375062
+Node: Change Window376567
+Node: Mule379475
+Node: Mule Intro380738
+Node: Language Environments381754
+Node: Input Methods383861
+Node: Select Input Method387581
+Node: Coding Systems389736
+Node: Recognize Coding393922
+Node: Specify Coding397248
+Node: Major Modes402179
+Node: Choosing Modes404398
+Node: Indentation406788
+Node: Indentation Commands408883
+Node: Tab Stops411612
+Node: Just Spaces413461
+Node: Text414276
+Node: Text Mode416259
+Node: Nroff Mode418338
+Node: TeX Mode419981
+Node: TeX Editing422233
+Node: TeX Print425667
+Node: Outline Mode428886
+Node: Outline Format430367
+Node: Outline Motion433167
+Node: Outline Visibility434720
+Node: Words437641
+Node: Sentences440588
+Node: Paragraphs442784
+Node: Pages445072
+Node: Filling447672
+Node: Auto Fill448243
+Node: Fill Commands450390
+Node: Fill Prefix452555
+Node: Case454743
+Node: Programs456771
+Node: Program Modes459320
+Node: Lists461552
+Node: Defuns467392
+Node: Grinding470045
+Node: Basic Indent470673
+Node: Multi-line Indent472694
+Node: Lisp Indent474310
+Node: C Indent477760
+Node: Matching483000
+Node: Comments484522
+Node: Balanced Editing490974
+Node: Lisp Completion491988
+Node: Documentation493003
+Node: Change Log494242
+Node: Tags496820
+Node: Tag Syntax498469
+Node: Create Tags Table502413
+Node: Etags Regexps506473
+Node: Select Tags Table511131
+Node: Find Tag514869
+Node: Tags Search517833
+Node: List Tags521289
+Node: Fortran522318
+Node: Fortran Motion523394
+Node: Fortran Indent524214
+Node: ForIndent Commands524899
+Node: ForIndent Num526044
+Node: ForIndent Conv527318
+Node: ForIndent Vars528094
+Node: Fortran Comments529262
+Node: Fortran Columns532860
+Node: Fortran Abbrev534283
+Node: Asm Mode535192
+Node: Running535744
+Node: Compilation536714
+Node: Lisp Modes541564
+Node: Lisp Libraries542837
+Node: Loading543391
+Node: Compiling Libraries547851
+Node: Mocklisp550742
+Node: Lisp Eval551419
+Node: Lisp Debug555059
+Node: Lisp Interaction560484
+Node: External Lisp561839
+Node: Packages563913
+Node: Package Terminology564654
+Node: Using Packages566012
+Node: Building Packages574801
+Node: Abbrevs577323
+Node: Defining Abbrevs579523
+Node: Expanding Abbrevs581970
+Node: Editing Abbrevs584672
+Node: Saving Abbrevs586540
+Node: Dynamic Abbrevs588480
+Node: Picture589782
+Node: Basic Picture592215
+Node: Insert in Picture594500
+Node: Tabs in Picture595922
+Node: Rectangles in Picture597443
+Node: Sending Mail599351
+Node: Mail Format601062
+Node: Mail Headers602412
+Node: Mail Mode608822
+Node: Reading Mail612435
+Node: Calendar/Diary614010
+Node: Calendar Motion615682
+Node: Calendar Unit Motion616565
+Node: Move to Beginning or End618888
+Node: Specified Dates620021
+Node: Scroll Calendar620909
+Node: Mark and Region622700
+Node: General Calendar624606
+Node: LaTeX Calendar626214
+Node: Holidays628228
+Node: Sunrise/Sunset631330
+Node: Lunar Phases634373
+Node: Other Calendars635758
+Node: Calendar Systems637245
+Node: To Other Calendar640356
+Node: From Other Calendar642347
+Node: Mayan Calendar644652
+Node: Diary647847
+Node: Diary Commands649596
+Node: Format of Diary File652902
+Node: Date Formats655772
+Node: Adding to Diary658346
+Node: Special Diary Entries659977
+Node: Calendar Customization665316
+Node: Calendar Customizing666178
+Node: Holiday Customizing669397
+Node: Date Display Format675865
+Node: Time Display Format676823
+Node: Daylight Savings677961
+Node: Diary Customizing681149
+Node: Hebrew/Islamic Entries685770
+Node: Fancy Diary Display689110
+Node: Included Diary Files691007
+Node: Sexp Diary Entries691988
+Node: Appt Customizing697078
+Node: Sorting698124
+Node: Shell702930
+Node: Single Shell704223
+Node: Interactive Shell705822
+Node: Shell Mode709587
+Node: Terminal emulator712078
+Node: Term Mode714387
+Node: Paging in Term715301
+Node: Narrowing716099
+Node: Hardcopy718049
+Node: Recursive Edit719021
+Node: Dissociated Press722008
+Node: CONX724571
+Node: Amusements725595
+Node: Emulation726075
+Node: Customization727919
+Node: Minor Modes729643
+Node: Variables731275
+Node: Examining733231
+Node: Easy Customization734692
+Node: Customization Groups735706
+Node: Changing an Option738635
+Node: Face Customization744891
+Node: Specific Customization746655
+Node: Edit Options749262
+Node: Locals750846
+Node: File Variables754025
+Node: Keyboard Macros758551
+Node: Basic Kbd Macro760722
+Node: Save Kbd Macro762654
+Node: Kbd Macro Query764323
+Node: Key Bindings766265
+Node: Keymaps767139
+Node: Rebinding770989
+Node: Interactive Rebinding771688
+Node: Programmatic Rebinding773880
+Node: Key Bindings Using Strings776687
+Node: Disabling778293
+Node: Syntax780065
+Node: Syntax Entry780946
+Node: Syntax Change785030
+Node: Init File787199
+Node: Init Syntax788704
+Node: Init Examples791056
+Node: Terminal Init795246
+Node: Audible Bell796956
+Node: Faces800387
+Node: X Resources805224
+Node: Geometry Resources806845
+Node: Iconic Resources809293
+Node: Resource List809765
+Node: Face Resources816272
+Node: Widgets819949
+Node: Menubar Resources820888
+Node: Quitting821821
+Node: Lossage824799
+Node: Stuck Recursive825443
+Node: Screen Garbled826149
+Node: Text Garbled827283
+Node: Unasked-for Search827922
+Node: Emergency Escape828707
+Node: Total Frustration830486
+Node: Bugs831117
+Node: Glossary840651
+Node: Manifesto872280
+Node: Key Index895756
+Node: Command Index920951
+Node: Variable Index962858
+Node: Concept Index978995
 
 End Tag Table

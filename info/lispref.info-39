@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -199,7 +199,7 @@ file instead of yours.  *Note Entering XEmacs: (xemacs)Entering XEmacs.
 
    A site may have a "default init file", which is the library named
 `default.el'.  XEmacs finds the `default.el' file through the standard
-search path for libraries (*note How Programs Do Loading::.).  The
+search path for libraries (*note How Programs Do Loading::).  The
 XEmacs distribution does not come with this file; sites may provide one
 for local customizations.  If the default init file exists, it is
 loaded whenever you start Emacs, except in batch mode or if `-q' is
@@ -208,7 +208,7 @@ it sets `inhibit-default-init' to a non-`nil' value, then XEmacs does
 not subsequently load the `default.el' file.
 
    Another file for site-customization is `site-start.el'.  Emacs loads
-this *before* the user's init file.  You can inhibit the loading of
+this _before_ the user's init file.  You can inhibit the loading of
 this file with the option `-no-site-file'.
 
  - Variable: site-run-file
@@ -217,8 +217,8 @@ this file with the option `-no-site-file'.
 
    If there is a great deal of code in your `.emacs' file, you should
 move it into another file named `SOMETHING.el', byte-compile it (*note
-Byte Compilation::.), and make your `.emacs' file load the other file
-using `load' (*note Loading::.).
+Byte Compilation::), and make your `.emacs' file load the other file
+using `load' (*note Loading::).
 
    *Note Init File Examples: (xemacs)Init File Examples, for examples
 of how to make various commonly desired customizations in your `.emacs'
@@ -415,7 +415,7 @@ Killing XEmacs
 parent process normally resumes control.  The low-level primitive for
 killing XEmacs is `kill-emacs'.
 
- - Function: kill-emacs &optional EXIT-DATA
+ - Function: kill-emacs &optional exit-data
      This function exits the XEmacs process and kills it.
 
      If EXIT-DATA is an integer, then it is used as the exit status of
@@ -469,7 +469,7 @@ case you can give input to some other job such as a shell merely by
 moving to a different window.  Therefore, suspending is not allowed
 when XEmacs is an X client.
 
- - Function: suspend-emacs STRING
+ - Function: suspend-emacs string
      This function stops XEmacs and returns control to the superior
      process.  If and when the superior process resumes XEmacs,
      `suspend-emacs' returns `nil' to its caller in Lisp.
@@ -490,14 +490,14 @@ when XEmacs is an X client.
 
      The next redisplay after resumption will redraw the entire screen,
      unless the variable `no-redraw-on-reenter' is non-`nil' (*note
-     Refresh Screen::.).
+     Refresh Screen::).
 
      In the following example, note that `pwd' is not echoed after
      XEmacs is suspended.  But it is read and executed by the shell.
 
           (suspend-emacs)
                => nil
-
+          
           (add-hook 'suspend-hook
                     (function (lambda ()
                                 (or (y-or-n-p
@@ -506,22 +506,19 @@ when XEmacs is an X client.
                => (lambda nil
                     (or (y-or-n-p "Really suspend? ")
                         (error "Suspend cancelled")))
-
           (add-hook 'suspend-resume-hook
                     (function (lambda () (message "Resumed!"))))
                => (lambda nil (message "Resumed!"))
-
           (suspend-emacs "pwd")
                => nil
-
           ---------- Buffer: Minibuffer ----------
           Really suspend? y
           ---------- Buffer: Minibuffer ----------
-
+          
           ---------- Parent Shell ----------
           lewis@slug[23] % /user/lewis/manual
           lewis@slug[24] % fg
-
+          
           ---------- Echo Area ----------
           Resumed!
 
@@ -611,7 +608,7 @@ name of the system, the user's UID, and so on.
 fact, the function returns whatever value the variable `system-name'
 currently holds.  Thus, you can set the variable `system-name' in case
 Emacs is confused about the name of your system.  The variable is also
-useful for constructing frame titles (*note Frame Titles::.).
+useful for constructing frame titles (*note Frame Titles::).
 
  - Variable: mail-host-address
      If this variable is non-`nil', it is used instead of `system-name'
@@ -621,7 +618,7 @@ useful for constructing frame titles (*note Frame Titles::.).
      starts up, the value actually used is the one saved when XEmacs
      was dumped.  *Note Building XEmacs::.)
 
- - Function: getenv VAR
+ - Function: getenv var
      This function returns the value of the environment variable VAR,
      as a string.  Within XEmacs, the environment variable values are
      kept in the Lisp variable `process-environment'.
@@ -636,7 +633,7 @@ useful for constructing frame titles (*note Frame Titles::.).
           SHELL=/bin/csh
           HOME=/user/lewis
 
- - Command: setenv VARIABLE VALUE
+ - Command: setenv variable value
      This command sets the value of the environment variable named
      VARIABLE to VALUE.  Both arguments should be strings.  This
      function works by modifying `process-environment'; binding that
@@ -651,8 +648,7 @@ useful for constructing frame titles (*note Frame Titles::.).
           => ("l=/usr/stanford/lib/gnuemacs/lisp"
               "PATH=.:/user/lewis/bin:/usr/class:/nfsusr/local/bin"
               "USER=lewis"
-
-          "TERM=ibmapa16"
+              "TERM=ibmapa16"
               "SHELL=/bin/csh"
               "HOME=/user/lewis")
 
@@ -679,7 +675,7 @@ useful for constructing frame titles (*note Frame Titles::.).
      locations, but can find them in a directory related somehow to the
      one containing the Emacs executable.
 
- - Function: load-average &optional USE-FLOATS
+ - Function: load-average &optional use-floats
      This function returns a list of the current 1-minute, 5-minute and
      15-minute load averages.  The values are integers that are 100
      times the system load averages.  (The load averages indicate the
@@ -708,7 +704,7 @@ useful for constructing frame titles (*note Frame Titles::.).
  - Function: emacs-pid
      This function returns the process ID of the Emacs process.
 
- - Function: setprv PRIVILEGE-NAME &optional SETP GETPRV
+ - Function: setprv privilege-name &optional setp getprv
      This function sets or resets a VMS privilege.  (It does not exist
      on Unix.)  The first arg is the privilege name, as a string.  The
      second argument, SETP, is `t' or `nil', indicating whether the
@@ -731,7 +727,7 @@ User Identification
      usually right, but users often set this themselves when the
      default value is not right.
 
- - Function: user-login-name &optional UID
+ - Function: user-login-name &optional uid
      If you don't specify UID, this function returns the name under
      which the user is logged in.  If the environment variable `LOGNAME'
      is set, that value is used.  Otherwise, if the environment variable
@@ -755,7 +751,7 @@ User Identification
      variable.  You can change the value of this variable to alter the
      result of the `user-full-name' function.
 
- - Function: user-full-name &optional USER
+ - Function: user-full-name &optional user
      This function returns the full name of USER.  If USER is `nil', it
      defaults to the user running this Emacs.  In that case, the value
      of `user-full-name' variable, if non-`nil', will be used.
@@ -776,7 +772,7 @@ User Identification
 return the same values that the variables hold.  These variables allow
 you to "fake out" Emacs by telling the functions what to return.  The
 variables are also useful for constructing frame titles (*note Frame
-Titles::.).
+Titles::).
 
  - Function: user-real-uid
      This function returns the real UID of the user.
@@ -819,7 +815,7 @@ Time of Day
    This section explains how to determine the current time and the time
 zone.
 
- - Function: current-time-string &optional TIME-VALUE
+ - Function: current-time-string &optional time-value
      This function returns the current time and date as a
      humanly-readable string.  The format of the string is unvarying;
      the number of characters used for each part is always the same, so
@@ -832,7 +828,7 @@ zone.
      instead of the current time.  The argument should be a list whose
      first two elements are integers.  Thus, you can use times obtained
      from `current-time' (see below) and from `file-attributes' (*note
-     File Attributes::.).
+     File Attributes::).
 
           (current-time-string)
                => "Wed Oct 14 22:21:05 1987"
@@ -851,7 +847,7 @@ zone.
      as you get with the function `file-attributes'.  *Note File
      Attributes::.
 
- - Function: current-time-zone &optional TIME-VALUE
+ - Function: current-time-zone &optional time-value
      This function returns a list describing the time zone that the
      user is in.
 
@@ -871,7 +867,7 @@ zone.
      instead of the current time.  The argument should be a cons cell
      containing two integers, or a list whose first two elements are
      integers.  Thus, you can use times obtained from `current-time'
-     (see above) and from `file-attributes' (*note File Attributes::.).
+     (see above) and from `file-attributes' (*note File Attributes::).
 
 
 File: lispref.info,  Node: Time Conversion,  Next: Timers,  Prev: Time of Day,  Up: System Interface
@@ -882,10 +878,10 @@ Time Conversion
    These functions convert time values (lists of two or three integers)
 to strings or to calendrical information.  There is also a function to
 convert calendrical information to a time value.  You can get time
-values from the functions `current-time' (*note Time of Day::.) and
-`file-attributes' (*note File Attributes::.).
+values from the functions `current-time' (*note Time of Day::) and
+`file-attributes' (*note File Attributes::).
 
- - Function: format-time-string FORMAT-STRING &optional TIME
+ - Function: format-time-string format-string &optional time
      This function converts TIME to a string according to
      FORMAT-STRING.  If TIME is omitted, it defaults to the current
      time.  The argument FORMAT-STRING may contain `%'-sequences which
@@ -994,7 +990,7 @@ values from the functions `current-time' (*note Time of Day::.) and
     `%Z'
           This stands for the time zone abbreviation.
 
- - Function: decode-time TIME
+ - Function: decode-time time
      This function converts a time value into calendrical information.
      The return value is a list of nine elements, as follows:
 
@@ -1035,8 +1031,8 @@ values from the functions `current-time' (*note Time of Day::.) and
 
      Note that Common Lisp has different meanings for DOW and ZONE.
 
- - Function: encode-time SECONDS MINUTES HOUR DAY MONTH YEAR &optional
-          ZONE
+ - Function: encode-time seconds minutes hour day month year &optional
+          zone
      This function is the inverse of `decode-time'.  It converts seven
      items of calendrical data into a time value.  For the meanings of
      the arguments, see the table above under `decode-time'.
@@ -1059,7 +1055,7 @@ Timers for Delayed Execution
 
    You can set up a timer to call a function at a specified future time.
 
- - Function: add-timeout SECS FUNCTION OBJECT &optional RESIGNAL
+ - Function: add-timeout secs function object &optional resignal
      This function adds a timeout, to be signaled after the timeout
      period has elapsed.  SECS is a number of seconds, expressed as an
      integer or a float.  FUNCTION will be called after that many
@@ -1091,7 +1087,7 @@ Timers for Delayed Execution
      (NOTE: In FSF Emacs, this function is called `run-at-time' and has
      different semantics.)
 
- - Function: disable-timeout ID
+ - Function: disable-timeout id
      Cancel the requested action for ID, which should be a value
      previously returned by `add-timeout'.  This cancels the effect of
      that call to `add-timeout'; the arrival of the specified time will
@@ -1121,7 +1117,7 @@ File: lispref.info,  Node: Input Modes,  Next: Translating Input,  Up: Terminal 
 Input Modes
 -----------
 
- - Function: set-input-mode INTERRUPT FLOW META QUIT-CHAR
+ - Function: set-input-mode interrupt flow meta quit-char
      This function sets the mode for reading keyboard input.  If
      INTERRUPT is non-null, then XEmacs uses input interrupts.  If it is
      `nil', then it uses CBREAK mode.  When XEmacs communicates
@@ -1189,7 +1185,7 @@ other input events before they become part of key sequences.
      events.
 
      If `function-key-map' "binds" a key sequence K to a vector V, then
-     when K appears as a subsequence *anywhere* in a key sequence, it
+     when K appears as a subsequence _anywhere_ in a key sequence, it
      is replaced with the events in V.
 
      For example, VT100 terminals send `<ESC> O P' when the keypad PF1
@@ -1274,7 +1270,7 @@ File: lispref.info,  Node: Recording Input,  Prev: Translating Input,  Up: Termi
 Recording Input
 ---------------
 
- - Function: recent-keys &optional NUMBER
+ - Function: recent-keys &optional number
      This function returns a vector containing recent input events from
      the keyboard or mouse.  By default, 100 events are recorded, which
      is how many `recent-keys' returns.
@@ -1294,7 +1290,7 @@ Recording Input
      internally.  This is also the maximum number of events
      `recent-keys' can return.  By default, 100 events are stored.
 
- - Function: set-recent-keys-ring-size SIZE
+ - Function: set-recent-keys-ring-size size
      This function changes the number of events stored by XEmacs and
      returned by `recent-keys'.
 
@@ -1302,7 +1298,7 @@ Recording Input
      remember last 250 events and will make `recent-keys' return last
      250 events by default.
 
- - Command: open-dribble-file FILENAME
+ - Command: open-dribble-file filename
      This function opens a "dribble file" named FILENAME.  When a
      dribble file is open, each input event from the keyboard or mouse
      (but not those from keyboard macros) is written in that file.  A
@@ -1318,5 +1314,5 @@ Recording Input
           (open-dribble-file "~/dribble")
                => nil
 
-   See also the `open-termscript' function (*note Terminal Output::.).
+   See also the `open-termscript' function (*note Terminal Output::).
 

@@ -1,5 +1,5 @@
-This is Info file ../info/new-users-guide.info, produced by Makeinfo
-version 1.68 from the input file new-users-guide/new-users-guide.texi.
+This is ../info/new-users-guide.info, produced by makeinfo version 4.0
+from new-users-guide/new-users-guide.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -546,7 +546,7 @@ if you set the variable MAKE-BACKUP-FILES to non-NIL i.e. `t', Emacs
 will create a "backup" file. Select the Describe variable option from
 the Help menu and look at the documentation for this variable. Its
 default value should be `t'. However, if its not then use `M-x
-set-variable' to set it to `t' (*note Setting Variables::.). The backup
+set-variable' to set it to `t' (*note Setting Variables::). The backup
 file will contain the contents from the last time you visited the file.
 Emacs also provides options for creating numbered backups. For more
 information on backups, *Note Backup: (xemacs)Backup.
@@ -596,9 +596,9 @@ turn on the auto-fill-mode, add the appropriate hook as shown in the
 example above.
 
    Similarly, to enable the "font-lock mode" which displays your
-program in different fonts and colors(*note Modes::.), put the
-following in your `.emacs' file. The comments above the statement
-explain what the statements do.
+program in different fonts and colors(*note Modes::), put the following
+in your `.emacs' file. The comments above the statement explain what the
+statements do.
 
      ;;; enables the font-lock-mode in Lisp Mode
      (add-hook 'lisp-mode-hook    'turn-on-font-lock)
@@ -869,6 +869,7 @@ find any of them useful, just type them in your `.emacs' file:
      If you want to write your own menus, you can look at some of the
      examples in
      `/usr/local/lib/xemacs-20.0/lisp/packages/big-menubar.el' file.
+
 
    For more information on initializing your `.emacs' file, *Note Init
 File: (xemacs)Init File. You should also look at

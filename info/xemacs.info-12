@@ -1,5 +1,5 @@
-This is Info file ../info/xemacs.info, produced by Makeinfo version
-1.68 from the input file xemacs/xemacs.texi.
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -72,7 +72,7 @@ Fortran Keyword Abbrevs
 
    Fortran mode provides many built-in abbrevs for common keywords and
 declarations.  These are the same sort of abbrevs that you can define
-yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::..
+yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
 
    The built-in abbrevs are unusual in one way: they all start with a
 semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
@@ -177,7 +177,7 @@ line is used again.  The first `M-x compile' provides `make -k' as the
 default.  The default is taken from the variable `compile-command'; if
 the appropriate compilation command for a file is something other than
 `make -k', it can be useful to have the file specify a local value for
-`compile-command' (*note File Variables::.).
+`compile-command' (*note File Variables::).
 
    When you start a compilation, the buffer `*compilation*' is
 displayed in another window but not selected.  Its mode line displays
@@ -263,7 +263,7 @@ Lisp mode
 Inferior Lisp mode
      The mode for an interactive session with an inferior Lisp process.
      This mode combines the special features of Lisp mode and Shell mode
-     (*note Shell Mode::.).
+     (*note Shell Mode::).
 
 Scheme mode
      Like Lisp mode but for Scheme programs.
@@ -280,7 +280,7 @@ Libraries of Lisp Code for Emacs
 
    Lisp code for Emacs editing commands is stored in files whose names
 conventionally end in `.el'.  This ending tells Emacs to edit them in
-Emacs-Lisp mode (*note Lisp Modes::.).
+Emacs-Lisp mode (*note Lisp Modes::).
 
 * Menu:
 
@@ -582,7 +582,7 @@ usual Emacs editing commands are available; you can switch windows to
 examine the buffer that was being edited at the time of the error, and
 you can switch buffers, visit files, and perform any other editing
 operations.  However, the debugger is a recursive editing level (*note
-Recursive Edit::.); it is a good idea to return to the backtrace buffer
+Recursive Edit::); it is a good idea to return to the backtrace buffer
 and explictly exit the debugger when you don't want to use it any more.
 Exiting the debugger kills the backtrace buffer.
 
@@ -701,7 +701,7 @@ will go into the buffer, advancing point, and any "terminal input" for
 Lisp comes from text in the buffer.  To give input to Lisp, go to the
 end of the buffer and type the input, terminated by <RET>.  The
 `*lisp*' buffer is in Inferior Lisp mode, which has all the special
-characteristics of Lisp mode and Shell mode (*note Shell Mode::.).
+characteristics of Lisp mode and Shell mode (*note Shell Mode::).
 
    Use Lisp mode to run the source files of programs in external Lisps.
 You can select this mode with `M-x lisp-mode'.  It is used automatically

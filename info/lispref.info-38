@@ -1,5 +1,5 @@
-This is Info file ../info/lispref.info, produced by Makeinfo version
-1.68 from the input file lispref/lispref.texi.
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
@@ -55,21 +55,21 @@ File: lispref.info,  Node: Working With a Database,  Next: Other Database Functi
 Working With a Database
 =======================
 
- - Function: get-database KEY DBASE &optional DEFAULT
+ - Function: get-database key dbase &optional default
      This function finds the value for KEY in DATABASE.  If there is no
      corresponding value, DEFAULT is returned (`nil' if DEFAULT is
      omitted).
 
- - Function: map-database FUNCTION DBASE
+ - Function: map-database function dbase
      This function maps FUNCTION over entries in DATABASE, calling it
      with two args, each key and value in the database.
 
- - Function: put-database KEY VAL DBASE &optional REPLACE
+ - Function: put-database key val dbase &optional replace
      This function stores KEY and VAL in DATABASE.  If optional fourth
      arg REPLACE is non-`nil', replace any existing entry in the
      database.
 
- - Function: remove-database KEY DBASE
+ - Function: remove-database key dbase
      This function removes KEY from DATABASE.
 
 
@@ -78,17 +78,17 @@ File: lispref.info,  Node: Other Database Functions,  Prev: Working With a Datab
 Other Database Functions
 ========================
 
- - Function: database-file-name OBJ
+ - Function: database-file-name obj
      This function returns the filename associated with the database
      OBJ.
 
- - Function: database-last-error &optional OBJ
+ - Function: database-last-error &optional obj
      This function returns the last error associated with database OBJ.
 
- - Function: database-subtype OBJ
+ - Function: database-subtype obj
      This function returns the subtype of database OBJ, if any.
 
- - Function: database-type OBJ
+ - Function: database-type obj
      This function returns the type of database OBJ.
 
 
@@ -114,7 +114,7 @@ with the subprocess or to control it.  For example, you can send
 signals, obtain status information, receive output from the process, or
 send input to it.
 
- - Function: processp OBJECT
+ - Function: processp object
      This function returns `t' if OBJECT is a process, `nil' otherwise.
 
 * Menu:
@@ -143,10 +143,10 @@ Functions that Create Subprocesses
 
    There are three functions that create a new subprocess in which to
 run a program.  One of them, `start-process', creates an asynchronous
-process and returns a process object (*note Asynchronous Processes::.).
+process and returns a process object (*note Asynchronous Processes::).
 The other two, `call-process' and `call-process-region', create a
 synchronous process and do not return a process object (*note
-Synchronous Processes::.).
+Synchronous Processes::).
 
    Synchronous and asynchronous processes are explained in following
 sections.  Since the three functions are all called in a similar
@@ -160,8 +160,7 @@ contains a list of directories to search.  Emacs initializes
 variable `PATH'.  The standard file name constructs, `~', `.', and
 `..', are interpreted as usual in `exec-path', but environment variable
 substitutions (`$HOME', etc.) are not recognized; use
-`substitute-in-file-name' to perform them (*note File Name
-Expansion::.).
+`substitute-in-file-name' to perform them (*note File Name Expansion::).
 
    Each of the subprocess-creating functions has a BUFFER-OR-NAME
 argument which specifies where the standard output from the program will
@@ -182,7 +181,7 @@ program; it may not contain any command-line arguments.  You must use
 ARGS to provide those.
 
    The subprocess gets its current directory from the value of
-`default-directory' (*note File Name Expansion::.).
+`default-directory' (*note File Name Expansion::).
 
    The subprocess inherits its environment from XEmacs; but you can
 specify overrides for it with `process-environment'.  *Note System
@@ -228,8 +227,8 @@ and quits immediately.  *Note Quitting::.
    The synchronous subprocess functions returned `nil' in version 18.
 In version 19, they return an indication of how the process terminated.
 
- - Function: call-process PROGRAM &optional INFILE DESTINATION DISPLAY
-          &rest ARGS
+ - Function: call-process program &optional infile destination display
+          &rest args
      This function calls PROGRAM in a separate process and waits for it
      to finish.
 
@@ -297,7 +296,7 @@ In version 19, they return an indication of how the process terminated.
           ---------- Buffer: foo ----------
           /usr/user/lewis/manual
           ---------- Buffer: foo ----------
-
+          
           (call-process "grep" nil "bar" nil "lewis" "/etc/passwd")
                => nil
           
@@ -314,8 +313,8 @@ In version 19, they return an indication of how the process terminated.
                             (concat (file-name-as-directory file) ".")
                           file))
 
- - Function: call-process-region START END PROGRAM &optional DELETE
-          DESTINATION DISPLAY &rest ARGS
+ - Function: call-process-region start end program &optional delete
+          destination display &rest args
      This function sends the text between START to END as standard
      input to a process running PROGRAM.  It deletes the text sent if
      DELETE is non-`nil'; this is useful when BUFFER is `t', to insert
@@ -345,7 +344,7 @@ In version 19, they return an indication of how the process terminated.
           ---------- Buffer: foo ----------
           input-!-
           ---------- Buffer: foo ----------
-
+          
           (call-process-region 1 6 "cat" nil t)
                => nil
           
@@ -403,7 +402,7 @@ run in parallel with Emacs, and the two may communicate with each other
 using the functions described in following sections.  Here we describe
 how to create an asynchronous process with `start-process'.
 
- - Function: start-process NAME BUFFER-OR-NAME PROGRAM &rest ARGS
+ - Function: start-process name buffer-or-name program &rest args
      This function creates a new asynchronous subprocess and starts the
      program PROGRAM running in it.  It returns a process object that
      stands for the new subprocess in Lisp.  The argument NAME
@@ -426,7 +425,7 @@ how to create an asynchronous process with `start-process'.
 
           (start-process "my-process" "foo" "sleep" "100")
                => #<process my-process>
-
+          
           (start-process "my-process" "foo" "ls" "-l" "/user/lewis/bin")
                => #<process my-process<1>>
           
@@ -440,8 +439,8 @@ how to create an asynchronous process with `start-process'.
           Process my-process finished
           ---------- Buffer: foo ----------
 
- - Function: start-process-shell-command NAME BUFFER-OR-NAME COMMAND
-          &rest COMMAND-ARGS
+ - Function: start-process-shell-command name buffer-or-name command
+          &rest command-args
      This function is like `start-process' except that it uses a shell
      to execute the specified command.  The argument COMMAND is a shell
      command name, and COMMAND-ARGS are the arguments for the shell
@@ -470,7 +469,7 @@ how to create an asynchronous process with `start-process'.
 
      To determine whether a given subprocess actually got a pipe or a
      PTY, use the function `process-tty-name' (*note Process
-     Information::.).
+     Information::).
 
 
 File: lispref.info,  Node: Deleting Processes,  Next: Process Information,  Prev: Asynchronous Processes,  Up: Processes
@@ -496,7 +495,7 @@ deleted automatically, no harm results.
      `list-processes'.  Otherwise, they are deleted immediately after
      they exit.
 
- - Function: delete-process NAME
+ - Function: delete-process name
      This function deletes the process associated with NAME, killing it
      with a `SIGHUP' signal.  The argument NAME may be a process, the
      name of a process, a buffer, or the name of a buffer.
@@ -504,12 +503,12 @@ deleted automatically, no harm results.
           (delete-process "*shell*")
                => nil
 
- - Function: process-kill-without-query PROCESS &optional
-          REQUIRE-QUERY-P
+ - Function: process-kill-without-query process &optional
+          require-query-p
      This function declares that XEmacs need not query the user if
      PROCESS is still running when XEmacs is exited.  The process will
      be deleted silently.  If REQUIRE-QUERY-P is non-`nil', then XEmacs
-     *will* query the user (this is the default).  The return value is
+     _will_ query the user (this is the default).  The return value is
      `t' if a query was formerly required, and `nil' otherwise.
 
           (process-kill-without-query (get-process "shell"))
@@ -536,14 +535,14 @@ Process Information
           (process-list)
                => (#<process display-time> #<process shell>)
 
- - Function: get-process NAME
+ - Function: get-process name
      This function returns the process named NAME, or `nil' if there is
      none.  An error is signaled if NAME is not a string.
 
           (get-process "shell")
                => #<process shell>
 
- - Function: process-command PROCESS
+ - Function: process-command process
      This function returns the command that was executed to start
      PROCESS.  This is a list of strings, the first string being the
      program executed and the rest of the strings being the arguments
@@ -552,17 +551,17 @@ Process Information
           (process-command (get-process "shell"))
                => ("/bin/csh" "-i")
 
- - Function: process-id PROCESS
+ - Function: process-id process
      This function returns the PID of PROCESS.  This is an integer that
      distinguishes the process PROCESS from all other processes running
      on the same computer at the current time.  The PID of a process is
      chosen by the operating system kernel when the process is started
      and remains constant as long as the process exists.
 
- - Function: process-name PROCESS
+ - Function: process-name process
      This function returns the name of PROCESS.
 
- - Function: process-status PROCESS-NAME
+ - Function: process-status process-name
      This function returns the status of PROCESS-NAME as a symbol.  The
      argument PROCESS-NAME must be a process, a buffer, a process name
      (string) or a buffer name (string).
@@ -594,10 +593,8 @@ Process Information
 
           (process-status "shell")
                => run
-
           (process-status (get-buffer "*shell*"))
                => run
-
           x
                => #<process xx<1>>
           (process-status x)
@@ -610,18 +607,18 @@ Process Information
      In earlier Emacs versions (prior to version 19), the status of a
      network connection was `run' if open, and `exit' if closed.
 
- - Function: process-kill-without-query-p PROCESS
+ - Function: process-kill-without-query-p process
      This function returns whether PROCESS will be killed without
      querying the user, if it is running when XEmacs is exited.  The
      default value is `nil'.
 
- - Function: process-exit-status PROCESS
+ - Function: process-exit-status process
      This function returns the exit status of PROCESS or the signal
      number that killed it.  (Use the result of `process-status' to
      determine which of those it is.)  If PROCESS has not yet
      terminated, the value is 0.
 
- - Function: process-tty-name PROCESS
+ - Function: process-tty-name process
      This function returns the terminal name that PROCESS is using for
      its communication with Emacs--or `nil' if it is using pipes
      instead of a terminal (see `process-connection-type' in *Note
@@ -643,7 +640,7 @@ PTY.  On these systems, Emacs sends an EOF periodically amidst the
 other characters, to force them through.  For most programs, these EOFs
 do no harm.
 
- - Function: process-send-string PROCESS-NAME STRING
+ - Function: process-send-string process-name string
      This function sends PROCESS-NAME the contents of STRING as
      standard input.  The argument PROCESS-NAME must be a process or
      the name of a process.  If it is `nil', the current buffer's
@@ -653,7 +650,8 @@ do no harm.
 
           (process-send-string "shell<1>" "ls\n")
                => nil
-
+          
+          
           ---------- Buffer: *shell* ----------
           ...
           introduction.texi               syntax-tables.texi~
@@ -662,7 +660,7 @@ do no harm.
           ...
           ---------- Buffer: *shell* ----------
 
- - Command: process-send-region PROCESS-NAME START END
+ - Command: process-send-region process-name start end
      This function sends the text in the region defined by START and
      END as standard input to PROCESS-NAME, which is a process or a
      process name.  (If it is `nil', the current buffer's process is
@@ -672,7 +670,7 @@ do no harm.
      markers that indicate positions in the current buffer.  (It is
      unimportant which number is larger.)
 
- - Function: process-send-eof &optional PROCESS-NAME
+ - Function: process-send-eof &optional process-name
      This function makes PROCESS-NAME see an end-of-file in its input.
      The EOF comes after any text already sent to it.
 
@@ -736,7 +734,7 @@ support the distinction in the case of pipes.  For the same reason,
 job-control shells won't work when a pipe is used.  See
 `process-connection-type' in *Note Asynchronous Processes::.
 
- - Function: interrupt-process &optional PROCESS-NAME CURRENT-GROUP
+ - Function: interrupt-process &optional process-name current-group
      This function interrupts the process PROCESS-NAME by sending the
      signal `SIGINT'.  Outside of XEmacs, typing the "interrupt
      character" (normally `C-c' on some systems, and `DEL' on others)
@@ -744,17 +742,17 @@ job-control shells won't work when a pipe is used.  See
      you can think of this function as "typing `C-c'" on the terminal
      by which XEmacs talks to the subprocess.
 
- - Function: kill-process &optional PROCESS-NAME CURRENT-GROUP
+ - Function: kill-process &optional process-name current-group
      This function kills the process PROCESS-NAME by sending the signal
      `SIGKILL'.  This signal kills the subprocess immediately, and
      cannot be handled by the subprocess.
 
- - Function: quit-process &optional PROCESS-NAME CURRENT-GROUP
+ - Function: quit-process &optional process-name current-group
      This function sends the signal `SIGQUIT' to the process
      PROCESS-NAME.  This signal is the one sent by the "quit character"
      (usually `C-b' or `C-\') when you are not inside XEmacs.
 
- - Function: stop-process &optional PROCESS-NAME CURRENT-GROUP
+ - Function: stop-process &optional process-name current-group
      This function stops the process PROCESS-NAME by sending the signal
      `SIGTSTP'.  Use `continue-process' to resume its execution.
 
@@ -763,12 +761,12 @@ job-control shells won't work when a pipe is used.  See
      non-`nil', you can think of this function as "typing `C-z'" on the
      terminal XEmacs uses to communicate with the subprocess.
 
- - Function: continue-process &optional PROCESS-NAME CURRENT-GROUP
+ - Function: continue-process &optional process-name current-group
      This function resumes execution of the process PROCESS by sending
      it the signal `SIGCONT'.  This presumes that PROCESS-NAME was
      stopped previously.
 
- - Function: signal-process PID SIGNAL
+ - Function: signal-process pid signal
      This function sends a signal to process PID, which need not be a
      child of XEmacs.  The argument SIGNAL specifies which signal to
      send; it should be an integer.
@@ -807,19 +805,19 @@ normal practice only one process is associated with any given buffer.
 Many applications of processes also use the buffer for editing input to
 be sent to the process, but this is not built into XEmacs Lisp.
 
-   Unless the process has a filter function (*note Filter Functions::.),
+   Unless the process has a filter function (*note Filter Functions::),
 its output is inserted in the associated buffer.  The position to insert
 the output is determined by the `process-mark', which is then updated
 to point to the end of the text just inserted.  Usually, but not
 always, the `process-mark' is at the end of the buffer.
 
- - Function: process-buffer PROCESS
+ - Function: process-buffer process
      This function returns the associated buffer of the process PROCESS.
 
           (process-buffer (get-process "shell"))
                => #<buffer *shell*>
 
- - Function: process-mark PROCESS
+ - Function: process-mark process
      This function returns the process marker for PROCESS, which is the
      marker that says where to insert output from the process.
 
@@ -840,11 +838,11 @@ always, the `process-mark' is at the end of the buffer.
      transmission to the process, the process marker is useful for
      distinguishing the new input from previous output.
 
- - Function: set-process-buffer PROCESS BUFFER
+ - Function: set-process-buffer process buffer
      This function sets the buffer associated with PROCESS to BUFFER.
      If BUFFER is `nil', the process becomes associated with no buffer.
 
- - Function: get-buffer-process BUFFER-OR-NAME
+ - Function: get-buffer-process buffer-or-name
      This function returns the process associated with BUFFER-OR-NAME.
      If there are several processes associated with it, then one is
      chosen.  (Presently, the one chosen is the one most recently
@@ -855,7 +853,7 @@ always, the `process-mark' is at the end of the buffer.
                => #<process shell>
 
      Killing the process's buffer deletes the process, which kills the
-     subprocess with a `SIGHUP' signal (*note Signals to Processes::.).
+     subprocess with a `SIGHUP' signal (*note Signals to Processes::).
 
 
 File: lispref.info,  Node: Filter Functions,  Next: Accepting Output,  Prev: Process Buffers,  Up: Output from Processes
@@ -865,7 +863,7 @@ Process Filter Functions
 
    A process "filter function" is a function that receives the standard
 output from the associated process.  If a process has a filter, then
-*all* output from that process is passed to the filter.  The process
+_all_ output from that process is passed to the filter.  The process
 buffer is used directly for output from the process only when there is
 no filter.
 
@@ -878,9 +876,9 @@ terminal input, or for time to elapse, or for process output).  This
 avoids the timing errors that could result from running filters at
 random places in the middle of other Lisp programs.  You may explicitly
 cause Emacs to wait, so that filter functions will run, by calling
-`sit-for' or `sleep-for' (*note Waiting::.), or `accept-process-output'
-(*note Accepting Output::.).  Emacs is also waiting when the command
-loop is reading input.
+`sit-for' or `sleep-for' (*note Waiting::), or `accept-process-output'
+(*note Accepting Output::).  Emacs is also waiting when the command loop
+is reading input.
 
    Quitting is normally inhibited within a filter function--otherwise,
 the effect of typing `C-g' at command level or to quit a user command
@@ -909,8 +907,7 @@ Here is how to do these things:
              (let (moving)
                (set-buffer (process-buffer proc))
                (setq moving (= (point) (process-mark proc)))
-
-     (save-excursion
+               (save-excursion
                  ;; Insert the text, moving the process-marker.
                  (goto-char (process-mark proc))
                  (insert string)
@@ -946,7 +943,7 @@ insert into a dead buffer, it will get an error.  If the buffer is dead,
 that produces the same output twice in a row may send it as one batch
 of 200 characters one time, and five batches of 40 characters the next.
 
- - Function: set-process-filter PROCESS FILTER
+ - Function: set-process-filter process filter
      This function gives PROCESS the filter function FILTER.  If FILTER
      is `nil', then the process will have no filter.  If FILTER is `t',
      then no output from the process will be accepted until the filter
@@ -954,7 +951,7 @@ of 200 characters one time, and five batches of 40 characters the next.
      but is queued, and will be processed as soon as the filter is
      changed.)
 
- - Function: process-filter PROCESS
+ - Function: process-filter process
      This function returns the filter function of PROCESS, or `nil' if
      it has none.  `t' means that output processing has been stopped.
 
@@ -963,18 +960,14 @@ of 200 characters one time, and five batches of 40 characters the next.
      (defun keep-output (process output)
         (setq kept (cons output kept)))
           => keep-output
-
      (setq kept nil)
           => nil
-
      (set-process-filter (get-process "shell") 'keep-output)
           => keep-output
-
      (process-send-string "shell" "ls ~/other\n")
           => nil
      kept
           => ("lewis@slug[8] % "
-
      "FINAL-W87-SHORT.MSS    backup.otl              kolstad.mss~
      address.txt             backup.psf              kolstad.psf
      backup.bib~             david.mss               resume-Dec-86.mss~
@@ -996,7 +989,7 @@ or terminal input.  Occasionally it is useful in a Lisp program to
 explicitly permit output to arrive at a specific point, or even to wait
 until output arrives from a process.
 
- - Function: accept-process-output &optional PROCESS SECONDS MILLISEC
+ - Function: accept-process-output &optional process seconds millisec
      This function allows XEmacs to read pending output from processes.
      The output is inserted in the associated buffers or given to
      their filter functions.  If PROCESS is non-`nil' then this
@@ -1045,7 +1038,7 @@ input, or for time to elapse, or for process output).  This avoids the
 timing errors that could result from running them at random places in
 the middle of other Lisp programs.  A program can wait, so that
 sentinels will run, by calling `sit-for' or `sleep-for' (*note
-Waiting::.), or `accept-process-output' (*note Accepting Output::.).
+Waiting::), or `accept-process-output' (*note Accepting Output::).
 Emacs is also waiting when the command loop is reading input.
 
    Quitting is normally inhibited within a sentinel--otherwise, the
@@ -1070,7 +1063,7 @@ or matching had to explicitly save and restore the match data.  Now
 Emacs does this automatically; sentinels never need to do it explicitly.
 *Note Match Data::.
 
- - Function: set-process-sentinel PROCESS SENTINEL
+ - Function: set-process-sentinel process sentinel
      This function associates SENTINEL with PROCESS.  If SENTINEL is
      `nil', then the process will have no sentinel.  The default
      behavior when there is no sentinel is to insert a message in the
@@ -1081,12 +1074,11 @@ Emacs does this automatically; sentinels never need to do it explicitly.
                (format "Process: %s had the event `%s'" process event)))
           (set-process-sentinel (get-process "shell") 'msg-me)
                => msg-me
-
           (kill-process (get-process "shell"))
                -| Process: #<process shell> had the event `killed'
                => #<process shell>
 
- - Function: process-sentinel PROCESS
+ - Function: process-sentinel process
      This function returns the sentinel of PROCESS, or `nil' if it has
      none.
 
@@ -1102,7 +1094,7 @@ File: lispref.info,  Node: Process Window Size,  Next: Transaction Queues,  Prev
 Process Window Size
 ===================
 
- - Function: set-process-window-size PROCESS HEIGHT WIDTH
+ - Function: set-process-window-size process height width
      This function tells PROCESS that its logical window size is HEIGHT
      by WIDTH characters.  This is principally useful with pty's.
 
@@ -1117,14 +1109,14 @@ with subprocesses using transactions.  First use `tq-create' to create
 a transaction queue communicating with a specified process.  Then you
 can call `tq-enqueue' to send a transaction.
 
- - Function: tq-create PROCESS
+ - Function: tq-create process
      This function creates and returns a transaction queue
      communicating with PROCESS.  The argument PROCESS should be a
      subprocess capable of sending and receiving streams of bytes.  It
      may be a child process, or it may be a TCP connection to a server,
      possibly on another machine.
 
- - Function: tq-enqueue QUEUE QUESTION REGEXP CLOSURE FN
+ - Function: tq-enqueue queue question regexp closure fn
      This function sends a transaction to queue QUEUE.  Specifying the
      queue has the effect of specifying the subprocess to talk to.
 
@@ -1139,7 +1131,7 @@ can call `tq-enqueue' to send a transaction.
 
      The return value of `tq-enqueue' itself is not meaningful.
 
- - Function: tq-close QUEUE
+ - Function: tq-close queue
      Shut down transaction queue QUEUE, waiting for all pending
      transactions to complete, and then terminate the connection or
      child process.
@@ -1168,7 +1160,7 @@ function.  It always returns either `open' or `closed' for a network
 connection, and it never returns either of those values for a real
 subprocess.  *Note Process Information::.
 
- - Function: open-network-stream NAME BUFFER-OR-NAME HOST SERVICE
+ - Function: open-network-stream name buffer-or-name host service
      This function opens a TCP connection for a service to a host.  It
      returns a process object to represent the connection.
 
