@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1519,7 +1519,8 @@ Store character's ATTRIBUTES.
 		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
 	      else
 		character = Fdecode_char (ccs, cell);
-	      goto setup_attributes;
+	      if (!NILP (character))
+		goto setup_attributes;
 	    }
 	  rest = Fcdr (rest);
 	}
@@ -2181,6 +2182,8 @@ make_builtin_char (Lisp_Object charset, int c1, int c2)
     }
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
+      if (XCHARSET_FINAL (charset) == 0)
+	return -1;
       switch (XCHARSET_CHARS (charset))
 	{
 	case 94:
@@ -2214,6 +2217,8 @@ make_builtin_char (Lisp_Object charset, int c1, int c2)
 	  c1 = I / 94 + 33;
 	  c2 = I % 94 + 33;
 	}
+      if (XCHARSET_FINAL (charset) == 0)
+	return -1;
       switch (XCHARSET_CHARS (charset))
 	{
 	case 94:
@@ -3139,7 +3144,8 @@ Make a character from CHARSET and code-point CODE.
   c = XINT (code);
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
-  return make_char (DECODE_CHAR (charset, c));
+  c = DECODE_CHAR (charset, c);
+  return c ? make_char (c) : Qnil;
 }
 
 DEFUN ("decode-builtin-char", Fdecode_builtin_char, 2, 2, 0, /*
@@ -3694,13 +3700,13 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0xFFFF, 0, 0);
   staticpro (&Vcharset_ucs_cns);
   Vcharset_ucs_cns =
-    make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 4,
+    make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 3,
 		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for CNS"),
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
 		  build_string (""),
-		  Qnil, 0, 0xFFFFFFF, 0, 0);
+		  Qnil, 0, 0, 0, 0);
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
