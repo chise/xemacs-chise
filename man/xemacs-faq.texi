@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/11/20 20:16:50 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/12/07 03:11:46 $
 @sp 1
 @author Tony Rossini <arossini@@stat.sc.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -15,6 +15,7 @@
 @author Steve Baur <steve@@xemacs.org>
 @author Andreas Kaempf <andreas@@sccon.com>
 @author Christian Nyb@o{} <chr@@mediascience.no>
+@author Sandra Wambold <wambold@@pobox.com>
 @page
 @end titlepage
 
@@ -88,6 +89,7 @@ library directory>/info/}. For example in
 * Customization::       Customization and Options.
 * Subsystems::          Major Subsystems.
 * Miscellaneous::       The Miscellaneous Stuff.
+* MS Windows::          XEmacs on Microsoft Windows.
 * Current Events::      What the Future Holds.
 
 @detailmenu
@@ -377,12 +379,38 @@ Miscellaneous:
 * Q5.3.11::     How do I add new Info directories?
 * Q5.3.12::     What do I need to change to make printing work?
 
-What the Future Holds
+XEmacs on MS Windows
 
-* Q6.0.1::      What is new in 20.2?
-* Q6.0.2::      What is new in 20.3?
-* Q6.0.3::      What is new in 20.4?
-* Q6.0.4::      Procedural changes in XEmacs development.
+General Info:
+* Q6.0.1::	What is the status of the XEmacs port to Windows?
+* Q6.0.2::	What flavors of MS Windows are supported?
+* Q6.0.3::	Are binary kits available?
+* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+
+Building XEmacs on MS Windows:
+* Q6.1.1::	I decided to run with X.  Where do I get an X server?
+* Q6.1.2::	What compiler do I need to compile XEmacs?
+* Q6.1.3::	How do I compile for the native port?
+* Q6.1.4::	How do I compile for the X port?
+* Q6.1.5::	How do I compile for Cygnus' Cygwin?
+* Q6.1.6::	What do I need for Cygwin?
+
+Customization and User Interface:
+* Q6.2.1::	How will the port cope with differences in the Windows user interface?
+* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::	Where do I put my @file{.emacs} file?
+
+Miscellaneous:
+* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::	What are the differences between the various MS Windows emacsen?
+* Q6.3.3::	What is the porting team doing at the moment?
+
+Current Events:
+
+* Q7.0.1::      What is new in 20.2?
+* Q7.0.2::      What is new in 20.3?
+* Q7.0.3::      What is new in 20.4?
+* Q7.0.4::      Procedural changes in XEmacs development.
 @end detailmenu
 @end menu
 
@@ -477,6 +505,8 @@ track changes to GNU Emacs while also working to add new features.
 @node Q1.0.2, Q1.0.3, Q1.0.1, Introduction
 @unnumberedsubsec Q1.0.2: What is the current version of XEmacs?
 
+XEmacs 21.1.8 is the current stable version of XEmacs.
+
 XEmacs 20.4 is a minor upgrade from 20.3, containing many bugfixes. It
 was released in February 1998.
 
@@ -486,7 +516,7 @@ which was also the last version without international language support.
 @node Q1.0.3, Q1.0.4, Q1.0.2, Introduction
 @unnumberedsubsec Q1.0.3: Where can I find it?
 
-The canonical source and binaries is found via anonymous FTP at:
+The canonical source and binaries can be found via anonymous FTP at:
 
 @example
 @uref{ftp://ftp.xemacs.org/pub/xemacs/}
@@ -498,7 +528,7 @@ The canonical source and binaries is found via anonymous FTP at:
 For a detailed description of the differences between GNU Emacs and
 XEmacs and a detailed history of XEmacs, check out the
 @example
-@uref{http://www.xemacs.org/NEWS.html, NEWS file}
+@uref{http://www.xemacs.org/About/XEmacsVsGNUemacs.html, NEWS file}
 @end example
 
 However, here is a list of some of the reasons why we think you might
@@ -580,44 +610,37 @@ that often result.  Mail your questions to @email{xemacs-beta@@xemacs.org} and
 @node Q1.0.6, Q1.0.7, Q1.0.5, Introduction
 @unnumberedsubsec Q1.0.6: Where can I get help?
 
-Probably the easiest way, if everything is installed, is to use info, by
-pressing @kbd{C-h i}, or selecting @code{Manuals->Info} from the Help Menu.
+Probably the easiest way, if everything is installed, is to use Info, by
+pressing @kbd{C-h i}, or selecting @code{Manuals->Info} from the
+Help Menu.  @kbd{M-x apropos} can be used to look for particular commands.
 
-Also, @kbd{M-x apropos} will look for commands for you.
+For items not found in the manual, try reading this FAQ
+@comment , examining the regular GNU Emacs FAQ (which can be
+@comment found with the Emacs 19 distribution) as well as at
+@comment @uref{http://www.eecs.nwu.edu/emacs/faq/}
+and reading the Usenet group comp.emacs.xemacs.
 
-Try reading this FAQ, examining the regular GNU Emacs FAQ (which can be
-found with the Emacs 19 distribution) as well as at
-@uref{http://www.eecs.nwu.edu/emacs/faq/} and reading the Usenet group
-comp.emacs.xemacs.
-
-If that does not help, try posting your question to comp.emacs.xemacs.
-Please @strong{do not} post XEmacs related questions to gnu.emacs.help.
+If you choose to post to a newsgroup, @strong{please use
+comp.emacs.xemacs}.  Please do not post XEmacs related questions to
+gnu.emacs.help.
 
 If you cannot post or read Usenet news, there is a corresponding mailing
 list which is available.  It can be subscribed to by sending a message
-with a subject of @samp{subscribe} to @email{xemacs-request@@xemacs.org}
-for subscription information and @email{xemacs@@xemacs.org} to send messages
-to the list.
-
-To cancel a subscription, you @strong{must} use the xemacs-request
-address.  Send a message with a subject of @samp{unsubscribe} to be
-removed.
+to @email{xemacs-request@@xemacs.org} with @samp{subscribe} in the
+body of the message.  Send to the list at @email{xemacs@@xemacs.org}.
+list.  To cancel a subscription, you @strong{must} use the
+xemacs-request address.  Send a message with a subject of
+@samp{unsubscribe} to be removed.
 
 @node Q1.0.7, Q1.0.8, Q1.0.6, Introduction
 @unnumberedsubsec Q1.0.7: Where is the mailing list archived?
 
-The mailing list was archived in the directory
-@example
-@uref{ftp://ftp.xemacs.org/pub/mlists/}.
-@end example
-
-However, this archive is out of date.  The current mailing list server
-supports an @code{archive} feature, which may be utilized.
+The archives can be found at @uref{http://www.xemacs.org/Lists/Archive}
 
 @node Q1.0.8, Q1.0.9, Q1.0.7, Introduction
 @unnumberedsubsec Q1.0.8: How do you pronounce XEmacs?
 
-I pronounce it @samp{Eks eemax}.
+The most common pronounciation is @samp{Eks eemax}.
 
 @node Q1.0.9, Q1.0.10, Q1.0.8, Introduction
 @unnumberedsubsec Q1.0.9: What does XEmacs look like?
@@ -630,40 +653,42 @@ Screen snapshots are available in the WWW version of the FAQ.
 @node Q1.0.10, Q1.0.11, Q1.0.9, Introduction
 @unnumberedsubsec Q1.0.10: Is there a port of XEmacs to Microsoft ('95 or NT)?
 
-Thanks to efforts of many people, coordinated by
-@email{davidh@@wr.com.au, David Hobley} and @email{marcpa@@cam.org, Marc
-Paquette}, beta versions of XEmacs now run on 32-bit Windows platforms
-(NT and 95).  The current betas require having an X server to run
-XEmacs; however, a native NT/95 port is in alpha, thanks to
-@email{jhar@@tardis.ed.ac.uk, Jonathan Harris}.
+Yes, @xref{MS Windows}.
 
-Although some features are still unimplemented, XEmacs 21.0 will support
-MS-Windows.
-
-The NT development is now coordinated by a mailing list at
-@email{xemacs-nt@@xemacs.org}.
-
-If you are willing to contribute or want to follow the progress, mail to
-@iftex
-@*
-@end iftex
-@email{xemacs-nt-request@@xemacs.org} to subscribe.
-
-Furthermore, Altrasoft is seeking corporate and government sponsors to
-help fund a fully native port of XEmacs to Windows 95 and NT using
-full-time, senior-level staff working under a professionally managed
-project structure.  See @uref{http://www.altrasoft.com/, the Altrasoft
-web site} for more details
-or contact Altrasoft directly at 1-888-ALTSOFT.
-
-
-The closest existing port is @dfn{Win-Emacs}, which is based on Lucid
-Emacs 19.6.  Available from @uref{http://www.pearlsoft.com/}.
-
-There's a port of GNU Emacs (not XEmacs) at
-@example
-@uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
-@end example
+@comment Thanks to efforts of many people, coordinated by
+@comment @email{davidh@@wr.com.au, David Hobley} and @email{marcpa@@cam.org, Marc
+@comment Paquette}, beta versions of XEmacs now run on 32-bit Windows platforms
+@comment (NT and 95).  The current betas require having an X server to run
+@comment XEmacs; however, a native NT/95 port is in alpha, thanks to
+@comment @email{jhar@@tardis.ed.ac.uk, Jonathan Harris}.
+@comment 
+@comment Although some features are still unimplemented, XEmacs 21.0 will support
+@comment MS-Windows.
+@comment 
+@comment The NT development is now coordinated by a mailing list at
+@comment @email{xemacs-nt@@xemacs.org}.
+@comment 
+@comment If you are willing to contribute or want to follow the progress, mail to
+@comment @iftex
+@comment @*
+@comment @end iftex
+@comment @email{xemacs-nt-request@@xemacs.org} to subscribe.
+@comment 
+@comment Furthermore, Altrasoft is seeking corporate and government sponsors to
+@comment help fund a fully native port of XEmacs to Windows 95 and NT using
+@comment full-time, senior-level staff working under a professionally managed
+@comment project structure.  See @uref{http://www.altrasoft.com/, the Altrasoft
+@comment web site} for more details
+@comment or contact Altrasoft directly at 1-888-ALTSOFT.
+@comment 
+@comment 
+@comment The closest existing port is @dfn{Win-Emacs}, which is based on Lucid
+@comment Emacs 19.6.  Available from @uref{http://www.pearlsoft.com/}.
+@comment 
+@comment There's a port of GNU Emacs (not XEmacs) at
+@comment @example
+@comment @uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
+@comment @end example
 
 @node Q1.0.11, Q1.0.12, Q1.0.10, Introduction
 @unnumberedsubsec Q1.0.11: Is there a port of XEmacs to the Macintosh?
@@ -691,39 +716,24 @@ No, and there is no news of anyone working on it.
 @node Q1.0.14, Q1.1.1, Q1.0.13, Introduction
 @unnumberedsubsec Q1.0.14: Where can I obtain a printed copy of the XEmacs users manual?
 
-Altrasoft Associates, a firm specializing in Emacs-related support and
-development, will be maintaining the XEmacs user manual.  The firm plans
-to begin publishing printed copies of the manual soon.
-@c This used to say `March 1997'!
+Pre-printed manuals are not available.  If you are familiar with 
+TeX, you can generate your own manual from the XEmacs sources.
 
-@example
-  Web:     @uref{http://www.xemacs.com}
-  E-mail:  @email{info@@xemacs.com}
-  Tel:     +1 408 243 3300
-@end example
+HTML and Postscript versions of XEmacs manuals may be available from the
+XEmacs web site in the future.
+
 
 @node Q1.1.1, Q1.1.2, Q1.0.14, Introduction
 @unnumberedsec 1.1: Policies
 @unnumberedsubsec Q1.1.1: What is the FAQ editorial policy?
 
 The FAQ is actively maintained and modified regularly.  All links should
-be up to date.
-
-Changes are displayed on a monthly basis.  @dfn{Months}, for this
-purpose are defined as the 5th of the month through the 5th of the
-month.  Preexisting questions that have been changed are marked as such.
-Brand new questions are tagged.
-
-All submissions are welcome.  E-mail submissions
-to
-@iftex
-@*
-@end iftex
-@email{faq@@xemacs.org, Christian Nyb@o{}}.
+be up to date.  All submissions are welcome.  E-mail submissions to
+@email{faq@@xemacs.org, XEmacs FAQ maintainers}.
 
 Please make sure that @samp{XEmacs FAQ} appears on the Subject: line.
 If you think you have a better way of answering a question, or think a
-question should be included, I'd like to hear about it.  Questions and
+question should be included, we'd like to hear about it.  Questions and
 answers included into the FAQ will be edited for spelling and grammar,
 and will be attributed.  Answers appearing without attribution are
 either from versions of the FAQ dated before May 1996, or are from one
@@ -734,8 +744,8 @@ author.
 @node Q1.1.2, Q1.1.3, Q1.1.1, Introduction
 @unnumberedsubsec Q1.1.2: How do I become a Beta Tester?
 
-Send an email message to @email{xemacs-beta-request@@xemacs.org} with a
-subject line of @samp{subscribe}.
+Send an email message to @email{xemacs-beta-request@@xemacs.org} with
+the line @samp{subscribe} in the body of the message.
 
 Be prepared to get your hands dirty, as beta testers are expected to
 identify problems as best they can.
@@ -966,14 +976,12 @@ characters.
 @node Q1.3.2, Q1.3.3, Q1.3.1, Introduction
 @unnumberedsubsec Q1.3.2: What is the status of Asian-language support, aka MULE?
 
-The MULE support works OK but still needs a fair amount of work before
-it's really solid.  We could definitely use some help here, esp. people
-who speak Japanese and will use XEmacs/MULE to work with Japanese and
-have some experience with E-Lisp.
+MULE support is now available for UNIX versions of XEmacs.  
 
-As the fundings on Mule have stopped, the Mule part of XEmacs is currently
-looking for a full-time maintainer.  If you can provide help here, or
-are willing to fund the work, please mail to @email{xemacs-beta@@xemacs.org}.
+If you would like to help, you may want to join the
+@email{xemacs-mule@@xemacs.org} mailing list.  Especially needed are
+people who speak/write languages other than English, who are willing to
+use XEmacs/MULE regularly, and have some experience with Elisp.
 
 @xref{Q1.1.2}.
 
@@ -1167,18 +1175,18 @@ There's the XEmacs tutorial available from the Help Menu under
 it's available in a non-english language, type @kbd{C-u C-h t TAB}, type
 the first letters of your preferred language, then type @key{RET}.
 
-There's an Emacs Lisp tutorial at
-
-@example
-@uref{ftp://prep.ai.mit.edu/pub/gnu/emacs-lisp-intro-1.04.tar.gz}.
-@end example
-
-@email{erik@@petaxp.rug.ac.be, Erik Sundermann} has made a tutorial web
-page at
-@iftex
-@*
-@end iftex
-@uref{http://petaxp.rug.ac.be/~erik/xemacs/}.
+@comment There's an Emacs Lisp tutorial at
+@comment 
+@comment @example
+@comment @uref{ftp://prep.ai.mit.edu/pub/gnu/emacs-lisp-intro-1.04.tar.gz}.
+@comment @end example
+@comment 
+@comment @email{erik@@petaxp.rug.ac.be, Erik Sundermann} has made a tutorial web
+@comment page at
+@comment @iftex
+@comment @*
+@comment @end iftex
+@comment @uref{http://petaxp.rug.ac.be/~erik/xemacs/}.
 
 @node Q1.4.4, Q1.4.5, Q1.4.3, Introduction
 @unnumberedsubsec Q1.4.4: May I see an example of a useful XEmacs Lisp function?
@@ -2381,8 +2389,8 @@ corresponding to the configure options used when building XEmacs.
 @node Q2.1.16, Q2.1.17, Q2.1.15, Installation
 @unnumberedsubsec Q2.1.16: XEmacs crashes in @code{strcat} on HP/UX 10
 
->From the problems database (through
-@uref{http://support.mayfield.hp.com/}):
+From the problems database (through
+the former address http://support.mayfield.hp.com/):
 
 @example
 Problem Report: 5003302299
@@ -2735,7 +2743,7 @@ It's almost always a mistake to test @code{emacs-version} or any similar
 variables.
 
 Instead, use feature-tests, such as @code{featurep}, @code{boundp},
-@code{fboundp}, or even simple behaviroal tests, eg.:
+@code{fboundp}, or even simple behavioral tests, eg.:
 
 @lisp
 (defvar foo-old-losing-code-p
@@ -4471,12 +4479,11 @@ tm has following functions:
 
 tm is available from following anonymous ftp sites:
 @itemize @bullet
-@item @uref{ftp://ftp.jaist.ac.jp/pub/GNU/elisp/mime/} (Japan).
-@item @uref{ftp://ftp.nis.co.jp/pub/gnu/emacs-lisp/tm/} (Japan).
-@c The host above is unknown.
-
-@item @uref{ftp://ftp.nisiq.net/pub/gnu/emacs-lisp/tm/} (US).
-@item @uref{ftp://ftp.miranova.com/pub/gnus/jaist.ac.jp/} (US).
+@comment @item @uref{ftp://ftp.jaist.ac.jp/pub/GNU/elisp/mime/} (Japan).
+@comment @item @uref{ftp://ftp.nis.co.jp/pub/gnu/emacs-lisp/tm/} (Japan).
+@comment @c The host above is unknown.
+@comment @item @uref{ftp://ftp.nisiq.net/pub/gnu/emacs-lisp/tm/} (US).
+@comment @item @uref{ftp://ftp.miranova.com/pub/gnus/jaist.ac.jp/} (US).
 @item @uref{ftp://ftp.unicamp.br/pub/mail/mime/tm/} (Brasil).
 @item @uref{ftp://ftp.th-darmstadt.de/pub/editors/GNU-Emacs/lisp/mime/} (Germany).
 @item @uref{ftp://ftp.tnt.uni-hannover.de/pub/editors/xemacs/contrib/} (Germany).
@@ -4582,7 +4589,7 @@ details, check out
 @iftex
 @*
 @end iftex
-@uref{http://www.sun.com/software/Products/Developer-products/programs.html}.
+@uref{http://www.sun.com/software/Products/Developer-products}.
 @end quotation
 
 @node Q4.4.2, Q4.5.1, Q4.4.1, Subsystems
@@ -4928,13 +4935,15 @@ One way to do this (and much more) is by using the
 @iftex
 @*
 @end iftex
-@uref{ftp://ftp.mathworks.com/pub/contrib/v5/tools/matlab.el, matlab mode}.
+@comment @uref{ftp://ftp.mathworks.com/pub/contrib/v5/tools/matlab.el, matlab mode}.
+matlab mode.  (If someone knows where this can be found, please contact
+the @email{faq@@xemacs.org,XEmacs FAQ maintainer}.
 
 Instructions on how to install this mode are included in this file.
 @end quotation
 
 
-@node Miscellaneous, Current Events, Subsystems, Top
+@node Miscellaneous, MS Windows, Subsystems, Top
 @unnumbered 5 The Miscellaneous Stuff
 
 This is part 5 of the XEmacs Frequently Asked Questions list.  This
@@ -5299,7 +5308,7 @@ if ( "$TERM" == emacs || "$TERM" == unknown ) unset filec
 @email{bwarsaw@@cnri.reston.va.us, Barry A. Warsaw} writes:
 
 @quotation
-This can be had from @uref{http://www.python.org/ftp/emacs/}.
+This can be had from @uref{http://www.python.org/emacs/}.
 @end quotation
 
 @node Q5.0.16, Q5.0.17, Q5.0.15, Miscellaneous
@@ -6080,8 +6089,9 @@ method, one should NOT quote the face string using the sed script .
 
 It might also be helpful to use @email{stig@@hackvan.com, Stig's} script
 (included in the compface distribution at XEmacs.org) to do the
-conversion.  For convenience xbm2xface is available for anonymous FTP at
-@uref{ftp://ftp.miranova.com/pub/xemacs/xbm2xface.pl}.
+conversion.
+@comment For convenience xbm2xface is available for anonymous FTP at
+@comment @uref{ftp://ftp.miranova.com/pub/xemacs/xbm2xface.pl}.
 
 Contributors for this item:
 
@@ -6182,25 +6192,394 @@ NOTE: It is an undocumented limitation in XEmacs that postscript
 printing (the @code{Pretty Print Buffer} menu item) @strong{requires} a
 window system environment.  It cannot be used outside of X11.
 
-@node Current Events,  , Miscellaneous, Top
-@unnumbered 6 What the Future Holds
+@node MS Windows, Current Events, Miscellaneous, Top
+@unnumbered 6 XEmacs on MS Windows
 
-This is part 6 of the XEmacs Frequently Asked Questions list.  This
+This is part 6 of the XEmacs Frequently Asked Questions list, written by
+Hrvoje Niksic and others.  This section is devoted to the MS Windows
+port of XEmacs.
+
+@menu
+
+General Info
+* Q6.0.1::	What is the status of the XEmacs port to Windows?
+* Q6.0.2::	What flavors of MS Windows are supported?  
+* Q6.0.3::      Where are the XEmacs on MS Windows binaries?
+* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+
+Building XEmacs on MS Windows
+* Q6.1.1::	I decided to run with X.  Where do I get an X server?
+* Q6.1.2::	What compiler do I need to compile XEmacs?
+* Q6.1.3::	How do I compile for the native port?
+* Q6.1.4::	How do I compile for the X port?
+* Q6.1.5::	How do I compile for Cygnus' Cygwin?
+* Q6.1.6::	What do I need for Cygwin?
+
+Customization and User Interface
+* Q6.2.1::	How will the port cope with differences in the Windows user interface?
+* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::	Where do I put my @file{.emacs} file?
+
+Miscellaneous
+* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::	What are the differences between the various MS Windows emacsen?
+* Q6.3.3::	What is the porting team doing at the moment?
+
+@end menu
+
+@node Q6.0.1, Q6.0.2, MS Windows, MS Windows
+@unnumberedsec 6.0: General Info
+@unnumberedsubsec Q6.0.1: What is the status of the XEmacs port to Windows?
+
+Is XEmacs really getting ported to MS Windows?  What is the status of the port?
+
+Yes, a group of volunteers actively works on making XEmacs code base
+cleanly compile and run on MS Windows operating systems.  The mailing
+list at @email{xemacs-nt@@xemacs.org} is dedicated to that effort (please use
+the -request address to subscribe).
+
+At this time, XEmacs on MS Windows is usable, but lacks some of the
+features of XEmacs on UNIX and UNIX-like systems.  Notably,
+internationalization does not work.
+
+@node Q6.0.2, Q6.0.3, Q6.0.1, MS Windows
+@unnumberedsubsec Q6.0.2: What flavors of MS Windows are supported?  The list name implies NT only.
+
+The list name is misleading, as XEmacs will support both Windows 95,
+Windows 98 and Windows NT.  The MS Windows-specific code is based on
+Microsoft Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
+
+
+@node Q6.0.3, Q6.0.4, Q6.0.2, MS Windows
+@unnumberedsubsec Q6.0.3: Are binary kits available?
+
+Binary kits are available at
+@uref{ftp://ftp.xemacs.org/pub/xemacs/binary-kits/win32/} for the
+"plain" MS Windows version.
+
+@node Q6.0.4, Q6.1.1, Q6.0.3, MS Windows
+@unnumberedsubsec Q6.0.4: Does XEmacs on MS Windows require an X server to run?
+
+Short answer: No.
+
+Long answer: XEmacs can be built in several ways in the MS Windows
+environment, some of them requiring an X server and some not.
+
+One is what we call the "X" port -- it requires X libraries to build
+and an X server to run.  Internally it uses the Xt event loop and
+makes use of X toolkits.  Its look is quite un-Windowsy, but it works
+reliably and supports all of the graphical features of Unix XEmacs.
+
+The other is what we call the "native" port.  It uses the Win32 API
+and does not require X libraries to build, nor does it require an X to
+run.  In fact, it has no connection with X whatsoever.  At this time,
+the native port obsoletes the X port, providing almost all of its
+features, including support for menus, scrollbars, toolbars, embedded
+images and background pixmaps, frame pointers, etc.  Most of the
+future work will be based on the native port.
+
+There is also a third special case, the Cygwin port.  It takes
+advantage of Cygnus emulation library under Win32, which enables it to
+reuse much of the Unix XEmacs code base, such as processes and network
+support, or internal select() mechanisms.
+
+Cygwin port supports all display types -- TTY, X & MS gui, and can be
+built with support for all three.  If you build with ms gui support
+then the Cygwin version uses the majority of the msw code, which is
+mostly related to display.  If you want to build with X support you
+need X libraries.  If you want to build with tty support you need
+ncurses.  MS gui requires no additional libraries.
+
+Some of the advantages of the Cygwin version are that it:
+
+@itemize @bullet
+
+@item integrates well with Cygwin environment for existing Cygwin users;
+@item uses configure so building with different features is very easy;
+@item has process support in X & tty.
+
+@end itemize
+
+The disadvantage is that it requires several Unix utilities and the
+whole Cygwin environment, whereas the native port requires only a
+suitable MS Windows compiler.  Also, it follows the Unix filesystem and
+process model very closely (some will undoubtedly view this as an
+advantage).
+
+@node Q6.1.1, Q6.1.2, Q6.0.4, MS Windows
+@unnumberedsec 6.1: Building XEmacs on MS Windows
+@unnumberedsubsec Q6.1.1: I decided to run with X.  Where do I get an X server?
+
+Pointers to X servers can be found at
+@iftex
+@*
+@end iftex
+@uref{http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/}; 
+
+look for "Where to get an X server".  Also note that, although the above
+page talks about Cygnus gnu-win32 (Cygwin), the information on X servers
+is Cygwin-independent.  You don't have to be running/using Cygwin to use
+these X servers, and you don't have to compile XEmacs under Cygwin to
+use XEmacs with these X servers.  An "X port" XEmacs compiled under
+Visual C++ will work with these X servers (as will XEmacs running on a
+Unix box, redirected to the server running on your PC).
+
+
+@node Q6.1.2, Q6.1.3, Q6.1.1, MS Windows
+@unnumberedsubsec Q6.1.2: What compiler do I need to compile XEmacs?
+
+You need Visual C++ 4.2 or 5.0, with the exception of the Cygwin port,
+which uses Gcc.
+
+
+@node Q6.1.3, Q6.1.4, Q6.1.2, MS Windows
+@unnumberedsubsec Q6.1.3: How do I compile for the native port?
+
+Please read the file @file{nt/README} in the XEmacs distribution, which
+contains the full description.
+
+
+@node Q6.1.4, Q6.1.5, Q6.1.3, MS Windows
+@unnumberedsubsec Q6.1.4: How do I compile for the X port?
+
+Again, it is described in @file{nt/README} in some detail.  Basically, you
+need to get X11 libraries from ftp.x.org, and compile them.  If the
+precompiled versions are available somewhere, I don't know of it.
+
+
+@node Q6.1.5, Q6.1.6, Q6.1.4, MS Windows
+@unnumberedsubsec Q6.1.5: How do I compile for Cygnus' Cygwin?
+
+Similar as on Unix; use the usual `configure' and `make' process.
+Some problems to watch out for:
+
+@itemize @bullet
+@item
+make sure HOME is set. This controls where you @file{.emacs} file comes
+from;
+
+@item
+CYGWIN32 needs to be set to tty for process support
+work. e.g. CYGWIN32=tty;
+
+@item
+picking up some other grep or other unix like tools can kill configure;
+
+@item
+static heap too small, adjust src/sheap-adjust.h to a more positive
+number;
+
+@item
+The Cygwin version doesn't understand @file{//machine/path} type paths so you
+will need to manually mount a directory of this form under a unix style
+directory for a build to work on the directory.
+
+@end itemize
+
+@node Q6.1.6, Q6.2.1, Q6.1.5, MS Windows
+@unnumberedsubsec Q6.1.6: What do I need for Cygwin?
+
+You can find the Cygwin tools and compiler at:
+
+@uref{http://sourceware.cygnus.com/cygwin/}
+
+You will need version b19 or later.
+
+You will also need the X libraries.  There are libraries at
+@iftex
+@*
+@end iftex
+@uref{http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/}, but
+these are not b19 compatible.  You can get b19 X11R6.3 binaries, as
+well as pre-built ncurses and graphic libraries, from:
+
+@uref{ftp://ftp.parallax.co.uk/pub/andyp/}.
+
+
+@node Q6.2.1, Q6.2.2, Q6.1.6, MS Windows
+@unnumberedsec 6.2: Customization and User Interface
+@unnumberedsubsec Q6.2.1: How will the port cope with differences in the Windows user interface?
+
+XEmacs (and Emacs in general) UI is pretty 
+different from what is expected of a typical MS Windows program.  How will
+the MS Windows port cope with it?
+
+Fortunately, Emacs is also one of the most configurable editor beasts
+in the world.  The MS Windows "look and feel" (mark via shift-arrow,
+self-inserting deletes region, etc.) can be easily configured via
+various packages distributed with XEmacs.  The `pending-delete'
+package is an example of such a utility.
+
+In future versions, some of these packages might be turned on by
+default in the MS Windows environment.
+
+
+@node Q6.2.2, Q6.2.3, Q6.2.1, MS Windows
+@unnumberedsubsec Q6.2.2: How do I change fonts in XEmacs on MS Windows?
+
+You can change font manually, but not from the menubar, yet. For
+example:
+
+@display
+    (set-face-font 'default "Lucida Console:Regular:10")
+    (set-face-font 'modeline "MS Sans Serif:Regular:10")
+@end display
+
+
+@node Q6.2.3, Q6.3.1, Q6.2.2, MS Windows
+@unnumberedsubsec Q6.2.3: Where do I put my @file{.emacs} file?
+
+If the HOME environment variable is set, @file{.emacs} will be looked for
+there.  Else the directory defaults to `c:\'.
+
+@node Q6.3.1, Q6.3.2, Q6.2.3, MS Windows
+@unnumberedsec 6.3: Miscellaneous
+@unnumberedsubsec Q6.3.1: Will XEmacs rename all the win32-* symbols to w32-*?
+
+In his flavor of Emacs 20, Richard Stallman has renamed all the win32-*
+symbols to w32-*.  Will XEmacs do the same?
+
+We consider such a move counter-productive, thus we will not use the
+`w32' prefix.  However, we do recognize that Win32 name is little more
+than a marketing buzzword (will it be Win64 in the next release?), so
+we decided not to use it.  Using `windows-' would be wrong because the
+term is too generic, which is why we settled on a compromise
+`mswindows' term.
+
+Thus all the XEmacs variables and functions directly related to Win32
+are prefixed `mswindows-'.  The user-variables shared with NT Emacs
+will be provided as compatibility aliases.
+
+Architectural note: We believe that there should be a very small
+number of window-systems-specific variables, and will try to provide
+generic interfaces whenever possible.
+
+
+@node Q6.3.2, Q6.3.3, Q6.3.1, MS Windows
+@unnumberedsubsec Q6.3.2: What are the differences between the various MS Windows emacsen?
+
+XEmacs, Win-Emacs, DOS Emacs, NT Emacs, this is all very confusing.
+Could you briefly explain the differences between them?
+
+Here is a recount of various Emacs versions running on MS Windows:
+
+@itemize @bullet
+
+@item 
+Win-Emacs
+
+@itemize @minus
+
+@item
+Win-Emacs is a port of Lucid Emacs 19.6 to MS Windows using X
+compatibility libraries.  Win-Emacs has been written by Ben Wing.  The
+MS Windows code has not made it back to Lucid Emacs, which left Win-Emacs
+pretty much dead for our purposes.  Win-Emacs used to be available at
+Pearlsoft, but not anymore, since Pearlsoft went out of business.
+@end itemize
+
+@item
+GNU Emacs for DOS
+
+@itemize @minus  
+
+@item
+GNU Emacs features support for MS-DOS and DJGPP (D.J. Delorie's DOS
+port of Gcc).  Such an Emacs is heavily underfeatured, because it does
+not supports long file names, lacks proper subprocesses support, and
+is far too big compared to typical DOS editors.
+@end itemize
+
+@item
+GNU Emacs compiled with Win32
+
+@itemize @minus  
+
+@item
+Starting with version 19.30, it has been possible to compile GNU Emacs
+under MS Windows using the DJGPP compiler and X libraries.  The result
+is is very similar to GNU Emacs compiled under MS DOS, only it
+supports longer file names, etc.  This "port" is similar to the "X"
+flavor of XEmacs on MS Windows.
+@end itemize
+
+@item
+NT Emacs
+
+@itemize @minus  
+
+@item
+NT Emacs is a version of GNU Emacs modified to compile and run under
+MS MS Windows 95 and NT using the native Win32 API.  As such, it is close
+in spirit to the XEmacs "native" port.
+
+@item
+NT Emacs has been written by Geoff Voelker, and more information can be
+found at 
+@iftex
+@*
+@end iftex
+@uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
+
+@end itemize
+
+@item
+XEmacs
+
+@itemize @minus  
+
+@item
+Beginning with XEmacs 19.12, XEmacs' architecture has been redesigned
+in such a way to allow clean support of multiple window systems.  At
+this time the TTY support was added, making X and TTY the first two
+"window systems" XEmacs supported.  The 19.12 design is the basis for
+the current native MS Windows code.
+
+@item
+Some time during 1997, David Hobley (soon joined by Marc Paquette)
+imported some of the NT-specific portions of GNU Emacs, making XEmacs
+with X support compile under Windows NT, and creating the "X" port.
+
+@item
+Several months later, Jonathan Harris sent out initial patches to use
+the Win32 API, thus creating the native port.  Since then, various
+people have contributed, including Kirill M. Katsnelson (contributed
+support for menubars, subprocesses and network, as well as loads of
+other code), Andy Piper (ported XEmacs to Cygwin environment,
+contributed Windows unexec, Windows-specific glyphs and toolbars code,
+and more), Jeff Sparkes (contributed scrollbars support) and many
+others.
+
+@end itemize
+
+@end itemize
+
+
+@node Q6.3.3, , Q6.3.2, MS Windows
+@unnumberedsubsec Q6.3.3: What is the porting team doing at the moment?
+
+The porting team is continuing work on the MS Windows-specific code.
+
+
+@node Current Events,  , MS Windows, Top
+@unnumbered 7 What the Future Holds
+
+This is part 7 of the XEmacs Frequently Asked Questions list.  This
 section will change monthly, and contains any interesting items that have
 transpired over the previous month.  If you are reading this from the
 XEmacs distribution, please see the version on the Web or archived at the
 various FAQ FTP sites, as this file is surely out of date.
 
 @menu
-* Q6.0.1::      What is new in 20.2?
-* Q6.0.2::      What is new in 20.3?
-* Q6.0.3::      What is new in 20.4?
-* Q6.0.4::      Procedural changes in XEmacs development.
+* Q7.0.1::      What is new in 20.2?
+* Q7.0.2::      What is new in 20.3?
+* Q7.0.3::      What is new in 20.4?
+* Q7.0.4::      Procedural changes in XEmacs development.
 @end menu
 
-@node Q6.0.1, Q6.0.2, Current Events, Current Events
-@unnumberedsec 6.0: Changes
-@unnumberedsubsec Q6.0.1: What is new in 20.2?
+@node Q7.0.1, Q7.0.2, Current Events, Current Events
+@unnumberedsec 7.0: Changes
+@unnumberedsubsec Q7.0.1: What is new in 20.2?
 
 The biggest changes in 20.2 include integration of EFS (the next
 generation of ange-ftp) and AUC Tex (the Emacs subsystem that includes a
@@ -6212,8 +6591,8 @@ customize}.
 XEmacs 20.2 is the development release (20.0 was beta), and is no longer
 considered unstable.
 
-@node Q6.0.2, Q6.0.3, Q6.0.1, Current Events
-@unnumberedsubsec Q6.0.2: What is new in 20.3?
+@node Q7.0.2, Q7.0.3, Q7.0.1, Current Events
+@unnumberedsubsec Q7.0.2: What is new in 20.3?
 
 XEmacs 20.3 was released in November 1997. It contains many bugfixes,
 and a number of new features, including Autoconf 2 based configuration,
@@ -6232,15 +6611,15 @@ the default) is definitely faster than XEmacs 19.16.
 XEmacs 20.3 is the first non-beta v20 release, and will be the
 basis for all further development.
 
-@node Q6.0.3, Q6.0.4, Q6.0.2, Current Events
-@unnumberedsubsec Q6.0.3: What's new in XEmacs 20.4?
+@node Q7.0.3, Q7.0.4, Q7.0.2, Current Events
+@unnumberedsubsec Q7.0.3: What's new in XEmacs 20.4?
 
 XEmacs 20.4 is a bugfix release with no user-visible changes.
 @c Filled in from NEWS file of 20.5-b33
 
 
-@node Q6.0.4,  , Q6.0.3, Current Events
-@unnumberedsubsec Q6.0.4: Procedural changes in XEmacs development.
+@node Q7.0.4,  , Q7.0.3, Current Events
+@unnumberedsubsec Q7.0.4: Procedural changes in XEmacs development.
 
 @enumerate
 @item

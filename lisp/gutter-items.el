@@ -205,24 +205,25 @@ Only the most-recently-used few buffers will be listed on the tab, for
 efficiency reasons.  You can control how many buffers will be shown by
 setting `buffers-tab-max-size'.  You can control the text of the tab
 items by redefining the function `format-buffers-menu-line'."
-  (let* ((buffers (delete-if buffers-tab-omit-function (buffer-list frame)))
-	 (first-buf (car buffers)))
-    ;; if we're in deletion ignore the current buffer
-    (when in-deletion 
-      (setq buffers (delq (current-buffer) buffers))
-      (setq first-buf (car buffers)))
-    ;; group buffers by mode
-    (when buffers-tab-selection-function
-      (delete-if-not #'(lambda (buf)
-			 (funcall buffers-tab-selection-function
-				  first-buf buf)) buffers))
-    (and (integerp buffers-tab-max-size)
-	 (> buffers-tab-max-size 1)
-	 (> (length buffers) buffers-tab-max-size)
-	 ;; shorten list of buffers
-	 (setcdr (nthcdr buffers-tab-max-size buffers) nil))
-    (setq buffers (build-buffers-tab-internal buffers))
-    buffers))
+  (save-match-data
+    (let* ((buffers (delete-if buffers-tab-omit-function (buffer-list frame)))
+	   (first-buf (car buffers)))
+      ;; if we're in deletion ignore the current buffer
+      (when in-deletion 
+	(setq buffers (delq (current-buffer) buffers))
+	(setq first-buf (car buffers)))
+      ;; group buffers by mode
+      (when buffers-tab-selection-function
+	(delete-if-not #'(lambda (buf)
+			   (funcall buffers-tab-selection-function
+				    first-buf buf)) buffers))
+      (and (integerp buffers-tab-max-size)
+	   (> buffers-tab-max-size 1)
+	   (> (length buffers) buffers-tab-max-size)
+	   ;; shorten list of buffers
+	   (setcdr (nthcdr buffers-tab-max-size buffers) nil))
+      (setq buffers (build-buffers-tab-internal buffers))
+      buffers)))
 
 (defun add-tab-to-gutter ()
   "Put a tab control in the gutter area to hold the most recent buffers."

@@ -1223,14 +1223,14 @@ redisplay_output_layout (struct window *w,
   /* We bogusly don't take f->extents_changed and f->glyphs_changed
      into account. This is because if we do we always redisplay the
      entire layout. So far I have seen no ill effects to we'll see. */
-  int frame_changed = (f->buffers_changed ||
-		       f->clip_changed ||
-		       f->faces_changed    ||
-		       f->frame_changed    ||
-		       f->modeline_changed ||
-		       f->subwindows_changed ||
-		       f->windows_changed ||
-		       f->windows_structure_changed);
+  int frame_really_changed = (f->buffers_changed ||
+			      f->clip_changed ||
+			      f->faces_changed    ||
+			      f->frame_changed    ||
+			      f->modeline_changed ||
+			      f->subwindows_changed ||
+			      f->windows_changed ||
+			      f->windows_structure_changed);
 
   XSETWINDOW (window, w);
 
@@ -1246,7 +1246,7 @@ redisplay_output_layout (struct window *w,
 
   /* Highly dodgy optimization. We want to only output the whole
      layout if we really have to. */
-  if (frame_changed || IMAGE_INSTANCE_DIRTYP (p))
+  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (p))
     {
       /* First clear the area we are drawing into. This is the easiest
 	 thing to do since we have many gaps that we have to make sure are
@@ -1348,7 +1348,7 @@ redisplay_output_layout (struct window *w,
 		       generalisation.*/
 		    if (redisplay_normalize_glyph_area (&cdb, &cdga) 
 			&&  
-			(frame_changed || IMAGE_INSTANCE_DIRTYP (childii)))
+			(frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii)))
 		      {
 			struct display_line dl;	/* this is fake */
 			Lisp_Object string =
@@ -1382,14 +1382,14 @@ redisplay_output_layout (struct window *w,
 		  
 		case IMAGE_MONO_PIXMAP:
 		case IMAGE_COLOR_PIXMAP:
-		  if (frame_changed || IMAGE_INSTANCE_DIRTYP (childii))
+		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_pixmap (w, child, &cdb, &cdga, findex,
 					     0, 0, 0, 0);
 		  break;
 	      
 		case IMAGE_WIDGET:
 		case IMAGE_SUBWINDOW:
-		  if (frame_changed || IMAGE_INSTANCE_DIRTYP (childii))
+		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_subwindow (w, child, &cdb, &cdga, findex,
 						0, 0, 0);
 		  break;

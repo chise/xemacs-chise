@@ -80,7 +80,7 @@ INSTALLABLES_BASE = etags ctags b2m ootags
 #else
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
 #endif
-INSTALLABLE_SCRIPTS = rcs-checkin pstogif gnudoit gnuattach
+INSTALLABLE_SCRIPTS = rcs-checkin gnudoit gnuattach
 #ifdef HAVE_SHLIB
 #ifdef HAVE_MS_WINDOWS
 INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient ellcc

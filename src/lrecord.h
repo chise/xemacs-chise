@@ -72,12 +72,12 @@ struct lrecord_header
 struct lrecord_implementation;
 int lrecord_type_index (CONST struct lrecord_implementation *implementation);
 
-# define set_lheader_implementation(header,imp) do {	\
+#define set_lheader_implementation(header,imp) do {	\
   struct lrecord_header* SLI_header = (header);		\
-  (SLI_header)->type = lrecord_type_index (imp);	\
-  (SLI_header)->mark = 0;				\
-  (SLI_header)->c_readonly = 0;				\
-  (SLI_header)->lisp_readonly = 0;			\
+  SLI_header->type = lrecord_type_index (imp);		\
+  SLI_header->mark = 0;					\
+  SLI_header->c_readonly = 0;				\
+  SLI_header->lisp_readonly = 0;			\
 } while (0)
 
 struct lcrecord_header
@@ -489,12 +489,12 @@ void *alloc_lcrecord (size_t size, CONST struct lrecord_implementation *);
    overwrite the header information. */
 
 #define copy_lcrecord(dst, src)					\
-  memcpy ((char *) dst + sizeof (struct lcrecord_header),	\
-	  (char *) src + sizeof (struct lcrecord_header),	\
-	  sizeof (*dst) - sizeof (struct lcrecord_header))
+  memcpy ((char *) (dst) + sizeof (struct lcrecord_header),	\
+	  (char *) (src) + sizeof (struct lcrecord_header),	\
+	  sizeof (*(dst)) - sizeof (struct lcrecord_header))
 
 #define zero_lcrecord(lcr)					\
-   memset ((char *) lcr + sizeof (struct lcrecord_header), 0,	\
-	   sizeof (*lcr) - sizeof (struct lcrecord_header))
+   memset ((char *) (lcr) + sizeof (struct lcrecord_header), 0,	\
+	   sizeof (*(lcr)) - sizeof (struct lcrecord_header))
 
 #endif /* _XEMACS_LRECORD_H_ */

@@ -1,3 +1,142 @@
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-12-06  Martin Buchholz  <martin@xemacs.org>
+
+	* events.c (Fcopy_event): Don't copy the lrecord_header.
+
+	* lisp.h (DO_REALLOC): 
+	Optimize.
+	Remove redundant parens.
+	Remove generic hygienic macro comment.
+
+	* lrecord.h (set_lheader_implementation): Remove redundant parens.
+
+1999-12-05  Martin Buchholz  <martin@xemacs.org>
+
+	* lstream.c (Lstream_adding): 
+	- Never compare a size_t and a possibly negative number.
+	- Optimize.
+
+1999-12-05  Kyle Jones  <kyle_jones@wonderworks.com>
+
+	* lisp/itimer.el: (require 'lisp-float-type).  Use
+	  floats directly in itimer-time-difference.
+
+1999-12-05  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_layout): avoid name hiding.
+
+	* gui.h: declare gui_add_item_keywords_to_plist.
+
+	* window.c (Fdelete_window): mark subwindows as changed so that
+	they can be GC'd if necessary.
+
+1999-12-02  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* src/callproc.c (Fcall_process_internal): Be careful in writing
+	terminating null when copying args. nargs can be < 4.
+	Idea from Klaus Frank <klausf@i3.informatik.rwth-aachen.de>
+
+1999-11-29  Kyle Jones  <kyle_jones@wonderworks.com>
+
+	* src/sound.c (Fding): Remove zero initialization of
+	  static variables to avoid crashes on systems that dump
+	  the initialized data segment read-only.
+
+1999-12-05  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* glyphs-x.c (convert_EImage_to_XImage): Guard against other
+	visual classes. From Rasmus Borup Hansen <rbh@math.ku.dk>
+
+1999-12-04  Martin Buchholz  <martin@xemacs.org>
+
+	* lstream.c: (filedesc_reader): 
+	(filedesc_writer): Try number 2: Support broken systems where
+	return type of read() and write() is different from ssize_t.
+
+	* systty.h: 
+	* sysdep.h:
+	* sysdep.c:
+	- Replace macro calls to EMACS_GET_TTY and EMACS_SET_TTY with
+	  function equivalents emacs_get_tty() and emacs_set_tty().
+	- Moved prototypes to systty.h, where struct event_tty is defined.
+	- Renamed bogus `waitp' parameter to `flushp'.
+
+	* lstream.c (filedesc_reader): Support broken systems where return
+	type of read() is different from ssize_t.
+
+	* events.c (Fcopy_event): Avoid redundant EQ test if event2 is nil.
+
+	* event-stream.c (menu_move_up): Remove redundant if block.
+	(menu_move_down): Gratuitous rewriting.
+	(menu_move_left): Work around Cygnus codefusion-990706 compiler bug.
+	(menu_move_right): Ditto.
+
+	* lrecord.h (copy_lcrecord):
+	(zero_lcrecord): 
+	Always add parentheses around uses of macro arguments.
+
+	* sysdll.c: #include <stdlib.h> for exit().
+	* unexhp9k800.x: #include <stdlib.h> for malloc().
+	Use proper prototype for Save_Shared_Data(void).
+
+1999-12-04  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* src/redisplay.c (point_would_be_visible): Correct for topclip.
+
+1999-12-02  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* lisp.h: Declare Qself_insert_defer_undo.
+
+	* event-stream.c (Fdispatch_event): Get the magic undo thing from
+	a symbol property, so commands other than self-insert-command can
+	install it.
+	(syms_of_event_stream): Define Qself_insert_defer_undo.
+
+1999-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* floatfns.c (emacs_rint): Rename rint to emacs_rint, so that
+	`#undef HAVE_RINT' works.
+
+	* sysdep.h: Fix up prototypes for sys_read_1(), sys_write_1()
+
+1999-11-25  Andy Piper  <andy@xemacs.org>
+
+	* select-msw.c (Fmswindows_set_clipboard): selection fixes from
+	Mike Alexander.
+	(Fmswindows_delete_selection): ditto.
+
+	* redisplay.h (CLASS_REDISPLAY_FLAGS_CHANGEDP): add size_changed.
+	(GLOBAL_REDISPLAY_FLAGS_CHANGEDP): ditto.
+
+	* redisplay.c (redisplay_device): move size changed to macros in
+	redisplay.h
+	(redisplay_without_hooks): ditto.
+
+	* redisplay-output.c (redisplay_output_layout): rename to avoid
+	name hiding.
+
+	* process-nt.c (struct nt_process_data): mks toolkit fixes from
+	Mike Alexander.
+	(nt_create_process): ditto.
+	(nt_send_process): ditto.
+
+	* nt.c (init_environment): make sure mingw32 gets the cached
+	system info.
+
+	* gui.h: declare gui_add_item_keywords_to_plist.
+
+	* event-msw.c (mswindows_wnd_proc): Clipboard fixes from Mike
+	Alexander.
+
+	* console-msw.h: fix cygwin define/header 1.0 problems.
+	* glyphs-msw.c: ditto.
+	* ntplay.c: ditto.
+	* unexcw.c: ditto.
+	* s/cygwin32/h: ditto.
+
 1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.22 is released

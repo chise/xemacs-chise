@@ -424,7 +424,7 @@ void
 child_setup_tty (int out)
 {
   struct emacs_tty s;
-  EMACS_GET_TTY (out, &s);
+  emacs_get_tty (out, &s);
 
 #if defined (HAVE_TERMIO) || defined (HAVE_TERMIOS)
   assert (isatty(out));
@@ -516,7 +516,7 @@ child_setup_tty (int out)
   s.lmode = LLITOUT | s.lmode;        /* Don't strip 8th bit */
 
 #endif /* not HAVE_TERMIO */
-  EMACS_SET_TTY (out, &s, 0);
+  emacs_set_tty (out, &s, 0);
 
 #ifdef RTU
   {
@@ -1372,7 +1372,8 @@ emacs_get_tty (int fd, struct emacs_tty *settings)
 
 /* Set the parameters of the tty on FD according to the contents of
    *SETTINGS.  If FLUSHP is non-zero, we discard input.
-   Return 0 if all went well, and -1 if anything failed.  */
+   Return 0 if all went well, and -1 if anything failed.
+   #### All current callers use FLUSHP == 0. */
 
 int
 emacs_set_tty (int fd, struct emacs_tty *settings, int flushp)
@@ -1482,7 +1483,7 @@ tty_init_sys_modes_on_device (struct device *d)
   input_fd = CONSOLE_TTY_DATA (con)->infd;
   output_fd = CONSOLE_TTY_DATA (con)->outfd;
 
-  EMACS_GET_TTY (input_fd, &CONSOLE_TTY_DATA (con)->old_tty);
+  emacs_get_tty (input_fd, &CONSOLE_TTY_DATA (con)->old_tty);
   tty = CONSOLE_TTY_DATA (con)->old_tty;
 
   con->tty_erase_char = Qnil;
@@ -1649,7 +1650,7 @@ tty_init_sys_modes_on_device (struct device *d)
   tty.ltchars = new_ltchars;
 #endif /* HAVE_LTCHARS */
 
-  EMACS_SET_TTY (input_fd, &tty, 0);
+  emacs_set_tty (input_fd, &tty, 0);
 
   /* This code added to insure that, if flow-control is not to be used,
      we have an unlocked terminal at the start. */
@@ -1756,7 +1757,7 @@ tabs_safe_p (struct device *d)
     {
       struct emacs_tty tty;
 
-      EMACS_GET_TTY (DEVICE_INFD (d), &tty);
+      emacs_get_tty (DEVICE_INFD (d), &tty);
       return EMACS_TTY_TABS_OK (&tty);
     }
 #endif
@@ -1829,7 +1830,7 @@ eight_bit_tty (struct device *d)
   assert (DEVICE_TTY_P (d));
   input_fd = DEVICE_INFD (d);
 
-  EMACS_GET_TTY (input_fd, &s);
+  emacs_get_tty (input_fd, &s);
 
 #if defined (HAVE_TERMIO) || defined (HAVE_TERMIOS)
   eight_bit = (s.main.c_cflag & CSIZE) == CS8;
@@ -1879,7 +1880,7 @@ tty_reset_sys_modes_on_device (struct device *d)
   fsync (output_fd);
 #endif
 
-  while (EMACS_SET_TTY (input_fd, &CONSOLE_TTY_DATA (con)->old_tty, 0)
+  while (emacs_set_tty (input_fd, &CONSOLE_TTY_DATA (con)->old_tty, 0)
 	 < 0 && errno == EINTR)
     ;
 

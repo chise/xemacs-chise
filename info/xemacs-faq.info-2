@@ -1040,8 +1040,8 @@ File: xemacs-faq.info,  Node: Q2.1.16,  Next: Q2.1.17,  Prev: Q2.1.15,  Up: Inst
 Q2.1.16: XEmacs crashes in `strcat' on HP/UX 10
 -----------------------------------------------
 
-   >From the problems database (through
-`http://support.mayfield.hp.com/'):
+   From the problems database (through the former address
+http://support.mayfield.hp.com/):
 
      Problem Report: 5003302299
      Status:         Open

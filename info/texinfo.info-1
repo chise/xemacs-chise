@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -33,19 +33,19 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
-File: texinfo.info,  Node: Top,  Next: Copying,  Up: (dir)
+File: texinfo.info,  Node: Top,  Next: Copying,  Prev: (dir),  Up: (dir)
 
 Texinfo
 *******
 
   Texinfo is a documentation system that uses a single source file to
-produce both online information and printed output.
+produce both on-line information and printed output.
 
   The first part of this master menu lists the major nodes in this Info
 document, including the @-command and concept indices.  The rest of the
 menu lists all the lower level nodes in the document.
 
-  This is Edition 4.0 of the Texinfo manual, updated 28 September 1999.
+  This is Edition 3.12 of the Texinfo documentation, 27 February 1998.
 
 * Menu:
 
@@ -69,12 +69,13 @@ menu lists all the lower level nodes in the document.
 * Breaks::                      How to force and prevent line and page breaks.
 * Definition Commands::         How to describe functions and the like
                                   in a uniform manner.
+* Footnotes::                   How to write footnotes.
 * Conditionals::                How to specify text for either TeX or Info.
-* Internationalization::
-* Defining New Texinfo Commands::
-* Hardcopy::                    How to convert a Texinfo file to a file
+* Macros::                      Defining new Texinfo commands.
+* Format/Print Hardcopy::       How to convert a Texinfo file to a file
                                   for printing and how to print that file.
-* Creating and Installing Info Files::
+* Create an Info File::         Convert a Texinfo file into an Info file.
+* Install an Info File::        Make an Info file accessible to users.
 * Command List::                All the Texinfo @-commands.
 * Tips::                        Hints on how to write a Texinfo document.
 * Sample Texinfo File::         A sample Texinfo file to look at.
@@ -94,17 +95,18 @@ menu lists all the lower level nodes in the document.
 
 Overview of Texinfo
 
-* Reporting Bugs::              Submitting effective bug reports.
-* Using Texinfo::               Create printed or online output.
+* Using Texinfo::               Create a conventional printed book
+                                  or an Info file.
 * Info Files::                  What is an Info file?
 * Printed Books::               Characteristics of a printed book or manual.
 * Formatting Commands::         @-commands are used for formatting.
 * Conventions::                 General rules for writing a Texinfo file.
-* Comments::                    Writing comments and ignored text in general.
+* Comments::                    How to write comments and mark regions that
+                                  the formatting commands will ignore.
 * Minimum::                     What a Texinfo file must have.
 * Six Parts::                   Usually, a Texinfo file has six parts.
 * Short Sample::                A short sample Texinfo file.
-* Acknowledgements and History::  Contributors and genesis.
+* Acknowledgements::
 
 Using Texinfo Mode
 
@@ -145,8 +147,7 @@ The Texinfo File Header
 * setfilename::                 Tell Info the name of the Info file.
 * settitle::                    Create a title for the printed work.
 * setchapternewpage::           Start chapters on right-hand pages.
-* paragraphindent::             Specify paragraph indentation.
-* exampleindent::               Specify environment indentation.
+* paragraphindent::             An option to specify paragraph indentation.
 * End of Header::               Formatting a region requires this.
 
 The Title and Copyright Pages
@@ -195,9 +196,8 @@ Nodes
 * Two Paths::                   Different commands to structure
                                   Info output and printed output.
 * Node Menu Illustration::      A diagram, and sample nodes and menus.
-* node::                        Creating nodes, in detail.
-* makeinfo Pointer Creation::   Letting makeinfo determine node pointers.
-* anchor::                      Defining arbitrary cross-reference targets.
+* node::                        How to write a node, in detail.
+* makeinfo Pointer Creation::   How to create node pointers with `makeinfo'.
 
 The `@node' Command
 
@@ -246,26 +246,23 @@ Marking Words and Phrases
 Indicating Definitions, Commands, etc.
 
 * Useful Highlighting::         Highlighting provides useful information.
-* code::                        Indicating program code.
-* kbd::                         Showing keyboard input.
-* key::                         Specifying keys.
-* samp::                        Showing a literal sequence of characters.
-* var::                         Indicating metasyntactic variables.
-* env::                         Indicating environment variables.
-* file::                        Indicating file names.
-* command::                     Indicating command names.
-* option::                      Indicating option names.
-* dfn::                         Specifying definitions.
-* cite::                        Referring to books not in the  Info system.
-* acronym::                     Indicating acronyms.
-* url::                         Indicating a World Wide Web reference.
-* email::                       Indicating an electronic mail address.
+* code::                        How to indicate code.
+* kbd::                         How to show keyboard input.
+* key::                         How to specify keys.
+* samp::                        How to show a literal sequence of characters.
+* var::                         How to indicate a metasyntactic variable.
+* file::                        How to indicate the name of a file.
+* dfn::                         How to specify a definition.
+* cite::                        How to refer to a book that is not in Info.
+* url::                         How to indicate a world wide web reference.
+* email::                       How to indicate an electronic mail address.
 
 Emphasizing Text
 
 * emph & strong::               How to emphasize text in Texinfo.
 * Smallcaps::                   How to use the small caps font.
 * Fonts::                       Various font commands for printed output.
+* Customized Highlighting::     How to define highlighting commands.
 
 Quotations and Examples
 
@@ -274,8 +271,8 @@ Quotations and Examples
 * quotation::                   How to write a quotation.
 * example::                     How to write an example in a fixed-width font.
 * noindent::                    How to prevent paragraph indentation.
-* lisp::                        How to illustrate Lisp code.
-* small::                       Forms for `@smallbook'.
+* Lisp Example::                How to illustrate Lisp code.
+* smallexample & smalllisp::    Forms for the `@smallbook' option.
 * display::                     How to write an example in the current font.
 * format::                      How to write an example that does not narrow
                                   the margins.
@@ -302,7 +299,7 @@ Multi-column Tables
 * Multitable Column Widths::    Defining multitable column widths.
 * Multitable Rows::             Defining multitable rows, with examples.
 
-Indices
+Creating Indices
 
 * Index Entries::               Choose different words for index entries.
 * Predefined Indices::          Use different indices for different kinds
@@ -332,7 +329,6 @@ Special Insertions
 * math::                        How to format a mathematical expression.
 * Glyphs::                      How to indicate results of evaluation,
                                   expansion of macros, errors, etc.
-* Footnotes::                   How to include footnotes.
 * Images::                      How to include graphics.
 
 Inserting @ and Braces
@@ -376,11 +372,6 @@ Glyphs Summary
 * Equivalence::
 * Point Glyph::
 
-Footnotes
-
-* Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear in Info.
-
 Making and Preventing Breaks
 
 * Break Commands::              Cause and prevent splits.
@@ -411,6 +402,11 @@ The Definition Commands
 * Abstract Objects::            Commands for object-oriented programming.
 * Data Types::                  The definition command for data types.
 
+Footnotes
+
+* Footnote Commands::           How to write a footnote in Texinfo.
+* Footnote Styles::             Controlling how footnotes appear in Info.
+
 Conditionally Visible Text
 
 * Conditional Commands::        Specifying text for HTML, Info, or TeX.
@@ -423,45 +419,30 @@ Conditionally Visible Text
 `@set', `@clear', and `@value'
 
 * ifset ifclear::               Format a region if a flag is set.
-* set value::                   Expand a flag variable to a string.
+* value::                       Replace a flag with a string.
 * value Example::               An easy way to update edition information.
 
-Internationalization
+Macros: Defining New Texinfo Commands
 
-* documentlanguage::            Declaring the current language.
-* documentencoding::            Declaring the input encoding.
-
-Defining New Texinfo Commands
-
-* Defining Macros::             Defining and undefining new commands.
+* Defining Macros::             Both defining and undefining new commands.
 * Invoking Macros::             Using a macro, once you've defined it.
-* Macro Details::               Beyond basic macro usage.
-* alias::                       Command aliases.
-* definfoenclose::              Customized highlighting.
 
-Formatting and Printing Hardcopy
+Format and Print Hardcopy
 
 * Use TeX::                     Use TeX to format for hardcopy.
-* Format with tex/texindex::    How to format with explicit shell commands.
-* Format with texi2dvi::        A simpler way to format.
+* Format with tex/texindex::    How to format in a shell.
+* Format with texi2dvi::        A simpler way to use the shell.
 * Print with lpr::              How to print.
 * Within Emacs::                How to format and print from an Emacs shell.
 * Texinfo Mode Printing::       How to format and print in Texinfo mode.
 * Compile-Command::             How to print using Emacs's compile command.
 * Requirements Summary::        TeX formatting requirements summary.
-* Preparing for TeX::           What to do before you use TeX.
+* Preparing for TeX::           What you need to do to use TeX.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
 * smallbook::                   How to print small format books and manuals.
 * A4 Paper::                    How to print on European A4 paper.
-* pagesizes::                   How to print with customized page sizes.
 * Cropmarks and Magnification::  How to print marks to indicate the size
                                 of pages and how to print scaled up output.
-* PDF Output::                  Portable Document Format output.
-
-Creating and Installing Info Files
-
-* Creating an Info File::
-* Install an Info File::
 
 Creating an Info File
 
@@ -476,11 +457,10 @@ Creating an Info File
 * Batch Formatting::            How to format for Info in Emacs Batch mode.
 * Tag and Split Files::         How tagged and split files help Info
                                   to run better.
-* makeinfo html::               Generating HTML output.
 
 Installing an Info File
 
-* Directory File::              The top level menu for all Info files.
+* Directory file::              The top level menu for all Info files.
 * New Info File::               Listing a new info file.
 * Other Info Directories::      How to specify Info files that are
                                   located in other directories.
@@ -528,8 +508,7 @@ Finding Badly Referenced Nodes
 * Tagifying::                   How to tagify a file.
 * Splitting::                   How to split a file manually.
 
-     Documentation is like sex: when it is good, it is very, very good;
-     and when it is bad, it is better than nothing.  --Dick Brandon
+How to Obtain TeX
 
 
 File: texinfo.info,  Node: Copying,  Next: Overview,  Prev: Top,  Up: Top
@@ -577,80 +556,43 @@ File: texinfo.info,  Node: Overview,  Next: Texinfo Mode,  Prev: Copying,  Up: T
 Overview of Texinfo
 *******************
 
-  "Texinfo"(1) (*note Overview-Footnote-1::)  is a documentation system
-that uses a single source file to produce both online information and
+  "Texinfo"(1) (*note Overview-Footnote-1::) is a documentation system
+that uses a single source file to produce both on-line information and
 printed output.  This means that instead of writing two different
-documents, one for the online information and the other for a printed
-work, you need write only one document.  Therefore, when the work is
-revised, you need revise only that one document.
+documents, one for the on-line help or other on-line information and
+the other for a typeset manual or other printed work, you need write
+only one document.  When the work is revised, you need revise only one
+document.  (You can read the on-line information, known as an "Info
+file", with an Info documentation-reading program.)
 
 * Menu:
 
-* Reporting Bugs::              Submitting effective bug reports.
-* Using Texinfo::               Create printed or online output.
+* Using Texinfo::               Create a conventional printed book
+                                  or an Info file.
 * Info Files::                  What is an Info file?
 * Printed Books::               Characteristics of a printed book or manual.
 * Formatting Commands::         @-commands are used for formatting.
 * Conventions::                 General rules for writing a Texinfo file.
-* Comments::                    Writing comments and ignored text in general.
+* Comments::                    How to write comments and mark regions that
+                                  the formatting commands will ignore.
 * Minimum::                     What a Texinfo file must have.
 * Six Parts::                   Usually, a Texinfo file has six parts.
 * Short Sample::                A short sample Texinfo file.
-* Acknowledgements and History::  Contributors and genesis.
+* Acknowledgements::
 
 
 File: texinfo.info,  Node: Overview-Footnotes,  Up: Overview
 
-  (1) The first syllable of "Texinfo" is pronounced like "speck", not
-"hex".  This odd pronunciation is derived from, but is not the same as,
-the pronunciation of TeX.  In the word TeX, the `X' is actually the
-Greek letter "chi" rather than the English letter "ex".  Pronounce TeX
-as if the `X' were the last sound in the name `Bach'; but pronounce
-Texinfo as if the `x' were a `k'.  Spell "Texinfo" with a capital "T"
-and the other letters in lower case.
+  (1) Note that the first syllable of "Texinfo" is pronounced like
+"speck", not "hex".  This odd pronunciation is derived from, but is not
+the same as, the pronunciation of TeX.  In the word TeX, the `X' is
+actually the Greek letter "chi" rather than the English letter "ex".
+Pronounce TeX as if the `X' were the last sound in the name `Bach'; but
+pronounce Texinfo as if the `x' were a `k'.  Spell "Texinfo" with a
+capital "T" and write the other letters in lower case.
 
 
-File: texinfo.info,  Node: Reporting Bugs,  Next: Using Texinfo,  Up: Overview
-
-Reporting Bugs
-==============
-
-  We welcome bug reports or suggestions for the Texinfo system, both
-programs and documentation.  Please email them to
-<bug-texinfo@gnu.org>.  You can get the latest version of Texinfo from
-`ftp://ftp.gnu.org/gnu/texinfo/' and its mirrors worldwide.
-
-  For bug reports, please include enough information for the maintainers
-to reproduce the problem.  Generally speaking, that means:
-
-   * the version number of Texinfo and the program(s) or manual(s)
-     involved.
-
-   * hardware, operating system, and compiler versions.
-
-   * any unusual options you gave to `configure'.
-
-   * the contents of any input files necessary to reproduce the bug.
-
-   * a description of the problem and samples of any erroneous output.
-
-   * anything else that you think would be helpful.
-
-  When in doubt whether something is needed or not, include it.  It's
-better to include too much than to leave out something important.
-
-  Patches are most welcome; if possible, please make them with
-`diff -c' (*note Overview: (diffutils)Top.) and include `ChangeLog'
-entries (*note Change Log: (emacs)Change Log.).
-
-  When sending email, please do not encode or split the messages in any
-way if possible; it's much easier to deal with one plain text message,
-however large, than many small ones.  GNU shar
-(ftp://ftp.gnu.org/gnu/sharutils/) is a convenient way of packaging
-multiple and/or binary files for email.
-
-
-File: texinfo.info,  Node: Using Texinfo,  Next: Info Files,  Prev: Reporting Bugs,  Up: Overview
+File: texinfo.info,  Node: Using Texinfo,  Next: Info Files,  Prev: Overview,  Up: Overview
 
 Using Texinfo
 =============
@@ -658,71 +600,47 @@ Using Texinfo
   Using Texinfo, you can create a printed document with the normal
 features of a book, including chapters, sections, cross references, and
 indices.  From the same Texinfo source file, you can create a
-menu-driven, online Info file with nodes, menus, cross references, and
-indices.  You can also create from that same source file an HTML output
-file suitable for use with a web browser.  `The GNU Emacs Manual' is a
-good example of a Texinfo file, as is this manual.
+menu-driven, on-line Info file with nodes, menus, cross references, and
+indices.  You can, if you wish, make the chapters and sections of the
+printed document correspond to the nodes of the on-line information;
+and you use the same cross references and indices for both the Info
+file and the printed work.  `The GNU Emacs Manual' is a good example of
+a Texinfo file, as is this manual.
 
   To make a printed document, you process a Texinfo source file with the
-TeX typesetting program (but the Texinfo language is very different
-from TeX's usual language, plain TeX).  This creates a DVI file that
-you can typeset and print as a book or report (*note Hardcopy::).
+TeX typesetting program.  This creates a DVI file that you can typeset
+and print as a book or report.  (Note that the Texinfo language is
+completely different from TeX's usual language, plain TeX.)  If you do
+not have TeX, but do have `troff' or `nroff', you can use the
+`texi2roff' program instead.
 
-  To output an Info file, process your Texinfo source with the
-`makeinfo' utility or Emacs's `texinfo-format-buffer' command.  You can
-install the result in your Info tree (*note Install an Info File::).
+  To make an Info file, you process a Texinfo source file with the
+`makeinfo' utility or Emacs's `texinfo-format-buffer' command; this
+creates an Info file that you can install on-line.
 
-  To output an HTML file, process your Texinfo source with `makeinfo'
-using the `--html' option.  You can (for example) install the result on
-your web site.
+  TeX and `texi2roff' work with many types of printers; similarly, Info
+works with almost every type of computer terminal.  This power makes
+Texinfo a general purpose system, but brings with it a constraint,
+which is that a Texinfo file may contain only the customary
+"typewriter" characters (letters, numbers, spaces, and punctuation
+marks) but no special graphics.
 
-  If you are a programmer and would like to contribute to the GNU
-project by implementing additional output formats for Texinfo, that
-would be excellent.  But please do not write a separate translator
-texi2foo for your favorite format foo!  That is the hard way to do the
-job, and makes extra work in subsequent maintenance, since the Texinfo
-language is continually being enhanced and updated.  Instead, the best
-approach is modify `makeinfo' to generate the new format, as it does
-now for Info and HTML.
+  A Texinfo file is a plain ASCII file containing text and "@-commands"
+(words preceded by an `@') that tell the typesetting and formatting
+programs what to do.  You may edit a Texinfo file with any text editor;
+but it is especially convenient to use GNU Emacs since that editor has
+a special mode, called Texinfo mode, that provides various
+Texinfo-related features.  (*Note Texinfo Mode::.)
 
-  TeX works with virtually all printers; Info works with virtually all
-computer terminals; the HTML output works with virtually all web
-browsers.  Thus Texinfo can be used by almost any computer user.
+  Before writing a Texinfo source file, you should become familiar with
+the Info documentation reading program and learn about nodes, menus,
+cross references, and the rest.  (*note info: (info)Top, for more
+information.)
 
-  A Texinfo source file is a plain ASCII file containing text and
-"@-commands" (words preceded by an `@') that tell the typesetting and
-formatting programs what to do.  You may edit a Texinfo file with any
-text editor; but it is especially convenient to use GNU Emacs since
-that editor has a special mode, called Texinfo mode, that provides
-various Texinfo-related features.  (*Note Texinfo Mode::.)
-
-  Before writing a Texinfo source file, you should learn about nodes,
-menus, cross references, and the rest, for example by reading this
-manual.
-
-  You can use Texinfo to create both online help and printed manuals;
+  You can use Texinfo to create both on-line help and printed manuals;
 moreover, Texinfo is freely redistributable.  For these reasons, Texinfo
-is the official documentation format of the GNU project.  More
-information is available at the GNU documentation web page
-(http://www.gnu.org/doc/).
-
-  From time to time, proposals are made to generate traditional Unix man
-pages from Texinfo source.  This is not likely to ever be supported,
-because man pages have a very strict conventional format.  Merely
-enhancing `makeinfo' to output troff format would be insufficient.
-Generating a good man page therefore requires a completely different
-source than the typical Texinfo applications of generating a good user
-manual or a good reference manual.  This makes generating man pages
-incompatible with the Texinfo design goal of not having to document the
-same information in different ways for different output formats.  You
-might as well just write the man page directly.
-
-  If you wish to support man pages, the program `help2man' may be
-useful; it generates a traditional man page from the `--help' output of
-a program.  In fact, this is currently used to generate man pages for
-the Texinfo programs themselves.  It is free software written by
-Brendan O'Dea, available from
-`http://www.ozemail.com.au/~bod/help2man.tar.gz'.
+is the format in which documentation for GNU utilities and libraries is
+written.
 
 
 File: texinfo.info,  Node: Info Files,  Next: Printed Books,  Prev: Using Texinfo,  Up: Overview
@@ -802,15 +720,6 @@ with the advanced Info command `g *'.  (*note Advanced Info commands:
 for the whole Info system.  From it, you can reach the `Top' nodes of
 each of the documents in a complete Info system.
 
-  If you wish to refer to an Info file in a URI, you can use the
-(unofficial) syntax exemplified in the following.  This works with
-Emacs/W3, for example:
-     info:///usr/info/emacs#Dissociated%20Press
-     info:emacs#Dissociated%20Press
-     info://localhost/usr/info/emacs#Dissociated%20Press
-
-  The `info' program itself does not follow URI's of any kind.
-
 
 File: texinfo.info,  Node: Info Files-Footnotes,  Up: Info Files
 
@@ -834,19 +743,17 @@ as well as chapters, numbered or unnumbered sections and subsections,
 page headers, cross references, footnotes, and indices.
 
   You can use Texinfo to write a book without ever having the intention
-of converting it into online information.  You can use Texinfo for
+of converting it into on-line information.  You can use Texinfo for
 writing a printed novel, and even to write a printed memo, although
 this latter application is not recommended since electronic mail is so
 much easier.
 
   TeX is a general purpose typesetting program.  Texinfo provides a
-file `texinfo.tex' that contains information (definitions or "macros")
-that TeX uses when it typesets a Texinfo file.  (`texinfo.tex' tells
-TeX how to convert the Texinfo @-commands to TeX commands, which TeX
-can then process to create the typeset document.)  `texinfo.tex'
-contains the specifications for printing a document.  You can get the
-latest version of `texinfo.tex' from
-`ftp://ftp.gnu.org/gnu/texinfo.tex'.
+file called `texinfo.tex' that contains information (definitions or
+"macros") that TeX uses when it typesets a Texinfo file.
+(`texinfo.tex' tells TeX how to convert the Texinfo @-commands to TeX
+commands, which TeX can then process to create the typeset document.)
+`texinfo.tex' contains the specifications for printing a document.
 
   Most often, documents are printed on 8.5 inch by 11 inch pages (216mm
 by 280mm; this is the default size), but you can also print for 7 inch
@@ -865,23 +772,22 @@ light-hearted, young and cheery.
   TeX is freely distributable.  It is written in a superset of Pascal
 called WEB and can be compiled either in Pascal or (by using a
 conversion program that comes with the TeX distribution) in C.  (*Note
-TeX Mode: (emacs)TeX Mode, for information about TeX.)
+TeX Mode: (xemacs)TeX Mode, for information about TeX.)
 
   TeX is very powerful and has a great many features.  Because a
 Texinfo file must be able to present information both on a
 character-only terminal in Info form and in a typeset book, the
 formatting commands that Texinfo supports are necessarily limited.
 
-  To get a copy of TeX, see *Note How to Obtain TeX: Obtaining TeX.
+  *Note How to Obtain TeX: Obtaining TeX.
 
 
 File: texinfo.info,  Node: Printed Books-Footnotes,  Up: Printed Books
 
-  (1) You can also use the `texi2roff' (ftp://tug.org/texi2roff.tar.gz)
-program if you do not have TeX; since Texinfo is designed for use with
-TeX, `texi2roff' is not described here.  `texi2roff' is not part of the
-standard GNU distribution and is not maintained or up-to-date with all
-the Texinfo features described in this manual.
+  (1) You can also use the `texi2roff' program if you do not have TeX;
+since Texinfo is designed for use with TeX, `texi2roff' is not
+described here.  `texi2roff' is not part of the standard GNU
+distribution.
 
 
 File: texinfo.info,  Node: Formatting Commands,  Next: Conventions,  Prev: Printed Books,  Up: Overview
@@ -926,14 +832,11 @@ of their own or as part of sentences:
      this example, between the braces.  (`@code' marks text as being
      code.)
 
-   * Write a command such as `@example' on a line of its own; write the
-     body-text on following lines; and write the matching `@end'
-     command, `@end example' in this case, at the on a line of its own
-     after the body-text. (`@example' ... `@end example' indents and
-     typesets body-text as an example.)  It's usually ok to indent
-     environment commands like this, but in complicated and
-     hard-to-define circumstances the extra spaces cause extra space to
-     appear in the output, so beware.
+   * Write a command such as `@example' at the beginning of a line of
+     its own; write the body-text on following lines; and write the
+     matching `@end' command, `@end example' in this case, at the
+     beginning of a line of its own after the body-text. (`@example'
+     ... `@end example' indents and typesets body-text as an example.)
 
 As a general rule, a command requires braces if it mingles among other
 text; but it does not need braces if it starts a line of its own.  The
@@ -950,14 +853,14 @@ exactly the same syntax.  (For details about @-command syntax, see
 File: texinfo.info,  Node: Formatting Commands-Footnotes,  Up: Formatting Commands
 
   (1) The word "argument" comes from the way it is used in mathematics
-and does not refer to a dispute between two people; it refers to the
+and does not refer to a disputation between two people; it refers to the
 information presented to the command.  According to the `Oxford English
 Dictionary', the word derives from the Latin for "to make clear,
 prove"; thus it came to mean `the evidence offered as proof', which is
 to say, `the information offered', which led to its mathematical
 meaning.  In its other thread of derivation, the word came to mean `to
 assert in a manner against which others may make counter assertions',
-which led to the meaning of `argument' as a dispute.
+which led to the meaning of `argument' as a disputation.
 
 
 File: texinfo.info,  Node: Conventions,  Next: Comments,  Prev: Formatting Commands,  Up: Overview
@@ -965,43 +868,37 @@ File: texinfo.info,  Node: Conventions,  Next: Comments,  Prev: Formatting Comma
 General Syntactic Conventions
 =============================
 
-  This section describes the general conventions used in all Texinfo
-documents.
+  All printable ASCII characters except `@', `{' and `}' can appear in
+a Texinfo file and stand for themselves.  `@' is the escape character
+which introduces commands.  `{' and `}' should be used only to surround
+arguments to certain commands.  To put one of these special characters
+into the document, put an `@' character in front of it, like this:
+`@@', `@{', and `@}'.
 
-   * All printable ASCII characters except `@', `{' and `}' can appear
-     in a Texinfo file and stand for themselves.  `@' is the escape
-     character which introduces commands.  `{' and `}' should be used
-     only to surround arguments to certain commands.  To put one of
-     these special characters into the document, put an `@' character
-     in front of it, like this: `@@', `@{', and `@}'.
+  It is customary in TeX to use doubled single-quote characters to
+begin and end quotations: ` ` and ' ' (but without a space between the
+two single-quote characters).  This convention should be followed in
+Texinfo files.  TeX converts doubled single-quote characters to left-
+and right-hand doubled quotation marks and Info converts doubled
+single-quote characters to ASCII double-quotes: ` ` and ' ' to " .
 
-   * It is customary in TeX to use doubled single-quote characters to
-     begin and end quotations: ` ` and ' ' (but without a space between
-     the two single-quote characters).  This convention should be
-     followed in Texinfo files.  TeX converts doubled single-quote
-     characters to left- and right-hand doubled quotation marks and
-     Info converts doubled single-quote characters to ASCII
-     double-quotes: ` ` and ' ' to " .
+  Use three hyphens in a row, `---', for a dash--like this.  In TeX, a
+single or double hyphen produces a printed dash that is shorter than
+the usual typeset dash. Info reduces three hyphens to two for display
+on the screen.
 
-   * Use three hyphens in a row, `---', for a dash--like this.  In TeX,
-     a single or double hyphen produces a printed dash that is shorter
-     than the usual typeset dash. Info reduces three hyphens to two for
-     display on the screen.
+  To prevent a paragraph from being indented in the printed manual, put
+the command `@noindent' on a line by itself before the paragraph.
 
-   * To prevent a paragraph from being indented in the printed manual,
-     put the command `@noindent' on a line by itself before the
-     paragraph.
-
-   * If you mark off a region of the Texinfo file with the `@iftex' and
-     `@end iftex' commands, that region will appear only in the printed
-     copy; in that region, you can use certain commands borrowed from
-     plain TeX that you cannot use in Info.  Likewise, if you mark off
-     a region with the `@ifinfo' and `@end ifinfo' commands, that
-     region will appear only in the Info file; in that region, you can
-     use Info commands that you cannot use in TeX.  Similarly for
-     `@ifhtml ... @end ifhtml', `@ifnothtml ... @end ifnothtml',
-     `@ifnotinfo ... @end ifnotinfo', `@ifnottex ... @end ifnottex'.
-     *Note Conditionals::.
+  If you mark off a region of the Texinfo file with the `@iftex' and
+`@end iftex' commands, that region will appear only in the printed
+copy; in that region, you can use certain commands borrowed from plain
+TeX that you cannot use in Info.  Likewise, if you mark off a region
+with the `@ifinfo' and `@end ifinfo' commands, that region will appear
+only in the Info file; in that region, you can use Info commands that
+you cannot use in TeX.  Similarly for `@ifhtml ... @end ifhtml',
+`@ifnothtml ... @end ifnothtml', `@ifnotinfo ... @end ifnotinfo',
+`@ifnottex ... @end ifnottex', *Note Conditionals::.
 
      *Caution:* Do not use tabs in a Texinfo file!  TeX uses
      variable-width fonts, which means that it cannot predefine a tab
@@ -1016,6 +913,8 @@ documents.
      Also, you can run `untabify' in Emacs to convert tabs in a region
      to multiple spaces.
 
+     Don't use tabs.
+
 
 File: texinfo.info,  Node: Comments,  Next: Minimum,  Prev: Conventions,  Up: Overview
 
@@ -1025,14 +924,14 @@ Comments
   You can write comments in a Texinfo file that will not appear in
 either the Info file or the printed manual by using the `@comment'
 command (which may be abbreviated to `@c').  Such comments are for the
-person who revises the Texinfo file.  All the text on a line that
-follows either `@comment' or `@c' is a comment; the rest of the line
-does not appear in either the Info file or the printed manual. (Often,
-you can write the `@comment' or `@c' in the middle of a line, and only
-the text that follows after the `@comment' or `@c' command does not
-appear; but some commands, such as `@settitle' and `@setfilename', work
-on a whole line.  You cannot use `@comment' or `@c' in a line beginning
-with such a command.)
+person who reads the Texinfo file.  All the text on a line that follows
+either `@comment' or `@c' is a comment; the rest of the line does not
+appear in either the Info file or the printed manual. (Often, you can
+write the `@comment' or `@c' in the middle of a line, and only the text
+that follows after the `@comment' or `@c' command does not appear; but
+some commands, such as `@settitle' and `@setfilename', work on a whole
+line.  You cannot use `@comment' or `@c' in a line beginning with such
+a command.)
 
   You can write long stretches of text that will not appear in either
 the Info file or the printed manual by using the `@ignore' and `@end
@@ -1043,4 +942,101 @@ two commands does not appear in the processed output.  You can use
 `@end ignore' is used to enclose a part of the copying permissions that
 applies to the Texinfo source file of a document, but not to the Info
 or printed version of the document.
+
+
+File: texinfo.info,  Node: Minimum,  Next: Six Parts,  Prev: Comments,  Up: Overview
+
+What a Texinfo File Must Have
+=============================
+
+  By convention, the names of Texinfo files end with one of the
+extensions `.texinfo', `.texi', or `.tex'.  The longer extension is
+preferred since it describes more clearly to a human reader the nature
+of the file.  The shorter extensions are for operating systems that
+cannot handle long file names.
+
+  In order to be made into a printed manual and an Info file, a Texinfo
+file *must* begin with lines like this:
+
+     \input texinfo
+     @setfilename INFO-FILE-NAME
+     @settitle NAME-OF-MANUAL
+
+The contents of the file follow this beginning, and then you *must* end
+a Texinfo file with a line like this:
+
+     @bye
+
+The `\input texinfo' line tells TeX to use the `texinfo.tex' file,
+which tells TeX how to translate the Texinfo @-commands into TeX
+typesetting commands.  (Note the use of the backslash, `\'; this is
+correct for TeX.)  The `@setfilename' line provides a name for the Info
+file and tells TeX to open auxiliary files.  The `@settitle' line
+specifies a title for the page headers (or footers) of the printed
+manual.
+
+  The `@bye' line at the end of the file on a line of its own tells the
+formatters that the file is ended and to stop formatting.
+
+  Usually, you will not use quite such a spare format, but will include
+mode setting and start-of-header and end-of-header lines at the
+beginning of a Texinfo file, like this:
+
+     \input texinfo   @c -*-texinfo-*-
+     @c %**start of header
+     @setfilename INFO-FILE-NAME
+     @settitle NAME-OF-MANUAL
+     @c %**end of header
+
+In the first line, `-*-texinfo-*-' causes Emacs to switch into Texinfo
+mode when you edit the file.
+
+  The `@c' lines which surround the `@setfilename' and `@settitle'
+lines are optional, but you need them in order to run TeX or Info on
+just part of the file.  (*Note Start of Header::, for more information.)
+
+  Furthermore, you will usually provide a Texinfo file with a title
+page, indices, and the like.  But the minimum, which can be useful for
+short documents, is just the three lines at the beginning and the one
+line at the end.
+
+
+File: texinfo.info,  Node: Six Parts,  Next: Short Sample,  Prev: Minimum,  Up: Overview
+
+Six Parts of a Texinfo File
+===========================
+
+  Generally, a Texinfo file contains more than the minimal beginning
+and end--it usually contains six parts:
+
+1. Header
+     The "Header" names the file, tells TeX which definitions' file to
+     use, and performs other "housekeeping" tasks.
+
+2. Summary Description and Copyright
+     The "Summary Description and Copyright" segment describes the
+     document and contains the copyright notice and copying permissions
+     for the Info file.  The segment must be enclosed between `@ifinfo'
+     and `@end ifinfo' commands so that the formatters place it only in
+     the Info file.
+
+3. Title and Copyright
+     The "Title and Copyright" segment contains the title and copyright
+     pages and copying permissions for the printed manual.  The segment
+     must be enclosed between `@titlepage' and `@end titlepage'
+     commands.  The title and copyright page appear only in the printed
+     manual.
+
+4. `Top' Node and Master Menu
+     The "Master Menu" contains a complete menu of all the nodes in the
+     whole Info file.  It appears only in the Info file, in the `Top'
+     node.
+
+5. Body
+     The "Body" of the document may be structured like a traditional
+     book or encyclopedia or it may be free form.
+
+6. End
+     The "End" contains commands for printing indices and generating
+     the table of contents, and the `@bye' command on a line of its own.
 

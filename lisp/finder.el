@@ -285,8 +285,12 @@ arguments compiles from `load-path'."
       found)))
 
 (defun finder-commentary (file)
-  (interactive)
-  (let* ((str (lm-commentary (finder-find-library file))))
+  "Display FILE's commentary section.
+FILE should be in a form suitable for passing to `locate-library'."
+  (interactive "sLibrary name: ")
+  (let* ((str (lm-commentary (or (finder-find-library file)
+				 (finder-find-library (concat file ".el"))
+				 (error "Can't find library %s" file)))))
     (if (null str)
 	(error "Can't find any Commentary section"))
     (pop-to-buffer "*Finder*")

@@ -287,8 +287,8 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	CHECK_STRING (args[i]);
 	new_argv[i - 3] = (char *) XSTRING_DATA (args[i]);
       }
-    new_argv[nargs - 3] = 0;
   }
+  new_argv[max(nargs - 3,1)] = 0;
 
   if (NILP (path))
     report_file_error ("Searching for program", Fcons (args[0], Qnil));

@@ -1609,6 +1609,8 @@ instance is a mono pixmap; otherwise, the same image instance is returned.
   if (!HAS_DEVMETH_P (XDEVICE (device), colorize_image_instance))
     return image_instance;
 
+  /* #### There should be a copy_image_instance(), which calls a
+     device-specific method to copy the window-system subobject. */
   new = allocate_image_instance (device);
   copy_lcrecord (XIMAGE_INSTANCE (new), XIMAGE_INSTANCE (image_instance));
   /* note that if this method returns non-zero, this method MUST

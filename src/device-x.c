@@ -1337,7 +1337,7 @@ The returned value of this function is nil if the queried resource is not
 found.  If the third arg is `string', a string is returned, and if it is
 `integer', an integer is returned.  If the third arg is `boolean', then the
 returned value is the list (t) for true, (nil) for false, and is nil to
-mean ``unspecified.''
+mean ``unspecified''.
 */
        (name, class, type, locale, device, no_error))
 {

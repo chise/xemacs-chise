@@ -880,9 +880,9 @@ Index
 * documentation <1>:                     Initialization Mode.
 * documentation:                         Introduction.
 * DSO:                                   Introduction.
-* ellcc <1>:                             Introduction.
-* ellcc:                                 Using ellcc.
 * ELLCC:                                 Environment Variables.
+* ellcc <1>:                             Using ellcc.
+* ellcc:                                 Introduction.
 * ELLCFLAGS:                             Environment Variables.
 * ELLDLLFLAGS:                           Environment Variables.
 * ELLLD:                                 Environment Variables.
@@ -901,16 +901,16 @@ Index
 * header files:                          Introduction.
 * help:                                  Introduction.
 * include files:                         Required Header File.
-* initialization <1>:                    Required Variables.
-* initialization <2>:                    Initialization Mode.
+* initialization <1>:                    Initialization Mode.
+* initialization <2>:                    Required Variables.
 * initialization:                        Required Functions.
 * linker:                                Introduction.
 * linking:                               Link Mode.
 * module compiler:                       Using ellcc.
 * module format:                         Annatomy of a Module.
 * module skeleton:                       Annatomy of a Module.
-* modules_of_module <1>:                 Required Functions.
-* modules_of_module:                     Loading other Modules.
+* modules_of_module <1>:                 Loading other Modules.
+* modules_of_module:                     Required Functions.
 * objects, defining:                     Defining Variables.
 * objects, Lisp:                         Defining Variables.
 * paths:                                 Other ellcc options.

@@ -44,6 +44,7 @@ Boston, MA 02111-1307, USA.  */
    Subwindow and Widget support by Andy Piper for 21.2
 
    TODO:
+   Support the GrayScale, StaticColor and StaticGray visual classes.
    Convert images.el to C and stick it in here?
  */
 
@@ -183,6 +184,13 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
   cmap = DEVICE_X_COLORMAP (XDEVICE(device));
   vis = DEVICE_X_VISUAL (XDEVICE(device));
   depth = DEVICE_X_DEPTH(XDEVICE(device));
+
+  if (vis->class == GrayScale || vis->class == StaticColor ||
+      vis->class == StaticGray)
+    {
+      /* #### Implement me!!! */
+      return NULL;
+    }
 
   if (vis->class == PseudoColor)
     {

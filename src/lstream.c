@@ -392,19 +392,24 @@ Lstream_flush (Lstream *lstr)
 static size_t
 Lstream_adding (Lstream *lstr, size_t num, int force)
 {
-  /* Compute the size that the outbuffer needs to be after the
-     chars are added. */
-  size_t size_needed = max (lstr->out_buffer_size,
-			    num + lstr->out_buffer_ind);
+  size_t size = num + lstr->out_buffer_ind;
+
+  if (size <= lstr->out_buffer_size)
+    return num;
+
   /* Maybe chop it down so that we don't buffer more characters
      than our advertised buffering size. */
-  if (!force)
-    size_needed = min (lstr->buffering_size, size_needed);
-  DO_REALLOC (lstr->out_buffer, lstr->out_buffer_size,
-	      size_needed, unsigned char);
-  /* There might be more data buffered than the buffering size,
-     so make sure we don't return a negative number here. */
-  return max (0, min (num, size_needed - lstr->out_buffer_ind));
+  if ((size > lstr->buffering_size) && !force)
+    {
+      size = lstr->buffering_size;
+      /* There might be more data buffered than the buffering size. */
+      if (size <= lstr->out_buffer_ind)
+	return 0;
+    }
+
+  DO_REALLOC (lstr->out_buffer, lstr->out_buffer_size, size, unsigned char);
+
+  return size - lstr->out_buffer_ind;
 }
 
 /* Like Lstream_write(), but does not handle line-buffering correctly. */
@@ -934,7 +939,9 @@ filedesc_reader (Lstream *stream, unsigned char *data, size_t size)
   struct filedesc_stream *str = FILEDESC_STREAM_DATA (stream);
   if (str->end_pos >= 0)
     size = min (size, (size_t) (str->end_pos - str->current_pos));
-  nread = (str->allow_quit ? read_allowing_quit : read) (str->fd, data, size);
+  nread = str->allow_quit ?
+    read_allowing_quit (str->fd, data, size) :
+    read (str->fd, data, size);
   if (nread > 0)
     str->current_pos += nread;
   return nread;
@@ -987,8 +994,9 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 
   /**** start of non-PTY-crap ****/
   if (size > 0)
-    retval = ((str->allow_quit ? write_allowing_quit : write)
-	      (str->fd, data, size));
+    retval = str->allow_quit ?
+      write_allowing_quit (str->fd, data, size) :
+      write (str->fd, data, size);
   else
     retval = 0;
   if (retval < 0 && errno_would_block_p (errno) && str->blocked_ok)
@@ -1011,8 +1019,10 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
 	 out for EWOULDBLOCK. */
       if (str->chars_sans_newline >= str->pty_max_bytes)
 	{
-	  ssize_t retval2 = ((str->allow_quit ? write_allowing_quit : write)
-			     (str->fd, &str->eof_char, 1));
+	  ssize_t retval2 = str->allow_quit ?
+	    write_allowing_quit (str->fd, &str->eof_char, 1) :
+	    write (str->fd, &str->eof_char, 1);
+
 	  if (retval2 > 0)
 	    str->chars_sans_newline = 0;
 	  else if (retval2 < 0)
@@ -1042,8 +1052,10 @@ filedesc_writer (Lstream *stream, CONST unsigned char *data, size_t size)
   if (need_newline)
     {
       Bufbyte nl = '\n';
-      ssize_t retval2 = ((str->allow_quit ? write_allowing_quit : write)
-			 (str->fd, &nl, 1));
+      ssize_t retval2 = str->allow_quit ?
+	write_allowing_quit (str->fd, &nl, 1) :
+	write (str->fd, &nl, 1);
+
       if (retval2 > 0)
         {
           str->chars_sans_newline = 0;

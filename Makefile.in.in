@@ -65,6 +65,7 @@ LC_ALL = C
 RM = rm -f
 MAKEPATH=./lib-src/make-path
 pwd = /bin/pwd
+TAR = tar
 
 ## ==================== Things `configure' Might Edit ====================
 
@@ -260,7 +261,7 @@ ${PROGNAME}:	${GENERATED_HEADERS} ${MAKE_SUBDIR} ${GENERATED_LISP}
 .PHONY: ${SUBDIR} all beta all-elc all-elcs dump-elc dump-elcs autoloads finder
 
 ## Convenience target for XEmacs beta testers
-beta: clean all-elc finder
+beta: clean all-elc finder info
 
 ## Convenience target for XEmacs maintainers
 ## This would run `make-xemacsdist' if I were really confident that everything
@@ -460,8 +461,8 @@ install-arch-indep: mkdir info
 	     -a "`(cd $${dir} && $(pwd))`" != \
 		"`(cd $${dest} && $(pwd))`" \
 	   && (echo "Copying $${dir}..." ; \
-	       (cd $${dir} && tar -cf - . ) | \
-		(cd $${dest} && umask 022 && tar -xf - );\
+	       (cd $${dir} && $(TAR) -cf - . ) | \
+		(cd $${dest} && umask 022 && $(TAR) -xf - );\
 	       chmod 0755 $${dest}; \
 	       for subdir in `find $${dest} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; do \
 		 (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; \

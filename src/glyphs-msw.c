@@ -1100,7 +1100,9 @@ typedef struct
 #define OIC_BANG            32515
 #define OIC_NOTE            32516
 #define OIC_WINLOGO         32517
+#if defined (__CYGWIN32__) && CYGWIN_VERSION_DLL_MAJOR < 21
 #define LR_SHARED           0x8000
+#endif
 #endif
 
 static CONST resource_t bitmap_table[] = 

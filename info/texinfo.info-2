@@ -4,19 +4,19 @@ texinfo.texi.
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
-* install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
-* texindex: (texinfo)Format with tex/texindex.  Sort Texinfo index files.
+* install-info: (texinfo)Invoking install-info. Updating info/dir entries.
+* texi2dvi: (texinfo)Format with texi2dvi.      Printing Texinfo documentation.
+* texindex: (texinfo)Format with tex/texindex.  Sorting Texinfo index files.
 * makeinfo: (texinfo)makeinfo Preferred.        Translate Texinfo source.
 END-INFO-DIR-ENTRY
 
   This file documents Texinfo, a documentation system that can produce
-both online information and a printed manual from a single source file.
+both on-line information and a printed manual from a single source file.
 
-  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98, 99 Free Software
+  Copyright (C) 1988, 90, 91, 92, 93, 95, 96, 97, 98 Free Software
 Foundation, Inc.
 
-  This edition is for Texinfo version 4.0, 28 September 1999.
+  This edition is for Texinfo version 3.12.
 
   Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -33,104 +33,7 @@ versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
 
-File: texinfo.info,  Node: Minimum,  Next: Six Parts,  Prev: Comments,  Up: Overview
-
-What a Texinfo File Must Have
-=============================
-
-  By convention, the names of Texinfo files end with one of the
-extensions `.texinfo', `.texi', `.txi', or `.tex'.  The longer
-extension is preferred since it describes more clearly to a human
-reader the nature of the file.  The shorter extensions are for
-operating systems that cannot handle long file names.
-
-  In order to be made into a printed manual and an Info file, a Texinfo
-file *must* begin with lines like this:
-
-     \input texinfo
-     @setfilename INFO-FILE-NAME
-     @settitle NAME-OF-MANUAL
-
-The contents of the file follow this beginning, and then you *must* end
-a Texinfo file with a line like this:
-
-     @bye
-
-The `\input texinfo' line tells TeX to use the `texinfo.tex' file,
-which tells TeX how to translate the Texinfo @-commands into TeX
-typesetting commands.  (Note the use of the backslash, `\'; this is
-correct for TeX.)  The `@setfilename' line provides a name for the Info
-file and tells TeX to open auxiliary files.  The `@settitle' line
-specifies a title for the page headers (or footers) of the printed
-manual.
-
-  The `@bye' line at the end of the file on a line of its own tells the
-formatters that the file is ended and to stop formatting.
-
-  Usually, you will not use quite such a spare format, but will include
-mode setting and start-of-header and end-of-header lines at the
-beginning of a Texinfo file, like this:
-
-     \input texinfo   @c -*-texinfo-*-
-     @c %**start of header
-     @setfilename INFO-FILE-NAME
-     @settitle NAME-OF-MANUAL
-     @c %**end of header
-
-In the first line, `-*-texinfo-*-' causes Emacs to switch into Texinfo
-mode when you edit the file.
-
-  The `@c' lines which surround the `@setfilename' and `@settitle'
-lines are optional, but you need them in order to run TeX or Info on
-just part of the file.  (*Note Start of Header::, for more information.)
-
-  Furthermore, you will usually provide a Texinfo file with a title
-page, indices, and the like.  But the minimum, which can be useful for
-short documents, is just the three lines at the beginning and the one
-line at the end.
-
-
-File: texinfo.info,  Node: Six Parts,  Next: Short Sample,  Prev: Minimum,  Up: Overview
-
-Six Parts of a Texinfo File
-===========================
-
-  Generally, a Texinfo file contains more than the minimal beginning
-and end--it usually contains six parts:
-
-1. Header
-     The "Header" names the file, tells TeX which definitions' file to
-     use, and performs other "housekeeping" tasks.
-
-2. Summary Description and Copyright
-     The "Summary Description and Copyright" segment describes the
-     document and contains the copyright notice and copying permissions
-     for the Info file.  The segment must be enclosed between `@ifinfo'
-     and `@end ifinfo' commands so that the formatters place it only in
-     the Info file.
-
-3. Title and Copyright
-     The "Title and Copyright" segment contains the title and copyright
-     pages and copying permissions for the printed manual.  The segment
-     must be enclosed between `@titlepage' and `@end titlepage'
-     commands.  The title and copyright page appear only in the printed
-     manual.
-
-4. `Top' Node and Master Menu
-     The "Master Menu" contains a complete menu of all the nodes in the
-     whole Info file.  It appears only in the Info file, in the `Top'
-     node.
-
-5. Body
-     The "Body" of the document may be structured like a traditional
-     book or encyclopedia or it may be free form.
-
-6. End
-     The "End" contains commands for printing indices and generating
-     the table of contents, and the `@bye' command on a line of its own.
-
-
-File: texinfo.info,  Node: Short Sample,  Next: Acknowledgements and History,  Prev: Six Parts,  Up: Overview
+File: texinfo.info,  Node: Short Sample,  Next: Acknowledgements,  Prev: Six Parts,  Up: Overview
 
 A Short Sample Texinfo File
 ===========================
@@ -141,7 +44,7 @@ titlepage', look more intimidating than they are.  Most of the material
 is standard boilerplate; when you write a manual, simply insert the
 names for your own manual in this segment. (*Note Beginning a File::.)
 
-  In the following, the sample text is _indented_; comments on it are
+In the following, the sample text is _indented_; comments on it are
 not.  The complete file, without any comments, is shown in *Note Sample
 Texinfo File::.
 
@@ -156,8 +59,9 @@ file and the title used in the header.
      @c %**start of header
      @setfilename sample.info
      @settitle Sample Document
-     @setchapternewpage odd
      @c %**end of header
+     
+     @setchapternewpage odd
 
 Part 2: Summary Description and Copyright
 -----------------------------------------
@@ -236,11 +140,13 @@ chapter containing an enumerated list.
 Part 6: The End of the Document
 -------------------------------
 
-The end segment contains commands for generating an index in a node and
-unnumbered chapter of its own, (usually) for generating the table of
-contents, and the `@bye' command that marks the end of the document.
+The end segment contains commands both for generating an index in a node
+and unnumbered chapter of its own and for generating the table of
+contents; and it contains the `@bye' command that marks the end of the
+document.
 
      @node    Concept Index,    ,  First Chapter, Top
+     @comment node-name,    next,  previous,      up
      @unnumbered Concept Index
      
      @printindex cp
@@ -268,44 +174,29 @@ like:
      for a printed manual.
 
 
-File: texinfo.info,  Node: Acknowledgements and History,  Prev: Short Sample,  Up: Overview
+File: texinfo.info,  Node: Acknowledgements,  Prev: Short Sample,  Up: Overview
 
-Acknowledgements and History
-============================
+Acknowledgements
+================
 
-  Richard M. Stallman invented the Texinfo format, wrote the initial
-processors, and created Edition 1.0 of this manual.  Robert J. Chassell
-greatly revised and extended the manual, starting with Edition 1.1.
-Brian Fox was responsible for the standalone Texinfo distribution until
-version 3.8, and wrote the standalone `makeinfo' and `info'.  Karl
-Berry has made the updates since Texinfo 3.8 and subsequent releases,
-starting with Edition 2.22 of the manual.
+  Richard M. Stallman wrote Edition 1.0 of this manual.
+Robert J. Chassell revised and extended it, starting with Edition 1.1.
+Karl Berry made updates for the Texinfo 3.8 and subsequent releases,
+starting with Edition 2.22.
 
   Our thanks go out to all who helped improve this work, particularly to
 Franc,ois Pinard and David D. Zuhn, who tirelessly recorded and
 reported mistakes and obscurities; our special thanks go to Melissa
 Weisshaus for her frequent and often tedious reviews of nearly similar
-editions.  The indefatigable Eli Zaretskii and Andreas Schwab have
-provided patches beyond counting.  Zack Weinberg did the impossible by
-implementing the macro syntax in `texinfo.tex'.  Dozens of others have
-contributed patches and suggestions, they are gratefully acknowledged
-in the `ChangeLog' file.  Our mistakes are our own.
+editions.  Our mistakes are our own.
 
-  A bit of history: in the 1970's at CMU, Brian Reid developed a program
-and format named Scribe to mark up documents for printing.  It used the
-`@' character to introduce commands as Texinfo does and strived to
-describe document contents rather than formatting.
+  Please send suggestions and corrections to:
 
-  Meanwhile, people at MIT developed another, not too dissimilar format
-called Bolio.  This then was converted to using TeX as its typesetting
-language: BoTeX.
+     Internet address:
+         bug-texinfo@gnu.org
 
-  BoTeX could only be used as a markup language for documents to be
-printed, not for online documents.  Richard Stallman (RMS) worked on
-both Bolio and BoTeX.  He also developed a nifty on-line help format
-called Info, and then combined BoTeX and Info to create Texinfo, a mark
-up language for text that is intended to be read both on line and as
-printed hard copy.
+Please include the manual's edition number and update date in your
+messages.
 
 
 File: texinfo.info,  Node: Texinfo Mode,  Next: Beginning a File,  Prev: Overview,  Up: Top
@@ -342,8 +233,7 @@ File: texinfo.info,  Node: Texinfo Mode Overview,  Next: Emacs Editing,  Prev: T
 Texinfo Mode Overview
 =====================
 
-  Texinfo mode provides special features for working with Texinfo files.
-You can:
+  Texinfo mode provides special features for working with Texinfo files:
 
    * Insert frequently used @-commands.
 
@@ -388,18 +278,17 @@ such as appendices.  With this value for the page delimiter, you can
 jump from chapter title to chapter title with the `C-x ]'
 (`forward-page') and `C-x [' (`backward-page') commands and narrow to a
 chapter with the `C-x p' (`narrow-to-page') command.  (*Note Pages:
-(emacs)Pages, for details about the page commands.)
+(xemacs)Pages, for details about the page commands.)
 
   You may name a Texinfo file however you wish, but the convention is to
-end a Texinfo file name with one of the extensions `.texinfo', `.texi',
-`.txi', or `.tex'.  A longer extension is preferred, since it is
+end a Texinfo file name with one of the three extensions `.texinfo',
+`.texi', or `.tex'.  A longer extension is preferred, since it is
 explicit, but a shorter extension may be necessary for operating
 systems that limit the length of file names.  GNU Emacs automatically
-enters Texinfo mode when you visit a file with a `.texinfo', `.texi' or
-`.txi' extension.  Also, Emacs switches to Texinfo mode when you visit a
-file that has `-*-texinfo-*-' in its first line.  If ever you are in
-another mode and wish to switch to Texinfo mode, type `M-x
-texinfo-mode'.
+enters Texinfo mode when you visit a file with a `.texinfo' or  `.texi'
+extension.  Also, Emacs switches to Texinfo mode when you visit a file
+that has `-*-texinfo-*-' in its first line.  If ever you are in another
+mode and wish to switch to Texinfo mode, type `M-x texinfo-mode'.
 
   Like all other Emacs features, you can customize or enhance Texinfo
 mode as you wish.  In particular, the keybindings are very easy to
@@ -548,16 +437,19 @@ corresponding spot in the Texinfo file.
   If you call `texinfo-show-structure' with a prefix argument by typing
 `C-u C-c C-s', it will list not only those lines with the @-commands
 for `@chapter', `@section', and the like, but also the `@node' lines.
-You can use `texinfo-show-structure' with a prefix argument to check
-whether the `Next', `Previous', and `Up' pointers of an `@node' line
-are correct.
+(This is how the `texinfo-show-structure' command worked without an
+argument in the first version of Texinfo.  It was changed because
+`@node' lines clutter up the `*Occur*' buffer and are usually not
+needed.)  You can use `texinfo-show-structure' with a prefix argument
+to check whether the `Next', `Previous', and `Up' pointers of an
+`@node' line are correct.
 
   Often, when you are working on a manual, you will be interested only
 in the structure of the current chapter.  In this case, you can mark
 off the region of the buffer that you are interested in by using the
 `C-x n n' (`narrow-to-region') command and `texinfo-show-structure'
 will work on only that region.  To see the whole buffer again, use
-`C-x n w' (`widen').  (*Note Narrowing: (emacs)Narrowing, for more
+`C-x n w' (`widen').  (*Note Narrowing: (xemacs)Narrowing, for more
 information about the narrowing commands.)
 
   In addition to providing the `texinfo-show-structure' command,
@@ -565,7 +457,7 @@ Texinfo mode sets the value of the page delimiter variable to match the
 chapter-level @-commands.  This enables you to use the `C-x ]'
 (`forward-page') and `C-x [' (`backward-page') commands to move forward
 and backward by chapter, and to use the `C-x p' (`narrow-to-page')
-command to narrow to a chapter.  *Note Pages: (emacs)Pages, for more
+command to narrow to a chapter.  *Note Pages: (xemacs)Pages, for more
 information about the page commands.
 
 
@@ -599,14 +491,14 @@ File: texinfo.info,  Node: Updating Commands,  Next: Updating Requirements,  Pre
 The Updating Commands
 ---------------------
 
-  You can use the updating commands to:
+  You can use the updating commands
 
-   * insert or update the `Next', `Previous', and `Up' pointers of a
+   * to insert or update the `Next', `Previous', and `Up' pointers of a
      node,
 
-   * insert or update the menu for a section, and
+   * to insert or update the menu for a section, and
 
-   * create a master menu for a Texinfo source file.
+   * to create a master menu for a Texinfo source file.
 
   You can also use the commands to update all the nodes and menus in a
 region or in a whole Texinfo file.
@@ -625,11 +517,11 @@ structuring command line; and you may interpose only an `@comment' line
 or an `@ifinfo' line.
 
   Commands which work on a whole buffer require that the `Top' node be
-followed by a node with an `@chapter' or equivalent-level command.  The
-menu updating commands will not create a main or master menu for a
-Texinfo file that has only `@chapter'-level nodes!  The menu updating
-commands only create menus _within_ nodes for lower level nodes.  To
-create a menu of chapters, you must provide a `Top' node.
+followed by a node with an `@chapter' or equivalent-level command.
+Note that the menu updating commands will not create a main or master
+menu for a Texinfo file that has only `@chapter'-level nodes!  The menu
+updating commands only create menus _within_ nodes for lower level
+nodes.  To create a menu of chapters, you must provide a `Top' node.
 
   The menu updating commands remove menu entries that refer to other
 Info files since they do not refer to nodes within the current buffer.
@@ -669,7 +561,7 @@ menu in the whole Texinfo file.
      This updates all the nodes and menus completely and all at once.
 
   The other major updating commands do smaller jobs and are designed for
-the person who updates nodes and menus as he or she writes a Texinfo
+the person  who updates nodes and menus as he or she writes a Texinfo
 file.
 
   The commands are:
@@ -727,8 +619,8 @@ file.
 which menu descriptions are indented.  By default, the value is 32
 although it is often useful to reduce it to as low as 24.  You can set
 the variable with the `M-x edit-options' command (*note Editing
-Variable Values: (emacs)Edit Options.) or with the `M-x set-variable'
-command (*note Examining and Setting Variables: (emacs)Examining.).
+Variable Values: (xemacs)Edit Options.) or with the `M-x set-variable'
+command (*note Examining and Setting Variables: (xemacs)Examining.).
 
   Also, the `texinfo-indent-menu-description' command may be used to
 indent existing menu descriptions to a specified column.  Finally, if
@@ -770,7 +662,7 @@ In this example, `Comments' is the name of both the node and the
 section.  The next node is called `Minimum' and the previous node is
 called `Conventions'.  The `Comments' section is within the `Overview'
 node, which is specified by the `Up' pointer.  (Instead of an
-`@comment' line, you may also write an `@ifinfo' line.)
+`@comment' line, you can write an `@ifinfo' line.)
 
   If a file has a `Top' node, it must be called `top' or `Top' and be
 the first node in the file.
@@ -782,10 +674,10 @@ must have a `Top' node if you want a menu of chapters.
   Incidentally, the `makeinfo' command will create an Info file for a
 hierarchically organized Texinfo file that lacks `Next', `Previous' and
 `Up' pointers.  Thus, if you can be sure that your Texinfo file will be
-formatted with `makeinfo', you have no need for the update node
-commands.  (*Note Creating an Info File::, for more information about
-`makeinfo'.)  However, both `makeinfo' and the `texinfo-format-...'
-commands require that you insert menus in the file.
+formatted with `makeinfo', you have no need for the `update node'
+commands.  (*Note Creating an Info File: Create an Info File, for more
+information about `makeinfo'.)  However, both `makeinfo' and the
+`texinfo-format-...' commands require that you insert menus in the file.
 
 
 File: texinfo.info,  Node: Other Updating Commands,  Prev: Updating Requirements,  Up: Updating Nodes and Menus
@@ -814,11 +706,11 @@ possesses several less frequently used updating commands:
 
           C-x h C-u M-x texinfo-insert-node-lines
 
-     This command inserts titles as node names in `@node' lines; the
-     `texinfo-start-menu-description' command (*note Inserting
-     Frequently Used Commands: Inserting.) inserts titles as
-     descriptions in menu entries, a different action.  However, in
-     both cases, you need to edit the inserted text.
+     (Note that this command inserts titles as node names in `@node'
+     lines; the `texinfo-start-menu-description' command (*note
+     Inserting Frequently Used Commands: Inserting.) inserts titles as
+     descriptions in menu entries, a different action.  However, in both
+     cases, you need to edit the inserted text.)
 
 `M-x texinfo-multiple-files-update'
      Update nodes and menus in a document built from several separate
@@ -897,7 +789,7 @@ or
   For TeX or the Info formatting commands to work, the file _must_
 include a line that has `@setfilename' in its header.
 
-  *Note Creating an Info File::, for details about Info formatting.
+  *Note Create an Info File::, for details about Info formatting.
 
 
 File: texinfo.info,  Node: Printing,  Next: Texinfo Mode Summary,  Prev: Info Formatting,  Up: Texinfo Mode
@@ -950,8 +842,8 @@ _must_ start with a `\input texinfo' line and must include an
 (When you use `texinfo-tex-region', you must surround the `@settitle'
 line with start-of-header and end-of-header lines.)
 
-  *Note Hardcopy::, for a description of the other TeX related
-commands, such as `tex-show-print-queue'.
+  *Note Format/Print Hardcopy::, for a description of the other TeX
+related commands, such as `tex-show-print-queue'.
 
 
 File: texinfo.info,  Node: Texinfo Mode Summary,  Prev: Printing,  Up: Texinfo Mode
@@ -1078,8 +970,8 @@ C-t' and then another control command: `C-r' for `texinfo-tex-region',
 Other Updating Commands
 -----------------------
 
-  The remaining updating commands do not have standard keybindings
-because they are rarely used.
+  The `other updating commands' do not have standard keybindings because
+they are rarely used.
 
      M-x texinfo-insert-node-lines
                      Insert missing `@node' lines in region.
@@ -1252,12 +1144,11 @@ or else like this:
 * setfilename::                 Tell Info the name of the Info file.
 * settitle::                    Create a title for the printed work.
 * setchapternewpage::           Start chapters on right-hand pages.
-* paragraphindent::             Specify paragraph indentation.
-* exampleindent::               Specify environment indentation.
+* paragraphindent::             An option to specify paragraph indentation.
 * End of Header::               Formatting a region requires this.
 
 
-File: texinfo.info,  Node: First Line,  Next: Start of Header,  Up: Header
+File: texinfo.info,  Node: First Line,  Next: Start of Header,  Prev: Header,  Up: Header
 
 The First Line of a Texinfo File
 --------------------------------
@@ -1302,4 +1193,92 @@ typeset part for printing.
 
   The odd string of characters, `%**', is to ensure that no other
 comment is accidentally taken for a start-of-header line.
+
+
+File: texinfo.info,  Node: setfilename,  Next: settitle,  Prev: Start of Header,  Up: Header
+
+`@setfilename'
+--------------
+
+  In order to serve as the primary input file for either `makeinfo' or
+TeX, a Texinfo file must contain a line that looks like this:
+
+     @setfilename INFO-FILE-NAME
+
+  Write the `@setfilename' command at the beginning of a line and
+follow it on the same line by the Info file name.  Do not write anything
+else on the line; anything on the line after the command is considered
+part of the file name, including what would otherwise be a comment.
+
+  The `@setfilename' line specifies the name of the Info file to be
+generated.  This name should be different from the name of the Texinfo
+file.  There are two conventions for choosing the name: you can either
+remove the `.texi' extension from the input file name, or replace it
+with the `.info' extension.
+
+  Some operating systems cannot handle long file names.  You can run
+into a problem even when the file name you specify is itself short
+enough.  This occurs because the Info formatters split a long Info file
+into short indirect subfiles, and name them by appending `-1', `-2',
+..., `-10', `-11', and so on, to the original file name.  (*Note Tag
+Files and Split Files: Tag and Split Files.)  The subfile name
+`texinfo.info-10', for example, is too long for some systems; so the
+Info file name for this document is `texinfo' rather than
+`texinfo.info'.
+
+  The Info formatting commands ignore everything written before the
+`@setfilename' line, which is why the very first line of the file (the
+`\input' line) does not show up in the output.
+
+  The `@setfilename' line produces no output when you typeset a manual
+with TeX, but it nevertheless is essential: it opens the index,
+cross-reference, and other auxiliary files used by Texinfo, and also
+reads `texinfo.cnf' if that file is present on your system (*note
+Preparing to Use TeX: Preparing for TeX.).
+
+
+File: texinfo.info,  Node: settitle,  Next: setchapternewpage,  Prev: setfilename,  Up: Header
+
+`@settitle'
+-----------
+
+  In order to be made into a printed manual, a Texinfo file must contain
+a line that looks like this:
+
+     @settitle TITLE
+
+  Write the `@settitle' command at the beginning of a line and follow
+it on the same line by the title.  This tells TeX the title to use in a
+header or footer.  Do not write anything else on the line; anything on
+the line after the command is considered part of the title, including a
+comment.
+
+  Conventionally, when TeX formats a Texinfo file for double-sided
+output, the title is printed in the left-hand (even-numbered) page
+headings and the current chapter title is printed in the right-hand
+(odd-numbered) page headings.  (TeX learns the title of each chapter
+from each `@chapter' command.)  Page footers are not printed.
+
+  Even if you are printing in a single-sided style, TeX looks for an
+`@settitle' command line, in case you include the manual title in the
+heading.
+
+  The `@settitle' command should precede everything that generates
+actual output in TeX.
+
+  Although the title in the `@settitle' command is usually the same as
+the title on the title page, it does not affect the title as it appears
+on the title page.  Thus, the two do not need not match exactly;  and
+the title in the `@settitle' command can be a shortened or expanded
+version of the title as it appears on the title page. (*Note
+`@titlepage': titlepage.)
+
+  TeX prints page headings only for that text that comes after the
+`@end titlepage' command in the Texinfo file, or that comes after an
+`@headings' command that turns on headings.  (*Note The `@headings'
+Command: headings on off, for more information.)
+
+  You may, if you wish, create your own, customized headings and
+footings.  *Note Page Headings: Headings, for a detailed discussion of
+this process.
 

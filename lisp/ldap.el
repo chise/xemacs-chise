@@ -5,7 +5,7 @@
 ;; Author: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Maintainer: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Created: Jan 1998
-;; Version: $Revision: 1.7.2.3 $
+;; Version: $Revision: 1.7.2.6 $
 ;; Keywords: help comm
 
 ;; This file is part of XEmacs

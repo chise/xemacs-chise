@@ -124,7 +124,7 @@ each of the handlers."
   (let ((event (apply getfun harg args)))
        (if (event-live-p event)
 	   nil
-	 (setq event (allocate-event))
+	 (setq event (make-event))
 	 (apply setfun harg event args))
        (character-to-event value event)))
 

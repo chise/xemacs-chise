@@ -6451,8 +6451,7 @@ redisplay_device (struct device *d)
 
       if (FRAME_REPAINT_P (f))
 	{
-	  if (CLASS_REDISPLAY_FLAGS_CHANGEDP(f)
-	      || f->size_changed)
+	  if (CLASS_REDISPLAY_FLAGS_CHANGEDP (f))
 	    {
 	      preempted = redisplay_frame (f, 0);
 	    }
@@ -6503,7 +6502,7 @@ redisplay_without_hooks (void)
     handle_asynch_device_change ();
 
   if (!GLOBAL_REDISPLAY_FLAGS_CHANGEDP &&
-    !size_changed && !disable_preemption && preemption_count < max_preempts)
+      !disable_preemption && preemption_count < max_preempts)
     goto done;
 
   DEVICE_LOOP_NO_BREAK (devcons, concons)
@@ -6511,8 +6510,7 @@ redisplay_without_hooks (void)
       struct device *d = XDEVICE (XCAR (devcons));
       int preempted;
 
-      if (CLASS_REDISPLAY_FLAGS_CHANGEDP (d)
-	  || d->size_changed)
+      if (CLASS_REDISPLAY_FLAGS_CHANGEDP (d))
 	{
 	  preempted = redisplay_device (d);
 
@@ -7411,7 +7409,7 @@ int
 point_would_be_visible (struct window *w, Bufpos startp, Bufpos point)
 {
   struct buffer *b = XBUFFER (w->buffer);
-  int pixpos = 0;
+  int pixpos = -WINDOW_TEXT_TOP_CLIP(w);
   int bottom = WINDOW_TEXT_HEIGHT (w);
   int start_elt;
 

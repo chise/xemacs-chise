@@ -560,7 +560,7 @@ extern int windows_structure_changed;
   gutter_changed = 0;				\
   glyphs_changed = 0;				\
   subwindows_changed = 0;			\
-  subwindows_state_changed = 0;			\
+  subwindows_state_changed = 0;		\
   windows_changed = 0;				\
   windows_structure_changed = 0;		\
 } while (0)
@@ -578,6 +578,7 @@ extern int windows_structure_changed;
     (p)->toolbar_changed ||			\
     (p)->gutter_changed ||			\
     (p)->glyphs_changed ||			\
+    (p)->size_changed ||				\
     (p)->subwindows_changed ||			\
     (p)->subwindows_state_changed ||		\
     (p)->windows_changed ||			\
@@ -596,6 +597,7 @@ extern int windows_structure_changed;
     toolbar_changed ||				\
     gutter_changed ||				\
     glyphs_changed ||				\
+    size_changed ||				\
     subwindows_changed ||			\
     subwindows_state_changed ||			\
     windows_changed ||				\

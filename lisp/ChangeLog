@@ -1,3 +1,76 @@
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-06  Jason R Mastaler  <jason@mastaler.com>
+
+        * package-get.el (package-get-download-sites): Removed several
+        defunct download sites, added many new ones, and corrected a few
+        incorrect directory-on-site entries.  Added physical locations to
+        site-description.
+
+1999-11-30  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* finder.el (finder-commentary): add DOC string and fix
+	interactive spec
+
+1999-12-04  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* help.el (describe-function): Don't forget to intern the string
+	completing-read returns.
+	(describe-variable): Ditto.
+
+1999-11-16  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* hyper-apropos.el (hyper-apropos-this-symbol): Handle
+	`hyper-apropos-help-mode' here to find symbol to customize
+	irregardless of cursor position and simplify
+	`hyper-apropos-set-variable', `hyper-apropos-find-function', and
+	`hyper-apropos-popup-menu'.
+
+1999-11-21  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* apropos.el (apropos-mode-map): Add return to call
+	apropos-follow.
+	(apropos-print): Call apropos-mode to have better
+	command reference. Put keymap text-poperty to
+	symbole name.
+
+1999-11-22  Alastair Burt  <burt@dfki.de>
+
+	* help.el: (describe-bindings-1): Added handling of keymaps for
+	the extents at point.
+
+1999-12-02  Mark Thomas  <mthomas@jprc.com>
+
+	* gutter-items.el (buffers-tab-items): Wrap the function in a
+	save-match-data
+
+1999-12-04  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* help.el (describe-function): Use the DEFAULT argument to
+	completing-read.
+	(describe-variable): Ditto.
+
+1999-11-26  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (read-from-minibuffer): Add optional argument
+	DEFAULT to have better mini-buffer history support.
+	(completing-read): Pass default to read-from-minibuffer.
+	(read-buffer): Pass default to completing-read.
+
+1999-12-04  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* font-lock.el (font-lock-doc-string-face): Document the
+	`font-lock-lisp-like' property.
+
+1999-11-29  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* lisp-mode.el: Specify `font-lock-lisp-like'.
+
+	* font-lock.el (font-lock-lisp-like): New function.
+	(font-lock-fontify-syntactically-region): Use it.
+
 1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.22 is released

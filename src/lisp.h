@@ -134,21 +134,16 @@ char *xstrdup (CONST char *);
    macro will realloc BASEVAR as necessary so that it can hold at
    least NEEDED_SIZE objects.  The reallocing is done by doubling,
    which ensures constant amortized time per element. */
-#define DO_REALLOC(basevar, sizevar, needed_size, type)	do	\
-{								\
-  /* Avoid side-effectualness. */				\
-  /* Dammit! Macros suffer from dynamic scope! */		\
-  /* We demand inline functions! */				\
+#define DO_REALLOC(basevar, sizevar, needed_size, type)	do {	\
   size_t do_realloc_needed_size = (needed_size);		\
-  size_t do_realloc_newsize = 0;				\
-  while ((sizevar) < (do_realloc_needed_size)) {		\
-    do_realloc_newsize = 2*(sizevar);				\
-    if (do_realloc_newsize < 32)				\
-      do_realloc_newsize = 32;					\
-    (sizevar) = do_realloc_newsize;				\
-  }								\
-  if (do_realloc_newsize)					\
-    XREALLOC_ARRAY (basevar, type, do_realloc_newsize);		\
+  if ((sizevar) < do_realloc_needed_size)			\
+    {								\
+      if ((sizevar) < 32)					\
+	(sizevar) = 32;						\
+      while ((sizevar) < do_realloc_needed_size)		\
+	(sizevar) *= 2;						\
+      XREALLOC_ARRAY (basevar, type, (sizevar));		\
+    }								\
 } while (0)
 
 #ifdef ERROR_CHECK_MALLOC
@@ -2864,7 +2859,8 @@ extern Lisp_Object Qquote, Qrange_error, Qrassoc, Qrassq, Qread_char;
 extern Lisp_Object Qread_from_minibuffer, Qreally_early_error_handler;
 extern Lisp_Object Qregion_beginning, Qregion_end, Qrequire, Qresource;
 extern Lisp_Object Qreturn, Qreverse, Qright, Qrun_hooks, Qsans_modifiers;
-extern Lisp_Object Qsave_buffers_kill_emacs, Qsearch, Qselected, Qself_insert_command;
+extern Lisp_Object Qsave_buffers_kill_emacs, Qsearch, Qselected;
+extern Lisp_Object Qself_insert_command, Qself_insert_defer_undo;
 extern Lisp_Object Qsequencep, Qsetting_constant, Qseven, Qshift_jis, Qshort;
 extern Lisp_Object Qsignal, Qsimple, Qsingularity_error, Qsize, Qspace;
 extern Lisp_Object Qspecifier, Qstandard_input, Qstandard_output, Qstart_open;

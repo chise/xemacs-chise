@@ -31,10 +31,11 @@ File: info.info,  Node: Top,  Next: Getting Started,  Up: (dir)
 Info: An Introduction
 *********************
 
-   Info is a program for reading documentation, which you are using now.
+   Info is a program for reading documentation, which you might be using
+now to read this.
 
-   To learn how to use Info, type the command `h'.  It brings you to a
-programmed instruction sequence.
+   To learn how to use Info, type the command `h' while using the Info
+program.  It brings you to a programmed instruction sequence.
 
 * Menu:
 
@@ -816,24 +817,24 @@ learn how to install an Info file after you have created one.
 
 Tag Table:
 Node: Top1067
-Node: Getting Started1565
-Node: Help-Small-Screen2313
-Node: Help4062
-Node: Help-P5092
-Node: Help-^L5954
-Node: Help-M8832
-Node: Help-FOO14812
-Node: Help-Adv15550
-Node: Help-Cross18225
-Node: Help-Q18871
-Node: Advanced Info19498
-Node: Expert20476
-Node: Add22990
-Node: Menus26350
-Node: Cross-refs29224
-Node: Tags29926
-Node: Checking31228
-Node: Emacs Info Variables32181
-Node: Creating an Info File33170
+Node: Getting Started1612
+Node: Help-Small-Screen2360
+Node: Help4109
+Node: Help-P5139
+Node: Help-^L6001
+Node: Help-M8879
+Node: Help-FOO14859
+Node: Help-Adv15597
+Node: Help-Cross18272
+Node: Help-Q18918
+Node: Advanced Info19545
+Node: Expert20523
+Node: Add23037
+Node: Menus26397
+Node: Cross-refs29271
+Node: Tags29973
+Node: Checking31275
+Node: Emacs Info Variables32228
+Node: Creating an Info File33217
 
 End Tag Table

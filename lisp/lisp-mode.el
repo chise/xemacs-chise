@@ -290,6 +290,8 @@ if that value is non-nil."
   (lisp-mode-variables nil)
   (run-hooks 'emacs-lisp-mode-hook))
 
+(put 'emacs-lisp-mode 'font-lock-lisp-like t)
+
 (defvar lisp-mode-map ()
   "Keymap for ordinary Lisp mode.
 All commands in `shared-lisp-mode-map' are inherited by this map.")

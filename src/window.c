@@ -1865,6 +1865,12 @@ will automatically call `save-buffers-kill-emacs'.)
   par = XWINDOW (parent);
 
   MARK_FRAME_WINDOWS_STRUCTURE_CHANGED (f);
+  /* It's quite likely that deleting a window will result in
+     subwindows needing to be deleted also (since they are cached
+     per-window). So we mark them as changed, so that the cachels will
+     get reset by redisplay and thus deleted subwindows can get
+     GC'd. */
+  MARK_FRAME_SUBWINDOWS_CHANGED (f);
 
   /* Are we trying to delete any frame's selected window?
      Note that we could be dealing with a non-leaf window

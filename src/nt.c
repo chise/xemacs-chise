@@ -608,7 +608,9 @@ init_environment ()
       "EMACSLOCKDIR",
       "INFOPATH"
     };
-
+#ifdef HEAP_IN_DATA
+    cache_system_info ();
+#endif
     for (i = 0; i < countof (env_vars); i++) 
       {
 	if (!getenv (env_vars[i]) &&

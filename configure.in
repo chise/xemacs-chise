@@ -2942,7 +2942,7 @@ case "$all_widgets" in
   AC_DEFINE(NEED_ATHENA)
   XE_APPEND(lwlib-Xaw.o, lwlib_objs)
   if test "$have_xaw3d"; then
-    XE_PREPEND(-lXaw3d, libs_x) 
+    XE_PREPEND(-lXaw3d, libs_x)
   else
     XE_PREPEND(-lXaw, libs_x)
   fi ;;
@@ -3687,24 +3687,42 @@ if test "$usage_tracking" = "yes"; then
 fi
 
 dnl autodetect dll support
-AC_CHECK_HEADERS(dlfcn.h, [have_dlfcn=yes
-  AC_DEFINE(HAVE_DLFCN_H)])
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_modules=yes]) }
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
-test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
-test -z "$with_modules" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_modules=yes]) }
-test -z "$with_modules" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_modules=yes]) }
-if test "$with_modules" = "yes"; then
-  XE_SHLIB_STUFF
+if test "$with_modules" != "no"; then
+  AC_CHECKING(for module support)
+
+  dnl Find headers and libraries
+  AC_CHECK_HEADER(dlfcn.h, [
+    AC_CHECK_LIB(dl, dlopen, [ have_dl=yes libdl=dl], [
+    AC_CHECK_LIB(c,  dlopen, [ have_dl=yes ])])])
+  if test -n "$have_dl"; then
+    AC_DEFINE(HAVE_DLOPEN)
+  else
+    AC_CHECK_LIB(dld, shl_load, [
+      libdl=dld have_dl=yes;
+      AC_DEFINE(HAVE_SHL_LOAD)], [
+    AC_CHECK_LIB(dld, dld_init, [
+      libdl=dld have_dl=yes;
+      AC_DEFINE(HAVE_DLD_INIT)])])
+  fi
+
+  if test -n "$have_dl"; then
+    dnl XE_SHLIB_STUFF (in aclocal.m4) defines $can_build_shared
+    XE_SHLIB_STUFF
+  fi
+
   if test "$can_build_shared" = "yes"; then
     AC_DEFINE(HAVE_SHLIB)
-    XE_ADD_OBJS(sysdll.o)
-    XE_ADD_OBJS(emodules.o)
+    XE_ADD_OBJS(sysdll.o emodules.o)
     XE_APPEND(src, INSTALL_ARCH_DEP_SUBDIR)
-    test ! -z "$DLL_LIB" && XE_PREPEND(-l${DLL_LIB}, LIBS)
+    test -n "$libdl" && XE_PREPEND(-l${libdl}, LIBS)
     AC_CHECK_FUNCS(dlerror _dlerror)
+    with_modules=yes
   else
-    AC_MSG_WARN(disabling shared library support)
+    if test "$with_modules" = "yes"; then
+      XE_DIE("Required module support cannot be provided.")
+    else
+      AC_MSG_WARN("Module support cannot be provided.")
+    fi
     with_modules=no
   fi
 fi
@@ -4087,7 +4105,7 @@ if test ! -z ${emacs_beta_version} ; then
 	xemacs_betaname="-b${emacs_beta_version}"
   fi
 else
-  xemacs_betaname=""	
+  xemacs_betaname=""
 fi
 
 dnl Start stdout redirection to '| tee -a Installation'
@@ -4158,7 +4176,7 @@ test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling
 test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
 test "$with_native_sound" = yes && echo "  Compiling in native sound support."
-test "$with_nas_sound" = yes && echo "  Compiling in network sound (NAS) support." 
+test "$with_nas_sound" = yes && echo "  Compiling in network sound (NAS) support."
 test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
 test "$with_esd" = yes && echo "  Compiling in support for Enlightened Sound Daemon."
 
@@ -4225,7 +4243,7 @@ case "$with_dialogs" in
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
   msw ) echo "  Using MS-Windows dialog boxes." ;;
 esac
-test "$with_modules" = "yes" && echo "  Compiling in DSO module support."
+test "$with_modules" = "yes" && echo "  Compiling in dynamic shared object module support."
 test "$with_clash_detection" = yes && \
   echo "  Clash detection will use \"$lockdir\" for locking files."
 echo "  movemail will use \"$mail_locking\" for locking mail spool files."
@@ -4266,12 +4284,10 @@ dnl except ./Makefile from $srcdir/Makefile.in
 for file in $internal_makefile_list; do
   test "$file" = src/Makefile.in && \
     file="src/Makefile.in:src/Makefile.in.in:src/depend"
-  ac_output_files="${ac_output_files+$ac_output_files }$file"
+  XE_APPEND($file, ac_output_files)
 done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
-if test "$with_modules" = "yes"; then
-  ac_output_files="$ac_output_files lib-src/ellcc.h"
-fi
+test "$with_modules" = "yes" && XE_APPEND(lib-src/ellcc.h, ac_output_files)
 
 AC_OUTPUT($ac_output_files,
 [for dir in . $MAKE_SUBDIR; do

@@ -20,6 +20,8 @@
 
 (provide 'itimer)
 
+(require 'lisp-float-type)
+
 ;; `itimer' feature means Emacs-Lisp programmers get:
 ;;    itimerp
 ;;    itimer-live-p
@@ -46,7 +48,7 @@
 ;;
 ;; See the doc strings of these functions for more information.
 
-(defvar itimer-version "1.07"
+(defvar itimer-version "1.08"
   "Version number of the itimer package.")
 
 (defvar itimer-list nil
@@ -62,7 +64,7 @@ is not being used to drive the system.")
 (defvar itimer-timer-last-wakeup nil
   "The time the timer driver function last ran.")
 
-(defvar itimer-short-interval (if (featurep 'lisp-float-type) 1e-3 1)
+(defvar itimer-short-interval 1e-3
   "Interval used for scheduling an event a very short time in the future.
 Used internally to make the scheduler wake up early.
 Unit is seconds.")
@@ -159,7 +161,7 @@ This is a macro."
 ;; Functions to access and modify itimer attributes.
 
 (defun itimerp (obj)
-  "Return t if OBJ is an itimer."
+  "Return non-nil if OBJ is an itimer."
   (and (consp obj) (eq (length obj) 8)))
 
 (defun itimer-live-p (obj)
@@ -181,7 +183,7 @@ Itimers started with `start-itimer' are automatically active."
 
 (defun itimer-restart (itimer)
   "Return the value to which ITIMER will be set at restart.
-Return nil if this itimer doesn't restart."
+The value nil is returned if this itimer isn't set to restart."
   (check-itimer itimer)
   (nth 2 itimer))
 
@@ -194,8 +196,8 @@ This function is called each time ITIMER expires."
 (defun itimer-is-idle (itimer)
   "Return non-nil if ITIMER is an idle timer.
 Normal timers expire after a set interval.  Idle timers expire
-only after Emacs has been idle for a specific interval.
-``Idle'' means no command events occur within the interval."
+only after Emacs has been idle for a specific interval.  ``Idle''
+means no command events have occurred within the interval."
   (check-itimer itimer)
   (nth 4 itimer))
 
@@ -208,7 +210,7 @@ The arguments themselves are retrievable with `itimer-function-arguments'."
 
 (defun itimer-function-arguments (itimer)
   "Return the function arguments of ITIMER as a list.
-ITIMER's function is called with these argument each time ITIMER expires."
+ITIMER's function is called with these arguments each time ITIMER expires."
   (check-itimer itimer)
   (nth 6 itimer))
 
@@ -302,7 +304,7 @@ minibuffer as initial user input."
   (get-itimer (completing-read prompt itimer-list nil 'confirm initial-input)))
 
 (defun delete-itimer (itimer)
-  "Delete ITIMER.  ITIMER may be an itimer or the name of one."
+  "Deletes ITIMER.  ITIMER may be an itimer or the name of one."
   (check-itimer-coerce-string itimer)
   (setq itimer-list (delq itimer itimer-list)))
 
@@ -327,13 +329,13 @@ VALUE is the number of seconds until this itimer expires.
   must be an integer.
 Optional fourth arg RESTART non-nil means that this itimer should be
   restarted automatically after its function is called.  Normally an itimer
-  is deleted at expiration after its function has returned.
-  If non-nil, RESTART should be a number indicating the value at which
-  the itimer should be set at restart time.
+  is deleted at expiration after its function has returned. 
+  If non-nil RESTART should be a number indicating the value at which the
+  itimer should be set at restart time.
 Optional fifth arg IS-IDLE specifies if this is an idle timer.
   Normal timers expire after a set interval.  Idle timers expire
-  only after Emacs has been idle for specific interval.
-  ``Idle'' means no command events occur within the interval.
+  only after Emacs has been idle for specific interval.  ``Idle''
+  means no command events have occurred within the interval.
 Returns the newly created itimer."
   (interactive
    (list (completing-read "Start itimer: " itimer-list)
@@ -717,7 +719,12 @@ x      start a new itimer
 			 (inhibit-quit nil)
 			 ;; for FSF Emacs timer.el emulation under XEmacs.
 			 ;; eldoc expect this to be done, apparently.
-			 (this-command nil))
+			 (this-command nil)
+			 ;; bind these variables so that the
+			 ;; itimer function can't screw with
+			 ;; them.
+			 last-event-time next-wakeup
+			 itimer itimers time-elapsed)
 		    (if (itimer-uses-arguments current-itimer)
 			(apply (itimer-function current-itimer)
 			       (itimer-function-arguments current-itimer))
@@ -837,11 +844,9 @@ x      start a new itimer
 	       secs (+ secs 65536))
       (setq carry 0))
     (setq 65536-secs (- (nth 0 t1) (nth 0 t2) carry))
-    ;; loses for interval larger than the maximum signed Lisp integer.
-    ;; can't really be helped.
-    (+ (* 65536-secs 65536)
+    (+ (* 65536-secs 65536.0)
        secs
-       (/ usecs (if (featurep 'lisp-float-type) 1e6 1000000)))))
+       (/ usecs 1000000.0))))
 
 (defun itimer-timer-driver (&rest ignored)
   ;; inhibit quit because if the user quits at an inopportune

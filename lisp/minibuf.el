@@ -344,7 +344,8 @@ minibuffer history if its length is less than that value."
                                     keymap
                                     readp
                                     history
-				    abbrev-table)
+				    abbrev-table
+				    default)
   "Read a string from the minibuffer, prompting with string PROMPT.
 If optional second arg INITIAL-CONTENTS is non-nil, it is a string
   to be inserted into the minibuffer before reading input.
@@ -366,6 +367,8 @@ Fifth arg HISTORY, if non-nil, specifies a history list
   Positions are counted starting from 1 at the beginning of the list.
 Sixth arg ABBREV-TABLE, if non-nil, becomes the value of `local-abbrev-table'
   in the minibuffer.
+Seventh arg DEFAULT, if non-nil, will be returned when user enters
+  an empty string.
 
 See also the variable completion-highlight-first-word-only for control over
   completion display."
@@ -490,8 +493,13 @@ See also the variable completion-highlight-first-word-only for control over
                (let* ((val (progn (set-buffer buffer)
                                   (if minibuffer-exit-hook
                                       (run-hooks 'minibuffer-exit-hook))
-                                  (buffer-string)))
-                    (histval val)
+                                  (if (and (eq (char-after (point-min)) nil)
+					   default)
+				      default
+				    (buffer-string))))
+		      (histval (if (and default (string= val ""))
+				   default
+				 val))
                       (err nil))
                  (if readp
                      (condition-case e
@@ -784,7 +792,9 @@ Completion ignores case if the ambient value of
 					minibuffer-local-completion-map
 				      minibuffer-local-must-match-map)
 				    nil
-				    history))
+				    history
+				    nil
+				    default))
     (if (and (string= ret "")
 	     default)
 	default
@@ -1434,7 +1444,8 @@ only existing buffer names are allowed."
         result)
     (while (progn
              (setq result (completing-read prompt alist nil require-match
-					   nil 'buffer-history))
+					   nil 'buffer-history 
+					   (if default (buffer-name default))))
              (cond ((not (equal result ""))
                     nil)
                    ((not require-match)

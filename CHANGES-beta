@@ -1,4 +1,21 @@
 							-*- indented-text -*-
+to 21.2.24 "Hecate"
+
+to 21.2.23 "Hebe"
+-- MS-Windows selection fixes from Mike Alexander
+-- MS-WIndows process handling fixes from Mike Alexander
+-- Subwindow GC fix from Andy Piper
+-- Various minor fixes from Andy Piper
+-- Rewrite module configure support, Martin Buchholz
+-- Various Windows fixes, Martin Buchholz, Adrian Aichner, Andy Piper
+-- HP native compiler compilation fixes, Martin Buchholz
+-- Workarounds for Cygnus compiler bugs, Martin Buchholz
+-- Workarounds for Cygwin broken header files, Martin Buchholz
+-- itimers work again, Kyle Jones
+-- random code cleanup, Martin Buchholz
+-- various redisplay fixes, Andy Piper, Jan Vroonhof
+-- various fixes from Hrvoje Niksic, Yoshiki Hayashi
+
 to 21.2.22 "Mercedes"
 -- ESD Sound support from Robert Bihlmeyer
 -- 10% faster redisplay from Jan Vroonhof

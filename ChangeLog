@@ -1,3 +1,29 @@
+1999-12-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.23 is released.
+
+1999-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Fix module support.
+	--with-modules=yes was completely broken.
+	AC_DEFINE(HAVE_DLFCN_H) was invoked twice.
+	Remove linking test for _dlopen - seems totally bogus.
+	Die if --with-modules=yes but no module support found.
+	Do nothing, not even msg, if --with-modules=no.
+
+1999-11-17  Isaac Hollander  <ysh@mindspring.com>
+
+        * Makefile.in.in: add and use TAR macro.  Sometimes tar only copies
+        symlinks instead of the actual files
+
+1999-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* aclocal.m4: Shared library support for hpux >= version 11
+
+1999-11-29  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (beta): `make beta' should rebuild info.
+
 1999-11-29  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.22 is released
@@ -27,7 +53,7 @@
 	* configure.in (native_sound_lib, *-sgi-*): Check for audio.h.
 	(LIBS): Check for libCsup.
 
-	* etc/sample.Xdefaults: adds a reference to beNiceToColrmap,
+	* etc/sample.Xdefaults: adds a reference to beNiceToColormap,
 	  so that the user can guess what to do if xemacs' dialogs are
 	  butt ugly.
 

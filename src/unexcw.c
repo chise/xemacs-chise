@@ -40,7 +40,9 @@ unexec (char *, char *, void *, void *,	void *)
 #else
 
 #undef CONST
-#include <windows.h>
+#ifndef MAX_PATH
+#define MAX_PATH 260
+#endif
 #include <a.out.h>
 
 #define ALLOC_UNIT 0xFFFF

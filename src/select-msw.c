@@ -29,6 +29,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include "frame.h"
 #include "select.h"
 
 #include "console-msw.h"
@@ -41,6 +42,7 @@ Copy STRING to the mswindows clipboard.
   int rawsize, size, i;
   unsigned char *src, *dst, *next;
   HGLOBAL h = NULL;
+  struct frame *f = NULL;
 
   CHECK_STRING (string);
 
@@ -52,7 +54,8 @@ Copy STRING to the mswindows clipboard.
     if (src[i] == '\n')
       size++;
 
-  if (!OpenClipboard (NULL))
+  f = selected_frame ();
+  if (!OpenClipboard (FRAME_MSWINDOWS_HANDLE (f)))
     return Qnil;
 
   if (!EmptyClipboard () ||
@@ -88,7 +91,6 @@ Copy STRING to the mswindows clipboard.
   i = (SetClipboardData (CF_TEXT, h) != NULL);
   
   CloseClipboard ();
-  GlobalFree (h);
   
   return i ? Qt : Qnil;
 }
@@ -184,7 +186,16 @@ Remove the current MS-Windows selection from the clipboard.
 */
        ())
 {
-  return EmptyClipboard () ? Qt : Qnil;
+  BOOL success = OpenClipboard (NULL);
+  if (success)
+    {
+      success = EmptyClipboard ();
+      /* Close it regardless of whether empty worked. */
+      if (!CloseClipboard ())
+	success = FALSE;
+    }
+
+  return success ? Qt : Qnil;
 }
 
 static void

@@ -1284,6 +1284,16 @@ This can take a while for large buffers."
 ;    ;; Clean up.
 ;    (and prev (remove-text-properties prev end '(face nil)))))
 
+(defun font-lock-lisp-like (mode)
+  ;; Note: (or (get mode 'font-lock-lisp-like) (string-match ...)) is
+  ;; not enough because the property needs to be able to specify a nil
+  ;; value.
+  (if (plist-member (symbol-plist mode) 'font-lock-lisp-like)
+      (get mode 'font-lock-lisp-like)
+    ;; If the property is not specified, guess.  Similar logic exists
+    ;; in add-log, but I think this encompasses more modes.
+    (string-match "lisp\\|scheme" (symbol-name mode))))
+
 (defun font-lock-fontify-syntactically-region (start end &optional loudly)
   "Put proper face on each string and comment between START and END.
 START should be at the beginning of a line."
@@ -1296,21 +1306,24 @@ START should be at the beginning of a line."
     (font-lock-unfontify-region start end loudly)
     (goto-char start)
     (if (> end (point-max)) (setq end (point-max)))
-    (syntactically-sectionize
-      #'(lambda (s e context depth)
-	  (let (face)
-	    (cond ((eq context 'string)
-		   ;;#### Should only do this is Lisp-like modes!
-		   (setq face
-			 (if (= depth 1)
-			     ;; really we should only use this if
-			     ;;  in position 3 depth 1, but that's
-			     ;;  too expensive to compute.
-			     'font-lock-doc-string-face
-			   'font-lock-string-face)))
-		  ((or (eq context 'comment)
-		       (eq context 'block-comment))
-		   (setq face 'font-lock-comment-face)
+    (let ((lisp-like (font-lock-lisp-like major-mode)))
+      (syntactically-sectionize
+       #'(lambda (s e context depth)
+	   (let (face)
+	     (cond ((eq context 'string)
+		    (setq face
+			  ;; #### It would be nice if we handled
+			  ;; Python and other non-Lisp languages with
+			  ;; docstrings correctly.
+			  (if (and lisp-like (= depth 1))
+			      ;; really we should only use this if
+			      ;;  in position 3 depth 1, but that's
+			      ;;  too expensive to compute.
+			      'font-lock-doc-string-face
+			    'font-lock-string-face)))
+		   ((or (eq context 'comment)
+			(eq context 'block-comment))
+		    (setq face 'font-lock-comment-face)
 ;		 ;; Don't fontify whitespace at the beginning of lines;
 ;		 ;;  otherwise comment blocks may not line up with code.
 ;		 ;; (This is sometimes a good idea, sometimes not; in any
@@ -1323,9 +1336,9 @@ START should be at the beginning of a line."
 ;		       (skip-chars-forward " \t\n")
 ;		       (setq s (point)))
 		   ))
-	    (font-lock-set-face s e face)))
-      start end)
-    ))
+	     (font-lock-set-face s e face)))
+       start end)
+      )))
 
 ;;; Additional text property functions.
 
