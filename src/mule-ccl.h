@@ -57,17 +57,6 @@ struct ccl_program {
   int stack_idx;		/* How deep the call of CCL_Call is nested.  */
 };
 
-/* This data type is used for the spec field of the structure
-   coding_system.  */
-
-/*
-struct ccl_spec {
-  struct ccl_program decoder;
-  struct ccl_program encoder;
-  unsigned char valid_codes[256];
-};
-*/
-
 
 #define CCL_MODE_ENCODING 0
 #define CCL_MODE_DECODING 1
