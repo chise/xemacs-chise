@@ -2365,10 +2365,9 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 }
 
 #ifdef HAVE_LIBCHISE
-DEFUN ("save-charset-properties", Fsave_charset_properties, 1, 1, 0, /*
-Save properties of CHARSET.
-*/
-       (charset))
+Lisp_Object save_charset_properties (Lisp_Object charset);
+Lisp_Object
+save_charset_properties (Lisp_Object charset)
 {
   struct Lisp_Charset *cs;
   CHISE_Property property;
@@ -2754,9 +2753,6 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_mapping_table);
 #ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
-#ifdef HAVE_LIBCHISE
-  DEFSUBR (Fsave_charset_properties);
-#endif /* HAVE_LIBCHISE */
   DEFSUBR (Freset_charset_mapping_table);
 #endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
