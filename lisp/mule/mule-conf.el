@@ -174,6 +174,15 @@
   (define-charset-alias 'ucs '=ucs)
   (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
+  (make-charset
+   '=jis-x0208@1997
+   "JIS X 0208 based on the unification rule of 1997 edition."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      ;; final ?B
+	      graphic 0))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
