@@ -1060,6 +1060,8 @@ Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
 
 
+Lisp_Object Qsystem_char_id;
+
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs;
@@ -3292,6 +3294,26 @@ Remove CHARACTER's ATTRIBUTE.
   return Qnil;
 }
 
+Lisp_Object
+char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
+			       int writing_mode)
+{
+  Lisp_Object db_dir = Vexec_directory;
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  if (writing_mode && NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
+  db_dir = Fexpand_file_name (Fsymbol_name (key_type), db_dir);
+  if (writing_mode && NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
+  return Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+}
+  
 DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
 Save values of ATTRIBUTE into database file.
 */
@@ -3302,7 +3324,6 @@ Save values of ATTRIBUTE into database file.
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
   Lisp_Object db;
-  Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
 
   if (CHAR_TABLEP (table))
@@ -3310,18 +3331,7 @@ Save values of ATTRIBUTE into database file.
   else
     return Qnil;
   
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
-  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  if (NILP (Ffile_exists_p (db_dir)))
-    Fmake_directory_internal (db_dir);
-
-  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+  db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
@@ -3350,14 +3360,9 @@ Reset values of ATTRIBUTE with database file.
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
-  Lisp_Object db_dir = Vexec_directory;
-  Lisp_Object db_file;
+  Lisp_Object db_file
+    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   if (!NILP (Ffile_exists_p (db_file)))
     {
       if (UNBOUNDP (table))
@@ -3380,15 +3385,9 @@ Lisp_Object
 load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
 {
   Lisp_Object db;
-  Lisp_Object db_dir = Vexec_directory;
-  Lisp_Object db_file;
+  Lisp_Object db_file
+    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
@@ -3433,21 +3432,16 @@ Load values of ATTRIBUTE into database file.
 {
 #ifdef HAVE_DATABASE
   Lisp_Object db;
-  Lisp_Object db_dir = Vexec_directory;
-  Lisp_Object db_file;
+  Lisp_Object db_file
+    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
     {
       Lisp_Object table = Fgethash (attribute,
 				    Vchar_attribute_hash_table,
 				    Qunbound);
-      struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
+      struct gcpro gcpro1, gcpro2;
 
       if (CHAR_TABLEP (table))
 	char_attribute_table_to_load = XCHAR_TABLE (table);
@@ -3456,7 +3450,7 @@ Load values of ATTRIBUTE into database file.
 	  Fclose_database (db);
 	  return Qnil;
 	}
-      GCPRO4 (db, db_dir, db_file, table);
+      GCPRO2 (db, table);
       Fmap_database (Qload_char_attribute_table_map_function, db);
       UNGCPRO;
       Fclose_database (db);
@@ -3961,6 +3955,8 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
+
+  defsymbol (&Qsystem_char_id,		"system-char-id");
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs,			"->ucs");
