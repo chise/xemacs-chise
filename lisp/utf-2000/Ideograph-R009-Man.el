@@ -21975,6 +21975,7 @@
       (=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
     (=cns11643-2	. #x415F)	; ø»“¼ž
+    (mojikyo		. 001020)	; ý €€¼
     ))
 (define-char
   '((=>ucs		. #x20331)	; ð Œ±
