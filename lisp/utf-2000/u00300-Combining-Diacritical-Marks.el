@@ -48,7 +48,6 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (chinese-big5	. #xA1C2)	; øºŸœ 
     (ucs		. #x305)	; Ì…
     ))
 (define-char
