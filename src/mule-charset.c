@@ -1549,15 +1549,6 @@ split_builtin_char (Emchar c)
 			make_int (c >> 8), make_int (c & 0xff));
 	}
     }
-  else if (c <= MAX_CHAR_OBS_94x94)
-    {
-      return list3 (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94,
-		     ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
-		     CHARSET_LEFT_TO_RIGHT),
-		    make_int ((((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33),
-		    make_int (((c - MIN_CHAR_OBS_94x94) % 94) + 33));
-    }
   else if (c <= MAX_CHAR_94)
     {
       return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
