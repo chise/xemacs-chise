@@ -1,3 +1,11 @@
+2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (U+82BD): Relate to M-30860' instead of
+	M-30747; add mapping for CU-0002F995.
+	(M-30860'): Add mapping for CU-0002F995.
+	(J90-326A): Likewise.
+	(C6-2E22): Unify CU-0002F995 instead of U-0002F995.
+
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R212-Dragon.el (J0-4E36): Separate G1-417A and U+9F8D;
@@ -11,6 +19,33 @@
 
 	* Ideograph-R100-Life.el (J0-3B3A): Separate C3-3745, G1-327A and
 	U+7523; add `ucs-jis' for U+7523.
+
+2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R112-Stone.el (U+7872): Add `total-strokes'.
+	(U+7877): Likewise.
+	(M-24244): New character.
+	(C3-4333): Unify U-0002F94E; relate to M-24244.
+
+	* Ideograph-R205-Frog.el (M-48286): Add mapping for U-0002FA19.
+	(C3-5C2F): Unify U-0002FA19.
+
+	* Ideograph-R140-Grass.el (C3-272A): Unify U-0002F98F; relate to
+	M-30681.
+
+	* Ideograph-R120-Silk.el (C3-2E56): Unify U-0002F96A; relate to
+	M-27234.
+	(J0-6533): Fix `total-strokes'.
+	(C2-3E71): Likewise.
+	(C3-486A): Fix `ideographic-strokes'; unify U-0002F96C.
+
+	* Ideograph-R059-Bristle.el (M-09982): Separate C3-2C51; add
+	mappings for U-0002F899.
+	(C3-2C51): Unify U-0002F899.
+
+	* Ideograph-R046-Mountain.el (M-08360): Separate C3-407E; add
+	mappings for U-0002F87E.
+	(C3-407E): Unify U-0002F87E.
 
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
