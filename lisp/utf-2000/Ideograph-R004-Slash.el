@@ -443,14 +443,13 @@
     ))
 (define-char
   '((=>ucs		. #x4E4B)	; ä¹‹
-    (ideographic-	(:radical	4 ; â¼ƒ
-			 :strokes	3
-			 :total-strokes	4
-			 :sources	(ucs jis-x0208 morohashi-daikanwa))
-			(:radical	4 ; â¼ƒ
-			 :strokes	2
-			 :total-strokes	3
-			 :sources	(gt)))
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes@daikanwa . 3)
+    (total-strokes@daikanwa	  . 4)
+    (ideographic-strokes@daikanwa*sources
+     daikanwa jis-x0208)
+    (ideographic-strokes@gt . 2)
+    (total-strokes@gt	    . 3)
     (shinjigen-1	. 49)
     (shinjigen-2	. 49)
     (=jis-x0208		. #x4737)	; ø½Š®†
