@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_SCROLLBAR_MSW_H_
-#define _XEMACS_SCROLLBAR_MSW_H_
+#ifndef INCLUDED_scrollbar_msw_h_
+#define INCLUDED_scrollbar_msw_h_
 
 #if defined (HAVE_MS_WINDOWS) && defined (HAVE_SCROLLBARS)
 
@@ -60,4 +60,4 @@ void mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos);
 int mswindows_handle_mousewheel_event (Lisp_Object frame, int keys, int delta);
 
 #endif /* HAVE_MS_WINDOWS and HAVE_SCROLLBARS */
-#endif /* _XEMACS_SCROLLBAR_MSW_H_ */
+#endif /* INCLUDED_scrollbar_msw_h_ */

@@ -278,7 +278,7 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
       /* Submenu */
       HMENU submenu;
       Lisp_Object gui_item = allocate_gui_item ();
-      struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+      Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
       struct gcpro gcpro1;
 
       GCPRO1 (gui_item);
@@ -328,7 +328,7 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
       /* An ordinary item */
       Lisp_Object style, id;
       Lisp_Object gui_item = gui_parse_item_keywords (item);
-      struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+      Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
       struct gcpro gcpro1;
 
       GCPRO1 (gui_item);
@@ -393,7 +393,7 @@ populate_or_checksum_helper (HMENU menu, Lisp_Object path, Lisp_Object desc,
   struct gcpro gcpro1;
   unsigned long checksum;
   Lisp_Object gui_item = allocate_gui_item ();
-  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
   GCPRO1 (gui_item);
 
   /* We are sometimes called with the menubar unchanged, and with changed
@@ -736,7 +736,7 @@ static void
 mswindows_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
 {
   struct frame *f = selected_frame ();
-  struct Lisp_Event *eev = NULL;
+  Lisp_Event *eev = NULL;
   HMENU menu;
   POINT pt;
   int ok;

@@ -109,12 +109,14 @@ void
 write_string_to_stdio_stream (FILE *stream, struct console *con,
 			      CONST Bufbyte *str,
 			      Bytecount offset, Bytecount len,
-			      enum external_data_format fmt)
+			      Lisp_Object coding_system)
 {
-  int extlen;
+  Extcount extlen;
   CONST Extbyte *extptr;
 
-  GET_CHARPTR_EXT_DATA_ALLOCA (str + offset, len, fmt, extptr, extlen);
+  TO_EXTERNAL_FORMAT (DATA, (str + offset, len),
+		      ALLOCA, (extptr, extlen),
+		      coding_system);
   if (stream)
     {
       fwrite (extptr, 1, extlen, stream);
@@ -236,7 +238,7 @@ output_string (Lisp_Object function, CONST Bufbyte *nonreloc,
   else if (EQ (function, Qt) || EQ (function, Qnil))
     {
       write_string_to_stdio_stream (stdout, 0, newnonreloc, offset, len,
-				    FORMAT_TERMINAL);
+				    Qterminal);
     }
   else
     {
@@ -717,7 +719,7 @@ Lisp_Object Vfloat_output_format;
 
 /*
  * This buffer should be at least as large as the max string size of the
- * largest float, printed in the biggest notation.  This is undoubtably
+ * largest float, printed in the biggest notation.  This is undoubtedly
  * 20d float_output_format, with the negative of the C-constant "HUGE"
  * from <math.h>.
  *
@@ -964,7 +966,7 @@ print_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 void
 print_string (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  struct Lisp_String *s = XSTRING (obj);
+  Lisp_String *s = XSTRING (obj);
   /* We distinguish between Bytecounts and Charcounts, to make
      Vprint_string_length work correctly under Mule.  */
   Charcount size = string_char_length (s);
@@ -1180,7 +1182,7 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	  {
 	    p += set_charptr_emchar ((Bufbyte *) p, ch);
 	  }
-	  
+
 	output_string (printcharfun, (Bufbyte *) buf, Qnil, 0, p - buf);
 
 	break;
@@ -1257,7 +1259,7 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   /* This function can GC */
   /* #### Bug!! (intern "") isn't printed in some distinguished way */
   /* ####  (the reader also loses on it) */
-  struct Lisp_String *name = symbol_name (XSYMBOL (obj));
+  Lisp_String *name = symbol_name (XSYMBOL (obj));
   Bytecount size = string_length (name);
   struct gcpro gcpro1, gcpro2;
 
@@ -1409,7 +1411,9 @@ to 0.
 
   CHECK_CHAR_COERCE_INT (character);
   len = set_charptr_emchar (str, XCHAR (character));
-  GET_CHARPTR_EXT_DATA_ALLOCA (str, len, FORMAT_TERMINAL, extptr, extlen);
+  TO_EXTERNAL_FORMAT (DATA, (str, len),
+		      ALLOCA, (extptr, extlen),
+		      Qterminal);
   memcpy (alternate_do_string + alternate_do_pointer, extptr, extlen);
   alternate_do_pointer += extlen;
   alternate_do_string[alternate_do_pointer] = 0;
@@ -1457,7 +1461,7 @@ the output also will be logged to this file.
     write_string_to_stdio_stream (file, con,
 				  XSTRING_DATA (char_or_string),
 				  0, XSTRING_LENGTH (char_or_string),
-				  FORMAT_TERMINAL);
+				  Qterminal);
   else
     {
       Bufbyte str[MAX_EMCHAR_LEN];
@@ -1465,7 +1469,7 @@ the output also will be logged to this file.
 
       CHECK_CHAR_COERCE_INT (char_or_string);
       len = set_charptr_emchar (str, XCHAR (char_or_string));
-      write_string_to_stdio_stream (file, con, str, 0, len, FORMAT_TERMINAL);
+      write_string_to_stdio_stream (file, con, str, 0, len, Qterminal);
     }
 
   return char_or_string;
@@ -1494,38 +1498,41 @@ FILE = nil means just close any termscript file currently open.
 
 #if 1
 /* Debugging kludge -- unbuffered */
-static int debug_print_length = 50;
-static int debug_print_level = 15;
+static int debug_print_length   = 50;
+static int debug_print_level    = 15;
+static int debug_print_readably = -1;
 
 static void
 debug_print_no_newline (Lisp_Object debug_print_obj)
 {
   /* This function can GC */
-  int old_print_readably = print_readably;
-  int old_print_depth = print_depth;
-  Lisp_Object old_print_length = Vprint_length;
-  Lisp_Object old_print_level = Vprint_level;
-  Lisp_Object old_inhibit_quit = Vinhibit_quit;
+  int save_print_readably = print_readably;
+  int save_print_depth    = print_depth;
+  Lisp_Object save_Vprint_length = Vprint_length;
+  Lisp_Object save_Vprint_level  = Vprint_level;
+  Lisp_Object save_Vinhibit_quit = Vinhibit_quit;
   struct gcpro gcpro1, gcpro2, gcpro3;
-  GCPRO3 (old_print_level, old_print_length, old_inhibit_quit);
+  GCPRO3 (save_Vprint_level, save_Vprint_length, save_Vinhibit_quit);
 
   if (gc_in_progress)
     stderr_out ("** gc-in-progress!  Bad idea to print anything! **\n");
 
   print_depth = 0;
-  print_readably = 0;
+  print_readably = debug_print_readably != -1 ? debug_print_readably : 0;
   print_unbuffered++;
   /* Could use unwind-protect, but why bother? */
   if (debug_print_length > 0)
     Vprint_length = make_int (debug_print_length);
   if (debug_print_level > 0)
     Vprint_level = make_int (debug_print_level);
+
   print_internal (debug_print_obj, Qexternal_debugging_output, 1);
-  Vinhibit_quit = old_inhibit_quit;
-  Vprint_level = old_print_level;
-  Vprint_length = old_print_length;
-  print_depth = old_print_depth;
-  print_readably = old_print_readably;
+
+  Vinhibit_quit  = save_Vinhibit_quit;
+  Vprint_level   = save_Vprint_level;
+  Vprint_length  = save_Vprint_length;
+  print_depth    = save_print_depth;
+  print_readably = save_print_readably;
   print_unbuffered--;
   UNGCPRO;
 }

@@ -56,7 +56,6 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WINDOWSNT
 #define NOMINMAX 1
-#include <windows.h>
 #include <direct.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -240,7 +239,7 @@ maybe_signal_double_file_error_2 (CONST char *string1, CONST char *string2,
 Lisp_Object
 lisp_strerror (int errnum)
 {
-  return build_ext_string (strerror (errnum), FORMAT_NATIVE);
+  return build_ext_string (strerror (errnum), Qnative);
 }
 
 static Lisp_Object
@@ -584,18 +583,10 @@ except for (file-name-as-directory \"\") => \"./\".
 static int
 directory_file_name (CONST char *src, char *dst)
 {
-  long slen;
-
-  slen = strlen (src);
+  long slen = strlen (src);
   /* Process as Unix format: just remove any final slash.
      But leave "/" unchanged; do not change it to "".  */
   strcpy (dst, src);
-#ifdef APOLLO
-  /* Handle // as root for apollo's.  */
-  if ((slen > 2 && dst[slen - 1] == '/')
-      || (slen > 1 && dst[0] != '/' && dst[slen - 1] == '/'))
-    dst[slen - 1] = 0;
-#else
   if (slen > 1
       && IS_DIRECTORY_SEP (dst[slen - 1])
 #ifdef WINDOWSNT
@@ -603,7 +594,6 @@ directory_file_name (CONST char *src, char *dst)
 #endif /* WINDOWSNT */
       )
     dst[slen - 1] = 0;
-#endif /* APOLLO */
   return 1;
 }
 
@@ -977,12 +967,14 @@ See also the function `substitute-in-file-name'.
       if (IS_DIRECTORY_SEP (nm[1])
 	  || nm[1] == 0)	/* ~ by itself */
 	{
-	  char * newdir_external = get_home_directory ();
+	  Extbyte *newdir_external = get_home_directory ();
 
 	  if (newdir_external == NULL)
 	    newdir = (Bufbyte *) "";
 	  else
-	    GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA (newdir_external, newdir);
+	    TO_INTERNAL_FORMAT (C_STRING, newdir_external,
+				C_STRING_ALLOCA, (* ((char **) &newdir)),
+				Qfile_name);
 
 	  nm++;
 #ifdef WINDOWSNT
@@ -1301,9 +1293,11 @@ No component of the resulting pathname will be a symbolic link, as
     char resolved_path[MAXPATHLEN];
     Extbyte *path;
     Extbyte *p;
-    Extcount elen = XSTRING_LENGTH (expanded_name);
+    Extcount elen;
 
-    GET_STRING_FILENAME_DATA_ALLOCA (expanded_name,path,elen);
+    TO_EXTERNAL_FORMAT (LISP_STRING, expanded_name,
+			ALLOCA, (path, elen),
+			Qfile_name);
     p = path;
     if (elen > MAXPATHLEN)
       goto toolong;
@@ -1374,7 +1368,7 @@ No component of the resulting pathname will be a symbolic link, as
 	  resolved_path[rlen + 1] = 0;
 	  rlen = rlen + 1;
 	}
-      return make_ext_string ((Bufbyte *) resolved_path, rlen, FORMAT_BINARY);
+      return make_ext_string ((Bufbyte *) resolved_path, rlen, Qbinary);
     }
 
   toolong:
@@ -1425,13 +1419,12 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
   for (p = nm; p != endp; p++)
     {
       if ((p[0] == '~'
-#if defined (APOLLO) || defined (WINDOWSNT) || defined (__CYGWIN32__)
-	   /* // at start of file name is meaningful in Apollo and
-	      WindowsNT systems */
+#if defined (WINDOWSNT) || defined (__CYGWIN32__)
+	   /* // at start of file name is meaningful in WindowsNT systems */
 	   || (IS_DIRECTORY_SEP (p[0]) && p - 1 != nm)
-#else /* not (APOLLO || WINDOWSNT || __CYGWIN32__) */
+#else /* not (WINDOWSNT || __CYGWIN32__) */
 	   || IS_DIRECTORY_SEP (p[0])
-#endif /* not (APOLLO || WINDOWSNT || __CYGWIN32__) */
+#endif /* not (WINDOWSNT || __CYGWIN32__) */
 	   )
 	  && p != nm
 	  && (IS_DIRECTORY_SEP (p[-1])))
@@ -1557,11 +1550,11 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 
   for (p = xnm; p != x; p++)
     if ((p[0] == '~'
-#if defined (APOLLO) || defined (WINDOWSNT)
+#if defined (WINDOWSNT)
 	 || (IS_DIRECTORY_SEP (p[0]) && p - 1 != xnm)
-#else /* not (APOLLO || WINDOWSNT) */
+#else /* not WINDOWSNT */
 	 || IS_DIRECTORY_SEP (p[0])
-#endif /* APOLLO || WINDOWSNT */
+#endif /* not WINDOWSNT */
 	 )
 	/* don't do p[-1] if that would go off the beginning --jwz */
 	&& p != nm && p > xnm && IS_DIRECTORY_SEP (p[-1]))
@@ -2132,26 +2125,21 @@ Open a network connection to PATH using LOGIN as the login string.
        (path, login))
 {
   int netresult;
+  const char *path_ext;
+  const char *login_ext;
 
   CHECK_STRING (path);
   CHECK_STRING (login);
 
   /* netunam, being a strange-o system call only used once, is not
      encapsulated. */
-  {
-    char *path_ext;
-    char *login_ext;
 
-    GET_C_STRING_FILENAME_DATA_ALLOCA (path, path_ext);
-    GET_C_STRING_EXT_DATA_ALLOCA (login, FORMAT_OS, login_ext);
+  TO_EXTERNAL_FORMAT (LISP_STRING, path,  C_STRING_ALLOCA, path_ext,  Qfile_name);
+  TO_EXTERNAL_FORMAT (LISP_STRING, login, C_STRING_ALLOCA, login_ext, Qnative);
 
-    netresult = netunam (path_ext, login_ext);
-  }
+  netresult = netunam (path_ext, login_ext);
 
-  if (netresult == -1)
-    return Qnil;
-  else
-    return Qt;
+  return netresult == -1 ? Qnil : Qt;
 }
 #endif /* HPUX_NET */
 
@@ -2737,15 +2725,7 @@ positions), even in Mule. (Fixing this is very difficult.)
 
   fd = -1;
 
-  if (
-#ifndef APOLLO
-      (stat ((char *) XSTRING_DATA (filename), &st) < 0)
-#else /* APOLLO */
-      /* Don't even bother with interruptible_open.  APOLLO sucks. */
-      ((fd = open ((char *) XSTRING_DATA (filename), O_RDONLY | OPEN_BINARY, 0)) < 0
-       || fstat (fd, &st) < 0)
-#endif /* APOLLO */
-      )
+  if (stat ((char *) XSTRING_DATA (filename), &st) < 0)
     {
       if (fd >= 0) close (fd);
     badopen:
@@ -3029,9 +3009,6 @@ positions), even in Mule. (Fixing this is very difficult.)
     {
       if (!EQ (buf->undo_list, Qt))
 	buf->undo_list = Qnil;
-#ifdef APOLLO
-      stat ((char *) XSTRING_DATA (filename), &st);
-#endif
       if (NILP (handler))
 	{
 	  buf->modtime = st.st_mtime;
@@ -3337,21 +3314,11 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
       }
 #endif /* HAVE_FSYNC */
 
-    /* Spurious "file has changed on disk" warnings have been
-       observed on Suns as well.
-       It seems that `close' can change the modtime, under nfs.
-
-       (This has supposedly been fixed in Sunos 4,
-       but who knows about all the other machines with NFS?)  */
-    /* On VMS and APOLLO, must do the stat after the close
-       since closing changes the modtime.  */
-    /* As it does on Windows too - kkm */
-    /* The spurious warnings appear on Linux too.  Rather than handling
-       this on a per-system basis, unconditionally do the stat after the close - cgw */
-
-#if 0 /* !defined (WINDOWSNT) */  /* !defined (VMS) && !defined (APOLLO) */
-    fstat (desc, &st);
-#endif
+    /* Spurious "file has changed on disk" warnings used to be seen on
+       systems where close() can change the modtime.  This is known to
+       happen on various NFS file systems, on Windows, and on Linux.
+       Rather than handling this on a per-system basis, we
+       unconditionally do the stat() after the close(). */
 
     /* NFS can report a write failure now.  */
     if (close (desc) < 0)
@@ -3367,9 +3334,7 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
     unbind_to (speccount, Qnil);
   }
 
-  /* # if defined (WINDOWSNT) */ /* defined (VMS) || defined (APOLLO) */
   stat ((char *) XSTRING_DATA (fn), &st);
-  /* #endif */
 
 #ifdef CLASH_DETECTION
   if (!auto_saving)
@@ -4021,18 +3986,19 @@ Non-nil second argument means save only current buffer.
 		  CONST Extbyte *auto_save_file_name_ext;
 		  Extcount auto_save_file_name_ext_len;
 
-		  GET_STRING_FILENAME_DATA_ALLOCA
-		    (b->auto_save_file_name,
-		     auto_save_file_name_ext,
-		     auto_save_file_name_ext_len);
+		  TO_EXTERNAL_FORMAT (LISP_STRING, b->auto_save_file_name,
+				      ALLOCA, (auto_save_file_name_ext,
+					       auto_save_file_name_ext_len),
+				      Qfile_name);
 		  if (!NILP (b->filename))
 		    {
 		      CONST Extbyte *filename_ext;
 		      Extcount filename_ext_len;
 
-		      GET_STRING_FILENAME_DATA_ALLOCA (b->filename,
-						       filename_ext,
-						       filename_ext_len);
+		      TO_EXTERNAL_FORMAT (LISP_STRING, b->filename,
+					  ALLOCA, (filename_ext,
+						   filename_ext_len),
+					  Qfile_name);
 		      write (listdesc, filename_ext, filename_ext_len);
 		    }
 		  write (listdesc, "\n", 1);

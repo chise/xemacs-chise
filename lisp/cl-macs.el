@@ -2744,10 +2744,8 @@ surrounded by (block NAME ...)."
       (setq form (list 'cons (car args) form)))
     form))
 
-(define-compiler-macro get* (sym prop &optional def)
-  (if def
-      (list 'getf (list 'symbol-plist sym) prop def)
-    (list 'get sym prop)))
+(define-compiler-macro get* (sym prop &optional default)
+  (list 'get sym prop default))
 
 (define-compiler-macro typep (&whole form val type)
   (if (cl-const-expr-p type)
@@ -2795,7 +2793,7 @@ surrounded by (block NAME ...)."
 ;		    abs expt signum last butlast ldiff
 ;		    pairlis gcd lcm
 ;		    isqrt floor* ceiling* truncate* round* mod* rem* subseq
-;		    list-length get* getf))
+;		    list-length getf))
 ;  (put fun 'side-effect-free t))
 
 ;;; Things that are side-effect-and-error-free.  Moved to byte-optimize.el

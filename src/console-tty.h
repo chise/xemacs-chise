@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
    have more than one device on a TTY console, the output stuff
    will have to get separated out. */
 
-#ifndef _XEMACS_CONSOLE_TTY_H_
-#define _XEMACS_CONSOLE_TTY_H_
+#ifndef INCLUDED_console_tty_h_
+#define INCLUDED_console_tty_h_
 
 #include "console.h"
 #include "syssignal.h" /* Always include before systty.h */
@@ -289,4 +289,4 @@ Lisp_Object tty_canonicalize_device_connection (Lisp_Object connection,
 						Error_behavior errb);
 struct console * tty_find_console_from_fd (int fd);
 
-#endif /* _XEMACS_CONSOLE_TTY_H_ */
+#endif /* INCLUDED_console_tty_h_ */

@@ -363,7 +363,7 @@ confoundance disease}.  In particular, many functions such as @code{eq},
 are integers are the same.  Byte code compiled under any version 19
 Emacs will have all such functions mapped to their @code{old-} equivalents
 when the byte code is read into XEmacs 20.  This is to preserve
-compatibility -- Emacs 19 converts all constant characters to the equivalent
+compatibility---Emacs 19 converts all constant characters to the equivalent
 integer during byte-compilation, and thus there is no other way to preserve
 byte-code compatibility even if the code has specifically been written
 with the distinction between characters and integers in mind.
@@ -372,7 +372,7 @@ with the distinction between characters and integers in mind.
 code}.  For example, the character @kbd{A} is represented as the
 @w{integer 65}, following the standard @sc{ascii} representation of
 characters.  If XEmacs was not compiled with @sc{mule} support, the
-range of this integer will always be 0 to 255 -- eight bits, or one
+range of this integer will always be 0 to 255---eight bits, or one
 byte. (Integers outside this range are accepted but silently truncated;
 however, you should most decidedly @emph{not} rely on this, because it
 will not work under XEmacs with @sc{mule} support.)  When @sc{mule}

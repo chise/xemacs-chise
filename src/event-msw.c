@@ -90,13 +90,6 @@ typedef NMHDR *LPNMHDR;
 /* Timer ID used for button2 emulation */
 #define BUTTON_2_TIMER_ID 1
 
-extern Lisp_Object
-mswindows_get_toolbar_button_text (struct frame* f, int command_id);
-extern Lisp_Object
-mswindows_handle_toolbar_wm_command (struct frame* f, HWND ctrl, WORD id);
-extern Lisp_Object
-mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, WORD id);
-
 static Lisp_Object mswindows_find_frame (HWND hwnd);
 static Lisp_Object mswindows_find_console (HWND hwnd);
 static Lisp_Object mswindows_key_to_emacs_keysym (int mswindows_key, int mods,
@@ -860,7 +853,7 @@ init_winsock_stream (void)
 /************************************************************************/
 
 static int
-mswindows_user_event_p (struct Lisp_Event* sevt)
+mswindows_user_event_p (Lisp_Event* sevt)
 {
   return (sevt->event_type == key_press_event
 	  || sevt->event_type == button_press_event
@@ -896,10 +889,11 @@ mswindows_enqueue_misc_user_event (Lisp_Object channel, Lisp_Object function,
 				   Lisp_Object object)
 {
   Lisp_Object event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event* e = XEVENT (event);
+  Lisp_Event* e = XEVENT (event);
 
   e->event_type = misc_user_event;
   e->channel = channel;
+  e->timestamp = GetTickCount ();
   e->event.misc.function = function;
   e->event.misc.object = object;
 
@@ -907,24 +901,24 @@ mswindows_enqueue_misc_user_event (Lisp_Object channel, Lisp_Object function,
 }
 
 void
-mswindows_enqueue_magic_event (HWND hwnd, UINT message)
+mswindows_enqueue_magic_event (HWND hwnd, UINT msg)
 {
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event* event = XEVENT (emacs_event);
+  Lisp_Event* event = XEVENT (emacs_event);
 
   event->channel = hwnd ? mswindows_find_frame (hwnd) : Qnil;
   event->timestamp = GetMessageTime();
   event->event_type = magic_event;
-  EVENT_MSWINDOWS_MAGIC_TYPE (event) = message;
+  EVENT_MSWINDOWS_MAGIC_TYPE (event) = msg;
 
   mswindows_enqueue_dispatch_event (emacs_event);
 }
 
 static void
-mswindows_enqueue_process_event (struct Lisp_Process* p)
+mswindows_enqueue_process_event (Lisp_Process* p)
 {
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event* event = XEVENT (emacs_event);
+  Lisp_Event* event = XEVENT (emacs_event);
   Lisp_Object process;
   XSETPROCESS (process, p);
 
@@ -936,7 +930,7 @@ mswindows_enqueue_process_event (struct Lisp_Process* p)
 }
 
 static void
-mswindows_enqueue_mouse_button_event (HWND hwnd, UINT message, POINTS where, DWORD when)
+mswindows_enqueue_mouse_button_event (HWND hwnd, UINT msg, POINTS where, DWORD when)
 {
 
   /* We always use last message time, because mouse button
@@ -944,19 +938,19 @@ mswindows_enqueue_mouse_button_event (HWND hwnd, UINT message, POINTS where, DWO
      recognition will fail */
 
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event* event = XEVENT(emacs_event);
+  Lisp_Event* event = XEVENT(emacs_event);
 
   event->channel = mswindows_find_frame(hwnd);
   event->timestamp = when;
   event->event.button.button =
-    (message==WM_LBUTTONDOWN || message==WM_LBUTTONUP) ? 1 :
-    ((message==WM_RBUTTONDOWN || message==WM_RBUTTONUP) ? 3 : 2);
+    (msg==WM_LBUTTONDOWN || msg==WM_LBUTTONUP) ? 1 :
+    ((msg==WM_RBUTTONDOWN || msg==WM_RBUTTONUP) ? 3 : 2);
   event->event.button.x = where.x;
   event->event.button.y = where.y;
   event->event.button.modifiers = mswindows_modifier_state (NULL, 0);
 
-  if (message==WM_LBUTTONDOWN || message==WM_MBUTTONDOWN ||
-      message==WM_RBUTTONDOWN)
+  if (msg==WM_LBUTTONDOWN || msg==WM_MBUTTONDOWN ||
+      msg==WM_RBUTTONDOWN)
     {
       event->event_type = button_press_event;
       SetCapture (hwnd);
@@ -981,7 +975,7 @@ static void
 mswindows_enqueue_keypress_event (HWND hwnd, Lisp_Object keysym, int mods)
 {
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event* event = XEVENT(emacs_event);
+  Lisp_Event* event = XEVENT(emacs_event);
 
   event->channel = mswindows_find_console(hwnd);
   event->timestamp = GetMessageTime();
@@ -999,7 +993,7 @@ static Lisp_Object
 mswindows_dequeue_dispatch_event ()
 {
   Lisp_Object event;
-  struct Lisp_Event* sevt;
+  Lisp_Event* sevt;
 
   assert (!NILP(mswindows_u_dispatch_event_queue) ||
 	  !NILP(mswindows_s_dispatch_event_queue));
@@ -1033,7 +1027,7 @@ mswindows_dequeue_dispatch_event ()
  */
 
 Lisp_Object
-mswindows_cancel_dispatch_event (struct Lisp_Event *match)
+mswindows_cancel_dispatch_event (Lisp_Event *match)
 {
   Lisp_Object event;
   Lisp_Object previous_event = Qnil;
@@ -1048,7 +1042,7 @@ mswindows_cancel_dispatch_event (struct Lisp_Event *match)
 
   EVENT_CHAIN_LOOP (event, *head)
     {
-      struct Lisp_Event *e = XEVENT (event);
+      Lisp_Event *e = XEVENT (event);
       if ((e->event_type == match->event_type) &&
 	  ((e->event_type == timeout_event) ?
 	   (e->event.timeout.interval_id == match->event.timeout.interval_id) :
@@ -1231,17 +1225,29 @@ mswindows_pump_outstanding_events (void)
   return result;
 }
 
+/*
+ * KEYBOARD_ONLY_P is set to non-zero when we are called from
+ * QUITP, and are interesting in keyboard messages only.
+ */
 static void
-mswindows_drain_windows_queue ()
+mswindows_drain_windows_queue (int keyboard_only_till_quit_char_p)
 {
   MSG msg;
-  while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
+
+  /* Minimize the hassle of misordered events by not fetching
+     past quit char if called from QUITP; */
+  while (!(keyboard_only_till_quit_char_p &&
+	   mswindows_quit_chars_count > 0) &&
+	 PeekMessage (&msg, NULL,
+		      keyboard_only_till_quit_char_p ? WM_KEYFIRST : 0,
+		      keyboard_only_till_quit_char_p ? WM_KEYLAST : 0,
+		      PM_REMOVE))
     {
-      /* we have to translate messages that are not sent to the main
-         window. this is so that key presses work ok in things like
-         edit fields. however, we *musn't* translate message for the
+      /* We have to translate messages that are not sent to the main
+         window. This is so that key presses work ok in things like
+         edit fields. However, we *musn't* translate message for the
          main window as this is handled in the wnd proc. */
-      if ( GetWindowLong (msg.hwnd, GWL_STYLE) & WS_CHILD )
+      if (GetWindowLong (msg.hwnd, GWL_STYLE) & WS_CHILD)
 	{
 	  TranslateMessage (&msg);
 	}
@@ -1308,9 +1314,13 @@ mswindows_need_event (int badly_p)
       return;
     }
 
+#if 0
   /* Have to drain Windows message queue first, otherwise, we may miss
      quit char when called from quit_p */
+  /* #### This is, ehm, not quite true -- this function is not
+     called from quit_p. --kkm */
   mswindows_drain_windows_queue ();
+#endif
 
   while (NILP (mswindows_u_dispatch_event_queue)
 	 && NILP (mswindows_s_dispatch_event_queue))
@@ -1341,7 +1351,7 @@ mswindows_need_event (int badly_p)
 	{
 	  if (FD_ISSET (windows_fd, &temp_mask))
 	    {
-	      mswindows_drain_windows_queue ();
+	      mswindows_drain_windows_queue (0);
 	    }
 #ifdef HAVE_TTY
 	  /* Look for a TTY event */
@@ -1354,7 +1364,7 @@ mswindows_need_event (int badly_p)
 		{
 		  struct console *c = tty_find_console_from_fd (i);
 		  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-		  struct Lisp_Event* event = XEVENT (emacs_event);
+		  Lisp_Event* event = XEVENT (emacs_event);
 
 		  assert (c);
 		  if (read_event_from_tty_or_stream_desc (event, c, i))
@@ -1372,7 +1382,7 @@ mswindows_need_event (int badly_p)
 		{
 		  if (FD_ISSET (i, &process_only_mask))
 		    {
-		      struct Lisp_Process *p =
+		      Lisp_Process *p =
 			get_process_from_usid (FD_TO_USID(i));
 
 		      mswindows_enqueue_process_event (p);
@@ -1422,13 +1432,13 @@ mswindows_need_event (int badly_p)
     else if (active == WAIT_OBJECT_0 + mswindows_waitable_count)
       {
 	/* Got your message, thanks */
-	mswindows_drain_windows_queue ();
+	mswindows_drain_windows_queue (0);
       }
     else
       {
 	int ix = active - WAIT_OBJECT_0;
 	/* First, try to find which process' output has signaled */
-	struct Lisp_Process *p =
+	Lisp_Process *p =
 	  get_process_from_usid (HANDLE_TO_USID (mswindows_waitable_handles[ix]));
 	if (p != NULL)
 	  {
@@ -1463,7 +1473,7 @@ static void CALLBACK
 mswindows_wm_timer_callback (HWND hwnd, UINT umsg, UINT id_timer, DWORD dwtime)
 {
   Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
-  struct Lisp_Event *event = XEVENT (emacs_event);
+  Lisp_Event *event = XEVENT (emacs_event);
 
   if (KillTimer (NULL, id_timer))
     --mswindows_pending_timers_count;
@@ -1521,7 +1531,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
           Lisp_Object l_dndlist = Qnil;
 	  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
 	  Lisp_Object frmcons, devcons, concons;
-	  struct Lisp_Event *event = XEVENT (emacs_event);
+	  Lisp_Event *event = XEVENT (emacs_event);
 
 	  DdeGetData (hdata, cmd, len, 0);
 	  cmd[len] = '\0';
@@ -1599,6 +1609,19 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 #endif
 
 /*
+ * Returns 1 if a key is a real modifier or special key, which 
+ * is better handled by DefWindowProc
+ */
+static int
+key_needs_default_processing_p (UINT vkey)
+{
+  if (mswindows_meta_activates_menu && vkey == VK_MENU)
+    return 1;
+
+  return 0;
+}
+
+/*
  * The windows procedure for the window class XEMACS_CLASS
  */
 LRESULT WINAPI
@@ -1609,7 +1632,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
   Lisp_Object emacs_event = Qnil;
   Lisp_Object fobj = Qnil;
 
-  struct Lisp_Event *event;
+  Lisp_Event *event;
   struct frame *frame;
   struct mswindows_frame* msframe;
 
@@ -1653,7 +1676,10 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  SetKeyboardState (keymap);
 	}
     };
-    goto defproc;
+    if (key_needs_default_processing_p (wParam))
+      goto defproc;
+    else
+      break;
 
   case WM_KEYDOWN:
   case WM_SYSKEYDOWN:
@@ -1709,7 +1735,8 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  /* Clear control and alt modifiers unless AltGr is pressed */
 	  keymap [VK_RCONTROL] = 0;
 	  keymap [VK_LMENU] = 0;
-	  if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80) || !(keymap [VK_RMENU] & 0x80))
+	  if (!has_AltGr || !(keymap [VK_LCONTROL] & 0x80)
+	      || !(keymap [VK_RMENU] & 0x80))
 	    {
 	      keymap [VK_LCONTROL] = 0;
 	      keymap [VK_CONTROL] = 0;
@@ -1745,10 +1772,10 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  SetKeyboardState (keymap_orig);
 	} /* else */
     }
-    /* F10 causes menu activation by default. We do not want this */
-    if (wParam != VK_F10 && (mswindows_meta_activates_menu || wParam != VK_MENU))
+    if (key_needs_default_processing_p (wParam))
       goto defproc;
-    break;
+    else
+      break;
 
   case WM_MBUTTONDOWN:
   case WM_MBUTTONUP:
@@ -1964,8 +1991,9 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    {
 	      /* I think this is safe since the text will only go away
                  when the toolbar does...*/
-	      GET_C_STRING_EXT_DATA_ALLOCA (btext, FORMAT_OS,
-					    tttext->lpszText);
+	      TO_EXTERNAL_FORMAT (LISP_STRING, btext,
+				  C_STRING_ALLOCA, tttext->lpszText,
+				  Qnative);
 	    }
 #endif
 	}
@@ -1980,11 +2008,11 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       else if (nmhdr->code == TCN_SELCHANGE)
 	{
 	  TC_ITEM item;
-	  int index = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
+	  int idx = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
 	  frame = XFRAME (mswindows_find_frame (hwnd));
 
 	  item.mask = TCIF_PARAM;
-	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)index,
+	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)idx,
 		       (LPARAM)&item);
 
 	  mswindows_handle_gui_wm_command (frame, 0, item.lParam);
@@ -2615,7 +2643,7 @@ emacs_mswindows_add_timeout (EMACS_TIME thyme)
 static void
 emacs_mswindows_remove_timeout (int id)
 {
-  struct Lisp_Event match_against;
+  Lisp_Event match_against;
   Lisp_Object emacs_event;
 
   if (KillTimer (NULL, id))
@@ -2651,7 +2679,7 @@ emacs_mswindows_event_pending_p (int user_p)
  * Return the next event
  */
 static void
-emacs_mswindows_next_event (struct Lisp_Event *emacs_event)
+emacs_mswindows_next_event (Lisp_Event *emacs_event)
 {
   Lisp_Object event, event2;
 
@@ -2667,7 +2695,7 @@ emacs_mswindows_next_event (struct Lisp_Event *emacs_event)
  * Handle a magic event off the dispatch queue.
  */
 static void
-emacs_mswindows_handle_magic_event (struct Lisp_Event *emacs_event)
+emacs_mswindows_handle_magic_event (Lisp_Event *emacs_event)
 {
   switch (EVENT_MSWINDOWS_MAGIC_TYPE(emacs_event))
     {
@@ -2721,7 +2749,7 @@ emacs_mswindows_handle_magic_event (struct Lisp_Event *emacs_event)
 
 #ifndef HAVE_MSG_SELECT
 static HANDLE
-get_process_input_waitable (struct Lisp_Process *process)
+get_process_input_waitable (Lisp_Process *process)
 {
   Lisp_Object instr, outstr, p;
   XSETPROCESS (p, process);
@@ -2737,7 +2765,7 @@ get_process_input_waitable (struct Lisp_Process *process)
 }
 
 static void
-emacs_mswindows_select_process (struct Lisp_Process *process)
+emacs_mswindows_select_process (Lisp_Process *process)
 {
   HANDLE hev = get_process_input_waitable (process);
 
@@ -2762,7 +2790,7 @@ emacs_mswindows_select_process (struct Lisp_Process *process)
 }
 
 static void
-emacs_mswindows_unselect_process (struct Lisp_Process *process)
+emacs_mswindows_unselect_process (Lisp_Process *process)
 {
   /* Process handle is removed in the event loop as soon
      as it is signaled, so don't bother here about it */
@@ -2796,38 +2824,37 @@ emacs_mswindows_unselect_console (struct console *con)
 static void
 emacs_mswindows_quit_p (void)
 {
-  MSG msg;
-
   /* Quit cannot happen in modal loop: all program
      input is dedicated to Windows. */
   if (mswindows_in_modal_loop)
     return;
 
-  /* Drain windows queue. This sets up number of quit characters in the queue
-   * (and also processes wm focus change, move, resize, etc messages).
-   * We don't want to process WM_PAINT messages because this function can be
-   * called from almost anywhere and the windows' states may be changing. */
-  while (PeekMessage (&msg, NULL, 0, WM_PAINT-1, PM_REMOVE) ||
-	 PeekMessage (&msg, NULL, WM_PAINT+1, WM_USER-1, PM_REMOVE))
-      DispatchMessage (&msg);
+  /* Drain windows queue. This sets up number of quit characters in
+     the queue */
+  mswindows_drain_windows_queue (1);
 
   if (mswindows_quit_chars_count > 0)
     {
       /* Yes there's a hidden one... Throw it away */
-      struct Lisp_Event match_against;
+      Lisp_Event match_against;
       Lisp_Object emacs_event;
+      int critical_p = 0;
 
       match_against.event_type = key_press_event;
       match_against.event.key.modifiers = FAKE_MOD_QUIT;
 
-      emacs_event = mswindows_cancel_dispatch_event (&match_against);
-      assert (!NILP (emacs_event));
+      while (mswindows_quit_chars_count-- > 0)
+	{
+	  emacs_event = mswindows_cancel_dispatch_event (&match_against);
+	  assert (!NILP (emacs_event));
+	  
+	  if (XEVENT(emacs_event)->event.key.modifiers & MOD_SHIFT)
+	    critical_p = 1;
 
-      Vquit_flag = (XEVENT(emacs_event)->event.key.modifiers & MOD_SHIFT
-		    ? Qcritical : Qt);
+	  Fdeallocate_event(emacs_event);
+	}
 
-      Fdeallocate_event(emacs_event);
-      --mswindows_quit_chars_count;
+      Vquit_flag = critical_p ? Qcritical : Qt;
     }
 }
 
@@ -2939,7 +2966,7 @@ emacs_mswindows_delete_stream_pair (Lisp_Object instream,
    If we've still got pointers to it in this file, we're gonna lose hard.
  */
 void
-debug_process_finalization (struct Lisp_Process *p)
+debug_process_finalization (Lisp_Process *p)
 {
 #if 0 /* #### */
   Lisp_Object instr, outstr;
@@ -2976,9 +3003,9 @@ reinit_vars_of_event_mswindows (void)
   mswindows_event_stream->unselect_console_cb	= emacs_mswindows_unselect_console;
 #ifdef HAVE_MSG_SELECT
   mswindows_event_stream->select_process_cb 	=
-    (void (*)(struct Lisp_Process*))event_stream_unixoid_select_process;
+    (void (*)(Lisp_Process*))event_stream_unixoid_select_process;
   mswindows_event_stream->unselect_process_cb	=
-    (void (*)(struct Lisp_Process*))event_stream_unixoid_unselect_process;
+    (void (*)(Lisp_Process*))event_stream_unixoid_unselect_process;
   mswindows_event_stream->create_stream_pair_cb = event_stream_unixoid_create_stream_pair;
   mswindows_event_stream->delete_stream_pair_cb = event_stream_unixoid_delete_stream_pair;
 #else

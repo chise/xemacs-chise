@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.
 #include <signal.h>
 
 /* must include CRT headers *before* config.h */
-/* ### I don't believe it - martin */
+/* #### I don't believe it - martin */
 #include <config.h>
 #undef signal
 #undef wait
@@ -119,6 +119,13 @@ child_process child_procs[ MAX_CHILDREN ];
 child_process *dead_child = NULL;
 
 DWORD WINAPI reader_thread (void *arg);
+
+/* Determine if running on Windows 9x and not NT */
+static int
+windows9x_p (void)
+{
+  return GetVersion () & 0x80000000;
+}
 
 /* Find an unused process slot.  */
 child_process *
@@ -668,7 +675,9 @@ sys_spawnve (int mode, CONST char *cmdname,
 	  errno = EINVAL;
 	  return -1;
 	}
-      GET_C_STRING_FILENAME_DATA_ALLOCA (full, cmdname);
+      TO_EXTERNAL_FORMAT (LISP_STRING, full,
+			  C_STRING_ALLOCA, cmdname,
+			  Qfile_name);
     }
   else
     {
@@ -937,7 +946,7 @@ find_child_console (HWND hwnd, child_process * cp)
 
       GetClassName (hwnd, window_class, sizeof (window_class));
       if (strcmp (window_class,
-		  (os_subtype == OS_WIN95)
+		  windows9x_p()
 		  ? "tty"
 		  : "ConsoleWindowClass") == 0)
 	{
@@ -1030,7 +1039,7 @@ sys_kill (int pid, int sig)
       if (NILP (Vwin32_start_process_share_console) && cp && cp->hwnd)
 	{
 #if 1
-	  if (os_subtype == OS_WIN95)
+	  if (windows9x_p())
 	    {
 /*
    Another possibility is to try terminating the VDM out-right by
@@ -1419,7 +1428,7 @@ If successful, the new locale id is returned, otherwise nil.
 
 /* Sync with FSF Emacs 19.34.6 note: dwWinThreadId declared in
    w32term.h and defined in w32fns.c, both of which are not in current
-   XEmacs.  ### Check what we lose by ifdef'ing out these. --marcpa */
+   XEmacs.  #### Check what we lose by ifdef'ing out these. --marcpa */
 #if 0
   /* Need to set input thread locale if present.  */
   if (dwWinThreadId)

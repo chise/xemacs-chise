@@ -598,11 +598,8 @@ Make it buffer-local in a mode hook.  The function is called with no
 	       (format "%s(default %s) " prompt default)
 	     prompt)
 	   tag-completion-table 'tag-completion-predicate nil nil
-	   'find-tag-history))
-    (if (string-equal tag-name "")
-	;; #### - This is a really LAME way of doing it!  --Stig
-	default			;indicate exact symbol match
-      tag-name)))
+	   'find-tag-history default))
+    tag-name))
 
 (defvar last-tag-data nil
   "Information for continuing a tag search.

@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 /* Fsymbol_value checks whether XSYMBOL (sym)->value is one of these,
  *  and does weird magic stuff if so */
 
-#ifndef _XEMACS_SYMEVAL_H_
-#define _XEMACS_SYMEVAL_H_
+#ifndef INCLUDED_symeval_h_
+#define INCLUDED_symeval_h_
 
 enum symbol_value_type
 {
@@ -325,10 +325,10 @@ void defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *m
 #define DEFVAR_CONST_BOOL(lname, c_location) \
 	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_CONST_BOOLEAN_FORWARD, 0)
 #define DEFVAR_LISP_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_OBJECT_FORWARD, magicfun);
+	DEFVAR_SYMVAL_FWD_OBJECT (lname, c_location, SYMVAL_OBJECT_FORWARD, magicfun)
 #define DEFVAR_INT_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun);
+	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_FIXNUM_FORWARD, magicfun)
 #define DEFVAR_BOOL_MAGIC(lname, c_location, magicfun) \
-	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun);
+	DEFVAR_SYMVAL_FWD (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun)
 
-#endif /* _XEMACS_SYMEVAL_H_ */
+#endif /* INCLUDED_symeval_h_ */

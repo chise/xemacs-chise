@@ -11,19 +11,11 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#if __STDC__ || defined(STDC_HEADERS)
-# include <stdlib.h> /* for qsort() and malloc() */
-# include <string.h>
-static void *xmalloc (int);
-# ifndef CONST
-#  define CONST const
-# endif
-#else
-extern char *malloc ();
-static void *xmalloc ();
-# ifndef CONST
-#  define CONST
-# endif
+#include <stdlib.h> /* for qsort() and malloc() */
+#include <string.h>
+static void *xmalloc (size_t);
+#ifndef CONST
+# define CONST const
 #endif
 
 #define NUL	'\0'
@@ -31,9 +23,9 @@ static void *xmalloc ();
 
 #define DEBUG 0
 
-typedef struct line LINE;
+typedef struct LINE LINE;
 
-struct line
+struct LINE
 {
   LINE *next;			/* ptr to next or NULL */
   char *line;			/* text of the line */
@@ -72,9 +64,9 @@ fatal (char *s1, char *s2)
 /* Like malloc but get fatal error if memory is exhausted.  */
 
 static void *
-xmalloc (int size)
+xmalloc (size_t size)
 {
-  char *result = malloc ((unsigned)size);
+  void *result = malloc (size);
   if (result == NULL)
     fatal ("%s", "virtual memory exhausted");
   return result;
@@ -83,9 +75,9 @@ xmalloc (int size)
 static char *
 strsav (char *str)
 {
-  char *buf = xmalloc (strlen (str) + 1);
-  (void) strcpy (buf, str);
-  return (buf);
+  char *buf = (char *) xmalloc (strlen (str) + 1);
+  strcpy (buf, str);
+  return buf;
 }
 
 /* Comparison function for qsort to call.  */

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Written by Ben Wing, September 1993. */
 
-#ifndef _ExternalShell_h
-#define _ExternalShell_h
+#ifndef INCLUDED_ExternalShell_h_
+#define INCLUDED_ExternalShell_h_
 
 #ifndef XtNwindow
 #define XtNwindow "window"
@@ -54,4 +54,4 @@ void ExternalShellUnrealize(Widget w);
 
 #define is_external_shell(w) (XtClass (w) == externalShellWidgetClass)
 
-#endif /* _ExternalShell_h */
+#endif /* INCLUDED_ExternalShell_h_ */

@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/01/16 13:41:45 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/01/27 17:11:28 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -22,7 +22,7 @@
 @ifinfo
 @dircategory XEmacs Editor
 @direntry
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 @end direntry
 @end ifinfo
 
@@ -380,28 +380,28 @@ Miscellaneous:
 XEmacs on MS Windows
 
 General Info:
-* Q6.0.1::	What is the status of the XEmacs port to Windows?
-* Q6.0.2::	What flavors of MS Windows are supported?
-* Q6.0.3::	Are binary kits available?
-* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+* Q6.0.1::      What is the status of the XEmacs port to Windows?
+* Q6.0.2::      What flavors of MS Windows are supported?
+* Q6.0.3::      Are binary kits available?
+* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
 
 Building XEmacs on MS Windows:
-* Q6.1.1::	I decided to run with X.  Where do I get an X server?
-* Q6.1.2::	What compiler do I need to compile XEmacs?
-* Q6.1.3::	How do I compile for the native port?
-* Q6.1.4::	How do I compile for the X port?
-* Q6.1.5::	How do I compile for Cygnus' Cygwin?
-* Q6.1.6::	What do I need for Cygwin?
+* Q6.1.1::      I decided to run with X.  Where do I get an X server?
+* Q6.1.2::      What compiler do I need to compile XEmacs?
+* Q6.1.3::      How do I compile for the native port?
+* Q6.1.4::      How do I compile for the X port?
+* Q6.1.5::      How do I compile for Cygnus' Cygwin?
+* Q6.1.6::      What do I need for Cygwin?
 
 Customization and User Interface:
-* Q6.2.1::	How will the port cope with differences in the Windows user interface?
-* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::	Where do I put my @file{.emacs} file?
+* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::      Where do I put my @file{.emacs} file?
 
 Miscellaneous:
-* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
-* Q6.3.2::	What are the differences between the various MS Windows emacsen?
-* Q6.3.3::	What is the porting team doing at the moment?
+* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::      What are the differences between the various MS Windows emacsen?
+* Q6.3.3::      What is the porting team doing at the moment?
 
 Current Events:
 
@@ -953,7 +953,7 @@ confoundance disease}.  In particular, many functions such as @code{eq},
 are integers are the same.  Byte code compiled under any version 19
 Emacs will have all such functions mapped to their @code{old-} equivalents
 when the byte code is read into XEmacs 20.  This is to preserve
-compatibility -- Emacs 19 converts all constant characters to the equivalent
+compatibility---Emacs 19 converts all constant characters to the equivalent
 integer during byte-compilation, and thus there is no other way to preserve
 byte-code compatibility even if the code has specifically been written
 with the distinction between characters and integers in mind.
@@ -962,7 +962,7 @@ with the distinction between characters and integers in mind.
 code}.  For example, the character @kbd{A} is represented as the
 @w{integer 65}, following the standard @sc{ascii} representation of
 characters.  If XEmacs was not compiled with @sc{mule} support, the
-range of this integer will always be 0 to 255 -- eight bits, or one
+range of this integer will always be 0 to 255---eight bits, or one
 byte. (Integers outside this range are accepted but silently truncated;
 however, you should most decidedly @emph{not} rely on this, because it
 will not work under XEmacs with @sc{mule} support.)  When @sc{mule}
@@ -1007,9 +1007,9 @@ it.  However, menubar localization @emph{does} work, even in 19.14.  To
 enable it, add to your @file{Emacs} file entries like this:
 
 @example
-Emacs*XlwMenu.resourceLabels:			True
-Emacs*XlwMenu.file.labelString:	        	Fichier
-Emacs*XlwMenu.openInOtherWindow.labelString: 	In anderem Fenster offnen
+Emacs*XlwMenu.resourceLabels:                   True
+Emacs*XlwMenu.file.labelString:                 Fichier
+Emacs*XlwMenu.openInOtherWindow.labelString:    In anderem Fenster offnen
 @end example
 
 The name of the resource is derived from the non-localized entry by
@@ -1104,12 +1104,12 @@ Following is a sample to distinguish mule variants:
     (cond ((boundp 'MULE)
            ;; for original Mule
            )
-	  ((string-match "XEmacs" emacs-version)
-	   ;; for XEmacs with Mule
-	   )
-	  (t
-	   ;; for next version of Emacs
-	   ))
+          ((string-match "XEmacs" emacs-version)
+           ;; for XEmacs with Mule
+           )
+          (t
+           ;; for next version of Emacs
+           ))
   ;; for old emacs variants
   )
 @end lisp
@@ -1354,11 +1354,11 @@ out ways to reduce the disk requirements if desired.
 Now examine the space used by directory:
 
 @format
-0	/usr/local/bin/xemacs
-2048	/usr/local/bin/xemacs-19.13
+0       /usr/local/bin/xemacs
+2048    /usr/local/bin/xemacs-19.13
 
-1546	/usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
-1158	/usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
+1546    /usr/local/lib/xemacs-19.13/i486-miranova-sco3.2v4.2
+1158    /usr/local/lib/xemacs-19.13/i486-unknown-linux1.2.13
 @end format
 
 You need to keep these.  XEmacs isn't stripped by default in
@@ -1366,15 +1366,15 @@ installation, you should consider stripping.  That will save you about
 5MB right there.
 
 @format
-207	/usr/local/lib/xemacs-19.13/etc/w3
-122	/usr/local/lib/xemacs-19.13/etc/sounds
-18	/usr/local/lib/xemacs-19.13/etc/sparcworks
-159	/usr/local/lib/xemacs-19.13/etc/vm
-6	/usr/local/lib/xemacs-19.13/etc/e
-21	/usr/local/lib/xemacs-19.13/etc/eos
-172	/usr/local/lib/xemacs-19.13/etc/toolbar
-61	/usr/local/lib/xemacs-19.13/etc/ns
-43	/usr/local/lib/xemacs-19.13/etc/gnus
+207     /usr/local/lib/xemacs-19.13/etc/w3
+122     /usr/local/lib/xemacs-19.13/etc/sounds
+18      /usr/local/lib/xemacs-19.13/etc/sparcworks
+159     /usr/local/lib/xemacs-19.13/etc/vm
+6       /usr/local/lib/xemacs-19.13/etc/e
+21      /usr/local/lib/xemacs-19.13/etc/eos
+172     /usr/local/lib/xemacs-19.13/etc/toolbar
+61      /usr/local/lib/xemacs-19.13/etc/ns
+43      /usr/local/lib/xemacs-19.13/etc/gnus
 @end format
 
 These are support directories for various packages.  In general they
@@ -1382,50 +1382,50 @@ match a directory under ./xemacs-19.13/lib/xemacs-19.13/lisp/.  If you
 do not require the package, you may delete or gzip the support too.
 
 @format
-1959	/usr/local/lib/xemacs-19.13/etc
-175	/usr/local/lib/xemacs-19.13/lisp/bytecomp
-340	/usr/local/lib/xemacs-19.13/lisp/calendar
-342	/usr/local/lib/xemacs-19.13/lisp/comint
-517	/usr/local/lib/xemacs-19.13/lisp/dired
-42	/usr/local/lib/xemacs-19.13/lisp/electric
-212	/usr/local/lib/xemacs-19.13/lisp/emulators
-238	/usr/local/lib/xemacs-19.13/lisp/energize
-289	/usr/local/lib/xemacs-19.13/lisp/gnus
-457	/usr/local/lib/xemacs-19.13/lisp/ilisp
-1439	/usr/local/lib/xemacs-19.13/lisp/modes
-2276	/usr/local/lib/xemacs-19.13/lisp/packages
-1040	/usr/local/lib/xemacs-19.13/lisp/prim
-176	/usr/local/lib/xemacs-19.13/lisp/pcl-cvs
-154	/usr/local/lib/xemacs-19.13/lisp/rmail
-3	/usr/local/lib/xemacs-19.13/lisp/epoch
-45	/usr/local/lib/xemacs-19.13/lisp/term
-860	/usr/local/lib/xemacs-19.13/lisp/utils
-851	/usr/local/lib/xemacs-19.13/lisp/vm
-13	/usr/local/lib/xemacs-19.13/lisp/vms
-157	/usr/local/lib/xemacs-19.13/lisp/x11
-19	/usr/local/lib/xemacs-19.13/lisp/tooltalk
-14	/usr/local/lib/xemacs-19.13/lisp/sunpro
-291	/usr/local/lib/xemacs-19.13/lisp/games
-198	/usr/local/lib/xemacs-19.13/lisp/edebug
-619	/usr/local/lib/xemacs-19.13/lisp/w3
-229	/usr/local/lib/xemacs-19.13/lisp/eos
-55	/usr/local/lib/xemacs-19.13/lisp/iso
-59	/usr/local/lib/xemacs-19.13/lisp/mailcrypt
-187	/usr/local/lib/xemacs-19.13/lisp/eterm
-356	/usr/local/lib/xemacs-19.13/lisp/ediff
-408	/usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
-1262	/usr/local/lib/xemacs-19.13/lisp/hyperbole
-247	/usr/local/lib/xemacs-19.13/lisp/hm--html-menus
-161	/usr/local/lib/xemacs-19.13/lisp/mh-e
-299	/usr/local/lib/xemacs-19.13/lisp/viper
-53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
-4	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
-3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
-3	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
-11	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
-53	/usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
-466	/usr/local/lib/xemacs-19.13/lisp/oobr
-14142	/usr/local/lib/xemacs-19.13/lisp
+1959    /usr/local/lib/xemacs-19.13/etc
+175     /usr/local/lib/xemacs-19.13/lisp/bytecomp
+340     /usr/local/lib/xemacs-19.13/lisp/calendar
+342     /usr/local/lib/xemacs-19.13/lisp/comint
+517     /usr/local/lib/xemacs-19.13/lisp/dired
+42      /usr/local/lib/xemacs-19.13/lisp/electric
+212     /usr/local/lib/xemacs-19.13/lisp/emulators
+238     /usr/local/lib/xemacs-19.13/lisp/energize
+289     /usr/local/lib/xemacs-19.13/lisp/gnus
+457     /usr/local/lib/xemacs-19.13/lisp/ilisp
+1439    /usr/local/lib/xemacs-19.13/lisp/modes
+2276    /usr/local/lib/xemacs-19.13/lisp/packages
+1040    /usr/local/lib/xemacs-19.13/lisp/prim
+176     /usr/local/lib/xemacs-19.13/lisp/pcl-cvs
+154     /usr/local/lib/xemacs-19.13/lisp/rmail
+3       /usr/local/lib/xemacs-19.13/lisp/epoch
+45      /usr/local/lib/xemacs-19.13/lisp/term
+860     /usr/local/lib/xemacs-19.13/lisp/utils
+851     /usr/local/lib/xemacs-19.13/lisp/vm
+13      /usr/local/lib/xemacs-19.13/lisp/vms
+157     /usr/local/lib/xemacs-19.13/lisp/x11
+19      /usr/local/lib/xemacs-19.13/lisp/tooltalk
+14      /usr/local/lib/xemacs-19.13/lisp/sunpro
+291     /usr/local/lib/xemacs-19.13/lisp/games
+198     /usr/local/lib/xemacs-19.13/lisp/edebug
+619     /usr/local/lib/xemacs-19.13/lisp/w3
+229     /usr/local/lib/xemacs-19.13/lisp/eos
+55      /usr/local/lib/xemacs-19.13/lisp/iso
+59      /usr/local/lib/xemacs-19.13/lisp/mailcrypt
+187     /usr/local/lib/xemacs-19.13/lisp/eterm
+356     /usr/local/lib/xemacs-19.13/lisp/ediff
+408     /usr/local/lib/xemacs-19.13/lisp/hyperbole/kotl
+1262    /usr/local/lib/xemacs-19.13/lisp/hyperbole
+247     /usr/local/lib/xemacs-19.13/lisp/hm--html-menus
+161     /usr/local/lib/xemacs-19.13/lisp/mh-e
+299     /usr/local/lib/xemacs-19.13/lisp/viper
+53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-x
+4       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/DocWindow.nib
+3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/InfoPanel.nib
+3       /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj/TreeView.nib
+11      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx/English.lproj
+53      /usr/local/lib/xemacs-19.13/lisp/oobr/tree-nx
+466     /usr/local/lib/xemacs-19.13/lisp/oobr
+14142   /usr/local/lib/xemacs-19.13/lisp
 @end format
 
 These are all Emacs Lisp source code and bytecompiled object code.  You
@@ -1451,14 +1451,14 @@ directories you definitely do @strong{not} want to delete, although
 certain packages can be removed from them if you do not use them.
 
 @example
-1972	/usr/local/lib/xemacs-19.13/info
+1972    /usr/local/lib/xemacs-19.13/info
 @end example
 
 These are online texinfo sources.  You may either gzip them or remove
 them.  In either case, @kbd{C-h i} (info mode) will no longer work.
 
 @example
-20778	/usr/local/lib/xemacs-19.13
+20778   /usr/local/lib/xemacs-19.13
 @end example
 
 The 20MB achieved is less than half of what the full distribution takes up,
@@ -1608,7 +1608,7 @@ Patch the XEmacs binary by replacing all occurrences of
 suffice.  If you don't understand how to do this, don't do it.
 
 @item
-Rebuild XEmacs yourself -- any working ELF version of libc should be
+Rebuild XEmacs yourself---any working ELF version of libc should be
 O.K.
 @end enumerate
 
@@ -2005,10 +2005,10 @@ backgrounds and foregrounds into your @file{.../app-defaults/Emacs}
 like:
 
 @example
-*Foreground:	Black	;everything will be of black on grey95,
-*Background:	Grey95	;unless otherwise specified.
-*cursorColor:	Red3	;red3 cursor with grey95 border.
-*pointerColor:	Red3	;red3 pointer with grey95 border.
+*Foreground:    Black   ;everything will be of black on grey95,
+*Background:    Grey95  ;unless otherwise specified.
+*cursorColor:   Red3    ;red3 cursor with grey95 border.
+*pointerColor:  Red3    ;red3 pointer with grey95 border.
 @end example
 @end quotation
 
@@ -2736,14 +2736,14 @@ Implement the above as well as set the following in your @file{.emacs}
 (setq default-minibuffer-frame
       (make-frame
        '(minibuffer only
-		    width 86
-		    height 1
-		    menubar-visible-p nil
-		    default-toolbar-visible-p nil
-		    name "minibuffer"
-		    top -2
-		    left -2
-		    has-modeline-p nil)))
+                    width 86
+                    height 1
+                    menubar-visible-p nil
+                    default-toolbar-visible-p nil
+                    name "minibuffer"
+                    top -2
+                    left -2
+                    has-modeline-p nil)))
 (frame-notice-user-settings)
 @end lisp
 
@@ -2829,7 +2829,7 @@ A more sophisticated title might be:
 @lisp
 (setq frame-title-format
       '("%S: " (buffer-file-name "%f"
-				 (dired-directory dired-directory "%b"))))
+                                 (dired-directory dired-directory "%b"))))
 @end lisp
 
 That is, use the file name, or the dired-directory, or the buffer name.
@@ -2913,24 +2913,24 @@ Like this:
 (set-face-background 'default      "bisque") ; frame background
 (set-face-foreground 'default      "black") ; normal text
 (set-face-background 'zmacs-region "red") ; When selecting w/
-					; mouse
+                                        ; mouse
 (set-face-foreground 'zmacs-region "yellow")
 (set-face-font       'default      "*courier-bold-r*120-100-100*")
 (set-face-background 'highlight    "blue") ; Ie when selecting
-					; buffers
+                                        ; buffers
 (set-face-foreground 'highlight    "yellow")
 (set-face-background 'modeline     "blue") ; Line at bottom
-					; of buffer
+                                        ; of buffer
 (set-face-foreground 'modeline     "white")
 (set-face-font       'modeline     "*bold-r-normal*140-100-100*")
 (set-face-background 'isearch      "yellow") ; When highlighting
-					; while searching
+                                        ; while searching
 (set-face-foreground 'isearch      "red")
 (setq x-pointer-foreground-color   "black") ; Adds to bg color,
-					; so keep black
+                                        ; so keep black
 (setq x-pointer-background-color   "blue") ; This is color
-					; you really
-					; want ptr/crsr
+                                        ; you really
+                                        ; want ptr/crsr
 @end lisp
 
 @node Q3.2.2, Q3.2.3, Q3.2.1, Customization
@@ -3106,7 +3106,7 @@ mode:
 
 @lisp
 (add-hook 'TeX-mode-hook
-	  '(lambda () (setq fume-display-in-modeline-p nil)))
+          '(lambda () (setq fume-display-in-modeline-p nil)))
 @end lisp
 
 @email{dhughes@@origin-at.co.uk, David Hughes} writes:
@@ -3221,8 +3221,8 @@ For the FAQ example you could use:
 @lisp
 (global-set-key [(control ?.)]
   (lambda () (interactive) (scroll-up 1)))
-(global-set-key [(control ?		;)]
-			  (lambda () (interactive) (scroll-up -1)))
+(global-set-key [(control ?;)]
+  (lambda () (interactive) (scroll-up -1)))
 @end lisp
 
 This is fine if you only need a few functions within the lambda body.
@@ -3256,7 +3256,7 @@ Add the following (Thanks to @email{mly@@adoc.xerox.com, Richard Mlynarik} and
   (scroll-down 1))
 
 (global-set-key [(control ?.)] 'scroll-up-one-line) ; C-.
-(global-set-key [(control ?		;)] 'scroll-down-one-line) ; C-;
+(global-set-key [(control ?;)] 'scroll-down-one-line) ; C-;
 @end lisp
 
 The key point is that you can only bind simple functions to keys; you
@@ -3373,7 +3373,7 @@ xmodmap, e.g.
 @c hey, show some respect, willya -- there's xkeycaps, isn't there? --
 @c chr ;)
 @example
-	xmodmap -e 'keycode 0xff20 = Multi_key'
+        xmodmap -e 'keycode 0xff20 = Multi_key'
 @end example
 
 You will need to pick an appropriate keycode. Use xev to find out the
@@ -3384,9 +3384,9 @@ define the right `Windows' key as Multi_key'.]
 
 Once you have Multi_key defined, you can use e.g.
 @example
-	Multi a '	=> á
-	Multi e "	=> ë
-	Multi c ,	=> ç
+        Multi a '       => á
+        Multi e "       => ë
+        Multi c ,       => ç
 @end example
 
 etc.
@@ -3394,9 +3394,9 @@ etc.
 Also, recent versions of XFree86 define various AltGr-<key>
 combinations as dead keys, i.e.
 @example
-	AltGr [		=> dead_diaeresis
-	AltGr ]		=> dead_tilde
-	AltGr ;		=> dead_acute
+        AltGr [         => dead_diaeresis
+        AltGr ]         => dead_tilde
+        AltGr ;         => dead_acute
 @end example
 etc.
 
@@ -3516,7 +3516,7 @@ Select from the @code{Options} menu
 You can use a color to make it stand out better:
 
 @example
-Emacs*cursorColor:	Red
+Emacs*cursorColor:      Red
 @end example
 
 @node Q3.6.2, Q3.6.3, Q3.6.1, Customization
@@ -3949,18 +3949,18 @@ off like this:
   (interactive "_P")
   (let ((zmacs-region-stays t))
     (if (interactive-p)
-	(condition-case nil
-	    ad-do-it
-	  (end-of-buffer (goto-char (point-max))))
+        (condition-case nil
+            ad-do-it
+          (end-of-buffer (goto-char (point-max))))
       ad-do-it)))
 
 (defadvice scroll-down (around scroll-down freeze)
   (interactive "_P")
   (let ((zmacs-region-stays t))
     (if (interactive-p)
-	(condition-case nil
-	    ad-do-it
-	  (beginning-of-buffer (goto-char (point-min))))
+        (condition-case nil
+            ad-do-it
+          (beginning-of-buffer (goto-char (point-min))))
       ad-do-it)))
 @end lisp
 
@@ -4088,7 +4088,7 @@ Set @code{vm-reply-ignored-addresses} to a list, like
 @lisp
 (setq vm-reply-ignored-addresses
       '("wing@@nuspl@@nvwls.cc.purdue.edu,netcom[0-9]*.netcom.com"
-	"wing@@netcom.com" "wing@@xemacs.org"))
+        "wing@@netcom.com" "wing@@xemacs.org"))
 @end lisp
 
 Note that each string is a regular expression.
@@ -4195,7 +4195,7 @@ John.@email{Cooper@@Eng.Sun.COM, John S Cooper} writes:
 
 @quotation
 @lisp
-					; Don't use multiple frames
+                                        ; Don't use multiple frames
 (setq vm-frame-per-composition nil)
 (setq vm-frame-per-folder nil)
 (setq vm-frame-per-edit nil)
@@ -4210,7 +4210,7 @@ For mh-e use the following:
 
 @lisp
 (add-hook 'mh-show-mode-hook '(lambda ()
-				(smiley-region (point-min)
+                                (smiley-region (point-min)
                                                (point-max))))
 @end lisp
 
@@ -4812,7 +4812,7 @@ additional package.
 Each package bundled with XEmacs means more work for the maintainers,
 whether they want it or not.  If you are ready to take over the
 maintenance responsibilities for the package you port, be sure to say
-so -- we will more likely include it.
+so---we will more likely include it.
 
 @item
 The package simply hasn't been noted by the XEmacs development.  If
@@ -4906,8 +4906,8 @@ on.  This can be done by @kbd{M-x font-lock-mode}, or by having XEmacs
 automatically start it by adding lines like:
 
 @lisp
-(add-hook 'emacs-lisp-mode-hook	'turn-on-font-lock)
-(add-hook 'dired-mode-hook	'turn-on-font-lock)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
+(add-hook 'dired-mode-hook      'turn-on-font-lock)
 @end lisp
 
 to your @file{.emacs}.  See the file @file{etc/sample.emacs} for more
@@ -5431,7 +5431,7 @@ user-variable temporarily, use @code{let}:
 
 @lisp
 (let ((case-fold-search nil))
-  ...					; code with searches that must be case-sensitive
+  ...                                   ; code with searches that must be case-sensitive
   ...)
 @end lisp
 
@@ -5496,7 +5496,7 @@ unbound.  The correct thing is to do it like this:
 
 @lisp
 (defun my-function (whatever)
-  (let (a)				; default initialization is to nil
+  (let (a)                              ; default initialization is to nil
     ... build a large list ...
     ... and exit, unbinding `a' in the process  ...)
 @end lisp
@@ -5509,11 +5509,11 @@ Note that even global variables should not be @code{setq}ed without
 The reason for the warning is the following:
 
 @lisp
-(defun flurgoze nil)			; ok, global internal variable
+(defun flurgoze nil)                    ; ok, global internal variable
 ...
 
-(setq flurghoze t)			; ops!  a typo, but semantically correct.
-					; however, the byte-compiler warns.
+(setq flurghoze t)                      ; ops!  a typo, but semantically correct.
+                                        ; however, the byte-compiler warns.
 
 While compiling toplevel forms:
 ** assignment to free variable flurghoze
@@ -5653,7 +5653,7 @@ Add the following line to your @file{.emacs}:
 (setq sound-alist nil)
 @end lisp
 
-That will make your XEmacs totally silent -- even the default ding sound
+That will make your XEmacs totally silent---even the default ding sound
 (TTY beep on TTY-s) will be gone.
 
 Starting with XEmacs-20.2 you can also change these with Customize.
@@ -5750,7 +5750,7 @@ have a look at your @file{.emacs} file.  You will probably have a line
 like:
 
 @lisp
-(add-hook 'postscript-mode-hook	'turn-on-font-lock)
+(add-hook 'postscript-mode-hook 'turn-on-font-lock)
 @end lisp
 
 Take it out, restart XEmacs, and it won't try to fontify your postscript
@@ -5989,8 +5989,8 @@ You use something like:
 
 @lisp
 (setq Info-directory-list (cons
-			   (expand-file-name "~/info")
-			   Info-default-directory-list))
+                           (expand-file-name "~/info")
+                           Info-default-directory-list))
 @end lisp
 
 @email{davidm@@prism.kla.com, David Masterson} writes:
@@ -6080,28 +6080,28 @@ port of XEmacs.
 @menu
 
 General Info
-* Q6.0.1::	What is the status of the XEmacs port to Windows?
-* Q6.0.2::	What flavors of MS Windows are supported?
+* Q6.0.1::      What is the status of the XEmacs port to Windows?
+* Q6.0.2::      What flavors of MS Windows are supported?
 * Q6.0.3::      Where are the XEmacs on MS Windows binaries?
-* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
 
 Building XEmacs on MS Windows
-* Q6.1.1::	I decided to run with X.  Where do I get an X server?
-* Q6.1.2::	What compiler do I need to compile XEmacs?
-* Q6.1.3::	How do I compile for the native port?
-* Q6.1.4::	How do I compile for the X port?
-* Q6.1.5::	How do I compile for Cygnus' Cygwin?
-* Q6.1.6::	What do I need for Cygwin?
+* Q6.1.1::      I decided to run with X.  Where do I get an X server?
+* Q6.1.2::      What compiler do I need to compile XEmacs?
+* Q6.1.3::      How do I compile for the native port?
+* Q6.1.4::      How do I compile for the X port?
+* Q6.1.5::      How do I compile for Cygnus' Cygwin?
+* Q6.1.6::      What do I need for Cygwin?
 
 Customization and User Interface
-* Q6.2.1::	How will the port cope with differences in the Windows user interface?
-* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::	Where do I put my @file{.emacs} file?
+* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::      Where do I put my @file{.emacs} file?
 
 Miscellaneous
-* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
-* Q6.3.2::	What are the differences between the various MS Windows emacsen?
-* Q6.3.3::	What is the porting team doing at the moment?
+* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::      What are the differences between the various MS Windows emacsen?
+* Q6.3.3::      What is the porting team doing at the moment?
 
 @end menu
 
@@ -6143,7 +6143,7 @@ Short answer: No.
 Long answer: XEmacs can be built in several ways in the MS Windows
 environment, some of them requiring an X server and some not.
 
-One is what we call the "X" port -- it requires X libraries to build
+One is what we call the "X" port---it requires X libraries to build
 and an X server to run.  Internally it uses the Xt event loop and
 makes use of X toolkits.  Its look is quite un-Windowsy, but it works
 reliably and supports all of the graphical features of Unix XEmacs.
@@ -6161,7 +6161,7 @@ advantage of Cygnus emulation library under Win32, which enables it to
 reuse much of the Unix XEmacs code base, such as processes and network
 support, or internal select() mechanisms.
 
-Cygwin port supports all display types -- TTY, X & MS gui, and can be
+Cygwin port supports all display types---TTY, X & MS gui, and can be
 built with support for all three.  If you build with ms gui support
 then the Cygwin version uses the majority of the msw code, which is
 mostly related to display.  If you want to build with X support you
@@ -6295,8 +6295,8 @@ default in the MS Windows environment.
 @node Q6.2.2, Q6.2.3, Q6.2.1, MS Windows
 @unnumberedsubsec Q6.2.2: How do I change fonts in XEmacs on MS Windows?
 
-You can change font manually, but not from the menubar, yet. For
-example:
+In 21.2.*, use the font menu.  In 21.1.*, you can change font
+manually. For example:
 
 @display
     (set-face-font 'default "Lucida Console:Regular:10")
@@ -6482,7 +6482,7 @@ increased MIME support, and many, many synches with GNU Emacs 20.
 The XEmacs/Mule support has been only seriously tested in a Japanese
 locale, and no doubt many problems still remain.  The support for
 ISO-Latin-1 and Japanese is fairly strong.  MULE support comes at a
-price -- about a 30% slowdown from 19.16.  We're making progress on
+price---about a 30% slowdown from 19.16.  We're making progress on
 improving performance and XEmacs 20.3 compiled without Mule (which is
 the default) is definitely faster than XEmacs 19.16.
 

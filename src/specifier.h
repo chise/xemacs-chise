@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_SPECIFIER_H_
-#define _XEMACS_SPECIFIER_H_
+#ifndef INCLUDED_specifier_h_
+#define INCLUDED_specifier_h_
 
 /*
   MAGIC SPECIFIERS
@@ -237,9 +237,10 @@ struct Lisp_Specifier
   /* type-specific extra data attached to a specifier */
   char data[1];
 };
+typedef struct Lisp_Specifier Lisp_Specifier;
 
-DECLARE_LRECORD (specifier, struct Lisp_Specifier);
-#define XSPECIFIER(x) XRECORD (x, specifier, struct Lisp_Specifier)
+DECLARE_LRECORD (specifier, Lisp_Specifier);
+#define XSPECIFIER(x) XRECORD (x, specifier, Lisp_Specifier)
 #define XSETSPECIFIER(x, p) XSETRECORD (x, p, specifier)
 #define SPECIFIERP(x) RECORDP (x, specifier)
 #define CHECK_SPECIFIER(x) CHECK_RECORD (x, specifier)
@@ -252,24 +253,24 @@ DECLARE_LRECORD (specifier, struct Lisp_Specifier);
 #define SPECMETH(sp, m, args) (((sp)->methods->m##_method) args)
 
 /* Call a void-returning specifier method, if it exists.  */
-#define MAYBE_SPECMETH(sp, m, args) do {		\
-  struct Lisp_Specifier *maybe_specmeth_sp = (sp);	\
-  if (HAS_SPECMETH_P (maybe_specmeth_sp, m))		\
-    SPECMETH (maybe_specmeth_sp, m, args);		\
+#define MAYBE_SPECMETH(sp, m, args) do {	\
+  Lisp_Specifier *maybe_specmeth_sp = (sp);	\
+  if (HAS_SPECMETH_P (maybe_specmeth_sp, m))	\
+    SPECMETH (maybe_specmeth_sp, m, args);	\
 } while (0)
 
 /***** Defining new specifier types *****/
 
-#define specifier_data_offset (offsetof(struct Lisp_Specifier, data))
+#define specifier_data_offset (offsetof (Lisp_Specifier, data))
 extern const struct lrecord_description specifier_empty_extra_description[];
 
 #ifdef ERROR_CHECK_TYPECHECK
 #define DECLARE_SPECIFIER_TYPE(type)					\
 extern struct specifier_methods * type##_specifier_methods;		\
 INLINE struct type##_specifier *					\
-error_check_##type##_specifier_data (struct Lisp_Specifier *sp);	\
+error_check_##type##_specifier_data (Lisp_Specifier *sp);		\
 INLINE struct type##_specifier *					\
-error_check_##type##_specifier_data (struct Lisp_Specifier *sp)		\
+error_check_##type##_specifier_data (Lisp_Specifier *sp)		\
 {									\
   if (SPECIFIERP (sp->magic_parent))					\
     {									\
@@ -281,12 +282,12 @@ error_check_##type##_specifier_data (struct Lisp_Specifier *sp)		\
   assert (SPECIFIER_TYPE_P (sp, type));					\
   return (struct type##_specifier *) sp->data;				\
 }									\
-INLINE struct Lisp_Specifier *						\
+INLINE Lisp_Specifier *							\
 error_check_##type##_specifier_type (Lisp_Object obj);			\
-INLINE struct Lisp_Specifier *						\
+INLINE Lisp_Specifier *							\
 error_check_##type##_specifier_type (Lisp_Object obj)			\
 {									\
-  struct Lisp_Specifier *sp = XSPECIFIER (obj);				\
+  Lisp_Specifier *sp = XSPECIFIER (obj);				\
   assert (SPECIFIER_TYPE_P (sp, type));					\
   return sp;								\
 }									\
@@ -492,4 +493,4 @@ DECLARE_SPECIFIER_TYPE (display_table);
 #define CHECK_DISPLAYTABLE_SPECIFIER(x) CHECK_SPECIFIER_TYPE (x, display_table)
 #define CONCHECK_DISPLAYTABLE_SPECIFIER(x) CONCHECK_SPECIFIER_TYPE (x, display_table)
 
-#endif /* _XEMACS_SPECIFIER_H_ */
+#endif /* INCLUDED_specifier_h_ */

@@ -32,7 +32,7 @@
 ;;	Retrieve a package and any other required packages from an archive
 ;;
 ;;
-;; Note (JV): Most of this no longer aplies!
+;; Note (JV): Most of this no longer applies!
 ;;
 ;; The idea:
 ;;	A new XEmacs lisp-only release is generated with the following steps:
@@ -451,7 +451,7 @@ used interactively, for example from a mail or news buffer."
                                          "package-get DB verification? ")))))
                       (t nil)))))
           (error "Package-get PGP signature failed to verify"))
-      ;; ToDo: We shoud call package-get-maybe-save-index on the region
+      ;; ToDo: We should call package-get-maybe-save-index on the region
       (package-get-update-base-entries content-beg content-end)
       (message "Updated package-get database"))))
 

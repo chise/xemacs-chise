@@ -291,14 +291,14 @@ clean_string (CONST char *s)
   over = 1;								   \
 } while (0)
 
-/* A strdup immitation. */
+/* A strdup imitation. */
 static char *
 my_strdup (CONST char *s)
 {
-  char *new = malloc (strlen (s) + 1);
-  if (new)
-    strcpy (new, s);
-  return new;
+  char *new_s = (char *) malloc (strlen (s) + 1);
+  if (new_s)
+    strcpy (new_s, s);
+  return new_s;
 }
 
 int
@@ -660,7 +660,7 @@ main (int argc, char *argv[])
 	    }
 	  filename_expand (fullpath, argv[i]);
 #ifdef INTERNET_DOMAIN_SOCKETS
-	  path = malloc (strlen (remotepath) + strlen (fullpath) + 1);
+	  path = (char *) malloc (strlen (remotepath) + strlen (fullpath) + 1);
 	  sprintf (path, "%s%s", remotepath, fullpath);
 #else
 	  path = my_strdup (fullpath);

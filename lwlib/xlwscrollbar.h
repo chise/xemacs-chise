@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Created by Douglas Keller <dkeller@vnet.ibm.com> */
 
-#ifndef _XlwScrollbar_h
-#define _XlwScrollbar_h
+#ifndef INCLUDED_xlwscrollbar_h_
+#define INCLUDED_xlwscrollbar_h_
 
 #include <X11/Core.h>
 
@@ -140,4 +140,4 @@ void XlwScrollBarGetValues(Widget widget, int *value, int *sliderSize,
 void XlwScrollBarSetValues(Widget widget, int value, int sliderSize,
 			   int increment, int pageIncrement, Boolean notify);
 
-#endif
+#endif /* INCLUDED_xlwscrollbar_h_ */

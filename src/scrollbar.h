@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_SCROLLBAR_H_
-#define _XEMACS_SCROLLBAR_H_
+#ifndef INCLUDED_scrollbar_h_
+#define INCLUDED_scrollbar_h_
 
 #ifdef HAVE_SCROLLBARS
 
@@ -81,4 +81,4 @@ extern Lisp_Object Qscrollbar_horizontal_drag;
 
 #endif /* HAVE_SCROLLBARS */
 
-#endif /* _XEMACS_SCROLLBAR_H_ */
+#endif /* INCLUDED_scrollbar_h_ */

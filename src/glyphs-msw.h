@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with:  Not in FSF. */
 
-#ifndef _XEMACS_GLYPHS_MSW_H_
-#define _XEMACS_GLYPHS_MSW_H_
+#ifndef INCLUDED_glyphs_msw_h_
+#define INCLUDED_glyphs_msw_h_
 
 #ifdef HAVE_MS_WINDOWS
 
@@ -64,19 +64,19 @@ struct mswindows_image_instance_data
   IMAGE_INSTANCE_MSWINDOWS_ICON (XIMAGE_INSTANCE (i))
 
 int
-mswindows_resize_dibitmap_instance (struct Lisp_Image_Instance* ii,
+mswindows_resize_dibitmap_instance (Lisp_Image_Instance* ii,
 				    struct frame* f,
 				    int newx, int newy);
 HBITMAP
-mswindows_create_resized_bitmap (struct Lisp_Image_Instance* ii,
+mswindows_create_resized_bitmap (Lisp_Image_Instance* ii,
 				 struct frame* f,
 				 int newx, int newy);
 HBITMAP
-mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
+mswindows_create_resized_mask (Lisp_Image_Instance* ii,
 			       struct frame* f,
 			       int newx, int newy);
 void
-mswindows_initialize_image_instance_icon (struct Lisp_Image_Instance* image,
+mswindows_initialize_image_instance_icon (Lisp_Image_Instance* image,
 					  int cursor);
 
 #define WIDGET_INSTANCE_MSWINDOWS_HANDLE(i) \
@@ -100,4 +100,5 @@ struct mswindows_subwindow_data
   IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (XIMAGE_INSTANCE (i))
 
 #endif /* HAVE_MS_WINDOWS */
-#endif /* _XEMACS_GLYPHS_MSW_H_ */
+
+#endif /* INCLUDED_glyphs_msw_h_ */

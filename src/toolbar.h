@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_TOOLBAR_H_
-#define _XEMACS_TOOLBAR_H_
+#ifndef INCLUDED_toolbar_h_
+#define INCLUDED_toolbar_h_
 
 #ifdef HAVE_TOOLBARS
 
@@ -110,4 +110,4 @@ void mark_frame_toolbar_buttons_dirty (struct frame *f, enum toolbar_pos pos);
 
 #endif /* HAVE_TOOLBARS */
 
-#endif /* _XEMACS_TOOLBAR_H_ */
+#endif /* INCLUDED_toolbar_h_ */

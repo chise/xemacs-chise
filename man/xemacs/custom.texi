@@ -30,7 +30,7 @@ customization in each session.  @xref{Init File}.
                      file.
 * Audible Bell::    Changing how Emacs sounds the bell. 
 * Faces::           Changing the fonts and colors of a region of text. 
-* X Resources::	    X resources controlling various aspects of the
+* X Resources::     X resources controlling various aspects of the
                      behavior of XEmacs.
 @end menu
 
@@ -761,16 +761,16 @@ XEmacs uses the information between them to determine what the major
 mode and variable settings should be.  For example, these are all legal:
 
 @example
-	;;; -*- mode: emacs-lisp -*-
-	;;; -*- mode: postscript; version-control: never -*-
-	;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
+        ;;; -*- mode: emacs-lisp -*-
+        ;;; -*- mode: postscript; version-control: never -*-
+        ;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
 @end example
 
 For historical reasons, the syntax @code{`-*- modename -*-'} is allowed
 as well; for example, you can use:
 
 @example
-	;;; -*- emacs-lisp -*-
+        ;;; -*- emacs-lisp -*-
 @end example
 
 @vindex enable-local-variables
@@ -1232,13 +1232,13 @@ Here are some examples of programmatically binding keys:
 @example
 
 ;;;  Bind @code{my-command} to @key{f1}
-(global-set-key 'f1 'my-command)		
+(global-set-key 'f1 'my-command)                
 
 ;;;  Bind @code{my-command} to @kbd{Shift-f1}
 (global-set-key '(shift f1) 'my-command)
 
 ;;; Bind @code{my-command} to @kbd{C-c Shift-f1}
-(global-set-key '[(control c) (shift f1)] 'my-command)	
+(global-set-key '[(control c) (shift f1)] 'my-command)  
 
 ;;; Bind @code{my-command} to the middle mouse button.
 (global-set-key 'button2 'my-command)
@@ -1288,14 +1288,14 @@ sequences.
 After binding a command to two key sequences with a form like:
 
 @example
-	(define-key global-map "\^X\^I" 'command-1)
+        (define-key global-map "\^X\^I" 'command-1)
 @end example
 
 it is possible to redefine only one of those sequences like so:
 
 @example
-	(define-key global-map [(control x) (control i)] 'command-2)
-	(define-key global-map [(control x) tab] 'command-3)
+        (define-key global-map [(control x) (control i)] 'command-2)
+        (define-key global-map [(control x) tab] 'command-3)
 @end example
 
 This applies only when running under a window system.  If you are
@@ -1918,16 +1918,16 @@ The Emacs command loop catches an error
 @item undefined-key
 You type a key that is undefined
 
-@item undefined-click	
+@item undefined-click
 You use an undefined mouse-click combination
 
-@item no-completion	
+@item no-completion
 Completion was not possible
 
-@item y-or-n-p		
+@item y-or-n-p
 You type something other than the required @code{y} or @code{n}
 
-@item yes-or-no-p  	
+@item yes-or-no-p       
 You type something other than @code{yes} or @code{no}
 @end table
 
@@ -2066,7 +2066,7 @@ run both variants.
 Starting with XEmacs 21, XEmacs uses the class @samp{XEmacs} if it finds
 any XEmacs resources in the resource database when the X connection is
 initialized.  Otherwise, it will use the class @samp{Emacs} for
-backwards compatability.  The variable @var{x-emacs-application-class}
+backwards compatibility.  The variable @var{x-emacs-application-class}
 may be consulted to determine the application class being used.
 
 The examples in this section assume the application class is @samp{Emacs}.
@@ -2098,11 +2098,11 @@ Emacs*FRAME-NAME.parameter: value
 
 @menu
 * Geometry Resources::     Controlling the size and position of frames.
-* Iconic Resources::	   Controlling whether frames come up iconic.
-* Resource List::	   List of resources settable on a frame or device.
-* Face Resources::	   Controlling faces using resources.
-* Widgets::		   The widget hierarchy for XEmacs.
-* Menubar Resources::	   Specifying resources for the menubar.
+* Iconic Resources::       Controlling whether frames come up iconic.
+* Resource List::          List of resources settable on a frame or device.
+* Face Resources::         Controlling faces using resources.
+* Widgets::                The widget hierarchy for XEmacs.
+* Menubar Resources::      Specifying resources for the menubar.
 @end menu
 
 @node Geometry Resources

@@ -571,8 +571,8 @@ This is equivalent to the type of the frame's device.
 Value is `tty' for a tty frame (a character-only terminal),
 `x' for a frame that is an X window,
 `ns' for a frame that is a NeXTstep window (not yet implemented),
-`mswindows' for a frame that is a Windows NT or Windows 95/97 window,
-`pc' for a frame that is a direct-write MS-DOS frame (not yet implemented),
+`mswindows' for a frame that is a MS Windows desktop window,
+`msprinter' for a frame that is a MS Windows print job,
 `stream' for a stream frame (which acts like a stdio stream), and
 `dead' for a deleted frame."
   (or frame (setq frame (selected-frame)))

@@ -887,8 +887,8 @@ static Extent_List *
 allocate_extent_list (void)
 {
   Extent_List *el = xnew (Extent_List);
-  el->start = make_gap_array (sizeof(EXTENT));
-  el->end = make_gap_array (sizeof(EXTENT));
+  el->start = make_gap_array (sizeof (EXTENT));
+  el->end = make_gap_array (sizeof (EXTENT));
   el->markers = 0;
   return el;
 }
@@ -2922,8 +2922,9 @@ static int extent_remprop (Lisp_Object obj, Lisp_Object prop);
 static Lisp_Object extent_plist (Lisp_Object obj);
 
 static const struct lrecord_description extent_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct extent, object), 2 },
-  { XD_LISP_OBJECT, offsetof(struct extent, plist), 1 },
+  { XD_LISP_OBJECT, offsetof (struct extent, object) },
+  { XD_LISP_OBJECT, offsetof (struct extent, flags.face) },
+  { XD_LISP_OBJECT, offsetof (struct extent, plist) },
   { XD_END }
 };
 

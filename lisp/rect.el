@@ -29,7 +29,7 @@
 ;; This package provides the operations on rectangles that are documented
 ;; in the XEmacs Reference Manual.
 
-;; ### NOTE: this file has been almost completely rewritten by Didier Verna
+;; #### NOTE: this file has been almost completely rewritten by Didier Verna
 ;; <verna@inf.enst.fr>, Jul 99. The purpose of this rewrite is to be less
 ;; intrusive and fill lines with whitespaces only when needed. A few functions
 ;; are untouched though, as noted above their definition.
@@ -37,7 +37,7 @@
 
 ;;; Code:
 
-;; ### NOTE: this function is untouched, but not used anymore.
+;; #### NOTE: this function is untouched, but not used anymore.
 ;; `apply-on-rectangle' is used instead. It's still there because it's
 ;; documented so people might use it in their code, so I've decided not to
 ;; touch it. --dv
@@ -204,7 +204,7 @@ as a list of strings, one for each line of the rectangle."
     (apply-on-rectangle 'extract-rectangle-line start end lines)
     (nreverse (cdr lines))))
 
-;; ### NOTE: this is actually the only function that needs to do complicated
+;; #### NOTE: this is actually the only function that needs to do complicated
 ;; stuff like what's happening in `operate-on-rectangle', because the buffer
 ;; might be read-only. --dv
 (defun extract-rectangle-line (startcol endcol lines)

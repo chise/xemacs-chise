@@ -366,14 +366,12 @@ static int pagemask;
 #include "lisp.h"
 
 static void
-report_error (file, fd)
-     CONST char *file;
-     int fd;
+report_error (const char *file, int fd)
 {
   if (fd)
     close (fd);
   report_file_error ("Cannot unexec",
-		     Fcons (build_ext_string (file, FORMAT_FILENAME), Qnil));
+		     Fcons (build_ext_string (file, Qfile_name), Qnil));
 }
 #endif /* emacs */
 

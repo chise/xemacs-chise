@@ -21,11 +21,13 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 
-#ifndef _XEMACS_KEYMAP_H_
-#define _XEMACS_KEYMAP_H_
+#ifndef INCLUDED_keymap_h_
+#define INCLUDED_keymap_h_
 
-DECLARE_LRECORD (keymap, struct Lisp_Keymap);
-#define XKEYMAP(x) XRECORD (x, keymap, struct Lisp_Keymap)
+typedef struct Lisp_Keymap Lisp_Keymap;
+
+DECLARE_LRECORD (keymap, Lisp_Keymap);
+#define XKEYMAP(x) XRECORD (x, keymap, Lisp_Keymap)
 #define XSETKEYMAP(x, p) XSETRECORD (x, p, keymap)
 #define KEYMAPP(x) RECORDP (x, keymap)
 #define CHECK_KEYMAP(x) CHECK_RECORD (x, keymap)
@@ -55,7 +57,7 @@ void describe_map_tree (Lisp_Object startmap, int partial,
 void key_desc_list_to_event (Lisp_Object list, Lisp_Object event,
 			     int allow_menu_events);
 
-int event_matches_key_specifier_p (struct Lisp_Event *event,
+int event_matches_key_specifier_p (Lisp_Event *event,
 				   Lisp_Object key_specifier);
 
-#endif /* _XEMACS_KEYMAP_H_ */
+#endif /* INCLUDED_keymap_h_ */

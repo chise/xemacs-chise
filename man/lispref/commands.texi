@@ -1456,7 +1456,7 @@ and other ways of representing keys.  These are useful when working with
 This function converts a numeric @sc{ascii} value to an event structure,
 replete with modifier bits.  @var{ch} is the character to convert, and
 @var{event} is the event object to fill in.  This function contains
-knowledge about what the codes ``mean'' -- for example, the number 9 is
+knowledge about what the codes ``mean''---for example, the number 9 is
 converted to the character @key{Tab}, not the distinct character
 @key{Control-I}.
 
@@ -1632,13 +1632,13 @@ convenience; it is equivalent to the Lisp code
 
 @lisp
 @group
-	(while (progn
-		 (next-event event)
-	         (not (or (key-press-event-p event)
-	                  (button-press-event-p event)
-	                  (button-release-event-p event)
-	                  (menu-event-p event))))
-	   (dispatch-event event))
+        (while (progn
+                 (next-event event)
+                 (not (or (key-press-event-p event)
+                          (button-press-event-p event)
+                          (button-release-event-p event)
+                          (menu-event-p event))))
+           (dispatch-event event))
 @end group
 @end lisp
 

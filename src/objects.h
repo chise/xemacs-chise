@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_OBJECTS_H_
-#define _XEMACS_OBJECTS_H_
+#ifndef INCLUDED_objects_h_
+#define INCLUDED_objects_h_
 
 #include "specifier.h"
 
@@ -111,14 +111,6 @@ void set_face_boolean_attached_to (Lisp_Object obj, Lisp_Object face,
  *                           Color Instance Object                          *
  ****************************************************************************/
 
-DECLARE_LRECORD (color_instance, struct Lisp_Color_Instance);
-#define XCOLOR_INSTANCE(x) \
-  XRECORD (x, color_instance, struct Lisp_Color_Instance)
-#define XSETCOLOR_INSTANCE(x, p) XSETRECORD (x, p, color_instance)
-#define COLOR_INSTANCEP(x) RECORDP (x, color_instance)
-#define CHECK_COLOR_INSTANCE(x) CHECK_RECORD (x, color_instance)
-#define CONCHECK_COLOR_INSTANCE(x) CONCHECK_RECORD (x, color_instance)
-
 EXFUN (Fmake_color_instance, 3);
 
 extern Lisp_Object Vthe_null_color_instance;
@@ -133,6 +125,13 @@ struct Lisp_Color_Instance
   void *data;
 };
 
+DECLARE_LRECORD (color_instance, Lisp_Color_Instance);
+#define XCOLOR_INSTANCE(x) XRECORD (x, color_instance, Lisp_Color_Instance)
+#define XSETCOLOR_INSTANCE(x, p) XSETRECORD (x, p, color_instance)
+#define COLOR_INSTANCEP(x) RECORDP (x, color_instance)
+#define CHECK_COLOR_INSTANCE(x) CHECK_RECORD (x, color_instance)
+#define CONCHECK_COLOR_INSTANCE(x) CONCHECK_RECORD (x, color_instance)
+
 #define COLOR_INSTANCE_NAME(c)   ((c)->name)
 #define COLOR_INSTANCE_DEVICE(c) ((c)->device)
 
@@ -140,8 +139,8 @@ struct Lisp_Color_Instance
  *                            Font Instance Object                          *
  ****************************************************************************/
 
-DECLARE_LRECORD (font_instance, struct Lisp_Font_Instance);
-#define XFONT_INSTANCE(x) XRECORD (x, font_instance, struct Lisp_Font_Instance)
+DECLARE_LRECORD (font_instance, Lisp_Font_Instance);
+#define XFONT_INSTANCE(x) XRECORD (x, font_instance, Lisp_Font_Instance)
 #define XSETFONT_INSTANCE(x, p) XSETRECORD (x, p, font_instance)
 #define FONT_INSTANCEP(x) RECORDP (x, font_instance)
 #define CHECK_FONT_INSTANCE(x) CHECK_RECORD (x, font_instance)
@@ -184,4 +183,4 @@ struct Lisp_Font_Instance
 #define FONT_INSTANCE_WIDTH(f)	 ((f)->width)
 #define FONT_INSTANCE_HEIGHT(f)	 ((f)->height)
 
-#endif /* _XEMACS_OBJECTS_H_ */
+#endif /* INCLUDED_objects_h_ */

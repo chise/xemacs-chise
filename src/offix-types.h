@@ -14,8 +14,8 @@ License along with this library; if not, write to the Free Software
 Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#ifndef __DragAndDropTypesH__
-#define __DragAndDropTypesH__
+#ifndef INCLUDED_offix_types_h_
+#define INCLUDED_offix_types_h_
 
 #define DndNotDnd	-1
 #define DndUnknown	0
@@ -31,4 +31,4 @@ Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 #define DndEND		10
 
-#endif
+#endif /* INCLUDED_offix_types_h_ */

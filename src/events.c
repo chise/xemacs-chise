@@ -81,9 +81,9 @@ static void
 deinitialize_event (Lisp_Object ev)
 {
   int i;
-  struct Lisp_Event *event = XEVENT (ev);
+  Lisp_Event *event = XEVENT (ev);
 
-  for (i = 0; i < (int) (sizeof (struct Lisp_Event) / sizeof (int)); i++)
+  for (i = 0; i < (int) (sizeof (Lisp_Event) / sizeof (int)); i++)
     ((int *) event) [i] = 0xdeadbeef;
   event->event_type = dead_event;
   event->channel = Qnil;
@@ -93,7 +93,7 @@ deinitialize_event (Lisp_Object ev)
 
 /* Set everything to zero or nil so that it's predictable. */
 void
-zero_event (struct Lisp_Event *e)
+zero_event (Lisp_Event *e)
 {
   xzero (*e);
   set_lheader_implementation (&(e->lheader), &lrecord_event);
@@ -105,7 +105,7 @@ zero_event (struct Lisp_Event *e)
 static Lisp_Object
 mark_event (Lisp_Object obj)
 {
-  struct Lisp_Event *event = XEVENT (obj);
+  Lisp_Event *event = XEVENT (obj);
 
   switch (event->event_type)
     {
@@ -221,8 +221,8 @@ print_event (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Event *e1 = XEVENT (obj1);
-  struct Lisp_Event *e2 = XEVENT (obj2);
+  Lisp_Event *e1 = XEVENT (obj1);
+  Lisp_Event *e2 = XEVENT (obj2);
 
   if (e1->event_type != e2->event_type) return 0;
   if (!EQ (e1->channel, e2->channel)) return 0;
@@ -293,8 +293,9 @@ event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	if (CONSOLE_MSWINDOWS_P (con))
 	  return (!memcmp(&e1->event.magic.underlying_mswindows_event,
 			  &e2->event.magic.underlying_mswindows_event,
-			  sizeof(union magic_data)));
+			  sizeof (union magic_data)));
 #endif
+	abort ();
 	return 1; /* not reached */
       }
 
@@ -307,7 +308,7 @@ event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 static unsigned long
 event_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Event *e = XEVENT (obj);
+  Lisp_Event *e = XEVENT (obj);
   unsigned long hash;
 
   hash = HASH2 (e->event_type, LISP_HASH (e->channel));
@@ -360,6 +361,8 @@ event_hash (Lisp_Object obj, int depth)
 	if (CONSOLE_MSWINDOWS_P (con))
 	  return HASH2 (hash, e->event.magic.underlying_mswindows_event);
 #endif
+	abort ();
+	return 0;
       }
 
     case empty_event:
@@ -375,7 +378,7 @@ event_hash (Lisp_Object obj, int depth)
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("event", event,
 				     mark_event, print_event, 0, event_equal,
-				     event_hash, 0, struct Lisp_Event);
+				     event_hash, 0, Lisp_Event);
 
 
 DEFUN ("make-event", Fmake_event, 0, 2, 0, /*
@@ -428,7 +431,7 @@ WARNING: the event object returned may be a reused one; see the function
 {
   Lisp_Object tail, keyword, value;
   Lisp_Object event = Qnil;
-  struct Lisp_Event *e;
+  Lisp_Event *e;
   EMACS_INT coord_x = 0, coord_y = 0;
   struct gcpro gcpro1;
 
@@ -970,7 +973,7 @@ command_event_p (Lisp_Object event)
 
 
 void
-character_to_event (Emchar c, struct Lisp_Event *event, struct console *con,
+character_to_event (Emchar c, Lisp_Event *event, struct console *con,
 		    int use_console_meta_flag, int do_backspace_mapping)
 {
   Lisp_Object k = Qnil;
@@ -1039,17 +1042,18 @@ character_to_event (Emchar c, struct Lisp_Event *event, struct console *con,
   event->event.key.modifiers = m;
 }
 
-
 /* This variable controls what character name -> character code mapping
    we are using.  Window-system-specific code sets this to some symbol,
    and we use that symbol as the plist key to convert keysyms into 8-bit
    codes.  In this way one can have several character sets predefined and
    switch them by changing this.
+
+   #### This is utterly bogus and should be removed.
  */
 Lisp_Object Vcharacter_set_property;
 
 Emchar
-event_to_character (struct Lisp_Event *event,
+event_to_character (Lisp_Event *event,
 		    int allow_extra_modifiers,
 		    int allow_meta,
 		    int allow_non_ascii)
@@ -1226,7 +1230,7 @@ key_sequence_to_event_chain (Lisp_Object seq)
 }
 
 void
-format_event_object (char *buf, struct Lisp_Event *event, int brief)
+format_event_object (char *buf, Lisp_Event *event, int brief)
 {
   int mouse_p = 0;
   int mod = 0;
@@ -1329,7 +1333,7 @@ format_event_object (char *buf, struct Lisp_Event *event, int brief)
 	}
       else
 	{
-	  struct Lisp_String *name = XSYMBOL (key)->name;
+	  Lisp_String *name = XSYMBOL (key)->name;
 	  memcpy (buf, string_data (name), string_length (name) + 1);
 	  str += string_length (name);
 	}
@@ -1365,7 +1369,7 @@ The `next-event' field is changed by calling `set-next-event'.
 */
 	 (event))
 {
-  struct Lisp_Event *e;
+  Lisp_Event *e;
   CHECK_LIVE_EVENT (event);
 
   return XEVENT_NEXT (event);
@@ -2105,7 +2109,7 @@ This is in the form of a property list (alternating keyword/value pairs).
        (event))
 {
   Lisp_Object props = Qnil;
-  struct Lisp_Event *e;
+  Lisp_Event *e;
   struct gcpro gcpro1;
 
   CHECK_LIVE_EVENT (event);

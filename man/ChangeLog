@@ -1,3 +1,71 @@
+2000-02-07  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.28 is released.
+
+2000-02-07  Martin Buchholz  <martin@xemacs.org>
+
+	* cl.texi: Remove (or replace by `get') references to `get*'.
+
+2000-01-25  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* widget.texi:
+	* internals/internals.texi:
+	* lispref/commands.texi:
+	* lispref/consoles-devices.texi:
+	* lispref/customize.texi:
+	* lispref/dialog.texi:
+	* lispref/extents.texi:
+	* lispref/faces.texi:
+	* lispref/glyphs.texi:
+	* lispref/keymaps.texi:
+	* lispref/lists.texi:
+	* lispref/markers.texi:
+	* lispref/menus.texi:
+	* lispref/mule.texi:
+	* lispref/objects.texi:
+	* lispref/specifiers.texi:
+	* lispref/toolbar.texi:
+	* lispref/tooltalk.texi:
+	* lispref/x-windows.texi:
+	* new-users-guide/custom2.texi:
+	* new-users-guide/help.texi:
+	* new-users-guide/modes.texi:
+	* xemacs/abbrevs.texi:
+	* xemacs/buffers.texi:
+	* xemacs/custom.texi:
+	* xemacs/help.texi:
+	* xemacs/keystrokes.texi:
+	* xemacs/mini.texi:
+	* xemacs/new.texi:
+	* xemacs/packages.texi:
+	* xemacs/programs.texi:
+	* xemacs/sending.texi:
+	Change ' -- ' to '---' since Texinfo formats --- to --.
+	Untabify.  TeX doesn't like TAB.
+
+2000-01-27  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi (Q6.2.2): updated font instructions to include
+	21.2.*
+
+2000-01-25  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs-faq.texi: Untabify.
+	
+2000-01-22  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (General Coding Rules): Document why we
+	#include <config.h>
+
+2000-01-21  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* xemacs-faq.texi: Change ' -- ' to '---'.
+	
+2000-01-19  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* lispref/faces.texi (Face Properties): Document
+	remove-face-property.
+
 2000-01-18  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.27 is released.

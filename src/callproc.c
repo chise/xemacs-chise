@@ -43,7 +43,6 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WINDOWSNT
 #define _P_NOWAIT 1	/* from process.h */
-#include <windows.h>
 #include "nt.h"
 #endif
 
@@ -102,11 +101,8 @@ call_process_kill (Lisp_Object fdpid)
 static Lisp_Object
 call_process_cleanup (Lisp_Object fdpid)
 {
-  int fd = XINT (Fcar (fdpid));
+  int fd  = XINT (Fcar (fdpid));
   int pid = XINT (Fcdr (fdpid));
-#ifdef WINDOWSNT
-  HANDLE pHandle;
-#endif
 
   if (!call_process_exited &&
       EMACS_KILLPG (pid, SIGINT) == 0)
@@ -118,13 +114,14 @@ call_process_cleanup (Lisp_Object fdpid)
     message ("Waiting for process to die...(type C-g again to kill it instantly)");
 
 #ifdef WINDOWSNT
-    pHandle = OpenProcess(PROCESS_ALL_ACCESS, 0, pid);
-    if (pHandle == NULL)
-      {
+    {
+      HANDLE pHandle = OpenProcess (PROCESS_ALL_ACCESS, 0, pid);
+      if (pHandle == NULL)
 	warn_when_safe (Qprocess, Qwarning,
 			"cannot open process (PID %d) for cleanup", pid);
-      }
-    wait_for_termination (pHandle);
+      else
+	wait_for_termination (pHandle);
+    }
 #else
     wait_for_termination (pid);
 #endif
@@ -504,16 +501,19 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	if (nread == 0)
 	  break;
 
+#if 0
 #ifdef DOS_NT
        /* Until we pull out of MULE things like
 	  make_decoding_input_stream(), we do the following which is
 	  less elegant. --marcpa */
+	/* We did. -- kkm */
        {
 	 int lf_count = 0;
 	 if (NILP (Vbinary_process_output)) {
 	   nread = crlf_to_lf(nread, bufptr, &lf_count);
          }
        }
+#endif
 #endif
 
 	total_read += nread;
@@ -684,9 +684,10 @@ child_setup (int in, int out, int err, char **new_argv,
     {
       char **ep = env;
       char *envvar_external;
-      Bufbyte *envvar_internal = XSTRING_DATA (XCAR (tail));
 
-      GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA (envvar_internal, envvar_external);
+      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (tail),
+			  C_STRING_ALLOCA, envvar_external,
+			  Qfile_name);
 
       /* See if envvar_external duplicates any string already in the env.
 	 If so, don't put it in.
@@ -868,10 +869,8 @@ init_callproc (void)
     char **envp;
     Vprocess_environment = Qnil;
     for (envp = environ; envp && *envp; envp++)
-      {
-	Vprocess_environment = Fcons (build_ext_string (*envp, FORMAT_OS),
-				      Vprocess_environment);
-      }
+      Vprocess_environment =
+	Fcons (build_ext_string (*envp, Qfile_name), Vprocess_environment);
   }
 
   {

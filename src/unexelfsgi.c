@@ -615,6 +615,7 @@ unexec (char *new_name,
   l_Elf_Ehdr *old_file_h, *new_file_h;
   l_Elf_Phdr *old_program_h, *new_program_h;
   l_Elf_Shdr *old_section_h, *new_section_h;
+  l_Elf_Shdr *oldbss;
 
   /* Point to the section name table in the old file.  */
   char *old_section_names;
@@ -697,8 +698,8 @@ unexec (char *new_name,
     (new_data2_addr - OLD_SECTION_H (old_data_index).sh_addr);
   new_base_offset  = OLD_SECTION_H (old_data_index).sh_offset +
     (old_base_addr - OLD_SECTION_H (old_data_index).sh_addr);
-  new_offsets_shift = new_bss_addr -
-    ((old_base_addr & ~0xfff) + ((old_base_addr & 0xfff) ? 0x1000 : 0));
+  new_offsets_shift = new_bss_addr - (old_base_addr & ~0xfff) + 
+    ((old_base_addr & 0xfff) ? 0x1000 : 0);
 
 #ifdef DEBUG
   fprintf (stderr, "old_bss_index %d\n", old_bss_index);
@@ -768,37 +769,41 @@ unexec (char *new_name,
 
   /* Fix up a new program header.  Extend the writable data segment so
      that the bss area is covered too. Find that segment by looking
-     for a segment that ends just before the .bss area.  Make sure
-     that no segments are above the new .data2.  Put a loop at the end
-     to adjust the offset and address of any segment that is above
-     data2, just in case we decide to allow this later.  */
+     for one that starts before and ends after the .bss and it PT_LOADable.
+     Put a loop at the end to adjust the offset and address of any segment
+     that is above data2, just in case we decide to allow this later.  */
 
+  oldbss = &OLD_SECTION_H(old_bss_index);
   for (n = new_file_h->e_phnum - 1; n >= 0; n--)
     {
       /* Compute maximum of all requirements for alignment of section.  */
-      int alignment = (NEW_PROGRAM_H (n)).p_align;
-      if ((OLD_SECTION_H (old_bss_index)).sh_addralign > alignment)
-	alignment = OLD_SECTION_H (old_bss_index).sh_addralign;
-
-      /* Supposedly this condition is okay for the SGI.  */
-#if 0
-      if (NEW_PROGRAM_H (n).p_vaddr + NEW_PROGRAM_H (n).p_filesz > old_base_addr)
-	fatal ("Program segment above .bss in %s\n", old_name);
+      l_Elf_Phdr * ph =  (l_Elf_Phdr *)((byte *) new_program_h + 
+                                                 new_file_h->e_phentsize*(n));
+#ifdef DEBUG
+      printf ("%d @ %0x + %0x against %0x + %0x",
+              n, ph->p_vaddr, ph->p_memsz,
+              oldbss->sh_addr, oldbss->sh_size);
 #endif
-
-      if (NEW_PROGRAM_H (n).p_type == PT_LOAD
-	  && (round_up ((NEW_PROGRAM_H (n)).p_vaddr
-			+ (NEW_PROGRAM_H (n)).p_filesz,
-			alignment)
-	      == round_up (old_base_addr, alignment)))
-	break;
+      if ((ph->p_type == PT_LOAD) && 
+          (ph->p_vaddr <= oldbss->sh_addr) &&
+          ((ph->p_vaddr + ph->p_memsz)>=(oldbss->sh_addr + oldbss->sh_size))) {
+        ph->p_filesz += new_offsets_shift;
+        ph->p_memsz = ph->p_filesz;
+#ifdef DEBUG
+        puts (" That's the one!");
+        fflush (stdout);
+#endif
+        break;
+      }
+#ifdef DEBUG
+      putchar ('\n');
+      fflush (stdout);
+#endif
     }
   if (n < 0)
     fatal ("Couldn't find segment next to %s in %s\n",
 	   old_sbss_index == -1 ? ".sbss" : ".bss", old_name);
 
-  NEW_PROGRAM_H (n).p_filesz += new_offsets_shift;
-  NEW_PROGRAM_H (n).p_memsz = NEW_PROGRAM_H (n).p_filesz;
 
 #if 1				/* Maybe allow section after data2 - does this ever happen?  */
   for (n = new_file_h->e_phnum - 1; n >= 0; n--)

@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Written by Ben Wing. */
 
-#ifndef _ExternalClient_h
-#define _ExternalClient_h
+#ifndef INCLUDED_ExternalClient_h_
+#define INCLUDED_ExternalClient_h_
 
 #ifndef XtNshellTimeout
 #define XtNshellTimeout "shellTimeout"
@@ -71,4 +71,4 @@ extern WidgetClass externalClientWidgetClass;
 void ExternalClientInitialize   (Display *display, Window win);
 void ExternalClientEventHandler (Display *display, Window win, XEvent *event);
 
-#endif /* _ExternalClient_h */
+#endif /* INCLUDED_ExternalClient_h_ */

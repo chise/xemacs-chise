@@ -30,10 +30,6 @@
 
 ;;; Code:
 
-(eval-when-compile
-  (defvar buffer-file-type)
-  (defvar binary-process-output))
-
 (defvar process-coding-system-alist nil
   "Alist to decide a coding system to use for a process I/O operation.
 The format is ((PATTERN . VAL) ...),
@@ -112,8 +108,7 @@ If you quit, the process is first killed with SIGINT, then with SIGKILL if
 you quit again before the process exits."
   (let ((temp
 	 (make-temp-name
-	  (concat (file-name-as-directory (temp-directory))
-		  (if (memq system-type '(ms-dos windows-nt)) "em" "emacs")))))
+	  (concat (file-name-as-directory (temp-directory)) "emacs"))))
     (unwind-protect
 	(let (cs-r cs-w)
 	  (let (ret)
@@ -137,10 +132,7 @@ you quit again before the process exits."
 		 (or coding-system-for-read cs-r))
 		(coding-system-for-write
 		 (or coding-system-for-write cs-w)))
-	    (if (memq system-type '(ms-dos windows-nt))
-		(let ((buffer-file-type binary-process-output))
-		  (write-region start end temp nil 'silent))
-	      (write-region start end temp nil 'silent))
+	    (write-region start end temp nil 'silent)
 	    (if deletep (delete-region start end))
 	    (apply #'call-process program temp buffer displayp args)))
       (ignore-file-errors (delete-file temp)))))
@@ -257,4 +249,4 @@ lost packets."
 	   (or coding-system-for-write cs-w)))
       (open-network-stream-internal name buffer host service protocol))))
 
-;;; mule-process.el ends here
+;;; code-process.el ends here

@@ -17,8 +17,8 @@ Boston, MA 02111-1307, USA. */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _EXTW_XLIB_H_
-#define _EXTW_XLIB_H_
+#ifndef INCLUDED_extw_Xlib_h_
+#define INCLUDED_extw_Xlib_h_
 
 #define extw_shell_send 0
 #define extw_client_send 1
@@ -48,4 +48,4 @@ void extw_initialize_atoms(Display *display);
 void extw_send_notify_3(Display *display, Window win, en_extw_notify type,
 			long data0, long data1, long data2);
 
-#endif /* _EXTW_XLIB_H_ */
+#endif /* INCLUDED_extw_Xlib_h_ */

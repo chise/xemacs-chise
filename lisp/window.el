@@ -295,8 +295,8 @@ or if the window is the only window of its frame."
 			(select-frame frame))))
 	       ;; check to make sure that the window is the full width
 	       ;; of the frame
-	       (eq (nth 2 edges)
-		   (frame-pixel-width))
+	       (window-leftmost-p window)
+	       (window-rightmost-p window)
 	       (zerop (nth 0 edges))
 	       ;; The whole buffer must be visible.
 	       (pos-visible-in-window-p (point-min) window)

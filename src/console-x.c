@@ -140,12 +140,12 @@ get_display_arg_connection (void)
       /* assert: display_arg is only set if we found the display
 	 arg earlier so we can't fail to find it now. */
       assert (disp_name != NULL);
-      conn = build_ext_string (disp_name, FORMAT_CTEXT);
+      conn = build_ext_string (disp_name, Qctext);
       free_argc_argv (argv);
       return conn;
     }
   else
-    return build_ext_string (XDisplayName (0), FORMAT_CTEXT);
+    return build_ext_string (XDisplayName (0), Qctext);
 }
 
 /* "semi-canonicalize" means convert to a nicer form for printing, but

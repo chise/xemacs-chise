@@ -20,8 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_SYSTIME_H_
-#define _XEMACS_SYSTIME_H_
+#ifndef INCLUDED_systime_h_
+#define INCLUDED_systime_h_
 
 #ifdef TIME_WITH_SYS_TIME
 #include <sys/time.h>
@@ -51,7 +51,7 @@ Boston, MA 02111-1307, USA.  */
 # include <utime.h>
 #endif
 
-#ifdef HAVE_TZNAME
+#if defined(HAVE_TZNAME) && !defined(WINDOWSNT) && !defined(__CYGWIN32__)
 #ifndef tzname		/* For SGI.  */
 extern char *tzname[];	/* RS6000 and others want it this way.  */
 #endif
@@ -249,4 +249,4 @@ int setitimer (int kind, const struct itimerval* itnew,
 
 #endif /* WINDOWSNT */
 
-#endif /* _XEMACS_SYSTIME_H_ */
+#endif /* INCLUDED_systime_h_ */

@@ -22,8 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _XEMACS_EVENTS_H_
-#define _XEMACS_EVENTS_H_
+#ifndef INCLUDED_events_h_
+#define INCLUDED_events_h_
 
 #include "systime.h"
 
@@ -40,7 +40,8 @@ Boston, MA 02111-1307, USA.  */
    multiple heterogeneous machines, X11 and SunView, or X11 and NeXT, for
    example, then it will be necessary to construct an event_stream structure
    that can cope with the given types.  Currently, the only implemented
-   event_streams are for dumb-ttys, and for X11 plus dumb-ttys.
+   event_streams are for dumb-ttys, and for X11 plus dumb-ttys,
+   and for mswindows.
 
    To implement this for one window system is relatively simple.
    To implement this for multiple window systems is trickier and may
@@ -275,9 +276,9 @@ Boston, MA 02111-1307, USA.  */
   The Create stream pair function is passed two void* values, which identify
   process-dependent 'handles'. The process implementation uses these handles
   to communicate with child processes. The function must be prepared to receive
-  handle types of any process implementation. Since there only one process
+  handle types of any process implementation. Since only one process
   implementation exists in a particular XEmacs configuration, preprocessing
-  is a mean of compiling in the support for the code which deals with particular
+  is a means of compiling in the support for the code which deals with particular
   handle types.
 
   For example, a unixoid type loop, which relies on file descriptors, may be
@@ -316,20 +317,17 @@ Boston, MA 02111-1307, USA.  */
 #define USID_DONTHASH ((USID)0)
 
 
-struct Lisp_Event;
-struct Lisp_Process;
-
 struct event_stream
 {
   int  (*event_pending_p)	(int);
-  void (*next_event_cb)		(struct Lisp_Event *);
-  void (*handle_magic_event_cb)	(struct Lisp_Event *);
+  void (*next_event_cb)		(Lisp_Event *);
+  void (*handle_magic_event_cb)	(Lisp_Event *);
   int  (*add_timeout_cb)	(EMACS_TIME);
   void (*remove_timeout_cb)	(int);
   void (*select_console_cb)	(struct console *);
   void (*unselect_console_cb)	(struct console *);
-  void (*select_process_cb)	(struct Lisp_Process *);
-  void (*unselect_process_cb)	(struct Lisp_Process *);
+  void (*select_process_cb)	(Lisp_Process *);
+  void (*unselect_process_cb)	(Lisp_Process *);
   void (*quit_p_cb)		(void);
   USID (*create_stream_pair_cb) (void* /* inhandle*/, void* /*outhandle*/ ,
 				 Lisp_Object* /* instream */,
@@ -450,9 +448,10 @@ struct Lisp_Timeout
 				   should the one after that
 				   occur? */
 };
+typedef struct Lisp_Timeout Lisp_Timeout;
 
-DECLARE_LRECORD (timeout, struct Lisp_Timeout);
-#define XTIMEOUT(x) XRECORD (x, timeout, struct Lisp_Timeout)
+DECLARE_LRECORD (timeout, Lisp_Timeout);
+#define XTIMEOUT(x) XRECORD (x, timeout, Lisp_Timeout)
 #define XSETTIMEOUT(x, p) XSETRECORD (x, p, timeout)
 #define TIMEOUTP(x) RECORDP (x, timeout)
 #define CHECK_TIMEOUT(x) CHECK_RECORD (x, timeout)
@@ -485,8 +484,8 @@ struct Lisp_Event
     } event;
 };
 
-DECLARE_LRECORD (event, struct Lisp_Event);
-#define XEVENT(x) XRECORD (x, event, struct Lisp_Event)
+DECLARE_LRECORD (event, Lisp_Event);
+#define XEVENT(x) XRECORD (x, event, Lisp_Event)
 #define XSETEVENT(x, p) XSETRECORD (x, p, event)
 #define EVENTP(x) RECORDP (x, event)
 #define CHECK_EVENT(x) CHECK_RECORD (x, event)
@@ -543,12 +542,12 @@ extern Lisp_Object Qcancel_mode_internal;
 #define KEYSYM(x) (intern (x))
 
 /* from events.c */
-void format_event_object (char *buf, struct Lisp_Event *e, int brief);
-void character_to_event (Emchar c, struct Lisp_Event *event,
+void format_event_object (char *buf, Lisp_Event *e, int brief);
+void character_to_event (Emchar c, Lisp_Event *event,
 			 struct console *con,
 			 int use_console_meta_flag,
 			 int do_backspace_mapping);
-void zero_event (struct Lisp_Event *e);
+void zero_event (Lisp_Event *e);
 void deallocate_event_chain (Lisp_Object event);
 Lisp_Object event_chain_tail (Lisp_Object event);
 void enqueue_event (Lisp_Object event, Lisp_Object *head, Lisp_Object *tail);
@@ -565,17 +564,19 @@ Lisp_Object copy_event_chain (Lisp_Object event_chain);
 /* True if this is a non-internal event
    (keyboard press, menu, scrollbar, mouse button) */
 int command_event_p (Lisp_Object event);
+void define_self_inserting_symbol (Lisp_Object, Lisp_Object);
+Emchar event_to_character (Lisp_Event *, int, int, int);
 struct console *event_console_or_selected (Lisp_Object event);
 
 /* from event-stream.c */
 Lisp_Object allocate_command_builder (Lisp_Object console);
 void enqueue_magic_eval_event (void (*fun) (Lisp_Object), Lisp_Object object);
-void event_stream_next_event (struct Lisp_Event *event);
-void event_stream_handle_magic_event (struct Lisp_Event *event);
+void event_stream_next_event (Lisp_Event *event);
+void event_stream_handle_magic_event (Lisp_Event *event);
 void event_stream_select_console   (struct console *con);
 void event_stream_unselect_console (struct console *con);
-void event_stream_select_process   (struct Lisp_Process *proc);
-void event_stream_unselect_process (struct Lisp_Process *proc);
+void event_stream_select_process   (Lisp_Process *proc);
+void event_stream_unselect_process (Lisp_Process *proc);
 USID event_stream_create_stream_pair (void* inhandle, void* outhandle,
 		Lisp_Object* instream, Lisp_Object* outstream, int flags);
 USID event_stream_delete_stream_pair (Lisp_Object instream, Lisp_Object outstream);
@@ -638,9 +639,9 @@ extern int fake_event_occurred;
 
 int event_stream_unixoid_select_console   (struct console *con);
 int event_stream_unixoid_unselect_console (struct console *con);
-int event_stream_unixoid_select_process   (struct Lisp_Process *proc);
-int event_stream_unixoid_unselect_process (struct Lisp_Process *proc);
-int read_event_from_tty_or_stream_desc (struct Lisp_Event *event,
+int event_stream_unixoid_select_process   (Lisp_Process *proc);
+int event_stream_unixoid_unselect_process (Lisp_Process *proc);
+int read_event_from_tty_or_stream_desc (Lisp_Event *event,
 					struct console *con, int fd);
 USID event_stream_unixoid_create_stream_pair (void* inhandle, void* outhandle,
 					     Lisp_Object* instream,
@@ -660,4 +661,4 @@ USID event_stream_unixoid_delete_stream_pair (Lisp_Object instream,
 
 #endif /* emacs */
 
-#endif /* _XEMACS_EVENTS_H_ */
+#endif /* INCLUDED_events_h_ */

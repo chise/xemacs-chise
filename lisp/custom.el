@@ -572,7 +572,7 @@ BODY is as with custom-theme-load-themes."
 (defun custom-theme-value (theme theme-spec-list)
   "Determine the value for THEME defined by THEME-SPEC-LIST.
 Returns (list value) if found. Nil otherwise."
-  ;; Note we do _NOT_ singal an error if the theme is unkown
+  ;; Note we do _NOT_ signal an error if the theme is unknown
   ;; it might have gone away without the user knowing.
   (let ((theme-or-lower (memq theme (cons 'user custom-loaded-themes)))
         value)

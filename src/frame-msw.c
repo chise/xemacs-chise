@@ -70,11 +70,16 @@ Boston, MA 02111-1307, USA.  */
 
 /* Default properties to use when creating frames.  */
 Lisp_Object Vdefault_mswindows_frame_plist;
+Lisp_Object Vdefault_msprinter_frame_plist;
 Lisp_Object Vmswindows_use_system_frame_size_defaults;
 
 /* This does not need to be GC protected, as it holds a
    frame Lisp_Object already protected by Fmake_frame */
 Lisp_Object Vmswindows_frame_being_created;
+
+/*---------------------------------------------------------------------*/
+/*-----                    DISPLAY FRAME                          -----*/
+/*---------------------------------------------------------------------*/
 
 static void
 mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
@@ -594,7 +599,8 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
      bugs (and is more consistent with X) so I am going to reenable it.
      --andyp */
   if ( FRAME_PIXWIDTH (f) && FRAME_PIXHEIGHT (f)
-       && (width_specified_p || height_specified_p || x_specified_p || y_specified_p))
+       && (width_specified_p || height_specified_p
+	   || x_specified_p || y_specified_p))
     {
       XEMACS_RECT_WH dest = { x, y, width, height };
 
@@ -699,10 +705,343 @@ mswindows_frame_size_fixed_p (struct frame *f)
   return IsZoomed (FRAME_MSWINDOWS_HANDLE (f));
 }
 
+/*---------------------------------------------------------------------*/
+/*-----                    PRINTER FRAME                          -----*/
+/*---------------------------------------------------------------------*/
+
+EXFUN (Fset_frame_properties, 2);
+
+static void
+error_frame_unsizable (struct frame *f)
+{
+  Lisp_Object frame;
+  XSETFRAME (frame, f);
+  signal_simple_error ("Cannot resize frame (margins)"
+		       " after print job has started.", frame);
+}
+
+static void
+maybe_error_if_job_active (struct frame *f)
+{
+  if (FRAME_MSPRINTER_JOB_STARTED (f))
+    error_frame_unsizable (f);
+}
+
+static void
+msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
+{
+  HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+  Lisp_Object frame_obj = Qnil;
+
+  /* Make sure this is the only frame on device. Windows printer can
+     handle only one job at a time. */
+  if (!NILP (DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f)))))
+    error ("Only one frame (print job) at a time is allowed on "
+	   "this printer device.");
+
+  f->frame_data = xnew_and_zero (struct msprinter_frame);
+
+  /* Default margin size is 1" = 1440 twips */
+  FRAME_MSPRINTER_TOP_MARGIN(f) = 1440;
+  FRAME_MSPRINTER_BOTTOM_MARGIN(f) = 1440;
+  FRAME_MSPRINTER_LEFT_MARGIN(f) = 1440;
+  FRAME_MSPRINTER_RIGHT_MARGIN(f) = 1440;
+
+  /* Negative for "uinspecified" */
+  FRAME_MSPRINTER_CHARWIDTH(f) = -1;
+  FRAME_MSPRINTER_CHARHEIGHT(f) = -1;
+
+  /* nil is for "system default" for these properties. */
+  FRAME_MSPRINTER_ORIENTATION(f) = Qnil;
+  FRAME_MSPRINTER_DUPLEX(f) = Qnil;
+}
+
+static void
+msprinter_init_frame_3 (struct frame *f)
+{
+  DOCINFO di;
+  struct device *device = XDEVICE (FRAME_DEVICE (f));
+  HDC hdc = DEVICE_MSPRINTER_HDC (device);
+  int frame_left, frame_top, frame_width, frame_height;
+
+  /* Change printer parameters */
+  {
+    DEVMODE* devmode = msprinter_get_devmode_copy (device);
+    devmode->dmFields = 0;
+
+    if (!NILP (FRAME_MSPRINTER_ORIENTATION(f)))
+      {
+	devmode->dmFields = DM_ORIENTATION;
+	if (EQ (FRAME_MSPRINTER_ORIENTATION(f), Qportrait))
+	  devmode->dmOrientation = DMORIENT_PORTRAIT;
+	else if (EQ (FRAME_MSPRINTER_ORIENTATION(f), Qlandscape))
+	  devmode->dmOrientation = DMORIENT_LANDSCAPE;
+	else
+	  abort();
+      }
+
+    if (!NILP (FRAME_MSPRINTER_DUPLEX(f)))
+      {
+	devmode->dmFields = DM_DUPLEX;
+	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qnone))
+	  devmode->dmDuplex = DMDUP_SIMPLEX;
+	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qvertical))
+	  devmode->dmDuplex = DMDUP_VERTICAL;
+	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qhorizontal))
+	  devmode->dmDuplex = DMDUP_HORIZONTAL;
+	else
+	  abort();
+      }
+
+    msprinter_apply_devmode (device, devmode);
+  }
+
+  /* Compute geometry properties */
+  frame_left = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
+			FRAME_MSPRINTER_LEFT_MARGIN(f), 1440)
+		- GetDeviceCaps (hdc, PHYSICALOFFSETX));
+  
+  if (FRAME_MSPRINTER_CHARWIDTH(f) > 0)
+    {
+      char_to_real_pixel_size (f, FRAME_MSPRINTER_CHARWIDTH(f), 0,
+			       &frame_width, NULL);
+      FRAME_MSPRINTER_RIGHT_MARGIN(f) = 
+	MulDiv (GetDeviceCaps (hdc, PHYSICALWIDTH)
+		- (frame_left + frame_width), 1440,
+		GetDeviceCaps (hdc, LOGPIXELSX));
+    }		
+  else
+    frame_width = (GetDeviceCaps (hdc, PHYSICALWIDTH)
+		   - frame_left
+		   - MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
+			     FRAME_MSPRINTER_RIGHT_MARGIN(f), 1440));
+
+  frame_top = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSY),
+		       FRAME_MSPRINTER_TOP_MARGIN(f), 1440)
+	       - GetDeviceCaps (hdc, PHYSICALOFFSETY));
+
+  if (FRAME_MSPRINTER_CHARHEIGHT(f) > 0)
+    {
+      char_to_real_pixel_size (f, 0, FRAME_MSPRINTER_CHARHEIGHT(f),
+			       NULL, &frame_height);
+
+      FRAME_MSPRINTER_BOTTOM_MARGIN(f) = 
+	MulDiv (GetDeviceCaps (hdc, PHYSICALHEIGHT)
+		- (frame_top + frame_height), 1440,
+		GetDeviceCaps (hdc, LOGPIXELSY));
+    }		
+  else
+    frame_height = (GetDeviceCaps (hdc, PHYSICALHEIGHT)
+		    - frame_top
+		    - MulDiv (GetDeviceCaps (hdc, LOGPIXELSY),
+			      FRAME_MSPRINTER_BOTTOM_MARGIN(f), 1440));
+
+  /* Geometry sanity checks */
+  if (!frame_pixsize_valid_p (f, frame_width, frame_height))
+    error ("Area inside print margins has shrunk to naught.");
+
+  if (frame_left < 0
+      || frame_top < 0
+      || frame_left + frame_width > GetDeviceCaps (hdc, HORZRES)
+      || frame_top + frame_height > GetDeviceCaps (hdc, VERTRES))
+    error ("Print area is ouside of the printer's hardware printable area.");
+
+  /* Apply XEmacs frame geometry and layout windows */
+  {
+    int rows, columns;
+    FRAME_PIXWIDTH(f) = frame_width;
+    FRAME_PIXHEIGHT(f) = frame_height;
+    pixel_to_char_size (f, frame_width, frame_height, &columns, &rows);
+    change_frame_size (f, rows, columns, 0);
+  }
+
+  /* Apply DC geometry */
+  SetTextAlign (hdc, TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
+  SetViewportOrgEx (hdc, frame_left, frame_top, NULL);
+  SetWindowOrgEx (hdc, 0, 0, NULL);
+
+  /* Start print job */
+  di.cbSize = sizeof (di);
+  di.lpszDocName = (STRINGP(f->name)
+		    ? (char*) XSTRING_DATA(f->name)
+		    : "XEmacs print document");
+  di.lpszOutput = NULL;
+  di.lpszDatatype = NULL;
+  di.fwType = 0;
+
+  if (StartDoc (hdc, &di) <= 0)
+    error ("Cannot start print job");
+
+  /* Finish frame setup */
+  FRAME_MSPRINTER_CDC(f) = CreateCompatibleDC (hdc);
+  FRAME_MSPRINTER_JOB_STARTED (f) = 1;
+  FRAME_VISIBLE_P(f) = 0;
+}
+
+static void
+msprinter_mark_frame (struct frame *f)
+{
+  /* NOTE: These need not be marked as long as we allow only c-defined
+     symbols for their values.  Although, marking these is safer than
+     expensive.  [I know a proof to the theorem postulating that a
+     gator is longer than greener. Ask me. -- kkm] */
+  mark_object (FRAME_MSPRINTER_ORIENTATION (f));
+  mark_object (FRAME_MSPRINTER_DUPLEX (f));
+}
+
+static void
+msprinter_delete_frame (struct frame *f)
+{
+  if (f->frame_data)
+    {
+      if (FRAME_MSPRINTER_JOB_STARTED (f))
+	EndDoc (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+      if (FRAME_MSPRINTER_CDC(f))
+	DeleteDC(FRAME_MSPRINTER_CDC(f));
+      xfree (f->frame_data);
+    }
+
+  f->frame_data = 0;
+}
+
+static Lisp_Object
+msprinter_frame_property (struct frame *f, Lisp_Object property)
+{
+  if (EQ (Qleft_margin, property))
+    return make_int (FRAME_MSPRINTER_LEFT_MARGIN(f));
+  else if (EQ (Qtop_margin, property))
+    return make_int (FRAME_MSPRINTER_TOP_MARGIN(f));
+  if (EQ (Qright_margin, property))
+    return make_int (FRAME_MSPRINTER_RIGHT_MARGIN(f));
+  else if (EQ (Qbottom_margin, property))
+    return make_int (FRAME_MSPRINTER_BOTTOM_MARGIN(f));
+  else if (EQ (Qorientation, property))
+    return FRAME_MSPRINTER_ORIENTATION(f);
+  else if (EQ (Qduplex, property))
+    return FRAME_MSPRINTER_DUPLEX(f);
+  else
+    return Qunbound;
+}
+
+static int
+msprinter_internal_frame_property_p (struct frame *f, Lisp_Object property)
+{
+  return (EQ (Qleft_margin, property) || EQ (Qtop_margin, property) ||
+	  EQ (Qright_margin, property) || EQ (Qbottom_margin, property) ||
+	  EQ (Qorientation, property) || EQ (Qduplex, property));
+}
+
+static Lisp_Object
+msprinter_frame_properties (struct frame *f)
+{
+  Lisp_Object props = Qnil;
+  props = cons3 (Qorientation, FRAME_MSPRINTER_ORIENTATION(f), props);
+  props = cons3 (Qduplex, FRAME_MSPRINTER_DUPLEX(f), props);
+  props = cons3 (Qbottom_margin,
+		 make_int (FRAME_MSPRINTER_BOTTOM_MARGIN(f)), props);
+  props = cons3 (Qright_margin,
+		 make_int (FRAME_MSPRINTER_RIGHT_MARGIN(f)), props);
+  props = cons3 (Qtop_margin,
+		 make_int (FRAME_MSPRINTER_TOP_MARGIN(f)), props);
+  props = cons3 (Qleft_margin,
+		 make_int (FRAME_MSPRINTER_LEFT_MARGIN(f)), props);
+  return props;
+}
+
+static void
+msprinter_set_frame_properties (struct frame *f, Lisp_Object plist)
+{
+  BOOL size_changed_p = FALSE;
+  Lisp_Object tail;
+
+  /* Extract the properties from plist */
+  for (tail = plist; !NILP (tail); tail = Fcdr (Fcdr (tail)))
+    {
+      Lisp_Object prop = Fcar (tail);
+      Lisp_Object val = Fcar (Fcdr (tail));
+
+      if (SYMBOLP (prop))
+	{
+	  if (EQ (prop, Qwidth))
+	    {
+	      maybe_error_if_job_active (f);
+	      if (!NILP (val))
+		{
+		  CHECK_NATNUM (val);
+		  FRAME_MSPRINTER_CHARWIDTH(f) = XINT (val);
+		}
+	    }
+	  if (EQ (prop, Qheight))
+	    {
+	      maybe_error_if_job_active (f);
+	      if (!NILP (val))
+		{
+		  CHECK_NATNUM (val);
+		  FRAME_MSPRINTER_CHARHEIGHT(f) = XINT (val);
+		}
+	    }
+	  else if (EQ (prop, Qleft_margin))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_NATNUM (val);
+	      FRAME_MSPRINTER_LEFT_MARGIN(f) = XINT (val);
+	    }
+	  else if (EQ (prop, Qtop_margin))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_NATNUM (val);
+	      FRAME_MSPRINTER_TOP_MARGIN(f) = XINT (val);
+	    }
+	  else if (EQ (prop, Qright_margin))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_NATNUM (val);
+	      FRAME_MSPRINTER_RIGHT_MARGIN(f) = XINT (val);
+	    }
+	  else if (EQ (prop, Qbottom_margin))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_NATNUM (val);
+	      FRAME_MSPRINTER_BOTTOM_MARGIN(f) = XINT (val);
+	    }
+	  else if (EQ (prop, Qorientation))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_SYMBOL (val);
+	      if (!NILP(val) &&
+		  !EQ (val, Qportrait) &&
+		  !EQ (val, Qlandscape))
+		signal_simple_error ("Page orientation can only be "
+				     "'portrait or 'landscape", val);
+	      FRAME_MSPRINTER_ORIENTATION(f) = val;
+	    }
+	  else if (EQ (prop, Qduplex))
+	    {
+	      maybe_error_if_job_active (f);
+	      CHECK_SYMBOL (val);
+	      if (!NILP(val) &&
+		  !EQ (val, Qnone) &&
+		  !EQ (val, Qvertical) &&
+		  !EQ (val, Qhorizontal))
+		signal_simple_error ("Duplex can only be 'none, "
+				     "'vertical or 'horizontal", val);
+	      FRAME_MSPRINTER_DUPLEX(f) = val;
+	    }
+	}
+    }
+}
+
+static void
+msprinter_set_frame_size (struct frame *f, int width, int height)
+{
+  /* We're absolutely unsizeable */
+  error_frame_unsizable (f);
+}
+
 void
 console_type_create_frame_mswindows (void)
 {
-  /* frame methods */
+  /* Display frames */
   CONSOLE_HAS_METHOD (mswindows, init_frame_1);
   CONSOLE_HAS_METHOD (mswindows, init_frame_2); 
   CONSOLE_HAS_METHOD (mswindows, init_frame_3);
@@ -733,6 +1072,17 @@ console_type_create_frame_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, get_frame_parent);
   CONSOLE_HAS_METHOD (mswindows, update_frame_external_traits);
   CONSOLE_HAS_METHOD (mswindows, frame_size_fixed_p);
+
+  /* Printer frames, aka print jobs */
+  CONSOLE_HAS_METHOD (msprinter, init_frame_1);
+  CONSOLE_HAS_METHOD (msprinter, init_frame_3);
+  CONSOLE_HAS_METHOD (msprinter, mark_frame);
+  CONSOLE_HAS_METHOD (msprinter, delete_frame);
+  CONSOLE_HAS_METHOD (msprinter, frame_property);
+  CONSOLE_HAS_METHOD (msprinter, internal_frame_property_p);
+  CONSOLE_HAS_METHOD (msprinter, frame_properties);
+  CONSOLE_HAS_METHOD (msprinter, set_frame_properties);
+  CONSOLE_HAS_METHOD (msprinter, set_frame_size);
 }
 
 void
@@ -799,4 +1149,54 @@ to all frames, not just mswindows frames.
 
   mswindows_console_methods->device_specific_frame_props =
     &Vdefault_mswindows_frame_plist;
+
+  DEFVAR_LISP ("default-msprinter-frame-plist", &Vdefault_msprinter_frame_plist /*
+Plist of default frame-creation properties for msprinter print job frames.
+These override what is specified in `default-frame-plist', but are
+overridden by the arguments to the particular call to `make-frame'.
+
+Note: In many cases, properties of a frame are available as specifiers
+instead of through the frame-properties mechanism.
+
+Here is a list of recognized frame properties, other than those
+documented in `set-frame-properties' (they can be queried and
+set at any time, except as otherwise noted):
+
+  left-margin                   Margin of the page, in twips. Twip is a
+  top-margin			typographical unit of measurement,
+  right-margin                  equal to 1/1440 of an inch, or 1/20 of a
+  bottom-margin			point, and roughly equal to 7/400 of a
+				millimeter. If not specifified, each margin
+				defaults to one inch (25.4 mm).
+
+     MARGINS NOTE. right-margin and bottom-margin are overridden by
+       the height and width properties. If you want to specify size
+       of the printable area in character, as with the rest of XEmacs,
+       use these properties. If height and/or width are nil, then
+       corresponding margin setting is taken into account. If you
+       specify height and/or width in `default-frame-plist', but still
+       want to specify right/bottom margins, set height/width in this
+       plist to nil, as in this example:
+
+	  (setq default-frame-plist '(height 55 'width 80)
+		default-msprinter-frame-plist '(height nil 'width nil))
+
+
+  orientation                   Printer page orientation. Can be 'nil,
+				indicating system default, 'portrait
+				or 'landscape.
+
+  duplex			Duplex printing mode, subject to printer
+				support. Can be 'nil for the device default,
+				'none for simplex printing, 'vertical or
+				'horizontal for duplex page bound along
+				the corresponding page direction.
+
+See also `default-frame-plist', which specifies properties which apply
+to all frames, not just mswindows frames.
+*/ );
+  Vdefault_msprinter_frame_plist = Qnil;
+
+  msprinter_console_methods->device_specific_frame_props =
+    &Vdefault_msprinter_frame_plist;
 }

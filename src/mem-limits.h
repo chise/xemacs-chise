@@ -27,8 +27,8 @@ Boston, MA 02111-1307, USA.  */
    getrlimit() should be preferred to ulimit().
    On Linux, ulimit() is deprecated and always returns -1. */
 
-#ifndef _XEMACS_MEM_LIMITS_H_
-#define _XEMACS_MEM_LIMITS_H_
+#ifndef INCLUDED_mem_limits_h_
+#define INCLUDED_mem_limits_h_
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -220,4 +220,4 @@ get_lim_data (void)
 #endif /* not NO_LIM_DATA */
 #endif /* not HEAP_IN_DATA */
 
-#endif /* _XEMACS_MEM_LIMITS_H_ */
+#endif /* INCLUDED_mem_limits_h_ */

@@ -238,9 +238,9 @@
        ["Update Package Index" package-get-update-base]
        ["List & Install" pui-list-packages]
        ["Update Installed Packages" package-get-update-all]
-       ;; hack-o-matic, we can't force a laod of package-base here
+       ;; hack-o-matic, we can't force a load of package-base here
        ;; since it triggers dialog box interactions which we can't
-       ;; deal while using a menu
+       ;; deal with while using a menu
        ("Using Custom" 
 	:filter (lambda (&rest junk)
 		  (if package-get-base
@@ -375,7 +375,7 @@
        ["Color Printing"
 	(cond (ps-print-color-p
 	       (customize-set-variable 'ps-print-color-p nil)
-	       ;; I'm wondering whether all this muck is usefull.
+	       ;; I'm wondering whether all this muck is useful.
 	       (and (boundp 'original-face-background)
 		    original-face-background
 		    (set-face-background 'default original-face-background)))
@@ -995,7 +995,7 @@ Adds `Load .emacs' button to menubar when starting up with -q."
     (add-menu-button nil
 		     ["Load .emacs"
 		      (progn (delete-menu-item '("Load .emacs"))
-			     (load-user-init-file (user-login-name)))
+			     (load-user-init-file))
 		      ]
 		     "Help"))
    (t nil)))
@@ -1252,10 +1252,10 @@ This groups buffers by major mode.  It only really makes sense if
 				   (list 'buffer-menu-write-file name) t)
 			   (vector "Delete Buffer" (list 'kill-buffer name)
 				   t)))
-	     ;; ### We don't want buffer names to be translated,
-	     ;; ### so we put the buffer name in the suffix.
-	     ;; ### Also, avoid losing with non-ASCII buffer names.
-	     ;; ### We still lose, however, if complex-buffers-menu-p. --mrb
+	     ;; #### We don't want buffer names to be translated,
+	     ;; #### so we put the buffer name in the suffix.
+	     ;; #### Also, avoid losing with non-ASCII buffer names.
+	     ;; #### We still lose, however, if complex-buffers-menu-p. --mrb
 	     (vector ""
 		     (list buffers-menu-switch-to-buffer-function
 			   (buffer-name buffer))
@@ -1416,7 +1416,7 @@ See the function `popup-menu' for a description of menu syntax.")
 (make-variable-buffer-local 'mode-popup-menu)
 
 ;; In an effort to avoid massive menu clutter, this mostly worthless menu is
-;; superceded by any local popup menu...
+;; superseded by any local popup menu...
 (setq-default mode-popup-menu default-popup-menu)
 
 (defvar activate-popup-menu-hook nil

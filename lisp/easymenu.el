@@ -24,7 +24,7 @@
 ;; 02111-1307, USA.
 
 ;;; Synched up with: Not synched with FSF but coordinated with the FSF
-;;;                  easymenu maintor for compatability with FSF 20.4.
+;;;                  easymenu maintor for compatibility with FSF 20.4.
 ;;; Please: Coordinate changes with Inge Frick <inge@nada.kth.se>
 
 ;; Commentary:

@@ -656,9 +656,7 @@ popup_menu_down_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 
 
 static void
-make_dummy_xbutton_event (XEvent *dummy,
-			  Widget daddy,
-			  struct Lisp_Event *eev)
+make_dummy_xbutton_event (XEvent *dummy, Widget daddy, Lisp_Event *eev)
      /* NULL for eev means query pointer */
 {
   XButtonPressedEvent *btn = (XButtonPressedEvent *) dummy;
@@ -777,7 +775,7 @@ x_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
   widget_value *data;
   Widget parent;
   Widget menu;
-  struct Lisp_Event *eev = NULL;
+  Lisp_Event *eev = NULL;
   XEvent xev;
   Lisp_Object frame;
 

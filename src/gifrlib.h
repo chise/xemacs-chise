@@ -14,8 +14,8 @@
 * 19 Jan 98 - Version 3.1 by Jareth Hein (Support for user-defined I/O).      *
 ******************************************************************************/
 
-#ifndef GIF_LIB_H
-#define GIF_LIB_H
+#ifndef INCLUDED_gifrlib_h_
+#define INCLUDED_gifrlib_h_
 
 #define	GIF_ERROR	0
 #define GIF_OK		1
@@ -264,5 +264,4 @@ int GifStdFileClose(VoidPtr method_data);
 ColorMapObject *MakeMapObject(int ColorCount, GifColorType *ColorMap);
 void FreeMapObject(ColorMapObject *Object);
 
-
-#endif /* GIF_LIB_H */
+#endif /* INCLUDED_gifrlib_h_ */

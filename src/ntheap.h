@@ -23,8 +23,8 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 /* Adapted for XEmacs by David Hobley <david@spook-le0.cia.com.au> */
 /* Synced with FSF Emacs 19.34.6 by Marc Paquette <marcpa@cam.org> */
 
-#ifndef NTHEAP_H_
-#define NTHEAP_H_
+#ifndef INCLUDED_ntheap_h_
+#define INCLUDED_ntheap_h_
 
 #include <windows.h>
 
@@ -53,13 +53,6 @@ extern int    	      nt_minor_version;
    section, use non-zero values to represent an uninitialized state.  */
 #define UNINIT_PTR ((void *) 0xF0A0F0A0)
 #define UNINIT_LONG (0xF0A0F0A0L)
-
-enum {
-  OS_WIN95 = 1,
-  OS_NT
-};
-
-extern int os_subtype;
 
 /* Emulation of Unix sbrk().  */
 extern void *sbrk (unsigned long size);
@@ -107,4 +100,4 @@ int open_input_file (file_data *p_file, CONST char *name);
 int open_output_file (file_data *p_file, CONST char *name, unsigned long size);
 void close_file_data (file_data *p_file);
 
-#endif /* NTHEAP_H_ */
+#endif /* INCLUDED_ntheap_h_ */

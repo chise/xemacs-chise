@@ -160,7 +160,7 @@ ways than you can imagine, it does have its short-comings.
   Firstly, Elisp is an interpreted language, and this has serious speed
 implications.  Like all other interpreted languages (like Java), Elisp
 is often suitable only for certain types of application or extension.
-So although Elisp is a general purpose language, and very ligh level,
+So although Elisp is a general purpose language, and very high level,
 there are times when it is desirable to descend to a lower level compiled 
 language for speed purposes.
 

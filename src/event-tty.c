@@ -64,7 +64,7 @@ emacs_tty_remove_timeout (int id)
 }
 
 static void
-tty_timeout_to_emacs_event (struct Lisp_Event *emacs_event)
+tty_timeout_to_emacs_event (Lisp_Event *emacs_event)
 {
   emacs_event->event_type = timeout_event;
   /* timeout events have nil as channel */
@@ -112,7 +112,7 @@ tty_find_console_from_fd (int fd)
 }
 
 static void
-emacs_tty_next_event (struct Lisp_Event *emacs_event)
+emacs_tty_next_event (Lisp_Event *emacs_event)
 {
   while (1)
     {
@@ -156,8 +156,7 @@ emacs_tty_next_event (struct Lisp_Event *emacs_event)
 	      if (FD_ISSET (i, &temp_mask) && FD_ISSET (i, &process_only_mask))
 		{
 		  Lisp_Object process;
-		  struct Lisp_Process *p =
-		    get_process_from_usid (FD_TO_USID(i));
+		  Lisp_Process *p = get_process_from_usid (FD_TO_USID(i));
 
 		  assert (p);
 		  XSETPROCESS (process, p);
@@ -188,20 +187,20 @@ emacs_tty_next_event (struct Lisp_Event *emacs_event)
 }
 
 static void
-emacs_tty_handle_magic_event (struct Lisp_Event *emacs_event)
+emacs_tty_handle_magic_event (Lisp_Event *emacs_event)
 {
   /* Nothing to do currently */
 }
 
 
 static void
-emacs_tty_select_process (struct Lisp_Process *process)
+emacs_tty_select_process (Lisp_Process *process)
 {
   event_stream_unixoid_select_process (process);
 }
 
 static void
-emacs_tty_unselect_process (struct Lisp_Process *process)
+emacs_tty_unselect_process (Lisp_Process *process)
 {
   event_stream_unixoid_unselect_process (process);
 }

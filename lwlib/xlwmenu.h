@@ -1,5 +1,5 @@
-#ifndef _XlwMenu_h
-#define _XlwMenu_h
+#ifndef INCLUDED_xlwmenu_h_
+#define INCLUDED_xlwmenu_h_
 
 /***********************************************************************
  *
@@ -90,4 +90,4 @@ void xlw_kill_menus (widget_value *val);
 widget_value *xlw_get_entries (int allp);
 int xlw_menu_level (void);
 
-#endif /* _XlwMenu_h */
+#endif /* INCLUDED_xlwmenu_h_ */

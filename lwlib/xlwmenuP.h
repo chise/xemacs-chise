@@ -1,5 +1,5 @@
-#ifndef _XlwMenuP_h
-#define _XlwMenuP_h
+#ifndef INCLUDED_xlwmenuP_h_
+#define INCLUDED_xlwmenuP_h_
 
 #include "xlwmenu.h"
 #include <X11/CoreP.h>
@@ -117,4 +117,4 @@ typedef struct _XlwMenuClassRec
 /* Class pointer. */
 extern XlwMenuClassRec xlwMenuClassRec;
 
-#endif /* _XlwMenuP_h */
+#endif /* INCLUDED_xlwmenuP_h_ */

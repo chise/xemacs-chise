@@ -472,7 +472,7 @@ Lstream_write_1 (Lstream *lstr, CONST void *data, size_t size)
 /* If the stream is not line-buffered, then we can just call
    Lstream_write_1(), which writes in chunks.  Otherwise, we
    repeatedly call Lstream_putc(), which knows how to handle
-   line buffering. */
+   line buffering.  Returns number of bytes written. */
 
 ssize_t
 Lstream_write (Lstream *lstr, CONST void *data, size_t size)
@@ -489,7 +489,7 @@ Lstream_write (Lstream *lstr, CONST void *data, size_t size)
       if (Lstream_putc (lstr, p[i]) < 0)
 	break;
     }
-  return i == 0 ? -1 : 0;
+  return i == 0 ? -1 : (ssize_t) i;
 }
 
 int
@@ -1255,24 +1255,24 @@ DEFINE_LSTREAM_IMPLEMENTATION ("fixed-buffer", lstream_fixed_buffer,
 			       sizeof (struct fixed_buffer_stream));
 
 Lisp_Object
-make_fixed_buffer_input_stream (CONST unsigned char *buf, size_t size)
+make_fixed_buffer_input_stream (CONST void *buf, size_t size)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_fixed_buffer, "r");
   struct fixed_buffer_stream *str = FIXED_BUFFER_STREAM_DATA (lstr);
-  str->inbuf = buf;
+  str->inbuf = (const unsigned char *) buf;
   str->size = size;
   XSETLSTREAM (obj, lstr);
   return obj;
 }
 
 Lisp_Object
-make_fixed_buffer_output_stream (unsigned char *buf, size_t size)
+make_fixed_buffer_output_stream (void *buf, size_t size)
 {
   Lisp_Object obj;
   Lstream *lstr = Lstream_new (lstream_fixed_buffer, "w");
   struct fixed_buffer_stream *str = FIXED_BUFFER_STREAM_DATA (lstr);
-  str->outbuf = buf;
+  str->outbuf = (unsigned char *) buf;
   str->size = size;
   XSETLSTREAM (obj, lstr);
   return obj;

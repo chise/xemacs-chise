@@ -1,5 +1,5 @@
-#ifndef LWLIB_H
-#define LWLIB_H
+#ifndef INCLUDED_lwlib_h_
+#define INCLUDED_lwlib_h_
 
 #undef CONST
 
@@ -235,4 +235,4 @@ void lw_set_keyboard_focus (Widget parent, Widget w);
  /* Silly Energize hack to invert the "sheet" button */
 void lw_show_busy (Widget w, Boolean busy);
 
-#endif /* LWLIB_H */
+#endif /* INCLUDED_lwlib_h_ */

@@ -116,7 +116,7 @@ typedef struct stream_record *stream_list;
 
 struct linebuffer
 {
-  long size;
+  size_t size;
   char *buffer;
 };
 
@@ -190,20 +190,20 @@ fatal (CONST char *s1, CONST char *s2)
 
 /* Like malloc but get fatal error if memory is exhausted.  */
 
-static char *
+static void *
 xmalloc (size_t size)
 {
-  char *result = (char *) malloc (size);
-  if (result == ((char *) NULL))
+  void *result = malloc (size);
+  if (result == NULL)
     fatal ("virtual memory exhausted", (char *) 0);
   return result;
 }
 
-static char *
-xrealloc (char *ptr, size_t size)
+static void *
+xrealloc (void *ptr, size_t size)
 {
-  char *result = realloc (ptr, ((unsigned) size));
-  if (result == ((char *) NULL))
+  void *result = realloc (ptr, size);
+  if (result == NULL)
     fatal ("virtual memory exhausted", (char *) 0);
   return result;
 }
@@ -214,7 +214,7 @@ static void
 init_linebuffer (struct linebuffer *linebuffer)
 {
   linebuffer->size = INITIAL_LINE_SIZE;
-  linebuffer->buffer = ((char *) xmalloc (INITIAL_LINE_SIZE));
+  linebuffer->buffer = (char *) xmalloc (INITIAL_LINE_SIZE);
 }
 
 /* Read a line of text from `stream' into `linebuffer'.
@@ -234,8 +234,7 @@ readline (struct linebuffer *linebuffer, FILE *stream)
       if (p == end)
 	{
 	  linebuffer->size *= 2;
-	  buffer = ((char *) xrealloc ((char *) buffer,
-				       (size_t) (linebuffer->size)));
+	  buffer = (char *) xrealloc (buffer, linebuffer->size);
 	  p = buffer + (p - linebuffer->buffer);
 	  end = buffer + linebuffer->size;
 	  linebuffer->buffer = buffer;
@@ -279,7 +278,7 @@ static boolean
 has_keyword (char *field)
 {
   char *ignored;
-  return (get_keyword (field, &ignored) != ((char *) NULL));
+  return (get_keyword (field, &ignored) != (char *) NULL);
 }
 
 static char *
@@ -400,7 +399,7 @@ open_a_file (char *name)
   if (the_stream != ((FILE *) NULL))
     {
       add_a_stream (the_stream, my_fclose);
-      if (the_user == ((char *) NULL))
+      if (the_user == (char *) NULL)
 	file_preface = make_file_preface ();
       write_line_list (file_preface, the_stream);
       return true;
@@ -645,8 +644,8 @@ main (int argc, char *argv[])
 
   my_name = MY_NAME;
   the_streams = ((stream_list) NULL);
-  the_date = ((char *) NULL);
-  the_user = ((char *) NULL);
+  the_date = (char *) NULL;
+  the_user = (char *) NULL;
 
   the_header = read_header ();
   command_line = alloc_string ((size_t) (name_length +
@@ -656,7 +655,7 @@ main (int argc, char *argv[])
 
   the_pipe = popen (command_line, "w");
   if (the_pipe == ((FILE *) NULL))
-    fatal ("cannot open pipe to real mailer", (char *) 0);
+    fatal ("cannot open pipe to real mailer", (char *) NULL);
 
   add_a_stream (the_pipe, pclose);
 

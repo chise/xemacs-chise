@@ -710,7 +710,7 @@ int
 window_truncation_on (struct window *w)
 {
     /* Minibuffer windows are never truncated.
-       ### is this the right way ? */
+       #### is this the right way ? */
   if (MINI_WINDOW_P (w))
     return 0;
 
@@ -2605,7 +2605,7 @@ window_loop (enum window_loop type,
 			    new_buffer = Fother_buffer (obj, Qnil, Qnil);
 			    if (NILP (new_buffer))
 			      new_buffer = Fget_buffer_create (QSscratch);
-			    Fset_window_buffer (w, new_buffer);
+			    Fset_window_buffer (w, new_buffer, Qnil);
 			    if (EQ (w, Fselected_window (Qnil)))
 			      Fset_buffer (p->buffer);
 			  }
@@ -2677,7 +2677,7 @@ window_loop (enum window_loop type,
 			  /* Otherwise show a different buffer in the
                              window.  */
 			  p->dedicated = Qnil;
-			  Fset_window_buffer (w, another_buffer);
+			  Fset_window_buffer (w, another_buffer, Qnil);
 			  if (EQ (w, Fselected_window (Qnil)))
 			    Fset_buffer (p->buffer);
 			}
@@ -2978,17 +2978,41 @@ check_min_window_sizes (void)
     window_min_height = MIN_SAFE_WINDOW_HEIGHT;
 }
 
+static int
+frame_min_height (struct frame *frame)
+{
+  /* For height, we have to see whether the frame has a minibuffer, and
+     whether it wants a modeline.  */
+  return (FRAME_MINIBUF_ONLY_P (frame) ? MIN_SAFE_WINDOW_HEIGHT - 1
+	  : (! FRAME_HAS_MINIBUF_P (frame)) ? MIN_SAFE_WINDOW_HEIGHT
+	  : 2 * MIN_SAFE_WINDOW_HEIGHT - 1);
+}
+
+/* Return non-zero if both frame sizes are less than or equal to
+   minimal allowed values. ROWS and COLS are in characters */
+int
+frame_size_valid_p (struct frame *frame, int rows, int cols)
+{
+  return (rows >= frame_min_height (frame)
+	  && cols >= MIN_SAFE_WINDOW_WIDTH);
+}
+
+/* Return non-zero if both frame sizes are less than or equal to
+   minimal allowed values. WIDTH and HEIGHT are in pixels */
+int
+frame_pixsize_valid_p (struct frame *frame, int width, int height)
+{
+  int rows, cols;
+  pixel_to_real_char_size (frame, width, height, &cols, &rows);
+  return frame_size_valid_p (frame, rows, cols);
+}
+
 /* If *ROWS or *COLS are too small a size for FRAME, set them to the
    minimum allowable size.  */
 void
 check_frame_size (struct frame *frame, int *rows, int *cols)
 {
-  /* For height, we have to see whether the frame has a minibuffer, and
-     whether it wants a modeline.  */
-  int min_height =
-    (FRAME_MINIBUF_ONLY_P (frame) ? MIN_SAFE_WINDOW_HEIGHT - 1
-     : (! FRAME_HAS_MINIBUF_P (frame)) ? MIN_SAFE_WINDOW_HEIGHT
-     : 2 * MIN_SAFE_WINDOW_HEIGHT - 1);
+  int min_height = frame_min_height (frame);
 
   if (*rows < min_height)
     *rows = min_height;
@@ -3138,11 +3162,14 @@ set_window_pixwidth (Lisp_Object window, int new_pixwidth, int nodelete)
 
 static int window_select_count;
 
-DEFUN ("set-window-buffer", Fset_window_buffer, 2, 2, 0, /*
+DEFUN ("set-window-buffer", Fset_window_buffer, 2, 3, 0, /*
 Make WINDOW display BUFFER as its contents.
 BUFFER can be a buffer or buffer name.
+
+With non-nil optional argument `norecord', do not modify the
+global or per-frame buffer ordering.
 */
-       (window, buffer))
+       (window, buffer, norecord))
 {
   Lisp_Object tem;
   struct window *w = decode_window (window);
@@ -3201,6 +3228,9 @@ BUFFER can be a buffer or buffer name.
   recompute_all_cached_specifiers_in_window (w);
   if (EQ (window, Fselected_window (Qnil)))
     {
+      if (NILP (norecord))
+	Frecord_buffer (buffer);
+
       Fset_buffer (buffer);
     }
   return Qnil;
@@ -3503,7 +3533,7 @@ and put SIZE columns in the first of the pair.
   /* do this last (after the window is completely initialized and
      the mirror-dirty flag is set) so that specifier recomputation
      caused as a result of this will work properly and not abort. */
-  Fset_window_buffer (new, o->buffer);
+  Fset_window_buffer (new, o->buffer, Qt);
   return new;
 }
 
@@ -4051,7 +4081,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 
   if (INTP (Vwindow_pixel_scroll_increment))
     fheight = XINT (Vwindow_pixel_scroll_increment);
-  else if (!NILP (Vwindow_pixel_scroll_increment));
+  else if (!NILP (Vwindow_pixel_scroll_increment))
     default_face_height_and_width (window, &fheight, &fwidth);
 
   if (Dynarr_length (dla) >= 1)
@@ -4158,6 +4188,24 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 	      w->force_start = 1;
 	      w->start_at_line_beg = beginning_of_line_p (b, startp);
 	      MARK_WINDOWS_CHANGED (w);
+
+	      /* #### Scroll back by less than a line. This code was
+		 originally for scrolling over large pixmaps and it
+		 loses when a line being *exposed* at the top of the
+		 window is bigger than the current one. However, for
+		 pixel based scrolling in general we can guess that
+		 the line we are going to display is probably the same
+		 size as the one we are on. In that instance we can
+		 have a reasonable stab at a suitable top clip. Fixing
+		 this properly is hard (and probably slow) as we would
+		 have to call redisplay to figure out the exposed line
+		 size. */
+	      if (!NILP (Vwindow_pixel_scroll_increment)
+		  && Dynarr_length (dla) >= (1 + modeline)
+		  && dl->ascent + fheight * value > 0)
+		{
+		  WINDOW_TEXT_TOP_CLIP (w) = (dl->ascent + fheight * value);
+		}
 
 	      if (!point_would_be_visible (w, startp, XINT (point)))
 		{

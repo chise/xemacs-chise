@@ -27,8 +27,8 @@ Boston, MA 02111-1307, USA.  */
    Jon Reid: some changes for I18N3 (domain, etc), for 19.8.
  */
 
-#ifndef _XEMACS_BYTECODE_H_
-#define _XEMACS_BYTECODE_H_
+#ifndef INCLUDED_bytecode_h_
+#define INCLUDED_bytecode_h_
 
 /* Meanings of slots in a Lisp_Compiled_Function.
    Don't use these!  For backward compatibility only.  */
@@ -119,5 +119,5 @@ extern Lisp_Object Qbyte_code;
     neither     -                   : (*  559 0)  =   0 = 3530
 */
 
-#endif /* _XEMACS_BYTECODE_H_ */
+#endif /* INCLUDED_bytecode_h_ */
 

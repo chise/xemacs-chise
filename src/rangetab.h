@@ -23,8 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Extracted from rangetab.c by O. Galibert, 1998. */
 
-#ifndef _XEMACS_RANGETAB_H_
-#define _XEMACS_RANGETAB_H_
+#ifndef INCLUDED_rangetab_h_
+#define INCLUDED_rangetab_h_
 
 typedef struct range_table_entry range_table_entry;
 struct range_table_entry
@@ -44,12 +44,12 @@ struct Lisp_Range_Table
   struct lcrecord_header header;
   range_table_entry_dynarr *entries;
 };
+typedef struct Lisp_Range_Table Lisp_Range_Table;
 
-DECLARE_LRECORD (range_table, struct Lisp_Range_Table);
-#define XRANGE_TABLE(x) \
-  XRECORD (x, range_table, struct Lisp_Range_Table)
+DECLARE_LRECORD (range_table, Lisp_Range_Table);
+#define XRANGE_TABLE(x) XRECORD (x, range_table, Lisp_Range_Table)
 #define XSETRANGE_TABLE(x, p) XSETRECORD (x, p, range_table)
 #define RANGE_TABLEP(x) RECORDP (x, range_table)
 #define CHECK_RANGE_TABLE(x) CHECK_RECORD (x, range_table)
 
-#endif
+#endif /* INCLUDED_rangetab_h_ */

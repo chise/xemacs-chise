@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _EmacsFrameP_h
-#define _EmacsFrameP_h
+#ifndef INCLUDED_EmacsFrameP_h_
+#define INCLUDED_EmacsFrameP_h_
 
 #include "xintrinsicp.h"
 #include <X11/CoreP.h>
@@ -109,6 +109,4 @@ typedef struct _EmacsFrameClassRec {	/* full class record declaration */
 
 extern EmacsFrameClassRec emacsFrameClassRec;	 /* class pointer */
 
-
-
-#endif /* _EmacsFrameP_h */
+#endif /* INCLUDED_EmacsFrameP_h_ */

@@ -137,26 +137,32 @@ static XtResource resources[] = {
      the default values for X and Y, for no obvious reason.  This
      causes Shell to indicate that the defaults of (0,0) were
      program-specified, instead of letting the WM do what it wants. */
-  {XtNx, XtCPosition, XtRPosition, sizeof(Position),
-     coreoffset (x), XtRImmediate, (XtPointer)BIGSIZE},
-  {XtNy, XtCPosition, XtRPosition, sizeof(Position),
-     coreoffset (y), XtRImmediate, (XtPointer)BIGSIZE},
+  { XtNx, XtCPosition,
+    XtRPosition, sizeof (Position),
+    coreoffset (x), XtRImmediate, (XtPointer)BIGSIZE },
+  { XtNy, XtCPosition,
+    XtRPosition, sizeof (Position),
+    coreoffset (y), XtRImmediate, (XtPointer)BIGSIZE },
 #endif
-  { XtNwidthCells, XtCWidthCells, XtRInt, sizeof(int),
-      offset (width_cells), XtRImmediate, (XtPointer)0},
-  { XtNheightCells, XtCHeightCells, XtRInt, sizeof(int),
-      offset (height_cells), XtRImmediate, (XtPointer)0},
-  { XtNminWidthCells, XtCMinWidthCells, XtRInt, sizeof(int),
-      offset (min_width_cells), XtRImmediate, (XtPointer)0},
-  { XtNminHeightCells, XtCMinHeightCells, XtRInt, sizeof(int),
-      offset (min_height_cells), XtRImmediate, (XtPointer)0},
+  { XtNwidthCells, XtCWidthCells,
+    XtRInt, sizeof (int),
+    offset (width_cells), XtRImmediate, (XtPointer)0 },
+  { XtNheightCells, XtCHeightCells,
+    XtRInt, sizeof (int),
+    offset (height_cells), XtRImmediate, (XtPointer)0 },
+  { XtNminWidthCells, XtCMinWidthCells,
+    XtRInt, sizeof (int),
+    offset (min_width_cells), XtRImmediate, (XtPointer)0 },
+  { XtNminHeightCells, XtCMinHeightCells,
+    XtRInt, sizeof (int),
+    offset (min_height_cells), XtRImmediate, (XtPointer)0 },
 };
 
 static CompositeClassExtensionRec compositeClassExtRec = {
     NULL,
     NULLQUARK,
     XtCompositeExtensionVersion,
-    sizeof(CompositeClassExtensionRec),
+    sizeof (CompositeClassExtensionRec),
     TRUE,
 };
 
@@ -164,7 +170,7 @@ static ShellClassExtensionRec shellClassExtRec = {
     NULL,
     NULLQUARK,
     XtShellExtensionVersion,
-    sizeof(ShellClassExtensionRec),
+    sizeof (ShellClassExtensionRec),
     RootGeometryManager
 };
 
@@ -174,7 +180,7 @@ EMACS_SHELL_CLASS_REC_TYPE EMACS_SHELL_CLASS_REC = {
        */
     /* superclass	  */	(WidgetClass) &SUPERCLASS_CLASS_REC,
     /* class_name	  */	(String) EMACS_SHELL_CLASS_NAME,
-    /* size		  */	sizeof(EMACS_SHELL_REC),
+    /* size		  */	sizeof (EMACS_SHELL_REC),
     /* Class Initializer  */	NULL,
     /* class_part_initialize*/	NULL, /* XtInheritClassPartInitialize, */
     /* Class init'ed ?	  */	FALSE,

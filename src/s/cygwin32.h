@@ -127,6 +127,19 @@ extern long random();
 #ifndef TCS_VERTICAL
 #define TCS_VERTICAL 0x0080
 #endif
+#ifndef PHYSICALWIDTH
+#define PHYSICALWIDTH 110
+#endif
+#ifndef PHYSICALHEIGHT
+#define PHYSICALHEIGHT 111
+#endif
+#ifndef PHYSICALOFFSETX
+#define PHYSICALOFFSETX 112
+#endif
+#ifndef PHYSICALOFFSETY
+#define PHYSICALOFFSETY 113
+#endif
+
 
 #define PBS_SMOOTH              0x01
 
@@ -151,7 +164,7 @@ extern long random();
 
 #ifdef CYGWIN_VERSION_DLL_MAJOR
 #if 0
-/* ### FIXME: although defining BROKEN_SIGIO is correct for proper ^G
+/* #### FIXME: although defining BROKEN_SIGIO is correct for proper ^G
    behavior, bugs in cygwin mean that xemacs locks up frequently if
    this is defined.  */
 #define BROKEN_SIGIO

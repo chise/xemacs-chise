@@ -145,6 +145,16 @@ USE_PORTABLE_DUMPER=0
 GUNG_HO=0
 !endif
 
+# A little bit of adhockery. Default to use system malloc and
+# DLL version of the C runtime library when using portable
+# dumping. These are the optimal settings.
+!if !defined(USE_SYSTEM_MALLOC)
+USE_SYSTEM_MALLOC=$(USE_PORTABLE_DUMPER)
+!endif
+!if !defined(USE_CRTDLL)
+USE_CRTDLL=$(USE_PORTABLE_DUMPER)
+!endif
+
 #
 # System configuration
 #
@@ -169,6 +179,19 @@ EMACS_CONFIGURATION=ppc-pc-win32
 CONFIG_ERROR=0
 !if $(INFODOCK) && !exist("..\..\Infodock.rules")
 !message Cannot build InfoDock without InfoDock sources
+CONFIG_ERROR=1
+!endif
+!if !$(USE_PORTABLE_DUMPER) && $(USE_SYSTEM_MALLOC)
+!message Cannot use system allocator when dumping old way, use portable dumper.
+CONFIG_ERROR=1
+!endif
+!if !$(USE_PORTABLE_DUMPER) && $(USE_CRTDLL)
+!message Cannot use C runtime DLL when dumping old way, use portable dumper.
+CONFIG_ERROR=1
+!endif
+!if !$(USE_SYSTEM_MALLOC) && $(USE_CRTDLL)
+!message GNU malloc currently cannot be used with CRT DLL.
+!message [[[Developer note: If you want to fix it, read Q112297 first]]]  ####
 CONFIG_ERROR=1
 !endif
 !if !$(HAVE_MSW) && !$(HAVE_X)
@@ -265,7 +288,20 @@ OPT=-Od -Zi
 OPT=-O2 -G5
 !endif
 
-CFLAGS=-nologo -W3 $(OPT)
+!if $(USE_CRTDLL)
+!if $(DEBUG_XEMACS)
+C_LIBFLAG=-MDd
+LIBC_LIB=msvcrtd.lib
+!else
+C_LIBFLAG=-MD
+LIBC_LIB=msvcrt.lib
+!endif
+!else
+C_LIBFLAG=-ML
+LIBC_LIB=libc.lib
+!endif
+
+CFLAGS=-nologo -W3 $(OPT) $(C_LIBFLAG)
 
 !if $(HAVE_X)
 X_DEFINES=-DHAVE_X_WINDOWS
@@ -347,11 +383,17 @@ TAGBITS_DEFINES=-DUSE_MINIMAL_TAGBITS
 LRECORD_DEFINES=-DUSE_INDEXED_LRECORD_IMPLEMENTATION
 !endif
 !if $(USE_UNION_TYPE)
+UNION_DEFINES=-DUSE_UNION_TYPE
+!endif
+
 !if $(USE_PORTABLE_DUMPER)
 DUMPER_DEFINES=-DPDUMP
 !endif
 
-UNION_DEFINES=-DUSE_UNION_TYPE
+!if $(USE_SYSTEM_MALLOC)
+MALLOC_DEFINES=-DSYSTEM_MALLOC
+!else
+MALLOC_DEFINES=-DGNU_MALLOC
 !endif
 
 # Hard-coded paths
@@ -369,7 +411,8 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(XEMACS)\nt\inc -I$(XEMACS)\src -I$(XEMACS)\lwlib
 
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
-	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) $(DUMPER_DEFINES)\
+	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
+	$(DUMPER_DEFINES) $(MALLOC_DEFINES) \
 	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
@@ -474,6 +517,8 @@ $(LIB_SRC)\run.res: $(LIB_SRC)\run.rc
 
 # LASTFILE Library
 
+!if !$(USE_SYSTEM_MALLOC) || !$(USE_PORTABLE_DUMPER)
+
 LASTFILE=$(OUTDIR)\lastfile.lib
 LASTFILE_SRC=$(XEMACS)\src
 LASTFILE_FLAGS=$(CFLAGS) $(INCLUDES) -Fo$@ -Fd$* -c
@@ -485,6 +530,8 @@ $(LASTFILE): $(XEMACS_INCLUDES) $(LASTFILE_OBJS)
 
 $(OUTDIR)\lastfile.obj:	$(LASTFILE_SRC)\lastfile.c
 	 $(CCV) $(LASTFILE_FLAGS) $**
+
+!endif
 
 #------------------------------------------------------------------------------
 
@@ -575,12 +622,10 @@ DOC_SRC2=\
 DOC_SRC3=\
  $(XEMACS)\src\font-lock.c \
  $(XEMACS)\src\frame.c \
- $(XEMACS)\src\free-hook.c \
  $(XEMACS)\src\general.c \
  $(XEMACS)\src\glyphs.c \
  $(XEMACS)\src\glyphs-eimage.c \
  $(XEMACS)\src\glyphs-widget.c \
- $(XEMACS)\src\gmalloc.c \
  $(XEMACS)\src\gui.c  \
  $(XEMACS)\src\gutter.c \
  $(XEMACS)\src\hash.c \
@@ -599,7 +644,6 @@ DOC_SRC4=\
  $(XEMACS)\src\menubar.c \
  $(XEMACS)\src\minibuf.c \
  $(XEMACS)\src\nt.c \
- $(XEMACS)\src\ntheap.c \
  $(XEMACS)\src\ntplay.c \
  $(XEMACS)\src\ntproc.c \
  $(XEMACS)\src\objects.c \
@@ -627,8 +671,6 @@ DOC_SRC5=\
  $(XEMACS)\src\termcap.c  \
  $(XEMACS)\src\tparam.c \
  $(XEMACS)\src\undo.c \
- $(XEMACS)\src\unexnt.c \
- $(XEMACS)\src\vm-limit.c \
  $(XEMACS)\src\window.c \
  $(XEMACS)\src\widget.c
 
@@ -688,7 +730,21 @@ DOC_SRC8=\
 
 !if $(DEBUG_XEMACS)
 DOC_SRC9=\
- $(XEMACS)\src\debug.c
+ $(XEMACS)\src\debug.c \
+ $(XEMACS)\src\tests.c
+!endif
+
+!if !$(USE_SYSTEM_MALLOC)
+DOC_SRC10=\
+ $(XEMACS)\src\free-hook.c \
+ $(XEMACS)\src\gmalloc.c \
+ $(XEMACS)\src\ntheap.c \
+ $(XEMACS)\src\vm-limit.c
+!endif
+
+!if !$(USE_PORTABLE_DUMPER)
+DOC_SRC11=\
+ $(XEMACS)\src\unexnt.c
 !endif
 
 #------------------------------------------------------------------------------
@@ -700,18 +756,22 @@ DOC_SRC9=\
 EMACS_BETA_VERSION=-DEMACS_BETA_VERSION=$(emacs_beta_version)
 !ENDIF
 
+!if !$(USE_PORTABLE_DUMPER)
+TEMACS_ENTRYPOINT=-entry:_start 
+!endif
+
 TEMACS_DIR=$(XEMACS)\src
 TEMACS=$(TEMACS_DIR)\temacs.exe
 TEMACS_BROWSE=$(TEMACS_DIR)\temacs.bsc
 TEMACS_SRC=$(XEMACS)\src
 TEMACS_LIBS=$(LASTFILE) $(LWLIB) $(X_LIBS) $(MSW_LIBS) \
- kernel32.lib user32.lib gdi32.lib advapi32.lib \
- shell32.lib wsock32.lib winmm.lib libc.lib
+ oldnames.lib kernel32.lib user32.lib gdi32.lib advapi32.lib \
+ shell32.lib wsock32.lib winmm.lib winspool.lib $(LIBC_LIB)
 TEMACS_LFLAGS=-nologo $(LIBRARIES) $(DEBUG_FLAGS) -base:0x1000000\
- -stack:0x800000 -entry:_start -subsystem:console\
+ -stack:0x800000 $(TEMACS_ENTRYPOINT) -subsystem:console\
  -pdb:$(TEMACS_DIR)\temacs.pdb -map:$(TEMACS_DIR)\temacs.map \
- -heap:0x00100000 -out:$@
-TEMACS_CPP_FLAGS=-ML -c \
+ -heap:0x00100000 -out:$@ -nodefaultlib
+TEMACS_CPP_FLAGS=-c \
  $(CFLAGS) $(INCLUDES) $(DEFINES) $(DEBUG_DEFINES) \
  -DEMACS_MAJOR_VERSION=$(emacs_major_version) \
  -DEMACS_MINOR_VERSION=$(emacs_minor_version) \
@@ -777,7 +837,21 @@ TEMACS_MULE_OBJS=\
 
 !if $(DEBUG_XEMACS)
 TEMACS_DEBUG_OBJS=\
-	$(OUTDIR)\debug.obj
+	$(OUTDIR)\debug.obj \
+	$(OUTDIR)\tests.obj
+!endif
+
+!if !$(USE_SYSTEM_MALLOC)
+TEMACS_ALLOC_OBJS=\
+	$(OUTDIR)\free-hook.obj \
+	$(OUTDIR)\gmalloc.obj \
+	$(OUTDIR)\ntheap.obj \
+	$(OUTDIR)\vm-limit.obj
+!endif
+
+!if !$(USE_PORTABLE_DUMPER)
+TEMACS_DUMP_OBJS=\
+	$(OUTDIR)\unexnt.obj
 !endif
 
 TEMACS_OBJS= \
@@ -786,6 +860,8 @@ TEMACS_OBJS= \
 	$(TEMACS_CODING_OBJS)\
 	$(TEMACS_MULE_OBJS)\
 	$(TEMACS_DEBUG_OBJS)\
+	$(TEMACS_ALLOC_OBJS)\
+	$(TEMACS_DUMP_OBJS)\
 	$(OUTDIR)\abbrev.obj \
 	$(OUTDIR)\alloc.obj \
 	$(OUTDIR)\alloca.obj \
@@ -823,12 +899,10 @@ TEMACS_OBJS= \
 	$(OUTDIR)\fns.obj \
 	$(OUTDIR)\font-lock.obj \
 	$(OUTDIR)\frame.obj \
-	$(OUTDIR)\free-hook.obj \
 	$(OUTDIR)\general.obj \
 	$(OUTDIR)\glyphs.obj \
 	$(OUTDIR)\glyphs-eimage.obj \
 	$(OUTDIR)\glyphs-widget.obj \
-	$(OUTDIR)\gmalloc.obj \
 	$(OUTDIR)\gui.obj \
 	$(OUTDIR)\gutter.obj \
 	$(OUTDIR)\hash.obj \
@@ -846,7 +920,6 @@ TEMACS_OBJS= \
 	$(OUTDIR)\md5.obj \
 	$(OUTDIR)\minibuf.obj \
 	$(OUTDIR)\nt.obj \
-	$(OUTDIR)\ntheap.obj \
 	$(OUTDIR)\ntplay.obj \
 	$(OUTDIR)\ntproc.obj \
 	$(OUTDIR)\objects.obj \
@@ -872,8 +945,6 @@ TEMACS_OBJS= \
 	$(OUTDIR)\sysdep.obj \
 	$(OUTDIR)\tparam.obj \
 	$(OUTDIR)\undo.obj \
-	$(OUTDIR)\unexnt.obj \
-	$(OUTDIR)\vm-limit.obj \
 	$(OUTDIR)\widget.obj \
 	$(OUTDIR)\window.obj \
 	$(OUTDIR)\xemacs.res
@@ -911,6 +982,9 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS)
 	@dir /b/s $(OUTDIR)\*.sbr > bscmake.tmp
 	bscmake -nologo -o$(TEMACS_BROWSE) @bscmake.tmp
 	@$(DEL) bscmake.tmp
+!endif
+!if $(USE_PORTABLE_DUMPER)
+	@if exist $(TEMACS_DIR)\xemacs.dmp del $(TEMACS_DIR)\xemacs.dmp
 !endif
 	link.exe @<<
   $(TEMACS_LFLAGS) $(TEMACS_OBJS) $(TEMACS_LIBS)
@@ -1148,8 +1222,15 @@ if exist "$(MAKEINFO)" goto test_done
 
 LOADPATH=$(LISP)
 
+# Rebuild docfile target
+docfile ::
+	if exist $(DOC) del $(DOC)
+docfile :: $(DOC)
+
 $(DOC): $(LIB_SRC)\make-docfile.exe
-	$(DEL) $(DOC)
+	if exist $(DOC) del $(DOC)
+	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC1)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC2)
@@ -1160,23 +1241,27 @@ $(DOC): $(LIB_SRC)\make-docfile.exe
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC7)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC8)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC9)
+	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC10)
+	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC11)
 
 update-elc:
-	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
 
 # This rule dumps xemacs and then possibly spawns sub-make if PURESPACE
 # requirements have changed.
-dump-xemacs: $(TEMACS)
+dump-xemacs: temacs
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	-1 $(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\loadup.el dump
+!if $(USE_PORTABLE_DUMPER)
+	copy temacs.exe xemacs.exe
+!endif
 	cd $(NT)
 	@if not exist $(TEMACS_DIR)\SATISFIED nmake -nologo -f xemacs.mak $@
-
 #------------------------------------------------------------------------------
 
 # use this rule to build the complete system
@@ -1253,6 +1338,11 @@ depend:
 	cd $(SRCDIR)
 	perl ./make-src-depend > depend.tmp
 	perl -MFile::Compare -e "compare('depend.tmp', 'depend') && rename('depend.tmp', 'depend') or unlink('depend.tmp')"
+
+installation::
+	@if exist $(XEMACS)\Installation del $(XEMACS)\Installation
+
+installation:: $(XEMACS)\Installation
 
 $(XEMACS)\Installation:
 	@type > $(XEMACS)\Installation <<
@@ -1344,6 +1434,12 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !endif
 !if $(USE_PORTABLE_DUMPER)
   Using portable dumper.
+!endif
+!if $(USE_SYSTEM_MALLOC)
+  Using system malloc.
+!endif
+!if $(USE_CRTDLL)
+  Using DLL version of C runtime library
 !endif
 !if $(DEBUG_XEMACS)
   Compiling in extra debug checks. XEmacs will be slow!

@@ -915,7 +915,7 @@ scan_lisp_file (CONST char *filename, CONST char *mode)
 	      /* Skip until the first newline; remember the two previous chars. */
 	      while (c != '\n' && c >= 0)
 		{
-		  /* ### Kludge -- Ignore any ESC x x ISO2022 sequences */
+		  /* #### Kludge -- Ignore any ESC x x ISO2022 sequences */
 		  if (c == 27)
 		    {
 		      getc (infile);

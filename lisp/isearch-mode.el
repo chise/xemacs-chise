@@ -533,7 +533,7 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 	  isearch-opoint (point)
 	  search-ring-yank-pointer nil
 	  regexp-search-ring-yank-pointer nil
-	  isearch-opened-extents nil
+	  isearch-unhidden-extents nil
 	  isearch-window-configuration (current-window-configuration)
 
 	  ;; #### What we really need is a buffer-local
@@ -1339,7 +1339,7 @@ If there is no completion possible, say so and continue searching."
 (defun isearch-top-state ()
   (let ((cmd (car isearch-cmds)))
     ;; #### Grr, this is so error-prone.  If you add something to
-    ;; isearch-push-state, don't forget to update this.  I thout I'd
+    ;; isearch-push-state, don't forget to update this.  I thought I'd
     ;; make a list of variables, and just do (mapcar* #'set vars
     ;; values), but the (point) thing would spoil it, leaving to more
     ;; complication.
@@ -1604,7 +1604,7 @@ If there is no completion possible, say so and continue searching."
 
 (defun isearch-make-extent (begin end)
   (let ((x (make-extent begin end (current-buffer))))
-    ;; make the isearch extent always take prescedence over any mouse-
+    ;; make the isearch extent always take precedence over any mouse-
     ;; highlighted extents we may be passing through, since isearch, being
     ;; modal, is more interesting (there's nothing they could do with a
     ;; mouse-highlighted extent while in the midst of a search anyway).
@@ -1914,7 +1914,7 @@ uppercase letters and `search-caps-disable-folding' is t."
 
 	   ;; It would be nice if we didn't have to do this; however,
 	   ;; window-start doesn't support a GUARANTEE flag, so we must
-	   ;; force redisplay to get the correct valye for start and end
+	   ;; force redisplay to get the correct value for start and end
 	   ;; of window.
 	   (sit-for 0)
 

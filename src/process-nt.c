@@ -32,7 +32,6 @@ Boston, MA 02111-1307, USA.  */
 #include "procimpl.h"
 #include "sysdep.h"
 
-#include <windows.h>
 #ifndef __MINGW32__
 #include <shellapi.h>
 #else
@@ -65,7 +64,7 @@ struct nt_process_data
 /* This one breaks process abstraction. Prototype is in console-msw.h,
    used by select_process method in event-msw.c */
 HANDLE
-get_nt_process_handle (struct Lisp_Process *p)
+get_nt_process_handle (Lisp_Process *p)
 {
   return (NT_DATA (p)->h_process);
 }
@@ -375,13 +374,13 @@ validate_signal_number (int signo)
  */
 
 static void
-nt_alloc_process_data (struct Lisp_Process *p)
+nt_alloc_process_data (Lisp_Process *p)
 {
   p->process_data = xnew_and_zero (struct nt_process_data);
 }
 
 static void
-nt_finalize_process_data (struct Lisp_Process *p, int for_disksave)
+nt_finalize_process_data (Lisp_Process *p, int for_disksave)
 {
   assert (!for_disksave);
   if (NT_DATA(p)->h_process)
@@ -418,7 +417,7 @@ signal_cannot_launch (Lisp_Object image_file, DWORD err)
 }
 
 static int
-nt_create_process (struct Lisp_Process *p,
+nt_create_process (Lisp_Process *p,
 		   Lisp_Object *argv, int nargv,
 		   Lisp_Object program, Lisp_Object cur_dir)
 {
@@ -671,7 +670,7 @@ nt_create_process (struct Lisp_Process *p,
  */
 
 static void
-nt_update_status_if_terminated (struct Lisp_Process* p)
+nt_update_status_if_terminated (Lisp_Process* p)
 {
   DWORD exit_code;
 
@@ -718,7 +717,7 @@ static void
 nt_send_process (Lisp_Object proc, struct lstream* lstream)
 {
   volatile Lisp_Object vol_proc = proc;
-  struct Lisp_Process *volatile p = XPROCESS (proc);
+  Lisp_Process *volatile p = XPROCESS (proc);
 
   /* use a reasonable-sized buffer (somewhere around the size of the
      stream buffer) so as to avoid inundating the stream with blocked
@@ -786,7 +785,7 @@ static void
 nt_kill_child_process (Lisp_Object proc, int signo,
 		       int current_group, int nomsg)
 {
-  struct Lisp_Process *p = XPROCESS (proc);
+  Lisp_Process *p = XPROCESS (proc);
 
   /* Enable child signals if necessary.  This may lose the first
      but it's better than nothing. */

@@ -21,8 +21,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-#ifndef _EmacsFrame_h
-#define _EmacsFrame_h
+#ifndef INCLUDED_EmacsFrame_h_
+#define INCLUDED_EmacsFrame_h_
 
 #ifndef XtNminibuffer
 #define XtNminibuffer "minibuffer"
@@ -347,4 +347,4 @@ extern struct _DisplayContext* display_context;
 void EmacsFrameRecomputeCellSize (Widget widget);
 void EmacsFrameSetCharSize (Widget widget, int rows, int cols);
 
-#endif /* _EmacsFrame_h */
+#endif /* INCLUDED_EmacsFrame_h_ */

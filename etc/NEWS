@@ -33,13 +33,14 @@ file.
 * Changes in XEmacs 21.2
 ========================
 
-** `delete-key-deletes-forward' now defaults to t.
+** The delete key now deletes forward by default.
 
-`delete-key-deletes-forward' is the variable that regulates the
-behaviour of the delete key on the systems that offer both a backspace
-and a delete key.  If set to nil, the key labeled "Delete" will delete
-backward.  If set to non-nil, the "Delete" key will delete forward,
-except on keyboards where a "Backspace" key is not provided.
+This is regulated by the variable `delete-key-deletes-forward', which
+now defaults to t.  `delete-key-deletes-forward' takes effect only on
+the systems that offer both a backspace and a delete key.  If set to
+nil, the key labeled "Delete" will always delete backward.  If set to
+non-nil, the "Delete" key will delete forward, except on keyboards
+where a "Backspace" key is not provided (e.g. old DEC keyboards.)
 
 Unless our implementation has bugs, the only reason why you would want
 to set `delete-key-deletes-forward' to nil is if you want to use the
@@ -59,6 +60,28 @@ The new behavior affects all functions performing interactive
 searches, like `zap-to-char', `list-matching-lines', `tags-search'
 etc.  The incremental search facility has always behaved that way.
 
+** Incremental search will now highlight all visible matches, making
+it easier to anticipate where consecutive C-s or C-r will place the
+point.  If you want to disable the feature, set
+`isearch-highlight-all-matches' to nil.
+
+** You can now use the buffer tabs to switch between buffers.  The
+tabs are located between the toolbar and the uppermost window, in a
+location called "gutter".  If you dislike the buffer tabs, you can
+disable them by specifying:
+
+    (set-specifier default-gutter-visible-p nil)
+
+in your `.emacs'.  You can change the location of the gutter with
+`set-default-gutter-position', however currently only MS-Windows
+supports tab widgets with orientations other than vertical..
+
+** When you press RET at a minibuffer prompt that provides a default
+value, the value is stored in history instead of an empty line.  Also,
+you can now edit the default value by pressing the down arrow,
+accessing the logical "future" value.  Not all minibuffer prompts have
+yet been converted to support this feature.
+
 ** The rectangle functions have been almost completely rewritten in
 order to avoid inserting undesirable spaces, notably at the end of
 lines.  Two typical examples of the old behavior were
@@ -72,15 +95,10 @@ As a side effect, the FORCE argument to `move-to-column' now
 understands the special value `coerce', which means that the line
 should not be filled if it is too short to reach the desired column.
 
-** Incremental search will now highlight all visible matches, making
-it easier to anticipate where consecutive C-s or C-r will place the
-point.  If you want to disable the feature, set
-`isearch-highlight-all-matches' to nil.
-
-** You can now customize and save comments for faces and variables.
-In Custom buffers, a new menu entry allows you to add and edit a
-comment.  Comments for variables can also be assigned by calling
-`customize-set-(value|variable)' with a prefix argument.
+** Customize now supports adding comments about your face and variable
+settings using a new menu entry.  Comments for variables can also be
+assigned by calling `customize-set-(value|variable)' with a prefix
+argument.
 
 ** XEmacs now locates the early package hierarchies at
 ~/.xemacs/mule-packages/ and ~/.xemacs/xemacs-packages/.  Previously,
@@ -163,15 +181,20 @@ is now equivalent to
 If you set this variable to nil then pressing the Alt key under
 MS-Windows will no longer activate the menubar. The default is t.
 
+** Pixel-based scrolling has been implemented. 
+By default this will attempt to scroll in increments equal to the
+height of the default face. Set `window-pixel-scroll-increment' to
+modify this behaviour.
+
 ** Etags changes.
 
 *** In DOS, etags looks for file.cgz if it cannot find file.c.
 
 *** New option --ignore-case-regex is an alternative to --regex.  It is now
 possible to bind a regexp to a language, by prepending the regexp with
-{lang}, where lang is one of the languages that `etags --help' prints out.
-This feature is useful especially for regex files, where each line contains
-a regular expression.  The manual contains details.
+{lang}, where lang is one of the languages that `etags --help' prints
+out.  This feature is useful especially for regex files, where each
+line contains a regular expression.  The manual contains details.
 
 *** In C and derived languages, etags creates tags for function
 declarations when given the --declarations option.
@@ -201,7 +224,7 @@ for PSWrap.
 * Lisp and internal changes in XEmacs 21.2
 ==========================================
 
-** A new portable dumper is available.
+** A new portable dumper is available for beta testing.
 
 Olivier Galibert has written a portable dumper for XEmacs, based on
 initial work by Kyle Jones.  Normally, XEmacs C sources link into an
@@ -223,6 +246,10 @@ dumping `xemacs.dmp'.  This is because Makefiles have not yet been
 modified to not expect `temacs' producing an `xemacs' executable.  You
 can try it out by simply running `src/temacs'.  If it starts without
 failure, the portable dumping worked.
+
+#### NOTE: the portable dumper is not really usable yet, because the
+state of built-in variables is not yet saved.  Olivier promised to fix
+it.  Nag, nag.
 
 ** Much effort has been invested to make XEmacs Lisp faster:
 
@@ -267,15 +294,22 @@ are implemented as native window-system widgets.  Thus you can embed
 buttons, scrollbars, combo boxes, edit fields and progress gauges in a
 buffer.  As a side effect subwindow support now works once again.
 
-All of this is still very experimental.  This feature is currently
-more complete under MS-Windows.
+All of this is still fairly experimental and there is no
+documentation. The current APIs might change in a future version of
+XEmacs.  Some widgets are only available under MS-Windows. See the
+file glyphs-test.el in the XEmacs src distribution for examples of
+usage.
 
-** user-init-directory is now an absolute, unexpanded path.
-Previously, `user-init-directory' used to be relative to
-(concat "~" init-file-user).  This turned out to be too complicated
-for most packages (and some core Lisp files) to use correctly.
+The buffers-tab functionality and progress gauge have been implemented
+using this feature.
 
-Also, `init-file-user' has been obsoleted in the process.
+** `user-init-file' and `user-init-directory' are now absolute
+file/directory names.  Previously, both variables used to be relative
+to (concat "~" init-file-user).  This turned out to be too complicated
+for most packages (and some core Lisp files) to use correctly.  Also,
+the `init-file-user' variable has been obsoleted in the process.
+
+The user-visible options like `-u' have not changed their behaviour.
 
 ** XEmacs finally has an automated test suite!
 Although this is not yet very sophisticated, it is already responsible
@@ -311,6 +345,42 @@ friendlier, but actually faster than checking for C-g.
 ** Functions for decoding base64 encoding are now available; see
 `base64-encode-region', `base64-encode-string', `base64-decode-region'
 and `base64-decode-string'.
+
+** The functions `read-string', `read-expression', `eval-minibuffer',
+`read-variable', `read-command', `read-function', `read-number',
+`read-shell-command', `read-from-minibuffer', and `completing-read'
+now take an additional argument which specifies the default value.  If
+this argument is non-nil, it should be a string; that string is used
+in two ways:
+
+  It is returned if the user enters empty input.
+  It is available through the history command M-n.
+
+** LDAP changes.
+
+*** The LDAP interface now consists of two layers, a low-level layer
+that closely matches the LDAP C API, and a more convenient
+higher-level set of functions.
+
+*** The low-level functions that used to be named *-internal are now
+named more simply: `ldap-open', `ldap-close', `ldap-search-basic',
+`ldap-add', and `ldap-modify'.  They should be used directly for very
+specific purposes (such as multiple operations on a connection) only.
+
+*** The higher-level functions provide a more convenient way to access
+LDAP directories hiding the subtleties of handling the connection,
+translating arguments and ensuring compliance with LDAP
+internationalization rules and formats (currently partly implemented
+only.)  This layer provides atomic operations for searches,
+modification, addition and deletion of multiple entries at once:
+`ldap-search-entries', `ldap-add-entries', `ldap-delete-entries', and
+`ldap-modify-entries'.
+
+*** To maintain compatibility with previous code, the now obsolete
+function `ldap-search' is now merely a wrapper that calls either
+`ldap-search-basic' or `ldap-search-entries'.  Please don't use the
+`ldap-search' function in your new programs -- a direct call to one of
+the two replacements is more efficient and unambiguous.
 
 ** The arguments to `locate-file' are now more Lisp-like.  As before,
 the usage is:

@@ -190,7 +190,7 @@ static const struct lrecord_description float_description[] = {
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("float", float,
 				     mark_float, print_float, 0, float_equal,
 				     float_hash, float_description,
-				     struct Lisp_Float);
+				     Lisp_Float);
 
 /* Extract a Lisp number as a `double', or signal an error.  */
 

@@ -24,8 +24,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.30. */
 
-#ifndef _XEMACS_WINDOW_H_
-#define _XEMACS_WINDOW_H_
+#ifndef INCLUDED_window_h_
+#define INCLUDED_window_h_
 
 #include "redisplay.h"
 #ifdef HAVE_SCROLLBARS
@@ -310,7 +310,7 @@ EXFUN (Frecenter, 2);
 EXFUN (Freplace_buffer_in_windows, 1);
 EXFUN (Fselect_window, 2);
 EXFUN (Fselected_window, 1);
-EXFUN (Fset_window_buffer, 2);
+EXFUN (Fset_window_buffer, 3);
 EXFUN (Fset_window_hscroll, 2);
 EXFUN (Fset_window_point, 2);
 EXFUN (Fset_window_start, 3);
@@ -360,6 +360,8 @@ void window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 int buffer_window_count (struct buffer *b, struct frame *f);
 int buffer_window_mru (struct window *w);
 void check_frame_size (struct frame *frame, int *rows, int *cols);
+int frame_pixsize_valid_p (struct frame *frame, int width, int height);
+int frame_size_valid_p (struct frame *frame, int rows, int cols);
 struct window *decode_window (Lisp_Object window);
 struct window *find_window_by_pixel_pos (int pix_x, int pix_y, Lisp_Object win);
 
@@ -425,4 +427,4 @@ int window_divider_width (struct window *w);
 
 #endif /* emacs */
 
-#endif /* _XEMACS_WINDOW_H_ */
+#endif /* INCLUDED_window_h_ */

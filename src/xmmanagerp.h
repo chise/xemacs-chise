@@ -23,9 +23,14 @@ Boston, MA 02111-1307, USA.  */
 /* ManagerP.h doesn't exist in old versions of Motif; the stuff is
    in XmP.h instead */
 
+#ifndef INCLUDED_xmmanagerp_h_
+#define INCLUDED_xmmanagerp_h_
+
 #include <Xm/Xm.h>	/* to get XmVersion */
 #if (XmVersion >= 1002)
 # include <Xm/ManagerP.h>
 #else
 # include <Xm/XmP.h>
 #endif
+
+#endif /* INCLUDED_xmmanagerp_h_ */
