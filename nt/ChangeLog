@@ -1,3 +1,12 @@
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-10-29  Andy Piper  <andyp@parallax.co.uk>
+
+	* xemacs.mak ($(LIB_SRC)/movemail.exe): add etags dependencies to
+	pull in getopt and friends.
+
 1998-10-15  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta3 is released.

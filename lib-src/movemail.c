@@ -65,9 +65,14 @@ Boston, MA 02111-1307, USA.  */
 #include "../src/systime.h"
 #include <stdlib.h>
 #include <string.h>
+#include "getopt.h"
 #ifdef MAIL_USE_POP
 #include "pop.h"
+#include <regex.h>
 #endif
+
+extern char *optarg;
+extern int optind, opterr;
 
 #ifndef HAVE_STRERROR
 static char * strerror (int errnum);
@@ -146,15 +151,43 @@ static int pop_retr (popserver server, int msgno, int (*action)(), void *arg);
 static int mbx_write (char *, FILE *);
 static int mbx_delimit_begin (FILE *);
 static int mbx_delimit_end (FILE *);
+static struct re_pattern_buffer* compile_regex (char* regexp_pattern);
+static int pop_search_top (popserver server, int msgno, int lines, 
+			   struct re_pattern_buffer* regexp);
 #endif
 
 /* Nonzero means this is name of a lock file to delete on fatal error.  */
 char *delete_lockname;
 
+int verbose=0;
+#ifdef MAIL_USE_POP
+int reverse=0;
+int keep_messages=0;
+struct re_pattern_buffer* regexp_pattern=0;
+int match_lines=10;
+#endif
+
+#define VERBOSE(x) if (verbose) { printf x; fflush(stdout); }
+
+struct option longopts[] =
+{
+  { "inbox",			required_argument,	   NULL,	'i'	},
+  { "outfile",			required_argument,	   NULL,	'o'	},
+#ifdef MAIL_USE_POP
+  { "password",			required_argument,	   NULL,	'p'	},
+  { "reverse-pop-order",		no_argument,		   NULL,	'x'	},
+  { "keep-messages",		no_argument,		   NULL,	'k'	},
+  { "regex",			required_argument,	   NULL,	'r' 	},
+  { "match-lines",		required_argument,	   NULL,	'l' 	},
+#endif
+  { "verbose", 			no_argument,		   NULL,	'v'	},
+  { 0 }
+};
+
 int
 main (int argc, char *argv[])
 {
-  char *inname, *outname;
+  char *inname=0, *outname=0, *poppass=0;
 #ifndef DISABLE_DIRECT_ACCESS
   int indesc, outdesc;
   int nread;
@@ -172,14 +205,72 @@ main (int argc, char *argv[])
 
   delete_lockname = 0;
 
-  if (argc < 3)
+  while (1)
     {
-      fprintf (stderr, "Usage: movemail inbox destfile [POP-password]\n");
-      exit(1);
+#ifdef MAIL_USE_POP
+      char* optstring = "i:o:p:l:r:xvk";
+#else
+      char* optstring = "i:o:v";
+#endif
+      int opt = getopt_long (argc, argv, optstring, longopts, 0);
+  
+      if (opt == EOF)
+	break;
+
+      switch (opt)
+	{
+	case 0:
+	  break;
+	case 1:			/* one of the standard arguments seen */
+	  if (!inname)
+	    inname = optarg;
+	  else if (!outname)
+	    outname = optarg;
+	  else
+	    poppass = optarg;
+	  break;
+
+	case 'i':		/* infile */
+	  inname = optarg;
+	  break;
+	  
+	case 'o':		/* outfile */
+	  outname = optarg;
+	  break;
+#ifdef MAIL_USE_POP
+	case 'p':		/* pop password */
+	  poppass = optarg;	
+	  break;
+	case 'k':		keep_messages=1;	break;
+	case 'x':		reverse = 1;		break;
+	case 'l':		/* lines to match */
+	  match_lines = atoi (optarg);
+	  break;
+
+	case 'r':		/* regular expression */
+	  regexp_pattern = compile_regex (optarg);
+	  break;
+#endif
+	case 'v':		verbose = 1;	break;
+	}
     }
 
-  inname = argv[1];
-  outname = argv[2];
+  while (optind < argc)
+      {
+	  if (!inname)
+	      inname = argv[optind];
+	  else if (!outname)
+	      outname = argv[optind];
+	  else
+	      poppass = argv[optind];
+	  optind++;
+      }
+    
+  if (!inname || !outname)
+    {
+      fprintf (stderr, "Usage: movemail [-rvxk] [-l lines ] [-i] inbox [-o] destfile [[-p] POP-password]\n");
+      exit(1);
+    }
 
 #ifdef MAIL_USE_MMDF
   mmdf_init (argv[0]);
@@ -210,7 +301,7 @@ main (int argc, char *argv[])
 #ifdef MAIL_USE_POP
   if (!strncmp (inname, "po:", 3))
     {
-      int retcode = popmail (inname + 3, outname, argc > 3 ? argv[3] : NULL);
+      int retcode = popmail (inname + 3, outname, poppass);
       exit (retcode);
     }
 
@@ -487,9 +578,9 @@ xmalloc (unsigned int size)
 #include <stdio.h>
 #include <pwd.h>
 
-#define NOTOK (-1)
-#define OK 0
-#define DONE 1
+#define POP_ERROR 	(-1)
+#define POP_RETRIEVED (0)
+#define POP_DONE (1)
 
 char *progname;
 FILE *sfi;
@@ -502,11 +593,13 @@ static int
 popmail (char *user, char *outfile, char *password)
 {
   int nmsgs, nbytes;
-  register int i;
+  register int i, idx;
   int mbfi;
+  short* retrieved_list;
   FILE *mbf;
   popserver server;
 
+  VERBOSE(("opening server\r"));
   server = pop_open (0, user, password, POP_NO_GETPASS);
   if (! server)
     {
@@ -514,6 +607,7 @@ popmail (char *user, char *outfile, char *password)
       return (1);
     }
 
+  VERBOSE(("stat'ing messages\r"));
   if (pop_stat (server, &nmsgs, &nbytes))
     {
       error (pop_error, NULL, NULL);
@@ -522,9 +616,14 @@ popmail (char *user, char *outfile, char *password)
 
   if (!nmsgs)
     {
+      VERBOSE(("closing server\n"));
       pop_close (server);
       return (0);
     }
+
+  /* build a retrieved table */
+  retrieved_list = (short*) xmalloc (sizeof (short) * (nmsgs+1));
+  memset (retrieved_list, 0, sizeof (short) * (nmsgs+1));
 
   mbfi = open (outfile, O_WRONLY | O_CREAT | O_EXCL, 0666);
   if (mbfi < 0)
@@ -546,23 +645,35 @@ popmail (char *user, char *outfile, char *password)
       return (1);
     }
 
-  for (i = 1; i <= nmsgs; i++)
+  for (idx = 0; idx < nmsgs; idx++)
     {
-      mbx_delimit_begin (mbf);
-      if (pop_retr (server, i, mbx_write, mbf) != OK)
+      i = reverse ? nmsgs - idx : idx + 1;
+      VERBOSE(("checking message %d     \r", i));
+      
+      if (!regexp_pattern 
+	  || 
+	  pop_search_top (server, i, match_lines, regexp_pattern) == POP_RETRIEVED)
 	{
-	  error (Errmsg, NULL, NULL);
-	  close (mbfi);
-	  return (1);
-	}
-      mbx_delimit_end (mbf);
-      fflush (mbf);
-      if (ferror (mbf))
-	{
-	  error ("Error in fflush: %s", strerror (errno), NULL);
-	  pop_close (server);
-	  close (mbfi);
-	  return (1);
+	  VERBOSE(("retrieving message %d     \r", i));
+          mbx_delimit_begin (mbf);
+	  if (pop_retr (server, i, mbx_write, mbf) != POP_RETRIEVED)
+	    {
+	      error (Errmsg, NULL, NULL);
+	      close (mbfi);
+	      return (1);
+	    }
+
+	  retrieved_list[i]=1;
+
+	  mbx_delimit_end (mbf);
+	  fflush (mbf);
+	  if (ferror (mbf))
+	    {
+	      error ("Error in fflush: %s", strerror (errno), NULL);
+	      pop_close (server);
+	      close (mbfi);
+	      return (1);
+	    }
 	}
     }
 
@@ -586,16 +697,24 @@ popmail (char *user, char *outfile, char *password)
       return (1);
     }
 
-  for (i = 1; i <= nmsgs; i++)
+  if (!keep_messages)
     {
-      if (pop_delete (server, i))
+      for (i = 1; i <= nmsgs; i++)
 	{
-	  error (pop_error, NULL, NULL);
-	  pop_close (server);
-	  return (1);
+	  if (retrieved_list[i] == 1)
+	    {
+	      VERBOSE(("deleting message %d     \r", i));
+	      if (pop_delete (server, i))
+		{
+		  error (pop_error, NULL, NULL);
+		  pop_close (server);
+		  return (1);
+		}
+	    }
 	}
     }
 
+  VERBOSE(("closing server             \n"));
   if (pop_quit (server))
     {
       error (pop_error, NULL, NULL);
@@ -615,7 +734,7 @@ pop_retr (popserver server, int msgno, int (*action)(), void *arg)
     {
       strncpy (Errmsg, pop_error, sizeof (Errmsg));
       Errmsg[sizeof (Errmsg)-1] = '\0';
-      return (NOTOK);
+      return (POP_ERROR);
     }
 
   while (! (ret = pop_retrieve_next (server, &line)))
@@ -623,11 +742,11 @@ pop_retr (popserver server, int msgno, int (*action)(), void *arg)
       if (! line)
 	break;
 
-      if ((*action)(line, arg) != OK)
+      if ((*action)(line, arg) != POP_RETRIEVED)
 	{
 	  strcpy (Errmsg, strerror (errno));
 	  pop_close (server);
-	  return (NOTOK);
+	  return (POP_ERROR);
 	}
     }
 
@@ -635,10 +754,56 @@ pop_retr (popserver server, int msgno, int (*action)(), void *arg)
     {
       strncpy (Errmsg, pop_error, sizeof (Errmsg));
       Errmsg[sizeof (Errmsg)-1] = '\0';
-      return (NOTOK);
+      return (POP_ERROR);
     }
 
-  return (OK);
+  return (POP_RETRIEVED);
+}
+
+/* search the top lines of each message looking for a match */
+static int
+pop_search_top (popserver server, int msgno, int lines, struct re_pattern_buffer* regexp)
+{
+  char *line;
+  int ret;
+  int match = POP_DONE;
+
+  if (pop_top_first (server, msgno, lines, &line))
+    {
+      strncpy (Errmsg, pop_error, sizeof (Errmsg));
+      Errmsg[sizeof (Errmsg)-1] = '\0';
+      return (POP_ERROR);
+    }
+
+  while (! (ret = pop_top_next (server, &line)))
+    {
+      if (! line)
+	break;
+
+      /*      VERBOSE (("checking %s\n", line));*/
+      if (match != POP_RETRIEVED)
+	{
+	  if ((ret = re_match (regexp, line, strlen (line), 0, 0)) == -2 )
+	    {
+	      strcpy (Errmsg, "error in regular expression");
+	      pop_close (server);
+	      return (POP_ERROR);
+	    }
+	  else if (ret >=0)
+	    {
+	      match = POP_RETRIEVED;
+	    }
+	}
+    }
+
+  if (ret)
+    {
+      strncpy (Errmsg, pop_error, sizeof (Errmsg));
+      Errmsg[sizeof (Errmsg)-1] = '\0';
+      return (POP_ERROR);
+    }
+
+  return match;
 }
 
 /* Do this as a macro instead of using strcmp to save on execution time. */
@@ -654,30 +819,56 @@ mbx_write (char *line, FILE *mbf)
   if (IS_FROM_LINE (line))
     {
       if (fputc ('>', mbf) == EOF)
-	return (NOTOK);
+	return (POP_ERROR);
     }
   if (fputs (line, mbf) == EOF) 
-    return (NOTOK);
+    return (POP_ERROR);
   if (fputc (0x0a, mbf) == EOF)
-    return (NOTOK);
-  return (OK);
+    return (POP_ERROR);
+  return (POP_RETRIEVED);
 }
 
 static int
 mbx_delimit_begin (FILE *mbf)
 {
   if (fputs ("\f\n0, unseen,,\n", mbf) == EOF)
-    return (NOTOK);
-  return (OK);
+    return (POP_ERROR);
+  return (POP_RETRIEVED);
 }
 
 static int
 mbx_delimit_end (FILE *mbf)
 {
   if (putc ('\037', mbf) == EOF)
-    return (NOTOK);
-  return (OK);
+    return (POP_ERROR);
+  return (POP_RETRIEVED);
 }
+
+/* Turn a name, which is an ed-style (but Emacs syntax) regular
+   expression, into a real regular expression by compiling it. */
+static struct re_pattern_buffer*
+compile_regex (char* regexp_pattern)
+{
+  char *err;
+  struct re_pattern_buffer *patbuf=0;
+  
+  patbuf = (struct re_pattern_buffer*) xmalloc (sizeof (struct re_pattern_buffer));
+  patbuf->translate = NULL;
+  patbuf->fastmap = NULL;
+  patbuf->buffer = NULL;
+  patbuf->allocated = 0;
+
+  err = (char*) re_compile_pattern (regexp_pattern, strlen (regexp_pattern), patbuf);
+  if (err != NULL)
+    {
+      error ("%s while compiling pattern", err, NULL);
+      return 0;
+    }
+
+  return patbuf;
+}
+
+
 
 #endif /* MAIL_USE_POP */
 

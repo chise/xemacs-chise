@@ -213,9 +213,15 @@ disk."
 (defun pui-package-symbol-char (pkg-sym version)
   (progn
     (if (package-get-info-find-package packages-package-list pkg-sym)
-	(if (package-get-installedp pkg-sym version)
-	    (list " " pui-up-to-date-package-face)
-	  (list "*" pui-outdated-package-face))
+        (let ((installed (package-get-key pkg-sym :version)))
+          (if (>= (if (stringp installed)
+                      (string-to-number installed)
+                    installed)
+                  (if (stringp version)
+                      (string-to-number version)
+                    version))
+              (list " " pui-up-to-date-package-face)
+            (list "*" pui-outdated-package-face)))
       (list "-" pui-uninstalled-package-face))
     ))
 
@@ -332,8 +338,8 @@ and whether or not it is up-to-date."
 		(message "Installing selected packages ...") (sit-for 0)
 		(if (catch 'done
 		      (mapcar (lambda (pkg)
-				(if (not (package-get pkg
-					pui-package-install-dest-dir))
+				(if (not (package-get pkg nil nil
+                                                      pui-package-install-dest-dir))
 				    (throw 'done nil)))
 			      pui-selected-packages)
 		      t)
@@ -353,7 +359,26 @@ and whether or not it is up-to-date."
   (interactive)
   (let ((tmpbuf "*Required-Packages*") do-select)
     (if pui-selected-packages
-	(let ((dependencies (package-get-dependencies pui-selected-packages)))
+	(let ((dependencies
+               (delq nil (mapcar
+                          (lambda (pkg)
+                            (let ((installed
+                                   (package-get-key pkg :version))
+                                  (current
+                                   (package-get-info-prop
+                                    (package-get-info-version
+                                     (package-get-info-find-package
+                                      package-get-base pkg) nil)
+                                    'version)))
+                              (if (< (if (stringp installed)
+                                         (string-to-number installed)
+                                       installed)
+                                     (if (stringp current)
+                                         (string-to-number current)
+                                       current))
+                                  pkg
+                                nil)))
+                          (package-get-dependencies pui-selected-packages)))))
 	  ;; Don't change window config when asking the user if he really
 	  ;; wants to add the packages.  We do this to avoid messing up
 	  ;; the window configuration if errors occur (we don't want to
@@ -471,7 +496,7 @@ buffer, the user can see which packages are installed, which are not, and
 which are out-of-date (a newer version is available).  The user can then
 select packages for installation via the keyboard or mouse."
   (interactive)
-  (package-get-require-base)
+  (package-get-require-base t)
   (let ( (outbuf (get-buffer-create pui-info-buffer))
 	 (sep-string "===============================================================================\n")
 	 start )

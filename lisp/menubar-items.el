@@ -234,6 +234,10 @@
        ["Browse..." customize-browse])
       
       ("Manage Packages"
+       ("Add Download Site"
+        :filter (lambda (&rest junk)
+                  (package-get-download-menu)))
+       ["Update Package Index" package-get-update-base]
        ["List & Install" pui-list-packages]
        ("Using Custom"
 	("Select" :filter (lambda (&rest junk)

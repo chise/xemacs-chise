@@ -460,6 +460,10 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 
 	  isearch-mode (gettext " Isearch")
 	  )
+    (let ((map (append (current-minor-mode-maps)
+		       (list (current-local-map)))))
+      (if (keymapp map)
+	  (set-keymap-parents isearch-mode-map map)))
 
     ;; XEmacs change: without clearing the match data, sometimes old values
     ;; of isearch-other-end get used.  Don't ask me why...

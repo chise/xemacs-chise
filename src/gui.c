@@ -29,8 +29,8 @@ Boston, MA 02111-1307, USA.  */
 #include "bytecode.h"		/* for struct Lisp_Compiled_Function */
 
 Lisp_Object Q_active, Q_suffix, Q_keys, Q_style, Q_selected;
-Lisp_Object Q_filter, Q_config, Q_included;
-Lisp_Object Q_accelerator;
+Lisp_Object Q_filter, Q_config, Q_included, Q_key_sequence;
+Lisp_Object Q_accelerator, Q_label;
 Lisp_Object Qtoggle, Qradio;
 
 #ifdef HAVE_POPUPS
@@ -134,6 +134,8 @@ gui_item_add_keyval_pair (struct gui_item *pgui_item,
   else if (EQ (key, Q_style))	 pgui_item->style    = val;
   else if (EQ (key, Q_selected)) pgui_item->selected = val;
   else if (EQ (key, Q_keys))	 pgui_item->keys     = val;
+  else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatability */
+  else if (EQ (key, Q_label)) ;   /* ignored for 21.0 implement in 21.2  */
   else
     signal_simple_error_2 ("Unknown keyword in gui item", key, pgui_item->name);
 }
@@ -337,12 +339,14 @@ syms_of_gui (void)
   defkeyword (&Q_active,   ":active");
   defkeyword (&Q_suffix,   ":suffix");
   defkeyword (&Q_keys,     ":keys");
+  defkeyword (&Q_key_sequence,":key-sequence");
   defkeyword (&Q_style,    ":style");
   defkeyword (&Q_selected, ":selected");
   defkeyword (&Q_filter,   ":filter");
   defkeyword (&Q_config,   ":config");
   defkeyword (&Q_included, ":included");
   defkeyword (&Q_accelerator, ":accelerator");
+  defkeyword (&Q_label, ":label");
 
   defsymbol (&Qtoggle, "toggle");
   defsymbol (&Qradio, "radio");

@@ -167,15 +167,15 @@ extern void GifWarning(GifFileType *GifFile, const char *err_str);
 
 /* This is the in-core version of an extension record */
 typedef struct {
-    int		ByteCount;
-    char	*Bytes;		/* on malloc(3) heap */
+    int		    ByteCount;
+    GifByteType	*Bytes;		/* on malloc(3) heap */
 } ExtensionBlock;
 
 /* This holds an image header, its unpacked raster bits, and extensions */
 typedef struct SavedImage {
     GifImageDesc	ImageDesc;
 
-    char		*RasterBits;		/* on malloc(3) heap */
+    GifPixelType	*RasterBits;		/* on malloc(3) heap */
 
     int			Function;
     int			ExtensionBlockCount;

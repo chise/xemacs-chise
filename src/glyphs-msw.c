@@ -1041,7 +1041,7 @@ static CONST resource_t bitmap_table[] =
   { "size", OBM_SIZE },
   { "btsize", OBM_BTSIZE },
   { "check", OBM_CHECK },
-  { "cehckboxes", OBM_CHECKBOXES },
+  { "checkboxes", OBM_CHECKBOXES },
   { "btncorners" , OBM_BTNCORNERS },
   {0}
 };

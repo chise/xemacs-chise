@@ -540,11 +540,12 @@ yourself.]"
 
 ;;;; Miscellanea.
 
-(defun buffer-substring-no-properties (beg end)
-  "Return the text from BEG to END, without text properties, as a string."
-  (let ((string (buffer-substring beg end)))
-    (set-text-properties 0 (length string) nil string)
-    string))
+;; This is now in C.
+;(defun buffer-substring-no-properties (beg end)
+;  "Return the text from BEG to END, without text properties, as a string."
+;  (let ((string (buffer-substring beg end)))
+;    (set-text-properties 0 (length string) nil string)
+;    string))
 
 (defun get-buffer-window-list (&optional buffer minibuf frame)
   "Return windows currently displaying BUFFER, or nil if none.

@@ -376,9 +376,7 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
 	  dp = readdir (d);
 	  if (!dp) break;
 
-	  /* #### This is a bad idea, because d_name can contain
-             control characters, which can make XEmacs crash.  This
-             should be handled properly with FORMAT_FILENAME.  */
+	  /* Cast to Bufbyte* is OK, as readdir() Mule-encapsulates.  */
 	  d_name = (Bufbyte *) dp->d_name;
 	  len = NAMLEN (dp);
 	  cclen = bytecount_to_charcount (d_name, len);
@@ -531,6 +529,10 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
 }
 
 
+
+/* The *pwent() functions do not exist on NT */
+#ifndef  WINDOWSNT
+
 static Lisp_Object user_name_completion (Lisp_Object user,
                                          int all_flag,
                                          int *uniq);
@@ -775,6 +777,7 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
     return Qt;
   return Fsubstring (bestmatch, Qzero, make_int (bestmatchsize));
 }
+#endif   /* ! defined WINDOWSNT */
 
 
 Lisp_Object
@@ -791,8 +794,8 @@ make_directory_hash_table (CONST char *path)
 	{
 	  Bytecount len = NAMLEN (dp);
 	  if (DIRENTRY_NONEMPTY (dp))
-	    Fputhash (make_ext_string ((Bufbyte *) dp->d_name, len,
-				       FORMAT_FILENAME), Qt, hash);
+	    /* Cast to Bufbyte* is OK, as readdir() Mule-encapsulates.  */
+	    Fputhash (make_string ((Bufbyte *) dp->d_name, len), Qt, hash);
 	}
       closedir (d);
     }
@@ -938,9 +941,11 @@ syms_of_dired (void)
   DEFSUBR (Fdirectory_files);
   DEFSUBR (Ffile_name_completion);
   DEFSUBR (Ffile_name_all_completions);
+#ifndef  WINDOWSNT
   DEFSUBR (Fuser_name_completion);
   DEFSUBR (Fuser_name_completion_1);
   DEFSUBR (Fuser_name_all_completions);
+#endif
   DEFSUBR (Ffile_attributes);
 }
 

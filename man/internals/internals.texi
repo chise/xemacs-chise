@@ -2045,7 +2045,7 @@ code generalization for future I18N work.
 @menu
 * Character-Related Data Types::
 * Working With Character and Byte Positions::
-* Conversion of External Data::
+* Conversion to and from External Data::
 * General Guidelines for Writing Mule-Aware Code::
 * An Example of Mule-Aware Code::
 @end menu
@@ -2053,9 +2053,9 @@ code generalization for future I18N work.
 @node Character-Related Data Types
 @subsection Character-Related Data Types
 
-First, we will list the basic character-related datatypes used by
-XEmacs.  Note that the separate @code{typedef}s are not required for the 
-code to work (all of them boil down to @code{unsigned char} or
+First, let's review the basic character-related datatypes used by
+XEmacs.  Note that the separate @code{typedef}s are not mandatory in the
+current implementation (all of them boil down to @code{unsigned char} or
 @code{int}), but they improve clarity of code a great deal, because one
 glance at the declaration can tell the intended use of the variable.
 
@@ -2093,6 +2093,8 @@ Without Mule support, a @code{Bufbyte} is equivalent to an
 
 @item Bufpos
 @itemx Charcount
+@cindex Bufpos
+@cindex Charcount
 A @code{Bufpos} represents a character position in a buffer or string.
 A @code{Charcount} represents a number (count) of characters.
 Logically, subtracting two @code{Bufpos} values yields a
@@ -2105,6 +2107,8 @@ ever visible to Lisp.
 
 @item Bytind
 @itemx Bytecount
+@cindex Bytind
+@cindex Bytecount
 A @code{Bytind} represents a byte position in a buffer or string.  A
 @code{Bytecount} represents the distance between two positions in bytes.
 The relationship between @code{Bytind} and @code{Bytecount} is the same
@@ -2112,6 +2116,8 @@ as the relationship between @code{Bufpos} and @code{Charcount}.
 
 @item Extbyte
 @itemx Extcount
+@cindex Extbyte
+@cindex Extcount
 When dealing with the outside world, XEmacs works with @code{Extbyte}s,
 which are equivalent to @code{unsigned char}.  Obviously, an
 @code{Extcount} is the distance between two @code{Extbyte}s.  Extbytes
@@ -2130,6 +2136,7 @@ learn about them.
 
 @table @code
 @item MAX_EMCHAR_LEN
+@cindex MAX_EMCHAR_LEN
 This preprocessor constant is the maximum number of buffer bytes per
 Emacs character, i.e. the byte length of an @code{Emchar}.  It is useful
 when allocating temporary strings to keep a known number of characters.
@@ -2155,10 +2162,12 @@ In the current Mule implementation, @code{MAX_EMCHAR_LEN} equals 4.
 Without Mule, it is 1.
 
 @item charptr_emchar
-@item set_charptr_emchar
-@code{charptr_emchar} macro takes a @code{Bufbyte} pointer and returns
-the underlying @code{Emchar}.  If it were a function, its prototype
-would be:
+@itemx set_charptr_emchar
+@cindex charptr_emchar
+@cindex set_charptr_emchar
+The @code{charptr_emchar} macro takes a @code{Bufbyte} pointer and
+returns the @code{Emchar} stored at that position.  If it were a
+function, its prototype would be:
 
 @example
 Emchar charptr_emchar (Bufbyte *p);
@@ -2200,14 +2209,19 @@ and increment the counter, at the same time.
 
 @item INC_CHARPTR
 @itemx DEC_CHARPTR
+@cindex INC_CHARPTR
+@cindex DEC_CHARPTR
 These two macros increment and decrement a @code{Bufbyte} pointer,
-respectively.  The pointer needs to be correctly positioned at the
-beginning of a valid character position.
+respectively.  They will adjust the pointer by the appropriate number of
+bytes according to the byte length of the character stored there.  Both
+macros assume that the memory address is located at the beginning of a
+valid character.
 
 Without Mule support, @code{INC_CHARPTR (p)} and @code{DEC_CHARPTR (p)}
 simply expand to @code{p++} and @code{p--}, respectively.
 
 @item bytecount_to_charcount
+@cindex bytecount_to_charcount
 Given a pointer to a text string and a length in bytes, return the
 equivalent length in characters.
 
@@ -2216,6 +2230,7 @@ Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
 @end example
 
 @item charcount_to_bytecount
+@cindex charcount_to_bytecount
 Given a pointer to a text string and a length in characters, return the
 equivalent length in bytes.
 
@@ -2224,6 +2239,7 @@ Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
 @end example
 
 @item charptr_n_addr
+@cindex charptr_n_addr
 Return a pointer to the beginning of the character offset @var{cc} (in
 characters) from @var{p}.
 
@@ -2232,55 +2248,118 @@ Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
 @end example
 @end table
 
-@node Conversion of External Data
-@subsection Conversion of External Data
+@node Conversion to and from External Data
+@subsection Conversion to and from External Data
 
 When an external function, such as a C library function, returns a
-@code{char} pointer, you should never treat it as @code{Bufbyte}.  This
-is because these returned strings may contain 8bit characters which can
-be misinterpreted by XEmacs, and cause a crash.  Instead, you should use
-a conversion macro.  Many different conversion macros are defined in
-@file{buffer.h}, so I will try to order them logically, by direction and
-by format.
+@code{char} pointer, you should almost never treat it as @code{Bufbyte}.
+This is because these returned strings may contain 8bit characters which
+can be misinterpreted by XEmacs, and cause a crash.  Likewise, when
+exporting a piece of internal text to the outside world, you should
+always convert it to an appropriate external encoding, lest the internal 
+stuff (such as the infamous \201 characters) leak out.
 
-Thus the basic conversion macros are @code{GET_CHARPTR_INT_DATA_ALLOCA}
-and @code{GET_CHARPTR_EXT_DATA_ALLOCA}.  The former is used to convert
-external data to internal format, and the latter is used to convert the
-other way around.  The arguments each of these receives are @var{ptr}
-(pointer to the text in external format), @var{len} (length of texts in
-bytes), @var{fmt} (format of the external text), @var{ptr_out} (lvalue
-to which new text should be copied), and @var{len_out} (lvalue which
-will be assigned the length of the internal text in bytes).  The
-resulting text is stored to a stack-allocated buffer.  If the text
-doesn't need changing, these macros will do nothing, except for setting
-@var{len_out}.
+The interface to conversion between the internal and external
+representations of text are the numerous conversion macros defined in
+@file{buffer.h}.  Before looking at them, we'll look at the external
+formats supported by these macros.
 
 Currently meaningful formats are @code{FORMAT_BINARY},
-@code{FORMAT_FILENAME}, @code{FORMAT_OS}, and @code{FORMAT_CTEXT}.
-
-The two macros above take many arguments which makes them unwieldy.  For
-this reason, several convenience macros are defined with obvious
-functionality, but accepting less arguments:
+@code{FORMAT_FILENAME}, @code{FORMAT_OS}, and @code{FORMAT_CTEXT}.  Here 
+is a description of these.
 
 @table @code
-@item GET_C_CHARPTR_EXT_DATA_ALLOCA
-@itemx GET_C_CHARPTR_INT_DATA_ALLOCA
-These two macros work on ``C char pointers'', which are zero-terminated, 
-and thus do not need @var{len} or @var{len_out} parameters.
+@item FORMAT_BINARY
+Binary format.  This is the simplest format and is what we use in the
+absence of a more appropriate format.  This converts according to the
+@code{binary} coding system:
+
+@enumerate a
+@item
+On input, bytes 0--255 are converted into characters 0--255.
+@item
+On output, characters 0--255 are converted into bytes 0--255 and other
+characters are converted into `X'.
+@end enumerate
+
+@item FORMAT_FILENAME
+Format used for filenames.  In the original Mule, this is user-definable
+with the @code{pathname-coding-system} variable.  For the moment, we
+just use the @code{binary} coding system.
+
+@item FORMAT_OS
+Format used for the external Unix environment---@code{argv[]}, stuff
+from @code{getenv()}, stuff from the @file{/etc/passwd} file, etc.
+
+Perhaps should be the same as FORMAT_FILENAME.
+
+@item FORMAT_CTEXT
+Compound--text format.  This is the standard X format used for data
+stored in properties, selections, and the like.  This is an 8-bit
+no-lock-shift ISO2022 coding system.
+@end table
+
+The macros to convert between these formats and the internal format, and 
+vice versa, follow.
+
+@table @code
+@item GET_CHARPTR_INT_DATA_ALLOCA
+@itemx GET_CHARPTR_EXT_DATA_ALLOCA
+These two are the most basic conversion macros.
+@code{GET_CHARPTR_INT_DATA_ALLOCA} converts external data to internal
+format, and @code{GET_CHARPTR_EXT_DATA_ALLOCA} converts the other way
+around.  The arguments each of these receives are @var{ptr} (pointer to
+the text in external format), @var{len} (length of texts in bytes),
+@var{fmt} (format of the external text), @var{ptr_out} (lvalue to which
+new text should be copied), and @var{len_out} (lvalue which will be
+assigned the length of the internal text in bytes).  The resulting text
+is stored to a stack-allocated buffer.  If the text doesn't need
+changing, these macros will do nothing, except for setting
+@var{len_out}.
+
+The macros above take many arguments which makes them unwieldy.  For
+this reason, a number of convenience macros are defined with obvious
+functionality, but accepting less arguments.  The general rule is that
+macros with @samp{INT} in their name convert text to internal Emacs
+representation, whereas the @samp{EXT} macros convert to external
+representation.
+
+@item GET_C_CHARPTR_INT_DATA_ALLOCA
+@itemx GET_C_CHARPTR_EXT_DATA_ALLOCA
+As their names imply, these macros work on C char pointers, which are
+zero-terminated, and thus do not need @var{len} or @var{len_out}
+parameters.
 
 @item GET_STRING_EXT_DATA_ALLOCA
 @itemx GET_C_STRING_EXT_DATA_ALLOCA
-These two macros work on Lisp strings, thus also not needing a @var{len}
-parameter.  However, @code{GET_STRING_EXT_DATA_ALLOCA} still provides a
-@var{len_out} parameter.  Note that for Lisp strings only one conversion
-direction makes sense.
+These two macros convert a Lisp string into an external representation.
+The difference between them is that @code{GET_STRING_EXT_DATA_ALLOCA}
+stores its output to a generic string, providing @var{len_out}, the
+length of the resulting external string.  On the other hand,
+@code{GET_C_STRING_EXT_DATA_ALLOCA} assumes that the caller will be
+satisfied with output string being zero-terminated.
+
+Note that for Lisp strings only one conversion direction makes sense.
 
 @item GET_C_CHARPTR_EXT_BINARY_DATA_ALLOCA
+@itemx GET_CHARPTR_EXT_BINARY_DATA_ALLOCA
+@itemx GET_STRING_BINARY_DATA_ALLOCA
+@itemx GET_C_STRING_BINARY_DATA_ALLOCA
 @itemx GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA
-@itemx GET_C_CHARPTR_EXT_CTEXT_DATA_ALLOCA
 @itemx ...
-These macros are a combination of the above, but with the @var{fmt}
-argument encoded into the name of the macro.
+These macros convert internal text to a specific external
+representation, with the external format being encoded into the name of
+the macro.  Note that the @code{GET_STRING_...} and
+@code{GET_C_STRING...}  macros lack the @samp{EXT} tag, because they
+only make sense in that direction.
+
+@item GET_C_CHARPTR_INT_BINARY_DATA_ALLOCA
+@itemx GET_CHARPTR_INT_BINARY_DATA_ALLOCA
+@itemx GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA
+@itemx ...
+These macros convert external text of a specific format to its internal
+representation, with the external format being incoded into the name of
+the macro.
 @end table
 
 @node General Guidelines for Writing Mule-Aware Code

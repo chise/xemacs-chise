@@ -1063,48 +1063,49 @@ Recommended as a parent keymap for modes using widgets.")
 
 (defun widget-button-click (event)
   "Invoke button below mouse pointer."
-  (interactive "@e")
-  (cond ((event-glyph event)
-	 (widget-glyph-click event))
-	((widget-event-point event)
-	 (let* ((pos (widget-event-point event))
-		(button (get-char-property pos 'button)))
-	   (if button
-	       (let* ((extent (widget-get button :button-extent))
-		      (face (extent-property extent 'face))
-		      (mouse-face (extent-property extent 'mouse-face))
-		      (help-echo (extent-property extent 'help-echo)))
-		 (unwind-protect
-		     (progn
-		       ;; Merge relevant faces, and make the result mouse-face.
-		       (let ((merge `(widget-button-pressed-face ,mouse-face)))
-			 (nconc merge (if (listp face)
-					  face (list face)))
-			 (setq merge (delete-if-not 'find-face merge))
-			 (set-extent-property extent 'mouse-face merge))
-		       (unless (widget-apply button :mouse-down-action event)
-			 ;; Wait for button release.
-			 (while (not (button-release-event-p
-				      (setq event (next-event))))
-			   (dispatch-event event)))
-		       ;; Disallow mouse-face and help-echo.
-		       (set-extent-property extent 'mouse-face nil)
-		       (set-extent-property extent 'help-echo nil)
-		       (setq pos (widget-event-point event))
-		       (unless (eq (current-buffer) (extent-object extent))
-			 ;; Barf if dispatch-event tripped us by
-			 ;; changing buffer.
-			 (error "Buffer changed during mouse motion"))
-		       ;; Do the associated action.
-		       (when (and pos (extent-in-region-p extent pos pos))
-			 (widget-apply-action button event)))
-		   ;; Unwinding: fully release the button.
-		   (set-extent-property extent 'mouse-face mouse-face)
-		   (set-extent-property extent 'help-echo help-echo)))
-	     ;; This should not happen!
-	     (error "`widget-button-click' called outside button"))))
-	(t
-	 (message "You clicked somewhere weird"))))
+  (interactive "e")
+  (with-current-buffer (event-buffer event)
+    (cond ((event-glyph event)
+	   (widget-glyph-click event))
+	  ((widget-event-point event)
+	   (let* ((pos (widget-event-point event))
+		  (button (get-char-property pos 'button)))
+	     (if button
+		 (let* ((extent (widget-get button :button-extent))
+			(face (extent-property extent 'face))
+			(mouse-face (extent-property extent 'mouse-face))
+			(help-echo (extent-property extent 'help-echo)))
+		   (unwind-protect
+		       (progn
+			 ;; Merge relevant faces, and make the result mouse-face.
+			 (let ((merge `(widget-button-pressed-face ,mouse-face)))
+			   (nconc merge (if (listp face)
+					    face (list face)))
+			   (setq merge (delete-if-not 'find-face merge))
+			   (set-extent-property extent 'mouse-face merge))
+			 (unless (widget-apply button :mouse-down-action event)
+			   ;; Wait for button release.
+			   (while (not (button-release-event-p
+					(setq event (next-event))))
+			     (dispatch-event event)))
+			 ;; Disallow mouse-face and help-echo.
+			 (set-extent-property extent 'mouse-face nil)
+			 (set-extent-property extent 'help-echo nil)
+			 (setq pos (widget-event-point event))
+			 (unless (eq (current-buffer) (extent-object extent))
+			   ;; Barf if dispatch-event tripped us by
+			   ;; changing buffer.
+			   (error "Buffer changed during mouse motion"))
+			 ;; Do the associated action.
+			 (when (and pos (extent-in-region-p extent pos pos))
+			   (widget-apply-action button event)))
+		     ;; Unwinding: fully release the button.
+		     (set-extent-property extent 'mouse-face mouse-face)
+		     (set-extent-property extent 'help-echo help-echo)))
+	       ;; This should not happen!
+	       (error "`widget-button-click' called outside button"))))
+	  (t
+	   (message "You clicked somewhere weird")))))
 
 (defun widget-button1-click (event)
   "Invoke glyph below mouse pointer."
