@@ -36,8 +36,9 @@
 
 (when (featurep 'xemacs)
   (make-charset 'thai-xtis "Precomposed Thai (XTIS by Virach)."
-		'(registry "xtis-0$"
+		'(registry "xtis-0"
 			   dimension 2
+			   columns 1
 			   chars 94
 			   final ??
 			   graphic 0))

@@ -447,7 +447,8 @@ Lisp_Object Vccl_program_table;
   else							\
     {							\
       Bufbyte work[MAX_EMCHAR_LEN];			\
-      int len = ( ch < 256 ) ?				\
+      int len = ( ch < ( conversion_mode == CCL_MODE_ENCODING ? \
+                         256 : 128 ) ) ?			\
 	simple_set_charptr_emchar (work, ch) :		\
 	non_ascii_set_charptr_emchar (work, ch);	\
       Dynarr_add_many (destination, work, len);		\
@@ -517,7 +518,7 @@ struct ccl_prog_stack
   };
 
 int
-ccl_driver (struct ccl_program *ccl, CONST unsigned char *source, unsigned_char_dynarr *destination, int src_bytes, int *consumed)
+ccl_driver (struct ccl_program *ccl, CONST unsigned char *source, unsigned_char_dynarr *destination, int src_bytes, int *consumed, int conversion_mode)
 {
   int *reg = ccl->reg;
   int ic = ccl->ic;
@@ -978,7 +979,7 @@ As side effect, each element of REGISTER holds the value of
 		  : 0);
 
   ccl_driver (&ccl, (CONST unsigned char *)0, (unsigned_char_dynarr *)0,
-	      0, (int *)0);
+	      0, (int *)0, CCL_MODE_ENCODING);
   QUIT;
   if (ccl.status != CCL_STAT_SUCCESS)
     error ("Error in CCL program at %dth code", ccl.ic);
@@ -1035,7 +1036,7 @@ CCL-PROGRAM on exit.
   outbuf = Dynarr_new (unsigned_char);
   ccl.last_block = NILP (contin);
   produced = ccl_driver (&ccl, XSTRING_DATA (str), outbuf,
-			 XSTRING_LENGTH (str), (int *)0);
+			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_ENCODING);
   for (i = 0; i < 8; i++)
     XVECTOR_DATA (status)[i] = make_int(ccl.reg[i]);
   XSETINT (XVECTOR_DATA (status)[8], ccl.ic);
