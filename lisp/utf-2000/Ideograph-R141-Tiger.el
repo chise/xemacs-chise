@@ -399,7 +399,7 @@
     (=jis-x0213-1-2000	. #x7B4F)	; ø»¤—¶
     (ideograph-daikanwa . 32710)	; ø¸‡¿†
     (=ucs@jis		. #xF936)	; ø»‰¨¸
-    (ucs-ks		. #x865C)	; ø»‰¨¸
+    (=ucs@ks		. #x865C)	; ø»‰¨¸
     ))
 (define-char
   '((name		. "CJK COMPATIBILITY IDEOGRAPH-F936")

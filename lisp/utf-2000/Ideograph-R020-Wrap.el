@@ -34,7 +34,7 @@
     (ideograph-daikanwa . 02494)	; ø¸€¦¾
     (=big5-cdp		. #xA463)	; ý¢€Š‘£
     (=jef-china3	. #x45A1)	; øº„–¡
-    (ucs-ks		. #x52FA)	; ð¯ ¨
+    (=ucs@ks		. #x52FA)	; ð¯ ¨
     (=ucs		. #x2F828)	; ð¯ ¨
     ))
 (define-char

@@ -6458,7 +6458,7 @@
     (chinese-big5	. #xAC79)	; ý¢€Š±¹
     (=gt-k		. 06556)	; ý¡„¦œ
     (=ucs@jis		. #x6D41)	; ø½Š¸
-    (ucs-ks		. #x6D41)	; ø½Š¸
+    (=ucs@ks		. #x6D41)	; ø½Š¸
     (ucs-big5		. #x6D41)	; ø½Š¸
     (mojikyo		. 050250)	; ý €Œ‘Š
     ))
@@ -6477,7 +6477,7 @@
   '((=>ucs*		. #x6D41)	; æµ
     (=>ucs@gb		. #x6D41)	; æµ
     (=>ucs@jis		. #x6D41)	; ø½Š¸
-    (=>ucs-ks		. #x6D41)	; ø½Š¸
+    (=>ucs@ks		. #x6D41)	; ø½Š¸
     (morohashi-daikanwa	17572 1 1)
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 7)
@@ -9410,7 +9410,7 @@
     (=jis-x0213-1-2000		. #x7677)	; ø»¤‘ˆ
     (ideograph-daikanwa		. 17758)	; ø¸„•ž
     (=big5-cdp			. #xB25A)	; ý¢€‹‰š
-    (ucs-ks			. #x6E1A)	; ï©†
+    (=ucs@ks			. #x6E1A)	; ï©†
     (mojikyo			. 017758)	; ý €„•ž
     (=ucs			. #xFA46)	; ï©†
     ))

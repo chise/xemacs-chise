@@ -2606,7 +2606,7 @@
     (korean-ksc5601	. #x5434)	; ø»‰¥™
     (=jis-x0213-1-2000	. #x7C6A)	; ø»¤™¯
     (ideograph-daikanwa . 39509)	; ø¸‰©•
-    (ucs-ks		. #x90FD)	; ï¨¦
+    (=ucs@ks		. #x90FD)	; ï¨¦
     (=ucs		. #xFA26)	; ï¨¦
     ))
 (define-char

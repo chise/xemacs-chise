@@ -1081,7 +1081,7 @@
     (ideograph-daikanwa . 00190)	; ø¸€‚¾
     (=gt-k		. 03792)	; ý¡„€»
     (=jef-china3	. #x41C4)	; øº„‡„
-    (ucs-ks		. #x4E73)	; ø»Š†š
+    (=ucs@ks		. #x4E73)	; ø»Š†š
     (ucs-big5		. #x4E73)	; ø»Š†š
     (=gt		. 00257)	; ý¡€€„
     (mojikyo		. 000190)	; ý €€‚¾
@@ -2115,7 +2115,7 @@
     (ideograph-daikanwa . 00214)	; ø¸€ƒ–
     (=gt-k		. 10403)	; ý¡„‚¢£
     (=ucs@jis		. #x4E82)	; ø½Š»‰
-    (ucs-ks		. #x4E82)	; ø½Š»‰
+    (=ucs@ks		. #x4E82)	; ø½Š»‰
     (ucs-big5		. #x4E82)	; ø½Š»‰
     (=gt		. 00285)	; ý¡€€„
     (mojikyo		. 000214)	; ý €€ƒ–

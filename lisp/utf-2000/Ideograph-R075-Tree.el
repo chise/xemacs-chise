@@ -15775,7 +15775,7 @@
     (=jis-x0213-1-2000	. #x7624)	; ø»¤µ
     (=jef-china3	. #x53FA)	; øº…º
     (=ucs@jis		. #x69EA)	; ø»‰˜Ÿ
-    (ucs-ks		. #x69EA)	; ø»‰˜Ÿ
+    (=ucs@ks		. #x69EA)	; ø»‰˜Ÿ
     (=gt		. 19861)	; ý¡€„¶•
     ))
 (define-char

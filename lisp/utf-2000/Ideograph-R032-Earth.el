@@ -7670,7 +7670,7 @@
     (korean-ksc5601		. #x7540)	; ø»Š–ƒ
     (=jis-x0213-1-2000		. #x2F57)	; ø»¢¨–
     (ideograph-daikanwa		. 05345)	; ø¸“¡
-    (ucs-ks			. #x585A)	; ï¨
+    (=ucs@ks			. #x585A)	; ï¨
     (=ucs			. #xFA10)	; ï¨
     ))
 (define-char

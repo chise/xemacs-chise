@@ -153,7 +153,7 @@
     (ideograph-daikanwa . 38636)	; ø¸‰›¬
     (=gt-k		. 09237)	; ý¡„‚•
     (=ucs@jis		. #x8F9C)	; ø½‹¦¦
-    (ucs-ks		. #x8F9C)	; ø½‹¦¦
+    (=ucs@ks		. #x8F9C)	; ø½‹¦¦
     ))
 (define-char
   '((morohashi-daikanwa	38636 0 0)

@@ -24446,7 +24446,7 @@
     (ideograph-daikanwa . 01117)	; ø¸€‘
     (=big5-cdp		. #xB9AC)	; ý¢€‹¦¬
     (=jef-china3	. #x43B7)	; øº„Ž·
-    (ucs-ks		. #x50E7)	; ï¨±
+    (=ucs@ks		. #x50E7)	; ï¨±
     (mojikyo		. 001117)	; ý €€‘
     (=ucs		. #xFA31)	; ï¨±
     ))

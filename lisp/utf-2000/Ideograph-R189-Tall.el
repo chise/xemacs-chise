@@ -10,7 +10,7 @@
     (ideograph-daikanwa . 45313)	; ø¸‹„
     (=gt-k		. 06430)	; ý¡„¤ž
     (=ucs@jis		. #x9AD8)	; ø½Šš
-    (ucs-ks		. #x9AD8)	; ø½Šš
+    (=ucs@ks		. #x9AD8)	; ø½Šš
     ))
 (define-char
   '((morohashi-daikanwa	45313 0 0)

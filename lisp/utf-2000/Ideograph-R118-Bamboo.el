@@ -4425,7 +4425,7 @@
     (total-strokes	 . 15)
     (korean-ksc5601	. #x6F3D)	; ø»ŠŒ
     (=jis-x0213-1-2000	. #x7964)	; ø»¤•
-    (ucs-ks		. #x7BC0)	; ï©–
+    (=ucs@ks		. #x7BC0)	; ï©–
     (mojikyo		. 054432)	; ý €’ 
     (=ucs		. #xFA56)	; ï©–
     ))

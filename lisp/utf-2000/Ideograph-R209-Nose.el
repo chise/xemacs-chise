@@ -21,7 +21,7 @@
     (=gt-pj-1		. #x4921)	; ð¯¨œ
     (=gt-k		. 11267)	; ý¡„‚°ƒ
     (=ucs@jis		. #x9F3B)	; ð¯¨œ
-    (ucs-ks		. #x9F3B)	; ð¯¨œ
+    (=ucs@ks		. #x9F3B)	; ð¯¨œ
     (mojikyo		. 050611)	; ý €Œ–³
     (=ucs		. #x2FA1C)	; ð¯¨œ
     ))

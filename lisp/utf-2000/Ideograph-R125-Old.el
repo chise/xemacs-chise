@@ -194,13 +194,13 @@
     (=jis-x0213-1-2000	. #x7A44)	; ø»¤–
     (ideograph-daikanwa . 28853)	; ø¸‡‚µ
     (=jef-china3	. #x60B5)	; øº†‚µ
-    (ucs-ks		. #x8005)	; ï©›
+    (=ucs@ks		. #x8005)	; ï©›
     (=ucs		. #xFA5B)	; ï©›
     ))
 (define-char
   '((=>ucs*		. #x8005)	; è€…
     (=>ucs@jis		. #xFA5B)	; ï©›
-    (=>ucs-ks		. #x8005)	; ï©›
+    (=>ucs@ks		. #x8005)	; ï©›
     (morohashi-daikanwa	28853 0 0)
     (ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)

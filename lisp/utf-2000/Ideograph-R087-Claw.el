@@ -632,7 +632,7 @@
     (ideograph-daikanwa . 19711)	; ø¸„³¿
     (=big5-cdp		. #xC0EF)	; ý¢€Œƒ¯
     (=jef-china3	. #x58AE)	; øº…¢®
-    (ucs-ks		. #x7235)	; ø»ŠŠœ
+    (=ucs@ks		. #x7235)	; ø»ŠŠœ
     (mojikyo		. 019711)	; ý €„³¿
     ))
 (define-char

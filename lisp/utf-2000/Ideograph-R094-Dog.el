@@ -3591,7 +3591,7 @@
     (=jis-x0213-1-2000	. #x776F)	; ø»¤’ž
     (ideograph-daikanwa . 20534)	; ø¸…€¶
     (=jef-china3	. #x58EF)	; øº…£¯
-    (ucs-ks		. #x732A)	; ï¨–
+    (=ucs@ks		. #x732A)	; ï¨–
     (mojikyo		. 020534)	; ý €…€¶
     (=ucs		. #xFA16)	; ï¨–
     ))

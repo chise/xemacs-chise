@@ -344,7 +344,7 @@
     (=jis-x0213-1-2000	. #x7951)	; ø»¤”¼
     (ideograph-daikanwa . 25439)	; ø¸†Ÿ
     (=jef-china3	. #x5DCD)	; øº…·
-    (ucs-ks		. #x7A81)	; ï©•
+    (=ucs@ks		. #x7A81)	; ï©•
     (=ucs		. #xFA55)	; ï©•
     ))
 (define-char

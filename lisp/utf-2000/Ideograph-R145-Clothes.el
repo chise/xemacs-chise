@@ -3891,7 +3891,7 @@
     (=jis-x0213-1-2000	. #x7B6F)	; ø»¤˜–
     (ideograph-daikanwa . 34435)	; ø¸ˆšƒ
     (=big5-cdp		. #xBDC5)	; ý¢€‹·…
-    (ucs-ks		. #x8910)	; ï© 
+    (=ucs@ks		. #x8910)	; ï© 
     (=ucs		. #xFA60)	; ï© 
     ))
 (define-char
@@ -5364,7 +5364,7 @@
     (chinese-big5	. #xC1B8)	; ý¢€Œ†¸
     (ideograph-daikanwa . 34556)	; ø¸ˆ›¼
     (=ucs@jis		. #x8944)	; ø½‹¢ 
-    (ucs-ks		. #x8944)	; ø½‹¢ 
+    (=ucs@ks		. #x8944)	; ø½‹¢ 
     (ucs-big5		. #x8944)	; ø½‹¢ 
     ))
 (define-char

@@ -3197,7 +3197,7 @@
     (korean-ksc5601	. #x5171)	; ø»‰¡¼
     (=jis-x0213-1-2000	. #x7D63)	; ø»¤›†
     (ideograph-daikanwa . 42145)	; ø¸Š’¡
-    (ucs-ks		. #x96E3)	; ï©¨
+    (=ucs@ks		. #x96E3)	; ï©¨
     (=ucs		. #xFA68)	; ï©¨
     ))
 (define-char
