@@ -1,3 +1,13 @@
+2003-05-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R001-One.el (GT-00081): Unify MH-0002 and M085219; map
+	to U-00020030.
+	(U-00020030): Relate to MH-0002.
+	(GT-00088): Unify MH-0003.
+	(U-0002003C): Map to MH-0003; unify M085231.
+	(U-00020050): Unify MH-0004 and M085402.
+	(GT-00096): Map to U-00020050 and MH-0004.
+
 2003-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el, Ideograph-R213-Turtle.el,
