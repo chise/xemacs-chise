@@ -389,6 +389,24 @@
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
 
+  (make-charset '=ucs@iso
+		"UCS for ISO"
+		`(long-name	"ISO/IEC 10646 for its representative glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (make-charset '=ucs@unicode
+		"UCS for Unicode"
+		`(long-name	"Unicode for its representative glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@iso))
   (make-charset '=ucs@gb
 		"UCS for GB"
 		`(long-name	"ISO/IEC 10646 for GB"
@@ -397,7 +415,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs))
+		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-gb '=ucs@gb)
   (make-charset '=ucs@cns
 		"UCS for CNS"
@@ -407,7 +425,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs))
+		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset '=ucs@jis
 		"UCS for JIS"
@@ -417,7 +435,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs))
+		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
   (make-charset '=ucs@jis-1990
 		"UCS for JIS:1990"
@@ -456,7 +474,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs))
+		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset '=ucs@big5
 		"UCS for Big5"
@@ -466,7 +484,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs))
+		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   )
 
