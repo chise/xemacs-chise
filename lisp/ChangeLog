@@ -1,5 +1,10 @@
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R001-One.el (M00032): Separate U+4E17 and
+	C4-2155.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R029-Again.el,
 	utf-2000/Ideograph-R028-Private.el: New files.
 
