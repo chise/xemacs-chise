@@ -1,3 +1,153 @@
+2001-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9BB3): Unify C4-5A43.
+	(U+9BD3): Unify C2-6474.
+	(U+9C1B): Unify C3-5D70.
+
+	* Ideograph-R191-Fight.el (C3-612E): Unify U+9B2C.
+
+2001-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (C3-596F): Relate to U+9B07.
+
+2001-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (C1-6B74): Relate to U+9AB0.
+	(C2-4F42): Relate to U+9AB1.
+	(C1-6F7E): Relate to U+9AB7.
+	(C1-7330): Relate to U+9AB8.
+	(C4-5531): Relate to U+9ABA.
+	(C1-7331): Relate to U+9ABC.
+	(C2-6463): Relate to U+9AC0.
+	(C1-7778): Relate to U+9AC1.
+	(C2-682E): Relate to U+9AC2.
+	(C1-7C56): Relate to U+9AD1.
+
+	* Ideograph-R182-Wind.el (U+98C0): Unify M059769.
+	(C2-6C63): Relate to U+98C0.
+
+	* Ideograph-R181-Leaf.el (M-43353): Fix `total-strokes'; unify
+	U+9809.
+	(C4-4168): Relate to U+9809.
+	(M-43366): Relate to U+9819.
+	(C3-4A52): Unify U+9819.
+	(U+983D): Unify C3-535F.
+	(U+985B): Unify C1-794D.
+
+	* Ideograph-R184-Eat.el (U+9919): Unify C3-4F6B.
+	(U+9937): Unify C4-5A29.
+	(U+9938): Unify C3-5961.
+	(U+9943): Unify C2-677C.
+
+	* Ideograph-R178-Tanned-Leather.el (U+97DF): Unify C2-6771.
+
+	* Ideograph-R177-Leather.el (U+97A1): Unify C2-604A.
+	(M-49879): Unify U+97B0.
+	(C2-676D): Unify U+97B7.
+
+	* Ideograph-R170-Mound.el (C2-4F24): Unify U+96A1.
+
+	* Ideograph-R167-Gold.el (U+92B1): Unify C3-4A31.
+	(C3-4A30): Relate to U+92F6.
+	(U+92F5): Add `total-strokes'; unify M059973.
+	(M059972): New character; relate to U+92F5.
+	(U+92F6): Add `total-strokes'; unify M058590.
+	(U+933C): Unify C2-5B33.
+	(U+933D): Unify C7-3463.
+	(U+9343): Unify C4-5449.
+	(U+9346): Unify C2-5B38.
+	(U+9427): Unify C3-5D46.
+	(U+9428): Unify C2-6A3E.
+	(U+9440): Unify C2-6C57.
+	(U+9454): Unify C3-5F6B.
+	(U+9467): Add `total-strokes'; unify M063873.
+
+	* Ideograph-R164-Wine.el (U+9170): Unify C4-413B.
+	(U+9196): Unify C3-532F.
+
+	* Ideograph-R162-Walk.el (C3-3426): Relate to U+9009.
+	(C3-3F57): Relate to U+903B.
+	(C2-5B21): Unify U+9086.
+
+2001-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (C2-3971): Relate to U+90D4.
+	(C2-4076): Relate to U+912C.
+
+	* Ideograph-R140-Grass.el (U+8363): Relate to M-14683; add
+	`total-strokes'.
+	(M-49580): Fixed.
+	(C6-3B5D): Unify M-49581 instead of M-49580.
+	(U+5179): Unify C3-2E7B.
+	(U+8362): Unify M079242; add `total-strokes'.
+	(MH-521): New character; unify M059885; relate to U+8362.
+	(U+83A3): Unify C2-385E.
+	(U+83B0): Unify M053188.
+	(C2-3878): Relate to U+83B0; unify M057695.
+	(U+83B7): Add `total-strokes'; unify M051878.
+	(C3-385F): Relate to U+83B7.
+	(U+841B): Unify C2-3F72.
+	(U+841F): Unify C3-3E5B.
+	(U+8423): Unify C2-3F44.
+	(U+8486): Unify C2-4658.
+	(U+8488): Add `total-strokes'; unify M053196.
+	(C4-4046): Relate to U+8488.
+	(U+848D): Unify C2-4654.
+	(U+848E): Add `total-strokes'; unify M053198.
+	(C2-467A): Relate to U+848E; unify M058697.
+	(U+848F): Unify C2-4653.
+	(M-49606): Fixed.
+	(J90-686B): separate C3-4943 and M-49606; unify M055602 and
+	U+84DA; fix `total-strokes'.
+	(U+84DB): Unify C2-4D58.
+	(U+84E4): Unify C3-493D.
+	(M-31741): Separate JSP-5929, JX1-7B34 and U+8532.
+	(U+8532): Unify JSP-5929, JX1-7B34 and M056290.
+	(C2-5336): Relate to U+853B and M057851.
+	(U+853B): Unify M057851; add `total-strokes'.
+	(M-31742): Separate JSP-592A, JX2-7663 and U+84FA.
+	(U+84FA): Unify JSP-592A, JX2-7663 and M056291.
+	(M-31743): Separate JSP-592B and U+84FB.
+	(U+84FB): Unify JSP-592B and M056292.
+	(M-31744): Separate J0-687A, G0-5E24, C2-534D and U+84FC.
+	(J0-687A): Unify M055619.
+	(U+84FC): Unify G0-5E24 and M055620.
+	(M-31745): Separate JSP-592C, JX2-7664 and U+84FD.
+	(U+84FD): Unify JSP-592C, JX2-7664 and M056293.
+	(M066163): New character; relate to U+8535 and M-31885.
+	(U+8538): Unify M053202.
+	(C4-4C74): Relate to U+8538; unify M059901.
+	(U+8571): Unify C2-5976.
+	(C2-5979): Unify U+8575.
+	(U+85F4): Unify C3-5B25.
+	(U+8613): Unify C3-5D21.
+	(C3-5E5B): Unify U+8615.
+
+2001-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (U+8DC3): Unify C6-4538.
+	(C2-4772): Relate to U+8DD0.
+	(C1-667D): Relate to U+8DFA.
+	(U+8E0D): Unify C2-4E42.
+	(C2-722E): Relate to U+8EA8.
+
+	* Ideograph-R154-Shell.el (U+8CAE): Unify MH-575, M050082 and
+	C3-3931.
+
+	* Ideograph-R149-Speech.el (M-35345): Separate U+8A3F.
+	(C2-474F): Unify U+8A3F.
+	(M-35593): New character; relate to U+8AB4.
+	(C3-4E70): Relate to M-35593; unify U+8AB4.
+	(M-35595): Cancel relation to U+8AB4.
+	(C5-5122): Likewise.
+	(U+8B22): Unify C2-5F52.
+	(M-35941): Separate U+8B47.
+	(C2-634B): Unify U+8B47.
+	(M-35989): Add `total-strokes'; delete `kangxi-strokes'; unify
+	S1-7754.
+	(M-36009): Relate to U+8B66; unify S1-7755.
+	(C2-6E28): Unify U+8B86.
+
 2001-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el (U+88C9): Unify C2-4035.
