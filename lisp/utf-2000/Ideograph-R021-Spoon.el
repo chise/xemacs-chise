@@ -39,7 +39,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideograph-daikanwa . 02571)	; ø¸€¨‹
+     ((ucs		  . #x2090E)	; ð ¤Ž
       ))
     (shinjigen-1	. 115)
     (shinjigen-2	. 115)
