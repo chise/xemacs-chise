@@ -1,0 +1,316 @@
+This is Info file ../info/standards.info, produced by Makeinfo version
+1.68 from the input file standards.texi.
+
+START-INFO-DIR-ENTRY
+* Standards: (standards).        GNU coding standards.
+END-INFO-DIR-ENTRY
+
+   GNU Coding Standards Copyright (C) 1992, 1993, 1994, 1995, 1996 Free
+Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+
+
+File: standards.info,  Node: Standard Targets,  Prev: Directory Variables,  Up: Makefile Conventions
+
+Standard Targets for Users
+--------------------------
+
+   All GNU programs should have the following targets in their
+Makefiles:
+
+`all'
+     Compile the entire program.  This should be the default target.
+     This target need not rebuild any documentation files; Info files
+     should normally be included in the distribution, and DVI files
+     should be made only when explicitly asked for.
+
+     By default, the Make rules should compile and link with `-g', so
+     that executable programs have debugging symbols.  Users who don't
+     mind being helpless can strip the executables later if they wish.
+
+`install'
+     Compile the program and copy the executables, libraries, and so on
+     to the file names where they should reside for actual use.  If
+     there is a simple test to verify that a program is properly
+     installed, this target should run that test.
+
+     Do not strip executables when installing them.  Devil-may-care
+     users can use the `install-strip' target to do that.
+
+     If possible, write the `install' target rule so that it does not
+     modify anything in the directory where the program was built,
+     provided `make all' has just been done.  This is convenient for
+     building the program under one user name and installing it under
+     another.
+
+     The commands should create all the directories in which files are
+     to be installed, if they don't already exist.  This includes the
+     directories specified as the values of the variables `prefix' and
+     `exec_prefix', as well as all subdirectories that are needed.  One
+     way to do this is by means of an `installdirs' target as described
+     below.
+
+     Use `-' before any command for installing a man page, so that
+     `make' will ignore any errors.  This is in case there are systems
+     that don't have the Unix man page documentation system installed.
+
+     The way to install Info files is to copy them into `$(infodir)'
+     with `$(INSTALL_DATA)' (*note Command Variables::.), and then run
+     the `install-info' program if it is present.  `install-info' is a
+     program that edits the Info `dir' file to add or update the menu
+     entry for the given Info file; it is part of the Texinfo package.
+     Here is a sample rule to install an Info file:
+
+          $(infodir)/foo.info: foo.info
+          # There may be a newer info file in . than in srcdir.
+                  -if test -f foo.info; then d=.; \
+                   else d=$(srcdir); fi; \
+                  $(INSTALL_DATA) $$d/foo.info $@; \
+          # Run install-info only if it exists.
+          # Use `if' instead of just prepending `-' to the
+          # line so we notice real errors from install-info.
+          # We use `$(SHELL) -c' because some shells do not
+          # fail gracefully when there is an unknown command.
+                  if $(SHELL) -c 'install-info --version' \
+                     >/dev/null 2>&1; then \
+                    install-info --dir-file=$(infodir)/dir \
+                                 $(infodir)/foo.info; \
+                  else true; fi
+
+`uninstall'
+     Delete all the installed files that the `install' target would
+     create (but not the noninstalled files such as `make all' would
+     create).
+
+     This rule should not modify the directories where compilation is
+     done, only the directories where files are installed.
+
+`install-strip'
+     Like `install', but strip the executable files while installing
+     them.  The definition of this target can be very simple:
+
+          install-strip:
+                  $(MAKE) INSTALL_PROGRAM='$(INSTALL_PROGRAM) -s' \
+                          install
+
+     Normally we do not recommend stripping an executable unless you
+     are sure the program has no bugs.  However, it can be reasonable
+     to install a stripped executable for actual execution while saving
+     the unstripped executable elsewhere in case there is a bug.
+
+`clean'
+     Delete all files from the current directory that are normally
+     created by building the program.  Don't delete the files that
+     record the configuration.  Also preserve files that could be made
+     by building, but normally aren't because the distribution comes
+     with them.
+
+     Delete `.dvi' files here if they are not part of the distribution.
+
+`distclean'
+     Delete all files from the current directory that are created by
+     configuring or building the program.  If you have unpacked the
+     source and built the program without creating any other files,
+     `make distclean' should leave only the files that were in the
+     distribution.
+
+`mostlyclean'
+     Like `clean', but may refrain from deleting a few files that people
+     normally don't want to recompile.  For example, the `mostlyclean'
+     target for GCC does not delete `libgcc.a', because recompiling it
+     is rarely necessary and takes a lot of time.
+
+`maintainer-clean'
+     Delete almost everything from the current directory that can be
+     reconstructed with this Makefile.  This typically includes
+     everything deleted by `distclean', plus more: C source files
+     produced by Bison, tags tables, Info files, and so on.
+
+     The reason we say "almost everything" is that running the command
+     `make maintainer-clean' should not delete `configure' even if
+     `configure' can be remade using a rule in the Makefile.  More
+     generally, `make maintainer-clean' should not delete anything that
+     needs to exist in order to run `configure' and then begin to build
+     the program.  This is the only exception; `maintainer-clean' should
+     delete everything else that can be rebuilt.
+
+     The `maintainer-clean' target is intended to be used by a
+     maintainer of the package, not by ordinary users.  You may need
+     special tools to reconstruct some of the files that `make
+     maintainer-clean' deletes.  Since these files are normally
+     included in the distribution, we don't take care to make them easy
+     to reconstruct.  If you find you need to unpack the full
+     distribution again, don't blame us.
+
+     To help make users aware of this, the commands for the special
+     `maintainer-clean' target should start with these two:
+
+          @echo 'This command is intended for maintainers to use; it'
+          @echo 'deletes files that may need special tools to rebuild.'
+
+`TAGS'
+     Update a tags table for this program.
+
+`info'
+     Generate any Info files needed.  The best way to write the rules
+     is as follows:
+
+          info: foo.info
+          
+          foo.info: foo.texi chap1.texi chap2.texi
+                  $(MAKEINFO) $(srcdir)/foo.texi
+
+     You must define the variable `MAKEINFO' in the Makefile.  It should
+     run the `makeinfo' program, which is part of the Texinfo
+     distribution.
+
+`dvi'
+     Generate DVI files for all Texinfo documentation.  For example:
+
+          dvi: foo.dvi
+          
+          foo.dvi: foo.texi chap1.texi chap2.texi
+                  $(TEXI2DVI) $(srcdir)/foo.texi
+
+     You must define the variable `TEXI2DVI' in the Makefile.  It should
+     run the program `texi2dvi', which is part of the Texinfo
+     distribution.(1)  Alternatively, write just the dependencies, and
+     allow GNU `make' to provide the command.
+
+`dist'
+     Create a distribution tar file for this program.  The tar file
+     should be set up so that the file names in the tar file start with
+     a subdirectory name which is the name of the package it is a
+     distribution for.  This name can include the version number.
+
+     For example, the distribution tar file of GCC version 1.40 unpacks
+     into a subdirectory named `gcc-1.40'.
+
+     The easiest way to do this is to create a subdirectory
+     appropriately named, use `ln' or `cp' to install the proper files
+     in it, and then `tar' that subdirectory.
+
+     Compress the tar file with `gzip'.  For example, the actual
+     distribution file for GCC version 1.40 is called `gcc-1.40.tar.gz'.
+
+     The `dist' target should explicitly depend on all non-source files
+     that are in the distribution, to make sure they are up to date in
+     the distribution.  *Note Making Releases: Releases.
+
+`check'
+     Perform self-tests (if any).  The user must build the program
+     before running the tests, but need not install the program; you
+     should write the self-tests so that they work when the program is
+     built but not installed.
+
+   The following targets are suggested as conventional names, for
+programs in which they are useful.
+
+`installcheck'
+     Perform installation tests (if any).  The user must build and
+     install the program before running the tests.  You should not
+     assume that `$(bindir)' is in the search path.
+
+`installdirs'
+     It's useful to add a target named `installdirs' to create the
+     directories where files are installed, and their parent
+     directories.  There is a script called `mkinstalldirs' which is
+     convenient for this; you can find it in the Texinfo package.  You
+     can use a rule like this:
+
+          # Make sure all installation directories (e.g. $(bindir))
+          # actually exist by making them if necessary.
+          installdirs: mkinstalldirs
+                  $(srcdir)/mkinstalldirs $(bindir) $(datadir) \
+                                          $(libdir) $(infodir) \
+                                          $(mandir)
+
+     This rule should not modify the directories where compilation is
+     done.  It should do nothing but create installation directories.
+
+   ---------- Footnotes ----------
+
+   (1) `texi2dvi' uses TeX to do the real work of formatting. TeX is
+not distributed with Texinfo.
+
+
+File: standards.info,  Node: Releases,  Prev: Makefile Conventions,  Up: Managing Releases
+
+Making Releases
+===============
+
+   Package the distribution of Foo version 69.96 in a gzipped tar file
+named `foo-69.96.tar.gz'.  It should unpack into a subdirectory named
+`foo-69.96'.
+
+   Building and installing the program should never modify any of the
+files contained in the distribution.  This means that all the files
+that form part of the program in any way must be classified into "source
+files" and "non-source files".  Source files are written by humans and
+never changed automatically; non-source files are produced from source
+files by programs under the control of the Makefile.
+
+   Naturally, all the source files must be in the distribution.  It is
+okay to include non-source files in the distribution, provided they are
+up-to-date and machine-independent, so that building the distribution
+normally will never modify them.  We commonly include non-source files
+produced by Bison, `lex', TeX, and `makeinfo'; this helps avoid
+unnecessary dependencies between our distributions, so that users can
+install whichever packages they want to install.
+
+   Non-source files that might actually be modified by building and
+installing the program should *never* be included in the distribution.
+So if you do distribute non-source files, always make sure they are up
+to date when you make a new distribution.
+
+   Make sure that the directory into which the distribution unpacks (as
+well as any subdirectories) are all world-writable (octal mode 777).
+This is so that old versions of `tar' which preserve the ownership and
+permissions of the files from the tar archive will be able to extract
+all the files even if the user is unprivileged.
+
+   Make sure that all the files in the distribution are world-readable.
+
+   Make sure that no file name in the distribution is more than 14
+characters long.  Likewise, no file created by building the program
+should have a name longer than 14 characters.  The reason for this is
+that some systems adhere to a foolish interpretation of the POSIX
+standard, and refuse to open a longer name, rather than truncating as
+they did in the past.
+
+   Don't include any symbolic links in the distribution itself.  If the
+tar file contains symbolic links, then people cannot even unpack it on
+systems that don't support symbolic links.  Also, don't use multiple
+names for one file in different directories, because certain file
+systems cannot handle this and that prevents unpacking the distribution.
+
+   Try to make sure that all the file names will be unique on MS-DOS.  A
+name on MS-DOS consists of up to 8 characters, optionally followed by a
+period and up to three characters.  MS-DOS will truncate extra
+characters both before and after the period.  Thus, `foobarhacker.c'
+and `foobarhacker.o' are not ambiguous; they are truncated to
+`foobarha.c' and `foobarha.o', which are distinct.
+
+   Include in your distribution a copy of the `texinfo.tex' you used to
+test print any `*.texinfo' or `*.texi' files.
+
+   Likewise, if your program uses small GNU software packages like
+regex, getopt, obstack, or termcap, include them in the distribution
+file.  Leaving them out would make the distribution file a little
+smaller at the expense of possible inconvenience to a user who doesn't
+know what other files to get.
+
+
