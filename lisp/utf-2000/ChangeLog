@@ -1,5 +1,9 @@
 2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* update-cdb.el: Renamed from make-cdbs.el.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* make-cdbs.el: (file-name-char-attribute-name) New function.
 	- Use `file-name-char-attribute-name' to get character attribute
 	  names.
