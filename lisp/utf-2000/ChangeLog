@@ -1,5 +1,14 @@
 2005-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el: Add mappings for shinjigen-* numbers.
+	(M-03418): Unify U-00020C3C and H2-CFA1.
+	(U-000210B0): New character.
+	(CB03325): Map to U-000210B0.
+	(CB02828): Unify U-000210D6.
+
+	* Ideograph-R021-Spoon.el (U-0002090E): Use `->subsumptive'.
+	(U+5316): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R029-Again.el (U+53D2): Use `->subsumptive'.
 	(JSP-345A): Add `<-original' for M-03249.
 	(H1-F6F2): Add `<-original' for G0-4A37; add S1-945; separate
