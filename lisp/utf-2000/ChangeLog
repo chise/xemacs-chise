@@ -1,3 +1,10 @@
+2003-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el: Reformatted.
+	(U-00020660): Complete `ideographic-structure'.
+
+	* Ideograph-R009-Man.el: Reformatted.
+
 2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R001-One.el (JC3-41A2): Fixed.
