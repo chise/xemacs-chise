@@ -186,6 +186,19 @@
 	       ;; code-offset ,(lsh #x6200 16)
 	       mother chinese-big5
 	       min-code #x8140 max-code #x8DFE))
+  (make-charset
+   'china3-jef
+   "JEF + CHINA3"
+   `(long-name "JEF + CHINA3 private characters"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "china3jef-0"
+	       min-code #xE80000
+	       max-code #xE8FFFF
+	       code-offset #xE80000))
   )
 
 ;;; mule-conf.el ends here
