@@ -25,9 +25,11 @@
 
 ;;; Code:
 
-(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208-1978)
+(define-charset-alias '=jis-x0208-1978		'=jis-x0208@1978)
+(define-charset-alias 'japanese-jisx0208-1978	'=jis-x0208@1978)
 (define-charset-alias 'chinese-gb2312		'=gb2312)
-(define-charset-alias 'japanese-jisx0208	'=jis-x0208-1983)
+(define-charset-alias '=jis-x0208-1983		'=jis-x0208@1983)
+(define-charset-alias 'japanese-jisx0208	'=jis-x0208@1983)
 (define-charset-alias 'korean-ksc5601		'=ks-x1001)
 (define-charset-alias 'japanese-jisx0212	'=jis-x0212)
 (define-charset-alias 'chinese-cns11643-1	'=cns11643-1)
@@ -135,7 +137,7 @@
 		registry "jisx0213\\(\\.2000\\)-1"
 		dimension 2
 		chars 94
-		mother =jis-x0208-1990
+		mother =jis-x0208@1990
 		final ?O
 		graphic 0))
       (make-charset
@@ -170,11 +172,12 @@
 
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
-  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
+  (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
+  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
-		`(long-name	"Big5-CDP"
+		'(long-name	"Big5-CDP"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -231,7 +234,7 @@
   (make-charset
    '=gt-pj-k1
    "Ideographic parts of GT (pseudo JIS encoding) part 1"
-   `(long-name "GT K1"
+   '(long-name "GT K1"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -242,7 +245,7 @@
   (make-charset
    '=gt-pj-k2
    "Ideographic parts of GT (pseudo JIS encoding) part 2"
-   `(long-name "GT K2"
+   '(long-name "GT K2"
 	       chars 94
 	       dimension 2
 	       columns 2
