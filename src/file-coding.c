@@ -1725,6 +1725,62 @@ do {								\
 /* C should be a binary character in the range 0 - 255; convert
    to internal format and add to Dynarr DST. */
 
+#ifdef UTF2000
+#define DECODE_ADD_BINARY_CHAR(c, dst) \
+do {						\
+  if (BYTE_ASCII_P (c))				\
+    Dynarr_add (dst, c);			\
+  else						\
+    {						\
+      Dynarr_add (dst, (c >> 6) | 0xc0);	\
+      Dynarr_add (dst, (c & 0x3f) | 0x80);	\
+    }						\
+} while (0)
+
+INLINE void
+DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst)
+{
+  if ( c <= 0x7f )
+    {
+      Dynarr_add (dst, c);
+    }
+  else if ( c <= 0x7ff )
+    {
+      Dynarr_add (dst, (c >> 6) | 0xc0);
+      Dynarr_add (dst, (c & 0x3f) | 0x80);
+    }
+  else if ( c <= 0xffff )
+    {
+      Dynarr_add (dst,  (c >> 12) | 0xe0);
+      Dynarr_add (dst, ((c >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (c        & 0x3f) | 0x80);
+    }
+  else if ( c <= 0x1fffff )
+    {
+      Dynarr_add (dst,  (c >> 18) | 0xf0);
+      Dynarr_add (dst, ((c >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (c        & 0x3f) | 0x80);
+    }
+  else if ( c <= 0x3ffffff )
+    {
+      Dynarr_add (dst,  (c >> 24) | 0xf8);
+      Dynarr_add (dst, ((c >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (c        & 0x3f) | 0x80);
+    }
+  else
+    {
+      Dynarr_add (dst,  (c >> 30) | 0xfc);
+      Dynarr_add (dst, ((c >> 24) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((c >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (c        & 0x3f) | 0x80);
+    }
+}
+#else
 #define DECODE_ADD_BINARY_CHAR(c, dst)		\
 do {						\
   if (BYTE_ASCII_P (c))				\
@@ -1740,6 +1796,7 @@ do {						\
       Dynarr_add (dst, c);			\
     }						\
 } while (0)
+#endif
 
 #define DECODE_OUTPUT_PARTIAL_CHAR(ch)	\
 do {					\
@@ -3199,6 +3256,9 @@ Return the UCS code (a positive integer) corresponding to CHARACTER.
   return Fget_char_table (character, mule_to_ucs_table);
 }
 
+#ifdef UTF2000
+#define decode_ucs4 DECODE_ADD_UCS_CHAR
+#else
 /* Decode a UCS-4 character into a buffer.  If the lookup fails, use
    <GETA MARK> (U+3013) of JIS X 0208, which means correct character
    is not found, instead.
@@ -3227,6 +3287,7 @@ decode_ucs4 (unsigned long ch, unsigned_char_dynarr *dst)
       Dynarr_add (dst, 46 + 128);
     }
 }
+#endif
 
 static unsigned long
 mule_char_to_ucs4 (Lisp_Object charset,
@@ -4652,7 +4713,9 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
       else
 	{			/* Graphic characters */
 	  Lisp_Object charset;
+#ifndef UTF2000
 	  int lb;
+#endif
 	  int reg;
 
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
@@ -4695,7 +4758,9 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		    charset = new_charset;
 		}
 
+#ifndef UTF2000
 	      lb = XCHARSET_LEADING_BYTE (charset);
+#endif
 	      switch (XCHARSET_REP_BYTES (charset))
 		{
 		case 1:	/* ASCII */
@@ -4705,25 +4770,37 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 
 		case 2:	/* one-byte official */
 		  DECODE_OUTPUT_PARTIAL_CHAR (ch);
+#ifdef UTF2000
+		  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c, 0), dst);
+#else
 		  Dynarr_add (dst, lb);
 		  Dynarr_add (dst, c | 0x80);
+#endif
 		  break;
 
 		case 3:	/* one-byte private or two-byte official */
 		  if (XCHARSET_PRIVATE_P (charset))
 		    {
 		      DECODE_OUTPUT_PARTIAL_CHAR (ch);
+#ifdef UTF2000
+		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, c, 0), dst);
+#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_1);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, c | 0x80);
+#endif
 		    }
 		  else
 		    {
 		      if (ch)
 			{
+#ifdef UTF2000
+			  DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, ch, c), dst);
+#else
 			  Dynarr_add (dst, lb);
 			  Dynarr_add (dst, ch | 0x80);
 			  Dynarr_add (dst, c | 0x80);
+#endif
 			  ch = 0;
 			}
 		      else
@@ -4734,10 +4811,14 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		default:	/* two-byte private */
 		  if (ch)
 		    {
+#ifdef UTF2000
+		      DECODE_ADD_UCS_CHAR(MAKE_CHAR(charset, ch, c), dst);
+#else
 		      Dynarr_add (dst, PRE_LEADING_BYTE_PRIVATE_2);
 		      Dynarr_add (dst, lb);
 		      Dynarr_add (dst, ch | 0x80);
 		      Dynarr_add (dst, c | 0x80);
+#endif
 		      ch = 0;
 		    }
 		  else
@@ -4933,6 +5014,11 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 	  char_boundary = 1;
 	}
 
+#ifdef UTF2000
+      else if (BUFBYTE_FIRST_BYTE_P (c))
+	{
+	}
+#else
       else if (BUFBYTE_LEADING_BYTE_P (c) || BUFBYTE_LEADING_BYTE_P (ch))
 	{ /* Processing Leading Byte */
 	  ch = 0;
@@ -5036,6 +5122,7 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 	    }
 	  char_boundary = 0;
 	}
+#endif /* not UTF2000 */
       else
 	{			/* Processing Non-ASCII character */
 	  charmask = (half == 0 ? 0x7F : 0xFF);
@@ -5291,12 +5378,17 @@ convert_to_external_format (CONST Bufbyte *ptr,
 
       for (; ptr < end;)
         {
+#ifdef UTF2000
+          Bufbyte c =
+	    (*ptr < 0xc0) ? *ptr :
+	    ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
+#else
           Bufbyte c =
             (BYTE_ASCII_P (*ptr))		   ? *ptr :
             (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
             (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
             '~';
-
+#endif
           Dynarr_add (conversion_out_dynarr, (Extbyte) c);
           INC_CHARPTR (ptr);
         }
