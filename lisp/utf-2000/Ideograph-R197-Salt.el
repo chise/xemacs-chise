@@ -304,6 +304,7 @@
 (define-char
   '((ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 9)
+    (total-strokes	 . 16)
     (=ucs		. #x9E7E)	; é¹¾
     (=gb2312		. #x753A)	; ø»†µ
     ))
