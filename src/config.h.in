@@ -93,7 +93,10 @@ void *alloca ();
 #undef _XOPEN_SOURCE_EXTENDED
 
 /* Make all functions available on AIX.  See AC_AIX. */
+/* Some AIX compilers (cc) pre-define _ALL_SOURCE, some (xlc) don't. */
+#ifndef _ALL_SOURCE
 #undef _ALL_SOURCE
+#endif
 
 /* Make all functions available on GNU libc systems.  See features.h. */
 #undef _GNU_SOURCE
@@ -259,6 +262,7 @@ void *alloca ();
 #undef HAVE_SHL_LOAD
 #undef HAVE_DLD_INIT
 #undef HAVE_SHLIB
+#undef DLSYM_NEEDS_UNDERSCORE
 
 #undef HAVE_LIBINTL
 #undef HAVE_LIBDNET
@@ -828,6 +832,8 @@ on various systems. */
 #undef SIZEOF_LONG
 #undef SIZEOF_LONG_LONG
 #undef SIZEOF_VOID_P
+
+#undef INTPTR_T_IN_CYGWIN_TYPES_H
 
 #ifndef BITS_PER_CHAR
 #define BITS_PER_CHAR 8

@@ -1093,6 +1093,44 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-03-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gutter-items.el (buffers-tab-filter-functions): Improve docstring.
+	Suggested by a Chris Palmer <chris@nodewarrior.org> patch.
+
+2003-02-14  Ben Wing  <ben@xemacs.org>
+
+	* byte-optimize.el:
+	* byte-optimize.el (byte-compile-inline-expand):
+	* byte-optimize.el (byte-compile-unfold-lambda):
+	* byte-optimize.el (byte-optimize-form-code-walker):
+	* byte-optimize.el (byte-optimize-form):
+	* byte-optimize.el (byte-decompile-bytecode-1):
+	* byte-optimize.el (byte-optimize-lapcode):
+	Review carefully and sync up to 20.7 except for areas as noted.
+	Fixes problem with JDE compilation.
+
+2003-02-05  Ben Wing  <ben@xemacs.org>
+
+	* simple.el:
+	* simple.el (motion-keys-for-shifted-motion):
+	Omit M-S-home/end from motion keys.
+
+2003-02-07  Ben Wing  <ben@xemacs.org>
+
+	* text-props.el (text-property-any):
+	* text-props.el (text-property-not-all):
+	Fix bug when end > start.
+
+2003-01-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* info.el (Info-insert-dir): Make default-directory end in
+	separator.  Patch due to Martin Buchholz.
+
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.12 "Portable Code" is released.
