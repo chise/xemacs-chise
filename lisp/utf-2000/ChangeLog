@@ -1,3 +1,9 @@
+2000-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el: Resorted; add missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2000-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el: Use `vulgar-char-of-shinjigen-1'
@@ -35,6 +41,24 @@
 
 	* Ideograph-R001-One.el: Use
 	`{vulgar|original}-char-of-shinjigen-1' instead of `comment'.
+
+2000-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el: Resorted; add missing some Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+2000-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el: Resorted; add missing some
+	Morohashi's Daikanwa characters; add missing `ideographic-strokes'
+	attributes; use `ideographic-strokes' if each stroke attribute has
+	same value.
+
+2000-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el: Resorted; add missing some Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes.
 
 2000-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
