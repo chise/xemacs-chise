@@ -575,6 +575,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  i = XINT (ei);
 	  if ((i < 0) || (255 < i))
 	    signal_simple_error ("Invalid value for coded-charset", value);
+	  if (XCHARSET_GRAPHIC (ccs) == 1)
+	    i &= 0x7F;
 	  i -= XCHARSET_BYTE_OFFSET (ccs);
 	  nv = XVECTOR_DATA(v)[i];
 	  rest = Fcdr (rest);
