@@ -564,6 +564,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  XCHARSET_DECODING_TABLE (ccs) = v = make_vector (ccs_len, Qnil);
 	}
 
+      if (XCHARSET_GRAPHIC (ccs) == 1)
+	value = Fcopy_list (value);
       rest = value;
       i = -1;
       while (CONSP (rest))
@@ -576,7 +578,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  if ((i < 0) || (255 < i))
 	    signal_simple_error ("Invalid value for coded-charset", value);
 	  if (XCHARSET_GRAPHIC (ccs) == 1)
-	    i &= 0x7F;
+	    {
+	      i &= 0x7F;
+	      Fsetcar (rest, make_int (i));
+	    }
 	  i -= XCHARSET_BYTE_OFFSET (ccs);
 	  nv = XVECTOR_DATA(v)[i];
 	  rest = Fcdr (rest);
