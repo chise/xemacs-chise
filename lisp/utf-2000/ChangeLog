@@ -1,5 +1,35 @@
 2003-01-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R001-One.el (JC3-41A2): Fixed.
+
+	* Ideograph-R038-Woman.el: Reformatted.
+	(U+36A2): Use `<-ancient-ideograph' instead of
+	`ancient-ideograph-of'.
+	(U+59C9): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+	* Ideograph-R021-Spoon.el: Reformatted.
+	(U-00020915): Delete `hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R020-Wrap.el: Reformatted.
+	(U-0002F828): Modify the operator of `ideographic-structure'.
+	(J0-4A71): Don't use char-ref for the operator of
+	`ideographic-structure'.
+	(C2-2556): Likewise; modify the operator of
+	`ideographic-structure'.
+
+	* Ideograph-R074-Moon.el: Reformatted.
+
+	* Ideograph-R068-Dipper.el (M-13508): Unify C1-5A7C.
+
+	* Ideograph-R050-Turban.el: Reformatted.
+	(M-09023): Don't use char-ref for the operator of
+	`ideographic-structure'.
+	(U+5E4D): Likewise.
+	(M-09024): Likewise.
+	(U+5E4E): Likewise.
+	(M-09134): Likewise.
+
 	* Ideograph-R037-Big.el: Reformatted.
 
 2003-01-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
