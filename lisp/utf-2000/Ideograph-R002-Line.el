@@ -72,7 +72,7 @@
 (define-char
   '((ucs		. #x4E2C)
     (ideographic-radical . 2)	; ⼁
-    (kangxi-radical . 90)	; ⽙
+    (kangxi-radical	 . 90)	; ⽙
     (ideographic-strokes . 2)
     (kangxi-strokes	 . 0)
     (total-strokes	 . 3)

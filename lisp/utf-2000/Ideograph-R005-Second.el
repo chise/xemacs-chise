@@ -147,7 +147,7 @@
 (define-char
   '((ucs		. #x4E60)
     (ideographic-radical . 5)	; ⼄
-    (kangxi-radical . 15)	; ⼎
+    (kangxi-radical	 . 15)	; ⼎
     (ideographic-strokes . 2)
     (kangxi-strokes	 . 1)
     (total-strokes	 . 3)
@@ -158,7 +158,7 @@
 (define-char
   '((ucs		. #x4E61)
     (ideographic-radical . 5)	; ⼄
-    (kangxi-radical . 52)	; ⼳
+    (kangxi-radical	 . 52)	; ⼳
     (ideographic-strokes . 2)
     (kangxi-strokes	 . 0)
     (total-strokes	 . 3)
@@ -221,7 +221,7 @@
 (define-char
   '((ucs		. #x4E66)
     (ideographic-radical . 5)	; ⼄
-    (kangxi-radical . 2)	; ⼁
+    (kangxi-radical	 . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (non-morohashi	176 9 2)
@@ -363,7 +363,7 @@
 (define-char
   '((ucs		. #x4E70)
     (ideographic-radical . 5)	; ⼄
-    (kangxi-radical . 37)	; ⼤
+    (kangxi-radical	 . 37)	; ⼤
     (ideographic-strokes . 5)
     (kangxi-strokes	 . 3)
     (total-strokes	 . 6)
@@ -655,8 +655,9 @@
   '((ucs		. #x4E80)
     (morohashi-daikanwa	210)
     (ideographic-radical . 5)	; ⼄
-    (cns-radical	 . 213)	; ⿔
+    (kangxi-radical	 . 213)	; ⿔
     (ideographic-strokes . 10)
+    (kangxi-strokes	 . 0)
     (total-strokes	 . 11)
     (comment		. "[JA:name] <vulgar character> of R213:M48847.0")
     (shinjigen-1	. 9917)
