@@ -1,3 +1,13 @@
+2003-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt:
+	- Modify some mappings.
+	- Add some missing mappings.
+
+2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt: Modify some mappings.
+
 2003-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* GT-fmap-K4.txt: New file.
