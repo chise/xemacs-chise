@@ -2458,6 +2458,23 @@
   '((ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 305)
+    (hanyu-dazidian-char . 6)
+    (->identical
+     ((chinese-cns11643-3 . #x3979)	; ø»•»Œ
+      ))
+    (->ideographic-variants
+     ((ideograph-daikanwa . 01596)	; ø¸€˜¼
+      ))
+    (chinese-gb2312	. #x435D)	; ø»„¸¼
+    (chinese-isoir165	. #x435D)	; ø»¡Œ
+    (ucs		. #x5E42)	; å¹‚
+    ))
+(define-char
+  '((ideographic-radical . 50)	; â¼±
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (japanese-jisx0212	. #x3C34)	; ø»‹Œ
     (ucs		. #x5E49)	; å¹‰
     ))
