@@ -1,5 +1,14 @@
 2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c (Vcharacter_variant_table): Deleted.
+	(Fchar_variants): Use character-attribute `->ucs-variants' instead
+	of `Vcharacter_variant_table'.
+	(Fput_char_attribute): Likewise.
+	(vars_of_chartab): Don't setup `Vcharacter_variant_table'.
+	(complex_vars_of_chartab): Likewise.
+
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* lisp.h: Add an EXFUN for `Fchar_ref_p'.
 
 	* fns.c (Qideographic_structure): New variable.
