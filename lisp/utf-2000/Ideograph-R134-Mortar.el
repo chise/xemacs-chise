@@ -19,6 +19,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=cns11643-4	. #x2474)	; ø»—¦•
+    (=jis-x0213-2-2000	. #x755A)	; ø»¦™‘
     (=daikanwa		. 30174)	; ø¸‡—ž
     (=ucs		. #x26951)	; ð¦¥‘
     ))
