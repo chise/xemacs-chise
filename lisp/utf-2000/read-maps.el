@@ -161,9 +161,11 @@
 		(mapcar (lambda (c)
 			  (aref c 0))
 			(split-string tchars " ")))
-	  (put-char-attribute char
-			      '<-simplified@JP/Jouyou
-			      tchars))
+	  (unless (equal (char-feature char '<-simplified@JP/Jouyou)
+			 tchars)
+	    (put-char-attribute char
+				'<-simplified@JP/Jouyou
+				tchars)))
         ;; (put-char-attribute
         ;;  char 'script (adjoin
         ;;                'JP
