@@ -1,4 +1,63 @@
+2002-04-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: Add some
+	mappings for Hanziku code points.
+
+	* Ideograph-R012-Eight.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R011-Enter.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(J0-467E): Unify B-A44A.
+	(U+5165): Separate B-A44A.
+	(C3-2134): Separate U+5166.
+	(U+5166): Unify H12-EB63.
+
+	* Ideograph-R010-Legs.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R008-Lid.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(BC-8BAA): New character.
+	(U+4EA7): Modify `ideographic-structure'.
+	(BC-8C4D): New character.
+
+	* Ideograph-R007-Two.el, Ideograph-R006-Hook.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R002-Line.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(BC-89CD): New character.
+
+	* Ideograph-R001-One.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(U-00020922): Add `ideographic-structure'; separate C6-3524.
+
 2002-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R089-Double-X.el: Use `=>ucs' instead of `->ucs'.
+	(U+3E1A): Separate M-19738; unify JC3-92AB.
+	(U+723C): Add `ideographic-structure'; unify H1-AC46.
+	(JC3-41A4): New character.
+
+	* Ideograph-R018-Knife.el (J83-414F): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+56D8): Unify H2-E47C.
+	(U+5190): Unify H4-DCEE.
 
 	* Ideograph-R095-Profound.el, Ideograph-R094-Dog.el:
 	- Use `=>ucs' instead of `->ucs'.
