@@ -12,6 +12,15 @@
     (ucs		. #x5182)	; å†‚
     ))
 (define-char
+  '((=>ucs		. #x5182)	; å†‚
+    (morohashi-daikanwa	1506 0 1)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (ideograph-gt-pj-k1 . #x3D6D)	; ý¡„€
+    (ideograph-gt-k	. 00079)	; ý¡„€
+    ))
+(define-char
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
@@ -160,6 +169,7 @@
   '((ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (hanyu-dazidian	1 96 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -169,7 +179,29 @@
      ((ucs		  . #x5182)	; å†‚
       ))
     (chinese-isoir165	. #x7A29)	; ø»Ž±Š
+    (chinese-big5	. #xC94E)	; ý¢€Œ¥Ž
     (ucs		. #x5187)	; å†‡
+    ))
+(define-char
+  '((=>ucs		. #x5187)	; å†‡
+    (ideographic-	(:radical	1 ; â¼€
+			 :strokes	3
+			 :sources	(cns-11643))
+			(:radical	13 ; â¼Œ
+			 :strokes	2
+			 :sources	(ucs)))
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; â¿¸
+      )
+     ((ucs		  . #x20087)	; ð ‚‡
+      )
+     ((name		  . "CJK RADICAL BOX")
+      (ucs		  . #x2E86)	; âº†
+      ))
+    (chinese-cns11643-2 . #x212E)	; ø»“Œ­
+    (ucs-cns		. #x5187)	; ø»“Œ­
     ))
 (define-char
   '((=>ucs		. #x5189)	; å†‰
