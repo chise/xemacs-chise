@@ -1535,6 +1535,7 @@
     (=jis-x0213-1-2000	. #x7437)	; ø»¤Œ
     (=big5		. #xD54C)	; ý¢€•Œ
     (=daikanwa		. 09813)	; ø¸‚™•
+    (=jef-china3	. #x4CEF)	; øº„³¯
     (=ucs@jis		. #x5F36)	; ø»‹‡
     (=ucs@big5		. #x5F36)	; ø»‹‡
     ))
@@ -1545,7 +1546,6 @@
     (total-strokes	 . 11)
     (=ucs		. #x5F36)	; å¼¶
     (=cns11643-2	. #x3530)	; ø»“ª‡
-    (=jef-china3	. #x4CEF)	; øº„³¯
     ))
 (define-char
   '((ideographic-radical . 57)	; â¼¸
