@@ -1,3 +1,15 @@
+2004-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (euc-jisx0213): Moved from mule/japanese.el.
+
+	* mule/japanese.el: Move definition of `euc-jisx0213' to
+	mule/mule-coding.el.
+
+2004-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Load mule-charset and
+	mule-coding before loading update-cdb when utf-2000 is provided.
+
 2003-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el: Prefer `=big5-cdp', `=gt' and `=gt-k' to
