@@ -75,4 +75,14 @@ typedef struct Charc
   unsigned short code_point;
 } Charc;
 
+INLINE_HEADER Charc CHAR_TO_CHARC (Emchar ch);
+INLINE_HEADER Charc
+CHAR_TO_CHARC (Emchar ch)
+{
+  Charc cc;
+
+  cc.code_point = encode_char_1 (ch, &cc.charset);
+  return cc;
+}
+
 #endif /* _XEMACS_CHAR_LB_H */

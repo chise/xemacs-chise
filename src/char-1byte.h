@@ -90,6 +90,17 @@ typedef struct Charc
   unsigned char code_point;
 } Charc;
 
+INLINE_HEADER Charc CHAR_TO_CHARC (Emchar ch);
+INLINE_HEADER Charc
+CHAR_TO_CHARC (Emchar ch)
+{
+  Charc cc;
+
+  cc.charset = Vcharset_ascii;
+  cc.code_point = ch;
+  return cc;
+}
+
 
 /************************************************************************/
 /*                            Exported functions                        */
