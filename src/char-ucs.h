@@ -682,6 +682,9 @@ int charset_code_point (Lisp_Object charset, Emchar ch, int defined_only);
 int range_charset_code_point (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
+extern Lisp_Object Vdisplay_coded_charset_priority_use_inheritance;
+extern Lisp_Object Vdisplay_coded_charset_priority_use_hierarchy_order;
+
 EXFUN (Ffind_charset, 1);
 
 INLINE_HEADER int encode_char_1 (Emchar ch, Lisp_Object* charset);
@@ -707,11 +710,41 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
   return encode_builtin_char_1 (ch, charset);
 }
 
+INLINE_HEADER int
+encode_char_2_search_children (Emchar ch, Lisp_Object* charset);
+INLINE_HEADER int
+encode_char_2_search_children (Emchar ch, Lisp_Object* charset)
+{
+  int code_point;
+  Lisp_Object rest;
+
+  rest = Fget_char_attribute (make_char (ch), Q_subsumptive, Qnil);
+  for ( ; !NILP (rest); rest = XCDR (rest) )
+    {
+      Lisp_Object c = XCAR (rest);
+
+      code_point = charset_code_point (*charset, XCHAR (c), 0);
+      if (code_point >= 0)
+	return code_point;
+    }
+  rest = Fget_char_attribute (make_char (ch), Q_denotational, Qnil);
+  for ( ; !NILP (rest); rest = XCDR (rest) )
+    {
+      Lisp_Object c = XCAR (rest);
+
+      code_point = charset_code_point (*charset, XCHAR (c), 0);
+      if (code_point >= 0)
+	return code_point;
+    }
+  return -1;
+}
+
 INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
 INLINE_HEADER int
 encode_char_2 (Emchar ch, Lisp_Object* charset)
 {
   Lisp_Object charsets = Vdefault_coded_charset_priority_list;
+  int code_point;
 
   while (!NILP (charsets))
     {
@@ -719,27 +752,14 @@ encode_char_2 (Emchar ch, Lisp_Object* charset)
       if ( !NILP (*charset)
 	   && (XCHARSET_DIMENSION (*charset) <= 2) )
 	{
-	  int code_point = charset_code_point (*charset, ch, 0);
-	  Lisp_Object rest;
-
+	  code_point = charset_code_point (*charset, ch, 0);
 	  if (code_point >= 0)
 	    return code_point;
 
-	  rest = Fget_char_attribute (make_char (ch), Q_subsumptive, Qnil);
-	  for ( ; !NILP (rest); rest = XCDR (rest) )
+	  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
+	       NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
 	    {
-	      Lisp_Object c = XCAR (rest);
-
-	      code_point = charset_code_point (*charset, XCHAR (c), 0);
-	      if (code_point >= 0)
-		return code_point;
-	    }
-	  rest = Fget_char_attribute (make_char (ch), Q_denotational, Qnil);
-	  for ( ; !NILP (rest); rest = XCDR (rest) )
-	    {
-	      Lisp_Object c = XCAR (rest);
-
-	      code_point = charset_code_point (*charset, XCHAR (c), 0);
+	      code_point = encode_char_2_search_children (ch, charset);
 	      if (code_point >= 0)
 		return code_point;
 	    }
@@ -747,6 +767,24 @@ encode_char_2 (Emchar ch, Lisp_Object* charset)
       charsets = Fcdr (charsets);	      
     }
   
+  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
+       !NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
+    {
+      charsets = Vdefault_coded_charset_priority_list;
+      while (!NILP (charsets))
+	{
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if ( !NILP (*charset)
+	       && (XCHARSET_DIMENSION (*charset) <= 2) )
+	    {
+	      code_point = encode_char_2_search_children (ch, charset);
+	      if (code_point >= 0)
+		return code_point;
+	    }
+	  charsets = Fcdr (charsets);	      
+	}
+    }
+
   /* otherwise --- maybe for bootstrap */
   return encode_builtin_char_1 (ch, charset);
 }
