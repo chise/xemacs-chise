@@ -1110,7 +1110,7 @@
 		      (let ((ucs (get-char-attribute char '->ucs)))
 			(if ucs
 			    (delete char (char-variants (int-char ucs)))))))
-	variant vs)
+	variant vs ret)
     (setq variants (sort variants #'<))
     (while variants
       (setq variant (car variants))
@@ -1120,8 +1120,15 @@
 	       (or (null excluded-script)
 		   (null (setq vs (get-char-attribute variant 'script)))
 		   (not (memq excluded-script vs))))
-	  (or (and no-ucs-unified (get-char-attribute variant '=ucs))
-	      (insert-char-data variant printable)))
+	  (unless (and no-ucs-unified (get-char-attribute variant '=ucs))
+	    (insert-char-data variant printable)
+	    (if (setq ret (char-variants variant))
+		(while ret
+		  (or (memq (car ret) variants)
+		      (get-char-attribute (car ret) '<-subsumptive)
+		      (setq variants (append variants (list (car ret)))))
+		  (setq ret (cdr ret))))
+	    ))
       (setq variants (cdr variants))
       )))
 
