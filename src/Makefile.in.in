@@ -53,6 +53,7 @@ RECURSIVE_MAKE=@RECURSIVE_MAKE@
 
 SHELL=/bin/sh
 RM = rm -f
+TAR = tar
 
 lispdir = ${srcdir}/../lisp/
 moduledir = ${srcdir}/../modules/
@@ -758,8 +759,8 @@ install: ${PROGNAME}
 		done; \
 		test -d s && hdrtars="$$hdrtars s/*"; \
 		test -d m && hdrtars="$$hdrtars m/*"; \
-		test -n "$$hdrtars" && (tar cf - $$hdrtars) | \
-			(cd ${archlibdir}/include && umask 022 && tar xf -); \
+		test -n "$$hdrtars" && (${TAR} cf - $$hdrtars) | \
+			(cd ${archlibdir}/include && umask 022 && ${TAR} xf -); \
 		chmod 755 ${archlibdir}/include; \
 		test -d ${archlibdir}/include/s && \
 		  chmod 755 ${archlibdir}/include/s; \

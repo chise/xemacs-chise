@@ -681,8 +681,6 @@ mswindows_make_dialog_box_internal (struct frame* f, Lisp_Object type,
     return mswindows_handle_print_dialog_box (f, keys);
   else if (EQ (type, Qpage_setup))
     return mswindows_handle_page_setup_dialog_box (f, keys);
-  else if (EQ (type, Qprint_setup))
-    return mswindows_handle_print_setup_dialog_box (f, keys);
   else
     signal_type_error (Qunimplemented, "Dialog box type", type);
   return Qnil;

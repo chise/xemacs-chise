@@ -1,3 +1,26 @@
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-07-18  Paul Krause  <pkrause@soundbite.com>
+
+	* xemacs.mak (DEPEND): defined(_) isn't a reliable method for
+	detecting if perl is from cygwin. Check $OSNAME as a backup.
+
+2001-06-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs.mak (HAVE_ZLIB): New, defaults to HAVE_PNG.
+	(USE_MINITAR): Default to HAVE_ZLIB.
+	(MSW_LIBS): Add comctl32.lib if HAVE_WIDGETS.
+	(mostlyclean, nicenclean, distclean, versionclean): Only one target
+	per invocation of $(DEL); don't use unneeded switches (WinME support).
+
+2001-05-23  Ben Wing  <ben@xemacs.org>
+
+	* xemacs.mak (installation):
+	call `ver' to get the exact os version and put it in the
+	installation; suggestion from adrian.
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

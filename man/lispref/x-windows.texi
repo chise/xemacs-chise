@@ -130,7 +130,7 @@ object that the database is searched for.
 
 @item
 The fourth arg is the locale to search for the resources on, and can
-currently be a a buffer, a frame, a device, or the symbol @code{global}.
+currently be a buffer, a frame, a device, or the symbol @code{global}.
 If omitted, it defaults to @code{global}.
 
 @item

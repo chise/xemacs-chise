@@ -1,3 +1,12 @@
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-04-17  Isaac Hollander  <ysh@mindspring.com>
+
+	* gnuserv.c (setup_table): fix 2 signed/unsigned mismatches
+	* gnuslib.c (connect_to_internet_server): fix signed/unsigned mismatch
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

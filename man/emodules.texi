@@ -653,17 +653,17 @@ The above @file{Makefile} is, in fact, complete, and would compile the
 sample module, and optionally install it.  The @code{--mod-location}
 argument to @code{ellcc} will produce, on the standard output, the base
 location of the @value{emacs} module directory.  Each sub-directory of that
-directory is automatically searched for for modules when they are loaded
-with @code{load-module}.  An alternative location would be
-@file{/usr/local/lib/xemacs/site-modules}.  That path can change
-depending on the options the person who compiled @value{emacs} chose, so you
-can always determine the correct site location using the
-@code{--mod-site-location} option.  This directory is treated the same
-way as the main module directory.  Each sub-directory within it is
-searched for a given module when the user attempts to load it.  The
-valid extensions that the loader attempts to use are @file{.so},
-@file{.ell} and @file{.dll}.  You can use any of these extensions,
-although @file{.ell} is the preferred extension.
+directory is automatically searched for modules when they are loaded with
+@code{load-module}.  An alternative location would be
+@file{/usr/local/lib/xemacs/site-modules}.  That path can change depending
+on the options the person who compiled @value{emacs} chose, so you can
+always determine the correct site location using the
+@code{--mod-site-location} option.  This directory is treated the same way
+as the main module directory.  Each sub-directory within it is searched for
+a given module when the user attempts to load it.  The valid extensions that
+the loader attempts to use are @file{.so}, @file{.ell} and @file{.dll}.  You
+can use any of these extensions, although @file{.ell} is the preferred
+extension.
 
 @node Link Mode, Other ellcc options, Initialization Mode, Using ellcc
 @section Link Mode

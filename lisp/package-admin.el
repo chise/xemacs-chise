@@ -104,6 +104,16 @@ is already implicit, as `looking-at' is used.  Filenames can,
 unfortunately, contain spaces, so be careful in constructing any
 regexps.")
 
+(defvar package-install-hook nil
+  "*List of hook functions to be called when a new package is successfully
+installed. The hook function is passed two arguments: the package name, and
+the install directory.")
+
+(defvar package-delete-hook nil
+  "*List of hook functions to be called when a package is deleted. The
+hook is called *before* the package is deleted. The hook function is passed
+two arguments: the package name, and the install directory.")
+
 ;;;###autoload
 (defun package-admin-add-single-file-package (file destdir &optional pkg-dir)
   "Install a single file Lisp package into XEmacs package hierarchy.
@@ -402,6 +412,7 @@ PACKAGE is a symbol, not a string."
   (let ( (tmpbuf " *pkg-manifest*") manifest-file package-lispdir dirs file)
     (setq pkg-topdir (package-admin-get-install-dir package pkg-topdir))
     (setq manifest-file (package-admin-get-manifest-file pkg-topdir package))
+    (run-hook-with-args 'package-delete-hook package pkg-topdir)
     (if (file-exists-p manifest-file)
 	(progn
 	  ;; The manifest file exists!  Use it to delete the old distribution.
@@ -428,7 +439,7 @@ PACKAGE is a symbol, not a string."
 		  ;; Make sure that the file is writable.
 		  ;; (This is important under MS Windows.)
 		  ;; I do not know why it important under MS Windows but
-		  ;;    1. It bombs out out when the file does not exist. This can be condition-cased
+		  ;;    1. It bombs out when the file does not exist. This can be condition-cased
 		  ;;    2. If I removed the write permissions, I do not want XEmacs to just ignore them.
 		  ;;       If it wants to, XEmacs may ask, but that is about all
 		  ;; (set-file-modes file 438) ;; 438 -> #o666

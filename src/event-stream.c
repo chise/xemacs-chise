@@ -3785,8 +3785,8 @@ is_scrollbar_event (Lisp_Object event)
 	  EQ (fun, Qscrollbar_to_right) ||
 	  EQ (fun, Qscrollbar_horizontal_drag));
 #else
-  return 0
-#endif
+  return 0;
+#endif /* HAVE_SCROLLBARS */
 }
 
 static void

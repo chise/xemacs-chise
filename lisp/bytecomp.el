@@ -3190,7 +3190,9 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (defun byte-compile-arithcompare (form)
   (case (length (cdr form))
     (0 (byte-compile-subr-wrong-args form "1 or more"))
-    (1 (byte-compile-constant t))
+    (1 (if byte-compile-delete-errors
+	   (byte-compile-constant t)
+	 (byte-compile-normal-call form)))
     (2 (byte-compile-two-args form))
     (t (byte-compile-normal-call form))))
 

@@ -4926,6 +4926,9 @@ specbind_magic (Lisp_Object symbol, Lisp_Object value)
   Fset (symbol, value);
 }
 
+/* Note: As long as the unwind-protect exists, its arg is automatically
+   GCPRO'd. */
+
 void
 record_unwind_protect (Lisp_Object (*function) (Lisp_Object arg),
                        Lisp_Object arg)

@@ -133,13 +133,10 @@ Boston, MA 02111-1307, USA.  */
 
 #ifndef NOT_C_CODE
 #include <stdlib.h>
-#include <mingw/process.h>
+#include <../mingw/process.h>
 #define mkdir __mkdir
 #include <dir.h>
 #undef mkdir
-#ifdef HAVE_CYGWIN_VERSION_H
-#include <cygwin/version.h>
-#endif
 
 /* IO calls that are emulated or shadowed */
 #define pipe    sys_pipe
@@ -191,11 +188,6 @@ uid_t getuid (void);
 uid_t geteuid (void);
 gid_t getgid (void);
 gid_t getegid (void);
-
-#if CYGWIN_VERSION_DLL_MAJOR <= 21
-#define _ftime ftime
-#define _timeb timeb
-#endif
 
 /* Stuff that gets set wrongly or otherwise */
 #define HAVE_SETITIMER

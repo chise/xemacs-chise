@@ -63,8 +63,14 @@ void gettimeofday (struct timeval *, struct timezone *);
 
 #endif /* WIN32_NATIVE */
 
+/* struct utimbuf */
+
 #ifdef HAVE_UTIME
 # include <utime.h>
+#endif
+
+#ifdef WIN32_NATIVE
+# include <sys/utime.h>
 #endif
 
 #if defined(HAVE_TZNAME) && !defined(WIN32_NATIVE) && !defined(CYGWIN)
@@ -228,7 +234,9 @@ do {								\
 #define EMACS_SET_SECS_USECS(time, secs, usecs) 		\
   (EMACS_SET_SECS (time, secs), EMACS_SET_USECS (time, usecs))
 
-int set_file_times (char *filename, EMACS_TIME atime, EMACS_TIME mtime);
+#ifdef emacs
+int set_file_times (Lisp_Object path, EMACS_TIME atime, EMACS_TIME mtime);
+#endif
 
 void get_process_times (double *user_time, double *system_time,
 			double *real_time);

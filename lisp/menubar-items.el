@@ -147,8 +147,9 @@ which will not be used as accelerators."
        :active (or (valid-specifier-tag-p 'msprinter)
 		   (and (not (eq system-type 'windows-nt))
 			(fboundp 'lpr-region)))
-       :suffix (if put-buffer-names-in-file-menu (concat (buffer-name) "...")
-		 "...")]
+       :suffix (if (region-active-p) "Selection..."
+		 (if put-buffer-names-in-file-menu (concat (buffer-name) "...")
+		   "..."))]
       ,@(unless (eq system-type 'windows-nt)
 	  '(["Prett%_y-Print" ps-print-buffer-with-faces
 	     :active (fboundp 'ps-print-buffer-with-faces)

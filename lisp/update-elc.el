@@ -165,7 +165,7 @@
   )
 
 (setq update-elc-files-to-compile (append update-elc-files-to-compile
-					  processed))
+					  (nreverse processed)))
 
 ;; (print (prin1-to-string update-elc-files-to-compile))
 

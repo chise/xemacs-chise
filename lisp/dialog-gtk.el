@@ -69,7 +69,8 @@
     (gtk-widget-show-all widget)
     (gtk-main)
     (if (not clicked-ok)
-	(signal 'quit nil))))
+	(signal 'quit nil)
+      filename)))
 
 (defalias 'popup-builtin-save-as-dialog 'popup-builtin-open-dialog)
 

@@ -1253,6 +1253,26 @@ gtk_event_to_emacs_event (struct frame *frame, GdkEvent *gdk_event, struct Lisp_
 	if (*state & gd->HyperMask)  modifiers |= XEMACS_MOD_HYPER;
 	if (*state & gd->AltMask)    modifiers |= XEMACS_MOD_ALT;
 
+	{
+	  int numero_de_botao = -1;
+
+	  if (!key_event_p)
+	    numero_de_botao = gdk_event->button.button;
+
+	  /* the button gets noted either in the button or the modifiers
+	     field, but not both. */
+	  if (numero_de_botao != 1 && (*state & GDK_BUTTON1_MASK))
+	    modifiers |= XEMACS_MOD_BUTTON1;
+	  if (numero_de_botao != 2 && (*state & GDK_BUTTON2_MASK))
+	    modifiers |= XEMACS_MOD_BUTTON2;
+	  if (numero_de_botao != 3 && (*state & GDK_BUTTON3_MASK))
+	    modifiers |= XEMACS_MOD_BUTTON3;
+	  if (numero_de_botao != 4 && (*state & GDK_BUTTON4_MASK))
+	    modifiers |= XEMACS_MOD_BUTTON4;
+	  if (numero_de_botao != 5 && (*state & GDK_BUTTON5_MASK))
+	    modifiers |= XEMACS_MOD_BUTTON5;
+	}	
+
 	/* Ignore the Caps_Lock key if:
 	   - any other modifiers are down, so that Caps_Lock doesn't
 	   turn C-x into C-X, which would suck.
@@ -1373,7 +1393,13 @@ gtk_event_to_emacs_event (struct frame *frame, GdkEvent *gdk_event, struct Lisp_
         if (mask & gd->MetaMask)	modifiers |= XEMACS_MOD_META;
         if (mask & gd->SuperMask)	modifiers |= XEMACS_MOD_SUPER;
         if (mask & gd->HyperMask)	modifiers |= XEMACS_MOD_HYPER;
-        if (mask & gd->AltMask)	modifiers |= XEMACS_MOD_ALT;
+        if (mask & gd->AltMask)		modifiers |= XEMACS_MOD_ALT;
+        if (mask & GDK_BUTTON1_MASK)	modifiers |= XEMACS_MOD_BUTTON1;
+        if (mask & GDK_BUTTON2_MASK)	modifiers |= XEMACS_MOD_BUTTON2;
+        if (mask & GDK_BUTTON3_MASK)	modifiers |= XEMACS_MOD_BUTTON3;
+        if (mask & GDK_BUTTON4_MASK)	modifiers |= XEMACS_MOD_BUTTON4;
+        if (mask & GDK_BUTTON5_MASK)	modifiers |= XEMACS_MOD_BUTTON5;
+
         /* Currently ignores Shift_Lock but probably shouldn't
            (but it definitely should ignore Caps_Lock). */
         emacs_event->event.motion.modifiers = modifiers;

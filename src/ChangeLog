@@ -4359,6 +4359,209 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-07-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* event-msw.c (mswindows_wnd_proc): Add GC debugging assert.
+
+2001-07-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* config.h.in (IPV6_CANONICALIZE): New #define for --with-ipv6-lookup.
+	* process-unix.c (unix_canonicalize_host_name):
+	sysdep.c (init_system_name):
+	Use it to conditionally support IPv6 canonicalization.
+
+2001-05-31  Paul Stodghill  <stodghil@cs.cornell.edu>
+
+	* event-msw.c:
+	Cygwin does not define WM_IME_xxx. Modify the #if's accordingly.
+
+2001-05-19  Paul Krause  <paulkrause1@mediaone.net>
+
+	* scrollbar-msw.c: Fixes a crash that occurs on Windows when an
+	attempt is made to scroll when no scroll bar is available.
+
+2001-04-19  Glynn Clements  <glynn.clements@virgin.net>
+
+	* input-method-motif.c (XIM_delete_frame): New callback.
+	(XIM_init_frame): Register it.  (Reapplied by SJT, it somehow
+	got deleted from 21.4.3.)
+
+2001-06-01  Ben Wing  <ben@xemacs.org>
+
+	* nt.c (mswindows_utime):
+	* nt.c (close_file_data):
+	fix off-by-one-indirection error.
+
+2001-05-29  Adrian Aichner  <adrian@xemacs.org>
+
+	* fileio.c: Include nt.h.  Remove lisp_string_set_file_times()
+	because set_file_times() now takes Lisp_Object path, instead of
+	char*.
+	* nt.c: Include buffer.h.
+	* nt.c (convert_from_time_t): New.
+	* nt.c (mswindows_utime): New.  Use utime, since SetFileTime does
+	not set mtime correctly.
+	* nt.h: Declare mswindows_utime().
+	* sysdep.c (set_file_times): set_file_times() now takes Lisp_Object
+	path, instead of char*.
+	* systime.h: Include <sys/utime.h> on WIN32_NATIVE.
+
+2001-05-30  Ben Wing  <ben@xemacs.org>
+
+	For 21.4:
+
+	(Stephen, just take all event-msw.c patches.  This includes
+	the "iconify" fix below.)
+
+	* event-msw.c:
+	* event-msw.c (mswindows_dequeue_dispatch_event):
+	* event-msw.c (assert):
+	* event-msw.c (emacs_mswindows_quit_p):
+	* event-msw.c (debug_mswin_messages):
+	* event-msw.c (debug_output_mswin_message):
+	* event-msw.c (vars_of_event_mswindows):
+	Fix yet more problems with C-g handling.
+	Implement debug-mswindows-events.
+	
+2001-05-24  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* event-msw.c (WM_DROPFILES): Use correct type for OLE characters.
+	
+2001-05-23  Ben Wing  <ben@xemacs.org>
+
+	* event-msw.c (winsock_writer):
+	* event-msw.c (winsock_closer):
+	prior kludgy code was clobbering the buffer, thinking it was
+	"unused" space to store an unneeded return value; instead, use
+	the variable we've already got staring us in the face.
+
+2001-05-17  Andy Piper  <andy@xemacs.org>
+
+	* sysfile.h: don't assume that file attributes are boolean
+
+2001-05-23  Ben Wing  <ben@xemacs.org>
+
+	* device-msw.c (msprinter_init_device):
+	signal an error rather than crash with an unavailable network
+	printer (from Mike Alexander).
+	
+	* event-msw.c:
+	* event-msw.c (struct winsock_stream):
+	* event-msw.c (winsock_writer):
+	* event-msw.c (winsock_closer):
+	* event-msw.c (make_winsock_stream_1):
+	cleanup headers.  fix (hopefully) an error with data corruption
+	when sending to a network connection.
+
+	* fileio.c (Fexpand_file_name): Fix evil code that attempts
+	to handle the ~user prefix by (a) always assuming we're referencing
+	ourselves and not even verifying the user -- hence any file with
+	a tilde as its first char is invalid! (b) if there wasn't a slash
+	following the filename, the pointer was set *past* the end of
+	file and we started reading from uninitialized memory.  Now we
+	simply treat these as files, always.
+
+	* buffer.c (common_init_complex_vars_of_buffer): comment change.
+	
+2001-05-19  Ben Wing  <ben@xemacs.org>
+
+	* eval.c: doc comment about gcpro'ing in record_unwind_protect.
+
+	* process-nt.c:
+	* process-nt.c (vars_of_process_nt):
+	remove unused mswindows-quote-process-args.  rec for 21.4.
+	
+2001-05-12  Ben Wing  <ben@xemacs.org>
+
+	* event-msw.c (mswindows_dde_callback):
+	* event-msw.c (mswindows_wnd_proc):
+	eliminate cygwin warnings.
+
+2001-05-06  Ben Wing  <ben@xemacs.org>
+
+	* console-msw.h:
+	* device-msw.c:
+	* device-msw.c (print_dialog_worker):
+	* device-msw.c (mswindows_handle_print_dialog_box):
+	* device-msw.c (syms_of_device_mswindows):
+	* dialog-msw.c (mswindows_make_dialog_box_internal):
+	* general-slots.h:
+	implement printing the selection when it's selected.
+
+2001-05-20  Drazen Kacar  <dave@arsdigita.com>
+
+	* glyphs-gtk.c (gtk_resource_instantiate): C++ comment -> #if 0
+
+2001-05-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* lisp.h (EMACS_INT_MAX): This should be one bit less since
+	EMACS_INT is signed.
+
+2001-04-15  Michael Lausch  <mla@1012surf.net>
+
+	* scrollbar-gtk.c (gtk_create_scrollbar_instance): Call
+	gtk_widget_request_size() to give scrollbar >0 width for
+	GTK >1.2.8.
+
+2001-05-30  William M. Perry  <wmperry@gnu.org>
+
+	* event-gtk.c: Check for buttons as modifier keys.
+
+2001-05-25  Craig Lanning  <CraigL@Knology.net>
+
+	* s\mingw32.h:
+	Properly find MinGW's <process.h> inside Cygwin's restructured
+	include directories.  Don't try to include <cygwin/version.h>
+	since we are dropping support for MinGW in versions of Cygwin
+	earlier than b21.
+	* nt.c:
+	Drop support for MinGW in versions of Cygwin before b21.
+	* sysdep.c:
+	Properly find MinGW's <process.h> inside Cygwin's restructured
+	include directories.
+	* syswindows.h:
+	Drop support for MinGW in versions of Cygwin before b21.
+	* unexcw.c:
+	Even though a.out.h is no longer detected by configure, allow
+	MinGW to use it until we figure out how to do the job with Win32.
+
+2001-07-11  Matt Tucker  <tuck@whistlingfish.net>
+
+	* syntax.c (find_start_of_comment):
+	Fix `unbalanced parentheses' bug when dealing with mixed comment
+	styles in c++/java/etc. mode
+
+2001-05-29  Mike Alexander  <mta@arbortext.com>
+
+	* console-msw.h (FRAME_MSPRINTER_CHARHEIGHT): Unswap
+	FRAME_MSPRINTER_CHARWIDTH and FRAME_MSPRINTER_CHARHEIGHT
+
+2001-05-17  Andrew Begel  <abegel@eecs.berkeley.edu>
+
+	* lrecord.h (INIT_EXTERNAL_LRECORD_IMPLEMENTATION): Add needed cast.
+
+2001-03-31  Mike Sperber <mike@xemacs.org>
+
+	* search.c (Freplace_match): Support FSF-style specification of
+	match subexpression when applied to a buffer.
+
+2001-05-27  Karl M. Hegbloom  <karlheg@hegbloom.net>
+
+	* event-stream.c (is_scrollbar_event): add missing semicolon
+
+2001-05-22  Isaac Hollander  <ysh@mindspring.com>
+
+	* Makefile.in.in: Use TAR macro instead of hardcoding
+	  tar.  Allows use of GNU tar instead of system tar
+
+2001-05-27  Karl M. Hegbloom  <karlheg@hegbloom.net>
+
+	* event-stream.c (is_scrollbar_event): add missing semicolon
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

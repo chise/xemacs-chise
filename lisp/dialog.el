@@ -189,12 +189,10 @@ The keywords allowed for `general' are
 
 :spec
   The widget spec -- anything that can be passed to `make-glyph'.
-
 :title
   The title of the frame.
 :parent
   The frame is made a child of this frame (defaults to the selected frame).
-
 :properties
   Additional properties of the frame, as well as `dialog-frame-plist'.
 
@@ -276,31 +274,42 @@ The keywords allowed are
   An 'msprinter device.
 :print-settings
   A printer settings object.
+:allow-selection
+  t or nil -- whether the \"Selection\" button is enabled (defaults to nil).
+:allow-pages
+  t or nil -- whether the \"Pages\" button and associated edit controls
+  are enabled (defaults to t).
+:selected-page-button
+  `all', `selection', or `pages' -- which page button is initially
+  selected.
 
-Exactly one of these keywords must be given.
+Exactly one of :device and :print-settings must be given.
 
 The function brings up the Print dialog, where the user can
 select a different printer and/or change printer options.  Connection
 name can change as a result of selecting a different printer device.  If
 a device is specified, then changes are stored into the settings object
 currently selected into that printer.  If a settings object is supplied,
-then changes are recorded into it, and, it it is selected into a
+then changes are recorded into it, and, it is selected into a
 printer, then changes are propagated to that printer 
 too.
 
 Return value is nil if the user has canceled the dialog.  Otherwise, it
 is a new plist, with the following properties:
-  name       Printer device name, even if unchanged by the user.
-  from-page  First page to print, 1-based. If not specified by the user,
-             then this value is not included in the plist.
-  to-page    Last page to print, inclusive, 1-based. If not specified by
-             the user, then this value is not included in the plist.
-  copies     Number of copies to print.  Always returned.
+  name                   Printer device name, even if unchanged by the user.
+  from-page              First page to print, 1-based.  Returned if
+                         `selected-page-button' is `pages'.
+                         user, then this value is not included in the plist.
+  to-page                Last page to print, inclusive, 1-based.  Returned if
+                         `selected-page-button' is `pages'.
+  copies                 Number of copies to print.  Always returned.
+  selected-page-button   Which page button was selected (`all', `selection',
+                         or `pages').
 
 The DEVICE is destroyed and an error is signaled in case of
 initialization problem with the new printer.
 
-See also the `page-setup' and `print-setup' dialog boxes.
+See also the `page-setup' dialog box type.
 
 ---------------------------------------------------------------------------
 
@@ -329,7 +338,7 @@ can select a different printer and/or change printer options.
 Connection name can change as a result of selecting a different printer
 device.  If a device is specified, then changes are stored into the
 settings object currently selected into that printer.  If a settings
-object is supplied, then changes are recorded into it, and, it it is
+object is supplied, then changes are recorded into it, and, it is
 selected into a printer, then changes are propagated to that printer
 too.
 
@@ -346,42 +355,7 @@ into the print-settings or device object.
 The DEVICE is destroyed and an error is signaled in case of
 initialization problem with the new printer.
 
-See also the `print' and `print-setup' dialogs.
-
----------------------------------------------------------------------------
-
-For type `print-setup':
-
-This invokes the Windows standard Print Setup dialog.
-This dialog is usually invoked when the user selects the Printer Setup
-command.
-
-The keywords allowed are
-
-:device
-  An 'msprinter device.
-:print-settings
-  A printer settings object.
-
-Exactly one of these keywords must be given.
-
-The function brings up the Print Setup dialog, where the user
-can select a different printer and/or change printer options.
-Connection name can change as a result of selecting a different printer
-device.  If a printer is specified, then changes are stored into the
-settings object currently selected into that printer.  If a settings
-object is supplied, then changes are recorded into it, and, it it is
-selected into a printer, then changes are propagated to that printer
-too.
-
-Return value is nil if the user has canceled the dialog.  Otherwise, it
-is a new plist, with the following properties:
-  name       Printer device name, even if unchanged by the user.
-
-The printer device is destroyed and an error is signaled if new printer
-is selected by the user, but cannot be initialized.
-
-See also the `print' and `page-setup' dialogs.
+See also the `print' dialog box type.
 
 ---------------------------------------------------------------------------
 

@@ -156,6 +156,10 @@ Keymap for characters following C-c.")
 (define-key global-map (vector help-char) 'help-command)
 (define-key global-map 'help 'help-command)
 (define-key global-map 'f1 'help-command)
+;; This is a failsafe mechanism, esp. on TTY's, in case the terminal is
+;; somewhat broken and f1 keys can't work, and backspace is redefined to
+;; do backspace.
+(define-key global-map '(meta ??) 'help-command)
 
 ;; FSFmacs indent.el
 

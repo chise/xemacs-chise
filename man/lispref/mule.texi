@@ -442,12 +442,17 @@ This function returns the CCL program, if any, for converting
 position codes of characters in @var{charset} into font indices.
 @end defun
 
-  The only property of a charset that can currently be set after
-the charset has been created is the CCL program.
+  The two properties of a charset that can currently be set after the
+charset has been created are the CCL program and the font registry.
 
 @defun set-charset-ccl-program charset ccl-program
 This function sets the @code{ccl-program} property of @var{charset} to
 @var{ccl-program}.
+@end defun
+
+@defun set-charset-registry charset registry
+This function sets the @code{registry} property of @var{charset} to
+@var{registry}.
 @end defun
 
 @node Predefined Charsets, , Charset Property Functions, Charsets
@@ -501,8 +506,8 @@ chinese-cns11643-7       94x94 M  0  l2r CNS11643.1
 ethiopic                 94x94 2  0  l2r Ethio
 ascii-r2l                94    B  0  r2l ISO8859-1
 ipa                      96    0  1  l2r MuleIPA
-vietnamese-lower         96    1  1  l2r VISCII1.1
-vietnamese-upper         96    2  1  l2r VISCII1.1
+vietnamese-viscii-lower  96    1  1  l2r VISCII1.1
+vietnamese-viscii-upper  96    2  1  l2r VISCII1.1
 @end example
 
 For all of the above charsets, the dimension and number of columns are

@@ -707,6 +707,122 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-07-10  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* mule/kinsoku.el (kinsoku-bol-p): Work with ascii and non-ascii
+	mixed text.
+	(kinsoku-eol-p): Ditto.
+
+2001-07-09  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* mule/kinsoku.el (kinsoku-ascii-eol, kinsoku-gb-bol,
+	kinsoku-gb-eol, kinsoku-big5-bol, kinsoku-big5-eol): Assign
+	characters as the category `s' or `e' correctly.
+
+2001-06-06  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* mule/cyrillic.el: Uncomment definition of ccl-encode-koi8-r-font.
+
+2001-06-14  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* mule/cyrillic.el:  Set up case table.
+
+2001-06-08  Mike Sperber <mike@xemacs.org>
+
+	* files.el (save-some-buffers-1): Don't zap the help window right
+	after `map-y-or-n-p' has popped it up.
+
+2001-06-15  Nick Pakoulin  <npak@ispras.ru>
+
+	* help.el (frob-help-extents): Require 'hyper-apropos for faces.
+
+2001-07-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* specifier.el: define-specifier-tag 'gtk.
+
+2001-05-12  Ben Wing  <ben@xemacs.org>
+
+	* find-paths.el (paths-find-recursive-path):
+	fix error with null EXCLUDE-REGEXP.
+	
+	* font-lock.el (font-lock-mode):
+	fix problem reported by hrvoje with buffers starting with a space.
+	
+2001-05-06  Ben Wing  <ben@xemacs.org>
+
+	* dialog.el (make-dialog-box):
+	* menubar-items.el (default-menubar):
+	* printer.el (generic-print-buffer):
+	* printer.el (generic-print-region):
+	implement printing the selection when it's selected.
+
+2001-04-18  Didier Verna  <didier@xemacs.org>
+
+	* cus-edit.el (Custom-reset-standard): reset to standard settings
+	not only when the buffer's :custom-state is 'modified, but also
+	when it is 'set or 'saved.
+
+2001-04-17  Didier Verna  <didier@xemacs.org>
+
+	* startup.el (load-user-init-file): define `custom-file' before
+	loading the user's init file.
+
+2001-04-09  Danny Colascione  <qtmstr@optonline.net>
+
+	* menubar.el (popup-mode-menu): Make it work with
+	popup-menu-titles turned off.
+	
+2001-04-24  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* about.el (about-mailto-link): Use compose-mail for sending mail.
+
+2001-07-14  Sean MacLennan  <seanm@storm.ca>
+
+	* package-admin.el (package-install-hook): New.
+	(package-delete-hook): New.
+	(package-admin-add-single-file-package): Use package-delete-hook.
+
+	* package-get.el (package-get): Use package-install-hook.
+
+2001-06-26  Robert Pluim  <rpluim@bigfoot.com>
+
+	* package-ui.el (pui-install-selected-packages): reverse the lists
+	of packages so that they get handled in the same order as they
+	were selected.
+
+2001-06-26  Robert Pluim  <rpluim@bigfoot.com>
+
+	* packages.el (locate-library): Use read-library-name for completion.
+
+2001-05-21  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (=): `=' is not a binary predicate!
+	Fix incorrect optimization: (= 0 0 (random 2)) ==> 0 or 1.
+	Use byte-optimize-predicate, not byte-optimize-binary-predicate,
+
+2001-05-20  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecomp.el (byte-compile-arithcompare):
+	Only optimize (= x) ==> t if byte-compile-delete-errors is not nil.
+
+2001-06-03  William M. Perry  <wmperry@gnu.org>
+
+	* dialog-gtk.el (popup-builtin-open-dialog): Don't forget to
+	return the filename selected by the user!
+
+2001-05-31  William M. Perry  <wmperry@gnu.org>
+
+	* font-menu.el: Avoid arithmetic with 'nil' when using the font menu
+	in XEmacs/GTK.
+
+2001-05-29  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* coding.el: Tiny typo fixed.
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.
@@ -1280,6 +1396,13 @@
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-12  Nick V. Pakoulin  <npak@ispras.ru>
+
+	* cl-macs.el (cl-upcase-arg): New function.
+	(cl-function-arglist): New function.
+	(cl-transform-lambda): Automatically add CL-style lambda list to
+	documentation string using functions above.
 
 2001-01-12  Andy Piper  <andy@xemacs.org>
 

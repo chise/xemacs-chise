@@ -54,6 +54,7 @@ Boston, MA 02111-1307, USA.  */
 #endif /* HPUX */
 
 #ifdef WIN32_NATIVE
+#include "nt.h"
 #define IS_DRIVE(x) isalpha (x)
 /* Need to lower-case the drive letter, or else expanded
    filenames will sometimes compare inequal, because
@@ -980,23 +981,11 @@ See also the function `substitute-in-file-name'.
 	  memcpy (o, (char *) nm, p - nm);
 	  o [p - nm] = 0;
 
-	  /* #### marcpa's syncing note: FSF uses getpwnam even on NT,
-	     which does not work.  The following works only if ~USER
-	     names the user who runs this instance of XEmacs.  While
-	     NT is single-user (for the moment) you still can have
-	     multiple user profiles users defined, each with its HOME.
-	     Therefore, the following should be reworked to handle
-	     this case.  */
-#ifdef  WIN32_NATIVE
-	  /* Now if the file given is "~foo/file" and HOME="c:/", then
-	     we want the file to be named "c:/file" ("~foo" becomes
-	     "c:/").  The variable o has "~foo", so we can use the
-	     length of that string to offset nm.  August Hill, 31 Aug
-	     1998.  */
-	  newdir = (Bufbyte *) get_home_directory();
-	  dostounix_filename (newdir);
-	  nm += strlen(o) + 1;
-#else  /* not WIN32_NATIVE */
+	  /* #### While NT is single-user (for the moment) you still
+	     can have multiple user profiles users defined, each with
+	     its HOME.  So maybe possibly we should think about handling
+	     ~user. --ben */
+#ifndef WIN32_NATIVE
 #ifdef CYGWIN
 	  if ((user = user_login_name (NULL)) != NULL)
 	    {
@@ -1676,16 +1665,6 @@ barf_or_query_if_file_exists (Lisp_Object absname, const char *querystring,
   return;
 }
 
-/* A slightly higher-level interface than `set_file_times' */
-static int
-lisp_string_set_file_times (Lisp_Object filename,
-			    EMACS_TIME atime, EMACS_TIME mtime)
-{
-  char *ext_filename;
-  LISP_STRING_TO_EXTERNAL (filename, ext_filename, Qfile_name);
-  return set_file_times (ext_filename, atime, mtime);
-}
-
 DEFUN ("copy-file", Fcopy_file, 2, 4,
        "fCopy file: \nFCopy %s to file: \np\nP", /*
 Copy FILENAME to NEWNAME.  Both args must be strings.
@@ -1823,7 +1802,7 @@ A prefix arg makes KEEP-TIME non-nil.
 	    EMACS_TIME atime, mtime;
 	    EMACS_SET_SECS_USECS (atime, st.st_atime, 0);
 	    EMACS_SET_SECS_USECS (mtime, st.st_mtime, 0);
-	    if (lisp_string_set_file_times (newname, atime, mtime))
+	    if (set_file_times (newname, atime, mtime))
 	      report_file_error ("I/O error", list1 (newname));
 	  }
 	chmod ((const char *) XSTRING_DATA (newname),

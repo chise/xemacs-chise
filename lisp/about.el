@@ -243,12 +243,16 @@
 		 :tag (or text-to-insert url)
 		 url))
 
-;; Insert a mailto: link in the buffer.
+;; Insert a mail link in the buffer.
 (defun about-mailto-link (address)
-  (about-url-link
-   (concat "mailto:" address) address
-   (concat "Send mail to " address)
-   ))
+  (lexical-let ((address address))
+    (widget-create 'link
+		   :tag address
+		   :button-prefix ""
+		   :button-suffix ""
+		   :action (lambda (widget &optional event)
+			     (compose-mail address))
+		   :help-echo (format "Send mail to %s" address))))
 
 ;; Attach a face to a string, in order to be inserted into the buffer.
 ;; Make sure that the extent is duplicable, but unique.  Returns the
@@ -1220,7 +1224,7 @@ xxML and hairy script languages !)  and the Scheme language.\n"))
     (pelegri
      (widget-insert
       "\
-I did my my PhD at UCB and a postdoc at CSL/PARC.  I joined Sun in 1990,
+I did my PhD at UCB and a postdoc at CSL/PARC.  I joined Sun in 1990,
 spent some time in DevPro (that is when I made my contribution to
 XEmacs) and joined JavaSoft in fall '95, where I've been the lead for
 several JSP-related specifications and JAX-RPC.  I'm currently the Web

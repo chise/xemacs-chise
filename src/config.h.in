@@ -374,6 +374,9 @@ void *alloca ();
 
 #undef NLIST_STRUCT
 
+/* Do IPv6 hostname canonicalization before IPv4 in getaddrinfo()? */
+#undef IPV6_CANONICALIZE
+
 /* Compile in support for SOCKS? */
 #undef HAVE_SOCKS
 

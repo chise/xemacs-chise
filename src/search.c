@@ -2262,6 +2262,11 @@ the buffer to be used for syntax-table and case-table lookup and
 defaults to the current buffer.  When fourth argument is not a string,
 the buffer that the match occurred in has automatically been remembered
 and you do not need to specify it.
+
+When fourth argument is nil, STRBUFFER specifies a subexpression of
+the match.  It says to replace just that subexpression instead of the
+whole match.  This is useful only after a regular expression search or
+match since only regular expressions have distinguished subexpressions.
 */
        (replacement, fixedcase, literal, string, strbuffer))
 {
@@ -2281,6 +2286,7 @@ and you do not need to specify it.
   Lisp_Object buffer;
   int_dynarr *ul_action_dynarr = 0;
   int_dynarr *ul_pos_dynarr = 0;
+  int sub;
   int speccount;
 
   CHECK_STRING (replacement);
@@ -2301,6 +2307,15 @@ and you do not need to specify it.
     }
   else
     {
+      if (NILP (strbuffer))
+	sub = 0;
+      else
+	{
+	  CHECK_INT (strbuffer);
+	  sub = XINT (strbuffer);
+	  if (sub < 0 || sub >= (int) search_regs.num_regs)
+	    args_out_of_range (strbuffer, make_int (search_regs.num_regs));
+	}
       if (!BUFFERP (last_thing_searched))
 	error ("last thing matched was not a buffer");
       buffer = last_thing_searched;
@@ -2321,11 +2336,11 @@ and you do not need to specify it.
 
   if (NILP (string))
     {
-      if (search_regs.start[0] < BUF_BEGV (buf)
-	  || search_regs.start[0] > search_regs.end[0]
-	  || search_regs.end[0] > BUF_ZV (buf))
-	args_out_of_range (make_int (search_regs.start[0]),
-			   make_int (search_regs.end[0]));
+      if (search_regs.start[sub] < BUF_BEGV (buf)
+	  || search_regs.start[sub] > search_regs.end[sub]
+	  || search_regs.end[sub] > BUF_ZV (buf))
+	args_out_of_range (make_int (search_regs.start[sub]),
+			   make_int (search_regs.end[sub]));
     }
   else
     {

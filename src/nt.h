@@ -105,6 +105,7 @@ extern LPBYTE nt_get_resource (char * key, LPDWORD type);
 
 void set_process_dir (const char * dir);
 time_t convert_time (FILETIME ft);
+int mswindows_utime (Lisp_Object path, struct utimbuf *times);
 
 extern void init_ntproc (void);
 extern void term_ntproc (int unused);

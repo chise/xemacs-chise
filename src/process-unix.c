@@ -1587,7 +1587,11 @@ unix_canonicalize_host_name (Lisp_Object host)
 
   xzero (hints);
   hints.ai_flags = AI_CANONNAME;
+#ifdef IPV6_CANONICALIZE
   hints.ai_family = AF_UNSPEC;
+#else
+  hints.ai_family = PF_INET;
+#endif
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_protocol = 0;
   LISP_STRING_TO_EXTERNAL (host, ext_host, Qnative);

@@ -704,7 +704,7 @@
 ;;; is not a marker or if it appears in other arithmetic).
 
 ;;; But this degree of paranoia is normally unjustified, so optimize unless
-;;; the user has done (declaim (safety 3)).  Implemented in bytecomp.el.
+;;; the user has done (declaim (optimize (safety 3))).  See bytecomp.el.
 
 (defun byte-optimize-plus (form)
   (byte-optimize-predicate (byte-optimize-delay-constants-math form 1 '+)))
@@ -855,13 +855,13 @@
 (put 'max 'byte-optimizer 'byte-optimize-associative-math)
 (put 'min 'byte-optimizer 'byte-optimize-associative-math)
 
-(put '=   'byte-optimizer 'byte-optimize-binary-predicate)
 (put 'eq  'byte-optimizer 'byte-optimize-binary-predicate)
 (put 'eql 'byte-optimizer 'byte-optimize-binary-predicate)
 (put 'equal   'byte-optimizer 'byte-optimize-binary-predicate)
 (put 'string= 'byte-optimizer 'byte-optimize-binary-predicate)
 (put 'string-equal 'byte-optimizer 'byte-optimize-binary-predicate)
 
+(put '=   'byte-optimizer 'byte-optimize-predicate)
 (put '<   'byte-optimizer 'byte-optimize-predicate)
 (put '>   'byte-optimizer 'byte-optimize-predicate)
 (put '<=  'byte-optimizer 'byte-optimize-predicate)

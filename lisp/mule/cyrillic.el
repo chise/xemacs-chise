@@ -137,11 +137,11 @@
 ;; `iso-8-1' is not correct, but XEmacs doesn't have a `ccl' category
 (coding-system-put 'koi8-r 'category 'iso-8-1)
 
-;; (define-ccl-program ccl-encode-koi8-font
-;;   `(0
-;;     ((r1 |= 128)
-;;      (r1 = r1 ,cyrillic-koi8-r-encode-table)))
-;;   "CCL program to encode Cyrillic chars to KOI font.")
+(define-ccl-program ccl-encode-koi8-r-font
+   `(0
+     ((r1 |= 128)
+      (r1 = r1 ,cyrillic-koi8-r-encode-table)))
+   "CCL program to encode Cyrillic chars to koi8-r font.")
 
 ;; (setq font-ccl-encoder-alist
 ;;       (cons (cons "koi8" ccl-encode-koi8-font) font-ccl-encoder-alist))
@@ -336,5 +336,70 @@
 		  (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
 		  (documentation . "Support for Cyrillic ALTERNATIVNYJ."))
  '("Cyrillic"))
+
+;;
+;; Setup case table
+;;
+
+;; FIXME: this defun is cut-and-pasted from mule/latin.el
+(defun setup-case-pairs (charset pairs)
+  (let ((tbl (standard-case-table)))
+    (loop for (uc lc) in pairs do
+      (put-case-table-pair (make-char charset uc) (make-char charset lc) tbl))))
+
+(setup-case-pairs
+ 'cyrillic-iso8859-5
+ '(
+   (176 208)				;cyrillic letter a
+   (167 247)				;cyrillic letter yi
+   (205 237)				;cyrillic letter e
+   (174 254)				;cyrillic letter short u
+   (177 209)				;cyrillic letter be
+   (197 229)				;cyrillic letter ha
+   (184 216)				;cyrillic letter i
+   (180 212)				;cyrillic letter de
+   (198 230)				;cyrillic letter tse
+   (206 238)				;cyrillic letter yu
+   (190 222)				;cyrillic letter o
+   (168 248)				;cyrillic letter je
+   (202 234)				;cyrillic letter hard sign
+   (199 231)				;cyrillic letter che
+   (164 244)				;cyrillic letter ukrainian ie
+   (162 242)				;cyrillic letter dje
+   (179 211)				;cyrillic letter ghe
+   (195 227)				;cyrillic letter u
+   (191 223)				;cyrillic letter pe
+   (163 243)				;cyrillic letter gje
+   (194 226)				;cyrillic letter te
+   (172 252)				;cyrillic letter kje
+   (178 210)				;cyrillic letter ve
+   (169 249)				;cyrillic letter lje
+   (200 232)				;cyrillic letter sha
+   (170 250)				;cyrillic letter nje
+   (183 215)				;cyrillic letter ze
+   (165 245)				;cyrillic letter dze
+   (203 235)				;cyrillic letter yeru
+   (201 233)				;cyrillic letter shcha
+   (182 214)				;cyrillic letter zhe
+   (175 255)				;cyrillic letter dzhe
+   (196 228)				;cyrillic letter ef
+   (186 218)				;cyrillic letter ka
+   (204 236)				;cyrillic letter soft sign
+   (181 213)				;cyrillic letter ie
+   (187 219)				;cyrillic letter el
+   (188 220)				;cyrillic letter em
+   (189 221)				;cyrillic letter en
+   (171 251)				;cyrillic letter tshe
+   (192 224)				;cyrillic letter er
+   (161 241)				;cyrillic letter io
+   (166 246)				;cyrillic letter byelorussian-ukrainian i
+   (193 225)				;cyrillic letter es
+   (185 217)				;cyrillic letter short i
+   (207 239)				;cyrillic letter ya
+   ))
+
+;; This is our utility function; we don't want it in the dumped XEmacs.
+
+(fmakunbound 'setup-case-pairs)
 
 ;;; cyrillic.el ends here

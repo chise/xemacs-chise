@@ -172,7 +172,7 @@
 ;; kinsoku ascii
 (loop for char in (string-to-char-list kinsoku-ascii-bol)
       do (modify-category-entry char ?s))
-(loop for char in kinsoku-ascii-eol
+(loop for char in (string-to-char-list kinsoku-ascii-eol)
       do (modify-category-entry char ?e))
 ;; kinsoku-jis
 (loop for char in (string-to-char-list kinsoku-jis-bol)
@@ -180,14 +180,14 @@
 (loop for char in (string-to-char-list kinsoku-jis-eol)
       do (modify-category-entry char ?e))
 ;; kinsoku-gb
-(loop for char in kinsoku-gb-bol
+(loop for char in (string-to-char-list kinsoku-gb-bol)
       do (modify-category-entry char ?s))
-(loop for char in kinsoku-gb-eol
+(loop for char in (string-to-char-list kinsoku-gb-eol)
       do (modify-category-entry char ?e))
 ;; kinsoku-big5
-(loop for char in kinsoku-big5-bol
+(loop for char in (string-to-char-list kinsoku-big5-bol)
       do (modify-category-entry char ?s))
-(loop for char in kinsoku-big5-eol
+(loop for char in (string-to-char-list kinsoku-big5-eol)
       do (modify-category-entry char ?e))
 
 (defun kinsoku-bol-p ()
@@ -195,14 +195,21 @@
 Uses category \'s\' to check.
 pointで改行すると行頭禁則に触れるかどうかをかえす。
 行頭禁則文字は\'s\'のcategoryで指定する。"
-  (let ((ch (char-after)))
-    (if (and ch
+  (let ((before (char-before))
+	(after (char-after)))
+    (if (and after
 	     (or
-	      (and kinsoku-ascii (char-in-category-p ch ?a))
-	      (and kinsoku-jis (char-in-category-p ch ?j))
-	      (and kinsoku-gb (char-in-category-p ch ?c))
-	      (and kinsoku-big5 (char-in-category-p ch ?t))))
-	(char-in-category-p ch ?s)
+	      (and kinsoku-ascii (char-in-category-p after ?a))
+	      (and kinsoku-jis (or (char-in-category-p after ?j)
+				   (and before
+					(char-in-category-p before ?j))))
+	      (and kinsoku-gb (or (char-in-category-p after ?c)
+				  (and before
+				       (char-in-category-p before ?c))))
+	      (and kinsoku-big5 (or (char-in-category-p after ?t)
+				    (and before
+					 (char-in-category-p before ?t))))))
+	(char-in-category-p after ?s)
       nil)))
 
 (defun kinsoku-eol-p ()
@@ -210,14 +217,21 @@ pointで改行すると行頭禁則に触れるかどうかをかえす。
 Uses category \'e\' to check.
 pointで改行すると行末禁則に触れるかどうかをかえす。
 行末禁則文字は\'s\'のcategoryで指定する。"
-  (let ((ch (char-before)))
-    (if (and ch
+  (let ((before (char-before))
+	(after (char-after)))
+    (if (and before
 	     (or
-	      (and kinsoku-ascii (char-in-category-p ch ?a))
-	      (and kinsoku-jis (char-in-category-p ch ?j))
-	      (and kinsoku-gb (char-in-category-p ch ?c))
-	      (and kinsoku-big5 (char-in-category-p ch ?t))))
-	(char-in-category-p ch ?e)
+	      (and kinsoku-ascii (char-in-category-p before ?a))
+	      (and kinsoku-jis (or (char-in-category-p before ?j)
+				   (and after
+					(char-in-category-p after ?j))))
+	      (and kinsoku-gb (or (char-in-category-p before ?c)
+				  (and after
+				       (char-in-category-p after ?c))))
+	      (and kinsoku-big5 (or (char-in-category-p before ?t)
+				    (and after
+					 (char-in-category-p after ?t))))))
+	(char-in-category-p before ?e)
       nil)))
 
 (defvar kinsoku-extend-limit nil

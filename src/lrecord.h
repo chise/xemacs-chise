@@ -498,7 +498,7 @@ extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
 
 #define INIT_EXTERNAL_LRECORD_IMPLEMENTATION(type) do {			\
   lrecord_type_##type = lrecord_type_count++;				\
-  lrecord_##type.lrecord_type_index = lrecord_type_##type;		\
+  lrecord_##type.lrecord_type_index = (enum lrecord_type) lrecord_type_##type; \
   INIT_LRECORD_IMPLEMENTATION(type);					\
 } while (0)
 

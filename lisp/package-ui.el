@@ -373,7 +373,7 @@ and whether or not it is up-to-date."
 	(mapcar (lambda (pkg)
 		  (package-admin-delete-binary-package
 		   pkg (package-admin-get-install-dir pkg nil)))
-		pui-deleted-packages)
+		(nreverse pui-deleted-packages))
 	(message "Packages deleted"))))
 	 
   (let ( (tmpbuf "*Packages-To-Install*") do-install)
@@ -411,7 +411,7 @@ and whether or not it is up-to-date."
 				(if (not (package-get pkg nil nil
                                                       pui-package-install-dest-dir))
 				    (throw 'done nil)))
-			      pui-selected-packages)
+			      (nreverse pui-selected-packages))
 		      t)
 		    (progn
 		      (pui-list-packages)

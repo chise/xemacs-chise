@@ -1850,10 +1850,10 @@ configuration instead of a window configuration.  @xref{Frame
 Configurations}.
 
 @defun current-window-configuration &optional frame
-This function returns a new object representing the current current
-window configuration of @var{frame}, namely the number of windows, their
-sizes and current buffers, which window is the selected window, and for
-each window the displayed buffer, the display-start position, and the
+This function returns a new object representing the current window
+configuration of @var{frame}, namely the number of windows, their sizes
+and current buffers, which window is the selected window, and for each
+window the displayed buffer, the display-start position, and the
 positions of point and the mark.  An exception is made for point in the
 current buffer, whose value is not saved.
 

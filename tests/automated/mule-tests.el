@@ -293,7 +293,9 @@ the Assert macro checks for correctness."
   ;;---------------------------------------------------------------
   (let* ((scaron (make-char 'latin-iso8859-2 57))
 	 (latin2-string (make-string 4 scaron))
-	 (prefix (concat (file-name-as-directory (temp-directory)) latin2-string))
+	 (prefix (concat (file-name-as-directory
+			  (file-truename (temp-directory)))
+			 latin2-string))
 	 (name1 (make-temp-name prefix))
 	 (name2 (make-temp-name prefix))
 	 (file-name-coding-system 'iso-8859-2))

@@ -190,7 +190,7 @@ to the specified name LIBRARY.
 
 If the optional third arg PATH is specified, that list of directories
 is used instead of `load-path'."
-  (interactive (list (read-string "Locate library: ")
+  (interactive (list (read-library-name "Locate library: ")
                      nil nil
                      t))
   (let ((result
