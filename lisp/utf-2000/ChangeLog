@@ -1,3 +1,24 @@
+2003-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6D77): Unify JU+FA45.
+	(U+FA45): New character.
+	(JX1-7677): Unify U+FA46 and KU+6E1A; unify BC-B25A instead of
+	B-B25A.
+	(U+6E1A): Unify B-B25A.
+	(U+6F22): Unify JU+FA47.
+	(U+FA47): New character.
+	(C1-6947): Unify CU+6F22.
+
+	* Ideograph-R084-Steam.el: Reformatted.
+
+2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R018-Knife.el (U+5277): Use `->identical' instead of
+	`->same-ideograph' for U-0002F823.
+
+	* Ideograph-R010-Legs.el (U-0002F80F): Modify
+	`ideographic-structure' to use U+FA32 instead of U-0002F80E.
+
 2003-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R082-Fur.el (U+6BDB): Separate C1-4553.
