@@ -1,5 +1,20 @@
 1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* text-coding.c (char_encode_shift_jis): Use `charset_code_point'
+	not to use `XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201)'.
+
+	* mule-charset.c (mark_charset): `cs->encoding_table' has been
+	deleted.
+	(make_charset): Don't use `CHARSET_ENCODING_TABLE(cs)'.
+	(Fset_charset_mapping_table): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Delete `encoding_table'.
+	(CHARSET_ENCODING_TABLE): Delete.
+	(XCHARSET_ENCODING_TABLE): Delete.
+	(charset_code_point): New interface.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* text-coding.c (char_encode_iso2022): Use `charset_code_point'
 	instead of `charset_get_byte1' and `charset_get_byte2'.
 
