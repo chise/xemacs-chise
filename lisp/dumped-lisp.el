@@ -423,6 +423,7 @@
 	(when-feature utf-2000 "u0FF00-Halfwidth-and-Fullwidth-Forms")
 	(when-feature utf-2000 "u0FFF0-Specials")
         ;; (when-feature utf-2000 "mojikyo")
+	(when-feature utf-2000 "ad-hoc-cdp")
 	(when-feature utf-2000 "ccs-tcvn5712.el")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
