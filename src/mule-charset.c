@@ -2964,7 +2964,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5"),
 		  build_string ("Big5"),
 		  build_string ("Big5 Chinese traditional"),
-		  build_string ("big5"),
+		  build_string ("big5-0"),
 		  Qnil,
 		  0 /* MIN_CHAR_BIG5_CDP */,
 		  0 /* MAX_CHAR_BIG5_CDP */, 0, 0,
