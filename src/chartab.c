@@ -2436,7 +2436,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	  {
 	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
 
-	    if ( charset_code_point (range->charset, ch) >= 0 )
+	    if ( charset_code_point (range->charset, ch, 0) >= 0 )
 	      put_char_id_table_0 (ct, ch, val);
 	  }
       }
@@ -2878,7 +2878,7 @@ map_char_table (Lisp_Char_Table *ct,
 	  {
 	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
 
-	    if ( charset_code_point (range->charset, ch) >= 0 )
+	    if ( charset_code_point (range->charset, ch, 0) >= 0 )
 	      {
 		Lisp_Object val
 		  = get_byte_table (get_byte_table
