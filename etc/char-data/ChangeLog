@@ -1,3 +1,7 @@
+2003-07-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JX1-to-UCS.txt (JX1-4F62): Delete alternative mapping to U+5C6E.
+
 2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* GT-RS.txt (000634): Fixed.

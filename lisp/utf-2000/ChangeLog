@@ -1,5 +1,12 @@
 2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (GT-K01701): New character.
+	(BC-8958): Unify GT-K00417.
+
+	* Ideograph-R145-Clothes.el (GT-K06642): New character.
+
+	* Ideograph-R130-Meat.el (BC-8958): Unify GT-K00417.
+
 	* Ideograph-R024-Ten.el (BC-8BF8): New character.
 
 2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
