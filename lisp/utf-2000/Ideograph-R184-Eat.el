@@ -21,7 +21,7 @@
     (mojikyo			. 044014)	; ý €Š¯®
     ))
 (define-char
-  '((morohashi-daikanwa	44014 0 0)
+  '((morohashi-daikanwa	44014 0 1)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
@@ -5460,7 +5460,7 @@
     (chinese-cns11643-2 . #x677A)	; ø»”´­
     ))
 (define-char
-  '((morohashi-daikanwa	44362 0 1)
+  '((morohashi-daikanwa	44362 0 2)
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 10)
     (total-strokes	 . 18)

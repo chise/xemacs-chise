@@ -1757,7 +1757,7 @@
     (japanese-jisx0208-1990	. #x6646)	; ø½‹›·
     ))
 (define-char
-  '((morohashi-daikanwa	28689 0 1)
+  '((morohashi-daikanwa	28689 0 2)
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 6)
     (total-strokes	 . 12)

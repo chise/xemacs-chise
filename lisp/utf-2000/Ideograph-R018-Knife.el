@@ -2138,7 +2138,7 @@
     ))
 (define-char
   '((=>ucs		. #x5231)	; åˆ±
-    (morohashi-daikanwa	1953 0 1)
+    (morohashi-daikanwa	1953 0 2)
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
@@ -2936,20 +2936,6 @@
   '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x53BB)	; åŽ»
-      )
-     ((ucs		  . #x5203)	; åˆƒ
-      ))
-    (mojikyo		. 070676)	; ý €‘”
-    ))
-(define-char
-  '((ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
     (->mojikyo		. 070676)	; ý €‘”
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2967,6 +2953,20 @@
     (total-strokes	 . 8)
     (ideograph-cbeta	. 04913)	; ø¸¡Œ±
     (mojikyo		. 070095)	; ý €‘‡
+    ))
+(define-char
+  '((ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x53BB)	; åŽ»
+      )
+     ((ucs		  . #x5203)	; åˆƒ
+      ))
+    (mojikyo		. 070676)	; ý €‘”
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘

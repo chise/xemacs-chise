@@ -4167,14 +4167,14 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (japanese-jisx0213-2	. #x2828)	; ø»¤§™
+    (chinese-cns11643-4 . #x4277)	; ø»˜’œ
     ))
 (define-char
   '((=>ucs		. #x376C)	; ã¬
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (chinese-cns11643-4 . #x4277)	; ø»˜’œ
+    (japanese-jisx0213-2	. #x2828)	; ø»¤§™
     ))
 (define-char
   '((ideographic-radical . 40)	; â¼§

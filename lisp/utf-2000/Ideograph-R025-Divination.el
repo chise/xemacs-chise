@@ -812,6 +812,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 02830)	; ø¸€¬Ž
+    (mojikyo		. 002830)	; ý €€¬Ž
     ))
 (define-char
   '((=>ucs		. #x20A06)	; ð ¨†
@@ -822,7 +823,7 @@
     (chinese-cns11643-5 . #x446D)	; ø»šŸ’
     ))
 (define-char
-  '((morohashi-daikanwa	2830 0 0)
+  '((morohashi-daikanwa	2830 0 1)
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 12)
     (total-strokes	 . 14)

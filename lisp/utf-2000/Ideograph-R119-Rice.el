@@ -510,15 +510,15 @@
     (ideographic-radical . 119)	; â½¶
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (japanese-jisx0208		. #x6464)	; ø»‡³¥
-    (japanese-jisx0208-1990	. #x6464)	; ø½‹™™
+    (japanese-jisx0208-1978	. #x6464)	; ø»ƒŸ
     ))
 (define-char
   '((=>ucs		. #x7C90)	; ç²
     (ideographic-radical . 119)	; â½¶
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (japanese-jisx0208-1978	. #x6464)	; ø»ƒŸ
+    (japanese-jisx0208		. #x6464)	; ø»‡³¥
+    (japanese-jisx0208-1990	. #x6464)	; ø½‹™™
     ))
 (define-char
   '((ideographic-radical . 119)	; â½¶

@@ -6020,7 +6020,7 @@
     (japanese-jisx0208-1990	. #x4B70)	; ø½Š´·
     ))
 (define-char
-  '((morohashi-daikanwa	46492 0 2)
+  '((morohashi-daikanwa	46492 0 3)
     (ideographic-radical . 195)	; â¿‚
     (ideographic-strokes . 12)
     (total-strokes	 . 23)

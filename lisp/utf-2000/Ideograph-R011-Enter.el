@@ -105,7 +105,7 @@
     (chinese-cns11643-3 . #x2134)	; ø»•–·
     ))
 (define-char
-  '((morohashi-daikanwa	1417 0 0)
+  '((morohashi-daikanwa	1417 0 1)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 1)
     (total-strokes	 . 3)

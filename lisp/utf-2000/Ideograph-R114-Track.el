@@ -355,13 +355,13 @@
     ))
 (define-char
   '((ideographic-radical . 114)	; â½±
-    (hanyu-dazidian	4 2553 8)
-    (ideograph-hanziku-7	. #xB9BA)	; ý¢»¦º
-    (ucs			. #x25749)	; ð¥‰
-    ))
-(define-char
-  '((ideographic-radical . 114)	; â½±
     (hanyu-dazidian	4 2550 2)
     (ideograph-hanziku-7	. #xB8F1)	; ý¢»£±
     (ucs			. #x25742)	; ð¥‚
+    ))
+(define-char
+  '((ideographic-radical . 114)	; â½±
+    (hanyu-dazidian	4 2553 8)
+    (ideograph-hanziku-7	. #xB9BA)	; ý¢»¦º
+    (ucs			. #x25749)	; ð¥‰
     ))
