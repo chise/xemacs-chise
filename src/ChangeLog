@@ -1,3 +1,43 @@
+1999-09-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset):
+	Update `utf-2000-version' to 0.6.
+
+1999-09-05  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* lstream.h:
+	- Include multibyte.h instead of character.h for `BYTE_ASCII_P'.
+	- Include character.h for `CHAR_ASCII_P'.
+
+	* mb-multibyte.h (CHAR_MULTIBYTE_P): Moved from mule-charset.h.
+
+	* mule-charset.h (CHAR_MULTIBYTE_P): Moved to mb-multibyte.h.
+	(CHAR_ASCII_P): Don't use `CHAR_MULTIBYTE_P'.
+
+	* mb-multibyte.h (BYTE_ASCII_P): Moved from char-ucs.h.
+	(BYTE_C0_P): Likewise.
+	(BYTE_C1_P): Likewise.
+	(Lstream_get_emchar_1): Likewise.
+	(Lstream_fput_emchar): Likewise.
+	(Lstream_funget_emchar): Likewise.
+	(copy_internal_to_external): Likewise.
+	(copy_external_to_internal): Likewise.
+
+	* char-ucs.h (BYTE_ASCII_P): Moved to mb-multibyte.h.
+	(BYTE_C0_P): Likewise.
+	(BYTE_C1_P): Likewise.
+	(Lstream_get_emchar_1): Likewise.
+	(Lstream_fput_emchar): Likewise.
+	(Lstream_funget_emchar): Likewise.
+	(copy_internal_to_external): Likewise.
+	(copy_external_to_internal): Likewise.
+
+	* mb-1byte.h (BYTE_ASCII_P): Moved from buffer.h.
+	(REP_BYTES_BY_FIRST_BYTE): Likewise.
+
+	* buffer.h (REP_BYTES_BY_FIRST_BYTE): Moved to mb-1byte.h.
+	(BYTE_ASCII_P): Moved to mb-1byte.h.
+
 1999-09-04  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mb-utf-8.h, mb-lb.h: Include mb-multibyte.h.
