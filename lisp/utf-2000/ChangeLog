@@ -1,5 +1,16 @@
 2003-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mojikyo-conf.el: Set up `char-db-coded-charset-priority-list'
+	after "char-db-util" is loaded.
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Don't
+	check about CCS code-range.
+
+	* Ideograph-R032-Earth.el (M-05571'): Separate M050141.
+	(M050141): Unify GT-07031.
+
+2003-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mojikyo-conf.el (default-coded-charset-priority-list): Add
 	`mojikyo'.
 	(char-db-coded-charset-priority-list): Likewise.
