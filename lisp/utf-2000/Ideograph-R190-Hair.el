@@ -1205,7 +1205,8 @@
     (ucs		. #x9B07)	; 鬇
     ))
 (define-char
-  '((morohashi-daikanwa	45489 0 2)
+  '((->ucs		. #x9B07)	; 鬇
+    (morohashi-daikanwa	45489 0 2)
     (ideographic-radical . 190)	; ⾽
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
