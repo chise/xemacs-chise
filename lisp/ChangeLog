@@ -1,3 +1,8 @@
+2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	`japanese-jef-china3' is renamed `china3-jef'.
+
 2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
