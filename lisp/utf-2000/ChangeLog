@@ -1,3 +1,14 @@
+2001-09-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el: Merge GB 12345 code points.
+
+2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el, Ideograph-R108-Dish.el: Merge GB 12345
+	code points.
+
+	* Ideograph-R105-Dotted-Tent.el (U+767C): Unify G1-3722.
+
 2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R104-Sickness.el, Ideograph-R102-Field.el: Merge GB
