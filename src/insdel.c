@@ -3072,7 +3072,7 @@ barf_if_buffer_read_only (struct buffer *buf, Bufpos from, Bufpos to)
 }
 
 void
-find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
+find_charsets_in_bufbyte_string (Charset_ID *charsets, const Bufbyte *str,
 				 Bytecount len)
 {
 #ifndef MULE
@@ -3080,25 +3080,26 @@ find_charsets_in_bufbyte_string (unsigned char *charsets, const Bufbyte *str,
   charsets[0] = 1;
 #else
   const Bufbyte *strend = str + len;
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
 
   /* #### SJT doesn't like this. */
   if (len == 0)
     {
-      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - 128] = 1;
+      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - MIN_LEADING_BYTE] = 1;
       return;
     }
 
   while (str < strend)
     {
-      charsets[CHAR_LEADING_BYTE (charptr_emchar (str)) - 128] = 1;
+      charsets[CHAR_LEADING_BYTE (charptr_emchar (str))
+	      - MIN_LEADING_BYTE] = 1;
       INC_CHARPTR (str);
     }
 #endif
 }
 
 void
-find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
+find_charsets_in_emchar_string (Charset_ID *charsets, const Emchar *str,
 				Charcount len)
 {
 #ifndef MULE
@@ -3107,18 +3108,18 @@ find_charsets_in_emchar_string (unsigned char *charsets, const Emchar *str,
 #else
   int i;
 
-  memset (charsets, 0, NUM_LEADING_BYTES);
+  memset (charsets, 0, NUM_LEADING_BYTES * sizeof(Charset_ID));
 
   /* #### SJT doesn't like this. */
   if (len == 0)
     {
-      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - 128] = 1;
+      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - MIN_LEADING_BYTE] = 1;
       return;
     }
 
   for (i = 0; i < len; i++)
     {
-      charsets[CHAR_LEADING_BYTE (str[i]) - 128] = 1;
+      charsets[CHAR_LEADING_BYTE (str[i]) - MIN_LEADING_BYTE] = 1;
     }
 #endif
 }
