@@ -14749,42 +14749,40 @@
     (=cns11643-2	. #x4A75)	; &I-C2-4A75; [42-85]
     ))
 (define-char
-  '((=>ucs		. #x69C5)	; 槅
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=jis-x0208	  . #x722F)	; &GT-61436; [82-15]
-      (=daikanwa	  . 45672)	; &I-M-45672;
-      ))
-    (=jis-x0212		. #x4465)	; &M-15306; [36-69]
-    (=daikanwa		. 15306)	; &I-M-15306;
-    (=cbeta		. 00184)	; &I-CB00184;
-    (=ucs@jis		. #x69C5)	; &M-15306;
-    ))
-(define-char
-  '((morohashi-daikanwa	15306 0 2)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (hanyu-dazidian	2 1262 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=ucs		  . #x9B32)	; 鬲
-      ))
     (=ucs		. #x69C5)	; 槅
-    (=iso-ir165		. #x7C25)	; &I-EGB-7C25; [92-05]
-    (=cns11643-3	. #x473B)	; &I-C3-473B; [39-27]
-    (=hanziku-4		. #xABE6)	; &I-HZK04-ABE6;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6728)	; 木
+	)
+       ((=jis-x0208	    . #x722F)	; &M-45672; [82-15]
+	(=daikanwa	    . 45672)	; &I-M-45672;
+	))
+      (=jis-x0212	  . #x4465)	; &M-15306; [36-69]
+      (=daikanwa	  . 15306)	; &I-M-15306;
+      (=cbeta		  . 00184)	; &I-CB00184;
+      (=ucs@jis		  . #x69C5)	; &M-15306;
+      )
+     ((hanyu-dazidian	  2 1262 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6728)	; 木
+	)
+       ((=gb2312	    . #x582A)	; &C1-586F; [56-10]
+	(=cns11643-1	    . #x586F)	; &I-C1-586F; [56-79]
+	))
+      (=iso-ir165	  . #x7C25)	; &HZK04-ABE6; [92-05]
+      (=cns11643-3	  . #x473B)	; &I-C3-473B; [39-27]
+      (=hanziku-4	  . #xABE6)	; &I-HZK04-ABE6;
+      (=ucs@unicode	  . #x69C5)	; &HZK04-ABE6;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
