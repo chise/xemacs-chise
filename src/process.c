@@ -46,7 +46,6 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 #include "process.h"
 #include "procimpl.h"
-#include "sysdep.h"
 #include "window.h"
 #ifdef FILE_CODING
 #include "file-coding.h"
@@ -100,9 +99,9 @@ static int update_tick;
 /* Nonzero means delete a process right away if it exits.  */
 int delete_exited_processes;
 
-/* Hashtable which maps USIDs as returned by create_stream_pair_cb to
+/* Hash table which maps USIDs as returned by create_stream_pair_cb to
    process objects. Processes are not GC-protected through this! */
-c_hashtable usid_to_process;
+struct hash_table *usid_to_process;
 
 /* List of process objects. */
 Lisp_Object Vprocess_list;
@@ -114,18 +113,18 @@ mark_process (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Process *proc = XPROCESS (obj);
   MAYBE_PROCMETH (mark_process_data, (proc, markobj));
-  ((markobj) (proc->name));
-  ((markobj) (proc->command));
-  ((markobj) (proc->filter));
-  ((markobj) (proc->sentinel));
-  ((markobj) (proc->buffer));
-  ((markobj) (proc->mark));
-  ((markobj) (proc->pid));
-  ((markobj) (proc->pipe_instream));
-  ((markobj) (proc->pipe_outstream));
+  markobj (proc->name);
+  markobj (proc->command);
+  markobj (proc->filter);
+  markobj (proc->sentinel);
+  markobj (proc->buffer);
+  markobj (proc->mark);
+  markobj (proc->pid);
+  markobj (proc->pipe_instream);
+  markobj (proc->pipe_outstream);
 #ifdef FILE_CODING
-  ((markobj) (proc->coding_instream));
-  ((markobj) (proc->coding_outstream));
+  markobj (proc->coding_instream);
+  markobj (proc->coding_outstream);
 #endif
   return proc->status_symbol;
 }
@@ -192,7 +191,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("process", process,
 /************************************************************************/
 
 /* Under FILE_CODING, this function returns low-level streams, connected
-   directrly to the child process, rather than en/decoding FILE_CODING
+   directly to the child process, rather than en/decoding FILE_CODING
    streams */
 void
 get_process_streams (struct Lisp_Process *p,
@@ -357,7 +356,7 @@ get_process (Lisp_Object name)
   else
     {
       /* #### This was commented out. Although, simple
-	 (kill-process 7 "qqq") resulted in a falat error. - kkm */
+	 (kill-process 7 "qqq") resulted in a fatal error. - kkm */
       CHECK_PROCESS (obj);
       proc = obj;
     }
@@ -643,8 +642,8 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
    functions must then go to lisp and provide a suitable list for the
    generalized connection function.
 
-   Both UNIX ans Win32 support BSD sockets, and there are many extensions
-   availalble (Sockets 2 spec).
+   Both UNIX and Win32 support BSD sockets, and there are many extensions
+   available (Sockets 2 spec).
 
    A todo is define a consistent set of properties abstracting a
    network connection.   -kkm
@@ -897,7 +896,7 @@ read_process_output (Lisp_Object proc)
 	old_zv += nchars;
 
 #if 0
-      /* This screws up intial display of the window.  jla */
+      /* This screws up initial display of the window.  jla */
 
       /* Insert before markers in case we are inserting where
 	 the buffer's mark is, and the user's next command is Meta-y.  */
@@ -1743,7 +1742,7 @@ SIGCODE may be an integer, or a symbol whose name is a signal name.
       handle_signal (SIGUNUSED);
 #endif
 #ifdef SIGDANGER
-      handle_signal (SIGDANGER);
+      handle_signal (SIGDANGER); /* AIX */
 #endif
 #ifdef SIGMSG
       handle_signal (SIGMSG);
@@ -1946,7 +1945,11 @@ init_xemacs_process (void)
   MAYBE_PROCMETH (init_process, ());
 
   Vprocess_list = Qnil;
-  usid_to_process = make_hashtable (32);
+
+  if (usid_to_process)
+    clrhash (usid_to_process);
+  else
+    usid_to_process = make_hash_table (32);
 }
 
 #if 0
@@ -2054,11 +2057,11 @@ The value takes effect when `start-process' is called.
   Vprocess_connection_type = Qt;
 
   DEFVAR_BOOL ("windowed-process-io", &windowed_process_io /*
-Enables input/ouptut on standard handles of a windowed process.
+Enables input/output on standard handles of a windowed process.
 When this variable is nil (the default), XEmacs does not attempt to read
 standard output handle of a windowed process. Instead, the process is
 immediately marked as exited immediately upon successful launching. This is
-done because normal windowed processes do not use stadnard I/O, as they are
+done because normal windowed processes do not use standard I/O, as they are
 not connected to any console.
 
 When launching a specially crafted windowed process, which expects to be

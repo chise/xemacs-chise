@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.  */
    __linux__			Linux: assumes /proc filesystem mounted.
    				Support from Michael K. Johnson.
    __NetBSD__			NetBSD: assumes /kern filesystem mounted.
-   __OpenBSD__			OpenBSD: dito.
+   __OpenBSD__			OpenBSD: ditto.
 
    In addition, to avoid nesting many #ifdefs, we internally set
    LDAV_DONE to indicate that the load average has been computed.
@@ -563,7 +563,8 @@ getloadavg (double loadavg[], int nelem)
     }
   for (elem = 0; elem < nelem; elem++)
     {
-      kstat_named_t *kn = kstat_data_lookup (ksp, avestrings[elem]);
+      kstat_named_t *kn =
+	(kstat_named_t *) kstat_data_lookup (ksp, avestrings[elem]);
       if (!kn)
 	{
 	  kstat_close (kc);

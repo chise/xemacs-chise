@@ -88,9 +88,6 @@ Used for compatibility among different emacs variants."
 ;; XEmacs: not used.
 
 ;; XEmacs:
-(define-function 'not 'null)
-(define-function-when-void 'numberp 'integerp) ; different when floats
-
 (defun local-variable-if-set-p (sym buffer)
   "Return t if SYM would be local to BUFFER after it is set.
 A nil value for BUFFER is *not* the same as (current-buffer), but
@@ -586,12 +583,14 @@ This function accepts any number of arguments, but ignores them."
                                          (cons (cons name defs)
                                                abbrev-table-name-list)))))))
 
-(defun functionp (object)
-  "Non-nil if OBJECT can be called as a function."
-  (or (and (symbolp object) (fboundp object))
-      (subrp object)
-      (compiled-function-p object)
-      (eq (car-safe object) 'lambda)))
+;;; `functionp' has been moved into C.
+
+;;(defun functionp (object)
+;;  "Non-nil if OBJECT can be called as a function."
+;;  (or (and (symbolp object) (fboundp object))
+;;      (subrp object)
+;;      (compiled-function-p object)
+;;      (eq (car-safe object) 'lambda)))
 
 
 

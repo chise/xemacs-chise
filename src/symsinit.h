@@ -186,7 +186,7 @@ void structure_type_create (void);
 void structure_type_create_chartab (void);
 void structure_type_create_faces (void);
 void structure_type_create_rangetab (void);
-void structure_type_create_hashtable (void);
+void structure_type_create_hash_table (void);
 
 /* Initialize the image instantiator types (dump-time only). */
 

@@ -51,7 +51,7 @@
 ;; Thanks to Francesco Potorti` <pot@cnuce.cnr.it> for suggestions,
 ;; rewritings & speedups.
 
-;; 1998-08-15 Martin Buchholz: Speed up using hashtables instead of lists.
+;; 1998-08-15 Martin Buchholz: Speed up using hash tables instead of lists.
 
 ;;; Code:
 
@@ -70,12 +70,12 @@ See the documentation for `list-load-path-shadows' for further information."
 	dir				; The dir being currently scanned.
 	curr-files			; This dir's Emacs Lisp files.
 	orig-dir			; Where the file was first seen.
-	(file-dirs
-	 (make-hashtable 2000 'equal))	; File names ever seen, with dirs.
-	(true-names
-	 (make-hashtable 50 'equal))	; Dirs ever considered.
-	(files-seen-this-dir
-	 (make-hashtable 100 'equal))	; Files seen so far in this dir.
+	(file-dirs			; File names ever seen, with dirs.
+	 (make-hash-table :size 2000 :test 'equal))
+	(true-names			; Dirs ever considered.
+	 (make-hash-table :size 50 :test 'equal))
+	(files-seen-this-dir		; Files seen so far in this dir.
+	 (make-hash-table :size 100 :test 'equal))
 	)
   
     (dolist (path-elt (or path load-path))

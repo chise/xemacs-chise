@@ -1169,7 +1169,7 @@ sys_rename (const char * oldname, const char * newname)
 	return -1;
     }
 
-  /* Emulate Unix behaviour - newname is deleted if it already exists
+  /* Emulate Unix behavior - newname is deleted if it already exists
      (at least if it is a file; don't do this for directories).
      However, don't do this if we are just changing the case of the file
      name - we will end up deleting the file we are trying to rename!  */
@@ -1288,7 +1288,7 @@ generate_inode_val (const char * name)
   unsigned hash;
 
   /* Get the truly canonical filename, if it exists.  (Note: this
-     doesn't resolve aliasing due to subst commands, or recognise hard
+     doesn't resolve aliasing due to subst commands, or recognize hard
      links.  */
   if (!win32_get_long_filename ((char *)name, fullname, MAX_PATH))
     abort ();
@@ -1390,8 +1390,8 @@ stat (const char * path, struct stat * buf)
     }
   else if (!NILP (Vmswindows_get_true_file_attributes))
     {
-      /* This is more accurate in terms of gettting the correct number
-	 of links, but is quite slow (it is noticable when Emacs is
+      /* This is more accurate in terms of getting the correct number
+	 of links, but is quite slow (it is noticeable when Emacs is
 	 making a list of file name completions). */
       BY_HANDLE_FILE_INFORMATION info;
 
@@ -1833,7 +1833,7 @@ int msw_raise (int nsig)
    */
 const int timer_prec = 10;
 
-/* Last itimevals, as set by calls to setitimer */
+/* Last itimervals, as set by calls to setitimer */
 static struct itimerval it_alarm;
 static struct itimerval it_prof;
 
@@ -1863,7 +1863,7 @@ static UINT period (const struct itimerval* it, UINT denom)
   if (tv->tv_sec == 0 && tv->tv_usec == 0)
     return 0;
   
-  /* Conver to ms and divide by denom */
+  /* Convert to ms and divide by denom */
   res = (tv->tv_sec * 1000 + (tv->tv_usec + 500) / 1000) / denom;
   
   /* Converge to minimum timer resolution */

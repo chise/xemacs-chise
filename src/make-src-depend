@@ -35,6 +35,7 @@ The dependencies are written to stdout.
 die $usage if @ARGV;
 
 ($srcdir = $0) =~ s@[^/]+$@@;
+$srcdir = "." if $srcdir eq "";
 chdir $srcdir or die "$srcdir: $!";
 
 opendir SRCDIR, "." or die "$srcdir: $!";

@@ -68,7 +68,7 @@
 ;; ported the server-temp-file-regexp feature from server.el
 ;; ported server hooks from server.el
 ;; ported kill-*-query functions from server.el (and made it optional)
-;; synced other behaviour with server.el
+;; synced other behavior with server.el
 ;;
 ;; Jan Vroonhof
 ;;     Customized.

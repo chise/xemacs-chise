@@ -289,7 +289,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 		  elt++;
 		}
 	    }
-	  /* #### RUNE_HLINE is actualy a little more complicated than this
+	  /* #### RUNE_HLINE is actually a little more complicated than this
              but at the moment it is only used to draw a turned off
              modeline and this will suffice for that. */
 	  else if (rb->type == RUNE_BLANK || rb->type == RUNE_HLINE)

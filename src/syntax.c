@@ -27,8 +27,6 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "buffer.h"
-#include "commands.h"
-#include "insdel.h"
 #include "syntax.h"
 
 /* Here is a comment from Ken'ichi HANDA <handa@etl.go.jp>
@@ -396,10 +394,12 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 }
 
 DEFUN ("forward-word", Fforward_word, 1, 2, "_p", /*
-Move point forward ARG words (backward if ARG is negative).
+Move point forward COUNT words (backward if COUNT is negative).
 Normally returns t.
 If an edge of the buffer is reached, point is left there
 and nil is returned.
+
+Optional argument BUFFER defaults to the current buffer.
 */
        (count, buffer))
 {

@@ -28,7 +28,9 @@ Boston, MA 02111-1307, USA.  */
 #define _XEMACS_WINDOW_H_
 
 #include "redisplay.h"
+#ifdef HAVE_SCROLLBARS
 #include "scrollbar.h"
+#endif
 
 /* All windows in use are arranged into a tree, with pointers up and down.
 

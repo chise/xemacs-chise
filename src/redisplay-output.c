@@ -28,7 +28,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include "debug.h"
 
 #include "buffer.h"
 #include "window.h"
@@ -37,8 +36,6 @@ Boston, MA 02111-1307, USA.  */
 #include "glyphs.h"
 #include "redisplay.h"
 #include "faces.h"
-
-#include "sysdep.h"
 
 static int compare_runes (struct window *w, struct rune *crb,
 			  struct rune *drb);
@@ -538,7 +535,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
      a TEXT block. */
   if (ddl->modeline)
     {
-      /* The shadow thickness check is necesssary if only the sign of
+      /* The shadow thickness check is necessary if only the sign of
          the size changed. */
       if (cdba && !w->shadow_thickness_changed)
 	{

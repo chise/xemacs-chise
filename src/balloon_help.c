@@ -32,7 +32,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 
@@ -85,8 +84,6 @@ static GC     b_maskGC;
 
 static CONST char* b_text;
 static int b_width, b_height;
-
-static int b_lastX, b_lastY;
 
 static XtIntervalId b_timer;
 static unsigned long b_delay;
@@ -364,10 +361,7 @@ show_help (XtPointer data, XtIntervalId* id)
       /* make sure it is still ok with offset */
       shape = get_shape (shape, x, y, b_width, b_height, b_screenWidth, b_screenHeight);
 
-      b_lastX = x;
-      b_lastY = y;
       b_lastShape = shape;
-
 
       make_mask (shape, x, y, b_width, b_height);
 
@@ -598,9 +592,6 @@ balloon_help_move_to_pointer (void)
 
       if (shape == b_lastShape)
 	{
-	  b_lastX = x;
-	  b_lastY = y;
-
 	  XMoveWindow (b_dpy, b_win,
 		       shape & SHAPE_CONE_LEFT ? x : x - b_width,
 		       shape & SHAPE_CONE_TOP  ? y : y - b_height);

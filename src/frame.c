@@ -39,9 +39,6 @@ Boston, MA 02111-1307, USA.  */
 #include "scrollbar.h"
 #include "window.h"
 
-#include <errno.h>
-#include "sysdep.h"
-
 Lisp_Object Vselect_frame_hook, Qselect_frame_hook;
 Lisp_Object Vdeselect_frame_hook, Qdeselect_frame_hook;
 Lisp_Object Vcreate_frame_hook, Qcreate_frame_hook;
@@ -128,7 +125,7 @@ mark_frame (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct frame *f = XFRAME (obj);
 
-#define MARKED_SLOT(x) ((markobj) (f->x));
+#define MARKED_SLOT(x) ((void) (markobj (f->x)));
 #include "frameslots.h"
 
   if (FRAME_LIVE_P (f)) /* device is nil for a dead frame */
@@ -190,10 +187,10 @@ allocate_frame_core (Lisp_Object device)
   XWINDOW (root_window)->frame = frame;
 
   /* 10 is arbitrary,
-     just so that there is "something there."
+     Just so that there is "something there."
      Correct size will be set up later with change_frame_size.  */
 
-  f->width = 10;
+  f->width  = 10;
   f->height = 10;
 
   XWINDOW (root_window)->pixel_width = 10;
@@ -580,7 +577,7 @@ unhold_frame_size_changes (void)
 void
 invalidate_vertical_divider_cache_in_frame (struct frame *f)
 {
-  /* Invalidate cached value of needs_vertical_divider_p in 
+  /* Invalidate cached value of needs_vertical_divider_p in
      every and all windows */
   map_windows (f, invalidate_vertical_divider_cache_in_window, 0);
 }
@@ -892,7 +889,7 @@ set_frame_selected_window (struct frame *f, Lisp_Object window)
 #ifdef HAVE_TOOLBARS
       if (!EQ (f->last_nonminibuf_window, window))
 	MARK_TOOLBAR_CHANGED;
-#endif      
+#endif
       f->last_nonminibuf_window = window;
     }
 }
@@ -2795,7 +2792,7 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
 
   /* when frame_conversion_internal() calculated the number of rows/cols
      in the frame, the theoretical toolbar sizes were subtracted out.
-     The caluclations below adjust for real toolbar height/width in
+     The calculations below adjust for real toolbar height/width in
      frame, which may be different from frame spec, taking the above
      fact into account */
   new_pixheight +=
@@ -2803,7 +2800,7 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     + 2 * FRAME_THEORETICAL_TOP_TOOLBAR_BORDER_WIDTH (f)
     - FRAME_REAL_TOP_TOOLBAR_HEIGHT (f)
     - 2 * FRAME_REAL_TOP_TOOLBAR_BORDER_WIDTH (f);
-  
+
   new_pixheight +=
     + FRAME_THEORETICAL_BOTTOM_TOOLBAR_HEIGHT (f)
     + 2 * FRAME_THEORETICAL_BOTTOM_TOOLBAR_BORDER_WIDTH (f)
@@ -2815,13 +2812,13 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
     + 2 * FRAME_THEORETICAL_LEFT_TOOLBAR_BORDER_WIDTH (f)
     - FRAME_REAL_LEFT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_LEFT_TOOLBAR_BORDER_WIDTH (f);
-  
+
   new_pixwidth +=
     + FRAME_THEORETICAL_RIGHT_TOOLBAR_WIDTH (f)
     + 2 * FRAME_THEORETICAL_RIGHT_TOOLBAR_BORDER_WIDTH (f)
     - FRAME_REAL_RIGHT_TOOLBAR_WIDTH (f)
     - 2 * FRAME_REAL_RIGHT_TOOLBAR_BORDER_WIDTH (f);
-  
+
   /* Adjust the width for the end glyph which may be a different width
      than the default character width. */
   {
@@ -2907,7 +2904,7 @@ change_frame_size_1 (struct frame *f, int newheight, int newwidth)
       FRAME_CHARWIDTH (f) = FRAME_WIDTH (f);
       FRAME_CHARHEIGHT (f) = FRAME_HEIGHT (f);
     }
-      
+
   MARK_FRAME_TOOLBARS_CHANGED (f);
   MARK_FRAME_CHANGED (f);
   f->echo_area_garbaged = 1;

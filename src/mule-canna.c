@@ -372,8 +372,8 @@ If nil is specified for each arg, the default value will be used.
       char servername[256];
 
       CHECK_STRING (server);
-      strncpy (servername, XSTRING (server)->_data, XSTRING (server)->_size);
-      servername[XSTRING (server)->_size] = '\0';
+      strncpy (servername, XSTRING_DATA (server), XSTRING_LENGTH (server));
+      servername[XSTRING_LENGTH (server)] = '\0';
       jrKanjiControl (0, KC_SETSERVERNAME, servername);
     }
 
@@ -386,8 +386,8 @@ If nil is specified for each arg, the default value will be used.
       char rcname[256];
 
       CHECK_STRING (rcfile);
-      strncpy (rcname, XSTRING (rcfile)->_data, XSTRING (rcfile)->_size);
-      rcname[XSTRING (rcfile)->_size] = '\0';
+      strncpy (rcname, XSTRING_DATA (rcfile), XSTRING_LENGTH (rcfile));
+      rcname[XSTRING_LENGTH (rcfile)] = '\0';
       jrKanjiControl (0, KC_SETINITFILENAME, rcname);
     }
 
@@ -414,7 +414,7 @@ If nil is specified for each arg, the default value will be used.
 
   if (res == -1)
     {
-      val = Fcons (make_string ((unsigned char*) jrKanjiError, 
+      val = Fcons (make_string ((unsigned char*) jrKanjiError,
 				strlen (jrKanjiError)), val);
       /* イニシャライズで失敗した場合。 */
       return Fcons (Qnil, val);
@@ -490,10 +490,10 @@ Register Kanji words into kana-to-kanji conversion dictionary.
   ksv.buffer = (unsigned char *) buf;
   ksv.bytes_buffer = KEYTOSTRSIZE;
 #ifndef CANNA_MULE
-  ks.echoStr = XSTRING (str)->_data;
-  ks.length = XSTRING (str)->_size;
+  ks.echoStr = XSTRING_DATA (str);
+  ks.length = XSTRING_LENGTH (str);
 #else /* CANNA_MULE */
-  m2c (XSTRING (str)->_data, XSTRING (str)->_size, cbuf);
+  m2c (XSTRING_DATA (str), XSTRING_LENGTH (str), cbuf);
   ks.echoStr = cbuf;
   ks.length = strlen (cbuf);
 #endif /* CANNA_MULE */
@@ -504,7 +504,7 @@ Register Kanji words into kana-to-kanji conversion dictionary.
 }
 
 DEFUN ("canna-set-width", Fcanna_set_width, 1, 1, 0, /*
-Set status-line width information, which is used to display 
+Set status-line width information, which is used to display
 kanji candidates.
 */
        (num))
@@ -564,11 +564,11 @@ Store yomi characters as a YOMI of kana-to-kanji conversion.
 
   CHECK_STRING (yomi);
 #ifndef CANNA_MULE
-  strncpy (buf, XSTRING (yomi)->_data, XSTRING (yomi)->_size);
-  ks.length = XSTRING (yomi)->_size;
+  strncpy (buf, XSTRING_DATA (yomi), XSTRING_LENGTH (yomi));
+  ks.length = XSTRING_LENGTH (yomi);
   buf[ks.length] = '\0';
 #else /* CANNA_MULE */
-  m2c (XSTRING (yomi)->_data, XSTRING (yomi)->_size, buf);
+  m2c (XSTRING_DATA (yomi), XSTRING_LENGTH (yomi), buf);
   ks.length = strlen (buf);
 #endif /* CANNA_MULE */
 
@@ -581,13 +581,13 @@ Store yomi characters as a YOMI of kana-to-kanji conversion.
       CHECK_STRING (roma);
 
 #ifndef CANNA_MULE
-      strncpy (buf + XSTRING (yomi)->_size + 1, XSTRING (roma)->_data,
-	       XSTRING (roma)->_size);
-      buf[XSTRING (yomi)->_size + 1 + XSTRING (roma)->_size] = '\0';
-      ks.mode = (unsigned char *)(buf + XSTRING (yomi)->_size + 1);
+      strncpy (buf + XSTRING_LENGTH (yomi) + 1, XSTRING_DATA (roma),
+	       XSTRING_LENGTH (roma));
+      buf[XSTRING_LENGTH (yomi) + 1 + XSTRING_LENGTH (roma)] = '\0';
+      ks.mode = (unsigned char *)(buf + XSTRING_LENGTH (yomi) + 1);
 #else /* CANNA_MULE */
       ks.mode = (unsigned char *)(buf + ks.length + 1);
-      m2c (XSTRING (roma)->_data, XSTRING (roma)->_size, ks.mode);
+      m2c (XSTRING_DATA (roma), XSTRING_LENGTH (roma), ks.mode);
 #endif /* CANNA_MULE */
     }
 
@@ -643,10 +643,10 @@ Parse customize string.
   CHECK_STRING (str);
 
 #ifndef CANNA_MULE
-  strncpy (buf, XSTRING (str)->_data, XSTRING (str)->_size);
-  buf[XSTRING (str)->_size] = '\0';
+  strncpy (buf, XSTRING_DATA (str), XSTRING_LENGTH (str));
+  buf[XSTRING_LENGTH (str)] = '\0';
 #else /* CANNA_MULE */
-  m2c (XSTRING (str)->_data, XSTRING (str)->_size, buf);
+  m2c (XSTRING_DATA (str), XSTRING_LENGTH (str), buf);
 #endif /* CANNA_MULE */
   p = (unsigned char**) buf;
   n = jrKanjiControl (0, KC_PARSE,  (char *) &p);
@@ -730,12 +730,12 @@ DEFUN ("canna-henkan-begin", Fcanna_henkan_begin, 1, 1, 0, /*
       return Qnil;
     }
 #ifndef CANNA_MULE
-  strncpy (yomibuf, XSTRING (yomi)->_data, XSTRING (yomi)->_size);
-  yomibuf[XSTRING (yomi)->_size] = '\0';
-  nbun = RkBgnBun (IRCP_context, XSTRING (yomi)->_data, XSTRING (yomi)->_size,
+  strncpy (yomibuf, XSTRING_DATA (yomi), XSTRING_LENGTH (yomi));
+  yomibuf[XSTRING_LENGTH (yomi)] = '\0';
+  nbun = RkBgnBun (IRCP_context, XSTRING_DATA (yomi), XSTRING_LENGTH (yomi),
 		   (RK_XFER << RK_XFERBITS) | RK_KFER);
 #else /* CANNA_MULE */
-  m2c (XSTRING (yomi)->_data, XSTRING (yomi)->_size, yomibuf);
+  m2c (XSTRING_DATA (yomi), XSTRING_LENGTH (yomi), yomibuf);
   nbun = RkBgnBun (IRCP_context, (char *) yomibuf, strlen (yomibuf),
 		   (RK_XFER << RK_XFERBITS) | RK_KFER);
 #endif /* CANNA_MULE */
@@ -814,7 +814,7 @@ DEFUN ("canna-bunsetu-henkou", Fcanna_bunsetu_henkou, 2, 2, 0, /*
 
   CHECK_INT (bunsetsu);
   CHECK_INT (bunlen);
-  
+
   nbun = XINT (bunsetsu);
   if (confirmContext () == 0)
     {
@@ -1024,7 +1024,7 @@ syms_of_mule_canna (void)
 {
   DEFVAR_LISP ("CANNA", &VCANNA);		/* hir@nec, 1992.5.21 */
   VCANNA = Qt;					/* hir@nec, 1992.5.21 */
-  
+
   DEFSUBR (Fcanna_key_proc);
   DEFSUBR (Fcanna_initialize);
   DEFSUBR (Fcanna_finalize);
@@ -1780,7 +1780,7 @@ static void
 c2mu (char *cp, int l, char *mp)
 {
   char	ch, *ep = cp+l;
-  
+
   while ((cp < ep) && (ch = *cp))
     {
       if ((unsigned char) ch == ISO_CODE_SS2)
@@ -1809,8 +1809,8 @@ c2mu (char *cp, int l, char *mp)
 static void
 m2c (unsigned char *mp, int l, unsigned char *cp)
 {
-  unsigned char	ch, *ep = mp + l;;
-  
+  unsigned char	ch, *ep = mp + l;
+
   while ((mp < ep) && (ch = *mp++))
     {
       switch (ch)
@@ -1829,7 +1829,7 @@ m2c (unsigned char *mp, int l, unsigned char *cp)
 	  *cp++ = ch;
 	  break;
 	}
-    }	
+    }
   *cp = 0;
 }
 
@@ -1840,10 +1840,10 @@ static Lisp_Object
 mule_make_string (unsigned char *p, int l)
 {
   unsigned char cbuf[4096];
-  
+
   c2mu (p,l,cbuf);
   return (make_string (cbuf,strlen (cbuf)));
-}	
+}
 
 /* return the MULE internal string length of EUC string */
 /* Modified by sb to return a character count not byte count. */
@@ -1852,7 +1852,7 @@ mule_strlen (unsigned char *p, int l)
 {
   unsigned char ch, *cp = p;
   int len = 0;
-  
+
   while ((cp < p + l) && (ch = *cp))
     {
       if ((unsigned char) ch == ISO_CODE_SS2)
@@ -1873,7 +1873,7 @@ mule_strlen (unsigned char *p, int l)
       else
 	{
 	  len++;
-	  cp++;	
+	  cp++;
 	}
     }
   return (len);
@@ -1885,7 +1885,7 @@ count_char (unsigned char *p, int len, int pos, int rev, int *clen, int *cpos,
 	    int *crev)
 {
   unsigned char *q = p;
-  
+
   *clen = *cpos = *crev = 0;
   if (len == 0) return;
   while (q < p + pos)
@@ -1899,7 +1899,7 @@ count_char (unsigned char *p, int len, int pos, int rev, int *clen, int *cpos,
       (*clen)++;
       (*crev)++;
       if (*q++ & 0x80) q++;
-    }		
+    }
   while (q < p + len)
     {
       (*clen)++;

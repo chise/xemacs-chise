@@ -358,8 +358,8 @@ command-builder-storage 120 devices-used 2 device-storage 344
 frames-used 3 frame-storage 624 image-instances-used 47
 image-instance-storage 3008 windows-used 27 windows-freed 2
 window-storage 9180 lcrecord-lists-used 15
-lcrecord-list-storage 360 hashtables-used 631
-hashtable-storage 25240 streams-used 1 streams-on-free-list 3
+lcrecord-list-storage 360 hash-tables-used 631
+hash-table-storage 25240 streams-used 1 streams-on-free-list 3
 streams-freed 12 stream-storage 91))
 @end group
 @end example

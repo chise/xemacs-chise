@@ -1886,7 +1886,7 @@ make_gap (struct buffer *buf, Bytecount increment)
   Bytecount old_gap_size;
 
   /* If we have to get more space, get enough to last a while.  We use
-     a geometric progession that saves on realloc space. */
+     a geometric progression that saves on realloc space. */
   increment += 2000 + ((BI_BUF_Z (buf) - BI_BUF_BEG (buf)) / 8);
 
   if (increment > BUF_END_GAP_SIZE (buf))
@@ -3167,7 +3167,7 @@ convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str, Bytecount len,
     }
 }
 
-int
+Charcount
 convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str, Bytecount len,
 					   Emchar *arr)
 {

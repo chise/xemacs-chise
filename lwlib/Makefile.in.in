@@ -32,7 +32,7 @@ SHELL=/bin/sh
 RM = rm -f
 AR = ar cq
 
-CC=@CC@
+CC=@XEMACS_CC@
 CPP=@CPP@
 CFLAGS=@CFLAGS@
 CPPFLAGS=@CPPFLAGS@

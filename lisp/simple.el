@@ -433,7 +433,7 @@ and KILLP is t if a prefix arg was specified."
   (and overwrite-mode (not (eolp))
        (save-excursion (insert-char ?\  arg))))
 
-(defcustom delete-key-deletes-forward nil
+(defcustom delete-key-deletes-forward t
   "*If non-nil, the DEL key will erase one character forwards.
 If nil, the DEL key will erase one character backwards."
   :type 'boolean
@@ -2369,7 +2369,7 @@ With any other arg, set comment column to indentation of the previous comment
 (defun kill-comment (arg)
   "Kill the comment on this line, if any.
 With argument, kill comments on that many lines starting with this one."
-  ;; this function loses in a lot of situations.  it incorrectly recognises
+  ;; this function loses in a lot of situations.  it incorrectly recognizes
   ;; comment delimiters sometimes (ergo, inside a string), doesn't work
   ;; with multi-line comments, can kill extra whitespace if comment wasn't
   ;; through end-of-line, et cetera.

@@ -245,7 +245,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
   void* empty_space;
   extern int static_heap_dumped;
   SCNHDR section;
-  /* calculate new sizes f_ohdr.dsize is the total initalized data
+  /* calculate new sizes f_ohdr.dsize is the total initialized data
      size on disk which is f_data.s_size + f_idata.s_size. 
      f_ohdr.data_start is the base addres of all data and so should 
      not be changed. *.s_vaddr is the virtual address of the start

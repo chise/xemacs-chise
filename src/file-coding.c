@@ -75,7 +75,7 @@ Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 Lisp_Object Qencode, Qdecode;
 
-Lisp_Object Vcoding_system_hashtable;
+Lisp_Object Vcoding_system_hash_table;
 
 int enable_multibyte_characters;
 
@@ -232,12 +232,12 @@ mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Coding_System *codesys = XCODING_SYSTEM (obj);
 
-  (markobj) (CODING_SYSTEM_NAME (codesys));
-  (markobj) (CODING_SYSTEM_DOC_STRING (codesys));
-  (markobj) (CODING_SYSTEM_MNEMONIC (codesys));
-  (markobj) (CODING_SYSTEM_EOL_LF (codesys));
-  (markobj) (CODING_SYSTEM_EOL_CRLF (codesys));
-  (markobj) (CODING_SYSTEM_EOL_CR (codesys));
+  markobj (CODING_SYSTEM_NAME (codesys));
+  markobj (CODING_SYSTEM_DOC_STRING (codesys));
+  markobj (CODING_SYSTEM_MNEMONIC (codesys));
+  markobj (CODING_SYSTEM_EOL_LF (codesys));
+  markobj (CODING_SYSTEM_EOL_CRLF (codesys));
+  markobj (CODING_SYSTEM_EOL_CR (codesys));
 
   switch (CODING_SYSTEM_TYPE (codesys))
     {
@@ -245,15 +245,15 @@ mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
       int i;
     case CODESYS_ISO2022:
       for (i = 0; i < 4; i++)
-	(markobj) (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i));
+	markobj (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i));
       if (codesys->iso2022.input_conv)
 	{
 	  for (i = 0; i < Dynarr_length (codesys->iso2022.input_conv); i++)
 	    {
 	      struct charset_conversion_spec *ccs =
 		Dynarr_atp (codesys->iso2022.input_conv, i);
-	      (markobj) (ccs->from_charset);
-	      (markobj) (ccs->to_charset);
+	      markobj (ccs->from_charset);
+	      markobj (ccs->to_charset);
 	    }
 	}
       if (codesys->iso2022.output_conv)
@@ -262,22 +262,22 @@ mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
 	    {
 	      struct charset_conversion_spec *ccs =
 		Dynarr_atp (codesys->iso2022.output_conv, i);
-	      (markobj) (ccs->from_charset);
-	      (markobj) (ccs->to_charset);
+	      markobj (ccs->from_charset);
+	      markobj (ccs->to_charset);
 	    }
 	}
       break;
 
     case CODESYS_CCL:
-      (markobj) (CODING_SYSTEM_CCL_DECODE (codesys));
-      (markobj) (CODING_SYSTEM_CCL_ENCODE (codesys));
+      markobj (CODING_SYSTEM_CCL_DECODE (codesys));
+      markobj (CODING_SYSTEM_CCL_ENCODE (codesys));
       break;
 #endif /* MULE */
     default:
       break;
     }
 
-  (markobj) (CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys));
+  markobj (CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys));
   return CODING_SYSTEM_POST_READ_CONVERSION (codesys);
 }
 
@@ -344,11 +344,11 @@ eol_type_to_symbol (enum eol_type type)
 {
   switch (type)
     {
+    default: abort ();
     case EOL_LF:         return Qlf;
     case EOL_CRLF:       return Qcrlf;
     case EOL_CR:         return Qcr;
     case EOL_AUTODETECT: return Qnil;
-    default:             abort (); return Qnil; /* not reached */
     }
 }
 
@@ -439,7 +439,7 @@ associated coding system object is returned.
   else
     CHECK_SYMBOL (coding_system_or_name);
 
-  return Fgethash (coding_system_or_name, Vcoding_system_hashtable, Qnil);
+  return Fgethash (coding_system_or_name, Vcoding_system_hash_table, Qnil);
 }
 
 DEFUN ("get-coding-system", Fget_coding_system, 1, 1, 0, /*
@@ -465,19 +465,15 @@ struct coding_system_list_closure
 };
 
 static int
-add_coding_system_to_list_mapper (CONST void *hash_key, void *hash_contents,
+add_coding_system_to_list_mapper (Lisp_Object key, Lisp_Object value,
 				  void *coding_system_list_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
-  Lisp_Object *coding_system_list;
   struct coding_system_list_closure *cscl =
     (struct coding_system_list_closure *) coding_system_list_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  coding_system_list = cscl->coding_system_list;
+  Lisp_Object *coding_system_list = cscl->coding_system_list;
 
-  *coding_system_list = Fcons (XCODING_SYSTEM (contents)->name,
+  *coding_system_list = Fcons (XCODING_SYSTEM (value)->name,
 			       *coding_system_list);
   return 0;
 }
@@ -493,7 +489,7 @@ Return a list of the names of all defined coding systems.
 
   GCPRO1 (coding_system_list);
   coding_system_list_closure.coding_system_list = &coding_system_list;
-  elisp_maphash (add_coding_system_to_list_mapper, Vcoding_system_hashtable,
+  elisp_maphash (add_coding_system_to_list_mapper, Vcoding_system_hash_table,
 		 &coding_system_list_closure);
   UNGCPRO;
 
@@ -890,7 +886,7 @@ if TYPE is 'ccl:
   {
     Lisp_Object codesys_obj;
     XSETCODING_SYSTEM (codesys_obj, codesys);
-    Fputhash (name, codesys_obj, Vcoding_system_hashtable);
+    Fputhash (name, codesys_obj, Vcoding_system_hash_table);
     return codesys_obj;
   }
 }
@@ -911,7 +907,7 @@ be created.
 			 allocate_coding_system
 			 (XCODING_SYSTEM_TYPE (old_coding_system),
 			  new_name));
-      Fputhash (new_name, new_coding_system, Vcoding_system_hashtable);
+      Fputhash (new_name, new_coding_system, Vcoding_system_hash_table);
     }
 
   {
@@ -978,6 +974,7 @@ Return the type of CODING-SYSTEM.
 {
   switch (XCODING_SYSTEM_TYPE (Fget_coding_system (coding_system)))
     {
+    default: abort ();
     case CODESYS_AUTODETECT:	return Qundecided;
 #ifdef MULE
     case CODESYS_SHIFT_JIS:	return Qshift_jis;
@@ -989,11 +986,7 @@ Return the type of CODING-SYSTEM.
 #ifdef DEBUG_XEMACS
     case CODESYS_INTERNAL:	return Qinternal;
 #endif
-    default:
-      abort ();
     }
-
-  return Qnil; /* not reached */
 }
 
 #ifdef MULE
@@ -1746,7 +1739,7 @@ decoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
      and automatically marked. */
 
   XSETLSTREAM (str_obj, str);
-  (markobj) (str_obj);
+  markobj (str_obj);
   if (str->imp->marker)
     return (str->imp->marker) (str_obj, markobj);
   else
@@ -2192,7 +2185,7 @@ encoding_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
      and automatically marked. */
 
   XSETLSTREAM (str_obj, str);
-  (markobj) (str_obj);
+  markobj (str_obj);
   if (str->imp->marker)
     return (str->imp->marker) (str_obj, markobj);
   else
@@ -2748,7 +2741,7 @@ Return the corresponding character code in SHIFT-JIS as a cons of two bytes.
 
    Since the number of characters in Big5 is larger than maximum
    characters in Emacs' charset (96x96), it can't be handled as one
-   charset.  So, in Emacs, Big5 is devided into two: `charset-big5-1'
+   charset.  So, in Emacs, Big5 is divided into two: `charset-big5-1'
    and `charset-big5-2'.  Both <type>s are TYPE94x94.  The former
    contains frequently used characters and the latter contains less
    frequently used characters.  */
@@ -4484,24 +4477,27 @@ static Bufbyte_dynarr *conversion_in_dynarr;
 
 /* Determine coding system from coding format */
 
-#define FILE_NAME_CODING_SYSTEM 			\
- ((NILP (Vfile_name_coding_system) ||			\
-   (EQ ((Vfile_name_coding_system), Qbinary))) ?	\
-  Qnil : Fget_coding_system (Vfile_name_coding_system))
-
 /* #### not correct for all values of `fmt'! */
+static Lisp_Object
+external_data_format_to_coding_system (enum external_data_format fmt)
+{
+  switch (fmt)
+    {
+    case FORMAT_FILENAME:
+    case FORMAT_TERMINAL:
+      if (EQ (Vfile_name_coding_system, Qnil) ||
+	  EQ (Vfile_name_coding_system, Qbinary))
+	return Qnil;
+      else
+	return Fget_coding_system (Vfile_name_coding_system);
 #ifdef MULE
-#define FMT_CODING_SYSTEM(fmt)					\
- (((fmt) == FORMAT_FILENAME) ? FILE_NAME_CODING_SYSTEM     :	\
-  ((fmt) == FORMAT_CTEXT   ) ? Fget_coding_system (Qctext) :	\
-  ((fmt) == FORMAT_TERMINAL) ? FILE_NAME_CODING_SYSTEM     :	\
-  Qnil)
-#else
-#define FMT_CODING_SYSTEM(fmt)					\
- (((fmt) == FORMAT_FILENAME) ? FILE_NAME_CODING_SYSTEM     :	\
-  ((fmt) == FORMAT_TERMINAL) ? FILE_NAME_CODING_SYSTEM     :	\
-  Qnil)
+    case FORMAT_CTEXT:
+      return Fget_coding_system (Qctext);
 #endif
+    default:
+      return Qnil;
+    }
+}
 
 Extbyte *
 convert_to_external_format (CONST Bufbyte *ptr,
@@ -4509,7 +4505,7 @@ convert_to_external_format (CONST Bufbyte *ptr,
 			    Extcount *len_out,
 			    enum external_data_format fmt)
 {
-  Lisp_Object coding_system = FMT_CODING_SYSTEM (fmt);
+  Lisp_Object coding_system = external_data_format_to_coding_system (fmt);
 
   if (!conversion_out_dynarr)
     conversion_out_dynarr = Dynarr_new (Extbyte);
@@ -4577,7 +4573,7 @@ convert_from_external_format (CONST Extbyte *ptr,
 			      Bytecount *len_out,
 			      enum external_data_format fmt)
 {
-  Lisp_Object coding_system = FMT_CODING_SYSTEM (fmt);
+  Lisp_Object coding_system = external_data_format_to_coding_system (fmt);
 
   if (!conversion_in_dynarr)
     conversion_in_dynarr = Dynarr_new (Bufbyte);
@@ -4819,9 +4815,9 @@ Setting this to nil does not do anything.
 void
 complex_vars_of_mule_coding (void)
 {
-  staticpro (&Vcoding_system_hashtable);
-  Vcoding_system_hashtable = make_lisp_hashtable (50, HASHTABLE_NONWEAK,
-						  HASHTABLE_EQ);
+  staticpro (&Vcoding_system_hash_table);
+  Vcoding_system_hash_table =
+    make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   the_codesys_prop_dynarr = Dynarr_new (codesys_prop);
 

@@ -59,10 +59,10 @@ enum debug_loop
 static Lisp_Object
 xemacs_debug_loop (enum debug_loop op, Lisp_Object class, Lisp_Object type)
 {
-  int flag = ((op == ADD) ? 1 : 0);
+  int flag = (op == ADD) ? 1 : 0;
   Lisp_Object retval = Qnil;
 
-#define FROB(item)\
+#define FROB(item)							\
   if (op == LIST || op == ACTIVE || op == INIT || EQ (class, Q##item))	\
     {									\
       if (op == ADD || op == DELETE || op == INIT)			\
@@ -75,7 +75,7 @@ xemacs_debug_loop (enum debug_loop op, Lisp_Object class, Lisp_Object type)
       else if (op == SETTYPE)						\
         active_debug_classes.types_of_##item = XINT (type);		\
       else if (op == TYPE)						\
-        retval = make_int (active_debug_classes.types_of_##item), Qnil; \
+        retval = make_int (active_debug_classes.types_of_##item);	\
       if (op == INIT) active_debug_classes.types_of_##item = VALBITS;	\
     }
 

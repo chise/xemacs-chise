@@ -29,10 +29,8 @@ Boston, MA 02111-1307, USA.  */
 #include "console-x.h"
 #include "glyphs-x.h"
 #include "objects-x.h"
-#include "xgccache.h"
 #include "EmacsFrame.h"
 #include "EmacsFrameP.h"
-#include "EmacsManager.h"
 
 #include "faces.h"
 #include "frame.h"

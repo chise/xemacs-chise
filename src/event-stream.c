@@ -47,9 +47,9 @@ Boston, MA 02111-1307, USA.  */
    sequence, without disturbing the key sequence composition, or the
    command builder structure representing it.
 
-   Someone should rethink univeral-argument and figure out how an
+   Someone should rethink universal-argument and figure out how an
    arbitrary command can influence the next command (universal-argument
-   or univeral-coding-system-argument) or the next key (hyperify).
+   or universal-coding-system-argument) or the next key (hyperify).
 
    Both C-h and Help in the middle of a key sequence should trigger
    prefix-help-command.  help-char is stupid.  Maybe we need
@@ -249,7 +249,7 @@ Lisp_Object Vmenu_accelerator_modifiers;
 /* whether menu accelerators are enabled */
 Lisp_Object Vmenu_accelerator_enabled;
 
-/* keymap for auxillary menu accelerator functions */
+/* keymap for auxiliary menu accelerator functions */
 Lisp_Object Vmenu_accelerator_map;
 
 Lisp_Object Qmenu_force;
@@ -392,12 +392,12 @@ static Lisp_Object
 mark_command_builder (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct command_builder *builder = XCOMMAND_BUILDER (obj);
-  (markobj) (builder->prefix_events);
-  (markobj) (builder->current_events);
-  (markobj) (builder->most_current_event);
-  (markobj) (builder->last_non_munged_event);
-  (markobj) (builder->munge_me[0].first_mungeable_event);
-  (markobj) (builder->munge_me[1].first_mungeable_event);
+  markobj (builder->prefix_events);
+  markobj (builder->current_events);
+  markobj (builder->most_current_event);
+  markobj (builder->last_non_munged_event);
+  markobj (builder->munge_me[0].first_mungeable_event);
+  markobj (builder->munge_me[1].first_mungeable_event);
   return builder->console;
 }
 
@@ -781,9 +781,9 @@ maybe_kbd_translate (Lisp_Object event)
 
   if (XEVENT_TYPE (event) != key_press_event)
     return;
-  if (!HASHTABLEP (Vkeyboard_translate_table))
+  if (!HASH_TABLEP (Vkeyboard_translate_table))
     return;
-  if (EQ (Fhashtable_fullness (Vkeyboard_translate_table), Qzero))
+  if (EQ (Fhash_table_count (Vkeyboard_translate_table), Qzero))
     return;
 
   c = event_to_character (XEVENT (event), 0, 0, 0);
@@ -896,7 +896,7 @@ execute_help_form (struct command_builder *command_builder,
 
   help = Feval (Vhelp_form);
   if (STRINGP (help))
-    internal_with_output_to_temp_buffer ("*Help*",
+    internal_with_output_to_temp_buffer (build_string ("*Help*"),
 					 print_help, help, Qnil);
   Fnext_command_event (event, Qnil);
   /* Remove the help from the frame */
@@ -1129,7 +1129,7 @@ static Lisp_Object
 mark_timeout (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct timeout *tm = (struct timeout *) XOPAQUE_DATA (obj);
-  (markobj) (tm->function);
+  markobj (tm->function);
   return tm->object;
 }
 
@@ -1813,7 +1813,7 @@ investigate_frame_change (void)
                * get here and have it be non-nil.
                */
               if (FRAMEP (DEVICE_FRAME_THAT_OUGHT_TO_HAVE_FOCUS (d)))
-                old_frame = DEVICE_FRAME_THAT_OUGHT_TO_HAVE_FOCUS (d);              
+                old_frame = DEVICE_FRAME_THAT_OUGHT_TO_HAVE_FOCUS (d);
               else if (FRAMEP (DEVICE_FRAME_WITH_FOCUS_FOR_HOOKS (d)))
                 old_frame = DEVICE_FRAME_WITH_FOCUS_FOR_HOOKS (d);
 
@@ -2324,7 +2324,6 @@ The returned event will be one of the following types:
     XCAR (XCDR (XCDR (Vlast_command_event_time)))
       = make_int (EMACS_USECS (t));
   }
-
   /* If this key came from the keyboard or from a keyboard macro, then
      it goes into the recent-keys and this-command-keys vectors.
      If this key came from the keyboard, and we're defining a keyboard
@@ -2370,7 +2369,7 @@ echo area while this function is waiting for an event.
 The event returned will be a keyboard, mouse press, or mouse release event.
 If there are non-command events available (mouse motion, sub-process output,
 etc) then these will be executed (with `dispatch-event') and discarded.  This
-function is provided as a convenience; it is rougly equivalent to the lisp code
+function is provided as a convenience; it is roughly equivalent to the lisp code
 
 	(while (progn
 		 (next-event event prompt)
@@ -2510,7 +2509,7 @@ A user event is a key press, button press, button release, or
    All of these routines install timeouts, so we clear the installed
    timeout as well.
 
-   Note: It's very easy to break the desired behaviours of these
+   Note: It's very easy to break the desired behaviors of these
    3 routines.  If you make any changes to anything in this area, run
    the regression tests at the bottom of the file.  -- dmoore */
 
@@ -2774,7 +2773,7 @@ If sit-for is called from within a process filter function or timer
   if (noninteractive || !NILP (Vexecuting_macro))
     return Qnil;
 
-  /* Recusive call from a filter function or timeout handler. */
+  /* Recursive call from a filter function or timeout handler. */
   if (!NILP(recursive_sit_for))
     {
       if (!event_stream_event_pending_p (1) && NILP (nodisplay))
@@ -4002,7 +4001,7 @@ Set the maximum number of events to be stored internally.
 /* Vthis_command_keys having value Qnil means that the next time
    push_this_command_keys is called, it should start over.
    The times at which the command-keys are reset
-   (instead of merely being augmented) are pretty conterintuitive.
+   (instead of merely being augmented) are pretty counterintuitive.
    (More specifically:
 
    -- We do not reset this-command-keys when we finish reading a
@@ -4353,7 +4352,7 @@ execute_command_event (struct command_builder *command_builder,
       ;
     else
 #endif
-      if (!NILP (con->prefix_arg))
+    if (!NILP (con->prefix_arg))
       {
 	/* Commands that set the prefix arg don't update last-command, don't
 	   reset the echoing state, and don't go into keyboard macros unless
@@ -4969,16 +4968,6 @@ syms_of_event_stream (void)
 void
 vars_of_event_stream (void)
 {
-#ifdef HAVE_X_WINDOWS
-  vars_of_event_Xt ();
-#endif
-#if defined(HAVE_TTY) && (defined (DEBUG_TTY_EVENT_STREAM) || !defined (HAVE_X_WINDOWS))
-  vars_of_event_tty ();
-#endif
-#ifdef HAVE_MS_WINDOWS
-  vars_of_event_mswindows ();
-#endif
-
   recent_keys_ring_index = 0;
   recent_keys_ring_size = 100;
   Vrecent_keys_ring = Qnil;
@@ -5340,7 +5329,8 @@ See also menu-accelerator-modifiers and menu-accelerator-prefix.
 void
 complex_vars_of_event_stream (void)
 {
-  Vkeyboard_translate_table = Fmake_hashtable (make_int (100), Qnil);
+  Vkeyboard_translate_table =
+    make_lisp_hash_table (100, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   DEFVAR_LISP ("menu-accelerator-map", &Vmenu_accelerator_map /*
 Keymap for use when the menubar is active.
@@ -5464,7 +5454,7 @@ with the read-key-sequence:
  (tst)^Jabc^G  ==>  ((quit) 97) with no signal, and "bc" inserted in buffer
 
 ; with sit-for only do the 2nd test.
-; Do all 3 tests with (accept-proccess-output nil 20)
+; Do all 3 tests with (accept-process-output nil 20)
 
 Do this:
   (setq enable-recursive-minibuffers t

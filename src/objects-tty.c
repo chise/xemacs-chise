@@ -171,7 +171,7 @@ static void
 tty_mark_color_instance (struct Lisp_Color_Instance *c,
 			 void (*markobj) (Lisp_Object))
 {
-  ((markobj) (COLOR_INSTANCE_TTY_SYMBOL (c)));
+  markobj (COLOR_INSTANCE_TTY_SYMBOL (c));
 }
 
 static void
@@ -259,7 +259,7 @@ static void
 tty_mark_font_instance (struct Lisp_Font_Instance *f,
 			void (*markobj) (Lisp_Object))
 {
-  ((markobj) (FONT_INSTANCE_TTY_CHARSET (f)));
+  markobj (FONT_INSTANCE_TTY_CHARSET (f));
 }
 
 static void

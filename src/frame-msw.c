@@ -126,9 +126,9 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   FRAME_MSWINDOWS_DATA(f)->ignore_next_lbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->ignore_next_rbutton_up = 0;
   FRAME_MSWINDOWS_DATA(f)->sizing = 0;
-  FRAME_MSWINDOWS_MENU_HASHTABLE(f) = Qnil;
+  FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
-  FRAME_MSWINDOWS_TOOLBAR_HASHTABLE(f) = Fmake_hashtable (make_int (50), 
+  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = Fmake_hash_table (make_int (50), 
 							  Qequal);
 #endif
 
@@ -234,8 +234,8 @@ mswindows_after_init_frame (struct frame *f, int first_on_device,
      frame is created, it will never be displayed, except for 
      hollow border, unless we start pumping messages. Load progress
      messages show in the bottom of the hollow frame, which is ugly.
-     We redipsplay the initial frame here, so modeline and root window
-     backgorund show.
+     We redisplay the initial frame here, so modeline and root window
+     background show.
   */
   if (first_on_console)
     redisplay ();
@@ -244,9 +244,9 @@ mswindows_after_init_frame (struct frame *f, int first_on_device,
 static void
 mswindows_mark_frame (struct frame *f, void (*markobj) (Lisp_Object))
 {
-  ((markobj) (FRAME_MSWINDOWS_MENU_HASHTABLE (f)));
+  markobj (FRAME_MSWINDOWS_MENU_HASH_TABLE (f));
 #ifdef HAVE_TOOLBARS
-  ((markobj) (FRAME_MSWINDOWS_TOOLBAR_HASHTABLE (f)));
+  markobj (FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE (f));
 #endif
 }
 
@@ -322,7 +322,7 @@ mswindows_frame_totally_visible_p (struct frame *f)
   RECT rc_me, rc_other, rc_temp;
   HWND hwnd = FRAME_MSWINDOWS_HANDLE(f);
 
-  /* We test against not a whole window rectangle, only agaist its
+  /* We test against not a whole window rectangle, only against its
      client part. So, if non-client are is covered and client area is
      not, we return true. */
   GetClientRect (hwnd, &rc_me);

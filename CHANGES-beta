@@ -1,4 +1,16 @@
 							-*- indented-text -*-
+to 21.2 beta5 "Aphrodite"
+-- bytecode interpreter rewritten
+-- byte compiler fixes
+-- hash table implementation rewritten
+-- basic lisp functions rewritten
+-- spelling fixes
+-- garbage collector tuned a little
+-- various global code changes for consistency
+-- automated test suite
+-- major internals manual updates
+-- lisp reference updates
+
 to 21.2 beta4 "Aglaophonos"
 -- isearch keymap fix from Katsumi Yamaoka
 -- directory_files cleanup from Hrvoje Niksic

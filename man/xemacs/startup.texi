@@ -22,15 +22,15 @@ installation itself.  However, there are several views of what actually
 constitutes the "XEmacs installation": XEmacs may be run from the
 compilation directory, it may be installed into arbitrary directories,
 spread over several directories unrelated to each other.  Moreover, it
-may subsequently moved to a different place.  (This last case is not as
-uncommon as it sounds.  Binary kits work this way.)  Consequently,
+may subsequently be moved to a different place.  (This last case is not
+as uncommon as it sounds.  Binary kits work this way.)  Consequently,
 XEmacs has quite complex procedures in place to find directories, no
 matter where they may be hidden.
 
 XEmacs will always respect directory options passed to @code{configure}.
 However, if it cannot locate a directory at the configured place, it
 will initiate a search for the directory in any of a number of
-@dfn{hierachies} rooted under a directory which XEmacs assumes contain
+@dfn{hierarchies} rooted under a directory which XEmacs assumes contain
 parts of the XEmacs installation; it may locate several such hierarchies
 and search across them.  (Typically, there are just one or two
 hierarchies: the hierarchy where XEmacs was or will be installed, and

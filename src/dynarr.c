@@ -44,7 +44,7 @@ until the next operation that changes the length of the array.
 This is a container object.  Declare a dynamic array of a specific type
 as follows:
 
-typdef struct
+typedef struct
 {
   Dynarr_declare (mytype);
 } mytype_dynarr;
@@ -72,7 +72,7 @@ Use the following functions/macros:
       The elements should be contiguous in memory, starting at BASE.
 
    Dynarr_insert_many(d, base, len, start)
-      Insert LEN elements to the dynamic arrary starting at position
+      Insert LEN elements to the dynamic array starting at position
       START.  The elements should be contiguous in memory, starting at BASE.
 
    int Dynarr_length(d)

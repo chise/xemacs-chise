@@ -68,13 +68,13 @@ text is inserted."
   :group 'mouse)
 
 (defcustom mouse-highlight-text 'context
-  "*Choose the default double-click highlighting behaviour.
+  "*Choose the default double-click highlighting behavior.
 If set to `context', double-click will highlight words when the mouse
  is at a word character, or a symbol if the mouse is at a symbol
  character.
 If set to `word', double-click will always attempt to highlight a word.
 If set to `symbol', double-click will always attempt to highlight a
- symbol (the default behaviour in previous XEmacs versions)."
+ symbol (the default behavior in previous XEmacs versions)."
   :type '(choice (const context)
 		 (const word)
 		 (const symbol))
@@ -960,7 +960,7 @@ at the initial click position."
 	     ;; always sufficient but it seems to give something
 	     ;; approaching a 99% success rate.  Making it higher yet
 	     ;; would help guarantee success with the price that the
-	     ;; delay would start to become noticable.
+	     ;; delay would start to become noticeable.
 	     ;;
 	     (and (eq (console-type) 'x)
 		  (sit-for 0.15 t))

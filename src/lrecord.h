@@ -50,7 +50,7 @@ Boston, MA 02111-1307, USA.  */
    a `next' pointer, and are allocated using alloc_lcrecord().
 
    Creating a new lcrecord type is fairly easy; just follow the
-   lead of some existing type (e.g. hashtables).  Note that you
+   lead of some existing type (e.g. hash tables).  Note that you
    do not need to supply all the methods (see below); reasonable
    defaults are provided for many of them.  Alternatively, if you're
    just looking for a way of encapsulating data (which possibly
@@ -89,11 +89,11 @@ struct lrecord_header
    */
 #ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
   /* index into lrecord_implementations_table[] */
-  unsigned type:8;
+  unsigned char type;
   /* 1 if the object is marked during GC, 0 otherwise. */
-  unsigned mark:1;
+  char mark;
   /* 1 if the object resides in pure (read-only) space */
-  unsigned pure:1;
+  char pure;
 #else
   CONST struct lrecord_implementation *implementation;
 #endif
@@ -103,11 +103,11 @@ struct lrecord_implementation;
 int lrecord_type_index (CONST struct lrecord_implementation *implementation);
 
 #ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
-# define set_lheader_implementation(header,imp) do	\
-{							\
-  (header)->type = lrecord_type_index (imp);		\
-  (header)->mark = 0;					\
-  (header)->pure = 0;					\
+# define set_lheader_implementation(header,imp) do {	\
+  struct lrecord_header* SLI_header = (header);		\
+  (SLI_header)->type = lrecord_type_index (imp);	\
+  (SLI_header)->mark = 0;				\
+  (SLI_header)->pure = 0;				\
 } while (0)
 #else
 # define set_lheader_implementation(header,imp) \
@@ -117,27 +117,31 @@ int lrecord_type_index (CONST struct lrecord_implementation *implementation);
 struct lcrecord_header
 {
   struct lrecord_header lheader;
-  /* The "next" field is normally used to chain all lrecords together
-     so that the GC can find (and free) all of them.
-     "alloc_lcrecord" threads records together.
 
-     The "next" field may be used for other purposes as long as some
-     other mechanism is provided for letting the GC do its work.  (For
-     example, the event and marker datatypes allocate members out of
-     memory chunks, and are able to find all unmarked members by
-     sweeping through the elements of the list of chunks) */
+  /* The `next' field is normally used to chain all lrecords together
+     so that the GC can find (and free) all of them.
+     `alloc_lcrecord' threads records together.
+
+     The `next' field may be used for other purposes as long as some
+     other mechanism is provided for letting the GC do its work.
+
+     For example, the event and marker object types allocate members
+     out of memory chunks, and are able to find all unmarked members
+     by sweeping through the elements of the list of chunks.  */
   struct lcrecord_header *next;
-  /* This is just for debugging/printing convenience.
-     Having this slot doesn't hurt us much spacewise, since an lcrecord
-     already has the above slots together with malloc overhead. */
+
+  /* The `uid' field is just for debugging/printing convenience.
+     Having this slot doesn't hurt us much spacewise, since an
+     lcrecord already has the above slots plus malloc overhead. */
   unsigned int uid :31;
-  /* A flag that indicates whether this lcrecord is on a "free list".
-     Free lists are used to minimize the number of calls to malloc()
-     when we're repeatedly allocating and freeing a number of the
-     same sort of lcrecord.  Lcrecords on a free list always get
-     marked in a different fashion, so we can use this flag as a
-     sanity check to make sure that free lists only have freed lcrecords
-     and there are no freed lcrecords elsewhere. */
+
+  /* The `free' field is a flag that indicates whether this lcrecord
+     is on a "free list".  Free lists are used to minimize the number
+     of calls to malloc() when we're repeatedly allocating and freeing
+     a number of the same sort of lcrecord.  Lcrecords on a free list
+     always get marked in a different fashion, so we can use this flag
+     as a sanity check to make sure that free lists only have freed
+     lcrecords and there are no freed lcrecords elsewhere. */
   unsigned int free :1;
 };
 
@@ -149,7 +153,7 @@ struct free_lcrecord_header
 };
 
 /* This as the value of lheader->implementation->finalizer
- *  means that this record is already marked */
+   means that this record is already marked */
 void this_marks_a_marked_record (void *, int);
 
 /* see alloc.c for an explanation */
@@ -232,24 +236,21 @@ extern int gc_in_progress;
 
 #ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
 
-# define MARKED_RECORD_HEADER_P(lheader) (lheader)->mark
-# define MARK_RECORD_HEADER(lheader) (lheader)->mark = 1
-# define UNMARK_RECORD_HEADER(lheader) (lheader)->mark = 0
+# define MARKED_RECORD_HEADER_P(lheader) ((lheader)->mark)
+# define MARK_RECORD_HEADER(lheader)   ((void) ((lheader)->mark = 1))
+# define UNMARK_RECORD_HEADER(lheader) ((void) ((lheader)->mark = 0))
 
 #else /* ! USE_INDEXED_LRECORD_IMPLEMENTATION */
 
 # define MARKED_RECORD_HEADER_P(lheader) \
-  (((lheader)->implementation->finalizer) == this_marks_a_marked_record)
-# define MARK_RECORD_HEADER(lheader) \
-  do { (((lheader)->implementation)++); } while (0)
-# define UNMARK_RECORD_HEADER(lheader) \
-  do { (((lheader)->implementation)--); } while (0)
+  ((lheader)->implementation->finalizer == this_marks_a_marked_record)
+# define MARK_RECORD_HEADER(lheader)   ((void) (((lheader)->implementation)++))
+# define UNMARK_RECORD_HEADER(lheader) ((void) (((lheader)->implementation)--))
 
 #endif /* ! USE_INDEXED_LRECORD_IMPLEMENTATION */
 
 #define UNMARKABLE_RECORD_HEADER_P(lheader) \
-  ((LHEADER_IMPLEMENTATION (lheader)->marker) \
-   == this_one_is_unmarkable)
+  (LHEADER_IMPLEMENTATION (lheader)->marker == this_one_is_unmarkable)
 
 /* Declaring the following structures as const puts them in the
    text (read-only) segment, which makes debugging inconvenient
@@ -325,25 +326,25 @@ CONST_IF_NOT_DEBUG struct lrecord_implementation lrecord_##c_name[2] =	\
 # define DECLARE_LRECORD(c_name, structtype)			\
 extern CONST_IF_NOT_DEBUG struct lrecord_implementation		\
   lrecord_##c_name[];						\
-INLINE structtype *error_check_##c_name (Lisp_Object _obj);	\
+INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
 INLINE structtype *						\
-error_check_##c_name (Lisp_Object _obj)				\
+error_check_##c_name (Lisp_Object obj)				\
 {								\
-  XUNMARK (_obj);						\
-  assert (RECORD_TYPEP (_obj, lrecord_##c_name) ||		\
-	  MARKED_RECORD_P (_obj));				\
-  return (structtype *) XPNTR (_obj);				\
+  XUNMARK (obj);						\
+  assert (RECORD_TYPEP (obj, lrecord_##c_name) ||		\
+	  MARKED_RECORD_P (obj));				\
+  return (structtype *) XPNTR (obj);				\
 }								\
 extern Lisp_Object Q##c_name##p
 
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
-INLINE structtype *error_check_##c_name (Lisp_Object _obj);	\
+INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
 INLINE structtype *						\
-error_check_##c_name (Lisp_Object _obj)				\
+error_check_##c_name (Lisp_Object obj)				\
 {								\
-  XUNMARK (_obj);						\
-  assert (XGCTYPE (_obj) == type_enum);				\
-  return (structtype *) XPNTR (_obj);				\
+  XUNMARK (obj);						\
+  assert (XGCTYPE (obj) == type_enum);				\
+  return (structtype *) XPNTR (obj);				\
 }								\
 extern Lisp_Object Q##c_name##p
 

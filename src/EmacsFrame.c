@@ -40,7 +40,6 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "toolbar.h"
-#include "redisplay.h"
 #include "window.h"
 
 static void EmacsFrameClassInitialize (void);
@@ -115,9 +114,9 @@ static XtResource resources[] = {
      sizeof (int),
      offset (right_toolbar_border_width), XtRImmediate, (XtPointer)-1},
   {XtNtopToolBarShadowColor, XtCTopToolBarShadowColor, XtRPixel, sizeof(Pixel),
-     offset(top_toolbar_shadow_pixel), XtRString, "#000000"},
+     offset(top_toolbar_shadow_pixel), XtRString, (XtPointer) "#000000"},
   {XtNbottomToolBarShadowColor, XtCBottomToolBarShadowColor, XtRPixel,
-     sizeof(Pixel), offset(bottom_toolbar_shadow_pixel), XtRString, "#000000"},
+     sizeof(Pixel), offset(bottom_toolbar_shadow_pixel), XtRString, (XtPointer) "#000000"},
   {XtNbackgroundToolBarColor, XtCBackgroundToolBarColor, XtRPixel,
      sizeof(Pixel), offset(background_toolbar_pixel), XtRImmediate,
      (XtPointer)-1},
@@ -145,11 +144,11 @@ static XtResource resources[] = {
     offset(font), XtRImmediate, (XtPointer)0
   },
   {XtNforeground, XtCForeground, XtRPixel, sizeof(Pixel),
-     offset(foreground_pixel), XtRString, "Black"},
+     offset(foreground_pixel), XtRString, (XtPointer) "Black"},
   {XtNbackground, XtCBackground, XtRPixel, sizeof(Pixel),
-     offset(background_pixel), XtRString, "Gray80"},
+     offset(background_pixel), XtRString, (XtPointer) "Gray80"},
   {XtNcursorColor, XtCForeground, XtRPixel, sizeof(Pixel),
-     offset(cursor_color), XtRString, "XtDefaultForeground"},
+     offset(cursor_color), XtRString, (XtPointer) "XtDefaultForeground"},
   {XtNbarCursor, XtCBarCursor, XtRBoolean, sizeof (Boolean),
      offset (bar_cursor), XtRImmediate, (XtPointer)0},
   {XtNvisualBell, XtCVisualBell, XtRBoolean, sizeof (Boolean),
@@ -411,7 +410,7 @@ EmacsFrameSetValues (Widget cur_widget, Widget req_widget, Widget new_widget,
       f->internal_border_width = new->emacs_frame.internal_border_width;
       MARK_FRAME_SIZE_SLIPPED (f);
     }
-    
+
 #ifdef HAVE_SCROLLBARS
       if (cur->emacs_frame.scrollbar_width !=
 	  new->emacs_frame.scrollbar_width)
@@ -625,7 +624,6 @@ EmacsFrameSetCharSize (Widget widget, int columns, int rows)
   EmacsFrame ew = (EmacsFrame) widget;
   int pixel_width, pixel_height;
   struct frame *f = ew->emacs_frame.frame;
-  Arg al [2];
 
   if (columns < 3)
     columns = 3;  /* no way buddy */
@@ -637,7 +635,10 @@ EmacsFrameSetCharSize (Widget widget, int columns, int rows)
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))
     x_wm_set_variable_size (FRAME_X_SHELL_WIDGET (f), columns, rows);
 
-  XtSetArg (al [0], XtNwidth,  (Dimension) pixel_width);
-  XtSetArg (al [1], XtNheight, (Dimension) pixel_height);
-  XtSetValues ((Widget) ew, al, 2);
+  {
+    Arg al [2];
+    XtSetArg (al [0], XtNwidth,  pixel_width);
+    XtSetArg (al [1], XtNheight, pixel_height);
+    XtSetValues ((Widget) ew, al, countof (al));
+  }
 }

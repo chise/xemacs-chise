@@ -55,20 +55,19 @@
 #ifdef emacs
 #include <config.h>
 #include "lisp.h"
+#include "sysdep.h"
+#include "syssignal.h"
 #endif
 
-#if __STDC__ || defined (STDC_HEADERS)
-#    include <stdlib.h>
-#    include <stdarg.h>
-#    include <string.h>
-#endif
+#include <stdlib.h>
+#include <stdarg.h>
+#include <string.h>
+#include <stdio.h>
 
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
 
-#include <stdio.h>
-#include "syssignal.h"
 
 #undef LITTLE_ENDIAN
 #undef BIG_ENDIAN

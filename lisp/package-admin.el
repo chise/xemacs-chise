@@ -432,7 +432,8 @@ PACKAGE is a symbol, not a string."
 	    ;; Delete empty directories.
 	    (if dirs
 		(let ( (orig-default-directory default-directory)
-		       directory files file )
+;		       directory files file
+		       )
 		  ;; Make sure we preserve the existing `default-directory'.
 		  ;; JV, why does this change the default directory? Does it indeed?
 		  (unwind-protect

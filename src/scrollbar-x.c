@@ -1,6 +1,6 @@
 /* scrollbar implementation -- X interface.
    Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
-   Copyright (C) 1994 Amdhal Corporation.
+   Copyright (C) 1994 Amdahl Corporation.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995 Darrell Kindred <dkindred+@cmu.edu>.
 
@@ -28,8 +28,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "console-x.h"
 #include "glyphs-x.h"
-#include "EmacsFrame.h"
-#include "EmacsManager.h"
 #include "gui-x.h"
 #include "scrollbar-x.h"
 

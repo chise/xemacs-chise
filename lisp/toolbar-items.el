@@ -33,7 +33,7 @@
 ;; is compiled in).
 
 ;; Miscellaneous toolbar functions, useful for users to redefine, in
-;; order to get different behaviour.
+;; order to get different behavior.
 
 ;;; Code:
 

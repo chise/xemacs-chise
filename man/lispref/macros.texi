@@ -282,14 +282,14 @@ Here are some examples:
 @end group
 @end example
 
-@quotation
-Before Emacs version 19.29, @samp{`} used a different syntax which
-required an extra level of parentheses around the entire backquote
-construct.  Likewise, each @samp{,} or @samp{,@@} substitution required an
-extra level of parentheses surrounding both the @samp{,} or @samp{,@@}
-and the following expression.  The old syntax required whitespace
-between the @samp{`}, @samp{,} or @samp{,@@} and the following
-expression.
+@quotation 
+In older versions of Emacs (before XEmacs 19.12 or FSF Emacs version
+19.29), @samp{`} used a different syntax which required an extra level
+of parentheses around the entire backquote construct.  Likewise, each
+@samp{,} or @samp{,@@} substitution required an extra level of
+parentheses surrounding both the @samp{,} or @samp{,@@} and the
+following expression.  The old syntax required whitespace between the
+@samp{`}, @samp{,} or @samp{,@@} and the following expression.
 
 This syntax is still accepted, but no longer recommended except for
 compatibility with old Emacs versions.

@@ -109,7 +109,7 @@ menu_parse_submenu_keywords (Lisp_Object desc, struct gui_item* pgui_item)
 
   /* First element may be menu name, although can be omitted.
      Let's think that if stuff begins with anything than a keyword
-     or a list (submenu), this is a menu name, expected to be a stirng */
+     or a list (submenu), this is a menu name, expected to be a string */
   if (!KEYWORDP (XCAR (desc)) && !CONSP (XCAR (desc)))
     {
       CHECK_STRING (XCAR (desc));
@@ -156,7 +156,7 @@ See also 'find-menu-item'.
 
   gui_item_init (&gui_item);
   GCPRO_GUI_ITEM (&gui_item);
-  
+
   EXTERNAL_LIST_LOOP (path_entry, path)
     {
       /* Verify that DESC describes a menu, not single item */
@@ -507,7 +507,7 @@ The possible keywords are this:
  :label <form>       (unimplemented!) Like :suffix, but replaces label
                      completely.
                      (might be added in 21.2).
- 
+
 For example:
 
  ("File"

@@ -274,16 +274,16 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 
 #if 1
   /* Eval the activep slot of the menu item */
-# define wv_set_evalable_slot(slot,form)	\
-   do { Lisp_Object _f_ = (form);		\
-	  slot = (NILP (_f_) ? 0 : 		\
-		  EQ (_f_, Qt) ? 1 :		\
-		  !NILP (Feval (_f_)));		\
-      } while (0)
+# define wv_set_evalable_slot(slot,form) do {	\
+  Lisp_Object wses_form = (form);		\
+  (slot) = (NILP (wses_form) ? 0 :		\
+	    EQ (wses_form, Qt) ? 1 :		\
+	    !NILP (Feval (wses_form)));		\
+} while (0)
 #else
   /* Treat the activep slot of the menu item as a boolean */
 # define wv_set_evalable_slot(slot,form)	\
-      slot = (!NILP ((form)))
+      ((void) (slot = (!NILP (form))))
 #endif
 
 char *
@@ -297,7 +297,8 @@ menu_separator_style (CONST char *s)
   first = s[0];
   if (first != '-' && first != '=')
     return NULL;
-  for (p = s; *p == first; p++);
+  for (p = s; *p == first; p++)
+    DO_NOTHING;
 
   /* #### - cannot currently specify a separator tag "--!tag" and a
      separator style "--:style" at the same time. */
@@ -361,7 +362,7 @@ button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
   int selected_spec = 0, included_spec = 0;
 
   if (length < 2)
-    signal_simple_error ("button descriptors must be at least 2 long", desc);
+    signal_simple_error ("Button descriptors must be at least 2 long", desc);
 
   /* length 2:		[ "name" callback ]
      length 3:		[ "name" callback active-p ]
@@ -386,7 +387,7 @@ button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
       int i;
       if (length & 1)
 	signal_simple_error (
-		"button descriptor has an odd number of keywords and values",
+		"Button descriptor has an odd number of keywords and values",
 			     desc);
 
       name = contents [0];
@@ -396,7 +397,7 @@ button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 	  Lisp_Object key = contents [i++];
 	  Lisp_Object val = contents [i++];
 	  if (!KEYWORDP (key))
-	    signal_simple_error_2 ("not a keyword", key, desc);
+	    signal_simple_error_2 ("Not a keyword", key, desc);
 
 	  if      (EQ (key, Q_active))   active_p   = val;
 	  else if (EQ (key, Q_suffix))   suffix     = val;
@@ -411,12 +412,12 @@ button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 		   || CHARP (val))
 		accel = val;
 	      else
-		signal_simple_error ("bad keyboard accelerator", val);
+		signal_simple_error ("Bad keyboard accelerator", val);
 	    }
 	  else if (EQ (key, Q_filter))
 	    signal_simple_error(":filter keyword not permitted on leaf nodes", desc);
 	  else
-	    signal_simple_error_2 ("unknown menu item keyword", key, desc);
+	    signal_simple_error_2 ("Unknown menu item keyword", key, desc);
 	}
     }
 
@@ -529,10 +530,10 @@ button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 #endif
     }
   else
-    signal_simple_error_2 ("unknown style", style, desc);
+    signal_simple_error_2 ("Unknown style", style, desc);
 
   if (!allow_text_field_p && (wv->type == TEXT_TYPE))
-    signal_simple_error ("text field not allowed in this context", desc);
+    signal_simple_error ("Text field not allowed in this context", desc);
 
   if (selected_spec && EQ (style, Qtext))
     signal_simple_error (

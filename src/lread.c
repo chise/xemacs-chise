@@ -29,11 +29,9 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "bytecode.h"
-#include "commands.h"
-#include "insdel.h"
+#include "elhash.h"
 #include "lstream.h"
 #include "opaque.h"
-#include <paths.h>
 #ifdef FILE_CODING
 #include "file-coding.h"
 #endif
@@ -401,22 +399,18 @@ ebolify_bytecode_constants (Lisp_Object vector)
 	 something to `funcall', but who would really do that?  As
 	 they say in law, we've made a "good-faith effort" to
 	 unfuckify ourselves.  And doing it this way avoids screwing
-	 up args to `make-hashtable' and such.  As it is, we have to
+	 up args to `make-hash-table' and such.  As it is, we have to
 	 add an extra Ebola check in decode_weak_list_type(). --ben */
-      if (EQ (el, Qassoc))
-	el = Qold_assoc;
-      if (EQ (el, Qdelq))
-	el = Qold_delq;
+      if      (EQ (el, Qassoc))  el = Qold_assoc;
+      else if (EQ (el, Qdelq))   el = Qold_delq;
 #if 0
       /* I think this is a bad idea because it will probably mess
 	 with keymap code. */
-      if (EQ (el, Qdelete))
-	el = Qold_delete;
+      else if (EQ (el, Qdelete)) el = Qold_delete;
 #endif
-      if (EQ (el, Qrassq))
-	el = Qold_rassq;
-      if (EQ (el, Qrassoc))
-	el = Qold_rassoc;
+      else if (EQ (el, Qrassq))  el = Qold_rassq;
+      else if (EQ (el, Qrassoc)) el = Qold_rassoc;
+
       XVECTOR_DATA (vector)[i] = el;
     }
 }
@@ -470,11 +464,11 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
 	  Lisp_Object doc;
 
 	  assert (COMPILED_FUNCTIONP (john));
-	  if (CONSP (XCOMPILED_FUNCTION (john)->bytecodes))
+	  if (CONSP (XCOMPILED_FUNCTION (john)->instructions))
 	    {
 	      struct gcpro ngcpro1;
 	      Lisp_Object juan = (pas_de_lache_ici
-				  (fd, XCOMPILED_FUNCTION (john)->bytecodes));
+				  (fd, XCOMPILED_FUNCTION (john)->instructions));
 	      Lisp_Object ivan;
 
 	      NGCPRO1 (juan);
@@ -482,7 +476,7 @@ load_force_doc_string_unwind (Lisp_Object oldlist)
 	      if (!CONSP (ivan))
 		signal_simple_error ("invalid lazy-loaded byte code", ivan);
 	      /* Remember to purecopy; see above. */
-	      XCOMPILED_FUNCTION (john)->bytecodes = Fpurecopy (XCAR (ivan));
+	      XCOMPILED_FUNCTION (john)->instructions = Fpurecopy (XCAR (ivan));
 	      /* v18 or v19 bytecode file.  Need to Ebolify. */
 	      if (XCOMPILED_FUNCTION (john)->flags.ebolified
 		  && VECTORP (XCDR (ivan)))
@@ -793,7 +787,7 @@ encoding detection or end-of-line detection.
   if (purify_flag && noninteractive)
     {
       if (EQ (last_file_loaded, file))
-	message_append (" (%ld)", 
+	message_append (" (%ld)",
 			(unsigned long) (purespace_usage() - pure_usage));
       else
 	message ("Loading %s ...done (%ld)", XSTRING_DATA (file),
@@ -848,10 +842,11 @@ for details.
   if (!NILP (mode))
     CHECK_NATNUM (mode);
 
-  locate_file (path_list, filename,
-               ((NILP (suffixes)) ? "" :
-		(char *) (XSTRING_DATA (suffixes))),
-	       &tp, (NILP (mode) ? R_OK : XINT (mode)));
+  locate_file (path_list,
+	       filename,
+               NILP (suffixes) ? "" : (char *) XSTRING_DATA (suffixes),
+	       &tp,
+	       NILP (mode) ? R_OK : XINT (mode));
   return tp;
 }
 
@@ -860,8 +855,7 @@ for details.
 static Lisp_Object
 locate_file_refresh_hashing (Lisp_Object str)
 {
-  Lisp_Object hash =
-    make_directory_hash_table ((char *) XSTRING_DATA (str));
+  Lisp_Object hash = make_directory_hash_table ((char *) XSTRING_DATA (str));
   Fput (str, Qlocate_file_hash_table, hash);
   return hash;
 }
@@ -872,7 +866,7 @@ static Lisp_Object
 locate_file_find_directory_hash_table (Lisp_Object str)
 {
   Lisp_Object hash = Fget (str, Qlocate_file_hash_table, Qnil);
-  if (NILP (Fhashtablep (hash)))
+  if (! HASH_TABLEP (hash))
     return locate_file_refresh_hashing (str);
   return hash;
 }
@@ -904,7 +898,7 @@ locate_file_in_directory (Lisp_Object path, Lisp_Object str,
        default-directory to be something non-absolute ... */
     {
       if (NILP (filename))
-	/* NIL means current dirctory */
+	/* NIL means current directory */
 	filename = current_buffer->directory;
       else
 	filename = Fexpand_file_name (filename,
@@ -1119,7 +1113,7 @@ locate_file (Lisp_Object path, Lisp_Object str, CONST char *suffix,
   for (pathtail = path; !NILP (pathtail); pathtail = Fcdr (pathtail))
     {
       Lisp_Object pathel = Fcar (pathtail);
-      Lisp_Object hashtab;
+      Lisp_Object hash_table;
       Lisp_Object tail;
       int found;
 
@@ -1138,13 +1132,13 @@ locate_file (Lisp_Object path, Lisp_Object str, CONST char *suffix,
 	  continue;
 	}
 
-      hashtab = locate_file_find_directory_hash_table (pathel);
+      hash_table = locate_file_find_directory_hash_table (pathel);
 
       /* Loop over suffixes.  */
       for (tail = suffixtab, found = 0; !found && CONSP (tail);
 	   tail = XCDR (tail))
 	{
-	  if (!NILP (Fgethash (XCAR (tail), hashtab, Qnil)))
+	  if (!NILP (Fgethash (XCAR (tail), hash_table, Qnil)))
 	    found = 1;
 	}
 
@@ -1274,9 +1268,9 @@ readevalloop (Lisp_Object readcharfun,
 {
   /* This function can GC */
   REGISTER Emchar c;
-  REGISTER Lisp_Object val;
+  REGISTER Lisp_Object val = Qnil;
   int speccount = specpdl_depth ();
-  struct gcpro gcpro1;
+  struct gcpro gcpro1, gcpro2;
   struct buffer *b = 0;
 
   if (BUFFERP (readcharfun))
@@ -1293,7 +1287,7 @@ readevalloop (Lisp_Object readcharfun,
 #ifdef COMPILED_FUNCTION_ANNOTATION_HACK
   Vcurrent_compiled_function_annotation = Qnil;
 #endif
-  GCPRO1 (sourcename);
+  GCPRO2 (val, sourcename);
 
   LOADHIST_ATTACH (sourcename);
 
@@ -2401,11 +2395,11 @@ retry:
 	      obj = read0(readcharfun);
 
 	      /* the call to `featurep' may GC. */
-	      GCPRO2(fexp, obj);
-	      tem = call1(Qfeaturep, fexp);
+	      GCPRO2 (fexp, obj);
+	      tem = call1 (Qfeaturep, fexp);
 	      UNGCPRO;
 
-	      if (c == '+' && NILP(tem)) goto retry;
+	      if (c == '+' &&  NILP(tem)) goto retry;
 	      if (c == '-' && !NILP(tem)) goto retry;
 	      return obj;
 	    }
@@ -2991,7 +2985,7 @@ init_lread (void)
   Vvalues = Qnil;
 
   load_in_progress = 0;
-  
+
   Vload_descriptor_list = Qnil;
 
   /* kludge: locate-file does not work for a null load-path, even if

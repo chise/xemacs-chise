@@ -139,7 +139,7 @@ struct rune
     /* CHAR */
     struct
     {
-      Emchar ch;		/* Cbaracter of this rune. */
+      Emchar ch;		/* Character of this rune. */
     } chr;
 
     /* HLINE */
@@ -256,7 +256,7 @@ struct display_line
   int cursor_elt;			/* rune block of TEXT display
 					   block cursor is at or -1 */
   char used_prop_data;			/* can't incrementally update if line
-					   used propogation data */
+					   used propagation data */
 
   layout_bounds bounds;			/* line boundary positions */
 
@@ -389,23 +389,23 @@ extern int windows_structure_changed;
    if each has already been called and don't bother doing most of the
    work if it is currently set. */
 
-#define MARK_TYPE_CHANGED(object) do {					\
-  if (!object##_changed_set) {						\
-    Lisp_Object _devcons_, _concons_;					\
-    DEVICE_LOOP_NO_BREAK (_devcons_, _concons_)				\
-      {									\
-        Lisp_Object _frmcons_;						\
-        struct device *_d_ = XDEVICE (XCAR (_devcons_));		\
-        DEVICE_FRAME_LOOP (_frmcons_, _d_)				\
-	  {								\
-	    struct frame *_f_ = XFRAME (XCAR (_frmcons_));		\
-            _f_->object##_changed = 1;					\
-	    _f_->modiff++;						\
-	  }    								\
-        _d_->object##_changed = 1;					\
-      }									\
-    object##_changed = 1;						\
-    object##_changed_set = 1; }						\
+#define MARK_TYPE_CHANGED(object) do {				\
+  if (!object##_changed_set) {					\
+    Lisp_Object MTC_devcons, MTC_concons;			\
+    DEVICE_LOOP_NO_BREAK (MTC_devcons, MTC_concons)		\
+      {								\
+        Lisp_Object MTC_frmcons;				\
+        struct device *MTC_d = XDEVICE (XCAR (MTC_devcons));	\
+        DEVICE_FRAME_LOOP (MTC_frmcons, MTC_d)			\
+	  {							\
+	    struct frame *MTC_f = XFRAME (XCAR (MTC_frmcons));	\
+            MTC_f->object##_changed = 1;			\
+	    MTC_f->modiff++;					\
+	  }							\
+        MTC_d->object##_changed = 1;				\
+      }								\
+    object##_changed = 1;					\
+    object##_changed_set = 1; }					\
   }  while (0)
 
 #define MARK_BUFFERS_CHANGED MARK_TYPE_CHANGED (buffers)
@@ -420,17 +420,17 @@ extern int windows_structure_changed;
 
 /* Anytime a console, device or frame is added or deleted we need to reset
    these flags. */
-#define RESET_CHANGED_SET_FLAGS						\
-  do {									\
-    buffers_changed_set = 0;						\
-    clip_changed_set = 0;						\
-    extents_changed_set = 0;						\
-    icon_changed_set = 0;						\
-    menubar_changed_set = 0;						\
-    modeline_changed_set = 0;						\
-    point_changed_set = 0;						\
-    toolbar_changed_set = 0;						\
-    glyphs_changed_set = 0;						\
+#define RESET_CHANGED_SET_FLAGS		\
+  do {					\
+    buffers_changed_set = 0;		\
+    clip_changed_set = 0;		\
+    extents_changed_set = 0;		\
+    icon_changed_set = 0;		\
+    menubar_changed_set = 0;		\
+    modeline_changed_set = 0;		\
+    point_changed_set = 0;		\
+    toolbar_changed_set = 0;		\
+    glyphs_changed_set = 0;		\
   } while (0)
 
 
@@ -438,7 +438,7 @@ extern int windows_structure_changed;
 /*                       redisplay global variables                      */
 /*************************************************************************/
 
-/* redisplay structre used by various utility routines. */
+/* redisplay structure used by various utility routines. */
 extern display_line_dynarr *cmotion_display_lines;
 
 /* Nonzero means truncate lines in all windows less wide than the frame. */
@@ -473,7 +473,7 @@ extern Lisp_Object Vglobal_mode_string;
 extern int display_arg;
 
 /* Type of display specified.  Defined in emacs.c. */
-extern char *display_use;
+extern CONST char *display_use;
 
 /* Nonzero means reading single-character input with prompt
    so put cursor on minibuffer after the prompt.  */

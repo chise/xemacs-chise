@@ -284,8 +284,7 @@ Read the section about customization in the Emacs Lisp manual for more
 information."
   `(custom-declare-group (quote ,symbol) ,members ,doc ,@args))
 
-;; This is preloaded very early, so we avoid using CL features.
-(defvar custom-group-hash-table (make-hashtable 300 'eq)
+(defvar custom-group-hash-table (make-hash-table :size 300 :test 'eq)
   "Hash-table of non-empty groups.")
 
 (defun custom-add-to-group (group option widget)

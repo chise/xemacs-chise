@@ -23,7 +23,7 @@ Boston, MA 02111-1307, USA.  */
 /* Original author: Jareth Hein */
 
 /* Parts of this file are based on code from Sam Leffler's tiff library,
-   with the original copywrite displayed here:
+   with the original copyright displayed here:
 
    Copyright (c) 1988-1997 Sam Leffler
    Copyright (c) 1991-1997 Silicon Graphics, Inc.

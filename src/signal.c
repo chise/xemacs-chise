@@ -355,7 +355,7 @@ Return non-nil if XEmacs is waiting for input from the user.
 This is intended for use by asynchronous timeout callbacks and by
 asynchronous process output filters and sentinels (not yet implemented
 in XEmacs).  It will always be nil if XEmacs is not inside of
-an asynchronout timeout or process callback.
+an asynchronous timeout or process callback.
 */
        ())
 {

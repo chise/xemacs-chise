@@ -237,6 +237,7 @@ DECLARE_LRECORD (buffer, struct buffer);
     x = wrong_type_argument (Qbuffer_live_p, (x));	\
 } while (0)
 
+
 #define BUFFER_BASE_BUFFER(b) ((b)->base_buffer ? (b)->base_buffer : (b))
 
 /* Map over buffers sharing the same text as MPS_BUF.  MPS_BUFVAR is a
@@ -255,6 +256,13 @@ for (mps_bufcons = Qunbound,							\
      )
 
 
+
+/************************************************************************/
+/*									*/
+/*		   working with raw internal-format data		*/
+/*									*/
+/************************************************************************/
+
 /* NOTE: In all the following macros, we follow these rules concerning
    multiple evaluation of the arguments:
 
@@ -270,52 +278,44 @@ for (mps_bufcons = Qunbound,							\
       denoted with the word "unsafe" in their name and are generally
       meant to be called only by other macros that have already
       stored the calling values in temporary variables.
- */
-
-/************************************************************************/
-/*									*/
-/*		   working with raw internal-format data		*/
-/*									*/
-/************************************************************************/
-
-/* Use these on contiguous strings of data.  If the text you're
-   operating on is known to come from a buffer, use the buffer-level
-   functions below -- they know about the gap and may be more
-   efficient. */
-
-/* Functions are as follows:
 
 
-   (A) For working with charptr's (pointers to internally-formatted text):
-   -----------------------------------------------------------------------
+   Use the following functions/macros on contiguous strings of data.
+   If the text you're operating on is known to come from a buffer, use
+   the buffer-level functions below -- they know about the gap and may
+   be more efficient.
 
-   VALID_CHARPTR_P(ptr):
+
+  (A) For working with charptr's (pointers to internally-formatted text):
+  -----------------------------------------------------------------------
+
+   VALID_CHARPTR_P (ptr):
 	Given a charptr, does it point to the beginning of a character?
 
-   ASSERT_VALID_CHARPTR(ptr):
+   ASSERT_VALID_CHARPTR (ptr):
 	If error-checking is enabled, assert that the given charptr
-	points to the beginning of a character.  Otherwise, do nothing.
+	points to the beginning of a character.	 Otherwise, do nothing.
 
-   INC_CHARPTR(ptr):
+   INC_CHARPTR (ptr):
 	Given a charptr (assumed to point at the beginning of a character),
 	modify that pointer so it points to the beginning of the next
 	character.
 
-   DEC_CHARPTR(ptr):
+   DEC_CHARPTR (ptr):
 	Given a charptr (assumed to point at the beginning of a
 	character or at the very end of the text), modify that pointer
 	so it points to the beginning of the previous character.
 
-   VALIDATE_CHARPTR_BACKWARD(ptr):
+   VALIDATE_CHARPTR_BACKWARD (ptr):
 	Make sure that PTR is pointing to the beginning of a character.
-	If not, back up until this is the case.   Note that there are not
+	If not, back up until this is the case.	  Note that there are not
 	too many places where it is legitimate to do this sort of thing.
 	It's an error if you're passed an "invalid" char * pointer.
 	NOTE: PTR *must* be pointing to a valid part of the string (i.e.
 	not the very end, unless the string is zero-terminated or
 	something) in order for this function to not cause crashes.
 
-   VALIDATE_CHARPTR_FORWARD(ptr):
+   VALIDATE_CHARPTR_FORWARD (ptr):
 	Make sure that PTR is pointing to the beginning of a character.
 	If not, move forward until this is the case.  Note that there
 	are not too many places where it is legitimate to do this sort
@@ -327,38 +327,34 @@ for (mps_bufcons = Qunbound,							\
        section of internally-formatted text:
    --------------------------------------------------------------
 
-   bytecount_to_charcount(ptr, nbi):
+   bytecount_to_charcount (ptr, nbi):
 	Given a pointer to a text string and a length in bytes,
 	return the equivalent length in characters.
 
-   charcount_to_bytecount(ptr, nch):
+   charcount_to_bytecount (ptr, nch):
 	Given a pointer to a text string and a length in characters,
 	return the equivalent length in bytes.
 
-   charptr_n_addr(ptr, n):
+   charptr_n_addr (ptr, n):
 	Return a pointer to the beginning of the character offset N
 	(in characters) from PTR.
-
-   charptr_length(ptr):
-	Given a zero-terminated pointer to Emacs characters,
-	return the number of Emacs characters contained within.
 
 
    (C) For retrieving or changing the character pointed to by a charptr:
    ---------------------------------------------------------------------
 
-   charptr_emchar(ptr):
+   charptr_emchar (ptr):
 	Retrieve the character pointed to by PTR as an Emchar.
 
-   charptr_emchar_n(ptr, n):
+   charptr_emchar_n (ptr, n):
 	Retrieve the character at offset N (in characters) from PTR,
 	as an Emchar.
 
-   set_charptr_emchar(ptr, ch):
+   set_charptr_emchar (ptr, ch):
 	Store the character CH (an Emchar) as internally-formatted
 	text starting at PTR.  Return the number of bytes stored.
 
-   charptr_copy_char(ptr, ptr2):
+   charptr_copy_char (ptr, ptr2):
 	Retrieve the character pointed to by PTR and store it as
 	internally-formatted text in PTR2.
 
@@ -370,25 +366,16 @@ for (mps_bufcons = Qunbound,							\
     in mule-charset.h, for retrieving the charset of an Emchar
     and such.  These are only valid when MULE is defined.]
 
-   valid_char_p(ch):
+   valid_char_p (ch):
 	Return whether the given Emchar is valid.
 
-   CHARP(ch):
-        Return whether the given Lisp_Object is a valid character.
-	This is approximately the same as saying the Lisp_Object is
-	an int whose value is a valid Emchar. (But not exactly
-	because when MULE is not defined, we allow arbitrary values
-	in all but the lowest 8 bits and mask them off, for backward
-	compatibility.)
+   CHARP (ch):
+	Return whether the given Lisp_Object is a character.
 
-   CHECK_CHAR_COERCE_INT(ch):
-	Signal an error if CH is not a valid character as per CHARP().
-	Also canonicalize the value into a valid Emchar, as necessary.
-	(This only means anything when MULE is not defined.)
-
-   COERCE_CHAR(ch):
-	Coerce an object that is known to satisfy CHARP() into a
-	valid Emchar.
+   CHECK_CHAR_COERCE_INT (ch):
+	Signal an error if CH is not a valid character or integer Lisp_Object.
+	If CH is an integer Lisp_Object, convert it to a character Lisp_Object,
+	but merely by repackaging, without performing tests for char validity.
 
    MAX_EMCHAR_LEN:
 	Maximum number of buffer bytes per Emacs character.
@@ -419,38 +406,32 @@ for (mps_bufcons = Qunbound,							\
    method because it doesn't have easy access to the first byte of
    the character it's moving over. */
 
-#define real_inc_charptr_fun(ptr) \
-  ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
-#ifdef ERROR_CHECK_BUFPOS
-#define inc_charptr_fun(ptr) (ASSERT_VALID_CHARPTR (ptr), \
-			      real_inc_charptr_fun (ptr))
-#else
-#define inc_charptr_fun(ptr) real_inc_charptr_fun (ptr)
-#endif
-
-#define REAL_INC_CHARPTR(ptr) ((void) (real_inc_charptr_fun (ptr)))
-
-#define INC_CHARPTR(ptr) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARPTR (ptr);		\
-} while (0)
+#define REAL_INC_CHARPTR(ptr) \
+  ((void) ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr))))
 
 #define REAL_DEC_CHARPTR(ptr) do {	\
   (ptr)--;				\
 } while (!VALID_CHARPTR_P (ptr))
 
 #ifdef ERROR_CHECK_BUFPOS
-#define DEC_CHARPTR(ptr) do {			  \
-  CONST Bufbyte *__dcptr__ = (ptr);		  \
-  CONST Bufbyte *__dcptr2__ = __dcptr__;	  \
-  REAL_DEC_CHARPTR (__dcptr2__);		  \
-  assert (__dcptr__ - __dcptr2__ ==		  \
-	  REP_BYTES_BY_FIRST_BYTE (*__dcptr2__)); \
-  (ptr) = __dcptr2__;				  \
+#define INC_CHARPTR(ptr) do {		\
+  ASSERT_VALID_CHARPTR (ptr);		\
+  REAL_INC_CHARPTR (ptr);		\
 } while (0)
-#else
+
+#define DEC_CHARPTR(ptr) do {			\
+  CONST Bufbyte *dc_ptr1 = (ptr);		\
+  CONST Bufbyte *dc_ptr2 = dc_ptr1;		\
+  REAL_DEC_CHARPTR (dc_ptr2);			\
+  assert (dc_ptr1 - dc_ptr2 ==			\
+	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
+  (ptr) = dc_ptr2;				\
+} while (0)
+
+#else /* ! ERROR_CHECK_BUFPOS */
+#define INC_CHARPTR(ptr) REAL_INC_CHARPTR (ptr)
 #define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
-#endif
+#endif /* ! ERROR_CHECK_BUFPOS */
 
 #ifdef MULE
 
@@ -462,11 +443,11 @@ for (mps_bufcons = Qunbound,							\
    the end of the string. */
 
 #define VALIDATE_CHARPTR_FORWARD(ptr) do {	\
-  Bufbyte *__vcfptr__ = (ptr);			\
-  VALIDATE_CHARPTR_BACKWARD (__vcfptr__);	\
-  if (__vcfptr__ != (ptr))			\
+  Bufbyte *vcf_ptr = (ptr);			\
+  VALIDATE_CHARPTR_BACKWARD (vcf_ptr);		\
+  if (vcf_ptr != (ptr))				\
     {						\
-      (ptr) = __vcfptr__;			\
+      (ptr) = vcf_ptr;				\
       INC_CHARPTR (ptr);			\
     }						\
 } while (0)
@@ -487,14 +468,6 @@ charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
 {
   return ptr + charcount_to_bytecount (ptr, offset);
 }
-
-INLINE Charcount charptr_length (CONST Bufbyte *ptr);
-INLINE Charcount
-charptr_length (CONST Bufbyte *ptr)
-{
-  return bytecount_to_charcount (ptr, strlen ((CONST char *) ptr));
-}
-
 
 /* -------------------------------------------------------------------- */
 /* (C) For retrieving or changing the character pointed to by a charptr */
@@ -561,12 +534,12 @@ INLINE int valid_char_p (Emchar ch);
 INLINE int
 valid_char_p (Emchar ch)
 {
-  return (ch >= 0 && ch <= 255) || non_ascii_valid_char_p (ch);
+  return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
 }
 
 #else /* not MULE */
 
-#define valid_char_p(ch) ((unsigned int) (ch) <= 255)
+#define valid_char_p(ch) ((unsigned int) (ch) <= 0xff)
 
 #endif /* not MULE */
 
@@ -869,11 +842,10 @@ memind_to_bytind (struct buffer *buf, Memind x)
    results with stupid compilers. */
 
 #ifdef MULE
-# define VALIDATE_BYTIND_BACKWARD(buf, x) do		\
-{							\
-  Bufbyte *__ibptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
-  while (!BUFBYTE_FIRST_BYTE_P (*__ibptr))		\
-    __ibptr--, (x)--;					\
+# define VALIDATE_BYTIND_BACKWARD(buf, x) do {		\
+  Bufbyte *VBB_ptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
+  while (!BUFBYTE_FIRST_BYTE_P (*VBB_ptr))		\
+    VBB_ptr--, (x)--;					\
 } while (0)
 #else
 # define VALIDATE_BYTIND_BACKWARD(buf, x)
@@ -885,11 +857,10 @@ memind_to_bytind (struct buffer *buf, Memind x)
    results with stupid compilers. */
 
 #ifdef MULE
-# define VALIDATE_BYTIND_FORWARD(buf, x) do		\
-{							\
-  Bufbyte *__ibptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
-  while (!BUFBYTE_FIRST_BYTE_P (*__ibptr))		\
-    __ibptr++, (x)++;					\
+# define VALIDATE_BYTIND_FORWARD(buf, x) do {		\
+  Bufbyte *VBF_ptr = BI_BUF_BYTE_ADDRESS (buf, x);	\
+  while (!BUFBYTE_FIRST_BYTE_P (*VBF_ptr))		\
+    VBF_ptr++, (x)++;					\
 } while (0)
 #else
 # define VALIDATE_BYTIND_FORWARD(buf, x)
@@ -1162,7 +1133,7 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
   Extcount  gceda_len_out;						\
   CONST Bufbyte *gceda_ptr_in = (ptr);					\
   Extbyte *gceda_ptr_out =						\
-     convert_to_external_format (gceda_ptr_in, gceda_len_in,		\
+    convert_to_external_format (gceda_ptr_in, gceda_len_in,		\
 				&gceda_len_out, fmt);			\
   /* If the new string is identical to the old (will be the case most	\
      of the time), just return the same string back.  This saves	\
@@ -1173,14 +1144,13 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
       !memcmp (gceda_ptr_in, gceda_ptr_out, gceda_len_out))		\
     {									\
       (ptr_out) = (Extbyte *) gceda_ptr_in;				\
-      (len_out) = (Extcount) gceda_len_in;				\
     }									\
   else									\
     {									\
       (ptr_out) = (Extbyte *) alloca (1 + gceda_len_out);		\
       memcpy ((void *) ptr_out, gceda_ptr_out, 1 + gceda_len_out);	\
-      (len_out) = (Extcount) gceda_len_out;				\
     }									\
+  (len_out) = gceda_len_out;						\
 } while (0)
 
 #else /* ! MULE */
@@ -1240,9 +1210,9 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
 {									\
   Extcount gcida_len_in = (Extcount) (len);				\
   Bytecount gcida_len_out;						\
-  CONST Extbyte *gcida_ptr_in  = (ptr);					\
+  CONST Extbyte *gcida_ptr_in = (ptr);					\
   Bufbyte *gcida_ptr_out =						\
-     convert_from_external_format (gcida_ptr_in, gcida_len_in,		\
+    convert_from_external_format (gcida_ptr_in, gcida_len_in,		\
 				  &gcida_len_out, fmt);			\
   /* If the new string is identical to the old (will be the case most	\
      of the time), just return the same string back.  This saves	\
@@ -1253,14 +1223,13 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
       !memcmp (gcida_ptr_in, gcida_ptr_out, gcida_len_out))		\
     {									\
       (ptr_out) = (Bufbyte *) gcida_ptr_in;				\
-      (len_out) = (Bytecount) gcida_len_in;				\
     }									\
   else									\
     {									\
       (ptr_out) = (Extbyte *) alloca (1 + gcida_len_out);		\
       memcpy ((void *) ptr_out, gcida_ptr_out, 1 + gcida_len_out);	\
-      (len_out) = gcida_len_out;					\
     }									\
+  (len_out) = gcida_len_out;						\
 } while (0)
 
 #else /* ! MULE */
@@ -1604,7 +1573,7 @@ void r_alloc_free (unsigned char **);
 #else /* !REL_ALLOC */
 
 #define BUFFER_ALLOC(data,size)\
-	((void) (data = xnew_array (Bufbyte, size)))
+	(data = xnew_array (Bufbyte, size))
 #define BUFFER_REALLOC(data,size)\
 	((Bufbyte *) xrealloc (data, (size) * sizeof(Bufbyte)))
 /* Avoid excess parentheses, or syntax errors may rear their heads. */
@@ -1634,9 +1603,9 @@ int emchar_string_displayed_columns (CONST Emchar *str, Charcount len);
 void convert_bufbyte_string_into_emchar_dynarr (CONST Bufbyte *str,
 						Bytecount len,
 						Emchar_dynarr *dyn);
-int convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str,
-					       Bytecount len,
-					       Emchar *arr);
+Charcount convert_bufbyte_string_into_emchar_string (CONST Bufbyte *str,
+						     Bytecount len,
+						     Emchar *arr);
 void convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,
 						Bufbyte_dynarr *dyn);
 Bufbyte *convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
@@ -1713,9 +1682,9 @@ int map_over_sharing_buffers (struct buffer *buf,
    typically used to convert between uppercase and lowercase.  For
    compatibility reasons, trt tables are currently in the form of
    a Lisp string of 256 characters, specifying the conversion for each
-   of the first 256 Emacs characters (i.e. the 256 extended-ASCII
-   characters).  This should be generalized at some point to support
-   conversions for all of the allowable Mule characters.
+   of the first 256 Emacs characters (i.e. the 256 Latin-1 characters).
+   This should be generalized at some point to support conversions for
+   all of the allowable Mule characters.
    */
 
 /* The _1 macros are named as such because they assume that you have
@@ -1808,7 +1777,7 @@ UPCASE (struct buffer *buf, Emchar ch)
   return (DOWNCASE_TABLE_OF (buf, ch) == ch) ? UPCASE_TABLE_OF (buf, ch) : ch;
 }
 
-/* Upcase a character known to be not upper case.  */
+/* Upcase a character known to be not upper case.  Unused. */
 
 #define UPCASE1(buf, ch) UPCASE_TABLE_OF (buf, ch)
 

@@ -36,7 +36,6 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs.h"
-#include "hash.h"
 #include "objects.h"
 #include "specifier.h"
 #include "window.h"
@@ -78,22 +77,22 @@ mark_face (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Face *face =  XFACE (obj);
 
-  ((markobj) (face->name));
-  ((markobj) (face->doc_string));
+  markobj (face->name);
+  markobj (face->doc_string);
 
-  ((markobj) (face->foreground));
-  ((markobj) (face->background));
-  ((markobj) (face->font));
-  ((markobj) (face->display_table));
-  ((markobj) (face->background_pixmap));
-  ((markobj) (face->underline));
-  ((markobj) (face->strikethru));
-  ((markobj) (face->highlight));
-  ((markobj) (face->dim));
-  ((markobj) (face->blinking));
-  ((markobj) (face->reverse));
+  markobj (face->foreground);
+  markobj (face->background);
+  markobj (face->font);
+  markobj (face->display_table);
+  markobj (face->background_pixmap);
+  markobj (face->underline);
+  markobj (face->strikethru);
+  markobj (face->highlight);
+  markobj (face->dim);
+  markobj (face->blinking);
+  markobj (face->reverse);
 
-  ((markobj) (face->charsets_warned_about));
+  markobj (face->charsets_warned_about);
 
   return face->plist;
 }
@@ -129,10 +128,10 @@ print_face (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    This isn't concerned with "unspecified" attributes, that's what
    #'face-differs-from-default-p is for. */
 static int
-face_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+face_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Face *f1 = XFACE (o1);
-  struct Lisp_Face *f2 = XFACE (o2);
+  struct Lisp_Face *f1 = XFACE (obj1);
+  struct Lisp_Face *f2 = XFACE (obj2);
 
   depth++;
 
@@ -375,19 +374,14 @@ struct face_list_closure
 };
 
 static int
-add_face_to_list_mapper (CONST void *hash_key, void *hash_contents,
+add_face_to_list_mapper (Lisp_Object key, Lisp_Object value,
 			 void *face_list_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
-  Lisp_Object *face_list;
   struct face_list_closure *fcl =
     (struct face_list_closure *) face_list_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  face_list = fcl->face_list;
 
-  *face_list = Fcons (XFACE (contents)->name, *face_list);
+  *(fcl->face_list) = Fcons (XFACE (value)->name, (*fcl->face_list));
   return 0;
 }
 
@@ -420,15 +414,12 @@ temporary_faces_list (void)
 
 
 static int
-mark_face_as_clean_mapper (CONST void *hash_key, void *hash_contents,
+mark_face_as_clean_mapper (Lisp_Object key, Lisp_Object value,
 			   void *flag_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
   int *flag = (int *) flag_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  XFACE (contents)->dirty = *flag;
+  XFACE (value)->dirty = *flag;
   return 0;
 }
 
@@ -1007,13 +998,13 @@ mark_face_cachels (face_cachel_dynarr *elements,
 
 	for (i = 0; i < NUM_LEADING_BYTES; i++)
 	  if (!NILP (cachel->font[i]) && !UNBOUNDP (cachel->font[i]))
-	    ((markobj) (cachel->font[i]));
+	    markobj (cachel->font[i]);
       }
-      ((markobj) (cachel->face));
-      ((markobj) (cachel->foreground));
-      ((markobj) (cachel->background));
-      ((markobj) (cachel->display_table));
-      ((markobj) (cachel->background_pixmap));
+      markobj (cachel->face);
+      markobj (cachel->foreground);
+      markobj (cachel->background);
+      markobj (cachel->display_table);
+      markobj (cachel->background_pixmap);
     }
 }
 
@@ -1638,23 +1629,19 @@ face_property_was_changed (Lisp_Object face, Lisp_Object property,
 
   if (WINDOWP (locale))
     {
-      struct frame *f = XFRAME (XWINDOW (locale)->frame);
-      MARK_FRAME_FACES_CHANGED (f);
+      MARK_FRAME_FACES_CHANGED (XFRAME (XWINDOW (locale)->frame));
     }
   else if (FRAMEP (locale))
     {
-      struct frame *f = XFRAME (locale);
-      MARK_FRAME_FACES_CHANGED (f);
+      MARK_FRAME_FACES_CHANGED (XFRAME (locale));
     }
   else if (DEVICEP (locale))
     {
-      struct device *d = XDEVICE (locale);
-      MARK_DEVICE_FRAMES_FACES_CHANGED (d);
+      MARK_DEVICE_FRAMES_FACES_CHANGED (XDEVICE (locale));
     }
   else
     {
       Lisp_Object devcons, concons;
-
       DEVICE_LOOP_NO_BREAK (devcons, concons)
 	MARK_DEVICE_FRAMES_FACES_CHANGED (XDEVICE (XCAR (devcons)));
     }
@@ -1846,10 +1833,10 @@ vars_of_faces (void)
 void
 complex_vars_of_faces (void)
 {
-  Vpermanent_faces_cache = make_lisp_hashtable (10, HASHTABLE_NONWEAK,
-						HASHTABLE_EQ);
-  Vtemporary_faces_cache = make_lisp_hashtable (0, HASHTABLE_WEAK,
-						HASHTABLE_EQ);
+  Vpermanent_faces_cache =
+    make_lisp_hash_table (10, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+  Vtemporary_faces_cache =
+    make_lisp_hash_table (0, HASH_TABLE_WEAK, HASH_TABLE_EQ);
 
   /* Create the default face now so we know what it is immediately. */
 
@@ -1941,7 +1928,7 @@ complex_vars_of_faces (void)
 			 list1 (Fcons (Qnil, Qnil)));
   set_specifier_fallback (Fget (Vdefault_face, Qreverse, Qnil),
 			 list1 (Fcons (Qnil, Qnil)));
-  
+
   /* gui-element is the parent face of all gui elements such as
      modeline, vertical divider and toolbar. */
   Vgui_element_face = Fmake_face (Qgui_element,
@@ -1984,7 +1971,7 @@ complex_vars_of_faces (void)
   set_specifier_fallback (Fget (Vmodeline_face, Qbackground_pixmap, Qnil),
 			  Fget (Vgui_element_face, Qbackground_pixmap,
 				Qunbound));
-  
+
   /* toolbar is another gui element */
   Vtoolbar_face = Fmake_face (Qtoolbar,
 			      build_string ("toolbar face"),

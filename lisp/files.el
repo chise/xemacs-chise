@@ -76,8 +76,7 @@ and FROM the name it is linked to."
 		       (regexp :tag "To")))
   :group 'find-file)
 
-;;; Turn off backup files on VMS since it has version numbers.
-(defcustom make-backup-files (not (eq system-type 'vax-vms))
+(defcustom make-backup-files t
   "*Non-nil means make a backup of a file the first time it is saved.
 This can be done by renaming the file or by copying.
 
@@ -414,8 +413,7 @@ of the same functionality is available as `split-path', which see."
   "Change current directory to given absolute file name DIR."
   ;; Put the name into directory syntax now,
   ;; because otherwise expand-file-name may give some bad results.
-  (if (not (eq system-type 'vax-vms))
-      (setq dir (file-name-as-directory dir)))
+  (setq dir (file-name-as-directory dir))
   ;; XEmacs change: stig@hackvan.com
   (if find-file-use-truenames
       (setq dir (file-truename dir)))
@@ -813,8 +811,7 @@ If optional argument HACK-HOMEDIR is non-nil, then this also substitutes
 		     ;; If the home dir is just /, don't change it.
 		     (not (and (= (match-end 0) 1) ;#### unix-specific
 			       (= (aref filename 0) ?/)))
-		     (not (and (or (eq system-type 'ms-dos)
-				   (eq system-type 'windows-nt))
+		     (not (and (memq system-type '(ms-dos windows-nt))
 			       (save-match-data
 				 (string-match "^[a-zA-Z]:/$" filename)))))
 		(setq filename
@@ -825,11 +822,7 @@ If optional argument HACK-HOMEDIR is non-nil, then this also substitutes
       filename)))
 
 (defcustom find-file-not-true-dirname-list nil
-  "*List of logical names for which visiting shouldn't save the true dirname.
-On VMS, when you visit a file using a logical name that searches a path,
-you may or may not want the visited file name to record the specific
-directory where the file was found.  If you *do not* want that, add the logical
-name to this list as a string."
+  "*List of logical names for which visiting shouldn't save the true dirname."
   :type '(repeat (string :tag "Name"))
   :group 'find-file)
 
@@ -1004,15 +997,6 @@ If RAWFILE is non-nil, the file is read literally."
 		(unless buffer-file-truename
 		  (setq buffer-file-truename truename))
 		(setq buffer-file-number number)
-		;; On VMS, we may want to remember which directory in
-		;; a search list the file was found in.
-		(and (eq system-type 'vax-vms)
-		     (let (logical)
-		       (if (string-match ":" (file-name-directory filename))
-			   (setq logical (substring (file-name-directory filename)
-						    0 (match-beginning 0))))
-		       (not (member logical find-file-not-true-dirname-list)))
-		     (setq buffer-file-name buffer-file-truename))
 		(and find-file-use-truenames
 		     ;; This should be in C.  Put pathname
 		     ;; abbreviations that have been explicitly
@@ -1149,49 +1133,48 @@ run `normal-mode' explicitly."
   '(("\\.te?xt\\'" . text-mode)
     ("\\.[ch]\\'" . c-mode)
     ("\\.el\\'" . emacs-lisp-mode)
-    ("\\.\\([CH]\\|cc\\|hh\\)\\'" . c++-mode)
+    ("\\.\\(?:[CH]\\|cc\\|hh\\)\\'" . c++-mode)
     ("\\.[ch]\\(pp\\|xx\\|\\+\\+\\)\\'" . c++-mode)
     ("\\.java\\'" . java-mode)
     ("\\.idl\\'" . idl-mode)
-    ("\\.f\\(or\\)?\\'" . fortran-mode)
-    ("\\.F\\(OR\\)?\\'" . fortran-mode)
+    ("\\.f\\(?:or\\)?\\'" . fortran-mode)
+    ("\\.F\\(?:OR\\)?\\'" . fortran-mode)
     ("\\.[fF]90\\'" . f90-mode)
 ;;; Less common extensions come here
 ;;; so more common ones above are found faster.
     ("\\.\\([pP][Llm]\\|al\\)\\'" . perl-mode)
     ("\\.py\\'" . python-mode)
-    ("\\.texi\\(nfo\\)?\\'" . texinfo-mode)
+    ("\\.texi\\(?:nfo\\)?\\'" . texinfo-mode)
     ("\\.ad[abs]\\'" . ada-mode)
-    ("\\.c?l\\(i?sp\\)?\\'" . lisp-mode)
-    ("\\.p\\(as\\)?\\'" . pascal-mode)
+    ("\\.c?l\\(?:i?sp\\)?\\'" . lisp-mode)
+    ("\\.p\\(?:as\\)?\\'" . pascal-mode)
     ("\\.ltx\\'" . latex-mode)
     ("\\.[sS]\\'" . asm-mode)
-    ("[Cc]hange.?[Ll]og?\\(.[0-9]+\\)?\\'" . change-log-mode)
+    ("[Cc]hange.?[Ll]og?\\(?:.[0-9]+\\)?\\'" . change-log-mode)
     ("\\$CHANGE_LOG\\$\\.TXT" . change-log-mode)
     ("\\.scm?\\(?:\\.[0-9]*\\)?\\'" . scheme-mode)
     ("\\.e\\'" . eiffel-mode)
     ("\\.mss\\'" . scribe-mode)
-    ("\\.m\\([mes]\\|an\\)\\'" . nroff-mode)
+    ("\\.m\\(?:[mes]\\|an\\)\\'" . nroff-mode)
     ("\\.icn\\'" . icon-mode)
-    ("\\.\\([ckz]?sh\\|shar\\)\\'" . sh-mode)
+    ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
     ;; #### Unix-specific!
-    ("/\\.\\(bash_\\|z\\)?\\(profile\\|login\||logout\\)\\'" . sh-mode)
-    ("/\\.\\([ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
-    ("/\\.\\([kz]shenv\\|xsession\\)\\'" . sh-mode)
+    ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\||logout\\)\\'" . sh-mode)
+    ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
+    ("/\\.\\(?:[kz]shenv\\|xsession\\)\\'" . sh-mode)
     ;; The following come after the ChangeLog pattern for the sake of
     ;; ChangeLog.1, etc. and after the .scm.[0-9] pattern too.
     ("\\.[12345678]\\'" . nroff-mode)
     ("\\.[tT]e[xX]\\'" . tex-mode)
-    ("\\.\\(sty\\|cls\\|bbl\\)\\'" . latex-mode)
+    ("\\.\\(?:sty\\|cls\\|bbl\\)\\'" . latex-mode)
     ("\\.bib\\'" . bibtex-mode)
     ("\\.article\\'" . text-mode)
     ("\\.letter\\'" . text-mode)
-    ("\\.\\(tcl\\|exp\\)\\'" . tcl-mode)
+    ("\\.\\(?:tcl\\|exp\\)\\'" . tcl-mode)
     ("\\.wrl\\'" . vrml-mode)
     ("\\.awk\\'" . awk-mode)
     ("\\.prolog\\'" . prolog-mode)
-    ("\\.tar\\'" . tar-mode)
-    ("\\.\\(arc\\|zip\\|lzh\\|zoo\\)\\'" . archive-mode)
+    ("\\.\\(?:arc\\|zip\\|lzh\\|zoo\\)\\'" . archive-mode)
     ;; Mailer puts message to be edited in /tmp/Re.... or Message
     ;; #### Unix-specific!
     ("\\`/tmp/Re" . text-mode)
@@ -1205,7 +1188,7 @@ run `normal-mode' explicitly."
     ("\\.oak\\'" . scheme-mode)
     ("\\.s?html?\\'" . html-mode)
     ("\\.htm?l?3\\'" . html3-mode)
-    ("\\.\\(sgml?\\|dtd\\)\\'" . sgml-mode)
+    ("\\.\\(?:sgml?\\|dtd\\)\\'" . sgml-mode)
     ("\\.c?ps\\'" . postscript-mode)
     ;; .emacs following a directory delimiter in either Unix or
     ;; Windows syntax.
@@ -1218,11 +1201,8 @@ run `normal-mode' explicitly."
     ("\\.X\\(defaults\\|environment\\|resources\\|modmap\\)\\'" . xrdb-mode)
     ;; #### The following three are Unix-specific (but do we care?)
     ("/app-defaults/" . xrdb-mode)
-    ("\\.[^/]*wm\\'" . winmgr-mode)
-    ("\\.[^/]*wm2?rc" . winmgr-mode)
-    ("\\.[Jj][Pp][Ee]?[Gg]\\'" . image-mode)
-    ("\\.[Pp][Nn][Gg]\\'" . image-mode)
-    ("\\.[Gg][Ii][Ff]\\'" . image-mode)
+    ("\\.[^/]*wm2?\\(?:rc\\)?\\'" . winmgr-mode)
+    ("\\.\\(?:jpe?g\\|JPE?G\\|png\\|PNG\\|gif\\|GIF\\|tiff?\\|TIFF?\\)\\'" . image-mode)
     )
 "Alist of filename patterns vs. corresponding major mode functions.
 Each element looks like (REGEXP . FUNCTION) or (REGEXP FUNCTION NON-NIL).
@@ -1258,8 +1238,31 @@ The car of each element is a regular expression which is compared
 with the name of the interpreter specified in the first line.
 If it matches, mode MODE is selected.")
 
-(defvar inhibit-first-line-modes-regexps (purecopy '("\\.tar\\'" "\\.tgz\\'"
-						     "\\.tar\\.gz\\'"))
+(defvar binary-file-regexps
+  (purecopy
+   '("\\.\\(?:bz2\\|elc\\|g\\(if\\|z\\)\\|jp\\(eg\\|g\\)\\|png\\|t\\(ar\\|gz\\|iff\\)\\|[Zo]\\)\\'"))
+  "List of regexps of filenames containing binary (non-text) data.")
+
+;   (eval-when-compile
+;     (require 'regexp-opt)
+;     (list
+;      (format "\\.\\(?:%s\\)\\'"
+;	      (regexp-opt
+;	       '("tar"
+;		 "tgz"
+;		 "gz"
+;		 "bz2"
+;		 "Z"
+;		 "o"
+;		 "elc"
+;		 "png"
+;		 "gif"
+;		 "tiff"
+;		 "jpg"
+;		 "jpeg"))))))
+  
+(defvar inhibit-first-line-modes-regexps
+  (purecopy binary-file-regexps)
   "List of regexps; if one matches a file name, don't look for `-*-'.")
 
 (defvar inhibit-first-line-modes-suffixes nil
@@ -1309,7 +1312,7 @@ and we don't even do that unless it would come from the file name."
                   (mode nil))
               ;; Find first matching alist entry.
 	      (let ((case-fold-search
-		     (memq system-type '(vax-vms windows-nt))))
+		     (memq system-type '(windows-nt))))
 		(while (and (not mode) alist)
 		  (if (string-match (car (car alist)) name)
 		      (if (and (consp (cdr (car alist)))
@@ -1722,8 +1725,6 @@ the old visited file has been renamed to the new name FILENAME."
 	(let ((new-name (file-name-nondirectory buffer-file-name)))
 	  (if (string= new-name "")
 	      (error "Empty file name"))
-	  (if (eq system-type 'vax-vms)
-	      (setq new-name (downcase new-name)))
 	  (setq default-directory (file-name-directory buffer-file-name))
 	  (or (string= new-name (buffer-name))
 	      (rename-buffer new-name t))))
@@ -1917,9 +1918,7 @@ of the new file to agree with the old modes."
 			  ;; Now delete the old versions, if desired.
 			  (if delete-old-versions
 			      (while targets
-				(condition-case ()
-				    (delete-file (car targets))
-				  (file-error nil))
+				(ignore-file-errors (delete-file (car targets)))
 				(setq targets (cdr targets))))
 			  setmodes)
 		      (file-error nil)))))))))
@@ -1934,28 +1933,17 @@ we do not remove backup version numbers, only true file version numbers."
     (if handler
 	(funcall handler 'file-name-sans-versions name keep-backup-version)
       (substring name 0
-		 (if (eq system-type 'vax-vms)
-		     ;; VMS version number is (a) semicolon, optional
-		     ;; sign, zero or more digits or (b) period, option
-		     ;; sign, zero or more digits, provided this is the
-		     ;; second period encountered outside of the
-		     ;; device/directory part of the file name.
-		     (or (string-match ";[-+]?[0-9]*\\'" name)
-			 (if (string-match "\\.[^]>:]*\\(\\.[-+]?[0-9]*\\)\\'"
-					   name)
-			     (match-beginning 1))
-			 (length name))
-		   (if keep-backup-version
-		       (length name)
-		     (or (string-match "\\.~[0-9.]+~\\'" name)
-			 ;; XEmacs - VC uses extensions like ".~tagname~" or ".~1.1.5.2~"
-			 (let ((pos (string-match "\\.~\\([^.~ \t]+\\|[0-9.]+\\)~\\'" name)))
-			   (and pos
-				;; #### - is this filesystem check too paranoid?
-				(file-exists-p (substring name 0 pos))
-				pos))
-			 (string-match "~\\'" name)
-			 (length name))))))))
+		 (if keep-backup-version
+		     (length name)
+		   (or (string-match "\\.~[0-9.]+~\\'" name)
+		       ;; XEmacs - VC uses extensions like ".~tagname~" or ".~1.1.5.2~"
+		       (let ((pos (string-match "\\.~\\([^.~ \t]+\\|[0-9.]+\\)~\\'" name)))
+			 (and pos
+			      ;; #### - is this filesystem check too paranoid?
+			      (file-exists-p (substring name 0 pos))
+			      pos))
+		       (string-match "~\\'" name)
+		       (length name)))))))
 
 (defun file-ownership-preserved-p (file)
   "Return t if deleting FILE and rewriting it would preserve the owner."
@@ -2030,8 +2018,6 @@ the index in the name where the version number begins."
       (string-to-int (substring fn bv-length -1))
       0))
 
-;; I believe there is no need to alter this behavior for VMS;
-;; since backup files are not made on VMS, it should not get called.
 (defun find-backup-file-name (fn)
   "Find a file name for a backup file, and suggestions for deletions.
 Value is a list whose car is the name for the backup file
@@ -2096,8 +2082,7 @@ then it returns FILENAME."
 		       (expand-file-name (or directory default-directory))))
       ;; On Microsoft OSes, if FILENAME and DIRECTORY have different
       ;; drive names, they can't be relative, so return the absolute name.
-      (if (and (or (eq system-type 'ms-dos)
-		   (eq system-type 'windows-nt))
+      (if (and (memq system-type '(ms-dos windows-nt))
 	       (not (string-equal (substring fname  0 2)
 				  (substring directory 0 2))))
 	  filename
@@ -2167,9 +2152,7 @@ since the last real save, but optional arg FORCE non-nil means delete anyway."
        (not (string= buffer-file-name buffer-auto-save-file-name))
        (or force (recent-auto-save-p))
        (progn
-	 (condition-case ()
-	     (delete-file buffer-auto-save-file-name)
-	   (file-error nil))
+	 (ignore-file-errors (delete-file buffer-auto-save-file-name))
 	 (set-buffer-auto-saved))))
 
 ;; XEmacs change (from Sun)
@@ -2211,19 +2194,6 @@ After saving the buffer, run `after-save-hook'."
 	(set-buffer (buffer-base-buffer)))
     (if (buffer-modified-p)
 	(let ((recent-save (recent-auto-save-p)))
-	  ;; On VMS, rename file and buffer to get rid of version number.
-	  (if (and (eq system-type 'vax-vms)
-		   (not (string= buffer-file-name
-				 (file-name-sans-versions buffer-file-name))))
-	      (let (buffer-new-name)
-		;; Strip VMS version number before save.
-		(setq buffer-file-name
-		      (file-name-sans-versions buffer-file-name))
-		;; Construct a (unique) buffer name to correspond.
-		(let ((buf (create-file-buffer (downcase buffer-file-name))))
-		  (setq buffer-new-name (buffer-name buf))
-		  (kill-buffer buf))
-		(rename-buffer buffer-new-name)))
 	  ;; If buffer has no file name, ask user for one.
 	  (or buffer-file-name
 	      (let ((filename
@@ -2782,12 +2752,11 @@ non-nil, it is called instead of rereading visited file contents."
 		 (not (file-exists-p file-name)))
 	       (error "Auto-save file %s not current" file-name))
 	      ((save-window-excursion
-		 (if (not (eq system-type 'vax-vms))
-		     (with-output-to-temp-buffer "*Directory*"
-		       (buffer-disable-undo standard-output)
-		       (call-process "ls" nil standard-output nil
-				     (if (file-symlink-p file) "-lL" "-l")
-				     file file-name)))
+		 (with-output-to-temp-buffer "*Directory*"
+		   (buffer-disable-undo standard-output)
+		   (call-process "ls" nil standard-output nil
+				 (if (file-symlink-p file) "-lL" "-l")
+				 file file-name))
 		 (yes-or-no-p (format "Recover auto save file %s? " file-name)))
 	       (switch-to-buffer (find-file-noselect file t))
 	       (let ((buffer-read-only nil))
@@ -3087,16 +3056,12 @@ by `sh' are supported."
     ;; not its part.  Make the regexp say so.
     (concat "\\`" result "\\'")))
 
-(defcustom list-directory-brief-switches
-  (if (eq system-type 'vax-vms) "" "-CF")
+(defcustom list-directory-brief-switches "-CF"
   "*Switches for list-directory to pass to `ls' for brief listing."
   :type 'string
   :group 'dired)
 
-(defcustom list-directory-verbose-switches
-  (if (eq system-type 'vax-vms)
-      "/PROTECTION/SIZE/DATE/OWNER/WIDTH=(OWNER:10)"
-    "-l")
+(defcustom list-directory-verbose-switches "-l"
   "*Switches for list-directory to pass to `ls' for verbose listing,"
   :type 'string
   :group 'dired)
@@ -3166,8 +3131,6 @@ If WILDCARD, it also runs the shell specified by `shell-file-name'."
 	(funcall handler 'insert-directory file switches
 		 wildcard full-directory-p)
       (cond
-       ((eq system-type 'vax-vms)
-	(vms-read-directory file switches (current-buffer)))
        ((and (fboundp 'mswindows-insert-directory)
 	     (eq system-type 'windows-nt))
 	(mswindows-insert-directory file switches wildcard full-directory-p))

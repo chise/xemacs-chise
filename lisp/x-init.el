@@ -101,7 +101,7 @@
        (define-key function-key-map [,key] ',map))))
 
 (defun x-initialize-compose ()
-  "Enable compose processing"
+  "Enable compose key and dead key processing."
   (autoload 'compose-map	    "x-compose" nil t 'keymap)
   (autoload 'compose-acute-map	    "x-compose" nil t 'keymap)
   (autoload 'compose-grave-map	    "x-compose" nil t 'keymap)
@@ -212,6 +212,10 @@
   (x-define-dead-key dead-tilde			compose-tilde-map)
   )
 
+(eval-when-compile
+  (load "x-win-sun"     nil t)
+  (load "x-win-xfree86" nil t))
+
 (defun x-initialize-keyboard ()
   "Perform X-Server-specific initializations.  Don't call this."
   ;; This is some heuristic junk that tries to guess whether this is
@@ -222,47 +226,38 @@
   ;; remotely like a Sun - check for the Find key on a particular
   ;; keycode, for example.  It'd be nice to have a table of this to
   ;; recognize various keyboards; see also xkeycaps.
+  ;;
+  ;; Note that we cannot use most vendor-provided proprietary keyboard
+  ;; APIs to identify the keyboard - those only work on the console.
+  ;; xkeycaps has the same problem when running `remotely'.
   (let ((vendor (x-server-vendor)))
     (cond ((or (string-match "Sun Microsystems" vendor)
 	       ;; MIT losingly fails to tell us what hardware the X server
 	       ;; is managing, so assume all MIT displays are Suns...  HA HA!
 	       (string-equal "MIT X Consortium" vendor)
 	       (string-equal "X Consortium" vendor))
-           ;; Ok, we think this could be a Sun keyboard.  Load the Sun code.
-           ;; (load "x-win-sun"))
+           ;; Ok, we think this could be a Sun keyboard.  Run the Sun code.
 	   (x-win-init-sun))
           ((string-match "XFree86" vendor)
            ;; Those XFree86 people do some weird keysym stuff, too.
-           ;; (load "x-win-xfree86")))))
 	   (x-win-init-xfree86)))))
 
 
 ;; Moved from x-toolbar.el, since InfoDock doesn't dump a x-toolbar.el.
 (defun x-init-toolbar-from-resources (locale)
-  (x-init-specifier-from-resources
-   top-toolbar-height 'natnum locale
-   '("topToolBarHeight" . "TopToolBarHeight"))
-  (x-init-specifier-from-resources
-   bottom-toolbar-height 'natnum locale
-   '("bottomToolBarHeight" . "BottomToolBarHeight"))
-  (x-init-specifier-from-resources
-   left-toolbar-width 'natnum locale
-   '("leftToolBarWidth" . "LeftToolBarWidth"))
-  (x-init-specifier-from-resources
-   right-toolbar-width 'natnum locale
-   '("rightToolBarWidth" . "RightToolBarWidth"))
-  (x-init-specifier-from-resources
-   top-toolbar-border-width 'natnum locale
-   '("topToolBarBorderWidth" . "TopToolBarBorderWidth"))
-  (x-init-specifier-from-resources
-   bottom-toolbar-border-width 'natnum locale
-   '("bottomToolBarBorderWidth" . "BottomToolBarBorderWidth"))
-  (x-init-specifier-from-resources
-   left-toolbar-border-width 'natnum locale
-   '("leftToolBarBorderWidth" . "LeftToolBarBorderWidth"))
-  (x-init-specifier-from-resources
-   right-toolbar-border-width 'natnum locale
-   '("rightToolBarBorderWidth" . "RightToolBarBorderWidth")))
+  (loop for (specifier . resname) in
+    `((   ,top-toolbar-height       .    "topToolBarHeight")
+      (,bottom-toolbar-height       . "bottomToolBarHeight")
+      (  ,left-toolbar-width        .   "leftToolBarWidth")
+      ( ,right-toolbar-width        .  "rightToolBarWidth")
+
+      (   ,top-toolbar-border-width .    "topToolBarBorderWidth")
+      (,bottom-toolbar-border-width . "bottomToolBarBorderWidth")
+      (  ,left-toolbar-border-width .   "leftToolBarBorderWidth")
+      ( ,right-toolbar-border-width .  "rightToolBarBorderWidth"))
+    do
+    (x-init-specifier-from-resources
+     specifier 'natnum locale (cons resname (upcase-initials resname)))))
 
 (defvar pre-x-win-initted nil)
 
@@ -282,6 +277,7 @@
 (defun init-x-win ()
   "Initialize X Windows at startup.  Don't call this."
   (when (not x-win-initted)
+    (defvar x-app-defaults-directory)
     (init-pre-x-win)
 
     ;; Open the X display when this file is loaded
@@ -314,16 +310,16 @@
     ;; these are only ever called if zmacs-regions is true.
     (add-hook 'zmacs-deactivate-region-hook
 	      (lambda ()
-		(if (console-on-window-system-p)
-		    (x-disown-selection))))
+		(when (console-on-window-system-p)
+		  (x-disown-selection))))
     (add-hook 'zmacs-activate-region-hook
 	      (lambda ()
-		(if (console-on-window-system-p)
-		    (x-activate-region-as-selection))))
+		(when (console-on-window-system-p)
+		  (x-activate-region-as-selection))))
     (add-hook 'zmacs-update-region-hook
 	      (lambda ()
-		(if (console-on-window-system-p)
-		    (x-activate-region-as-selection))))
+		(when (console-on-window-system-p)
+		  (x-activate-region-as-selection))))
     ;; Motif-ish bindings
     ;; The following two were generally unliked.
     ;;(define-key global-map '(shift delete)   'kill-primary-selection)

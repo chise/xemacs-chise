@@ -576,7 +576,7 @@ emacs_doprnt_1 (Lisp_Object stream, CONST Bufbyte *format_nonreloc,
 	    {
 	      Lisp_Object obj = largs[spec->argnum - 1];
 	      if (CHARP (obj))
-		CHECK_INT_COERCE_CHAR (obj);
+		obj = make_int (XCHAR (obj));
 	      if (!INT_OR_FLOATP (obj))
 		{
 		  error ("format specifier %%%c doesn't match argument type",

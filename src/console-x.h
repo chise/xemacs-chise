@@ -134,7 +134,7 @@ struct x_device
   int x_keysym_map_min_code;
   int x_keysym_map_max_code;
   int x_keysym_map_keysyms_per_code;
-  Lisp_Object x_keysym_map_hashtable;
+  Lisp_Object x_keysym_map_hash_table;
 
   /* frame that holds the WM_COMMAND property; there should be exactly
      one of these per device. */
@@ -198,7 +198,7 @@ struct x_device
 #define DEVICE_X_MOUSE_TIMESTAMP(d)  (DEVICE_X_DATA (d)->mouse_timestamp)
 #define DEVICE_X_GLOBAL_MOUSE_TIMESTAMP(d) (DEVICE_X_DATA (d)->global_mouse_timestamp)
 #define DEVICE_X_LAST_SERVER_TIMESTAMP(d)  (DEVICE_X_DATA (d)->last_server_timestamp)
-#define DEVICE_X_KEYSYM_MAP_HASHTABLE(d)  (DEVICE_X_DATA (d)->x_keysym_map_hashtable)
+#define DEVICE_X_KEYSYM_MAP_HASH_TABLE(d)  (DEVICE_X_DATA (d)->x_keysym_map_hash_table)
 /* #define DEVICE_X_X_COMPOSE_STATUS(d) (DEVICE_X_DATA (d)->x_compose_status) */
 #ifdef HAVE_XIM
 #define DEVICE_X_XIM(d)        (DEVICE_X_DATA (d)->xim)

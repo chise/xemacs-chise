@@ -220,21 +220,17 @@ struct tty_console
 #define TTY_FLAGS(c) (CONSOLE_TTY_DATA (c)->flags)
 #define TTY_COST(c) (CONSOLE_TTY_DATA (c)->cost)
 
-#define TTY_INC_CURSOR_X(c, n)						\
-do									\
-{									\
-  int __tempn__ = (n);							\
+#define TTY_INC_CURSOR_X(c, n) do {					\
+  int TICX_n = (n);							\
   assert (CONSOLE_TTY_CURSOR_X (c) == CONSOLE_TTY_REAL_CURSOR_X (c));	\
-  CONSOLE_TTY_CURSOR_X (c) += __tempn__;				\
-  CONSOLE_TTY_REAL_CURSOR_X (c) += __tempn__;				\
+  CONSOLE_TTY_CURSOR_X (c) += TICX_n;					\
+  CONSOLE_TTY_REAL_CURSOR_X (c) += TICX_n;				\
 } while (0)
 
-#define TTY_INC_CURSOR_Y(c, n)			\
-do						\
-{						\
-  int __tempn__ = (n);				\
-  CONSOLE_TTY_CURSOR_Y (c) += __tempn__;	\
-  CONSOLE_TTY_REAL_CURSOR_Y (c) += __tempn__;	\
+#define TTY_INC_CURSOR_Y(c, n) do {		\
+  int TICY_n = (n);				\
+  CONSOLE_TTY_CURSOR_Y (c) += TICY_n;		\
+  CONSOLE_TTY_REAL_CURSOR_Y (c) += TICY_n;	\
 } while (0)
 
 struct tty_device

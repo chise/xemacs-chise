@@ -46,7 +46,7 @@ Boston, MA 02111-1307, USA.  */
     /* Most-recently-selected non-minibuffer-only frame.  Always
        the same as the selected frame, unless that's a minibuffer-only
        frame. */
-    MARKED_SLOT (_last_nonminibuf_frame);
+    MARKED_SLOT (last_nonminibuf_frame);
 
     /* If non-nil, a keymap that overrides all others but applies only to
        this console.  Lisp code that uses this instead of calling next-event

@@ -294,10 +294,10 @@ when reading the arguments.
     }
   else if (COMPILED_FUNCTIONP (fun))
     {
-      struct Lisp_Compiled_Function *b = XCOMPILED_FUNCTION (fun);
-      if (!(b->flags.interactivep))
+      Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+      if (! f->flags.interactivep)
         goto lose;
-      specs = compiled_function_interactive (b);
+      specs = compiled_function_interactive (f);
     }
   else if (!CONSP (fun))
     goto lose;
@@ -405,7 +405,7 @@ when reading the arguments.
     {
       Lisp_Object domain = Qnil;
       if (COMPILED_FUNCTIONP (fun))
-	domain = Fcompiled_function_domain (fun);
+	domain = compiled_function_domain (XCOMPILED_FUNCTION (fun));
       if (NILP (domain))
 	specs = Fgettext (specs);
       else
@@ -525,7 +525,7 @@ when reading the arguments.
 	struct gcpro gcpro1;
 
 	GCPRO1 (fun);
-	fun = funcall_recording_as (function, 1, &fun);
+	fun = Ffuncall (1, &fun);
 	UNGCPRO;
       }
       if (set_zmacs_region_stays)

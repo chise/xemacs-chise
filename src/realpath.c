@@ -87,11 +87,11 @@ char resolved_path [];
   /*
   ** In NT we have two different cases:  (1) the path name begins
   ** with a drive letter, e.g., "C:"; and (2) the path name begins
-  ** with just a slash, which roots to the current drive. In the 
+  ** with just a slash, which roots to the current drive. In the
   ** first case we are going to leave things alone, in the second
   ** case we will prepend the drive letter to the given path.
   ** Note: So far in testing, I'm only seeing case #1, even though
-  ** I've tried to get the other cases to happen. 
+  ** I've tried to get the other cases to happen.
   ** August Hill, 31 Aug 1997.
   **
   ** Check for a driver letter...C:/...

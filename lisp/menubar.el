@@ -171,8 +171,8 @@ See `current-menubar' for a description of the syntax of a menubar."
 			     menuitem)))
 		)))
 	)
-       ;; (t (signal 'error (list "unrecognised menu descriptor" menuitem))))
-       (t (message "unrecognised menu descriptor %s" (prin1-to-string menuitem))))
+       ;; (t (signal 'error (list "unrecognized menu descriptor" menuitem))))
+       (t (message "unrecognized menu descriptor %s" (prin1-to-string menuitem))))
       (setq menu (cdr menu)))))
 
 

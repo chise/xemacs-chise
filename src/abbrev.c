@@ -172,7 +172,7 @@ abbrev_match (struct buffer *buf, Lisp_Object obarray)
    It is an order of magnitude faster than the proper abbrev_match(),
    but then again, vi is an order of magnitude faster than Emacs.
 
-   This speed difference should be unnoticable, though.  I have tested
+   This speed difference should be unnoticeable, though.  I have tested
    the degenerated cases of thousands of abbrevs being defined, and
    abbrev_match() was still fast enough for normal operation.  */
 static struct Lisp_Symbol *

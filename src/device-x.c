@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 #include "objects-x.h"
 
 #include "buffer.h"
+#include "elhash.h"
 #include "events.h"
 #include "faces.h"
 #include "frame.h"
@@ -328,8 +329,6 @@ x_init_device (struct device *d, Lisp_Object props)
   CONST char *app_class;
   CONST char *app_name;
   CONST char *disp_name;
-  Arg xargs[6];
-  Cardinal numargs;
   Visual *visual = NULL;
   int depth = 8;		/* shut up the compiler */
   Colormap cmap;
@@ -387,7 +386,7 @@ x_init_device (struct device *d, Lisp_Object props)
                        XtNumber (emacs_options), &argc, argv);
   speed_up_interrupts ();
 
-  screen = DefaultScreen(dpy);
+  screen = DefaultScreen (dpy);
   if (NILP (Vdefault_x_device))
     Vdefault_x_device = device;
 
@@ -400,7 +399,7 @@ x_init_device (struct device *d, Lisp_Object props)
        does not override resources defined elsewhere */
     CONST char *data_dir;
     char *path;
-    XrmDatabase db = XtDatabase (dpy); /* ### XtScreenDatabase(dpy) ? */
+    XrmDatabase db = XtDatabase (dpy); /* #### XtScreenDatabase(dpy) ? */
     CONST char *locale = XrmLocaleOfDatabase (db);
 
     if (STRINGP (Vx_app_defaults_directory) &&
@@ -434,9 +433,8 @@ x_init_device (struct device *d, Lisp_Object props)
 
   XtGetApplicationNameAndClass (dpy, (char **) &app_name, (char **) &app_class);
   /* search for a matching visual if requested by the user, or setup the display default */
-  numargs = 0;
   {
-    char *buf1 = (char *)alloca (strlen (app_name) + 17);
+    char *buf1 = (char *)alloca (strlen (app_name)  + 17);
     char *buf2 = (char *)alloca (strlen (app_class) + 17);
     char *type;
     XrmValue value;
@@ -445,85 +443,98 @@ x_init_device (struct device *d, Lisp_Object props)
     sprintf (buf2, "%s.EmacsVisual", app_class);
     if (XrmGetResource (XtDatabase (dpy), buf1, buf2, &type, &value) == True)
       {
-	int cnt = 0, vis_class= PseudoColor;
+	int cnt = 0, vis_class = PseudoColor;
 	XVisualInfo vinfo;
 	char *res, *str = (char*)value.addr;
 
-	if      (strncmp(str, "StaticGray", 10) == 0)	cnt = 10, vis_class = StaticGray;
-	else if (strncmp(str, "StaticColor", 11) == 0)	cnt = 11, vis_class = StaticColor;
-	else if (strncmp(str, "TrueColor", 9) == 0)	cnt = 9,  vis_class = TrueColor;
-	else if (strncmp(str, "GrayScale", 9) == 0)	cnt = 9,  vis_class = GrayScale;
-	else if (strncmp(str, "PseudoColor", 11) == 0)	cnt = 11, vis_class = PseudoColor;
-	else if (strncmp(str, "DirectColor", 11) == 0)	cnt = 11, vis_class = DirectColor;
+#define CHECK_VIS_CLASS(class)					\
+ else if (strncmp (str, #class, sizeof (#class) - 1) == 0)	\
+	cnt = sizeof (#class) - 1, vis_class = class
+
+	if (1)
+	  ;
+	CHECK_VIS_CLASS (StaticGray);
+	CHECK_VIS_CLASS (StaticColor);
+	CHECK_VIS_CLASS (TrueColor);
+	CHECK_VIS_CLASS (GrayScale);
+	CHECK_VIS_CLASS (PseudoColor);
+	CHECK_VIS_CLASS (DirectColor);
+
 	if (cnt)
 	  {
 	    res = str + cnt;
-	    depth = atoi(res);
+	    depth = atoi (res);
 	    if (depth == 0)
 	      {
-		stderr_out("Invalid Depth specification in %s... ignoring...\n",(char*)str);
+		stderr_out ("Invalid Depth specification in %s... ignoring...\n", str);
 	      }
 	    else
 	      {
-		if (XMatchVisualInfo(dpy, screen, depth, vis_class, &vinfo))
+		if (XMatchVisualInfo (dpy, screen, depth, vis_class, &vinfo))
 		  {
 		    visual = vinfo.visual;
 		  }
 		else
 		  {
-		    stderr_out("Can't match the requested visual %s... using defaults\n",str);
+		    stderr_out ("Can't match the requested visual %s... using defaults\n", str);
 		  }
 	      }
 	  }
 	else
 	  {
-	    stderr_out("Invalid Visual specification in %s... ignoring.\n",(char*)str);
+	    stderr_out( "Invalid Visual specification in %s... ignoring.\n", str);
 	  }
       }
     if (visual == NULL)
       {
-	visual = DefaultVisual(dpy, screen);
-	depth = DefaultDepth(dpy, screen);
+	visual = DefaultVisual (dpy, screen);
+	depth  = DefaultDepth  (dpy, screen);
       }
 
     /* If we've got the same visual as the default and it's PseudoColor,
        check to see if the user specified that we need a private colormap */
-    if (visual == DefaultVisual(dpy, screen))
+    if (visual == DefaultVisual (dpy, screen))
       {
 	sprintf (buf1, "%s.privateColormap", app_name);
 	sprintf (buf2, "%s.PrivateColormap", app_class);
 	if ((visual->class == PseudoColor) &&
 	    (XrmGetResource (XtDatabase (dpy), buf1, buf2, &type, &value) == True))
 	  {
-	     cmap = XCopyColormapAndFree(dpy, DefaultColormap(dpy, screen));
+	     cmap = XCopyColormapAndFree (dpy, DefaultColormap (dpy, screen));
 	  }
 	else
 	  {
-	    cmap = DefaultColormap(dpy, screen);
+	    cmap = DefaultColormap (dpy, screen);
 	  }
       }
     else
       {
 	/* We have to create a matching colormap anyway...
 	   ### think about using standard colormaps (need the Xmu libs?) */
-	cmap = XCreateColormap(dpy, RootWindow(dpy, screen), visual, AllocNone);
-	XInstallColormap(dpy, cmap);
+	cmap = XCreateColormap (dpy, RootWindow(dpy, screen), visual, AllocNone);
+	XInstallColormap (dpy, cmap);
       }
   }
-  XtSetArg(xargs[numargs],XtNvisual, visual); numargs++;
-  XtSetArg(xargs[numargs],XtNdepth, depth); numargs++;
-  XtSetArg(xargs[numargs],XtNcolormap, cmap); numargs++;
-  DEVICE_X_VISUAL (d) = visual;
-  DEVICE_X_COLORMAP (d) = cmap;
-  DEVICE_X_DEPTH (d) = depth;
 
+  DEVICE_X_VISUAL   (d) = visual;
+  DEVICE_X_COLORMAP (d) = cmap;
+  DEVICE_X_DEPTH    (d) = depth;
   validify_resource_component ((char *) XSTRING_DATA (DEVICE_NAME (d)),
 			       XSTRING_LENGTH (DEVICE_NAME (d)));
-  app_shell = XtAppCreateShell (NULL, app_class,
-				applicationShellWidgetClass,
-				dpy, xargs, numargs);
+
+  {
+    Arg al[3];
+    XtSetArg (al[0], XtNvisual,   visual);
+    XtSetArg (al[1], XtNdepth,    depth);
+    XtSetArg (al[2], XtNcolormap, cmap);
+
+    app_shell = XtAppCreateShell (NULL, app_class,
+				  applicationShellWidgetClass,
+				  dpy, al, countof (al));
+  }
 
   DEVICE_XT_APP_SHELL (d) = app_shell;
+
 #ifdef HAVE_XIM
   XIM_init_device(d);
 #endif /* HAVE_XIM */
@@ -531,19 +542,16 @@ x_init_device (struct device *d, Lisp_Object props)
   /* Realize the app_shell so that its window exists for GC creation purposes,
      and set it to the size of the root window for child placement purposes */
   {
-    Screen *scrn = ScreenOfDisplay(dpy, screen);
-    int screen_width, screen_height;
-    screen_width = WidthOfScreen(scrn);
-    screen_height = HeightOfScreen(scrn);
-    numargs = 0;
-    XtSetArg (xargs[numargs], XtNmappedWhenManaged, False); numargs++;
-    XtSetArg (xargs[numargs], XtNx, 0); numargs++;
-    XtSetArg (xargs[numargs], XtNy, 0); numargs++;
-    XtSetArg (xargs[numargs], XtNwidth,  screen_width); numargs++;
-    XtSetArg (xargs[numargs], XtNheight, screen_height); numargs++;
-    XtSetValues (app_shell, xargs, numargs);
+    Arg al[5];
+    XtSetArg (al[0], XtNmappedWhenManaged, False);
+    XtSetArg (al[1], XtNx, 0);
+    XtSetArg (al[2], XtNy, 0);
+    XtSetArg (al[3], XtNwidth,  WidthOfScreen  (ScreenOfDisplay (dpy, screen)));
+    XtSetArg (al[4], XtNheight, HeightOfScreen (ScreenOfDisplay (dpy, screen)));
+    XtSetValues (app_shell, al, countof (al));
     XtRealizeWidget (app_shell);
   }
+
 #ifdef HAVE_SESSION
   {
     int new_argc;
@@ -593,8 +601,8 @@ x_finish_init_device (struct device *d, Lisp_Object props)
 static void
 x_mark_device (struct device *d, void (*markobj) (Lisp_Object))
 {
-  ((markobj) (DEVICE_X_WM_COMMAND_FRAME (d)));
-  ((markobj) (DEVICE_X_DATA (d)->x_keysym_map_hashtable));
+  markobj (DEVICE_X_WM_COMMAND_FRAME (d));
+  markobj (DEVICE_X_DATA (d)->x_keysym_map_hash_table);
 }
 
 
@@ -636,6 +644,12 @@ x_delete_device (struct device *d)
 	XFreeModifiermap (DEVICE_X_DATA (d)->x_modifier_keymap);
       if (DEVICE_X_DATA (d)->x_keysym_map)
 	XFree ((char *) DEVICE_X_DATA (d)->x_keysym_map);
+
+      if (DEVICE_XT_APP_SHELL (d))
+	{
+	  XtDestroyWidget (DEVICE_XT_APP_SHELL (d));
+	  DEVICE_XT_APP_SHELL (d) = NULL;
+	}
 
       XtCloseDisplay (display);
       DEVICE_X_DISPLAY (d) = 0;
@@ -915,7 +929,7 @@ x_IO_error_handler (Display *disp)
   DEVICE_X_BEING_DELETED (d) = 1;
   Fthrow (Qtop_level, Qnil);
 
-  RETURN_NOT_REACHED (0);
+  return 0; /* not reached */
 }
 
 DEFUN ("x-debug-mode", Fx_debug_mode, 1, 2, 0, /*
@@ -1448,8 +1462,8 @@ Valid keysyms are listed in the files /usr/include/X11/keysymdef.h and in
   return XStringToKeysym (keysym_ext) ? Qt : Qnil;
 }
 
-DEFUN ("x-keysym-hashtable", Fx_keysym_hashtable, 0, 1, 0, /*
-Return a hashtable which contains a hash key for all keysyms which
+DEFUN ("x-keysym-hash-table", Fx_keysym_hash_table, 0, 1, 0, /*
+Return a hash table which contains a hash key for all keysyms which
 name keys on the keyboard.  See `x-keysym-on-keyboard-p'.
 */
        (device))
@@ -1458,7 +1472,7 @@ name keys on the keyboard.  See `x-keysym-on-keyboard-p'.
   if (!DEVICE_X_P (d))
     signal_simple_error ("Not an X device", device);
 
-  return DEVICE_X_DATA (d)->x_keysym_map_hashtable;
+  return DEVICE_X_DATA (d)->x_keysym_map_hash_table;
 }
 
 DEFUN ("x-keysym-on-keyboard-sans-modifiers-p", Fx_keysym_on_keyboard_sans_modifiers_p,
@@ -1480,7 +1494,7 @@ The two names differ in capitalization and underscoring.
     signal_simple_error ("Not an X device", device);
 
   return (EQ (Qsans_modifiers,
-	      Fgethash (keysym, DEVICE_X_KEYSYM_MAP_HASHTABLE (d), Qnil)) ?
+	      Fgethash (keysym, DEVICE_X_KEYSYM_MAP_HASH_TABLE (d), Qnil)) ?
 	  Qt : Qnil);
 }
 
@@ -1502,7 +1516,7 @@ The two names differ in capitalization and underscoring.
   if (!DEVICE_X_P (d))
     signal_simple_error ("Not an X device", device);
 
-  return (NILP (Fgethash (keysym, DEVICE_X_KEYSYM_MAP_HASHTABLE (d), Qnil)) ?
+  return (NILP (Fgethash (keysym, DEVICE_X_KEYSYM_MAP_HASH_TABLE (d), Qnil)) ?
 	  Qnil : Qt);
 }
 
@@ -1654,7 +1668,7 @@ syms_of_device_x (void)
   DEFSUBR (Fx_server_vendor);
   DEFSUBR (Fx_server_version);
   DEFSUBR (Fx_valid_keysym_name_p);
-  DEFSUBR (Fx_keysym_hashtable);
+  DEFSUBR (Fx_keysym_hash_table);
   DEFSUBR (Fx_keysym_on_keyboard_p);
   DEFSUBR (Fx_keysym_on_keyboard_sans_modifiers_p);
 

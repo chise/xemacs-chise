@@ -526,20 +526,20 @@ mark_image_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Image_Instance *i = XIMAGE_INSTANCE (obj);
 
-  (markobj) (i->name);
+  markobj (i->name);
   switch (IMAGE_INSTANCE_TYPE (i))
     {
     case IMAGE_TEXT:
-      (markobj) (IMAGE_INSTANCE_TEXT_STRING (i));
+      markobj (IMAGE_INSTANCE_TEXT_STRING (i));
       break;
     case IMAGE_MONO_PIXMAP:
     case IMAGE_COLOR_PIXMAP:
-      (markobj) (IMAGE_INSTANCE_PIXMAP_FILENAME (i));
-      (markobj) (IMAGE_INSTANCE_PIXMAP_MASK_FILENAME (i));
-      (markobj) (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (i));
-      (markobj) (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (i));
-      (markobj) (IMAGE_INSTANCE_PIXMAP_FG (i));
-      (markobj) (IMAGE_INSTANCE_PIXMAP_BG (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_FILENAME (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_MASK_FILENAME (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_HOTSPOT_X (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_HOTSPOT_Y (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_FG (i));
+      markobj (IMAGE_INSTANCE_PIXMAP_BG (i));
       break;
     case IMAGE_SUBWINDOW:
       /* #### implement me */
@@ -673,10 +673,10 @@ finalize_image_instance (void *header, int for_disksave)
 }
 
 static int
-image_instance_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Image_Instance *i1 = XIMAGE_INSTANCE (o1);
-  struct Lisp_Image_Instance *i2 = XIMAGE_INSTANCE (o2);
+  struct Lisp_Image_Instance *i1 = XIMAGE_INSTANCE (obj1);
+  struct Lisp_Image_Instance *i2 = XIMAGE_INSTANCE (obj2);
   struct device *d1 = XDEVICE (i1->device);
   struct device *d2 = XDEVICE (i2->device);
 
@@ -958,14 +958,14 @@ make_image_instance_1 (Lisp_Object data, Lisp_Object device,
   /* instantiate_image_instantiator() will abort if given an
      image instance ... */
   if (IMAGE_INSTANCEP (data))
-    signal_simple_error ("image instances not allowed here", data);
+    signal_simple_error ("Image instances not allowed here", data);
   image_validate (data);
   dest_mask = decode_image_instance_type_list (dest_types);
   data = normalize_image_instantiator (data, DEVICE_TYPE (XDEVICE (device)),
 				       make_int (dest_mask));
   GCPRO1 (data);
   if (VECTORP (data) && EQ (XVECTOR_DATA (data)[0], Qinherit))
-    signal_simple_error ("inheritance not allowed here", data);
+    signal_simple_error ("Inheritance not allowed here", data);
   ii = instantiate_image_instantiator (device, device, data,
 				       Qnil, Qnil, dest_mask);
   RETURN_UNGCPRO (ii);
@@ -1483,7 +1483,7 @@ potential_pixmap_file_instantiator (Lisp_Object instantiator,
   if (!NILP (file) && NILP (data))
     {
       Lisp_Object retval = MAYBE_LISP_CONTYPE_METH
-	(decode_console_type(console_type, ERROR_ME), 
+	(decode_console_type(console_type, ERROR_ME),
 	 locate_pixmap_file, (file));
 
       if (!NILP (retval))
@@ -1491,7 +1491,7 @@ potential_pixmap_file_instantiator (Lisp_Object instantiator,
       else
 	return Fcons (file, Qnil); /* should have been file */
     }
-  
+
   return Qnil;
 }
 
@@ -1514,7 +1514,7 @@ simple_image_type_normalize (Lisp_Object inst, Lisp_Object console_type,
      Note that if we cannot generate any regular inline data, we
      skip out. */
 
-  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data, 
+  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data,
 					     console_type);
 
   if (CONSP (file)) /* failure locating filename */
@@ -1600,7 +1600,9 @@ xbm_validate (Lisp_Object instantiator)
    -- maybe return an error, or return Qnil.
  */
 
-#ifndef HAVE_X_WINDOWS
+#ifdef HAVE_X_WINDOWS
+#include <X11/Xlib.h>
+#else
 #define XFree(data) free(data)
 #endif
 
@@ -1614,7 +1616,7 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
   CONST char *filename_ext;
 
   GET_C_STRING_FILENAME_DATA_ALLOCA (name, filename_ext);
-  result = read_bitmap_data_from_file (filename_ext, &w, &h, 
+  result = read_bitmap_data_from_file (filename_ext, &w, &h,
 				       &data, xhot, yhot);
 
   if (result == BitmapSuccess)
@@ -1675,11 +1677,11 @@ xbm_mask_file_munging (Lisp_Object alist, Lisp_Object file,
       && !NILP (file))
     {
       mask_file = MAYBE_LISP_CONTYPE_METH
-	(decode_console_type(console_type, ERROR_ME), 
+	(decode_console_type(console_type, ERROR_ME),
 	 locate_pixmap_file, (concat2 (file, build_string ("Mask"))));
       if (NILP (mask_file))
 	mask_file = MAYBE_LISP_CONTYPE_METH
-	  (decode_console_type(console_type, ERROR_ME), 
+	  (decode_console_type(console_type, ERROR_ME),
 	   locate_pixmap_file, (concat2 (file, build_string ("msk"))));
     }
 
@@ -1774,9 +1776,9 @@ xbm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Object device= IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (image_instance));
 
-  MAYBE_DEVMETH (XDEVICE (device), 
+  MAYBE_DEVMETH (XDEVICE (device),
 		 xbm_instantiate,
-		 (image_instance, instantiator, pointer_fg, 
+		 (image_instance, instantiator, pointer_fg,
 		  pointer_bg, dest_mask, domain));
 }
 
@@ -1943,7 +1945,7 @@ xpm_normalize (Lisp_Object inst, Lisp_Object console_type)
      Note that if we cannot generate any regular inline data, we
      skip out. */
 
-  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data, 
+  file = potential_pixmap_file_instantiator (inst, Q_file, Q_data,
 					     console_type);
 
   if (CONSP (file)) /* failure locating filename */
@@ -1957,7 +1959,7 @@ xpm_normalize (Lisp_Object inst, Lisp_Object console_type)
   if (NILP (file) && !UNBOUNDP (color_symbols))
     /* no conversion necessary */
     RETURN_UNGCPRO (inst);
-  
+
   alist = tagged_vector_to_alist (inst);
 
   if (!NILP (file))
@@ -1968,7 +1970,7 @@ xpm_normalize (Lisp_Object inst, Lisp_Object console_type)
       alist = Fcons (Fcons (Q_file, file),
 		     Fcons (Fcons (Q_data, data), alist));
     }
-  
+
   if (UNBOUNDP (color_symbols))
     {
       color_symbols = evaluate_xpm_color_symbols ();
@@ -1999,9 +2001,9 @@ xpm_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Object device= IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (image_instance));
 
-  MAYBE_DEVMETH (XDEVICE (device), 
+  MAYBE_DEVMETH (XDEVICE (device),
 		 xpm_instantiate,
-		 (image_instance, instantiator, pointer_fg, 
+		 (image_instance, instantiator, pointer_fg,
 		  pointer_bg, dest_mask, domain));
 }
 
@@ -2029,8 +2031,8 @@ image_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Specifier *image = XIMAGE_SPECIFIER (obj);
 
-  ((markobj) (IMAGE_SPECIFIER_ATTACHEE (image)));
-  ((markobj) (IMAGE_SPECIFIER_ATTACHEE_PROPERTY (image)));
+  markobj (IMAGE_SPECIFIER_ATTACHEE (image));
+  markobj (IMAGE_SPECIFIER_ATTACHEE_PROPERTY (image));
 }
 
 static Lisp_Object
@@ -2121,11 +2123,11 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	     pointer face.
 	   */
 
-	  subtable = make_lisp_hashtable (20,
-					  pointerp ? HASHTABLE_KEY_CAR_WEAK
-					  : HASHTABLE_KEY_WEAK,
-					  pointerp ? HASHTABLE_EQUAL
-					  : HASHTABLE_EQ);
+	  subtable = make_lisp_hash_table (20,
+					   pointerp ? HASH_TABLE_KEY_CAR_WEAK
+					   : HASH_TABLE_KEY_WEAK,
+					   pointerp ? HASH_TABLE_EQUAL
+					   : HASH_TABLE_EQ);
 	  Fputhash (make_int (dest_mask), subtable,
 		    d->image_instance_cache);
 	  instance = Qunbound;
@@ -2484,10 +2486,10 @@ mark_glyph (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Glyph *glyph = XGLYPH (obj);
 
-  ((markobj) (glyph->image));
-  ((markobj) (glyph->contrib_p));
-  ((markobj) (glyph->baseline));
-  ((markobj) (glyph->face));
+  markobj (glyph->image);
+  markobj (glyph->contrib_p);
+  markobj (glyph->baseline);
+  markobj (glyph->face);
 
   return glyph->plist;
 }
@@ -2516,10 +2518,10 @@ print_glyph (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    This isn't concerned with "unspecified" attributes, that's what
    #'glyph-differs-from-default-p is for. */
 static int
-glyph_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+glyph_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Glyph *g1 = XGLYPH (o1);
-  struct Lisp_Glyph *g2 = XGLYPH (o2);
+  struct Lisp_Glyph *g1 = XGLYPH (obj1);
+  struct Lisp_Glyph *g2 = XGLYPH (obj2);
 
   depth++;
 
@@ -2761,12 +2763,10 @@ The return value will be one of 'buffer, 'pointer, or 'icon.
   CHECK_GLYPH (glyph);
   switch (XGLYPH_TYPE (glyph))
     {
+    default: abort ();
     case GLYPH_BUFFER:  return Qbuffer;
     case GLYPH_POINTER: return Qpointer;
     case GLYPH_ICON:    return Qicon;
-    default:
-      abort ();
-      return Qnil; /* not reached */
     }
 }
 
@@ -3084,7 +3084,7 @@ mark_glyph_cachels (glyph_cachel_dynarr *elements,
   for (elt = 0; elt < Dynarr_length (elements); elt++)
     {
       struct glyph_cachel *cachel = Dynarr_atp (elements, elt);
-      ((markobj) (cachel->glyph));
+      markobj (cachel->glyph);
     }
 }
 

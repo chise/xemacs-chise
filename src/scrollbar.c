@@ -95,10 +95,10 @@ free_scrollbar_instance (struct scrollbar_instance *instance,
 static void
 free_window_mirror_scrollbars (struct window_mirror *mir)
 {
-  struct frame *f = mir->frame;
-  free_scrollbar_instance (mir->scrollbar_vertical_instance, f);
+  free_scrollbar_instance (mir->scrollbar_vertical_instance, mir->frame);
   mir->scrollbar_vertical_instance = 0;
-  free_scrollbar_instance (mir->scrollbar_horizontal_instance, f);
+
+  free_scrollbar_instance (mir->scrollbar_horizontal_instance, mir->frame);
   mir->scrollbar_horizontal_instance = 0;
 }
 
@@ -109,12 +109,7 @@ free_scrollbars_loop (Lisp_Object window, struct window_mirror *mir)
 
   while (mir)
     {
-      struct scrollbar_instance *vinst = mir->scrollbar_vertical_instance;
-      struct scrollbar_instance *hinst = mir->scrollbar_horizontal_instance;
-      struct frame *f;
-
       assert (!NILP (window));
-      f = XFRAME (XWINDOW (window)->frame);
 
       if (mir->vchild)
 	{
@@ -130,7 +125,8 @@ free_scrollbars_loop (Lisp_Object window, struct window_mirror *mir)
       if (retval != NULL)
 	return retval;
 
-      if (hinst || vinst)
+      if (mir->scrollbar_vertical_instance ||
+	  mir->scrollbar_horizontal_instance)
 	free_window_mirror_scrollbars (mir);
 
       mir = mir->next;
@@ -141,19 +137,7 @@ free_scrollbars_loop (Lisp_Object window, struct window_mirror *mir)
 }
 
 /* Destroy all scrollbars associated with FRAME.  Only called from
-   delete_frame_internal.
- */
-#define FREE_FRAME_SCROLLBARS_INTERNAL(cache)				\
-  do {									\
-    while (FRAME_SB_##cache (f))					\
-      {									\
-	struct scrollbar_instance *tofree = FRAME_SB_##cache (f);	\
-	FRAME_SB_##cache (f) = FRAME_SB_##cache (f)->next;		\
-	tofree->next = NULL;						\
-	free_scrollbar_instance (tofree, f);				\
-      }									\
-  } while (0)
-
+   delete_frame_internal. */
 void
 free_frame_scrollbars (struct frame *f)
 {
@@ -165,10 +149,22 @@ free_frame_scrollbars (struct frame *f)
 
   free_scrollbars_loop (f->root_window, f->root_mirror);
 
-  FREE_FRAME_SCROLLBARS_INTERNAL (VCACHE);
-  FREE_FRAME_SCROLLBARS_INTERNAL (HCACHE);
+  while (FRAME_SB_VCACHE (f))
+    {
+      struct scrollbar_instance *tofree = FRAME_SB_VCACHE (f);
+      FRAME_SB_VCACHE (f) = FRAME_SB_VCACHE (f)->next;
+      tofree->next = NULL;
+      free_scrollbar_instance (tofree, f);
+    }
+
+  while (FRAME_SB_HCACHE (f))
+    {
+      struct scrollbar_instance *tofree = FRAME_SB_HCACHE (f);
+      FRAME_SB_HCACHE (f) = FRAME_SB_HCACHE (f)->next;
+      tofree->next = NULL;
+      free_scrollbar_instance (tofree, f);
+    }
 }
-#undef FREE_FRAME_SCROLLBARS_INTERNAL
 
 
 static struct scrollbar_instance *
@@ -353,13 +349,6 @@ release_window_mirror_scrollbars (struct window_mirror *mir)
     }
   mir->scrollbar_horizontal_instance = 0;
 }
-
-/* This check needs to be done in the device-specific side. */
-#define UPDATE_DATA_FIELD(field, value) \
-  if (instance->field != value) {\
-    instance->field = value;\
-    instance->scrollbar_instance_changed = 1;\
-  }\
 
 /*
  * If w->sb_point is on the top line then return w->sb_point else
@@ -598,7 +587,7 @@ vertical_scrollbar_changed_in_window (Lisp_Object specifier,
      changing scrollbar affects only how the text and scrollbar are
      laid out in the window. If we do not want the dividers to show up
      always, then we mark more drastic change, because changing
-     divider appearane changes lotta things. Although we actually need
+     divider appearance changes lotta things. Although we actually need
      to do this only if the scrollbar has appeared or disappeared
      completely at either window edge, we do this always, as users
      usually do not reposition scrollbars 200 times a second or so. Do
@@ -872,7 +861,7 @@ This ensures that VALUE is in the proper range for the horizontal scrollbar.
 
   /* Can't allow this out of set-window-hscroll's acceptable range. */
   /* #### What hell on the earth this code limits scroll size to the
-     machine-dependant SHORT size? -- kkm */
+     machine-dependent SHORT size? -- kkm */
   if (hscroll < 0)
     hscroll = 0;
   else if (hscroll >= (1 << (SHORTBITS - 1)) - 1)
@@ -1002,13 +991,13 @@ This is a specifier; use `set-specifier' to change it.
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("scrollbar-on-left-p", &Vscrollbar_on_left_p /*
-*Whether the verical scrollbar is on the left side of window or frame.
+*Whether the vertical scrollbar is on the left side of window or frame.
 This is a specifier; use `set-specifier' to change it.
 */ );
   Vscrollbar_on_left_p = Fmake_specifier (Qboolean);
   
   {
-    /* Klugde. Under X, we want athena scrollbars on the left,
+    /* Kludge. Under X, we want athena scrollbars on the left,
        while all other scrollbars go on the right by default. */
     Lisp_Object fallback = list1 (Fcons (Qnil, Qnil));
 #if defined (HAVE_X_WINDOWS)			\
@@ -1030,7 +1019,7 @@ This is a specifier; use `set-specifier' to change it.
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("scrollbar-on-top-p", &Vscrollbar_on_top_p /*
-*Whether the verical scrollbar is on the top side of window or frame.
+*Whether the horizontal scrollbar is on the top side of window or frame.
 This is a specifier; use `set-specifier' to change it.
 */ );
   Vscrollbar_on_top_p = Fmake_specifier (Qboolean);

@@ -23,10 +23,6 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <config.h>
 #endif
 
-#include <stdlib.h>
-#include <assert.h>
-#include <string.h>
-#include <stdio.h>
 #include "sysdll.h"
 
 /* This whole file is conditional upon HAVE_DLL */

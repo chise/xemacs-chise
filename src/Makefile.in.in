@@ -31,7 +31,13 @@ all: ${PROGNAME}
 .SUFFIXES:
 .SUFFIXES: .c .h .o .i .s .dep
 
+#ifdef USE_GNU_MAKE
+RECURSIVE_MAKE=$(MAKE)
+#else
 @SET_MAKE@
+RECURSIVE_MAKE=@RECURSIVE_MAKE@
+#endif
+
 SHELL=/bin/sh
 RM = rm -f
 
@@ -44,12 +50,11 @@ prefix=@prefix@
 srcdir=@srcdir@
 blddir=@blddir@
 version=@version@
-CC=@CC@
+CC=@XEMACS_CC@
 CPP=@CPP@
 CFLAGS=@CFLAGS@
 CPPFLAGS=@CPPFLAGS@
 LDFLAGS=@LDFLAGS@
-RECURSIVE_MAKE=@RECURSIVE_MAKE@
 
 c_switch_all=@c_switch_all@
 ld_switch_all=@ld_switch_all@
@@ -173,7 +178,7 @@ objs=\
  $(gui_objs) hash.o imgproc.o indent.o insdel.o intl.o\
  keymap.o $(RTC_patch_objs) line-number.o lread.o lstream.o\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
- print.o process.o profile.o pure.o\
+ print.o process.o profile.o\
  rangetab.o redisplay.o redisplay-output.o regex.o\
  search.o $(sheap_obj) signal.o sound.o\
  specifier.o strftime.o symbols.o syntax.o sysdep.o\
@@ -292,11 +297,11 @@ X11_objs =  EmacsFrame.o EmacsShell.o TopLevelEmacsShell.o TransientEmacsShell.o
 
 ## define otherobjs as list of object files that make-docfile
 ## should not be told about.
-otherobjs = $(BTL_objs) lastfile.o $(mallocobjs) $(rallocobjs) $(X11_objs)
+otherobjs = lastfile.o $(mallocobjs) $(rallocobjs) $(X11_objs)
 otherrtls = $(otherobjs:.o=.c.rtl)
 othersrcs = $(otherobjs:.o=.c)
 
-LIBES = $(lwlib_libs) $(quantify_libs) $(malloclib) $(ld_libs_all) $(lib_gcc)
+LIBES = $(lwlib_libs) $(malloclib) $(ld_libs_all) $(lib_gcc)
 
 #ifdef I18N3
 mo_dir = ${etcdir}
@@ -305,6 +310,9 @@ mo_file = ${mo_dir}emacs.mo
 
 LOADPATH =  EMACSBOOTSTRAPLOADPATH="${lispdir}:${blddir}"
 DUMPENV = $(LOADPATH)
+temacs_loadup = $(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el
+dump_temacs   = ${temacs_loadup} dump
+run_temacs    = ${temacs_loadup} run-temacs
 
 release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 #ifdef CANNOT_DUMP
@@ -332,8 +340,8 @@ release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 
 ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
 	@$(RM) $@ && touch SATISFIED
-	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
-	@if test -f $@;        then if test -f SATISFIED; then \
+	-${dump_temacs}
+	@if test -f $@; then if test -f SATISFIED; then \
 		echo "Testing for Lisp shadows ..."; \
 		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
 		$(RM) SATISFIED; exit 0; fi; \
@@ -342,8 +350,8 @@ ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
 
 fastdump: temacs 
 	@$(RM) ${PROGNAME} && touch SATISFIED
-	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
-	@if test -f ${PROGNAME};        then if test -f SATISFIED; then \
+	-${dumpp_temacs}
+	@if test -f ${PROGNAME}; then if test -f SATISFIED; then \
 		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
 		$(RM) SATISFIED; exit 0; fi; \
 	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi;
@@ -441,22 +449,31 @@ temacs: $(temacs_deps)
 .PHONY : run-temacs
 
 run-temacs: temacs
-	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el run-temacs
+	-${run_temacs}
+
+## We have automated tests!!
+testdir = ${srcdir}/../tests/automated
+tests   = \
+	${testdir}/hash-table-tests.el \
+	${testdir}/lisp-tests.el \
+	${testdir}/database-tests.el \
+	${testdir}/byte-compiler-tests.el
+batch_test_emacs = -batch -l ${testdir}/test-harness.el -f batch-test-emacs ${tests}
+
+.PHONY: check check-temacs
+check:
+	./${PROGNAME} ${batch_test_emacs}
+check-temacs:
+	${run_temacs} ${batch_test_emacs}
 
 ## Debugging targets:
 ##
-## RTC is Sun WorkShop's Run Time Checking
-##
-## Purify, Quantify, PureCoverage are software quality products from
-## Rational, formerly Pure Atria, formerly Pure Software.
-##
-## None of these products work with a dumped xemacs binary, because it
-## does unexpected things like free memory that has been malloc'ed in
-## a *different* process!!  So we need to run these on temacs.
-##
+## None of the debugging products work with a dumped xemacs binary,
+## because it does unexpected things like free memory that has been
+## malloc'ed in a *different* process!!  So we need to run these on
+## temacs.
 
-.PHONY : run-rtcmacs run-puremacs run-quantmacs
-
+## RTC is Sun WorkShop's Run Time Checking, integrated with dbx
 rtc_patch.o:
 	rtc_patch_area -o $@
 
@@ -464,6 +481,7 @@ rtcmacs: $(temacs_deps) rtc_patch.o
 	$(RM) temacs; $(RECURSIVE_MAKE) temacs RTC_patch_objs=rtc_patch.o
 	mv temacs rtcmacs
 
+.PHONY: run-rtcmacs
 run-rtcmacs: rtcmacs
 	dbx -q -C -c \
 	'dbxenv rtc_error_log_file_name /dev/fd/1; \
@@ -474,26 +492,31 @@ run-rtcmacs: rtcmacs
 	runargs -batch -l ${srcdir}/../lisp/loadup.el run-temacs -q; \
 	run' rtcmacs
 
+## Purify, Quantify, PureCoverage are software quality products from
+## Rational, formerly Pure Atria, formerly Pure Software.
+##
 ## Purify
-PURIFY_PROG=purify
-PURIFY_FLAGS=-chain-length=32 -ignore-signals=SIGPOLL -threads=yes \
+PURIFY_PROG  = purify
+PURIFY_FLAGS = -chain-length=32 -ignore-signals=SIGPOLL -threads=yes \
  -cache-dir=./purecache -always-use-cache-dir=yes -pointer-mask=0x0fffffff
+PURIFY_LIBS  = -lpthread
 puremacs: $(temacs_deps)
-	$(PURIFY_PROG) $(PURIFY_FLAGS) $(LD) $(temacs_link_args) -lpthread
-
-run-puremacs: puremacs
-	-$(DUMPENV) ./puremacs -batch -l ${srcdir}/../lisp/loadup.el run-temacs
+	$(PURIFY_PROG) $(PURIFY_FLAGS) $(LD) $(temacs_link_args) $(PURIFY_LIBS)
+	cp $@ temacs
 
 ## Quantify
 #ifdef  QUANTIFY
-quantify_prog  = quantify
-quantify_flags = -windows=no -record-data=no
-quantify_includes = -I/local/include
-quantify_libs = /local/lib/quantify_stubs.a
+QUANTIFY_PROG     = quantify
+QUANTIFY_HOME     = `$(QUANTIFY_PROG) -print-home-dir`
+QUANTIFY_FLAGS    = -cache-dir=./purecache -always-use-cache-dir=yes
+cppflags         += -I$(QUANTIFY_HOME)
+temacs_link_args += $(QUANTIFY_HOME)/quantify_stubs.a
 
 quantmacs: $(temacs_deps)
-	$(quantify_prog) $(quantify_flags) $(LD) $(temacs_link_args)
+	$(QUANTIFY_PROG) $(QUANTIFY_FLAGS) $(LD) $(temacs_link_args)
+	cp $@ temacs
 #endif /* QUANTIFY */
+
 
 PURECOV_PROG=purecov
 covmacs: $(temacs_deps)
@@ -648,16 +671,6 @@ alloca.o : ${srcdir}/alloca.s config.h
 #endif /* HAVE_ALLOCA */
 #endif /* ! defined (C_ALLOCA) */
 
-#ifdef EMACS_BTL
-BTL_includes = -I$(BTL_dir)
-BTL_compile = -DEMACS_BTL -D`lucid-arch` -I. $(BTL_includes) $(BTL_dir)/$(@:.o=.c)
-
-cadillac-btl.o cadillac-btl-process.o cadillac-btl-emacs.o:
-	$(CC) $(CFLAGS) -c $(BTL_compile)
-cadillac-btl-asm.o:
-	$(CC) $(CFLAGS) -c $(BTL_compile)
-#endif /* EMACS_BTL */
-
 #ifdef HAVE_NATIVE_SOUND
 sunplay.o: ${srcdir}/sunplay.c
 	$(CC) -c  $(sound_cflags) $(cflags) ${srcdir}/sunplay.c
@@ -679,7 +692,7 @@ clean: mostlyclean versionclean
 ## Do not use it on development directories!
 distclean: clean
 	$(RM) config.h paths.h Emacs.ad.h \
-	  Makefile Makefile.in TAGS ${PROGNAME}.*
+	  Makefile Makefile.in GNUmakefile TAGS ${PROGNAME}.*
 realclean: distclean
 versionclean:
 	$(RM) ${PROGNAME} ${PROGNAME}.exe ${libsrc}DOC
@@ -696,7 +709,9 @@ relock:
 	chmod -w $(SOURCES)
 
 ## Dependency processing using home-grown script, not makedepend
+.PHONY: depend
+FRC.depend:
 depend: FRC.depend
-	$(RM) ${srcdir}/depend depend.tmp
-	perl ${srcdir}/make-src-depend > depend.tmp
-	mv depend.tmp ${srcdir}/depend
+	cd ${srcdir} && $(RM) depend.tmp && \
+	perl make-src-depend > depend.tmp && \
+	$(RM) depend && mv depend.tmp depend

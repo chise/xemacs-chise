@@ -158,7 +158,7 @@ int XmuCursorNameToIndex (CONST char *name)
 
 
 /*
- * Based on an optimized version provided by Jim Becker, Auguest 5, 1988.
+ * Based on an optimized version provided by Jim Becker, August 5, 1988.
  */
 
 
@@ -388,7 +388,7 @@ int XmuReadBitmapDataFromFile (CONST char *filename,
 
 /*
  * XmuPrintDefaultErrorMessage - print a nice error that looks like the usual
- * message.  Returns 1 if the caller should consider exitting else 0.
+ * message.  Return 1 if the caller should consider exiting, else 0.
  */
 int XmuPrintDefaultErrorMessage (Display *dpy, XErrorEvent *event, FILE *fp)
 {

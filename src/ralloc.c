@@ -1409,12 +1409,12 @@ static int r_alloc_initialized = 0;
 static int DEV_ZERO_FD = -1;
 
 
-/* We actually need a datastructure that can be usefully structured
+/* We actually need a data structure that can be usefully structured
    based on the VM address, and allows an ~O(1) lookup on an arbitrary
-   address, ie a hash-table.  Maybe the XEmacs hash table can be
-   coaxed enough.  At the moment, we use lookup on a hash-table to
+   address, i.e. a hash table.  Maybe the XEmacs hash table can be
+   coaxed enough.  At the moment, we use lookup on a hash table to
    decide whether to do an O(n) search on the malloced block list.
-   Addresses are hashed to a bucket modulo MHASH_PRIME */
+   Addresses are hashed to a bucket modulo MHASH_PRIME. */
 
 
 /* We settle for a standard doubly-linked-list.  The dynarr type isn't

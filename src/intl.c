@@ -123,7 +123,7 @@ Window main_window;  /* Convenient way to refer to main Era window. */
    insertion into the buffer of the whole string.  It might require some
    care, though, to avoid fragmenting memory through the allocation and
    freeing of many small chunks.  Maybe the existing system for
-   (single-byte) string allocation can be used, multipling the length by
+   (single-byte) string allocation can be used, multiplying the length by
    sizeof (wchar_t) to get the right size.
 */
 void
@@ -136,14 +136,14 @@ x_get_composed_input (XKeyPressedEvent *x_key_event, XIC context,
   int i;
   XClientMessageEvent new_event;
 
- try_again:
+ retry:
   len = XwcLookupString (context, x_key_event, composed_input_buf.data,
 			 composed_input_buf.size, &keysym, &status);
   switch (status)
     {
     case XBufferOverflow:
       /* GROW_WC_STRING (&composed_input_buf, 32); mrb */
-      goto try_again;
+      goto retry;
     case XLookupChars:
       break;
     default:

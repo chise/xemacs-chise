@@ -449,17 +449,17 @@ a temporary buffer."
 	   (switch-to-buffer (get-buffer-create "*lm-verify*"))
 	   (erase-buffer)
 	   (mapcar
-	    '(lambda (f)
-	       (if (string-match ".*\\.el$" f)
-		   (let ((status (lm-verify f)))
-		     (if status
-			 (progn
-			   (insert f ":")
-			   (lm-insert-at-column lm-comment-column status "\n"))
-		       (and showok
-			    (progn
-			      (insert f ":")
-			      (lm-insert-at-column lm-comment-column "OK\n")))))))
+	    #'(lambda (f)
+		(if (string-match ".*\\.el$" f)
+		    (let ((status (lm-verify f)))
+		      (if status
+			  (progn
+			    (insert f ":")
+			    (lm-insert-at-column lm-comment-column status "\n"))
+			(and showok
+			     (progn
+			       (insert f ":")
+			       (lm-insert-at-column lm-comment-column "OK\n")))))))
 	    (directory-files file))
 	   ))
       (save-excursion

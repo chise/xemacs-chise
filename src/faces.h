@@ -215,7 +215,7 @@ struct face_cachel
      right sort are available on the system.  In this case, the
      whole program will just crash.  For the moment, this is
      OK (for debugging purposes) but we should fix this by
-     storing a "blank font" if the instantation fails. */
+     storing a "blank font" if the instantiation fails. */
   unsigned int dirty :1;
   unsigned int updated :1;
   /* #### Of course we should use a bit array or something. */
@@ -260,7 +260,7 @@ EXFUN (Fget_face, 1);
 
 extern Lisp_Object Qstrikethru, Vbuilt_in_face_specifiers, Vdefault_face;
 extern Lisp_Object Vleft_margin_face, Vpointer_face, Vright_margin_face;
-extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face; 
+extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face;
 extern Lisp_Object Vtoolbar_face, Vgui_element_face;
 
 void mark_all_faces_as_clean (void);

@@ -48,6 +48,8 @@
 
 
 ;;; Code:
+(eval-when-compile
+  (require 'obsolete))
 
 (or (memq 'cl-19 features)
     (error "Tried to load `cl-extra' before `cl'!"))
@@ -468,7 +470,7 @@ Optional second arg STATE is a random-state object."
   ;; Inspired by "ran3" from Numerical Recipes.  Additive congruential method.
   (let ((vec (aref state 3)))
     (if (integerp vec)
-	(let ((i 0) (j (- 1357335 (% (abs vec) 1357333))) (k 1) ii)
+	(let ((i 0) (j (- 1357335 (% (abs vec) 1357333))) (k 1))
 	  (aset state 3 (setq vec (make-vector 55 nil)))
 	  (aset vec 0 j)
 	  (while (> (setq i (% (+ i 21) 55)) 0)
@@ -502,7 +504,7 @@ If STATE is t, return a new state object seeded from the time of day."
 ;; Implementation limits.
 
 (defun cl-finite-do (func a b)
-  (condition-case err
+  (condition-case nil
       (let ((res (funcall func a b)))   ; check for IEEE infinity
 	(and (numberp res) (/= res (/ res 2)) res))
     (arith-error nil)))
@@ -531,14 +533,14 @@ If STATE is t, return a new state object seeded from the time of day."
 	      most-negative-float (- x))
 	;; Divide down until mantissa starts rounding.
 	(setq x (/ x z) y (/ 16 z) x (* x y))
-	(while (condition-case err (and (= x (* (/ x 2) 2)) (> (/ y 2) 0))
+	(while (condition-case nil (and (= x (* (/ x 2) 2)) (> (/ y 2) 0))
 		 (arith-error nil))
 	  (setq x (/ x 2) y (/ y 2)))
 	(setq least-positive-normalized-float y
 	      least-negative-normalized-float (- y))
 	;; Divide down until value underflows to zero.
 	(setq x (/ 1 z) y x)
-	(while (condition-case err (> (/ x 2) 0) (arith-error nil))
+	(while (condition-case nil (> (/ x 2) 0) (arith-error nil))
 	  (setq x (/ x 2)))
 	(setq least-positive-float x
 	      least-negative-float (- x))
@@ -581,11 +583,11 @@ If STATE is t, return a new state object seeded from the time of day."
 
 (defun concatenate (type &rest seqs)
   "Concatenate, into a sequence of type TYPE, the argument SEQUENCES."
-  (cond ((eq type 'vector) (apply 'vconcat seqs))
-	((eq type 'string) (apply 'concat seqs))
-	((eq type 'list) (apply 'append (append seqs '(nil))))
-	(t (error "Not a sequence type name: %s" type))))
-
+  (case type
+    (vector (apply 'vconcat seqs))
+    (string (apply 'concat seqs))
+    (list   (apply 'append (append seqs '(nil))))
+    (t (error "Not a sequence type name: %s" type))))
 
 ;;; List functions.
 
@@ -666,142 +668,43 @@ PROPLIST is a list of the sort returned by `symbol-plist'."
 
 ;;; Hash tables.
 
-(defun make-hash-table (&rest cl-keys)
-  "Make an empty Common Lisp-style hash-table.
-If :test is `eq', `eql', or `equal', this can use XEmacs built-in hash-tables.
-In Emacs 19, or with a different test, this internally uses a-lists.
-Keywords supported:  :test :size
-The Common Lisp keywords :rehash-size and :rehash-threshold are ignored."
-  (let ((cl-test (or (car (cdr (memq ':test cl-keys))) 'eql))
-	(cl-size (or (car (cdr (memq ':size cl-keys))) 20)))
-    ;; XEmacs change
-    (if (and (memq cl-test '(eq eql equal)) (fboundp 'make-hashtable))
-	(funcall 'make-hashtable cl-size cl-test)
-      (list 'cl-hash-table-tag cl-test
-	    (if (> cl-size 1) (make-vector cl-size 0)
-	      (let ((sym (make-symbol "--hashsym--"))) (set sym nil) sym))
-	    0))))
+;; The `regular' Common Lisp hash-table stuff has been moved into C.
+;; Only backward compatibility stuff remains here.
+(defun make-hashtable (size &optional test)
+  (make-hash-table :size size :test test :type 'non-weak))
+(defun make-weak-hashtable (size &optional test)
+  (make-hash-table :size size :test test :type 'weak))
+(defun make-key-weak-hashtable (size &optional test)
+  (make-hash-table :size size :test test :type 'key-weak))
+(defun make-value-weak-hashtable (size &optional test)
+  (make-hash-table :size size :test test :type 'value-weak))
 
-(defvar cl-lucid-hash-tag
-  (if (and (fboundp 'make-hashtable) (vectorp (make-hashtable 1)))
-      (aref (make-hashtable 1) 0) (make-symbol "--cl-hash-tag--")))
+(define-obsolete-function-alias 'hashtablep 'hash-table-p)
+(define-obsolete-function-alias 'hashtable-fullness 'hash-table-count)
+(define-obsolete-function-alias 'hashtable-test-function 'hash-table-test)
+(define-obsolete-function-alias 'hashtable-type 'hash-table-type)
+(define-obsolete-function-alias 'hashtable-size 'hash-table-size)
+(define-obsolete-function-alias 'copy-hashtable 'copy-hash-table)
 
-(defun hash-table-p (x)
-  "Return t if OBJECT is a hash table."
-  (or (and (fboundp 'hashtablep) (funcall 'hashtablep x))
-      (eq (car-safe x) 'cl-hash-table-tag)
-      (and (vectorp x) (= (length x) 4) (eq (aref x 0) cl-lucid-hash-tag))))
+(make-obsolete 'make-hashtable            'make-hash-table)
+(make-obsolete 'make-weak-hashtable       'make-hash-table)
+(make-obsolete 'make-key-weak-hashtable   'make-hash-table)
+(make-obsolete 'make-value-weak-hashtable 'make-hash-table)
 
-(defun cl-not-hash-table (x &optional y &rest z)
-  (signal 'wrong-type-argument (list 'hash-table-p (or y x))))
+(when (fboundp 'x-keysym-hash-table)
+  (make-obsolete 'x-keysym-hashtable 'x-keysym-hash-table))
 
-(defun cl-hash-lookup (key table)
-  (or (eq (car-safe table) 'cl-hash-table-tag) (cl-not-hash-table table))
-  (let* ((array (nth 2 table)) (test (car (cdr table))) (str key) sym)
-    (if (symbolp array) (setq str nil sym (symbol-value array))
-      (while (or (consp str) (and (vectorp str) (> (length str) 0)))
-	(setq str (elt str 0)))
-      (cond ((stringp str) (if (eq test 'equalp) (setq str (downcase str))))
-	    ((symbolp str) (setq str (symbol-name str)))
-	    ((and (numberp str) (> str -8000000) (< str 8000000))
-	     (or (integerp str) (setq str (truncate str)))
-	     (setq str (aref ["0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10"
-			      "11" "12" "13" "14" "15"] (logand str 15))))
-	    (t (setq str "*")))
-      (setq sym (symbol-value (intern-soft str array))))
-    (list (and sym (cond ((or (eq test 'eq)
-			      (and (eq test 'eql) (not (numberp key))))
-			  (assq key sym))
-			 ((memq test '(eql equal)) (assoc key sym))
-			 (t (assoc* key sym ':test test))))
-	  sym str)))
+;; Compatibility stuff for old kludgy cl.el hash table implementation
+(defvar cl-builtin-gethash (symbol-function 'gethash))
+(defvar cl-builtin-remhash (symbol-function 'remhash))
+(defvar cl-builtin-clrhash (symbol-function 'clrhash))
+(defvar cl-builtin-maphash (symbol-function 'maphash))
 
-(defvar cl-builtin-gethash
-  (if (and (fboundp 'gethash) (subrp (symbol-function 'gethash)))
-      (symbol-function 'gethash) 'cl-not-hash-table))
-(defvar cl-builtin-remhash
-  (if (and (fboundp 'remhash) (subrp (symbol-function 'remhash)))
-      (symbol-function 'remhash) 'cl-not-hash-table))
-(defvar cl-builtin-clrhash
-  (if (and (fboundp 'clrhash) (subrp (symbol-function 'clrhash)))
-      (symbol-function 'clrhash) 'cl-not-hash-table))
-(defvar cl-builtin-maphash
-  (if (and (fboundp 'maphash) (subrp (symbol-function 'maphash)))
-      (symbol-function 'maphash) 'cl-not-hash-table))
-
-(defun cl-gethash (key table &optional def)
-  "Look up KEY in HASH-TABLE; return corresponding value, or DEFAULT."
-  (if (consp table)
-      (let ((found (cl-hash-lookup key table)))
-	(if (car found) (cdr (car found)) def))
-    (funcall cl-builtin-gethash key table def)))
-(defalias 'gethash 'cl-gethash)
-
-(defun cl-puthash (key val table)
-  (if (consp table)
-      (let ((found (cl-hash-lookup key table)))
-	(if (car found) (setcdr (car found) val)
-	  (if (nth 2 found)
-	      (progn
-		(if (> (nth 3 table) (* (length (nth 2 table)) 3))
-		    (let ((new-table (make-vector (nth 3 table) 0)))
-		      (mapatoms (function
-				 (lambda (sym)
-				   (set (intern (symbol-name sym) new-table)
-					(symbol-value sym))))
-				(nth 2 table))
-		      (setcar (cdr (cdr table)) new-table)))
-		(set (intern (nth 2 found) (nth 2 table))
-		     (cons (cons key val) (nth 1 found))))
-	    (set (nth 2 table) (cons (cons key val) (nth 1 found))))
-	  (setcar (cdr (cdr (cdr table))) (1+ (nth 3 table)))))
-    (funcall 'puthash key val table)) val)
-
-(defun cl-remhash (key table)
-  "Remove KEY from HASH-TABLE."
-  (if (consp table)
-      (let ((found (cl-hash-lookup key table)))
-	(and (car found)
-	     (let ((del (delq (car found) (nth 1 found))))
-	       (setcar (cdr (cdr (cdr table))) (1- (nth 3 table)))
-	       (if (nth 2 found) (set (intern (nth 2 found) (nth 2 table)) del)
-		 (set (nth 2 table) del)) t)))
-    (prog1 (not (eq (funcall cl-builtin-gethash key table '--cl--) '--cl--))
-      (funcall cl-builtin-remhash key table))))
-(defalias 'remhash 'cl-remhash)
-
-(defun cl-clrhash (table)
-  "Clear HASH-TABLE."
-  (if (consp table)
-      (progn
-	(or (hash-table-p table) (cl-not-hash-table table))
-	(if (symbolp (nth 2 table)) (set (nth 2 table) nil)
-	  (setcar (cdr (cdr table)) (make-vector (length (nth 2 table)) 0)))
-	(setcar (cdr (cdr (cdr table))) 0))
-    (funcall cl-builtin-clrhash table))
-  nil)
-(defalias 'clrhash 'cl-clrhash)
-
-(defun cl-maphash (cl-func cl-table)
-  "Call FUNCTION on keys and values from HASH-TABLE."
-  (or (hash-table-p cl-table) (cl-not-hash-table cl-table))
-  (if (consp cl-table)
-      (mapatoms (function (lambda (cl-x)
-			    (setq cl-x (symbol-value cl-x))
-			    (while cl-x
-			      (funcall cl-func (car (car cl-x))
-				       (cdr (car cl-x)))
-			      (setq cl-x (cdr cl-x)))))
-		(if (symbolp (nth 2 cl-table))
-		    (vector (nth 2 cl-table)) (nth 2 cl-table)))
-    (funcall cl-builtin-maphash cl-func cl-table)))
-(defalias 'maphash 'cl-maphash)
-
-(defun hash-table-count (table)
-  "Return the number of entries in HASH-TABLE."
-  (or (hash-table-p table) (cl-not-hash-table table))
-  (if (consp table) (nth 3 table) (funcall 'hashtable-fullness table)))
-
+(defalias 'cl-gethash 'gethash)
+(defalias 'cl-puthash 'puthash)
+(defalias 'cl-remhash 'remhash)
+(defalias 'cl-clrhash 'clrhash)
+(defalias 'cl-maphash 'maphash)
 
 ;;; Some debugging aids.
 

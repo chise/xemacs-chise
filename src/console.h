@@ -37,7 +37,7 @@ Boston, MA 02111-1307, USA.  */
    always tagged to a particular X window (i.e. frame),
    which exists on only one screen; therefore the event won't be
    reported multiple times even if there are multiple devices on
-   the same physical display.  This is an implementational detail
+   the same physical display.  This is an implementation detail
    specific to X consoles (e.g. under NeXTstep or Windows, this
    could be different, and input would come directly from the console).
 */
@@ -209,7 +209,7 @@ struct console_methods
 					       int depth);
   void (*init_image_instance_from_eimage_method) (struct Lisp_Image_Instance *ii,
 						  int width, int height,
-						  unsigned char *eimage, 
+						  unsigned char *eimage,
 						  int dest_mask,
 						  Lisp_Object instantiator,
 						  Lisp_Object domain);
@@ -218,17 +218,17 @@ struct console_methods
 					 Lisp_Object fg, Lisp_Object bg);
 #ifdef HAVE_XPM
     /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xpm_instantiate_method)(Lisp_Object image_instance, 
+  void (*xpm_instantiate_method)(Lisp_Object image_instance,
 				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg, 
+				 Lisp_Object pointer_fg,
 				 Lisp_Object pointer_bg,
 				 int dest_mask, Lisp_Object domain);
 #endif
 #ifdef HAVE_WINDOW_SYSTEM
     /* which is more tacky - this or #defines in glyphs.c? */
-  void (*xbm_instantiate_method)(Lisp_Object image_instance, 
+  void (*xbm_instantiate_method)(Lisp_Object image_instance,
 				 Lisp_Object instantiator,
-				 Lisp_Object pointer_fg, 
+				 Lisp_Object pointer_fg,
 				 Lisp_Object pointer_bg,
 				 int dest_mask, Lisp_Object domain);
 #endif
@@ -297,9 +297,9 @@ struct console_methods
 
 /* Call a void-returning console method, if it exists */
 #define MAYBE_CONTYPE_METH(meth, m, args) do {			\
-  struct console_methods *_maybe_contype_meth_meth = (meth);	\
-  if (HAS_CONTYPE_METH_P (_maybe_contype_meth_meth, m))		\
-    CONTYPE_METH (_maybe_contype_meth_meth, m, args);		\
+  struct console_methods *maybe_contype_meth_meth = (meth);	\
+  if (HAS_CONTYPE_METH_P (maybe_contype_meth_meth, m))		\
+    CONTYPE_METH (maybe_contype_meth_meth, m, args);		\
 } while (0)
 
 /* Call a console method, if it exists; otherwise return
@@ -531,7 +531,7 @@ int valid_console_type_p (Lisp_Object type);
 #define CONSOLE_SELECTED_DEVICE(con) ((con)->selected_device)
 #define CONSOLE_SELECTED_FRAME(con) \
   DEVICE_SELECTED_FRAME (XDEVICE ((con)->selected_device))
-#define CONSOLE_LAST_NONMINIBUF_FRAME(con) NON_LVALUE ((con)->_last_nonminibuf_frame)
+#define CONSOLE_LAST_NONMINIBUF_FRAME(con) NON_LVALUE ((con)->last_nonminibuf_frame)
 #define CONSOLE_QUIT_CHAR(con) ((con)->quit_char)
 
 #define CDFW_CONSOLE(obj)				\

@@ -157,11 +157,6 @@ use when compiling XEmacs.  Otherwise the value of the environment
 variable CFLAGS is consulted.  If that is also undefined, CFLAGS
 defaults to "-g -O" for gcc and "-g" for all other compilers.
 
-The `--with-gnu-make' option specifies that Makefiles should be
-written to take advantage of special features of GNU Make.  GNU Make
-works fine on Makefiles even without this option.  This flag just
-allows for simultaneous in-place and --srcdir building.
-
 The `--dynamic' option specifies that configure should try to link
 emacs dynamically rather than statically.
 
@@ -499,6 +494,9 @@ install XEmacs's libraries and data files or where XEmacs should search
 for its lisp files by giving values for `make' variables as part of
 the command.  See the section below called `MAKE VARIABLES' for more
 information on this.
+
+Using GNU Make allows for simultaneous builds with and without the
+--srcdir option.
 
 8) If your system uses lock files to interlock access to mailer inbox files,
 then you might need to make the movemail program setuid or setgid

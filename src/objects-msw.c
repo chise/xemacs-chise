@@ -1060,7 +1060,7 @@ mswindows_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object 
       COLOR_INSTANCE_MSWINDOWS_COLOR (c) = color;
       return 1;
     }
-  maybe_signal_simple_error ("unrecognized color", name, Qcolor, errb);
+  maybe_signal_simple_error ("Unrecognized color", name, Qcolor, errb);
   return(0);
 }
 

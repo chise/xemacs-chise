@@ -133,7 +133,7 @@ struct mswindows_frame
   /* DC for this win32 window */
   HDC hdc;
 
-  /* compatibke DC for bitmap operations */
+  /* compatible DC for bitmap operations */
   HDC cdc;
 
   /* Time of last click event, for button 2 emul */
@@ -142,13 +142,13 @@ struct mswindows_frame
   /* Coordinates of last click event, screen-relative */
   POINTS last_click_point;
 #ifdef HAVE_TOOLBARS
-  /* Toolbar hashtable. See toolbar-msw.c */
-  Lisp_Object toolbar_hashtable;
+  /* Toolbar hash table. See toolbar-msw.c */
+  Lisp_Object toolbar_hash_table;
   unsigned int toolbar_checksum[4];
 #endif
 
-  /* Menu hashtable. See menubar-msw.c */
-  Lisp_Object menu_hashtable;
+  /* Menu hash table. See menubar-msw.c */
+  Lisp_Object menu_hash_table;
 
   /* Menu checksum. See menubar-msw.c */
   unsigned int menu_checksum;
@@ -175,12 +175,12 @@ struct mswindows_frame
 
 #define FRAME_MSWINDOWS_DATA(f) FRAME_TYPE_DATA (f, mswindows)
 
-#define FRAME_MSWINDOWS_HANDLE(f)	  (FRAME_MSWINDOWS_DATA (f)->hwnd)
-#define FRAME_MSWINDOWS_DC(f)		  (FRAME_MSWINDOWS_DATA (f)->hdc)
-#define FRAME_MSWINDOWS_CDC(f)		  (FRAME_MSWINDOWS_DATA (f)->cdc)
-#define FRAME_MSWINDOWS_MENU_HASHTABLE(f) (FRAME_MSWINDOWS_DATA (f)->menu_hashtable)
-#define FRAME_MSWINDOWS_TOOLBAR_HASHTABLE(f) \
- (FRAME_MSWINDOWS_DATA (f)->toolbar_hashtable)
+#define FRAME_MSWINDOWS_HANDLE(f)	   (FRAME_MSWINDOWS_DATA (f)->hwnd)
+#define FRAME_MSWINDOWS_DC(f)		   (FRAME_MSWINDOWS_DATA (f)->hdc)
+#define FRAME_MSWINDOWS_CDC(f)		   (FRAME_MSWINDOWS_DATA (f)->cdc)
+#define FRAME_MSWINDOWS_MENU_HASH_TABLE(f) (FRAME_MSWINDOWS_DATA (f)->menu_hash_table)
+#define FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) \
+ (FRAME_MSWINDOWS_DATA (f)->toolbar_hash_table)
 #define FRAME_MSWINDOWS_TOOLBAR_CHECKSUM(f,pos) \
  (FRAME_MSWINDOWS_DATA (f)->toolbar_checksum[pos])
 #define FRAME_MSWINDOWS_MENU_CHECKSUM(f)  (FRAME_MSWINDOWS_DATA (f)->menu_checksum)

@@ -75,16 +75,15 @@ print_marker (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static int
-marker_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+marker_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct buffer *b1 = XMARKER (o1)->buffer;
-  if (b1 != XMARKER (o2)->buffer)
-    return (0);
-  else if (!b1)
-    /* All markers pointing nowhere are equal */
-    return (1);
-  else
-    return ((XMARKER (o1)->memind == XMARKER (o2)->memind));
+  struct Lisp_Marker *marker1 = XMARKER (obj1);
+  struct Lisp_Marker *marker2 = XMARKER (obj2);
+
+  return ((marker1->buffer == marker2->buffer) &&
+	  (marker1->memind == marker2->memind ||
+	  /* All markers pointing nowhere are equal */
+	   !marker1->buffer));
 }
 
 static unsigned long
@@ -180,7 +179,7 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
       (MARKERP (pos) && !XMARKER (pos)->buffer))
     {
       if (point_p)
-	signal_simple_error ("can't make point-marker point nowhere",
+	signal_simple_error ("Can't make point-marker point nowhere",
 			     marker);
       if (XMARKER (marker)->buffer)
 	unchain_marker (marker);
@@ -199,7 +198,7 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
 	{
 	  if (point_p)
 	    signal_simple_error
-	      ("can't move point-marker in a killed buffer", marker);
+	      ("Can't move point-marker in a killed buffer", marker);
 	  if (XMARKER (marker)->buffer)
 	    unchain_marker (marker);
 	  return marker;
@@ -237,7 +236,7 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
   if (m->buffer != b)
     {
       if (point_p)
-	signal_simple_error ("can't change buffer of point-marker", marker);
+	signal_simple_error ("Can't change buffer of point-marker", marker);
       if (m->buffer != 0)
 	unchain_marker (marker);
       m->buffer = b;

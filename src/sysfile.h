@@ -55,6 +55,12 @@ Boston, MA 02111-1307, USA.  */
 #include <direct.h>
 #endif
 
+#ifndef	STDERR_FILENO
+#define	STDIN_FILENO	0
+#define	STDOUT_FILENO	1
+#define	STDERR_FILENO	2
+#endif
+
 #ifndef O_RDONLY
 #define O_RDONLY 0
 #endif
@@ -113,6 +119,14 @@ Boston, MA 02111-1307, USA.  */
 #define WRITE_BINARY "wb"
 #else
 #define WRITE_BINARY "w"
+#endif
+#endif
+
+#ifndef O_NONBLOCK
+#ifdef O_NDELAY
+#define O_NONBLOCK O_NDELAY
+#else
+#define O_NONBLOCK 04000
 #endif
 #endif
 

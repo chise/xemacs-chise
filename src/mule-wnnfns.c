@@ -285,7 +285,7 @@ Boston, MA 02111-1307, USA.  */
 #define WNNSERVER_T 2
 #define WNNSERVER_K 3
 
-int check_wnn_server_type (void); 
+int check_wnn_server_type (void);
 void w2m (w_char *wp, unsigned char *mp, unsigned char lb);
 void m2w (unsigned char *mp, w_char *wp);
 void w2y (w_char *w);
@@ -348,7 +348,7 @@ Return nil if error occurs
     case WNNSERVER_C:
       langname = "zh_CN";
       break;
-/*  
+/*
     case WNNSERVER_T:
     strcpy (langname, "zh_TW");
     break;
@@ -408,7 +408,7 @@ Return nil if error occurs
 
 
 DEFUN ("wnn-server-close", Fwnn_close, 0, 0, 0, /*
-Close the connection to jserver, Dictionary and friquency files
+Close the connection to jserver, Dictionary and frequency files
 are not saved.
 */
      ())
@@ -418,13 +418,13 @@ are not saved.
   if (!wnnfns_buf[snum]) return Qnil;
   if (wnnfns_env_norm[snum])
     {
-      if (EQ(Vwnnenv_sticky, Qnil)) jl_env_un_sticky_e (wnnfns_env_norm[snum]);
+      if (NILP (Vwnnenv_sticky)) jl_env_un_sticky_e (wnnfns_env_norm[snum]);
       else jl_env_sticky_e (wnnfns_env_norm[snum]);
       jl_disconnect (wnnfns_env_norm[snum]);
     }
   if (wnnfns_env_rev[snum])
     {
-      if (EQ(Vwnnenv_sticky, Qnil)) jl_env_un_sticky_e (wnnfns_env_rev[snum]);
+      if (NILP (Vwnnenv_sticky)) jl_env_un_sticky_e (wnnfns_env_rev[snum]);
       else jl_env_sticky_e (wnnfns_env_rev[snum]);
       jl_disconnect (wnnfns_env_rev[snum]);
     }
@@ -447,21 +447,21 @@ Specify password files of dictionary and frequency, PW1 and PW2, if needed.
   CHECK_STRING (args[0]);
   CHECK_STRING (args[1]);
   CHECK_INT (args[2]);
-  if (!EQ(args[5], Qnil)) CHECK_STRING (args[5]);
-  if (!EQ(args[6], Qnil)) CHECK_STRING (args[6]);
+  if (! NILP (args[5])) CHECK_STRING (args[5]);
+  if (! NILP (args[6])) CHECK_STRING (args[6]);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
   GCPRO1 (*args);
   gcpro1.nvars = nargs;
   if (jl_dic_add (wnnfns_buf[snum],
-		  XSTRING (args[0])->_data,
-		  XSTRING (args[1])->_data,
+		  XSTRING_DATA (args[0]),
+		  XSTRING_DATA (args[1]),
 		  wnnfns_norm ? WNN_DIC_ADD_NOR : WNN_DIC_ADD_REV,
 		  XINT (args[2]),
-		  (EQ(args[3], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW,
-		  (EQ(args[4], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW,
-		  (EQ(args[5], Qnil)) ? 0 : XSTRING (args[5])->_data,
-		  (EQ(args[6], Qnil)) ? 0 : XSTRING (args[6])->_data,
+		  NILP (args[3]) ? WNN_DIC_RDONLY : WNN_DIC_RW,
+		  NILP (args[4]) ? WNN_DIC_RDONLY : WNN_DIC_RW,
+		  NILP (args[5]) ? 0 : XSTRING_DATA (args[5]),
+		  NILP (args[6]) ? 0 : XSTRING_DATA (args[6]),
 		  yes_or_no,
 		  puts2 ) < 0)
     {
@@ -496,7 +496,7 @@ Return information of dictionaries.
   int		cnt, i;
   unsigned char	comment[1024];
   Lisp_Object	val;
-  int	snum;  
+  int	snum;
   unsigned char lb;
 
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
@@ -529,7 +529,7 @@ Return information of dictionaries.
 DEFUN ("wnn-server-dict-comment", Fwnn_dict_comment, 2, 2, 0, /*
 Set comment to dictionary specified by DIC-NUMBER.
 Comment string COMMENT
-*/ 
+*/
      (dicno, comment))
 {
   w_char wbuf[512];
@@ -538,8 +538,8 @@ Comment string COMMENT
   CHECK_STRING (comment);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (comment)->_data, wbuf);
-  if (jl_dic_comment_set (wnnfns_buf[snum], XINT (dicno), wbuf) < 0) 
+  m2w (XSTRING_DATA (comment), wbuf);
+  if (jl_dic_comment_set (wnnfns_buf[snum], XINT (dicno), wbuf) < 0)
     return Qnil;
   return Qt;
 }
@@ -552,7 +552,7 @@ Switch the translation mode to normal if T, or reverse if NIL.
 {
   int	snum;
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
-  if (EQ(rev, Qnil))
+  if (NILP (rev))
     {
       if ((!wnnfns_buf[snum]) || (!wnnfns_env_norm[snum])) return Qnil;
       jl_env_set (wnnfns_buf[snum], wnnfns_env_norm[snum]);
@@ -578,15 +578,15 @@ Translate YOMI string to kanji. Retuen the number of bunsetsu.
   CHECK_STRING (hstring);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (hstring)->_data, wbuf);
+  m2w (XSTRING_DATA (hstring), wbuf);
   if (snum == WNNSERVER_C)
     w2y (wbuf);
 
 #ifdef	WNN6
-  if ((cnt = jl_fi_ren_conv (wnnfns_buf[snum], wbuf,	0, -1, WNN_USE_MAE)) < 0) 
+  if ((cnt = jl_fi_ren_conv (wnnfns_buf[snum], wbuf,	0, -1, WNN_USE_MAE)) < 0)
     return Qnil;
 #else
-  if ((cnt = jl_ren_conv (wnnfns_buf[snum], wbuf,	0, -1, WNN_USE_MAE)) < 0) 
+  if ((cnt = jl_ren_conv (wnnfns_buf[snum], wbuf,	0, -1, WNN_USE_MAE)) < 0)
     return Qnil;
 #endif
   return make_int (cnt);
@@ -696,7 +696,7 @@ Set candidate with OFFSET, DAI. DAI is T if dai-bunsetsu.
   CHECK_INT (offset);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  if (EQ(dai, Qnil))
+  if (NILP (dai))
     {
       if (jl_set_jikouho (wnnfns_buf[snum], XINT (offset)) < 0) return Qnil;
     }
@@ -722,11 +722,11 @@ Change length of BUN-NUMBER bunsetu to LEN. DAI is T if dai-bunsetsu.
   no = XINT (bunNo);
 #ifdef	WNN6
   if ((cnt = jl_fi_nobi_conv (wnnfns_buf[snum], no, XINT(len), -1, WNN_USE_MAE,
-			      (EQ(dai, Qnil)) ? WNN_SHO : WNN_DAI)) < 0)
+			      NILP (dai) ? WNN_SHO : WNN_DAI)) < 0)
     return Qnil;
 #else
   if ((cnt = jl_nobi_conv (wnnfns_buf[snum], no, XINT(len), -1, WNN_USE_MAE,
-			   (EQ(dai, Qnil)) ? WNN_SHO : WNN_DAI)) < 0)
+			   NILP (dai) ? WNN_SHO : WNN_DAI)) < 0)
     return Qnil;
 #endif
   return make_int (cnt);
@@ -844,7 +844,7 @@ Update frequency of bunsetsu specified by NUM-NUMBER.
   int		no;
   int	snum;
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
-  if (EQ(bunNo, Qnil)) no = -1;
+  if (NILP (bunNo)) no = -1;
   else
     {
       CHECK_INT (bunNo);
@@ -875,13 +875,13 @@ DIC-NUMBER, KANJI, YOMI, COMMENT, HINSI-NUMBER
   CHECK_INT (hinsi);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (yomi)->_data, yomi_buf);
+  m2w (XSTRING_DATA (yomi), yomi_buf);
   if (snum == WNNSERVER_C)
     w2y (yomi_buf);
-  m2w (XSTRING (kanji)->_data, kanji_buf);
-  m2w (XSTRING (comment)->_data, comment_buf);
+  m2w (XSTRING_DATA (kanji), kanji_buf);
+  m2w (XSTRING_DATA (comment), comment_buf);
   if (jl_word_add (wnnfns_buf[snum], XINT (dicno), yomi_buf, kanji_buf,
-		   comment_buf, XINT (hinsi), 0) < 0) 
+		   comment_buf, XINT (hinsi), 0) < 0)
     return Qnil;
   else return Qt;
 }
@@ -992,7 +992,7 @@ Return list of (kanji hinshi freq dic_no serial).
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   lb = lb_wnn_server_type[snum];
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (yomi)->_data, wbuf);
+  m2w (XSTRING_DATA (yomi), wbuf);
   if (snum == WNNSERVER_C)
     w2y (wbuf);
   if ((count = jl_word_search_by_env (wnnfns_buf[snum],
@@ -1080,7 +1080,7 @@ or wnn_kaikakko and the CDR contains the value.
       CHECK_INT (val);
       setval = XINT (val);
       if (EQ (key, Qwnn_n)) param.n = setval;
-      else if (EQ (key, Qwnn_nsho)) param.nsho = setval; 
+      else if (EQ (key, Qwnn_nsho)) param.nsho = setval;
       else if (EQ (key, Qwnn_hindo)) param.p1 = setval;
       else if (EQ (key, Qwnn_len)) param.p2 = setval;
       else if (EQ (key, Qwnn_jiri)) param.p3 = setval;
@@ -1106,21 +1106,21 @@ or wnn_kaikakko and the CDR contains the value.
 #if 0
   printf("wnn_n = %d\n",param.n);
   printf("wnn_nsho = %d\n",param.nsho);
-  printf("wnn_hindo = %d\n",param.p1); 
-  printf("wnn_len = %d\n",param.p2); 
-  printf("wnn_jiri = %d\n",param.p3); 
-  printf("wnn_flag = %d\n",param.p4); 
-  printf("wnn_jisho = %d\n",param.p5); 
-  printf("wnn_sbn = %d\n",param.p6); 
-  printf("wnn_dbn_len = %d\n",param.p7); 
-  printf("wnn_sbn_cnt = %d\n",param.p8); 
-  printf("wnn_suuji = %d\n",param.p9); 
-  printf("wnn_kana = %d\n",param.p10); 
-  printf("wnn_eisuu = %d\n",param.p11); 
-  printf("wnn_kigou = %d\n",param.p12); 
-  printf("wnn_toji_kakko = %d\n",param.p13); 
-  printf("wnn_fuzokogo = %d\n",param.p14); 
-  printf("wnn_kaikakko = %d\n",param.p15); 
+  printf("wnn_hindo = %d\n",param.p1);
+  printf("wnn_len = %d\n",param.p2);
+  printf("wnn_jiri = %d\n",param.p3);
+  printf("wnn_flag = %d\n",param.p4);
+  printf("wnn_jisho = %d\n",param.p5);
+  printf("wnn_sbn = %d\n",param.p6);
+  printf("wnn_dbn_len = %d\n",param.p7);
+  printf("wnn_sbn_cnt = %d\n",param.p8);
+  printf("wnn_suuji = %d\n",param.p9);
+  printf("wnn_kana = %d\n",param.p10);
+  printf("wnn_eisuu = %d\n",param.p11);
+  printf("wnn_kigou = %d\n",param.p12);
+  printf("wnn_toji_kakko = %d\n",param.p13);
+  printf("wnn_fuzokogo = %d\n",param.p14);
+  printf("wnn_kaikakko = %d\n",param.p15);
 #endif
 
   rc = jl_param_set (wnnfns_buf[snum], &param);
@@ -1175,7 +1175,7 @@ For Wnn.
   CHECK_STRING (file);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  if (jl_fuzokugo_set (wnnfns_buf[snum], XSTRING (file)->_data) < 0)
+  if (jl_fuzokugo_set (wnnfns_buf[snum], XSTRING_DATA (file)) < 0)
     return Qnil;
   return Qt;
 }
@@ -1246,7 +1246,7 @@ For Wnn.
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   lb = lb_wnn_server_type[snum];
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (name)->_data, wbuf);
+  m2w (XSTRING_DATA (name), wbuf);
   if ((cnt = jl_hinsi_list (wnnfns_buf[snum], XINT (dicno), wbuf, &area)) < 0)
     return Qnil;
   if (cnt == 0) return make_int (0);
@@ -1289,21 +1289,21 @@ Specify password files of dictionary and frequency, PW1 and PW2, if needed.
   int   snum;
   CHECK_STRING (args[0]);
   CHECK_STRING (args[1]);
-  if (!EQ(args[3], Qnil)) CHECK_STRING (args[3]);
+  if (! NILP (args[3])) CHECK_STRING (args[3]);
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   GCPRO1 (*args);
   gcpro1.nvars = nargs;
   if(jl_fi_dic_add(wnnfns_buf[snum],
-                XSTRING(args[0])->_data,
-                XSTRING(args[1])->_data,
-		WNN_FI_SYSTEM_DICT,
-		WNN_DIC_RDONLY,
-                (EQ(args[2], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW,
-		0,
-                (EQ(args[3], Qnil)) ? 0 : XSTRING(args[3])->_data,
-                yes_or_no,
-                puts2 ) < 0) {
+		   XSTRING_DATA (args[0]),
+		   XSTRING_DATA (args[1]),
+		   WNN_FI_SYSTEM_DICT,
+		   WNN_DIC_RDONLY,
+		   NILP (args[2]) ? WNN_DIC_RDONLY : WNN_DIC_RW,
+		   0,
+		   NILP (args[3]) ? 0 : XSTRING_DATA (args[3]),
+		   yes_or_no,
+		   puts2 ) < 0) {
     UNGCPRO;
     return Qnil;
   }
@@ -1322,22 +1322,22 @@ Specify password files of dictionary and frequency, PW1 and PW2, if needed.
   int   snum;
   CHECK_STRING (args[0]);
   CHECK_STRING (args[1]);
-  if (!EQ(args[4], Qnil)) CHECK_STRING (args[4]);
-  if (!EQ(args[5], Qnil)) CHECK_STRING (args[5]);
+  if (! NILP (args[4])) CHECK_STRING (args[4]);
+  if (! NILP (args[5])) CHECK_STRING (args[5]);
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   GCPRO1 (*args);
   gcpro1.nvars = nargs;
   if(jl_fi_dic_add(wnnfns_buf[snum],
-                XSTRING(args[0])->_data,
-                XSTRING(args[1])->_data,
-                WNN_FI_USER_DICT,
-                (EQ(args[2], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW,
-		(EQ(args[3], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW,
-		(EQ(args[4], Qnil)) ? 0 : XSTRING(args[4])->_data,
-                (EQ(args[5], Qnil)) ? 0 : XSTRING(args[5])->_data,
-                yes_or_no,
-                puts2 ) < 0) {
+		   XSTRING_DATA (args[0]),
+		   XSTRING_DATA (args[1]),
+		   WNN_FI_USER_DICT,
+		   NILP (args[2]) ? WNN_DIC_RDONLY : WNN_DIC_RW,
+		   NILP (args[3]) ? WNN_DIC_RDONLY : WNN_DIC_RW,
+		   NILP (args[4]) ? 0 : XSTRING_DATA (args[4]),
+		   NILP (args[5]) ? 0 : XSTRING_DATA (args[5]),
+		   yes_or_no,
+		   puts2 ) < 0) {
     UNGCPRO;
     return Qnil;
   }
@@ -1359,7 +1359,7 @@ Specify password files of dictionary and frequency PW1 if needed.
   struct wnn_henkan_env henv;
   CHECK_STRING (args[0]);
   CHECK_INT (args[1]);
-  if (!EQ(args[3], Qnil)) CHECK_STRING (args[3]);
+  if (! NILP (args[3])) CHECK_STRING (args[3]);
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   GCPRO1 (*args);
@@ -1371,12 +1371,12 @@ Specify password files of dictionary and frequency PW1 if needed.
   dic_no = js_get_autolearning_dic(cur_env, WNN_MUHENKAN_LEARNING);
   if (dic_no == WNN_NO_LEARNING) {
       if((dic_no = jl_dic_add(wnnfns_buf[snum],
-			      XSTRING(args[0])->_data,
+			      XSTRING_DATA (args[0]),
 			      0,
 			      wnnfns_norm ? WNN_DIC_ADD_NOR : WNN_DIC_ADD_REV,
 			      XINT(args[1]),
 			      WNN_DIC_RW, WNN_DIC_RW,
-			      (EQ(args[3], Qnil)) ? 0 : XSTRING(args[3])->_data,
+			      NILP (args[3]) ? 0 : XSTRING_DATA (args[3]),
 			      0,
 			      yes_or_no,
 			      puts2)) < 0) {
@@ -1393,7 +1393,7 @@ Specify password files of dictionary and frequency PW1 if needed.
       }
   }
   vmask |= WNN_ENV_MUHENKAN_LEARN_MASK;
-  henv.muhenkan_flag = (EQ(args[2], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW;
+  henv.muhenkan_flag = NILP (args[2]) ? WNN_DIC_RDONLY : WNN_DIC_RW;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) {
@@ -1418,7 +1418,7 @@ Specify password files of dictionary and frequency PW1 if needed.
   struct wnn_henkan_env henv;
   CHECK_STRING (args[0]);
   CHECK_INT (args[1]);
-  if (!EQ(args[3], Qnil)) CHECK_STRING (args[3]);
+  if (! NILP (args[3])) CHECK_STRING (args[3]);
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   GCPRO1 (*args);
@@ -1430,12 +1430,12 @@ Specify password files of dictionary and frequency PW1 if needed.
   dic_no = js_get_autolearning_dic(cur_env, WNN_BUNSETSUGIRI_LEARNING);
   if (dic_no == WNN_NO_LEARNING) {
       if((dic_no = jl_dic_add(wnnfns_buf[snum],
-                              XSTRING(args[0])->_data,
+                              XSTRING_DATA (args[0]),
                               0,
                               wnnfns_norm ? WNN_DIC_ADD_NOR : WNN_DIC_ADD_REV,
                               XINT(args[1]),
                               WNN_DIC_RW, WNN_DIC_RW,
-                              (EQ(args[3], Qnil)) ? 0 : XSTRING(args[3])->_data,
+                              NILP (args[3]) ? 0 : XSTRING_DATA (args[3]),
                               0,
                               yes_or_no,
                               puts2)) < 0) {
@@ -1452,7 +1452,7 @@ Specify password files of dictionary and frequency PW1 if needed.
       }
   }
   vmask |= WNN_ENV_BUNSETSUGIRI_LEARN_MASK;
-  henv.bunsetsugiri_flag = (EQ(args[2], Qnil)) ? WNN_DIC_RDONLY : WNN_DIC_RW;
+  henv.bunsetsugiri_flag = NILP (args[2]) ? WNN_DIC_RDONLY : WNN_DIC_RW;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) {
@@ -1473,8 +1473,8 @@ For FI-Wnn.
   struct wnn_henkan_env henv;
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
-  vmask |= WNN_ENV_LAST_IS_FIRST_MASK;      
-  henv.last_is_first_flag = (EQ(mode, Qnil)) ? False : True;
+  vmask |= WNN_ENV_LAST_IS_FIRST_MASK;
+  henv.last_is_first_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
 		       vmask,
 		       &henv) < 0) return Qnil;
@@ -1492,7 +1492,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_COMPLEX_CONV_MASK;
-  henv.complex_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.complex_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1510,7 +1510,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_OKURI_LEARN_MASK;
-  henv.okuri_learn_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.okuri_learn_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1553,7 +1553,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_PREFIX_LEARN_MASK;
-  henv.prefix_learn_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.prefix_learn_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1594,7 +1594,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_SUFFIX_LEARN_MASK;
-  henv.suffix_learn_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.suffix_learn_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1612,7 +1612,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_COMMON_LAERN_MASK;
-  henv.common_learn_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.common_learn_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1728,7 +1728,7 @@ For FI-Wnn.
   if ((snum = check_wnn_server_type()) == -1) return Qnil;
   if(!wnnfns_buf[snum]) return Qnil;
   vmask |= WNN_ENV_YURAGI_MASK;
-  henv.yuragi_flag = (EQ(mode, Qnil)) ? False : True;
+  henv.yuragi_flag = NILP (mode) ? False : True;
   if(jl_set_henkan_env(wnnfns_buf[snum],
                        vmask,
                        &henv) < 0) return Qnil;
@@ -1778,7 +1778,7 @@ For Wnn.
   CHECK_STRING (name);
   if ((snum = check_wnn_server_type ()) == -1) return Qnil;
   if (!wnnfns_buf[snum]) return Qnil;
-  m2w (XSTRING (name)->_data, w_buf);
+  m2w (XSTRING_DATA (name), w_buf);
   if ((no = jl_hinsi_number (wnnfns_buf[snum], w_buf)) < 0) return Qnil;
   return make_int (no);
 }
@@ -1926,7 +1926,7 @@ w2m (w_char *wp, unsigned char *mp, unsigned char lb)
 	  if (EQ(Vwnn_server_type, Qcserver))
 	    {
 	      len = cwnn_yincod_pzy (pzy, wc,
-				     (EQ(Vcwnn_zhuyin, Qnil))
+				     NILP (Vcwnn_zhuyin)
 				     ? CWNN_PINYIN
 				     : CWNN_ZHUYIN);
 	      for (i = 0; i < len; i++)
@@ -1972,7 +1972,7 @@ void
 m2w (unsigned char *mp, w_char *wp)
 {
   unsigned int ch;
-  
+
   while ((ch = *mp++) != 0)
     {
       if (BUFBYTE_LEADING_BYTE_P (ch))
@@ -2032,7 +2032,7 @@ w2y (w_char *w)
       w++; pin++;
     }
   len = cwnn_pzy_yincod (ybuf, pbuf,
-			 (EQ(Vcwnn_zhuyin, Qnil)) ? CWNN_PINYIN : CWNN_ZHUYIN);
+			 NILP (Vcwnn_zhuyin) ? CWNN_PINYIN : CWNN_ZHUYIN);
   if (len <= 0)
     return;
 

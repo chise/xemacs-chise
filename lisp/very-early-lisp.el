@@ -32,8 +32,6 @@
 
 ;;; Code:
 
-(define-function 'defalias 'define-function)
-
 ;;; Macros from Michael Sperber to replace read-time Lisp reader macros #-, #+
 ;;; ####fixme duplicated in make-docfile.el and update-elc.el
 (defmacro assemble-list (&rest components)

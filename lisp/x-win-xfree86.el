@@ -39,6 +39,7 @@
 ;; For no obvious reason, shift-F1 is called F13, although Meta-F1 and
 ;; Control-F1 have normal names.
 
+;;;###autoload
 (defun x-win-init-xfree86 ()
   (loop for (key sane-key) in
     '((f13 f1)

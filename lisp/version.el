@@ -125,7 +125,7 @@ symbol `nil') then only the major version numbers are considered in the test."
 ;; `what(1)' can extract from the executable or a core file.  We don't
 ;; actually need this to be pointed to from lisp; pure objects can't
 ;; be GCed.
-(or (memq system-type '(vax-vms windows-nt ms-dos))
+(or (memq system-type '(windows-nt ms-dos))
     (purecopy (concat "\n@" "(#)" (emacs-version)
 		      "\n@" "(#)" "Configuration: "
 		      system-configuration "\n")))

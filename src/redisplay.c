@@ -46,6 +46,7 @@ Boston, MA 02111-1307, USA.  */
 #include "commands.h"
 #include "debug.h"
 #include "device.h"
+#include "elhash.h"
 #include "extents.h"
 #include "faces.h"
 #include "frame.h"
@@ -1805,7 +1806,7 @@ create_text_block (struct window *w, struct display_line *dl,
      like:
 
      a) A 256-entry vector, for backward compatibility
-     b) Some sort of hashtable, mapping characters to values
+     b) Some sort of hash table, mapping characters to values
      c) A list that specifies a range of values and the
         mapping to provide for those values.
 
@@ -2338,7 +2339,7 @@ done:
 	{
 	  /* If data.start_col_enabled is still true, then the window is
              scrolled far enough so that nothing on this line is visible.
-             We need to stick a trunctation glyph at the beginning of the
+             We need to stick a truncation glyph at the beginning of the
              line in that case unless the line is completely blank. */
 	  if (data.bi_start_col_enabled)
 	    {
@@ -2871,7 +2872,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
      they should start.  The inside margin glyphs get whatever space
      is left after the whitespace glyphs have been displayed.  These
      are tricky to calculate since if we decide to use the overflow
-     area we basicaly have to start over.  So for these we build up a
+     area we basically have to start over.  So for these we build up a
      list of just the inside margin glyphs and manipulate it to
      determine the needed info. */
   {
@@ -3000,7 +3001,7 @@ create_left_glyph_block (struct window *w, struct display_line *dl,
       struct glyph_block *gb = Dynarr_atp (dl->left_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have beeb handled in add_glyph_rune */
+	abort ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_begin_glyph_layout (XEXTENT (gb->extent)) ==
 	  GL_OUTSIDE_MARGIN)
@@ -3190,7 +3191,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
      they should start.  The inside margin glyphs get whatever space
      is left after the whitespace glyphs have been displayed.  These
      are tricky to calculate since if we decide to use the overflow
-     area we basicaly have to start over.  So for these we build up a
+     area we basically have to start over.  So for these we build up a
      list of just the inside margin glyphs and manipulate it to
      determine the needed info. */
   {
@@ -3313,7 +3314,7 @@ create_right_glyph_block (struct window *w, struct display_line *dl)
       struct glyph_block *gb = Dynarr_atp (dl->right_glyphs, elt);
 
       if (NILP (gb->extent))
-	abort ();	/* these should have beeb handled in add_glyph_rune */
+	abort ();	/* these should have been handled in add_glyph_rune */
 
       if (extent_end_glyph_layout (XEXTENT (gb->extent)) == GL_OUTSIDE_MARGIN)
 	{
@@ -3524,7 +3525,7 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
 				MODELINE_INDEX, min_pixpos, max_pixpos, type);
 
   /* The modeline is at the bottom of the gutters.  We have to wait to
-     set this until we've generated teh modeline in order to account
+     set this until we've generated the modeline in order to account
      for any embedded faces. */
   dl->ypos = WINDOW_BOTTOM (w) - dl->descent - ypos_adj;
 }
@@ -5049,7 +5050,7 @@ redisplay_window (Lisp_Object window, int skip_selected)
 	  Fset_marker (w->pointm[DESIRED_DISP], make_int (pointm),
 		       the_buffer);
 
-	  /* #### BUFU amounts of overkil just to get the cursor
+	  /* #### BUFU amounts of overkill just to get the cursor
              location marked properly.  FIX ME FIX ME FIX ME */
 	  regenerate_window (w, startp, pointm, DESIRED_DISP);
 	}
@@ -5241,7 +5242,7 @@ regeneration_done:
       redisplay_output_window (w);
       /*
        * If we just displayed the echo area, the line start cache is
-       * no longer valid, because the minibuffer window is assocaited
+       * no longer valid, because the minibuffer window is associated
        * with the window now.
        */
       if (echo_active)
@@ -5354,13 +5355,13 @@ redisplay_frame (struct frame *f, int preemption_check)
     change_frame_size (f, f->new_height, f->new_width, 0);
 
   /* If frame size might need to be changed, due to changed size
-     of toolbars, scroolabrs etc, change it now */
+     of toolbars, scrollbars etc, change it now */
   if (f->size_slipped)
     {
       adjust_frame_size (f);
       assert (!f->size_slipped);
     }
-  
+
   /* The menubar, toolbar, and icon updates must be done before
      hold_frame_size_changes is called and we are officially
      'in_display'.  They may eval lisp code which may call Fsignal.
@@ -5703,9 +5704,9 @@ window_line_number (struct window *w, int type)
 {
   struct device *d = XDEVICE (XFRAME (w->frame)->device);
   struct buffer *b = XBUFFER (w->buffer);
-  /* Be careful in the order of these tests. The first clasue will
+  /* Be careful in the order of these tests. The first clause will
      fail if DEVICE_SELECTED_FRAME == Qnil (since w->frame cannot be).
-     This can occur when the frame title is computed really early */ 
+     This can occur when the frame title is computed really early */
   Bufpos pos =
     ((EQ(DEVICE_SELECTED_FRAME(d), w->frame) &&
        (w == XWINDOW (FRAME_SELECTED_WINDOW (device_selected_frame(d)))) &&
@@ -6089,8 +6090,10 @@ mark_glyph_block_dynarr (glyph_block_dynarr *gba, void (*markobj) (Lisp_Object))
 
       for (; gb < gb_last; gb++)
 	{
-	  if (!NILP (gb->glyph))  ((markobj) (gb->glyph));
-	  if (!NILP (gb->extent)) ((markobj) (gb->extent));
+	  if (!NILP (gb->glyph))
+	    markobj (gb->glyph);
+	  if (!NILP (gb->extent))
+	    markobj (gb->extent);
 	}
     }
 }
@@ -6118,9 +6121,9 @@ mark_redisplay_structs (display_line_dynarr *dla, void (*markobj) (Lisp_Object))
 	      if (r->type == RUNE_DGLYPH)
 		{
 		  if (!NILP (r->object.dglyph.glyph))
-		    ((markobj) (r->object.dglyph.glyph));
+		    markobj (r->object.dglyph.glyph);
 		  if (!NILP (r->object.dglyph.extent))
-		    ((markobj) (r->object.dglyph.extent));
+		    markobj (r->object.dglyph.extent);
 		}
 	    }
 	}
@@ -6264,7 +6267,7 @@ validate_line_start_cache (struct window *w)
          size changes can cause text shifting.  However, the extent
          covering the region is constantly having its face set and
          priority altered by the mouse code.  This means that the line
-         start cache is constanty being invalidated.  This is bad
+         start cache is constantly being invalidated.  This is bad
          since the mouse code also triggers heavy usage of the cache.
          Since it is an unlikely that f->extents being changed
          indicates that the cache really needs to be updated and if it
@@ -7064,7 +7067,7 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 
           /*
            * Handle invisible text properly:
-           * If the last line we're inserting has the same end as the 
+           * If the last line we're inserting has the same end as the
            * line before which it will be added, merge the two lines.
            */
           if (Dynarr_length (cache)  &&
@@ -7300,7 +7303,7 @@ get_position_object (struct display_line *dl, Lisp_Object *obj1,
     d->pixel_to_glyph_cache.obj1 = *obj1;				\
     d->pixel_to_glyph_cache.obj2 = *obj2;				\
     d->pixel_to_glyph_cache.retval = position;				\
-    RETURN__ position;							\
+    RETURN_SANS_WARNINGS position;					\
   } while (0)
 
 /* Given x and y coordinates in pixels relative to a frame, return
@@ -8059,40 +8062,29 @@ redisplay_glyph_changed (Lisp_Object glyph, Lisp_Object property,
 {
   if (WINDOWP (locale))
     {
-      struct frame *f = XFRAME (WINDOW_FRAME (XWINDOW (locale)));
-      MARK_FRAME_GLYPHS_CHANGED (f);
+      MARK_FRAME_GLYPHS_CHANGED (XFRAME (WINDOW_FRAME (XWINDOW (locale))));
     }
   else if (FRAMEP (locale))
     {
-      struct frame *f = XFRAME (locale);
-      MARK_FRAME_GLYPHS_CHANGED (f);
+      MARK_FRAME_GLYPHS_CHANGED (XFRAME (locale));
     }
   else if (DEVICEP (locale))
     {
       Lisp_Object frmcons;
       DEVICE_FRAME_LOOP (frmcons, XDEVICE (locale))
-	{
-	  struct frame *f = XFRAME (XCAR (frmcons));
-	  MARK_FRAME_GLYPHS_CHANGED (f);
-	}
+	MARK_FRAME_GLYPHS_CHANGED (XFRAME (XCAR (frmcons)));
     }
   else if (CONSOLEP (locale))
     {
       Lisp_Object frmcons, devcons;
       CONSOLE_FRAME_LOOP_NO_BREAK (frmcons, devcons, XCONSOLE (locale))
-	{
-	  struct frame *f = XFRAME (XCAR (frmcons));
-	  MARK_FRAME_GLYPHS_CHANGED (f);
-	}
+	MARK_FRAME_GLYPHS_CHANGED (XFRAME (XCAR (frmcons)));
     }
   else /* global or buffer */
     {
       Lisp_Object frmcons, devcons, concons;
       FRAME_LOOP_NO_BREAK (frmcons, devcons, concons)
-	{
-	  struct frame *f = XFRAME (XCAR (frmcons));
-	  MARK_FRAME_GLYPHS_CHANGED (f);
-	}
+	MARK_FRAME_GLYPHS_CHANGED (XFRAME (XCAR (frmcons)));
     }
 }
 
@@ -8302,7 +8294,7 @@ line start cache.
 Minimum pixel height for clipped bottom display line.
 A clipped line shorter than this won't be displayed.
 */ ,
-		   redisplay_variable_changed);
+		    redisplay_variable_changed);
   vertical_clip = 5;
 
   DEFVAR_INT_MAGIC ("pixel-horizontal-clip-threshold", &horizontal_clip /*
@@ -8310,7 +8302,7 @@ Minimum visible area for clipped glyphs at right boundary.
 Clipped glyphs shorter than this won't be displayed.
 Only pixmap glyph instances are currently allowed to be clipped.
 */ ,
-	      redisplay_variable_changed);
+		    redisplay_variable_changed);
   horizontal_clip = 5;
 
   DEFVAR_LISP ("global-mode-string", &Vglobal_mode_string /*
@@ -8322,13 +8314,14 @@ String displayed by modeline-format's "%m" specification.
 Marker for where to display an arrow on top of the buffer text.
 This must be the beginning of a line in order to work.
 See also `overlay-arrow-string'.
-*/ , redisplay_variable_changed);
+*/ ,
+		     redisplay_variable_changed);
   Voverlay_arrow_position = Qnil;
 
   DEFVAR_LISP_MAGIC ("overlay-arrow-string", &Voverlay_arrow_string /*
 String to display as an arrow.  See also `overlay-arrow-position'.
 */ ,
-		    redisplay_variable_changed);
+		     redisplay_variable_changed);
   Voverlay_arrow_string = Qnil;
 
   DEFVAR_INT ("scroll-step", &scroll_step /*
@@ -8347,7 +8340,7 @@ If this is zero, point is always centered after it moves off screen.
 		     &truncate_partial_width_windows /*
 *Non-nil means truncate lines in all windows less than full frame wide.
 */ ,
-		    redisplay_variable_changed);
+		     redisplay_variable_changed);
   truncate_partial_width_windows = 1;
 
   DEFVAR_BOOL ("visible-bell", &visible_bell /*

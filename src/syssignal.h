@@ -112,30 +112,30 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
 
 #define EMACS_BLOCK_SIGNAL(sig) do		\
 {						\
-  sigset_t _mask;				\
-  sigemptyset (&_mask);				\
-  sigaddset (&_mask, sig);			\
-  sigprocmask (SIG_BLOCK, &_mask, NULL);	\
+  sigset_t ES_mask;				\
+  sigemptyset (&ES_mask);			\
+  sigaddset (&ES_mask, sig);			\
+  sigprocmask (SIG_BLOCK, &ES_mask, NULL);	\
 } while (0)
 #define EMACS_UNBLOCK_SIGNAL(sig) do		\
 {						\
-  sigset_t _mask;				\
-  sigemptyset (&_mask);				\
-  sigaddset (&_mask, sig);			\
-  sigprocmask (SIG_UNBLOCK, &_mask, NULL);	\
+  sigset_t ES_mask;				\
+  sigemptyset (&ES_mask);			\
+  sigaddset (&ES_mask, sig);			\
+  sigprocmask (SIG_UNBLOCK, &ES_mask, NULL);	\
 } while (0)
 #define EMACS_UNBLOCK_ALL_SIGNALS() do		\
 {						\
-  sigset_t _mask;				\
-  sigemptyset (&_mask);				\
-  sigprocmask (SIG_SETMASK, &_mask, NULL);	\
+  sigset_t ES_mask;				\
+  sigemptyset (&ES_mask);			\
+  sigprocmask (SIG_SETMASK, &ES_mask, NULL);	\
 } while (0)
 #define EMACS_WAIT_FOR_SIGNAL(sig) do		\
 {						\
-  sigset_t _mask;				\
-  sigprocmask (0, NULL, &_mask);		\
-  sigdelset (&_mask, sig);			\
-  sigsuspend (&_mask);				\
+  sigset_t ES_mask;				\
+  sigprocmask (0, NULL, &ES_mask);		\
+  sigdelset (&ES_mask, sig);			\
+  sigsuspend (&ES_mask);			\
 } while (0)
 #define EMACS_REESTABLISH_SIGNAL(sig, handler)
 
@@ -159,8 +159,8 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
 #define EMACS_UNBLOCK_ALL_SIGNALS() sigsetmask (0)
 #define EMACS_WAIT_FOR_SIGNAL(sig) do		\
 {						\
-  int _mask = sigblock (0);			\
-  sigpause (_mask & ~sigmask (sig));		\
+  int ES_mask = sigblock (0);			\
+  sigpause (ES_mask & ~sigmask (sig));		\
 } while (0)
 #define EMACS_REESTABLISH_SIGNAL(sig, handler)
 

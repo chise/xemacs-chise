@@ -54,7 +54,7 @@ Boston, MA 02111-1307, USA.  */
 #define MSWINDOWS_EOL_CURSOR_WIDTH	5
 
 /*
- * Random forward delarations
+ * Random forward declarations
  */
 static void mswindows_update_dc (HDC hdc, Lisp_Object font, Lisp_Object fg,
 				 Lisp_Object bg, Lisp_Object bg_pmap);
@@ -1087,7 +1087,7 @@ mswindows_ring_bell (struct device *d, int volume, int pitch, int duration)
 
  Given a display line, a block number for that start line, output all
  runes between start and end in the specified display block.
- Ripped off with mininmal thought from the corresponding X routine.
+ Ripped off with minimal thought from the corresponding X routine.
  ****************************************************************************/
 static void
 mswindows_output_display_block (struct window *w, struct display_line *dl, int block,
@@ -1346,7 +1346,7 @@ mswindows_output_vertical_divider (struct window *w, int clear_unused)
   /* Draw a shadow around the divider */
   if (shadow != 0)
     {
-      /* #### This will be fixed to support arbitrary thichkness */
+      /* #### This will be fixed to support arbitrary thickness */
       InflateRect (&rect, abs_shadow, abs_shadow);
       DrawEdge (FRAME_MSWINDOWS_DC (f), &rect,
 		shadow > 0 ? EDGE_RAISED : EDGE_SUNKEN, BF_RECT);

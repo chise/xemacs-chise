@@ -39,7 +39,7 @@
 ;; very slow in an average XEmacs because of the large number of
 ;; symbols requiring a large number of funcalls -- XEmacs with Gnus
 ;; can grow to some 17000 symbols without ever doing anything fancy.
-;; It would probably pay off to make a hashtable of symbols known to
+;; It would probably pay off to make a hash table of symbols known to
 ;; Custom, similar to custom-group-hash-table.
 
 ;; This is not top priority, because none of the functions that do
@@ -282,7 +282,7 @@
 (defun custom-split-regexp-maybe (regexp)
   "If REGEXP is a string, split it to a list at `\\|'.
 You can get the original back with from the result with:
-  (mapconcat 'identity result \"\\|\")
+  (mapconcat #'identity result \"\\|\")
 
 IF REGEXP is not a string, return it unchanged."
   (if (stringp regexp)

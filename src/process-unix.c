@@ -1,4 +1,4 @@
-/* Asynchronous subprocess implemenation for UNIX
+/* Asynchronous subprocess implementation for UNIX
    Copyright (C) 1985, 1986, 1987, 1988, 1992, 1993, 1994, 1995
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
@@ -37,11 +37,9 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "buffer.h"
-#include "commands.h"
 #include "events.h"
 #include "frame.h"
 #include "hash.h"
-#include "insdel.h"
 #include "lstream.h"
 #include "opaque.h"
 #include "process.h"
@@ -62,7 +60,7 @@ Boston, MA 02111-1307, USA.  */
 
 
 /*
- * Implemenation-specific data. Pointed to by Lisp_Process->process_data
+ * Implementation-specific data. Pointed to by Lisp_Process->process_data
  */
 
 struct unix_process_data
@@ -236,7 +234,7 @@ allocate_pty (void)
 #else /* no PTY_OPEN */
 #ifdef IRIS
 	/* Unusual IRIS code */
- 	*ptyv = open ("/dev/ptc", O_RDWR | O_NDELAY | OPEN_BINARY, 0);
+ 	*ptyv = open ("/dev/ptc", O_RDWR | O_NONBLOCK | OPEN_BINARY, 0);
  	if (fd < 0)
  	  return -1;
 	if (fstat (fd, &stb) < 0)
@@ -250,11 +248,7 @@ allocate_pty (void)
 	  }
 	else
 	  failed_count = 0;
-#ifdef O_NONBLOCK
 	fd = open (pty_name, O_RDWR | O_NONBLOCK | OPEN_BINARY, 0);
-#else
-	fd = open (pty_name, O_RDWR | O_NDELAY | OPEN_BINARY, 0);
-#endif
 #endif /* not IRIS */
 #endif /* no PTY_OPEN */
 
@@ -672,11 +666,11 @@ static void
 unix_mark_process_data (struct Lisp_Process *proc,
 			void (*markobj) (Lisp_Object))
 {
-  ((markobj) (UNIX_DATA(proc)->tty_name));
+  markobj (UNIX_DATA(proc)->tty_name);
 }
 
 /*
- * Initialize XEmacs process implemenation once
+ * Initialize XEmacs process implementation once
  */
 
 #ifdef SIGCHLD
@@ -708,7 +702,7 @@ unix_init_process_io_handles (struct Lisp_Process *p, void* in, void* out, int f
  * object. If this function signals, the caller is responsible for
  * deleting (and finalizing) the process object.
  *
- * The method must return PID of the new proces, a (positive??? ####) number
+ * The method must return PID of the new process, a (positive??? ####) number
  * which fits into Lisp_Int. No return value indicates an error, the method
  * must signal an error instead.
  */
@@ -800,14 +794,6 @@ unix_create_process (struct Lisp_Process *p,
     /* child_setup must clobber environ on systems with true vfork.
        Protect it from permanent change.  */
     char **save_environ = environ;
-#endif
-
-#ifdef EMACS_BTL
-    /* when performance monitoring is on, turn it off before the vfork(),
-       as the child has no handler for the signal -- when back in the
-       parent process, turn it back on if it was really on when you "turned
-       it off" */
-    int logging_on = cadillac_stop_logging ();	/* #### rename me */
 #endif
 
     pid = fork ();
@@ -925,7 +911,7 @@ unix_create_process (struct Lisp_Process *p,
 	       will die when we want it to.
 	       JV: This needs to be done ALWAYS as we might have inherited
 	       a SIG_IGN handling from our parent (nohup) and we are in new
-	       process group.	       
+	       process group.
 	    */
 	    signal (SIGHUP, SIG_DFL);
 	  }
@@ -942,10 +928,6 @@ unix_create_process (struct Lisp_Process *p,
 
 	child_setup (xforkin, xforkout, xforkout, new_argv, current_dir);
       }
-#ifdef EMACS_BTL
-    else if (logging_on)
-      cadillac_start_logging ();	/* #### rename me */
-#endif
 
 #if !defined(__CYGWIN32__)
     environ = save_environ;
@@ -996,9 +978,7 @@ io_failure:
   RETURN_NOT_REACHED (0);
 }
 
-/*
- * Return nonzero if this process is a ToolTalk connection.
- */
+/* Return nonzero if this process is a ToolTalk connection. */
 
 static int
 unix_tooltalk_connection_p (struct Lisp_Process *p)
@@ -1006,9 +986,7 @@ unix_tooltalk_connection_p (struct Lisp_Process *p)
   return UNIX_DATA(p)->connected_via_filedesc_p;
 }
 
-/*
- * This is called to set process' virtual terminal size
- */
+/* This is called to set process' virtual terminal size */
 
 static int
 unix_set_window_size (struct Lisp_Process* p, int cols, int rows)
@@ -1132,7 +1110,7 @@ unix_reap_exited_processes (void)
 #endif /* SIGCHLD */
 
 /*
- * Stuff the entire contents of LSTREAM to the process ouptut pipe
+ * Stuff the entire contents of LSTREAM to the process output pipe
  */
 
 static JMP_BUF send_process_frame;
@@ -1180,8 +1158,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
 	  if (writeret < 0)
 	    /* This is a real error.  Blocking errors are handled
 	       specially inside of the filedesc stream. */
-	    report_file_error ("writing to process",
-			       list1 (vol_proc));
+	    report_file_error ("writing to process", list1 (proc));
 	  while (Lstream_was_blocked_p (XLSTREAM (p->pipe_outstream)))
 	    {
 	      /* Buffer is full.  Wait, accepting input;
@@ -1207,7 +1184,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
       p->core_dumped = 0;
       p->tick++;
       process_tick++;
-      deactivate_process (vol_proc);
+      deactivate_process (*((Lisp_Object *) (&vol_proc)));
       error ("SIGPIPE raised on process %s; closed it",
 	     XSTRING_DATA (p->name));
     }
@@ -1254,7 +1231,7 @@ unix_process_send_eof (Lisp_Object proc)
  * In the lack of this method, only event_stream_delete_stream_pair
  * is called on both I/O streams of the process.
  *
- * The UNIX version quards this by ignoring possible SIGPIPE.
+ * The UNIX version guards this by ignoring possible SIGPIPE.
  */
 
 static USID
@@ -1425,7 +1402,7 @@ unix_get_tty_name (struct Lisp_Process *p)
 /*
  * Canonicalize host name HOST, and return its canonical form
  *
- * The default implemenation just takes HOST for a canonical name.
+ * The default implementation just takes HOST for a canonical name.
  */
 
 #ifdef HAVE_SOCKETS
@@ -1575,7 +1552,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
    TCP case, the multicast connection will be seen as a sub-process,
 
    Some notes:
-   - Normaly, we should use sendto and recvfrom with non connected
+   - Normally, we should use sendto and recvfrom with non connected
    sockets. The current code doesn't allow us to do this. In the future, it
    would be a good idea to extend the process data structure in order to deal
    properly with the different types network connections.
@@ -1656,7 +1633,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest, Lisp_Object port,
 
   /* Socket configuration for writing ----------------------- */
 
-  /* Normaly, there's no 'connect' in multicast, since we use preferentialy
+  /* Normally, there's no 'connect' in multicast, since we prefer to use
      'sendto' and 'recvfrom'. However, in order to handle this connection in
      the process-like way it is done for TCP, we must be able to use 'write'
      instead of 'sendto'. Consequently, we 'connect' this socket. */

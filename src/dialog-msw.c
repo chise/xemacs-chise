@@ -20,7 +20,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-/* Autorship:
+/* Author:
    Initially written by kkm, May 1998
 */
 
@@ -46,9 +46,9 @@ static Lisp_Object Vdialog_data_list;
   Button metrics
   --------------
   All buttons have height of 15 DLU. The minimum width for a button is 32 DLU, 
-  but it can be expanded to accomodate its text, so the width is calculated as
+  but it can be expanded to accommodate its text, so the width is calculated as
   8 DLU per button plus 4 DLU per character.
-  max (32, 6 * text_lenght). The factor of six is rather empirical, but it
+  max (32, 6 * text_length). The factor of six is rather empirical, but it
   works better than 8 which comes from the definition of a DLU. Buttons are
   spaced with 6 DLU gap. Minimum distance from the button to the left or right 
   dialog edges is 6 DLU, and the distance between the dialog bottom edge and
@@ -65,11 +65,11 @@ static Lisp_Object Vdialog_data_list;
 /* 
    Text field metrics
    ------------------
-   Text ditance from lwft and right edges is the same as for buttons, and the
+   Text distance from left and right edges is the same as for buttons, and the
    top margin is 11 DLU. The static control has height of 2 DLU per control
    plus 8 DLU per each line of text. Distance between the bottom edge of the
    control and the button row is 15 DLU. Minimum width of the static control
-   is 100 DLU, thus giving minmium dialog wight of 112 DLU. Maximum width is
+   is 100 DLU, thus giving minimum dialog weight of 112 DLU. Maximum width is
    300 DLU, and, if the text is wider than that, the text is wrapped on the
    next line. Each character in the text is considered 4 DLU wide.
 */
@@ -98,13 +98,13 @@ static Lisp_Object Vdialog_data_list;
   Next, the width of the static field is determined.
   First, if all lines of text fit into max (WBR, X_MAX_TEXT), the width of the
   control is the same as the width of the longest line. 
-  Sencond, if all lines of text are narrower than X_MIN_TEXT, then width of
+  Second, if all lines of text are narrower than X_MIN_TEXT, then width of
   the control is set to X_MIN_TEXT.
   Otherwise, width is set to max(WBR, X_AVE_TEXT). In this case, line wrapping will
   happen.
 
-  If width of the text contol is larger than that of the button row, then the
-  latter is centered accross the dialog, by giving it extra edge
+  If width of the text control is larger than that of the button row, then the
+  latter is centered across the dialog, by giving it extra edge
   margins. Otherwise, minimal margins are given to the button row.
 */
 

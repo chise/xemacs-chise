@@ -609,7 +609,6 @@ required by PACKAGES."
                              (mapcar
                               #'(lambda (reqd)
                                   (let* ((reqd-package (package-get-package-provider reqd))
-                                         (reqd-version (cadr reqd-package))
                                          (reqd-name    (car reqd-package)))
                                     (if (null reqd-name)
                                         (error "Unable to find a provider for %s" reqd))

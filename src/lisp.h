@@ -26,7 +26,7 @@ Boston, MA 02111-1307, USA.  */
 #define _XEMACS_LISP_H_
 
 /************************************************************************/
-/*                        general definitions                           */
+/*			  general definitions				*/
 /************************************************************************/
 
 /* We include the following generally useful header files so that you
@@ -181,7 +181,7 @@ void xfree (void *);
 #   define DOESNT_RETURN void volatile
 #   define DECLARE_DOESNT_RETURN(decl) \
            extern void volatile decl __attribute__ ((noreturn))
-#   define DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS(decl,str,idx) \
+#   define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
      /* Should be able to state multiple independent __attribute__s, but  \
         the losing syntax doesn't work that way, and screws losing cpp */ \
            extern void volatile decl \
@@ -189,13 +189,13 @@ void xfree (void *);
 #  else
 #   define DOESNT_RETURN void volatile
 #   define DECLARE_DOESNT_RETURN(decl) extern void volatile decl
-#   define DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS(decl,str,idx) \
+#   define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
            extern void volatile decl PRINTF_ARGS(str,idx)
 #  endif /* GNUC 2.5 */
 # else
 #  define DOESNT_RETURN void
 #  define DECLARE_DOESNT_RETURN(decl) extern void decl
-#  define DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS(decl,str,idx) \
+#  define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
           extern void decl PRINTF_ARGS(str,idx)
 # endif /* GNUC */
 #endif
@@ -214,15 +214,6 @@ void xfree (void *);
 /* #### Yuck, this is kind of evil */
 #define ALIGN_PTR(ptr, unit) \
   ((void *) ALIGN_SIZE ((long) (ptr), unit))
-
-#ifdef QUANTIFY
-#include "quantify.h"
-#define QUANTIFY_START_RECORDING quantify_start_recording_data ()
-#define QUANTIFY_STOP_RECORDING  quantify_stop_recording_data  ()
-#else /* !QUANTIFY */
-#define QUANTIFY_START_RECORDING
-#define QUANTIFY_STOP_RECORDING
-#endif /* !QUANTIFY */
 
 #ifndef DO_NOTHING
 #define DO_NOTHING do {} while (0)
@@ -260,7 +251,7 @@ DECLARE_DOESNT_RETURN (assert_failed (CONST char *, int, CONST char *));
 
 
 /************************************************************************/
-/*                                typedefs                              */
+/*				  typedefs				*/
 /************************************************************************/
 
 /* We put typedefs here so that prototype declarations don't choke.
@@ -333,12 +324,18 @@ typedef struct extent *EXTENT;
 struct frame;			/* "frame.h" */
 struct window;                  /* "window.h" */
 struct Lisp_Event;              /* "events.h" */
+typedef struct Lisp_Event Lisp_Event;
 struct Lisp_Face;
+typedef struct Lisp_Face Lisp_Face;
 struct Lisp_Process;            /* "process.c" */
+typedef struct Lisp_Process Lisp_Process;
 struct stat;                    /* <sys/stat.h> */
 struct Lisp_Color_Instance;
+typedef struct Lisp_Color_Instance Lisp_Color_Instance;
 struct Lisp_Font_Instance;
+typedef struct Lisp_Font_Instance Lisp_Font_Instance;
 struct Lisp_Image_Instance;
+typedef struct Lisp_Image_Instance Lisp_Image_Instance;
 struct display_line;
 struct redisplay_info;
 struct window_mirror;
@@ -506,7 +503,7 @@ enum munge_me_out_the_door
 
 
 /************************************************************************/
-/*                   Definition of Lisp_Object data type                */
+/*		     Definition of Lisp_Object data type		*/
 /************************************************************************/
 
 #ifdef USE_MINIMAL_TAGBITS
@@ -524,13 +521,13 @@ enum munge_me_out_the_door
 
 enum Lisp_Type
 {
-  /* Integer.  XINT(obj) is the integer value. */
-  Lisp_Type_Int,
-
   /* XRECORD_LHEADER (object) points to a struct lrecord_header
-     lheader->implementation determines the type (and GC behaviour)
+     lheader->implementation determines the type (and GC behavior)
      of the object. */
   Lisp_Type_Record,
+
+  /* Integer.  XINT(obj) is the integer value. */
+  Lisp_Type_Int,
 
 #ifndef LRECORD_CONS
   /* Cons.  XCONS (object) points to a struct Lisp_Cons. */
@@ -574,22 +571,28 @@ enum Lisp_Type
 
 #endif /* USE_MINIMAL_TAGBITS */
 
-/* This should be the underlying type into which a Lisp_Object must fit.
-   In a strict ANSI world, this must be `int', since ANSI says you can't
-   use bitfields on any type other than `int'.  However, on a machine
-   where `int' and `long' are not the same size, this should be the
-   longer of the two.  (This also must be something into which a pointer
-   to an arbitrary object will fit, modulo any DATA_SEG_BITS cruft.)
- */
-/* ### We should be using uintptr_t and SIZEOF_VOID_P here */
-#if (LONGBITS > INTBITS)
-# define EMACS_INT long
-# define EMACS_UINT unsigned long
-# define SIZEOF_EMACS_INT SIZEOF_LONG
-#else
-# define EMACS_INT int
-# define EMACS_UINT unsigned int
-# define SIZEOF_EMACS_INT SIZEOF_INT
+/* EMACS_INT is the underlying integral type into which a Lisp_Object must fit.
+   In particular, it must be large enough to contain a pointer.
+   config.h can override this, e.g. to use `long long' for bigger lisp ints. */
+
+#ifndef SIZEOF_EMACS_INT
+# define SIZEOF_EMACS_INT SIZEOF_VOID_P
+#endif
+
+#ifndef EMACS_INT
+# if   SIZEOF_EMACS_INT == SIZEOF_LONG
+#  define EMACS_INT long
+# elif SIZEOF_EMACS_INT == SIZEOF_INT
+#  define EMACS_INT int
+# elif SIZEOF_EMACS_INT == SIZEOF_LONG_LONG
+#  define EMACS_INT long long
+# else
+#  error Unable to determine suitable type for EMACS_INT
+# endif
+#endif
+
+#ifndef EMACS_UINT
+# define EMACS_UINT unsigned EMACS_INT
 #endif
 
 #define BITS_PER_EMACS_INT (SIZEOF_EMACS_INT * BITS_PER_CHAR)
@@ -669,12 +672,12 @@ int eq_with_ebola_notice (Lisp_Object, Lisp_Object);
 
 
 /************************************************************************/
-/*                   Definitions of basic Lisp objects                  */
+/*		     Definitions of basic Lisp objects			*/
 /************************************************************************/
 
 #include "lrecord.h"
 
-/********** unbound ***********/
+/*********** unbound ***********/
 
 /* Qunbound is a special Lisp_Object (actually of type
    symbol-value-forward), that can never be visible to
@@ -695,6 +698,7 @@ struct Lisp_Cons
 #endif
   Lisp_Object car, cdr;
 };
+typedef struct Lisp_Cons Lisp_Cons;
 
 #if 0 /* FSFmacs */
 /* Like a cons, but records info on where the text lives that it was read from */
@@ -710,8 +714,8 @@ struct Lisp_Buffer_Cons
 
 #ifdef LRECORD_CONS
 
-DECLARE_LRECORD (cons, struct Lisp_Cons);
-#define XCONS(x) XRECORD (x, cons, struct Lisp_Cons)
+DECLARE_LRECORD (cons, Lisp_Cons);
+#define XCONS(x) XRECORD (x, cons, Lisp_Cons)
 #define XSETCONS(x, p) XSETRECORD (x, p, cons)
 #define CONSP(x) RECORDP (x, cons)
 #define GC_CONSP(x) GC_RECORDP (x, cons)
@@ -723,8 +727,8 @@ DECLARE_LRECORD (cons, struct Lisp_Cons);
 
 #else /* ! LRECORD_CONS */
 
-DECLARE_NONRECORD (cons, Lisp_Type_Cons, struct Lisp_Cons);
-#define XCONS(a) XNONRECORD (a, cons, Lisp_Type_Cons, struct Lisp_Cons)
+DECLARE_NONRECORD (cons, Lisp_Type_Cons, Lisp_Cons);
+#define XCONS(a) XNONRECORD (a, cons, Lisp_Type_Cons, Lisp_Cons)
 #define XSETCONS(c, p) XSETOBJ (c, Lisp_Type_Cons, p)
 #define CONSP(x) (XTYPE (x) == Lisp_Type_Cons)
 #define GC_CONSP(x) (XGCTYPE (x) == Lisp_Type_Cons)
@@ -737,6 +741,8 @@ DECLARE_NONRECORD (cons, Lisp_Type_Cons, struct Lisp_Cons);
 #define MARK_CONS(c) XMARK (c->car)
 
 #endif /* ! LRECORD_CONS */
+
+extern Lisp_Object Qnil;
 
 #define NILP(x)  EQ (x, Qnil)
 #define GC_NILP(x)  GC_EQ (x, Qnil)
@@ -756,78 +762,312 @@ DECLARE_NONRECORD (cons, Lisp_Type_Cons, struct Lisp_Cons);
 
 /* For a list that's known to be in valid list format --
    will abort() if the list is not in valid format */
-#define LIST_LOOP(consvar, list) \
-  for (consvar = list; !NILP (consvar); consvar = XCDR (consvar))
+#define LIST_LOOP(tail, list)		\
+  for (tail = list;			\
+       !NILP (tail);			\
+       tail = XCDR (tail))
+
+#define LIST_LOOP_2(elt, list)		\
+  Lisp_Object tail##elt;		\
+  LIST_LOOP_3(elt, list, tail##elt)
+
+#define LIST_LOOP_3(elt, list, tail)	\
+  for (tail = list;			\
+       NILP (tail) ?			\
+	 0 : (elt = XCAR (tail), 1);	\
+       tail = XCDR (tail))
+
+#define GET_LIST_LENGTH(list, len) do {		\
+  Lisp_Object GLL_tail;				\
+  for (GLL_tail = list, len = 0;		\
+       !NILP (GLL_tail);			\
+       GLL_tail = XCDR (GLL_tail), ++len)	\
+    DO_NOTHING;					\
+} while (0)
+
+#define GET_EXTERNAL_LIST_LENGTH(list, len)		\
+do {							\
+  Lisp_Object GELL_elt, GELL_tail;			\
+  EXTERNAL_LIST_LOOP_4 (GELL_elt, list, GELL_tail, len)	\
+    ;							\
+} while (0)
 
 /* For a list that's known to be in valid list format, where we may
    be deleting the current element out of the list --
    will abort() if the list is not in valid format */
-#define LIST_LOOP_DELETING(consvar, nextconsvar, list)			\
-  for (consvar = list;							\
-       !NILP (consvar) ? (nextconsvar = XCDR (consvar), 1) : 0;		\
+#define LIST_LOOP_DELETING(consvar, nextconsvar, list)		\
+  for (consvar = list;						\
+       !NILP (consvar) ? (nextconsvar = XCDR (consvar), 1) :0;	\
        consvar = nextconsvar)
+
+/* Delete all elements of external list LIST
+   satisfying CONDITION, an expression referring to variable ELT */
+#define EXTERNAL_LIST_LOOP_DELETE_IF(elt, list, condition) do {	\
+  Lisp_Object prev_tail_##list = Qnil;				\
+  Lisp_Object tail_##list;					\
+  int len_##list;						\
+  EXTERNAL_LIST_LOOP_4 (elt, list, tail_##list, len_##list)	\
+    {								\
+      if (condition)						\
+	{							\
+	  if (NILP (prev_tail_##list))				\
+	    list = XCDR (tail_##list);				\
+	  else							\
+	    XCDR (prev_tail_##list) = XCDR (tail_##list);	\
+          /* Keep tortoise from ever passing hare. */		\
+	  len_##list = 0;					\
+	}							\
+      else							\
+	prev_tail_##list = tail_##list;				\
+    }								\
+} while (0)
+
+/* Delete all elements of true non-circular list LIST
+   satisfying CONDITION, an expression referring to variable ELT */
+#define LIST_LOOP_DELETE_IF(elt, list, condition) do {		\
+  Lisp_Object prev_tail_##list = Qnil;				\
+  Lisp_Object tail_##list;					\
+  LIST_LOOP_3 (elt, list, tail_##list)				\
+    {								\
+      if (condition)						\
+	{							\
+	  if (NILP (prev_tail_##list))				\
+	    list = XCDR (tail_##list);				\
+	  else							\
+	    XCDR (prev_tail_##list) = XCDR (tail_##list);	\
+	}							\
+      else							\
+	prev_tail_##list = tail_##list;				\
+    }								\
+} while (0)
 
 /* For a list that may not be in valid list format --
    will signal an error if the list is not in valid format */
-#define EXTERNAL_LIST_LOOP(consvar, listp)				\
-  for (consvar = listp; !NILP (consvar); consvar = XCDR (consvar))	\
-     if (!CONSP (consvar))						\
-       signal_simple_error ("Invalid list format", listp);		\
+#define EXTERNAL_LIST_LOOP(tail, list)			\
+  for (tail = list; !NILP (tail); tail = XCDR (tail))	\
+     if (!CONSP (tail))					\
+       signal_malformed_list_error (list);		\
      else
 
-extern Lisp_Object Qnil;
 
-INLINE int TRUE_LIST_P (Lisp_Object object);
-INLINE int
-TRUE_LIST_P (Lisp_Object object)
-{
-  while (CONSP (object))
-    object = XCDR (object);
-  return NILP (object);
-}
+/* The following macros are for traversing lisp lists.
+   Signal an error if LIST is not properly acyclic and nil-terminated.
 
-#define CHECK_TRUE_LIST(object) do {			\
-  if (!TRUE_LIST_P (object))				\
-    dead_wrong_type_argument (Qtrue_list_p, object);	\
-} while (0)
+   Use tortoise/hare algorithm to check for cycles, but only if it
+   looks like the list is getting too long.  Not only is the hare
+   faster than the tortoise; it even gets a head start! */
+
+/* Optimized and safe macros for looping over external lists.  */
+#define CIRCULAR_LIST_SUSPICION_LENGTH 1024
+
+#define EXTERNAL_LIST_LOOP_1(list)					\
+Lisp_Object ELL1_elt, ELL1_hare, ELL1_tortoise;				\
+int ELL1_len;								\
+EXTERNAL_LIST_LOOP_6(ELL1_elt, list, ELL1_len, ELL1_hare,		\
+		     ELL1_tortoise, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_LIST_LOOP_2(elt, list)					\
+Lisp_Object hare_##elt, tortoise_##elt;					\
+int len_##elt;								\
+EXTERNAL_LIST_LOOP_6(elt, list, len_##elt, hare_##elt,			\
+		     tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_LIST_LOOP_3(elt, list, tail)				\
+Lisp_Object tortoise_##elt;						\
+int len_##elt;								\
+EXTERNAL_LIST_LOOP_6(elt, list, len_##elt, tail,			\
+		     tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_LIST_LOOP_4(elt, list, tail, len)			\
+Lisp_Object tortoise_##elt;						\
+EXTERNAL_LIST_LOOP_6(elt, list, len, tail,				\
+		     tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+
+#define EXTERNAL_LIST_LOOP_6(elt, list, len, hare,		\
+                             tortoise, suspicion_length)	\
+  for (tortoise = hare = list, len = 0;				\
+								\
+       (CONSP (hare) ? ((elt = XCAR (hare)), 1) :		\
+	(NILP (hare) ? 0 :					\
+	 (signal_malformed_list_error (list), 0)));		\
+								\
+       hare = XCDR (hare),					\
+	 ((++len < suspicion_length) ?				\
+	  ((void) 0) :						\
+	  (((len & 1) ?						\
+	    ((void) (tortoise = XCDR (tortoise))) :		\
+	    ((void) 0))						\
+	   ,							\
+	   (EQ (hare, tortoise) ?				\
+	    ((void) signal_circular_list_error (list)) :	\
+	    ((void) 0)))))
+
+
+
+/* Optimized and safe macros for looping over external alists. */
+#define EXTERNAL_ALIST_LOOP_4(elt, elt_car, elt_cdr, list)		\
+Lisp_Object hare_##elt, tortoise_##elt;					\
+int len_##elt;								\
+EXTERNAL_ALIST_LOOP_8 (elt, elt_car, elt_cdr, list,			\
+		       len_##elt, hare_##elt, tortoise_##elt,		\
+		       CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_ALIST_LOOP_5(elt, elt_car, elt_cdr, list, tail)	\
+Lisp_Object tortoise_##elt;						\
+int len_##elt;								\
+EXTERNAL_ALIST_LOOP_8(elt, elt_car, elt_cdr, list,			\
+		      len_##elt, tail, tortoise_##elt,			\
+		      CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_ALIST_LOOP_6(elt, elt_car, elt_cdr, list, tail, len)	\
+Lisp_Object tortoise_##elt;						\
+EXTERNAL_ALIST_LOOP_8(elt, elt_car, elt_cdr, list,			\
+		      len, tail, tortoise_##elt,			\
+		      CIRCULAR_LIST_SUSPICION_LENGTH)
+
+
+#define EXTERNAL_ALIST_LOOP_8(elt, elt_car, elt_cdr, list, len, hare,	\
+                             tortoise, suspicion_length)		\
+EXTERNAL_LIST_LOOP_6(elt, list, len, hare, tortoise, suspicion_length)	\
+  if (CONSP (elt) ? (elt_car = XCAR (elt), elt_cdr = XCDR (elt), 0) :1)	\
+    continue;								\
+  else
+
+
+/* Optimized and safe macros for looping over external property lists. */
+#define EXTERNAL_PROPERTY_LIST_LOOP_3(key, value, list)			\
+Lisp_Object key, value, hare_##key, tortoise_##key;			\
+int len_##key;								\
+EXTERNAL_PROPERTY_LIST_LOOP_7(key, value, list, len_##key, hare_##key,\
+		     tortoise_##key, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_PROPERTY_LIST_LOOP_4(key, value, list, tail)		\
+Lisp_Object key, value, tail, tortoise_##key;				\
+int len_##key;								\
+EXTERNAL_PROPERTY_LIST_LOOP_7(key, value, list, len_##key, tail,	\
+		     tortoise_##key, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+#define EXTERNAL_PROPERTY_LIST_LOOP_5(key, value, list, tail, len)	\
+Lisp_Object key, value, tail, tortoise_##key;				\
+int len;								\
+EXTERNAL_PROPERTY_LIST_LOOP_7(key, value, list, len, tail,		\
+		     tortoise_##key, CIRCULAR_LIST_SUSPICION_LENGTH)
+
+
+#define EXTERNAL_PROPERTY_LIST_LOOP_7(key, value, list, len, hare,	\
+                             tortoise, suspicion_length)		\
+  for (tortoise = hare = list, len = 0;					\
+									\
+       ((CONSP (hare) &&						\
+	 (key = XCAR (hare),						\
+	  hare = XCDR (hare),						\
+	  CONSP (hare))) ?						\
+	(value = XCAR (hare), 1) :					\
+	(NILP (hare) ? 0 :						\
+	 (signal_malformed_property_list_error (list), 0)));		\
+									\
+       hare = XCDR (hare),						\
+	 ((++len < suspicion_length) ?					\
+	  ((void) 0) :							\
+	  (((len & 1) ?							\
+	    ((void) (tortoise = XCDR (XCDR (tortoise)))) :		\
+	    ((void) 0))							\
+	   ,								\
+	   (EQ (hare, tortoise) ?					\
+	    ((void) signal_circular_property_list_error (list)) :	\
+	    ((void) 0)))))
 
 /* For a property list (alternating keywords/values) that may not be
    in valid list format -- will signal an error if the list is not in
    valid format.  CONSVAR is used to keep track of the iterations
-   without modifying LISTP.
+   without modifying PLIST.
 
    We have to be tricky to still keep the same C format.*/
-#define EXTERNAL_PROPERTY_LIST_LOOP(consvar, keyword, value, listp)	\
-  for (consvar = listp;							\
-       (CONSP (consvar) && CONSP (XCDR (consvar)) ?			\
-	(keyword = XCAR (consvar), value = XCAR (XCDR (consvar))) :	\
-	(keyword = Qunbound, value = Qunbound)),			\
-       !NILP (consvar);							\
-       consvar = XCDR (XCDR (consvar)))					\
-    if (UNBOUNDP (keyword))						\
-      signal_simple_error ("Invalid property list format", listp);	\
+#define EXTERNAL_PROPERTY_LIST_LOOP(tail, key, value, plist)	\
+  for (tail = plist;						\
+       (CONSP (tail) && CONSP (XCDR (tail)) ?			\
+	(key = XCAR (tail), value = XCAR (XCDR (tail))) :	\
+	(key = Qunbound,    value = Qunbound)),			\
+       !NILP (tail);						\
+       tail = XCDR (XCDR (tail)))				\
+    if (UNBOUNDP (key))						\
+      Fsignal (Qmalformed_property_list, list1 (plist));	\
     else
+
+#define PROPERTY_LIST_LOOP(tail, key, value, plist)	\
+  for (tail = plist;					\
+       NILP (tail) ? 0 :				\
+	 (key   = XCAR (tail), tail = XCDR (tail),	\
+	  value = XCAR (tail), tail = XCDR (tail), 1);	\
+       )
+
+/* Return 1 if LIST is properly acyclic and nil-terminated, else 0. */
+INLINE int TRUE_LIST_P (Lisp_Object object);
+INLINE int
+TRUE_LIST_P (Lisp_Object object)
+{
+  Lisp_Object hare, tortoise;
+  int len;
+
+  for (hare = tortoise = object, len = 0;
+       CONSP (hare);
+       hare = XCDR (hare), len++)
+    {
+      if (len < CIRCULAR_LIST_SUSPICION_LENGTH)
+	continue;
+
+      if (len & 1)
+	tortoise = XCDR (tortoise);
+      else if (EQ (hare, tortoise))
+	return 0;
+    }
+
+  return NILP (hare);
+}
+
+/* Signal an error if LIST is not properly acyclic and nil-terminated. */
+#define CHECK_TRUE_LIST(list) do {			\
+  Lisp_Object CTL_list = (list);			\
+  Lisp_Object CTL_hare, CTL_tortoise;			\
+  int CTL_len;						\
+							\
+  for (CTL_hare = CTL_tortoise = CTL_list, CTL_len = 0;	\
+       CONSP (CTL_hare);				\
+       CTL_hare = XCDR (CTL_hare), CTL_len++)		\
+    {							\
+      if (CTL_len < CIRCULAR_LIST_SUSPICION_LENGTH)	\
+	continue;					\
+							\
+      if (CTL_len & 1)					\
+	CTL_tortoise = XCDR (CTL_tortoise);		\
+      else if (EQ (CTL_hare, CTL_tortoise))		\
+	Fsignal (Qcircular_list, list1 (CTL_list));	\
+    }							\
+							\
+  if (! NILP (CTL_hare))				\
+    signal_malformed_list_error (CTL_list);		\
+} while (0)
 
 /*********** string ***********/
 
-/* In a string or vector, the sign bit of the `size' is the gc mark bit */
+/* In a string, the markbit of the plist is used as the gc mark bit */
 
-/* (The size and data fields have underscores prepended to catch old
-   code that attempts to reference the fields directly) */
 struct Lisp_String
 {
 #ifdef LRECORD_STRING
   struct lrecord_header lheader;
 #endif
-  Bytecount _size;
-  Bufbyte *_data;
+  Bytecount size;
+  Bufbyte *data;
   Lisp_Object plist;
 };
+typedef struct Lisp_String Lisp_String;
 
 #ifdef LRECORD_STRING
 
-DECLARE_LRECORD (string, struct Lisp_String);
-#define XSTRING(x) XRECORD (x, string, struct Lisp_String)
+DECLARE_LRECORD (string, Lisp_String);
+#define XSTRING(x) XRECORD (x, string, Lisp_String)
 #define XSETSTRING(x, p) XSETRECORD (x, p, string)
 #define STRINGP(x) RECORDP (x, string)
 #define GC_STRINGP(x) GC_RECORDP (x, string)
@@ -836,8 +1076,8 @@ DECLARE_LRECORD (string, struct Lisp_String);
 
 #else /* ! LRECORD_STRING */
 
-DECLARE_NONRECORD (string, Lisp_Type_String, struct Lisp_String);
-#define XSTRING(x) XNONRECORD (x, string, Lisp_Type_String, struct Lisp_String)
+DECLARE_NONRECORD (string, Lisp_Type_String, Lisp_String);
+#define XSTRING(x) XNONRECORD (x, string, Lisp_Type_String, Lisp_String)
 #define XSETSTRING(x, p) XSETOBJ (x, Lisp_Type_String, p)
 #define STRINGP(x) (XTYPE (x) == Lisp_Type_String)
 #define GC_STRINGP(x) (XGCTYPE (x) == Lisp_Type_String)
@@ -858,32 +1098,32 @@ Bytecount charcount_to_bytecount (CONST Bufbyte *ptr, Charcount len);
 
 #endif /* not MULE */
 
-#define string_length(s) ((s)->_size)
+#define string_length(s) ((s)->size)
 #define XSTRING_LENGTH(s) string_length (XSTRING (s))
 #define XSTRING_CHAR_LENGTH(s) string_char_length (XSTRING (s))
-#define string_data(s) ((s)->_data + 0)
+#define string_data(s) ((s)->data + 0)
 #define XSTRING_DATA(s) string_data (XSTRING (s))
-#define string_byte(s, i) ((s)->_data[i] + 0)
+#define string_byte(s, i) ((s)->data[i] + 0)
 #define XSTRING_BYTE(s, i) string_byte (XSTRING (s), i)
-#define string_byte_addr(s, i) (&((s)->_data[i]))
-#define set_string_length(s, len) ((void) ((s)->_size = (len)))
-#define set_string_data(s, ptr) ((void) ((s)->_data = (ptr)))
-#define set_string_byte(s, i, c) ((void) ((s)->_data[i] = (c)))
+#define string_byte_addr(s, i) (&((s)->data[i]))
+#define set_string_length(s, len) ((void) ((s)->size = (len)))
+#define set_string_data(s, ptr) ((void) ((s)->data = (ptr)))
+#define set_string_byte(s, i, c) ((void) ((s)->data[i] = (c)))
 
-void resize_string (struct Lisp_String *s, Bytecount pos, Bytecount delta);
+void resize_string (Lisp_String *s, Bytecount pos, Bytecount delta);
 
 #ifdef MULE
 
-INLINE Charcount string_char_length (struct Lisp_String *s);
+INLINE Charcount string_char_length (Lisp_String *s);
 INLINE Charcount
-string_char_length (struct Lisp_String *s)
+string_char_length (Lisp_String *s)
 {
   return bytecount_to_charcount (string_data (s), string_length (s));
 }
 
 # define string_char(s, i) charptr_emchar_n (string_data (s), i)
 # define string_char_addr(s, i) charptr_n_addr (string_data (s), i)
-void set_string_char (struct Lisp_String *s, Charcount i, Emchar c);
+void set_string_char (Lisp_String *s, Charcount i, Emchar c);
 
 #else /* not MULE */
 
@@ -907,11 +1147,12 @@ struct Lisp_Vector
   /* struct Lisp_Vector *next; */
   Lisp_Object contents[1];
 };
+typedef struct Lisp_Vector Lisp_Vector;
 
 #ifdef LRECORD_VECTOR
 
-DECLARE_LRECORD (vector, struct Lisp_Vector);
-#define XVECTOR(x) XRECORD (x, vector, struct Lisp_Vector)
+DECLARE_LRECORD (vector, Lisp_Vector);
+#define XVECTOR(x) XRECORD (x, vector, Lisp_Vector)
 #define XSETVECTOR(x, p) XSETRECORD (x, p, vector)
 #define VECTORP(x) RECORDP (x, vector)
 #define GC_VECTORP(x) GC_RECORDP (x, vector)
@@ -920,8 +1161,8 @@ DECLARE_LRECORD (vector, struct Lisp_Vector);
 
 #else
 
-DECLARE_NONRECORD (vector, Lisp_Type_Vector, struct Lisp_Vector);
-#define XVECTOR(x) XNONRECORD (x, vector, Lisp_Type_Vector, struct Lisp_Vector)
+DECLARE_NONRECORD (vector, Lisp_Type_Vector, Lisp_Vector);
+#define XVECTOR(x) XNONRECORD (x, vector, Lisp_Type_Vector, Lisp_Vector)
 #define XSETVECTOR(x, p) XSETOBJ (x, Lisp_Type_Vector, p)
 #define VECTORP(x) (XTYPE (x) == Lisp_Type_Vector)
 #define GC_VECTORP(x) (XGCTYPE (x) == Lisp_Type_Vector)
@@ -959,12 +1200,13 @@ struct Lisp_Bit_Vector
 {
   struct lrecord_header lheader;
   Lisp_Object next;
-  long size;
+  size_t size;
   unsigned long bits[1];
 };
+typedef struct Lisp_Bit_Vector Lisp_Bit_Vector;
 
-DECLARE_LRECORD (bit_vector, struct Lisp_Bit_Vector);
-#define XBIT_VECTOR(x) XRECORD (x, bit_vector, struct Lisp_Bit_Vector)
+DECLARE_LRECORD (bit_vector, Lisp_Bit_Vector);
+#define XBIT_VECTOR(x) XRECORD (x, bit_vector, Lisp_Bit_Vector)
 #define XSETBIT_VECTOR(x, p) XSETRECORD (x, p, bit_vector)
 #define BIT_VECTORP(x) RECORDP (x, bit_vector)
 #define GC_BIT_VECTORP(x) GC_RECORDP (x, bit_vector)
@@ -987,9 +1229,9 @@ DECLARE_LRECORD (bit_vector, struct Lisp_Bit_Vector);
 #define bit_vector_length(v) ((v)->size)
 #define bit_vector_next(v) ((v)->next)
 
-INLINE int bit_vector_bit (struct Lisp_Bit_Vector *v, int i);
+INLINE int bit_vector_bit (Lisp_Bit_Vector *v, int i);
 INLINE int
-bit_vector_bit (struct Lisp_Bit_Vector *v, int i)
+bit_vector_bit (Lisp_Bit_Vector *v, int i)
 {
   unsigned int ui = (unsigned int) i;
 
@@ -997,15 +1239,15 @@ bit_vector_bit (struct Lisp_Bit_Vector *v, int i)
 	  & 1);
 }
 
-INLINE void set_bit_vector_bit (struct Lisp_Bit_Vector *v, int i, int value);
+INLINE void set_bit_vector_bit (Lisp_Bit_Vector *v, int i, int value);
 INLINE void
-set_bit_vector_bit (struct Lisp_Bit_Vector *v, int i, int value)
+set_bit_vector_bit (Lisp_Bit_Vector *v, int i, int value)
 {
   unsigned int ui = (unsigned int) i;
   if (value)
-    (v)->bits[ui >> LONGBITS_LOG2] |= (1 << (ui & (LONGBITS_POWER_OF_2 - 1)));
+    (v)->bits[ui >> LONGBITS_LOG2] |= (1U << (ui & (LONGBITS_POWER_OF_2 - 1)));
   else
-    (v)->bits[ui >> LONGBITS_LOG2] &= ~(1 << (ui & (LONGBITS_POWER_OF_2 - 1)));
+    (v)->bits[ui >> LONGBITS_LOG2] &= ~(1U << (ui & (LONGBITS_POWER_OF_2 - 1)));
 }
 
 /* Number of longs required to hold LEN bits */
@@ -1031,14 +1273,15 @@ struct Lisp_Symbol
   Lisp_Object obarray;
   Lisp_Object plist;
 };
+typedef struct Lisp_Symbol Lisp_Symbol;
 
 #define SYMBOL_IS_KEYWORD(sym) (string_byte (XSYMBOL(sym)->name, 0) == ':')
 #define KEYWORDP(obj) (SYMBOLP (obj) && SYMBOL_IS_KEYWORD (obj))
 
 #ifdef LRECORD_SYMBOL
 
-DECLARE_LRECORD (symbol, struct Lisp_Symbol);
-#define XSYMBOL(x) XRECORD (x, symbol, struct Lisp_Symbol)
+DECLARE_LRECORD (symbol, Lisp_Symbol);
+#define XSYMBOL(x) XRECORD (x, symbol, Lisp_Symbol)
 #define XSETSYMBOL(x, p) XSETRECORD (x, p, symbol)
 #define SYMBOLP(x) RECORDP (x, symbol)
 #define GC_SYMBOLP(x) GC_RECORDP (x, symbol)
@@ -1047,8 +1290,8 @@ DECLARE_LRECORD (symbol, struct Lisp_Symbol);
 
 #else
 
-DECLARE_NONRECORD (symbol, Lisp_Type_Symbol, struct Lisp_Symbol);
-#define XSYMBOL(x) XNONRECORD (x, symbol, Lisp_Type_Symbol, struct Lisp_Symbol)
+DECLARE_NONRECORD (symbol, Lisp_Type_Symbol, Lisp_Symbol);
+#define XSYMBOL(x) XNONRECORD (x, symbol, Lisp_Type_Symbol, Lisp_Symbol)
 #define XSETSYMBOL(s, p) XSETOBJ ((s), Lisp_Type_Symbol, (p))
 #define SYMBOLP(x) (XTYPE (x) == Lisp_Type_Symbol)
 #define GC_SYMBOLP(x) (XGCTYPE (x) == Lisp_Type_Symbol)
@@ -1076,9 +1319,10 @@ struct Lisp_Subr
   CONST char *name;
   lisp_fn_t subr_fn;
 };
+typedef struct Lisp_Subr Lisp_Subr;
 
-DECLARE_LRECORD (subr, struct Lisp_Subr);
-#define XSUBR(x) XRECORD (x, subr, struct Lisp_Subr)
+DECLARE_LRECORD (subr, Lisp_Subr);
+#define XSUBR(x) XRECORD (x, subr, Lisp_Subr)
 #define XSETSUBR(x, p) XSETRECORD (x, p, subr)
 #define SUBRP(x) RECORDP (x, subr)
 #define GC_SUBRP(x) GC_RECORDP (x, subr)
@@ -1098,9 +1342,10 @@ struct Lisp_Marker
   Memind memind;
   char insertion_type;
 };
+typedef struct Lisp_Marker Lisp_Marker;
 
-DECLARE_LRECORD (marker, struct Lisp_Marker);
-#define XMARKER(x) XRECORD (x, marker, struct Lisp_Marker)
+DECLARE_LRECORD (marker, Lisp_Marker);
+#define XMARKER(x) XRECORD (x, marker, Lisp_Marker)
 #define XSETMARKER(x, p) XSETRECORD (x, p, marker)
 #define MARKERP(x) RECORDP (x, marker)
 #define GC_MARKERP(x) GC_RECORDP (x, marker)
@@ -1142,7 +1387,7 @@ XCHAR (Lisp_Object obj)
 
 #ifdef LISP_FLOAT_TYPE
 
-/* Note: the 'unused__next__' field exists only to ensure that the
+/* Note: the 'unused_next_' field exists only to ensure that the
    `next' pointer fits within the structure, for the purposes of the
    free list.  This makes a difference in the unlikely case of
    sizeof(double) being smaller than sizeof(void *). */
@@ -1150,11 +1395,12 @@ XCHAR (Lisp_Object obj)
 struct Lisp_Float
 {
   struct lrecord_header lheader;
-  union { double d; struct Lisp_Float *unused__next__; } data;
+  union { double d; struct Lisp_Float *unused_next_; } data;
 };
+typedef struct Lisp_Float Lisp_Float;
 
-DECLARE_LRECORD (float, struct Lisp_Float);
-#define XFLOAT(x) XRECORD (x, float, struct Lisp_Float)
+DECLARE_LRECORD (float, Lisp_Float);
+#define XFLOAT(x) XRECORD (x, float, Lisp_Float)
 #define XSETFLOAT(x, p) XSETRECORD (x, p, float)
 #define FLOATP(x) RECORDP (x, float)
 #define GC_FLOATP(x) GC_RECORDP (x, float)
@@ -1162,6 +1408,7 @@ DECLARE_LRECORD (float, struct Lisp_Float);
 #define CONCHECK_FLOAT(x) CONCHECK_RECORD (x, float)
 
 #define float_data(f) ((f)->data.d)
+#define XFLOAT_DATA(x) float_data (XFLOAT (x))
 
 #define XFLOATINT(n) extract_float (n)
 
@@ -1173,29 +1420,6 @@ DECLARE_LRECORD (float, struct Lisp_Float);
 #define CONCHECK_INT_OR_FLOAT(x) do {		\
   if (!INT_OR_FLOATP (x))			\
     x = wrong_type_argument (Qnumberp, x);	\
-} while (0)
-
-/* These are always continuable because they change their arguments
-   even when no error is signalled. */
-
-#define CHECK_INT_OR_FLOAT_COERCE_MARKER(x) do {	\
-  if (INT_OR_FLOATP (x))				\
-    ;							\
-  else if (MARKERP (x))					\
-    x = make_int (marker_position (x));			\
-  else							\
-    x = wrong_type_argument (Qnumber_or_marker_p, x);	\
-} while (0)
-
-#define CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER(x) do {	\
-  if (INT_OR_FLOATP (x))					\
-    ;								\
-  else if (CHARP (x))						\
-    x = make_int (XCHAR (x));					\
-  else if (MARKERP (x))						\
-    x = make_int (marker_position (x));				\
-  else								\
-    x = wrong_type_argument (Qnumber_char_or_marker_p, x);	\
 } while (0)
 
 # define INT_OR_FLOATP(x) (INTP (x) || FLOATP (x))
@@ -1213,9 +1437,6 @@ DECLARE_LRECORD (float, struct Lisp_Float);
 #define XFLOATINT(n) XINT(n)
 #define CHECK_INT_OR_FLOAT CHECK_INT
 #define CONCHECK_INT_OR_FLOAT CONCHECK_INT
-#define CHECK_INT_OR_FLOAT_COERCE_MARKER CHECK_INT_COERCE_MARKER
-#define CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER \
-     CHECK_INT_COERCE_CHAR_OR_MARKER
 #define INT_OR_FLOATP(x) (INTP (x))
 # define GC_INT_OR_FLOATP(x) (GC_INTP (x))
 
@@ -1305,6 +1526,7 @@ XCHAR_OR_INT (Lisp_Object obj)
   else								\
     x = wrong_type_argument (Qinteger_char_or_marker_p, x);	\
 } while (0)
+
 
 /*********** pure space ***********/
 
@@ -1419,7 +1641,7 @@ void free_managed_lcrecord (Lisp_Object lcrecord_list, Lisp_Object lcrecord);
 
 
 /************************************************************************/
-/*         Definitions of primitive Lisp functions and variables        */
+/*	   Definitions of primitive Lisp functions and variables	*/
 /************************************************************************/
 
 
@@ -1430,8 +1652,8 @@ void free_managed_lcrecord (Lisp_Object lcrecord_list, Lisp_Object lcrecord);
     valid in a C identifier, with an "F" prepended.
     The name of the C constant structure that records information
     on this function for internal use is "S" concatenated with Fname.
- `minargs' should be a number, the minimum number of arguments allowed.
- `maxargs' should be a number, the maximum number of arguments allowed,
+ `min_args' should be a number, the minimum number of arguments allowed.
+ `max_args' should be a number, the maximum number of arguments allowed,
     or else MANY or UNEVALLED.
     MANY means pass a vector of evaluated arguments,
 	 in the form of an integer number-of-arguments
@@ -1462,7 +1684,7 @@ Lisp_Object,Lisp_Object
 Lisp_Object,Lisp_Object,Lisp_Object
 #define EXFUN_MANY int, Lisp_Object*
 #define EXFUN_UNEVALLED Lisp_Object
-#define EXFUN(sym, maxargs) Lisp_Object sym (EXFUN_##maxargs)
+#define EXFUN(sym, max_args) Lisp_Object sym (EXFUN_##max_args)
 
 #define SUBR_MAX_ARGS 8
 #define MANY -2
@@ -1477,14 +1699,14 @@ Lisp_Object,Lisp_Object,Lisp_Object
 # define subr_lheader_initializer { lrecord_subr }
 #endif
 
-#define DEFUN(lname, Fname, minargs, maxargs, prompt, arglist)		\
-  Lisp_Object Fname (EXFUN_##maxargs);					\
+#define DEFUN(lname, Fname, min_args, max_args, prompt, arglist)	\
+  Lisp_Object Fname (EXFUN_##max_args);					\
   static struct Lisp_Subr S##Fname = { subr_lheader_initializer,	\
-	minargs, maxargs, prompt, 0, lname, (lisp_fn_t) Fname };	\
-  Lisp_Object Fname (DEFUN_##maxargs arglist)
+	min_args, max_args, prompt, 0, lname, (lisp_fn_t) Fname };	\
+  Lisp_Object Fname (DEFUN_##max_args arglist)
 
 /* Heavy ANSI C preprocessor hackery to get DEFUN to declare a
-   prototype that matches maxargs, and add the obligatory
+   prototype that matches max_args, and add the obligatory
    `Lisp_Object' type declaration to the formal C arguments.  */
 
 #define DEFUN_MANY(named_int, named_Lisp_Object) named_int, named_Lisp_Object
@@ -1499,18 +1721,27 @@ Lisp_Object,Lisp_Object,Lisp_Object
 #define DEFUN_7(a,b,c,d,e,f,g)	 DEFUN_6(a,b,c,d,e,f),	Lisp_Object g
 #define DEFUN_8(a,b,c,d,e,f,g,h) DEFUN_7(a,b,c,d,e,f,g),Lisp_Object h
 
-/* WARNING: If you add defines here for higher values of maxargs,
-   make sure to also fix the clauses in inline_funcall_fn(),
+/* WARNING: If you add defines here for higher values of max_args,
+   make sure to also fix the clauses in PRIMITIVE_FUNCALL(),
    and change the define of SUBR_MAX_ARGS above.  */
 
 #include "symeval.h"
 
-/* Depth of special binding/unwind-protect stack.  Use as arg to `unbind_to' */
-int specpdl_depth (void);
+/* `specpdl' is the special binding/unwind-protect stack.
+
+   Knuth says (see the Jargon File):
+   At MIT, `pdl' [abbreviation for `Push Down List'] used to
+   be a more common synonym for `stack'.
+   Everywhere else `stack' seems to be the preferred term.
+
+   specpdl_depth is the current depth of `specpdl'.
+   Save this for use later as arg to `unbind_to'.  */
+extern int specpdl_depth_counter;
+#define specpdl_depth() specpdl_depth_counter
 
 
 /************************************************************************/
-/*                         Checking for QUIT                            */
+/*			   Checking for QUIT				*/
 /************************************************************************/
 
 /* Asynchronous events set something_happened, and then are processed
@@ -1554,7 +1785,7 @@ void signal_quit (void);
 
 
 /************************************************************************/
-/*                               hashing                                */
+/*				 hashing				*/
 /************************************************************************/
 
 /* #### for a 64-bit machine, we should substitute a prime just over 2^32 */
@@ -1568,8 +1799,6 @@ void signal_quit (void);
 #define HASH8(a,b,c,d,e,f,g,h)   (GOOD_HASH * HASH7 (a,b,c,d,e,f,g)   + (h))
 #define HASH9(a,b,c,d,e,f,g,h,i) (GOOD_HASH * HASH8 (a,b,c,d,e,f,g,h) + (i))
 
-/* Enough already! */
-
 #define LISP_HASH(obj) ((unsigned long) LISP_TO_VOID (obj))
 unsigned long string_hash (CONST void *xv);
 unsigned long memory_hash (CONST void *xv, size_t size);
@@ -1578,7 +1807,7 @@ unsigned long internal_array_hash (Lisp_Object *arr, int size, int depth);
 
 
 /************************************************************************/
-/*                       String translation                             */
+/*			 String translation				*/
 /************************************************************************/
 
 #ifdef I18N3
@@ -1606,7 +1835,7 @@ char *bindtextdomain (CONST char *, CONST char *);
 
 
 /************************************************************************/
-/*                   Garbage collection / GC-protection                 */
+/*		     Garbage collection / GC-protection			*/
 /************************************************************************/
 
 /* number of bytes of structure consed since last GC */
@@ -1708,101 +1937,104 @@ void debug_ungcpro(char *, int, struct gcpro *);
 
 #else /* ! DEBUG_GCPRO */
 
-#define GCPRO1(varname) \
- {gcpro1.next = gcprolist; gcpro1.var = &varname; gcpro1.nvars = 1; \
-  gcprolist = &gcpro1; }
+#define GCPRO1(var1) ((void) (						\
+  gcpro1.next = gcprolist, gcpro1.var = &var1, gcpro1.nvars = 1,	\
+  gcprolist = &gcpro1 ))
 
-#define GCPRO2(varname1, varname2) \
- {gcpro1.next = gcprolist; gcpro1.var = &varname1; gcpro1.nvars = 1; \
-  gcpro2.next = &gcpro1;   gcpro2.var = &varname2; gcpro2.nvars = 1; \
-  gcprolist = &gcpro2; }
+#define GCPRO2(var1, var2) ((void) (					\
+  gcpro1.next = gcprolist, gcpro1.var = &var1, gcpro1.nvars = 1,	\
+  gcpro2.next = &gcpro1,   gcpro2.var = &var2, gcpro2.nvars = 1,	\
+  gcprolist = &gcpro2 ))
 
-#define GCPRO3(varname1, varname2, varname3) \
- {gcpro1.next = gcprolist; gcpro1.var = &varname1; gcpro1.nvars = 1; \
-  gcpro2.next = &gcpro1;   gcpro2.var = &varname2; gcpro2.nvars = 1; \
-  gcpro3.next = &gcpro2;   gcpro3.var = &varname3; gcpro3.nvars = 1; \
-  gcprolist = &gcpro3; }
+#define GCPRO3(var1, var2, var3) ((void) (				\
+  gcpro1.next = gcprolist, gcpro1.var = &var1, gcpro1.nvars = 1,	\
+  gcpro2.next = &gcpro1,   gcpro2.var = &var2, gcpro2.nvars = 1,	\
+  gcpro3.next = &gcpro2,   gcpro3.var = &var3, gcpro3.nvars = 1,	\
+  gcprolist = &gcpro3 ))
 
-#define GCPRO4(varname1, varname2, varname3, varname4) \
- {gcpro1.next = gcprolist; gcpro1.var = &varname1; gcpro1.nvars = 1; \
-  gcpro2.next = &gcpro1;   gcpro2.var = &varname2; gcpro2.nvars = 1; \
-  gcpro3.next = &gcpro2;   gcpro3.var = &varname3; gcpro3.nvars = 1; \
-  gcpro4.next = &gcpro3;   gcpro4.var = &varname4; gcpro4.nvars = 1; \
-  gcprolist = &gcpro4; }
+#define GCPRO4(var1, var2, var3, var4) ((void) (			\
+  gcpro1.next = gcprolist, gcpro1.var = &var1, gcpro1.nvars = 1,	\
+  gcpro2.next = &gcpro1,   gcpro2.var = &var2, gcpro2.nvars = 1,	\
+  gcpro3.next = &gcpro2,   gcpro3.var = &var3, gcpro3.nvars = 1,	\
+  gcpro4.next = &gcpro3,   gcpro4.var = &var4, gcpro4.nvars = 1,	\
+  gcprolist = &gcpro4 ))
 
-#define GCPRO5(varname1, varname2, varname3, varname4, varname5) \
- {gcpro1.next = gcprolist; gcpro1.var = &varname1; gcpro1.nvars = 1; \
-  gcpro2.next = &gcpro1;   gcpro2.var = &varname2; gcpro2.nvars = 1; \
-  gcpro3.next = &gcpro2;   gcpro3.var = &varname3; gcpro3.nvars = 1; \
-  gcpro4.next = &gcpro3;   gcpro4.var = &varname4; gcpro4.nvars = 1; \
-  gcpro5.next = &gcpro4;   gcpro5.var = &varname5; gcpro5.nvars = 1; \
-  gcprolist = &gcpro5; }
+#define GCPRO5(var1, var2, var3, var4, var5)				\
+  ((void) (								\
+  gcpro1.next = gcprolist, gcpro1.var = &var1, gcpro1.nvars = 1,	\
+  gcpro2.next = &gcpro1,   gcpro2.var = &var2, gcpro2.nvars = 1,	\
+  gcpro3.next = &gcpro2,   gcpro3.var = &var3, gcpro3.nvars = 1,	\
+  gcpro4.next = &gcpro3,   gcpro4.var = &var4, gcpro4.nvars = 1,	\
+  gcpro5.next = &gcpro4,   gcpro5.var = &var5, gcpro5.nvars = 1,	\
+  gcprolist = &gcpro5 ))
 
-#define UNGCPRO (gcprolist = gcpro1.next)
+#define UNGCPRO ((void) (gcprolist = gcpro1.next))
 
-#define NGCPRO1(varname) \
- {ngcpro1.next = gcprolist; ngcpro1.var = &varname; ngcpro1.nvars = 1; \
-  gcprolist = &ngcpro1; }
+#define NGCPRO1(var1) ((void) (						\
+  ngcpro1.next = gcprolist, ngcpro1.var = &var1, ngcpro1.nvars = 1,	\
+  gcprolist = &ngcpro1 ))
 
-#define NGCPRO2(varname1, varname2) \
- {ngcpro1.next = gcprolist; ngcpro1.var = &varname1; ngcpro1.nvars = 1; \
-  ngcpro2.next = &ngcpro1;  ngcpro2.var = &varname2; ngcpro2.nvars = 1; \
-  gcprolist = &ngcpro2; }
+#define NGCPRO2(var1, var2) ((void) (					\
+  ngcpro1.next = gcprolist, ngcpro1.var = &var1, ngcpro1.nvars = 1,	\
+  ngcpro2.next = &ngcpro1,  ngcpro2.var = &var2, ngcpro2.nvars = 1,	\
+  gcprolist = &ngcpro2 ))
 
-#define NGCPRO3(varname1, varname2, varname3) \
- {ngcpro1.next = gcprolist; ngcpro1.var = &varname1; ngcpro1.nvars = 1; \
-  ngcpro2.next = &ngcpro1;  ngcpro2.var = &varname2; ngcpro2.nvars = 1; \
-  ngcpro3.next = &ngcpro2;  ngcpro3.var = &varname3; ngcpro3.nvars = 1; \
-  gcprolist = &ngcpro3; }
+#define NGCPRO3(var1, var2, var3) ((void) (				\
+  ngcpro1.next = gcprolist, ngcpro1.var = &var1, ngcpro1.nvars = 1,	\
+  ngcpro2.next = &ngcpro1,  ngcpro2.var = &var2, ngcpro2.nvars = 1,	\
+  ngcpro3.next = &ngcpro2,  ngcpro3.var = &var3, ngcpro3.nvars = 1,	\
+  gcprolist = &ngcpro3 ))
 
-#define NGCPRO4(varname1, varname2, varname3, varname4) \
- {ngcpro1.next = gcprolist; ngcpro1.var = &varname1; ngcpro1.nvars = 1; \
-  ngcpro2.next = &ngcpro1;  ngcpro2.var = &varname2; ngcpro2.nvars = 1; \
-  ngcpro3.next = &ngcpro2;  ngcpro3.var = &varname3; ngcpro3.nvars = 1; \
-  ngcpro4.next = &ngcpro3;  ngcpro4.var = &varname4; ngcpro4.nvars = 1; \
-  gcprolist = &ngcpro4; }
+#define NGCPRO4(var1, var2, var3, var4) ((void) (			\
+  ngcpro1.next = gcprolist, ngcpro1.var = &var1, ngcpro1.nvars = 1,	\
+  ngcpro2.next = &ngcpro1,  ngcpro2.var = &var2, ngcpro2.nvars = 1,	\
+  ngcpro3.next = &ngcpro2,  ngcpro3.var = &var3, ngcpro3.nvars = 1,	\
+  ngcpro4.next = &ngcpro3,  ngcpro4.var = &var4, ngcpro4.nvars = 1,	\
+  gcprolist = &ngcpro4 ))
 
-#define NGCPRO5(varname1, varname2, varname3, varname4, varname5) \
- {ngcpro1.next = gcprolist; ngcpro1.var = &varname1; ngcpro1.nvars = 1; \
-  ngcpro2.next = &ngcpro1;  ngcpro2.var = &varname2; ngcpro2.nvars = 1; \
-  ngcpro3.next = &ngcpro2;  ngcpro3.var = &varname3; ngcpro3.nvars = 1; \
-  ngcpro4.next = &ngcpro3;  ngcpro4.var = &varname4; ngcpro4.nvars = 1; \
-  ngcpro5.next = &ngcpro4;  ngcpro5.var = &varname5; ngcpro5.nvars = 1; \
-  gcprolist = &ngcpro5; }
+#define NGCPRO5(var1, var2, var3, var4, var5)				\
+  ((void) (								\
+  ngcpro1.next = gcprolist, ngcpro1.var = &var1, ngcpro1.nvars = 1,	\
+  ngcpro2.next = &ngcpro1,  ngcpro2.var = &var2, ngcpro2.nvars = 1,	\
+  ngcpro3.next = &ngcpro2,  ngcpro3.var = &var3, ngcpro3.nvars = 1,	\
+  ngcpro4.next = &ngcpro3,  ngcpro4.var = &var4, ngcpro4.nvars = 1,	\
+  ngcpro5.next = &ngcpro4,  ngcpro5.var = &var5, ngcpro5.nvars = 1,	\
+  gcprolist = &ngcpro5 ))
 
-#define NUNGCPRO (gcprolist = ngcpro1.next)
+#define NUNGCPRO ((void) (gcprolist = ngcpro1.next))
 
-#define NNGCPRO1(varname) \
- {nngcpro1.next = gcprolist; nngcpro1.var = &varname; nngcpro1.nvars = 1; \
-  gcprolist = &nngcpro1; }
+#define NNGCPRO1(var1) ((void) (					\
+  nngcpro1.next = gcprolist, nngcpro1.var = &var1, nngcpro1.nvars = 1,	\
+  gcprolist = &nngcpro1 ))
 
-#define NNGCPRO2(varname1, varname2) \
- {nngcpro1.next = gcprolist; nngcpro1.var = &varname1; nngcpro1.nvars = 1; \
-  nngcpro2.next = &nngcpro1; nngcpro2.var = &varname2; nngcpro2.nvars = 1; \
-  gcprolist = &nngcpro2; }
+#define NNGCPRO2(var1, var2) ((void) (					\
+  nngcpro1.next = gcprolist, nngcpro1.var = &var1, nngcpro1.nvars = 1,	\
+  nngcpro2.next = &nngcpro1, nngcpro2.var = &var2, nngcpro2.nvars = 1,	\
+  gcprolist = &nngcpro2 ))
 
-#define NNGCPRO3(varname1, varname2, varname3) \
- {nngcpro1.next = gcprolist; nngcpro1.var = &varname1; nngcpro1.nvars = 1; \
-  nngcpro2.next = &nngcpro1; nngcpro2.var = &varname2; nngcpro2.nvars = 1; \
-  nngcpro3.next = &nngcpro2; nngcpro3.var = &varname3; nngcpro3.nvars = 1; \
-  gcprolist = &nngcpro3; }
+#define NNGCPRO3(var1, var2, var3) ((void) (				\
+  nngcpro1.next = gcprolist, nngcpro1.var = &var1, nngcpro1.nvars = 1,	\
+  nngcpro2.next = &nngcpro1, nngcpro2.var = &var2, nngcpro2.nvars = 1,	\
+  nngcpro3.next = &nngcpro2, nngcpro3.var = &var3, nngcpro3.nvars = 1,	\
+  gcprolist = &nngcpro3 ))
 
-#define NNGCPRO4(varname1, varname2, varname3, varname4) \
- {nngcpro1.next = gcprolist; nngcpro1.var = &varname1; nngcpro1.nvars = 1; \
-  nngcpro2.next = &nngcpro1; nngcpro2.var = &varname2; nngcpro2.nvars = 1; \
-  nngcpro3.next = &nngcpro2; nngcpro3.var = &varname3; nngcpro3.nvars = 1; \
-  nngcpro4.next = &nngcpro3; nngcpro4.var = &varname4; nngcpro4.nvars = 1; \
-  gcprolist = &nngcpro4; }
+#define NNGCPRO4(var1, var2, var3, var4)  ((void) (			\
+  nngcpro1.next = gcprolist, nngcpro1.var = &var1, nngcpro1.nvars = 1,	\
+  nngcpro2.next = &nngcpro1, nngcpro2.var = &var2, nngcpro2.nvars = 1,	\
+  nngcpro3.next = &nngcpro2, nngcpro3.var = &var3, nngcpro3.nvars = 1,	\
+  nngcpro4.next = &nngcpro3, nngcpro4.var = &var4, nngcpro4.nvars = 1,	\
+  gcprolist = &nngcpro4 ))
 
-#define NNGCPRO5(varname1, varname2, varname3, varname4, varname5) \
- {nngcpro1.next = gcprolist; nngcpro1.var = &varname1; nngcpro1.nvars = 1; \
-  nngcpro2.next = &nngcpro1; nngcpro2.var = &varname2; nngcpro2.nvars = 1; \
-  nngcpro3.next = &nngcpro2; nngcpro3.var = &varname3; nngcpro3.nvars = 1; \
-  nngcpro4.next = &nngcpro3; nngcpro4.var = &varname4; nngcpro4.nvars = 1; \
-  nngcpro5.next = &nngcpro4; nngcpro5.var = &varname5; nngcpro5.nvars = 1; \
-  gcprolist = &nngcpro5; }
+#define NNGCPRO5(var1, var2, var3, var4, var5)				\
+  ((void) (								\
+  nngcpro1.next = gcprolist, nngcpro1.var = &var1, nngcpro1.nvars = 1,	\
+  nngcpro2.next = &nngcpro1, nngcpro2.var = &var2, nngcpro2.nvars = 1,	\
+  nngcpro3.next = &nngcpro2, nngcpro3.var = &var3, nngcpro3.nvars = 1,	\
+  nngcpro4.next = &nngcpro3, nngcpro4.var = &var4, nngcpro4.nvars = 1,	\
+  nngcpro5.next = &nngcpro4, nngcpro5.var = &var5, nngcpro5.nvars = 1,	\
+  gcprolist = &nngcpro5 ))
 
-#define NNUNGCPRO (gcprolist = nngcpro1.next)
+#define NNUNGCPRO ((void) (gcprolist = nngcpro1.next))
 
 #endif /* ! DEBUG_GCPRO */
 
@@ -1810,10 +2042,10 @@ void debug_ungcpro(char *, int, struct gcpro *);
 /* "end-of-loop code not reached" */
 /* "statement not reached */
 #ifdef __SUNPRO_C
-#define RETURN__ if (1) return
+#define RETURN_SANS_WARNINGS if (1) return
 #define RETURN_NOT_REACHED(value)
 #else
-#define RETURN__ return
+#define RETURN_SANS_WARNINGS return
 #define RETURN_NOT_REACHED(value) return value;
 #endif
 
@@ -1822,7 +2054,7 @@ void debug_ungcpro(char *, int, struct gcpro *);
 {					\
   Lisp_Object ret_ungc_val = (expr);	\
   UNGCPRO;				\
-  RETURN__ ret_ungc_val;		\
+  RETURN_SANS_WARNINGS ret_ungc_val;	\
 } while (0)
 
 /* Evaluate expr, NUNGCPRO, UNGCPRO, and then return the value of expr.  */
@@ -1831,7 +2063,7 @@ void debug_ungcpro(char *, int, struct gcpro *);
   Lisp_Object ret_ungc_val = (expr);	\
   NUNGCPRO;				\
   UNGCPRO;				\
-  RETURN__ ret_ungc_val;		\
+  RETURN_SANS_WARNINGS ret_ungc_val;	\
 } while (0)
 
 /* Evaluate expr, NNUNGCPRO, NUNGCPRO, UNGCPRO, and then return the
@@ -1842,7 +2074,7 @@ void debug_ungcpro(char *, int, struct gcpro *);
   NNUNGCPRO;				\
   NUNGCPRO;				\
   UNGCPRO;				\
-  RETURN__ ret_ungc_val;		\
+  RETURN_SANS_WARNINGS ret_ungc_val;	\
 } while (0)
 
 /* Evaluate expr, return it if it's not Qunbound. */
@@ -1850,7 +2082,7 @@ void debug_ungcpro(char *, int, struct gcpro *);
 {					\
   Lisp_Object ret_nunb_val = (expr);	\
   if (!UNBOUNDP (ret_nunb_val))		\
-    RETURN__ ret_nunb_val;		\
+    RETURN_SANS_WARNINGS ret_nunb_val;	\
 } while (0)
 
 /* Call staticpro (&var) to protect static variable `var'. */
@@ -1895,17 +2127,17 @@ struct overhead_stats
 #define DIRECTORY_SEP '/'
 #endif
 #ifndef IS_DIRECTORY_SEP
-#define IS_DIRECTORY_SEP(_c_) ((_c_) == DIRECTORY_SEP)
+#define IS_DIRECTORY_SEP(c) ((c) == DIRECTORY_SEP)
 #endif
 #ifndef IS_DEVICE_SEP
 #ifndef DEVICE_SEP
-#define IS_DEVICE_SEP(_c_) 0
+#define IS_DEVICE_SEP(c) 0
 #else
-#define IS_DEVICE_SEP(_c_) ((_c_) == DEVICE_SEP)
+#define IS_DEVICE_SEP(c) ((c) == DEVICE_SEP)
 #endif
 #endif
 #ifndef IS_ANY_SEP
-#define IS_ANY_SEP(_c_) (IS_DIRECTORY_SEP (_c_))
+#define IS_ANY_SEP(c) (IS_DIRECTORY_SEP (c))
 #endif
 
 #ifdef HAVE_INTTYPES_H
@@ -1968,11 +2200,11 @@ Lisp_Object make_pure_pname (CONST Bufbyte *, Bytecount, int);
 Lisp_Object pure_cons (Lisp_Object, Lisp_Object);
 Lisp_Object pure_list (int, Lisp_Object *);
 Lisp_Object make_pure_vector (size_t, Lisp_Object);
-void free_cons (struct Lisp_Cons *);
+void free_cons (Lisp_Cons *);
 void free_list (Lisp_Object);
 void free_alist (Lisp_Object);
 void mark_conses_in_list (Lisp_Object);
-void free_marker (struct Lisp_Marker *);
+void free_marker (Lisp_Marker *);
 int object_dead_p (Lisp_Object);
 
 #ifdef MEMORY_USAGE_STATS
@@ -2058,7 +2290,7 @@ Lisp_Object save_restriction_restore (Lisp_Object);
 Lisp_Object save_current_buffer_restore (Lisp_Object);
 
 /* Defined in emacs.c */
-DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS (fatal (CONST char *,
+DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS (fatal (CONST char *,
 							   ...), 1, 2);
 int stderr_out (CONST char *, ...) PRINTF_ARGS (1, 2);
 int stdout_out (CONST char *, ...) PRINTF_ARGS (1, 2);
@@ -2080,7 +2312,7 @@ DECLARE_DOESNT_RETURN (signal_error (Lisp_Object, Lisp_Object));
 void maybe_signal_error (Lisp_Object, Lisp_Object, Lisp_Object, Error_behavior);
 Lisp_Object maybe_signal_continuable_error (Lisp_Object, Lisp_Object,
 					    Lisp_Object, Error_behavior);
-DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS (error (CONST char *,
+DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS (error (CONST char *,
 							   ...), 1, 2);
 void maybe_error (Lisp_Object, Error_behavior, CONST char *,
 		  ...) PRINTF_ARGS (3, 4);
@@ -2093,7 +2325,7 @@ void maybe_signal_simple_error (CONST char *, Lisp_Object,
 Lisp_Object signal_simple_continuable_error (CONST char *, Lisp_Object);
 Lisp_Object maybe_signal_simple_continuable_error (CONST char *, Lisp_Object,
 						   Lisp_Object, Error_behavior);
-DECLARE_DOESNT_RETURN_GCC__ATTRIBUTE__SYNTAX_SUCKS (error_with_frob
+DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS (error_with_frob
 						    (Lisp_Object, CONST char *,
 						     ...), 2, 3);
 void maybe_error_with_frob (Lisp_Object, Lisp_Object, Error_behavior,
@@ -2111,7 +2343,11 @@ Lisp_Object signal_simple_continuable_error_2 (CONST char *,
 Lisp_Object maybe_signal_simple_continuable_error_2 (CONST char *, Lisp_Object,
 						     Lisp_Object, Lisp_Object,
 						     Error_behavior);
-Lisp_Object funcall_recording_as (Lisp_Object, int, Lisp_Object *);
+void signal_malformed_list_error (Lisp_Object);
+void signal_malformed_property_list_error (Lisp_Object);
+void signal_circular_list_error (Lisp_Object);
+void signal_circular_property_list_error (Lisp_Object);
+void signal_void_function_error (Lisp_Object);
 Lisp_Object run_hook_with_args_in_buffer (struct buffer *, int, Lisp_Object *,
 					  enum run_hooks_condition);
 Lisp_Object run_hook_with_args (int, Lisp_Object *, enum run_hooks_condition);
@@ -2195,7 +2431,7 @@ void signal_special_Xt_user_event (Lisp_Object, Lisp_Object, Lisp_Object);
 /* Defined in events.c */
 void clear_event_resource (void);
 Lisp_Object allocate_event (void);
-int event_to_character (struct Lisp_Event *, int, int, int);
+int event_to_character (Lisp_Event *, int, int, int);
 
 /* Defined in fileio.c */
 void record_auto_save (void);
@@ -2265,6 +2501,7 @@ Lisp_Object concat3 (Lisp_Object, Lisp_Object, Lisp_Object);
 Lisp_Object vconcat2 (Lisp_Object, Lisp_Object);
 Lisp_Object vconcat3 (Lisp_Object, Lisp_Object, Lisp_Object);
 Lisp_Object nconc2 (Lisp_Object, Lisp_Object);
+Lisp_Object bytecode_nconc2 (Lisp_Object *);
 void check_losing_bytecode (CONST char *, Lisp_Object);
 
 /* Defined in getloadavg.c */
@@ -2354,7 +2591,7 @@ void write_string_to_stdio_stream (FILE *, struct console *,
 				   enum external_data_format);
 void debug_print (Lisp_Object);
 void debug_short_backtrace (int);
-void temp_output_buffer_setup (CONST char *);
+void temp_output_buffer_setup (Lisp_Object);
 void temp_output_buffer_show (Lisp_Object, Lisp_Object);
 /* NOTE: Do not call this with the data of a Lisp_String.  Use princ.
  * Note: stream should be defaulted before calling
@@ -2369,10 +2606,9 @@ void long_to_string (char *, long);
 void print_internal (Lisp_Object, Lisp_Object, int);
 void print_symbol (Lisp_Object, Lisp_Object, int);
 void print_float (Lisp_Object, Lisp_Object, int);
-void print_compiled_function (Lisp_Object, Lisp_Object, int);
 extern int print_escape_newlines;
 extern int print_readably;
-Lisp_Object internal_with_output_to_temp_buffer (CONST char *,
+Lisp_Object internal_with_output_to_temp_buffer (Lisp_Object,
 						 Lisp_Object (*) (Lisp_Object),
 						 Lisp_Object, Lisp_Object);
 void float_to_string (char *, double);
@@ -2437,6 +2673,9 @@ int symbol_value_buffer_local_info (Lisp_Object, struct buffer *);
 Lisp_Object find_symbol_value (Lisp_Object);
 Lisp_Object find_symbol_value_quickly (Lisp_Object, int);
 Lisp_Object top_level_value (Lisp_Object);
+void reject_constant_symbols (Lisp_Object sym, Lisp_Object newval,
+			      int function_p,
+			      Lisp_Object follow_past_lisp_magic);
 
 /* Defined in syntax.c */
 int scan_words (struct buffer *, int, int);
@@ -2492,7 +2731,6 @@ EXFUN (Fchar_after, 2);
 EXFUN (Fchar_to_string, 1);
 EXFUN (Fcheck_valid_plist, 1);
 EXFUN (Fclear_range_table, 1);
-EXFUN (Fclrhash, 1);
 EXFUN (Fcoding_category_list, 0);
 EXFUN (Fcoding_category_system, 1);
 EXFUN (Fcoding_priority_list, 0);
@@ -2505,12 +2743,12 @@ EXFUN (Fcoding_system_property, 2);
 EXFUN (Fcoding_system_type, 1);
 EXFUN (Fcommand_execute, 3);
 EXFUN (Fcommandp, 1);
-EXFUN (Fcompiled_function_domain, 1);
 EXFUN (Fconcat, MANY);
 EXFUN (Fcons, 2);
 EXFUN (Fcopy_alist, 1);
 EXFUN (Fcopy_coding_system, 2);
 EXFUN (Fcopy_event, 2);
+EXFUN (Fcopy_list, 1);
 EXFUN (Fcopy_marker, 2);
 EXFUN (Fcopy_sequence, 1);
 EXFUN (Fcopy_tree, 2);
@@ -2577,11 +2815,9 @@ EXFUN (Fget_buffer_process, 1);
 EXFUN (Fget_coding_system, 1);
 EXFUN (Fget_process, 1);
 EXFUN (Fget_range_table, 3);
-EXFUN (Fgethash, 3);
 EXFUN (Fgettext, 1);
 EXFUN (Fgoto_char, 2);
 EXFUN (Fgtr, MANY);
-EXFUN (Fhashtablep, 1);
 EXFUN (Findent_to, 3);
 EXFUN (Findirect_function, 1);
 EXFUN (Finsert, MANY);
@@ -2604,7 +2840,6 @@ EXFUN (Flss, MANY);
 EXFUN (Fmake_byte_code, MANY);
 EXFUN (Fmake_coding_system, 4);
 EXFUN (Fmake_glyph_internal, 1);
-EXFUN (Fmake_hashtable, 2);
 EXFUN (Fmake_list, 2);
 EXFUN (Fmake_marker, 0);
 EXFUN (Fmake_range_table, 0);
@@ -2652,7 +2887,6 @@ EXFUN (Fpurecopy, 1);
 EXFUN (Fput, 3);
 EXFUN (Fput_range_table, 4);
 EXFUN (Fput_text_property, 5);
-EXFUN (Fputhash, 3);
 EXFUN (Fquo, MANY);
 EXFUN (Frassq, 2);
 EXFUN (Fread, 1);
@@ -2720,8 +2954,9 @@ extern Lisp_Object Qbyte_code, Qcall_interactively, Qcategory;
 extern Lisp_Object Qcategory_designator_p, Qcategory_table_value_p, Qccl, Qcdr;
 extern Lisp_Object Qchannel, Qchar, Qchar_or_string_p, Qcharacter, Qcharacterp;
 extern Lisp_Object Qchars, Qcharset_g0, Qcharset_g1, Qcharset_g2, Qcharset_g3;
-extern Lisp_Object Qcircular_property_list, Qcoding_system_error;
-extern Lisp_Object Qcoding_system_p, Qcolor, Qcolor_pixmap_image_instance_p;
+extern Lisp_Object Qcircular_list, Qcircular_property_list;
+extern Lisp_Object Qcoding_system_error, Qcoding_system_p;
+extern Lisp_Object Qcolor, Qcolor_pixmap_image_instance_p;
 extern Lisp_Object Qcolumns, Qcommand, Qcommandp, Qcompletion_ignore_case;
 extern Lisp_Object Qconsole, Qconsole_live_p, Qconst_specifier, Qcr, Qcritical;
 extern Lisp_Object Qcrlf, Qctext, Qcurrent_menubar, Qcursor;
@@ -2746,11 +2981,12 @@ extern Lisp_Object Qinteger_or_marker_p, Qintegerp, Qinteractive, Qinternal;
 extern Lisp_Object Qinvalid_function, Qinvalid_read_syntax, Qio_error;
 extern Lisp_Object Qiso2022, Qkey, Qkey_assoc, Qkeymap, Qlambda, Qleft, Qlf;
 extern Lisp_Object Qlist, Qlistp, Qload, Qlock_shift, Qmacro, Qmagic;
-extern Lisp_Object Qmalformed_property_list, Qmalloc_overhead, Qmark, Qmarkers;
+extern Lisp_Object Qmalformed_list, Qmalformed_property_list;
+extern Lisp_Object Qmalloc_overhead, Qmark, Qmarkers;
 extern Lisp_Object Qmax, Qmemory, Qmessage, Qminus, Qmnemonic, Qmodifiers;
 extern Lisp_Object Qmono_pixmap_image_instance_p, Qmotion;
 extern Lisp_Object Qmouse_leave_buffer_hook, Qmswindows, Qname, Qnas, Qnatnump;
-extern Lisp_Object Qnil, Qno_ascii_cntl, Qno_ascii_eol, Qno_catch;
+extern Lisp_Object Qno_ascii_cntl, Qno_ascii_eol, Qno_catch;
 extern Lisp_Object Qno_conversion, Qno_iso6429, Qnone, Qnot, Qnothing;
 extern Lisp_Object Qnothing_image_instance_p, Qnotice;
 extern Lisp_Object Qnumber_char_or_marker_p, Qnumber_or_marker_p, Qnumberp;
@@ -2785,7 +3021,7 @@ extern Lisp_Object Vascii_upcase_table, Vautoload_queue, Vbinary_process_input;
 extern Lisp_Object Vbinary_process_output, Vblank_menubar;
 extern Lisp_Object Vcharset_ascii, Vcharset_composite, Vcharset_control_1;
 extern Lisp_Object Vcoding_system_for_read, Vcoding_system_for_write;
-extern Lisp_Object Vcoding_system_hashtable, Vcommand_history;
+extern Lisp_Object Vcoding_system_hash_table, Vcommand_history;
 extern Lisp_Object Vcommand_line_args, Vconfigure_info_directory;
 extern Lisp_Object Vconsole_list, Vcontrolling_terminal;
 extern Lisp_Object Vcurrent_compiled_function_annotation, Vcurrent_load_list;
@@ -2815,5 +3051,6 @@ extern Lisp_Object Vthis_command_keys, Vunread_command_event;
 extern Lisp_Object Vwin32_generate_fake_inodes, Vwin32_pipe_read_delay;
 extern Lisp_Object Vx_initial_argv_list;
 
+extern Lisp_Object Qmakunbound, Qset;
 
 #endif /* _XEMACS_LISP_H_ */

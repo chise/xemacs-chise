@@ -134,7 +134,7 @@ Boston, MA 02111-1307, USA.  */
    This program (make-msgfile.c) addresses the first part, extracting the 
    strings.
    
-   For the emacs C code, we need to recognise the following patterns:
+   For the emacs C code, we need to recognize the following patterns:
    
      message ("string" ... )
      error ("string")
@@ -159,7 +159,7 @@ Boston, MA 02111-1307, USA.  */
      there are no alphabetic characters in it that are not a part of a `%'
      directive.  (Careful not to translate either "%s%s" or "%s: ".)
 
-   For the emacs Lisp code, we need to recognise the following patterns:
+   For the emacs Lisp code, we need to recognize the following patterns:
    
      (message "string" ... )
      (error "string" ... )
@@ -174,7 +174,7 @@ Boston, MA 02111-1307, USA.  */
      
    I expect there will be a lot like the above; basically, any function which
    is a commonly used wrapper around an eventual call to `message' or
-   `read-from-minibuffer' needs to be recognised by this program.
+   `read-from-minibuffer' needs to be recognized by this program.
 
 
      (dgettext "domain-name" "string")		#### do we still need this?
@@ -218,7 +218,7 @@ Boston, MA 02111-1307, USA.  */
    Menu descriptors: one way to extract the strings in menu labels would be
    to teach this program about "^(defvar .*menu\n" forms; that's probably
    kind of hard, though, so perhaps a better approach would be to make this
-   program recognise lines of the form
+   program recognize lines of the form
 
      "string" ... ;###translate
 

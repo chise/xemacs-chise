@@ -1,4 +1,5 @@
 /* Execution of byte code produced by bytecomp.el.
+   Implementation of compiled-function objects.
    Copyright (C) 1992, 1993 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
@@ -27,7 +28,7 @@ Boston, MA 02111-1307, USA.  */
 
    FSF: long ago.
 
-hacked on by jwz@netscape.com 17-jun-91
+hacked on by jwz@netscape.com 1991-06
   o  added a compile-time switch to turn on simple sanity checking;
   o  put back the obsolete byte-codes for error-detection;
   o  added a new instruction, unbind_all, which I will use for
@@ -41,25 +42,198 @@ by Hallvard:
   o  added relative jump instructions;
   o  all conditionals now only do QUIT if they jump.
 
-   Ben Wing: some changes for Mule, June 1995.
+   Ben Wing: some changes for Mule, 1995-06.
+
+   Martin Buchholz: performance hacking, 1998-09.
+   See Internals Manual, Evaluation.
  */
 
 #include <config.h>
 #include "lisp.h"
+#include "backtrace.h"
 #include "buffer.h"
+#include "bytecode.h"
+#include "opaque.h"
 #include "syntax.h"
 
-/*
- * define BYTE_CODE_SAFE to enable some minor sanity checking (useful for
- * debugging the byte compiler...)  Somewhat surprisingly, defining this
- * makes Fbyte_code about 8% slower.
- *
- * define BYTE_CODE_METER to enable generation of a byte-op usage histogram.
- */
-/* This isn't defined in FSF Emacs and isn't defined in XEmacs v19 */
+#include <stddef.h>
+#include <limits.h>
+
+EXFUN (Ffetch_bytecode, 1);
+
+Lisp_Object Qbyte_code, Qcompiled_functionp, Qinvalid_byte_code;
+
+enum Opcode /* Byte codes */
+{
+  Bvarref  		= 010,
+  Bvarset  		= 020,
+  Bvarbind 		= 030,
+  Bcall    		= 040,
+  Bunbind  		= 050,
+
+  Bnth     		= 070,
+  Bsymbolp 		= 071,
+  Bconsp   		= 072,
+  Bstringp 		= 073,
+  Blistp   		= 074,
+  Bold_eq  		= 075,
+  Bold_memq 		= 076,
+  Bnot    		= 077,
+  Bcar    		= 0100,
+  Bcdr 	  		= 0101,
+  Bcons   		= 0102,
+  Blist1  		= 0103,
+  Blist2  		= 0104,
+  Blist3  		= 0105,
+  Blist4  		= 0106,
+  Blength 		= 0107,
+  Baref   		= 0110,
+  Baset   		= 0111,
+  Bsymbol_value 	= 0112,
+  Bsymbol_function 	= 0113,
+  Bset    		= 0114,
+  Bfset   		= 0115,
+  Bget    		= 0116,
+  Bsubstring 		= 0117,
+  Bconcat2 		= 0120,
+  Bconcat3 		= 0121,
+  Bconcat4 		= 0122,
+  Bsub1 		= 0123,
+  Badd1 		= 0124,
+  Beqlsign 		= 0125,
+  Bgtr 			= 0126,
+  Blss 			= 0127,
+  Bleq 			= 0130,
+  Bgeq 			= 0131,
+  Bdiff 		= 0132,
+  Bnegate 		= 0133,
+  Bplus 		= 0134,
+  Bmax 			= 0135,
+  Bmin 			= 0136,
+  Bmult 		= 0137,
+
+  Bpoint 		= 0140,
+  Beq 			= 0141, /* was Bmark,
+				   but no longer generated as of v18 */
+  Bgoto_char 		= 0142,
+  Binsert 		= 0143,
+  Bpoint_max 		= 0144,
+  Bpoint_min 		= 0145,
+  Bchar_after 		= 0146,
+  Bfollowing_char 	= 0147,
+  Bpreceding_char 	= 0150,
+  Bcurrent_column 	= 0151,
+  Bindent_to 		= 0152,
+  Bequal 		= 0153, /* was Bscan_buffer,
+				   but no longer generated as of v18 */
+  Beolp 		= 0154,
+  Beobp 		= 0155,
+  Bbolp 		= 0156,
+  Bbobp 		= 0157,
+  Bcurrent_buffer 	= 0160,
+  Bset_buffer 		= 0161,
+  Bsave_current_buffer 	= 0162, /* was Bread_char,
+				   but no longer generated as of v19 */
+  Bmemq 		= 0163, /* was Bset_mark,
+				   but no longer generated as of v18 */
+  Binteractive_p 	= 0164, /* Needed since interactive-p takes
+				   unevalled args */
+  Bforward_char 	= 0165,
+  Bforward_word 	= 0166,
+  Bskip_chars_forward 	= 0167,
+  Bskip_chars_backward 	= 0170,
+  Bforward_line 	= 0171,
+  Bchar_syntax 		= 0172,
+  Bbuffer_substring 	= 0173,
+  Bdelete_region 	= 0174,
+  Bnarrow_to_region 	= 0175,
+  Bwiden 		= 0176,
+  Bend_of_line 		= 0177,
+
+  Bconstant2 		= 0201,
+  Bgoto 		= 0202,
+  Bgotoifnil 		= 0203,
+  Bgotoifnonnil 	= 0204,
+  Bgotoifnilelsepop 	= 0205,
+  Bgotoifnonnilelsepop 	= 0206,
+  Breturn 		= 0207,
+  Bdiscard 		= 0210,
+  Bdup 			= 0211,
+
+  Bsave_excursion 	= 0212,
+  Bsave_window_excursion= 0213,
+  Bsave_restriction 	= 0214,
+  Bcatch 		= 0215,
+
+  Bunwind_protect 	= 0216,
+  Bcondition_case 	= 0217,
+  Btemp_output_buffer_setup = 0220,
+  Btemp_output_buffer_show  = 0221,
+
+  Bunbind_all 		= 0222,
+
+  Bset_marker 		= 0223,
+  Bmatch_beginning 	= 0224,
+  Bmatch_end 		= 0225,
+  Bupcase 		= 0226,
+  Bdowncase 		= 0227,
+
+  Bstring_equal 	= 0230,
+  Bstring_lessp     	= 0231,
+  Bold_equal 	 	= 0232,
+  Bnthcdr 	 	= 0233,
+  Belt 		 	= 0234,
+  Bold_member 	 	= 0235,
+  Bold_assq 	 	= 0236,
+  Bnreverse 	 	= 0237,
+  Bsetcar 	 	= 0240,
+  Bsetcdr 	 	= 0241,
+  Bcar_safe 	 	= 0242,
+  Bcdr_safe 	 	= 0243,
+  Bnconc 	 	= 0244,
+  Bquo 		 	= 0245,
+  Brem 		 	= 0246,
+  Bnumberp 	 	= 0247,
+  Bintegerp 	 	= 0250,
+
+  BRgoto 		= 0252,
+  BRgotoifnil 		= 0253,
+  BRgotoifnonnil 	= 0254,
+  BRgotoifnilelsepop 	= 0255,
+  BRgotoifnonnilelsepop = 0256,
+
+  BlistN 		= 0257,
+  BconcatN 		= 0260,
+  BinsertN 		= 0261,
+  Bmember 		= 0266, /* new in v20 */
+  Bassq 		= 0267, /* new in v20 */
+
+  Bconstant 		= 0300
+};
+typedef enum Opcode Opcode;
+typedef unsigned char Opbyte;
+
+
+static void invalid_byte_code_error (char *error_message, ...);
+
+Lisp_Object * execute_rare_opcode (Lisp_Object *stack_ptr,
+				   CONST Opbyte *program_ptr,
+				   Opcode opcode);
+
+static Lisp_Object execute_optimized_program (CONST Opbyte *program,
+					      int stack_depth,
+					      Lisp_Object *constants_data);
+
+extern Lisp_Object Qand_rest, Qand_optional;
+
+/* Define ERROR_CHECK_BYTE_CODE to enable some minor sanity checking.
+   Useful for debugging the byte compiler.  */
 #ifdef DEBUG_XEMACS
-#define BYTE_CODE_SAFE
+#define ERROR_CHECK_BYTE_CODE
 #endif
+
+/* Define BYTE_CODE_METER to enable generation of a byte-op usage histogram.
+   This isn't defined in FSF Emacs and isn't defined in XEmacs v19. */
 /* #define BYTE_CODE_METER */
 
 
@@ -73,363 +247,631 @@ int byte_metering_on;
 
 #define METER_1(code) METER_2 (0, (code))
 
-#define METER_CODE(last_code, this_code)			\
-{								\
-  if (byte_metering_on)						\
-    {								\
-      if (METER_1 (this_code) != ((1<<VALBITS)-1))		\
-        METER_1 (this_code)++;					\
-      if (last_code						\
-	  && METER_2 (last_code, this_code) != ((1<<VALBITS)-1))\
-        METER_2 (last_code, this_code)++;			\
-    }								\
+#define METER_CODE(last_code, this_code) do {				\
+  if (byte_metering_on)							\
+    {									\
+      if (METER_1 (this_code) != ((1<<VALBITS)-1))			\
+        METER_1 (this_code)++;						\
+      if (last_code							\
+	  && METER_2 (last_code, this_code) != ((1<<VALBITS)-1))	\
+        METER_2 (last_code, this_code)++;				\
+    }									\
+} while (0)
+
+#endif /* BYTE_CODE_METER */
+
+
+static Lisp_Object
+bytecode_negate (Lisp_Object obj)
+{
+ retry:
+
+#ifdef LISP_FLOAT_TYPE
+  if (FLOATP  (obj)) return make_float (- XFLOAT_DATA (obj));
+#endif
+  if (CHARP   (obj)) return make_int (- ((int) XCHAR (obj)));
+  if (MARKERP (obj)) return make_int (- ((int) marker_position (obj)));
+  if (INTP    (obj)) return make_int (- XINT (obj));
+
+  obj = wrong_type_argument (Qnumber_char_or_marker_p, obj);
+  goto retry;
 }
 
-#endif /* no BYTE_CODE_METER */
+static Lisp_Object
+bytecode_nreverse (Lisp_Object list)
+{
+  REGISTER Lisp_Object prev = Qnil;
+  REGISTER Lisp_Object tail = list;
+
+  while (!NILP (tail))
+    {
+      REGISTER Lisp_Object next;
+      CHECK_CONS (tail);
+      next = XCDR (tail);
+      XCDR (tail) = prev;
+      prev = tail;
+      tail = next;
+    }
+  return prev;
+}
+
+
+/* We have our own two-argument versions of various arithmetic ops.
+   Only two-argument arithmetic operations have their own byte codes. */
+static int
+bytecode_arithcompare (Lisp_Object obj1, Lisp_Object obj2)
+{
+  retry:
+
+#ifdef LISP_FLOAT_TYPE
+  {
+    int ival1, ival2;
+
+    if      (INTP    (obj1)) ival1 = XINT  (obj1);
+    else if (CHARP   (obj1)) ival1 = XCHAR (obj1);
+    else if (MARKERP (obj1)) ival1 = marker_position (obj1);
+    else goto arithcompare_float;
+
+    if      (INTP    (obj2)) ival2 = XINT  (obj2);
+    else if (CHARP   (obj2)) ival2 = XCHAR (obj2);
+    else if (MARKERP (obj2)) ival2 = marker_position (obj2);
+    else goto arithcompare_float;
+
+    return ival1 < ival2 ? -1 : ival1 > ival2 ? 1 : 0;
+  }
+
+ arithcompare_float:
+
+  {
+    double dval1, dval2;
+
+    if      (FLOATP  (obj1)) dval1 = XFLOAT_DATA (obj1);
+    else if (INTP    (obj1)) dval1 = (double) XINT  (obj1);
+    else if (CHARP   (obj1)) dval1 = (double) XCHAR (obj1);
+    else if (MARKERP (obj1)) dval1 = (double) marker_position (obj1);
+    else
+      {
+	obj1 = wrong_type_argument (Qnumber_char_or_marker_p, obj1);
+	goto retry;
+      }
+
+    if      (FLOATP  (obj2)) dval2 = XFLOAT_DATA (obj2);
+    else if (INTP    (obj2)) dval2 = (double) XINT  (obj2);
+    else if (CHARP   (obj2)) dval2 = (double) XCHAR (obj2);
+    else if (MARKERP (obj2)) dval2 = (double) marker_position (obj2);
+    else
+      {
+	obj2 = wrong_type_argument (Qnumber_char_or_marker_p, obj2);
+	goto retry;
+      }
+
+    return dval1 < dval2 ? -1 : dval1 > dval2 ? 1 : 0;
+  }
+#else /* !LISP_FLOAT_TYPE */
+  {
+    int ival1, ival2;
+
+    if      (INTP    (obj1)) ival1 = XINT  (obj1);
+    else if (CHARP   (obj1)) ival1 = XCHAR (obj1);
+    else if (MARKERP (obj1)) ival1 = marker_position (obj1);
+    else
+      {
+	obj1 = wrong_type_argument (Qnumber_char_or_marker_p, obj1);
+	goto retry;
+      }
+
+    if      (INTP    (obj2)) ival2 = XINT  (obj2);
+    else if (CHARP   (obj2)) ival2 = XCHAR (obj2);
+    else if (MARKERP (obj2)) ival2 = marker_position (obj2);
+    else
+      {
+	obj2 = wrong_type_argument (Qnumber_char_or_marker_p, obj2);
+	goto retry;
+      }
+
+    return ival1 < ival2 ? -1 : ival1 > ival2 ? 1 : 0;
+  }
+#endif /* !LISP_FLOAT_TYPE */
+}
+
+static Lisp_Object
+bytecode_arithop (Lisp_Object obj1, Lisp_Object obj2, Opcode opcode)
+{
+#ifdef LISP_FLOAT_TYPE
+  int ival1, ival2;
+  int float_p;
+
+ retry:
+
+  float_p = 0;
+
+  if      (INTP    (obj1)) ival1 = XINT  (obj1);
+  else if (CHARP   (obj1)) ival1 = XCHAR (obj1);
+  else if (MARKERP (obj1)) ival1 = marker_position (obj1);
+  else if (FLOATP  (obj1)) ival1 = 0, float_p = 1;
+  else
+    {
+      obj1 = wrong_type_argument (Qnumber_char_or_marker_p, obj1);
+      goto retry;
+    }
+
+  if      (INTP    (obj2)) ival2 = XINT  (obj2);
+  else if (CHARP   (obj2)) ival2 = XCHAR (obj2);
+  else if (MARKERP (obj2)) ival2 = marker_position (obj2);
+  else if (FLOATP  (obj2)) ival2 = 0, float_p = 1;
+  else
+    {
+      obj2 = wrong_type_argument (Qnumber_char_or_marker_p, obj2);
+      goto retry;
+    }
+
+  if (!float_p)
+    {
+      switch (opcode)
+	{
+	case Bplus: ival1 += ival2; break;
+	case Bdiff: ival1 -= ival2; break;
+	case Bmult: ival1 *= ival2; break;
+	case Bquo:
+	  if (ival2 == 0) Fsignal (Qarith_error, Qnil);
+	  ival1 /= ival2;
+	  break;
+	case Bmax:  if (ival1 < ival2) ival1 = ival2; break;
+	case Bmin:  if (ival1 > ival2) ival1 = ival2; break;
+	}
+      return make_int (ival1);
+    }
+  else
+    {
+      double dval1 = FLOATP (obj1) ? XFLOAT_DATA (obj1) : (double) ival1;
+      double dval2 = FLOATP (obj2) ? XFLOAT_DATA (obj2) : (double) ival2;
+      switch (opcode)
+	{
+	case Bplus: dval1 += dval2; break;
+	case Bdiff: dval1 -= dval2; break;
+	case Bmult: dval1 *= dval2; break;
+	case Bquo:
+	  if (dval2 == 0) Fsignal (Qarith_error, Qnil);
+	  dval1 /= dval2;
+	  break;
+	case Bmax:  if (dval1 < dval2) dval1 = dval2; break;
+	case Bmin:  if (dval1 > dval2) dval1 = dval2; break;
+	}
+      return make_float (dval1);
+    }
+#else /* !LISP_FLOAT_TYPE */
+  int ival1, ival2;
+
+ retry:
+
+  if      (INTP    (obj1)) ival1 = XINT  (obj1);
+  else if (CHARP   (obj1)) ival1 = XCHAR (obj1);
+  else if (MARKERP (obj1)) ival1 = marker_position (obj1);
+  else
+    {
+      obj1 = wrong_type_argument (Qnumber_char_or_marker_p, obj1);
+      goto retry;
+    }
+
+  if      (INTP    (obj2)) ival2 = XINT  (obj2);
+  else if (CHARP   (obj2)) ival2 = XCHAR (obj2);
+  else if (MARKERP (obj2)) ival2 = marker_position (obj2);
+  else
+    {
+      obj2 = wrong_type_argument (Qnumber_char_or_marker_p, obj2);
+      goto retry;
+    }
+
+  switch (opcode)
+    {
+    case Bplus: ival1 += ival2; break;
+    case Bdiff: ival1 -= ival2; break;
+    case Bmult: ival1 *= ival2; break;
+    case Bquo:
+      if (ival2 == 0) Fsignal (Qarith_error, Qnil);
+      ival1 /= ival2;
+      break;
+    case Bmax:  if (ival1 < ival2) ival1 = ival2; break;
+    case Bmin:  if (ival1 > ival2) ival1 = ival2; break;
+    }
+  return make_int (ival1);
+#endif /* !LISP_FLOAT_TYPE */
+}
+
+/* Apply compiled-function object FUN to the NARGS evaluated arguments
+   in ARGS, and return the result of evaluation. */
+Lisp_Object
+funcall_compiled_function (Lisp_Object fun, int nargs, Lisp_Object args[])
+{
+  /* This function can GC */
+  Lisp_Object symbol, tail;
+  int speccount = specpdl_depth();
+  REGISTER int i = 0;
+  Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (fun);
+  int optional = 0;
+
+  if (!OPAQUEP (f->instructions))
+    /* Lazily munge the instructions into a more efficient form */
+    optimize_compiled_function (fun);
+
+  /* optimize_compiled_function() guaranteed that f->specpdl_depth is
+     the required space on the specbinding stack for binding the args
+     and local variables of fun.   So just reserve it once. */
+  SPECPDL_RESERVE (f->specpdl_depth);
+
+  /* Fmake_byte_code() guaranteed that f->arglist is a valid list
+     containing only non-constant symbols. */
+  LIST_LOOP_3 (symbol, f->arglist, tail)
+    {
+      if (EQ (symbol, Qand_rest))
+	{
+	  tail = XCDR (tail);
+	  symbol  = XCAR (tail);
+	  SPECBIND_FAST_UNSAFE (symbol, Flist (nargs - i, &args[i]));
+	  goto run_code;
+	}
+      else if (EQ (symbol, Qand_optional))
+	optional = 1;
+      else if (i == nargs && !optional)
+	goto wrong_number_of_arguments;
+      else
+	SPECBIND_FAST_UNSAFE (symbol, i < nargs ? args[i++] : Qnil);
+    }
+
+  if (i < nargs)
+    goto wrong_number_of_arguments;
+
+ run_code:
+
+  {
+    Lisp_Object value =
+      execute_optimized_program ((Opbyte *) XOPAQUE_DATA (f->instructions),
+				 f->stack_depth,
+				 XVECTOR_DATA (f->constants));
+
+    UNBIND_TO_GCPRO_VARIABLES_ONLY (speccount, value);
+    return value;
+  }
+
+ wrong_number_of_arguments:
+  return Fsignal (Qwrong_number_of_arguments, list2 (fun, make_int (nargs)));
+}
+
 
+/* Read next uint8 from the instruction stream. */
+#define READ_UINT_1 ((unsigned int) (unsigned char) *program_ptr++)
 
-Lisp_Object Qbyte_code;
+/* Read next uint16 from the instruction stream. */
+#define READ_UINT_2						\
+  (program_ptr += 2,						\
+   (((unsigned int) (unsigned char) program_ptr[-1]) * 256 +	\
+    ((unsigned int) (unsigned char) program_ptr[-2])))
 
-/*  Byte codes: */
+/* Read next int8 from the instruction stream. */
+#define READ_INT_1 ((int) (signed char) *program_ptr++)
 
-#define Bvarref 010
-#define Bvarset 020
-#define Bvarbind 030
-#define Bcall 040
-#define Bunbind 050
+/* Read next int16 from the instruction stream. */
+#define READ_INT_2					\
+  (program_ptr += 2,					\
+   (((int) (  signed char) program_ptr[-1]) * 256 +	\
+    ((int) (unsigned char) program_ptr[-2])))
 
-#define Bnth 070
-#define Bsymbolp 071
-#define Bconsp 072
-#define Bstringp 073
-#define Blistp 074
-#define Bold_eq 075
-#define Bold_memq 076
-#define Bnot 077
-#define Bcar 0100
-#define Bcdr 0101
-#define Bcons 0102
-#define Blist1 0103
-#define Blist2 0104
-#define Blist3 0105
-#define Blist4 0106
-#define Blength 0107
-#define Baref 0110
-#define Baset 0111
-#define Bsymbol_value 0112
-#define Bsymbol_function 0113
-#define Bset 0114
-#define Bfset 0115
-#define Bget 0116
-#define Bsubstring 0117
-#define Bconcat2 0120
-#define Bconcat3 0121
-#define Bconcat4 0122
-#define Bsub1 0123
-#define Badd1 0124
-#define Beqlsign 0125
-#define Bgtr 0126
-#define Blss 0127
-#define Bleq 0130
-#define Bgeq 0131
-#define Bdiff 0132
-#define Bnegate 0133
-#define Bplus 0134
-#define Bmax 0135
-#define Bmin 0136
-#define Bmult 0137
+/* Read next int8 from instruction stream; don't advance program_pointer */
+#define PEEK_INT_1 ((int) (signed char) program_ptr[0])
 
-#define Bpoint 0140
-#define Beq 0141 /* was Bmark, but no longer generated as of v18 */
-#define Bgoto_char 0142
-#define Binsert 0143
-#define Bpoint_max 0144
-#define Bpoint_min 0145
-#define Bchar_after 0146
-#define Bfollowing_char 0147
-#define Bpreceding_char 0150
-#define Bcurrent_column 0151
-#define Bindent_to 0152
-#define Bequal 0153 /* was Bscan_buffer, but no longer generated as of v18 */
-#define Beolp 0154
-#define Beobp 0155
-#define Bbolp 0156
-#define Bbobp 0157
-#define Bcurrent_buffer 0160
-#define Bset_buffer 0161
-#define Bsave_current_buffer 0162 /* was Bread_char, but no longer
-				     generated as of v19 */
-#define Bmemq 0163 /* was Bset_mark, but no longer generated as of v18 */
-#define Binteractive_p 0164 /* Needed since interactive-p takes unevalled args */
+/* Read next int16 from instruction stream; don't advance program_pointer */
+#define PEEK_INT_2					\
+  ((((int) (  signed char) program_ptr[1]) * 256) |	\
+    ((int) (unsigned char) program_ptr[0]))
 
-#define Bforward_char 0165
-#define Bforward_word 0166
-#define Bskip_chars_forward 0167
-#define Bskip_chars_backward 0170
-#define Bforward_line 0171
-#define Bchar_syntax 0172
-#define Bbuffer_substring 0173
-#define Bdelete_region 0174
-#define Bnarrow_to_region 0175
-#define Bwiden 0176
-#define Bend_of_line 0177
+/* Do relative jumps from the current location.
+   We only do a QUIT if we jump backwards, for efficiency.
+   No infloops without backward jumps! */
+#define JUMP_RELATIVE(jump) do {	\
+  int JR_jump = (jump);			\
+  if (JR_jump < 0) QUIT;		\
+  program_ptr += JR_jump;		\
+} while (0)
 
-#define Bconstant2 0201
-#define Bgoto 0202
-#define Bgotoifnil 0203
-#define Bgotoifnonnil 0204
-#define Bgotoifnilelsepop 0205
-#define Bgotoifnonnilelsepop 0206
-#define Breturn 0207
-#define Bdiscard 0210
-#define Bdup 0211
+#define JUMP  JUMP_RELATIVE (PEEK_INT_2)
+#define JUMPR JUMP_RELATIVE (PEEK_INT_1)
 
-#define Bsave_excursion 0212
-#define Bsave_window_excursion 0213
-#define Bsave_restriction 0214
-#define Bcatch 0215
-
-#define Bunwind_protect 0216
-#define Bcondition_case 0217
-#define Btemp_output_buffer_setup 0220
-#define Btemp_output_buffer_show 0221
-
-#define Bunbind_all 0222
-
-#define Bset_marker 0223
-#define Bmatch_beginning 0224
-#define Bmatch_end 0225
-#define Bupcase 0226
-#define Bdowncase 0227
-
-#define Bstringeqlsign 0230
-#define Bstringlss 0231
-#define Bold_equal 0232
-#define Bnthcdr 0233
-#define Belt 0234
-#define Bold_member 0235
-#define Bold_assq 0236
-#define Bnreverse 0237
-#define Bsetcar 0240
-#define Bsetcdr 0241
-#define Bcar_safe 0242
-#define Bcdr_safe 0243
-#define Bnconc 0244
-#define Bquo 0245
-#define Brem 0246
-#define Bnumberp 0247
-#define Bintegerp 0250
-
-#define BRgoto 0252
-#define BRgotoifnil 0253
-#define BRgotoifnonnil 0254
-#define BRgotoifnilelsepop 0255
-#define BRgotoifnonnilelsepop 0256
-
-#define BlistN 0257
-#define BconcatN 0260
-#define BinsertN 0261
-#define Bmember 0266 /* new in v20 */
-#define Bassq 0267 /* new in v20 */
-
-#define Bconstant 0300
-#define CONSTANTLIM 0100
-
-/* Fetch the next byte from the bytecode stream */
-
-#define FETCH (massaged_code[pc++])
-
-/* Fetch two bytes from the bytecode stream
- and make a 16-bit number out of them */
-
-#define FETCH2 (op = FETCH, op + (FETCH << 8))
+#define JUMP_NEXT  ((void) (program_ptr += 2))
+#define JUMPR_NEXT ((void) (program_ptr += 1))
 
 /* Push x onto the execution stack. */
+#define PUSH(x) (*++stack_ptr = (x))
 
-#define PUSH(x) (*++stackp = (x))
-
-/* Pop a value off the execution stack.  */
-
-#define POP (*stackp--)
+/* Pop a value off the execution stack. */
+#define POP (*stack_ptr--)
 
 /* Discard n values from the execution stack.  */
-
-#define DISCARD(n) (stackp -= (n))
+#define DISCARD(n) (stack_ptr -= (n))
 
 /* Get the value which is at the top of the execution stack,
    but don't pop it. */
+#define TOP (*stack_ptr)
 
-#define TOP (*stackp)
+/* The actual interpreter for byte code.
+   This function has been seriously optimized for performance.
+   Don't change the constructs unless you are willing to do
+   real benchmarking and profiling work -- martin */
 
-DEFUN ("byte-code", Fbyte_code, 3, 3, 0, /*
-Function used internally in byte-compiled code.
-The first argument is a string of byte code; the second, a vector of constants;
-the third, the maximum stack depth used in this function.
-If the third argument is incorrect, Emacs may crash.
-*/
-       (bytestr, vector, maxdepth))
+
+static Lisp_Object
+execute_optimized_program (CONST Opbyte *program,
+			   int stack_depth,
+			   Lisp_Object *constants_data)
 {
   /* This function can GC */
-  struct gcpro gcpro1, gcpro2, gcpro3;
+  REGISTER CONST Opbyte *program_ptr = (Opbyte *) program;
+  REGISTER Lisp_Object *stack_ptr
+    = alloca_array (Lisp_Object, stack_depth + 1);
   int speccount = specpdl_depth ();
+  struct gcpro gcpro1;
+
 #ifdef BYTE_CODE_METER
-  int this_op = 0;
-  int prev_op;
+  Opcode this_opcode = 0;
+  Opcode prev_opcode;
 #endif
-  REGISTER int op;
-  int pc;
-  Lisp_Object *stack;
-  REGISTER Lisp_Object *stackp;
-  Lisp_Object *stacke;
-  REGISTER Lisp_Object v1, v2;
-  REGISTER Lisp_Object *vectorp = XVECTOR_DATA (vector);
-#ifdef BYTE_CODE_SAFE
-  REGISTER int const_length = XVECTOR_LENGTH (vector);
+
+#ifdef ERROR_CHECK_BYTE_CODE
+  Lisp_Object *stack_beg = stack_ptr;
+  Lisp_Object *stack_end = stack_beg + stack_depth;
 #endif
-  REGISTER Emchar *massaged_code;
-  int massaged_code_len;
 
-  CHECK_STRING (bytestr);
-  if (!VECTORP (vector))
-    vector = wrong_type_argument (Qvectorp, vector);
-  CHECK_NATNUM (maxdepth);
+  /* Initialize all the objects on the stack to Qnil,
+     so we can GCPRO the whole stack.
+     The first element of the stack is actually a dummy. */
+  {
+    int i;
+    Lisp_Object *p;
+    for (i = stack_depth, p = stack_ptr; i--;)
+      *++p = Qnil;
+  }
 
-  stackp = alloca_array (Lisp_Object, XINT (maxdepth));
-  memset (stackp, 0, XINT (maxdepth) * sizeof (Lisp_Object));
-  GCPRO3 (bytestr, vector, *stackp);
-  gcpro3.nvars = XINT (maxdepth);
-
-  --stackp;
-  stack = stackp;
-  stacke = stackp + XINT (maxdepth);
-
-  /* Initialize the pc-register and convert the string into a fixed-width
-     format for easier processing.  */
-  massaged_code = alloca_array (Emchar, 1 + XSTRING_CHAR_LENGTH (bytestr));
-  massaged_code_len =
-    convert_bufbyte_string_into_emchar_string (XSTRING_DATA (bytestr),
-				      XSTRING_LENGTH (bytestr),
-				      massaged_code);
-  massaged_code[massaged_code_len] = 0;
-  pc = 0;
+  GCPRO1 (stack_ptr[1]);
+  gcpro1.nvars = stack_depth;
 
   while (1)
     {
-#ifdef BYTE_CODE_SAFE
-      if (stackp > stacke)
-	error ("Byte code stack overflow (byte compiler bug), pc %d, depth %ld",
-	       pc, (long) (stacke - stackp));
-      if (stackp < stack)
-	error ("Byte code stack underflow (byte compiler bug), pc %d",
-	       pc);
+      REGISTER Opcode opcode = (Opcode) READ_UINT_1;
+#ifdef ERROR_CHECK_BYTE_CODE
+      if (stack_ptr > stack_end)
+	invalid_byte_code_error ("byte code stack overflow");
+      if (stack_ptr < stack_beg)
+	invalid_byte_code_error ("byte code stack underflow");
 #endif
 
 #ifdef BYTE_CODE_METER
-      prev_op = this_op;
-      this_op = op = FETCH;
-      METER_CODE (prev_op, op);
-      switch (op)
-#else
-      switch (op = FETCH)
+      prev_opcode = this_opcode;
+      this_opcode = opcode;
+      METER_CODE (prev_opcode, this_opcode);
 #endif
+
+      switch (opcode)
 	{
-	case Bvarref+6:
-	  op = FETCH;
-	  goto varref;
+	  REGISTER int n;
 
-	case Bvarref+7:
-	  op = FETCH2;
-	  goto varref;
-
-	case Bvarref: case Bvarref+1: case Bvarref+2: case Bvarref+3:
-	case Bvarref+4: case Bvarref+5:
-	  op = op - Bvarref;
-	varref:
-	  v1 = vectorp[op];
-	  if (!SYMBOLP (v1))
-	    v2 = Fsymbol_value (v1);
+	default:
+	  if (opcode >= Bconstant)
+	    PUSH (constants_data[opcode - Bconstant]);
 	  else
+	    stack_ptr = execute_rare_opcode (stack_ptr, program_ptr, opcode);
+	  break;
+
+	case Bvarref:
+	case Bvarref+1:
+	case Bvarref+2:
+	case Bvarref+3:
+	case Bvarref+4:
+	case Bvarref+5: n = opcode - Bvarref; goto do_varref;
+	case Bvarref+7: n = READ_UINT_2;      goto do_varref;
+	case Bvarref+6: n = READ_UINT_1; /* most common */
+	do_varref:
+	{
+	  Lisp_Object symbol = constants_data[n];
+	  Lisp_Object value = XSYMBOL (symbol)->value;
+	  if (SYMBOL_VALUE_MAGIC_P (value))
+	    value = Fsymbol_value (symbol);
+	  PUSH (value);
+	  break;
+	}
+
+	case Bvarset:
+	case Bvarset+1:
+	case Bvarset+2:
+	case Bvarset+3:
+	case Bvarset+4:
+	case Bvarset+5: n = opcode - Bvarset; goto do_varset;
+	case Bvarset+7: n = READ_UINT_2;      goto do_varset;
+	case Bvarset+6: n = READ_UINT_1; /* most common */
+	do_varset:
+	{
+	  Lisp_Object symbol = constants_data[n];
+	  struct Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
+	  Lisp_Object old_value = symbol_ptr->value;
+	  Lisp_Object new_value = POP;
+	  if (!SYMBOL_VALUE_MAGIC_P (old_value) || UNBOUNDP (old_value))
+	    symbol_ptr->value = new_value;
+	  else
+	    Fset (symbol, new_value);
+	  break;
+	}
+
+	case Bvarbind:
+	case Bvarbind+1:
+	case Bvarbind+2:
+	case Bvarbind+3:
+	case Bvarbind+4:
+	case Bvarbind+5: n = opcode - Bvarbind; goto do_varbind;
+	case Bvarbind+7: n = READ_UINT_2;       goto do_varbind;
+	case Bvarbind+6: n = READ_UINT_1; /* most common */
+	do_varbind:
+	{
+	  Lisp_Object symbol = constants_data[n];
+	  struct Lisp_Symbol *symbol_ptr = XSYMBOL (symbol);
+	  Lisp_Object old_value = symbol_ptr->value;
+	  Lisp_Object new_value = POP;
+	  if (!SYMBOL_VALUE_MAGIC_P (old_value) || UNBOUNDP (old_value))
 	    {
-	      v2 = XSYMBOL (v1)->value;
-	      if (SYMBOL_VALUE_MAGIC_P (v2))
-                v2 = Fsymbol_value (v1);
+	      specpdl_ptr->symbol    = symbol;
+	      specpdl_ptr->old_value = old_value;
+	      specpdl_ptr->func      = 0;
+	      specpdl_ptr++;
+	      specpdl_depth_counter++;
+
+	      symbol_ptr->value = new_value;
 	    }
-	  PUSH (v2);
+	  else
+	    specbind_magic (symbol, new_value);
 	  break;
+	}
 
-	case Bvarset+6:
-	  op = FETCH;
-	  goto varset;
-
-	case Bvarset+7:
-	  op = FETCH2;
-	  goto varset;
-
-	case Bvarset: case Bvarset+1: case Bvarset+2: case Bvarset+3:
-	case Bvarset+4: case Bvarset+5:
-	  op -= Bvarset;
-	varset:
-	  Fset (vectorp[op], POP);
-	  break;
-
-	case Bvarbind+6:
-	  op = FETCH;
-	  goto varbind;
-
-	case Bvarbind+7:
-	  op = FETCH2;
-	  goto varbind;
-
-	case Bvarbind: case Bvarbind+1: case Bvarbind+2: case Bvarbind+3:
-	case Bvarbind+4: case Bvarbind+5:
-	  op -= Bvarbind;
-	varbind:
-	  specbind (vectorp[op], POP);
-	  break;
-
+	case Bcall:
+	case Bcall+1:
+	case Bcall+2:
+	case Bcall+3:
+	case Bcall+4:
+	case Bcall+5:
 	case Bcall+6:
-	  op = FETCH;
-	  goto docall;
-
 	case Bcall+7:
-	  op = FETCH2;
-	  goto docall;
-
-	case Bcall: case Bcall+1: case Bcall+2: case Bcall+3:
-	case Bcall+4: case Bcall+5:
-	  op -= Bcall;
-	docall:
-	  DISCARD (op);
+	  n = (opcode <  Bcall+6 ? opcode - Bcall :
+	       opcode == Bcall+6 ? READ_UINT_1 : READ_UINT_2);
+	  DISCARD (n);
 #ifdef BYTE_CODE_METER
 	  if (byte_metering_on && SYMBOLP (TOP))
 	    {
-	      v1 = TOP;
-	      v2 = Fget (v1, Qbyte_code_meter, Qnil);
-	      if (INTP (v2)
-                  && XINT (v2) != ((1<<VALBITS)-1))
-		{
-		  XSETINT (v2, XINT (v2) + 1);
-		  Fput (v1, Qbyte_code_meter, v2);
-		}
+	      Lisp_Object val = Fget (TOP, Qbyte_code_meter, Qnil);
+	      if (INTP (val))
+		Fput (TOP, Qbyte_code_meter, make_int (XINT (val) + 1));
 	    }
-#endif /* BYTE_CODE_METER */
-	  TOP = Ffuncall (op + 1, &TOP);
+#endif
+	  TOP = Ffuncall (n + 1, &TOP);
 	  break;
 
+	case Bunbind:
+	case Bunbind+1:
+	case Bunbind+2:
+	case Bunbind+3:
+	case Bunbind+4:
+	case Bunbind+5:
 	case Bunbind+6:
-	  op = FETCH;
-	  goto dounbind;
-
 	case Bunbind+7:
-	  op = FETCH2;
-	  goto dounbind;
-
-	case Bunbind: case Bunbind+1: case Bunbind+2: case Bunbind+3:
-	case Bunbind+4: case Bunbind+5:
-	  op -= Bunbind;
-	dounbind:
-	  unbind_to (specpdl_depth () - op, Qnil);
+	  UNBIND_TO (specpdl_depth() -
+		     (opcode <  Bunbind+6 ? opcode-Bunbind :
+		      opcode == Bunbind+6 ? READ_UINT_1 : READ_UINT_2));
 	  break;
+
+	case Bgoto:
+	  JUMP;
+	  break;
+
+	case Bgotoifnil:
+	  if (NILP (POP))
+	    JUMP;
+	  else
+	    JUMP_NEXT;
+	  break;
+
+	case Bgotoifnonnil:
+	  if (!NILP (POP))
+	    JUMP;
+	  else
+	    JUMP_NEXT;
+	  break;
+
+	case Bgotoifnilelsepop:
+	  if (NILP (TOP))
+	    JUMP;
+	  else
+	    {
+	      DISCARD (1);
+	      JUMP_NEXT;
+	    }
+	  break;
+
+	case Bgotoifnonnilelsepop:
+	  if (!NILP (TOP))
+	    JUMP;
+	  else
+	    {
+	      DISCARD (1);
+	      JUMP_NEXT;
+	    }
+	  break;
+
+
+	case BRgoto:
+	  JUMPR;
+	  break;
+
+	case BRgotoifnil:
+	  if (NILP (POP))
+	    JUMPR;
+	  else
+	    JUMPR_NEXT;
+	  break;
+
+	case BRgotoifnonnil:
+	  if (!NILP (POP))
+	    JUMPR;
+	  else
+	    JUMPR_NEXT;
+	  break;
+
+	case BRgotoifnilelsepop:
+	  if (NILP (TOP))
+	    JUMPR;
+	  else
+	    {
+	      DISCARD (1);
+	      JUMPR_NEXT;
+	    }
+	  break;
+
+	case BRgotoifnonnilelsepop:
+	  if (!NILP (TOP))
+	    JUMPR;
+	  else
+	    {
+	      DISCARD (1);
+	      JUMPR_NEXT;
+	    }
+	  break;
+
+	case Breturn:
+	  UNGCPRO;
+#ifdef ERROR_CHECK_BYTE_CODE
+	  /* Binds and unbinds are supposed to be compiled balanced.  */
+	  if (specpdl_depth() != speccount)
+	    invalid_byte_code_error ("unbalanced specbinding stack");
+#endif
+	  return TOP;
+
+	case Bdiscard:
+	  DISCARD (1);
+	  break;
+
+	case Bdup:
+	  {
+	    Lisp_Object arg = TOP;
+	    PUSH (arg);
+	    break;
+	  }
+
+	case Bconstant2:
+	  PUSH (constants_data[READ_UINT_2]);
+	  break;
+
+	case Bcar:
+	  TOP = CONSP (TOP) ? XCAR (TOP) : Fcar (TOP);
+	  break;
+
+	case Bcdr:
+	  TOP = CONSP (TOP) ? XCDR (TOP) : Fcdr (TOP);
+	  break;
+
 
 	case Bunbind_all:
 	  /* To unbind back to the beginning of this frame.  Not used yet,
@@ -437,182 +879,12 @@ If the third argument is incorrect, Emacs may crash.
 	  unbind_to (speccount, Qnil);
 	  break;
 
-	case Bgoto:
-	  QUIT;
-	  op = FETCH2;    /* pc = FETCH2 loses since FETCH2 contains pc++ */
-	  pc = op;
-	  break;
-
-	case Bgotoifnil:
-	  op = FETCH2;
-	  if (NILP (POP))
-	    {
-	      QUIT;
-	      pc = op;
-	    }
-	  break;
-
-	case Bgotoifnonnil:
-	  op = FETCH2;
-	  if (!NILP (POP))
-	    {
-	      QUIT;
-	      pc = op;
-	    }
-	  break;
-
-	case Bgotoifnilelsepop:
-	  op = FETCH2;
-	  if (NILP (TOP))
-	    {
-	      QUIT;
-	      pc = op;
-	    }
-	  else DISCARD (1);
-	  break;
-
-	case Bgotoifnonnilelsepop:
-	  op = FETCH2;
-	  if (!NILP (TOP))
-	    {
-	      QUIT;
-	      pc = op;
-	    }
-	  else DISCARD (1);
-	  break;
-
-	case BRgoto:
-	  QUIT;
-	  pc += massaged_code[pc] - 127;
-	  break;
-
-	case BRgotoifnil:
-	  if (NILP (POP))
-	    {
-	      QUIT;
-	      pc += massaged_code[pc] - 128;
-	    }
-	  pc++;
-	  break;
-
-	case BRgotoifnonnil:
-	  if (!NILP (POP))
-	    {
-	      QUIT;
-	      pc += massaged_code[pc] - 128;
-	    }
-	  pc++;
-	  break;
-
-	case BRgotoifnilelsepop:
-	  op = FETCH;
-	  if (NILP (TOP))
-	    {
-	      QUIT;
-	      pc += op - 128;
-	    }
-	  else DISCARD (1);
-	  break;
-
-	case BRgotoifnonnilelsepop:
-	  op = FETCH;
-	  if (!NILP (TOP))
-	    {
-	      QUIT;
-	      pc += op - 128;
-	    }
-	  else DISCARD (1);
-	  break;
-
-	case Breturn:
-	  v1 = POP;
-	  goto exit;
-
-	case Bdiscard:
-	  DISCARD (1);
-	  break;
-
-	case Bdup:
-	  v1 = TOP;
-	  PUSH (v1);
-	  break;
-
-	case Bconstant2:
-	  PUSH (vectorp[FETCH2]);
-	  break;
-
-	case Bsave_excursion:
-	  record_unwind_protect (save_excursion_restore,
-				 save_excursion_save ());
-	  break;
-
-	case Bsave_window_excursion:
-          {
-            int count = specpdl_depth ();
-            record_unwind_protect (save_window_excursion_unwind,
-                                   Fcurrent_window_configuration (Qnil));
-            TOP = Fprogn (TOP);
-            unbind_to (count, Qnil);
-            break;
-          }
-
-	case Bsave_restriction:
-	  record_unwind_protect (save_restriction_restore,
-				 save_restriction_save ());
-	  break;
-
-	case Bcatch:
-	  v1 = POP;
-	  TOP = internal_catch (TOP, Feval, v1, 0);
-	  break;
-
-	case Bunwind_protect:
-	  record_unwind_protect (Fprogn, POP);
-	  break;
-
-	case Bcondition_case:
-          v1 = POP;           /* handlers */
-          v2 = POP;           /* bodyform */
-          TOP = condition_case_3 (v2, TOP, v1);
-	  break;
-
-	case Btemp_output_buffer_setup:
-	  temp_output_buffer_setup ((char *) XSTRING_DATA (TOP));
-	  TOP = Vstandard_output;
-	  break;
-
-	case Btemp_output_buffer_show:
-	  v1 = POP;
-	  temp_output_buffer_show (TOP, Qnil);
-	  TOP = v1;
-          /* GAG ME!! */
-	  /* pop binding of standard-output */
-	  unbind_to (specpdl_depth() - 1, Qnil);
-	  break;
-
 	case Bnth:
-	  v1 = POP;
-	  v2 = TOP;
-	/* nth_entry: */
-	  CHECK_NATNUM (v2);
-	  for (op = XINT (v2); op; op--)
-	    {
-	      if (CONSP (v1))
-		v1 = XCDR (v1);
-	      else if (NILP (v1))
-		{
-		  TOP = Qnil;
-		  goto Bnth_done;
-		}
-	      else
-		{
-		  v1 = wrong_type_argument (Qlistp, v1);
-		  op++;
-		}
-	    }
-	  goto docar;
-	Bnth_done:
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fcar (Fnthcdr (TOP, arg));
+	    break;
+	  }
 
 	case Bsymbolp:
 	  TOP = SYMBOLP (TOP) ? Qt : Qnil;
@@ -630,97 +902,87 @@ If the third argument is incorrect, Emacs may crash.
 	  TOP = LISTP (TOP) ? Qt : Qnil;
 	  break;
 
+	case Bnumberp:
+	  TOP = INT_OR_FLOATP (TOP) ? Qt : Qnil;
+	  break;
+
+	case Bintegerp:
+	  TOP = INTP (TOP) ? Qt : Qnil;
+	  break;
+
 	case Beq:
-	  v1 = POP;
-	  TOP = EQ_WITH_EBOLA_NOTICE (v1, TOP) ? Qt : Qnil;
-	  break;
-
-	case Bold_eq:
-	  v1 = POP;
-	  TOP = HACKEQ_UNSAFE (v1, TOP) ? Qt : Qnil;
-	  break;
-
-	case Bmemq:
-	  v1 = POP;
-	  TOP = Fmemq (TOP, v1);
-	  break;
-
-	case Bold_memq:
-	  v1 = POP;
-	  TOP = Fold_memq (TOP, v1);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = EQ_WITH_EBOLA_NOTICE (TOP, arg) ? Qt : Qnil;
+	    break;
+	  }
 
 	case Bnot:
 	  TOP = NILP (TOP) ? Qt : Qnil;
 	  break;
 
-	case Bcar:
-	  v1 = TOP;
-	docar:
-	  if (CONSP (v1)) TOP = XCAR (v1);
-	  else if (NILP (v1)) TOP = Qnil;
-	  else
-	    {
-	      TOP = wrong_type_argument (Qlistp, v1);
-	      goto docar;
-	    }
-	  break;
-
-	case Bcdr:
-	  v1 = TOP;
-	docdr:
-	  if (CONSP (v1)) TOP = XCDR (v1);
-	  else if (NILP (v1)) TOP = Qnil;
-	  else
-	    {
-	      TOP = wrong_type_argument (Qlistp, v1);
-	      goto docdr;
-	    }
-	  break;
-
 	case Bcons:
-	  v1 = POP;
-	  TOP = Fcons (TOP, v1);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fcons (TOP, arg);
+	    break;
+	  }
 
 	case Blist1:
 	  TOP = Fcons (TOP, Qnil);
 	  break;
 
-	case Blist2:
-	  v1 = POP;
-	  TOP = Fcons (TOP, Fcons (v1, Qnil));
-	  break;
-
-	case Blist3:
-	  DISCARD (2);
-	  TOP = Flist (3, &TOP);
-	  break;
-
-	case Blist4:
-	  DISCARD (3);
-	  TOP = Flist (4, &TOP);
-	  break;
 
 	case BlistN:
-	  op = FETCH;
-	  DISCARD (op - 1);
-	  TOP = Flist (op, &TOP);
+	  n = READ_UINT_1;
+	  goto do_list;
+
+	case Blist2:
+	case Blist3:
+	case Blist4:
+	  /* common case */
+	  n = opcode - (Blist1 - 1);
+	do_list:
+	  {
+	    Lisp_Object list = Qnil;
+	  list_loop:
+	    list = Fcons (TOP, list);
+	    if (--n)
+	      {
+		DISCARD (1);
+		goto list_loop;
+	      }
+	    TOP = list;
+	    break;
+	  }
+
+
+	case Bconcat2:
+	case Bconcat3:
+	case Bconcat4:
+	  n = opcode - (Bconcat2 - 2);
+	  goto do_concat;
+
+	case BconcatN:
+	  /* common case */
+	  n = READ_UINT_1;
+	do_concat:
+	  DISCARD (n - 1);
+	  TOP = Fconcat (n, &TOP);
 	  break;
+
 
 	case Blength:
 	  TOP = Flength (TOP);
 	  break;
 
-	case Baref:
-    	  v1 = POP;
-	  TOP = Faref (TOP, v1);
-	  break;
-
 	case Baset:
-	  v2 = POP; v1 = POP;
-	  TOP = Faset (TOP, v1, v2);
-	  break;
+	  {
+	    Lisp_Object arg2 = POP;
+	    Lisp_Object arg1 = POP;
+	    TOP = Faset (TOP, arg1, arg2);
+	    break;
+	  }
 
 	case Bsymbol_value:
 	  TOP = Fsymbol_value (TOP);
@@ -730,158 +992,99 @@ If the third argument is incorrect, Emacs may crash.
 	  TOP = Fsymbol_function (TOP);
 	  break;
 
-	case Bset:
-	  v1 = POP;
-	  TOP = Fset (TOP, v1);
-	  break;
-
-	case Bfset:
-	  v1 = POP;
-	  TOP = Ffset (TOP, v1);
-	  break;
-
 	case Bget:
-	  v1 = POP;
-	  TOP = Fget (TOP, v1, Qnil);
-	  break;
-
-	case Bsubstring:
-	  v2 = POP; v1 = POP;
-	  TOP = Fsubstring (TOP, v1, v2);
-	  break;
-
-	case Bconcat2:
-	  DISCARD (1);
-	  TOP = Fconcat (2, &TOP);
-	  break;
-
-	case Bconcat3:
-	  DISCARD (2);
-	  TOP = Fconcat (3, &TOP);
-	  break;
-
-	case Bconcat4:
-	  DISCARD (3);
-	  TOP = Fconcat (4, &TOP);
-	  break;
-
-	case BconcatN:
-	  op = FETCH;
-	  DISCARD (op - 1);
-	  TOP = Fconcat (op, &TOP);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fget (TOP, arg, Qnil);
+	    break;
+	  }
 
 	case Bsub1:
-	  v1 = TOP;
-	  if (INTP (v1))
-	    {
-	      XSETINT (v1, XINT (v1) - 1);
-	      TOP = v1;
-	    }
-	  else
-	    TOP = Fsub1 (v1);
+	  TOP = INTP (TOP) ? make_int (XINT (TOP) - 1) : Fsub1 (TOP);
 	  break;
 
 	case Badd1:
-	  v1 = TOP;
-	  if (INTP (v1))
-	    {
-	      XSETINT (v1, XINT (v1) + 1);
-	      TOP = v1;
-	    }
-	  else
-	    TOP = Fadd1 (v1);
+	  TOP = INTP (TOP) ? make_int (XINT (TOP) + 1) : Fadd1 (TOP);
 	  break;
+
 
 	case Beqlsign:
-	  v2 = POP; v1 = TOP;
-	  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (v1);
-	  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (v2);
-#ifdef LISP_FLOAT_TYPE
-	  if (FLOATP (v1) || FLOATP (v2))
-	    {
-	      double f1 = (FLOATP (v1) ? float_data (XFLOAT (v1)) : XINT (v1));
-	      double f2 = (FLOATP (v2) ? float_data (XFLOAT (v2)) : XINT (v2));
-	      TOP = (f1 == f2 ? Qt : Qnil);
-	    }
-	  else
-#endif /* LISP_FLOAT_TYPE */
-	    TOP = (XINT (v1) == XINT (v2) ? Qt : Qnil);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithcompare (TOP, arg) == 0 ? Qt : Qnil;
+	    break;
+	  }
 
 	case Bgtr:
-	  v1 = POP;
-	  TOP = arithcompare (TOP, v1, arith_grtr);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithcompare (TOP, arg) > 0 ? Qt : Qnil;
+	    break;
+	  }
 
 	case Blss:
-	  v1 = POP;
-	  TOP = arithcompare (TOP, v1, arith_less);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithcompare (TOP, arg) < 0 ? Qt : Qnil;
+	    break;
+	  }
 
 	case Bleq:
-	  v1 = POP;
-	  TOP = arithcompare (TOP, v1, arith_less_or_equal);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithcompare (TOP, arg) <= 0 ? Qt : Qnil;
+	    break;
+	  }
 
 	case Bgeq:
-	  v1 = POP;
-	  TOP = arithcompare (TOP, v1, arith_grtr_or_equal);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithcompare (TOP, arg) >= 0 ? Qt : Qnil;
+	    break;
+	  }
 
-	case Bdiff:
-	  DISCARD (1);
-	  TOP = Fminus (2, &TOP);
-	  break;
 
 	case Bnegate:
-	  v1 = TOP;
-	  if (INTP (v1))
-	    {
-	      XSETINT (v1, - XINT (v1));
-	      TOP = v1;
-	    }
-	  else
-	    TOP = Fminus (1, &TOP);
+	  TOP = bytecode_negate (TOP);
+	  break;
+
+	case Bnconc:
+	  DISCARD (1);
+	  TOP = bytecode_nconc2 (&TOP);
 	  break;
 
 	case Bplus:
-	  DISCARD (1);
-	  TOP = Fplus (2, &TOP);
-	  break;
+	  {
+	    Lisp_Object arg2 = POP;
+	    Lisp_Object arg1 = TOP;
+	    TOP = INTP (arg1) && INTP (arg2) ?
+	      make_int (XINT (arg1) + XINT (arg2)) :
+	      bytecode_arithop (arg1, arg2, opcode);
+	    break;
+	  }
 
-	case Bmax:
-	  DISCARD (1);
-	  TOP = Fmax (2, &TOP);
-	  break;
-
-	case Bmin:
-	  DISCARD (1);
-	  TOP = Fmin (2, &TOP);
-	  break;
+	case Bdiff:
+	  {
+	    Lisp_Object arg2 = POP;
+	    Lisp_Object arg1 = TOP;
+	    TOP = INTP (arg1) && INTP (arg2) ?
+	      make_int (XINT (arg1) - XINT (arg2)) :
+	      bytecode_arithop (arg1, arg2, opcode);
+	    break;
+	  }
 
 	case Bmult:
-	  DISCARD (1);
-	  TOP = Ftimes (2, &TOP);
-	  break;
-
 	case Bquo:
-	  DISCARD (1);
-	  TOP = Fquo (2, &TOP);
-	  break;
-
-	case Brem:
-	  v1 = POP;
-	  TOP = Frem (TOP, v1);
-	  break;
+	case Bmax:
+	case Bmin:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = bytecode_arithop (TOP, arg, opcode);
+	    break;
+	  }
 
 	case Bpoint:
-	  v1 = make_int (BUF_PT (current_buffer));
-	  PUSH (v1);
-	  break;
-
-	case Bgoto_char:
-	  TOP = Fgoto_char (TOP, Qnil);
+	  PUSH (make_int (BUF_PT (current_buffer)));
 	  break;
 
 	case Binsert:
@@ -889,303 +1092,1339 @@ If the third argument is incorrect, Emacs may crash.
 	  break;
 
 	case BinsertN:
-	  op = FETCH;
-	  DISCARD (op - 1);
-	  TOP = Finsert (op, &TOP);
+	  n = READ_UINT_1;
+	  DISCARD (n - 1);
+	  TOP = Finsert (n, &TOP);
 	  break;
 
-	case Bpoint_max:
-	  v1 = make_int (BUF_ZV (current_buffer));
-	  PUSH (v1);
-	  break;
+	case Baref:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Faref (TOP, arg);
+	    break;
+	  }
 
-	case Bpoint_min:
-	  v1 = make_int (BUF_BEGV (current_buffer));
-	  PUSH (v1);
-	  break;
+	case Bmemq:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fmemq (TOP, arg);
+	    break;
+	  }
 
-	case Bchar_after:
-	  TOP = Fchar_after (TOP, Qnil);
-	  break;
 
-	case Bfollowing_char:
-	  v1 = Ffollowing_char (Qnil);
-	  PUSH (v1);
-	  break;
+	case Bset:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fset (TOP, arg);
+	    break;
+	  }
 
-	case Bpreceding_char:
-	  v1 = Fpreceding_char (Qnil);
-	  PUSH (v1);
-	  break;
+	case Bequal:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fequal (TOP, arg);
+	    break;
+	  }
 
-	case Bcurrent_column:
-	  v1 = make_int (current_column (current_buffer));
-	  PUSH (v1);
-	  break;
+	case Bnthcdr:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fnthcdr (TOP, arg);
+	    break;
+	  }
 
-	case Bindent_to:
-	  TOP = Findent_to (TOP, Qnil, Qnil);
-	  break;
+	case Belt:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Felt (TOP, arg);
+	    break;
+	  }
 
-	case Beolp:
-	  PUSH (Feolp (Qnil));
-	  break;
+	case Bmember:
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fmember (TOP, arg);
+	    break;
+	  }
 
-	case Beobp:
-	  PUSH (Feobp (Qnil));
-	  break;
-
-	case Bbolp:
-	  PUSH (Fbolp (Qnil));
-	  break;
-
-	case Bbobp:
-	  PUSH (Fbobp (Qnil));
+	case Bgoto_char:
+	  TOP = Fgoto_char (TOP, Qnil);
 	  break;
 
 	case Bcurrent_buffer:
-	  PUSH (Fcurrent_buffer ());
-	  break;
+	  {
+	    Lisp_Object buffer;
+	    XSETBUFFER (buffer, current_buffer);
+	    PUSH (buffer);
+	    break;
+	  }
 
 	case Bset_buffer:
 	  TOP = Fset_buffer (TOP);
 	  break;
 
-	case Bsave_current_buffer:
-	  record_unwind_protect (save_current_buffer_restore,
-				 Fcurrent_buffer ());
+	case Bpoint_max:
+	  PUSH (make_int (BUF_ZV (current_buffer)));
 	  break;
 
-	case Binteractive_p:
-	  PUSH (Finteractive_p ());
-	  break;
-
-	case Bforward_char:
-	  TOP = Fforward_char (TOP, Qnil);
-	  break;
-
-	case Bforward_word:
-	  TOP = Fforward_word (TOP, Qnil);
+	case Bpoint_min:
+	  PUSH (make_int (BUF_BEGV (current_buffer)));
 	  break;
 
 	case Bskip_chars_forward:
-	  v1 = POP;
-	  TOP = Fskip_chars_forward (TOP, v1, Qnil);
-	  break;
-
-	case Bskip_chars_backward:
-	  v1 = POP;
-	  TOP = Fskip_chars_backward (TOP, v1, Qnil);
-	  break;
-
-	case Bforward_line:
-	  TOP = Fforward_line (TOP, Qnil);
-	  break;
-
-	case Bchar_syntax:
-#if 0
-	  CHECK_CHAR_COERCE_INT (TOP);
-	  TOP = make_char (syntax_code_spec
-			   [(int) SYNTAX
-			    (XCHAR_TABLE
-			     (current_buffer->mirror_syntax_table),
-			     XCHAR (TOP))]);
-#endif
-	  /*v1 = POP;*/
-	  TOP = Fchar_syntax(TOP, Qnil);
-	  break;
-
-	case Bbuffer_substring:
-	  v1 = POP;
-	  TOP = Fbuffer_substring (TOP, v1, Qnil);
-	  break;
-
-	case Bdelete_region:
-	  v1 = POP;
-	  TOP = Fdelete_region (TOP, v1, Qnil);
-	  break;
-
-	case Bnarrow_to_region:
-	  v1 = POP;
-	  TOP = Fnarrow_to_region (TOP, v1, Qnil);
-	  break;
-
-	case Bwiden:
-	  PUSH (Fwiden (Qnil));
-	  break;
-
-	case Bend_of_line:
-	  TOP = Fend_of_line (TOP, Qnil);
-	  break;
-
-	case Bset_marker:
-	  v1 = POP;
-	  v2 = POP;
-	  TOP = Fset_marker (TOP, v2, v1);
-	  break;
-
-	case Bmatch_beginning:
-	  TOP = Fmatch_beginning (TOP);
-	  break;
-
-	case Bmatch_end:
-	  TOP = Fmatch_end (TOP);
-	  break;
-
-	case Bupcase:
-	  TOP = Fupcase (TOP, Qnil);
-	  break;
-
-	case Bdowncase:
-	  TOP = Fdowncase (TOP, Qnil);
-	break;
-
-	case Bstringeqlsign:
-	  v1 = POP;
-	  TOP = Fstring_equal (TOP, v1);
-	  break;
-
-	case Bstringlss:
-	  v1 = POP;
-	  TOP = Fstring_lessp (TOP, v1);
-	  break;
-
-	case Bequal:
-	  v1 = POP;
-	  TOP = Fequal (TOP, v1);
-	  break;
-
-	case Bold_equal:
-	  v1 = POP;
-	  TOP = Fold_equal (TOP, v1);
-	  break;
-
-	case Bnthcdr:
-	  v1 = POP;
-	  v2 = TOP;
-	  CHECK_NATNUM (v2);
-	  for (op = XINT (v2); op; op--)
-	    {
-	      if (CONSP (v1))
-		v1 = XCDR (v1);
-	      else if (NILP (v1))
-		break;
-	      else
-		{
-		  v1 = wrong_type_argument (Qlistp, v1);
-		  op++;
-		}
-	    }
-	  TOP = v1;
-	  break;
-
-	case Belt:
-#if 0
-	  /* probably this code is OK, but nth_entry is commented
-	     out above --ben */
-	  /* #### will not work if cons type is an lrecord. */
-	  if (XTYPE (TOP) == Lisp_Type_Cons)
-	    {
-	      /* Exchange args and then do nth.  */
-	      v2 = POP;
-	      v1 = TOP;
-	      goto nth_entry;
-	    }
-#endif
-	  v1 = POP;
-	  TOP = Felt (TOP, v1);
-	  break;
-
-	case Bmember:
-	  v1 = POP;
-	  TOP = Fmember (TOP, v1);
-	  break;
-
-	case Bold_member:
-	  v1 = POP;
-	  TOP = Fold_member (TOP, v1);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fskip_chars_forward (TOP, arg, Qnil);
+	    break;
+	  }
 
 	case Bassq:
-	  v1 = POP;
-	  TOP = Fassq (TOP, v1);
-	  break;
-
-	case Bold_assq:
-	  v1 = POP;
-	  TOP = Fold_assq (TOP, v1);
-	  break;
-
-	case Bnreverse:
-	  TOP = Fnreverse (TOP);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fassq (TOP, arg);
+	    break;
+	  }
 
 	case Bsetcar:
-	  v1 = POP;
-	  TOP = Fsetcar (TOP, v1);
-	  break;
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fsetcar (TOP, arg);
+	    break;
+	  }
 
 	case Bsetcdr:
-	  v1 = POP;
-	  TOP = Fsetcdr (TOP, v1);
+	  {
+	    Lisp_Object arg = POP;
+	    TOP = Fsetcdr (TOP, arg);
+	    break;
+	  }
+
+	case Bnreverse:
+	  TOP = bytecode_nreverse (TOP);
 	  break;
 
 	case Bcar_safe:
-	  v1 = TOP;
-	  if (CONSP (v1))
-	    TOP = XCAR (v1);
-	  else
-	    TOP = Qnil;
+	  TOP = CONSP (TOP) ? XCAR (TOP) : Qnil;
 	  break;
 
 	case Bcdr_safe:
-	  v1 = TOP;
-	  if (CONSP (v1))
-	    TOP = XCDR (v1);
+	  TOP = CONSP (TOP) ? XCDR (TOP) : Qnil;
+	  break;
+
+	}
+    }
+}
+
+/* It makes a worthwhile performance difference (5%) to shunt
+   lesser-used opcodes off to a subroutine, to keep the switch in
+   execute_optimized_program small.  If you REALLY care about
+   performance, you want to keep your heavily executed code away from
+   rarely executed code, to minimize cache misses.
+
+   Don't make this function static, since then the compiler might inline it. */
+Lisp_Object *
+execute_rare_opcode (Lisp_Object *stack_ptr,
+		     CONST Opbyte *program_ptr,
+		     Opcode opcode)
+{
+  switch (opcode)
+    {
+
+    case Bsave_excursion:
+      record_unwind_protect (save_excursion_restore,
+			     save_excursion_save ());
+      break;
+
+    case Bsave_window_excursion:
+      {
+	int count = specpdl_depth ();
+	record_unwind_protect (save_window_excursion_unwind,
+			       Fcurrent_window_configuration (Qnil));
+	TOP = Fprogn (TOP);
+	unbind_to (count, Qnil);
+	break;
+      }
+
+    case Bsave_restriction:
+      record_unwind_protect (save_restriction_restore,
+			     save_restriction_save ());
+      break;
+
+    case Bcatch:
+      {
+	Lisp_Object arg = POP;
+	TOP = internal_catch (TOP, Feval, arg, 0);
+	break;
+      }
+
+    case Bskip_chars_backward:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fskip_chars_backward (TOP, arg, Qnil);
+	break;
+      }
+
+    case Bunwind_protect:
+      record_unwind_protect (Fprogn, POP);
+      break;
+
+    case Bcondition_case:
+      {
+	Lisp_Object arg2 = POP; /* handlers */
+	Lisp_Object arg1 = POP; /* bodyform */
+	TOP = condition_case_3 (arg1, TOP, arg2);
+	break;
+      }
+
+    case Bset_marker:
+      {
+	Lisp_Object arg2 = POP;
+	Lisp_Object arg1 = POP;
+	TOP = Fset_marker (TOP, arg1, arg2);
+	break;
+      }
+
+    case Brem:
+      {
+	Lisp_Object arg = POP;
+	TOP = Frem (TOP, arg);
+	break;
+      }
+
+    case Bmatch_beginning:
+      TOP = Fmatch_beginning (TOP);
+      break;
+
+    case Bmatch_end:
+      TOP = Fmatch_end (TOP);
+      break;
+
+    case Bupcase:
+      TOP = Fupcase (TOP, Qnil);
+      break;
+
+    case Bdowncase:
+      TOP = Fdowncase (TOP, Qnil);
+      break;
+
+    case Bfset:
+      {
+	Lisp_Object arg = POP;
+	TOP = Ffset (TOP, arg);
+	break;
+      }
+
+    case Bstring_equal:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fstring_equal (TOP, arg);
+	break;
+      }
+
+    case Bstring_lessp:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fstring_lessp (TOP, arg);
+	break;
+      }
+
+    case Bsubstring:
+      {
+	Lisp_Object arg2 = POP;
+	Lisp_Object arg1 = POP;
+	TOP = Fsubstring (TOP, arg1, arg2);
+	break;
+      }
+
+    case Bcurrent_column:
+      PUSH (make_int (current_column (current_buffer)));
+      break;
+
+    case Bchar_after:
+      TOP = Fchar_after (TOP, Qnil);
+      break;
+
+    case Bindent_to:
+      TOP = Findent_to (TOP, Qnil, Qnil);
+      break;
+
+    case Bwiden:
+      PUSH (Fwiden (Qnil));
+      break;
+
+    case Bfollowing_char:
+      PUSH (Ffollowing_char (Qnil));
+      break;
+
+    case Bpreceding_char:
+      PUSH (Fpreceding_char (Qnil));
+      break;
+
+    case Beolp:
+      PUSH (Feolp (Qnil));
+      break;
+
+    case Beobp:
+      PUSH (Feobp (Qnil));
+      break;
+
+    case Bbolp:
+      PUSH (Fbolp (Qnil));
+      break;
+
+    case Bbobp:
+      PUSH (Fbobp (Qnil));
+      break;
+
+    case Bsave_current_buffer:
+      record_unwind_protect (save_current_buffer_restore,
+			     Fcurrent_buffer ());
+      break;
+
+    case Binteractive_p:
+      PUSH (Finteractive_p ());
+      break;
+
+    case Bforward_char:
+      TOP = Fforward_char (TOP, Qnil);
+      break;
+
+    case Bforward_word:
+      TOP = Fforward_word (TOP, Qnil);
+      break;
+
+    case Bforward_line:
+      TOP = Fforward_line (TOP, Qnil);
+      break;
+
+    case Bchar_syntax:
+      TOP = Fchar_syntax (TOP, Qnil);
+      break;
+
+    case Bbuffer_substring:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fbuffer_substring (TOP, arg, Qnil);
+	break;
+      }
+
+    case Bdelete_region:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fdelete_region (TOP, arg, Qnil);
+	break;
+      }
+
+    case Bnarrow_to_region:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fnarrow_to_region (TOP, arg, Qnil);
+	break;
+      }
+
+    case Bend_of_line:
+      TOP = Fend_of_line (TOP, Qnil);
+      break;
+
+    case Btemp_output_buffer_setup:
+      temp_output_buffer_setup (TOP);
+      TOP = Vstandard_output;
+      break;
+
+    case Btemp_output_buffer_show:
+      {
+	Lisp_Object arg = POP;
+	temp_output_buffer_show (TOP, Qnil);
+	TOP = arg;
+	/* GAG ME!! */
+	/* pop binding of standard-output */
+	unbind_to (specpdl_depth() - 1, Qnil);
+	break;
+      }
+
+    case Bold_eq:
+      {
+	Lisp_Object arg = POP;
+	TOP = HACKEQ_UNSAFE (TOP, arg) ? Qt : Qnil;
+	break;
+      }
+
+    case Bold_memq:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fold_memq (TOP, arg);
+	break;
+      }
+
+    case Bold_equal:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fold_equal (TOP, arg);
+	break;
+      }
+
+    case Bold_member:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fold_member (TOP, arg);
+	break;
+      }
+
+    case Bold_assq:
+      {
+	Lisp_Object arg = POP;
+	TOP = Fold_assq (TOP, arg);
+	break;
+      }
+
+    default:
+      abort();
+      break;
+    }
+  return stack_ptr;
+}
+
+
+static void
+invalid_byte_code_error (char *error_message, ...)
+{
+  Lisp_Object obj;
+  va_list args;
+  char *buf = alloca_array (char, strlen (error_message) + 128);
+
+  sprintf (buf, "%s", error_message);
+  va_start (args, error_message);
+  obj = emacs_doprnt_string_va ((CONST Bufbyte *) GETTEXT (buf), Qnil, -1,
+				args);
+  va_end (args);
+
+  signal_error (Qinvalid_byte_code, list1 (obj));
+}
+
+/* Check for valid opcodes.  Change this when adding new opcodes.  */
+static void
+check_opcode (Opcode opcode)
+{
+  if ((opcode < Bvarref) ||
+      (opcode == 0251)   ||
+      (opcode > Bassq && opcode < Bconstant))
+    invalid_byte_code_error
+      ("invalid opcode %d in instruction stream", opcode);
+}
+
+/* Check that IDX is a valid offset into the `constants' vector */
+static void
+check_constants_index (int idx, Lisp_Object constants)
+{
+  if (idx < 0 || idx >= XVECTOR_LENGTH (constants))
+    invalid_byte_code_error
+      ("reference %d to constants array out of range 0, %d",
+       idx, XVECTOR_LENGTH (constants) - 1);
+}
+
+/* Get next character from Lisp instructions string. */
+#define READ_INSTRUCTION_CHAR(lvalue) do {		\
+  (lvalue) = charptr_emchar (ptr);			\
+  INC_CHARPTR (ptr);					\
+  *icounts_ptr++ = program_ptr - program;		\
+  if (lvalue > UCHAR_MAX)				\
+    invalid_byte_code_error				\
+      ("Invalid character %c in byte code string");	\
+} while (0)
+
+/* Get opcode from Lisp instructions string. */
+#define READ_OPCODE do {		\
+  unsigned int c;			\
+  READ_INSTRUCTION_CHAR (c);		\
+  opcode = (Opcode) c;			\
+} while (0)
+
+/* Get next operand, a uint8, from Lisp instructions string. */
+#define READ_OPERAND_1 do {		\
+  READ_INSTRUCTION_CHAR (arg);		\
+  argsize = 1;				\
+} while (0)
+
+/* Get next operand, a uint16, from Lisp instructions string. */
+#define READ_OPERAND_2 do {		\
+  unsigned int arg1, arg2;		\
+  READ_INSTRUCTION_CHAR (arg1);		\
+  READ_INSTRUCTION_CHAR (arg2);		\
+  arg = arg1 + (arg2 << 8);		\
+  argsize = 2;				\
+} while (0)
+
+/* Write 1 byte to PTR, incrementing PTR */
+#define WRITE_INT8(value, ptr) do {	\
+  *((ptr)++) = (value);			\
+} while (0)
+
+/* Write 2 bytes to PTR, incrementing PTR */
+#define WRITE_INT16(value, ptr) do {			\
+  WRITE_INT8 (((unsigned) (value)) & 0x00ff, (ptr));	\
+  WRITE_INT8 (((unsigned) (value)) >> 8    , (ptr));	\
+} while (0)
+
+/* We've changed our minds about the opcode we've already written. */
+#define REWRITE_OPCODE(new_opcode) ((void) (program_ptr[-1] = new_opcode))
+
+/* Encode an op arg within the opcode, or as a 1 or 2-byte operand. */
+#define WRITE_NARGS(base_opcode) do {		\
+  if (arg <= 5)					\
+    {						\
+      REWRITE_OPCODE (base_opcode + arg);	\
+    }						\
+  else if (arg <= UCHAR_MAX)			\
+    {						\
+      REWRITE_OPCODE (base_opcode + 6);		\
+      WRITE_INT8 (arg, program_ptr);		\
+    }						\
+  else						\
+    {						\
+      REWRITE_OPCODE (base_opcode + 7);		\
+      WRITE_INT16 (arg, program_ptr);		\
+    }						\
+} while (0)
+
+/* Encode a constants reference within the opcode, or as a 2-byte operand. */
+#define WRITE_CONSTANT do {			\
+  check_constants_index(arg, constants);	\
+  if (arg <= UCHAR_MAX - Bconstant)		\
+    {						\
+      REWRITE_OPCODE (Bconstant + arg);		\
+    }						\
+  else						\
+    {						\
+      REWRITE_OPCODE (Bconstant2);		\
+      WRITE_INT16 (arg, program_ptr);		\
+    }						\
+} while (0)
+
+#define WRITE_OPCODE WRITE_INT8 (opcode, program_ptr)
+
+/* Compile byte code instructions into free space provided by caller, with
+   size >= (2 * string_char_length (instructions) + 1) * sizeof (Opbyte).
+   Returns length of compiled code. */
+static void
+optimize_byte_code (/* in */
+		    Lisp_Object instructions,
+		    Lisp_Object constants,
+		    /* out */
+		    Opbyte * CONST program,
+		    int * CONST program_length,
+		    int * CONST varbind_count)
+{
+  size_t instructions_length = XSTRING_LENGTH (instructions);
+  size_t comfy_size = 2 * instructions_length;
+
+  int * CONST icounts = alloca_array (int, comfy_size);
+  int * icounts_ptr = icounts;
+
+  /* We maintain a table of jumps in the source code. */
+  struct jump
+  {
+    int from;
+    int to;
+  };
+  struct jump * CONST jumps = alloca_array (struct jump, comfy_size);
+  struct jump *jumps_ptr = jumps;
+
+  Opbyte *program_ptr = program;
+
+  CONST Bufbyte *ptr = XSTRING_DATA (instructions);
+  CONST Bufbyte * CONST end = ptr + instructions_length;
+
+  *varbind_count = 0;
+
+  while (ptr < end)
+    {
+      Opcode opcode;
+      int arg;
+      int argsize = 0;
+      READ_OPCODE;
+      WRITE_OPCODE;
+
+      switch (opcode)
+	{
+	  Lisp_Object val;
+
+	case Bvarref+7: READ_OPERAND_2; goto do_varref;
+	case Bvarref+6: READ_OPERAND_1; goto do_varref;
+	case Bvarref:   case Bvarref+1: case Bvarref+2:
+	case Bvarref+3: case Bvarref+4: case Bvarref+5:
+	  arg = opcode - Bvarref;
+	do_varref:
+	  check_constants_index (arg, constants);
+	   val = XVECTOR_DATA (constants) [arg];
+	   if (!SYMBOLP (val))
+	     invalid_byte_code_error ("variable reference to non-symbol %S", val);
+	   if (EQ (val, Qnil) || EQ (val, Qt) || (SYMBOL_IS_KEYWORD (val)))
+	     invalid_byte_code_error ("variable reference to constant symbol %s",
+				      string_data (XSYMBOL (val)->name));
+	   WRITE_NARGS (Bvarref);
+	   break;
+
+	case Bvarset+7: READ_OPERAND_2; goto do_varset;
+	case Bvarset+6: READ_OPERAND_1; goto do_varset;
+	case Bvarset:   case Bvarset+1: case Bvarset+2:
+	case Bvarset+3: case Bvarset+4: case Bvarset+5:
+	  arg = opcode - Bvarset;
+	do_varset:
+	  check_constants_index (arg, constants);
+	  val = XVECTOR_DATA (constants) [arg];
+	  if (!SYMBOLP (val))
+	    invalid_byte_code_error ("attempt to set non-symbol %S", val);
+	  if (EQ (val, Qnil) || EQ (val, Qt))
+	    invalid_byte_code_error ("attempt to set constant symbol %s",
+				     string_data (XSYMBOL (val)->name));
+	  /* Ignore assignments to keywords by converting to Bdiscard.
+	     For backward compatibility only - we'd like to make this an error.  */
+	  if (SYMBOL_IS_KEYWORD (val))
+	    REWRITE_OPCODE (Bdiscard);
 	  else
-	    TOP = Qnil;
+	    WRITE_NARGS (Bvarset);
 	  break;
 
-	case Bnconc:
-	  DISCARD (1);
-	  TOP = Fnconc (2, &TOP);
+	case Bvarbind+7: READ_OPERAND_2; goto do_varbind;
+	case Bvarbind+6: READ_OPERAND_1; goto do_varbind;
+	case Bvarbind:   case Bvarbind+1: case Bvarbind+2:
+	case Bvarbind+3: case Bvarbind+4: case Bvarbind+5:
+	  arg = opcode - Bvarbind;
+	do_varbind:
+	  (*varbind_count)++;
+	  check_constants_index (arg, constants);
+	  val = XVECTOR_DATA (constants) [arg];
+	  if (!SYMBOLP (val))
+	    invalid_byte_code_error ("attempt to let-bind non-symbol %S", val);
+	  if (EQ (val, Qnil) || EQ (val, Qt) || (SYMBOL_IS_KEYWORD (val)))
+	    invalid_byte_code_error ("attempt to let-bind constant symbol %s",
+				     string_data (XSYMBOL (val)->name));
+	  WRITE_NARGS (Bvarbind);
 	  break;
 
-	case Bnumberp:
-	  TOP = INT_OR_FLOATP (TOP) ? Qt : Qnil;
+	case Bcall+7: READ_OPERAND_2; goto do_call;
+	case Bcall+6: READ_OPERAND_1; goto do_call;
+	case Bcall:   case Bcall+1: case Bcall+2:
+	case Bcall+3: case Bcall+4: case Bcall+5:
+	  arg = opcode - Bcall;
+	do_call:
+	  WRITE_NARGS (Bcall);
 	  break;
 
-	case Bintegerp:
-	  TOP = INTP (TOP) ? Qt : Qnil;
+	case Bunbind+7: READ_OPERAND_2; goto do_unbind;
+	case Bunbind+6: READ_OPERAND_1; goto do_unbind;
+	case Bunbind:   case Bunbind+1: case Bunbind+2:
+	case Bunbind+3: case Bunbind+4: case Bunbind+5:
+	  arg = opcode - Bunbind;
+	do_unbind:
+	  WRITE_NARGS (Bunbind);
+	  break;
+
+	case Bgoto:
+	case Bgotoifnil:
+	case Bgotoifnonnil:
+	case Bgotoifnilelsepop:
+	case Bgotoifnonnilelsepop:
+	  READ_OPERAND_2;
+	  /* Make program_ptr-relative */
+	  arg += icounts - (icounts_ptr - argsize);
+	  goto do_jump;
+
+	case BRgoto:
+	case BRgotoifnil:
+	case BRgotoifnonnil:
+	case BRgotoifnilelsepop:
+	case BRgotoifnonnilelsepop:
+	  READ_OPERAND_1;
+	  /* Make program_ptr-relative */
+	  arg -= 127;
+	do_jump:
+	  /* Record program-relative goto addresses in `jumps' table */
+	  jumps_ptr->from = icounts_ptr - icounts - argsize;
+	  jumps_ptr->to   = jumps_ptr->from + arg;
+	  jumps_ptr++;
+	  if (arg >= -1 && arg <= argsize)
+	    invalid_byte_code_error
+	      ("goto instruction is its own target");
+	  if (arg <= SCHAR_MIN ||
+	      arg >  SCHAR_MAX)
+	    {
+	      if (argsize == 1)
+		REWRITE_OPCODE (opcode + Bgoto - BRgoto);
+	      WRITE_INT16 (arg, program_ptr);
+	    }
+	  else
+	    {
+	      if (argsize == 2)
+		REWRITE_OPCODE (opcode + BRgoto - Bgoto);
+	      WRITE_INT8 (arg, program_ptr);
+	    }
+	  break;
+
+	case Bconstant2:
+	  READ_OPERAND_2;
+	  WRITE_CONSTANT;
+	  break;
+
+	case BlistN:
+	case BconcatN:
+	case BinsertN:
+	  READ_OPERAND_1;
+	  WRITE_INT8 (arg, program_ptr);
 	  break;
 
 	default:
-#ifdef BYTE_CODE_SAFE
-	  if (op < Bconstant)
-	    error ("unknown bytecode %d (byte compiler bug)", op);
-	  if ((op -= Bconstant) >= const_length)
-	    error ("no constant number %d (byte compiler bug)", op);
-	  PUSH (vectorp[op]);
-#else
-	  PUSH (vectorp[op - Bconstant]);
-#endif
+	  if (opcode < Bconstant)
+	    check_opcode (opcode);
+	  else
+	    {
+	      arg = opcode - Bconstant;
+	      WRITE_CONSTANT;
+	    }
+	  break;
 	}
     }
 
- exit:
-  UNGCPRO;
-  /* Binds and unbinds are supposed to be compiled balanced.  */
-  if (specpdl_depth() != speccount)
-    /* FSF: abort() if BYTE_CODE_SAFE not defined */
-    error ("binding stack not balanced (serious byte compiler bug)");
-  return v1;
+  /* Fix up jumps table to refer to NEW offsets. */
+  {
+    struct jump *j;
+    for (j = jumps; j < jumps_ptr; j++)
+      {
+#ifdef ERROR_CHECK_BYTE_CODE
+	assert (j->from < icounts_ptr - icounts);
+	assert (j->to   < icounts_ptr - icounts);
+#endif
+	j->from = icounts[j->from];
+	j->to   = icounts[j->to];
+#ifdef ERROR_CHECK_BYTE_CODE
+	assert (j->from < program_ptr - program);
+	assert (j->to   < program_ptr - program);
+	check_opcode ((Opcode) (program[j->from-1]));
+#endif
+	check_opcode ((Opcode) (program[j->to]));
+      }
+  }
+
+  /* Fixup jumps in byte-code until no more fixups needed */
+  {
+    int more_fixups_needed = 1;
+
+    while (more_fixups_needed)
+      {
+	struct jump *j;
+	more_fixups_needed = 0;
+	for (j = jumps; j < jumps_ptr; j++)
+	{
+	  int from = j->from;
+	  int to   = j->to;
+	  int jump = to - from;
+	  Opbyte *p = program + from;
+	  Opcode opcode = (Opcode) p[-1];
+	  if (!more_fixups_needed)
+	    check_opcode ((Opcode) p[jump]);
+	  assert (to >= 0 && program + to < program_ptr);
+	  switch (opcode)
+	    {
+	      case Bgoto:
+	      case Bgotoifnil:
+	      case Bgotoifnonnil:
+	      case Bgotoifnilelsepop:
+	      case Bgotoifnonnilelsepop:
+		WRITE_INT16 (jump, p);
+		break;
+
+	      case BRgoto:
+	      case BRgotoifnil:
+	      case BRgotoifnonnil:
+	      case BRgotoifnilelsepop:
+	      case BRgotoifnonnilelsepop:
+		if (jump >  SCHAR_MIN &&
+		    jump <= SCHAR_MAX)
+		  {
+		    WRITE_INT8 (jump, p);
+		  }
+		else		/* barf */
+		  {
+		    struct jump *jj;
+		    for (jj = jumps; jj < jumps_ptr; jj++)
+		      {
+			assert (jj->from < program_ptr - program);
+			assert (jj->to   < program_ptr - program);
+			if (jj->from > from) jj->from++;
+			if (jj->to   > from) jj->to++;
+		      }
+		    p[-1] += Bgoto - BRgoto;
+		    more_fixups_needed = 1;
+		    memmove (p+1, p, program_ptr++ - p);
+		    WRITE_INT16 (jump, p);
+		  }
+		break;
+
+	    default:
+	      abort();
+	      break;
+	    }
+	}
+      }
+  }
+
+  /* *program_ptr++ = 0; */
+  *program_length = program_ptr - program;
 }
 
+/* Optimize the byte code and store the optimized program, only
+   understood by bytecode.c, in an opaque object in the
+   instructions slot of the Compiled_Function object. */
+void
+optimize_compiled_function (Lisp_Object compiled_function)
+{
+  Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (compiled_function);
+  int program_length;
+  int varbind_count;
+  Opbyte *program;
+
+  /* If we have not actually read the bytecode string
+     and constants vector yet, fetch them from the file.  */
+  if (CONSP (f->instructions))
+    Ffetch_bytecode (compiled_function);
+
+  if (STRINGP (f->instructions))
+    {
+      /* XSTRING_LENGTH() is more efficient than XSTRING_CHAR_LENGTH(),
+	 which would be slightly more `proper' */
+      program = alloca_array (Opbyte, 1 + 2 * XSTRING_LENGTH (f->instructions));
+      optimize_byte_code (f->instructions, f->constants,
+			  program, &program_length, &varbind_count);
+      f->specpdl_depth = XINT (Flength (f->arglist)) + varbind_count;
+      f->instructions =
+	Fpurecopy (make_opaque (program_length * sizeof (Opbyte),
+				(CONST void *) program));
+    }
+
+  assert (OPAQUEP (f->instructions));
+}
+
+/************************************************************************/
+/*		The compiled-function object type			*/
+/************************************************************************/
+static void
+print_compiled_function (Lisp_Object obj, Lisp_Object printcharfun,
+			 int escapeflag)
+{
+  /* This function can GC */
+  Lisp_Compiled_Function *f =
+    XCOMPILED_FUNCTION (obj); /* GC doesn't relocate */
+  int docp = f->flags.documentationp;
+  int intp = f->flags.interactivep;
+  struct gcpro gcpro1, gcpro2;
+  char buf[100];
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string (print_readably ? "#[" : "#<compiled-function ", printcharfun);
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  if (!print_readably)
+    {
+      Lisp_Object ann = compiled_function_annotation (f);
+      if (!NILP (ann))
+	{
+	  write_c_string ("(from ", printcharfun);
+	  print_internal (ann, printcharfun, 1);
+	  write_c_string (") ", printcharfun);
+	}
+    }
+#endif /* COMPILED_FUNCTION_ANNOTATION_HACK */
+  /* COMPILED_ARGLIST = 0 */
+  print_internal (compiled_function_arglist (f), printcharfun, escapeflag);
+
+  /* COMPILED_INSTRUCTIONS = 1 */
+  write_c_string (" ", printcharfun);
+  {
+    struct gcpro ngcpro1;
+    Lisp_Object instructions = compiled_function_instructions (f);
+    NGCPRO1 (instructions);
+    if (STRINGP (instructions) && !print_readably)
+      {
+	/* We don't usually want to see that junk in the bytecode. */
+	sprintf (buf, "\"...(%ld)\"",
+		 (long) XSTRING_CHAR_LENGTH (instructions));
+	write_c_string (buf, printcharfun);
+      }
+    else
+      print_internal (instructions, printcharfun, escapeflag);
+    NUNGCPRO;
+  }
+
+  /* COMPILED_CONSTANTS = 2 */
+  write_c_string (" ", printcharfun);
+  print_internal (compiled_function_constants (f), printcharfun, escapeflag);
+
+  /* COMPILED_STACK_DEPTH = 3 */
+  sprintf (buf, " %d", compiled_function_stack_depth (f));
+  write_c_string (buf, printcharfun);
+
+  /* COMPILED_DOC_STRING = 4 */
+  if (docp || intp)
+    {
+      write_c_string (" ", printcharfun);
+      print_internal (compiled_function_documentation (f), printcharfun,
+		      escapeflag);
+    }
+
+  /* COMPILED_INTERACTIVE = 5 */
+  if (intp)
+    {
+      write_c_string (" ", printcharfun);
+      print_internal (compiled_function_interactive (f), printcharfun,
+		      escapeflag);
+    }
+
+  UNGCPRO;
+  write_c_string (print_readably ? "]" : ">", printcharfun);
+}
+
+
+static Lisp_Object
+mark_compiled_function (Lisp_Object obj, void (*markobj) (Lisp_Object))
+{
+  Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (obj);
+
+  markobj (f->instructions);
+  markobj (f->arglist);
+  markobj (f->doc_and_interactive);
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  markobj (f->annotated);
+#endif
+  /* tail-recurse on constants */
+  return f->constants;
+}
+
+static int
+compiled_function_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  Lisp_Compiled_Function *f1 = XCOMPILED_FUNCTION (obj1);
+  Lisp_Compiled_Function *f2 = XCOMPILED_FUNCTION (obj2);
+  return
+    (f1->flags.documentationp == f2->flags.documentationp &&
+     f1->flags.interactivep   == f2->flags.interactivep   &&
+     f1->flags.domainp        == f2->flags.domainp        && /* I18N3 */
+     internal_equal (compiled_function_instructions (f1),
+		     compiled_function_instructions (f2), depth + 1) &&
+     internal_equal (f1->constants,    f2->constants,    depth + 1) &&
+     internal_equal (f1->arglist,      f2->arglist,      depth + 1) &&
+     internal_equal (f1->doc_and_interactive,
+		     f2->doc_and_interactive, depth + 1));
+}
+
+static unsigned long
+compiled_function_hash (Lisp_Object obj, int depth)
+{
+  Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (obj);
+  return HASH3 ((f->flags.documentationp << 2) +
+		(f->flags.interactivep << 1) +
+		f->flags.domainp,
+		internal_hash (f->instructions, depth + 1),
+		internal_hash (f->constants,    depth + 1));
+}
+
+DEFINE_BASIC_LRECORD_IMPLEMENTATION ("compiled-function", compiled_function,
+				     mark_compiled_function,
+				     print_compiled_function, 0,
+				     compiled_function_equal,
+				     compiled_function_hash,
+				     Lisp_Compiled_Function);
+
+DEFUN ("compiled-function-p", Fcompiled_function_p, 1, 1, 0, /*
+Return t if OBJECT is a byte-compiled function object.
+*/
+       (object))
+{
+  return COMPILED_FUNCTIONP (object) ? Qt : Qnil;
+}
+
+/************************************************************************/
+/*		compiled-function object accessor functions		*/
+/************************************************************************/
+
+Lisp_Object
+compiled_function_arglist (Lisp_Compiled_Function *f)
+{
+  return f->arglist;
+}
+
+Lisp_Object
+compiled_function_instructions (Lisp_Compiled_Function *f)
+{
+  if (! OPAQUEP (f->instructions))
+    return f->instructions;
+
+  {
+    /* Invert action performed by optimize_byte_code() */
+    Lisp_Opaque *opaque = XOPAQUE (f->instructions);
+
+    Bufbyte * CONST buffer =
+      alloca_array (Bufbyte, OPAQUE_SIZE (opaque) * MAX_EMCHAR_LEN);
+    Bufbyte *bp = buffer;
+
+    CONST Opbyte * CONST program = (CONST Opbyte *) OPAQUE_DATA (opaque);
+    CONST Opbyte *program_ptr = program;
+    CONST Opbyte * CONST program_end = program_ptr + OPAQUE_SIZE (opaque);
+
+    while (program_ptr < program_end)
+      {
+	Opcode opcode = (Opcode) READ_UINT_1;
+	bp += set_charptr_emchar (bp, opcode);
+	switch (opcode)
+	  {
+	  case Bvarref+7:
+	  case Bvarset+7:
+	  case Bvarbind+7:
+	  case Bcall+7:
+	  case Bunbind+7:
+	  case Bconstant2:
+	    bp += set_charptr_emchar (bp, READ_UINT_1);
+	    bp += set_charptr_emchar (bp, READ_UINT_1);
+	    break;
+
+	  case Bvarref+6:
+	  case Bvarset+6:
+	  case Bvarbind+6:
+	  case Bcall+6:
+	  case Bunbind+6:
+	  case BlistN:
+	  case BconcatN:
+	  case BinsertN:
+	    bp += set_charptr_emchar (bp, READ_UINT_1);
+	    break;
+
+	  case Bgoto:
+	  case Bgotoifnil:
+	  case Bgotoifnonnil:
+	  case Bgotoifnilelsepop:
+	  case Bgotoifnonnilelsepop:
+	    {
+	      int jump = READ_INT_2;
+	      Opbyte buf2[2];
+	      Opbyte *buf2p = buf2;
+	      /* Convert back to program-relative address */
+	      WRITE_INT16 (jump + (program_ptr - 2 - program), buf2p);
+	      bp += set_charptr_emchar (bp, buf2[0]);
+	      bp += set_charptr_emchar (bp, buf2[1]);
+	      break;
+	    }
+
+	  case BRgoto:
+	  case BRgotoifnil:
+	  case BRgotoifnonnil:
+	  case BRgotoifnilelsepop:
+	  case BRgotoifnonnilelsepop:
+	    bp += set_charptr_emchar (bp, READ_INT_1 + 127);
+	    break;
+
+	  default:
+	    break;
+	  }
+      }
+    return make_string (buffer, bp - buffer);
+  }
+}
+
+Lisp_Object
+compiled_function_constants (Lisp_Compiled_Function *f)
+{
+  return f->constants;
+}
+
+int
+compiled_function_stack_depth (Lisp_Compiled_Function *f)
+{
+  return f->stack_depth;
+}
+
+/* The compiled_function->doc_and_interactive slot uses the minimal
+   number of conses, based on compiled_function->flags; it may take
+   any of the following forms:
+
+	doc
+	interactive
+	domain
+	(doc . interactive)
+	(doc . domain)
+	(interactive . domain)
+	(doc . (interactive . domain))
+ */
+
+/* Caller must check flags.interactivep first */
+Lisp_Object
+compiled_function_interactive (Lisp_Compiled_Function *f)
+{
+  assert (f->flags.interactivep);
+  if (f->flags.documentationp && f->flags.domainp)
+    return XCAR (XCDR (f->doc_and_interactive));
+  else if (f->flags.documentationp)
+    return XCDR (f->doc_and_interactive);
+  else if (f->flags.domainp)
+    return XCAR (f->doc_and_interactive);
+  else
+    return f->doc_and_interactive;
+}
+
+/* Caller need not check flags.documentationp first */
+Lisp_Object
+compiled_function_documentation (Lisp_Compiled_Function *f)
+{
+  if (! f->flags.documentationp)
+    return Qnil;
+  else if (f->flags.interactivep && f->flags.domainp)
+    return XCAR (f->doc_and_interactive);
+  else if (f->flags.interactivep)
+    return XCAR (f->doc_and_interactive);
+  else if (f->flags.domainp)
+    return XCAR (f->doc_and_interactive);
+  else
+    return f->doc_and_interactive;
+}
+
+/* Caller need not check flags.domainp first */
+Lisp_Object
+compiled_function_domain (Lisp_Compiled_Function *f)
+{
+  if (! f->flags.domainp)
+    return Qnil;
+  else if (f->flags.documentationp && f->flags.interactivep)
+    return XCDR (XCDR (f->doc_and_interactive));
+  else if (f->flags.documentationp)
+    return XCDR (f->doc_and_interactive);
+  else if (f->flags.interactivep)
+    return XCDR (f->doc_and_interactive);
+  else
+    return f->doc_and_interactive;
+}
+
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+
+Lisp_Object
+compiled_function_annotation (Lisp_Compiled_Function *f)
+{
+  return f->annotated;
+}
+
+#endif
+
+/* used only by Snarf-documentation; there must be doc already. */
+void
+set_compiled_function_documentation (Lisp_Compiled_Function *f,
+				     Lisp_Object new_doc)
+{
+  assert (f->flags.documentationp);
+  assert (INTP (new_doc) || STRINGP (new_doc));
+
+  if (f->flags.interactivep && f->flags.domainp)
+    XCAR (f->doc_and_interactive) = new_doc;
+  else if (f->flags.interactivep)
+    XCAR (f->doc_and_interactive) = new_doc;
+  else if (f->flags.domainp)
+    XCAR (f->doc_and_interactive) = new_doc;
+  else
+    f->doc_and_interactive = new_doc;
+}
+
+
+DEFUN ("compiled-function-arglist", Fcompiled_function_arglist, 1, 1, 0, /*
+Return the argument list of the compiled-function object FUNCTION.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return compiled_function_arglist (XCOMPILED_FUNCTION (function));
+}
+
+DEFUN ("compiled-function-instructions", Fcompiled_function_instructions, 1, 1, 0, /*
+Return the byte-opcode string of the compiled-function object FUNCTION.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return compiled_function_instructions (XCOMPILED_FUNCTION (function));
+}
+
+DEFUN ("compiled-function-constants", Fcompiled_function_constants, 1, 1, 0, /*
+Return the constants vector of the compiled-function object FUNCTION.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return compiled_function_constants (XCOMPILED_FUNCTION (function));
+}
+
+DEFUN ("compiled-function-stack-depth", Fcompiled_function_stack_depth, 1, 1, 0, /*
+Return the max stack depth of the compiled-function object FUNCTION.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return make_int (compiled_function_stack_depth (XCOMPILED_FUNCTION (function)));
+}
+
+DEFUN ("compiled-function-doc-string", Fcompiled_function_doc_string, 1, 1, 0, /*
+Return the doc string of the compiled-function object FUNCTION, if available.
+Functions that had their doc strings snarfed into the DOC file will have
+an integer returned instead of a string.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return compiled_function_documentation (XCOMPILED_FUNCTION (function));
+}
+
+DEFUN ("compiled-function-interactive", Fcompiled_function_interactive, 1, 1, 0, /*
+Return the interactive spec of the compiled-function object FUNCTION, or nil.
+If non-nil, the return value will be a list whose first element is
+`interactive' and whose second element is the interactive spec.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return XCOMPILED_FUNCTION (function)->flags.interactivep
+    ? list2 (Qinteractive,
+	     compiled_function_interactive (XCOMPILED_FUNCTION (function)))
+    : Qnil;
+}
+
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+
+/* Remove the `xx' if you wish to restore this feature */
+xxDEFUN ("compiled-function-annotation", Fcompiled_function_annotation, 1, 1, 0, /*
+Return the annotation of the compiled-function object FUNCTION, or nil.
+The annotation is a piece of information indicating where this
+compiled-function object came from.  Generally this will be
+a symbol naming a function; or a string naming a file, if the
+compiled-function object was not defined in a function; or nil,
+if the compiled-function object was not created as a result of
+a `load'.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return compiled_function_annotation (XCOMPILED_FUNCTION (function));
+}
+
+#endif /* COMPILED_FUNCTION_ANNOTATION_HACK */
+
+DEFUN ("compiled-function-domain", Fcompiled_function_domain, 1, 1, 0, /*
+Return the domain of the compiled-function object FUNCTION, or nil.
+This is only meaningful if I18N3 was enabled when emacs was compiled.
+*/
+       (function))
+{
+  CHECK_COMPILED_FUNCTION (function);
+  return XCOMPILED_FUNCTION (function)->flags.domainp
+    ? compiled_function_domain (XCOMPILED_FUNCTION (function))
+    : Qnil;
+}
+
+
+
+DEFUN ("fetch-bytecode", Ffetch_bytecode, 1, 1, 0, /*
+If the byte code for compiled function FUNCTION is lazy-loaded, fetch it now.
+*/
+       (function))
+{
+  Lisp_Compiled_Function *f;
+  CHECK_COMPILED_FUNCTION (function);
+  f = XCOMPILED_FUNCTION (function);
+
+  if (OPAQUEP (f->instructions) || STRINGP (f->instructions))
+    return function;
+
+  if (CONSP (XCOMPILED_FUNCTION (function)->instructions))
+    {
+      Lisp_Object tem = read_doc_string (f->instructions);
+      if (!CONSP (tem))
+	signal_simple_error ("Invalid lazy-loaded byte code", tem);
+      /* v18 or v19 bytecode file.  Need to Ebolify. */
+      if (f->flags.ebolified && VECTORP (XCDR (tem)))
+	ebolify_bytecode_constants (XCDR (tem));
+      /* VERY IMPORTANT to purecopy here!!!!!
+	 See load_force_doc_string_unwind. */
+      /* f->instructions = Fpurecopy (XCAR (tem)); */
+      f->constants = Fpurecopy (XCDR (tem));
+      return function;
+    }
+  abort ();
+  return Qnil; /* not reached */
+}
+
+DEFUN ("optimize-compiled-function", Foptimize_compiled_function, 1, 1, 0, /*
+Convert compiled function FUNCTION into an optimized internal form.
+*/
+       (function))
+{
+  Lisp_Compiled_Function *f;
+  CHECK_COMPILED_FUNCTION (function);
+  f = XCOMPILED_FUNCTION (function);
+
+  if (OPAQUEP (f->instructions)) /* Already optimized? */
+    return Qnil;
+
+  optimize_compiled_function (function);
+  return Qnil;
+}
+
+DEFUN ("byte-code", Fbyte_code, 3, 3, 0, /*
+Function used internally in byte-compiled code.
+First argument INSTRUCTIONS is a string of byte code.
+Second argument CONSTANTS is a vector of constants.
+Third argument STACK-DEPTH is the maximum stack depth used in this function.
+If STACK-DEPTH is incorrect, Emacs may crash.
+*/
+       (instructions, constants, stack_depth))
+{
+  /* This function can GC */
+  int varbind_count;
+  int program_length;
+  Opbyte *program;
+
+  CHECK_STRING (instructions);
+  CHECK_VECTOR (constants);
+  CHECK_NATNUM (stack_depth);
+
+  /* Optimize the `instructions' string, just like when executing a
+     regular compiled function, but don't save it for later since this is
+     likely to only be executed once. */
+  program = alloca_array (Opbyte, 1 + 2 * XSTRING_LENGTH (instructions));
+  optimize_byte_code (instructions, constants, program,
+		      &program_length, &varbind_count);
+  SPECPDL_RESERVE (varbind_count);
+  return execute_optimized_program (program,
+				    XINT (stack_depth),
+				    XVECTOR_DATA (constants));
+}
+
+
 void
 syms_of_bytecode (void)
 {
+  deferror (&Qinvalid_byte_code, "invalid-byte-code",
+	    "Invalid byte code", Qerror);
   defsymbol (&Qbyte_code, "byte-code");
+  defsymbol (&Qcompiled_functionp, "compiled-function-p");
+
   DEFSUBR (Fbyte_code);
+  DEFSUBR (Ffetch_bytecode);
+  DEFSUBR (Foptimize_compiled_function);
+
+  DEFSUBR (Fcompiled_function_p);
+  DEFSUBR (Fcompiled_function_instructions);
+  DEFSUBR (Fcompiled_function_constants);
+  DEFSUBR (Fcompiled_function_stack_depth);
+  DEFSUBR (Fcompiled_function_arglist);
+  DEFSUBR (Fcompiled_function_interactive);
+  DEFSUBR (Fcompiled_function_doc_string);
+  DEFSUBR (Fcompiled_function_domain);
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  DEFSUBR (Fcompiled_function_annotation);
+#endif
+
 #ifdef BYTE_CODE_METER
   defsymbol (&Qbyte_code_meter, "byte-code-meter");
 #endif
@@ -1197,7 +2436,7 @@ vars_of_bytecode (void)
 #ifdef BYTE_CODE_METER
 
   DEFVAR_LISP ("byte-code-meter", &Vbyte_code_meter /*
-A vector of vectors which holds a histogram of byte-code usage.
+A vector of vectors which holds a histogram of byte code usage.
 \(aref (aref byte-code-meter 0) CODE) indicates how many times the byte
 opcode CODE has been executed.
 \(aref (aref byte-code-meter CODE1) CODE2), where CODE1 is not 0,
@@ -1206,7 +2445,7 @@ executed in succession.
 */ );
   DEFVAR_BOOL ("byte-metering-on", &byte_metering_on /*
 If non-nil, keep profiling information on byte code usage.
-The variable byte-code-meter indicates how often each byte opcode is used.
+The variable `byte-code-meter' indicates how often each byte opcode is used.
 If a symbol has a property named `byte-code-meter' whose value is an
 integer, it is incremented each time that symbol's function is called.
 */ );
@@ -1216,8 +2455,7 @@ integer, it is incremented each time that symbol's function is called.
   {
     int i = 256;
     while (i--)
-      XVECTOR_DATA (Vbyte_code_meter)[i] =
-	make_vector (256, Qzero);
+      XVECTOR_DATA (Vbyte_code_meter)[i] = make_vector (256, Qzero);
   }
-#endif
+#endif /* BYTE_CODE_METER */
 }

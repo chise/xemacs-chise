@@ -52,7 +52,7 @@ Lisp_Object Qsingularity_error, Qoverflow_error, Qunderflow_error;
 Lisp_Object Qbeginning_of_buffer, Qend_of_buffer, Qbuffer_read_only;
 Lisp_Object Qintegerp, Qnatnump, Qsymbolp, Qkeywordp;
 Lisp_Object Qlistp, Qtrue_list_p, Qweak_listp;
-Lisp_Object Qconsp, Qsubrp, Qcompiled_functionp;
+Lisp_Object Qconsp, Qsubrp;
 Lisp_Object Qcharacterp, Qstringp, Qarrayp, Qsequencep, Qvectorp;
 Lisp_Object Qchar_or_string_p, Qmarkerp, Qinteger_or_marker_p, Qbufferp;
 Lisp_Object Qinteger_or_char_p, Qinteger_char_or_marker_p;
@@ -77,15 +77,17 @@ int debug_ebola_backtrace_length;
 int
 eq_with_ebola_notice (Lisp_Object obj1, Lisp_Object obj2)
 {
-  if (((CHARP (obj1) && INTP (obj2)) || (CHARP (obj2) && INTP (obj1)))
-      && (debug_issue_ebola_notices >= 2
-	  || XCHAR_OR_INT (obj1) == XCHAR_OR_INT (obj2)))
+  if (debug_issue_ebola_notices != -42 /* abracadabra */ &&
+      (((CHARP (obj1) && INTP (obj2)) || (CHARP (obj2) && INTP (obj1)))
+       && (debug_issue_ebola_notices >= 2
+	   || XCHAR_OR_INT (obj1) == XCHAR_OR_INT (obj2))))
     {
-      stderr_out("Comparison between integer and character is constant nil (");
+      write_c_string ("Comparison between integer and character is constant nil (",
+		      Qexternal_debugging_output);
       Fprinc (obj1, Qexternal_debugging_output);
-      stderr_out (" and ");
+      write_c_string (" and ", Qexternal_debugging_output);
       Fprinc (obj2, Qexternal_debugging_output);
-      stderr_out (")\n");
+      write_c_string (")\n", Qexternal_debugging_output);
       debug_short_backtrace (debug_ebola_backtrace_length);
     }
   return EQ (obj1, obj2);
@@ -207,7 +209,7 @@ Return t if OBJECT is nil.
 }
 
 DEFUN ("consp", Fconsp, 1, 1, 0, /*
-Return t if OBJECT is a cons cell.
+Return t if OBJECT is a cons cell.  `nil' is not a cons cell.
 */
        (object))
 {
@@ -215,7 +217,7 @@ Return t if OBJECT is a cons cell.
 }
 
 DEFUN ("atom", Fatom, 1, 1, 0, /*
-Return t if OBJECT is not a cons cell.  Atoms include nil.
+Return t if OBJECT is not a cons cell.  `nil' is not a cons cell.
 */
        (object))
 {
@@ -223,7 +225,7 @@ Return t if OBJECT is not a cons cell.  Atoms include nil.
 }
 
 DEFUN ("listp", Flistp, 1, 1, 0, /*
-Return t if OBJECT is a list.  Lists includes nil.
+Return t if OBJECT is a list.  `nil' is a list.
 */
        (object))
 {
@@ -231,7 +233,7 @@ Return t if OBJECT is a list.  Lists includes nil.
 }
 
 DEFUN ("nlistp", Fnlistp, 1, 1, 0, /*
-Return t if OBJECT is not a list.  Lists include nil.
+Return t if OBJECT is not a list.  `nil' is a list.
 */
        (object))
 {
@@ -263,7 +265,7 @@ Return t if OBJECT is a keyword.
 }
 
 DEFUN ("vectorp", Fvectorp, 1, 1, 0, /*
-REturn t if OBJECT is a vector.
+Return t if OBJECT is a vector.
 */
        (object))
 {
@@ -302,8 +304,7 @@ Return t if OBJECT is a sequence (list or array).
 */
        (object))
 {
-  return (CONSP		(object) ||
-	  NILP		(object) ||
+  return (LISTP		(object) ||
 	  VECTORP	(object) ||
 	  STRINGP	(object) ||
 	  BIT_VECTORP	(object))
@@ -361,14 +362,6 @@ If non-nil, the return value will be a list whose first element is
   CHECK_SUBR (subr);
   prompt = XSUBR (subr)->prompt;
   return prompt ? list2 (Qinteractive, build_string (prompt)) : Qnil;
-}
-
-DEFUN ("compiled-function-p", Fcompiled_function_p, 1, 1, 0, /*
-Return t if OBJECT is a byte-compiled function object.
-*/
-       (object))
-{
-  return COMPILED_FUNCTIONP (object) ? Qt : Qnil;
 }
 
 
@@ -551,16 +544,31 @@ Return a symbol representing the type of OBJECT.
 */
        (object))
 {
-  if (CONSP    (object)) return Qcons;
-  if (SYMBOLP  (object)) return Qsymbol;
-  if (KEYWORDP (object)) return Qkeyword;
-  if (INTP     (object)) return Qinteger;
-  if (CHARP    (object)) return Qcharacter;
-  if (STRINGP  (object)) return Qstring;
-  if (VECTORP  (object)) return Qvector;
+  switch (XTYPE (object))
+    {
+#ifndef LRECORD_CONS
+      case Lisp_Type_Cons: return Qcons;
+#endif
 
-  assert (LRECORDP (object));
-  return intern (XRECORD_LHEADER_IMPLEMENTATION (object)->name);
+#ifndef LRECORD_SYMBOL
+    case Lisp_Type_Symbol: return Qsymbol;
+#endif
+
+#ifndef LRECORD_STRING
+    case Lisp_Type_String: return Qstring;
+#endif
+
+#ifndef LRECORD_VECTOR
+    case Lisp_Type_Vector: return Qvector;
+#endif
+
+    case Lisp_Type_Record:
+      return intern (XRECORD_LHEADER_IMPLEMENTATION (object)->name);
+
+    case Lisp_Type_Char: return Qcharacter;
+
+    default: return Qinteger;
+    }
 }
 
 
@@ -642,9 +650,9 @@ Set the cdr of CONSCELL to be NEWCDR.  Return NEWCDR.
   return newcdr;
 }
 
-/* Find the function at the end of a chain of symbol function indirections.  */
+/* Find the function at the end of a chain of symbol function indirections.
 
-/* If OBJECT is a symbol, find the end of its function chain and
+   If OBJECT is a symbol, find the end of its function chain and
    return the value found there.  If OBJECT is not a symbol, just
    return it.  If there is a cycle in the function chain, signal a
    cyclic-function-indirection error.
@@ -654,26 +662,25 @@ Set the cdr of CONSCELL to be NEWCDR.  Return NEWCDR.
 Lisp_Object
 indirect_function (Lisp_Object object, int errorp)
 {
-  Lisp_Object tortoise = object;
-  Lisp_Object hare     = object;
+#define FUNCTION_INDIRECTION_SUSPICION_LENGTH 16
+  Lisp_Object tortoise, hare;
+  int count;
 
-  for (;;)
+  for (hare = tortoise = object, count = 0;
+       SYMBOLP (hare);
+       hare = XSYMBOL (hare)->function, count++)
     {
-      if (!SYMBOLP (hare) || UNBOUNDP (hare))
-	break;
-      hare = XSYMBOL (hare)->function;
-      if (!SYMBOLP (hare) || UNBOUNDP (hare))
-	break;
-      hare = XSYMBOL (hare)->function;
+      if (count < FUNCTION_INDIRECTION_SUSPICION_LENGTH) continue;
 
-      tortoise = XSYMBOL (tortoise)->function;
-
+      if (count & 1)
+	tortoise = XSYMBOL (tortoise)->function;
       if (EQ (hare, tortoise))
 	return Fsignal (Qcyclic_function_indirection, list1 (object));
     }
 
-  if (UNBOUNDP (hare) && errorp)
-    return Fsignal (Qvoid_function, list1 (object));
+  if (errorp && UNBOUNDP (hare))
+    signal_void_function_error (object);
+
   return hare;
 }
 
@@ -695,41 +702,44 @@ function chain of symbols.
 
 DEFUN ("aref", Faref, 2, 2, 0, /*
 Return the element of ARRAY at index INDEX.
-ARRAY may be a vector, bit vector, string, or byte-code object.
-IDX starts at 0.
+ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
 */
-       (array, idx))
+       (array, index_))
 {
-  int idxval;
+  int idx;
 
  retry:
-  CHECK_INT_COERCE_CHAR (idx); /* yuck! */
-  idxval = XINT (idx);
-  if (idxval < 0)
+
+  if      (INTP  (index_)) idx = XINT  (index_);
+  else if (CHARP (index_)) idx = XCHAR (index_); /* yuck! */
+  else
     {
-    lose:
-      args_out_of_range (array, idx);
+      index_ = wrong_type_argument (Qinteger_or_char_p, index_);
+      goto retry;
     }
+
+  if (idx < 0) goto range_error;
+
   if (VECTORP (array))
     {
-      if (idxval >= XVECTOR_LENGTH (array)) goto lose;
-      return XVECTOR_DATA (array)[idxval];
+      if (idx >= XVECTOR_LENGTH (array)) goto range_error;
+      return XVECTOR_DATA (array)[idx];
     }
   else if (BIT_VECTORP (array))
     {
-      if (idxval >= bit_vector_length (XBIT_VECTOR (array))) goto lose;
-      return make_int (bit_vector_bit (XBIT_VECTOR (array), idxval));
+      if (idx >= bit_vector_length (XBIT_VECTOR (array))) goto range_error;
+      return make_int (bit_vector_bit (XBIT_VECTOR (array), idx));
     }
   else if (STRINGP (array))
     {
-      if (idxval >= XSTRING_CHAR_LENGTH (array)) goto lose;
-      return make_char (string_char (XSTRING (array), idxval));
+      if (idx >= XSTRING_CHAR_LENGTH (array)) goto range_error;
+      return make_char (string_char (XSTRING (array), idx));
     }
 #ifdef LOSING_BYTECODE
   else if (COMPILED_FUNCTIONP (array))
     {
       /* Weird, gross compatibility kludge */
-      return Felt (array, idx);
+      return Felt (array, index_);
     }
 #endif
   else
@@ -738,290 +748,148 @@ IDX starts at 0.
       array = wrong_type_argument (Qarrayp, array);
       goto retry;
     }
+
+ range_error:
+  args_out_of_range (array, index_);
+  return Qnil; /* not reached */
 }
 
 DEFUN ("aset", Faset, 3, 3, 0, /*
-Store into the element of ARRAY at index IDX the value NEWVAL.
-ARRAY may be a vector, bit vector, or string.  IDX starts at 0.
+Store into the element of ARRAY at index INDEX the value NEWVAL.
+ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
 */
-       (array, idx, newval))
+       (array, index_, newval))
 {
-  int idxval;
+  int idx;
 
-  CHECK_INT_COERCE_CHAR (idx); /* yuck! */
-  if (!VECTORP (array) && !BIT_VECTORP (array) && !STRINGP (array))
-    array = wrong_type_argument (Qarrayp, array);
+ retry:
 
-  idxval = XINT (idx);
-  if (idxval < 0)
+  if      (INTP  (index_)) idx = XINT (index_);
+  else if (CHARP (index_)) idx = XCHAR (index_); /* yuck! */
+  else
     {
-    lose:
-      args_out_of_range (array, idx);
+      index_ = wrong_type_argument (Qinteger_or_char_p, index_);
+      goto retry;
     }
+
+  if (idx < 0) goto range_error;
+
   CHECK_IMPURE (array);
 
   if (VECTORP (array))
     {
-      if (idxval >= XVECTOR_LENGTH (array)) goto lose;
-      XVECTOR_DATA (array)[idxval] = newval;
+      if (idx >= XVECTOR_LENGTH (array)) goto range_error;
+      XVECTOR_DATA (array)[idx] = newval;
     }
   else if (BIT_VECTORP (array))
     {
-      if (idxval >= bit_vector_length (XBIT_VECTOR (array))) goto lose;
+      if (idx >= bit_vector_length (XBIT_VECTOR (array))) goto range_error;
       CHECK_BIT (newval);
-      set_bit_vector_bit (XBIT_VECTOR (array), idxval, !ZEROP (newval));
+      set_bit_vector_bit (XBIT_VECTOR (array), idx, !ZEROP (newval));
     }
-  else                          /* string */
+  else if (STRINGP (array))
     {
       CHECK_CHAR_COERCE_INT (newval);
-      if (idxval >= XSTRING_CHAR_LENGTH (array)) goto lose;
-      set_string_char (XSTRING (array), idxval, XCHAR (newval));
+      if (idx >= XSTRING_CHAR_LENGTH (array)) goto range_error;
+      set_string_char (XSTRING (array), idx, XCHAR (newval));
       bump_string_modiff (array);
+    }
+  else
+    {
+      array = wrong_type_argument (Qarrayp, array);
+      goto retry;
     }
 
   return newval;
-}
 
-
-/**********************************************************************/
-/*                      Compiled-function objects                     */
-/**********************************************************************/
-
-/* The compiled_function->doc_and_interactive slot uses the minimal
-   number of conses, based on compiled_function->flags; it may take
-   any of the following forms:
-
-	doc
-	interactive
-	domain
-	(doc . interactive)
-	(doc . domain)
-	(interactive . domain)
-	(doc . (interactive . domain))
- */
-
-/* Caller must check flags.interactivep first */
-Lisp_Object
-compiled_function_interactive (struct Lisp_Compiled_Function *b)
-{
-  assert (b->flags.interactivep);
-  if (b->flags.documentationp && b->flags.domainp)
-    return XCAR (XCDR (b->doc_and_interactive));
-  else if (b->flags.documentationp)
-    return XCDR (b->doc_and_interactive);
-  else if (b->flags.domainp)
-    return XCAR (b->doc_and_interactive);
-
-  /* if all else fails... */
-  return b->doc_and_interactive;
-}
-
-/* Caller need not check flags.documentationp first */
-Lisp_Object
-compiled_function_documentation (struct Lisp_Compiled_Function *b)
-{
-  if (! b->flags.documentationp)
-    return Qnil;
-  else if (b->flags.interactivep && b->flags.domainp)
-    return XCAR (b->doc_and_interactive);
-  else if (b->flags.interactivep)
-    return XCAR (b->doc_and_interactive);
-  else if (b->flags.domainp)
-    return XCAR (b->doc_and_interactive);
-  else
-    return b->doc_and_interactive;
-}
-
-/* Caller need not check flags.domainp first */
-Lisp_Object
-compiled_function_domain (struct Lisp_Compiled_Function *b)
-{
-  if (! b->flags.domainp)
-    return Qnil;
-  else if (b->flags.documentationp && b->flags.interactivep)
-    return XCDR (XCDR (b->doc_and_interactive));
-  else if (b->flags.documentationp)
-    return XCDR (b->doc_and_interactive);
-  else if (b->flags.interactivep)
-    return XCDR (b->doc_and_interactive);
-  else
-    return b->doc_and_interactive;
-}
-
-#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
-
-Lisp_Object
-compiled_function_annotation (struct Lisp_Compiled_Function *b)
-{
-  return b->annotated;
-}
-
-#endif
-
-/* used only by Snarf-documentation; there must be doc already. */
-void
-set_compiled_function_documentation (struct Lisp_Compiled_Function *b,
-				     Lisp_Object new)
-{
-  assert (b->flags.documentationp);
-  assert (INTP (new) || STRINGP (new));
-
-  if (b->flags.interactivep && b->flags.domainp)
-    XCAR (b->doc_and_interactive) = new;
-  else if (b->flags.interactivep)
-    XCAR (b->doc_and_interactive) = new;
-  else if (b->flags.domainp)
-    XCAR (b->doc_and_interactive) = new;
-  else
-    b->doc_and_interactive = new;
-}
-
-DEFUN ("compiled-function-instructions", Fcompiled_function_instructions, 1, 1, 0, /*
-Return the byte-opcode string of the compiled-function object.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return XCOMPILED_FUNCTION (function)->bytecodes;
-}
-
-DEFUN ("compiled-function-constants", Fcompiled_function_constants, 1, 1, 0, /*
-Return the constants vector of the compiled-function object.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return XCOMPILED_FUNCTION (function)->constants;
-}
-
-DEFUN ("compiled-function-stack-depth", Fcompiled_function_stack_depth, 1, 1, 0, /*
-Return the max stack depth of the compiled-function object.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return make_int (XCOMPILED_FUNCTION (function)->maxdepth);
-}
-
-DEFUN ("compiled-function-arglist", Fcompiled_function_arglist, 1, 1, 0, /*
-Return the argument list of the compiled-function object.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return XCOMPILED_FUNCTION (function)->arglist;
-}
-
-DEFUN ("compiled-function-interactive", Fcompiled_function_interactive, 1, 1, 0, /*
-Return the interactive spec of the compiled-function object, or nil.
-If non-nil, the return value will be a list whose first element is
-`interactive' and whose second element is the interactive spec.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return XCOMPILED_FUNCTION (function)->flags.interactivep
-    ? list2 (Qinteractive,
-	     compiled_function_interactive (XCOMPILED_FUNCTION (function)))
-    : Qnil;
-}
-
-DEFUN ("compiled-function-doc-string", Fcompiled_function_doc_string, 1, 1, 0, /*
-Return the doc string of the compiled-function object, if available.
-Functions that had their doc strings snarfed into the DOC file will have
-an integer returned instead of a string.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return compiled_function_documentation (XCOMPILED_FUNCTION (function));
-}
-
-#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
-
-/* Remove the `xx' if you wish to restore this feature */
-xxDEFUN ("compiled-function-annotation", Fcompiled_function_annotation, 1, 1, 0, /*
-Return the annotation of the compiled-function object, or nil.
-The annotation is a piece of information indicating where this
-compiled-function object came from.  Generally this will be
-a symbol naming a function; or a string naming a file, if the
-compiled-function object was not defined in a function; or nil,
-if the compiled-function object was not created as a result of
-a `load'.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return compiled_function_annotation (XCOMPILED_FUNCTION (function));
-}
-
-#endif /* COMPILED_FUNCTION_ANNOTATION_HACK */
-
-DEFUN ("compiled-function-domain", Fcompiled_function_domain, 1, 1, 0, /*
-Return the domain of the compiled-function object, or nil.
-This is only meaningful if I18N3 was enabled when emacs was compiled.
-*/
-       (function))
-{
-  CHECK_COMPILED_FUNCTION (function);
-  return XCOMPILED_FUNCTION (function)->flags.domainp
-    ? compiled_function_domain (XCOMPILED_FUNCTION (function))
-    : Qnil;
+ range_error:
+  args_out_of_range (array, index_);
+  return Qnil; /* not reached */
 }
 
 
 /**********************************************************************/
 /*                       Arithmetic functions                         */
 /**********************************************************************/
-
-Lisp_Object
-arithcompare (Lisp_Object num1, Lisp_Object num2,
-	      enum arith_comparison comparison)
+typedef struct
 {
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (num1);
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (num2);
+  int int_p;
+  union
+  {
+    int ival;
+    double dval;
+  } c;
+} int_or_double;
 
+static void
+number_char_or_marker_to_int_or_double (Lisp_Object obj, int_or_double *p)
+{
+ retry:
+  p->int_p = 1;
+  if      (INTP    (obj)) p->c.ival = XINT  (obj);
+  else if (CHARP   (obj)) p->c.ival = XCHAR (obj);
+  else if (MARKERP (obj)) p->c.ival = marker_position (obj);
 #ifdef LISP_FLOAT_TYPE
-  if (FLOATP (num1) || FLOATP (num2))
+  else if (FLOATP  (obj)) p->c.dval = XFLOAT_DATA (obj), p->int_p = 0;
+#endif
+  else
     {
-      double f1 = FLOATP (num1) ? float_data (XFLOAT (num1)) : XINT (num1);
-      double f2 = FLOATP (num2) ? float_data (XFLOAT (num2)) : XINT (num2);
-
-      switch (comparison)
-	{
-	case arith_equal:         return f1 == f2 ? Qt : Qnil;
-	case arith_notequal:      return f1 != f2 ? Qt : Qnil;
-	case arith_less:          return f1 <  f2 ? Qt : Qnil;
-	case arith_less_or_equal: return f1 <= f2 ? Qt : Qnil;
-	case arith_grtr:          return f1 >  f2 ? Qt : Qnil;
-	case arith_grtr_or_equal: return f1 >= f2 ? Qt : Qnil;
-	}
+      obj = wrong_type_argument (Qnumber_char_or_marker_p, obj);
+      goto retry;
     }
-#endif /* LISP_FLOAT_TYPE */
-
-  switch (comparison)
-    {
-    case arith_equal:         return XINT (num1) == XINT (num2) ? Qt : Qnil;
-    case arith_notequal:      return XINT (num1) != XINT (num2) ? Qt : Qnil;
-    case arith_less:          return XINT (num1) <  XINT (num2) ? Qt : Qnil;
-    case arith_less_or_equal: return XINT (num1) <= XINT (num2) ? Qt : Qnil;
-    case arith_grtr:          return XINT (num1) >  XINT (num2) ? Qt : Qnil;
-    case arith_grtr_or_equal: return XINT (num1) >= XINT (num2) ? Qt : Qnil;
-    }
-
-  abort ();
-  return Qnil;	/* suppress compiler warning */
 }
 
-static Lisp_Object
-arithcompare_many (enum arith_comparison comparison,
-		   int nargs, Lisp_Object *args)
+static double
+number_char_or_marker_to_double (Lisp_Object obj)
 {
-  for (; --nargs > 0; args++)
-    if (NILP (arithcompare (*args, *(args + 1), comparison)))
-      return Qnil;
+ retry:
+  if      (INTP    (obj)) return (double) XINT  (obj);
+  else if (CHARP   (obj)) return (double) XCHAR (obj);
+  else if (MARKERP (obj)) return (double) marker_position (obj);
+#ifdef LISP_FLOAT_TYPE
+  else if (FLOATP  (obj)) return XFLOAT_DATA (obj);
+#endif
+  else
+    {
+      obj = wrong_type_argument (Qnumber_char_or_marker_p, obj);
+      goto retry;
+    }
+}
 
-  return Qt;
+static int
+integer_char_or_marker_to_int (Lisp_Object obj)
+{
+ retry:
+  if      (INTP    (obj)) return XINT  (obj);
+  else if (CHARP   (obj)) return XCHAR (obj);
+  else if (MARKERP (obj)) return marker_position (obj);
+  else
+    {
+      obj = wrong_type_argument (Qinteger_char_or_marker_p, obj);
+      goto retry;
+    }
+}
+
+#define ARITHCOMPARE_MANY(op)					\
+{								\
+  int_or_double iod1, iod2, *p = &iod1, *q = &iod2;		\
+  Lisp_Object *args_end = args + nargs;				\
+								\
+  number_char_or_marker_to_int_or_double (*args++, p);		\
+								\
+  while (args < args_end)					\
+    {								\
+      number_char_or_marker_to_int_or_double (*args++, q);	\
+								\
+      if (!((p->int_p && q->int_p) ?				\
+	    (p->c.ival op q->c.ival) :				\
+	    ((p->int_p ? (double) p->c.ival : p->c.dval) op	\
+	     (q->int_p ? (double) q->c.ival : q->c.dval))))	\
+	return Qnil;						\
+								\
+      { /* swap */ int_or_double *r = p; p = q; q = r; }	\
+    }								\
+  return Qt;							\
 }
 
 DEFUN ("=", Feqlsign, 1, MANY, 0, /*
@@ -1030,7 +898,7 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_equal, nargs, args);
+  ARITHCOMPARE_MANY (==)
 }
 
 DEFUN ("<", Flss, 1, MANY, 0, /*
@@ -1039,7 +907,7 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_less, nargs, args);
+  ARITHCOMPARE_MANY (<)
 }
 
 DEFUN (">", Fgtr, 1, MANY, 0, /*
@@ -1048,7 +916,7 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_grtr, nargs, args);
+  ARITHCOMPARE_MANY (>)
 }
 
 DEFUN ("<=", Fleq, 1, MANY, 0, /*
@@ -1057,7 +925,7 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_less_or_equal, nargs, args);
+  ARITHCOMPARE_MANY (<=)
 }
 
 DEFUN (">=", Fgeq, 1, MANY, 0, /*
@@ -1066,7 +934,7 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_grtr_or_equal, nargs, args);
+  ARITHCOMPARE_MANY (>=)
 }
 
 DEFUN ("/=", Fneq, 1, MANY, 0, /*
@@ -1075,7 +943,28 @@ The arguments may be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arithcompare_many (arith_notequal, nargs, args);
+  Lisp_Object *args_end = args + nargs;
+  Lisp_Object *p, *q;
+
+  /* Unlike all the other comparisons, this is an N*N algorithm.
+     We could use a hash table for nargs > 50 to make this linear. */
+  for (p = args; p < args_end; p++)
+    {
+      int_or_double iod1, iod2;
+      number_char_or_marker_to_int_or_double (*p, &iod1);
+
+      for (q = p + 1; q < args_end; q++)
+	{
+	  number_char_or_marker_to_int_or_double (*q, &iod2);
+
+	  if (!((iod1.int_p && iod2.int_p) ?
+		(iod1.c.ival != iod2.c.ival) :
+		((iod1.int_p ? (double) iod1.c.ival : iod1.c.dval) !=
+		 (iod2.int_p ? (double) iod2.c.ival : iod2.c.dval))))
+	    return Qnil;
+	}
+    }
+  return Qt;
 }
 
 DEFUN ("zerop", Fzerop, 1, 1, 0, /*
@@ -1083,14 +972,18 @@ Return t if NUMBER is zero.
 */
        (number))
 {
-  CHECK_INT_OR_FLOAT (number);
-
+ retry:
+  if (INTP (number))
+    return EQ (number, Qzero) ? Qt : Qnil;
 #ifdef LISP_FLOAT_TYPE
-  if (FLOATP (number))
-    return float_data (XFLOAT (number)) == 0.0 ? Qt : Qnil;
+  else if (FLOATP (number))
+    return XFLOAT_DATA (number) == 0.0 ? Qt : Qnil;
 #endif /* LISP_FLOAT_TYPE */
-
-  return EQ (number, Qzero) ? Qt : Qnil;
+  else
+    {
+      number = wrong_type_argument (Qnumberp, number);
+      goto retry;
+    }
 }
 
 /* Convert between a 32-bit value and a cons of two 16-bit values.
@@ -1138,7 +1031,7 @@ NUM may be an integer or a floating point number.
     {
       char pigbuf[350];	/* see comments in float_to_string */
 
-      float_to_string (pigbuf, float_data (XFLOAT (num)));
+      float_to_string (pigbuf, XFLOAT_DATA (num));
       return build_string (pigbuf);
     }
 #endif /* LISP_FLOAT_TYPE */
@@ -1199,7 +1092,7 @@ Floating point numbers always use base 10.
   if (b == 10)
     {
       /* Use the system-provided functions for base 10. */
-#if SIZEOF_EMACS_INT == SIZEOF_INT
+#if   SIZEOF_EMACS_INT == SIZEOF_INT
       return make_int (atoi (p));
 #elif SIZEOF_EMACS_INT == SIZEOF_LONG
       return make_int (atol (p));
@@ -1230,144 +1123,6 @@ Floating point numbers always use base 10.
     }
 }
 
-enum arithop
-  { Aadd, Asub, Amult, Adiv, Alogand, Alogior, Alogxor, Amax, Amin };
-
-
-#ifdef LISP_FLOAT_TYPE
-static Lisp_Object
-float_arith_driver (double accum, int argnum, enum arithop code, int nargs,
-		    Lisp_Object *args)
-{
-  REGISTER Lisp_Object val;
-  double next;
-
-  for (; argnum < nargs; argnum++)
-    {
-      /* using args[argnum] as argument to CHECK_INT_OR_FLOAT_... */
-      val = args[argnum];
-      CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (val);
-
-      if (FLOATP (val))
-	{
-	  next = float_data (XFLOAT (val));
-	}
-      else
-	{
-	  args[argnum] = val;    /* runs into a compiler bug. */
-	  next = XINT (args[argnum]);
-	}
-      switch (code)
-	{
-	case Aadd:
-	  accum += next;
-	  break;
-	case Asub:
-	  if (!argnum && nargs != 1)
-	    next = - next;
-	  accum -= next;
-	  break;
-	case Amult:
-	  accum *= next;
-	  break;
-	case Adiv:
-	  if (!argnum)
-	    accum = next;
-	  else
-	    {
-	      if (next == 0)
-		Fsignal (Qarith_error, Qnil);
-	      accum /= next;
-	    }
-	  break;
-	case Alogand:
-	case Alogior:
-	case Alogxor:
-	  return wrong_type_argument (Qinteger_char_or_marker_p, val);
-	case Amax:
-	  if (!argnum || isnan (next) || next > accum)
-	    accum = next;
-	  break;
-	case Amin:
-	  if (!argnum || isnan (next) || next < accum)
-	    accum = next;
-	  break;
-	}
-    }
-
-  return make_float (accum);
-}
-#endif /* LISP_FLOAT_TYPE */
-
-static Lisp_Object
-arith_driver (enum arithop code, int nargs, Lisp_Object *args)
-{
-  Lisp_Object val;
-  REGISTER int argnum;
-  REGISTER EMACS_INT accum = 0;
-  REGISTER EMACS_INT next;
-
-  switch (code)
-    {
-    case Alogior:
-    case Alogxor:
-    case Aadd:
-    case Asub:
-      accum = 0; break;
-    case Amult:
-      accum = 1; break;
-    case Alogand:
-      accum = -1; break;
-    case Adiv:
-    case Amax:
-    case Amin:
-      accum = 0; break;
-    default:
-      abort ();
-    }
-
-  for (argnum = 0; argnum < nargs; argnum++)
-    {
-      /* using args[argnum] as argument to CHECK_INT_OR_FLOAT_... */
-      val = args[argnum];
-      CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (val);
-
-#ifdef LISP_FLOAT_TYPE
-      if (FLOATP (val)) /* time to do serious math */
-	return float_arith_driver ((double) accum, argnum, code,
-				   nargs, args);
-#endif /* LISP_FLOAT_TYPE */
-      args[argnum] = val;    /* runs into a compiler bug. */
-      next = XINT (args[argnum]);
-      switch (code)
-	{
-	case Aadd: accum += next; break;
-	case Asub:
-	  if (!argnum && nargs != 1)
-	    next = - next;
-	  accum -= next;
-	  break;
-	case Amult: accum *= next; break;
-	case Adiv:
-	  if (!argnum) accum = next;
-	  else
-	    {
-	      if (next == 0)
-		Fsignal (Qarith_error, Qnil);
-	      accum /= next;
-	    }
-	  break;
-	case Alogand: accum &= next; break;
-	case Alogior: accum |= next; break;
-	case Alogxor: accum ^= next; break;
-	case Amax: if (!argnum || next > accum) accum = next; break;
-	case Amin: if (!argnum || next < accum) accum = next; break;
-	}
-    }
-
-  XSETINT (val, accum);
-  return val;
-}
 
 DEFUN ("+", Fplus, 0, MANY, 0, /*
 Return sum of any number of arguments.
@@ -1375,17 +1130,66 @@ The arguments should all be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arith_driver (Aadd, nargs, args);
+  EMACS_INT iaccum = 0;
+  Lisp_Object *args_end = args + nargs;
+
+  while (args < args_end)
+    {
+      int_or_double iod;
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	iaccum += iod.c.ival;
+      else
+	{
+	  double daccum = (double) iaccum + iod.c.dval;
+	  while (args < args_end)
+	    daccum += number_char_or_marker_to_double (*args++);
+	  return make_float (daccum);
+	}
+    }
+
+  return make_int (iaccum);
 }
 
-DEFUN ("-", Fminus, 0, MANY, 0, /*
+DEFUN ("-", Fminus, 1, MANY, 0, /*
 Negate number or subtract numbers, characters or markers.
 With one arg, negates it.  With more than one arg,
 subtracts all but the first from the first.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arith_driver (Asub, nargs, args);
+  EMACS_INT iaccum;
+  double daccum;
+  Lisp_Object *args_end = args + nargs;
+  int_or_double iod;
+
+  number_char_or_marker_to_int_or_double (*args++, &iod);
+  if (iod.int_p)
+    iaccum = nargs > 1 ? iod.c.ival : - iod.c.ival;
+  else
+    {
+      daccum = nargs > 1 ? iod.c.dval : - iod.c.dval;
+      goto do_float;
+    }
+
+  while (args < args_end)
+    {
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	iaccum -= iod.c.ival;
+      else
+	{
+	  daccum = (double) iaccum - iod.c.dval;
+	  goto do_float;
+	}
+    }
+
+  return make_int (iaccum);
+
+ do_float:
+  for (; args < args_end; args++)
+    daccum -= number_char_or_marker_to_double (*args);
+  return make_float (daccum);
 }
 
 DEFUN ("*", Ftimes, 0, MANY, 0, /*
@@ -1394,16 +1198,233 @@ The arguments should all be numbers, characters or markers.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arith_driver (Amult, nargs, args);
+  EMACS_INT iaccum = 1;
+  Lisp_Object *args_end = args + nargs;
+
+  while (args < args_end)
+    {
+      int_or_double iod;
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	iaccum *= iod.c.ival;
+      else
+	{
+	  double daccum = (double) iaccum * iod.c.dval;
+	  while (args < args_end)
+	    daccum *= number_char_or_marker_to_double (*args++);
+	  return make_float (daccum);
+	}
+    }
+
+  return make_int (iaccum);
 }
 
-DEFUN ("/", Fquo, 2, MANY, 0, /*
+DEFUN ("/", Fquo, 1, MANY, 0, /*
 Return first argument divided by all the remaining arguments.
 The arguments must be numbers, characters or markers.
+With one argument, reciprocates the argument.
 */
        (int nargs, Lisp_Object *args))
 {
-  return arith_driver (Adiv, nargs, args);
+  EMACS_INT iaccum;
+  double daccum;
+  Lisp_Object *args_end = args + nargs;
+  int_or_double iod;
+
+  if (nargs == 1)
+    iaccum = 1;
+  else
+    {
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	iaccum = iod.c.ival;
+      else
+	{
+	  daccum = iod.c.dval;
+	  goto divide_floats;
+	}
+    }
+
+  while (args < args_end)
+    {
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	{
+	  if (iod.c.ival == 0) goto divide_by_zero;
+	  iaccum /= iod.c.ival;
+	}
+      else
+	{
+	  if (iod.c.dval == 0) goto divide_by_zero;
+	  daccum = (double) iaccum / iod.c.dval;
+	  goto divide_floats;
+	}
+    }
+
+  return make_int (iaccum);
+
+ divide_floats:
+  for (; args < args_end; args++)
+    {
+      double dval = number_char_or_marker_to_double (*args);
+      if (dval == 0) goto divide_by_zero;
+      daccum /= dval;
+    }
+  return make_float (daccum);
+
+ divide_by_zero:
+  Fsignal (Qarith_error, Qnil);
+  return Qnil; /* not reached */
+}
+
+DEFUN ("max", Fmax, 1, MANY, 0, /*
+Return largest of all the arguments.
+All arguments must be numbers, characters or markers.
+The value is always a number; markers and characters are converted
+to numbers.
+*/
+       (int nargs, Lisp_Object *args))
+{
+  EMACS_INT imax;
+  double dmax;
+  Lisp_Object *args_end = args + nargs;
+  int_or_double iod;
+
+  number_char_or_marker_to_int_or_double (*args++, &iod);
+  if (iod.int_p)
+    imax = iod.c.ival;
+  else
+    {
+      dmax = iod.c.dval;
+      goto max_floats;
+    }
+
+  while (args < args_end)
+    {
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	{
+	  if (imax < iod.c.ival) imax = iod.c.ival;
+	}
+      else
+	{
+	  dmax = (double) imax;
+	  if (dmax < iod.c.dval) dmax = iod.c.dval;
+	  goto max_floats;
+	}
+    }
+
+  return make_int (imax);
+
+ max_floats:
+  while (args < args_end)
+    {
+      double dval = number_char_or_marker_to_double (*args++);
+      if (dmax < dval) dmax = dval;
+    }
+  return make_float (dmax);
+}
+
+DEFUN ("min", Fmin, 1, MANY, 0, /*
+Return smallest of all the arguments.
+All arguments must be numbers, characters or markers.
+The value is always a number; markers and characters are converted
+to numbers.
+*/
+       (int nargs, Lisp_Object *args))
+{
+  EMACS_INT imin;
+  double dmin;
+  Lisp_Object *args_end = args + nargs;
+  int_or_double iod;
+
+  number_char_or_marker_to_int_or_double (*args++, &iod);
+  if (iod.int_p)
+    imin = iod.c.ival;
+  else
+    {
+      dmin = iod.c.dval;
+      goto min_floats;
+    }
+
+  while (args < args_end)
+    {
+      number_char_or_marker_to_int_or_double (*args++, &iod);
+      if (iod.int_p)
+	{
+	  if (imin > iod.c.ival) imin = iod.c.ival;
+	}
+      else
+	{
+	  dmin = (double) imin;
+	  if (dmin > iod.c.dval) dmin = iod.c.dval;
+	  goto min_floats;
+	}
+    }
+
+  return make_int (imin);
+
+ min_floats:
+  while (args < args_end)
+    {
+      double dval = number_char_or_marker_to_double (*args++);
+      if (dmin > dval) dmin = dval;
+    }
+  return make_float (dmin);
+}
+
+DEFUN ("logand", Flogand, 0, MANY, 0, /*
+Return bitwise-and of all the arguments.
+Arguments may be integers, or markers or characters converted to integers.
+*/
+       (int nargs, Lisp_Object *args))
+{
+  EMACS_INT bits = ~0;
+  Lisp_Object *args_end = args + nargs;
+
+  while (args < args_end)
+    bits &= integer_char_or_marker_to_int (*args++);
+
+  return make_int (bits);
+}
+
+DEFUN ("logior", Flogior, 0, MANY, 0, /*
+Return bitwise-or of all the arguments.
+Arguments may be integers, or markers or characters converted to integers.
+*/
+       (int nargs, Lisp_Object *args))
+{
+  EMACS_INT bits = 0;
+  Lisp_Object *args_end = args + nargs;
+
+  while (args < args_end)
+    bits |= integer_char_or_marker_to_int (*args++);
+
+  return make_int (bits);
+}
+
+DEFUN ("logxor", Flogxor, 0, MANY, 0, /*
+Return bitwise-exclusive-or of all the arguments.
+Arguments may be integers, or markers or characters converted to integers.
+*/
+       (int nargs, Lisp_Object *args))
+{
+  EMACS_INT bits = 0;
+  Lisp_Object *args_end = args + nargs;
+
+  while (args < args_end)
+    bits ^= integer_char_or_marker_to_int (*args++);
+
+  return make_int (bits);
+}
+
+DEFUN ("lognot", Flognot, 1, 1, 0, /*
+Return the bitwise complement of NUMBER.
+NUMBER may be an integer, marker or character converted to integer.
+*/
+       (number))
+{
+  return make_int (~ integer_char_or_marker_to_int (number));
 }
 
 DEFUN ("%", Frem, 2, 2, 0, /*
@@ -1412,13 +1433,13 @@ Both must be integers, characters or markers.
 */
        (num1, num2))
 {
-  CHECK_INT_COERCE_CHAR_OR_MARKER (num1);
-  CHECK_INT_COERCE_CHAR_OR_MARKER (num2);
+  int ival1 = integer_char_or_marker_to_int (num1);
+  int ival2 = integer_char_or_marker_to_int (num2);
 
-  if (ZEROP (num2))
+  if (ival2 == 0)
     Fsignal (Qarith_error, Qnil);
 
-  return make_int (XINT (num1) % XINT (num2));
+  return make_int (ival1 % ival2);
 }
 
 /* Note, ANSI *requires* the presence of the fmod() library routine.
@@ -1444,96 +1465,41 @@ If either argument is a float, a float will be returned.
 */
        (x, y))
 {
-  EMACS_INT i1, i2;
+  int_or_double iod1, iod2;
+  number_char_or_marker_to_int_or_double (x, &iod1);
+  number_char_or_marker_to_int_or_double (y, &iod2);
 
 #ifdef LISP_FLOAT_TYPE
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (x);
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (y);
-
-  if (FLOATP (x) || FLOATP (y))
+  if (!iod1.int_p || !iod2.int_p)
     {
-      double f1, f2;
-
-      f1 = ((FLOATP (x)) ? float_data (XFLOAT (x)) : XINT (x));
-      f2 = ((FLOATP (y)) ? float_data (XFLOAT (y)) : XINT (y));
-      if (f2 == 0)
-	Fsignal (Qarith_error, Qnil);
-
-      f1 = fmod (f1, f2);
+      double dval1 = iod1.int_p ? (double) iod1.c.ival : iod1.c.dval;
+      double dval2 = iod2.int_p ? (double) iod2.c.ival : iod2.c.dval;
+      if (dval2 == 0) goto divide_by_zero;
+      dval1 = fmod (dval1, dval2);
 
       /* If the "remainder" comes out with the wrong sign, fix it.  */
-      if (f2 < 0 ? f1 > 0 : f1 < 0)
-	f1 += f2;
-      return make_float (f1);
+      if (dval2 < 0 ? dval1 > 0 : dval1 < 0)
+	dval1 += dval2;
+
+      return make_float (dval1);
     }
-#else /* not LISP_FLOAT_TYPE */
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (x);
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (y);
-#endif /* not LISP_FLOAT_TYPE */
+#endif /* LISP_FLOAT_TYPE */
+  {
+    int ival;
+    if (iod2.c.ival == 0) goto divide_by_zero;
 
-  i1 = XINT (x);
-  i2 = XINT (y);
+    ival = iod1.c.ival % iod2.c.ival;
 
-  if (i2 == 0)
-    Fsignal (Qarith_error, Qnil);
+    /* If the "remainder" comes out with the wrong sign, fix it.  */
+    if (iod2.c.ival < 0 ? ival > 0 : ival < 0)
+      ival += iod2.c.ival;
 
-  i1 %= i2;
+    return make_int (ival);
+  }
 
-  /* If the "remainder" comes out with the wrong sign, fix it.  */
-  if (i2 < 0 ? i1 > 0 : i1 < 0)
-    i1 += i2;
-
-  return make_int (i1);
-}
-
-
-DEFUN ("max", Fmax, 1, MANY, 0, /*
-Return largest of all the arguments.
-All arguments must be numbers, characters or markers.
-The value is always a number; markers and characters are converted
-to numbers.
-*/
-       (int nargs, Lisp_Object *args))
-{
-  return arith_driver (Amax, nargs, args);
-}
-
-DEFUN ("min", Fmin, 1, MANY, 0, /*
-Return smallest of all the arguments.
-All arguments must be numbers, characters or markers.
-The value is always a number; markers and characters are converted
-to numbers.
-*/
-       (int nargs, Lisp_Object *args))
-{
-  return arith_driver (Amin, nargs, args);
-}
-
-DEFUN ("logand", Flogand, 0, MANY, 0, /*
-Return bitwise-and of all the arguments.
-Arguments may be integers, or markers or characters converted to integers.
-*/
-       (int nargs, Lisp_Object *args))
-{
-  return arith_driver (Alogand, nargs, args);
-}
-
-DEFUN ("logior", Flogior, 0, MANY, 0, /*
-Return bitwise-or of all the arguments.
-Arguments may be integers, or markers or characters converted to integers.
-*/
-       (int nargs, Lisp_Object *args))
-{
-  return arith_driver (Alogior, nargs, args);
-}
-
-DEFUN ("logxor", Flogxor, 0, MANY, 0, /*
-Return bitwise-exclusive-or of all the arguments.
-Arguments may be integers, or markers or characters converted to integers.
-*/
-       (int nargs, Lisp_Object *args))
-{
-  return arith_driver (Alogxor, nargs, args);
+ divide_by_zero:
+  Fsignal (Qarith_error, Qnil);
+  return Qnil; /* not reached */
 }
 
 DEFUN ("ash", Fash, 2, 2, 0, /*
@@ -1544,7 +1510,7 @@ In this case, the sign bit is duplicated.
        (value, count))
 {
   CHECK_INT_COERCE_CHAR (value);
-  CHECK_INT (count);
+  CONCHECK_INT (count);
 
   return make_int (XINT (count) > 0 ?
 		   XINT (value) <<  XINT (count) :
@@ -1559,7 +1525,7 @@ In this case, zeros are shifted in on the left.
        (value, count))
 {
   CHECK_INT_COERCE_CHAR (value);
-  CHECK_INT (count);
+  CONCHECK_INT (count);
 
   return make_int (XINT (count) > 0 ?
 		   XUINT (value) <<  XINT (count) :
@@ -1567,44 +1533,41 @@ In this case, zeros are shifted in on the left.
 }
 
 DEFUN ("1+", Fadd1, 1, 1, 0, /*
-Return NUMBER plus one.  NUMBER may be a number or a marker.
+Return NUMBER plus one.  NUMBER may be a number, character or marker.
 Markers and characters are converted to integers.
 */
        (number))
 {
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (number);
+ retry:
 
+  if (INTP    (number)) return make_int (XINT  (number) + 1);
+  if (CHARP   (number)) return make_int (XCHAR (number) + 1);
+  if (MARKERP (number)) return make_int (marker_position (number) + 1);
 #ifdef LISP_FLOAT_TYPE
-  if (FLOATP (number))
-    return make_float (1.0 + float_data (XFLOAT (number)));
+  if (FLOATP  (number)) return make_float (XFLOAT_DATA (number) + 1.0);
 #endif /* LISP_FLOAT_TYPE */
 
-  return make_int (XINT (number) + 1);
+  number = wrong_type_argument (Qnumber_char_or_marker_p, number);
+  goto retry;
 }
 
 DEFUN ("1-", Fsub1, 1, 1, 0, /*
-Return NUMBER minus one.  NUMBER may be a number or a marker.
+Return NUMBER minus one.  NUMBER may be a number, character or marker.
 Markers and characters are converted to integers.
 */
        (number))
 {
-  CHECK_INT_OR_FLOAT_COERCE_CHAR_OR_MARKER (number);
+ retry:
 
+  if (INTP    (number)) return make_int (XINT  (number) - 1);
+  if (CHARP   (number)) return make_int (XCHAR (number) - 1);
+  if (MARKERP (number)) return make_int (marker_position (number) - 1);
 #ifdef LISP_FLOAT_TYPE
-  if (FLOATP (number))
-    return make_float (-1.0 + (float_data (XFLOAT (number))));
+  if (FLOATP  (number)) return make_float (XFLOAT_DATA (number) - 1.0);
 #endif /* LISP_FLOAT_TYPE */
 
-  return make_int (XINT (number) - 1);
-}
-
-DEFUN ("lognot", Flognot, 1, 1, 0, /*
-Return the bitwise complement of NUMBER.  NUMBER must be an integer.
-*/
-       (number))
-{
-  CHECK_INT (number);
-  return make_int (~XINT (number));
+  number = wrong_type_argument (Qnumber_char_or_marker_p, number);
+  goto retry;
 }
 
 
@@ -1616,7 +1579,7 @@ Return the bitwise complement of NUMBER.  NUMBER must be an integer.
    disappear when no longer in use, i.e. when no longer GC-protected.
    The basic idea is that we don't mark the elements during GC, but
    wait for them to be marked elsewhere.  If they're not marked, we
-   remove them.  This is analogous to weak hashtables; see the explanation
+   remove them.  This is analogous to weak hash tables; see the explanation
    there for more info. */
 
 static Lisp_Object Vall_weak_lists; /* Gemarke es nicht!!! */
@@ -1644,10 +1607,10 @@ print_weak_list (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static int
-weak_list_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+weak_list_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct weak_list *w1 = XWEAK_LIST (o1);
-  struct weak_list *w2 = XWEAK_LIST (o2);
+  struct weak_list *w1 = XWEAK_LIST (obj1);
+  struct weak_list *w2 = XWEAK_LIST (obj2);
 
   return ((w1->type == w2->type) &&
 	  internal_equal (w1->list, w2->list, depth + 1));
@@ -1712,7 +1675,7 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
       Lisp_Object rest2;
       enum weak_list_type type = XWEAK_LIST (rest)->type;
 
-      if (! ((*obj_marked_p) (rest)))
+      if (! obj_marked_p (rest))
 	/* The weak list is probably garbage.  Ignore it. */
 	continue;
 
@@ -1735,7 +1698,7 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 	     (either because of an external pointer or because of
 	     a previous call to this function), and likewise for all
 	     the rest of the elements in the list, so we can stop now. */
-	  if ((*obj_marked_p) (rest2))
+	  if (obj_marked_p (rest2))
 	    break;
 
 	  elem = XCAR (rest2);
@@ -1743,7 +1706,7 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 	  switch (type)
 	    {
 	    case WEAK_LIST_SIMPLE:
-	      if ((*obj_marked_p) (elem))
+	      if (obj_marked_p (elem))
 		need_to_mark_cons = 1;
 	      break;
 
@@ -1754,8 +1717,8 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 		  need_to_mark_cons = 1;
 		  need_to_mark_elem = 1;
 		}
-	      else if ((*obj_marked_p) (XCAR (elem)) &&
-		  (*obj_marked_p) (XCDR (elem)))
+	      else if (obj_marked_p (XCAR (elem)) &&
+		       obj_marked_p (XCDR (elem)))
 		{
 		  need_to_mark_cons = 1;
 		  /* We still need to mark elem, because it's
@@ -1771,7 +1734,7 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 		  need_to_mark_cons = 1;
 		  need_to_mark_elem = 1;
 		}
-	      else if ((*obj_marked_p) (XCAR (elem)))
+	      else if (obj_marked_p (XCAR (elem)))
 		{
 		  need_to_mark_cons = 1;
 		  /* We still need to mark elem and XCDR (elem);
@@ -1787,7 +1750,7 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 		  need_to_mark_cons = 1;
 		  need_to_mark_elem = 1;
 		}
-	      else if ((*obj_marked_p) (XCDR (elem)))
+	      else if (obj_marked_p (XCDR (elem)))
 		{
 		  need_to_mark_cons = 1;
 		  /* We still need to mark elem and XCAR (elem);
@@ -1800,9 +1763,9 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 	      abort ();
 	    }
 
-	  if (need_to_mark_elem && ! (*obj_marked_p) (elem))
+	  if (need_to_mark_elem && ! obj_marked_p (elem))
 	    {
-	      (*markobj) (elem);
+	      markobj (elem);
 	      did_mark = 1;
 	    }
 
@@ -1824,9 +1787,9 @@ finish_marking_weak_lists (int (*obj_marked_p) (Lisp_Object),
 
       /* In case of imperfect list, need to mark the final cons
          because we're not removing it */
-      if (!GC_NILP (rest2) && ! (obj_marked_p) (rest2))
+      if (!GC_NILP (rest2) && ! obj_marked_p (rest2))
 	{
-	  (markobj) (rest2);
+	  markobj (rest2);
 	  did_mark = 1;
 	}
     }
@@ -1843,7 +1806,7 @@ prune_weak_lists (int (*obj_marked_p) (Lisp_Object))
        !GC_NILP (rest);
        rest = XWEAK_LIST (rest)->next_weak)
     {
-      if (! ((*obj_marked_p) (rest)))
+      if (! (obj_marked_p (rest)))
 	{
 	  /* This weak list itself is garbage.  Remove it from the list. */
 	  if (GC_NILP (prev))
@@ -1873,7 +1836,7 @@ prune_weak_lists (int (*obj_marked_p) (Lisp_Object))
 		    have been marked in finish_marking_weak_lists().
 		 -- otherwise, it's not marked and should disappear.
 		 */
-	      if (!(*obj_marked_p) (rest2))
+	      if (! obj_marked_p (rest2))
 		{
 		  /* bye bye :-( */
 		  if (GC_NILP (prev2))
@@ -2086,14 +2049,17 @@ init_errors_once_early (void)
 	    "Attempt to set a constant symbol", Qerror);
   deferror (&Qinvalid_read_syntax, "invalid-read-syntax",
 	    "Invalid read syntax", Qerror);
+
+  /* Generated by list traversal macros */
   deferror (&Qmalformed_list, "malformed-list",
 	    "Malformed list", Qerror);
   deferror (&Qmalformed_property_list, "malformed-property-list",
-	    "Malformed property list", Qerror);
+	    "Malformed property list", Qmalformed_list);
   deferror (&Qcircular_list, "circular-list",
 	    "Circular list", Qerror);
   deferror (&Qcircular_property_list, "circular-property-list",
-	    "Circular property list", Qerror);
+	    "Circular property list", Qcircular_list);
+
   deferror (&Qinvalid_function, "invalid-function", "Invalid function",
 	    Qerror);
   deferror (&Qwrong_number_of_arguments, "wrong-number-of-arguments",
@@ -2146,7 +2112,6 @@ syms_of_data (void)
   defsymbol (&Qbitp, "bitp");
   defsymbol (&Qbit_vectorp, "bit-vector-p");
   defsymbol (&Qvectorp, "vectorp");
-  defsymbol (&Qcompiled_functionp, "compiled-function-p");
   defsymbol (&Qchar_or_string_p, "char-or-string-p");
   defsymbol (&Qmarkerp, "markerp");
   defsymbol (&Qinteger_or_marker_p, "integer-or-marker-p");
@@ -2167,6 +2132,7 @@ syms_of_data (void)
   DEFSUBR (Feq);
   DEFSUBR (Fold_eq);
   DEFSUBR (Fnull);
+  Ffset (intern ("not"), intern ("null"));
   DEFSUBR (Flistp);
   DEFSUBR (Fnlistp);
   DEFSUBR (Ftrue_list_p);
@@ -2202,7 +2168,6 @@ syms_of_data (void)
   DEFSUBR (Fsubr_min_args);
   DEFSUBR (Fsubr_max_args);
   DEFSUBR (Fsubr_interactive);
-  DEFSUBR (Fcompiled_function_p);
   DEFSUBR (Ftype_of);
   DEFSUBR (Fcar);
   DEFSUBR (Fcdr);
@@ -2213,17 +2178,6 @@ syms_of_data (void)
   DEFSUBR (Findirect_function);
   DEFSUBR (Faref);
   DEFSUBR (Faset);
-
-  DEFSUBR (Fcompiled_function_instructions);
-  DEFSUBR (Fcompiled_function_constants);
-  DEFSUBR (Fcompiled_function_stack_depth);
-  DEFSUBR (Fcompiled_function_arglist);
-  DEFSUBR (Fcompiled_function_interactive);
-  DEFSUBR (Fcompiled_function_doc_string);
-  DEFSUBR (Fcompiled_function_domain);
-#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
-  DEFSUBR (Fcompiled_function_annotation);
-#endif
 
   DEFSUBR (Fnumber_to_string);
   DEFSUBR (Fstring_to_number);
@@ -2266,9 +2220,9 @@ vars_of_data (void)
 
 #ifdef DEBUG_XEMACS
   DEFVAR_INT ("debug-issue-ebola-notices", &debug_issue_ebola_notices /*
-If non-nil, note when your code may be suffering from char-int confoundance.
+If non-zero, note when your code may be suffering from char-int confoundance.
 That is to say, if XEmacs encounters a usage of `eq', `memq', `equal',
-etc. where a int and a char with the same value are being compared,
+etc. where an int and a char with the same value are being compared,
 it will issue a notice on stderr to this effect, along with a backtrace.
 In such situations, the result would be different in XEmacs 19 versus
 XEmacs 20, and you probably don't want this.

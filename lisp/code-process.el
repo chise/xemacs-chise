@@ -30,6 +30,10 @@
 
 ;;; Code:
 
+(eval-when-compile
+  (defvar buffer-file-type)
+  (defvar binary-process-output))
+
 (defvar process-coding-system-alist nil
   "Alist to decide a coding system to use for a process I/O operation.
 The format is ((PATTERN . VAL) ...),
@@ -66,7 +70,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	      (let (ret)
 		(catch 'found
 		  (let ((alist process-coding-system-alist)
-			(case-fold-search (eq system-type 'vax-vms)))
+			(case-fold-search nil))
 		    (while alist
 		      (if (string-match (car (car alist)) program)
 			  (throw 'found (setq ret (cdr (car alist))))
@@ -106,25 +110,16 @@ Otherwise waits for PROGRAM to terminate
 and returns a numeric exit status or a signal description string.
 If you quit, the process is first killed with SIGINT, then with SIGKILL if
 you quit again before the process exits."
-  (let ((temp (cond ((eq system-type 'vax-vms)
-                     (make-temp-name "tmp:emacs"))
-		    ((or (eq system-type 'ms-dos)
-			 (eq system-type 'windows-nt))
-		     (make-temp-name
-		      (concat (file-name-as-directory
-			       (temp-directory))
-			       "em")))
-                    (t
-		     (make-temp-name
-		      (concat (file-name-as-directory
-			       (temp-directory))
-			      "emacs"))))))
+  (let ((temp
+	 (make-temp-name
+	  (concat (file-name-as-directory (temp-directory))
+		  (if (memq system-type '(ms-dos windows-nt)) "em" "emacs")))))
     (unwind-protect
 	(let (cs-r cs-w)
 	  (let (ret)
 	    (catch 'found
 	      (let ((alist process-coding-system-alist)
-		    (case-fold-search (eq system-type 'vax-vms)))
+		    (case-fold-search nil))
 		(while alist
 		  (if (string-match (car (car alist)) program)
 		      (throw 'found (setq ret (cdr (car alist)))))
@@ -142,16 +137,13 @@ you quit again before the process exits."
 		 (or coding-system-for-read cs-r))
 		(coding-system-for-write
 		 (or coding-system-for-write cs-w)))
-	    (if (or (eq system-type 'ms-dos)
-		    (eq system-type 'windows-nt))
+	    (if (memq system-type '(ms-dos windows-nt))
 		(let ((buffer-file-type binary-process-output))
 		  (write-region start end temp nil 'silent))
 	      (write-region start end temp nil 'silent))
 	    (if deletep (delete-region start end))
 	    (apply #'call-process program temp buffer displayp args)))
-      (condition-case ()
-          (delete-file temp)
-        (file-error nil)))))
+      (ignore-file-errors (delete-file temp)))))
 
 (defun start-process (name buffer program &rest program-args)
   "Start a program in a subprocess.  Return the process object for it.
@@ -170,7 +162,7 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
     (let (ret)
       (catch 'found
 	(let ((alist process-coding-system-alist)
-	      (case-fold-search (eq system-type 'vax-vms)))
+	      (case-fold-search nil))
 	  (while alist
 	    (if (string-match (car (car alist)) program)
 		(throw 'found (setq ret (cdr (car alist)))))
@@ -224,7 +216,7 @@ Fourth arg SERVICE is name of the service desired, or an integer
     (let (ret)
       (catch 'found
 	(let ((alist network-coding-system-alist)
-	      (case-fold-search (eq system-type 'vax-vms))
+	      (case-fold-search nil)
 	      pattern)
 	  (while alist
 	    (setq pattern (car (car alist)))

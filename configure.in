@@ -229,6 +229,13 @@ define([XE_PREPEND],
 [[$2]="[$1] $[$2]" && dnl
  if test "$extra_verbose" = "yes"; then echo "    Prepending \"[$1]\" to \$[$2]"; fi])
 
+dnl XE_DIE(message)
+define([XE_DIE], [{ echo $1 >&2; exit 1; }])
+
+dnl XE_STRIP_4TH_COMPONENT(var)
+dnl Changes i986-pc-linux-gnu to i986-pc-linux, as God (not RMS) intended.
+define([XE_STRIP_4TH_COMPONENT],
+[$1=`echo "$$1" | sed '[s/^\([^-][^-]*-[^-][^-]*-[^-][^-]*\)-.*$/\1/]'`])
 
 dnl Initialize some variables set by options.
 dnl The variables have the same names as the options, with
@@ -326,7 +333,6 @@ dnl -----------------------------
 XE_APPEND(lib-src, MAKE_SUBDIR)
 XE_APPEND(lib-src, INSTALL_ARCH_DEP_SUBDIR)
 
-dnl run_in_place='no'
 prefix='/usr/local'
 exec_prefix='${prefix}'
 bindir='${exec_prefix}/bin'
@@ -453,13 +459,11 @@ while test $# != 0; do
       case "$opt" in
 
       dnl Process (many) boolean options
-	run_in_place	| \
-        with_site_lisp  | \
+	with_site_lisp	| \
 	with_x		| \
 	with_x11	| \
 	with_msw	| \
 	with_gcc	| \
-	with_gnu_make	| \
 	dynamic		| \
 	with_ncurses	| \
 	with_dnet	| \
@@ -476,19 +480,20 @@ while test $# != 0; do
 	with_tiff	| \
 	with_session	| \
 	with_xmu	| \
+	with_purify	| \
 	with_quantify	| \
 	with_toolbars	| \
 	with_tty	| \
 	with_xfs	| \
 	with_i18n3	| \
 	with_mule	| \
-	with_file_coding	| \
+	with_file_coding| \
 	with_canna	| \
 	with_wnn	| \
 	with_wnn6	| \
 	with_workshop	| \
 	with_sparcworks | \
-	with_tooltalk   | \
+	with_tooltalk	| \
 	with_ldap	| \
 	with_pop	| \
 	with_kerberos	| \
@@ -499,14 +504,13 @@ while test $# != 0; do
 	verbose		| \
 	extra_verbose	| \
 	const_is_losing | \
-	usage_tracking  | \
-	use_union_type  | \
+	usage_tracking	| \
+	use_union_type	| \
 	debug		| \
 	use_assertions	| \
+	gung_ho		| \
 	use_minimal_tagbits			| \
 	use_indexed_lrecord_implementation	| \
-	gung_ho		| \
-	use_assertions	| \
 	memory_usage_stats | \
 	with_clash_detection | \
 	with_shlib | \
@@ -514,10 +518,10 @@ while test $# != 0; do
 	  dnl Make sure the value given was either "yes" or "no".
 	  case "$val" in
 	    y | ye | yes )	val=yes ;;
-	    n | no )		val=no  ;;
+	    n | no )		val=no	;;
 	    * ) USAGE_ERROR("The \`--$optname' option requires a boolean value: \`yes' or \`no'.") ;;
 	  esac
-          eval "$opt=\"$val\"" ;;
+	  eval "$opt=\"$val\"" ;;
 
 
 	dnl Options that take a user-supplied value, as in --puresize=8000000
@@ -531,7 +535,7 @@ while test $# != 0; do
 	ldflags		| \
 	puresize	| \
 	cache_file	| \
-	native_sound_lib | \
+	native_sound_lib| \
 	site_lisp	| \
 	x_includes	| \
 	x_libraries	| \
@@ -579,7 +583,7 @@ while test $# != 0; do
 		g | gn | gnu | gnud | gnudb | gnudbm )  with_database_gnudbm=yes ;;
 		* ) USAGE_ERROR(["The \`--$optname' option value
   must be either \`no' or a comma-separated list
-  of one or more of \`berkdb', \`dbm', or \`gnudbm'."]) ;;
+  of one or more of \`berkdb' and either \`dbm' or \`gnudbm'."]) ;;
             esac
 	  done
 	  if test "$with_database_dbm"    = "yes" -a \
@@ -617,17 +621,6 @@ while test $# != 0; do
 	  esac
           eval "$opt=\"$val\""
         ;;
-
-        dnl XFontSet support?
-	"with_xfs" )
-	  case "$val" in
-	  y | ye | yes )		val=yes	;;
-	  n | no | non | none )		val=no	;;
-	  * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
- \`yes', or \`no'."]) ;;
-	  esac
-	  eval "$opt=\"$val\""
-	;;
 
         dnl Mail locking specification
 	"mail_locking" )
@@ -699,7 +692,7 @@ while test $# != 0; do
 	dnl Has the user specified one of the path options?
 	prefix | exec_prefix | bindir | datadir | statedir | libdir | \
 	mandir | infodir | infopath | lispdir | etcdir | lockdir | pkgdir | \
-	archlibdir | docdir | package_path )	
+	archlibdir | docdir | package_path )
 	   dnl If the value was omitted, get it from the next argument.
 	   if test "$valomitted" = "yes"; then
 	     if test "$#" = 0; then
@@ -733,9 +726,10 @@ dnl             sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
 	dnl Has the user asked for some help?
 	"usage" | "help" ) ${PAGER-more} ${srcdir}/configure.usage; exit 0 ;;
 
-	dnl Has the user specified what toolkit to use for the menubars,
-	dnl scrollbar or dialogs?
-	"with_menubars" | "with_scrollbars" | "with_dialogs" )
+	dnl Has the user specified the toolkit(s) to use for GUI elements?
+	"with_menubars"   | \
+	"with_scrollbars" | \
+	"with_dialogs" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
 	    m | mo | mot | moti | motif )		val=motif  ;;
@@ -748,7 +742,13 @@ dnl             sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
 	  eval "$opt=\"$val\""
 	;;
 
-        dnl Fail on unrecognized arguments.
+	dnl Obsolete legacy argument?  Warn, but otherwise ignore.
+	"run_in_place"	| \
+	"with_gnu_make" )
+	  AC_MSG_WARN([Obsolete option \`--$optname' ignored.])
+	;;
+
+        dnl Unrecognized option?  No mercy for user errors.
 	* ) USAGE_ERROR("Unrecognized option: $arg") ;;
 
       esac
@@ -757,7 +757,7 @@ dnl             sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
     dnl Assume anything with multiple hyphens is a configuration name.
     *-*-*) configuration="$arg" ;;
 
-    dnl Anything else is an error
+    dnl Unrecognized argument?  No mercy for user errors.
     *) USAGE_ERROR("Unrecognized argument: $arg") ;;
 
   esac
@@ -779,20 +779,16 @@ eval set x "$quoted_arguments"; shift
 dnl --extra-verbose implies --verbose
 test "$extra_verbose" = "yes" && verbose=yes
 
-dnl Allow use of either ":" or spaces for lists of directories
-define(COLON_TO_SPACE,
-  [case "$[$1]" in *:* [)] [$1]="`echo '' $[$1] | sed -e 's/^ //' -e 's/:/ /g'`";; esac])dnl
-COLON_TO_SPACE(site_includes)
-COLON_TO_SPACE(site_libraries)
-COLON_TO_SPACE(site_prefixes)
-COLON_TO_SPACE(site_runtime_libraries)
-
 dnl with_x is an obsolete synonym for with_x11
 test -n "$with_x" && with_x11="$with_x"
 
+dnl --with-quantify or --with-purify imply --use-system-malloc
+if test "$with_purify" = "yes" -o "$with_quantify" = "yes"; then
+  test "$with_system_malloc" = "default" && with_system_malloc=yes
+fi
+
 dnl --gung-ho=val is a synonym for
 dnl --use-minimal-tagbits=val --use-indexed-lrecord-implementation=val
-
 if test -n "$gung_ho"; then
   test -z "$use_minimal_tagbits" && use_minimal_tagbits="$gung_ho"
   test -z "$use_indexed_lrecord_implementation" && \
@@ -815,11 +811,6 @@ fi
 
 dnl CDE requires tooltalk
 XE_CHECK_FEATURE_DEPENDENCY(cde, tooltalk)
-
-dnl Ignore useless run-in-place flag
-if test "$run_in_place" = "yes"; then
-  AC_MSG_WARN("The --run-in-place option is ignored because it is unnecessary.")
-fi
 
 dnl Find the source directory.
 case "$srcdir" in
@@ -856,13 +847,9 @@ esac
 
 dnl ###########################################################################
 if test -z "$configuration"; then
-  AC_MSG_CHECKING("host system type")
-  dnl Guess the configuration and remove 4th name component, if present.
-  if configuration=`${CONFIG_SHELL-/bin/sh} $srcdir/config.guess | \
-    sed '[s/^\([^-][^-]*-[^-][^-]*-[^-][^-]*\)-.*$/\1/]'` ; then
-    AC_MSG_RESULT($configuration)
-  else
-    AC_MSG_RESULT(unknown)
+  dnl Guess the configuration
+  configuration=`${CONFIG_SHELL-/bin/sh} $srcdir/config.guess`
+  if test -z "$configuration"; then
     USAGE_ERROR(["XEmacs has not been ported to this host type.
 Try explicitly specifying the CONFIGURATION when rerunning configure."])
   fi
@@ -985,12 +972,13 @@ dnl Given the configuration name, set machfile and opsysfile to the
 dnl names of the m/*.h and s/*.h files we should use.
 
 dnl Canonicalize the configuration name.
-AC_CHECKING("the configuration name")
+AC_MSG_CHECKING("host system type")
 dnl allow -workshop suffix on configuration name
 internal_configuration=`echo $configuration | sed 's/-\(workshop\)//'`
-if canonical=`$srcdir/config.sub "$internal_configuration"` ; then : ; else
-  exit $?
-fi
+canonical=`${CONFIG_SHELL-/bin/sh} $srcdir/config.sub "$internal_configuration"`
+XE_STRIP_4TH_COMPONENT(configuration)
+XE_STRIP_4TH_COMPONENT(canonical)
+AC_MSG_RESULT($configuration)
 
 dnl If you add support for a new configuration, add code to this
 dnl switch statement to recognize your configuration name and select
@@ -1033,6 +1021,8 @@ case "$canonical" in
   m68*-sony-*      ) machine=news ;;
   mips-sony-*      ) machine=news-risc ;;
   clipper-*        ) machine=clipper ;;
+  arm-*            ) machine=arm ;;
+  ns32k-*          ) machine=ns32000 ;;
 esac
 
 dnl Straightforward OS determination
@@ -1103,13 +1093,9 @@ case "$canonical" in
   dnl OpenBSD ports
   *-*-openbsd* )
     case "${canonical}" in
-      alpha*-*-openbsd*)	machine=alpha ;;
       i386-*-openbsd*)		machine=intel386 ;;
       m68k-*-openbsd*)		machine=hp9000s300 ;;
       mipsel-*-openbsd*)	machine=pmax ;;
-      ns32k-*-openbsd*)		machine=ns32000 ;;
-      sparc-*-openbsd*)		machine=sparc ;;
-      vax-*-openbsd*)		machine=vax ;;
      esac
    ;;
 
@@ -1489,9 +1475,6 @@ case "$canonical" in
   dnl Linux/68k
   m68k-*-linux* ) machine=m68k opsys=linux ;;
 
-  dnl Linux/arm
-  arm-*-linux* ) machine=arm opsys=linux ;;
-
 esac
 
 if test -z "$machine" -o -z "$opsys"; then
@@ -1728,7 +1711,7 @@ EOF
 
 dnl The value of CPP is a quoted variable reference, so we need to do this
 dnl to get its actual value...
-CPP=`eval "echo $CPP"`
+CPP=`eval "echo $CPP $CPPFLAGS"`
 define(TAB, [	])dnl
 changequote(, )dnl
 eval `$CPP -Isrc $tempcname \
@@ -1787,8 +1770,8 @@ if test "$GCC" = "yes"; then
   set x $[$1]; shift; [$1]=""
   while test -n "[$]1"; do
     case [$]1 in
-      -L  | -l  | -u         ) [$1]="$[$1] [$]1 [$]2"; shift ;;
-      -L* | -l* | -u* | -Wl* ) [$1]="$[$1] [$]1" ;;
+      -L  | -l  | -u               ) [$1]="$[$1] [$]1 [$]2"; shift ;;
+      -L* | -l* | -u* | -Wl* | -pg ) [$1]="$[$1] [$]1" ;;
       -Xlinker* ) ;;
       * ) [$1]="$[$1] -Xlinker [$]1" ;;
     esac
@@ -1860,36 +1843,58 @@ dnl ---------------------------------------------------------------
 dnl Add site and system specific flags to compile and link commands
 dnl ---------------------------------------------------------------
 
-dnl All dirs present in site-prefixes will be searched for include/ and lib/
-dnl subdirs. This can avoid specifying both site-includes and site-libraries.
-dnl Those dirs will take precedence over the standard places, but not over
-dnl site-includes and site-libraries.
-
-dnl --site-prefixes (multiple dirs)
-if test -n "$site_prefixes"; then
-  for arg in $site_prefixes; do
-    case "$arg" in
-	-* ) ;;
-	* ) argi="-I${arg}/include" ; argl="-L${arg}/lib" ;;
-    esac
-    XE_APPEND($argi, c_switch_site)
-    XE_APPEND($argl, ld_switch_site)
-  done
-fi
+dnl Allow use of either ":" or spaces for lists of directories
+define(COLON_TO_SPACE,
+  [case "$[$1]" in *:* [)] [$1]="`echo '' $[$1] | sed -e 's/^ //' -e 's/:/ /g'`";; esac])dnl
 
 dnl --site-libraries (multiple dirs)
+COLON_TO_SPACE(site_libraries)
 if test -n "$site_libraries"; then
   for arg in $site_libraries; do
-    case "$arg" in -* ) ;; * ) arg="-L${arg}" ;; esac
+    case "$arg" in
+     -* ) ;;
+     * ) test -d "$arg" || \
+           XE_DIE("Invalid site library \`$arg': no such directory")
+       arg="-L${arg}" ;;
+    esac
     XE_APPEND($arg, ld_switch_site)
   done
 fi
 
 dnl --site-includes (multiple dirs)
+COLON_TO_SPACE(site_includes)
 if test -n "$site_includes"; then
   for arg in $site_includes; do
-    case "$arg" in -* ) ;; * ) arg="-I${arg}" ;; esac
+    case "$arg" in
+      -* ) ;;
+      * ) test -d "$arg" || \
+           XE_DIE("Invalid site include \`$arg': no such directory")
+      arg="-I${arg}" ;;
+    esac
     XE_APPEND($arg, c_switch_site)
+  done
+fi
+
+dnl --site-prefixes (multiple dirs)
+dnl --site-prefixes=dir1:dir2 is a convenient shorthand for
+dnl --site-libraries=dir1/lib:dir2/lib --site-includes=dir1/include:dir2/include
+dnl Site prefixes take precedence over the standard places, but not over
+dnl site-includes and site-libraries.
+COLON_TO_SPACE(site_prefixes)
+if test -n "$site_prefixes"; then
+  for dir in $site_prefixes; do
+    inc_dir="${dir}/include"
+    lib_dir="${dir}/lib"
+    if test ! -d "$dir"; then
+      XE_DIE("Invalid site prefix \`$dir': no such directory")
+    elif test ! -d "$inc_dir"; then
+      XE_DIE("Invalid site prefix \`$dir': no such directory \`$inc_dir'")
+    elif test ! -d "$lib_dir"; then
+      XE_DIE("Invalid site prefix \`$dir': no such directory \`$lib_dir'")
+    else
+      XE_APPEND("-I$inc_dir", c_switch_site)
+      XE_APPEND("-L$lib_dir", ld_switch_site)
+    fi
   done
 fi
 
@@ -1905,6 +1910,7 @@ for dir in "/usr/ccs/lib"; do
 done
 
 dnl --site-runtime-libraries (multiple dirs)
+COLON_TO_SPACE(site_runtime_libraries)
 if test -n "$site_runtime_libraries"; then
   LD_RUN_PATH="`echo $site_runtime_libraries | sed -e 's/  */:/g'`"
   export LD_RUN_PATH
@@ -2092,7 +2098,7 @@ AC_PROG_YACC
 dnl checks for header files
 AC_CHECK_HEADERS(mach/mach.h sys/stropts.h sys/timeb.h sys/time.h unistd.h)
 AC_CHECK_HEADERS(utime.h locale.h libgen.h fcntl.h ulimit.h cygwin/version.h)
-AC_CHECK_HEADERS(linux/version.h kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
+AC_CHECK_HEADERS(kstat.h sys/pstat.h inttypes.h sys/un.h a.out.h)
 AC_HEADER_SYS_WAIT
 AC_HEADER_STDC
 AC_HEADER_TIME
@@ -2464,12 +2470,12 @@ if test "$with_msw" != "no"; then
 	test "$with_dialogs"   != "no" && with_dialogs=msw \
 	    && XE_ADD_OBJS(dialog-msw.o)
     else
-	test "$with_scrollbars"   != "no" && XE_ADD_OBJS(scrollbar-msw.o)
+	test "$with_scrollbars" != "no" && XE_ADD_OBJS(scrollbar-msw.o)
 	test "$with_menubars"   != "no" && XE_ADD_OBJS(menubar-msw.o)
 	test "$with_toolbars"   != "no" && XE_ADD_OBJS(toolbar-msw.o)
-	test "$with_dialogs"   != "no" && XE_ADD_OBJS(dialog-msw.o)
+	test "$with_dialogs"    != "no" && XE_ADD_OBJS(dialog-msw.o)
     fi
-    dnl check for our special version of select 	
+    dnl check for our special version of select
     AC_TRY_RUN([#include <fcntl.h>
     int main() { return (open("/dev/windows", O_RDONLY, 0) > 0)? 0 : 1; }],
     [AC_DEFINE(HAVE_MSG_SELECT)])
@@ -2617,7 +2623,7 @@ if test "$with_cde" = "yes" ; then
 fi
 
 dnl Always compile OffiX unless --without-offix is given, no
-dnl X11 support is compiled in, no standard Xmu is avaiable,
+dnl X11 support is compiled in, no standard Xmu is available,
 dnl or dragndrop support is disabled
 dnl Because OffiX support currently loses when more than one display
 dnl is in use, we now disable it by default -slb 07/10/1998.
@@ -3390,7 +3396,7 @@ case "$with_sound" in both | nas )
   XE_ADD_OBJS(nas.o)
   XE_PREPEND(-laudio, libs_x)
   dnl If the nas library does not contain the error jump point,
-  dnl then we force safer behaviour.
+  dnl then we force safer behavior.
   AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[AC_DEFINE(NAS_NO_ERROR_JUMP)])
 esac
 
@@ -3652,7 +3658,7 @@ XE_SPACE(ld_libs_all, $ld_libs_window_system $ld_libs_general)
 dnl Compute lists of Makefiles and subdirs
 AC_SUBST(SRC_SUBDIR_DEPS)
 XE_APPEND(src, MAKE_SUBDIR)
-internal_makefile_list="Makefile"
+internal_makefile_list="Makefile.in"
 SUBDIR_MAKEFILES=''
 test -d lock || mkdir lock
 for dir in $MAKE_SUBDIR; do
@@ -3864,7 +3870,13 @@ AC_SUBST(sound_cflags)
 AC_SUBST(RANLIB)
 AC_SUBST(dynodump_arch)
 
-# The default is yes
+dnl Preliminary support for using a different compiler for xemacs itself.
+dnl Useful for building XEmacs with a C++ or 64-bit compiler.
+: ${XEMACS_CC:=$CC}
+AC_SUBST(XEMACS_CC)
+
+
+dnl The default is yes
 if test "$with_site_lisp" = "no"; then
   AC_DEFINE(INHIBIT_SITE_LISP)
 fi
@@ -3900,9 +3912,9 @@ fi
 test "$with_i18n3"         = "yes" && AC_DEFINE(I18N3)
 test "$GCC"                = "yes" && AC_DEFINE(USE_GCC)
 test "$external_widget"    = "yes" && AC_DEFINE(EXTERNAL_WIDGET)
-test "$with_gnu_make"      = "yes" && AC_DEFINE(USE_GNU_MAKE)
 test "$no_doc_file"        = "yes" && AC_DEFINE(NO_DOC_FILE)
 dnl test "$const_is_losing"    = "yes" && AC_DEFINE(CONST_IS_LOSING)
+test "$with_purify"        = "yes" && AC_DEFINE(PURIFY)
 test "$with_quantify"      = "yes" && AC_DEFINE(QUANTIFY)
 test "$with_pop"           = "yes" && AC_DEFINE(MAIL_USE_POP)
 test "$with_kerberos"      = "yes" && AC_DEFINE(KERBEROS)
@@ -3999,7 +4011,7 @@ case "$with_sound" in
   native ) echo "  Compiling in native sound support." ;;
   both   ) echo "  Compiling in both network and native sound support." ;;
 esac
-test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously"
+test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
 
 test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley DB."
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
@@ -4053,9 +4065,9 @@ test "$with_shlib" = "yes" && echo "  Compiling in DLL support."
 test "$with_clash_detection" = yes && \
   echo "  Clash detection will use \"$lockdir\" for locking files."
 echo "  movemail will use \"$mail_locking\" for locking mail spool files."
-test "$with_pop"	= yes && echo "  Using POP for mail access"
-test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication"
-test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host"
+test "$with_pop"	= yes && echo "  Using POP for mail access."
+test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
+test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
 test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
 test "$use_minimal_tagbits" = yes && echo "  Using Lisp_Objects with minimal tagbits."
 test "$use_indexed_lrecord_implementation" = yes && echo "  Using indexed lrecord implementation."
@@ -4083,7 +4095,6 @@ echo '")' >> Installation.el
 dnl -----------------------------------
 dnl Now generate config.h and Makefiles
 dnl -----------------------------------
-
 dnl This has to be called in order for this variable to get into config.status
 AC_SUBST(internal_makefile_list)
 # Remove any trailing slashes in these variables.
@@ -4103,41 +4114,57 @@ done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
 
 AC_OUTPUT($ac_output_files,
-[for dir in $MAKE_SUBDIR; do
-  echo creating $dir/Makefile
+[for dir in . $MAKE_SUBDIR; do
   (
-changequote(<<, >>)dnl
     cd $dir
     rm -f junk.c
     < Makefile.in \
       sed -e '/^# Generated/d' \
           -e 's%/\*\*/#.*%%' \
           -e 's/^ *# */#/' \
+dnl Delete Makefile.in.in comment lines
           -e '/^##/d' \
+dnl Pass through CPP directives unchanged
           -e '/^#/ {
 p
 d
-}'        -e '/./ {
-s/\([\"]\)/\\\1/g
+}'        \
+dnl Quote other lines to protect from CPP substitution
+	  -e '/./ {
+s/\([[\"]]\)/\\\1/g
 s/^/"/
 s/$/"/
 }'  > junk.c;
-    $CPP -I. -I${top_srcdir}/src $CPPFLAGS junk.c > junk.cpp;
-    < junk.cpp				\
-      sed -e 's/^#.*//'			\
-	-e 's/^[ TAB][ TAB]*$//'	\
-	-e 's/^ /TAB/'			\
-	| sed -n -e '/^..*$/p'		\
-	| sed '/^"/ {
-s/\\\([\"]\)/\1/g
-s/^[ TAB]*"//
-s/"[ TAB]*$//
-}'	> Makefile.new
+
+dnl Create a GNUmakefile and Makefile from Makefile.in.
+
+changequote(<<,>>)dnl
+dnl CPP_MAKEFILE(CPPFLAGS,filename)
+define(<<CPP_MAKEFILE>>,
+echo creating $dir/<<$2>>
+$CPP -I. -I${top_srcdir}/src <<$1>> junk.c \
+dnl Delete line directives inserted by $CPP
+  | sed -e 's/^\#.*//'		\
+dnl Delete spurious blanks inserted by $CPP
+	-e 's/^[ TAB][ TAB]*$//'\
+	-e 's/^ /TAB/'		\
+dnl Delete blank lines
+  | sed -n -e '/^..*$/p'	\
+dnl Restore lines quoted above to original contents.
+  | sed '/^\"/ {
+	s/\\\([\"]\)/\1/g
+	s/^[ TAB]*\"//
+	s/\"[ TAB]*$//
+}' > Makefile.new
     chmod 444 Makefile.new
-    mv -f Makefile.new Makefile
-    rm -f junk.c junk.cpp
-changequote([, ])dnl
-)
+    mv -f Makefile.new <<$2>>
+)dnl CPP_MAKEFILE
+
+    CPP_MAKEFILE(,Makefile)
+    CPP_MAKEFILE(-DUSE_GNU_MAKE,GNUmakefile)
+changequote([,])dnl
+    rm -f junk.c
+  )
 done
 
 dnl Append AC_DEFINE information to lib-src/config.values
@@ -4150,7 +4177,6 @@ sed < config.status >> lib-src/config.values \
 
 ],
 [CPP="$CPP"
- CPPFLAGS="$CPPFLAGS"
  top_srcdir="$srcdir"
  MAKE_SUBDIR="$MAKE_SUBDIR"
-])
+])dnl

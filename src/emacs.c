@@ -35,13 +35,17 @@ Boston, MA 02111-1307, USA.  */
 #include "commands.h"
 #include "console.h"
 #include "process.h"
+#include "redisplay.h"
 #include "sysdep.h"
 
-#include <setjmp.h>
 #include "syssignal.h" /* Always include before systty.h */
 #include "systty.h"
 #include "sysfile.h"
 #include "systime.h"
+
+#ifdef QUANTIFY
+#include <quantify.h>
+#endif
 
 #ifdef HAVE_SHLIB
 #include "sysdll.h"
@@ -211,8 +215,6 @@ char **initial_argv;
 int initial_argc;
 
 static void sort_args (int argc, char **argv);
-
-extern int always_gc;           /* hack */
 
 Lisp_Object Qkill_emacs_hook;
 Lisp_Object Qsave_buffers_kill_emacs;
@@ -445,7 +447,7 @@ Return the directory name in which the Emacs executable was located.
 #endif
 
 #if defined (MULE) && defined (MSDOS) && defined (EMX)
-/* Setup all of files be input/output'ed with binary translation mdoe. */
+/* Setup all of files be input/output'ed with binary translation mode. */
 asm ("	.text");
 asm ("L_setbinmode:");
 asm ("	movl	$1, __fmode_bin");
@@ -519,7 +521,10 @@ argmatch (char **argv, int argc, char *sstr, char *lstr,
 /* Make stack traces always identify version + configuration */
 #define main_1 STACK_TRACE_EYE_CATCHER
 
-static DOESNT_RETURN
+/* This function is not static, so that the compiler is less likely to
+   inline it, which would make it not show up in stack traces.  */
+DECLARE_DOESNT_RETURN (main_1 (int, char **, char **, int));
+DOESNT_RETURN
 main_1 (int argc, char **argv, char **envp, int restart)
 {
   char stack_bottom_variable;
@@ -894,6 +899,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_elhash ();
       syms_of_emacs ();
       syms_of_eval ();
+#ifdef HAVE_X_WINDOWS
+      syms_of_event_Xt ();
+#endif
 #ifdef HAVE_DRAGNDROP
       syms_of_dragdrop ();
 #endif
@@ -964,12 +972,12 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_device_tty ();
       syms_of_objects_tty ();
 #endif
+
 #ifdef HAVE_X_WINDOWS
       syms_of_device_x ();
 #ifdef HAVE_DIALOGS
       syms_of_dialog_x ();
 #endif
-      syms_of_event_Xt ();
       syms_of_frame_x ();
       syms_of_glyphs_x ();
       syms_of_objects_x ();
@@ -985,7 +993,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MS_WINDOWS
       syms_of_console_mswindows ();
       syms_of_device_mswindows ();
-      syms_of_event_mswindows ();
       syms_of_frame_mswindows ();
       syms_of_objects_mswindows ();
       syms_of_select_mswindows ();
@@ -1024,10 +1031,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef SYMS_MACHINE
       SYMS_MACHINE;
-#endif
-
-#ifdef EMACS_BTL
-      syms_of_btl ();
 #endif
 
       /*
@@ -1152,7 +1155,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       structure_type_create_chartab ();
       structure_type_create_faces ();
       structure_type_create_rangetab ();
-      structure_type_create_hashtable ();
+      structure_type_create_hash_table ();
 
       /* Now initialize the image instantiator formats and associated symbols.
          Other than the first function below, the functions may
@@ -1189,7 +1192,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MS_WINDOWS) && !defined(HAVE_MSG_SELECT)
       lstream_type_create_mswindows_selectable ();
 #endif
-      
+
       /* Initialize processes implementation.
 	 The functions may make exactly the following function/macro calls:
 
@@ -1276,7 +1279,18 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_elhash ();
       vars_of_emacs ();
       vars_of_eval ();
+
+#ifdef HAVE_X_WINDOWS
+      vars_of_event_Xt ();
+#endif
+#if defined(HAVE_TTY) && (defined (DEBUG_TTY_EVENT_STREAM) || !defined (HAVE_X_WINDOWS))
+      vars_of_event_tty ();
+#endif
+#ifdef HAVE_MS_WINDOWS
+      vars_of_event_mswindows ();
+#endif
       vars_of_event_stream ();
+
       vars_of_events ();
       vars_of_extents ();
       vars_of_faces ();
@@ -1345,7 +1359,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_TTY
       vars_of_console_tty ();
-      vars_of_event_tty ();
       vars_of_frame_tty ();
       vars_of_objects_tty ();
 #endif
@@ -1355,7 +1368,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_DIALOGS
       vars_of_dialog_x ();
 #endif
-      vars_of_event_Xt ();
       vars_of_frame_x ();
       vars_of_glyphs_x ();
 #ifdef HAVE_MENUBARS
@@ -1374,7 +1386,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MS_WINDOWS
       vars_of_device_mswindows ();
       vars_of_console_mswindows ();
-      vars_of_event_mswindows ();
       vars_of_frame_mswindows ();
       vars_of_objects_mswindows ();
       vars_of_select_mswindows ();
@@ -1458,14 +1469,14 @@ main_1 (int argc, char **argv, char **envp, int restart)
       /* Calls Fmake_range_table(). */
       complex_vars_of_search ();
 
-      /* Calls make_lisp_hashtable(). */
+      /* Calls make_lisp_hash_table(). */
       complex_vars_of_extents ();
 
-      /* Depends on hashtables and specifiers. */
+      /* Depends on hash tables and specifiers. */
       complex_vars_of_faces ();
 
 #ifdef MULE
-      /* These two depend on hashtables and various variables declared
+      /* These two depend on hash tables and various variables declared
 	 earlier.  The second may also depend on the first. */
       complex_vars_of_mule_charset ();
 #endif
@@ -1536,15 +1547,21 @@ main_1 (int argc, char **argv, char **envp, int restart)
       complex_vars_of_emacs ();
 
       /* This creates a couple of basic keymaps and depends on Lisp
-	 hashtables and Ffset() (both of which depend on some variables
+	 hash tables and Ffset() (both of which depend on some variables
 	 initialized in the vars_of_*() section) and possibly other
 	 stuff. */
       complex_vars_of_keymap ();
-      /* Calls Fmake_hashtable() and creates a keymap */
+
+      /* Calls make_lisp_hash_table() and creates a keymap */
       complex_vars_of_event_stream ();
 
-      if (always_gc)                /* purification debugging hack */
-	garbage_collect_1 ();
+#ifdef ERROR_CHECK_GC
+      {
+	extern int always_gc;
+	if (always_gc)                /* purification debugging hack */
+	  garbage_collect_1 ();
+      }
+#endif
     }
 
   /* CONGRATULATIONS!!!  We have successfully initialized the Lisp
@@ -1574,7 +1591,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef WINDOWSNT
   /*
    * For Win32, call init_environment() now, so that environment/registry
-   * variables will be properly entered into Vprocess_envonment.
+   * variables will be properly entered into Vprocess_environment.
    */
   init_environment();
 #endif
@@ -1657,11 +1674,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
     char *buf = (char *)alloca (XSTRING_LENGTH (Vinvocation_directory)
 				+ XSTRING_LENGTH (Vinvocation_name)
 				+ 2);
-    sprintf (buf, "%s/%s", XSTRING_DATA(Vinvocation_directory),
-	     XSTRING_DATA(Vinvocation_name));
+    sprintf (buf, "%s/%s", XSTRING_DATA (Vinvocation_directory),
+	     XSTRING_DATA (Vinvocation_name));
 
     /* All we can do is cry if an error happens, so ignore it. */
-    (void)dll_init(buf);
+    (void) dll_init (buf);
   }
 #endif
 
@@ -1791,7 +1808,7 @@ static struct standard_args standard_args[] =
 static void
 sort_args (int argc, char **argv)
 {
-  char **new = xnew_array (char *, argc);
+  char **new_argv = xnew_array (char *, argc);
   /* For each element of argv,
      the corresponding element of options is:
      0 for an option that takes no arguments,
@@ -1871,8 +1888,8 @@ sort_args (int argc, char **argv)
 	}
     }
 
-  /* Copy the arguments, in order of decreasing priority, to NEW.  */
-  new[0] = argv[0];
+  /* Copy the arguments, in order of decreasing priority, to NEW_ARGV.  */
+  new_argv[0] = argv[0];
   while (to < argc)
     {
       int best = -1;
@@ -1895,10 +1912,10 @@ sort_args (int argc, char **argv)
       if (best < 0)
 	abort ();
 
-      /* Copy the highest priority remaining option, with its args, to NEW.  */
-      new[to++] = argv[best];
+      /* Copy the highest priority remaining option, with its args, to NEW_ARGV.  */
+      new_argv[to++] = argv[best];
       for (i = 0; i < options[best]; i++)
-	new[to++] = argv[best + i + 1];
+	new_argv[to++] = argv[best + i + 1];
 
       /* Clear out this option in ARGV.  */
       argv[best] = 0;
@@ -1906,7 +1923,10 @@ sort_args (int argc, char **argv)
 	argv[best + i + 1] = 0;
     }
 
-  memcpy (argv, new, sizeof (char *) * argc);
+  memcpy (argv, new_argv, sizeof (char *) * argc);
+  xfree (new_argv);
+  xfree (options);
+  xfree (priority);
 }
 
 static JMP_BUF run_temacs_catch;
@@ -1938,7 +1958,9 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
    a dumped version in case you want to rerun it.  This function is most
    useful when used as part of the `make all-elc' command. --ben]
    This will "restart" emacs with the specified command-line arguments.
- */
+
+   Martin thinks this function is most useful when using debugging
+   tools like Purify or tcov that get confused by XEmacs' dumping.  */
      (int nargs, Lisp_Object *args))
 {
   int ac;
@@ -1988,11 +2010,13 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   unbind_to (0, Qnil); /* this closes loadup.el */
   purify_flag = 0;
   run_temacs_argc = nargs + 1;
+#if 0
 #ifdef REPORT_PURE_USAGE
   report_pure_usage (1, 0);
 #else
   report_pure_usage (0, 0);
 #endif
+#endif /* 0 */
   LONGJMP (run_temacs_catch, 1);
   return Qnil; /* not reached; warning suppression */
 }
@@ -2004,28 +2028,33 @@ main (int argc, char **argv, char **envp)
   int     volatile vol_argc = argc;
   char ** volatile vol_argv = argv;
   char ** volatile vol_envp = envp;
-  /* This is hairy.  We need to compute where the XEmacs binary was invoked */
-  /* from because temacs initialization requires it to find the lisp */
-  /* directories.  The code that recomputes the path is guarded by the */
-  /* restarted flag.  There are three possible paths I've found so far */
-  /* through this: */
-  /* temacs -- When running temacs for basic build stuff, the first main_1 */
-  /*  will be the only one invoked.  It must compute the path else there */
-  /*  will be a very ugly bomb in startup.el (can't find obvious location */
-  /*  for doc-directory data-directory, etc.).  */
-  /* temacs w/ run-temacs on the command line -- This is run to bytecompile */
-  /*  all the out of date dumped lisp.  It will execute both of the main_1 */
-  /*  calls and the second one must not touch the first computation because */
-  /*  argc/argv are hosed the second time through. */
-  /* xemacs -- Only the second main_1 is executed.  The invocation path must */
-  /*  computed but this only matters when running in place or when running */
-  /*  as a login shell. */
-  /* As a bonus for straightening this out, XEmacs can now be run in place */
-  /*  as a login shell.  This never used to work. */
-  /* As another bonus, we can now guarantee that */
-  /* (concat invocation-directory invocation-name) contains the filename */
-  /* of the XEmacs binary we are running.  This can now be used in a */
-  /* definite test for out of date dumped files.  -slb */
+  /* This is hairy.  We need to compute where the XEmacs binary was invoked
+     from because temacs initialization requires it to find the lisp
+     directories.  The code that recomputes the path is guarded by the
+     restarted flag.  There are three possible paths I've found so far
+     through this:
+
+     temacs -- When running temacs for basic build stuff, the first main_1
+      will be the only one invoked.  It must compute the path else there
+      will be a very ugly bomb in startup.el (can't find obvious location
+      for doc-directory data-directory, etc.).
+
+     temacs w/ run-temacs on the command line -- This is run to bytecompile
+      all the out of date dumped lisp.  It will execute both of the main_1
+      calls and the second one must not touch the first computation because
+      argc/argv are hosed the second time through.
+
+     xemacs -- Only the second main_1 is executed.  The invocation path must
+      computed but this only matters when running in place or when running
+      as a login shell.
+
+     As a bonus for straightening this out, XEmacs can now be run in place
+     as a login shell.  This never used to work.
+
+     As another bonus, we can now guarantee that
+     (concat invocation-directory invocation-name) contains the filename
+     of the XEmacs binary we are running.  This can now be used in a
+     definite test for out of date dumped files.  -slb */
   int restarted = 0;
 #ifdef QUANTIFY
   quantify_stop_recording_data ();
@@ -2080,7 +2109,7 @@ main (int argc, char **argv, char **envp)
     }
 #ifdef RUN_TIME_REMAP
   else
-    /* obviously no-one uses this because where it was before initalized was
+    /* obviously no-one uses this because where it was before initialized was
      *always* true */
     run_time_remap (argv[0]);
 #endif
@@ -2449,10 +2478,10 @@ and announce itself normally when it is run.
      It's a whole lot easier to do the conversion here than to
      modify all the unexec routines to ensure that filename
      conversion is applied everywhere.  Don't worry about memory
-     leakage because this call only happens once. */ 
- unexec (intoname_ext, symname_ext, (uintptr_t) my_edata, 0, 0);
+     leakage because this call only happens once. */
+    unexec (intoname_ext, symname_ext, (uintptr_t) my_edata, 0, 0);
 #ifdef DOUG_LEA_MALLOC
-  free (malloc_state_ptr);
+    free (malloc_state_ptr);
 #endif
   }
 #endif /* not MSDOS and EMX */
@@ -2605,7 +2634,7 @@ assert_failed (CONST char *file, int line, CONST char *expr)
 
 #ifdef QUANTIFY
 DEFUN ("quantify-start-recording-data", Fquantify_start_recording_data,
-       0, 0, 0, /*
+       0, 0, "", /*
 Start recording Quantify data.
 */
        ())
@@ -2615,7 +2644,7 @@ Start recording Quantify data.
 }
 
 DEFUN ("quantify-stop-recording-data", Fquantify_stop_recording_data,
-       0, 0, 0, /*
+       0, 0, "", /*
 Stop recording Quantify data.
 */
        ())
@@ -2624,7 +2653,7 @@ Stop recording Quantify data.
   return Qnil;
 }
 
-DEFUN ("quantify-clear-data", Fquantify_clear_data, 0, 0, 0, /*
+DEFUN ("quantify-clear-data", Fquantify_clear_data, 0, 0, "", /*
 Clear all Quantify data.
 */
        ())
@@ -2857,7 +2886,7 @@ void
 complex_vars_of_emacs (void)
 {
   /* This is all related to path searching. */
-  
+
   DEFVAR_LISP ("emacs-program-name", &Vemacs_program_name /*
 *Name of the Emacs variant.
 For example, this may be \"xemacs\" or \"infodock\".

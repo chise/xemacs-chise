@@ -23,8 +23,14 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_FRAME_H_
 #define _XEMACS_FRAME_H_
 
+#ifdef HAVE_SCROLLBARS
 #include "scrollbar.h"
+#endif
+
+#ifdef HAVE_TOOLBARS
 #include "toolbar.h"
+#endif
+
 #include "device.h"
 
 #define FRAME_TYPE_NAME(f) ((f)->framemeths->name)
@@ -48,7 +54,7 @@ struct frame
   struct console_methods *framemeths;
 
   /* Size of text only area of this frame, excluding scrollbars,
-     toolbars and end of line glyphs. The size can be in charactes
+     toolbars and end of line glyphs. The size can be in characters
      or pixels, depending on units in which window system resizes
      its windows */
   int height, width;
@@ -60,7 +66,7 @@ struct frame
   /* Size of text-only are of the frame, in default font characters.
      This may be inaccurate due to rounding error */
   int char_height, char_width;
-  
+
   /* Size of the whole frame, including scrollbars, toolbars and end
      of line glyphs, in pixels */
   int pixheight, pixwidth;
@@ -108,7 +114,7 @@ struct frame
 #include "frameslots.h"
 
     /* Nonzero if frame is currently displayed.
-       Mutally exclusive with iconfied
+       Mutually exclusive with iconified
        JV: This now a tristate flag:
 Value : Emacs meaning                           :f-v-p : X meaning
 0     : not displayed                           : nil  : unmapped

@@ -22,7 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
-/* Autorship:
+/* Author:
    Initially written by kkm 12/24/97,
    */
 

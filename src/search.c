@@ -29,7 +29,6 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "buffer.h"
-#include "commands.h"
 #include "insdel.h"
 #include "opaque.h"
 #ifdef REGION_CACHE_NEEDS_WORK
@@ -684,31 +683,31 @@ scan_buffer (struct buffer *buf, Emchar target, Bufpos start, Bufpos end,
 }
 
 Bytind
-bi_find_next_newline_no_quit (struct buffer *buf, Bytind from, int cnt)
+bi_find_next_newline_no_quit (struct buffer *buf, Bytind from, int count)
 {
-  return bi_scan_buffer (buf, '\n', from, 0, cnt, 0, 0);
+  return bi_scan_buffer (buf, '\n', from, 0, count, 0, 0);
 }
 
 Bufpos
-find_next_newline_no_quit (struct buffer *buf, Bufpos from, int cnt)
+find_next_newline_no_quit (struct buffer *buf, Bufpos from, int count)
 {
-  return scan_buffer (buf, '\n', from, 0, cnt, 0, 0);
+  return scan_buffer (buf, '\n', from, 0, count, 0, 0);
 }
 
 Bufpos
-find_next_newline (struct buffer *buf, Bufpos from, int cnt)
+find_next_newline (struct buffer *buf, Bufpos from, int count)
 {
-  return scan_buffer (buf, '\n', from, 0, cnt, 0, 1);
+  return scan_buffer (buf, '\n', from, 0, count, 0, 1);
 }
 
 /* Like find_next_newline, but returns position before the newline,
    not after, and only search up to TO.  This isn't just
    find_next_newline (...)-1, because you might hit TO.  */
 Bufpos
-find_before_next_newline (struct buffer *buf, Bufpos from, Bufpos to, int cnt)
+find_before_next_newline (struct buffer *buf, Bufpos from, Bufpos to, int count)
 {
   EMACS_INT shortage;
-  Bufpos pos = scan_buffer (buf, '\n', from, to, cnt, &shortage, 1);
+  Bufpos pos = scan_buffer (buf, '\n', from, to, count, &shortage, 1);
 
   if (shortage == 0)
     pos--;
@@ -730,20 +729,21 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
   REGISTER int i;
   struct Lisp_Char_Table *syntax_table =
     XCHAR_TABLE (buf->mirror_syntax_table);
-
-  CHECK_STRING (string);
+  Bufpos limit;
 
   if (NILP (lim))
-    XSETINT (lim, forwardp ? BUF_ZV (buf) : BUF_BEGV (buf));
+    limit = forwardp ? BUF_ZV (buf) : BUF_BEGV (buf);
   else
-    CHECK_INT_COERCE_MARKER (lim);
+    {
+      CHECK_INT_COERCE_MARKER (lim);
+      limit = XINT (lim);
 
-  /* In any case, don't allow scan outside bounds of buffer.  */
-  if (XINT (lim) > BUF_ZV (buf))
-    lim = make_int (BUF_ZV (buf));
-  if (XINT (lim) < BUF_BEGV (buf))
-    lim = make_int (BUF_BEGV (buf));
+      /* In any case, don't allow scan outside bounds of buffer.  */
+      if (limit > BUF_ZV   (buf)) limit = BUF_ZV   (buf);
+      if (limit < BUF_BEGV (buf)) limit = BUF_BEGV (buf);
+    }
 
+  CHECK_STRING (string);
   p = XSTRING_DATA (string);
   pend = p + XSTRING_LENGTH (string);
   memset (fastmap, 0, sizeof (fastmap));
@@ -828,7 +828,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	   to worry about */
 	if (forwardp)
 	  {
-	    while (BUF_PT (buf) < XINT (lim)
+	    while (BUF_PT (buf) < limit
 		   && fastmap[(unsigned char)
                               syntax_code_spec
 			      [(int) SYNTAX (syntax_table,
@@ -838,7 +838,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	  }
 	else
 	  {
-	    while (BUF_PT (buf) > XINT (lim)
+	    while (BUF_PT (buf) > limit
 		   && fastmap[(unsigned char)
                               syntax_code_spec
 			      [(int) SYNTAX (syntax_table,
@@ -851,7 +851,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
       {
 	if (forwardp)
 	  {
-	    while (BUF_PT (buf) < XINT (lim))
+	    while (BUF_PT (buf) < limit)
 	      {
 		Emchar ch = BUF_FETCH_CHAR (buf, BUF_PT (buf));
 		if ((ch < 0400) ? fastmap[ch] :
@@ -866,7 +866,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	  }
 	else
 	  {
-	    while (BUF_PT (buf) > XINT (lim))
+	    while (BUF_PT (buf) > limit)
 	      {
 		Emchar ch = BUF_FETCH_CHAR (buf, BUF_PT (buf) - 1);
 		if ((ch < 0400) ? fastmap[ch] :
@@ -1383,7 +1383,7 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 			       (EMACS_UINT) p_limit)
 			  cursor += BM_tab[*cursor];
 		    }
-/* If you are here, cursor is beyond the end of the searched region. */
+ /* If you are here, cursor is beyond the end of the searched region. */
  /* This can happen if you match on the far character of the pattern, */
  /* because the "stride" of that character is infinity, a number able */
  /* to throw you well beyond the end of the search.  It can also */
@@ -1837,7 +1837,7 @@ and you do not need to specify it.)
   case_action = nochange;	/* We tried an initialization */
 				/* but some C compilers blew it */
 
-  if (search_regs.num_regs <= 0)
+  if (search_regs.num_regs == 0)
     error ("replace-match called before any match found");
 
   if (NILP (string))
@@ -2219,7 +2219,7 @@ match_limit (Lisp_Object num, int beginningp)
   n = XINT (num);
   if (n < 0 || n >= search_regs.num_regs)
     args_out_of_range (num, make_int (search_regs.num_regs));
-  if (search_regs.num_regs <= 0 ||
+  if (search_regs.num_regs == 0 ||
       search_regs.start[n] < 0)
     return Qnil;
   return make_int (beginningp ? search_regs.start[n] : search_regs.end[n]);
@@ -2310,7 +2310,7 @@ to hold all the values, and if INTEGERS is non-nil, no consing is done.
 
   /* If REUSE is a list, store as many value elements as will fit
      into the elements of REUSE.  */
-  for (i = 0, tail = reuse; CONSP (tail); i++, tail = XCDR (tail))
+  for (prev = Qnil, i = 0, tail = reuse; CONSP (tail); i++, tail = XCDR (tail))
     {
       if (i < 2 * len + 2)
 	XCAR (tail) = data[i];

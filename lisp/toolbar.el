@@ -36,9 +36,9 @@
 customized through the options menu."
   :group 'display
   :type 'boolean
-  :set '(lambda (var val)
-	  (set-specifier default-toolbar-visible-p val)
-	  (setq toolbar-visible-p val))
+  :set #'(lambda (var val)
+	   (set-specifier default-toolbar-visible-p val)
+	   (setq toolbar-visible-p val))
   )
 
 (defcustom toolbar-captioned-p ;; added for the options menu - dverna apr. 98
@@ -47,9 +47,9 @@ customized through the options menu."
 customized through the options menu."
   :group 'display
   :type 'boolean
-  :set '(lambda (var val)
-	  (set-specifier toolbar-buttons-captioned-p val)
-	  (setq toolbar-captioned-p val))
+  :set #'(lambda (var val)
+	   (set-specifier toolbar-buttons-captioned-p val)
+	   (setq toolbar-captioned-p val))
   )
 
 (defcustom default-toolbar-position ;; added for the options menu - dverna
@@ -61,9 +61,9 @@ customized through the options menu."
 		 (const :tag "bottom" 'bottom)
 		 (const :tag "left" 'left)
 		 (const :tag "right" 'right))
-  :set '(lambda (var val)
-	  (set-default-toolbar-position val)
-	  (setq default-toolbar-position val))
+  :set #'(lambda (var val)
+	   (set-default-toolbar-position val)
+	   (setq default-toolbar-position val))
   )
 
 (defvar toolbar-help-enabled t

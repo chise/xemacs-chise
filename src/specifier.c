@@ -183,13 +183,13 @@ mark_specifier (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Specifier *specifier = XSPECIFIER (obj);
 
-  ((markobj) (specifier->global_specs));
-  ((markobj) (specifier->device_specs));
-  ((markobj) (specifier->frame_specs));
-  ((markobj) (specifier->window_specs));
-  ((markobj) (specifier->buffer_specs));
-  ((markobj) (specifier->magic_parent));
-  ((markobj) (specifier->fallback));
+  markobj (specifier->global_specs);
+  markobj (specifier->device_specs);
+  markobj (specifier->frame_specs);
+  markobj (specifier->window_specs);
+  markobj (specifier->buffer_specs);
+  markobj (specifier->magic_parent);
+  markobj (specifier->fallback);
   if (!GHOST_SPECIFIER_P (XSPECIFIER (obj)))
     MAYBE_SPECMETH (specifier, mark, (obj, markobj));
   return Qnil;
@@ -223,14 +223,14 @@ prune_specifiers (int (*obj_marked_p) (Lisp_Object))
        !GC_NILP (rest);
        rest = XSPECIFIER (rest)->next_specifier)
     {
-      if (! ((*obj_marked_p) (rest)))
+      if (! obj_marked_p (rest))
 	{
 	  struct Lisp_Specifier* sp = XSPECIFIER (rest);
 	  /* A bit of assertion that we're removing both parts of the
              magic one altogether */
 	  assert (!GC_MAGIC_SPECIFIER_P(sp)
-		  || (GC_BODILY_SPECIFIER_P(sp) && (*obj_marked_p)(sp->fallback))
-		  || (GC_GHOST_SPECIFIER_P(sp) && (*obj_marked_p)(sp->magic_parent)));
+		  || (GC_BODILY_SPECIFIER_P(sp) && obj_marked_p (sp->fallback))
+		  || (GC_GHOST_SPECIFIER_P(sp) && obj_marked_p (sp->magic_parent)));
 	  /* This specifier is garbage.  Remove it from the list. */
 	  if (GC_NILP (prev))
 	    Vall_specifiers = sp->next_specifier;
@@ -287,10 +287,10 @@ finalize_specifier (void *header, int for_disksave)
 }
 
 static int
-specifier_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+specifier_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Specifier *s1 = XSPECIFIER (o1);
-  struct Lisp_Specifier *s2 = XSPECIFIER (o2);
+  struct Lisp_Specifier *s1 = XSPECIFIER (obj1);
+  struct Lisp_Specifier *s2 = XSPECIFIER (obj2);
   int retval;
   Lisp_Object old_inhibit_quit = Vinhibit_quit;
 
@@ -309,7 +309,7 @@ specifier_equal (Lisp_Object o1, Lisp_Object o2, int depth)
      internal_equal (s1->fallback,     s2->fallback,     depth));
 
   if (retval && HAS_SPECMETH_P (s1, equal))
-    retval = SPECMETH (s1, equal, (o1, o2, depth - 1));
+    retval = SPECMETH (s1, equal, (obj1, obj2, depth - 1));
 
   Vinhibit_quit = old_inhibit_quit;
   return retval;
@@ -637,16 +637,21 @@ decode_locale_list (Lisp_Object locale)
   /* This cannot GC. */
   /* The return value of this function must be GCPRO'd. */
   if (NILP (locale))
-    locale = list1 (Qall);
+    {
+      return list1 (Qall);
+    }
+  else if (CONSP (locale))
+    {
+      Lisp_Object elt;
+      EXTERNAL_LIST_LOOP_2 (elt, locale)
+	check_valid_locale_or_locale_type (elt);
+      return locale;
+    }
   else
     {
-      Lisp_Object rest;
-      if (!CONSP (locale))
-	locale = list1 (locale);
-      EXTERNAL_LIST_LOOP (rest, locale)
-	check_valid_locale_or_locale_type (XCAR (rest));
+      check_valid_locale_or_locale_type (locale);
+      return list1 (locale);
     }
-  return locale;
 }
 
 static enum spec_locale_type
@@ -1846,7 +1851,7 @@ with the function `specifier-spec-list' or `specifier-specs'.
 
   CHECK_SPECIFIER (specifier);
   check_modifiable_specifier (specifier);
-  
+
   locale = decode_locale (locale);
   check_valid_instantiator (instantiator,
 			    decode_specifier_type
@@ -2405,18 +2410,17 @@ specifier_instance_from_inst_list (Lisp_Object specifier,
    specific (buffer) to most general (global).  If we find an instance,
    return it.  Otherwise return Qunbound. */
 
-#define CHECK_INSTANCE_ENTRY(key, matchspec, type)			\
-do {									\
-  Lisp_Object *__inst_list =						\
+#define CHECK_INSTANCE_ENTRY(key, matchspec, type) do {			\
+  Lisp_Object *CIE_inst_list =						\
     specifier_get_inst_list (specifier, key, type);			\
-  if (__inst_list)							\
+  if (CIE_inst_list)							\
     {									\
-      Lisp_Object __val__ =						\
+      Lisp_Object CIE_val =						\
 	specifier_instance_from_inst_list (specifier, matchspec,	\
-					   domain, *__inst_list,	\
+					   domain, *CIE_inst_list,	\
 					   errb, no_quit, depth);	\
-      if (!UNBOUNDP (__val__))						\
-	return __val__;							\
+      if (!UNBOUNDP (CIE_val))						\
+	return CIE_val;							\
     }									\
 } while (0)
 
@@ -2480,7 +2484,7 @@ specifier_instance (Lisp_Object specifier, Lisp_Object matchspec,
       goto do_fallback;
     }
 
-try_again:
+retry:
   /* First see if we can generate one from the window specifiers. */
   if (!NILP (window))
     CHECK_INSTANCE_ENTRY (window, matchspec, LOCALE_WINDOW);
@@ -2514,7 +2518,7 @@ do_fallback:
 	 then you're fucked, so you better not do this. */
       specifier = sp->fallback;
       sp = XSPECIFIER (specifier);
-      goto try_again;
+      goto retry;
     }
 
   assert (CONSP (sp->fallback));
@@ -3126,7 +3130,7 @@ vars_of_specifier (void)
   staticpro (&Vcached_specifiers);
 
   /* Do NOT mark through this, or specifiers will never be GC'd.
-     This is the same deal as for weak hashtables. */
+     This is the same deal as for weak hash tables. */
   Vall_specifiers = Qnil;
 
   Vuser_defined_tags = Qnil;

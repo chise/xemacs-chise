@@ -81,7 +81,7 @@ make the clicked-on window taller or shorter."
 	  (start-nwindows (count-windows t))
 ;;	  (hscroll-delta (face-width 'modeline))
 ;;	  (start-hscroll (modeline-hscroll (event-window event)))
-	  (start-x-pixel (event-x-pixel event))
+;	  (start-x-pixel (event-x-pixel event))
 	  (last-timestamp 0)
 	  default-line-height
 	  modeline-height
@@ -220,7 +220,7 @@ make the clicked-on window taller or shorter."
   "Handle mouse clicks on modeline by switching buffers.
 If click on left half of a frame's modeline, bury current buffer.
 If click on right half of a frame's modeline, raise bottommost buffer.
-Arg EVENT is the button release event that occured on the modeline."
+Arg EVENT is the button release event that occurred on the modeline."
   (or (event-over-modeline-p event)
       (error "not over a modeline"))
   (or (button-release-event-p event)

@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.
 
 /* Control whether spawnve quotes arguments as necessary to ensure
    correct parsing by child process.  Because not all uses of spawnve
-   are careful about constructing argv arrays, we make this behaviour
+   are careful about constructing argv arrays, we make this behavior
    conditional (off by default). */
 Lisp_Object Vwin32_quote_process_args;
 
@@ -620,7 +620,7 @@ sys_spawnve (int mode, CONST char *cmdname,
 
      The Win32 GNU-based library from Cygnus doubles quotes to escape
      them, while MSVC uses backslash for escaping.  (Actually the MSVC
-     startup code does attempt to recognise doubled quotes and accept
+     startup code does attempt to recognize doubled quotes and accept
      them, but gets it wrong and ends up requiring three quotes to get a
      single embedded quote!)  So by default we decide whether to use
      quote or backslash as the escape character based on whether the
@@ -628,7 +628,7 @@ sys_spawnve (int mode, CONST char *cmdname,
 
      Note that using backslash to escape embedded quotes requires
      additional special handling if an embedded quote is already
-     preceeded by backslash, or if an arg requiring quoting ends with
+     preceded by backslash, or if an arg requiring quoting ends with
      backslash.  In such cases, the run of escape characters needs to be
      doubled.  For consistency, we apply this special handling as long
      as the escape character is not quote.
@@ -724,7 +724,7 @@ sys_spawnve (int mode, CONST char *cmdname,
 #if 0
 	  /* This version does not escape quotes if they occur at the
 	     beginning or end of the arg - this could lead to incorrect
-	     behaviour when the arg itself represents a command line
+	     behavior when the arg itself represents a command line
 	     containing quoted args.  I believe this was originally done
 	     as a hack to make some things work, before
 	     `win32-quote-process-args' was added.  */
@@ -1193,7 +1193,7 @@ If successful, the return value is t, otherwise nil.
 DEFUN ("win32-get-locale-info", Fwin32_get_locale_info, 1, 2, "", /*
   "Return information about the Windows locale LCID.
 By default, return a three letter locale code which encodes the default
-language as the first two characters, and the country or regionial variant
+language as the first two characters, and the country or regional variant
 as the third letter.  For example, ENU refers to `English (United States)',
 while ENC means `English (Canadian)'.
 
@@ -1395,7 +1395,7 @@ process temporarily).  A value of zero disables waiting entirely.
     "Non-nil means attempt to fake realistic inode values.
 This works by hashing the truename of files, and should detect 
 aliasing between long and short (8.3 DOS) names, but can have
-false positives because of hash collisions.  Note that determing
+false positives because of hash collisions.  Note that determining
 the truename of a file can be slow.
 */ );
   Vwin32_generate_fake_inodes = Qnil;

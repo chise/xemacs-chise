@@ -89,29 +89,38 @@ Lisp_Object;
 #define XCHARVAL(x) ((x).gu.val)
 
 #ifdef USE_MINIMAL_TAGBITS
+
 # define XSETINT(var, value) do {	\
-  Lisp_Object *_xzx = &(var);		\
-  _xzx->s.val = (value);		\
-  _xzx->s.bits = 1;			\
+  EMACS_INT xset_value = (value);	\
+  Lisp_Object *xset_var = &(var);	\
+  xset_var->s.bits = 1;			\
+  xset_var->s.val = xset_value;		\
 } while (0)
 # define XSETCHAR(var, value) do {	\
-  Lisp_Object *_xzx = &(var);		\
-  _xzx->gu.val = (EMACS_UINT) (value);	\
-  _xzx->gu.type = Lisp_Type_Char;	\
+  Emchar xset_value = (value);		\
+  Lisp_Object *xset_var = &(var);	\
+  xset_var->gu.type = Lisp_Type_Char;	\
+  xset_var->gu.val = xset_value;	\
 } while (0)
-# define XSETOBJ(var, vartype, value)	\
-  ((void) ((var).ui = (EMACS_UINT) (value)))
-# define XPNTRVAL(x) ((x).ui)
-#else /* ! USE_MINIMAL_TAGBITS */
 # define XSETOBJ(var, vartype, value) do {	\
-  Lisp_Object *_xzx = &(var);			\
-  _xzx->gu.val = (EMACS_UINT) (value);		\
-  _xzx->gu.type = (vartype);			\
-  _xzx->gu.markbit = 0;				\
+  EMACS_UINT xset_value = (EMACS_UINT) (value);	\
+  (var).ui = xset_value;			\
+} while (0)
+# define XPNTRVAL(x) ((x).ui)
+
+#else /* ! USE_MINIMAL_TAGBITS */
+
+# define XSETOBJ(var, vartype, value) do {	\
+  EMACS_UINT xset_value = (EMACS_UINT) (value);	\
+  Lisp_Object *xset_var = &(var);		\
+  xset_var->gu.type = (vartype);		\
+  xset_var->gu.markbit = 0;			\
+  xset_var->gu.val = xset_value;		\
 } while (0)
 # define XSETINT(var, value) XSETOBJ (var, Lisp_Type_Int, value)
 # define XSETCHAR(var, value) XSETOBJ (var, Lisp_Type_Char, value)
 # define XPNTRVAL(x) ((x).gu.val)
+
 #endif /* ! USE_MINIMAL_TAGBITS */
 
 INLINE Lisp_Object make_int (EMACS_INT val);

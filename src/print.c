@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "sysfile.h"
 
+#include <limits.h>
 #include <float.h>
 /* Define if not in float.h */
 #ifndef DBL_DIG
@@ -166,7 +167,7 @@ output_string (Lisp_Object function, CONST Bufbyte *nonreloc,
   CONST Bufbyte *newnonreloc = nonreloc;
   struct gcpro gcpro1, gcpro2;
 
-  /* Emacs won't print whilst GCing, but an external debugger might */
+  /* Emacs won't print while GCing, but an external debugger might */
   if (gc_in_progress) return;
 
   /* Perhaps not necessary but probably safer. */
@@ -278,7 +279,7 @@ canonicalize_printcharfun (Lisp_Object printcharfun)
 static Lisp_Object
 print_prepare (Lisp_Object printcharfun, Lisp_Object *frame_kludge)
 {
-  /* Emacs won't print whilst GCing, but an external debugger might */
+  /* Emacs won't print while GCing, but an external debugger might */
   if (gc_in_progress)
     return Qnil;
 
@@ -323,7 +324,7 @@ print_prepare (Lisp_Object printcharfun, Lisp_Object *frame_kludge)
 static void
 print_finish (Lisp_Object stream, Lisp_Object frame_kludge)
 {
-  /* Emacs won't print whilst GCing, but an external debugger might */
+  /* Emacs won't print while GCing, but an external debugger might */
   if (gc_in_progress)
     return;
 
@@ -341,7 +342,7 @@ print_finish (Lisp_Object stream, Lisp_Object frame_kludge)
 	clear_echo_area_from_print (f, Qnil, 1);
       echo_area_append (f, resizing_buffer_stream_ptr (str),
 			Qnil, 0, Lstream_byte_count (str),
-			Vprint_message_label);	
+			Vprint_message_label);
       Lstream_delete (str);
     }
 }
@@ -395,7 +396,7 @@ STREAM defaults to the value of `standard-output' (which see).
 }
 
 void
-temp_output_buffer_setup (CONST char *bufname)
+temp_output_buffer_setup (Lisp_Object bufname)
 {
   /* This function can GC */
   struct buffer *old = current_buffer;
@@ -406,7 +407,7 @@ temp_output_buffer_setup (CONST char *bufname)
      so that proper translation on the buffer name can occur. */
 #endif
 
-  Fset_buffer (Fget_buffer_create (build_string (bufname)));
+  Fset_buffer (Fget_buffer_create (bufname));
 
   current_buffer->read_only = Qnil;
   Ferase_buffer (Qnil);
@@ -418,7 +419,7 @@ temp_output_buffer_setup (CONST char *bufname)
 }
 
 Lisp_Object
-internal_with_output_to_temp_buffer (CONST char *bufname,
+internal_with_output_to_temp_buffer (Lisp_Object bufname,
                                      Lisp_Object (*function) (Lisp_Object arg),
                                      Lisp_Object arg,
                                      Lisp_Object same_frame)
@@ -429,7 +430,7 @@ internal_with_output_to_temp_buffer (CONST char *bufname,
 
   GCPRO3 (buf, arg, same_frame);
 
-  temp_output_buffer_setup (GETTEXT (bufname));
+  temp_output_buffer_setup (bufname);
   buf = Vstandard_output;
 
   arg = (*function) (arg);
@@ -454,21 +455,22 @@ to get the buffer displayed.  It gets one argument, the buffer to display.
        (args))
 {
   /* This function can GC */
-  struct gcpro gcpro1;
-  Lisp_Object name;
+  Lisp_Object name = Qnil;
   int speccount = specpdl_depth ();
-  Lisp_Object val;
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object val = Qnil;
 
 #ifdef I18N3
   /* #### should set the buffer to be translating.  See print_internal(). */
 #endif
 
-  GCPRO1 (args);
+  GCPRO2 (name, val);
   name = Feval (XCAR (args));
-  UNGCPRO;
 
   CHECK_STRING (name);
-  temp_output_buffer_setup ((char *) XSTRING_DATA (name));
+
+  temp_output_buffer_setup (name);
+  UNGCPRO;
 
   val = Fprogn (XCDR (args));
 
@@ -896,23 +898,33 @@ print_cons (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_char_internal ("(", printcharfun);
 
   {
-    int i = 0;
-    int max = 0;
+    int len;
+    int max = INTP (Vprint_length) ? XINT (Vprint_length) : INT_MAX;
+    Lisp_Object tortoise;
+    /* Use tortoise/hare to make sure circular lists don't infloop */
 
-    if (INTP (Vprint_length))
-      max = XINT (Vprint_length);
-    while (CONSP (obj))
+    for (tortoise = obj, len = 0;
+	 CONSP (obj);
+	 obj = XCDR (obj), len++)
       {
-	if (i++)
+	if (len > 0)
 	  write_char_internal (" ", printcharfun);
-	if (max && i > max)
+	if (EQ (obj, tortoise) && len > 0)
+	  {
+	    if (print_readably)
+	      error ("printing unreadable circular list");
+	    else
+	      write_c_string ("... <circular list>", printcharfun);
+	    break;
+	  }
+	if (len & 1)
+	  tortoise = XCDR (tortoise);
+	if (len > max)
 	  {
 	    write_c_string ("...", printcharfun);
 	    break;
 	  }
-	print_internal (XCAR (obj), printcharfun,
-			escapeflag);
-	obj = XCDR (obj);
+	print_internal (XCAR (obj), printcharfun, escapeflag);
       }
   }
   if (!LISTP (obj))
@@ -921,6 +933,7 @@ print_cons (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
       print_internal (obj, printcharfun, escapeflag);
     }
   UNGCPRO;
+
   write_char_internal (")", printcharfun);
   return;
 }
@@ -1041,7 +1054,7 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
   QUIT;
 
-  /* Emacs won't print whilst GCing, but an external debugger might */
+  /* Emacs won't print while GCing, but an external debugger might */
   if (gc_in_progress) return;
 
 #ifdef I18N3
@@ -1244,79 +1257,6 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   print_depth--;
 }
 
-static void
-print_compiled_function_internal (CONST char *start, CONST char *end,
-				  Lisp_Object obj,
-				  Lisp_Object printcharfun, int escapeflag)
-{
-  /* This function can GC */
-  struct Lisp_Compiled_Function *b =
-    XCOMPILED_FUNCTION (obj); /* GC doesn't relocate */
-  int docp = b->flags.documentationp;
-  int intp = b->flags.interactivep;
-  struct gcpro gcpro1, gcpro2;
-  char buf[100];
-  GCPRO2 (obj, printcharfun);
-
-  write_c_string (start, printcharfun);
-#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
-  if (!print_readably)
-    {
-      Lisp_Object ann = compiled_function_annotation (b);
-      if (!NILP (ann))
-	{
-	  write_c_string ("(from ", printcharfun);
-	  print_internal (ann, printcharfun, 1);
-	  write_c_string (") ", printcharfun);
-	}
-    }
-#endif /* COMPILED_FUNCTION_ANNOTATION_HACK */
-  /* COMPILED_ARGLIST = 0 */
-  print_internal (b->arglist, printcharfun, escapeflag);
-  /* COMPILED_BYTECODE = 1 */
-  write_char_internal (" ", printcharfun);
-  /* we don't really want to see that junk in the bytecode instructions. */
-  if (STRINGP (b->bytecodes) && !print_readably)
-    {
-      sprintf (buf, "\"...(%ld)\"", (long) XSTRING_LENGTH (b->bytecodes));
-      write_c_string (buf, printcharfun);
-    }
-  else
-    print_internal (b->bytecodes, printcharfun, escapeflag);
-  /* COMPILED_CONSTANTS = 2 */
-  write_char_internal (" ", printcharfun);
-  print_internal (b->constants, printcharfun, escapeflag);
-  /* COMPILED_STACK_DEPTH = 3 */
-  sprintf (buf, " %d", b->maxdepth);
-  write_c_string (buf, printcharfun);
-  /* COMPILED_DOC_STRING = 4 */
-  if (docp || intp)
-    {
-      write_char_internal (" ", printcharfun);
-      print_internal (compiled_function_documentation (b), printcharfun,
-		      escapeflag);
-    }
-  /* COMPILED_INTERACTIVE = 5 */
-  if (intp)
-    {
-      write_char_internal (" ", printcharfun);
-      print_internal (compiled_function_interactive (b), printcharfun,
-		      escapeflag);
-    }
-  UNGCPRO;
-  write_c_string (end, printcharfun);
-}
-
-void
-print_compiled_function (Lisp_Object obj, Lisp_Object printcharfun,
-			 int escapeflag)
-{
-  /* This function can GC */
-  print_compiled_function_internal (((print_readably) ? "#[" :
-				     "#<compiled-function "),
-				    ((print_readably) ? "]" : ">"),
-				    obj, printcharfun, escapeflag);
-}
 
 #ifdef LISP_FLOAT_TYPE
 void
@@ -1324,7 +1264,7 @@ print_float (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   char pigbuf[350];	/* see comments in float_to_string */
 
-  float_to_string (pigbuf, float_data (XFLOAT (obj)));
+  float_to_string (pigbuf, XFLOAT_DATA (obj));
   write_c_string (pigbuf, printcharfun);
 }
 #endif /* LISP_FLOAT_TYPE */
@@ -1431,17 +1371,22 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
     XSETSTRING (nameobj, name);
     for (i = 0; i < size; i++)
       {
-	Bufbyte c = string_byte (name, i);
-
-	if (c == '\"' || c == '\\' || c == '\'' || c == ';' || c == '#' ||
-	    c == '(' || c == ')' || c == ',' || c =='.' || c == '`' ||
-	    c == '[' || c == ']' || c == '?' || c <= 040)
+	switch (string_byte (name, i))
 	  {
+	  case  0: case  1: case  2: case  3:
+	  case  4: case  5: case  6: case  7:
+	  case  8: case  9: case 10: case 11:
+	  case 12: case 13: case 14: case 15:
+	  case 16: case 17: case 18: case 19:
+	  case 20: case 21: case 22: case 23:
+	  case 24: case 25: case 26: case 27:
+	  case 28: case 29: case 30: case 31:
+	  case ' ': case '\"': case '\\': case '\'':
+	  case ';': case '#' : case '(' : case ')':
+	  case ',': case '.' : case '`' :
+	  case '[': case ']' : case '?' :
 	    if (i > last)
-	      {
-		output_string (printcharfun, 0, nameobj, last,
-			       i - last);
-	      }
+	      output_string (printcharfun, 0, nameobj, last, i - last);
 	    write_char_internal ("\\", printcharfun);
 	    last = i;
 	  }
@@ -1614,11 +1559,12 @@ void
 debug_backtrace (void)
 {
   /* This function can GC */
-  int old_print_readably = print_readably;
-  int old_print_depth = print_depth;
-  Lisp_Object old_print_length = Vprint_length;
-  Lisp_Object old_print_level = Vprint_level;
-  Lisp_Object old_inhibit_quit = Vinhibit_quit;
+  int         old_print_readably = print_readably;
+  int         old_print_depth    = print_depth;
+  Lisp_Object old_print_length   = Vprint_length;
+  Lisp_Object old_print_level    = Vprint_level;
+  Lisp_Object old_inhibit_quit   = Vinhibit_quit;
+
   struct gcpro gcpro1, gcpro2, gcpro3;
   GCPRO3 (old_print_level, old_print_length, old_inhibit_quit);
 
@@ -1633,15 +1579,18 @@ debug_backtrace (void)
     Vprint_length = make_int (debug_print_length);
   if (debug_print_level > 0)
     Vprint_level = make_int (debug_print_level);
+
   Fbacktrace (Qexternal_debugging_output, Qt);
   stderr_out ("\n");
   fflush (stderr);
-  Vinhibit_quit = old_inhibit_quit;
-  Vprint_level = old_print_level;
-  Vprint_length = old_print_length;
-  print_depth = old_print_depth;
+
+  Vinhibit_quit  = old_inhibit_quit;
+  Vprint_level   = old_print_level;
+  Vprint_length  = old_print_length;
+  print_depth    = old_print_depth;
   print_readably = old_print_readably;
   print_unbuffered--;
+
   UNGCPRO;
 }
 
@@ -1662,7 +1611,8 @@ debug_short_backtrace (int length)
       if (COMPILED_FUNCTIONP (*bt->function))
 	{
 #if defined(COMPILED_FUNCTION_ANNOTATION_HACK)
-	  Lisp_Object ann = Fcompiled_function_annotation (*bt->function);
+	  Lisp_Object ann =
+	    compiled_function_annotation (XCOMPILED_FUNCTION (*bt->function));
 #else
 	  Lisp_Object ann = Qnil;
 #endif

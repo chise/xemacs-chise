@@ -27,9 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "console-x.h"
-#include "EmacsManager.h"
 #include "EmacsFrame.h"
-#include "EmacsShell.h"
 #include "gui-x.h"
 
 #include "buffer.h"
@@ -164,7 +162,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      Lisp_Object cascade = desc;
 	      desc = Fcdr (desc);
 	      if (NILP (desc))
-		signal_simple_error ("keyword in menu lacks a value",
+		signal_simple_error ("Keyword in menu lacks a value",
 				     cascade);
 	      val = Fcar (desc);
 	      desc = Fcdr (desc);
@@ -189,7 +187,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		  /* implement in 21.2 */
 		}
 	      else
-		signal_simple_error ("unknown menu cascade keyword", cascade);
+		signal_simple_error ("Unknown menu cascade keyword", cascade);
 	    }
 
 	  if ((!NILP (config_tag)
@@ -202,7 +200,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 
 	  if (active_spec)
 	    active_p = Feval (active_p);
-	  
+
 	  if (!NILP (hook_fn) && !NILP (active_p))
 	    {
 #if defined LWLIB_MENUBARS_LUCID || defined LWLIB_MENUBARS_MOTIF
@@ -255,14 +253,14 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	      /* Add a fake entry so the menus show up */
 	      wv->contents = dummy = xmalloc_widget_value ();
 	      dummy->name = "(inactive)";
-	      dummy->accel = NULL;
+	      dummy->accel = LISP_TO_VOID (Qnil);
 	      dummy->enabled = 0;
 	      dummy->selected = 0;
 	      dummy->value = NULL;
 	      dummy->type = BUTTON_TYPE;
 	      dummy->call_data = NULL;
 	      dummy->next = NULL;
-	      
+
 	      goto menu_item_done;
 	}
 
@@ -275,10 +273,10 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	}
       else
 	{
-	  signal_simple_error ("menu name (first element) must be a string",
+	  signal_simple_error ("Menu name (first element) must be a string",
                                desc);
 	}
-      
+
       if (deep_p || menubar_root_p)
 	{
 	  widget_value *next;
@@ -289,7 +287,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 		{
 		  if (partition_seen)
 		    error (
-		     "more than one partition (nil) in menubar description");
+		     "More than one partition (nil) in menubar description");
 		  partition_seen = 1;
 		  next = xmalloc_widget_value ();
 		  next->type = PUSHRIGHT_TYPE;
@@ -314,7 +312,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
   else if (NILP (desc))
     error ("nil may not appear in menu descriptions");
   else
-    signal_simple_error ("unrecognized menu descriptor", desc);
+    signal_simple_error ("Unrecognized menu descriptor", desc);
 
 menu_item_done:
 
@@ -615,7 +613,7 @@ set_frame_menubar (struct frame *f, int deep_p, int first_time_p)
 }
 
 
-/* Called from x_create_widgets() to create the inital menubar of a frame
+/* Called from x_create_widgets() to create the initial menubar of a frame
    before it is mapped, so that the window is mapped with the menubar already
    there instead of us tacking it on later and thrashing the window after it
    is visible. */
@@ -684,7 +682,7 @@ make_dummy_xbutton_event (XEvent *dummy,
       XtSetArg (al [1], XtNy, &framey);
       XtGetValues (daddy, al, 2);
       btn->x_root = shellx + framex + btn->x;
-      btn->y_root = shelly + framey + btn->y;;
+      btn->y_root = shelly + framey + btn->y;
       btn->state = ButtonPressMask; /* all buttons pressed */
     }
   else

@@ -29,7 +29,6 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include "buffer.h"
-#include "insdel.h"
 
 
 Lisp_Object Qwidget_type;
@@ -52,7 +51,7 @@ Like `plist-get', but returns the tail of PLIST whose car is PROP.
 
 DEFUN ("widget-put", Fwidget_put, 3, 3, 0, /*
 In WIDGET set PROPERTY to VALUE.
-The value can later be retrived with `widget-get'.
+The value can later be retrieved with `widget-get'.
 */
        (widget, property, value))
 {
@@ -68,12 +67,11 @@ later with `widget-put'.
 */
        (widget, property))
 {
-  Lisp_Object tmp, value;
+  Lisp_Object value = Qnil;
 
-  value = Qnil;
   while (1)
     {
-      tmp = Fwidget_plist_member (Fcdr (widget), property);
+      Lisp_Object tmp = Fwidget_plist_member (Fcdr (widget), property);
       if (!NILP (tmp))
 	{
 	  value = Fcar (Fcdr (tmp));

@@ -553,7 +553,7 @@ main (int argc, char *argv[])
 
 	  if (read_line (s, buffer) == 0)
 	    {
-	      fprintf (stderr, "%s: Could not establish Emacs procces id\n",
+	      fprintf (stderr, "%s: Could not establish Emacs process id\n",
 		       progname);
 	      exit (1);
 	    }

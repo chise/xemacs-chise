@@ -183,7 +183,7 @@ Analogous to (prog1 (car PLACE) (setf PLACE (cdr PLACE))), though more
 careful about evaluating each argument only once and in the right order.
 PLACE may be a symbol, or any generalized variable allowed by `setf'."
   (if (symbolp place)
-      (list 'car (list 'prog1 place (list 'setq place (list 'cdr place))))
+      `(car (prog1 ,place (setq ,place (cdr ,place))))
     (cl-do-pop place)))
 
 (defmacro push (x place)
@@ -191,7 +191,7 @@ PLACE may be a symbol, or any generalized variable allowed by `setf'."
 Analogous to (setf PLACE (cons X PLACE)), though more careful about
 evaluating each argument only once and in the right order.  PLACE may
 be a symbol, or any generalized variable allowed by `setf'."
-  (if (symbolp place) (list 'setq place (list 'cons x place))
+  (if (symbolp place) `(setq ,place (cons ,x ,place))
     (list 'callf2 'cons x place)))
 
 (defmacro pushnew (x place &rest keys)
@@ -225,20 +225,9 @@ Keywords supported:  :test :test-not :key"
 
 ;;; Control structures.
 
-;; These macros are so simple and so often-used that it's better to have
-;; them all the time than to load them from cl-macs.el.
-
-;; NOTE: these macros were moved to subr.el in FSF 20.  It is of no
-;; consequence to XEmacs, because we preload this file, and they
-;; should better remain here.
-
-(defmacro when (cond &rest body)
-  "(when COND BODY...): if COND yields non-nil, do BODY, else return nil."
-  (list 'if cond (cons 'progn body)))
-
-(defmacro unless (cond &rest body)
-  "(unless COND BODY...): if COND yields nil, do BODY, else return nil."
-  (cons 'if (cons cond (cons nil body))))
+;; The macros `when' and `unless' are so useful that we want them to
+;; ALWAYS be available.  So they've been moved from cl.el to eval.c.
+;; Note: FSF Emacs moved them to subr.el in FSF 20.
 
 (defun cl-map-extents (&rest cl-args)
   ;; XEmacs: This used to check for overlays first, but that's wrong
@@ -406,6 +395,9 @@ SEQ, this is like `mapcar'.  With several, it is like the Common Lisp
 
 ;;; List functions.
 
+;; These functions are made known to the byte-compiler by cl-macs.el
+;; and turned into efficient car and cdr bytecodes.
+
 (defalias 'first 'car)
 (defalias 'rest 'cdr)
 (defalias 'endp 'null)
@@ -558,30 +550,35 @@ SEQ, this is like `mapcar'.  With several, it is like the Common Lisp
   "Return the `cdr' of the `cdr' of the `cdr' of the `cdr' of X."
   (cdr (cdr (cdr (cdr x)))))
 
-(defun last (x &optional n)
-  "Return the last link in the list LIST.
-With optional argument N, return Nth-to-last link (default 1)."
-  (if n
-      (let ((m 0) (p x))
-	(while (consp p) (incf m) (pop p))
-	(if (<= n 0) p
-	  (if (< n m) (nthcdr (- m n) x) x)))
-    (while (consp (cdr x)) (pop x))
-    x))
+;;; `last' is implemented as a C primitive, as of 1998-11
 
-(defun butlast (x &optional n)
-  "Return a copy of LIST with the last N elements removed."
-  (if (and n (<= n 0)) x
-    (nbutlast (copy-sequence x) n)))
+;(defun last (x &optional n)
+;  "Return the last link in the list LIST.
+;With optional argument N, return Nth-to-last link (default 1)."
+;  (if n
+;      (let ((m 0) (p x))
+;	(while (consp p) (incf m) (pop p))
+;	(if (<= n 0) p
+;	  (if (< n m) (nthcdr (- m n) x) x)))
+;    (while (consp (cdr x)) (pop x))
+;    x))
 
-(defun nbutlast (x &optional n)
-  "Modify LIST to remove the last N elements."
-  (let ((m (length x)))
-    (or n (setq n 1))
-    (and (< n m)
-	 (progn
-	   (if (> n 0) (setcdr (nthcdr (- (1- m) n) x) nil))
-	   x))))
+;;; `butlast'  is implemented as a C primitive, as of 1998-11
+;;; `nbutlast' is implemented as a C primitive, as of 1998-11
+
+;(defun butlast (x &optional n)
+;  "Return a copy of LIST with the last N elements removed."
+;  (if (and n (<= n 0)) x
+;    (nbutlast (copy-sequence x) n)))
+
+;(defun nbutlast (x &optional n)
+;  "Modify LIST to remove the last N elements."
+;  (let ((m (length x)))
+;    (or n (setq n 1))
+;    (and (< n m)
+;	 (progn
+;	   (if (> n 0) (setcdr (nthcdr (- (1- m) n) x) nil))
+;	   x))))
 
 (defun list* (arg &rest rest)   ; See compiler macro in cl-macs.el
   "Return a new list with specified args as elements, cons'd to last arg.
@@ -602,14 +599,16 @@ Thus, `(list* A B C D)' is equivalent to `(nconc (list A B C) D)', or to
       (push (pop list) res))
     (nreverse res)))
 
-(defun copy-list (list)
-  "Return a copy of a list, which may be a dotted list.
-The elements of the list are not copied, just the list structure itself."
-  (if (consp list)
-      (let ((res nil))
-	(while (consp list) (push (pop list) res))
-	(prog1 (nreverse res) (setcdr res list)))
-    (car list)))
+;;; `copy-list' is implemented as a C primitive, as of 1998-11
+
+;(defun copy-list (list)
+;  "Return a copy of a list, which may be a dotted list.
+;The elements of the list are not copied, just the list structure itself."
+;  (if (consp list)
+;      (let ((res nil))
+;	(while (consp list) (push (pop list) res))
+;	(prog1 (nreverse res) (setcdr res list)))
+;    (car list)))
 
 (defun cl-maclisp-member (item list)
   (while (and list (not (equal item (car list)))) (setq list (cdr list)))
@@ -681,45 +680,45 @@ FUNC is not added if it already appears on the list stored in HOOK."
 ;(load "cl-defs")
 
 ;;; Define data for indentation and edebug.
-(mapcar (function
-	 (lambda (entry)
-	   (mapcar (function
-		    (lambda (func)
-		      (put func 'lisp-indent-function (nth 1 entry))
-		      (put func 'lisp-indent-hook (nth 1 entry))
-		      (or (get func 'edebug-form-spec)
-			  (put func 'edebug-form-spec (nth 2 entry)))))
-		   (car entry))))
-	'(((defun* defmacro*) defun)
-	  ((function*) nil
-	   (&or symbolp ([&optional 'macro] 'lambda (&rest sexp) &rest form)))
-	  ((eval-when) 1 (sexp &rest form))
-	  ((when unless) 1 (&rest form))
-	  ((declare) nil (&rest sexp))
-	  ((the) 1 (sexp &rest form))
-	  ((case ecase typecase etypecase) 1 (form &rest (sexp &rest form)))
-	  ((block return-from) 1 (sexp &rest form))
-	  ((return) nil (&optional form))
-	  ((do do*) 2 ((&rest &or symbolp (symbolp &optional form form))
-		       (form &rest form)
-		       &rest form))
-	  ((dolist dotimes) 1 ((symbolp form &rest form) &rest form))
-	  ((do-symbols) 1 ((symbolp form &optional form form) &rest form))
-	  ((do-all-symbols) 1 ((symbolp form &optional form) &rest form))
-	  ((psetq setf psetf) nil edebug-setq-form)
-	  ((progv) 2 (&rest form))
-	  ((flet labels macrolet) 1
-	   ((&rest (sexp sexp &rest form)) &rest form))
-	  ((symbol-macrolet lexical-let lexical-let*) 1
-	   ((&rest &or symbolp (symbolp form)) &rest form))
-	  ((multiple-value-bind) 2 ((&rest symbolp) &rest form))
-	  ((multiple-value-setq) 1 ((&rest symbolp) &rest form))
-	  ((incf decf remf pop push pushnew shiftf rotatef) nil (&rest form))
-	  ((letf letf*) 1 ((&rest (&rest form)) &rest form))
-	  ((callf destructuring-bind) 2 (sexp form &rest form))
-	  ((callf2) 3 (sexp form form &rest form))
-	  ((loop) defun (&rest &or symbolp form))
-	  ((ignore-errors) 0 (&rest form))))
+(mapc
+ #'(lambda (entry)
+     (mapc
+      #'(lambda (func)
+	  (put func 'lisp-indent-function (nth 1 entry))
+	  (put func 'lisp-indent-hook (nth 1 entry))
+	  (or (get func 'edebug-form-spec)
+	      (put func 'edebug-form-spec (nth 2 entry))))
+      (car entry)))
+ '(((defun* defmacro*) defun)
+   ((function*) nil
+    (&or symbolp ([&optional 'macro] 'lambda (&rest sexp) &rest form)))
+   ((eval-when) 1 (sexp &rest form))
+   ((when unless) 1 (&rest form))
+   ((declare) nil (&rest sexp))
+   ((the) 1 (sexp &rest form))
+   ((case ecase typecase etypecase) 1 (form &rest (sexp &rest form)))
+   ((block return-from) 1 (sexp &rest form))
+   ((return) nil (&optional form))
+   ((do do*) 2 ((&rest &or symbolp (symbolp &optional form form))
+		(form &rest form)
+		&rest form))
+   ((dolist dotimes) 1 ((symbolp form &rest form) &rest form))
+   ((do-symbols) 1 ((symbolp form &optional form form) &rest form))
+   ((do-all-symbols) 1 ((symbolp form &optional form) &rest form))
+   ((psetq setf psetf) nil edebug-setq-form)
+   ((progv) 2 (&rest form))
+   ((flet labels macrolet) 1
+    ((&rest (sexp sexp &rest form)) &rest form))
+   ((symbol-macrolet lexical-let lexical-let*) 1
+    ((&rest &or symbolp (symbolp form)) &rest form))
+   ((multiple-value-bind) 2 ((&rest symbolp) &rest form))
+   ((multiple-value-setq) 1 ((&rest symbolp) &rest form))
+   ((incf decf remf pop push pushnew shiftf rotatef) nil (&rest form))
+   ((letf letf*) 1 ((&rest (&rest form)) &rest form))
+   ((callf destructuring-bind) 2 (sexp form &rest form))
+   ((callf2) 3 (sexp form form &rest form))
+   ((loop) defun (&rest &or symbolp form))
+   ((ignore-errors) 0 (&rest form))))
 
 
 ;;; This goes here so that cl-macs can find it if it loads right now.

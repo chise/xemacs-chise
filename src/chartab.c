@@ -38,7 +38,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "chartab.h"
-#include "commands.h"
 #include "syntax.h"
 
 Lisp_Object Qchar_tablep, Qchar_table;
@@ -98,7 +97,7 @@ mark_char_table_entry (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
   for (i = 0; i < 96; i++)
     {
-      (markobj) (cte->level2[i]);
+      markobj (cte->level2[i]);
     }
   return Qnil;
 }
@@ -139,17 +138,17 @@ mark_char_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
   int i;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
-    (markobj) (ct->ascii[i]);
+    markobj (ct->ascii[i]);
 #ifdef MULE
   for (i = 0; i < NUM_LEADING_BYTES; i++)
-    (markobj) (ct->level1[i]);
+    markobj (ct->level1[i]);
 #endif
   return ct->mirror_table;
 }
 
 /* WARNING: All functions of this nature need to be written extremely
    carefully to avoid crashes during GC.  Cf. prune_specifiers()
-   and prune_weak_hashtables(). */
+   and prune_weak_hash_tables(). */
 
 void
 prune_syntax_tables (int (*obj_marked_p) (Lisp_Object))
@@ -160,7 +159,7 @@ prune_syntax_tables (int (*obj_marked_p) (Lisp_Object))
        !GC_NILP (rest);
        rest = XCHAR_TABLE (rest)->next_table)
     {
-      if (! ((*obj_marked_p) (rest)))
+      if (! obj_marked_p (rest))
 	{
 	  /* This table is garbage.  Remove it from the list. */
 	  if (GC_NILP (prev))
@@ -177,6 +176,7 @@ char_table_type_to_symbol (enum char_table_type type)
 {
   switch (type)
   {
+  default: abort();
   case CHAR_TABLE_TYPE_GENERIC:  return Qgeneric;
   case CHAR_TABLE_TYPE_SYNTAX:   return Qsyntax;
   case CHAR_TABLE_TYPE_DISPLAY:  return Qdisplay;
@@ -185,9 +185,6 @@ char_table_type_to_symbol (enum char_table_type type)
   case CHAR_TABLE_TYPE_CATEGORY: return Qcategory;
 #endif
   }
-
-  abort ();
-  return Qnil; /* not reached */
 }
 
 static enum char_table_type

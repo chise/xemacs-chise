@@ -30,14 +30,15 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_BYTECODE_H_
 #define _XEMACS_BYTECODE_H_
 
-/* Meanings of slots in a Lisp_Compiled_Function. */
-#define COMPILED_ARGLIST 0
-#define COMPILED_BYTECODE 1
-#define COMPILED_CONSTANTS 2
-#define COMPILED_STACK_DEPTH 3
-#define COMPILED_DOC_STRING 4
-#define COMPILED_INTERACTIVE 5
-#define COMPILED_DOMAIN 6
+/* Meanings of slots in a Lisp_Compiled_Function.
+   Don't use these!  For backward compatibility only.  */
+#define COMPILED_ARGLIST	0
+#define COMPILED_INSTRUCTIONS	1
+#define COMPILED_CONSTANTS	2
+#define COMPILED_STACK_DEPTH	3
+#define COMPILED_DOC_STRING	4
+#define COMPILED_INTERACTIVE	5
+#define COMPILED_DOMAIN		6
 
 /* It doesn't make sense to have this and also have load-history */
 /* #define COMPILED_FUNCTION_ANNOTATION_HACK */
@@ -45,7 +46,8 @@ Boston, MA 02111-1307, USA.  */
 struct Lisp_Compiled_Function
 {
   struct lrecord_header lheader;
-  unsigned short maxdepth;
+  unsigned short stack_depth;
+  unsigned short specpdl_depth;
   struct
   {
     unsigned int documentationp: 1;
@@ -56,7 +58,7 @@ struct Lisp_Compiled_Function
        We need to Ebolify the `assoc', `delq', etc. functions. */
     unsigned int ebolified: 1;
   } flags;
-  Lisp_Object bytecodes;
+  Lisp_Object instructions;
   Lisp_Object constants;
   Lisp_Object arglist;
   /* This uses the minimal number of conses; see accessors in data.c. */
@@ -66,24 +68,34 @@ struct Lisp_Compiled_Function
   Lisp_Object annotated;
 #endif
 };
+typedef struct Lisp_Compiled_Function Lisp_Compiled_Function;
 
-Lisp_Object compiled_function_documentation (struct Lisp_Compiled_Function *b);
-Lisp_Object compiled_function_interactive (struct Lisp_Compiled_Function *b);
-Lisp_Object compiled_function_domain (struct Lisp_Compiled_Function *b);
-void set_compiled_function_documentation (struct Lisp_Compiled_Function *b,
-					  Lisp_Object);
-Lisp_Object compiled_function_annotation (struct Lisp_Compiled_Function *b);
+Lisp_Object run_byte_code (Lisp_Object compiled_function_or_instructions, ...);
 
-DECLARE_LRECORD (compiled_function, struct Lisp_Compiled_Function);
+Lisp_Object compiled_function_arglist       (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_instructions  (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_constants     (Lisp_Compiled_Function *f);
+int         compiled_function_stack_depth   (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_documentation (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_annotation    (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_domain        (Lisp_Compiled_Function *f);
+Lisp_Object compiled_function_interactive   (Lisp_Compiled_Function *f);
+
+void set_compiled_function_documentation (Lisp_Compiled_Function *f,
+					  Lisp_Object new_doc);
+
+Lisp_Object funcall_compiled_function (Lisp_Object fun,
+				       int nargs, Lisp_Object args[]);
+void optimize_compiled_function (Lisp_Object compiled_function);
+
+DECLARE_LRECORD (compiled_function, Lisp_Compiled_Function);
 #define XCOMPILED_FUNCTION(x) XRECORD (x, compiled_function, \
-				       struct Lisp_Compiled_Function)
+				       Lisp_Compiled_Function)
 #define XSETCOMPILED_FUNCTION(x, p) XSETRECORD (x, p, compiled_function)
 #define COMPILED_FUNCTIONP(x) RECORDP (x, compiled_function)
 #define GC_COMPILED_FUNCTIONP(x) GC_RECORDP (x, compiled_function)
 #define CHECK_COMPILED_FUNCTION(x) CHECK_RECORD (x, compiled_function)
 #define CONCHECK_COMPILED_FUNCTION(x) CONCHECK_RECORD (x, compiled_function)
-
-EXFUN (Fbyte_code, 3);
 
 extern Lisp_Object Qbyte_code;
 

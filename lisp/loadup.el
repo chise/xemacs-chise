@@ -34,14 +34,17 @@
 
 ;;; Code:
 
-(if (fboundp 'error)
-    (error "loadup.el already loaded!"))
+(when (fboundp 'error)
+  (error "loadup.el already loaded!"))
 
 (defvar running-xemacs t
   "Non-nil when the current emacs is XEmacs.")
 (defvar preloaded-file-list nil
   "List of files preloaded into the XEmacs binary image.")
 
+
+(let ((gc-cons-threshold 30000))
+  
 ;; This is awfully damn early to be getting an error, right?
 (call-with-condition-handler 'really-early-error-handler
     #'(lambda ()
@@ -79,11 +82,9 @@
 	;; there will be lots of extra space in the data segment filled
 	;; with garbage-collected junk)
 	(defun pureload (file)
-	  (let ((full-path (locate-file file
-					load-path
-					(if load-ignore-elc-files
-					    ".el:"
-					  ".elc:.el:"))))
+	  (let ((full-path
+		 (locate-file file load-path
+			      (if load-ignore-elc-files ".el:" ".elc:.el:"))))
 	    (if full-path
 		(prog1
 		  (load full-path)
@@ -100,16 +101,14 @@
 	(let ((files preloaded-file-list)
 	      file)
 	  (while (setq file (car files))
-	    (or (pureload file)
-	      (progn
-		(external-debugging-output "Fatal error during load, aborting")
-		(kill-emacs 1)))
+	    (unless (pureload file)
+	      (external-debugging-output "Fatal error during load, aborting")
+	      (kill-emacs 1))
 	    (setq files (cdr files)))
-	  (if (not (featurep 'toolbar))
-	      (progn
-		;; else still define a few functions.
-		(defun toolbar-button-p    (obj) "No toolbar support." nil)
-		(defun toolbar-specifier-p (obj) "No toolbar support." nil)))
+	  (when (not (featurep 'toolbar))
+	    ;; else still define a few functions.
+	    (defun toolbar-button-p    (obj) "No toolbar support." nil)
+	    (defun toolbar-specifier-p (obj) "No toolbar support." nil))
 	  (fmakunbound 'pureload))
 
 	(packages-load-package-dumped-lisps late-package-load-path)
@@ -134,8 +133,8 @@
 ;; But you must also cause them to be scanned when the DOC file
 ;; is generated.  For VMS, you must edit ../../vms/makedoc.com.
 ;; For other systems, you must edit ../../src/Makefile.in.in.
-(if (load "site-load" t)
-    (garbage-collect))
+(when (load "site-load" t)
+  (garbage-collect))
 
 ;;FSFmacs randomness
 ;;(if (fboundp 'x-popup-menu)
@@ -158,29 +157,30 @@
   (message "Finding pointers to doc strings...")
   (Snarf-documentation "DOC")
   (message "Finding pointers to doc strings...done")
-  (Verify-documentation)
-  )
+  (Verify-documentation))
 
 ;; Note: You can cause additional libraries to be preloaded
 ;; by writing a site-init.el that loads them.
 ;; See also "site-load" above.
-(if (stringp site-start-file)
-    (load "site-init" t))
+(when (stringp site-start-file)
+  (load "site-init" t))
 (setq current-load-list nil)
 (garbage-collect)
 
 ;;; At this point, we're ready to resume undo recording for scratch.
 (buffer-enable-undo "*scratch*")
 
+) ;; frequent garbage collection
+
 ;; Dump into the name `xemacs' (only)
 (when (member "dump" command-line-args)
-    (message "Dumping under the name xemacs")
-    ;; This is handled earlier in the build process.
-    ;; (condition-case () (delete-file "xemacs") (file-error nil))
-    (when (fboundp 'really-free)
-      (really-free))
-    (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
-    (kill-emacs))
+  (message "Dumping under the name xemacs")
+  ;; This is handled earlier in the build process.
+  ;; (condition-case () (delete-file "xemacs") (file-error nil))
+  (when (fboundp 'really-free)
+    (really-free))
+  (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
+  (kill-emacs))
 
 ;; Avoid error if user loads some more libraries now.
 (setq purify-flag nil)
@@ -197,9 +197,9 @@
 ;; so that the .el files always get loaded (the .elc files may be out-of-
 ;; date or bad).
 (when (member "recompile" command-line-args)
-  (let ((command-line-args-left (cdr (member "recompile" command-line-args))))
-    (batch-byte-recompile-directory)
-    (kill-emacs)))
+  (setq command-line-args-left (cdr (member "recompile" command-line-args)))
+  (batch-byte-recompile-directory)
+  (kill-emacs))
 
 ;; For machines with CANNOT_DUMP defined in config.h,
 ;; this file must be loaded each time Emacs is run.

@@ -89,8 +89,7 @@ INLINE int WORD_SYNTAX_P (struct Lisp_Char_Table *table, Emchar c);
 INLINE int
 WORD_SYNTAX_P (struct Lisp_Char_Table *table, Emchar c)
 {
-  int syncode = SYNTAX (table, c);
-  return syncode == Sword;
+  return SYNTAX (table, c) == Sword;
 }
 
 /* OK, here's a graphic diagram of the format of the syntax values:

@@ -155,7 +155,7 @@ static int mswindows_pending_timers_count;
 /* This structure is allocated by the main thread, and is deallocated
    in the thread upon exit.  There are situations when a thread
    remains blocked for a long time, much longer than the lstream
-   exists. For exmaple, "start notepad" command is issued from the
+   exists. For example, "start notepad" command is issued from the
    shell, then the shell is closed by C-c C-d. Although the shell
    process exits, its output pipe will not get closed until the
    notepad process exits also, because it inherits the pipe form the
@@ -194,7 +194,7 @@ DEFINE_LSTREAM_IMPLEMENTATION ("ntpipe-input", lstream_ntpipe_slurp,
 			       sizeof (struct ntpipe_slurp_stream));
 
 /* This function is thread-safe, and is called from either thread
-   context. It serializes freeing shared dtata structure */
+   context. It serializes freeing shared data structure */
 static void
 slurper_free_shared_data_maybe (struct ntpipe_slurp_stream_shared_data* s)
 {
@@ -268,7 +268,7 @@ slurp_thread (LPVOID vparam)
       if (s->die_p)
 	break;
 
-      /* Block until the client finishes with retireving the rest of
+      /* Block until the client finishes with retrieving the rest of
 	 pipe data */
       WaitForSingleObject (s->hev_thread, INFINITE);
     }
@@ -619,7 +619,7 @@ struct winsock_stream
   OVERLAPPED ov;		/* Overlapped I/O structure		     */
   void* buffer;			/* Buffer. Allocated for input stream only   */
   unsigned int bufsize;		/* Number of bytes last read		     */
-  unsigned int bufpos;		/* Psition in buffer for next fetch	     */
+  unsigned int bufpos;		/* Position in buffer for next fetch	     */
   unsigned int error_p :1;	/* I/O Error seen			     */
   unsigned int eof_p :1;	/* EOF Error seen			     */
   unsigned int pending_p :1;	/* There is a pending I/O operation	     */
@@ -1168,7 +1168,7 @@ mswindows_unsafe_pump_events (Lisp_Object u_n_u_s_e_d)
  * neither are waitable handles checked. The function pumps
  * thus only dispatch events already queued, as well as those
  * resulted in dispatching thereof. This is done by setting
- * module local variable mswidows_in_modal_loop to nonzero.
+ * module local variable mswindows_in_modal_loop to nonzero.
  *
  * Return value is Qt if no errors was trapped, or Qunbound if
  * there was an error.
@@ -1186,7 +1186,7 @@ mswindows_unsafe_pump_events (Lisp_Object u_n_u_s_e_d)
  * If the value of mswindows_error_caught_in_modal_loop is not
  * nil already upon entry, the function just returns non-nil.
  * This situation means that a new event has been queued while
- * cancleng mode. The event will be dequeued on the next regular
+ * in cancel mode. The event will be dequeued on the next regular
  * call of next-event; the pump is off since error is caught.
  * The caller must *unconditionally* cancel modal loop if the
  * value returned by this function is nil. Otherwise, everything
@@ -1220,10 +1220,10 @@ mswindows_drain_windows_queue ()
 }
 
 /* 
- * This is a special flavour of the mswindows_need_event function,
+ * This is a special flavor of the mswindows_need_event function,
  * used while in event pump. Actually, there is only kind of events
  * allowed while in event pump: a timer.  An attempt to fetch any
- * other event leads to a dealock, as there's no source of user input
+ * other event leads to a deadlock, as there's no source of user input
  * ('cause event pump mirrors windows modal loop, which is a sole
  * owner of thread message queue).
  *
@@ -1367,7 +1367,7 @@ mswindows_need_event (int badly_p)
 	{
 	  if (errno != EINTR)
 	    {
-	      /* something bad happended */
+	      /* something bad happened */
 	      assert(0);
 	    }
 	}
@@ -1401,7 +1401,7 @@ mswindows_need_event (int badly_p)
     else
       {
 	int ix = active - WAIT_OBJECT_0;
-	/* First, try to find which process' ouptut has signaled */
+	/* First, try to find which process' output has signaled */
 	struct Lisp_Process *p = 
 	  get_process_from_usid (HANDLE_TO_USID (mswindows_waitable_handles[ix]));
 	if (p != NULL)
@@ -1412,7 +1412,7 @@ mswindows_need_event (int badly_p)
 	else
 	  {
 	    /* None. This means that the process handle itself has signaled.
-	       Remove the handle from the wait vector, and make status_ntoify
+	       Remove the handle from the wait vector, and make status_notify
 	       note the exited process */
 	    mswindows_waitable_handles [ix] =
 	      mswindows_waitable_handles [--mswindows_waitable_count];
@@ -1576,7 +1576,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 LRESULT WINAPI
 mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-  /* Note: Remember to initialise emacs_event and event before use.
+  /* Note: Remember to initialize emacs_event and event before use.
      This code calls code that can GC. You must GCPRO before calling such code. */
   Lisp_Object emacs_event = Qnil;
   Lisp_Object fobj = Qnil;
@@ -1860,13 +1860,13 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     break;
 
   case WM_MOUSEMOVE:
-    /* Optimization: don't report mouse movement while size is changind */
+    /* Optimization: don't report mouse movement while size is changing */
     msframe  = FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (hwnd)));
     if (!msframe->sizing)
     {
       /* When waiting for the second mouse button to finish
 	 button2 emulation, and have moved too far, just pretend
-	 as if timer has expired. This impoves drag-select feedback */
+	 as if timer has expired. This improves drag-select feedback */
       if ((msframe->button2_need_lbutton || msframe->button2_need_rbutton)
 	  && !mswindows_button2_near_enough (msframe->last_click_point,
 					     MAKEPOINTS (lParam)))
@@ -2802,7 +2802,7 @@ Number of physical mouse buttons.
 
   DEFVAR_INT ("mswindows-mouse-button-max-skew-x", &mswindows_mouse_button_max_skew_x /*
 *Maximum horizontal distance in pixels between points in which left and
-right button clicks occured for them to be translated into single
+right button clicks occurred for them to be translated into single
 middle button event. Clicks must occur in time not longer than defined
 by the variable `mswindows-mouse-button-tolerance'.
 If negative or zero, currently set system default is used instead.
@@ -2810,7 +2810,7 @@ If negative or zero, currently set system default is used instead.
 
   DEFVAR_INT ("mswindows-mouse-button-max-skew-y", &mswindows_mouse_button_max_skew_y /*
 *Maximum vertical distance in pixels between points in which left and
-right button clicks occured for them to be translated into single
+right button clicks occurred for them to be translated into single
 middle button event. Clicks must occur in time not longer than defined
 by the variable `mswindows-mouse-button-tolerance'.
 If negative or zero, currently set system default is used instead.

@@ -69,7 +69,7 @@ Boston, MA 02111-1307, USA.  */
        Specifically, this lists those variables that have
        a buffer-local value in this buffer: i.e. those
        whose value does not shadow the default value.
-       (Remember that for any particlar variable created
+       (Remember that for any particular variable created
        with `make-local-variable' or `make-variable-buffer-local',
        it will have a per-buffer value in some buffers and a
        default value in others.)

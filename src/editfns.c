@@ -370,7 +370,7 @@ save_excursion_restore (Lisp_Object info)
 	 and cleaner never to alter the window/buffer connections.  */
       /* I'm certain some code somewhere depends on this behavior. --jwz */
       /* Even if it did, it certainly doesn't matter anymore, because
-         this has been the behaviour for countless XEmacs releases
+         this has been the behavior for countless XEmacs releases
          now.  --hniksic */
       if (visible
 	  && (current_buffer != XBUFFER (XWINDOW (selected_window)->buffer)))
@@ -549,7 +549,6 @@ If BUFFER is nil, the current buffer is assumed.
        (buffer))
 {
   struct buffer *b = decode_buffer (buffer, 1);
-
   return beginning_of_line_p (b, BUF_PT (b)) ? Qt : Qnil;
 }
 
@@ -668,7 +667,7 @@ char*
 user_login_name (int *uid)
 {
   struct passwd *pw = NULL;
-  
+
   /* uid == NULL to return name of this user */
   if (uid != NULL)
     {
@@ -758,7 +757,7 @@ value of `user-full-name' is returned.
   Lisp_Object user_name;
   struct passwd *pw = NULL;
   Lisp_Object tem;
-  char *p, *q;
+  const char *p, *q;
 
   if (NILP (user) && STRINGP (Vuser_full_name))
     return Vuser_full_name;
@@ -833,7 +832,7 @@ get_home_directory (void)
 	{
 #if defined(WINDOWSNT) && !defined(__CYGWIN32__)
 	  char	*homedrive, *homepath;
- 
+
 	  if ((homedrive = getenv("HOMEDRIVE")) != NULL &&
 	      (homepath = getenv("HOMEPATH")) != NULL)
 	    {
@@ -1063,14 +1062,14 @@ The number of options reflects the `strftime' function.
 BUG: If the charset used by the current locale is not ISO 8859-1, the
 characters appearing in the day and month names may be incorrect.
 */
-       (format_string, _time))
+       (format_string, time_))
 {
   time_t value;
   size_t size;
 
   CHECK_STRING (format_string);
 
-  if (! lisp_to_time (_time, &value))
+  if (! lisp_to_time (time_, &value))
     error ("Invalid time specification");
 
   /* This is probably enough.  */
@@ -1115,13 +1114,13 @@ ZONE is an integer indicating the number of seconds east of Greenwich.
     error ("Invalid time specification");
 
   decoded_time = localtime (&time_spec);
-  XSETINT (list_args[0], decoded_time->tm_sec);
-  XSETINT (list_args[1], decoded_time->tm_min);
-  XSETINT (list_args[2], decoded_time->tm_hour);
-  XSETINT (list_args[3], decoded_time->tm_mday);
-  XSETINT (list_args[4], decoded_time->tm_mon + 1);
-  XSETINT (list_args[5], decoded_time->tm_year + 1900);
-  XSETINT (list_args[6], decoded_time->tm_wday);
+  list_args[0] = make_int (decoded_time->tm_sec);
+  list_args[1] = make_int (decoded_time->tm_min);
+  list_args[2] = make_int (decoded_time->tm_hour);
+  list_args[3] = make_int (decoded_time->tm_mday);
+  list_args[4] = make_int (decoded_time->tm_mon + 1);
+  list_args[5] = make_int (decoded_time->tm_year + 1900);
+  list_args[6] = make_int (decoded_time->tm_wday);
   list_args[7] = (decoded_time->tm_isdst)? Qt : Qnil;
 
   /* Make a copy, in case gmtime modifies the struct.  */
@@ -1130,7 +1129,7 @@ ZONE is an integer indicating the number of seconds east of Greenwich.
   if (decoded_time == 0)
     list_args[8] = Qnil;
   else
-    XSETINT (list_args[8], difftm (&save_tm, decoded_time));
+    list_args[8] = make_int (difftm (&save_tm, decoded_time));
   return Flist (9, list_args);
 }
 
@@ -1156,7 +1155,7 @@ If you want them to stand for years in this century, you must do that yourself.
 */
        (int nargs, Lisp_Object *args))
 {
-  time_t _time;
+  time_t the_time;
   struct tm tm;
   Lisp_Object zone = (nargs > 6) ? args[nargs - 1] : Qnil;
 
@@ -1172,7 +1171,7 @@ If you want them to stand for years in this century, you must do that yourself.
   if (CONSP (zone))
     zone = XCAR (zone);
   if (NILP (zone))
-    _time = mktime (&tm);
+    the_time = mktime (&tm);
   else
     {
       char tzbuf[100];
@@ -1195,7 +1194,7 @@ If you want them to stand for years in this century, you must do that yourself.
 	 value doesn't suffice, since that would mishandle leap seconds.  */
       set_time_zone_rule (tzstring);
 
-      _time = mktime (&tm);
+      the_time = mktime (&tm);
 
       /* Restore TZ to previous value.  */
       newenv = environ;
@@ -1206,10 +1205,10 @@ If you want them to stand for years in this century, you must do that yourself.
 #endif
     }
 
-  if (_time == (time_t) -1)
+  if (the_time == (time_t) -1)
     error ("Specified time is not representable");
 
-  return wasteful_word_to_lisp (_time);
+  return wasteful_word_to_lisp (the_time);
 }
 
 DEFUN ("current-time-string", Fcurrent_time_string, 0, 1, 0, /*

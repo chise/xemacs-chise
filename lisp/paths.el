@@ -118,8 +118,7 @@ Its name should end with a slash.")
 (defconst remote-shell-program nil
   "Program used to execute shell commands on a remote machine.")
 
-(defconst term-file-prefix
-  (purecopy (if (eq system-type 'vax-vms) "[.term]" "term/"))
+(defconst term-file-prefix (purecopy "term/")
   "If non-nil, Emacs startup does (load (concat term-file-prefix (getenv \"TERM\")))
 You may set this variable to nil in your `.emacs' file if you do not wish
 the terminal-initialization file to be loaded.")
@@ -127,10 +126,7 @@ the terminal-initialization file to be loaded.")
 (defconst manual-program nil
   "Program to run to print man pages.")
 
-(defconst abbrev-file-name 
-  (purecopy (if (eq system-type 'vax-vms)
-		"~/abbrev.def"
-	      "~/.abbrev_defs"))
+(defconst abbrev-file-name (purecopy "~/.abbrev_defs")
   "*Default name of file to read abbrevs from.")
 
 (defconst directory-abbrev-alist

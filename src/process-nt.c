@@ -1,4 +1,4 @@
-/* Asynchronous subprocess implemenation for Win32
+/* Asynchronous subprocess implementation for Win32
    Copyright (C) 1985, 1986, 1987, 1988, 1992, 1993, 1994, 1995
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
@@ -45,7 +45,7 @@ Boston, MA 02111-1307, USA.  */
 /* Bound by winnt.el */
 Lisp_Object Qnt_quote_process_args;
 
-/* Implemenation-specific data. Pointed to by Lisp_Process->process_data */
+/* Implementation-specific data. Pointed to by Lisp_Process->process_data */
 struct nt_process_data
 {
   HANDLE h_process;
@@ -382,7 +382,7 @@ nt_finalize_process_data (struct Lisp_Process *p, int for_disksave)
 }
 
 /*
- * Initialize XEmacs process implemenation once
+ * Initialize XEmacs process implementation once
  */
 static void
 nt_init_process (void)
@@ -398,7 +398,7 @@ nt_init_process (void)
  * object. If this function signals, the caller is responsible for
  * deleting (and finalizing) the process object.
  *
- * The method must return PID of the new proces, a (positive??? ####) number
+ * The method must return PID of the new process, a (positive??? ####) number
  * which fits into Lisp_Int. No return value indicates an error, the method
  * must signal an error instead.
  */
@@ -607,7 +607,7 @@ nt_update_status_if_terminated (struct Lisp_Process* p)
 }
 
 /*
- * Stuff the entire contents of LSTREAM to the process ouptut pipe
+ * Stuff the entire contents of LSTREAM to the process output pipe
  */
 
 /* #### If only this function could be somehow merged with
@@ -893,7 +893,7 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
 
       if (nsel > 0)
 	{
-	  /* Check was connnection successful or not */
+	  /* Check: was connection successful or not? */
 	  tv.tv_usec = 0;
 	  nsel = select (0, NULL, NULL, &fdset, &tv);
 	  if (nsel > 0)

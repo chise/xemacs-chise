@@ -146,8 +146,8 @@ print_lstream (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   Lstream *lstr = XLSTREAM (obj);
   char buf[200];
 
-  sprintf (buf, "#<INTERNAL EMACS BUG (%s lstream) 0x%p>",
-	   lstr->imp->name, lstr);
+  sprintf (buf, "#<INTERNAL OBJECT (XEmacs bug?) (%s lstream) 0x%lx>",
+	   lstr->imp->name, (long) lstr);
   write_c_string (buf, printcharfun);
 }
 
@@ -1617,8 +1617,8 @@ lisp_buffer_marker (Lisp_Object stream, void (*markobj) (Lisp_Object))
   struct lisp_buffer_stream *str =
     LISP_BUFFER_STREAM_DATA (XLSTREAM (stream));
 
-  (markobj) (str->start);
-  (markobj) (str->end);
+  markobj (str->start);
+  markobj (str->end);
   return str->buffer;
 }
 

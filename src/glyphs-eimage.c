@@ -55,10 +55,8 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "frame.h"
-#include "insdel.h"
 #include "opaque.h"
 
-#include "imgproc.h"
 #include "sysfile.h"
 
 #ifdef HAVE_PNG
@@ -74,16 +72,6 @@ extern "C" {
 #endif
 #ifdef FILE_CODING
 #include "file-coding.h"
-#endif
-
-#if INTBITS == 32
-# define FOUR_BYTE_TYPE unsigned int
-#elif LONGBITS == 32
-# define FOUR_BYTE_TYPE unsigned long
-#elif SHORTBITS == 32
-# define FOUR_BYTE_TYPE unsigned short
-#else
-#error What kind of strange-ass system are we running on?
 #endif
 
 #ifdef HAVE_TIFF
@@ -419,7 +407,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       {
 	/* we're relying on the jpeg driver to do any other conversions,
 	   or signal an error if the conversion isn't supported. */
-	cinfo.out_color_space = JCS_RGB;	
+	cinfo.out_color_space = JCS_RGB;
       }
 
     /* Step 5: Start decompressor */
@@ -465,7 +453,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  for (i = 0; i < cinfo.output_width; i++)
 	    {
 	      int clr;
-	      if (jpeg_gray) 
+	      if (jpeg_gray)
 		{
 		  unsigned char val;
 #if (BITS_IN_JSAMPLE == 8)
@@ -492,10 +480,10 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   /* Step 6.5: Create the pixmap and set up the image instance */
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device), 
+  MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, cinfo.output_width, cinfo.output_height, 
-		  unwind.eimage, dest_mask, 
+		 (ii, cinfo.output_width, cinfo.output_height,
+		  unwind.eimage, dest_mask,
 		  instantiator, domain));
 
   /* Step 7: Finish decompression */
@@ -576,9 +564,9 @@ static size_t
 gif_read_from_memory(GifByteType *buf, size_t size, VoidPtr data)
 {
   gif_memory_storage *mem = (gif_memory_storage*)data;
-  
+
   if (size > (mem->len - mem->index))
-    return -1;
+    return (size_t) -1;
   memcpy(buf, mem->bytes + mem->index, size);
   mem->index = mem->index + size;
   return size;
@@ -623,20 +611,20 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Extcount len;
   int height = 0;
   int width = 0;
-  
+
   xzero (unwind);
   record_unwind_protect (gif_instantiate_unwind, make_opaque_ptr (&unwind));
-  
+
   /* 1. Now decode the data. */
-  
+
   {
     Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
-    
+
     assert (!NILP (data));
-    
+
     if (!(unwind.giffile = GifSetup()))
       signal_image_error ("Insufficent memory to instantiate GIF image", instantiator);
-    
+
     /* set up error facilities */
     if (setjmp(gif_err.setjmp_buffer))
       {
@@ -647,7 +635,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	signal_image_error_2 ("GIF decoding error", errstring, instantiator);
       }
     GifSetErrorFunc(unwind.giffile, (Gif_error_func)gif_error_func, (VoidPtr)&gif_err);
-    
+
     GET_STRING_BINARY_DATA_ALLOCA (data, bytes, len);
     mem_struct.bytes = bytes;
     mem_struct.len = len;
@@ -655,14 +643,14 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     GifSetReadFunc(unwind.giffile, gif_read_from_memory, (VoidPtr)&mem_struct);
     GifSetCloseFunc(unwind.giffile, gif_memory_close, (VoidPtr)&mem_struct);
     DGifInitRead(unwind.giffile);
-    
+
     /* Then slurp the image into memory, decoding along the way.
        The result is the image in a simple one-byte-per-pixel
        format (#### the GIF routines only support 8-bit GIFs,
        it appears). */
     DGifSlurp (unwind.giffile);
   }
-  
+
   /* 3. Now create the EImage */
   {
     ColorMapObject *cmo = unwind.giffile->SColorMap;
@@ -672,15 +660,15 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
        0, 8, 16, ..., 4, 12, 20, ..., 2, 6, 10, ..., 1, 3, 5, ...  */
     static int InterlacedOffset[] = { 0, 4, 2, 1 };
     static int InterlacedJumps[] = { 8, 8, 4, 2 };
-    
+
     height = unwind.giffile->SHeight;
     width = unwind.giffile->SWidth;
     unwind.eimage = (unsigned char*) xmalloc (width * height * 3);
     if (!unwind.eimage)
       signal_image_error("Unable to allocate enough memory for image", instantiator);
-    
+
     /* write the data in EImage format (8bit RGB triples) */
-    
+
     /* Note: We just use the first image in the file and ignore the rest.
        We check here that that image covers the full "screen" size.
        I don't know whether that's always the case.
@@ -691,7 +679,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	|| unwind.giffile->SavedImages[0].ImageDesc.Top != 0)
       signal_image_error ("First image in GIF file is not full size",
 			  instantiator);
-    
+
     interlace = unwind.giffile->SavedImages[0].ImageDesc.Interlace;
     pass = 0;
     row = interlace ? InterlacedOffset[pass] : 0;
@@ -701,7 +689,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	if (interlace)
 	  if (row >= height) {
 	    row = InterlacedOffset[++pass];
-	    while (row > height) 
+	    while (row > height)
 	      row = InterlacedOffset[++pass];
 	  }
 	eip = unwind.eimage + (row * width * 3);
@@ -716,11 +704,11 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       }
   }
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device), 
+  MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask, 
+		 (ii, width, height, unwind.eimage, dest_mask,
 		  instantiator, domain));
-  
+
   unbind_to (speccount, Qnil);
 }
 
@@ -778,7 +766,7 @@ struct png_error_struct
 
 /* jh 98/03/12 - #### AARRRGH! libpng includes jmp_buf inside its own
    structure, and there are cases where the size can be different from
-   between inside the libarary, and inside the code!  To do an end run
+   between inside the library, and inside the code!  To do an end run
    around this, use our own error functions, and don't rely on things
    passed in the png_ptr to them.  This is an ugly hack and must
    go away when the lisp engine is threaded! */
@@ -848,7 +836,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
       png_destroy_read_struct (&png_ptr, (png_infopp)NULL, (png_infopp)NULL);
       signal_image_error ("Error obtaining memory for png_read", instantiator);
     }
-  
+
   xzero (unwind);
   unwind.png_ptr = png_ptr;
   unwind.info_ptr = info_ptr;
@@ -863,7 +851,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      and is no longer usable for previous versions. jh
   */
 
-  /* Set the jmp_buf reurn context for png_error ... if this returns !0, then
+  /* Set the jmp_buf return context for png_error ... if this returns !0, then
      we ran into a problem somewhere, and need to clean up after ourselves. */
   if (setjmp (png_err_stct.setjmp_buffer))
     {
@@ -903,7 +891,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     /* libpng expects that the image buffer passed in contains a
        picture to draw on top of if the png has any transparencies.
        This could be a good place to pass that in... */
-    
+
     row_pointers  = xnew_array (png_byte *, height);
 
     for (y = 0; y < height; y++)
@@ -936,18 +924,18 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  my_background.green = XINT (XCAR (XCDR (rgblist)));
 	  my_background.blue = XINT (XCAR (XCDR (XCDR (rgblist))));
 	}
-      
+
       if (png_get_bKGD (png_ptr, info_ptr, &image_background))
 	png_set_background (png_ptr, image_background,
 			    PNG_BACKGROUND_GAMMA_FILE, 1, 1.0);
-      else 
+      else
 	png_set_background (png_ptr, &my_background,
 			    PNG_BACKGROUND_GAMMA_SCREEN, 0, 1.0);
     }
 
     /* Now that we're using EImage, ask for 8bit RGB triples for any type
        of image*/
-    /* convert palatte images to full RGB */
+    /* convert palette images to full RGB */
     if (info_ptr->color_type == PNG_COLOR_TYPE_PALETTE)
       png_set_expand (png_ptr);
     /* send grayscale images to RGB too */
@@ -971,7 +959,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     png_read_image (png_ptr, row_pointers);
     png_read_end (png_ptr, info_ptr);
-    
+
 #ifdef PNG_SHOW_COMMENTS
     /* ####
      * I turn this off by default now, because the !%^@#!% comments
@@ -1000,9 +988,9 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   }
 
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device), 
+  MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask, 
+		 (ii, width, height, unwind.eimage, dest_mask,
 		  instantiator, domain));
 
   /* This will clean up everything else. */
@@ -1106,7 +1094,7 @@ static toff_t tiff_memory_seek(thandle_t data, toff_t off, int whence)
 
   if ((newidx > mem->len) || (newidx < 0))
     return -1;
-  
+
   mem->index = newidx;
   return newidx;
 }
@@ -1206,7 +1194,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   xzero (unwind);
   record_unwind_protect (tiff_instantiate_unwind, make_opaque_ptr (&unwind));
-  
+
   /* set up error facilities */
   if (setjmp (tiff_err_data.setjmp_buffer))
     {
@@ -1248,7 +1236,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     unwind.eimage = (unsigned char *) xmalloc (width * height * 3);
 
     /* ### This is little more than proof-of-concept/function testing.
-       It needs to be reimplimented via scanline reads for both memory
+       It needs to be reimplemented via scanline reads for both memory
        compactness. */
     raster = (uint32*) _TIFFmalloc (width * height * sizeof (uint32));
     if (raster != NULL)
@@ -1280,9 +1268,9 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   }
 
   /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device), 
+  MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask, 
+		 (ii, width, height, unwind.eimage, dest_mask,
 		  instantiator, domain));
 
   unbind_to (speccount, Qnil);

@@ -1,3 +1,705 @@
+1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.5 is released
+
+1998-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* xselect.c (receive_incremental_selection):
+	* xselect.c (x_get_window_property):
+	* xmu.c (XmuReadBitmapDataFromFile):
+	* xmu.c (XmuCursorNameToIndex):
+	* xgccache.c (describe_gc_cache):
+	* xgccache.c (gc_cache_lookup):
+	* xgccache.c (free_gc_cache):
+	* xgccache.c (make_gc_cache):
+	* window.h:
+	* window.c (map_windows_1):
+	* window.c (Fother_window_for_scrolling):
+	* window.c (window_scroll):
+	* window.c (change_window_height):
+	* window.c (Fsplit_window):
+	* window.c (window_left_gutter_width):
+	* window.c (window_modeline_height):
+	* window.c (invalidate_vertical_divider_cache_in_window):
+	* window.c (window_needs_vertical_divider_1):
+	* window.c (update_mirror_internal):
+	* window.c (SET_LAST_FACECHANGE):
+	* widget.c (Fwidget_plist_member):
+	* unexec.c (copy_text_and_data):
+	* unexcw.c (copy_executable_and_dump_data_section):
+	* tooltalk.doc:
+	* tooltalk.c (struct Lisp_Tooltalk_Pattern):
+	* tooltalk.c (struct Lisp_Tooltalk_Message):
+	* toolbar.h (struct toolbar_button):
+	* toolbar.c (default_toolbar_visible_p_changed_in_window):
+	* toolbar.c (recompute_overlaying_specifier):
+	* toolbar.c (toolbar_validate):
+	* toolbar.c (toolbar_button_at_pixpos):
+	* toolbar.c (get_toolbar_coords):
+	* toolbar.c (update_frame_toolbars):
+	* toolbar-x.c:
+	* toolbar-msw.c (mswindows_handle_toolbar_wm_command):
+	* toolbar-msw.c (mswindows_find_toolbar_pos):
+	* toolbar-msw.c (mswindows_output_toolbar):
+	* toolbar-msw.c (mswindows_clear_toolbar):
+	* toolbar-msw.c:
+	* systty.h:
+	* syssignal.h:
+	* sysproc.h:
+	* sysfile.h:
+	* sysdll.c:
+	* sysdep.h:
+	* sysdep.c (rmdir):
+	* sysdep.c (sys_fopen):
+	* sysdep.c (sys_open):
+	* sysdep.c (tty_init_sys_modes_on_device):
+	* sysdep.c (get_eof_char):
+	* sysdep.c (child_setup_tty):
+	* sysdep.c (set_descriptor_non_blocking):
+	* syntax.h:
+	* syntax.c (scan_words):
+	* syntax.c:
+	* symsinit.h:
+	* symeval.h (struct symbol_value_varalias):
+	* symeval.h (struct symbol_value_forward):
+	* symbols.c (syms_of_symbols):
+	* symbols.c (init_symbols_once_early):
+	* symbols.c (Fbuilt_in_variable_type):
+	* symbols.c (Fsymbol_value_in_buffer):
+	* symbols.c (default_value):
+	* symbols.c (Fset):
+	* symbols.c (find_symbol_value_quickly):
+	* symbols.c (store_symval_forwarding):
+	* symbols.c (set_default_console_slot_variable):
+	* symbols.c (set_default_buffer_slot_variable):
+	* symbols.c (verify_ok_for_buffer_local):
+	* symbols.c (symbol_is_constant):
+	* symbols.c (oblookup):
+	* symbols.c (Funintern):
+	* symbols.c (Fintern):
+	* symbols.c (check_obarray):
+	* sunplay.c:
+	* specifier.h (struct specifier_methods):
+	* specifier.h:
+	* specifier.c (specifier_instance):
+	* specifier.c (specifier_instance_from_inst_list):
+	* specifier.c (decode_locale_type):
+	* specifier.c (specifier_equal):
+	* specifier.c (finalize_specifier):
+	* specifier.c (prune_specifiers):
+	* specifier.c (kill_specifier_buffer_locals):
+	* sound.c (init_native_sound):
+	* sound.c:
+	* signal.c (alarm):
+	* search.c (Fmatch_data):
+	* search.c (match_limit):
+	* search.c (Freplace_match):
+	* search.c (skip_chars):
+	* search.c (scan_buffer):
+	* search.c:
+	* scrollbar.c (specifier_vars_of_scrollbar):
+	* scrollbar.c (Fscrollbar_set_hscroll):
+	* scrollbar.c (vertical_scrollbar_changed_in_window):
+	* scrollbar.c (release_window_mirror_scrollbars):
+	* scrollbar.c (free_scrollbar_instance):
+	* scrollbar-x.c:
+	* scrollbar-msw.c:
+	* s/msdos.h (O_BINARY):
+	* s/linux.h:
+	* s/freebsd.h (LIBS_TERMCAP):
+	* regex.c (re_match_2_internal):
+	* regex.c (compile_extended_range):
+	* regex.c (POP_FAILURE_POINT):
+	* regex.c (PUSH_FAILURE_POINT):
+	* redisplay.h (RESET_CHANGED_SET_FLAGS):
+	* redisplay.h:
+	* redisplay.h (struct display_line):
+	* redisplay.h (struct rune):
+	* redisplay.c (vars_of_redisplay):
+	* redisplay.c (redisplay_variable_changed):
+	* redisplay.c (UPDATE_CACHE_RETURN):
+	* redisplay.c (validate_line_start_cache):
+	* redisplay.c (mark_redisplay_structs):
+	* redisplay.c (mark_glyph_block_dynarr):
+	* redisplay.c (window_line_number):
+	* redisplay.c (redisplay_frame):
+	* redisplay.c (redisplay_window):
+	* redisplay.c (generate_modeline):
+	* redisplay.c (create_right_glyph_block):
+	* redisplay.c (create_left_glyph_block):
+	* redisplay.c (create_text_block):
+	* redisplay.c:
+	* redisplay-x.c (x_output_hline):
+	* redisplay-x.c (x_output_vertical_divider):
+	* redisplay-tty.c (tty_output_display_block):
+	* redisplay-output.c (output_display_line):
+	* redisplay-output.c:
+	* redisplay-msw.c (mswindows_output_vertical_divider):
+	* redisplay-msw.c (mswindows_ring_bell):
+	* redisplay-msw.c (mswindows_output_cursor):
+	* redisplay-msw.c:
+	* rangetab.c:
+	* ralloc.c:
+	* puresize.h (RAW_PURESIZE):
+	* profile.c (syms_of_profile):
+	* profile.c (Fstart_profiling):
+	* profile.c (sigprof_handler):
+	* profile.c:
+	* procimpl.h:
+	* process.c (vars_of_process):
+	* process.c (read_process_output):
+	* process.c (get_process):
+	* process.c:
+	* process-unix.c (unix_open_multicast_group):
+	* process-unix.c (unix_get_tty_name):
+	* process-unix.c (unix_send_process):
+	* process-unix.c (unix_reap_exited_processes):
+	* process-unix.c (unix_create_process):
+	* process-unix.c (unix_init_process_io_handles):
+	* process-unix.c (allocate_pty):
+	* process-unix.c:
+	* process-nt.c (nt_open_network_stream):
+	* process-nt.c (nt_update_status_if_terminated):
+	* process-nt.c (nt_finalize_process_data):
+	* process-nt.c:
+	* print.c (debug_short_backtrace):
+	* print.c (debug_backtrace):
+	* print.c (print_symbol):
+	* print.c (print_internal):
+	* print.c (print_cons):
+	* print.c (Fwrite_char):
+	* print.c (print_prepare):
+	* print.c (canonicalize_printcharfun):
+	* print.c (output_string):
+	* print.c:
+	* opaque.h:
+	* opaque.c (allocate_managed_opaque):
+	* opaque.c:
+	* offix.c (DndSetData):
+	* objects.c (face_boolean_create):
+	* objects.c (font_instantiate):
+	* objects.c (font_create):
+	* objects.c (color_create):
+	* objects.c (finalize_font_instance):
+	* objects.c (finalize_color_instance):
+	* objects.c:
+	* objects-x.c (x_font_instance_truename):
+	* objects-x.c:
+	* objects-x.c (x_initialize_font_instance):
+	* objects-x.c (allocate_nearest_color):
+	* objects-tty.c (tty_initialize_font_instance):
+	* objects-tty.c (tty_initialize_color_instance):
+	* objects-msw.c (mswindows_initialize_color_instance):
+	* ntproc.c (syms_of_ntproc):
+	* ntproc.c (Fwin32_set_process_priority):
+	* ntproc.c (sys_spawnve):
+	* ntproc.c:
+	* ntheap.c (get_data_end):
+	* nt.c (period):
+	* nt.c:
+	* nt.c (stat):
+	* nt.c (generate_inode_val):
+	* nt.c (sys_rename):
+	* nas.c:
+	* mule-wnnfns.c (Fwnn_hinsi_number):
+	* mule-wnnfns.c (Fwnn_yuragi):
+	* mule-wnnfns.c (Fwnn_common_learn):
+	* mule-wnnfns.c (Fwnn_suffix_learn):
+	* mule-wnnfns.c (Fwnn_prefix_learn):
+	* mule-wnnfns.c (Fwnn_okuri_learn):
+	* mule-wnnfns.c (Fwnn_complex_conv):
+	* mule-wnnfns.c (Fwnn_last_is_first):
+	* mule-wnnfns.c (Fwnn_bmodify_dict_add):
+	* mule-wnnfns.c (Fwnn_notrans_dict_add):
+	* mule-wnnfns.c (Fwnn_fiusr_dict_add):
+	* mule-wnnfns.c (Fwnn_fisys_dict_add):
+	* mule-wnnfns.c (Fwnn_hinsi_list):
+	* mule-wnnfns.c (Fwnn_fuzokugo_set):
+	* mule-wnnfns.c (Fwnn_dict_search):
+	* mule-wnnfns.c (Fwnn_word_toroku):
+	* mule-wnnfns.c (Fwnn_hindo_update):
+	* mule-wnnfns.c (Fwnn_bunsetu_henkou):
+	* mule-wnnfns.c (Fwnn_kakutei):
+	* mule-wnnfns.c (Fwnn_begin_henkan):
+	* mule-wnnfns.c (Fwnn_dict_comment):
+	* mule-wnnfns.c (Fwnn_dict_add):
+	* mule-wnnfns.c (Fwnn_open):
+	* mule-mcpath.c (mc_getcwd):
+	* mule-coding.c (vars_of_mule_coding):
+	* mule-coding.c (convert_to_external_format):
+	* mule-coding.c (encoding_marker):
+	* mule-coding.c (decoding_marker):
+	* mule-coding.c (Fcopy_coding_system):
+	* mule-coding.c (Fmake_coding_system):
+	* mule-coding.c (Fcoding_system_list):
+	* mule-coding.c (Ffind_coding_system):
+	* mule-coding.c (symbol_to_eol_type):
+	* mule-coding.c:
+	* mule-charset.c (complex_vars_of_mule_charset):
+	* mule-charset.c (vars_of_mule_charset):
+	* mule-charset.c (Fset_charset_ccl_program):
+	* mule-charset.c (struct charset_list_closure):
+	* mule-charset.c (Ffind_charset):
+	* mule-charset.c (make_charset):
+	* mule-charset.c (non_ascii_valid_char_p):
+	* mule-charset.c:
+	* mule-ccl.c (ccl_driver):
+	* mule-canna.c (c2mu):
+	* mule-canna.c (Fcanna_henkan_begin):
+	* mule-canna.c (Fcanna_parse):
+	* mule-canna.c (Fcanna_store_yomi):
+	* mule-canna.c (Fcanna_touroku_string):
+	* mule-canna.c (Fcanna_initialize):
+	* minibuf.c:
+	* menubar.c (menu_parse_submenu_keywords):
+	* menubar-x.c (make_dummy_xbutton_event):
+	* menubar-x.c (set_frame_menubar):
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
+	* menubar-x.c:
+	* menubar-msw.h:
+	* menubar-msw.c (mswindows_popup_menu):
+	* menubar-msw.c (mswindows_update_frame_menubars):
+	* menubar-msw.c (mswindows_handle_wm_command):
+	* menubar-msw.c (unsafe_handle_wm_initmenu_1):
+	* menubar-msw.c (unsafe_handle_wm_initmenupopup_1):
+	* menubar-msw.c (update_frame_menubar_maybe):
+	* menubar-msw.c (populate_or_checksum_helper):
+	* menubar-msw.c (empty_menu):
+	* menubar-msw.c:
+	* md5.c:
+	* marker.c (set_marker_internal):
+	* marker.c (print_marker):
+	* malloc.c:
+	* make-src-depend:
+	* lstream.c (lisp_buffer_rewinder):
+	* lstream.c (mark_lstream):
+	* lrecord.h:
+	* lrecord.h (struct lrecord_header):
+	* lread.c (readevalloop):
+	* lread.c (locate_file):
+	* lread.c (locate_file_in_directory):
+	* lread.c (Flocate_file):
+	* lread.c (load_force_doc_string_unwind):
+	* lread.c (ebolify_bytecode_constants):
+	* lread.c:
+	* lisp.h:
+	* lisp-union.h:
+	* lisp-disunion.h:
+	* linuxplay.c (linux_play_data_or_file):
+	* linuxplay.c (audio_init):
+	* line-number.c:
+	* keymap.h:
+	* keymap.c (describe_map):
+	* keymap.c (describe_map_mapper):
+	* keymap.c (Fdescribe_bindings_internal):
+	* keymap.c (Fsingle_key_description):
+	* keymap.c (map_keymap_sorted):
+	* keymap.c (get_relevant_keymaps):
+	* keymap.c (Flookup_key):
+	* keymap.c (raw_lookup_key_mapper):
+	* keymap.c (Fdefine_key):
+	* keymap.c (Fevent_matches_key_specifier_p):
+	* keymap.c (key_desc_list_to_event):
+	* keymap.c (define_key_parser):
+	* keymap.c (define_key_check_and_coerce_keysym):
+	* keymap.c (keymap_submaps):
+	* keymap.c (keymap_store_internal):
+	* keymap.c (keymap_delete_inverse_internal):
+	* keymap.c (keymap_store_inverse_internal):
+	* keymap.c (print_keymap):
+	* keymap.c (Lisp_Keymap):
+	* keymap.c:
+	* intl.c:
+	* insdel.c (convert_bufbyte_string_into_emchar_dynarr):
+	* insdel.c (make_gap):
+	* input-method-xlib.c (get_XIM_input):
+	* input-method-xlib.c (XIM_init_frame):
+	* imgproc.c:
+	* hash.h:
+	* hash.c:
+	* gui.c:
+	* gui-x.c (button_item_to_widget_value):
+	* gui-x.c (popup_selection_callback):
+	* glyphs.h (struct image_instantiator_methods):
+	* glyphs.c (mark_glyph_cachels):
+	* glyphs.c (Fglyph_type):
+	* glyphs.c (image_instantiate):
+	* glyphs.c (image_create):
+	* glyphs.c (make_image_instance_1):
+	* glyphs.c (finalize_image_instance):
+	* glyphs.c:
+	* glyphs-x.c (finalize_subwindow):
+	* glyphs-x.c (xface_validate):
+	* glyphs-x.c (x_locate_pixmap_file):
+	* glyphs-x.c (convert_EImage_to_XImage):
+	* glyphs-msw.c:
+	* glyphs-msw.c (mswindows_resource_instantiate):
+	* glyphs-msw.c (xpm_to_eimage):
+	* glyphs-msw.c (convert_EImage_to_DIBitmap):
+	* glyphs-eimage.c (tiff_instantiate):
+	* glyphs-eimage.c (png_instantiate):
+	* glyphs-eimage.c (struct png_error_struct):
+	* glyphs-eimage.c (gif_memory_storage):
+	* glyphs-eimage.c:
+	* gifrlib.h:
+	* getloadavg.c (getloadavg):
+	* getloadavg.c:
+	* gdbinit:
+	* free-hook.c (log_gcpro):
+	* free-hook.c (check_malloc):
+	* free-hook.c (check_free):
+	* free-hook.c (ROUND_UP_TO_PAGE):
+	* free-hook.c:
+	* frame.h (struct frame):
+	* frame.h:
+	* frame.c (change_frame_size_1):
+	* frame.c (allocate_frame_core):
+	* frame.c:
+	* frame-x.c (x_focus_on_frame):
+	* frame-x.c (x_init_frame_2):
+	* frame-x.c (x_popup_frame):
+	* frame-x.c (xemacs_XtPopup):
+	* frame-x.c:
+	* frame-x.c (Foffix_start_drag_internal):
+	* frame-x.c (x_cde_destroy_callback):
+	* frame-x.c (x_wm_hack_wm_protocols):
+	* frame-tty.c (tty_frame_visible_p):
+	* frame-msw.c (mswindows_make_frame_invisible):
+	* frame-msw.c (mswindows_after_init_frame):
+	* frame-msw.c (mswindows_init_frame_1):
+	* fns.c (syms_of_fns):
+	* fns.c (Fbase64_decode_string):
+	* fns.c (Fnconc):
+	* fns.c (Ffillarray):
+	* fns.c (Fobject_plist):
+	* fns.c (Fget):
+	* fns.c (Fcanonicalize_lax_plist):
+	* fns.c (Fcanonicalize_plist):
+	* fns.c (Fplist_remprop):
+	* fns.c (Fplist_get):
+	* fns.c (advance_plist_pointers):
+	* fns.c (internal_plist_put):
+	* fns.c (Fnreverse):
+	* fns.c (Fremassq):
+	* fns.c (Felt):
+	* fns.c (Fsubstring):
+	* fns.c (Fbvconcat):
+	* fns.c (Flength):
+	* fns.c (length_with_bytecode_hack):
+	* fns.c (print_bit_vector):
+	* fns.c:
+	* floatfns.c (Ffloor):
+	* floatfns.c:
+	* floatfns.c (in_float_error):
+	* fileio.c (Ffile_modes):
+	* fileio.c (Fexpand_file_name):
+	* fileio.c (Fmake_temp_name):
+	* fileio.c (Ffile_name_nondirectory):
+	* fileio.c (Ffile_name_directory):
+	* file-coding.h:
+	* file-coding.c (vars_of_mule_coding):
+	* file-coding.c (convert_to_external_format):
+	* file-coding.c (encoding_marker):
+	* file-coding.c (decoding_marker):
+	* file-coding.c (Fcopy_coding_system):
+	* file-coding.c (Fmake_coding_system):
+	* file-coding.c (struct coding_system_list_closure):
+	* file-coding.c (Ffind_coding_system):
+	* file-coding.c (symbol_to_eol_type):
+	* file-coding.c:
+	* faces.h (struct face_cachel):
+	* faces.c (vars_of_faces):
+	* faces.c (face_property_was_changed):
+	* faces.c (mark_face_cachels):
+	* faces.c (temporary_faces_list):
+	* faces.c (struct face_list_closure):
+	* faces.c:
+	* extents.h (struct extent):
+	* extents.c (vars_of_extents):
+	* extents.c (struct copy_string_extents_1_arg):
+	* extents.c (add_string_extents_mapper):
+	* extents.c (Fextent_property):
+	* extents.c (Fset_extent_property):
+	* extents.c (symbol_to_glyph_layout):
+	* extents.c (properties_equal):
+	* extents.c (print_extent):
+	* extents.c (print_extent_1):
+	* extents.c (extent_in_region_p):
+	* extents.c (gap_array_make_gap):
+	* extents.c:
+	* events.h (struct Lisp_Event):
+	* events.h:
+	* events.c (Fevent_properties):
+	* events.c (format_event_object):
+	* events.c (Fmake_event):
+	* events.c (event_equal):
+	* events.c (print_event):
+	* events.c (mark_event):
+	* event-stream.c ((read-char)
+	* event-stream.c (vars_of_event_stream):
+	* event-stream.c (syms_of_event_stream):
+	* event-stream.c (Fset_recent_keys_ring_size):
+	* event-stream.c (Fsit_for):
+	* event-stream.c (Fnext_event):
+	* event-stream.c (execute_help_form):
+	* event-stream.c (maybe_kbd_translate):
+	* event-stream.c:
+	* event-msw.c (vars_of_event_mswindows):
+	* event-msw.c (mswindows_wnd_proc):
+	* event-msw.c (mswindows_need_event):
+	* event-msw.c (mswindows_drain_windows_queue):
+	* event-msw.c (mswindows_pump_outstanding_events):
+	* event-msw.c:
+	* event-msw.c (slurp_thread):
+	* event-msw.c (struct ntpipe_slurp_stream):
+	* event-msw.c (HANDLE_TO_USID):
+	* event-Xt.c (emacs_Xt_handle_magic_event):
+	* event-Xt.c (x_event_to_emacs_event):
+	* event-Xt.c (x_reset_modifier_mapping):
+	* event-Xt.c (x_reset_key_mapping):
+	* event-Xt.c:
+	* eval.c (syms_of_eval):
+	* eval.c (warn_when_safe):
+	* eval.c (warn_when_safe_lispobj):
+	* eval.c (Fbacktrace_frame):
+	* eval.c (Fbacktrace):
+	* eval.c (top_level_set):
+	* eval.c (unbind_to_hairy):
+	* eval.c (specbind_magic):
+	* eval.c (specbind_unwind_wasnt_local):
+	* eval.c (call2_trapping_errors):
+	* eval.c (call1_trapping_errors):
+	* eval.c (catch_them_squirmers_call2):
+	* eval.c (call0_trapping_errors):
+	* eval.c (run_hook_trapping_errors):
+	* eval.c (catch_them_squirmers_eval_in_buffer):
+	* eval.c (call4_in_buffer):
+	* eval.c (call3_in_buffer):
+	* eval.c (call2_in_buffer):
+	* eval.c (call1_in_buffer):
+	* eval.c (call0_in_buffer):
+	* eval.c (run_hook):
+	* eval.c (run_hook_with_args_in_buffer):
+	* eval.c (Fapply):
+	* eval.c (Feval):
+	* eval.c (do_autoload):
+	* eval.c (un_autoload):
+	* eval.c (Fautoload):
+	* eval.c (Finteractive_p):
+	* eval.c (Fcommand_execute):
+	* eval.c (signal_quit):
+	* eval.c (call_with_suspended_errors):
+	* eval.c (signal_error):
+	* eval.c (return_from_signal):
+	* eval.c (Fcall_with_condition_handler):
+	* eval.c (run_condition_case_handlers):
+	* eval.c (condition_case_1):
+	* eval.c (Funwind_protect):
+	* eval.c (unwind_to_catch):
+	* eval.c (internal_catch):
+	* eval.c (Fmacroexpand_internal):
+	* eval.c (Fuser_variable_p):
+	* eval.c (Fdefconst):
+	* eval.c (Fdefvar):
+	* eval.c (Ffunction):
+	* eval.c (signal_call_debugger):
+	* eval.c (call_debugger):
+	* eval.c:
+	* emacs.c (main):
+	* emacs.c (sort_args):
+	* emacs.c (main_1):
+	* elhash.h:
+	* elhash.c:
+	* editfns.c (Fencode_time):
+	* editfns.c (Fdecode_time):
+	* editfns.c (Fuser_full_name):
+	* editfns.c:
+	* editfns.c (save_excursion_restore):
+	* ecrt0.c:
+	* dynarr.c:
+	* doprnt.c (emacs_doprnt_1):
+	* doc.c (verify_doc_mapper):
+	* doc.c (Fsnarf_documentation):
+	* doc.c (Fdocumentation):
+	* dll.c:
+	* dired.c (user_name_completion):
+	* dired.c (Fdirectory_files):
+	* dialog-x.c:
+	* dialog-msw.c:
+	* dgif_lib.c (FreeSavedImages):
+	* dgif_lib.c (DGifGetImageDesc):
+	* device.h:
+	* device.h (struct device):
+	* device.c (Fselect_device):
+	* device.c (allocate_device):
+	* device.c:
+	* device-x.c (Fx_keysym_on_keyboard_p):
+	* device-x.c (Fx_valid_keysym_name_p):
+	* device-x.c (x_IO_error_handler):
+	* device-x.c (x_delete_device):
+	* device-x.c (x_finish_init_device):
+	* device-x.c (x_init_device):
+	* device-x.c:
+	* device-msw.c (mswindows_init_device):
+	* dbxrc:
+	* database.c (vars_of_database):
+	* database.c (Fput_database):
+	* database.c (Fopen_database):
+	* database.c (berkdb_remove):
+	* database.c (berkdb_put):
+	* database.c (Fdatabasep):
+	* database.c (print_database):
+	* database.c:
+	* data.c (vars_of_data):
+	* data.c (syms_of_data):
+	* data.c (init_errors_once_early):
+	* data.c (prune_weak_lists):
+	* data.c (finish_marking_weak_lists):
+	* data.c (print_weak_list):
+	* data.c (Fmod):
+	* data.c (Fstring_to_number):
+	* data.c (Fnumber_to_string):
+	* data.c (Findirect_function):
+	* data.c (Fsetcdr):
+	* data.c (Ffloatp):
+	* data.c (Fsubr_interactive):
+	* data.c (Farrayp):
+	* data.c (Fkeywordp):
+	* data.c (Fnull):
+	* data.c:
+	* console.h (CONSOLE_NAME):
+	* console.h:
+	* console.c (vars_of_console):
+	* console.c (Fselect_console):
+	* console.c:
+	* console-x.h (DEVICE_X_COLORMAP):
+	* console-x.h (struct x_device):
+	* console-x.c (x_device_to_console_connection):
+	* console-tty.h (CONSOLE_TTY_FINAL_CURSOR_Y):
+	* console-tty.c (tty_init_console):
+	* console-tty.c:
+	* console-msw.h (struct mswindows_frame):
+	* conslots.h:
+	* config.h.in:
+	* cmds.c (internal_self_insert):
+	* cmds.c (Fforward_line):
+	* cmds.c (Fforward_char):
+	* cmds.c:
+	* cmdloop.c:
+	* chartab.c (mark_char_table_entry):
+	* chartab.c:
+	* casefiddle.c (casify_word):
+	* callproc.c (child_setup):
+	* callproc.c (Fcall_process_internal):
+	* callproc.c:
+	* callint.c (Fcall_interactively):
+	* bytecode.h:
+	* bytecode.c (execute_rare_opcode):
+	* bytecode.c (execute_optimized_program):
+	* bytecode.c:
+	* bufslots.h:
+	* buffer.h (BUFFER_REALLOC):
+	* buffer.h (GET_CHARPTR_INT_DATA_ALLOCA):
+	* buffer.h (GET_CHARPTR_EXT_DATA_ALLOCA):
+	* buffer.h:
+	* buffer.h (MAP_INDIRECT_BUFFERS):
+	* buffer.h (CHECK_LIVE_BUFFER):
+	* buffer.c (init_initial_directory):
+	* buffer.c (complex_vars_of_buffer):
+	* buffer.c (vars_of_buffer):
+	* buffer.c (finish_init_buffer):
+	* buffer.c (Fget_file_buffer):
+	* buffer.c (Fbuffer_list):
+	* buffer.c (mark_buffer):
+	* balloon_help.c (balloon_help_move_to_pointer):
+	* balloon_help.c (show_help):
+	* balloon_help.c:
+	* backtrace.h:
+	* alloc.c (garbage_collect_1):
+	* alloc.c (sweep_strings):
+	* alloc.c (sweep_compiled_functions):
+	* alloc.c (sweep_bit_vectors_1):
+	* alloc.c (sweep_vectors_1):
+	* alloc.c (sweep_lcrecords_1):
+	* alloc.c (tick_lcrecord_stats):
+	* alloc.c (pure_string_sizeof):
+	* alloc.c (mark_conses_in_list):
+	* alloc.c (mark_object):
+	* alloc.c (report_pure_usage):
+	* alloc.c (make_pure_float):
+	* alloc.c (make_pure_string):
+	* alloc.c (free_managed_lcrecord):
+	* alloc.c (mark_string):
+	* alloc.c (noseeum_make_marker):
+	* alloc.c (allocate_event):
+	* alloc.c (Fbit_vector):
+	* alloc.c (Fvector):
+	* alloc.c (make_float):
+	* alloc.c (Fmake_list):
+	* alloc.c (Flist):
+	* alloc.c (FREE_FIXED_TYPE_WHEN_NOT_IN_GC):
+	* alloc.c (PUT_FIXED_TYPE_ON_FREE_LIST):
+	* alloc.c (DECLARE_FIXED_TYPE_ALLOC):
+	* alloc.c (dbg_constants):
+	* alloc.c (gc_record_type_p):
+	* alloc.c (free_lcrecord):
+	* alloc.c (xmalloc):
+	* alloc.c (NOSEEUM_INCREMENT_CONS_COUNTER):
+	* abbrev.c:
+	* Makefile.in.in (mostlyclean):
+	* Makefile.in.in (external_client_xlib_objs_nonshared):
+	* Makefile.in.in (temacs_link_args):
+	* Makefile.in.in (release):
+	* Makefile.in.in (dnd_objs):
+	* Makefile.in.in (objs):
+	* Makefile.in.in (PROGNAME):
+	* EmacsShell.c: cast strings to (XtPointer)
+	* EmacsFrame.c: cast strings to (XtPointer)
+	- mega patch
+	- rewrite basic lisp functions for speed
+	- rewrite bytecode interpreter for speed
+	- rewrite list looping constructs for speed and safety using
+	  tortoise/hare. 
+	- use size_t where appropriate.
+	- new hashtable implementation
+	- cleanup implementation of opaques
+	- opaques can now be purecopy'ed
+	- move some cl functionality into C for speed.
+	- remove last remaining VMS support
+	- spelling fixes
+	- improve gdb/dbx debugger support
+	- move pure.c back into alloc.c for performance
+	- enable report_pure_usage() if --memory-usage-stats
+	- remove remnants of Energize support (EMACS_BTL, cadillac...)
+	- don't use symbols with leading `_' or embedded `__'
+	- globally cleanup duplicated semicolons `;;'
+	- I give in on %p vs %lx - we use printf("%lx",(long) p)
+	  globally.
+	- globally replace O_NDELAY with O_NONBLOCK.
+	- globally replace CDISABLE with _POSIX_VDISABLE.
+	- use O_RDONLY and O_RDWR instead of magic `0' and `2'.
+	- define (and maybe use!) STDERR_FILENO and friends.
+	- add support for macros defined in C
+	- `when', `unless', `not' and `defalias' now defined in C, 
+	  so that they are universally available.
+	- rename defvar_mumble to defvar_magic
+	- rename RETURN__ to RETURN_SANS_WARNINGS
+	- use consistent style of initial caps in error messages
+	- implement last, butlast, nbutlast, copy-list in C.
+	- provide typedefs for all struct Lisp_foo types
+	- Lisp_Objects must be initialized to Qnil rather than 0.
+	- make sure XEmacs runs (slowly) with always_gc == 1;
+	- fast and safe LOOP_* macros
+	- change calls to XSETOBJ to XSETFOO
+	- replace calls to XSETINT by make_int()
+	- plug up memory leaks
+	- use style markobj (foo), not silly ((markobj) (foo))
+	- use XFLOAT_DATA (obj) instead of float_data (XFLOAT (obj))
+
+1998-12-02  P. E. Jareth Hein  <jareth@camelot.co.jp>
+
+	* unexec.c: Changed a #ifndef statement to fix XEmacs on BSDI 3.0
+
 1998-11-28  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta4 is released.

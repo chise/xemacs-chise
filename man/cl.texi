@@ -947,13 +947,9 @@ it compares numbers without regard to type (so that @code{(equalp 3
 objects are compared as if by @code{equal}.
 
 This function differs from Common Lisp @code{equalp} in several
-respects.  First, in keeping with the idea that strings are less
+respects.  In keeping with the idea that strings are less
 vector-like in Emacs Lisp, this package's @code{equalp} also will not
-compare strings against vectors of integers.  Second, Common Lisp's
-@code{equalp} compares hash tables without regard to ordering, whereas
-this package simply compares hash tables in terms of their underlying
-structure (which means vectors for Lucid Emacs 19 hash tables, or lists
-for other hash tables).
+compare strings against vectors of integers.
 @end defun
 
 Also note that the Common Lisp functions @code{member} and @code{assoc}
@@ -1098,44 +1094,44 @@ to standard Common Lisp.
 
 @item
 The following Emacs-specific functions are also @code{setf}-able.
-(Some of these are defined only in Emacs 19 or only in Lucid Emacs.)
+(Some of these are defined only in Emacs 19 or only in XEmacs.)
 
 @smallexample
-buffer-file-name                  marker-position          
-buffer-modified-p                 match-data               
-buffer-name                       mouse-position           
-buffer-string                     overlay-end              
-buffer-substring                  overlay-get              
-current-buffer                    overlay-start            
-current-case-table                point                    
-current-column                    point-marker             
-current-global-map                point-max                
-current-input-mode                point-min                
-current-local-map                 process-buffer           
-current-window-configuration      process-filter           
-default-file-modes                process-sentinel         
-default-value                     read-mouse-position      
-documentation-property            screen-height            
-extent-data                       screen-menubar           
-extent-end-position               screen-width             
-extent-start-position             selected-window          
-face-background                   selected-screen          
-face-background-pixmap            selected-frame           
-face-font                         standard-case-table      
-face-foreground                   syntax-table             
-face-underline-p                  window-buffer            
-file-modes                        window-dedicated-p       
-frame-height                      window-display-table     
-frame-parameters                  window-height            
-frame-visible-p                   window-hscroll           
-frame-width                       window-point             
-get-register                      window-start             
-getenv                            window-width             
-global-key-binding                x-get-cut-buffer         
-keymap-parent                     x-get-cutbuffer          
+buffer-file-name                  marker-position
+buffer-modified-p                 match-data
+buffer-name                       mouse-position
+buffer-string                     overlay-end
+buffer-substring                  overlay-get
+current-buffer                    overlay-start
+current-case-table                point
+current-column                    point-marker
+current-global-map                point-max
+current-input-mode                point-min
+current-local-map                 process-buffer
+current-window-configuration      process-filter
+default-file-modes                process-sentinel
+default-value                     read-mouse-position
+documentation-property            screen-height
+extent-data                       screen-menubar
+extent-end-position               screen-width
+extent-start-position             selected-window
+face-background                   selected-screen
+face-background-pixmap            selected-frame
+face-font                         standard-case-table
+face-foreground                   syntax-table
+face-underline-p                  window-buffer
+file-modes                        window-dedicated-p
+frame-height                      window-display-table
+frame-parameters                  window-height
+frame-visible-p                   window-hscroll
+frame-width                       window-point
+get-register                      window-start
+getenv                            window-width
+global-key-binding                x-get-cut-buffer
+keymap-parent                     x-get-cutbuffer
 local-key-binding                 x-get-secondary-selection
-mark                              x-get-selection          
-mark-marker                       
+mark                              x-get-selection
+mark-marker
 @end smallexample
 
 Most of these have directly corresponding ``set'' functions, like
@@ -2584,14 +2580,14 @@ is the opposite word of the word following @code{the}) to cause
 hash table entry.
 
 @item for @var{var} being the key-codes of @var{keymap}
-This clause iterates over the entries in @var{keymap}.  In GNU Emacs
-18 and 19, keymaps are either alists or vectors, and key-codes are
-integers or symbols.  In Lucid Emacs 19, keymaps are a special new
-data type, and key-codes are symbols or lists of symbols.  The
-iteration does not enter nested keymaps or inherited (parent) keymaps.
-You can use @samp{the key-bindings} to access the commands bound to
-the keys rather than the key codes, and you can add a @code{using}
-clause to access both the codes and the bindings together.
+This clause iterates over the entries in @var{keymap}.  In GNU Emacs 18
+and 19, keymaps are either alists or vectors, and key-codes are integers
+or symbols.  In XEmacs, keymaps are a special new data type, and
+key-codes are symbols or lists of symbols.  The iteration does not enter
+nested keymaps or inherited (parent) keymaps.  You can use @samp{the
+key-bindings} to access the commands bound to the keys rather than the
+key codes, and you can add a @code{using} clause to access both the
+codes and the bindings together.
 
 @item for @var{var} being the key-seqs of @var{keymap}
 This clause iterates over all key sequences defined by @var{keymap}
@@ -2602,13 +2598,13 @@ them permanently.  You can add a @samp{using (key-bindings ...)}
 clause to get the command bindings as well.
 
 @item for @var{var} being the overlays [of @var{buffer}] @dots{}
-This clause iterates over the Emacs 19 ``overlays'' or Lucid
-Emacs ``extents'' of a buffer (the clause @code{extents} is synonymous
-with @code{overlays}).  Under Emacs 18, this clause iterates zero
-times.  If the @code{of} term is omitted, the current buffer is used.
-This clause also accepts optional @samp{from @var{pos}} and
-@samp{to @var{pos}} terms, limiting the clause to overlays which
-overlap the specified region.
+This clause iterates over the Emacs 19 ``overlays'' or XEmacs
+``extents'' of a buffer (the clause @code{extents} is synonymous with
+@code{overlays}).  Under Emacs 18, this clause iterates zero times.  If
+the @code{of} term is omitted, the current buffer is used.  This clause
+also accepts optional @samp{from @var{pos}} and @samp{to @var{pos}}
+terms, limiting the clause to overlays which overlap the specified
+region.
 
 @item for @var{var} being the intervals [of @var{buffer}] @dots{}
 This clause iterates over all intervals of a buffer with constant
@@ -3217,7 +3213,7 @@ Emacs 19.
 @example
 (declaim (inline foo bar))
 (eval-when (compile load eval) (proclaim '(inline foo bar)))
-(proclaim-inline foo bar)      ; Lucid Emacs only
+(proclaim-inline foo bar)      ; XEmacs only
 (defsubst foo (...) ...)       ; instead of defun; Emacs 19 only
 @end example
 
@@ -4601,6 +4597,10 @@ This is equivalent to @code{(nconc (mapcar* 'cons @var{keys} @var{values})
 @chapter Hash Tables
 
 @noindent
+Hash tables are now implemented directly in the C code and documented in
+@ref{Hash Tables,,, lispref, XEmacs Lisp Programmer's Manual}.
+
+@ignore
 A @dfn{hash table} is a data structure that maps ``keys'' onto
 ``values.''  Keys and values can be arbitrary Lisp data objects.
 Hash tables have the property that the time to search for a given
@@ -4622,14 +4622,14 @@ though if you use something else you should check the details of
 the hashing function described below to make sure it is suitable
 for your predicate.
 
-Some versions of Emacs (like Lucid Emacs 19) include a built-in
-hash table type; in these versions, @code{make-hash-table} with
-a test of @code{eq} will use these built-in hash tables.  In all
-other cases, it will return a hash-table object which takes the
-form of a list with an identifying ``tag'' symbol at the front.
-All of the hash table functions in this package can operate on
-both types of hash table; normally you will never know which
-type is being used.
+Some versions of Emacs (like XEmacs) include a built-in hash
+table type; in these versions, @code{make-hash-table} with a test of
+@code{eq}, @code{eql}, or @code{equal} will use these built-in hash
+tables.  In all other cases, it will return a hash-table object which
+takes the form of a list with an identifying ``tag'' symbol at the
+front.  All of the hash table functions in this package can operate on
+both types of hash table; normally you will never know which type is
+being used.
 
 This function accepts the additional Common Lisp keywords
 @code{:rehash-size} and @code{:rehash-threshold}, but it ignores
@@ -4670,22 +4670,20 @@ of the given entry.  The return value of @var{function} is ignored;
 an alternate way of iterating over hash tables.
 @end defun
 
-@defun hash-table-count table
-This function returns the number of entries in @var{table}.
-@strong{Warning:}  The current implementation of Lucid Emacs 19
-hash-tables does not decrement the stored @code{count} when
-@code{remhash} removes an entry.  Therefore, the return value of
-this function is not dependable if you have used @code{remhash}
-on the table and the table's test is @code{eq}.  A slower, but
-reliable, way to count the entries is @code{(loop for x being the
-hash-keys of @var{table} count t)}.
+@defun hash-table-count table This function returns the number of
+entries in @var{table}.  @strong{Warning:} The current implementation of
+XEmacs hash-tables does not decrement the stored @code{count}
+when @code{remhash} removes an entry.  Therefore, the return value of
+this function is not dependable if you have used @code{remhash} on the
+table and the table's test is @code{eq}, @code{eql}, or @code{equal}.
+A slower, but reliable, way to count the entries is
+@code{(loop for x being the hash-keys of @var{table} count t)}.
 @end defun
 
-@defun hash-table-p object
-This function returns @code{t} if @var{object} is a hash table,
-@code{nil} otherwise.  It recognizes both types of hash tables
-(both Lucid Emacs built-in tables and tables implemented with
-special lists.)
+@defun hash-table-p object This function returns @code{t} if
+@var{object} is a hash table, @code{nil} otherwise.  It recognizes both
+types of hash tables (both XEmacs built-in tables and tables implemented
+with special lists.)
 @end defun
 
 Sometimes when dealing with hash tables it is useful to know the
@@ -4745,6 +4743,7 @@ structure will be more efficient since lookup does not require
 converting the key to a string or looking it up in an obarray.
 However, such tables are guaranteed to take time proportional to
 their size to do a search.
+@end ignore
 
 @iftex
 @chapno=18
@@ -5581,7 +5580,7 @@ the @code{lambda} expression is code that can be compiled.
 (mapcar (function (lambda (x) (* x 2))) list)   ; Emacs Lisp
 @end example
 
-Lucid Emacs supports @code{#'} notation starting with version 19.8.
+XEmacs supports @code{#'} notation starting with version 19.8.
 
 @item
 Reader macros.  Common Lisp includes a second type of macro that

@@ -64,18 +64,8 @@
 
 ;;; Code:
 
+;;;###autoload
 (defun x-win-init-sun ()
-
-  (defun x-remap-keysyms-using-function-key-map (from-key to-key)
-    (dolist (prefix '(() (shift) (control) (meta) (alt)
-		      (shift control) (shift alt) (shift meta)
-		      (control alt) (control meta) (alt meta)
-		      (shift control alt) (shift control meta)
-		      (shift alt meta) (control alt meta)
-		      (shift control alt meta)))
-      (define-key function-key-map
-	(append prefix (list from-key))
-	(vector (append prefix (list to-key))))))
 
   ;; help is ok
   ;; num_lock is ok
@@ -164,9 +154,15 @@
 		 (f12    again))))
       )
     do (when (x-keysym-on-keyboard-sans-modifiers-p from-key)
-	 (x-remap-keysyms-using-function-key-map from-key to-key)))
-
-  (unintern 'x-remap-keysyms-using-function-key-map)
+	 (dolist (prefix '(() (shift) (control) (meta) (alt)
+			   (shift control) (shift alt) (shift meta)
+			   (control alt) (control meta) (alt meta)
+			   (shift control alt) (shift control meta)
+			   (shift alt meta) (control alt meta)
+			   (shift control alt meta)))
+	   (define-key function-key-map
+	     (append prefix (list from-key))
+	     (vector (append prefix (list to-key)))))))
 
   ;; for each element in the left column of the above table, alias it
   ;; to the thing in the right column.  Then do the same for many, but

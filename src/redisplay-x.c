@@ -929,7 +929,7 @@ x_output_string (struct window *w, struct display_line *dl,
 	{
 	  /* Ensure the gray bitmap exists */
 	  if (DEVICE_X_GRAY_PIXMAP (d) == None)
-	    DEVICE_X_GRAY_PIXMAP (d) = 
+	    DEVICE_X_GRAY_PIXMAP (d) =
 	      XCreateBitmapFromData (dpy, x_win, (char *)gray_bits,
 				     gray_width, gray_height);
 
@@ -1410,7 +1410,7 @@ x_output_vertical_divider (struct window *w, int clear)
   unsigned long mask;
   int x, y1, y2, width, shadow_thickness, spacing, line_width;
   face_index div_face = get_builtin_face_cache_index (w, Vvertical_divider_face);
-  
+
   width = window_divider_width (w);
   shadow_thickness = XINT (w->vertical_divider_shadow_thickness);
   spacing = XINT (w->vertical_divider_spacing);
@@ -1418,20 +1418,20 @@ x_output_vertical_divider (struct window *w, int clear)
   x = WINDOW_RIGHT (w) - width;
   y1 = WINDOW_TOP (w);
   y2 = WINDOW_BOTTOM (w);
-  
+
   memset (&gcv, ~0, sizeof (XGCValues));
-  
+
   tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, div_face);
   tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
-  
+
   /* First, get the GC's. */
   top_shadow_pixel = tmp_color.pixel;
   bottom_shadow_pixel = tmp_color.pixel;
   background_pixel = tmp_color.pixel;
-  
+
   x_generate_shadow_pixels (f, &top_shadow_pixel, &bottom_shadow_pixel,
 			    background_pixel, ef->core.background_pixel);
-  
+
   tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, div_face);
   tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
   gcv.background = tmp_color.pixel;
@@ -1439,11 +1439,11 @@ x_output_vertical_divider (struct window *w, int clear)
   mask = GCForeground | GCBackground | GCGraphicsExposures;
 
   /* If we can't distinguish one of the shadows (the color is the same as the
-     background), it's better to use a pixmap to generate a dithrered gray. */
+     background), it's better to use a pixmap to generate a dithered gray. */
   if (top_shadow_pixel == background_pixel ||
       bottom_shadow_pixel == background_pixel)
     use_pixmap = 1;
-  
+
   if (use_pixmap)
     {
       if (DEVICE_X_GRAY_PIXMAP (d) == None)
@@ -1452,7 +1452,7 @@ x_output_vertical_divider (struct window *w, int clear)
 	    XCreatePixmapFromBitmapData (dpy, x_win, (char *) gray_bits,
 					 gray_width, gray_height, 1, 0, 1);
 	}
-      
+
       tmp_pixel = WINDOW_FACE_CACHEL_BACKGROUND (w, div_face);
       tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
       gcv.foreground = tmp_color.pixel;
@@ -1461,11 +1461,11 @@ x_output_vertical_divider (struct window *w, int clear)
       gcv.stipple = DEVICE_X_GRAY_PIXMAP (d);
       top_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv,
 				       (mask | GCStipple | GCFillStyle));
-      
+
       tmp_pixel = WINDOW_FACE_CACHEL_FOREGROUND (w, div_face);
       tmp_color = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (tmp_pixel));
       bottom_shadow_pixel = tmp_color.pixel;
-      
+
       flip_gcs = (bottom_shadow_pixel ==
 		  WhitePixelOfScreen (DefaultScreenOfDisplay (dpy)));
     }
@@ -1474,20 +1474,20 @@ x_output_vertical_divider (struct window *w, int clear)
       gcv.foreground = top_shadow_pixel;
       top_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
     }
-  
+
   gcv.foreground = bottom_shadow_pixel;
   bottom_shadow_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
-  
+
   if (use_pixmap && flip_gcs)
     {
       GC tmp_gc = bottom_shadow_gc;
       bottom_shadow_gc = top_shadow_gc;
       top_shadow_gc = tmp_gc;
     }
-  
+
   gcv.foreground = background_pixel;
   background_gc = gc_cache_lookup (DEVICE_X_GC_CACHE (d), &gcv, mask);
-  
+
   /* possibly revert the GC's in case the shadow thickness is < 0.
      This will give a depressed look to the divider */
   if (shadow_thickness < 0)
@@ -1497,8 +1497,8 @@ x_output_vertical_divider (struct window *w, int clear)
       temp = top_shadow_gc;
       top_shadow_gc = bottom_shadow_gc;
       bottom_shadow_gc = temp;
-      
-      /* better avoid a Bad Adress XLib error ;-) */
+
+      /* better avoid a Bad Address XLib error ;-) */
       shadow_thickness = - shadow_thickness;
     }
 
@@ -1508,12 +1508,12 @@ x_output_vertical_divider (struct window *w, int clear)
     XClearArea (dpy, x_win, x, y1, width, y2 - y1, False);
 
   /* Draw the divider line. */
-  XFillRectangle (dpy, x_win, background_gc, 
+  XFillRectangle (dpy, x_win, background_gc,
 		  x + spacing + shadow_thickness, y1,
 		  line_width, y2 - y1);
-  
+
   /* Draw the shadows around the divider line */
-  x_output_shadows (f, x + spacing, y1, 
+  x_output_shadows (f, x + spacing, y1,
 		    width - 2 * spacing, y2 - y1,
 		    top_shadow_gc, bottom_shadow_gc,
 		    background_gc, shadow_thickness);
@@ -1678,7 +1678,7 @@ x_output_hline (struct window *w, struct display_line *dl, struct rune *rb)
  x_output_shadows
 
  Draw a shadow around the given area using the given GC's.  It is the
- callers responsibility to ste the GC's appropriately.
+ callers responsibility to set the GC's appropriately.
  ****************************************************************************/
 void
 x_output_shadows (struct frame *f, int x, int y, int width, int height,

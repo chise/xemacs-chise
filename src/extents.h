@@ -103,8 +103,8 @@ struct extent
 #define extent_object(e) ((e)->object)
 #define extent_start(e) ((e)->start + 0)
 #define extent_end(e) ((e)->end + 0)
-#define set_extent_start(e, val) ((e)->start = (val))
-#define set_extent_end(e, val) ((e)->end = (val))
+#define set_extent_start(e, val) ((void) ((e)->start = (val)))
+#define set_extent_end(e, val) ((void) ((e)->end = (val)))
 #define extent_endpoint(e, endp) ((endp) ? extent_end (e) : extent_start (e))
 #define set_extent_endpoint(e, val, endp) \
   ((endp) ? set_extent_end (e, val) : set_extent_start (e, val))

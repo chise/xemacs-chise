@@ -289,39 +289,39 @@ casify_word (enum case_action flag, Lisp_Object arg, Lisp_Object buffer)
 }
 
 DEFUN ("upcase-word", Fupcase_word, 1, 2, "p", /*
-Convert following word (or ARG words) to upper case, moving over.
+Convert following word (or N words) to upper case, moving over.
 With negative argument, convert previous words but do not move.
 See also `capitalize-word'.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (arg, buffer))
+       (n, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_UP, arg, buffer);
+  return casify_word (CASE_UP, n, buffer);
 }
 
 DEFUN ("downcase-word", Fdowncase_word, 1, 2, "p", /*
-Convert following word (or ARG words) to lower case, moving over.
+Convert following word (or N words) to lower case, moving over.
 With negative argument, convert previous words but do not move.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (arg, buffer))
+       (n, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_DOWN, arg, buffer);
+  return casify_word (CASE_DOWN, n, buffer);
 }
 
 DEFUN ("capitalize-word", Fcapitalize_word, 1, 2, "p", /*
-Capitalize the following word (or ARG words), moving over.
+Capitalize the following word (or N words), moving over.
 This gives the word(s) a first character in upper case
  and the rest lower case.
 With negative argument, capitalize previous words but do not move.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (arg, buffer))
+       (n, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_CAPITALIZE, arg, buffer);
+  return casify_word (CASE_CAPITALIZE, n, buffer);
 }
 
 

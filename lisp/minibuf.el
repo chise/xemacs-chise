@@ -41,7 +41,7 @@
 ;;; Code:
 
 (defgroup minibuffer nil
-  "Controling the behaviour of the minibuffer."
+  "Controling the behavior of the minibuffer."
   :group 'environment)
 
 
@@ -350,7 +350,7 @@ If optional second arg INITIAL-CONTENTS is non-nil, it is a string
   to be inserted into the minibuffer before reading input.
   If INITIAL-CONTENTS is (STRING . POSITION), the initial input
   is STRING, but point is placed POSITION characters into the string.
-Third arg KEYMAP is a keymap to use whilst reading;
+Third arg KEYMAP is a keymap to use while reading;
   if omitted or nil, the default is `minibuffer-local-map'.
 If fourth arg READ is non-nil, then interpret the result as a lisp object
   and return that object:
@@ -1477,24 +1477,21 @@ only existing buffer names are allowed."
         (olen (length string))
         new
         n o ch)
-    (cond ((eq system-type 'vax-vms)
-           string)
-          ((not (string-match regexp string))
-           string)
-          (t
-           (setq n 1)
-           (while (string-match regexp string (match-end 0))
-             (setq n (1+ n)))
-           (setq new (make-string (+ olen n) ?$))
-           (setq n 0 o 0)
-           (while (< o olen)
-             (setq ch (aref string o))
-             (aset new n ch)
-             (setq o (1+ o) n (1+ n))
-             (if (eq ch ?$)
-                 ;; already aset by make-string initial-value
-                 (setq n (1+ n))))
-           new))))
+    (if (not (string-match regexp string))
+	string
+      (setq n 1)
+      (while (string-match regexp string (match-end 0))
+	(setq n (1+ n)))
+      (setq new (make-string (+ olen n) ?$))
+      (setq n 0 o 0)
+      (while (< o olen)
+	(setq ch (aref string o))
+	(aset new n ch)
+	(setq o (1+ o) n (1+ n))
+	(if (eq ch ?$)
+	    ;; already aset by make-string initial-value
+	    (setq n (1+ n))))
+      new)))
 
 (defun read-file-name-2 (history prompt dir default
 				 must-match initial-contents
@@ -1511,8 +1508,7 @@ only existing buffer names are allowed."
                               (length dir)))
                        (t
                         (un-substitute-in-file-name dir))))
-         (val (let ((completion-ignore-case (or completion-ignore-case
-						(eq system-type 'vax-vms))))
+         (val 
                 ;;  Hateful, broken, case-sensitive un*x
 ;;;                 (completing-read prompt
 ;;;                                  completer
@@ -1520,22 +1516,22 @@ only existing buffer names are allowed."
 ;;;                                  must-match
 ;;;                                  insert
 ;;;                                  history)
-		;; #### - this is essentially the guts of completing read.
-		;; There should be an elegant way to pass a pair of keymaps to
-		;; completing read, but this will do for now.  All sins are
-		;; relative.  --Stig
-		(let ((minibuffer-completion-table completer)
-		      (minibuffer-completion-predicate dir)
-		      (minibuffer-completion-confirm (if (eq must-match 't)
-							 nil t))
-		      (last-exact-completion nil))
-		  (read-from-minibuffer prompt
-					insert
-					(if (not must-match)
-					    read-file-name-map
-					  read-file-name-must-match-map)
-					nil
-					history)))
+	  ;; #### - this is essentially the guts of completing read.
+	  ;; There should be an elegant way to pass a pair of keymaps to
+	  ;; completing read, but this will do for now.  All sins are
+	  ;; relative.  --Stig
+	  (let ((minibuffer-completion-table completer)
+		(minibuffer-completion-predicate dir)
+		(minibuffer-completion-confirm (if (eq must-match 't)
+						   nil t))
+		(last-exact-completion nil))
+	    (read-from-minibuffer prompt
+				  insert
+				  (if (not must-match)
+				      read-file-name-map
+				    read-file-name-must-match-map)
+				  nil
+				  history))
 	      ))
 ;;;     ;; Kludge!  Put "/foo/bar" on history rather than "/default//foo/bar"
 ;;;     (let ((hist (cond ((not history) 'minibuffer-history)
@@ -1728,7 +1724,7 @@ DIR defaults to current buffer's directory default."
              (alist #'(lambda ()
                         (mapcar #'(lambda (x)
                                     (cons (substring x 0 (string-match "=" x))
-                                          'nil))
+                                          nil))
                                 process-environment))))
 
 	(cond ((eq action 'lambda)
@@ -1743,7 +1739,7 @@ DIR defaults to current buffer's directory default."
 			       (concat "$" p)
                              (concat head "$" p)))
                        (all-completions env (funcall alist))))
-              (t ;; 'nil
+              (t ;; nil
                ;; complete
                (let* ((e (funcall alist))
                       (val (try-completion env e)))
@@ -1779,7 +1775,7 @@ DIR defaults to current buffer's directory default."
              ;; all completions
              (mapcar #'un-substitute-in-file-name
                      (file-name-all-completions name dir)))
-            (t;; 'nil
+            (t;; nil
              ;; complete
              (let* ((d (or dir default-directory))
 		    (val (file-name-completion name d)))
@@ -1820,11 +1816,8 @@ DIR defaults to current buffer's directory default."
 				   nil
 				   'directories))))
 			 (mapcar fn
-				 (cond ((eq system-type 'vax-vms)
-					l)
-				       (t
-					;; Wretched unix
-					(delete "." l))))))))
+				 ;; Wretched unix
+				 (delete "." l))))))
         (cond ((eq action 'lambda)
                ;; complete?
                (if (not orig)

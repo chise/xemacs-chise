@@ -109,10 +109,11 @@ typedef EMACS_INT Lisp_Object;
 
 #ifdef USE_MINIMAL_TAGBITS
 
+# define Lisp_Type_Int_Bit (Lisp_Type_Int_Even & Lisp_Type_Int_Odd)
 # define XUNMARK(x) DO_NOTHING
 # define make_obj(vartype, x) ((Lisp_Object) (x))
-# define make_int(x) ((Lisp_Object) (((x) << INT_GCBITS) + 1))
-# define make_char(x) ((Lisp_Object) (((x) << GCBITS) + Lisp_Type_Char))
+# define make_int(x) ((Lisp_Object) (((x) << INT_GCBITS) | Lisp_Type_Int_Bit))
+# define make_char(x) ((Lisp_Object) (((x) << GCBITS) | Lisp_Type_Char))
 # define VALMASK (((1UL << VALBITS) - 1UL) << GCTYPEBITS)
 # define XTYPE(x) ((enum Lisp_Type) (((EMACS_UINT)(x)) & ~VALMASK))
 # define XPNTRVAL(x) (x) /* This depends on Lisp_Type_Record == 0 */
@@ -120,8 +121,7 @@ typedef EMACS_INT Lisp_Object;
 # define GC_EQ(x,y) EQ (x,y)
 # define XREALINT(x) ((x) >> INT_GCBITS)
 # define XUINT(x) ((EMACS_UINT)(x) >> INT_GCBITS)
-# define INTP(x) ((EMACS_UINT)(x) & 1)
-# define Qzero ((Lisp_Object) 1UL)
+# define INTP(x) ((EMACS_UINT)(x) & Lisp_Type_Int_Bit)
 
 #else /* !USE_MINIMAL_TAGBITS */
 
@@ -142,11 +142,11 @@ typedef EMACS_INT Lisp_Object;
 # define XREALINT(x) (((x) << INT_GCBITS) >> INT_GCBITS)
 # define XUINT(x) ((EMACS_UINT) ((x) & VALMASK))
 # define INTP(x) (XTYPE (x) == Lisp_Type_Int)
-# define Qzero ((Lisp_Object) Lisp_Type_Int)
 
 #endif /* !USE_MINIMAL_TAGBITS */
 
-#define Qnull_pointer 0
+#define Qzero make_int (0)
+#define Qnull_pointer ((Lisp_Object) 0)
 #define XGCTYPE(x) XTYPE(x)
 #define EQ(x,y) ((x) == (y))
 #define XSETINT(var,  value) ((void) ((var) = make_int (value)))

@@ -80,6 +80,7 @@ Boston, MA 02111-1307, USA.  */
 #ifdef REGION_CACHE_NEEDS_WORK
 #include "region-cache.h"
 #endif
+#include "specifier.h"
 #include "syntax.h"
 #include "sysdep.h"	/* for getwd */
 #include "window.h"
@@ -227,13 +228,13 @@ mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
                                        undo_threshold,
                                        undo_high_threshold);
 
-#define MARKED_SLOT(x) ((markobj) (buf->x));
+#define MARKED_SLOT(x) ((void) (markobj (buf->x)));
 #include "bufslots.h"
 #undef MARKED_SLOT
 
-  ((markobj) (buf->extent_info));
+  markobj (buf->extent_info);
   if (buf->text)
-    ((markobj) (buf->text->line_number_cache));
+    markobj (buf->text->line_number_cache);
 
   /* Don't mark normally through the children slot.
      (Actually, in this case, it doesn't matter.)  */
@@ -310,12 +311,9 @@ returned instead.
 */
        (frame))
 {
-  Lisp_Object list;
-  if (EQ (frame, Qt))
-    list = Vbuffer_alist;
-  else
-    list = decode_frame (frame)->buffer_alist;
-  return Fmapcar (Qcdr, list);
+  return Fmapcar (Qcdr,
+		  EQ (frame, Qt) ? Vbuffer_alist :
+		  decode_frame (frame)->buffer_alist);
 }
 
 Lisp_Object
@@ -435,7 +433,7 @@ the search will still be done on `buffer-file-name'.
        (filename))
 {
   /* This function can GC.  GC checked 1997.04.06. */
-  REGISTER Lisp_Object tail, buf, tem;
+  REGISTER Lisp_Object buf;
   struct gcpro gcpro1;
 
 #ifdef I18N3
@@ -476,18 +474,20 @@ the search will still be done on `buffer-file-name'.
       NUNGCPRO;
     }
 
-  LIST_LOOP (tail, Vbuffer_alist)
-    {
-      buf = Fcdr (XCAR (tail));
-      if (!BUFFERP (buf)) continue;
-      if (!STRINGP (XBUFFER (buf)->filename)) continue;
-      tem = Fstring_equal (filename,
-			   (find_file_compare_truenames
-			    ? XBUFFER (buf)->file_truename
-			    : XBUFFER (buf)->filename));
-      if (!NILP (tem))
-	return buf;
-    }
+  {
+    Lisp_Object elt;
+    LIST_LOOP_2 (elt, Vbuffer_alist)
+      {
+	buf = Fcdr (elt);
+	if (!BUFFERP (buf)) continue;
+	if (!STRINGP (XBUFFER (buf)->filename)) continue;
+	if (!NILP (Fstring_equal (filename,
+				  (find_file_compare_truenames
+				   ? XBUFFER (buf)->file_truename
+				   : XBUFFER (buf)->filename))))
+	  return buf;
+      }
+  }
   return Qnil;
 }
 
@@ -579,8 +579,8 @@ finish_init_buffer (struct buffer *b, Lisp_Object name)
   init_buffer_markers (b);
 
   b->generated_modeline_string = Fmake_string (make_int (84), make_int (' '));
-  b->modeline_extent_table = make_lisp_hashtable (20, HASHTABLE_KEY_WEAK,
-						  HASHTABLE_EQ);
+  b->modeline_extent_table = make_lisp_hash_table (20, HASH_TABLE_KEY_WEAK,
+						   HASH_TABLE_EQ);
 
   return buf;
 }
@@ -2014,80 +2014,54 @@ List of functions called with no args to query before killing a buffer.
   delete_auto_save_files = 1;
 }
 
-/* DOC is ignored because it is snagged and recorded externally
- *  by make-docfile */
+/* The docstrings for DEFVAR_* are recorded externally by make-docfile.  */
+
 /* Renamed from DEFVAR_PER_BUFFER because FSFmacs D_P_B takes
- *  a bogus extra arg, which confuses an otherwise identical make-docfile.c */
+   a bogus extra arg, which confuses an otherwise identical make-docfile.c */
+
 /* Declaring this stuff as const produces 'Cannot reinitialize' messages
    from SunPro C's fix-and-continue feature (a way neato feature that
    makes debugging unbelievably more bearable) */
-#define DEFVAR_BUFFER_LOCAL(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CURRENT_BUFFER_FORWARD }, 0 };				\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
+#define DEFVAR_BUFFER_LOCAL_1(lname, field_name, forward_type, magicfun) do {	\
+  static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
+    = { { { symbol_value_forward_lheader_initializer,				\
+	    (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
+	  forward_type }, magicfun };						\
+  {										\
+    int offset = ((char *)symbol_value_forward_forward (&I_hate_C) -		\
+		  (char *)&buffer_local_flags);					\
+    defvar_magic (lname, &I_hate_C);						\
+										\
+    *((Lisp_Object *)(offset + (char *)XBUFFER (Vbuffer_local_symbols)))	\
+      = intern (lname);								\
+  }										\
+} while (0)
 
-#define DEFVAR_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun) do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CURRENT_BUFFER_FORWARD }, magicfun };			\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
+#define DEFVAR_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun)		\
+	DEFVAR_BUFFER_LOCAL_1 (lname, field_name,			\
+			       SYMVAL_CURRENT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_BUFFER_LOCAL(lname, field_name)				\
+	DEFVAR_BUFFER_LOCAL_MAGIC (lname, field_name, 0)
+#define DEFVAR_CONST_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_BUFFER_LOCAL_1 (lname, field_name,			\
+			       SYMVAL_CONST_CURRENT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_CONST_BUFFER_LOCAL(lname, field_name)			\
+	DEFVAR_CONST_BUFFER_LOCAL_MAGIC (lname, field_name, 0)
 
-#define DEFVAR_CONST_BUFFER_LOCAL(lname, field_name) do {		\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CONST_CURRENT_BUFFER_FORWARD }, 0 };			\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
-
-#define DEFVAR_CONST_BUFFER_LOCAL_MAGIC(lname, field_name, magicfun) do{\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_CONST_CURRENT_BUFFER_FORWARD }, magicfun };		\
-      defvar_buffer_local ((lname), &I_hate_C);				\
- } while (0)
-
-static void
-defvar_buffer_local (CONST char *namestring,
-                     CONST struct symbol_value_forward *m)
-{
-  int offset = ((char *)symbol_value_forward_forward (m)
-                - (char *)&buffer_local_flags);
-
-  defvar_mumble (namestring, m, sizeof (*m));
-
-  *((Lisp_Object *)(offset + (char *)XBUFFER (Vbuffer_local_symbols)))
-    = intern (namestring);
-}
-
-/* DOC is ignored because it is snagged and recorded externally
- *  by make-docfile */
-#define DEFVAR_BUFFER_DEFAULTS(lname, field_name) do {			\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_DEFAULT_BUFFER_FORWARD }, 0 };				\
-      defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
- } while (0)
-
-#define DEFVAR_BUFFER_DEFAULTS_MAGIC(lname, field_name, magicfun) do {	\
-static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\
-  = { { { symbol_value_forward_lheader_initializer,			\
-     (struct lcrecord_header *) &(buffer_local_flags.field_name), 69 },	\
-      SYMVAL_DEFAULT_BUFFER_FORWARD }, magicfun };			\
-      defvar_mumble ((lname), &I_hate_C, sizeof (I_hate_C));		\
- } while (0)
+#define DEFVAR_BUFFER_DEFAULTS_MAGIC(lname, field_name, magicfun)	\
+	DEFVAR_SYMVAL_FWD (lname, &(buffer_local_flags.field_name),	\
+			   SYMVAL_DEFAULT_BUFFER_FORWARD, magicfun)
+#define DEFVAR_BUFFER_DEFAULTS(lname, field_name)			\
+	DEFVAR_BUFFER_DEFAULTS_MAGIC (lname, field_name, 0)
 
 static void
 nuke_all_buffer_slots (struct buffer *b, Lisp_Object zap)
 {
   zero_lcrecord (b);
+
+  b->extent_info = Qnil;
+  b->indirect_children = Qnil;
+  b->own_text.line_number_cache = Qnil;
 
 #define MARKED_SLOT(x)	b->x = (zap);
 #include "bufslots.h"
@@ -2117,15 +2091,17 @@ complex_vars_of_buffer (void)
   defs->major_mode = Qfundamental_mode;
   defs->mode_name = QSFundamental;
   defs->abbrev_table = Qnil;    /* real default setup by Lisp code */
-  defs->downcase_table = Vascii_downcase_table;
-  defs->upcase_table = Vascii_upcase_table;
+
+  defs->downcase_table	 = Vascii_downcase_table;
+  defs->upcase_table	 = Vascii_upcase_table;
   defs->case_canon_table = Vascii_canon_table;
-  defs->case_eqv_table = Vascii_eqv_table;
+  defs->case_eqv_table	 = Vascii_eqv_table;
 #ifdef MULE
-  defs->mirror_downcase_table = Vmirror_ascii_downcase_table;
-  defs->mirror_upcase_table = Vmirror_ascii_upcase_table;
+  defs->mirror_downcase_table	= Vmirror_ascii_downcase_table;
+  defs->mirror_upcase_table	= Vmirror_ascii_upcase_table;
   defs->mirror_case_canon_table = Vmirror_ascii_canon_table;
-  defs->mirror_case_eqv_table = Vmirror_ascii_eqv_table;
+  defs->mirror_case_eqv_table	= Vmirror_ascii_eqv_table;
+
   defs->category_table = Vstandard_category_table;
 #endif /* MULE */
   defs->syntax_table = Vstandard_syntax_table;
@@ -2159,7 +2135,7 @@ complex_vars_of_buffer (void)
      */
     Lisp_Object always_local_no_default = make_int (0);
     Lisp_Object always_local_resettable = make_int (-1);
-    Lisp_Object resettable = make_int (-3);
+    Lisp_Object resettable		= make_int (-3);
 
     /* Assign the local-flags to the slots that have default values.
        The local flag is a bit that is used in the buffer
@@ -2168,58 +2144,58 @@ complex_vars_of_buffer (void)
        buffer.  */
 
     nuke_all_buffer_slots (&buffer_local_flags, make_int (-2));
-    buffer_local_flags.filename = always_local_no_default;
-    buffer_local_flags.directory = always_local_no_default;
-    buffer_local_flags.backed_up = always_local_no_default;
-    buffer_local_flags.saved_size = always_local_no_default;
+    buffer_local_flags.filename		   = always_local_no_default;
+    buffer_local_flags.directory	   = always_local_no_default;
+    buffer_local_flags.backed_up	   = always_local_no_default;
+    buffer_local_flags.saved_size	   = always_local_no_default;
     buffer_local_flags.auto_save_file_name = always_local_no_default;
-    buffer_local_flags.read_only = always_local_no_default;
+    buffer_local_flags.read_only	   = always_local_no_default;
 
-    buffer_local_flags.major_mode = always_local_resettable;
-    buffer_local_flags.mode_name = always_local_resettable;
-    buffer_local_flags.undo_list = always_local_no_default;
+    buffer_local_flags.major_mode	   = always_local_resettable;
+    buffer_local_flags.mode_name	   = always_local_resettable;
+    buffer_local_flags.undo_list	   = always_local_no_default;
 #if 0 /* FSFmacs */
-    buffer_local_flags.mark_active = always_local_resettable;
+    buffer_local_flags.mark_active	   = always_local_resettable;
 #endif
     buffer_local_flags.point_before_scroll = always_local_resettable;
-    buffer_local_flags.file_truename = always_local_no_default;
-    buffer_local_flags.invisibility_spec = always_local_resettable;
-    buffer_local_flags.file_format = always_local_resettable;
+    buffer_local_flags.file_truename	   = always_local_no_default;
+    buffer_local_flags.invisibility_spec   = always_local_resettable;
+    buffer_local_flags.file_format	   = always_local_resettable;
     buffer_local_flags.generated_modeline_string = always_local_no_default;
 
-    buffer_local_flags.keymap = resettable;
-    buffer_local_flags.downcase_table = resettable;
-    buffer_local_flags.upcase_table = resettable;
+    buffer_local_flags.keymap		= resettable;
+    buffer_local_flags.downcase_table	= resettable;
+    buffer_local_flags.upcase_table	= resettable;
     buffer_local_flags.case_canon_table = resettable;
-    buffer_local_flags.case_eqv_table = resettable;
-    buffer_local_flags.syntax_table = resettable;
+    buffer_local_flags.case_eqv_table	= resettable;
+    buffer_local_flags.syntax_table	= resettable;
 #ifdef MULE
-    buffer_local_flags.category_table = resettable;
+    buffer_local_flags.category_table	= resettable;
 #endif
 
-    buffer_local_flags.modeline_format = make_int (1);
-    buffer_local_flags.abbrev_mode = make_int (2);
-    buffer_local_flags.overwrite_mode = make_int (4);
-    buffer_local_flags.case_fold_search = make_int (8);
-    buffer_local_flags.auto_fill_function = make_int (0x10);
-    buffer_local_flags.selective_display = make_int (0x20);
-    buffer_local_flags.selective_display_ellipses = make_int (0x40);
-    buffer_local_flags.tab_width = make_int (0x80);
-    buffer_local_flags.truncate_lines = make_int (0x100);
-    buffer_local_flags.ctl_arrow = make_int (0x200);
-    buffer_local_flags.fill_column = make_int (0x400);
-    buffer_local_flags.left_margin = make_int (0x800);
-    buffer_local_flags.abbrev_table = make_int (0x1000);
+    buffer_local_flags.modeline_format		  = make_int (1<<0);
+    buffer_local_flags.abbrev_mode		  = make_int (1<<1);
+    buffer_local_flags.overwrite_mode		  = make_int (1<<2);
+    buffer_local_flags.case_fold_search		  = make_int (1<<3);
+    buffer_local_flags.auto_fill_function	  = make_int (1<<4);
+    buffer_local_flags.selective_display	  = make_int (1<<5);
+    buffer_local_flags.selective_display_ellipses = make_int (1<<6);
+    buffer_local_flags.tab_width		  = make_int (1<<7);
+    buffer_local_flags.truncate_lines		  = make_int (1<<8);
+    buffer_local_flags.ctl_arrow		  = make_int (1<<9);
+    buffer_local_flags.fill_column		  = make_int (1<<10);
+    buffer_local_flags.left_margin		  = make_int (1<<11);
+    buffer_local_flags.abbrev_table		  = make_int (1<<12);
 #ifdef REGION_CACHE_NEEDS_WORK
-    buffer_local_flags.cache_long_line_scans = make_int (0x2000);
+    buffer_local_flags.cache_long_line_scans	  = make_int (1<<13);
 #endif
 #ifdef FILE_CODING
-    buffer_local_flags.buffer_file_coding_system = make_int (0x4000);
+    buffer_local_flags.buffer_file_coding_system  = make_int (1<<14);
 #endif
 
-    /* #### Warning, 0x4000000 (that's six zeroes) is the largest number
-       currently allowable due to the XINT() handling of this value.
-       With some rearrangement you can get 4 more bits. */
+    /* #### Warning: 1<<28 is the largest number currently allowable
+       due to the XINT() handling of this value.  With some
+       rearrangement you can get 3 more bits. */
   }
 
   DEFVAR_BUFFER_DEFAULTS ("default-modeline-format", modeline_format /*
@@ -2429,7 +2405,7 @@ its mnemonic abbreviation.
 The default value for this variable (which is normally used for
 buffers without associated files) is also used when automatic
 detection of a file's encoding is called for and there was no
-discernable encoding in the file (i.e. it was entirely or almost
+discernible encoding in the file (i.e. it was entirely or almost
 entirely ASCII).  The default value should generally *not* be set to
 nil (equivalent to `no-conversion'), because if extended characters
 are ever inserted into the buffer, they will be lost when the file is
@@ -2457,7 +2433,7 @@ particular operation, you should bind the variable
 variables just mentioned, which are intended to be used for
 global environment specification.
 */ );
-#endif
+#endif /* FILE_CODING */
 
   DEFVAR_BUFFER_LOCAL ("auto-fill-function", auto_fill_function /*
 Function called (if non-nil) to perform auto-fill.
@@ -2744,7 +2720,7 @@ init_initial_directory (void)
       initial_directory[rc + 1] = '\0';
     }
   /* XEmacs change: store buffer's default directory
-     using prefered (i.e. as defined at compile-time)
+     using preferred (i.e. as defined at compile-time)
      directory separator. --marcpa */
 #ifdef DOS_NT
 #define CORRECT_DIR_SEPS(s) \

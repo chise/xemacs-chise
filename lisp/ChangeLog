@@ -1,3 +1,204 @@
+1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.5 is released
+
+1998-12-05  SL Baur  <steve@altair.xemacs.org>
+
+	* files.el (binary-file-regexps): regexp-opt is not available at
+	bytecompile time.
+
+1998-11-30  Martin Buchholz  <martin@xemacs.org>
+	
+	* x-win-xfree86.el:
+	* x-win-sun.el (x-win-init-sun):
+	* x-win-sun.el:
+	* x-mouse.el (mouse-track-and-copy-to-cutbuffer):
+	* x-iso8859-1.el:
+	* x-init.el (init-post-x-win):
+	* x-init.el (init-pre-x-win):
+	* x-init.el (x-initialize-compose):
+	* x-init.el:
+	* x-compose.el:
+	* winnt.el:
+	* widget.el:
+	* wid-edit.el (widget-glyph-click):
+	* wid-edit.el (widget-glyph-find):
+	* wid-edit.el (widget-type):
+	* view-less.el (view-buffer-other-window):
+	* very-early-lisp.el:
+	* version.el:
+	* toolbar.el:
+	* toolbar-items.el:
+	* term/sun.el (suntool-map):
+	* term/sun-mouse.el:
+	* term/internal.el:
+	* syntax.el (modify-syntax-entry):
+	* symbol-syntax.el:
+	* subr.el:
+	* startup.el (lock-directory):
+	* simple.el (set-comment-column):
+	* simple.el (backward-delete-char-untabify):
+	* shadow.el (find-emacs-lisp-shadows):
+	* shadow.el:
+	* setup-paths.el (paths-construct-info-path):
+	* select.el (cut-copy-clear-internal):
+	* process.el (call-process-region):
+	* process.el (start-process-shell-command):
+	* process.el:
+	* paths.el (rmail-spool-directory):
+	* paragraphs.el (use-hard-newlines):
+	* package-get.el (package-get-dependencies):
+	* package-admin.el (package-admin-delete-binary-package):
+	* obsolete.el (truncate-string):
+	* obsolete.el (store-substring):
+	* mouse.el (default-mouse-track-maybe-own-selection):
+	* mouse.el (mouse-yank-at-point):
+	* modeline.el:
+	* modeline.el (mouse-drag-modeline):
+	* minibuf.el (read-directory-name-internal):
+	* minibuf.el (read-file-name-internal):
+	* minibuf.el (read-file-name-internal-1):
+	* minibuf.el (read-file-name-2):
+	* minibuf.el (exact-minibuffer-completion-p):
+	* minibuf.el (read-from-minibuffer):
+	* minibuf.el:
+	* menubar.el (check-menu-syntax):
+	* map-ynp.el (map-y-or-n-p):
+	* make-docfile.el (docfile-out-of-date):
+	* loadup.el ((member "run-temacs" command-line-args)):
+	* loadup.el ((member "no-site-file" command-line-args)):
+	* loadup.el (really-early-error-handler):
+	* loadup.el:
+	* loadhist.el:
+	* loaddefs.el:
+	* lisp-mnt.el (lm-verify):
+	* lib-complete.el (lib-complete:cache-completions):
+	* lib-complete.el (library-all-completions):
+	* itimer.el (itimer-run-expired-timers):
+	* info.el (Info-mode):
+	* info.el (Info-insert-file-contents):
+	* info.el (Info-rebuild-dir):
+	* info.el (Info-build-dir-anew):
+	* info.el (Info-parse-dir-entries):
+	* info.el (Info-dir-outdated-p):
+	* info.el (Info-insert-dir):
+	* info.el (info-xref):
+	* info.el:
+	* hyper-apropos.el (hyper-apropos-get-doc):
+	* hyper-apropos.el (hyper-describe-face):
+	* hyper-apropos.el (hyper-apropos-mode):
+	* hyper-apropos.el:
+	* help.el (list-processes):
+	* help.el:
+	* gnuserv.el:
+	* font.el (mswindows-font-create-name):
+	* font.el (font-default-font-for-device):
+	* font.el (x-font-create-object):
+	* font.el (font-registry):
+	* font.el:
+	* font-lock.el (font-lock-keywords):
+	* font-lock.el:
+	* finder.el (finder-compile-keywords):
+	* find-paths.el (paths-find-recursive-path):
+	* fill.el (set-justification-center):
+	* fill.el (fill-region-as-paragraph):
+	* files.el (insert-directory):
+	* files.el (wildcard-to-regexp):
+	* files.el (recover-file):
+	* files.el (basic-save-buffer):
+	* files.el (delete-auto-save-file-if-necessary):
+	* files.el (file-relative-name):
+	* files.el (backup-extract-version):
+	* files.el (backup-buffer):
+	* files.el (set-visited-file-name):
+	* files.el (set-auto-mode):
+	* files.el (interpreter-mode-alist):
+	* files.el:
+	* files.el (find-file-noselect):
+	* files.el (abbreviate-file-name):
+	* files.el (parse-colon-path):
+	* files.el (directory-abbrev-alist):
+	* etags.el (visit-tags-table-buffer):
+	* easymenu.el (easy-menu-define):
+	* dragdrop.el (experimental-dragdrop-drag):
+	* dragdrop.el (dragdrop-drop-do-functions):
+	* dragdrop.el (dragdrop-drop-at-point):
+	* disass.el (disassemble-1):
+	* disass.el (disassemble-internal):
+	* disass.el (disassemble):
+	* disass.el:
+	* derived.el (derived-mode-init-mode-variables):
+	* derived.el (define-derived-mode):
+	* custom.el (defgroup):
+	* cus-edit.el (custom-quote):
+	* config.el:
+	* code-process.el (open-network-stream):
+	* code-process.el (start-process):
+	* code-process.el (call-process-region):
+	* code-process.el (call-process):
+	* code-process.el:
+	* code-files.el (insert-file-contents):
+	* code-files.el:
+	* code-files.el (buffer-file-coding-system-for-read):
+	* cmdloop.el (yes-or-no-p-minibuf):
+	* cl.el:
+	* cl-macs.el:
+	* cl-extra.el:
+	* callers-of-rpt.el (make-caller-report):
+	* callers-of-rpt.el:
+	* bytecomp.el (batch-byte-recompile-directory):
+	* bytecomp.el (batch-byte-compile-1):
+	* bytecomp.el (batch-byte-compile):
+	* bytecomp.el (display-call-tree):
+	* bytecomp.el (byte-compile-insert):
+	* bytecomp.el (byte-compile-two-args-19->20):
+	* bytecomp.el (byte-compile-variable-ref):
+	* bytecomp.el (byte-compile-form):
+	* bytecomp.el (byte-compile-top-level-body):
+	* bytecomp.el (byte-compile-out-toplevel):
+	* bytecomp.el (byte-compile-byte-code-maker):
+	* bytecomp.el (byte-compile-file-form-defmumble):
+	* bytecomp.el (byte-compile-file-form):
+	* bytecomp.el (byte-compile-keep-pending):
+	* bytecomp.el (byte-compile-insert-header):
+	* bytecomp.el (byte-compile-from-buffer):
+	* bytecomp.el (byte-compile-file):
+	* bytecomp.el (byte-recompile-file):
+	* bytecomp.el (byte-compile-close-variables):
+	* bytecomp.el (byte-compile-warn-about-unused-variables):
+	* bytecomp.el (byte-compile-warn-about-unresolved-functions):
+	* bytecomp.el (byte-compiler-legal-options):
+	* bytecomp.el (byte-compile-lapcode):
+	* bytecomp.el (byte-optimize-log):
+	* bytecomp.el ((fboundp 'defsubst)):
+	* bytecomp.el:
+	* bytecomp-runtime.el:
+	* byte-optimize.el (byte-optimize-apply):
+	* byte-optimize.el (car):
+	* byte-optimize.el (byte-optimize-form):
+	* byte-optimize.el (byte-optimize-form-code-walker):
+	* byte-optimize.el:
+	* build-report.el (build-report-insert-installation-file):
+	* build-report.el (build-report):
+	* auto-show.el:
+	* apropos.el (apropos-documentation):
+	- mega patch
+	- clean up byte-compile warnings
+	- remove unused variables
+	- Use common lisp style hashtable functions
+	- byte compiler cleanup
+	- use #'(lambda ...) instead of '(lambda ...) or (function (lambda ...))
+	- remove old backquote syntax usage
+	- move some cl functionality into C for speed.
+	- remove last remaining VMS support
+	- spelling fixes
+	- implement last, butlast, nbutlast, copy-list in C.
+	- new macro ignore-file-errors, similar to ignore-errors
+	  (ignore-file-errors (delete-file "foo"))
+	- get frequent garbage collection during loadup.el by tweaking
+	  gc-cons-threshold, rather than explicitly calling garbage-collect
+	- default delete-key-deletes-forward to `t'.
+
 1998-11-28  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta4 is released.
@@ -362,7 +563,7 @@
 	  mswindows-make-font-bold / -bold-italic: Supplied device was
 	  not being passed into call to mswindows-find-smaller-font.
 
-1998-09-10  Björn Torkelsson  <torkel@hpc2n.umu.se>
+1998-09-10  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* package-get.el (package-get-remote): Fix the path where to find
 	  the packages on xemacs.org.

@@ -32,7 +32,6 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "lstream.h"
-#include "redisplay.h"
 #include "sysdep.h"
 #include "sysfile.h"
 #ifdef FILE_CODING
@@ -165,9 +164,9 @@ static void
 tty_mark_console (struct console *con, void (*markobj) (Lisp_Object))
 {
   struct tty_console *tty_con = CONSOLE_TTY_DATA (con);
-  ((markobj) (tty_con->terminal_type));
-  ((markobj) (tty_con->instream));
-  ((markobj) (tty_con->outstream));
+  markobj (tty_con->terminal_type);
+  markobj (tty_con->instream);
+  markobj (tty_con->outstream);
 }
 
 static int

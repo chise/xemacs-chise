@@ -60,11 +60,11 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 Lisp_Object Vcharset_korean_ksc5601;
 Lisp_Object Vcharset_composite;
 
-/* Hashtables for composite chars.  One maps string representing
+/* Hash tables for composite chars.  One maps string representing
    composed chars to their equivalent chars; one goes the
    other way. */
-Lisp_Object Vcomposite_char_char2string_hashtable;
-Lisp_Object Vcomposite_char_string2char_hashtable;
+Lisp_Object Vcomposite_char_char2string_hash_table;
+Lisp_Object Vcomposite_char_string2char_hash_table;
 
 /* Table of charsets indexed by leading byte. */
 Lisp_Object charset_by_leading_byte[128];
@@ -136,7 +136,7 @@ Lisp_Object Qascii, Qcontrol_1,
 
 Lisp_Object Ql2r, Qr2l;
 
-Lisp_Object Vcharset_hashtable;
+Lisp_Object Vcharset_hash_table;
 
 static Bufbyte next_allocated_1_byte_leading_byte;
 static Bufbyte next_allocated_2_byte_leading_byte;
@@ -280,7 +280,7 @@ non_ascii_valid_char_p (Emchar ch)
       if (f1 + FIELD1_TO_OFFICIAL_LEADING_BYTE == LEADING_BYTE_COMPOSITE)
 	{
 	  if (UNBOUNDP (Fgethash (make_int (ch),
-				  Vcomposite_char_char2string_hashtable,
+				  Vcomposite_char_char2string_hash_table,
 				  Qunbound)))
 	    return 0;
 	  return 1;
@@ -391,9 +391,9 @@ mark_charset (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Charset *cs = XCHARSET (obj);
 
-  (markobj) (cs->doc_string);
-  (markobj) (cs->registry);
-  (markobj) (cs->ccl_program);
+  markobj (cs->doc_string);
+  markobj (cs->registry);
+  markobj (cs->ccl_program);
   return cs->name;
 }
 
@@ -461,7 +461,7 @@ make_charset (int id, Lisp_Object name, Bufbyte leading_byte, unsigned char rep_
 				CHARSET_TYPE (cs) == CHARSET_TYPE_96) ? 1 : 2;
   CHARSET_CHARS         (cs) = (CHARSET_TYPE (cs) == CHARSET_TYPE_94 ||
 				CHARSET_TYPE (cs) == CHARSET_TYPE_94X94) ? 94 : 96;
-    
+
   if (final)
     {
       /* some charsets do not have final characters.  This includes
@@ -480,7 +480,7 @@ make_charset (int id, Lisp_Object name, Bufbyte leading_byte, unsigned char rep_
   /* Some charsets are "faux" and don't have names or really exist at
      all except in the leading-byte table. */
   if (!NILP (name))
-    Fputhash (name, obj, Vcharset_hashtable);
+    Fputhash (name, obj, Vcharset_hash_table);
   return obj;
 }
 
@@ -537,7 +537,7 @@ nil is returned.  Otherwise the associated charset object is returned.
     return charset_or_name;
 
   CHECK_SYMBOL (charset_or_name);
-  return Fgethash (charset_or_name, Vcharset_hashtable, Qnil);
+  return Fgethash (charset_or_name, Vcharset_hash_table, Qnil);
 }
 
 DEFUN ("get-charset", Fget_charset, 1, 1, 0, /*
@@ -563,19 +563,15 @@ struct charset_list_closure
 };
 
 static int
-add_charset_to_list_mapper (CONST void *hash_key, void *hash_contents,
+add_charset_to_list_mapper (Lisp_Object key, Lisp_Object value,
 			    void *charset_list_closure)
 {
   /* This function can GC */
-  Lisp_Object key, contents;
-  Lisp_Object *charset_list;
   struct charset_list_closure *chcl =
     (struct charset_list_closure*) charset_list_closure;
-  CVOID_TO_LISP (key, hash_key);
-  VOID_TO_LISP (contents, hash_contents);
-  charset_list = chcl->charset_list;
+  Lisp_Object *charset_list = chcl->charset_list;
 
-  *charset_list = Fcons (XCHARSET_NAME (contents), *charset_list);
+  *charset_list = Fcons (XCHARSET_NAME (value), *charset_list);
   return 0;
 }
 
@@ -590,7 +586,7 @@ Return a list of the names of all defined charsets.
 
   GCPRO1 (charset_list);
   charset_list_closure.charset_list = &charset_list;
-  elisp_maphash (add_charset_to_list_mapper, Vcharset_hashtable,
+  elisp_maphash (add_charset_to_list_mapper, Vcharset_hash_table,
 		 &charset_list_closure);
   UNGCPRO;
 
@@ -966,13 +962,13 @@ static void
 invalidate_charset_font_caches (Lisp_Object charset)
 {
   /* Invalidate font cache entries for charset on all devices. */
-  Lisp_Object devcons, concons, hashtab;
+  Lisp_Object devcons, concons, hash_table;
   DEVICE_LOOP_NO_BREAK (devcons, concons)
     {
       struct device *d = XDEVICE (XCAR (devcons));
-      hashtab = Fgethash (charset, d->charset_font_cache, Qunbound);
-      if (!UNBOUNDP (hashtab))
-        Fclrhash (hashtab);
+      hash_table = Fgethash (charset, d->charset_font_cache, Qunbound);
+      if (!UNBOUNDP (hash_table))
+        Fclrhash (hash_table);
     }
 }
 
@@ -1077,7 +1073,7 @@ lookup_composite_char (Bufbyte *str, int len)
 {
   Lisp_Object lispstr = make_string (str, len);
   Lisp_Object ch = Fgethash (lispstr,
-			     Vcomposite_char_string2char_hashtable,
+			     Vcomposite_char_string2char_hash_table,
 			     Qunbound);
   Emchar emch;
 
@@ -1088,9 +1084,9 @@ lookup_composite_char (Bufbyte *str, int len)
       emch = MAKE_CHAR (Vcharset_composite, composite_char_row_next,
 			composite_char_col_next);
       Fputhash (make_char (emch), lispstr,
-	        Vcomposite_char_char2string_hashtable);
+	        Vcomposite_char_char2string_hash_table);
       Fputhash (lispstr, make_char (emch),
-		Vcomposite_char_string2char_hashtable);
+		Vcomposite_char_string2char_hash_table);
       composite_char_col_next++;
       if (composite_char_col_next >= 128)
 	{
@@ -1107,7 +1103,7 @@ Lisp_Object
 composite_char_string (Emchar ch)
 {
   Lisp_Object str = Fgethash (make_char (ch),
-			      Vcomposite_char_char2string_hashtable,
+			      Vcomposite_char_char2string_hash_table,
 			      Qunbound);
   assert (!UNBOUNDP (str));
   return str;
@@ -1234,9 +1230,9 @@ vars_of_mule_charset (void)
 void
 complex_vars_of_mule_charset (void)
 {
-  staticpro (&Vcharset_hashtable);
-  Vcharset_hashtable = make_lisp_hashtable (50, HASHTABLE_NONWEAK,
-					    HASHTABLE_EQ);
+  staticpro (&Vcharset_hash_table);
+  Vcharset_hash_table =
+    make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 
   /* Predefined character sets.  We store them into variables for
      ease of access. */
@@ -1410,11 +1406,11 @@ complex_vars_of_mule_charset (void)
   composite_char_row_next = 32;
   composite_char_col_next = 32;
 
-  Vcomposite_char_string2char_hashtable =
-    make_lisp_hashtable (500, HASHTABLE_NONWEAK, HASHTABLE_EQUAL);
-  Vcomposite_char_char2string_hashtable =
-    make_lisp_hashtable (500, HASHTABLE_NONWEAK, HASHTABLE_EQ);
-  staticpro (&Vcomposite_char_string2char_hashtable);
-  staticpro (&Vcomposite_char_char2string_hashtable);
+  Vcomposite_char_string2char_hash_table =
+    make_lisp_hash_table (500, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
+  Vcomposite_char_char2string_hash_table =
+    make_lisp_hash_table (500, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+  staticpro (&Vcomposite_char_string2char_hash_table);
+  staticpro (&Vcomposite_char_char2string_hash_table);
 
 }

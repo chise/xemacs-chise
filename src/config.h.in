@@ -403,10 +403,18 @@ char *alloca();
    determine where XEmacs' memory is going. */
 #undef MEMORY_USAGE_STATS
 
-/* Define QUANTIFY if using Quantify from Pure/Atria Software.
+/* Define QUANTIFY if using Quantify from Rational/Pure/Atria Software.
    This adds some additional calls to control data collection.
    It is only intended for use by the developers. */
 #undef QUANTIFY
+
+/* Define QUANTIFY if using Purify from Rational/Pure/Atria Software.
+   It is only intended for use by the developers. */
+#undef PURIFY
+
+#if (defined (QUANTIFY) || defined (PURIFY)) && !defined (XLIB_ILLEGAL_ACCESS)
+#define XLIB_ILLEGAL_ACCESS 1
+#endif
 
 /* Define EXTERNAL_WIDGET to compile support for using the editor as a
    widget within another program. */

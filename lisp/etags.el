@@ -1064,7 +1064,7 @@ See documentation of variable `tag-table-alist'."
 
 ;; Sample uses of find-tag-hook and find-tag-default-hook
 
-;; This is wrong.  We should either make this behaviour default and
+;; This is wrong.  We should either make this behavior default and
 ;; back it up, or not use it at all.  For now, I've commented it out.
 ;; --hniksic
 

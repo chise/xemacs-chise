@@ -820,7 +820,7 @@ static int audio_init(int mixx_fd, int auddio_fd, int fmt, int speed,
     perror("SNDCTL_DSP_SYNC");
     return(0); }
 
-  /* Initialize sound hardware with prefered parameters */
+  /* Initialize sound hardware with preferred parameters */
 
   /* If the sound hardware cannot support 16 bit format or requires a
      different byte sex then try to drop to 8 bit format */
@@ -993,9 +993,8 @@ static void linux_play_data_or_file(int fd,unsigned char *data,
       return; }
 
   /* The VoxWare-SDK discourages opening /dev/audio; opening /dev/dsp and
-     properly intializing it via ioctl() is prefered */
-  if ((audio_fd=open(audio_dev,
-		     (O_WRONLY|O_NDELAY),0)) < 0) {
+     properly initializing it via ioctl() is preferred */
+  if ((audio_fd=open(audio_dev, O_WRONLY | O_NONBLOCK, 0)) < 0) {
     perror(audio_dev);
     if (mix_fd > 0 && mix_fd != audio_fd) { close(mix_fd); mix_fd = -1; }
     return; }

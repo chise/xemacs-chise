@@ -43,7 +43,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "bytecode.h"
-#include "commands.h"
 #include "device.h"
 #include "events.h"
 #include "extents.h"
@@ -91,10 +90,10 @@ print_bit_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 static int
-bit_vector_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+bit_vector_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Bit_Vector *v1 = XBIT_VECTOR (o1);
-  struct Lisp_Bit_Vector *v2 = XBIT_VECTOR (o2);
+  struct Lisp_Bit_Vector *v1 = XBIT_VECTOR (obj1);
+  struct Lisp_Bit_Vector *v2 = XBIT_VECTOR (obj2);
 
   return ((bit_vector_length (v1) == bit_vector_length (v2)) &&
 	  !memcmp (v1->bits, v2->bits,
@@ -178,10 +177,10 @@ length_with_bytecode_hack (Lisp_Object seq)
     return XINT (Flength (seq));
   else
     {
-      struct Lisp_Compiled_Function *b = XCOMPILED_FUNCTION (seq);
+      struct Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (seq);
 
-      return (b->flags.interactivep ? COMPILED_INTERACTIVE :
-	      b->flags.domainp      ? COMPILED_DOMAIN :
+      return (f->flags.interactivep ? COMPILED_INTERACTIVE :
+	      f->flags.domainp      ? COMPILED_DOMAIN :
 	      COMPILED_DOC_STRING)
 	+ 1;
     }
@@ -209,16 +208,9 @@ Return the length of vector, bit vector, list or string SEQUENCE.
     return make_int (XSTRING_CHAR_LENGTH (sequence));
   else if (CONSP (sequence))
     {
-      Lisp_Object tail;
-      int i = 0;
-
-      EXTERNAL_LIST_LOOP (tail, sequence)
-	{
-	  QUIT;
-	  i++;
-	}
-
-      return make_int (i);
+      int len;
+      GET_EXTERNAL_LIST_LENGTH (sequence, len);
+      return make_int (len);
     }
   else if (VECTORP (sequence))
     return make_int (XVECTOR_LENGTH (sequence));
@@ -234,9 +226,6 @@ Return the length of vector, bit vector, list or string SEQUENCE.
     }
 }
 
-/* This does not check for quits.  That is safe
-   since it must terminate.  */
-
 DEFUN ("safe-length", Fsafe_length, 1, 1, 0, /*
 Return the length of a list, but avoid error or infinite loop.
 This function never gets an error.  If LIST is not really a list,
@@ -245,17 +234,15 @@ which is at least the number of distinct elements.
 */
        (list))
 {
-  Lisp_Object halftail = list; /* Used to detect circular lists. */
-  Lisp_Object tail;
-  int len = 0;
+  Lisp_Object hare, tortoise;
+  int len;
 
-  for (tail = list; CONSP (tail); tail = XCDR (tail))
+  for (hare = tortoise = list, len = 0;
+       CONSP (hare) && (! EQ (hare, tortoise) || len == 0);
+       hare = XCDR (hare), len++)
     {
-      if (EQ (tail, halftail) && len != 0)
-	break;
-      len++;
-      if ((len & 1) == 0)
-	halftail = XCDR (halftail);
+      if (len & 1)
+	tortoise = XCDR (tortoise);
     }
 
   return make_int (len);
@@ -511,38 +498,65 @@ arguments.  Each argument may be a list, vector, bit vector, or string.
   return concat (nargs, args, c_bit_vector, 0);
 }
 
-DEFUN ("copy-sequence", Fcopy_sequence, 1, 1, 0, /*
-Return a copy of a list, vector, bit vector or string.
-The elements of a list or vector are not copied; they are shared
+/* Copy a (possibly dotted) list.  LIST must be a cons.
+   Can't use concat (1, &alist, c_cons, 0) - doesn't handle dotted lists. */
+static Lisp_Object
+copy_list (Lisp_Object list)
+{
+  Lisp_Object list_copy = Fcons (XCAR (list), XCDR (list));
+  Lisp_Object last = list_copy;
+  Lisp_Object hare, tortoise;
+  int len;
+
+  for (tortoise = hare = XCDR (list), len = 1;
+       CONSP (hare);
+       hare = XCDR (hare), len++)
+    {
+      XCDR (last) = Fcons (XCAR (hare), XCDR (hare));
+      last = XCDR (last);
+
+      if (len < CIRCULAR_LIST_SUSPICION_LENGTH)
+	continue;
+      if (len & 1)
+	tortoise = XCDR (tortoise);
+      if (EQ (tortoise, hare))
+	signal_circular_list_error (list);
+    }
+
+  return list_copy;
+}
+
+DEFUN ("copy-list", Fcopy_list, 1, 1, 0, /*
+Return a copy of list LIST, which may be a dotted list.
+The elements of LIST are not copied; they are shared
 with the original.
 */
-       (arg))
+       (list))
 {
  again:
-  if (NILP (arg)) return arg;
-  /* We handle conses separately because concat() is big and hairy and
-     doesn't handle (copy-sequence '(a b . c)) and it's easier to redo this
-     than to fix concat() without worrying about breaking other things.
-   */
-  if (CONSP (arg))
-    {
-      Lisp_Object head = Fcons (XCAR (arg), XCDR (arg));
-      Lisp_Object tail = head;
+  if (NILP  (list)) return list;
+  if (CONSP (list)) return copy_list (list);
 
-      for (arg = XCDR (arg); CONSP (arg); arg = XCDR (arg))
-	{
-	  XCDR (tail) = Fcons (XCAR (arg), XCDR (arg));
-	  tail = XCDR (tail);
-	  QUIT;
-	}
-      return head;
-    }
-  if (STRINGP     (arg)) return concat (1, &arg, c_string,     0);
-  if (VECTORP     (arg)) return concat (1, &arg, c_vector,     0);
-  if (BIT_VECTORP (arg)) return concat (1, &arg, c_bit_vector, 0);
+  list = wrong_type_argument (Qlistp, list);
+  goto again;
+}
 
-  check_losing_bytecode ("copy-sequence", arg);
-  arg = wrong_type_argument (Qsequencep, arg);
+DEFUN ("copy-sequence", Fcopy_sequence, 1, 1, 0, /*
+Return a copy of list, vector, bit vector or string SEQUENCE.
+The elements of a list or vector are not copied; they are shared
+with the original. SEQUENCE may be a dotted list.
+*/
+       (sequence))
+{
+ again:
+  if (NILP        (sequence)) return sequence;
+  if (CONSP       (sequence)) return copy_list (sequence);
+  if (STRINGP     (sequence)) return concat (1, &sequence, c_string,     0);
+  if (VECTORP     (sequence)) return concat (1, &sequence, c_vector,     0);
+  if (BIT_VECTORP (sequence)) return concat (1, &sequence, c_bit_vector, 0);
+
+  check_losing_bytecode ("copy-sequence", sequence);
+  sequence = wrong_type_argument (Qsequencep, sequence);
   goto again;
 }
 
@@ -871,7 +885,6 @@ Relevant parts of the string-extent-data are copied in the new string.
   Lisp_Object val;
 
   CHECK_STRING (string);
-  /* Historically, FROM could not be omitted.  Whatever ... */
   CHECK_INT (from);
   get_string_range_char (string, from, to, &ccfr, &ccto,
 			 GB_HISTORICAL_STRING_BEHAVIOR);
@@ -1023,9 +1036,9 @@ Return element of SEQUENCE at index N.
         args_out_of_range (sequence, n);
 #endif
     }
-  else if (STRINGP (sequence)
-           || VECTORP (sequence)
-           || BIT_VECTORP (sequence))
+  else if (STRINGP     (sequence) ||
+           VECTORP     (sequence) ||
+           BIT_VECTORP (sequence))
     return Faref (sequence, n);
 #ifdef LOSING_BYTECODE
   else if (COMPILED_FUNCTIONP (sequence))
@@ -1038,24 +1051,24 @@ Return element of SEQUENCE at index N.
         }
       /* Utter perversity */
       {
-        struct Lisp_Compiled_Function *b = XCOMPILED_FUNCTION (sequence);
+	Lisp_Compiled_Function *f = XCOMPILED_FUNCTION (sequence);
         switch (idx)
           {
           case COMPILED_ARGLIST:
-            return b->arglist;
-          case COMPILED_BYTECODE:
-            return b->bytecodes;
+            return compiled_function_arglist (f);
+          case COMPILED_INSTRUCTIONS:
+            return compiled_function_instructions (f);
           case COMPILED_CONSTANTS:
-            return b->constants;
+            return compiled_function_constants (f);
           case COMPILED_STACK_DEPTH:
-            return make_int (b->maxdepth);
+            return compiled_function_stack_depth (f);
           case COMPILED_DOC_STRING:
-	    return compiled_function_documentation (b);
+	    return compiled_function_documentation (f);
           case COMPILED_DOMAIN:
-	    return compiled_function_domain (b);
+	    return compiled_function_domain (f);
           case COMPILED_INTERACTIVE:
-	    if (b->flags.interactivep)
-	      return compiled_function_interactive (b);
+	    if (f->flags.interactivep)
+	      return compiled_function_interactive (f);
 	    /* if we return nil, can't tell interactive with no args
 	       from noninteractive. */
 	    goto lose;
@@ -1073,19 +1086,126 @@ Return element of SEQUENCE at index N.
     }
 }
 
+DEFUN ("last", Flast, 1, 2, 0, /*
+Return the tail of list LIST, of length N (default 1).
+LIST may be a dotted list, but not a circular list.
+Optional argument N must be a non-negative integer.
+If N is zero, then the atom that terminates the list is returned.
+If N is greater than the length of LIST, then LIST itself is returned.
+*/
+       (list, n))
+{
+  int int_n, count;
+  Lisp_Object retval, tortoise, hare;
+
+  CHECK_LIST (list);
+
+  if (NILP (n))
+    int_n = 1;
+  else
+    {
+      CHECK_NATNUM (n);
+      int_n = XINT (n);
+    }
+
+  for (retval = tortoise = hare = list, count = 0;
+       CONSP (hare);
+       hare = XCDR (hare),
+	 (int_n-- <= 0 ? ((void) (retval = XCDR (retval))) : (void)0),
+	 count++)
+    {
+      if (count < CIRCULAR_LIST_SUSPICION_LENGTH) continue;
+
+      if (count & 1)
+	tortoise = XCDR (tortoise);
+      if (EQ (hare, tortoise))
+	signal_circular_list_error (list);
+    }
+
+  return retval;
+}
+
+DEFUN ("nbutlast", Fnbutlast, 1, 2, 0, /*
+Modify LIST to remove the last N (default 1) elements.
+If LIST has N or fewer elements, nil is returned and LIST is unmodified.
+*/
+       (list, n))
+{
+  int int_n;
+
+  CHECK_LIST (list);
+
+  if (NILP (n))
+    int_n = 1;
+  else
+    {
+      CHECK_NATNUM (n);
+      int_n = XINT (n);
+    }
+
+  {
+    Lisp_Object last_cons = list;
+
+    EXTERNAL_LIST_LOOP_1 (list)
+      {
+	if (int_n-- < 0)
+	  last_cons = XCDR (last_cons);
+      }
+
+    if (int_n >= 0)
+      return Qnil;
+
+    XCDR (last_cons) = Qnil;
+    return list;
+  }
+}
+
+DEFUN ("butlast", Fbutlast, 1, 2, 0, /*
+Return a copy of LIST with the last N (default 1) elements removed.
+If LIST has N or fewer elements, nil is returned.
+*/
+       (list, n))
+{
+  int int_n;
+
+  CHECK_LIST (list);
+
+  if (NILP (n))
+    int_n = 1;
+  else
+    {
+      CHECK_NATNUM (n);
+      int_n = XINT (n);
+    }
+
+  {
+    Lisp_Object retval = Qnil;
+    Lisp_Object tail = list;
+
+    EXTERNAL_LIST_LOOP_1 (list)
+      {
+	if (--int_n < 0)
+	  {
+	    retval = Fcons (XCAR (tail), retval);
+	    tail = XCDR (tail);
+	  }
+      }
+
+    return Fnreverse (retval);
+  }
+}
+
 DEFUN ("member", Fmember, 2, 2, 0, /*
 Return non-nil if ELT is an element of LIST.  Comparison done with `equal'.
 The value is actually the tail of LIST whose car is ELT.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object list_elt, tail;
+  EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
-      CONCHECK_CONS (tail);
-      if (internal_equal (elt, XCAR (tail), 0))
+      if (internal_equal (elt, list_elt, 0))
         return tail;
-      QUIT;
     }
   return Qnil;
 }
@@ -1098,13 +1218,11 @@ Do not use it.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object list_elt, tail;
+  EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
-      CONCHECK_CONS (tail);
-      if (internal_old_equal (elt, XCAR (tail), 0))
+      if (internal_old_equal (elt, list_elt, 0))
         return tail;
-      QUIT;
     }
   return Qnil;
 }
@@ -1115,14 +1233,11 @@ The value is actually the tail of LIST whose car is ELT.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object list_elt, tail;
+  EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
-      REGISTER Lisp_Object tem;
-      CONCHECK_CONS (tail);
-      if (tem = XCAR (tail), EQ_WITH_EBOLA_NOTICE (elt, tem))
+      if (EQ_WITH_EBOLA_NOTICE (elt, list_elt))
         return tail;
-      QUIT;
     }
   return Qnil;
 }
@@ -1135,14 +1250,11 @@ Do not use it.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object list_elt, tail;
+  EXTERNAL_LIST_LOOP_3 (list_elt, list, tail)
     {
-      REGISTER Lisp_Object tem;
-      CONCHECK_CONS (tail);
-      if (tem = XCAR (tail), HACKEQ_UNSAFE (elt, tem))
+      if (HACKEQ_UNSAFE (elt, list_elt))
         return tail;
-      QUIT;
     }
   return Qnil;
 }
@@ -1150,11 +1262,10 @@ Do not use it.
 Lisp_Object
 memq_no_quit (Lisp_Object elt, Lisp_Object list)
 {
-  REGISTER Lisp_Object tail;
-  for (tail = list; CONSP (tail); tail = XCDR (tail))
+  Lisp_Object list_elt, tail;
+  LIST_LOOP_3 (list_elt, list, tail)
     {
-      REGISTER Lisp_Object tem;
-      if (tem = XCAR (tail), EQ_WITH_EBOLA_NOTICE (elt, tem))
+      if (EQ_WITH_EBOLA_NOTICE (elt, list_elt))
         return tail;
     }
   return Qnil;
@@ -1167,15 +1278,11 @@ The value is actually the element of LIST whose car equals KEY.
        (key, list))
 {
   /* This function can GC. */
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_equal (XCAR (elt), key, 0))
+      if (internal_equal (key, elt_car, 0))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1187,15 +1294,11 @@ The value is actually the element of LIST whose car equals KEY.
        (key, list))
 {
   /* This function can GC. */
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_old_equal (XCAR (elt), key, 0))
+      if (internal_old_equal (key, elt_car, 0))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1215,15 +1318,11 @@ Elements of LIST that are not conses are ignored.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCAR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
+      if (EQ_WITH_EBOLA_NOTICE (key, elt_car))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1237,15 +1336,11 @@ Do not use it.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCAR (elt), HACKEQ_UNSAFE (key, tem)))
+      if (HACKEQ_UNSAFE (key, elt_car))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1257,13 +1352,12 @@ Lisp_Object
 assq_no_quit (Lisp_Object key, Lisp_Object list)
 {
   /* This cannot GC. */
-  REGISTER Lisp_Object tail;
-  for (tail = list; CONSP (tail); tail = XCDR (tail))
+  Lisp_Object elt;
+  LIST_LOOP_2 (elt, list)
     {
-      REGISTER Lisp_Object tem, elt;
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCAR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
-	  return elt;
+      Lisp_Object elt_car = XCAR (elt);
+      if (EQ_WITH_EBOLA_NOTICE (key, elt_car))
+	return elt;
     }
   return Qnil;
 }
@@ -1274,15 +1368,11 @@ The value is actually the element of LIST whose cdr equals KEY.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_equal (XCDR (elt), key, 0))
+      if (internal_equal (key, elt_cdr, 0))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1293,15 +1383,11 @@ The value is actually the element of LIST whose cdr equals KEY.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_old_equal (XCDR (elt), key, 0))
+      if (internal_old_equal (key, elt_cdr, 0))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1312,15 +1398,11 @@ The value is actually the element of LIST whose cdr is KEY.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCDR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
+      if (EQ_WITH_EBOLA_NOTICE (key, elt_cdr))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
@@ -1331,28 +1413,25 @@ The value is actually the element of LIST whose cdr is KEY.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail;
-  LIST_LOOP (tail, list)
+  Lisp_Object elt, elt_car, elt_cdr;
+  EXTERNAL_ALIST_LOOP_4 (elt, elt_car, elt_cdr, list)
     {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCDR (elt), HACKEQ_UNSAFE (key, tem)))
+      if (HACKEQ_UNSAFE (key, elt_cdr))
 	return elt;
-      QUIT;
     }
   return Qnil;
 }
 
+/* Like Frassq, but caller must ensure that LIST is properly
+   nil-terminated and ebola-free. */
 Lisp_Object
 rassq_no_quit (Lisp_Object key, Lisp_Object list)
 {
-  REGISTER Lisp_Object tail;
-  for (tail = list; CONSP (tail); tail = XCDR (tail))
+  Lisp_Object elt;
+  LIST_LOOP_2 (elt, list)
     {
-      REGISTER Lisp_Object elt, tem;
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCDR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
+      Lisp_Object elt_cdr = XCDR (elt);
+      if (EQ_WITH_EBOLA_NOTICE (key, elt_cdr))
 	return elt;
     }
   return Qnil;
@@ -1369,24 +1448,9 @@ Also see: `remove'.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      CONCHECK_CONS (tail);
-      if (internal_equal (elt, XCAR (tail), 0))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object list_elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
+				(internal_equal (elt, list_elt, 0)));
   return list;
 }
 
@@ -1399,24 +1463,9 @@ of changing the value of `foo'.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      CONCHECK_CONS (tail);
-      if (internal_old_equal (elt, XCAR (tail), 0))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object list_elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
+				(internal_old_equal (elt, list_elt, 0)));
   return list;
 }
 
@@ -1429,25 +1478,9 @@ changing the value of `foo'.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object tem;
-      CONCHECK_CONS (tail);
-      if (tem = XCAR (tail), EQ_WITH_EBOLA_NOTICE (elt, tem))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object list_elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
+				(EQ_WITH_EBOLA_NOTICE (elt, list_elt)));
   return list;
 }
 
@@ -1460,50 +1493,21 @@ changing the value of `foo'.
 */
        (elt, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object tem;
-      CONCHECK_CONS (tail);
-      if (tem = XCAR (tail), HACKEQ_UNSAFE (elt, tem))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object list_elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (list_elt, list,
+				(HACKEQ_UNSAFE (elt, list_elt)));
   return list;
 }
 
-/* no quit, no errors; be careful */
+/* Like Fdelq, but caller must ensure that LIST is properly
+   nil-terminated and ebola-free. */
 
 Lisp_Object
 delq_no_quit (Lisp_Object elt, Lisp_Object list)
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (CONSP (tail))
-    {
-      REGISTER Lisp_Object tem;
-      if (tem = XCAR (tail), EQ_WITH_EBOLA_NOTICE (elt, tem))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-    }
+  Lisp_Object list_elt;
+  LIST_LOOP_DELETE_IF (list_elt, list,
+		       (EQ_WITH_EBOLA_NOTICE (elt, list_elt)));
   return list;
 }
 
@@ -1519,26 +1523,24 @@ delq_no_quit_and_free_cons (Lisp_Object elt, Lisp_Object list)
 {
   REGISTER Lisp_Object tail = list;
   REGISTER Lisp_Object prev = Qnil;
-  struct Lisp_Cons *cons_to_free = NULL;
 
-  while (CONSP (tail))
+  while (!NILP (tail))
     {
-      REGISTER Lisp_Object tem;
-      if (tem = XCAR (tail), EQ_WITH_EBOLA_NOTICE (elt, tem))
+      REGISTER Lisp_Object tem = XCAR (tail);
+      if (EQ (elt, tem))
 	{
+	  Lisp_Object cons_to_free = tail;
 	  if (NILP (prev))
 	    list = XCDR (tail);
 	  else
 	    XCDR (prev) = XCDR (tail);
-	  cons_to_free = XCONS (tail);
+	  tail = XCDR (tail);
+	  free_cons (XCONS (cons_to_free));
 	}
       else
-	prev = tail;
-      tail = XCDR (tail);
-      if (cons_to_free)
 	{
-	  free_cons (cons_to_free);
-	  cons_to_free = NULL;
+	  prev = tail;
+	  tail = XCDR (tail);
 	}
     }
   return list;
@@ -1553,26 +1555,10 @@ the value of `foo'.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_equal (key, XCAR (elt), 0))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
+				(CONSP (elt) &&
+				 internal_equal (key, XCAR (elt), 0)));
   return list;
 }
 
@@ -1593,26 +1579,10 @@ the value of `foo'.
 */
        (key, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCAR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
+				(CONSP (elt) &&
+				 EQ_WITH_EBOLA_NOTICE (key, XCAR (elt))));
   return list;
 }
 
@@ -1621,24 +1591,10 @@ the value of `foo'.
 Lisp_Object
 remassq_no_quit (Lisp_Object key, Lisp_Object list)
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (CONSP (tail))
-    {
-      REGISTER Lisp_Object elt, tem;
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCAR (elt), EQ_WITH_EBOLA_NOTICE (key, tem)))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-    }
+  Lisp_Object elt;
+  LIST_LOOP_DELETE_IF (elt, list,
+		       (CONSP (elt) &&
+			EQ_WITH_EBOLA_NOTICE (key, XCAR (elt))));
   return list;
 }
 
@@ -1651,26 +1607,10 @@ the value of `foo'.
 */
        (value, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object elt;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && internal_equal (value, XCDR (elt), 0))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
+				(CONSP (elt) &&
+				 internal_equal (value, XCDR (elt), 0)));
   return list;
 }
 
@@ -1683,52 +1623,21 @@ the value of `foo'.
 */
        (value, list))
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (!NILP (tail))
-    {
-      REGISTER Lisp_Object elt, tem;
-      CONCHECK_CONS (tail);
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCDR (elt), EQ_WITH_EBOLA_NOTICE (value, tem)))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-      QUIT;
-    }
+  Lisp_Object elt;
+  EXTERNAL_LIST_LOOP_DELETE_IF (elt, list,
+				(CONSP (elt) &&
+				 EQ_WITH_EBOLA_NOTICE (value, XCDR (elt))));
   return list;
 }
 
-/* no quit, no errors; be careful */
-
+/* Like Fremrassq, fast and unsafe; be careful */
 Lisp_Object
 remrassq_no_quit (Lisp_Object value, Lisp_Object list)
 {
-  REGISTER Lisp_Object tail = list;
-  REGISTER Lisp_Object prev = Qnil;
-
-  while (CONSP (tail))
-    {
-      REGISTER Lisp_Object elt, tem;
-      elt = XCAR (tail);
-      if (CONSP (elt) && (tem = XCDR (elt), EQ_WITH_EBOLA_NOTICE (value, tem)))
-	{
-	  if (NILP (prev))
-	    list = XCDR (tail);
-	  else
-	    XCDR (prev) = XCDR (tail);
-	}
-      else
-	prev = tail;
-      tail = XCDR (tail);
-    }
+  Lisp_Object elt;
+  LIST_LOOP_DELETE_IF (elt, list,
+		       (CONSP (elt) &&
+			EQ_WITH_EBOLA_NOTICE (value, XCDR (elt))));
   return list;
 }
 
@@ -1748,7 +1657,6 @@ Also see: `reverse'.
   while (!NILP (tail))
     {
       REGISTER Lisp_Object next;
-      QUIT;
       CONCHECK_CONS (tail);
       next = XCDR (tail);
       XCDR (tail) = prev;
@@ -1765,17 +1673,13 @@ See also the function `nreverse', which is used more often.
 */
        (list))
 {
-  REGISTER Lisp_Object tail;
-  Lisp_Object new = Qnil;
-
-  for (tail = list; CONSP (tail); tail = XCDR (tail))
+  Lisp_Object reversed_list = Qnil;
+  Lisp_Object elt;
+  EXTERNAL_LIST_LOOP_2 (elt, list)
     {
-      new = Fcons (XCAR (tail), new);
-      QUIT;
+      reversed_list = Fcons (elt, reversed_list);
     }
-  if (!NILP (tail))
-    dead_wrong_type_argument (Qlistp, tail);
-  return new;
+  return reversed_list;
 }
 
 static Lisp_Object list_merge (Lisp_Object org_l1, Lisp_Object org_l2,
@@ -2081,13 +1985,12 @@ If optional arg NIL-MEANS-NOT-PRESENT is non-nil, then a property with
 Lisp_Object
 internal_plist_get (Lisp_Object plist, Lisp_Object property)
 {
-  Lisp_Object tail = plist;
+  Lisp_Object tail;
 
-  for (; !NILP (tail); tail = XCDR (XCDR (tail)))
+  for (tail = plist; !NILP (tail); tail = XCDR (XCDR (tail)))
     {
-      struct Lisp_Cons *c = XCONS (tail);
-      if (EQ (c->car, property))
-	return XCAR (c->cdr);
+      if (EQ (XCAR (tail), property))
+	return XCAR (XCDR (tail));
     }
 
   return Qunbound;
@@ -2117,26 +2020,22 @@ internal_plist_put (Lisp_Object *plist, Lisp_Object property,
 int
 internal_remprop (Lisp_Object *plist, Lisp_Object property)
 {
-  Lisp_Object tail = *plist;
+  Lisp_Object tail, prev;
 
-  if (NILP (tail))
-    return 0;
-
-  if (EQ (XCAR (tail), property))
-    {
-      *plist = XCDR (XCDR (tail));
-      return 1;
-    }
-
-  for (tail = XCDR (tail); !NILP (XCDR (tail));
+  for (tail = *plist, prev = Qnil;
+       !NILP (tail);
        tail = XCDR (XCDR (tail)))
     {
-      struct Lisp_Cons *c = XCONS (tail);
-      if (EQ (XCAR (c->cdr), property))
+      if (EQ (XCAR (tail), property))
 	{
-	  c->cdr = XCDR (XCDR (c->cdr));
+	  if (NILP (prev))
+	    *plist = XCDR (XCDR (tail));
+	  else
+	    XCDR (XCDR (prev)) = XCDR (XCDR (tail));
 	  return 1;
 	}
+      else
+	prev = tail;
     }
 
   return 0;
@@ -2211,7 +2110,7 @@ advance_plist_pointers (Lisp_Object *plist,
   Lisp_Object *tortsave = *tortoise;
 
   /* Note that our "fixing" may be more brutal than necessary,
-     but it's the user's own problem, not ours. if they went in and
+     but it's the user's own problem, not ours, if they went in and
      manually fucked up a plist. */
 
   for (i = 0; i < 2; i++)
@@ -2385,9 +2284,7 @@ one of the properties on the list.
        (plist, prop, default_))
 {
   Lisp_Object val = external_plist_get (&plist, prop, 0, ERROR_ME);
-  if (UNBOUNDP (val))
-    return default_;
-  return val;
+  return UNBOUNDP (val) ? default_ : val;
 }
 
 DEFUN ("plist-put", Fplist_put, 3, 3, 0, /*
@@ -2423,7 +2320,8 @@ Return t if PROP has a value specified in PLIST.
 */
        (plist, prop))
 {
-  return UNBOUNDP (Fplist_get (plist, prop, Qunbound)) ? Qnil : Qt;
+  Lisp_Object val = Fplist_get (plist, prop, Qunbound);
+  return UNBOUNDP (val) ? Qnil : Qt;
 }
 
 DEFUN ("check-valid-plist", Fcheck_valid_plist, 1, 1, 0, /*
@@ -2512,7 +2410,8 @@ The new plist is returned.  If NIL-MEANS-NOT-PRESENT is given, the
       /* external_remprop returns 1 if it removed any property.
 	 We have to loop till it didn't remove anything, in case
 	 the property occurs many times. */
-      while (external_remprop (&XCDR (next), prop, 0, ERROR_ME));
+      while (external_remprop (&XCDR (next), prop, 0, ERROR_ME))
+	DO_NOTHING;
       plist = Fcdr (next);
     }
 
@@ -2523,7 +2422,7 @@ DEFUN ("lax-plist-get", Flax_plist_get, 2, 3, 0, /*
 Extract a value from a lax property list.
 
 LAX-PLIST is a lax property list, which is a list of the form \(PROP1
-VALUE1 PROP2 VALUE2...), where comparions between properties is done
+VALUE1 PROP2 VALUE2...), where comparisons between properties is done
 using `equal' instead of `eq'.  This function returns the value
 corresponding to the given PROP, or DEFAULT if PROP is not one of the
 properties on the list.
@@ -2539,7 +2438,7 @@ properties on the list.
 DEFUN ("lax-plist-put", Flax_plist_put, 3, 3, 0, /*
 Change value in LAX-PLIST of PROP to VAL.
 LAX-PLIST is a lax property list, which is a list of the form \(PROP1
-VALUE1 PROP2 VALUE2...), where comparions between properties is done
+VALUE1 PROP2 VALUE2...), where comparisons between properties is done
 using `equal' instead of `eq'.  PROP is usually a symbol and VAL is
 any object.  If PROP is already a property on the list, its value is
 set to VAL, otherwise the new PROP VAL pair is added.  The new plist
@@ -2555,7 +2454,7 @@ use the new value.  The LAX-PLIST is modified by side effects.
 DEFUN ("lax-plist-remprop", Flax_plist_remprop, 2, 2, 0, /*
 Remove from LAX-PLIST the property PROP and its value.
 LAX-PLIST is a lax property list, which is a list of the form \(PROP1
-VALUE1 PROP2 VALUE2...), where comparions between properties is done
+VALUE1 PROP2 VALUE2...), where comparisons between properties is done
 using `equal' instead of `eq'.  PROP is usually a symbol.  The new
 plist is returned; use `(setq x (lax-plist-remprop x prop val))' to be
 sure to use the new value.  The LAX-PLIST is modified by side effects.
@@ -2569,7 +2468,7 @@ sure to use the new value.  The LAX-PLIST is modified by side effects.
 DEFUN ("lax-plist-member", Flax_plist_member, 2, 2, 0, /*
 Return t if PROP has a value specified in LAX-PLIST.
 LAX-PLIST is a lax property list, which is a list of the form \(PROP1
-VALUE1 PROP2 VALUE2...), where comparions between properties is done
+VALUE1 PROP2 VALUE2...), where comparisons between properties is done
 using `equal' instead of `eq'.
 */
        (lax_plist, prop))
@@ -2612,7 +2511,8 @@ The new plist is returned.  If NIL-MEANS-NOT-PRESENT is given, the
       /* external_remprop returns 1 if it removed any property.
 	 We have to loop till it didn't remove anything, in case
 	 the property occurs many times. */
-      while (external_remprop (&XCDR (next), prop, 1, ERROR_ME));
+      while (external_remprop (&XCDR (next), prop, 1, ERROR_ME))
+	DO_NOTHING;
       lax_plist = Fcdr (next);
     }
 
@@ -2733,37 +2633,35 @@ or string.  See also `put', `remprop', and `object-plist'.
 */
        (object, propname, default_))
 {
-  Lisp_Object val;
-
   /* Various places in emacs call Fget() and expect it not to quit,
      so don't quit. */
 
   /* It's easiest to treat symbols specially because they may not
      be an lrecord */
   if (SYMBOLP (object))
-    val = symbol_getprop (object, propname, default_);
+    return symbol_getprop (object, propname, default_);
   else if (STRINGP (object))
-    val = string_getprop (XSTRING (object), propname, default_);
+    return string_getprop (XSTRING (object), propname, default_);
   else if (LRECORDP (object))
     {
-      CONST struct lrecord_implementation
-	*imp = XRECORD_LHEADER_IMPLEMENTATION (object);
-      if (imp->getprop)
-	{
-	  val = (imp->getprop) (object, propname);
-	  if (UNBOUNDP (val))
-	    val = default_;
-	}
-      else
+      CONST struct lrecord_implementation *imp
+	= XRECORD_LHEADER_IMPLEMENTATION (object);
+      if (!imp->getprop)
 	goto noprops;
+
+      {
+	Lisp_Object val = (imp->getprop) (object, propname);
+	if (UNBOUNDP (val))
+	  val = default_;
+	return val;
+      }
     }
   else
     {
     noprops:
       signal_simple_error ("Object type has no properties", object);
+      return Qnil;		/* Not reached */
     }
-
-  return val;
 }
 
 DEFUN ("put", Fput, 3, 3, 0, /*
@@ -2884,7 +2782,7 @@ interpretation, this will probably have no effect at all.)
 
 
 int
-internal_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+internal_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   if (depth > 200)
     error ("Stack overflow in equal");
@@ -2892,28 +2790,28 @@ internal_equal (Lisp_Object o1, Lisp_Object o2, int depth)
  do_cdr:
 #endif
   QUIT;
-  if (EQ_WITH_EBOLA_NOTICE (o1, o2))
+  if (EQ_WITH_EBOLA_NOTICE (obj1, obj2))
     return 1;
   /* Note that (equal 20 20.0) should be nil */
-  else if (XTYPE (o1) != XTYPE (o2))
+  if (XTYPE (obj1) != XTYPE (obj2))
     return 0;
 #ifndef LRECORD_CONS
-  else if (CONSP (o1))
+  if (CONSP (obj1))
     {
-      if (!internal_equal (XCAR (o1), XCAR (o2), depth + 1))
+      if (!internal_equal (XCAR (obj1), XCAR (obj2), depth + 1))
         return 0;
-      o1 = XCDR (o1);
-      o2 = XCDR (o2);
+      obj1 = XCDR (obj1);
+      obj2 = XCDR (obj2);
       goto do_cdr;
     }
 #endif
 #ifndef LRECORD_VECTOR
-  else if (VECTORP (o1))
+  if (VECTORP (obj1))
     {
-      Lisp_Object *v1 = XVECTOR_DATA (o1);
-      Lisp_Object *v2 = XVECTOR_DATA (o2);
-      int len = XVECTOR_LENGTH (o1);
-      if (len != XVECTOR_LENGTH (o2))
+      Lisp_Object *v1 = XVECTOR_DATA (obj1);
+      Lisp_Object *v2 = XVECTOR_DATA (obj2);
+      int len = XVECTOR_LENGTH (obj1);
+      if (len != XVECTOR_LENGTH (obj2))
 	return 0;
       while (len--)
 	if (!internal_equal (*v1++, *v2++, depth + 1))
@@ -2922,25 +2820,22 @@ internal_equal (Lisp_Object o1, Lisp_Object o2, int depth)
     }
 #endif
 #ifndef LRECORD_STRING
-  else if (STRINGP (o1))
+  if (STRINGP (obj1))
     {
       Bytecount len;
-      return (((len = XSTRING_LENGTH (o1)) == XSTRING_LENGTH (o2)) &&
-	      !memcmp (XSTRING_DATA (o1), XSTRING_DATA (o2), len));
+      return (((len = XSTRING_LENGTH (obj1)) == XSTRING_LENGTH (obj2)) &&
+	      !memcmp (XSTRING_DATA (obj1), XSTRING_DATA (obj2), len));
     }
 #endif
-  else if (LRECORDP (o1))
+  if (LRECORDP (obj1))
     {
       CONST struct lrecord_implementation
-	*imp1 = XRECORD_LHEADER_IMPLEMENTATION (o1),
-	*imp2 = XRECORD_LHEADER_IMPLEMENTATION (o2);
-      if (imp1 != imp2)
-	return 0;
-      else if (imp1->equal == 0)
+	*imp1 = XRECORD_LHEADER_IMPLEMENTATION (obj1),
+	*imp2 = XRECORD_LHEADER_IMPLEMENTATION (obj2);
+
+      return (imp1 == imp2) &&
 	/* EQ-ness of the objects was noticed above */
-	return 0;
-      else
-	return (imp1->equal) (o1, o2, depth);
+	(imp1->equal && (imp1->equal) (obj1, obj2, depth));
     }
 
   return 0;
@@ -2952,7 +2847,7 @@ internal_equal (Lisp_Object o1, Lisp_Object o2, int depth)
    but that seems unlikely. */
 
 static int
-internal_old_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+internal_old_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   if (depth > 200)
     error ("Stack overflow in equal");
@@ -2960,64 +2855,37 @@ internal_old_equal (Lisp_Object o1, Lisp_Object o2, int depth)
  do_cdr:
 #endif
   QUIT;
-  if (HACKEQ_UNSAFE (o1, o2))
+  if (HACKEQ_UNSAFE (obj1, obj2))
     return 1;
   /* Note that (equal 20 20.0) should be nil */
-  else if (XTYPE (o1) != XTYPE (o2))
+  if (XTYPE (obj1) != XTYPE (obj2))
     return 0;
 #ifndef LRECORD_CONS
-  else if (CONSP (o1))
+  if (CONSP (obj1))
     {
-      if (!internal_old_equal (XCAR (o1), XCAR (o2), depth + 1))
+      if (!internal_old_equal (XCAR (obj1), XCAR (obj2), depth + 1))
         return 0;
-      o1 = XCDR (o1);
-      o2 = XCDR (o2);
+      obj1 = XCDR (obj1);
+      obj2 = XCDR (obj2);
       goto do_cdr;
     }
 #endif
 #ifndef LRECORD_VECTOR
-  else if (VECTORP (o1))
+  if (VECTORP (obj1))
     {
-      int indice;
-      int len = XVECTOR_LENGTH (o1);
-      if (len != XVECTOR_LENGTH (o2))
+      Lisp_Object *v1 = XVECTOR_DATA (obj1);
+      Lisp_Object *v2 = XVECTOR_DATA (obj2);
+      int len = XVECTOR_LENGTH (obj1);
+      if (len != XVECTOR_LENGTH (obj2))
 	return 0;
-      for (indice = 0; indice < len; indice++)
-	{
-	  if (!internal_old_equal (XVECTOR_DATA (o1) [indice],
-				   XVECTOR_DATA (o2) [indice],
-				   depth + 1))
-            return 0;
-	}
+      while (len--)
+	if (!internal_old_equal (*v1++, *v2++, depth + 1))
+	  return 0;
       return 1;
     }
 #endif
-#ifndef LRECORD_STRING
-  else if (STRINGP (o1))
-    {
-      Bytecount len = XSTRING_LENGTH (o1);
-      if (len != XSTRING_LENGTH (o2))
-	return 0;
-      if (memcmp (XSTRING_DATA (o1), XSTRING_DATA (o2), len))
-	return 0;
-      return 1;
-    }
-#endif
-  else if (LRECORDP (o1))
-    {
-      CONST struct lrecord_implementation
-	*imp1 = XRECORD_LHEADER_IMPLEMENTATION (o1),
-	*imp2 = XRECORD_LHEADER_IMPLEMENTATION (o2);
-      if (imp1 != imp2)
-	return 0;
-      else if (imp1->equal == 0)
-	/* EQ-ness of the objects was noticed above */
-	return 0;
-      else
-	return (imp1->equal) (o1, o2, depth);
-    }
 
-  return 0;
+  return internal_equal (obj1, obj2, depth);
 }
 
 DEFUN ("equal", Fequal, 2, 2, 0, /*
@@ -3027,9 +2895,9 @@ Conses are compared by comparing the cars and the cdrs.
 Vectors and strings are compared element by element.
 Numbers are compared by value.  Symbols must match exactly.
 */
-       (o1, o2))
+       (obj1, obj2))
 {
-  return internal_equal (o1, o2, 0) ? Qt : Qnil;
+  return internal_equal (obj1, obj2, 0) ? Qt : Qnil;
 }
 
 DEFUN ("old-equal", Fold_equal, 2, 2, 0, /*
@@ -3041,9 +2909,9 @@ this is known as the "char-int confoundance disease." See `eq' and
 This function is provided only for byte-code compatibility with v19.
 Do not use it.
 */
-       (o1, o2))
+       (obj1, obj2))
 {
-  return internal_old_equal (o1, o2, 0) ? Qt : Qnil;
+  return internal_old_equal (obj1, obj2, 0) ? Qt : Qnil;
 }
 
 
@@ -3095,12 +2963,53 @@ ARRAY is a vector, bit vector, or string.
 }
 
 Lisp_Object
-nconc2 (Lisp_Object s1, Lisp_Object s2)
+nconc2 (Lisp_Object arg1, Lisp_Object arg2)
 {
   Lisp_Object args[2];
-  args[0] = s1;
-  args[1] = s2;
-  return Fnconc (2, args);
+  struct gcpro gcpro1;
+  args[0] = arg1;
+  args[1] = arg2;
+
+  GCPRO1 (args[0]);
+  gcpro1.nvars = 2;
+
+  RETURN_UNGCPRO (bytecode_nconc2 (args));
+}
+
+Lisp_Object
+bytecode_nconc2 (Lisp_Object *args)
+{
+ retry:
+
+  if (CONSP (args[0]))
+    {
+      /* (setcdr (last args[0]) args[1]) */
+      Lisp_Object tortoise, hare;
+      int count;
+
+      for (hare = tortoise = args[0], count = 0;
+	   CONSP (XCDR (hare));
+	   hare = XCDR (hare), count++)
+	{
+	  if (count < CIRCULAR_LIST_SUSPICION_LENGTH) continue;
+
+	  if (count & 1)
+	    tortoise = XCDR (tortoise);
+	  if (EQ (hare, tortoise))
+	    signal_circular_list_error (args[0]);
+	}
+      XCDR (hare) = args[1];
+      return args[0];
+    }
+  else if (NILP (args[0]))
+    {
+      return args[1];
+    }
+  else
+    {
+      args[0] = wrong_type_argument (args[0], Qlistp);
+      goto retry;
+    }
 }
 
 DEFUN ("nconc", Fnconc, 0, MANY, 0, /*
@@ -3131,22 +3040,32 @@ changing the value of `foo'.
       Lisp_Object val = args[argnum];
       if (CONSP (val))
 	{
-	  /* Found the first cons, which will be our return value.  */
-	  Lisp_Object last = val;
+	  /* `val' is the first cons, which will be our return value.  */
+	  /* `last_cons' will be the cons cell to mutate.  */
+	  Lisp_Object last_cons = val;
+	  Lisp_Object tortoise = val;
 
 	  for (argnum++; argnum < nargs; argnum++)
 	    {
 	      Lisp_Object next = args[argnum];
-	    redo:
+	    retry:
 	      if (CONSP (next) || argnum == nargs -1)
 		{
 		  /* (setcdr (last val) next) */
-		  while (CONSP (XCDR (last)))
+		  int count;
+
+		  for (count = 0;
+		       CONSP (XCDR (last_cons));
+		       last_cons = XCDR (last_cons), count++)
 		    {
-		      last = XCDR (last);
-		      QUIT;
+		      if (count < CIRCULAR_LIST_SUSPICION_LENGTH) continue;
+
+		      if (count & 1)
+			tortoise = XCDR (tortoise);
+		      if (EQ (last_cons, tortoise))
+			signal_circular_list_error (args[argnum-1]);
 		    }
-		  XCDR (last) = next;
+		  XCDR (last_cons) = next;
 		}
 	      else if (NILP (next))
 		{
@@ -3155,7 +3074,7 @@ changing the value of `foo'.
 	      else
 		{
 		  next = wrong_type_argument (next, Qlistp);
-		  goto redo;
+		  goto retry;
 		}
 	    }
 	  RETURN_UNGCPRO (val);
@@ -3771,20 +3690,20 @@ free_malloced_ptr (Lisp_Object unwind_obj)
    ways these functions can blow up, and we don't want to have memory
    leaks in those cases.  */
 #define XMALLOC_OR_ALLOCA(ptr, len, type) do {			\
-  if ((len) > MAX_ALLOCA)					\
+  size_t XOA_len = (len);					\
+  if (XOA_len > MAX_ALLOCA)					\
     {								\
-      ptr = (type *)xmalloc ((len) * sizeof (type));		\
-      speccount = specpdl_depth ();				\
+      ptr = xnew_array (type, XOA_len);				\
       record_unwind_protect (free_malloced_ptr,			\
 			     make_opaque_ptr ((void *)ptr));	\
     }								\
   else								\
-    ptr = alloca_array (type, len);				\
+    ptr = alloca_array (type, XOA_len);				\
 } while (0)
 
-#define XMALLOC_UNBIND(ptr, len) do {		\
-  if ((len) > MAX_ALLOCA)			\
-    unbind_to (speccount, Qnil);		\
+#define XMALLOC_UNBIND(ptr, len, speccount) do {		\
+  if ((len) > MAX_ALLOCA)					\
+    unbind_to (speccount, Qnil);				\
 } while (0)
 
 DEFUN ("base64-encode-region", Fbase64_encode_region, 2, 3, "r", /*
@@ -3801,9 +3720,10 @@ into shorter lines.
   struct buffer *buf = current_buffer;
   Bufpos begv, zv, old_pt = BUF_PT (buf);
   Lisp_Object input;
-  int speccount;
+  int speccount = specpdl_depth();
 
   get_buffer_range_char (buf, beg, end, &begv, &zv, 0);
+  barf_if_buffer_read_only (buf, begv, zv);
 
   /* We need to allocate enough room for encoding the text.
      We need 33 1/3% more space, plus a newline every 76
@@ -3825,7 +3745,7 @@ into shorter lines.
   /* Now we have encoded the region, so we insert the new contents
      and delete the old.  (Insert first in order to preserve markers.)  */
   buffer_insert_raw_string_1 (buf, begv, encoded, encoded_length, 0);
-  XMALLOC_UNBIND (encoded, allength);
+  XMALLOC_UNBIND (encoded, allength, speccount);
   buffer_delete_range (buf, begv + encoded_length, zv + encoded_length, 0);
 
   /* Simulate FSF Emacs: if point was in the region, place it at the
@@ -3846,7 +3766,7 @@ Base64 encode STRING and return the result.
   Bytind encoded_length;
   Bufbyte *encoded;
   Lisp_Object input, result;
-  int speccount;
+  int speccount = specpdl_depth();
 
   CHECK_STRING (string);
 
@@ -3860,7 +3780,7 @@ Base64 encode STRING and return the result.
     abort ();
   Lstream_delete (XLSTREAM (input));
   result = make_string (encoded, encoded_length);
-  XMALLOC_UNBIND (encoded, allength);
+  XMALLOC_UNBIND (encoded, allength, speccount);
   return result;
 }
 
@@ -3877,9 +3797,11 @@ If the region can't be decoded, return nil and don't modify the buffer.
   Bytind decoded_length;
   Charcount length, cc_decoded_length;
   Lisp_Object input;
-  int speccount;
+  int speccount = specpdl_depth();
 
   get_buffer_range_char (buf, beg, end, &begv, &zv, 0);
+  barf_if_buffer_read_only (buf, begv, zv);
+
   length = zv - begv;
 
   input = make_lisp_buffer_input_stream (buf, begv, zv, 0);
@@ -3893,7 +3815,7 @@ If the region can't be decoded, return nil and don't modify the buffer.
   if (decoded_length < 0)
     {
       /* The decoding wasn't possible. */
-      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
       return Qnil;
     }
 
@@ -3901,7 +3823,7 @@ If the region can't be decoded, return nil and don't modify the buffer.
      and delete the old.  (Insert first in order to preserve markers.)  */
   BUF_SET_PT (buf, begv);
   buffer_insert_raw_string_1 (buf, begv, decoded, decoded_length, 0);
-  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
   buffer_delete_range (buf, begv + cc_decoded_length,
 		       zv + cc_decoded_length, 0);
 
@@ -3922,7 +3844,7 @@ Base64-decode STRING and return the result.
   Bytind decoded_length;
   Charcount length, cc_decoded_length;
   Lisp_Object input, result;
-  int speccount;
+  int speccount = specpdl_depth();
 
   CHECK_STRING (string);
 
@@ -3939,12 +3861,13 @@ Base64-decode STRING and return the result.
 
   if (decoded_length < 0)
     {
+      /* The decoding wasn't possible. */
+      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
       return Qnil;
-      XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
     }
 
   result = make_string (decoded, decoded_length);
-  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN);
+  XMALLOC_UNBIND (decoded, length * MAX_EMCHAR_LEN, speccount);
   return result;
 }
 
@@ -3968,6 +3891,7 @@ syms_of_fns (void)
   DEFSUBR (Fconcat);
   DEFSUBR (Fvconcat);
   DEFSUBR (Fbvconcat);
+  DEFSUBR (Fcopy_list);
   DEFSUBR (Fcopy_sequence);
   DEFSUBR (Fcopy_alist);
   DEFSUBR (Fcopy_tree);
@@ -3976,6 +3900,9 @@ syms_of_fns (void)
   DEFSUBR (Fnthcdr);
   DEFSUBR (Fnth);
   DEFSUBR (Felt);
+  DEFSUBR (Flast);
+  DEFSUBR (Fbutlast);
+  DEFSUBR (Fnbutlast);
   DEFSUBR (Fmember);
   DEFSUBR (Fold_member);
   DEFSUBR (Fmemq);

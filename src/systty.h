@@ -53,6 +53,10 @@ Boston, MA 02111-1307, USA.  */
 
 /* Include the proper files.  */
 
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
 /* XEmacs: TERMIOS is mo' better than TERMIO so we use it if it's
    there.  Since TERMIO is backward-compatibility stuff if both it
    and TERMIOS exist, it's more likely to be broken. */
@@ -193,10 +197,6 @@ Boston, MA 02111-1307, USA.  */
 #undef TIOCSWINSZ
 #endif
 
-#ifdef BROKEN_O_NONBLOCK /* XEmacs addition */
-# undef O_NONBLOCK
-#endif /* BROKEN_O_NONBLOCK */
-
 /* On TERMIOS systems, the tcmumbleattr calls take care of these
    parameters, and it's a bad idea to use them (on AIX, it makes the
    tty hang for a long time).  */
@@ -214,19 +214,16 @@ Boston, MA 02111-1307, USA.  */
 /* ----------------------------------------------------- */
 
 /* Try to establish the correct character to disable terminal functions
-   in a system-independent manner.  Note that USG (at least) define
-   _POSIX_VDISABLE as 0!  */
+   in a system-independent manner.
+   We use the POSIX standard way to do this, and emulate on other systems. */
 
-#ifdef _POSIX_VDISABLE
-#define CDISABLE _POSIX_VDISABLE
-#else /* not _POSIX_VDISABLE */
-#ifdef CDEL
-#undef CDISABLE
-#define CDISABLE CDEL
-#else /* not CDEL */
-#define CDISABLE 255
-#endif /* not CDEL */
-#endif /* not _POSIX_VDISABLE */
+#ifndef _POSIX_VDISABLE
+# if defined CDEL
+#  define _POSIX_VDISABLE CDEL
+# else
+#  define _POSIX_VDISABLE 255
+# endif
+#endif /* ! _POSIX_VDISABLE */
 
 
 /* ----------------------------------------------------- */

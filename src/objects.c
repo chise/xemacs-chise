@@ -60,7 +60,7 @@ static Lisp_Object
 mark_color_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Color_Instance *c = XCOLOR_INSTANCE (obj);
-  ((markobj) (c->name));
+  markobj (c->name);
   if (!NILP (c->device)) /* Vthe_null_color_instance */
     MAYBE_DEVMETH (XDEVICE (c->device), mark_color_instance, (c, markobj));
 
@@ -100,18 +100,16 @@ finalize_color_instance (void *header, int for_disksave)
 }
 
 static int
-color_instance_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+color_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Color_Instance *c1 = XCOLOR_INSTANCE (o1);
-  struct Lisp_Color_Instance *c2 = XCOLOR_INSTANCE (o2);
-  struct device *d1 = DEVICEP (c1->device) ? XDEVICE (c1->device) : 0;
-  struct device *d2 = DEVICEP (c2->device) ? XDEVICE (c2->device) : 0;
+  struct Lisp_Color_Instance *c1 = XCOLOR_INSTANCE (obj1);
+  struct Lisp_Color_Instance *c2 = XCOLOR_INSTANCE (obj2);
 
-  if (d1 != d2)
-    return 0;
-  if (!d1 || !HAS_DEVMETH_P (d1, color_instance_equal))
-    return EQ (o1, o2);
-  return DEVMETH (d1, color_instance_equal, (c1, c2, depth));
+  return (c1 == c2) ||
+    ((EQ (c1->device, c2->device)) &&
+     DEVICEP (c1->device) &&
+     HAS_DEVMETH_P (XDEVICE (c1->device), color_instance_equal) &&
+     DEVMETH (XDEVICE (c1->device), color_instance_equal, (c1, c2, depth)));
 }
 
 static unsigned long
@@ -243,7 +241,7 @@ mark_font_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Font_Instance *f = XFONT_INSTANCE (obj);
 
-  ((markobj) (f->name));
+  markobj (f->name);
   if (!NILP (f->device)) /* Vthe_null_font_instance */
     MAYBE_DEVMETH (XDEVICE (f->device), mark_font_instance, (f, markobj));
 
@@ -284,11 +282,11 @@ finalize_font_instance (void *header, int for_disksave)
    this means the `equal' could cause XListFonts to be run the first time.
  */
 static int
-font_instance_equal (Lisp_Object o1, Lisp_Object o2, int depth)
+font_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   /* #### should this be moved into a device method? */
-  return internal_equal (font_instance_truename_internal (o1, ERROR_ME_NOT),
-			 font_instance_truename_internal (o2, ERROR_ME_NOT),
+  return internal_equal (font_instance_truename_internal (obj1, ERROR_ME_NOT),
+			 font_instance_truename_internal (obj2, ERROR_ME_NOT),
 			 depth + 1);
 }
 
@@ -483,8 +481,8 @@ color_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Specifier *color = XCOLOR_SPECIFIER (obj);
 
-  ((markobj) (COLOR_SPECIFIER_FACE (color)));
-  ((markobj) (COLOR_SPECIFIER_FACE_PROPERTY (color)));
+  markobj (COLOR_SPECIFIER_FACE (color));
+  markobj (COLOR_SPECIFIER_FACE_PROPERTY (color));
 }
 
 /* No equal or hash methods; ignore the face the color is based off
@@ -499,7 +497,6 @@ color_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
      so we can freely error. */
   Lisp_Object device = DFW_DEVICE (domain);
   struct device *d = XDEVICE (device);
-  Lisp_Object instance;
 
   if (COLOR_INSTANCEP (instantiator))
     {
@@ -516,7 +513,8 @@ color_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
   if (STRINGP (instantiator))
     {
       /* First, look to see if we can retrieve a cached value. */
-      instance = Fgethash (instantiator, d->color_instance_cache, Qunbound);
+      Lisp_Object instance =
+	Fgethash (instantiator, d->color_instance_cache, Qunbound);
       /* Otherwise, make a new one. */
       if (UNBOUNDP (instance))
 	{
@@ -661,8 +659,8 @@ font_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Specifier *font = XFONT_SPECIFIER (obj);
 
-  ((markobj) (FONT_SPECIFIER_FACE (font)));
-  ((markobj) (FONT_SPECIFIER_FACE_PROPERTY (font)));
+  markobj (FONT_SPECIFIER_FACE (font));
+  markobj (FONT_SPECIFIER_FACE_PROPERTY (font));
 }
 
 /* No equal or hash methods; ignore the face the font is based off
@@ -736,17 +734,17 @@ font_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 	     iterate over all possible fonts, and a regexp match
 	     on each one.  So we cache the results. */
 	  Lisp_Object matching_font = Qunbound;
-	  Lisp_Object hashtab = Fgethash (matchspec, d->charset_font_cache,
+	  Lisp_Object hash_table = Fgethash (matchspec, d->charset_font_cache,
 					  Qunbound);
-	  if (UNBOUNDP (hashtab))
+	  if (UNBOUNDP (hash_table))
 	    {
 	      /* need to make a sub hash table. */
-	      hashtab = make_lisp_hashtable (20, HASHTABLE_KEY_WEAK,
-					     HASHTABLE_EQUAL);
-	      Fputhash (matchspec, hashtab, d->charset_font_cache);
+	      hash_table = make_lisp_hash_table (20, HASH_TABLE_KEY_WEAK,
+						 HASH_TABLE_EQUAL);
+	      Fputhash (matchspec, hash_table, d->charset_font_cache);
 	    }
 	  else
-	    matching_font = Fgethash (instantiator, hashtab, Qunbound);
+	    matching_font = Fgethash (instantiator, hash_table, Qunbound);
 
 	  if (UNBOUNDP (matching_font))
 	    {
@@ -755,7 +753,7 @@ font_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
                 DEVMETH_OR_GIVEN (d, find_charset_font,
                                   (device, instantiator, matchspec),
                                   instantiator);
-	      Fputhash (instantiator, matching_font, hashtab);
+	      Fputhash (instantiator, matching_font, hash_table);
 	    }
 	  if (NILP (matching_font))
 	    return Qunbound;
@@ -868,8 +866,8 @@ face_boolean_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
   struct Lisp_Specifier *face_boolean = XFACE_BOOLEAN_SPECIFIER (obj);
 
-  ((markobj) (FACE_BOOLEAN_SPECIFIER_FACE (face_boolean)));
-  ((markobj) (FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY (face_boolean)));
+  markobj (FACE_BOOLEAN_SPECIFIER_FACE (face_boolean));
+  markobj (FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY (face_boolean));
 }
 
 /* No equal or hash methods; ignore the face the face-boolean is based off

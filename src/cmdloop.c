@@ -35,7 +35,6 @@ Boston, MA 02111-1307, USA.  */
 #include "commands.h"
 #include "frame.h"
 #include "events.h"
-#include "macros.h"
 #include "window.h"
 
 /* Current depth in recursive edits.  */

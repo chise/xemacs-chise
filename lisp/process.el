@@ -33,6 +33,9 @@
 ;;; Code:
 
 
+(defvar binary-process-output)
+(defvar buffer-file-type)
+
 (defgroup processes nil
   "Process, subshell, compilation, and job control support."
   :group 'external
@@ -62,14 +65,10 @@ BUFFER is the buffer or (buffer-name) to associate with the process.
 Third arg is command name, the name of a shell command.
 Remaining arguments are the arguments for the command.
 Wildcards and redirection are handled as usual in the shell."
-  (cond
-   ((eq system-type 'vax-vms)
-    (apply 'start-process name buffer args))
-   ;; We used to use `exec' to replace the shell with the command,
-   ;; but that failed to handle (...) and semicolon, etc.
-   (t
-    (start-process name buffer shell-file-name shell-command-switch
-		   (mapconcat 'identity args " ")))))
+  ;; We used to use `exec' to replace the shell with the command,
+  ;; but that failed to handle (...) and semicolon, etc.
+  (start-process name buffer shell-file-name shell-command-switch
+		 (mapconcat #'identity args " ")))
 
 (defun call-process (program &optional infile buffer displayp &rest args)
   "Call PROGRAM synchronously in separate process.
@@ -114,31 +113,19 @@ Otherwise waits for PROGRAM to terminate
 and returns a numeric exit status or a signal description string.
 If you quit, the process is first killed with SIGINT, then with SIGKILL if
 you quit again before the process exits."
-  (let ((temp (cond ((eq system-type 'vax-vms)
-                     (make-temp-name "tmp:emacs"))
-		    ((or (eq system-type 'ms-dos)
-			 (eq system-type 'windows-nt))
-		     (make-temp-name
-		      (concat (file-name-as-directory
-			       (temp-directory))
-			       "em")))
-                    (t
-		     (make-temp-name
-		      (concat (file-name-as-directory
-			       (temp-directory))
-			      "emacs"))))))
+  (let ((temp
+	 (make-temp-name
+	  (concat (file-name-as-directory (temp-directory))
+		  (if (memq system-type '(ms-dos windows-nt)) "em" "emacs")))))
     (unwind-protect
 	(progn
-	  (if (or (eq system-type 'ms-dos)
-		  (eq system-type 'windows-nt))
+	  (if (memq system-type '(ms-dos windows-nt))
 	      (let ((buffer-file-type binary-process-output))
 		(write-region start end temp nil 'silent))
 	    (write-region start end temp nil 'silent))
 	  (if deletep (delete-region start end))
 	  (apply #'call-process program temp buffer displayp args))
-      (condition-case ()
-          (delete-file temp)
-        (file-error nil)))))
+      (ignore-file-errors (delete-file temp)))))
 
 
 (defun shell-command (command &optional output-buffer)
@@ -188,7 +175,7 @@ In either case, the output is inserted after point (leaving mark after it)."
 ;; in the buffer itself.
 (defun shell-command-sentinel (process signal)
   (if (memq (process-status process) '(exit signal))
-      (message "%s: %s." 
+      (message "%s: %s."
 	       (car (cdr (cdr (process-command process))))
 	       (substring signal 0 -1))))
 
@@ -260,7 +247,7 @@ In either case, the output is inserted after point (leaving mark after it)."
 						shell-file-name t t nil
 						shell-command-switch command))
 		     (setq success t))
-	    ;; Clear the output buffer, 
+	    ;; Clear the output buffer,
 	    ;; then run the command with output there.
 	    (save-excursion
 	      (set-buffer buffer)
@@ -295,7 +282,7 @@ In either case, the output is inserted after point (leaving mark after it)."
 			    (buffer-substring (point)
 					      (progn (end-of-line)
 						     (point))))))
-		(t 
+		(t
 		 (set-window-start (display-buffer buffer) 1))))))))
 
 

@@ -171,7 +171,7 @@
 	   nil
 	   "-fc"
 	   (mapconcat
-	    'identity
+	    #'identity
 	    (append
 	     (list (concat default-directory "../lib-src/make-docfile"))
 	     options processed)

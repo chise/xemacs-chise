@@ -148,9 +148,9 @@ A menu item can be a list.  It is treated as a submenu.
 The first element should be the submenu name.  That's used as the
 menu item in the top-level menu.  The cdr of the submenu list
 is a list of menu items, as above."
-  (` (progn
-       (defvar (, symbol) nil (, doc))
-       (easy-menu-do-define (quote (, symbol)) (, maps) (, doc) (, menu)))))
+  `(progn
+     (defvar ,symbol nil ,doc)
+     (easy-menu-do-define (quote ,symbol) ,maps ,doc ,menu)))
 
 (defun easy-menu-do-define (symbol maps doc menu)
   (if (featurep 'menubar)

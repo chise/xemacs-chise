@@ -844,7 +844,7 @@ ccl_driver (struct ccl_program *ccl, CONST unsigned char *source, unsigned_char_
 	    case CCL_MOD: reg[rrr] = i % j; break;
 	    case CCL_AND: reg[rrr] = i & j; break;
 	    case CCL_OR: reg[rrr] = i | j; break;
-	    case CCL_XOR: reg[rrr] = i ^ j;; break;
+	    case CCL_XOR: reg[rrr] = i ^ j; break;
 	    case CCL_LSH: reg[rrr] = i << j; break;
 	    case CCL_RSH: reg[rrr] = i >> j; break;
 	    case CCL_LSH8: reg[rrr] = (i << 8) | j; break;
