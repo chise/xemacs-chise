@@ -49,13 +49,8 @@
 ## make extraclean
 ##      Still more severe - delete backup and autosave files, too.
 
-#ifdef USE_GNU_MAKE
-RECURSIVE_MAKE=$(MAKE)
-#else
 @SET_MAKE@
 RECURSIVE_MAKE=@RECURSIVE_MAKE@
-#endif
-
 SHELL = /bin/sh
 LANG = C
 RM = rm -f
@@ -68,6 +63,7 @@ CPP=@CPP@
 LN_S=@LN_S@
 CFLAGS=@CFLAGS@
 CPPFLAGS=@CPPFLAGS@
+LDFLAGS=@LDFLAGS@
 
 ## These help us choose version- and architecture-specific directories
 ## to install files in.
@@ -476,25 +472,25 @@ mkdir: FRC.mkdir
 #### Don't delete the lisp and etc directories if they're in the source tree.
 #### This target has not been updated in sometime and until it is it
 #### would be extremely dangerous for anyone to use it.
-##uninstall:
-##	(cd ./lib-src; 					\
-##	 $(RECURSIVE_MAKE) uninstall			\
-##	    prefix=${prefix} exec_prefix=${exec_prefix}	\
-##	    bindir=${bindir} libdir=${libdir} archlibdir=${archlibdir})
-##	for dir in ${lispdir} ${etcdir} ; do 		\
-##	  case `(cd $${dir} ; $(pwd))` in			\
-##	    `(cd ${srcdir} ; $(pwd))`* ) ;;		\
-##	    * ) $(RM) $${dir} ;;			\
-##	  esac ;					\
-##	  case $${dir} in				\
-##	    ${datadir}/${PROGNAME}/${version}/* )		\
-##	      $(RM) -r ${datadir}/${PROGNAME}/${version}	\
-##	    ;;						\
-##	  esac ;					\
-##	done
-##	cd ${infodir} && $(RM) cl* ${PROGNAME}* forms* info* vip*
-##	cd ${mandir} && $(RM) xemacs.1 etags.1 ctags.1 gnuserv.1
-##	cd ${bindir} && $(RM) ${PROGNAME}-${version} ${PROGNAME}
+#uninstall:
+#	(cd ./lib-src; 					\
+#	 $(RECURSIVE_MAKE) uninstall			\
+#	    prefix=${prefix} exec_prefix=${exec_prefix}	\
+#	    bindir=${bindir} libdir=${libdir} archlibdir=${archlibdir})
+#	for dir in ${lispdir} ${etcdir} ; do 		\
+#	  case `(cd $${dir} ; $(pwd))` in			\
+#	    `(cd ${srcdir} ; $(pwd))`* ) ;;		\
+#	    * ) $(RM) $${dir} ;;			\
+#	  esac ;					\
+#	  case $${dir} in				\
+#	    ${datadir}/${PROGNAME}/${version}/* )		\
+#	      $(RM) -r ${datadir}/${PROGNAME}/${version}	\
+#	    ;;						\
+#	  esac ;					\
+#	done
+#	cd ${infodir} && $(RM) cl* ${PROGNAME}* forms* info* vip*
+#	cd ${mandir} && $(RM) xemacs.1 etags.1 ctags.1 gnuserv.1
+#	cd ${bindir} && $(RM) ${PROGNAME}-${version} ${PROGNAME}
 
 
 ## Some makes seem to remember that they've built something called FRC,
@@ -537,7 +533,7 @@ top_distclean=\
 	for d in src lib-src lwlib dynodump ; do \
 	  $(RM) $$d/Makefile $$d/Makefile.in ; \
 	done ; \
-	$(RM) core .sbinit Makefile Makefile.in lock/*; \
+	$(RM) core .sbinit Makefile lock/*; \
 	$(RM) lisp/finder-inf.el* Installation.el Installation.elc; \
 	$(RM) packages mule-packages site-lisp
 
@@ -611,11 +607,15 @@ TAGS tags: FRC.tags
 	PATH=`$(pwd)`/lib-src:$$PATH ; export PATH; cd ${srcdir} && \
 	find src lwlib lib-src ${PRUNE_VC} -name '*.[ch]' -print | \
 	  xargs etags -a -r '/[ 	]*DEF\(VAR\|INE\)_[A-Z_]+[ 	]*([ 	]*"\([^"]+\)"/\2/'; \
-	find ${tagslisp} ${PRUNE_VC} -name '*.el' ! -name 'auto-autoloads.el' -print | \
-	  xargs etags -a -l none -r "/^(def\\(var\\|un\\|alias\\|const\\|macro\\|subst\\|struct\\|face\\|group\\|custom\\|ine-\\(function\\|compiler-macro\\|[a-z-]+alias\\)\\)[ 	]+'?\\([^ 	]+\\)/\\3/"
+	find ${tagslisp} ${PRUNE_VC} -name '*.el' -print | \
+	  xargs etags -a -l none -r "/^(def\\(var\\|un\\|alias\\|const\\|macro\\)[ 	]+'?\\([^ 	]+\\)/\\2/"
+
+## We have automated tests!
+testdir = ${srcdir}/tests
+tests   = ${testdir}/basic-lisp.el ${testdir}/database.el
 
 check:
-	cd ./src && $(RECURSIVE_MAKE) $@
+	src/${PROGNAME} -batch -l ${testdir}/test-emacs.el -f batch-test-emacs ${tests}
 
 info: FRC.info
 	cd ${srcdir}/man && $(RECURSIVE_MAKE) $@
