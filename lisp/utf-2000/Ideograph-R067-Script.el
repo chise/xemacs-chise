@@ -702,6 +702,7 @@
   '((morohashi-daikanwa	13486 0 6)
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 12)
+    (total-strokes	 . 16)
     (=ucs		. #x6593)	; æ–“
     (=gb2312		. #x6C35)	; ø»…´¢
     ))
