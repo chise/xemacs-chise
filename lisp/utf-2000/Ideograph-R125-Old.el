@@ -250,13 +250,9 @@
 (define-char
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)
-    (ucs		. #x8009)	; è€‰
-    ))
-(define-char
-  '((ideographic-radical . 125)	; â½¼
-    (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (chinese-cns11643-4 . #x2B25)	; ø»—¯˜
+    (ucs		. #x8009)	; è€‰
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼
