@@ -24,11 +24,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (total-strokes	 . 1)
     (<-radical
      ((ucs		  . #x4E5A)	; 乚
       ))
-    (chinese-big5	. #xC87B)	; �����
-    (ucs-big5		. #x4E5A)	; ⺃
+    (ideograph-cdp	. -14)
+    (chinese-big5	. #x8C5D)	; ⺃
     (ucs		. #x2E83)	; ⺃
     ))
 (define-char
@@ -44,7 +45,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 2)
-    (ideographic-cdp	. -55)
+    (ideograph-cdp	. -55)
     (chinese-big5	. #x8AF5)	; ⺅
     (ucs		. #x2E85)	; ⺅
     ))
