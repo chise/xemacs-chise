@@ -11,7 +11,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2324)	; ø»‘…›
-    (chinese-big5	. #xA262)	; øºŸ¿
+    (chinese-big5	. #xA262)	; ý¢€Š‰¢
     (ucs		. #x2581)	; â–
     ))
 (define-char
@@ -20,7 +20,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2325)	; ø»‘…œ
-    (chinese-big5	. #xA263)	; øºŸž€
+    (chinese-big5	. #xA263)	; ý¢€Š‰£
     (ucs		. #x2582)	; â–‚
     ))
 (define-char
@@ -29,7 +29,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2326)	; ø»‘…
-    (chinese-big5	. #xA264)	; øºŸž
+    (chinese-big5	. #xA264)	; ý¢€Š‰¤
     (ucs		. #x2583)	; â–ƒ
     ))
 (define-char
@@ -38,7 +38,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2327)	; ø»‘…ž
-    (chinese-big5	. #xA265)	; øºŸž‚
+    (chinese-big5	. #xA265)	; ý¢€Š‰¥
     (ucs		. #x2584)	; â–„
     ))
 (define-char
@@ -47,7 +47,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2328)	; ø»‘…Ÿ
-    (chinese-big5	. #xA266)	; øºŸžƒ
+    (chinese-big5	. #xA266)	; ý¢€Š‰¦
     (ucs		. #x2585)	; â–…
     ))
 (define-char
@@ -56,7 +56,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2329)	; ø»‘… 
-    (chinese-big5	. #xA267)	; øºŸž„
+    (chinese-big5	. #xA267)	; ý¢€Š‰§
     (ucs		. #x2586)	; â–†
     ))
 (define-char
@@ -65,7 +65,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232A)	; ø»‘…¡
-    (chinese-big5	. #xA268)	; øºŸž…
+    (chinese-big5	. #xA268)	; ý¢€Š‰¨
     (ucs		. #x2587)	; â–‡
     ))
 (define-char
@@ -74,7 +74,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232B)	; ø»‘…¢
-    (chinese-big5	. #xA269)	; øºŸž†
+    (chinese-big5	. #xA269)	; ý¢€Š‰©
     (ucs		. #x2588)	; â–ˆ
     ))
 (define-char
@@ -83,7 +83,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2332)	; ø»‘…©
-    (chinese-big5	. #xA270)	; øºŸž
+    (chinese-big5	. #xA270)	; ý¢€Š‰°
     (ucs		. #x2589)	; â–‰
     ))
 (define-char
@@ -92,7 +92,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2331)	; ø»‘…¨
-    (chinese-big5	. #xA26F)	; øºŸžŒ
+    (chinese-big5	. #xA26F)	; ý¢€Š‰¯
     (ucs		. #x258A)	; â–Š
     ))
 (define-char
@@ -101,7 +101,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2330)	; ø»‘…§
-    (chinese-big5	. #xA26E)	; øºŸž‹
+    (chinese-big5	. #xA26E)	; ý¢€Š‰®
     (ucs		. #x258B)	; â–‹
     ))
 (define-char
@@ -110,7 +110,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232F)	; ø»‘…¦
-    (chinese-big5	. #xA26D)	; øºŸžŠ
+    (chinese-big5	. #xA26D)	; ý¢€Š‰­
     (ucs		. #x258C)	; â–Œ
     ))
 (define-char
@@ -119,7 +119,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232E)	; ø»‘…¥
-    (chinese-big5	. #xA26C)	; øºŸž‰
+    (chinese-big5	. #xA26C)	; ý¢€Š‰¬
     (ucs		. #x258D)	; â–
     ))
 (define-char
@@ -128,7 +128,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232D)	; ø»‘…¤
-    (chinese-big5	. #xA26B)	; øºŸžˆ
+    (chinese-big5	. #xA26B)	; ý¢€Š‰«
     (ucs		. #x258E)	; â–Ž
     ))
 (define-char
@@ -137,7 +137,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x232C)	; ø»‘…£
-    (chinese-big5	. #xA26A)	; øºŸž‡
+    (chinese-big5	. #xA26A)	; ý¢€Š‰ª
     (ucs		. #x258F)	; â–
     ))
 (define-char
@@ -167,7 +167,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xF9FE)	; øº£
+    (chinese-big5-eten	. #xF9FE)	; ý¢€§¾
     (ucs		. #x2593)	; â–“
     ))
 (define-char
@@ -176,7 +176,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2338)	; ø»‘…¯
-    (chinese-big5	. #xA276)	; øºŸž“
+    (chinese-big5	. #xA276)	; ý¢€Š‰¶
     (ucs		. #x2594)	; â–”
     ))
 (define-char
@@ -185,6 +185,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x233B)	; ø»‘…²
-    (chinese-big5	. #xA279)	; øºŸž–
+    (chinese-big5	. #xA279)	; ý¢€Š‰¹
     (ucs		. #x2595)	; â–•
     ))
