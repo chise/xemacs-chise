@@ -1,5 +1,19 @@
 2004-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R049-Oneself.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+	(J78-392B): Unify GT-11040.
+	(J78-4327): Unify GT-11052.
+
+	* Ideograph-R046-Mountain.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' for some character definitions.
+	(CB03791): Unify U-00021D73.
+
 	* Ideograph-R032-Earth.el: Use `=jis-x0208@{1978|1983|1990}'
 	instead of `=jis-x0208-{1978|1983|1990}'.
 	(U+5747): Use `->subsumptive'.
