@@ -105,7 +105,9 @@
 		   "[ \t]*U[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
 		  (string-to-int (match-string 1) 16)))
 	(when (setq chr (decode-char ccs code))
-	  (unless (eq (get-char-attribute chr ccs) code)
+	  (unless (eq (encode-char chr ccs 'defined-only)
+		      ;; (get-char-attribute chr ccs)
+		      code)
 	    (put-char-attribute chr ccs code))
 	  (when (and ucs-code
 		     (not (eq (or (get-char-attribute chr ucs-ccs)
@@ -127,7 +129,7 @@
 
 (dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
 		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
-		;; "C3-to-UCS.txt" ; "C4-to-UCS.txt"
+		"C3-to-UCS.txt" ; "C4-to-UCS.txt"
 		"B-to-UCS.txt" "JC3-to-UCS.txt"))
   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
