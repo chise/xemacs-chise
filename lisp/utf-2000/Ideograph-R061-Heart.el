@@ -2051,8 +2051,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 143 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((chinese-big5-cdp	  . #x8B51)	; ý¢€ˆ­‘
@@ -2598,8 +2597,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 143 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((chinese-big5-cdp	  . #x8B51)	; ý¢€ˆ­‘
@@ -8954,8 +8952,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 207 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x541E)	; åž

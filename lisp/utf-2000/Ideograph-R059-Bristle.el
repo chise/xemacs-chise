@@ -56,8 +56,7 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 117 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "cjk radical person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ı¢€ˆ­
       )

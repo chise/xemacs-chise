@@ -1619,8 +1619,7 @@
     (hanyu-dazidian-page . 75)
     (hanyu-dazidian-char . 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x672A)	; æœª
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹

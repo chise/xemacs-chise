@@ -2734,8 +2734,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 202 13)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹

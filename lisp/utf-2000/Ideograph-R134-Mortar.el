@@ -1241,8 +1241,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
       )
      ((ucs		  . #x540C)	; åŒ
@@ -1265,8 +1264,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
       )
      ((ucs		  . #x540C)	; åŒ

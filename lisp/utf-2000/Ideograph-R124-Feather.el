@@ -2128,8 +2128,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹
@@ -2147,8 +2146,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹
@@ -3823,8 +3821,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8C49)	; ý¢€ˆ±‰
       )
      ((chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
@@ -3843,8 +3840,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8C49)	; ý¢€ˆ±‰
       )
      ((chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
