@@ -234,14 +234,16 @@
     (ideograph-daikanwa #x07 #x1D)	; ø¹œ
     ))
 (define-char
-  '((morohashi-daikanwa	1822)
+  '((->ucs		. #x342B)
+    (morohashi-daikanwa	1822)
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideograph-daikanwa #x07 #x1E)	; ø¹œž
     ))
 (define-char
-  '((morohashi-daikanwa	1822 0 0)
+  '((ucs		. #x342B)
+    (morohashi-daikanwa	1822 0 8)
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 6)

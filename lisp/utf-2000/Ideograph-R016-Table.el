@@ -473,7 +473,8 @@
     (ideograph-daikanwa #x06 #xF9)	; ø¹›¹
     ))
 (define-char
-  '((morohashi-daikanwa	1786)
+  '((ucs		. #x34D8)
+    (morohashi-daikanwa	1786)
     (ideographic-radical . 16)	; â¼
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
