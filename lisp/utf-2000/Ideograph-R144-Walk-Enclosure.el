@@ -514,7 +514,7 @@
     (chinese-cns11643-4 . #x534C)	; ø»˜ª¯
     ))
 (define-char
-  '((->ucs		. #x8860)	; è¡ 
+  '((=>ucs		. #x8860)	; è¡ 
     (morohashi-daikanwa	34076 0 5)
     (ideographic-radical . 144)	; â¾
     (ideographic-strokes . 10)
