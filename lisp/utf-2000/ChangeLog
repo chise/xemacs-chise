@@ -1,5 +1,15 @@
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u0AC00-Hangul-Syllables.el: Add some mappings for CHINA3 PUA
+	code points.
+	(U+C815): Unify JC3-96D5 instead of JC3-82DA.
+	(JC3-95EB): New character.
+
+	* Ideograph-R034-Go.el (M-05693): Separate C2-213A and B-C95A;
+	unify GT-07202.
+
+	* Ideograph-R019-Power.el: Reformatted.
+
 	* Ideograph-R149-Speech.el, Ideograph-R120-Silk.el (H12-EFEB): Use
 	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
 	`ideographic-'.
