@@ -537,6 +537,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=daikanwa		. 38727)	; ø¸‰‡
+    (=jef-china3	. #x67A8)	; øº†ž¨
     ))
 (define-char
   '((=>ucs		. #x8FC5)	; è¿…
