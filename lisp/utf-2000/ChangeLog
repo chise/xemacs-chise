@@ -1,3 +1,90 @@
+2001-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el: Fix JIS X 0208 code points.
+
+	* Ideograph-R167-Gold.el: Merge and/or fix JIS X 0208 code points.
+
+	* Ideograph-R169-Gate.el: Merge missing JIS X 0208 code points.
+
+	* Ideograph-R164-Wine.el: Fix JIS X 0208 code points.
+
+2001-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02000-General-Punctuation.el (ONE DOT LEADER): Delete
+	Big5-A3BB.
+	(OVERLINE): Add `->fullwidth'.
+	(FULLWIDTH OVERLINE): Add `<-fullwidth'.
+	(heavy overline): New character; unify C1-2224 and Big5-A1C3.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* u01E00-Latin-Extended-Additional.el (LATIN CAPITAL LETTER M WITH
+	ACUTE): Separate JX1-2872.
+	(fullwidth latin capital letter m with acute): New character;
+	unify JX1-2872.
+	(LATIN SMALL LETTER M WITH ACUTE): Separate JX1-2873.
+	(fullwidth latin small letter m with acute): New character; unify
+	JX1-2873.	
+	- Use ``character-reference'' style for `->uppercase' and
+	  `->lowercase'.
+	- Omit `->titlecase' because each value of it has the same value
+	  of `->uppercase'.
+	- Merge `latin-tcvn5712' code points.
+
+	* u002B0-Spacing-Modifier-Letters.el (U+****): Add `->fullwidth'.
+	(fullwidth *): Use `=>ucs' instead of `->ucs'; add `<-fullwidth'.
+	(CARON): Add `->fullwidth'.
+	(fullwidth caron): Use `=>ucs' instead of `->ucs'; add
+	`<-fullwidth'.
+	(MODIFIER LETTER VERTICAL LINE): Add `->fullwidth'.
+	(fullwidth modifier letter vertical line): Use `=>ucs' instead of
+	`->ucs'; add `<-fullwidth'.
+	(MODIFIER LETTER MACRON): Separate G0-2125 and Big5-A3BC.
+	(fullwidth modifier letter macron): New character; unify G0-2125,
+	C1-256D and Big5-A3BC.
+	(MODIFIER LETTER ACUTE ACCENT): Separate C1-256E and Big5-A3BD.
+	(fullwidth modifier letter acute accent): New character; unify
+	C1-256E and Big5-A3BD.
+	(MODIFIER LETTER GRAVE ACCENT): Separate C1-2570, Big5-A3BF.
+	(fullwidth modifier letter grave accent): Unify C1-2570 and
+	Big5-A3BF.
+	(MODIFIER LETTER HALF TRIANGULAR COLON): Separate JX1-2B56.
+	(fullwidth modifier letter half triangular colon): New character;
+	unify JX1-2B56.
+	(RING ABOVE): Separate K0-222A and JSP-2236.
+	(fullwidth ring above): New character; unify K0-222A and JSP-2236.
+	(MODIFIER LETTER RHOTIC HOOK): Separate JX1-2B71.
+	(fullwidth modifier letter rhotic hook): New character; unify
+	JX1-2B71.
+	(MODIFIER LETTER EXTRA-HIGH TONE BAR): Separate JX1-2B60.
+	(fullwidth modifier letter extra-high tone bar): New character;
+	unify JX1-2B60.
+	(MODIFIER LETTER HIGH TONE BAR): Separate JX1-2B61.
+	(fullwidth modifier letter high tone bar): New character; unify
+	JX1-2B61.
+	(MODIFIER LETTER MID TONE BAR): Separate JX1-2B62.
+	(fullwidth modifier letter mid tone bar): New character; unify
+	JX1-2B62.
+	(MODIFIER LETTER LOW TONE BAR): Separate JX1-2B63.
+	(fullwidth modifier letter low tone bar): New character; unify
+	JX1-2B63.
+	(MODIFIER LETTER EXTRA-LOW TONE BAR): Separate JX1-2B64.
+	(fullwidth modifier letter extra-low tone bar): New character;
+	unify JX1-2B64.
+
+	* Ideograph-R008-Lid.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 and GB 12345 code points.
+
+	* Ideograph-R004-Slash.el (C3-212D): Separated from U+4E87 and
+	moved from Ideograph-R006-Hook.el.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge GB 12345 and Big5 code points.
+	- Use `<-ancient-ideograph' instead of `ancient-ideograph-of'.
+	- Use `->bopomofo' instead of `->bopomofo-letter'.
+	- Use `->same-ideograph' instead of `ideograph='.
+	- Use `<-vulgar-ideograph' instead of `vulgar-ideograph-of'.
+	- Use `<-original-ideograph' instead of `original-ideograph-of'.
+
 2001-07-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02100-Letterlike-Symbols.el (halfwidth numero sign): Renamed
@@ -7,7 +94,7 @@
 	(ANGSTROM SIGN): Likewise.
 
 	* Ideograph-R007-Two.el:
-	- Merge Big5 code and GB 12345 points.
+	- Merge Big5 and GB 12345 code points.
 	- Use `=>ucs' instead of `->ucs'.
 
 	* Ideograph-R006-Hook.el (U+4E87): Separate C3-212D and move it to
