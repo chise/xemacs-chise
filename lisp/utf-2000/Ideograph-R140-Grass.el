@@ -10,23 +10,35 @@
     (ucs		. #x8278)	; è‰¸
     ))
 (define-char
-  '((=>ucs		. #x8279)	; è‰¹
+  '((name		. "CJK RADICAL GRASS TWO")
+    (=>ucs		. #x8279)	; è‰¹
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-cns11643-4		. #x2153)	; ø»—¡š
     (japanese-jisx0213-2	. #x7575)	; ø»¦™¬
     (ideograph-daikanwa		. 30639)	; ø¸‡ž¯
+    (chinese-big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
+    (ucs-cns			. #x8279)	; âº¿
+    (ucs			. #x2EBF)	; âº¿
     ))
 (define-char
   '((morohashi-daikanwa	30639 0 3)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (chinese-gb2312	. #x5C33)	; ø»…€
-    (chinese-isoir165	. #x5C33)	; ø»Ž…
-    (china3-jef		. #x72FA)	; øº‡‹º
-    (ucs		. #x8279)	; è‰¹
+    (->ideographic-component-forms
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (ucs		  . #x2EBE)	; âº¾
+      ))
+    (chinese-gb2312		. #x5C33)	; ø»…€
+    (chinese-isoir165		. #x5C33)	; ø»Ž…
+    (japanese-jisx0213-2	. #x7576)	; ø»¦™­
+    (china3-jef			. #x72FA)	; øº‡‹º
+    (ucs			. #x8279)	; è‰¹
     ))
 (define-char
   '((ideographic-radical . 140)	; â¾‹
