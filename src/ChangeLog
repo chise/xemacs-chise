@@ -1,3 +1,12 @@
+2001-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_big5): New variable.
+	(Qucs_big5): Likewise.
+	(syms_of_mule_charset): Add new symbol `ucs-big5'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-big5'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_BIG5): New macro.
+
 2001-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decode_builtin_char): Check Big5 code range
