@@ -187,6 +187,39 @@
 	       mother chinese-big5
 	       min-code #x8140 max-code #x8DFE))
   (make-charset
+   'ideograph-gt-k
+   "GT parts"
+   `(long-name "Ideographic parts of GT"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry ""
+	       min-code ,(lsh #x6110 16)
+	       max-code ,(+ (lsh #x6110 16) 17090)
+	       code-offset ,(lsh #x6110 16)))
+  (make-charset
+   'ideograph-gt-pj-k1
+   "GT K1"
+   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 1"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
+  (make-charset
+   'ideograph-gt-pj-k2
+   "GT K2"
+   `(long-name "Ideographic parts of GT (pseudo JIS encoding) part 2"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
+  (make-charset
    'china3-jef
    "JEF + CHINA3"
    `(long-name "JEF + CHINA3 private characters"
