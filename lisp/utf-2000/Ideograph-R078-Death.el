@@ -543,7 +543,7 @@
      ((ucs		  . #x51F6)	; å‡¶
       ))
     (ideograph-hanziku-4	. #xC474)	; ý¢Œ‘´
-    (=cbeta			. #x00BF)	; ø¸ ‚¿
+    (=cbeta			. 00191)	; ø¸ ‚¿
     (ucs			. #x239D1)	; ð£§‘
     ))
 (define-char
@@ -849,7 +849,7 @@
       ))
     (ideograph-daikanwa		. 16425)	; ø¸„€©
     (ideograph-hanziku-4	. #xC4D1)	; ý¢Œ“‘
-    (=cbeta			. #x09E6)	; ø¸ §¦
+    (=cbeta			. 02534)	; ø¸ §¦
     ))
 (define-char
   '((morohashi-daikanwa	16425 0 0)
@@ -889,7 +889,7 @@
      ((ucs		  . #x76AE)	; çš®
       ))
     (chinese-cns11643-3 . #x2D41)	; ø»•¨¬
-    (=cbeta		. #x05C0)	; ø¸ —€
+    (=cbeta		. 01472)	; ø¸ —€
     (ucs		. #x3C5F)	; ã±Ÿ
     ))
 (define-char
@@ -1632,7 +1632,7 @@
       ))
     (ideograph-daikanwa		. 16487)	; ø¸„§
     (ideograph-hanziku-4	. #xC5D4)	; ý¢Œ—”
-    (=cbeta			. #x1131)	; ø¸¡„±
+    (=cbeta			. 04401)	; ø¸¡„±
     (ucs			. #x23A19)	; ð£¨™
     ))
 (define-char
@@ -1700,7 +1700,7 @@
       (ideograph-daikanwa . 02740)	; ø¸€ª´
       ))
     (ideograph-daikanwa . 16490)	; ø¸„ª
-    (=cbeta		. #x0C88)	; ø¸ ²ˆ
+    (=cbeta		. 03208)	; ø¸ ²ˆ
     ))
 (define-char
   '((morohashi-daikanwa	16490 0 0)
@@ -2177,7 +2177,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideograph-daikanwa . 16523)	; ø¸„‚‹
-    (=cbeta		. #x16DA)	; ø¸¡›š
+    (=cbeta		. 05850)	; ø¸¡›š
     (ucs		. #x6B9C)	; æ®œ
     ))
 (define-char
@@ -2821,7 +2821,7 @@
     (japanese-jisx0212	. #x462A)	; ø»‹š¯
     (chinese-cns11643-4 . #x506D)	; ø»˜¦¶
     (ideograph-daikanwa . 16571)	; ø¸„‚»
-    (=cbeta		. #x083C)	; ø¸  ¼
+    (=cbeta		. 02108)	; ø¸  ¼
     (ucs		. #x6BA8)	; æ®¨
     ))
 (define-char
@@ -2858,7 +2858,7 @@
     (chinese-cns11643-4		. #x506C)	; ø»˜¦µ
     (ideograph-daikanwa		. 16574)	; ø¸„‚¾
     (ideograph-hanziku-4	. #xC978)	; ý¢Œ¥¸
-    (=cbeta			. #x00C0)	; ø¸ ƒ€
+    (=cbeta			. 00192)	; ø¸ ƒ€
     (ucs			. #x23A60)	; ð£© 
     ))
 (define-char
@@ -3006,7 +3006,7 @@
       )
      ((ucs		  . #x582F)	; å ¯
       ))
-    (=cbeta		. #x0C89)	; ø¸ ²‰
+    (=cbeta		. 03209)	; ø¸ ²‰
     (mojikyo		. 061824)	; ý €†€
     ))
 (define-char

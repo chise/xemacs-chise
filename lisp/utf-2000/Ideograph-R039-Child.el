@@ -419,7 +419,7 @@
       ))
     (chinese-cns11643-3 . #x2848)	; ø»•¡
     (ideograph-daikanwa . 06961)	; ø¸¬±
-    (=cbeta		. #x175C)	; ø¸¡œ
+    (=cbeta		. 05980)	; ø¸¡œ
     (ucs		. #x5B60)	; å­ 
     ))
 (define-char
@@ -641,7 +641,7 @@
       ))
     (chinese-cns11643-4 . #x2870)	; ø»—¬‰
     (ideograph-daikanwa . 06979)	; ø¸­ƒ
-    (=cbeta		. #x1AFA)	; ø¸¡«º
+    (=cbeta		. 06906)	; ø¸¡«º
     (ucs		. #x3741)	; ã
     ))
 (define-char
@@ -759,7 +759,7 @@
       )
      ((=jis-x0208	  . #x4C48)	; ø½Šµ­
       ))
-    (=cbeta		. #x067D)	; ø¸ ™½
+    (=cbeta		. 01661)	; ø¸ ™½
     ))
 (define-char
   '((ideographic-radical . 39)	; â¼¦
@@ -950,7 +950,7 @@
      ((ucs		  . #x5B55)	; å­•
       ))
     (ideograph-daikanwa . 07001)	; ø¸­™
-    (=cbeta		. #x0F53)	; ø¸ ½“
+    (=cbeta		. 03923)	; ø¸ ½“
     ))
 (define-char
   '((=>ucs		. #x3744)	; ã„
@@ -1070,7 +1070,7 @@
     (total-strokes	 . 13)
     (chinese-cns11643-3 . #x4071)	; ø»–…–
     (ideograph-daikanwa . 07013)	; ø¸­¥
-    (=cbeta		. #x16FC)	; ø¸¡›¼
+    (=cbeta		. 05884)	; ø¸¡›¼
     (ucs		. #x5B74)	; å­´
     ))
 (define-char
@@ -1087,7 +1087,7 @@
       ))
     (chinese-cns11643-5 . #x3E62)	; ø»š–“
     (ideograph-daikanwa . 07014)	; ø¸­¦
-    (=cbeta		. #x0EFF)	; ø¸ »¿
+    (=cbeta		. 03839)	; ø¸ »¿
     (ucs		. #x21986)	; ð¡¦†
     ))
 (define-char
@@ -1197,7 +1197,7 @@
      ((ucs		  . #x5B55)	; å­•
       ))
     (ideograph-daikanwa . 07025)	; ø¸­±
-    (=cbeta		. #x0F0F)	; ø¸ ¼
+    (=cbeta		. 03855)	; ø¸ ¼
     ))
 (define-char
   '((ideographic-radical . 39)	; â¼¦
@@ -1326,7 +1326,7 @@
      ((ucs		  . #x91CD)	; é‡
       ))
     (ideograph-daikanwa . 07037)	; ø¸­½
-    (=cbeta		. #x15FE)	; ø¸¡—¾
+    (=cbeta		. 05630)	; ø¸¡—¾
     ))
 (define-char
   '((morohashi-daikanwa	7037 0 2)
@@ -1467,7 +1467,7 @@
       ))
     (japanese-jisx0212	. #x3A45)	; ø»‹‰¢
     (ideograph-daikanwa . 07048)	; ø¸®ˆ
-    (=cbeta		. #x006E)	; ø¸ ®
+    (=cbeta		. 00110)	; ø¸ ®
     (ucs		. #x5B7E)	; å­¾
     ))
 (define-char
@@ -1556,7 +1556,7 @@
     (ideographic-strokes . 22)
     (total-strokes	 . 25)
     (ideograph-daikanwa . 07053)	; ø¸®
-    (=cbeta		. #x16E9)	; ø¸¡›©
+    (=cbeta		. 05865)	; ø¸¡›©
     ))
 (define-char
   '((morohashi-daikanwa	7053 0 1)

@@ -99,7 +99,7 @@
     (chinese-cns11643-5 . #x2128)	; ø»™ª³
     (ideograph-daikanwa . 00229)	; ø¸€ƒ¥
     (=big5-cdp		. #x88BF)	; ý¢€ˆ¢¿
-    (=cbeta		. #x1ADC)	; ø¸¡«œ
+    (=cbeta		. 06876)	; ø¸¡«œ
     (mojikyo		. 000229)	; ý €€ƒ¥
     (ucs		. #x2010F)	; ð „
     ))

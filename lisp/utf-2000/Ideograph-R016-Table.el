@@ -106,7 +106,7 @@
      ((ucs		  . #x51E0)	; å‡ 
       ))
     (chinese-cns11643-3 . #x2135)	; ø»•–¸
-    (=cbeta		. #x131B)	; ø¸¡Œ›
+    (=cbeta		. 04891)	; ø¸¡Œ›
     (mojikyo		. 059131)	; ý €Ž›»
     (ucs		. #x51E3)	; å‡£
     ))
@@ -280,7 +280,7 @@
     (chinese-cns11643-6		. #x235D)	; ø»›¸¨
     (ideograph-daikanwa		. 01751)	; ø¸€›—
     (ideograph-hanziku-1	. #xDF4A)	; ý¢€½Š
-    (=cbeta			. #x1431)	; ø¸¡±
+    (=cbeta			. 05169)	; ø¸¡±
     (ucs			. #x20636)	; ð ˜¶
     ))
 (define-char
@@ -494,7 +494,7 @@
     (chinese-isoir165		. #x463E)	; ø»¥‡
     (ideograph-daikanwa		. 01766)	; ø¸€›¦
     (ideograph-hanziku-1	. #xDF5E)	; ý¢€½ž
-    (=cbeta			. #x011D)	; ø¸ „
+    (=cbeta			. 00285)	; ø¸ „
     (=jef-china3		. #x82B8)	; øºˆŠ¸
     (ucs			. #x51ED)	; å‡­
     ))
@@ -862,7 +862,7 @@
      ((name		  . "CJK RADICAL TABLE")
       (ucs		  . #x2E87)	; âº‡
       )
-     ((ideograph-gt	  . 01936)	; ý¡€€ž
+     ((=gt-k		  . 06415)	; ý¡„¤
       ))
     (japanese-jisx0212		. #x332C)	; ø»Š¾·
     (chinese-cns11643-6		. #x4665)	; ø»œ¬Š
@@ -1003,7 +1003,7 @@
     (=jis-x0213-2-2000		. #x2334)	; ø»¤ 
     (ideograph-daikanwa		. 01798)	; ø¸€œ†
     (ideograph-hanziku-1	. #xDF7B)	; ý¢€½»
-    (=cbeta			. #x18AC)	; ø¸¡¢¬
+    (=cbeta			. 06316)	; ø¸¡¢¬
     (=jef-china3		. #x44AB)	; øº„’«
     (ucs			. #x51F4)	; å‡´
     ))

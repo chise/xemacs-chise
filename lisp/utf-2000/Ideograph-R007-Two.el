@@ -348,7 +348,7 @@
     (chinese-cns11643-3 . #x2266)	; ø»•™‡
     (ideograph-daikanwa . 00262)	; ø¸€„†
     (=big5-cdp		. #x8CEE)	; ý¢€ˆ³®
-    (=cbeta		. #x0028)	; ø¸ €¨
+    (=cbeta		. 00040)	; ø¸ €¨
     (mojikyo		. 000262)	; ý €€„†
     (ucs		. #x4E98)	; äº˜
     ))

@@ -943,7 +943,7 @@
     (total-strokes	 . 10)
     (=jis-x0208		. #x3E4E)	; ø½Š¡
     (chinese-cns11643-3 . #x327C)	; ø»•°½
-    (=cbeta		. #x017B)	; ø¸ …»
+    (=cbeta		. 00379)	; ø¸ …»
     (ucs-jis		. #x79F0)	; ø½Š¡
     (mojikyo		. 050318)	; ý €Œ’Ž
     ))

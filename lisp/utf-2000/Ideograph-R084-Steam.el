@@ -469,7 +469,7 @@
     (total-strokes	 . 12)
     (ideograph-gt-pj-4	. #x493C)	; ý¡€…•¦
     (chinese-big5	. #xD9E6)	; ý¢€§¦
-    (ideograph-gt	. 21862)	; ý¡€…•¦
+    (=gt		. 21862)	; ý¡€…•¦
     (mojikyo		. 050246)	; ý €Œ‘†
     ))
 (define-char
@@ -514,7 +514,7 @@
       (ideograph-daikanwa	  . 22959)	; ø¸…¦¯
       ))
     (ideograph-daikanwa . 17073)	; ø¸„Š±
-    (=cbeta		. #x0285)	; ø¸ Š…
+    (=cbeta		. 00645)	; ø¸ Š…
     (ucs		. #x23C66)	; ð£±¦
     ))
 (define-char

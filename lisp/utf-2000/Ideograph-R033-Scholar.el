@@ -391,7 +391,7 @@
     (chinese-cns11643-3		. #x3477)	; ø»•³´
     (japanese-jisx0208-1990	. #x445B)	; ø½Šª
     (ideograph-daikanwa		. 05657)	; ø¸˜™
-    (=cbeta			. #x1A44)	; ø¸¡©„
+    (=cbeta			. 06724)	; ø¸¡©„
     (ucs			. #x58F7)	; å£·
     ))
 (define-char

@@ -24,7 +24,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (ideograph-gt-pj-11 . #x5A40)	; ý¡€Ž¯³
-    (ideograph-gt	. 60403)	; ý¡€Ž¯³
+    (=gt		. 60403)	; ý¡€Ž¯³
     (mojikyo		. 050057)	; ý €ŒŽ‰
     ))
 (define-char
@@ -524,7 +524,7 @@
     (japanese-jisx0212	. #x3C7A)	; ø»‹“
     (chinese-cns11643-3 . #x505E)	; ø»–œ£
     (ideograph-daikanwa . 09948)	; ø¸‚›œ
-    (=cbeta		. #x071C)	; ø¸ œœ
+    (=cbeta		. 01820)	; ø¸ œœ
     (ucs		. #x5F5B)	; å½›
     ))
 (define-char
@@ -533,7 +533,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=jis-x0208		. #x5734)	; ø½‹…£
-    (=cbeta		. #x093A)	; ø¸ ¤º
+    (=cbeta		. 02362)	; ø¸ ¤º
     (ucs		. #x5F5C)	; å½œ
     ))
 (define-char

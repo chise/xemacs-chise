@@ -6732,7 +6732,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (ideograph-gt-pj-5	. #x4579)	; ý¡€‡˜®
-    (ideograph-gt	. 30254)	; ý¡€‡˜®
+    (=gt		. 30254)	; ý¡€‡˜®
     ))
 (define-char
   '((morohashi-daikanwa	23668 1 0)
