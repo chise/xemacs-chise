@@ -1,3 +1,8 @@
+2000-01-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`katakana-jisx0201' in UTF-2000.
+
 1999-12-23  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* dumped-lisp.el (preloaded-file-list): Add "u0A000-Yi-Syllables",
