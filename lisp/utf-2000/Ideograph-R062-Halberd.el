@@ -1092,10 +1092,10 @@
      ((name*		  . "ideographic component person as roof")
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       ))
-    (chinese-cns11643-5		. #x3F46)	; ø»š—•
-    (ideograph-daikanwa		. 11626)	; ø¸‚µª
-    (ideograph-hanziku-1	. #xD0CF)	; ý¢€ƒ
-    (ucs			. #x203B6)	; ð Ž¶
+    (chinese-cns11643-5 . #x3F46)	; ø»š—•
+    (ideograph-daikanwa . 11626)	; ø¸‚µª
+    (=hanziku-1		. #xD0CF)	; ý¢€ƒ
+    (ucs		. #x203B6)	; ð Ž¶
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½

@@ -168,9 +168,9 @@
 	  ))
 	))
       ))
-    (chinese-cns11643-6		. #x4B46)	; ø»œ³
-    (ideograph-hanziku-1	. #xE1F1)	; ý¢€ž‡±
-    (ucs			. #x248E7)	; ð¤£§
+    (chinese-cns11643-6 . #x4B46)	; ø»œ³
+    (=hanziku-1		. #xE1F1)	; ý¢€ž‡±
+    (ucs		. #x248E7)	; ð¤£§
     ))
 (define-char
   '((=>ucs		. #x248E8)	; ð¤£¨
@@ -203,7 +203,7 @@
       )
      ((ucs		  . #x66F7)	; æ›·
       ))
-    (chinese-cns11643-6		. #x5E72)	; ø»§
-    (ideograph-hanziku-1	. #xE254)	; ý¢€ž‰”
-    (ucs			. #x248E8)	; ð¤£¨
+    (chinese-cns11643-6 . #x5E72)	; ø»§
+    (=hanziku-1		. #xE254)	; ý¢€ž‰”
+    (ucs		. #x248E8)	; ð¤£¨
     ))

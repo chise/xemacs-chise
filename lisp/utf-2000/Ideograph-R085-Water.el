@@ -8309,8 +8309,8 @@
       )
      ((ucs		  . #x6C34)	; æ°´
       ))
-    (ideograph-daikanwa		. 17712)	; ø¸„”°
-    (ideograph-hanziku-1	. #xD040)	; ý¢€€
+    (ideograph-daikanwa . 17712)	; ø¸„”°
+    (=hanziku-1		. #xD040)	; ý¢€€
     ))
 (define-char
   '((morohashi-daikanwa	17712 0 0)
@@ -8328,9 +8328,9 @@
       )
      ((ucs		  . #x6C34)	; æ°´
       ))
-    (chinese-cns11643-6		. #x4A59)	; ø»œ±¶
-    (ideograph-hanziku-1	. #xD040)	; ý¢€€
-    (ucs			. #x23D9A)	; ð£¶š
+    (chinese-cns11643-6 . #x4A59)	; ø»œ±¶
+    (=hanziku-1		. #xD040)	; ý¢€€
+    (ucs		. #x23D9A)	; ð£¶š
     ))
 (define-char
   '((ideographic-radical . 85)	; â½”

@@ -543,10 +543,10 @@
       )
      ((ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-cns11643-4		. #x2624)	; ø»—¨
-    (ideograph-daikanwa		. 06971)	; ø¸¬»
-    (ideograph-hanziku-1	. #xAF42)	; ý¢€š½‚
-    (ucs			. #x200F1)	; ð ƒ±
+    (chinese-cns11643-4 . #x2624)	; ø»—¨
+    (ideograph-daikanwa . 06971)	; ø¸¬»
+    (=hanziku-1		. #xAF42)	; ý¢€š½‚
+    (ucs		. #x200F1)	; ð ƒ±
     ))
 (define-char
   '((ideographic-radical . 39)	; â¼¦

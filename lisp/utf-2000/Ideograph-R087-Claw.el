@@ -373,8 +373,8 @@
      ((ideograph-daikanwa . 04811)	; ø¸‹‹
       ))
     (hanyu-dazidian	3 2033 18)
-    (ideograph-hanziku-5	. #xF8B3)	; ý¢Ÿ¢³
-    (ucs			. #x24517)	; ð¤”—
+    (=hanziku-5		. #xF8B3)	; ý¢Ÿ¢³
+    (ucs		. #x24517)	; ð¤”—
     ))
 (define-char
   '((ideographic-radical . 87)	; â½–
