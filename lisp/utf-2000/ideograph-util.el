@@ -158,18 +158,22 @@
 		 nil)
 		(t (< (car (cdr ra))(car (cdr rb))))))
 	 (t (< (car ra)(car rb)))))
-       ((setq ra (get-char-attribute a 'ucs))
-	(cond
-	 ((setq rb (get-char-attribute b 'ucs))
-	  (< ra rb))))
-       (t
-	(cond
-	 ((setq ra (char-ideograph-strokes a))
-	  (cond ((setq rb (char-ideograph-strokes b))
-		 (cond ((= ra rb)
-			(not (char-ideograph-strokes b)))
-		       ((< ra rb))))))
-	 )))))))
+       (t)))
+     ((or (get-char-attribute b 'morohashi-daikanwa)
+	  (get-char-attribute b 'non-morohashi))
+      nil)
+     ((setq ra (get-char-attribute a 'ucs))
+      (cond
+       ((setq rb (get-char-attribute b 'ucs))
+	(< ra rb))))
+     (t
+      (cond
+       ((setq ra (char-ideograph-strokes a))
+	(cond ((setq rb (char-ideograph-strokes b))
+	       (cond ((= ra rb)
+		      (not (char-ideograph-strokes b)))
+		     ((< ra rb))))))
+       )))))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
