@@ -1,14 +1,6 @@
 (define-char
   '((ideographic-radical . 210)	; â¿‘
     (ideographic-strokes . 0)
-    (chinese-gb2312	. #x466B)	; ø»„½¤
-    (chinese-isoir165	. #x466B)	; ø»¥´
-    (ideograph-daikanwa . 13451)	; ø¸ƒ’‹
-    (ucs		. #x9F50)	; é½
-    ))
-(define-char
-  '((ideographic-radical . 210)	; â¿‘
-    (ideographic-strokes . 0)
     (total-strokes	 . 14)
     (shinjigen-2	. 9881)
     (japanese-jisx0208-1978	. #x736E)	; ø»ƒµ©
