@@ -1004,13 +1004,18 @@
     (=daikanwa		. 07715)	; ø¸¸£
     ))
 (define-char
-  '((ideographic-radical . 44)	; â¼«
+  '((=>daikanwa		. 07716)	; ý¢€…ª
+    (ideographic-radical . 44)	; â¼«
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (->subsumptive
+     ((=big5		  . #xD16A)	; ý¢€…ª
+      (=daikanwa	  . 07716)	; ø¸¸¤
+      )
+     ((=cns11643-2	  . #x2E6C)	; ø»“ ±
+      (=ucs@unicode	  . #x5C56)	; ø»“ ±
+      ))
     (=ucs		. #x5C56)	; å±–
-    (=cns11643-2	. #x2E6C)	; ø»“ ±
-    (=big5		. #xD16A)	; ý¢€…ª
-    (=daikanwa		. 07716)	; ø¸¸¤
     ))
 (define-char
   '((=>ucs		. #x21C65)	; ð¡±¥
