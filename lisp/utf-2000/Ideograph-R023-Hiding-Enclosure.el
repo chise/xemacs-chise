@@ -71,6 +71,7 @@
     (chinese-gb2312		. #x4778)	; ø»„¿
     (japanese-jisx0208		. #x3668)	; ø»†°…
     (chinese-isoir165		. #x4778)	; ø»§Ÿ
+    (japanese-jisx0208-1990	. #x3668)	; åŒº
     (ucs			. #x533A)	; åŒº
     ))
 (define-char
