@@ -411,8 +411,8 @@
 
 1998-03-02  Kenichi Handa  <handa@etl.go.jp>
 
-	* mule/mule-cmds.el (set-default-coding-systems):
-	Doc-string modified.
+	* mule/mule-cmds.el (set-default-coding-systems): Doc-string
+	modified.
 	(prefer-coding-system): Doc-string modified.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
@@ -540,6 +540,16 @@
 
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-06-25  Charles G Waldman <cgw@fnal.gov>
+
+        * cus-face.el (custom-face-italic): insert missing args
+        
+1999-06-24  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* packages.el (package-locations): Changed default early package
+	hierarchies to ~/.xemacs/mule-packages and
+	~/.xemacs/xemacs-packages.
 
 1999-06-23  SL Baur  <steve@miho.m17n.org>
 
