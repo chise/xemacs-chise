@@ -313,11 +313,10 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 69)
+     (:char	((shinjigen-1	     . 69)
 		 (ideograph-daikanwa . 00241)	; ø¸€ƒ±
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
     (=jis-x0208		. #x502F)	; ø½Š»Œ

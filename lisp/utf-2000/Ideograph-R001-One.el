@@ -595,11 +595,10 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 9)
+     (:char	((shinjigen-1	     . 9)
 		 (japanese-jisx0208-1990     . #x3E66)	; ø½Š¡§
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (hanyu-dazidian	1 12 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
