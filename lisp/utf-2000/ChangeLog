@@ -1,3 +1,7 @@
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-attribute-name<): Modify for =jis-x0208.
+
 2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R173-Rain.el (U+96F2): Use `->subsumptive'.
