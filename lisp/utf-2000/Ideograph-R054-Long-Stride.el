@@ -158,7 +158,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=cns11643-3	. #x2869)	; ø»•¡¾
-    (=gt-pj-1		. #x572F)	; å»¸
     (=ucs		. #x5EF8)	; å»¸
     ))
 (define-char
@@ -167,6 +166,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=jis-x0208		. #x572F)	; ø½‹…ž
+    (=gt-pj-1		. #x572F)	; ý¡€‚¼
+    (=ucs@jis		. #x5EF8)	; ø½‹…ž
+    (=gt		. 12061)	; ý¡€‚¼
     ))
 (define-char
   '((ideographic-radical . 54)	; â¼µ
