@@ -38,7 +38,7 @@ extern Lisp_Object Vcharset_latin_jisx0201;
 
 typedef short Charset_ID;
 
-#define MIN_LEADING_BYTE		-0x70
+#define MIN_LEADING_BYTE		-0x100
 #define CHARSET_ID_OFFSET		0x00
 
 /* ISO/IEC 10646 */
@@ -129,8 +129,10 @@ typedef short Charset_ID;
 #define LEADING_BYTE_MOJIKYO_PJ_20	(CHARSET_ID_OFFSET - 70)
 #define LEADING_BYTE_MOJIKYO_PJ_21	(CHARSET_ID_OFFSET - 71)
 
+#define LEADING_BYTE_JEF_CHINA3		(CHARSET_ID_OFFSET - 72)
+
 #define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
-#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 72)
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 73)
 
 
 /* #define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0') */
@@ -445,6 +447,8 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_MOJIKYO	(MIN_CHAR_MOJIKYO + 94 * 60 * 22)
 #define MIN_CHAR_GT		0x61000000
 #define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
+#define MIN_CHAR_JEF_CHINA3	0x62000000
+#define MAX_CHAR_JEF_CHINA3	(MIN_CHAR_JEF_CHINA3 + 65535)
 
 Emchar decode_builtin_char (Lisp_Object charset, int code_point);
 
@@ -546,7 +550,7 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
     {
       int plane = LEADING_BYTE_MOJIKYO_PJ_1 - XCHARSET_ID (charset);
 
-      if ( (0 <= plane) && (plane <= 21) )
+      if ( (0 <= plane) && (plane < 21) )
 	{
 	  int m = DECODE_MOJIKYO_2022 (plane + 33,
 				       code_point >> 8,
