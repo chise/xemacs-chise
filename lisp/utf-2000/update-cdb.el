@@ -76,13 +76,13 @@
       (save-charset-mapping-table ccs))
     )
    (t
-    (if (>= (function-min-args 'char-attribute-list) 1)
+    (if (>= (function-max-args 'char-attribute-list) 1)
 	(char-attribute-list 'rehash)
       (mapcar (lambda (file)
 		(mount-char-attribute-table
 		 (intern (file-name-char-attribute-name file))))
 	      (directory-files
-	       (expand-file-name "system-char-id"
+	       (expand-file-name "system-char-id" ; "character/feature" ;
 				 system-char-database-directory)
 	       nil nil t t)))
     (dolist (ccs (charset-list))
