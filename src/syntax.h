@@ -85,7 +85,7 @@ INLINE_HEADER enum syntaxcode
 SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
 {
   Lisp_Object code = CHAR_TABLE_VALUE_UNSAFE (table, c);
-  EMACS_INT ret = Spunct;
+  enum syntaxcode ret = Spunct;
 
   if (CONSP (code))
     code = XCAR (code);
