@@ -914,7 +914,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2345)	; ø»‘…¼
-    (chinese-big5	. #xF9E9)	; øº£œ»
+    (chinese-big5	. #xA2A5)	; øºŸž 
     (ucs		. #x255E)	; â•ž
     ))
 (define-char
@@ -939,7 +939,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2347)	; ø»‘…¾
-    (chinese-big5	. #xF9EB)	; øº£œ½
+    (chinese-big5	. #xA2A7)	; øºŸž¢
     (ucs		. #x2561)	; â•¡
     ))
 (define-char
@@ -1012,7 +1012,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2346)	; ø»‘…½
-    (chinese-big5	. #xF9EA)	; øº£œ¼
+    (chinese-big5	. #xA2A6)	; øºŸž¡
     (ucs		. #x256A)	; â•ª
     ))
 (define-char
