@@ -77,7 +77,7 @@ Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_chinese_big5;
-Lisp_Object Vcharset_chinese_big5_cdp;
+/* Lisp_Object Vcharset_chinese_big5_cdp; */
 Lisp_Object Vcharset_ideograph_hanziku_1;
 Lisp_Object Vcharset_ideograph_hanziku_2;
 Lisp_Object Vcharset_ideograph_hanziku_3;
@@ -350,7 +350,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qchinese_big5,
-  Qchinese_big5_cdp,
+  /*  Qchinese_big5_cdp, */
   Qideograph_hanziku_1,
   Qideograph_hanziku_2,
   Qideograph_hanziku_3,
@@ -2626,7 +2626,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_daikanwa_2,	"ideograph-daikanwa-2");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
-  defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp");
+  /*  defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp"); */
   defsymbol (&Qideograph_hanziku_1,	"ideograph-hanziku-1");
   defsymbol (&Qideograph_hanziku_2,	"ideograph-hanziku-2");
   defsymbol (&Qideograph_hanziku_3,	"ideograph-hanziku-3");
@@ -3068,6 +3068,7 @@ complex_vars_of_mule_charset (void)
 		  0 /* MIN_CHAR_BIG5_CDP */,
 		  0 /* MAX_CHAR_BIG5_CDP */, 0, 0,
 		  Qnil, CONVERSION_IDENTICAL);
+#if 0
   staticpro (&Vcharset_chinese_big5_cdp);
   Vcharset_chinese_big5_cdp =
     make_charset (LEADING_BYTE_CHINESE_BIG5_CDP, Qchinese_big5_cdp, 256, 2,
@@ -3078,6 +3079,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("big5\\.cdp-0"),
 		  Qnil, MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
 		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
+#endif
 #define DEF_HANZIKU(n)							\
   staticpro (&Vcharset_ideograph_hanziku_##n);				\
   Vcharset_ideograph_hanziku_##n =					\
