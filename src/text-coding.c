@@ -2269,6 +2269,8 @@ do {					\
 
 #define DECODING_STREAM_DATA(stream) LSTREAM_TYPE_DATA (stream, decoding)
 
+#define ER_BUF_SIZE 24
+
 struct decoding_stream
 {
   /* Coding system that governs the conversion. */
@@ -2310,7 +2312,7 @@ struct decoding_stream
 #endif
 #ifdef UTF2000
   unsigned char er_counter;
-  unsigned char er_buf[16];
+  unsigned char er_buf[ER_BUF_SIZE];
 
   unsigned combined_char_count;
   Emchar combined_chars[16];
@@ -3244,6 +3246,8 @@ decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
     }
 }
 
+EXFUN (Fregexp_quote, 1);
+
 void decode_add_er_char (struct decoding_stream *str, Emchar character,
 			 unsigned_char_dynarr* dst);
 void
@@ -3265,7 +3269,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     {
       Lisp_Object string = make_string (str->er_buf,
 					str->er_counter);
-      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+      Lisp_Object rest;
       Lisp_Object cell;
       Lisp_Object ret;
       Lisp_Object pat;
@@ -3273,7 +3277,8 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
       Lisp_Object char_type;
       int base;
 
-      while (!NILP (rest))
+      for ( rest = Vcoded_charset_entity_reference_alist;
+	    !NILP (rest); rest = Fcdr (rest) )
 	{		      
 	  cell = Fcar (rest);
 	  ccs = Fcar (cell);
@@ -3293,6 +3298,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	    pat = ret;
 	  else
 	    continue;
+	  pat = Fregexp_quote (pat);
 
 	  cell = Fcdr (cell);
 	  cell = Fcdr (cell);
@@ -3334,7 +3340,6 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	      DECODE_ADD_UCS_CHAR (chr, dst);
 	      goto decoded;
 	    }
-	  rest = Fcdr (rest);
 	}
       if (!NILP (Fstring_match (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
 				string, Qnil, Qnil)))
@@ -3356,7 +3361,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     decoded:
       str->er_counter = 0;
     }
-  else if ( (str->er_counter >= 16) || (c >= 0x7F) )
+  else if ( (str->er_counter >= ER_BUF_SIZE) || (c >= 0x7F) )
     {
       Dynarr_add_many (dst, str->er_buf, str->er_counter);
       str->er_counter = 0;
@@ -3375,7 +3380,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
   Lisp_Object ccs;
   Lisp_Object char_type;
   int format_columns, idx;
-  char format[18];
+  char format[ER_BUF_SIZE];
 
   while (!NILP (rest))
     {
@@ -3400,14 +3405,15 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
-	      if (STRINGP (ret) && ((idx = XSTRING_LENGTH (ret)) <= 6))
+	      if ( STRINGP (ret) &&
+		   ( (idx = XSTRING_LENGTH (ret)) <= (ER_BUF_SIZE - 4) ) )
 		{
 		  format[0] = '&';
 		  strncpy (&format[1], XSTRING_DATA (ret), idx);
 		  idx++;
 		}
 	      else
-		continue;
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
@@ -3415,12 +3421,15 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 		{
 		  format[idx++] = '%';
 		  format_columns = XINT (ret);
-		  if ( (2 <= format_columns) && (format_columns <= 8) )
+		  if ( (2 <= format_columns) && (format_columns <= 8)
+		       && (idx + format_columns <= ER_BUF_SIZE - 1) )
 		    {
 		      format [idx++] = '0';
 		      format [idx++] = '0' + format_columns;
 		    }
 		}
+	      else
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
@@ -3431,7 +3440,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      else if (EQ (ret, QX))
 		format [idx++] = 'X';
 	      else
-		continue;
+		goto try_next;
 	      format [idx++] = ';';
 	      format [idx++] = 0;
 
@@ -3439,6 +3448,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      return;
 	    }
 	}
+    try_next:
       rest = Fcdr (rest);
     }
   sprintf (buf, "&MCS-%08X;", ch);
@@ -4602,7 +4612,7 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 0);
       int code_point = charset_code_point (ucs_ccs, ch, 0);
 
-      if ( (code_point < 0) || (code_point > 0x10FFFF) )
+      if ( (code_point < 0) || (code_point > 0xEFFFF) )
 	{
 	  Lisp_Object map
 	    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);

@@ -7,9 +7,9 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2003/05/02 06:00:43 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2003/10/09 19:16:02 $
 @sp 1
-@author Tony Rossini <rossini@@biostat.washington.edu>
+@author Tony Rossini <rossini@@u.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
 @author Chuck Thompson <cthomp@@xemacs.org>
 @author Steve Baur <steve@@xemacs.org>
@@ -1430,24 +1430,18 @@ you don't use.  @emph{Nothing bad will happen if you delete a package
 that you do not use}.  You must be sure you do not use it though, so be
 conservative at first.
 
-Possible candidates for deletion include w3, games, hyperbole, mh-e,
-hm-html-menus, vm, viper, oobr, gnus, etc.  Ask yourself, @emph{Do I
-ever want to use this package?}  If the answer is no, then it is a
-candidate for removal.
+Any package with the possible exceptions of xemacs-base, and EFS are
+candidates for removal.  Ask yourself, @emph{Do I ever want to use this
+package?}  If the answer is no, then it is a candidate for removal.
 
 First, gzip all the .el files.  Then go about package by package and
 start gzipping the .elc files.  Then run XEmacs and do whatever it is
-you normally do.  If nothing bad happens, then delete the directory.  Be
-conservative about deleting directories, and it would be handy to have a
-backup around in case you get too zealous.
+you normally do.  If nothing bad happens, then remove the package.  You
+can remove a package via the PUI interface 
+(@code{M-x pui-list-packages}, then press @kbd{d} to mark the packages
+you wish to delete, and then @kbd{x} to delete them.
 
-@file{prim}, @file{modes}, @file{packages}, and @file{utils} are four
-directories you definitely do @strong{not} want to delete, although
-certain packages can be removed from them if you do not use them.
-
-Online texinfo sources in the @file{info} can either be compressed them
-or remove them.  In either case, @kbd{C-h i} (info mode) will no longer
-work.
+Another method is to do @code{M-x package-get-delete-package}.
 
 @node Q2.0.3, Q2.0.4, Q2.0.2, Installation
 @unnumberedsubsec Q2.0.3: Compiling XEmacs with Netaudio.
@@ -1944,7 +1938,7 @@ file @file{XKeysymDB}.
 The binary cannot find the @file{XKeysymDB} file.  The location is
 hardcoded at compile time so if the system the binary was built on puts
 it a different place than your system does, you have problems.  To fix,
-set the environment variable @var{XKEYSYMDB} to the location of the
+set the environment variable @code{XKEYSYMDB} to the location of the
 @file{XKeysymDB} file on your system or to the location of the one
 included with XEmacs which should be at
 @iftex
@@ -1957,7 +1951,7 @@ The binary is finding the XKeysymDB but it is out-of-date on your system
 and does not contain the necessary lines.  Either ask your system
 administrator to replace it with the one which comes with XEmacs (which
 is the stock R6 version and is backwards compatible) or set your
-@var{XKEYSYMDB} variable to the location of XEmacs's described above.
+@code{XKEYSYMDB} variable to the location of XEmacs's described above.
 @end itemize
 
 @node Q2.1.4, Q2.1.5, Q2.1.3, Installation
@@ -1993,7 +1987,7 @@ The buffer still exists; it just isn't in your face.
 
 Help!  I can not get XEmacs to display on my Envizex X-terminal!
 
-Try setting the @var{DISPLAY} variable using the numeric IP address of
+Try setting the @code{DISPLAY} variable using the numeric IP address of
 the host you are running XEmacs from.
 
 @node Q2.1.6, Q2.1.7, Q2.1.5, Installation
@@ -3762,9 +3756,8 @@ For an extensive menubar, add this line to your @file{init.el}/@file{.emacs}:
 @end lisp
 
 If you'd like to write your own, this file provides as good a set of
-examples as any to start from.  The file is located in
-@file{lisp/packages/big-menubar.el} in the XEmacs installation
-directory.
+examples as any to start from.  The file is located in edit-utils
+package. 
 
 @node Q3.8.3, Q3.8.4, Q3.8.2, Customization
 @unnumberedsubsec Q3.8.3: How do I control how many buffers are listed in the menu @code{Buffers List}?
@@ -4545,6 +4538,14 @@ tm is available from following anonymous ftp sites:
 Don't let the installation procedure & instructions stop you from trying
 this package out---it's much simpler than it looks, and once installed,
 trivial to use.
+
+@email{youngs@@xemacs.org, Steve Youngs} writes:
+
+@quotation
+All the major Emacs Lisp based MUAs (Gnus, MH-E, and VM) all do their
+own thing when it comes to MIME so you won't need TM to get MIME support
+in these packages.
+@end quotation
 
 @node Q4.3.3, Q4.3.4, Q4.3.2, Subsystems
 @unnumberedsubsec Q4.3.3: Why isn't this @code{movemail} program working?
@@ -5903,7 +5904,9 @@ document?
 
 The package @code{ps-print}, which is now included with XEmacs, provides
 the ability to do this.  The source code contains complete instructions
-on its use, in @file{<xemacs_src_root>/lisp/packages/ps-print.el}.
+on its use, in
+@file{$prefix/lib/xemacs/xemacs-packages/lisp/ps-print/ps-print.el},
+being the default location of an installed ps-print package.
 
 @node Q5.3.4, Q5.3.5, Q5.3.3, Miscellaneous
 @unnumberedsubsec Q5.3.4: Getting @kbd{M-x lpr} to work with postscript printer.

@@ -385,7 +385,7 @@ Returns the window displaying BUFFER."
 	 ;; and does `returns' all over the place and there's no sense
 	 ;; in trying to rewrite it to be more Lispy.
 	 (catch 'done
-	   (let (window old-frame target-frame explicit-frame)
+	   (let (window old-frame target-frame explicit-frame shrink-it)
 	     (setq old-frame (or (last-nonminibuf-frame) (selected-frame)))
 	     (setq buffer (get-buffer buffer))
 	     (check-argument-type 'bufferp buffer)
@@ -573,9 +573,7 @@ Returns the window displaying BUFFER."
 				(and (window-leftmost-p window)
 				     (window-rightmost-p window))))
 		       (setq window (split-window window))
-		     (let (upper
-;;			   lower
-			   other)
+		     (let (upper other)
 		       (setq window (get-lru-window target-frame))
 		       ;; If the LRU window is selected, and big enough,
 		       ;; and can be split, split it.
@@ -605,11 +603,9 @@ Returns the window displaying BUFFER."
 		       ;; even out their heights.
 		       (if (window-previous-child window)
 			   (setq other (window-previous-child window)
-;;				 lower window
 				 upper other))
 		       (if (window-next-child window)
 			   (setq other (window-next-child window)
-;;				 lower other
 				 upper window))
 		       ;; Check that OTHER and WINDOW are vertically arrayed.
 		       (if (and other
@@ -622,8 +618,11 @@ Returns the window displaying BUFFER."
 						 2)
 					      (window-height upper))
 					   nil upper))
-		       (if shrink-to-fit
-			   (shrink-window-if-larger-than-buffer window)))))
+                       ;; Klaus Berndl <klaus.berndl@sdm.de>: Only in
+                       ;; this situation we shrink-to-fit but we can do
+                       ;; this first after we have displayed buffer in
+                       ;; window (s.b. (set-window-buffer window buffer))
+                       (setq shrink-it shrink-to-fit))))
 
 	       (setq window (get-lru-window target-frame)))
 
@@ -635,6 +634,12 @@ Returns the window displaying BUFFER."
 		     (record-buffer (window-buffer window)))))
 
 	     (set-window-buffer window buffer)
+
+             ;; Now window's previous buffer has been brought to the top
+             ;; of the MRU chain and window displays buffer - now we can
+             ;; shrink-to-fit if necessary
+             (if shrink-it
+                 (shrink-window-if-larger-than-buffer window))
 
 	     (display-buffer-1 window)))))
     (or (equal wconfig (current-window-configuration))

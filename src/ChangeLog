@@ -1,3 +1,307 @@
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_put_char): Moved to mule-charset.c;
+	changed to normal function.
+	(encode_char_2): Likewise.
+
+	* mule-charset.c (decoding_table_put_char): Copied from
+	char-ucs.h; changed to normal function.
+	(encode_char_2): Likewise.
+
+2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (Vdisplay_coded_charset_priority_use_inheritance):
+	New extern.
+	(Vdisplay_coded_charset_priority_use_hierarchy_order): Likewise.
+	(encode_char_2_search_children): New inline function.
+	(encode_char_2): Refer
+	`Vdisplay_coded_charset_priority_use_{inheritance|hierarchy_order}'
+	and use `encode_char_2_search_children'.
+
+2004-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c
+	(Vdisplay_coded_charset_priority_use_inheritance): New variable.
+	(Vdisplay_coded_charset_priority_use_hierarchy_order): Likewise.
+	(vars_of_mule_charset): Add new variable
+	`display-coded-charset-priority-use-inheritance' and
+	`display-coded-charset-priority-use-hierarchy-order'.
+
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (Q_subsumptive): New extern.
+	(Q_denotational): Likewise.
+	(encode_char_2): Search children specified by `->subsumptive' and
+	`->denotational'.
+
+2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Modify the
+	X-registry of `ucs-bmp'.
+
+2004-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char-variants): Refer `->subsumptive',
+	`->denotational' and `->identical' as same as `->ucs-unified'.
+
+2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}{fullwidth|halfwidth}[^*]*' to characters and put reverse
+	links.
+
+2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: Add EXFUN for `Fregexp_quote'.
+	(decode_add_er_char): Fix problem about infinite loop when a CCS
+	specified in `coded-charset-entity-reference-alist' is not
+	existed.
+
+2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Rename
+	`=jis-x0208-{1978|1983|1990}' to `=jis-x0208@{1978|1983|1990}'.
+
+2004-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* fns.c (simplify_char_spec): Don't allocate new character-object
+	if specified char_spec does not have any CCS-features.
+
+	* chartab.h: Add EXFUN for Fdefine_char.
+
+	* chartab.c: Delete EXFUN for Fdefine_char.
+
+2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* fns.c (simplify_char_spec): Use Fdefine_char instead of
+	Ffind_char for char-spec.
+
+2004-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lisp-disunion.h (XCHARVAL): Fix condition about
+	SIZEOF_EMACS_INT.
+
+2004-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Use <EMACS_INT> instead of
+	<int> for `code'.
+	(Fdecode_builtin_char): Use <EMACS_INT> instead of <int> for code
+	point; use <Emchar> instead of <int> for character-id.
+
+2004-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* lisp-disunion.h (make_int): Cast the argument into <EMACS_INT>.
+	(make_char): Likewise.
+	(XCHARVAL): Don't use the inline function for UTF-2000 in 64 bit
+	environment.
+	(XCHARVAL[for UTF-2000 in 32 bit environment]): Use <Emchar>
+	instead of <int> as the type of return value; use <Lisp_Object>
+	instead of <Emchar> as the type of argument.
+	(XCHARVAL[macro version]): Cast the result into <Emchar>.
+
+	* syntax.h (SYNTAX_CODE_UNSAFE): Use <Lisp_Object> and <enum
+	syntaxcode> instead of <int>.
+
+2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (put_char_composition): Use DECODE_CHAR to get
+	character corresponding with UCS code point.
+	(Fput_char_attribute): Likewise.
+
+	* mule-charset.c (put_char_ccs_code_point): Don't omit a UCS
+	character in the UCS decoding-table if the char-id is not equal to
+	the UCS code point.
+
+2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_properties): Use `true-name' only
+	for aliases; write `description'; write
+	`mother-code-{min|max|offset|conversion}' if CHARSET_MAX_CODE is
+	not 0.
+
+2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fsave_char_attribute_table): Don't use
+	`save_charset_properties'.
+
+	* mule-charset.c (Fsave_charset_properties): Renamed from
+	`save_charset_properties' and changed to Lisp function again;
+	write property `type' as `CCS'; write properties `final-byte' and
+	`mother' if they exists.
+	(syms_of_mule_charset): Revive builtin function
+	`save-charset-properties' when HAVE_LIBCHISE is defined.
+
+2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (open_chise_data_source_maybe): Use Vdata_directory
+	instead of Vexec_directory.
+	(char_attribute_system_db_file): Likewise.
+
+2004-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fsave_char_attribute_table): Use
+	`save_charset_properties' for CCS features when HAVE_LIBCHISE is
+	defined.
+
+	* mule-charset.c (save_charset_properties): Renamed from
+	`Fsave_charset_properties'; changed to non-Lisp function.
+	(syms_of_mule_charset): Abolish builtin function
+	`save-charset-properties'.
+
+2004-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_properties): New function when
+	HAVE_LIBCHISE is defined.
+	(syms_of_mule_charset): Add new builtin function
+	`save-charset-properties' when HAVE_LIBCHISE is defined.
+
+2004-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}ancient[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}ancient[^*]*'.
+
+2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}original[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}original[^*]*'.
+
+2004-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-canna.c (m2c): Fix problem with XEmacs CHISE.
+
+2004-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qsystem_char_id): New variable.
+
+	* chartab.c (Qsystem_char_id): Deleted even if HAVE_CHISE is
+	defined and HAVE_LIBCHISE_LIBCHISE is not defined.
+
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): When processing a reference of
+	a character, put into the end of the reversed reference of each
+	target character.
+
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_same): Deleted.
+	(Q_same_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}same'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}same'.
+	(syms_of_chartab): Delete builtin symbol `{<-|->}same'.
+
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_vulgar): Deleted.
+	(Q_vulgar_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}vulgar'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}vulgar'.
+	(syms_of_chartab): Don't define `{<-|->}vulgar'.
+
+2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}wrong[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}wrong[^*]*'.
+
+2004-04-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_vulgar): New variable.
+	(Q_vulgar_of): New variable.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{->|<-}vulgar' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{->|<-}vulgar'.
+	(syms_of_chartab): Add new symbols `{->|<-}vulgar'.
+
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_add_er_char): Must to quote prefix string
+	as regexp.
+
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Store characters of
+	=ucs whose code_points >= 0xF0000.
+
+2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_system_char_id): New variable in XEmacs
+	CHISE.
+	(syms_of_mule_charset): Add new symbol `system-char-id' in XEmacs
+	CHISE.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`system-char-id' in XEmacs CHISE; modify `=ucs' to eliminate
+	builtin characters over 0xEFFFF.
+
+	* chartab.c (syms_of_chartab): Don't define symbol
+	`system-char-id' in every case.
+
+	* char-ucs.h (Qsystem_char_id): New extern variable.
+	(LEADING_BYTE_SYSTEM_CHAR_ID): New macro.
+
+2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_utf8): Try to use entity-references
+	for U-000F0000 ...  U-0010FFFF.
+
+2004-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (ER_BUF_SIZE): New macro.
+	(struct decoding_stream): Use `ER_BUF_SIZE' to specify size of
+	`er_buf'.
+	(decode_add_er_char): Use `ER_BUF_SIZE' instead of 16.
+	(char_encode_as_entity_reference): Use `ER_BUF_SIZE'.
+
+2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (find_char_feature_in_family): New function.
+	(Fchar_feature): Use `find_char_feature_in_family' with
+	`->identical', `<-subsumptive' and `<-denotational'.
+
+2004-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): Allow prefix
+	within 8 characters; fix infinite loop.
+
+2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_same): New variable.
+	(Q_same_of): New variable.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{->|<-}same' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{->|<-}same'.
+	(syms_of_chartab): Add new symbols `{->|<-}same'.
+
+2004-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_component): New variable.
+	(Q_component_of): Likewise.
+	(Fput_char_attribute): Convert char-specs in value of
+	`{->|<-}ideographic-component-forms' to characters and put reverse
+	links.
+	(syms_of_chartab): Add new symbols
+	`{->|<-}ideographic-component-forms'.
+
+2004-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* chartab.c (Q_identical): New variable.
+	(Q_identical_from): New variable.
+	(Fchar_feature): Regard `->identical' as a feature to find
+	ancestors.
+	(Fput_char_attribute): Add reversed link for `{->|<-}identical'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{->|<-}identical'.
+	(syms_of_chartab): Add new symbols `{->|<-}identical'.
+
 2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (encode_char_2): New inline function.
@@ -18,7 +322,7 @@
 
 2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* chartab.c (Fput_char_attribute): Convert char-refs in value of
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
 	`<-simplified[^*]*' to characters and put reverse links.
 
 2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -5236,6 +5540,93 @@
 	(Vcharset_hebrew_iso8859_8): Likewise.
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
+
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2004-01-30  Glynn Clements  <glynn.clements@virgin.net>
+
+	* device-x.c (x_error_handler): Don't call stderr_out
+
+2003-11-07  Katsumi Yamaoka <yamaoka@jpl.org>
+
+	* buffer.c (other-buffer): Clarify documentation of order of
+	arguments for FSF Emacs.
+
+2003-10-11  Olivier Galibert  <galibert@pobox.com>
+
+	* window.c (Fdelete_window): Dirty the mirror structure _before_
+	marking the window deleted.
+
+2003-09-15  Jerry James  <james@xemacs.org>
+
+	* event-msw.c (debug_mswin_messages): Conditionally compile
+	messages missing from the Cygwin headers.
+
+2003-06-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* data.c (eq_with_ebola_notice): Fix typo in comment.
+	(Ftrue_list_p): Improve docstring.
+
+2003-10-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* frame-x.c (x_update_frame_external_traits): Fix XtSetArg idiom.
+
+2003-09-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (trivial_regexp_p): Regexps containing "\{" are
+	nontrivial.  Thanks to Manfred Bartz for reporting the bug and
+	Stefan Monnier for suggesting a diagnosis.
+
+2003-09-25  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* elhash.c (make-hash-table): Clarify use of :test #'equal.
+
+2003-09-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (Fsearch_forward):
+	(Fsearch_backward):
+	Document negative count.
+
+2003-09-13  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_max_failures): Bump to 20000 for REGEX_MALLOC, too.
+
+2003-09-13  Martin Buchholz  <martin@xemacs.org>
+
+	* s/sol2.h: Use OS_RELEASE=os_release_major*100+os_release_minor
+
+2003-09-15  Vin Shelton  <acs@xemacs.org>
+
+	* .gdbinit (pobj): Remove Ilya's fix that was only intended for
+	21.5.
+
+2003-09-12  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* regex.c (TRANSLATE_EXTENDED_UNSAFE): Remove.
+	(re_search_2): Match the first byte of Bufbyte, not Emchar.
+	(re_match_2_internal): Use TRANSLATE instead of
+	TRANSLATE_EXTENDED_UNSAFE.  The latter was a hack to bypass
+	non-ASCII char case conversion.
+
+2003-09-08  Mike Sperber  <mike@xemacs.org>
+
+	* symbols.c (Fvariable_binding_locus): Add, as per suggestion from
+	RMS at: http://article.gmane.org/gmane.emacs.pretest.bugs/1010
+
+2003-06-14  Ilya N. Golubev  <gin@mo.msk.ru>
+
+       * .gdbinit (pobj): fix printing of symbol name.
+
+2003-08-01  Ilya N. Golubev  <gin@mo.msk.ru>
+
+	* frame-x.c (x_layout_widgets): When resizing is about to cause
+	frame size slip, mark it for redisplay.
+
+2003-08-18  Jerry James  <james@xemacs.org>
+
+	* opaque.h: Remove unused (X)OPAQUE_MARKFUN definitions.
 
 2003-09-03  Vin Shelton <acs@xemacs.org>
 
