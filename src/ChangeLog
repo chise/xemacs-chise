@@ -1,3 +1,9 @@
+1999-11-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x60.
+	(LEADING_BYTE_MOJIKYO_PJ_[1 .. 21]): New macros.
+	(MAX_LEADING_BYTE_PRIVATE): Changed to `(CHARSET_ID_OFFSET - 32)'.
+
 1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Vcharset_japanese_jisx0208_1990): New variable.
