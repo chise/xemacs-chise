@@ -1148,6 +1148,7 @@
     (japanese-jisx0208		. #x6751)	; ø»‡·¬
     (korean-ksc5601		. #x4F41)	; ø»‰ž
     (japanese-jisx0208-1990	. #x6751)	; ø½‹ 
+    (ucs-jis			. #x820A)	; ø»ƒ£¤
     ))
 (define-char
   '((morohashi-daikanwa	30249 0 3)

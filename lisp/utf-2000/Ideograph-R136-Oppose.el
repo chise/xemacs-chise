@@ -63,6 +63,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (japanese-jisx0208-1990	. #x3D58)	; ø½ŠŸ»
+    (ucs-jis			. #x821C)	; ø½ŠŸ»
     ))
 (define-char
   '((=>ucs		. #x20B02)	; ð ¬‚
@@ -121,6 +122,7 @@
     (japanese-jisx0208		. #x4971)	; ø»‡Œˆ
     (korean-ksc5601		. #x5971)	; ø»‰­¬
     (japanese-jisx0208-1990	. #x4971)	; ø½Š±¼
+    (ucs-jis			. #x821E)	; ø»‚¸€
     (mojikyo			. 050385)	; ý €Œ“‘
     ))
 (define-char

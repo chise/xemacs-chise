@@ -48,6 +48,7 @@
     (total-strokes	 . 6)
     (korean-ksc5601		. #x4D45)	; ø»‰›˜
     (japanese-jisx0208-1990	. #x394D)	; ø½Š™¸
+    (ucs-jis			. #x8003)	; ø»‰›˜
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼

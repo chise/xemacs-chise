@@ -26,6 +26,7 @@
     (chinese-cns11643-4		. #x2135)	; ø»— ¼
     (japanese-jisx0208-1990	. #x5625)	; ø½‹ƒ¶
     (ideograph-daikanwa		. 07826)	; ø¸º’
+    (ucs-jis			. #x5C6E)	; ø»ƒ‰º
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
@@ -50,6 +51,7 @@
     (korean-ksc5601		. #x546A)	; ø»‰¦
     (japanese-jisx0208-1990	. #x4656)	; ø½Š­‡
     (ideograph-daikanwa		. 07828)	; ø¸º”
+    (ucs-jis			. #x5C6F)	; ø»‚³‹
     ))
 (define-char
   '((morohashi-daikanwa	7828 0 0)

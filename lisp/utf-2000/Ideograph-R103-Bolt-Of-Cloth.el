@@ -97,6 +97,7 @@
     (japanese-jisx0208		. #x4141)	; ø»†¿¨
     (korean-ksc5601		. #x6142)	; ø»‰¸­
     (japanese-jisx0208-1990	. #x4141)	; ø½Š¥œ
+    (ucs-jis			. #x758F)	; ø»‚« 
     (mojikyo			. 058127)	; ý €ŽŒ
     ))
 (define-char

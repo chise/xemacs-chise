@@ -226,6 +226,7 @@
     (japanese-jisx0208-1990	. #x3476)	; ø½Š“‹
     (chinese-big5		. #xB458)	; ý¢€‹‘˜
     (ideograph-daikanwa		. 09208)	; ø¸‚¸
+    (ucs-jis			. #x5E7E)	; ø»‚™
     ))
 (define-char
   '((=>ucs		. #x5E7E)	; å¹¾

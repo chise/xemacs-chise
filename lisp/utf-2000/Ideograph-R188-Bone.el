@@ -9,6 +9,7 @@
     (korean-ksc5601		. #x4D69)	; ø»‰›¼
     (japanese-jisx0208-1990	. #x397C)	; ø½Šš§
     (ideograph-daikanwa		. 45098)	; ø¸‹€ª
+    (ucs-jis			. #x9AA8)	; ø»‚ «
     ))
 (define-char
   '((=>ucs		. #x9AA8)	; éª¨
@@ -389,6 +390,7 @@
     (japanese-jisx0208		. #x716D)	; ø»ˆ†´
     (japanese-jisx0208-1990	. #x716D)	; ø½‹¬¨
     (ideograph-daikanwa		. 45127)	; ø¸‹‡
+    (ucs-jis			. #x9AB0)	; ø»ƒ²¬
     ))
 (define-char
   '((=>ucs		. #x9AB0)	; éª°
@@ -905,6 +907,7 @@
     (korean-ksc5601		. #x7A35)	; ø»ŠŽ
     (japanese-jisx0208-1990	. #x333C)	; ø½Š³
     (ideograph-daikanwa		. 45164)	; ø¸‹¬
+    (ucs-jis			. #x9AB8)	; ø»‚–·
     ))
 (define-char
   '((=>ucs		. #x9AB8)	; éª¸
@@ -1091,6 +1094,7 @@
     (japanese-jisx0208		. #x716E)	; ø»ˆ†µ
     (japanese-jisx0208-1990	. #x716E)	; ø½‹¬©
     (ideograph-daikanwa		. 45175)	; ø¸‹·
+    (ucs-jis			. #x9ABC)	; ø»ƒ²­
     ))
 (define-char
   '((=>ucs		. #x9ABC)	; éª¼
@@ -1488,6 +1492,7 @@
     (japanese-jisx0208		. #x716F)	; ø»ˆ†¶
     (japanese-jisx0208-1990	. #x716F)	; ø½‹¬ª
     (ideograph-daikanwa		. 45205)	; ø¸‹‚•
+    (ucs-jis			. #x9AC0)	; ø»ƒ²®
     ))
 (define-char
   '((=>ucs		. #x9AC0)	; é«€
@@ -2392,6 +2397,7 @@
     (japanese-jisx0208		. #x7170)	; ø»ˆ†·
     (japanese-jisx0208-1990	. #x7170)	; ø½‹¬«
     (ideograph-daikanwa		. 45267)	; ø¸‹ƒ“
+    (ucs-jis			. #x9ACF)	; ø»ƒ²¯
     ))
 (define-char
   '((=>ucs		. #x9ACF)	; é«
@@ -2613,6 +2619,7 @@
     (japanese-jisx0208		. #x7171)	; ø»ˆ†¸
     (japanese-jisx0208-1990	. #x7171)	; ø½‹¬¬
     (ideograph-daikanwa		. 45281)	; ø¸‹ƒ¡
+    (ucs-jis			. #x9AD1)	; ø»ƒ²°
     ))
 (define-char
   '((=>ucs		. #x9AD1)	; é«‘
@@ -2759,6 +2766,7 @@
     (korean-ksc5601		. #x6250)	; ø»‰º™
     (japanese-jisx0208-1990	. #x7172)	; ø½‹¬­
     (ideograph-daikanwa		. 45289)	; ø¸‹ƒ©
+    (ucs-jis			. #x9AD3)	; ø»ƒ²±
     ))
 (define-char
   '((=>ucs		. #x9AD3)	; é«“
@@ -2801,6 +2809,7 @@
     (korean-ksc5601		. #x7477)	; ø»Š•œ
     (japanese-jisx0208-1990	. #x7173)	; ø½‹¬®
     (ideograph-daikanwa		. 45291)	; ø¸‹ƒ«
+    (ucs-jis			. #x9AD4)	; ø»ƒ²²
     ))
 (define-char
   '((=>ucs		. #x9AD4)	; é«”

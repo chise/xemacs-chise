@@ -20,6 +20,7 @@
     (korean-ksc5601		. #x5E2C)	; ø»‰³½
     (chinese-cns11643-4		. #x4877)	; ø»˜›
     (japanese-jisx0208-1990	. #x4921)	; ø½Š°¬
+    (ucs-jis			. #x9F3B)	; ø»‚¶°
     (mojikyo			. 050611)	; ý €Œ–³
     ))
 (define-char

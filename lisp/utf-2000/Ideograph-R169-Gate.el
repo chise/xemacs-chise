@@ -87,6 +87,7 @@
     (chinese-cns11643-1		. #x5860)	; ø»’”
     (japanese-jisx0208-1990	. #x412E)	; ø½Š¥‰
     (ideograph-daikanwa		. 41214)	; ø¸Šƒ¾
+    (ucs-jis			. #x9583)	; ø»‚«
     ))
 (define-char
   '((morohashi-daikanwa	41214 0 0)
@@ -468,6 +469,7 @@
     (chinese-cns11643-1		. #x6265)	; ø»’¢¾
     (japanese-jisx0208-1990	. #x3457)	; ø½Š’¬
     (ideograph-daikanwa		. 41247)	; ø¸Š„Ÿ
+    (ucs-jis			. #x9591)	; ø»‚˜°
     ))
 (define-char
   '((morohashi-daikanwa	41247 0 0)
@@ -519,6 +521,7 @@
     (korean-ksc5601		. #x5A4A)	; ø»‰®£
     (japanese-jisx0208-1990	. #x6F5C)	; ø½‹©›
     (ideograph-daikanwa		. 41251)	; ø¸Š„£
+    (ucs-jis			. #x9594)	; ø»ƒ¯Ÿ
     ))
 (define-char
   '((=>ucs		. #x9594)	; é–”
@@ -623,6 +626,7 @@
     (japanese-jisx0208-1978	. #x6F5D)	; ø»ƒ¯ 
     (japanese-jisx0208		. #x6F5D)	; ø»ˆƒ¨
     (japanese-jisx0208-1990	. #x6F5D)	; ø½‹©œ
+    (ucs-jis			. #x9596)	; ø»ƒ¯ 
     (mojikyo			. 050554)	; ý €Œ•º
     ))
 (define-char
@@ -1458,6 +1462,7 @@
     (chinese-cns11643-1		. #x6F64)	; ø»’¶ƒ
     (japanese-jisx0208-1990	. #x6F63)	; ø½‹©¢
     (ideograph-daikanwa		. 41334)	; ø¸Š…¶
+    (ucs-jis			. #x95AD)	; ø»ƒ¯¦
     ))
 (define-char
   '((morohashi-daikanwa	41334 0 4)
@@ -1896,6 +1901,7 @@
     (korean-ksc5601		. #x6459)	; ø»‰½ž
     (japanese-jisx0208-1990	. #x6F64)	; ø½‹©£
     (ideograph-daikanwa		. 41380)	; ø¸Š†¤
+    (ucs-jis			. #x95BC)	; ø»ƒ¯§
     ))
 (define-char
   '((morohashi-daikanwa	41380 0 0)
@@ -2435,6 +2441,7 @@
     (japanese-jisx0208		. #x6F6C)	; ø»ˆƒ·
     (japanese-jisx0208-1990	. #x6F6C)	; ø½‹©«
     (ideograph-daikanwa		. 41433)	; ø¸Š‡™
+    (ucs-jis			. #x95CC)	; ø»ƒ¯¯
     ))
 (define-char
   '((morohashi-daikanwa	41433 0 0)
@@ -2456,6 +2463,7 @@
     (japanese-jisx0208		. #x6F6B)	; ø»ˆƒ¶
     (japanese-jisx0208-1990	. #x6F6B)	; ø½‹©ª
     (ideograph-daikanwa		. 41434)	; ø¸Š‡š
+    (ucs-jis			. #x95CD)	; ø»ƒ¯®
     ))
 (define-char
   '((morohashi-daikanwa	41434 0 2)
@@ -3320,6 +3328,7 @@
     (japanese-jisx0208		. #x6F72)	; ø»ˆƒ½
     (japanese-jisx0208-1990	. #x6F72)	; ø½‹©±
     (ideograph-daikanwa		. 41508)	; ø¸Šˆ¤
+    (ucs-jis			. #x95E5)	; ø»ƒ¯µ
     ))
 (define-char
   '((=>ucs		. #x95E5)	; é—¥

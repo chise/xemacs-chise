@@ -468,6 +468,7 @@
     (japanese-jisx0208-1990	. #x5A61)	; ø½‹Šª
     (chinese-big5		. #xCCC9)	; ý¢€Œ³‰
     (ideograph-daikanwa		. 13775)	; ø¸ƒ—
+    (ucs-jis			. #x65FB)	; ø»ƒ®
     ))
 (define-char
   '((morohashi-daikanwa	13775 0 0)
@@ -725,6 +726,7 @@
     (japanese-jisx0208-1990	. #x5A5F)	; ø½‹Š¨
     (chinese-big5		. #xA9FE)	; ý¢€Š§¾
     (ideograph-daikanwa		. 13799)	; ø¸ƒ—§
+    (ucs-jis			. #x660A)	; ø»ƒ¬
     (mojikyo			. 013799)	; ý €ƒ—§
     ))
 (define-char
@@ -976,6 +978,7 @@
     (japanese-jisx0208		. #x4B41)	; ø»‡Ž”
     (chinese-cns11643-6		. #x316D)	; ø»œœ
     (japanese-jisx0208-1990	. #x4B41)	; ø½Š´ˆ
+    (ucs-jis			. #x5192)	; ø»‚ºŒ
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡
@@ -1300,6 +1303,7 @@
     (japanese-jisx0208-1990	. #x3D55)	; ø½ŠŸ¸
     (chinese-big5		. #xAC4B)	; ý¢€Š±‹
     (ideograph-daikanwa		. 13844)	; ø¸ƒ˜”
+    (ucs-jis			. #x6625)	; ø»‚¥¼
     ))
 (define-char
   '((morohashi-daikanwa	13844 0 1)
@@ -1536,6 +1540,7 @@
     (japanese-jisx0208-1990	. #x5A64)	; ø½‹Š­
     (chinese-big5		. #xCEEB)	; ý¢€Œ»«
     (ideograph-daikanwa		. 13867)	; ø¸ƒ˜«
+    (ucs-jis			. #x6636)	; ø»ƒ±
     ))
 (define-char
   '((morohashi-daikanwa	13867 0 1)
@@ -1982,6 +1987,7 @@
     (japanese-jisx0208-1990	. #x5A67)	; ø½‹Š°
     (chinese-big5		. #xAECB)	; ý¢€Š»‹
     (ideograph-daikanwa		. 13914)	; ø¸ƒ™š
+    (ucs-jis			. #x664F)	; ø»ƒ´
     ))
 (define-char
   '((morohashi-daikanwa	13914 0 0)
@@ -2576,6 +2582,7 @@
     (japanese-jisx0208		. #x3322)	; ø»†ª¥
     (japanese-jisx0208-1990	. #x3322)	; ø½Š™
     (china3-jef			. #x51FD)	; øº…‡½
+    (ucs-jis			. #x6666)	; ø»†ª¥
     (mojikyo			. 054042)	; ý €Œš
     ))
 (define-char
@@ -2589,6 +2596,7 @@
     (korean-ksc5601		. #x7B45)	; ø»Šž¼
     (japanese-jisx0208-1990	. #x5A6E)	; ø½‹Š·
     (ideograph-daikanwa		. 13961)	; ø¸ƒš‰
+    (ucs-jis			. #x6667)	; ø»ƒ»
     ))
 (define-char
   '((morohashi-daikanwa	13961 0 2)
@@ -2873,6 +2881,7 @@
     (japanese-jisx0208-1990	. #x374A)	; ø½Š–¹
     (chinese-big5		. #xB4BA)	; ý¢€‹’º
     (ideograph-daikanwa		. 13983)	; ø¸ƒšŸ
+    (ucs-jis			. #x666F)	; ø»‚œ½
     ))
 (define-char
   '((morohashi-daikanwa	13983 0 0)
@@ -3532,6 +3541,7 @@
     (japanese-jisx0208-1990	. #x5A77)	; ø½‹‹€
     (chinese-big5		. #xB779)	; ý¢€‹¹
     (ideograph-daikanwa		. 14033)	; ø¸ƒ›‘
+    (ucs-jis			. #x6684)	; ø»ƒ‘„
     ))
 (define-char
   '((morohashi-daikanwa	14033 0 0)
@@ -3929,6 +3939,7 @@
     (japanese-jisx0208-1990	. #x3045)	; ø½ŠŒ¢
     (chinese-big5		. #xB774)	; ý¢€‹´
     (ideograph-daikanwa		. 14065)	; ø¸ƒ›±
+    (ucs-jis			. #x6697)	; ø»‚’¦
     ))
 (define-char
   '((morohashi-daikanwa	14065 0 0)
@@ -4186,6 +4197,7 @@
     (japanese-jisx0208-1990	. #x5A79)	; ø½‹‹‚
     (chinese-big5		. #xBA5C)	; ý¢€‹©œ
     (ideograph-daikanwa		. 14083)	; ø¸ƒœƒ
+    (ucs-jis			. #x669D)	; ø»ƒ‘†
     ))
 (define-char
   '((morohashi-daikanwa	14083 0 0)
@@ -4909,6 +4921,7 @@
     (japanese-jisx0208-1990	. #x5A7B)	; ø½‹‹„
     (chinese-big5		. #xBEE6)	; ý¢€‹»¦
     (ideograph-daikanwa		. 14150)	; ø¸ƒ†
+    (ucs-jis			. #x66B9)	; ø»ƒ‘ˆ
     ))
 (define-char
   '((=>ucs		. #x66B9)	; æš¹
@@ -5013,6 +5026,7 @@
     (japanese-jisx0208-1990	. #x5A7D)	; ø½‹‹†
     (chinese-big5		. #xE9B4)	; ý¢€Ž¦´
     (ideograph-daikanwa		. 14160)	; ø¸ƒ
+    (ucs-jis			. #x66BE)	; ø»ƒ‘Š
     ))
 (define-char
   '((morohashi-daikanwa	14160 0 0)
@@ -5862,6 +5876,7 @@
     (japanese-jisx0208-1978	. #x4D4B)	; ø»‚½’
     (japanese-jisx0208		. #x4D4B)	; ø»‡‘š
     (japanese-jisx0208-1990	. #x4D4B)	; ø½Š·Ž
+    (ucs-jis			. #x66DC)	; ø»‚½’
     (mojikyo			. 050218)	; ý €Œª
     ))
 (define-char
@@ -6110,6 +6125,7 @@
     (japanese-jisx0208-1990	. #x5B25)	; ø½‹‹Œ
     (chinese-big5		. #xC36D)	; ý¢€Œ­
     (ideograph-daikanwa		. 14245)	; ø¸ƒž¥
+    (ucs-jis			. #x66E0)	; ø»ƒ‘
     ))
 (define-char
   '((=>ucs		. #x66E0)	; æ› 
@@ -6336,6 +6352,7 @@
     (japanese-jisx0208-1990	. #x5B28)	; ø½‹‹
     (chinese-big5		. #xC4E4)	; ý¢€Œ“¤
     (ideograph-daikanwa		. 14258)	; ø¸ƒž²
+    (ucs-jis			. #x66E9)	; ø»ƒ‘“
     ))
 (define-char
   '((morohashi-daikanwa	14258 0 0)

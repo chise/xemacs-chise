@@ -226,6 +226,7 @@
     (japanese-jisx0208		. #x6B29)	; ø»‡¼¼
     (japanese-jisx0208-1990	. #x6B29)	; ø½‹¢°
     (ideograph-daikanwa		. 34778)	; ø¸ˆŸš
+    (ucs-jis			. #x8983)	; ø»ƒ¨´
     ))
 (define-char
   '((morohashi-daikanwa	34778 0 3)
@@ -432,6 +433,7 @@
     (japanese-jisx0208		. #x6B2A)	; ø»‡¼½
     (japanese-jisx0208-1990	. #x6B2A)	; ø½‹¢±
     (ideograph-daikanwa		. 34791)	; ø¸ˆŸ§
+    (ucs-jis			. #x8988)	; ø»ƒ¨µ
     (mojikyo			. 034791)	; ý €ˆŸ§
     ))
 (define-char

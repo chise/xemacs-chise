@@ -338,6 +338,7 @@
     (japanese-jisx0208		. #x3E2D)	; ø»†ºº
     (chinese-cns11643-3		. #x3059)	; ø»•­ž
     (japanese-jisx0208-1990	. #x3E2D)	; ø½Š ®
+    (ucs-jis			. #x5C06)	; ø»‚¦²
     (mojikyo			. 050152)	; ý €Œ¨
     ))
 (define-char

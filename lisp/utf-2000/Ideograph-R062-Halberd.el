@@ -1446,6 +1446,7 @@
     (japanese-jisx0208-1990	. #x5924)	; ø½‹ˆ
     (chinese-big5		. #xBCAE)	; ý¢€‹²®
     (ideograph-daikanwa		. 11655)	; ø¸‚¶‡
+    (ucs-jis			. #x622E)	; ø»ƒŽ“
     ))
 (define-char
   '((morohashi-daikanwa	11655 0 2)

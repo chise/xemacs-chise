@@ -75,6 +75,7 @@
     (chinese-cns11643-1		. #x4527)	; ø»‘·š
     (japanese-jisx0208-1990	. #x323D)	; ø½Š–
     (chinese-big5		. #xA4C6)	; ý¢€Š“†
+    (ucs-jis			. #x5316)	; ø»‚•š
     ))
 (define-char
   '((ideographic-radical . 21)	; â¼”

@@ -97,6 +97,7 @@
     (japanese-jisx0208		. #x5D64)	; ø»‡©“
     (japanese-jisx0208-1990	. #x5D64)	; ø½‹‡
     (ideograph-daikanwa		. 17048)	; ø¸„Š˜
+    (ucs-jis			. #x6C1B)	; ø»ƒ•‹
     ))
 (define-char
   '((morohashi-daikanwa	17048 0 0)

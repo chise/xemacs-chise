@@ -9,6 +9,7 @@
     (korean-ksc5601		. #x7D21)	; ø»Š¡”
     (japanese-jisx0208-1990	. #x602B)	; ø½‹’¨
     (ideograph-daikanwa		. 19737)	; ø¸„´™
+    (ucs-jis			. #x723B)	; ø»ƒ˜¬
     ))
 (define-char
   '((morohashi-daikanwa	19737 0 0)

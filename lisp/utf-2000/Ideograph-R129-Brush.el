@@ -170,6 +170,7 @@
     (japanese-jisx0208-1978	. #x4825)	; ø»‚µ–
     (japanese-jisx0208		. #x4825)	; ø»‡‰ž
     (japanese-jisx0208-1990	. #x4825)	; ø½Š¯’
+    (ucs-jis			. #x8087)	; ø»‚µ–
     ))
 (define-char
   '((morohashi-daikanwa	29228 0 3)

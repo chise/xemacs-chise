@@ -173,6 +173,7 @@
     (japanese-jisx0208-1990	. #x5A4F)	; ø½‹Š˜
     (chinese-big5		. #xB1D8)	; ý¢€‹‡˜
     (ideograph-daikanwa		. 13508)	; ø¸ƒ“„
+    (ucs-jis			. #x659B)	; ø»ƒœ
     ))
 (define-char
   '((morohashi-daikanwa	13508 0 2)

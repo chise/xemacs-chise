@@ -2111,6 +2111,7 @@
     (ideograph-gt-pj-1		. #x502C)	; ý¡€€„
     (chinese-big5		. #xB6C3)	; ý¢€‹›ƒ
     (ideograph-daikanwa		. 00214)	; ø¸€ƒ–
+    (ucs-jis			. #x4E82)	; ø»ƒ
     (ideograph-gt		. 00285)	; ý¡€€„
     (mojikyo			. 000214)	; ý €€ƒ–
     ))

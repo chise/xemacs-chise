@@ -96,6 +96,7 @@
     (japanese-jisx0208-1978	. #x6A49)	; ø»ƒ§¶
     (japanese-jisx0208		. #x6A49)	; ø»‡»¾
     (japanese-jisx0208-1990	. #x6A49)	; ø½‹¡²
+    (ucs-jis			. #x8842)	; ø»ƒ§¶
     (mojikyo			. 054685)	; ý €–
     ))
 (define-char
@@ -210,6 +211,7 @@
     (japanese-jisx0208		. #x3D30)	; ø»†¹Ÿ
     (japanese-jisx0208-1990	. #x3D30)	; ø½ŠŸ“
     (ideograph-daikanwa		. 33981)	; ø¸ˆ’½
+    (ucs-jis			. #x8846)	; ø»‚¥—
     ))
 (define-char
   '((=>ucs		. #x8846)	; è¡†

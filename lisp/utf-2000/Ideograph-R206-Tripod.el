@@ -58,7 +58,7 @@
     (ideograph-daikanwa . 48320)	; �����
     ))
 (define-char
-  '((->ucs		. #x9F12)	; 鼒
+  '((=>ucs		. #x9F12)	; 鼒
     (ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 3)
     (total-strokes	 . 16)
@@ -119,7 +119,7 @@
     (ucs		. #x4D7C)	; 䵼
     ))
 (define-char
-  '((->ucs		. #x4D7C)	; 䵼
+  '((=>ucs		. #x4D7C)	; 䵼
     (morohashi-daikanwa	48328 0 0)
     (ideographic-radical . 206)	; ⿍
     (ideographic-strokes . 11)

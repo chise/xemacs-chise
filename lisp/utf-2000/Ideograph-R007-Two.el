@@ -725,6 +725,7 @@
     (japanese-jisx0208-1990	. #x5034)	; ø½Š»‘
     (chinese-big5		. #xAB45)	; ý¢€Š­…
     (ideograph-daikanwa		. 00279)	; ø¸€„—
+    (ucs-jis			. #x4E9F)	; ø»ƒ•
     (mojikyo			. 000279)	; ý €€„—
     ))
 (define-char

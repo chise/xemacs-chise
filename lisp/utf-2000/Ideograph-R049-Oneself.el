@@ -180,6 +180,7 @@
     (japanese-jisx0208		. #x392B)	; ø»†³¢
     (japanese-jisx0208-1990	. #x392B)	; ø½Š™–
     (china3-jef			. #x4BF4)	; øº„¯´
+    (ucs-jis			. #x5DF7)	; ø»†³¢
     ))
 (define-char
   '((=>ucs		. #x5DF8)	; å·¸
@@ -337,6 +338,7 @@
     (japanese-jisx0208		. #x4327)	; ø»‡‚Š
     (japanese-jisx0208-1990	. #x4327)	; ø½Š§¾
     (china3-jef			. #x4BF5)	; øº„¯µ
+    (ucs-jis			. #x5DFD)	; ø»‡‚Š
     ))
 (define-char
   '((=>ucs		. #x22045)	; ð¢…

@@ -298,6 +298,7 @@
     (japanese-jisx0208		. #x722D)	; ø»ˆ‡’
     (chinese-cns11643-2		. #x7166)	; ø»•ƒ…
     (japanese-jisx0208-1990	. #x722D)	; ø½‹­†
+    (ucs-jis			. #x9B2E)	; ø»ˆ‡’
     ))
 (define-char
   '((=>ucs		. #x9B2E)	; é¬®
