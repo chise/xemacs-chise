@@ -2633,7 +2633,7 @@
 (define-char
   '((ideographic-radical . 195)	; â¿‚
     (ideographic-strokes . 7)
-    (totalstrokes	. 18)
+    (total-strokes	 . 18)
     (japanese-jisx0208-1978	. #x7246)	; ø»ƒ³£
     (japanese-jisx0208		. #x7246)	; ø»ˆ‡«
     (japanese-jisx0208-1990	. #x7246)	; ø½‹­Ÿ
