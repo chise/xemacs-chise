@@ -2140,6 +2140,7 @@ Save mapping-table of CHARSET.
 	      }
 	  }
       }
+      break;
     default:
       {
 	Lisp_Object table_g = XCHARSET_DECODING_TABLE (charset);
@@ -2187,6 +2188,39 @@ Save mapping-table of CHARSET.
 #else
   return Qnil;
 #endif
+}
+
+Emchar
+load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
+{
+  Lisp_Object db;
+  Lisp_Object db_dir = Vexec_directory;
+  Lisp_Object db_file;
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  db_dir = Fexpand_file_name (Fsymbol_name (XCHARSET_NAME (ccs)), db_dir);
+  db_file = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+  if (!NILP (db))
+    {
+      Lisp_Object ret
+	= Fget_database (Fprin1_to_string (make_int (code_point), Qnil),
+			 db, Qnil);
+      if (!NILP (ret))
+	{
+	  ret = Fread (ret);
+	  if (CHARP (ret))
+	    {
+	      decoding_table_put_char (ccs, code_point, ret);
+	      Fclose_database (db);
+	      return XCHAR (ret);
+	    }
+	}
+      Fclose_database (db);
+    }
+  return -1;
 }
 #endif
 
