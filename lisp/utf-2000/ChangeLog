@@ -1,5 +1,29 @@
 2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R182-Wind.el (J90-7124): Unify J78-7124 and J83-7124.
+	(J83-7129): Separate J90-7129.
+
+	* Ideograph-R015-Ice.el (M-01718): Use `<-vulgar-ideograph'
+	instead of `vulgar-ideograph-of'.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge KS X 1001, Big5 and GB 12345 code points.
+
+	* Ideograph-R177-Leather.el (J78-7057): Add `->same-ideograph'.
+	(J83-3F59): Unify J90-3F59.
+	(J90-7057): New character; unify MH-701.
+	(J83-7057): New character; relate to MH-701; unify U+9771.
+	(J78-3F59): New character; relate to MH-701.
+	(J90-705D): Unify J78-705D and J83-705D.
+	(J90-7060): Unify J78-7060 and J83-7060.
+
+	* Ideograph-R162-Walk.el (J78-4B78): Separate C1-4B55, G0-4679,
+	J83-4B78, J90-4B78 and U+8FC4.
+
+	* Ideograph-R016-Table.el: Merge Big5, KS X 1001 and GB 12345 code
+	points.
+
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u0FE70-Arabic-Presentation-Forms-B.el,
 	u0FB50-Arabic-Presentation-Forms-A.el: Merge `arabic-1-column' and
 	`arabic-2-column'.
