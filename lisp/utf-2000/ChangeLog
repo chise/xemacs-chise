@@ -1,3 +1,54 @@
+2001-11-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Format `=>ucs*'
+	property.
+
+	* Ideograph-R094-Dog.el (U+FA16): Use `=>ucs*' instead of `=>ucs'.
+	(C3-3D29): Add `=>ucs*'.
+
+	* Ideograph-R074-Moon.el (JX1-754E): Add `=>ucs*'.
+	(U+F929): Likewise.
+	(U-0002F8D8): Use `=>ucs*' instead of `=>ucs'.
+
+	* Ideograph-R053-Dotted-Cliff.el (JX1-742E): Add `=>ucs*'.
+	(U+F928): Likewise.
+	(U-0002F88E): Use `=>ucs*' instead of `=>ucs'.
+
+	* Ideograph-R136-Oppose.el (J0-4971): Unify K0-5971.
+
+	* Ideograph-R130-Meat.el (M-29539): Separate U+812B; unify
+	K0-772D.
+
+	* Ideograph-R128-Ear.el (M-29074): Unify K0-6121.
+
+	* Ideograph-R127-Plow.el (M-28976): Separate U+802D; unify
+	K0-513E.
+
+	* Ideograph-R123-Sheep.el: Merge KS X 1001 code points.
+
+	* Ideograph-R122-Net.el (J0-6627): Unify K0-7956; separate
+	C1-4B38.
+
+	* Ideograph-R120-Silk.el (J0-4064): Unify K0-6F3E.
+
+	* Ideograph-R118-Bamboo.el: Merge KS X 1001 code points.
+
+	* Ideograph-R117-Stand.el (K0-595F): New character.
+
+	* Ideograph-R109-Eye.el, Ideograph-R108-Dish.el,
+	Ideograph-R106-White.el, Ideograph-R105-Dotted-Tent.el: Merge KS X
+	1001 code points.
+
+	* Ideograph-R112-Stone.el (U+785A): Add `total-strokes'.
+	(U+78F5): Likewise; unify K0-4A58.
+
+	* Ideograph-R107-Skin.el: Merge KS X 1001 code points.
+
+	* Ideograph-R038-Woman.el:
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+
 2001-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R100-Life.el: Merge
