@@ -33,7 +33,7 @@
   (let (ret)
     (or (catch 'tag
 	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (get-char-attribute
+	    (if (and (setq ret (char-feature
 				char
 				(intern
 				 (format "%s@%s"
@@ -47,7 +47,7 @@
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag ret))))
-	(get-char-attribute char 'ideographic-radical)
+	(char-feature char 'ideographic-radical)
 	(progn
 	  (setq ret
 		(or (get-char-attribute char 'daikanwa-radical)
@@ -90,16 +90,16 @@
   (let (ret)
     (catch 'tag
       (dolist (domain domains)
-	(if (and (setq ret (or (get-char-attribute
+	(if (and (setq ret (or (char-feature
 				char
 				(intern
 				 (format "%s@%s"
 					 'ideographic-radical domain)))
-			       (get-char-attribute
+			       (char-feature
 				char 'ideographic-radical)))
 		 (or (eq ret radical)
 		     (null radical))
-		 (setq ret (get-char-attribute
+		 (setq ret (char-feature
 			    char
 			    (intern
 			     (format "%s@%s"
@@ -111,7 +111,7 @@
   (let (ret)
     (or (char-ideographic-strokes-from-domains
 	 char preferred-domains radical)
-	(get-char-attribute char 'ideographic-strokes)
+	(char-feature char 'ideographic-strokes)
 	(char-ideographic-strokes-from-domains
 	 char char-db-feature-domains radical)
 	(catch 'tag
@@ -240,9 +240,13 @@
   (if (or (encode-char char 'ideograph-daikanwa 'defined-only)
 	  (encode-char char '=daikanwa-rev2 'defined-only))
       char
-    (let ((m (get-char-attribute char 'morohashi-daikanwa))
+    (let ((m (char-feature char '=>daikanwa))
 	  m-m m-s pat)
-      (or (when m
+      (or (and (integerp m)
+	       (or (decode-char '=daikanwa-rev2 m 'defined-only)
+		   (decode-char 'ideograph-daikanwa m)))
+	  (when (or m
+		    (setq m (get-char-attribute char 'morohashi-daikanwa)))
 	    (setq m-m (pop m))
 	    (setq m-s (pop m))
 	    (if (= m-s 0)
