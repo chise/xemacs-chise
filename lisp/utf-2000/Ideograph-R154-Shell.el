@@ -2909,6 +2909,7 @@
     (japanese-jisx0208-1978	. #x4223)	; ø»‚¬ 
     (japanese-jisx0208		. #x4223)	; ø»‡€¨
     (japanese-jisx0208-1990	. #x4223)	; ø½Š¦œ
+    (mojikyo			. 050478)	; ø¸Œ”®
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™
