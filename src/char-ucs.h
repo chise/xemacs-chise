@@ -478,9 +478,9 @@ unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
-INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
-INLINE void
-breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
+INLINE Lisp_Object SPLIT_CHAR (Emchar c);
+INLINE Lisp_Object
+SPLIT_CHAR (Emchar c)
 {
   Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
 
@@ -491,21 +491,13 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 
       while (!EQ (charsets, Qnil))
 	{
-	  *charset = Ffind_charset (Fcar (charsets));
-	  if (!EQ (*charset, Qnil))
+	  Lisp_Object charset = Ffind_charset (Fcar (charsets));
+
+	  if (!EQ (charset, Qnil))
 	    {
-	      if (!EQ (field = Fcdr (Fassq (*charset, cdef)), Qnil) ||
-		  !EQ (field = range_charset_code_point (*charset, c), Qnil))
-		{
-		  Lisp_Object ret = Fcar (field);
-		  if (INTP (ret))
-		    {
-		      *c1 = XINT (ret);
-		      if (INTP (ret = Fcar (Fcdr (field))))
-			*c2 = XINT (ret);
-		      return;
-		    }
-		}
+	      if (!EQ (field = Fcdr (Fassq (charset, cdef)), Qnil) ||
+		  !EQ (field = range_charset_code_point (charset, c), Qnil))
+		return Fcons (charset, field);
 	    }
 	  charsets = Fcdr (charsets);	      
 	}
@@ -516,109 +508,115 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     {
       if (c <= MAX_CHAR_BASIC_LATIN)
 	{
-	  *charset = Vcharset_ascii;
-	  *c1 = charset_get_byte1 (*charset, c);
-	  *c2 = charset_get_byte2 (*charset, c);
+	  return list2 (Vcharset_ascii, make_int (c));
 	}
       else if (c < 0xA0)
 	{
-	  *charset = Vcharset_control_1;
-	  *c1 = charset_get_byte1 (*charset, c);
-	  *c2 = charset_get_byte2 (*charset, c);
+	  return list2 (Vcharset_control_1, make_int (c & 0x7F));
 	}
       else if (c <= 0xff)
 	{
-	  *charset = Vcharset_latin_iso8859_1;
-	  *c1 = charset_get_byte1 (*charset, c);
-	  *c2 = charset_get_byte2 (*charset, c);
+	  return list2 (Vcharset_latin_iso8859_1, make_int (c & 0x7F));
 	}
       else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
 	{
-	  *charset = Vcharset_greek_iso8859_7;
-	  *c1 = c - MIN_CHAR_GREEK + 0x20;
-	  *c2 = 0;
+	  return list2 (Vcharset_greek_iso8859_7,
+			make_int (c - MIN_CHAR_GREEK + 0x20));
 	}
       else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
 	{
-	  *charset = Vcharset_cyrillic_iso8859_5;
-	  *c1 = c - MIN_CHAR_CYRILLIC + 0x20;
-	  *c2 = 0;
+	  return list2 (Vcharset_cyrillic_iso8859_5,
+			make_int (c - MIN_CHAR_CYRILLIC + 0x20));
 	}
       else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
 	{
-	  *charset = Vcharset_hebrew_iso8859_8;
-	  *c1 = c - MIN_CHAR_HEBREW + 0x20;
-	  *c2 = 0;
+	  return list2 (Vcharset_hebrew_iso8859_8,
+			make_int (c - MIN_CHAR_HEBREW + 0x20));
 	}
       else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
 	{
-	  *charset = Vcharset_thai_tis620;
-	  *c1 = c - MIN_CHAR_THAI + 0x20;
-	  *c2 = 0;
+	  return list2 (Vcharset_thai_tis620,
+			make_int (c - MIN_CHAR_THAI + 0x20));
 	}
       else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
 	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
 	{
-	  *charset = Vcharset_katakana_jisx0201;
-	  *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 33;
-	  *c2 = 0;
+	  return list2 (Vcharset_katakana_jisx0201,
+			make_int (c - MIN_CHAR_HALFWIDTH_KATAKANA + 33));
 	}
       else
 	{
-	  *charset = Vcharset_ucs_bmp;
-	  *c1 = c >> 8;
-	  *c2 = c & 0xff;
+	  return list3 (Vcharset_ucs_bmp,
+			make_int (c >> 8), make_int (c & 0xff));
 	}
     }
   else if (c <= MAX_CHAR_OBS_94x94)
     {
-      *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
-				 ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
-				 CHARSET_LEFT_TO_RIGHT);
-      *c1 = (((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33;
-      *c2 = ((c - MIN_CHAR_OBS_94x94) % 94) + 33;
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_94X94,
+		     ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33),
+		    make_int (((c - MIN_CHAR_OBS_94x94) % 94) + 33));
     }
   else if (c <= MAX_CHAR_94)
     {
-      *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
-				 ((c - MIN_CHAR_94) / 94) + '0',
-				 CHARSET_LEFT_TO_RIGHT);
-      *c1 = ((c - MIN_CHAR_94) % 94) + 33;
-      *c2 = 0;
+      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
+					   ((c - MIN_CHAR_94) / 94) + '0',
+					   CHARSET_LEFT_TO_RIGHT),
+		    make_int (((c - MIN_CHAR_94) % 94) + 33));
     }
   else if (c <= MAX_CHAR_96)
     {
-      *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
-				 ((c - MIN_CHAR_96) / 96) + '0',
-				 CHARSET_LEFT_TO_RIGHT);
-      *c1 = ((c - MIN_CHAR_96) % 96) + 32;
-      *c2 = 0;
+      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
+					   ((c - MIN_CHAR_96) / 96) + '0',
+					   CHARSET_LEFT_TO_RIGHT),
+		    make_int (((c - MIN_CHAR_96) % 96) + 32));
     }
   else if (c <= MAX_CHAR_94x94)
     {
-      *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
-				 ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
-				 CHARSET_LEFT_TO_RIGHT);
-      *c1 = (((c - MIN_CHAR_94x94) / 94) % 94) + 33;
-      *c2 = ((c - MIN_CHAR_94x94) % 94) + 33;
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_94X94,
+		     ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_94x94) / 94) % 94) + 33),
+		    make_int (((c - MIN_CHAR_94x94) % 94) + 33));
     }
   else if (c <= MAX_CHAR_96x96)
     {
-      *charset
-	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96X96,
-				 ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
-				 CHARSET_LEFT_TO_RIGHT);
-      *c1 = (((c - MIN_CHAR_96x96) / 96) % 96) + 32;
-      *c2 = ((c - MIN_CHAR_96x96) % 96) + 32;
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_96X96,
+		     ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_96x96) / 96) % 96) + 32),
+		    make_int (((c - MIN_CHAR_96x96) % 96) + 32));
     }
   else
     {
-      printf("u+%x", c);
-      abort();
+      return Qnil;
+    }
+}
+
+INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
+INLINE void
+breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
+{
+  Lisp_Object ret = SPLIT_CHAR (c);
+
+  *charset = Fcar (ret);
+  ret = Fcdr (ret);
+  if (INTP (Fcar (ret)))
+    {
+      *c1 = XINT (Fcar (ret));
+      ret = Fcdr (ret);
+      if (INTP (Fcar (ret)))
+	*c2 = XINT (Fcar (ret));
+      else
+	*c2 = 0;
+    }
+  else
+    {
+      *c1 = *c2 = 0;
     }
 }
 
