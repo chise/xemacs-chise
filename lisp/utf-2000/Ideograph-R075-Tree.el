@@ -167,6 +167,14 @@
     (=ucs		. #x672F)	; æœ¯
     ))
 (define-char
+  '((=>ucs		. #x672F)	; æœ¯
+    (ideographic-radical . 75)	; â½Š
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=gt-pj-k1		. #x3638)	; ý¡„€š
+    (=gt-k		. 01050)	; ý¡„€š
+    ))
+(define-char
   '((ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
