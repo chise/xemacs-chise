@@ -1,5 +1,25 @@
 2004-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+5451): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
+	(J78-4A2E): Moved into U+5674.
+	(U+5674): Use `->subsumptive'.
+
+	* Ideograph-R026-Seal.el (U-0002007E): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+	(C6-3D59): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'; moved into U-0002F831; add `<-denotational' for
+	U+537F.
+	(U+537F): Separate all CCS features.
+	(G0-4764): Separate U+537F; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'; add `<-denotational' for U+537F.
+	(C6-3D5A): Unify U-0002F832; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'; add `<-denotational' for U+537F.
+	(U-0002F833): Add `<-denotational' for U+537F.
+	(J78-362A): Likewise.
+
 	* Ideograph-R037-Big.el (U-00021641): Use `<-vulgar*sources'
 	instead of char-ref in `<-vulgar'.
 
