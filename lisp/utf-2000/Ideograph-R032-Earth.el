@@ -4711,6 +4711,8 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideograph-gt-pj-11 . #x5269)	; ý¡€¥´
+    (ideograph-gt	. 06516)	; ý¡€¥´
     (mojikyo		. 054531)	; ý €”ƒ
     ))
 (define-char
@@ -4718,7 +4720,7 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (->mojikyo		. 054531)	; ý €”ƒ
+    (->mojikyo		. 054531)	; ý¡€¥´
     (japanese-jisx0208-1978	. #x5442)	; ø»ƒ‡›
     (japanese-jisx0208		. #x5442)	; ø»‡›£
     (japanese-jisx0208-1990	. #x5442)	; ø½‹—
