@@ -1,3 +1,17 @@
+2004-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+62FB): Use `->subsumptive'.
+	(U+62FC): Changed to abstract character.
+	(G0-4634): Use `<-denotational' for U+62FC; move B-ABF7 to U+62FC;
+	separate JC3-4FC0.
+	(U-0002F8BA): Use `<-denotational' for U+62FC; use
+	`->subsumptive'; add JC3-4FC0.
+	(U+6486): Changed to abstract character.
+
+	* Ideograph-R140-Grass.el (U+827E): Changed to abstract character.
+	(U+8499): Likewise.
+	(U+44FF): Likewise.
+
 2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SHEEP>): Add
