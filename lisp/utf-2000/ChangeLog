@@ -1,4 +1,31 @@
+2004-01-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R129-Brush.el (U+8083): Add `total-strokes'.
+
 2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R130-Meat.el, Ideograph-R127-Plow.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R121-Jar.el (U+7F3C): Add `total-strokes'.
+
+	* Ideograph-R120-Silk.el: Add some `total-strokes' features.
+
+	* Ideograph-R116-Cave.el: Add some `total-strokes' features.
+	(M-25535): New character.
+	(C3-3D6D): Map to M-25535; separate U+41A3.
+
+	* Ideograph-R115-Grain.el: Add some `total-strokes' features.
+	(U-00025785): Unify M-25007; separate C5-343C.
+	(C3-484C): Unify M-25173; separate U+4166.
+	(M-25228): Unify U-0002583F.
+	(C5-5645): Separate U-0002583F; map to M-25228.
+	(C4-5179): Unify M-25264; separate U+417A.
+	(M-25265): New character.
+	(U+417B): Map to M-25265; separate C4-5178.
+	(U-0002586D): Unify M-25270; separate C5-5C5B.
+
+	* Ideograph-R085-Water.el: Add some `total-strokes' features.
 
 	* Ideograph-R124-Feather.el (M-28841): Copied from
 	Ideograph-R040-Roof.el.
