@@ -69,7 +69,7 @@
 (custom-add-loads 'languages '("lisp-mode" "cus-edit" "font-lock"))
 (custom-add-loads 'fill '("simple" "fill"))
 (custom-add-loads 'custom-magic-faces '("cus-edit"))
-(custom-add-loads 'display '("toolbar" "scrollbar" "gutter-items" "auto-show"))
+(custom-add-loads 'display '("toolbar" "scrollbar" "auto-show"))
 (custom-add-loads 'faces '("faces" "cus-edit" "font-lock" "font" "hyper-apropos" "info" "wid-edit"))
 (custom-add-loads 'emacs '("faces" "help" "files" "cus-edit" "package-get"))
 (custom-add-loads 'processes '("process" "gnuserv"))
@@ -83,7 +83,7 @@
 (custom-add-loads 'matching '("simple" "isearch-mode" "hyper-apropos"))
 (custom-add-loads 'i18n '("cus-edit"))
 (custom-add-loads 'info '("toolbar-items" "info"))
-(custom-add-loads 'x '("x-faces" "font-menu"))
+(custom-add-loads 'x '("x-faces"))
 (custom-add-loads 'buffers-tab '("gutter-items"))
 
 ;;; custom-load.el ends here

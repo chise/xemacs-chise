@@ -162,9 +162,9 @@ This sets the following coding systems:
   ;; that they could reset the terminal coding system.
   ;; (unless (and (eq window-system 'pc) coding-system)
   ;;   (setq default-terminal-coding-system coding-system))
-  (setq terminal-coding-system coding-system)
+  (set-terminal-coding-system coding-system)
   ;;(setq default-keyboard-coding-system coding-system)
-  (setq keyboard-coding-system coding-system)
+  (set-keyboard-coding-system coding-system)
   ;;(setq default-process-coding-system (cons coding-system coding-system))
   ;; Refer to coding-system-for-read and coding-system-for-write
   ;; so that C-x RET c works.

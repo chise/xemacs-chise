@@ -738,7 +738,7 @@ malloc_stats (size)
   return v;
 }
 int
-malloc_mem_used ()
+malloc_mem_used (void)
 {
   int i;
   int size_used;
@@ -757,7 +757,7 @@ malloc_mem_used ()
 }
 
 int 
-malloc_mem_free ()
+malloc_mem_free (void)
 {
   int i;
   int size_unused;
@@ -787,7 +787,7 @@ malloc_mem_free ()
 #ifdef USG
 
 static void
-get_lim_data ()
+get_lim_data (void)
 {
 #ifdef ULIMIT_BREAK_VALUE
   lim_data = ULIMIT_BREAK_VALUE;
@@ -802,7 +802,7 @@ get_lim_data ()
 #ifndef BSD4_2
 
 static void
-get_lim_data ()
+get_lim_data (void)
 {
   lim_data = vlimit (LIM_DATA, -1);
 }
@@ -810,7 +810,7 @@ get_lim_data ()
 #else /* BSD4_2 */
 
 static void
-get_lim_data ()
+get_lim_data (void)
 {
   struct rlimit XXrlimit;
 

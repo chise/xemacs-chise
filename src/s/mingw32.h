@@ -28,8 +28,6 @@ Boston, MA 02111-1307, USA.  */
 #define DOS_NT 	/* MSDOS or WINDOWSNT */
 #endif
 
-#define PBS_SMOOTH              0x01
-
 #ifdef HAVE_MS_WINDOWS
 #define HAVE_NTGUI
 #define HAVE_FACES
@@ -51,7 +49,6 @@ Boston, MA 02111-1307, USA.  */
 #define TIME_ONESHOT 0
 #define TIME_PERIODIC 1
 #define LOCALE_USE_CP_ACP 0x40000000
-#define SHGFI_EXETYPE 0x2000
 #define NSIG 23
 
 #ifndef SPI_GETWHEELSCROLLLINES
@@ -63,8 +60,33 @@ Boston, MA 02111-1307, USA.  */
 #ifndef WHEEL_DELTA
 #define WHEEL_DELTA 120
 #endif
+
+/* this is necessary to get the TCS_* definitions in <commctrl.h> */
+#define _WIN32_IE 0x0400
+
 #ifndef WM_MOUSEWHEEL
 #define WM_MOUSEWHEEL 0x20A
+#endif
+#ifndef TCS_BOTTOM
+#define TCS_BOTTOM 0x0002
+#endif
+#ifndef TCS_VERTICAL
+#define TCS_VERTICAL 0x0080
+#endif
+#ifndef PHYSICALWIDTH
+#define PHYSICALWIDTH 110
+#endif
+#ifndef PHYSICALHEIGHT
+#define PHYSICALHEIGHT 111
+#endif
+#ifndef PHYSICALOFFSETX
+#define PHYSICALOFFSETX 112
+#endif
+#ifndef PHYSICALOFFSETY
+#define PHYSICALOFFSETY 113
+#endif
+#ifndef PBS_SMOOTH
+#define PBS_SMOOTH              0x01
 #endif
 
 /* translate NT world unexec stuff to our a.out definitions */
@@ -169,12 +191,6 @@ Boston, MA 02111-1307, USA.  */
 #include <cygwin/version.h>
 #endif
 
-typedef unsigned int MMRESULT;
-typedef struct timecaps_tag {		
-  unsigned int    wPeriodMin;
-  unsigned int    wPeriodMax;
-} TIMECAPS;
-
 /* IO calls that are emulated or shadowed */
 #define pipe    sys_pipe
 int sys_pipe (int * phandles);
@@ -198,11 +214,6 @@ int kill (int pid, int sig);
 /* map to MSVC names */
 #define popen     _popen
 #define pclose    _pclose
-
-typedef int uid_t;
-typedef int gid_t;
-typedef int pid_t;
-typedef int ssize_t;
 
 /* Encapsulation of system calls */
 #ifndef DONT_ENCAPSULATE
@@ -230,13 +241,23 @@ uid_t getuid (void);
 uid_t geteuid (void);
 gid_t getgid (void);
 gid_t getegid (void);
+
+#if CYGWIN_VERSION_DLL_MAJOR <= 21
+#define _ftime ftime
 #define _timeb timeb
+#endif
 
 /* Stuff that gets set wrongly or otherwise */
 #define HAVE_SETITIMER
 #define HAVE_GETTIMEOFDAY
 #define HAVE_SELECT
 /*#define HAVE_STRUCT_UTIMBUF*/
+#ifndef HAVE_H_ERRNO
+#define HAVE_H_ERRNO
+#endif
+#ifndef HAVE_TZNAME
+#define HAVE_TZNAME
+#endif
 
 #undef GETTIMEOFDAY_ONE_ARGUMENT
 #undef HAVE_SYS_WAIT_H

@@ -123,7 +123,7 @@ static POINTER data_space_start;
 /* Number of bytes of writable memory we can expect to be able to get */
 extern unsigned int lim_data;
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
 extern unsigned long static_heap_size;
 extern int initialized;
 static void

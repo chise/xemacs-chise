@@ -135,9 +135,9 @@ Lisp_Object get_non_ascii_char_table_value (Lisp_Char_Table *ct,
 					    int leading_byte,
 					    Emchar c);
 
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object
 CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object
 CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 {
   unsigned char lb = CHAR_LEADING_BYTE (ch);
@@ -157,6 +157,9 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 #define CHAR_TABLE_VALUE_UNSAFE(ct, ch)	((ct)->ascii[(unsigned char) (ch)])
 
 #endif /* not MULE */
+
+#define XCHAR_TABLE_VALUE_UNSAFE(ct, ch) \
+  CHAR_TABLE_VALUE_UNSAFE (XCHAR_TABLE (ct), ch)
 
 enum chartab_range_type
 {

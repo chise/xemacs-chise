@@ -184,7 +184,10 @@ enum lrecord_type
   lrecord_type_tooltalk_message,
   lrecord_type_tooltalk_pattern,
   lrecord_type_ldap,
-  lrecord_type_count
+  lrecord_type_pgconn,
+  lrecord_type_pgresult,
+  lrecord_type_pgsetenv,
+  lrecord_type_count /* must be last */
 };
 
 struct lrecord_implementation
@@ -479,8 +482,9 @@ extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
 
 # define DECLARE_LRECORD(c_name, structtype)			\
 extern const struct lrecord_implementation lrecord_##c_name;	\
-INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
-INLINE structtype *						\
+INLINE_HEADER structtype *					\
+error_check_##c_name (Lisp_Object obj);				\
+INLINE_HEADER structtype *					\
 error_check_##c_name (Lisp_Object obj)				\
 {								\
   assert (RECORD_TYPEP (obj, lrecord_type_##c_name));		\
@@ -489,8 +493,9 @@ error_check_##c_name (Lisp_Object obj)				\
 extern Lisp_Object Q##c_name##p
 
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
-INLINE structtype *error_check_##c_name (Lisp_Object obj);	\
-INLINE structtype *						\
+INLINE_HEADER structtype *					\
+error_check_##c_name (Lisp_Object obj);				\
+INLINE_HEADER structtype *					\
 error_check_##c_name (Lisp_Object obj)				\
 {								\
   assert (XTYPE (obj) == type_enum);				\

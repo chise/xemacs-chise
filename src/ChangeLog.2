@@ -8,9 +8,9 @@
 	* lisp.h (xfree_1): Make non-public.
 	* (xzero): Use '\0' in memset call for clarity.
 	* (ALIGNOF): Use __alignof__ instead of undocumented __alignof.
-	* alloc.c (allocate_string_chars_struct): 
-	(make_uninit_string): 
-	(resize_string): 
+	* alloc.c (allocate_string_chars_struct):
+	(make_uninit_string):
+	(resize_string):
 	(verify_string_chars_integrity):
 	(compact_string_chars): Now only called for small strings.
 	(sweep_strings):
@@ -216,7 +216,7 @@
 
 2000-01-04  Martin Buchholz  <martin@xemacs.org>
 
-	* mule-charset.h (REP_BYTES_BY_FIRST_BYTE): 
+	* mule-charset.h (REP_BYTES_BY_FIRST_BYTE):
 	Remove macro, always use inline function.
 	* mule-charset.c (make_charset): Don't assign to rep_bytes_by_first_byte.
 	(rep_bytes_by_first_byte): Make const.
@@ -331,31 +331,31 @@
 
 1999-12-21  Martin Buchholz  <martin@xemacs.org>
 
-	* editfns.c (Fpoint_min): 
-	(Fpoint_min_marker): 
-	(Fpoint_max): 
-	(Fpoint_max_marker): 
-	(Fchar_after): 
-	(Fchar_before): 
+	* editfns.c (Fpoint_min):
+	(Fpoint_min_marker):
+	(Fpoint_max):
+	(Fpoint_max_marker):
+	(Fchar_after):
+	(Fchar_before):
 	Docstring fixes.  What's a `buffer pointer' anyways?
 
 	* editfns.c (char=): Remove unused and undocumented optional
 	third BUFFER argument.
 
-	* toolbar.h (DEVICE_SUPPORTS_TOOLBARS_P): 
-	* fns.c (plists_differ): 
-	* elhash.c (HASH_CODE): 
-	* elhash.c (KEYS_EQUAL_P): 
-	* redisplay-output.c (redisplay_move_cursor): 
-	* redisplay.c (create_text_block): 
-	* floatfns.c (Flogb): 
-	* glyphs-msw.c (mswindows_initialize_image_instance_mask): 
-	* glyphs-msw.c (xpm_to_eimage): 
-	* buffer.h (POINT_MARKER_P): 
-	* syntax.c (scan_lists): 
-	* cmdloop.c (Fcommand_loop_1): 
-	* widget.c (Fwidget_apply): 
-	* regex.c (STREQ): 
+	* toolbar.h (DEVICE_SUPPORTS_TOOLBARS_P):
+	* fns.c (plists_differ):
+	* elhash.c (HASH_CODE):
+	* elhash.c (KEYS_EQUAL_P):
+	* redisplay-output.c (redisplay_move_cursor):
+	* redisplay.c (create_text_block):
+	* floatfns.c (Flogb):
+	* glyphs-msw.c (mswindows_initialize_image_instance_mask):
+	* glyphs-msw.c (xpm_to_eimage):
+	* buffer.h (POINT_MARKER_P):
+	* syntax.c (scan_lists):
+	* cmdloop.c (Fcommand_loop_1):
+	* widget.c (Fwidget_apply):
+	* regex.c (STREQ):
 	Remove extra parens, esp. of the form ((expr))
 
 	* floatfns.c (Flogb): Make 64-bit clean.
@@ -405,7 +405,7 @@
 
 	* glyphs-widget.c (VALID_GUI_KEYWORDS): use NONCOPY keyword for
 	callbacks and other things that could recurse.
-	(VALID_GUI_KEYWORDS): 
+	(VALID_GUI_KEYWORDS):
 
 	* event-msw.c: fix cpp stuff for cygwin < b20.
 
@@ -456,10 +456,10 @@
 
 1999-12-18  Martin Buchholz  <martin@xemacs.org>
 
-	* fns.c (mapcar1): 
-	(Fmapconcat): 
-	(Fmapcar): 
-	(Fmapvector): 
+	* fns.c (mapcar1):
+	(Fmapconcat):
+	(Fmapcar):
+	(Fmapvector):
 	Docstring fixes.  Make them consistent with the lispref and ANSI Lisp.
 
 1999-12-17  Martin Buchholz  <martin@xemacs.org>
@@ -479,7 +479,7 @@
 	* window.c:
 	* event-stream.c:
 	Remove last vestigial uses of GC_*
-	
+
 	* fns.c (mapcar1): Fix ***THREE*** obscure crashes in one function!
 	- Two of those involve evil mapping functions that destructively
 	  modify a list being mapped over.
@@ -519,7 +519,7 @@
 
 1999-12-10  Shenghuo ZHU <zsh@cs.rochester.edu>
 
-	* file-coding.c (add_coding_system_to_list_mapper): 
+	* file-coding.c (add_coding_system_to_list_mapper):
 	- (coding-system-list) should list aliases correctly.
 
 1999-12-07  Andy Piper  <andy@xemacs.org>
@@ -548,7 +548,7 @@
 	found.
 	(nt_open_network_stream): warn_when_safe if network stream fails
 	to open.
-	
+
 	* ntproc.c (create_child): Remove negative pid hack for Windows
 	95.  Remove incorrect and unnecessary USE_UNION_TYPE handling.
 
@@ -568,7 +568,7 @@
 
 	* events.c (Fcopy_event): Don't copy the lrecord_header.
 
-	* lisp.h (DO_REALLOC): 
+	* lisp.h (DO_REALLOC):
 	Optimize.
 	Remove redundant parens.
 	Remove generic hygienic macro comment.
@@ -577,7 +577,7 @@
 
 1999-12-05  Martin Buchholz  <martin@xemacs.org>
 
-	* lstream.c (Lstream_adding): 
+	* lstream.c (Lstream_adding):
 	- Never compare a size_t and a possibly negative number.
 	- Optimize.
 
@@ -614,11 +614,11 @@
 
 1999-12-04  Martin Buchholz  <martin@xemacs.org>
 
-	* lstream.c: (filedesc_reader): 
+	* lstream.c: (filedesc_reader):
 	(filedesc_writer): Try number 2: Support broken systems where
 	return type of read() and write() is different from ssize_t.
 
-	* systty.h: 
+	* systty.h:
 	* sysdep.h:
 	* sysdep.c:
 	- Replace macro calls to EMACS_GET_TTY and EMACS_SET_TTY with
@@ -637,7 +637,7 @@
 	(menu_move_right): Ditto.
 
 	* lrecord.h (copy_lcrecord):
-	(zero_lcrecord): 
+	(zero_lcrecord):
 	Always add parentheses around uses of macro arguments.
 
 	* sysdll.c: #include <stdlib.h> for exit().
@@ -762,7 +762,7 @@
 	* file-coding.c (convert_to_external_format):
 	* file-coding.c (convert_from_external_format):
 	- Lstream functions mirror Unix98 read(),write().  Therefore use
-	  Unix98 types size_t and ssize_t.  
+	  Unix98 types size_t and ssize_t.
 	- Try to make Lstream* functions 64-bit clean.  Someday someone
 	  may actually want to read from a Lstream with more than 2**32 bytes.
 	- Add configure support for ssize_t.
@@ -790,12 +790,12 @@
 
 1999-11-26  Martin Buchholz  <martin@xemacs.org>
 
-	* device-x.c (x_init_device): 
+	* device-x.c (x_init_device):
 	- Replace magic number `17' with equivalent expn using sizeof.
 	- Replace strcmp with marginally more efficient memcmp.
 	- Avoid using C++ reserved word `class'.
 
-	* file-coding.c (determine_real_coding_system): 
+	* file-coding.c (determine_real_coding_system):
 	- Look for both initial and final -*- cookies.
 	- Replace EQ (foo, Qnil) with NILP (foo)
 	- Make searching for cookies more efficient.
@@ -848,7 +848,7 @@
 
 	* redisplay.h (struct rune): Do not use bitfields for members.
 	(struct rune): Add various comments about further optimizations.
-	
+
 1999-11-19  Eric Darve  <darve@crocco.stanford.edu>
 
 	* abbrev.c (abbrev_oblookup): Check whether wordend <= wordstart
@@ -914,16 +914,16 @@
 
 	* tooltalk.c (tt_build_string): Remove extra parens.
 	* process.c (print_process): Remove extra parens.
-	* buffer.h (BI_BUF_PTR_BYTE_POS): 
-	(BUF_PTR_BYTE_POS): 
-	(BI_BUF_BYTE_ADDRESS): 
-	(BI_BUF_BYTE_ADDRESS_BEFORE): 
-	(valid_memind_p): 
-	(bytind_to_memind): 
+	* buffer.h (BI_BUF_PTR_BYTE_POS):
+	(BUF_PTR_BYTE_POS):
+	(BI_BUF_BYTE_ADDRESS):
+	(BI_BUF_BYTE_ADDRESS_BEFORE):
+	(valid_memind_p):
+	(bytind_to_memind):
 	(memind_to_bytind):
 	Remove extra parens.  Inline functions are not macros.
 
-	* editfns.c (Fuser_login_name): 
+	* editfns.c (Fuser_login_name):
 	(user_login_name):
 	Use proper type uid_t.
 
@@ -992,18 +992,18 @@
 
 1999-10-25  Martin Buchholz  <martin@xemacs.org>
 
-	* redisplay.h (CLASS_RESET_CHANGED_FLAGS): 
-	(GLOBAL_RESET_CHANGED_FLAGS): 
-	(CLASS_REDISPLAY_FLAGS_CHANGEDP): 
-	(RESET_CHANGED_SET_FLAGS): 
+	* redisplay.h (CLASS_RESET_CHANGED_FLAGS):
+	(GLOBAL_RESET_CHANGED_FLAGS):
+	(CLASS_REDISPLAY_FLAGS_CHANGEDP):
+	(RESET_CHANGED_SET_FLAGS):
 	Fix C++ compile errors/warnings.
 	These macros were just a tad too clever.
 
 	* process-unix.c (unix_open_network_stream):
 	* objects-x.c (allocate_nearest_color):
-	* mule-charset.c (vars_of_mule_charset): 
-	* fileio.c (Ffile_truename): 
-	* file-coding.c (vars_of_file_coding): 
+	* mule-charset.c (vars_of_mule_charset):
+	* fileio.c (Ffile_truename):
+	* file-coding.c (vars_of_file_coding):
 	Fix compile errors/warnings.
 
 	* alloc.c (xstrdup): Use fact that memcpy returns its first arg.
@@ -1039,8 +1039,8 @@
 
 	* sound.c: support HAVE_ESD_SOUND
 
-	* miscplay.c: 
-	* miscplay.h: 
+	* miscplay.c:
+	* miscplay.h:
 	* linuxplay.c: Move large part of linuxplay to generalized file
 	miscplay. Make it platform independent.
 
@@ -1062,7 +1062,7 @@
 
 1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* unexelf.c: Merge Martin's c++ fixes back in 
+	* unexelf.c: Merge Martin's c++ fixes back in
 
 1999-10-20  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
@@ -1141,7 +1141,7 @@
 	* lisp.h (DUMPEDP): Added.  Removed dumped flag from dynarr.
 
 	* alloc.c: Removed hash_next linked list pointer.
-	
+
 	* *.c *.h: Removed markobj and mark_object parameters, removed GC_
  	and XGC macros.
 
@@ -1731,7 +1731,7 @@
 	XEmacs slow down to a crawl.  I also hope to be able to create a
 	list with more than INT_MAX cons cells.
 
-	* redisplay.c (decode_mode_spec): 
+	* redisplay.c (decode_mode_spec):
 	The %p and %P specs in the mode line were not correct for buffers
 	larger than MAX_INT/100!  The %p spec was off by .5% even for
 	small buffers!
@@ -1741,7 +1741,7 @@
 	* cmdloop.c (num_input_keys):
 	* print.c (debug_temp):
 	* emacs.c (Vinfo_directory):
-	Delete unused variables 
+	Delete unused variables
 
 	* console-x.h (x_interline_space):  Mark as unimplemented.
 	* redisplay-x.c (x_interline_space):  Mark as unimplemented.
@@ -1801,7 +1801,7 @@
 
 	* scrollbar-x.c (x_window_is_scrollbar): deleted.
 	* scrollbar-x.h: ditto.
-	
+
 1999-09-23  Martin Buchholz  <martin@xemacs.org>
 
 	* alloc.c (this_marks_a_marked_record): Remove.
@@ -2560,7 +2560,7 @@
 	* console.h (struct console_methods): new console methods for
  	outputting pixmaps and strings.
 
-1999-08-23  Didier Verna  <verna@inf.enst.fr>
+1999-08-23  Didier Verna  <didier@xemacs.org>
 
 	* sound.c: revert the renaming of `bell_volume' to `Vbell_volume'
  	and `bell_inhibit_time' to `Vbell_inhibit_time'.
@@ -3184,7 +3184,7 @@
 	* s/linux.h: gcc-2.8 changes for powerpc
 	From Justin Vallon <vallon@mindspring.com>
 
-1999-07-05  Didier Verna  <verna@inf.enst.fr>
+1999-07-05  Didier Verna  <didier@xemacs.org>
 
 	* indent.c: new symbol Qcoerce.
 	(Fmove_to_column): use it + doc string update.
@@ -5150,7 +5150,7 @@
 	* bytecode.c (Ffetch_bytecode): Fix crash when loading lazy-loaded
 	bytecode.
 
-1998-12-02  Didier Verna  <verna@inf.enst.fr>
+1998-12-02  Didier Verna  <didier@xemacs.org>
 
 	* menubar-x.c (menu_item_descriptor_to_widget_value_1): set the
 	accelerator field to nil for labels.
@@ -5161,7 +5161,7 @@
 	  Escape occurrences of '&' and support occurrences of the
 	 '%_' accelerator indicator in menus.
 
-1998-11-26  Didier Verna  <verna@inf.enst.fr>
+1998-11-26  Didier Verna  <didier@xemacs.org>
 
 	* dired.c (Fdirectory_files): use make_string instead of
 	make_ext_string on the filename. The conversion external->internal
@@ -6460,14 +6460,14 @@
 	* chartab.c (canonicalize_char_table_value): Coerce ints to chars
 	for tables of type `char'.
 
-1998-11-26  Didier Verna  <verna@inf.enst.fr>
+1998-11-26  Didier Verna  <didier@xemacs.org>
 
 	* input-method-xlib.c (Initialize_Locale): don't call
 	XtSetLanguageProc. We've done the whole work here.
 	* input-method-xfs.c (Initialize_Locale): ditto.
 	* input-method-motif.c (Initialize_Locale): ditto.
 
-1998-11-26  Didier Verna  <verna@inf.enst.fr>
+1998-11-26  Didier Verna  <didier@xemacs.org>
 
 	* process-unix.c (unix_create_process): handle properly
 	Vfile_name_coding_system for converting the program and directory
@@ -6912,7 +6912,7 @@
 	* fns.c (Fremrassq, remrassq_no_quit):
 	A XCAR that should have been an XCDR turned Fremrassq into Fremassq
 
-1998-07-17  Didier Verna  <verna@inf.enst.fr>
+1998-07-17  Didier Verna  <didier@xemacs.org>
 
 	* redisplay-x.c (x_get_gc): returns a GC with a FillStipple fill
 	style as foreground GC for faces that have the `dim' property.
@@ -8250,7 +8250,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	divider face using Vvertical_divider_face background.
 	Fix drawing spacing gaps around the divider.
 
-1998-05-14  Didier Verna  <verna@inf.enst.fr>
+1998-05-14  Didier Verna  <didier@xemacs.org>
 
 	* redisplay-x.c (x_output_vertical_divider): removed hard-wired
 	values for the vertical divider line width and spacing. Use the
@@ -8449,13 +8449,13 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 	* redisplay-msw.c (mswindows_output_vertical_divider): Syntax fix.
 
-1998-05-12  Didier Verna  <verna@inf.enst.fr>
+1998-05-12  Didier Verna  <didier@xemacs.org>
 
 	* redisplay-x.c (x_output_vertical_divider): draw shadows around
 	the divider line. The shadow thickness is currently
 	hard-wired. This will probably be turned into a specifier soon.
 
-1998-05-12  Didier Verna  <verna@inf.enst.fr>
+1998-05-12  Didier Verna  <didier@xemacs.org>
 
 	* console.h (struct console_methods): the divider_width console
 	method now requires a struct window * argument.
@@ -8593,7 +8593,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	  hand-crafted regexps.
 	- Use standard coding conventions for modules/Makefile.in
 
-1998-05-12  Didier Verna  <verna@inf.enst.fr>
+1998-05-12  Didier Verna  <didier@xemacs.org>
 
 	* redisplay.c: removed the scrolling modeline code that didn't
 	make it for 21.0. To be continued ...

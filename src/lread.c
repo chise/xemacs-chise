@@ -259,9 +259,9 @@ readchar (Lisp_Object readcharfun)
 #ifdef DEBUG_XEMACS /* testing Mule */
       static int testing_mule = 0; /* Change via debugger */
       if (testing_mule) {
-        if (c >= 0x20 && c <= 0x7E) fprintf (stderr, "%c", c);
-        else if (c == '\n')         fprintf (stderr, "\\n\n");
-        else                        fprintf (stderr, "\\%o ", c);
+        if (c >= 0x20 && c <= 0x7E) stderr_out ("%c", c);
+        else if (c == '\n')         stderr_out ("\\n\n");
+        else                        stderr_out ("\\%o ", c);
       }
 #endif
       return c;

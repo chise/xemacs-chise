@@ -410,11 +410,11 @@ representation stuffs a pointer together with a tag, as follows:
 
    A tag of 00 is used for all pointer object types, a tag of 10 is used
 for characters, and the other two tags 01 and 11 are joined together to
-form the integer object type.  This representation gives us 31 bits
-integers, 30 bits characters and pointers are represented directly
-without any bit masking.  This representation, though, assumes that
-pointers to structs are always aligned to multiples of 4, so the lower 2
-bits are always zero.
+form the integer object type.  This representation gives us 31 bit
+integers and 30 bit characters, while pointers are represented directly
+without any bit masking or shifting.  This representation, though,
+assumes that pointers to structs are always aligned to multiples of 4,
+so the lower 2 bits are always zero.
 
    Lisp objects use the typedef `Lisp_Object', but the actual C type
 used for the Lisp object can vary.  It can be either a simple type
@@ -425,24 +425,23 @@ because it ensures that the compiler will actually use a machine word
 to represent the object (some compilers will use more general and less
 efficient code for unions and structs even if they can fit in a machine
 word).  The union type, however, has the advantage of stricter type
-checking (if you accidentally pass an integer where a Lisp object is
-desired, you get a compile error), and it makes it easier to decode
-Lisp objects when debugging.  The choice of which type to use is
+checking.  If you accidentally pass an integer where a Lisp object is
+desired, you get a compile error.  The choice of which type to use is
 determined by the preprocessor constant `USE_UNION_TYPE' which is
 defined via the `--use-union-type' option to `configure'.
 
-   Various macros are used to construct Lisp objects and extract the
-components.  Macros of the form `XINT()', `XCHAR()', `XSTRING()',
-`XSYMBOL()', etc. shift out the tag field if needed cast it to the
-appropriate type.  `XINT()' needs to be a bit tricky so that negative
-numbers are properly sign-extended.  Since integers are stored
-left-shifted, if the right-shift operator does an arithmetic shift
-(i.e. it leaves the most-significant bit as-is rather than shifting in
-a zero, so that it mimics a divide-by-two even for negative numbers)
-the shift to remove the tag bit is enough.  This is the case on all the
-systems we support.
+   Various macros are used to convert between Lisp_Objects and the
+corresponding C type.  Macros of the form `XINT()', `XCHAR()',
+`XSTRING()', `XSYMBOL()', do any required bit shifting and/or masking
+and cast it to the appropriate type.  `XINT()' needs to be a bit tricky
+so that negative numbers are properly sign-extended.  Since integers
+are stored left-shifted, if the right-shift operator does an arithmetic
+shift (i.e. it leaves the most-significant bit as-is rather than
+shifting in a zero, so that it mimics a divide-by-two even for negative
+numbers) the shift to remove the tag bit is enough.  This is the case
+on all the systems we support.
 
-   Note that when `ERROR_CHECK_TYPECHECK' is defined, the extractor
+   Note that when `ERROR_CHECK_TYPECHECK' is defined, the converter
 macros become more complicated--they check the tag bits and/or the type
 field in the first four bytes of a record type to ensure that the
 object is really of the correct type.  This is great for catching places
@@ -454,22 +453,24 @@ unpredictable (and sometimes not easily traceable) results.
 These macros are of the form `XSETTYPE (LVALUE, RESULT)', i.e. they
 have to be a statement rather than just used in an expression.  The
 reason for this is that standard C doesn't let you "construct" a
-structure (but GCC does).  Granted, this sometimes isn't too convenient;
-for the case of integers, at least, you can use the function
-`make_int()', which constructs and _returns_ an integer Lisp object.
-Note that the `XSETTYPE()' macros are also affected by
+structure (but GCC does).  Granted, this sometimes isn't too
+convenient; for the case of integers, at least, you can use the
+function `make_int()', which constructs and _returns_ an integer Lisp
+object.  Note that the `XSETTYPE()' macros are also affected by
 `ERROR_CHECK_TYPECHECK' and make sure that the structure is of the
 right type in the case of record types, where the type is contained in
 the structure.
 
    The C programmer is responsible for *guaranteeing* that a
-Lisp_Object is is the correct type before using the `XTYPE' macros.
-This is especially important in the case of lists.  Use `XCAR' and
-`XCDR' if a Lisp_Object is certainly a cons cell, else use `Fcar()' and
-`Fcdr()'.  Trust other C code, but not Lisp code.  On the other hand,
-if XEmacs has an internal logic error, it's better to crash
-immediately, so sprinkle "unreachable" `abort()'s liberally about the
-source code.
+Lisp_Object is the correct type before using the `XTYPE' macros.  This
+is especially important in the case of lists.  Use `XCAR' and `XCDR' if
+a Lisp_Object is certainly a cons cell, else use `Fcar()' and `Fcdr()'.
+Trust other C code, but not Lisp code.  On the other hand, if XEmacs
+has an internal logic error, it's better to crash immediately, so
+sprinkle `assert()'s and "unreachable" `abort()'s liberally about the
+source code.  Where performance is an issue, use `type_checking_assert',
+`bufpos_checking_assert', and `gc_checking_assert', which do nothing
+unless the corresponding configure error checking flag was specified.
 
 
 File: internals.info,  Node: Rules When Writing New C Code,  Next: A Summary of the Various XEmacs Modules,  Prev: How Lisp Objects Are Represented in C,  Up: Top
@@ -529,13 +530,13 @@ to ensure that certain tricks played by various `s/' and `m/' files
 work out correctly.
 
    When including header files, always use angle brackets, not double
-quotes, except when the file to be included is in the same directory as
-the including file.  If either file is a generated file, then that is
-not likely to be the case.  In order to understand why we have this
-rule, imagine what happens when you do a build in the source directory
-using `./configure' and another build in another directory using
-`../work/configure'.  There will be two different `config.h' files.
-Which one will be used if you `#include "config.h"'?
+quotes, except when the file to be included is always in the same
+directory as the including file.  If either file is a generated file,
+then that is not likely to be the case.  In order to understand why we
+have this rule, imagine what happens when you do a build in the source
+directory using `./configure' and another build in another directory
+using `../work/configure'.  There will be two different `config.h'
+files.  Which one will be used if you `#include "config.h"'?
 
    *All global and static variables that are to be modifiable must be
 declared uninitialized.*  This means that you may not use the "declare
@@ -574,7 +575,7 @@ them.  This awful kludge has been removed in XEmacs because
    The C source code makes heavy use of C preprocessor macros.  One
 popular macro style is:
 
-     #define FOO(var, value) do {           \
+     #define FOO(var, value) do {            \
        Lisp_Object FOO_value = (value);      \
        ... /* compute using FOO_value */     \
        (var) = bar;                          \

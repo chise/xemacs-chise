@@ -1,4 +1,4 @@
-\input texinfo.tex      @c -*-texinfo-*-
+\input texinfo.tex      @c -*- mode: texinfo; coding: iso-2022-8 -*-
 @c %**start of header
 @setfilename ../info/xemacs-faq.info
 @settitle Frequently asked questions about XEmacs
@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/01/27 17:11:28 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/03/07 09:19:02 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -403,6 +403,9 @@ Miscellaneous:
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
 * Q6.3.3::      What is the porting team doing at the moment?
 
+Troubleshooting:
+* Q6.4.1::      XEmacs won't start on Windows. (NEW)
+
 Current Events:
 
 * Q7.0.1::      What is new in 20.2?
@@ -697,9 +700,8 @@ Yes, @xref{MS Windows}.
 @c @uref{ftp://ftp.cs.cornell.edu/pub/parmet/, Emacs 18.59}.
 
 Yes, there is a port of XEmacs 19.14, tested on MacOS 7.6.1 and MacOS
-8.5.1 by @uref{pjarvis@@ispchannel.com,Pitts Jarvis}.  It's available
-at @uref{http://my.ispchannel.com/~pjarvis/xemacs.html,
-http://my.ispchannel.com/~pjarvis/xemacs.html}.
+8.5.1 by @email{pjarvis@@ispchannel.com, Pitts Jarvis}.  It's available
+at @uref{http://my.ispchannel.com/~pjarvis/xemacs.html}.
 
 @node Q1.0.12, Q1.0.13, Q1.0.11, Introduction
 @unnumberedsubsec Q1.0.12: Is there a port of XEmacs to NextStep?
@@ -3035,8 +3037,8 @@ and so on.  You can also do this interactively via @kbd{M-x edit-faces}.
 
 @end quotation
 
-@unnumberedsec 3.3: The Modeline
 @node Q3.3.1, Q3.3.2, Q3.2.6, Customization
+@unnumberedsec 3.3: The Modeline
 @unnumberedsubsec Q3.3.1: How can I make the modeline go away?
 
 @lisp
@@ -6103,6 +6105,9 @@ Miscellaneous
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
 * Q6.3.3::      What is the porting team doing at the moment?
 
+Troubleshooting:
+* Q6.4.1::      XEmacs won't start on Windows. (NEW)
+
 @end menu
 
 @node Q6.0.1, Q6.0.2, MS Windows, MS Windows
@@ -6433,11 +6438,31 @@ others.
 @end itemize
 
 
-@node Q6.3.3, , Q6.3.2, MS Windows
+@node Q6.3.3, Q6.4.1, Q6.3.2, MS Windows
 @unnumberedsubsec Q6.3.3: What is the porting team doing at the moment?
 
 The porting team is continuing work on the MS Windows-specific code.
 
+@node Q6.4.1, ,Q6.3.3, MS Windows
+@unnumberedsec 6.3: Troubleshooting
+@unnumberedsubsec Q6.4.1 XEmacs won't start on Windows. (NEW)
+
+XEmacs relies on a process called "dumping" to generate a working
+executable. Under MS-Windows this process effectively fixes the memory
+addresses of information in the executable. When XEmacs starts up it tries
+to reserve these memory addresses so that the dumping process can be
+reversed - putting the information back at the correct addresses.
+Unfortunately some .dlls (For instance the soundblaster driver) occupy
+memory addresses that can conflict with those needed by the dumped XEmacs
+executable. In this instance XEmacs will fail to start without any
+explanation. Note that this is extremely machine specific.
+
+Work is being done on fixes for 21.1.* that will make more intelligent
+guesses about which memory addresses will be free and so this should
+cure the problem for most people.
+
+21.2 implements "portable dumping" which will eliminate the problem
+altogether.
 
 @node Current Events,  , MS Windows, Top
 @unnumbered 7 What the Future Holds

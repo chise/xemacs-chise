@@ -18,7 +18,7 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* This file is only necessary to get INLINE handling correct.
+/* This file is only necessary to get inline handling correct.
    See inline.c  */
 
 #ifndef INCLUDED_database_h_

@@ -159,6 +159,7 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * Menus::                   Defining pull-down and pop-up menus.
 * Dialog Boxes::	    Creating dialog boxes.
 * Toolbar::		    Controlling the toolbar.
+* Gutter::		    Controlling the gutter.
 * Scrollbars::		    Controlling the scrollbars.
 * Drag and Drop::	    Generic API to inter-application communication
                               via specific protocols.
@@ -204,6 +205,7 @@ Reference Manual, corresponding to XEmacs version 21.0.
 * ToolTalk Support::        Interfacing with the ToolTalk message service.
 * LDAP Support::            Interfacing with the Lightweight Directory
                               Access Protocol.
+* PostgreSQL Support::      Interfacing to the PostgreSQL libpq library.
 * Internationalization::    How Emacs supports different languages and
                               cultural conventions.
 * MULE::                    Specifics of the Asian-language support.
@@ -622,6 +624,8 @@ Toolbar
 * Toolbar Descriptor Format::	How to create a toolbar.
 * Specifying the Toolbar::	Setting a toolbar.
 * Other Toolbar Variables::	Controlling the size of toolbars.
+
+Gutter
 
 Scrollbars
 
@@ -1163,6 +1167,7 @@ Building XEmacs and Object Allocation
 @include menus.texi
 @include dialog.texi
 @include toolbar.texi
+@include gutter.texi
 @include scrollbars.texi
 @include dragndrop.texi
 @include modes.texi
@@ -1199,6 +1204,7 @@ Building XEmacs and Object Allocation
 @include x-windows.texi
 @include tooltalk.texi
 @include ldap.texi
+@include postgresql.texi
 @include internationalization.texi
 @include mule.texi
 

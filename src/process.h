@@ -37,7 +37,8 @@ void wait_without_blocking (void);
 
 #else /* not NO_SUBPROCESSES */
 
-/* Only process.c needs to know about the guts of this */
+/* struct Lisp_Process is defined in procimpl.h; only process-*.c need
+   to know about the guts of it. */
 
 DECLARE_LRECORD (process, Lisp_Process);
 #define XPROCESS(x) XRECORD (x, process, Lisp_Process)

@@ -307,6 +307,7 @@ mandir='${prefix}/man'
 dnl Initialize some other variables.
 subdirs=
 MFLAGS= MAKEFLAGS=
+SHELL=${CONFIG_SHELL-/bin/sh}
 dnl Maximum number of lines to put in a shell here document.
 ac_max_here_lines=12
 ])dnl AC_INIT_PARSE_ARGS
@@ -505,6 +506,7 @@ while test $# != 0; do
 	with_sparcworks | \
 	with_tooltalk	| \
 	with_ldap	| \
+	with_postgresql	| \
 	with_pop	| \
 	with_kerberos	| \
 	with_hesiod	| \
@@ -1000,6 +1002,8 @@ if test "$with_infodock" = "yes"; then
 else
   PROGNAME=xemacs
 fi
+
+AC_DEFINE_UNQUOTED(EMACS_PROGNAME, "$PROGNAME")
 
 dnl ----------------------------------
 dnl Error checking and debugging flags
@@ -1947,7 +1951,8 @@ XE_PROTECT_LINKER_FLAGS(ld_call_shared)
 dnl Add s&m-determined objects (including unexec) to link line
 test -n "$objects_machine" && XE_ADD_OBJS($objects_machine)
 test -n "$objects_system"  && XE_ADD_OBJS($objects_system)
-test -n "$unexec"          && XE_ADD_OBJS($unexec)
+test -n "$unexec"          && test ! "$pdump" = "yes" && XE_ADD_OBJS($unexec)
+test "$pdump" = "yes" && XE_ADD_OBJS(dumper.o)
 
 dnl Dynodump (Solaris 2.x, x<6)
 AC_MSG_CHECKING(for dynodump)
@@ -2898,6 +2903,55 @@ if test "$with_ldap" = "yes"; then
   AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
 fi
 
+dnl Autodetect PostgreSQL
+dnl The default installation location (non-Linux) is /usr/local/pgsql;
+dnl  a different prefix can be selected at build/install time.  If PostgreSQL
+dnl  is installed into a different prefix, that prefix must be specified in
+dnl  in the --site-prefixes flag.
+dnl The default RPM-based Linux installation location is /usr.
+AC_CHECKING(for PostgreSQL)
+postgres_includes_found=no
+save_c_switch_site="$c_switch_site"
+dnl First check site prefixes
+if test "$with_postgresql" != "no"; then
+	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
+fi
+dnl test for Linux-style installation in /usr
+if test "$postgres_includes_found" = "no" -a "$with_postgresql" != "no" -a \
+	-d "/usr/include/pgsql"; then
+	c_switch_site="$c_switch_site -I/usr/include/pgsql"
+	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
+	if test "$postgres_includes_found" != "yes"; then
+		c_switch_site="$save_c_switch_site"
+	fi
+fi
+if test "$postgres_includes_found" = "no" -a "$with_postgresql" != "no" -a \
+	-d "/usr/local/pgsql/include"; then
+	c_switch_site="$c_switch_site -I/usr/local/pgsql/include"
+	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
+	if test "$postgres_includes_found" != "yes"; then
+		c_switch_site="$save_c_switch_site"
+	fi
+fi
+
+dnl last check -- can we link against libpq?
+if test "$postgres_includes_found" = "yes"; then
+	AC_CHECK_LIB(pq,PQconnectdb,with_postgresql=yes,with_postgresql=no)
+fi
+if test "$with_postgresql" = "yes"; then
+	AC_CHECK_LIB(pq,PQconnectStart,with_postgresqlv7=yes,with_postgresqlv7=no)
+fi
+if test "$with_postgresql" = "yes"; then
+	AC_DEFINE(HAVE_POSTGRESQL)
+	if test "$with_postgresqlv7" = "yes"; then
+		AC_DEFINE(HAVE_POSTGRESQLV7)
+	fi
+	XE_PREPEND(-lpq, LIBS)
+	XE_ADD_OBJS(postgresql.o)
+else
+	c_switch_site=$save_c_switch_site
+fi
+
 dnl ----------------------
 dnl Graphics libraries
 dnl ----------------------
@@ -3515,10 +3569,7 @@ fi
 
 
 AC_C_INLINE
-if test "$ac_cv_c_inline" != "no"; then
-  AC_DEFINE(HAVE_INLINE)
-  test "$GCC" = "yes" && XE_ADD_OBJS(inline.o)
-fi
+test "$ac_cv_c_inline" != "no" -a "$GCC" = "yes" && XE_ADD_OBJS(inline.o)
 
 dnl HP-UX has a working alloca in libPW.
 dnl case "${GCC}${opsys}" in hpux* )
@@ -4477,6 +4528,12 @@ test "$with_database_gdbm"   = yes && echo "  Compiling in support for GNU DBM."
 
 test "$with_ldap"	     = yes && echo "  Compiling in support for LDAP."
 
+if test "$with_postgresql" = yes; then
+	echo "  Compiling in support for PostgreSQL."
+	if test "$with_postgresqlv7" = yes; then
+		echo "    Using PostgreSQL V7 bindings."
+	fi
+fi
 test "$with_ncurses"  = yes && echo "  Compiling in support for ncurses."
 test "$with_gpm"      = yes && echo "  Compiling in support for GPM (General Purpose Mouse)."
 
@@ -4539,7 +4596,7 @@ test "$with_pop"	= yes && echo "  Using POP for mail access."
 test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
 test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
 test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
-test "$pdump"           = yes && echo "  Using the new portable dumper (wishful thinking)."
+test "$pdump"           = yes && echo "  Using the new portable dumper."
 test "$debug"           = yes && echo "  Compiling in extra code for debugging."
 test "$usage_tracking"  = yes && echo "  Compiling with usage tracking active (Sun internal)."
 if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc" \

@@ -364,8 +364,7 @@ int frame_changed;
 int glyphs_changed;
 int glyphs_changed_set;
 
-/* non-zero if any displayed subwindow is in need of updating
-   somewhere. */
+/* non-zero if any subwindow has been deleted. */
 int subwindows_changed;
 int subwindows_changed_set;
 
@@ -419,9 +418,9 @@ int windows_structure_changed;
 Lisp_Object Vbar_cursor;
 Lisp_Object Qbar_cursor;
 
-int visible_bell;	/* If true and the terminal will support it
-			   then the frame will flash instead of
-			   beeping when an error occurs */
+Lisp_Object Vvisible_bell;	/* If true and the terminal will support it
+				   then the frame will flash instead of
+				   beeping when an error occurs */
 
 /* Nonzero means no need to redraw the entire frame on resuming
    a suspended Emacs.  This is useful on terminals with multiple pages,
@@ -470,6 +469,8 @@ Lisp_Object Vuse_left_overflow, Vuse_right_overflow;
 Lisp_Object Vtext_cursor_visible_p;
 
 int column_number_start_at_one;
+
+Lisp_Object Qtop_bottom;
 
 #define WINDOW_SCROLLED(w) \
 (w->hscroll > 0 || w->left_xoffset)
@@ -1528,10 +1529,12 @@ add_glyph_rune (pos_data *data, struct glyph_block *gb, int pos_type,
      glyph sizes might have changed too */
   invalidate_glyph_geometry_maybe (gb->glyph, w);
 
-  /* This makes sure the glyph is in the cachels.  
+  /* This makes sure the glyph is in the cachels.
 
-     #### We need to change this so that we hold onto the glyph_index
-     here, not the glyph itself. */
+     #### We do this to make sure the glyph is in the glyph cachels,
+     so that the dirty flag can be reset after redisplay has
+     finished. We should do this some other way, maybe by iterating
+     over the window cache of subwindows. */
   get_glyph_cachel_index (w, gb->glyph);
 
   /* A nil extent indicates a special glyph (ex. truncator). */
@@ -3632,10 +3635,6 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
       /* The modeline is at the bottom of the gutters. */
       dl->ypos = WINDOW_BOTTOM (w);
 
-      /* adjust for the bottom gutter */
-      if (window_is_lowest (w))
-	dl->ypos -= FRAME_BOTTOM_GUTTER_BOUNDS (f);
-
       rb.findex = MODELINE_INDEX;
       rb.xpos = dl->bounds.left_out;
       rb.width = dl->bounds.right_out - dl->bounds.left_out;
@@ -3689,9 +3688,6 @@ generate_modeline (struct window *w, struct display_line *dl, int type)
      set this until we've generated the modeline in order to account
      for any embedded faces. */
   dl->ypos = WINDOW_BOTTOM (w) - dl->descent - ypos_adj;
-  /* adjust for the bottom gutter */
-  if (window_is_lowest (w))
-    dl->ypos -= FRAME_BOTTOM_GUTTER_BOUNDS (f);
 }
 
 static Charcount
@@ -5157,6 +5153,9 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
   else
     prop = 0;
 
+  /* Make sure this is set always */
+  /* Note the conversion at end */
+  w->window_end_pos[type] = start_pos;
   while (ypos < yend)
     {
       struct display_line dl;
@@ -5260,10 +5259,14 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
     Dynarr_free (prop);
 
   /* #### More not quite right, but close enough. */
-  /* #### Ben sez: apparently window_end_pos[] is measured
+  /* Ben sez: apparently window_end_pos[] is measured
      as the number of characters between the window end and the
      end of the buffer?  This seems rather weirdo.  What's
-     the justification for this? */
+     the justification for this?
+
+     JV sez: Because BUF_Z (b) would be a good initial value, however
+     that can change. This representation allows initalizing with 0.
+  */
   w->window_end_pos[type] = BUF_Z (b) - w->window_end_pos[type];
 
   if (need_modeline)
@@ -6290,7 +6293,7 @@ call_redisplay_end_triggers (struct window *w, void *closure)
 
 /* Ensure that all windows on the given frame are correctly displayed. */
 
-static int
+int
 redisplay_frame (struct frame *f, int preemption_check)
 {
   struct device *d = XDEVICE (f->device);
@@ -6332,30 +6335,26 @@ redisplay_frame (struct frame *f, int preemption_check)
      being handled. */
   update_frame_menubars (f);
 #endif /* HAVE_MENUBARS */
-  /* widgets are similar to menus in that they can call lisp to
-     determine activation etc. Therefore update them before we get
-     into redisplay. This is primarily for connected widgets such as
-     radio buttons. */
-  update_frame_subwindows (f);
 #ifdef HAVE_TOOLBARS
   /* Update the toolbars. */
   update_frame_toolbars (f);
 #endif /* HAVE_TOOLBARS */
+  /* Gutter update proper has to be done inside display when no frame
+     size changes can occur, thus we separately update the gutter
+     geometry here if it needs it. */
+  update_frame_gutter_geometry (f);
 
   /* If we clear the frame we have to force its contents to be redrawn. */
   if (f->clear)
     f->frame_changed = 1;
 
-  /* invalidate the subwindow cache. We use subwindows_changed here to
+  /* Invalidate the subwindow cache. We use subwindows_changed here to
      cause subwindows to get instantiated. This is because
      subwindows_state_changed is less strict - dealing with things
      like the clicked state of button. We have to do this before
      redisplaying the gutters as subwindows get unmapped in the
      process.*/
-  if (!Dynarr_length (f->subwindow_cachels)
-      || f->subwindows_changed
-      || f->faces_changed
-      || f->frame_changed)
+  if (f->frame_changed || f->subwindows_changed)
     {
       reset_subwindow_cachels (f);
       /* we have to do this so the gutter gets regenerated. */
@@ -6363,16 +6362,6 @@ redisplay_frame (struct frame *f, int preemption_check)
     }
   else
     mark_subwindow_cachels_as_not_updated (f);
-
-  /* We can now update the gutters, safe in the knowledge that our
-     efforts won't get undone. */
-
-  /* #### This can call lisp, it may be that if the subwindow cachels
-     have been reset there are no remaining references to the
-     displayed glyphs and so they get garbage collected. We should
-     consider putting this call inside the critical redisplay
-     section. */
-  update_frame_gutters (f);
 
   hold_frame_size_changes ();
 
@@ -6399,6 +6388,16 @@ redisplay_frame (struct frame *f, int preemption_check)
 
      #### If a frame-size change does occur we should probably
      actually be preempting redisplay. */
+
+  /* We can now update the gutters, safe in the knowledge that our
+     efforts won't get undone. */
+
+  /* This can call lisp, but redisplay is protected by binding
+     inhibit_quit.  More importantly the code involving display lines
+     *assumes* that GC will not happen and so does not GCPRO
+     anything. Since we use this code the whole time with the gutters
+     we cannot allow GC to happen when manipulating the gutters. */
+  update_frame_gutters (f);
 
   /* Erase the frame before outputting its contents. */
   if (f->clear)
@@ -7553,11 +7552,18 @@ point_would_be_visible (struct window *w, Bufpos startp, Bufpos point)
    displayed.  The end of the last line is also know as the window end
    position.
 
+   WARNING: It is possible that rediplay failed to layout any lines for the
+   windows. Under normal circumstances this is rare. However it seems that it
+   does occur in the following situation: A mouse event has come in and we
+   need to compute its location in a window. That code (in
+   pixel_to_glyph_translation) already can handle 0 as an error return value.
+
    #### With a little work this could probably be reworked as just a
    call to start_with_line_at_pixpos. */
 
 static Bufpos
-start_end_of_last_line (struct window *w, Bufpos startp, int end)
+start_end_of_last_line (struct window *w, Bufpos startp, int end,
+                        int may_error)
 {
   struct buffer *b = XBUFFER (w->buffer);
   line_start_cache_dynarr *cache = w->line_start_cache;
@@ -7577,7 +7583,7 @@ start_end_of_last_line (struct window *w, Bufpos startp, int end)
 
   start_elt = point_in_line_start_cache (w, cur_start, 0);
   if (start_elt == -1)
-    abort ();	/* this had better never happen */
+      return may_error ? 0 : startp;
 
   while (1)
     {
@@ -7641,7 +7647,7 @@ start_end_of_last_line (struct window *w, Bufpos startp, int end)
 Bufpos
 start_of_last_line (struct window *w, Bufpos startp)
 {
-  return start_end_of_last_line (w, startp, 0);
+  return start_end_of_last_line (w, startp, 0 , 0);
 }
 
 /* For the given window W, if display starts at STARTP, what will be
@@ -7651,8 +7657,15 @@ start_of_last_line (struct window *w, Bufpos startp)
 Bufpos
 end_of_last_line (struct window *w, Bufpos startp)
 {
-  return start_end_of_last_line (w, startp, 1);
+  return start_end_of_last_line (w, startp, 1, 0);
 }
+
+static Bufpos
+end_of_last_line_may_error (struct window *w, Bufpos startp)
+{
+  return start_end_of_last_line (w, startp, 1, 1);
+}
+
 
 /* For window W, what does the starting position have to be so that
    the line containing POINT will cover pixel position PIXPOS. */
@@ -8807,7 +8820,7 @@ pixel_to_glyph_translation (struct frame *f, int x_coord, int y_coord,
   if (!MARKERP ((*w)->start[CURRENT_DISP]))
     *closest = 0;
   else
-    *closest = end_of_last_line (*w,
+    *closest = end_of_last_line_may_error (*w,
 				 marker_position ((*w)->start[CURRENT_DISP]));
   *col = 0;
   UPDATE_CACHE_RETURN;
@@ -8895,6 +8908,9 @@ input and is guaranteed to proceed to completion.
   f->clear = 1;
   redisplay_frame (f, 1);
 
+  /* See the comment in Fredisplay_frame. */
+  RESET_CHANGED_SET_FLAGS;
+
   return unbind_to (count, Qnil);
 }
 
@@ -8921,6 +8937,15 @@ input and is guaranteed to proceed to completion.
     }
 
   redisplay_frame (f, 1);
+
+  /* If we don't reset the global redisplay flafs here, subsequent
+     changes to the display will not get registered by redisplay
+     because it thinks it already has registered changes. If you
+     really knew what you were doing you could confuse redisplay by
+     calling Fredisplay_frame while updating another frame. We assume
+     that if you know what you are doing you will not be that
+     stupid. */
+  RESET_CHANGED_SET_FLAGS;
 
   return unbind_to (count, Qnil);
 }
@@ -8951,6 +8976,9 @@ input and is guaranteed to proceed to completion.
     }
   redisplay_device (d, 0);
 
+  /* See the comment in Fredisplay_frame. */
+  RESET_CHANGED_SET_FLAGS;
+
   return unbind_to (count, Qnil);
 }
 
@@ -8977,6 +9005,9 @@ input and is guaranteed to proceed to completion.
     }
 
   redisplay_device (d, 0);
+
+  /* See the comment in Fredisplay_frame. */
+  RESET_CHANGED_SET_FLAGS;
 
   return unbind_to (count, Qnil);
 }
@@ -9240,6 +9271,7 @@ syms_of_redisplay (void)
   defsymbol (&Qbar_cursor, "bar-cursor");
   defsymbol (&Qredisplay_end_trigger_functions,
 	     "redisplay-end-trigger-functions");
+  defsymbol (&Qtop_bottom, "top-bottom");
 
   DEFSUBR (Fredisplay_echo_area);
   DEFSUBR (Fredraw_frame);
@@ -9328,10 +9360,19 @@ If this is zero, point is always centered after it moves off screen.
 		     redisplay_variable_changed);
   truncate_partial_width_windows = 1;
 
-  DEFVAR_BOOL ("visible-bell", &visible_bell /*
-*Non-nil means try to flash the frame to represent a bell.
+  DEFVAR_LISP ("visible-bell", &Vvisible_bell /*
+*Non-nil substitutes a visual signal for the audible bell.
+
+Default behavior is to flash the whole screen.  On some platforms,
+special effects are available using the following values:
+
+'display       Flash the whole screen (ie, the default behavior).
+'top-bottom    Flash only the top and bottom lines of the selected frame.
+
+When effects are unavailable on a platform, the visual bell is the
+default, whole screen.  (Currently only X supports any special effects.)
 */ );
-  visible_bell = 0;
+  Vvisible_bell = Qnil;
 
   DEFVAR_BOOL ("no-redraw-on-reenter", &no_redraw_on_reenter /*
 *Non-nil means no need to redraw entire frame after suspending.

@@ -1,8 +1,8 @@
 ;;; rect.el --- rectangle functions for XEmacs.
 
-;; Copyright (C) 1985, 1993, 1994, 1999 Free Software Foundation, Inc.
+;; Copyright (C) 1985-2000 Free Software Foundation, Inc.
 
-;; Maintainer: Didier Verna <verna@inf.enst.fr>
+;; Maintainer: Didier Verna <didier@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.
@@ -30,7 +30,7 @@
 ;; in the XEmacs Reference Manual.
 
 ;; #### NOTE: this file has been almost completely rewritten by Didier Verna
-;; <verna@inf.enst.fr>, Jul 99. The purpose of this rewrite is to be less
+;; <didier@xemacs.org>, Jul 99. The purpose of this rewrite is to be less
 ;; intrusive and fill lines with whitespaces only when needed. A few functions
 ;; are untouched though, as noted above their definition.
 
@@ -111,56 +111,6 @@ when the function is called."
 	(forward-line 1)))
     ))
 
-;; I love ascii art ;-)
-(defconst spaces-strings '[""
-			   " "
-			   "  "
-			   "   "
-			   "    "
-			   "     "
-			   "      "
-			   "       "
-			   "        "])
-
-
-;; This function is untouched --dv
-(defun spaces-string (n)
-  (if (<= n 8) (aref spaces-strings n)
-    (let ((val ""))
-      (while (> n 8)
-	(setq val (concat "        " val)
-	      n (- n 8)))
-      (concat val (aref spaces-strings n)))))
-
-;;;###autoload
-(defvar killed-rectangle nil
-  "Rectangle for `yank-rectangle' to insert.")
-
-;;;###autoload
-(defun kill-rectangle (start end &optional fill)
-  "Delete the region-rectangle and save it as the last killed one.
-You might prefer to use `delete-extract-rectangle' from a program.
-
-When called from a program, the rectangle's corners are START and END.
-With a prefix (or FILL) argument, also fill lines where nothing has to be
-deleted."
-  (interactive "*r\nP")
-  (when buffer-read-only
-    (setq killed-rectangle (extract-rectangle start end))
-    (barf-if-buffer-read-only))
-  (setq killed-rectangle (delete-extract-rectangle start end fill)))
-
-;;;###autoload
-(defun delete-rectangle (start end &optional fill)
-  "Delete the text in the region-rectangle without saving it.
-The same range of columns is deleted in each line starting with the line
-where the region begins and ending with the line where the region ends.
-
-When called from a program, the rectangle's corners are START and END.
-With a prefix (or FILL) argument, also fill lines where nothing has to be
-deleted."
-  (interactive "*r\nP")
-  (apply-on-rectangle 'delete-rectangle-line start end fill))
 
 (defun delete-rectangle-line (startcol endcol fill)
   (let ((pt (point-at-eol)))
@@ -174,15 +124,38 @@ deleted."
     ))
 
 ;;;###autoload
-(defun delete-extract-rectangle (start end &optional fill)
-  "Delete the contents of the rectangle with corners at START and END, and
-return it as a list of strings, one for each line of the rectangle.
+(defun delete-rectangle (start end &optional fill)
+  "Delete the text in the region-rectangle without saving it.
+The same range of columns is deleted in each line starting with the line
+where the region begins and ending with the line where the region ends.
 
-With an optional FILL argument, also fill lines where nothing has to be
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill lines where nothing has to be
 deleted."
-  (let ((lines (list nil)))
-    (apply-on-rectangle 'delete-extract-rectangle-line start end lines fill)
-    (nreverse (cdr lines))))
+  (interactive "*r\nP")
+  (apply-on-rectangle 'delete-rectangle-line start end fill))
+
+
+;; I love ascii art ;-)
+(defconst spaces-strings '[""
+			   " "
+			   "  "
+			   "   "
+			   "    "
+			   "     "
+			   "      "
+			   "       "
+			   "        "])
+
+;; This function is untouched --dv
+(defun spaces-string (n)
+  (if (<= n 8) (aref spaces-strings n)
+    (let ((val ""))
+      (while (> n 8)
+	(setq val (concat "        " val)
+	      n (- n 8)))
+      (concat val (aref spaces-strings n)))))
+
 
 (defun delete-extract-rectangle-line (startcol endcol lines fill)
   (let ((pt (point-at-eol)))
@@ -197,12 +170,16 @@ deleted."
     ))
 
 ;;;###autoload
-(defun extract-rectangle (start end)
-  "Return the contents of the rectangle with corners at START and END,
-as a list of strings, one for each line of the rectangle."
+(defun delete-extract-rectangle (start end &optional fill)
+  "Delete the contents of the rectangle with corners at START and END, and
+return it as a list of strings, one for each line of the rectangle.
+
+With an optional FILL argument, also fill lines where nothing has to be
+deleted."
   (let ((lines (list nil)))
-    (apply-on-rectangle 'extract-rectangle-line start end lines)
+    (apply-on-rectangle 'delete-extract-rectangle-line start end lines fill)
     (nreverse (cdr lines))))
+
 
 ;; #### NOTE: this is actually the only function that needs to do complicated
 ;; stuff like what's happening in `operate-on-rectangle', because the buffer
@@ -236,12 +213,40 @@ as a list of strings, one for each line of the rectangle."
 			   (spaces-string endextra))))
     (setcdr lines (cons line (cdr lines)))))
 
+;;;###autoload
+(defun extract-rectangle (start end)
+  "Return the contents of the rectangle with corners at START and END,
+as a list of strings, one for each line of the rectangle."
+  (let ((lines (list nil)))
+    (apply-on-rectangle 'extract-rectangle-line start end lines)
+    (nreverse (cdr lines))))
+
+
+;;;###autoload
+(defvar killed-rectangle nil
+  "Rectangle for `yank-rectangle' to insert.")
+
+;;;###autoload
+(defun kill-rectangle (start end &optional fill)
+  "Delete the region-rectangle and save it as the last killed one.
+You might prefer to use `delete-extract-rectangle' from a program.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill lines where nothing has to be
+deleted."
+  (interactive "*r\nP")
+  (when buffer-read-only
+    (setq killed-rectangle (extract-rectangle start end))
+    (barf-if-buffer-read-only))
+  (setq killed-rectangle (delete-extract-rectangle start end fill)))
+
 ;; This function is untouched --dv
 ;;;###autoload
 (defun yank-rectangle ()
   "Yank the last killed rectangle with upper left corner at point."
   (interactive "*")
   (insert-rectangle killed-rectangle))
+
 
 ;; This function is untouched --dv
 ;;;###autoload
@@ -266,6 +271,15 @@ and point is at the lower right corner."
       (insert (car lines))
       (setq lines (cdr lines)))))
 
+
+(defun open-rectangle-line (startcol endcol fill)
+  (let (spaces)
+    (when (= (move-to-column startcol (or fill 'coerce)) startcol)
+      (unless (and (not fill)
+		   (= (point) (point-at-eol)))
+	(indent-to endcol)))
+    ))
+
 ;;;###autoload
 (defun open-rectangle (start end &optional fill)
   "Blank out the region-rectangle, shifting text right.
@@ -277,38 +291,32 @@ on the right side of the rectangle."
   (apply-on-rectangle 'open-rectangle-line start end fill)
   (goto-char start))
 
-(defun open-rectangle-line (startcol endcol fill)
-  (let (spaces)
-    (when (= (move-to-column startcol (or fill 'coerce)) startcol)
-      (unless (and (not fill)
-		   (= (point) (point-at-eol)))
-	(indent-to endcol)))
-    ))
+
+(defun string-rectangle-line (startcol endcol string delete)
+  (move-to-column startcol t)
+  (if delete
+      (delete-rectangle-line startcol endcol nil))
+  (insert string))
 
 ;;;###autoload
 (defun string-rectangle (start end string)
   "Insert STRING on each line of the region-rectangle, shifting text right.
-The left edge of the rectangle specifies the column for insertion. This
-command does not delete or overwrite any existing text.
+The left edge of the rectangle specifies the column for insertion.
+
+If `pending-delete-mode' is active the string replace the region.
+Otherwise this command does not delete or overwrite any existing text.
 
 When called from a program, the rectangle's corners are START and END."
   (interactive "*r\nsString rectangle: ")
-  (apply-on-rectangle 'string-rectangle-line start end string))
+  (apply-on-rectangle 'string-rectangle-line start end string
+                      (and (boundp 'pending-delete-mode) pending-delete-mode)))
 
-(defun string-rectangle-line (startcol endcol string)
-  (move-to-column startcol t)
-  (insert string))
+(defun replace-rectangle (start end string)
+  "Like `string-rectangle', but unconditionally replace the original region,
+as if `pending-delete-mode' were active."
+  (interactive "*r\nsString rectangle: ")
+  (apply-on-rectangle 'string-rectangle-line start end string t))
 
-;;;###autoload
-(defun clear-rectangle (start end &optional fill)
-  "Blank out the region-rectangle.
-The text previously in the region is overwritten with blanks.
-
-When called from a program, the rectangle's corners are START and END.
-With a prefix (or FILL) argument, also fill with blanks the parts of the
-rectangle which were empty."
-  (interactive "*r\nP")
-  (apply-on-rectangle 'clear-rectangle-line start end fill))
 
 (defun clear-rectangle-line (startcol endcol fill)
   (let ((pt (point-at-eol))
@@ -324,6 +332,18 @@ rectangle which were empty."
 	(delete-region pt (point))
 	(indent-to (+ (current-column) spaces))))
     ))
+
+;;;###autoload
+(defun clear-rectangle (start end &optional fill)
+  "Blank out the region-rectangle.
+The text previously in the region is overwritten with blanks.
+
+When called from a program, the rectangle's corners are START and END.
+With a prefix (or FILL) argument, also fill with blanks the parts of the
+rectangle which were empty."
+  (interactive "*r\nP")
+  (apply-on-rectangle 'clear-rectangle-line start end fill))
+
 
 (provide 'rect)
 

@@ -249,6 +249,7 @@ reinit_vars_of_event_tty (void)
   tty_event_stream = xnew (struct event_stream);
 
   tty_event_stream->event_pending_p 	= emacs_tty_event_pending_p;
+  tty_event_stream->force_event_pending = 0;
   tty_event_stream->next_event_cb	= emacs_tty_next_event;
   tty_event_stream->handle_magic_event_cb = emacs_tty_handle_magic_event;
   tty_event_stream->add_timeout_cb 	= emacs_tty_add_timeout;

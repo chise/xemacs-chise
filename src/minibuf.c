@@ -682,7 +682,7 @@ clear_echo_area_internal (struct frame *f, Lisp_Object label, int from_print,
   else
     {
       write_string_to_stdio_stream (stderr, 0, (const Bufbyte *) "\n", 0, 1,
-				    Qterminal);
+				    Qterminal, 0);
       return Qnil;
     }
 }
@@ -751,7 +751,7 @@ echo_area_append (struct frame *f, const Bufbyte *nonreloc, Lisp_Object reloc,
       if (STRINGP (reloc))
 	nonreloc = XSTRING_DATA (reloc);
       write_string_to_stdio_stream (stderr, 0, nonreloc, offset, length,
-				    Qterminal);
+				    Qterminal, 0);
     }
 }
 

@@ -175,10 +175,10 @@ struct lstream
   ((lstr)->imp == lstream_##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct lstream *
+INLINE_HEADER struct lstream *
 error_check_lstream_type (struct lstream *stream,
 			  const Lstream_implementation *imp);
-INLINE struct lstream *
+INLINE_HEADER struct lstream *
 error_check_lstream_type (struct lstream *stream,
 			  const Lstream_implementation *imp)
 {
@@ -268,8 +268,8 @@ void Lstream_set_character_mode (Lstream *str);
 #include "mule-charset.h"
 #endif
 
-INLINE Emchar Lstream_get_emchar (Lstream *stream);
-INLINE Emchar
+INLINE_HEADER Emchar Lstream_get_emchar (Lstream *stream);
+INLINE_HEADER Emchar
 Lstream_get_emchar (Lstream *stream)
 {
   int c = Lstream_getc (stream);
@@ -277,8 +277,8 @@ Lstream_get_emchar (Lstream *stream)
     Lstream_get_emchar_1 (stream, c);
 }
 
-INLINE int Lstream_put_emchar (Lstream *stream, Emchar ch);
-INLINE int
+INLINE_HEADER int Lstream_put_emchar (Lstream *stream, Emchar ch);
+INLINE_HEADER int
 Lstream_put_emchar (Lstream *stream, Emchar ch)
 {
   return CHAR_ASCII_P (ch) ?
@@ -286,8 +286,8 @@ Lstream_put_emchar (Lstream *stream, Emchar ch)
     Lstream_fput_emchar (stream, ch);
 }
 
-INLINE void Lstream_unget_emchar (Lstream *stream, Emchar ch);
-INLINE void
+INLINE_HEADER void Lstream_unget_emchar (Lstream *stream, Emchar ch);
+INLINE_HEADER void
 Lstream_unget_emchar (Lstream *stream, Emchar ch)
 {
   if (CHAR_ASCII_P (ch))

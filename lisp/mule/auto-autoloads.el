@@ -4,7 +4,7 @@
 ;;;### (autoloads (ccl-execute-with-args check-ccl-program define-ccl-program declare-ccl-program ccl-dump ccl-compile ccl-program-p) "mule-ccl" "mule/mule-ccl.el")
 
 (autoload 'ccl-program-p "mule-ccl" "\
-T if OBJECT is a valid CCL compiled code." nil nil)
+Return t if OBJECT is a valid CCL compiled code." nil nil)
 
 (autoload 'ccl-compile "mule-ccl" "\
 Return a compiled code of CCL-PROGRAM as a vector of integer." nil nil)

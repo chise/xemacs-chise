@@ -404,7 +404,7 @@ device).
   
   if (d == last_bell_device && now-last_bell_time < bell_inhibit_time)
     return Qnil;
-  else if (visible_bell && DEVMETH (d, flash, (d)))
+  else if (!NILP (Vvisible_bell) && DEVMETH (d, flash, (d)))
     ;
   else
     Fplay_sound (sound, Qnil, device);
@@ -447,13 +447,11 @@ Return t if connected to NAS server for sounds on DEVICE.
 static void
 init_nas_sound (struct device *d)
 {
-  char *error;
-
 #ifdef HAVE_X_WINDOWS
   if (DEVICE_X_P (d))
     {
-      error = nas_init_play (DEVICE_X_DISPLAY (d));
-      DEVICE_CONNECTED_TO_NAS_P (d) = !error;
+      char *err_message = nas_init_play (DEVICE_X_DISPLAY (d));
+      DEVICE_CONNECTED_TO_NAS_P (d) = !err_message;
       /* Print out the message? */
     }
 #endif /* HAVE_X_WINDOWS */

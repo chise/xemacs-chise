@@ -295,14 +295,13 @@ charset_syntax (struct buffer *buf, Lisp_Object charset, int *multi_p_out)
 Lisp_Object
 syntax_match (Lisp_Object table, Emchar ch)
 {
-  Lisp_Object code = CHAR_TABLE_VALUE_UNSAFE (XCHAR_TABLE (table), ch);
+  Lisp_Object code = XCHAR_TABLE_VALUE_UNSAFE (table, ch);
   Lisp_Object code2 = code;
 
   if (CONSP (code))
     code2 = XCAR (code);
   if (SYNTAX_FROM_CODE (XINT (code2)) == Sinherit)
-    code = CHAR_TABLE_VALUE_UNSAFE (XCHAR_TABLE (Vstandard_syntax_table),
-				    ch);
+    code = XCHAR_TABLE_VALUE_UNSAFE (Vstandard_syntax_table, ch);
 
   return CONSP (code) ? XCDR (code) : Qnil;
 }

@@ -144,9 +144,15 @@ libz.a in the X11 binary directory.
 ** AIX
 *** On AIX 4.3, you must specify --with-dialogs=athena with configure
 
-*** The libXt shipped with AIX 4.3 is broken.  This causes xemacs -nw
-    to fail in various ways.  The solution is to build against stock
-    X11R6.
+*** The libXt shipped with AIX 4.3 up to 4.3.2 is broken.  This causes
+    xemacs -nw to fail in various ways.  The official APAR is this:
+
+APAR NUMBER: <IX89470>            RESOLVED AS: PROGRAM ERROR
+
+ABSTRACT:
+<IX89470>: LIBXT.A INCORRECT HANDLING OF EXCEPTIONS IN XTAPPADDINPUT
+
+    The solution is to install X11.base.lib at version >=4.3.2.5.
 
 *** On AIX, you get this compiler error message:
 

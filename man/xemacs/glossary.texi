@@ -278,7 +278,7 @@ screen.  When running Emacs under X, you can have multiple frames,
 each corresponding to a top-level X window and each looking like
 the screen on a TTY.  Each frame contains one or more non-overlapping
 Emacs windows (possibly with associated scrollbars, under X), an
-echo area, and (under X) possibly a menubar.
+echo area, and (under X) possibly a menubar, toolbar, and/or gutter.
 
 @item Global
 Global means `independent of the current environment; in effect

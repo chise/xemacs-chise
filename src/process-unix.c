@@ -1765,7 +1765,7 @@ unix_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object servic
 
 #ifdef HAVE_MULTICAST
 
-/* Didier Verna <verna@inf.enst.fr> Nov. 28 1997.
+/* Didier Verna <didier@xemacs.org> Nov. 28 1997.
 
    This function is similar to open-network-stream-internal, but provides a
    mean to open an UDP multicast connection instead of a TCP one. Like in the

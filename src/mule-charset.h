@@ -401,8 +401,8 @@ enum LEADING_BYTE_OFFICIAL_2
 
 /* Is this a prefix for a private leading byte? */
 
-INLINE int LEADING_BYTE_PREFIX_P (unsigned char lb);
-INLINE int
+INLINE_HEADER int LEADING_BYTE_PREFIX_P (unsigned char lb);
+INLINE_HEADER int
 LEADING_BYTE_PREFIX_P (unsigned char lb)
 {
   return (lb == PRE_LEADING_BYTE_PRIVATE_1 ||
@@ -565,8 +565,8 @@ extern struct charset_lookup *chlook;
 /* int not Bufbyte even though that is the actual type of a leading byte.
    This way, out-ot-range values will get caught rather than automatically
    truncated. */
-INLINE Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
-INLINE Lisp_Object
+INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
+INLINE_HEADER Lisp_Object
 CHARSET_BY_LEADING_BYTE (int lb)
 {
   assert (lb >= 0x80 && lb <= 0xFF);
@@ -592,8 +592,8 @@ CHARSET_BY_LEADING_BYTE (int lb)
 extern const Bytecount rep_bytes_by_first_byte[0xA0];
 
 /* Number of bytes in the string representation of a character. */
-INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
-INLINE int
+INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE_HEADER int
 REP_BYTES_BY_FIRST_BYTE (int fb)
 {
 #ifdef ERROR_CHECK_TYPECHECK
@@ -675,8 +675,8 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
    FIELD2_TO_PRIVATE_LEADING_BYTE are the same.
    */
 
-INLINE Bufbyte CHAR_LEADING_BYTE (Emchar c);
-INLINE Bufbyte
+INLINE_HEADER Bufbyte CHAR_LEADING_BYTE (Emchar c);
+INLINE_HEADER Bufbyte
 CHAR_LEADING_BYTE (Emchar c)
 {
   if (CHAR_ASCII_P (c))
@@ -710,8 +710,8 @@ CHAR_LEADING_BYTE (Emchar c)
    FIELD2_TO_PRIVATE_LEADING_BYTE are the same.
    */
 
-INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
-INLINE Emchar
+INLINE_HEADER Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
+INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   if (EQ (charset, Vcharset_ascii))
@@ -748,8 +748,8 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
   : ((c1) = CHAR_FIELD2 (c),				\
      (c2) = CHAR_FIELD3 (c))
 
-INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
-INLINE void
+INLINE_HEADER void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
+INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
   *charset = CHAR_CHARSET (c);

@@ -1,4 +1,15 @@
+to 21.2.32 "Kastor & Polydeukes"
+-- Internal Postgres RDBMS support from Steve Baur
+-- Improve gutter useability
+-- Fix window geometry with gutters
+-- Fix async updates so that they only occur when neccessary
+-- Gutter documentation from Stephen Turnbull
+-- redisplay-gutter-area fixes from Andy Piper
+-- pdump file in MS-Windows executable from Mike Alexander
+-- Miscellaneous fixes from Andy Piper
+
 to 21.2.31 "Iris"
+-- Make XEmacs work on Windows again.
 
 to 21.2.30 "Hygeia"
 -- Make (find-tag-other-window) always use other window, 

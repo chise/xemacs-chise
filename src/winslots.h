@@ -102,6 +102,10 @@ Boston, MA 02111-1307, USA.  */
      This is not a size hog because the value here is not copied,
      and will be shared with the specs in the specifier. */
   WINDOW_SLOT_ARRAY (gutter, 4, EQUAL_WRAPPED);
+  /* Real (pre-calculated) gutter specification for each of the four positions.
+     This is not a specifier, it is calculated by the specifier change
+     functions. */
+  WINDOW_SLOT_ARRAY (real_gutter, 4, EQUAL_WRAPPED);
   /* Gutter size for each of the four positions. */
   WINDOW_SLOT_ARRAY (gutter_size, 4, EQUAL_WRAPPED);
   /* Real (pre-calculated) gutter size for each of the four positions.

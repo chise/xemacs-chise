@@ -168,6 +168,25 @@ push_lisp_string_as_unicode (unsigned_char_dynarr* dynarr, Lisp_Object string)
   Dynarr_add_many (dynarr, uni_string, sizeof(WCHAR) * length);
 }
 
+/* Helper function which converts the supplied string STRING into Unicode and
+   pushes it at the end of DYNARR */
+static void
+push_bufbyte_string_as_unicode (unsigned_char_dynarr* dynarr, Bufbyte *string,
+				Bytecount len)
+{
+  Extbyte *mbcs_string;
+  Charcount length = bytecount_to_charcount (string, len);
+  LPWSTR uni_string;
+
+  TO_EXTERNAL_FORMAT (C_STRING, string,
+		      C_STRING_ALLOCA, mbcs_string,
+		      Qnative);
+  uni_string = alloca_array (WCHAR, length + 1);
+  length = MultiByteToWideChar (CP_ACP, 0, mbcs_string, -1,
+				uni_string, sizeof(WCHAR) * (length + 1));
+  Dynarr_add_many (dynarr, uni_string, sizeof(WCHAR) * length);
+}
+
 /* Given button TEXT, return button width in DLU */
 static unsigned int
 button_width (Lisp_Object text)
@@ -362,7 +381,21 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 	Dynarr_add_many (template, &button_class_id, sizeof (button_class_id));
 
 	/* Next thing to add is control text, as Unicode string */
-	push_lisp_string_as_unicode (template, pgui_item->name);
+	{
+	  Lisp_Object ctext = pgui_item->name;
+	  Emchar accel_unused;
+	  Bufbyte *trans = (Bufbyte *) alloca (2 * XSTRING_LENGTH (ctext) + 3);
+	  Bytecount translen;
+
+	  memcpy (trans, XSTRING_DATA (ctext), XSTRING_LENGTH (ctext) + 1);
+	  translen =
+	    msw_translate_menu_or_dialog_item (trans,
+					       XSTRING_LENGTH (ctext),
+					       2 * XSTRING_LENGTH (ctext) + 3,
+					       &accel_unused,
+					       ctext);
+	  push_bufbyte_string_as_unicode (template, trans, translen);
+	}
 
 	/* Specify 0 length creation data. */
 	Dynarr_add_many (template, &zeroes, 2);
@@ -385,7 +418,8 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
     vector = make_vector (Dynarr_length (dialog_items), Qunbound);
     dialog_data = Fcons (frame, vector);
     for (i = 0; i < Dynarr_length (dialog_items); i++)
-      XVECTOR_DATA (vector) [i] = XGUI_ITEM (*Dynarr_atp (dialog_items, i))->callback;
+      XVECTOR_DATA (vector) [i] =
+	XGUI_ITEM (*Dynarr_atp (dialog_items, i))->callback;
 
     /* Woof! Everything is ready. Pop pop pop in now! */
     if (!CreateDialogIndirectParam (NULL,

@@ -479,16 +479,26 @@ massage_resource_name (const char *in, char *out)
   Boolean firstp = True;
   while (*in)
     {
-      char ch = massaged_resource_char[(unsigned char) *in++];
-      if (ch)
+      if (*in == '%' && *(in + 1) == '_')
+	in += 2;
+      else
 	{
-	  int int_ch = (int) (unsigned char) ch;
-	  *out++ = firstp ? tolower (int_ch) : toupper (int_ch);
-	  firstp = False;
-	  while ((ch = massaged_resource_char[(unsigned char) *in++]) != '\0')
-	    *out++ = ch;
-	  if (!*(in-1))		/* Overshot the NULL byte? */
-	    break;
+	  char ch;
+
+	  if (*in == '%' && *(in + 1) == '%')
+	    in++;
+	  ch = massaged_resource_char[(unsigned char) *in++];
+	  if (ch)
+	    {
+	      int int_ch = (int) (unsigned char) ch;
+	      *out++ = firstp ? tolower (int_ch) : toupper (int_ch);
+	      firstp = False;
+	      while ((ch = massaged_resource_char[(unsigned char) *in++])
+		     != '\0')
+		*out++ = ch;
+	      if (!*(in-1))		/* Overshot the NULL byte? */
+		break;
+	    }
 	}
     }
   *out = 0;

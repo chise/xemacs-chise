@@ -470,8 +470,9 @@ for (mps_bufcons = Qunbound,							\
 /*     section of internally-formatted text 			  */
 /* -------------------------------------------------------------- */
 
-INLINE const Bufbyte *charptr_n_addr (const Bufbyte *ptr, Charcount offset);
-INLINE const Bufbyte *
+INLINE_HEADER const Bufbyte *
+charptr_n_addr (const Bufbyte *ptr, Charcount offset);
+INLINE_HEADER const Bufbyte *
 charptr_n_addr (const Bufbyte *ptr, Charcount offset)
 {
   return ptr + charcount_to_bytecount (ptr, offset);
@@ -491,8 +492,8 @@ Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
 Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
 Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
 
-INLINE Emchar charptr_emchar (const Bufbyte *ptr);
-INLINE Emchar
+INLINE_HEADER Emchar charptr_emchar (const Bufbyte *ptr);
+INLINE_HEADER Emchar
 charptr_emchar (const Bufbyte *ptr)
 {
   return BYTE_ASCII_P (*ptr) ?
@@ -500,8 +501,8 @@ charptr_emchar (const Bufbyte *ptr)
     non_ascii_charptr_emchar (ptr);
 }
 
-INLINE Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
-INLINE Bytecount
+INLINE_HEADER Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
+INLINE_HEADER Bytecount
 set_charptr_emchar (Bufbyte *ptr, Emchar x)
 {
   return !CHAR_MULTIBYTE_P (x) ?
@@ -509,8 +510,9 @@ set_charptr_emchar (Bufbyte *ptr, Emchar x)
     non_ascii_set_charptr_emchar (ptr, x);
 }
 
-INLINE Bytecount charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
-INLINE Bytecount
+INLINE_HEADER Bytecount
+charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
+INLINE_HEADER Bytecount
 charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
 {
   return BYTE_ASCII_P (*ptr) ?
@@ -538,8 +540,8 @@ charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
 
 int non_ascii_valid_char_p (Emchar ch);
 
-INLINE int valid_char_p (Emchar ch);
-INLINE int
+INLINE_HEADER int valid_char_p (Emchar ch);
+INLINE_HEADER int
 valid_char_p (Emchar ch)
 {
   return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
@@ -557,8 +559,8 @@ valid_char_p (Emchar ch)
 
 #ifdef ERROR_CHECK_TYPECHECK
 
-INLINE Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
-INLINE Emchar
+INLINE_HEADER Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
+INLINE_HEADER Emchar
 XCHAR_OR_CHAR_INT (Lisp_Object obj)
 {
   assert (CHAR_OR_CHAR_INTP (obj));
@@ -622,8 +624,8 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
 /*----------------------------------------------------------------------*/
 
 /* Convert the address of a byte in the buffer into a position.  */
-INLINE Bytind BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr);
-INLINE Bytind
+INLINE_HEADER Bytind BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr);
+INLINE_HEADER Bytind
 BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr)
 {
   return (ptr - buf->text->beg + 1
@@ -635,8 +637,8 @@ BI_BUF_PTR_BYTE_POS (struct buffer *buf, Bufbyte *ptr)
   bytind_to_bufpos (buf, BI_BUF_PTR_BYTE_POS (buf, ptr))
 
 /* Address of byte at position POS in buffer. */
-INLINE Bufbyte * BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos);
-INLINE Bufbyte *
+INLINE_HEADER Bufbyte * BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos);
+INLINE_HEADER Bufbyte *
 BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos)
 {
   return (buf->text->beg +
@@ -648,8 +650,8 @@ BI_BUF_BYTE_ADDRESS (struct buffer *buf, Bytind pos)
   BI_BUF_BYTE_ADDRESS (buf, bufpos_to_bytind (buf, pos))
 
 /* Address of byte before position POS in buffer. */
-INLINE Bufbyte * BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos);
-INLINE Bufbyte *
+INLINE_HEADER Bufbyte * BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos);
+INLINE_HEADER Bufbyte *
 BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos)
 {
   return (buf->text->beg +
@@ -664,8 +666,8 @@ BI_BUF_BYTE_ADDRESS_BEFORE (struct buffer *buf, Bytind pos)
 /*	    Converting between byte indices and memory indices		*/
 /*----------------------------------------------------------------------*/
 
-INLINE int valid_memind_p (struct buffer *buf, Memind x);
-INLINE int
+INLINE_HEADER int valid_memind_p (struct buffer *buf, Memind x);
+INLINE_HEADER int
 valid_memind_p (struct buffer *buf, Memind x)
 {
   return ((x >= 1 && x <= (Memind) buf->text->gpt) ||
@@ -673,16 +675,16 @@ valid_memind_p (struct buffer *buf, Memind x)
 	   x <= (Memind) (buf->text->z   + buf->text->gap_size)));
 }
 
-INLINE Memind bytind_to_memind (struct buffer *buf, Bytind x);
-INLINE Memind
+INLINE_HEADER Memind bytind_to_memind (struct buffer *buf, Bytind x);
+INLINE_HEADER Memind
 bytind_to_memind (struct buffer *buf, Bytind x)
 {
   return (Memind) ((x > buf->text->gpt) ? (x + buf->text->gap_size) : x);
 }
 
 
-INLINE Bytind memind_to_bytind (struct buffer *buf, Memind x);
-INLINE Bytind
+INLINE_HEADER Bytind memind_to_bytind (struct buffer *buf, Memind x);
+INLINE_HEADER Bytind
 memind_to_bytind (struct buffer *buf, Memind x)
 {
 #ifdef ERROR_CHECK_BUFPOS
@@ -902,16 +904,16 @@ memind_to_bytind (struct buffer *buf, Memind x)
   VALIDATE_BYTIND_BACKWARD (buf, x);			\
 } while (0)
 
-INLINE Bytind prev_bytind (struct buffer *buf, Bytind x);
-INLINE Bytind
+INLINE_HEADER Bytind prev_bytind (struct buffer *buf, Bytind x);
+INLINE_HEADER Bytind
 prev_bytind (struct buffer *buf, Bytind x)
 {
   DEC_BYTIND (buf, x);
   return x;
 }
 
-INLINE Bytind next_bytind (struct buffer *buf, Bytind x);
-INLINE Bytind
+INLINE_HEADER Bytind next_bytind (struct buffer *buf, Bytind x);
+INLINE_HEADER Bytind
 next_bytind (struct buffer *buf, Bytind x)
 {
   INC_BYTIND (buf, x);
@@ -973,8 +975,8 @@ Bufpos bytind_to_bufpos_func (struct buffer *buf, Bytind x);
 
 extern short three_to_one_table[];
 
-INLINE int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
-INLINE int
+INLINE_HEADER int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
+INLINE_HEADER int
 real_bufpos_to_bytind (struct buffer *buf, Bufpos x)
 {
   if (x >= buf->text->mule_bufmin && x <= buf->text->mule_bufmax)
@@ -985,8 +987,8 @@ real_bufpos_to_bytind (struct buffer *buf, Bufpos x)
     return bufpos_to_bytind_func (buf, x);
 }
 
-INLINE int real_bytind_to_bufpos (struct buffer *buf, Bytind x);
-INLINE int
+INLINE_HEADER int real_bytind_to_bufpos (struct buffer *buf, Bytind x);
+INLINE_HEADER int
 real_bytind_to_bufpos (struct buffer *buf, Bytind x)
 {
   if (x >= buf->text->mule_bytmin && x <= buf->text->mule_bytmax)
@@ -1267,16 +1269,17 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 } while (0)
 
 /* Assign to the `sink' lvalue(s) using the converted data. */
+typedef union { char c; void *p; } *dfc_aliasing_voidpp;
 #define DFC_ALLOCA_USE_CONVERTED_DATA(sink) do {			\
   void * dfc_sink_ret = alloca (dfc_sink.data.len + 1);			\
   memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
-  (DFC_CPP_CAR sink) = (unsigned char *) dfc_sink_ret;			\
+  ((dfc_aliasing_voidpp) &(DFC_CPP_CAR sink))->p = dfc_sink_ret;	\
   (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
 } while (0)
 #define DFC_MALLOC_USE_CONVERTED_DATA(sink) do {			\
   void * dfc_sink_ret = xmalloc (dfc_sink.data.len + 1);		\
   memcpy (dfc_sink_ret, dfc_sink.data.ptr, dfc_sink.data.len + 1);	\
-  (DFC_CPP_CAR sink) = (unsigned char *) dfc_sink_ret;			\
+  ((dfc_aliasing_voidpp) &(DFC_CPP_CAR sink))->p = dfc_sink_ret;	\
   (DFC_CPP_CDR sink) = dfc_sink.data.len;				\
 } while (0)
 #define DFC_C_STRING_ALLOCA_USE_CONVERTED_DATA(sink) do {		\
@@ -1704,8 +1707,8 @@ int map_over_sharing_buffers (struct buffer *buf,
   TRT_TABLE_AS_STRING (buf->case_eqv_table)
 #endif
 
-INLINE Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
-INLINE Emchar
+INLINE_HEADER Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
+INLINE_HEADER Emchar
 TRT_TABLE_OF (Lisp_Object trt, Emchar c)
 {
   return IN_TRT_TABLE_DOMAIN (c) ? TRT_TABLE_CHAR_1 (trt, c) : c;
@@ -1717,8 +1720,8 @@ TRT_TABLE_OF (Lisp_Object trt, Emchar c)
 
 /* 1 if CH is upper case.  */
 
-INLINE int UPPERCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int UPPERCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 UPPERCASEP (struct buffer *buf, Emchar ch)
 {
   return DOWNCASE_TABLE_OF (buf, ch) != ch;
@@ -1726,8 +1729,8 @@ UPPERCASEP (struct buffer *buf, Emchar ch)
 
 /* 1 if CH is lower case.  */
 
-INLINE int LOWERCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int LOWERCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 LOWERCASEP (struct buffer *buf, Emchar ch)
 {
   return (UPCASE_TABLE_OF   (buf, ch) != ch &&
@@ -1736,8 +1739,8 @@ LOWERCASEP (struct buffer *buf, Emchar ch)
 
 /* 1 if CH is neither upper nor lower case.  */
 
-INLINE int NOCASEP (struct buffer *buf, Emchar ch);
-INLINE int
+INLINE_HEADER int NOCASEP (struct buffer *buf, Emchar ch);
+INLINE_HEADER int
 NOCASEP (struct buffer *buf, Emchar ch)
 {
   return UPCASE_TABLE_OF (buf, ch) == ch;
@@ -1745,8 +1748,8 @@ NOCASEP (struct buffer *buf, Emchar ch)
 
 /* Upcase a character, or make no change if that cannot be done.  */
 
-INLINE Emchar UPCASE (struct buffer *buf, Emchar ch);
-INLINE Emchar
+INLINE_HEADER Emchar UPCASE (struct buffer *buf, Emchar ch);
+INLINE_HEADER Emchar
 UPCASE (struct buffer *buf, Emchar ch)
 {
   return (DOWNCASE_TABLE_OF (buf, ch) == ch) ? UPCASE_TABLE_OF (buf, ch) : ch;

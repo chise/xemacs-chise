@@ -583,10 +583,12 @@ on various systems. */
 
 /* MSVC version >= 2.x without /Za supports __inline */
 #if (_MSC_VER < 900) || defined(__STDC__)
-# define INLINE static
+# define inline
 #else
-# define INLINE __inline
+# define inline __inline
 #endif
+
+#define INLINE_HEADER inline static
 
 /* MSVC warnings no-no crap. When adding one to this section,
    1. Think twice

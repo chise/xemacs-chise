@@ -949,9 +949,9 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 	  rgblist = MAYBE_LISP_DEVMETH (XDEVICE (c->device),
 					color_instance_rgb_components,
 					(c));
-	  my_background.red = XINT (XCAR (rgblist));
-	  my_background.green = XINT (XCAR (XCDR (rgblist)));
-	  my_background.blue = XINT (XCAR (XCDR (XCDR (rgblist))));
+	  my_background.red = (unsigned short) XINT (XCAR (rgblist));
+	  my_background.green = (unsigned short) XINT (XCAR (XCDR (rgblist)));
+	  my_background.blue = (unsigned short) XINT (XCAR (XCDR (XCDR (rgblist))));
 	}
 
       if (png_get_bKGD (png_ptr, info_ptr, &image_background))

@@ -44,6 +44,15 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "systime.h"
 
+#ifdef PDUMP
+#include "dump-id.h"
+#include "dumper.h"
+#endif
+
+#ifndef SEPCHAR
+#define SEPCHAR ':'
+#endif
+
 #ifdef QUANTIFY
 #include <quantify.h>
 #endif
@@ -68,7 +77,7 @@ Boston, MA 02111-1307, USA.  */
 /* For PATH_EXEC */
 #include <paths.h>
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
 void report_sheap_usage (int die_if_pure_storage_exceeded);
 #endif
 
@@ -213,6 +222,10 @@ int inhibit_early_packages;
 /* Nonzero means don't load package autoloads at startup */
 int inhibit_autoloads;
 
+/* Nonzero means don't load the dump file (ignored if not PDUMP)  */
+
+int nodumpfile;
+
 /* Nonzero means print debug information about path searching */
 int debug_paths;
 
@@ -233,6 +246,14 @@ static int fatal_error_code;
 
 /* Nonzero if handling a fatal error already */
 static int fatal_error_in_progress;
+
+static JMP_BUF run_temacs_catch;
+
+static int run_temacs_argc;
+static char **run_temacs_argv;
+static char *run_temacs_args;
+static size_t run_temacs_argv_size;
+static size_t run_temacs_args_size;
 
 static void shut_down_emacs (int sig, Lisp_Object stuff);
 
@@ -273,61 +294,6 @@ fatal_error_signal (int sig)
   SIGRETURN;
 }
 
-
-DOESNT_RETURN
-fatal (const char *fmt, ...)
-{
-  va_list args;
-  va_start (args, fmt);
-
-  fprintf (stderr, "\nXEmacs: ");
-  vfprintf (stderr, GETTEXT (fmt), args);
-  fprintf (stderr, "\n");
-
-  va_end (args);
-  fflush (stderr);
-  exit (1);
-}
-
-/* #### The following two functions should be replaced with
-   calls to emacs_doprnt_*() functions, with STREAM set to send out
-   to stdout or stderr.  This is the only way to ensure that
-   I18N3 works properly (many implementations of the *printf()
-   functions, including the ones included in glibc, do not implement
-   the %###$ argument-positioning syntax). */
-
-/* exactly equivalent to fprintf (stderr, fmt, ...) except that it calls
-   GETTEXT on the format string. */
-
-int
-stderr_out (const char *fmt, ...)
-{
-  int retval;
-  va_list args;
-  va_start (args, fmt);
-
-  retval = vfprintf (stderr, GETTEXT (fmt), args);
-
-  va_end (args);
-  /* fflush (stderr); */
-  return retval;
-}
-
-/* exactly equivalent to fprintf (stdout, fmt, ...) except that it calls
-   GETTEXT on the format string. */
-
-int
-stdout_out (const char *fmt, ...)
-{
-  int retval;
-  va_list args;
-  va_start (args, fmt);
-
-  retval = vfprintf (stdout, GETTEXT (fmt), args);
-
-  va_end (args);
-  return retval;
-}
 
 #ifdef SIGDANGER
 
@@ -569,7 +535,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
    * But hey, it solves all NS related memory problems, so who's
    * complaining? */
   if (initialized && malloc_jumpstart (malloc_cookie) != 0)
-    fprintf (stderr, "malloc jumpstart failed!\n");
+    stderr_out ("malloc jumpstart failed!\n");
 #endif /* NeXT */
 
   /*
@@ -645,6 +611,17 @@ main_1 (int argc, char **argv, char **envp, int restart)
   inhibit_window_system = 1;
 #endif
 
+  /* Handle the -sd/--show-dump-id switch, which means show the hex dump_id and quit */
+  if (argmatch (argv, argc, "-sd", "--show-dump-id", 9, NULL, &skip_args))
+    {
+#ifdef PDUMP
+      printf ("%08x\n", dump_id);
+#else
+      printf ("*ERROR**\n");
+#endif
+      exit (0);
+    }
+
   /* Handle the -t switch, which specifies filename to use as terminal */
   {
     char *term;
@@ -665,6 +642,12 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	inhibit_window_system = 1;	/* -t => -nw */
       }
   }
+
+  /* Handle the --no-dump-file/-nd switch, which means don't load the dump file (ignored when not using pdump) */
+  if (argmatch (argv, argc, "-nd", "--no-dump-file", 7, NULL, &skip_args))
+    {
+      nodumpfile = 1;
+    }
 
   /* Handle -nw switch */
   if (argmatch (argv, argc, "-nw", "--no-windows", 6, NULL, &skip_args))
@@ -837,9 +820,15 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef PDUMP
   if (restart)
     initialized = 1;
-  else {
-    initialized = pdump_load ();
-    purify_flag = !initialized;
+  else if (nodumpfile) {
+    initialized = 0;
+    purify_flag = 1;
+  } else {
+    initialized = pdump_load (argv[0]);
+    if (initialized)
+      run_temacs_argc = -1;
+    else
+      purify_flag = 1;
   }
 #else
   if (!initialized)
@@ -930,9 +919,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_glyphs ();
       syms_of_glyphs_eimage ();
       syms_of_glyphs_widget ();
-#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui ();
-#endif
       syms_of_gutter ();
       syms_of_indent ();
       syms_of_intl ();
@@ -1082,6 +1069,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_GPM
 	  syms_of_gpmevent ();
+#endif
+
+#ifdef HAVE_POSTGRESQL
+      syms_of_postgresql ();
 #endif
 
       /* Now create the subtypes for the types that have them.
@@ -1264,7 +1255,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 using a global variable that has been initialized
 	   earlier on in the same function
 
-	 Any of the object-creating functions on alloc.c: e.g.
+	 Any of the object-creating functions in alloc.c: e.g.
 
 	 make_pure_*()
 	 make_string()
@@ -1337,9 +1328,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_glyphs ();
       vars_of_glyphs_eimage ();
       vars_of_glyphs_widget ();
-#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       vars_of_gui ();
-#endif
       vars_of_gutter ();
       vars_of_indent ();
       vars_of_insdel ();
@@ -1477,6 +1466,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_LDAP
       vars_of_eldap ();
+#endif
+
+#ifdef HAVE_POSTGRESQL
+      vars_of_postgresql();
 #endif
 
 #ifdef HAVE_GPM
@@ -1680,6 +1673,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       reinit_vars_of_event_stream ();
       reinit_vars_of_events ();
       reinit_vars_of_extents ();
+      reinit_vars_of_fileio ();
       reinit_vars_of_font_lock ();
       reinit_vars_of_glyphs ();
       reinit_vars_of_glyphs_widget ();
@@ -1794,7 +1788,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_TTY
   init_device_tty ();
 #endif
-  init_console_stream (); /* Create the first console */
+  init_console_stream (restart); /* Create the first console */
 
   /* try to get the actual pathname of the exec file we are running */
   if (!restart)
@@ -1897,8 +1891,9 @@ struct standard_args
 static const struct standard_args standard_args[] =
 {
   /* Handled by main_1 above: */
-  { "-nl", "--no-shared-memory", 100, 0 },
-  { "-t", "--terminal", 95, 1 },
+  { "-sd", "--show-dump-id", 105, 0 },
+  { "-t", "--terminal", 100, 1 },
+  { "-nd", "--no-dump-file", 95, 0 },
   { "-nw", "--no-windows", 90, 0 },
   { "-batch", "--batch", 85, 0 },
   { "-debug-paths", "--debug-paths", 82, 0 },
@@ -2093,14 +2088,6 @@ sort_args (int argc, char **argv)
   xfree (priority);
 }
 
-static JMP_BUF run_temacs_catch;
-
-static int run_temacs_argc;
-static char **run_temacs_argv;
-static char *run_temacs_args;
-static size_t run_temacs_argv_size;
-static size_t run_temacs_args_size;
-
 DEFUN ("running-temacs-p", Frunning_temacs_p, 0, 0, 0, /*
 True if running temacs.  This means we are in the dumping stage.
 This is false during normal execution of the `xemacs' program, and
@@ -2175,7 +2162,7 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   unbind_to (0, Qnil); /* this closes loadup.el */
   purify_flag = 0;
   run_temacs_argc = nargs + 1;
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   report_sheap_usage (0);
 #endif
   LONGJMP (run_temacs_catch, 1);
@@ -2281,7 +2268,7 @@ main (int argc, char **argv, char **envp)
       int rc = malloc_set_state (malloc_state_ptr);
       if (rc != 0)
 	{
-	  fprintf (stderr, "malloc_set_state failed, rc = %d\n", rc);
+	  stderr_out ("malloc_set_state failed, rc = %d\n", rc);
 	  abort ();
 	}
 #if 0
@@ -2559,7 +2546,7 @@ and announce itself normally when it is run.
   opurify = purify_flag;
   purify_flag = 0;
 
-#ifdef HEAP_IN_DATA
+#if defined (HEAP_IN_DATA) && !defined(PDUMP)
   report_sheap_usage (1);
 #endif
 
@@ -2636,9 +2623,6 @@ and announce itself normally when it is run.
 
 #endif /* not CANNOT_DUMP */
 
-#ifndef SEPCHAR
-#define SEPCHAR ':'
-#endif
 
 /* Split STRING into a list of substrings.  The substrings are the
    parts of original STRING separated by SEPCHAR.  */
@@ -3164,7 +3148,8 @@ configure's idea of what the package path will be.
 *Directory of architecture-independent files that come with XEmacs,
 intended for XEmacs to use.
 Use of this variable in new code is almost never correct.  See the
-function `locate-data-directory' and the variable `data-directory-list'.
+functions `locate-data-file' and `locate-data-directory' and the variable
+`data-directory-list'.
 */ );
   Vdata_directory = Qnil;
 

@@ -1,6 +1,6 @@
 /* Lisp object printing and output streams.
    Copyright (C) 1985, 1986, 1988, 1992-1995 Free Software Foundation, Inc.
-   Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1995, 1996, 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -38,6 +38,9 @@ Boston, MA 02111-1307, USA.  */
 #include "insdel.h"
 #include "lstream.h"
 #include "sysfile.h"
+#ifdef WINDOWSNT
+#include "console-msw.h"
+#endif
 
 #include <limits.h>
 #include <float.h>
@@ -103,40 +106,40 @@ FILE *termscript;	/* Stdio stream being used for copy of all output.  */
 
 int stdout_needs_newline;
 
-/* Write a string (in internal format) to stdio stream STREAM. */
-
-void
-write_string_to_stdio_stream (FILE *stream, struct console *con,
-			      const Bufbyte *str,
-			      Bytecount offset, Bytecount len,
-			      Lisp_Object coding_system)
+static void
+std_handle_out_external (FILE *stream, Lisp_Object lstream,
+			 const Extbyte *extptr, Extcount extlen,
+			 /* is this really stdout/stderr?
+			    (controls termscript writing) */
+			 int output_is_std_handle,
+			 int must_flush)
 {
-  Extcount extlen;
-  const Extbyte *extptr;
-
-  TO_EXTERNAL_FORMAT (DATA, (str + offset, len),
-		      ALLOCA, (extptr, extlen),
-		      coding_system);
   if (stream)
     {
-      fwrite (extptr, 1, extlen, stream);
 #ifdef WINDOWSNT
-      /* Q122442 says that pipes are "treated as files, not as
-	 devices", and that this is a feature. Before I found that
-	 article, I thought it was a bug. Thanks MS, I feel much
-	 better now. - kkm */
-      if (stream == stdout || stream == stderr)
-	fflush (stream);
+      /* we typically have no useful stdout/stderr under windows if we're
+	 being invoked graphically. */
+      if (!noninteractive)
+	msw_output_console_string (extptr, extlen);
+      else
 #endif
+	{
+	  fwrite (extptr, 1, extlen, stream);
+#ifdef WINDOWSNT
+	  /* Q122442 says that pipes are "treated as files, not as
+	     devices", and that this is a feature. Before I found that
+	     article, I thought it was a bug. Thanks MS, I feel much
+	     better now. - kkm */
+	  must_flush = 1;
+#endif
+	  if (must_flush)
+	    fflush (stream);
+	}
     }
   else
-    {
-      assert (CONSOLE_TTY_P (con));
-      Lstream_write (XLSTREAM (CONSOLE_TTY_DATA (con)->outstream),
-		     extptr, extlen);
-    }
-  if (stream == stdout || stream == stderr ||
-      (!stream && CONSOLE_TTY_DATA (con)->is_stdio))
+    Lstream_write (XLSTREAM (lstream), extptr, extlen);
+
+  if (output_is_std_handle)
     {
       if (termscript)
 	{
@@ -144,6 +147,113 @@ write_string_to_stdio_stream (FILE *stream, struct console *con,
 	  fflush (termscript);
 	}
       stdout_needs_newline = (extptr[extlen - 1] != '\n');
+    }
+}
+
+/* #### The following function should be replaced a call to the
+   emacs_doprnt_*() functions.  This is the only way to ensure that
+   I18N3 works properly (many implementations of the *printf()
+   functions, including the ones included in glibc, do not implement
+   the %###$ argument-positioning syntax).
+
+   Note, however, that to do this, we'd have to
+
+   1) pre-allocate all the lstreams and do whatever else was necessary
+   to make sure that no allocation occurs, since these functions may be
+   called from fatal_error_signal().
+
+   2) (to be really correct) make a new lstream that outputs using
+   msw_output_console_string().  */
+
+static int
+std_handle_out_va (FILE *stream, const char *fmt, va_list args)
+{
+  Bufbyte kludge[8192];
+  Extbyte *extptr;
+  Extcount extlen;
+  int retval;
+
+  retval = vsprintf ((char *) kludge, fmt, args);
+  TO_EXTERNAL_FORMAT (DATA, (kludge, strlen ((char *) kludge)),
+		      ALLOCA, (extptr, extlen),
+		      Qnative);
+  std_handle_out_external (stream, Qnil, extptr, extlen, 1, 1);
+  return retval;
+}
+
+/* Output portably to stderr or its equivalent; call GETTEXT on the
+   format string.  Automatically flush when done. */
+
+int
+stderr_out (const char *fmt, ...)
+{
+  int retval;
+  va_list args;
+  va_start (args, fmt);
+  retval = std_handle_out_va (stderr, GETTEXT (fmt), args);
+  va_end (args);
+  return retval;
+}
+
+/* Output portably to stdout or its equivalent; call GETTEXT on the
+   format string.  Automatically flush when done. */
+
+int
+stdout_out (const char *fmt, ...)
+{
+  int retval;
+  va_list args;
+  va_start (args, fmt);
+  retval = std_handle_out_va (stdout, GETTEXT (fmt), args);
+  va_end (args);
+  return retval;
+}
+
+DOESNT_RETURN
+fatal (const char *fmt, ...)
+{
+  va_list args;
+  va_start (args, fmt);
+
+  stderr_out ("\nXEmacs: ");
+  std_handle_out_va (stderr, GETTEXT (fmt), args);
+  stderr_out ("\n");
+
+  va_end (args);
+  exit (1);
+}
+
+/* Write a string (in internal format) to stdio stream STREAM. */
+
+void
+write_string_to_stdio_stream (FILE *stream, struct console *con,
+			      const Bufbyte *str,
+			      Bytecount offset, Bytecount len,
+			      Lisp_Object coding_system,
+			      int must_flush)
+{
+  Extcount extlen;
+  const Extbyte *extptr;
+
+  /* #### yuck! sometimes this function is called with string data,
+     and the following call may gc. */
+  {
+    Bufbyte *puta = (Bufbyte *) alloca (len);
+    memcpy (puta, str + offset, len);
+    TO_EXTERNAL_FORMAT (DATA, (puta, len),
+			ALLOCA, (extptr, extlen),
+			coding_system);
+  }
+
+  if (stream)
+    std_handle_out_external (stream, Qnil, extptr, extlen,
+			     stream == stdout || stream == stderr, must_flush);
+  else
+    {
+      assert (CONSOLE_TTY_P (con));
+      std_handle_out_external (0, CONSOLE_TTY_DATA (con)->outstream,
+			       extptr, extlen,
+			       CONSOLE_TTY_DATA (con)->is_stdio, must_flush);
     }
 }
 
@@ -238,7 +348,7 @@ output_string (Lisp_Object function, const Bufbyte *nonreloc,
   else if (EQ (function, Qt) || EQ (function, Qnil))
     {
       write_string_to_stdio_stream (stdout, 0, newnonreloc, offset, len,
-				    Qterminal);
+				    Qterminal, print_unbuffered);
     }
   else
     {
@@ -1427,6 +1537,10 @@ If optional arg STDOUT-P is non-nil, write to stdout; otherwise, write
 to stderr.  You can use this function to write directly to the terminal.
 This function can be used as the STREAM argument of Fprint() or the like.
 
+Under MS Windows, this writes output to the console window (which is
+created, if necessary), unless XEmacs is being run noninteractively
+(i.e. using the `-batch' argument).
+
 If you have opened a termscript file (using `open-termscript'), then
 the output also will be logged to this file.
 */
@@ -1461,7 +1575,7 @@ the output also will be logged to this file.
     write_string_to_stdio_stream (file, con,
 				  XSTRING_DATA (char_or_string),
 				  0, XSTRING_LENGTH (char_or_string),
-				  Qterminal);
+				  Qterminal, 1);
   else
     {
       Bufbyte str[MAX_EMCHAR_LEN];
@@ -1469,7 +1583,7 @@ the output also will be logged to this file.
 
       CHECK_CHAR_COERCE_INT (char_or_string);
       len = set_charptr_emchar (str, XCHAR (char_or_string));
-      write_string_to_stdio_stream (file, con, str, 0, len, Qterminal);
+      write_string_to_stdio_stream (file, con, str, 0, len, Qterminal, 1);
     }
 
   return char_or_string;
@@ -1542,7 +1656,6 @@ debug_print (Lisp_Object debug_print_obj)
 {
   debug_print_no_newline (debug_print_obj);
   stderr_out ("\n");
-  fflush (stderr);
 }
 
 /* Debugging kludge -- unbuffered */
@@ -1575,7 +1688,6 @@ debug_backtrace (void)
 
   Fbacktrace (Qexternal_debugging_output, Qt);
   stderr_out ("\n");
-  fflush (stderr);
 
   Vinhibit_quit  = old_inhibit_quit;
   Vprint_level   = old_print_level;
@@ -1593,13 +1705,11 @@ debug_short_backtrace (int length)
   int first = 1;
   struct backtrace *bt = backtrace_list;
   stderr_out ("   [");
-  fflush (stderr);
   while (length > 0 && bt)
     {
       if (!first)
 	{
 	  stderr_out (", ");
-	  fflush (stderr);
 	}
       if (COMPILED_FUNCTIONP (*bt->function))
 	{
@@ -1612,15 +1722,12 @@ debug_short_backtrace (int length)
 	  if (!NILP (ann))
 	    {
 	      stderr_out ("<compiled-function from ");
-	      fflush (stderr);
 	      debug_print_no_newline (ann);
 	      stderr_out (">");
-	      fflush (stderr);
 	    }
 	  else
 	    {
 	      stderr_out ("<compiled-function of unknown origin>");
-	      fflush (stderr);
 	    }
 	}
       else
@@ -1630,7 +1737,6 @@ debug_short_backtrace (int length)
       bt = bt->next;
     }
   stderr_out ("]\n");
-  fflush (stderr);
 }
 
 #endif /* debugging kludge */

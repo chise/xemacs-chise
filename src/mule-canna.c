@@ -718,7 +718,8 @@ byteLen (int bun, int len)
 }
 
 DEFUN ("canna-henkan-begin", Fcanna_henkan_begin, 1, 1, 0, /*
-かな漢字変換した結果を返還する。文節切りがしてある。
+Return the result of kana-to-kanji conversion.
+Clause separator is set.
 */
        (yomi))
 {
@@ -773,7 +774,7 @@ kanjiYomiList (int context, int nbun)
 }
 
 DEFUN ("canna-henkan-next", Fcanna_henkan_next, 1, 1, 0, /*
-候補一覧を求める。
+Return the list of candidates.
 */
        (bunsetsu))
 {
@@ -798,7 +799,7 @@ DEFUN ("canna-henkan-next", Fcanna_henkan_next, 1, 1, 0, /*
 	}
       else
 	{
-	  endp = XCDR (endp) = Fcons (make_string (p, slen), Qnil);
+	  endp = XCDR (res) = Fcons (make_string (p, slen), Qnil);
 	}
       p += slen + 1;
     }
@@ -806,7 +807,7 @@ DEFUN ("canna-henkan-next", Fcanna_henkan_next, 1, 1, 0, /*
 }
 
 DEFUN ("canna-bunsetu-henkou", Fcanna_bunsetu_henkou, 2, 2, 0, /*
-文節の長さを指定する。
+Specify the length of a clause.
 */
        (bunsetsu, bunlen))
 {
@@ -826,7 +827,7 @@ DEFUN ("canna-bunsetu-henkou", Fcanna_bunsetu_henkou, 2, 2, 0, /*
 }
 
 DEFUN ("canna-henkan-kakutei", Fcanna_henkan_kakutei, 2, 2, 0, /*
-候補選択。
+Select a candidate.
 */
        (bun, kouho))
 {
@@ -845,7 +846,7 @@ DEFUN ("canna-henkan-kakutei", Fcanna_henkan_kakutei, 2, 2, 0, /*
 }
 
 DEFUN ("canna-henkan-end", Fcanna_henkan_end, 0, 0, 0, /*
-変換終了。
+End conversion.
 */
        ())
 {
@@ -858,7 +859,7 @@ DEFUN ("canna-henkan-end", Fcanna_henkan_end, 0, 0, 0, /*
 }
 
 DEFUN ("canna-henkan-quit", Fcanna_henkan_quit, 0, 0, 0, /*
-変換終了。
+Quit conversion.
 */
        ())
 {
@@ -1777,9 +1778,9 @@ For canna
 /* EUC multibyte string to MULE internal string */
 
 static void
-c2mu (char *cp, int l, char *mp)
+c2mu (unsigned char *cp, int l, unsigned char *mp)
 {
-  char	ch, *ep = cp+l;
+  unsigned char ch, *ep = cp+l;
 
   while ((cp < ep) && (ch = *cp))
     {

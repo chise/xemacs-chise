@@ -87,9 +87,9 @@ the Cut, Copy and Paste functions.
 	Function	XEmacs binding
 	--------	--------------
 	Undo		C-_
-	Cut		C-Insert
-	Copy		C-Insert
-	Paste		Sh-Del
+	Cut		Sh-Del
+ 	Copy		C-Insert
+	Paste		Sh-Insert
 
 You can rebind keys to make XEmacs more Windows-compatible; for
 example, to bind C-z to undo:

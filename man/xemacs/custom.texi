@@ -28,8 +28,10 @@ customization in each session.  @xref{Init File}.
                      are parsed.
 * Init File::       How to write common customizations in the @file{.emacs} 
                      file.
-* Audible Bell::    Changing how Emacs sounds the bell. 
-* Faces::           Changing the fonts and colors of a region of text. 
+* Audible Bell::    Changing how Emacs sounds the bell.
+* Faces::           Changing the fonts and colors of a region of text.
+* Frame Components::  Controlling the presence and positions of the
+                     menubar, toolbars, and gutters.
 * X Resources::     X resources controlling various aspects of the
                      behavior of XEmacs.
 @end menu
@@ -2052,6 +2054,16 @@ to make underlining an attribute of the face or not. If the optional
 @var{frame} argument is provided, the face is changed only in that
 frame; otherwise, it is changed in all frames.
 
+@node Frame Components
+@section Frame Components
+
+You can control the presence and position of most frame components, such
+as the menubar, toolbars, and gutters.
+
+This section is not written yet.  Try the Lisp Reference Manual:
+@ref{Menubar,,,lispref,}, @ref{Toolbar Intro,,,lispref,}, and
+@ref{Gutter Intro,,,lispref,}.
+
 @node X Resources
 @section X Resources
 @cindex X resources
@@ -2477,7 +2489,7 @@ XEmacs executable (usually @samp{xemacs}), and
 @subsection Menubar Resources
 
 As the menubar is implemented as a widget which is not a part of XEmacs
-proper, it does not use the fac" mechanism for specifying fonts and
+proper, it does not use the face mechanism for specifying fonts and
 colors: It uses whatever resources are appropriate to the type of widget
 which is used to implement it.
 

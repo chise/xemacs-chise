@@ -2189,6 +2189,12 @@ x_update_widget (Lisp_Image_Instance *p)
      need to update most other things after the items have changed.*/
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
+      /* Pick up the items we recorded earlier. We do this here so
+         that the callbacks get set up with the new items. */
+      IMAGE_INSTANCE_WIDGET_ITEMS (p) =
+	IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p);
+      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p) = Qnil;
+
       wv = gui_items_to_widget_values
 	(IMAGE_INSTANCE_WIDGET_ITEMS (p));
       wv->change = STRUCTURAL_CHANGE;
@@ -2200,6 +2206,9 @@ x_update_widget (Lisp_Image_Instance *p)
 
   /* Now do non structural updates. */
   wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (p));
+
+  if (!wv)
+    return;
 
   /* Possibly update the colors and font */
   if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p) 
@@ -2692,6 +2701,11 @@ x_tab_control_update (Lisp_Object image_instance)
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
       widget_value* wv = lw_get_all_values (IMAGE_INSTANCE_X_WIDGET_LWID (ii));
+
+      /* #### I don't know why this can occur. */
+      if (!wv)
+	return;
+
       update_tab_widget_face (wv, ii,
 			      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
 

@@ -449,55 +449,59 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	      findex = rb->findex;
 
 	      if (IMAGE_INSTANCEP (instance))
-		switch (XIMAGE_INSTANCE_TYPE (instance))
-		  {
-		  case IMAGE_TEXT:
+		{
+		  switch (XIMAGE_INSTANCE_TYPE (instance))
 		    {
-		      /* #### This is way losing.  See the comment in
-			 add_glyph_rune(). */
-		      Lisp_Object string =
-			XIMAGE_INSTANCE_TEXT_STRING (instance);
-		      convert_bufbyte_string_into_emchar_dynarr
-			(XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-
-		      x_output_string (w, dl, buf, xpos,
-				       rb->object.dglyph.xoffset,
-				       start_pixpos, -1, findex,
-				       (rb->cursor_type == CURSOR_ON),
-				       cursor_start, cursor_width,
-				       cursor_height);
-		      Dynarr_reset (buf);
+		    case IMAGE_TEXT:
+		      {
+			/* #### This is way losing.  See the comment in
+			   add_glyph_rune(). */
+			Lisp_Object string =
+			  XIMAGE_INSTANCE_TEXT_STRING (instance);
+			convert_bufbyte_string_into_emchar_dynarr
+			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
+			
+			x_output_string (w, dl, buf, xpos,
+					 rb->object.dglyph.xoffset,
+					 start_pixpos, -1, findex,
+					 (rb->cursor_type == CURSOR_ON),
+					 cursor_start, cursor_width,
+					 cursor_height);
+			Dynarr_reset (buf);
+		      }
+		      break;
+		      
+		    case IMAGE_MONO_PIXMAP:
+		    case IMAGE_COLOR_PIXMAP:
+		      redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
+					       cursor_start, cursor_width,
+					       cursor_height, 0);
+		      break;
+		      
+		    case IMAGE_WIDGET:
+		    case IMAGE_SUBWINDOW:
+		      redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
+						  cursor_start, cursor_width,
+						  cursor_height);
+		      break;
+		      
+		    case IMAGE_LAYOUT:
+		      redisplay_output_layout (w, instance, &dbox, &dga, findex,
+					       cursor_start, cursor_width,
+					       cursor_height);
+		      break;
+		      
+		    case IMAGE_NOTHING:
+		      /* nothing is as nothing does */
+		      break;
+		      
+		    case IMAGE_POINTER:
+		    default:
+		      abort ();
 		    }
-		    break;
-
-		  case IMAGE_MONO_PIXMAP:
-		  case IMAGE_COLOR_PIXMAP:
-		    redisplay_output_pixmap (w, instance, &dbox, &dga, findex,
-					     cursor_start, cursor_width,
-					     cursor_height, 0);
-		    break;
-
-		  case IMAGE_WIDGET:
-		  case IMAGE_SUBWINDOW:
-		    redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
-						cursor_start, cursor_width,
-						cursor_height);
-		    break;
-
-		  case IMAGE_LAYOUT:
-		    redisplay_output_layout (w, instance, &dbox, &dga, findex,
-					     cursor_start, cursor_width,
-					     cursor_height);
-		    break;
-
-		  case IMAGE_NOTHING:
-		    /* nothing is as nothing does */
-		    break;
-
-		  case IMAGE_POINTER:
-		  default:
-		    abort ();
-		  }
+		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
+		    (XIMAGE_INSTANCE (instance)) = 0;
+		}
 
 	      xpos += rb->width;
 	      elt++;
@@ -682,7 +686,7 @@ x_get_gc (struct device *d, Lisp_Object font, Lisp_Object fg, Lisp_Object bg,
     {
       /* #### I fixed once case where this was getting it.  It was a
          bad macro expansion (compiler bug). */
-      fprintf (stderr, "Help! x_get_gc got a bogus fg value! fg = ");
+      stderr_out ("Help! x_get_gc got a bogus fg value! fg = ");
       debug_print (fg);
       fg = Qnil;
     }
@@ -1320,8 +1324,8 @@ x_output_vertical_divider (struct window *w, int clear)
   spacing = XINT (w->vertical_divider_spacing);
   line_width = XINT (w->vertical_divider_line_width);
   x = WINDOW_RIGHT (w) - width;
-  y1 = WINDOW_TOP (w) + FRAME_TOP_GUTTER_BOUNDS (f);
-  y2 = WINDOW_BOTTOM (w) + FRAME_BOTTOM_GUTTER_BOUNDS (f);
+  y1 = WINDOW_TOP (w);
+  y2 = WINDOW_BOTTOM (w);
 
   memset (&gcv, ~0, sizeof (XGCValues));
 
@@ -1983,6 +1987,7 @@ x_flash (struct device *d)
   struct frame *f = device_selected_frame (d);
   struct window *w = XWINDOW (FRAME_ROOT_WINDOW (f));
   Widget shell = FRAME_X_SHELL_WIDGET (f);
+  int flash_height;
 
   XSETFRAME (frame, f);
 
@@ -1999,8 +2004,22 @@ x_flash (struct device *d)
   gcv.graphics_exposures = False;
   gc = gc_cache_lookup (DEVICE_X_GC_CACHE (XDEVICE (f->device)), &gcv,
 			(GCForeground | GCFunction | GCGraphicsExposures));
-  XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
-		  w->pixel_width, w->pixel_height);
+  default_face_height_and_width (frame, &flash_height, 0);
+
+  /* If window is tall, flash top and bottom line.  */
+  if (EQ (Vvisible_bell, Qtop_bottom) && w->pixel_height > 3 * flash_height)
+    {
+      XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
+		      w->pixel_width, flash_height);
+      XFillRectangle (dpy, win, gc, w->pixel_left,
+		      w->pixel_top + w->pixel_height - flash_height,
+		      w->pixel_width, flash_height);
+    }
+  else
+    /* If it is short, flash it all.  */ 
+    XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
+		    w->pixel_width, w->pixel_height);
+
   XSync (dpy, False);
 
 #ifdef HAVE_SELECT
@@ -2020,8 +2039,20 @@ x_flash (struct device *d)
 #endif /* HAVE_POLL */
 #endif /* HAVE_SELECT */
 
-  XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
-		  w->pixel_width, w->pixel_height);
+  /* If window is tall, flash top and bottom line.  */
+  if (EQ (Vvisible_bell, Qtop_bottom) && w->pixel_height > 3 * flash_height)
+    {
+      XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
+		      w->pixel_width, flash_height);
+      XFillRectangle (dpy, win, gc, w->pixel_left,
+		      w->pixel_top + w->pixel_height - flash_height,
+		      w->pixel_width, flash_height);
+    }
+  else
+    /* If it is short, flash it all.  */ 
+    XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
+		    w->pixel_width, w->pixel_height);
+
   XSync (dpy, False);
 
   return 1;

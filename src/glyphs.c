@@ -59,6 +59,7 @@ Lisp_Object Qcolor_pixmap_image_instance_p;
 Lisp_Object Qpointer_image_instance_p;
 Lisp_Object Qsubwindow_image_instance_p;
 Lisp_Object Qlayout_image_instance_p;
+Lisp_Object Qupdate_widget_instances;
 Lisp_Object Qwidget_image_instance_p;
 Lisp_Object Qconst_glyph_variable;
 Lisp_Object Qmono_pixmap, Qcolor_pixmap, Qsubwindow;
@@ -138,6 +139,7 @@ int hold_ignored_expose_registration;
 
 EXFUN (Fimage_instance_type, 1);
 EXFUN (Fglyph_type, 1);
+EXFUN (Fnext_window, 4);
 
 
 /****************************************************************************
@@ -660,6 +662,9 @@ mark_image_instance (Lisp_Object obj)
       mark_object (IMAGE_INSTANCE_WIDGET_PROPS (i));
       mark_object (IMAGE_INSTANCE_WIDGET_FACE (i));
       mark_object (IMAGE_INSTANCE_WIDGET_ITEMS (i));
+      mark_object (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (i));
+      mark_object (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (i));
+      mark_object (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (i));
     case IMAGE_SUBWINDOW:
       mark_object (IMAGE_INSTANCE_SUBWINDOW_FRAME (i));
       break;
@@ -897,11 +902,20 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 		IMAGE_INSTANCE_WIDGET_TYPE (i2))
 	    && IMAGE_INSTANCE_SUBWINDOW_ID (i1) ==
 	    IMAGE_INSTANCE_SUBWINDOW_ID (i2)
+	    &&
+	    EQ (IMAGE_INSTANCE_WIDGET_FACE (i1),
+		IMAGE_INSTANCE_WIDGET_TYPE (i2))
 	    && internal_equal (IMAGE_INSTANCE_WIDGET_ITEMS (i1),
 			       IMAGE_INSTANCE_WIDGET_ITEMS (i2),
 			       depth + 1)
 	    && internal_equal (IMAGE_INSTANCE_WIDGET_PROPS (i1),
 			       IMAGE_INSTANCE_WIDGET_PROPS (i2),
+			       depth + 1)
+	    && internal_equal (IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (i1),
+			       IMAGE_INSTANCE_WIDGET_WIDTH_SUBR (i2),
+			       depth + 1)
+	    && internal_equal (IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (i1),
+			       IMAGE_INSTANCE_WIDGET_HEIGHT_SUBR (i2),
 			       depth + 1)
 	    ))
 	return 0;
@@ -918,6 +932,22 @@ image_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
     }
 
   return DEVMETH_OR_GIVEN (d1, image_instance_equal, (i1, i2, depth), 1);
+}
+
+static unsigned long
+full_list_hash (Lisp_Object obj, int depth)
+{
+  unsigned long hash = 0;
+  Lisp_Object rest;
+
+  if (!CONSP (obj))
+    return internal_hash (obj, depth + 1);
+
+  LIST_LOOP (rest, obj)
+    {
+      hash = HASH2 (internal_hash (XCAR (rest), depth + 1), hash);
+    }
+  return hash;
 }
 
 static unsigned long
@@ -950,10 +980,16 @@ image_instance_hash (Lisp_Object obj, int depth)
 
     case IMAGE_WIDGET:
     case IMAGE_LAYOUT:
+      /* We need the hash to be equivalent to what should be
+         displayed. */
       hash = HASH4 (hash,
-		    internal_hash (IMAGE_INSTANCE_WIDGET_TYPE (i), depth + 1),
-		    internal_hash (IMAGE_INSTANCE_WIDGET_PROPS (i), depth + 1),
-		    internal_hash (IMAGE_INSTANCE_WIDGET_ITEMS (i), depth + 1));
+		    LISP_HASH (IMAGE_INSTANCE_WIDGET_TYPE (i)),
+		    full_list_hash (IMAGE_INSTANCE_WIDGET_PROPS (i), depth + 1),
+		    full_list_hash 
+		    (NILP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (i)) 
+		      ? IMAGE_INSTANCE_WIDGET_ITEMS (i)
+		      : IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (i),
+		      depth + 1));
     case IMAGE_SUBWINDOW:
       hash = HASH2 (hash, (int) IMAGE_INSTANCE_SUBWINDOW_ID (i));
       break;
@@ -2748,6 +2784,19 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
       Lisp_Object pointer_fg = Qnil;
       Lisp_Object pointer_bg = Qnil;
 
+      if (dest_mask & (IMAGE_SUBWINDOW_MASK
+		       | IMAGE_WIDGET_MASK
+		       | IMAGE_TEXT_MASK))
+	{
+	  if (!WINDOWP (domain))
+	    signal_simple_error ("Can't instantiate text or subwindow outside a window",
+				 instantiator);
+	  else if ((dest_mask & (IMAGE_SUBWINDOW_MASK
+				 | IMAGE_WIDGET_MASK))
+		   && MINI_WINDOW_P (XWINDOW (domain)))
+	    domain = Fnext_window (domain, Qnil, Qnil, Qnil);
+	}
+
       if (pointerp)
 	{
 	  pointer_fg = FACE_FOREGROUND (Vpointer_face, domain);
@@ -2803,9 +2852,6 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 			   | IMAGE_WIDGET_MASK
 			   | IMAGE_TEXT_MASK))
 	    {
-	      if (!WINDOWP (domain))
-		signal_simple_error ("Can't instantiate text or subwindow outside a window",
-				     instantiator);
 	      instance = Fgethash (instantiator,
 				   XWINDOW (domain)->subwindow_instance_cache,
 				   Qunbound);
@@ -2841,13 +2887,11 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
              cache. */
 	  if (image_instance_type_to_mask (XIMAGE_INSTANCE_TYPE (instance))
 	      &
-	      (IMAGE_SUBWINDOW_MASK | IMAGE_WIDGET_MASK))
+	      (IMAGE_SUBWINDOW_MASK 
+	       | IMAGE_WIDGET_MASK
+	       | IMAGE_TEXT_MASK ))
 	    {
-	      if (!WINDOWP (domain))
-		signal_simple_error ("Can't instantiate subwindow outside a window",
-				     instantiator);
-
-	      Fsetcdr (XCDR (locative), XWINDOW (domain)->subwindow_instance_cache );
+	      Fsetcdr (XCDR (locative), XWINDOW (domain)->subwindow_instance_cache);
  	    }
 	  unbind_to (speccount, Qnil);
 	}
@@ -4268,17 +4312,14 @@ int find_matching_subwindow (struct frame* f, int x, int y, int width, int heigh
 
 /* Update the displayed characteristics of a subwindow. This function
    should generally only get called if the subwindow is actually
-   dirty. The only other time it gets called is if subwindow state
-   changed, when we can't actually tell whether its going to be dirty
-   or not. 
-   #### I suspect what we should really do is re-evaluate all the
-   gui slots that could affect this and then mark the instance as
-   dirty. Right now, updating everything is safe but expensive. */
+   dirty. */
 void
 update_subwindow (Lisp_Object subwindow)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (subwindow);
   int count = specpdl_depth ();
+  unsigned long display_hash = internal_hash (subwindow, 
+					      IMAGE_INSTANCE_HASH_DEPTH);
 
   /* The update method is allowed to call eval.  Since it is quite
      common for this function to get called from somewhere in
@@ -4290,8 +4331,14 @@ update_subwindow (Lisp_Object subwindow)
       ||
       IMAGE_INSTANCE_TYPE (ii) == IMAGE_LAYOUT)
     {
-      if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET)
-	update_widget (subwindow);
+      if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_WIDGET
+	  &&
+	  (display_hash != IMAGE_INSTANCE_DISPLAY_HASH (ii)
+	   ||
+	   IMAGE_INSTANCE_DISPLAY_HASH (ii) == 0))
+	{
+	  update_widget (subwindow);
+	}
       /* Reset the changed flags. */
       IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii) = 0;
       IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii) = 0;
@@ -4306,35 +4353,54 @@ update_subwindow (Lisp_Object subwindow)
     }
 
   IMAGE_INSTANCE_SIZE_CHANGED (ii) = 0;
+  /* This function is typically called by redisplay just before
+     outputting the information to the screen. Thus we record a hash
+     of the output to determine whether on-screen is the same as
+     recorded structure. This approach has limitations in there is a
+     good chance that hash values will be different for the same
+     visual appearance. However, we would rather that then the other
+     way round - it simply means that we will get more displays than
+     we might need. We can get better hashing by making the depth
+     negative - currently it will recurse down 5 levels.*/
+  IMAGE_INSTANCE_DISPLAY_HASH (ii) = display_hash;
 
   unbind_to (count, Qnil);
 }
 
 /* Update all the subwindows on a frame. */
-void
-update_frame_subwindows (struct frame *f)
+DEFUN ("update-widget-instances", Fupdate_widget_instances,1, 1, 0, /*
+Given a FRAME, re-evaluate the display hash code for all widgets in the frame.
+Don't use this.
+*/
+       (frame))
 {
   int elt;
+  struct frame* f;
+  CHECK_FRAME (frame);
+  f = XFRAME (frame);
 
-  /* #### Checking all of these might be overkill now that we update
-     subwindows in the actual redisplay code. */
-  if (f->subwindows_changed || f->subwindows_state_changed || f->faces_changed)
-    for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
+  /* If we get called we know something has changed. */
+  for (elt = 0; elt < Dynarr_length (f->subwindow_cachels); elt++)
       {
 	struct subwindow_cachel *cachel =
 	  Dynarr_atp (f->subwindow_cachels, elt);
 
-	if (cachel->being_displayed
-	    &&
-	    /* We only want to update if something has really
-               changed. */
-	    (f->subwindows_state_changed
-	     ||
-	     XIMAGE_INSTANCE_DIRTYP (cachel->subwindow)))
+	if (cachel->being_displayed &&
+	    XIMAGE_INSTANCE_TYPE (cachel->subwindow)
+	    == IMAGE_WIDGET)
 	  {
-	    update_subwindow (cachel->subwindow);
+	    /* If a subwindow hash changed mark it so that redisplay
+	       will fix it. */
+	    if (internal_hash (cachel->subwindow, 
+			       IMAGE_INSTANCE_HASH_DEPTH) !=
+		XIMAGE_INSTANCE_DISPLAY_HASH (cachel->subwindow))
+	      {
+		set_image_instance_dirty_p (cachel->subwindow, 1);
+		MARK_FRAME_GLYPHS_CHANGED (f);
+	      }
 	  }
       }
+  return Qnil;
 }
 
 /* remove a subwindow from its frame */
@@ -4435,26 +4501,25 @@ subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      actually really dumb now that we have dynamic geometry
      calculations. What should really happen is that the subwindow
      should query its child for an appropriate geometry. */
-  if (NILP (width))
-    IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = 20;
-  else
+  if (INTP (width))
     {
       int w = 1;
-      CHECK_INT (width);
       if (XINT (width) > 1)
 	w = XINT (width);
       IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = w;
     }
-  if (NILP (height))
-    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = 20;
   else
+    IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = 20;
+
+  if (INTP (height))
     {
       int h = 1;
-      CHECK_INT (height);
       if (XINT (height) > 1)
 	h = XINT (height);
       IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = h;
     }
+  else
+    IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = 20;
 }
 
 DEFUN ("subwindowp", Fsubwindowp, 1, 1, 0, /*
@@ -4696,6 +4761,7 @@ syms_of_glyphs (void)
   DEFSUBR (Fvalid_image_instantiator_format_p);
   DEFSUBR (Fset_console_type_image_conversion_list);
   DEFSUBR (Fconsole_type_image_conversion_list);
+  DEFSUBR (Fupdate_widget_instances);
 
   defkeyword (&Q_file, ":file");
   defkeyword (&Q_data, ":data");
@@ -4731,6 +4797,7 @@ syms_of_glyphs (void)
   defsymbol (&Qwidget_image_instance_p, "widget-image-instance-p");
   defsymbol (&Qsubwindow_image_instance_p, "subwindow-image-instance-p");
   defsymbol (&Qlayout_image_instance_p, "layout-image-instance-p");
+  defsymbol (&Qupdate_widget_instances, "update-widget-instances");
 
   DEFSUBR (Fmake_image_instance);
   DEFSUBR (Fimage_instance_p);

@@ -65,16 +65,6 @@ Boston, MA 02111-1307, USA.  */
 #include "offix.h"
 #endif
 
-#ifdef WINDOWSNT
-/* Hmm, under unix we want X modifiers, under NT we want X modifiers if
-   we are running X and Windows modifiers otherwise.
-   gak. This is a kludge until we support multiple native GUIs!
-*/
-#undef MOD_ALT
-#undef MOD_CONTROL
-#undef MOD_SHIFT
-#endif
-
 #include "events-mod.h"
 
 static void enqueue_Xt_dispatch_event (Lisp_Object event);
@@ -1124,7 +1114,7 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
     case ButtonPress:
     case ButtonRelease:
       {
-	unsigned int modifiers = 0;
+	int modifiers = 0;
 	int shift_p, lock_p;
 	Bool key_event_p = (x_event->type == KeyPress);
 	unsigned int *state =
@@ -1151,11 +1141,11 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 
 	x_handle_sticky_modifiers (x_event, d);
 
-	if (*state & ControlMask)    modifiers |= MOD_CONTROL;
-	if (*state & xd->MetaMask)   modifiers |= MOD_META;
-	if (*state & xd->SuperMask)  modifiers |= MOD_SUPER;
-	if (*state & xd->HyperMask)  modifiers |= MOD_HYPER;
-	if (*state & xd->AltMask)    modifiers |= MOD_ALT;
+	if (*state & ControlMask)    modifiers |= XEMACS_MOD_CONTROL;
+	if (*state & xd->MetaMask)   modifiers |= XEMACS_MOD_META;
+	if (*state & xd->SuperMask)  modifiers |= XEMACS_MOD_SUPER;
+	if (*state & xd->HyperMask)  modifiers |= XEMACS_MOD_HYPER;
+	if (*state & xd->AltMask)    modifiers |= XEMACS_MOD_ALT;
 
 	/* Ignore the Caps_Lock key if:
 	   - any other modifiers are down, so that Caps_Lock doesn't
@@ -1168,7 +1158,7 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	lock_p  = *state & LockMask;
 
 	if (shift_p || lock_p)
-	  modifiers |= MOD_SHIFT;
+	  modifiers |= XEMACS_MOD_SHIFT;
 
 	if (key_event_p)
 	  {
@@ -1200,7 +1190,7 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 		! (CHAR_OR_CHAR_INTP (keysym)
 		   && keysym_obeys_caps_lock_p
 		   ((KeySym) XCHAR_OR_CHAR_INT (keysym), d)))
-	      modifiers &= (~MOD_SHIFT);
+	      modifiers &= (~XEMACS_MOD_SHIFT);
 
 	    /* If this key contains two distinct keysyms, that is,
 	       "shift" generates a different keysym than the
@@ -1212,13 +1202,13 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	       in the modifiers slot.  Neither the characters "a",
 	       "A", "2", nor "@" normally have the shift bit set.
 	       However, "F1" normally does. */
-	    if (modifiers & MOD_SHIFT)
+	    if (modifiers & XEMACS_MOD_SHIFT)
 	      {
 		int Mode_switch_p = *state & xd->ModeMask;
 		KeySym bot = XLookupKeysym (ev, Mode_switch_p ? 2 : 0);
 		KeySym top = XLookupKeysym (ev, Mode_switch_p ? 3 : 1);
 		if (top && bot && top != bot)
-		  modifiers &= ~MOD_SHIFT;
+		  modifiers &= ~XEMACS_MOD_SHIFT;
 	      }
 	    emacs_event->event_type	     = key_press_event;
 	    emacs_event->timestamp	     = ev->time;
@@ -1255,7 +1245,7 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
       {
         XMotionEvent *ev = &x_event->xmotion;
         struct frame *frame = x_window_to_frame (d, ev->window);
-        unsigned int modifiers = 0;
+        int modifiers = 0;
         XMotionEvent event2;
 
         if (! frame)
@@ -1284,12 +1274,12 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
         emacs_event->timestamp      = ev->time;
         emacs_event->event.motion.x = ev->x;
         emacs_event->event.motion.y = ev->y;
-        if (ev->state & ShiftMask)	modifiers |= MOD_SHIFT;
-        if (ev->state & ControlMask)	modifiers |= MOD_CONTROL;
-        if (ev->state & xd->MetaMask)	modifiers |= MOD_META;
-        if (ev->state & xd->SuperMask)	modifiers |= MOD_SUPER;
-        if (ev->state & xd->HyperMask)	modifiers |= MOD_HYPER;
-        if (ev->state & xd->AltMask)	modifiers |= MOD_ALT;
+        if (ev->state & ShiftMask)	modifiers |= XEMACS_MOD_SHIFT;
+        if (ev->state & ControlMask)	modifiers |= XEMACS_MOD_CONTROL;
+        if (ev->state & xd->MetaMask)	modifiers |= XEMACS_MOD_META;
+        if (ev->state & xd->SuperMask)	modifiers |= XEMACS_MOD_SUPER;
+        if (ev->state & xd->HyperMask)	modifiers |= XEMACS_MOD_HYPER;
+        if (ev->state & xd->AltMask)	modifiers |= XEMACS_MOD_ALT;
         /* Currently ignores Shift_Lock but probably shouldn't
            (but it definitely should ignore Caps_Lock). */
         emacs_event->event.motion.modifiers = modifiers;
@@ -1305,7 +1295,9 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 #ifdef HAVE_OFFIX_DND
 	if (DndIsDropMessage(x_event))
 	  {
-	    unsigned int state, modifiers = 0, button=0;
+	    unsigned int state;
+	    int modifiers = 0;
+	    unsigned int button=0;
 	    struct frame *frame = x_any_window_to_frame (d, ev->window);
 	    Extbyte *data;
 	    unsigned long size, dtype;
@@ -1324,12 +1316,12 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 
 	    state=DndDragButtons(x_event);
 
-	    if (state & ShiftMask)	modifiers |= MOD_SHIFT;
-	    if (state & ControlMask)	modifiers |= MOD_CONTROL;
-	    if (state & xd->MetaMask)	modifiers |= MOD_META;
-	    if (state & xd->SuperMask)	modifiers |= MOD_SUPER;
-	    if (state & xd->HyperMask)	modifiers |= MOD_HYPER;
-	    if (state & xd->AltMask)	modifiers |= MOD_ALT;
+	    if (state & ShiftMask)	modifiers |= XEMACS_MOD_SHIFT;
+	    if (state & ControlMask)	modifiers |= XEMACS_MOD_CONTROL;
+	    if (state & xd->MetaMask)	modifiers |= XEMACS_MOD_META;
+	    if (state & xd->SuperMask)	modifiers |= XEMACS_MOD_SUPER;
+	    if (state & xd->HyperMask)	modifiers |= XEMACS_MOD_HYPER;
+	    if (state & xd->AltMask)	modifiers |= XEMACS_MOD_ALT;
 
 	    if (state & Button5Mask)    button = Button5;
 	    if (state & Button4Mask)    button = Button4;
@@ -1463,6 +1455,7 @@ x_event_to_emacs_event (XEvent *x_event, Lisp_Event *emacs_event)
 	  case FocusIn:
 	  case FocusOut:	 FROB(xfocus, window);		  break;
 	  case VisibilityNotify: FROB(xvisibility, window);	  break;
+	  case CreateNotify: FROB(xcreatewindow, window);	  break;
           default:
 	    w = x_event->xany.window;
 	    *x_event_copy = *x_event;
@@ -1722,6 +1715,25 @@ handle_client_message (struct frame *f, XEvent *event)
 }
 
 static void
+emacs_Xt_force_event_pending (struct frame* f)
+{
+  XEvent event;
+
+  Display* dpy = DEVICE_X_DISPLAY (XDEVICE (FRAME_DEVICE  (f)));
+  event.xclient.type		= ClientMessage;
+  event.xclient.display		= dpy;
+  event.xclient.message_type	= XInternAtom (dpy, "BumpQueue", False);
+  event.xclient.format		= 32;
+  event.xclient.window		= 0;
+
+  /* Send the drop message */
+  XSendEvent(dpy, XtWindow (FRAME_X_SHELL_WIDGET (f)),
+	     True, NoEventMask, &event);
+  /* Force event pending to check the X queue. */
+  quit_check_signal_tick_count++;
+}
+
+static void
 emacs_Xt_handle_magic_event (Lisp_Event *emacs_event)
 {
   /* This function can GC */
@@ -1834,6 +1846,9 @@ emacs_Xt_handle_magic_event (Lisp_Event *emacs_event)
 #endif
       break;
 
+    case CreateNotify:
+      printf ("window created\n");
+      break;
     default:
       break;
     }
@@ -2295,7 +2310,7 @@ describe_event_window (Window window, Display *display)
       char *buf = alloca_array (char, XSTRING_LENGTH (f->name) + 4);
       sprintf (buf, " \"%s\"", XSTRING_DATA (f->name));
       write_string_to_stdio_stream (stderr, 0, (Bufbyte *) buf, 0,
-				    strlen (buf), Qterminal);
+				    strlen (buf), Qterminal, 1);
     }
   stderr_out ("\n");
 }
@@ -3080,6 +3095,7 @@ reinit_vars_of_event_Xt (void)
 {
   Xt_event_stream = xnew (struct event_stream);
   Xt_event_stream->event_pending_p 	 = emacs_Xt_event_pending_p;
+  Xt_event_stream->force_event_pending 	 = emacs_Xt_force_event_pending;
   Xt_event_stream->next_event_cb	 = emacs_Xt_next_event;
   Xt_event_stream->handle_magic_event_cb = emacs_Xt_handle_magic_event;
   Xt_event_stream->add_timeout_cb 	 = emacs_Xt_add_timeout;

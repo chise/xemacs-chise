@@ -29,6 +29,10 @@ Boston, MA 02111-1307, USA.  */
 extern char **environ;
 #endif
 
+#ifdef PDUMP
+int pdump_read_file (char **pdump_start_pos, size_t *pdump_length);
+#endif
+
 int eight_bit_tty (struct device *d);
 
 void stuff_char (struct console *con, int c);

@@ -47,6 +47,28 @@ to set `delete-key-deletes-forward' to nil is if you want to use the
 Delete key to delete backwards, despite the presence (according to
 Xlib) of a BackSpace key on the keyboard.
 
+** Shifted motion keys now select text by default.  You can turn this
+off by setting `shifted-motion-keys-select-region' to nil.
+
+** You can now set the variable `kill-whole-line' to `always', which
+makes `kill-line' (C-k) delete the entire line always, not just when
+the cursor is at the beginning of the line.  This behavior, as well as
+the existing kill-whole-line behavior, now only take effect when
+kill-line is called interactively, although this is a departure from a
+previous behavior in the case of setting this variable kill-whole-line
+to t.  It is almost certainly what has always been intended, and most
+likely the old way of doing things introduced bugs.
+
+The new function `historical-kill-line' ignores the `kill-whole-line'
+setting and always gives the historical behavior of only killing to
+the end of the line.  This function is bound to Sh-C-k, so that the
+kill to end of line behavior is available, even when `kill-whole-line'
+has been customized.
+
+** XEmacs menus now have accelerators by default.  If a menu item does
+not have an accelerator specified, one is created dynamically, using
+numbers 1-9 and letters.
+
 ** Interactive searching and matching case improvements.
 
 Case sensitiveness in searching operations is normally controlled by
@@ -68,13 +90,20 @@ point.  If you want to disable the feature, set
 ** You can now use the buffer tabs to switch between buffers.  The
 tabs are located between the toolbar and the uppermost window, in a
 location called "gutter".  If you dislike the buffer tabs, you can
-disable them by specifying:
+disable them by customizing `gutter-buffers-tab-visible-p', or by
+placing this in your .emacs:
 
-    (set-specifier default-gutter-visible-p nil)
+   (set-gutter-element-visible-p default-gutter-visible-p 'buffers-tab nil)
 
-in your `.emacs'.  You can change the location of the gutter with
+You can change the location of the gutter with
 `set-default-gutter-position', however currently only MS-Windows
-supports tab widgets with orientations other than vertical..
+supports tab widgets with orientations other than vertical.
+
+** Kill and yank now interact with the clipboard by default under
+Windows.  This was done by changing the default value of
+`interprogram-cut-function' and `interprogram-paste-function'.  You
+can get the old behavior by setting these to nil, and there is an
+option on the options menu to do this.
 
 ** When you press RET at a minibuffer prompt that provides a default
 value, the value is stored in history instead of an empty line.  Also,
@@ -90,6 +119,13 @@ rectangle, and `clear-rectangle', which filled even empty lines up to
 the left side.  All functions have been rewritten to avoid inserting
 unwanted spaces, and an optional prefix now allows them to behave the
 old way.
+
+Also, the behavior of `string-rectangle' is now compliant with
+`pending-delete-mode': if this mode is active, then the string
+replaces the region rectangle.  Otherwise, the command does not delete
+or overwrite any existing text.  For those who want that feature but do
+not use pending-delete-mode, a new function, `replace-rectangle', is
+available.
 
 As a side effect, the FORCE argument to `move-to-column' now
 understands the special value `coerce', which means that the line
@@ -177,16 +213,39 @@ Moreover, -user <user> (which used to only work in unpredictable ways)
 is now equivalent to
 -user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
 
-** New variable `mswindows-meta-activates-menu'.
-If you set this variable to nil then pressing the Alt key under
-MS-Windows will no longer activate the menubar. The default is t.
+** Init file may be called .emacs.el.
 
-** Pixel-based scrolling has been implemented. 
+Like in GNU Emacs 20.4 and on, you can now name the XEmacs init file
+`.emacs.el'.  Formerly the name had to be `.emacs'.  If you use the
+name `.emacs.el', you can byte-compile the file in the usual way.
+
+If both `.emacs' and `.emacs.el' exist, the latter file is the one
+that is used.
+
+** New variable `mswindows-meta-activates-menu'.
+If you set this variable to nil then pressing and releasing the Alt
+key under MS-Windows will no longer activate the menubar.  The default
+is t.  This is not to be confused with `menu-accelerator-enabled',
+which enables the use of Alt+<Letter> accelerators to invoke the
+menus.
+
+** Pixel-based scrolling has been implemented.
 By default this will attempt to scroll in increments equal to the
-height of the default face. Set `window-pixel-scroll-increment' to
+height of the default face.  Set `window-pixel-scroll-increment' to
 modify this behaviour.
 
+** Operation progress can be displayed using graphical widgets.
+See `lprogress-display' for details.  This support has been switched
+on by default for font-lock and some web browsing functions.  If you
+do not like this behaviour set `progress-display-use-echo-area'.
+
 ** Etags changes.
+
+** The PostgreSQL Relational Database Management System is now supported.
+It is now possible to build XEmacs so that the programming interface
+to the PostgreSQL RDBMS (libpq) is available in XEmacs Lisp.
+Supported versions of PostgreSQL are 6.5.3 (earlier versions may work,
+but have not been tested) and 7.0-beta1.
 
 *** In DOS, etags looks for file.cgz if it cannot find file.c.
 
@@ -241,15 +300,7 @@ get to the initialized data.  In that scheme, there is no difference
 between `temacs' and `xemacs'.
 
 This is all very experimental, though.  Configure with `--pdump' to
-try testing it.  NOTE: it is expected that `make' will fail after
-dumping `xemacs.dmp'.  This is because Makefiles have not yet been
-modified to not expect `temacs' producing an `xemacs' executable.  You
-can try it out by simply running `src/temacs'.  If it starts without
-failure, the portable dumping worked.
-
-#### NOTE: the portable dumper is not really usable yet, because the
-state of built-in variables is not yet saved.  Olivier promised to fix
-it.  Nag, nag.
+try testing it.
 
 ** Much effort has been invested to make XEmacs Lisp faster:
 
@@ -295,8 +346,8 @@ buttons, scrollbars, combo boxes, edit fields and progress gauges in a
 buffer.  As a side effect subwindow support now works once again.
 
 All of this is still fairly experimental and there is no
-documentation. The current APIs might change in a future version of
-XEmacs.  Some widgets are only available under MS-Windows. See the
+documentation.  The current APIs might change in a future version of
+XEmacs.  Some widgets are only available under MS-Windows.  See the
 file glyphs-test.el in the XEmacs src distribution for examples of
 usage.
 
@@ -442,6 +493,21 @@ This behaviour is compatible with other code which treats symbols
 beginning with colon as keywords only if they are interned in the
 global obarray.  `keywordp' used to wrongly return t in both cases
 above.
+
+** New variables `this-command-properties' and
+`last-command-properties' are now available for communication between
+consecutive commands.  Commands should use these to communicate with
+the pre/post-command hooks, subsequent commands, wrapping commands,
+etc. in preference to looking at and/or setting `this-command'.
+
+** New functions `add-one-shot-hook' and `add-local-one-shot-hook' make
+it possible to add a "one-shot" hook, which is to say a hook that runs
+only once, and automatically removes itself after the first time it
+has run.
+
+** The descriptor that specifies the text of a menu item can now be an
+evaluated expression.  This makes this descriptor parallel with
+others, which can also be expressions.
 
 
 * Changes in XEmacs 21.0

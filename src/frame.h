@@ -116,9 +116,14 @@ struct frame
   unsigned int current_toolbar_size[4];
 #endif
 
-  /* Dynamic array of display lines for gutters */
-  display_line_dynarr *current_display_lines;
-  display_line_dynarr *desired_display_lines;
+  /* Size of gutters as seen by redisplay. This is used to determine
+     whether to re-layout windows by a call to change_frame_size early
+     in redisplay_frame. */
+  unsigned int current_gutter_bounds[4];
+
+  /* Dynamic arrays of display lines for gutters */
+  display_line_dynarr *current_display_lines[4];
+  display_line_dynarr *desired_display_lines[4];
 
   /* A structure of auxiliary data specific to the device type.
      struct x_frame is used for X window frames; defined in console-x.h */
@@ -258,9 +263,9 @@ DECLARE_LRECORD (frame, struct frame);
 #define FRAME_TYPE_P(f, type)	EQ (FRAME_TYPE (f), Q##type)
 
 #ifdef ERROR_CHECK_TYPECHECK
-INLINE struct frame *
+INLINE_HEADER struct frame *
 error_check_frame_type (struct frame * f, Lisp_Object sym);
-INLINE struct frame *
+INLINE_HEADER struct frame *
 error_check_frame_type (struct frame * f, Lisp_Object sym)
 {
   assert (EQ (FRAME_TYPE (f), sym));

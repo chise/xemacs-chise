@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #elif defined(_AIX)
 #pragma alloca
 #elif ! defined (alloca)
-char *alloca();
+char *alloca ();
 #endif
 #endif /* C code */
 
@@ -46,6 +46,9 @@ char *alloca();
 /* Use this to add code in a structured way to FSF-maintained source
    files so as to make it obvious where XEmacs changes are. */
 #define XEMACS 1
+
+/* Program name */
+#undef EMACS_PROGNAME
 
 /* Allow s&m files to differentiate OS versions without having
    multiple files to maintain. */
@@ -389,6 +392,11 @@ char *alloca();
 #undef HAVE_LDAP_RESULT2ERROR
 /* Does the library define ldap_parse_result () ? */
 #undef HAVE_LDAP_PARSE_RESULT
+
+/* Do we wish to link against the PostgreSQL RDBMS run-time library?
+ */
+#undef HAVE_POSTGRESQL
+#undef HAVE_POSTGRESQLV7
 
 /* Do you have the Xauth library present?  This will add some extra
    functionality to gnuserv. */
@@ -775,30 +783,20 @@ on various systems. */
 #define LONG_LONG_BITS (SIZEOF_LONG_LONG * BITS_PER_CHAR)
 #define VOID_P_BITS (SIZEOF_VOID_P * BITS_PER_CHAR)
 
-#ifndef NOT_C_CODE
-#ifdef __cplusplus
-#define HAVE_INLINE 1
-#define INLINE inline
-#else /* not C++ */
+/* Use `INLINE_HEADER' to define inline functions in .h files.
+   Use `inline static' to define inline functions in .c files.
+   See the Internals manual for examples and more information. */
+
 /* Does the keyword `inline' exist?  */
-#undef HAVE_INLINE
 #undef inline
 
-# ifdef HAVE_INLINE
-#  ifdef __GNUC__
-#   ifdef DONT_EXTERN_INLINE_FUNCTIONS
-#    define INLINE inline
-#   else
-#    define INLINE extern inline
-#   endif
-#  else
-#   define INLINE static inline
-#  endif /* __GNUC__ */
-# else
-#  define INLINE static
-# endif /* HAVE_INLINE */
-#endif /* not C++ */
-#endif /* C code */
+#if defined (__cplusplus) || ! defined (__GNUC__)
+# define INLINE_HEADER inline static
+#elif defined (DONT_EXTERN_INLINE_HEADER_FUNCTIONS)
+# define INLINE_HEADER inline
+#else
+# define INLINE_HEADER inline extern
+#endif
 
 #if defined (__cplusplus) && !defined (NOT_C_CODE)
 /* Avoid C++ keywords used as ordinary C identifiers */

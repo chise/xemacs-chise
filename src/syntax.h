@@ -72,8 +72,8 @@ enum syntaxcode charset_syntax (struct buffer *buf, Lisp_Object charset,
 #define SYNTAX_CODE_UNSAFE(table, c) \
    XINT (CHAR_TABLE_VALUE_UNSAFE (table, c))
 
-INLINE int SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
-INLINE int
+INLINE_HEADER int SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER int
 SYNTAX_CODE (Lisp_Char_Table *table, Emchar c)
 {
   return SYNTAX_CODE_UNSAFE (table, c);
@@ -85,8 +85,8 @@ SYNTAX_CODE (Lisp_Char_Table *table, Emchar c)
 #define SYNTAX_FROM_CODE(code) ((enum syntaxcode) ((code) & 0177))
 #define SYNTAX(table, c) SYNTAX_FROM_CODE (SYNTAX_CODE (table, c))
 
-INLINE int WORD_SYNTAX_P (Lisp_Char_Table *table, Emchar c);
-INLINE int
+INLINE_HEADER int WORD_SYNTAX_P (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER int
 WORD_SYNTAX_P (Lisp_Char_Table *table, Emchar c)
 {
   return SYNTAX (table, c) == Sword;

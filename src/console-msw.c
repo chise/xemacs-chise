@@ -1,5 +1,5 @@
 /* Console functions for mswindows.
-   Copyright (C) 1996 Ben Wing.
+   Copyright (C) 1996, 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -28,6 +28,8 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include "events.h"
+#include "opaque.h"
 
 #include "console-msw.h"
 
@@ -42,6 +44,69 @@ static int
 mswindows_initially_selected_for_input (struct console *con)
 {
   return 1;
+}
+
+static HWND msw_console_hwnd = 0;
+
+#define KLUDGE_BUFSIZE 1024 /* buffer size for console window titles */
+
+/* Direct from the horse's mouth: Microsoft KB article Q124103 */
+static HWND
+GetConsoleHwnd (void)
+{ 
+  HWND hwndFound;         /* this is what is returned to the caller */
+  char pszNewWindowTitle[KLUDGE_BUFSIZE]; /* contains fabricated WindowTitle */
+  char pszOldWindowTitle[KLUDGE_BUFSIZE]; /* contains original WindowTitle */
+
+  /* fetch current window title */
+
+  GetConsoleTitle(pszOldWindowTitle, KLUDGE_BUFSIZE);
+
+  /* format a "unique" NewWindowTitle */
+
+  wsprintf(pszNewWindowTitle,"%d/%d",
+	   GetTickCount(),
+	   GetCurrentProcessId());
+
+  /* change current window title */
+
+  SetConsoleTitle(pszNewWindowTitle);
+
+  /* ensure window title has been updated */
+
+  Sleep(40);
+
+  /* look for NewWindowTitle */
+
+  hwndFound=FindWindow(NULL, pszNewWindowTitle);
+
+  /* restore original window title */
+
+  SetConsoleTitle(pszOldWindowTitle);
+
+  return(hwndFound);
+} 
+
+HWND
+msw_get_console_hwnd (void)
+{
+  if (!msw_console_hwnd)
+    msw_console_hwnd = GetConsoleHwnd ();
+  return msw_console_hwnd;
+}
+
+int
+msw_ensure_console_allocated (void)
+{
+  HWND fgwin = GetForegroundWindow ();
+  /* stupid mswin api won't let you create the console window
+     hidden!  creating it changes the focus!  fuck me! */
+  if (AllocConsole ())
+    {
+      SetForegroundWindow (fgwin);
+      return 1;
+    }
+  return 0;
 }
 
 static Lisp_Object
@@ -71,51 +136,70 @@ mswindows_canonicalize_device_connection (Lisp_Object connection,
   return mswindows_canonicalize_console_connection (connection, errb);
 }
 
-
-/************************************************************************/
-/*                            initialization                            */
-/************************************************************************/
-
 void
-syms_of_console_mswindows (void)
+msw_hide_console (void)
 {
+  ShowWindow (msw_get_console_hwnd (), SW_HIDE);
 }
 
 void
-console_type_create_mswindows (void)
+msw_show_console (void)
 {
-  INITIALIZE_CONSOLE_TYPE (mswindows, "mswindows", "console-mswindows-p");
+  HWND hwnd = msw_get_console_hwnd ();
+  ShowWindow (hwnd, SW_SHOWNA);
 
-  /* console methods */
-/*  CONSOLE_HAS_METHOD (mswindows, init_console); */
-/*  CONSOLE_HAS_METHOD (mswindows, mark_console); */
-  CONSOLE_HAS_METHOD (mswindows, initially_selected_for_input);
-/*  CONSOLE_HAS_METHOD (mswindows, delete_console); */
-  CONSOLE_HAS_METHOD (mswindows, canonicalize_console_connection);
-  CONSOLE_HAS_METHOD (mswindows, canonicalize_device_connection);
-/*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_console_connection); */
-/*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_device_connection); */
-
-  INITIALIZE_CONSOLE_TYPE (msprinter, "msprinter", "console-msprinter-p");
+  /* I tried to raise the window to the top without activating
+     it, but this fails.  Apparently Windows just doesn't like
+     having the active window not be on top.  So instead, we
+     at least put it just below our own window, where part of it
+     will likely be seen. */
+  SetWindowPos (hwnd, GetForegroundWindow (), 0, 0, 0, 0,
+		SWP_NOSIZE | SWP_NOMOVE | SWP_NOSENDCHANGING |
+		SWP_NOACTIVATE);
 }
 
-void
-reinit_console_type_create_mswindows (void)
+static int msw_console_buffered = 0;
+HANDLE msw_console_buffer;
+
+static void
+msw_ensure_console_buffered (void)
 {
-  REINITIALIZE_CONSOLE_TYPE (mswindows);
-  REINITIALIZE_CONSOLE_TYPE (msprinter);
+  if (!msw_console_buffered)
+    {
+      COORD new_size;
+
+      new_size.X = 80;
+      new_size.Y = 1000;
+      msw_ensure_console_allocated ();
+      msw_console_buffer =
+	CreateConsoleScreenBuffer (GENERIC_WRITE, 0, NULL,
+				   CONSOLE_TEXTMODE_BUFFER, NULL);
+      SetConsoleScreenBufferSize (msw_console_buffer, new_size);
+      SetConsoleActiveScreenBuffer (msw_console_buffer);
+      msw_console_buffered = 1;
+    }
 }
 
-void
-vars_of_console_mswindows (void)
+int
+msw_output_console_string (CONST Extbyte *str, Extcount len)
 {
-  Fprovide (Qmswindows);
+  DWORD num_written;
+
+  msw_ensure_console_buffered ();
+  msw_show_console ();
+  return WriteConsole (msw_console_buffer, str, len, &num_written, NULL);
+}
+
+/* Determine if running on Windows 9x and not NT */
+int
+msw_windows9x_p (void)
+{
+  return GetVersion () & 0x80000000;
 }
 
 
 #ifdef DEBUG_XEMACS
-#include "events.h"
-#include "opaque.h"
+
 /*
  * Random helper functions for debugging.
  * Intended for use in the MSVC "Watch" window which doesn't like
@@ -176,3 +260,45 @@ DSYMNAME (Lisp_Object obj)
 }
 
 #endif /* DEBUG_XEMACS */
+
+
+
+/************************************************************************/
+/*                            initialization                            */
+/************************************************************************/
+
+void
+syms_of_console_mswindows (void)
+{
+}
+
+void
+console_type_create_mswindows (void)
+{
+  INITIALIZE_CONSOLE_TYPE (mswindows, "mswindows", "console-mswindows-p");
+
+  /* console methods */
+/*  CONSOLE_HAS_METHOD (mswindows, init_console); */
+/*  CONSOLE_HAS_METHOD (mswindows, mark_console); */
+  CONSOLE_HAS_METHOD (mswindows, initially_selected_for_input);
+/*  CONSOLE_HAS_METHOD (mswindows, delete_console); */
+  CONSOLE_HAS_METHOD (mswindows, canonicalize_console_connection);
+  CONSOLE_HAS_METHOD (mswindows, canonicalize_device_connection);
+/*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_console_connection); */
+/*  CONSOLE_HAS_METHOD (mswindows, semi_canonicalize_device_connection); */
+
+  INITIALIZE_CONSOLE_TYPE (msprinter, "msprinter", "console-msprinter-p");
+}
+
+void
+reinit_console_type_create_mswindows (void)
+{
+  REINITIALIZE_CONSOLE_TYPE (mswindows);
+  REINITIALIZE_CONSOLE_TYPE (msprinter);
+}
+
+void
+vars_of_console_mswindows (void)
+{
+  Fprovide (Qmswindows);
+}

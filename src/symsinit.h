@@ -152,6 +152,7 @@ void syms_of_widget (void);
 void syms_of_window (void);
 void syms_of_select_x (void);
 void syms_of_eldap (void);
+void syms_of_postgresql (void);
 void syms_of_gpmevent (void);
 
 /* Initialize the console types (dump-time but for reinit_). */
@@ -290,6 +291,7 @@ void vars_of_extents (void);
 void reinit_vars_of_extents (void);
 void vars_of_faces (void);
 void vars_of_fileio (void);
+void reinit_vars_of_fileio (void);
 void vars_of_filelock (void);
 void vars_of_floatfns (void);
 void vars_of_font_lock (void);
@@ -376,6 +378,7 @@ void reinit_vars_of_window (void);
 void vars_of_select_x (void);
 void reinit_vars_of_select_x (void);
 void vars_of_eldap (void);
+void vars_of_postgresql (void);
 void vars_of_gpmevent (void);
 
 /* Initialize specifier variables (dump-time only). */
@@ -428,7 +431,7 @@ void reinit_eval (void);
 
 void init_buffer (void);
 void init_callproc (void);
-void init_console_stream (void);
+void init_console_stream (int reinit);
 void init_device_tty (void);
 void init_dosfns (void);
 void init_editfns (void);

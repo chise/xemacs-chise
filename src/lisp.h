@@ -510,7 +510,8 @@ enum Lisp_Type
 
 #define INT_VALBITS (BITS_PER_EMACS_INT - INT_GCBITS)
 #define VALBITS (BITS_PER_EMACS_INT - GCBITS)
-#define EMACS_INT_MAX ((1UL << INT_VALBITS) -1UL)
+#define EMACS_INT_MAX ((EMACS_INT) ((1UL << INT_VALBITS) -1UL))
+#define EMACS_INT_MIN (-(EMACS_INT_MAX) - 1)
 
 #ifdef USE_UNION_TYPE
 # include "lisp-union.h"
@@ -855,8 +856,8 @@ EXTERNAL_PROPERTY_LIST_LOOP_7 (key, value, list, len, tail,		\
        )
 
 /* Return 1 if LIST is properly acyclic and nil-terminated, else 0. */
-INLINE int TRUE_LIST_P (Lisp_Object object);
-INLINE int
+INLINE_HEADER int TRUE_LIST_P (Lisp_Object object);
+INLINE_HEADER int
 TRUE_LIST_P (Lisp_Object object)
 {
   Lisp_Object hare, tortoise;
@@ -947,8 +948,8 @@ void resize_string (Lisp_String *s, Bytecount pos, Bytecount delta);
 
 #ifdef MULE
 
-INLINE Charcount string_char_length (Lisp_String *s);
-INLINE Charcount
+INLINE_HEADER Charcount string_char_length (Lisp_String *s);
+INLINE_HEADER Charcount
 string_char_length (Lisp_String *s)
 {
   return bytecount_to_charcount (string_data (s), string_length (s));
@@ -1040,16 +1041,16 @@ DECLARE_LRECORD (bit_vector, Lisp_Bit_Vector);
 #define bit_vector_length(v) ((v)->size)
 #define bit_vector_next(v) ((v)->next)
 
-INLINE int bit_vector_bit (Lisp_Bit_Vector *v, size_t n);
-INLINE int
+INLINE_HEADER int bit_vector_bit (Lisp_Bit_Vector *v, size_t n);
+INLINE_HEADER int
 bit_vector_bit (Lisp_Bit_Vector *v, size_t n)
 {
   return ((v->bits[n >> LONGBITS_LOG2] >> (n & (LONGBITS_POWER_OF_2 - 1)))
 	  & 1);
 }
 
-INLINE void set_bit_vector_bit (Lisp_Bit_Vector *v, size_t n, int value);
-INLINE void
+INLINE_HEADER void set_bit_vector_bit (Lisp_Bit_Vector *v, size_t n, int value);
+INLINE_HEADER void
 set_bit_vector_bit (Lisp_Bit_Vector *v, size_t n, int value)
 {
   if (value)
@@ -1157,8 +1158,8 @@ DECLARE_LRECORD (marker, Lisp_Marker);
 
 #ifdef ERROR_CHECK_TYPECHECK
 
-INLINE Emchar XCHAR (Lisp_Object obj);
-INLINE Emchar
+INLINE_HEADER Emchar XCHAR (Lisp_Object obj);
+INLINE_HEADER Emchar
 XCHAR (Lisp_Object obj)
 {
   assert (CHARP (obj));
@@ -1236,16 +1237,16 @@ DECLARE_LRECORD (float, Lisp_Float);
 
 #ifdef ERROR_CHECK_TYPECHECK
 
-INLINE EMACS_INT XINT (Lisp_Object obj);
-INLINE EMACS_INT
+INLINE_HEADER EMACS_INT XINT (Lisp_Object obj);
+INLINE_HEADER EMACS_INT
 XINT (Lisp_Object obj)
 {
   assert (INTP (obj));
   return XREALINT (obj);
 }
 
-INLINE EMACS_INT XCHAR_OR_INT (Lisp_Object obj);
-INLINE EMACS_INT
+INLINE_HEADER EMACS_INT XCHAR_OR_INT (Lisp_Object obj);
+INLINE_HEADER EMACS_INT
 XCHAR_OR_INT (Lisp_Object obj)
 {
   assert (INTP (obj) || CHARP (obj));
@@ -2018,7 +2019,7 @@ size_t fixed_type_block_overhead (size_t);
 #endif
 #ifdef PDUMP
 void pdump (void);
-int pdump_load (void);
+int pdump_load (const char *);
 
 extern char *pdump_start, *pdump_end;
 #define DUMPEDP(adr) ((((char *)(adr)) < pdump_end) && (((char *)(adr)) >= pdump_start))
@@ -2407,7 +2408,7 @@ void clear_message (void);
 /* Defined in print.c */
 void write_string_to_stdio_stream (FILE *, struct console *,
 				   const Bufbyte *, Bytecount, Bytecount,
-				   Lisp_Object);
+				   Lisp_Object, int);
 void debug_print (Lisp_Object);
 void debug_short_backtrace (int);
 void temp_output_buffer_setup (Lisp_Object);
@@ -2550,6 +2551,7 @@ EXFUN (Fcdr, 1);
 EXFUN (Fchar_after, 2);
 EXFUN (Fchar_to_string, 1);
 EXFUN (Fcheck_valid_plist, 1);
+EXFUN (Fvalid_plist_p, 1);
 EXFUN (Fclear_range_table, 1);
 EXFUN (Fcoding_category_list, 0);
 EXFUN (Fcoding_category_system, 1);

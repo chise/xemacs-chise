@@ -299,6 +299,7 @@ the Assert macro checks for correctness."
 	 (file-name-coding-system 'iso-8859-2))
     ;; This is how you suppress output from `message', called by `write-region'
     (flet ((append-message (&rest args) ()))
+      (Assert (not (equal name1 name2)))
       (Assert (not (file-exists-p name1)))
       (write-region (point-min) (point-max) name1)
       (Assert (file-exists-p name1))

@@ -1,7 +1,7 @@
 ;;; list-mode.el --- Major mode for buffers containing lists of items
 
 ;; Copyright (C) 1992-4, 1997 Free Software Foundation, Inc.
-;; Copyright (C) 1996 Ben Wing.
+;; Copyright (C) 1996, 2000 Ben Wing.
  
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: extensions, dumped
@@ -63,6 +63,32 @@
       (dolist (key '(kp-left left (control ?b)))
 	(define-key map key 'previous-list-mode-item))))
 
+;; #### We make list-mode-hook, as well as completion-setup-hook and
+;; minibuffer-setup-hook, permanent-local so that it's possible to create
+;; buffers in these modes and then set up some buffer-specific
+;; customizations without resorting to awful kludges.  (The problem here
+;; is that when you switch a buffer into a mode, reset-buffer is usually
+;; called, which destroys all buffer-local settings that you carefully
+;; tried to set up when you created the buffer.  Therefore, the only way
+;; to set these variables is to use the setup hooks -- but if they are
+;; not declared permanent local, then any local hook functions that you
+;; put on them (which is exactly what you want to do) also get removed,
+;; so you would have to resort to putting a global hook function on the
+;; setup hook, and then making sure it gets removed later.  I actually
+;; added some support for doing this with one-shot hooks, but this is
+;; clearly not the correct way to do things, and it fails in some cases,
+;; particularly when the buffer gets put into the mode more than once,
+;; which typically happens with completion buffers, for example.)  In
+;; fact, all setup hooks should be made permanent local, but I didn't
+;; feel like making a global change like this quite yet.  The proper way
+;; to do it would be to declare new def-style forms, such as defhook and
+;; define-local-setup-hook, which are used to initialize hooks in place
+;; of the current generic defvars. --ben
+
+(put 'list-mode-hook 'permanent-local t)
+(defvar list-mode-hook nil
+  "Normal hook run when entering List mode.")
+
 (defun list-mode ()
   "Major mode for buffer containing lists of items."
   (interactive)
@@ -70,12 +96,9 @@
   (use-local-map list-mode-map)
   (setq mode-name "List")
   (setq major-mode 'list-mode)
-  (make-local-hook 'post-command-hook)
-  (add-hook 'post-command-hook 'set-list-mode-extent nil t)
-  (make-local-hook 'pre-command-hook)
-  (add-hook 'pre-command-hook 'list-mode-extent-pre-hook nil t)
-  (make-local-variable 'next-line-add-newlines)
-  (setq next-line-add-newlines nil)
+  (add-local-hook 'post-command-hook 'set-list-mode-extent)
+  (add-local-hook 'pre-command-hook 'list-mode-extent-pre-hook)
+  (set (make-local-variable 'next-line-add-newlines) nil)
   (setq list-mode-extent nil)
 ;; It is visually disconcerting to have the text cursor disappear within list 
 ;; buffers, especially when moving from window to window, so leave it
@@ -226,8 +249,11 @@ If ACTIVATE-CALLBACK is non-nil, it should be a function of three
 If the variable in not t or nil, the string is taken as a regexp to match for end
 of highlight")
 
+;; see comment at list-mode-hook.
+(put 'completion-setup-hook 'permanent-local t)
 (defvar completion-setup-hook nil
-  "Normal hook run at the end of setting up the text of a completion buffer.")
+  "Normal hook run at the end of setting up the text of a completion buffer.
+When run, the completion buffer is the current buffer.")
 
 ; Unnecessary FSFmacs crock.  We frob the extents directly in
 ; display-completion-list, so no "heuristics" like this are necessary.
@@ -265,6 +291,9 @@ Keywords:
   :window-width
     If non-nil, width to use in displaying the list, instead of the
     actual window's width.
+  :window-height
+    If non-nil, use no more than this many lines, and extend line width as
+    necessary.
   :help-string (default is the value of `completion-default-help-string')
     Form to evaluate to get a string to insert at the beginning of
     the completion list buffer.  This is evaluated when that buffer
@@ -288,7 +317,8 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
        :reference-buffer
        (:help-string completion-default-help-string)
        (:completion-string "Possible completions are:")
-       :window-width)
+       :window-width
+       :window-height)
       ()
     (let ((old-buffer (current-buffer))
 	  (bufferp (bufferp standard-output)))
@@ -315,7 +345,8 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 					(selected-frame)))
 		     80))))
 	  (let ((count 0)
-		(max-width 0))
+		(max-width 0)
+		old-max-width)
 	    ;; Find longest completion
 	    (let ((tail completions))
 	      (while tail
@@ -336,6 +367,7 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 			tail (cdr tail)))))
         
 	    (setq max-width (+ 2 max-width)) ; at least two chars between cols
+	    (setq old-max-width max-width)
 	    (let ((rows (let ((cols (min (/ win-width max-width) count)))
 			  (if (<= cols 1)
 			      count
@@ -345,8 +377,15 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 			      (if (/= (% count cols) 0) ; want ceiling...
 				  (1+ (/ count cols))
                                 (/ count cols)))))))
-	      (if (stringp cl-completion-string)
-		  (princ (gettext cl-completion-string)))
+	      (when
+		  (and cl-window-height
+		       (> rows cl-window-height))
+		(setq max-width old-max-width)
+		(setq rows cl-window-height))
+	      (when (and (stringp cl-completion-string)
+			 (> (length cl-completion-string) 0))
+		(princ (gettext cl-completion-string))
+		(terpri))
 	      (let ((tail completions)
 		    (r 0)
 		    (regexp-string
@@ -355,7 +394,7 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 			 "[ \t]"
 		       completion-highlight-first-word-only)))
 		(while (< r rows)
-		  (terpri)
+		  (and (> r 0) (terpri))
 		  (let ((indent 0)
 			(column 0)
 			(tail2 tail))
@@ -425,7 +464,9 @@ If `completion-highlight-first-word-only' is non-nil, then only the start
 	  ;;	    (put-text-property beg (point) 'list-mode-item t)
 	  ;;	    (goto-char end)))))
 	))
-    (run-hooks 'completion-setup-hook)))
+    (save-excursion
+      (set-buffer standard-output)
+      (run-hooks 'completion-setup-hook))))
 
 (defvar completion-display-completion-list-function 'display-completion-list
   "Function to set up the list of completions in the completion buffer.

@@ -333,79 +333,83 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 					       window, ERROR_ME_NOT, 1);
 
 	      if (IMAGE_INSTANCEP (instance))
-		switch (XIMAGE_INSTANCE_TYPE (instance))
-		  {
-		  case IMAGE_TEXT:
+		{
+		  switch (XIMAGE_INSTANCE_TYPE (instance))
 		    {
-		      Bufbyte *temptemp;
-		      Lisp_Object string =
-			XIMAGE_INSTANCE_TEXT_STRING (instance);
-		      Bytecount len = XSTRING_LENGTH (string);
-
-		      /* In the unlikely instance that a garbage-collect
-			 occurs during encoding, we at least need to
-			 copy the string.
-			 */
-		      temptemp = (Bufbyte *) alloca (len);
-		      memcpy (temptemp, XSTRING_DATA (string), len);
+		    case IMAGE_TEXT:
 		      {
-			int i;
-
-			/* Now truncate the first rb->object.dglyph.xoffset
-			   columns. */
-			for (i = 0; i < rb->object.dglyph.xoffset;)
-			  {
-#ifdef MULE
-			    Emchar ch = charptr_emchar (temptemp);
-			    i += XCHARSET_COLUMNS (CHAR_CHARSET (ch));
-#else
-			    i++; /* telescope this */
-#endif
-			    INC_CHARPTR (temptemp);
-			  }
-
-			/* If we truncated one column too many, then
-			   add a space at the beginning. */
-			if (i > rb->object.dglyph.xoffset)
-			  {
-			    assert (i > 0);
-			    *--temptemp = ' ';
-			    i--;
-			  }
-			len -= i;
-		      }
-
-		      tty_output_bufbyte_string (w, dl, temptemp, len,
-						 xpos, findex, 0);
-
-		      if (xpos >= cursor_start
-			  && (cursor_start <
-			      xpos + (bufbyte_string_displayed_columns
-				      (temptemp, len))))
+			Bufbyte *temptemp;
+			Lisp_Object string =
+			  XIMAGE_INSTANCE_TEXT_STRING (instance);
+			Bytecount len = XSTRING_LENGTH (string);
+			
+			/* In the unlikely instance that a garbage-collect
+			   occurs during encoding, we at least need to
+			   copy the string.
+			*/
+			temptemp = (Bufbyte *) alloca (len);
+			memcpy (temptemp, XSTRING_DATA (string), len);
 			{
-			  cmgoto (f, dl->ypos - 1, cursor_start);
+			  int i;
+			  
+			  /* Now truncate the first rb->object.dglyph.xoffset
+			     columns. */
+			  for (i = 0; i < rb->object.dglyph.xoffset;)
+			    {
+#ifdef MULE
+			      Emchar ch = charptr_emchar (temptemp);
+			      i += XCHARSET_COLUMNS (CHAR_CHARSET (ch));
+#else
+			      i++; /* telescope this */
+#endif
+			      INC_CHARPTR (temptemp);
+			    }
+			  
+			  /* If we truncated one column too many, then
+			     add a space at the beginning. */
+			  if (i > rb->object.dglyph.xoffset)
+			    {
+			      assert (i > 0);
+			      *--temptemp = ' ';
+			      i--;
+			    }
+			  len -= i;
 			}
+			
+			tty_output_bufbyte_string (w, dl, temptemp, len,
+						   xpos, findex, 0);
+			
+			if (xpos >= cursor_start
+			    && (cursor_start <
+				xpos + (bufbyte_string_displayed_columns
+					(temptemp, len))))
+			  {
+			    cmgoto (f, dl->ypos - 1, cursor_start);
+			  }
+		      }
+		      break;
+		      
+		    case IMAGE_MONO_PIXMAP:
+		    case IMAGE_COLOR_PIXMAP:
+		    case IMAGE_SUBWINDOW:
+		    case IMAGE_WIDGET:
+		    case IMAGE_LAYOUT:
+		      /* just do nothing here */
+		      break;
+		      
+		    case IMAGE_POINTER:
+		      abort ();
+		      
+		    case IMAGE_NOTHING:
+		      /* nothing is as nothing does */
+		      break;
+		      
+		    default:
+		      abort ();
 		    }
-		    break;
-
-		  case IMAGE_MONO_PIXMAP:
-		  case IMAGE_COLOR_PIXMAP:
-		  case IMAGE_SUBWINDOW:
-		  case IMAGE_WIDGET:
-		  case IMAGE_LAYOUT:
-		    /* just do nothing here */
-		    break;
-
-		  case IMAGE_POINTER:
-		    abort ();
-
-		  case IMAGE_NOTHING:
-		    /* nothing is as nothing does */
-		    break;
-
-		  default:
-		    abort ();
-		  }
+		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
+		    (XIMAGE_INSTANCE (instance)) = 0;
+		}
 
 	      xpos += rb->width;
 	      elt++;
@@ -566,7 +570,7 @@ tty_clear_frame (struct frame *f)
       clear_to_end (f);
 #else
       /* #### Not implemented. */
-      fprintf (stderr, "Not yet.\n");
+      stderr_out ("Not yet.\n");
 #endif
     }
   tty_turn_off_frame_face (f, Vdefault_face);

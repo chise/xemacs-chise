@@ -1,5 +1,5 @@
 /* Gutter implementation.
-   Copyright (C) 1999 Andy Piper.
+   Copyright (C) 1999, 2000 Andy Piper.
 
 This file is part of XEmacs.
 
@@ -47,6 +47,8 @@ Lisp_Object Vdefault_gutter_border_width;
 Lisp_Object Vdefault_gutter_position;
 
 Lisp_Object Qgutter_size;
+Lisp_Object Qgutter_visible;
+Lisp_Object Qdefault_gutter_position_changed_hook;
 
 #define SET_GUTTER_WAS_VISIBLE_FLAG(frame, pos, flag)	\
   do {							\
@@ -86,6 +88,7 @@ static int gutter_was_visible (struct frame* frame, enum gutter_pos pos)
     }
 }
 
+#if 0
 static Lisp_Object
 frame_topmost_window (struct frame *f)
 {
@@ -100,6 +103,7 @@ frame_topmost_window (struct frame *f)
 
   return w;
 }
+#endif
 
 static Lisp_Object
 frame_bottommost_window (struct frame *f)
@@ -167,7 +171,6 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
 		   int *width, int *height)
 {
   struct window
-    * top = XWINDOW (frame_topmost_window (f)),
     * bot = XWINDOW (frame_bottommost_window (f));
   /* The top and bottom gutters take precedence over the left and
      right. */
@@ -183,8 +186,7 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
 
     case BOTTOM_GUTTER:
       *x = FRAME_LEFT_BORDER_END (f);
-      *y = WINDOW_BOTTOM (bot)
-	- FRAME_BOTTOM_GUTTER_BOUNDS (f);
+      *y = WINDOW_BOTTOM (bot);
       *width = FRAME_RIGHT_BORDER_START (f) 
 	- FRAME_LEFT_BORDER_END (f);
       *height = FRAME_BOTTOM_GUTTER_BOUNDS (f);
@@ -192,21 +194,19 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
 
     case LEFT_GUTTER:
       *x = FRAME_LEFT_BORDER_END (f);
-      *y = WINDOW_TEXT_TOP (top);
+      *y = FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f);
       *width = FRAME_LEFT_GUTTER_BOUNDS (f);
       *height = WINDOW_BOTTOM (bot)
-	- (WINDOW_TEXT_TOP (top)
-	   + FRAME_BOTTOM_GUTTER_BOUNDS (f));
+	- (FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f));
       break;
       
     case RIGHT_GUTTER:
       *x = FRAME_RIGHT_BORDER_START (f)
 	- FRAME_RIGHT_GUTTER_BOUNDS (f);
-      *y = WINDOW_TEXT_TOP (top);
+      *y = FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f);
       *width = FRAME_RIGHT_GUTTER_BOUNDS (f);
       *height = WINDOW_BOTTOM (bot)
-	- (WINDOW_TEXT_TOP (top) 
-	   + FRAME_BOTTOM_GUTTER_BOUNDS (f));
+	- (FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f));
       break;
 
     default:
@@ -214,8 +214,39 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
     }
 }
 
+/* Convert the gutter specifier into something we can actually
+   display. */
+static Lisp_Object construct_window_gutter_spec (struct window* w, 
+						 enum gutter_pos pos)
+{
+  Lisp_Object rest, *args;
+  int nargs = 0;
+  Lisp_Object gutter = RAW_WINDOW_GUTTER (w, pos);
+  
+  if (STRINGP (gutter) || NILP (gutter))
+    return gutter;
+
+  GET_LIST_LENGTH (gutter, nargs);
+  args = alloca_array (Lisp_Object, nargs >> 1);
+  nargs = 0;
+  
+  for (rest = gutter; !NILP (rest); rest = XCDR (XCDR (rest)))
+    {
+      /* We only put things in the real gutter that are declared to be
+         visible. */
+      if (!CONSP (WINDOW_GUTTER_VISIBLE (w, pos))
+	  ||
+	  !NILP (Fmemq (XCAR (rest), WINDOW_GUTTER_VISIBLE (w, pos))))
+	{
+	  args [nargs++] = XCAR (XCDR (rest));
+	}
+    }
+  
+  return Fconcat (nargs, args);
+}
+
 static void
-output_gutter (struct frame *f, enum gutter_pos pos)
+output_gutter (struct frame *f, enum gutter_pos pos, int force)
 {
   Lisp_Object frame;
   Lisp_Object window = FRAME_LAST_NONMINIBUF_WINDOW (f);
@@ -232,15 +263,15 @@ output_gutter (struct frame *f, enum gutter_pos pos)
     return;
 
   border_width = FRAME_GUTTER_BORDER_WIDTH (f, pos);
-  findex = get_builtin_face_cache_index (w, Vgui_element_face);
+  findex = get_builtin_face_cache_index (w, Vwidget_face);
 
-  if (!f->current_display_lines)
-    f->current_display_lines = Dynarr_new (display_line);
-  if (!f->desired_display_lines)
-    f->desired_display_lines = Dynarr_new (display_line);
+  if (!f->current_display_lines[pos])
+    f->current_display_lines[pos] = Dynarr_new (display_line);
+  if (!f->desired_display_lines[pos])
+    f->desired_display_lines[pos] = Dynarr_new (display_line);
 
-  ddla = f->desired_display_lines;
-  cdla = f->current_display_lines;
+  ddla = f->desired_display_lines[pos];
+  cdla = f->current_display_lines[pos];
   cdla_len = Dynarr_length (cdla);
 
   XSETFRAME (frame, f);
@@ -251,40 +282,78 @@ output_gutter (struct frame *f, enum gutter_pos pos)
 			     x + border_width, y + border_width,
 			     width - 2 * border_width, 
 			     height - 2 * border_width, ddla, 0, findex);
-  /* Output each line. */
-  for (line = 0; line < Dynarr_length (ddla); line++)
+
+  /* We only output the gutter if we think something of significance
+     has changed.  This is, for example, because redisplay can cause
+     new face cache elements to get added causing compare_runes to
+     fail because the findex for a particular face has changed.  */
+  if (force || f->faces_changed || f->frame_changed ||
+      f->gutter_changed || f->glyphs_changed ||
+      f->size_changed || f->subwindows_changed ||
+      w->windows_changed || f->windows_structure_changed ||
+      cdla_len != Dynarr_length (ddla) ||
+      (f->extents_changed && w->gutter_extent_modiff[pos]))
     {
-      output_display_line (w, cdla, ddla, line, -1, -1);
+#ifdef DEBUG_GUTTERS
+      printf ("gutter redisplay triggered by %s\n", force ? "force" : 
+	      f->faces_changed ? "f->faces_changed" :
+	      f->frame_changed ? "f->frame_changed" :
+	      f->gutter_changed ? "f->gutter_changed" :
+	      f->glyphs_changed ? "f->glyphs_changed" :
+	      f->size_changed ? "f->size_changed" :
+	      f->subwindows_changed ? "f->subwindows_changed" :
+	      w->windows_changed ? "w->windows_changed" :
+	      f->windows_structure_changed ? "f->windows_structure_changed" :
+	      cdla_len != Dynarr_length (ddla) ? "different display structures" :
+	      f->extents_changed && w->gutter_extent_modiff[pos] ?
+	      "f->extents_changed && w->gutter_extent_modiff[pos]" : "<null>");
+#endif
+      /* Output each line. */
+      for (line = 0; line < Dynarr_length (ddla); line++)
+	{
+	  output_display_line (w, cdla, ddla, line, -1, -1);
+	}
+      
+      /* If the number of display lines has shrunk, adjust. */
+      if (cdla_len > Dynarr_length (ddla))
+	{
+	  Dynarr_length (cdla) = Dynarr_length (ddla);
+	}
+      
+      /* grab coordinates of last line and blank after it. */
+      dl = Dynarr_atp (ddla, Dynarr_length (ddla) - 1);
+      ypos = dl->ypos + dl->descent - dl->clip;
+      redisplay_clear_region (window, findex, x + border_width , ypos,
+			      width - 2 * border_width, height - (ypos - y) - border_width);
+      /* bevel the gutter area if so desired */
+      if (border_width != 0)
+	{
+	  MAYBE_DEVMETH (d, bevel_area, 
+			 (w, findex, x, y, width, height, border_width,
+			  EDGE_ALL, EDGE_BEVEL_OUT));
+	}
+    }
+  else
+    {
+      /* Nothing of significance happened so sync the display line
+         structs. */
+      for (line = 0; line < Dynarr_length (ddla); line++)
+	{
+	  sync_display_line_structs (w, line, 1, cdla, ddla);
+	}
     }
 
-  /* If the number of display lines has shrunk, adjust. */
-  if (cdla_len > Dynarr_length (ddla))
-    {
-      Dynarr_length (cdla) = Dynarr_length (ddla);
-    }
-
-  /* grab coordinates of last line and blank after it. */
-  dl = Dynarr_atp (ddla, Dynarr_length (ddla) - 1);
-  ypos = dl->ypos + dl->descent - dl->clip;
-  redisplay_clear_region (window, findex, x + border_width , ypos,
-			  width - 2 * border_width, height - (ypos - y) - border_width);
-  /* bevel the gutter area if so desired */
-  if (border_width != 0)
-    {
-      MAYBE_DEVMETH (d, bevel_area, 
-		     (w, findex, x, y, width, height, border_width,
-		      EDGE_ALL, EDGE_BEVEL_OUT));
-    }
+  w->gutter_extent_modiff [pos] = 0;
 }
 
-/* sizing gutters is a pain so we try and help the user by detemining
+/* Sizing gutters is a pain so we try and help the user by detemining
    what height will accommodate all lines. This is useless on left and
    right gutters as we always have a maximal number of lines. */
 static Lisp_Object
 calculate_gutter_size (struct window *w, enum gutter_pos pos)
 {
   struct frame* f = XFRAME (WINDOW_FRAME (w));
-  int ypos;
+  int ypos, count;
   display_line_dynarr* ddla;
   struct display_line *dl;
 
@@ -292,12 +361,19 @@ calculate_gutter_size (struct window *w, enum gutter_pos pos)
      is no reasonable metric to use */
   assert (pos == TOP_GUTTER || pos == BOTTOM_GUTTER);
   /* degenerate case */
-  if (NILP (WINDOW_GUTTER (w, pos))
+  if (NILP (RAW_WINDOW_GUTTER (w, pos))
       ||
       !FRAME_VISIBLE_P (f)
       ||
       NILP (w->buffer))
     return Qnil;
+
+  /* Redisplay code that we use relies on GC not happening. Make it
+     so. */
+  count = specpdl_depth ();
+  record_unwind_protect (restore_gc_inhibit,
+			 make_int (gc_currently_forbidden));
+  gc_currently_forbidden = 1;
 
   ddla = Dynarr_new (display_line);
   /* generate some display lines */
@@ -308,6 +384,10 @@ calculate_gutter_size (struct window *w, enum gutter_pos pos)
 			     - FRAME_LEFT_BORDER_END (f),
 			     200,
 			     ddla, 0, 0);
+
+  /* Let GC happen again. */
+  unbind_to (count, Qnil);
+
   /* grab coordinates of last line  */
   if (Dynarr_length (ddla))
     {
@@ -329,7 +409,7 @@ clear_gutter (struct frame *f, enum gutter_pos pos)
   int x, y, width, height;
   Lisp_Object window = FRAME_LAST_NONMINIBUF_WINDOW (f);
   face_index findex = get_builtin_face_cache_index (XWINDOW (window),
-						    Vgui_element_face);
+						    Vwidget_face);
   get_gutter_coords (f, pos, &x, &y, &width, &height);
 
   SET_GUTTER_WAS_VISIBLE_FLAG (f, pos, 0);
@@ -347,19 +427,86 @@ clear_gutter (struct frame *f, enum gutter_pos pos)
 void
 mark_gutters (struct frame* f)
 {
-  if (f->current_display_lines)
-    mark_redisplay_structs (f->current_display_lines);
-  if (f->desired_display_lines)
-    mark_redisplay_structs (f->desired_display_lines);
+  enum gutter_pos pos;
+  GUTTER_POS_LOOP (pos)
+    {
+      if (f->current_display_lines[pos])
+	mark_redisplay_structs (f->current_display_lines[pos]);
+      /* #### Do we really need to mark the desired lines? */
+      if (f->desired_display_lines[pos])
+	mark_redisplay_structs (f->desired_display_lines[pos]);
+    }
+}
+
+/* This is called by extent_changed_for_redisplay, so that redisplay
+   knows exactly what extents have changed. */
+void 
+gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
+					   Bufpos start, Bufpos end)
+{
+  /* #### Start and end are currently ignored but could be used by a
+     more optimal gutter redisplay. We currently loop over all frames
+     here, this could be optimized. */
+  Lisp_Object frmcons, devcons, concons;
+
+  FRAME_LOOP_NO_BREAK (frmcons, devcons, concons)
+    {
+      struct frame *f = XFRAME (XCAR (frmcons));
+      enum gutter_pos pos;
+      Lisp_Object window = FRAME_LAST_NONMINIBUF_WINDOW (f);
+      struct window* w = XWINDOW (window);
+      
+      GUTTER_POS_LOOP (pos)
+	{
+	  if (EQ (WINDOW_GUTTER (w, pos), obj))
+	    {
+	      w->gutter_extent_modiff[pos]++;
+	    }
+	}
+    }
+}
+
+/* We have to change the gutter geometry separately to the gutter
+   update since it needs to occur outside of redisplay proper. */
+void
+update_frame_gutter_geometry (struct frame *f)
+{
+  if (f->gutter_changed || f->windows_structure_changed)
+    {
+      enum gutter_pos pos;
+
+      /* If the gutter geometry has changed then re-layout the
+         frame. If we are in display there is almost no point in doing
+         anything else since the frame size changes will be delayed
+         until we are out of redisplay proper. */
+      GUTTER_POS_LOOP (pos)
+	{
+	  if (FRAME_GUTTER_BOUNDS (f, pos) != f->current_gutter_bounds[pos])
+	    {
+	      int width, height;
+	      pixel_to_char_size (f, FRAME_PIXWIDTH (f), FRAME_PIXHEIGHT (f),
+				  &width, &height);
+	      change_frame_size (f, height, width, 0);
+	      break;
+	    }
+	}
+
+      GUTTER_POS_LOOP (pos)
+	{
+	  /* Mark sizes as up-to-date. */
+	  f->current_gutter_bounds[pos] = FRAME_GUTTER_BOUNDS (f, pos);
+	}
+    }
 }
 
 void
 update_frame_gutters (struct frame *f)
 {
-  if (f->gutter_changed || f->clear ||
-      f->glyphs_changed || f->subwindows_changed || 
-      f->windows_changed || f->windows_structure_changed || 
-      f->extents_changed || f->faces_changed)
+  if (f->faces_changed || f->frame_changed ||
+      f->gutter_changed || f->glyphs_changed ||
+      f->size_changed || f->subwindows_changed ||
+      f->windows_changed || f->windows_structure_changed ||
+      f->extents_changed)
     {
       enum gutter_pos pos;
       
@@ -374,10 +521,12 @@ update_frame_gutters (struct frame *f)
       GUTTER_POS_LOOP (pos)
 	{
 	  if (FRAME_GUTTER_VISIBLE (f, pos))
-	      output_gutter (f, pos);
+	      output_gutter (f, pos, 0);
+
 	  else if (gutter_was_visible (f, pos))
-	    clear_gutter (f, pos);
+	      clear_gutter (f, pos);
 	}
+
       f->clip_changed = local_clip_changed;
       f->buffers_changed = local_buffers_changed;
       f->gutter_changed = 0;
@@ -387,8 +536,12 @@ update_frame_gutters (struct frame *f)
 void
 reset_gutter_display_lines (struct frame* f)
 {
-  if (f->current_display_lines)
-    Dynarr_reset (f->current_display_lines);
+  enum gutter_pos pos;
+  GUTTER_POS_LOOP (pos)
+    {
+      if (f->current_display_lines[pos])
+	Dynarr_reset (f->current_display_lines[pos]);
+    }
 }
 
 static void
@@ -412,7 +565,7 @@ redraw_exposed_gutter (struct frame *f, enum gutter_pos pos, int x, int y,
   /* Even if none of the gutter is in the area, the blank region at
      the very least must be because the first thing we did is verify
      that some portion of the gutter is in the exposed region. */
-  output_gutter (f, pos);
+  output_gutter (f, pos, 1);
 }
 
 void
@@ -430,15 +583,19 @@ redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 void
 free_frame_gutters (struct frame *f)
 {
-  if (f->current_display_lines)
+  enum gutter_pos pos;
+  GUTTER_POS_LOOP (pos)
     {
-      free_display_lines (f->current_display_lines);
-      f->current_display_lines = 0;
-    }
-  if (f->desired_display_lines)
-    {
-      free_display_lines (f->desired_display_lines);
-      f->desired_display_lines = 0;
+      if (f->current_display_lines[pos])
+	{
+	  free_display_lines (f->current_display_lines[pos]);
+	  f->current_display_lines[pos] = 0;
+	}
+      if (f->desired_display_lines[pos])
+	{
+	  free_display_lines (f->desired_display_lines[pos]);
+	  f->desired_display_lines[pos] = 0;
+	}
     }
 }
 
@@ -482,14 +639,21 @@ See `default-gutter-position'.
 			      list1 (Fcons (Qnil, Qzero)));
       set_specifier_fallback (Vgutter_border_width[new],
 			      Vdefault_gutter_border_width);
+      /* We don't realy want the left and right gutters to default to
+         visible. */
       set_specifier_fallback (Vgutter_visible_p[cur],
-			      list1 (Fcons (Qnil, Qt)));
+			      cur == TOP_GUTTER || cur == BOTTOM_GUTTER ?
+			      list1 (Fcons (Qnil, Qt))
+			      : list1 (Fcons (Qnil, Qnil)));
       set_specifier_fallback (Vgutter_visible_p[new],
 			      Vdefault_gutter_visible_p);
+
       Vdefault_gutter_position = position;
       unhold_frame_size_changes ();
     }
 
+  run_hook (Qdefault_gutter_position_changed_hook);
+  
   return position;
 }
 
@@ -558,9 +722,22 @@ gutter_validate (Lisp_Object instantiator)
 {
   if (NILP (instantiator))
     return;
+  
+  /* Must be a string or a plist. */
+  if (!STRINGP (instantiator) && NILP (Fvalid_plist_p (instantiator)))
+      signal_simple_error ("Gutter spec must be string, plist or nil", instantiator);
 
   if (!STRINGP (instantiator))
-    signal_simple_error ("Gutter spec must be string or nil", instantiator);
+    {
+      Lisp_Object rest;
+      
+      for (rest = instantiator; !NILP (rest); rest = XCDR (XCDR (rest)))
+	{
+	  if (!SYMBOLP (XCAR (rest))
+	      || !STRINGP (XCAR (XCDR (rest))))
+	    signal_simple_error ("Gutter plist spec must contain strings", instantiator);
+	}
+    }
 }
 
 DEFUN ("gutter-specifier-p", Fgutter_specifier_p, 1, 1, 0, /*
@@ -570,9 +747,9 @@ The values of the variables `default-gutter', `top-gutter',
 `left-gutter', `right-gutter', and `bottom-gutter' are always
 gutter specifiers.
 
-Valid gutter instantiators are called "gutter descriptors"
-and are lists of vectors.  See `default-gutter' for a description
-of the exact format.
+Valid gutter instantiators are called "gutter descriptors" and are
+either strings or property-lists of strings.  See `default-gutter' for
+a description of the exact format.
 */
        (object))
 {
@@ -593,20 +770,48 @@ recompute_overlaying_specifier (Lisp_Object real_one[4])
 
 static void
 gutter_specs_changed (Lisp_Object specifier, struct window *w,
-		       Lisp_Object oldval)
+		       Lisp_Object oldval, enum gutter_pos pos)
 {
-  enum gutter_pos pos;
-  GUTTER_POS_LOOP (pos)
+  w->real_gutter[pos] = construct_window_gutter_spec (w, pos);
+  w->real_gutter_size[pos] = w->gutter_size[pos];
+  
+  if (EQ (w->real_gutter_size[pos], Qautodetect)
+      && !NILP (w->gutter_visible_p[pos]))
     {
-      w->real_gutter_size[pos] = w->gutter_size[pos];
-      if (EQ (w->real_gutter_size[pos], Qautodetect)
-	  && !NILP (w->gutter_visible_p[pos]))
-	{
-	  w->real_gutter_size [pos] = calculate_gutter_size (w, pos);
-	}
+      w->real_gutter_size [pos] = calculate_gutter_size (w, pos);
     }
   MARK_GUTTER_CHANGED;
+  MARK_MODELINE_CHANGED;
   MARK_WINDOWS_CHANGED (w);
+}
+
+/* We define all of these so we can access which actual gutter changed. */
+static void
+top_gutter_specs_changed (Lisp_Object specifier, struct window *w,
+			  Lisp_Object oldval)
+{
+  gutter_specs_changed (specifier, w, oldval, TOP_GUTTER);
+}
+
+static void
+bottom_gutter_specs_changed (Lisp_Object specifier, struct window *w,
+			     Lisp_Object oldval)
+{
+  gutter_specs_changed (specifier, w, oldval, BOTTOM_GUTTER);
+}
+
+static void
+left_gutter_specs_changed (Lisp_Object specifier, struct window *w,
+			   Lisp_Object oldval)
+{
+  gutter_specs_changed (specifier, w, oldval, LEFT_GUTTER);
+}
+
+static void
+right_gutter_specs_changed (Lisp_Object specifier, struct window *w,
+			    Lisp_Object oldval)
+{
+  gutter_specs_changed (specifier, w, oldval, RIGHT_GUTTER);
 }
 
 static void
@@ -632,6 +837,7 @@ gutter_geometry_changed_in_window (Lisp_Object specifier, struct window *w,
     }
   
   MARK_GUTTER_CHANGED;
+  MARK_MODELINE_CHANGED;
   MARK_WINDOWS_CHANGED (w);
 }
 
@@ -656,6 +862,9 @@ default_gutter_visible_p_changed_in_window (Lisp_Object specifier,
 					     Lisp_Object oldval)
 {
   recompute_overlaying_specifier (Vgutter_visible_p);
+  /* Need to reconstruct the gutter specifier as it is affected by the
+     visibility. */
+  recompute_overlaying_specifier (Vgutter);
 }
 
 
@@ -675,10 +884,67 @@ gutter_size_validate (Lisp_Object instantiator)
 
 DEFUN ("gutter-size-specifier-p", Fgutter_size_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a gutter-size specifier.
+
+Gutter-size specifiers are used to specify the size of a gutter.  The
+values of the variables `default-gutter-size', `top-gutter-size',
+`left-gutter-size', `right-gutter-size', and `bottom-gutter-size' are
+always gutter-size specifiers.
+
+Valid gutter-size instantiators are either integers or the special
+symbol 'autodetect. If a gutter-size is set to 'autodetect them the
+size of the gutter will be adjusted to just accomodate the gutters
+contents. 'autodetect only works for top and bottom gutters.
 */
        (object))
 {
   return GUTTER_SIZE_SPECIFIERP (object) ? Qt : Qnil;
+}
+
+DECLARE_SPECIFIER_TYPE (gutter_visible);
+#define GUTTER_VISIBLE_SPECIFIERP(x) SPECIFIER_TYPEP (x, gutter_visible)
+DEFINE_SPECIFIER_TYPE (gutter_visible);
+
+static void
+gutter_visible_validate (Lisp_Object instantiator)
+{
+  if (NILP (instantiator))
+    return;
+
+  if (!NILP (instantiator) && !EQ (instantiator, Qt) && !CONSP (instantiator))
+    signal_simple_error ("Gutter visibility must be a boolean or list of symbols", 
+			 instantiator);
+
+  if (CONSP (instantiator))
+    {
+      Lisp_Object rest;
+
+      EXTERNAL_LIST_LOOP (rest, instantiator)
+	{
+	  if (!SYMBOLP (XCAR (rest)))
+	      signal_simple_error ("Gutter visibility must be a boolean or list of symbols", 
+				   instantiator);
+	}
+    }
+}
+
+DEFUN ("gutter-visible-specifier-p", Fgutter_visible_specifier_p, 1, 1, 0, /*
+Return non-nil if OBJECT is a gutter-visible specifier.
+
+Gutter-visible specifiers are used to specify the visibility of a
+gutter.  The values of the variables `default-gutter-visible-p',
+`top-gutter-visible-p', `left-gutter-visible-p',
+`right-gutter-visible-p', and `bottom-gutter-visible-p' are always
+gutter-visible specifiers.
+
+Valid gutter-visible instantiators are t, nil or a list of symbols.
+If a gutter-visible instantiator is set to a list of symbols, and the
+correspondong gutter specification is a property-list strings, then
+elements of the gutter specification will only be visible if the
+corresponding symbol occurs in the gutter-visible instantiator.
+*/
+       (object))
+{
+  return GUTTER_VISIBLE_SPECIFIERP (object) ? Qt : Qnil;
 }
 
 DEFUN ("redisplay-gutter-area", Fredisplay_gutter_area, 0, 0, 0, /*
@@ -696,19 +962,45 @@ Ensure that all gutters are correctly showing their gutter specifier.
       DEVICE_FRAME_LOOP (frmcons, d)
 	{
 	  struct frame *f = XFRAME (XCAR (frmcons));
+	  
+	  /* Sequence is quite important here. We not only want to
+	   redisplay the gutter area but we also want to flush any
+	   frame size changes out so that the gutter redisplay happens
+	   in a kosha environment. 
 
-	  if (FRAME_REPAINT_P (f))
+	   This is not only so that things look right but so that
+	   glyph redisplay optimization kicks in, by default display
+	   lines will be completely re-output if
+	   f->windows_structure_changed is 1, and this is true if
+	   frame size changes haven't been flushed out. Once frame
+	   size changes have been flushed out we then need to
+	   redisplay the frame in order to flush out pending window
+	   size changes. */
+	  update_frame_gutter_geometry (f);
+
+	  if (f->windows_structure_changed)
+	    redisplay_frame (f, 1);
+	  else if (FRAME_REPAINT_P (f))
 	    {
+	      /* We have to be "in display" when we output the gutter
+                 - make it so. */
+	      hold_frame_size_changes ();
 	      update_frame_gutters (f);
+	      unhold_one_frame_size_changes (f);
 	    }
 	}
-
       /* We now call the output_end routine for tty frames.  We delay
 	 doing so in order to avoid cursor flicker.  So much for 100%
 	 encapsulation. */
       if (DEVICE_TTY_P (d))
 	DEVMETH (d, output_end, (d));
+      
+      d->gutter_changed = 0;
     }
+
+  /* This is so that further changes to the gutters will trigger redisplay. */
+  gutter_changed_set = 0;
+  gutter_changed = 0;
 
   return Qnil;
 }
@@ -723,6 +1015,7 @@ init_frame_gutters (struct frame *f)
      initialization. We need to recalculate autodetected gutters. */
   GUTTER_POS_LOOP (pos)
     {
+      w->real_gutter[pos] = construct_window_gutter_spec (w, pos);
       w->real_gutter_size[pos] = w->gutter_size[pos];
       if (EQ (w->gutter_size[pos], Qautodetect)
 	  && !NILP (w->gutter_visible_p[pos]))
@@ -732,6 +1025,12 @@ init_frame_gutters (struct frame *f)
 	  MARK_WINDOWS_CHANGED (w);
 	}
     }
+
+  /* Keep a record of the current sizes of things. */
+  GUTTER_POS_LOOP (pos)
+    {
+      f->current_gutter_bounds[pos] = FRAME_GUTTER_BOUNDS (f, pos);
+    }
 }
 
 void
@@ -739,6 +1038,7 @@ syms_of_gutter (void)
 {
   DEFSUBR (Fgutter_specifier_p);
   DEFSUBR (Fgutter_size_specifier_p);
+  DEFSUBR (Fgutter_visible_specifier_p);
   DEFSUBR (Fset_default_gutter_position);
   DEFSUBR (Fdefault_gutter_position);
   DEFSUBR (Fgutter_pixel_height);
@@ -746,6 +1046,9 @@ syms_of_gutter (void)
   DEFSUBR (Fredisplay_gutter_area);
 
   defsymbol (&Qgutter_size, "gutter-size");
+  defsymbol (&Qgutter_visible, "gutter-visible");
+  defsymbol (&Qdefault_gutter_position_changed_hook, 
+	     "default-gutter-position-changed");
 }
 
 void
@@ -761,13 +1064,14 @@ void
 specifier_type_create_gutter (void)
 {
   INITIALIZE_SPECIFIER_TYPE (gutter, "gutter", "gutter-specifier-p");
-
   SPECIFIER_HAS_METHOD (gutter, validate);
   SPECIFIER_HAS_METHOD (gutter, after_change);
 
   INITIALIZE_SPECIFIER_TYPE (gutter_size, "gutter-size", "gutter-size-specifier-p");
-
   SPECIFIER_HAS_METHOD (gutter_size, validate);
+
+  INITIALIZE_SPECIFIER_TYPE (gutter_visible, "gutter-visible", "gutter-visible-specifier-p");
+  SPECIFIER_HAS_METHOD (gutter_visible, validate);
 }
 
 void
@@ -775,6 +1079,7 @@ reinit_specifier_type_create_gutter (void)
 {
   REINITIALIZE_SPECIFIER_TYPE (gutter);
   REINITIALIZE_SPECIFIER_TYPE (gutter_size);
+  REINITIALIZE_SPECIFIER_TYPE (gutter_visible);
 }
 
 void
@@ -815,11 +1120,11 @@ the visibility and thickness using `default-gutter-visible-p',
 using position-specific specifiers.  That way, you will get sane
 behavior if the user changes the default gutter position.
 
-The gutter value should be a string or nil. You can attach extents and
-glyphs to the string and hence display glyphs and text in other fonts
-in the gutter area.
-
-*/ );
+The gutter value should be a string, a property list of strings or
+nil. You can attach extents and glyphs to the string and hence display
+glyphs and text in other fonts in the gutter area. If the gutter value
+is a property list then the strings will be concatenated together
+before being displayed.  */ );
 
   Vdefault_gutter = Fmake_specifier (Qgutter);
   /* #### It would be even nicer if the specifier caching
@@ -839,7 +1144,7 @@ See `default-gutter' for a description of a valid gutter instantiator.
   Vgutter[TOP_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[TOP_GUTTER],
 			 offsetof (struct window, gutter[TOP_GUTTER]),
-			 gutter_specs_changed,
+			 top_gutter_specs_changed,
 			 0, 0);
 
   DEFVAR_SPECIFIER ("bottom-gutter",
@@ -856,7 +1161,7 @@ displayed even if you provide a value for `bottom-gutter'.
   Vgutter[BOTTOM_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[BOTTOM_GUTTER],
 			 offsetof (struct window, gutter[BOTTOM_GUTTER]),
-			 gutter_specs_changed,
+			 bottom_gutter_specs_changed,
 			 0, 0);
 
   DEFVAR_SPECIFIER ("left-gutter",
@@ -873,7 +1178,7 @@ displayed even if you provide a value for `left-gutter'.
   Vgutter[LEFT_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[LEFT_GUTTER],
 			 offsetof (struct window, gutter[LEFT_GUTTER]),
-			 gutter_specs_changed,
+			 left_gutter_specs_changed,
 			 0, 0);
 
   DEFVAR_SPECIFIER ("right-gutter",
@@ -890,7 +1195,7 @@ displayed even if you provide a value for `right-gutter'.
   Vgutter[RIGHT_GUTTER] = Fmake_specifier (Qgutter);
   set_specifier_caching (Vgutter[RIGHT_GUTTER],
 			 offsetof (struct window, gutter[RIGHT_GUTTER]),
-			 gutter_specs_changed,
+			 right_gutter_specs_changed,
 			 0, 0);
 
   /* initially, top inherits from default; this can be
@@ -955,8 +1260,7 @@ See `default-gutter-height' for more information.
   Vgutter_size[TOP_GUTTER] = Fmake_specifier (Qgutter_size);
   set_specifier_caching (Vgutter_size[TOP_GUTTER],
 			 offsetof (struct window, gutter_size[TOP_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("bottom-gutter-height",
 		    &Vgutter_size[BOTTOM_GUTTER] /*
@@ -968,8 +1272,7 @@ See `default-gutter-height' for more information.
   Vgutter_size[BOTTOM_GUTTER] = Fmake_specifier (Qgutter_size);
   set_specifier_caching (Vgutter_size[BOTTOM_GUTTER],
 			 offsetof (struct window, gutter_size[BOTTOM_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("left-gutter-width",
 		    &Vgutter_size[LEFT_GUTTER] /*
@@ -981,8 +1284,7 @@ See `default-gutter-height' for more information.
   Vgutter_size[LEFT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_size[LEFT_GUTTER],
 			 offsetof (struct window, gutter_size[LEFT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("right-gutter-width",
 		    &Vgutter_size[RIGHT_GUTTER] /*
@@ -994,8 +1296,7 @@ See `default-gutter-height' for more information.
   Vgutter_size[RIGHT_GUTTER] = Fmake_specifier (Qnatnum);
   set_specifier_caching (Vgutter_size[RIGHT_GUTTER],
 			 offsetof (struct window, gutter_size[RIGHT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   fb = Qnil;
 #ifdef HAVE_TTY
@@ -1063,8 +1364,7 @@ See `default-gutter-height' for more information.
   set_specifier_caching (Vgutter_border_width[TOP_GUTTER],
 			 offsetof (struct window,
 				   gutter_border_width[TOP_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("bottom-gutter-border-width",
 		    &Vgutter_border_width[BOTTOM_GUTTER] /*
@@ -1077,8 +1377,7 @@ See `default-gutter-height' for more information.
   set_specifier_caching (Vgutter_border_width[BOTTOM_GUTTER],
 			 offsetof (struct window,
 				   gutter_border_width[BOTTOM_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("left-gutter-border-width",
 		    &Vgutter_border_width[LEFT_GUTTER] /*
@@ -1091,8 +1390,7 @@ See `default-gutter-height' for more information.
   set_specifier_caching (Vgutter_border_width[LEFT_GUTTER],
 			 offsetof (struct window,
 				   gutter_border_width[LEFT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   DEFVAR_SPECIFIER ("right-gutter-border-width",
 		    &Vgutter_border_width[RIGHT_GUTTER] /*
@@ -1105,8 +1403,7 @@ See `default-gutter-height' for more information.
   set_specifier_caching (Vgutter_border_width[RIGHT_GUTTER],
 			 offsetof (struct window,
 				   gutter_border_width[RIGHT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 gutter_geometry_changed_in_window, 0, 0);
 
   fb = Qnil;
 #ifdef HAVE_TTY
@@ -1143,7 +1440,7 @@ instead.
 `default-gutter-visible-p' and all of the position-specific gutter
 visibility specifiers have a fallback value of true.
 */ );
-  Vdefault_gutter_visible_p = Fmake_specifier (Qboolean);
+  Vdefault_gutter_visible_p = Fmake_specifier (Qgutter_visible);
   set_specifier_caching (Vdefault_gutter_visible_p,
 			 offsetof (struct window,
 				   default_gutter_visible_p),
@@ -1157,12 +1454,11 @@ This is a specifier; use `set-specifier' to change it.
 
 See `default-gutter-visible-p' for more information.
 */ );
-  Vgutter_visible_p[TOP_GUTTER] = Fmake_specifier (Qboolean);
+  Vgutter_visible_p[TOP_GUTTER] = Fmake_specifier (Qgutter_visible);
   set_specifier_caching (Vgutter_visible_p[TOP_GUTTER],
 			 offsetof (struct window,
 				   gutter_visible_p[TOP_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 top_gutter_specs_changed, 0, 0);
 
   DEFVAR_SPECIFIER ("bottom-gutter-visible-p",
 		    &Vgutter_visible_p[BOTTOM_GUTTER] /*
@@ -1171,12 +1467,11 @@ This is a specifier; use `set-specifier' to change it.
 
 See `default-gutter-visible-p' for more information.
 */ );
-  Vgutter_visible_p[BOTTOM_GUTTER] = Fmake_specifier (Qboolean);
+  Vgutter_visible_p[BOTTOM_GUTTER] = Fmake_specifier (Qgutter_visible);
   set_specifier_caching (Vgutter_visible_p[BOTTOM_GUTTER],
 			 offsetof (struct window,
 				   gutter_visible_p[BOTTOM_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 bottom_gutter_specs_changed, 0, 0);
 
   DEFVAR_SPECIFIER ("left-gutter-visible-p",
 		    &Vgutter_visible_p[LEFT_GUTTER] /*
@@ -1185,12 +1480,11 @@ This is a specifier; use `set-specifier' to change it.
 
 See `default-gutter-visible-p' for more information.
 */ );
-  Vgutter_visible_p[LEFT_GUTTER] = Fmake_specifier (Qboolean);
+  Vgutter_visible_p[LEFT_GUTTER] = Fmake_specifier (Qgutter_visible);
   set_specifier_caching (Vgutter_visible_p[LEFT_GUTTER],
 			 offsetof (struct window,
 				   gutter_visible_p[LEFT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 left_gutter_specs_changed, 0, 0);
 
   DEFVAR_SPECIFIER ("right-gutter-visible-p",
 		    &Vgutter_visible_p[RIGHT_GUTTER] /*
@@ -1199,12 +1493,11 @@ This is a specifier; use `set-specifier' to change it.
 
 See `default-gutter-visible-p' for more information.
 */ );
-  Vgutter_visible_p[RIGHT_GUTTER] = Fmake_specifier (Qboolean);
+  Vgutter_visible_p[RIGHT_GUTTER] = Fmake_specifier (Qgutter_visible);
   set_specifier_caching (Vgutter_visible_p[RIGHT_GUTTER],
 			 offsetof (struct window,
 				   gutter_visible_p[RIGHT_GUTTER]),
-			 gutter_geometry_changed_in_window,
-			 0, 0);
+			 right_gutter_specs_changed, 0, 0);
 
   /* initially, top inherits from default; this can be
      changed with `set-default-gutter-position'. */

@@ -2034,9 +2034,7 @@ complex_vars_of_faces (void)
 			  Fget (Vgui_element_face, Qforeground, Qunbound));
   set_specifier_fallback (Fget (Vwidget_face, Qbackground, Qunbound),
 			  Fget (Vgui_element_face, Qbackground, Qunbound));
-  set_specifier_fallback (Fget (Vwidget_face, Qbackground_pixmap, Qnil),
-			  Fget (Vgui_element_face, Qbackground_pixmap,
-				Qunbound));
+  /* We don't want widgets to have a default background pixmap. */
 
   Vleft_margin_face = Fmake_face (Qleft_margin,
 				  build_string ("left margin face"),

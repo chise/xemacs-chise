@@ -1027,6 +1027,13 @@ This does not change the name of the visited file (if any).
   /* The aconses in the Vbuffer_alist are shared with frame->buffer_alist,
      so this will change it in the per-frame ordering as well. */
   Fsetcar (Frassq (buf, Vbuffer_alist), newname);
+  /* If the buffer is the selected one then this is equivalent to
+     recording the buffer. */
+  if (EQ (Fwindow_buffer (Fselected_window (Qnil)), buf))
+    {
+      va_run_hook_with_args (Qrecord_buffer_hook, 1, buf);
+    }
+
   if (NILP (current_buffer->filename)
       && !NILP (current_buffer->auto_save_file_name))
     call0 (Qrename_auto_save_file);

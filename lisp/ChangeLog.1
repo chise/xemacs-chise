@@ -130,7 +130,7 @@
 
 1997-12-07  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* wid-edit.el (widget-prettyprint-to-string): Nix cl-prettyprint's 
+	* wid-edit.el (widget-prettyprint-to-string): Nix cl-prettyprint's
 	newlines.
 
 1997-12-06  Hrvoje Niksic  <hniksic@srce.hr>
@@ -151,7 +151,7 @@
 
 1997-12-07  SL Baur  <steve@altair.xemacs.org>
 
-	* egg/egg-cwnn-leim.el (egg-pinyin-activate): New file.  Interface 
+	* egg/egg-cwnn-leim.el (egg-pinyin-activate): New file.  Interface
 	to Chinese Wnn server.
 
 	* egg/egg-kwnn-leim.el: New file.  Interface to Korean Wnn
@@ -237,10 +237,10 @@
 1997-12-05  Mark Borges  <mdb@cdc.noaa.gov>
 
 	* mail/mail-extr.el (all-top-level-domains):
-	Two letter country codes synched with 
+	Two letter country codes synched with
 	  http://www.iana.org/in-notes/iana/assignments/country-codes
 	as updated by the RIPE Network Coordination Centre.
-	Source: ISO 3166 Maintenance Agency 
+	Source: ISO 3166 Maintenance Agency
 	Latest change: Thu Aug  7 17:59:51 MET DST 1997
 
 1997-12-03  Eric Eide  <eeide@cs.utah.edu>
@@ -331,7 +331,7 @@
 
 1997-11-29  SL Baur  <steve@altair.xemacs.org>
 
-	* update-elc.el ((preloaded-file-list site-load-packages)): Modify 
+	* update-elc.el ((preloaded-file-list site-load-packages)): Modify
 	error message to be more build-report.el friendly.
 
 	* dumped-lisp.el (preloaded-file-list): Remove tooltalk/ prefix
@@ -367,7 +367,7 @@
 	* x-menubar.el (default-menubar): Disable WWW items in help menu
 	if no browse-url.
 
-	* help.el (xemacs-www-page): Print error message intead of bombing 
+	* help.el (xemacs-www-page): Print error message intead of bombing
 	if not browse-url.
 	(xemacs-www-faq): Ditto.
 
@@ -389,14 +389,14 @@
 	* x-toolbar.el (pending-delete): Don't (require 'pending-del).
 	* x-menubar.el (pending-delete): Don't (require 'pending-del).
 
-	* x-menubar.el (bookmark-menu-filter): Add guards against bookmark 
+	* x-menubar.el (bookmark-menu-filter): Add guards against bookmark
 	package not being loaded.
 
 	* mule/char-table.el: Imported from tm.
 	* mule/chartblxmas.el: Ditto.
 	* alist.el: Ditto.
 	* overlay.el: Unpackaged for Quail.
-	
+
 	* x-menubar.el (default-menubar): Put guard on evaluation of
 	`ps-paper-type'.
 	(default-menubar): Put guard on `paren-mode'.
@@ -427,7 +427,7 @@
 
 	* packages.el (packages-useful-lisp): advice.el is a package.
 
-	* x-menubar.el (default-menubar): Make `Options ... Color Printing' 
+	* x-menubar.el (default-menubar): Make `Options ... Color Printing'
 	a toggle.
 
 1997-11-26  Kyle Jones  <kyle_jones@wonderworks.com>
@@ -448,7 +448,7 @@
 
 1997-11-25  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* custom.el (custom-declare-variable): Attach the symbol to 
+	* custom.el (custom-declare-variable): Attach the symbol to
 	load history.
 
 1997-11-23  SL Baur  <steve@altair.xemacs.org>
@@ -505,7 +505,7 @@
 1997-11-17 Marc Paquette   <marcpa@cam.org>
 
 	* efs/dired.el: Removed special case for windows-nt in
-	dired-get-filename(); no longer needed because we now do 
+	dired-get-filename(); no longer needed because we now do
 	CRLF->LF conversion upstream.
 
 1997-11-18  Jonathan Harris <jhar@tardis.ed.ac.uk>
@@ -657,9 +657,9 @@
 
 1997-11-12  Greg Klanderman  <greg@alphatech.com>
 
-	* packages/compile.el (compilation-build-compilation-error-regexp-alist): 
+	* packages/compile.el (compilation-build-compilation-error-regexp-alist):
 	Added documentation for this function.
-	
+
 	** (compilation-error-regexp-systems-list): Update documentation
  	to note that `compilation-build-compilation-error-regexp-alist'
  	must be called after changing the value.  Update customization to
@@ -751,7 +751,7 @@
 	* utils/shadow.el (list-load-path-shadows): Supress message when
 	no shadowings are found.
 
-	* loadup.el: Modify algorithm for finding initial lisp directories 
+	* loadup.el: Modify algorithm for finding initial lisp directories
 	since the search now starts from lisp/ not lisp/prim/.
 	* update-elc.el: Ditto.
 	* make-docfile.el: Ditto.
@@ -856,7 +856,7 @@ Wed Nov 05 23:40:00 1997 Jonathan Harris <jhar@tardis.ed.ac.uk>
  	  Reinstated code that uses (mono x) as a specifer tag, but
 	  conditioned it on (featurep 'x) because x is not a valid
 	  specifier tag under native-win32.
-	
+
 	* Added file headers to:
 	  w32-faces.el, w32-init.el
 
@@ -937,7 +937,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 1997-11-07  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* prim/modeline.el (mouse-drag-modeline): Don't
-	  allow the window size to shrink to a size that is not a 
+	  allow the window size to shrink to a size that is not a
 	  multiple of the height of the default face's font.
 
 	* prim/modeline.el (mouse-drag-modeline): Don't
@@ -961,12 +961,12 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 1997-11-05  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
 
 	* mule/mule-cmds.el (set-default-coding-systems): Make
-	add-hook to `comint-exec-hook' be an append, for when the user 
+	add-hook to `comint-exec-hook' be an append, for when the user
 	changes language environment say.
 
 1997-11-05  SL Baur  <steve@altair.xemacs.org>
 
-	* prim/winnt.el: Use a cleaner method for getting Text/Binary file 
+	* prim/winnt.el: Use a cleaner method for getting Text/Binary file
 	type in the mode-line for MS Windows.
 
 1997-11-06  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1005,7 +1005,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	fontifying after fontify-buffer.
 	(lazy-shot-unstall): Make sure buffer is left in a fontified state if
 	needed. Take optional argument.
-	
+
 
 	* packages/ps-print.el (ps-print-ensure-fontified): Added
 	temporary support for lazy-shot.
@@ -1014,10 +1014,10 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
 	* utils/text-props.el (set-text-properties): Updated docstring.
 
-1997-11-04  Didier Verna  <verna@inf.enst.fr>
+1997-11-04  Didier Verna  <didier@xemacs.org>
 
-	* mule/mule-cmds.el (set-default-coding-systems): 
-	The coding-system argument to comint-exec-hook wasn't evaluated 
+	* mule/mule-cmds.el (set-default-coding-systems):
+	The coding-system argument to comint-exec-hook wasn't evaluated
 	before building the lambda expression.
 
 1997-11-04  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
@@ -1088,7 +1088,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	* shell.el (shell-chdrive-regexp): New for DOS/NT
 	(shell-mode): Added shell-font-lock-keywrods
 	(shell-mode): Use $PWD for ksh
-	(shell-directory-tracker): Use dirs and dirtrack-toggle.  This may 
+	(shell-directory-tracker): Use dirs and dirtrack-toggle.  This may
 		cause problems at is interferes with "dired"
 	(shell-snarf-envar): NEW
 	(shell-copy-environment-variable): NEW
@@ -1165,7 +1165,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	characters, instead of consing a string each time.
 	(synthesize-keysym): Better error checking.
 
-	* prim/keymap.el (synthesize-keysym): Don't bug out when reading a 
+	* prim/keymap.el (synthesize-keysym): Don't bug out when reading a
 	non-character event.
 
 1997-11-02  Tomasz Cholewo  <tjchol01@mecca.spd.louisville.edu>
@@ -1191,7 +1191,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	* prim/packages.el: Updated commentary.
 	(packages-useful-lisp): Added `cl-macs'.
 
-1997-10-27  Didier Verna  <verna@inf.enst.fr>
+1997-10-27  Didier Verna  <didier@xemacs.org>
 
 	* prim/help-nomule.el (help-with-tutorial): The 'didactic' blank
 	lines message is now taken directly from each tutorial, and thus
@@ -1213,7 +1213,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	Suggested by Michael Kifer <kifer@CS.SunySB.EDU>
 
 	* mule/mule-init.el:  Remove `help-with-tutorial-for-mule'.
-	Suggested by Didier Verna <verna@inf.enst.fr>
+	Suggested by Didier Verna <didier@xemacs.org>
 
 	* Disable Cyrillic CCL until CCL engine gets fixed.
 	From: Martin Buchholz <mrb@Eng.Sun.COM>
@@ -1230,7 +1230,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
 1997-10-30  SL Baur  <steve@altair.xemacs.org>
 
-	* vm/vm-vars.el (vm-image-directory): Use locate-data-directory if 
+	* vm/vm-vars.el (vm-image-directory): Use locate-data-directory if
 	it exists.
 
 	* language/european.el: Remove erroneous references to
@@ -1438,7 +1438,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 
 	* modes/enriched.el (enriched-face-ans): Use
 	  color-name instead of color-instance-name.
-	  color-instance-name will not handle the specifiers that 
+	  color-instance-name will not handle the specifiers that
 	  are passed as arguments.
 
 1997-10-28  Tomasz Cholewo  <tjchol01@mecca.spd.louisville.edu>
@@ -1451,14 +1451,14 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	* pcl-cvs/pcl-cvs-xemacs.el: Add `cvs-mode-update-no-prompt' to menu.
 	From Stig Bjorlykke <stigb@tihlde.hist.no>
 
-1997-10-28  Didier Verna  <verna@inf.enst.fr>
+1997-10-28  Didier Verna  <didier@xemacs.org>
 
 	* packages/man.el (manual-entry): corrected the `when'
 	form to include 'section' in the buffer name.
 
 1997-10-28  SL Baur  <steve@altair.xemacs.org>
 
-	* prim/packages (packages-find-pacakges): Fix test on 
+	* prim/packages (packages-find-pacakges): Fix test on
 	inhibit-package-init
 
 1997-10-27  Tomasz Cholewo  <tjchol01@mecca.spd.louisville.edu>
@@ -1488,7 +1488,7 @@ Sun Nov 01 12:00:00 1997 Jonathan Harris  <jhar@tardis.ed.ac.uk>
 	* egg/egg-leim.el: Registers EGG/Wnn with LEIM when loaded
 
 	* egg/egg.el: Bind `toggle-egg-mode' to "\C-\" only if LEIM is
-	not present when loaded 
+	not present when loaded
 
 1997-10-27  SL Baur  <steve@altair.xemacs.org>
 
@@ -1610,7 +1610,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 1997-10-23  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 	* custom/cus-edit.el (hook): Use `widget-group-match' instead of
-	`widget-editable-list-match'. 
+	`widget-editable-list-match'.
 
 1997-10-23  SL Baur  <steve@altair.xemacs.org>
 
@@ -1626,7 +1626,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 1997-10-20  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
 	* extents.c: Renamed shot property to initial-redisplay-function
-	(extent_fragment_update): Changed the bookkeeping whether an event 
+	(extent_fragment_update): Changed the bookkeeping whether an event
 	has been spawned. The initial-redisplay-function property is no
 	longer set to nil.
 
@@ -1641,7 +1641,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 
 1997-10-22  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* prim/startup.el (command-line-1): Run term-setup-hook regardless 
+	* prim/startup.el (command-line-1): Run term-setup-hook regardless
 	of `input-pending-p'.
 
 	* custom/cus-edit.el (custom-split-regexp-maybe): Use `split-string'.
@@ -1681,7 +1681,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 
 1997-10-21  SL Baur  <steve@altair.xemacs.org>
 
-	* prim/about.el (about-maintainer-glyph): Pictures have been moved 
+	* prim/about.el (about-maintainer-glyph): Pictures have been moved
 	to photos subdirectory.
 
 1997-10-21  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1696,7 +1696,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 1997-10-21  Colin Rafferty  <craffert@ml.com>
 
 	* x11/x-menubar.el (default-menubar): Made it use lazy-shot
-	instead of lazy-lock in "Syntax Highlighting->Lazy".  
+	instead of lazy-lock in "Syntax Highlighting->Lazy".
 	(options-menu-saved-forms): Made it save lazy-shot instead of
 	lazy-lock in the options.
 
@@ -1778,12 +1778,12 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 
 	* help.el (function-at-point): Use `function-at-point-function'.
 	(function-at-point-function): New variable, formerly
-	`find-function-function'. 
+	`find-function-function'.
 	(describe-function): Use `function-at-point'.
 	(where-is): Ditto.
 
 	* find-func.el (find-function-read-function): Use
-	`function-at-point'. 
+	`function-at-point'.
 
 	* packages/info.el (Info-elisp-ref): Use `function-at-point'.
 
@@ -1806,7 +1806,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	* prim/packages.el (packages-find-packages-1): New argument:
 	`user-package' non-nil when searching user packages.
 	- Load any autoloads found in user packages.
-	
+
 1997-10-17  Karl M. Hegbloom  <karlheg@inetarena.com>
 
 	* packages/info.el (Info-insert-dir): Also kill the localdir temp
@@ -1817,7 +1817,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	* utils/facemenu.el: autoload the `facemenu-keymap' properly.
 
 	* mule/mule-cmds.el (read-language-name): Fix typo.
-	From Didier Verna <verna@inf.enst.fr>
+	From Didier Verna <didier@xemacs.org>
 
 1997-10-15  Adrian Aichner  <aichner@ecf.teradyne.com>
 
@@ -1886,7 +1886,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
         From Hrvoje Niksic <hniksic@srce.hr>
 
 	* prim/glyphs.el (init-glyphs): Use different logo for beta XEmacsen.
-	From Didier Verna <verna@inf.enst.fr>
+	From Didier Verna <didier@xemacs.org>
 
 1997-10-15  Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -1915,7 +1915,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 
 	* custom/wid-edit.el: (widget-glyph-insert-glyph): Use
  	`widget-mouse-help' if necessary.
-	(widget-documentation-string-value-create): Don't coerce help-echo 
+	(widget-documentation-string-value-create): Don't coerce help-echo
 	WIDGET to widget.
 	(widget-button-keymap): New keymap.
 	(widget-specify-button): Use it.
@@ -1985,7 +1985,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 1997-10-14  SL Baur  <steve@altair.xemacs.org>
 
 	* default.el: New file.
-	* site-start.el: New file.  XEmacs starts faster if dummy versions 
+	* site-start.el: New file.  XEmacs starts faster if dummy versions
 	of these files are found early in the `load-path'.
 	Suggested by Kyle Jones <kyle_jones@wonderworks.com>
 
@@ -2049,7 +2049,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	* custom/cus-face.el (custom-face-attributes): Support
 	inverse-video for TTY-s.
 
-	* prim/cmdloop.el (keyboard-escape-quit): Abort recursive edit, as 
+	* prim/cmdloop.el (keyboard-escape-quit): Abort recursive edit, as
 	documented.
 
 1997-10-12  Hrvoje Niksic  <hniksic@srce.hr>
@@ -2103,7 +2103,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 
 	* '' Added toplevel block (when (fboundp 'load-gc) ...to init the
  	Info-def..list from the environment variable INFOPATH at dump time.
-	
+
 	* prim/packages.el (packages-find-packages-1): append the list of
  	packages info directories to `Info-default-directory-list' rather
  	than prepending them.  Don't add them if they're already in the
@@ -2112,7 +2112,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	* packages/info.el (Info-directory-list): various fixes to the
  	directory list handling.
 	* (Info-localdir-heading-regexp) added.
-	
+
 	* '' removed the unrequired defcustom of `Info-default-directory-
  	list'
 
@@ -2153,7 +2153,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	* packages/bookmark.el:
 	* packages/iswitchb.el:
 	* utils/speedbar.el:
-	* utils/xemacs-build-report.el: 
+	* utils/xemacs-build-report.el:
 	  - change Xemacs --> XEmacs
 
 1997-10-09  Colin Rafferty  <craffert@ml.com>
@@ -2167,7 +2167,7 @@ Fri Aug  8 12:58:00 1997  David Byers  <davby@sen2.ida.liu.se>
 	(describe-function-arglist): Commented out -- seems unused.
 	(find-function): ALL find-function stuff moved to "find-func.el"
 
-	* prim/find-func.el: new file created from functions previously in 
+	* prim/find-func.el: new file created from functions previously in
 	"help.el".
 
 1997-10-09  SL Baur  <steve@altair.xemacs.org>
@@ -2203,7 +2203,7 @@ Fri Oct  3 23:10:04 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 Fri Sep 26 23:30:58 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
-	* cc-mode/cc-menus.el: Patches to Imenu support given by 
+	* cc-mode/cc-menus.el: Patches to Imenu support given by
 	"Masatake (jet) YAMATO" <masata-y@is.aist-nara.ac.jp>.
 	(Jan Dubois) jan.dubois@ibm.net
 
@@ -2226,9 +2226,9 @@ Mon Sep 22 15:47:02 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	* x11/x-menubar.el (file-menu-filter): Reverse sense of bounds
 	test.
-	From: Didier Verna <verna@inf.enst.fr>
+	From: Didier Verna <didier@xemacs.org>
 
-	* prim/format.el (format-annotate-function): Reverse sync to Emacs 
+	* prim/format.el (format-annotate-function): Reverse sync to Emacs
 	19.
 
 1997-10-08  Hrvoje Niksic  <hniksic@srce.hr>
@@ -2316,7 +2316,7 @@ Mon Sep 22 15:47:02 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	* mule/mule-cmds.el (read-input-method-name): Use a default if
 	available.
-	From Didier Verna <verna@inf.enst.fr>
+	From Didier Verna <didier@xemacs.org>
 
 	* prim/about.el (about-url-alist): Update jwz's home page.
 
@@ -2346,7 +2346,7 @@ Mon Sep 22 15:47:02 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-10-05  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* prim/simple.el: Minor docstring and comment changes.  Customized 
+	* prim/simple.el: Minor docstring and comment changes.  Customized
 	some more.
 
 1997-10-04  Hrvoje Niksic  <hniksic@srce.hr>
@@ -2386,7 +2386,7 @@ Mon Sep 22 15:47:02 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	* cl/cl-seq.el (remq): Reformat and add doc-string.
 	Suggested by: Karl M. Hegbloom <karlheg@inetarena.com>
-	
+
 1997-10-03  Karl M. Hegbloom  <karlheg@inetarena.com>
 
 	* packages/func-menu.el: change the countups from message's to
@@ -2432,7 +2432,7 @@ Mon Sep 22 15:47:02 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	(custom-declare-face): Don't invoke init-face-from-resources
  	explicitly.
 
-	* prim/profile.el (pretty-print-profiling-info): When interactive, 
+	* prim/profile.el (pretty-print-profiling-info): When interactive,
 	use a separate buffer instead of current-buffer.
 	(pretty-print-profiling-info): Prettified output.
 
@@ -2984,7 +2984,7 @@ Mon Sep 29 02:11:35 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	(widget-text-keymap): Use it.
 	(widget-princ-to-string): Use `with-current-buffer'.
 	(widget-map-buttons): Ditto.
-	(widget-push-button-gui): Set to value of `widget-glyph-enable' by 
+	(widget-push-button-gui): Set to value of `widget-glyph-enable' by
 	default.
 	(widget-push-button-value-create): Call `widget-specify-button'.
 
@@ -3007,7 +3007,7 @@ Mon Sep 29 02:11:35 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* x11/x-menubar.el: Customized.
 
-	* custom/cus-face.el (face-spec-set-match-display): Use `warn' for 
+	* custom/cus-face.el (face-spec-set-match-display): Use `warn' for
 	warnings.
 
 	* x11/x-font-menu.el: Customized.
@@ -3123,7 +3123,7 @@ Mon Sep 29 02:11:35 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 1997-09-18  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
 
 	* prim/isearch-mode.el (isearch-message): Display-message as
-	progress (this way isearch message won't appear in the message 
+	progress (this way isearch message won't appear in the message
 	log).
 
 1997-09-18  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
@@ -3149,7 +3149,7 @@ Mon Sep 29 02:11:35 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* prim/packages.el (locate-library): Simplify regexp for
 	compression suffixes.
 	Suggested by: Hrvoje Niksic <hniksic@srce.hr>
-	
+
 1997-09-17  Karl M. Hegbloom  <karlheg@inetarena.com>
 
 	* ilisp/ilisp-out.el (ilisp-scroll-output): bind `scroll-in-place'
@@ -3220,7 +3220,7 @@ Fri Sep  5 04:47:03 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	I don't know if this breaks something else, because I can't figure out
 	why it was commented out in the first place.
-	
+
 	* cc-mode/cc-langs.el:
 	Define `/' in c-mode-base-map since all modes now support
 	c-electric-slash.
@@ -3389,7 +3389,7 @@ Fri Sep  5 04:47:03 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-09-11  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
 
-	* packages/vc.el (vc-default-init-version): Make the default value 
+	* packages/vc.el (vc-default-init-version): Make the default value
 	be `nil'.  Improve the docstring.
 
 1997-09-12  SL Baur  <steve@altair.xemacs.org>
@@ -3508,7 +3508,7 @@ Fri Aug 15 18:39:10 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-09-09  Jens-Ulrik Holger Petersen  <petersen@kurims.kyoto-u.ac.jp>
 
-	* packages/vc.el (vc-register): make the second option arg COMMENT 
+	* packages/vc.el (vc-register): make the second option arg COMMENT
 	do something
 
 	* packages/vc.el (vc-register): Make the default initial
@@ -3522,7 +3522,7 @@ Fri Aug 15 18:39:10 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-09-07  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* utils/edmacro.el (edmacro-parse-word): Accept ^foo (would signal 
+	* utils/edmacro.el (edmacro-parse-word): Accept ^foo (would signal
 	error).
 	(edmacro-format-1): Add SPC after ^.
 
@@ -3535,7 +3535,7 @@ Fri Aug 15 18:39:10 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	always has directories ending with trailing `/'s.
 
 	* version.el (emacs-version): Preserve previous matching info.
-	From Didier Verna <verna@inf.enst.fr>
+	From Didier Verna <didier@xemacs.org>
 
 Wed Sep  3 13:53:10 1997  SL Baur  <steve@altair.xemacs.org>
 
@@ -3571,7 +3571,7 @@ Wed Sep  3 13:53:10 1997  SL Baur  <steve@altair.xemacs.org>
 
 1997-09-01  SL Baur  <steve@altair.xemacs.org>
 
-	* x11/x-menubar.el (default-menubar): Put tetris in the game menu, 
+	* x11/x-menubar.el (default-menubar): Put tetris in the game menu,
 	and move it and the mine game to the top of the menu.
 
 1997-08-29  SL Baur  <steve@altair.xemacs.org>
@@ -3881,28 +3881,28 @@ Sat Jul 26 16:03:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 		* support for "dir" merging 'ala Emacs-19.34, with
  		fallback to cheap localdir files in the secondary info
  		directories.
- 	
+
 		* changed default `Info-annotations-path' from
  		~/.infonotes to ~/.xemacs/info.notes
-	
+
 		* added `Info-additional-directory-list'
-	
+
 		* changed a call to w3-fetch to browse-url
- 	
+
 		* added new variables and functions from GNU Emacs 19.34:
  		`Info-dir-contents', `Info-dir-contents-directory',
  		`Info-dir-file-attributes', and the function
  		`Info-insert-dir'
- 	
+
 		* rewrote `Info-suffixed-file' to a cond block rather than
  		nested if's for aesthetic reasons.
- 	
+
 		* made the top line get split if it's longer than 79
  		characters and tweaked fontification to handle that.
- 	
+
 		* changed the look of the pop-up mouse menus by utilizing
  		the "--:etchedThing" dividers.
-	
+
 		* several docstring reformats and typo fixes, a few
  		comments deleted.
 
@@ -4006,7 +4006,7 @@ Thu Jul 17 03:36:22 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-07-24  SL Baur  <steve@altair.xemacs.org>
 
-	* prim/make-docfile.el (docfile-out-of-date): Workaround for NEWOS 
+	* prim/make-docfile.el (docfile-out-of-date): Workaround for NEWOS
 	process exit handling bug.
 	Suggested by Katsumi Yamaoka <yamaoka@ga.sony.co.jp>
 
@@ -4036,7 +4036,7 @@ Thu Jul 17 03:36:22 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-07-21  SL Baur  <steve@altair.xemacs.org>
 
-	* prim/packages.el (locate-data-directory): New function to search 
+	* prim/packages.el (locate-data-directory): New function to search
 	for directories in the data-directory-list.
 
 1997-07-21  Karl M. Hegbloom  <karlheg@inetarena.com>
@@ -4079,7 +4079,7 @@ Thu Jul 17 03:36:22 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	(speedbar-get-focus): Autoload.
 	(speedbar): Autoload (correctly).
 
-	(speedbar-frame-width): Test liveness of frame 
+	(speedbar-frame-width): Test liveness of frame
 	too.
 	(speedbar-frame-mode): Avoid some Emacs 20 code.
 	From Markus Linnala <maage@cs.tut.fi>
@@ -4115,7 +4115,7 @@ Thu Jul 17 03:36:22 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 1997-07-16  Steven L Baur  <steve@altair.xemacs.org>
 
-	* utils/crontab.el (crontab-get): Check for `no crontab for' as an 
+	* utils/crontab.el (crontab-get): Check for `no crontab for' as an
 	error return.
 	Suggested by Jeff Miller <jmiller@smart.net>
 
@@ -4247,7 +4247,7 @@ Wed Jul  9 22:08:58 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	* prim/files.el: Use `files' group.
 
-	* prim/disp-table.el (describe-display-table): Made it work; don't 
+	* prim/disp-table.el (describe-display-table): Made it work; don't
 	use `describe-vector'.
 
 	* prim/gui.el: Customized.
@@ -4273,7 +4273,7 @@ Wed Jul  9 22:08:58 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* packages/igrep.el: Don't insinuate XEmacs when loading.
 	(igrep-insinuate): New function.
 
-	* packages/blink-cursor.el (blink-cursor-callback): Don't blink on 
+	* packages/blink-cursor.el (blink-cursor-callback): Don't blink on
 	TTY-s.
 
 	* prim/console.el (resume-pid-console): Use `eql'.
@@ -4342,7 +4342,7 @@ Wed Jul  9 22:08:58 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* packages/pending-del.el (pending-delete-pre-hook): Don't quote
  	lambda.
 	(pending-delete-pre-hook): Use `error-message-string'.
-	(pending-delete): Treat as minor mode; define the standard turn-on 
+	(pending-delete): Treat as minor mode; define the standard turn-on
 	and turn-off functions.
 	(delete-active-region): Simplified.
 
@@ -4353,10 +4353,10 @@ Wed Jul  9 22:08:58 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* packages/pending-del.el: Correct typo in Hrvoje's upgrade.
 
 	* mel/mel-u.el (uuencode-external-decode-region): Force
-	buffer-read-only nil because it gets changed magically to t during 
+	buffer-read-only nil because it gets changed magically to t during
 	the call to `insert-file-contents'.
 
-	* tm/tm-image.el (mime-preview/filter-for-image): Comment out test 
+	* tm/tm-image.el (mime-preview/filter-for-image): Comment out test
 	for invalid glyph.  It appears to be non-functional.
 
 	* modes/lisp-mode.el (lisp-interaction-mode-popup-menu-1): Add
@@ -4542,7 +4542,7 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* hypberbole/hact.el (action:commandp): Don't reference bytecode
 	objects as vectors.
 	(action:params): Ditto.
-	
+
 	* hyperbole/hypb.el (hypb:function-copy): Don't reference byte
 	code objects as vectors.
 	(hypb:function-symbol-replace): Document as broken.  The
@@ -4567,7 +4567,7 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* utils/easymenu.el (easy-menu-add): Oops, wrong sense in
 	comparison.
 
-	* comint/gdb.el (gdb-mode-syntax-table): New variable.  Initialize 
+	* comint/gdb.el (gdb-mode-syntax-table): New variable.  Initialize
 	with the logic currently in CC Mode 5.11.
 	(gdb-mode): Use it.
 
@@ -4620,7 +4620,7 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	* prim/cmdloop.el (errors-deactivate-region): Default to existing
 	behavior.
 
-	* leim/quail.el (quail-mode): Correct addition of quail minor mode 
+	* leim/quail.el (quail-mode): Correct addition of quail minor mode
 	info to minor-mode-map-alist.
 	(top-level):  Ditto.
 
@@ -4678,7 +4678,7 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 	make it look better (and will prevent some consing, but that's
 	being anal).
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 	* prim/simple.el (delete-key-deletes-forward): Mark docstring as
 	an user option.
 	From Gary D. Foster <Gary.Foster@Corp.Sun.COM>
@@ -4688,10 +4688,10 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 	* efs/efs-ovwrt.el (efs-overwrite-fn): efs is manufacturing its
 	own byte code.  Whee.
-	* utils/advice.el (ad-interactive-form): Don't treat bytecode as a 
+	* utils/advice.el (ad-interactive-form): Don't treat bytecode as a
 	vector if it can be avoided.
 	From Kyle Jones <kyle_jones@wonderworks.com>
-	
+
 1997-06-30  Steven L Baur  <steve@altair.xemacs.org>
 
 	* prim/files.el (auto-mode-alist): Don't set image-mode by default
@@ -4699,7 +4699,7 @@ Fri Jun 20 20:40:33 1997  Barry A. Warsaw  <cc-mode-help@python.org>
 
 Sun Jun 29 20:57:15 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* prim/simple.el: bind inhibit-read-only to t before 
+	* prim/simple.el: bind inhibit-read-only to t before
 	  trying to erase or otherwise modify the echo area buffer.
 
 1997-07-01  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
@@ -4728,7 +4728,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* src/undo.c (record_extent):
 	  If the extent's object is a string, just return.  We
 	  can't record undo information for strings, and it is
-	  very bad to reference through a string pointer as if it 
+	  very bad to reference through a string pointer as if it
 	  were a buffer pointer.
 
 1997-06-28  Steven L Baur  <steve@altair.xemacs.org>
@@ -4775,7 +4775,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* utils/autoload.el (batch-update-directory): Kill command line
 	args when done.
 	(autoload-save-customization): Print a warning message with the
-	offending symbol when we run across the elusive malformed property 
+	offending symbol when we run across the elusive malformed property
 	list ((0 0)).
 
 1997-06-26  Hrvoje Niksic  <hniksic@srce.hr>
@@ -4784,7 +4784,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	(pretty-print-profiling-info): Allow interactive calls.
 
 	* prim/overlay.el: Make more FSF compatible.
-	
+
 1997-06-27  Steven L Baur  <steve@altair.xemacs.org>
 
 	* prim/loaddefs.el (debug-ignored-errors): Fix regexps.
@@ -4893,7 +4893,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	Mule menu because they bombed after recompilation.
 
 	* packages/hyper-apropos.el
-	(hyper-apropos-toggle-programming-flag): Use `with-current-buffer' 
+	(hyper-apropos-toggle-programming-flag): Use `with-current-buffer'
 	instead of `eval-in-buffer'.
 
 	* term/sun-mouse.el: Remove bogus redefinition of
@@ -4904,7 +4904,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* prim/make-docfile.el: Use princ not print.
 	Suggested by Hrvoje Niksic.
 
-	* packages/info.el (Info-select-node): Desensitive case search for 
+	* packages/info.el (Info-select-node): Desensitive case search for
 	Note:.
 	(Info-next-reference): Ditto.
 	* prim/simple.el (kill-region): Adjust endpoints of extent to
@@ -4915,7 +4915,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* prim/subr.el (eval-in-buffer): Make obsolete.
 	Suggested by Hrvoje Niksic.
 
-	* packages/hyper-apropos.el (hyper-apropos-faces): Change group to 
+	* packages/hyper-apropos.el (hyper-apropos-faces): Change group to
 	'faces.
 	Suggested by Per Abrahamsen.
 
@@ -4926,7 +4926,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	- Get keybinding before command is executed.
 	Suggested by Kyle Jones and Steve Baur.
-	
+
 1997-06-24  Steven L Baur  <steve@altair.xemacs.org>
 
 	* packages/gnuserv.el: Make old symbols Obsolete.
@@ -4936,7 +4936,7 @@ Sun Jun 29 03:02:10 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	minibuffer.
 	* prim/minibuf.el (minibuffer-keyboard-quit): Ditto.
 	From Hrvoje Niksic  <hniksic@srce.hr>
-	
+
 	* prim/help.el (help-mode-quit): Bury buffer when quitting.
 	From Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -4964,7 +4964,7 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 1997-06-23  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* packages/info.el (Info-next-reference): Fix up for M-TAB to work 
+	* packages/info.el (Info-next-reference): Fix up for M-TAB to work
 	correctly.
 
 	* utils/live-icon.el (live-icon-one-frame): Don't set glyphs to
@@ -4990,7 +4990,7 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 1997-06-22  Steven L Baur  <steve@altair.xemacs.org>
 
-	* x11/x-menubar.el (default-menubar): Make `Jump to bookmark' menu 
+	* x11/x-menubar.el (default-menubar): Make `Jump to bookmark' menu
 	dynamic.
 	From Gary D. Foster <Gary.Foster@Corp.Sun.COM>
 
@@ -5061,7 +5061,7 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 	* prim/tabify.el (untabify): Return nil.
 	From contributor name lost.
 
-	* prim/packages.el (packages-hardcoded-lisp): startup.elc needs to 
+	* prim/packages.el (packages-hardcoded-lisp): startup.elc needs to
 	be scanned for docstrings.
 
 1997-06-21  Hrvoje Niksic  <hniksic@srce.hr>
@@ -5088,7 +5088,7 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 1997-06-20  Steven L Baur  <steve@altair.xemacs.org>
 
-	* utils/autoload.el (fixup-autoload-buffer): New function.  Insert 
+	* utils/autoload.el (fixup-autoload-buffer): New function.  Insert
 	guards so a (load "auto-autoloads") works the same as require.
 	(batch-update-directory): Use it.
 
@@ -5142,11 +5142,11 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 	From Karl M. Hegbloom <karlheg@inetarena.com>
 	(archive-mode-map): Bind it to `q'.
 
-	* utils/autoload.el (cusload-file-name): Default to custom-load.el 
+	* utils/autoload.el (cusload-file-name): Default to custom-load.el
 	for each individual file.
 
 	* prim/minibuf.el (minibuffer-max-depth-exceeded): Use
-	`custom-file' as a location for saving enable multiple minibuffers 
+	`custom-file' as a location for saving enable multiple minibuffers
 	option.
 
 	* packages/man.el (manual-entry): Don't leave empty buffer if
@@ -5168,14 +5168,14 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 1997-06-17  Steven L Baur  <steve@altair.xemacs.org>
 
-	* prim/files.el (auto-mode-alist): Add /app-defaults/ as candidate 
+	* prim/files.el (auto-mode-alist): Add /app-defaults/ as candidate
 	for xrdb-mode.
 	Suggested by Karl Hegbloom, Regexp by David Moore.
 
-	* version.el: Remove variables emacs-version, emacs-major-version, 
+	* version.el: Remove variables emacs-version, emacs-major-version,
 	and emacs-minor-version.
 
-	* tooltalk/tooltalk-load.el: Comment as obsolete and move contents 
+	* tooltalk/tooltalk-load.el: Comment as obsolete and move contents
 	to dumped-lisp.el.
 
 	* prim/make-docfile.el: New file.
@@ -5199,7 +5199,7 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
 	* prim/dumped-lisp.el: New file.
 
-	* prim/update-elc.el (toplevel): Rework using a better function to 
+	* prim/update-elc.el (toplevel): Rework using a better function to
 	determine autoload file locations.
 
 	* prim/packages.el: New file.
@@ -5240,16 +5240,16 @@ Mon Jun 23 12:33:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 	as an option.
 	Eliminate XEmacs specific autoloads.
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 	* efs/dired.el (dired-save-excursion): Ebola cleanup.
 
 	* packages/hyper-apropos.el: Massive cleanup, Customize.
-	From Hrvoje Niksic <hniksic@srce.hr> 
+	From Hrvoje Niksic <hniksic@srce.hr>
 
 Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* prim/syntax.el (symbol-near-point):
-	  Check for bobp and avoid (char-syntax (char-before)) if 
+	  Check for bobp and avoid (char-syntax (char-before)) if
 	  there.
 
 1997-06-13  Steven L Baur  <steve@altair.xemacs.org>
@@ -5267,7 +5267,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* modes/make-mode.el (makefile-browse): Shouldn't be interactive.
 	From Hrvoje Niksic <hniksic@srce.hr>
 
-	* prim/files.el (interpreter-mode-alist): ksh-mode is obsoleted by 
+	* prim/files.el (interpreter-mode-alist): ksh-mode is obsoleted by
 	sh-script.
 	From Hrvoje Niksic <hniksic@srce.hr>
 
@@ -5276,7 +5276,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* prim/subr.el (with-current-buffer): New macro.
 	(with-temp-file): Ditto.
 
-	* bytecomp/byte-optimize.el (byte-optimize-form-code-walker): Test 
+	* bytecomp/byte-optimize.el (byte-optimize-form-code-walker): Test
 	for `save-current-buffer'.
 
 	* bytecomp/bytecomp.el: Recognize `save-current-buffer'.
@@ -5358,7 +5358,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	From Heiko Muenkel <muenkel@tnt.uni-hannover.de>
 
 1997-06-10  Gary D. Foster  <Gary.Foster@corp.sun.com>
-	
+
 	* modes/view-less.el: Changed \177 bindings to 'delete
 	* modes/help.el: Changed \177 bindings to 'delete
 
@@ -5378,7 +5378,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* modes/cc-mode.el:
 	* modes/cperl-mode.el: Fixed references to delete functions
 	  to use the new names.
-	
+
 1997-06-11  Karl M Hegbloom  <karlheg@inetarena.com>
 
 	* ilisp/ilisp-def.el (toplevel):  Changed `ilisp-prefix' from
@@ -5462,7 +5462,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	Change usage of \177 to use keysym 'delete.
 	From  Gary D. Foster <Gary.Foster@Corp.Sun.COM>
 
-	* packages/etags.el (tags-loop-scan): Don't pass a straight string 
+	* packages/etags.el (tags-loop-scan): Don't pass a straight string
 	to error as a format string.
 	Reported by Miles Duke <mduke@erdas.com>
 
@@ -5487,9 +5487,9 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 1997-06-04  Gary D. Foster  <Gary.Foster@corp.sun.com>
 
-	* modes/cc-mode.el: Modified `c-electric-delete' to honor the 
+	* modes/cc-mode.el: Modified `c-electric-delete' to honor the
 	  desired delete direction in both normal and "hungry" modes.
-	* modes/cperl-mode.el: Modified `cperl-electric-backspace' to 
+	* modes/cperl-mode.el: Modified `cperl-electric-backspace' to
 	  honor the desired delete direction.
 
 1997-06-03  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
@@ -5512,9 +5512,9 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* modes/*.el: Removed conflicting \177 bindings.
 	* modes/cc-mode.el: Modified `c-electric-delete' to use new
 	  delete bindings.
-	* modes/cperl-mode.el: Modified `cperl-electric-backspace' to 
+	* modes/cperl-mode.el: Modified `cperl-electric-backspace' to
 	  use new delete bindings.
-	
+
 1997-06-03  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
 
 	* leim/quail.el: to sync with quail.el of Emacs-19.34.94-epsilon.
@@ -5540,7 +5540,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 
 	* prim/about.el: Installed new version 2.1.
 	From Hrvoje Niksic <hniksic@srce.hr>
-	
+
 	* prim/profile.el (pretty-print-profiling-info): Autoload don't
 	dump.
 	Clean up comments.
@@ -5586,7 +5586,7 @@ Fri Jun 13 13:20:39 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	as toolbar callbacks.
 	From weiner@altrasoft.com
 
-	* prim/mouse.el (default-mouse-track-cleanup-extent): Correct test 
+	* prim/mouse.el (default-mouse-track-cleanup-extent): Correct test
 	on dead-func extent.
 
 	* prim/help.el (view-emacs-news): outl-mouse turned off in
@@ -5750,7 +5750,7 @@ Tue May 27 13:42:57 1997  Ken Manheimer  <klm@python.org>
 
 	  `icomplete-max-delay-chars' - Maximum number of initial chars to
 	  apply icomplete compute delay.
-	
+
 	  `icomplete-compute-delay' - Completions-computation stall, used
 	  only with large-number completions
 
@@ -5802,7 +5802,7 @@ Fri May 30 18:39:01 1997  Hrvoje Niksic  <hniksic@srce.hr>
 	(insert-parentheses): Let a negative argument enclose preceding
 	sexps.
 	From Erik Naggum  <erik@naggum.no>
-	
+
 	* prim/window-xemacs.el: New file, split from window.el with
 	XEmacs-specific stuff.
 
@@ -5814,12 +5814,12 @@ Fri May 30 18:39:01 1997  Hrvoje Niksic  <hniksic@srce.hr>
 	* prim/window.el (kill-buffer-and-window): New command.
 	Bind it to C-x 4 0.
 	From Richard Stallman  <rms@whiz-bang.gnu.ai.mit.edu>
-	
+
 	* prim/window.el (split-window-vertically): Don't change point in old
 	window if both the original point and the end of the buffer are
 	visible after splitting, when split-window-keep-point is nil.
 	From Noah Friedman  <friedman@prep.ai.mit.edu>
-	
+
 	* prim/files.el (revert-buffer-internal-hook): Declare.
 
 	* utils/map-ynp.el: Synch with Emacs 19.34.94.
@@ -5877,7 +5877,7 @@ Thu May 29 19:03:52 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 	standard-value for Custom-1.98.
 
 1997-05-26  Steven L Baur  <steve@altair.xemacs.org>
-	
+
 	* prim/help.el (view-lossage-key-count): New variable.
 	(view-lossage-message-count): New variable.
 	(view-lossage): Use them.
@@ -5999,7 +5999,7 @@ Mon Sep 25 17:19:51 1995  Per Bothner  <bothner@kalessin.cygnus.com>
 
 Tue May 20 20:32:59 1997  Steven L Baur  <steve@altair.xemacs.org>
 
-	* prim/subr.el (buffer-substring-no-properties): Clean out extents 
+	* prim/subr.el (buffer-substring-no-properties): Clean out extents
 	too.
 
 Mon May 19 19:48:35 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -6018,10 +6018,10 @@ Sun May 18 09:11:50 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* prim/files.el (revert-buffer): Add optional third parameter to
 	preserve buffer modes (from Emacs 19.34.94).
-	(after-find-file): Add optional fifth parameter to preserve buffer 
+	(after-find-file): Add optional fifth parameter to preserve buffer
 	modes (from Emacs 19.34.94).
 
-	* packages/vc.el: Synch with Emacs 19.34.94 because our version was 
+	* packages/vc.el: Synch with Emacs 19.34.94 because our version was
 	hopeless.
 	(vc-checkout): Autoload.
 	(vc-find-binary): Ditto.
@@ -6031,7 +6031,7 @@ Sun May 18 09:11:50 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 Fri Apr 25 13:21:46 1997  Per Abrahamsen  <abraham@dina.kvl.dk>
 
-	* apropos.el (apropos): Add support for customization groups. 
+	* apropos.el (apropos): Add support for customization groups.
 	(apropos-print): Ditto.
 
 Sat May 17 19:56:31 1997  Glynn Clements <glynn@sensei.co.uk>
@@ -6066,7 +6066,7 @@ Mon May 12 13:47:37 1997  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
 
 	* tm/tm-vm.el: Provide for vm-unsaved-message having been removed
 	in recent versions of VM.
-	
+
 Fri May  9 10:41:44 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* iso/iso-acc.el (iso-accents-compose): Fix XEmacs 19.14
@@ -6085,10 +6085,10 @@ Thu May  8 14:35:34 1997  Steven L Baur  <steve@altair.xemacs.org>
 	* hm--html-menus/hm--html.el: Define obsolete aliases for the
 	previous function spellings.
 
-	* hm--html-menus/hm--html-keys.el: Define obsolete aliases for the 
+	* hm--html-menus/hm--html-keys.el: Define obsolete aliases for the
 	previous variable spellings.
 
-	* prim/obsolete.el (define-obsolete-variable-alias): Fix docstring 
+	* prim/obsolete.el (define-obsolete-variable-alias): Fix docstring
 	spelling.
 	(define-compatible-variable-alias): Ditto.
 
@@ -6128,7 +6128,7 @@ Wed Apr 30 18:06:35 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 Tue Apr 29 18:51:31 1997  Steven L Baur  <steve@altair.xemacs.org>
 
-	* mule/mule-files.el (buffer-file-coding-system-alist): Regexp for 
+	* mule/mule-files.el (buffer-file-coding-system-alist): Regexp for
 	handling info files didn't match the right pattern.
 
 Sun Apr 27 18:09:48 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -6142,7 +6142,7 @@ Sat Apr 26 16:25:49 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 Fri Apr 25 08:39:50 1997  Steven L Baur  <steve@altair.xemacs.org>
 
-	* modes/sh-script.el (sh-indent-line): Deal with pathological case 
+	* modes/sh-script.el (sh-indent-line): Deal with pathological case
 	of indenting a first line containing a `#' as first non-white
 	space character.
 
@@ -6333,12 +6333,12 @@ Sat Apr 12 05:27:56 1997  Steven L Baur  <steve@altair.xemacs.org>
 	* packages/vc.el (vc-directory): Dired requires a list not a
 	string of space separated names.
 
-	* utils/live-icon.el (live-icon-colour-name-from-face): `face' may 
+	* utils/live-icon.el (live-icon-colour-name-from-face): `face' may
 	be a list of faces since it is generated by `extent-face'.
 
 Fri Apr 11 21:12:57 1997  Steven L Baur  <steve@altair.xemacs.org>
 
-	* packages/ispell.el: Don't attempt creation of the menubar unless 
+	* packages/ispell.el: Don't attempt creation of the menubar unless
 	XEmacs has been compiled with menubars.
 
 	* prim/simple.el (yank-pop): mark-marker needs optional force
@@ -6384,7 +6384,7 @@ Wed Apr  9 10:45:54 1997  Steven L Baur  <steve@altair.xemacs.org>
 Tue Apr  8 12:57:05 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* modes/lisp-mode.el (eval-defun): Evaluate defcustom in defconst
-	style instead of defvar style (patch derived from Emacs 19.35/Lars 
+	style instead of defvar style (patch derived from Emacs 19.35/Lars
 	Magne Ingebrigtsen).
 
 Mon Apr  7 16:38:43 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -6402,7 +6402,7 @@ Sun Apr  6 06:56:03 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* x11/x-menubar.el (default-menubar): Use xmine not mine.
 
-	* prim/help.el (describe-variable): Some doc strings weren't being 
+	* prim/help.el (describe-variable): Some doc strings weren't being
 	terminated with a newline.
 
 Sat Apr  5 20:20:00 1997  Steven L Baur  <steve@altair.xemacs.org>
@@ -6411,7 +6411,7 @@ Sat Apr  5 20:20:00 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 Sat Apr  5 13:18:05 1997  Tomasz J. Cholewo  <t.cholewo@ieee.org>
 
-	* packages/etags.el (tags-query-replace): Fixed DELIMITED argument 
+	* packages/etags.el (tags-query-replace): Fixed DELIMITED argument
 	bug.  `with-caps-disable-folding' moved to isearch-mode.el.
 
 	* packages/info.el (Info-search): Use `with-caps-disable-folding'.
@@ -6506,8 +6506,8 @@ Sat Mar 22 14:25:47 1997  Tomasz J. Cholewo  <t.cholewo@ieee.org>
 	(fancy-diary-display): Use modeline-buffer-identification.
 
 	* calendar/appt.el (appt-diary-entries): Do not display diary.
-	(appt-check): Display diary buffer at midnight.  
-	
+	(appt-check): Display diary buffer at midnight.
+
 Fri Mar 21 19:16:46 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* mule/mule-coding.el (enable-multibyte-characters): MULE
@@ -6636,7 +6636,7 @@ Sun Mar  9 12:38:53 1997  Noah Friedman  <friedman@prep.ai.mit.edu>
 
 	* utils/eldoc.el (eldoc-pre-command-refresh-echo-area): Use
 	eldoc-display-message-p, not eldoc-display-message-no-interference-p.
-	
+
 Sat Mar  8 11:20:47 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* prim/startup.el (startup-splash-frame-body): More text tweaking.
@@ -6687,7 +6687,7 @@ Fri Mar  7 10:44:48 1997  Steven L Baur  <steve@altair.xemacs.org>
 	* x11/x-menubar.el (default-menubar): Reorganize again undoing
 	previous change.  Customize submenu moved to top of options menu.
 	Edit faces restored to edit-faces and renamed to Browse faces.
-	
+
 Thu Mar  6 08:43:27 1997  Steven L Baur  <steve@altair.xemacs.org>
 
 	* x11/x-menubar.el (options-menu): New variable.
@@ -6743,7 +6743,7 @@ Sun Mar  2 10:10:31 1997  Steven L Baur  <steve@altair.xemacs.org>
 	* site-load.el: Move site-packages to the top level.
 
 Sun Mar  2 01:37:04 1997  Hrvoje Niksic  <hniksic@srce.hr>
- 
+
 	* utils/mail-extr.el (all-top-level-domains): Added "hr" domain.
 
 	* packages/ps-print.el (ps-print-color-p): Default to nil.
@@ -7030,13 +7030,13 @@ Sat Feb 15 12:07:46 1997  Steven L Baur  <steve@altair.xemacs.org>
 Sat Feb 15 11:05:29 1997  Kyle Jones  <kyle_jones@wonderworks.com>
 	* utils/redo.el: made before and after status messages so that
 	the user is aware if a long action is still being processed.
-	
+
 	rolled version number up to 1.00, since the package seems to be
 	stable.
 
 	cosmetic changes so the file could be included in the XEmacs
 	distribution.
-	
+
 Sat Feb 15 11:13:05 1997  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* prim/simple.el (line-move-ignore-invisible): Change default to
@@ -7172,7 +7172,7 @@ Thu Feb  6 17:14:32 1997  Steven L Baur  <steve@altair.xemacs.org>
 	* packages/ps-print.el: Update maintainer address.
 
 Thu Feb  6 12:35:39 1997  Bill Dubuque  <wgd@martigny.ai.mit.edu>
-	
+
 	* cl/cl-macs.el (cl-do-proclaim): Correct addition of bound
 	variables to `byte-compile-bound-variables'.
 
@@ -7222,7 +7222,7 @@ Fri Jan 31 09:50:51 1997  Hrvoje Niksic <hniksic@srce.hr>
 
 	* x11/x-toolbar.el (toolbar-mail-commands-alist): Updated with a
 	lot of new mailer possiblities.
-	
+
 Fri Jan 31 09:28:49 1997  Martin Buchholz  <mrb@eng.sun.com>
 
 	* x11/x-font-menu.el (reset-device-font-menus): Correct guard on
@@ -7238,7 +7238,7 @@ Thu Jan 30 22:43:43 1997  David Moore  <dmoore@UCSD.EDU>
 	* packages/compile.el:  Speed up regexps.
 	(compilation-parse-errors): replace re-search-forward with
 	something faster.
-	
+
 Thu Jan 30 20:33:56 1997  Hvoje Niksic  <hniksic@srce.hr>
 
 	* x11/x-toolbar.el
@@ -7248,7 +7248,7 @@ Thu Jan 30 20:33:56 1997  Hvoje Niksic  <hniksic@srce.hr>
 	(toolbar-mail-commands-alist): New variable.
 	(toolbar-mail-reader): Ditto.
 	(toolbar-mail): Use them.
-	
+
 	* x11/x-menubar.el: Shorten help menu item names.
 
 Thu Jan 30 17:22:15 1997  Alexandre Oliva  <oliva@dcc.unicamp.br>
@@ -7306,15 +7306,15 @@ Thu Jan  9 13:32:01 1997  Jacques Duthen Prestataire  <duthen@cegelec-red.fr>
 	(ps-print-version): Fix value.
 	(cl lisp-float-type): Require them.
 	(ps-number-of-columns ps-*-font-size): Try to select defaults
-	better suited when `ps-landscape-mode' is non-nil. 
+	better suited when `ps-landscape-mode' is non-nil.
 	(ps-*-faces): Change default for Font Lock mode faces when
-	`ps-print-color-p' is nil. 
+	`ps-print-color-p' is nil.
 	(ps-right-header): Replace `time-stamp-yy/mm/dd'
-	by `time-stamp-mon-dd-yyyy'. 
-	(ps-end-file ps-begin-page): Fix bug in page count for Ghostview. 
+	by `time-stamp-mon-dd-yyyy'.
+	(ps-end-file ps-begin-page): Fix bug in page count for Ghostview.
 	(ps-generate-postscript-with-faces): Replace `ps-sorter' by
-	`car-less-than-car'.  
-	(ps-plot ps-generate): Replace `%d' by `%3d'.  
+	`car-less-than-car'.
+	(ps-plot ps-generate): Replace `%d' by `%3d'.
 
 Wed Jan 22 15:32:39 1997  Greg Klanderman  <greg@alphatech.com>
 
@@ -7336,7 +7336,7 @@ Tue Jan 21 19:56:26 1997  Martin Buchholz  <mrb@eng.sun.com>
 	* mule/mule-init.el (init-mule): Get Japanese man pages working.
 
 Fri Jan 17 17:22:54 1997  Hrvoje Niksic  <hniksic@bjesomar.srce.hr>
- 
+
 	* man.el (Manual-mode): Don't mess with scrollbars if they aren't
 	present.
 
@@ -7806,7 +7806,7 @@ Thu Dec 12 14:46:47 1996  Christoph Wedler  <wedler@fmi.uni-passau.de>
 
 	Let `buffers-menu-submenus-for-groups-p' be an integer : if there
 	are more buffers than this value, use submenus, otherwise not.
-	
+
 	* packages/vc.el (vc-rename-this-file): New function (was missing,
 	but referred to on the menubar).
 
@@ -7871,7 +7871,7 @@ Tue Dec 10 10:11:55 1996  Steven L Baur  <steve@altair.xemacs.org>
 
 	* electric/ebuff-menu.el (electric-buffer-menu-mode-map): Correct
 	bad 19.34 synch patch.
-	
+
 	* utils/pretty-print.el: New File.
 
 Sun Dec  8 13:59:40 1996  Steven L Baur  <steve@altair.xemacs.org>
@@ -8029,7 +8029,7 @@ Wed Dec  4 22:00:49 1996  Steven L Baur  <steve@altair.xemacs.org>
  	evaluated more than once.
 
 	Comment formatting changes.
-	
+
 	* edebug/advise-eval-region.el: New File.  Separate out advise for
 	eval-region so it is only evaluated once.
 
@@ -8037,7 +8037,7 @@ Wed Dec  4 22:00:49 1996  Steven L Baur  <steve@altair.xemacs.org>
 
 	icomplete-exhibit needs to be called in the setup-hook.
 
-	* packages/apropos.el: Correct a typo in button binding. 
+	* packages/apropos.el: Correct a typo in button binding.
 
 	Fixes the bug where if apropos-label-face is actually defined as
  	face, apropos bombs with an error
@@ -8050,7 +8050,5 @@ Wed Dec  4 22:00:49 1996  Steven L Baur  <steve@altair.xemacs.org>
 	Redefines the default faces for the various apropos faces so they
  	come out in color by default (defaults are based on various
  	standard font-lock faces).
-	
-	* version.el: Bumped up to b31.
-	
 
+	* version.el: Bumped up to b31.

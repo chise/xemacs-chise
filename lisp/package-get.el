@@ -68,7 +68,7 @@
 ;;	vm	- a mail reader
 ;;	[]	Always install
 ;;	[]	Needs updating
-;;	[]	Required by other [packages]	
+;;	[]	Required by other [packages]
 ;;
 ;;	Where `[]' indicates a toggle box
 ;;
@@ -79,7 +79,7 @@
 ;;	- "Required by other" means some other packages are going to force
 ;;	  this to be installed.  Clicking on  [packages] gives a list
 ;;	  of packages that require this.
-;;	
+;;
 ;;	The `package-get-base' should be installed in a file in
 ;;	`data-directory'.  The `package-get-here' should be installed in
 ;;	site-lisp.  Both are then read at run time.
@@ -113,7 +113,7 @@
   :prefix "package-get"
   :group 'package-tools)
 
-;;;###autoload  
+;;;###autoload
 (defvar package-get-base nil
   "List of packages that are installed at this site.
 For each element in the alist,  car is the package name and the cdr is
@@ -288,7 +288,8 @@ When nil, updates which are not PGP signed are allowed without confirmation."
 		    `(if (member (quote ,(cdr site))
 				 package-get-remote)
 			 (setq package-get-remote
-			       (delete (quote ,(cdr site)) package-get-remote))
+			       (delete (quote ,(cdr site))
+				       package-get-remote))
 		       (package-ui-add-site (quote ,(cdr site))))
 		    :style 'toggle
 		    :selected `(member (quote ,(cdr site))
@@ -373,7 +374,7 @@ if different."
 	  (setq location package-get-user-index-filename))
 	(when (y-or-n-p (concat "Update package index in " location "? "))
 	  (write-file location))))))
-      
+
 
 ;;;###autoload
 (defun package-get-update-base (&optional db-file force-current)
@@ -515,19 +516,18 @@ Query for a version if GET-VERSION is non-nil.  Return package name as
 a symbol instead of a string if PACKAGE-SYMBOL is non-nil.
 The return value is suitable for direct passing to `interactive'."
   (package-get-require-base t)
-  (let ( (table (mapcar '(lambda (item)
-			   (let ( (name (symbol-name (car item))) )
-			     (cons name name)
-			     ))
-			package-get-base)) 
-	 package package-symbol default-version version)
+  (let ((table (mapcar #'(lambda (item)
+			   (let ((name (symbol-name (car item))))
+			     (cons name name)))
+		       package-get-base))
+	package package-symbol default-version version)
     (save-window-excursion
       (setq package (completing-read "Package: " table nil t))
       (setq package-symbol (intern package))
       (if get-version
 	  (progn
-	    (setq default-version 
-		  (package-get-info-prop 
+	    (setq default-version
+		  (package-get-info-prop
 		   (package-get-info-version
 		    (package-get-info-find-package package-get-base
 						   package-symbol) nil)
@@ -542,8 +542,7 @@ The return value is suitable for direct passing to `interactive'."
 	    )
 	(if package-symbol
 	    (list package-symbol)
-	  (list package)))
-      )))
+	  (list package))))))
 
 ;;;###autoload
 (defun package-get-delete-package (package &optional pkg-topdir)
@@ -706,7 +705,7 @@ package is already installed.  Valid values for CONFLICT are:
 INSTALL-DIR, if non-nil, specifies the package directory where
 fetched packages should be installed.
 
-The value of `package-get-base' is used to determine what files should 
+The value of `package-get-base' is used to determine what files should
 be retrieved.  The value of `package-get-remote' is used to determine
 where a package should be retrieved from.  The sites are tried in
 order so one is better off listing easily reached sites first.
@@ -814,7 +813,7 @@ successfully installed but errors occurred during initialization, or
 				 current-dir-entry current-filename))
 		 ;; Get it
 		 (setq full-package-filename dest-filename)
-		 (message "Retrieving package `%s' ..." 
+		 (message "Retrieving package `%s' ..."
 			  current-filename)
 		 (sit-for 0)
 		 (copy-file (package-get-remote-filename current-dir-entry
@@ -900,7 +899,7 @@ returned.
 
  To access fields returned from this, use
 `package-get-info-version' to return information about particular a
-version.  Use `package-get-info-find-prop' to find particular property 
+version.  Use `package-get-info-find-prop' to find particular property
 from a version returned by `package-get-info-version'."
   (interactive "xPackage list: \nsPackage Name: ")
   (if which
@@ -912,7 +911,7 @@ from a version returned by `package-get-info-version'."
 (defun package-get-info-version (package version)
   "In PACKAGE, return the plist associated with a particular VERSION of the
   package.  PACKAGE is typically as returned by
-  `package-get-info-find-package'.  If VERSION is nil, then return the 
+  `package-get-info-find-package'.  If VERSION is nil, then return the
   first (aka most recent) version.  Use `package-get-info-find-prop'
   to retrieve a particular property from the value returned by this."
   (interactive (package-get-interactive-package-query t t))
@@ -989,7 +988,7 @@ If (car search) is nil, (cadr search is interpreted as  a local directory).
 
 (defun package-get-installedp (package version)
   "Determine if PACKAGE with VERSION has already been installed.
-I'm not sure if I want to do this by searching directories or checking 
+I'm not sure if I want to do this by searching directories or checking
 some built in variables.  For now, use packages-package-list."
   ;; Use packages-package-list which contains name and version
   (equal (plist-get
@@ -1001,7 +1000,7 @@ some built in variables.  For now, use packages-package-list."
 (defun package-get-package-provider (sym &optional force-current)
   "Search for a package that provides SYM and return the name and
   version.  Searches in `package-get-base' for SYM.   If SYM is a
-  consp, then it must match a corresponding (provide (SYM VERSION)) from 
+  consp, then it must match a corresponding (provide (SYM VERSION)) from
   the package.
 
 If FORCE-CURRENT is non-nil make sure the database is up to date. This might
@@ -1054,10 +1053,10 @@ lead to Emacs accessing remote sites."
 
 (defun package-get-ever-installed-p (pkg &optional notused)
   (string-match "-package$" (symbol-name pkg))
-  (custom-initialize-set 
-   pkg 
-   (if (package-get-info-find-package 
-	packages-package-list 
+  (custom-initialize-set
+   pkg
+   (if (package-get-info-find-package
+	packages-package-list
 	(intern (substring (symbol-name pkg) 0 (match-beginning 0))))
        t)))
 

@@ -366,7 +366,7 @@ unlock_file (Lisp_Object fn)
 }
 
 void
-unlock_all_files ()
+unlock_all_files (void)
 {
   register Lisp_Object tail;
   register struct buffer *b;

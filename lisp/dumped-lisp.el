@@ -165,7 +165,7 @@
 	(when-feature (and (not infodock)
 			   (or x mswindows) menubar) "menubar-items")
 	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
-	(when-feature (and gutter menubar window-system) "gutter-items")
+	(when-feature (and gutter window-system) "gutter-items")
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
 	(when-feature x "x-mouse")

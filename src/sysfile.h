@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_sysfile_h_
 
 #include <errno.h>
+#include <limits.h>
 
 #ifndef WINDOWSNT
 #include <sys/errno.h>          /* <errno.h> does not always imply this */
@@ -206,10 +207,21 @@ Boston, MA 02111-1307, USA.  */
 #define S_ISNWK(m) (((m) & S_IFMT) == S_IFNWK)
 #endif
 
+/* Client .c files should simply use `PATH_MAX'. */
+#ifndef PATH_MAX
+# if defined (_POSIX_PATH_MAX)
+#  define PATH_MAX _POSIX_PATH_MAX
+# elif defined (MAXPATHLEN)
+#  define PATH_MAX MAXPATHLEN
+# else
+#  define PATH_MAX 1024
+# endif
+#endif
+
+/* MAXPATHLEN is deprecated, but, as of this writing, still used. */
 #ifndef MAXPATHLEN
-/* in 4.1, param.h fails to define this. */
-#define MAXPATHLEN 1024
-#endif /* not MAXPATHLEN */
+# define MAXPATHLEN 1024
+#endif
 
 #ifndef X_OK
 # define X_OK 01

@@ -55,6 +55,9 @@ Boston, MA 02111-1307, USA.
 #include "syswait.h"
 #include "buffer.h"
 #include "process.h"
+
+#include "console-msw.h"
+
 /*#include "w32term.h"*/ /* From 19.34.6: sync in ? --marcpa */
 
 /* #### I'm not going to play with shit. */
@@ -119,13 +122,6 @@ child_process child_procs[ MAX_CHILDREN ];
 child_process *dead_child = NULL;
 
 DWORD WINAPI reader_thread (void *arg);
-
-/* Determine if running on Windows 9x and not NT */
-static int
-windows9x_p (void)
-{
-  return GetVersion () & 0x80000000;
-}
 
 /* Find an unused process slot.  */
 child_process *
@@ -751,7 +747,7 @@ sys_spawnve (int mode, const char *cmdname,
       /* Override escape char by binding win32-quote-process-args to
 	 desired character, or use t for auto-selection.  */
       if (INTP (Vwin32_quote_process_args))
-	escape_char = XINT (Vwin32_quote_process_args);
+	escape_char = (char) XINT (Vwin32_quote_process_args);
       else
 	escape_char = is_cygnus_app ? '"' : '\\';
     }
@@ -947,7 +943,7 @@ find_child_console (HWND hwnd, child_process * cp)
 
       GetClassName (hwnd, window_class, sizeof (window_class));
       if (strcmp (window_class,
-		  windows9x_p()
+		  msw_windows9x_p()
 		  ? "tty"
 		  : "ConsoleWindowClass") == 0)
 	{
@@ -1040,7 +1036,7 @@ sys_kill (int pid, int sig)
       if (NILP (Vwin32_start_process_share_console) && cp && cp->hwnd)
 	{
 #if 1
-	  if (windows9x_p())
+	  if (msw_windows9x_p())
 	    {
 /*
    Another possibility is to try terminating the VDM out-right by
@@ -1442,7 +1438,7 @@ If successful, the new locale id is returned, otherwise nil.
 
 
 void
-syms_of_ntproc ()
+syms_of_ntproc (void)
 {
   DEFSUBR (Fwin32_short_file_name);
   DEFSUBR (Fwin32_long_file_name);

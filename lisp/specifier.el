@@ -403,6 +403,40 @@ is no possibility for ambiguity and no need to go through the function
 	    how-to-add))))
   value)
 
+(defun modify-specifier-instances (specifier func &optional args force default
+					     locale tag-set)
+  "Modify all specifications that match LOCALE and TAG-SET by FUNC.
+
+For each specification that exists for SPECIFIER, in locale LOCALE
+that matches TAG-SET, call the function FUNC with the instance as its
+first argument and with optional arguments ARGS.  The result is then
+used as the new value of the instantiator.
+
+If there is no specification in the domain LOCALE matching TAG-SET and
+FORCE is non-nil, an explicit one is created from the matching
+specifier instance if that exists or DEFAULT otherwise. If LOCALE is
+not a domain (i.e. a buffer), DEFAULT is always used. FUNC is then
+applied like above and the resulting specification is added."
+
+  (let ((spec-list (specifier-spec-list specifier locale tag-set)))
+    (cond
+     (spec-list
+      ;; Destructively edit the spec-list
+      (mapc #'(lambda (spec)
+		(mapc #'(lambda (inst-pair)
+			  (setcdr inst-pair
+				  (apply func (cdr inst-pair) args)))
+		      (cdr spec)))
+	    spec-list)
+      (add-spec-list-to-specifier specifier spec-list))
+     (force
+      (set-specifier specifier
+                     (apply func
+                            (or (and (valid-specifier-domain-p locale)
+                                     (specifier-instance specifier))
+                                default) args)
+                     locale tag-set)))))
+
 (defmacro let-specifier (specifier-list &rest body)
   "Add specifier specs, evaluate forms in BODY and restore the specifiers.
 \(let-specifier SPECIFIER-LIST BODY...)

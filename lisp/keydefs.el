@@ -1,6 +1,7 @@
 ;;; keydefs.el --- Define standard keybindings.
 
 ;; Copyright (C) 1992-4, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 2000 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: internal, dumped
@@ -106,9 +107,6 @@ Keymap for characters following C-c.")
 (define-key global-map "\C-e" 'end-of-line)
 (define-key global-map "\C-f" 'forward-char-command)
 (define-key global-map "\C-d" 'delete-char)
-(define-key global-map 'delete 'backward-or-forward-delete-char)
-(define-key global-map '(meta delete) 'backward-or-forward-kill-word)
-(define-key global-map [(control x) (delete)] 'backward-or-forward-kill-sentence)
 
 ;; FSFmacs files.el
 
@@ -240,6 +238,7 @@ Keymap for characters following C-c.")
 (define-key global-map '(control meta -) 'negative-argument)
 
 (define-key global-map "\C-k" 'kill-line)
+(define-key global-map '(control K) 'historical-kill-line)
 (define-key global-map "\C-w" 'kill-region)
 (define-key global-map "\M-w" 'kill-ring-save)
 (define-key global-map "\M-\C-w" 'append-next-kill)
@@ -304,9 +303,6 @@ Keymap for characters following C-c.")
 (define-key global-map "\M-\(" 'insert-parentheses)
 (define-key global-map "\M-\)" 'move-past-close-and-reindent)
 (define-key global-map "\M-\t" 'lisp-complete-symbol)
-
-(define-key global-map '(control meta backspace) 'backward-kill-sexp)
-(define-key global-map '(control meta delete) 'backward-or-forward-kill-sexp)
 
 
 (define-key global-map "\C-x/" 'point-to-register)
@@ -510,74 +506,71 @@ Keymap for characters following C-c.")
 
 ;; movement by units
 (define-key global-map 'left		'backward-char-command)
-(define-key global-map 'up		'previous-line)
 (define-key global-map 'right		'forward-char-command)
+(define-key global-map 'up		'previous-line)
 (define-key global-map 'down		'next-line)
+(define-key global-map 'kp-left		'backward-char-command)
+(define-key global-map 'kp-right	'forward-char-command)
+(define-key global-map 'kp-up		'previous-line)
+(define-key global-map 'kp-down		'next-line)
 
 ;; movement by pages
 (define-key global-map 'prior		'scroll-down-command)
 (define-key global-map 'next		'scroll-up-command)
-
-;; movement to the limits
-(define-key global-map 'home		'beginning-of-line)
-(define-key global-map 'end		'end-of-line)
-
-;;; Miscellaneous key bindings
-(define-key global-map 'again		'repeat-complex-command)
-(define-key global-map 'insert		'overwrite-mode)
-
-;;; These aren't bound to kbd macros like "\C-b" so that they have the
-;; expected behavior even in, for example, vi-mode.
-
-;; We use here symbolic names, assuming that the corresponding keys will
-;; generate these keysyms.  This is not true on Suns, but x-win-sun.el 
-;; fixes that.  If it turns out that the semantics of these keys should
-;; differ from server to server, this should be moved into server-specific
-;; files, but these appear to be the standard Motif and PC bindings.
-
-;; potential R6isms
-(define-key global-map 'kp-left		'backward-char-command)
-(define-key global-map 'kp-up		'previous-line)
-(define-key global-map 'kp-right	'forward-char-command)
-(define-key global-map 'kp-down		'next-line)
-
-
-;; movement by larger blocks
-(define-key global-map '(control left)	'backward-word)
-(define-key global-map '(control up)	#'(lambda ()
-					    (interactive "_")
-					    (forward-line -6)))
-(define-key global-map '(control right)	'forward-word)
-(define-key global-map '(control down)	#'(lambda ()
-					    (interactive "_")
-					    (forward-line 6)))
-
-;; context-sensitive movement
-(define-key global-map '(meta left)  'backward-sexp)
-(define-key global-map '(meta right) 'forward-sexp)
-(define-key global-map '(meta up)    'backward-paragraph)
-(define-key global-map '(meta down)  'forward-paragraph)
-
-;; movement by pages
 (define-key global-map '(control prior)	'scroll-right)
 (define-key global-map '(control next)	'scroll-left)
-;; potential R6isms
 (define-key global-map 'kp-prior	'scroll-down-command)
 (define-key global-map 'kp-next		'scroll-up-command)
 (define-key global-map '(control kp-prior) 'scroll-right)
 (define-key global-map '(control kp-next) 'scroll-left)
 
-
 ;; movement to the limits
+(define-key global-map 'home		'beginning-of-line)
+(define-key global-map 'end		'end-of-line)
 (define-key global-map '(control home)	'beginning-of-buffer)
 (define-key global-map '(control end)	'end-of-buffer)
+(define-key global-map 'kp-home		'beginning-of-line)
+(define-key global-map 'kp-end		'end-of-line)
+(define-key global-map '(control kp-home) 'beginning-of-buffer)
+(define-key global-map '(control kp-end) 'end-of-buffer)
+
+;; on which systems do these exist?
 (define-key global-map 'begin		'beginning-of-line)
 (define-key global-map '(control begin)	'beginning-of-buffer)
-;; potential R6isms
-(define-key global-map 'kp-home		'beginning-of-line)
-(define-key global-map '(control kp-home) 'beginning-of-buffer)
-(define-key global-map 'kp-end		'end-of-line)
-(define-key global-map '(control kp-end) 'end-of-buffer)
+
+;; movement by larger blocks
+(define-key global-map '(control left)	'backward-word)
+(define-key global-map '(control right)	'forward-word)
+(define-key global-map '(control up)	'backward-block-of-lines)
+(define-key global-map '(control down)	'forward-block-of-lines)
+(define-key global-map '(control kp-left) 'backward-word)
+(define-key global-map '(control kp-right) 'forward-word)
+(define-key global-map '(control kp-up)	'backward-block-of-lines)
+(define-key global-map '(control kp-down) 'forward-block-of-lines)
+
+;; context-sensitive movement
+;; (meta control left/right) should be reserved for bindings that
+;; switch between buffers/web pages/etc.
+(define-key global-map '(meta left)	'backward-sexp)
+(define-key global-map '(meta right)	'forward-sexp)
+(define-key global-map '(meta up)	'backward-sentence)
+(define-key global-map '(meta down)	'forward-sentence)
+(define-key global-map '(meta control up) 'backward-paragraph)
+(define-key global-map '(meta control down) 'forward-paragraph)
+(define-key global-map '(meta control home)	'beginning-of-defun)
+(define-key global-map '(meta control end)	'end-of-defun)
+(define-key global-map '(meta control prior)	'backward-page)
+(define-key global-map '(meta control next)	'forward-page)
+(define-key global-map '(meta kp-left)  'backward-sexp)
+(define-key global-map '(meta kp-right) 'forward-sexp)
+(define-key global-map '(meta kp-up)	'backward-sentence)
+(define-key global-map '(meta kp-down)	'forward-sentence)
+(define-key global-map '(meta control kp-up) 'backward-paragraph)
+(define-key global-map '(meta control kp-down) 'forward-paragraph)
+(define-key global-map '(meta control kp-home)	'beginning-of-defun)
+(define-key global-map '(meta control kp-end)	'end-of-defun)
+(define-key global-map '(meta control kp-prior)	'backward-page)
+(define-key global-map '(meta control kp-next)	'forward-page)
 
 ;; movement between windows
 (define-key global-map '(control tab)	'other-window)
@@ -588,16 +581,33 @@ Keymap for characters following C-c.")
 (define-key global-map '(meta prior)	'scroll-other-window-down)
 (define-key global-map '(meta home)	'beginning-of-buffer-other-window)
 (define-key global-map '(meta end)	'end-of-buffer-other-window)
-;; potential R6isms
 (define-key global-map '(meta kp-next)	'scroll-other-window)
 (define-key global-map '(meta kp-prior)	'scroll-other-window-down)
 (define-key global-map '(meta kp-home)	'beginning-of-buffer-other-window)
 (define-key global-map '(meta kp-end)	'end-of-buffer-other-window)
 
-;; potential R6isms
-(define-key global-map 'redo		'repeat-complex-command)
+;; the infamous delete key
+(define-key global-map 'delete	        'backward-or-forward-delete-char)
+(define-key global-map '(meta delete)	'backward-or-forward-kill-word)
+(define-key global-map [(control x) (delete)]
+				        'backward-or-forward-kill-sentence)
+(define-key global-map 'kp-delete	'backward-or-forward-delete-char)
+(define-key global-map '(meta kp-delete) 'backward-or-forward-kill-word)
+(define-key global-map [(control x) (kp-delete)]
+					'backward-or-forward-kill-sentence)
+
+;; don't try this one at home, kids.
+(define-key global-map '(control meta delete) 'backward-or-forward-kill-sexp)
+(define-key global-map '(control meta kp-delete) 'backward-or-forward-kill-sexp)
+;; or this one, either, on Linux.
+(define-key global-map '(control meta backspace) 'backward-kill-sexp)
+
+
+;;; Miscellaneous key bindings
+(define-key global-map 'insert		'overwrite-mode)
 (define-key global-map 'kp-insert	'overwrite-mode)
-(define-key global-map 'kp-delete	'backward-delete-char-untabify)
+(define-key global-map 'again		'repeat-complex-command)
+(define-key global-map 'redo		'repeat-complex-command)
 
 (define-key global-map 'kp-enter	[return]) ; do whatever RET does now
 (define-key global-map 'kp-tab		[tab])

@@ -485,11 +485,9 @@ arrow_same_end (XlwScrollBarWidget w)
 }
 
 /*-------------------------- GC and Pixel allocation --------------------*/
-#ifdef NEED_MOTIF
 #ifndef XmUNSPECIFIED_PIXMAP
 #define XmUNSPECIFIED_PIXMAP 2
 #endif
-#endif /* NEED_MOTIF */
 
 static GC
 get_gc (XlwScrollBarWidget w, Pixel fg, Pixel bg, Pixmap pm)
@@ -514,14 +512,10 @@ get_gc (XlwScrollBarWidget w, Pixel fg, Pixel bg, Pixmap pm)
   values.stipple    = pm;
 /*  mask = GCForeground | GCBackground |
     (pm == None ? 0 : GCStipple | GCFillStyle); gtb */
-#ifdef NEED_MOTIF
   if (pm != None && pm != 0 && pm != XmUNSPECIFIED_PIXMAP)
      values.stipple = pm;
   else
      values.stipple = None;
-#else
-  values.stipple = pm;
-#endif /* NEED_MOTIF */
   mask = GCForeground | GCBackground |
    (values.stipple == None ? 0 : GCStipple | GCFillStyle);
 

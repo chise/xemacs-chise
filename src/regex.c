@@ -2388,7 +2388,7 @@ regex_compile (const char *pattern, int size, reg_syntax_t syntax,
                         if (c == ':' || c == ']' || p == pend
                             || c1 == CHAR_CLASS_MAX_LENGTH)
                           break;
-                        str[c1++] = c;
+                        str[c1++] = (char) c;
                       }
                     str[c1] = '\0';
 

@@ -58,7 +58,7 @@ typedef int pid_t;
 #define SIZEOF_SHORT 2
 #define SIZEOF_INT 4
 #define SIZEOF_LONG 4
-#define SIZEOF_LONG_LONG 8
+#define SIZEOF_LONG_LONG 0
 #define SIZEOF_VOID_P 4
 
 /* NOMULTIPLEJOBS should be defined if your system's shell

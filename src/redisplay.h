@@ -415,24 +415,24 @@ struct extent_fragment
    If any of these flags are set, redisplay will look more carefully
    to see if anything has really changed. */
 
-/* non-nil if the contents of a buffer have changed since the last time
-   redisplay completed */
+/* Nonzero if the contents of a buffer have changed since the last time
+   redisplay completed. */
 extern int buffers_changed;
 extern int buffers_changed_set;
 
 /* Nonzero if head_clip or tail_clip of a buffer has changed
- since last redisplay that finished */
+   since last redisplay that finished. */
 extern int clip_changed;
 extern int clip_changed_set;
 
-/* non-nil if any extent has changed since the last time redisplay completed */
+/* Nonzero if any extent has changed since the last time redisplay completed. */
 extern int extents_changed;
 extern int extents_changed_set;
 
-/* non-nil if any face has changed since the last time redisplay completed */
+/* Nonzero if any face has changed since the last time redisplay completed. */
 extern int faces_changed;
 
-/* Nonzero means one or more frames have been marked as garbaged */
+/* Nonzero means one or more frames have been marked as garbaged. */
 extern int frame_changed;
 
 /* True if any of the builtin display glyphs (continuation,
@@ -459,34 +459,34 @@ extern int icon_changed_set;
 extern int menubar_changed;
 extern int menubar_changed_set;
 
-/* true iff we should redraw the modelines on the next redisplay */
+/* True iff we should redraw the modelines on the next redisplay. */
 extern int modeline_changed;
 extern int modeline_changed_set;
 
-/* non-nil if point has changed in some buffer since the last time
-   redisplay completed */
+/* Nonzero if point has changed in some buffer since the last time
+   redisplay completed. */
 extern int point_changed;
 extern int point_changed_set;
 
-/* non-nil if some frame has changed its size */
+/* Nonzero if some frame has changed its size. */
 extern int size_changed;
 
-/* non-nil if some device has signaled that it wants to change size */
+/* Nonzero if some device has signaled that it wants to change size. */
 extern int asynch_device_change_pending;
 
-/* non-nil if any toolbar has changed */
+/* Nonzero if any toolbar has changed. */
 extern int toolbar_changed;
 extern int toolbar_changed_set;
 
-/* non-nil if any gutter has changed */
+/* Nonzero if any gutter has changed. */
 extern int gutter_changed;
 extern int gutter_changed_set;
 
-/* non-nil if any window has changed since the last time redisplay completed */
+/* Nonzero if any window has changed since the last time redisplay completed */
 extern int windows_changed;
 
-/* non-nil if any frame's window structure has changed since the last
-   time redisplay completed */
+/* Nonzero if any frame's window structure has changed since the last
+   time redisplay completed. */
 extern int windows_structure_changed;
 
 /* These macros can be relatively expensive.  Since they are often
@@ -550,7 +550,6 @@ extern int windows_structure_changed;
   buffers_changed = 0;				\
   clip_changed = 0;				\
   extents_changed = 0;				\
-  faces_changed = 0;				\
   frame_changed = 0;				\
   icon_changed = 0;				\
   menubar_changed = 0;				\
@@ -560,7 +559,7 @@ extern int windows_structure_changed;
   gutter_changed = 0;				\
   glyphs_changed = 0;				\
   subwindows_changed = 0;			\
-  subwindows_state_changed = 0;		\
+  subwindows_state_changed = 0;			\
   windows_changed = 0;				\
   windows_structure_changed = 0;		\
 } while (0)
@@ -578,7 +577,7 @@ extern int windows_structure_changed;
     (p)->toolbar_changed ||			\
     (p)->gutter_changed ||			\
     (p)->glyphs_changed ||			\
-    (p)->size_changed ||				\
+    (p)->size_changed ||			\
     (p)->subwindows_changed ||			\
     (p)->subwindows_state_changed ||		\
     (p)->windows_changed ||			\
@@ -640,8 +639,8 @@ extern int in_display;
    where one page is used for Emacs and another for all else. */
 extern int no_redraw_on_reenter;
 
-/* Nonzero means flash the frame instead of ringing the bell.  */
-extern int visible_bell;
+/* Non-nil means flash the frame instead of ringing the bell.  */
+extern Lisp_Object Vvisible_bell;
 
 /* Thickness of shadow border around 3D modelines. */
 extern Lisp_Object Vmodeline_shadow_thickness;
@@ -670,6 +669,8 @@ extern int cursor_in_echo_area;
 
 extern Lisp_Object Qbar_cursor, Qcursor_in_echo_area, Vwindow_system;
 
+extern Lisp_Object Qtop_bottom;
+
 
 /*************************************************************************/
 /*                     redisplay exported functions                      */
@@ -684,6 +685,7 @@ int redisplay_frame_text_width_string (struct frame *f,
 				       Bufbyte *nonreloc,
 				       Lisp_Object reloc,
 				       Bytecount offset, Bytecount len);
+int redisplay_frame (struct frame *f, int preemption_check);
 void redisplay (void);
 struct display_block *get_display_block_from_line (struct display_line *dl,
 						   enum display_type type);
@@ -784,5 +786,8 @@ void redisplay_redraw_cursor (struct frame *f, int run_begin_end_meths);
 void output_display_line (struct window *w, display_line_dynarr *cdla,
 			  display_line_dynarr *ddla, int line,
 			  int force_start, int force_end);
+void sync_display_line_structs (struct window *w, int line, int do_blocks,
+				display_line_dynarr *cdla,
+				display_line_dynarr *ddla);
 
 #endif /* INCLUDED_redisplay_h_ */
