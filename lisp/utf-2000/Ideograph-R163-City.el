@@ -2510,10 +2510,10 @@
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (->decomposition	#x90FD)
     (korean-ksc5601		. #x5434)	; ø»‰¥™
     (japanese-jisx0213-1	. #x7C6A)	; ø»¤™¯
     (ideograph-daikanwa		. 39509)	; ø¸‰©•
+    (ucs-ks			. #x90FD)	; ï¨¦
     (ucs			. #xFA26)	; ï¨¦
     ))
 (define-char
