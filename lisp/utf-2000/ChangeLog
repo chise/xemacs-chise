@@ -1,5 +1,18 @@
 2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u0E000-Private-Use.el (U+F4A6): Revived.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): Relate to
+	M-42120.
+
+	* Ideograph-R140-Grass.el (M-31582): Separate JSP-586E, C4-466C
+	and U+84A6.
+	(BC-8CB0): New character.
+
+	* Ideograph-R079-Weapon.el (BC-8AD4): New character.
+
+2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R065-Branch.el (M-13067): Unify CB-02050; use `=>ucs'
 	instead of `->ucs'; add `ideographic-structure'.
 	- Merge Big5 code points.
