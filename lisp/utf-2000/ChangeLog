@@ -1,3 +1,21 @@
+2001-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (J0-5035): Unify Big5-CDP-8B42.  Add
+	`ideographic-structure'.
+
+2001-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (C2-664D): Separate U+820B.
+
+	* Ideograph-R006-Hook.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el: Delete `ideograph-cdp' if its value is
+	positive.
+
+2001-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el,
+	Ideograph-R001-One.el: Delete `ideograph-cdp' if it is positive.
+
 2001-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el: Merge GB 12345 code points.
