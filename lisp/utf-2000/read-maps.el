@@ -59,7 +59,7 @@
 	       (setq ccs '=jis-x0213-2-2000
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
-		     ucs-ccs 'ucs-jis)
+		     ucs-ccs '=ucs@jis-2000)
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^C1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
@@ -132,7 +132,9 @@
 	  (when (and ucs
 		     (not (eq (or (encode-char chr '=ucs 'defined-only)
 				  (and (not (memq ucs-ccs '(ucs-jis
-							    =ucs-jis-1990)))
+							    =ucs-jis-1990
+                                                            ;; ucs-big5
+							    )))
 				       (get-char-attribute chr '=>ucs)))
 			      ucs)))
 	    (if (or ucs-code (null ucs-ccs))
