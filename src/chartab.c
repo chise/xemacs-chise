@@ -63,7 +63,7 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #endif /* MULE */
 
 
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 CHISE_DS *default_chise_data_source = NULL;
 #endif
 
@@ -325,7 +325,7 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 		       CHISE_Feature feature,
 #else
 		       Lisp_Object db,
@@ -352,7 +352,7 @@ save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 	      chise_char_set_feature_value
 		(c, feature,
 		 XSTRING_DATA
@@ -649,7 +649,7 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			CHISE_Feature feature,
 #else
 			Lisp_Object db,
@@ -676,7 +676,7 @@ save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 	      chise_char_set_feature_value
 		(c, feature,
 		 XSTRING_DATA
@@ -922,7 +922,7 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 		 CHISE_Feature feature,
 #else
 		 Lisp_Object db,
@@ -941,7 +941,7 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
       if (UINT8_BYTE_TABLE_P (v))
 	{
 	  save_uint8_byte_table (XUINT8_BYTE_TABLE(v), root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 				 feature,
 #else
 				 db,
@@ -952,7 +952,7 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
       else if (UINT16_BYTE_TABLE_P (v))
 	{
 	  save_uint16_byte_table (XUINT16_BYTE_TABLE(v), root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 				  feature,
 #else
 				  db,
@@ -963,7 +963,7 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
       else if (BYTE_TABLE_P (v))
 	{
 	  save_byte_table (XBYTE_TABLE(v), root,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			   feature,
 #else
 			   db,
@@ -987,7 +987,7 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 
 	  for (; c < c1 && retval == 0; c++)
 	    {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 	      chise_char_set_feature_value
 		(c, feature, XSTRING_DATA (Fprin1_to_string (v, Qnil)));
 #else
@@ -1324,7 +1324,7 @@ mark_char_table (Lisp_Object obj)
 
   mark_object (ct->table);
   mark_object (ct->name);
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   mark_object (ct->db);
 #endif
 #else
@@ -1656,7 +1656,7 @@ static const struct lrecord_description char_table_description[] = {
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, name) },
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db) },
 #endif
 #else
@@ -1860,7 +1860,7 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   ct->db = Qnil;
 #endif
 #endif
@@ -1937,7 +1937,7 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   ctnew->db = ct->db;
 #endif
 
@@ -3417,7 +3417,7 @@ Close data-source of CHISE.
 */
        ())
 {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   int status = CHISE_DS_close (default_chise_data_source);
 
   default_chise_data_source = NULL;
@@ -3434,7 +3434,7 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 
   if (!NILP (attribute))
     {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
       if ( open_chise_data_source_maybe () )
 	return -1;
 #else
@@ -3458,7 +3458,7 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 void
 char_table_close_db_maybe (Lisp_Char_Table* cit)
 {
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   if (!NILP (cit->db))
     {
       if (!NILP (Fdatabase_live_p (cit->db)))
@@ -3472,7 +3472,7 @@ Lisp_Object
 char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 {
   Lisp_Object val;
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_Value value;
   int status
     = chise_ds_load_char_feature_value (default_chise_data_source, ch,
@@ -3559,7 +3559,7 @@ Save values of ATTRIBUTE into database file.
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_Feature feature;
 #else
   Lisp_Object db_file;
@@ -3571,8 +3571,7 @@ Save values of ATTRIBUTE into database file.
   else
     return Qnil;
 
-#ifdef CHISE
-  char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+#ifdef HAVE_LIBCHISE
   if ( open_chise_data_source_maybe () )
     return -1;
   feature
@@ -3583,7 +3582,7 @@ Save values of ATTRIBUTE into database file.
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
 #endif
   if (
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
       feature != NULL
 #else
       !NILP (db)
@@ -3599,7 +3598,7 @@ Save values of ATTRIBUTE into database file.
 
       if (UINT8_BYTE_TABLE_P (ct->table))
 	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			       feature,
 #else
 			       db,
@@ -3607,7 +3606,7 @@ Save values of ATTRIBUTE into database file.
 			       0, 3, filter);
       else if (UINT16_BYTE_TABLE_P (ct->table))
 	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 				feature,
 #else
 				db,
@@ -3615,13 +3614,13 @@ Save values of ATTRIBUTE into database file.
 				0, 3, filter);
       else if (BYTE_TABLE_P (ct->table))
 	save_byte_table (XBYTE_TABLE(ct->table), ct,
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			 feature,
 #else
 			 db,
 #endif
 			 0, 3, filter);
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
       chise_feature_sync (feature);
 #else
       Fclose_database (db);
@@ -3654,7 +3653,7 @@ Mount database file on char-attribute-table ATTRIBUTE.
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
       XCHAR_TABLE_UNLOADED(table) = 1;
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
       ct->db = Qnil;
 #endif
       return Qt;
@@ -3736,7 +3735,7 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 
 Lisp_Char_Table* char_attribute_table_to_load;
 
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 int
 load_char_attribute_table_map_func (CHISE_Char_ID cid,
 				    CHISE_Feature feature,
@@ -3794,7 +3793,7 @@ Load values of ATTRIBUTE into database file.
 	struct gcpro gcpro1;
 
 	GCPRO1 (table);
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 	chise_char_feature_value_iterate
 	  (chise_ds_get_feature (default_chise_data_source,
 				 XSTRING_DATA (Fsymbol_name (cit->name))),
@@ -4342,7 +4341,7 @@ syms_of_chartab (void)
   DEFSUBR (Freset_char_attribute_table);
   DEFSUBR (Fclose_char_attribute_table);
   DEFSUBR (Fclose_char_data_source);
-#ifndef CHISE
+#ifndef HAVE_LIBCHISE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
   DEFSUBR (Fload_char_attribute_table_map_function);
