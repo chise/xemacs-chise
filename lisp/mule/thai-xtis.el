@@ -337,12 +337,14 @@
 	(write-read-repeat r0))))))
 
 (if (featurep 'xemacs)
-    (make-coding-system
-     'tis-620 'ccl
-     "external=tis620, internal=thai-xtis"
-     `(mnemonic "TIS620"
-       decode ,ccl-decode-thai-xtis
-       encode ,ccl-encode-thai-xtis))
+    (progn
+      (make-coding-system
+       'tis-620 'ccl
+       "external=tis620, internal=thai-xtis"
+       `(mnemonic "TIS620"
+		  decode ,ccl-decode-thai-xtis
+		  encode ,ccl-encode-thai-xtis))
+      (coding-system-put 'tis-620 'category 'iso-8-1))
   (make-coding-system
    'tis-620 4 ?T "external=tis620, internal=thai-xtis"
    '(ccl-decode-thai-xtis . ccl-encode-thai-xtis)
