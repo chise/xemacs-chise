@@ -5,6 +5,10 @@
 	(JC3-7FD8): Map to U+2227 instead of U+22C0.
 	(JC3-7FD9): Map to U+2228 instead of U+22C1.
 
+2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* G0-to-UCS.txt: New file.
+
 2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* B-to-UCS.txt (B-A1C5): Delete mapping to U+FF3F.
