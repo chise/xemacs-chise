@@ -79,18 +79,31 @@
    ((find-charset ka)
     (cond
      ((find-charset kb)
-      (if (< (charset-id ka) 0)
-	  (if (< (charset-id kb) 0)
-	      (cond
-	       ((= (charset-dimension ka)
-		   (charset-dimension kb))
-		(< (charset-id ka)(charset-id kb)))
-	       (t
-		(> (charset-dimension ka)
-		   (charset-dimension kb))
-		))
-	    t)
-	(< (charset-id ka)(charset-id kb))))
+      (if (and (charset-iso-final-char ka)
+	       (>= (charset-iso-final-char ka) ?@)
+	       (charset-iso-final-char kb)
+	       (>= (charset-iso-final-char kb) ?@))
+	  (cond
+	   ((= (charset-dimension ka)
+	       (charset-dimension kb))
+	    (< (charset-iso-final-char ka)
+	       (charset-iso-final-char kb)))
+	   (t
+	    (> (charset-dimension ka)
+	       (charset-dimension kb))
+	    ))
+	(if (< (charset-id ka) 0)
+	    (if (< (charset-id kb) 0)
+		(cond
+		 ((= (charset-dimension ka)
+		     (charset-dimension kb))
+		  (> (charset-id ka)(charset-id kb)))
+		 (t
+		  (> (charset-dimension ka)
+		     (charset-dimension kb))
+		  ))
+	      t)
+	  (< (charset-id ka)(charset-id kb)))))
      ((symbolp kb)
       nil)
      (t
@@ -212,7 +225,7 @@
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
     (setq column (current-column)))
-  (let (char-spec ret al cal key temp-char)
+  (let (char-spec al cal key temp-char)
     (setq char-spec (char-db-make-char-spec char))
     (unless (or (characterp char) ; char
 		(condition-case nil
