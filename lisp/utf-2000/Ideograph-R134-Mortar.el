@@ -150,7 +150,9 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B58)	; 
+     ((name		  . "CJK RADICAL PAW ONE")
+      (chinese-big5-cdp	  . #x8B58)	; ⺤
+      (ucs		  . #x2EA4)	; ⺤
       )
      ((ucs		  . #x81FC)	; 臼
       ))
