@@ -1,4 +1,8 @@
 							-*- indented-text -*-
+to 21.2 beta10 "Boreas"
+-- package UI fix from Jan Vroonhof
+-- MS Windows NT process fix from Gleb Arshinov
+
 to 21.2 beta9 "Athena"
 -- parameterize replace-match function from Didier Verna
 -- X-Face support under mswindows from Andy Piper

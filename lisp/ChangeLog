@@ -1,3 +1,12 @@
+1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.10 is released
+
+1999-02-02  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-get.el (package-get-remote-filename): Don't bug out for
+	a local file name in the search entry.
+
 1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.9 is released

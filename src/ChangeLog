@@ -1,3 +1,15 @@
+1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.10 is released
+
+1999-02-02  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* process-nt.c (nt_send_process): 
+ 	Fix for process-send-region/process-send-string breaking when size
+	of the input > 128 chars: change maximum chunk size for process
+	stream from 512 to 128, thus guaranteeing that ntpipe_shove_writer
+	succeeds.
+
 1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.9 is released
