@@ -42,6 +42,8 @@ EXFUN (Fput_char_attribute, 3);
 
 EXFUN (Ffind_char, 1);
 
+extern Lisp_Object Qdowncase, Qflippedcase, Q_lowercase, Q_uppercase;
+
 
 /************************************************************************/
 /*			    Char-ID Tables                              */
