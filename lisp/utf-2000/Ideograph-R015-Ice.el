@@ -35,39 +35,6 @@
     (=hanziku-1		. #xE2D6)	; ý¢€ž‹–
     ))
 (define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (<-original-ideograph
-     ((ideographic-radical . 15)	; â¼Ž
-      (=daikanwa	  . 01612)	; ø¸€™Œ
-      ))
-    (<-original-ideograph*sources
-     shuowen shuowen-tongxun-dingsheng daikanwa)
-    (=ucs		. #x4ECC)	; ä»Œ
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; â¿±
-	)
-       ((=ucs		    . #x4EBA)	; äºº
-	)
-       ((=ucs		    . #x4EBA)	; äºº
-	))
-      (=cns11643-3	  . #x214C)	; ø»•—
-      (=daikanwa	  . 00360)	; ø¸€…¨
-      (=cbeta		  . 08093)	; ø¸¡¾
-      )
-     ((=>ucs*		  . #x4ECC)	; ä»Œ
-      (ideographic-radical@cns . 15)	; â¼Ž
-      (hanyu-dazidian	  1 105 2)
-      (=ucs		  . #x2F819)	; ð¯ ™
-      (=cns11643-4	  . #x213F)	; ø»—¡†
-      (=hanziku-1	  . #xB9A2)	; ý¢€›¦¢
-      (=ucs@unicode	  . #x4ECC)	; ð¯ ™
-      ))
-    ))
-(define-char
   '((=>ucs		. #x51AC)	; å†¬
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 3)
