@@ -1,3 +1,8 @@
+2003-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): In XEmacs CHISE, check
+	\uXXXX for every cases.
+
 2003-03-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=ucs@big5): Renamed from `ucs-big5'.
