@@ -1,5 +1,22 @@
 2003-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el (GT-K00059): New character.
+
+	* Ideograph-R010-Legs.el (JX1-2E50): Unify U+FA32 instead of
+	U-0002F80E; add CU-0002F80E.
+	(U-0002F80E): Add `->identical' for U+FA32.
+
+	* Ideograph-R009-Man.el (U+4EBA): Unify GT-K00048.
+	(GT-K00049): New character.
+	(ideographic component person as roof): Unify GT-K00057.
+	(ideographic component person as left roof): New character.
+	(U+4FAE): Unify JU+FA30.
+	(U+FA30): New character.
+	(U+50A9): Modify `ideographic-structure'.
+	(JX1-2E49): Unify U+FA31 and KU+50E7; unify BC-B9AC instead of
+	B-B9AC.
+	(U+50E7): Unify B-B9AC.
+
 	* Ideograph-R030-Mouth.el (U+559D): Unify JU+FA36.
 	(U+FA36): New character.
 	(U+5606): Separate C1-682C; unify JU+FA37.
