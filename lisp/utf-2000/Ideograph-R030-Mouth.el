@@ -316,7 +316,8 @@
     (ucs			. #x53F3)	; å³
     ))
 (define-char
-  '((ideographic-radical . 30)	; â¼
+  '((->ucs		. #x53FD)	; å½
+    (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (chinese-cns11643-4 . #x216A)	; ø»—¡±
@@ -510,7 +511,6 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (non-morohashi	3270 9)
     (chinese-gb2312	. #x5F34)	; ø»…¡›
     (chinese-isoir165	. #x5F34)	; ø»Ž‰«
     (ucs		. #x53FD)	; å½
@@ -1585,7 +1585,8 @@
     (ucs		. #x5437)	; å·
     ))
 (define-char
-  '((ideographic-radical . 30)	; â¼
+  '((->ucs		. #x5438)	; å¸
+    (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (chinese-cns11643-1 . #x494E)	; ø»‘½¹
