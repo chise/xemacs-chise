@@ -1,3 +1,10 @@
+2003-03-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* lisp/mule-conf.el (=daikanwa-rev1): Renamed from
+	`ideograph-daikanwa-2'.
+	(ideograph-daikanwa-2): Changed to an alias for `=daikanwa-rev1'.
+	(=daikanwa-rev2): New coded-charset when `utf-2000' is provided.
+
 2003-03-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):

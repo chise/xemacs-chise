@@ -170,7 +170,7 @@
     chinese-isoir165
     katakana-jisx0201
     hebrew-iso8859-8
-    japanese-jisx0208-1990
+    =jis-x0208-1990
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
@@ -220,9 +220,13 @@
 			      (setq rest (cdr rest))))))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
-		    (if (or (and (charset-iso-final-char ccs)
-				 (setq ret (get-char-attribute char ccs)))
-			    (eq ccs 'ideograph-daikanwa))
+		    (if (and (or (charset-iso-final-char ccs)
+				 (memq ccs
+				       '(ideograph-daikanwa
+					 =daikanwa-rev2
+					 ;; =gt-k
+					 )))
+			     (setq ret (get-char-attribute char ccs)))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
 		      (setq char-spec (split-char char)))
@@ -964,8 +968,9 @@
 	       (setq value (get-char-attribute char name)))
 	  (insert
 	   (format
-	    (cond ((memq name '(ideograph-daikanwa-2
-				ideograph-daikanwa
+	    (cond ((memq name '(ideograph-daikanwa
+				=daikanwa-rev1
+				=daikanwa-rev2
 				=gt =gt-k =cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"

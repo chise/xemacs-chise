@@ -205,7 +205,20 @@
 		  direction	l2r
 		  mother	=ucs))
 
-  (make-charset 'ideograph-daikanwa-2
+  (make-charset 'ideograph-daikanwa
+		"Daikanwa"
+		`(long-name	"Daikanwa dictionary (revised version 2)"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  min-code	#xE00000
+		  max-code	,(+ #xE00000 50100)
+		  code-offset	#xE00000))
+
+  (make-charset '=daikanwa-rev1
 		"Daikanwa Rev."
 		`(long-name	"Daikanwa dictionary (revised version)"
 		  chars		256
@@ -214,8 +227,9 @@
 		  graphic	2
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"))
+  (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa-rev1)
 
-  (make-charset 'ideograph-daikanwa
+  (make-charset '=daikanwa-rev2
 		"Daikanwa"
 		`(long-name	"Daikanwa dictionary (revised version 2)"
 		  chars		256
