@@ -1,5 +1,8 @@
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el (C1-5937): Moved from
+	Ideograph-R073-Say.el.
+
 	* Ideograph-R073-Say.el (J78-3939): Separate G0-387C, C1-4A55,
 	J90-3939 and U+66F4.
 	(U+66F4): Unify G0-387C, C1-4A55 and J90-3939.
