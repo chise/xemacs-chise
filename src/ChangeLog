@@ -1,5 +1,21 @@
 2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* chartab.c (mark_char_table): Member `db' is deleted when `CHISE'
+	is defined.
+	(char_table_description): Likewise.
+	(Fmake_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Delete `db' when `CHISE' is
+	defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* chartab.c (load_char_attribute_table_map_func): New function
 	when CHISE is defined.
 	(Qload_char_attribute_table_map_function): Don't define when CHISE
