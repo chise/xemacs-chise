@@ -277,11 +277,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  japanese-jisx0208
+	  japanese-jisx0208-1990
 	  japanese-jisx0212
+	  korean-ksc5601
 	  japanese-jisx0213-1
 	  japanese-jisx0213-2
-	  japanese-jisx0208-1990
-	  korean-ksc5601
 	  japanese-jisx0208-1978
 	  chinese-cns11643-1
 	  chinese-cns11643-2
@@ -301,6 +301,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ethiopic-ucs
 	  ethiopic
 	  mojikyo
+	  ideograph-daikanwa
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
 ;;; 	  mojikyo-pj-3
@@ -322,8 +323,8 @@ DESCRIPTION (string) is the description string of the charset."
 ;;; 	  mojikyo-pj-19
 ;;; 	  mojikyo-pj-20
 ;;; 	  mojikyo-pj-21
-	  ideograph-daikanwa
 	  ucs-bmp
+	  mojikyo-2022-1
 	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
