@@ -3153,7 +3153,7 @@ find_charsets_in_charc_string (Charset_ID *charsets, const Charc *str,
 
   for (i = 0; i < len; i++)
     {
-      charsets[XCHARSET_ID (str[i].charset) - MIN_LEADING_BYTE] = 1;
+      charsets[CHARC_CHARSET_ID (str[i]) - MIN_LEADING_BYTE] = 1;
     }
 #endif
 }
@@ -3186,7 +3186,7 @@ charc_string_displayed_columns (const Charc *str, Charcount len)
   int i;
 
   for (i = 0; i < len; i++)
-    cols += CHARSET_COLUMNS (XCHARSET (str[i].charset));
+    cols += CHARC_COLUMNS (str[i]);
 
   return cols;
 #else  /* not MULE */
@@ -3204,10 +3204,7 @@ convert_bufbyte_string_into_charc_dynarr (const Bufbyte *str, Bytecount len,
 
   while (str < strend)
     {
-      Charc ec;
-
-      ec.code_point = ENCODE_CHAR (charptr_emchar (str), ec.charset);
-      Dynarr_add (dyn, ec);
+      Dynarr_add (dyn, CHAR_TO_CHARC (charptr_emchar (str)));
       INC_CHARPTR (str);
     }
 }
@@ -3240,10 +3237,7 @@ convert_charc_string_into_bufbyte_dynarr (Charc *arr, int nels,
 
   for (i = 0; i < nels; i++)
     {
-      Charc ec = arr[i];
-
-      Bytecount len
-	= set_charptr_emchar (str, DECODE_CHAR (ec.charset, ec.code_point));
+      Bytecount len = set_charptr_emchar (str, CHARC_TO_CHAR (arr[i]));
       Dynarr_add_many (dyn, str, len);
     }
 }
@@ -3267,10 +3261,7 @@ convert_charc_string_into_malloced_string (Charc *arr, int nels,
 
   for (i = 0; i < nels; i++)
     {
-      Charc ec = arr[i];
-
-      str += set_charptr_emchar (str,
-				 DECODE_CHAR (ec.charset, ec.code_point));
+      str += set_charptr_emchar (str, CHARC_TO_CHAR (arr[i]));
     }
   *str = '\0';
   len = str - strorig;
