@@ -141,7 +141,7 @@ Additional features:
                         installed LDAP libraries on the system).
 --mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
                         concurrent updates of mail spool files. Valid types
-                        are `lockf', `flock', and `file'.
+                        are `lockf', `flock', and `dot'.
 --with-modules		Compile in experimental support for dynamically
 			loaded libraries (Dynamic Shared Objects).
 --with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy

@@ -121,6 +121,12 @@ extern long random();
 #ifndef WM_MOUSEWHEEL
 #define WM_MOUSEWHEEL 0x20A
 #endif
+#ifndef TCS_BOTTOM
+#define TCS_BOTTOM 0x0002
+#endif
+#ifndef TCS_VERTICAL
+#define TCS_VERTICAL 0x0080
+#endif
 
 #define PBS_SMOOTH              0x01
 

@@ -105,9 +105,9 @@ typedef int pid_t;
    The alternative is that a lock file named
    /usr/spool/mail/$USER.lock.  */
 
-/* #define MAIL_USE_FLOCK */
 #define MAIL_USE_POP
-#define MAIL_USE_SYSTEM_LOCK
+#define HAVE_LOCKING
+#define MAIL_USE_LOCKING
 
 /* If the character used to separate elements of the executable path
    is not ':', #define this to be the appropriate character constant.  */

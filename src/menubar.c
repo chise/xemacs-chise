@@ -588,11 +588,9 @@ This is a specifier; use `set-specifier' to change it.
 
   set_specifier_fallback (Vmenubar_visible_p, list1 (Fcons (Qnil, Qt)));
   set_specifier_caching (Vmenubar_visible_p,
-			 slot_offset (struct window,
-				      menubar_visible_p),
+			 offsetof (struct window, menubar_visible_p),
 			 menubar_visible_p_changed,
-			 slot_offset (struct frame,
-				      menubar_visible_p),
+			 offsetof (struct frame, menubar_visible_p),
 			 menubar_visible_p_changed_in_frame);
 }
 

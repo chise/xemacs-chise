@@ -1,4 +1,4 @@
-Copyright (c) 1997, Adrian Aichner <adrian@xemacs.org>.
+Copyright (c) 1997-2000, Adrian Aichner <adrian@xemacs.org>.
 
 Copyright (c) 1985, 1996 Free Software Foundation, Inc. See end for conditions.
 
@@ -39,7 +39,7 @@ weiterbewegt.  Um eine Seite zurück zu gehen, tippe M-v (halte die
 META-Taste gedrückt und tippe v oder tippe <ESC>v wenn Deine Tastatur
 keine META-, EDIT- oder ALT-Taste besitzt).
 
->>  Versuche ein paar Mal M-v und C-v zu tippen.
+>>  Versuche ein paarmal M-v und C-v zu tippen.
 
 
 * ZUSAMMENFASSUNG
@@ -1137,7 +1137,7 @@ Diese Version des Tutorials ist, wie GNU Emacs selbst,
 urheberrechtlich geschützt und erlaubt die Verteilung von Kopien unter
 bestimmten Voraussetzungen:
 
-Copyright (c) 1997, Adrian Aichner <adrian@xemacs.org>.
+Copyright (c) 1997-2000, Adrian Aichner <adrian@xemacs.org>.
 
 Copyright (c) 1985, 1996 Free Software Foundation
 

@@ -60,9 +60,8 @@ are preserved on all copies.
 @page
 @ifinfo
 @node Top, Intro, (dir), (dir)
+@top The Emacs Editor
 
-The Emacs Editor
-****************
 
 Emacs is the extensible, customizable, self-documenting real-time
 display editor.  This Info file will help you get started on using 

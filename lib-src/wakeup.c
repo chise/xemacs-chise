@@ -1,6 +1,6 @@
 /* Program to produce output at regular intervals.  */
 
-#include <../src/config.h>
+#include <config.h>
 
 #if __STDC__ || defined(STDC_HEADERS)
 #include <stdlib.h>

@@ -956,11 +956,9 @@ This is a specifier; use `set-specifier' to change it.
     (Vscrollbar_width,
      list1 (Fcons (Qnil, make_int (DEFAULT_SCROLLBAR_WIDTH))));
   set_specifier_caching (Vscrollbar_width,
-			 slot_offset (struct window,
-				      scrollbar_width),
+			 offsetof (struct window, scrollbar_width),
 			 vertical_scrollbar_changed_in_window,
-			 slot_offset (struct frame,
-				      scrollbar_width),
+			 offsetof (struct frame, scrollbar_width),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("scrollbar-height", &Vscrollbar_height /*
@@ -972,11 +970,9 @@ This is a specifier; use `set-specifier' to change it.
     (Vscrollbar_height,
      list1 (Fcons (Qnil, make_int (DEFAULT_SCROLLBAR_HEIGHT))));
   set_specifier_caching (Vscrollbar_height,
-			 slot_offset (struct window,
-				      scrollbar_height),
+			 offsetof (struct window, scrollbar_height),
 			 some_window_value_changed,
-			 slot_offset (struct frame,
-				      scrollbar_height),
+			 offsetof (struct frame, scrollbar_height),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("horizontal-scrollbar-visible-p", &Vhorizontal_scrollbar_visible_p /*
@@ -987,11 +983,11 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_fallback (Vhorizontal_scrollbar_visible_p,
 			  list1 (Fcons (Qnil, Qt)));
   set_specifier_caching (Vhorizontal_scrollbar_visible_p,
-			 slot_offset (struct window,
-				      horizontal_scrollbar_visible_p),
+			 offsetof (struct window,
+				   horizontal_scrollbar_visible_p),
 			 some_window_value_changed,
-			 slot_offset (struct frame,
-				      horizontal_scrollbar_visible_p),
+			 offsetof (struct frame,
+				   horizontal_scrollbar_visible_p),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("vertical-scrollbar-visible-p", &Vvertical_scrollbar_visible_p /*
@@ -1002,11 +998,11 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_fallback (Vvertical_scrollbar_visible_p,
 			  list1 (Fcons (Qnil, Qt)));
   set_specifier_caching (Vvertical_scrollbar_visible_p,
-			 slot_offset (struct window,
-				      vertical_scrollbar_visible_p),
+			 offsetof (struct window,
+				   vertical_scrollbar_visible_p),
 			 vertical_scrollbar_changed_in_window,
-			 slot_offset (struct frame,
-				      vertical_scrollbar_visible_p),
+			 offsetof (struct frame,
+				   vertical_scrollbar_visible_p),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("scrollbar-on-left-p", &Vscrollbar_on_left_p /*
@@ -1030,11 +1026,9 @@ This is a specifier; use `set-specifier' to change it.
   }
 
   set_specifier_caching (Vscrollbar_on_left_p,
-			 slot_offset (struct window,
-				      scrollbar_on_left_p),
+			 offsetof (struct window, scrollbar_on_left_p),
 			 vertical_scrollbar_changed_in_window,
-			 slot_offset (struct frame,
-				      scrollbar_on_left_p),
+			 offsetof (struct frame, scrollbar_on_left_p),
 			 frame_size_slipped);
 
   DEFVAR_SPECIFIER ("scrollbar-on-top-p", &Vscrollbar_on_top_p /*
@@ -1045,11 +1039,9 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_fallback (Vscrollbar_on_top_p,
 			  list1 (Fcons (Qnil, Qnil)));
   set_specifier_caching (Vscrollbar_on_top_p,
-			 slot_offset (struct window,
-				      scrollbar_on_top_p),
+			 offsetof (struct window, scrollbar_on_top_p),
 			 some_window_value_changed,
-			 slot_offset (struct frame,
-				      scrollbar_on_top_p),
+			 offsetof (struct frame, scrollbar_on_top_p),
 			 frame_size_slipped);
 }
 
@@ -1059,8 +1051,7 @@ complex_vars_of_scrollbar (void)
   Vscrollbar_pointer_glyph = Fmake_glyph_internal (Qpointer);
 
   set_specifier_caching (XGLYPH (Vscrollbar_pointer_glyph)->image,
-			 slot_offset (struct window,
-				      scrollbar_pointer),
+			 offsetof (struct window, scrollbar_pointer),
 			 scrollbar_pointer_changed_in_window,
 			 0, 0);
 }

@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
    that option. */
 
 #ifdef emacs
-#include <../src/config.h>
+#include <config.h>
 #endif
 
 #include <sys/types.h>

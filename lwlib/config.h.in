@@ -32,9 +32,12 @@ Boston, MA 02111-1307, USA.  */
 /* The path to the Athena widgets - the usual value is `X11/Xaw' */
 #undef ATHENA_H_PATH
 
-/* For use in #include statements.  This extra level of macro indirection
-   is necessary because you can't use macros directly within <> or "" */
-#define ATHENA_INCLUDE(header_file) <ATHENA_H_PATH/header_file>
+/* For use in #include statements.
+   You can't use macros directly within the <> of a #include statement.
+   The multiply nested macros are necessary to make old gcc's happy. */
+#define INCLUDE_GLUE_2(dirname,basename) <##dirname##/##basename##>
+#define INCLUDE_GLUE_1(dirname,basename) INCLUDE_GLUE_2(dirname,basename)
+#define ATHENA_INCLUDE(header_file) INCLUDE_GLUE_1(ATHENA_H_PATH,header_file)
 
 
 #endif /* _LWLIB_CONFIG_H_ */

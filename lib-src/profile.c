@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.  */
  **  abstraction : a stopwatch
  **  operations: reset_watch, get_time
  */
-#include <../src/config.h>
+#include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "../src/systime.h"

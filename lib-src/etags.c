@@ -96,9 +96,6 @@ char pot_etags_version[] = "@(#) pot revision number is 13.33";
 #include <stdio.h>
 #include <ctype.h>
 #include <errno.h>
-#ifndef errno
-  extern int errno;
-#endif
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -194,8 +191,6 @@ typedef struct
   char **interpreters;
 } language;
 
-extern char *getenv ();
-
 typedef struct node_st
 {				/* sorting structure		*/
   char *name;			/* function or type name	*/
@@ -282,8 +277,8 @@ char *skip_spaces (char *cp);
 char *skip_non_spaces (char *cp);
 char *savenstr (char *cp, int len);
 char *savestr (char *cp);
-char *etags_strchr (char *sp, char c);
-char *etags_strrchr (char *sp, char c);
+char *etags_strchr (const char *sp, int c);
+char *etags_strrchr (const char *sp, int c);
 char *etags_getcwd (void);
 char *relative_filename (char *file, char *dir);
 char *absolute_filename (char *file, char *dir);
@@ -1208,17 +1203,21 @@ get_compressor_from_suffix (file, extptr)
   /* Let those poor souls who live with DOS 8+3 file name limits get
      some solace by treating foo.cgz as if it were foo.c.gz, etc.
      Only the first do loop is run if not MSDOS */
+#ifdef MSDOS
   do
     {
       for (compr = compressors; compr->suffix != NULL; compr++)
 	if (streq (compr->suffix, suffix))
 	  return compr;
-#ifndef MSDOS
-      break;
-#endif
       if (extptr != NULL)
 	*extptr = ++suffix;
     } while (*suffix != '\0');
+#else
+  for (compr = compressors; compr->suffix != NULL; compr++)
+    if (streq (compr->suffix, suffix))
+      return compr;
+#endif
+
   return NULL;
 }
 
@@ -5112,14 +5111,13 @@ savenstr (cp, len)
 /*
  * Return the ptr in sp at which the character c last
  * appears; NULL if not found
- *
- * Identical to System V strrchr, included for portability.
  */
 char *
 etags_strrchr (sp, c)
-     register char *sp, c;
+     const char *sp;
+     int c;
 {
-  register char *r;
+  register const char *r;
 
   r = NULL;
   do
@@ -5127,24 +5125,23 @@ etags_strrchr (sp, c)
       if (*sp == c)
 	r = sp;
   } while (*sp++);
-  return r;
+  return (char *) r;
 }
 
 
 /*
  * Return the ptr in sp at which the character c first
  * appears; NULL if not found
- *
- * Identical to System V strchr, included for portability.
  */
 char *
 etags_strchr (sp, c)
-     register char *sp, c;
+     const char *sp;
+     int c;
 {
   do
     {
       if (*sp == c)
-	return sp;
+	return (char *) sp;
     } while (*sp++);
   return NULL;
 }

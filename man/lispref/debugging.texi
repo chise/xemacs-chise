@@ -95,6 +95,12 @@ happen in process filter functions and sentinels.  Therefore, these
 errors also can invoke the debugger.  @xref{Processes}.
 @end defopt
 
+@defopt debug-on-signal
+This variable is similar to @code{debug-on-error} but breaks
+whenever an error is signalled, regardless of whether it would be
+handled.
+@end defopt
+
 @defopt debug-ignored-errors
 This variable specifies certain kinds of errors that should not enter
 the debugger.  Its value is a list of error condition symbols and/or
@@ -123,12 +129,6 @@ this:
 (add-hook 'after-init-hook
           '(lambda () (setq debug-on-error t)))
 @end example
-
-@defopt debug-on-signal
-This variable is similar to @code{debug-on-error} but breaks
-whenever an error is signalled, regardless of whether it would be
-handled.
-@end defopt
 
 @node Infinite Loops
 @subsection Debugging Infinite Loops

@@ -104,9 +104,6 @@ char pot_etags_version[] = "@(#) pot revision number is 12.28";
 #include <stdio.h>
 #include <ctype.h>
 #include <errno.h>
-#ifndef errno
-  extern int errno;
-#endif
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -176,9 +173,9 @@ char pot_etags_version[] = "@(#) pot revision number is 12.28";
 #ifdef OO_BROWSER
 #define set_construct(construct) \
   if (!oo_browser_construct) oo_browser_construct = construct
-void oo_browser_clear_all_globals();
-void oo_browser_clear_some_globals();
-void oo_browser_check_and_clear_structtype();
+void oo_browser_clear_all_globals(void);
+void oo_browser_clear_some_globals(void);
+void oo_browser_check_and_clear_structtype(void);
 #endif
 
 /*
@@ -200,7 +197,7 @@ void oo_browser_check_and_clear_structtype();
 
 typedef int bool;
 
-typedef void Lang_function ();
+typedef void Lang_function (FILE *);
 
 typedef struct
 {
@@ -860,9 +857,7 @@ char *massage_name (s)
 
 
 int
-main (argc, argv)
-     int argc;
-     char *argv[];
+main (int argc, char *argv[])
 {
   int i;
   unsigned int nincluded_files;
@@ -1654,8 +1649,7 @@ static char oo_browser_prefix;
 #endif
 
 void
-put_entries (np)
-     register node *np;
+put_entries (node *np)
 {
   register char *sp;
 
@@ -1889,9 +1883,7 @@ struct C_stab_entry { char *name; int c_ext; enum sym_type type; };
 /* maximum key range = 117, duplicates = 0 */
 
 static unsigned int
-hash (str, len)
-     register char *str;
-     register int unsigned len;
+hash (char *str, unsigned int len)
 {
   static unsigned char asso_values[] =
     {
@@ -1909,13 +1901,13 @@ hash (str, len)
       10,  62,  59, 130,  28,  27,  50,  19,   3, 130,
      130, 130, 130, 130, 130, 130, 130, 130,
     };
-  return len + asso_values[str[2]] + asso_values[str[0]];
+  return len +
+    asso_values[(unsigned char) str[2]] +
+    asso_values[(unsigned char) str[0]];
 }
 
-struct C_stab_entry *
-in_word_set (str, len)
-     register char *str;
-     register unsigned int len;
+static struct C_stab_entry *
+in_word_set (char *str, unsigned int len)
 {
   static struct C_stab_entry wordlist[] =
     {
@@ -2077,7 +2069,7 @@ enum sym_type structtype;
 
 #ifdef OO_BROWSER
 void
-oo_browser_check_and_clear_structtype()
+oo_browser_check_and_clear_structtype(void)
 {
   /* Allow for multiple enum_label tags. */
   if (structtype != st_C_enum)
@@ -2156,7 +2148,7 @@ int methodlen;
 
 #ifdef OO_BROWSER
 void
-oo_browser_clear_all_globals()
+oo_browser_clear_all_globals(void)
 {
   /* Initialize globals so there is no carry over between files. */
   oo_browser_construct = C_NULL;
@@ -2167,7 +2159,7 @@ oo_browser_clear_all_globals()
 }
 
 void
-oo_browser_clear_some_globals()
+oo_browser_clear_some_globals(void)
 {
   oo_browser_construct = C_NULL;
   structtype = st_none;
@@ -3638,8 +3630,7 @@ Fortran_functions (inf)
  * look for '^[a-zA-Z_.$][a-zA_Z0-9_.$]*[: ^I^J]'
  */
 void
-Asm_labels (inf)
-     FILE *inf;
+Asm_labels (FILE *inf)
 {
   register char *cp;
 

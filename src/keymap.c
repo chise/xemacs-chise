@@ -2116,7 +2116,7 @@ lookup_keys (Lisp_Object keymap, int nkeys, Lisp_Object *keys,
   if (nkeys == 0)
     return Qnil;
 
-  if (nkeys < (countof (kkk)))
+  if (nkeys < countof (kkk))
     raw_keys = kkk;
   else
     raw_keys = alloca_array (struct key_data, nkeys);
@@ -2146,7 +2146,7 @@ lookup_events (Lisp_Object event_head, int nmaps, Lisp_Object keymaps[],
 
   nkeys = event_chain_count (event_head);
 
-  if (nkeys < (countof (kkk)))
+  if (nkeys < countof (kkk))
     raw_keys = kkk;
   else
     raw_keys = alloca_array (struct key_data, nkeys);
@@ -2372,8 +2372,7 @@ get_relevant_keymaps (Lisp_Object keys,
 		  get_relevant_extent_keymaps
 		    (Fevent_modeline_position (terminal),
 		     XBUFFER (buffer)->generated_modeline_string,
-		     /* #### third arg should maybe be a glyph. */
-		     Qnil, &closure);
+		     Fevent_glyph_extent (terminal), &closure);
 
 		  if (!UNBOUNDP (map) && !NILP (map))
 		    relevant_map_push (get_keymap (map, 1, 1), &closure);

@@ -129,11 +129,17 @@ DEBUG_XEMACS=0
 !if !defined(USE_UNION_TYPE)
 USE_UNION_TYPE=0
 !endif
+!if !defined(USE_MINITAR)
+USE_MINITAR=1
+!endif
 !if !defined(USE_MINIMAL_TAGBITS)
 USE_MINIMAL_TAGBITS=0
 !endif
 !if !defined(USE_INDEXED_LRECORD_IMPLEMENTATION)
 USE_INDEXED_LRECORD_IMPLEMENTATION=0
+!endif
+!if !defined(USE_PORTABLE_DUMPER)
+USE_PORTABLE_DUMPER=0
 !endif
 !if !defined(GUNG_HO)
 GUNG_HO=0
@@ -341,6 +347,10 @@ TAGBITS_DEFINES=-DUSE_MINIMAL_TAGBITS
 LRECORD_DEFINES=-DUSE_INDEXED_LRECORD_IMPLEMENTATION
 !endif
 !if $(USE_UNION_TYPE)
+!if $(USE_PORTABLE_DUMPER)
+DUMPER_DEFINES=-DPDUMP
+!endif
+
 UNION_DEFINES=-DUSE_UNION_TYPE
 !endif
 
@@ -359,7 +369,7 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(XEMACS)\nt\inc -I$(XEMACS)\src -I$(XEMACS)\lwlib
 
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
-	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
+	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) $(DUMPER_DEFINES)\
 	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
@@ -428,6 +438,8 @@ $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
 	cd $(LIB_SRC)
 	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** wsock32.lib -link -incremental:no
 	cd $(NT)
+$(LIB_SRC)/minitar.exe : $(NT)/minitar.mak $(NT)/minitar.c
+	nmake -nologo -f minitar.mak ZLIB="$(ZLIB_DIR)" NT="$(NT)" LIB_SRC="$(LIB_SRC)"
 
 LIB_SRC_TOOLS = \
 	$(LIB_SRC)/make-docfile.exe	\
@@ -437,6 +449,14 @@ LIB_SRC_TOOLS = \
 	$(LIB_SRC)/sorted-doc.exe	\
 	$(LIB_SRC)/wakeup.exe		\
 	$(LIB_SRC)/etags.exe		
+!if $(USE_MINITAR)
+LIB_SRC_TOOLS = \
+	$(LIB_SRC_TOOLS) \
+	$(LIB_SRC)/minitar.exe
+!endif
+
+# Shorthand target
+minitar: $(LIB_SRC)/minitar.exe
 
 #------------------------------------------------------------------------------
 
@@ -1142,6 +1162,7 @@ $(DOC): $(LIB_SRC)\make-docfile.exe
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC9)
 
 update-elc:
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
@@ -1163,7 +1184,7 @@ all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
 	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) dump-xemacs \
 	$(LISP)/auto-autoloads.el $(LISP)/custom-load.el info
 
-temacs: $(TEMACS)
+temacs: $(LASTFILE) $(TEMACS)
 
 # use this rule to install the system
 install:	all
@@ -1320,6 +1341,9 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !endif
 !if $(USE_UNION_TYPE)
   Using union type for Lisp object storage.
+!endif
+!if $(USE_PORTABLE_DUMPER)
+  Using portable dumper.
 !endif
 !if $(DEBUG_XEMACS)
   Compiling in extra debug checks. XEmacs will be slow!

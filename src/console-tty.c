@@ -278,6 +278,8 @@ CODESYS defaults to the value of `terminal-coding-system'.
   set_encoding_stream_coding_system
     (XLSTREAM (CONSOLE_TTY_DATA (decode_tty_console (console))->outstream),
      Fget_coding_system (NILP (codesys) ? Vterminal_coding_system : codesys));
+  /* Redraw tty */
+  face_property_was_changed (Vdefault_face, Qfont, Qtty);
   return Qnil;
 }
 

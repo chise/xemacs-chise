@@ -1059,7 +1059,7 @@ event_to_character (struct Lisp_Event *event,
 
   if (event->event_type != key_press_event)
     {
-      if (event->event_type == dead_event) abort ();
+      assert (event->event_type != dead_event);
       return -1;
     }
   if (!allow_extra_modifiers &&

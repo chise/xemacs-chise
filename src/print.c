@@ -627,8 +627,13 @@ print_error_message (Lisp_Object error_object, Lisp_Object stream)
   {
     int first = 1;
     int speccount = specpdl_depth ();
+    Lisp_Object frame = Qnil;
+    struct gcpro gcpro1;
+    GCPRO1 (stream);
 
     specbind (Qprint_message_label, Qerror);
+    stream = print_prepare (stream, &frame);
+
     tail = Fcdr (error_object);
     if (EQ (type, Qerror))
       {
@@ -650,6 +655,8 @@ print_error_message (Lisp_Object error_object, Lisp_Object stream)
 	tail = Fcdr (tail);
 	first = 0;
       }
+    print_finish (stream, frame);
+    UNGCPRO;
     unbind_to (speccount, Qnil);
     return;
     /* not reached */

@@ -2264,9 +2264,7 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  VOID_TO_LISP (image_instance, ii);
 	  if (IMAGE_INSTANCEP (image_instance)
 	      &&
-	      IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET)
-	      &&
-	      !NILP (XIMAGE_INSTANCE_WIDGET_FACE (image_instance)))
+	      IMAGE_INSTANCE_TYPE_P (image_instance, IMAGE_WIDGET))
 	    {
 	      /* set colors for the buttons */
 	      HDC hdc = (HDC)wParam;
@@ -3004,7 +3002,7 @@ vars_of_event_mswindows (void)
   mswindows_s_dispatch_event_queue = Qnil;
   staticpro (&mswindows_s_dispatch_event_queue);
   mswindows_s_dispatch_event_queue_tail = Qnil;
-  pdump_wire (&mswindows_u_dispatch_event_queue_tail);
+  pdump_wire (&mswindows_s_dispatch_event_queue_tail);
 
   mswindows_error_caught_in_modal_loop = Qnil;
   staticpro (&mswindows_error_caught_in_modal_loop);

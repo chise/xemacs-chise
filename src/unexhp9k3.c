@@ -40,6 +40,7 @@ Modified Jan 93 by Hamish Macdonald for HPUX
 #include <sys/types.h>
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
 #include <signal.h>
 #ifdef __hp9000s300
 # include </usr/include/debug.h>
@@ -87,7 +88,6 @@ int run_time_remap (char *dummy);
 
 /* for reporting error messages from system calls */
 extern int sys_nerr;
-extern int errno;
 extern int _DYNAMIC;
 extern char **environ;             
 

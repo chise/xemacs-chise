@@ -2145,9 +2145,9 @@ hft_reset (struct console *con)
  */
 
 #ifdef __cplusplus
-  extern "C" int _start ();
+  extern "C" int _start (void);
 #else
-  extern int _start ();
+  extern int _start (void);
 #endif
 
 #ifndef HAVE_TEXT_START

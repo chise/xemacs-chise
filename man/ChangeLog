@@ -1,3 +1,78 @@
+2000-01-18  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.27 is released.
+
+2000-01-17  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* xemacs/regs.texi: Synch with FSF 20.5.
+
+2000-01-14  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* info.texi: Change cross reference from emacs to xemacs.
+
+2000-01-14  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* xemacs/mini.texi: Synch with FSF 20.5.  Update.
+
+2000-01-16  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi (Q2.1.15): Fix up @table formatting.
+
+2000-01-14  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi (Q2.1.15): Update dbx/gdb debugging info.
+
+2000-01-14  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi: removed out-of-date XEmacs 19 questions.
+
+2000-01-14  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi: Updated Macintosh information,
+	updated OS/2 info, changed turn-on-pending-delete answer.
+
+2000-01-08  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs-faq.texi (Q2.1.15): Make debugging info current.
+
+2000-01-08  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* lispref/control.texi (Signaling Errors): Document that `signal'
+	is continuable.
+	(Signaling Errors): Document `cerror', `signal-error', and
+	`check-argument-type'.
+	(Handling Errors): Mention `debug-on-signal'.
+	(Error Symbols): Document `define-error'.
+	(Processing of Errors): Document `display-error' and
+	`error-message-string'.
+
+2000-01-05  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* internals/internals.texi: Remove latin-1 char.
+
+2000-01-05  Didier Verna  <didier@xemacs.org>
+
+	* xemacs/custom.texi (Key bindings using strings): add missing
+	whitespace.
+
+	* xemacs/xemacs.texi (Top):
+	* new-users-guide/new-users-guide.texi (Top): add missing `@top'
+	node.
+
+1999-12-24  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* lispref/minibuf.texi (Reading a Password): New section.
+
+1999-12-21  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* lispref/minibuf.texi: Remove documentation about
+	minibuffer-local-ns-map, read-no-blanks-input.
+
+1999-12-21  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* lispref/minibuf.texi: Partial Synch with FSF manual.
+	Add description about DEFAULT argument of reading functions.
+
 1999-12-31  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.26 is released.

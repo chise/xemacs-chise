@@ -90,9 +90,8 @@ translation approved by the author instead of in the original English.
 @page
 @ifinfo
 @node Top, License,, (dir)
+@top The XEmacs Editor
 
-The XEmacs Editor
-*****************
 
 XEmacs is the extensible, customizable, self-documenting real-time
 display editor.  This Info file describes how to edit with Emacs

@@ -40,7 +40,7 @@ Boston, MA 02111-1307, USA.  */
  */
 
 #define NO_SHORTNAMES   /* Tell config not to load remap.h */
-#include <../src/config.h>
+#include <config.h>
 
 #include <stdio.h>
 #include <errno.h>
@@ -429,10 +429,10 @@ write_c_args (FILE *out, CONST char *func, char *buff, int minargs,
       static char lo[] = "Lisp_Object";
       if ((C_IDENTIFIER_CHAR_P (c) != in_ident) && !in_ident &&
 	  (strncmp (p, lo, sizeof (lo) - 1) == 0) &&
-	  isspace(*(p + sizeof (lo) - 1)))
+	  isspace((unsigned char) (* (p + sizeof (lo) - 1))))
 	{
 	  p += (sizeof (lo) - 1);
-	  while (isspace (*p))
+	  while (isspace ((unsigned char) (*p)))
 	    p++;
 	  c = *p;
 	}
