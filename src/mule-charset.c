@@ -923,7 +923,7 @@ decode_defined_char (Lisp_Object ccs, int code_point)
     }
   if (CHARP (decoding_table))
     return XCHAR (decoding_table);
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   if (EQ (decoding_table, Qunloaded))
     {
       char_id = load_char_decoding_entry_maybe (ccs, code_point);

@@ -484,7 +484,7 @@ complex_vars_of_casetab (void)
 
 #ifdef UTF2000
   tem = MAKE_TRT_TABLE ();
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   XCHAR_TABLE_NAME (tem) = Qdowncase;
 #endif
 #else
@@ -504,7 +504,7 @@ complex_vars_of_casetab (void)
 
 #ifdef UTF2000
   tem = MAKE_TRT_TABLE ();
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   XCHAR_TABLE_NAME (tem) = Qflippedcase;
 #endif
 #else

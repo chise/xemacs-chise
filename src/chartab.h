@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 #include "database.h"
 #endif
 
@@ -349,7 +349,7 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 extern Lisp_Object Qsystem_char_id;
 
 Lisp_Object
@@ -381,7 +381,7 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
   Lisp_Object val = get_char_id_table_0 (cit, ch);
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   if (EQ (val, Qunloaded))
     {
       val = load_char_attribute_maybe (cit, ch);

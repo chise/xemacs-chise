@@ -67,7 +67,7 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 EXFUN (Fmap_char_attribute, 3);
 
-#if defined(HAVE_DATABASE)
+#if defined(HAVE_CHISE_CLIENT)
 EXFUN (Fload_char_attribute_table, 1);
 
 Lisp_Object Vchar_db_stingy_mode;
@@ -315,7 +315,7 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 static void
 save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 		       Lisp_Object db,
@@ -626,7 +626,7 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 static void
 save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 			Lisp_Object db,
@@ -886,7 +886,7 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 static void
 save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 		 Lisp_Object db,
@@ -2064,7 +2064,7 @@ get_char_table (Emchar ch, Lisp_Char_Table *ct)
   {
     Lisp_Object ret = get_char_id_table (ct, ch);
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
     if (NILP (ret))
       {
 	if (EQ (CHAR_TABLE_NAME (ct), Qdowncase))
@@ -2842,7 +2842,7 @@ map_char_table (Lisp_Char_Table *ct,
 	    struct chartab_range rainj;
 	    struct map_char_table_for_charset_arg mcarg;
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 	    if (XCHAR_TABLE_UNLOADED(encoding_table))
 	      Fload_char_attribute_table (XCHAR_TABLE_NAME (encoding_table));
 #endif
@@ -3261,7 +3261,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       {
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 	XCHAR_TABLE_NAME (table) = attribute;
 #endif
       }
@@ -3297,7 +3297,7 @@ Remove CHARACTER's ATTRIBUTE.
   return Qnil;
 }
 
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode)
@@ -3355,7 +3355,7 @@ Save values of ATTRIBUTE into database file.
 */
        (attribute))
 {
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
@@ -3392,7 +3392,7 @@ Mount database file on char-attribute-table ATTRIBUTE.
 */
        (attribute))
 {
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
 
@@ -3418,7 +3418,7 @@ Close database of ATTRIBUTE.
 */
        (attribute))
 {
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
@@ -3443,7 +3443,7 @@ Reset values of ATTRIBUTE with database file.
 */
        (attribute))
 {
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
@@ -3600,7 +3600,7 @@ the entire table.
   if (NILP (range))
     range = Qt;
   decode_char_table_range (range, &rainj);
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   if (CHAR_TABLE_UNLOADED(ct))
     Fload_char_attribute_table (attribute);
 #endif
@@ -4084,7 +4084,7 @@ syms_of_chartab (void)
   DEFSUBR (Ffind_char_attribute_table);
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   DEFSUBR (Fsave_char_attribute_table);
   DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
@@ -4153,11 +4153,11 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-#ifdef HAVE_DATABASE
+#ifdef HAVE_CHISE_CLIENT
   DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
 */ );
   Vchar_db_stingy_mode = Qt;
-#endif /* HAVE_DATABASE */
+#endif /* HAVE_CHISE_CLIENT */
 #endif
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
