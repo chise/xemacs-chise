@@ -1,5 +1,13 @@
 2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.h (Lisp_Char_ID_Table): Deleted.
+
+	* chartab.c (char_table_description): Fix typo.
+	(Fmap_char_attribute): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_TABLEP' instead of
 	`CHAR_ID_TABLE_P'.
 
