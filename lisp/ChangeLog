@@ -1,3 +1,8 @@
+2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-er): New coding-system in UTF-2000;
+	setup `coded-charset-entity-reference-alist'.
+
 2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Dump "close-cdb" in
