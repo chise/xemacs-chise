@@ -588,6 +588,7 @@
 			      ->ancient-ideograph <-ancient-ideograph
 			      ->original-ideograph <-original-ideograph
 			      ->simplified-ideograph <-simplified-ideograph
+			      ->wrong-ideograph <-wrong-ideograph
 			      ->same-ideograph
 			      ->ideographic-variants
 			      ->synonyms
