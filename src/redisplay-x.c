@@ -137,8 +137,9 @@ separate_textual_runs (unsigned char *text_storage,
 
   for (i = 0; i < len; i++)
     {
-      Charc ec = str[i];
-      Lisp_Object charset = ec.charset;
+      Charc cc = str[i];
+      Lisp_Object charset = CHARC_CHARSET (cc);
+      int code_point = CHARC_CODE_POINT (cc);
       int byte1, byte2;
       int dimension;
       int graphic;
@@ -147,13 +148,13 @@ separate_textual_runs (unsigned char *text_storage,
       graphic   = XCHARSET_GRAPHIC   (charset);
       if (dimension == 1)
 	{
-	  byte1 = ec.code_point;
+	  byte1 = code_point;
 	  byte2 = 0;
 	}
       else
 	{
-	  byte1 = ec.code_point >> 8;
-	  byte2 = ec.code_point & 0xFF;
+	  byte1 = code_point >> 8;
+	  byte2 = code_point & 0xFF;
 	}
       if (!EQ (charset, prev_charset))
 	{
@@ -349,7 +350,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
   findex = rb->findex;
   xpos = rb->xpos;
   if (rb->type == RUNE_CHAR)
-    charset = rb->object.cglyph.charset;
+    charset = CHARC_CHARSET (rb->object.cglyph);
 
   if (end < 0)
     end = Dynarr_length (rba);
@@ -360,10 +361,9 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
       rb = Dynarr_atp (rba, elt);
 
       if (rb->findex == findex && rb->type == RUNE_CHAR
-	  && (!EQ (rb->object.cglyph.charset, Vcharset_ascii)
-	      || rb->object.cglyph.code_point != '\n')
+	  && (!CHARC_ASCII_EQ (rb->object.cglyph, '\n'))
 	  && rb->cursor_type != CURSOR_ON
-	  && EQ (charset, rb->object.cglyph.charset))
+	  && EQ (charset, CHARC_CHARSET (rb->object.cglyph)))
 	{
 	  Dynarr_add (buf, rb->object.cglyph);
 	  width += rb->width;
@@ -386,12 +386,11 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 	    {
 	      findex = rb->findex;
 	      xpos = rb->xpos;
-	      charset = rb->object.cglyph.charset;
+	      charset = CHARC_CHARSET (rb->object.cglyph);
 
 	      if (rb->cursor_type == CURSOR_ON)
 		{
-		  if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
-		      && (rb->object.cglyph.code_point == '\n'))
+		  if (CHARC_ASCII_EQ (rb->object.cglyph, '\n'))
 		    {
 		      x_output_eol_cursor (w, dl, xpos, findex);
 		    }
@@ -408,8 +407,7 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		  xpos += rb->width;
 		  elt++;
 		}
-	      else if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
-		       && (rb->object.cglyph.code_point == '\n'))
+	      else if (CHARC_ASCII_EQ (rb->object.cglyph, '\n'))
 		{
 		  /* Clear in case a cursor was formerly here. */
 		  redisplay_clear_region (window, findex, xpos,
