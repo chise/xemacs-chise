@@ -1,5 +1,12 @@
 2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (open_chise_data_source_maybe): Use `CHISE_DS_open'
+	instead of `chise_open_data_source'.
+	(Fclose_char_data_source): Use `CHISE_DS_close' instead of
+	`chise_ds_close'.
+
+2003-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (char_table_open_db_maybe): Use `chise_ds_get_feature'
 	instead of `chise_ds_open_feature_table'.
 	(char_table_close_db_maybe): Don't use `chise_ft_close'.
