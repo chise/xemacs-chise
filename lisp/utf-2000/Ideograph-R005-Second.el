@@ -324,6 +324,9 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=gb12345		  . #x4F30)	; &UU+7FD2;
+      ))
     (hanyu-dazidian	1 51 3)
     (=ucs		. #x4E60)	; 习
     (=gb2312		. #x4F30)	; &I-G0-4F30;
@@ -334,6 +337,9 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=gb12345		  . #x4F67)	; &C1-6254;
+      ))
     (hanyu-dazidian	1 51 5)
     (=ucs		. #x4E61)	; 乡
     (=gb2312		. #x4F67)	; &I-G0-4F67;
@@ -468,6 +474,10 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=ucs		  . #x66F8)	; 書
+      (=gb12345		  . #x4A69)	; 書
+      ))
     (hanyu-dazidian	1 52 5)
     (=ucs		. #x4E66)	; 书
     (=gb2312		. #x4A69)	; &I-G0-4A69;
@@ -901,6 +911,10 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (<-simplified@CN
+     ((=ucs		  . #x8CB7)	; 買
+      (=gb12345		  . #x4272)	; 買
+      ))
     (hanyu-dazidian	1 53 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -943,6 +957,13 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (<-simplified
+     ((=ucs		  . #x4E82)	; 亂
+      ))
+    (<-simplified@CN
+     ((=cns11643-1	  . #x632A)	; &GT-00286;
+      (=gb12345		  . #x4252)	; &GT-00286;
+      ))
     (<-simplified@JP/Jouyou
      ((=jis-x0208	  . #x502C)	; &GT-00285;
       (=ks-x1001	  . #x552F)	; &I-K0-552F;
