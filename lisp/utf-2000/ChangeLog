@@ -1,5 +1,10 @@
 2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R037-Big.el (M-05898): Map to U-000215FE.
+	(C6-2A58): Separate M-05898.
+
+2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R016-Table.el (U+51E1): Delete `cns-radical'; add
 	`->identical' for C1-443B; separate C1-443B.
 
@@ -9,8 +14,12 @@
 
 2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R005-Second.el (U-000200D5): Add
-	`ideographic-structure'.
+	* Ideograph-R040-Roof.el (U-00021AA3): Separate C4-4948.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021576): Separate C5-4C50.
+
+	* Ideograph-R030-Mouth.el (M-04531): Separate C7-3F2E.
+	(C7-3F2E): Separate U-000210A2.
 
 2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
@@ -18,6 +27,11 @@
 	(C6-2A32): Separate U-00020B3B.
 
 	* Ideograph-R028-Private.el (U-0002128F): Separate C6-2641.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el (U-000200D5): Add
+	`ideographic-structure'.
 
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
