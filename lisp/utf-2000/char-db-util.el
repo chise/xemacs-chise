@@ -505,8 +505,9 @@
   (let ((code min)
 	char)
     (while (<= code max)
-      (setq char (int-char code))
-      (insert-char-data-with-variant char script)
+      (setq char (decode-char 'ucs code))
+      (if (get-char-attribute char 'ucs)
+	  (insert-char-data-with-variant char script))
       (setq code (1+ code))
       )))
 
