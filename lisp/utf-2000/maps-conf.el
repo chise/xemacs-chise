@@ -23,7 +23,13 @@
  (lambda (c v)
    (unless (memq v '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
 		     #x5F5B #x6062 #x4849 #x6173 #x306B
-		     #x6328 #x6352 #x6362))
+		     #x6328 #x6352 #x6362 #x6471 #x6524
+		     #x6530 #x6549 #x6628 #x4356 #x665C
+		     #x665D #x6661 #x6660 #x6663 #x4F38
+		     #x666B #x4C2E #x6724 #x3D58 #x682B
+		     #x427B #x4978 #x694A #x303A #x6A44
+		     #x6B43 #x6B78 #x6C2E #x6C57 #x6D36
+		     #x6D3A #x3D34 #x4A56 #x3063))
      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 			 '=gt-pj-1 v))
    nil)
