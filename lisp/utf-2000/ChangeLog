@@ -1,3 +1,32 @@
+2004-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R182-Wind.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R038-Woman.el (U+5974): Use `->subsumptive'.
+	(U+36A2): Define as an abstract character.
+	(M-06040): Use `<-ancient*sources' instead of char-ref in
+	`<-ancient'; add `<-denotational' for U+36A2.
+	(U+5975): Use `->subsumptive'.
+	(U+5976): Likewise.
+	(U+5977): Likewise.
+	(U+5978): Likewise.
+	(U+5979): Likewise.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+
+2004-07-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (M-08670): Add `daikanwa' into
+	`<-ancient*sources'; unify GT-10943.
+	(U-00021FE8): Unify GT-10940.
+	(U+5DDC): Unify GT-10941 and GT-K00158.
+	(BC-8BED): Unify GT-10942.
+	(U-00021FE7): Unify GT-10946 and GT-K00728.
+	(U-00021FE9): Use `->subsumptive'.
+
 2004-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R183-Fly.el (C5-6A61): Use `->subsumptive'; integrate
