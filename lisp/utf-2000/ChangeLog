@@ -1,3 +1,60 @@
+2003-02-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* u030A0-Katakana.el, u03040-Hiragana.el, Ideograph-R184-Eat.el,
+	Ideograph-R135-Tongue.el, Ideograph-R124-Feather.el,
+	Ideograph-R030-Mouth.el, Ideograph-R114-Track.el,
+	Ideograph-R089-Double-X.el, Ideograph-R061-Heart.el,
+	Ideograph-R050-Turban.el, Ideograph-R011-Enter.el: Reformatted.
+
+2003-02-21  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R019-Power.el (M-02485): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R181-Leaf.el (U+4AC2): Unify CB00714.
+	(M-43447): Separate C2-555F.
+
+	* Ideograph-R199-Wheat.el (M-47748): Unify U-0002A312.
+	(C7-2C2D): Map to U-0002A312.
+	(CB01463): New character.
+
+	* Ideograph-R145-Clothes.el (M-34556): Separate G0-4F65, C1-7543
+	and U+8944; add JU+8944, KU+8944 and BU+8944.
+
+	* Ideograph-R009-Man.el (U-000201EE): Add `ideographic-strokes'
+	and `total-strokes'.
+	(CB06079): New character.
+	(C4-4232): Modify `ideographic-structure'.
+
+2003-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (U-00021B3E): Unify CB12636.
+
+	* Ideograph-R030-Mouth.el (M-03598): Modify
+	`ideographic-structure'.
+
+2003-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U-0002123D): New character.
+	(U-0002131B): New character.
+	(U-0002146E): New character.
+
+2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (M-05344): Delete J83-444D, J90-444D,
+	JC3-47C9 and JU+585A.
+	(JX1-2F57): Unify U+FA10 and KU+585A; map to GU+585A, CU+585A and
+	BU+585A.
+	(U+585A): Map to JU+FA10.
+	(C1-6356): Map to JU+FA10; add CU+585A and BU+585A.
+	(J90-444D): Map to U+585A.
+	(JC3-47C9): Likewise.
+
+2003-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`=>ucs-big5'.
+
 2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R191-Fight.el, Ideograph-R172-Short-Tailed-Bird.el,
