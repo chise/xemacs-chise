@@ -58,10 +58,23 @@ function ldp {
 
 # A bug in dbx prevents string variables from having values beginning with `-'!!
 function XEmacsInit {
-  eval $(echo $(whatis -t `alloc.c`dbg_constants) | \
-    perl -e 'print "@{[map {s/=(-\d+)/sprintf(q[=0x%x],$1)/oge; /\w+=[0-9a-fx]+/og} <>]}\n"')
+  function ToInt { eval "$1=\$[(int) $1]"; }
+  ToInt dbg_USE_MINIMAL_TAGBITS
+  ToInt dbg_USE_UNION_TYPE
+  ToInt dbg_USE_INDEXED_LRECORD_IMPLEMENTATION
+  ToInt Lisp_Type_Int
+  ToInt Lisp_Type_Char
+  ToInt Lisp_Type_Cons
+  ToInt Lisp_Type_String
+  ToInt Lisp_Type_Vector
+  ToInt Lisp_Type_Symbol
+  ToInt Lisp_Type_Record
+  ToInt dbg_valbits
+  ToInt dbg_gctypebits
+  function ToLong { eval "$1=\$[(unsigned long) $1]"; }
+  ToLong dbg_valmask
+  ToLong dbg_typemask
   xemacs_initted=yes
-  #printvar dbg_valbits dbg_valmask
 }
 
 function printvar {
@@ -91,10 +104,10 @@ function decode_object {
     if test $[(int)($obj & 1)] = 1; then
       # It's an int
       val=$[(long)(((unsigned long long)$obj) >> 1)]
-      type=$dbg_Lisp_Type_Int
+      type=$Lisp_Type_Int
     else
       type=$[(int)(((void*)$obj) & $dbg_typemask)]
-      if test $type = $dbg_Lisp_Type_Char; then
+      if test $type = $Lisp_Type_Char; then
         val=$[(void*)(long)(((unsigned long long)($obj & $dbg_valmask)) >> $dbg_gctypebits)]
       else
         # It's a record pointer
@@ -105,9 +118,9 @@ function decode_object {
   else
     # not dbg_USE_MINIMAL_TAGBITS
     type=$[(int)(((unsigned long long)($obj & $dbg_typemask)) >> ($dbg_valbits + 1))]
-    if test "$[$type == Lisp_Type_Int]" = 1; then
+    if test "$type" = $Lisp_Type_Int; then
       val=$[(int)($obj & $dbg_valmask)]
-    elif test "$[$type == Lisp_Type_Char]" = 1; then
+    elif test "$type" = $Lisp_Type_Char; then
       val=$[(int)($obj & $dbg_valmask)]
     else
       val=$[(void*)($obj & $dbg_valmask)]
@@ -117,7 +130,7 @@ function decode_object {
     #printvar val type obj
   fi
 
-  if test $type = $dbg_Lisp_Type_Record; then
+  if test $type = $Lisp_Type_Record; then
     typeset lheader="((struct lrecord_header *) $val)"
     if test $dbg_USE_INDEXED_LRECORD_IMPLEMENTATION = 1; then
       imp=$[(void*)(lrecord_implementations_table[$lheader->type])]
@@ -127,7 +140,7 @@ function decode_object {
   else
     imp="0xdeadbeef"
   fi
-  #printvar obj val type imp
+  # printvar obj val type imp
 }
 
 function xint {
@@ -137,16 +150,26 @@ function xint {
 
 function xtype {
   decode_object "$*"
-  if   test $type = $dbg_Lisp_Type_Int;    then echo "int"
-  elif test $type = $dbg_Lisp_Type_Char;   then echo "char"
-  elif test $type = $dbg_Lisp_Type_Symbol; then echo "symbol"
-  elif test $type = $dbg_Lisp_Type_String; then echo "string"
-  elif test $type = $dbg_Lisp_Type_Vector; then echo "vector"
-  elif test $type = $dbg_Lisp_Type_Cons;   then echo "cons"
-  elif test $type = null_pointer;          then echo "$type"
+  if   test $type = $Lisp_Type_Int;    then echo "int"
+  elif test $type = $Lisp_Type_Char;   then echo "char"
+  elif test $type = $Lisp_Type_Symbol; then echo "symbol"
+  elif test $type = $Lisp_Type_String; then echo "string"
+  elif test $type = $Lisp_Type_Vector; then echo "vector"
+  elif test $type = $Lisp_Type_Cons;   then echo "cons"
+  elif test $type = null_pointer;      then echo "null_pointer"
   else
     echo "record type with name: $[((struct lrecord_implementation *)$imp)->name]"
   fi
+}
+
+function lisp-shadows {
+  run -batch -vanilla -f list-load-path-shadows
+}
+
+function environment-to-run-temacs {
+  unset EMACSLOADPATH
+  export EMACSBOOTSTRAPLOADPATH=../lisp/:..
+  export EMACSBOOTSTRAPMODULEPATH=../modules/:..
 }
 
 document run-temacs << 'end'
@@ -157,8 +180,7 @@ or when temacs builds successfully, but xemacs does not.
 end
 
 function run-temacs {
-  unset EMACSLOADPATH
-  export EMACSBOOTSTRAPLOADPATH=../lisp/:..
+  environment-to-run-temacs
   run -batch -l ../lisp/loadup.el run-temacs -q
 }
 
@@ -170,15 +192,13 @@ Use this when temacs builds successfully, but xemacs does not.
 end
 
 function update-elc {
-  unset EMACSLOADPATH
-  export EMACSBOOTSTRAPLOADPATH=../lisp/:..
+  environment-to-run-temacs
   run -batch -l ../lisp/update-elc.el
 }
 
 
 function dump-temacs {
-  unset EMACSLOADPATH
-  export EMACSBOOTSTRAPLOADPATH=../lisp/:..
+  environment-to-run-temacs
   run -batch -l ../lisp/loadup.el dump
 }
 
@@ -206,22 +226,22 @@ end
 
 function pobj {
   decode_object $1
-  if test $type = $dbg_Lisp_Type_Int; then
+  if test $type = $Lisp_Type_Int; then
     print -f"Integer: %d" $val
-  elif test $type = $dbg_Lisp_Type_Char; then
-    if $val < 128; then
+  elif test $type = $Lisp_Type_Char; then
+    if test $[$val > 32 && $val < 128] = 1; then
       print -f"Char: %c" $val
     else
       print -f"Char: %d" $val
     fi
-  elif test $type = $dbg_Lisp_Type_String || lrecord_type_p string; then
+  elif test $type = $Lisp_Type_String || lrecord_type_p string; then
     pstruct Lisp_String
-  elif test $type = $dbg_Lisp_Type_Cons   || lrecord_type_p cons; then
+  elif test $type = $Lisp_Type_Cons   || lrecord_type_p cons; then
     pstruct Lisp_Cons
-  elif test $type = $dbg_Lisp_Type_Symbol || lrecord_type_p symbol; then
+  elif test $type = $Lisp_Type_Symbol || lrecord_type_p symbol; then
     pstruct Lisp_Symbol
-    echo "Symbol name: $[(char *)($xstruct->name->_data)]"
-  elif test $type = $dbg_Lisp_Type_Vector || lrecord_type_p vector; then
+    echo "Symbol name: $[(char *)($xstruct->name->data)]"
+  elif test $type = $Lisp_Type_Vector || lrecord_type_p vector; then
     pstruct Lisp_Vector
     echo "Vector of length $[$xstruct->size]"
   elif lrecord_type_p bit_vector; then
@@ -336,4 +356,28 @@ function dp_core {
 # Barf!
 function print_shell {
   print *(`frame-x.c`TopLevelShellRec*) (((struct `frame-x.c`x_frame*) (((struct `frame-x.c`frame*) (Fselected_frame(Qnil)&0x00FFFFFF))->frame_data))->widget)
+}
+
+# -------------------------------------------------------------
+# functions to test the debugging support itself.
+# If you change this file, make sure the following still work...
+# -------------------------------------------------------------
+function test_xtype {
+  function doit { echo -n "$1: "; xtype "$1"; }
+  test_various_objects
+}
+
+function test_pobj {
+  function doit { echo '==============================='; echo -n "$1: "; pobj "$1"; }
+  test_various_objects
+}
+
+function test_various_objects {
+  doit Vemacs_major_version
+  doit Vhelp_char
+  doit Qnil
+  doit Qunbound
+  doit Vobarray
+  doit Vall_weak_lists
+  doit Vxemacs_codename
 }
