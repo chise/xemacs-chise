@@ -1,5 +1,11 @@
 2001-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R145-Clothes.el (C4-5D4B): Delete `morohashi-daikanwa'
+	to fix.
+	(M-34634): Separate C2-667C.
+	(M-34636): Separate C2-6675.
+	(M-34646): Separate C5-6948.
+
 	* Ideograph-R038-Woman.el (U+5A75): Fix `morohashi-daikanwa'
 	property.
 
