@@ -1,3 +1,10 @@
+2003-05-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R003-Dot.el, Ideograph-R001-One.el (C3-2740): Use
+	`ideographic-{radical|strokes}@{daikanwa|cns}' and
+	`ideographic-radical@{daikanwa|cns}*sources' instead of
+	`ideographic-'; unify BC-8CB7.
+
 2003-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R114-Track.el (U-00020398): Use
