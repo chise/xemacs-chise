@@ -1,3 +1,81 @@
+2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R184-Eat.el (C1-537A): Add `ideographic-structure'.
+	(U+98DF): Likewise.
+	(BC-8BB9): New character.
+	(U+98E0): Relate to M-44014; add `ideographic-structure'.
+	(GT-K04996): New character.
+	(U+9963): Relate to M-44014.
+
+	* Ideograph-R145-Clothes.el (J0-3061): Separate G0-5242, C1-4868
+	and U+8863.
+
+	* Ideograph-R049-Oneself.el (BC-896D): New character.
+	(U+5DF5): Delete broken `ideographic-structure'.
+
+	* Ideograph-R040-Roof.el (J0-4652): Separate G0-527A, C1-596B and
+	U+5BC5.
+
+	* isolated-char.el: Add code to read
+	../etc/char-data/GT-fmap-K[12].txt.
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideograph-gt-k' like `ideograph-gt'.
+
+	* Ideograph-R163-City.el (J0-4974): Separate G0-323F, C1-5D65 and
+	U+90E8.
+
+	* Ideograph-R149-Speech.el (J0-315A): Unify CB05919.
+
+	* Ideograph-R116-Cave.el (U+7A74): Separate J90-376A.
+
+	* Ideograph-R035-Go-Slowly.el (JX1-2F67): Separate U+590C.
+
+2002-12-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R148-Horn.el (CB00976): New character.
+
+	* Ideograph-R135-Tongue.el (U+8210): Modify
+	`ideographic-structure'.
+	(C1-576B): Add `ideographic-structure'.
+
+	* Ideograph-R124-Feather.el (J0-6644): Modify
+	`ideographic-structure'.
+	(J78-344D): Delete broken `ideographic-structure'.
+	(U+7FF0): Likewise.
+
+	* Ideograph-R068-Dipper.el (J0-5A4F): Don't unify CB00976; fix
+	`ideographic-structure'; separate C1-5A7C.
+	(U+659B): Fix `ideographic-structure'.
+
+	* Ideograph-R064-Hand.el (U+64E7): Use <IDEOGRAPHIC DESCRIPTION
+	CHARACTER ABOVE TO BELOW> instead of <IDEOGRAPHIC DESCRIPTION
+	CHARACTER SURROUND FROM ABOVE>.
+
+	* Ideograph-R050-Turban.el (J0-5671): Separate G0-3431, C1-6C56
+	and U+5E62.
+
+	* Ideograph-R046-Mountain.el (U+5CE0): Simplify
+	`ideographic-structure'.
+
+	* Ideograph-R042-Small.el (J0-5576): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (J0-3144): Separate U+55B6.
+	(J0-5353): Separate G0-603B, C1-6830, B-B9C8 and U+55F7.
+	(j0-5360): Separate G0-6066, C1-703C and U+566B.
+
+	* Ideograph-R019-Power.el (J0-387A): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (J0-515A): Modify `ideographic-structure'.
+	(J90-7425): Separate JC3-44A4 and U+51DC.
+	(C1-6C29): Modify `ideographic-structure'.
+
+2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (BC-8CCD): New character.
+
 2002-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+5405): Unify CB08105.
