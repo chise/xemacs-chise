@@ -3789,6 +3789,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=daikanwa		. 29441)	; ø¸‡Œ
+    (=jef-china3	. #x52AA)	; øº…Šª
     (=ucs		. #x80F7)	; èƒ·
     ))
 (define-char
@@ -4796,6 +4797,7 @@
     (=jis-x0212		. #x562C)	; ø»‹²‘
     (=jis-x0213-1-2000	. #x7A4E)	; ø»¤–—
     (=daikanwa		. 29499)	; ø¸‡Œ»
+    (=jef-china3	. #x52C5)	; øº…‹…
     (=ucs@jis		. #x8118)	; ø»Šƒ
     ))
 (define-char
@@ -4804,7 +4806,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=gb2312		. #x6B64)	; ø»…³³
-    (=jef-china3	. #x52C5)	; øº…‹…
     (=ucs		. #x8118)	; è„˜
     ))
 (define-char
@@ -6170,6 +6171,7 @@
     (total-strokes	 . 12)
     (=jis-x0212		. #x5636)	; ø»‹²›
     (=daikanwa		. 29576)	; ø¸‡Žˆ
+    (=jef-china3	. #x52CE)	; øº…‹Ž
     (=ucs@jis		. #x813C)	; ø»‹²›
     ))
 (define-char
@@ -8333,6 +8335,7 @@
     (=jis-x0212		. #x5642)	; ø»‹²§
     (=jis-x0213-1-2000	. #x7A53)	; ø»¤–œ
     (=daikanwa		. 29700)	; ø¸‡„
+    (=jef-china3	. #x52D2)	; øº…‹’
     (=ucs		. #x816D)	; è…­
     ))
 (define-char
@@ -8425,6 +8428,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=daikanwa		. 29705)	; ø¸‡‰
+    (=jef-china3	. #x52D4)	; øº…‹”
     (mojikyo		. 029705)	; ý €‡‰
     ))
 (define-char
@@ -9412,6 +9416,7 @@
     (=jis-x0212		. #x5648)	; ø»‹²­
     (=jis-x0213-2-2000	. #x754E)	; ø»¦™…
     (=daikanwa		. 29760)	; ø¸‡‘€
+    (=jef-china3	. #x52D8)	; øº…‹˜
     (=ucs@jis		. #x8185)	; ø»‹²­
     ))
 (define-char
@@ -9419,7 +9424,6 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=jef-china3	. #x52D8)	; øº…‹˜
     (=ucs		. #x8185)	; è†…
     ))
 (define-char
@@ -10889,6 +10893,7 @@
     (total-strokes	 . 15)
     (=jis-x0212		. #x564F)	; ø»‹²´
     (=daikanwa		. 29839)	; ø¸‡’
+    (=jef-china3	. #x52DB)	; øº…‹›
     (=ucs		. #x819E)	; è†ž
     ))
 (define-char
@@ -10911,8 +10916,15 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=cns11643-2	. #x5328)	; ø»”–ƒ
     (=ucs		. #x819F)	; è†Ÿ
+    ))
+(define-char
+  '((=>ucs		. #x819F)	; è†Ÿ
+    (morohashi-daikanwa	29840 0 3)
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=cns11643-2	. #x5328)	; ø»”–ƒ
     ))
 (define-char
   '((=>ucs		. #x81A0)	; è† 
@@ -11409,6 +11421,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=daikanwa		. 29865)	; ø¸‡’©
+    (=jef-china3	. #x52DC)	; øº…‹œ
     (=ucs		. #x81AB)	; è†«
     ))
 (define-char
@@ -11494,6 +11507,7 @@
     (total-strokes	 . 16)
     (=jis-x0212		. #x5651)	; ø»‹²¶
     (=daikanwa		. 29870)	; ø¸‡’®
+    (=jef-china3	. #x52DD)	; øº…‹
     (=ucs		. #x81AE)	; è†®
     ))
 (define-char
@@ -12838,6 +12852,7 @@
     (total-strokes	 . 17)
     (=jis-x0212		. #x5657)	; ø»‹²¼
     (=daikanwa		. 29950)	; ø¸‡“¾
+    (=jef-china3	. #x52DE)	; øº…‹ž
     (=ucs		. #x81C5)	; è‡…
     ))
 (define-char
@@ -13398,6 +13413,7 @@
     (=jis-x0212		. #x565A)	; ø»‹²¿
     (=jis-x0213-1-2000	. #x7A56)	; ø»¤–Ÿ
     (=daikanwa		. 29977)	; ø¸‡”™
+    (=jef-china3	. #x52E0)	; øº…‹ 
     (=ucs@jis		. #x81CF)	; ø»‹²¿
     ))
 (define-char
@@ -14302,6 +14318,7 @@
     (total-strokes	 . 21)
     (=jis-x0212		. #x565E)	; ø»‹³ƒ
     (=daikanwa		. 30032)	; ø¸‡•
+    (=jef-china3	. #x52AC)	; øº…Š¬
     (=ucs@jis		. #x81DD)	; ø»‹³ƒ
     ))
 (define-char
@@ -14320,15 +14337,22 @@
     (=ucs		. #x81DD)	; è‡
     ))
 (define-char
-  '((ideographic-radical . 130)	; â¾
+  '((=>ucs		. #x444B)	; ä‘‹
+    (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
     (=daikanwa		. 30033)	; ø¸‡•‘
+    ))
+(define-char
+  '((morohashi-daikanwa	30033 0 0)
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 17)
+    (total-strokes	 . 21)
     (=ucs		. #x444B)	; ä‘‹
     ))
 (define-char
   '((=>ucs		. #x444B)	; ä‘‹
-    (morohashi-daikanwa	30033 0 0)
+    (morohashi-daikanwa	30033 0 1)
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
