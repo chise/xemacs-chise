@@ -1,3 +1,17 @@
+2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R212-Dragon.el (J0-4E36): Separate G1-417A and U+9F8D;
+	add `ucs-jis' for U+9F8D.
+
+	* Ideograph-R121-Jar.el (JX2-7461): Separate C4-2F29 and U+4343;
+	add `ucs-jis' for U+4343.
+
+	* Ideograph-R115-Grain.el (J0-6348): Separate C1-6562 and U+7A1F;
+	add `ucs-jis' for U+7A1F.
+
+	* Ideograph-R100-Life.el (J0-3B3A): Separate C3-3745, G1-327A and
+	U+7523; add `ucs-jis' for U+7523.
+
 2002-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-attributes): Add setting for
@@ -7,11 +21,6 @@
 
 	* Ideograph-R175-Wrong.el (J83-7051): Separate J90-7051 and
 	JU+9760.
-
-	* Ideograph-R115-Grain.el (J0-6348): Separate C1-6562 and U+7A1F;
-	add `ucs-jis' for U+7A1F.
-
-	* Ideograph-R100-Life.el (J0-3B3A): Separate C3-3745 and G1-327A.
 
 	* Ideograph-R063-Door.el (J83-4862): Separate J90-4862 and
 	JU+6249.
