@@ -1,3 +1,8 @@
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fdefine_charset_alias): New function.
+	(syms_of_mule_charset): Add new function `define-charset-alias'.
+
 1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (leading_code_private_11): New variable.
