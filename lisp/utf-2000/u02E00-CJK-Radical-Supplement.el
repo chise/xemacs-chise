@@ -834,8 +834,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; â»
-    (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (=jis-x0212		. #x6134)	; ø»Œ‚£
+    (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (=gt		. 51643)	; ý¡€Œ¦»
     (=gt-k		. 00580)	; ý¡„€‰„
     (=gt-pj-7		. #x5530)	; ý¡€Œ¦»

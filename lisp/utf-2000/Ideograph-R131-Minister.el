@@ -5,10 +5,10 @@
     (total-strokes	 . 6)
     (shinjigen-2	. 6593)
     (=ucs		. #x81E3)	; è‡£
-    (=cns11643-1	. #x485B)	; ø»‘¼¨
-    (=ks-x1001		. #x636D)	; ø»‰¼”
     (=gb2312		. #x333C)	; ø»„ »
     (=jis-x0208		. #x3F43)	; ø½Š¢¢
+    (=ks-x1001		. #x636D)	; ø»‰¼”
+    (=cns11643-1	. #x485B)	; ø»‘¼¨
     (=gt		. 38908)	; ý¡€‰Ÿ¼
     (=gt-k		. 01647)	; ý¡„€™¯
     (=gt-pj-1		. #x3F43)	; ý¡€‰Ÿ¼
@@ -19,8 +19,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=ucs		. #x268DD)	; ð¦£
-    (=jis-x0213-2-2000	. #x7556)	; ø»¦™
     (=cns11643-6	. #x287C)	; ø»œ€
+    (=jis-x0213-2-2000	. #x7556)	; ø»¦™
     (=daikanwa		. 30069)	; ø¸‡•µ
     ))
 (define-char
@@ -36,9 +36,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x81E4)	; è‡¤
-    (=jis-x0213-2-2000	. #x7557)	; ø»¦™Ž
-    (=cns11643-4	. #x276C)	; ø»—ª§
     (=jis-x0212		. #x5661)	; ø»‹³†
+    (=cns11643-4	. #x276C)	; ø»—ª§
+    (=jis-x0213-2-2000	. #x7557)	; ø»¦™Ž
     (=daikanwa		. 30070)	; ø¸‡•¶
     (=jef-china3	. #x60DF)	; øº†ƒŸ
     ))
@@ -48,9 +48,9 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 6594)
     (=ucs		. #x81E5)	; è‡¥
-    (=cns11643-1	. #x4F3A)	; ø»’†™
-    (=ks-x1001		. #x6842)	; ø»Š‚¿
     (=jis-x0208		. #x3269)	; ø½Š‚
+    (=ks-x1001		. #x6842)	; ø»Š‚¿
+    (=cns11643-1	. #x4F3A)	; ø»’†™
     (=gt		. 38909)	; ý¡€‰Ÿ½
     (=gt-k		. 03655)	; ý¡„€¹‡
     (=gt-pj-1		. #x3269)	; ý¡€‰Ÿ½
@@ -168,10 +168,10 @@
     (total-strokes	 . 14)
     (shinjigen-2	. 6596)
     (=ucs		. #x81E7)	; è‡§
-    (=cns11643-1	. #x6A56)	; ø»’®Ÿ
-    (=ks-x1001		. #x6D75)	; ø»Š‹ˆ
     (=gb2312		. #x6A30)	; ø»…±¡
     (=jis-x0208		. #x6749)	; ø½‹˜
+    (=ks-x1001		. #x6D75)	; ø»Š‹ˆ
+    (=cns11643-1	. #x6A56)	; ø»’®Ÿ
     (=gt		. 38924)	; ý¡€‰ Œ
     (=gt-k		. 11233)	; ý¡„‚¯¡
     (=gt-pj-1		. #x6749)	; ý¡€‰ Œ
@@ -212,12 +212,12 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (shinjigen-2	. 6597)
-    (=ks-x1001		. #x577C)	; ø»‰ª»
     (=jis-x0208		. #x4E57)	; ø½Š¸¸
+    (=ks-x1001		. #x577C)	; ø»‰ª»
     (=gt		. 38930)	; ý¡€‰ ’
     (=gt-pj-1		. #x4E57)	; ý¡€‰ ’
     (=daikanwa		. 30087)	; ø¸‡–‡
-    (=ucs@jis		. #x81E8)	; ø»‰ª»
+    (=ucs@jis		. #x81E8)	; ø½Š¸¸
     ))
 (define-char
   '((morohashi-daikanwa	30087 0 0)
