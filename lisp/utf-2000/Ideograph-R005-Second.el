@@ -236,6 +236,13 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=ucs		. #x9FB4)	; 龴
+    (=big5-cdp		. #x8B69)	; &I-CDP-8B69;
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 49 8)
     (=big5-cdp		. #x8871)	; &CDP-8871;
     ))
