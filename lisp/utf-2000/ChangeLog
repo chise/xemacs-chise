@@ -1,3 +1,14 @@
+2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R044-Corpse.el (JX1-4F61): Unify U+FA3B and KU+5C64;
+	unify BC-BC68 instead of B-BC68.
+	(U+5C64): Unify B-BC68.
+
+	* Ideograph-R045-Sprout.el (U+5C6E): Unify JU+FA3C.
+	(U+FA3C): New character.
+	(U-00021CFE): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
 2003-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R012-Eight.el (GT-K00059): New character.
