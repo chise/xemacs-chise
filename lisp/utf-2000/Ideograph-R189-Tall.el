@@ -24,25 +24,25 @@
     (=cns11643-1	. #x586D)	; &I-C1-586D;
     ))
 (define-char
-  '((=>ucs		. #x9AD9)	; 髙
-    (ideographic-radical . 189)	; ⾼
+  '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (<-vulgar
-     (:char	((=daikanwa	     . 45313)	; &I-M-45313;
-		 )
-      :sources	(inkai morohashi-daikanwa)))
-    (=daikanwa		. 45314)	; &M-45314;
-    ))
-(define-char
-  '((morohashi-daikanwa	45314 0 0)
-    (ideographic-radical . 189)	; ⾼
-    (ideographic-strokes . 0)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	7 4594 1)
     (=ucs		. #x9AD9)	; 髙
-    (=cns11643-4	. #x362D)	; &I-C4-362D;
-    (=hanziku-12	. #xB9E2)	; &I-HZK12-B9E2;
+    (->subsumptive
+     ((<-vulgar
+       ((=jis-x0208	    . #x3962)	; &GT-60968;
+	(=ks-x1001	    . #x4D54)	; &I-K0-4D54;
+	(=daikanwa	    . 45313)	; &I-M-45313;
+	))
+      (<-vulgar*sources
+       yunhai daikanwa)
+      (=daikanwa	  . 45314)	; &M-45314;
+      )
+     ((hanyu-dazidian	  7 4594 1)
+      (=cns11643-4	  . #x362D)	; &HZK12-B9E2;
+      (=hanziku-12	  . #xB9E2)	; &I-HZK12-B9E2;
+      (=ucs@unicode	  . #x9AD9)	; &HZK12-B9E2;
+      ))
     ))
 (define-char
   '((=>ucs		. #x4BE7)	; 䯧
