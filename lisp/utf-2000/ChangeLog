@@ -1,4 +1,78 @@
-2004-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2004-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R130-Meat.el (U-00026857): Use `->subsumptive' instead
+	of `->identical' for C7-377E and `->same-ideograph' for M-11349;
+	use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(H6-B3CA): Moved into U-00026857 and unified by M-11349.
+
+	* Ideograph-R061-Heart.el (M-11349): Defined in `->subsumptive'
+	feature value of U-26857; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'; unify H6-B3CA.
+	(C7-377E): Defined in `->subsumptive' feature value of U-26857;
+	use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(M-11472): Unify U-00020453 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+2004-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R169-Gate.el (U+9580): Unify B-AAF9.
+
+	* Ideograph-R158-Body.el (J0-3F48): Unify B-A8AD.
+
+	* Ideograph-R081-Compare.el (M-16744): Moved into `->subsumptive'
+	feature value of U-000200B1.
+	(U-000200B1): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'; add M-16744 instead of using `->same-ideograph'.
+
+	* Ideograph-R004-Slash.el (U-000200B1): Use `->subsumptive'
+	instead of `->same-ideograph' to add M-16744 and H1-DC49; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'.
+
+2004-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R129-Brush.el (U+807F): Unify B-A6D6.
+
+	* Ideograph-R117-Stand.el (J0-4E29): Unify B-A5DF.
+
+	* Ideograph-R114-Track.el (C7-262B): Unify U-00020FA7 and H2-DECE
+	instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+
+	* Ideograph-R108-Dish.el (U-000250B3): Unify C7-3679 and M-01726
+	instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+	* Ideograph-R085-Water.el (U+6CA7): Unify JC3-82BF.
+	(U+6CF8): Unify JC3-82C0.
+	(U+6D51): Unify JC3-82BE.
+	(JC3-70DE): New character.
+	(U+6EE8): Unify JC3-81F6.
+
+	* Ideograph-R037-Big.el (C6-3649): Unify U-00020AFB; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(C4-4F7C): Unify U-00020057 and BC-85A3 instead of using
+	`->identical'; use `ideographic-{radical|strokes}@{ucs|cns}'.
+
+	* Ideograph-R028-Private.el (U-00020AFC): Unify C6-352E and
+	M-00283 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+	(U-00020AFB): Unify C6-3649 and M-05931 instead of using
+	`->identical'; use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(H1-F5B8): Add `=>daikanwa' instead of `->identical' for M-05931.
+
+	* ideograph-util.el (update-ideograph-radical-table): Add
+	characters specified in `<-identical' as same as `->denotational'.
+
+	* Ideograph-R030-Mouth.el (U-00020FA7): Unify C7-262B and M-24899
+	instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
 
 	* Ideograph-R009-Man.el (U-00020453): Unify M-11472 instead of
 	using `->identical'; use
@@ -9,6 +83,11 @@
 	instead of using `->identical'; use
 	`ideographic-{radical|strokes}@{ucs|cns}' instead of
 	`ideographic-{radical|strokes}'.
+
+2004-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`<-identical' when running with non-readable mode.
 
 2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
