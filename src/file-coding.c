@@ -3317,7 +3317,7 @@ Return the corresponding character.
   if (BYTE_BIG5_TWO_BYTE_1_P (b1) &&
       BYTE_BIG5_TWO_BYTE_2_P (b2))
     {
-      int leading_byte;
+      Charset_ID leading_byte;
       Lisp_Object charset;
       DECODE_BIG5 (b1, b2, leading_byte, c1, c2);
       charset = CHARSET_BY_LEADING_BYTE (leading_byte);
@@ -4961,7 +4961,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	{			/* Graphic characters */
 	  Lisp_Object charset;
 #ifndef UTF2000
-	  int lb;
+	  Charset_ID lb;
 #endif
 	  int reg;
 
