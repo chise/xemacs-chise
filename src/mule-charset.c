@@ -257,78 +257,76 @@ copy_byte_table (Lisp_Object entry)
 
 
 static Lisp_Object
-mark_char_code_table (Lisp_Object obj)
+mark_char_id_table (Lisp_Object obj)
 {
-  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (obj);
+  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
 
   return cte->table;
 }
 
 static int
-char_code_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
+char_id_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  struct Lisp_Char_Code_Table *cte1 = XCHAR_CODE_TABLE (obj1);
-  struct Lisp_Char_Code_Table *cte2 = XCHAR_CODE_TABLE (obj2);
+  Lisp_Char_ID_Table *cte1 = XCHAR_ID_TABLE (obj1);
+  Lisp_Char_ID_Table *cte2 = XCHAR_ID_TABLE (obj2);
 
   return byte_table_equal (cte1->table, cte2->table, depth + 1);
 }
 
 static unsigned long
-char_code_table_hash (Lisp_Object obj, int depth)
+char_id_table_hash (Lisp_Object obj, int depth)
 {
-  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (obj);
+  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
 
-  return char_code_table_hash (cte->table, depth + 1);
+  return char_id_table_hash (cte->table, depth + 1);
 }
 
-static const struct lrecord_description char_code_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Code_Table, table), 1 },
+static const struct lrecord_description char_id_table_description[] = {
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table), 1 },
   { XD_END }
 };
 
-DEFINE_LRECORD_IMPLEMENTATION ("char-code-table", char_code_table,
-                               mark_char_code_table,
+DEFINE_LRECORD_IMPLEMENTATION ("char-id-table", char_id_table,
+                               mark_char_id_table,
 			       internal_object_printer,
-			       0, char_code_table_equal,
-			       char_code_table_hash,
-			       char_code_table_description,
-			       struct Lisp_Char_Code_Table);
+			       0, char_id_table_equal,
+			       char_id_table_hash,
+			       char_id_table_description,
+			       Lisp_Char_ID_Table);
 
 static Lisp_Object
-make_char_code_table (Lisp_Object initval)
+make_char_id_table (Lisp_Object initval)
 {
   Lisp_Object obj;
-  struct Lisp_Char_Code_Table *cte =
-    alloc_lcrecord_type (struct Lisp_Char_Code_Table,
-			 &lrecord_char_code_table);
+  Lisp_Char_ID_Table *cte
+    = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
 
   cte->table = make_byte_table (initval);
 
-  XSETCHAR_CODE_TABLE (obj, cte);
+  XSETCHAR_ID_TABLE (obj, cte);
   return obj;
 }
 
 static Lisp_Object
-copy_char_code_table (Lisp_Object entry)
+copy_char_id_table (Lisp_Object entry)
 {
-  struct Lisp_Char_Code_Table *cte = XCHAR_CODE_TABLE (entry);
+  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (entry);
   Lisp_Object obj;
-  struct Lisp_Char_Code_Table *ctenew =
-    alloc_lcrecord_type (struct Lisp_Char_Code_Table,
-			 &lrecord_char_code_table);
+  Lisp_Char_ID_Table *ctenew
+    = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
 
   ctenew->table = copy_byte_table (cte->table);
-  XSETCHAR_CODE_TABLE (obj, ctenew);
+  XSETCHAR_ID_TABLE (obj, ctenew);
   return obj;
 }
 
 
 Lisp_Object
-get_char_code_table (Emchar ch, Lisp_Object table)
+get_char_id_table (Emchar ch, Lisp_Object table)
 {
   unsigned int code = ch;
   Lisp_Byte_Table* cpt
-    = XBYTE_TABLE (XCHAR_CODE_TABLE (table)->table);
+    = XBYTE_TABLE (XCHAR_ID_TABLE (table)->table);
   Lisp_Object ret = cpt->property [(unsigned char)(code >> 24)];
 
   if (BYTE_TABLE_P (ret))
@@ -351,13 +349,12 @@ get_char_code_table (Emchar ch, Lisp_Object table)
   return cpt->property [(unsigned char) code];
 }
 
-void put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table);
+void put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table);
 void
-put_char_code_table (Emchar ch, Lisp_Object value, Lisp_Object table)
+put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 {
   unsigned int code = ch;
-  Lisp_Byte_Table* cpt1
-    = XBYTE_TABLE (XCHAR_CODE_TABLE (table)->table);
+  Lisp_Byte_Table* cpt1 = XBYTE_TABLE (XCHAR_ID_TABLE (table)->table);
   Lisp_Object ret = cpt1->property[(unsigned char)(code >> 24)];
 
   if (BYTE_TABLE_P (ret))
@@ -432,9 +429,9 @@ Lisp_Object Qnarrow;
 Lisp_Object Qsmall;
 Lisp_Object Qfont;
 
-Emchar to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg);
+Emchar to_char_id (Lisp_Object v, char* err_msg, Lisp_Object err_arg);
 Emchar
-to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
+to_char_id (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
 {
   if (INTP (v))
     return XINT (v);
@@ -488,21 +485,21 @@ Return character corresponding with list.
     {
       Lisp_Object v = Fcar (rest);
       Lisp_Object ret;
-      Emchar c = to_char_code (v, "Invalid value for composition", list);
+      Emchar c = to_char_id (v, "Invalid value for composition", list);
 
-      ret = get_char_code_table (c, table);
+      ret = get_char_id_table (c, table);
 
       rest = Fcdr (rest);
       if (NILP (rest))
 	{
-	  if (!CHAR_CODE_TABLE_P (ret))
+	  if (!CHAR_ID_TABLE_P (ret))
 	    return ret;
 	  else
 	    return Qt;
 	}
       else if (!CONSP (rest))
 	break;
-      else if (CHAR_CODE_TABLE_P (ret))
+      else if (CHAR_ID_TABLE_P (ret))
 	table = ret;
       else
 	signal_simple_error ("Invalid table is found with", list);
@@ -516,8 +513,8 @@ Return variants of CHARACTER.
        (character))
 {
   CHECK_CHAR (character);
-  return Fcopy_list (get_char_code_table (XCHAR (character),
-					  Vcharacter_variant_table));
+  return Fcopy_list (get_char_id_table (XCHAR (character),
+					Vcharacter_variant_table));
 }
 
 DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
@@ -526,8 +523,8 @@ Return the alist of attributes of CHARACTER.
        (character))
 {
   CHECK_CHAR (character);
-  return Fcopy_alist (get_char_code_table (XCHAR (character),
-					   Vcharacter_attribute_table));
+  return Fcopy_alist (get_char_id_table (XCHAR (character),
+					 Vcharacter_attribute_table));
 }
 
 DEFUN ("get-char-attribute", Fget_char_attribute, 2, 2, 0, /*
@@ -539,8 +536,7 @@ Return the value of CHARACTER's ATTRIBUTE.
   Lisp_Object ccs;
 
   CHECK_CHAR (character);
-  ret = get_char_code_table (XCHAR (character),
-			     Vcharacter_attribute_table);
+  ret = get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
   if (EQ (ret, Qnil))
     return Qnil;
 
@@ -556,9 +552,8 @@ Lisp_Object
 put_char_attribute (Lisp_Object character, Lisp_Object attribute,
 		    Lisp_Object value)
 {
-  Emchar char_code = XCHAR (character);
-  Lisp_Object ret
-    = get_char_code_table (char_code, Vcharacter_attribute_table);
+  Emchar char_id = XCHAR (character);
+  Lisp_Object ret = get_char_id_table (char_id, Vcharacter_attribute_table);
   Lisp_Object cell;
 
   cell = Fassq (attribute, ret);
@@ -571,7 +566,7 @@ put_char_attribute (Lisp_Object character, Lisp_Object attribute,
     {
       Fsetcdr (cell, value);
     }
-  put_char_code_table (char_code, ret, Vcharacter_attribute_table);
+  put_char_id_table (char_id, ret, Vcharacter_attribute_table);
   return ret;
 }
 
@@ -580,9 +575,8 @@ Lisp_Object remove_char_attribute (Lisp_Object character,
 Lisp_Object
 remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
 {
-  Emchar char_code = XCHAR (character);
-  Lisp_Object alist
-    = get_char_code_table (char_code, Vcharacter_attribute_table);
+  Emchar char_id = XCHAR (character);
+  Lisp_Object alist = get_char_id_table (char_id, Vcharacter_attribute_table);
 
   if (EQ (attribute, Fcar (Fcar (alist))))
     {
@@ -604,7 +598,7 @@ remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
 	  r = Fcdr (r);
 	}
     }
-  put_char_code_table (char_code, alist, Vcharacter_attribute_table);
+  put_char_id_table (char_id, alist, Vcharacter_attribute_table);
   return alist;
 }
 
@@ -743,22 +737,21 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      Lisp_Object v = Fcar (rest);
 	      Lisp_Object ntable;
 	      Emchar c
-		= to_char_code (v,
-				"Invalid value for ->decomposition", value);
+		= to_char_id (v, "Invalid value for ->decomposition", value);
 
 	      rest = Fcdr (rest);
 	      if (!CONSP (rest))
 		{
-		  put_char_code_table (c, character, table);
+		  put_char_id_table (c, character, table);
 		  break;
 		}
 	      else
 		{
-		  ntable = get_char_code_table (c, table);
-		  if (!CHAR_CODE_TABLE_P (ntable))
+		  ntable = get_char_id_table (c, table);
+		  if (!CHAR_ID_TABLE_P (ntable))
 		    {
-		      ntable = make_char_code_table (Qnil);
-		      put_char_code_table (c, ntable, table);
+		      ntable = make_char_id_table (Qnil);
+		      put_char_id_table (c, ntable, table);
 		    }
 		  table = ntable;
 		}
@@ -772,12 +765,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    {
 	      Emchar c = XINT (v);
 	      Lisp_Object ret
-		= get_char_code_table (c, Vcharacter_variant_table);
+		= get_char_id_table (c, Vcharacter_variant_table);
 
 	      if (NILP (Fmemq (v, ret)))
 		{
-		  put_char_code_table (c, Fcons (character, ret),
-				       Vcharacter_variant_table);
+		  put_char_id_table (c, Fcons (character, ret),
+				     Vcharacter_variant_table);
 		}
 	    }
 	}
@@ -792,11 +785,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = get_char_code_table (c, Vcharacter_variant_table);
+      ret = get_char_id_table (c, Vcharacter_variant_table);
       if (NILP (Fmemq (character, ret)))
 	{
-	  put_char_code_table (c, Fcons (character, ret),
-			       Vcharacter_variant_table);
+	  put_char_id_table (c, Fcons (character, ret),
+			     Vcharacter_variant_table);
 	}
     }
   return put_char_attribute (character, attribute, value);
@@ -916,7 +909,7 @@ Store character's ATTRIBUTES.
       rest = Fcdr (rest);
     }
   return
-    get_char_code_table (XCHAR (character), Vcharacter_attribute_table);
+    get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
 }
 
 Lisp_Object Vutf_2000_version;
@@ -2757,7 +2750,7 @@ syms_of_mule_charset (void)
 {
 #ifdef UTF2000
   INIT_LRECORD_IMPLEMENTATION (byte_table);
-  INIT_LRECORD_IMPLEMENTATION (char_code_table);
+  INIT_LRECORD_IMPLEMENTATION (char_id_table);
 #endif
   INIT_LRECORD_IMPLEMENTATION (charset);
 
@@ -2948,13 +2941,13 @@ Version number of UTF-2000.
 */ );
 
   staticpro (&Vcharacter_attribute_table);
-  Vcharacter_attribute_table = make_char_code_table (Qnil);
+  Vcharacter_attribute_table = make_char_id_table (Qnil);
 
   staticpro (&Vcharacter_composition_table);
-  Vcharacter_composition_table = make_char_code_table (Qnil);
+  Vcharacter_composition_table = make_char_id_table (Qnil);
 
   staticpro (&Vcharacter_variant_table);
-  Vcharacter_variant_table = make_char_code_table (Qnil);
+  Vcharacter_variant_table = make_char_id_table (Qnil);
 
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
