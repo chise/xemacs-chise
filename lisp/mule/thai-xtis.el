@@ -45,8 +45,34 @@
 
   (modify-syntax-entry 'thai-xtis "w")
 
-  (define-category ?T "Precomposed Thai character.")
-  (modify-category-entry 'thai-xtis ?T)
+  (define-category ?x "Precomposed Thai character.")
+  (modify-category-entry 'thai-xtis ?x)
+
+  (let ((deflist	'(;; chars	syntax
+			  ("$(?!0(B-$(?NxP0R0S0`0(B-$(?e0(B"	"w")
+			  ("$(?p0(B-$(?y0(B"	"w")
+			  ("$(?O0f0_0o0z0{0(B"	"_")
+			  ))
+	elm chars len syntax category to ch i)
+    (while deflist
+      (setq elm (car deflist))
+      (setq chars (car elm)
+	    len (length chars)
+	    syntax (nth 1 elm)
+	    i 0)
+      (while (< i len)
+	(if (= (aref chars i) ?-)
+	    (setq i (1+ i)
+		  to (nth 1 (split-char (aref chars i))))
+	  (setq ch (nth 1 (split-char (aref chars i)))
+		to ch))
+	(while (<= ch to)
+	  (modify-syntax-entry (vector 'thai-xtis ch) syntax)
+	  (setq ch (1+ ch)))
+	(setq i (1+ i)))
+      (setq deflist (cdr deflist))))
+
+  (put-charset-property 'thai-xtis 'preferred-coding-system 'tis-620)
   )
 
 ;; This is the ccl-decode-thai-xtis automaton.
