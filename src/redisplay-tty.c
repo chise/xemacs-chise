@@ -242,8 +242,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
       rb = Dynarr_atp (rba, elt);
 
       if (rb->findex == findex && rb->type == RUNE_CHAR
-	  && (!EQ (rb->object.cglyph.charset, Vcharset_ascii)
-	      || (rb->object.cglyph.code_point != '\n'))
+	  && (!CHARC_ASCII_EQ (rb->object.cglyph, '\n'))
 	  && (rb->cursor_type != CURSOR_ON
 	      || NILP (w->text_cursor_visible_p)))
 	{
@@ -264,15 +263,10 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 	      findex = rb->findex;
 	      xpos = rb->xpos;
 
-	      if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
-		  && (rb->object.cglyph.code_point == '\n'))
+	      if (CHARC_ASCII_EQ (rb->object.cglyph, '\n'))
 		{
 		  /* Clear in case a cursor was formerly here. */
-		  Charc ec_space;
-
-		  ec_space.charset = Vcharset_ascii;
-		  ec_space.code_point = ' ';
-		  Dynarr_add (buf, ec_space);
+		  Dynarr_add (buf, ASCII_TO_CHARC (' '));
 		  tty_output_charc_dynarr (w, dl, buf, rb->xpos,
 					   DEFAULT_INDEX, 0);
 		  Dynarr_reset (buf);
@@ -303,11 +297,10 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 	      Charc ec_to_add;
 	      int size = rb->width;
 
-	      ec_to_add.charset = Vcharset_ascii;
 	      if (rb->type == RUNE_BLANK)
-		ec_to_add.code_point = ' ';
+		ec_to_add = ASCII_TO_CHARC (' ');
 	      else
-		ec_to_add.code_point = '-';
+		ec_to_add = ASCII_TO_CHARC ('-');
 
 	      while (size--)
 		Dynarr_add (buf, ec_to_add);
