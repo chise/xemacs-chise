@@ -271,7 +271,7 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 47)
 		 (=daikanwa	     . 00118)	; &I-M-00118;
 		 )
@@ -356,10 +356,10 @@
     ))
 (define-char
   '((total-strokes	 . 3)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 01739)	; &I-M-01739;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

@@ -67,7 +67,7 @@
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 16349)	; &I-M-16349;
 		 )
       :sources	(morohashi-daikanwa)))
@@ -108,10 +108,10 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 21890)	; &I-M-21890;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (=ucs		. #x22450)	; 𢑐
     (=cns11643-6	. #x246E)	; &I-C6-246E;

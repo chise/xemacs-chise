@@ -267,10 +267,10 @@
       (=jis-x0213-1-2000  . #x7649)	; &I-JX1-7649;
       (=daikanwa	  . 16638)	; &I-M-16638;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 16638)	; &I-M-16638;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (shinjigen-1	. 3996)
     (shinjigen-2	. 3996)

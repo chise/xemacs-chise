@@ -2596,7 +2596,7 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 01587)	; &I-M-01587;
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))

@@ -812,7 +812,7 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 893)
 		 (=daikanwa	     . 03098)	; &I-M-03098;

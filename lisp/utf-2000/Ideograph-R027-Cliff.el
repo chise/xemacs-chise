@@ -1585,7 +1585,7 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 2191)
 		 (=daikanwa	     . 09410)	; &I-M-09410;
 		 )
@@ -1874,7 +1874,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 2199)
 		 (=jis-x0208	     . #x567C)	; &GT-11869;
@@ -2073,7 +2073,7 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 2216)
 		 (=daikanwa	     . 09479)	; &I-M-09479;
@@ -2162,11 +2162,11 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 2207)
       (=gt		  . 11902)	; &GT-11902;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2588,7 +2588,7 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 2212)
 		 (=daikanwa	     . 09487)	; &I-M-09487;
@@ -2700,7 +2700,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 2216)
 		 (=daikanwa	     . 09479)	; &I-M-09479;
@@ -2722,7 +2722,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 2214)
 		 (=daikanwa	     . 09490)	; &I-M-09490;
 		 )

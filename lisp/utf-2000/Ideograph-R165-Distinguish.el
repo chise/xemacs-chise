@@ -79,10 +79,10 @@
     (ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 40129)	; &I-M-40129;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (=gt		. 53949)	; &GT-53949;
     (=gt-pj-7		. #x6356)	; &GT-53949;

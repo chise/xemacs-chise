@@ -411,10 +411,10 @@
      ((=ucs		  . #x537D)	; 卽
       (=jis-x0213-1-2000  . #x2E71)	; &I-JX1-2E71;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 02873)	; &M-02873;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (hanyu-dazidian	1 314 2)
     (ideographic-structure
@@ -881,7 +881,7 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 02879)	; &I-M-02879;
 		 )
@@ -897,7 +897,7 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 318)
     (hanyu-dazidian-char . 3)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 868)
 		 (=daikanwa	     . 02880)	; &I-M-02880;
@@ -926,7 +926,7 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 02879)	; &I-M-02879;
 		 )

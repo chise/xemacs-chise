@@ -1255,7 +1255,7 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(jiyun morohashi-daikanwa)
       :char	((=daikanwa	     . 20920)	; &I-M-20920;
 		 )

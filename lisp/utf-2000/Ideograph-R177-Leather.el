@@ -168,7 +168,7 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(doubun-tsuukou morohashi-daikanwa)
       :char	((=daikanwa	     . 42713)	; &I-M-42713;
 		 )

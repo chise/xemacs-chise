@@ -151,7 +151,7 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 823)
 		 (=daikanwa	     . 02740)	; &I-M-02740;
@@ -676,7 +676,7 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 910)
 		 (=daikanwa	     . 03154)	; &I-M-03154;
 		 )
@@ -812,11 +812,11 @@
      ((=ucs		  . #xFA35)	; 卑
       (=jis-x0213-1-2000  . #x2E6E)	; &I-JX1-2E6E;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 830)
       (=daikanwa	  . 02738)	; &I-M-02738;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 829)
     (shinjigen-2	. 829)
@@ -831,11 +831,11 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 830)
       (=daikanwa	  . 02738)	; &I-M-02738;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa shinjigen-1)
     (shinjigen-1	. 831)
     (shinjigen-2	. 831)
@@ -1191,7 +1191,7 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 1170)
 		 (=daikanwa	     . 03993)	; &I-M-03993;
 		 )

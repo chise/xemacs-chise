@@ -172,7 +172,7 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 18858)	; &I-M-18858;
 		 )
       :sources	(chuuka-daijiten morohashi-daikanwa)))
@@ -199,10 +199,10 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 18858)	; &I-M-18858;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhonghua-dazidian daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1781,7 +1781,7 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 18953)	; &I-M-18953;
 		 )
       :sources	(morohashi-daikanwa)))

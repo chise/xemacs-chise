@@ -63,7 +63,7 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((ideographic-radical . 26)	; ⼙
 		 (shinjigen-1	     . 848)
@@ -606,10 +606,10 @@
     ))
 (define-char
   '((total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 05802)	; &I-M-05802;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
     (hanyu-dazidian	2 863 18)
     (shinjigen-1	. 1552)
@@ -845,11 +845,11 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 1550)
       (=daikanwa	  . 05802)	; &I-M-05802;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 1553)
     (=jis-x0212		. #x3869)	; &M-05803;

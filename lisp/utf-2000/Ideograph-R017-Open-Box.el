@@ -501,7 +501,7 @@
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 584)
 		 (=daikanwa	     . 01826)	; &I-M-01826;

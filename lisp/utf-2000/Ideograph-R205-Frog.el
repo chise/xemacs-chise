@@ -33,10 +33,10 @@
     (ideographic-radical . 205)	; ⿌
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 48257)	; &I-M-48257;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa)
     (=ucs		. #x2FA18)	; 黾
     (=cns11643-4	. #x2834)	; &I-C4-2834;

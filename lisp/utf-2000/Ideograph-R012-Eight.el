@@ -264,11 +264,11 @@
     (ideographic-radical@daikanwa . 1)	; ⼀
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 491)
       (=daikanwa	  . 01455)	; &I-M-01455;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa shinjigen-1)
     (hanyu-dazidian	1 241 5)
     (shinjigen-1	. 492)

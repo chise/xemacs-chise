@@ -1081,11 +1081,11 @@
     (sound@ja/on/go	"kyAu")
     (=ucs		. #x4EB0)	; 亰
     (->subsumptive
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((shinjigen-1	    . 102)
 	(=daikanwa	    . 00299)	; &I-M-00299;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        shinjigen-1)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1402,7 +1402,7 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 104)
 		 (=daikanwa	     . 00303)	; &I-M-00303;
@@ -1461,7 +1461,7 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 106)
 		 (=daikanwa	     . 00304)	; &I-M-00304;

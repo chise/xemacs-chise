@@ -25598,11 +25598,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 6886)
       (=ucs		  . #x843C)	; 萼
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (hanyu-dazidian	5 3291 3)
     (shinjigen-1	. 6887)

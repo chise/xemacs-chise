@@ -1000,12 +1000,12 @@
       (=ks-x1001	  . #x7C79)	; &I-K0-7C79;
       (=daikanwa	  . 13186)	; &I-M-13186;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((ideographic-radical . 66)	; ⽁
       (shinjigen-1	  . 725)
       (=daikanwa	  . 13186)	; &I-M-13186;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      yupian zhengyun zhengzi-tong daikanwa shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1469,10 +1469,10 @@
      ((=ucs		  . #x6555)	; 敕
       (=jis-x0208	  . #x5A45)	; &I-J90-5A45;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 02380)	; &I-M-02380;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa)
     (hanyu-dazidian	1 371 2)
     (ideographic-structure
@@ -1621,11 +1621,11 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 731)
       (=daikanwa	  . 02360)	; &I-M-02360;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa shinjigen-1)
     (shinjigen-1	. 730)
     (shinjigen-2	. 730)
@@ -2301,11 +2301,11 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 740)
       (=daikanwa	  . 02391)	; &I-M-02391;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2809,11 +2809,11 @@
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa JP/Jouyou)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 744)
       (=daikanwa	  . 02424)	; &I-M-02424;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 743)
     (shinjigen-2	. 743)

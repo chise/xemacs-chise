@@ -45,7 +45,7 @@
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 525)
 		 (=daikanwa	     . 01566)	; &I-M-01566;
 		 )
@@ -672,7 +672,7 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 1852)
 		 (=daikanwa	     . 07230)	; &I-M-07230;

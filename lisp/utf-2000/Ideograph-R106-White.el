@@ -328,11 +328,11 @@
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 3961)
       (=daikanwa	  . 16308)	; &I-M-16308;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 3962)
     (shinjigen-2	. 3962)

@@ -122,10 +122,10 @@
     ))
 (define-char
   '((total-strokes	 . 3)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 01739)	; &I-M-01739;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

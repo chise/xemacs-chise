@@ -2404,10 +2404,10 @@
      ((=ucs		  . #xFA56)	; 節
       (=jis-x0213-1-2000  . #x7964)	; &I-JX1-7964;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 26243)	; &M-26243;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      cihai daikanwa)
     (shinjigen-2	. 5805)
     (=ucs		. #x7BC0)	; 節

@@ -94,7 +94,7 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 764)
 		 (=daikanwa	     . 02496)	; &I-M-02496;

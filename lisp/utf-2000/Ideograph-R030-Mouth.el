@@ -4016,7 +4016,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 03329)	; &I-M-03329;
 		 )
@@ -25519,7 +25519,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 04409)	; &I-M-04409;
 		 )

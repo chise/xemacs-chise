@@ -624,7 +624,7 @@
      ((<-simplified@CN
        ((=gb12345	    . #x3373)	; &UU+919C;
 	))
-      (<-vulgar-ideograph
+      (<-vulgar
        ((=daikanwa	    . 00023)	; &I-M-00023;
 	))
       (shinjigen-1	  . 17)
@@ -663,15 +663,15 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=ucs		  . #x4E08)	; 丈
       ))
     (=ucs		. #x2000B)	; 𠀋
     (->subsumptive
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((=daikanwa	    . 00011)	; &I-M-00011;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        daikanwa)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -690,11 +690,11 @@
       (=daikanwa	  . 00026)	; &I-M-00026;
       (=ucs@jis		  . #x2000B)	; &GT-00031;
       )
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((shinjigen-1	    . 9)
 	(=jis-x0208-1990    . #x3E66)	; &I-J90-3E66;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        shinjigen-1)
       (hanyu-dazidian	  1 12 5)
       (ideographic-structure
@@ -755,11 +755,11 @@
     (ideographic-radical@daikanwa . 1)	; ⼀
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 491)
       (=daikanwa	  . 01455)	; &I-M-01455;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa shinjigen-1)
     (hanyu-dazidian	1 241 5)
     (shinjigen-1	. 492)

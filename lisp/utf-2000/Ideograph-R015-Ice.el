@@ -199,7 +199,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 542)
 		 (=daikanwa	     . 01613)	; &I-M-01613;
@@ -269,7 +269,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(gyokuhen morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 4092)
 		 (=daikanwa	     . 17209)	; &I-M-17209;
@@ -300,7 +300,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(gyokuhen morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 4080)
 		 (=daikanwa	     . 17174)	; &I-M-17174;
@@ -371,7 +371,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(gyokuhen kangxi morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 4122)
 		 (=daikanwa	     . 17264)	; &I-M-17264;
@@ -1227,7 +1227,7 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((ideographic-radical . 85)	; ⽔
 		 (shinjigen-1	     . 4308)
@@ -1918,7 +1918,7 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 4378)
 		 (=daikanwa	     . 17934)	; &I-M-17934;
 		 )
@@ -2386,11 +2386,11 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 561)
       (=daikanwa	  . 01717)	; &I-M-01717;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      pianhai daikanwa shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

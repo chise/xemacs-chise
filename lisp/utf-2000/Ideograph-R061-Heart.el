@@ -7250,14 +7250,14 @@
      ((=jis-x0208	  . #x584E)	; &GT-13968;
       (=daikanwa	  . 11094)	; &I-M-11094;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((ideographic-radical . 61)	; ⼼
       (ideographic-strokes . 11)
       (total-strokes	   . 14)
       (shinjigen-2	  . 2544)
       (=daikanwa	  . 11094)	; &I-M-11094;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (shinjigen-2	. 2543)
     (=ucs		. #x60E8)	; 惨

@@ -771,7 +771,7 @@
     (ideographic-radical@cns*sources
      cns11643-3 daikanwa)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=ucs		  . #x5167)	; 內
       ))
     (=ucs		. #x5185)	; 内
@@ -1876,11 +1876,11 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 144)
       (=daikanwa	  . 00398)	; &I-M-00398;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (hanyu-dazidian	1 124 5)
     (ideographic-structure
@@ -10797,7 +10797,7 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 487)
 		 (=daikanwa	     . 01437)	; &I-M-01437;
 		 )

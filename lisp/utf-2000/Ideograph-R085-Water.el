@@ -9835,10 +9835,10 @@
      ((=ucs		  . #x6EAB)	; 溫
       (=jis-x0213-1-2000  . #x767C)	; &I-JX1-767C;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 17968)	; &I-M-17968;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zihui daikanwa)
     (shinjigen-2	. 4319)
     (=ucs		. #x6E29)	; 温
@@ -20704,7 +20704,7 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 18659)	; &I-M-18659;
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))

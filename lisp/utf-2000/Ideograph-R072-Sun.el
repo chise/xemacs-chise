@@ -388,12 +388,12 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 3267)
       (=jis-x0208	  . #x3B5D)	; &I-J90-3B5D;
       (=daikanwa	  . 13738)	; &I-M-13738;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 3269)
     (shinjigen-2	. 3269)
@@ -1830,10 +1830,10 @@
      ((=ucs		  . #x665D)	; 晝
       (=jis-x0208	  . #x5A6C)	; &I-J90-5A6C;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 13948)	; &I-M-13948;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)
     (shinjigen-2	. 3309)
     (=ucs		. #x663C)	; 昼

@@ -451,7 +451,7 @@
       ))
     (->same*sources
      daikanwa)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 38671)	; &I-M-38671;
 		 )
       :sources	(daikanwa))

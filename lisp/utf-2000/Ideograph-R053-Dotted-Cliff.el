@@ -1699,7 +1699,7 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 879)
 		 (=daikanwa	     . 02942)	; &I-M-02942;
@@ -3451,7 +3451,7 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(jiyun morohashi-daikanwa)
       :char	((=daikanwa	     . 09453)	; &I-M-09453;
 		 )
@@ -3484,7 +3484,7 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 2207)
 		 (=gt		     . 11902)	; &GT-11902;
 		 )

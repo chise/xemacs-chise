@@ -1959,7 +1959,7 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(sougen-irai-zokujifu morohashi-daikanwa)
       :char	((=daikanwa	     . 19746)	; &I-M-19746;
 		 )
@@ -2530,11 +2530,11 @@
     (total-strokes	 . 14)
     (=ucs		. #x5969)	; 奩
     (->subsumptive
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((shinjigen-1	    . 796)
 	(=ucs		    . #x5333)	; 匳
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        shinjigen-1)
       (shinjigen-1	  . 799)
       (shinjigen-2	  . 799)

@@ -1667,7 +1667,7 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 709)
 		 (=daikanwa	     . 02316)	; &I-M-02316;
@@ -1694,7 +1694,7 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 709)
 		 (=daikanwa	     . 02316)	; &I-M-02316;
@@ -3624,7 +3624,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(seiji-tsuu morohashi-daikanwa)
       :char	((=daikanwa	     . 01953)	; &I-M-01953;
 		 )
@@ -3649,7 +3649,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 634)
 		 (=jis-x0212	     . #x333A)	; &JSP-333A;
@@ -4015,7 +4015,7 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 634)
 		 (=jis-x0212	     . #x333A)	; &JSP-333A;
@@ -4686,7 +4686,7 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 666)
 		 (=daikanwa	     . 02049)	; &I-M-02049;
@@ -7980,7 +7980,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((shinjigen-1	     . 653)
 		 (=daikanwa	     . 02228)	; &I-M-02228;
 		 )

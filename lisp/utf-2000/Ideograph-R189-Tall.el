@@ -28,7 +28,7 @@
     (ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 45313)	; &I-M-45313;
 		 )
       :sources	(inkai morohashi-daikanwa)))

@@ -1907,7 +1907,7 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 06164)	; &I-M-06164;
 		 )
       :sources	(morohashi-daikanwa)))

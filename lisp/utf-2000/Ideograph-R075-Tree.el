@@ -5107,7 +5107,7 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (<-vulgar-ideograph
+    (<-vulgar
      (:char	((=daikanwa	     . 15010)	; &I-M-15010;
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))
@@ -7683,10 +7683,10 @@
     ))
 (define-char
   '((total-strokes	 . 11)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 05802)	; &I-M-05802;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
     (hanyu-dazidian	2 863 18)
     (shinjigen-1	. 1552)
@@ -18099,11 +18099,11 @@
       ))
     (->synonyms@seiji-tsuu*sources
      seiji-tsuu jiyun daikanwa)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 932)
       (=daikanwa	  . 03220)	; &I-M-03220;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (hanyu-dazidian	2 1288 18)
     (shinjigen-1	. 933)

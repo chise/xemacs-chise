@@ -819,10 +819,10 @@
      ((=ucs		  . #x665D)	; 晝
       (=jis-x0208	  . #x5A6C)	; &I-J90-5A6C;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 13948)	; &I-M-13948;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)
     (shinjigen-2	. 3309)
     (=ucs		. #x663C)	; 昼
