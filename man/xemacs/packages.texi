@@ -1,0 +1,103 @@
+@node Packages, Abbrevs, Running, Top
+@comment  node-name,  next,  previous,  up
+
+@section Introduction to XEmacs Packages
+@cindex packages
+
+The XEmacs 21 distribution comes only with a very basic set of
+built-in modes and packages.  Most of the packages that were part of
+the distribution of earlier versions of XEmacs are now separately
+available.  The installer as well as the user can choose which
+packages to install; the actual installation process is easy.
+This gives an installer the ability to tailor an XEmacs installation for
+local needs with safe removal of unnecessary code.
+
+@subsection Package Flavors
+
+There are two main flavors of packages.
+
+@itemize @emph
+@item Regular Packages
+A regular package is one in which multiple files are involved and one
+may not in general safely remove any of them.
+
+@item Single-File Packages
+A single-file package is an aggregate collection of thematically
+related but otherwise independent lisp files.  These files are bundled 
+together for download convenience and individual files may deleted at
+will without any loss of functionality.
+@end itemize
+
+@subsection Package Distributions
+
+XEmacs Lisp packages are distributed in two ways depending on the
+intended use.  Binary Packages are for installers and end-users and may
+be installed directly into an XEmacs package directory.  Source Packages
+are for developers and include all files necessary for rebuilding
+bytecompiled lisp and creating tarballs for distribution.
+
+@subsection Binary Packages
+Binary packages may be installed directly into an XEmacs package
+hierarchy.
+
+@subsection Source Packages
+
+Source packages contain all of the Package author's (where appropriate
+in regular packages) source code plus all of the files necessary to
+build distribution tarballs (Unix Tar format files and gzipped for space
+savings).
+
+@subsection Prerequisites for building Source Packages
+
+You must have GNU @code{cp}, GNU @code{install} (or a BSD compatible
+@code{install} program) GNU @code{make} (3.75 or later preferred),
+@code{makeinfo} (1.68 from @code{texinfo-3.11} or later required), GNU
+@code{tar} and XEmacs 21.0.  The source packages will untar into a
+correct directory structure.  At the top level you must have
+@file{XEmacs.rules} and @file{package-compile.el}.  These files are
+available from the XEmacs FTP site from the same place you obtained your
+source package distributions.
+
+@subsection What you can do with Source Packages
+
+NB:  A global build operation doesn't exist yet as of 13 January 1998.
+
+Source packages are most useful for creating XEmacs package tarballs
+for installation into your own XEmacs installations or for
+distributing to others.
+
+Supported operations from Make are:
+
+@table @code
+@item clean
+Remove all built files except @file{auto-autoloads.el} and @file{custom-load.el}.
+
+@item distclean
+Remove XEmacs backups as well as the files deleted by @code{make clean}.
+
+@item all
+Bytecompile all files, build and bytecompile byproduct files like
+@file{auto-autoloads.el} and @file{custom-load.el}.  Create info version
+of TeXinfo documentation if present.
+
+@item srckit
+Usually aliased to @code{make srckit-std}.  This does a @code{make
+distclean} and creates a package source tarball in the staging
+directory.  This is generally only of use for package maintainers.
+
+@item binkit
+May be aliased to @code{binkit-sourceonly}, @code{binkit-sourceinfo},
+@code{binkit-sourcedata}, or
+@code{binkit-sourcedatainfo}. @code{sourceonly} indicates there is
+nothing to install in a data directory or info directory.
+@code{sourceinfo} indicates that source and info files are to be
+installed.  @code{sourcedata} indicates that source and etc (data) files
+are to be installed.  @code{sourcedatainfo} indicates source, etc
+(data), and info files are to be installed.  A few packages have needs
+beyond the basic templates so this is not yet complete.
+
+@item dist
+Runs the rules @code{srckit} followed by @code{binkit}.  This is
+primarily of use by XEmacs maintainers producing files for distribution.
+
+@end table
