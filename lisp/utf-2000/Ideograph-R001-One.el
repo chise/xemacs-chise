@@ -262,7 +262,7 @@
     (=jis-x0208		. #x4B7C)	; ø½Šµƒ
     (=ks-x1001		. #x5832)	; ø»‰«
     (=iso-ir165		. #x4D72)	; ø»°
-    (chinese-cns11643-2 . #x2126)	; ø»“Œ¥
+    (=cns11643-2	. #x2126)	; ø»“Œ¥
     (=gt-pj-1		. #x4B7C)	; ý¡€€€•
     (=big5		. #xC945)	; ý¢€Œ¥…
     (ideograph-daikanwa . 00010)	; ø¸€€Š
@@ -374,7 +374,7 @@
     (=gb2312		. #x5822)	; ø»…–·
     (=jis-x0212		. #x3024)	; ø»Šº•
     (=iso-ir165		. #x5822)	; ø»¿‡
-    (chinese-cns11643-2 . #x2127)	; ø»“Œ¦
+    (=cns11643-2	. #x2127)	; ø»“Œ¦
     (=gt-pj-2		. #x3028)	; ý¡€€€
     (=big5		. #xC946)	; ý¢€Œ¥†
     (ideograph-daikanwa . 00015)	; ø¸€€
@@ -520,7 +520,7 @@
       ))
     (=gb2312		. #x536B)	; ø»…ª
     (=iso-ir165		. #x536B)	; ø»¸º
-    (chinese-cns11643-2 . #x212F)	; ø»“Œ®
+    (=cns11643-2	. #x212F)	; ø»“Œ®
     (=gt-pj-2		. #x302C)	; ý¡€€€—
     (ideograph-daikanwa . 00020)	; ø¸€€”
     (=gt-k		. 00280)	; ý¡„€„˜
@@ -567,7 +567,7 @@
     (hanyu-dazidian	1 11 5)
     (shinjigen-1	. 19)
     (=iso-ir165		. #x7A21)	; ø»Ž±‚
-    (chinese-cns11643-2 . #x212D)	; ø»“Œ¬
+    (=cns11643-2	. #x212D)	; ø»“Œ¬
     (=jis-x0213-2-2000	. #x2123)	; ø»¤‚
     (=gt-pj-2		. #x302D)	; ý¡€€€¥
     (=big5		. #xC94D)	; ý¢€Œ¥
@@ -773,7 +773,7 @@
      ((name		  . "CJK RADICAL BOX")
       (=ucs		  . #x2E86)	; âº†
       ))
-    (chinese-cns11643-2 . #x212E)	; ø»“Œ­
+    (=cns11643-2	. #x212E)	; ø»“Œ­
     (=ucs@cns		. #x5187)	; ø»“Œ­
     (mojikyo		. 053001)	; ý €Œ¼‰
     ))

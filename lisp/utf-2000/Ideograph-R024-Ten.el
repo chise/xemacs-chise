@@ -327,7 +327,7 @@
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (chinese-cns11643-2 . #x214E)	; ø»“
+    (=cns11643-2	. #x214E)	; ø»“
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -490,7 +490,7 @@
     (shinjigen-2	. 821)
     (=jis-x0208		. #x5244)	; ø½Š¾
     (=ks-x1001		. #x5833)	; ø»‰«
-    (chinese-cns11643-2 . #x2223)	; ø»“Ž€
+    (=cns11643-2	. #x2223)	; ø»“Ž€
     (=gt-pj-1		. #x5244)	; å
     (=big5		. #xC9C3)	; ý¢€Œ§ƒ
     (ideograph-daikanwa . 02724)	; ø¸€ª¤

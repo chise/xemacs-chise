@@ -150,7 +150,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=iso-ir165		. #x2C37)	; ø»Œ¾´
-    (chinese-cns11643-2 . #x3D6B)	; ø»“¶²
+    (=cns11643-2	. #x3D6B)	; ø»“¶²
     (=big5		. #xDA67)	; ý¢€©§
     (ideograph-daikanwa . 19919)	; ø¸„·
     (=ucs		. #x725A)	; ç‰š

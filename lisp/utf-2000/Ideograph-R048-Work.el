@@ -313,7 +313,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (->mojikyo		. 053083)	; å·°
-    (chinese-cns11643-2 . #x425D)	; ø»“½º
+    (=cns11643-2	. #x425D)	; ø»“½º
     ))
 (define-char
   '((ideographic-radical . 48)	; â¼¯

@@ -118,7 +118,7 @@
   '((ideographic-radical . 161)	; â¾ 
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (chinese-cns11643-2 . #x6747)	; ø»”³º
+    (=cns11643-2	. #x6747)	; ø»”³º
     (=jis-x0213-2-2000	. #x7968)	; ø»¦Ÿ—
     (ideograph-daikanwa . 38694)	; ø¸‰œ¦
     (=ucs		. #x8FB4)	; è¾´

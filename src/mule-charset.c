@@ -301,7 +301,7 @@ Lisp_Object Qascii,
   Qmap_ks_x1001,
   Qmap_jis_x0212,
   Qmap_cns11643_1,
-  Qchinese_cns11643_2,
+  Qmap_cns11643_2,
 #ifdef UTF2000
   Qmap_ucs, Qucs,
   Qucs_bmp,
@@ -2379,7 +2379,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
   defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
   defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
-  defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
+  defsymbol (&Qmap_cns11643_2,		"=cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qmap_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
@@ -2756,7 +2756,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_cns11643_2);
   Vcharset_chinese_cns11643_2 =
-    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qmap_cns11643_2, 94, 2,
 		  2, 0, 'H', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("CNS11643-2"),
 		  build_string ("CNS11643-2 (Chinese traditional)"),

@@ -38,7 +38,7 @@
   '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (chinese-cns11643-2 . #x2835)	; ø»“—†
+    (=cns11643-2	. #x2835)	; ø»“—†
     (=jis-x0213-2-2000	. #x7145)	; ø»¦“„
     (ideograph-daikanwa . 21997)	; ø¸…—­
     (=ucs		. #x758C)	; ç–Œ
@@ -191,7 +191,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=jis-x0212		. #x4D45)	; ø»‹¥œ
-    (chinese-cns11643-2 . #x4C21)	; ø»”‹ª
+    (=cns11643-2	. #x4C21)	; ø»”‹ª
     (ideograph-daikanwa . 22006)	; ø¸…—¶
     (=ucs		. #x7590)	; ç–
     ))

@@ -185,7 +185,7 @@
      ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
       ))
     (=jis-x0212		. #x302B)	; ø»Šºœ
-    (chinese-cns11643-2 . #x2130)	; ø»“Œ¯
+    (=cns11643-2	. #x2130)	; ø»“Œ¯
     (=jis-x0213-2-2000	. #x2127)	; ø»¤†
     (=gt-pj-2		. #x3058)	; ý¡€€¬
     (=big5		. #xC950)	; ý¢€Œ¥
@@ -263,7 +263,7 @@
     (shinjigen-1	. 36)
     (shinjigen-2	. 36)
     (=jis-x0208		. #x5025)	; ø½Š»‚
-    (chinese-cns11643-2 . #x2143)	; ø»“‚
+    (=cns11643-2	. #x2143)	; ø»“‚
     (=gt-pj-1		. #x5025)	; ý¡€€±
     (=big5		. #xC963)	; ý¢€Œ¥£
     (ideograph-daikanwa . 00077)	; ø¸€
@@ -364,7 +364,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 30 4)
-    (chinese-cns11643-2 . #x2531)	; ø»“’¨
+    (=cns11643-2	. #x2531)	; ø»“’¨
     (=gt-pj-2		. #x305E)	; ý¡€€µ
     (=big5		. #xCBB1)	; ý¢€Œ®±
     (ideograph-daikanwa . 00082)	; ø¸€’

@@ -90,7 +90,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (=jis-x0212		. #x5674)	; ø»‹³™
-    (chinese-cns11643-2 . #x4648)	; ø»”ƒ
+    (=cns11643-2	. #x4648)	; ø»”ƒ
     (ideograph-daikanwa . 30341)	; ø¸‡š…
     (=ucs		. #x821D)	; èˆ
     ))

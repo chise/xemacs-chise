@@ -331,7 +331,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=jis-x0212		. #x6C59)	; ø»Œ“’
-    (chinese-cns11643-2 . #x6D37)	; ø»”¼ž
+    (=cns11643-2	. #x6D37)	; ø»”¼ž
     (ideograph-daikanwa . 47563)	; ø¸‹§‹
     (=ucs@jis		. #x9E7A)	; ø»Œ“’
     ))
