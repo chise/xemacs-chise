@@ -168,18 +168,19 @@
 		  mother	chinese-big5
 		  registry	"Big5\\.ETEN"))
   (define-charset-alias 'chinese-big5-pua '=big5-pua)
-  (make-charset
-   'chinese-big5-eten
-   "Big5-ETEN"
-   `(long-name "Big5 ETEN"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother chinese-big5
-	       min-code #x8140 max-code #xFEFE
-	       registry "Big5\\.ETEN"))
+  (make-charset '=big5-eten
+		"Big5-ETEN"
+		`(long-name	"Big5 ETEN"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#x8140
+		  max-code	#xFEFE
+		  registry	"Big5\\.ETEN"))
+  (define-charset-alias 'chinese-big5-eten '=big5-eten)
   (make-charset
    'chinese-big5-eten-a
    "Big5-ETEN-a"
