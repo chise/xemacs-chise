@@ -1,5 +1,9 @@
 2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R072-Sun.el (U+6667): Unify GT-17615.
+
+2003-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R072-Sun.el (J0-5A6E): Unify GT-17613.
 
 	* Ideograph-R211-Tooth.el: Add some GT code points.
