@@ -3065,6 +3065,8 @@
   '((ideographic-radical . 115)	; â½²
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
+    (japanese-jisx0208-1978	. #x634E)	; ø»ƒ©
+    (japanese-jisx0208		. #x634E)	; ø»‡±±
     (japanese-jisx0208-1990	. #x634E)	; ø½‹—¥
     (ucs			. #x7A43)	; ç©ƒ
     ))
