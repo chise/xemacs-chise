@@ -946,6 +946,16 @@
     (japanese-jisx0213-1	#x24 #x74)	; ゔ
     ))
 (define-char
+  '((name		. "HIRAGANA LETTER SMALL KA")
+    (ucs		. #x3095)
+    (japanese-jisx0213-1	#x24 #x75)	; ゕ
+    ))
+(define-char
+  '((name		. "HIRAGANA LETTER SMALL KE")
+    (ucs		. #x3096)
+    (japanese-jisx0213-1	#x24 #x76)	; ゖ
+    ))
+(define-char
   '((name		. "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
     (ucs		. #x3099)
     (general-category	mark non-spacing) ; Normative Category
