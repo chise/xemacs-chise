@@ -8,6 +8,11 @@
 
 	* Ideograph-R075-Tree.el (GT-19861): Unify JC3-53FA.
 
+2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el, Ideograph-R116-Cave.el,
+	Ideograph-R102-Field.el, Ideograph-R066-Rap.el: Reformatted.
+
 2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-attributes): Use `ucs-{jis|cns}'
@@ -18,6 +23,14 @@
 	Ideograph-R122-Net.el, Ideograph-R096-Jade.el,
 	Ideograph-R086-Fire.el, Ideograph-R038-Woman.el: Add some missing
 	mappings to CHINA3-JEF code points.
+
+2002-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (U+82BD): Relate to M-30860' instead of
+	M-30747; add mapping for CU-0002F995.
+	(M-30860'): Add mapping for CU-0002F995.
+	(J90-326A): Likewise.
+	(C6-2E22): Unify CU-0002F995 instead of U-0002F995.
 
 2002-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
