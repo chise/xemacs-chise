@@ -131,7 +131,10 @@
     (mirrored		. nil)
     (numeric-value	. 1)
     (->decomposition	compat #x0049)
-    (->lowercase	#x2170)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE")
+      (ucs		  . #x2170)	; â…°
+      ))
     (chinese-gb2312		. #x2271)	; ø»„ˆ²
     (korean-ksc5601		. #x2530)	; ø»ˆ “
     (chinese-cns11643-1		. #x242B)	; ø»‘‡€
@@ -146,7 +149,10 @@
     (mirrored		. nil)
     (numeric-value	. 2)
     (->decomposition	compat #x0049 #x0049)
-    (->lowercase	#x2171)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TWO")
+      (ucs		  . #x2171)	; â…±
+      ))
     (chinese-gb2312		. #x2272)	; ø»„ˆ³
     (korean-ksc5601		. #x2531)	; ø»ˆ ”
     (chinese-cns11643-1		. #x242C)	; ø»‘‡
@@ -161,7 +167,10 @@
     (mirrored		. nil)
     (numeric-value	. 3)
     (->decomposition	compat #x0049 #x0049 #x0049)
-    (->lowercase	#x2172)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL THREE")
+      (ucs		  . #x2172)	; â…²
+      ))
     (chinese-gb2312		. #x2273)	; ø»„ˆ´
     (korean-ksc5601		. #x2532)	; ø»ˆ •
     (chinese-cns11643-1		. #x242D)	; ø»‘‡‚
@@ -176,7 +185,10 @@
     (mirrored		. nil)
     (numeric-value	. 4)
     (->decomposition	compat #x0049 #x0056)
-    (->lowercase	#x2173)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FOUR")
+      (ucs		  . #x2173)	; â…³
+      ))
     (chinese-gb2312		. #x2274)	; ø»„ˆµ
     (korean-ksc5601		. #x2533)	; ø»ˆ –
     (chinese-cns11643-1		. #x242E)	; ø»‘‡ƒ
@@ -191,7 +203,10 @@
     (mirrored		. nil)
     (numeric-value	. 5)
     (->decomposition	compat #x0056)
-    (->lowercase	#x2174)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIVE")
+      (ucs		  . #x2174)	; â…´
+      ))
     (chinese-gb2312		. #x2275)	; ø»„ˆ¶
     (korean-ksc5601		. #x2534)	; ø»ˆ —
     (chinese-cns11643-1		. #x242F)	; ø»‘‡„
@@ -206,7 +221,10 @@
     (mirrored		. nil)
     (numeric-value	. 6)
     (->decomposition	compat #x0056 #x0049)
-    (->lowercase	#x2175)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL SIX")
+      (ucs		  . #x2175)	; â…µ
+      ))
     (chinese-gb2312		. #x2276)	; ø»„ˆ·
     (korean-ksc5601		. #x2535)	; ø»ˆ ˜
     (chinese-cns11643-1		. #x2430)	; ø»‘‡…
@@ -221,7 +239,10 @@
     (mirrored		. nil)
     (numeric-value	. 7)
     (->decomposition	compat #x0056 #x0049 #x0049)
-    (->lowercase	#x2176)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL SEVEN")
+      (ucs		  . #x2176)	; â…¶
+      ))
     (chinese-gb2312		. #x2277)	; ø»„ˆ¸
     (korean-ksc5601		. #x2536)	; ø»ˆ ™
     (chinese-cns11643-1		. #x2431)	; ø»‘‡†
@@ -236,7 +257,10 @@
     (mirrored		. nil)
     (numeric-value	. 8)
     (->decomposition	compat #x0056 #x0049 #x0049 #x0049)
-    (->lowercase	#x2177)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL EIGHT")
+      (ucs		  . #x2177)	; â…·
+      ))
     (chinese-gb2312		. #x2278)	; ø»„ˆ¹
     (korean-ksc5601		. #x2537)	; ø»ˆ š
     (chinese-cns11643-1		. #x2432)	; ø»‘‡‡
@@ -251,7 +275,10 @@
     (mirrored		. nil)
     (numeric-value	. 9)
     (->decomposition	compat #x0049 #x0058)
-    (->lowercase	#x2178)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL NINE")
+      (ucs		  . #x2178)	; â…¸
+      ))
     (chinese-gb2312		. #x2279)	; ø»„ˆº
     (korean-ksc5601		. #x2538)	; ø»ˆ ›
     (chinese-cns11643-1		. #x2433)	; ø»‘‡ˆ
@@ -266,7 +293,10 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	compat #x0058)
-    (->lowercase	#x2179)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TEN")
+      (ucs		  . #x2179)	; â…¹
+      ))
     (chinese-gb2312		. #x227A)	; ø»„ˆ»
     (korean-ksc5601		. #x2539)	; ø»ˆ œ
     (chinese-cns11643-1		. #x2434)	; ø»‘‡‰
@@ -281,7 +311,10 @@
     (mirrored		. nil)
     (numeric-value	. 11)
     (->decomposition	compat #x0058 #x0049)
-    (->lowercase	#x217A)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ELEVEN")
+      (ucs		  . #x217A)	; â…º
+      ))
     (chinese-gb2312		. #x227B)	; ø»„ˆ¼
     (japanese-jisx0213-1	. #x2D3F)	; ø»¢¥‚
     (ucs			. #x216A)	; â…ª
@@ -293,7 +326,10 @@
     (mirrored		. nil)
     (numeric-value	. 12)
     (->decomposition	compat #x0058 #x0049 #x0049)
-    (->lowercase	#x217B)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL TWELVE")
+      (ucs		  . #x217B)	; â…»
+      ))
     (chinese-gb2312		. #x227C)	; ø»„ˆ½
     (japanese-jisx0213-1	. #x2D57)	; ø»¢¥š
     (ucs			. #x216B)	; â…«
@@ -305,7 +341,10 @@
     (mirrored		. nil)
     (numeric-value	. 50)
     (->decomposition	compat #x004C)
-    (->lowercase	#x217C)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIFTY")
+      (ucs		  . #x217C)	; â…¼
+      ))
     (ucs		. #x216C)	; â…¬
     ))
 (define-char
@@ -315,7 +354,10 @@
     (mirrored		. nil)
     (numeric-value	. 100)
     (->decomposition	compat #x0043)
-    (->lowercase	#x217D)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE HUNDRED")
+      (ucs		  . #x217D)	; â…½
+      ))
     (ucs		. #x216D)	; â…­
     ))
 (define-char
@@ -325,7 +367,10 @@
     (mirrored		. nil)
     (numeric-value	. 500)
     (->decomposition	compat #x0044)
-    (->lowercase	#x217E)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL FIVE HUNDRED")
+      (ucs		  . #x217E)	; â…¾
+      ))
     (ucs		. #x216E)	; â…®
     ))
 (define-char
@@ -335,7 +380,10 @@
     (mirrored		. nil)
     (numeric-value	. 1000)
     (->decomposition	compat #x004D)
-    (->lowercase	#x217F)
+    (->lowercase
+     ((name		  . "SMALL ROMAN NUMERAL ONE THOUSAND")
+      (ucs		  . #x217F)	; â…¿
+      ))
     (ucs		. #x216F)	; â…¯
     ))
 (define-char
@@ -345,8 +393,10 @@
     (mirrored		. nil)
     (numeric-value	. 1)
     (->decomposition	compat #x0069)
-    (->uppercase	#x2160)
-    (->titlecase	#x2160)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE")
+      (ucs		  . #x2160)	; â… 
+      ))
     (korean-ksc5601		. #x2521)	; ø»ˆ „
     (chinese-cns11643-1		. #x2635)	; ø»‘Š†
     (japanese-jisx0213-1	. #x2C35)	; ø»¢£š
@@ -359,8 +409,10 @@
     (mirrored		. nil)
     (numeric-value	. 2)
     (->decomposition	compat #x0069 #x0069)
-    (->uppercase	#x2161)
-    (->titlecase	#x2161)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TWO")
+      (ucs		  . #x2161)	; â…¡
+      ))
     (korean-ksc5601		. #x2522)	; ø»ˆ …
     (chinese-cns11643-1		. #x2636)	; ø»‘Š‡
     (japanese-jisx0213-1	. #x2C36)	; ø»¢£›
@@ -373,8 +425,10 @@
     (mirrored		. nil)
     (numeric-value	. 3)
     (->decomposition	compat #x0069 #x0069 #x0069)
-    (->uppercase	#x2162)
-    (->titlecase	#x2162)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL THREE")
+      (ucs		  . #x2162)	; â…¢
+      ))
     (korean-ksc5601		. #x2523)	; ø»ˆ †
     (chinese-cns11643-1		. #x2637)	; ø»‘Šˆ
     (japanese-jisx0213-1	. #x2C37)	; ø»¢£œ
@@ -387,8 +441,10 @@
     (mirrored		. nil)
     (numeric-value	. 4)
     (->decomposition	compat #x0069 #x0076)
-    (->uppercase	#x2163)
-    (->titlecase	#x2163)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FOUR")
+      (ucs		  . #x2163)	; â…£
+      ))
     (korean-ksc5601		. #x2524)	; ø»ˆ ‡
     (chinese-cns11643-1		. #x2638)	; ø»‘Š‰
     (japanese-jisx0213-1	. #x2C38)	; ø»¢£
@@ -401,8 +457,10 @@
     (mirrored		. nil)
     (numeric-value	. 5)
     (->decomposition	compat #x0076)
-    (->uppercase	#x2164)
-    (->titlecase	#x2164)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIVE")
+      (ucs		  . #x2164)	; â…¤
+      ))
     (korean-ksc5601		. #x2525)	; ø»ˆ ˆ
     (chinese-cns11643-1		. #x2639)	; ø»‘ŠŠ
     (japanese-jisx0213-1	. #x2C39)	; ø»¢£ž
@@ -415,8 +473,10 @@
     (mirrored		. nil)
     (numeric-value	. 6)
     (->decomposition	compat #x0076 #x0069)
-    (->uppercase	#x2165)
-    (->titlecase	#x2165)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL SIX")
+      (ucs		  . #x2165)	; â…¥
+      ))
     (korean-ksc5601		. #x2526)	; ø»ˆ ‰
     (chinese-cns11643-1		. #x263A)	; ø»‘Š‹
     (japanese-jisx0213-1	. #x2C3A)	; ø»¢£Ÿ
@@ -429,8 +489,10 @@
     (mirrored		. nil)
     (numeric-value	. 7)
     (->decomposition	compat #x0076 #x0069 #x0069)
-    (->uppercase	#x2166)
-    (->titlecase	#x2166)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL SEVEN")
+      (ucs		  . #x2166)	; â…¦
+      ))
     (korean-ksc5601		. #x2527)	; ø»ˆ Š
     (chinese-cns11643-1		. #x263B)	; ø»‘ŠŒ
     (japanese-jisx0213-1	. #x2C3B)	; ø»¢£ 
@@ -443,8 +505,10 @@
     (mirrored		. nil)
     (numeric-value	. 8)
     (->decomposition	compat #x0076 #x0069 #x0069 #x0069)
-    (->uppercase	#x2167)
-    (->titlecase	#x2167)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL EIGHT")
+      (ucs		  . #x2167)	; â…§
+      ))
     (korean-ksc5601		. #x2528)	; ø»ˆ ‹
     (chinese-cns11643-1		. #x263C)	; ø»‘Š
     (japanese-jisx0213-1	. #x2C3C)	; ø»¢£¡
@@ -457,8 +521,10 @@
     (mirrored		. nil)
     (numeric-value	. 9)
     (->decomposition	compat #x0069 #x0078)
-    (->uppercase	#x2168)
-    (->titlecase	#x2168)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL NINE")
+      (ucs		  . #x2168)	; â…¨
+      ))
     (korean-ksc5601		. #x2529)	; ø»ˆ Œ
     (chinese-cns11643-1		. #x263D)	; ø»‘ŠŽ
     (japanese-jisx0213-1	. #x2C3D)	; ø»¢£¢
@@ -471,8 +537,10 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	compat #x0078)
-    (->uppercase	#x2169)
-    (->titlecase	#x2169)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TEN")
+      (ucs		  . #x2169)	; â…©
+      ))
     (korean-ksc5601		. #x252A)	; ø»ˆ 
     (chinese-cns11643-1		. #x263E)	; ø»‘Š
     (japanese-jisx0213-1	. #x2C3E)	; ø»¢££
@@ -485,8 +553,10 @@
     (mirrored		. nil)
     (numeric-value	. 11)
     (->decomposition	compat #x0078 #x0069)
-    (->uppercase	#x216A)
-    (->titlecase	#x216A)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ELEVEN")
+      (ucs		  . #x216A)	; â…ª
+      ))
     (japanese-jisx0213-1	. #x2C3F)	; ø»¢£¤
     (ucs			. #x217A)	; â…º
     ))
@@ -497,8 +567,10 @@
     (mirrored		. nil)
     (numeric-value	. 12)
     (->decomposition	compat #x0078 #x0069 #x0069)
-    (->uppercase	#x216B)
-    (->titlecase	#x216B)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL TWELVE")
+      (ucs		  . #x216B)	; â…«
+      ))
     (japanese-jisx0213-1	. #x2C40)	; ø»¢£¥
     (ucs			. #x217B)	; â…»
     ))
@@ -509,8 +581,10 @@
     (mirrored		. nil)
     (numeric-value	. 50)
     (->decomposition	compat #x006C)
-    (->uppercase	#x216C)
-    (->titlecase	#x216C)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIFTY")
+      (ucs		  . #x216C)	; â…¬
+      ))
     (ucs		. #x217C)	; â…¼
     ))
 (define-char
@@ -520,8 +594,10 @@
     (mirrored		. nil)
     (numeric-value	. 100)
     (->decomposition	compat #x0063)
-    (->uppercase	#x216D)
-    (->titlecase	#x216D)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE HUNDRED")
+      (ucs		  . #x216D)	; â…­
+      ))
     (ucs		. #x217D)	; â…½
     ))
 (define-char
@@ -531,8 +607,10 @@
     (mirrored		. nil)
     (numeric-value	. 500)
     (->decomposition	compat #x0064)
-    (->uppercase	#x216E)
-    (->titlecase	#x216E)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL FIVE HUNDRED")
+      (ucs		  . #x216E)	; â…®
+      ))
     (ucs		. #x217E)	; â…¾
     ))
 (define-char
@@ -542,8 +620,10 @@
     (mirrored		. nil)
     (numeric-value	. 1000)
     (->decomposition	compat #x006D)
-    (->uppercase	#x216F)
-    (->titlecase	#x216F)
+    (->uppercase
+     ((name		  . "ROMAN NUMERAL ONE THOUSAND")
+      (ucs		  . #x216F)	; â…¯
+      ))
     (ucs		. #x217F)	; â…¿
     ))
 (define-char
