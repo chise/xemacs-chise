@@ -2162,77 +2162,84 @@ get_unallocated_leading_byte (int dimension)
 #define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
 
 Emchar
-make_builtin_char (Lisp_Object charset, int c1, int c2)
+decode_builtin_char (Lisp_Object charset, int code_point)
 {
-  if (XCHARSET_UCS_MAX (charset))
+  int final;
+
+  if (EQ (charset, Vcharset_chinese_big5))
     {
-      Emchar code
+      int c1 = code_point >> 8;
+      int c2 = code_point & 0xFF;
+      unsigned int I
+	= (c1 - 0xA1) * BIG5_SAME_ROW
+	+ c2 - (c2 < 0x7F ? 0x40 : 0x62);
+
+      if (c1 < 0xC9)
+	{
+	  charset = Vcharset_chinese_big5_1;
+	}
+      else
+	{
+	  charset = Vcharset_chinese_big5_2;
+	  I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
+	}
+      code_point = ((I / 94 + 33) << 8) | (I % 94 + 33);
+    }
+  if ((final = XCHARSET_FINAL (charset)) >= '0')
+    {
+      if (XCHARSET_DIMENSION (charset) == 1)
+	{
+	  switch (XCHARSET_CHARS (charset))
+	    {
+	    case 94:
+	      return MIN_CHAR_94
+		+ (final - '0') * 94 + ((code_point & 0x7F) - 33);
+	    case 96:
+	      return MIN_CHAR_96
+		+ (final - '0') * 96 + ((code_point & 0x7F) - 32);
+	    default:
+	      abort ();
+	      return -1;
+	    }
+	}
+      else
+	{
+	  switch (XCHARSET_CHARS (charset))
+	    {
+	    case 94:
+	      return MIN_CHAR_94x94
+		+ (final - '0') * 94 * 94
+		+ (((code_point >> 8) & 0x7F) - 33) * 94
+		+ ((code_point & 0x7F) - 33);
+	    case 96:
+	      return MIN_CHAR_96x96
+		+ (final - '0') * 96 * 96
+		+ (((code_point >> 8) & 0x7F) - 32) * 96
+		+ ((code_point & 0x7F) - 32);
+	    default:
+	      abort ();
+	      return -1;
+	    }
+	}
+    }
+  else if (XCHARSET_UCS_MAX (charset))
+    {
+      Emchar cid
 	= (XCHARSET_DIMENSION (charset) == 1
 	   ?
-	   c1 - XCHARSET_BYTE_OFFSET (charset)
+	   code_point - XCHARSET_BYTE_OFFSET (charset)
 	   :
-	   (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
-	   + c2  - XCHARSET_BYTE_OFFSET (charset))
+	   ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
+	   * XCHARSET_CHARS (charset)
+	   + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
 	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
-      if ((code < XCHARSET_UCS_MIN (charset))
-	  || (XCHARSET_UCS_MAX (charset) < code))
-	signal_simple_error ("Arguments makes invalid character",
-			     make_char (code));
-      return code;
-    }
-  else if (XCHARSET_DIMENSION (charset) == 1)
-    {
-      if (XCHARSET_FINAL (charset) == 0)
+      if ((cid < XCHARSET_UCS_MIN (charset))
+	  || (XCHARSET_UCS_MAX (charset) < cid))
 	return -1;
-      switch (XCHARSET_CHARS (charset))
-	{
-	case 94:
-	  return MIN_CHAR_94
-	    + (XCHARSET_FINAL (charset) - '0') * 94 + (c1 - 33);
-	case 96:
-	  return MIN_CHAR_96
-	    + (XCHARSET_FINAL (charset) - '0') * 96 + (c1 - 32);
-	default:
-	  abort ();
-	}
+      return cid;
     }
   else
-    {
-      if (EQ (charset, Vcharset_chinese_big5))
-	{
-	  int B1 = c1, B2 = c2;
-	  unsigned int I
-	    = (B1 - 0xA1) * BIG5_SAME_ROW
-	    + B2 - (B2 < 0x7F ? 0x40 : 0x62);
-
-	  if (B1 < 0xC9)
-	    {
-	      charset = Vcharset_chinese_big5_1;
-	    }
-	  else
-	    {
-	      charset = Vcharset_chinese_big5_2;
-	      I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
-	    }
-	  c1 = I / 94 + 33;
-	  c2 = I % 94 + 33;
-	}
-      if (XCHARSET_FINAL (charset) == 0)
-	return -1;
-      switch (XCHARSET_CHARS (charset))
-	{
-	case 94:
-	  return MIN_CHAR_94x94
-	    + (XCHARSET_FINAL (charset) - '0') * 94 * 94
-	    + (c1 - 33) * 94 + (c2 - 33);
-	case 96:
-	  return MIN_CHAR_96x96
-	    + (XCHARSET_FINAL (charset) - '0') * 96 * 96
-	    + (c1 - 32) * 96 + (c2 - 32);
-	default:
-	  abort ();
-	}
-    }
+    return -1;
 }
 
 int
@@ -3154,69 +3161,14 @@ Make a builtin character from CHARSET and code-point CODE.
        (charset, code))
 {
   int c;
-  int final;
 
   charset = Fget_charset (charset);
   CHECK_INT (code);
   c = XINT (code);
-
-  if ((final = XCHARSET_FINAL (charset)) >= '0')
-    {
-      if (XCHARSET_DIMENSION (charset) == 1)
-	{
-	  switch (XCHARSET_CHARS (charset))
-	    {
-	    case 94:
-	      return
-		make_char (MIN_CHAR_94 + (final - '0') * 94
-			   + ((c & 0x7F) - 33));
-	    case 96:
-	      return
-		make_char (MIN_CHAR_96 + (final - '0') * 96
-			   + ((c & 0x7F) - 32));
-	    default:
-	      return Fdecode_char (charset, code);
-	    }
-	}
-      else
-	{
-	  switch (XCHARSET_CHARS (charset))
-	    {
-	    case 94:
-	      return
-		make_char (MIN_CHAR_94x94
-			   + (final - '0') * 94 * 94
-			   + (((c >> 8) & 0x7F) - 33) * 94
-			   + ((c & 0x7F) - 33));
-	    case 96:
-	      return
-		make_char (MIN_CHAR_96x96
-			   + (final - '0') * 96 * 96
-			   + (((c >> 8) & 0x7F) - 32) * 96
-			   + ((c & 0x7F) - 32));
-	    default:
-	      return Fdecode_char (charset, code);
-	    }
-	}
-    }
-  else if (XCHARSET_UCS_MAX (charset))
-    {
-      Emchar cid
-	= (XCHARSET_DIMENSION (charset) == 1
-	   ?
-	   c - XCHARSET_BYTE_OFFSET (charset)
-	   :
-	   ((c >> 8) - XCHARSET_BYTE_OFFSET (charset))
-	   * XCHARSET_CHARS (charset)
-	   + (c & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
-	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
-      if ((cid < XCHARSET_UCS_MIN (charset))
-	  || (XCHARSET_UCS_MAX (charset) < cid))
-	return Fdecode_char (charset, code);
-      return make_char (cid);
-    }
-  else
-    return Fdecode_char (charset, code);
+  if (XCHARSET_GRAPHIC (charset) == 1)
+    c &= 0x7F7F7F7F;
+  c = decode_builtin_char (charset, c);
+  return c ? make_char (c) : Fdecode_char (charset, code);
 }
 #endif
 
