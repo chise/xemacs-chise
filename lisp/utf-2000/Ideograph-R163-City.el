@@ -2208,19 +2208,20 @@
     (ucs		. #x48CE)	; ä£Ž
     ))
 (define-char
-  '((=>ucs		. #x90F1)	; éƒ±
+  '((=>ucs		. #x2F9E3)	; ð¯§£
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 39480)	; ø¸‰¨¸
     ))
 (define-char
-  '((=>ucs		. #x90F1)	; éƒ±
+  '((=>ucs*		. #x90F1)	; éƒ±
     (morohashi-daikanwa	39480 0 1)
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (chinese-cns11643-4 . #x3572)	; ø»—¿‘
+    (ucs		. #x2F9E3)	; ð¯§£
     ))
 (define-char
   '((morohashi-daikanwa	39480 0 2)
