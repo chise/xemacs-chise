@@ -7,6 +7,7 @@
     (japanese-jisx0208-1978	. #x4673)	; ø»‚³¨
     (chinese-gb2312		. #x367E)	; ø»„¦—
     (japanese-jisx0208		. #x4673)	; ø»‡‡°
+    (korean-ksc5601		. #x6C23)	; ø»Šˆ˜
     (chinese-isoir165		. #x367E)	; ø»Ž§
     (chinese-cns11643-1		. #x4428)	; ø»‘µ½
     (japanese-jisx0208-1990	. #x4673)	; ø½Š­¤
@@ -35,7 +36,6 @@
   '((ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (korean-ksc5601	. #x6C23)	; ø»Šˆ˜
     (chinese-cns11643-6 . #x2129)	; ø»›´¸
     (ideograph-daikanwa . 00250)	; ø¸€ƒº
     (mojikyo		. 000250)	; ý €€ƒº
