@@ -2694,12 +2694,6 @@ Automatically becomes buffer-local when set in any fashion.
   DEFVAR_BUFFER_LOCAL ("case-fold-search", case_fold_search /*
 *Non-nil if searches should ignore case.
 Automatically becomes buffer-local when set in any fashion.
-
-BUG: Under XEmacs/Mule, translations to or from non-ASCII characters
- (this includes chars in the range 128 - 255) are ignored by
- the string/buffer-searching routines.  Thus, `case-fold-search'
- will not correctly conflate a-umlaut and A-umlaut even if the
- case tables call for this.
 */ );
 
   DEFVAR_BUFFER_LOCAL ("fill-column", fill_column /*

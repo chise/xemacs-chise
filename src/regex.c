@@ -132,12 +132,18 @@ char *malloc ();
 char *realloc ();
 #endif
 
-/* Other types */
+/* Types normally included via lisp.h */
 #include <stddef.h> /* for ptrdiff_t */
 
-#define charptr_emchar(str)		((Emchar) (str)[0])
+#ifdef REGEX_MALLOC
+#ifndef DECLARE_NOTHING
+#define DECLARE_NOTHING struct nosuchstruct
+#endif
+#endif
 
 typedef int Emchar;
+
+#define charptr_emchar(str)		((Emchar) (str)[0])
 
 #define INC_CHARPTR(p) ((p)++)
 #define DEC_CHARPTR(p) ((p)--)

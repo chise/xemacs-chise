@@ -1,3 +1,7 @@
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
@@ -240,5 +244,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.7 2001/05/10 10:39:06 stephent Exp $
-$Revision: 1.2.2.7 $
+%%% $Id: ChangeLog,v 1.2.2.8 2001/05/17 14:59:49 stephent Exp $
+$Revision: 1.2.2.8 $

@@ -3763,6 +3763,7 @@ lookup_command_event (struct command_builder *command_builder,
 static int
 is_scrollbar_event (Lisp_Object event)
 {
+#ifdef HAVE_SCROLLBARS
   Lisp_Object fun;
 
   if (XEVENT (event)->event_type != misc_user_event)
@@ -3783,6 +3784,9 @@ is_scrollbar_event (Lisp_Object event)
 	  EQ (fun, Qscrollbar_to_left) ||
 	  EQ (fun, Qscrollbar_to_right) ||
 	  EQ (fun, Qscrollbar_horizontal_drag));
+#else
+  return 0
+#endif
 }
 
 static void

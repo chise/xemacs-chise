@@ -94,13 +94,6 @@ XIM_init_device (struct device *d)
   /* Nothing to do */
 }
 
-/* Callback for the deleting frame. */
-static void
-XIM_delete_frame (Widget w, XtPointer client_data, XtPointer call_data)
-{
-  XmImUnregister ((Widget) client_data);
-}
-
 void
 XIM_init_frame (struct frame *f)
 {
@@ -159,8 +152,6 @@ XIM_init_frame (struct frame *f)
 		   NULL);
 
   XmFontListEntryFree (&fontlistEntry);
-
-  XtAddCallback (w, XmNdestroyCallback, XIM_delete_frame, (XtPointer) w);
 }
 
 void

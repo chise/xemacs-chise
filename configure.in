@@ -4052,6 +4052,14 @@ if test "$with_native_sound" != "no"; then
     esac
   fi
 
+  dnl Win32 Native uses native sound
+  if test -z "$sound_found"; then
+    if test "$with_msw" = "yes"; then
+    sound_found=yes
+    native_sound_lib=
+    fi
+  fi
+
   dnl Check for Linux/BSD native sound
   if test -z "$sound_found"; then
     for dir in "machine" "sys" "linux"; do
@@ -4062,14 +4070,6 @@ if test "$with_native_sound" != "no"; then
         [AC_DEFINE_UNQUOTED(SOUNDCARD_H_FILE, "${dir}/soundcard.h")]
         break)
     done
-  fi
-
-  dnl Win32 Native uses native sound
-  if test -z "$sound_found"; then
-    if test "$with_msw" = "yes"; then
-    sound_found=yes
-    native_sound_lib=
-    fi
   fi
 
   test "$sound_found" = "yes" && with_native_sound=yes
