@@ -9,6 +9,8 @@
     (=jis-x0208-1990	. #x737D)	; ø½‹¯´
     (=ks-x1001		. #x4F4F)	; ø»‰žž
     (=jis-x0208-1983	. #x737D)	; ø»ˆŠ€
+    (=gt		. 66712)	; ý¡€’˜
+    (=gt-pj-1		. #x737D)	; ý¡€’˜
     (=daikanwa		. 48847)	; ø¸‹»
     (=ucs@jis		. #x9F9C)	; ø½‹¯´
     ))
@@ -18,7 +20,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
-    (=jis-x0208-1978	. #x737D)	; ø»ƒµ¸
+    (=cns11643-1	. #x733F)	; ø»’»–
     ))
 (define-char
   '((=>ucs		. #x9F9C)	; é¾œ
@@ -26,7 +28,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
-    (=cns11643-1	. #x733F)	; ø»’»–
+    (=jis-x0208-1978	. #x737D)	; ø»ƒµ¸
     ))
 (define-char
   '((=>ucs		. #x9F9C)	; é¾œ
@@ -34,11 +36,11 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
     (<-original-ideograph
-     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 9918)
-		 (=daikanwa	     . 48847)	; ø¸‹»
-		 )
+     ((shinjigen-1	  . 9918)
+      (=daikanwa	  . 48847)	; ø¸‹»
       ))
+    (<-original-ideograph*sources
+     zhengzi-tong daikanwa shinjigen-1)
     (shinjigen-1	. 9919)
     (=cns11643-7	. #x2C3A)	; ø»ž—
     (=daikanwa		. 48848)	; ø¸‹»
