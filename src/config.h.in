@@ -465,6 +465,8 @@ char *alloca();
    if you're working with ASCII files. */
 #undef MULE
 
+#undef UTF2000
+
 /* Define this if you want file coding support */
 #undef FILE_CODING
 
