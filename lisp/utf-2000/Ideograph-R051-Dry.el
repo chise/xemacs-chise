@@ -91,13 +91,31 @@
   '((ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (ideograph-daikanwa . 09171)	; ø¸‚“
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((korean-ksc5601	  . #x7841)	; ø»Ššž
+      (ideograph-daikanwa . 09167)	; ø¸‚
+      )
+     ((ucs		  . #x4E01)	; ä¸
+      ))
+    (ideograph-daikanwa		. 09171)	; ø¸‚“
+    (ideograph-hanziku-1	. #xA872)	; ý¢€š¡²
     ))
 (define-char
   '((morohashi-daikanwa	9171 0 2)
     (ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x5E73)	; å¹³
+      )
+     ((ucs		  . #x4E01)	; ä¸
+      ))
     (chinese-cns11643-6 . #x2742)	; ø»›¾…
     ))
 (define-char
