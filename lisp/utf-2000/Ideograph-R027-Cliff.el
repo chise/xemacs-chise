@@ -2522,7 +2522,7 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ucs@unicode	    . #x7312)	; &UU+7312;
+       ((=ucs@unicode	    . #x7312)	; &JX2-7046;
 	))
       (shinjigen-1	  . 886)
       (shinjigen-2	  . 886)
