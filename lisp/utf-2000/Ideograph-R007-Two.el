@@ -117,8 +117,7 @@
       )
      ((ucs		  . #x4E8C)	; 二
       )
-     ((chinese-big5-cdp	  . #x8AFD)	; 厶
-      (ucs		  . #x53B6)	; 厶
+     ((ucs		  . #x53B6)	; 厶
       ))
     (shinjigen-1	. 78)
     (shinjigen-2	. 78)
