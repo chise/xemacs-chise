@@ -1,3 +1,8 @@
+2004-09-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4ED6): Map to U+6168 instead of U+FA3E.
+	(JC3-50F4): Map to U+65E3 instead of U+FA42.
+
 2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JSP-to-UCS.txt (JSP-6674): Delete jU+5DB2.
