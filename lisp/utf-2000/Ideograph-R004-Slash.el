@@ -1564,22 +1564,27 @@
     (=hanziku-1		. #xAC7D)	; ý¢€š±½
     ))
 (define-char
-  '((ideographic-radical . 4)	; â¼ƒ
-    (ideographic-strokes . 9)
-    (total-strokes	 . 10)
-    (->same
-     ((=daikanwa	  . 07853)	; ø¸º­
-      ))
+  '((total-strokes	 . 10)
     (<-original-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 09176)	; ø¸‚˜
-		 )
+     ((=daikanwa	  . 09176)	; ø¸‚˜
       ))
+    (<-original-ideograph*sources
+     zhengzi-tong zhonghua-dazidian daikanwa)
     (hanyu-dazidian	2 1022 17)
     (=ucs		. #x21D18)	; ð¡´˜
     (=cns11643-6	. #x3528)	; ø»œ’
-    (=daikanwa		. 00157)	; ø¸€‚
     (=hanziku-3		. #xD0D4)	; ý¢€½ƒ”
+    (->subsumptive
+     ((ideographic-radical . 4)	; â¼ƒ
+      (ideographic-strokes . 9)
+      (ideographic-radical*sources daikanwa cns11643)
+      (=daikanwa	  . 00157)	; ø¸€‚
+      )
+     ((ideographic-radical . 45)	; â¼¬
+      (ideographic-strokes . 7)
+      (ideographic-radical*sources daikanwa ucs)
+      (=daikanwa	  . 07853)	; ø¸º­
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
