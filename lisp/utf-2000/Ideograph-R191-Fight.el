@@ -243,13 +243,22 @@
     (ideograph-daikanwa . 45656)	; ø¸‹‰˜
     ))
 (define-char
-  '((ideographic-radical . 191)	; â¾¾
+  '((=>ucs		. #x9B2D)	; é¬­
+    (ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 14)
     (total-strokes	 . 25)
-    (japanese-jisx0212	. #x6A32)	; ø»Œ¯
-    (chinese-cns11643-4 . #x6D37)	; ø»™¦
     (ideograph-daikanwa . 45657)	; ø¸‹‰™
-    (ucs		. #x9B2D)	; é¬­
+    ))
+(define-char
+  '((morohashi-daikanwa	45657 0 0)
+    (ideographic-radical . 191)	; â¾¾
+    (ideographic-strokes . 14)
+    (total-strokes	 . 25)
+    (japanese-jisx0212		. #x6A32)	; ø»Œ¯
+    (chinese-cns11643-4		. #x6D37)	; ø»™¦
+    (japanese-jisx0213-1	. #x7E3F)	; ø»¤œ€
+    (ideograph-cbeta		. 10823)	; ø¸¢©‡
+    (ucs			. #x9B2D)	; é¬­
     ))
 (define-char
   '((ideographic-radical . 191)	; â¾¾
