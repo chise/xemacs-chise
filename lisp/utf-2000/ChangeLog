@@ -1,5 +1,8 @@
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R062-Halberd.el: Use `->subsumptive' for some
+	character definitions.
+
 	* Ideograph-R082-Fur.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
