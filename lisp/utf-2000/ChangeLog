@@ -1,5 +1,9 @@
 2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el, Ideograph-R043-Lame.el,
+	Ideograph-R042-Small.el, Ideograph-R041-Inch.el,
+	Ideograph-R038-Woman.el: Add `=ucs@big5' features.
+
 	* read-maps.el (mapping-table-read-file): Use `=ucs@jis-2000'
 	instead of `ucs-jis' for JX2-XXXX.
 
