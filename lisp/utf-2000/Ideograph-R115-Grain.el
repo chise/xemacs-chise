@@ -3965,22 +3965,19 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (shinjigen-2	. 5659)
     (=ucs		. #x7A4E)	; 穎
-    (=jis-x0208		. #x314F)	; &I-J90-314F;
-    (=ks-x1001		. #x6744)	; &I-K0-6744;
-    (=gb12345		. #x5331)	; 穎
-    (=gt		. 32559)	; &I-GT-32559;
-    (=gt-pj-1		. #x314F)	; &I-GT-32559;
-    (=daikanwa		. 25267)	; &I-M-25267;
-    ))
-(define-char
-  '((=>ucs		. #x7A4E)	; 穎
-    (morohashi-daikanwa	25267 0 0)
-    (ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 11)
-    (total-strokes	 . 16)
-    (=cns11643-1	. #x7159)	; &C1-7159;
+    (->subsumptive
+     ((shinjigen-2	  . 5659)
+      (=jis-x0208	  . #x314F)	; &GT-32559;
+      (=ks-x1001	  . #x6744)	; &I-K0-6744;
+      (=gb12345		  . #x5331)	; &GT-32559;
+      (=gt		  . 32559)	; &I-GT-32559;
+      (=gt-pj-1		  . #x314F)	; &I-GT-32559;
+      (=daikanwa	  . 25267)	; &I-M-25267;
+      (=ucs@unicode	  . #x7A4E)	; &GT-32559;
+      )
+     ((=cns11643-1	  . #x7159)	; &C1-7159;
+      ))
     ))
 (define-char
   '((=>ucs		. #x417C)	; 䅼
