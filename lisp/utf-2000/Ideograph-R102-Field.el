@@ -196,6 +196,7 @@
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (shinjigen-1	. 5026)
     (chinese-gb2312	. #x3B2D)	; ø»„¬œ
     (chinese-isoir165	. #x3B2D)	; ø»”¬
     (chinese-cns11643-3 . #x2A37)	; ø»•¤ˆ
@@ -208,6 +209,7 @@
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (shinjigen-1	. 5023)
     (=jis-x0208		. #x3268)	; ø½Š
     (ucs-jis		. #x753B)	; ø½Š
     ))
