@@ -4,6 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 31 2)
+    (sound@ja/on/kan	"hetsu")
     (=ucs		. #x4E3F)	; ä¸¿
     (=jis-x0208		. #x5028)	; ø½Š»…
     (=gb2312		. #x582F)	; ø»…—„
@@ -82,6 +83,7 @@
     (total-strokes	 . 2)
     (shinjigen-1	. 45)
     (shinjigen-2	. 45)
+    (sound@ja/on/kan	"gai")
     (=jis-x0208		. #x5029)	; ø½Š»†
     (=ks-x1001		. #x6751)	; ø»Š°
     (=gt		. 00153)	; ý¡€€‚™
@@ -133,6 +135,8 @@
     (hanyu-dazidian	1 31 5)
     (shinjigen-1	. 46)
     (shinjigen-2	. 46)
+    (sound@ja/kun	"no")
+    (sound@ja/on/go	"nai")
     (=ucs		. #x4E43)	; ä¹ƒ
     (=jis-x0208		. #x4735)	; ø½Š®„
     (=gb2312		. #x444B)	; ø»„ºˆ
@@ -248,6 +252,10 @@
     (hanyu-dazidian	1 33 3)
     (shinjigen-1	. 47)
     (shinjigen-2	. 47)
+    (sound@ja/kun	"hisa+shii")
+    (sound@ja/kun/name	"hisashi" "hisa")
+    (sound@ja/on/go	"ku")
+    (sound@ja/on/kan	"kyuu")
     (=ucs		. #x4E45)	; ä¹…
     (=jis-x0208		. #x3557)	; ø½Š”Š
     (=gb2312		. #x3E43)	; ø»„±Œ
@@ -416,6 +424,9 @@
     (hanyu-dazidian	1 35 1)
     (shinjigen-1	. 900)
     (shinjigen-2	. 900)
+    (sound@ja/kun	"oyo+b5" "oyobi")
+    (sound@ja/kun/name	"oi")
+    (sound@ja/on/kan	"kyuu")
     (=ucs		. #x53CA)	; åŠ
     (=jis-x0208		. #x355A)	; ø½Š”
     (=gb2312		. #x3C30)	; ø»„­½
@@ -469,6 +480,9 @@
     (total-strokes@gt	    . 3)
     (shinjigen-1	. 49)
     (shinjigen-2	. 49)
+    (sound@ja/kun	"no" "kore")
+    (sound@ja/kun/name	"yuki")
+    (sound@ja/on	"shi")
     (=jis-x0208		. #x4737)	; ø½Š®†
     (=ks-x1001		. #x717D)	; ø»Š‘ˆ
     (=big5		. #xA4A7)	; ý¢€Š’§
@@ -579,6 +593,7 @@
     (ideographic-strokes@cns . 3)
     (total-strokes	 . 4)
     (shinjigen-2	. 1919)
+    (sound@ja/on	"in")
     (=ucs		. #x5C39)	; å°¹
     (=jis-x0208		. #x557A)	; ø½‹ƒ­
     (=gb2312		. #x527C)	; ø»…
@@ -652,6 +667,9 @@
     (hanyu-dazidian	1 35 3)
     (shinjigen-1	. 51)
     (shinjigen-2	. 52)
+    (sound@ja/kun	"naga-ra" "nagara" "shikashinaga-ra")
+    (sound@ja/on	"saku")
+    (sound@ja/on/kan	"sa")
     (=ucs		. #x4E4D)	; ä¹
     (=jis-x0208		. #x4663)	; ø½Š­”
     (=gb2312		. #x5527)	; ø»…’¢
@@ -670,6 +688,8 @@
     (hanyu-dazidian	1 36 8)
     (shinjigen-1	. 50)
     (shinjigen-2	. 51)
+    (sound@ja		"o")
+    (sound@ja/on/kan	"ko")
     (=ucs		. #x4E4E)	; ä¹Ž
     (=jis-x0208		. #x3843)	; ø½Š˜
     (=gb2312		. #x3A75)	; ø»„¬†
@@ -701,14 +721,15 @@
     ))
 (define-char
   '((=>ucs		. #x4E4F)	; ä¹
-    (ideographic-	(:radical	4 ; â¼ƒ
-			 :strokes	4
-			 :total-strokes	5
-			 :sources	(ucs jis-x0208 morohashi-daikanwa))
-			(:radical	4 ; â¼ƒ
-			 :strokes	3
-			 :total-strokes	4
-			 :sources	(gt)))
+    (ideographic-radical .	4) ; â¼ƒ
+    (ideographic-strokes@ucs .	4)
+    (total-strokes@ucs .	5)
+    (ideographic-strokes@ucs*sources
+     ucs jis-x0208 daikanwa)
+    (ideographic-strokes@gt .	3)
+    (total-strokes@gt .	4)
+    (total-strokes@gt*sources
+     gt)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -721,6 +742,8 @@
       ))
     (shinjigen-1	. 52)
     (shinjigen-2	. 50)
+    (sound@ja/kun	"tobo+shii")
+    (sound@ja/on/go	"bou")
     (=jis-x0208		. #x4B33)	; ø½Š³º
     (=ks-x1001		. #x7939)	; ø»Š›´
     (=big5		. #xA546)	; ý¢€Š•†
@@ -1256,6 +1279,8 @@
     (hanyu-dazidian	1 38 18)
     (shinjigen-1	. 53)
     (shinjigen-2	. 53)
+    (sound@ja/kun	"moto+r5" "somu+k5")
+    (sound@ja/on/kan	"kai")
     (=ucs		. #x4E56)	; ä¹–
     (=jis-x0208		. #x502A)	; ø½Š»‡
     (=gb2312		. #x3954)	; ø»„ª‡
@@ -1472,6 +1497,8 @@
     (hanyu-dazidian	1 39 8)
     (shinjigen-1	. 54)
     (shinjigen-2	. 54)
+    (sound@ja/kun	"no+r5" "no-se+ru")
+    (sound@ja/on/go	"jou")
     (=ucs		. #x4E57)	; ä¹—
     (=jis-x0208		. #x3E68)	; ø½Š¡©
     (=cns11643-3	. #x2B22)	; ø»•¥‘
@@ -1519,6 +1546,7 @@
     (hanyu-dazidian	1 40 1)
     (shinjigen-1	. 55)
     (shinjigen-2	. 55)
+    (sound@ja/on/go	"jou")
     (=ucs		. #x4E58)	; ä¹˜
     (=jis-x0208		. #x502B)	; ø½Š»ˆ
     (=gb2312		. #x334B)	; ø»„¡Š
