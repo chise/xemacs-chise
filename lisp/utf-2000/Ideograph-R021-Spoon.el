@@ -37,8 +37,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((name		  . "CJK RADICAL PERSON")
-      (ucs		  . #x2E85)	; âº…
+     ((ucs		  . #x4EBB)	; äº»
       )
      ((ideograph-daikanwa . 02571)	; ø¸€¨‹
       ))
@@ -480,6 +479,14 @@
   '((ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x5315)	; åŒ•
+      )
+     ((chinese-big5-cdp	  . #x8CE8)	; ý¢€ˆ³¨
+      ))
     (japanese-jisx0212	. #x3424)	; ø»‹€
     (chinese-cns11643-4 . #x305E)	; ø»—·§
     (ideograph-daikanwa . 02589)	; ø¸€¨
