@@ -3,24 +3,21 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (shinjigen-2	. 1599)
     (=ucs		. #x5973)	; 女
-    (=jis-x0208		. #x3D77)	; &I-J90-3D77;
-    (=gb2312		. #x452E)	; &I-G0-452E;
-    (=ks-x1001		. #x5233)	; &I-K0-5233;
-    (=big5		. #xA46B)	; &I-B-A46B;
-    (=gt		. 07623)	; &I-GT-07623;
-    (=gt-k		. 00185)	; &I-GT-K00185;
-    (=gt-pj-1		. #x3D77)	; &I-GT-07623;
-    (=daikanwa		. 06036)	; &I-M-06036;
-    ))
-(define-char
-  '((=>ucs		. #x5973)	; 女
-    (morohashi-daikanwa	6036 0 1)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=cns11643-1	. #x444C)	; &C1-444C;
+    (->subsumptive
+     ((shinjigen-2	  . 1599)
+      (=jis-x0208	  . #x3D77)	; &GT-07623;
+      (=gb2312		  . #x452E)	; &I-G0-452E;
+      (=ks-x1001	  . #x5233)	; &I-K0-5233;
+      (=big5		  . #xA46B)	; &I-B-A46B;
+      (=gt		  . 07623)	; &I-GT-07623;
+      (=gt-k		  . 00185)	; &I-GT-K00185;
+      (=gt-pj-1		  . #x3D77)	; &I-GT-07623;
+      (=daikanwa	  . 06036)	; &I-M-06036;
+      (=ucs@unicode	  . #x5973)	; &GT-07623;
+      )
+     ((=cns11643-1	  . #x444C)	; &C1-444C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
@@ -1907,64 +1904,57 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (<-vulgar
-     (:char	((=daikanwa	     . 06164)	; &I-M-06164;
-		 )
-      :sources	(morohashi-daikanwa)))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5973)	; 女
-      )
-     ((=jis-x0208	  . #x3B54)	; &GT-11066;
-      (=ks-x1001	  . #x633C)	; &I-K0-633C;
-      (=daikanwa	  . 08775)	; &I-M-08775;
-      ))
-    (shinjigen-2	. 1628)
     (=ucs		. #x59C9)	; 姉
-    (=jis-x0208-1978	. #x3B50)	; &I-J78-3B50;
-    (=jis-x0208-1983	. #x3B50)	; &I-J83-3B50;
-    (=daikanwa		. 06165)	; &I-M-06165;
-    (=cbeta		. 00106)	; &I-CB00106;
-    ))
-(define-char
-  '((=>ucs		. #x59C9)	; 姉
-    (morohashi-daikanwa	6165 0 0)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((<-vulgar
+       ((=ucs		    . #x59CA)	; 姊
+	(=daikanwa	    . 06164)	; &I-M-06164;
+	))
+      (<-vulgar*sources
+       daikanwa)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5973)	; 女
+	)
+       ((=jis-x0208	    . #x3B54)	; &GT-11066;
+	(=ks-x1001	    . #x633C)	; &I-K0-633C;
+	(=daikanwa	    . 08775)	; &I-M-08775;
+	))
+      (shinjigen-2	  . 1628)
+      (=jis-x0208-1978	  . #x3B50)	; &M-06165;
+      (=jis-x0208-1983	  . #x3B50)	; &I-J83-3B50;
+      (=daikanwa	  . 06165)	; &I-M-06165;
+      (=cbeta		  . 00106)	; &I-CB00106;
+      (=ucs@unicode	  . #x59C9)	; &M-06165;
       )
-     ((=ucs		  . #x5973)	; 女
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5973)	; 女
+	)
+       ((=jis-x0208	    . #x3B54)	; &GT-11066;
+	(=ks-x1001	    . #x633C)	; &I-K0-633C;
+	(=daikanwa	    . 08775)	; &I-M-08775;
+	))
+      (=ks-x1001	  . #x6D2B)	; &GT-07747;
+      (=jis-x0208-1990	  . #x3B50)	; &I-J90-3B50;
+      (=gt		  . 07747)	; &I-GT-07747;
+      (=gt-pj-1		  . #x3B50)	; &I-GT-07747;
+      (=ucs@jis		  . #x59C9)	; &GT-07747;
       )
-     ((=jis-x0208	  . #x3B54)	; &GT-11066;
-      (=ks-x1001	  . #x633C)	; &I-K0-633C;
-      (=daikanwa	  . 08775)	; &I-M-08775;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x444C)	; &C1-444C;
+	)
+       ((=ucs		    . #x5E02)	; 市
+	))
+      (=cns11643-3	  . #x283F)	; &C3-283F;
       ))
-    (=ks-x1001		. #x6D2B)	; &GT-07747;
-    (=jis-x0208-1990	. #x3B50)	; &I-J90-3B50;
-    (=gt		. 07747)	; &I-GT-07747;
-    (=gt-pj-1		. #x3B50)	; &I-GT-07747;
-    (=ucs@jis		. #x59C9)	; &GT-07747;
-    ))
-(define-char
-  '((=>ucs		. #x59C9)	; 姉
-    (morohashi-daikanwa	6165 0 1)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5973)	; 女
-      )
-     ((=ucs		  . #x5E02)	; 市
-      ))
-    (=cns11643-3	. #x283F)	; &C3-283F;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
