@@ -1,3 +1,24 @@
+2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fget_composite_char): Use `Fchar_feature' instead of
+	`Fget_char_attribute'.
+	(Fchar_variants): Likewise.
+	(get_char_table): Likewise.
+	(Fchar_feature): New function.
+	(put_char_composition): Use `Fchar_feature' instead of
+	`Fget_char_attribute'.
+	(Fput_char_attribute): Likewise; don't put the target character
+	into its `->unified' value.
+	(syms_of_chartab): Add new builtin function `char-feature'.
+
+2004-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `Fchar_feature' instead of
+	`Fget_char_attribute'.
+	(char_encode_utf8): Likewise.
+
+	* chartab.h: Add an EXFUN for `Fchar_feature'.
+
 2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Vnext_defined_char_id): New variable.
