@@ -5043,20 +5043,35 @@
 (define-char
   '((ideographic-radical . 112)	; ⽯
     (=ucs		. #x78D3)	; 磓
-    (->subsumptive
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 15)
-      (=jis-x0212	  . #x502A)	; &M-24404; [48-10]
-      (=daikanwa	  . 24404)	; &I-M-24404;
-      )
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 15)
-      (=cns11643-3	  . #x4D49)	; &C3-4D49; [45-41]
-      )
-     ((ideographic-strokes . 9)
-      (total-strokes	   . 14)
-      (=ucs@unicode	  . #x78D3)	; &UU+78D3;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x78D3)	; 磓
       ))
+    (=jis-x0212		. #x502A)	; &M-24404; [48-10]
+    (=daikanwa		. 24404)	; &I-M-24404;
+    (=ucs@jis		. #x78D3)	; &M-24404;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (<-denotational
+     ((=ucs		  . #x78D3)	; 磓
+      ))
+    (=ucs@unicode	. #x78D3)	; &UU+78D3;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x78D3)	; 磓
+      ))
+    (=cns11643-3	. #x4D49)	; &C3-4D49; [45-41]
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
