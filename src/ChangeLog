@@ -1,3 +1,18 @@
+2002-02-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_attribute_table_to_put): New variable in
+	UTF-2000.
+	(Qput_char_table_map_function): Likewise.
+	(value_to_put): Likewise.
+	(Fput_char_table_map_function): New function in UTF-2000.
+	(put_char_table): Use `Fmap_char_attribute' for
+	CHARTAB_RANGE_CHARSET in UTF-2000.
+	(Fput_char_attribute): Store symbol instead of string in
+	`XCHAR_TABLE_NAME (table)'.
+	(load_char_attribute_maybe): Likewise.
+	(syms_of_chartab): Add new symbol/function
+	`put-char-table-map-function'.
+
 2002-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* database.h: Add new EXFUN for `Fmap_database'.
