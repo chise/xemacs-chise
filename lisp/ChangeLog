@@ -1,5 +1,12 @@
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R020-Wrap.el,
+	utf-2000/Ideograph-R019-Power.el,
+	utf-2000/Ideograph-R018-Knife.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R009-Man.el: Merge CJK Unified Ideographs
 	Extension A.
 
