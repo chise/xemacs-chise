@@ -2277,7 +2277,7 @@ Reset mapping-table of CCS with database file.
 */
        (ccs))
 {
-#ifdef HAVE_CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_CCS chise_ccs;
 #else
   Lisp_Object db_file;
@@ -2285,7 +2285,7 @@ Reset mapping-table of CCS with database file.
 
   ccs = Fget_charset (ccs);
 
-#ifdef HAVE_CHISE
+#ifdef HAVE_LIBCHISE
   if ( open_chise_data_source_maybe () )
     return -1;
 
@@ -2300,7 +2300,7 @@ Reset mapping-table of CCS with database file.
 #endif
 
   if (
-#ifdef HAVE_CHISE
+#ifdef HAVE_LIBCHISE
       chise_ccs_setup_db (chise_ccs, 0) == 0
 #else
       !NILP (Ffile_exists_p (db_file))
