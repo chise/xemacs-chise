@@ -1,5 +1,14 @@
 2004-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el (U+8294): Rename `<-original-ideograph'
+	to `<-original'; use `->subsumptive'.
+
+	* Ideograph-R135-Tongue.el (U+820C): Use `->subsumptive'; use
+	`<-original' and `<-original*sources' instead of
+	`<-original-ideograph' with char-ref.
+
+	* char-db-util.el (char-db-feature-domains): Add `shinjigen'.
+
 	* Ideograph-R213-Turtle.el (U+9F9C): Use `->subsumptive'; rename
 	`<-original-ideograph' to `<-original'.
 
