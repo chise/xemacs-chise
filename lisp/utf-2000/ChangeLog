@@ -1,3 +1,57 @@
+2001-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R069-Axe.el (M-13535): Separate C1-4658; unify
+	J78-404D and J83-404D.
+	(M-13539): Unify J78-4960 and J83-4960.
+	(M-13548): Unify J78-5A51 and J83-5A51.
+	(M-13555): Unify J78-3B42 and J83-3B42.
+	(M-13557): Unify J78-4347 and J83-4347.
+	(M-13563): Unify J78-3B5B and J83-3B5B.
+	(M-13572): Unify J78-3F37 and J83-3F37.
+	(U+65B7): Unify J78-5A52 and J83-5A52.
+
+	* Ideograph-R067-Script.el (M-13450): Separate J83-4A38 and
+	J90-4A38.
+	(J83-4A38): Unify J78-4A38 and J90-4A38.
+	(M-13453): Unify J78-555D and J83-555D.
+	(U+6589): Unify J78-4046 and J83-4046.
+	(C3-3639): Separate J90-3A58 and U+658E.
+	(U+658E): Unify J78-3A58, J83-3A58 and J90-3A58.
+	(M-13468): Unify J78-494C and J83-494C.
+	(M-13470): Unify J78-4843 and J83-4843.
+
+	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el: Merge
+	`ideograph-gt' and `ideograph-gt-pj-{1..11}'.
+
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (M-11784): Unify J78-4A27 and J83-4A27.
+	(M-11954): Separate U+62CF, K0-5159 and J90-593C.
+	(M-12006): Separate S2-2912, K0-4D38 and J90-3969.
+	(U+6327): Unify J78-594B and J90-594B.
+	(M-12111): Separate J83-4854 and J90-4854.
+	(M-12141): Separate S1-2945, S2-2945, J83-3B2B, C1-5565 and
+	J90-3B2B.
+	(J83-3B2B): Unify S1-2945, S2-2945, K0-7824, C1-5565 and J90-3B2B.
+	(U+634C): Separate K0-7824.
+	(M-12189): Separate G0-4575, K0-5C69, C1-5A5B, J90-4A7B and
+	U+6367.
+	(M-12204): Separate G0-3E5D, C2-3559 and J90-3F78.
+	(M-12256): Separate K0-5B49, C1-5A6A and J90-4753.
+	(M-12447): Separate J83-596C, C1-6438, J90-596C and U+6406.
+	(M-12466): Separate G0-322B, C1-6431, J90-5973 and U+640F.
+	(M-12852): Separate J83-4527 and J90-4527.
+	(M-13010): Separate S2-3044, K0-606E, C1-7A6C, J90-5970 and
+	U+651D.
+
+	* char-db-util.el (char-attribute-name<): Fix problem when
+	comparing two private coded-charsets.
+
+	* Ideograph-R066-Rap.el (M-13245): Separate S1-3184 and J90-5A49.
+	(M-13260): Separate J78-343A and J83-343A.
+	(M-13417): Separate J78-5A4D; unify S1-3200.
+	(U+6583): Separate S1-3200; unify J78-5A4D.
+
 2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* isolated-char.el: New file.
