@@ -1,3 +1,13 @@
+1999-06-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Set 32 for
+ 	missing characters to avoid crash.
+
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
 1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* code-files.el (buffer-file-coding-system): Use `raw-text' as
