@@ -1,3 +1,8 @@
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-preferred-coded-charset-list):
+	Setup in UTF-2000.
+
 1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/viet-chars.el: Don't define charset
