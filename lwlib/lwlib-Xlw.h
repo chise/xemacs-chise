@@ -3,7 +3,7 @@
 
 #include "lwlib-internal.h"
 
-extern widget_creation_entry xlw_creation_table [];
+extern const widget_creation_entry xlw_creation_table [];
 extern widget_creation_function xlw_create_dialog;
 
 Boolean

@@ -106,6 +106,9 @@ typedef struct _widget_args
   /* Copying args is impossible so we make the caller give us heap allocated
      args and free them when no one wants them any more. */
   int	ref_count;
+  /* Since we are reference counting we need to be able to determine
+     when something has changed. */
+  Boolean	args_changed;
 } widget_args;
 
 typedef struct _widget_value

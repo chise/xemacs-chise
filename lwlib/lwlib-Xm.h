@@ -3,7 +3,7 @@
 
 #include "lwlib-internal.h"
 
-extern widget_creation_entry xm_creation_table [];
+extern const widget_creation_entry xm_creation_table [];
 
 Widget 
 xm_create_dialog (widget_instance* instance);

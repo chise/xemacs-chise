@@ -1,4 +1,4 @@
-;;; ccl.el --- CCL (Code Conversion Language) compiler
+;;; mule-ccl.el --- CCL (Code Conversion Language) compiler
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.

@@ -3,7 +3,7 @@
 
 #include "lwlib-internal.h"
 
-extern widget_creation_entry xaw_creation_table [];
+extern const widget_creation_entry xaw_creation_table [];
 
 Widget 
 xaw_create_dialog (widget_instance* instance);
