@@ -385,7 +385,7 @@ Lisp_Object Qreverse_direction_charset;
 Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 #ifdef UTF2000
-Lisp_Object Qmin_code, Qmax_code;
+Lisp_Object Qmin_code, Qmax_code, Qcode_offset;
 Lisp_Object Qmother, Qconversion, Q94x60;
 #endif
 
@@ -1478,8 +1478,8 @@ character set.  Recognized properties are:
   Lisp_Object charset;
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
-  int min_code = 0, max_code = 0;
   Lisp_Object mother = Qnil;
+  int min_code = 0, max_code = 0, code_offset = 0;
   int byte_offset = -1;
   int conversion = 0;
 
@@ -1579,29 +1579,27 @@ character set.  Recognized properties are:
 	  }
 
 #ifdef UTF2000
+	else if (EQ (keyword, Qmother))
+	  {
+	    mother = Fget_charset (value);
+	  }
+
 	else if (EQ (keyword, Qmin_code))
 	  {
 	    CHECK_INT (value);
-	    min_code = XINT (value);
-	    if (min_code < 0)
-	      {
-		min_code = (~(-1 - min_code)) & 0x7FFFFFFF;
-	      }
+	    min_code = XUINT (value);
 	  }
 
 	else if (EQ (keyword, Qmax_code))
 	  {
 	    CHECK_INT (value);
-	    max_code = XINT (value);
-	    if (max_code < 0)
-	      {
-		max_code = (~(-1 - max_code)) & 0x7FFFFFFF;
-	      }
+	    max_code = XUINT (value);
 	  }
 
-	else if (EQ (keyword, Qmother))
+	else if (EQ (keyword, Qcode_offset))
 	  {
-	    mother = Fget_charset (value);
+	    CHECK_INT (value);
+	    code_offset = XUINT (value);
 	  }
 
 	else if (EQ (keyword, Qconversion))
@@ -1671,7 +1669,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, chars, dimension, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  Qnil, min_code, max_code, 0, byte_offset,
+			  Qnil, min_code, max_code, code_offset, byte_offset,
 			  mother, conversion);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
@@ -2393,9 +2391,10 @@ syms_of_mule_charset (void)
   defsymbol (&Qshort_name, "short-name");
   defsymbol (&Qlong_name, "long-name");
 #ifdef UTF2000
+  defsymbol (&Qmother, "mother");
   defsymbol (&Qmin_code, "min-code");
   defsymbol (&Qmax_code, "max-code");
-  defsymbol (&Qmother, "mother");
+  defsymbol (&Qcode_offset, "code-offset");
   defsymbol (&Qconversion, "conversion");
   defsymbol (&Q94x60, "94x60");
 #endif
