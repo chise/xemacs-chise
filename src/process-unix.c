@@ -779,7 +779,7 @@ unix_create_process (Lisp_Process *p,
   UNIX_DATA(p)->subtty = forkin;
 
   {
-#if !defined(__CYGWIN32__)
+#if !defined(CYGWIN)
     /* child_setup must clobber environ on systems with true vfork.
        Protect it from permanent change.  */
     char **save_environ = environ;
@@ -938,7 +938,7 @@ unix_create_process (Lisp_Process *p,
       } /**** End of child code ****/
 
     /**** Back in parent process ****/
-#if !defined(__CYGWIN32__)
+#if !defined(CYGWIN)
     environ = save_environ;
 #endif
   }
@@ -1855,7 +1855,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest, Lisp_Object port,
   imr.imr_multiaddr.s_addr = htonl (inet_addr ((char *) XSTRING_DATA (dest)));
   imr.imr_interface.s_addr = htonl (INADDR_ANY);
   if (setsockopt (rs, IPPROTO_IP, IP_ADD_MEMBERSHIP,
-		 (char *) &imr, sizeof (struct ip_mreq)) < 0)
+		  &imr, sizeof (struct ip_mreq)) < 0)
     {
       close (ws);
       close (rs);
@@ -1921,7 +1921,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest, Lisp_Object port,
 
   /* scope */
   if (setsockopt (ws, IPPROTO_IP, IP_MULTICAST_TTL,
-		  (char *) &thettl, sizeof (thettl)) < 0)
+		  &thettl, sizeof (thettl)) < 0)
     {
       close (rs);
       close (ws);

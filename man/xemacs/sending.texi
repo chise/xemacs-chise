@@ -235,9 +235,9 @@ To read in the contents of another @file{.mailrc}-type file from Emacs, use the
 command @code{M-x merge-mail-aliases}.  The @code{rebuild-mail-aliases}
 command is similar, but deletes existing aliases first.
 
-@vindex mail-alias-seperator-string
+@vindex mail-alias-separator-string
 If you want multiple addresses separated by a string other than @samp{,}
-(a comma), then set the variable @code{mail-alias-seperator-string} to
+(a comma), then set the variable @code{mail-alias-separator-string} to
 it.  This has to be a comma bracketed by whitespace if you want any kind
  of reasonable behavior.
 

@@ -1140,7 +1140,7 @@ typedef struct
 #define OIC_BANG            32515
 #define OIC_NOTE            32516
 #define OIC_WINLOGO         32517
-#if defined (__CYGWIN32__) && CYGWIN_VERSION_DLL_MAJOR < 21
+#if defined (CYGWIN) && CYGWIN_VERSION_DLL_MAJOR < 21
 #define LR_SHARED           0x8000
 #endif
 #endif
@@ -1289,7 +1289,7 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
       TO_EXTERNAL_FORMAT (LISP_STRING, file,
 			  C_STRING_ALLOCA, f,
 			  Qfile_name);
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
       CYGWIN_WIN32_PATH (f, fname);
 #else
       fname = f;

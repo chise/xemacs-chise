@@ -33,7 +33,7 @@
 void yow (FILE *fp);
 void setup_yow (FILE *fp);
 
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
 #define rootrelativepath(rel) \
 ({\
     static char res[BUFSIZE], *p;\

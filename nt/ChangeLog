@@ -1,3 +1,61 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-14  IKEYAMA Tomonori  <tomonori@suiyokai.org>
+
+	* config.h: Import C++ compilation stuff from src/config.h.
+
+2000-07-05  Craig Lanning  <lanning@scra.org>
+
+        * xemacs.rc: Uppercase the id's so that windres will work.
+
+2000-07-05  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* xemacs.mak (TEMACS_LIBS): Added comdlg32.lib
+
+2000-06-12  Ben Wing  <ben@xemacs.org>
+
+	* config.h (ENCAPSULATE_STAT):
+	Always encapsulate stat/fstat.  Also suggested by Mike Alexander
+	<mike.alexander@xemacs.org>.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* config.h:
+	* config.h (HAVE_GETPAGESIZE):
+	* config.h (HAVE_GETTIMEOFDAY):
+	corrections to go along with removed nt/inc.
+	removed HAVE_FEP.
+	
+	* config.inc.samp:
+	correct graphics lib paths to agree with binaries provided in
+	ftp aux dir.
+	
+	* xemacs.mak (DEPEND):
+	* xemacs.mak (DEFINES):
+	* xemacs.mak (LIB_SRC_DEFINES):
+	* xemacs.mak (minitar):
+	* xemacs.mak (TEMACS_LFLAGS):
+	* xemacs.mak (tags):
+	* xemacs.mak (all):
+	* xemacs.mak (install):
+	WINDOWSNT -> WIN32_NATIVE.
+	Don't build run*.exe.
+	comments about required ^^.
+	Added setargv.obj to the list of linked entities,
+	  causing automatic wildcarding of filenames given on the
+	  command line. (As usual, enclose in double quotes to avoid
+	  this.)
+	
+2000-06-07  Ben Wing  <ben@xemacs.org>
+
+	* runemacs.c: Removed.  No longer necessary.
+
+	* Makefile.cygwin: Removed.
+
+	* inc\*: Removed.  At long-fucking-last!
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.
@@ -361,7 +419,7 @@
 
 	* XEmacs 21.2.16 is released
 
-1999-05-14  Adrian Aichner  &lt;adrian@xemacs.org&gt;
+1999-05-14  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (GUNG_HO): Explicitly default to 0.
 	Fix some comment typos.

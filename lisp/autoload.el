@@ -87,6 +87,8 @@ the section of autoloads for a file.")
 (defvar generate-autoload-section-trailer "\n;;;***\n"
   "String which indicates the end of the section of autoloads for a file.")
 
+(defvar autoload-package-name nil)
+
 ;;; Forms which have doc-strings which should be printed specially.
 ;;; A doc-string-elt property of ELT says that (nth ELT FORM) is
 ;;; the doc-string in FORM.
@@ -539,8 +541,6 @@ on the command line."
 	  (insert " (error \"Already loaded\"))\n")
 	  (goto-char (point-max))
 	  (insert "\n(provide '" sym ")\n")))))
-
-(defvar autoload-package-name nil)
 
 ;; #### this function is almost identical, but subtly different,
 ;; from batch-update-autoloads.  Steve, it's your responsibility to

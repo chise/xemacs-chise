@@ -66,7 +66,7 @@ a check is done for bogus resource specifications."
 	  (let* ((name (caar resource-list))
 		 (class (cdar resource-list))
 		 (resource
-		  (x-get-resource name class type locale nil t)))
+		  (x-get-resource name class type locale nil 'warn)))
 	    (if resource
 		(progn
 		  (add-spec-to-specifier specifier resource locale)
@@ -75,12 +75,12 @@ a check is done for bogus resource specifications."
 
 (defun x-get-resource-and-bogosity-check (name class type &optional locale)
   (x-bogosity-check-resource name class type)
-  (x-get-resource name class type locale nil t))
+  (x-get-resource name class type locale nil 'warn))
 
 (defun x-get-resource-and-maybe-bogosity-check (name class type &optional
 						     locale)
   (if (eq locale 'global)
       (x-bogosity-check-resource name class type))
-  (x-get-resource name class type locale nil t))
+  (x-get-resource name class type locale nil 'warn))
 
 ;;; x-misc.el ends here

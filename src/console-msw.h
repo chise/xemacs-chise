@@ -46,7 +46,7 @@ Boston, MA 02111-1307, USA.  */
 #define XEMACS_CONTROL_CLASS "XEmacsControl"
 
 /*
- * Console
+ * Consoles
  */
 
 DECLARE_CONSOLE_TYPE (mswindows);
@@ -59,43 +59,64 @@ struct mswindows_console
 DECLARE_CONSOLE_TYPE (msprinter);
 
 /*
- * Device
+ * Printer settings, aka devmode
+ */
+
+typedef struct Lisp_Devmode
+{
+  struct lcrecord_header header;
+  
+  /* Pointer to the DEVMODE structure */
+  DEVMODE* devmode;
+
+  /* Full printer name. It can be longer than devmode->dmDeviceName
+     can accomodate, so need to keep it separately */
+  char* printer_name;
+
+  /* Printer device this object is currently selected in, or Qnil
+     if not selected */
+  Lisp_Object device;
+
+} Lisp_Devmode;
+
+
+DECLARE_LRECORD (devmode, Lisp_Devmode);
+#define XDEVMODE(x) XRECORD (x, devmode, Lisp_Devmode)
+#define XSETDEVMODE(x, p) XSETRECORD (x, p, devmode)
+#define DEVMODEP(x) RECORDP (x, devmode)
+#define CHECK_DEVMODE(x) CHECK_RECORD (x, devmode)
+#define CONCHECK_DEVMODE(x) CONCHECK_RECORD (x, devmode)
+
+#define DEVMODE_SIZE(dm) ((dm)->dmSize + (dm)->dmDriverExtra)
+#define XDEVMODE_SIZE(x) ((x)->devmode ? DEVMODE_SIZE((x)->devmode) : 0)
+
+/*
+ * Devices
  */
 
 #define MSW_FONTSIZE (LF_FACESIZE*4+12)
 
 struct mswindows_device
 {
-  int logpixelsx, logpixelsy;
-  int planes, cells;
-  int horzres, vertres;		/* Size in pixels */
-  int horzsize, vertsize;	/* Size in mm */
-  int bitspixel;
   Lisp_Object fontlist;		/* List of strings, device fonts */
   HDC hcdc;			/* Compatible DC */
+  DWORD update_tick;		/* Used when device is modified through
+				   Windows mwssages, see WM_DISPLAYCHANGE
+				   in event-msw.c */
 };
 
 #define DEVICE_MSWINDOWS_DATA(d) DEVICE_TYPE_DATA (d, mswindows)
-#define DEVICE_MSWINDOWS_LOGPIXELSX(d) 	(DEVICE_MSWINDOWS_DATA (d)->logpixelsx)
-#define DEVICE_MSWINDOWS_LOGPIXELSY(d) 	(DEVICE_MSWINDOWS_DATA (d)->logpixelsy)
-#define DEVICE_MSWINDOWS_PLANES(d) 	(DEVICE_MSWINDOWS_DATA (d)->planes)
-#define DEVICE_MSWINDOWS_CELLS(d) 	(DEVICE_MSWINDOWS_DATA (d)->cells)
-#define DEVICE_MSWINDOWS_HORZRES(d) 	(DEVICE_MSWINDOWS_DATA (d)->horzres)
-#define DEVICE_MSWINDOWS_VERTRES(d) 	(DEVICE_MSWINDOWS_DATA (d)->vertres)
-#define DEVICE_MSWINDOWS_HORZSIZE(d) 	(DEVICE_MSWINDOWS_DATA (d)->horzsize)
-#define DEVICE_MSWINDOWS_VERTSIZE(d) 	(DEVICE_MSWINDOWS_DATA (d)->vertsize)
-#define DEVICE_MSWINDOWS_BITSPIXEL(d) 	(DEVICE_MSWINDOWS_DATA (d)->bitspixel)
-#define DEVICE_MSWINDOWS_FONTLIST(d) 	(DEVICE_MSWINDOWS_DATA (d)->fontlist)
-#define DEVICE_MSWINDOWS_HCDC(d)	(DEVICE_MSWINDOWS_DATA (d)->hcdc)
+#define DEVICE_MSWINDOWS_FONTLIST(d)    (DEVICE_MSWINDOWS_DATA (d)->fontlist)
+#define DEVICE_MSWINDOWS_HCDC(d)        (DEVICE_MSWINDOWS_DATA (d)->hcdc)
+#define DEVICE_MSWINDOWS_UPDATE_TICK(d) (DEVICE_MSWINDOWS_DATA (d)->update_tick)
 
 struct msprinter_device
 {
   HDC hdc, hcdc;		/* Printer and the comp. DCs */
   HANDLE hprinter;
-  Lisp_Object fontlist;
   char* name;
-  DEVMODE *devmode, *devmode_mirror;
-  size_t devmode_size;
+  Lisp_Object devmode;
+  Lisp_Object fontlist;
 };
 
 #define DEVICE_MSPRINTER_DATA(d) DEVICE_TYPE_DATA (d, msprinter)
@@ -105,19 +126,11 @@ struct msprinter_device
 #define DEVICE_MSPRINTER_FONTLIST(d) 	(DEVICE_MSPRINTER_DATA (d)->fontlist)
 #define DEVICE_MSPRINTER_NAME(d) 	(DEVICE_MSPRINTER_DATA (d)->name)
 #define DEVICE_MSPRINTER_DEVMODE(d) 	(DEVICE_MSPRINTER_DATA (d)->devmode)
-#define DEVICE_MSPRINTER_DEVMODE_MIRROR(d) \
-	(DEVICE_MSPRINTER_DATA (d)->devmode_mirror)
-#define DEVICE_MSPRINTER_DEVMODE_SIZE(d) \
-	(DEVICE_MSPRINTER_DATA (d)->devmode_size)
 
 #define CONSOLE_TYPESYM_MSPRINTER_P(typesym) EQ (typesym, Qmsprinter)
 #define DEVICE_MSPRINTER_P(dev) CONSOLE_TYPESYM_MSPRINTER_P (DEVICE_TYPE (dev))
 #define CHECK_MSPRINTER_DEVICE(z) CHECK_DEVICE_TYPE (z, msprinter)
 #define CONCHECK_MSPRINTER_DEVICE(z) CONCHECK_DEVICE_TYPE (z, msprinter)
-
-/* Printer functions in device-msw.c */
-DEVMODE* msprinter_get_devmode_copy (struct device *d);
-void msprinter_apply_devmode (struct device *d, DEVMODE *devmode);
 
 /* Printer functions in frame-msw.c */
 void msprinter_start_page (struct frame *f);
@@ -141,7 +154,7 @@ void msprinter_start_page (struct frame *f);
   } while (0)
 
 /*
- * Frame
+ * Frames
  */
 typedef struct
 {
@@ -243,7 +256,7 @@ struct msprinter_frame
   int left_margin, top_margin,		/* All in twips */
     right_margin, bottom_margin;
   int charheight, charwidth;		/* As per proplist or -1 if not gven */
-  Lisp_Object orientation, duplex;	/* nil for printer's default */
+  int pix_left, pix_top;		/* Calculated in init_frame_*, VP offset */
   int job_started : 1;
   int page_started : 1;
 };
@@ -255,10 +268,10 @@ struct msprinter_frame
 #define FRAME_MSPRINTER_BOTTOM_MARGIN(f) (FRAME_MSPRINTER_DATA (f)->bottom_margin)
 #define FRAME_MSPRINTER_JOB_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->job_started)
 #define FRAME_MSPRINTER_PAGE_STARTED(f)	 (FRAME_MSPRINTER_DATA (f)->page_started)
-#define FRAME_MSPRINTER_ORIENTATION(f)	 (FRAME_MSPRINTER_DATA (f)->orientation)
-#define FRAME_MSPRINTER_DUPLEX(f)	 (FRAME_MSPRINTER_DATA (f)->duplex)
 #define FRAME_MSPRINTER_CHARWIDTH(f)	 (FRAME_MSPRINTER_DATA (f)->charheight)
 #define FRAME_MSPRINTER_CHARHEIGHT(f)	 (FRAME_MSPRINTER_DATA (f)->charwidth)
+#define FRAME_MSPRINTER_PIXLEFT(f)	 (FRAME_MSPRINTER_DATA (f)->pix_left)
+#define FRAME_MSPRINTER_PIXTOP(f)	 (FRAME_MSPRINTER_DATA (f)->pix_top)
 
 /*
  * Events
@@ -286,6 +299,7 @@ LRESULT WINAPI mswindows_control_wnd_proc (HWND hwnd,
 void mswindows_redraw_exposed_area (struct frame *f, int x, int y, 
 				    int width, int height);
 void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest);
+HWND mswindows_get_selected_frame_hwnd (void);
 void mswindows_enqueue_magic_event (HWND hwnd, UINT msg);
 
 /* win32 DDE management library */
@@ -325,17 +339,17 @@ HANDLE get_nt_process_handle (Lisp_Process *p);
 extern Lisp_Object Vmswindows_frame_being_created;
 extern Lisp_Object mswindows_frame_being_created;
 
-void msw_get_workspace_coords (RECT *rc);
+void mswindows_get_workspace_coords (RECT *rc);
 
-HWND msw_get_console_hwnd (void);
-void msw_hide_console (void);
-void msw_show_console (void);
-int msw_output_console_string (CONST Extbyte *str, Extcount len);
+HWND mswindows_get_console_hwnd (void);
+void mswindows_hide_console (void);
+void mswindows_show_console (void);
+int mswindows_output_console_string (CONST Extbyte *str, Extcount len);
 
 Lisp_Object mswindows_enumerate_fonts (HDC hdc);
 
-int msw_char_is_accelerator (struct frame *f, Emchar ch);
-Bytecount msw_translate_menu_or_dialog_item (Bufbyte *item, Bytecount len,
+int mswindows_char_is_accelerator (struct frame *f, Emchar ch);
+Bytecount mswindows_translate_menu_or_dialog_item (Bufbyte *item, Bytecount len,
 					     Bytecount maxlen, Emchar *accel,
 					     Lisp_Object error_name);
 
@@ -348,7 +362,7 @@ Lisp_Object mswindows_handle_toolbar_wm_command (struct frame* f,
 Lisp_Object mswindows_handle_gui_wm_command (struct frame* f,
 					     HWND ctrl, LPARAM id);
 
-int msw_windows9x_p (void);
+int mswindows_windows9x_p (void);
 
 
 void mswindows_output_last_error (char *frob);

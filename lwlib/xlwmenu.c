@@ -516,23 +516,21 @@ nameResource[] =
     0, XtRImmediate, 0 }
 };
 
-/*
- *    This function looks through string searching for parameter
- *    inserts of the form:
- *    %[padding]1
- *    padding is space (' ') or dash ('-') characters meaning
- *    padding to the left or right of the inserted parameter.
- *    In essence all %1 strings are replaced by value in the return
- *    value (which the caller is expected to free).
- *    %% means insert one % (like printf).
- *    %1 means insert value.
- *    %-1 means insert value followed by one space. The latter is
- *    not inserted if value is a zero length string.
- */
+/* This function searches STRING for parameter inserts of the form:
+       %[padding]1
+   padding is either space (' ') or dash ('-') meaning
+   padding to the left or right of the inserted parameter.
+   In essence, all %1 strings are replaced by VALUE in the return value.
+   The caller is expected to free the return value using XtFree().
+   %% means insert one % (like printf).
+   %1 means insert VALUE.
+   %-1 means insert VALUE followed by one space. The latter is
+   not inserted if VALUE is a zero length string.
+*/
 static char*
 parameterize_string (const char *string, const char *value)
 {
-  char *percent;
+  const char *percent;
   char *result;
   unsigned int done = 0;
   unsigned int ntimes;
@@ -541,24 +539,25 @@ parameterize_string (const char *string, const char *value)
     {
       result = XtMalloc(1);
       result[0] = '\0';
-      return (result);
+      return result;
     }
 
   if (!value)
     value = "";
 
-  for (ntimes = 1, result = (char *) string; (percent = strchr(result, '%'));
+  for (ntimes = 1, percent = string;
+       (percent = strchr (percent, '%'));
        ntimes++)
-    result = &percent[1];
+    percent++;
 
   result = XtMalloc ((ntimes * strlen(value)) + strlen(string) + 4);
   result[0] = '\0';
 
-  while ((percent = strchr(string, '%')))
+  while ((percent = strchr (string, '%')))
     {
       unsigned int left_pad;
       unsigned int right_pad;
-      char *p;
+      const char *p;
 
       if (percent[1] == '%')
 	{	/* it's a real % */

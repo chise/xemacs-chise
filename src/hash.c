@@ -52,6 +52,25 @@ memory_hash (const void *xv, size_t size)
   return h;
 }
 
+unsigned long
+string_hash (const char *xv)
+{
+  unsigned int h = 0;
+  unsigned const char *x = (unsigned const char *) xv;
+
+  if (!x) return 0;
+
+  while (*x)
+    {
+      unsigned int g;
+      h = (h << 4) + *x++;
+      if ((g = h & 0xf0000000) != 0)
+	h = (h ^ (g >> 24)) ^ g;
+    }
+
+  return h;
+}
+
 /* Return a suitable size for a hash table, with at least SIZE slots. */
 static size_t
 hash_table_size (size_t requested_size)

@@ -123,6 +123,9 @@ customized through the options menu."
 (defvar last-pressed-toolbar-button nil)
 (defvar toolbar-active nil)
 
+(defvar toolbar-blank-press-function nil
+  "Function to call if a blank area of the toolbar is pressed.")
+
 ;;
 ;; It really sucks that we also have to tie onto
 ;; default-mouse-motion-handler to make sliding buttons work right.
@@ -143,9 +146,8 @@ an argument if press is over a blank area of the toolbar."
 	  (setq last-pressed-toolbar-button button))
       ;; Added by Bob Weiner, Motorola Inc., 10/6/95, to handle
       ;; presses on blank portions of toolbars.
-      (and (boundp 'toolbar-blank-press-function)
-	   (functionp toolbar-blank-press-function)
-	   (funcall toolbar-blank-press-function event)))))
+      (when (functionp toolbar-blank-press-function)
+	(funcall toolbar-blank-press-function event)))))
 
 (defun release-and-activate-toolbar-button (event)
   "Release a toolbar button and activate its callback.

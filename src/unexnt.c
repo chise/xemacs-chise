@@ -103,13 +103,6 @@ DWORD  data_size = UNINIT_LONG;
 PUCHAR bss_start = UNINIT_PTR;
 DWORD  bss_size = UNINIT_LONG;
 
-#ifdef HAVE_NTGUI
-HINSTANCE hinst = NULL;
-HINSTANCE hprevinst = NULL;
-LPSTR lpCmdLine = "";
-int nCmdShow = 0;
-#endif /* HAVE_NTGUI */
-
 /* Startup code for running on NT.  When we are running as the dumped
    version, we need to bootstrap our heap and .bss section into our
    address space before we can actually hand off control to the startup
@@ -163,7 +156,7 @@ _start (void)
      hit and fix all the weirdities this causes us, the better --kkm */
 #if 0
   /* The default behavior is to treat files as binary and patch up
-     text files appropriately, in accordance with the MSDOS code.  */
+     text files appropriately.  */
   _fmode = O_BINARY;
 #endif
 
@@ -173,14 +166,6 @@ _start (void)
   SetConsoleCtrlHandler ((PHANDLER_ROUTINE) ctrl_c_handler, TRUE);
 #endif
 
-  /* Invoke the NT CRT startup routine now that our housecleaning
-     is finished.  */
-#ifdef HAVE_NTGUI
-  /* determine WinMain args like crt0.c does */
-  hinst = GetModuleHandle(NULL);
-  lpCmdLine = GetCommandLine();
-  nCmdShow = SW_SHOWDEFAULT;
-#endif
   mainCRTStartup ();
 }
 

@@ -157,7 +157,7 @@ Boston, MA 02111-1307, USA.  */
 #undef WORDS_BIGENDIAN
 #undef TIME_WITH_SYS_TIME
 
-#define HAVE_SYS_TIME_H
+#undef HAVE_SYS_TIME_H
 #define HAVE_LOCALE_H
 #ifdef HAVE_X_WINDOWS
 #define HAVE_X11_LOCALE_H
@@ -230,7 +230,10 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_FREXP
 #undef HAVE_FTIME
 #undef HAVE_GETHOSTNAME
-#undef HAVE_GETPAGESIZE
+
+#define HAVE_GETPAGESIZE
+#define getpagesize() 4096
+
 #define HAVE_GETTIMEOFDAY
 #define HAVE_GETWD
 #undef HAVE_LOGB
@@ -559,10 +562,8 @@ on various systems. */
 #define ENCAPSULATE_OPEN
 #define ENCAPSULATE_FOPEN
 #define ENCAPSULATE_MKDIR
-
-#if defined (WIN32) && defined (USE_IME)
-#define HAVE_FEP
-#endif
+#define ENCAPSULATE_STAT
+#define ENCAPSULATE_FSTAT
 
 #if defined (HAVE_SOCKS) && !defined (DO_NOT_SOCKSIFY)
 #define accept Raccept
@@ -600,6 +601,21 @@ on various systems. */
 #pragma warning ( disable : 4018 )
 
 #endif /* compiler understands #pragma warning*/
+
+#ifndef NOT_C_CODE /* Actually means C or C++ */
+# if defined (__cplusplus)
+/* Avoid C++ keywords used as ordinary C identifiers */
+#  define class c_class
+#  define new   c_new
+#  define this  c_this
+#  define catch c_catch
+#  define not   c_not
+
+#  define EXTERN_C extern "C"
+# else /* C code */
+#  define EXTERN_C extern
+# endif
+#endif /* C or C++ */
 
 #define enum_field(enumeration_type) unsigned int
 

@@ -24,9 +24,8 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_sysfile_h_
 
 #include <errno.h>
-#include <limits.h>
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 #include <sys/errno.h>          /* <errno.h> does not always imply this */
 #endif
 
@@ -44,17 +43,24 @@ Boston, MA 02111-1307, USA.  */
 #ifndef makedev
 #include <sys/types.h>		/* some typedefs are used in sys/file.h */
 #endif
-#include <sys/file.h>
-#include <sys/stat.h>
-#include <sys/param.h>
 
-#if defined (NeXT) || defined(__CYGWIN32__)
+#ifndef WIN32_NATIVE
+#include <sys/file.h>
+#endif
+
+#include <sys/stat.h>
+
+#ifndef WIN32_NATIVE
+#include <sys/param.h>
+#endif
+
+#if defined (NeXT) || defined(CYGWIN)
 /* what is needed from here?  Do others need it too?
  O_BINARY is in here under cygwin. */
 # include <sys/fcntl.h>
 #endif /* NeXT */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include <io.h>
 #include <direct.h>
 #endif
@@ -95,7 +101,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifndef CREAT_MODE
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #define CREAT_MODE	(S_IREAD | S_IWRITE)
 #else
 #define CREAT_MODE	(0666)
@@ -115,6 +121,30 @@ Boston, MA 02111-1307, USA.  */
 #define READ_BINARY "rb"
 #else
 #define READ_BINARY "r"
+#endif
+#endif
+
+#ifndef READ_PLUS_TEXT
+#ifdef O_TEXT
+#define READ_PLUS_TEXT "r+t"
+#else
+#define READ_PLUS_TEXT "r+"
+#endif
+#endif
+
+#ifndef READ_PLUS_BINARY
+#ifdef O_BINARY
+#define READ_PLUS_BINARY "r+b"
+#else
+#define READ_PLUS_BINARY "r+"
+#endif
+#endif
+
+#ifndef WRITE_TEXT
+#ifdef O_TEXT
+#define WRITE_TEXT "wt"
+#else
+#define WRITE_TEXT "w"
 #endif
 #endif
 
@@ -223,8 +253,21 @@ Boston, MA 02111-1307, USA.  */
 # define MAXPATHLEN 1024
 #endif
 
+/* The following definitions are needed under Windows, at least */
 #ifndef X_OK
-# define X_OK 01
+# define X_OK 1
+#endif
+
+#ifndef R_OK
+# define R_OK 4
+#endif
+
+#ifndef W_OK
+# define W_OK 2
+#endif
+
+#ifndef F_OK
+# define F_OK 0
 #endif
 
 #ifndef FD_CLOEXEC

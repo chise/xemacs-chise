@@ -791,7 +791,7 @@ of the registers G0-G3 by use of an @dfn{escape sequence} of the form:
 where @var{I} is an intermediate character or characters in the range
 0x20 - 0x3F, and @var{F}, from the range 0x30-0x7Fm is the final
 character identifying this charset.  (Final characters in the range
-0x30-0x3F are reserved for private use and will never have a publically
+0x30-0x3F are reserved for private use and will never have a publicly
 registered meaning.)
 
   Then that register is @dfn{invoked} to either GL or GR, either

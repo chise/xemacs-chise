@@ -1,3 +1,11 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-06-17  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/database-tests.el: Remove any previous .pag, .dir files.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

@@ -8,6 +8,8 @@
 # 'installed'.
 #
 
+SHELL=/bin/sh
+RM=rm -f
 CC=../../lib-src/ellcc
 CFLAGS=-I. -I../../src
 LD=$(CC) --mode=link
@@ -28,7 +30,7 @@ all: $(MODNAME).ell
 distclean: clean
 
 clean:
-	rm -f $(MODNAME).ell $(OBJS) zlib_i.o zlib_i.c
+	$(RM) $(MODNAME).ell $(OBJS) zlib_i.o zlib_i.c
 
 $(MODNAME).ell: $(OBJS) zlib_i.o
 	$(LD) --mod-output=$@ $(OBJS) zlib_i.o

@@ -83,7 +83,7 @@ mswindows_initially_selected_for_input (struct console *con)
   return 1;
 }
 
-static HWND msw_console_hwnd = 0;
+static HWND mswindows_console_hwnd = 0;
 
 #define KLUDGE_BUFSIZE 1024 /* buffer size for console window titles */
 
@@ -125,15 +125,15 @@ GetConsoleHwnd (void)
 } 
 
 HWND
-msw_get_console_hwnd (void)
+mswindows_get_console_hwnd (void)
 {
-  if (!msw_console_hwnd)
-    msw_console_hwnd = GetConsoleHwnd ();
-  return msw_console_hwnd;
+  if (!mswindows_console_hwnd)
+    mswindows_console_hwnd = GetConsoleHwnd ();
+  return mswindows_console_hwnd;
 }
 
-int
-msw_ensure_console_allocated (void)
+static int
+mswindows_ensure_console_allocated (void)
 {
   HWND fgwin = GetForegroundWindow ();
   /* stupid mswin api won't let you create the console window
@@ -174,15 +174,15 @@ mswindows_canonicalize_device_connection (Lisp_Object connection,
 }
 
 void
-msw_hide_console (void)
+mswindows_hide_console (void)
 {
-  ShowWindow (msw_get_console_hwnd (), SW_HIDE);
+  ShowWindow (mswindows_get_console_hwnd (), SW_HIDE);
 }
 
 void
-msw_show_console (void)
+mswindows_show_console (void)
 {
-  HWND hwnd = msw_get_console_hwnd ();
+  HWND hwnd = mswindows_get_console_hwnd ();
   ShowWindow (hwnd, SW_SHOWNA);
 
   /* I tried to raise the window to the top without activating
@@ -195,41 +195,44 @@ msw_show_console (void)
 		SWP_NOACTIVATE);
 }
 
-static int msw_console_buffered = 0;
-HANDLE msw_console_buffer;
+static int mswindows_console_buffered = 0;
+HANDLE mswindows_console_buffer;
 
 static void
-msw_ensure_console_buffered (void)
+mswindows_ensure_console_buffered (void)
 {
-  if (!msw_console_buffered)
+  if (!mswindows_console_buffered)
     {
       COORD new_size;
 
       new_size.X = 80;
       new_size.Y = 1000;
-      msw_ensure_console_allocated ();
-      msw_console_buffer =
+      mswindows_ensure_console_allocated ();
+      mswindows_console_buffer =
 	CreateConsoleScreenBuffer (GENERIC_WRITE, 0, NULL,
 				   CONSOLE_TEXTMODE_BUFFER, NULL);
-      SetConsoleScreenBufferSize (msw_console_buffer, new_size);
-      SetConsoleActiveScreenBuffer (msw_console_buffer);
-      msw_console_buffered = 1;
+      SetConsoleScreenBufferSize (mswindows_console_buffer, new_size);
+      SetConsoleActiveScreenBuffer (mswindows_console_buffer);
+      mswindows_console_buffered = 1;
     }
 }
 
+int mswindows_message_outputted;
+
 int
-msw_output_console_string (CONST Extbyte *str, Extcount len)
+mswindows_output_console_string (CONST Extbyte *str, Extcount len)
 {
   DWORD num_written;
 
-  msw_ensure_console_buffered ();
-  msw_show_console ();
-  return WriteConsole (msw_console_buffer, str, len, &num_written, NULL);
+  mswindows_message_outputted = 1;
+  mswindows_ensure_console_buffered ();
+  mswindows_show_console ();
+  return WriteConsole (mswindows_console_buffer, str, len, &num_written, NULL);
 }
 
 /* Determine if running on Windows 9x and not NT */
 int
-msw_windows9x_p (void)
+mswindows_windows9x_p (void)
 {
   return GetVersion () & 0x80000000;
 }
@@ -242,54 +245,63 @@ msw_windows9x_p (void)
  * Intended for use in the MSVC "Watch" window which doesn't like
  * the aborts that the error_check_foo() functions can make.
  */
+struct lrecord_header *DHEADER (Lisp_Object obj);
 struct lrecord_header *
 DHEADER (Lisp_Object obj)
 {
   return LRECORDP (obj) ? XRECORD_LHEADER (obj) : NULL;
 }
 
+void *DOPAQUE_DATA (Lisp_Object obj);
 void *
 DOPAQUE_DATA (Lisp_Object obj)
 {
   return OPAQUEP (obj) ? OPAQUE_DATA (XOPAQUE (obj)) : NULL;
 }
 
+Lisp_Event *DEVENT (Lisp_Object obj);
 Lisp_Event *
 DEVENT (Lisp_Object obj)
 {
   return EVENTP (obj) ? XEVENT (obj) : NULL;
 }
 
+Lisp_Cons *DCONS (Lisp_Object obj);
 Lisp_Cons *
 DCONS (Lisp_Object obj)
 {
   return CONSP (obj) ? XCONS (obj) : NULL;
 }
 
+Lisp_Cons *DCONSCDR (Lisp_Object obj);
 Lisp_Cons *
 DCONSCDR (Lisp_Object obj)
 {
   return (CONSP (obj) && CONSP (XCDR (obj))) ? XCONS (XCDR (obj)) : 0;
 }
 
+Bufbyte *DSTRING (Lisp_Object obj);
 Bufbyte *
 DSTRING (Lisp_Object obj)
 {
   return STRINGP (obj) ? XSTRING_DATA (obj) : NULL;
 }
 
+Lisp_Vector *DVECTOR (Lisp_Object obj);
 Lisp_Vector *
 DVECTOR (Lisp_Object obj)
 {
   return VECTORP (obj) ? XVECTOR (obj) : NULL;
 }
 
+Lisp_Symbol *DSYMBOL (Lisp_Object obj);
 Lisp_Symbol *
 DSYMBOL (Lisp_Object obj)
 {
   return SYMBOLP (obj) ? XSYMBOL (obj) : NULL;
 }
 
+Bufbyte *DSYMNAME (Lisp_Object obj);
 Bufbyte *
 DSYMNAME (Lisp_Object obj)
 {

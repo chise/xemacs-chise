@@ -187,7 +187,7 @@ text, @code{modeline-pointer-glyph} for the pointer used over the
 modeline, etc.  Do an apropos over @code{*-pointer-glyph} to find all of
 them. (Note also that you can temporarily set the mouse pointer to some
 specific shape by using @code{set-frame-pointer}, which takes an image
-instace, as obtained from calling @code{glyph-image-instance} on a glyph
+instance, as obtained from calling @code{glyph-image-instance} on a glyph
 of type @code{pointer} -- either one of the above-mentioned variables or
 one you created yourself.  (See below for what it means to create a
 glyph of type @code{pointer}.)  This pointer will last only until the

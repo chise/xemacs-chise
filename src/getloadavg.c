@@ -44,7 +44,6 @@ Boston, MA 02111-1307, USA.  */
    convex
    DGUX
    hpux
-   MSDOS			No-op for MSDOS.
    NeXT
    sgi
    sequent			Sequent Dynix 3.x.x (BSD)
@@ -52,7 +51,7 @@ Boston, MA 02111-1307, USA.  */
    sony_news                    NEWS-OS (works at least for 4.1C)
    UMAX
    UMAX4_3
-   WIN32			No-op for Windows95/NT.
+   WIN32_NATIVE			No-op for Windows95/NT.
    __linux__			Linux: assumes /proc filesystem mounted.
    				Support from Michael K. Johnson.
    __NetBSD__			NetBSD: assumes /kern filesystem mounted.
@@ -69,8 +68,11 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #endif
 
-#ifndef WINDOWSNT
-#ifndef __CYGWIN32__
+#include "lisp.h"
+#include "sysfile.h" /* for encapsulated open, close, read, write */
+
+#ifndef WIN32_NATIVE
+#ifndef CYGWIN
 
 #include <sys/types.h>
 
@@ -81,10 +83,6 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/param.h>
 #endif
 
-#ifdef XEMACS
-#include "lisp.h"
-#include "sysfile.h" /* for encapsulated open, close, read, write */
-#endif /* XEMACS */
 
 /* Exclude all the code except the test program at the end
    if the system has its own `getloadavg' function.
@@ -110,11 +108,9 @@ Boston, MA 02111-1307, USA.  */
 #define LDAV_CVT(n) (LOAD_AVE_CVT (n) / 100.0)
 #endif
 
-#ifdef XEMACS
 #if defined (HAVE_KSTAT_H)
 #include <kstat.h>
 #endif /* HAVE_KSTAT_H */
-#endif /* XEMACS */
 
 #if !defined (BSD) && defined (ultrix)
 /* Ultrix behaves like BSD on Vaxen.  */
@@ -457,11 +453,9 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/dg_sys_info.h>
 #endif
 
-#ifdef XEMACS
 #if defined (HAVE_SYS_PSTAT_H)
 #include <sys/pstat.h>
 #endif /* HAVE_SYS_PSTAT_H (on HPUX) */
-#endif /* XEMACS */
 
 #if defined(HAVE_FCNTL_H) || defined(_POSIX_VERSION)
 #include <fcntl.h>
@@ -779,7 +773,7 @@ getloadavg (double loadavg[], int nelem)
        : (load_ave.tl_avenrun.l[0] / (double) load_ave.tl_lscale));
 #endif	/* OSF_MIPS */
 
-#if !defined (LDAV_DONE) && (defined (MSDOS) || defined (WIN32))
+#if !defined (LDAV_DONE) && defined (WIN32_NATIVE)
 #define LDAV_DONE
 
   /* A faithful emulation is going to have to be saved for a rainy day.  */
@@ -787,7 +781,7 @@ getloadavg (double loadavg[], int nelem)
     {
       loadavg[elem] = 0.0;
     }
-#endif  /* MSDOS */
+#endif  /* WIN32_NATIVE */
 
 #if !defined (LDAV_DONE) && defined (OSF_ALPHA)
 #define LDAV_DONE
@@ -978,4 +972,4 @@ getloadavg (double loadavg[], int nelem)
 }
 
 #endif /*__GNUWIN32__*/
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */

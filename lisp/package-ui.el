@@ -31,7 +31,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defgroup pui nil
-  "Conventient interface to the package system."
+  "Convenient interface to the package system."
   :group 'package-tools
   :tag "Package User interface"
   :prefix "pui-")
@@ -309,7 +309,7 @@ and whether or not it is up-to-date."
 	      (delete pkg-sym pui-deleted-packages))
       (setq pui-deleted-packages
 	    (cons pkg-sym pui-deleted-packages))
-      (setq pui-seleted-packages
+      (setq pui-selected-packages
 	    (delete pkg-sym pui-selected-packages)))
     (pui-update-package-display extent pkg-sym)
     ))

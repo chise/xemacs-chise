@@ -15,8 +15,8 @@
  Please mail bugs and suggestions to the author at the above address.
 */
 
-/* HISTORY 
- * 11-Nov-1990		bristor@simba	
+/* HISTORY
+ * 11-Nov-1990		bristor@simba
  *    Added EOT stuff.
  */
 
@@ -84,7 +84,7 @@ void
 ipc_exit (int stat)
 {
   msgctl (ipc_qid,IPC_RMID,0);
-  
+
   if  (ipc_wpid != 0)
     kill (ipc_wpid, SIGKILL);
 
@@ -102,7 +102,7 @@ ipc_handle_signal(int sig)
 } /* ipc_handle_signal */
 
 
-/* 
+/*
   ipc_spawn_watchdog -- spawn a watchdog task to clean up the message queue should the
 			server process die.
 */
@@ -190,7 +190,7 @@ handle_ipc_request (struct msgbuf *msgp)
   msgctl (ipc_qid, IPC_STAT, &msg_st);
   strncpy (buf, msgp->mtext, len);
   buf[len] = '\0';		/* terminate */
-  
+
   printf ("%d %s", ipc_qid, buf);
   fflush (stdout);
 
@@ -210,7 +210,7 @@ handle_ipc_request (struct msgbuf *msgp)
 
   /* read in "n/m:" (n=client fd, m=message length) */
 
-  while (offset < (GSERV_BUFSZ-1) && 
+  while (offset < (GSERV_BUFSZ-1) &&
 	 ((len = read (0, buf + offset, 1)) > 0) &&
 	 buf[offset] != ':')
     {
@@ -237,7 +237,7 @@ handle_ipc_request (struct msgbuf *msgp)
 	  exit (1);
 	}
 
-      /* Send this string off, but only if we have enough space */ 
+      /* Send this string off, but only if we have enough space */
 
       if (GSERV_BUFSZ > total)
 	{
@@ -291,7 +291,7 @@ echo_request (int s)
   int len;
 
   printf("%d ",s);
-  
+
   /* read until we get a newline or no characters */
   while ((len = recv(s,buf,GSERV_BUFSZ-1,0)) > 0) {
     buf[len] = '\0';
@@ -309,7 +309,7 @@ echo_request (int s)
     fprintf(stderr,"%s: unable to recv\n",progname);
     exit(1);
   } /* if */
-  
+
 } /* echo_request */
 
 
@@ -327,7 +327,7 @@ handle_response (void)
   int result_len;
 
   /* read in "n/m:" (n=client fd, m=message length) */
-  while (offset < GSERV_BUFSZ && 
+  while (offset < GSERV_BUFSZ &&
 	 ((len = read(0,buf+offset,1)) > 0) &&
 	 buf[offset] != ':') {
     offset += len;
@@ -338,7 +338,7 @@ handle_response (void)
     fprintf(stderr,"%s: unable to read\n",progname);
     exit(1);
   }
-      
+
   /* parse the response from emacs, getting client fd & result length */
   buf[offset] = '\0';
   sscanf(buf,"%d/%d", &s, &result_len);
@@ -371,7 +371,7 @@ handle_response (void)
   /* send the newline */
   buf[1] = '\0';
   send_string(s,buf);
-  close(s); 
+  close(s);
 
 } /* handle_response */
 #endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */
@@ -390,9 +390,9 @@ struct entry *permitted_hosts[TABLE_SIZE];
 # include <X11/Xauth.h>
 
 static Xauth *server_xauth = NULL;
-#endif 
+#endif
 
-static int 
+static int
 timed_read (int fd, char *buf, int max, int timeout, int one_line)
 {
   fd_set rmask;
@@ -400,13 +400,13 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
   char c = 0;
   int nbytes = 0;
   int r;
-  
+
   tv.tv_sec = timeout;
   tv.tv_usec = 0;
 
   FD_ZERO(&rmask);
   FD_SET(fd, &rmask);
-  
+
   do
     {
       r = select(fd + 1, &rmask, NULL, NULL, &tv);
@@ -444,8 +444,8 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
 
   return nbytes;
 }
-	
-	
+
+
 
 /*
   permitted -- return whether a given host is allowed to connect to the server.
@@ -456,7 +456,7 @@ permitted (u_long host_addr, int fd)
   int key;
   struct entry *entry;
 
-  char auth_protocol[128]; 
+  char auth_protocol[128];
   char buf[1024];
   int  auth_data_len;
 
@@ -465,17 +465,17 @@ permitted (u_long host_addr, int fd)
       /* we are checking permission on a real connection */
 
       /* Read auth protocol name */
-  
+
       if (timed_read(fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
 	return FALSE;
 
       if (strcmp (auth_protocol, DEFAUTH_NAME) &&
 	  strcmp (auth_protocol, MCOOKIE_NAME))
 	{
-	  printf ("authentication protocol (%s) from client is invalid...\n", 
+	  printf ("authentication protocol (%s) from client is invalid...\n",
 		  auth_protocol);
 	  printf ("... Was the client an old version of gnuclient/gnudoit?\004\n");
-      
+
 	  return FALSE;
 	}
 
@@ -493,17 +493,17 @@ permitted (u_long host_addr, int fd)
 
 	  if (timed_read(fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
 	    return FALSE;
-      
+
 #ifdef AUTH_MAGIC_COOKIE
 	  if (server_xauth && server_xauth->data &&
 	      !memcmp(buf, server_xauth->data, auth_data_len))
 	    {
 	      return TRUE;
 	    }
-#else 
+#else
 	  printf ("client tried Xauth, but server is not compiled with Xauth\n");
 #endif
-      
+
       /*
        * auth failed, but allow this to fall through to the GNU_SECURE
        * protocol....
@@ -512,7 +512,7 @@ permitted (u_long host_addr, int fd)
 	  printf ("Xauth authentication failed, trying GNU_SECURE auth...\004\n");
 
 	}
-    
+
       /* Other auth protocols go here, and should execute only if the
        * auth_protocol name matches.
        */
@@ -521,30 +521,30 @@ permitted (u_long host_addr, int fd)
 
 
   /* Now, try the old GNU_SECURE stuff... */
-  
+
   /* First find the hash key */
   key = HASH(host_addr) % TABLE_SIZE;
-  
+
   /* Now check the chain for that hash key */
   for(entry=permitted_hosts[key]; entry != NULL; entry=entry->next)
-    if (host_addr == entry->host_addr) 
+    if (host_addr == entry->host_addr)
       return(TRUE);
-  
+
   return(FALSE);
 
 } /* permitted */
 
 
-/* 
+/*
   add_host -- add the given host to the list of permitted hosts, provided it isn't
               already there.
-*/	
+*/
 static void
 add_host (u_long host_addr)
 {
   int key;
   struct entry *new_entry;
-  
+
   if (!permitted(host_addr, -1))
     {
       if ((new_entry = (struct entry *) malloc(sizeof(struct entry))) == NULL) {
@@ -578,7 +578,7 @@ setup_table (void)
   char hostname[HOSTNAMSZ];
   u_int host_addr;
   int i, hosts=0;
-  
+
   /* Make sure every entry is null */
   for (i=0; i<TABLE_SIZE; i++)
     permitted_hosts[i] = NULL;
@@ -587,25 +587,25 @@ setup_table (void)
 
   if ((host_addr = internet_addr(hostname)) == -1)
     {
-      fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP", 
+      fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP",
 	      progname,hostname);
       exit(1);
     } /* if */
 
 #ifdef AUTH_MAGIC_COOKIE
-  
-  server_xauth = XauGetAuthByAddr (FamilyInternet, 
+
+  server_xauth = XauGetAuthByAddr (FamilyInternet,
 				   sizeof(host_addr), (char *)&host_addr,
-				   strlen(MCOOKIE_SCREEN), MCOOKIE_SCREEN, 
+				   strlen(MCOOKIE_SCREEN), MCOOKIE_SCREEN,
 				   strlen(MCOOKIE_X_NAME), MCOOKIE_X_NAME);
   hosts++;
 
 #endif /* AUTH_MAGIC_COOKIE */
-  
+
 
 #if 0 /* Don't even want to allow access from the local host by default */
   add_host(host_addr);					/* add local host */
-#endif 
+#endif
 
   if (((file_name = getenv("GNU_SECURE")) != NULL &&    /* security file  */
        (host_file = fopen(file_name,"r")) != NULL))	/* opened ok */
@@ -635,12 +635,12 @@ internet_init (void)
   struct sockaddr_in server;	/* for local socket address */
   char *ptr;			/* ptr to return from getenv */
 
-  if (setup_table() == 0) 
+  if (setup_table() == 0)
     return -1;
 
   /* clear out address structure */
-  memset((char *)&server,0,sizeof(struct sockaddr_in));
-  
+  memset (&server, '\0', sizeof (server));
+
   /* Set up address structure for the listen socket. */
   server.sin_family = AF_INET;
   server.sin_addr.s_addr = INADDR_ANY;
@@ -654,7 +654,7 @@ internet_init (void)
     server.sin_port = htons(DEFAULT_PORT+getuid());
   else
     server.sin_port = sp->s_port;
-  
+
   /* Create the listen socket. */
   if ((ls = socket (AF_INET,SOCK_STREAM, 0)) == -1)
     {
@@ -662,7 +662,7 @@ internet_init (void)
       fprintf(stderr,"%s: unable to create socket\n",progname);
       exit(1);
     } /* if */
-  
+
   /* Bind the listen address to the socket. */
   if (bind(ls,(struct sockaddr *) &server,sizeof(struct sockaddr_in)) == -1)
     {
@@ -672,7 +672,7 @@ internet_init (void)
     } /* if */
 
   /* Initiate the listen on the socket so remote users
-   * can connect. 
+   * can connect.
    */
   if (listen(ls,20) == -1)
     {
@@ -694,10 +694,10 @@ static void
 handle_internet_request (int ls)
 {
   int s;
-  size_t addrlen = sizeof(struct sockaddr_in);
+  socklen_t addrlen = sizeof (struct sockaddr_in);
   struct sockaddr_in peer;	/* for peer socket address */
 
-  memset((char *)&peer,0,sizeof(struct sockaddr_in));
+  memset (&peer, '\0', sizeof (peer));
 
   if ((s = accept(ls,(struct sockaddr *)&peer, &addrlen)) == -1)
     {
@@ -705,7 +705,7 @@ handle_internet_request (int ls)
       fprintf(stderr,"%s: unable to accept\n",progname);
       exit(1);
     } /* if */
-    
+
   /* Check that access is allowed - if not return crud to the client */
   if (!permitted(peer.sin_addr.s_addr, s))
     {
@@ -717,7 +717,7 @@ handle_internet_request (int ls)
     } /* if */
 
   echo_request(s);
-  
+
 } /* handle_internet_request */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
@@ -732,7 +732,7 @@ unix_init (void)
 {
   int ls;			/* socket descriptor */
   struct sockaddr_un server; 	/* unix socket address */
-  int bindlen;
+  socklen_t bindlen;
 
   if ((ls = socket(AF_UNIX,SOCK_STREAM, 0)) < 0)
     {
@@ -772,7 +772,7 @@ unix_init (void)
 #else
   bindlen = strlen (server.sun_path) + sizeof (server.sun_family);
 #endif
- 
+
   if (bind(ls,(struct sockaddr *)&server,bindlen) < 0)
     {
       perror(progname);
@@ -791,7 +791,7 @@ unix_init (void)
   /* #### there are also better ways of dealing with this when
      sigvec() is present. */
 #if  defined (HAVE_SIGPROCMASK)
-  {						
+  {
   sigset_t _mask;
   sigemptyset (&_mask);
   sigaddset (&_mask, SIGPIPE);
@@ -814,7 +814,7 @@ static void
 handle_unix_request (int ls)
 {
   int s;
-  size_t len = sizeof(struct sockaddr_un);
+  socklen_t len = sizeof (struct sockaddr_un);
   struct sockaddr_un server; 	/* for unix socket address */
 
   server.sun_family = AF_UNIX;
@@ -826,7 +826,7 @@ handle_unix_request (int ls)
     } /* if */
 
   echo_request(s);
-  
+
 } /* handle_unix_request */
 #endif /* UNIX_DOMAIN_SOCKETS */
 
@@ -883,8 +883,8 @@ main (int argc, char *argv[])
       FD_SET(uls, &rmask);
     if (ils >= 0)
       FD_SET(ils, &rmask);
-    
-    if (select(max2(fileno(stdin),max2(uls,ils)) + 1, &rmask, 
+
+    if (select(max2(fileno(stdin),max2(uls,ils)) + 1, &rmask,
 	       (fd_set *)NULL, (fd_set *)NULL, (struct timeval *)NULL) < 0)
       {
 	perror(progname);

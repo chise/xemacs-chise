@@ -24,14 +24,14 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_systime_h_
 
 #ifdef TIME_WITH_SYS_TIME
-#include <sys/time.h>
-#include <time.h>
+# include <sys/time.h>
+# include <time.h>
 #else
-#ifdef HAVE_SYS_TIME_H
-#include <sys/time.h>
-#else
-#include <time.h>
-#endif
+# ifdef HAVE_SYS_TIME_H
+#  include <sys/time.h>
+# else
+#  include <time.h>
+# endif
 #endif
 
 /* select() is supposed to be (Unix98) defined in sys/time.h,
@@ -41,17 +41,33 @@ Boston, MA 02111-1307, USA.  */
 #include <unistd.h>
 #endif
 
-#if defined(WINDOWSNT) && defined(HAVE_X_WINDOWS)
+#ifdef WIN32_NATIVE
+
+/* This defines struct timeval */
+#include <winsock.h>
+
+struct timezone 
+  {
+    int	tz_minuteswest;	/* minutes west of Greenwich */
+    int	tz_dsttime;	/* type of dst correction */
+  };
+
+#ifdef HAVE_X_WINDOWS
 /* Provides gettimeofday etc */
 #include <X11/Xw32defs.h>
 #include <X11/Xos.h>
-#endif
+#else
+/* X11R6 on NT provides the single parameter version of this command */
+void gettimeofday (struct timeval *, struct timezone *);
+#endif /* HAVE_X_WINDOWS */
+
+#endif /* WIN32_NATIVE */
 
 #ifdef HAVE_UTIME_H
 # include <utime.h>
 #endif
 
-#if defined(HAVE_TZNAME) && !defined(WINDOWSNT) && !defined(__CYGWIN32__)
+#if defined(HAVE_TZNAME) && !defined(WIN32_NATIVE) && !defined(CYGWIN)
 #ifndef tzname		/* For SGI.  */
 extern char *tzname[];	/* RS6000 and others want it this way.  */
 #endif
@@ -217,7 +233,7 @@ int set_file_times (char *filename, EMACS_TIME atime, EMACS_TIME mtime);
 void get_process_times (double *user_time, double *system_time,
 			double *real_time);
 
-#if defined(WINDOWSNT) || defined(BROKEN_CYGWIN) || defined(__MINGW32__)
+#if defined(WIN32_NATIVE) || defined(BROKEN_CYGWIN)
 
 /* setitimer emulation for Win32 (see nt.c) */
 
@@ -233,6 +249,6 @@ int setitimer (int kind, const struct itimerval* itnew,
 #define ITIMER_REAL 1
 #define ITIMER_PROF 2
 
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #endif /* INCLUDED_systime_h_ */

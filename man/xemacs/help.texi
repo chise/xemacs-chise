@@ -57,7 +57,7 @@ scroll conveniently with @key{SPC} and @key{DEL} or @key{BS}.
 @table @kbd
 @item C-h a @var{regexp} @key{RET}
 Display a list of functions and variables whose names match @var{regexp}
-(@code{heper-apropos}).
+(@code{hyper-apropos}).
 @item C-h A @var{regexp}
 Show all commands whose names contain matches for @var{regexp}
 (@code{command-apropos}).
@@ -224,7 +224,7 @@ Show only symbols that are names of commands
 (@code{command-apropos}).
 
 @item M-x apropos @var{regexp}
-Show all symbols whose names comtain matches for @var{regexp}.
+Show all symbols whose names contain matches for @var{regexp}.
 @end table
 
   A more sophisticated sort of question to ask is, ``What are the

@@ -385,7 +385,7 @@ fromqp(FILE *infile, FILE *outfile, char **boundaries, int *boundaryct)
                         putc(c1<<4 | c2, outfile);
                     }
                 } else {
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
                     if (*s == '\n')
                         putc('\r', outfile);	/* insert CR for binary-mode write */
 #endif
@@ -442,7 +442,8 @@ MAKES NO REPRESENTATIONS ABOUT THE ACCURACY OR SUITABILITY
 OF THIS MATERIAL FOR ANY PURPOSE.  IT IS PROVIDED "AS IS", 
 WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES.
 */
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
+#include <io.h>
 #include <fcntl.h>
 #endif
 
@@ -487,7 +488,7 @@ int main(int argc, char *argv[])
                     exit(-1);
             }
         } else {
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
             if (encode)
                 fp = fopen(argv[i], "rb");
             else
@@ -497,16 +498,16 @@ int main(int argc, char *argv[])
             } /* else */
 #else
             fp = fopen(argv[i], "r");
-#endif /* MSDOS */
+#endif /* WIN32_NATIVE */
             if (!fp) {
                 perror(argv[i]);
                 exit(-1);
             }
         }
     }
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
     if (fp == stdin) setmode(fileno(fp), O_BINARY);
-#endif /* MSDOS */
+#endif /* WIN32_NATIVE */
     if (which == BASE64) {
         if (encode) {
             to64(fp, fpo, portablenewlines);

@@ -216,7 +216,12 @@ dll_variable (dll_handle h, const char *n)
 {
   return dld_get_symbol(n);
 }
-#elif defined(_WINDOWS) || defined(WIN32)
+#elif defined (WIN32_NATIVE)
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#undef WIN32_LEAN_AND_MEAN
+
 int
 dll_init (const char *arg)
 {

@@ -1670,7 +1670,8 @@ x_xface_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Object data = find_keyword_in_vector (instantiator, Q_data);
   int i, stattis;
-  char *p, *bits, *bp;
+  char *bits, *bp;
+  const char *p;
   const char * volatile emsg = 0;
   const char * volatile dstring;
 
@@ -2547,8 +2548,6 @@ x_native_layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiato
 			     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			     int dest_mask, Lisp_Object domain)
 {
-  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "layout", 0);
 }

@@ -46,40 +46,38 @@ Boston, MA 02111-1307, USA.  */
 #include <errno.h>
 #if __STDC__ || defined(STDC_HEADERS)
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 #include <string.h>
 #include <ctype.h>
 #endif
 
-#if defined(MSDOS) || defined(__CYGWIN32__)
+#ifdef CYGWIN
 #include <fcntl.h>
-#endif /* MSDOS */
-#ifdef WINDOWSNT
+#endif
+#ifdef WIN32_NATIVE
 #include <direct.h>
 #include <fcntl.h>
 #include <io.h>
 #include <stdlib.h>
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
+#ifndef WIN32_NATIVE
 #include <sys/param.h>
+#endif /* not WIN32_NATIVE */
 
-#if defined(DOS_NT) || defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
 #define READ_TEXT "rt"
 #define READ_BINARY "rb"
 #define WRITE_BINARY "wb"
 #define APPEND_BINARY "ab"
-#else  /* not DOS_NT */
+#else  /* not WIN32_NATIVE */
 #define READ_TEXT "r"
 #define READ_BINARY "r"
 #define WRITE_BINARY "w"
 #define APPEND_BINARY "a"
-#endif /* not DOS_NT */
-
-#ifdef MSDOS
-/* s/msdos.h defines this as sys_chdir, but we're not linking with the
-   file where that function is defined.  */
-#undef chdir
-#endif
+#endif /* not WIN32_NATIVE */
 
 /* Stdio stream for output to the DOC file.  */
 static FILE *outfile;
@@ -191,19 +189,10 @@ main (int argc, char **argv)
   outfile = stdout;
 
   /* Don't put CRs in the DOC file.  */
-#ifdef MSDOS
-  _fmode = O_BINARY;
-#if 0  /* Suspicion is that this causes hanging.
-	  So instead we require people to use -o on MSDOS.  */
-  (stdout)->_flag &= ~_IOTEXT;
-  _setmode (fileno (stdout), O_BINARY);
-#endif
-  outfile = 0;
-#endif /* MSDOS */
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   _fmode = O_BINARY;
   _setmode (fileno (stdout), O_BINARY);
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   /* If first two args are -o FILE, output to FILE.  */
   i = 1;

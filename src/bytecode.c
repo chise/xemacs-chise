@@ -56,8 +56,6 @@ by Hallvard:
 #include "opaque.h"
 #include "syntax.h"
 
-#include <limits.h>
-
 EXFUN (Ffetch_bytecode, 1);
 
 Lisp_Object Qbyte_code, Qcompiled_functionp, Qinvalid_byte_code;

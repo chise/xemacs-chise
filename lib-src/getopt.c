@@ -73,7 +73,7 @@ USA.  */
 #endif
 #endif
 
-#if defined (WIN32) && !defined (__CYGWIN32__)
+#if defined (WIN32_NATIVE) && !defined (CYGWIN)
 /* It's not Unix, really.  See?  Capital letters.  */
 #include <windows.h>
 #undef getpid

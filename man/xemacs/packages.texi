@@ -134,12 +134,14 @@ Normally, packages are installed over the network, using EFS
 already have some or all of the packages on a local disk, such as a
 CDROM.  If you want to install from a local disk, you must first tell
 XEmacs where to find the package binaries.  This is done by adding a line
-like the following to your @file{.emacs} file:
+like the following to your init file:
 
 @example
 (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
                                package-get-remote))
 @end example
+
+@xref{Init File}.
 
 Here, you'd change @file{/my/path/to/package/binaries} to be the path
 to your local package binaries.  Next, restart XEmacs, and you're ready

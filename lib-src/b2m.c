@@ -30,7 +30,7 @@
 #include <string.h>
 #include <time.h>
 #include <sys/types.h>
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
 #include <fcntl.h>
 #endif
 
@@ -88,17 +88,12 @@ main (int argc, char *argv[])
   char *labels = NULL, *p, *today;
   struct linebuffer data;
 
-#ifdef MSDOS
+#ifdef WIN32_NATIVE
   _fmode = O_BINARY;		/* all of files are treated as binary files */
-#if __DJGPP__ > 1
   if (!isatty (fileno (stdout)))
     setmode (fileno (stdout), O_BINARY);
   if (!isatty (fileno (stdin)))
     setmode (fileno (stdin), O_BINARY);
-#else /* not __DJGPP__ > 1 */
-  (stdout)->_flag &= ~_IOTEXT;
-  (stdin)->_flag &= ~_IOTEXT;
-#endif /* not __DJGPP__ > 1 */
 #endif
   progname = argv[0];
 

@@ -248,7 +248,7 @@ Synonym for @kbd{d}.
 @item C-d
 Like @kbd{d} but move up afterwards instead of down.
 @item s
-Request to save the buffer.  An @samp{S} befor the buffer name on a line
+Request to save the buffer.  An @samp{S} before the buffer name on a line
 indicates the request.  Requested saves actually take place when you use
 the @kbd{x} command.  You can request both saving and deletion for the
 same buffer.

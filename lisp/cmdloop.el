@@ -130,9 +130,10 @@ or go back to just one window (by deleting all but the selected window)."
   :group 'editing-basics)
 
 (defun command-error (error-object)
-  (let ((inhibit-quit t)
-	(debug-on-error nil)
-	(etype (car-safe error-object)))
+  (let* ((old-debug-on-error debug-on-error)
+	 (inhibit-quit t)
+	 (debug-on-error nil)
+	 (etype (car-safe error-object)))
     (setq quit-flag nil)
     (setq standard-output t)
     (setq standard-input t)
@@ -161,7 +162,12 @@ or go back to just one window (by deleting all but the selected window)."
 
     (if (noninteractive)
         (progn
-          (message "%s exiting." emacs-program-name)
+	  (if old-debug-on-error
+	      (progn
+		(message "Backtrace:\n\n")
+		(backtrace)
+		(message "\n")))
+          (message "%s exiting\n." emacs-program-name)
           (kill-emacs -1)))
     t))
 

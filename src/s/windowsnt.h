@@ -1,4 +1,4 @@
-/* System description file for Windows NT.
+/* System description file for Windows 9x and NT.
    Copyright (C) 1993, 1994, 1995 Free Software Foundation, Inc.
 
 This file is part of GNU Emacs.
@@ -20,12 +20,73 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: FSF 19.31. */
 
-#ifndef WINDOWSNT
-#define WINDOWSNT
-#endif
+/* Capsule summary of different preprocessor flags:
 
-#ifndef DOS_NT
-#define DOS_NT 	/* MSDOS or WINDOWSNT */
+1. Keep in mind that there are two possible OS environments we are dealing
+   with -- Cygwin and Native Windows.  Cygwin provides a POSIX emulation
+   layer on top of MS Windows -- in particular, providing the file-system,
+   process, tty, and signal semantics that are part of a modern, standard
+   Unix operating system.  MS Windows also provides these services, but
+   through their own API, called Win32.  When compiling in a Cygwin
+   environment, the Win32 API's are also available, and in fact are used
+   to do native GUI programming.
+
+2. There are two windowing environments we can target XEmacs for when
+   running under MS Windows -- Windows native, and X. (It may seem strange
+   to write an X application under Windows, but there are in fact many X
+   servers out there running on Windows, and as far as I know there is no
+   real (or at least, that works well) networking Window-system extension
+   under MS Windows.  Furthermore, if you're porting a Unix application to
+   Windows and use Cygwin to assist you, it might seem natural to use an
+   X server to avoid having to port all the code to Windows.) For XEmacs,
+   there are various reasons people could come up with for why we would
+   want to keep maintaining X Windows under MS Windows support.
+
+That gives us four possible build environments.  I (Ben) build
+regularly on fully-native-everything, Andy builds on Cygwin + MS
+Windows + X Windows for windowing.
+
+The build flags used for these divisions are:
+
+CYGWIN -- for Cygwin-only stuff.
+WIN32_NATIVE -- Win32 native OS-level stuff (files, process, etc.).
+HAVE_X_WINDOWS -- for X Windows (regardless of whether under MS Win)
+HAVE_MS_WINDOWS -- MS Windows native windowing system (anything related to
+                   the appearance of the graphical screen).
+
+Finally, there's also the MINGW build environment, which uses GCC
+\(similar to Cygwin), but native MS Windows libraries rather than a
+POSIX emulation layer (the Cygwin approach).  This environment defines
+WIN32_NATIVE, but also defines MINGW, which is used mostly because
+uses its own include files (related to Cygwin), which have a few
+things messed up.
+
+
+Formerly, we had a whole host of flags.  Here's the conversion, for porting
+code from GNU Emacs and such:
+
+
+WINDOWSNT -> WIN32_NATIVE
+WIN32 -> WIN32_NATIVE
+_WIN32 -> WIN32_NATIVE
+HAVE_WIN32 -> WIN32_NATIVE
+DOS_NT -> WIN32_NATIVE
+HAVE_NTGUI -> WIN32_NATIVE, unless it ends up already bracketed by this
+HAVE_FACES -> always true
+MSDOS -> determine whether this code is really specific to MS-DOS (and not
+         Windows -- e.g. DJGPP code); if so, delete the code; otherwise,
+         convert to WIN32_NATIVE (we do not support MS-DOS w/DOS Extender
+         under XEmacs)
+
+__CYGWIN__ -> CYGWIN
+__CYGWIN32__ -> CYGWIN
+__MINGW32__ -> MINGW
+
+*/
+
+/* Identify ourselves */
+#ifndef WIN32_NATIVE
+#define WIN32_NATIVE
 #endif
 
 /* In case non-Microsoft compiler is used, we fake _MSC_VER */
@@ -167,11 +228,6 @@ typedef int pid_t;
 #define HAVE_H_ERRNO
 #define HAVE_STRUCT_UTIMBUF
 
-#ifdef HAVE_NTGUI
-#define HAVE_WINDOW_SYSTEM
-#define HAVE_FACES
-#endif
-
 #define HAVE_STRCASECMP
 
 /* Compatibility macros. Some used to be routines in nt.c */
@@ -246,10 +302,10 @@ gid_t getegid (void);
 
 /* We now have emulation for some signals */
 #define HAVE_SIGHOLD
-#define sigset(s,h) msw_sigset(s,h)
-#define sighold(s) msw_sighold(s)
-#define sigrelse(s) msw_sigrelse(s)
-#define sigpause(s) msw_sigpause(s)
+#define sigset(s,h) mswindows_sigset(s,h)
+#define sighold(s) mswindows_sighold(s)
+#define sigrelse(s) mswindows_sigrelse(s)
+#define sigpause(s) mswindows_sigpause(s)
 
 /* Defines that we need that aren't in the standard signal.h  */
 #define SIGHUP  1               /* Hang up */
@@ -257,10 +313,6 @@ gid_t getegid (void);
 #define SIGKILL 9               /* Die, die die */
 #define SIGALRM 14              /* Alarm */
 #define SIGPROF 29		/* Profiling timer exp */
-
-/* For integration with MSDOS support.  */
-#define getdisk()               (_getdrive () - 1)
-#define getdefdir(_drv, _buf)   _getdcwd (_drv, _buf, MAXPATHLEN)
 
 /* Defines size_t and alloca ().  */
 #include <malloc.h>
@@ -312,3 +364,8 @@ gid_t getegid (void);
 #define DECLARE_DOESNT_RETURN_GCC_ATTRIBUTE_SYNTAX_SUCKS(decl,str,idx) \
           __declspec(noreturn) extern void decl PRINTF_ARGS(str,idx)
 #endif /* MSVC 6.0 */
+
+#define CORRECT_DIR_SEPS(s) \
+  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
+       else unixtodos_filename (s); \
+  } while (0)

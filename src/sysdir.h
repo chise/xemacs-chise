@@ -29,10 +29,11 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef SYSV_SYSTEM_DIR
 # include <dirent.h>
+#elif defined (WIN32_NATIVE)
+# include <direct.h>
+# include "ndir.h"
 #elif defined (NONSYSTEM_DIR_LIBRARY)
 # include "ndir.h"
-#elif defined (MSDOS)
-# include <dirent.h>
 #else
 # include <sys/dir.h>
 #endif /* not NONSYSTEM_DIR_LIBRARY */
@@ -58,11 +59,7 @@ Boston, MA 02111-1307, USA.  */
    Since applying strlen to the name always works, we'll just do that.  */
 #define NAMLEN(p) strlen (p->d_name)
 
-#ifdef MSDOS
-#define DIRENTRY_NONEMPTY(p) ((p)->d_name[0] != 0)
-#else
 #define DIRENTRY_NONEMPTY(p) ((p)->d_ino)
-#endif
 
 /* encapsulation: directory calls */
 

@@ -24,7 +24,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include <limits.h>
 
 #include "buffer.h"
 #include "events.h"
@@ -54,24 +53,13 @@ Boston, MA 02111-1307, USA.  */
 #endif /* HPUX_PRE_8_0 */
 #endif /* HPUX */
 
-#ifdef WINDOWSNT
-#define NOMINMAX 1
-#include <direct.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#endif /* not WINDOWSNT */
-
-#ifdef WINDOWSNT
-#define CORRECT_DIR_SEPS(s) \
-  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
-    else unixtodos_filename (s); \
-  } while (0)
+#ifdef WIN32_NATIVE
 #define IS_DRIVE(x) isalpha (x)
 /* Need to lower-case the drive letter, or else expanded
    filenames will sometimes compare inequal, because
    `expand-file-name' doesn't always down-case the drive letter.  */
 #define DRIVE_LETTER(x) tolower (x)
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 int lisp_to_time (Lisp_Object, time_t *);
 Lisp_Object time_to_lisp (time_t);
@@ -432,7 +420,7 @@ Given a Unix syntax file name, returns a string ending in slash.
   p = beg + XSTRING_LENGTH (file);
 
   while (p != beg && !IS_ANY_SEP (p[-1])
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	 /* only recognize drive specifier at beginning */
 	 && !(p[-1] == ':' && p == beg + 2)
 #endif
@@ -440,14 +428,14 @@ Given a Unix syntax file name, returns a string ending in slash.
 
   if (p == beg)
     return Qnil;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Expansion of "c:" to drive and default directory.  */
   /* (NT does the right thing.)  */
   if (p == beg + 2 && beg[1] == ':')
     {
       /* MAXPATHLEN+1 is guaranteed to be enough space for getdefdir.  */
       Bufbyte *res = (Bufbyte*) alloca (MAXPATHLEN + 1);
-      if (getdefdir (toupper (*beg) - 'A' + 1, (char *)res))
+      if (_getdcwd (toupper (*beg) - 'A' + 1, (char *)res, MAXPATHLEN))
 	{
 	  char *c=((char *) res) + strlen ((char *) res);
 	  if (!IS_DIRECTORY_SEP (*c))
@@ -459,7 +447,7 @@ Given a Unix syntax file name, returns a string ending in slash.
 	  p = beg + strlen ((char *) beg);
 	}
     }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
   return make_string (beg, p - beg);
 }
 
@@ -487,7 +475,7 @@ or the entire name if it contains no slash.
   end = p = beg + XSTRING_LENGTH (file);
 
   while (p != beg && !IS_ANY_SEP (p[-1])
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	 /* only recognize drive specifier at beginning */
 	 && !(p[-1] == ':' && p == beg + 2)
 #endif
@@ -589,9 +577,9 @@ directory_file_name (const char *src, char *dst)
   strcpy (dst, src);
   if (slen > 1
       && IS_DIRECTORY_SEP (dst[slen - 1])
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       && !IS_ANY_SEP (dst[slen - 2])
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
       )
     dst[slen - 1] = 0;
   return 1;
@@ -758,15 +746,15 @@ See also the function `substitute-in-file-name'.
   Bufbyte *newdir, *p, *o;
   int tlen;
   Bufbyte *target;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   int drive = 0;
   int collapse_newdir = 1;
 #else
   struct passwd *pw;
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
   int length;
   Lisp_Object handler;
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
   char *user;
 #endif
 
@@ -808,18 +796,18 @@ See also the function `substitute-in-file-name'.
       /* Save time in some common cases - as long as default_directory
 	 is not relative, it can be canonicalized with name below (if it
 	 is needed at all) without requiring it to be expanded now.  */
-#ifdef WINDOWSNT
-      /* Detect MSDOS file names with drive specifiers.  */
+#ifdef WIN32_NATIVE
+      /* Detect Windows file names with drive specifiers.  */
       && ! (IS_DRIVE (o[0]) && (IS_DEVICE_SEP (o[1]) && IS_DIRECTORY_SEP (o[2])))
       /* Detect Windows file names in UNC format.  */
       && ! (IS_DIRECTORY_SEP (o[0]) && IS_DIRECTORY_SEP (o[1]))
 
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
 
       /* Detect Unix absolute file names (/... alone is not absolute on
-	 DOS or Windows).  */
+	 Windows).  */
       && ! (IS_DIRECTORY_SEP (o[0]))
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
       )
     {
       struct gcpro gcpro1;
@@ -837,7 +825,7 @@ See also the function `substitute-in-file-name'.
     into name should be safe during all of this, though. */
   nm = XSTRING_DATA (name);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* We will force directory separators to be either all \ or /, so make
      a local copy to modify, even if there ends up being no change. */
   nm = strcpy ((char *)alloca (strlen ((char *)nm) + 1), (char *)nm);
@@ -875,14 +863,14 @@ See also the function `substitute-in-file-name'.
      "//somedir".  */
   if (drive && IS_DIRECTORY_SEP (nm[0]) && IS_DIRECTORY_SEP (nm[1]))
     nm++;
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   /* If nm is absolute, look for /./ or /../ sequences; if none are
      found, we can probably return right away.  We will avoid allocating
      a new string if name is already fully expanded.  */
   if (
       IS_DIRECTORY_SEP (nm[0])
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       && (drive || IS_DIRECTORY_SEP (nm[1]))
 #endif
       )
@@ -913,7 +901,7 @@ See also the function `substitute-in-file-name'.
 	}
       if (!lose)
 	{
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  /* Make sure directories are all separated with / or \ as
 	     desired, but avoid allocation of a new string when not
 	     required. */
@@ -931,11 +919,11 @@ See also the function `substitute-in-file-name'.
 	      XSTRING_DATA (name)[1] = ':';
 	    }
 	  return name;
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
 	  if (nm == XSTRING_DATA (name))
 	    return name;
 	  return build_string ((char *) nm);
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 	}
     }
 
@@ -972,7 +960,7 @@ See also the function `substitute-in-file-name'.
 				Qfile_name);
 
 	  nm++;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  collapse_newdir = 0;
 #endif
 	}
@@ -991,7 +979,7 @@ See also the function `substitute-in-file-name'.
 	     multiple user profiles users defined, each with its HOME.
 	     Therefore, the following should be reworked to handle
 	     this case.  */
-#ifdef  WINDOWSNT
+#ifdef  WIN32_NATIVE
 	  /* Now if the file given is "~foo/file" and HOME="c:/", then
 	     we want the file to be named "c:/file" ("~foo" becomes
 	     "c:/").  The variable o has "~foo", so we can use the
@@ -1000,8 +988,8 @@ See also the function `substitute-in-file-name'.
 	  newdir = (Bufbyte *) get_home_directory();
 	  dostounix_filename (newdir);
 	  nm += strlen(o) + 1;
-#else  /* not WINDOWSNT */
-#ifdef __CYGWIN32__
+#else  /* not WIN32_NATIVE */
+#ifdef CYGWIN
 	  if ((user = user_login_name (NULL)) != NULL)
 	    {
 	      /* Does the user login name match the ~name? */
@@ -1013,7 +1001,7 @@ See also the function `substitute-in-file-name'.
 	    }
           if (! newdir)
             {
-#endif /* __CYGWIN32__ */
+#endif /* CYGWIN */
 	  /* Jamie reports that getpwnam() can get wedged by SIGIO/SIGALARM
 	     occurring in it. (It can call select()). */
 	  slow_down_interrupts ();
@@ -1024,17 +1012,17 @@ See also the function `substitute-in-file-name'.
 	      newdir = (Bufbyte *) pw -> pw_dir;
 	      nm = p;
 	    }
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
 	    }
 #endif
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 
 	  /* If we don't find a user of that name, leave the name
 	     unchanged; don't move nm forward to p.  */
 	}
     }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* On DOS and Windows, nm is absolute if a drive name was specified;
      use the drive's current directory as the prefix if needed.  */
   if (!newdir && drive)
@@ -1043,7 +1031,7 @@ See also the function `substitute-in-file-name'.
       if (!IS_DIRECTORY_SEP (nm[0]))
 	{
 	  newdir = alloca (MAXPATHLEN + 1);
-	  if (!getdefdir (toupper (drive) - 'A' + 1, newdir))
+	  if (!_getdcwd (toupper (drive) - 'A' + 1, newdir, MAXPATHLEN))
 	    newdir = NULL;
 	}
       if (!newdir)
@@ -1056,13 +1044,13 @@ See also the function `substitute-in-file-name'.
 	  newdir[3] = 0;
 	}
     }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   /* Finally, if no prefix has been specified and nm is not absolute,
      then it must be expanded relative to default_directory. */
 
   if (1
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
       /* /... alone is not absolute on DOS and Windows. */
       && !IS_DIRECTORY_SEP (nm[0])
 #else
@@ -1073,12 +1061,12 @@ See also the function `substitute-in-file-name'.
       newdir = XSTRING_DATA (default_directory);
     }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   if (newdir)
     {
       /* First ensure newdir is an absolute name. */
       if (
-	  /* Detect MSDOS file names with drive specifiers.  */
+	  /* Detect Windows file names with drive specifiers.  */
 	  ! (IS_DRIVE (newdir[0])
 	     && IS_DEVICE_SEP (newdir[1]) && IS_DIRECTORY_SEP (newdir[2]))
 	  /* Detect Windows file names in UNC format.  */
@@ -1108,7 +1096,7 @@ See also the function `substitute-in-file-name'.
 	  newdir = alloca (MAXPATHLEN + 1);
 	  if (drive)
 	    {
-	      if (!getdefdir (toupper (drive) - 'A' + 1, newdir))
+	      if (!_getdcwd (toupper (drive) - 'A' + 1, newdir, MAXPATHLEN))
 		newdir = "/";
 	    }
 	  else
@@ -1139,7 +1127,7 @@ See also the function `substitute-in-file-name'.
 	    newdir = "";
 	}
     }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   if (newdir)
     {
@@ -1147,7 +1135,7 @@ See also the function `substitute-in-file-name'.
 	 just // (an incomplete UNC name).  */
       length = strlen ((char *) newdir);
       if (length > 1 && IS_DIRECTORY_SEP (newdir[length - 1])
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  && !(length == 2 && IS_DIRECTORY_SEP (newdir[0]))
 #endif
 	  )
@@ -1164,14 +1152,14 @@ See also the function `substitute-in-file-name'.
 
   /* Now concatenate the directory and name to new space in the stack frame */
   tlen += strlen ((char *) nm) + 1;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Add reserved space for drive name.  (The Microsoft x86 compiler
      produces incorrect code if the following two lines are combined.)  */
   target = (Bufbyte *) alloca (tlen + 2);
   target += 2;
-#else  /* not WINDOWSNT */
+#else  /* not WIN32_NATIVE */
   target = (Bufbyte *) alloca (tlen);
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
   *target = 0;
 
   if (newdir)
@@ -1220,7 +1208,7 @@ See also the function `substitute-in-file-name'.
 	    ++o;
 	  p += 3;
 	}
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       /* if drive is set, we're not dealing with an UNC, so
 	 multiple dir-seps are redundant (and reportedly cause trouble
 	 under win95) */
@@ -1233,7 +1221,7 @@ See also the function `substitute-in-file-name'.
 	}
     }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* At last, set drive name, except for network file name.  */
   if (drive)
     {
@@ -1246,7 +1234,7 @@ See also the function `substitute-in-file-name'.
       assert (IS_DIRECTORY_SEP (target[0]) && IS_DIRECTORY_SEP (target[1]));
     }
   CORRECT_DIR_SEPS (target);
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   return make_string (target, o - target);
 }
@@ -1428,12 +1416,12 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
   for (p = nm; p != endp; p++)
     {
       if ((p[0] == '~'
-#if defined (WINDOWSNT) || defined (__CYGWIN32__)
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
 	   /* // at start of file name is meaningful in WindowsNT systems */
 	   || (IS_DIRECTORY_SEP (p[0]) && p - 1 != nm)
-#else /* not (WINDOWSNT || __CYGWIN32__) */
+#else /* not (WIN32_NATIVE || CYGWIN) */
 	   || IS_DIRECTORY_SEP (p[0])
-#endif /* not (WINDOWSNT || __CYGWIN32__) */
+#endif /* not (WIN32_NATIVE || CYGWIN) */
 	   )
 	  && p != nm
 	  && (IS_DIRECTORY_SEP (p[-1])))
@@ -1441,7 +1429,7 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 	  nm = p;
 	  substituted = 1;
 	}
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       /* see comment in expand-file-name about drive specifiers */
       else if (IS_DRIVE (p[0]) && p[1] == ':'
 	       && p > nm && IS_DIRECTORY_SEP (p[-1]))
@@ -1449,7 +1437,7 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 	  nm = p;
 	  substituted = 1;
 	}
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
     }
 
   /* See if any variables are substituted into the string
@@ -1489,9 +1477,9 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 	target = (Bufbyte *) alloca (s - o + 1);
 	strncpy ((char *) target, (char *) o, s - o);
 	target[s - o] = 0;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	strupr (target); /* $home == $HOME etc.  */
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 	/* Get variable value */
 	o = (Bufbyte *) egetenv ((char *) target);
@@ -1540,9 +1528,9 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 	target = (Bufbyte *) alloca (s - o + 1);
 	strncpy ((char *) target, (char *) o, s - o);
 	target[s - o] = 0;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	strupr (target); /* $home == $HOME etc.  */
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 	/* Get variable value */
 	o = (Bufbyte *) egetenv ((char *) target);
@@ -1559,16 +1547,16 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
 
   for (p = xnm; p != x; p++)
     if ((p[0] == '~'
-#if defined (WINDOWSNT)
+#if defined (WIN32_NATIVE)
 	 || (IS_DIRECTORY_SEP (p[0]) && p - 1 != xnm)
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
 	 || IS_DIRECTORY_SEP (p[0])
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 	 )
 	/* don't do p[-1] if that would go off the beginning --jwz */
 	&& p != nm && p > xnm && IS_DIRECTORY_SEP (p[-1]))
       xnm = p;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
     else if (IS_DRIVE (p[0]) && p[1] == ':'
 	     && p > nm && IS_DIRECTORY_SEP (p[-1]))
 	xnm = p;
@@ -1743,7 +1731,7 @@ A prefix arg makes KEEP-TIME non-nil.
      copyable by us. */
   input_file_statable_p = (fstat (ifd, &st) >= 0);
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
   if (out_st.st_mode != 0
       && st.st_dev == out_st.st_dev && st.st_ino == out_st.st_ino)
     {
@@ -1981,13 +1969,10 @@ This is what happens in interactive use with M-x.
 				  INTP (ok_if_already_exists), 0);
 
 /* Syncing with FSF 19.34.6 note: FSF does not have conditional code for
-   WINDOWSNT here; I've removed it.  --marcpa */
+   WIN32_NATIVE here; I've removed it.  --marcpa */
 
-    /* FSFmacs only calls rename() here under BSD 4.1, and calls
-       link() and unlink() otherwise, but that's bogus.  Sometimes
-       rename() succeeds where link()/unlink() fail, and we have
-       configure check for rename() and emulate using link()/unlink()
-       if necessary. */
+  /* We have configure check for rename() and emulate using
+     link()/unlink() if necessary. */
   if (0 > rename ((char *) XSTRING_DATA (filename),
 		  (char *) XSTRING_DATA (newname)))
     {
@@ -2052,10 +2037,10 @@ This is what happens in interactive use with M-x.
 /* But FSF #defines link as sys_link which is supplied in nt.c. We can't do
    that because sysfile.h defines sys_link depending on ENCAPSULATE_LINK.
    Reverted to previous behavior pending a working fix. (jhar) */
-#if defined(WINDOWSNT)
+#if defined(WIN32_NATIVE)
   /* Windows does not support this operation.  */
   report_file_error ("Adding new name", Flist (2, &filename));
-#else /* not defined(WINDOWSNT) */
+#else /* not defined(WIN32_NATIVE) */
 
   unlink ((char *) XSTRING_DATA (newname));
   if (0 > link ((char *) XSTRING_DATA (filename),
@@ -2064,7 +2049,7 @@ This is what happens in interactive use with M-x.
       report_file_error ("Adding new name",
 			 list2 (filename, newname));
     }
-#endif /* defined(WINDOWSNT) */
+#endif /* defined(WIN32_NATIVE) */
 
   UNGCPRO;
   return Qnil;
@@ -2166,7 +2151,7 @@ On Unix, this is a name starting with a `/' or a `~'.
   CHECK_STRING (filename);
   ptr = XSTRING_DATA (filename);
   return (IS_DIRECTORY_SEP (*ptr) || *ptr == '~'
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  || (IS_DRIVE (*ptr) && ptr[1] == ':' && IS_DIRECTORY_SEP (ptr[2]))
 #endif
 	  ) ? Qt : Qnil;
@@ -2177,12 +2162,12 @@ On Unix, this is a name starting with a `/' or a `~'.
 static int
 check_executable (char *filename)
 {
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   struct stat st;
   if (stat (filename, &st) < 0)
     return 0;
   return ((st.st_mode & S_IEXEC) != 0);
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
 #ifdef HAVE_EACCESS
   return eaccess (filename, 1) >= 0;
 #else
@@ -2191,7 +2176,7 @@ check_executable (char *filename)
      But Unix doesn't give us a right way to do it.  */
   return access (filename, 1) >= 0;
 #endif /* HAVE_EACCESS */
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 }
 
 /* Return nonzero if file FILENAME exists and can be written.  */
@@ -2284,14 +2269,14 @@ See also `file-exists-p' and `file-attributes'.
   if (!NILP (handler))
     RETURN_UNGCPRO (call2 (handler, Qfile_readable_p, abspath));
 
-#if defined(WINDOWSNT) || defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
   /* Under MS-DOS and Windows, open does not work for directories.  */
   UNGCPRO;
   if (access (XSTRING_DATA (abspath), 0) == 0)
     return Qt;
   else
     return Qnil;
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
   {
     int desc = interruptible_open ((char *) XSTRING_DATA (abspath), O_RDONLY | OPEN_BINARY, 0);
     UNGCPRO;
@@ -2300,7 +2285,7 @@ See also `file-exists-p' and `file-attributes'.
     close (desc);
     return Qt;
   }
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 }
 
 /* Having this before file-symlink-p mysteriously caused it to be forgotten
@@ -2445,7 +2430,7 @@ searchable directory.
     return call2 (handler, Qfile_accessible_directory_p,
 		  filename);
 
-#if !defined(WINDOWSNT)
+#if !defined(WIN32_NATIVE)
   if (NILP (Ffile_directory_p (filename)))
       return (Qnil);
   else
@@ -2466,7 +2451,7 @@ searchable directory.
     UNGCPRO;
     return tem ? Qnil : Qt;
   }
-#endif /* !defined(WINDOWSNT) */
+#endif /* !defined(WIN32_NATIVE) */
 }
 
 DEFUN ("file-regular-p", Ffile_regular_p, 1, 1, 0, /*
@@ -2526,10 +2511,10 @@ Return mode bits of FILE, as an integer.
     return Qnil;
   /* Syncing with FSF 19.34.6 note: not in FSF, #if 0'ed out here. */
 #if 0
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   if (check_executable (XSTRING_DATA (abspath)))
     st.st_mode |= S_IEXEC;
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 #endif /* 0 */
 
   return make_int (st.st_mode & 07777);
@@ -2603,7 +2588,7 @@ Tell Unix to finish all pending disk updates.
 */
        ())
 {
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
   sync ();
 #endif
   return Qnil;
@@ -4311,7 +4296,7 @@ This variable affects the built-in functions only on Windows,
 on other platforms, it is initialized so that Lisp code can find out
 what the normal separator is.
 */ );
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   Vdirectory_sep_char = make_char ('\\');
 #else
   Vdirectory_sep_char = make_char ('/');

@@ -55,8 +55,6 @@ static void mark_x (char *);
 	if (lseek (_fd, _position, L_SET) != _position) \
 	  fatal_unexec (_error_message, _error_arg);
 
-void *sbrk();
-
 #define EEOF -1
 
 static struct scnhdr *text_section;
@@ -83,12 +81,13 @@ struct headers {
 };
 
 
-
 /* Define name of label for entry point for the dumped executable.  */
 
 #ifndef DEFAULT_ENTRY_ADDRESS
 #define DEFAULT_ENTRY_ADDRESS __start
 #endif
+EXTERN_C int DEFAULT_ENTRY_ADDRESS (void);
+
 
 int
 unexec (char *new_name, char *a_name,
@@ -208,7 +207,6 @@ unexec (char *new_name, char *a_name,
   nhdr.aout.bsize = 0;
   if (entry_address == 0)
     {
-      extern int DEFAULT_ENTRY_ADDRESS (void);
       nhdr.aout.entry = (unsigned long)DEFAULT_ENTRY_ADDRESS;
     }
   else

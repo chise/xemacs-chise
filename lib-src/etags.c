@@ -59,48 +59,29 @@ char pot_etags_version[] = "@(#) pot revision number is 13.44";
 # define _GNU_SOURCE 1		/* enables some compiler checks on GNU */
 #endif
 
-#ifdef MSDOS
-# undef MSDOS
-# define MSDOS TRUE
-# include <fcntl.h>
-# include <sys/param.h>
-# include <io.h>
-# ifndef HAVE_CONFIG_H
-#   define DOS_NT
-#   include <sys/config.h>
-# endif
-#else
-# define MSDOS FALSE
-#endif /* MSDOS */
-
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 # include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
 # include <direct.h>
 # include <io.h>
 # define MAXPATHLEN _MAX_PATH
-# ifdef HAVE_CONFIG_H
-#   undef HAVE_NTGUI
-# else
-#   define DOS_NT
-# endif /* not HAVE_CONFIG_H */
 # ifndef HAVE_GETCWD
 #   define HAVE_GETCWD
 # endif /* undef HAVE_GETCWD */
-#else /* !WINDOWSNT */
+#else /* !WIN32_NATIVE */
 # ifdef STDC_HEADERS
 #  include <stdlib.h>
 #  include <string.h>
 # else
     extern char *getenv ();
 # endif
-#endif /* !WINDOWSNT */
+#endif /* !WIN32_NATIVE */
 
 #ifdef HAVE_UNISTD_H
 # include <unistd.h>
 #else
-# if defined (HAVE_GETCWD) && !WINDOWSNT
+# if defined (HAVE_GETCWD) && !defined (WIN32_NATIVE)
     extern char *getcwd (char *buf, size_t size);
 # endif
 #endif /* HAVE_UNISTD_H */
@@ -889,9 +870,9 @@ main (argc, argv)
   bool got_err;
 #endif
 
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   _fmode = O_BINARY;   /* all of files are treated as binary files */
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 
   progname = argv[0];
   nincluded_files = 0;
@@ -1075,12 +1056,12 @@ main (argc, argv)
       if (streq (tagfile, "-"))
 	{
 	  tagf = stdout;
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	  /* Switch redirected `stdout' to binary mode (setting `_fmode'
 	     doesn't take effect until after `stdout' is already open). */
 	  if (!isatty (fileno (stdout)))
 	    setmode (fileno (stdout), O_BINARY);
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 	}
       else
 	tagf = fopen (tagfile, append_to_tagfile ? "a" : "w");
@@ -1210,7 +1191,7 @@ get_compressor_from_suffix (file, extptr)
   char *slash, *suffix;
 
   /* This relies on FN to be after canonicalize_filename,
-     so we don't need to consider backslashes on DOS_NT.  */
+     so we don't need to consider backslashes on WIN32_NATIVE.  */
   slash = etags_strrchr (file, '/');
   suffix = etags_strrchr (file, '.');
   if (suffix == NULL || suffix < slash)
@@ -1220,13 +1201,13 @@ get_compressor_from_suffix (file, extptr)
   suffix += 1;
   /* Let those poor souls who live with DOS 8+3 file name limits get
      some solace by treating foo.cgz as if it were foo.c.gz, etc.
-     Only the first do loop is run if not MSDOS */
+ */
   do
     {
       for (compr = compressors; compr->suffix != NULL; compr++)
 	if (streq (compr->suffix, suffix))
 	  return compr;
-      if (!MSDOS)
+      if (1) /* !MSDOS */
 	break;			/* do it only once: not really a loop */
       if (extptr != NULL)
 	*extptr = ++suffix;
@@ -1373,22 +1354,7 @@ process_file (file)
 	      compressed_name = concat (file, ".", compr->suffix);
 	      if (stat (compressed_name, &stat_buf) != 0)
 		{
-		  if (MSDOS)
-		    {
-		      char *suf = compressed_name + strlen (file);
-		      size_t suflen = strlen (compr->suffix) + 1;
-		      for ( ; suf[1]; suf++, suflen--)
-			{
-			  memmove (suf, suf + 1, suflen);
-			  if (stat (compressed_name, &stat_buf) == 0)
-			    {
-			      real_name = compressed_name;
-			      break;
-			    }
-			}
-		      if (real_name != NULL)
-			break;
-		    } /* MSDOS */
+		  /* XEmacs: delete MSDOS code */
 		  free (compressed_name);
 		  compressed_name = NULL;
 		}
@@ -5031,7 +4997,7 @@ readline_internal (lbp, stream)
 	  if (p > buffer && p[-1] == '\r')
 	    {
 	      p -= 1;
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	     /* Assume CRLF->LF translation will be performed by Emacs
 		when loading this file, so CRs won't appear in the buffer.
 		It would be cleaner to compensate within Emacs;
@@ -5287,19 +5253,6 @@ etags_getcwd ()
   return path;
 
 #else /* not HAVE_GETCWD */
-#ifdef MSDOS
-  char *p, path[MAXPATHLEN + 1]; /* Fixed size is safe on MSDOS.  */
-
-  getwd (path);
-
-  for (p = path; *p != '\0'; p++)
-    if (*p == '\\')
-      *p = '/';
-    else
-      *p = lowcase (*p);
-
-  return strdup (path);
-#else /* not MSDOS */
   linebuffer path;
   FILE *pipe;
 
@@ -5310,7 +5263,6 @@ etags_getcwd ()
   pclose (pipe);
 
   return path.buffer;
-#endif /* not MSDOS */
 #endif /* not HAVE_GETCWD */
 }
 
@@ -5330,7 +5282,7 @@ relative_filename (file, dir)
   while (*fp++ == *dp++)
     continue;
   fp--, dp--;			/* back to the first differing char */
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   if (fp == afn && afn[0] != '/') /* cannot build a relative name */
     return afn;
 #endif
@@ -5364,7 +5316,7 @@ absolute_filename (file, dir)
 
   if (filename_is_absolute (file))
     res = savestr (file);
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   /* We don't support non-absolute file names with a drive
      letter, like `d:NAME' (it's too much hassle).  */
   else if (file[1] == ':')
@@ -5388,8 +5340,8 @@ absolute_filename (file, dir)
 	      while (cp >= res && !filename_is_absolute (cp));
 	      if (cp < res)
 		cp = slashp;	/* the absolute name begins with "/.." */
-#ifdef DOS_NT
-	      /* Under MSDOS and NT we get `d:/NAME' as absolute
+#ifdef WIN32_NATIVE
+	      /* Under Windows we get `d:/NAME' as absolute
 		 file name, so the luser could say `d:/../NAME'.
 		 We silently treat this as `d:/NAME'.  */
 	      else if (cp[0] != '/')
@@ -5444,7 +5396,7 @@ filename_is_absolute (fn)
      char *fn;
 {
   return (fn[0] == '/'
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	  || (isalpha(fn[0]) && fn[1] == ':' && fn[2] == '/')
 #endif
 	  );
@@ -5455,7 +5407,7 @@ static void
 canonicalize_filename (fn)
      register char *fn;
 {
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   /* Canonicalize drive letter case.  */
   if (islower (fn[0]) && fn[1] == ':')
     fn[0] = toupper (fn[0]);

@@ -60,6 +60,7 @@
 	     (visible-bell sound boolean)
 	     (x-allow-sendevents x boolean)
 	     (zmacs-regions editing-basics boolean)
+	     (load-home-init-file installation boolean)
 	     ;; integer
 	     (auto-save-interval auto-save integer)
 	     (bell-volume sound integer)

@@ -505,7 +505,7 @@ x      start a new itimer
 	tab-stop-list '(22 32 40 60 67))
   (abbrev-mode 0)
   (auto-fill-mode 0)
-  (buffer-flush-undo (current-buffer))
+  (buffer-disable-undo (current-buffer))
   (use-local-map itimer-edit-map)
   (set-syntax-table emacs-lisp-mode-syntax-table))
 
@@ -714,15 +714,20 @@ x      start a new itimer
 	(unwind-protect
 	    (condition-case condition-data
 		(save-match-data
+		  ;; Suppress warnings - see comment below.
+		  (defvar last-event-time)
+		  (defvar next-wakeup)
+		  (defvar itimer)
+		  (defvar itimers)
+		  (defvar time-elapsed)
 		  (let* ((current-itimer itimer)
 			 (quit-flag nil)
 			 (inhibit-quit nil)
 			 ;; for FSF Emacs timer.el emulation under XEmacs.
 			 ;; eldoc expect this to be done, apparently.
 			 (this-command nil)
-			 ;; bind these variables so that the
-			 ;; itimer function can't screw with
-			 ;; them.
+			 ;; bind these variables so that the itimer
+			 ;; function can't screw with them.
 			 last-event-time next-wakeup
 			 itimer itimers time-elapsed)
 		    (if (itimer-uses-arguments current-itimer)

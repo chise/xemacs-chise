@@ -81,7 +81,7 @@
 	 #'(lambda (n p f)
 	     (list 'put (list 'quote n) (list 'quote p)
 		   (list 'function (cons 'lambda f))))))
-   (car (or features (setq features (list 'cl-kludge))))))
+   'xemacs))
 
 
 ;;; Initialization.

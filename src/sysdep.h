@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <setjmp.h>
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 extern char **environ;
 #endif
 
@@ -50,10 +50,7 @@ Bufbyte get_eof_char (int fd);
 
 /* Wait for subprocess with process id `pid' to terminate and
    make sure it will get eliminated (not remain forever as a zombie) */
-#ifdef WINDOWSNT
-#include <windows.h>
-void wait_for_termination (HANDLE pid);
-#else
+#ifndef WIN32_NATIVE
 void wait_for_termination (int pid);
 #endif
 
@@ -166,11 +163,6 @@ int dup2 (int oldd, int newd);
 # undef strerror
 # endif
 const char *strerror (int);
-#endif
-
-#ifdef WINDOWSNT
-void mswindows_set_errno (unsigned long win32_error);
-void mswindows_set_last_errno (void);
 #endif
 
 int interruptible_open (const char *path, int oflag, int mode);

@@ -373,7 +373,8 @@ if different."
 	(unless (and location (file-writable-p location))
 	  (setq location package-get-user-index-filename))
 	(when (y-or-n-p (concat "Update package index in " location "? "))
-	  (write-file location))))))
+	  (let ((coding-system-for-write 'binary))
+	    (write-file location)))))))
 
 
 ;;;###autoload
@@ -399,7 +400,7 @@ Unless FORCE-CURRENT is non-nil never try to update the database."
         (save-excursion
           (set-buffer buf)
           (erase-buffer buf)
-          (insert-file-contents-internal db-file)
+          (insert-file-contents-literally db-file)
           (package-get-update-base-from-buffer buf)
 	  (if (file-remote-p db-file)
 	      (package-get-maybe-save-index db-file)))
@@ -844,9 +845,7 @@ successfully installed but errors occurred during initialization, or
       ;; Doing it with XEmacs removes the need for an external md5 program
       (message "Validating checksum for `%s'..." package) (sit-for 0)
       (with-temp-buffer
-	;; What ever happened to i-f-c-literally
-	(let (file-name-handler-alist)
-	  (insert-file-contents-internal full-package-filename))
+	(insert-file-contents-literally full-package-filename)
 	(if (not (string= (md5 (current-buffer))
 			  (package-get-info-prop this-package
 						 'md5sum)))

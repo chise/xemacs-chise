@@ -44,7 +44,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "balloon_help.h"
 
-#ifndef WINDOWSNT
+#ifndef max
 #define max(x,y) (x>y?x:y)
 #endif
 

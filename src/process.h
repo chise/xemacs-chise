@@ -109,7 +109,7 @@ void kick_status_notify (void);
 
 void deactivate_process (Lisp_Object proc);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 int
 #else
 void

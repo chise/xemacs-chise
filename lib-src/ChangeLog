@@ -1,3 +1,100 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-12  Martin Buchholz  <martin@xemacs.org>
+
+	* gnuserv.c:
+	(handle_internet_request): 
+	(handle_unix_request): 
+	(internet_init): 
+	Use socklen_t instead of int or size_t.
+
+2000-07-11  Martin Buchholz  <martin@xemacs.org>
+
+	* hexl.c (usage): Use full ANSI C prototypes.
+
+2000-07-05  Craig Lanning  <lanning@scra.org>
+
+	* Makefile.in.in (INSTALL_DATA):
+	* Makefile.in.in (UTILITIES):
+	* Makefile.in.in (GETOPTDEPS):
+	* Makefile.in.in (i):
+	mingw support: don't try to build gnuclient, add
+        support for building and installing minitar
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in (INSTALLABLES_BASE):
+	* Makefile.in.in (ootags_args):
+	* Makefile.in.in (yow):
+	Build i.exe.
+	Don't build run*.exe.
+	
+	* b2m.c:
+	* b2m.c (main):
+	* ellcc.c (main):
+	* etags.c:
+	* etags.c (main):
+	* etags.c (get_compressor_from_suffix):
+	* etags.c (process_file):
+	* etags.c (readline_internal):
+	* etags.c (etags_getcwd):
+	* etags.c (relative_filename):
+	* etags.c (absolute_filename):
+	* etags.c (filename_is_absolute):
+	* etags.c (canonicalize_filename):
+	* fakemail.c:
+	* fakemail.c (make_file_preface):
+	* getopt.c:
+	* getopt.h:
+	* gnuclient.c:
+	* gnuclient.c (filename_expand):
+	* gnuserv.h:
+	* gnuserv.h (PATCHLEVEL):
+	* hexl.c:
+	* hexl.c (main):
+	* make-docfile.c:
+	* make-docfile.c (APPEND_BINARY):
+	* make-docfile.c (main):
+	* make-dump-id.c:
+	* mmencode.c:
+	* mmencode.c (fromqp):
+	* mmencode.c (main):
+	* movemail.c:
+	* movemail.c (main):
+	* movemail.c (popmail):
+	* ootags.c:
+	* ootags.c (main):
+	* ootags.c (readline_internal):
+	* ootags.c (etags_getcwd):
+	* ootags.c (absolute_filename):
+	* ootags.c (filename_is_absolute):
+	* ootags.c (canonicalize_filename):
+	* pop.c:
+	* pop.c (DONT_ENCAPSULATE):
+	* pop.c (pop_open):
+	* pop.c (socket_connection):
+	* pop.c (pop_trash):
+	* profile.c (gettimeofday):
+	* wakeup.c:
+	* yow.c (rootrelativepath):
+	Remove MSDOS support, converting to WIN32_NATIVE where necessary.
+	WINDOWSNT -> WIN32_NATIVE.
+	__CYGWIN32__ -> CYGWIN.
+	DOS_NT -> WIN32_NATIVE.
+	Remove unused NO_SHORTNAMES.
+	Changes for removed nt\inc.
+
+2000-06-07  Ben Wing  <ben@xemacs.org>
+
+	* run.c, run.h, run.rc: Removed.  We no longer need these for
+	building runxemacs.exe, and it's questionable at best whether
+	rungnuclient.exe was ever used or is even needed.  The correct
+	solution is just to make gnuclient.exe a windows program and
+	use the gnuattach script to run 'i gnuclient.exe'.  Not that
+	gnuclient currently works under Windows native in any case.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

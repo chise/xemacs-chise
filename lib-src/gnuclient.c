@@ -27,6 +27,17 @@ Boston, MA 02111-1307, USA.
  Please mail bugs and suggestions to the XEmacs maintainer.
 */
 
+/* #### This file should be a windows-mode, not console-mode program under
+   Windows. (i.e. its entry point should be WinMain.) gnuattach functionality,
+   to the extent it's used at all, should be retrieved using a script that
+   calls the i.exe wrapper program, to obtain stdio handles.
+
+   #### For that matter, both the functionality of gnuclient and gnuserv
+   should be merged into XEmacs itself using a -remote arg, just like
+   Netscape and other modern programs.
+
+   --ben */
+
 /*
  * This file incorporates new features added by Bob Weiner <weiner@mot.com>,
  * Darrell Kindred <dkindred@cmu.edu> and Arup Mukherjee <arup@cmu.edu>.
@@ -48,7 +59,6 @@ static char rcsid [] = "!Header: gnuclient.c,v 2.2 95/12/12 01:39:21 wing nene !
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#define DONT_ENCAPSULATE
 #include <sysfile.h>
 
 #ifdef HAVE_STRING_H
@@ -190,7 +200,7 @@ filename_expand (char *fullpath, char *filename)
        /* Absolute (unix-style) pathname.  Do nothing */
        strcat (fullpath, filename);
      }
-#ifdef  __CYGWIN32__
+#ifdef  CYGWIN
   else if (filename[0] && filename[0] == '\\' &&
            filename[1] && filename[1] == '\\')
     {

@@ -507,7 +507,7 @@ And finally, you should set the following variable:
 @item srcdir
 The directory for the sources being compiled.  The value of this
 variable is normally inserted by the @code{configure} shell script.
-(If you are using Autconf, use @samp{srcdir = @@srcdir@@}.)
+(If you are using Autoconf, use @samp{srcdir = @@srcdir@@}.)
 @end table
 
 For example:

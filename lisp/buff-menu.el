@@ -356,6 +356,8 @@ in the selected frame."
 
 
 
+(eval-when-compile (autoload 'visit-tags-table "etags"))
+
 (defun Buffer-menu-visit-tags-table ()
   "Visit the tags table in the buffer on this line.  See `visit-tags-table'."
   (interactive)

@@ -143,7 +143,7 @@ Pressing the @key{BREAK} key.
 Release the middle mouse button, while pressing @key{CTRL} and
 @key{META}. 
 @end table
-@cindex shift modifer
+@cindex shift modifier
   Note: As you define keystrokes, you can use the @kbd{shift} key only
 as a modifier with characters that do not have a second keysym on the
 same key, such as @kbd{backspace} and @kbd{tab}.  It is an error to
@@ -163,7 +163,7 @@ sequence must make up a @dfn{prefix key sequence}.
 schematic representation of a complete key sequence is as follows:
 
 @example
-  [(modifier .. modifer keysym) ... (modifier .. modifier keysym)]
+  [(modifier .. modifier keysym) ... (modifier .. modifier keysym)]
 @end example
 
   Here are some examples of complete key sequences:

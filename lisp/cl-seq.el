@@ -65,6 +65,23 @@
 ;;; this file independent from cl-macs.
 
 (defmacro cl-parsing-keywords (kwords other-keys &rest body)
+  "Helper macro for functions with keyword arguments.
+This is a temporary solution, until keyword arguments are natively supported.
+Declare your function ending with (... &rest cl-keys), then wrap the
+function body in a call to `cl-parsing-keywords'.
+
+KWORDS is a list of keyword definitions.  Each definition should be
+either a keyword or a list (KEYWORD DEFAULT-VALUE).  In the former case,
+the default value is nil.  The keywords are available in BODY as the name
+of the keyword, minus its initial colon and prepended with `cl-'.
+
+OTHER-KEYS specifies other keywords that are accepted but ignored.  It
+is either the value 't' (ignore all other keys, equivalent to the
+&allow-other-keys argument declaration in Common Lisp) or a list in the
+same format as KWORDS.  If keywords are given that are not in KWORDS
+and not allowed by OTHER-KEYS, an error will normally be signalled; but
+the caller can override this by specifying a non-nil value for the
+keyword :allow-other-keys (which defaults to t)."
   (cons
    'let*
    (cons (mapcar

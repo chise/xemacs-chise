@@ -41,7 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #include "rangetab.h"
 
 Lisp_Object Qspecifierp;
-Lisp_Object Qprepend, Qappend, Qremove_tag_set_prepend, Qremove_tag_set_append;
+Lisp_Object Qprepend, Qremove_tag_set_prepend, Qremove_tag_set_append;
 Lisp_Object Qremove_locale, Qremove_locale_type, Qremove_all;
 Lisp_Object Qfallback;
 
@@ -3229,7 +3229,6 @@ syms_of_specifier (void)
   /* locales are defined in general.c. */
 
   defsymbol (&Qprepend, "prepend");
-  defsymbol (&Qappend, "append");
   defsymbol (&Qremove_tag_set_prepend, "remove-tag-set-prepend");
   defsymbol (&Qremove_tag_set_append, "remove-tag-set-append");
   defsymbol (&Qremove_locale, "remove-locale");

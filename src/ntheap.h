@@ -26,7 +26,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #ifndef INCLUDED_ntheap_h_
 #define INCLUDED_ntheap_h_
 
-#include <windows.h>
+#include "syswindows.h"
 
 /*
  * Heap related stuff.

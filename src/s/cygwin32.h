@@ -20,13 +20,14 @@ Boston, MA 02111-1307, USA.  */
 
 /* Building under cygwin
  *
- * The approach I have taken with this port is to use primarily the UNIX 
- * code base adding stuff that is MS-Windows specific. This works quite 
- * well, and is in keeping with my perception of the cygwin philosophy.
- * Note that if you make changes to this file you do NOT want to define 
- * WINDOWSNT, I repeat - do not define this, it will break everything 
- * horribly. What does get defined is HAVE_MS_WINDOWS, but this is 
- * done by configure and only applies to the window system.
+ * The approach I have taken with this port is to use primarily the
+ * UNIX code base adding stuff that is MS-Windows specific. This works
+ * quite well, and is in keeping with my perception of the cygwin
+ * philosophy.  Note that if you make changes to this file you do NOT
+ * want to define WIN32_NATIVE (formerly "WINDOWSNT"), I repeat - do
+ * not define this, it will break everything horribly. What does get
+ * defined is HAVE_MS_WINDOWS, but this is done by configure and only
+ * applies to the window system.
  *
  * When building make sure your HOME path is unix style - i.e. without
  * a drive letter.
@@ -39,6 +40,9 @@ Boston, MA 02111-1307, USA.  */
  *
  * Andy Piper <andy@xemacs.org> 8/1/98 
  * http://www.xemacs.freeserve.co.uk/ */
+
+/* Identify ourselves */
+#define CYGWIN
 
 /* cheesy way to determine cygwin version */
 #ifndef NOT_C_CODE
@@ -57,40 +61,41 @@ Boston, MA 02111-1307, USA.  */
 #  endif
 # endif
 
-extern void cygwin32_win32_to_posix_path_list(const char*, char*);
-extern int cygwin32_win32_to_posix_path_list_buf_size(const char*);
-extern void cygwin32_posix_to_win32_path_list(const char*, char*);
-extern int cygwin32_posix_to_win32_path_list_buf_size(const char*);
+void cygwin32_win32_to_posix_path_list (const char*, char*);
+int cygwin32_win32_to_posix_path_list_buf_size (const char*);
+void cygwin32_posix_to_win32_path_list (const char*, char*);
+int cygwin32_posix_to_win32_path_list_buf_size (const char*);
 # if CYGWIN_VERSION_DLL_MAJOR < 20
 struct timeval;
 struct timezone;
 struct itimerval;
 struct stat;
-extern int gettimeofday(struct timeval *tp, struct timezone *tzp);
-extern int gethostname (char* name, int namelen);
-extern char*	mktemp(char *);
-extern double	logb(double);
-extern void	sync();
-extern int	ioctl(int, int, ...);
-				/* sys/stat.h */
-extern int lstat(const char *path, struct stat *buf);
-				/* unistd.h */
-extern int readlink(const char *path, void *buf, unsigned int bufsiz);
-extern int symlink(const char *name1, const char *name2);
-				/* sys/time.h */
-extern int setitimer(int which, const struct itimerval *value,
-		     struct itimerval *ovalue);
-extern int utimes(char *file, struct timeval *tvp);
+int gettimeofday (struct timeval *tp, struct timezone *tzp);
+int gethostname (char* name, int namelen);
+char*	mktemp (char *);
+double	logb (double);
+void	sync (void);
+int	ioctl (int, int, ...);
+ 			/* sys/stat.h */
+int lstat (const char *path, struct stat *buf);
+ 			/* unistd.h */
+int readlink (const char *path, void *buf, unsigned int bufsiz);
+int symlink (const char *name1, const char *name2);
+ 			/* sys/time.h */
+int setitimer (int which, const struct itimerval *value,
+ 	      struct itimerval *ovalue);
+int utimes (char *file, struct timeval *tvp);
 
-extern int srandom( unsigned seed);
-extern long random();
+int srandom (unsigned seed);
+long random (void);
 
-# endif
-#endif
+# endif /* CYGWIN_VERSION_DLL_MAJOR < 20 */
 
-#ifdef HAVE_MS_WINDOWS
-#define HAVE_NTGUI
-#define HAVE_FACES
+# if CYGWIN_VERSION_DLL_MAJOR <= 20
+char *getpass (const char *prompt);
+double logb (double);
+# endif /* CYGWIN_VERSION_DLL_MAJOR <= 20 */
+
 #endif
 
 #ifndef ORDINARY_LINK
@@ -123,10 +128,8 @@ extern long random();
 #define HAVE_SOCKETS
 #endif
 #define OBJECTS_SYSTEM	ntplay.o
-#define HAVE_NATIVE_SOUND
 
 #undef MAIL_USE_SYSTEM_LOCK
-#define MAIL_USE_POP
 
 /* Define NO_ARG_ARRAY if you cannot take the address of the first of a
  * group of arguments and treat it as an array of the arguments.  */
