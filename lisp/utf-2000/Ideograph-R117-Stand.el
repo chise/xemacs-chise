@@ -260,6 +260,12 @@
     (ucs		. #x7AD7)	; ç«—
     ))
 (define-char
+  '((=>ucs		. #x7AD7)	; ç«—
+    (ideographic-radical . 117)	; â½´
+    (ideographic-strokes . 4)
+    (korean-ksc5601	. #x595F)	; ø»‰­š
+    ))
+(define-char
   '((ideographic-radical . 117)	; â½´
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
