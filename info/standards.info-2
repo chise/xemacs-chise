@@ -6,7 +6,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
    GNU Coding Standards Copyright (C) 1992, 1993, 1994, 1995, 1996,
-1997, 1998, 1999 Free Software Foundation, Inc.
+1997, 1998, 1999, 2000 Free Software Foundation, Inc.
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -21,6 +21,125 @@ permission notice identical to this one.
 manual into another language, under the above conditions for modified
 versions, except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
+
+
+File: standards.info,  Node: Formatting,  Next: Comments,  Up: Writing C
+
+Formatting Your Source Code
+===========================
+
+   It is important to put the open-brace that starts the body of a C
+function in column zero, and avoid putting any other open-brace or
+open-parenthesis or open-bracket in column zero.  Several tools look
+for open-braces in column zero to find the beginnings of C functions.
+These tools will not work on code not formatted that way.
+
+   It is also important for function definitions to start the name of
+the function in column zero.  This helps people to search for function
+definitions, and may also help certain tools recognize them.  Thus, the
+proper format is this:
+
+     static char *
+     concat (s1, s2)        /* Name starts in column zero here */
+          char *s1, *s2;
+     {                     /* Open brace in column zero here */
+       ...
+     }
+
+or, if you want to use Standard C syntax, format the definition like
+this:
+
+     static char *
+     concat (char *s1, char *s2)
+     {
+       ...
+     }
+
+   In Standard C, if the arguments don't fit nicely on one line, split
+it like this:
+
+     int
+     lots_of_args (int an_integer, long a_long, short a_short,
+                   double a_double, float a_float)
+     ...
+
+   The rest of this section gives our recommendations for other aspects
+of C formatting style, which is also the default style of the `indent'
+program in version 1.2 and newer.  It corresponds to the options
+
+     -nbad -bap -nbc -bbo -bl -bli2 -bls -ncdb -nce -cp1 -cs -di2
+     -ndj -nfc1 -nfca -hnl -i2 -ip5 -lp -pcs -psl -nsc -nsob
+
+   We don't think of these recommendations as requirements, because it
+causes no problems for users if two different programs have different
+formatting styles.
+
+   But whatever style you use, please use it consistently, since a
+mixture of styles within one program tends to look ugly.  If you are
+contributing changes to an existing program, please follow the style of
+that program.
+
+   For the body of the function, our recommended style looks like this:
+
+     if (x < foo (y, z))
+       haha = bar[4] + 5;
+     else
+       {
+         while (z)
+           {
+             haha += foo (z, z);
+             z--;
+           }
+         return ++x + bar ();
+       }
+
+   We find it easier to read a program when it has spaces before the
+open-parentheses and after the commas.  Especially after the commas.
+
+   When you split an expression into multiple lines, split it before an
+operator, not after one.  Here is the right way:
+
+     if (foo_this_is_long && bar > win (x, y, z)
+         && remaining_condition)
+
+   Try to avoid having two operators of different precedence at the same
+level of indentation.  For example, don't write this:
+
+     mode = (inmode[j] == VOIDmode
+             || GET_MODE_SIZE (outmode[j]) > GET_MODE_SIZE (inmode[j])
+             ? outmode[j] : inmode[j]);
+
+   Instead, use extra parentheses so that the indentation shows the
+nesting:
+
+     mode = ((inmode[j] == VOIDmode
+              || (GET_MODE_SIZE (outmode[j]) > GET_MODE_SIZE (inmode[j])))
+             ? outmode[j] : inmode[j]);
+
+   Insert extra parentheses so that Emacs will indent the code properly.
+For example, the following indentation looks nice if you do it by hand,
+
+     v = rup->ru_utime.tv_sec*1000 + rup->ru_utime.tv_usec/1000
+         + rup->ru_stime.tv_sec*1000 + rup->ru_stime.tv_usec/1000;
+
+but Emacs would alter it.  Adding a set of parentheses produces
+something that looks equally nice, and which Emacs will preserve:
+
+     v = (rup->ru_utime.tv_sec*1000 + rup->ru_utime.tv_usec/1000
+          + rup->ru_stime.tv_sec*1000 + rup->ru_stime.tv_usec/1000);
+
+   Format do-while statements like this:
+
+     do
+       {
+         a = foo (a);
+       }
+     while (a > 0);
+
+   Please use formfeed characters (control-L) to divide the program into
+pages at logical places (but not within a function).  It does not matter
+just how long the pages are, since they do not have to fit on a printed
+page.  The formfeeds should appear alone on lines by themselves.
 
 
 File: standards.info,  Node: Comments,  Next: Syntactic Conventions,  Prev: Formatting,  Up: Writing C
@@ -108,8 +227,16 @@ File: standards.info,  Node: Syntactic Conventions,  Next: Names,  Prev: Comment
 Clean Use of C Constructs
 =========================
 
-   Please explicitly declare all arguments to functions.  Don't omit
-them just because they are `int's.
+   Please explicitly declare the types of all objects.  For example, you
+should explicitly declare all arguments to functions, and you should
+declare functions to return `int' rather than omitting the `int'.
+
+   Some programmers like to use the GCC `-Wall' option, and change the
+code whenever it issues a warning.  If you want to do this, then do.
+Other programmers prefer not to use `-Wall', because it gives warnings
+for valid and legitimate code which they do not want to change.  If you
+want to do this, then do.  The compiler should be your servant, not
+your master.
 
    Declarations of external functions and functions to appear later in
 the source file should all go in one place near the beginning of the
@@ -245,11 +372,16 @@ the option and its letter.  For example,
    When you want to define names with constant integer values, use
 `enum' rather than `#define'.  GDB knows about enumeration constants.
 
-   Use file names of 14 characters or less, to avoid creating gratuitous
-problems on older System V systems.  You can use the program `doschk'
-to test for this.  `doschk' also tests for potential name conflicts if
-the files were loaded onto an MS-DOS file system--something you may or
-may not care about.
+   You might want to make sure that none of the file names would
+conflict the files were loaded onto an MS-DOS file system which
+shortens the names.  You can use the program `doschk' to test for this.
+
+   Some GNU programs were designed to limit themselves to file names of
+14 characters or less, to avoid file name conflicts if they are read
+into older System V systems.  Please preserve this feature in the
+existing GNU programs that have it, but there is no need to do this in
+new GNU programs.  `doschk' also reports file names longer than 14
+characters.
 
 
 File: standards.info,  Node: System Portability,  Next: CPU Portability,  Prev: Names,  Up: Writing C
@@ -262,15 +394,17 @@ versions.  For a GNU program, this kind of portability is desirable, but
 not paramount.
 
    The primary purpose of GNU software is to run on top of the GNU
-kernel, compiled with the GNU C compiler, on various types of CPU.  The
-amount and kinds of variation among GNU systems on different CPUs will
-be comparable to the variation among Linux-based GNU systems or among
-BSD systems today.  So the kinds of portability that are absolutely
-necessary are quite limited.
+kernel, compiled with the GNU C compiler, on various types of CPU.  So
+the kinds of portability that are absolutely necessary are quite
+limited.  But it is important to support Linux-based GNU systems, since
+they are the form of GNU that is popular.
 
-   But many users do run GNU software on non-GNU Unix or Unix-like
-systems.  So supporting a variety of Unix-like systems is desirable,
-although not paramount.
+   Beyond that, it is good to support the other free operating systems
+(*BSD), and it is nice to support other Unix-like systems if you want
+to.  Supporting a variety of Unix-like systems is desirable, although
+not paramount.  It is usually not too hard, so you may as well do it.
+But you don't have to consider it an obligation, if it does turn out to
+be hard.
 
    The easiest way to achieve portability to most Unix-like systems is
 to use Autoconf.  It's unlikely that your program needs to know more
@@ -287,6 +421,18 @@ that is the case, it is better to spend your time adding features that
 will be useful on GNU and GNU/Linux, rather than on supporting other
 incompatible systems.
 
+   It is a good idea to define the "feature test macro" `_GNU_SOURCE'
+when compiling your C files.  When you compile on GNU or GNU/Linux,
+this will enable the declarations of GNU library extension functions,
+and that will usually give you a compiler error message if you define
+the same function names in some other way in your program.  (You don't
+have to actually _use_ these functions, if you prefer to make the
+program more portable to other systems.)
+
+   But whether or not you use these GNU extensions, you should avoid
+using their names for any other meanings.  Doing so would make it hard
+to move your code into other GNU programs.
+
 
 File: standards.info,  Node: CPU Portability,  Next: System Functions,  Prev: System Portability,  Up: Writing C
 
@@ -300,6 +446,23 @@ However, don't make any effort to cater to the possibility that an
 `int' will be less than 32 bits.  We don't support 16-bit machines in
 GNU.
 
+   Similarly, don't make any effort to cater to the possibility that
+`long' will be smaller than predefined types like `size_t'.  For
+example, the following code is ok:
+
+     printf ("size = %lu\n", (unsigned long) sizeof array);
+     printf ("diff = %ld\n", (long) (pointer2 - pointer1));
+
+   1989 Standard C requires this to work, and we know of only one
+counterexample: 64-bit programs on Microsoft Windows IA-64.  We will
+leave it to those who want to port GNU programs to that environment to
+figure out how to do it.
+
+   Predefined file-size types like `off_t' are an exception: they are
+longer than `long' on many platforms, so code like the above won't work
+with them.  One way to print an `off_t' value portably is to print its
+digits yourself, one by one.
+
    Don't assume that the address of an `int' object is also the address
 of its least-significant byte.  This is false on big-endian machines.
 Thus, don't make the following mistake:
@@ -312,9 +475,9 @@ Thus, don't make the following mistake:
    When calling functions, you need not worry about the difference
 between pointers of various types, or between pointers and integers.
 On most machines, there's no difference anyway.  As for the few
-machines where there is a difference, all of them support ANSI C, so
-you can use prototypes (conditionalized to be active only in ANSI C) to
-make the code work on those systems.
+machines where there is a difference, all of them support Standard C
+prototypes, so you can use prototypes (perhaps conditionalized to be
+active only in Standard C) to make the code work on those systems.
 
    In certain cases, it is ok to pass integer and pointer arguments
 indiscriminately to the same function, and use no prototype on any
@@ -330,17 +493,21 @@ that pass their arguments along to `printf' and friends:
      }
 
 In practice, this works on all machines, since a pointer is generally
-the widest possible kind of argument, and it is much simpler than any
+the widest possible kind of argument; it is much simpler than any
 "correct" alternative.  Be sure _not_ to use a prototype for such
 functions.
 
-   However, avoid casting pointers to integers unless you really need
-to.  Outside of special situations, such casts greatly reduce
-portability, and in most programs they are easy to avoid.  In the cases
-where casting pointers to integers is essential--such as, a Lisp
+   If you have decided to use Standard C, then you can instead define
+`error' using `stdarg.h', and pass the arguments along to `vfprintf'.
+
+   Avoid casting pointers to integers if you can.  Such casts greatly
+reduce portability, and in most programs they are easy to avoid.  In the
+cases where casting pointers to integers is essential--such as, a Lisp
 interpreter which stores type information as well as an address in one
-word--it is ok to do it, but you'll have to make explicit provisions to
-handle different word sizes.
+word--you'll have to make explicit provisions to handle different word
+sizes.  You will also need to make provision for systems in which the
+normal range of addresses you can get from `malloc' starts far away
+from zero.
 
 
 File: standards.info,  Node: System Functions,  Next: Internationalization,  Prev: CPU Portability,  Up: Writing C
@@ -348,14 +515,16 @@ File: standards.info,  Node: System Functions,  Next: Internationalization,  Pre
 Calling System Functions
 ========================
 
-   C implementations differ substantially.  ANSI C reduces but does not
-eliminate the incompatibilities; meanwhile, many users wish to compile
-GNU software with pre-ANSI compilers.  This chapter gives
-recommendations for how to use the more or less standard C library
-functions to avoid unnecessary loss of portability.
+   C implementations differ substantially.  Standard C reduces but does
+not eliminate the incompatibilities; meanwhile, many GNU packages still
+support pre-standard compilers because this is not hard to do.  This
+chapter gives recommendations for how to use the more-or-less standard C
+library functions to avoid unnecessary loss of portability.
 
-   * Don't use the value of `sprintf'.  It returns the number of
+   * Don't use the return value of `sprintf'.  It returns the number of
      characters written on some systems, but not on all systems.
+
+   * Be aware that `vfprintf' is not always available.
 
    * `main' should be declared to return type `int'.  It should
      terminate either by calling `exit' or by returning the integer
@@ -375,8 +544,9 @@ functions to avoid unnecessary loss of portability.
      frequently caused actual conflicts.
 
    * If you must declare a system function, don't specify the argument
-     types.  Use an old-style declaration, not an ANSI prototype.  The
-     more you specify about the function, the more likely a conflict.
+     types.  Use an old-style declaration, not a Standard C prototype.
+     The more you specify about the function, the more likely a
+     conflict.
 
    * In particular, don't unconditionally declare `malloc' or `realloc'.
 
@@ -404,10 +574,10 @@ functions to avoid unnecessary loss of portability.
      declarations for the string functions from the header file in the
      usual way.
 
-     That causes less of a problem than you might think.  The newer ANSI
-     string functions should be avoided anyway because many systems
-     still don't support them.  The string functions you can use are
-     these:
+     That causes less of a problem than you might think.  The newer
+     standard string functions should be avoided anyway because many
+     systems still don't support them.  The string functions you can
+     use are these:
 
           strcpy   strncpy   strcat   strncat
           strlen   strcmp    strncmp
@@ -433,12 +603,12 @@ functions to avoid unnecessary loss of portability.
 
      You should pick a single pair of names and use it throughout your
      program.  (Nowadays, it is better to choose `strchr' and `strrchr'
-     for new programs, since those are the standard ANSI names.)
-     Declare both of those names as functions returning `char *'.  On
-     systems which don't support those names, define them as macros in
-     terms of the other pair.  For example, here is what to put at the
-     beginning of your file (or in a header) if you want to use the
-     names `strchr' and `strrchr' throughout:
+     for new programs, since those are the standard names.)  Declare
+     both of those names as functions returning `char *'.  On systems
+     which don't support those names, define them as macros in terms of
+     the other pair.  For example, here is what to put at the beginning
+     of your file (or in a header) if you want to use the names
+     `strchr' and `strrchr' throughout:
 
           #ifndef HAVE_STRCHR
           #define strchr index
@@ -559,11 +729,19 @@ File: standards.info,  Node: Documentation,  Next: Managing Releases,  Prev: Wri
 Documenting Programs
 ********************
 
+   A GNU program should ideally come with full free documentation,
+adequate for both reference and tutorial purposes.  If the package can
+be programmed or extended, the documentation should cover programming or
+extending it, as well as just using it.
+
 * Menu:
 
 * GNU Manuals::                 Writing proper manuals.
+* Doc Strings and Manuals::     Compiling doc strings doesn't make a manual.
 * Manual Structure Details::    Specific structure conventions.
 * License for Manuals::         Writing the distribution terms for a manual.
+* Manual Credits::              Giving credit to documentation contributors.
+* Printed Manuals::             Mentioning the printed manual.
 * NEWS File::                   NEWS files supplement manuals.
 * Change Logs::                 Recording Changes
 * Man Pages::                   Man pages are secondary.
@@ -571,17 +749,23 @@ Documenting Programs
                                 from other manuals.
 
 
-File: standards.info,  Node: GNU Manuals,  Next: Manual Structure Details,  Up: Documentation
+File: standards.info,  Node: GNU Manuals,  Next: Doc Strings and Manuals,  Up: Documentation
 
 GNU Manuals
 ===========
 
-   The preferred way to document part of the GNU system is to write a
-manual in the Texinfo formatting language.  This makes it possible to
-produce a good quality formatted book, using TeX, and to generate an
-Info file.  It is also possible to generate HTML output from Texinfo
-source.  See the Texinfo manual, either the hardcopy, or the on-line
-version available through `info' or the Emacs Info subsystem (`C-h i').
+   The preferred document format for the GNU system is the Texinfo
+formatting language.  Every GNU package should (ideally) have
+documentation in Texinfo both for reference and for learners.  Texinfo
+makes it possible to produce a good quality formatted book, using TeX,
+and to generate an Info file.  It is also possible to generate HTML
+output from Texinfo source.  See the Texinfo manual, either the
+hardcopy, or the on-line version available through `info' or the Emacs
+Info subsystem (`C-h i').
+
+   Nowadays some other formats such as Docbook and Sgmltexi can be
+converted automatically into Texinfo.  It is ok to produce the Texinfo
+documentation by conversion this way, as long as it gives good results.
 
    Programmers often find it most natural to structure the documentation
 following the structure of the implementation, which they know.  But
@@ -610,9 +794,9 @@ manual for "comparison of files" which covers both of those programs,
 as well as `cmp'.  By documenting these programs together, we can make
 the whole subject clearer.
 
-   The manual which discusses a program should document all of the
-program's command-line options and all of its commands.  It should give
-examples of their use.  But don't organize the manual as a list of
+   The manual which discusses a program should certainly document all of
+the program's command-line options and all of its commands.  It should
+give examples of their use.  But don't organize the manual as a list of
 features.  Instead, organize it logically, by subtopics.  Address the
 questions that a user will ask when thinking about the job that the
 program does.
@@ -637,11 +821,19 @@ are purely tutorial and cover the basics of the subject.  These provide
 the framework for a beginner to understand the rest of the manual.  The
 Bison manual provides a good example of how to do this.
 
+   To serve as a reference, a manual should have an Index that list all
+the functions, variables, options, and important concepts that are part
+of the program.  One combined Index should do for a short manual, but
+sometimes for a complex package it is better to use multiple indices.
+The Texinfo manual includes advice on preparing good index entries, see
+*Note Making Index Entries: (texinfo)Index Entries, and see *Note
+Defining the Entries of an Index: (texinfo)Indexing Commands.
+
    Don't use Unix man pages as a model for how to write GNU
 documentation; most of them are terse, badly structured, and give
 inadequate explanation of the underlying concepts.  (There are, of
-course exceptions.)  Also Unix man pages use a particular format which
-is different from what we use in GNU manuals.
+course, some exceptions.)  Also, Unix man pages use a particular format
+which is different from what we use in GNU manuals.
 
    Please include an email address in the manual for where to report
 bugs _in the manual_.
@@ -652,10 +844,40 @@ documentation; use "file name" (two words) instead.  We use the term
 
    Please do not use the term "illegal" to refer to erroneous input to a
 computer program.  Please use "invalid" for this, and reserve the term
-"illegal" for violations of law.
+"illegal" for activities punishable by law.
 
 
-File: standards.info,  Node: Manual Structure Details,  Next: License for Manuals,  Prev: GNU Manuals,  Up: Documentation
+File: standards.info,  Node: Doc Strings and Manuals,  Next: Manual Structure Details,  Prev: GNU Manuals,  Up: Documentation
+
+Doc Strings and Manuals
+=======================
+
+   Some programming systems, such as Emacs, provide a documentation
+string for each function, command or variable.  You may be tempted to
+write a reference manual by compiling the documentation strings and
+writing a little additional text to go around them--but you must not do
+it.  That approach is a fundamental mistake.  The text of well-written
+documentation strings will be entirely wrong for a manual.
+
+   A documentation string needs to stand alone--when it appears on the
+screen, there will be no other text to introduce or explain it.
+Meanwhile, it can be rather informal in style.
+
+   The text describing a function or variable in a manual must not stand
+alone; it appears in the context of a section or subsection.  Other text
+at the beginning of the section should explain some of the concepts, and
+should often make some general points that apply to several functions or
+variables.  The previous descriptions of functions and variables in the
+section will also have given information about the topic.  A description
+written to stand alone would repeat some of that information; this
+redundance looks bad.  Meanwhile, the informality that is acceptable in
+a documentation string is totally unacceptable in a manual.
+
+   The only good way to use documentation strings in writing a good
+manual is to use them as a source of information for writing good text.
+
+
+File: standards.info,  Node: Manual Structure Details,  Next: License for Manuals,  Prev: Doc Strings and Manuals,  Up: Documentation
 
 Manual Structure Details
 ========================
@@ -677,29 +899,64 @@ all the options and arguments that the program uses.
 of the above patterns.  This identifies the node which that item points
 to as the node for this purpose, regardless of the node's actual name.
 
-   There will be automatic features for specifying a program name and
-quickly reading just this part of its manual.
+   The `--usage' feature of the Info reader looks for such a node or
+menu item in order to find the relevant text, so it is essential for
+every Texinfo file to have one.
 
    If one manual describes several programs, it should have such a node
-for each program described.
+for each program described in the manual.
 
 
-File: standards.info,  Node: License for Manuals,  Next: NEWS File,  Prev: Manual Structure Details,  Up: Documentation
+File: standards.info,  Node: License for Manuals,  Next: Manual Credits,  Prev: Manual Structure Details,  Up: Documentation
 
 License for Manuals
 ===================
 
-   If the manual contains a copy of the GNU GPL or GNU LGPL, or if it
-contains chapters that make political or personal statements, please
-copy the distribution terms of the GNU Emacs Manual, and adapt it by
-modifying appropriately the list of special chapters that may not be
-modified or deleted.
+   Please use the GNU Free Documentation License for all GNU manuals
+that are more than a few pages long.  Likewise for a collection of short
+documents--you only need one copy of the GNU FDL for the whole
+collection.  For a single short document, you can use a very permissive
+non-copyleft license, to avoid taking up space with a long license.
 
-   If the manual does not contain any such chapters, then imitate the
-simpler distribution terms of the Texinfo manual.
+   See `http://www.gnu.org/copyleft/fdl-howto.html' for more explanation
+of how to employ the GFDL.
+
+   Note that it is not obligatory to include a copy of the GNU GPL or
+GNU LGPL in a manual whose license is neither the GPL nor the LGPL.  It
+can be a good idea to include the program's license in a large manual;
+in a short manual, whose size would be increased considerably by
+including the program's license, it is probably better not to include
+it.
 
 
-File: standards.info,  Node: NEWS File,  Next: Change Logs,  Prev: License for Manuals,  Up: Documentation
+File: standards.info,  Node: Manual Credits,  Next: Printed Manuals,  Prev: License for Manuals,  Up: Documentation
+
+Manual Credits
+==============
+
+   Please credit the principal human writers of the manual as the
+authors, on the title page of the manual.  If a company sponsored the
+work, thank the company in a suitable place in the manual, but do not
+cite the company as an author.
+
+
+File: standards.info,  Node: Printed Manuals,  Next: NEWS File,  Prev: Manual Credits,  Up: Documentation
+
+Printed Manuals
+===============
+
+   The FSF publishes some GNU manuals in printed form.  To encourage
+sales of these manuals, the on-line versions of the manual should
+mention at the very start that the printed manual is available and
+should point at information for getting it--for instance, with a link
+to the page <http://www.gnu.org/order/order.html>.  This should not be
+included in the printed manual, though, because there it is redundant.
+
+   It is also useful to explain in the on-line forms of the manual how
+the user can print out the manual from the sources.
+
+
+File: standards.info,  Node: NEWS File,  Next: Change Logs,  Prev: Printed Manuals,  Up: Documentation
 
 The NEWS File
 =============
@@ -735,6 +992,7 @@ history of how the conflicting concepts arose and who they came from.
 * Style of Change Logs::
 * Simple Changes::
 * Conditional Changes::
+* Indicating the Part Changed::
 
 
 File: standards.info,  Node: Change Log Concepts,  Next: Style of Change Logs,  Up: Change Logs
@@ -780,8 +1038,13 @@ File: standards.info,  Node: Style of Change Logs,  Next: Simple Changes,  Prev:
 Style of Change Logs
 --------------------
 
-   Here are some examples of change log entries:
+   Here are some simple examples of change log entries, starting with
+the header line that says who made the change and when, followed by
+descriptions of specific changes.  (These examples are drawn from Emacs
+and GCC.)
 
+     1998-08-17  Richard Stallman  <rms@gnu.org>
+     
      * register.el (insert-register): Return nil.
      (jump-to-register): Likewise.
      
@@ -811,6 +1074,13 @@ entries represent parts of the same change, so that they work together,
 then don't put blank lines between them.  Then you can omit the file
 name and the asterisk when successive entries are in the same file.
 
+   Break long lists of function names by closing continued lines with
+`)', rather than `,', and opening the continuation with `(' as in this
+example:
+
+     * keyboard.c (menu_bar_items, tool_bar_items)
+     (Fexecute_extended_command): Deal with `keymap' property.
+
 
 File: standards.info,  Node: Simple Changes,  Next: Conditional Changes,  Prev: Style of Change Logs,  Up: Change Logs
 
@@ -821,10 +1091,10 @@ Simple Changes
 log.
 
    When you change the calling sequence of a function in a simple
-fashion, and you change all the callers of the function, there is no
-need to make individual entries for all the callers that you changed.
-Just write in the entry for the function being called, "All callers
-changed."
+fashion, and you change all the callers of the function to use the new
+calling sequence, there is no need to make individual entries for all
+the callers that you changed.  Just write in the entry for the function
+being called, "All callers changed"--like this:
 
      * keyboard.c (Fcommand_execute): New arg SPECIAL.
      All callers changed.
@@ -841,7 +1111,7 @@ the history of the erroneous passage; it is enough to compare what the
 documentation says with the way the program actually works.
 
 
-File: standards.info,  Node: Conditional Changes,  Prev: Simple Changes,  Up: Change Logs
+File: standards.info,  Node: Conditional Changes,  Next: Indicating the Part Changed,  Prev: Simple Changes,  Up: Change Logs
 
 Conditional Changes
 -------------------
@@ -875,6 +1145,20 @@ are contained in a `#ifdef HAVE_LIBNCURSES' conditional:
 macro is _not_ defined:
 
      (gethostname) [!HAVE_SOCKETS]: Replace with winsock version.
+
+
+File: standards.info,  Node: Indicating the Part Changed,  Prev: Conditional Changes,  Up: Change Logs
+
+Indicating the Part Changed
+---------------------------
+
+   Indicate the part of a function which changed by using angle brackets
+enclosing an indication of what the changed part does.  Here is an entry
+for a change in the part of the function `sh-while-getopts' that deals
+with `sh' commands:
+
+     * progmodes/sh-script.el (sh-while-getopts) <sh>: Handle case that
+     user-specified option string is empty.
 
 
 File: standards.info,  Node: Man Pages,  Next: Reading other Manuals,  Prev: Change Logs,  Up: Documentation
@@ -927,277 +1211,4 @@ everyone who writes about the subject.  But be careful not to copy your
 outline structure, wording, tables or examples from preexisting non-free
 documentation.  Copying from free documentation may be ok; please check
 with the FSF about the individual case.
-
-
-File: standards.info,  Node: Managing Releases,  Next: References,  Prev: Documentation,  Up: Top
-
-The Release Process
-*******************
-
-   Making a release is more than just bundling up your source files in a
-tar file and putting it up for FTP.  You should set up your software so
-that it can be configured to run on a variety of systems.  Your Makefile
-should conform to the GNU standards described below, and your directory
-layout should also conform to the standards discussed below.  Doing so
-makes it easy to include your package into the larger framework of all
-GNU software.
-
-* Menu:
-
-* Configuration::               How Configuration Should Work
-* Makefile Conventions::	Makefile Conventions
-* Releases::                    Making Releases
-
-
-File: standards.info,  Node: Configuration,  Next: Makefile Conventions,  Up: Managing Releases
-
-How Configuration Should Work
-=============================
-
-   Each GNU distribution should come with a shell script named
-`configure'.  This script is given arguments which describe the kind of
-machine and system you want to compile the program for.
-
-   The `configure' script must record the configuration options so that
-they affect compilation.
-
-   One way to do this is to make a link from a standard name such as
-`config.h' to the proper configuration file for the chosen system.  If
-you use this technique, the distribution should _not_ contain a file
-named `config.h'.  This is so that people won't be able to build the
-program without configuring it first.
-
-   Another thing that `configure' can do is to edit the Makefile.  If
-you do this, the distribution should _not_ contain a file named
-`Makefile'.  Instead, it should include a file `Makefile.in' which
-contains the input used for editing.  Once again, this is so that people
-won't be able to build the program without configuring it first.
-
-   If `configure' does write the `Makefile', then `Makefile' should
-have a target named `Makefile' which causes `configure' to be rerun,
-setting up the same configuration that was set up last time.  The files
-that `configure' reads should be listed as dependencies of `Makefile'.
-
-   All the files which are output from the `configure' script should
-have comments at the beginning explaining that they were generated
-automatically using `configure'.  This is so that users won't think of
-trying to edit them by hand.
-
-   The `configure' script should write a file named `config.status'
-which describes which configuration options were specified when the
-program was last configured.  This file should be a shell script which,
-if run, will recreate the same configuration.
-
-   The `configure' script should accept an option of the form
-`--srcdir=DIRNAME' to specify the directory where sources are found (if
-it is not the current directory).  This makes it possible to build the
-program in a separate directory, so that the actual source directory is
-not modified.
-
-   If the user does not specify `--srcdir', then `configure' should
-check both `.' and `..' to see if it can find the sources.  If it finds
-the sources in one of these places, it should use them from there.
-Otherwise, it should report that it cannot find the sources, and should
-exit with nonzero status.
-
-   Usually the easy way to support `--srcdir' is by editing a
-definition of `VPATH' into the Makefile.  Some rules may need to refer
-explicitly to the specified source directory.  To make this possible,
-`configure' can add to the Makefile a variable named `srcdir' whose
-value is precisely the specified directory.
-
-   The `configure' script should also take an argument which specifies
-the type of system to build the program for.  This argument should look
-like this:
-
-     CPU-COMPANY-SYSTEM
-
-   For example, a Sun 3 might be `m68k-sun-sunos4.1'.
-
-   The `configure' script needs to be able to decode all plausible
-alternatives for how to describe a machine.  Thus, `sun3-sunos4.1'
-would be a valid alias.  For many programs, `vax-dec-ultrix' would be
-an alias for `vax-dec-bsd', simply because the differences between
-Ultrix and BSD are rarely noticeable, but a few programs might need to
-distinguish them.
-
-   There is a shell script called `config.sub' that you can use as a
-subroutine to validate system types and canonicalize aliases.
-
-   Other options are permitted to specify in more detail the software
-or hardware present on the machine, and include or exclude optional
-parts of the package:
-
-`--enable-FEATURE[=PARAMETER]'
-     Configure the package to build and install an optional user-level
-     facility called FEATURE.  This allows users to choose which
-     optional features to include.  Giving an optional PARAMETER of
-     `no' should omit FEATURE, if it is built by default.
-
-     No `--enable' option should *ever* cause one feature to replace
-     another.  No `--enable' option should ever substitute one useful
-     behavior for another useful behavior.  The only proper use for
-     `--enable' is for questions of whether to build part of the program
-     or exclude it.
-
-`--with-PACKAGE'
-     The package PACKAGE will be installed, so configure this package
-     to work with PACKAGE.
-
-     Possible values of PACKAGE include `gnu-as' (or `gas'), `gnu-ld',
-     `gnu-libc', `gdb', `x', and `x-toolkit'.
-
-     Do not use a `--with' option to specify the file name to use to
-     find certain files.  That is outside the scope of what `--with'
-     options are for.
-
-`--nfp'
-     The target machine has no floating point processor.
-
-`--gas'
-     The target machine assembler is GAS, the GNU assembler.  This is
-     obsolete; users should use `--with-gnu-as' instead.
-
-`--x'
-     The target machine has the X Window System installed.  This is
-     obsolete; users should use `--with-x' instead.
-
-   All `configure' scripts should accept all of these "detail" options,
-whether or not they make any difference to the particular package at
-hand.  In particular, they should accept any option that starts with
-`--with-' or `--enable-'.  This is so users will be able to configure
-an entire GNU source tree at once with a single set of options.
-
-   You will note that the categories `--with-' and `--enable-' are
-narrow: they *do not* provide a place for any sort of option you might
-think of.  That is deliberate.  We want to limit the possible
-configuration options in GNU software.  We do not want GNU programs to
-have idiosyncratic configuration options.
-
-   Packages that perform part of the compilation process may support
-cross-compilation.  In such a case, the host and target machines for
-the program may be different.  The `configure' script should normally
-treat the specified type of system as both the host and the target,
-thus producing a program which works for the same type of machine that
-it runs on.
-
-   The way to build a cross-compiler, cross-assembler, or what have
-you, is to specify the option `--host=HOSTTYPE' when running
-`configure'.  This specifies the host system without changing the type
-of target system.  The syntax for HOSTTYPE is the same as described
-above.
-
-   Bootstrapping a cross-compiler requires compiling it on a machine
-other than the host it will run on.  Compilation packages accept a
-configuration option `--build=HOSTTYPE' for specifying the
-configuration on which you will compile them, in case that is different
-from the host.
-
-   Programs for which cross-operation is not meaningful need not accept
-the `--host' option, because configuring an entire operating system for
-cross-operation is not a meaningful thing.
-
-   Some programs have ways of configuring themselves automatically.  If
-your program is set up to do this, your `configure' script can simply
-ignore most of its arguments.
-
-
-File: standards.info,  Node: Makefile Conventions,  Next: Releases,  Prev: Configuration,  Up: Managing Releases
-
-Makefile Conventions
-====================
-
-   This node describes conventions for writing the Makefiles for GNU
-programs.  Using Automake will help you write a Makefile that follows
-these conventions.
-
-* Menu:
-
-* Makefile Basics::		General Conventions for Makefiles
-* Utilities in Makefiles::	Utilities in Makefiles
-* Command Variables::		Variables for Specifying Commands
-* Directory Variables::		Variables for Installation Directories
-* Standard Targets::		Standard Targets for Users
-* Install Command Categories::  Three categories of commands in the `install'
-                                  rule: normal, pre-install and post-install.
-
-
-File: standards.info,  Node: Makefile Basics,  Next: Utilities in Makefiles,  Up: Makefile Conventions
-
-General Conventions for Makefiles
----------------------------------
-
-   Every Makefile should contain this line:
-
-     SHELL = /bin/sh
-
-to avoid trouble on systems where the `SHELL' variable might be
-inherited from the environment.  (This is never a problem with GNU
-`make'.)
-
-   Different `make' programs have incompatible suffix lists and
-implicit rules, and this sometimes creates confusion or misbehavior.  So
-it is a good idea to set the suffix list explicitly using only the
-suffixes you need in the particular Makefile, like this:
-
-     .SUFFIXES:
-     .SUFFIXES: .c .o
-
-The first line clears out the suffix list, the second introduces all
-suffixes which may be subject to implicit rules in this Makefile.
-
-   Don't assume that `.' is in the path for command execution.  When
-you need to run programs that are a part of your package during the
-make, please make sure that it uses `./' if the program is built as
-part of the make or `$(srcdir)/' if the file is an unchanging part of
-the source code.  Without one of these prefixes, the current search
-path is used.
-
-   The distinction between `./' (the "build directory") and
-`$(srcdir)/' (the "source directory") is important because users can
-build in a separate directory using the `--srcdir' option to
-`configure'.  A rule of the form:
-
-     foo.1 : foo.man sedscript
-             sed -e sedscript foo.man > foo.1
-
-will fail when the build directory is not the source directory, because
-`foo.man' and `sedscript' are in the the source directory.
-
-   When using GNU `make', relying on `VPATH' to find the source file
-will work in the case where there is a single dependency file, since
-the `make' automatic variable `$<' will represent the source file
-wherever it is.  (Many versions of `make' set `$<' only in implicit
-rules.)  A Makefile target like
-
-     foo.o : bar.c
-             $(CC) -I. -I$(srcdir) $(CFLAGS) -c bar.c -o foo.o
-
-should instead be written as
-
-     foo.o : bar.c
-             $(CC) -I. -I$(srcdir) $(CFLAGS) -c $< -o $@
-
-in order to allow `VPATH' to work correctly.  When the target has
-multiple dependencies, using an explicit `$(srcdir)' is the easiest way
-to make the rule work well.  For example, the target above for `foo.1'
-is best written as:
-
-     foo.1 : foo.man sedscript
-             sed -e $(srcdir)/sedscript $(srcdir)/foo.man > $@
-
-   GNU distributions usually contain some files which are not source
-files--for example, Info files, and the output from Autoconf, Automake,
-Bison or Flex.  Since these files normally appear in the source
-directory, they should always appear in the source directory, not in the
-build directory.  So Makefile rules to update them should put the
-updated files in the source directory.
-
-   However, if a file does not appear in the distribution, then the
-Makefile should not put it in the source directory, because building a
-program in ordinary circumstances should not modify the source directory
-in any way.
-
-   Try to make the build and installation targets, at least (and all
-their subtargets) work correctly with a parallel `make'.
 

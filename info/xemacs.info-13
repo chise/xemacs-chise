@@ -498,7 +498,7 @@ local needs with safe removal of unnecessary code.
 * Package Terminology:: Understanding different kinds of packages.
 * Installing Packages:: How to install packages.
 * Building Packages::   Building packages from CVS sources.
-* Local.rules File::    This is an important file don't forget to create/edit it.
+* Local.rules File::    This is an important file that you must create.
 * Creating Packages::   The basics.
 * Available Packages::  A brief directory of packaged LISP.
 
@@ -582,7 +582,7 @@ you can install packages from a local disk or CDROM.
 the *Note Available Packages:: at the time of the XEmacs release.
 Packages are also listed on the `Options' menu under:
 
-             Options -> Customize -> Emacs -> Packages
+             Options->Customize->Emacs->Packages
 
    However, don't select any of these menu picks unless you actually
 want to install the given package (and have properly configured your
@@ -592,7 +592,7 @@ system to do so).
 they are installed, using the visual package browser and installer.
 You can access it via the menus:
 
-             Options -> Manage Packages -> List & Install
+             Options->Manage Packages->List & Install
 
    Or, you can get to it via the keyboard:
 
@@ -876,7 +876,7 @@ Prerequisites for Building Source Packages
 
 `GNU cp'
 
-`GNU ginstall'
+`GNU install'
      (or a BSD compatible install program).
 
 `GNU make'
@@ -1077,7 +1077,7 @@ contain a copyright notice, a few variable definitions, an include for
    The first few `make' variables defined are `VERSION',
 `AUTHOR_VERSION', `MAINTAINER', `PACKAGE', `PKG_TYPE', `REQUIRES', and
 `CATEGORY'.  All but one were described in the description of
-`package-info.in'.  The last is an admistrative grouping.  Current
+`package-info.in'.  The last is an administrative grouping.  Current
 categories include `comm', `games', `libs', `mule', `oa', `os', `prog',
 and `wp'.  *Note Available Packages::, for a list of categories.
 

@@ -38,6 +38,231 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Lstream Functions,  Next: Lstream Methods,  Prev: Lstream Types,  Up: Lstreams
+
+Lstream Functions
+=================
+
+ - Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
+          char *MODE)
+     Allocate and return a new Lstream.  This function is not really
+     meant to be called directly; rather, each stream type should
+     provide its own stream creation function, which creates the stream
+     and does any other necessary creation stuff (e.g. opening a file).
+
+ - Function: void Lstream_set_buffering (Lstream *LSTR,
+          Lstream_buffering BUFFERING, int BUFFERING_SIZE)
+     Change the buffering of a stream.  See `lstream.h'.  By default the
+     buffering is `STREAM_BLOCK_BUFFERED'.
+
+ - Function: int Lstream_flush (Lstream *LSTR)
+     Flush out any pending unwritten data in the stream.  Clear any
+     buffered input data.  Returns 0 on success, -1 on error.
+
+ - Macro: int Lstream_putc (Lstream *STREAM, int C)
+     Write out one byte to the stream.  This is a macro and so it is
+     very efficient.  The C argument is only evaluated once but the
+     STREAM argument is evaluated more than once.  Returns 0 on
+     success, -1 on error.
+
+ - Macro: int Lstream_getc (Lstream *STREAM)
+     Read one byte from the stream.  This is a macro and so it is very
+     efficient.  The STREAM argument is evaluated more than once.
+     Return value is -1 for EOF or error.
+
+ - Macro: void Lstream_ungetc (Lstream *STREAM, int C)
+     Push one byte back onto the input queue.  This will be the next
+     byte read from the stream.  Any number of bytes can be pushed back
+     and will be read in the reverse order they were pushed back--most
+     recent first. (This is necessary for consistency--if there are a
+     number of bytes that have been unread and I read and unread a
+     byte, it needs to be the first to be read again.) This is a macro
+     and so it is very efficient.  The C argument is only evaluated
+     once but the STREAM argument is evaluated more than once.
+
+ - Function: int Lstream_fputc (Lstream *STREAM, int C)
+ - Function: int Lstream_fgetc (Lstream *STREAM)
+ - Function: void Lstream_fungetc (Lstream *STREAM, int C)
+     Function equivalents of the above macros.
+
+ - Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Read SIZE bytes of DATA from the stream.  Return the number of
+     bytes read.  0 means EOF. -1 means an error occurred and no bytes
+     were read.
+
+ - Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Write SIZE bytes of DATA to the stream.  Return the number of
+     bytes written.  -1 means an error occurred and no bytes were
+     written.
+
+ - Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Push back SIZE bytes of DATA onto the input queue.  The next call
+     to `Lstream_read()' with the same size will read the same bytes
+     back.  Note that this will be the case even if there is other
+     pending unread data.
+
+ - Function: int Lstream_close (Lstream *STREAM)
+     Close the stream.  All data will be flushed out.
+
+ - Function: void Lstream_reopen (Lstream *STREAM)
+     Reopen a closed stream.  This enables I/O on it again.  This is not
+     meant to be called except from a wrapper routine that reinitializes
+     variables and such--the close routine may well have freed some
+     necessary storage structures, for example.
+
+ - Function: void Lstream_rewind (Lstream *STREAM)
+     Rewind the stream to the beginning.
+
+
+File: internals.info,  Node: Lstream Methods,  Prev: Lstream Functions,  Up: Lstreams
+
+Lstream Methods
+===============
+
+ - Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
+          *DATA, size_t SIZE)
+     Read some data from the stream's end and store it into DATA, which
+     can hold SIZE bytes.  Return the number of bytes read.  A return
+     value of 0 means no bytes can be read at this time.  This may be
+     because of an EOF, or because there is a granularity greater than
+     one byte that the stream imposes on the returned data, and SIZE is
+     less than this granularity. (This will happen frequently for
+     streams that need to return whole characters, because
+     `Lstream_read()' calls the reader function repeatedly until it has
+     the number of bytes it wants or until 0 is returned.)  The lstream
+     functions do not treat a 0 return as EOF or do anything special;
+     however, the calling function will interpret any 0 it gets back as
+     EOF.  This will normally not happen unless the caller calls
+     `Lstream_read()' with a very small size.
+
+     This function can be `NULL' if the stream is output-only.
+
+ - Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned char
+          *DATA, size_t SIZE)
+     Send some data to the stream's end.  Data to be sent is in DATA
+     and is SIZE bytes.  Return the number of bytes sent.  This
+     function can send and return fewer bytes than is passed in; in that
+     case, the function will just be called again until there is no
+     data left or 0 is returned.  A return value of 0 means that no
+     more data can be currently stored, but there is no error; the data
+     will be squirreled away until the writer can accept data. (This is
+     useful, e.g., if you're dealing with a non-blocking file
+     descriptor and are getting `EWOULDBLOCK' errors.)  This function
+     can be `NULL' if the stream is input-only.
+
+ - Lstream Method: int rewinder (Lstream *STREAM)
+     Rewind the stream.  If this is `NULL', the stream is not seekable.
+
+ - Lstream Method: int seekable_p (Lstream *STREAM)
+     Indicate whether this stream is seekable--i.e. it can be rewound.
+     This method is ignored if the stream does not have a rewind
+     method.  If this method is not present, the result is determined
+     by whether a rewind method is present.
+
+ - Lstream Method: int flusher (Lstream *STREAM)
+     Perform any additional operations necessary to flush the data in
+     this stream.
+
+ - Lstream Method: int pseudo_closer (Lstream *STREAM)
+
+ - Lstream Method: int closer (Lstream *STREAM)
+     Perform any additional operations necessary to close this stream
+     down.  May be `NULL'.  This function is called when
+     `Lstream_close()' is called or when the stream is
+     garbage-collected.  When this function is called, all pending data
+     in the stream will already have been written out.
+
+ - Lstream Method: Lisp_Object marker (Lisp_Object LSTREAM, void
+          (*MARKFUN) (Lisp_Object))
+     Mark this object for garbage collection.  Same semantics as a
+     standard `Lisp_Object' marker.  This function can be `NULL'.
+
+
+File: internals.info,  Node: Consoles; Devices; Frames; Windows,  Next: The Redisplay Mechanism,  Prev: Lstreams,  Up: Top
+
+Consoles; Devices; Frames; Windows
+**********************************
+
+* Menu:
+
+* Introduction to Consoles; Devices; Frames; Windows::
+* Point::
+* Window Hierarchy::
+* The Window Object::
+
+
+File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Up: Consoles; Devices; Frames; Windows
+
+Introduction to Consoles; Devices; Frames; Windows
+==================================================
+
+   A window-system window that you see on the screen is called a
+"frame" in Emacs terminology.  Each frame is subdivided into one or
+more non-overlapping panes, called (confusingly) "windows".  Each
+window displays the text of a buffer in it. (See above on Buffers.) Note
+that buffers and windows are independent entities: Two or more windows
+can be displaying the same buffer (potentially in different locations),
+and a buffer can be displayed in no windows.
+
+   A single display screen that contains one or more frames is called a
+"display".  Under most circumstances, there is only one display.
+However, more than one display can exist, for example if you have a
+"multi-headed" console, i.e. one with a single keyboard but multiple
+displays. (Typically in such a situation, the various displays act like
+one large display, in that the mouse is only in one of them at a time,
+and moving the mouse off of one moves it into another.) In some cases,
+the different displays will have different characteristics, e.g. one
+color and one mono.
+
+   XEmacs can display frames on multiple displays.  It can even deal
+simultaneously with frames on multiple keyboards (called "consoles" in
+XEmacs terminology).  Here is one case where this might be useful: You
+are using XEmacs on your workstation at work, and leave it running.
+Then you go home and dial in on a TTY line, and you can use the
+already-running XEmacs process to display another frame on your local
+TTY.
+
+   Thus, there is a hierarchy console -> display -> frame -> window.
+There is a separate Lisp object type for each of these four concepts.
+Furthermore, there is logically a "selected console", "selected
+display", "selected frame", and "selected window".  Each of these
+objects is distinguished in various ways, such as being the default
+object for various functions that act on objects of that type.  Note
+that every containing object remembers the "selected" object among the
+objects that it contains: e.g. not only is there a selected window, but
+every frame remembers the last window in it that was selected, and
+changing the selected frame causes the remembered window within it to
+become the selected window.  Similar relationships apply for consoles
+to devices and devices to frames.
+
+
+File: internals.info,  Node: Point,  Next: Window Hierarchy,  Prev: Introduction to Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
+
+Point
+=====
+
+   Recall that every buffer has a current insertion position, called
+"point".  Now, two or more windows may be displaying the same buffer,
+and the text cursor in the two windows (i.e. `point') can be in two
+different places.  You may ask, how can that be, since each buffer has
+only one value of `point'?  The answer is that each window also has a
+value of `point' that is squirreled away in it.  There is only one
+selected window, and the value of "point" in that buffer corresponds to
+that window.  When the selected window is changed from one window to
+another displaying the same buffer, the old value of `point' is stored
+into the old window's "point" and the value of `point' from the new
+window is retrieved and made the value of `point' in the buffer.  This
+means that `window-point' for the selected window is potentially
+inaccurate, and if you want to retrieve the correct value of `point'
+for a window, you must special-case on the selected window and retrieve
+the buffer's point instead.  This is related to why
+`save-window-excursion' does not save the selected window's value of
+`point'.
+
+
 File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
 
 Window Hierarchy
@@ -258,7 +483,7 @@ of Redisplay:
 * Redisplay Piece by Piece::
 
 
-File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Prev: The Redisplay Mechanism,  Up: The Redisplay Mechanism
+File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Up: The Redisplay Mechanism
 
 Critical Redisplay Sections
 ===========================
@@ -415,7 +640,7 @@ Extents
 * Extent Fragments::            Cached information useful for redisplay.
 
 
-File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Prev: Extents,  Up: Extents
+File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Up: Extents
 
 Introduction to Extents
 =======================
@@ -966,145 +1191,4 @@ Interface to the X Window System
 * Menu:
 
 * Lucid Widget Library::        An interface to various widget sets.
-
-
-File: internals.info,  Node: Lucid Widget Library,  Up: Interface to the X Window System
-
-Lucid Widget Library
-====================
-
-   Lwlib is extremely poorly documented and quite hairy.  The author(s)
-blame that on X, Xt, and Motif, with some justice, but also sufficient
-hypocrisy to avoid drawing the obvious conclusion about their own work.
-
-   The Lucid Widget Library is composed of two more or less independent
-pieces.  The first, as the name suggests, is a set of widgets.  These
-widgets are intended to resemble and improve on widgets provided in the
-Motif toolkit but not in the Athena widgets, including menubars and
-scrollbars.  Recent additions by Andy Piper integrate some "modern"
-widgets by Edward Falk, including checkboxes, radio buttons, progress
-gauges, and index tab controls (aka notebooks).
-
-   The second piece of the Lucid widget library is a generic interface
-to several toolkits for X (including Xt, the Athena widget set, and
-Motif, as well as the Lucid widgets themselves) so that core XEmacs
-code need not know which widget set has been used to build the
-graphical user interface.
-
-* Menu:
-
-* Generic Widget Interface::    The lwlib generic widget interface.
-* Scrollbars::
-* Menubars::
-* Checkboxes and Radio Buttons::
-* Progress Bars::
-* Tab Controls::
-
-
-File: internals.info,  Node: Generic Widget Interface,  Next: Scrollbars,  Up: Lucid Widget Library
-
-Generic Widget Interface
-------------------------
-
-   In general in any toolkit a widget may be a composite object.  In Xt,
-all widgets have an X window that they manage, but typically a complex
-widget will have widget children, each of which manages a subwindow of
-the parent widget's X window.  These children may themselves be
-composite widgets.  Thus a widget is actually a tree or hierarchy of
-widgets.
-
-   For each toolkit widget, lwlib maintains a tree of `widget_values'
-which mirror the hierarchical state of Xt widgets (including Motif,
-Athena, 3D Athena, and Falk's widget sets).  Each `widget_value' has
-`contents' member, which points to the head of a linked list of its
-children.  The linked list of siblings is chained through the `next'
-member of `widget_value'.
-
-                +-----------+
-                | composite |
-                +-----------+
-                      |
-                      | contents
-                      V
-                  +-------+ next +-------+ next +-------+
-                  | child |----->| child |----->| child |
-                  +-------+      +-------+      +-------+
-                                     |
-                                     | contents
-                                     V
-                              +-------------+ next +-------------+
-                              | grand child |----->| grand child |
-                              +-------------+      +-------------+
-     
-     The `widget_value' hierarchy of a composite widget with two simple
-     children and one composite child.
-
-   The `widget_instance' structure maintains the inverse view of the
-tree.  As for the `widget_value', siblings are chained through the
-`next' member.  However, rather than naming children, the
-`widget_instance' tree links to parents.
-
-                +-----------+
-                | composite |
-                +-----------+
-                      A
-                      | parent
-                      |
-                  +-------+ next +-------+ next +-------+
-                  | child |----->| child |----->| child |
-                  +-------+      +-------+      +-------+
-                                     A
-                                     | parent
-                                     |
-                              +-------------+ next +-------------+
-                              | grand child |----->| grand child |
-                              +-------------+      +-------------+
-     
-     The `widget_value' hierarchy of a composite widget with two simple
-     children and one composite child.
-
-   This permits widgets derived from different toolkits to be updated
-and manipulated generically by the lwlib library. For instance
-`update_one_widget_instance' can cope with multiple types of widget and
-multiple types of toolkit. Each element in the widget hierarchy is
-updated from its corresponding `widget_value' by walking the
-`widget_value' tree.  This has desirable properties.  For example,
-`lw_modify_all_widgets' is called from `glyphs-x.c' and updates all the
-properties of a widget without having to know what the widget is or
-what toolkit it is from.  Unfortunately this also has its hairy
-properties; the lwlib code quite complex. And of course lwlib has to
-know at some level what the widget is and how to set its properties.
-
-   The `widget_instance' structure also contains a pointer to the root
-of its tree.  Widget instances are further confi
-
-
-File: internals.info,  Node: Scrollbars,  Next: Menubars,  Prev: Generic Widget Interface,  Up: Lucid Widget Library
-
-Scrollbars
-----------
-
-
-File: internals.info,  Node: Menubars,  Next: Checkboxes and Radio Buttons,  Prev: Scrollbars,  Up: Lucid Widget Library
-
-Menubars
---------
-
-
-File: internals.info,  Node: Checkboxes and Radio Buttons,  Next: Progress Bars,  Prev: Menubars,  Up: Lucid Widget Library
-
-Checkboxes and Radio Buttons
-----------------------------
-
-
-File: internals.info,  Node: Progress Bars,  Next: Tab Controls,  Prev: Checkboxes and Radio Buttons,  Up: Lucid Widget Library
-
-Progress Bars
--------------
-
-
-File: internals.info,  Node: Tab Controls,  Prev: Progress Bars,  Up: Lucid Widget Library
-
-Tab Controls
-------------
 

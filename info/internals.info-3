@@ -38,6 +38,105 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Working With Character and Byte Positions,  Next: Conversion to and from External Data,  Prev: Character-Related Data Types,  Up: Coding for Mule
+
+Working With Character and Byte Positions
+-----------------------------------------
+
+   Now that we have defined the basic character-related types, we can
+look at the macros and functions designed for work with them and for
+conversion between them.  Most of these macros are defined in
+`buffer.h', and we don't discuss all of them here, but only the most
+important ones.  Examining the existing code is the best way to learn
+about them.
+
+`MAX_EMCHAR_LEN'
+     This preprocessor constant is the maximum number of buffer bytes to
+     represent an Emacs character in the variable width internal
+     encoding.  It is useful when allocating temporary strings to keep
+     a known number of characters.  For instance:
+
+          {
+            Charcount cclen;
+            ...
+            {
+              /* Allocate place for CCLEN characters. */
+              Bufbyte *buf = (Bufbyte *)alloca (cclen * MAX_EMCHAR_LEN);
+          ...
+
+     If you followed the previous section, you can guess that,
+     logically, multiplying a `Charcount' value with `MAX_EMCHAR_LEN'
+     produces a `Bytecount' value.
+
+     In the current Mule implementation, `MAX_EMCHAR_LEN' equals 4.
+     Without Mule, it is 1.
+
+`charptr_emchar'
+`set_charptr_emchar'
+     The `charptr_emchar' macro takes a `Bufbyte' pointer and returns
+     the `Emchar' stored at that position.  If it were a function, its
+     prototype would be:
+
+          Emchar charptr_emchar (Bufbyte *p);
+
+     `set_charptr_emchar' stores an `Emchar' to the specified byte
+     position.  It returns the number of bytes stored:
+
+          Bytecount set_charptr_emchar (Bufbyte *p, Emchar c);
+
+     It is important to note that `set_charptr_emchar' is safe only for
+     appending a character at the end of a buffer, not for overwriting a
+     character in the middle.  This is because the width of characters
+     varies, and `set_charptr_emchar' cannot resize the string if it
+     writes, say, a two-byte character where a single-byte character
+     used to reside.
+
+     A typical use of `set_charptr_emchar' can be demonstrated by this
+     example, which copies characters from buffer BUF to a temporary
+     string of Bufbytes.
+
+          {
+            Bufpos pos;
+            for (pos = beg; pos < end; pos++)
+              {
+                Emchar c = BUF_FETCH_CHAR (buf, pos);
+                p += set_charptr_emchar (buf, c);
+              }
+          }
+
+     Note how `set_charptr_emchar' is used to store the `Emchar' and
+     increment the counter, at the same time.
+
+`INC_CHARPTR'
+`DEC_CHARPTR'
+     These two macros increment and decrement a `Bufbyte' pointer,
+     respectively.  They will adjust the pointer by the appropriate
+     number of bytes according to the byte length of the character
+     stored there.  Both macros assume that the memory address is
+     located at the beginning of a valid character.
+
+     Without Mule support, `INC_CHARPTR (p)' and `DEC_CHARPTR (p)'
+     simply expand to `p++' and `p--', respectively.
+
+`bytecount_to_charcount'
+     Given a pointer to a text string and a length in bytes, return the
+     equivalent length in characters.
+
+          Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
+
+`charcount_to_bytecount'
+     Given a pointer to a text string and a length in characters,
+     return the equivalent length in bytes.
+
+          Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
+
+`charptr_n_addr'
+     Return a pointer to the beginning of the character offset CC (in
+     characters) from P.
+
+          Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
+
+
 File: internals.info,  Node: Conversion to and from External Data,  Next: General Guidelines for Writing Mule-Aware Code,  Prev: Working With Character and Byte Positions,  Up: Coding for Mule
 
 Conversion to and from External Data
@@ -499,7 +598,7 @@ A Summary of the Various XEmacs Modules
 * Modules for Internationalization::
 
 
-File: internals.info,  Node: Low-Level Modules,  Next: Basic Lisp Modules,  Prev: A Summary of the Various XEmacs Modules,  Up: A Summary of the Various XEmacs Modules
+File: internals.info,  Node: Low-Level Modules,  Next: Basic Lisp Modules,  Up: A Summary of the Various XEmacs Modules
 
 Low-Level Modules
 =================
@@ -1111,126 +1210,4 @@ frame; no child windows or anything are used for XEmacs windows), there
 is no device-type-specific code here; all of that code is part of the
 redisplay mechanism or the code for particular object types such as
 scrollbars.
-
-
-File: internals.info,  Node: Modules for other Display-Related Lisp Objects,  Next: Modules for the Redisplay Mechanism,  Prev: Modules for the Basic Displayable Lisp Objects,  Up: A Summary of the Various XEmacs Modules
-
-Modules for other Display-Related Lisp Objects
-==============================================
-
-     faces.c
-     faces.h
-
-     bitmaps.h
-     glyphs-eimage.c
-     glyphs-msw.c
-     glyphs-msw.h
-     glyphs-widget.c
-     glyphs-x.c
-     glyphs-x.h
-     glyphs.c
-     glyphs.h
-
-     objects-msw.c
-     objects-msw.h
-     objects-tty.c
-     objects-tty.h
-     objects-x.c
-     objects-x.h
-     objects.c
-     objects.h
-
-     menubar-msw.c
-     menubar-msw.h
-     menubar-x.c
-     menubar.c
-     menubar.h
-
-     scrollbar-msw.c
-     scrollbar-msw.h
-     scrollbar-x.c
-     scrollbar-x.h
-     scrollbar.c
-     scrollbar.h
-
-     toolbar-msw.c
-     toolbar-x.c
-     toolbar.c
-     toolbar.h
-
-     font-lock.c
-
-   This file provides C support for syntax highlighting--i.e.
-highlighting different syntactic constructs of a source file in
-different colors, for easy reading.  The C support is provided so that
-this is fast.
-
-     dgif_lib.c
-     gif_err.c
-     gif_lib.h
-     gifalloc.c
-
-   These modules decode GIF-format image files, for use with glyphs.
-These files were removed due to Unisys patent infringement concerns.
-
-
-File: internals.info,  Node: Modules for the Redisplay Mechanism,  Next: Modules for Interfacing with the File System,  Prev: Modules for other Display-Related Lisp Objects,  Up: A Summary of the Various XEmacs Modules
-
-Modules for the Redisplay Mechanism
-===================================
-
-     redisplay-output.c
-     redisplay-msw.c
-     redisplay-tty.c
-     redisplay-x.c
-     redisplay.c
-     redisplay.h
-
-   These files provide the redisplay mechanism.  As with many other
-subsystems in XEmacs, there is a clean separation between the general
-and device-specific support.
-
-   `redisplay.c' contains the bulk of the redisplay engine.  These
-functions update the redisplay structures (which describe how the screen
-is to appear) to reflect any changes made to the state of any
-displayable objects (buffer, frame, window, etc.) since the last time
-that redisplay was called.  These functions are highly optimized to
-avoid doing more work than necessary (since redisplay is called
-extremely often and is potentially a huge time sink), and depend heavily
-on notifications from the objects themselves that changes have occurred,
-so that redisplay doesn't explicitly have to check each possible object.
-The redisplay mechanism also contains a great deal of caching to further
-speed things up; some of this caching is contained within the various
-displayable objects.
-
-   `redisplay-output.c' goes through the redisplay structures and
-converts them into calls to device-specific methods to actually output
-the screen changes.
-
-   `redisplay-x.c' and `redisplay-tty.c' are two implementations of
-these redisplay output methods, for X frames and TTY frames,
-respectively.
-
-     indent.c
-
-   This module contains various functions and Lisp primitives for
-converting between buffer positions and screen positions.  These
-functions call the redisplay mechanism to do most of the work, and then
-examine the redisplay structures to get the necessary information.  This
-module needs work.
-
-     termcap.c
-     terminfo.c
-     tparam.c
-
-   These files contain functions for working with the termcap
-(BSD-style) and terminfo (System V style) databases of terminal
-capabilities and escape sequences, used when XEmacs is displaying in a
-TTY.
-
-     cm.c
-     cm.h
-
-   These files provide some miscellaneous TTY-output functions and
-should probably be merged into `redisplay-tty.c'.
 

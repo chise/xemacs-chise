@@ -6,7 +6,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
    GNU Coding Standards Copyright (C) 1992, 1993, 1994, 1995, 1996,
-1997, 1998, 1999 Free Software Foundation, Inc.
+1997, 1998, 1999, 2000 Free Software Foundation, Inc.
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -28,7 +28,7 @@ File: standards.info,  Node: Top,  Next: Preface,  Prev: (dir),  Up: (dir)
 Version
 *******
 
-   Last updated June 24, 1999.
+   Last updated February 21, 2001.
 
 * Menu:
 
@@ -40,6 +40,7 @@ Version
 * Documentation::           Documenting Programs
 * Managing Releases::       The Release Process
 * References::              References to Non-Free Software or Documentation
+* Index::
 
 
 File: standards.info,  Node: Preface,  Next: Legal Issues,  Prev: Top,  Up: Top
@@ -56,13 +57,21 @@ even if you write in another programming language.  The rules often
 state reasons for writing in a certain way.
 
    Corrections or suggestions for this document should be sent to
-<gnu@gnu.org>.  If you make a suggestion, please include a suggested
-new wording for it; our time is limited.  We prefer a context diff to
-the `standards.texi' or `make-stds.texi' files, but if you don't have
-those files, please mail your suggestion anyway.
+<bug-standards@gnu.org>.  If you make a suggestion, please include a
+suggested new wording for it; our time is limited.  We prefer a context
+diff to the `standards.texi' or `make-stds.texi' files, but if you
+don't have those files, please mail your suggestion anyway.
 
-   This release of the GNU Coding Standards was last updated June 24,
-1999.
+   This release of the GNU Coding Standards was last updated February
+21, 2001.
+
+   If you did not obtain this file directly from the GNU project and
+recently, please check for a newer version.  You can ftp the GNU Coding
+Standards from any GNU FTP host in the directory `/pub/gnu/standards/'.
+The GNU Coding Standards are available there in several different
+formats: `standards.text', `standards.texi', `standards.info', and
+`standards.dvi'.  The GNU Coding Standards are also available on the
+GNU World Wide Web server: `http://www.gnu.org/prep/standards_toc.html'.
 
 
 File: standards.info,  Node: Legal Issues,  Next: Design Advice,  Prev: Preface,  Up: Top
@@ -70,13 +79,14 @@ File: standards.info,  Node: Legal Issues,  Next: Design Advice,  Prev: Preface,
 Keeping Free Software Free
 **************************
 
-   This node discusses how you can make sure that GNU software remains
-unencumbered.
+   This node discusses how you can make sure that GNU software avoids
+legal difficulties, and other related issues.
 
 * Menu:
 
 * Reading Non-Free Code::       Referring to Proprietary Programs
 * Contributions::               Accepting Contributions
+* Trademarks::                  How We Deal with Trademark Issues
 
 
 File: standards.info,  Node: Reading Non-Free Code,  Next: Contributions,  Up: Legal Issues
@@ -116,7 +126,7 @@ precisely when to free memory, or use a new GNU facility such as
 obstacks.
 
 
-File: standards.info,  Node: Contributions,  Prev: Reading Non-Free Code,  Up: Legal Issues
+File: standards.info,  Node: Contributions,  Next: Trademarks,  Prev: Reading Non-Free Code,  Up: Legal Issues
 
 Accepting Contributions
 =======================
@@ -163,6 +173,30 @@ reached the stage of actually maintaining a program for GNU (whether
 released or not), please ask us for a copy.
 
 
+File: standards.info,  Node: Trademarks,  Prev: Contributions,  Up: Legal Issues
+
+Trademarks
+==========
+
+   Please do not include any trademark acknowledgements in GNU software
+packages or documentation.
+
+   Trademark acknowledgements are the statements that such-and-such is a
+trademark of so-and-so.  The GNU Project has no objection to the basic
+idea of trademarks, but these acknowledgements feel like kowtowing, so
+we don't use them.  There is no legal requirement for them.
+
+   What is legally required, as regards other people's trademarks, is to
+avoid using them in ways which a reader might read as naming or labeling
+our own programs or activities.  For example, since "Objective C" is
+(or at least was) a trademark, we made sure to say that we provide a
+"compiler for the Objective C language" rather than an "Objective C
+compiler".  The latter is meant to be short for the former, but it does
+not explicitly state the relationship, so it could be misinterpreted as
+using "Objective C" as a label for the compiler rather than for the
+language.
+
+
 File: standards.info,  Node: Design Advice,  Next: Program Behavior,  Prev: Legal Issues,  Up: Top
 
 General Program Design
@@ -173,30 +207,76 @@ when designing your program.
 
 * Menu:
 
+* Source Language::             Which languges to use.
 * Compatibility::               Compatibility with other implementations
 * Using Extensions::            Using non-standard features
-* ANSI C::                      Using ANSI C features
-* Source Language::             Using languages other than C
+* Standard C::                  Using Standard C features
 
 
-File: standards.info,  Node: Compatibility,  Next: Using Extensions,  Up: Design Advice
+File: standards.info,  Node: Source Language,  Next: Compatibility,  Up: Design Advice
+
+Which Languages to Use
+======================
+
+   When you want to use a language that gets compiled and runs at high
+speed, the best language to use is C.  Using another language is like
+using a non-standard feature: it will cause trouble for users.  Even if
+GCC supports the other language, users may find it inconvenient to have
+to install the compiler for that other language in order to build your
+program.  For example, if you write your program in C++, people will
+have to install the GNU C++ compiler in order to compile your program.
+
+   C has one other advantage over C++ and other compiled languages: more
+people know C, so more people will find it easy to read and modify the
+program if it is written in C.
+
+   So in general it is much better to use C, rather than the comparable
+alternatives.
+
+   But there are two exceptions to that conclusion:
+
+   * It is no problem to use another language to write a tool
+     specifically intended for use with that language.  That is because
+     the only people who want to build the tool will be those who have
+     installed the other language anyway.
+
+   * If an application is of interest only to a narrow part of the
+     community, then the question of which language it is written in
+     has less effect on other people, so you may as well please
+     yourself.
+
+   Many programs are designed to be extensible: they include an
+interpreter for a language that is higher level than C.  Often much of
+the program is written in that language, too.  The Emacs editor
+pioneered this technique.
+
+   The standard extensibility interpreter for GNU software is GUILE,
+which implements the language Scheme (an especially clean and simple
+dialect of Lisp).  `http://www.gnu.org/software/guile/'.  We don't
+reject programs written in other "scripting languages" such as Perl and
+Python, but using GUILE is very important for the overall consistency of
+the GNU system.
+
+
+File: standards.info,  Node: Compatibility,  Next: Using Extensions,  Prev: Source Language,  Up: Design Advice
 
 Compatibility with Other Implementations
 ========================================
 
    With occasional exceptions, utility programs and libraries for GNU
 should be upward compatible with those in Berkeley Unix, and upward
-compatible with ANSI C if ANSI C specifies their behavior, and upward
-compatible with POSIX if POSIX specifies their behavior.
+compatible with Standard C if Standard C specifies their behavior, and
+upward compatible with POSIX if POSIX specifies their behavior.
 
    When these standards conflict, it is useful to offer compatibility
 modes for each of them.
 
-   ANSI C and POSIX prohibit many kinds of extensions.  Feel free to
-make the extensions anyway, and include a `--ansi', `--posix', or
+   Standard C and POSIX prohibit many kinds of extensions.  Feel free
+to make the extensions anyway, and include a `--ansi', `--posix', or
 `--compatible' option to turn them off.  However, if the extension has
 a significant chance of breaking any real programs or scripts, then it
-is not really upward compatible.  Try to redesign its interface.
+is not really upward compatible.  So you should try to redesign its
+interface to make it upward compatible.
 
    Many GNU programs suppress extensions that conflict with POSIX if the
 environment variable `POSIXLY_CORRECT' is defined (even if it is
@@ -209,10 +289,11 @@ completely with something totally different and better.  (For example,
 `vi' is replaced with Emacs.)  But it is nice to offer a compatible
 feature as well.  (There is a free `vi' clone, so we offer it.)
 
-   Additional useful features not in Berkeley Unix are welcome.
+   Additional useful features are welcome regardless of whether there
+is any precedent for them.
 
 
-File: standards.info,  Node: Using Extensions,  Next: ANSI C,  Prev: Compatibility,  Up: Design Advice
+File: standards.info,  Node: Using Extensions,  Next: Standard C,  Prev: Compatibility,  Up: Design Advice
 
 Using Non-standard Features
 ===========================
@@ -236,44 +317,42 @@ straightforwardly do without them, but to use the extensions if they
 are a big improvement.
 
    An exception to this rule are the large, established programs (such
-as Emacs) which run on a great variety of systems.  Such programs would
-be broken by use of GNU extensions.
+as Emacs) which run on a great variety of systems.  Using GNU
+extensions in such programs would make many users unhappy, so we don't
+do that.
 
    Another exception is for programs that are used as part of
 compilation: anything that must be compiled with other compilers in
 order to bootstrap the GNU compilation facilities.  If these require
 the GNU compiler, then no one can compile them without having them
-installed already.  That would be no good.
+installed already.  That would be extremely troublesome in certain
+cases.
 
 
-File: standards.info,  Node: ANSI C,  Next: Source Language,  Prev: Using Extensions,  Up: Design Advice
+File: standards.info,  Node: Standard C,  Prev: Using Extensions,  Up: Design Advice
 
-ANSI C and pre-ANSI C
-=====================
+Standard C and Pre-Standard C
+=============================
 
-   Do not ever use the "trigraph" feature of ANSI C.
+   1989 Standard C is widespread enough now that it is ok to use its
+features in new programs.  There is one exception: do not ever use the
+"trigraph" feature of Standard C.
 
-   ANSI C is widespread enough now that it is ok to write new programs
-that use ANSI C features (and therefore will not work in non-ANSI
-compilers).  And if a program is already written in ANSI C, there's no
-need to convert it to support non-ANSI compilers.
+   1999 Standard C is not widespread yet, so please do not require its
+features in programs.  It is ok to use its features if they are present.
 
-   If you don't know non-ANSI C, there's no need to learn it; just
-write in ANSI C.
+   However, it is easy to support pre-standard compilers in most
+programs, so if you know how to do that, feel free.  If a program you
+are maintaining has such support, you should try to keep it working.
 
-   However, it is easy to support non-ANSI compilers in most programs,
-so you might still consider doing so when you write a program.  And if a
-program you are maintaining has such support, you should try to keep it
-working.
-
-   To support pre-ANSI C, instead of writing function definitions in
-ANSI prototype form,
+   To support pre-standard C, instead of writing function definitions in
+standard prototype form,
 
      int
      foo (int x, int y)
      ...
 
-write the definition in pre-ANSI style like this,
+write the definition in pre-standard style like this,
 
      int
      foo (x, y)
@@ -285,9 +364,9 @@ and use a separate declaration to specify the argument prototype:
      int foo (int, int);
 
    You need such a declaration anyway, in a header file, to get the
-benefit of ANSI C prototypes in all the files where the function is
-called.  And once you have the declaration, you normally lose nothing
-by writing the function definition in the pre-ANSI style.
+benefit of prototypes in all the files where the function is called.
+And once you have the declaration, you normally lose nothing by writing
+the function definition in the pre-standard style.
 
    This technique does not work for integer types narrower than `int'.
 If you think of an argument as being of a type narrower than `int',
@@ -298,48 +377,20 @@ For example, if a function argument needs to hold the system type
 `dev_t', you run into trouble, because `dev_t' is shorter than `int' on
 some machines; but you cannot use `int' instead, because `dev_t' is
 wider than `int' on some machines.  There is no type you can safely use
-on all machines in a non-ANSI definition.  The only way to support
-non-ANSI C and pass such an argument is to check the width of `dev_t'
-using Autoconf and choose the argument type accordingly.  This may not
-be worth the trouble.
+on all machines in a non-standard definition.  The only way to support
+non-standard C and pass such an argument is to check the width of
+`dev_t' using Autoconf and choose the argument type accordingly.  This
+may not be worth the trouble.
 
-
-File: standards.info,  Node: Source Language,  Prev: ANSI C,  Up: Design Advice
+   In order to support pre-standard compilers that do not recognize
+prototypes, you may want to use a preprocessor macro like this:
 
-Using Languages Other Than C
-============================
-
-   Using a language other than C is like using a non-standard feature:
-it will cause trouble for users.  Even if GCC supports the other
-language, users may find it inconvenient to have to install the
-compiler for that other language in order to build your program.  For
-example, if you write your program in C++, people will have to install
-the C++ compiler in order to compile your program.  Thus, it is better
-if you write in C.
-
-   But there are three situations when there is no disadvantage in using
-some other language:
-
-   * It is okay to use another language if your program contains an
-     interpreter for that language.
-
-     For example, if your program links with GUILE, it is ok to write
-     part of the program in Scheme or another language supported by
-     GUILE.
-
-   * It is okay to use another language in a tool specifically intended
-     for use with that language.
-
-     This is okay because the only people who want to build the tool
-     will be those who have installed the other language anyway.
-
-   * If an application is of interest to a narrow community, then
-     perhaps it's not important if the application is inconvenient to
-     install.
-
-   C has one other advantage over C++ and other compiled languages: more
-people know C, so more people will find it easy to read and modify the
-program if it is written in C.
+     /* Declare the prototype for a general external function.  */
+     #if defined (__STDC__) || defined (WINDOWSNT)
+     #define P_(proto) proto
+     #else
+     #define P_(proto) ()
+     #endif
 
 
 File: standards.info,  Node: Program Behavior,  Next: Writing C,  Prev: Design Advice,  Up: Top
@@ -347,18 +398,21 @@ File: standards.info,  Node: Program Behavior,  Next: Writing C,  Prev: Design A
 Program Behavior for All Programs
 *********************************
 
-   This node describes how to write robust software. It also describes
-general standards for error messages, the command line interface, and
-how libraries should behave.
+   This node describes conventions for writing robust software.  It
+also describes general standards for error messages, the command line
+interface, and how libraries should behave.
 
 * Menu:
 
 * Semantics::                   Writing robust programs
 * Libraries::                   Library behavior
 * Errors::                      Formatting error messages
-* User Interfaces::             Standards for command line interfaces
-* Option Table::                Table of long options.
+* User Interfaces::             Standards about interfaces generally
+* Graphical Interfaces::        Standards for graphical interfaces
+* Command-Line Interfaces::     Standards for command line interfaces
+* Option Table::                Table of long options
 * Memory Usage::                When and how to care about memory needs
+* File Usage::                  Which files to use, and where
 
 
 File: standards.info,  Node: Semantics,  Next: Libraries,  Up: Program Behavior
@@ -449,6 +503,16 @@ as the status, and it will appear that the program succeeded.
 variable; if that variable is defined, use the specified directory
 instead of `/tmp'.
 
+   In addition, be aware that there is a possible security problem when
+creating temporary files in world-writable directories.  In C, you can
+avoid this problem by creating temporary files in this manner:
+
+     fd = open(filename, O_WRONLY | O_CREAT | O_EXCL, 0600);
+
+or by using the `mkstemps' function from libiberty.
+
+   In bash, use `set -C' to avoid this problem.
+
 
 File: standards.info,  Node: Libraries,  Next: Errors,  Prev: Semantics,  Up: Program Behavior
 
@@ -472,10 +536,10 @@ together, so that no reasonable program could use one without the
 other; then they can both go in the same file.
 
    External symbols that are not documented entry points for the user
-should have names beginning with `_'.  They should also contain the
-chosen name prefix for the library, to prevent collisions with other
-libraries.  These can go in the same files with user entry points if
-you like.
+should have names beginning with `_'.  The `_' should be followed by
+the chosen name prefix for the library, to prevent collisions with
+other libraries.  These can go in the same files with user entry points
+if you like.
 
    Static functions and variables can be used as you like and need not
 fit any naming convention.
@@ -531,10 +595,10 @@ usage messages, should start with a capital letter.  But they should not
 end with a period.
 
 
-File: standards.info,  Node: User Interfaces,  Next: Option Table,  Prev: Errors,  Up: Program Behavior
+File: standards.info,  Node: User Interfaces,  Next: Graphical Interfaces,  Prev: Errors,  Up: Program Behavior
 
-Standards for Command Line Interfaces
-=====================================
+Standards for Interfaces Generally
+==================================
 
    Please don't make the behavior of a utility depend on the name used
 to invoke it.  It is useful sometimes to make a link to a utility with
@@ -563,6 +627,34 @@ program with a preferred alternate version that does not depend on the
 output device type.  For example, we provide a `dir' program much like
 `ls' except that its default output format is always multi-column
 format.
+
+
+File: standards.info,  Node: Graphical Interfaces,  Next: Command-Line Interfaces,  Prev: User Interfaces,  Up: Program Behavior
+
+Standards for Graphical Interfaces
+==================================
+
+   When you write a program that provides a graphical user interface,
+please make it work with X Windows and the GTK toolkit unless the
+functionality specifically requires some alternative (for example,
+"displaying jpeg images while in console mode").
+
+   In addition, please provide a command-line interface to control the
+functionality.  (In many cases, the graphical user interface can be a
+separate program which invokes the command-line program.)  This is so
+that the same jobs can be done from scripts.
+
+   Please also consider providing a CORBA interface (for use from
+GNOME), a library interface (for use from C), and perhaps a
+keyboard-driven console interface (for use by users from console mode).
+Once you are doing the work to provide the functionality and the
+graphical interface, these won't be much extra work.
+
+
+File: standards.info,  Node: Command-Line Interfaces,  Next: Option Table,  Prev: Graphical Interfaces,  Up: Program Behavior
+
+Standards for Command Line Interfaces
+=====================================
 
    It is a good idea to follow the POSIX guidelines for the
 command-line options of a program.  The easiest way to do this is to use
@@ -678,7 +770,7 @@ among GNU utilities, and fewer idiosyncracies for users to remember.
           Report bugs to MAILING-ADDRESS.
 
 
-File: standards.info,  Node: Option Table,  Next: Memory Usage,  Prev: User Interfaces,  Up: Program Behavior
+File: standards.info,  Node: Option Table,  Next: Memory Usage,  Prev: Command-Line Interfaces,  Up: Program Behavior
 
 Table of Long Options
 =====================
@@ -686,8 +778,8 @@ Table of Long Options
    Here is a table of long options used by GNU programs.  It is surely
 incomplete, but we aim to list all the options that a new program might
 want to be compatible with.  If you use names not already in the table,
-please send <gnu@gnu.org> a list of them, with their meanings, so we
-can update the table.
+please send <bug-standards@gnu.org> a list of them, with their
+meanings, so we can update the table.
 
 `after-date'
      `-N' in `tar'.
@@ -1042,6 +1134,9 @@ can update the table.
 `hide-control-chars'
      `-q' in `ls'.
 
+`html'
+     In `makeinfo', output HTML.
+
 `idle'
      `-u' in `who'.
 
@@ -1099,6 +1194,10 @@ can update the table.
 `info'
      `-i', `-l', and `-m' in Finger.
 
+`init-file'
+     In some programs, specify the name of the file to read as the
+     user's init file.
+
 `initial'
      `-i' in `expand'.
 
@@ -1114,6 +1213,9 @@ can update the table.
 
 `intermix-type'
      `-p' in `shar'.
+
+`iso-8601'
+     Used in `date'
 
 `jobs'
      `-j' in Make.
@@ -1758,15 +1860,16 @@ can update the table.
      `-z' in `gprof'.
 
 
-File: standards.info,  Node: Memory Usage,  Prev: Option Table,  Up: Program Behavior
+File: standards.info,  Node: Memory Usage,  Next: File Usage,  Prev: Option Table,  Up: Program Behavior
 
 Memory Usage
 ============
 
-   If it typically uses just a few meg of memory, don't bother making
-any effort to reduce memory usage.  For example, if it is impractical
-for other reasons to operate on files more than a few meg long, it is
-reasonable to read entire input files into core to operate on them.
+   If a program typically uses just a few meg of memory, don't bother
+making any effort to reduce memory usage.  For example, if it is
+impractical for other reasons to operate on files more than a few meg
+long, it is reasonable to read entire input files into core to operate
+on them.
 
    However, for programs such as `cat' or `tail', that can usefully
 operate on very large files, it is important to avoid using a technique
@@ -1778,6 +1881,25 @@ are bigger than will fit in core all at once.
 
    If your program creates complicated data structures, just make them
 in core and give a fatal error if `malloc' returns zero.
+
+
+File: standards.info,  Node: File Usage,  Prev: Memory Usage,  Up: Program Behavior
+
+File Usage
+==========
+
+   Programs should be prepared to operate when `/usr' and `/etc' are
+read-only file systems.  Thus, if the program manages log files, lock
+files, backup files, score files, or any other files which are modified
+for internal purposes, these files should not be stored in `/usr' or
+`/etc'.
+
+   There are two exceptions.  `/etc' is used to store system
+configuration information; it is reasonable for a program to modify
+files in `/etc' when its job is to update the system configuration.
+Also, if the user explicitly asks to modify one file in a directory, it
+is reasonable for the program to store other files in the same
+directory.
 
 
 File: standards.info,  Node: Writing C,  Next: Documentation,  Prev: Program Behavior,  Up: Top
@@ -1799,106 +1921,4 @@ writing GNU software.
 * System Functions::            Portability and ``standard'' library functions
 * Internationalization::        Techniques for internationalization
 * Mmap::                        How you can safely use `mmap'.
-
-
-File: standards.info,  Node: Formatting,  Next: Comments,  Up: Writing C
-
-Formatting Your Source Code
-===========================
-
-   It is important to put the open-brace that starts the body of a C
-function in column zero, and avoid putting any other open-brace or
-open-parenthesis or open-bracket in column zero.  Several tools look
-for open-braces in column zero to find the beginnings of C functions.
-These tools will not work on code not formatted that way.
-
-   It is also important for function definitions to start the name of
-the function in column zero.  This helps people to search for function
-definitions, and may also help certain tools recognize them.  Thus, the
-proper format is this:
-
-     static char *
-     concat (s1, s2)        /* Name starts in column zero here */
-          char *s1, *s2;
-     {                     /* Open brace in column zero here */
-       ...
-     }
-
-or, if you want to use ANSI C, format the definition like this:
-
-     static char *
-     concat (char *s1, char *s2)
-     {
-       ...
-     }
-
-   In ANSI C, if the arguments don't fit nicely on one line, split it
-like this:
-
-     int
-     lots_of_args (int an_integer, long a_long, short a_short,
-                   double a_double, float a_float)
-     ...
-
-   For the body of the function, we prefer code formatted like this:
-
-     if (x < foo (y, z))
-       haha = bar[4] + 5;
-     else
-       {
-         while (z)
-           {
-             haha += foo (z, z);
-             z--;
-           }
-         return ++x + bar ();
-       }
-
-   We find it easier to read a program when it has spaces before the
-open-parentheses and after the commas.  Especially after the commas.
-
-   When you split an expression into multiple lines, split it before an
-operator, not after one.  Here is the right way:
-
-     if (foo_this_is_long && bar > win (x, y, z)
-         && remaining_condition)
-
-   Try to avoid having two operators of different precedence at the same
-level of indentation.  For example, don't write this:
-
-     mode = (inmode[j] == VOIDmode
-             || GET_MODE_SIZE (outmode[j]) > GET_MODE_SIZE (inmode[j])
-             ? outmode[j] : inmode[j]);
-
-   Instead, use extra parentheses so that the indentation shows the
-nesting:
-
-     mode = ((inmode[j] == VOIDmode
-              || (GET_MODE_SIZE (outmode[j]) > GET_MODE_SIZE (inmode[j])))
-             ? outmode[j] : inmode[j]);
-
-   Insert extra parentheses so that Emacs will indent the code properly.
-For example, the following indentation looks nice if you do it by hand,
-but Emacs would mess it up:
-
-     v = rup->ru_utime.tv_sec*1000 + rup->ru_utime.tv_usec/1000
-         + rup->ru_stime.tv_sec*1000 + rup->ru_stime.tv_usec/1000;
-
-   But adding a set of parentheses solves the problem:
-
-     v = (rup->ru_utime.tv_sec*1000 + rup->ru_utime.tv_usec/1000
-          + rup->ru_stime.tv_sec*1000 + rup->ru_stime.tv_usec/1000);
-
-   Format do-while statements like this:
-
-     do
-       {
-         a = foo (a);
-       }
-     while (a > 0);
-
-   Please use formfeed characters (control-L) to divide the program into
-pages at logical places (but not within a function).  It does not matter
-just how long the pages are, since they do not have to fit on a printed
-page.  The formfeeds should appear alone on lines by themselves.
 

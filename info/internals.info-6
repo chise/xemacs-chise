@@ -38,6 +38,309 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Data descriptions,  Next: Dumping phase,  Prev: Overview,  Up: Dumping
+
+Data descriptions
+=================
+
+   The more complex task of the dumper is to be able to write lisp
+objects (lrecords) and C structs to disk and reload them at a different
+address, updating all the pointers they include in the process.  This
+is done by using external data descriptions that give information about
+the layout of the structures in memory.
+
+   The specification of these descriptions is in lrecord.h.  A
+description of an lrecord is an array of struct lrecord_description.
+Each of these structs include a type, an offset in the structure and
+some optional parameters depending on the type.  For instance, here is
+the string description:
+
+     static const struct lrecord_description string_description[] = {
+       { XD_BYTECOUNT,         offsetof (Lisp_String, size) },
+       { XD_OPAQUE_DATA_PTR,   offsetof (Lisp_String, data), XD_INDIRECT(0, 1) },
+       { XD_LISP_OBJECT,       offsetof (Lisp_String, plist) },
+       { XD_END }
+     };
+
+   The first line indicates a member of type Bytecount, which is used by
+the next, indirect directive.  The second means "there is a pointer to
+some opaque data in the field `data'".  The length of said data is
+given by the expression `XD_INDIRECT(0, 1)', which means "the value in
+the 0th line of the description (welcome to C) plus one".  The third
+line means "there is a Lisp_Object member `plist' in the Lisp_String
+structure".  `XD_END' then ends the description.
+
+   This gives us all the information we need to move around what is
+pointed to by a structure (C or lrecord) and, by transitivity,
+everything that it points to.  The only missing information for dumping
+is the size of the structure.  For lrecords, this is part of the
+lrecord_implementation, so we don't need to duplicate it.  For C
+structures we use a struct struct_description, which includes a size
+field and a pointer to an associated array of lrecord_description.
+
+
+File: internals.info,  Node: Dumping phase,  Next: Reloading phase,  Prev: Data descriptions,  Up: Dumping
+
+Dumping phase
+=============
+
+   Dumping is done by calling the function pdump() (in dumper.c) which
+is invoked from Fdump_emacs (in emacs.c).  This function performs a
+number of tasks.
+
+* Menu:
+
+* Object inventory::
+* Address allocation::
+* The header::
+* Data dumping::
+* Pointers dumping::
+
+
+File: internals.info,  Node: Object inventory,  Next: Address allocation,  Up: Dumping phase
+
+Object inventory
+----------------
+
+   The first task is to build the list of the objects to dump.  This
+includes:
+
+   * lisp objects
+
+   * C structures
+
+   We end up with one `pdump_entry_list_elmt' per object group (arrays
+of C structs are kept together) which includes a pointer to the first
+object of the group, the per-object size and the count of objects in the
+group, along with some other information which is initialized later.
+
+   These entries are linked together in `pdump_entry_list' structures
+and can be enumerated thru either:
+
+  1. the `pdump_object_table', an array of `pdump_entry_list', one per
+     lrecord type, indexed by type number.
+
+  2. the `pdump_opaque_data_list', used for the opaque data which does
+     not include pointers, and hence does not need descriptions.
+
+  3. the `pdump_struct_table', which is a vector of
+     `struct_description'/`pdump_entry_list' pairs, used for non-opaque
+     C structures.
+
+   This uses a marking strategy similar to the garbage collector.  Some
+differences though:
+
+  1. We do not use the mark bit (which does not exist for C structures
+     anyway); we use a big hash table instead.
+
+  2. We do not use the mark function of lrecords but instead rely on the
+     external descriptions.  This happens essentially because we need to
+     follow pointers to C structures and opaque data in addition to
+     Lisp_Object members.
+
+   This is done by `pdump_register_object()', which handles Lisp_Object
+variables, and `pdump_register_struct()' which handles C structures,
+which both delegate the description management to
+`pdump_register_sub()'.
+
+   The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
+allows us to look up a pdump_entry_list_elmt with the object it points
+to).  Entries are added with `pdump_add_entry()' and looked up with
+`pdump_get_entry()'.  There is no need for entry removal.  The hash
+value is computed quite simply from the object pointer by
+`pdump_make_hash()'.
+
+   The roots for the marking are:
+
+  1. the `staticpro''ed variables (there is a special
+     `staticpro_nodump()' call for protected variables we do not want
+     to dump).
+
+  2. the variables registered via `dump_add_root_object' (`staticpro()'
+     is equivalent to `staticpro_nodump()' + `dump_add_root_object()').
+
+  3. the variables registered via `dump_add_root_struct_ptr', each of
+     which points to a C structure.
+
+   This does not include the GCPRO'ed variables, the specbinds, the
+catchtags, the backlist, the redisplay or the profiling info, since we
+do not want to rebuild the actual chain of lisp calls which end up to
+the dump-emacs call, only the global variables.
+
+   Weak lists and weak hash tables are dumped as if they were their
+non-weak equivalent (without changing their type, of course).  This has
+not yet been a problem.
+
+
+File: internals.info,  Node: Address allocation,  Next: The header,  Prev: Object inventory,  Up: Dumping phase
+
+Address allocation
+------------------
+
+   The next step is to allocate the offsets of each of the objects in
+the final dump file.  This is done by `pdump_allocate_offset()' which
+is called indirectly by `pdump_scan_by_alignment()'.
+
+   The strategy to deal with alignment problems uses these facts:
+
+  1. real world alignment requirements are powers of two.
+
+  2. the C compiler is required to adjust the size of a struct so that
+     you can have an array of them next to each other.  This means you
+     can have an upper bound of the alignment requirements of a given
+     structure by looking at which power of two its size is a multiple.
+
+  3. the non-variant part of variable size lrecords has an alignment
+     requirement of 4.
+
+   Hence, for each lrecord type, C struct type or opaque data block the
+alignment requirement is computed as a power of two, with a minimum of
+2^2 for lrecords.  `pdump_scan_by_alignment()' then scans all the
+`pdump_entry_list_elmt''s, the ones with the highest requirements
+first.  This ensures the best packing.
+
+   The maximum alignment requirement we take into account is 2^8.
+
+   `pdump_allocate_offset()' only has to do a linear allocation,
+starting at offset 256 (this leaves room for the header and keeps the
+alignments happy).
+
+
+File: internals.info,  Node: The header,  Next: Data dumping,  Prev: Address allocation,  Up: Dumping phase
+
+The header
+----------
+
+   The next step creates the file and writes a header with a signature
+and some random information in it.  The `reloc_address' field, which
+indicates at which address the file should be loaded if we want to avoid
+post-reload relocation, is set to 0.  It then seeks to offset 256 (base
+offset for the objects).
+
+
+File: internals.info,  Node: Data dumping,  Next: Pointers dumping,  Prev: The header,  Up: Dumping phase
+
+Data dumping
+------------
+
+   The data is dumped in the same order as the addresses were allocated
+by `pdump_dump_data()', called from `pdump_scan_by_alignment()'.  This
+function copies the data to a temporary buffer, relocates all pointers
+in the object to the addresses allocated in step Address Allocation,
+and writes it to the file.  Using the same order means that, if we are
+careful with lrecords whose size is not a multiple of 4, we are ensured
+that the object is always written at the offset in the file allocated
+in step Address Allocation.
+
+
+File: internals.info,  Node: Pointers dumping,  Prev: Data dumping,  Up: Dumping phase
+
+Pointers dumping
+----------------
+
+   A bunch of tables needed to reassign properly the global pointers are
+then written.  They are:
+
+  1. the pdump_root_struct_ptrs dynarr
+
+  2. the pdump_opaques dynarr
+
+  3. a vector of all the offsets to the objects in the file that
+     include a description (for faster relocation at reload time)
+
+  4. the pdump_root_objects and pdump_weak_object_chains dynarrs.
+
+   For each of the dynarrs we write both the pointer to the variables
+and the relocated offset of the object they point to.  Since these
+variables are global, the pointers are still valid when restarting the
+program and are used to regenerate the global pointers.
+
+   The `pdump_weak_object_chains' dynarr is a special case.  The
+variables it points to are the head of weak linked lists of lisp objects
+of the same type.  Not all objects of this list are dumped so the
+relocated pointer we associate with them points to the first dumped
+object of the list, or Qnil if none is available.  This is also the
+reason why they are not used as roots for the purpose of object
+enumeration.
+
+   Some very important information like the `staticpros' and
+`lrecord_implementations_table' are handled indirectly using
+`dump_add_opaque' or `dump_add_root_struct_ptr'.
+
+   This is the end of the dumping part.
+
+
+File: internals.info,  Node: Reloading phase,  Next: Remaining issues,  Prev: Dumping phase,  Up: Dumping
+
+Reloading phase
+===============
+
+File loading
+------------
+
+   The file is mmap'ed in memory (which ensures a PAGESIZE alignment, at
+least 4096), or if mmap is unavailable or fails, a 256-bytes aligned
+malloc is done and the file is loaded.
+
+   Some variables are reinitialized from the values found in the header.
+
+   The difference between the actual loading address and the
+reloc_address is computed and will be used for all the relocations.
+
+Putting back the pdump_opaques
+------------------------------
+
+   The memory contents are restored in the obvious and trivial way.
+
+Putting back the pdump_root_struct_ptrs
+---------------------------------------
+
+   The variables pointed to by pdump_root_struct_ptrs in the dump phase
+are reset to the right relocated object addresses.
+
+Object relocation
+-----------------
+
+   All the objects are relocated using their description and their
+offset by `pdump_reloc_one'.  This step is unnecessary if the
+reloc_address is equal to the file loading address.
+
+Putting back the pdump_root_objects and pdump_weak_object_chains
+----------------------------------------------------------------
+
+   Same as Putting back the pdump_root_struct_ptrs.
+
+Reorganize the hash tables
+--------------------------
+
+   Since some of the hash values in the lisp hash tables are
+address-dependent, their layout is now wrong.  So we go through each of
+them and have them resorted by calling `pdump_reorganize_hash_table'.
+
+
+File: internals.info,  Node: Remaining issues,  Prev: Reloading phase,  Up: Dumping
+
+Remaining issues
+================
+
+   The build process will have to start a post-dump xemacs, ask it the
+loading address (which will, hopefully, be always the same between
+different xemacs invocations) and relocate the file to the new address.
+This way the object relocation phase will not have to be done, which
+means no writes in the objects and that, because of the use of mmap, the
+dumped data will be shared between all the xemacs running on the
+computer.
+
+   Some executable signature will be necessary to ensure that a given
+dump file is really associated with a given executable, or random
+crashes will occur.  Maybe a random number set at compile or configure
+time thru a define.  This will also allow for having
+differently-compiled xemacsen on the same system (mule and no-mule
+comes to mind).
+
+   The DOC file contents should probably end up in the dump file.
+
+
 File: internals.info,  Node: Events and the Event Loop,  Next: Evaluation; Stack Frames; Bindings,  Prev: Dumping,  Up: Top
 
 Events and the Event Loop
@@ -55,7 +358,7 @@ Events and the Event Loop
 * Dispatching Events; The Command Builder::
 
 
-File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Prev: Events and the Event Loop,  Up: Events and the Event Loop
+File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Up: Events and the Event Loop
 
 Introduction to Events
 ======================
@@ -468,7 +771,7 @@ Evaluation; Stack Frames; Bindings
 * Catch and Throw::
 
 
-File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Prev: Evaluation; Stack Frames; Bindings,  Up: Evaluation; Stack Frames; Bindings
+File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Up: Evaluation; Stack Frames; Bindings
 
 Evaluation
 ==========
@@ -734,7 +1037,7 @@ Symbols and Variables
 * Symbol Values::
 
 
-File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Prev: Symbols and Variables,  Up: Symbols and Variables
+File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Up: Symbols and Variables
 
 Introduction to Symbols
 =======================
@@ -752,185 +1055,4 @@ there can be a distinct function and variable with the same name.  The
 property list is used as a more general mechanism of associating
 additional values with particular names, and once again the namespace is
 independent of the function and variable namespaces.
-
-
-File: internals.info,  Node: Obarrays,  Next: Symbol Values,  Prev: Introduction to Symbols,  Up: Symbols and Variables
-
-Obarrays
-========
-
-   The identity of symbols with their names is accomplished through a
-structure called an obarray, which is just a poorly-implemented hash
-table mapping from strings to symbols whose name is that string. (I say
-"poorly implemented" because an obarray appears in Lisp as a vector
-with some hidden fields rather than as its own opaque type.  This is an
-Emacs Lisp artifact that should be fixed.)
-
-   Obarrays are implemented as a vector of some fixed size (which should
-be a prime for best results), where each "bucket" of the vector
-contains one or more symbols, threaded through a hidden `next' field in
-the symbol.  Lookup of a symbol in an obarray, and adding a symbol to
-an obarray, is accomplished through standard hash-table techniques.
-
-   The standard Lisp function for working with symbols and obarrays is
-`intern'.  This looks up a symbol in an obarray given its name; if it's
-not found, a new symbol is automatically created with the specified
-name, added to the obarray, and returned.  This is what happens when the
-Lisp reader encounters a symbol (or more precisely, encounters the name
-of a symbol) in some text that it is reading.  There is a standard
-obarray called `obarray' that is used for this purpose, although the
-Lisp programmer is free to create his own obarrays and `intern' symbols
-in them.
-
-   Note that, once a symbol is in an obarray, it stays there until
-something is done about it, and the standard obarray `obarray' always
-stays around, so once you use any particular variable name, a
-corresponding symbol will stay around in `obarray' until you exit
-XEmacs.
-
-   Note that `obarray' itself is a variable, and as such there is a
-symbol in `obarray' whose name is `"obarray"' and which contains
-`obarray' as its value.
-
-   Note also that this call to `intern' occurs only when in the Lisp
-reader, not when the code is executed (at which point the symbol is
-already around, stored as such in the definition of the function).
-
-   You can create your own obarray using `make-vector' (this is
-horrible but is an artifact) and intern symbols into that obarray.
-Doing that will result in two or more symbols with the same name.
-However, at most one of these symbols is in the standard `obarray': You
-cannot have two symbols of the same name in any particular obarray.
-Note that you cannot add a symbol to an obarray in any fashion other
-than using `intern': i.e. you can't take an existing symbol and put it
-in an existing obarray.  Nor can you change the name of an existing
-symbol. (Since obarrays are vectors, you can violate the consistency of
-things by storing directly into the vector, but let's ignore that
-possibility.)
-
-   Usually symbols are created by `intern', but if you really want, you
-can explicitly create a symbol using `make-symbol', giving it some
-name.  The resulting symbol is not in any obarray (i.e. it is
-"uninterned"), and you can't add it to any obarray.  Therefore its
-primary purpose is as a symbol to use in macros to avoid namespace
-pollution.  It can also be used as a carrier of information, but cons
-cells could probably be used just as well.
-
-   You can also use `intern-soft' to look up a symbol but not create a
-new one, and `unintern' to remove a symbol from an obarray.  This
-returns the removed symbol. (Remember: You can't put the symbol back
-into any obarray.) Finally, `mapatoms' maps over all of the symbols in
-an obarray.
-
-
-File: internals.info,  Node: Symbol Values,  Prev: Obarrays,  Up: Symbols and Variables
-
-Symbol Values
-=============
-
-   The value field of a symbol normally contains a Lisp object.
-However, a symbol can be "unbound", meaning that it logically has no
-value.  This is internally indicated by storing a special Lisp object,
-called "the unbound marker" and stored in the global variable
-`Qunbound'.  The unbound marker is of a special Lisp object type called
-"symbol-value-magic".  It is impossible for the Lisp programmer to
-directly create or access any object of this type.
-
-   *You must not let any "symbol-value-magic" object escape to the Lisp
-level.*  Printing any of these objects will cause the message `INTERNAL
-EMACS BUG' to appear as part of the print representation.  (You may see
-this normally when you call `debug_print()' from the debugger on a Lisp
-object.) If you let one of these objects escape to the Lisp level, you
-will violate a number of assumptions contained in the C code and make
-the unbound marker not function right.
-
-   When a symbol is created, its value field (and function field) are
-set to `Qunbound'.  The Lisp programmer can restore these conditions
-later using `makunbound' or `fmakunbound', and can query to see whether
-the value of function fields are "bound" (i.e. have a value other than
-`Qunbound') using `boundp' and `fboundp'.  The fields are set to a
-normal Lisp object using `set' (or `setq') and `fset'.
-
-   Other symbol-value-magic objects are used as special markers to
-indicate variables that have non-normal properties.  This includes any
-variables that are tied into C variables (setting the variable magically
-sets some global variable in the C code, and likewise for retrieving the
-variable's value), variables that magically tie into slots in the
-current buffer, variables that are buffer-local, etc.  The
-symbol-value-magic object is stored in the value cell in place of a
-normal object, and the code to retrieve a symbol's value (i.e.
-`symbol-value') knows how to do special things with them.  This means
-that you should not just fetch the value cell directly if you want a
-symbol's value.
-
-   The exact workings of this are rather complex and involved and are
-well-documented in comments in `buffer.c', `symbols.c', and `lisp.h'.
-
-
-File: internals.info,  Node: Buffers and Textual Representation,  Next: MULE Character Sets and Encodings,  Prev: Symbols and Variables,  Up: Top
-
-Buffers and Textual Representation
-**********************************
-
-* Menu:
-
-* Introduction to Buffers::     A buffer holds a block of text such as a file.
-* The Text in a Buffer::        Representation of the text in a buffer.
-* Buffer Lists::                Keeping track of all buffers.
-* Markers and Extents::         Tagging locations within a buffer.
-* Bufbytes and Emchars::        Representation of individual characters.
-* The Buffer Object::           The Lisp object corresponding to a buffer.
-
-
-File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Prev: Buffers and Textual Representation,  Up: Buffers and Textual Representation
-
-Introduction to Buffers
-=======================
-
-   A buffer is logically just a Lisp object that holds some text.  In
-this, it is like a string, but a buffer is optimized for frequent
-insertion and deletion, while a string is not.  Furthermore:
-
-  1. Buffers are "permanent" objects, i.e. once you create them, they
-     remain around, and need to be explicitly deleted before they go
-     away.
-
-  2. Each buffer has a unique name, which is a string.  Buffers are
-     normally referred to by name.  In this respect, they are like
-     symbols.
-
-  3. Buffers have a default insertion position, called "point".
-     Inserting text (unless you explicitly give a position) goes at
-     point, and moves point forward past the text.  This is what is
-     going on when you type text into Emacs.
-
-  4. Buffers have lots of extra properties associated with them.
-
-  5. Buffers can be "displayed".  What this means is that there exist a
-     number of "windows", which are objects that correspond to some
-     visible section of your display, and each window has an associated
-     buffer, and the current contents of the buffer are shown in that
-     section of the display.  The redisplay mechanism (which takes care
-     of doing this) knows how to look at the text of a buffer and come
-     up with some reasonable way of displaying this.  Many of the
-     properties of a buffer control how the buffer's text is displayed.
-
-  6. One buffer is distinguished and called the "current buffer".  It is
-     stored in the variable `current_buffer'.  Buffer operations operate
-     on this buffer by default.  When you are typing text into a
-     buffer, the buffer you are typing into is always `current_buffer'.
-     Switching to a different window changes the current buffer.  Note
-     that Lisp code can temporarily change the current buffer using
-     `set-buffer' (often enclosed in a `save-excursion' so that the
-     former current buffer gets restored when the code is finished).
-     However, calling `set-buffer' will NOT cause a permanent change in
-     the current buffer.  The reason for this is that the top-level
-     event loop sets `current_buffer' to the buffer of the selected
-     window, each time it finishes executing a user command.
-
-   Make sure you understand the distinction between "current buffer"
-and "buffer of the selected window", and the distinction between
-"point" of the current buffer and "window-point" of the selected
-window. (This latter distinction is explained in detail in the section
-on windows.)
 
