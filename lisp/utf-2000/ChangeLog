@@ -1,3 +1,44 @@
+2002-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el, Ideograph-R214-Flute.el,
+	Ideograph-R197-Salt.el, Ideograph-R198-Deer.el,
+	Ideograph-R199-Wheat.el, Ideograph-R200-Hemp.el,
+	Ideograph-R201-Yellow.el, Ideograph-R202-Millet.el,
+	Ideograph-R203-Black.el, Ideograph-R204-Embroidery.el,
+	Ideograph-R205-Frog.el, Ideograph-R207-Drum.el,
+	Ideograph-R208-Rat.el, Ideograph-R209-Nose.el,
+	Ideograph-R210-Even.el, Ideograph-R211-Tooth.el,
+	Ideograph-R212-Dragon.el, Ideograph-R196-Bird.el,
+	Ideograph-R195-Fish.el, Ideograph-R194-Ghost.el,
+	Ideograph-R188-Bone.el, Ideograph-R189-Tall.el,
+	Ideograph-R190-Hair.el, Ideograph-R191-Fight.el,
+	Ideograph-R192-Sacrificial-Wine.el, Ideograph-R193-Cauldron.el,
+	Ideograph-R185-Head.el, Ideograph-R186-Fragrant.el,
+	Ideograph-R187-Horse.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R179-Leek.el, Ideograph-R180-Sound.el,
+	Ideograph-R181-Leaf.el, Ideograph-R182-Wind.el,
+	Ideograph-R183-Fly.el, Ideograph-R184-Eat.el,
+	Ideograph-R171-Slave.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R173-Rain.el, Ideograph-R174-Blue.el,
+	Ideograph-R175-Wrong.el, Ideograph-R176-Face.el,
+	Ideograph-R177-Leather.el, Ideograph-R168-Long.el,
+	Ideograph-R169-Gate.el, Ideograph-R170-Mound.el,
+	Ideograph-R163-City.el, Ideograph-R164-Wine.el,
+	Ideograph-R167-Gold.el, Ideograph-R161-Morning.el,
+	Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el,
+	Ideograph-R158-Body.el, Ideograph-R159-Cart.el,
+	Ideograph-R157-Foot.el, Ideograph-R154-Shell.el,
+	Ideograph-R155-Red.el, Ideograph-R156-Run.el,
+	Ideograph-R152-Pig.el, Ideograph-R153-Badger.el,
+	Ideograph-R147-See.el, Ideograph-R149-Speech.el,
+	Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el,
+	Ideograph-R137-Boat.el, Ideograph-R140-Grass.el,
+	Ideograph-R130-Meat.el, Ideograph-R119-Rice.el,
+	Ideograph-R120-Silk.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R082-Fur.el, Ideograph-R109-Eye.el,
+	Ideograph-R004-Slash.el, Ideograph-R066-Rap.el: Add some missing
+	mapping between CNS 11643 plain 4 and UCS.
+
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* isolated-char.el: etc/GT-RS.txt is moved to
