@@ -15943,17 +15943,19 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
-    (->synonyms
-     (:sources	(seiji-tsuu morohashi-daikanwa)
-      :char	((=daikanwa	     . 11501)	; &I-M-11501;
-		 )
+    (->same
+     ((=jis-x0208	  . #x5874)	; &GT-14505; [56-84]
+      (=ks-x1001	  . #x6B73)	; &I-K0-6B73; [75-83]
+      (=daikanwa	  . 11501)	; &I-M-11501;
       ))
-    (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 2743)
-		 (=daikanwa	     . 11501)	; &I-M-11501;
-		 )
+    (->same*sources
+     zhengzi-tong daikanwa)
+    (<-original
+     ((shinjigen-1	  . 2743)
+      (=daikanwa	  . 11501)	; &I-M-11501;
       ))
+    (<-original*sources
+     shinjigen-1)
     (shinjigen-1	. 2744)
     (=ucs		. #x39A4)	; 㦤
     (=cns11643-4	. #x6343)	; &I-C4-6343; [67-35]
