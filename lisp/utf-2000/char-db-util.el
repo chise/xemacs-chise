@@ -67,8 +67,8 @@
     (while (< i 215)
       (aset v i (int-char (+ #x2EFF i)))
       (setq i (1+ i)))
-    (if (< (charset-iso-final-char (car (split-char (aref v 34)))) ?0)
-	(aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
+    (unless (charset-iso-final-char (car (split-char (aref v 34))))
+      (aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
 ;;;###autoload
@@ -108,23 +108,24 @@
        ((= (charset-dimension ka)
 	   (charset-dimension kb))
 	(cond ((= (charset-chars ka)(charset-chars kb))
-	       (cond
-		((>= (charset-iso-final-char ka) ?@)
-		 (if (>= (charset-iso-final-char kb) ?@)
-		     (< (charset-iso-final-char ka)
-			(charset-iso-final-char kb))
-		   t))
-		((>= (charset-iso-final-char ka) ?0)
-		 (cond
-		  ((>= (charset-iso-final-char kb) ?@)
-		   nil)
-		  ((>= (charset-iso-final-char kb) ?0)
-		   (< (charset-iso-final-char ka)
-		      (charset-iso-final-char kb)))
-		  (t)))
-		(t (if (>= (charset-iso-final-char kb) ?0)
-		       nil
-		     (> (charset-id ka)(charset-id kb))))))
+	       (if (charset-iso-final-char ka)
+		   (cond
+		    ((>= (charset-iso-final-char ka) ?@)
+		     (if (and (charset-iso-final-char kb)
+			      (>= (charset-iso-final-char kb) ?@))
+			 (< (charset-iso-final-char ka)
+			    (charset-iso-final-char kb))
+		       t))
+		    (t
+		     (if (charset-iso-final-char kb)
+			 (if (>= (charset-iso-final-char kb) ?@)
+			     nil
+			   (< (charset-iso-final-char ka)
+			      (charset-iso-final-char kb)))
+		       t)))
+		 (if (charset-iso-final-char kb)
+		     nil
+		   (> (charset-id ka)(charset-id kb)))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
