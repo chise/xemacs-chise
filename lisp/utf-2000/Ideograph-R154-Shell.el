@@ -2013,13 +2013,13 @@
     (ideograph-daikanwa . 36823)	; ø¸ˆ¿—
     ))
 (define-char
-  '((->ucs		. #x8CE3)	; è³£
-    (ideographic-radical . 154)	; â¾™
+  '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (chinese-cns11643-5		. #x513A)	; ø»š±¥
     (japanese-jisx0213-2	. #x792F)	; ø»¦žž
     (ideograph-daikanwa		. 36824)	; ø¸ˆ¿˜
+    (ucs			. #x27DA0)	; ð§¶ 
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™
