@@ -1238,11 +1238,13 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = Vcharset_ideograph_daikanwa;
       return c - MIN_CHAR_DAIKANWA;
     }
+  /*
   else if (c <= MAX_CHAR_MOJIKYO_0)
     {
       *charset = Vcharset_mojikyo;
       return c - MIN_CHAR_MOJIKYO_0;
     }
+  */
   else if (c < MIN_CHAR_94)
     {
       *charset = Vcharset_ucs;
