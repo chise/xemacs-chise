@@ -1,3 +1,28 @@
+2001-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.45 "Thelxepeia" is released.
+
+2001-02-13  Martin Buchholz  <martin@xemacs.org>
+
+	* aclocal.m4: Fix module support for AIX cc.
+	Support possible future OSes irix7, aix5, osf[56].
+
+2001-02-12  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: No need for NON_GNU_CPP on SCO.
+
+2001-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* etc/MACHINES: Rewritten.  Bitrot discarded.
+
+2001-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Prefer utime to utimes - it's more standard.
+	Remove explicit checking for struct utimbuf.
+	Remove explicit checking for <utime.h>.
+	Combined into one simpler test for utime.
+	Add explicit check for utimes, if utime not found.
+
 2001-02-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.44 "Thalia" is released.

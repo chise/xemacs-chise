@@ -61,6 +61,10 @@ enum syntaxcode
   Scomment,	/* a comment-starting character */
   Sendcomment,	/* a comment-ending character */
   Sinherit,	/* use the standard syntax table for this character */
+  Scomment_fence, /* Starts/ends comment which is delimited on the
+		     other side by a char with the same syntaxcode.  */
+  Sstring_fence,  /* Starts/ends string which is delimited on the
+		     other side by a char with the same syntaxcode.  */
   Smax	 /* Upper bound on codes that are meaningful */
 };
 
@@ -254,8 +258,219 @@ Lisp_Object syntax_match (Lisp_Object table, Emchar ch);
 
 extern int no_quit_in_re_search;
 extern struct buffer *regex_emacs_buffer;
-extern int regex_emacs_buffer_p;
+
+/* This is the string or buffer in which we are matching.  It is used
+   for looking up syntax properties.  */
+extern Lisp_Object regex_match_object;
 
 void update_syntax_table (Lisp_Char_Table *ct);
+
+#ifdef emacs
+
+extern int lookup_syntax_properties;
+
+struct syntax_cache
+{
+  int use_code;				/* Whether to use syntax_code
+					   or current_syntax_table. */
+  struct buffer* buffer;		/* The buffer the current syntax cache
+					   applies to. */
+  Lisp_Object object;			/* The buffer or string the current
+					   syntax cache applies to. */
+  int syntax_code;			/* Syntax code of current char. */
+  Lisp_Object current_syntax_table;	/* Syntax table for current pos. */
+  Lisp_Object old_prop;			/* Syntax-table prop at prev pos. */
+
+  Bufpos next_change;			/* Position of the next extent
+                                           change. */
+  Bufpos prev_change;			/* Position of the previous
+                                           extent change. */
+};
+extern struct syntax_cache syntax_cache;
+
+void update_syntax_cache (int pos, int count, int init);
+
+/* Make syntax cache state good for CHARPOS, assuming it is
+   currently good for a position before CHARPOS.  */
+#define UPDATE_SYNTAX_CACHE_FORWARD(pos)	\
+   (lookup_syntax_properties			\
+    ? (update_syntax_cache ((pos), 1, 0), 1)	\
+    : 0)
+
+/* Make syntax cache state good for CHARPOS, assuming it is
+   currently good for a position after CHARPOS.  */
+#define UPDATE_SYNTAX_CACHE_BACKWARD(pos)	\
+   (lookup_syntax_properties			\
+    ? (update_syntax_cache ((pos), -1, 0), 1)	\
+    : 0)
+
+/* Make syntax cache state good for CHARPOS */
+#define UPDATE_SYNTAX_CACHE(pos)		\
+   (lookup_syntax_properties			\
+    ? (update_syntax_cache ((pos), 0, 0), 1)	\
+    : 0)
+
+#define SYNTAX_FROM_CACHE(table, c)			\
+   SYNTAX_FROM_CODE (SYNTAX_CODE_FROM_CACHE (table, c))
+
+#define SYNTAX_CODE_FROM_CACHE(table, c)				\
+  ( syntax_cache.use_code						\
+      ? syntax_cache.syntax_code					\
+      : SYNTAX_CODE (XCHAR_TABLE (syntax_cache.current_syntax_table),	\
+		     c)							\
+ )
+
+/* Convert the byte offset BYTEPOS into a character position,
+   for the object recorded in syntax_cache with SETUP_SYNTAX_TABLE_FOR_OBJECT.
+
+   The value is meant for use in the UPDATE_SYNTAX_TABLE... macros.
+   These macros do nothing when parse_sexp_lookup_properties is 0,
+   so we return 0 in that case, for speed.  */
+#define SYNTAX_CACHE_BYTE_TO_CHAR(bytepos)					\
+  (! lookup_syntax_properties							\
+   ? 0										\
+   : STRINGP (syntax_cache.object)						\
+   ? bytecount_to_charcount (XSTRING_DATA (syntax_cache.object), bytepos)	\
+   : (BUFFERP (syntax_cache.object) || NILP (syntax_cache.object))		\
+   ? bytind_to_bufpos (syntax_cache.buffer,					\
+		       bytepos + BI_BUF_BEGV (syntax_cache.buffer))		\
+   : (bytepos))
+
+#define SYNTAX_CACHE_OBJECT_BYTE_TO_CHAR(obj, buf, bytepos)	\
+  (! lookup_syntax_properties					\
+   ? 0								\
+   : STRINGP (obj)						\
+   ? bytecount_to_charcount (XSTRING_DATA (obj), bytepos)	\
+   : (BUFFERP (obj) || NILP (obj))				\
+   ? bytind_to_bufpos (buf, bytepos + BI_BUF_BEGV (buf))	\
+   : (bytepos))
+
+#else  /* not emacs */
+
+#define update_syntax_cache(pos, count, init)
+#define UPDATE_SYNTAX_CACHE_FORWARD(pos)
+#define UPDATE_SYNTAX_CACHE_BACKWARD(pos)
+#define UPDATE_SYNTAX_CACHE(pos)
+#define SYNTAX_FROM_CACHE SYNTAX
+#define SYNTAX_CODE_FROM_CACHE SYNTAX_CODE
+
+#endif /* emacs */
+
+#define SETUP_SYNTAX_CACHE(FROM, COUNT)				\
+  do {								\
+    syntax_cache.buffer = current_buffer;			\
+    syntax_cache.object = Qnil;					\
+    syntax_cache.current_syntax_table				\
+      = current_buffer->mirror_syntax_table;			\
+    syntax_cache.use_code = 0;					\
+    if (lookup_syntax_properties)				\
+      update_syntax_cache ((COUNT) > 0 ? (FROM) : (FROM) - 1,	\
+			   (COUNT), 1);				\
+  } while (0)
+
+#define SETUP_SYNTAX_CACHE_FOR_BUFFER(BUFFER, FROM, COUNT)	\
+  do {								\
+    syntax_cache.buffer = (BUFFER);				\
+    syntax_cache.object = Qnil;					\
+    syntax_cache.current_syntax_table =				\
+      syntax_cache.buffer->mirror_syntax_table;			\
+    syntax_cache.use_code = 0;					\
+    if (lookup_syntax_properties)				\
+      update_syntax_cache ((FROM) + ((COUNT) > 0 ? 0 : -1),	\
+			   (COUNT), 1);				\
+  } while (0)
+
+#define SETUP_SYNTAX_CACHE_FOR_OBJECT(OBJECT, BUFFER, FROM, COUNT)	\
+  do {									\
+    syntax_cache.buffer = (BUFFER);					\
+    syntax_cache.object = (OBJECT);					\
+    if (NILP (syntax_cache.object))					\
+      {									\
+        /* do nothing */;						\
+      }									\
+    else if (EQ (syntax_cache.object, Qt))				\
+      {									\
+        /* do nothing */;						\
+      }									\
+    else if (STRINGP (syntax_cache.object))				\
+      {									\
+        /* do nothing */;						\
+      }									\
+    else if (BUFFERP (syntax_cache.object))				\
+      {									\
+        syntax_cache.buffer = XBUFFER (syntax_cache.object);		\
+      }									\
+    else								\
+      {									\
+        /* OBJECT must be buffer/string/t/nil */			\
+        assert(0);							\
+      }									\
+    syntax_cache.current_syntax_table					\
+      = syntax_cache.buffer->mirror_syntax_table;			\
+    syntax_cache.use_code = 0;						\
+    if (lookup_syntax_properties)					\
+      update_syntax_cache ((FROM) + ((COUNT) > 0 ? 0 : -1),		\
+			   (COUNT), 1);					\
+  } while (0)
+
+#define SYNTAX_CODE_PREFIX(c) \
+  ((c >> 7) & 1)
+
+#define SYNTAX_CODE_COMMENT_BITS(c) \
+  ((c >> 16) &0xff)
+
+#define SYNTAX_CODES_START_P(a, b)                                    \
+  (((SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_START) >> 2)    \
+   & (SYNTAX_CODE_COMMENT_BITS (b) & SYNTAX_SECOND_CHAR_START))
+
+#define SYNTAX_CODES_END_P(a, b)                                    \
+  (((SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_END) >> 2)    \
+   & (SYNTAX_CODE_COMMENT_BITS (b) & SYNTAX_SECOND_CHAR_END))
+
+#define SYNTAX_CODES_COMMENT_MASK_START(a, b)			\
+  (SYNTAX_CODES_MATCH_START_P (a, b, SYNTAX_COMMENT_STYLE_A) 	\
+   ? SYNTAX_COMMENT_STYLE_A					\
+   : (SYNTAX_CODES_MATCH_START_P (a, b, SYNTAX_COMMENT_STYLE_B)	\
+      ? SYNTAX_COMMENT_STYLE_B					\
+      : 0))
+#define SYNTAX_CODES_COMMENT_MASK_END(a, b)			\
+  (SYNTAX_CODES_MATCH_END_P (a, b, SYNTAX_COMMENT_STYLE_A) 	\
+   ? SYNTAX_COMMENT_STYLE_A					\
+   : (SYNTAX_CODES_MATCH_END_P (a, b, SYNTAX_COMMENT_STYLE_B)	\
+      ? SYNTAX_COMMENT_STYLE_B					\
+      : 0))
+
+#define SYNTAX_CODE_START_FIRST_P(a) \
+  (SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_START)
+
+#define SYNTAX_CODE_START_SECOND_P(a) \
+  (SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_SECOND_CHAR_START)
+
+#define SYNTAX_CODE_END_FIRST_P(a) \
+  (SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_END)
+
+#define SYNTAX_CODE_END_SECOND_P(a) \
+  (SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_SECOND_CHAR_END)
+
+
+#define SYNTAX_CODES_MATCH_START_P(a, b, mask)				\
+  ((SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_START & (mask))	\
+   && (SYNTAX_CODE_COMMENT_BITS (b)					\
+       & SYNTAX_SECOND_CHAR_START & (mask)))
+
+#define SYNTAX_CODES_MATCH_END_P(a, b, mask)				\
+  ((SYNTAX_CODE_COMMENT_BITS (a) & SYNTAX_FIRST_CHAR_END & (mask))	\
+   && (SYNTAX_CODE_COMMENT_BITS (b) & SYNTAX_SECOND_CHAR_END & (mask)))
+
+#define SYNTAX_CODE_MATCHES_1CHAR_P(a, mask)	\
+  ((SYNTAX_CODE_COMMENT_BITS (a) & (mask)))
+
+#define SYNTAX_CODE_COMMENT_1CHAR_MASK(a)			\
+  ((SYNTAX_CODE_MATCHES_1CHAR_P (a, SYNTAX_COMMENT_STYLE_A)	\
+    ? SYNTAX_COMMENT_STYLE_A					\
+    : (SYNTAX_CODE_MATCHES_1CHAR_P (a, SYNTAX_COMMENT_STYLE_B)	\
+       ? SYNTAX_COMMENT_STYLE_B					\
+       : 0)))
+
 
 #endif /* INCLUDED_syntax_h_ */

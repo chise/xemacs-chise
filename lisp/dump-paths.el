@@ -62,6 +62,16 @@
   (if debug-paths
       (princ (format "lisp-directory:\n%S\n" lisp-directory)
 	     'external-debugging-output))
+  (if (featurep 'mule)
+      (progn
+	(setq mule-lisp-directory
+	      (paths-find-mule-lisp-directory roots
+					      lisp-directory))
+	(if debug-paths
+	    (princ (format "mule-lisp-directory:\n%S\n"
+			   mule-lisp-directory)
+		   'external-debugging-output)))
+    (setq mule-lisp-directory '()))
   (setq site-directory (and (null inhibit-site-lisp)
 			    (paths-find-site-lisp-directory roots)))
   (if (and debug-paths (null inhibit-site-lisp))
@@ -73,7 +83,8 @@
 					     late-package-load-path
 					     '()
 					     lisp-directory
-					     site-directory))
+					     site-directory
+					     mule-lisp-directory))
 
   (setq module-directory (paths-find-module-directory roots))
   (if debug-paths

@@ -222,7 +222,6 @@ void *alloca ();
 #undef HAVE_SYS_UN_H
 #undef HAVE_ULIMIT_H
 #undef HAVE_UNISTD_H
-#undef HAVE_UTIME_H
 
 #undef HAVE_SYS_WAIT_H
 #undef HAVE_LIBINTL_H
@@ -252,9 +251,6 @@ void *alloca ();
 
 /* Is `sys_siglist' declared by <signal.h>? */
 #undef SYS_SIGLIST_DECLARED
-
-/* Is `struct utimbuf' declared by <utime.h>? */
-#undef HAVE_STRUCT_UTIMBUF
 
 /* Is `struct timeval' declared by <sys/time.h>? */
 #undef HAVE_TIMEVAL
@@ -329,6 +325,7 @@ void *alloca ();
 #undef HAVE_TZSET
 #undef HAVE_ULIMIT
 #undef HAVE_USLEEP
+#undef HAVE_UTIME
 #undef HAVE_UTIMES
 #undef HAVE_WAITPID
 #undef HAVE_VSNPRINTF
@@ -497,12 +494,12 @@ void *alloca ();
    determine where XEmacs' memory is going. */
 #undef MEMORY_USAGE_STATS
 
-/* Define QUANTIFY if using Quantify from Rational/Pure/Atria Software.
+/* Define QUANTIFY if using Quantify from Rational Software.
    This adds some additional calls to control data collection.
    It is only intended for use by the developers. */
 #undef QUANTIFY
 
-/* Define QUANTIFY if using Purify from Rational/Pure/Atria Software.
+/* Define PURIFY if using Purify from Rational Software.
    It is only intended for use by the developers. */
 #undef PURIFY
 

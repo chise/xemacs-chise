@@ -2324,16 +2324,15 @@ prepare_to_modify_buffer (struct buffer *buf, Bufpos start, Bufpos end,
   if (!NILP (buf->filename) && lockit &&
       BUF_SAVE_MODIFF (buf) >= BUF_MODIFF (buf))
     {
-#ifdef CLASH_DETECTION
-      if (!NILP (buf->file_truename))
-	/* Make binding buffer-file-name to nil effective.  */
-	lock_file (buf->file_truename);
-#else
       /* At least warn if this file has changed on disk since it was visited.*/
       if (NILP (Fverify_visited_file_modtime (buffer))
 	  && !NILP (Ffile_exists_p (buf->filename)))
 	call1_in_buffer (buf, intern ("ask-user-about-supersession-threat"),
 			 buf->filename);
+#ifdef CLASH_DETECTION
+      if (!NILP (buf->file_truename))
+	/* Make binding buffer-file-name to nil effective.  */
+	lock_file (buf->file_truename);
 #endif /* not CLASH_DETECTION */
     }
   UNGCPRO;

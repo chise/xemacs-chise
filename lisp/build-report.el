@@ -4,7 +4,7 @@
 
 ;; Author: Adrian Aichner <adrian@xemacs.org>
 ;; Date: Sun., Apr. 20, 1997-2000.
-;; Version: $Revision: 1.5.2.6 $
+;; Version: $Revision: 1.5.2.7 $
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.
@@ -87,8 +87,9 @@ xemacs_codename\\s-*=\\s-*\"\\([^\"]+\\)\""
   :group 'build)
 
 (defcustom build-report-destination
-  (quote ("XEmacs Build Reports List <xemacs-build-reports@xemacs.org>"
-          "XEmacs Beta List <xemacs-beta@xemacs.org>"))
+  (list
+   "XEmacs Build Reports List <xemacs-buildreports@xemacs.org>"
+   "XEmacs Beta List <xemacs-beta@xemacs.org>")
   "*The list of mail addresses XEmacs Build Reports should most likely
 go to."
   :type '(repeat
@@ -98,12 +99,22 @@ go to."
   :group 'build-report)
 
 (defcustom build-report-keep-regexp
-  (quote ("^\\(cd\\|n?make\\)\\s-" "errors?" "warnings?"
-          "pure.*\\(space\\|size\\)" "hides\\b" "strange" "shadowings"
-          "^Compil\\(ing\\s-+in\\|ation\\)" "^Using" "not\\s-+found"
-          "^While\\s-+compiling.*\\(\n\\s-+.+\\)*" "^Note:"
-          "Installing" "[Ff]ile(s) copied"
-          "\\s-+tests\\s-+"))
+  (list
+   "^\\(cd\\|n?make\\)\\s-"
+   "errors?"
+   "warnings?"
+   "pure.*\\(space\\|size\\)"
+   "hides\\b"
+   "strange"
+   "shadowings"
+   "^Compil\\(ing\\s-+in\\|ation\\)"
+   "^Using"
+   "not\\s-+found"
+   "^While\\s-+compiling.*\\(\n\\s-+.+\\)*"
+   "^Note:"
+   "Installing"
+   "[Ff]ile(s) copied"
+   "\\s-+tests\\s-+")
   "*Regexp of make process output lines to keep in the report."
   :type '(repeat
           :custom-show t
@@ -112,7 +123,10 @@ go to."
   :group 'build-report)
 
 (defcustom build-report-delete-regexp
-  (quote ("confl.*with.*auto-inlining" "^Formatting:"))
+  (list
+   "confl.*with.*auto-inlining"
+   "^Formatting:"
+   "(100%) tests successful")
   "*Regexp of make process output lines to delete from the report."
   :type '(repeat
           :custom-show t
@@ -136,7 +150,12 @@ go to."
   :group 'build-report)
 
 (defcustom build-report-make-output-files
-  (quote ("beta.err"))
+  (list
+   "beta.err"
+   "xemacs-make-all.err" 
+   "xemacs-make-check-temacs.err"
+   "xemacs-make-check.err"
+   "xemacs-make-install.err")
   "*List of Filenames where stdout and stderr of XEmacs make process
 have been stored.  These are relative to
 `build-report-make-output-dir`.  You'll have to run make with output

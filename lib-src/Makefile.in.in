@@ -73,44 +73,65 @@ INSTALL_DATA = @INSTALL_DATA@
 #define NOT_C_CODE
 #include "../src/config.h"
 
-## Things that a user might actually run,
-## which should be installed in bindir.
-#ifdef WIN32_NATIVE
-INSTALLABLES_BASE = etags ctags b2m ootags
-#else
-INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
+#ifndef WIN32_NATIVE
+#define INSTALL_GNUSERV
 #endif
-INSTALLABLE_SCRIPTS = rcs-checkin gnudoit gnuattach
+
+## ----------------------------------------------------------------
+## Things that a user might actually run directly,
+## which should be installed in ${bindir}.
+
+PUBLIC_INSTALLABLE_EXES=\
+#ifdef INSTALL_GNUSERV
+ gnuclient\
+#endif
 #ifdef HAVE_SHLIB
-INSTALLABLES = $(INSTALLABLES_BASE) ellcc
-#else
-INSTALLABLES = $(INSTALLABLES_BASE)
+ ellcc\
 #endif
+ etags ctags b2m ootags
 
+PUBLIC_INSTALLABLE_SCRIPTS=\
+#ifdef INSTALL_GNUSERV
+ gnudoit gnuattach\
+#endif
+ rcs-checkin
 
-## Things that Emacs runs internally, or during the build process,
-## which should not be installed in bindir.
+PUBLIC_INSTALLABLES = ${PUBLIC_INSTALLABLE_EXES} ${PUBLIC_INSTALLABLE_SCRIPTS}
+
+## ----------------------------------------------------------------
+## Things that XEmacs runs internally on the user's behalf,
+## which should be installed in ${archlibdir}.
+
+PRIVATE_INSTALLABLE_EXES=\
+#ifdef INSTALL_GNUSERV
+ gnuserv\
+#endif
 #ifdef WIN32_NATIVE
-UTILITIES= make-path wakeup profile make-docfile digest-doc \
-	sorted-doc movemail cvtmail yow i hexl \
-	mmencode minitar
+ i minitar\
 #else
-UTILITIES= make-path wakeup profile make-docfile digest-doc \
-	sorted-doc movemail cvtmail fakemail yow hexl \
-	gnuserv mmencode
+ fakemail\
 #endif
-## These need to be conditional on I18N3 make-msgfile make-po
+ wakeup profile make-docfile digest-doc\
+ sorted-doc movemail cvtmail yow hexl mmencode
 
-## Like UTILITIES, but they are not system-dependent, and should not be
-## deleted by the distclean target.
 GEN_SCRIPTS = rcs2log vcdiff gzip-el.sh
 PKG_SCRIPTS = add-big-package.sh
-SCRIPTS = $(GEN_SCRIPTS) $(PKG_SCRIPTS)
+PRIVATE_INSTALLABLE_SCRIPTS = $(GEN_SCRIPTS) $(PKG_SCRIPTS)
 
-EXECUTABLES= ${UTILITIES} ${INSTALLABLES} ${SCRIPTS} ${INSTALLABLE_SCRIPTS}
+PRIVATE_INSTALLABLES = ${PRIVATE_INSTALLABLE_EXES} ${PRIVATE_INSTALLABLE_SCRIPTS}
 
-SOURCES = COPYING ChangeLog Makefile.in.in README aixcc.lex emacs.csh \
-	makedoc.com *.[chy] $(SCRIPTS)
+## These need to be conditional on I18N3: make-msgfile make-po
+
+## ----------------------------------------------------------------
+## Things that XEmacs uses during the build process itself.
+## Not installed.
+
+BUILD_UTILITIES = make-path make-dump-id
+
+EXES    = ${PUBLIC_INSTALLABLE_EXES} ${PRIVATE_INSTALLABLE_EXES} ${BUILD_UTILITIES}
+SCRIPTS = ${PUBLIC_INSTALLABLE_SCRIPTS} ${PRIVATE_INSTALLABLE_SCRIPTS}
+PROGS   = ${EXES} ${SCRIPTS}
+
 ## Additional -D flags for movemail (add to MOVE_FLAGS if desired):
 ## MAIL_USE_POP		Support mail retrieval from a POP mailbox.
 ## MAIL_USE_MMDF		Support MMDF mailboxes.
@@ -171,16 +192,15 @@ ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 .c.o:
 	${CC} -c $(cflags) $<
 
-.PHONY : all maybe-blessmail install uninstall
+.PHONY : all maybe-blessmail install uninstall check
 
-all: ${UTILITIES} ${INSTALLABLES} srcdir-symlink.stamp
+all: ${PROGS}
 
 ## Make symlinks for shell scripts if using --srcdir
-srcdir-symlink.stamp:
+${SCRIPTS}:
 	for f in ${SCRIPTS}; do \
 		if test ! -r $$f; then ${LN_S} ${srcdir}/$$f $$f; fi; \
-	done; \
-	touch $@;
+	done
 
 #undef MOVEMAIL_NEEDS_BLESSING
 #if !defined (MAIL_USE_FLOCK) && ! defined (MAIL_USE_LOCKF)
@@ -218,55 +238,45 @@ ${archlibdir}: all
 	@echo; echo "Installing utilities run internally by XEmacs."
 	./make-path ${archlibdir}
 	if test "`(cd ${archlibdir} && $(pwd))`" != "`$(pwd)`"; then \
-	  for f in ${UTILITIES}; do \
+	  for f in ${PRIVATE_INSTALLABLE_EXES}; do \
 	    (cd .. && $(INSTALL_PROGRAM) lib-src/$$f ${archlibdir}/$$f) ; \
 	  done ; \
 	fi
 	if test "`(cd ${archlibdir} && $(pwd))`" \
 	     != "`(cd ${srcdir}     && $(pwd))`"; then \
-	  for f in ${SCRIPTS}; do \
+	  for f in ${PRIVATE_INSTALLABLE_SCRIPTS}; do \
 	    (cd .. && $(INSTALL_PROGRAM) ${srcdir}/$$f ${archlibdir}/$$f); \
 	  done ; \
 	fi
 
-## We do not need to install "wakeup" explicitly, because it will be
-## copied when this whole directory is copied.
 install: ${archlibdir}
 	@echo; echo "Installing utilities for users to run."
-	for file in ${INSTALLABLES} ; do \
+	for file in ${PUBLIC_INSTALLABLE_EXES} ; do \
 	  (cd .. && $(INSTALL_PROGRAM) lib-src/$${file} ${bindir}/$${file}) ; \
 	done
-	for file in ${INSTALLABLE_SCRIPTS} ; do \
+	for file in ${PUBLIC_INSTALLABLE_SCRIPTS} ; do \
 	  (cd .. && $(INSTALL_PROGRAM) ${srcdir}/$${file} ${bindir}/$${file}) ; \
 	done
 
 uninstall:
-	(cd ${bindir} && \
-	 $(RM) ${INSTALLABLES} ${INSTALLABLE_SCRIPTS})
-	(cd ${archlibdir} && \
-	 $(RM) ${UTILITIES} ${INSTALLABLES} ${SCRIPTS} ${INSTALLABLE_SCRIPTS})
+	cd ${bindir} && $(RM) ${PUBLIC_INSTALLABLES}
+	cd ${archlibdir} && $(RM) ${PRIVATE_INSTALLABLES}
 
 .PHONY: mostlyclean clean distclean realclean extraclean
 mostlyclean:
 	$(RM) *.o *.i core
 clean: mostlyclean
-	$(RM) ${INSTALLABLES} ${UTILITIES} *.exe
+	$(RM) ${EXES} *.exe
 distclean: clean
-	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS ellcc.h
+	$(RM) DOC *.tab.c *.tab.h TAGS ellcc.h
 	$(RM) GNUmakefile Makefile Makefile.in blessmail config.values
 realclean: distclean
 extraclean: distclean
 	$(RM) *~ \#*
 
-.PHONY: unlock relock check
-unlock:
-	chmod u+w $(SOURCES)
-relock:
-	chmod u-w $(SOURCES)
-
 ## Test the contents of the directory.
 check:
-	@echo "We don't have any tests for XEmacs yet."
+	@echo "We don't have any tests for lib-src yet."
 
 TAGS: etags
 	etags *.[ch]
@@ -379,12 +389,3 @@ mmencode : ${srcdir}/mmencode.c
 
 make-path: ${srcdir}/make-path.c ../src/config.h
 	$(CC) -Demacs $(cflags) ${srcdir}/make-path.c -o $@
-
-## These are NOT included in INSTALLABLES or UTILITIES.
-## See ../src/Makefile.in.in.
-aixcc: ${srcdir}/aixcc.c
-	$(CC) $(cflags) ${srcdir}/aixcc.c -o $@
-
-aixcc.c: ${srcdir}/aixcc.lex
-	lex ${srcdir}/aixcc.lex
-	mv lex.yy.c aixcc.c

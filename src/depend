@@ -88,17 +88,17 @@ debug.o: $(LISP_H) bytecode.h debug.h
 device.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h elhash.h events.h faces.h frame.h frameslots.h glyphs.h gui.h keymap.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h syssignal.h systime.h toolbar.h window.h winslots.h
 dgif_lib.o: $(LISP_H) gifrlib.h sysfile.h
 dialog.o: $(LISP_H) conslots.h console.h device.h frame.h frameslots.h glyphs.h gui.h redisplay.h scrollbar.h specifier.h toolbar.h window.h winslots.h
-dired.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h elhash.h mule-charset.h ndir.h opaque.h regex.h sysdep.h sysdir.h sysfile.h syspwd.h systime.h
+dired.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h elhash.h mule-charset.h ndir.h opaque.h regex.h syntax.h sysdep.h sysdir.h sysfile.h syspwd.h systime.h
 doc.o: $(LISP_H) buffer.h bufslots.h bytecode.h casetab.h chartab.h insdel.h keymap.h mule-charset.h sysfile.h
 doprnt.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h lstream.h mule-charset.h
 dragdrop.o: $(LISP_H) dragdrop.h
-dumper.o: $(LISP_H) conslots.h console-stream.h console.h dump-id.h dumper.h elhash.h nt.h specifier.h sysfile.h syswindows.h
+dumper.o: $(LISP_H) conslots.h console-stream.h console.h dumper.h elhash.h nt.h specifier.h sysfile.h syswindows.h
 dynarr.o: $(LISP_H)
 ecrt0.o: config.h
 editfns.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h events.h extents.h frame.h frameslots.h glyphs.h gui.h insdel.h line-number.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h sysfile.h syspwd.h systime.h toolbar.h window.h winslots.h
 eldap.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h eldap.h mule-charset.h opaque.h sysdep.h
 elhash.o: $(LISP_H) bytecode.h elhash.h
-emacs.o: $(LISP_H) backtrace.h buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h dump-id.h dumper.h frame.h frameslots.h glyphs.h gui.h mule-charset.h nt.h paths.h process.h redisplay.h scrollbar.h specifier.h sysdep.h sysdll.h sysfile.h syssignal.h systime.h systty.h syswindows.h toolbar.h window.h winslots.h
+emacs.o: $(LISP_H) backtrace.h buffer.h bufslots.h casetab.h chartab.h commands.h conslots.h console.h device.h dumper.h frame.h frameslots.h glyphs.h gui.h mule-charset.h nt.h paths.h process.h redisplay.h scrollbar.h specifier.h sysdep.h sysdll.h sysfile.h syssignal.h systime.h systty.h syswindows.h toolbar.h window.h winslots.h
 emodules.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h device.h emodules.h file-coding.h frame.h frameslots.h glyphs.h gui.h insdel.h lstream.h mule-charset.h redisplay.h scrollbar.h specifier.h sysdep.h sysdll.h toolbar.h window.h winslots.h
 esd.o: $(LISP_H) miscplay.h
 eval.o: $(LISP_H) backtrace.h buffer.h bufslots.h bytecode.h casetab.h chartab.h commands.h conslots.h console.h mule-charset.h opaque.h
@@ -187,7 +187,7 @@ sunOS-fix.o: config.h
 sunplay.o: $(LISP_H) nativesound.h sysdep.h syssignal.h
 sunpro.o: $(LISP_H)
 symbols.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console.h elhash.h mule-charset.h
-syntax.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h mule-charset.h syntax.h
+syntax.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h extents.h mule-charset.h syntax.h
 sysdep.o: $(LISP_H) buffer.h bufslots.h casetab.h chartab.h conslots.h console-stream.h console-tty.h console.h device.h events.h frame.h frameslots.h glyphs.h gui.h mule-charset.h ndir.h nt.h ntheap.h process.h redisplay.h scrollbar.h specifier.h sysdep.h sysdir.h sysfile.h sysproc.h syssignal.h systime.h systty.h syswait.h syswindows.h toolbar.h window.h winslots.h
 sysdll.o: config.h sysdll.h
 termcap.o: $(LISP_H) conslots.h console.h device.h

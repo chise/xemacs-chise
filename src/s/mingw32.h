@@ -205,7 +205,6 @@ gid_t getegid (void);
 #define HAVE_TIMEVAL
 #define HAVE_GETPAGESIZE
 #define getpagesize() 4096
-/*#define HAVE_STRUCT_UTIMBUF*/
 #ifndef HAVE_H_ERRNO
 #define HAVE_H_ERRNO
 #endif

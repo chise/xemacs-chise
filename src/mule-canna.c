@@ -1445,7 +1445,7 @@ For canna
 */ );
   canna_fn_DeleteNext = IROHA_FN_DeleteNext;
 
-  DEFVAR_INT ("canna-func-delete_previous", &canna_fn_DeletePrevious  /*
+  DEFVAR_INT ("canna-func-delete-previous", &canna_fn_DeletePrevious  /*
 
 */ );
   canna_fn_DeletePrevious = IROHA_FN_DeletePrevious;

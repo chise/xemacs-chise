@@ -1,3 +1,83 @@
+2001-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.45 "Thelxepeia" is released.
+
+2001-01-25  Jason R. Mastaler  <jason@xemacs.org> 
+ 
+        * about.el (xemacs-hackers): update my entry. 
+        * about.el (about-maintainer-info): ditto. 
+        * about.el (about-hackers): ditto. 
+
+2001-02-20  Jan Vroonhof  <jan@xemacs.org>
+
+	* about.el (about-maintainer-info): More vanity info about
+	yours truly.
+
+2001-02-20  Adrian Aichner  <adrian@xemacs.org>
+
+	* build-report.el (build-report-destination): xemacs-build-reports
+	has moved to SourceForge, where mailing list name length is
+	restricted, hence the name change to
+	xemacs-buildreports@xemacs.org.
+	* build-report.el (build-report-keep-regexp): Update default.
+	* build-report.el (build-report-delete-regexp): Ditto.
+	* build-report.el (build-report-make-output-files): Ditto.
+
+2001-02-19  Craig Lanning  <lanning@scra.org>
+
+	* lisp-mode.el: Add indentation specifications for following
+	Common Lisp forms: handler-case, handler-bind, with-slots,
+	with-open-file, with-open-stream, print-unreadable-object.
+
+2001-02-18  Matt Tucker  <tuck@whistlingfish.net>
+
+	* font-lock.el (font-lock-set-defaults-1):
+	Move initialization of `font-lock-cache-position' so that it's set
+	even if font-lock-keywords is already defined.
+
+2001-02-17  Matt Tucker  <tuck@whistlingfish.net>
+
+	* autoload.el (generate-file-autoloads-1):
+	Use `emacs-lisp-mode-syntax-table' instead of
+	`lisp-mode-syntax-table'.
+	* lisp-mode.el (lisp-mode-syntax-table):
+	Get rid of old checks for `parse-partial-sexp' version.
+	Make `|' (pipe) string delimiter instead of punctuation.
+
+2001-02-16  Martin Buchholz  <martin@xemacs.org>
+
+	* window.el (save-selected-window):
+	Use gensym for better macro hygiene.
+
+2001-02-06  Mike Sperber <mike@xemacs.org>
+
+	* dump-paths.el:
+	* startup.el (startup-setup-paths): Set and use
+	`mule-lisp-directory'.
+	(startup-setup-paths-warning): Ditto.
+
+	* setup-paths.el (paths-find-mule-lisp-directory): Added.
+	(paths-construct-load-path): Consider `mule-lisp-directory'.
+
+2001-02-07  Matt Tucker  <tuck@whistlingfish.net>
+
+	* font-lock.el: Syntax table improvements used.  A few random
+	changes are not specified below.
+	(font-lock-fontify-string-delimiters):
+	(font-lock-syntactic-keywords):
+	(font-lock-cache-state nil):
+	(font-lock-cache-position):
+	New variables.
+	(font-lock-set-syntax):
+	(font-lock-apply-syntactic-highlight):
+	(font-lock-fontify-syntactic-anchored-keywords):
+	(font-lock-fontify-syntactic-keywords-region):
+	(font-lock-eval-keywords):
+	New functions.
+	(font-lock-remove-face):
+	(font-lock-fontify-syntactically-region):
+	Use syntax properties.
+
 2001-02-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.44 "Thalia" is released.

@@ -33,6 +33,7 @@ Boston, MA 02111-1307, USA.  */
 #include "elhash.h"
 #include "regex.h"
 #include "opaque.h"
+#include "syntax.h"
 
 Lisp_Object Vcompletion_ignored_extensions;
 Lisp_Object Qdirectory_files;
@@ -122,6 +123,9 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
   d = opendir ((char *) XSTRING_DATA (directory));
   if (!d)
     report_file_error ("Opening directory", list1 (directory));
+
+  regex_match_object = Qt;
+  regex_emacs_buffer = current_buffer;
 
   record_unwind_protect (close_directory_unwind, make_opaque_ptr ((void *)d));
 

@@ -1315,7 +1315,7 @@ make_bit_vector (size_t length, Lisp_Object bit)
 Lisp_Object
 make_bit_vector_from_byte_vector (unsigned char *bytevec, size_t length)
 {
-  int i;
+  size_t i;
   Lisp_Bit_Vector *p = make_bit_vector_internal (length);
 
   for (i = 0; i < length; i++)
@@ -3533,7 +3533,7 @@ Garbage collection happens automatically if you cons more than
        ())
 {
   Lisp_Object pl = Qnil;
-  int i;
+  unsigned int i;
   int gc_count_vector_total_size = 0;
 
   garbage_collect_1 ();
@@ -3548,7 +3548,7 @@ Garbage collection happens automatically if you cons more than
           const char *name = lrecord_implementations_table[i]->name;
 	  int len = strlen (name);
 	  /* save this for the FSFmacs-compatible part of the summary */
-	  if (i == lrecord_vector.lrecord_type_index)
+	  if (i == lrecord_type_vector)
 	    gc_count_vector_total_size =
 	      lcrecord_stats[i].bytes_in_use + lcrecord_stats[i].bytes_freed;
 

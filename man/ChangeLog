@@ -1,3 +1,11 @@
+2001-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.45 "Thelxepeia" is released.
+
+2001-02-10  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/programs.texi (Tag Syntax): Port to makeinfo 3.
+
 2001-02-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.44 "Thalia" is released.

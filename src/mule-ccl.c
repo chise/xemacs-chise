@@ -1585,7 +1585,7 @@ ccl_driver (struct ccl_program *ccl,
 			  /* +1 is for including separator. */
 			  point = -point + 1;
 			  if (mapping_stack_pointer
-			      >= &mapping_stack[MAX_MAP_SET_LEVEL])
+			      >= mapping_stack + countof (mapping_stack))
 			    CCL_INVALID_CMD;
 			  PUSH_MAPPING_STACK (map_set_rest_length - point,
 					      reg[rrr]);
@@ -1666,7 +1666,7 @@ ccl_driver (struct ccl_program *ccl,
 		      else if (SYMBOLP (content))
 			{
 			  if (mapping_stack_pointer
-			      >= &mapping_stack[MAX_MAP_SET_LEVEL])
+			      >= mapping_stack + countof (mapping_stack))
 			    CCL_INVALID_CMD;
 			  PUSH_MAPPING_STACK (map_set_rest_length, reg[rrr]);
 			  PUSH_MAPPING_STACK (map_set_rest_length, op);

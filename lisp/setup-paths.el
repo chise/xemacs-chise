@@ -38,11 +38,14 @@
 
 ;;; Code:
 
-(defvar paths-core-load-path-depth 1
+(defvar paths-core-load-path-depth 0
   "Depth of load-path searches in core Lisp paths.")
 
 (defvar paths-site-load-path-depth 1
   "Depth of load-path searches in site Lisp paths.")
+
+(defvar paths-mule-load-path-depth 0
+  "Depth of load-path searches in Mule Lisp paths.")
 
 (defvar paths-default-info-directories
   (mapcar (function
@@ -73,6 +76,19 @@
 				nil
 				configure-lisp-directory))
 
+(defun paths-find-mule-lisp-directory (roots &optional lisp-directory)
+  "Find the Mule Lisp directory of the XEmacs hierarchy."
+  ;; #### kludge
+  (if lisp-directory
+      (let ((guess
+	     (file-name-as-directory
+	      (paths-construct-path (list lisp-directory "mule")))))
+	(if (paths-file-readable-directory-p guess)
+	    guess
+	  (paths-find-version-directory roots "mule-lisp"
+					nil
+					configure-mule-lisp-directory)))))
+
 (defun paths-find-module-directory (roots)
   "Find the main modules directory of the XEmacs hierarchy."
   (paths-find-architecture-directory roots "modules"
@@ -81,7 +97,7 @@
 (defun paths-construct-load-path
   (roots early-package-load-path late-package-load-path last-package-load-path
 	 lisp-directory
-	 &optional site-lisp-directory)
+	 &optional site-lisp-directory mule-lisp-directory)
   "Construct the load path."
   (let* ((envvar-value (getenv "EMACSLOADPATH"))
 	 (env-load-path
@@ -91,6 +107,10 @@
 	  (and site-lisp-directory
 	       (paths-find-recursive-load-path (list site-lisp-directory)
 					       paths-site-load-path-depth)))
+	 (mule-lisp-load-path
+	  (and mule-lisp-directory
+	       (paths-find-recursive-load-path (list mule-lisp-directory)
+					       paths-mule-load-path-depth)))
 	 (lisp-load-path
 	  (and lisp-directory
 	       (paths-find-recursive-load-path (list lisp-directory)
@@ -99,6 +119,7 @@
 	    early-package-load-path
 	    site-lisp-load-path
 	    late-package-load-path
+	    mule-lisp-load-path
 	    lisp-load-path
 	    last-package-load-path)))
 

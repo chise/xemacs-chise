@@ -59,7 +59,9 @@ enum syntactic_context
   context_none,
   context_string,
   context_comment,
-  context_block_comment
+  context_block_comment,
+  context_generic_comment,
+  context_generic_string
 };
 
 enum block_comment_context
@@ -333,6 +335,8 @@ setup_context_cache (struct buffer *buf, Bufpos pt)
       context_cache.style = comment_style_none;
       context_cache.scontext = '\000';
       context_cache.depth = 0;
+      /* #### shouldn't this be checking the character's syntax instead of
+         explicitly testing for backslash characters? */
       context_cache.backslash_p = ((pt > 1) &&
 				   (BUF_FETCH_CHAR (buf, pt - 1) == '\\'));
       /* Note that the BOL context cache may not be at the beginning
@@ -387,24 +391,24 @@ setup_context_cache (struct buffer *buf, Bufpos pt)
   }
 }
 
-#define SYNTAX_START_STYLE(table, c1, c2)				 \
-  (SYNTAX_STYLES_MATCH_START_P (table, c1, c2, SYNTAX_COMMENT_STYLE_A) ? \
-   comment_style_a :							 \
-   SYNTAX_STYLES_MATCH_START_P (table, c1, c2, SYNTAX_COMMENT_STYLE_B) ? \
-   comment_style_b :							 \
-   comment_style_none)
-
-#define SYNTAX_END_STYLE(table, c1, c2)					\
-  (SYNTAX_STYLES_MATCH_END_P (table, c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
+#define SYNTAX_START_STYLE(c1, c2)					\
+  (SYNTAX_CODES_MATCH_START_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
    comment_style_a :							\
-   SYNTAX_STYLES_MATCH_END_P (table, c1, c2, SYNTAX_COMMENT_STYLE_B) ?	\
+   SYNTAX_CODES_MATCH_START_P (c1, c2, SYNTAX_COMMENT_STYLE_B) ?	\
    comment_style_b :							\
    comment_style_none)
 
-#define SINGLE_SYNTAX_STYLE(table, c)					\
-      (SYNTAX_STYLES_MATCH_1CHAR_P (table, c, SYNTAX_COMMENT_STYLE_A) ?	\
+#define SYNTAX_END_STYLE(c1, c2)				\
+  (SYNTAX_CODES_MATCH_END_P (c1, c2, SYNTAX_COMMENT_STYLE_A) ?	\
+   comment_style_a :						\
+   SYNTAX_CODES_MATCH_END_P (c1, c2, SYNTAX_COMMENT_STYLE_B) ?	\
+   comment_style_b :						\
+   comment_style_none)
+
+#define SINGLE_SYNTAX_STYLE(c)						\
+      (SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_A) ?	\
        comment_style_a :						\
-       SYNTAX_STYLES_MATCH_1CHAR_P (table, c, SYNTAX_COMMENT_STYLE_B) ?	\
+       SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_B) ?	\
        comment_style_b :						\
        comment_style_none)
 
@@ -414,17 +418,27 @@ static void
 find_context (struct buffer *buf, Bufpos pt)
 {
   /* This function can GC */
+#ifndef emacs
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
   Lisp_Object syntaxtab = buf->syntax_table;
+#endif
   Emchar prev_c, c;
+  int prev_syncode, syncode;
   Bufpos target = pt;
   setup_context_cache (buf, pt);
   pt = context_cache.cur_point;
 
+  SETUP_SYNTAX_CACHE (pt - 1, 1);
   if (pt > BUF_BEGV (buf))
-    c = BUF_FETCH_CHAR (buf, pt - 1);
+    {
+      c = BUF_FETCH_CHAR (buf, pt - 1);
+      syncode = SYNTAX_CODE_FROM_CACHE (mirrortab, c);
+    }
   else
-    c = '\n'; /* to get bol_context_cache at point-min */
+    {
+      c = '\n'; /* to get bol_context_cache at point-min */
+      syncode = Swhitespace;
+    }
 
   for (; pt < target; pt++, context_cache.cur_point = pt)
     {
@@ -459,8 +473,11 @@ find_context (struct buffer *buf, Bufpos pt)
 	    }
 	}
 
+      UPDATE_SYNTAX_CACHE_FORWARD (pt);
       prev_c = c;
+      prev_syncode = syncode;
       c = BUF_FETCH_CHAR (buf, pt);
+      syncode = SYNTAX_CODE_FROM_CACHE (mirrortab, c);
 
       if (prev_c == '\n')
 	bol_context_cache = context_cache;
@@ -471,7 +488,7 @@ find_context (struct buffer *buf, Bufpos pt)
 	  continue;
 	}
 
-      switch (SYNTAX (mirrortab, c))
+      switch (SYNTAX_FROM_CACHE (mirrortab, c))
 	{
 	case Sescape:
 	  context_cache.backslash_p = 1;
@@ -492,13 +509,13 @@ find_context (struct buffer *buf, Bufpos pt)
 	    {
 	      context_cache.context = context_comment;
 	      context_cache.ccontext = ccontext_none;
-	      context_cache.style = SINGLE_SYNTAX_STYLE (mirrortab, c);
+	      context_cache.style = SINGLE_SYNTAX_STYLE (syncode);
 	      if (context_cache.style == comment_style_none) abort ();
 	    }
 	  break;
 
 	case Sendcomment:
-	  if (context_cache.style != SINGLE_SYNTAX_STYLE (mirrortab, c))
+	  if (context_cache.style != SINGLE_SYNTAX_STYLE (syncode))
 	    ;
 	  else if (context_cache.context == context_comment)
 	    {
@@ -525,7 +542,8 @@ find_context (struct buffer *buf, Bufpos pt)
 	      }
             else if (context_cache.context == context_none)
 	      {
-		Lisp_Object stringtermobj = syntax_match (syntaxtab, c);
+		Lisp_Object stringtermobj =
+		  syntax_match (syntax_cache.current_syntax_table, c);
 		Emchar stringterm;
 
 		if (CHARP (stringtermobj))
@@ -538,6 +556,35 @@ find_context (struct buffer *buf, Bufpos pt)
 	      }
             break;
           }
+
+	case Scomment_fence:
+	  {
+	    if (context_cache.context == context_generic_comment)
+	      {
+		context_cache.context = context_none;
+	      }
+	    else if (context_cache.context == context_none)
+	      {
+		context_cache.context = context_generic_comment;
+		context_cache.ccontext = ccontext_none;
+	      }
+	    break;
+	  }
+
+	case Sstring_fence:
+	  {
+	    if (context_cache.context == context_generic_string)
+	      {
+		context_cache.context = context_none;
+	      }
+	    else if (context_cache.context == context_none)
+	      {
+		context_cache.context = context_generic_string;
+		context_cache.ccontext = ccontext_none;
+	      }
+	    break;
+	  }
+
 	default:
 	  ;
 	}
@@ -546,18 +593,18 @@ find_context (struct buffer *buf, Bufpos pt)
 	 Now we've got to hack multi-char sequences that start
 	 and end block comments.
        */
-      if ((SYNTAX_COMMENT_BITS (mirrortab, c) &
+      if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 	   SYNTAX_SECOND_CHAR_START) &&
 	  context_cache.context == context_none &&
 	  context_cache.ccontext == ccontext_start1 &&
-	  SYNTAX_START_P (mirrortab, prev_c, c) /* the two chars match */
+	  SYNTAX_CODES_START_P (prev_syncode, syncode) /* the two chars match */
 	  )
 	{
 	  context_cache.ccontext = ccontext_start2;
-	  context_cache.style = SYNTAX_START_STYLE (mirrortab, prev_c, c);
+	  context_cache.style = SYNTAX_START_STYLE (prev_syncode, syncode);
 	  if (context_cache.style == comment_style_none) abort ();
 	}
-      else if ((SYNTAX_COMMENT_BITS (mirrortab, c) &
+      else if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 		SYNTAX_FIRST_CHAR_START) &&
 	       context_cache.context == context_none &&
 	       (context_cache.ccontext == ccontext_none ||
@@ -566,29 +613,30 @@ find_context (struct buffer *buf, Bufpos pt)
 	  context_cache.ccontext = ccontext_start1;
 	  context_cache.style = comment_style_none; /* should be this already*/
 	}
-      else if ((SYNTAX_COMMENT_BITS (mirrortab, c) &
+      else if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 		SYNTAX_SECOND_CHAR_END) &&
 	       context_cache.context == context_block_comment &&
 	       context_cache.ccontext == ccontext_end1 &&
-	       SYNTAX_END_P (mirrortab, prev_c, c) &&
+	       SYNTAX_CODES_END_P (prev_syncode, syncode) &&
 	       /* the two chars match */
 	       context_cache.style ==
-	       SYNTAX_END_STYLE (mirrortab, prev_c, c)
+	       SYNTAX_END_STYLE (prev_syncode, syncode)
 	       )
 	{
 	  context_cache.context = context_none;
 	  context_cache.ccontext = ccontext_none;
 	  context_cache.style = comment_style_none;
 	}
-      else if ((SYNTAX_COMMENT_BITS (mirrortab, c) &
+      else if ((SYNTAX_CODE_COMMENT_BITS (syncode) &
 		SYNTAX_FIRST_CHAR_END) &&
 	       context_cache.context == context_block_comment &&
-	       (context_cache.style ==
-		SYNTAX_END_STYLE (mirrortab, c,
-				  BUF_FETCH_CHAR (buf, pt+1))) &&
+	       context_cache.style == SINGLE_SYNTAX_STYLE (syncode) &&
 	       (context_cache.ccontext == ccontext_start2 ||
 		context_cache.ccontext == ccontext_end1))
-	/* #### is it right to check for end1 here?? */
+	/* #### is it right to check for end1 here?? 
+	   yes, because this might be a repetition of the first char
+	   of a comment-end sequence. ie, '/xxx foo xxx/' or
+	   '/xxx foo x/', where 'x' = '*' -- mct */
 	{
 	  if (context_cache.style == comment_style_none) abort ();
 	  context_cache.ccontext = ccontext_end1;
@@ -627,10 +675,12 @@ context_to_symbol (enum syntactic_context context)
 {
   switch (context)
     {
-    case context_none:		return Qnil;
-    case context_string:	return Qstring;
-    case context_comment:	return Qcomment;
-    case context_block_comment:	return Qblock_comment;
+    case context_none:			return Qnil;
+    case context_string:		return Qstring;
+    case context_comment:		return Qcomment;
+    case context_block_comment:		return Qblock_comment;
+    case context_generic_comment:	return Qblock_comment;
+    case context_generic_string:	return Qstring;
     default: abort (); return Qnil; /* suppress compiler warning */
     }
 }
@@ -721,7 +771,9 @@ WARNING: this may alter match-data.
       if (this_context == context_block_comment &&
 	  context_cache.ccontext == ccontext_start2)
 	estart -= 2;
-      else if (this_context == context_comment)
+      else if (this_context == context_comment
+	       || this_context == context_generic_comment
+	       )
 	estart -= 1;
 
       edepth = context_cache.depth;
@@ -737,7 +789,9 @@ WARNING: this may alter match-data.
 	 a part of the comment.
        */
       if ((this_context == context_block_comment ||
-	   this_context == context_comment)
+	   this_context == context_comment
+	   || this_context == context_generic_comment
+	   )
 	  && pt < e)
 	eend++;
 

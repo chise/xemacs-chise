@@ -312,8 +312,8 @@ looking_at_1 (Lisp_Object string, struct buffer *buf, int posix)
   s1 = p2 - p1;
   s2 = BI_BUF_ZV (buf) - p2;
 
+  regex_match_object = Qnil;
   regex_emacs_buffer = buf;
-  regex_emacs_buffer_p = 1;
   i = re_match_2 (bufp, (char *) BI_BUF_BYTE_ADDRESS (buf, p1),
 		  s1, (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
 		  BI_BUF_PT (buf) - BI_BUF_BEGV (buf), &search_regs,
@@ -403,8 +403,8 @@ string_match_1 (Lisp_Object regexp, Lisp_Object string, Lisp_Object start,
   QUIT;
   {
     Bytecount bis = charcount_to_bytecount (XSTRING_DATA (string), s);
+    regex_match_object = string;
     regex_emacs_buffer = buf;
-    regex_emacs_buffer_p = 0;
     val = re_search (bufp, (char *) XSTRING_DATA (string),
 		     XSTRING_LENGTH (string), bis,
 		     XSTRING_LENGTH (string) - bis,
@@ -495,8 +495,8 @@ fast_string_match (Lisp_Object regexp,  const Bufbyte *nonreloc,
     }
 
   /* #### evil current-buffer dependency */
+  regex_match_object = reloc;
   regex_emacs_buffer = current_buffer;
-  regex_emacs_buffer_p = 0;
   val = re_search (bufp, (char *) newnonreloc + offset, length, 0,
 		   length, 0);
 
@@ -784,7 +784,9 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
   unsigned char fastmap[0400];
   int negate = 0;
   REGISTER int i;
+#ifndef emacs
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   Bufpos limit;
 
   if (NILP (lim))
@@ -880,6 +882,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 
     if (syntaxp)
       {
+	SETUP_SYNTAX_CACHE_FOR_BUFFER (buf, BUF_PT (buf), forwardp ? 1 : -1);
 	/* All syntax designators are normal chars so nothing strange
 	   to worry about */
 	if (forwardp)
@@ -887,20 +890,26 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	    while (BUF_PT (buf) < limit
 		   && fastmap[(unsigned char)
                               syntax_code_spec
-			      [(int) SYNTAX (syntax_table,
-					     BUF_FETCH_CHAR
-					     (buf, BUF_PT (buf)))]])
-	      BUF_SET_PT (buf, BUF_PT (buf) + 1);
+			      [(int) SYNTAX_FROM_CACHE (syntax_table,
+							BUF_FETCH_CHAR
+							(buf, BUF_PT (buf)))]])
+	      {
+		BUF_SET_PT (buf, BUF_PT (buf) + 1);
+		UPDATE_SYNTAX_CACHE_FORWARD (BUF_PT (buf));
+	      }
 	  }
 	else
 	  {
 	    while (BUF_PT (buf) > limit
 		   && fastmap[(unsigned char)
                               syntax_code_spec
-			      [(int) SYNTAX (syntax_table,
-					     BUF_FETCH_CHAR
-					     (buf, BUF_PT (buf) - 1))]])
-	      BUF_SET_PT (buf, BUF_PT (buf) - 1);
+			      [(int) SYNTAX_FROM_CACHE (syntax_table,
+							BUF_FETCH_CHAR
+							(buf, BUF_PT (buf) - 1))]])
+	      {
+		BUF_SET_PT (buf, BUF_PT (buf) - 1);
+		UPDATE_SYNTAX_CACHE_BACKWARD (BUF_PT (buf) - 1);
+	      }
 	  }
       }
     else
@@ -1160,13 +1169,13 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
       p2 = BI_BUF_CEILING_OF (buf, p1);
       s1 = p2 - p1;
       s2 = BI_BUF_ZV (buf) - p2;
+      regex_match_object = Qnil;
 
       while (n < 0)
 	{
 	  Bytecount val;
 	  QUIT;
           regex_emacs_buffer = buf;
-	  regex_emacs_buffer_p = 1;
 	  val = re_search_2 (bufp,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p1), s1,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
@@ -1205,7 +1214,6 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 	  Bytecount val;
 	  QUIT;
           regex_emacs_buffer = buf;
-	  regex_emacs_buffer_p = 1;
           val = re_search_2 (bufp,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p1), s1,
 			     (char *) BI_BUF_BYTE_ADDRESS (buf, p2), s2,
