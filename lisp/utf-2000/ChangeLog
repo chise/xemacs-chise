@@ -1,4 +1,28 @@
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R147-See.el (JX1-7B79): Unify U+FA61 and KU+8996.
+
+2003-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (C5-2329): Unify GT-K02141.
+
+	* Ideograph-R146-West.el (CDP-8BD5): New character.
+	(U+8980): Add `total-strokes'; relate to M-34763.
+
+	* Ideograph-R145-Clothes.el (U+88B0): Separate J0-6A5E.
+	(M-34435): Unify U+FA60 and KU+8910; separate G0-3A56, C1-6E6E and
+	U+8910; unify BC-BDC5 instead of B-BDC5.
+
+	* Ideograph-R142-Insect.el (M-33094): Separate HZK1-CFE7 and
+	U+45BA.
+	(M-33143): Separate G0-435B, C1-6A6D and U+871C.
+
 2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R144-Walk-Enclosure.el (M-34046): Add S1-7325.
+	(J0-3D51): Add S1-7324.
+
+	* Ideograph-R141-Tiger.el (U+865B): Separate C1-6170.
 
 	* Ideograph-R140-Grass.el: Reformatted.
 	(M-30801): Separate JSP-5756, C2-2D41 and U+82EA.
