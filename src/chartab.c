@@ -1144,6 +1144,8 @@ Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
 Lisp_Object Q_component;
 Lisp_Object Q_component_of;
+Lisp_Object Q_same;
+Lisp_Object Q_same_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3279,6 +3281,41 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
+static Lisp_Object
+find_char_feature_in_family (Lisp_Object character,
+			     Lisp_Object con_feature,
+			     Lisp_Object feature,
+			     Lisp_Object feature_rel_max)
+{
+  Lisp_Object ancestors
+    = Fget_char_attribute (character, con_feature, Qnil);
+
+  while (!NILP (ancestors))
+    {
+      Lisp_Object ancestor = XCAR (ancestors);
+      Lisp_Object ret;
+
+      if (EQ (ancestor, character))
+	return Qunbound;
+
+      ret = Fchar_feature (ancestor, feature, Qunbound,
+			   Qnil, make_int (0));
+      if (!UNBOUNDP (ret))
+	return ret;
+
+      ancestors = XCDR (ancestors);
+
+      ret = Fget_char_attribute (ancestor, Q_subsumptive_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+
+      ret = Fget_char_attribute (ancestor, Q_denotational_from, Qnil);
+      if (!NILP (ret))
+	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
+    }
+  return Qunbound;
+}
+
 DEFUN ("char-feature", Fchar_feature, 2, 5, 0, /*
 Return the value of CHARACTER's FEATURE.
 Return DEFAULT-VALUE if the value is not exist.
@@ -3329,38 +3366,20 @@ Return DEFAULT-VALUE if the value is not exist.
 
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
-	  Lisp_Object ancestors
-	    = Fget_char_attribute (character, Q_identical, Qnil);
+	  ret = find_char_feature_in_family (character, Q_identical,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  if (NILP (ancestors))
-	    ancestors
-	      = Fget_char_attribute (character, Q_subsumptive_from, Qnil);
+	  ret = find_char_feature_in_family (character, Q_subsumptive_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 
-	  if (NILP (ancestors))
-	    ancestors
-	      = Fget_char_attribute (character, Q_denotational_from, Qnil);
-
-	  while (!NILP (ancestors))
-	    {
-	      Lisp_Object ancestor = XCAR (ancestors);
-
-	      if (!EQ (ancestor, character))
-		{
-		  ret = Fchar_feature (ancestor, attribute, Qunbound,
-				       Qnil, make_int (0));
-		  if (!UNBOUNDP (ret))
-		    return ret;
-
-		  ancestors = XCDR (ancestors);
-		  ret = Fget_char_attribute (ancestor,
-					     Q_subsumptive_from, Qnil);
-		  if (!NILP (ret))
-		    ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
-		}
-	      else
-		return default_value;
-	      /* ancestors = XCDR (ancestors); */
-	    }
+	  ret = find_char_feature_in_family (character, Q_denotational_from,
+					     attribute, feature_rel_max);
+	  if (!UNBOUNDP (ret))
+	    return ret;
 	}
     }
   return default_value;
@@ -3495,6 +3514,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_identical_from) ||
 	    EQ (attribute, Q_component) ||
 	    EQ (attribute, Q_component_of) ||
+	    EQ (attribute, Q_same) ||
+	    EQ (attribute, Q_same_of) ||
 	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
 				  Fsymbol_name (attribute),
 				  Qnil, Qnil)) )
@@ -3521,6 +3542,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_component_of;
       else if (EQ (attribute, Q_component_of))
 	rev_feature = Q_component;
+      else if (EQ (attribute, Q_same))
+	rev_feature = Q_same_of;
+      else if (EQ (attribute, Q_same_of))
+	rev_feature = Q_same;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
@@ -3805,6 +3830,8 @@ Save values of ATTRIBUTE into database file.
       if ( EQ (attribute, Qideographic_structure)
 	   || EQ (attribute, Q_identical)
 	   || EQ (attribute, Q_identical_from)
+	   || EQ (attribute, Q_same)
+	   || EQ (attribute, Q_same_of)
 	   || !NILP (Fstring_match
 		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
 		      Fsymbol_name (attribute),
@@ -4586,6 +4613,8 @@ syms_of_chartab (void)
   defsymbol (&Q_identical_from,		"<-identical");
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
+  defsymbol (&Q_same,			"->same");
+  defsymbol (&Q_same_of,		"<-same");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");

@@ -3375,7 +3375,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
   Lisp_Object ccs;
   Lisp_Object char_type;
   int format_columns, idx;
-  char format[18];
+  char format[20];
 
   while (!NILP (rest))
     {
@@ -3400,14 +3400,14 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
-	      if (STRINGP (ret) && ((idx = XSTRING_LENGTH (ret)) <= 6))
+	      if (STRINGP (ret) && ( (idx = XSTRING_LENGTH (ret)) <= 8 ))
 		{
 		  format[0] = '&';
 		  strncpy (&format[1], XSTRING_DATA (ret), idx);
 		  idx++;
 		}
 	      else
-		continue;
+		goto try_next;
 
 	      cell = Fcdr (cell);
 	      ret = Fcar (cell);
@@ -3431,7 +3431,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      else if (EQ (ret, QX))
 		format [idx++] = 'X';
 	      else
-		continue;
+		goto try_next;
 	      format [idx++] = ';';
 	      format [idx++] = 0;
 
@@ -3439,6 +3439,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	      return;
 	    }
 	}
+    try_next:
       rest = Fcdr (rest);
     }
   sprintf (buf, "&MCS-%08X;", ch);
