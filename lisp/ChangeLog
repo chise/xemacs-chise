@@ -1,3 +1,11 @@
+2003-03-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* version.el (emacs-version): Rename `XEmacs UTF-2000' to `XEmacs
+	CHISE'; use `xemacs-chise-version' instead of `utf-2000-version'.
+
+	* obsolete.el (utf-2000-version): Declare as an obsolete variable
+	for `xemacs-chise-version'.
+
 2003-03-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
