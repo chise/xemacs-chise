@@ -1,5 +1,15 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Add "u00400-Cyrillic.el",
+	"u00530-Armenian.el", "u00590-Hebrew.el", "u00600-Arabic.el",
+	"u00700-Syriac.el" and "u00780-Thaana.el".
+
+	* utf-2000/u00400-Cyrillic.el, utf-2000/u00530-Armenian.el,
+	utf-2000/u00590-Hebrew.el, utf-2000/u00600-Arabic.el,
+	utf-2000/u00700-Syriac.el, utf-2000/u00780-Thaana.el: New files.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/u00370-Greek.el (FULLWIDTH GREEK SMALL LETTER BETA):
 	Fix typo.
 
