@@ -1,3 +1,11 @@
+2003-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (M-27295): Unify JC3-5EF3 and M054342.
+	(J90-4A36): Unify M027295.
+
+	* Ideograph-R119-Rice.el (M-26872): Don't unify JC3-5EF3 and
+	M054342.
+
 2003-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R119-Rice.el (M-26872): Unify JC3-5EF3 and M054342.
