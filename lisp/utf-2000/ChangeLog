@@ -1,5 +1,15 @@
 2004-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R213-Turtle.el, Ideograph-R205-Frog.el,
+	Ideograph-R199-Wheat.el, Ideograph-R196-Bird.el,
+	Ideograph-R195-Fish.el, Ideograph-R184-Eat.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-{723C|6A64|6B36|
 	6E43|3D36|6E44|3C60|6E45|6E46|6E48|6E4B|6E4A|6E4F|6E52|6E51|
 	4830|6E54|6E55|395A|724D|737D}.
