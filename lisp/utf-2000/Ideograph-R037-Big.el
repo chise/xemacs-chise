@@ -1960,7 +1960,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (<-vulgar
-     ((=daikanwa	  . 19746)	; &I-M-19746;
+     ((=ucs		  . #x723D)	; 爽
+      (=daikanwa	  . 19746)	; &I-M-19746;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)
@@ -1973,17 +1974,25 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 542 1)
     (=ucs		. #x2162C)	; 𡘬
-    (=hanziku-2		. #xBF74)	; &I-HZK02-BF74;
+    (->subsumptive
+     ((=ucs@iso		  . #x2162C)	; &UU+2162C;
+      )
+     ((hanyu-dazidian	  1 542 1)
+      (=hanziku-2	  . #xBF74)	; &HZK02-BF74;
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 543 3)
     (=ucs		. #x21643)	; 𡙃
-    (=hanziku-2		. #xBFB8)	; &I-HZK02-BFB8;
+    (->subsumptive
+     ((hanyu-dazidian	  1 543 3)
+      (=hanziku-2	  . #xBFB8)	; &HZK02-BFB8;
+      )
+     ((=ucs@iso		  . #x21643)	; &UU+21643;
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
