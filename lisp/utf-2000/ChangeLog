@@ -1,3 +1,13 @@
+2003-03-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R125-Old.el, Ideograph-R140-Grass.el,
+	Ideograph-R085-Water.el, Ideograph-R072-Sun.el,
+	Ideograph-R061-Heart.el: Convert `=>ucs-ks' to `=>ucs@ks'.
+
+	* char-db-util.el (insert-char-attributes): New implementation to
+	convert `=>ucs-FOO' to `=>ucs@FOO'; convert `=>ucs-ks' to
+	`=>ucs@ks'.
+
 2003-03-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R209-Nose.el, Ideograph-R210-Even.el,
