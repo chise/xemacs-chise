@@ -781,14 +781,6 @@ the toolbar, glyphs, etc.
   return !EQ (type, Qtty) && !EQ (type, Qstream) ? Qt : Qnil;
 }
 
-DEFUN ("console-features", Fconsole_features, 0, 1, 0, /*
-Return a list of console-specific features.
-*/
-       (console))
-{
-  return CONSOLE_FEATURES (decode_console (console));
-}
-
 
 
 /**********************************************************************/
@@ -1087,7 +1079,6 @@ syms_of_console (void)
   DEFSUBR (Fconsole_enable_input);
   DEFSUBR (Fconsole_disable_input);
   DEFSUBR (Fconsole_on_window_system_p);
-  DEFSUBR (Fconsole_features);
   DEFSUBR (Fsuspend_console);
   DEFSUBR (Fresume_console);
 

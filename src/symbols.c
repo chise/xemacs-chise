@@ -58,8 +58,6 @@ Boston, MA 02111-1307, USA.  */
 #include "console.h"
 #include "elhash.h"
 
-#include <stddef.h>
-
 Lisp_Object Qad_advice_info, Qad_activate;
 
 Lisp_Object Qget_value, Qset_value, Qbound_predicate, Qmake_unbound;

@@ -200,6 +200,7 @@ void image_instantiator_format_create_glyphs_eimage (void);
 void image_instantiator_format_create_glyphs_widget (void);
 void image_instantiator_format_create_glyphs_x (void);
 void image_instantiator_format_create_glyphs_mswindows (void);
+void image_instantiator_format_create_glyphs_tty (void);
 
 /* Initialize the lstream types (dump-time only). */
 

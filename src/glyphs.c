@@ -174,21 +174,38 @@ decode_image_instantiator_format (Lisp_Object format, Error_behavior errb)
 }
 
 static int
-valid_image_instantiator_format_p (Lisp_Object format)
+valid_image_instantiator_format_p (Lisp_Object format, Lisp_Object locale)
 {
-  return (decode_image_instantiator_format (format, ERROR_ME_NOT) != 0);
+  int i;
+  struct image_instantiator_methods* meths =
+    decode_image_instantiator_format (format, ERROR_ME_NOT);
+  struct console* console = decode_console (locale);
+  Lisp_Object contype = console ? CONSOLE_TYPE (console) : locale;
+  /* nothing is valid in all locales */
+  if (EQ (format, Qnothing))
+    return 1;
+  /* reject unknown formats */
+  else if (!console || !meths)
+    return 0;
+
+  for (i = 0; i < Dynarr_length (meths->consoles); i++)
+    if (EQ (contype, Dynarr_at (meths->consoles, i).symbol))
+      return 1;
+  return 0;
 }
 
 DEFUN ("valid-image-instantiator-format-p", Fvalid_image_instantiator_format_p,
-       1, 1, 0, /*
+       1, 2, 0, /*
 Given an IMAGE-INSTANTIATOR-FORMAT, return non-nil if it is valid.
+If LOCALE is non-nil then the format is checked in that domain.
+If LOCALE is nil the current console is used.
 Valid formats are some subset of 'nothing, 'string, 'formatted-string,
 'xpm, 'xbm, 'xface, 'gif, 'jpeg, 'png, 'tiff, 'cursor-font, 'font,
 'autodetect, 'widget and 'subwindow, depending on how XEmacs was compiled.
 */
-       (image_instantiator_format))
+       (image_instantiator_format, locale))
 {
-  return valid_image_instantiator_format_p (image_instantiator_format) ?
+  return valid_image_instantiator_format_p (image_instantiator_format, locale) ?
     Qt : Qnil;
 }
 
@@ -547,6 +564,11 @@ instantiate_image_instantiator (Lisp_Object device, Lisp_Object domain,
   int  methp = 0;
 
   GCPRO1 (ii);
+  if (!valid_image_instantiator_format_p (XVECTOR_DATA (instantiator)[0], device))
+    signal_simple_error
+      ("Image instantiator format is invalid in this locale.",
+       instantiator);
+
   meths = decode_image_instantiator_format (XVECTOR_DATA (instantiator)[0],
 					    ERROR_ME);
   methp = (int)HAS_IIFORMAT_METH_P (meths, instantiate);
@@ -4107,7 +4129,6 @@ image_instantiator_format_create (void)
   IIFORMAT_HAS_METHOD (formatted_string, validate);
   IIFORMAT_HAS_METHOD (formatted_string, possible_dest_types);
   IIFORMAT_HAS_METHOD (formatted_string, instantiate);
-
   IIFORMAT_VALID_KEYWORD (formatted_string, Q_data, check_valid_string);
 
   /* subwindows */

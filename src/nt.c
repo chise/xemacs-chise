@@ -43,7 +43,6 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <io.h>
 #include <pwd.h>
 #include <signal.h>
-#include <stddef.h> /* for offsetof */
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>

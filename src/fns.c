@@ -3231,7 +3231,7 @@ in which case you can't use this.
 
 Lisp_Object Vfeatures;
 
-DEFUN ("featurep", Ffeaturep, 1, 2, 0, /*
+DEFUN ("featurep", Ffeaturep, 1, 1, 0, /*
 Return non-nil if feature FEXP is present in this Emacs.
 Use this to conditionalize execution of lisp code based on the
  presence or absence of emacs or environment extensions.
@@ -3266,7 +3266,7 @@ symbol) are not yet supported by FSF Emacs.  If you feel they are useful
 for supporting multiple Emacs variants, lobby Richard Stallman at
 <bug-gnu-emacs@prep.ai.mit.edu>.
 */
-       (fexp, console))
+       (fexp))
 {
 #ifndef FEATUREP_SYNTAX
   CHECK_SYMBOL (fexp);
@@ -3278,11 +3278,7 @@ for supporting multiple Emacs variants, lobby Richard Stallman at
   if (SYMBOLP (fexp))
     {
       /* Original definition */
-      return (NILP (Fmemq (fexp, Vfeatures)) 
-	      && 
-	      NILP (Fmemq (fexp, 
-			   CONSOLE_FEATURES (decode_console (console))))) 
-	? Qnil : Qt;
+      return NILP (Fmemq (fexp, Vfeatures)) ? Qnil : Qt;
     }
   else if (INTP (fexp) || FLOATP (fexp))
     {
@@ -3351,43 +3347,10 @@ This function updates the value of the variable `features'.
   CHECK_SYMBOL (feature);
   if (!NILP (Vautoload_queue))
     Vautoload_queue = Fcons (Fcons (Vfeatures, Qnil), Vautoload_queue);
-
   tem = Fmemq (feature, Vfeatures);
   if (NILP (tem))
     Vfeatures = Fcons (feature, Vfeatures);
   LOADHIST_ATTACH (Fcons (Qprovide, feature));
-  return feature;
-}
-
-DEFUN ("provide-on-console", Fprovide_on_console, 2, 2, 0, /*
-Announce that FEATURE is a feature of the current Emacs.
-This function updates the value of `console-features' for the provided CONSOLE.
-*/
-       (feature, console))
-{
-  Lisp_Object tem;
-  CHECK_SYMBOL (feature);
-
-  if (SYMBOLP (console))
-    {
-      struct console_methods* meths = decode_console_type (console, ERROR_ME);
-  
-      tem = Fmemq (feature, CONMETH_FEATURES (meths));
-      if (NILP (tem))
-	CONMETH_FEATURES (meths) =
-	  Fcons (feature, CONMETH_FEATURES (meths));
-    }
-  else
-    {
-      struct console* pconsole;
-      CHECK_CONSOLE (console);
-
-      pconsole = decode_console (console);
-      tem = Fmemq (feature, CONSOLE_FEATURES (pconsole));
-      if (NILP (tem))
-	CONSOLE_FEATURES (pconsole) =
-	  Fcons (feature, CONSOLE_FEATURES (pconsole));
-    }
   return feature;
 }
 
@@ -3403,10 +3366,7 @@ If FILENAME is omitted, the printname of FEATURE is used as the file name.
   CHECK_SYMBOL (feature);
   tem = Fmemq (feature, Vfeatures);
   LOADHIST_ATTACH (Fcons (Qrequire, feature));
-  if (!NILP (tem)
-      ||
-      !NILP (Fmemq (feature, CONSOLE_FEATURES 
-		    (XCONSOLE (Fselected_console ())))))
+  if (!NILP (tem))
     return feature;
   else
     {
@@ -3917,7 +3877,6 @@ syms_of_fns (void)
   DEFSUBR (Ffeaturep);
   DEFSUBR (Frequire);
   DEFSUBR (Fprovide);
-  DEFSUBR (Fprovide_on_console);
   DEFSUBR (Fbase64_encode_region);
   DEFSUBR (Fbase64_encode_string);
   DEFSUBR (Fbase64_decode_region);
