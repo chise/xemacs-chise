@@ -25,6 +25,15 @@
 
 ;;; Code:
 
+;; PinYin-ZhuYin
+(make-charset 'sisheng "PinYin-ZhuYin"
+	      '(registry "sisheng_cwnn\\|OMRON_UDC_ZH"
+		dimension 1
+		chars 94
+		final ?0
+		graphic 0
+		))
+
 ;; Lao script.
 ;; ISO10646's 0x0E80..0x0EDF are mapped to 0x20..0x7F.
 (make-charset 'lao "Lao script"
@@ -50,5 +59,42 @@
 		final ?3
 		graphic 0
 		))
+
+;; ISO-IR-165 (CCITT Extended GB)
+;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
+;;    GB 8565-88 table A4 + 293 characters.
+(make-charset
+ 'chinese-isoir165
+ "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
+ `(registry "isoir165"
+   dimension 2
+   chars 94
+   final ?E
+   graphic 0))
+
+;; CNS11643 Plane3 thru Plane7
+;; These represent more and more obscure Chinese characters.
+;; By the time you get to Plane 7, we're talking about characters
+;; that appear once in some ancient manuscript and whose meaning
+;; is unknown.
+
+(flet
+    ((make-chinese-cns11643-charset
+      (name plane final)
+      (make-charset
+       name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
+       `(registry 
+	 ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
+	 dimension 2
+	 chars 94
+	 final ,final
+	 graphic 0))
+      ))
+  (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
+  (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
+  (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
+  (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
+  (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
+  )
 
 ;;; mule-conf.el ends here
