@@ -479,6 +479,13 @@
 		      line-breaking))
       (setq attributes (delq '=>ucs-jis attributes))
       )
+    (when (and (memq '=>ucs-ks attributes)
+	       (setq value (get-char-attribute char '=>ucs-ks)))
+      (insert (format "(=>ucs-ks\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs-ks value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs-ks attributes))
+      )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
       (insert (format (if char-db-convert-obsolete-format
