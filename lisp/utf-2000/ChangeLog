@@ -1,5 +1,15 @@
 2004-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R195-Fish.el: Add some `total-strokes' features.
+
+	* Ideograph-R194-Ghost.el (U+9B47): Add `total-strokes'.
+
+	* Ideograph-R188-Bone.el: Add some `total-strokes' features.
+
+	* Ideograph-R187-Horse.el: Add some `total-strokes' features.
+	(U+9A95): Fix strokes.
+	(U+84E6): Moved to Ideograph-R140-Grass.el.
+
 	* Ideograph-R140-Grass.el (U+84E6): Moved from
 	Ideograph-R187-Horse.el.
 
