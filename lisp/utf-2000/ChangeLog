@@ -1,3 +1,31 @@
+2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el (U-00029ACF): Modify
+	`ideographic-structure'; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R160-Bitter.el (U-00028410): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R114-Track.el (U+79BB): Use `->subsumptive'.
+
+	* Ideograph-R071-Not.el (J0-347B): Add
+	`<-simplified@daikanwa*sources'.
+
+	* Ideograph-R050-Turban.el (M-09148): Simplify
+	`ideographic-structure'.
+
+	* Ideograph-R044-Corpse.el (U+5C56): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (J0-526B): Modify
+	`ideographic-structure'.
+	(U+548E): Simplify `ideographic-structure'.
+
+	* Ideograph-R012-Eight.el (U+516C): Use `->subsumptive'.
+
+	* Ideograph-R005-Second.el (H1-AFC7): Modify
+	`ideographic-structure'.
+
 2004-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Display
