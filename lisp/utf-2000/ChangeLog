@@ -1,3 +1,30 @@
+2005-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el (U+5185): Add `<-denotational' for
+	J97-4662; delete `<-vulgar' for U+5167.
+	(J97-4662): New abstract character.
+
+	* Ideograph-R011-Enter.el (U+5167): Use `->subsumptive'; add
+	`<-denotational' for J97-4662.
+	(J97-4662): New abstract character.
+	(U+5185): Copied from Ideograph-R009-Man.el and
+	Ideograph-R013-Down-Box.el; changed to abstract character; add
+	`<-denotational' for J97-4662.
+
+	* Ideograph-R074-Moon.el (J97-442B): New abstract character.
+	(M-14374): Use `<-denotational' for J97-442B instead of `=>ucs'
+	for U+671D.
+	(U+671D): Likewise.
+
+	* Ideograph-R061-Heart.el (U+611B): Use `->subsumptive'.
+
+2005-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-total-strokes-from-domains): Use
+	`char-feature' instead of `get-char-attribute' to get
+	`total-strokes'.
+	(char-total-strokes): Likewise.
+
 2005-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U+4FC0): Unify B-CDED.
