@@ -1,3 +1,37 @@
+2001-08-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el, Ideograph-R084-Steam.el: Merge GB 12345
+	code points.
+
+	* Ideograph-R080-Do-Not.el (U+4E78): Add `total-strokes'; unify
+	G1-7C40.
+
+	* Ideograph-R082-Fur.el: Merge GB 12345 code points.
+
+2001-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (M-16629): Use `<-vulgar-ideograph'
+	instead of `vulgar-ideograph-of'.
+	- Merge GB 12345 code points.
+
+2001-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R078-Death.el, Ideograph-R076-Lack.el: Merge GB 12345
+	code points.
+
+	* Ideograph-R075-Tree.el: Merge GB 12345 code points.
+	(C5-2148): Delete relation with U+6729; fix `morohashi-daikanwa';
+	relate to M-14416.
+	(U+6729): Unify G1-7D33.
+	(M-15492): Add `->same-ideograph'; use `<-vulgar-ideograph'
+	instead of `vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R072-Sun.el: Merge GB 12345 code points.
+	(M-13886): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'; unify G0-5667.
+	(C6-3836): Separated from M-14294 and moved from
+	Ideograph-R073-Say.el.
+
 2001-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el: Merge GB 12345 code points.
