@@ -1,5 +1,10 @@
 2002-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R059-Bristle.el, Ideograph-R058-Snout.el,
+	Ideograph-R057-Bow.el: Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R056-Shoot.el (JC3-41A7): New character.
+
 	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el,
 	Ideograph-R053-Dotted-Cliff.el: Merge mapping to CHINA3-JEF code
 	points.
