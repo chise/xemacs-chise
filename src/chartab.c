@@ -1136,6 +1136,8 @@ Lisp_Object Qsystem_char_id;
 
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
+Lisp_Object Q_denotational;
+Lisp_Object Q_denotational_from;
 Lisp_Object Q_unified;
 Lisp_Object Q_unified_from;
 Lisp_Object Qto_ucs;
@@ -3324,6 +3326,10 @@ Return DEFAULT-VALUE if the value is not exist.
 	  Lisp_Object ancestors
 	    = Fget_char_attribute (character, Q_unified_from, Qnil);
 
+	  if (NILP (ancestors))
+	    ancestors
+	      = Fget_char_attribute (character, Q_denotational_from, Qnil);
+
 	  while (!NILP (ancestors))
 	    {
 	      Lisp_Object ancestor = XCAR (ancestors);
@@ -3414,6 +3420,26 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
     }
 }
 
+static Lisp_Object
+put_char_attribute (Lisp_Object character, Lisp_Object attribute,
+		    Lisp_Object value)
+{
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table,
+				Qnil);
+
+  if (NILP (table))
+    {
+      table = make_char_id_table (Qunbound);
+      Fputhash (attribute, table, Vchar_attribute_hash_table);
+#ifdef HAVE_CHISE
+      XCHAR_TABLE_NAME (table) = attribute;
+#endif
+    }
+  put_char_id_table (XCHAR_TABLE(table), character, value);
+  return value;
+}
+
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
 Store CHARACTER's ATTRIBUTE with VALUE.
 */
@@ -3425,25 +3451,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
   if (!NILP (ccs))
     {
-#if 0
-      Lisp_String* name = symbol_name (XSYMBOL (attribute));
-      Bufbyte *name_str = string_data (name);
-#endif
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
-#if 0
-      if (name_str[0] == '=')
-	{
-	  Bytecount length = string_length (name) + 1;
-	  Lisp_Object map_to = make_uninit_string (length);
-
-	  memcpy (XSTRING_DATA (map_to) + 2, name_str + 1, length - 2);
-	  XSTRING_DATA(map_to)[0] = '=';
-	  XSTRING_DATA(map_to)[1] = '>';
-	  Fput_char_attribute (character,
-			       Fintern (map_to, Qnil), value);
-	}
-#endif
     }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
@@ -3460,17 +3469,16 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       ret = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
 			   Qnil, Qnil);
       if (!CONSP (ret))
-	{
-	  Fput_char_attribute (make_char (c), Q_ucs_unified,
-			       Fcons (character, Qnil));
-	}
+	put_char_attribute (make_char (c), Q_ucs_unified,
+			    list1 (character));
       else if (NILP (Fmemq (character, ret)))
-	{
-	  Fput_char_attribute (make_char (c), Q_ucs_unified,
-			       Fcons (character, ret));
-	}
+	Fput_char_attribute (make_char (c), Q_ucs_unified,
+			     Fcons (character, ret));
     }
-  else if (EQ (attribute, Q_unified))
+  else if ( EQ (attribute, Q_unified) ||
+	    EQ (attribute, Q_unified_from) ||
+	    EQ (attribute, Q_denotational) ||
+	    EQ (attribute, Q_denotational_from) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3484,7 +3492,24 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  
 	  if ( !NILP (ret) && !EQ (ret, character) )
 	    {
-	      Fput_char_attribute (ret, Q_unified_from, list1 (character));
+	      Lisp_Object rev_feature;
+	      Lisp_Object ffv;
+
+	      if (EQ (attribute, Q_unified))
+		rev_feature = Q_unified_from;
+	      else if (EQ (attribute, Q_unified_from))
+		rev_feature = Q_unified;
+	      else if (EQ (attribute, Q_denotational))
+		rev_feature = Q_denotational_from;
+	      else /* if (EQ (attribute, Q_denotational_from)) */
+		rev_feature = Q_denotational;
+
+	      ffv = Fget_char_attribute (ret, rev_feature, Qnil);
+	      if (!CONSP (ffv))
+		put_char_attribute (ret, rev_feature, list1 (character));
+	      else if (NILP (Fmemq (character, ffv)))
+		put_char_attribute (ret, rev_feature,
+				    Fcons (character, ffv));
 	      Fsetcar (rest, ret);
 	    }
 	  rest = XCDR (rest);
@@ -3494,22 +3519,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   else if (EQ (attribute, Qideographic_structure))
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
 #endif
-  {
-    Lisp_Object table = Fgethash (attribute,
-				  Vchar_attribute_hash_table,
-				  Qnil);
-
-    if (NILP (table))
-      {
-	table = make_char_id_table (Qunbound);
-	Fputhash (attribute, table, Vchar_attribute_hash_table);
-#ifdef HAVE_CHISE
-	XCHAR_TABLE_NAME (table) = attribute;
-#endif
-      }
-    put_char_id_table (XCHAR_TABLE(table), character, value);
-    return value;
-  }
+  return put_char_attribute (character, attribute, value);
 }
   
 DEFUN ("remove-char-attribute", Fremove_char_attribute, 2, 2, 0, /*
@@ -4504,6 +4514,8 @@ syms_of_chartab (void)
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
   defsymbol (&Q_unified,		"->unified");
   defsymbol (&Q_unified_from,		"<-unified");
+  defsymbol (&Q_denotational,		"->denotational");
+  defsymbol (&Q_denotational_from,	"<-denotational");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
