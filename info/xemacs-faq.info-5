@@ -1,0 +1,1266 @@
+This is ../info/xemacs-faq.info, produced by makeinfo version 4.0 from
+xemacs-faq.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* FAQ: (xemacs-faq).            XEmacs FAQ.
+END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q5.1.3,  Next: Q5.1.4,  Prev: Q5.1.2,  Up: Miscellaneous
+
+Q5.1.3: Could you explain `read-kbd-macro' in more detail?
+----------------------------------------------------------
+
+   The `read-kbd-macro' function returns the internal Emacs
+representation of a human-readable string (which is its argument).
+Thus:
+
+     (read-kbd-macro "C-c C-a")
+     => [(control ?c) (control ?a)]
+     
+     (read-kbd-macro "C-c C-. <up>")
+     => [(control ?c) (control ?.) up]
+
+   In GNU Emacs the same forms will be evaluated to what GNU Emacs
+understands internally--the sequences `"\C-x\C-c"' and `[3 67108910
+up]', respectively.
+
+   The exact "human-readable" syntax is defined in the docstring of
+`edmacro-mode'.  I'll repeat it here, for completeness.
+
+     Format of keyboard macros during editing:
+
+     Text is divided into "words" separated by whitespace.  Except for
+     the words described below, the characters of each word go directly
+     as characters of the macro.  The whitespace that separates words is
+     ignored.  Whitespace in the macro must be written explicitly, as in
+     `foo <SPC> bar <RET>'.
+
+        * The special words `RET', `SPC', `TAB', `DEL', `LFD', `ESC',
+          and `NUL' represent special control characters.  The words
+          must be written in uppercase.
+
+        * A word in angle brackets, e.g., `<return>', `<down>', or
+          `<f1>', represents a function key.  (Note that in the standard
+          configuration, the function key `<return>' and the control key
+          <RET> are synonymous.)  You can use angle brackets on the
+          words <RET>, <SPC>, etc., but they are not required there.
+
+        * Keys can be written by their ASCII code, using a backslash
+          followed by up to six octal digits.  This is the only way to
+          represent keys with codes above \377.
+
+        * One or more prefixes `M-' (meta), `C-' (control), `S-'
+          (shift), `A-' (alt), `H-' (hyper), and `s-' (super) may
+          precede a character or key notation.  For function keys, the
+          prefixes may go inside or outside of the brackets: `C-<down>'
+          == `<C-down>'.  The prefixes may be written in any order:
+          `M-C-x' == `C-M-x'.
+
+          Prefixes are not allowed on multi-key words, e.g., `C-abc',
+          except that the Meta prefix is allowed on a sequence of
+          digits and optional minus sign: `M--123' == `M-- M-1 M-2 M-3'.
+
+        * The `^' notation for control characters also works: `^M' ==
+          `C-m'.
+
+        * Double angle brackets enclose command names: `<<next-line>>'
+          is shorthand for `M-x next-line <RET>'.
+
+        * Finally, `REM' or `;;' causes the rest of the line to be
+          ignored as a comment.
+
+     Any word may be prefixed by a multiplier in the form of a decimal
+     number and `*': `3*<right>' == `<right> <right> <right>', and
+     `10*foo' == `foofoofoofoofoofoofoofoofoofoo'.
+
+     Multiple text keys can normally be strung together to form a word,
+     but you may need to add whitespace if the word would look like one
+     of the above notations: `; ; ;' is a keyboard macro with three
+     semicolons, but `;;;' is a comment.  Likewise, `\ 1 2 3' is four
+     keys but `\123' is a single key written in octal, and `< right >'
+     is seven keys but `<right>' is a single function key.  When in
+     doubt, use whitespace.
+
+
+File: xemacs-faq.info,  Node: Q5.1.4,  Next: Q5.1.5,  Prev: Q5.1.3,  Up: Miscellaneous
+
+Q5.1.4: What is the performance hit of `let'?
+---------------------------------------------
+
+   In most cases, not noticeable.  Besides, there's no avoiding
+`let'--you have to bind your local variables, after all.  Some pose a
+question whether to nest `let's, or use one `let' per function.  I
+think because of clarity and maintenance (and possible future
+implementation), `let'-s should be used (nested) in a way to provide
+the clearest code.
+
+
+File: xemacs-faq.info,  Node: Q5.1.5,  Next: Q5.1.6,  Prev: Q5.1.4,  Up: Miscellaneous
+
+Q5.1.5: What is the recommended use of `setq'?
+----------------------------------------------
+
+   * Global variables
+
+     You will typically `defvar' your global variable to a default
+     value, and use `setq' to set it later.
+
+     It is never a good practice to `setq' user variables (like
+     `case-fold-search', etc.), as it ignores the user's choice
+     unconditionally.  Note that `defvar' doesn't change the value of a
+     variable if it was bound previously.  If you wish to change a
+     user-variable temporarily, use `let':
+
+          (let ((case-fold-search nil))
+            ...                                   ; code with searches that must be case-sensitive
+            ...)
+
+     You will notice the user-variables by their docstrings beginning
+     with an asterisk (a convention).
+
+   * Local variables
+
+     Bind them with `let', which will unbind them (or restore their
+     previous value, if they were bound) after exiting from the `let'
+     form.  Change the value of local variables with `setq' or whatever
+     you like (e.g. `incf', `setf' and such).  The `let' form can even
+     return one of its local variables.
+
+     Typical usage:
+
+          ;; iterate through the elements of the list returned by
+          ;; `hairy-function-that-returns-list'
+          (let ((l (hairy-function-that-returns-list)))
+            (while l
+              ... do something with (car l) ...
+              (setq l (cdr l))))
+
+     Another typical usage includes building a value simply to work
+     with it.
+
+          ;; Build the mode keymap out of the key-translation-alist
+          (let ((inbox (file-truename (expand-file-name box)))
+                (i 0))
+            ... code dealing with inbox ...
+            inbox)
+
+     This piece of code uses the local variable `inbox', which becomes
+     unbound (or regains old value) after exiting the form.  The form
+     also returns the value of `inbox', which can be reused, for
+     instance:
+
+          (setq foo-processed-inbox
+                (let .....))
+
+
+File: xemacs-faq.info,  Node: Q5.1.6,  Next: Q5.1.7,  Prev: Q5.1.5,  Up: Miscellaneous
+
+Q5.1.6: What is the typical misuse of `setq' ?
+----------------------------------------------
+
+   A typical misuse is probably `setq'ing a variable that was meant to
+be local.  Such a variable will remain bound forever, never to be
+garbage-collected.  For example, the code doing:
+
+     (defun my-function (whatever)
+       (setq a nil)
+       ... build a large list ...
+       ... and exit ...)
+
+   does a bad thing, as `a' will keep consuming memory, never to be
+unbound.  The correct thing is to do it like this:
+
+     (defun my-function (whatever)
+       (let (a)                              ; default initialization is to nil
+         ... build a large list ...
+         ... and exit, unbinding `a' in the process  ...)
+
+   Not only is this prettier syntactically, but it makes it possible for
+Emacs to garbage-collect the objects which `a' used to reference.
+
+   Note that even global variables should not be `setq'ed without
+`defvar'ing them first, because the byte-compiler issues warnings.  The
+reason for the warning is the following:
+
+     (defun flurgoze nil)                    ; ok, global internal variable
+     ...
+     
+     (setq flurghoze t)                      ; ops!  a typo, but semantically correct.
+                                             ; however, the byte-compiler warns.
+     
+     While compiling toplevel forms:
+     ** assignment to free variable flurghoze
+
+
+File: xemacs-faq.info,  Node: Q5.1.7,  Next: Q5.1.8,  Prev: Q5.1.6,  Up: Miscellaneous
+
+Q5.1.7: I like the the `do' form of cl, does it slow things down?
+-----------------------------------------------------------------
+
+   It shouldn't.  Here is what Dave Gillespie has to say about cl.el
+performance:
+
+     Many of the advanced features of this package, such as `defun*',
+     `loop', and `setf', are implemented as Lisp macros.  In
+     byte-compiled code, these complex notations will be expanded into
+     equivalent Lisp code which is simple and efficient.  For example,
+     the forms
+
+          (incf i n)
+          (push x (car p))
+
+     are expanded at compile-time to the Lisp forms
+
+          (setq i (+ i n))
+          (setcar p (cons x (car p)))
+
+     which are the most efficient ways of doing these respective
+     operations in Lisp.  Thus, there is no performance penalty for
+     using the more readable `incf' and `push' forms in your compiled
+     code.
+
+     _Interpreted_ code, on the other hand, must expand these macros
+     every time they are executed.  For this reason it is strongly
+     recommended that code making heavy use of macros be compiled.  (The
+     features labelled "Special Form" instead of "Function" in this
+     manual are macros.)  A loop using `incf' a hundred times will
+     execute considerably faster if compiled, and will also
+     garbage-collect less because the macro expansion will not have to
+     be generated, used, and thrown away a hundred times.
+
+     You can find out how a macro expands by using the `cl-prettyexpand'
+     function.
+
+
+File: xemacs-faq.info,  Node: Q5.1.8,  Next: Q5.1.9,  Prev: Q5.1.7,  Up: Miscellaneous
+
+Q5.1.8: I like recursion, does it slow things down?
+---------------------------------------------------
+
+   Yes.  Emacs byte-compiler cannot do much to optimize recursion.  But
+think well whether this is a real concern in Emacs.  Much of the Emacs
+slowness comes from internal mechanisms such as redisplay, or from the
+fact that it is an interpreter.
+
+   Please try not to make your code much uglier to gain a very small
+speed gain.  It's not usually worth it.
+
+
+File: xemacs-faq.info,  Node: Q5.1.9,  Next: Q5.1.10,  Prev: Q5.1.8,  Up: Miscellaneous
+
+Q5.1.9: How do I put a glyph as annotation in a buffer?
+-------------------------------------------------------
+
+   Here is a solution that will insert the glyph annotation at the
+beginning of buffer:
+
+     (make-annotation (make-glyph '([FORMAT :file FILE]
+                                    [string :data "fallback-text"]))
+                      (point-min)
+                      'text
+                      (current-buffer))
+
+   Replace `FORMAT' with an unquoted symbol representing the format of
+the image (e.g. `xpm', `xbm', `gif', `jpeg', etc.)  Instead of `FILE',
+use the image file name (e.g.
+`/usr/local/lib/xemacs-20.2/etc/recycle.xpm').
+
+   You can turn this to a function (that optionally prompts you for a
+file name), and inserts the glyph at `(point)' instead of `(point-min)'.
+
+
+File: xemacs-faq.info,  Node: Q5.1.10,  Next: Q5.1.11,  Prev: Q5.1.9,  Up: Miscellaneous
+
+Q5.1.10: `map-extents' won't traverse all of my extents!
+--------------------------------------------------------
+
+   I tried to use `map-extents' to do an operation on all the extents
+in a region.  However, it seems to quit after processing a random number
+of extents.  Is it buggy?
+
+   No.  The documentation of `map-extents' states that it will iterate
+across the extents as long as FUNCTION returns `nil'.  Unexperienced
+programmers often forget to return `nil' explicitly, which results in
+buggy code.  For instance, the following code is supposed to delete all
+the extents in a buffer, and issue as many `fubar!' messages.
+
+     (map-extents (lambda (ext ignore)
+                    (delete-extent ext)
+                    (message "fubar!")))
+
+   Instead, it will delete only the first extent, and stop right there -
+because `message' will return a non-nil value.  The correct code is:
+
+     (map-extents (lambda (ext ignore)
+                    (delete-extent ext)
+                    (message "fubar!")
+                    nil))
+
+
+File: xemacs-faq.info,  Node: Q5.1.11,  Next: Q5.2.1,  Prev: Q5.1.10,  Up: Miscellaneous
+
+Q5.1.11: My elisp program is horribly slow.  Is there
+-----------------------------------------------------
+
+   an easy way to find out where it spends time?
+
+   zHrvoje Niksic <hniksic@xemacs.org> writes:
+     Under XEmacs 20.4 and later  you can use `M-x
+     profile-key-sequence', press a key (say <RET> in the Gnus Group
+     buffer), and get the results using `M-x profile-results'.  It
+     should give you an idea of where the time is being spent.
+
+
+File: xemacs-faq.info,  Node: Q5.2.1,  Next: Q5.2.2,  Prev: Q5.1.11,  Up: Miscellaneous
+
+Q5.2.1: How do I turn off the sound?
+------------------------------------
+
+   Add the following line to your `.emacs':
+
+     (setq bell-volume 0)
+     (setq sound-alist nil)
+
+   That will make your XEmacs totally silent--even the default ding
+sound (TTY beep on TTY-s) will be gone.
+
+   Starting with XEmacs-20.2 you can also change these with Customize.
+Select from the `Options' menu
+`Customize->Emacs->Environment->Sound->Sound...' or type `M-x customize
+<RET> sound <RET>'.
+
+
+File: xemacs-faq.info,  Node: Q5.2.2,  Next: Q5.2.3,  Prev: Q5.2.1,  Up: Miscellaneous
+
+Q5.2.2: How do I get funky sounds instead of a boring beep?
+-----------------------------------------------------------
+
+   Make sure your XEmacs was compiled with sound support, and then put
+this in your `.emacs':
+
+     (load-default-sounds)
+
+   The sound support in XEmacs 19.14 was greatly improved over previous
+versions.
+
+
+File: xemacs-faq.info,  Node: Q5.2.3,  Next: Q5.2.4,  Prev: Q5.2.2,  Up: Miscellaneous
+
+Q5.2.3: What's NAS, how do I get it?
+------------------------------------
+
+   *Note Q2.0.3::, for an explanation of the "Network Audio System".
+
+
+File: xemacs-faq.info,  Node: Q5.2.4,  Next: Q5.3.1,  Prev: Q5.2.3,  Up: Miscellaneous
+
+Q5.2.4: Sunsite sounds don't play.
+----------------------------------
+
+   I'm having some trouble with sounds I've downloaded from sunsite.
+They play when I run them through `showaudio' or cat them directly to
+`/dev/audio', but XEmacs refuses to play them.
+
+   Markus Gutschke <gutschk@uni-muenster.de> writes:
+
+     [Many of] These files have an (erroneous) 24byte header that tells
+     about the format that they have been recorded in. If you cat them
+     to `/dev/audio', the header will be ignored and the default
+     behavior for /dev/audio will be used. This happens to be 8kHz
+     uLaw. It is probably possible to fix the header by piping through
+     `sox' and passing explicit parameters for specifying the sampling
+     format; you then need to perform a 'null' conversion from SunAudio
+     to SunAudio.
+
+
+File: xemacs-faq.info,  Node: Q5.3.1,  Next: Q5.3.2,  Prev: Q5.2.4,  Up: Miscellaneous
+
+5.3: Miscellaneous
+==================
+
+Q5.3.1: How do you make XEmacs indent CL if-clauses correctly?
+--------------------------------------------------------------
+
+   I'd like XEmacs to indent all the clauses of a Common Lisp `if' the
+same amount instead of indenting the 3rd clause differently from the
+first two.
+
+   One way is to add, to `.emacs':
+
+     (put 'if 'lisp-indent-function nil)
+
+   However, note that the package `cl-indent' that comes with XEmacs
+sets up this kind of indentation by default.  `cl-indent' also knows
+about many other CL-specific forms.  To use `cl-indent', one can do
+this:
+
+     (load "cl-indent")
+     (setq lisp-indent-function (function common-lisp-indent-function))
+
+   One can also customize `cl-indent.el' so it mimics the default `if'
+indentation `then' indented more than the `else'.  Here's how:
+
+     (put 'if 'common-lisp-indent-function '(nil nil &body))
+
+   Also, a new version (1.2) of `cl-indent.el' was posted to
+comp.emacs.xemacs on 12/9/94.  This version includes more documentation
+than previous versions.  This may prove useful if you need to customize
+any indent-functions.
+
+
+File: xemacs-faq.info,  Node: Q5.3.2,  Next: Q5.3.3,  Prev: Q5.3.1,  Up: Miscellaneous
+
+Q5.3.2: Fontifying hang when editing a postscript file.
+-------------------------------------------------------
+
+   When I try to edit a postscript file it gets stuck saying:
+`fontifying 'filename' (regexps....)' and it just sits there.  If I
+press `C-c' in the window where XEmacs was started, it suddenly becomes
+alive again.
+
+   This was caused by a bug in the Postscript font-lock regular
+expressions.  It was fixed in 19.13.  For earlier versions of XEmacs,
+have a look at your `.emacs' file.  You will probably have a line like:
+
+     (add-hook 'postscript-mode-hook 'turn-on-font-lock)
+
+   Take it out, restart XEmacs, and it won't try to fontify your
+postscript files anymore.
+
+
+File: xemacs-faq.info,  Node: Q5.3.3,  Next: Q5.3.4,  Prev: Q5.3.2,  Up: Miscellaneous
+
+Q5.3.3: How can I print WYSIWYG a font-locked buffer?
+-----------------------------------------------------
+
+   Font-lock looks nice.  How can I print (WYSIWYG) the highlighted
+document?
+
+   The package `ps-print', which is now included with XEmacs, provides
+the ability to do this.  The source code contains complete instructions
+on its use, in `<xemacs_src_root>/lisp/packages/ps-print.el'.
+
+
+File: xemacs-faq.info,  Node: Q5.3.4,  Next: Q5.3.5,  Prev: Q5.3.3,  Up: Miscellaneous
+
+Q5.3.4: Getting `M-x lpr' to work with postscript printer.
+----------------------------------------------------------
+
+   My printer is a Postscript printer and `lpr' only works for
+Postscript files, so how do I get `M-x lpr-region' and `M-x lpr-buffer'
+to work?
+
+   Put something like this in your `.emacs':
+
+     (setq lpr-command "a2ps")
+     (setq lpr-switches '("-p" "-1"))
+
+   If you don't use a2ps to convert ASCII to postscript (why not, it's
+free?), replace with the command you do use.  Note also that some
+versions of a2ps require a `-Pprinter' to ensure spooling.
+
+
+File: xemacs-faq.info,  Node: Q5.3.5,  Next: Q5.3.6,  Prev: Q5.3.4,  Up: Miscellaneous
+
+Q5.3.5: How do I specify the paths that XEmacs uses for finding files?
+----------------------------------------------------------------------
+
+   You can specify what paths to use by using a number of different
+flags when running configure.  See the section MAKE VARIABLES in the
+top-level file INSTALL in the XEmacs distribution for a listing of
+those flags.
+
+   Most of the time, however, the simplest fix is: *do not* specify
+paths as you might for GNU Emacs.  XEmacs can generally determine the
+necessary paths dynamically at run time.  The only path that generally
+needs to be specified is the root directory to install into.  That can
+be specified by passing the `--prefix' flag to configure.  For a
+description of the XEmacs install tree, please consult the `NEWS' file.
+
+
+File: xemacs-faq.info,  Node: Q5.3.6,  Next: Q5.3.7,  Prev: Q5.3.5,  Up: Miscellaneous
+
+Q5.3.6: [This question intentionally left blank]
+------------------------------------------------
+
+   Obsolete question, left blank to avoid renumbering.
+
+
+File: xemacs-faq.info,  Node: Q5.3.7,  Next: Q5.3.8,  Prev: Q5.3.6,  Up: Miscellaneous
+
+Q5.3.7: Can I have the end of the buffer delimited in some way?
+---------------------------------------------------------------
+
+   Say, with: `[END]'?
+
+   Try this:
+
+     (let ((ext (make-extent (point-min) (point-max))))
+       (set-extent-property ext 'start-closed t)
+       (set-extent-property ext 'end-closed t)
+       (set-extent-property ext 'detachable nil)
+       (set-extent-end-glyph ext (make-glyph [string :data "[END]"])))
+
+   Since this is XEmacs, you can specify an icon to be shown on
+window-system devices.  To do so, change the `make-glyph' call to
+something like this:
+
+     (make-glyph '([xpm :file "~/something.xpm"]
+                   [string :data "[END]"]))
+
+   You can inline the XPM definition yourself by specifying `:data'
+instead of `:file'.  Here is such a full-featured version that works on
+both X and TTY devices:
+
+     (let ((ext (make-extent (point-min) (point-max))))
+       (set-extent-property ext 'start-closed t)
+       (set-extent-property ext 'end-closed t)
+       (set-extent-property ext 'detachable nil)
+       (set-extent-end-glyph ext (make-glyph '([xpm :data "\
+     /* XPM */
+     static char* eye = {
+     \"20 11 7 2\",
+     \"__ c None\"
+     \"_` c #7f7f7f\",
+     \"_a c #fefefe\",
+     \"_b c #7f0000\",
+     \"_c c #fefe00\",
+     \"_d c #fe0000\",
+     \"_e c #bfbfbf\",
+     \"___________`_`_`___b_b_b_b_________`____\",
+     \"_________`_`_`___b_c_c_c_b_b____________\",
+     \"_____`_`_`_e___b_b_c_c_c___b___b_______`\",
+     \"___`_`_e_a___b_b_d___b___b___b___b______\",
+     \"_`_`_e_a_e___b_b_d_b___b___b___b___b____\",
+     \"_`_`_a_e_a___b_b_d___b___b___b___b___b__\",
+     \"_`_`_e_a_e___b_b_d_b___b___b___b___b_b__\",
+     \"___`_`_e_a___b_b_b_d_c___b___b___d_b____\",
+     \"_____`_`_e_e___b_b_b_d_c___b_b_d_b______\",
+     \"_`_____`_`_`_`___b_b_b_d_d_d_d_b________\",
+     \"___`_____`_`_`_`___b_b_b_b_b_b__________\",
+     } ;"]
+                                               [string :data "[END]"]))))
+
+   Note that you might want to make this a function, and put it to a
+hook.  We leave that as an exercise for the reader.
+
+
+File: xemacs-faq.info,  Node: Q5.3.8,  Next: Q5.3.9,  Prev: Q5.3.7,  Up: Miscellaneous
+
+Q5.3.8: How do I insert today's date into a buffer?
+---------------------------------------------------
+
+   Like this:
+
+     (insert (current-time-string))
+
+
+File: xemacs-faq.info,  Node: Q5.3.9,  Next: Q5.3.10,  Prev: Q5.3.8,  Up: Miscellaneous
+
+Q5.3.9: Are only certain syntactic character classes available for abbrevs?
+---------------------------------------------------------------------------
+
+   Markus Gutschke <gutschk@uni-muenster.de> writes:
+
+     Yes, abbrevs only expands word-syntax strings. While XEmacs does
+     not prevent you from defining (e.g. with `C-x a g' or `C-x a l')
+     abbrevs that contain special characters, it will refuse to expand
+     them. So you need to ensure, that the abbreviation contains
+     letters and digits only. This means that `xd', `d5', and `5d' are
+     valid abbrevs, but `&d', and `x d' are not.
+
+     If this sounds confusing to you, (re-)read the online
+     documentation for abbrevs (`C-h i m XEmacs <RET> m Abbrevs
+     <RET>'), and then come back and read this question/answer again.
+
+   Starting with XEmacs 20.3 this restriction has been lifted.
+
+
+File: xemacs-faq.info,  Node: Q5.3.10,  Next: Q5.3.11,  Prev: Q5.3.9,  Up: Miscellaneous
+
+Q5.3.10: How can I get those oh-so-neat X-Face lines?
+-----------------------------------------------------
+
+   Firstly there is an ftp site which describes X-faces and has the
+associated tools mentioned below, at
+`ftp://ftp.cs.indiana.edu:/pub/faces/'.
+
+   Then the steps are
+
+  1. Create 48x48x1 bitmap with your favorite tool
+
+  2. Convert to "icon" format using one of xbm2ikon, pbmtoicon, etc.,
+     and then compile the face.
+
+  3.      cat file.xbm | xbm2ikon |compface > file.face
+
+  4. Then be sure to quote things that are necessary for emacs strings:
+
+          cat ./file.face | sed 's/\\/\\\\/g'
+          | sed 's/\"/\\\"/g' > ./file.face.quoted
+
+  5. Then set up emacs to include the file as a mail header - there
+     were a couple of suggestions here--either something like:
+
+          (setq  mail-default-headers
+                 "X-Face:  <Ugly looking text string here>")
+
+     Or, alternatively, as:
+
+          (defun mail-insert-x-face ()
+            (save-excursion
+              (goto-char (point-min))
+              (search-forward mail-header-separator)
+              (beginning-of-line)
+              (insert "X-Face:")
+              (insert-file-contents "~/.face")))
+          
+          (add-hook 'mail-setup-hook 'mail-insert-x-face)
+
+   However, 2 things might be wrong:
+
+   Some versions of pbmtoicon produces some header lines that is not
+expected by the version of compface that I grabbed. So I found I had to
+include a `tail +3' in the pipeline like this:
+
+     cat file.xbm | xbm2ikon | tail +3 |compface > file.face
+
+   Some people have also found that if one uses the `(insert-file)'
+method, one should NOT quote the face string using the sed script .
+
+   It might also be helpful to use Stig's <stig@hackvan.com> script
+(included in the compface distribution at XEmacs.org) to do the
+conversion.
+
+   Contributors for this item:
+
+   Paul Emsley, Ricardo Marek, Amir J. Katz, Glen McCort, Heinz Uphoff,
+Peter Arius, Paul Harrison, and Vegard Vesterheim
+
+
+File: xemacs-faq.info,  Node: Q5.3.11,  Next: Q5.3.12,  Prev: Q5.3.10,  Up: Miscellaneous
+
+Q5.3.11: How do I add new Info directories?
+-------------------------------------------
+
+   You use something like:
+
+     (setq Info-directory-list (cons
+                                (expand-file-name "~/info")
+                                Info-default-directory-list))
+
+   David Masterson <davidm@prism.kla.com> writes:
+
+     Emacs Info and XEmacs Info do many things differently.  If you're
+     trying to support a number of versions of Emacs, here are some
+     notes to remember:
+
+       1. Emacs Info scans `Info-directory-list' from right-to-left
+          while XEmacs Info reads it from left-to-right, so append to
+          the _correct_ end of the list.
+
+       2. Use `Info-default-directory-list' to initialize
+          `Info-directory-list' _if_ it is available at startup, but not
+          all Emacsen define it.
+
+       3. Emacs Info looks for a standard `dir' file in each of the
+          directories scanned from #1 and magically concatenates them
+          together.
+
+       4. XEmacs Info looks for a `localdir' file (which consists of
+          just the menu entries from a `dir' file) in each of the
+          directories scanned from #1 (except the first), does a simple
+          concatenation of them, and magically attaches the resulting
+          list to the end of the menu in the `dir' file in the first
+          directory.
+
+     Another alternative is to convert the documentation to HTML with
+     texi2html and read it from a web browser like Lynx or W3.
+
+
+File: xemacs-faq.info,  Node: Q5.3.12,  Prev: Q5.3.11,  Up: Miscellaneous
+
+Q5.3.12: What do I need to change to make printing work?
+--------------------------------------------------------
+
+   For regular printing there are two variables that can be customized.
+
+`lpr-command'
+     This should be set to a command that takes standard input and sends
+     it to a printer.  Something like:
+
+          (setq lpr-command "lp")
+
+`lpr-switches'
+     This should be set to a list that contains whatever the print
+     command requires to do its job.  Something like:
+
+          (setq lpr-switches '("-depson"))
+
+   For postscript printing there are three analogous variables to
+customize.
+
+`ps-lpr-command'
+     This should be set to a command that takes postscript on standard
+     input and directs it to a postscript printer.
+
+`ps-lpr-switches'
+     This should be set to a list of switches required for
+     `ps-lpr-command' to do its job.
+
+`ps-print-color-p'
+     This boolean variable should be set `t' if printing will be done in
+     color, otherwise it should be set to `nil'.
+
+   NOTE: It is an undocumented limitation in XEmacs that postscript
+printing (the `Pretty Print Buffer' menu item) *requires* a window
+system environment.  It cannot be used outside of X11.
+
+
+File: xemacs-faq.info,  Node: MS Windows,  Next: Current Events,  Prev: Miscellaneous,  Up: Top
+
+6 XEmacs on MS Windows
+**********************
+
+   This is part 6 of the XEmacs Frequently Asked Questions list,
+written by Hrvoje Niksic and others.  This section is devoted to the MS
+Windows port of XEmacs.
+
+* Menu:
+
+
+General Info
+* Q6.0.1::      What is the status of the XEmacs port to Windows?
+* Q6.0.2::      What flavors of MS Windows are supported?
+* Q6.0.3::      Where are the XEmacs on MS Windows binaries?
+* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
+
+Building XEmacs on MS Windows
+* Q6.1.1::      I decided to run with X.  Where do I get an X server?
+* Q6.1.2::      What compiler do I need to compile XEmacs?
+* Q6.1.3::      How do I compile for the native port?
+* Q6.1.4::      How do I compile for the X port?
+* Q6.1.5::      How do I compile for Cygnus' Cygwin?
+* Q6.1.6::      What do I need for Cygwin?
+
+Customization and User Interface
+* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::      Where do I put my `.emacs' file?
+
+Miscellaneous
+* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::      What are the differences between the various MS Windows emacsen?
+* Q6.3.3::      What is the porting team doing at the moment?
+
+Troubleshooting:
+* Q6.4.1::      XEmacs won't start on Windows. (NEW)
+
+
+File: xemacs-faq.info,  Node: Q6.0.1,  Next: Q6.0.2,  Prev: MS Windows,  Up: MS Windows
+
+6.0: General Info
+=================
+
+Q6.0.1: What is the status of the XEmacs port to Windows?
+---------------------------------------------------------
+
+   Is XEmacs really getting ported to MS Windows?  What is the status
+of the port?
+
+   Yes, a group of volunteers actively works on making XEmacs code base
+cleanly compile and run on MS Windows operating systems.  The mailing
+list at <xemacs-nt@xemacs.org> is dedicated to that effort (please use
+the -request address to subscribe).
+
+   At this time, XEmacs on MS Windows is usable, but lacks some of the
+features of XEmacs on UNIX and UNIX-like systems.  Notably,
+internationalization does not work.
+
+
+File: xemacs-faq.info,  Node: Q6.0.2,  Next: Q6.0.3,  Prev: Q6.0.1,  Up: MS Windows
+
+Q6.0.2: What flavors of MS Windows are supported?  The list name implies NT only.
+---------------------------------------------------------------------------------
+
+   The list name is misleading, as XEmacs will support both Windows 95,
+Windows 98 and Windows NT.  The MS Windows-specific code is based on
+Microsoft Win32 API, and will not work on MS Windows 3.x or on MS-DOS.
+
+
+File: xemacs-faq.info,  Node: Q6.0.3,  Next: Q6.0.4,  Prev: Q6.0.2,  Up: MS Windows
+
+Q6.0.3: Are binary kits available?
+----------------------------------
+
+   Binary kits are available at
+`ftp://ftp.xemacs.org/pub/xemacs/binary-kits/win32/' for the "plain" MS
+Windows version.
+
+
+File: xemacs-faq.info,  Node: Q6.0.4,  Next: Q6.1.1,  Prev: Q6.0.3,  Up: MS Windows
+
+Q6.0.4: Does XEmacs on MS Windows require an X server to run?
+-------------------------------------------------------------
+
+   Short answer: No.
+
+   Long answer: XEmacs can be built in several ways in the MS Windows
+environment, some of them requiring an X server and some not.
+
+   One is what we call the "X" port--it requires X libraries to build
+and an X server to run.  Internally it uses the Xt event loop and makes
+use of X toolkits.  Its look is quite un-Windowsy, but it works
+reliably and supports all of the graphical features of Unix XEmacs.
+
+   The other is what we call the "native" port.  It uses the Win32 API
+and does not require X libraries to build, nor does it require an X to
+run.  In fact, it has no connection with X whatsoever.  At this time,
+the native port obsoletes the X port, providing almost all of its
+features, including support for menus, scrollbars, toolbars, embedded
+images and background pixmaps, frame pointers, etc.  Most of the future
+work will be based on the native port.
+
+   There is also a third special case, the Cygwin port.  It takes
+advantage of Cygnus emulation library under Win32, which enables it to
+reuse much of the Unix XEmacs code base, such as processes and network
+support, or internal select() mechanisms.
+
+   Cygwin port supports all display types--TTY, X & MS gui, and can be
+built with support for all three.  If you build with ms gui support
+then the Cygwin version uses the majority of the msw code, which is
+mostly related to display.  If you want to build with X support you
+need X libraries.  If you want to build with tty support you need
+ncurses.  MS gui requires no additional libraries.
+
+   Some of the advantages of the Cygwin version are that it:
+
+   * integrates well with Cygwin environment for existing Cygwin users;
+
+   * uses configure so building with different features is very easy;
+
+   * has process support in X & tty.
+
+
+   The disadvantage is that it requires several Unix utilities and the
+whole Cygwin environment, whereas the native port requires only a
+suitable MS Windows compiler.  Also, it follows the Unix filesystem and
+process model very closely (some will undoubtedly view this as an
+advantage).
+
+
+File: xemacs-faq.info,  Node: Q6.1.1,  Next: Q6.1.2,  Prev: Q6.0.4,  Up: MS Windows
+
+6.1: Building XEmacs on MS Windows
+==================================
+
+Q6.1.1: I decided to run with X.  Where do I get an X server?
+-------------------------------------------------------------
+
+   Pointers to X servers can be found at
+`http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/';
+
+   look for "Where to get an X server".  Also note that, although the
+above page talks about Cygnus gnu-win32 (Cygwin), the information on X
+servers is Cygwin-independent.  You don't have to be running/using
+Cygwin to use these X servers, and you don't have to compile XEmacs
+under Cygwin to use XEmacs with these X servers.  An "X port" XEmacs
+compiled under Visual C++ will work with these X servers (as will
+XEmacs running on a Unix box, redirected to the server running on your
+PC).
+
+
+File: xemacs-faq.info,  Node: Q6.1.2,  Next: Q6.1.3,  Prev: Q6.1.1,  Up: MS Windows
+
+Q6.1.2: What compiler do I need to compile XEmacs?
+--------------------------------------------------
+
+   You need Visual C++ 4.2, 5.0, or 6.0, with the exception of the
+Cygwin port, which uses Gcc.  There is also a MINGW32 port of XEmacs
+(using Gcc, but using native libraries rather than the Cygwin
+libraries).  #### More information about this should be provided.
+
+
+File: xemacs-faq.info,  Node: Q6.1.3,  Next: Q6.1.4,  Prev: Q6.1.2,  Up: MS Windows
+
+Q6.1.3: How do I compile for the native port?
+---------------------------------------------
+
+   Please read the file `nt/README' in the XEmacs distribution, which
+contains the full description.
+
+
+File: xemacs-faq.info,  Node: Q6.1.4,  Next: Q6.1.5,  Prev: Q6.1.3,  Up: MS Windows
+
+Q6.1.4: How do I compile for the X port?
+----------------------------------------
+
+   Again, it is described in `nt/README' in some detail.  Basically, you
+need to get X11 libraries from ftp.x.org, and compile them.  If the
+precompiled versions are available somewhere, I don't know of it.
+
+
+File: xemacs-faq.info,  Node: Q6.1.5,  Next: Q6.1.6,  Prev: Q6.1.4,  Up: MS Windows
+
+Q6.1.5: How do I compile for Cygnus' Cygwin?
+--------------------------------------------
+
+   Similar as on Unix; use the usual `configure' and `make' process.
+Some problems to watch out for:
+
+   * make sure HOME is set. This controls where you `.emacs' file comes
+     from;
+
+   * CYGWIN needs to be set to tty for process support work. e.g.
+     CYGWIN=tty; (use CYGWIN32=tty under b19 and older.)
+
+   * picking up some other grep or other unix like tools can kill
+     configure;
+
+   * static heap too small, adjust src/sheap-adjust.h to a more positive
+     number;
+
+   * The Cygwin version doesn't understand `//machine/path' type paths
+     so you will need to manually mount a directory of this form under
+     a unix style directory for a build to work on the directory.
+
+
+
+File: xemacs-faq.info,  Node: Q6.1.6,  Next: Q6.2.1,  Prev: Q6.1.5,  Up: MS Windows
+
+Q6.1.6: What do I need for Cygwin?
+----------------------------------
+
+   You can find the Cygwin tools and compiler at:
+
+   `http://sourceware.cygnus.com/cygwin/'
+
+   You will need version b19 or later.  The latest current version is
+1.1.1.  Other common versions you will see are b20.1.
+
+   Another location, one of the mirror sites of the site just mentioned,
+is usually a last faster:
+
+   `ftp://ftp.freesoftware.com/pub/sourceware/cygwin/'
+
+   You can obtain the latest version (currently 1.1.1) from the
+`latest/' subdirectory of either of the above two just-mentioned URL's.
+
+   *WARNING: The version of GCC supplied under `latest/', as of June
+6th, 2000, does not appear to work.  It generates loads of spurious
+preprocessor warnings and errors, which makes it impossible to compile
+XEmacs with it.*
+
+   You will also need the X libraries.  You can get them on the XEmacs
+FTP site at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/aux/cygwin/'
+
+   You will find b19 and b20 versions of the X libraries, plus b19 and
+b20 versions of stuff that should go into `/usr/local/', donated by
+Andy Piper.  This includes pre-built versions of various graphics
+libraries, such as PNG, JPEG, TIFF, and XPM. (Remember, GIF support is
+built-in to XEmacs.)
+
+   (X libraries for v1 and beyond of Cygwin can be found on the Cygwin
+site itself - look in the `xfree/' subdirectory.)
+
+   _NOTE:_ There are two versions of the XPM library provided in Andy's
+packets.  Once is for building with X support, and the other for
+building without.  The X version should work if you're building with
+both X and Windows support.  The two files are called `libXpm-X.a' and
+`libXpm-noX.a' respectively, and you must symlink the appropriate one
+to `libXpm.a'. *CAREFUL:* By default, the non-X version is symlinked
+in.  If you then configure XEmacs with X, you won't run into problems
+until you start compiling `events.c', at which point you'll get strange
+and decidedly non-obvious errors.
+
+   Please see `http://www.xemacs.freeserve.co.uk/' (Andy Piper's home
+page) for more information.
+
+   BTW There are also libraries at
+`http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/', but these are
+not b19 compatible, and may in fact be native-compiled.
+
+
+File: xemacs-faq.info,  Node: Q6.2.1,  Next: Q6.2.2,  Prev: Q6.1.6,  Up: MS Windows
+
+6.2: Customization and User Interface
+=====================================
+
+Q6.2.1: How will the port cope with differences in the Windows user interface?
+------------------------------------------------------------------------------
+
+   XEmacs (and Emacs in general) UI is pretty different from what is
+expected of a typical MS Windows program.  How will the MS Windows port
+cope with it?
+
+   Fortunately, Emacs is also one of the most configurable editor beasts
+in the world.  The MS Windows "look and feel" (mark via shift-arrow,
+self-inserting deletes region, etc.) can be easily configured via
+various packages distributed with XEmacs.  The `pending-delete' package
+is an example of such a utility.
+
+   In future versions, some of these packages might be turned on by
+default in the MS Windows environment.
+
+
+File: xemacs-faq.info,  Node: Q6.2.2,  Next: Q6.2.3,  Prev: Q6.2.1,  Up: MS Windows
+
+Q6.2.2: How do I change fonts in XEmacs on MS Windows?
+------------------------------------------------------
+
+   In 21.2.*, use the font menu.  In 21.1.*, you can change font
+manually. For example:
+
+         (set-face-font 'default "Lucida Console:Regular:10")
+         (set-face-font 'modeline "MS Sans Serif:Regular:10")
+
+
+File: xemacs-faq.info,  Node: Q6.2.3,  Next: Q6.3.1,  Prev: Q6.2.2,  Up: MS Windows
+
+Q6.2.3: Where do I put my `.emacs' file?
+----------------------------------------
+
+   If the HOME environment variable is set, `.emacs' will be looked for
+there.  Else the directory defaults to `c:\'.
+
+
+File: xemacs-faq.info,  Node: Q6.3.1,  Next: Q6.3.2,  Prev: Q6.2.3,  Up: MS Windows
+
+6.3: Miscellaneous
+==================
+
+Q6.3.1: Will XEmacs rename all the win32-* symbols to w32-*?
+------------------------------------------------------------
+
+   In his flavor of Emacs 20, Richard Stallman has renamed all the
+win32-* symbols to w32-*.  Will XEmacs do the same?
+
+   We consider such a move counter-productive, thus we will not use the
+`w32' prefix.  However, we do recognize that Win32 name is little more
+than a marketing buzzword (will it be Win64 in the next release?), so
+we decided not to use it.  Using `windows-' would be wrong because the
+term is too generic, which is why we settled on a compromise
+`mswindows' term.
+
+   Thus all the XEmacs variables and functions directly related to Win32
+are prefixed `mswindows-'.  The user-variables shared with NT Emacs
+will be provided as compatibility aliases.
+
+   Architectural note: We believe that there should be a very small
+number of window-systems-specific variables, and will try to provide
+generic interfaces whenever possible.
+
+
+File: xemacs-faq.info,  Node: Q6.3.2,  Next: Q6.3.3,  Prev: Q6.3.1,  Up: MS Windows
+
+Q6.3.2: What are the differences between the various MS Windows emacsen?
+------------------------------------------------------------------------
+
+   XEmacs, Win-Emacs, DOS Emacs, NT Emacs, this is all very confusing.
+Could you briefly explain the differences between them?
+
+   Here is a recount of various Emacs versions running on MS Windows:
+
+   * Win-Emacs
+
+        - Win-Emacs is a port of Lucid Emacs 19.6 to MS Windows using X
+          compatibility libraries.  Win-Emacs has been written by Ben
+          Wing.  The MS Windows code has not made it back to Lucid
+          Emacs, which left Win-Emacs pretty much dead for our
+          purposes.  Win-Emacs used to be available at Pearlsoft, but
+          not anymore, since Pearlsoft went out of business.
+
+   * GNU Emacs for DOS
+
+        - GNU Emacs features support for MS-DOS and DJGPP (D.J.
+          Delorie's DOS port of Gcc).  Such an Emacs is heavily
+          underfeatured, because it does not supports long file names,
+          lacks proper subprocesses support, and is far too big
+          compared to typical DOS editors.
+
+   * GNU Emacs compiled with Win32
+
+        - Starting with version 19.30, it has been possible to compile
+          GNU Emacs under MS Windows using the DJGPP compiler and X
+          libraries.  The result is is very similar to GNU Emacs
+          compiled under MS DOS, only it supports longer file names,
+          etc.  This "port" is similar to the "X" flavor of XEmacs on
+          MS Windows.
+
+   * NT Emacs
+
+        - NT Emacs is a version of GNU Emacs modified to compile and
+          run under MS MS Windows 95 and NT using the native Win32 API.
+          As such, it is close in spirit to the XEmacs "native" port.
+
+        - NT Emacs has been written by Geoff Voelker, and more
+          information can be found at
+          `http://www.cs.washington.edu/homes/voelker/ntemacs.html'.
+
+
+   * XEmacs
+
+        - Beginning with XEmacs 19.12, XEmacs' architecture has been
+          redesigned in such a way to allow clean support of multiple
+          window systems.  At this time the TTY support was added,
+          making X and TTY the first two "window systems" XEmacs
+          supported.  The 19.12 design is the basis for the current
+          native MS Windows code.
+
+        - Some time during 1997, David Hobley (soon joined by Marc
+          Paquette) imported some of the NT-specific portions of GNU
+          Emacs, making XEmacs with X support compile under Windows NT,
+          and creating the "X" port.
+
+        - Several months later, Jonathan Harris sent out initial
+          patches to use the Win32 API, thus creating the native port.
+          Since then, various people have contributed, including Kirill
+          M. Katsnelson (contributed support for menubars, subprocesses
+          and network, as well as loads of other code), Andy Piper
+          (ported XEmacs to Cygwin environment, contributed Windows
+          unexec, Windows-specific glyphs and toolbars code, and more),
+          Jeff Sparkes (contributed scrollbars support) and many others.
+
+
+
+
+File: xemacs-faq.info,  Node: Q6.3.3,  Next: Q6.4.1,  Prev: Q6.3.2,  Up: MS Windows
+
+Q6.3.3: What is the porting team doing at the moment?
+-----------------------------------------------------
+
+   The porting team is continuing work on the MS Windows-specific code.
+
+
+File: xemacs-faq.info,  Node: Q6.4.1,  Prev: Q6.3.3,  Up: MS Windows
+
+6.3: Troubleshooting
+====================
+
+Q6.4.1 XEmacs won't start on Windows. (NEW)
+-------------------------------------------
+
+   XEmacs relies on a process called "dumping" to generate a working
+executable. Under MS-Windows this process effectively fixes the memory
+addresses of information in the executable. When XEmacs starts up it
+tries to reserve these memory addresses so that the dumping process can
+be reversed - putting the information back at the correct addresses.
+Unfortunately some .dlls (For instance the soundblaster driver) occupy
+memory addresses that can conflict with those needed by the dumped
+XEmacs executable. In this instance XEmacs will fail to start without
+any explanation. Note that this is extremely machine specific.
+
+   21.1.10 includes a fix for this that makes more intelligent guesses
+about which memory addresses will be free, and this should cure the
+problem for most people.  Unfortunately, no binary is yet available for
+this version.  Check back periodically at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/binaries/'.
+
+   21.2 implements "portable dumping" which will eliminate the problem
+altogether.  You might have better luck with the 21.2 beta binary,
+available at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/beta/binaries/'.
+
+
+File: xemacs-faq.info,  Node: Current Events,  Prev: MS Windows,  Up: Top
+
+7 What the Future Holds
+***********************
+
+   This is part 7 of the XEmacs Frequently Asked Questions list.  This
+section will change monthly, and contains any interesting items that
+have transpired over the previous month.  If you are reading this from
+the XEmacs distribution, please see the version on the Web or archived
+at the various FAQ FTP sites, as this file is surely out of date.
+
+* Menu:
+
+* Q7.0.1::      What is new in 20.2?
+* Q7.0.2::      What is new in 20.3?
+* Q7.0.3::      What is new in 20.4?
+* Q7.0.4::      Procedural changes in XEmacs development.
+
+
+File: xemacs-faq.info,  Node: Q7.0.1,  Next: Q7.0.2,  Prev: Current Events,  Up: Current Events
+
+7.0: Changes
+============
+
+Q7.0.1: What is new in 20.2?
+----------------------------
+
+   The biggest changes in 20.2 include integration of EFS (the next
+generation of ange-ftp) and AUC Tex (the Emacs subsystem that includes a
+major mode for editing Tex and LaTeX, and a lot of other stuff).  Many
+bugs from 20.0 have been fixed for this release.  20.2 also contains a
+new system for customizing XEmacs options, invoked via `M-x customize'.
+
+   XEmacs 20.2 is the development release (20.0 was beta), and is no
+longer considered unstable.
+
+
+File: xemacs-faq.info,  Node: Q7.0.2,  Next: Q7.0.3,  Prev: Q7.0.1,  Up: Current Events
+
+Q7.0.2: What is new in 20.3?
+----------------------------
+
+   XEmacs 20.3 was released in November 1997. It contains many bugfixes,
+and a number of new features, including Autoconf 2 based configuration,
+additional support for Mule (Multi-language extensions to Emacs), many
+more customizations, multiple frames on TTY-s, support for multiple info
+directories, an enhanced gnuclient, improvements to regexp matching,
+increased MIME support, and many, many synches with GNU Emacs 20.
+
+   The XEmacs/Mule support has been only seriously tested in a Japanese
+locale, and no doubt many problems still remain.  The support for
+ISO-Latin-1 and Japanese is fairly strong.  MULE support comes at a
+price--about a 30% slowdown from 19.16.  We're making progress on
+improving performance and XEmacs 20.3 compiled without Mule (which is
+the default) is definitely faster than XEmacs 19.16.
+
+   XEmacs 20.3 is the first non-beta v20 release, and will be the basis
+for all further development.
+
+
+File: xemacs-faq.info,  Node: Q7.0.3,  Next: Q7.0.4,  Prev: Q7.0.2,  Up: Current Events
+
+Q7.0.3: What's new in XEmacs 20.4?
+----------------------------------
+
+   XEmacs 20.4 is a bugfix release with no user-visible changes.
+
+
+File: xemacs-faq.info,  Node: Q7.0.4,  Prev: Q7.0.3,  Up: Current Events
+
+Q7.0.4: Procedural changes in XEmacs development.
+-------------------------------------------------
+
+  1. Discussion about the development of XEmacs occurs on the
+     xemacs-beta mailing list.  Subscriptions to this list will now be
+     fully automated instead of being handled by hand.  Send a mail
+     message to <xemacs-beta-request@xemacs.org> with `subscribe' as the
+     BODY of the message to join the list.  Please note this is a
+     developers mailing list for people who have an active interest in
+     the development process.
+
+     The discussion of NT XEmacs development is taking place on a
+     separate mailing list.  Send mail to
+     <xemacs-nt-request@xemacs.org> to subscribe.
+
+  2. Due to the long development cycle in between releases, it has been
+     decided that intermediate versions will be made available in
+     source only form for the truly interested.
+
+     XEmacs 19.16 was the last 19 release, basically consisting of
+     19.15 plus the collected bugfixes.
+
+  3. As of December 1996, Steve Baur <steve@xemacs.org> has become the
+     lead maintainer of XEmacs.
+
+

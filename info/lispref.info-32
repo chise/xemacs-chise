@@ -1,0 +1,1207 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Regexp Example,  Prev: Syntax of Regexps,  Up: Regular Expressions
+
+Complex Regexp Example
+----------------------
+
+   Here is a complicated regexp, used by XEmacs to recognize the end of
+a sentence together with any whitespace that follows.  It is the value
+of the variable `sentence-end'.
+
+   First, we show the regexp as a string in Lisp syntax to distinguish
+spaces from tab characters.  The string constant begins and ends with a
+double-quote.  `\"' stands for a double-quote as part of the string,
+`\\' for a backslash as part of the string, `\t' for a tab and `\n' for
+a newline.
+
+     "[.?!][]\"')}]*\\($\\| $\\|\t\\|  \\)[ \t\n]*"
+
+   In contrast, if you evaluate the variable `sentence-end', you will
+see the following:
+
+     sentence-end
+     =>
+     "[.?!][]\"')}]*\\($\\| $\\|  \\|  \\)[
+     ]*"
+
+In this output, tab and newline appear as themselves.
+
+   This regular expression contains four parts in succession and can be
+deciphered as follows:
+
+`[.?!]'
+     The first part of the pattern is a character set that matches any
+     one of three characters: period, question mark, and exclamation
+     mark.  The match must begin with one of these three characters.
+
+`[]\"')}]*'
+     The second part of the pattern matches any closing braces and
+     quotation marks, zero or more of them, that may follow the period,
+     question mark or exclamation mark.  The `\"' is Lisp syntax for a
+     double-quote in a string.  The `*' at the end indicates that the
+     immediately preceding regular expression (a character set, in this
+     case) may be repeated zero or more times.
+
+`\\($\\| $\\|\t\\|  \\)'
+     The third part of the pattern matches the whitespace that follows
+     the end of a sentence: the end of a line, or a tab, or two spaces.
+     The double backslashes mark the parentheses and vertical bars as
+     regular expression syntax; the parentheses delimit a group and the
+     vertical bars separate alternatives.  The dollar sign is used to
+     match the end of a line.
+
+`[ \t\n]*'
+     Finally, the last part of the pattern matches any additional
+     whitespace beyond the minimum needed to end a sentence.
+
+
+File: lispref.info,  Node: Regexp Search,  Next: POSIX Regexps,  Prev: Regular Expressions,  Up: Searching and Matching
+
+Regular Expression Searching
+============================
+
+   In XEmacs, you can search for the next match for a regexp either
+incrementally or not.  Incremental search commands are described in the
+`The XEmacs Reference Manual'.  *Note Regular Expression Search:
+(emacs)Regexp Search.  Here we describe only the search functions
+useful in programs.  The principal one is `re-search-forward'.
+
+ - Command: re-search-forward regexp &optional limit noerror repeat
+     This function searches forward in the current buffer for a string
+     of text that is matched by the regular expression REGEXP.  The
+     function skips over any amount of text that is not matched by
+     REGEXP, and leaves point at the end of the first match found.  It
+     returns the new value of point.
+
+     If LIMIT is non-`nil' (it must be a position in the current
+     buffer), then it is the upper bound to the search.  No match
+     extending after that position is accepted.
+
+     What happens when the search fails depends on the value of
+     NOERROR.  If NOERROR is `nil', a `search-failed' error is
+     signaled.  If NOERROR is `t', `re-search-forward' does nothing and
+     returns `nil'.  If NOERROR is neither `nil' nor `t', then
+     `re-search-forward' moves point to LIMIT (or the end of the
+     buffer) and returns `nil'.
+
+     If REPEAT is supplied (it must be a positive number), then the
+     search is repeated that many times (each time starting at the end
+     of the previous time's match).  If these successive searches
+     succeed, the function succeeds, moving point and returning its new
+     value.  Otherwise the search fails.
+
+     In the following example, point is initially before the `T'.
+     Evaluating the search call moves point to the end of that line
+     (between the `t' of `hat' and the newline).
+
+          ---------- Buffer: foo ----------
+          I read "-!-The cat in the hat
+          comes back" twice.
+          ---------- Buffer: foo ----------
+          
+          (re-search-forward "[a-z]+" nil t 5)
+               => 27
+          
+          ---------- Buffer: foo ----------
+          I read "The cat in the hat-!-
+          comes back" twice.
+          ---------- Buffer: foo ----------
+
+ - Command: re-search-backward regexp &optional limit noerror repeat
+     This function searches backward in the current buffer for a string
+     of text that is matched by the regular expression REGEXP, leaving
+     point at the beginning of the first text found.
+
+     This function is analogous to `re-search-forward', but they are not
+     simple mirror images.  `re-search-forward' finds the match whose
+     beginning is as close as possible to the starting point.  If
+     `re-search-backward' were a perfect mirror image, it would find the
+     match whose end is as close as possible.  However, in fact it
+     finds the match whose beginning is as close as possible.  The
+     reason is that matching a regular expression at a given spot
+     always works from beginning to end, and starts at a specified
+     beginning position.
+
+     A true mirror-image of `re-search-forward' would require a special
+     feature for matching regexps from end to beginning.  It's not
+     worth the trouble of implementing that.
+
+ - Function: string-match regexp string &optional start
+     This function returns the index of the start of the first match for
+     the regular expression REGEXP in STRING, or `nil' if there is no
+     match.  If START is non-`nil', the search starts at that index in
+     STRING.
+
+     For example,
+
+          (string-match
+           "quick" "The quick brown fox jumped quickly.")
+               => 4
+          (string-match
+           "quick" "The quick brown fox jumped quickly." 8)
+               => 27
+
+     The index of the first character of the string is 0, the index of
+     the second character is 1, and so on.
+
+     After this function returns, the index of the first character
+     beyond the match is available as `(match-end 0)'.  *Note Match
+     Data::.
+
+          (string-match
+           "quick" "The quick brown fox jumped quickly." 8)
+               => 27
+          
+          (match-end 0)
+               => 32
+
+ - Function: split-string string &optional pattern
+     This function splits STRING to substrings delimited by PATTERN,
+     and returns a list of substrings.  If PATTERN is omitted, it
+     defaults to `[ \f\t\n\r\v]+', which means that it splits STRING by
+     white-space.
+
+          (split-string "foo bar")
+               => ("foo" "bar")
+          
+          (split-string "something")
+               => ("something")
+          
+          (split-string "a:b:c" ":")
+               => ("a" "b" "c")
+          
+          (split-string ":a::b:c" ":")
+               => ("" "a" "" "b" "c")
+
+ - Function: split-path path
+     This function splits a search path into a list of strings.  The
+     path components are separated with the characters specified with
+     `path-separator'.  Under Unix, `path-separator' will normally be
+     `:', while under Windows, it will be `;'.
+
+ - Function: looking-at regexp
+     This function determines whether the text in the current buffer
+     directly following point matches the regular expression REGEXP.
+     "Directly following" means precisely that: the search is
+     "anchored" and it can succeed only starting with the first
+     character following point.  The result is `t' if so, `nil'
+     otherwise.
+
+     This function does not move point, but it updates the match data,
+     which you can access using `match-beginning' and `match-end'.
+     *Note Match Data::.
+
+     In this example, point is located directly before the `T'.  If it
+     were anywhere else, the result would be `nil'.
+
+          ---------- Buffer: foo ----------
+          I read "-!-The cat in the hat
+          comes back" twice.
+          ---------- Buffer: foo ----------
+          
+          (looking-at "The cat in the hat$")
+               => t
+
+
+File: lispref.info,  Node: POSIX Regexps,  Next: Search and Replace,  Prev: Regexp Search,  Up: Searching and Matching
+
+POSIX Regular Expression Searching
+==================================
+
+   The usual regular expression functions do backtracking when necessary
+to handle the `\|' and repetition constructs, but they continue this
+only until they find _some_ match.  Then they succeed and report the
+first match found.
+
+   This section describes alternative search functions which perform the
+full backtracking specified by the POSIX standard for regular expression
+matching.  They continue backtracking until they have tried all
+possibilities and found all matches, so they can report the longest
+match, as required by POSIX.  This is much slower, so use these
+functions only when you really need the longest match.
+
+   In Emacs versions prior to 19.29, these functions did not exist, and
+the functions described above implemented full POSIX backtracking.
+
+ - Function: posix-search-forward regexp &optional limit noerror repeat
+     This is like `re-search-forward' except that it performs the full
+     backtracking specified by the POSIX standard for regular expression
+     matching.
+
+ - Function: posix-search-backward regexp &optional limit noerror repeat
+     This is like `re-search-backward' except that it performs the full
+     backtracking specified by the POSIX standard for regular expression
+     matching.
+
+ - Function: posix-looking-at regexp
+     This is like `looking-at' except that it performs the full
+     backtracking specified by the POSIX standard for regular expression
+     matching.
+
+ - Function: posix-string-match regexp string &optional start
+     This is like `string-match' except that it performs the full
+     backtracking specified by the POSIX standard for regular expression
+     matching.
+
+
+File: lispref.info,  Node: Search and Replace,  Next: Match Data,  Prev: POSIX Regexps,  Up: Searching and Matching
+
+Search and Replace
+==================
+
+ - Function: perform-replace from-string replacements query-flag
+          regexp-flag delimited-flag &optional repeat-count map
+     This function is the guts of `query-replace' and related commands.
+     It searches for occurrences of FROM-STRING and replaces some or
+     all of them.  If QUERY-FLAG is `nil', it replaces all occurrences;
+     otherwise, it asks the user what to do about each one.
+
+     If REGEXP-FLAG is non-`nil', then FROM-STRING is considered a
+     regular expression; otherwise, it must match literally.  If
+     DELIMITED-FLAG is non-`nil', then only replacements surrounded by
+     word boundaries are considered.
+
+     The argument REPLACEMENTS specifies what to replace occurrences
+     with.  If it is a string, that string is used.  It can also be a
+     list of strings, to be used in cyclic order.
+
+     If REPEAT-COUNT is non-`nil', it should be an integer.  Then it
+     specifies how many times to use each of the strings in the
+     REPLACEMENTS list before advancing cyclicly to the next one.
+
+     Normally, the keymap `query-replace-map' defines the possible user
+     responses for queries.  The argument MAP, if non-`nil', is a
+     keymap to use instead of `query-replace-map'.
+
+ - Variable: query-replace-map
+     This variable holds a special keymap that defines the valid user
+     responses for `query-replace' and related functions, as well as
+     `y-or-n-p' and `map-y-or-n-p'.  It is unusual in two ways:
+
+        * The "key bindings" are not commands, just symbols that are
+          meaningful to the functions that use this map.
+
+        * Prefix keys are not supported; each key binding must be for a
+          single event key sequence.  This is because the functions
+          don't use read key sequence to get the input; instead, they
+          read a single event and look it up "by hand."
+
+   Here are the meaningful "bindings" for `query-replace-map'.  Several
+of them are meaningful only for `query-replace' and friends.
+
+`act'
+     Do take the action being considered--in other words, "yes."
+
+`skip'
+     Do not take action for this question--in other words, "no."
+
+`exit'
+     Answer this question "no," and give up on the entire series of
+     questions, assuming that the answers will be "no."
+
+`act-and-exit'
+     Answer this question "yes," and give up on the entire series of
+     questions, assuming that subsequent answers will be "no."
+
+`act-and-show'
+     Answer this question "yes," but show the results--don't advance yet
+     to the next question.
+
+`automatic'
+     Answer this question and all subsequent questions in the series
+     with "yes," without further user interaction.
+
+`backup'
+     Move back to the previous place that a question was asked about.
+
+`edit'
+     Enter a recursive edit to deal with this question--instead of any
+     other action that would normally be taken.
+
+`delete-and-edit'
+     Delete the text being considered, then enter a recursive edit to
+     replace it.
+
+`recenter'
+     Redisplay and center the window, then ask the same question again.
+
+`quit'
+     Perform a quit right away.  Only `y-or-n-p' and related functions
+     use this answer.
+
+`help'
+     Display some help, then ask again.
+
+
+File: lispref.info,  Node: Match Data,  Next: Searching and Case,  Prev: Search and Replace,  Up: Searching and Matching
+
+The Match Data
+==============
+
+   XEmacs keeps track of the positions of the start and end of segments
+of text found during a regular expression search.  This means, for
+example, that you can search for a complex pattern, such as a date in
+an Rmail message, and then extract parts of the match under control of
+the pattern.
+
+   Because the match data normally describe the most recent search only,
+you must be careful not to do another search inadvertently between the
+search you wish to refer back to and the use of the match data.  If you
+can't avoid another intervening search, you must save and restore the
+match data around it, to prevent it from being overwritten.
+
+* Menu:
+
+* Simple Match Data::     Accessing single items of match data,
+			    such as where a particular subexpression started.
+* Replacing Match::	  Replacing a substring that was matched.
+* Entire Match Data::     Accessing the entire match data at once, as a list.
+* Saving Match Data::     Saving and restoring the match data.
+
+
+File: lispref.info,  Node: Simple Match Data,  Next: Replacing Match,  Up: Match Data
+
+Simple Match Data Access
+------------------------
+
+   This section explains how to use the match data to find out what was
+matched by the last search or match operation.
+
+   You can ask about the entire matching text, or about a particular
+parenthetical subexpression of a regular expression.  The COUNT
+argument in the functions below specifies which.  If COUNT is zero, you
+are asking about the entire match.  If COUNT is positive, it specifies
+which subexpression you want.
+
+   Recall that the subexpressions of a regular expression are those
+expressions grouped with escaped parentheses, `\(...\)'.  The COUNTth
+subexpression is found by counting occurrences of `\(' from the
+beginning of the whole regular expression.  The first subexpression is
+numbered 1, the second 2, and so on.  Only regular expressions can have
+subexpressions--after a simple string search, the only information
+available is about the entire match.
+
+ - Function: match-string count &optional in-string
+     This function returns, as a string, the text matched in the last
+     search or match operation.  It returns the entire text if COUNT is
+     zero, or just the portion corresponding to the COUNTth
+     parenthetical subexpression, if COUNT is positive.  If COUNT is
+     out of range, or if that subexpression didn't match anything, the
+     value is `nil'.
+
+     If the last such operation was done against a string with
+     `string-match', then you should pass the same string as the
+     argument IN-STRING.  Otherwise, after a buffer search or match,
+     you should omit IN-STRING or pass `nil' for it; but you should
+     make sure that the current buffer when you call `match-string' is
+     the one in which you did the searching or matching.
+
+ - Function: match-beginning count
+     This function returns the position of the start of text matched by
+     the last regular expression searched for, or a subexpression of it.
+
+     If COUNT is zero, then the value is the position of the start of
+     the entire match.  Otherwise, COUNT specifies a subexpression in
+     the regular expression, and the value of the function is the
+     starting position of the match for that subexpression.
+
+     The value is `nil' for a subexpression inside a `\|' alternative
+     that wasn't used in the match.
+
+ - Function: match-end count
+     This function is like `match-beginning' except that it returns the
+     position of the end of the match, rather than the position of the
+     beginning.
+
+   Here is an example of using the match data, with a comment showing
+the positions within the text:
+
+     (string-match "\\(qu\\)\\(ick\\)"
+                   "The quick fox jumped quickly.")
+                   ;0123456789
+          => 4
+     
+     (match-string 0 "The quick fox jumped quickly.")
+          => "quick"
+     (match-string 1 "The quick fox jumped quickly.")
+          => "qu"
+     (match-string 2 "The quick fox jumped quickly.")
+          => "ick"
+     
+     (match-beginning 1)       ; The beginning of the match
+          => 4                 ;   with `qu' is at index 4.
+     
+     (match-beginning 2)       ; The beginning of the match
+          => 6                 ;   with `ick' is at index 6.
+     
+     (match-end 1)             ; The end of the match
+          => 6                 ;   with `qu' is at index 6.
+     
+     (match-end 2)             ; The end of the match
+          => 9                 ;   with `ick' is at index 9.
+
+   Here is another example.  Point is initially located at the beginning
+of the line.  Searching moves point to between the space and the word
+`in'.  The beginning of the entire match is at the 9th character of the
+buffer (`T'), and the beginning of the match for the first
+subexpression is at the 13th character (`c').
+
+     (list
+       (re-search-forward "The \\(cat \\)")
+       (match-beginning 0)
+       (match-beginning 1))
+         => (9 9 13)
+     
+     ---------- Buffer: foo ----------
+     I read "The cat -!-in the hat comes back" twice.
+             ^   ^
+             9  13
+     ---------- Buffer: foo ----------
+
+(In this case, the index returned is a buffer position; the first
+character of the buffer counts as 1.)
+
+
+File: lispref.info,  Node: Replacing Match,  Next: Entire Match Data,  Prev: Simple Match Data,  Up: Match Data
+
+Replacing the Text That Matched
+-------------------------------
+
+   This function replaces the text matched by the last search with
+REPLACEMENT.
+
+ - Function: replace-match replacement &optional fixedcase literal
+          string
+     This function replaces the text in the buffer (or in STRING) that
+     was matched by the last search.  It replaces that text with
+     REPLACEMENT.
+
+     If you did the last search in a buffer, you should specify `nil'
+     for STRING.  Then `replace-match' does the replacement by editing
+     the buffer; it leaves point at the end of the replacement text,
+     and returns `t'.
+
+     If you did the search in a string, pass the same string as STRING.
+     Then `replace-match' does the replacement by constructing and
+     returning a new string.
+
+     If FIXEDCASE is non-`nil', then the case of the replacement text
+     is not changed; otherwise, the replacement text is converted to a
+     different case depending upon the capitalization of the text to be
+     replaced.  If the original text is all upper case, the replacement
+     text is converted to upper case.  If the first word of the
+     original text is capitalized, then the first word of the
+     replacement text is capitalized.  If the original text contains
+     just one word, and that word is a capital letter, `replace-match'
+     considers this a capitalized first word rather than all upper case.
+
+     If `case-replace' is `nil', then case conversion is not done,
+     regardless of the value of FIXED-CASE.  *Note Searching and Case::.
+
+     If LITERAL is non-`nil', then REPLACEMENT is inserted exactly as
+     it is, the only alterations being case changes as needed.  If it
+     is `nil' (the default), then the character `\' is treated
+     specially.  If a `\' appears in REPLACEMENT, then it must be part
+     of one of the following sequences:
+
+    `\&'
+          `\&' stands for the entire text being replaced.
+
+    `\N'
+          `\N', where N is a digit, stands for the text that matched
+          the Nth subexpression in the original regexp.  Subexpressions
+          are those expressions grouped inside `\(...\)'.
+
+    `\\'
+          `\\' stands for a single `\' in the replacement text.
+
+
+File: lispref.info,  Node: Entire Match Data,  Next: Saving Match Data,  Prev: Replacing Match,  Up: Match Data
+
+Accessing the Entire Match Data
+-------------------------------
+
+   The functions `match-data' and `set-match-data' read or write the
+entire match data, all at once.
+
+ - Function: match-data
+     This function returns a newly constructed list containing all the
+     information on what text the last search matched.  Element zero is
+     the position of the beginning of the match for the whole
+     expression; element one is the position of the end of the match
+     for the expression.  The next two elements are the positions of
+     the beginning and end of the match for the first subexpression,
+     and so on.  In general, element number 2N corresponds to
+     `(match-beginning N)'; and element number 2N + 1 corresponds to
+     `(match-end N)'.
+
+     All the elements are markers or `nil' if matching was done on a
+     buffer, and all are integers or `nil' if matching was done on a
+     string with `string-match'.  (In Emacs 18 and earlier versions,
+     markers were used even for matching on a string, except in the case
+     of the integer 0.)
+
+     As always, there must be no possibility of intervening searches
+     between the call to a search function and the call to `match-data'
+     that is intended to access the match data for that search.
+
+          (match-data)
+               =>  (#<marker at 9 in foo>
+                    #<marker at 17 in foo>
+                    #<marker at 13 in foo>
+                    #<marker at 17 in foo>)
+
+ - Function: set-match-data match-list
+     This function sets the match data from the elements of MATCH-LIST,
+     which should be a list that was the value of a previous call to
+     `match-data'.
+
+     If MATCH-LIST refers to a buffer that doesn't exist, you don't get
+     an error; that sets the match data in a meaningless but harmless
+     way.
+
+     `store-match-data' is an alias for `set-match-data'.
+
+
+File: lispref.info,  Node: Saving Match Data,  Prev: Entire Match Data,  Up: Match Data
+
+Saving and Restoring the Match Data
+-----------------------------------
+
+   When you call a function that may do a search, you may need to save
+and restore the match data around that call, if you want to preserve the
+match data from an earlier search for later use.  Here is an example
+that shows the problem that arises if you fail to save the match data:
+
+     (re-search-forward "The \\(cat \\)")
+          => 48
+     (foo)                   ; Perhaps `foo' does
+                             ;   more searching.
+     (match-end 0)
+          => 61              ; Unexpected result--not 48!
+
+   You can save and restore the match data with `save-match-data':
+
+ - Macro: save-match-data body...
+     This special form executes BODY, saving and restoring the match
+     data around it.
+
+   You can use `set-match-data' together with `match-data' to imitate
+the effect of the special form `save-match-data'.  This is useful for
+writing code that can run in Emacs 18.  Here is how:
+
+     (let ((data (match-data)))
+       (unwind-protect
+           ...   ; May change the original match data.
+         (set-match-data data)))
+
+   Emacs automatically saves and restores the match data when it runs
+process filter functions (*note Filter Functions::) and process
+sentinels (*note Sentinels::).
+
+
+File: lispref.info,  Node: Searching and Case,  Next: Standard Regexps,  Prev: Match Data,  Up: Searching and Matching
+
+Searching and Case
+==================
+
+   By default, searches in Emacs ignore the case of the text they are
+searching through; if you specify searching for `FOO', then `Foo' or
+`foo' is also considered a match.  Regexps, and in particular character
+sets, are included: thus, `[aB]' would match `a' or `A' or `b' or `B'.
+
+   If you do not want this feature, set the variable `case-fold-search'
+to `nil'.  Then all letters must match exactly, including case.  This
+is a buffer-local variable; altering the variable affects only the
+current buffer.  (*Note Intro to Buffer-Local::.)  Alternatively, you
+may change the value of `default-case-fold-search', which is the
+default value of `case-fold-search' for buffers that do not override it.
+
+   Note that the user-level incremental search feature handles case
+distinctions differently.  When given a lower case letter, it looks for
+a match of either case, but when given an upper case letter, it looks
+for an upper case letter only.  But this has nothing to do with the
+searching functions Lisp functions use.
+
+ - User Option: case-replace
+     This variable determines whether the replacement functions should
+     preserve case.  If the variable is `nil', that means to use the
+     replacement text verbatim.  A non-`nil' value means to convert the
+     case of the replacement text according to the text being replaced.
+
+     The function `replace-match' is where this variable actually has
+     its effect.  *Note Replacing Match::.
+
+ - User Option: case-fold-search
+     This buffer-local variable determines whether searches should
+     ignore case.  If the variable is `nil' they do not ignore case;
+     otherwise they do ignore case.
+
+ - Variable: default-case-fold-search
+     The value of this variable is the default value for
+     `case-fold-search' in buffers that do not override it.  This is the
+     same as `(default-value 'case-fold-search)'.
+
+
+File: lispref.info,  Node: Standard Regexps,  Prev: Searching and Case,  Up: Searching and Matching
+
+Standard Regular Expressions Used in Editing
+============================================
+
+   This section describes some variables that hold regular expressions
+used for certain purposes in editing:
+
+ - Variable: page-delimiter
+     This is the regexp describing line-beginnings that separate pages.
+     The default value is `"^\014"' (i.e., `"^^L"' or `"^\C-l"'); this
+     matches a line that starts with a formfeed character.
+
+   The following two regular expressions should _not_ assume the match
+always starts at the beginning of a line; they should not use `^' to
+anchor the match.  Most often, the paragraph commands do check for a
+match only at the beginning of a line, which means that `^' would be
+superfluous.  When there is a nonzero left margin, they accept matches
+that start after the left margin.  In that case, a `^' would be
+incorrect.  However, a `^' is harmless in modes where a left margin is
+never used.
+
+ - Variable: paragraph-separate
+     This is the regular expression for recognizing the beginning of a
+     line that separates paragraphs.  (If you change this, you may have
+     to change `paragraph-start' also.)  The default value is
+     `"[ \t\f]*$"', which matches a line that consists entirely of
+     spaces, tabs, and form feeds (after its left margin).
+
+ - Variable: paragraph-start
+     This is the regular expression for recognizing the beginning of a
+     line that starts _or_ separates paragraphs.  The default value is
+     `"[ \t\n\f]"', which matches a line starting with a space, tab,
+     newline, or form feed (after its left margin).
+
+ - Variable: sentence-end
+     This is the regular expression describing the end of a sentence.
+     (All paragraph boundaries also end sentences, regardless.)  The
+     default value is:
+
+          "[.?!][]\"')}]*\\($\\| $\\|\t\\| \\)[ \t\n]*"
+
+     This means a period, question mark or exclamation mark, followed
+     optionally by a closing parenthetical character, followed by tabs,
+     spaces or new lines.
+
+     For a detailed explanation of this regular expression, see *Note
+     Regexp Example::.
+
+
+File: lispref.info,  Node: Syntax Tables,  Next: Abbrevs,  Prev: Searching and Matching,  Up: Top
+
+Syntax Tables
+*************
+
+   A "syntax table" specifies the syntactic textual function of each
+character.  This information is used by the parsing commands, the
+complex movement commands, and others to determine where words, symbols,
+and other syntactic constructs begin and end.  The current syntax table
+controls the meaning of the word motion functions (*note Word Motion::)
+and the list motion functions (*note List Motion::) as well as the
+functions in this chapter.
+
+* Menu:
+
+* Basics: Syntax Basics.     Basic concepts of syntax tables.
+* Desc: Syntax Descriptors.  How characters are classified.
+* Syntax Table Functions::   How to create, examine and alter syntax tables.
+* Motion and Syntax::	     Moving over characters with certain syntaxes.
+* Parsing Expressions::      Parsing balanced expressions
+                                using the syntax table.
+* Standard Syntax Tables::   Syntax tables used by various major modes.
+* Syntax Table Internals::   How syntax table information is stored.
+
+
+File: lispref.info,  Node: Syntax Basics,  Next: Syntax Descriptors,  Up: Syntax Tables
+
+Syntax Table Concepts
+=====================
+
+   A "syntax table" provides Emacs with the information that determines
+the syntactic use of each character in a buffer.  This information is
+used by the parsing commands, the complex movement commands, and others
+to determine where words, symbols, and other syntactic constructs begin
+and end.  The current syntax table controls the meaning of the word
+motion functions (*note Word Motion::) and the list motion functions
+(*note List Motion::) as well as the functions in this chapter.
+
+   Under XEmacs 20, a syntax table is a particular subtype of the
+primitive char table type (*note Char Tables::), and each element of the
+char table is an integer that encodes the syntax of the character in
+question, or a cons of such an integer and a matching character (for
+characters with parenthesis syntax).
+
+   Under XEmacs 19, a syntax table is a vector of 256 elements; it
+contains one entry for each of the 256 possible characters in an 8-bit
+byte.  Each element is an integer that encodes the syntax of the
+character in question. (The matching character, if any, is embedded in
+the bits of this integer.)
+
+   Syntax tables are used only for moving across text, not for the Emacs
+Lisp reader.  XEmacs Lisp uses built-in syntactic rules when reading
+Lisp expressions, and these rules cannot be changed.
+
+   Each buffer has its own major mode, and each major mode has its own
+idea of the syntactic class of various characters.  For example, in Lisp
+mode, the character `;' begins a comment, but in C mode, it terminates
+a statement.  To support these variations, XEmacs makes the choice of
+syntax table local to each buffer.  Typically, each major mode has its
+own syntax table and installs that table in each buffer that uses that
+mode.  Changing this table alters the syntax in all those buffers as
+well as in any buffers subsequently put in that mode.  Occasionally
+several similar modes share one syntax table.  *Note Example Major
+Modes::, for an example of how to set up a syntax table.
+
+   A syntax table can inherit the data for some characters from the
+standard syntax table, while specifying other characters itself.  The
+"inherit" syntax class means "inherit this character's syntax from the
+standard syntax table."  Most major modes' syntax tables inherit the
+syntax of character codes 0 through 31 and 128 through 255.  This is
+useful with character sets such as ISO Latin-1 that have additional
+alphabetic characters in the range 128 to 255.  Just changing the
+standard syntax for these characters affects all major modes.
+
+ - Function: syntax-table-p object
+     This function returns `t' if OBJECT is a vector of length 256
+     elements.  This means that the vector may be a syntax table.
+     However, according to this test, any vector of length 256 is
+     considered to be a syntax table, no matter what its contents.
+
+
+File: lispref.info,  Node: Syntax Descriptors,  Next: Syntax Table Functions,  Prev: Syntax Basics,  Up: Syntax Tables
+
+Syntax Descriptors
+==================
+
+   This section describes the syntax classes and flags that denote the
+syntax of a character, and how they are represented as a "syntax
+descriptor", which is a Lisp string that you pass to
+`modify-syntax-entry' to specify the desired syntax.
+
+   XEmacs defines a number of "syntax classes".  Each syntax table puts
+each character into one class.  There is no necessary relationship
+between the class of a character in one syntax table and its class in
+any other table.
+
+   Each class is designated by a mnemonic character, which serves as the
+name of the class when you need to specify a class.  Usually the
+designator character is one that is frequently in that class; however,
+its meaning as a designator is unvarying and independent of what syntax
+that character currently has.
+
+   A syntax descriptor is a Lisp string that specifies a syntax class, a
+matching character (used only for the parenthesis classes) and flags.
+The first character is the designator for a syntax class.  The second
+character is the character to match; if it is unused, put a space there.
+Then come the characters for any desired flags.  If no matching
+character or flags are needed, one character is sufficient.
+
+   For example, the descriptor for the character `*' in C mode is
+`. 23' (i.e., punctuation, matching character slot unused, second
+character of a comment-starter, first character of an comment-ender),
+and the entry for `/' is `. 14' (i.e., punctuation, matching character
+slot unused, first character of a comment-starter, second character of
+a comment-ender).
+
+* Menu:
+
+* Syntax Class Table::      Table of syntax classes.
+* Syntax Flags::            Additional flags each character can have.
+
+
+File: lispref.info,  Node: Syntax Class Table,  Next: Syntax Flags,  Up: Syntax Descriptors
+
+Table of Syntax Classes
+-----------------------
+
+   Here is a table of syntax classes, the characters that stand for
+them, their meanings, and examples of their use.
+
+ - Syntax class: whitespace character
+     "Whitespace characters" (designated with ` ' or `-') separate
+     symbols and words from each other.  Typically, whitespace
+     characters have no other syntactic significance, and multiple
+     whitespace characters are syntactically equivalent to a single
+     one.  Space, tab, newline and formfeed are almost always
+     classified as whitespace.
+
+ - Syntax class: word constituent
+     "Word constituents" (designated with `w') are parts of normal
+     English words and are typically used in variable and command names
+     in programs.  All upper- and lower-case letters, and the digits,
+     are typically word constituents.
+
+ - Syntax class: symbol constituent
+     "Symbol constituents" (designated with `_') are the extra
+     characters that are used in variable and command names along with
+     word constituents.  For example, the symbol constituents class is
+     used in Lisp mode to indicate that certain characters may be part
+     of symbol names even though they are not part of English words.
+     These characters are `$&*+-_<>'.  In standard C, the only
+     non-word-constituent character that is valid in symbols is
+     underscore (`_').
+
+ - Syntax class: punctuation character
+     "Punctuation characters" (`.') are those characters that are used
+     as punctuation in English, or are used in some way in a programming
+     language to separate symbols from one another.  Most programming
+     language modes, including Emacs Lisp mode, have no characters in
+     this class since the few characters that are not symbol or word
+     constituents all have other uses.
+
+ - Syntax class: open parenthesis character
+ - Syntax class: close parenthesis character
+     Open and close "parenthesis characters" are characters used in
+     dissimilar pairs to surround sentences or expressions.  Such a
+     grouping is begun with an open parenthesis character and
+     terminated with a close.  Each open parenthesis character matches
+     a particular close parenthesis character, and vice versa.
+     Normally, XEmacs indicates momentarily the matching open
+     parenthesis when you insert a close parenthesis.  *Note Blinking::.
+
+     The class of open parentheses is designated with `(', and that of
+     close parentheses with `)'.
+
+     In English text, and in C code, the parenthesis pairs are `()',
+     `[]', and `{}'.  In XEmacs Lisp, the delimiters for lists and
+     vectors (`()' and `[]') are classified as parenthesis characters.
+
+ - Syntax class: string quote
+     "String quote characters" (designated with `"') are used in many
+     languages, including Lisp and C, to delimit string constants.  The
+     same string quote character appears at the beginning and the end
+     of a string.  Such quoted strings do not nest.
+
+     The parsing facilities of XEmacs consider a string as a single
+     token.  The usual syntactic meanings of the characters in the
+     string are suppressed.
+
+     The Lisp modes have two string quote characters: double-quote (`"')
+     and vertical bar (`|').  `|' is not used in XEmacs Lisp, but it is
+     used in Common Lisp.  C also has two string quote characters:
+     double-quote for strings, and single-quote (`'') for character
+     constants.
+
+     English text has no string quote characters because English is not
+     a programming language.  Although quotation marks are used in
+     English, we do not want them to turn off the usual syntactic
+     properties of other characters in the quotation.
+
+ - Syntax class: escape
+     An "escape character" (designated with `\') starts an escape
+     sequence such as is used in C string and character constants.  The
+     character `\' belongs to this class in both C and Lisp.  (In C, it
+     is used thus only inside strings, but it turns out to cause no
+     trouble to treat it this way throughout C code.)
+
+     Characters in this class count as part of words if
+     `words-include-escapes' is non-`nil'.  *Note Word Motion::.
+
+ - Syntax class: character quote
+     A "character quote character" (designated with `/') quotes the
+     following character so that it loses its normal syntactic meaning.
+     This differs from an escape character in that only the character
+     immediately following is ever affected.
+
+     Characters in this class count as part of words if
+     `words-include-escapes' is non-`nil'.  *Note Word Motion::.
+
+     This class is used for backslash in TeX mode.
+
+ - Syntax class: paired delimiter
+     "Paired delimiter characters" (designated with `$') are like
+     string quote characters except that the syntactic properties of the
+     characters between the delimiters are not suppressed.  Only TeX
+     mode uses a paired delimiter presently--the `$' that both enters
+     and leaves math mode.
+
+ - Syntax class: expression prefix
+     An "expression prefix operator" (designated with `'') is used for
+     syntactic operators that are part of an expression if they appear
+     next to one.  These characters in Lisp include the apostrophe, `''
+     (used for quoting), the comma, `,' (used in macros), and `#' (used
+     in the read syntax for certain data types).
+
+ - Syntax class: comment starter
+ - Syntax class: comment ender
+     The "comment starter" and "comment ender" characters are used in
+     various languages to delimit comments.  These classes are
+     designated with `<' and `>', respectively.
+
+     English text has no comment characters.  In Lisp, the semicolon
+     (`;') starts a comment and a newline or formfeed ends one.
+
+ - Syntax class: inherit
+     This syntax class does not specify a syntax.  It says to look in
+     the standard syntax table to find the syntax of this character.
+     The designator for this syntax code is `@'.
+
+
+File: lispref.info,  Node: Syntax Flags,  Prev: Syntax Class Table,  Up: Syntax Descriptors
+
+Syntax Flags
+------------
+
+   In addition to the classes, entries for characters in a syntax table
+can include flags.  There are six possible flags, represented by the
+characters `1', `2', `3', `4', `b' and `p'.
+
+   All the flags except `p' are used to describe multi-character
+comment delimiters.  The digit flags indicate that a character can
+_also_ be part of a comment sequence, in addition to the syntactic
+properties associated with its character class.  The flags are
+independent of the class and each other for the sake of characters such
+as `*' in C mode, which is a punctuation character, _and_ the second
+character of a start-of-comment sequence (`/*'), _and_ the first
+character of an end-of-comment sequence (`*/').
+
+   The flags for a character C are:
+
+   * `1' means C is the start of a two-character comment-start sequence.
+
+   * `2' means C is the second character of such a sequence.
+
+   * `3' means C is the start of a two-character comment-end sequence.
+
+   * `4' means C is the second character of such a sequence.
+
+   * `b' means that C as a comment delimiter belongs to the alternative
+     "b" comment style.
+
+     Emacs supports two comment styles simultaneously in any one syntax
+     table.  This is for the sake of C++.  Each style of comment syntax
+     has its own comment-start sequence and its own comment-end
+     sequence.  Each comment must stick to one style or the other;
+     thus, if it starts with the comment-start sequence of style "b",
+     it must also end with the comment-end sequence of style "b".
+
+     The two comment-start sequences must begin with the same
+     character; only the second character may differ.  Mark the second
+     character of the "b"-style comment-start sequence with the `b'
+     flag.
+
+     A comment-end sequence (one or two characters) applies to the "b"
+     style if its first character has the `b' flag set; otherwise, it
+     applies to the "a" style.
+
+     The appropriate comment syntax settings for C++ are as follows:
+
+    `/'
+          `124b'
+
+    `*'
+          `23'
+
+    newline
+          `>b'
+
+     This defines four comment-delimiting sequences:
+
+    `/*'
+          This is a comment-start sequence for "a" style because the
+          second character, `*', does not have the `b' flag.
+
+    `//'
+          This is a comment-start sequence for "b" style because the
+          second character, `/', does have the `b' flag.
+
+    `*/'
+          This is a comment-end sequence for "a" style because the first
+          character, `*', does not have the `b' flag
+
+    newline
+          This is a comment-end sequence for "b" style, because the
+          newline character has the `b' flag.
+
+   * `p' identifies an additional "prefix character" for Lisp syntax.
+     These characters are treated as whitespace when they appear between
+     expressions.  When they appear within an expression, they are
+     handled according to their usual syntax codes.
+
+     The function `backward-prefix-chars' moves back over these
+     characters, as well as over characters whose primary syntax class
+     is prefix (`'').  *Note Motion and Syntax::.
+
+
+File: lispref.info,  Node: Syntax Table Functions,  Next: Motion and Syntax,  Prev: Syntax Descriptors,  Up: Syntax Tables
+
+Syntax Table Functions
+======================
+
+   In this section we describe functions for creating, accessing and
+altering syntax tables.
+
+ - Function: make-syntax-table &optional table
+     This function creates a new syntax table.  Character codes 0
+     through 31 and 128 through 255 are set up to inherit from the
+     standard syntax table.  The other character codes are set up by
+     copying what the standard syntax table says about them.
+
+     Most major mode syntax tables are created in this way.
+
+ - Function: copy-syntax-table &optional table
+     This function constructs a copy of TABLE and returns it.  If TABLE
+     is not supplied (or is `nil'), it returns a copy of the current
+     syntax table.  Otherwise, an error is signaled if TABLE is not a
+     syntax table.
+
+ - Command: modify-syntax-entry char syntax-descriptor &optional table
+     This function sets the syntax entry for CHAR according to
+     SYNTAX-DESCRIPTOR.  The syntax is changed only for TABLE, which
+     defaults to the current buffer's syntax table, and not in any
+     other syntax table.  The argument SYNTAX-DESCRIPTOR specifies the
+     desired syntax; this is a string beginning with a class designator
+     character, and optionally containing a matching character and
+     flags as well.  *Note Syntax Descriptors::.
+
+     This function always returns `nil'.  The old syntax information in
+     the table for this character is discarded.
+
+     An error is signaled if the first character of the syntax
+     descriptor is not one of the twelve syntax class designator
+     characters.  An error is also signaled if CHAR is not a character.
+
+     Examples:
+
+          ;; Put the space character in class whitespace.
+          (modify-syntax-entry ?\  " ")
+               => nil
+          
+          ;; Make `$' an open parenthesis character,
+          ;;   with `^' as its matching close.
+          (modify-syntax-entry ?$ "(^")
+               => nil
+          
+          ;; Make `^' a close parenthesis character,
+          ;;   with `$' as its matching open.
+          (modify-syntax-entry ?^ ")$")
+               => nil
+          
+          ;; Make `/' a punctuation character,
+          ;;   the first character of a start-comment sequence,
+          ;;   and the second character of an end-comment sequence.
+          ;;   This is used in C mode.
+          (modify-syntax-entry ?/ ". 14")
+               => nil
+
+ - Function: char-syntax character
+     This function returns the syntax class of CHARACTER, represented
+     by its mnemonic designator character.  This _only_ returns the
+     class, not any matching parenthesis or flags.
+
+     An error is signaled if CHAR is not a character.
+
+     The following examples apply to C mode.  The first example shows
+     that the syntax class of space is whitespace (represented by a
+     space).  The second example shows that the syntax of `/' is
+     punctuation.  This does not show the fact that it is also part of
+     comment-start and -end sequences.  The third example shows that
+     open parenthesis is in the class of open parentheses.  This does
+     not show the fact that it has a matching character, `)'.
+
+          (char-to-string (char-syntax ?\ ))
+               => " "
+          
+          (char-to-string (char-syntax ?/))
+               => "."
+          
+          (char-to-string (char-syntax ?\())
+               => "("
+
+ - Function: set-syntax-table table &optional buffer
+     This function makes TABLE the syntax table for BUFFER, which
+     defaults to the current buffer if omitted.  It returns TABLE.
+
+ - Function: syntax-table &optional buffer
+     This function returns the syntax table for BUFFER, which defaults
+     to the current buffer if omitted.
+
+
+File: lispref.info,  Node: Motion and Syntax,  Next: Parsing Expressions,  Prev: Syntax Table Functions,  Up: Syntax Tables
+
+Motion and Syntax
+=================
+
+   This section describes functions for moving across characters in
+certain syntax classes.  None of these functions exists in Emacs
+version 18 or earlier.
+
+ - Function: skip-syntax-forward syntaxes &optional limit buffer
+     This function moves point forward across characters having syntax
+     classes mentioned in SYNTAXES.  It stops when it encounters the
+     end of the buffer, or position LIMIT (if specified), or a
+     character it is not supposed to skip.  Optional argument BUFFER
+     defaults to the current buffer if omitted.
+
+ - Function: skip-syntax-backward syntaxes &optional limit buffer
+     This function moves point backward across characters whose syntax
+     classes are mentioned in SYNTAXES.  It stops when it encounters
+     the beginning of the buffer, or position LIMIT (if specified), or a
+     character it is not supposed to skip.  Optional argument BUFFER
+     defaults to the current buffer if omitted.
+
+
+ - Function: backward-prefix-chars &optional buffer
+     This function moves point backward over any number of characters
+     with expression prefix syntax.  This includes both characters in
+     the expression prefix syntax class, and characters with the `p'
+     flag.  Optional argument BUFFER defaults to the current buffer if
+     omitted.
+

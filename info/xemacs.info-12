@@ -1,0 +1,995 @@
+This is ../info/xemacs.info, produced by makeinfo version 4.0 from
+xemacs/xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Fortran Indent,  Next: Fortran Comments,  Prev: Fortran Motion,  Up: Fortran
+
+Fortran Indentation
+-------------------
+
+   Special commands and features are available for indenting Fortran
+code.  They make sure various syntactic entities (line numbers, comment
+line indicators, and continuation line flags) appear in the columns
+that are required for standard Fortran.
+
+* Menu:
+
+* Commands: ForIndent Commands. Commands for indenting Fortran.
+* Numbers:  ForIndent Num.      How line numbers auto-indent.
+* Conv:     ForIndent Conv.     Conventions you must obey to avoid trouble.
+* Vars:     ForIndent Vars.     Variables controlling Fortran indent style.
+
+
+File: xemacs.info,  Node: ForIndent Commands,  Next: ForIndent Num,  Prev: Fortran Indent,  Up: Fortran Indent
+
+Fortran Indentation Commands
+............................
+
+`<TAB>'
+     Indent the current line (`fortran-indent-line').
+
+`M-<LFD>'
+     Break the current line and set up a continuation line.
+
+`C-M-q'
+     Indent all the lines of the subprogram point is in
+     (`fortran-indent-subprogram').
+
+   <TAB> is redefined by Fortran mode to reindent the current line for
+Fortran (`fortran-indent-line').  Line numbers and continuation markers
+are indented to their required columns, and the body of the statement
+is independently indented, based on its nesting in the program.
+
+   The key `C-M-q' is redefined as `fortran-indent-subprogram', a
+command that reindents all the lines of the Fortran subprogram
+(function or subroutine) containing point.
+
+   The key `M-<LFD>' is redefined as `fortran-split-line', a command to
+split a line in the appropriate fashion for Fortran.  In a non-comment
+line, the second half becomes a continuation line and is indented
+accordingly.  In a comment line, both halves become separate comment
+lines.
+
+
+File: xemacs.info,  Node: ForIndent Num,  Next: ForIndent Conv,  Prev: ForIndent Commands,  Up: Fortran Indent
+
+Line Numbers and Continuation
+.............................
+
+   If a number is the first non-whitespace in the line, it is assumed
+to be a line number and is moved to columns 0 through 4.  (Columns are
+always counted from 0 in XEmacs.)  If the text on the line starts with
+the conventional Fortran continuation marker `$', it is moved to column
+5.  If the text begins with any non whitespace character in column 5,
+it is assumed to be an unconventional continuation marker and remains
+in column 5.
+
+   Line numbers of four digits or less are normally indented one space.
+This amount is controlled by the variable `fortran-line-number-indent',
+which is the maximum indentation a line number can have.  Line numbers
+are indented to right-justify them to end in column 4 unless that would
+require more than the maximum indentation.  The default value of the
+variable is 1.
+
+   Simply inserting a line number is enough to indent it according to
+these rules.  As each digit is inserted, the indentation is recomputed.
+To turn off this feature, set the variable
+`fortran-electric-line-number' to `nil'.  Then inserting line numbers
+is like inserting anything else.
+
+
+File: xemacs.info,  Node: ForIndent Conv,  Next: ForIndent Vars,  Prev: ForIndent Num,  Up: Fortran Indent
+
+Syntactic Conventions
+.....................
+
+   Fortran mode assumes that you follow certain conventions that
+simplify the task of understanding a Fortran program well enough to
+indent it properly:
+
+   * Two nested `do' loops never share a `continue' statement.
+
+   * The same character appears in column 5 of all continuation lines.
+     It is the value of the variable `fortran-continuation-char'.  By
+     default, this character is `$'.
+
+If you fail to follow these conventions, the indentation commands may
+indent some lines unaesthetically.  However, a correct Fortran program
+will retain its meaning when reindented even if the conventions are not
+followed.
+
+
+File: xemacs.info,  Node: ForIndent Vars,  Prev: ForIndent Conv,  Up: Fortran Indent
+
+Variables for Fortran Indentation
+.................................
+
+   Several additional variables control how Fortran indentation works.
+
+`fortran-do-indent'
+     Extra indentation within each level of `do' statement (the default
+     is 3).
+
+`fortran-if-indent'
+     Extra indentation within each level of `if' statement (the default
+     is 3).
+
+`fortran-continuation-indent'
+     Extra indentation for bodies of continuation lines (the default is
+     5).
+
+`fortran-check-all-num-for-matching-do'
+     If this is `nil', indentation assumes that each `do' statement
+     ends on a `continue' statement.  Therefore, when computing
+     indentation for a statement other than `continue', it can save
+     time by not checking for a `do' statement ending there.  If this
+     is non-`nil', indenting any numbered statement must check for a
+     `do' that ends there.  The default is `nil'.
+
+`fortran-minimum-statement-indent'
+     Minimum indentation for Fortran statements.  For standard Fortran,
+     this is 6.  Statement bodies are always indented at least this
+     much.
+
+
+File: xemacs.info,  Node: Fortran Comments,  Next: Fortran Columns,  Prev: Fortran Indent,  Up: Fortran
+
+Comments
+--------
+
+   The usual Emacs comment commands assume that a comment can follow a
+line of code.  In Fortran, the standard comment syntax requires an
+entire line to be just a comment.  Therefore, Fortran mode replaces the
+standard Emacs comment commands and defines some new variables.
+
+   Fortran mode can also handle a non-standard comment syntax where
+comments start with `!' and can follow other text.  Because only some
+Fortran compilers accept this syntax, Fortran mode will not insert such
+comments unless you have specified to do so in advance by setting the
+variable `comment-start' to `"!"' (*note Variables::).
+
+`M-;'
+     Align comment or insert new comment (`fortran-comment-indent').
+
+`C-x ;'
+     Applies to nonstandard `!' comments only.
+
+`C-c ;'
+     Turn all lines of the region into comments, or (with arg) turn
+     them back into real code (`fortran-comment-region').
+
+   `M-;' in Fortran mode is redefined as the command
+`fortran-comment-indent'.  Like the usual `M-;' command, it recognizes
+an existing comment and aligns its text appropriately.  If there is no
+existing comment, a comment is inserted and aligned.
+
+   Inserting and aligning comments is not the same in Fortran mode as in
+other modes.  When a new comment must be inserted, a full-line comment
+is inserted if the current line is blank.  On a non-blank line, a
+non-standard `!' comment is inserted if you previously specified you
+wanted to use them.  Otherwise a full-line comment is inserted on a new
+line before the current line.
+
+   Non-standard `!' comments are aligned like comments in other
+languages, but full-line comments are aligned differently.  In a
+standard full-line comment, the comment delimiter itself must always
+appear in column zero.  What can be aligned is the text within the
+comment.  You can choose from three styles of alignment by setting the
+variable `fortran-comment-indent-style' to one of these values:
+
+`fixed'
+     The text is aligned at a fixed column, which is the value of
+     `fortran-comment-line-column'.  This is the default.
+
+`relative'
+     The text is aligned as if it were a line of code, but with an
+     additional `fortran-comment-line-column' columns of indentation.
+
+`nil'
+     Text in full-line columns is not moved automatically.
+
+   You can also specify the character to be used to indent within
+full-line comments by setting the variable `fortran-comment-indent-char'
+to the character you want to use.
+
+   Fortran mode introduces two variables `comment-line-start' and
+`comment-line-start-skip', which do for full-line comments what
+`comment-start' and `comment-start-skip' do for ordinary text-following
+comments.  Normally these are set properly by Fortran mode, so you do
+not need to change them.
+
+   The normal Emacs comment command `C-x ;' has not been redefined.  It
+can therefore be used if you use `!' comments, but is useless in
+Fortran mode otherwise.
+
+   The command `C-c ;' (`fortran-comment-region') turns all the lines
+of the region into comments by inserting the string `C$$$' at the front
+of each one.  With a numeric arg, the region is turned back into live
+code by deleting `C$$$' from the front of each line.  You can control
+the string used for the comments by setting the variable
+`fortran-comment-region'.  Note that here we have an example of a
+command and a variable with the same name; the two uses of the name
+never conflict because in Lisp and in Emacs it is always clear from the
+context which one is referred to.
+
+
+File: xemacs.info,  Node: Fortran Columns,  Next: Fortran Abbrev,  Prev: Fortran Comments,  Up: Fortran
+
+Columns
+-------
+
+`C-c C-r'
+     Displays a "column ruler" momentarily above the current line
+     (`fortran-column-ruler').
+
+`C-c C-w'
+     Splits the current window horizontally so that it is 72 columns
+     wide.  This may help you avoid going over that limit
+     (`fortran-window-create').
+
+   The command `C-c C-r' (`fortran-column-ruler') shows a column ruler
+above the current line.  The comment ruler consists of two lines of
+text that show you the locations of columns with special significance
+in Fortran programs.  Square brackets show the limits of the columns for
+line numbers, and curly brackets show the limits of the columns for the
+statement body.  Column numbers appear above them.
+
+   Note that the column numbers count from zero, as always in XEmacs.
+As a result, the numbers may not be those you are familiar with; but the
+actual positions in the line are standard Fortran.
+
+   The text used to display the column ruler is the value of the
+variable `fortran-comment-ruler'.  By changing this variable, you can
+change the display.
+
+   For even more help, use `C-c C-w' (`fortran-window-create'), a
+command which splits the current window horizontally, resulting in a
+window 72 columns wide.  When you edit in this window, you can
+immediately see when a line gets too wide to be correct Fortran.
+
+
+File: xemacs.info,  Node: Fortran Abbrev,  Prev: Fortran Columns,  Up: Fortran
+
+Fortran Keyword Abbrevs
+-----------------------
+
+   Fortran mode provides many built-in abbrevs for common keywords and
+declarations.  These are the same sort of abbrevs that you can define
+yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
+
+   The built-in abbrevs are unusual in one way: they all start with a
+semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
+mode makes this possible by changing the syntax of semicolon to "word
+constituent".
+
+   For example, one built-in Fortran abbrev is `;c' for `continue'.  If
+you insert `;c' and then insert a punctuation character such as a space
+or a newline, the `;c' changes automatically to `continue', provided
+Abbrev mode is enabled.
+
+   Type `;?' or `;C-h' to display a list of all built-in Fortran
+abbrevs and what they stand for.
+
+
+File: xemacs.info,  Node: Asm Mode,  Prev: Fortran,  Up: Programs
+
+Asm Mode
+========
+
+   Asm mode is a major mode for editing files of assembler code.  It
+defines these commands:
+
+`<TAB>'
+     `tab-to-tab-stop'.
+
+`<LFD>'
+     Insert a newline and then indent using `tab-to-tab-stop'.
+
+`:'
+     Insert a colon and then remove the indentation from before the
+     label preceding colon.  Then do `tab-to-tab-stop'.
+
+`;'
+     Insert or align a comment.
+
+   The variable `asm-comment-char' specifies which character starts
+comments in assembler syntax.
+
+
+File: xemacs.info,  Node: Running,  Next: Packages,  Prev: Programs,  Up: Top
+
+Compiling and Testing Programs
+******************************
+
+   The previous chapter discusses the Emacs commands that are useful for
+making changes in programs.  This chapter deals with commands that
+assist in the larger process of developing and maintaining programs.
+
+* Menu:
+
+* Compilation::        Compiling programs in languages other than Lisp
+                        (C, Pascal, etc.)
+* Modes: Lisp Modes.   Various modes for editing Lisp programs, with
+                       different facilities for running the Lisp programs.
+* Libraries: Lisp Libraries.      Creating Lisp programs to run in Emacs.
+* Eval: Lisp Eval.     Executing a single Lisp expression in Emacs.
+* Debug: Lisp Debug.   Debugging Lisp programs running in Emacs.
+* Interaction: Lisp Interaction.  Executing Lisp in an Emacs buffer.
+* External Lisp::      Communicating through Emacs with a separate Lisp.
+
+
+File: xemacs.info,  Node: Compilation,  Next: Lisp Modes,  Prev: Running,  Up: Running
+
+Running "make", or Compilers Generally
+======================================
+
+   Emacs can run compilers for non-interactive languages like C and
+Fortran as inferior processes, feeding the error log into an Emacs
+buffer.  It can also parse the error messages and visit the files in
+which errors are found, moving point to the line where the error
+occurred.
+
+`M-x compile'
+     Run a compiler asynchronously under Emacs, with error messages to
+     `*compilation*' buffer.
+
+`M-x grep'
+     Run `grep' asynchronously under Emacs, with matching lines listed
+     in the buffer named `*compilation*'.
+
+`M-x kill-compilation'
+     Kill the process made by the `M-x compile' command.
+
+`M-x kill-grep'
+     Kill the running compilation or `grep' subprocess.
+
+`C-x `'
+     Visit the next compiler error message or `grep' match.
+
+   To run `make' or another compiler, type `M-x compile'.  This command
+reads a shell command line using the minibuffer, then executes the
+specified command line in an inferior shell with output going to the
+buffer named `*compilation*'.  By default, the current buffer's default
+directory is used as the working directory for the execution of the
+command; therefore, the makefile comes from this directory.
+
+   When the shell command line is read, the minibuffer appears
+containing a default command line (the command you used the last time
+you typed `M-x compile').  If you type just <RET>, the same command
+line is used again.  The first `M-x compile' provides `make -k' as the
+default.  The default is taken from the variable `compile-command'; if
+the appropriate compilation command for a file is something other than
+`make -k', it can be useful to have the file specify a local value for
+`compile-command' (*note File Variables::).
+
+   When you start a compilation, the buffer `*compilation*' is
+displayed in another window but not selected.  Its mode line displays
+the word `run' or `exit' in the parentheses to tell you whether
+compilation is finished.  You do not have to keep this buffer visible;
+compilation continues in any case.
+
+   To kill the compilation process, type `M-x-kill-compilation'.  The
+mode line of the `*compilation*' buffer changes to say `signal' instead
+of `run'.  Starting a new compilation also kills any running
+compilation, as only one can occur at any time.  Starting a new
+compilation prompts for confirmation before actually killing a
+compilation that is running.
+
+   To parse the compiler error messages, type `C-x `' (`next-error').
+The character following `C-x' is the grave accent, not the single
+quote.  The command displays the buffer `*compilation*' in one window
+and the buffer in which the next error occurred in another window.
+Point in that buffer is moved to the line where the error was found.
+The corresponding error message is scrolled to the top of the window in
+which `*compilation*' is displayed.
+
+   The first time you use `C-x `' after the start of a compilation, it
+parses all the error messages, visits all the files that have error
+messages, and creates markers pointing at the lines the error messages
+refer to.  It then moves to the first error message location.
+Subsequent uses of `C-x `' advance down the data set up by the first
+use.  When the preparsed error messages are exhausted, the next `C-x `'
+checks for any more error messages that have come in; this is useful if
+you start editing compiler errors while compilation is still going on.
+If no additional error messages have come in, `C-x `' reports an error.
+
+   `C-u C-x `' discards the preparsed error message data and parses the
+`*compilation*' buffer again, then displays the first error.  This way,
+you can process the same set of errors again.
+
+   Instead of running a compiler, you can run `grep' and see the lines
+on which matches were found.  To do this, type `M-x grep' with an
+argument line that contains the same arguments you would give to
+`grep': a `grep'-style regexp (usually in single quotes to quote the
+shell's special characters) followed by filenames, which may use
+wildcard characters.  The output from `grep' goes in the
+`*compilation*' buffer.  You can use `C-x `' to find the lines that
+match as if they were compilation errors.
+
+   Note: a shell is used to run the compile command, but the shell is
+not run in interactive mode.  In particular, this means that the shell
+starts up with no prompt.  If you find your usual shell prompt making an
+unsightly appearance in the `*compilation*' buffer, it means you have
+made a mistake in your shell's initialization file (`.cshrc' or `.shrc'
+or ...) by setting the prompt unconditionally.  The shell
+initialization file should set the prompt only if there already is a
+prompt.  Here's how to do it in `csh':
+
+     if ($?prompt) set prompt = ...
+
+
+File: xemacs.info,  Node: Lisp Modes,  Next: Lisp Libraries,  Prev: Compilation,  Up: Running
+
+Major Modes for Lisp
+====================
+
+   Emacs has four different major modes for Lisp.  They are the same in
+terms of editing commands, but differ in the commands for executing Lisp
+expressions.
+
+Emacs-Lisp mode
+     The mode for editing source files of programs to run in Emacs Lisp.
+     This mode defines `C-M-x' to evaluate the current defun.  *Note
+     Lisp Libraries::.
+
+Lisp Interaction mode
+     The mode for an interactive session with Emacs Lisp.  It defines
+     <LFD> to evaluate the sexp before point and insert its value in the
+     buffer.  *Note Lisp Interaction::.
+
+Lisp mode
+     The mode for editing source files of programs that run in other
+     dialects of Lisp than Emacs Lisp.  This mode defines `C-M-x' to
+     send the current defun to an inferior Lisp process.  *Note
+     External Lisp::.
+
+Inferior Lisp mode
+     The mode for an interactive session with an inferior Lisp process.
+     This mode combines the special features of Lisp mode and Shell mode
+     (*note Shell Mode::).
+
+Scheme mode
+     Like Lisp mode but for Scheme programs.
+
+Inferior Scheme mode
+     The mode for an interactive session with an inferior Scheme
+     process.
+
+
+File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
+
+Libraries of Lisp Code for Emacs
+================================
+
+   Lisp code for Emacs editing commands is stored in files whose names
+conventionally end in `.el'.  This ending tells Emacs to edit them in
+Emacs-Lisp mode (*note Lisp Modes::).
+
+* Menu:
+
+* Loading::		Loading libraries of Lisp code into Emacs for use.
+* Compiling Libraries:: Compiling a library makes it load and run faster.
+* Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
+
+
+File: xemacs.info,  Node: Loading,  Next: Compiling Libraries,  Prev: Lisp Libraries,  Up: Lisp Libraries
+
+Loading Libraries
+-----------------
+
+`M-x load-file FILE'
+     Load the file FILE of Lisp code.
+
+`M-x load-library LIBRARY'
+     Load the library named LIBRARY.
+
+`M-x locate-library LIBRARY &optional NOSUFFIX'
+     Show the full path name of Emacs library LIBRARY.
+
+   To execute a file of Emacs Lisp, use `M-x load-file'.  This command
+reads the file name you provide in the minibuffer, then executes the
+contents of that file as Lisp code.  It is not necessary to visit the
+file first; in fact, this command reads the file as found on disk, not
+the text in an Emacs buffer.
+
+   Once a file of Lisp code is installed in the Emacs Lisp library
+directories, users can load it using `M-x load-library'.  Programs can
+load it by calling `load-library', or with `load', a more primitive
+function that is similar but accepts some additional arguments.
+
+   `M-x load-library' differs from `M-x load-file' in that it searches
+a sequence of directories and tries three file names in each directory.
+The three names are: first, the specified name with `.elc' appended;
+second, the name with `.el' appended; third, the specified name alone.
+A `.elc' file would be the result of compiling the Lisp file into byte
+code;  if possible, it is loaded in preference to the Lisp file itself
+because the compiled file loads and runs faster.
+
+   Because the argument to `load-library' is usually not in itself a
+valid file name, file name completion is not available.  In fact, when
+using this command, you usually do not know exactly what file name will
+be used.
+
+   The sequence of directories searched by `M-x load-library' is
+specified by the variable `load-path', a list of strings that are
+directory names.  The elements of this list may not begin with "`~'",
+so you must call `expand-file-name' on them before adding them to the
+list.  The default value of the list contains the directory where the
+Lisp code for Emacs itself is stored.  If you have libraries of your
+own, put them in a single directory and add that directory to
+`load-path'.  `nil' in this list stands for the current default
+directory, but it is probably not a good idea to put `nil' in the list.
+If you start wishing that `nil' were in the list, you should probably
+use `M-x load-file' for this case.
+
+   The variable is initialized by the EMACSLOADPATH environment
+variable. If no value is specified, the variable takes the default value
+specified in the file `paths.h' when Emacs was built. If a path isn't
+specified in `paths.h', a default value is obtained from the file
+system, near the directory in which the Emacs executable resides.
+
+   Like `M-x load-library', `M-x locate-library' searches the
+directories in `load-path' to find the file that `M-x load-library'
+would load.  If the optional second argument NOSUFFIX is non-`nil', the
+suffixes `.elc' or `.el' are not added to the specified name LIBRARY
+(like calling `load' instead of `load-library').
+
+   You often do not have to give any command to load a library, because
+the commands defined in the library are set up to "autoload" that
+library.  Running any of those commands causes `load' to be called to
+load the library; this replaces the autoload definitions with the real
+ones from the library.
+
+   If autoloading a file does not finish, either because of an error or
+because of a `C-g' quit, all function definitions made by the file are
+undone automatically.  So are any calls to `provide'.  As a
+consequence, the entire file is loaded a second time if you use one of
+the autoloadable commands again.  This prevents problems when the
+command is no longer autoloading but is working incorrectly because the
+file was only partially loaded.  Function definitions are undone only
+for autoloading; explicit calls to `load' do not undo anything if
+loading is not completed.
+
+   The variable `after-load-alist' takes an alist of expressions to be
+evaluated when particular files are loaded.  Each element has the form
+`(FILENAME forms...)'.  When `load' is run and the filename argument is
+FILENAME, the forms in the corresponding element are executed at the
+end of loading.
+
+   FILENAME must match exactly.  Normally FILENAME is the name of a
+library, with no directory specified, since that is how load is
+normally called.  An error in `forms' does not undo the load, but it
+does prevent execution of the rest of the `forms'.
+
+
+File: xemacs.info,  Node: Compiling Libraries,  Next: Mocklisp,  Prev: Loading,  Up: Lisp Libraries
+
+Compiling Libraries
+-------------------
+
+   Emacs Lisp code can be compiled into byte-code which loads faster,
+takes up less space when loaded, and executes faster.
+
+`M-x batch-byte-compile'
+     Run byte-compile-file on the files remaining on the command line.
+
+`M-x byte-compile-buffer &optional BUFFER'
+     Byte-compile and evaluate contents of BUFFER (default is current
+     buffer).
+
+`M-x byte-compile-file'
+     Compile a file of Lisp code named FILENAME into a file of byte
+     code.
+
+`M-x byte-compile-and-load-file FILENAME'
+     Compile a file of Lisp code named FILENAME into a file of byte
+     code and load it.
+
+`M-x byte-recompile-directory DIRECTORY'
+     Recompile every `.el' file in DIRECTORY that needs recompilation.
+
+`M-x disassemble'
+     Print disassembled code for OBJECT on (optional) STREAM.
+
+`M-x make-obsolete FUNCTION NEW'
+     Make the byte-compiler warn that FUNCTION is obsolete and NEW
+     should be used instead.
+
+   `byte-compile-file' creates a byte-code compiled file from an
+Emacs-Lisp source file.  The default argument for this function is the
+file visited in the current buffer.  The function reads the specified
+file, compiles it into byte code, and writes an output file whose name
+is made by appending `c' to the input file name.  Thus, the file
+`rmail.el' would be compiled into `rmail.elc'. To compile a file of
+Lisp code named FILENAME into a file of byte code and then load it, use
+`byte-compile-and-load-file'. To compile and evaluate Lisp code in a
+given buffer, use `byte-compile-buffer'.
+
+   To recompile all changed Lisp files in a directory, use `M-x
+byte-recompile-directory'.  Specify just the directory name as an
+argument.  Each `.el' file that has been byte-compiled before is
+byte-compiled again if it has changed since the previous compilation.
+A numeric argument to this command tells it to offer to compile each
+`.el' file that has not been compiled yet.  You must answer `y' or `n'
+to each offer.
+
+   You can use the function `batch-byte-compile' to invoke Emacs
+non-interactively from the shell to do byte compilation.  When you use
+this function, the files to be compiled are specified with command-line
+arguments.  Use a shell command of the form:
+
+     emacs -batch -f batch-byte-compile FILES...
+
+   Directory names may also be given as arguments; in that case,
+`byte-recompile-directory' is invoked on each such directory.
+`batch-byte-compile' uses all remaining command-line arguments as file
+or directory names, then kills the Emacs process.
+
+   `M-x disassemble' explains the result of byte compilation.  Its
+argument is a function name.  It displays the byte-compiled code in a
+help window in symbolic form, one instruction per line.  If the
+instruction refers to a variable or constant, that is shown, too.
+
+
+File: xemacs.info,  Node: Mocklisp,  Prev: Compiling Libraries,  Up: Lisp Libraries
+
+Converting Mocklisp to Lisp
+---------------------------
+
+   XEmacs can run Mocklisp files by converting them to Emacs Lisp first.
+To convert a Mocklisp file, visit it and then type `M-x
+convert-mocklisp-buffer'.  Then save the resulting buffer of Lisp file
+in a file whose name ends in `.el' and use the new file as a Lisp
+library.
+
+   You cannot currently byte-compile converted Mocklisp code.  The
+reason is that converted Mocklisp code uses some special Lisp features
+to deal with Mocklisp's incompatible ideas of how arguments are
+evaluated and which values signify "true" or "false".
+
+
+File: xemacs.info,  Node: Lisp Eval,  Next: Lisp Debug,  Prev: Lisp Libraries,  Up: Running
+
+Evaluating Emacs-Lisp Expressions
+=================================
+
+   Lisp programs intended to be run in Emacs should be edited in
+Emacs-Lisp mode; this will happen automatically for file names ending in
+`.el'.  By contrast, Lisp mode itself should be used for editing Lisp
+programs intended for other Lisp systems.  Emacs-Lisp mode can be
+selected with the command `M-x emacs-lisp-mode'.
+
+   For testing of Lisp programs to run in Emacs, it is useful to be able
+to evaluate part of the program as it is found in the Emacs buffer.  For
+example, if you change the text of a Lisp function definition and then
+evaluate the definition, Emacs installs the change for future calls to
+the function.  Evaluation of Lisp expressions is also useful in any
+kind of editing task for invoking non-interactive functions (functions
+that are not commands).
+
+`M-<ESC>'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the minibuffer (`eval-expression').
+
+`C-x C-e'
+     Evaluate the Lisp expression before point, and print the value in
+     the minibuffer (`eval-last-sexp').
+
+`C-M-x'
+     Evaluate the defun containing point or after point, and print the
+     value in the minibuffer (`eval-defun').
+
+`M-x eval-region'
+     Evaluate all the Lisp expressions in the region.
+
+`M-x eval-current-buffer'
+     Evaluate all the Lisp expressions in the buffer.
+
+   `M-<ESC>' (`eval-expression') is the most basic command for
+evaluating a Lisp expression interactively.  It reads the expression
+using the minibuffer, so you can execute any expression on a buffer
+regardless of what the buffer contains.  When evaluation is complete,
+the current buffer is once again the buffer that was current when
+`M-<ESC>' was typed.
+
+   `M-<ESC>' can easily confuse users, especially on keyboards with
+autorepeat, where it can result from holding down the <ESC> key for too
+long.  Therefore, `eval-expression' is normally a disabled command.
+Attempting to use this command asks for confirmation and gives you the
+option of enabling it; once you enable the command, you are no longer
+required to confirm.  *Note Disabling::.
+
+   In Emacs-Lisp mode, the key `C-M-x' is bound to the function
+`eval-defun', which parses the defun containing point or following point
+as a Lisp expression and evaluates it.  The value is printed in the echo
+area.  This command is convenient for installing in the Lisp environment
+changes that you have just made in the text of a function definition.
+
+   The command `C-x C-e' (`eval-last-sexp') performs a similar job but
+is available in all major modes, not just Emacs-Lisp mode.  It finds
+the sexp before point, reads it as a Lisp expression, evaluates it, and
+prints the value in the echo area.  It is sometimes useful to type in an
+expression and then, with point still after it, type `C-x C-e'.
+
+   If `C-M-x' or `C-x C-e' are given a numeric argument, they print the
+value by inserting it into the current buffer at point, rather than in
+the echo area.  The argument value does not matter.
+
+   The most general command for evaluating Lisp expressions from a
+buffer is `eval-region'.  `M-x eval-region' parses the text of the
+region as one or more Lisp expressions, evaluating them one by one.
+`M-x eval-current-buffer' is similar, but it evaluates the entire
+buffer.  This is a reasonable way to install the contents of a file of
+Lisp code that you are just ready to test.  After finding and fixing a
+bug, use `C-M-x' on each function that you change, to keep the Lisp
+world in step with the source file.
+
+
+File: xemacs.info,  Node: Lisp Debug,  Next: Lisp Interaction,  Prev: Lisp Eval,  Up: Running
+
+The Emacs-Lisp Debugger
+=======================
+
+   XEmacs contains a debugger for Lisp programs executing inside it.
+This debugger is normally not used; many commands frequently get Lisp
+errors when invoked in inappropriate contexts (such as `C-f' at the end
+of the buffer) and it would be unpleasant to enter a special debugging
+mode in this case.  When you want to make Lisp errors invoke the
+debugger, you must set the variable `debug-on-error' to non-`nil'.
+Quitting with `C-g' is not considered an error, and `debug-on-error'
+has no effect on the handling of `C-g'.  However, if you set
+`debug-on-quit' to be non-`nil', `C-g' will invoke the debugger.  This
+can be useful for debugging an infinite loop; type `C-g' once the loop
+has had time to reach its steady state.  `debug-on-quit' has no effect
+on errors.
+
+   You can make Emacs enter the debugger when a specified function is
+called or at a particular place in Lisp code.  Use `M-x debug-on-entry'
+with argument FUN-NAME to have Emacs enter the debugger as soon as
+FUN-NAME is called. Use `M-x cancel-debug-on-entry' to make the
+function stop entering the debugger when called.  (Redefining the
+function also does this.)  To enter the debugger from some other place
+in Lisp code, you must insert the expression `(debug)' there and
+install the changed code with `C-M-x'.  *Note Lisp Eval::.
+
+   When the debugger is entered, it displays the previously selected
+buffer in one window and a buffer named `*Backtrace*' in another
+window.  The backtrace buffer contains one line for each level of Lisp
+function execution currently going on.  At the beginning of the buffer
+is a message describing the reason that the debugger was invoked, for
+example, an error message if it was invoked due to an error.
+
+   The backtrace buffer is read-only and is in Backtrace mode, a special
+major mode in which letters are defined as debugger commands.  The
+usual Emacs editing commands are available; you can switch windows to
+examine the buffer that was being edited at the time of the error, and
+you can switch buffers, visit files, and perform any other editing
+operations.  However, the debugger is a recursive editing level (*note
+Recursive Edit::); it is a good idea to return to the backtrace buffer
+and explicitly exit the debugger when you don't want to use it any
+more.  Exiting the debugger kills the backtrace buffer.
+
+   The contents of the backtrace buffer show you the functions that are
+executing and the arguments that were given to them.  It also allows you
+to specify a stack frame by moving point to the line describing that
+frame.  The frame whose line point is on is considered the "current
+frame".  Some of the debugger commands operate on the current frame.
+Debugger commands are mainly used for stepping through code one
+expression at a time.  Here is a list of them:
+
+`c'
+     Exit the debugger and continue execution.  In most cases,
+     execution of the program continues as if the debugger had never
+     been entered (aside from the effect of any variables or data
+     structures you may have changed while inside the debugger).  This
+     includes entry to the debugger due to function entry or exit,
+     explicit invocation, and quitting or certain errors.  Most errors
+     cannot be continued; trying to continue an error usually causes
+     the same error to occur again.
+
+`d'
+     Continue execution, but enter the debugger the next time a Lisp
+     function is called.  This allows you to step through the
+     subexpressions of an expression, and see what the subexpressions
+     do and what values they compute.
+
+     When you enter the debugger this way, Emacs flags the stack frame
+     for the function call from which you entered.  The same function
+     is then called when you exit the frame.  To cancel this flag, use
+     `u'.
+
+`b'
+     Set up to enter the debugger when the current frame is exited.
+     Frames that invoke the debugger on exit are flagged with stars.
+
+`u'
+     Don't enter the debugger when the current frame is exited.  This
+     cancels a `b' command on a frame.
+
+`e'
+     Read a Lisp expression in the minibuffer, evaluate it, and print
+     the value in the echo area.  This is equivalent to the command
+     `M-<ESC>', except that `e' is not normally disabled like `M-<ESC>'.
+
+`q'
+     Terminate the program being debugged; return to top-level Emacs
+     command execution.
+
+     If the debugger was entered due to a `C-g' but you really want to
+     quit, not to debug, use the `q' command.
+
+`r'
+     Return a value from the debugger.  The value is computed by
+     reading an expression with the minibuffer and evaluating it.
+
+     The value returned by the debugger makes a difference when the
+     debugger was invoked due to exit from a Lisp call frame (as
+     requested with `b'); then the value specified in the `r' command
+     is used as the value of that frame.
+
+     The debugger's return value also matters with many errors.  For
+     example, `wrong-type-argument' errors will use the debugger's
+     return value instead of the invalid argument; `no-catch' errors
+     will use the debugger value as a throw tag instead of the tag that
+     was not found.  If an error was signaled by calling the Lisp
+     function `signal', the debugger's return value is returned as the
+     value of `signal'.
+
+
+File: xemacs.info,  Node: Lisp Interaction,  Next: External Lisp,  Prev: Lisp Debug,  Up: Running
+
+Lisp Interaction Buffers
+========================
+
+   The buffer `*scratch*', which is selected when Emacs starts up, is
+provided for evaluating Lisp expressions interactively inside Emacs.
+Both the expressions you evaluate and their output goes in the buffer.
+
+   The `*scratch*' buffer's major mode is Lisp Interaction mode, which
+is the same as Emacs-Lisp mode except for one command, <LFD>.  In
+Emacs-Lisp mode, <LFD> is an indentation command.  In Lisp Interaction
+mode, <LFD> is bound to `eval-print-last-sexp'.  This function reads
+the Lisp expression before point, evaluates it, and inserts the value
+in printed representation before point.
+
+   The way to use the `*scratch*' buffer is to insert Lisp expressions
+at the end, ending each one with <LFD> so that it will be evaluated.
+The result is a complete typescript of the expressions you have
+evaluated and their values.
+
+   The rationale for this feature is that Emacs must have a buffer when
+it starts up, but that buffer is not useful for editing files since a
+new buffer is made for every file that you visit.  The Lisp interpreter
+typescript is the most useful thing I can think of for the initial
+buffer to do.  `M-x lisp-interaction-mode' will put any buffer in Lisp
+Interaction mode.
+
+
+File: xemacs.info,  Node: External Lisp,  Prev: Lisp Interaction,  Up: Running
+
+Running an External Lisp
+========================
+
+   Emacs has facilities for running programs in other Lisp systems.
+You can run a Lisp process as an inferior of Emacs, and pass
+expressions to it to be evaluated.  You can also pass changed function
+definitions directly from the Emacs buffers in which you edit the Lisp
+programs to the inferior Lisp process.
+
+   To run an inferior Lisp process, type `M-x run-lisp'.  This runs the
+program named `lisp', the same program you would run by typing `lisp'
+as a shell command, with both input and output going through an Emacs
+buffer named `*lisp*'.  In other words, any "terminal output" from Lisp
+will go into the buffer, advancing point, and any "terminal input" for
+Lisp comes from text in the buffer.  To give input to Lisp, go to the
+end of the buffer and type the input, terminated by <RET>.  The
+`*lisp*' buffer is in Inferior Lisp mode, which has all the special
+characteristics of Lisp mode and Shell mode (*note Shell Mode::).
+
+   Use Lisp mode to run the source files of programs in external Lisps.
+You can select this mode with `M-x lisp-mode'.  It is used automatically
+for files whose names end in `.l' or `.lisp', as most Lisp systems
+usually expect.
+
+   When you edit a function in a Lisp program you are running, the
+easiest way to send the changed definition to the inferior Lisp process
+is the key `C-M-x'.  In Lisp mode, this key runs the function
+`lisp-send-defun', which finds the defun around or following point and
+sends it as input to the Lisp process.  (Emacs can send input to any
+inferior process regardless of what buffer is current.)
+
+   Contrast the meanings of `C-M-x' in Lisp mode (for editing programs
+to be run in another Lisp system) and Emacs-Lisp mode (for editing Lisp
+programs to be run in Emacs): in both modes it has the effect of
+installing the function definition that point is in, but the way of
+doing so is different according to where the relevant Lisp environment
+is found.  *Note Lisp Modes::.
+
+
+File: xemacs.info,  Node: Packages,  Next: Abbrevs,  Prev: Running,  Up: Top
+
+Packages
+========
+
+   The XEmacs 21 distribution comes only with a very basic set of
+built-in modes and packages.  Most of the packages that were part of
+the distribution of earlier versions of XEmacs are now available
+separately.  The installer as well as the user can choose which
+packages to install; the actual installation process is easy.  This
+gives an installer the ability to tailor an XEmacs installation for
+local needs with safe removal of unnecessary code.
+
+* Menu:
+
+* Package Terminology:: Understanding different kinds of packages.
+* Using Packages::      How to install and use packages.
+* Building Packages::   Building packages from sources.
+
+
+File: xemacs.info,  Node: Package Terminology,  Next: Using Packages,  Up: Packages
+
+Package Flavors
+---------------
+
+   There are two main flavors of packages.
+
+   * Regular Packages A regular package is one in which multiple files
+     are involved and one may not in general safely remove any of them.
+
+   * Single-File Packages A single-file package is an aggregate
+     collection of thematically related but otherwise independent lisp
+     files.  These files are bundled together for download convenience
+     and individual files may be deleted at will without any loss of
+     functionality.
+
+Package Distributions
+---------------------
+
+   XEmacs Lisp packages are distributed in two ways, depending on the
+intended use.  Binary Packages are for installers and end-users and may
+be installed directly into an XEmacs package directory.  Source Packages
+are for developers and include all files necessary for rebuilding
+bytecompiled lisp and creating tarballs for distribution.
+
+Binary Packages
+---------------
+
+   Binary packages may be installed directly into an XEmacs package
+hierarchy.
+
+Source Packages
+---------------
+
+   Source packages contain all of the Package author's (where
+appropriate in regular packages) source code plus all of the files
+necessary to build distribution tarballs (Unix Tar format files,
+gzipped for space savings).
+
