@@ -116,6 +116,10 @@
    ((symbolp kb)
     nil)))
 
+(defvar char-db-coded-charset-priority-list
+  (sort (copy-list default-coded-charset-priority-list)
+	#'char-attribute-name<))
+
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
     (setq column (current-column)))
@@ -127,7 +131,10 @@
 		  (if (setq ret (get-char-attribute char 'name))
 		      (setq char-spec (cons (cons 'name ret) char-spec)))
 		  )
-		 ((setq ret (split-char char))
+		 ((setq ret
+			(let ((default-coded-charset-priority-list
+				char-db-coded-charset-priority-list))
+			  (split-char char)))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
 		    (if (or (and (>= (charset-iso-final-char ccs) ?0)
