@@ -35,6 +35,10 @@
     (=daikanwa		. 30639)	; &I-M-30639;
     (=ucs@cns		. #x8279)	; ⺿
     (=ucs@jis		. #xFA5E)	; ⺿
+    (->subsumptive
+     ((=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5E)	; 艹
+      ))
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
@@ -43,14 +47,6 @@
      ((=ucs		  . #x8278)	; 艸
       ))
     (=ucs		. #x8279)	; 艹
-    ))
-(define-char
-  '((=>ucs*		. #x8279)	; 艹
-    (->identical
-     ((name		  . "CJK RADICAL GRASS TWO")
-      (=ucs		  . #x2EBF)	; ⺿
-      ))
-    (=ucs		. #xFA5E)	; 艹
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS ONE")
@@ -90,14 +86,10 @@
     (=gt-k		. 00569)	; &I-GT-K00569;
     (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
     (=ucs@jis		. #xFA5D)	; ⻀
-    ))
-(define-char
-  '((=>ucs*		. #x8279)	; 艹
-    (->identical
-     ((name		  . "CJK RADICAL GRASS THREE")
-      (=ucs		  . #x2EC0)	; ⻀
+    (->subsumptive
+     ((=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5D)	; 艹
       ))
-    (=ucs		. #xFA5D)	; 艹
     ))
 (define-char
   '((=>daikanwa		. 30640)	; &GT-39640;
@@ -13217,19 +13209,33 @@
     (=hanziku-8		. #xF546)	; &I-HZK08-F546;
     ))
 (define-char
-  '((=>ucs		. #x44E7)	; 䓧
-    (ideographic-radical . 140)	; ⾋
+  '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-3	. #x3E4C)	; &M-31327; [30-44]
-    (=daikanwa		. 31327)	; &I-M-31327;
+    (=ucs		. #x44E7)	; 䓧
     ))
 (define-char
-  '((morohashi-daikanwa	31327 0 1)
-    (ideographic-radical . 140)	; ⾋
+  '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs		. #x44E7)	; 䓧
+    (<-denotational
+     ((=ucs		  . #x44E7)	; 䓧
+      ))
+    (->subsumptive
+     ((total-strokes	   . 12)
+      (=cns11643-3	  . #x3E4C)	; &M-31327; [30-44]
+      (=daikanwa	  . 31327)	; &I-M-31327;
+      )
+     ((total-strokes	   . 11)
+      (=ucs@unicode	  . #x44E7)	; &UU+44E7;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x44E7)	; 䓧
+      ))
+    (=hanziku-8		. #xF37C)	; &HZK08-F37C;
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
