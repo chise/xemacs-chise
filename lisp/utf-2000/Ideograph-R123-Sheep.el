@@ -1707,15 +1707,6 @@
     (=hanziku-8		. #xDFCB)	; &HZK08-DFCB;
     ))
 (define-char
-  '((=>ucs		. #x5584)	; 善
-    (morohashi-daikanwa	3904 0 3)
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (daikanwa-radical	. 30)
-    (=cns11643-1	. #x6143)	; &C1-6143; [65-35]
-    ))
-(define-char
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
