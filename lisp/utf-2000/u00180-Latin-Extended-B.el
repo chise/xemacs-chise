@@ -222,7 +222,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0193)
     (->lowercase
-     ((name . "fullwidth latin small letter g with hook")))
+     ((name		  . "fullwidth latin small letter g with hook")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH HOOK")
       (ucs		  . #x0193)	; Æ“
@@ -360,10 +361,10 @@
      ((name		  . "LATIN SMALL LETTER O WITH HORN")
       (ucs		  . #x01A1)	; Æ¡
       ))
-    (latin-tcvn5712		. #xA5)	; øº“™¥
-    (latin-viscii-upper		. #xBD)	; øº’½
-    (latin-viscii		. #xB4)	; øº’½
-    (ucs			. #x01A0)	; Æ 
+    (latin-tcvn5712	. #xA5)	; øº“™¥
+    (latin-viscii-upper . #xBD)	; øº’½
+    (latin-viscii	. #xB4)	; øº’½
+    (ucs		. #x01A0)	; Æ 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN")
@@ -375,10 +376,10 @@
      ((name		  . "LATIN CAPITAL LETTER O WITH HORN")
       (ucs		  . #x01A0)	; Æ 
       ))
-    (latin-tcvn5712		. #xAC)	; øº“™¬
-    (latin-viscii-lower		. #xBD)	; øº’œ
-    (latin-viscii		. #xBD)	; øº’œ
-    (ucs			. #x01A1)	; Æ¡
+    (latin-tcvn5712	. #xAC)	; øº“™¬
+    (latin-viscii-lower . #xBD)	; øº’œ
+    (latin-viscii	. #xBD)	; øº’œ
+    (ucs		. #x01A1)	; Æ¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER OI")
@@ -527,10 +528,10 @@
      ((name		  . "LATIN SMALL LETTER U WITH HORN")
       (ucs		  . #x01B0)	; Æ°
       ))
-    (latin-tcvn5712		. #xA6)	; øº“™¦
-    (latin-viscii-upper		. #xDF)	; øº’žŸ
-    (latin-viscii		. #xBF)	; øº’žŸ
-    (ucs			. #x01AF)	; Æ¯
+    (latin-tcvn5712	. #xA6)	; øº“™¦
+    (latin-viscii-upper . #xDF)	; øº’žŸ
+    (latin-viscii	. #xBF)	; øº’žŸ
+    (ucs		. #x01AF)	; Æ¯
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN")
@@ -542,10 +543,10 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH HORN")
       (ucs		  . #x01AF)	; Æ¯
       ))
-    (latin-tcvn5712		. #xAD)	; øº“™­
-    (latin-viscii-lower		. #xDF)	; øº’œ¿
-    (latin-viscii		. #xDF)	; øº’œ¿
-    (ucs			. #x01B0)	; Æ°
+    (latin-tcvn5712	. #xAD)	; øº“™­
+    (latin-viscii-lower . #xDF)	; øº’œ¿
+    (latin-viscii	. #xDF)	; øº’œ¿
+    (ucs		. #x01B0)	; Æ°
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER UPSILON")
@@ -683,7 +684,7 @@
     (ucs		. #x01BD)	; Æ½
     ))
 (define-char
-  '((name		. "LATIN LETTER INVERTED GLOTTAL STOP WITH STROKE")
+  '((name . "LATIN LETTER INVERTED GLOTTAL STOP WITH STROKE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -880,7 +881,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter a with caron")
+     ((name . "fullwidth latin capital letter a with caron")
       (japanese-jisx0212	  . #x2A26)	; ø»Š±£
       (japanese-jisx0213-1	  . #x286F)	; ø»¢žœ
       ))
@@ -898,7 +899,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01CD)
     (->lowercase
-     ((name . "fullwidth latin small letter a with caron")))
+     ((name		  . "fullwidth latin small letter a with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH CARON")
       (ucs		  . #x01CD)	; Ç
@@ -932,7 +934,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01CE)
     (->uppercase
-     ((name . "fullwidth latin capital letter a with caron")))
+     ((name . "fullwidth latin capital letter a with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH CARON")
       (ucs		  . #x01CE)	; ÇŽ
@@ -948,7 +951,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter i with caron")
+     ((name . "fullwidth latin capital letter i with caron")
       (japanese-jisx0212  . #x2A43)	; ø»Š²€
       ))
     (->lowercase
@@ -965,7 +968,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01CF)
     (->lowercase
-     ((name . "fullwidth latin small letter i with caron")))
+     ((name		  . "fullwidth latin small letter i with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH CARON")
       (ucs		  . #x01CF)	; Ç
@@ -998,7 +1002,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D0)
     (->uppercase
-     ((name . "fullwidth latin capital letter i with caron")))
+     ((name . "fullwidth latin capital letter i with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH CARON")
       (ucs		  . #x01D0)	; Ç
@@ -1014,7 +1019,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter o with caron")
+     ((name . "fullwidth latin capital letter o with caron")
       (japanese-jisx0212	  . #x2A55)	; ø»Š²’
       (japanese-jisx0213-1	  . #x2876)	; ø»¢ž£
       ))
@@ -1032,7 +1037,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D1)
     (->lowercase
-     ((name . "fullwidth latin small letter o with caron")))
+     ((name		  . "fullwidth latin small letter o with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH CARON")
       (ucs		  . #x01D1)	; Ç‘
@@ -1066,7 +1072,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D2)
     (->uppercase
-     ((name . "fullwidth latin capital letter o with caron")))
+     ((name . "fullwidth latin capital letter o with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH CARON")
       (ucs		  . #x01D2)	; Ç’
@@ -1082,7 +1089,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter u with caron")
+     ((name . "fullwidth latin capital letter u with caron")
       (japanese-jisx0212  . #x2A67)	; ø»Š²¤
       ))
     (->lowercase
@@ -1099,7 +1106,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D3)
     (->lowercase
-     ((name . "fullwidth latin small letter u with caron")))
+     ((name		  . "fullwidth latin small letter u with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH CARON")
       (ucs		  . #x01D3)	; Ç“
@@ -1132,7 +1140,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D4)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with caron")))
+     ((name . "fullwidth latin capital letter u with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH CARON")
       (ucs		  . #x01D4)	; Ç”
@@ -1152,7 +1161,7 @@
       (japanese-jisx0212  . #x2A70)	; ø»Š²­
       ))
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
       (ucs		  . #x01D6)	; Ç–
       ))
     (ucs		. #x01D5)	; Ç•
@@ -1165,7 +1174,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D5)
     (->lowercase
-     ((name . "fullwidth latin small letter u with diaeresis and macron")))
+     ((name . "fullwidth latin small letter u with diaeresis and macron")
+      ))
     (<-fullwidth
      ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
       (ucs		  . #x01D5)	; Ç•
@@ -1173,7 +1183,7 @@
     (japanese-jisx0212	. #x2A70)	; ø»Š²­
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
+  '((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1198,9 +1208,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D6)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with diaeresis and macron")))
+     ((name . "fullwidth latin capital letter u with diaeresis and macron")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
       (ucs		  . #x01D6)	; Ç–
       ))
     (chinese-gb2312		. #x2835)	; ø»„ª
@@ -1208,7 +1219,7 @@
     (japanese-jisx0213-1	. #x2879)	; ø»¢ž¦
     ))
 (define-char
-  '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
+  '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1218,7 +1229,7 @@
       (japanese-jisx0212  . #x2A6D)	; ø»Š²ª
       ))
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
       (ucs		  . #x01D8)	; Ç˜
       ))
     (ucs		. #x01D7)	; Ç—
@@ -1231,15 +1242,16 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D7)
     (->lowercase
-     ((name . "fullwidth latin small letter u with diaeresis and acute")))
+     ((name . "fullwidth latin small letter u with diaeresis and acute")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
       (ucs		  . #x01D7)	; Ç—
       ))
     (japanese-jisx0212	. #x2A6D)	; ø»Š²ª
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
+  '((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1251,7 +1263,7 @@
       (japanese-jisx0213-1	  . #x287A)	; ø»¢ž§
       ))
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
       (ucs		  . #x01D7)	; Ç—
       ))
     (ucs		. #x01D8)	; Ç˜
@@ -1264,9 +1276,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D8)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with diaeresis and acute")))
+     ((name . "fullwidth latin capital letter u with diaeresis and acute")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
       (ucs		  . #x01D8)	; Ç˜
       ))
     (chinese-gb2312		. #x2836)	; ø»„«
@@ -1274,7 +1287,7 @@
     (japanese-jisx0213-1	. #x287A)	; ø»¢ž§
     ))
 (define-char
-  '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
+  '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1284,7 +1297,7 @@
       (japanese-jisx0212  . #x2A6F)	; ø»Š²¬
       ))
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
       (ucs		  . #x01DA)	; Çš
       ))
     (ucs		. #x01D9)	; Ç™
@@ -1297,15 +1310,16 @@
     (mirrored		. nil)
     (->decomposition	wide #x01D9)
     (->lowercase
-     ((name . "fullwidth latin small letter u with diaeresis and caron")))
+     ((name . "fullwidth latin small letter u with diaeresis and caron")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
       (ucs		  . #x01D9)	; Ç™
       ))
     (japanese-jisx0212	. #x2A6F)	; ø»Š²¬
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
+  '((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1317,7 +1331,7 @@
       (japanese-jisx0213-1	  . #x287B)	; ø»¢ž¨
       ))
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
       (ucs		  . #x01D9)	; Ç™
       ))
     (ucs		. #x01DA)	; Çš
@@ -1330,9 +1344,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x01DA)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with diaeresis and caron")))
+     ((name . "fullwidth latin capital letter u with diaeresis and caron")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
       (ucs		  . #x01DA)	; Çš
       ))
     (chinese-gb2312		. #x2837)	; ø»„¬
@@ -1340,7 +1355,7 @@
     (japanese-jisx0213-1	. #x287B)	; ø»¢ž¨
     ))
 (define-char
-  '((name		. "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
+  '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1350,7 +1365,7 @@
       (japanese-jisx0212  . #x2A6E)	; ø»Š²«
       ))
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
       (ucs		  . #x01DC)	; Çœ
       ))
     (ucs		. #x01DB)	; Ç›
@@ -1363,15 +1378,16 @@
     (mirrored		. nil)
     (->decomposition	wide #x01DB)
     (->lowercase
-     ((name . "fullwidth latin small letter u with diaeresis and grave")))
+     ((name . "fullwidth latin small letter u with diaeresis and grave")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
       (ucs		  . #x01DB)	; Ç›
       ))
     (japanese-jisx0212	. #x2A6E)	; ø»Š²«
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
+  '((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1383,7 +1399,7 @@
       (japanese-jisx0213-1	  . #x287C)	; ø»¢ž©
       ))
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
+     ((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
       (ucs		  . #x01DB)	; Ç›
       ))
     (ucs		. #x01DC)	; Çœ
@@ -1396,9 +1412,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x01DC)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with diaeresis and grave")))
+     ((name . "fullwidth latin capital letter u with diaeresis and grave")
+      ))
     (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
+     ((name . "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
       (ucs		  . #x01DC)	; Çœ
       ))
     (chinese-gb2312		. #x2838)	; ø»„­
@@ -1423,13 +1440,13 @@
     (mirrored		. nil)
     (->decomposition	#x00C4 #x0304)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER A WITH DIAERESIS AND MACRON")
+     ((name . "LATIN SMALL LETTER A WITH DIAERESIS AND MACRON")
       (ucs		  . #x01DF)	; ÇŸ
       ))
     (ucs		. #x01DE)	; Çž
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER A WITH DIAERESIS AND MACRON")
+  '((name . "LATIN SMALL LETTER A WITH DIAERESIS AND MACRON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1447,13 +1464,13 @@
     (mirrored		. nil)
     (->decomposition	#x0226 #x0304)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON")
+     ((name . "LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON")
       (ucs		  . #x01E1)	; Ç¡
       ))
     (ucs		. #x01E0)	; Ç 
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON")
+  '((name . "LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1585,13 +1602,13 @@
     (ucs		. #x01EB)	; Ç«
     ))
 (define-char
-  '((name		. "LATIN CAPITAL LETTER O WITH OGONEK AND MACRON")
+  '((name . "LATIN CAPITAL LETTER O WITH OGONEK AND MACRON")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x01EA #x0304)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER O WITH OGONEK AND MACRON")
+     ((name . "LATIN SMALL LETTER O WITH OGONEK AND MACRON")
       (ucs		  . #x01ED)	; Ç­
       ))
     (ucs		. #x01EC)	; Ç¬
@@ -1603,7 +1620,7 @@
     (mirrored		. nil)
     (->decomposition	#x01EB #x0304)
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER O WITH OGONEK AND MACRON")
+     ((name . "LATIN CAPITAL LETTER O WITH OGONEK AND MACRON")
       (ucs		  . #x01EC)	; Ç¬
       ))
     (ucs		. #x01ED)	; Ç­
@@ -1724,7 +1741,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01F5)
     (->uppercase
-     ((name . "fullwidth latin capital letter g with acute")))
+     ((name . "fullwidth latin capital letter g with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH ACUTE")
       (ucs		  . #x01F5)	; Çµ
@@ -1789,7 +1807,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01F9)
     (->uppercase
-     ((name . "fullwidth latin capital letter n with grave")))
+     ((name . "fullwidth latin capital letter n with grave")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH GRAVE")
       (ucs		  . #x01F9)	; Ç¹
@@ -1803,13 +1822,13 @@
     (mirrored		. nil)
     (->decomposition	#x00C5 #x0301)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE")
+     ((name . "LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE")
       (ucs		  . #x01FB)	; Ç»
       ))
     (ucs		. #x01FA)	; Çº
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE")
+  '((name . "LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1858,7 +1877,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x01FD)
     (->uppercase
-     ((name . "fullwidth latin capital letter ae with acute")))
+     ((name . "fullwidth latin capital letter ae with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER AE WITH ACUTE")
       (ucs		  . #x01FD)	; Ç½
@@ -1884,7 +1904,7 @@
     (mirrored		. nil)
     (->decomposition	#x00F8 #x0301)
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER O WITH STROKE AND ACUTE")
+     ((name . "LATIN CAPITAL LETTER O WITH STROKE AND ACUTE")
       (ucs		  . #x01FE)	; Ç¾
       ))
     (ucs		. #x01FF)	; Ç¿
@@ -2370,13 +2390,13 @@
     (mirrored		. nil)
     (->decomposition	#x00D6 #x0304)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER O WITH DIAERESIS AND MACRON")
+     ((name . "LATIN SMALL LETTER O WITH DIAERESIS AND MACRON")
       (ucs		  . #x022B)	; È«
       ))
     (ucs		. #x022A)	; Èª
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER O WITH DIAERESIS AND MACRON")
+  '((name . "LATIN SMALL LETTER O WITH DIAERESIS AND MACRON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2406,7 +2426,7 @@
     (mirrored		. nil)
     (->decomposition	#x00F5 #x0304)
     (->uppercase
-     ((name		  . "LATIN CAPITAL LETTER O WITH TILDE AND MACRON")
+     ((name . "LATIN CAPITAL LETTER O WITH TILDE AND MACRON")
       (ucs		  . #x022C)	; È¬
       ))
     (ucs		. #x022D)	; È­
@@ -2442,13 +2462,13 @@
     (mirrored		. nil)
     (->decomposition	#x022E #x0304)
     (->lowercase
-     ((name		  . "LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON")
+     ((name . "LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON")
       (ucs		  . #x0231)	; È±
       ))
     (ucs		. #x0230)	; È°
     ))
 (define-char
-  '((name		. "LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON")
+  '((name . "LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
