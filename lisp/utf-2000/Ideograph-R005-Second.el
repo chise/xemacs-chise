@@ -230,12 +230,11 @@
     (=ucs		. #x200D0)	; ð ƒ
     ))
 (define-char
-  '((ideographic-radical . 5)	; â¼„
+  '((=>ucs		. #x20088)	; ð ‚ˆ
+    (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 49)
-    (hanyu-dazidian-char . 4)
+    (hanyu-dazidian	1 49 4)
     (=big5-cdp		. #x87F5)	; ý¢€ˆŸµ
     ))
 (define-char
