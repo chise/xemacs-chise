@@ -1,3 +1,10 @@
+1999-09-02  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use `Charset_ID'
+	instead of `int'.
+
+	* mule-charset.h, buffer.h (Charset_ID): New type.
+
 1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-canna.c (c2mu): Use `MAKE_CHAR',
