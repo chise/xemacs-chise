@@ -1,3 +1,9 @@
+2003-05-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=cns11643-5): Renamed from
+	`chinese-cns11643-5'.
+	(chinese-cns11643-5): Changed to an alias for `=cns11643-5'.
+
 2003-05-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=cns11643-4): Renamed from

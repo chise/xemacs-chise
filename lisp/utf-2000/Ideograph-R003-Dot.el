@@ -193,7 +193,7 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 52)
     (hanyu-dazidian-char . 1)
-    (chinese-cns11643-5 . #x212D)	; ø»™ª¸
+    (=cns11643-5	. #x212D)	; ø»™ª¸
     (ideograph-daikanwa . 02840)	; ø¸€¬˜
     (=ucs		. #x2007E)	; ð ¾
     ))
@@ -250,8 +250,7 @@
     (->same-ideograph
      ((=ucs		  . #x2007E)	; ð ¾
       )
-     ((chinese-cns11643-5 . #x212D)	; ø»™ª¸
-      (ideograph-daikanwa . 02840)	; ø¸€¬˜
+     ((ideograph-daikanwa . 02840)	; ø¸€¬˜
       ))
     (hanyu-dazidian	1 52 1)
     (=big5-cdp		. #x87D2)	; ý¢€ˆŸ’

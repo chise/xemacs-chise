@@ -79,7 +79,7 @@
      ((name		  . "BOPOMOFO LETTER O")
       (=ucs		  . #x311B)	; ã„›
       ))
-    (chinese-cns11643-5 . #x2125)	; ø»™ª°
+    (=cns11643-5	. #x2125)	; ø»™ª°
     (ideograph-daikanwa . 00004)	; ø¸€€„
     (mojikyo		. 000004)	; ý €€€„
     (=ucs		. #x20000)	; ð €€
@@ -712,7 +712,7 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (chinese-cns11643-5 . #x2133)	; ø»™ª¾
+    (=cns11643-5	. #x2133)	; ø»™ª¾
     (=gt-pj-2		. #x3031)	; ý¡€€€
     (ideograph-daikanwa . 00027)	; ø¸€€›
     (=gt		. 00029)	; ý¡€€€
@@ -1037,7 +1037,7 @@
       )
      ((=ucs		  . #x4EBA)	; äºº
       ))
-    (chinese-cns11643-5 . #x214D)	; ø»™«˜
+    (=cns11643-5	. #x214D)	; ø»™«˜
     (=gt-pj-2		. #x3037)	; ý¡€€€ª
     (ideograph-daikanwa . 00037)	; ø¸€€¥
     (=hanziku-1		. #xA7B0)	; ý¢€šž°
@@ -1638,7 +1638,7 @@
       )
      ((=cns11643-1	  . #x483A)	; ø»‘¼‡
       ))
-    (chinese-cns11643-5 . #x232F)	; ø»™­¶
+    (=cns11643-5	. #x232F)	; ø»™­¶
     (=ucs		. #x20022)	; ð €¢
     ))
 (define-char
@@ -2313,7 +2313,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 26 10)
-    (chinese-cns11643-5 . #x3072)	; ø»š¿
+    (=cns11643-5	. #x3072)	; ø»š¿
     (=gt-pj-2		. #x304F)	; ý¡€€ž
     (ideograph-daikanwa . 00063)	; ø¸€€¿
     (=big5-cdp		. #x8DE7)	; ý¢€ˆ·§
@@ -2343,7 +2343,7 @@
       )
      ((=ucs		  . #x675F)	; æŸ
       ))
-    (chinese-cns11643-5 . #x3323)	; ø»š…Š
+    (=cns11643-5	. #x3323)	; ø»š…Š
     (ideograph-daikanwa . 49169)	; ø¸Œ€‘
     (=hanziku-1		. #xA976)	; ý¢€š¥¶
     (=ucs		. #x20043)	; ð ƒ
@@ -2557,7 +2557,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 513 2)
-    (chinese-cns11643-5 . #x5352)	; ø»š´¹
+    (=cns11643-5	. #x5352)	; ø»š´¹
     (=hanziku-2		. #xB9A5)	; ý¢€«¦¥
     (=ucs		. #x21B4B)	; ð¡­‹
     ))

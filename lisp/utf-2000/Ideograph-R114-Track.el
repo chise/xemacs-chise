@@ -351,7 +351,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 22)
     (hanyu-dazidian	5 3044 11)
-    (chinese-cns11643-5 . #x736B)	; ø»›¤’
+    (=cns11643-5	. #x736B)	; ø»›¤’
     (ideograph-daikanwa . 24904)	; ø¸†…ˆ
     (=hanziku-8		. #xCD52)	; ý¢‚Œµ’
     (=ucs		. #x2574A)	; ð¥Š

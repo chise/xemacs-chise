@@ -179,7 +179,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (chinese-cns11643-5 . #x2953)	; ø»™·Ž
+    (=cns11643-5	. #x2953)	; ø»™·Ž
     (ideograph-daikanwa . 14289)	; ø¸ƒŸ‘
     (=ucs		. #x23327)	; ð£Œ§
     ))
@@ -203,7 +203,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (chinese-cns11643-5 . #x2952)	; ø»™·
+    (=cns11643-5	. #x2952)	; ø»™·
     (ideograph-daikanwa . 14291)	; ø¸ƒŸ“
     (=ucs		. #x23328)	; ð£Œ¨
     ))
@@ -500,7 +500,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-5 . #x3F65)	; ø»š—´
+    (=cns11643-5	. #x3F65)	; ø»š—´
     (ideograph-daikanwa . 14307)	; ø¸ƒŸ£
     (=ucs		. #x2333E)	; ð£Œ¾
     ))
@@ -559,7 +559,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-5 . #x4D57)	; ø»š¬Š
+    (=cns11643-5	. #x4D57)	; ø»š¬Š
     (ideograph-daikanwa . 14313)	; ø¸ƒŸ©
     (=ucs		. #x23346)	; ð£†
     ))
@@ -575,7 +575,7 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-5 . #x4D56)	; ø»š¬‰
+    (=cns11643-5	. #x4D56)	; ø»š¬‰
     (=ucs		. #x23347)	; ð£‡
     ))
 (define-char
@@ -653,7 +653,7 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (chinese-cns11643-5 . #x5B63)	; ø»›€º
+    (=cns11643-5	. #x5B63)	; ø»›€º
     (=ucs		. #x2334F)	; ð£
     ))
 (define-char
@@ -691,7 +691,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (chinese-cns11643-5 . #x6174)	; ø»›‰¿
+    (=cns11643-5	. #x6174)	; ø»›‰¿
     (=ucs		. #x23352)	; ð£’
     ))
 (define-char
@@ -754,7 +754,7 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 24)
     (total-strokes	 . 28)
-    (chinese-cns11643-5 . #x7B3F)	; ø»›¯–
+    (=cns11643-5	. #x7B3F)	; ø»›¯–
     (=ucs		. #x2335B)	; ð£›
     ))
 (define-char

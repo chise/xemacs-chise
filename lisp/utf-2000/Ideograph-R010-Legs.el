@@ -850,7 +850,7 @@
       )
      ((=ucs		  . #x513F)	; å„¿
       ))
-    (chinese-cns11643-5 . #x2335)	; ø»™­¼
+    (=cns11643-5	. #x2335)	; ø»™­¼
     (ideograph-daikanwa . 01363)	; ø¸€•“
     (=hanziku-1		. #xDDC5)	; ý¢€·…
     (mojikyo		. 001363)	; ý €€•“
@@ -1506,7 +1506,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (chinese-cns11643-5 . #x2B76)	; ø»™º­
+    (=cns11643-5	. #x2B76)	; ø»™º­
     (ideograph-daikanwa . 01384)	; ø¸€•¨
     (mojikyo		. 001384)	; ý €€•¨
     (=ucs		. #x20490)	; ð ’
@@ -1636,7 +1636,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (chinese-cns11643-5 . #x3124)	; ø»š‚
+    (=cns11643-5	. #x3124)	; ø»š‚
     (ideograph-daikanwa . 01389)	; ø¸€•­
     (mojikyo		. 001389)	; ý €€•­
     (=ucs		. #x20498)	; ð ’˜
@@ -1645,7 +1645,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (chinese-cns11643-5 . #x3125)	; ø»š‚
+    (=cns11643-5	. #x3125)	; ø»š‚
     (ideograph-daikanwa . 01390)	; ø¸€•®
     (mojikyo		. 001390)	; ý €€•®
     (=ucs		. #x20499)	; ð ’™
@@ -1708,7 +1708,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	8 9 24)
-    (chinese-cns11643-5 . #x3658)	; ø»šŠ™
+    (=cns11643-5	. #x3658)	; ø»šŠ™
     (ideograph-daikanwa . 01392)	; ø¸€•°
     (=hanziku-12	. #xEBA7)	; ý¢ƒŽ®§
     (mojikyo		. 001392)	; ý €€•°
@@ -1891,7 +1891,7 @@
     (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (chinese-cns11643-5 . #x4459)	; ø»šž¾
+    (=cns11643-5	. #x4459)	; ø»šž¾
     (=ucs		. #x204AD)	; ð ’­
     ))
 (define-char
@@ -2048,7 +2048,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (chinese-cns11643-5 . #x4B7B)	; ø»š©²
+    (=cns11643-5	. #x4B7B)	; ø»š©²
     (ideograph-daikanwa . 01403)	; ø¸€•»
     (mojikyo		. 001403)	; ý €€•»
     (=ucs		. #x204B2)	; ð ’²
@@ -2065,7 +2065,7 @@
       )
      ((=ucs		  . #x67EC)	; æŸ¬
       ))
-    (chinese-cns11643-5 . #x4B7A)	; ø»š©±
+    (=cns11643-5	. #x4B7A)	; ø»š©±
     (=ucs		. #x204B5)	; ð ’µ
     ))
 (define-char
@@ -2089,7 +2089,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (hanyu-dazidian	5 3049 2)
-    (chinese-cns11643-5 . #x535C)	; ø»šµƒ
+    (=cns11643-5	. #x535C)	; ø»šµƒ
     (ideograph-daikanwa . 01404)	; ø¸€•¼
     (=hanziku-8		. #xCE4C)	; ý¢‚Œ¹Œ
     (mojikyo		. 001404)	; ý €€•¼
@@ -2134,7 +2134,7 @@
       )
      ((=ucs		  . #x5547)	; å•‡
       ))
-    (chinese-cns11643-5 . #x5A71)	; ø»š¿ª
+    (=cns11643-5	. #x5A71)	; ø»š¿ª
     (=hanziku-1		. #xDED0)	; ý¢€»
     (=ucs		. #x204BF)	; ð ’¿
     ))
@@ -2245,7 +2245,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (chinese-cns11643-5 . #x6133)	; ø»›ˆ¾
+    (=cns11643-5	. #x6133)	; ø»›ˆ¾
     (ideograph-daikanwa . 01408)	; ø¸€–€
     (mojikyo		. 001408)	; ý €€–€
     (=ucs		. #x204C8)	; ð “ˆ
@@ -2274,14 +2274,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 275)
     (hanyu-dazidian-char . 13)
-    (chinese-cns11643-5 . #x6750)	; ø»›’
+    (=cns11643-5	. #x6750)	; ø»›’
     (=ucs		. #x204CC)	; ð “Œ
     ))
 (define-char
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
-    (chinese-cns11643-5 . #x6751)	; ø»›’
+    (=cns11643-5	. #x6751)	; ø»›’
     (ideograph-daikanwa . 01410)	; ø¸€–‚
     (mojikyo		. 001410)	; ý €€–‚
     (=ucs		. #x204CE)	; ð “Ž
@@ -2308,7 +2308,7 @@
   '((ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 18)
     (total-strokes	 . 20)
-    (chinese-cns11643-5 . #x6B6D)	; ø»›˜¤
+    (=cns11643-5	. #x6B6D)	; ø»›˜¤
     (ideograph-daikanwa . 01411)	; ø¸€–ƒ
     (mojikyo		. 001411)	; ý €€–ƒ
     (=ucs		. #x204CF)	; ð “
@@ -2428,7 +2428,7 @@
        ((=ucs		    . #x5154)	; å…”
 	))
       ))
-    (chinese-cns11643-5 . #x7753)	; ø»›©²
+    (=cns11643-5	. #x7753)	; ø»›©²
     (ideograph-daikanwa . 01413)	; ø¸€–…
     (=hanziku-1		. #xDED8)	; ý¢€»˜
     (mojikyo		. 001413)	; ý €€–…

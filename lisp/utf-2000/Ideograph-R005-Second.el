@@ -23,7 +23,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 48 4)
-    (chinese-cns11643-5 . #x2123)	; ø»™ª®
+    (=cns11643-5	. #x2123)	; ø»™ª®
     (=gt-pj-2		. #x3142)	; ý¡€€ƒ
     (ideograph-daikanwa . 00162)	; ø¸€‚¢
     (=big5-cdp		. #x8AAD)	; ý¢€ˆª­
@@ -61,7 +61,7 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (chinese-cns11643-5 . #x2121)	; ø»™ª¬
+    (=cns11643-5	. #x2121)	; ø»™ª¬
     (mojikyo		. 000164)	; ý €€‚¤
     (=ucs		. #x200D1)	; ð ƒ‘
     ))
@@ -69,7 +69,7 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (chinese-cns11643-5 . #x2122)	; ø»™ª­
+    (=cns11643-5	. #x2122)	; ø»™ª­
     (=gt-pj-2		. #x3145)	; ý¡€€ƒ¡
     (ideograph-daikanwa . 00165)	; ø¸€‚¥
     (=gt-k		. 00044)	; ý¡„€€¬
@@ -311,7 +311,7 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (chinese-cns11643-5 . #x212B)	; ø»™ª¶
+    (=cns11643-5	. #x212B)	; ø»™ª¶
     (=gt-pj-2		. #x3149)	; ý¡€€ƒ¨
     (ideograph-daikanwa . 00172)	; ø¸€‚¬
     (=gt-k		. 00286)	; ý¡„€„ž
@@ -384,7 +384,7 @@
       )
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-cns11643-5 . #x2134)	; ø»™ª¿
+    (=cns11643-5	. #x2134)	; ø»™ª¿
     (=gt-pj-2		. #x314B)	; ý¡€€ƒª
     (ideograph-daikanwa . 00174)	; ø¸€‚®
     (=hanziku-1		. #xAEA9)	; ý¢€šº©
@@ -622,7 +622,7 @@
       )
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-cns11643-5 . #x214F)	; ø»™«š
+    (=cns11643-5	. #x214F)	; ø»™«š
     (=gt-pj-2		. #x3150)	; ý¡€€ƒ®
     (ideograph-daikanwa . 00180)	; ø¸€‚´
     (=hanziku-1		. #xAEE0)	; ý¢€š» 
@@ -1883,7 +1883,7 @@
       )
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-cns11643-5 . #x3073)	; ø»š‚€
+    (=cns11643-5	. #x3073)	; ø»š‚€
     (=gt-pj-9		. #x5121)	; ý¡€€„
     (=gt		. 00271)	; ý¡€€„
     (=ucs		. #x200FD)	; ð ƒ½
@@ -2267,7 +2267,7 @@
       )
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
-    (chinese-cns11643-5 . #x4455)	; ø»šžº
+    (=cns11643-5	. #x4455)	; ø»šžº
     (=ucs		. #x20105)	; ð „…
     ))
 (define-char
