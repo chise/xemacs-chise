@@ -74,7 +74,7 @@ extern Lisp_Object Qideographic_structure;
 
 EXFUN (Fmap_char_attribute, 3);
 
-#if defined(HAVE_CHISE_CLIENT)
+#ifdef HAVE_CHISE
 EXFUN (Fload_char_attribute_table, 1);
 
 Lisp_Object Vchar_db_stingy_mode;
@@ -322,7 +322,7 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 static void
 save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_LIBCHISE
@@ -646,7 +646,7 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 static void
 save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_LIBCHISE
@@ -919,7 +919,7 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 static void
 save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_LIBCHISE
@@ -2134,7 +2134,7 @@ get_char_table (Emchar ch, Lisp_Char_Table *ct)
   {
     Lisp_Object ret = get_char_id_table (ct, ch);
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
     if (NILP (ret))
       {
 	if (EQ (CHAR_TABLE_NAME (ct), Qdowncase))
@@ -2923,7 +2923,7 @@ map_char_table (Lisp_Char_Table *ct,
 	    struct chartab_range rainj;
 	    struct map_char_table_for_charset_arg mcarg;
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 	    if (XCHAR_TABLE_UNLOADED(encoding_table))
 	      Fload_char_attribute_table (XCHAR_TABLE_NAME (encoding_table));
 #endif
@@ -3349,7 +3349,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       {
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 	XCHAR_TABLE_NAME (table) = attribute;
 #endif
       }
@@ -3385,12 +3385,13 @@ Remove CHARACTER's ATTRIBUTE.
   return Qnil;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 
 int char_table_open_db_maybe (Lisp_Char_Table* cit);
 void char_table_close_db_maybe (Lisp_Char_Table* cit);
 Lisp_Object char_table_get_db (Lisp_Char_Table* cit, Emchar ch);
 
+#ifdef HAVE_LIBCHISE
 int
 open_chise_data_source_maybe ()
 {
@@ -3411,6 +3412,7 @@ open_chise_data_source_maybe ()
     }
   return 0;
 }
+#endif /* HAVE_LIBCHISE */
 
 DEFUN ("close-char-data-source", Fclose_char_data_source, 0, 0, 0, /*
 Close data-source of CHISE.
@@ -3423,7 +3425,7 @@ Close data-source of CHISE.
   default_chise_data_source = NULL;
   if (status)
     return Qt;
-#endif
+#endif /* HAVE_LIBCHISE */
   return Qnil;
 }
 
@@ -3437,7 +3439,7 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 #ifdef HAVE_LIBCHISE
       if ( open_chise_data_source_maybe () )
 	return -1;
-#else
+#else /* HAVE_LIBCHISE */
       if (NILP (Fdatabase_live_p (cit->db)))
 	{
 	  Lisp_Object db_file
@@ -3448,7 +3450,7 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
 	  if (NILP (cit->db))
 	    return -1;
 	}
-#endif
+#endif /* not HAVE_LIBCHISE */
       return 0;
     }
   else
@@ -3465,7 +3467,7 @@ char_table_close_db_maybe (Lisp_Char_Table* cit)
 	Fclose_database (cit->db);
       cit->db = Qnil;
     }
-#endif
+#endif /* not HAVE_LIBCHISE */
 }
 
 Lisp_Object
@@ -3487,14 +3489,14 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
     }
   else
     val = Qunbound;
-#else
+#else /* HAVE_LIBCHISE */
   val = Fget_database (Fprin1_to_string (make_char (ch), Qnil),
 		       cit->db, Qunbound);
   if (!UNBOUNDP (val))
     val = Fread (val);
   else
     val = Qunbound;
-#endif
+#endif /* not HAVE_LIBCHISE */
   return val;
 }
 
@@ -3555,16 +3557,15 @@ Save values of ATTRIBUTE into database file.
 */
        (attribute))
 {
-#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
 #ifdef HAVE_LIBCHISE
   CHISE_Feature feature;
-#else
+#else /* HAVE_LIBCHISE */
   Lisp_Object db_file;
   Lisp_Object db;
-#endif
+#endif /* not HAVE_LIBCHISE */
 
   if (CHAR_TABLEP (table))
     ct = XCHAR_TABLE (table);
@@ -3577,16 +3578,16 @@ Save values of ATTRIBUTE into database file.
   feature
     = chise_ds_get_feature (default_chise_data_source,
 			    XSTRING_DATA (Fsymbol_name (attribute)));
-#else
+#else /* HAVE_LIBCHISE */
   db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
-#endif
+#endif /* not HAVE_LIBCHISE */
   if (
 #ifdef HAVE_LIBCHISE
       feature != NULL
-#else
+#else /* HAVE_LIBCHISE */
       !NILP (db)
-#endif
+#endif /* not HAVE_LIBCHISE */
       )
     {
       Lisp_Object (*filter)(Lisp_Object value);
@@ -3600,38 +3601,35 @@ Save values of ATTRIBUTE into database file.
 	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct,
 #ifdef HAVE_LIBCHISE
 			       feature,
-#else
+#else /* HAVE_LIBCHISE */
 			       db,
-#endif
+#endif /* not HAVE_LIBCHISE */
 			       0, 3, filter);
       else if (UINT16_BYTE_TABLE_P (ct->table))
 	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct,
 #ifdef HAVE_LIBCHISE
 				feature,
-#else
+#else /* HAVE_LIBCHISE */
 				db,
-#endif
+#endif /* not HAVE_LIBCHISE */
 				0, 3, filter);
       else if (BYTE_TABLE_P (ct->table))
 	save_byte_table (XBYTE_TABLE(ct->table), ct,
 #ifdef HAVE_LIBCHISE
 			 feature,
-#else
+#else /* HAVE_LIBCHISE */
 			 db,
-#endif
+#endif /* not HAVE_LIBCHISE */
 			 0, 3, filter);
 #ifdef HAVE_LIBCHISE
       chise_feature_sync (feature);
-#else
+#else /* HAVE_LIBCHISE */
       Fclose_database (db);
-#endif
+#endif /* not HAVE_LIBCHISE */
       return Qt;
     }
   else
     return Qnil;
-#else
-  return Qnil;
-#endif
 }
 
 DEFUN ("mount-char-attribute-table", Fmount_char_attribute_table, 1, 1, 0, /*
@@ -3639,7 +3637,6 @@ Mount database file on char-attribute-table ATTRIBUTE.
 */
        (attribute))
 {
-#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
 
@@ -3655,10 +3652,9 @@ Mount database file on char-attribute-table ATTRIBUTE.
       XCHAR_TABLE_UNLOADED(table) = 1;
 #ifndef HAVE_LIBCHISE
       ct->db = Qnil;
-#endif
+#endif /* not HAVE_LIBCHISE */
       return Qt;
     }
-#endif
   return Qnil;
 }
 
@@ -3667,7 +3663,6 @@ Close database of ATTRIBUTE.
 */
        (attribute))
 {
-#ifdef HAVE_CHISE_CLIENT
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
@@ -3677,7 +3672,6 @@ Close database of ATTRIBUTE.
   else
     return Qnil;
   char_table_close_db_maybe (ct);
-#endif
   return Qnil;
 }
 
@@ -3686,7 +3680,35 @@ Reset values of ATTRIBUTE with database file.
 */
        (attribute))
 {
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
+  CHISE_Feature feature
+    = chise_ds_get_feature (default_chise_data_source,
+			    XSTRING_DATA (Fsymbol_name
+					  (attribute)));
+
+  if (feature == NULL)
+    return Qnil;
+
+  if (chise_feature_setup_db (feature, 0) == 0)
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table, Qunbound);
+      Lisp_Char_Table *ct;
+
+      chise_feature_sync (feature);
+      if (UNBOUNDP (table))
+	{
+	  table = make_char_id_table (Qunbound);
+	  Fputhash (attribute, table, Vchar_attribute_hash_table);
+	  XCHAR_TABLE_NAME(table) = attribute;
+	}
+      ct = XCHAR_TABLE (table);
+      ct->table = Qunloaded;
+      char_table_close_db_maybe (ct);
+      XCHAR_TABLE_UNLOADED(table) = 1;
+      return Qt;
+    }
+#else
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
@@ -3754,7 +3776,7 @@ load_char_attribute_table_map_func (CHISE_Char_ID cid,
 					     value->size)));
   return 0;
 }
-#else
+#else /* HAVE_LIBCHISE */
 Lisp_Object Qload_char_attribute_table_map_function;
 
 DEFUN ("load-char-attribute-table-map-function",
@@ -3771,7 +3793,7 @@ For internal use.  Don't use it.
     put_char_id_table_0 (char_attribute_table_to_load, code, Fread (value));
   return Qnil;
 }
-#endif
+#endif /* not HAVE_LIBCHISE */
 
 DEFUN ("load-char-attribute-table", Fload_char_attribute_table, 1, 1, 0, /*
 Load values of ATTRIBUTE into database file.
@@ -3798,9 +3820,9 @@ Load values of ATTRIBUTE into database file.
 	  (chise_ds_get_feature (default_chise_data_source,
 				 XSTRING_DATA (Fsymbol_name (cit->name))),
 	   &load_char_attribute_table_map_func);
-#else
+#else /* HAVE_LIBCHISE */
 	Fmap_database (Qload_char_attribute_table_map_function, cit->db);
-#endif
+#endif /* not HAVE_LIBCHISE */
 	UNGCPRO;
       }
       char_table_close_db_maybe (cit);
@@ -3809,7 +3831,7 @@ Load values of ATTRIBUTE into database file.
     }
   return Qnil;
 }
-#endif
+#endif /* HAVE_CHISE */
 
 DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 3, 0, /*
 Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
@@ -3849,7 +3871,7 @@ the entire table.
   if (NILP (range))
     range = Qt;
   decode_char_table_range (range, &rainj);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   if (CHAR_TABLE_UNLOADED(ct))
     Fload_char_attribute_table (attribute);
 #endif
@@ -4335,7 +4357,7 @@ syms_of_chartab (void)
   DEFSUBR (Ffind_char_attribute_table);
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   DEFSUBR (Fsave_char_attribute_table);
   DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
@@ -4406,13 +4428,11 @@ syms_of_chartab (void)
 void
 vars_of_chartab (void)
 {
-#ifdef UTF2000
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
 */ );
   Vchar_db_stingy_mode = Qt;
-#endif /* HAVE_CHISE_CLIENT */
-#endif
+#endif /* HAVE_CHISE */
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
   dump_add_weak_object_chain (&Vall_syntax_tables);
