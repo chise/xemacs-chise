@@ -442,10 +442,11 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (->ideographic-variants
-     (:char	((shinjigen-1	     . 772)
-		 (=ucs		     . #x5306)	; 匆
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 772)
+      (=ucs		  . #x5306)	; 匆
+      ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
