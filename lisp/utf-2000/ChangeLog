@@ -1,6 +1,17 @@
 2003-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R124-Feather.el: Reformatted.
+	(GT-K01762): New character.
+	(JC3-60A5): Add `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Unify M-28201.
+
 	* Ideograph-R121-Jar.el (GT-K01231): New character.
+
+	* Ideograph-R086-Fire.el, Ideograph-R050-Turban.el,
+	Ideograph-R030-Mouth.el: Reformatted.
+
+	* Ideograph-R009-Man.el: Reformatted.
 
 	* Ideograph-R120-Silk.el (M-49471): Add `ideographic-structure'.
 	(U-0002035E): Complete `ideographic-structure'.
