@@ -1,3 +1,7 @@
+2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R004-Slash.el (GT-00199): Unify U+3406.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R001-One.el (U-00023944): Moved to
