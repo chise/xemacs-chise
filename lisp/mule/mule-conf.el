@@ -139,37 +139,35 @@
   )
 
 (when (featurep 'utf-2000)
-  (make-charset
-   '=ucs-jis-1990
-   "UCS for JIS:1990"
-   `(long-name "ISO/IEC 10646 for JIS X 0208/0212:1990"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother ucs-jis))
-  (make-charset
-   '=ucs-jis-2000
-   "UCS for JIS:2000"
-   `(long-name "ISO/IEC 10646 for JIS X 0213:2000"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother ucs-jis))
-  (make-charset
-   'chinese-big5-pua
-   "Big5-PUA"
-   `(long-name "Big5 with private used area"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother chinese-big5
-	       registry "Big5\\.ETEN"))
+  (make-charset '=ucs-jis-1990
+		"UCS for JIS:1990"
+		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (make-charset '=ucs-jis-2000
+		"UCS for JIS:2000"
+		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (make-charset '=big5-pua
+		"Big5-PUA"
+		`(long-name	"Big5 with private used area"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  registry	"Big5\\.ETEN"))
+  (define-charset-alias 'chinese-big5-pua '=big5-pua)
   (make-charset
    'chinese-big5-eten
    "Big5-ETEN"
@@ -254,32 +252,30 @@
 	       graphic 0
 	       direction l2r
 	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
-  (make-charset
-   '=cbeta "CBETA PUA"
-   '(long-name "CBETA private characters"
-	       chars		256
-	       dimension	2
-	       registry	"cbeta-0"
-	       graphic	2
-	       min-code	#xE20000
-	       max-code	#xE2FFFF
-	       code-offset	#xE20000
-	       columns	2
-	       direction	l2r))
+  (make-charset '=cbeta "CBETA PUA"
+		'(long-name	"CBETA private characters"
+		  chars		256
+		  dimension	2
+		  registry	"cbeta-0"
+		  graphic	2
+		  min-code	#xE20000
+		  max-code	#xE2FFFF
+		  code-offset	#xE20000
+		  columns	2
+		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
-  (make-charset
-   '=jef-china3
-   "JEF + CHINA3"
-   `(long-name "JEF + CHINA3 private characters"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "china3jef-0"
-	       min-code #xE80000
-	       max-code #xE8FFFF
-	       code-offset #xE80000))
+  (make-charset '=jef-china3
+		"JEF + CHINA3"
+		`(long-name	"JEF + CHINA3 private characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"china3jef-0"
+		  min-code	#xE80000
+		  max-code	#xE8FFFF
+		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
   )
 
