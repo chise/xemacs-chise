@@ -171,9 +171,17 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (korean-ksc5601	. #x5F46)	; ø»‰µµ
-    (chinese-cns11643-3 . #x2851)	; ø»•¡¦
     (ideograph-daikanwa . 07493)	; ø¸µ…
+    (mojikyo		. 007493)	; ý €µ…
     (ucs		. #x5C19)	; å°™
+    ))
+(define-char
+  '((->ucs		. #x5C19)	; å°™
+    (morohashi-daikanwa	7493 0 0)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (chinese-cns11643-3 . #x2851)	; ø»•¡¦
     ))
 (define-char
   '((morohashi-daikanwa	7493 1)
@@ -186,29 +194,50 @@
     (chinese-isoir165		. #x4950)	; ø»©³
     (chinese-cns11643-1		. #x4C7E)	; ø»’ƒƒ
     (japanese-jisx0208-1990	. #x3E30)	; ø½Š ±
-    (mojikyo			. 050154)	; ø¸Œª
+    (mojikyo			. 050154)	; ý €Œª
     (ucs			. #x5C1A)	; å°š
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-5 . #x2567)	; ø»™±ª
     (ideograph-daikanwa . 07494)	; ø¸µ†
+    (mojikyo		. 007494)	; ý €µ†
+    ))
+(define-char
+  '((morohashi-daikanwa	7494 0 1)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (chinese-cns11643-5 . #x2567)	; ø»™±ª
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (chinese-cns11643-6 . #x2A6B)	; ø»œƒˆ
     (ideograph-daikanwa . 07495)	; ø¸µ‡
+    (mojikyo		. 007495)	; ý €µ‡
+    ))
+(define-char
+  '((morohashi-daikanwa	7495 0 1)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (chinese-cns11643-6 . #x2A6B)	; ø»œƒˆ
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x3032)	; ø»œ‹ƒ
     (ideograph-daikanwa . 07497)	; ø¸µ‰
+    (mojikyo		. 007497)	; ý €µ‰
+    ))
+(define-char
+  '((morohashi-daikanwa	7497 0 1)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (chinese-cns11643-6 . #x3032)	; ø»œ‹ƒ
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
