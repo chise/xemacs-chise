@@ -1,3 +1,8 @@
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
+	if it is specified.
+
 2002-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.10 "Military Intelligence" is released.

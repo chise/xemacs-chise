@@ -218,7 +218,9 @@ Boston, MA 02111-1307, USA.  */
 #define MAX_BUFPOS_GAP_SIZE_3 (65535/3)
 #define MAX_BYTIND_GAP_SIZE_3 (3 * MAX_BUFPOS_GAP_SIZE_3)
 
+#ifndef UTF2000
 short three_to_one_table[1 + MAX_BYTIND_GAP_SIZE_3];
+#endif
 
 /* Various macros modelled along the lines of those in buffer.h.
    Purposefully omitted from buffer.h because files other than this
@@ -429,7 +431,11 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
   bufmax = buf->text->mule_bufmax;
   bytmin = buf->text->mule_bytmin;
   bytmax = buf->text->mule_bytmax;
+#ifdef UTF2000
+  size = buf->text->mule_size;
+#else
   size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
 
   /* The basic idea here is that we shift the "known region" up or down
      until it overlaps the specified position.  We do this by moving
@@ -624,11 +630,16 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
      discovered isn't too large, because we use a fixed-length
      table to divide by 3. */
 
+#ifdef UTF2000
+  buf->text->mule_size = size;
+#endif
   if (size == 3)
     {
       int gap = bytmax - bytmin;
+#ifndef UTF2000
       buf->text->mule_three_p = 1;
       buf->text->mule_shifter = 1;
+#endif
 
       if (gap > MAX_BYTIND_GAP_SIZE_3)
 	{
@@ -646,11 +657,13 @@ bufpos_to_bytind_func (struct buffer *buf, Bufpos x)
     }
   else
     {
+#ifndef UTF2000
       buf->text->mule_three_p = 0;
       if (size == 4)
 	buf->text->mule_shifter = 2;
       else
 	buf->text->mule_shifter = size - 1;
+#endif
     }
 
   buf->text->mule_bufmin = bufmin;
@@ -706,7 +719,11 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
   bufmax = buf->text->mule_bufmax;
   bytmin = buf->text->mule_bytmin;
   bytmax = buf->text->mule_bytmax;
+#ifdef UTF2000
+  size = buf->text->mule_size;
+#else
   size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
 
   /* The basic idea here is that we shift the "known region" up or down
      until it overlaps the specified position.  We do this by moving
@@ -901,11 +918,16 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
      discovered isn't too large, because we use a fixed-length
      table to divide by 3. */
 
+#ifdef UTF2000
+  buf->text->mule_size = size;
+  #endif
   if (size == 3)
     {
       int gap = bytmax - bytmin;
+#ifndef UTF2000
       buf->text->mule_three_p = 1;
       buf->text->mule_shifter = 1;
+#endif
 
       if (gap > MAX_BYTIND_GAP_SIZE_3)
 	{
@@ -923,11 +945,13 @@ bytind_to_bufpos_func (struct buffer *buf, Bytind x)
     }
   else
     {
+#ifndef UTF2000
       buf->text->mule_three_p = 0;
       if (size == 4)
 	buf->text->mule_shifter = 2;
       else
 	buf->text->mule_shifter = size - 1;
+#endif
     }
 
   buf->text->mule_bufmin = bufmin;
@@ -963,7 +987,11 @@ buffer_mule_signal_inserted_region (struct buffer *buf, Bufpos start,
 				    Bytecount bytelength,
 				    Charcount charlength)
 {
+#ifdef UTF2000
+  int size = buf->text->mule_size;
+#else
   int size = (1 << buf->text->mule_shifter) + !!buf->text->mule_three_p;
+#endif
   int i;
 
   /* Adjust the cache of known positions. */
@@ -3249,8 +3277,10 @@ reinit_vars_of_insdel (void)
   inside_change_hook = 0;
   in_first_change = 0;
 
+#ifndef UTF2000
   for (i = 0; i <= MAX_BYTIND_GAP_SIZE_3; i++)
     three_to_one_table[i] = i / 3;
+#endif
 }
 
 void
@@ -3280,8 +3310,12 @@ init_buffer_text (struct buffer *b)
 
 	b->text->mule_bufmin = b->text->mule_bufmax = 1;
 	b->text->mule_bytmin = b->text->mule_bytmax = 1;
+#ifdef UTF2000
+	b->text->mule_size = 0;
+#else
 	b->text->mule_shifter = 0;
 	b->text->mule_three_p = 0;
+#endif
 
 	for (i = 0; i < 16; i++)
 	  {
