@@ -4563,9 +4563,10 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (->same
-     (:char	((=daikanwa	     . 28818)	; ø¸‡‚’
-		 )
-      :sources	(morohashi-daikanwa)))
+     ((=daikanwa	  . 28818)	; ø¸‡‚’
+      ))
+    (->same*sources
+     daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
