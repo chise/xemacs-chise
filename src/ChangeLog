@@ -1,3 +1,21 @@
+2002-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): Modify for
+	`charset_code_point'.
+	(char_encode_shift_jis): Likewise.
+	(char_encode_big5): Likewise.
+	(char_encode_iso2022): Likewise.
+
+	* mule-charset.c (charset_code_point): Add new argument
+	`defined_only'.
+	(Fencode_char): Add new optional argument `defined_only'.
+
+	* chartab.c (put_char_table): Modify for `charset_code_point'.
+
+	* char-ucs.h (charset_code_point): Add new argument
+	`defined_only'.
+	(encode_char_1): Modify for `charset_code_point'.
+
 2002-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Don't specify
