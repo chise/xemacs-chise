@@ -386,7 +386,7 @@ Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 #ifdef UTF2000
 Lisp_Object Qmin_code, Qmax_code, Qcode_offset;
-Lisp_Object Qmother, Qconversion, Q94x60;
+Lisp_Object Qmother, Qconversion, Q94x60, Q94x94x60;
 #endif
 
 Lisp_Object Qascii,
@@ -1107,6 +1107,18 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 		row += 18 + 32;
 	      return (row << 8) | cell;
 	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
+	    {
+	      int plane =  d / (94 * 60) + 33;
+	      int row   = (d % (94 * 60)) / 94;
+	      int cell  =  d %  94 + 33;
+
+	      if (row < 30)
+		row += 16 + 32;
+	      else
+		row += 18 + 32;
+	      return (plane << 16) | (row << 8) | cell;
+	    }
 	  else if (XCHARSET_CHARS (charset) == 94)
 	    {
 	      if (XCHARSET_DIMENSION (charset) == 1)
@@ -1608,6 +1620,10 @@ character set.  Recognized properties are:
 	  {
 	    if (EQ (value, Q94x60))
 	      conversion = CONVERSION_94x60;
+	    else if (EQ (value, Q94x94x60))
+	      conversion = CONVERSION_94x94x60;
+	    else
+	      signal_simple_error ("Unrecognized conversion", value);
 	  }
 
 #endif
@@ -2399,6 +2415,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qcode_offset, "code-offset");
   defsymbol (&Qconversion, "conversion");
   defsymbol (&Q94x60, "94x60");
+  defsymbol (&Q94x94x60, "94x94x60");
 #endif
 
   defsymbol (&Ql2r, "l2r");
