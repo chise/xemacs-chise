@@ -1488,9 +1488,6 @@ Store character's ATTRIBUTES.
   Lisp_Object rest = attributes;
   Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
   Lisp_Object character;
-#if 0
-  Lisp_Object daikanwa = Qnil;
-#endif
 
   if (NILP (code))
     {
@@ -1534,36 +1531,11 @@ Store character's ATTRIBUTES.
   while (CONSP (rest))
     {
       Lisp_Object cell = Fcar (rest);
-#if 0
-      Lisp_Object key = Fcar (cell);
-      Lisp_Object value = Fcdr (cell);
-#endif
 
       if (!LISTP (cell))
 	signal_simple_error ("Invalid argument", attributes);
 
-#if 0
-      if (EQ (key, Qmorohashi_daikanwa))
-	{
-	  size_t len;
-	  GET_EXTERNAL_LIST_LENGTH (value, len);
-
-	  if (len == 1)
-	    {
-	      if (NILP (daikanwa))
-		daikanwa = Fcdr (Fassq (Qideograph_daikanwa, rest));
-	      if (EQ (Fcar (value), daikanwa))
-		goto ignored;
-	    }
-	}
-      else if (EQ (key, Qideograph_daikanwa))
-	daikanwa = value;
-#endif
-
       Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
-#if 0
-    ignored:
-#endif
       rest = Fcdr (rest);
     }
   return character;
@@ -2391,17 +2363,15 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = Vcharset_ucs;
       return c;
     }
-  /*
   else if (c <= MAX_CHAR_DAIKANWA)
     {
       *charset = Vcharset_ideograph_daikanwa;
       return c - MIN_CHAR_DAIKANWA;
     }
-  */
-  else if (c <= MAX_CHAR_MOJIKYO)
+  else if (c <= MAX_CHAR_MOJIKYO_0)
     {
       *charset = Vcharset_mojikyo;
-      return c - MIN_CHAR_MOJIKYO;
+      return c - MIN_CHAR_MOJIKYO_0;
     }
   else if (c < MIN_CHAR_94)
     {
@@ -2463,6 +2433,16 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 	  *charset = Vcharset_ucs;
 	  return c;
 	}
+    }
+  else if (c < MIN_CHAR_MOJIKYO)
+    {
+      *charset = Vcharset_ucs;
+      return c;
+    }
+  else if (c <= MAX_CHAR_MOJIKYO)
+    {
+      *charset = Vcharset_mojikyo;
+      return c - MIN_CHAR_MOJIKYO;
     }
   else
     {
