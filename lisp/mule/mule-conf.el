@@ -389,6 +389,21 @@
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
 
+  (make-charset '=ruimoku-v6
+		"RUI6"
+		`(long-name	"private characters used in RUIMOKU"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"rui6-0"
+                  ;; mother	ucs
+		  min-code	#xE90000 ; #xE000
+		  max-code	#xE908FF ; #xE8FF
+		  code-offset	,(- #xE90000 #xE000)
+		  ))
+
   (make-charset '=ucs@iso
 		"UCS for ISO"
 		`(long-name	"ISO/IEC 10646 for its representative glyphs"
