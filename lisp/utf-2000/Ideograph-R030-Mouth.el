@@ -98,11 +98,17 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (->ideographic-variants
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 515)
+		 (ideograph-daikanwa . 01525)	; ø¸€—µ
+		 )
+      ))
     (shinjigen-1	. 516)
-    (variant-of-shinjigen-1 . 515)
     (japanese-jisx0212	. #x3462)	; ø»‹‹
     (chinese-cns11643-4 . #x216C)	; ø»—¡³
     (ideograph-daikanwa . 03236)	; ø¸€²¤
+    (china3-jef		. #x91AE)	; øº‰†®
     (ucs		. #x53E7)	; å§
     ))
 (define-char
@@ -4093,6 +4099,7 @@
     (chinese-isoir165	. #x5F4B)	; ø»ŽŠ‚
     (chinese-cns11643-1 . #x4C50)	; ø»’‚•
     (chinese-big5	. #xA94E)	; øºŸ®¶
+    (china3-jef		. #x8CE8)	; øºˆ³¨
     (mojikyo		. 053230)	; ý €Œ¿®
     (ucs		. #x549A)	; å’š
     ))
