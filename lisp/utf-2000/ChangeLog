@@ -1,3 +1,8 @@
+2004-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5C72): Use `->subsumptive' to add
+	JC3-8EFA.
+
 2004-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u03000-CJK-Symbols-and-Punctuation.el (<IDEOGRAPHIC ITERATION
