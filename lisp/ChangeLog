@@ -1,5 +1,10 @@
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R029-Again.el,
+	utf-2000/Ideograph-R028-Private.el: New files.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/char-db-util.el (char-db-update-comment): Don't use
 	mapping-table for `ideograph-daikanwa'.
 
