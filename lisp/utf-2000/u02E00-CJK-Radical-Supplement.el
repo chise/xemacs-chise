@@ -14,6 +14,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x5382)	; 厂
+      ))
     (<-radical
      ((=ucs		  . #x20086)	; 𠂆
       ))
@@ -775,6 +778,10 @@
     (=daikanwa		. 30639)	; &I-M-30639;
     (=ucs@cns		. #x8279)	; ⺿
     (=ucs@jis		. #xFA5E)	; ⺿
+    (->subsumptive
+     ((=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5E)	; 艹
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS THREE")
@@ -793,6 +800,10 @@
     (=gt-k		. 00569)	; &I-GT-K00569;
     (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
     (=ucs@jis		. #xFA5D)	; ⻀
+    (->subsumptive
+     ((=>ucs*		  . #x8279)	; 艹
+      (=ucs		  . #xFA5D)	; 艹
+      ))
     ))
 (define-char
   '((name		. "CJK RADICAL TIGER")
