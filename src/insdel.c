@@ -3133,8 +3133,8 @@ find_charsets_in_bufbyte_string (Charset_ID *charsets, const Bufbyte *str,
 }
 
 void
-find_charsets_in_emchar_string (Charset_ID *charsets, const Emchar *str,
-				Charcount len)
+find_charsets_in_charc_string (Charset_ID *charsets, const Charc *str,
+			       Charcount len)
 {
 #ifndef MULE
   /* Telescope this. */
@@ -3147,18 +3147,13 @@ find_charsets_in_emchar_string (Charset_ID *charsets, const Emchar *str,
   /* #### SJT doesn't like this. */
   if (len == 0)
     {
-      charsets[XCHARSET_LEADING_BYTE (Vcharset_ascii) - MIN_LEADING_BYTE] = 1;
+      charsets[XCHARSET_ID (Vcharset_ascii) - MIN_LEADING_BYTE] = 1;
       return;
     }
 
   for (i = 0; i < len; i++)
     {
-#ifdef UTF2000
-      charsets[CHAR_CHARSET_ID (str[i]) - MIN_LEADING_BYTE] = 1;
-#else /* I'm not sure the definition for UTF2000 works with leading-byte
-	 representation. */
-      charsets[CHAR_LEADING_BYTE (str[i]) - MIN_LEADING_BYTE] = 1;
-#endif
+      charsets[XCHARSET_ID (str[i].charset) - MIN_LEADING_BYTE] = 1;
     }
 #endif
 }
@@ -3184,14 +3179,14 @@ bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len)
 }
 
 int
-emchar_string_displayed_columns (const Emchar *str, Charcount len)
+charc_string_displayed_columns (const Charc *str, Charcount len)
 {
 #ifdef MULE
   int cols = 0;
   int i;
 
   for (i = 0; i < len; i++)
-    cols += CHAR_COLUMNS (str[i]);
+    cols += CHARSET_COLUMNS (XCHARSET (str[i].charset));
 
   return cols;
 #else  /* not MULE */
@@ -3202,15 +3197,17 @@ emchar_string_displayed_columns (const Emchar *str, Charcount len)
 /* NOTE: Does not reset the Dynarr. */
 
 void
-convert_bufbyte_string_into_emchar_dynarr (const Bufbyte *str, Bytecount len,
-					   Emchar_dynarr *dyn)
+convert_bufbyte_string_into_charc_dynarr (const Bufbyte *str, Bytecount len,
+					  Charc_dynarr *dyn)
 {
   const Bufbyte *strend = str + len;
 
   while (str < strend)
     {
-      Emchar ch = charptr_emchar (str);
-      Dynarr_add (dyn, ch);
+      Charc ec;
+
+      ec.code_point = ENCODE_CHAR (charptr_emchar (str), ec.charset);
+      Dynarr_add (dyn, ec);
       INC_CHARPTR (str);
     }
 }
@@ -3235,15 +3232,18 @@ convert_bufbyte_string_into_emchar_string (const Bufbyte *str, Bytecount len,
    Does not add a terminating zero. */
 
 void
-convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,
-					  Bufbyte_dynarr *dyn)
+convert_charc_string_into_bufbyte_dynarr (Charc *arr, int nels,
+					    Bufbyte_dynarr *dyn)
 {
   Bufbyte str[MAX_EMCHAR_LEN];
   int i;
 
   for (i = 0; i < nels; i++)
     {
-      Bytecount len = set_charptr_emchar (str, arr[i]);
+      Charc ec = arr[i];
+
+      Bytecount len
+	= set_charptr_emchar (str, DECODE_CHAR (ec.charset, ec.code_point));
       Dynarr_add_many (dyn, str, len);
     }
 }
@@ -3255,7 +3255,7 @@ convert_emchar_string_into_bufbyte_dynarr (Emchar *arr, int nels,
    is one more than this: the returned string is zero-terminated. */
 
 Bufbyte *
-convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
+convert_charc_string_into_malloced_string (Charc *arr, int nels,
 					   Bytecount *len_out)
 {
   /* Damn zero-termination. */
@@ -3266,7 +3266,12 @@ convert_emchar_string_into_malloced_string (Emchar *arr, int nels,
   int i;
 
   for (i = 0; i < nels; i++)
-    str += set_charptr_emchar (str, arr[i]);
+    {
+      Charc ec = arr[i];
+
+      str += set_charptr_emchar (str,
+				 DECODE_CHAR (ec.charset, ec.code_point));
+    }
   *str = '\0';
   len = str - strorig;
   str = (Bufbyte *) xmalloc (1 + len);
