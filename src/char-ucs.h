@@ -637,7 +637,7 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point)
   decoding_table_put_char (ccs, code_point, Qunbound);
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 Emchar load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point);
 #endif
 

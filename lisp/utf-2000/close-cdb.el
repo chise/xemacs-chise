@@ -1,6 +1,6 @@
 ;;; close-cdb.el --- Update and/or setup character attribute database
 
-;; Copyright (C) 2002 MORIOKA Tomohiko.
+;; Copyright (C) 2002,2003 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: Character, Database, UTF-2000, Unicode, UCS-4, MULE.
@@ -28,6 +28,8 @@
 
 (dolist (attribute (char-attribute-list))
   (close-char-attribute-table attribute))
+
+(close-char-data-source)
 
 (garbage-collect)
 

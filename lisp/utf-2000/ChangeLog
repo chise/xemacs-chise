@@ -1,3 +1,20 @@
+2003-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el: Must use `function-max-args' instead of
+	`function-min-args' to detect optional argument of
+	`char-attribute-list'.
+
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el (system-char-database-directory): Use "chise-db"
+	instead of "char-db".
+	- When `char-attribute-list' has optional argument `rehash', use
+	`char-attribute-list' to mount each db files.
+
+2003-08-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* close-cdb.el: Call `close-char-data-source'.
+
 2003-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0AC00-Hangul-Syllables.el (U+AD6C): Unify JC3-93F2 instead of

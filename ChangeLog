@@ -1,3 +1,23 @@
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in: Use chise-db/ instead of char-db/.
+
+2003-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in:
+	- Use HAVE_CHISE instead of HAVE_CHISE_CLIENT.
+	- Setup chise-db-directory [make symbolic link for
+	  ${archlibdir}/char-db].
+
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Delete HAVE_CHISE_CLIENT.
+
+2003-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Use HAVE_LIBCHISE instead of CHISE; add HAVE_CHISE
+	if HAVE_LIBCHISE or HAVE_CHISE_CLIENT is defined.
+
 2003-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* configure.in:

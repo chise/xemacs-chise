@@ -22,10 +22,10 @@ Boston, MA 02111-1307, USA.  */
 
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
 
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs CHISE. */
 
 #include <config.h>
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 #include <chise.h>
 #endif
 #ifdef UTF2000
@@ -862,12 +862,12 @@ decode_defined_char (Lisp_Object ccs, int code_point)
     }
   if (CHARP (decoding_table))
     return XCHAR (decoding_table);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   if (EQ (decoding_table, Qunloaded))
     {
       char_id = load_char_decoding_entry_maybe (ccs, code_point);
     }
-#endif
+#endif /* HAVE_CHISE */
   if (char_id >= 0)
     return char_id;
   else if ( CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
@@ -2070,7 +2070,7 @@ Set mapping-table of CHARSET to TABLE.
   return table;
 }
 
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
 DEFUN ("save-charset-mapping-table", Fsave_charset_mapping_table, 1, 1, 0, /*
 Save mapping-table of CHARSET.
 */
@@ -2078,15 +2078,34 @@ Save mapping-table of CHARSET.
 {
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
+#ifdef HAVE_LIBCHISE
+  CHISE_CCS dt_ccs;
+#else /* HAVE_LIBCHISE */
   Lisp_Object db;
   Lisp_Object db_file;
+#endif /* not HAVE_LIBCHISE */
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
 
+#ifdef HAVE_LIBCHISE
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  dt_ccs
+    = chise_ds_get_ccs (default_chise_data_source,
+			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
+  if (dt_ccs == NULL)
+    {
+      printf ("Can't open decoding-table %s\n",
+	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
+      return -1;
+    }
+#else /* HAVE_LIBCHISE */
   db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
 					   Qsystem_char_id, 1);
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
+#endif /* not HAVE_LIBCHISE */
 
   byte_min = CHARSET_BYTE_OFFSET (cs);
   byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
@@ -2102,9 +2121,15 @@ Save mapping-table of CHARSET.
 	    Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
 	    if (CHARP (c))
-	      Fput_database (Fprin1_to_string (make_int (cell), Qnil),
-			     Fprin1_to_string (c, Qnil),
-			     db, Qt);
+	      {
+#ifdef HAVE_LIBCHISE
+		chise_ccs_set_decoded_char (dt_ccs, cell, XCHAR (c));
+#else /* HAVE_LIBCHISE */
+		Fput_database (Fprin1_to_string (make_int (cell), Qnil),
+			       Fprin1_to_string (c, Qnil),
+			       db, Qt);
+#endif /* not HAVE_LIBCHISE */
+	      }
 	  }
       }
       break;
@@ -2123,11 +2148,19 @@ Save mapping-table of CHARSET.
 		Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
 		if (CHARP (c))
-		  Fput_database (Fprin1_to_string (make_int ((row << 8)
-							     | cell),
-						   Qnil),
-				 Fprin1_to_string (c, Qnil),
-				 db, Qt);
+		  {
+#ifdef HAVE_LIBCHISE
+		    chise_ccs_set_decoded_char
+		      (dt_ccs,
+		       (row << 8) | cell, XCHAR (c));
+#else /* HAVE_LIBCHISE */
+		    Fput_database (Fprin1_to_string (make_int ((row << 8)
+							       | cell),
+						     Qnil),
+				   Fprin1_to_string (c, Qnil),
+				   db, Qt);
+#endif /* not HAVE_LIBCHISE */
+		  }
 	      }
 	  }
       }
@@ -2155,12 +2188,23 @@ Save mapping-table of CHARSET.
 							 cell);
 
 		    if (CHARP (c))
-		      Fput_database (Fprin1_to_string (make_int ((plane << 16)
-								 | (row <<  8)
-								 | cell),
-						       Qnil),
-				     Fprin1_to_string (c, Qnil),
-				     db, Qt);
+		      {
+#ifdef HAVE_LIBCHISE
+			chise_ccs_set_decoded_char
+			  (dt_ccs,
+			   (plane << 16)
+			   | (row <<  8)
+			   | cell, XCHAR (c));
+#else /* HAVE_LIBCHISE */
+			Fput_database (Fprin1_to_string
+				       (make_int ((plane << 16)
+						  | (row <<  8)
+						  | cell),
+					Qnil),
+				       Fprin1_to_string (c, Qnil),
+				       db, Qt);
+#endif /* not HAVE_LIBCHISE */
+		      }
 		  }
 	      }
 	  }
@@ -2195,21 +2239,37 @@ Save mapping-table of CHARSET.
 			  = get_ccs_octet_table (table_c, charset, cell);
 
 			if (CHARP (c))
-			  Fput_database (Fprin1_to_string
-					 (make_int ((  group << 24)
-						    | (plane << 16)
-						    | (row   <<  8)
-						    |  cell),
-					  Qnil),
-					 Fprin1_to_string (c, Qnil),
-					 db, Qt);
+			  {
+#ifdef HAVE_LIBCHISE
+			    chise_ccs_set_decoded_char
+			      (dt_ccs,
+			       (  group << 24)
+			       | (plane << 16)
+			       | (row   <<  8)
+			       |  cell, XCHAR (c));
+#else /* HAVE_LIBCHISE */
+			    Fput_database (Fprin1_to_string
+					   (make_int ((  group << 24)
+						      | (plane << 16)
+						      | (row   <<  8)
+						      |  cell),
+					    Qnil),
+					   Fprin1_to_string (c, Qnil),
+					   db, Qt);
+#endif /* not HAVE_LIBCHISE */
+			  }
 		      }
 		  }
 	      }
 	  }
       }
     }
+#ifdef HAVE_LIBCHISE
+  chise_ccs_sync (dt_ccs);
+  return Qnil;
+#else /* HAVE_LIBCHISE */
   return Fclose_database (db);
+#endif /* not HAVE_LIBCHISE */
 }
 
 DEFUN ("reset-charset-mapping-table", Freset_charset_mapping_table, 1, 1, 0, /*
@@ -2217,13 +2277,35 @@ Reset mapping-table of CCS with database file.
 */
        (ccs))
 {
+#ifdef HAVE_LIBCHISE
+  CHISE_CCS chise_ccs;
+#else
   Lisp_Object db_file;
+#endif
 
   ccs = Fget_charset (ccs);
+
+#ifdef HAVE_LIBCHISE
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  chise_ccs = chise_ds_get_ccs (default_chise_data_source,
+				XSTRING_DATA (Fsymbol_name
+					      (XCHARSET_NAME(ccs))));
+  if (chise_ccs == NULL)
+    return Qnil;
+#else
   db_file = char_attribute_system_db_file (XCHARSET_NAME(ccs),
 					   Qsystem_char_id, 0);
+#endif
 
-  if (!NILP (Ffile_exists_p (db_file)))
+  if (
+#ifdef HAVE_LIBCHISE
+      chise_ccs_setup_db (chise_ccs, 0) == 0
+#else
+      !NILP (Ffile_exists_p (db_file))
+#endif
+      )
     {
       XCHARSET_DECODING_TABLE(ccs) = Qunloaded;
       return Qt;
@@ -2234,64 +2316,24 @@ Reset mapping-table of CCS with database file.
 Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
-#ifdef CHISE
-  Lisp_Object db_dir = Vexec_directory;
-  CHISE_DS ds;
-  CHISE_Decoding_Table *dt_ccs;
-  int modemask;
-  int accessmask = 0;
-  DBTYPE real_subtype;
-  int status;
+#ifdef HAVE_LIBCHISE
   CHISE_Char_ID char_id;
 
-  if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
-  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  if ( open_chise_data_source_maybe () )
+    return -1;
 
-  status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
-				   XSTRING_DATA (db_dir));
-  if (status)
-    {
-      chise_close_data_source (&ds);
-      return -1;
-    }
-
-  modemask = 0755;		/* rwxr-xr-x */
-  real_subtype = DB_HASH;
-  accessmask = DB_RDONLY;
-
-  status
-    = chise_open_decoding_table (&dt_ccs, &ds,
-				 XSTRING_DATA (Fsymbol_name
-					       (XCHARSET_NAME(ccs))),
-				 real_subtype,
-				 accessmask, modemask);
-  if (status)
-    {
-      printf ("Can't open decoding-table %s\n",
-	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))));
-      chise_close_decoding_table (dt_ccs);
-      chise_close_data_source (&ds);
-      return -1;
-    }
-
-  char_id = chise_dt_get_char (dt_ccs, code_point);
-  /*
-  printf ("%s's 0x%X (%d) => 0x%X\n",
-	  XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(ccs))),
-	  code_point, code_point, char_id);
-  */
+  char_id
+    = chise_ds_decode_char (default_chise_data_source,
+			    XSTRING_DATA(Fsymbol_name (XCHARSET_NAME(ccs))),
+			    code_point);
   if (char_id >= 0)
     decoding_table_put_char (ccs, code_point, make_char (char_id));
   else
     decoding_table_put_char (ccs, code_point, Qnil);
 
-  chise_close_decoding_table (dt_ccs);
-
-  chise_close_data_source (&ds);
-
+  /* chise_ccst_close (dt_ccs); */
   return char_id;
-#else
+#else /* HAVE_LIBCHISE */
   Lisp_Object db;
   Lisp_Object db_file
     = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
@@ -2317,9 +2359,9 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
       Fclose_database (db);
     }
   return -1;
-#endif
+#endif /* not HAVE_LIBCHISE */
 }
-#endif /* HAVE_CHISE_CLIENT */
+#endif /* HAVE_CHISE */
 #endif /* UTF2000 */
 
 
@@ -2651,18 +2693,19 @@ syms_of_mule_charset (void)
   DEFSUBR (Fcharset_id);
   DEFSUBR (Fset_charset_ccl_program);
   DEFSUBR (Fset_charset_registry);
+
 #ifdef UTF2000
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
-#ifdef HAVE_CHISE_CLIENT
+#ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
   DEFSUBR (Freset_charset_mapping_table);
-#endif
-
+#endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
   DEFSUBR (Fencode_char);
 #endif
+
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
   DEFSUBR (Fchar_octet);
