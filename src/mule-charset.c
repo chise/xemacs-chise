@@ -1671,6 +1671,9 @@ character s with caron.
 
   if      (EQ (charset, Vcharset_ascii))     lowlim =  0, highlim = 127;
   else if (EQ (charset, Vcharset_control_1)) lowlim =  0, highlim =  31;
+#ifdef UTF2000
+  else if (CHARSET_CHARS (cs) == 256)        lowlim =  0, highlim = 255;
+#endif
   else if (CHARSET_CHARS (cs) == 94)         lowlim = 33, highlim = 126;
   else	/* CHARSET_CHARS (cs) == 96) */	     lowlim = 32, highlim = 127;
 
@@ -1679,7 +1682,13 @@ character s with caron.
      the 8th bit off ARG1 and ARG2 becaue it allows programmers to
      write (make-char 'latin-iso8859-2 CODE) where code is the actual
      Latin 2 code of the character.  */
-  a1 = XINT (arg1) & 0x7f;
+#ifdef UTF2000
+  a1 = XINT (arg1);
+  if (highlim < 128)
+    a1 &= 0x7f;
+#else
+  a1 = XINT (arg1);
+#endif
   if (a1 < lowlim || a1 > highlim)
     args_out_of_range_3 (arg1, make_int (lowlim), make_int (highlim));
 
@@ -1692,7 +1701,13 @@ character s with caron.
     }
 
   CHECK_INT (arg2);
+#ifdef UTF2000
+  a2 = XINT (arg2);
+  if (highlim < 128)
+    a2 &= 0x7f;
+#else
   a2 = XINT (arg2) & 0x7f;
+#endif
   if (a2 < lowlim || a2 > highlim)
     args_out_of_range_3 (arg2, make_int (lowlim), make_int (highlim));
 
