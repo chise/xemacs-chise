@@ -4,7 +4,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "CS")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x2C)	; õ2]-G¨õ0]-A
+    (arabic-iso8859-6	#xAC)	; ÿå
     ))
 (define-char
   '((name		. "ARABIC SEMICOLON")
@@ -12,7 +12,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x3B)	; õ2]-Gªõ0]-A
+    (arabic-iso8859-6	#xBB)	; ÿõ
     ))
 (define-char
   '((name		. "ARABIC QUESTION MARK")
@@ -20,7 +20,7 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x3F)	; õ2]-Gøõ0]-A
+    (arabic-iso8859-6	#xBF)	; ÿü
     ))
 (define-char
   '((name		. "ARABIC LETTER HAMZA")
@@ -28,7 +28,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x41)	; õ2]-G¡õ0]-A
+    (arabic-iso8859-6	#xC1)	; ÿ°
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF WITH MADDA ABOVE")
@@ -37,7 +37,7 @@
     (bidi-category	. "AL")
     (mirrored		. nil)
     (->decomposition	#x0627 #x0653)
-    (arabic-iso8859-6	#x42)	; õ2]-G¬õ0]-A
+    (arabic-iso8859-6	#xC2)	; ÿ¢
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF WITH HAMZA ABOVE")
@@ -46,7 +46,7 @@
     (bidi-category	. "AL")
     (mirrored		. nil)
     (->decomposition	#x0627 #x0654)
-    (arabic-iso8859-6	#x43)	; õ2]-G√õ0]-A
+    (arabic-iso8859-6	#xC3)	; ÿ£
     ))
 (define-char
   '((name		. "ARABIC LETTER WAW WITH HAMZA ABOVE")
@@ -55,7 +55,7 @@
     (bidi-category	. "AL")
     (mirrored		. nil)
     (->decomposition	#x0648 #x0654)
-    (arabic-iso8859-6	#x44)	; õ2]-Gƒõ0]-A
+    (arabic-iso8859-6	#xC4)	; ÿ§
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF WITH HAMZA BELOW")
@@ -64,7 +64,7 @@
     (bidi-category	. "AL")
     (mirrored		. nil)
     (->decomposition	#x0627 #x0655)
-    (arabic-iso8859-6	#x45)	; õ2]-G≈õ0]-A
+    (arabic-iso8859-6	#xC5)	; ÿ•
     ))
 (define-char
   '((name		. "ARABIC LETTER YEH WITH HAMZA ABOVE")
@@ -73,7 +73,7 @@
     (bidi-category	. "AL")
     (mirrored		. nil)
     (->decomposition	#x064A #x0654)
-    (arabic-iso8859-6	#x46)	; õ2]-G∆õ0]-A
+    (arabic-iso8859-6	#xC6)	; ÿ¶
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF")
@@ -81,7 +81,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x47)	; õ2]-G«õ0]-A
+    (arabic-iso8859-6	#xC7)	; ÿß
     ))
 (define-char
   '((name		. "ARABIC LETTER BEH")
@@ -89,7 +89,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x48)	; õ2]-G»õ0]-A
+    (arabic-iso8859-6	#xC8)	; ÿ®
     ))
 (define-char
   '((name		. "ARABIC LETTER TEH MARBUTA")
@@ -97,7 +97,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x49)	; õ2]-G…õ0]-A
+    (arabic-iso8859-6	#xC9)	; ÿ©
     ))
 (define-char
   '((name		. "ARABIC LETTER TEH")
@@ -105,7 +105,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4A)	; õ2]-G õ0]-A
+    (arabic-iso8859-6	#xCA)	; ÿ™
     ))
 (define-char
   '((name		. "ARABIC LETTER THEH")
@@ -113,7 +113,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4B)	; õ2]-GÀõ0]-A
+    (arabic-iso8859-6	#xCB)	; ÿ´
     ))
 (define-char
   '((name		. "ARABIC LETTER JEEM")
@@ -121,7 +121,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4C)	; õ2]-GÃõ0]-A
+    (arabic-iso8859-6	#xCC)	; ÿ¨
     ))
 (define-char
   '((name		. "ARABIC LETTER HAH")
@@ -129,7 +129,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4D)	; õ2]-GÕõ0]-A
+    (arabic-iso8859-6	#xCD)	; ÿ≠
     ))
 (define-char
   '((name		. "ARABIC LETTER KHAH")
@@ -137,7 +137,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4E)	; õ2]-GŒõ0]-A
+    (arabic-iso8859-6	#xCE)	; ÿÆ
     ))
 (define-char
   '((name		. "ARABIC LETTER DAL")
@@ -145,7 +145,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x4F)	; õ2]-Gœõ0]-A
+    (arabic-iso8859-6	#xCF)	; ÿØ
     ))
 (define-char
   '((name		. "ARABIC LETTER THAL")
@@ -153,7 +153,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x50)	; õ2]-G–õ0]-A
+    (arabic-iso8859-6	#xD0)	; ÿ∞
     ))
 (define-char
   '((name		. "ARABIC LETTER REH")
@@ -161,7 +161,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x51)	; õ2]-G—õ0]-A
+    (arabic-iso8859-6	#xD1)	; ÿ±
     ))
 (define-char
   '((name		. "ARABIC LETTER ZAIN")
@@ -169,7 +169,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x52)	; õ2]-G“õ0]-A
+    (arabic-iso8859-6	#xD2)	; ÿ≤
     ))
 (define-char
   '((name		. "ARABIC LETTER SEEN")
@@ -177,7 +177,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x53)	; õ2]-G”õ0]-A
+    (arabic-iso8859-6	#xD3)	; ÿ≥
     ))
 (define-char
   '((name		. "ARABIC LETTER SHEEN")
@@ -185,7 +185,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x54)	; õ2]-G‘õ0]-A
+    (arabic-iso8859-6	#xD4)	; ÿ¥
     ))
 (define-char
   '((name		. "ARABIC LETTER SAD")
@@ -193,7 +193,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x55)	; õ2]-G’õ0]-A
+    (arabic-iso8859-6	#xD5)	; ÿµ
     ))
 (define-char
   '((name		. "ARABIC LETTER DAD")
@@ -201,7 +201,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x56)	; õ2]-G÷õ0]-A
+    (arabic-iso8859-6	#xD6)	; ÿ∂
     ))
 (define-char
   '((name		. "ARABIC LETTER TAH")
@@ -209,7 +209,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x57)	; õ2]-G◊õ0]-A
+    (arabic-iso8859-6	#xD7)	; ÿ∑
     ))
 (define-char
   '((name		. "ARABIC LETTER ZAH")
@@ -217,7 +217,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x58)	; õ2]-Gÿõ0]-A
+    (arabic-iso8859-6	#xD8)	; ÿ∏
     ))
 (define-char
   '((name		. "ARABIC LETTER AIN")
@@ -225,7 +225,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x59)	; õ2]-GŸõ0]-A
+    (arabic-iso8859-6	#xD9)	; ÿπ
     ))
 (define-char
   '((name		. "ARABIC LETTER GHAIN")
@@ -233,7 +233,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x5A)	; õ2]-G⁄õ0]-A
+    (arabic-iso8859-6	#xDA)	; ÿ∫
     ))
 (define-char
   '((name		. "ARABIC TATWEEL")
@@ -241,7 +241,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x60)	; õ2]-G‡õ0]-A
+    (arabic-iso8859-6	#xE0)	; ŸÄ
     ))
 (define-char
   '((name		. "ARABIC LETTER FEH")
@@ -249,7 +249,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x61)	; õ2]-G·õ0]-A
+    (arabic-iso8859-6	#xE1)	; ŸÅ
     ))
 (define-char
   '((name		. "ARABIC LETTER QAF")
@@ -257,7 +257,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x62)	; õ2]-G‚õ0]-A
+    (arabic-iso8859-6	#xE2)	; ŸÇ
     ))
 (define-char
   '((name		. "ARABIC LETTER KAF")
@@ -265,7 +265,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x63)	; õ2]-G„õ0]-A
+    (arabic-iso8859-6	#xE3)	; ŸÉ
     ))
 (define-char
   '((name		. "ARABIC LETTER LAM")
@@ -273,7 +273,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x64)	; õ2]-G‰õ0]-A
+    (arabic-iso8859-6	#xE4)	; ŸÑ
     ))
 (define-char
   '((name		. "ARABIC LETTER MEEM")
@@ -281,7 +281,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x65)	; õ2]-GÂõ0]-A
+    (arabic-iso8859-6	#xE5)	; ŸÖ
     ))
 (define-char
   '((name		. "ARABIC LETTER NOON")
@@ -289,7 +289,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x66)	; õ2]-GÊõ0]-A
+    (arabic-iso8859-6	#xE6)	; ŸÜ
     ))
 (define-char
   '((name		. "ARABIC LETTER HEH")
@@ -297,7 +297,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x67)	; õ2]-GÁõ0]-A
+    (arabic-iso8859-6	#xE7)	; Ÿá
     ))
 (define-char
   '((name		. "ARABIC LETTER WAW")
@@ -305,7 +305,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x68)	; õ2]-GËõ0]-A
+    (arabic-iso8859-6	#xE8)	; Ÿà
     ))
 (define-char
   '((name		. "ARABIC LETTER ALEF MAKSURA")
@@ -313,7 +313,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x69)	; õ2]-GÈõ0]-A
+    (arabic-iso8859-6	#xE9)	; Ÿâ
     ))
 (define-char
   '((name		. "ARABIC LETTER YEH")
@@ -321,7 +321,7 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6A)	; õ2]-GÍõ0]-A
+    (arabic-iso8859-6	#xEA)	; Ÿä
     ))
 (define-char
   '((name		. "ARABIC FATHATAN")
@@ -329,7 +329,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6B)	; õ2]-GÎõ0]-A
+    (arabic-iso8859-6	#xEB)	; Ÿã
     ))
 (define-char
   '((name		. "ARABIC DAMMATAN")
@@ -337,7 +337,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6C)	; õ2]-GÏõ0]-A
+    (arabic-iso8859-6	#xEC)	; Ÿå
     ))
 (define-char
   '((name		. "ARABIC KASRATAN")
@@ -345,7 +345,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6D)	; õ2]-GÌõ0]-A
+    (arabic-iso8859-6	#xED)	; Ÿç
     ))
 (define-char
   '((name		. "ARABIC FATHA")
@@ -353,7 +353,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6E)	; õ2]-GÓõ0]-A
+    (arabic-iso8859-6	#xEE)	; Ÿé
     ))
 (define-char
   '((name		. "ARABIC DAMMA")
@@ -361,7 +361,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x6F)	; õ2]-GÔõ0]-A
+    (arabic-iso8859-6	#xEF)	; Ÿè
     ))
 (define-char
   '((name		. "ARABIC KASRA")
@@ -369,7 +369,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x70)	; õ2]-Gõ0]-A
+    (arabic-iso8859-6	#xF0)	; Ÿê
     ))
 (define-char
   '((name		. "ARABIC SHADDA")
@@ -377,7 +377,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x71)	; õ2]-GÒõ0]-A
+    (arabic-iso8859-6	#xF1)	; Ÿë
     ))
 (define-char
   '((name		. "ARABIC SUKUN")
@@ -385,7 +385,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (arabic-iso8859-6	#x72)	; õ2]-GÚõ0]-A
+    (arabic-iso8859-6	#xF2)	; Ÿí
     ))
 (define-char
   '((name		. "ARABIC MADDAH ABOVE")
