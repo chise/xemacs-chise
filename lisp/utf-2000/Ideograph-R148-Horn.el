@@ -333,6 +333,23 @@
     ))
 (define-char
   '((ideographic-radical . 148)	; â¾“
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((=jis-x0208	  . #x3351)	; ø½Š‘ˆ
+      (korean-ksc5601	  . #x4A47)	; ø»‰—€
+      (chinese-cns11643-1 . #x4B45)	; ø»’€¬
+      (ideograph-daikanwa . 35003)	; ø¸ˆ¢»
+      )
+     ((ucs		  . #x5347)	; å‡
+      ))
+    (ideograph-cbeta	. 00976)	; ø¸ 
+    ))
+(define-char
+  '((ideographic-radical . 148)	; â¾“
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (chinese-cns11643-5 . #x3C37)	; ø»š’¬
