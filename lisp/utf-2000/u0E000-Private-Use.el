@@ -26683,9 +26683,7 @@
     (ucs		. #xF4D9)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B40)	; 
-    (chinese-big5-cdp	. #x8B40)	; 
-    (ucs		. #xF4DA)	; 
+  '((ucs		. #xF4DA)	; 
     ))
 (define-char
   '((ucs		. #xF4DB)	; 
@@ -26753,9 +26751,7 @@
     (ucs		. #xF4E9)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B50)	; 
-    (chinese-big5-cdp	. #x8B50)	; 
-    (ucs		. #xF4EA)	; 
+  '((ucs		. #xF4EA)	; 
     ))
 (define-char
   '((chinese-big5	. #x8B51)	; 
@@ -26788,9 +26784,7 @@
     (ucs		. #xF4F0)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B57)	; 
-    (chinese-big5-cdp	. #x8B57)	; 
-    (ucs		. #xF4F1)	; 
+  '((ucs		. #xF4F1)	; 
     ))
 (define-char
   '((chinese-big5	. #x8B58)	; 
@@ -27066,9 +27060,7 @@
     (ucs		. #xF528)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BB1)	; 
-    (chinese-big5-cdp	. #x8BB1)	; 
-    (ucs		. #xF529)	; 
+  '((ucs		. #xF529)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BB2)	; 
@@ -27254,9 +27246,7 @@
     (ucs		. #xF54E)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BD7)	; 
-    (chinese-big5-cdp	. #x8BD7)	; 
-    (ucs		. #xF54F)	; 
+  '((ucs		. #xF54F)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BD8)	; 
@@ -27369,9 +27359,7 @@
     (ucs		. #xF565)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BEE)	; 
-    (chinese-big5-cdp	. #x8BEE)	; 
-    (ucs		. #xF566)	; 
+  '((ucs		. #xF566)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BEF)	; 
@@ -27387,9 +27375,7 @@
     (ucs		. #xF569)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8BF2)	; 
-    (chinese-big5-cdp	. #x8BF2)	; 
-    (ucs		. #xF56A)	; 
+  '((ucs		. #xF56A)	; 
     ))
 (define-char
   '((chinese-big5	. #x8BF3)	; 
@@ -27711,9 +27697,7 @@
     (ucs		. #xF5AB)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8C75)	; 
-    (chinese-big5-cdp	. #x8C75)	; 
-    (ucs		. #xF5AC)	; 
+  '((ucs		. #xF5AC)	; 
     ))
 (define-char
   '((chinese-big5	. #x8C76)	; 
@@ -28417,9 +28401,7 @@
     (ucs		. #xF639)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8D66)	; 
-    (chinese-big5-cdp	. #x8D66)	; 
-    (ucs		. #xF63A)	; 
+  '((ucs		. #xF63A)	; 
     ))
 (define-char
   '((chinese-big5	. #x8D67)	; 
