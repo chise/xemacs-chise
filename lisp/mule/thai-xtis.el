@@ -36,7 +36,7 @@
 
 (when (featurep 'xemacs)
   (make-charset 'thai-xtis "Precomposed Thai (XTIS by Virach)."
-		'(registry "Thai94x94-0$"
+		'(registry "xtis-0$"
 			   dimension 2
 			   chars 94
 			   final ??
@@ -277,7 +277,7 @@
     (make-coding-system
      'tis-620 'ccl
      "external=tis620, internal=thai-xtis"
-     `(mnemonic "Thai-XTIS"
+     `(mnemonic "TIS620"
        decode ,ccl-decode-thai-xtis
        encode ,ccl-encode-thai-xtis))
   (make-coding-system
