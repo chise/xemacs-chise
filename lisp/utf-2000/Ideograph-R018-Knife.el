@@ -1668,11 +1668,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 709)
-		 (=daikanwa	     . 02316)	; &I-M-02316;
-		 )
+     ((shinjigen-1	  . 709)
+      (=daikanwa	  . 02316)	; &I-M-02316;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 328 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1695,11 +1695,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 709)
-		 (=daikanwa	     . 02316)	; &I-M-02316;
-		 )
+     ((shinjigen-1	  . 709)
+      (=daikanwa	  . 02316)	; &I-M-02316;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 327 20)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2121,45 +2121,36 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E95)	; 井
-      )
-     ((=ucs		  . #x5205)	; 刅
-      ))
     (=ucs		. #x5231)	; 刱
-    (=daikanwa		. 01953)	; &I-M-01953;
-    ))
-(define-char
-  '((=>ucs		. #x5231)	; 刱
-    (morohashi-daikanwa	1953 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 332 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=ucs		    . #x5205)	; 刅
+	))
+      (=daikanwa	  . 01953)	; &M-01953;
+      (=ucs@unicode	  . #x5231)	; &M-01953;
       )
-     ((=ucs		  . #x4E95)	; 井
+     ((hanyu-dazidian	  1 332 6)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=cns11643-3	    . #x2152)	; &C3-2152;
+	))
+      (=cns11643-2	  . #x2554)	; &C2-2554;
+      (=big5		  . #xCBD4)	; &I-B-CBD4;
+      (=ucs@big5	  . #x5231)	; &C2-2554;
       )
-     ((=cns11643-3	  . #x2152)	; &C3-2152;
+     ((shinjigen-1	  . 634)
+      (=jis-x0212	  . #x333A)	; &JSP-333A;
+      (=ucs@jis		  . #x5231)	; &JSP-333A;
       ))
-    (=cns11643-2	. #x2554)	; &C2-2554;
-    (=big5		. #xCBD4)	; &I-B-CBD4;
-    (=ucs@big5		. #x5231)	; &C2-2554;
-    ))
-(define-char
-  '((=>ucs		. #x5231)	; 刱
-    (morohashi-daikanwa	1953 0 2)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (shinjigen-1	. 634)
-    (=jis-x0212		. #x333A)	; &JSP-333A;
-    (=ucs@jis		. #x5231)	; &JSP-333A;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -3620,63 +3611,53 @@
     (=cns11643-6	. #x3549)	; &I-C6-3549;
     ))
 (define-char
-  '((=>ucs		. #x524F)	; 剏
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-vulgar
-     (:sources	(seiji-tsuu morohashi-daikanwa)
-      :char	((=daikanwa	     . 01953)	; &I-M-01953;
-		 )
-      ))
-    (hanyu-dazidian	1 338 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5E76)	; 并
-      )
-     ((=ucs		  . #x5204)	; 刄
-      ))
-    (=cns11643-3	. #x2B43)	; &M-02024;
-    (=daikanwa		. 02024)	; &I-M-02024;
-    (=hanziku-1		. #xEBBC)	; &I-HZK01-EBBC;
-    (=cbeta		. 01772)	; &I-CB01772;
-    ))
-(define-char
-  '((=>ucs		. #x524F)	; 剏
-    (morohashi-daikanwa	2024 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 634)
-		 (=jis-x0212	     . #x333A)	; &JSP-333A;
-		 (=ucs@jis	     . #x5231)	; &JSP-333A;
-		 )
-      ))
-    (shinjigen-1	. 635)
-    (shinjigen-2	. 635)
-    (=jis-x0208		. #x516C)	; &GT-02591;
-    (=gt		. 02591)	; &I-GT-02591;
-    (=gt-pj-1		. #x516C)	; &I-GT-02591;
-    (=ucs@jis		. #x524F)	; &GT-02591;
-    ))
-(define-char
-  '((morohashi-daikanwa	2024 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5E76)	; 并
-      )
-     ((=ucs		  . #x5203)	; 刃
-      ))
     (=ucs		. #x524F)	; 剏
+    (->subsumptive
+     ((<-vulgar
+       ((=daikanwa	    . 01953)	; &M-01953;
+	))
+      (<-vulgar*sources
+       zhengzi-tong daikanwa)
+      (hanyu-dazidian	  1 338 14)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5E76)	; 并
+	)
+       ((=ucs		    . #x5204)	; 刄
+	))
+      (=cns11643-3	  . #x2B43)	; &M-02024;
+      (=daikanwa	  . 02024)	; &I-M-02024;
+      (=hanziku-1	  . #xEBBC)	; &I-HZK01-EBBC;
+      (=cbeta		  . 01772)	; &I-CB01772;
+      )
+     ((<-vulgar
+       ((shinjigen-1	    . 634)
+	(=jis-x0212	    . #x333A)	; &JSP-333A;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (shinjigen-1	  . 635)
+      (shinjigen-2	  . 635)
+      (=jis-x0208	  . #x516C)	; &GT-02591;
+      (=gt		  . 02591)	; &I-GT-02591;
+      (=gt-pj-1		  . #x516C)	; &I-GT-02591;
+      (=ucs@jis		  . #x524F)	; &GT-02591;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5E76)	; 并
+	)
+       ((=ucs		    . #x5203)	; 刃
+	))
+      (=ucs@unicode	  . #x524F)	; &UU+524F;
+      ))
     ))
 (define-char
   '((=>ucs		. #x20728)	; 𠜨
@@ -4015,43 +3996,39 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 634)
-		 (=jis-x0212	     . #x333A)	; &JSP-333A;
-		 (=ucs@jis	     . #x5231)	; &JSP-333A;
-		 )
-      ))
-    (hanyu-dazidian	1 343 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5E76)	; 并
-      )
-     ((=ucs		  . #x5205)	; 刅
-      ))
-    (shinjigen-1	. 636)
     (=ucs		. #x5259)	; 剙
-    (=daikanwa		. 02040)	; &I-M-02040;
-    (=hanziku-1		. #xECB5)	; &I-HZK01-ECB5;
-    (=cbeta		. 04485)	; &I-CB04485;
-    ))
-(define-char
-  '((=>ucs		. #x5259)	; 剙
-    (morohashi-daikanwa	2040 0 1)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((<-vulgar
+       ((shinjigen-1	    . 634)
+	(=jis-x0212	    . #x333A)	; &JSP-333A;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (hanyu-dazidian	  1 343 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5E76)	; 并
+	)
+       ((=ucs		    . #x5205)	; 刅
+	))
+      (shinjigen-1	  . 636)
+      (=daikanwa	  . 02040)	; &M-02040;
+      (=hanziku-1	  . #xECB5)	; &I-HZK01-ECB5;
+      (=cbeta		  . 04485)	; &I-CB04485;
+      (=ucs@unicode	  . #x5259)	; &M-02040;
       )
-     ((=ucs		  . #x5E76)	; 并
-      )
-     ((=cns11643-3	  . #x2152)	; &C3-2152;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5E76)	; 并
+	)
+       ((=cns11643-3	    . #x2152)	; &C3-2152;
+	))
+      (=cns11643-3	  . #x2F62)	; &C3-2F62;
       ))
-    (=cns11643-3	. #x2F62)	; &C3-2F62;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4686,12 +4663,19 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 666)
-		 (=daikanwa	     . 02049)	; &I-M-02049;
-		 )
+    (->same
+     ((=ucs		  . #x525D)	; 剝
+      (=daikanwa	  . 02049)	; &I-M-02049;
       ))
+    (->same*sources
+     daikanwa)
+    (<-vulgar
+     ((shinjigen-1	  . 666)
+      (=ucs		  . #x525D)	; 剝
+      (=jis-x0208-1978	  . #x476D)	; &I-J78-476D;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -7976,50 +7960,50 @@
     (=daikanwa		. 02244)	; &I-M-02244;
     ))
 (define-char
-  '((=>ucs		. #x5294)	; 劔
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (<-vulgar
-     (:char	((shinjigen-1	     . 653)
-		 (=daikanwa	     . 02228)	; &I-M-02228;
-		 )
-      :sources	(morohashi-daikanwa shinjigen-1)))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x50C9)	; 僉
-      )
-     ((=jis-x0208	  . #x5163)	; &GT-02408;
-      (=daikanwa	  . 01849)	; &I-M-01849;
-      ))
-    (shinjigen-1	. 655)
-    (shinjigen-2	. 655)
-    (=jis-x0208		. #x5179)	; &GT-02886;
-    (=gt		. 02886)	; &I-GT-02886;
-    (=gt-pj-1		. #x5179)	; &I-GT-02886;
-    (=daikanwa		. 02245)	; &I-M-02245;
-    (=ucs@jis		. #x5294)	; &GT-02886;
-    ))
-(define-char
-  '((morohashi-daikanwa	2245 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (hanyu-dazidian	1 360 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x50C9)	; 僉
-      )
-     ((=ucs		  . #x5204)	; 刄
-      ))
     (=ucs		. #x5294)	; 劔
-    (=cns11643-3	. #x5037)	; &I-C3-5037;
-    (=hanziku-1		. #xF042)	; &I-HZK01-F042;
-    (=cbeta		. 00669)	; &I-CB00669;
+    (->subsumptive
+     ((<-vulgar
+       ((shinjigen-1	    . 653)
+	(=ucs		    . #x528D)	; 劍
+	(=jis-x0208	    . #x5178)	; &I-J90-5178;
+	(=daikanwa	    . 02228)	; &I-M-02228;
+	))
+      (<-vulgar*sources
+       daikanwa shinjigen-1)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x50C9)	; 僉
+	)
+       ((=jis-x0208	    . #x5163)	; &GT-02408;
+	(=daikanwa	    . 01849)	; &I-M-01849;
+	))
+      (shinjigen-1	  . 655)
+      (shinjigen-2	  . 655)
+      (=jis-x0208	  . #x5179)	; &GT-02886;
+      (=gt		  . 02886)	; &I-GT-02886;
+      (=gt-pj-1		  . #x5179)	; &I-GT-02886;
+      (=daikanwa	  . 02245)	; &I-M-02245;
+      (=ucs@jis		  . #x5294)	; &GT-02886;
+      )
+     ((hanyu-dazidian	  1 360 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x50C9)	; 僉
+	)
+       ((=ucs		    . #x5204)	; 刄
+	))
+      (=cns11643-3	  . #x5037)	; &CB00669;
+      (=hanziku-1	  . #xF042)	; &I-HZK01-F042;
+      (=cbeta		  . 00669)	; &I-CB00669;
+      (=ucs@unicode	  . #x5294)	; &CB00669;
+      ))
     ))
 (define-char
   '((=>ucs		. #x207FD)	; 𠟽
