@@ -372,7 +372,13 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
   else if (CHARSET_UCS_MAX (XCHARSET (charset)))
-    return c1 - CHARSET_CODE_OFFSET (XCHARSET (charset))
+    return (XCHARSET_DIMENSION (charset) == 1
+	    ?
+	    c1 - CHARSET_CODE_OFFSET (XCHARSET (charset))
+	    :
+	    (c1 - CHARSET_CODE_OFFSET (XCHARSET (charset)))
+	    * XCHARSET_CHARS (charset)
+	    + c2  - CHARSET_CODE_OFFSET (XCHARSET (charset)))
       + CHARSET_UCS_MIN (XCHARSET (charset));
   else if (XCHARSET_DIMENSION (charset) == 1)
     {
