@@ -413,19 +413,6 @@
 	* utf-2000/Ideograph-R079-Weapon.el (M16618'): Unify U+6BB4;
 	separate C3-2959.
 
-	* utf-2000/u0FF00-Halfwidth-and-Fullwidth-Forms.el,
-	utf-2000/u030A0-Katakana.el, utf-2000/u03040-Hiragana.el,
-	utf-2000/u03000-CJK-Symbols-and-Punctuation.el,
-	utf-2000/u02600-Miscellaneous-Symbols.el,
-	utf-2000/u025A0-Geometric-Shapes.el,
-	utf-2000/u02500-Box-Drawing.el,
-	utf-2000/u02300-Miscellaneous-Technical.el,
-	utf-2000/u02200-Mathematical-Operators.el,
-	utf-2000/u02190-Arrows.el, utf-2000/u02100-Letterlike-Symbols.el,
-	utf-2000/u02000-General-Punctuation.el,
-	utf-2000/u00400-Cyrillic.el, utf-2000/u00370-Greek.el,
-	utf-2000/u000A0-Latin-1-Supplement.el: Add japanese-jisx0208-1990.
-
 2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/Ideograph-R076-Lack.el (M16024'): Unify U+6B27;
@@ -597,7 +584,7 @@
 	utf-2000/u025A0-Geometric-Shapes.el,
 	utf-2000/u03000-CJK-Symbols-and-Punctuation.el: Add
 	japanese-jisx0208-1990.
-	
+
 2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/char-db-util.el (decode-builtin-char): Use
