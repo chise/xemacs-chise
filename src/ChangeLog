@@ -1,3 +1,9 @@
+2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_table): Check a character is found in
+	range->charset instead of non default value is defined in
+	char-table when range is CHARTAB_RANGE_ROW.
+
 2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (map_char_id_table): Deleted.
