@@ -1966,7 +1966,7 @@
     (japanese-jisx0208		. #x4D6A)	; ø»‡‘¹
     (chinese-cns11643-3		. #x535B)	; ø»– º
     (japanese-jisx0208-1990	. #x4D6A)	; ø½Š·­
-    (mojikyo			. 050574)	; ø¸Œ–Ž
+    (mojikyo			. 050574)	; ý €Œ–Ž
     (ucs			. #x983C)	; é ¼
     ))
 (define-char
@@ -2686,6 +2686,7 @@
     (chinese-cns11643-1		. #x776D)	; ø»“¼
     (japanese-jisx0208-1990	. #x707A)	; ø½‹«—
     (ideograph-daikanwa		. 43591)	; ø¸Š©‡
+    (mojikyo			. 043591)	; ý €Š©‡
     (ucs			. #x984F)	; é¡
     ))
 (define-char
@@ -2698,7 +2699,7 @@
     (korean-ksc5601		. #x6454)	; ø»‰½™
     (chinese-cns11643-3		. #x5956)	; ø»–©©
     (japanese-jisx0208-1990	. #x3469)	; ø½Š’¾
-    (mojikyo			. 050575)	; ø¸Œ–
+    (mojikyo			. 050575)	; ý €Œ–
     (ucs			. #x9854)	; é¡”
     ))
 (define-char
@@ -2826,7 +2827,7 @@
     (japanese-jisx0208-1978	. #x4E60)	; ø»‚¿…
     (japanese-jisx0208		. #x4E60)	; ø»‡“
     (japanese-jisx0208-1990	. #x4E60)	; ø½Š¹
-    (mojikyo			. 050576)	; ø¸Œ–
+    (mojikyo			. 050576)	; ý €Œ–
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´
@@ -2852,7 +2853,7 @@
     (japanese-jisx0208		. #x3832)	; ø»†²‹
     (chinese-cns11643-3		. #x5958)	; ø»–©«
     (japanese-jisx0208-1990	. #x3832)	; ø½Š—¿
-    (mojikyo			. 050577)	; ø¸Œ–‘
+    (mojikyo			. 050577)	; ý €Œ–‘
     (ucs			. #x9855)	; é¡•
     ))
 (define-char
@@ -3652,6 +3653,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
     (ideograph-daikanwa . 43689)	; ø¸Šª©
+    (mojikyo		. 043689)	; ý €Šª©
     ))
 (define-char
   '((->ucs		. #x9867)	; é¡§
@@ -3666,7 +3668,7 @@
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (mojikyo		. 057193)	; ø¸½©
+    (mojikyo		. 057193)	; ý €½©
     (ucs		. #x9867)	; é¡§
     ))
 (define-char
@@ -3680,7 +3682,7 @@
     (japanese-jisx0208		. #x385C)	; ø»†²µ
     (korean-ksc5601		. #x4D53)	; ø»‰›¦
     (japanese-jisx0208-1990	. #x385C)	; ø½Š˜©
-    (mojikyo			. 054112)	; ø¸ 
+    (mojikyo			. 054112)	; ý € 
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´
