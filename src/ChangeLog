@@ -1,3 +1,11 @@
+1999-10-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (char_byte_table_equal): Fill braces to avoid
+	ambiguous `else'.
+	(Fmake_charset): Likewise.
+	(complex_vars_of_mule_charset): Modify the font registry of
+	`ucs-bmp' not to match `Ethiopic-Unicode'.
+
 1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Add font
