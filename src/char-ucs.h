@@ -659,6 +659,10 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point)
   decoding_table_put_char (ccs, code_point, Qunbound);
 }
 
+#ifdef HAVE_DATABASE
+Emchar load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point);
+#endif
+
 INLINE_HEADER Emchar
 DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
@@ -676,6 +680,17 @@ DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
     }
   if (CHARP (decoding_table))
     return XCHAR (decoding_table);
+#ifdef HAVE_DATABASE
+  if (EQ (decoding_table, Qunloaded) ||
+      EQ (decoding_table, Qunbound) ||
+      NILP (decoding_table) )
+    {
+      if (XCHARSET_GRAPHIC (ccs) == 1)
+	return load_char_decoding_entry_maybe (ccs, code_point & 0x7F7F7F7F);
+      else
+	return load_char_decoding_entry_maybe (ccs, code_point);
+    }
+#endif
   else
     return -1;
 }
