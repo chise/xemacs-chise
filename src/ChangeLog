@@ -1,5 +1,29 @@
 1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (Vcharset_ucs_bmp): New variable in UTF-2000.
+	(charset_by_attributes): Delete array about direction.
+	(latin_a_char_to_charset): New variable in UTF-2000.
+	(latin_a_char_to_byte1): New variable in UTF-2000.
+	(latin_a_char_to_byte2): New variable in UTF-2000.
+	(Qucs_bmp): New variable.
+	(next_allocated_1_byte_leading_byte): Use `Charset_ID' instead of
+	`Bufbyte'.
+	(next_allocated_2_byte_leading_byte): Likewise.
+	(non_ascii_set_charptr_emchar): Likewise.
+	(make_charset): Likewise; add `CHARSET_TYPE_128X128' and
+	`CHARSET_TYPE_256X256' in UTF-2000; modify for
+	`charset_by_attributes'.
+	(get_unallocated_leading_byte): Use `Charset_ID' instead of `int'.
+	(char-charset): Use `CHAR_CHARSET' instead of `CHAR_LEADING_BYTE'
+	and `CHARSET_BY_LEADING_BYTE'.
+	(syms_of_mule_charset): Set up `ucs-bmp'; move setting of
+	`utf-2000-version' to `vars_of_mule_charset'.
+	(vars_of_mule_charset): Modify for `charset_by_attributes'; don't
+	define `leading-code-private-11' in UTF-2000; move setting of
+	`utf-2000-version' from `syms_of_mule_charset'.
+	(complex_vars_of_mule_charset): Set up charset `ucs-bmp' in
+	UTF-2000.
+
 	* character.h (Charset_ID): New type.
 	(LEADING_BYTE_UCS_BMP): New macro.
 	(LEADING_BYTE_CONTROL_1): Changed from 0x8F to 0x81.
@@ -108,6 +132,9 @@
 
 	* character.h (PRE_LEADING_BYTE_PRIVATE_1): Deleted.
 	(PRE_LEADING_BYTE_PRIVATE_2): Deleted.
+
+	* mule-charset.c (leading_code_private_11): Don't define in
+	UTF-2000.
 
 	* mule-ccl.c (ccl_driver): Don't define `CCL_ReadMultibyteChar2'
 	in UTF-2000 because it is not ported yet and not to use
