@@ -122,6 +122,8 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (hanyu-dazidian	1 3 3)
+    (=ucs		. #x4E03)	; ä¸ƒ
     (->subsumptive
      ((shinjigen-1	  . 3)
       (shinjigen-2	  . 3)
@@ -139,8 +141,6 @@
      ((=cns11643-1	  . #x4424)	; ø»‘µ¹
       (=ucs@cns		  . #x4E03)	; ø»‘µ¹
       ))
-    (hanyu-dazidian	1 3 3)
-    (=ucs		. #x4E03)	; ä¸ƒ
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
