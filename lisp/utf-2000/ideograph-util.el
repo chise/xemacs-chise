@@ -85,25 +85,28 @@
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
+;;;###autoload
 (defun char-ideographic-strokes-from-domains (char domains &optional radical)
-  (catch 'tag
-    (dolist (domain domains)
-      (if (and (setq ret (or (get-char-attribute
-			      char
-			      (intern
-			       (format "%s@%s"
-				       'ideographic-radical domain)))
-			     (get-char-attribute
-			      char 'ideographic-radical)))
-	       (or (eq ret radical)
-		   (null radical))
-	       (setq ret (get-char-attribute
-			  char
-			  (intern
-			   (format "%s@%s"
-				   'ideographic-strokes domain)))))
-	  (throw 'tag ret)))))
+  (let (ret)
+    (catch 'tag
+      (dolist (domain domains)
+	(if (and (setq ret (or (get-char-attribute
+				char
+				(intern
+				 (format "%s@%s"
+					 'ideographic-radical domain)))
+			       (get-char-attribute
+				char 'ideographic-radical)))
+		 (or (eq ret radical)
+		     (null radical))
+		 (setq ret (get-char-attribute
+			    char
+			    (intern
+			     (format "%s@%s"
+				     'ideographic-strokes domain)))))
+	    (throw 'tag ret))))))
 
+;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
     (or (char-ideographic-strokes-from-domains
@@ -130,6 +133,24 @@
 	  (when strokes
 	    (put-char-attribute char 'ideographic-strokes strokes)
 	    strokes)))))
+
+;;;###autoload
+(defun char-total-strokes-from-domains (char domains)
+  (let (ret)
+    (catch 'tag
+      (dolist (domain domains)
+	(if (setq ret (get-char-attribute
+		       char
+		       (intern
+			(format "%s@%s"
+				'total-strokes domain))))
+	    (throw 'tag ret))))))
+
+;;;###autoload
+(defun char-total-strokes (char &optional preferred-domains)
+  (or (char-total-strokes-from-domains char preferred-domains)
+      (get-char-attribute char 'total-strokes)
+      (char-total-strokes-from-domains char char-db-feature-domains)))
 
 ;;;###autoload
 (defun update-ideograph-radical-table ()
