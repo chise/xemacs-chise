@@ -168,6 +168,7 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5	. #xC6D9)	; øº ·¨
     (ucs		. #x02C6)	; Ë†
     ))
 (define-char
