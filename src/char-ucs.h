@@ -717,7 +717,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 extern Lisp_Object Vcharacter_attribute_table;
 
 int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
-int charset_code_point (Lisp_Object charset, Emchar ch);
+int charset_code_point (Lisp_Object charset, Emchar ch, int defined_only);
 int range_charset_code_point (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
@@ -734,7 +734,7 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
       *charset = Ffind_charset (Fcar (charsets));
       if (!NILP (*charset))
 	{
-	  int code_point = charset_code_point (*charset, ch);
+	  int code_point = charset_code_point (*charset, ch, 0);
 
 	  if (code_point >= 0)
 	    return code_point;
