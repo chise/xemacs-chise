@@ -3102,7 +3102,13 @@
     (ucs		. #x9117)	; é„—
     ))
 (define-char
-  '((morohashi-daikanwa	39577 3)
+  '((ideographic-radical . 163)	; â¾¢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideograph-daikanwa . 39577)	; ø¸‰ª™
+    ))
+(define-char
+  '((morohashi-daikanwa	39577 0 5)
     (ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
