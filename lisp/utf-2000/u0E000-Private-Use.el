@@ -21378,8 +21378,7 @@
     (ucs		. #xF4E0)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B47)	; 
-    (ucs		. #xF4E1)	; 
+  '((ucs		. #xF4E1)	; 
     ))
 (define-char
   '((chinese-big5	. #x8B48)	; 
@@ -22093,8 +22092,7 @@
     (ucs		. #xF593)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8C5D)	; 
-    (ucs		. #xF594)	; 
+  '((ucs		. #xF594)	; 
     ))
 (define-char
   '((chinese-big5	. #x8C5E)	; 
