@@ -42,7 +42,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ï“—
+     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ucs		  . #x53E4)	; å¤
       ))
