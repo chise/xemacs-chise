@@ -472,9 +472,6 @@ extern Lisp_Object Vcharacter_attribute_table;
 
 Lisp_Object range_charset_code_point (Lisp_Object charset, Emchar ch);
 
-unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
-unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
-
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
