@@ -1,5 +1,9 @@
 1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/u00020-Basic-Latin.el (SPACE): Add `(ipa #x7F)'.
+
+1999-11-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* dumped-lisp.el (preloaded-file-list): Add "mule-conf" in Mule;
 	delete "ccs-iso8859-*.el"; add "u00000-C0.el",
 	"u00020-Basic-Latin.el", "u00080-C1.el",
