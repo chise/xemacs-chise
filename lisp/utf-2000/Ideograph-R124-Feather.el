@@ -2207,8 +2207,7 @@
 	)
        ((=ucs		    . #x6535)	; æ”µ
 	)
-       ((=ks-x1001	    . #x6962)	; ø»Š„½
-	(=daikanwa	    . 28614)	; ø¸†¿†
+       ((=daikanwa	    . 28614)	; ø¸†¿†
 	))
       ))
     (=jis-x0212		. #x553B)	; ø»‹±‚
@@ -4932,10 +4931,6 @@
     (ideographic-radical . 124)	; â½»
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x98DC)	; é£œ
-      (=jis-x0208	  . #x664C)	; ø½‹›½
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°

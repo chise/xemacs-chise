@@ -290,10 +290,10 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (<-ancient-ideograph
-     ((=daikanwa	  . 19687)	; ø¸„³§
+     (:sources	(shuowen morohashi-daikanwa)
+      :char	((=daikanwa	     . 19687)	; ø¸„³§
+		 )
       ))
-    (<-ancient-ideograph*sources
-     shuowen daikanwa)
     (=daikanwa		. 19682)	; ø¸„³¢
     ))
 (define-char
@@ -341,9 +341,6 @@
     (=ucs		. #x7232)	; çˆ²
     (=cns11643-3	. #x3D22)	; ø»•¿­
     (=gb12345		. #x4E2A)	; çˆ²
-    (=gt		. 25271)	; ý¡€†Š·
-    (=gt-k		. 09877)	; ý¡„‚š•
-    (=gt-pj-9		. #x6633)	; ý¡€†Š·
     ))
 (define-char
   '((=>ucs		. #x24514)	; ð¤””

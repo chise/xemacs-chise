@@ -2160,10 +2160,6 @@
   '((ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5E36)	; å¸¶
-      (=jis-x0208	  . #x5668)	; ø½‹„¹
-      ))
     (hanyu-dazidian	1 739 12)
     (shinjigen-2	. 2108)
     (=ucs		. #x5E2F)	; å¸¯
@@ -2179,15 +2175,12 @@
   '((ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (shinjigen-1	. 3959)
-    (shinjigen-2	. 3959)
+    (hanyu-dazidian	1 739 16)
     (=ucs		. #x5E30)	; å¸°
     (=jis-x0208-1978	. #x3522)	; ø»‚™™
     (=jis-x0208-1983	. #x3522)	; ø»†­¡
-    (=gt		. 11209)	; ý¡€‚¯‰
-    (=gt-k		. 06395)	; ý¡„£»
-    (=gt-pj-1		. #x3522)	; ý¡€‚¯‰
     (=daikanwa		. 08930)	; ø¸‚‹¢
+    (=hanziku-2		. #xEA5C)	; ý¢€®©œ
     ))
 (define-char
   '((=>ucs		. #x5E30)	; å¸°
@@ -2195,27 +2188,16 @@
     (ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x5D45)	; ø½‹Ž¨
-      (=ks-x1001	  . #x4F7D)	; ø»‰ŸŒ
-      (=cns11643-1	  . #x7657)	; ø»“€ˆ
-      (=daikanwa	  . 16349)	; ø¸ƒ¿
-      ))
+    (shinjigen-2	. 3959)
     (=jis-x0208-1990	. #x3522)	; ø½Š“•
+    (=gt		. 11209)	; ý¡€‚¯‰
+    (=gt-k		. 06395)	; ý¡„£»
+    (=gt-pj-1		. #x3522)	; ý¡€‚¯‰
     (=ucs@jis		. #x5E30)	; ø½Š“•
     ))
 (define-char
   '((=>ucs		. #x5E30)	; å¸°
     (morohashi-daikanwa	8930 0 1)
-    (ideographic-radical . 50)	; â¼±
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (hanyu-dazidian	1 739 16)
-    (=hanziku-2		. #xEA5C)	; ý¢€®©œ
-    ))
-(define-char
-  '((=>ucs		. #x5E30)	; å¸°
-    (morohashi-daikanwa	8930 0 2)
     (ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -5571,7 +5553,14 @@
       )
      ((=ucs		  . #x5DFE)	; å·¾
       )
-     ((=daikanwa	  . 25659)	; ø¸†»
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; â¿±
+	)
+       ((=daikanwa	    . 25406)	; ø¸†Œ¾
+	)
+       ((=ucs		    . #x767B)	; ç™»
+	))
       ))
     (=daikanwa		. 09148)	; ø¸‚Ž¼
     (=cbeta		. 01251)	; ø¸ “£

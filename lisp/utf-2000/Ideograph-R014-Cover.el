@@ -107,11 +107,6 @@
     (ideographic-radical . 14)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x556D)	; ø½‹ƒ 
-      (=ks-x1001	  . #x5E50)	; ø»‰´¡
-      (=daikanwa	  . 07320)	; ø¸²˜
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±

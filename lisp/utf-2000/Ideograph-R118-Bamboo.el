@@ -2400,15 +2400,11 @@
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA56)	; ï©–
-      (=jis-x0213-1-2000  . #x7964)	; ø»¤•
-      ))
     (<-vulgar-ideograph
      ((=daikanwa	  . 26243)	; ø¸†šƒ
       ))
     (<-vulgar-ideograph*sources
-     cihai daikanwa)
+     jikai daikanwa)
     (shinjigen-2	. 5805)
     (=ucs		. #x7BC0)	; ç¯€
     (=jis-x0208		. #x4061)	; ø½Š¤ž

@@ -3028,15 +3028,13 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (<-simplified@JP/Jouyou
-     ((shinjigen-1	  . 1286)
-      (=jis-x0208	  . #x536E)	; ø½‹€¥
-      (=ks-x1001	  . #x6571)	; ø»‰¿”
-      (=cns11643-1	  . #x7964)	; ø»“„¯
-      (=daikanwa	  . 04589)	; ø¸‡­
+    (<-simplified
+     (:sources	(morohashi-daikanwa shinjigen-1)
+      :char	((ideographic-radical . 30)	; â¼
+		 (shinjigen-1	     . 1286)
+		 (=daikanwa	     . 04589)	; ø¸‡­
+		 )
       ))
-    (<-simplified@JP/Jouyou*sources
-     daikanwa shinjigen-1 JP/Jouyou)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸

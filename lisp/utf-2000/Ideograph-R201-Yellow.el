@@ -24,10 +24,6 @@
     (ideographic-radical . 201)	; â¿ˆ
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EC3)	; é»ƒ
-      (=jis-x0213-1-2000  . #x7E71)	; ø»¤œ²
-      ))
     (=ucs		. #x9EC4)	; é»„
     (=jis-x0208		. #x322B)	; ø½Š„
     (=gb2312		. #x3B46)	; ø»„¬µ

@@ -110,11 +110,6 @@
     (ideographic-strokes . 4)
     (kangxi-strokes	 . 0)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x736E)	; ø½‹¯¥
-      (=ks-x1001	  . #x703A)	; ø»ŠŽ§
-      (=daikanwa	  . 48560)	; ø¸‹¶°
-      ))
     (shinjigen-2	. 9880)
     (=jis-x0208		. #x4046)	; ø½Š¤ƒ
     (=gt		. 17014)	; ý¡€„‰¶
@@ -335,10 +330,6 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6337)	; ø½‹—Ž
-      (=daikanwa	  . 48565)	; ø¸‹¶µ
-      ))
     (shinjigen-2	. 5545)
     (=jis-x0208		. #x3A58)	; ø½Š›¡
     (=gt		. 17026)	; ý¡€„Š‚

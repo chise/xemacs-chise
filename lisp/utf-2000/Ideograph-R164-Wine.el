@@ -460,11 +460,6 @@
   '((ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6E4D)	; ø½‹§®
-      (=ks-x1001	  . #x762D)	; ø»Š—Ž
-      (=daikanwa	  . 39906)	; ø¸‰¯¢
-      ))
     (shinjigen-2	. 8501)
     (=ucs		. #x9154)	; é…”
     (=jis-x0208		. #x3F6C)	; ø½Š£‹
@@ -474,29 +469,14 @@
     (=daikanwa		. 39807)	; ø¸‰­¿
     ))
 (define-char
-  '((=>ucs		. #x915A)	; é…š
-    (ideographic-radical . 164)	; â¾£
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (=jis-x0212		. #x625A)	; ø»Œ„§
-    (=daikanwa		. 39808)	; ø¸‰®€
-    (=ucs@jis		. #x915A)	; ø»Œ„§
-    ))
-(define-char
-  '((=>ucs		. #x915A)	; é…š
-    (morohashi-daikanwa	39808 0 0)
-    (ideographic-radical . 164)	; â¾£
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (=cns11643-2	. #x3977)	; ø»“±†
-    ))
-(define-char
-  '((morohashi-daikanwa	39808 0 1)
-    (ideographic-radical . 164)	; â¾£
+  '((ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x915A)	; é…š
     (=gb2312		. #x3753)	; ø»„§Š
+    (=jis-x0212		. #x625A)	; ø»Œ„§
+    (=cns11643-2	. #x3977)	; ø»“±†
+    (=daikanwa		. 39808)	; ø¸‰®€
     ))
 (define-char
   '((ideographic-radical . 164)	; â¾£
@@ -3158,27 +3138,17 @@
     (=daikanwa		. 40063)	; ø¸‰±¿
     ))
 (define-char
-  '((=>ucs		. #x91B8)	; é†¸
-    (morohashi-daikanwa	40064 1)
+  '((morohashi-daikanwa	40064 1)
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6E56)	; ø½‹§·
-      (=ks-x1001	  . #x6554)	; ø»‰¾·
-      (=daikanwa	  . 40099)	; ø¸‰²£
+    (<-simplified
+     ((=daikanwa	  . 40099)	; ø¸‰²£
       ))
+    (=ucs		. #x91B8)	; é†¸
     (=jis-x0208		. #x3E7A)	; ø½Š¡»
     (=gt		. 53867)	; ý¡€‰«
     (=gt-pj-1		. #x3E7A)	; ý¡€‰«
-    (=ucs@jis		. #x91B8)	; ø½Š¡»
-    ))
-(define-char
-  '((morohashi-daikanwa	40064 1 0)
-    (ideographic-radical . 164)	; â¾£
-    (ideographic-strokes . 13)
-    (total-strokes	 . 20)
-    (=ucs		. #x91B8)	; é†¸
     ))
 (define-char
   '((ideographic-radical . 164)	; â¾£

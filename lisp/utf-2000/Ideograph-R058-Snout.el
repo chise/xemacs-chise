@@ -118,13 +118,11 @@
   '((ideographic-radical . 58)	; â¼¹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x7576)	; ç•¶
-      (=jis-x0208	  . #x6144)	; ø½‹”Ÿ
-      (=daikanwa	  . 21890)	; ø¸…–‚
+    (<-simplified
+     ((=daikanwa	  . 21890)	; ø¸…–‚
       ))
-    (<-simplified@JP/Jouyou*sources
-     daikanwa JP/Jouyou)
+    (<-simplified*sources
+     daikanwa)
     (shinjigen-2	. 5071)
     (=ucs		. #x5F53)	; å½“
     (=jis-x0208		. #x4576)	; ø½Š¬‰

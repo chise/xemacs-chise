@@ -1581,8 +1581,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=cns11643-5	. #x434A)	; ø»š‘
-    (=gt		. 50174)	; ý¡€Œ¾
-    (=gt-pj-7		. #x4931)	; ý¡€Œ¾
     (=daikanwa		. 37525)	; ø¸‰Š•
     ))
 (define-char
@@ -1599,8 +1597,6 @@
     (=ucs		. #x8DF0)	; è·°
     (=jis-x0212		. #x5F6E)	; ø»Œ€¡
     (=cns11643-2	. #x476D)	; ø»”… 
-    (=gt		. 50172)	; ý¡€Œ¼
-    (=gt-pj-7		. #x4932)	; ý¡€Œ¼
     (=daikanwa		. 37526)	; ø¸‰Š–
     ))
 (define-char
@@ -1609,8 +1605,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=jis-x0212		. #x5F6F)	; ø»Œ€¢
-    (=gt		. 50128)	; ý¡€Œ
-    (=gt-pj-7		. #x4933)	; ý¡€Œ
     (=daikanwa		. 37527)	; ø¸‰Š—
     (=ucs@jis		. #x8DBC)	; ø»Œ€¢
     ))
@@ -1632,8 +1626,6 @@
     (=ucs		. #x8DBC)	; è¶¼
     (=gb2312		. #x7542)	; ø»†½
     (=cns11643-2	. #x3959)	; ø»“°¨
-    (=gt		. 50007)	; ý¡€Œ—
-    (=gt-pj-7		. #x477A)	; ý¡€Œ—
     ))
 (define-char
   '((ideographic-radical . 157)	; â¾œ
@@ -1794,10 +1786,6 @@
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8E10)	; è¸
-      (=jis-x0208	  . #x6C78)	; ø½‹¥
-      ))
     (=jis-x0208		. #x4129)	; ø½Š¥„
     (=gt		. 50154)	; ý¡€Œª
     (=gt-pj-1		. #x4129)	; ý¡€Œª
@@ -1820,7 +1808,7 @@
     (=daikanwa		. 49748)	; ø¸Œ‰”
     ))
 (define-char
-  '((script		CN Simplified Ideograph)
+  '((script		C-Simplified Ideograph)
     (ideographic-radical . 157)	; â¾œ
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
