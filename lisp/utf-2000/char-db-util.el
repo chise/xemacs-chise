@@ -405,10 +405,13 @@
 	(when (find-charset (car cdef))
 	  (goto-char (match-end 0))
 	  (setq char
-		(if (or (memq (car cdef) '(ascii latin-viscii-upper
-						 latin-viscii-lower
-						 arabic-iso8859-6))
-			(= (char-int (charset-iso-final-char (car cdef))) 0))
+		(if (and
+		     (not (eq (car cdef) 'ideograph-daikanwa))
+		     (or (memq (car cdef) '(ascii latin-viscii-upper
+						  latin-viscii-lower
+						  arabic-iso8859-6))
+			 (= (char-int (charset-iso-final-char (car cdef)))
+			    0)))
 		    (apply (function make-char) cdef)
 		  (if (setq table (charset-mapping-table (car cdef)))
 		      (set-charset-mapping-table (car cdef) nil))
