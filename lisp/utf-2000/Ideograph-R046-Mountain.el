@@ -1781,6 +1781,7 @@
     (total-strokes	 . 8)
     (=jis-x0208		. #x5630)	; ø½‹„
     (=gt-pj-1		. #x5630)	; ý¡€‚¢
+    (=ucs@jis		. #x5CBC)	; ø½‹„
     (=gt		. 10082)	; ý¡€‚¢
     (mojikyo		. 054549)	; ý €”•
     ))
@@ -5428,6 +5429,7 @@
     (total-strokes	 . 12)
     (=jis-x0208		. #x563F)	; ø½‹„
     (=gt-pj-1		. #x563F)	; ý¡€‚¢š
+    (=ucs@jis		. #x5D5C)	; ø½‹„
     (=gt		. 10394)	; ý¡€‚¢š
     (mojikyo		. 054552)	; ý €”˜
     ))
@@ -6291,6 +6293,7 @@
     (total-strokes	 . 13)
     (=jis-x0208		. #x564E)	; ø½‹„Ÿ
     (=gt-pj-1		. #x564E)	; ý¡€‚¤¡
+    (=ucs@jis		. #x5D76)	; ø½‹„Ÿ
     (=gt		. 10529)	; ý¡€‚¤¡
     (mojikyo		. 054553)	; ý €”™
     ))
