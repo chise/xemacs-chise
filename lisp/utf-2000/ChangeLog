@@ -1,7 +1,78 @@
+2001-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (M-14304): Separate C6-4979; add
+	`ideographic-structure'; unify H1-A97A.
+
+	* Ideograph-R055-Two-Hands.el (U+3429): Add
+	`ideographic-structure'; unify H1-A8CE.
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+
+	* Ideograph-R051-Dry.el (M-09171): Add `ideographic-structure';
+	unify H1-A872.
+	(C6-2742): Add `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U-00020542): Add
+	`ideographic-structure'; unify H1-A769.
+
+	* Ideograph-R004-Slash.el (C3-212F): Relate to U+51E2.
+
+2001-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Merge some CJK Ext-B code points.
+	(M-05837): Separate C6-2167; relate to U-000215D2.
+	(C6-2167): Unify BC-87D3 and U-000215D2.
+	(M-05948): Separate C6-3E3E; relate to U-00021638; add
+	`ideographic-structure'.
+	(U-00021638): Add `ideographic-structure'; unify H1-A974.
+	(C6-3E3E): Add `ideographic-structure'.
+
+	* Ideograph-R031-Enclosure.el (C6-5145): Add
+	`ideographic-structure'; unify H1-A9A2.
+
+	* Ideograph-R028-Private.el: Use char-spec instead of char-ref as
+	operators in `ideographic-structure' properties.
+	(U-00020AD3): Unify BC-8B7E.
+	(C6-213C): Add `ideographic-structure'; unify BC-89AC.
+	(U+53B7): Add `ideographic-structure'; unify BC-8CEB.
+	(C4-2249): Add `ideographic-structure'; unify BC-88E6.
+
+	* Ideograph-R015-Ice.el (U+51DF): Unify CB-06080.
+
+	* Ideograph-R014-Cover.el (M-01589): Relate to U-0002058C.
+
+	* Ideograph-R007-Two.el:
+	- Add some missing `ideographic-structure' properties.
+	- Merge some Hanziku-1 code points.
+
+	* Ideograph-R003-Dot.el (M-00104): Separate C3-2740; delete
+	`cns-radical'.
+	(U+4E3D): Unify H1-A86E.
+
 2001-11-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
 	* ioslated-char.el: Disable undo in temporary buffer.
-	Otherwise, pdump will complain about buffer being undumpable object.
+	Otherwise, pdump will complain about buffer being undumpable
+	object.
+
+2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R054-Long-Stride.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+	(U+5EFB): Unify CB-00327.
+	(U+5EFC): Unify CB-02626.
+
+	* Ideograph-R036-Evening.el: Merge some CJK Ext-B code points.
+
+	* Ideograph-R032-Earth.el (U+57DB): Add `ideographic-structure';
+	unify CB-05739.
+
+	* Ideograph-R030-Mouth.el (U+53E7): Use `->ideographic-variants'
+	instead of `variant-of-shinjigen-1'; unify JC3-91AE.
+	(U+549A): Unify JC3-8CE8.
 
 2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
