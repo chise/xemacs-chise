@@ -793,27 +793,27 @@
     (=daikanwa		. 07700)	; &I-M-07700;
     ))
 (define-char
-  '((=>ucs		. #x21C61)	; 𡱡
-    (ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=daikanwa		. 07701)	; &M-07701;
-    ))
-(define-char
-  '((morohashi-daikanwa	7701 0 0)
-    (ideographic-radical . 44)	; ⼫
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x21C61)	; 𡱡
-    (=cns11643-5	. #x2874)	; &I-C5-2874; [08-84]
+    (->subsumptive
+     ((=daikanwa	  . 07701)	; &M-07701;
+      )
+     ((=ucs@iso		  . #x21C61)	; &UU+21C61;
+      )
+     ((=cns11643-5	  . #x2874)	; &C5-2874; [08-84]
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (hanyu-dazidian	2 1095 2)
     (=ucs		. #x221C0)	; 𢇀
     (=cns11643-6	. #x3041)	; &I-C6-3041; [16-33]
     (=daikanwa		. 07704)	; &I-M-07704;
+    (=hanziku-3		. #xDFB2)	; &I-HZK03-DFB2;
     ))
 (define-char
   '((total-strokes	 . 9)

@@ -3919,8 +3919,7 @@
     (=daikanwa		. 41858)	; &I-M-41858;
     ))
 (define-char
-  '((=>daikanwa		41858 1)	; &GT-56222;
-    (ideographic-radical . 170)	; ⾩
+  '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x28EF4)	; 𨻴

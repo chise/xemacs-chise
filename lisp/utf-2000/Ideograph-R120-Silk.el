@@ -10245,6 +10245,11 @@
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
+    (=ucs		. #x7E2B)	; 縫
+    (=big5		. #xC15F)	; &I-B-C15F;
+    ))
+(define-char
+  '((ideographic-radical . 120)	; ⽷
     (<-denotational
      ((=ucs		  . #x7E2B)	; 縫
       ))
@@ -10414,11 +10419,6 @@
     (total-strokes	 . 16)
     (=ucs		. #x260F1)	; 𦃱
     (=cns11643-7	. #x313C)	; &I-C7-313C; [17-28]
-    ))
-(define-char
-  '((ideographic-radical . 120)	; ⽷
-    (=ucs		. #x7E2B)	; 縫
-    (=big5		. #xC15F)	; &I-B-C15F;
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷

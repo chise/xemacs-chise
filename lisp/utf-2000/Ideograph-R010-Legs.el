@@ -716,9 +716,12 @@
     (sound@ja/kun	"manuka-r+eru" "manuga-r+eru")
     (sound@ja/on/go	"men")
     (=ucs		. #x514D)	; 免
+    (=big5		. #xA74B)	; &I-B-A74B;
     ))
 (define-char
   '((=>ucs*		. #x514D)	; 免
+    (=>ucs@cns		. #x2F80E)	; 免
+    (=>ucs@jis		. #xFA32)	; 免
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -733,22 +736,18 @@
       )
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
-    (shinjigen-1	. 471)
-    (shinjigen-2	. 471)
-    (=ucs		. #xFA32)	; 免
-    (=cns11643-3	. #x2452)	; &I-C3-2452; [04-50]
-    (=jis-x0213-1-2000	. #x2E50)	; &I-JX1-2E50; [14-48]
-    (=big5-cdp		. #xA74B)	; &I-B-A74B;
-    (=daikanwa		. 01358)	; &I-M-01358;
-    (=jef-china3	. #x43D5)	; &I-JC3-43D5;
-    (=ucs@cns		. #x2F80E)	; 免
-    (mojikyo		. 054447)	; &MCS-6000D4AF;
-    ))
-(define-char
-  '((->identical
-     ((=ucs		  . #xFA32)	; 免
+    (->subsumptive
+     ((shinjigen-1	  . 471)
+      (shinjigen-2	  . 471)
+      (=ucs		  . #xFA32)	; 免
+      (=jis-x0213-1-2000  . #x2E50)	; &I-JX1-2E50; [14-48]
+      (=daikanwa	  . 01358)	; &I-M-01358;
+      (=jef-china3	  . #x43D5)	; &I-JC3-43D5;
+      (mojikyo		  . 054447)	; &MCS-6000D4AF;
+      )
+     ((=ucs		  . #x2F80E)	; 免
+      (=cns11643-3	  . #x2452)	; &I-C3-2452; [04-50]
       ))
-    (=ucs		. #x2F80E)	; 免
     ))
 (define-char
   '((ideographic-strokes . 5)
@@ -768,7 +767,6 @@
     (=gb2312		. #x4362)	; &C1-492D; [35-66]
     (=ks-x1001		. #x5873)	; &I-K0-5873; [56-83]
     (=cns11643-1	. #x492D)	; &I-C1-492D; [41-13]
-    (=big5		. #xA74B)	; &I-B-A74B;
     (=ucs@unicode	. #x514D)	; &C1-492D;
     (mojikyo		. 001358)	; &MCS-6000054E;
     ))

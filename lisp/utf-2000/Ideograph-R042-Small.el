@@ -819,19 +819,18 @@
     (=cns11643-7	. #x2D3A)	; &I-C7-2D3A; [13-26]
     ))
 (define-char
-  '((=>ucs		. #x221D4)	; 𢇔
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=daikanwa		. 07534)	; &M-07534;
-    ))
-(define-char
-  '((morohashi-daikanwa	7534 0 0)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x221D4)	; 𢇔
-    (=cns11643-4	. #x5626)	; &I-C4-5626; [54-06]
+    (->subsumptive
+     ((=daikanwa	  . 07534)	; &M-07534;
+      )
+     ((hanyu-dazidian	  1 566 11)
+      (=cns11643-4	  . #x5626)	; &HZK02-C46D; [54-06]
+      (=hanziku-2	  . #xC46D)	; &I-HZK02-C46D;
+      (=ucs@iso		  . #x221D4)	; &HZK02-C46D;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21BBB)	; 𡮻
