@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c Copyright (C) 1995, 1996 Ben Wing.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/frames.info
@@ -63,7 +63,7 @@ This predicate returns @code{t} if @var{object} is a frame, and
 
 To create a new frame, call the function @code{make-frame}.
 
-@defun make-frame &optional props device
+@deffn Command make-frame &optional props device
 This function creates a new frame on @var{device}, if @var{device}
 permits creation of frames.  (An X server does; an ordinary terminal
 does not (yet).)  @var{device} defaults to the selected device if omitted.
@@ -83,7 +83,7 @@ The set of possible properties depends in principle on what kind of
 window system XEmacs uses to display its frames.  @xref{X Frame
 Properties}, for documentation of individual properties you can specify
 when creating an X window frame.
-@end defun
+@end deffn
 
 @node Frame Properties
 @section Frame Properties
@@ -116,7 +116,7 @@ and their values.
 
 @defun frame-property frame property &optional default
 This function returns @var{frame}'s value for the property
-@var{property}.
+@var{property}, or @var{default} if there is no such property.
 @end defun
 
 @defun set-frame-properties frame plist
@@ -125,9 +125,9 @@ elements of property list @var{plist}.  If you don't mention a property
 in @var{plist}, its value doesn't change.
 @end defun
 
-@defun set-frame-property frame prop val
-This function sets the property @var{prop} of frame @var{frame} to the
-value @var{val}.
+@defun set-frame-property frame property value
+This function sets the property @var{property} of frame @var{frame} to the
+value @var{value}.
 @end defun
 
 @node Initial Properties
@@ -362,7 +362,7 @@ pixels.  If you don't supply @var{frame}, they use the selected frame.
 @defun set-frame-size frame cols rows &optional pretend
 This function sets the size of @var{frame}, measured in characters;
 @var{cols} and @var{rows} specify the new width and height.  (If
-@var{pretend} is non-nil, it means that redisplay should act as if
+@var{pretend} is non-@code{nil}, it means that redisplay should act as if
 the frame's size is @var{cols} by @var{rows}, but the actual size
 of the frame should not be changed.  You should not normally use
 this option.)
@@ -498,9 +498,16 @@ Frames remain potentially visible until you explicitly @dfn{delete}
 them.  A deleted frame cannot appear on the screen, but continues to
 exist as a Lisp object until there are no references to it.
 
-@deffn Command delete-frame &optional frame
+@deffn Command delete-frame &optional frame force
 This function deletes the frame @var{frame}.  By default, @var{frame} is
 the selected frame.
+
+A frame may not be deleted if its minibuffer is used by other frames.
+Normally, you cannot delete the last non-minibuffer-only frame (you must
+use @code{save-buffers-kill-emacs} or @code{kill-emacs}).  However, if
+optional second argument @var{force} is non-@code{nil}, you can delete
+the last frame. (This will automatically call
+@code{save-buffers-kill-emacs}.)
 @end deffn
 
 @defun frame-live-p frame
@@ -538,34 +545,84 @@ If @var{device} is specified only frames on that device will be returned.
 ``visible'', even though only the selected one is actually displayed.)
 @end defun
 
-@defun next-frame &optional frame minibuf
+@defun next-frame &optional frame which-frames which-devices
 The function @code{next-frame} lets you cycle conveniently through all
 the frames from an arbitrary starting point.  It returns the ``next''
-frame after @var{frame} in the cycle.  If @var{frame} is omitted or
-@code{nil}, it defaults to the selected frame.
+frame after @var{frame} in the cycle.  If @var{frame} defaults to the
+selected frame.
 
-The second argument, @var{minibuf}, says which frames to consider:
+The second argument, @var{which-frames}, says which frames to consider:
+
+@table @asis
+@item @code{visible}
+Consider only frames that are visible.
+
+@item @code{iconic}
+Consider only frames that are iconic.
+
+@item @code{invisible}
+Consider only frames that are invisible (this is different from iconic).
+
+@item @code{visible-iconic}
+Consider frames that are visible or iconic.
+
+@item @code{invisible-iconic}
+Consider frames that are invisible or iconic.
+
+@item @code{nomini}
+Consider all frames except minibuffer-only ones.
+
+@item @code{visible-nomini}
+Like @code{visible} but omits minibuffer-only frames.
+
+@item @code{iconic-nomini}
+Like @code{iconic} but omits minibuffer-only frames.
+
+@item @code{invisible-nomini}
+Like @code{invisible} but omits minibuffer-only frames.
+
+@item @code{visible-iconic-nomini}
+Like @code{visible-iconic} but omits minibuffer-only frames.
+
+@item @code{invisible-iconic-nomini}
+Like @code{invisible-iconic} but omits minibuffer-only frames.
+
+@item @code{nil}
+Identical to @code{nomini}.
+
+@item @var{window}
+Consider only the window @var{window}'s frame and any frame now using
+@var{window} as the minibuffer.
+
+@item any other value
+Consider all frames.
+@end table
+
+The optional argument @var{which-devices} further clarifies on which
+devices to search for frames as specified by @var{which-frames}.
 
 @table @asis
 @item @code{nil}
-Exclude minibuffer-only frames.
-@item @code{visible}
-Consider all visible frames.
-@item 0
-Consider all visible or iconified frames.
-@item a window
-Consider only the frames using that particular window as their
-minibuffer.
-@item the symbol @code{visible}
-Include all visible frames.
-@item @code{0}
-Include all visible and iconified frames.
+Consider all devices on the selected console.
+
+@item @var{device}
+Consider only the one device @var{device}.
+
+@item @var{console}
+Consider all devices on @var{console}.
+
+@item @var{device-type}
+Consider all devices with device type @var{device-type}.
+
+@item @code{window-system}
+Consider all devices on window system consoles.
+
 @item anything else
-Consider all frames.
+Consider all devices without restriction.
 @end table
 @end defun
 
-@defun previous-frame &optional frame minibuf
+@defun previous-frame &optional frame which-frames which-devices
 Like @code{next-frame}, but cycles through all frames in the opposite
 direction.
 @end defun
@@ -595,9 +652,38 @@ upper left corner, down and to the right, until it reaches the window at
 the lower right corner (always the minibuffer window, if the frame has
 one), and then it moves back to the top.
 
-@defun frame-top-window frame
-This returns the topmost, leftmost window of frame @var{frame}.
+@defun frame-highest-window &optional frame position
+This function returns the topmost, leftmost window of frame @var{frame}
+at position @var{position}.
+
+If omitted, @var{frame} defaults to the currently selected frame.
+
+@var{position} is used to distinguish between multiple windows that abut
+the top of the frame: 0 means the leftmost window abutting the top of
+the frame, 1 the next-leftmost, etc.  @var{position} can also be less
+than zero: -1 means the rightmost window abutting the top of the frame,
+-2 the next-rightmost, etc.  If omitted, @var{position} defaults to 0,
+i.e. the leftmost highest window.  If there is no window at the given
+@var{position}, @code{nil} is returned.
 @end defun
+
+The following three functions work similarly.
+
+@defun frame-lowest-window &optional frame position
+This function returns the lowest window on @var{frame} which is at
+@var{position}.
+@end defun
+
+@defun frame-leftmost-window &optional frame position
+This function returns the leftmost window on @var{frame} which is at
+@var{position}.
+@end defun
+
+@defun frame-rightmost-window &optional frame position
+This function returns the rightmost window on @var{frame} which is at
+@var{position}.
+@end defun
+
 
 At any time, exactly one window on any frame is @dfn{selected within the
 frame}.  The significance of this designation is that selecting the
@@ -699,18 +785,18 @@ The operation of @code{focus-frame} is not affected by the value of
 @code{focus-follows-mouse}.
 @end defun
 
-@defmac save-selected-frame forms@dots{}
-This macro records the selected frame, executes @var{forms} in sequence,
-then restores the earlier selected frame.  The value returned is the
-value of the last form.
-@end defmac
+@defspec save-selected-frame forms@dots{}
+This special form records the selected frame, executes @var{forms} in
+sequence, then restores the earlier selected frame.  The value returned
+is the value of the last form.
+@end defspec
 
-@defmac with-selected-frame frame forms@dots{}
-This macro records the selected frame, then selects @var{frame} and
-executes @var{forms} in sequence.  After the last form is finished, the
-earlier selected frame is restored.  The value returned is the value of
-the last form.
-@end defmac
+@defspec with-selected-frame frame forms@dots{}
+This special form records the selected frame, then selects @var{frame}
+and executes @var{forms} in sequence.  After the last form is finished,
+the earlier selected frame is restored.  The value returned is the value
+of the last form.
+@end defspec
 
 @ignore (FSF Emacs, continued from defun select-frame)
 XEmacs cooperates with the X server and the window managers by arranging
@@ -765,7 +851,7 @@ change it.
 @cindex iconified frame
 @cindex frame visibility
 
-An X window frame may be @dfn{visible}, @dfn{invisible}, or
+An frame on a window system may be @dfn{visible}, @dfn{invisible}, or
 @dfn{iconified}.  If it is visible, you can see its contents.  If it is
 iconified, the frame's contents do not appear on the screen, but an icon
 does.  If the frame is invisible, it doesn't show on the screen, not
@@ -774,31 +860,31 @@ even as an icon.
 Visibility is meaningless for TTY frames, since only the selected
 one is actually displayed in any case.
 
-@deffn Command make-frame-visible &optional frame
+@defun make-frame-visible &optional frame
 This function makes frame @var{frame} visible.  If you omit @var{frame},
 it makes the selected frame visible.
-@end deffn
+@end defun
 
-@deffn Command make-frame-invisible &optional frame
+@defun make-frame-invisible &optional frame force
 This function makes frame @var{frame} invisible.
-@end deffn
+@end defun
 
 @deffn Command iconify-frame &optional frame
 This function iconifies frame @var{frame}.
 @end deffn
 
-@deffn Command deiconify-frame &optional frame
-This function de-iconifies frame @var{frame}.  Under X, this is
-equivalent to @code{make-frame-visible}.
-@end deffn
+@defun Command deiconify-frame &optional frame
+This function de-iconifies frame @var{frame}.  Under a window system,
+this is equivalent to @code{make-frame-visible}.
+@end defun
 
-@defun frame-visible-p frame
+@defun frame-visible-p &optional frame
 This returns whether @var{frame} is currently ``visible'' (actually in
 use for display).  A frame that is not visible is not updated, and, if
 it works through a window system, may not show at all.
 @end defun
 
-@defun frame-iconified-p frame
+@defun frame-iconified-p &optional frame
 This returns whether @var{frame} is iconified.  Not all window managers
 use icons; some merely unmap the window, so this function is not the
 inverse of @code{frame-visible-p}.  It is possible for a frame to not
@@ -807,7 +893,7 @@ iconified, it will not be visible.  (Under FSF Emacs, the functionality
 of this function is obtained through @code{frame-visible-p}.)
 @end defun
 
-@defun frame-totally-visible-p frame
+@defun frame-totally-visible-p &optional frame
 This returns whether @var{frame} is not obscured by any other X
 windows.  On TTY frames, this is the same as @code{frame-visible-p}.
 @end defun
@@ -904,9 +990,18 @@ This function returns a frame configuration list that describes
 the current arrangement of frames and their contents.
 @end defun
 
-@defun set-frame-configuration configuration
-This function restores the state of frames described in
+@defun set-frame-configuration configuration &optional nodelete
+This function restores the state of frames described by
+@var{configuration}, which should be the return value from a previous
+call to @code{current-frame-configuration}.
+
+Each frame listed in @var{configuration} has its position, size, window
+configuration, and other properties set as specified in
 @var{configuration}.
+
+Ordinarily, this function deletes all existing frames not listed in
+@var{configuration}.  But if optional second argument @var{nodelete} is
+non-@code{nil}, the unwanted frames are iconified instead.
 @end defun
 
 @node Frame Hooks

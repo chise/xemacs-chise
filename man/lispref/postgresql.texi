@@ -781,7 +781,7 @@ Returns: t if successfully submitted
 Retrieve an asynchronous result from a query.
 @var{conn} A database connection object.
 
-NIL is returned when no more query work remains.
+@code{nil} is returned when no more query work remains.
 @end defun
 
 @defun pq-set-nonblocking conn arg

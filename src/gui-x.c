@@ -289,7 +289,7 @@ popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
     }
 
   /* This is the timestamp used for asserting focus so we need to get an
-     up-to-date value event if no events has been dispatched to emacs
+     up-to-date value event if no events have been dispatched to emacs
      */
 #if defined(HAVE_MENUBARS)
   DEVICE_X_MOUSE_TIMESTAMP (d) = x_focus_timestamp_really_sucks_fix_me_better;
@@ -489,11 +489,14 @@ button_item_to_widget_value (Lisp_Object gui_object_instance,
   if (NILP (pgui->style))
     {
       Bufbyte *intname;
+      Bytecount intlen;
       /* If the callback is nil, treat this item like unselectable text.
 	 This way, dashes will show up as a separator. */
       if (!wv->enabled)
 	wv->type = BUTTON_TYPE;
-      EXTERNAL_TO_C_STRING (wv->name, intname, Qlwlib_encoding);
+      TO_INTERNAL_FORMAT (C_STRING, wv->name,
+			  ALLOCA, (intname, intlen),
+			  Qlwlib_encoding);
       if (separator_string_p (intname))
 	{
 	  wv->type = SEPARATOR_TYPE;

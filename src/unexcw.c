@@ -51,6 +51,9 @@ unexec (char *, char *, void *, void *,	void *)
 #define ALLOC_MASK ~((unsigned long)(ALLOC_UNIT))
 #define ALIGN_ALLOC(addr) \
 ((((unsigned long)addr) + ALLOC_UNIT) & ALLOC_MASK)
+/* Note that all sections must be aligned on a 0x1000 boundary so
+   this is the minimum size that our dummy bss can be. */
+#define BSS_PAD_SIZE	0x1000
 
 /* To prevent zero-initialized variables from being placed into the bss
    section, use non-zero values to represent an uninitialized state.  */
@@ -252,13 +255,19 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
   void* empty_space;
   extern int static_heap_dumped;
   SCNHDR section;
-  /* calculate new sizes f_ohdr.dsize is the total initialized data
-     size on disk which is f_data.s_size + f_idata.s_size. 
-     f_ohdr.data_start is the base addres of all data and so should 
-     not be changed. *.s_vaddr is the virtual address of the start
-     of the section normalzed from f_ohdr.ImageBase. *.s_paddr
-     appears to be the number of bytes in the section actually used
-     (whereas *.s_size is aligned).
+  /* calculate new sizes:
+
+     f_ohdr.dsize is the total initialized data size on disk which is
+     f_data.s_size + f_idata.s_size.
+
+     f_ohdr.data_start is the base addres of all data and so should
+     not be changed.
+     
+     *.s_vaddr is the virtual address of the start of the section
+     *normalized from f_ohdr.ImageBase.
+
+     *.s_paddr appears to be the number of bytes in the section
+     *actually used (whereas *.s_size is aligned).
 
      bsize is now 0 since subsumed into .data
      dsize is dsize + (f_data.s_vaddr - f_bss.s_vaddr)
@@ -278,7 +287,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
       data_padding = (f_bss.s_vaddr - f_data.s_vaddr) - f_data.s_size;
     }
 
-  file_sz_change=new_bss_size + data_padding;
+  file_sz_change=(new_bss_size + data_padding) - BSS_PAD_SIZE;
   new_data_size=f_ohdr.dsize + file_sz_change;
 
   if (!sections_reversed)
@@ -297,7 +306,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
   lseek (a_new, 0, SEEK_SET);
   /* write file header */
   f_hdr.f_symptr += file_sz_change;
-  f_hdr.f_nscns--;
+
   printf("writing file header\n");
   if (write(a_new, &f_hdr, sizeof(f_hdr)) != sizeof(f_hdr))
     {
@@ -312,7 +321,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
       PERROR("new data size is < approx");
     }
   f_ohdr.dsize=new_data_size;
-  f_ohdr.bsize=0;
+  f_ohdr.bsize=BSS_PAD_SIZE;
   if (write(a_new, &f_ohdr, sizeof(f_ohdr)) != sizeof(f_ohdr))
     {
       PERROR("failed to write optional header");
@@ -325,12 +334,36 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
       PERROR("failed to write text header");
     }
 
+  /* Write small bss section. */
+  if (!sections_reversed)
+    {
+      f_bss.s_size = BSS_PAD_SIZE;
+      f_bss.s_paddr = BSS_PAD_SIZE;
+      f_bss.s_vaddr = f_data.s_vaddr - BSS_PAD_SIZE;
+      if (write(a_new, &f_bss, sizeof(f_bss)) != sizeof(f_bss))
+	{
+	  PERROR("failed to write bss header");
+	}
+    }
+
   /* write new data header */
   printf("writing .data header\n");
 
   if (write(a_new, &f_data, sizeof(f_data)) != sizeof(f_data))
     {
       PERROR("failed to write data header");
+    }
+
+  /* Write small bss section. */
+  if (sections_reversed)
+    {
+      f_bss.s_size = BSS_PAD_SIZE;
+      f_bss.s_paddr = BSS_PAD_SIZE;
+      f_bss.s_vaddr = f_nextdata.s_vaddr - BSS_PAD_SIZE;
+      if (write(a_new, &f_bss, sizeof(f_bss)) != sizeof(f_bss))
+	{
+	  PERROR("failed to write bss header");
+	}
     }
 
   printf("writing following data header\n");
@@ -360,13 +393,6 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	}
     }
 
-  /* dump bss to maintain offsets */
-  memset(&f_bss, 0, sizeof(f_bss));
-  if (write(a_new, &f_bss, sizeof(f_bss)) != sizeof(f_bss))
-    {
-      PERROR("failed to write bss header");
-    }
-  
   size=lseek(a_new, 0, SEEK_CUR);
   CHECK_AOUT_POS(size);
 
@@ -381,7 +407,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 
   if (!sections_reversed)
     {
-      /* dump bss + padding between sections */
+      /* dump bss + padding between sections, sans small bss pad */
       printf ("dumping .bss into executable... %lx bytes\n", bss_size);
       if (write(a_new, bss_start, bss_size) != (int)bss_size)
 	{
@@ -389,7 +415,11 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	}
       
       /* pad, needs to be zero */
-      bss_padding = new_bss_size - bss_size;
+      bss_padding = (new_bss_size - bss_size) - BSS_PAD_SIZE;
+      if (bss_padding < 0)
+	{
+	  PERROR("padded .bss too small");
+	}
       printf ("padding .bss ... %lx bytes\n", bss_padding);
       empty_space = malloc(bss_padding);
       memset(empty_space, 0, bss_padding);
@@ -420,7 +450,7 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
     }
   else
     {
-      /* need to bad to bss with data in file */
+      /* need to pad to bss with data in file */
       printf ("padding .data ... %lx bytes\n", data_padding);
       size = (f_bss_s_vaddr - f_data_s_vaddr) - data_size;
       dup_file_area(a_out, a_new, size);
@@ -433,7 +463,11 @@ copy_executable_and_dump_data_section (int a_out, int a_new)
 	}
       
       /* pad, needs to be zero */
-      bss_padding = new_bss_size - bss_size;
+      bss_padding = (new_bss_size - bss_size) - BSS_PAD_SIZE;
+      if (bss_padding < 0)
+	{
+	  PERROR("padded .bss too small");
+	}
       printf ("padding .bss ... %lx bytes\n", bss_padding);
       empty_space = malloc(bss_padding);
       memset(empty_space, 0, bss_padding);

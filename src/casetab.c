@@ -55,16 +55,16 @@ static void compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse);
 #define STRING256_P(obj) (STRINGP (obj) && XSTRING_CHAR_LENGTH (obj) == 256)
 
 DEFUN ("case-table-p", Fcase_table_p, 1, 1, 0, /*
-Return t if ARG is a case table.
+Return t if OBJECT is a case table.
 See `set-case-table' for more information on these data structures.
 */
-       (table))
+       (object))
 {
   Lisp_Object down, up, canon, eqv;
-  if (!CONSP (table)) return Qnil; down  = XCAR (table); table = XCDR (table);
-  if (!CONSP (table)) return Qnil; up    = XCAR (table); table = XCDR (table);
-  if (!CONSP (table)) return Qnil; canon = XCAR (table); table = XCDR (table);
-  if (!CONSP (table)) return Qnil; eqv   = XCAR (table);
+  if (!CONSP (object)) return Qnil; down  = XCAR (object); object = XCDR (object);
+  if (!CONSP (object)) return Qnil; up    = XCAR (object); object = XCDR (object);
+  if (!CONSP (object)) return Qnil; canon = XCAR (object); object = XCDR (object);
+  if (!CONSP (object)) return Qnil; eqv   = XCAR (object);
 
   return (STRING256_P (down)
 	  && (NILP (up) || STRING256_P (up))
@@ -75,13 +75,11 @@ See `set-case-table' for more information on these data structures.
 }
 
 static Lisp_Object
-check_case_table (Lisp_Object obj)
+check_case_table (Lisp_Object object)
 {
-  REGISTER Lisp_Object tem;
-
-  while (tem = Fcase_table_p (obj), NILP (tem))
-    obj = wrong_type_argument (Qcase_tablep, obj);
-  return (obj);
+  while (NILP (Fcase_table_p (object)))
+    object = wrong_type_argument (Qcase_tablep, object);
+  return object;
 }
 
 DEFUN ("current-case-table", Fcurrent_case_table, 0, 1, 0, /*
@@ -113,7 +111,7 @@ static Lisp_Object set_case_table (Lisp_Object table, int standard);
 
 
 DEFUN ("set-case-table", Fset_case_table, 1, 1, 0, /*
-Select a new case table for the current buffer.
+Select CASE-TABLE as the new case table for the current buffer.
 A case table is a list (DOWNCASE UPCASE CANONICALIZE EQUIVALENCES)
  where each element is either nil or a string of length 256.
 DOWNCASE maps each character to its lower-case equivalent.
@@ -134,18 +132,18 @@ BUG: Under XEmacs/Mule, translations to or from non-ASCII characters
  will not correctly conflate a-umlaut and A-umlaut even if the
  case tables call for this.
 */
-       (table))
+       (case_table))
 {
-  return set_case_table (table, 0);
+  return set_case_table (case_table, 0);
 }
 
 DEFUN ("set-standard-case-table", Fset_standard_case_table, 1, 1, 0, /*
-Select a new standard case table for new buffers.
+Select CASE-TABLE as the new standard case table for new buffers.
 See `set-case-table' for more info on case tables.
 */
-       (table))
+       (case_table))
 {
-  return set_case_table (table, 1);
+  return set_case_table (case_table, 1);
 }
 
 #ifdef MULE

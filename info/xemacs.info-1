@@ -70,7 +70,8 @@ Important General Concepts
 * Command Switches::
                 Hairy startup options.
 * Startup Paths::
-                How XEmacs finds Directories and Files
+                How XEmacs finds Directories and Files.
+* Packages::    How XEmacs organizes its high-level functionality.
 
 Fundamental Editing Commands
 * Basic::       The most basic editing commands.
@@ -109,7 +110,6 @@ Advanced Features
 * Text::        Commands and modes for editing English.
 * Programs::    Commands and modes for editing programs.
 * Running::     Compiling, running and debugging programs.
-* Packages::    How to add new packages to XEmacs.
 * Abbrevs::     How to define text abbreviations to reduce
                  the number of characters you must type.
 * Picture::     Editing pictures made up of characters
@@ -174,6 +174,13 @@ Pull-down Menus
 * Help Menu::           Items on the Help menu.
 * Menu Customization::  Adding and removing menu items and related
                         operations.
+
+Packages
+
+* Packages::            Introduction to XEmacs Packages.
+* Package Terminology:: Understanding different kinds of packages.
+* Using Packages::      How to install and use packages.
+* Building Packages::   Building packages from sources.
 
 Basic Editing Commands
 
@@ -443,13 +450,6 @@ Lisp Libraries
 * Loading::		Loading libraries of Lisp code into XEmacs for use.
 * Compiling Libraries:: Compiling a library makes it load and run faster.
 * Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
-
-Packages
-
-* Packages::            Introduction to XEmacs Packages.
-* Package Terminology:: Understanding different kinds of packages.
-* Using Packages::      How to install and use packages.
-* Building Packages::   Building packages from sources.
 
 Abbrevs
 

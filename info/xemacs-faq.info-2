@@ -7,6 +7,24 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
+
+Q2.0.4: Problems with Linux and ncurses.
+----------------------------------------
+
+   On Linux 1.3.98 with termcap 2.0.8 and the ncurses that came with
+libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
+
+     src/xemacs -nw -q
+     Initialization error:
+     Terminal type `xterm' undefined (or can't access database?)
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     Your ncurses configuration is messed up.  Your /usr/lib/terminfo
+     is a bad pointer, perhaps to a CD-ROM that is not inserted.
+
+
 File: xemacs-faq.info,  Node: Q2.0.5,  Next: Q2.0.6,  Prev: Q2.0.4,  Up: Installation
 
 Q2.0.5: Do I need X11 to run XEmacs?
@@ -169,7 +187,7 @@ that stock SunOS systems do not ship with DNS resolver code in libc.
      then proceed to link against the DNS resolver library code.
 
 
-File: xemacs-faq.info,  Node: Q2.0.12,  Next: Q2.1.1,  Prev: Q2.0.11,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.0.12,  Next: Q2.0.13,  Prev: Q2.0.11,  Up: Installation
 
 Q2.0.12: Why can't I strip XEmacs?
 ----------------------------------
@@ -212,7 +230,49 @@ Q2.0.12: Why can't I strip XEmacs?
           /usr/local/lib/xemacs-19.16/i586-unknown-linuxaout
 
 
-File: xemacs-faq.info,  Node: Q2.1.1,  Next: Q2.1.2,  Prev: Q2.0.12,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.0.13,  Next: Q2.0.14,  Prev: Q2.0.12,  Up: Installation
+
+Q2.0.13: I don't need no steenkin' packages.  Do I? (NEW)
+---------------------------------------------------------
+
+   Strictly speaking, no.  XEmacs will build and install just fine
+without any packages installed.  However, only the most basic editing
+functions will be available with no packages installed, so installing
+packages is an essential part of making your installed XEmacs _useful_.
+
+
+File: xemacs-faq.info,  Node: Q2.0.14,  Next: Q2.1.1,  Prev: Q2.0.13,  Up: Installation
+
+Q2.0.12: How do I figure out which packages to install? (NEW)
+-------------------------------------------------------------
+
+   Many people really liked the old way that packages were bundled and
+do not want to mess with packages at all.  You can grab all the
+packages at once like you used to with old XEmacs versions.  Download
+the file
+
+   `xemacs-sumo.tar.gz'
+
+   For an XEmacs compiled with Mule you also need
+
+   `xemacs-mule-sumo.tar.gz'
+
+   from the `packages' directory on your XEmacs mirror archive.  N.B.
+They are called 'Sumo Tarballs' for good reason. They are currently
+about 15MB and 2.3MB (gzipped) respectively.
+
+   Install them by
+
+   `cd $prefix/lib/xemacs ; gunzip -c <tarballname> | tar xf -'
+
+   See README.packages for more detailed installation instructions.
+
+   As the Sumo tarballs are not regenerated as often as the individual
+packages, it is recommended that you use the automatic package tools
+afterwards to pick up any recent updates.
+
+
+File: xemacs-faq.info,  Node: Q2.1.1,  Next: Q2.1.2,  Prev: Q2.0.14,  Up: Installation
 
 2.1: Trouble Shooting
 =====================
@@ -874,7 +934,7 @@ and 20.x.  I am using Linux.
           #define MAIL_USE_FLOCK
 
 
-File: xemacs-faq.info,  Node: Q2.1.24,  Prev: Q2.1.23,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.1.24,  Next: Q2.1.25,  Prev: Q2.1.23,  Up: Installation
 
 Q2.1.24:  XEmacs won't start without network. (NEW)
 ---------------------------------------------------
@@ -886,6 +946,19 @@ not on the network, you may be missing a "localhost" entry in your
      127.0.0.1        localhost
 
    Add that line, and XEmacs will be happy.
+
+
+File: xemacs-faq.info,  Node: Q2.1.25,  Prev: Q2.1.24,  Up: Installation
+
+Q2.1.25::  After upgrading, XEmacs won't do `foo' any more! (NEW)
+-----------------------------------------------------------------
+
+   You have been used to doing `foo', but now when you invoke it (or
+click the toolbar button or select the menu item), nothing (or an error)
+happens.  The simplest explanation is that you are missing a package
+that is essential to you.  You can either track it down and install it
+(there is a list of packages and brief descriptions of their contents in
+`etc/PACKAGES'), or install the `Sumo Tarball' (see *note Q2.0.14::).
 
 
 File: xemacs-faq.info,  Node: Customization,  Next: Subsystems,  Prev: Installation,  Up: Top
@@ -1241,66 +1314,4 @@ directory/name of the current buffer file and not just the name.
 
    That is, use the file name, or the dired-directory, or the buffer
 name.
-
-
-File: xemacs-faq.info,  Node: Q3.1.7,  Next: Q3.1.8,  Prev: Q3.1.6,  Up: Customization
-
-Q3.1.7: `xemacs -name junk' doesn't work?
------------------------------------------
-
-   When I run `xterm -name junk', I get an xterm whose class name
-according to xprop, is `junk'.  This is the way it's supposed to work,
-I think.  When I run `xemacs -name junk' the class name is not set to
-`junk'.  It's still `emacs'.  What does `xemacs -name' really do?  The
-reason I ask is that my window manager (fvwm) will make a window sticky
-and I use XEmacs to read my mail.  I want that XEmacs window to be
-sticky, without having to use the window manager's function to set the
-window sticky.  What gives?
-
-   `xemacs -name' sets the application name for the program (that is,
-the thing which normally comes from `argv[0]').  Using `-name' is the
-same as making a copy of the executable with that new name.  The
-`WM_CLASS' property on each frame is set to the frame-name, and the
-application-class.  So, if you did `xemacs -name FOO' and then created
-a frame named BAR, you'd get an X window with WM_CLASS = `( "BAR",
-"Emacs")'.  However, the resource hierarchy for this widget would be:
-
-     Name:    FOO   .shell             .container   .BAR
-     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
-
-   instead of the default
-
-     Name:    xemacs.shell             .container   .emacs
-     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
-
-   It is arguable that the first element of WM_CLASS should be set to
-the application-name instead of the frame-name, but I think that's less
-flexible, since it does not give you the ability to have multiple frames
-with different WM_CLASS properties.  Another possibility would be for
-the default frame name to come from the application name instead of
-simply being `emacs'.  However, at this point, making that change would
-be troublesome: it would mean that many users would have to make yet
-another change to their resource files (since the default frame name
-would suddenly change from `emacs' to `xemacs', or whatever the
-executable happened to be named), so we'd rather avoid it.
-
-   To make a frame with a particular name use:
-
-     (make-frame '((name . "the-name")))
-
-
-File: xemacs-faq.info,  Node: Q3.1.8,  Next: Q3.2.1,  Prev: Q3.1.7,  Up: Customization
-
-Q3.1.8: `-iconic' doesn't work.
--------------------------------
-
-   When I start up XEmacs using `-iconic' it doesn't work right.  Using
-`-unmapped' on the command line, and setting the `initiallyUnmapped' X
-Resource don't seem to help much either...
-
-   Ben Wing <ben@xemacs.org> writes:
-
-     Ugh, this stuff is such an incredible mess that I've about given up
-     getting it to work.  The principal problem is numerous
-     window-manager bugs...
 

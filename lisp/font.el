@@ -299,7 +299,7 @@ for use in the 'weight' field of an X font string.")
       w2))))
 
 (defun font-spatial-to-canonical (spec &optional device)
-  "Convert SPEC (in inches, millimeters, points, or picas) into points"
+  "Convert SPEC (in inches, millimeters, points, or picas) into points."
   ;; 1 in = 6 pa = 25.4 mm = 72 pt
   (cond
    ((numberp spec)

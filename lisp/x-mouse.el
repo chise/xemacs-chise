@@ -40,7 +40,7 @@
 
 (defun x-mouse-kill (event)
   "Kill the text between the point and mouse and copy it to the clipboard and
-to the cut buffer"
+to the cut buffer."
   (interactive "@e")
   (let ((old-point (point)))
     (mouse-set-point event)

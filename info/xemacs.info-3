@@ -393,7 +393,7 @@ command line arguments.
      Emacs only.
 
 
-File: xemacs.info,  Node: Startup Paths,  Next: Basic,  Prev: Command Switches,  Up: Top
+File: xemacs.info,  Node: Startup Paths,  Next: Packages,  Prev: Command Switches,  Up: Top
 
 How XEmacs finds Directories and Files
 ======================================
@@ -555,7 +555,7 @@ aiding in debugging any problems which come up.
      package data directories as well as `data-directory'.
 
 
-File: xemacs.info,  Node: Basic,  Next: Undo,  Prev: Startup Paths,  Up: Top
+File: xemacs.info,  Node: Basic,  Next: Undo,  Prev: Packages,  Up: Top
 
 Basic Editing Commands
 **********************

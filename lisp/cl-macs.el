@@ -2434,10 +2434,10 @@ The type name can then be used in `typecase', `check-type', etc."
 	  (t (error "Bad type spec: %s" type)))))
 
 ;;;###autoload
-(defun typep (val type)   ; See compiler macro below.
+(defun typep (object type)   ; See compiler macro below.
   "Check that OBJECT is of type TYPE.
 TYPE is a Common Lisp-style type specifier."
-  (eval (cl-make-type-test 'val type)))
+  (eval (cl-make-type-test 'object type)))
 
 ;;;###autoload
 (defmacro check-type (form type &optional string)

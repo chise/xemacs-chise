@@ -137,7 +137,7 @@ If you want support for X you will also need:
     it somewhere. Copy nt\tiff.mak from the xemacs sources to the
     contrib\winnt subdirectory of the tiff sources, cd to that directory and
     build libtiff with 'nmake -f tiff.mak'. Note: tiff.mak has only been
-    verified to work under WinNT, not Win95 or 98.  However, the lastest
+    verified to work under WinNT, not Win95 or 98.  However, the latest
     distribution of libtiff includes a contrib\win95\makefile.w95; that might
     work.
 

@@ -64,8 +64,8 @@ static int window_pixel_height_to_char_height (struct window *w,
 static int window_char_height_to_pixel_height (struct window *w,
 					       int char_height,
 					       int include_gutters_p);
-static void change_window_height (struct window *w, int delta, int widthflag,
-                                  int inpixels);
+static void change_window_height (Lisp_Object window, int delta,
+				  Lisp_Object horizontalp, int inpixels);
 
 /* Thickness of shadow border around 3d modelines. */
 Lisp_Object Vmodeline_shadow_thickness;
@@ -1112,19 +1112,20 @@ window_pixel_height (struct window* w)
 
 
 DEFUN ("windowp", Fwindowp, 1, 1, 0, /*
-Return t if OBJ is a window.
+Return t if OBJECT is a window.
 */
-       (obj))
+       (object))
 {
-  return WINDOWP (obj) ? Qt : Qnil;
+  return WINDOWP (object) ? Qt : Qnil;
 }
 
 DEFUN ("window-live-p", Fwindow_live_p, 1, 1, 0, /*
-Return t if OBJ is a window which is currently visible.
+Return t if OBJECT is a window which is currently visible.
 */
-       (obj))
+       (object))
 {
-  return WINDOWP (obj) && WINDOW_LIVE_P (XWINDOW (obj)) ? Qt : Qnil;
+  return WINDOWP (object) && WINDOW_LIVE_P (XWINDOW (object))
+    ? Qt : Qnil;
 }
 
 DEFUN ("selected-window", Fselected_window, 0, 1, 0, /*
@@ -1597,8 +1598,10 @@ Afterwards the end-trigger value is reset to nil.
 
 DEFUN ("window-pixel-edges", Fwindow_pixel_edges, 0, 1, 0, /*
 Return a list of the pixel edge coordinates of WINDOW.
-\(LEFT TOP RIGHT BOTTOM), all relative to 0, 0 at top left corner of frame.
-The frame toolbars, menubars and gutters are considered to be outside of this area.
+The returned list is of the form (LEFT TOP RIGHT BOTTOM),
+all relative to 0, 0 at the top left corner of WINDOW's frame.
+The frame toolbars, menubars and gutters are considered to be outside
+of this area, while the scrollbars are considered to be inside.
 */
        (window))
 {
@@ -1619,8 +1622,9 @@ The frame toolbars, menubars and gutters are considered to be outside of this ar
 DEFUN ("window-text-area-pixel-edges",
        Fwindow_text_area_pixel_edges, 0, 1, 0, /*
 Return a list of the pixel edge coordinates of the text area of WINDOW.
-Returns the list \(LEFT TOP RIGHT BOTTOM), all relative to 0, 0 at the
-top left corner of the window.
+The returned list is of the form (LEFT TOP RIGHT BOTTOM),
+all relative to 0, 0 at the top left corner of the total area allocated
+to the window, which includes the scrollbars.
 */
        (window))
 {
@@ -1646,7 +1650,7 @@ Note that, when WINDOW is the selected window and its buffer
 is also currently selected, the value returned is the same as (point).
 It would be more strictly correct to return the `top-level' value
 of point, outside of any save-excursion forms.
-But that is hard to define.
+But that value is hard to find.
 */
        (window))
 {
@@ -1672,12 +1676,13 @@ This is updated by redisplay or by calling `set-window-start'.
 DEFUN ("window-end", Fwindow_end, 0, 2, 0, /*
 Return position at which display currently ends in WINDOW.
 This is updated by redisplay, when it runs to completion.
-Simply changing the buffer text or setting `window-start'
-does not update this value.
-If GUARANTEE is non-nil, then the return value is guaranteed to be
-the value of window-end at the end of the next full redisplay assuming
-nothing else changes in the meantime.  This function is potentially much
-slower with this flag set.
+Simply changing the buffer text or setting `window-start' does not
+update this value.  WINDOW defaults to the selected window.
+
+If optional arg GUARANTEE is non-nil, the return value is guaranteed
+to be the same value as this function would return at the end of the
+next full redisplay assuming nothing else changes in the meantime.
+This function is potentially much slower with this flag set.
 */
        (window, guarantee))
 {
@@ -1930,7 +1935,7 @@ mark_window_as_deleted (struct window *w)
 
 DEFUN ("delete-window", Fdelete_window, 0, 2, "", /*
 Remove WINDOW from the display.  Default is selected window.
-If window is the only one on the frame, the frame is destroyed.
+If window is the only one on its frame, the frame is deleted as well.
 Normally, you cannot delete the last non-minibuffer-only frame (you must
 use `save-buffers-kill-emacs' or `kill-emacs').  However, if optional
 second argument FORCE is non-nil, you can delete the last frame. (This
@@ -2124,27 +2129,30 @@ too.  Therefore, `next-window' can be used to iterate through the
 set of windows even when the minibuffer is on another frame.  If the
 minibuffer does not count, only windows from WINDOW's frame count.
 
-Optional third arg ALL-FRAMES t means include windows on all frames.
-ALL-FRAMES nil or omitted means cycle within the frames as specified
-above.  ALL-FRAMES = `visible' means include windows on all visible frames.
-ALL-FRAMES = 0 means include windows on all visible and iconified frames.
-If ALL-FRAMES is a frame, restrict search to windows on that frame.
-Anything else means restrict to WINDOW's frame.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES = `visible' means search windows on all visible frames.
+WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = t means search windows on all frames including invisible frames.
+WHICH-FRAMES = a frame means search only windows on that frame.
+Anything else means restrict to the selected frame.
 
-Optional fourth arg CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on WINDOW's console.  Otherwise, all windows are considered.
+The optional fourth argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all window-system devices.
+Any other non-nil value means search all devices.
 
-If you use consistent values for MINIBUF, ALL-FRAMES, and CONSOLE, you
-can use `next-window' to iterate through the entire cycle of acceptable
-windows, eventually ending up back at the window you started with.
+If you use consistent values for MINIBUF, WHICH-FRAMES, and WHICH-DEVICES,
+you can use `next-window' to iterate through the entire cycle of
+acceptable windows, eventually ending up back at the window you started with.
 `previous-window' traverses the same cycle, in the reverse order.
 */
-     (window, minibuf, all_frames, console))
+     (window, minibuf, which_frames, which_devices))
 {
   Lisp_Object tem;
   Lisp_Object start_window;
@@ -2167,25 +2175,25 @@ windows, eventually ending up back at the window you started with.
      lambda => count none of them
      or a specific minibuffer window (the active one) to count.  */
 
-  /* all_frames == nil doesn't specify which frames to include.  */
-  if (NILP (all_frames))
-    all_frames = (! EQ (minibuf, Qlambda)
+  /* which_frames == nil doesn't specify which frames to include.  */
+  if (NILP (which_frames))
+    which_frames = (! EQ (minibuf, Qlambda)
 		  ? (FRAME_MINIBUF_WINDOW
 		     (XFRAME
 		      (WINDOW_FRAME
 		       (XWINDOW (window)))))
 		  : Qnil);
-  else if (EQ (all_frames, Qvisible))
+  else if (EQ (which_frames, Qvisible))
     ;
-  else if (ZEROP (all_frames))
+  else if (ZEROP (which_frames))
     ;
-  else if (FRAMEP (all_frames) && ! EQ (all_frames, Fwindow_frame (window)))
-    /* If all_frames is a frame and window arg isn't on that frame, just
+  else if (FRAMEP (which_frames) && ! EQ (which_frames, Fwindow_frame (window)))
+    /* If which_frames is a frame and window arg isn't on that frame, just
        return the first window on the frame.  */
-    return frame_first_window (XFRAME (all_frames));
-  else if (! EQ (all_frames, Qt))
-    all_frames = Qnil;
-  /* Now `all_frames' is one of:
+    return frame_first_window (XFRAME (which_frames));
+  else if (! EQ (which_frames, Qt))
+    which_frames = Qnil;
+  /* Now `which_frames' is one of:
      t        => search all frames
      nil      => search just the current frame
      visible  => search just visible frames
@@ -2207,10 +2215,10 @@ windows, eventually ending up back at the window you started with.
 	       Which other frames are acceptable?  */
 	    tem = WINDOW_FRAME (XWINDOW (window));
 
-	    if (! NILP (all_frames))
+	    if (! NILP (which_frames))
 	      {
 		Lisp_Object tem1 = tem;
-		tem = next_frame (tem, all_frames, console);
+		tem = next_frame (tem, which_frames, which_devices);
 
 		/* In the case where the minibuffer is active,
 		   and we include its frame as well as the selected one,
@@ -2267,27 +2275,30 @@ too.  Therefore, `previous-window' can be used to iterate through
 the set of windows even when the minibuffer is on another frame.  If
 the minibuffer does not count, only windows from WINDOW's frame count.
 
-Optional third arg ALL-FRAMES t means include windows on all frames.
-ALL-FRAMES nil or omitted means cycle within the frames as specified
-above.  ALL-FRAMES = `visible' means include windows on all visible frames.
-ALL-FRAMES = 0 means include windows on all visible and iconified frames.
-If ALL-FRAMES is a frame, restrict search to windows on that frame.
-Anything else means restrict to WINDOW's frame.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES = `visible' means search windows on all visible frames.
+WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = t means search windows on all frames including invisible frames.
+WHICH-FRAMES = a frame means search only windows on that frame.
+Anything else means restrict to the selected frame.
 
-Optional fourth arg CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on WINDOW's console.  Otherwise, all windows are considered.
+The optional fourth argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all window-system devices.
+Any other non-nil value means search all devices.
 
-If you use consistent values for MINIBUF, ALL-FRAMES, and CONSOLE, you
-can use `previous-window' to iterate through the entire cycle of acceptable
-windows, eventually ending up back at the window you started with.
+If you use consistent values for MINIBUF, WHICH-FRAMES, and WHICH-DEVICES,
+you can use `previous-window' to iterate through the entire cycle of
+acceptable windows, eventually ending up back at the window you started with.
 `next-window' traverses the same cycle, in the reverse order.
 */
-     (window, minibuf, all_frames, console))
+     (window, minibuf, which_frames, devices))
 {
   Lisp_Object tem;
   Lisp_Object start_window;
@@ -2310,26 +2321,26 @@ windows, eventually ending up back at the window you started with.
      lambda => count none of them
      or a specific minibuffer window (the active one) to count.  */
 
-  /* all_frames == nil doesn't specify which frames to include.
+  /* which_frames == nil doesn't specify which frames to include.
      Decide which frames it includes.  */
-  if (NILP (all_frames))
-    all_frames = (! EQ (minibuf, Qlambda)
+  if (NILP (which_frames))
+    which_frames = (! EQ (minibuf, Qlambda)
 		  ? (FRAME_MINIBUF_WINDOW
 		     (XFRAME
 		      (WINDOW_FRAME
 		       (XWINDOW (window)))))
 		  : Qnil);
-  else if (EQ (all_frames, Qvisible))
+  else if (EQ (which_frames, Qvisible))
     ;
-  else if (ZEROP (all_frames))
+  else if (ZEROP (which_frames))
     ;
-  else if (FRAMEP (all_frames) && ! EQ (all_frames, Fwindow_frame (window)))
-    /* If all_frames is a frame and window arg isn't on that frame, just
+  else if (FRAMEP (which_frames) && ! EQ (which_frames, Fwindow_frame (window)))
+    /* If which_frames is a frame and window arg isn't on that frame, just
        return the first window on the frame.  */
-    return frame_first_window (XFRAME (all_frames));
-  else if (! EQ (all_frames, Qt))
-    all_frames = Qnil;
-  /* Now `all_frames' is one of:
+    return frame_first_window (XFRAME (which_frames));
+  else if (! EQ (which_frames, Qt))
+    which_frames = Qnil;
+  /* Now `which_frames' is one of:
      t        => search all frames
      nil      => search just the current frame
      visible  => search just visible frames
@@ -2351,7 +2362,7 @@ windows, eventually ending up back at the window you started with.
 	       Which frames are acceptable?  */
 	    tem = WINDOW_FRAME (XWINDOW (window));
 
-	    if (! NILP (all_frames))
+	    if (! NILP (which_frames))
 	      /* It's actually important that we use previous_frame here,
 		 rather than next_frame.  All the windows acceptable
 		 according to the given parameters should form a ring;
@@ -2363,7 +2374,7 @@ windows, eventually ending up back at the window you started with.
 		 met.  */
 	      {
 		Lisp_Object tem1 = tem;
-		tem = previous_frame (tem, all_frames, console);
+		tem = previous_frame (tem, which_frames, devices);
 		/* In the case where the minibuffer is active,
 		   and we include its frame as well as the selected one,
 		   next_frame may get stuck in that frame.
@@ -2462,43 +2473,46 @@ Return the next window which is vertically after WINDOW.
 }
 
 DEFUN ("other-window", Fother_window, 1, 3, "p", /*
-Select the N'th different window on this frame.
+Select the COUNT'th different window on this frame.
 All windows on current frame are arranged in a cyclic order.
-This command selects the window N steps away in that order.
-A negative N moves in the opposite order.
+This command selects the window COUNT steps away in that order.
+A negative COUNT moves in the opposite order.
 
-If optional argument FRAME is `visible', search all visible frames.
-If FRAME is 0, search all visible and iconified frames.
-If FRAME is t, search all frames.
-If FRAME is nil, search only the selected frame.
-If FRAME is a frame, search only that frame.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES = `visible' means search windows on all visible frames.
+WHICH-FRAMES = 0 means search  windows on all visible and iconified frames.
+WHICH-FRAMES = t means search windows on all frames including invisible frames.
+WHICH-FRAMES = a frame means search only windows on that frame.
+Anything else means restrict to the selected frame.
 
-Optional third argument CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on FRAME'S console, or on the selected console if FRAME is not a frame.
-Otherwise, all windows are considered.
+The optional argument WHICH-DEVICES further clarifies on which devices
+to search for frames as specified by WHICH-FRAMES.  This value is only
+meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all window-system devices.
+Any other non-nil value means search all devices.
 */
-       (n, frame, console))
+       (count, which_frames, which_devices))
 {
   int i;
   Lisp_Object w;
 
-  CHECK_INT (n);
+  CHECK_INT (count);
   w = Fselected_window (Qnil);
-  i = XINT (n);
+  i = XINT (count);
 
   while (i > 0)
     {
-      w = Fnext_window (w, Qnil, frame, console);
+      w = Fnext_window (w, Qnil, which_frames, which_devices);
       i--;
     }
   while (i < 0)
     {
-      w = Fprevious_window (w, Qnil, frame, console);
+      w = Fprevious_window (w, Qnil, which_frames, which_devices);
       i++;
     }
   Fselect_window (w, Qnil);
@@ -2531,9 +2545,9 @@ static Lisp_Object
 window_loop (enum window_loop type,
              Lisp_Object obj,
              int mini,
-             Lisp_Object frames,
+             Lisp_Object which_frames,
 	     int dedicated_too,
-	     Lisp_Object console)
+	     Lisp_Object which_devices)
 {
   /* This function can GC if type == DELETE_BUFFER_WINDOWS or UNSHOW_BUFFER */
   Lisp_Object w;
@@ -2552,9 +2566,9 @@ window_loop (enum window_loop type,
   /* If we're only looping through windows on a particular frame,
      FRAME points to that frame.  If we're looping through windows
      on all frames, FRAME is 0.  */
-  if (FRAMEP (frames))
-    frame = XFRAME (frames);
-  else if (NILP (frames))
+  if (FRAMEP (which_frames))
+    frame = XFRAME (which_frames);
+  else if (NILP (which_frames))
     frame = selected_frame ();
   else
     frame = 0;
@@ -2564,10 +2578,10 @@ window_loop (enum window_loop type,
      or Qt otherwise.  */
   if (frame)
     frame_arg = Qlambda;
-  else if (ZEROP (frames))
-    frame_arg = frames;
-  else if (EQ (frames, Qvisible))
-    frame_arg = frames;
+  else if (ZEROP (which_frames))
+    frame_arg = which_frames;
+  else if (EQ (which_frames, Qvisible))
+    frame_arg = which_frames;
 
   DEVICE_LOOP_NO_BREAK (devcons, concons)
     {
@@ -2582,10 +2596,10 @@ window_loop (enum window_loop type,
       if (NILP (the_frame))
 	continue;
 
-      if (!device_matches_console_spec (device,
-					NILP (console) ?
-					FRAME_CONSOLE (XFRAME (the_frame)) :
-					console))
+      if (!device_matches_device_spec (device,
+				       NILP (which_devices) ?
+				       FRAME_CONSOLE (XFRAME (the_frame)) :
+				       which_devices))
 	continue;
 
       /* Pick a window to start with.  */
@@ -2855,31 +2869,35 @@ buffer_window_mru (struct window *w)
 
 DEFUN ("get-lru-window", Fget_lru_window, 0, 2, 0, /*
 Return the window least recently selected or used for display.
-If optional argument FRAME is `visible', search all visible frames.
-If FRAME is 0, search all visible and iconified frames.
-If FRAME is t, search all frames.
-If FRAME is nil, search only the selected frame.
-If FRAME is a frame, search only that frame.
 
-Optional second argument CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on FRAME'S console, or on the selected console if FRAME is not a frame.
-Otherwise, all windows are considered.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+If optional argument WHICH-FRAMES is `visible', search all visible frames.
+If WHICH-FRAMES is 0, search all visible and iconified frames.
+If WHICH-FRAMES is t, search all frames.
+If WHICH-FRAMES is nil, search only the selected frame.
+If WHICH-FRAMES is a frame, search only that frame.
+
+The optional argument WHICH-DEVICES further clarifies on which devices
+to search for frames as specified by WHICH-FRAMES.  This value is only
+meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices.
 */
-       (frame, console))
+       (which_frames, which_devices))
 {
   Lisp_Object w;
   /* First try for a non-dedicated window that is full-width */
-  w = window_loop (GET_LRU_WINDOW, Qt, 0, frame, 0, console);
+  w = window_loop (GET_LRU_WINDOW, Qt, 0, which_frames, 0, which_devices);
   if (!NILP (w) && !EQ (w, Fselected_window (Qnil)))
     return w;
 
   /* Then try for any non-dedicated window */
-  w = window_loop (GET_LRU_WINDOW, Qnil, 0, frame, 0, console);
+  w = window_loop (GET_LRU_WINDOW, Qnil, 0, which_frames, 0, which_devices);
   if (!NILP (w) && !EQ (w, Fselected_window (Qnil)))
     return w;
 
@@ -2889,12 +2907,12 @@ Otherwise, all windows are considered.
      shit is so disgusting and awful that it needs to be rethought
      from scratch. */
   /* then try for a dedicated window that is full-width */
-  w = window_loop (GET_LRU_WINDOW, Qt, 0, frame, 1, console);
+  w = window_loop (GET_LRU_WINDOW, Qt, 0, which_frames, 1, which_devices);
   if (!NILP (w) && !EQ (w, Fselected_window (Qnil)))
     return w;
 
   /* If none of them, then all windows, dedicated or not. */
-  w = window_loop (GET_LRU_WINDOW, Qnil, 0, frame, 1, console);
+  w = window_loop (GET_LRU_WINDOW, Qnil, 0, which_frames, 1, which_devices);
 
   /* At this point we damn well better have found something. */
   if (NILP (w)) abort ();
@@ -2905,52 +2923,62 @@ Otherwise, all windows are considered.
 
 DEFUN ("get-largest-window", Fget_largest_window, 0, 2, 0, /*
 Return the window largest in area.
-If optional argument FRAME is `visible', search all visible frames.
-If FRAME is 0, search all visible and iconified frames.
-If FRAME is t, search all frames.
-If FRAME is nil, search only the selected frame.
-If FRAME is a frame, search only that frame.
 
-Optional second argument CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on FRAME'S console, or on the selected console if FRAME is not a frame.
-Otherwise, all windows are considered.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+If optional argument WHICH-FRAMES is `visible', search all visible frames.
+If WHICH-FRAMES is 0, search all visible and iconified frames.
+If WHICH-FRAMES is t, search all frames.
+If WHICH-FRAMES is nil, search only the selected frame.
+If WHICH-FRAMES is a frame, search only that frame.
+
+The optional argument WHICH-DEVICES further clarifies on which devices
+to search for frames as specified by WHICH-FRAMES.  This value is only
+meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices.
 */
-       (frame, console))
+       (which_frames, which_devices))
 {
   /* Don't search dedicated windows because FSFmacs doesn't.
      This stuff is all black magic so don't try to apply common
      sense to it. */
-  return window_loop (GET_LARGEST_WINDOW, Qnil, 0, frame, 0, console);
+  return window_loop (GET_LARGEST_WINDOW, Qnil, 0,
+		      which_frames, 0, which_devices);
 }
 
 DEFUN ("get-buffer-window", Fget_buffer_window, 1, 3, 0, /*
 Return a window currently displaying BUFFER, or nil if none.
-If optional argument FRAME is `visible', search all visible frames.
-If optional argument FRAME is 0, search all visible and iconified frames.
-If FRAME is t, search all frames.
-If FRAME is nil, search only the selected frame.
-If FRAME is a frame, search only that frame.
 
-Optional third argument CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on FRAME'S console, or on the selected console if FRAME is not a frame.
-Otherwise, all windows are considered.
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+If optional argument WHICH-FRAMES is `visible', search all visible frames.
+If WHICH-FRAMES is 0, search all visible and iconified frames.
+If WHICH-FRAMES is t, search all frames.
+If WHICH-FRAMES is nil, search only the selected frame.
+If WHICH-FRAMES is a frame, search only that frame.
+
+The optional argument WHICH-DEVICES further clarifies on which devices
+to search for frames as specified by WHICH-FRAMES.  This value is only
+meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices.
 */
-       (buffer, frame, console))
+       (buffer, which_frames, which_devices))
 {
   buffer = Fget_buffer (buffer);
   if (BUFFERP (buffer))
     /* Search dedicated windows too. (Doesn't matter here anyway.) */
-    return window_loop (GET_BUFFER_WINDOW, buffer, 1, frame, 1, console);
+    return window_loop (GET_BUFFER_WINDOW, buffer, 1,
+			which_frames, 1, which_devices);
   else
     return Qnil;
 }
@@ -3033,53 +3061,81 @@ value is reasonable when this function is called.
 DEFUN ("delete-windows-on", Fdelete_windows_on, 1, 3,
        "bDelete windows on (buffer): ", /*
 Delete all windows showing BUFFER.
-Optional second argument FRAME controls which frames are affected.
+
+Optional second argument WHICH-FRAMES controls which frames are affected.
 If nil or omitted, delete all windows showing BUFFER in any frame.
 If t, delete only windows showing BUFFER in the selected frame.
 If `visible', delete all windows showing BUFFER in any visible frame.
 If a frame, delete only windows showing BUFFER in that frame.
+Warning: WHICH-FRAMES has the same meaning as with `next-window',
+except that the meanings of nil and t are reversed.
 
-Optional third argument CONSOLE controls which consoles or devices the
-returned window may be on.  If CONSOLE is a console, return windows only
-on that console.  If CONSOLE is a device, return windows only on that
-device.  If CONSOLE is a console type, return windows only on consoles
-of that type.  If CONSOLE is 'window-system, return any windows on any
-window-system consoles.  If CONSOLE is nil or omitted, return windows only
-on FRAME'S console, or on the selected console if FRAME is not a frame.
-Otherwise, all windows are considered.
+The optional third argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is not t.
+If nil or omitted, search only the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on a window system.
+Any other non-nil value means search all devices.
 */
-       (buffer, frame, console))
+       (buffer, which_frames, which_devices))
 {
   /* This function can GC */
-  /* FRAME uses t and nil to mean the opposite of what window_loop
-     expects. */
-  if (!FRAMEP (frame))
-    frame = NILP (frame) ? Qt : Qnil;
+  buffer = Fget_buffer (buffer);
+  CHECK_BUFFER (buffer);
 
-  if (!NILP (buffer))
-    {
-      buffer = Fget_buffer (buffer);
-      CHECK_BUFFER (buffer);
-      /* Ignore dedicated windows. */
-      window_loop (DELETE_BUFFER_WINDOWS, buffer, 0, frame, 0, console);
-    }
+  /* WHICH-FRAMES values t and nil mean the opposite of what
+     window_loop expects. */
+  if (EQ (which_frames, Qnil))
+    which_frames = Qt;
+  else if (EQ (which_frames, Qt))
+    which_frames = Qnil;
+
+  /* Ignore dedicated windows. */
+  window_loop (DELETE_BUFFER_WINDOWS, buffer, 0,
+	       which_frames, 0, which_devices);
   return Qnil;
 }
 
-DEFUN ("replace-buffer-in-windows", Freplace_buffer_in_windows, 1, 1,
+DEFUN ("replace-buffer-in-windows", Freplace_buffer_in_windows, 1, 3,
        "bReplace buffer in windows: ", /*
 Replace BUFFER with some other buffer in all windows showing it.
+
+Optional second argument WHICH-FRAMES controls which frames are affected.
+If nil or omitted, all frames are affected.
+If t, only the selected frame is affected.
+If `visible', all visible frames are affected.
+If a frame, only that frame is affected.
+Warning: WHICH-FRAMES has the same meaning as with `next-window',
+except that the meanings of nil and t are reversed.
+
+The optional third argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is not t.
+If nil or omitted, search only the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on a window system.
+Any other non-nil value means search all devices.
 */
-       (buffer))
+       (buffer, which_frames, which_devices))
 {
   /* This function can GC */
-  if (!NILP (buffer))
-    {
-      buffer = Fget_buffer (buffer);
-      CHECK_BUFFER (buffer);
-      /* Ignore dedicated windows. */
-      window_loop (UNSHOW_BUFFER, buffer, 0, Qt, 0, Qnil);
-    }
+  buffer = Fget_buffer (buffer);
+  CHECK_BUFFER (buffer);
+
+  /* WHICH-FRAMES values t and nil mean the opposite of what
+     window_loop expects. */
+  if (EQ (which_frames, Qnil))
+    which_frames = Qt;
+  else if (EQ (which_frames, Qt))
+    which_frames = Qnil;
+
+  /* Ignore dedicated windows. */
+  window_loop (UNSHOW_BUFFER, buffer, 0, which_frames, 0, which_devices);
   return Qnil;
 }
 
@@ -3530,16 +3586,16 @@ make_dummy_parent (Lisp_Object window)
 
 DEFUN ("split-window", Fsplit_window, 0, 3, "", /*
 Split WINDOW, putting SIZE lines in the first of the pair.
-WINDOW defaults to selected one and SIZE to half its size.
+WINDOW defaults to the selected one and SIZE to half its size.
 If optional third arg HORFLAG is non-nil, split side by side
 and put SIZE columns in the first of the pair.
 */
-       (window, chsize, horflag))
+       (window, size, horflag))
 {
   Lisp_Object new;
   struct window *o, *p;
   struct frame *f;
-  int size;
+  int csize;
   int psize;
 
   if (NILP (window))
@@ -3550,29 +3606,29 @@ and put SIZE columns in the first of the pair.
   o = XWINDOW (window);
   f = XFRAME (WINDOW_FRAME (o));
 
-  if (NILP (chsize))
+  if (NILP (size))
     {
       if (!NILP (horflag))
 	/* In the new scheme, we are symmetric with respect to separators
 	   so there is no need to do weird things here. */
 	{
 	  psize = WINDOW_WIDTH (o) >> 1;
-	  size = window_pixel_width_to_char_width (o, psize, 0);
+	  csize = window_pixel_width_to_char_width (o, psize, 0);
         }
       else
         {
 	  psize = WINDOW_HEIGHT (o) >> 1;
-	  size = window_pixel_height_to_char_height (o, psize, 1);
+	  csize = window_pixel_height_to_char_height (o, psize, 1);
         }
     }
   else
     {
-      CHECK_INT (chsize);
-      size = XINT (chsize);
+      CHECK_INT (size);
+      csize = XINT (size);
       if (!NILP (horflag))
-	psize = window_char_width_to_pixel_width (o, size, 0);
+	psize = window_char_width_to_pixel_width (o, csize, 0);
       else
-	psize = window_char_height_to_pixel_height (o, size, 1);
+	psize = window_char_height_to_pixel_height (o, csize, 1);
     }
 
   if (MINI_WINDOW_P (o))
@@ -3584,11 +3640,11 @@ and put SIZE columns in the first of the pair.
 
   if (NILP (horflag))
     {
-      if (size < window_min_height)
-	error ("Window height %d too small (after splitting)", size);
-      if (size + window_min_height > window_char_height (o, 1))
+      if (csize < window_min_height)
+	error ("Window height %d too small (after splitting)", csize);
+      if (csize + window_min_height > window_char_height (o, 1))
 	error ("Window height %d too small (after splitting)",
-	       window_char_height (o, 1) - size);
+	       window_char_height (o, 1) - csize);
       if (NILP (o->parent)
 	  || NILP (XWINDOW (o->parent)->vchild))
 	{
@@ -3601,11 +3657,11 @@ and put SIZE columns in the first of the pair.
     }
   else
     {
-      if (size < window_min_width)
-	error ("Window width %d too small (after splitting)", size);
-      if (size + window_min_width > window_char_width (o, 0))
+      if (csize < window_min_width)
+	error ("Window width %d too small (after splitting)", csize);
+      if (csize + window_min_width > window_char_width (o, 0))
 	error ("Window width %d too small (after splitting)",
-	       window_char_width (o, 0) - size);
+	       window_char_width (o, 0) - csize);
       if (NILP (o->parent)
 	  || NILP (XWINDOW (o->parent)->hchild))
 	{
@@ -3667,58 +3723,54 @@ and put SIZE columns in the first of the pair.
 
 
 DEFUN ("enlarge-window", Fenlarge_window, 1, 3, "_p", /*
-Make the selected window N lines bigger.
-From program, optional second arg SIDE non-nil means grow sideways N columns,
-and optional third arg WINDOW specifies the window to change instead of the
-selected window.
+Make the selected window COUNT lines taller.
+From program, optional second arg HORIZONTALP non-nil means grow
+sideways COUNT columns, and optional third arg WINDOW specifies the
+window to change instead of the selected window.
 */
-       (n, side, window))
+       (count, horizontalp, window))
 {
-  struct window *w = decode_window (window);
-  CHECK_INT (n);
-  change_window_height (w, XINT (n), !NILP (side), /* inpixels */ 0);
+  CHECK_INT (count);
+  change_window_height (window, XINT (count), horizontalp, /* inpixels */ 0);
   return Qnil;
 }
 
 DEFUN ("enlarge-window-pixels", Fenlarge_window_pixels, 1, 3, "_p", /*
-Make the selected window N pixels bigger.
-From program, optional second arg SIDE non-nil means grow sideways N pixels,
-and optional third arg WINDOW specifies the window to change instead of the
-selected window.
+Make the selected window COUNT pixels taller.
+From program, optional second arg HORIZONTALP non-nil means grow
+sideways COUNT pixels, and optional third arg WINDOW specifies the
+window to change instead of the selected window.
 */
-       (n, side, window))
+       (count, horizontalp, window))
 {
-  struct window *w = decode_window (window);
-  CHECK_INT (n);
-  change_window_height (w, XINT (n), !NILP (side), /* inpixels */ 1);
+  CHECK_INT (count);
+  change_window_height (window, XINT (count), horizontalp, /* inpixels */ 1);
   return Qnil;
 }
 
 DEFUN ("shrink-window", Fshrink_window, 1, 3, "_p", /*
-Make the selected window N lines smaller.
-From program, optional second arg SIDE non-nil means shrink sideways N columns,
-and optional third arg WINDOW specifies the window to change instead of the
-selected window.
+Make the selected window COUNT lines shorter.
+From program, optional second arg HORIZONTALP non-nil means shrink
+sideways COUNT columns, and optional third arg WINDOW specifies the
+window to change instead of the selected window.
 */
-       (n, side, window))
+       (count, horizontalp, window))
 {
-  CHECK_INT (n);
-  change_window_height (decode_window (window), -XINT (n), !NILP (side),
-                        /* inpixels */ 0);
+  CHECK_INT (count);
+  change_window_height (window, -XINT (count), horizontalp, /* inpixels */ 0);
   return Qnil;
 }
 
 DEFUN ("shrink-window-pixels", Fshrink_window_pixels, 1, 3, "_p", /*
-Make the selected window N pixels smaller.
-From program, optional second arg SIDE non-nil means shrink sideways N pixels,
-and optional third arg WINDOW specifies the window to change instead of the
-selected window.
+Make the selected window COUNT pixels smaller.
+From program, optional second arg HORIZONTALP non-nil means shrink
+sideways COUNT pixels, and optional third arg WINDOW specifies the
+window to change instead of the selected window.
 */
-       (n, side, window))
+       (count, horizontalp, window))
 {
-  CHECK_INT (n);
-  change_window_height (decode_window (window), -XINT (n), !NILP (side),
-                        /* inpixels */ 1);
+  CHECK_INT (count);
+  change_window_height (window, -XINT (count), horizontalp, /* inpixels */ 1);
   return Qnil;
 }
 
@@ -3963,11 +4015,12 @@ window_pixheight (Lisp_Object w)
    keep everything consistent. */
 
 static void
-change_window_height (struct window *win, int delta, int widthflag,
+change_window_height (Lisp_Object window, int delta, Lisp_Object horizontalp,
                       int inpixels)
 {
+  struct window *win = decode_window (window);
+  int widthflag = !NILP (horizontalp);
   Lisp_Object parent;
-  Lisp_Object window;
   struct window *w;
   struct frame *f;
   int *sizep;
@@ -4119,10 +4172,11 @@ change_window_height (struct window *win, int delta, int widthflag,
 
 
 
-/* Scroll contents of window WINDOW up N lines. If N < (top line height /
-   average line height) then we just adjust the top clip.  */
+/* Scroll contents of window WINDOW up COUNT lines.
+   If COUNT < (top line height / average line height) then we just adjust
+   the top clip.  */
 void
-window_scroll (Lisp_Object window, Lisp_Object n, int direction,
+window_scroll (Lisp_Object window, Lisp_Object count, int direction,
 	       Error_behavior errb)
 {
   struct window *w = XWINDOW (window);
@@ -4166,14 +4220,14 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
       MARK_WINDOWS_CHANGED (w);
     }
 
-  if (!NILP (n))
+  if (!NILP (count))
     {
-      if (EQ (n, Qminus))
+      if (EQ (count, Qminus))
 	direction *= -1;
       else
 	{
-	  n = Fprefix_numeric_value (n);
-	  value = XINT (n) * direction;
+	  count = Fprefix_numeric_value (count);
+	  value = XINT (count) * direction;
 
 	  if (!value)
 	    return;	/* someone just made a pointless call */
@@ -4182,7 +4236,7 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 
   /* If the user didn't specify how far to scroll then we have to figure it
      out by ourselves. */
-  if (NILP (n) || EQ (n, Qminus))
+  if (NILP (count) || EQ (count, Qminus))
     {
       /* Going forwards is easy.  If that is what we are doing then just
 	 set value and the section which handles the user specifying a
@@ -4404,32 +4458,32 @@ window_scroll (Lisp_Object window, Lisp_Object n, int direction,
 }
 
 DEFUN ("scroll-up", Fscroll_up, 0, 1, "_P", /*
-Scroll text of current window upward N lines; or near full screen if no arg.
+Scroll text of current window up COUNT lines; or near full screen if no arg.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative N means scroll downward.
+Negative COUNT means scroll downward.
 When calling from a program, supply an integer as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
 */
-       (n))
+       (count))
 {
-  window_scroll (Fselected_window (Qnil), n, 1, ERROR_ME);
+  window_scroll (Fselected_window (Qnil), count, 1, ERROR_ME);
   return Qnil;
 }
 
 DEFUN ("scroll-down", Fscroll_down, 0, 1, "_P", /*
-Scroll text of current window downward N lines; or near full screen if no arg.
+Scroll text of current window down COUNT lines; or near full screen if no arg.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative N means scroll upward.
+Negative COUNT means scroll upward.
 When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
 signaled.
 */
-       (n))
+       (count))
 {
-  window_scroll (Fselected_window (Qnil), n, -1, ERROR_ME);
+  window_scroll (Fselected_window (Qnil), count, -1, ERROR_ME);
   return Qnil;
 }
 
@@ -4479,9 +4533,9 @@ showing that buffer is used.
  }
 
 DEFUN ("scroll-other-window", Fscroll_other_window, 0, 1, "_P", /*
-Scroll next window upward N lines; or near full frame if no arg.
+Scroll next window upward COUNT lines; or near full frame if no arg.
 The next window is the one below the current one; or the one at the top
-if the current one is at the bottom.  Negative N means scroll downward.
+if the current one is at the bottom.  Negative COUNT means scroll downward.
 When calling from a program, supply a number as argument or nil.
 
 If in the minibuffer, `minibuffer-scroll-window' if non-nil
@@ -4489,40 +4543,40 @@ specifies the window to scroll.
 If `other-window-scroll-buffer' is non-nil, scroll the window
 showing that buffer, popping the buffer up if necessary.
 */
-       (n))
+       (count))
 {
-  window_scroll (Fother_window_for_scrolling (), n, 1, ERROR_ME);
+  window_scroll (Fother_window_for_scrolling (), count, 1, ERROR_ME);
   return Qnil;
 }
 
 DEFUN ("scroll-left", Fscroll_left, 0, 1, "_P", /*
-Scroll selected window display N columns left.
-Default for N is window width minus 2.
+Scroll selected window display COUNT columns left.
+Default for COUNT is window width minus 2.
 */
-       (n))
+       (count))
 {
   Lisp_Object window = Fselected_window (Qnil);
   struct window *w = XWINDOW (window);
-  int count = (NILP (n) ?
-	       window_char_width (w, 0) - 2 :
-	       XINT (Fprefix_numeric_value (n)));
+  int n = (NILP (count) ?
+	   window_char_width (w, 0) - 2 :
+	   XINT (Fprefix_numeric_value (count)));
 
-  return Fset_window_hscroll (window, make_int (w->hscroll + count));
+  return Fset_window_hscroll (window, make_int (w->hscroll + n));
 }
 
 DEFUN ("scroll-right", Fscroll_right, 0, 1, "_P", /*
-Scroll selected window display N columns right.
-Default for N is window width minus 2.
+Scroll selected window display COUNT columns right.
+Default for COUNT is window width minus 2.
 */
-       (n))
+       (count))
 {
   Lisp_Object window = Fselected_window (Qnil);
   struct window *w = XWINDOW (window);
-  int count = (NILP (n) ?
-	       window_char_width (w, 0) - 2 :
-	       XINT (Fprefix_numeric_value (n)));
+  int n = (NILP (count) ?
+	   window_char_width (w, 0) - 2 :
+	   XINT (Fprefix_numeric_value (count)));
 
-  return Fset_window_hscroll (window, make_int (w->hscroll - count));
+  return Fset_window_hscroll (window, make_int (w->hscroll - n));
 }
 
 DEFUN ("center-to-window-line", Fcenter_to_window_line, 0, 2, "_P", /*
@@ -5050,9 +5104,9 @@ window_config_equal (Lisp_Object conf1, Lisp_Object conf2)
 DEFUN ("window-configuration-p", Fwindow_configuration_p, 1, 1, 0, /*
 Return t if OBJECT is a window-configuration object.
 */
-       (obj))
+       (object))
 {
-  return WINDOW_CONFIGURATIONP (obj) ? Qt : Qnil;
+  return WINDOW_CONFIGURATIONP (object) ? Qt : Qnil;
 }
 
 static int
@@ -5729,8 +5783,9 @@ DEFUN ("current-window-configuration", Fcurrent_window_configuration, 0, 1, 0, /
 Return an object representing the current window configuration of FRAME.
 If FRAME is nil or omitted, use the selected frame.
 This describes the number of windows, their sizes and current buffers,
-and for each displayed buffer, where display starts, and the positions of
-point and mark.  An exception is made for point in the current buffer:
+and for each window on FRAME the displayed buffer, where display
+starts, and the positions of point and mark.
+An exception is made for point in the current buffer:
 its value is -not- saved.
 */
        (frame))
@@ -6136,7 +6191,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vmodeline_shadow_thickness,
 			 offsetof (struct window, modeline_shadow_thickness),
 			 modeline_shadow_thickness_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("has-modeline-p", &Vhas_modeline_p /*
 *Whether the modeline should be displayed.
@@ -6152,7 +6207,7 @@ This is a specifier; use `set-specifier' to change it.
 			    has changed, but not one to indicate that
 			    the modeline has been turned off or on. */
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("vertical-divider-always-visible-p",
 		    &Vvertical_divider_always_visible_p /*
@@ -6171,7 +6226,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window,
 				   vertical_divider_always_visible_p),
 			 vertical_divider_changed_in_window,
- 			 0, 0);
+ 			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("vertical-divider-shadow-thickness", &Vvertical_divider_shadow_thickness /*
 *How thick to draw 3D shadows around vertical dividers.
@@ -6186,7 +6241,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window,
 				   vertical_divider_shadow_thickness),
 			 vertical_divider_changed_in_window,
- 			 0, 0);
+ 			 0, 0, 0);
   DEFVAR_SPECIFIER ("vertical-divider-line-width", &Vvertical_divider_line_width /*
 *The width of the vertical dividers, not including shadows.
 
@@ -6217,7 +6272,7 @@ This is a specifier; use `set-specifier' to change it.
                          offsetof (struct window,
 				   vertical_divider_line_width),
 			 vertical_divider_changed_in_window,
-                         0, 0);
+                         0, 0, 0);
 
   DEFVAR_SPECIFIER ("vertical-divider-spacing", &Vvertical_divider_spacing /*
 *How much space to leave around the vertical dividers.
@@ -6246,5 +6301,5 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vvertical_divider_spacing,
 			 offsetof (struct window, vertical_divider_spacing),
 			 vertical_divider_changed_in_window,
-			 0, 0);
+			 0, 0, 0);
 }

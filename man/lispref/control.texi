@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/control.info
 @node Control Structures, Variables, Evaluation, Top
@@ -152,7 +152,7 @@ based on the value of @var{condition}.  If the evaluated @var{condition} is
 non-@code{nil}, @var{then-form} is evaluated and the result returned.
 Otherwise, the @var{else-forms} are evaluated in textual order, and the
 value of the last one is returned.  (The @var{else} part of @code{if} is
-an example of an implicit @code{progn}.  @xref{Sequencing}.) 
+an example of an implicit @code{progn}.  @xref{Sequencing}.)
 
 If @var{condition} has the value @code{nil}, and no @var{else-forms} are
 given, @code{if} returns @code{nil}.
@@ -163,8 +163,8 @@ never evaluated---it is ignored.  Thus, in the example below,
 
 @example
 @group
-(if nil 
-    (print 'true) 
+(if nil
+    (print 'true)
   'very-false)
 @result{} very-false
 @end group
@@ -226,7 +226,7 @@ clauses was successful.  To do this, we use @code{t} as the
 never @code{nil}, so this clause never fails, provided the @code{cond}
 gets to it at all.
 
-For example, 
+For example,
 
 @example
 @group
@@ -360,7 +360,7 @@ You could almost write @code{or} in terms of @code{if}, but not quite:
 @example
 @group
 (if @var{arg1} @var{arg1}
-  (if @var{arg2} @var{arg2} 
+  (if @var{arg2} @var{arg2}
     @var{arg3}))
 @end group
 @end example
@@ -581,7 +581,7 @@ return points at once.  First, two return points with the same tag,
 @end group
 
 @group
-(catch 'hack 
+(catch 'hack
   (print (catch2 'hack))
   'no)
 @print{} yes
@@ -664,40 +664,153 @@ which you call for other purposes, such as if you try to take the
 buffer; you can also signal errors explicitly with the functions
 @code{error}, @code{signal}, and others.
 
-  Quitting, which happens when the user types @kbd{C-g}, is not 
+  Quitting, which happens when the user types @kbd{C-g}, is not
 considered an error, but it is handled almost like an error.
 @xref{Quitting}.
 
-@defun error format-string &rest args
-This function signals an error with an error message constructed by
-applying @code{format} (@pxref{String Conversion}) to
-@var{format-string} and @var{args}.
+XEmacs has a rich hierarchy of error symbols predefined via @code{deferror}.
+
+@example
+error
+  syntax-error
+    invalid-read-syntax
+    list-formation-error
+      malformed-list
+        malformed-property-list
+      circular-list
+        circular-property-list
+
+  invalid-argument
+    wrong-type-argument
+    args-out-of-range
+    wrong-number-of-arguments
+    invalid-function
+    no-catch
+
+  invalid-state
+    void-function
+    cyclic-function-indirection
+    void-variable
+    cyclic-variable-indirection
+
+  invalid-operation
+    invalid-change
+      setting-constant
+    editing-error
+      beginning-of-buffer
+      end-of-buffer
+      buffer-read-only
+    io-error
+      end-of-file
+    arith-error
+      range-error
+      domain-error
+      singularity-error
+      overflow-error
+      underflow-error
+@end example
+
+The five most common errors you will probably use or base your new
+errors off of are @code{syntax-error}, @code{invalid-argument},
+@code{invalid-state}, @code{invalid-operation}, and
+@code{invalid-change}.  Note the semantic differences:
+
+@itemize @bullet
+@item
+@code{syntax-error} is for errors in complex structures: parsed strings,
+lists, and the like.
+
+@item
+@code{invalid-argument} is for errors in a simple value.  Typically, the
+entire value, not just one part of it, is wrong.
+
+@item
+@code{invalid-state} means that some settings have been changed in such
+a way that their current state is unallowable.  More and more, code is
+being written more carefully, and catches the error when the settings
+are being changed, rather than afterwards.  This leads us to the next
+error:
+
+@item
+@code{invalid-change} means that an attempt is being made to change some
+settings into an invalid state.  @code{invalid-change} is a type of
+@code{invalid-operation}.
+
+@item
+@code{invalid-operation} refers to all cases where code is trying to do
+something that's disallowed.  This includes file errors, buffer errors
+(e.g. running off the end of a buffer), @code{invalid-change} as just
+mentioned, and arithmetic errors.
+@end itemize
+
+@defun error datum &rest args
+This function signals a non-continuable error.
+
+@var{datum} should normally be an error symbol, i.e. a symbol defined
+using @code{define-error}.  @var{args} will be made into a list, and
+@var{datum} and @var{args} passed as the two arguments to @code{signal},
+the most basic error handling function.
 
 This error is not continuable: you cannot continue execution after the
-error using the debugger @kbd{r} or @kbd{c} commands.  If you wish the
-user to be able to continue execution, use @code{cerror} or
-@code{signal} instead.
+error using the debugger @kbd{r} command.  See also @code{cerror}.
+
+The correct semantics of @var{args} varies from error to error, but for
+most errors that need to be generated in Lisp code, the first argument
+should be a string describing the *context* of the error (i.e. the exact
+operation being performed and what went wrong), and the remaining
+arguments or \"frobs\" (most often, there is one) specify the offending
+object(s) and/or provide additional details such as the exact error when
+a file error occurred, e.g.:
+
+@itemize @bullet
+@item
+the buffer in which an editing error occurred.
+@item
+an invalid value that was encountered. (In such cases, the string
+should describe the purpose or \"semantics\" of the value [e.g. if the
+value is an argument to a function, the name of the argument; if the value
+is the value corresponding to a keyword, the name of the keyword; if the
+value is supposed to be a list length, say this and say what the purpose
+of the list is; etc.] as well as specifying why the value is invalid, if
+that's not self-evident.)
+@item
+the file in which an error occurred. (In such cases, there should be a
+second frob, probably a string, specifying the exact error that occurred.
+This does not occur in the string that precedes the first frob, because
+that frob describes the exact operation that was happening.
+@end itemize
+
+For historical compatibility, DATUM can also be a string.  In this case,
+@var{datum} and @var{args} are passed together as the arguments to
+@code{format}, and then an error is signalled using the error symbol
+@code{error} and formatted string.  Although this usage of @code{error}
+is very common, it is deprecated because it totally defeats the purpose
+of having structured errors.  There is now a rich set of defined errors
+to use.
+
+See also @code{cerror}, @code{signal}, and @code{signal-error}."
 
 These examples show typical uses of @code{error}:
 
 @example
 @group
-(error "You have committed an error.  
+(error 'syntax-error
+       "Dialog descriptor must supply at least one button"
+	descriptor)
+@end group
+
+@group
+(error "You have committed an error.
         Try something else.")
-     @error{} You have committed an error.  
+     @error{} You have committed an error.
         Try something else.
 @end group
 
 @group
 (error "You have committed %d errors." 10)
-     @error{} You have committed 10 errors.  
+     @error{} You have committed 10 errors.
 @end group
 @end example
-
-@code{error} works by calling @code{signal} with two arguments: the
-error symbol @code{error}, and a list containing the string returned by
-@code{format}.  This is repeated in an endless loop, to ensure that
-@code{error} never returns.
 
 If you want to use your own string as an error message verbatim, don't
 just write @code{(error @var{string})}.  If @var{string} contains
@@ -705,7 +818,7 @@ just write @code{(error @var{string})}.  If @var{string} contains
 results.  Instead, use @code{(error "%s" @var{string})}.
 @end defun
 
-@defun cerror format-string &rest args
+@defun cerror datum &rest args
 This function behaves like @code{error}, except that the error it
 signals is continuable.  That means that debugger commands @kbd{c} and
 @kbd{r} can resume execution.
@@ -966,9 +1079,9 @@ message and returns a very large number.
 @smallexample
 @group
 (defun safe-divide (dividend divisor)
-  (condition-case err                
+  (condition-case err
       ;; @r{Protected form.}
-      (/ dividend divisor)              
+      (/ dividend divisor)
     ;; @r{The handler.}
     (arith-error                        ; @r{Condition.}
      (princ (format "Arithmetic error: %s" err))
@@ -1011,7 +1124,7 @@ including those signaled with @code{error}:
       ;; @r{This is a call to the function @code{error}.}
       (error "Rats!  The variable %s was %s, not 35" 'baz baz))
   ;; @r{This is the handler; it is not a form.}
-  (error (princ (format "The error was: %s" err)) 
+  (error (princ (format "The error was: %s" err))
          2))
 @print{} The error was: (error "Rats!  The variable baz was 34, not 35")
 @result{} 2
@@ -1119,7 +1232,7 @@ make it possible to categorize errors at various levels of generality
 when you write an error handler.  Using error symbols alone would
 eliminate all but the narrowest level of classification.
 
-  
+
 
   @xref{Standard Errors}, for a list of all the standard error symbols
 and their conditions.

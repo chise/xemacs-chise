@@ -51,7 +51,7 @@
 (define-obsolete-function-alias 'x-cut-copy-clear-internal 'cut-copy-clear-internal)
 (define-obsolete-function-alias 'x-get-selection 'get-selection)
 (define-obsolete-function-alias 'x-get-clipboard 'get-clipboard)
-(define-obsolete-function-alias 'x-yank-clipboard-selection 
+(define-obsolete-function-alias 'x-yank-clipboard-selection
   'yank-clipboard-selection)
 (define-obsolete-function-alias 'x-disown-selection-internal
   'disown-selection-internal)
@@ -72,14 +72,14 @@ be the text between those markers)."
   (own-selection selection 'SECONDARY))
 
 (defun x-notice-selection-requests (selection type successful)
-  "for possible use as the value of x-sent-selection-hooks."
+  "for possible use as the value of `x-sent-selection-hooks'."
   (if (not successful)
       (message "Selection request failed to convert %s to %s"
 	       selection type)
     (message "Sent selection %s as %s" selection type)))
 
 (defun x-notice-selection-failures (selection type successful)
-  "for possible use as the value of x-sent-selection-hooks."
+  "for possible use as the value of `x-sent-selection-hooks'."
   (or successful
       (message "Selection request failed to convert %s to %s"
 	       selection type)))
@@ -95,32 +95,25 @@ be the text between those markers)."
   "Return the value of one of the 8 X server cut buffers.
 Optional arg WHICH-ONE should be a number from 0 to 7, defaulting to 0.
 Cut buffers are considered obsolete; you should use selections instead.
-This function does nothing if support for cut buffers was not compiled
-into Emacs."
-  (and (fboundp 'x-get-cutbuffer-internal)
-       (x-get-cutbuffer-internal
-	(if which-one
-	    (aref [CUT_BUFFER0 CUT_BUFFER1 CUT_BUFFER2 CUT_BUFFER3
-			       CUT_BUFFER4 CUT_BUFFER5 CUT_BUFFER6 CUT_BUFFER7]
-		  which-one)
-	  'CUT_BUFFER0))))
+This function does nothing if cut buffer support was not compiled in."
+  (when (fboundp 'x-get-cutbuffer-internal)
+    (x-get-cutbuffer-internal
+     (aref [CUT_BUFFER0 CUT_BUFFER1 CUT_BUFFER2 CUT_BUFFER3
+			CUT_BUFFER4 CUT_BUFFER5 CUT_BUFFER6 CUT_BUFFER7]
+	   (or which-one 0)))))
 
 ;;; FSF name x-set-cut-buffer
 (defun x-store-cutbuffer (string &optional push)
   "Store STRING into the X server's primary cut buffer.
-If PUSH is non-nil, also rotate the cut buffers:
-this means the previous value of the primary cut buffer moves the second
+If optional arg PUSH is non-nil, also rotate the cut buffers: this
+means the previous value of the primary cut buffer moves to the second
 cut buffer, and the second to the third, and so on (there are 8 buffers.)
 Cut buffers are considered obsolete; you should use selections instead.
-This function does nothing if support for cut buffers was not compiled
-into Emacs."
-  (and (fboundp 'x-store-cutbuffer-internal)
-       (progn
-	 ;; Check the data type of STRING.
-	 (substring string 0 0)
-	 (if push
-	     (x-rotate-cutbuffers-internal 1))
-	 (x-store-cutbuffer-internal 'CUT_BUFFER0 string))))
+This function does nothing if cut buffer support was not compiled in."
+  (when (fboundp 'x-store-cutbuffer-internal)
+    (when push
+      (x-rotate-cutbuffers-internal 1))
+    (x-store-cutbuffer-internal 'CUT_BUFFER0 string)))
 
 
 ;FSFmacs (provide 'select)

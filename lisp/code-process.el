@@ -195,7 +195,7 @@ See also the function `find-operation-coding-system'.")
 
 (defun open-network-stream (name buffer host service &optional protocol)
   "Open a TCP connection for a service to a host.
-Return a subprocess-object to represent the connection.
+Return a process object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 Args are NAME BUFFER HOST SERVICE.
 NAME is name for process.  It is modified if necessary to make it unique.

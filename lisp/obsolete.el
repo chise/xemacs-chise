@@ -57,7 +57,7 @@ This makes referencing or setting OLDVAR equivalent to referencing or
 setting NEWVAR and marks OLDVAR as obsolete.
 If OLDVAR was bound and NEWVAR was not, Set NEWVAR to OLDVAR.
 
-Note: Use this before any other references (defvar/defcustom) to NEWVAR"
+Note: Use this before any other references (defvar/defcustom) to NEWVAR."
   (let ((needs-setting (and (boundp oldvar) (not (boundp newvar))))
         (value (and (boundp oldvar) (symbol-value oldvar))))
      (defvaralias oldvar newvar)
@@ -338,13 +338,13 @@ Multibyte characters are concerned."
   "Return a vector of characters in STRING."
   (mapvector #'identity string))
 
-(defun store-substring (string idx obj)
-  "Embed OBJ (string or character) at index IDX of STRING."
-  (let* ((str (cond ((stringp obj) obj)
-		    ((characterp obj) (char-to-string obj))
+(defun store-substring (string idx object)
+  "Embed OBJECT (string or character) at index IDX of STRING."
+  (let* ((str (cond ((stringp object) object)
+		    ((characterp object) (char-to-string object))
 		    (t (error
 			"Invalid argument (should be string or character): %s"
-			obj))))
+			object))))
 	 (string-len (length string))
 	 (len (length str))
 	 (i 0))

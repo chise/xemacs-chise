@@ -932,7 +932,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 }
 
 DEFUN ("skip-chars-forward", Fskip_chars_forward, 1, 3, 0, /*
-Move point forward, stopping before a char not in STRING, or at pos LIM.
+Move point forward, stopping before a char not in STRING, or at pos LIMIT.
 STRING is like the inside of a `[...]' in a regular expression
 except that `]' is never special and `\\' quotes `^', `-' or `\\'.
 Thus, with arg "a-zA-Z", this skips letters stopping before first nonletter.
@@ -941,57 +941,57 @@ Returns the distance traveled, either zero or positive.
 
 Optional argument BUFFER defaults to the current buffer.
 */
-       (string, lim, buffer))
+       (string, limit, buffer))
 {
-  return skip_chars (decode_buffer (buffer, 0), 1, 0, string, lim);
+  return skip_chars (decode_buffer (buffer, 0), 1, 0, string, limit);
 }
 
 DEFUN ("skip-chars-backward", Fskip_chars_backward, 1, 3, 0, /*
-Move point backward, stopping after a char not in STRING, or at pos LIM.
+Move point backward, stopping after a char not in STRING, or at pos LIMIT.
 See `skip-chars-forward' for details.
 Returns the distance traveled, either zero or negative.
 
 Optional argument BUFFER defaults to the current buffer.
 */
-       (string, lim, buffer))
+       (string, limit, buffer))
 {
-  return skip_chars (decode_buffer (buffer, 0), 0, 0, string, lim);
+  return skip_chars (decode_buffer (buffer, 0), 0, 0, string, limit);
 }
 
 
 DEFUN ("skip-syntax-forward", Fskip_syntax_forward, 1, 3, 0, /*
 Move point forward across chars in specified syntax classes.
 SYNTAX is a string of syntax code characters.
-Stop before a char whose syntax is not in SYNTAX, or at position LIM.
+Stop before a char whose syntax is not in SYNTAX, or at position LIMIT.
 If SYNTAX starts with ^, skip characters whose syntax is NOT in SYNTAX.
 This function returns the distance traveled, either zero or positive.
 
 Optional argument BUFFER defaults to the current buffer.
 */
-       (syntax, lim, buffer))
+       (syntax, limit, buffer))
 {
-  return skip_chars (decode_buffer (buffer, 0), 1, 1, syntax, lim);
+  return skip_chars (decode_buffer (buffer, 0), 1, 1, syntax, limit);
 }
 
 DEFUN ("skip-syntax-backward", Fskip_syntax_backward, 1, 3, 0, /*
 Move point backward across chars in specified syntax classes.
 SYNTAX is a string of syntax code characters.
-Stop on reaching a char whose syntax is not in SYNTAX, or at position LIM.
+Stop on reaching a char whose syntax is not in SYNTAX, or at position LIMIT.
 If SYNTAX starts with ^, skip characters whose syntax is NOT in SYNTAX.
 This function returns the distance traveled, either zero or negative.
 
 Optional argument BUFFER defaults to the current buffer.
 */
-       (syntax, lim, buffer))
+       (syntax, limit, buffer))
 {
-  return skip_chars (decode_buffer (buffer, 0), 0, 1, syntax, lim);
+  return skip_chars (decode_buffer (buffer, 0), 0, 1, syntax, limit);
 }
 
 
 /* Subroutines of Lisp buffer search functions. */
 
 static Lisp_Object
-search_command (Lisp_Object string, Lisp_Object bound, Lisp_Object no_error,
+search_command (Lisp_Object string, Lisp_Object limit, Lisp_Object noerror,
 		Lisp_Object count, Lisp_Object buffer, int direction,
 		int RE, int posix)
 {
@@ -1009,14 +1009,14 @@ search_command (Lisp_Object string, Lisp_Object bound, Lisp_Object no_error,
 
   buf = decode_buffer (buffer, 0);
   CHECK_STRING (string);
-  if (NILP (bound))
+  if (NILP (limit))
     lim = n > 0 ? BUF_ZV (buf) : BUF_BEGV (buf);
   else
     {
-      CHECK_INT_COERCE_MARKER (bound);
-      lim = XINT (bound);
+      CHECK_INT_COERCE_MARKER (limit);
+      lim = XINT (limit);
       if (n > 0 ? lim < BUF_PT (buf) : lim > BUF_PT (buf))
-	error ("Invalid search bound (wrong side of point)");
+	error ("Invalid search limit (wrong side of point)");
       if (lim > BUF_ZV (buf))
 	lim = BUF_ZV (buf);
       if (lim < BUF_BEGV (buf))
@@ -1033,9 +1033,9 @@ search_command (Lisp_Object string, Lisp_Object bound, Lisp_Object no_error,
 
   if (np <= 0)
     {
-      if (NILP (no_error))
+      if (NILP (noerror))
 	return signal_failure (string);
-      if (!EQ (no_error, Qt))
+      if (!EQ (noerror, Qt))
 	{
 	  if (lim < BUF_BEGV (buf) || lim > BUF_ZV (buf))
 	    abort ();
@@ -1645,70 +1645,103 @@ wordify (Lisp_Object buffer, Lisp_Object string)
 DEFUN ("search-backward", Fsearch_backward, 1, 5, "sSearch backward: ", /*
 Search backward from point for STRING.
 Set point to the beginning of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend before that position.
-Optional third argument, if t, means if fail just return nil (no error).
- If not nil and not t, position at limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend before that position.
+The value nil is equivalent to (point-min).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (string, bound, no_error, count, buffer))
+       (string, limit, noerror, count, buffer))
 {
-  return search_command (string, bound, no_error, count, buffer, -1, 0, 0);
+  return search_command (string, limit, noerror, count, buffer, -1, 0, 0);
 }
 
 DEFUN ("search-forward", Fsearch_forward, 1, 5, "sSearch: ", /*
 Search forward from point for STRING.
 Set point to the end of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend after that position.  nil is equivalent
-  to (point-max).
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend after that position.  The
+value nil is equivalent to (point-max).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (string, bound, no_error, count, buffer))
+       (string, limit, noerror, count, buffer))
 {
-  return search_command (string, bound, no_error, count, buffer, 1, 0, 0);
+  return search_command (string, limit, noerror, count, buffer, 1, 0, 0);
 }
 
 DEFUN ("word-search-backward", Fword_search_backward, 1, 5,
        "sWord search backward: ", /*
 Search backward from point for STRING, ignoring differences in punctuation.
 Set point to the beginning of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend before that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend before that position.
+The value nil is equivalent to (point-min).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
+See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (string, bound, no_error, count, buffer))
+       (string, limit, noerror, count, buffer))
 {
-  return search_command (wordify (buffer, string), bound, no_error, count,
+  return search_command (wordify (buffer, string), limit, noerror, count,
 			 buffer, -1, 1, 0);
 }
 
 DEFUN ("word-search-forward", Fword_search_forward, 1, 5, "sWord search: ", /*
 Search forward from point for STRING, ignoring differences in punctuation.
 Set point to the end of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend after that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend after that position.  The
+value nil is equivalent to (point-max).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
+See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (string, bound, no_error, count, buffer))
+       (string, limit, noerror, count, buffer))
 {
-  return search_command (wordify (buffer, string), bound, no_error, count,
+  return search_command (wordify (buffer, string), limit, noerror, count,
 			 buffer, 1, 1, 0);
 }
 
@@ -1718,35 +1751,51 @@ Search backward from point for match for regular expression REGEXP.
 Set point to the beginning of the match, and return point.
 The match found is the one starting last in the buffer
 and yet ending before the origin of the search.
-An optional second argument bounds the search; it is a buffer position.
-The match found must start at or after that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend before that position.
+The value nil is equivalent to (point-min).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (regexp, bound, no_error, count, buffer))
+       (regexp, limit, noerror, count, buffer))
 {
-  return search_command (regexp, bound, no_error, count, buffer, -1, 1, 0);
+  return search_command (regexp, limit, noerror, count, buffer, -1, 1, 0);
 }
 
 DEFUN ("re-search-forward", Fre_search_forward, 1, 5, "sRE search: ", /*
 Search forward from point for regular expression REGEXP.
 Set point to the end of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend after that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend after that position.  The
+value nil is equivalent to (point-max).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (regexp, bound, no_error, count, buffer))
+       (regexp, limit, noerror, count, buffer))
 {
-  return search_command (regexp, bound, no_error, count, buffer, 1, 1, 0);
+  return search_command (regexp, limit, noerror, count, buffer, 1, 1, 0);
 }
 
 DEFUN ("posix-search-backward", Fposix_search_backward, 1, 5,
@@ -1756,36 +1805,52 @@ Find the longest match in accord with Posix regular expression rules.
 Set point to the beginning of the match, and return point.
 The match found is the one starting last in the buffer
 and yet ending before the origin of the search.
-An optional second argument bounds the search; it is a buffer position.
-The match found must start at or after that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend before that position.
+The value nil is equivalent to (point-min).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (regexp, bound, no_error, count, buffer))
+       (regexp, limit, noerror, count, buffer))
 {
-  return search_command (regexp, bound, no_error, count, buffer, -1, 1, 1);
+  return search_command (regexp, limit, noerror, count, buffer, -1, 1, 1);
 }
 
 DEFUN ("posix-search-forward", Fposix_search_forward, 1, 5, "sPosix search: ", /*
 Search forward from point for regular expression REGEXP.
 Find the longest match in accord with Posix regular expression rules.
 Set point to the end of the occurrence found, and return point.
-An optional second argument bounds the search; it is a buffer position.
-The match found must not extend after that position.
-Optional third argument, if t, means if fail just return nil (no error).
-  If not nil and not t, move to limit of search and return nil.
-Optional fourth argument is repeat count--search for successive occurrences.
+
+Optional second argument LIMIT bounds the search; it is a buffer
+position.  The match found must not extend after that position.  The
+value nil is equivalent to (point-max).
+
+Optional third argument NOERROR, if t, means just return nil (no
+error) if the search fails.  If neither nil nor t, set point to LIMIT
+and return nil.
+
+Optional fourth argument COUNT is a repeat count--search for
+successive occurrences.
+
 Optional fifth argument BUFFER specifies the buffer to search in and
- defaults to the current buffer.
+defaults to the current buffer.
+
 See also the functions `match-beginning', `match-end' and `replace-match'.
 */
-       (regexp, bound, no_error, count, buffer))
+       (regexp, limit, noerror, count, buffer))
 {
-  return search_command (regexp, bound, no_error, count, buffer, 1, 1, 1);
+  return search_command (regexp, limit, noerror, count, buffer, 1, 1, 1);
 }
 
 
@@ -1801,18 +1866,18 @@ free_created_dynarrs (Lisp_Object cons)
 }
 
 DEFUN ("replace-match", Freplace_match, 1, 5, 0, /*
-Replace text matched by last search with NEWTEXT.
+Replace text matched by last search with REPLACEMENT.
 If second arg FIXEDCASE is non-nil, do not alter case of replacement text.
 Otherwise maybe capitalize the whole text, or maybe just word initials,
 based on the replaced text.
 If the replaced text has only capital letters
-and has at least one multiletter word, convert NEWTEXT to all caps.
+and has at least one multiletter word, convert REPLACEMENT to all caps.
 If the replaced text has at least one word starting with a capital letter,
-then capitalize each word in NEWTEXT.
+then capitalize each word in REPLACEMENT.
 
-If third arg LITERAL is non-nil, insert NEWTEXT literally.
+If third arg LITERAL is non-nil, insert REPLACEMENT literally.
 Otherwise treat `\\' as special:
-  `\\&' in NEWTEXT means substitute original matched text.
+  `\\&' in REPLACEMENT means substitute original matched text.
   `\\N' means substitute what matched the Nth `\\(...\\)'.
        If Nth parens didn't match, substitute nothing.
   `\\\\' means insert one `\\'.
@@ -1831,11 +1896,11 @@ In that case, this function creates and returns a new string
 which is made by replacing the part of STRING that was matched.
 When fourth argument is a string, fifth argument STRBUFFER specifies
 the buffer to be used for syntax-table and case-table lookup and
-defaults to the current buffer. (When fourth argument is not a string,
+defaults to the current buffer.  When fourth argument is not a string,
 the buffer that the match occurred in has automatically been remembered
-and you do not need to specify it.)
+and you do not need to specify it.
 */
-       (newtext, fixedcase, literal, string, strbuffer))
+       (replacement, fixedcase, literal, string, strbuffer))
 {
   /* This function has been Mule-ized. */
   /* This function can GC */
@@ -1855,7 +1920,7 @@ and you do not need to specify it.)
   int_dynarr *ul_pos_dynarr = 0;
   int speccount;
 
-  CHECK_STRING (newtext);
+  CHECK_STRING (replacement);
 
   if (! NILP (string))
     {
@@ -1979,10 +2044,10 @@ and you do not need to specify it.)
       before = Fsubstring (string, Qzero, make_int (search_regs.start[0]));
       after = Fsubstring (string, make_int (search_regs.end[0]), Qnil);
 
-      /* Do case substitution into NEWTEXT if desired.  */
+      /* Do case substitution into REPLACEMENT if desired.  */
       if (NILP (literal))
 	{
-	  Charcount stlen = XSTRING_CHAR_LENGTH (newtext);
+	  Charcount stlen = XSTRING_CHAR_LENGTH (replacement);
 	  Charcount strpos;
 	  /* XEmacs change: rewrote this loop somewhat to make it
 	     cleaner.  Also added \U, \E, etc. */
@@ -2009,10 +2074,10 @@ and you do not need to specify it.)
 	      Charcount substart = -1;
 	      Charcount subend   = -1;
 
-	      c = string_char (XSTRING (newtext), strpos);
+	      c = string_char (XSTRING (replacement), strpos);
 	      if (c == '\\' && strpos < stlen - 1)
 		{
-		  c = string_char (XSTRING (newtext), ++strpos);
+		  c = string_char (XSTRING (replacement), ++strpos);
 		  if (c == '&')
 		    {
 		      literal_end = strpos - 1;
@@ -2061,7 +2126,7 @@ and you do not need to specify it.)
 		  Lisp_Object literal_text = Qnil;
 		  Lisp_Object substring = Qnil;
 		  if (literal_end != literal_start)
-		    literal_text = Fsubstring (newtext,
+		    literal_text = Fsubstring (replacement,
 					       make_int (literal_start),
 					       make_int (literal_end));
 		  if (substart >= 0 && subend != substart)
@@ -2076,29 +2141,33 @@ and you do not need to specify it.)
 
 	  if (strpos != literal_start)
 	    /* some literal text at end to be inserted */
-	    newtext = concat2 (accum, Fsubstring (newtext,
-						  make_int (literal_start),
-						  make_int (strpos)));
+	    replacement = concat2 (accum, Fsubstring (replacement,
+						      make_int (literal_start),
+						      make_int (strpos)));
 	  else
-	    newtext = accum;
+	    replacement = accum;
 	}
 
+      /* replacement can be nil. */
+      if (NILP (replacement))
+	replacement = build_string ("");
+
       if (case_action == all_caps)
-	newtext = Fupcase (newtext, buffer);
+	replacement = Fupcase (replacement, buffer);
       else if (case_action == cap_initial)
-	newtext = Fupcase_initials (newtext, buffer);
+	replacement = Fupcase_initials (replacement, buffer);
 
       /* Now finally, we need to process the \U's, \E's, etc. */
       if (ul_pos_dynarr)
 	{
 	  int i = 0;
 	  int cur_action = 'E';
-	  Charcount stlen = XSTRING_CHAR_LENGTH (newtext);
+	  Charcount stlen = XSTRING_CHAR_LENGTH (replacement);
 	  Charcount strpos;
 
 	  for (strpos = 0; strpos < stlen; strpos++)
 	    {
-	      Emchar curchar = string_char (XSTRING (newtext), strpos);
+	      Emchar curchar = string_char (XSTRING (replacement), strpos);
 	      Emchar newchar = -1;
 	      if (i < Dynarr_length (ul_pos_dynarr) &&
 		  strpos == Dynarr_at (ul_pos_dynarr, i))
@@ -2122,13 +2191,13 @@ and you do not need to specify it.)
 		    newchar = curchar;
 		}
 	      if (newchar != curchar)
-		set_string_char (XSTRING (newtext), strpos, newchar);
+		set_string_char (XSTRING (replacement), strpos, newchar);
 	    }
 	}
 
       /* frees the Dynarrs if necessary. */
       unbind_to (speccount, Qnil);
-      return concat3 (before, newtext, after);
+      return concat3 (before, replacement, after);
     }
 
   mc_count = begin_multiple_change (buf, search_regs.start[0],
@@ -2144,21 +2213,21 @@ and you do not need to specify it.)
      position in the replacement.  */
   BUF_SET_PT (buf, search_regs.start[0]);
   if (!NILP (literal))
-    Finsert (1, &newtext);
+    Finsert (1, &replacement);
   else
     {
-      Charcount stlen = XSTRING_CHAR_LENGTH (newtext);
+      Charcount stlen = XSTRING_CHAR_LENGTH (replacement);
       Charcount strpos;
       struct gcpro gcpro1;
-      GCPRO1 (newtext);
+      GCPRO1 (replacement);
       for (strpos = 0; strpos < stlen; strpos++)
 	{
 	  Charcount offset = BUF_PT (buf) - search_regs.start[0];
 
-	  c = string_char (XSTRING (newtext), strpos);
+	  c = string_char (XSTRING (replacement), strpos);
 	  if (c == '\\' && strpos < stlen - 1)
 	    {
-	      c = string_char (XSTRING (newtext), ++strpos);
+	      c = string_char (XSTRING (replacement), ++strpos);
 	      if (c == '&')
 		Finsert_buffer_substring
                   (buffer,
@@ -2498,19 +2567,19 @@ restore_match_data (void)
 DEFUN ("regexp-quote", Fregexp_quote, 1, 1, 0, /*
 Return a regexp string which matches exactly STRING and nothing else.
 */
-       (str))
+       (string))
 {
   REGISTER Bufbyte *in, *out, *end;
   REGISTER Bufbyte *temp;
 
-  CHECK_STRING (str);
+  CHECK_STRING (string);
 
-  temp = (Bufbyte *) alloca (XSTRING_LENGTH (str) * 2);
+  temp = (Bufbyte *) alloca (XSTRING_LENGTH (string) * 2);
 
   /* Now copy the data into the new string, inserting escapes. */
 
-  in = XSTRING_DATA (str);
-  end = in + XSTRING_LENGTH (str);
+  in = XSTRING_DATA (string);
+  end = in + XSTRING_LENGTH (string);
   out = temp;
 
   while (in < end)

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/symbols.info
 @node Symbols, Evaluation, Sequences Arrays Vectors, Top
@@ -532,7 +532,7 @@ stored in the property list @var{plist}.  For example,
 @end example
 @end defun
 
-@defun putf plist property value
+@defmac putf plist property value
 This stores @var{value} as the value of the @var{property} property in
 the property list @var{plist}.  It may modify @var{plist} destructively,
 or it may construct a new list structure without altering the old.  The
@@ -547,7 +547,7 @@ in the place where you got @var{plist}.  For example,
 (setq my-plist (putf my-plist 'quux '(a)))
      @result{} (quux (a) bar t foo 5)
 @end example
-@end defun
+@end defmac
 
 @defun plists-eq a b
 This function returns non-@code{nil} if property lists @var{a} and @var{b}

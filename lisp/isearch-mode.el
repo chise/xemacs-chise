@@ -180,8 +180,8 @@ an overlay having an `invisible' property and that overlay has a property
 This variable makes a difference when `search-invisible' is set to `open'.
 It means that after search makes some invisible text visible
 to show the match, it makes the text invisible again when the match moves.
-Ordinarily the text becomes invisible again at the end of the search."  
-  :type 'boolean 
+Ordinarily the text becomes invisible again at the end of the search."
+  :type 'boolean
   :group 'isearch)
 
 (defvar isearch-mode-hook nil
@@ -674,7 +674,7 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 (defun isearch-update-ring (string &optional regexp)
   "Add STRING to the beginning of the search ring.
 REGEXP says which ring to use."
-  (if regexp 
+  (if regexp
       (if (or (null regexp-search-ring)
 	      (not (string= string (car regexp-search-ring))))
 	  (progn
@@ -1722,18 +1722,18 @@ If there is no completion possible, say so and continue searching."
   (put extent 'invisible nil)
   (put extent 'intangible nil))
 
-(defun isearch-range-invisible (beg end)
-  "Return t if all the text from BEG to END is invisible.
+(defun isearch-range-invisible (start end)
+  "Return t if all the text from START to END is invisible.
 Before that, if search-invisible is `open', unhide the extents with an
 `isearch-open-invisible' property."
   ;; isearch-search uses this to skip the extents that are invisible,
   ;; but don't have `isearch-open-invisible' set.  It is unclear
-  ;; what's supposed to happen if only a part of [BEG, END) overlaps
+  ;; what's supposed to happen if only a part of [START, END) overlaps
   ;; the extent.
   (let (to-be-unhidden)
     (if (map-extents
 	 (lambda (extent ignored)
-	   (if (and (<= (extent-start-position extent) beg)
+	   (if (and (<= (extent-start-position extent) start)
 		    (>= (extent-end-position extent) end))
 	       ;; All of the region is covered by the extent.
 	       (if (and (eq search-invisible 'open)
@@ -1747,7 +1747,7 @@ Before that, if search-invisible is `open', unhide the extents with an
 		 t)
 	     ;; Else, keep looking.
 	     nil))
-	 nil beg end nil 'all-extents-closed 'invisible)
+	 nil start end nil 'all-extents-closed 'invisible)
 	;; The whole match must be skipped.  Signal it by returning t
 	;; to the caller.
 	t
@@ -1766,9 +1766,9 @@ Before that, if search-invisible is `open', unhide the extents with an
   (remprop extent 'isearch-intangible))
 
 ;; FSF calls this function `isearch-clean-overlays'.
-(defun isearch-restore-invisible-extents (beg end)
+(defun isearch-restore-invisible-extents (start end)
   (cond
-   ((null beg)
+   ((null start)
     ;; Delete all -- this is called at the end of isearch.
     (mapc #'isearch-restore-extent isearch-unhidden-extents)
     (setq isearch-unhidden-extents nil))
@@ -1777,7 +1777,7 @@ Before that, if search-invisible is `open', unhide the extents with an
     ;; restored to their hidden state.
     (setq isearch-unhidden-extents
 	  (delete-if (lambda (extent)
-		       (unless (extent-in-region-p extent beg end
+		       (unless (extent-in-region-p extent start end
 						   'all-extents-closed)
 			 (isearch-restore-extent extent)
 			 t))

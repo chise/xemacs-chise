@@ -56,7 +56,7 @@ That becomes the \"string to replace\".")
 (defvar replace-search-function
   (lambda (str limit)
     (search-forward str limit t))
-  "Function used by perform-replace to search forward for a string. It will be 
+  "Function used by perform-replace to search forward for a string. It will be
 called with two arguments: the string to search for and a limit bounding the
 search.")
 
@@ -322,7 +322,7 @@ Alternatively, click \\[occur-mode-mouse-goto] on an item to go to it.
 
 (defun occur-mode-mouse-goto (event)
   "Go to the occurrence highlighted by mouse.
-This function is only reasonable when bound to a mouse key in the occur buffer"
+This function should be bound to a mouse key in the `*Occur*' buffer."
   (interactive "e")
   (let ((window-save (selected-window))
 	(frame-save (selected-frame)))
@@ -498,7 +498,7 @@ It serves as a menu to find any of the occurrences in this buffer.
 		    (insert "--------\n"))
 		(setq first nil)
 		(insert-buffer-substring buffer start end)
-		(set-marker final-context-start 
+		(set-marker final-context-start
 			    (- (point) (- end (match-end 0))))
 		(backward-char (- end start))
 		(setq tem (if (< nlines 0) (- nlines) nlines))
@@ -511,7 +511,7 @@ It serves as a menu to find any of the occurrences in this buffer.
 		    (if (null tag)
 			(setq tag (format "%5d" this-linenum)))
 		    (insert tag ?:)
-		    ;; FSFmacs -- 
+		    ;; FSFmacs --
 		    ;; we handle this using mode-motion-highlight-line, above.
 		    ;;		  (put-text-property (save-excursion
 		    ;;				       (beginning-of-line)
@@ -546,8 +546,7 @@ It serves as a menu to find any of the occurrences in this buffer.
 ;; It would be nice to use \\[...], but there is no reasonable way
 ;; to make that display both SPC and Y.
 (defconst query-replace-help
-  (purecopy
-   "Type Space or `y' to replace one match, Delete or `n' to skip to next,
+  "Type Space or `y' to replace one match, Delete or `n' to skip to next,
 RET or `q' to exit, Period to replace one match and exit,
 Comma to replace but not move point immediately,
 C-r to enter recursive edit (\\[exit-recursive-edit] to get out again),
@@ -555,7 +554,7 @@ C-w to delete match and recursive edit,
 C-l to clear the frame, redisplay, and offer same replacement again,
 ! to replace all remaining matches with no more questions,
 ^ to move point back to previous match."
-)
+
   "Help message while in query-replace")
 
 (defvar query-replace-map nil
@@ -596,7 +595,7 @@ The valid answers include `act', `skip', `act-and-show',
       (define-key map "\C-]" 'quit)
       ;FSFmacs (define-key map "\e" 'exit-prefix)
       (define-key map [escape] 'exit-prefix)
-      
+
       (setq query-replace-map map)))
 
 ;; isearch-mode is dumped, so don't autoload.
@@ -624,15 +623,16 @@ just as `query-replace' does.  Instead, write a simple loop like this:
   (while (re-search-forward \"foo[ \t]+bar\" nil t)
     (replace-match \"foobar\" nil nil))
 which will run faster and probably do exactly what you want.
-When searching for a match, this function use `replace-search-function' and `replace-re-search-function'"
+When searching for a match, this function uses
+`replace-search-function' and `replace-re-search-function'."
   (or map (setq map query-replace-map))
   (let* ((event (make-event))
 	 (nocasify (not (and case-fold-search case-replace
 			    (string-equal from-string
 					  (downcase from-string)))))
 	 (literal (not regexp-flag))
-	 (search-function (if regexp-flag 
-			      replace-re-search-function 
+	 (search-function (if regexp-flag
+			      replace-re-search-function
 			    replace-search-function))
 	 (search-string from-string)
 	 (real-match-data nil)		; the match data for the current match
@@ -692,7 +692,7 @@ When searching for a match, this function use `replace-search-function' and `rep
 			(if (or (eobp)
 				(and limit (>= (point) limit)))
 			    nil
-			  ;; Don't replace the null string 
+			  ;; Don't replace the null string
 			  ;; right after end of previous replacement.
 			  (forward-char 1)
 			  (let ((case-fold-search qr-case-fold-search))
@@ -705,7 +705,7 @@ When searching for a match, this function use `replace-search-function' and `rep
 	  ;; Before we make the replacement, decide whether the search string
 	  ;; can match again just after this match.
 	  (if regexp-flag
-	      (progn 
+	      (progn
 		(setq match-again (looking-at search-string))
 		;; XEmacs addition
 		(store-match-data real-match-data)))

@@ -46,7 +46,7 @@
 ;; Based on FSF code dating back to 1985.
 
 ;;; Code:
- 
+
 ;;;Trying to preserve the old window configuration works well in
 ;;;simple scenarios, when you enter the buffer menu, use it, and exit it.
 ;;;But it does strange things when you switch back to the buffer list buffer
@@ -321,7 +321,7 @@ This command deletes and replaces all the previously existing windows
 in the selected frame."
   (interactive)
   (let ((buff (Buffer-menu-buffer t))
-	(menu (current-buffer))	      
+	(menu (current-buffer))
 	(others ())
 	tem)
     (goto-char (point-min))
@@ -484,8 +484,8 @@ The current window remains selected."
 
 ;; XEmacs
 (defvar list-buffers-header-line
-  (purecopy (concat " MR Buffer           Size  Mode         File\n"
-                    " -- ------           ----  ----         ----\n")))
+  (concat " MR Buffer           Size  Mode         File\n"
+	  " -- ------           ----  ----         ----\n"))
 
 ;; XEmacs
 (defvar list-buffers-identification 'default-list-buffers-identification
@@ -567,7 +567,7 @@ to generate such a string.  This variable is always buffer-local.")
                                (progn (setq current (point)) ?\.)
                                ?\ ))
                    (insert (if (buffer-modified-p buffer)
-                               ?\* 
+                               ?\*
                                ?\ ))
                    (insert (if ro
                                ?\%
@@ -604,7 +604,7 @@ to generate such a string.  This variable is always buffer-local.")
   "Display a list of names of existing buffers.
 The list is displayed in a buffer named `*Buffer List*'.
 Note that buffers with names starting with spaces are omitted.
-Non-null optional arg FILES-ONLY means mention only file buffers.
+Non-nil optional arg FILES-ONLY means mention only file buffers.
 
 The M column contains a * for buffers that are modified.
 The R column contains a % for buffers that are read-only."
@@ -616,7 +616,7 @@ The R column contains a % for buffers that are read-only."
   "Create and return a buffer with a list of names of existing buffers.
 The buffer is named `*Buffer List*'.
 Note that buffers with names starting with spaces are omitted.
-Non-null optional arg FILES-ONLY means mention only file buffers.
+Non-nil optional arg FILES-ONLY means mention only file buffers.
 
 The M column contains a * for buffers that are modified.
 The R column contains a % for buffers that are read-only."

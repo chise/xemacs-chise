@@ -65,7 +65,7 @@
 
 ;; (setq font-ccl-encoder-alist
 ;;       (cons (cons "ethiopic" ccl-encode-ethio-font) font-ccl-encoder-alist))
-(set-charset-ccl-program 'ethiopic ccl-encode-ethio-font)
+(set-charset-ccl-program 'ethiopic 'ccl-encode-ethio-font)
 
 (set-language-info-alist
  "Ethiopic" '((setup-function . setup-ethiopic-environment-internal)

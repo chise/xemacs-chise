@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -33,7 +33,7 @@
 
 ;;; Code:
 
-(defun insert-file-contents (filename &optional visit beg end replace)
+(defun insert-file-contents (filename &optional visit start end replace)
   "Insert contents of file FILENAME after point.
 Returns list of absolute file name and length of data inserted.
 If second argument VISIT is non-nil, the buffer's visited filename
@@ -41,15 +41,15 @@ and last save file modtime are set, and it is marked unmodified.
 If visiting and the file does not exist, visiting is completed
 before the error is signaled.
 
-The optional third and fourth arguments BEG and END
+The optional third and fourth arguments START and END
 specify what portion of the file to insert.
-If VISIT is non-nil, BEG and END must be nil.
+If VISIT is non-nil, START and END must be nil.
 If optional fifth argument REPLACE is non-nil,
 it means replace the current buffer contents (in the accessible portion)
 with the file contents.  This is better than simply deleting and inserting
 the whole thing because (1) it preserves some marker positions
 and (2) it puts less data in the undo list."
-  (insert-file-contents-internal filename visit beg end replace nil nil))
+  (insert-file-contents-internal filename visit start end replace nil nil))
 
 (defun write-region (start end filename &optional append visit lockname coding-system)
   "Write current region into specified file.

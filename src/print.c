@@ -509,19 +509,19 @@ write_c_string (const char *str, Lisp_Object stream)
 
 
 DEFUN ("write-char", Fwrite_char, 1, 2, 0, /*
-Output character CH to stream STREAM.
+Output character CHARACTER to stream STREAM.
 STREAM defaults to the value of `standard-output' (which see).
 */
-       (ch, stream))
+       (character, stream))
 {
   /* This function can GC */
   Bufbyte str[MAX_EMCHAR_LEN];
   Bytecount len;
 
-  CHECK_CHAR_COERCE_INT (ch);
-  len = set_charptr_emchar (str, XCHAR (ch));
+  CHECK_CHAR_COERCE_INT (character);
+  len = set_charptr_emchar (str, XCHAR (character));
   output_string (canonicalize_printcharfun (stream), str, Qnil, 0, len);
-  return ch;
+  return character;
 }
 
 void
@@ -673,7 +673,7 @@ DEFUN ("princ", Fprinc, 1, 2, 0, /*
 Output the printed representation of OBJECT, any Lisp object.
 No quoting characters are used; no delimiters are printed around
 the contents of strings.
-Output stream is STREAM, or value of standard-output (which see).
+Output stream is STREAM, or value of `standard-output' (which see).
 */
        (object, stream))
 {
@@ -1604,22 +1604,24 @@ the output also will be logged to this file.
 }
 
 DEFUN ("open-termscript", Fopen_termscript, 1, 1, "FOpen termscript file: ", /*
-Start writing all terminal output to FILE as well as the terminal.
-FILE = nil means just close any termscript file currently open.
+Start writing all terminal output to FILENAME as well as the terminal.
+FILENAME = nil means just close any termscript file currently open.
 */
-       (file))
+       (filename))
 {
   /* This function can GC */
   if (termscript != 0)
-    fclose (termscript);
-  termscript = 0;
-
-  if (! NILP (file))
     {
-      file = Fexpand_file_name (file, Qnil);
-      termscript = fopen ((char *) XSTRING_DATA (file), "w");
+      fclose (termscript);
+      termscript = 0;
+    }
+
+  if (! NILP (filename))
+    {
+      filename = Fexpand_file_name (filename, Qnil);
+      termscript = fopen ((char *) XSTRING_DATA (filename), "w");
       if (termscript == NULL)
-	report_file_error ("Opening termscript", list1 (file));
+	report_file_error ("Opening termscript", list1 (filename));
     }
   return Qnil;
 }

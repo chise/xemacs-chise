@@ -94,6 +94,12 @@ Lisp_Object Vwrite_region_annotations_so_far;
 /* File name in which we write a list of all our auto save files.  */
 Lisp_Object Vauto_save_list_file_name;
 
+/* Prefix used to construct Vauto_save_list_file_name. */
+Lisp_Object Vauto_save_list_file_prefix;
+
+/* When non-nil, it prevents auto-save list file creation. */
+int inhibit_auto_save_session;
+
 int disable_auto_save_when_buffer_shrinks;
 
 Lisp_Object Vdirectory_sep_char;
@@ -393,31 +399,31 @@ call3_check_string (Lisp_Object fn, Lisp_Object arg0,
 
 
 DEFUN ("file-name-directory", Ffile_name_directory, 1, 1, 0, /*
-Return the directory component in file name NAME.
-Return nil if NAME does not include a directory.
+Return the directory component in file name FILENAME.
+Return nil if FILENAME does not include a directory.
 Otherwise return a directory spec.
 Given a Unix syntax file name, returns a string ending in slash.
 */
-       (file))
+       (filename))
 {
   /* This function can GC.  GC checked 2000-07-28 ben */
   Bufbyte *beg;
   Bufbyte *p;
   Lisp_Object handler;
 
-  CHECK_STRING (file);
+  CHECK_STRING (filename);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (file, Qfile_name_directory);
+  handler = Ffind_file_name_handler (filename, Qfile_name_directory);
   if (!NILP (handler))
-    return call2_check_string_or_nil (handler, Qfile_name_directory, file);
+    return call2_check_string_or_nil (handler, Qfile_name_directory, filename);
 
 #ifdef FILE_SYSTEM_CASE
-  file = FILE_SYSTEM_CASE (file);
+  filename = FILE_SYSTEM_CASE (filename);
 #endif
-  beg = XSTRING_DATA (file);
-  p = beg + XSTRING_LENGTH (file);
+  beg = XSTRING_DATA (filename);
+  p = beg + XSTRING_LENGTH (filename);
 
   while (p != beg && !IS_ANY_SEP (p[-1])
 #ifdef WIN32_NATIVE
@@ -452,27 +458,27 @@ Given a Unix syntax file name, returns a string ending in slash.
 }
 
 DEFUN ("file-name-nondirectory", Ffile_name_nondirectory, 1, 1, 0, /*
-Return file name NAME sans its directory.
+Return file name FILENAME sans its directory.
 For example, in a Unix-syntax file name,
 this is everything after the last slash,
 or the entire name if it contains no slash.
 */
-       (file))
+       (filename))
 {
   /* This function can GC.  GC checked 2000-07-28 ben */
   Bufbyte *beg, *p, *end;
   Lisp_Object handler;
 
-  CHECK_STRING (file);
+  CHECK_STRING (filename);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (file, Qfile_name_nondirectory);
+  handler = Ffind_file_name_handler (filename, Qfile_name_nondirectory);
   if (!NILP (handler))
-    return call2_check_string (handler, Qfile_name_nondirectory, file);
+    return call2_check_string (handler, Qfile_name_nondirectory, filename);
 
-  beg = XSTRING_DATA (file);
-  end = p = beg + XSTRING_LENGTH (file);
+  beg = XSTRING_DATA (filename);
+  end = p = beg + XSTRING_LENGTH (filename);
 
   while (p != beg && !IS_ANY_SEP (p[-1])
 #ifdef WIN32_NATIVE
@@ -493,7 +499,7 @@ If FILENAME is a directly usable file itself, return
 The `call-process' and `start-process' functions use this function to
 get a current directory to run processes in.
 */
-  (filename))
+       (filename))
 {
   /* This function can GC.  GC checked 2000-07-28 ben */
   Lisp_Object handler;
@@ -543,23 +549,23 @@ or passed as second argument to `expand-file-name'.
 For a Unix-syntax file name, just appends a slash,
 except for (file-name-as-directory \"\") => \"./\".
 */
-       (file))
+       (filename))
 {
   /* This function can GC.  GC checked 2000-07-28 ben */
   char *buf;
   Lisp_Object handler;
 
-  CHECK_STRING (file);
+  CHECK_STRING (filename);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (file, Qfile_name_as_directory);
+  handler = Ffind_file_name_handler (filename, Qfile_name_as_directory);
   if (!NILP (handler))
-    return call2_check_string (handler, Qfile_name_as_directory, file);
+    return call2_check_string (handler, Qfile_name_as_directory, filename);
 
-  buf = (char *) alloca (XSTRING_LENGTH (file) + 10);
+  buf = (char *) alloca (XSTRING_LENGTH (filename) + 10);
   return build_string (file_name_as_directory
-		       (buf, (char *) XSTRING_DATA (file)));
+		       (buf, (char *) XSTRING_DATA (filename)));
 }
 
 /*
@@ -588,8 +594,8 @@ directory_file_name (const char *src, char *dst)
 }
 
 DEFUN ("directory-file-name", Fdirectory_file_name, 1, 1, 0, /*
-Return the file name of the directory named DIR.
-This is the name of the file that holds the data for the directory DIR.
+Return the file name of the directory named DIRECTORY.
+This is the name of the file that holds the data for the directory.
 This operation exists because a directory is also a file, but its name as
 a directory is different from its name as a file.
 In Unix-syntax, this function just removes the final slash.
@@ -731,7 +737,7 @@ DEFUN ("expand-file-name", Fexpand_file_name, 1, 2, 0, /*
 Convert filename NAME to absolute, and canonicalize it.
 Second arg DEFAULT-DIRECTORY is directory to start with if NAME is relative
  (does not start with slash); if DEFAULT-DIRECTORY is nil or missing,
-the current buffer's value of default-directory is used.
+the current buffer's value of `default-directory' is used.
 File name components that are `.' are removed, and
 so are file name components followed by `..', along with the `..' itself;
 note that these simplifications are done without checking the resulting
@@ -1247,10 +1253,10 @@ See also the function `substitute-in-file-name'.
 }
 
 DEFUN ("file-truename", Ffile_truename, 1, 2, 0, /*
-Return the canonical name of the given FILE.
-Second arg DEFAULT is directory to start with if FILE is relative
+Return the canonical name of FILENAME.
+Second arg DEFAULT is directory to start with if FILENAME is relative
  (does not start with slash); if DEFAULT is nil or missing,
- the current buffer's value of default-directory is used.
+ the current buffer's value of `default-directory' is used.
 No component of the resulting pathname will be a symbolic link, as
  in the realpath() function.
 */
@@ -1389,12 +1395,11 @@ DEFUN ("substitute-in-file-name", Fsubstitute_in_file_name, 1, 1, 0, /*
 Substitute environment variables referred to in FILENAME.
 `$FOO' where FOO is an environment variable name means to substitute
 the value of that variable.  The variable name should be terminated
-with a character not a letter, digit or underscore; otherwise, enclose
+with a character, not a letter, digit or underscore; otherwise, enclose
 the entire variable name in braces.
 If `/~' appears, all of FILENAME through that `/' is discarded.
-
 */
-       (string))
+       (filename))
 {
   /* This function can GC.  GC checked 2000-07-28 ben. */
   Bufbyte *nm;
@@ -1406,17 +1411,17 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
   Bufbyte *xnm;
   Lisp_Object handler;
 
-  CHECK_STRING (string);
+  CHECK_STRING (filename);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (string, Qsubstitute_in_file_name);
+  handler = Ffind_file_name_handler (filename, Qsubstitute_in_file_name);
   if (!NILP (handler))
     return call2_check_string_or_nil (handler, Qsubstitute_in_file_name,
-				      string);
+				      filename);
 
-  nm = XSTRING_DATA (string);
-  endp = nm + XSTRING_LENGTH (string);
+  nm = XSTRING_DATA (filename);
+  endp = nm + XSTRING_LENGTH (filename);
 
   /* If /~ or // appears, discard everything through first slash. */
 
@@ -1496,11 +1501,11 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
       }
 
   if (!substituted)
-    return string;
+    return filename;
 
-  /* If substitution required, recopy the string and do it */
+  /* If substitution required, recopy the filename and do it */
   /* Make space in stack frame for the new copy */
-  xnm = (Bufbyte *) alloca (XSTRING_LENGTH (string) + total + 1);
+  xnm = (Bufbyte *) alloca (XSTRING_LENGTH (filename) + total + 1);
   x = xnm;
 
   /* Copy the rest of the name through, replacing $ constructs with values */
@@ -1572,13 +1577,13 @@ If `/~' appears, all of FILENAME through that `/' is discarded.
   return make_string (xnm, x - xnm);
 
  badsubst:
-  syntax_error ("Bad format environment-variable substitution", string);
+  syntax_error ("Bad format environment-variable substitution", filename);
  missingclose:
   syntax_error ("Missing \"}\" in environment-variable substitution",
-		string);
+		filename);
  badvar:
   syntax_error_2 ("Substituting nonexistent environment variable",
-		  string, build_string (target));
+		  filename, build_string ((char *) target));
 
   /* NOTREACHED */
   return Qnil;	/* suppress compiler warning */
@@ -1662,7 +1667,7 @@ barf_or_query_if_file_exists (Lisp_Object absname, const char *querystring,
 
 DEFUN ("copy-file", Fcopy_file, 2, 4,
        "fCopy file: \nFCopy %s to file: \np\nP", /*
-Copy FILE to NEWNAME.  Both args must be strings.
+Copy FILENAME to NEWNAME.  Both args must be strings.
 Signals a `file-already-exists' error if file NEWNAME already exists,
 unless a third argument OK-IF-ALREADY-EXISTS is supplied and non-nil.
 A number as third arg means request confirmation if NEWNAME already exists.
@@ -1922,8 +1927,8 @@ internal_delete_file (Lisp_Object filename)
 
 DEFUN ("rename-file", Frename_file, 2, 3,
        "fRename file: \nFRename %s to file: \np", /*
-Rename FILE as NEWNAME.  Both args strings.
-If file has names other than FILE, it continues to have those names.
+Rename FILENAME as NEWNAME.  Both args must be strings.
+If file has names other than FILENAME, it continues to have those names.
 Signals a `file-already-exists' error if a file NEWNAME already exists
 unless optional third argument OK-IF-ALREADY-EXISTS is non-nil.
 A number as third arg means request confirmation if NEWNAME already exists.
@@ -2006,7 +2011,7 @@ This is what happens in interactive use with M-x.
 
 DEFUN ("add-name-to-file", Fadd_name_to_file, 2, 3,
        "fAdd name to file: \nFName to add to %s: \np", /*
-Give FILE additional name NEWNAME.  Both args strings.
+Give FILENAME additional name NEWNAME.  Both args must be strings.
 Signals a `file-already-exists' error if a file NEWNAME already exists
 unless optional third argument OK-IF-ALREADY-EXISTS is non-nil.
 A number as third arg means request confirmation if NEWNAME already exists.
@@ -2494,7 +2499,7 @@ This is the sort of file that holds an ordinary stream of data bytes.
 }
 
 DEFUN ("file-modes", Ffile_modes, 1, 1, 0, /*
-Return mode bits of FILE, as an integer.
+Return mode bits of file named FILENAME, as an integer.
 */
        (filename))
 {
@@ -2531,7 +2536,7 @@ Return mode bits of FILE, as an integer.
 }
 
 DEFUN ("set-file-modes", Fset_file_modes, 2, 2, 0, /*
-Set mode bits of FILE to MODE (an integer).
+Set mode bits of file named FILENAME to MODE (an integer).
 Only the 12 low bits of MODE are used.
 */
        (filename, mode))
@@ -2563,9 +2568,9 @@ Only the 12 low bits of MODE are used.
 
 DEFUN ("set-default-file-modes", Fset_default_file_modes, 1, 1, 0, /*
 Set the file permission bits for newly created files.
-MASK should be an integer; if a permission's bit in MASK is 1,
-subsequently created files will not have that permission enabled.
-Only the low 9 bits are used.
+The argument MODE should be an integer; if a bit in MODE is 1,
+subsequently created files will not have the permission corresponding
+to that bit enabled.  Only the low 9 bits are used.
 This setting is inherited by subprocesses.
 */
        (mode))
@@ -2669,13 +2674,12 @@ it should be a symbol, and the actual coding system that was used for the
 decoding is stored into it.  It will in general be different from CODESYS
 if CODESYS specifies automatic encoding detection or end-of-line detection.
 
-Currently BEG and END refer to byte positions (as opposed to character
+Currently START and END refer to byte positions (as opposed to character
 positions), even in Mule. (Fixing this is very difficult.)
 */
-       (filename, visit, beg, end, replace, codesys, used_codesys))
+       (filename, visit, start, end, replace, codesys, used_codesys))
 {
   /* This function can call lisp */
-  /* #### dmoore - this function hasn't been checked for gc recently */
   struct stat st;
   int fd;
   int saverrno = 0;
@@ -2720,7 +2724,7 @@ positions), even in Mule. (Fixing this is very difficult.)
   if (!NILP (handler))
     {
       val = call6 (handler, Qinsert_file_contents, filename,
-		   visit, beg, end, replace);
+		   visit, start, end, replace);
       goto handled;
     }
 
@@ -2729,7 +2733,7 @@ positions), even in Mule. (Fixing this is very difficult.)
     CHECK_SYMBOL (used_codesys);
 #endif
 
-  if ( (!NILP (beg) || !NILP (end)) && !NILP (visit) )
+  if ( (!NILP (start) || !NILP (end)) && !NILP (visit) )
     error ("Attempt to visit less than an entire file");
 
   fd = -1;
@@ -2746,7 +2750,7 @@ positions), even in Mule. (Fixing this is very difficult.)
 
 #ifdef S_IFREG
   /* Signal an error if we are accessing a non-regular file, with
-     REPLACE, BEG or END being non-nil.  */
+     REPLACE, START or END being non-nil.  */
   if (!S_ISREG (st.st_mode))
     {
       not_regular = 1;
@@ -2754,21 +2758,22 @@ positions), even in Mule. (Fixing this is very difficult.)
       if (!NILP (visit))
 	goto notfound;
 
-      if (!NILP (replace) || !NILP (beg) || !NILP (end))
+      if (!NILP (replace) || !NILP (start) || !NILP (end))
 	{
 	  end_multiple_change (buf, mc_count);
 
-	  return Fsignal (Qfile_error,
-			  list2 (build_translated_string("not a regular file"),
-				 filename));
+	  RETURN_UNGCPRO
+	    (Fsignal (Qfile_error,
+		      list2 (build_translated_string("not a regular file"),
+			     filename)));
 	}
     }
 #endif /* S_IFREG */
 
-  if (!NILP (beg))
-    CHECK_INT (beg);
+  if (!NILP (start))
+    CHECK_INT (start);
   else
-    beg = Qzero;
+    start = Qzero;
 
   if (!NILP (end))
     CHECK_INT (end);
@@ -2911,7 +2916,7 @@ positions), even in Mule. (Fixing this is very difficult.)
 	same_at_end += overlap;
 
       /* Arrange to read only the nonmatching middle part of the file.  */
-      beg = make_int (same_at_start - BUF_BEGV (buf));
+      start = make_int (same_at_start - BUF_BEGV (buf));
       end = make_int (st.st_size - (BUF_ZV (buf) - same_at_end));
 
       buffer_delete_range (buf, same_at_start, same_at_end,
@@ -2923,7 +2928,7 @@ positions), even in Mule. (Fixing this is very difficult.)
 
   if (!not_regular)
     {
-      total = XINT (end) - XINT (beg);
+      total = XINT (end) - XINT (start);
 
       /* Make sure point-max won't overflow after this insertion.  */
       if (total != XINT (make_int (total)))
@@ -2934,7 +2939,7 @@ positions), even in Mule. (Fixing this is very difficult.)
        will make the stream functions read as much as possible.  */
     total = -1;
 
-  if (XINT (beg) != 0
+  if (XINT (start) != 0
 #ifdef FSFMACS_SPEEDY_INSERT
       /* why was this here? asked jwz.  The reason is that the replace-mode
 	 connivings above will normally put the file pointer other than
@@ -2943,7 +2948,7 @@ positions), even in Mule. (Fixing this is very difficult.)
 #endif /* !FSFMACS_SPEEDY_INSERT */
       )
     {
-      if (lseek (fd, XINT (beg), 0) < 0)
+      if (lseek (fd, XINT (start), 0) < 0)
 	report_file_error ("Setting file position", list1 (filename));
     }
 
@@ -3027,6 +3032,9 @@ positions), even in Mule. (Fixing this is very difficult.)
 	     it could be called here.  But that's just silly.
 	     There's no reason C code can't call out to Lisp
 	     code, and it's a lot cleaner this way. */
+	  /*  Note: compute-buffer-file-truename is called for
+	      side-effect!  Its return value is intentionally
+	      ignored. */
 	  if (!NILP (Ffboundp (Qcompute_buffer_file_truename)))
 	    call1 (Qcompute_buffer_file_truename, make_buffer (buf));
 	}
@@ -3647,18 +3655,18 @@ Decrypt STRING using KEY.
 
 
 DEFUN ("verify-visited-file-modtime", Fverify_visited_file_modtime, 1, 1, 0, /*
-Return t if last mod time of BUF's visited file matches what BUF records.
+Return t if last mod time of BUFFER's visited file matches what BUFFER records.
 This means that the file has not been changed since it was visited or saved.
 */
-       (buf))
+       (buffer))
 {
   /* This function can call lisp; GC checked 2000-07-11 ben */
   struct buffer *b;
   struct stat st;
   Lisp_Object handler;
 
-  CHECK_BUFFER (buf);
-  b = XBUFFER (buf);
+  CHECK_BUFFER (buffer);
+  b = XBUFFER (buffer);
 
   if (!STRINGP (b->filename)) return Qt;
   if (b->modtime == 0) return Qt;
@@ -3668,7 +3676,7 @@ This means that the file has not been changed since it was visited or saved.
   handler = Ffind_file_name_handler (b->filename,
                                      Qverify_visited_file_modtime);
   if (!NILP (handler))
-    return call2 (handler, Qverify_visited_file_modtime, buf);
+    return call2 (handler, Qverify_visited_file_modtime, buffer);
 
   if (xemacs_stat ((char *) XSTRING_DATA (b->filename), &st) < 0)
     {
@@ -3982,7 +3990,9 @@ Non-nil second argument means save only current buffer.
 	      /* Open the auto-save list file, if necessary.
 		 We only do this now so that the file only exists
 		 if we actually auto-saved any files. */
-	      if (!auto_saved && STRINGP (listfile) && listdesc < 0)
+	      if (!auto_saved && !inhibit_auto_save_session
+		  && !NILP (Vauto_save_list_file_prefix)
+		  && STRINGP (listfile) && listdesc < 0)
 		{
 		  listdesc = open ((char *) XSTRING_DATA (listfile),
 				   O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
@@ -4297,6 +4307,18 @@ The operation for which `inhibit-file-name-handlers' is applicable.
 File name in which we write a list of all auto save file names.
 */ );
   Vauto_save_list_file_name = Qnil;
+
+  DEFVAR_LISP ("auto-save-list-file-prefix", &Vauto_save_list_file_prefix /*
+Prefix for generating auto-save-list-file-name.
+Emacs's pid and the system name will be appended to
+this prefix to create a unique file name.
+*/ );
+  Vauto_save_list_file_prefix = build_string ("~/.saves-");
+
+  DEFVAR_BOOL ("inhibit-auto-save-session", &inhibit_auto_save_session /*
+When non-nil, inhibit auto save list file creation.
+*/ );
+  inhibit_auto_save_session = 0;
 
   DEFVAR_BOOL ("disable-auto-save-when-buffer-shrinks",
 	       &disable_auto_save_when_buffer_shrinks /*

@@ -22,7 +22,7 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;; Synched up with: FSF 20.2
+;; Synched up with: FSF 21.0.90
 
 ;;; Commentary:
 
@@ -39,66 +39,17 @@
 ;; combination of three or more arithmetic operations can be
 ;; calculated faster than Emacs Lisp.
 ;;
-;; Here's the syntax of CCL program in BNF notation.
-;;
-;; CCL_PROGRAM :=
-;;	(BUFFER_MAGNIFICATION
-;;	 CCL_MAIN_BLOCK
-;;	 [ CCL_EOF_BLOCK ])
-;;
-;; BUFFER_MAGNIFICATION := integer
-;; CCL_MAIN_BLOCK := CCL_BLOCK
-;; CCL_EOF_BLOCK := CCL_BLOCK
-;;
-;; CCL_BLOCK :=
-;;	STATEMENT | (STATEMENT [STATEMENT ...])
-;; STATEMENT :=
-;;	SET | IF | BRANCH | LOOP | REPEAT | BREAK | READ | WRITE | CALL
-;;
-;; SET :=
-;;	(REG = EXPRESSION)
-;;	| (REG ASSIGNMENT_OPERATOR EXPRESSION)
-;;	| integer
-;;
-;; EXPRESSION := ARG | (EXPRESSION OPERATOR ARG)
-;;
-;; IF := (if EXPRESSION CCL_BLOCK CCL_BLOCK)
-;; BRANCH := (branch EXPRESSION CCL_BLOCK [CCL_BLOCK ...])
-;; LOOP := (loop STATEMENT [STATEMENT ...])
-;; BREAK := (break)
-;; REPEAT :=
-;;	(repeat)
-;;	| (write-repeat [REG | integer | string])
-;;	| (write-read-repeat REG [integer | ARRAY])
-;; READ :=
-;;	(read REG ...)
-;;	| (read-if (REG OPERATOR ARG) CCL_BLOCK CCL_BLOCK)
-;;	| (read-branch REG CCL_BLOCK [CCL_BLOCK ...])
-;;      | (read-multibyte-character REG {charset} REG {code-point})
-;; WRITE :=
-;;	(write REG ...)
-;;	| (write EXPRESSION)
-;;	| (write integer) | (write string) | (write REG ARRAY)
-;;	| string
-;;      | (write-multibyte-character REG(charset) REG(codepoint))
-;; CALL := (call ccl-program-name)
-;; END := (end)
-;;
-;; REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
-;; ARG := REG | integer
-;; OPERATOR :=
-;;	+ | - | * | / | % | & | '|' | ^ | << | >> | <8 | >8 | //
-;;	| < | > | == | <= | >= | != | de-sjis | en-sjis
-;; ASSIGNMENT_OPERATOR :=
-;;	+= | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
-;; ARRAY := '[' integer ... ']'
+;; Syntax and semantics of CCL program is described in the
+;; documentation of `define-ccl-program'.
 
 ;;; Code:
 
 (defconst ccl-command-table
   [if branch loop break repeat write-repeat write-read-repeat
       read read-if read-branch write call end
-      read-multibyte-character write-multibyte-character]
+      read-multibyte-character write-multibyte-character
+      translate-character
+      iterate-multiple-map map-multiple map-single]
   "Vector of CCL commands (symbols).")
 
 ;; Put a property to each symbol of CCL commands for the compiler.
@@ -228,11 +179,26 @@
 ;; Embed integer DATA in `ccl-program-vector' at `ccl-current-ic' and
 ;; increment it.  If IC is specified, embed DATA at IC.
 (defun ccl-embed-data (data &optional ic)
-  (let ((val (if (characterp data) (char-int data) data)))
-    (if ic
-	(aset ccl-program-vector ic val)
-      (aset ccl-program-vector ccl-current-ic val)
-      (setq ccl-current-ic (1+ ccl-current-ic)))))
+  (if (characterp data)
+      (setq data (char-int data)))
+  (if ic
+      (aset ccl-program-vector ic data)
+    (let ((len (length ccl-program-vector)))
+      (if (>= ccl-current-ic len)
+	  (let ((new (make-vector (* len 2) nil)))
+	    (while (> len 0)
+	      (setq len (1- len))
+	      (aset new len (aref ccl-program-vector len)))
+	    (setq ccl-program-vector new))))
+    (aset ccl-program-vector ccl-current-ic data)
+    (setq ccl-current-ic (1+ ccl-current-ic))))
+
+;; Embed pair of SYMBOL and PROP where (get SYMBOL PROP) should give
+;; proper index number for SYMBOL.  PROP should be
+;; `translation-table-id', `code-conversion-map-id', or
+;; `ccl-program-idx'.
+(defun ccl-embed-symbol (symbol prop)
+  (ccl-embed-data (cons symbol prop)))
 
 ;; Embed string STR of length LEN in `ccl-program-vector' at
 ;; `ccl-current-ic'.
@@ -280,8 +246,7 @@
 			  (logior (ash (get reg2 'ccl-register-number) 8)
 				  (ash data 11))
 			(ash data 8)))))
-    (aset ccl-program-vector ccl-current-ic code)
-    (setq ccl-current-ic (1+ ccl-current-ic))))
+    (ccl-embed-data code)))
 
 ;; extended ccl command format
 ;;	|- 14-bit -|- 3-bit --|- 3-bit --|- 3-bit --|- 5-bit -|
@@ -297,18 +262,6 @@
 (defun ccl-increment-ic (inc)
   (setq ccl-current-ic (+ ccl-current-ic inc)))
 
-;;;###autoload
-(defun ccl-program-p (obj)
-  "Return t if OBJECT is a valid CCL compiled code."
-  (and (vectorp obj)
-       (let ((i 0) (len (length obj)) (flag t))
-	 (if (> len 1)
-	     (progn
-	       (while (and flag (< i len))
-		 (setq flag (integerp (aref obj i)))
-		 (setq i (1+ i)))
-	       flag)))))
-
 ;; If non-nil, index of the start of the current loop.
 (defvar ccl-loop-head nil)
 ;; If non-nil, list of absolute addresses of the breaking points of
@@ -319,7 +272,7 @@
 (defun ccl-compile (ccl-program)
   "Return a compiled code of CCL-PROGRAM as a vector of integer."
   (if (or (null (consp ccl-program))
-	  (null (integer-or-char-p (car ccl-program)))
+	  (null (integerp (car ccl-program)))
 	  (null (listp (car (cdr ccl-program)))))
       (error "CCL: Invalid CCL program: %s" ccl-program))
   (if (null (vectorp ccl-program-vector))
@@ -479,7 +432,8 @@
 	  (setq left 'r7)))
 
     ;; Now EXPR has the form (LEFT OP RIGHT).
-    (if (eq rrr left)
+    (if (and (eq rrr left)
+	     (< op (length ccl-assign-arith-table)))
 	;; Compile this SET statement as `(RRR OP= RIGHT)'.
 	(if (integer-or-char-p right)
 	    (progn
@@ -501,6 +455,7 @@
 
 ;; Compile WRITE statement with string argument.
 (defun ccl-compile-write-string (str)
+  (setq str (encode-coding-string str 'binary))
   (let ((len (length str)))
     (ccl-embed-code 'write-const-string 1 len)
     (ccl-embed-string len str))
@@ -712,6 +667,7 @@
 	   (ccl-embed-code 'write-const-jump 0 ccl-loop-head)
 	   (ccl-embed-data arg))
 	  ((stringp arg)
+	   (setq arg (encode-coding-string arg 'binary))
 	   (let ((len (length arg))
 		 (i 0))
 	     (ccl-embed-code 'write-string-jump 0 ccl-loop-head)
@@ -825,11 +781,8 @@
       (error "CCL: Invalid number of arguments: %s" cmd))
   (if (not (symbolp (nth 1 cmd)))
       (error "CCL: Subroutine should be a symbol: %s" cmd))
-  (let* ((name (nth 1 cmd))
-	 (idx (get name 'ccl-program-idx)))
-    (if (not idx)
-	(error "CCL: Unknown subroutine name: %s" name))
-    (ccl-embed-code 'call 0 idx))
+  (ccl-embed-code 'call 1 0)
+  (ccl-embed-symbol (nth 1 cmd) 'ccl-program-idx)
   nil)
 
 ;; Compile END statement.
@@ -862,97 +815,99 @@
   nil)
 
 ;; Compile translate-character
-;; (defun ccl-compile-translate-character (cmd)
-;;   (if (/= (length cmd) 4)
-;;       (error "CCL: Invalid number of arguments: %s" cmd))
-;;   (let ((Rrr (nth 1 cmd))
-;;         (RRR (nth 2 cmd))
-;;         (rrr (nth 3 cmd)))
-;;     (ccl-check-register rrr cmd)
-;;     (ccl-check-register RRR cmd)
-;;     (cond ((and (symbolp Rrr) (not (get Rrr 'ccl-register-number)))
-;;            (if (not (get Rrr 'translation-table))
-;;                (error "CCL: Invalid translation table %s in %s" Rrr cmd))
-;;            (ccl-embed-extended-command 'translate-character-const-tbl
-;;                                        rrr RRR 0)
-;;            (ccl-embed-data Rrr))
-;;           (t
-;;            (ccl-check-register Rrr cmd)
-;;            (ccl-embed-extended-command 'translate-character rrr RRR Rrr))))
-;;   nil)
+(defun ccl-compile-translate-character (cmd)
+  (if (/= (length cmd) 4)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let ((Rrr (nth 1 cmd))
+	(RRR (nth 2 cmd))
+	(rrr (nth 3 cmd)))
+    (ccl-check-register rrr cmd)
+    (ccl-check-register RRR cmd)
+    (cond ((and (symbolp Rrr) (not (get Rrr 'ccl-register-number)))
+	   (ccl-embed-extended-command 'translate-character-const-tbl
+				       rrr RRR 0)
+	   (ccl-embed-symbol Rrr 'translation-table-id))
+	  (t
+	   (ccl-check-register Rrr cmd)
+	   (ccl-embed-extended-command 'translate-character rrr RRR Rrr))))
+  nil)
 
-;; (defun ccl-compile-iterate-multiple-map (cmd)
-;;   (ccl-compile-multiple-map-function 'iterate-multiple-map cmd)
-;;   nil)
+(defun ccl-compile-iterate-multiple-map (cmd)
+  (ccl-compile-multiple-map-function 'iterate-multiple-map cmd)
+  nil)
 
-;; (defun ccl-compile-map-multiple (cmd)
-;;   (if (/= (length cmd) 4)
-;;       (error "CCL: Invalid number of arguments: %s" cmd))
-;;   (let ((func '(lambda (arg mp)
-;;                           (let ((len 0) result add)
-;;                             (while arg
-;;                               (if (consp (car arg))
-;;                                   (setq add (funcall func (car arg) t)
-;;                                         result (append result add)
-;;                                         add (+ (-(car add)) 1))
-;;                                 (setq result
-;;                                       (append result
-;;                                               (list (car arg)))
-;;                                       add 1))
-;;                               (setq arg (cdr arg)
-;;                                     len (+ len add)))
-;;                             (if mp 
-;;                                 (cons (- len) result)
-;;                               result))))
-;;         arg)
-;;     (setq arg (append (list (nth 0 cmd) (nth 1 cmd) (nth 2 cmd))
-;;                       (funcall func (nth 3 cmd) nil)))
-;;     (ccl-compile-multiple-map-function 'map-multiple arg))
-;;   nil)
+(defun ccl-compile-map-multiple (cmd)
+  (if (/= (length cmd) 4)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let (func arg)
+    (setq func
+	  (lambda (arg mp)
+	    (let ((len 0) result add)
+	      (while arg
+		(if (consp (car arg))
+		    (setq add (funcall func (car arg) t)
+			  result (append result add)
+			  add (+ (- (car add)) 1))
+		  (setq result
+			(append result
+				(list (car arg)))
+			add 1))
+		(setq arg (cdr arg)
+		      len (+ len add)))
+	      (if mp 
+		  (cons (- len) result)
+		result))))
+    (setq arg (append (list (nth 0 cmd) (nth 1 cmd) (nth 2 cmd))
+		      (funcall func (nth 3 cmd) nil)))
+    (ccl-compile-multiple-map-function 'map-multiple arg))
+  nil)
 
-;; (defun ccl-compile-map-single (cmd)
-;;   (if (/= (length cmd) 4)
-;;       (error "CCL: Invalid number of arguments: %s" cmd))
-;;   (let ((RRR (nth 1 cmd))
-;;         (rrr (nth 2 cmd))
-;;         (map (nth 3 cmd))
-;;         id)
-;;     (ccl-check-register rrr cmd)
-;;     (ccl-check-register RRR cmd)
-;;     (ccl-embed-extended-command 'map-single rrr RRR 0)
-;;     (cond ((symbolp map)
-;;            (if (get map 'code-conversion-map)
-;;                (ccl-embed-data map)
-;;              (error "CCL: Invalid map: %s" map)))
-;;           (t
-;;            (error "CCL: Invalid type of arguments: %s" cmd))))
-;;   nil)
+(defun ccl-compile-map-single (cmd)
+  (if (/= (length cmd) 4)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let ((RRR (nth 1 cmd))
+	(rrr (nth 2 cmd))
+	(map (nth 3 cmd))
+	id)
+    (ccl-check-register rrr cmd)
+    (ccl-check-register RRR cmd)
+    (ccl-embed-extended-command 'map-single rrr RRR 0)
+    (cond ((symbolp map)
+	   (if (get map 'code-conversion-map)
+	       (ccl-embed-symbol map 'code-conversion-map-id)
+	     (error "CCL: Invalid map: %s" map)))
+	  (t
+	   (error "CCL: Invalid type of arguments: %s" cmd))))
+  nil)
 
-;; (defun ccl-compile-multiple-map-function (command cmd)
-;;   (if (< (length cmd) 4)
-;;       (error "CCL: Invalid number of arguments: %s" cmd))
-;;   (let ((RRR (nth 1 cmd))
-;;         (rrr (nth 2 cmd))
-;;         (args (nthcdr 3 cmd))
-;;         map)
-;;     (ccl-check-register rrr cmd)
-;;     (ccl-check-register RRR cmd)
-;;     (ccl-embed-extended-command command rrr RRR 0)
-;;     (ccl-embed-data (length args))
-;;     (while args
-;;       (setq map (car args))
-;;       (cond ((symbolp map)
-;;              (if (get map 'code-conversion-map)
-;;                  (ccl-embed-data map)
-;;                (error "CCL: Invalid map: %s" map)))
-;;             ((numberp map)
-;;              (ccl-embed-data map))
-;;             (t
-;;              (error "CCL: Invalid type of arguments: %s" cmd)))
-;;       (setq args (cdr args)))))
+(defun ccl-compile-multiple-map-function (command cmd)
+  (if (< (length cmd) 4)
+      (error "CCL: Invalid number of arguments: %s" cmd))
+  (let ((RRR (nth 1 cmd))
+	(rrr (nth 2 cmd))
+	(args (nthcdr 3 cmd))
+	map)
+    (ccl-check-register rrr cmd)
+    (ccl-check-register RRR cmd)
+    (ccl-embed-extended-command command rrr RRR 0)
+    (ccl-embed-data (length args))
+    (while args
+      (setq map (car args))
+      (cond ((symbolp map)
+	     (if (get map 'code-conversion-map)
+		 (ccl-embed-symbol map 'code-conversion-map-id)
+	       (error "CCL: Invalid map: %s" map)))
+	    ((numberp map)
+	     (ccl-embed-data map))
+	    (t
+	     (error "CCL: Invalid type of arguments: %s" cmd)))
+      (setq args (cdr args)))))
 
 
-;;; CCL dump stuff
+;;; CCL dump staffs
+
+;; To avoid byte-compiler warning.
+(defvar ccl-code)
 
 ;;;###autoload
 (defun ccl-dump (ccl-code)
@@ -980,7 +935,6 @@
 
 ;; Return a CCL code in `ccl-code' at `ccl-current-ic'.
 (defun ccl-get-next-code ()
-  (declare (special ccl-code))
   (prog1
       (aref ccl-code ccl-current-ic)
     (setq ccl-current-ic (1+ ccl-current-ic))))
@@ -1230,40 +1184,40 @@
 (defun ccl-dump-write-multibyte-character (rrr RRR Rrr)
   (insert (format "write-multibyte-character r%d r%d\n" RRR rrr)))
 
-;; (defun ccl-dump-translate-character (rrr RRR Rrr)
-;;   (insert (format "translation table(r%d) r%d r%d\n" Rrr RRR rrr)))
+(defun ccl-dump-translate-character (rrr RRR Rrr)
+  (insert (format "translation table(r%d) r%d r%d\n" Rrr RRR rrr)))
 
-;; (defun ccl-dump-translate-character-const-tbl (rrr RRR Rrr)
-;;   (let ((tbl (ccl-get-next-code)))
-;;     (insert (format "translation table(%S) r%d r%d\n" tbl RRR rrr))))
+(defun ccl-dump-translate-character-const-tbl (rrr RRR Rrr)
+  (let ((tbl (ccl-get-next-code)))
+    (insert (format "translation table(%S) r%d r%d\n" tbl RRR rrr))))
 
-;; (defun ccl-dump-iterate-multiple-map (rrr RRR Rrr)
-;;   (let ((notbl (ccl-get-next-code))
-;;         (i 0) id)
-;;     (insert (format "iterate-multiple-map r%d r%d\n" RRR rrr))
-;;     (insert (format "\tnumber of maps is %d .\n\t [" notbl))
-;;     (while (< i notbl)
-;;       (setq id (ccl-get-next-code))
-;;       (insert (format "%S" id))
-;;       (setq i (1+ i)))
-;;     (insert "]\n")))
+(defun ccl-dump-iterate-multiple-map (rrr RRR Rrr)
+  (let ((notbl (ccl-get-next-code))
+	(i 0) id)
+    (insert (format "iterate-multiple-map r%d r%d\n" RRR rrr))
+    (insert (format "\tnumber of maps is %d .\n\t [" notbl))
+    (while (< i notbl)
+      (setq id (ccl-get-next-code))
+      (insert (format "%S" id))
+      (setq i (1+ i)))
+    (insert "]\n")))
 
-;; (defun ccl-dump-map-multiple (rrr RRR Rrr)
-;;   (let ((notbl (ccl-get-next-code))
-;;         (i 0) id)
-;;     (insert (format "map-multiple r%d r%d\n" RRR rrr))
-;;     (insert (format "\tnumber of maps and separators is %d\n\t [" notbl))
-;;     (while (< i notbl)
-;;       (setq id (ccl-get-next-code))
-;;       (if (= id -1)
-;;           (insert "]\n\t [")
-;;         (insert (format "%S " id)))
-;;       (setq i (1+ i)))
-;;     (insert "]\n")))
+(defun ccl-dump-map-multiple (rrr RRR Rrr)
+  (let ((notbl (ccl-get-next-code))
+	(i 0) id)
+    (insert (format "map-multiple r%d r%d\n" RRR rrr))
+    (insert (format "\tnumber of maps and separators is %d\n\t [" notbl))
+    (while (< i notbl)
+      (setq id (ccl-get-next-code))
+      (if (= id -1)
+	  (insert "]\n\t [")
+	(insert (format "%S " id)))
+      (setq i (1+ i)))
+    (insert "]\n")))
 
-;; (defun ccl-dump-map-single (rrr RRR Rrr)
-;;   (let ((id (ccl-get-next-code)))
-;;     (insert (format "map-single r%d r%d map(%S)\n" RRR rrr id))))
+(defun ccl-dump-map-single (rrr RRR Rrr)
+  (let ((id (ccl-get-next-code)))
+    (insert (format "map-single r%d r%d map(%S)\n" RRR rrr id))))
 
 
 ;; CCL emulation staffs 
@@ -1276,16 +1230,222 @@
 (defmacro declare-ccl-program (name &optional vector)
   "Declare NAME as a name of CCL program.
 
-To compile a CCL program which calls another CCL program not yet
-defined, it must be declared as a CCL program in advance.
+This macro exists for backward compatibility.  In the old version of
+Emacs, to compile a CCL program which calls another CCL program not
+yet defined, it must be declared as a CCL program in advance.  But,
+now CCL program names are resolved not at compile time but before
+execution.
+
 Optional arg VECTOR is a compiled CCL code of the CCL program."
   `(put ',name 'ccl-program-idx (register-ccl-program ',name ,vector)))
 
 ;;;###autoload
 (defmacro define-ccl-program (name ccl-program &optional doc)
   "Set NAME the compiled code of CCL-PROGRAM.
-CCL-PROGRAM is `eval'ed before being handed to the CCL compiler `ccl-compile'.
-The compiled code is a vector of integers."
+
+CCL-PROGRAM has this form:
+	(BUFFER_MAGNIFICATION
+	 CCL_MAIN_CODE
+	 [ CCL_EOF_CODE ])
+
+BUFFER_MAGNIFICATION is an integer value specifying the approximate
+output buffer magnification size compared with the bytes of input data
+text.  If the value is zero, the CCL program can't execute `read' and
+`write' commands.
+
+CCL_MAIN_CODE and CCL_EOF_CODE are CCL program codes.  CCL_MAIN_CODE
+executed at first.  If there's no more input data when `read' command
+is executed in CCL_MAIN_CODE, CCL_EOF_CODE is executed.  If
+CCL_MAIN_CODE is terminated, CCL_EOF_CODE is not executed.
+
+Here's the syntax of CCL program code in BNF notation.  The lines
+starting by two semicolons (and optional leading spaces) describe the
+semantics.
+
+CCL_MAIN_CODE := CCL_BLOCK
+
+CCL_EOF_CODE := CCL_BLOCK
+
+CCL_BLOCK := STATEMENT | (STATEMENT [STATEMENT ...])
+
+STATEMENT :=
+	SET | IF | BRANCH | LOOP | REPEAT | BREAK | READ | WRITE | CALL
+	| TRANSLATE | END
+
+SET :=	(REG = EXPRESSION)
+	| (REG ASSIGNMENT_OPERATOR EXPRESSION)
+	;; The following form is the same as (r0 = integer).
+	| integer
+
+EXPRESSION := ARG | (EXPRESSION OPERATOR ARG)
+
+;; Evaluate EXPRESSION.  If the result is nonzeor, execute
+;; CCL_BLOCK_0.  Otherwise, execute CCL_BLOCK_1.
+IF :=	(if EXPRESSION CCL_BLOCK_0 CCL_BLOCK_1)
+
+;; Evaluate EXPRESSION.  Provided that the result is N, execute
+;; CCL_BLOCK_N.
+BRANCH := (branch EXPRESSION CCL_BLOCK_0 [CCL_BLOCK_1 ...])
+
+;; Execute STATEMENTs until (break) or (end) is executed.
+LOOP := (loop STATEMENT [STATEMENT ...])
+
+;; Terminate the most inner loop.
+BREAK := (break)
+
+REPEAT :=
+	;; Jump to the head of the most inner loop.
+	(repeat)
+	;; Same as: ((write [REG | integer | string])
+	;;	     (repeat))
+	| (write-repeat [REG | integer | string])
+	;; Same as: ((write REG [ARRAY])
+	;;	     (read REG)
+	;;	     (repeat))
+	| (write-read-repeat REG [ARRAY])
+	;; Same as: ((write integer)
+	;;	     (read REG)
+	;;	     (repeat))
+	| (write-read-repeat REG integer)
+
+READ := ;; Set REG_0 to a byte read from the input text, set REG_1
+	;; to the next byte read, and so on.
+	(read REG_0 [REG_1 ...])
+	;; Same as: ((read REG)
+	;;	     (if (REG OPERATOR ARG) CCL_BLOCK_0 CCL_BLOCK_1))
+	| (read-if (REG OPERATOR ARG) CCL_BLOCK_0 CCL_BLOCK_1)
+	;; Same as: ((read REG)
+	;;	     (branch REG CCL_BLOCK_0 [CCL_BLOCK_1 ...]))
+	| (read-branch REG CCL_BLOCK_0 [CCL_BLOCK_1 ...])
+	;; Read a character from the input text while parsing
+	;; multibyte representation, set REG_0 to the charset ID of
+	;; the character, set REG_1 to the code point of the
+	;; character.  If the dimension of charset is two, set REG_1
+	;; to ((CODE0 << 8) | CODE1), where CODE0 is the first code
+	;; point and CODE1 is the second code point.
+	| (read-multibyte-character REG_0 REG_1)
+
+WRITE :=
+	;; Write REG_0, REG_1, ... to the output buffer.  If REG_N is
+	;; a multibyte character, write the corresponding multibyte
+	;; representation.
+	(write REG_0 [REG_1 ...])
+	;; Same as: ((r7 = EXPRESSION)
+	;;	     (write r7))
+	| (write EXPRESSION)
+	;; Write the value of `integer' to the output buffer.  If it
+	;; is a multibyte character, write the corresponding multibyte
+	;; representation.
+	| (write integer)
+	;; Write the byte sequence of `string' as is to the output
+	;; buffer.  It is encoded by binary coding system, thus,
+        ;; by this operation, you cannot write multibyte string
+        ;; as it is.
+	| (write string)
+	;; Same as: (write string)
+	| string
+	;; Provided that the value of REG is N, write Nth element of
+	;; ARRAY to the output buffer.  If it is a multibyte
+	;; character, write the corresponding multibyte
+	;; representation.
+	| (write REG ARRAY)
+	;; Write a multibyte representation of a character whose
+	;; charset ID is REG_0 and code point is REG_1.  If the
+	;; dimension of the charset is two, REG_1 should be ((CODE0 <<
+	;; 8) | CODE1), where CODE0 is the first code point and CODE1
+	;; is the second code point of the character.
+	| (write-multibyte-character REG_0 REG_1)
+
+;; Call CCL program whose name is ccl-program-name.
+CALL := (call ccl-program-name)
+
+;; Terminate the CCL program.
+END := (end)
+
+;; CCL registers that can contain any integer value.  As r7 is also
+;; used by CCL interpreter, its value is changed unexpectedly.
+REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
+
+ARG := REG | integer
+
+OPERATOR :=
+	;; Normal arithmethic operators (same meaning as C code).
+	+ | - | * | / | %
+
+	;; Bitwize operators (same meaning as C code)
+	| & | `|' | ^
+
+	;; Shifting operators (same meaning as C code)
+	| << | >>
+
+	;; (REG = ARG_0 <8 ARG_1) means:
+	;;	(REG = ((ARG_0 << 8) | ARG_1))
+	| <8
+
+	;; (REG = ARG_0 >8 ARG_1) means:
+	;;	((REG = (ARG_0 >> 8))
+	;;	 (r7 = (ARG_0 & 255)))
+	| >8
+
+	;; (REG = ARG_0 // ARG_1) means:
+	;;	((REG = (ARG_0 / ARG_1))
+	;;	 (r7 = (ARG_0 % ARG_1)))
+	| //
+
+	;; Normal comparing operators (same meaning as C code)
+	| < | > | == | <= | >= | !=
+
+	;; If ARG_0 and ARG_1 are higher and lower byte of Shift-JIS
+	;; code, and CHAR is the corresponding JISX0208 character,
+	;; (REG = ARG_0 de-sjis ARG_1) means:
+	;;	((REG = CODE0)
+	;;	 (r7 = CODE1))
+	;; where CODE0 is the first code point of CHAR, CODE1 is the
+	;; second code point of CHAR.
+	| de-sjis
+
+	;; If ARG_0 and ARG_1 are the first and second code point of
+	;; JISX0208 character CHAR, and SJIS is the correponding
+	;; Shift-JIS code,
+	;; (REG = ARG_0 en-sjis ARG_1) means:
+	;;	((REG = HIGH)
+	;;	 (r7 = LOW))
+	;; where HIGH is the higher byte of SJIS, LOW is the lower
+	;; byte of SJIS.
+	| en-sjis
+
+ASSIGNMENT_OPERATOR :=
+	;; Same meaning as C code
+	+= | -= | *= | /= | %= | &= | `|=' | ^= | <<= | >>=
+
+	;; (REG <8= ARG) is the same as:
+	;;	((REG <<= 8)
+	;;	 (REG |= ARG))
+	| <8= 
+
+	;; (REG >8= ARG) is the same as:
+	;;	((r7 = (REG & 255))
+	;;	 (REG >>= 8))
+
+	;; (REG //= ARG) is the same as:
+	;;	((r7 = (REG % ARG))
+	;;	 (REG /= ARG))
+	| //=
+
+ARRAY := `[' integer ... `]'
+
+
+TRANSLATE :=
+	(translate-character REG(table) REG(charset) REG(codepoint))
+	| (translate-character SYMBOL REG(charset) REG(codepoint))
+MAP :=
+     (iterate-multiple-map REG REG MAP-IDs)
+     | (map-multiple REG REG (MAP-SET))
+     | (map-single REG REG MAP-ID)
+MAP-IDs := MAP-ID ...
+MAP-SET := MAP-IDs | (MAP-IDs) MAP-SET
+MAP-ID := integer
+"
   `(let ((prog ,(ccl-compile (eval ccl-program))))
      (defconst ,name prog ,doc)
      (put ',name 'ccl-program-idx (register-ccl-program ',name prog))
@@ -1294,25 +1454,23 @@ The compiled code is a vector of integers."
 ;;;###autoload
 (defmacro check-ccl-program (ccl-program &optional name)
   "Check validity of CCL-PROGRAM.
-If CCL-PROGRAM is a symbol denoting a valid CCL program, return
+If CCL-PROGRAM is a symbol denoting a CCL program, return
 CCL-PROGRAM, else return nil.
 If CCL-PROGRAM is a vector and optional arg NAME (symbol) is supplied,
 register CCL-PROGRAM by name NAME, and return NAME."
-  `(let ((result ,ccl-program))
-     (cond ((symbolp ,ccl-program)
-	    (or (numberp (get ,ccl-program 'ccl-program-idx))
-		(setq result nil)))
-	   ((vectorp ,ccl-program)
-	    (setq result ,name)
-	    (register-ccl-program result ,ccl-program))
-	   (t
-	    (setq result nil)))
-     result))
+  `(if (ccl-program-p ,ccl-program)
+       (if (vectorp ,ccl-program)
+	   (progn
+	     (register-ccl-program ,name ,ccl-program)
+	     ,name)
+	 ,ccl-program)))
 
 ;;;###autoload
 (defun ccl-execute-with-args (ccl-prog &rest args)
   "Execute CCL-PROGRAM with registers initialized by the remaining args.
-The return value is a vector of resulting CCL registers."
+The return value is a vector of resulting CCL registers.
+
+See the documentation of `define-ccl-program' for the detail of CCL program."
   (let ((reg (make-vector 8 0))
 	(i 0))
     (while (and args (< i 8))

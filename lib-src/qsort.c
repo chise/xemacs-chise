@@ -64,7 +64,7 @@ typedef struct
       stack.  Assuming a 32-bit integer, this needs only 32 * 
       sizeof (stack_node) == 136 bits.  Pretty cheap, actually.
 
-   2. Chose the pivot element using a median-of-three decision tree.
+   2. Choose the pivot element using a median-of-three decision tree.
       This reduces the probability of selecting a bad pivot value and 
       eliminates certain extraneous comparisons.
 

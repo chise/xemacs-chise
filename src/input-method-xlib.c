@@ -34,9 +34,9 @@ Boston, MA 02111-1307, USA.  */
   The XIC is of each frame, by each frame, for each frame.
   The exceptions are:
       1.  Activate XICs on poor frames when the XIM is back.
-      2.  Deactivate all the XICs when the XIM go down.
+      2.  Deactivate all the XICs when the XIM goes down.
 
-  Methods:
+  Implementation:
 
     -  Register a callback for an XIM when the X device is being initialized.
        XIM_init_device (d) { XRegisterIMInstantiateCallback (); }
@@ -55,7 +55,7 @@ Boston, MA 02111-1307, USA.  */
        In IMDestroyCallback:
            DEVICE_FRAME_LOOP (...) { FRAME_X_XIC (f) = NULL; }
 
-    -  Re-enable XIC for all the frames which doesn't have XIC when the XIM
+    -  Re-enable XIC for all the frames which don't have XIC when the XIM
        is back.
        In IMInstantiateCallback:
            DEVICE_FRAME_LOOP (...) { XIM_init_frame (f); }
@@ -71,6 +71,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 #include <X11/Xlocale.h>        /* More portable than <locale.h> ? */
+#include <X11/Xlib.h>
 #include "frame.h"
 #include "device.h"
 #include "window.h"
@@ -78,10 +79,6 @@ Boston, MA 02111-1307, USA.  */
 #include "console-x.h"
 #include "EmacsFrame.h"
 #include "events.h"
-
-#ifdef THIS_IS_X11R6
-#include <X11/IntrinsicP.h>
-#endif
 
 #ifndef XIM_XLIB
 #error  XIM_XLIB is not defined??
@@ -122,13 +119,10 @@ static char DefaultXIMStyles[] =
 "XIMPreeditNone|XIMStatusNothing\n"
 "XIMPreeditNone|XIMStatusNone";
 
-static Boolean xim_initted = False;
-
 static XIMStyle best_style (XIMStyles *user, XIMStyles *xim);
 
-/* #### it appears this prototype is missing from the X11R6.4 includes,
-   at least the XFree86 version ... */
-char * XSetIMValues(XIM, ...);
+/* This function is documented, but no prototype in the header files */
+EXTERN_C char * XSetIMValues(XIM, ...);
 
 void
 Initialize_Locale (void)
@@ -181,7 +175,11 @@ Initialize_Locale (void)
     }
 }
 
-#ifdef THIS_IS_X11R6 /* Callbacks for IM are supported from X11R6 or later. */
+/* Callbacks for IM are supported from X11R6 or later. */
+#ifdef HAVE_XREGISTERIMINSTANTIATECALLBACK
+
+static Boolean xim_initted = False;
+
 /* Called from when XIM is destroying.
    Clear all the XIC when the XIM was destroying... */
 static void
@@ -224,7 +222,7 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
       DEVICE_X_XIM (d) = xim = XOpenIM (dpy, XtDatabase (dpy), name, class);
 
       /* destroy callback for im */
-      ximcallback.callback = IMDestroyCallback;
+      ximcallback.callback = (XIMProc) IMDestroyCallback;
       ximcallback.client_data = (XPointer) d;
       XSetIMValues (xim, XNDestroyCallback, &ximcallback, NULL);
     }
@@ -240,23 +238,29 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
     }
   return;
 }
-#endif /* if THIS_IS_X11R6 */
+#endif /* HAVE_XREGISTERIMINSTANTIATECALLBACK */
 
 /* Initialize XIM for X device.
    Register the use of XIM using XRegisterIMInstantiateCallback. */
 void
 XIM_init_device (struct device *d)
 {
-#ifdef THIS_IS_X11R6
+#ifdef HAVE_XREGISTERIMINSTANTIATECALLBACK /* X11R6+ */
   DEVICE_X_XIM (d) = NULL;
   XRegisterIMInstantiateCallback (DEVICE_X_DISPLAY (d), NULL, NULL, NULL,
-				  IMInstantiateCallback,
+#ifdef XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE
 				  /* The sixth parameter is of type
 				     XPointer in XFree86 but (XPointer *)
 				     on most other X11's. */
-				  (void *) d);
+				  (XIDProc) IMInstantiateCallback,
+				  (XPointer) d
+#else /* X Consortium prototype */
+				  (XIMProc) IMInstantiateCallback,
+				  (XPointer *) d
+#endif /* XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE */
+				  );
   return;
-#else
+#else /* pre-X11R6 */
   Display *dpy = DEVICE_X_DISPLAY (d);
   char *name, *class;
   XIM xim;
@@ -273,7 +277,7 @@ XIM_init_device (struct device *d)
       XGetIMValues (xim, XNQueryInputStyle, &DEVICE_X_XIM_STYLES (d), NULL);
       return;
     }
-#endif
+#endif /* HAVE_XREGISTERIMINSTANTIATECALLBACK */
 }
 
 
@@ -407,7 +411,7 @@ XIM_init_frame (struct frame *f)
 
   XSetICFocus (xic);
 
-#ifdef THIS_IS_X11R6
+#ifdef HAVE_XREGISTERIMINSTANTIATECALLBACK
   /* when frame is going to be destroyed (closed) */
   XtAddCallback (FRAME_X_TEXT_WIDGET(f), XNDestroyCallback,
 		 XIM_delete_frame, (XtPointer)f);

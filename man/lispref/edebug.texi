@@ -149,7 +149,7 @@ sometimes.
 There is a bug in window updating when there is both a trace buffer
 and an evaluation list - the source buffer doesn't get displayed.
 
-@item 
+@item
 Killing and reinserting an instrumented definition or parts of
 it leaves marks in the buffer which may confuse Edebug later.
 
@@ -170,7 +170,7 @@ macros across the Edebug activation boundary.
 There are no other known bugs, so if you find any, please let me know.
 There is nothing worse than a buggy debugger!
 
-@item 
+@item
 I need to rethink locally binding @code{debug-on-error},
 @code{debug-on-quit}, and keyboard macro state variables.  Should we
 allow the global values to be changed by the user?
@@ -208,7 +208,7 @@ Use copy of @code{current-local-map} instead of @code{emacs-lisp-mode-map}
 Better integration with standard debug.
 
 @item
-Use @code{inhibit-quit} while edebugging?  
+Use @code{inhibit-quit} while edebugging?
 
 @item
 Crawl mode would @code{sit-for} 0 or 1 in the outside window configuration

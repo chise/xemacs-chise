@@ -1,7 +1,7 @@
 @c This is part of the XEmacs manual.
 @c Copyright (C) 1985, 86, 87, 93, 94, 95, 1997 Free Software Foundation, Inc.
 @c See file xemacs.texi for copying conditions.
-@node Basic, Undo, Startup Paths, Top
+@node Basic, Undo, Packages, Top
 @chapter Basic Editing Commands
 
 @kindex C-h t

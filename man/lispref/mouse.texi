@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/mouse.info
 @node Mouse
@@ -27,14 +27,14 @@ is ok for mouse tracking, since it doesn't make sense for mouse tracking
 to change the text, and the body of @code{track-mouse} normally reads
 the events itself and does not do redisplay.
 
-@defun x-contour-region window beg end
-This function draws lines to make a box around the text from @var{beg}
+@defun x-contour-region window start end
+This function draws lines to make a box around the text from @var{start}
 to @var{end}, in window @var{window}.
 @end defun
 
-@defun x-uncontour-region window beg end
+@defun x-uncontour-region window start end
 This function erases the lines that would make a box around the text
-from @var{beg} to @var{end}, in window @var{window}.  Use it to remove
+from @var{start} to @var{end}, in window @var{window}.  Use it to remove
 a contour that you previously made by calling @code{x-contour-region}.
 @end defun
 

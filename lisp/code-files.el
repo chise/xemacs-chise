@@ -17,7 +17,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -205,16 +205,16 @@ object (the entry specified a coding system)."
 ;...
 
 (defun find-coding-system-magic-cookie ()
-  "Look for the coding-system magic cookie in the current buffer.\n"
-"The coding-system magic cookie is the exact string\n"
-"\";;;###coding system: \" followed by a valid coding system symbol,\n"
-"somewhere within the first 3000 characters of the file.  If found,\n"
-"the coding system symbol is returned; otherwise nil is returned.\n"
-"Note that it is extremely unlikely that such a string would occur\n"
-"coincidentally as the result of encoding some characters in a non-ASCII\n"
-"charset, and that the spaces make it even less likely since the space\n"
-"character is not a valid octet in any ISO 2022 encoding of most non-ASCII\n"
-"charsets."
+  "Look for the coding-system magic cookie in the current buffer.
+The coding-system magic cookie is the exact string
+\";;;###coding system: \" followed by a valid coding system symbol,
+somewhere within the first 3000 characters of the file.  If found,
+the coding system symbol is returned; otherwise nil is returned.
+Note that it is extremely unlikely that such a string would occur
+coincidentally as the result of encoding some characters in a non-ASCII
+charset, and that the spaces make it even less likely since the space
+character is not a valid octet in any ISO 2022 encoding of most non-ASCII
+charsets."
   (save-excursion
     (goto-char (point-min))
     (or (and (looking-at
@@ -353,7 +353,7 @@ CODING-SYSTEM (the actual coding system used to decode the file), and
 a cons of absolute pathname and length of data inserted (the same
 thing as will be returned from `insert-file-contents').")
 
-(defun insert-file-contents (filename &optional visit beg end replace)
+(defun insert-file-contents (filename &optional visit start end replace)
   "Insert contents of file FILENAME after point.
 Returns list of absolute file name and length of data inserted.
 If second argument VISIT is non-nil, the buffer's visited filename
@@ -361,9 +361,9 @@ and last save file modtime are set, and it is marked unmodified.
 If visiting and the file does not exist, visiting is completed
 before the error is signaled.
 
-The optional third and fourth arguments BEG and END
+The optional third and fourth arguments START and END
 specify what portion of the file to insert.
-If VISIT is non-nil, BEG and END must be nil.
+If VISIT is non-nil, START and END must be nil.
 If optional fifth argument REPLACE is non-nil,
 it means replace the current buffer contents (in the accessible portion)
 with the file contents.  This is better than simply deleting and inserting
@@ -416,7 +416,7 @@ and `insert-file-contents-post-hook'."
 		   coding-system)
 		  (setq coding-system 'undecided)))
 	    (setq return-val
-		  (insert-file-contents-internal filename visit beg end
+		  (insert-file-contents-internal filename visit start end
 						 replace coding-system
 						 ;; store here!
 						 'used-codesys))

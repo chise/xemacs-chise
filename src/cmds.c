@@ -46,31 +46,31 @@ Lisp_Object Vself_insert_face_command;
 Lisp_Object Vauto_fill_chars;
 
 DEFUN ("forward-char", Fforward_char, 0, 2, "_p", /*
-Move point right N characters (left if N negative).
+Move point right COUNT characters (left if COUNT is negative).
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
 On reaching end of buffer, stop and signal error.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 1);
-  EMACS_INT count;
+  EMACS_INT n;
 
-  if (NILP (n))
-    count = 1;
+  if (NILP (count))
+    n = 1;
   else
     {
-      CHECK_INT (n);
-      count = XINT (n);
+      CHECK_INT (count);
+      n = XINT (count);
     }
 
-  /* This used to just set point to point + XINT (n), and then check
+  /* This used to just set point to point + XINT (count), and then check
      to see if it was within boundaries.  But now that SET_PT can
      potentially do a lot of stuff (calling entering and exiting
      hooks, etcetera), that's not a good approach.  So we validate the
      proposed position, then set point.  */
   {
-    Bufpos new_point = BUF_PT (buf) + count;
+    Bufpos new_point = BUF_PT (buf) + n;
 
     if (new_point < BUF_BEGV (buf))
       {
@@ -92,49 +92,49 @@ On reaching end of buffer, stop and signal error.
 }
 
 DEFUN ("backward-char", Fbackward_char, 0, 2, "_p", /*
-Move point left N characters (right if N negative).
+Move point left COUNT characters (right if COUNT is negative).
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
 */
-       (n, buffer))
+       (count, buffer))
 {
-  if (NILP (n))
-    n = make_int (-1);
+  if (NILP (count))
+    count = make_int (-1);
   else
     {
-      CHECK_INT (n);
-      XSETINT (n, - XINT (n));
+      CHECK_INT (count);
+      count = make_int (- XINT (count));
     }
-  return Fforward_char (n, buffer);
+  return Fforward_char (count, buffer);
 }
 
 DEFUN ("forward-line", Fforward_line, 0, 2, "_p", /*
-Move N lines forward (backward if N is negative).
-Precisely, if point is on line I, move to the start of line I + N.
+Move COUNT lines forward (backward if COUNT is negative).
+Precisely, if point is on line I, move to the start of line I + COUNT.
 If there isn't room, go as far as possible (no error).
 Returns the count of lines left to move.  If moving forward,
-that is N - number of lines moved; if backward, N + number moved.
-With positive N, a non-empty line at the end counts as one line
+that is COUNT - number of lines moved; if backward, COUNT + number moved.
+With positive COUNT, a non-empty line at the end counts as one line
   successfully moved (for the return value).
 If BUFFER is nil, the current buffer is assumed.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 1);
   Bufpos pos2 = BUF_PT (buf);
   Bufpos pos;
-  EMACS_INT count, shortage, negp;
+  EMACS_INT n, shortage, negp;
 
-  if (NILP (n))
-    count = 1;
+  if (NILP (count))
+    n = 1;
   else
     {
-      CHECK_INT (n);
-      count = XINT (n);
+      CHECK_INT (count);
+      n = XINT (count);
     }
 
-  negp = count <= 0;
-  pos = scan_buffer (buf, '\n', pos2, 0, count - negp, &shortage, 1);
+  negp = n <= 0;
+  pos = scan_buffer (buf, '\n', pos2, 0, n - negp, &shortage, 1);
   if (shortage > 0
       && (negp
 	  || (BUF_ZV (buf) > BUF_BEGV (buf)
@@ -147,26 +147,26 @@ If BUFFER is nil, the current buffer is assumed.
 
 DEFUN ("point-at-bol", Fpoint_at_bol, 0, 2, 0, /*
 Return the character position of the first character on the current line.
-With argument N not nil or 1, move forward N - 1 lines first.
+With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, return that position.
 This function does not move point.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *b = decode_buffer (buffer, 1);
   REGISTER int orig, end;
 
   XSETBUFFER (buffer, b);
-  if (NILP (n))
-    n = make_int (0);
+  if (NILP (count))
+    count = make_int (0);
   else
     {
-      CHECK_INT (n);
-      n = make_int (XINT (n) - 1);
+      CHECK_INT (count);
+      count = make_int (XINT (count) - 1);
     }
 
   orig = BUF_PT (b);
-  Fforward_line (n, buffer);
+  Fforward_line (count, buffer);
   end = BUF_PT (b);
   BUF_SET_PT (b, orig);
 
@@ -175,75 +175,75 @@ This function does not move point.
 
 DEFUN ("beginning-of-line", Fbeginning_of_line, 0, 2, "_p", /*
 Move point to beginning of current line.
-With argument N not nil or 1, move forward N - 1 lines first.
+With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, stop there without error.
 If BUFFER is nil, the current buffer is assumed.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *b = decode_buffer (buffer, 1);
 
-  BUF_SET_PT (b, XINT (Fpoint_at_bol (n, buffer)));
+  BUF_SET_PT (b, XINT (Fpoint_at_bol (count, buffer)));
   return Qnil;
 }
 
 DEFUN ("point-at-eol", Fpoint_at_eol, 0, 2, 0, /*
 Return the character position of the last character on the current line.
-With argument N not nil or 1, move forward N - 1 lines first.
+With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, return that position.
 This function does not move point.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 1);
-  int count;
+  int n;
 
-  if (NILP (n))
-    count = 1;
+  if (NILP (count))
+    n = 1;
   else
     {
-      CHECK_INT (n);
-      count = XINT (n);
+      CHECK_INT (count);
+      n = XINT (count);
     }
 
   return make_int (find_before_next_newline (buf, BUF_PT (buf), 0,
-					     count - (count <= 0)));
+					     n - (n <= 0)));
 }
 
 DEFUN ("end-of-line", Fend_of_line, 0, 2, "_p", /*
 Move point to end of current line.
-With argument N not nil or 1, move forward N - 1 lines first.
+With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, stop there without error.
 If BUFFER is nil, the current buffer is assumed.
 */
-       (n, buffer))
+       (count, buffer))
 {
   struct buffer *b = decode_buffer (buffer, 1);
 
-  BUF_SET_PT (b, XINT (Fpoint_at_eol (n, buffer)));
+  BUF_SET_PT (b, XINT (Fpoint_at_eol (count, buffer)));
   return Qnil;
 }
 
 DEFUN ("delete-char", Fdelete_char, 1, 2, "*p\nP", /*
-Delete the following N characters (previous, with negative N).
-Optional second arg KILLFLAG non-nil means kill instead (save in kill ring).
-Interactively, N is the prefix arg, and KILLFLAG is set if
-N was explicitly specified.
+Delete the following COUNT characters (previous, with negative COUNT).
+Optional second arg KILLP non-nil means kill instead (save in kill ring).
+Interactively, COUNT is the prefix arg, and KILLP is set if
+COUNT was explicitly specified.
 */
-       (n, killflag))
+       (count, killp))
 {
   /* This function can GC */
   Bufpos pos;
   struct buffer *buf = current_buffer;
-  int count;
+  int n;
 
-  CHECK_INT (n);
-  count = XINT (n);
+  CHECK_INT (count);
+  n = XINT (count);
 
-  pos = BUF_PT (buf) + count;
-  if (NILP (killflag))
+  pos = BUF_PT (buf) + n;
+  if (NILP (killp))
     {
-      if (count < 0)
+      if (n < 0)
 	{
 	  if (pos < BUF_BEGV (buf))
 	    signal_error (Qbeginning_of_buffer, Qnil);
@@ -260,22 +260,22 @@ N was explicitly specified.
     }
   else
     {
-      call1 (Qkill_forward_chars, n);
+      call1 (Qkill_forward_chars, count);
     }
   return Qnil;
 }
 
 DEFUN ("delete-backward-char", Fdelete_backward_char, 1, 2, "*p\nP", /*
-Delete the previous N characters (following, with negative N).
-Optional second arg KILLFLAG non-nil means kill instead (save in kill ring).
-Interactively, N is the prefix arg, and KILLFLAG is set if
-N was explicitly specified.
+Delete the previous COUNT characters (following, with negative COUNT).
+Optional second arg KILLP non-nil means kill instead (save in kill ring).
+Interactively, COUNT is the prefix arg, and KILLP is set if
+COUNT was explicitly specified.
 */
-       (n, killflag))
+       (count, killp))
 {
   /* This function can GC */
-  CHECK_INT (n);
-  return Fdelete_char (make_int (- XINT (n)), killflag);
+  CHECK_INT (count);
+  return Fdelete_char (make_int (- XINT (count)), killp);
 }
 
 static void internal_self_insert (Emchar ch, int noautofill);
@@ -283,16 +283,17 @@ static void internal_self_insert (Emchar ch, int noautofill);
 DEFUN ("self-insert-command", Fself_insert_command, 1, 1, "*p", /*
 Insert the character you type.
 Whichever character you type to run this command is inserted.
+If a prefix arg COUNT is specified, the character is inserted COUNT times.
 */
-       (n))
+       (count))
 {
   /* This function can GC */
   Emchar ch;
   Lisp_Object c;
-  int count;
+  int n;
 
-  CHECK_NATNUM (n);
-  count = XINT (n);
+  CHECK_NATNUM (count);
+  n = XINT (count);
 
   if (CHAR_OR_CHAR_INTP (Vlast_command_char))
     c = Vlast_command_char;
@@ -307,8 +308,8 @@ Whichever character you type to run this command is inserted.
 
   ch = XCHAR (c);
 
-  while (count--)
-    internal_self_insert (ch, (count != 0));
+  while (n--)
+    internal_self_insert (ch, (n != 0));
 
   return Qnil;
 }
@@ -447,13 +448,13 @@ internal_self_insert (Emchar c1, int noautofill)
 /* (this comes from Mule but is a generally good idea) */
 
 DEFUN ("self-insert-internal", Fself_insert_internal, 1, 1, 0, /*
-Invoke `self-insert-command' as if CH is entered from keyboard.
+Invoke `self-insert-command' as if CHARACTER is entered from keyboard.
 */
-       (ch))
+       (character))
 {
   /* This function can GC */
-  CHECK_CHAR_COERCE_INT (ch);
-  internal_self_insert (XCHAR (ch), 0);
+  CHECK_CHAR_COERCE_INT (character);
+  internal_self_insert (XCHAR (character), 0);
   return Qnil;
 }
 
@@ -506,7 +507,7 @@ More precisely, a char with closeparen syntax is self-inserted.
 
   DEFVAR_LISP ("auto-fill-chars", &Vauto_fill_chars /*
 A char-table for characters which invoke auto-filling.
-Such characters has value t in this table.
+Such characters have value t in this table.
 */);
   Vauto_fill_chars = Fmake_char_table (Qgeneric);
   XCHAR_TABLE (Vauto_fill_chars)->ascii[' '] = Qt;

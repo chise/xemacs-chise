@@ -43,31 +43,43 @@ x_initially_selected_for_input (struct console *con)
   return 1;
 }
 
+/* Parse a DISPLAY specification like "host:10.0" or ":0" */
 static void
 split_up_display_spec (Lisp_Object display, int *hostname_length,
 		       int *display_length, int *screen_length)
 {
-  Bufbyte *dotptr;
+  Bufbyte *beg = XSTRING_DATA (display);
+  Bufbyte *end = beg + XSTRING_LENGTH (display);
+  Bufbyte *p = end;
 
-  dotptr = strrchr ((char *) XSTRING_DATA (display), ':');
-  if (!dotptr)
+  while (p > beg)
     {
-      *hostname_length = XSTRING_LENGTH (display);
-      *display_length = 0;
-    }
-  else
-    {
-      *hostname_length = dotptr - XSTRING_DATA (display);
+      DEC_CHARPTR (p);
+      if (charptr_emchar (p) == ':')
+	{
+	  *hostname_length = p - beg;
 
-      dotptr = strchr ((char *) dotptr, '.');
-      if (dotptr)
-	*display_length = (dotptr - XSTRING_DATA (display) - *hostname_length);
-      else
-	*display_length = XSTRING_LENGTH (display) - *hostname_length;
+	  while (p < end - 1)
+	    {
+	      INC_CHARPTR (p);
+	      if (charptr_emchar (p) == '.')
+		{
+		  *display_length = p - beg - *hostname_length;
+		  *screen_length = end - p;
+		  return;
+		}
+	    }
+	  /* No '.' found. */
+	  *display_length = XSTRING_LENGTH (display) - *hostname_length;
+	  *screen_length = 0;
+	  return;
+	}
     }
 
-  *screen_length = (XSTRING_LENGTH (display) - *display_length
-		    - *hostname_length);
+  /* No ':' found. */
+  *hostname_length = XSTRING_LENGTH (display);
+  *display_length = 0;
+  *screen_length = 0;
 }
 
 /* Remember, in all of the following functions, we have to verify
@@ -182,11 +194,26 @@ x_semi_canonicalize_console_connection (Lisp_Object connection,
   connection = x_device_to_console_connection (connection, errb);
 
   /* Check for a couple of standard special cases */
-  if (string_byte (XSTRING (connection), 0) == ':')
+  if (string_char (XSTRING (connection), 0) == ':')
     connection = concat2 (build_string ("localhost"), connection);
-  else if (!strncmp (XSTRING_DATA (connection), "unix:", 5))
-    connection = concat2 (build_string ("localhost:"),
-			  Fsubstring (connection, make_int (5), Qnil));
+  else
+    {
+      /* connection =~ s/^unix:/localhost:/; */
+      const Bufbyte *p   = XSTRING_DATA (connection);
+      const Bufbyte *end = XSTRING_DATA (connection) + XSTRING_LENGTH (connection);
+      size_t i;
+
+      for (i = 0; i < sizeof ("unix:") - 1; i++)
+	{
+	  if (p == end || charptr_emchar (p) != "unix:"[i])
+	    goto ok;
+	  INC_CHARPTR (p);
+	}
+
+      connection = concat2 (build_string ("localhost:"),
+			    make_string (p, end - p));
+    }
+ ok:
 
   RETURN_UNGCPRO (connection);
 }
@@ -262,8 +289,8 @@ x_canonicalize_device_connection (Lisp_Object connection, Error_behavior errb)
   split_up_display_spec (connection, &hostname_length, &display_length,
 			 &screen_length);
 
-  screen_str = build_string (XSTRING_DATA (connection)
-			     + hostname_length + display_length);
+  screen_str = make_string (XSTRING_DATA (connection)
+			    + hostname_length + display_length, screen_length);
   connection = x_canonicalize_console_connection (connection, errb);
 
   RETURN_UNGCPRO (concat2 (connection, screen_str));

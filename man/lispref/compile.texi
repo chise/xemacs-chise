@@ -213,16 +213,22 @@ for the file name.
 @end deffn
 
 @c flag is not optional in FSF Emacs
-@deffn Command byte-recompile-directory directory &optional flag
+@deffn Command byte-recompile-directory directory &optional flag norecursion force
 @cindex library compilation
 This function recompiles every @samp{.el} file in @var{directory} that
 needs recompilation.  A file needs recompilation if a @samp{.elc} file
 exists but is older than the @samp{.el} file.
 
+Files in subdirectories of @var{directory} are also processed unless
+optional argument @var{norecursion} is non-@code{nil}.
+
 When a @samp{.el} file has no corresponding @samp{.elc} file, then
 @var{flag} says what to do.  If it is @code{nil}, these files are
 ignored.  If it is non-@code{nil}, the user is asked whether to compile
 each such file.
+
+If the fourth optional argument @var{force} is non-@code{nil},
+recompile every @samp{.el} file that already has a @samp{.elc} file.
 
 The return value of this command is unpredictable.
 @end deffn
@@ -254,7 +260,7 @@ normally @code{nil}, but is bound to @code{t} by
 @code{batch-byte-recompile-directory}.
 @end defvar
 
-@defun byte-code instructions constants stack-size
+@defun byte-code instructions constants stack-depth
 @cindex byte-code interpreter
 This function actually interprets byte-code.
 Don't call this function yourself.  Only the byte compiler knows how to
@@ -451,7 +457,7 @@ The string containing the byte-code instructions.
 The vector of Lisp objects referenced by the byte code.  These include
 symbols used as function names and variable names.
 
-@item stack-size
+@item stack-depth
 The maximum stack size this function needs.
 
 @item doc-string
@@ -485,7 +491,7 @@ representation.  It is the definition of the command
   The primitive way to create a compiled-function object is with
 @code{make-byte-code}:
 
-@defun make-byte-code arglist instructions constants stack-size &optional doc-string interactive
+@defun make-byte-code arglist instructions constants stack-depth &optional doc-string interactive
 This function constructs and returns a compiled-function object
 with the specified attributes.
 
@@ -522,7 +528,7 @@ This function returns the vector of Lisp objects referenced by
 compiled-function object @var{function}.
 @end defun
 
-@defun compiled-function-stack-size function
+@defun compiled-function-stack-depth function
 This function returns the maximum stack size needed by compiled-function
 object @var{function}.
 @end defun

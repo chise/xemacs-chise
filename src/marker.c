@@ -168,8 +168,8 @@ check_marker_circularities (struct buffer *buf)
 #endif
 
 static Lisp_Object
-set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
-		     int restricted_p)
+set_marker_internal (Lisp_Object marker, Lisp_Object position,
+		     Lisp_Object buffer, int restricted_p)
 {
   Bufpos charno;
   struct buffer *b;
@@ -182,8 +182,8 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
 
   /* If position is nil or a marker that points nowhere,
      make this marker point nowhere.  */
-  if (NILP (pos) ||
-      (MARKERP (pos) && !XMARKER (pos)->buffer))
+  if (NILP (position) ||
+      (MARKERP (position) && !XMARKER (position)->buffer))
     {
       if (point_p)
 	signal_simple_error ("Can't make point-marker point nowhere",
@@ -193,7 +193,7 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
       return marker;
     }
 
-  CHECK_INT_COERCE_MARKER (pos);
+  CHECK_INT_COERCE_MARKER (position);
   if (NILP (buffer))
     b = current_buffer;
   else
@@ -212,7 +212,7 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
 	}
     }
 
-  charno = XINT (pos);
+  charno = XINT (position);
   m = XMARKER (marker);
 
   if (restricted_p)
@@ -259,26 +259,32 @@ set_marker_internal (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer,
 
 
 DEFUN ("set-marker", Fset_marker, 2, 3, 0, /*
-Position MARKER before character number NUMBER in BUFFER.
+Move MARKER to position POSITION in BUFFER.
+POSITION can be a marker, an integer or nil.  If POSITION is an
+integer, make MARKER point before the POSITIONth character in BUFFER.
+If POSITION is nil, makes MARKER point nowhere.  Then it no longer
+slows down editing in any buffer.  If POSITION is less than 1, move
+MARKER to the beginning of BUFFER.  If POSITION is greater than the
+size of BUFFER, move MARKER to the end of BUFFER.
 BUFFER defaults to the current buffer.
-If NUMBER is nil, makes marker point nowhere.
-Then it no longer slows down editing in any buffer.
-If this marker was returned by (point-marker t), then changing its position
-moves point.  You cannot change its buffer or make it point nowhere.
-Returns MARKER.
+If this marker was returned by (point-marker t), then changing its
+position moves point.  You cannot change its buffer or make it point
+nowhere.
+The return value is MARKER.
 */
-       (marker, number, buffer))
+       (marker, position, buffer))
 {
-  return set_marker_internal (marker, number, buffer, 0);
+  return set_marker_internal (marker, position, buffer, 0);
 }
 
 
 /* This version of Fset_marker won't let the position
    be outside the visible part.  */
 Lisp_Object
-set_marker_restricted (Lisp_Object marker, Lisp_Object pos, Lisp_Object buffer)
+set_marker_restricted (Lisp_Object marker, Lisp_Object position,
+		       Lisp_Object buffer)
 {
-  return set_marker_internal (marker, pos, buffer, 1);
+  return set_marker_internal (marker, position, buffer, 1);
 }
 
 
@@ -404,21 +410,21 @@ copy_marker_1 (Lisp_Object marker, Lisp_Object type, int noseeum)
 }
 
 DEFUN ("copy-marker", Fcopy_marker, 1, 2, 0, /*
-Return a new marker pointing at the same place as MARKER.
-If argument is a number, makes a new marker pointing
+Return a new marker pointing at the same place as MARKER-OR-INTEGER.
+If MARKER-OR-INTEGER is an integer, return a new marker pointing
 at that position in the current buffer.
-The optional argument TYPE specifies the insertion type of the new marker;
-see `marker-insertion-type'.
+Optional argument MARKER-TYPE specifies the insertion type of the new
+marker; see `marker-insertion-type'.
 */
-       (marker, type))
+       (marker_or_integer, marker_type))
 {
-  return copy_marker_1 (marker, type, 0);
+  return copy_marker_1 (marker_or_integer, marker_type, 0);
 }
 
 Lisp_Object
-noseeum_copy_marker (Lisp_Object marker, Lisp_Object type)
+noseeum_copy_marker (Lisp_Object marker, Lisp_Object marker_type)
 {
-  return copy_marker_1 (marker, type, 1);
+  return copy_marker_1 (marker, marker_type, 1);
 }
 
 DEFUN ("marker-insertion-type", Fmarker_insertion_type, 1, 1, 0, /*

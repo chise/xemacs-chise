@@ -191,11 +191,11 @@ symbol function indirection when calling `erste'.
    The built-in function `indirect-function' provides an easy way to
 perform symbol function indirection explicitly.
 
- - Function: indirect-function function
-     This function returns the meaning of FUNCTION as a function.  If
-     FUNCTION is a symbol, then it finds FUNCTION's function definition
-     and starts over with that value.  If FUNCTION is not a symbol,
-     then it returns FUNCTION itself.
+ - Function: indirect-function object
+     This function returns the meaning of OBJECT as a function.  If
+     OBJECT is a symbol, then it finds OBJECT's function definition and
+     starts over with that value.  If OBJECT is not a symbol, then it
+     returns OBJECT itself.
 
      Here is how you could define `indirect-function' in Lisp:
 
@@ -980,18 +980,125 @@ and others.
    Quitting, which happens when the user types `C-g', is not considered
 an error, but it is handled almost like an error.  *Note Quitting::.
 
- - Function: error format-string &rest args
-     This function signals an error with an error message constructed by
-     applying `format' (*note String Conversion::) to FORMAT-STRING and
-     ARGS.
+   XEmacs has a rich hierarchy of error symbols predefined via
+`deferror'.
+
+     error
+       syntax-error
+         invalid-read-syntax
+         list-formation-error
+           malformed-list
+             malformed-property-list
+           circular-list
+             circular-property-list
+     
+       invalid-argument
+         wrong-type-argument
+         args-out-of-range
+         wrong-number-of-arguments
+         invalid-function
+         no-catch
+     
+       invalid-state
+         void-function
+         cyclic-function-indirection
+         void-variable
+         cyclic-variable-indirection
+     
+       invalid-operation
+         invalid-change
+           setting-constant
+         editing-error
+           beginning-of-buffer
+           end-of-buffer
+           buffer-read-only
+         io-error
+           end-of-file
+         arith-error
+           range-error
+           domain-error
+           singularity-error
+           overflow-error
+           underflow-error
+
+   The five most common errors you will probably use or base your new
+errors off of are `syntax-error', `invalid-argument', `invalid-state',
+`invalid-operation', and `invalid-change'.  Note the semantic
+differences:
+
+   * `syntax-error' is for errors in complex structures: parsed strings,
+     lists, and the like.
+
+   * `invalid-argument' is for errors in a simple value.  Typically, the
+     entire value, not just one part of it, is wrong.
+
+   * `invalid-state' means that some settings have been changed in such
+     a way that their current state is unallowable.  More and more,
+     code is being written more carefully, and catches the error when
+     the settings are being changed, rather than afterwards.  This
+     leads us to the next error:
+
+   * `invalid-change' means that an attempt is being made to change some
+     settings into an invalid state.  `invalid-change' is a type of
+     `invalid-operation'.
+
+   * `invalid-operation' refers to all cases where code is trying to do
+     something that's disallowed.  This includes file errors, buffer
+     errors (e.g. running off the end of a buffer), `invalid-change' as
+     just mentioned, and arithmetic errors.
+
+ - Function: error datum &rest args
+     This function signals a non-continuable error.
+
+     DATUM should normally be an error symbol, i.e. a symbol defined
+     using `define-error'.  ARGS will be made into a list, and DATUM
+     and ARGS passed as the two arguments to `signal', the most basic
+     error handling function.
 
      This error is not continuable: you cannot continue execution after
-     the error using the debugger `r' or `c' commands.  If you wish the
-     user to be able to continue execution, use `cerror' or `signal'
-     instead.
+     the error using the debugger `r' command.  See also `cerror'.
+
+     The correct semantics of ARGS varies from error to error, but for
+     most errors that need to be generated in Lisp code, the first
+     argument should be a string describing the *context* of the error
+     (i.e. the exact operation being performed and what went wrong),
+     and the remaining arguments or \"frobs\" (most often, there is
+     one) specify the offending object(s) and/or provide additional
+     details such as the exact error when a file error occurred, e.g.:
+
+        * the buffer in which an editing error occurred.
+
+        * an invalid value that was encountered. (In such cases, the
+          string should describe the purpose or \"semantics\" of the
+          value [e.g. if the value is an argument to a function, the
+          name of the argument; if the value is the value corresponding
+          to a keyword, the name of the keyword; if the value is
+          supposed to be a list length, say this and say what the
+          purpose of the list is; etc.] as well as specifying why the
+          value is invalid, if that's not self-evident.)
+
+        * the file in which an error occurred. (In such cases, there
+          should be a second frob, probably a string, specifying the
+          exact error that occurred.  This does not occur in the string
+          that precedes the first frob, because that frob describes the
+          exact operation that was happening.
+
+     For historical compatibility, DATUM can also be a string.  In this
+     case, DATUM and ARGS are passed together as the arguments to
+     `format', and then an error is signalled using the error symbol
+     `error' and formatted string.  Although this usage of `error' is
+     very common, it is deprecated because it totally defeats the
+     purpose of having structured errors.  There is now a rich set of
+     defined errors to use.
+
+     See also `cerror', `signal', and `signal-error'."
 
      These examples show typical uses of `error':
 
+          (error 'syntax-error
+                 "Dialog descriptor must supply at least one button"
+          	descriptor)
+          
           (error "You have committed an error.
                   Try something else.")
                error--> You have committed an error.
@@ -1000,17 +1107,12 @@ an error, but it is handled almost like an error.  *Note Quitting::.
           (error "You have committed %d errors." 10)
                error--> You have committed 10 errors.
 
-     `error' works by calling `signal' with two arguments: the error
-     symbol `error', and a list containing the string returned by
-     `format'.  This is repeated in an endless loop, to ensure that
-     `error' never returns.
-
      If you want to use your own string as an error message verbatim,
      don't just write `(error STRING)'.  If STRING contains `%', it
      will be interpreted as a format specifier, with undesirable
      results.  Instead, use `(error "%s" STRING)'.
 
- - Function: cerror format-string &rest args
+ - Function: cerror datum &rest args
      This function behaves like `error', except that the error it
      signals is continuable.  That means that debugger commands `c' and
      `r' can resume execution.
@@ -1117,164 +1219,4 @@ The debugger is enabled if the variable `debug-on-error' (*note Error
 Debugging::) is non-`nil'.  Unlike error handlers, the debugger runs in
 the environment of the error, so that you can examine values of
 variables precisely as they were at the time of the error.
-
-
-File: lispref.info,  Node: Handling Errors,  Next: Error Symbols,  Prev: Processing of Errors,  Up: Errors
-
-Writing Code to Handle Errors
-.............................
-
-   The usual effect of signaling an error is to terminate the command
-that is running and return immediately to the XEmacs editor command
-loop.  You can arrange to trap errors occurring in a part of your
-program by establishing an error handler, with the special form
-`condition-case'.  A simple example looks like this:
-
-     (condition-case nil
-         (delete-file filename)
-       (error nil))
-
-This deletes the file named FILENAME, catching any error and returning
-`nil' if an error occurs.
-
-   The second argument of `condition-case' is called the "protected
-form".  (In the example above, the protected form is a call to
-`delete-file'.)  The error handlers go into effect when this form
-begins execution and are deactivated when this form returns.  They
-remain in effect for all the intervening time.  In particular, they are
-in effect during the execution of functions called by this form, in
-their subroutines, and so on.  This is a good thing, since, strictly
-speaking, errors can be signaled only by Lisp primitives (including
-`signal' and `error') called by the protected form, not by the
-protected form itself.
-
-   The arguments after the protected form are handlers.  Each handler
-lists one or more "condition names" (which are symbols) to specify
-which errors it will handle.  The error symbol specified when an error
-is signaled also defines a list of condition names.  A handler applies
-to an error if they have any condition names in common.  In the example
-above, there is one handler, and it specifies one condition name,
-`error', which covers all errors.
-
-   The search for an applicable handler checks all the established
-handlers starting with the most recently established one.  Thus, if two
-nested `condition-case' forms offer to handle the same error, the inner
-of the two will actually handle it.
-
-   When an error is handled, control returns to the handler.  Before
-this happens, XEmacs unbinds all variable bindings made by binding
-constructs that are being exited and executes the cleanups of all
-`unwind-protect' forms that are exited.  Once control arrives at the
-handler, the body of the handler is executed.
-
-   After execution of the handler body, execution continues by returning
-from the `condition-case' form.  Because the protected form is exited
-completely before execution of the handler, the handler cannot resume
-execution at the point of the error, nor can it examine variable
-bindings that were made within the protected form.  All it can do is
-clean up and proceed.
-
-   `condition-case' is often used to trap errors that are predictable,
-such as failure to open a file in a call to `insert-file-contents'.  It
-is also used to trap errors that are totally unpredictable, such as
-when the program evaluates an expression read from the user.
-
-   Even when an error is handled, the debugger may still be called if
-the variable `debug-on-signal' (*note Error Debugging::) is non-`nil'.
-Note that this may yield unpredictable results with code that traps
-expected errors as normal part of its operation.  Do not set
-`debug-on-signal' unless you know what you are doing.
-
-   Error signaling and handling have some resemblance to `throw' and
-`catch', but they are entirely separate facilities.  An error cannot be
-caught by a `catch', and a `throw' cannot be handled by an error
-handler (though using `throw' when there is no suitable `catch' signals
-an error that can be handled).
-
- - Special Form: condition-case var protected-form handlers...
-     This special form establishes the error handlers HANDLERS around
-     the execution of PROTECTED-FORM.  If PROTECTED-FORM executes
-     without error, the value it returns becomes the value of the
-     `condition-case' form; in this case, the `condition-case' has no
-     effect.  The `condition-case' form makes a difference when an
-     error occurs during PROTECTED-FORM.
-
-     Each of the HANDLERS is a list of the form `(CONDITIONS BODY...)'.
-     Here CONDITIONS is an error condition name to be handled, or a
-     list of condition names; BODY is one or more Lisp expressions to
-     be executed when this handler handles an error.  Here are examples
-     of handlers:
-
-          (error nil)
-          
-          (arith-error (message "Division by zero"))
-          
-          ((arith-error file-error)
-           (message
-            "Either division by zero or failure to open a file"))
-
-     Each error that occurs has an "error symbol" that describes what
-     kind of error it is.  The `error-conditions' property of this
-     symbol is a list of condition names (*note Error Symbols::).  Emacs
-     searches all the active `condition-case' forms for a handler that
-     specifies one or more of these condition names; the innermost
-     matching `condition-case' handles the error.  Within this
-     `condition-case', the first applicable handler handles the error.
-
-     After executing the body of the handler, the `condition-case'
-     returns normally, using the value of the last form in the handler
-     body as the overall value.
-
-     The argument VAR is a variable.  `condition-case' does not bind
-     this variable when executing the PROTECTED-FORM, only when it
-     handles an error.  At that time, it binds VAR locally to a list of
-     the form `(ERROR-SYMBOL . DATA)', giving the particulars of the
-     error.  The handler can refer to this list to decide what to do.
-     For example, if the error is for failure opening a file, the file
-     name is the second element of DATA--the third element of VAR.
-
-     If VAR is `nil', that means no variable is bound.  Then the error
-     symbol and associated data are not available to the handler.
-
-   Here is an example of using `condition-case' to handle the error
-that results from dividing by zero.  The handler prints out a warning
-message and returns a very large number.
-
-     (defun safe-divide (dividend divisor)
-       (condition-case err
-           ;; Protected form.
-           (/ dividend divisor)
-         ;; The handler.
-         (arith-error                        ; Condition.
-          (princ (format "Arithmetic error: %s" err))
-          1000000)))
-     => safe-divide
-     
-     (safe-divide 5 0)
-          -| Arithmetic error: (arith-error)
-     => 1000000
-
-The handler specifies condition name `arith-error' so that it will
-handle only division-by-zero errors.  Other kinds of errors will not be
-handled, at least not by this `condition-case'.  Thus,
-
-     (safe-divide nil 3)
-          error--> Wrong type argument: integer-or-marker-p, nil
-
-   Here is a `condition-case' that catches all kinds of errors,
-including those signaled with `error':
-
-     (setq baz 34)
-          => 34
-     
-     (condition-case err
-         (if (eq baz 35)
-             t
-           ;; This is a call to the function `error'.
-           (error "Rats!  The variable %s was %s, not 35" 'baz baz))
-       ;; This is the handler; it is not a form.
-       (error (princ (format "The error was: %s" err))
-              2))
-     -| The error was: (error "Rats!  The variable baz was 34, not 35")
-     => 2
 

@@ -38,9 +38,9 @@
 
 ;; override the default value defined in loaddefs.el.
 (setq-default modeline-format
-  (cons (purecopy "")
-	(cons 'modeline-multibyte-status
-	      (cdr modeline-format))))
+	      (cons ""
+		    (cons 'modeline-multibyte-status
+			  (cdr modeline-format))))
 
 (defun modify-coding-system-alist (target-type regexp coding-system)
   "Modify one of look up tables for finding a coding system on I/O operation.

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/building.info
 @node Building XEmacs and Object Allocation, Standard Errors, Tips, Top
@@ -127,9 +127,13 @@ most emphatically @emph{not} call this yourself; it will reinitialize
 your XEmacs process and you'll be sorry.
 @end defun
 
-@deffn Command emacs-version
+@deffn Command emacs-version &optional arg
   This function returns a string describing the version of XEmacs that is
 running.  It is useful to include this string in bug reports.
+
+When called interactively with a prefix argument, insert string at point.
+Don't use this function in programs to choose actions according
+to the system configuration; look at @code{system-configuration} instead.
 
 @example
 @group
@@ -150,7 +154,7 @@ local site.
 @example
 @group
 emacs-build-time "Mon Apr  7 20:28:52 1997"
-     @result{} 
+     @result{}
 @end group
 @end example
 @end defvar
@@ -310,7 +314,7 @@ information:
  (@var{used-syms} . @var{free-syms})
 @end group
  (@var{used-markers} . @var{free-markers})
- @var{used-string-chars} 
+ @var{used-string-chars}
  @var{used-vector-slots}
  (@var{plist}))
 
@@ -436,6 +440,7 @@ not apply if XEmacs was configured with @samp{--debug}.  Therefore, be
 careful when setting @code{gc-cons-threshold} in that case!)
 @end defopt
 
+@ignore
 @c Emacs 19 feature
 @defun memory-limit
 This function returns the address of the last byte XEmacs has allocated,
@@ -445,6 +450,7 @@ Lisp integer.
 You can use this to get a general idea of how your actions affect the
 memory usage.
 @end defun
+@end ignore
 
 @defvar pre-gc-hook
 This is a normal hook to be run just before each garbage collection.

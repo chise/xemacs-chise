@@ -403,9 +403,9 @@ Altering List Elements with `setcar'
 a list, `setcar' replaces one element of a list with a different
 element.
 
- - Function: setcar cons object
-     This function stores OBJECT as the new CAR of CONS, replacing its
-     previous CAR.  It returns the value OBJECT.  For example:
+ - Function: setcar cons-cell object
+     This function stores OBJECT as the new CAR of CONS-CELL, replacing
+     its previous CAR.  It returns the value OBJECT.  For example:
 
           (setq x '(1 2))
                => (1 2)
@@ -481,9 +481,9 @@ Altering the CDR of a List
 
    The lowest-level primitive for modifying a CDR is `setcdr':
 
- - Function: setcdr cons object
-     This function stores OBJECT as the new CDR of CONS, replacing its
-     previous CDR.  It returns the value OBJECT.
+ - Function: setcdr cons-cell object
+     This function stores OBJECT as the new CDR of CONS-CELL, replacing
+     its previous CDR.  It returns the value OBJECT.
 
    Here is an example of replacing the CDR of a list with a different
 list.  All but the first element of the list are removed in favor of a
@@ -1082,26 +1082,28 @@ File: lispref.info,  Node: Working With Normal Plists,  Next: Working With Lax P
 Working With Normal Plists
 --------------------------
 
- - Function: plist-get plist prop &optional default
+ - Function: plist-get plist property &optional default
      This function extracts a value from a property list.  The function
-     returns the value corresponding to the given PROP, or DEFAULT if
-     PROP is not one of the properties on the list.
+     returns the value corresponding to the given PROPERTY, or DEFAULT
+     if PROPERTY is not one of the properties on the list.
 
- - Function: plist-put plist prop val
-     This function changes the value in PLIST of PROP to VAL.  If PROP
-     is already a property on the list, its value is set to VAL,
-     otherwise the new PROP VAL pair is added.  The new plist is
-     returned; use `(setq x (plist-put x prop val))' to be sure to use
-     the new value.  The PLIST is modified by side effects.
+ - Function: plist-put plist property value
+     This function changes the value in PLIST of PROPERTY to VALUE.  If
+     PROPERTY is already a property on the list, its value is set to
+     VALUE, otherwise the new PROPERTY VALUE pair is added.  The new
+     plist is returned; use `(setq x (plist-put x property value))' to
+     be sure to use the new value.  The PLIST is modified by side
+     effects.
 
- - Function: plist-remprop plist prop
-     This function removes from PLIST the property PROP and its value.
-     The new plist is returned; use `(setq x (plist-remprop x prop
-     val))' to be sure to use the new value.  The PLIST is modified by
-     side effects.
+ - Function: plist-remprop plist property
+     This function removes from PLIST the property PROPERTY and its
+     value.  The new plist is returned; use `(setq x (plist-remprop x
+     property))' to be sure to use the new value.  The PLIST is
+     modified by side effects.
 
- - Function: plist-member plist prop
-     This function returns `t' if PROP has a value specified in PLIST.
+ - Function: plist-member plist property
+     This function returns `t' if PROPERTY has a value specified in
+     PLIST.
 
    In the following functions, if optional arg NIL-MEANS-NOT-PRESENT is
 non-`nil', then a property with a `nil' value is ignored or removed.
@@ -1135,22 +1137,22 @@ Working With Lax Plists
    Recall that a "lax plist" is a property list whose keys are compared
 using `equal' instead of `eq'.
 
- - Function: lax-plist-get lax-plist prop &optional default
+ - Function: lax-plist-get lax-plist property &optional default
      This function extracts a value from a lax property list.  The
-     function returns the value corresponding to the given PROP, or
-     DEFAULT if PROP is not one of the properties on the list.
+     function returns the value corresponding to the given PROPERTY, or
+     DEFAULT if PROPERTY is not one of the properties on the list.
 
- - Function: lax-plist-put lax-plist prop val
-     This function changes the value in LAX-PLIST of PROP to VAL.
+ - Function: lax-plist-put lax-plist property value
+     This function changes the value in LAX-PLIST of PROPERTY to VALUE.
 
- - Function: lax-plist-remprop lax-plist prop
-     This function removes from LAX-PLIST the property PROP and its
+ - Function: lax-plist-remprop lax-plist property
+     This function removes from LAX-PLIST the property PROPERTY and its
      value.  The new plist is returned; use `(setq x (lax-plist-remprop
-     x prop val))' to be sure to use the new value.  The LAX-PLIST is
+     x property))' to be sure to use the new value.  The LAX-PLIST is
      modified by side effects.
 
- - Function: lax-plist-member lax-plist prop
-     This function returns `t' if PROP has a value specified in
+ - Function: lax-plist-member lax-plist property
+     This function returns `t' if PROPERTY has a value specified in
      LAX-PLIST.
 
    In the following functions, if optional arg NIL-MEANS-NOT-PRESENT is

@@ -1006,9 +1006,9 @@ list6 (Lisp_Object obj0, Lisp_Object obj1, Lisp_Object obj2, Lisp_Object obj3,
 }
 
 DEFUN ("make-list", Fmake_list, 2, 2, 0, /*
-Return a new list of length LENGTH, with each element being INIT.
+Return a new list of length LENGTH, with each element being OBJECT.
 */
-       (length, init))
+       (length, object))
 {
   CHECK_NATNUM (length);
 
@@ -1017,7 +1017,7 @@ Return a new list of length LENGTH, with each element being INIT.
     size_t size = XINT (length);
 
     while (size--)
-      val = Fcons (init, val);
+      val = Fcons (object, val);
     return val;
   }
 }
@@ -1128,13 +1128,13 @@ make_vector_internal (size_t sizei)
 }
 
 Lisp_Object
-make_vector (size_t length, Lisp_Object init)
+make_vector (size_t length, Lisp_Object object)
 {
   Lisp_Vector *vecp = make_vector_internal (length);
   Lisp_Object *p = vector_data (vecp);
 
   while (length--)
-    *p++ = init;
+    *p++ = object;
 
   {
     Lisp_Object vector;
@@ -1144,13 +1144,13 @@ make_vector (size_t length, Lisp_Object init)
 }
 
 DEFUN ("make-vector", Fmake_vector, 2, 2, 0, /*
-Return a new vector of length LENGTH, with each element being INIT.
+Return a new vector of length LENGTH, with each element being OBJECT.
 See also the function `vector'.
 */
-       (length, init))
+       (length, object))
 {
   CONCHECK_NATNUM (length);
-  return make_vector (XINT (length), init);
+  return make_vector (XINT (length), object);
 }
 
 DEFUN ("vector", Fvector, 0, MANY, 0, /*
@@ -1299,14 +1299,14 @@ make_bit_vector_internal (size_t sizei)
 }
 
 Lisp_Object
-make_bit_vector (size_t length, Lisp_Object init)
+make_bit_vector (size_t length, Lisp_Object bit)
 {
   Lisp_Bit_Vector *p = make_bit_vector_internal (length);
   size_t num_longs = BIT_VECTOR_LONG_STORAGE (length);
 
-  CHECK_BIT (init);
+  CHECK_BIT (bit);
 
-  if (ZEROP (init))
+  if (ZEROP (bit))
     memset (p->bits, 0, num_longs * sizeof (long));
   else
     {
@@ -1342,19 +1342,20 @@ make_bit_vector_from_byte_vector (unsigned char *bytevec, size_t length)
 }
 
 DEFUN ("make-bit-vector", Fmake_bit_vector, 2, 2, 0, /*
-Return a new bit vector of length LENGTH. with each bit being INIT.
-Each element is set to INIT.  See also the function `bit-vector'.
+Return a new bit vector of length LENGTH. with each bit set to BIT.
+BIT must be one of the integers 0 or 1.  See also the function `bit-vector'.
 */
-       (length, init))
+       (length, bit))
 {
   CONCHECK_NATNUM (length);
 
-  return make_bit_vector (XINT (length), init);
+  return make_bit_vector (XINT (length), bit);
 }
 
 DEFUN ("bit-vector", Fbit_vector, 0, MANY, 0, /*
 Return a newly created bit vector with specified arguments as elements.
 Any number of arguments, even zero arguments, are allowed.
+Each argument must be one of the integers 0 or 1.
 */
        (int nargs, Lisp_Object *args))
 {
@@ -2035,21 +2036,21 @@ set_string_char (Lisp_String *s, Charcount i, Emchar c)
 #endif /* MULE */
 
 DEFUN ("make-string", Fmake_string, 2, 2, 0, /*
-Return a new string of length LENGTH, with each character being INIT.
-LENGTH must be an integer and INIT must be a character.
+Return a new string consisting of LENGTH copies of CHARACTER.
+LENGTH must be a non-negative integer.
 */
-       (length, init))
+       (length, character))
 {
   CHECK_NATNUM (length);
-  CHECK_CHAR_COERCE_INT (init);
+  CHECK_CHAR_COERCE_INT (character);
   {
     Bufbyte init_str[MAX_EMCHAR_LEN];
-    int len = set_charptr_emchar (init_str, XCHAR (init));
+    int len = set_charptr_emchar (init_str, XCHAR (character));
     Lisp_Object val = make_uninit_string (len * XINT (length));
 
     if (len == 1)
       /* Optimize the single-byte case */
-      memset (XSTRING_DATA (val), XCHAR (init), XSTRING_LENGTH (val));
+      memset (XSTRING_DATA (val), XCHAR (character), XSTRING_LENGTH (val));
     else
       {
 	size_t i;
@@ -2324,9 +2325,9 @@ Make a copy of OBJECT in pure storage.
 Recursively copies contents of vectors and cons cells.
 Does not copy symbols.
 */
-       (obj))
+       (object))
 {
-  return obj;
+  return object;
 }
 
 
@@ -2679,12 +2680,10 @@ sweep_bit_vectors_1 (Lisp_Object *prev,
 #define SWEEP_FIXED_TYPE_BLOCK(typename, obj_type)			\
 do {									\
   struct typename##_block *SFTB_current;				\
-  struct typename##_block **SFTB_prev;					\
   int SFTB_limit;							\
   int num_free = 0, num_used = 0;					\
 									\
-  for (SFTB_prev = &current_##typename##_block,				\
-       SFTB_current = current_##typename##_block,			\
+  for (SFTB_current = current_##typename##_block,			\
        SFTB_limit = current_##typename##_block_index;			\
        SFTB_current;							\
        )								\
@@ -2714,7 +2713,6 @@ do {									\
 	      UNMARK_##typename (SFTB_victim);				\
 	    }								\
 	}								\
-      SFTB_prev = &(SFTB_current->prev);				\
       SFTB_current = SFTB_current->prev;				\
       SFTB_limit = countof (current_##typename##_block->block);		\
     }									\
@@ -2938,7 +2936,7 @@ void
 free_marker (Lisp_Marker *ptr)
 {
   /* Perhaps this will catch freeing an already-freed marker. */
-  gc_checking_assert (ptr->lheader.type = lrecord_type_marker);
+  gc_checking_assert (ptr->lheader.type == lrecord_type_marker);
 
 #ifndef ALLOC_NO_POOLS
   FREE_FIXED_TYPE_WHEN_NOT_IN_GC (marker, Lisp_Marker, ptr);
@@ -3707,7 +3705,7 @@ If this value exceeds `gc-cons-threshold', a garbage collection happens.
 }
 
 #if 0
-DEFUN ("memory-limit", Fmemory_limit, 0, 0, "", /*
+DEFUN ("memory-limit", Fmemory_limit, 0, 0, 0, /*
 Return the address of the last byte Emacs has allocated, divided by 1024.
 This may be helpful in debugging Emacs's memory usage.
 The value is divided by 1024 to make sure it will fit in a lisp integer.

@@ -596,7 +596,7 @@ face_property_matching_instance (Lisp_Object face, Lisp_Object property,
 
 
 DEFUN ("facep", Ffacep, 1, 1, 0, /*
-Return non-nil if OBJECT is a face.
+Return t if OBJECT is a face.
 */
        (object))
 {
@@ -762,8 +762,8 @@ other non-nil value both permanent and temporary are included.
 }
 
 DEFUN ("make-face", Fmake_face, 1, 3, 0, /*
-Define and return a new FACE described by DOC-STRING.
-You can modify the font, color, etc of a face with the set-face-* functions.
+Define a new face with name NAME (a symbol), described by DOC-STRING.
+You can modify the font, color, etc. of a face with the set-face-* functions.
 If the face already exists, it is unmodified.
 If TEMPORARY is non-nil, this face will cease to exist if not in use.
 */
@@ -1575,7 +1575,16 @@ get_extent_fragment_face_cache_index (struct window *w,
       findex = get_builtin_face_cache_index (w, Vdefault_face);
       merge_face_cachel_data (w, findex, &cachel);
 
-      return get_merged_face_cache_index (w, &cachel);
+      findex = get_merged_face_cache_index (w, &cachel);
+      if (cachel.merged_faces &&
+	  /* merged_faces did not get stored and available via return value */
+	  Dynarr_at (w->face_cachels, findex).merged_faces !=
+	  cachel.merged_faces)
+	{
+	  Dynarr_free (cachel.merged_faces);
+	  cachel.merged_faces = 0;
+	}
+      return findex;
     }
 }
 

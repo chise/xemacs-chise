@@ -1,13 +1,13 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/hooks.info
 @node Standard Hooks, Index, Standard Keymaps, Top
 @appendix Standard Hooks
 
 The following is a list of hook variables that let you provide
-functions to be called from within Emacs on suitable occasions. 
+functions to be called from within Emacs on suitable occasions.
 
 Most of these variables have names ending with @samp{-hook}.  They are
 @dfn{normal hooks}, run by means of @code{run-hooks}.  The value of such
@@ -98,8 +98,8 @@ special way (they are passed arguments, or else their values are used).
 @item ediff-long-help-message-function
 @item ediff-make-wide-display-function
 @item ediff-merge-split-window-function
-@item ediff-meta-action-function 
-@item ediff-meta-redraw-function 
+@item ediff-meta-action-function
+@item ediff-meta-redraw-function
 @item ediff-mode-hook
 @item ediff-prepare-buffer-hook
 @item ediff-quit-hook

@@ -20,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -258,7 +258,7 @@ In either case, the output is inserted after point (leaving mark after it)."
   (if (and output-buffer
 	   (not (or (bufferp output-buffer)  (stringp output-buffer))))
       (progn (barf-if-buffer-read-only)
-	     (push-mark)
+	     (push-mark nil (not (interactive-p)))
 	     ;; We do not use -f for csh; we will not support broken use of
 	     ;; .cshrcs.  Even the BSD csh manual says to use
 	     ;; "if ($?prompt) exit" before things which are not useful
@@ -405,7 +405,7 @@ Remaining arguments are strings to give program as arguments."
 
 (defun open-network-stream (name buffer host service &optional protocol)
   "Open a TCP connection for a service to a host.
-Returns a subprocess-object to represent the connection.
+Returns a process object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 Args are NAME BUFFER HOST SERVICE.
 NAME is name for process.  It is modified if necessary to make it unique.

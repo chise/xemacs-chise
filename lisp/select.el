@@ -20,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -28,7 +28,7 @@
 
 ;;; Commentary:
 
-;; This file is dumped with XEmacs 
+;; This file is dumped with XEmacs
 
 ;;; Code:
 
@@ -40,7 +40,7 @@ COMPOUND_TEXT and STRING are the most commonly used data types.
 If a list is provided, the types are tried in sequence until
 there is a successful conversion.")
 
-(defvar selection-sets-clipboard nil 
+(defvar selection-sets-clipboard nil
   "Controls the selection's relationship to the clipboard.
 When non-nil, any operation that sets the primary selection will also
 set the clipboard.")
@@ -86,7 +86,7 @@ This will do nothing under anything other than X.")
   "Return the value of a window-system selection.
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
-says how to convert the data. Returns NIL if there is no selection"
+says how to convert the data. Returns NIL if there is no selection."
   (condition-case nil (get-selection type data-type) (t nil)))
 
 (defun get-selection (&optional type data-type)
@@ -623,7 +623,7 @@ nil if this is impossible, or a suitable representation otherwise."
 (defun select-convert-from-integer (selection type value)
   (cond ((integerp value)		; Integer
 	 value)
-	
+
 	((and (consp value)		; (integer . integer)
 	      (integerp (car value))
 	      (integerp (cdr value)))
@@ -633,7 +633,7 @@ nil if this is impossible, or a suitable representation otherwise."
 		    (< (cdr value) 0))
 	       (cdr value)
 	     value)))
-	
+
 	((and (listp value)		; (integer integer)
 	      (eq (length value) 2)
 	      (integerp (car value))
@@ -644,21 +644,21 @@ nil if this is impossible, or a suitable representation otherwise."
 		    (< (cdr value) 0))
 	       (- (cadr value))
 	     (cons (car value) (cadr value)))))
-	
+
 	((listp value)			; list
 	 (if (cdr value)
 	     (mapcar '(lambda (x)
 			(select-convert-from-integer selection type x))
 		     value)
 	   (select-convert-from-integer selection type (car value))))
-	
+
 	((vectorp value)		; vector
 	 (if (eq (length value) 1)
 	     (select-convert-from-integer selection type (aref value 0))
 	   (mapvector '(lambda (x)
 			(select-convert-from-integer selection type x))
 		     value)))
-	
+
 	(t nil)
 	))
 
@@ -740,7 +740,7 @@ nil if this is impossible, or a suitable representation otherwise."
 
 (defun select-buffer-killed-text (selection type value buffer)
   (select-buffer-killed-default selection type value buffer))
-	
+
 ;; Types listed in here can be selections of XEmacs
 (setq selection-converter-out-alist
       '((TEXT . select-convert-to-text)

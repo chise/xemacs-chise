@@ -142,9 +142,10 @@ putting strings together, or by taking them apart.
      `bit-vector' (*note Bit Vectors::).  This function has not been
      available in XEmacs prior to 21.0 and FSF Emacs prior to 20.3.
 
- - Function: make-string count character
-     This function returns a string made up of COUNT repetitions of
-     CHARACTER.  If COUNT is negative, an error is signaled.
+ - Function: make-string length character
+     This function returns a new string consisting entirely of LENGTH
+     successive copies of CHARACTER.  LENGTH must be a non-negative
+     integer.
 
           (make-string 5 ?x)
                => "xxxxx"
@@ -284,7 +285,7 @@ File: lispref.info,  Node: Character Codes,  Next: Text Comparison,  Prev: Predi
 Character Codes
 ===============
 
- - Function: char-int ch
+ - Function: char-int character
      This function converts a character into an equivalent integer.
      The resulting integer will always be non-negative.  The integers in
      the range 0 - 255 map to characters as follows:
@@ -327,10 +328,11 @@ File: lispref.info,  Node: Text Comparison,  Next: String Conversion,  Prev: Cha
 Comparison of Characters and Strings
 ====================================
 
- - Function: char-equal character1 character2
+ - Function: char-equal character1 character2 &optional buffer
      This function returns `t' if the arguments represent the same
      character, `nil' otherwise.  This function ignores differences in
-     case if `case-fold-search' is non-`nil'.
+     case if the value of `case-fold-search' is non-`nil' in BUFFER,
+     which defaults to the current buffer.
 
           (char-equal ?x ?x)
                => t
@@ -491,12 +493,12 @@ functions are used primarily for making help messages.
      See also the function `format' in *Note Formatting Strings::.
 
  - Function: string-to-number string &optional base
-     This function returns the numeric value of the characters in
-     STRING, read in BASE.  It skips spaces and tabs at the beginning
-     of STRING, then reads as much of STRING as it can interpret as a
+     This function returns the numeric value represented by STRING,
+     read in BASE.  It skips spaces and tabs at the beginning of
+     STRING, then reads as much of STRING as it can interpret as a
      number.  (On some systems it ignores other whitespace at the
-     beginning, not just spaces and tabs.)  If the first character after
-     the ignored whitespace is not a digit or a minus sign, this
+     beginning, not just spaces and tabs.)  If the first character
+     after the ignored whitespace is not a digit or a minus sign, this
      function returns 0.
 
      If BASE is not specified, it defaults to ten.  With BASE other
@@ -793,7 +795,7 @@ that are passed to them as arguments.
    The examples below use the characters `X' and `x' which have ASCII
 codes 88 and 120 respectively.
 
- - Function: downcase string-or-char
+ - Function: downcase string-or-char &optional buffer
      This function converts a character or a string to lower case.
 
      When the argument to `downcase' is a string, the function creates
@@ -804,6 +806,9 @@ codes 88 and 120 respectively.
      XEmacs 19.) If the original character is lower case, or is not a
      letter, then the value equals the original character.
 
+     Optional second arg BUFFER specifies which buffer's case tables to
+     use, and defaults to the current buffer.
+
           (downcase "The cat in the hat")
                => "the cat in the hat"
           
@@ -811,7 +816,7 @@ codes 88 and 120 respectively.
                => ?x   ;; Under XEmacs 20.
                => 120  ;; Under XEmacs 19.
 
- - Function: upcase string-or-char
+ - Function: upcase string-or-char &optional buffer
      This function converts a character or a string to upper case.
 
      When the argument to `upcase' is a string, the function creates
@@ -824,6 +829,9 @@ codes 88 and 120 respectively.
      case, or is not a letter, then the value equals the original
      character.
 
+     Optional second arg BUFFER specifies which buffer's case tables to
+     use, and defaults to the current buffer.
+
           (upcase "The cat in the hat")
                => "THE CAT IN THE HAT"
           
@@ -831,7 +839,7 @@ codes 88 and 120 respectively.
                => ?X   ;; Under XEmacs 20.
                => 88   ;; Under XEmacs 19.
 
- - Function: capitalize string-or-char
+ - Function: capitalize string-or-char &optional buffer
      This function capitalizes strings or characters.  If
      STRING-OR-CHAR is a string, the function creates and returns a new
      string, whose contents are a copy of STRING-OR-CHAR in which each
@@ -845,6 +853,9 @@ codes 88 and 120 respectively.
 
      When the argument to `capitalize' is a character, `capitalize' has
      the same result as `upcase'.
+
+     Optional second arg BUFFER specifies which buffer's case tables to
+     use, and defaults to the current buffer.
 
           (capitalize "The cat in the hat")
                => "The Cat In The Hat"
@@ -910,18 +921,19 @@ Changing the standard case table doesn't affect any existing buffers.
  - Function: case-table-p object
      This predicate returns non-`nil' if OBJECT is a valid case table.
 
- - Function: set-standard-case-table table
-     This function makes TABLE the standard case table, so that it will
-     apply to any buffers created subsequently.
+ - Function: set-standard-case-table case-table
+     This function makes CASE-TABLE the standard case table, so that it
+     will apply to any buffers created subsequently.
 
  - Function: standard-case-table
      This returns the standard case table.
 
- - Function: current-case-table
-     This function returns the current buffer's case table.
+ - Function: current-case-table &optional buffer
+     This function returns the case table of BUFFER, which defaults to
+     the current buffer.
 
- - Function: set-case-table table
-     This sets the current buffer's case table to TABLE.
+ - Function: set-case-table case-table
+     This sets the current buffer's case table to CASE-TABLE.
 
    The following three functions are convenient subroutines for packages
 that define non-ASCII character sets.  They modify a string
@@ -1026,8 +1038,8 @@ different sorts of values.  The different char table types are
      character.  Higher-level Lisp functions are provided for working
      with syntax tables.  The valid values are integers.
 
- - Function: char-table-type table
-     This function returns the type of char table TABLE.
+ - Function: char-table-type char-table
+     This function returns the type of char table CHAR-TABLE.
 
  - Function: char-table-type-list
      This function returns a list of the recognized char table types.
@@ -1046,8 +1058,9 @@ Working With Char Tables
      should be a symbol, one of `char', `category', `display',
      `generic', or `syntax'.
 
- - Function: put-char-table range val table
-     This function sets the value for chars in RANGE to be VAL in TABLE.
+ - Function: put-char-table range value char-table
+     This function sets the value for chars in RANGE to be VALUE in
+     CHAR-TABLE.
 
      RANGE specifies one or more characters to be affected and should be
      one of the following:
@@ -1061,21 +1074,21 @@ Working With Char Tables
 
         * A single character
 
-     VAL must be a value appropriate for the type of TABLE.
+     VALUE must be a value appropriate for the type of CHAR-TABLE.
 
- - Function: get-char-table ch table
-     This function finds the value for char CH in TABLE.
+ - Function: get-char-table character char-table
+     This function finds the value for CHARACTER in CHAR-TABLE.
 
- - Function: get-range-char-table range table &optional multi
-     This function finds the value for a range in TABLE.  If there is
-     more than one value, MULTI is returned (defaults to `nil').
+ - Function: get-range-char-table range char-table &optional multi
+     This function finds the value for a range in CHAR-TABLE.  If there
+     is more than one value, MULTI is returned (defaults to `nil').
 
- - Function: reset-char-table table
-     This function resets a char table to its default state.
+ - Function: reset-char-table char-table
+     This function resets CHAR-TABLE to its default state.
 
- - Function: map-char-table function table &optional range
-     This function maps FUNCTION over entries in TABLE, calling it with
-     two args, each key and value in the table.
+ - Function: map-char-table function char-table &optional range
+     This function maps FUNCTION over entries in CHAR-TABLE, calling it
+     with two args, each key and value in the table.
 
      RANGE specifies a subrange to map over and is in the same format
      as the RANGE argument to `put-range-table'.  If omitted or `t', it

@@ -322,26 +322,18 @@ non_ascii_valid_char_p (Emchar ch)
 /*                       Basic string functions                         */
 /************************************************************************/
 
-/* Copy the character pointed to by PTR into STR, assuming it's
-   non-ASCII.  Do not call this directly.  Use the macro
-   charptr_copy_char() instead. */
+/* Copy the character pointed to by SRC into DST.  Do not call this
+   directly.  Use the macro charptr_copy_char() instead.
+   Return the number of bytes copied.  */
 
 Bytecount
-non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *str)
+non_ascii_charptr_copy_char (const Bufbyte *src, Bufbyte *dst)
 {
-  Bufbyte *strptr = str;
-  *strptr = *ptr++;
-  switch (REP_BYTES_BY_FIRST_BYTE (*strptr))
-    {
-      /* Notice fallthrough. */
-    case 4: *++strptr = *ptr++;
-    case 3: *++strptr = *ptr++;
-    case 2: *++strptr = *ptr;
-      break;
-    default:
-      abort ();
-    }
-  return strptr + 1 - str;
+  unsigned int bytes = REP_BYTES_BY_FIRST_BYTE (*src);
+  unsigned int i;
+  for (i = bytes; i; i--, dst++, src++)
+    *dst = *src;
+  return bytes;
 }
 
 
@@ -358,26 +350,15 @@ Lstream_get_emchar_1 (Lstream *stream, int ch)
 {
   Bufbyte str[MAX_EMCHAR_LEN];
   Bufbyte *strptr = str;
+  unsigned int bytes;
 
   str[0] = (Bufbyte) ch;
-  switch (REP_BYTES_BY_FIRST_BYTE (ch))
+
+  for (bytes = REP_BYTES_BY_FIRST_BYTE (ch) - 1; bytes; bytes--)
     {
-      /* Notice fallthrough. */
-    case 4:
-      ch = Lstream_getc (stream);
-      assert (ch >= 0);
-      *++strptr = (Bufbyte) ch;
-    case 3:
-      ch = Lstream_getc (stream);
-      assert (ch >= 0);
-      *++strptr = (Bufbyte) ch;
-    case 2:
-      ch = Lstream_getc (stream);
-      assert (ch >= 0);
-      *++strptr = (Bufbyte) ch;
-      break;
-    default:
-      abort ();
+      int c = Lstream_getc (stream);
+      bufpos_checking_assert (c >= 0);
+      *++strptr = (Bufbyte) c;
     }
   return charptr_emchar (str);
 }
@@ -629,7 +610,7 @@ Return a list of the names of all defined charsets.
 }
 
 DEFUN ("charset-name", Fcharset_name, 1, 1, 0, /*
-Return the name of the given charset.
+Return the name of charset CHARSET.
 */
        (charset))
 {
@@ -774,7 +755,10 @@ character set.  Recognized properties are:
 
 	else if (EQ (keyword, Qccl_program))
 	  {
-	    CHECK_VECTOR (value);
+	    struct ccl_program test_ccl;
+
+	    if (setup_ccl_program (&test_ccl, value) < 0)
+	      signal_simple_error ("Invalid value for 'ccl-program", value);
 	    ccl_program = value;
 	  }
 
@@ -1030,8 +1014,11 @@ Set the 'ccl-program property of CHARSET to CCL-PROGRAM.
 */
        (charset, ccl_program))
 {
+  struct ccl_program test_ccl;
+
   charset = Fget_charset (charset);
-  CHECK_VECTOR (ccl_program);
+  if (setup_ccl_program (&test_ccl, ccl_program) < 0)
+    signal_simple_error ("Invalid ccl-program", ccl_program);
   XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return Qnil;
 }
@@ -1115,28 +1102,28 @@ character s with caron.
 }
 
 DEFUN ("char-charset", Fchar_charset, 1, 1, 0, /*
-Return the character set of char CH.
+Return the character set of CHARACTER.
 */
-       (ch))
+       (character))
 {
-  CHECK_CHAR_COERCE_INT (ch);
+  CHECK_CHAR_COERCE_INT (character);
 
   return XCHARSET_NAME (CHARSET_BY_LEADING_BYTE
-			(CHAR_LEADING_BYTE (XCHAR (ch))));
+			(CHAR_LEADING_BYTE (XCHAR (character))));
 }
 
 DEFUN ("char-octet", Fchar_octet, 1, 2, 0, /*
-Return the octet numbered N (should be 0 or 1) of char CH.
+Return the octet numbered N (should be 0 or 1) of CHARACTER.
 N defaults to 0 if omitted.
 */
-       (ch, n))
+       (character, n))
 {
   Lisp_Object charset;
   int octet0, octet1;
 
-  CHECK_CHAR_COERCE_INT (ch);
+  CHECK_CHAR_COERCE_INT (character);
 
-  BREAKUP_CHAR (XCHAR (ch), charset, octet0, octet1);
+  BREAKUP_CHAR (XCHAR (character), charset, octet0, octet1);
 
   if (NILP (n) || EQ (n, Qzero))
     return make_int (octet0);
@@ -1147,7 +1134,7 @@ N defaults to 0 if omitted.
 }
 
 DEFUN ("split-char", Fsplit_char, 1, 1, 0, /*
-Return list of charset and one or two position-codes of CHAR.
+Return list of charset and one or two position-codes of CHARACTER.
 */
        (character))
 {

@@ -1,5 +1,5 @@
 
-@node Running, Packages, Programs, Top
+@node Running, Abbrevs, Programs, Top
 @chapter Compiling and Testing Programs
 
   The previous chapter discusses the Emacs commands that are useful for
@@ -71,7 +71,7 @@ compilation is finished.  You do not have to keep this buffer visible;
 compilation continues in any case.
 
 @findex kill-compilation
-  To kill the compilation process, type @kbd{M-x-kill-compilation}.  The mode
+  To kill the compilation process, type @kbd{M-x kill-compilation}.  The mode
 line of the @samp{*compilation*} buffer changes to say @samp{signal}
 instead of @samp{run}.  Starting a new compilation also kills any
 running compilation, as only one can occur at any time.  Starting a new

@@ -590,9 +590,9 @@ copying a supplied argument into a local variable, so that
    Lisp lists are popular data structures in the C code as well as in
 Elisp.  There are two sets of macros that iterate over lists.
 `EXTERNAL_LIST_LOOP_N' should be used when the list has been supplied
-by the user, and cannot be trusted to be acyclic and nil-terminated.  A
-`malformed-list' or `circular-list' error will be generated if the list
-being iterated over is not entirely kosher.  `LIST_LOOP_N', on the
+by the user, and cannot be trusted to be acyclic and `nil'-terminated.
+A `malformed-list' or `circular-list' error will be generated if the
+list being iterated over is not entirely kosher.  `LIST_LOOP_N', on the
 other hand, is faster and less safe, and can be used only on trusted
 lists.
 

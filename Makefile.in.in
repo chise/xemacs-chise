@@ -123,7 +123,6 @@ pkgdir=@pkgdir@
 ## Where to install and expect the files that XEmacs modifies as it runs.
 ## These files are all architecture-independent. Right now, the
 ## only such data is the locking directory;
-## ${lockdir} is a subdirectory of this.
 statedir=@statedir@
 
 ## Where to install and expect executable files to be run by XEmacs
@@ -198,11 +197,6 @@ buildlispdir=${srcdir}/lisp
 ## files for multiple versions of XEmacs may be installed
 ## at once.
 etcdir=@etcdir@
-
-## Where to create and expect the locking directory, where
-## the XEmacs locking code keeps track of which files are
-## currently being edited.
-lockdir=@lockdir@
 
 ## Where to put the DOC file.
 docdir=@docdir@
@@ -520,10 +514,9 @@ gzip-el:
 ## (e.g. /usr/local/lib/${PROGNAME}-20.5/sparc-sun-solaris2.6), we use
 ## make-path instead of mkdir.  Not all mkdirs have the `-p' flag.
 mkdir: FRC.mkdir
-	${MAKEPATH} ${COPYDESTS} ${lockdir} ${docdir} ${infodir} ${archlibdir} \
+	${MAKEPATH} ${COPYDESTS} ${docdir} ${infodir} ${archlibdir} \
 	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir} \
 	  ${sitelispdir} ${moduledir} ${sitemoduledir}
-	-chmod 0777 ${lockdir}
 
 ## Delete all the installed files that the `install' target would
 ## create (but not the noninstalled files such as `make all' would

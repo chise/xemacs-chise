@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/commands.info
 @node Command Loop, Keymaps, Minibuffers, Top
@@ -11,7 +11,7 @@
   When you run XEmacs, it enters the @dfn{editor command loop} almost
 immediately.  This loop reads events, executes their definitions,
 and displays the results.  In this chapter, we describe how these things
-are done, and the subroutines that allow Lisp programs to do them.  
+are done, and the subroutines that allow Lisp programs to do them.
 
 @menu
 * Command Overview::    How the command loop reads commands.
@@ -429,7 +429,7 @@ value becomes the argument for the command.  Prompt.
 @node Interactive Examples
 @subsection Examples of Using @code{interactive}
 @cindex examples of using @code{interactive}
-@cindex @code{interactive}, examples of using 
+@cindex @code{interactive}, examples of using
 
   Here are some examples of @code{interactive}:
 
@@ -487,9 +487,9 @@ command, @code{command-execute} calls @code{call-interactively}, which
 reads the arguments and calls the command.  You can also call these
 functions yourself.
 
-@defun commandp object
-Returns @code{t} if @var{object} is suitable for calling interactively;
-that is, if @var{object} is a command.  Otherwise, returns @code{nil}.  
+@defun commandp function
+Returns @code{t} if @var{function} is suitable for calling interactively;
+that is, if @var{function} is a command.  Otherwise, returns @code{nil}.
 
 The interactively callable objects include strings and vectors (treated
 as keyboard macros), lambda expressions that contain a top-level call to
@@ -508,7 +508,7 @@ See @code{documentation} in @ref{Accessing Documentation}, for a
 realistic example of using @code{commandp}.
 @end defun
 
-@defun call-interactively command &optional record-flag
+@defun call-interactively command &optional record-flag keys
 This function calls the interactively callable function @var{command},
 reading arguments according to its interactive calling specifications.
 An error is signaled if @var{command} is not a function or if it cannot
@@ -518,7 +518,7 @@ considered commands, because they are not functions.
 
 @c XEmacs feature?
 If @var{record-flag} is the symbol @code{lambda}, the interactive
-calling arguments for @code{command} are read and returned as a list,
+calling arguments for @var{command} are read and returned as a list,
 but the function is not called on them.
 
 @cindex record command history
@@ -528,7 +528,7 @@ Otherwise, the command is added only if it uses the minibuffer to read
 an argument.  @xref{Command History}.
 @end defun
 
-@defun command-execute command &optional record-flag
+@defun command-execute command &optional record-flag keys
 @cindex keyboard macro execution
 This function executes @var{command} as an editing command.  The
 argument @var{command} must satisfy the @code{commandp} predicate; i.e.,
@@ -632,7 +632,7 @@ foobar
 @section Information from the Command Loop
 
 The editor command loop sets several Lisp variables to keep status
-records for itself and for commands that are run.  
+records for itself and for commands that are run.
 
 @defvar last-command
 This variable records the name of the previous command executed by the
@@ -792,7 +792,7 @@ For information about how exactly the XEmacs command loop works,
 @xref{Reading Input}.
 
 @defun eventp object
-This function returns non-@code{nil} if @var{event} is an input event.
+This function returns non-@code{nil} if @var{object} is an input event.
 @end defun
 
 @menu
@@ -847,7 +847,7 @@ also specify the modifier keys that were held down at the time.
 a portion of a frame needing to be redrawn) has occurred.  The contents
 of this event are not accessible at the E-Lisp level, but
 @code{dispatch-event} knows what to do with an event of this type.
-  
+
 @item eval event
   This is a special kind of event specifying that a particular function
 needs to be called when this event is dispatched.  An event of this type
@@ -1009,7 +1009,7 @@ particular type.
 This is true if @var{object} is a key-press event.
 @end defun
 
-@defun button-event-p object object
+@defun button-event-p object
 This is true if @var{object} is a mouse button-press or button-release
 event.
 @end defun
@@ -1327,7 +1327,7 @@ The event button.  This an integer, either 1, 2 or 3.  It is allowed
 only for button-press and button-release events.
 
 @item @code{modifiers}
-The event modifiers.  This is a list of modifier symbols.  It is allowed 
+The event modifiers.  This is a list of modifier symbols.  It is allowed
 for key-press, button-press, button-release and motion events.
 
 @item @code{x}
@@ -1430,10 +1430,11 @@ feature of @var{plist}.  The following example creates a copy of
 @end defun
 
 @defun copy-event event1 &optional event2
-This function makes a copy of the given event object.  If a second
-argument is given, the first event is copied into the second and the
-second is returned.  If the second argument is not supplied (or is
-@code{nil}) then a new event will be made.
+This function makes a copy of the event object @var{event1}.  If a
+second event argument @var{event2} is given, @var{event1} is copied into
+@var{event2} and @var{event2} is returned.  If @var{event2} is not
+supplied (or is @code{nil}) then a new event will be made, as with
+@code{make-event}.
 @end defun
 
 @defun deallocate-event event
@@ -1442,7 +1443,7 @@ This function allows the given event structure to be reused.  You
 it.  You will lose.  It is not necessary to call this function, as event
 objects are garbage-collected like all other objects; however, it may be
 more efficient to explicitly deallocate events when you are sure that
-that is safe.
+it is safe to do so.
 @end defun
 
 @node Converting Events
@@ -1452,25 +1453,32 @@ XEmacs provides some auxiliary functions for converting between events
 and other ways of representing keys.  These are useful when working with
 @sc{ascii} strings and with keymaps.
 
-@defun character-to-event ch &optional event device
-This function converts a numeric @sc{ascii} value to an event structure,
-replete with modifier bits.  @var{ch} is the character to convert, and
+@defun character-to-event key-description &optional event console use-console-meta-flag
+This function converts a keystroke description to an event structure.
+@var{key-description} is the specification of a key stroke, and
 @var{event} is the event object to fill in.  This function contains
 knowledge about what the codes ``mean''---for example, the number 9 is
 converted to the character @key{Tab}, not the distinct character
 @key{Control-I}.
 
-Note that @var{ch} does not have to be a numeric value, but can be a
-symbol such as @code{clear} or a list such as @code{(control
-backspace)}.
+Note that @var{key-description} can be an integer, a character, a symbol
+such as @code{clear} or a list such as @code{(control backspace)}.
 
-If @code{event} is not @code{nil}, it is modified; otherwise, a
-new event object is created.  In both cases, the event is returned.
+If optional arg @var{event} is non-@code{nil}, it is modified;
+otherwise, a new event object is created.  In both cases, the event is
+returned.
 
-Optional third arg @var{device} is the device to store in the event;
-this also affects whether the high bit is interpreted as a meta key.  A
-value of @code{nil} means use the selected device but always treat the
-high bit as meta.
+Optional third arg @var{console} is the console to store in the event,
+and defaults to the selected console.
+
+If @var{key-description} is an integer or character, the high bit may be
+interpreted as the meta key. (This is done for backward compatibility in
+lots of places.)  If @var{use-console-meta-flag} is @code{nil}, this
+will always be the case.  If @var{use-console-meta-flag} is
+non-@code{nil}, the @code{meta} flag for @var{console} affects whether
+the high bit is interpreted as a meta key. (See @code{set-input-mode}.)
+If you don't want this silly meta interpretation done, you should pass
+in a list containing the character.
 
 Beware that @code{character-to-event} and @code{event-to-character} are
 not strictly inverse functions, since events contain much more
@@ -1540,15 +1548,15 @@ Lisp programs can read input a key sequence at a time by calling
 @code{read-key-sequence}; for example, @code{describe-key} uses it to
 read the key to describe.
 
-@defun read-key-sequence prompt
+@defun read-key-sequence prompt &optional continue-echo dont-downcase-last
 @cindex key sequence
 This function reads a sequence of keystrokes or mouse clicks and returns
-it as a vector of events.  It keeps reading events until it has
-accumulated a full key sequence; that is, enough to specify a non-prefix
-command using the currently active keymaps.
+it as a vector of event objects read.  It keeps reading events until it
+has accumulated a full key sequence; that is, enough to specify a
+non-prefix command using the currently active keymaps.
 
-The vector and the event objects it contains are freshly created, and
-will not be side-effected by subsequent calls to this function.
+The vector and the event objects it contains are freshly created (and
+so will not be side-effected by subsequent calls to this function).
 
 The function @code{read-key-sequence} suppresses quitting: @kbd{C-g}
 typed while reading with this function works like any other character,
@@ -1556,6 +1564,17 @@ and does not set @code{quit-flag}.  @xref{Quitting}.
 
 The argument @var{prompt} is either a string to be displayed in the echo
 area as a prompt, or @code{nil}, meaning not to display a prompt.
+
+Second optional arg @var{continue-echo} non-@code{nil} means this key
+echoes as a continuation of the previous key.
+
+Third optional arg @var{dont-downcase-last} non-@code{nil} means do not
+convert the last event to lower case.  (Normally any upper case event is
+converted to lower case if the original event is undefined and the lower
+case equivalent is defined.) This argument is provided mostly for
+@var{fsf} compatibility; the equivalent effect can be achieved more
+generally by binding @code{retry-undefined-key-binding-unshifted} to
+@code{nil} around the call to @code{read-key-sequence}.
 
 @c XEmacs feature
 If the user selects a menu item while we are prompting for a key
@@ -1618,7 +1637,7 @@ In most cases, the function @code{next-command-event} is more
 appropriate.
 @end defun
 
-@defun next-command-event &optional event
+@defun next-command-event &optional event prompt
 This function returns the next available ``user'' event from the window
 system or terminal driver.  Pass this object to @code{dispatch-event} to
 handle it.  If an event object is supplied, it is filled in and
@@ -1745,7 +1764,7 @@ functions to read command input.
 For example, the function that implements numeric prefix arguments reads
 any number of digits.  When it finds a non-digit event, it must unread
 the event so that it can be read normally by the command loop.
-Likewise, incremental search uses this feature to unread events with no 
+Likewise, incremental search uses this feature to unread events with no
 special meaning in a search, because these events should exit the search
 and then execute normally.
 
@@ -1823,7 +1842,7 @@ It returns @code{nil}.
 
 In the following example, the user may type a number of characters right
 after starting the evaluation of the form.  After the @code{sleep-for}
-finishes sleeping, @code{discard-input} discards any characters typed 
+finishes sleeping, @code{discard-input} discards any characters typed
 during the sleep.
 
 @example
@@ -1850,7 +1869,7 @@ take two arguments to specify the time (one integer and one float
 value), instead of a single argument that can be either an integer or a
 float.
 
-@defun sit-for seconds &optional nodisp
+@defun sit-for seconds &optional nodisplay
 This function performs redisplay (provided there is no pending input
 from the user), then waits @var{seconds} seconds, or until input is
 available.  The result is @code{t} if @code{sit-for} waited the full
@@ -1859,15 +1878,6 @@ and Discarding}).  Otherwise, the value is @code{nil}.
 
 The argument @var{seconds} need not be an integer.  If it is a floating
 point number, @code{sit-for} waits for a fractional number of seconds.
-@ignore FSF Emacs stuff
-Some systems support only a whole number of seconds; on these systems,
-@var{seconds} is rounded down.
-
-The optional argument @var{millisec} specifies an additional waiting
-period measured in milliseconds.  This adds to the period specified by
-@var{seconds}.  If the system doesn't support waiting fractions of a
-second, you get an error if you specify nonzero @var{millisec}.
-@end ignore
 
 @cindex forcing redisplay
 Redisplay is normally preempted if input arrives, and does not happen at
@@ -1876,7 +1886,7 @@ updating in such a case by using @code{force-redisplay}.  @xref{Refresh
 Screen}.) If there is no input pending, you can force an update with no
 delay by using @code{(sit-for 0)}.
 
-If @var{nodisp} is non-@code{nil}, then @code{sit-for} does not
+If @var{nodisplay} is non-@code{nil}, then @code{sit-for} does not
 redisplay, but it still returns as soon as input is available (or when
 the timeout elapses).
 
@@ -1946,7 +1956,7 @@ non-@code{nil} in any way thus causes a quit.
   At the level of C code, quitting cannot happen just anywhere; only at the
 special places that check @code{quit-flag}.  The reason for this is
 that quitting at other places might leave an inconsistency in XEmacs's
-internal state.  Because quitting is delayed until a safe place, quitting 
+internal state.  Because quitting is delayed until a safe place, quitting
 cannot make XEmacs crash.
 
   Certain functions such as @code{read-key-sequence} or
@@ -1955,7 +1965,7 @@ for input.  Instead of quitting, @kbd{C-g} serves as the requested
 input.  In the case of @code{read-key-sequence}, this serves to bring
 about the special behavior of @kbd{C-g} in the command loop.  In the
 case of @code{read-quoted-char}, this is so that @kbd{C-q} can be used
-to quote a @kbd{C-g}.  
+to quote a @kbd{C-g}.
 
   You can prevent quitting for a portion of a Lisp function by binding
 the variable @code{inhibit-quit} to a non-@code{nil} value.  Then,
@@ -2010,7 +2020,7 @@ in @ref{Errors}.)
 
   You can specify a character other than @kbd{C-g} to use for quitting.
 See the function @code{set-input-mode} in @ref{Terminal Input}.
- 
+
 @node Prefix Command Arguments
 @section Prefix Command Arguments
 @cindex prefix argument
@@ -2081,13 +2091,13 @@ M-3     M-x display-prefix  @print{} 3      ; @r{(Same as @code{C-u 3}.)}
 
 C-3     M-x display-prefix  @print{} 3      ; @r{(Same as @code{C-u 3}.)}
 
-C-u -   M-x display-prefix  @print{} -      
+C-u -   M-x display-prefix  @print{} -
 
 M--     M-x display-prefix  @print{} -      ; @r{(Same as @code{C-u -}.)}
 
 C--     M-x display-prefix  @print{} -      ; @r{(Same as @code{C-u -}.)}
 
-C-u - 7 M-x display-prefix  @print{} -7     
+C-u - 7 M-x display-prefix  @print{} -7
 
 M-- 7   M-x display-prefix  @print{} -7     ; @r{(Same as @code{C-u -7}.)}
 
@@ -2108,9 +2118,9 @@ argument, either numeric or raw, in the @code{interactive} declaration.
 value of the prefix argument directly in the variable
 @code{current-prefix-arg}, but this is less clean.
 
-@defun prefix-numeric-value arg
+@defun prefix-numeric-value raw
 This function returns the numeric meaning of a valid raw prefix argument
-value, @var{arg}.  The argument may be a symbol, a number, or a list.
+value, @var{raw}.  The argument may be a symbol, a number, or a list.
 If it is @code{nil}, the value 1 is returned; if it is @code{-}, the
 value @minus{}1 is returned; if it is a number, that number is returned;
 if it is a list, the @sc{car} of that list (which should be a number) is
@@ -2219,7 +2229,7 @@ a recursive edit but also provides the other features of the debugger.
   Recursive editing levels are also used when you type @kbd{C-r} in
 @code{query-replace} or use @kbd{C-x q} (@code{kbd-macro-query}).
 
-@defun recursive-edit
+@deffn Command recursive-edit
 @cindex suspend evaluation
 This function invokes the editor command loop.  It is called
 automatically by the initialization of XEmacs, to let the user begin
@@ -2241,17 +2251,17 @@ then type @kbd{C-M-c} to exit and continue executing @code{simple-rec}.
 (simple-rec)
      @result{} nil
 @end example
-@end defun
+@end deffn
 
 @deffn Command exit-recursive-edit
 This function exits from the innermost recursive edit (including
 minibuffer input).  Its definition is effectively @code{(throw 'exit
-nil)}.  
+nil)}.
 @end deffn
 
 @deffn Command abort-recursive-edit
 This function aborts the command that requested the innermost recursive
-edit (including minibuffer input), by signaling @code{quit} 
+edit (including minibuffer input), by signaling @code{quit}
 after exiting the recursive edit.  Its definition is effectively
 @code{(throw 'exit t)}.  @xref{Quitting}.
 @end deffn
@@ -2394,7 +2404,7 @@ not a symbol, string, or vector, an error is signaled.
 The argument @var{count} is a repeat count; @var{macro} is executed that
 many times.  If @var{count} is omitted or @code{nil}, @var{macro} is
 executed once.  If it is 0, @var{macro} is executed over and over until it
-encounters an error or a failing search.  
+encounters an error or a failing search.
 @end defun
 
 @defvar executing-macro

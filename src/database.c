@@ -144,9 +144,9 @@ allocate_database (void)
 }
 
 static Lisp_Object
-mark_database (Lisp_Object obj)
+mark_database (Lisp_Object object)
 {
-  Lisp_Database *db = XDATABASE (obj);
+  Lisp_Database *db = XDATABASE (object);
   return db->fname;
 }
 
@@ -178,11 +178,11 @@ finalize_database (void *header, int for_disksave)
 
   if (for_disksave)
     {
-      Lisp_Object obj;
-      XSETDATABASE (obj, db);
+      Lisp_Object object;
+      XSETDATABASE (object, db);
 
       signal_simple_error
-	("Can't dump an emacs containing database objects", obj);
+	("Can't dump an emacs containing database objects", object);
     }
   db->funcs->close (db);
 }
@@ -226,11 +226,12 @@ Return the subtype of database DATABASE, if any.
 }
 
 DEFUN ("database-live-p", Fdatabase_live_p, 1, 1, 0, /*
-Return t if OBJ is an active database.
+Return t if OBJECT is an active database.
 */
-       (obj))
+       (object))
 {
-  return DATABASEP (obj) && DATABASE_LIVE_P (XDATABASE (obj)) ? Qt : Qnil;
+  return DATABASEP (object) && DATABASE_LIVE_P (XDATABASE (object)) ?
+    Qt : Qnil;
 }
 
 DEFUN ("database-file-name", Fdatabase_file_name, 1, 1, 0, /*
@@ -244,11 +245,11 @@ Return the filename associated with the database DATABASE.
 }
 
 DEFUN ("databasep", Fdatabasep, 1, 1, 0, /*
-Return t if OBJ is a database.
+Return t if OBJECT is a database.
 */
-       (obj))
+       (object))
 {
-  return DATABASEP (obj) ? Qt : Qnil;
+  return DATABASEP (object) ? Qt : Qnil;
 }
 
 #ifdef HAVE_DBM

@@ -258,12 +258,13 @@ readchar (Lisp_Object readcharfun)
       Emchar c = Lstream_get_emchar (XLSTREAM (readcharfun));
 #ifdef DEBUG_XEMACS /* testing Mule */
       static int testing_mule = 0; /* Change via debugger */
-      if (testing_mule) {
-        if (c >= 0x20 && c <= 0x7E) stderr_out ("%c", c);
-        else if (c == '\n')         stderr_out ("\\n\n");
-        else                        stderr_out ("\\%o ", c);
-      }
-#endif
+      if (testing_mule)
+	{
+	  if (c >= 0x20 && c <= 0x7E) stderr_out ("%c", c);
+	  else if (c == '\n')         stderr_out ("\\n\n");
+	  else                        stderr_out ("\\%o ", c);
+	}
+#endif /* testing Mule */
       return c;
     }
   else if (MARKERP (readcharfun))
@@ -536,7 +537,7 @@ system that was used for the decoding is stored into it.  It will in
 general be different from CODESYS if CODESYS specifies automatic
 encoding detection or end-of-line detection.
 */
-       (file, no_error, nomessage, nosuffix, codesys, used_codesys))
+       (file, noerror, nomessage, nosuffix, codesys, used_codesys))
 {
   /* This function can GC */
   int fd = -1;
@@ -567,7 +568,7 @@ encoding detection or end-of-line detection.
   /* If file name is magic, call the handler.  */
   handler = Ffind_file_name_handler (file, Qload);
   if (!NILP (handler))
-    RETURN_UNGCPRO (call5 (handler, Qload, file, no_error,
+    RETURN_UNGCPRO (call5 (handler, Qload, file, noerror,
 			  nomessage, nosuffix));
 
   /* Do this after the handler to avoid
@@ -596,7 +597,7 @@ encoding detection or end-of-line detection.
 
       if (fd < 0)
 	{
-	  if (NILP (no_error))
+	  if (NILP (noerror))
 	    signal_file_error ("Cannot open load file", file);
 	  else
 	    {
@@ -1470,22 +1471,21 @@ Execute BUFFER as Lisp code.
 Programs can pass two arguments, BUFFER and PRINTFLAG.
 BUFFER is the buffer to evaluate (nil means use current buffer).
 PRINTFLAG controls printing of output:
-nil means discard it; anything else is stream for print.
+nil means discard it; anything else is a stream for printing.
 
 If there is no error, point does not move.  If there is an error,
 point remains at the end of the last character read from the buffer.
-Execute BUFFER as Lisp code.
 */
-       (bufname, printflag))
+       (buffer, printflag))
 {
   /* This function can GC */
   int speccount = specpdl_depth ();
   Lisp_Object tem, buf;
 
-  if (NILP (bufname))
+  if (NILP (buffer))
     buf = Fcurrent_buffer ();
   else
-    buf = Fget_buffer (bufname);
+    buf = Fget_buffer (buffer);
   if (NILP (buf))
     error ("No such buffer.");
 
@@ -1519,10 +1519,10 @@ point remains at the end of the last character read from the buffer.
 
 DEFUN ("eval-region", Feval_region, 2, 3, "r", /*
 Execute the region as Lisp code.
-When called from programs, expects two arguments,
+When called from programs, expects two arguments START and END
 giving starting and ending indices in the current buffer
 of the text to be executed.
-Programs can pass third argument PRINTFLAG which controls output:
+Programs can pass third optional argument STREAM which controls output:
 nil means discard it; anything else is stream for printing it.
 
 If there is no error, point does not move.  If there is an error,
@@ -1532,28 +1532,28 @@ Note:  Before evaling the region, this function narrows the buffer to it.
 If the code being eval'd should happen to trigger a redisplay you may
 see some text temporarily disappear because of this.
 */
-       (b, e, printflag))
+       (start, end, stream))
 {
   /* This function can GC */
   int speccount = specpdl_depth ();
   Lisp_Object tem;
   Lisp_Object cbuf = Fcurrent_buffer ();
 
-  if (NILP (printflag))
+  if (NILP (stream))
     tem = Qsymbolp;             /* #### #@[]*&$#*[& SI:NULL-STREAM */
   else
-    tem = printflag;
+    tem = stream;
   specbind (Qstandard_output, tem);
 
-  if (NILP (printflag))
+  if (NILP (stream))
     record_unwind_protect (save_excursion_restore, save_excursion_save ());
   record_unwind_protect (save_restriction_restore, save_restriction_save ());
 
-  /* This both uses b and checks its type.  */
-  Fgoto_char (b, cbuf);
-  Fnarrow_to_region (make_int (BUF_BEGV (current_buffer)), e, cbuf);
+  /* This both uses start and checks its type.  */
+  Fgoto_char (start, cbuf);
+  Fnarrow_to_region (make_int (BUF_BEGV (current_buffer)), end, cbuf);
   readevalloop (cbuf, XBUFFER (cbuf)->filename, Feval,
-		!NILP (printflag));
+		!NILP (stream));
 
   return unbind_to (speccount, Qnil);
 }
@@ -2035,23 +2035,27 @@ static Lisp_Object
 read_bit_vector (Lisp_Object readcharfun)
 {
   unsigned_char_dynarr *dyn = Dynarr_new (unsigned_char);
-  Emchar c;
   Lisp_Object val;
 
   while (1)
     {
-      c = readchar (readcharfun);
-      if (c != '0' && c != '1')
-	break;
-      Dynarr_add (dyn, (unsigned char) (c - '0'));
+      unsigned char bit;
+      Emchar c = readchar (readcharfun);
+      if (c == '0')
+	bit = 0;
+      else if (c == '1')
+	bit = 1;
+      else
+	{
+	  if (c >= 0)
+	    unreadchar (readcharfun, c);
+	  break;
+	}
+      Dynarr_add (dyn, bit);
     }
-
-  if (c >= 0)
-    unreadchar (readcharfun, c);
 
   val = make_bit_vector_from_byte_vector (Dynarr_atp (dyn, 0),
 					  Dynarr_length (dyn));
-
   Dynarr_free (dyn);
 
   return val;

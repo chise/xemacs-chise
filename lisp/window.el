@@ -33,32 +33,38 @@
 
 ;;;; Window tree functions.
 
-(defun one-window-p (&optional nomini all-frames device)
+(defun one-window-p (&optional nomini which-frames which-devices)
   "Return non-nil if the selected window is the only window (in its frame).
 Optional arg NOMINI non-nil means don't count the minibuffer
 even if it is active.
 
-The optional arg ALL-FRAMES t means count windows on all frames.
-If it is `visible', count windows on all visible frames.
-ALL-FRAMES nil or omitted means count only the selected frame,
+By default, only the windows in the selected frame are considered.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES nil or omitted means count only the selected frame,
 plus the minibuffer it uses (which may be on another frame).
-ALL-FRAMES = 0 means count windows on all visible and iconified frames.
-If ALL-FRAMES is any other value, count only the selected frame.
+WHICH-FRAMES = `visible' means include windows on all visible frames.
+WHICH-FRAMES = 0 means include windows on all visible and iconified frames.
+WHICH-FRAMES = t means include windows on all frames including invisible frames.
+If WHICH-FRAMES is any other value, count only the selected frame.
 
-If optional third argument DEVICE is nil or omitted, count frames
-on all devices.
-If a device, count frames only on that device.
-If a device type, count frames only on devices of that type.
-Otherwise, count frames only on the selected device."
+The optional third argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices."
   (let ((base-window (selected-window)))
     (if (and nomini (eq base-window (minibuffer-window)))
 	(setq base-window (next-window base-window)))
     (eq base-window
-	(next-window base-window (if nomini 'arg) all-frames device))))
+	(next-window base-window (if nomini 'arg) which-frames which-devices))))
 
-(defun walk-windows (proc &optional minibuf all-frames device)
-  "Cycle through all visible windows, calling PROC for each one.
-PROC is called with a window as argument.
+(defun walk-windows (function &optional minibuf which-frames which-devices)
+  "Cycle through all visible windows, calling FUNCTION for each one.
+FUNCTION is called with a window as argument.
 
 Optional second arg MINIBUF t means count the minibuffer window even
 if not active.  MINIBUF nil or omitted means count the minibuffer iff
@@ -70,20 +76,25 @@ counts, all windows on all frames that share that minibuffer count
 too.  Therefore, when a separate minibuffer frame is active,
 `walk-windows' includes the windows in the frame from which you
 entered the minibuffer, as well as the minibuffer window.  But if the
-minibuffer does not count, only windows from WINDOW's frame count.
+minibuffer does not count, only the selected window counts.
 
-ALL-FRAMES is the optional third argument.
-ALL-FRAMES nil or omitted means cycle within the frames as specified above.
-ALL-FRAMES = `visible' means include windows on all visible frames.
-ALL-FRAMES = 0 means include windows on all visible and iconified frames.
-ALL-FRAMES = t means include windows on all frames including invisible frames.
+By default, only the windows in the selected frame are included.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES nil or omitted means cycle within the frames as specified above.
+WHICH-FRAMES = `visible' means include windows on all visible frames.
+WHICH-FRAMES = 0 means include windows on all visible and iconified frames.
+WHICH-FRAMES = t means include windows on all frames including invisible frames.
 Anything else means restrict to WINDOW's frame.
 
-If optional fourth argument DEVICE is nil or omitted, include frames
-on all devices.
-If a device, include frames only on that device.
-If a device type, include frames only on devices of that type.
-Otherwise, include frames only on the selected device."
+The optional fourth argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices."
   ;; If we start from the minibuffer window, don't fail to come back to it.
   (if (window-minibuffer-p (selected-window))
       (setq minibuf t))
@@ -94,9 +105,9 @@ Otherwise, include frames only on the selected device."
 	 (walk-windows-current walk-windows-start))
     (while (progn
 	     (setq walk-windows-current
-		   (next-window walk-windows-current minibuf all-frames
-				device))
-	     (funcall proc walk-windows-current)
+		   (next-window walk-windows-current minibuf which-frames
+				which-devices))
+	     (funcall function walk-windows-current)
 	     (not (eq walk-windows-current walk-windows-start))))))
 ;; The old XEmacs definition of the above clause.  It's more correct in
 ;; that it will never hit a window that's already been hit even if you
@@ -107,12 +118,12 @@ Otherwise, include frames only on the selected device."
 ;	 (walk-windows-current (selected-window)))
 ;    (while (progn
 ;	     (setq walk-windows-current
-;		   (next-window walk-windows-current minibuf all-frames
-;				device))
+;		   (next-window walk-windows-current minibuf which-frames
+;				which-devices))
 ;	     (not (memq walk-windows-current walk-windows-history)))
 ;      (setq walk-windows-history (cons walk-windows-current
 ;				       walk-windows-history))
-;      (funcall proc walk-windows-current))))
+;      (funcall function walk-windows-current))))
 
 (defun minibuffer-window-active-p (window)
   "Return t if WINDOW (a minibuffer window) is now active."
@@ -213,7 +224,7 @@ If the variable split-window-keep-point is non-nil, both new windows
 will get the same value of point as the current window.  This is often
 more convenient for editing.
 
-Otherwise, we chose window starts so as to minimize the amount of
+Otherwise, we choose window starts so as to minimize the amount of
 redisplay; this is convenient on slow terminals.  The new selected
 window is the one that the current value of point appears in.  The
 value of point can change if the text around point is hidden by the
@@ -329,30 +340,31 @@ or if the window is the only window of its frame."
 	(kill-buffer buffer))
     (error "Aborted")))
 
-;;; New with XEmacs 20.3
-;;; Suggested by Noah Friedman, and tuned by Hrvoje Niksic.
-(defun window-list (&optional minibuf all-frames device)
+(defun window-list (&optional minibuf which-frames which-devices)
   "Return a list of existing windows.
 If the optional argument MINIBUF is non-nil, then include minibuffer
 windows in the result.
 
 By default, only the windows in the selected frame are returned.
-The optional argument ALL-FRAMES changes this behavior:
-ALL-FRAMES = `visible' means include windows on all visible frames.
-ALL-FRAMES = 0 means include windows on all visible and iconified frames.
-ALL-FRAMES = t means include windows on all frames including invisible frames.
+The optional argument WHICH-FRAMES changes this behavior:
+WHICH-FRAMES = `visible' means include windows on all visible frames.
+WHICH-FRAMES = 0 means include windows on all visible and iconified frames.
+WHICH-FRAMES = t means include windows on all frames including invisible frames.
 Anything else means restrict to the selected frame.
-The optional fourth argument DEVICE further clarifies which frames to
-search as specified by ALL-FRAMES.  This value is only meaningful if
-ALL-FRAMES is non-nil.
-If nil or omitted, search only the selected device.
-If a device, search frames only on that device.
-If a device type, search frames only on devices of that type.
-Any other non-nil value means search frames on all devices."
+
+The optional fourth argument WHICH-DEVICES further clarifies on which
+devices to search for frames as specified by WHICH-FRAMES.  This value
+is only meaningful if WHICH-FRAMES is non-nil.
+If nil or omitted, search all devices on the selected console.
+If a device, only search that device.
+If a console, search all devices on that console.
+If a device type, search all devices of that type.
+If `window-system', search all devices on window-system consoles.
+Any other non-nil value means search all devices."
   (let ((wins nil))
     (walk-windows (lambda (win)
                     (push win wins))
-                  minibuf all-frames device)
+                  minibuf which-frames which-devices)
     wins))
 
 ;;; window.el ends here

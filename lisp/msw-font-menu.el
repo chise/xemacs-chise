@@ -43,12 +43,11 @@
   "Registry and encoding to use with font menu fonts.")
 
 (defvar mswindows-font-menu-junk-families
-  (purecopy
-   (mapconcat
-    #'identity
-    '("Symbol" 
-      )
-    "\\|"))
+  (mapconcat
+   #'identity
+   '("Symbol" 
+     )
+   "\\|")
   "A regexp matching font families which are uninteresting (e.g. cursor fonts).")
 
 (defvar mswindows-font-regexp-ascii nil

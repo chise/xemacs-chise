@@ -36,20 +36,19 @@
 Warning, this variable did not exist in XEmacs versions prior to 20.3")
 
 (defconst emacs-version
-  (purecopy
-   (format "%d.%d %s%s%s%s"
-	   emacs-major-version
-	   emacs-minor-version
-	   (if emacs-patch-level
-	       (format "(patch %d)" emacs-patch-level)
-	     "")
-	   (if xemacs-betaname
-	       (concat " " xemacs-betaname)
-	     "")
-	   (if xemacs-codename
-	       (concat " \"" xemacs-codename "\"")
-	     "")
-	   " XEmacs Lucid"))
+  (format "%d.%d %s%s%s%s"
+	  emacs-major-version
+	  emacs-minor-version
+	  (if emacs-patch-level
+	      (format "(patch %d)" emacs-patch-level)
+	    "")
+	  (if xemacs-betaname
+	      (concat " " xemacs-betaname)
+	    "")
+	  (if xemacs-codename
+	      (concat " \"" xemacs-codename "\"")
+	    "")
+	  " XEmacs Lucid")
   "Version numbers of this version of XEmacs.")
 
 (if (featurep 'infodock)
@@ -131,9 +130,9 @@ argument are optional. Only the Non-nil arguments are used in the test."
 ;; `what(1)' can extract from the executable or a core file.  We don't
 ;; actually need this to be pointed to from lisp; pure objects can't
 ;; be GCed.
-(purecopy (concat "\n@" "(#)" (emacs-version)
-		  "\n@" "(#)" "Configuration: "
-		  system-configuration "\n"))
+(concat "\n@" "(#)" (emacs-version)
+	"\n@" "(#)" "Configuration: "
+	system-configuration "\n")
 
 ;;Local variables:
 ;;version-control: never

@@ -121,7 +121,7 @@ which will not be used as accelerators."
 	(t "")))
 
 (defconst default-menubar
-  (purecopy-menubar
+; (purecopy-menubar ;purespace is dead
    ;; note backquote.
    `(
      ("%_File"
@@ -1453,7 +1453,7 @@ which will not be used as accelerators."
        ["View %_Splash Screen" xemacs-splash-buffer]
        ["%_Unix Manual..." manual-entry])
       ["Send %_Bug Report..." report-emacs-bug
-       :active (fboundp 'report-emacs-bug)]))))
+       :active (fboundp 'report-emacs-bug)])))
 
 
 (defun maybe-add-init-button ()

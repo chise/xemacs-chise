@@ -156,12 +156,13 @@ find_defun_start (struct buffer *buf, Bufpos pos)
 }
 
 DEFUN ("syntax-table-p", Fsyntax_table_p, 1, 1, 0, /*
-Return t if ARG is a syntax table.
+Return t if OBJECT is a syntax table.
 Any vector of 256 elements will do.
 */
-       (obj))
+       (object))
 {
-  return CHAR_TABLEP (obj) && XCHAR_TABLE_TYPE (obj) == CHAR_TABLE_TYPE_SYNTAX
+  return (CHAR_TABLEP (object)
+	  && XCHAR_TABLE_TYPE (object) == CHAR_TABLE_TYPE_SYNTAX)
     ? Qt : Qnil;
 }
 
@@ -195,32 +196,31 @@ This is the one used for new buffers.
 }
 
 DEFUN ("copy-syntax-table", Fcopy_syntax_table, 0, 1, 0, /*
-Construct a new syntax table and return it.
-It is a copy of the TABLE, which defaults to the standard syntax table.
+Return a new syntax table which is a copy of SYNTAX-TABLE.
+SYNTAX-TABLE defaults to the standard syntax table.
 */
-       (table))
+       (syntax_table))
 {
   if (NILP (Vstandard_syntax_table))
     return Fmake_char_table (Qsyntax);
 
-  table = check_syntax_table (table, Vstandard_syntax_table);
-  return Fcopy_char_table (table);
+  syntax_table = check_syntax_table (syntax_table, Vstandard_syntax_table);
+  return Fcopy_char_table (syntax_table);
 }
 
 DEFUN ("set-syntax-table", Fset_syntax_table, 1, 2, 0, /*
-Select a new syntax table for BUFFER.
-One argument, a syntax table.
+Select SYNTAX-TABLE as the new syntax table for BUFFER.
 BUFFER defaults to the current buffer if omitted.
 */
-       (table, buffer))
+       (syntax_table, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 0);
-  table = check_syntax_table (table, Qnil);
-  buf->syntax_table = table;
-  buf->mirror_syntax_table = XCHAR_TABLE (table)->mirror_table;
+  syntax_table = check_syntax_table (syntax_table, Qnil);
+  buf->syntax_table = syntax_table;
+  buf->mirror_syntax_table = XCHAR_TABLE (syntax_table)->mirror_table;
   /* Indicate that this buffer now has a specified syntax table.  */
   buf->local_var_flags |= XINT (buffer_local_flags.syntax_table);
-  return table;
+  return syntax_table;
 }
 
 /* Convert a letter which signifies a syntax code
@@ -262,25 +262,26 @@ numbered starting at 0.
 }
 
 DEFUN ("char-syntax", Fchar_syntax, 1, 2, 0, /*
-Return the syntax code of CHAR, described by a character.
-For example, if CHAR is a word constituent, the character `?w' is returned.
+Return the syntax code of CHARACTER, described by a character.
+For example, if CHARACTER is a word constituent,
+the character `?w' is returned.
 The characters that correspond to various syntax codes
 are listed in the documentation of `modify-syntax-entry'.
-Optional second argument TABLE defaults to the current buffer's
+Optional second argument SYNTAX-TABLE defaults to the current buffer's
 syntax table.
 */
-       (ch, table))
+       (character, syntax_table))
 {
   Lisp_Char_Table *mirrortab;
 
-  if (NILP(ch))
+  if (NILP (character))
     {
-      ch = make_char('\000');
+      character = make_char ('\000');
     }
-  CHECK_CHAR_COERCE_INT (ch);
-  table = check_syntax_table (table, current_buffer->syntax_table);
-  mirrortab = XCHAR_TABLE (XCHAR_TABLE (table)->mirror_table);
-  return make_char (syntax_code_spec[(int) SYNTAX (mirrortab, XCHAR (ch))]);
+  CHECK_CHAR_COERCE_INT (character);
+  syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+  mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
+  return make_char (syntax_code_spec[(int) SYNTAX (mirrortab, XCHAR (character))]);
 }
 
 #ifdef MULE
@@ -296,9 +297,9 @@ charset_syntax (struct buffer *buf, Lisp_Object charset, int *multi_p_out)
 #endif
 
 Lisp_Object
-syntax_match (Lisp_Object table, Emchar ch)
+syntax_match (Lisp_Object syntax_table, Emchar ch)
 {
-  Lisp_Object code = XCHAR_TABLE_VALUE_UNSAFE (table, ch);
+  Lisp_Object code = XCHAR_TABLE_VALUE_UNSAFE (syntax_table, ch);
   Lisp_Object code2 = code;
 
   if (CONSP (code))
@@ -310,21 +311,21 @@ syntax_match (Lisp_Object table, Emchar ch)
 }
 
 DEFUN ("matching-paren", Fmatching_paren, 1, 2, 0, /*
-Return the matching parenthesis of CHAR, or nil if none.
-Optional second argument TABLE defaults to the current buffer's
+Return the matching parenthesis of CHARACTER, or nil if none.
+Optional second argument SYNTAX-TABLE defaults to the current buffer's
 syntax table.
 */
-       (ch, table))
+       (character, syntax_table))
 {
   Lisp_Char_Table *mirrortab;
   int code;
 
-  CHECK_CHAR_COERCE_INT (ch);
-  table = check_syntax_table (table, current_buffer->syntax_table);
-  mirrortab = XCHAR_TABLE (XCHAR_TABLE (table)->mirror_table);
-  code = SYNTAX (mirrortab, XCHAR (ch));
+  CHECK_CHAR_COERCE_INT (character);
+  syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+  mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
+  code = SYNTAX (mirrortab, XCHAR (character));
   if (code == Sopen || code == Sclose || code == Sstring)
-    return syntax_match (table, XCHAR (ch));
+    return syntax_match (syntax_table, XCHAR (character));
   return Qnil;
 }
 
@@ -648,30 +649,30 @@ find_end_of_comment (struct buffer *buf, Bufpos from, Bufpos stop, int mask)
    at those changes.  --ben */
 
 DEFUN ("forward-comment", Fforward_comment, 1, 2, 0, /*
-Move forward across up to N comments.  If N is negative, move backward.
+Move forward across up to COUNT comments, or backwards if COUNT is negative.
 Stop scanning if we find something other than a comment or whitespace.
 Set point to where scanning stops.
-If N comments are found as expected, with nothing except whitespace
+If COUNT comments are found as expected, with nothing except whitespace
 between them, return t; otherwise return nil.
 Point is set in either case.
 Optional argument BUFFER defaults to the current buffer.
 */
-       (n, buffer))
+       (count, buffer))
 {
   Bufpos from;
   Bufpos stop;
   Emchar c;
   enum syntaxcode code;
-  EMACS_INT count;
+  EMACS_INT n;
   struct buffer *buf = decode_buffer (buffer, 0);
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
 
-  CHECK_INT (n);
-  count = XINT (n);
+  CHECK_INT (count);
+  n = XINT (count);
 
   from = BUF_PT (buf);
 
-  while (count > 0)
+  while (n > 0)
     {
       QUIT;
 
@@ -740,10 +741,10 @@ Optional argument BUFFER defaults to the current buffer.
 	}
 
       /* End of comment reached */
-      count--;
+      n--;
     }
 
-  while (count < 0)
+  while (n < 0)
     {
       QUIT;
 
@@ -799,7 +800,7 @@ Optional argument BUFFER defaults to the current buffer.
 	    }
 	}
 
-      count++;
+      n++;
     }
 
   BUF_SET_PT (buf, from);
@@ -809,7 +810,7 @@ Optional argument BUFFER defaults to the current buffer.
 
 Lisp_Object
 scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
-	    int sexpflag, int no_error)
+	    int sexpflag, int noerror)
 {
   Bufpos stop;
   Emchar c;
@@ -929,7 +930,7 @@ scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
 	    if (!--depth) goto done;
 	    if (depth < min_depth)
 	      {
-		if (no_error)
+		if (noerror)
 		  return Qnil;
 		error ("Containing expression ends prematurely");
 	      }
@@ -1074,7 +1075,7 @@ scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
 	    if (!--depth) goto done2;
 	    if (depth < min_depth)
 	      {
-		if (no_error)
+		if (noerror)
 		  return Qnil;
 		error ("Containing expression ends prematurely");
 	      }
@@ -1126,7 +1127,7 @@ scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
   return (make_int (from));
 
 lose:
-  if (!no_error)
+  if (!noerror)
     error ("Unbalanced parentheses");
   return Qnil;
 }
@@ -1168,7 +1169,7 @@ of in the current buffer.
 If optional arg NOERROR is non-nil, scan-lists will return nil instead of
 signalling an error.
 */
-       (from, count, depth, buffer, no_error))
+       (from, count, depth, buffer, noerror))
 {
   struct buffer *buf;
 
@@ -1178,7 +1179,7 @@ signalling an error.
   buf = decode_buffer (buffer, 0);
 
   return scan_lists (buf, XINT (from), XINT (count), XINT (depth), 0,
-		     !NILP (no_error));
+		     !NILP (noerror));
 }
 
 DEFUN ("scan-sexps", Fscan_sexps, 2, 4, 0, /*
@@ -1199,13 +1200,13 @@ of in the current buffer.
 If optional arg NOERROR is non-nil, scan-sexps will return nil instead of
 signalling an error.
 */
-       (from, count, buffer, no_error))
+       (from, count, buffer, noerror))
 {
   struct buffer *buf = decode_buffer (buffer, 0);
   CHECK_INT (from);
   CHECK_INT (count);
 
-  return scan_lists (buf, XINT (from), XINT (count), 0, 1, !NILP (no_error));
+  return scan_lists (buf, XINT (from), XINT (count), 0, 1, !NILP (noerror));
 }
 
 DEFUN ("backward-prefix-chars", Fbackward_prefix_chars, 0, 1, 0, /*
@@ -1508,7 +1509,7 @@ DEFUN ("parse-partial-sexp", Fparse_partial_sexp, 2, 7, 0, /*
 Parse Lisp syntax starting at FROM until TO; return status of parse at TO.
 Parsing stops at TO or when certain criteria are met;
  point is set to where parsing stops.
-If fifth arg STATE is omitted or nil,
+If fifth arg OLDSTATE is omitted or nil,
  parsing assumes that FROM is the beginning of a function.
 Value is a list of eight elements describing final state of parsing:
  0. depth in parens.
@@ -1524,7 +1525,7 @@ If third arg TARGETDEPTH is non-nil, parsing stops if the depth
 in parentheses becomes equal to TARGETDEPTH.
 Fourth arg STOPBEFORE non-nil means stop when come to
  any character that starts a sexp.
-Fifth arg STATE is an eight-element list like what this function returns.
+Fifth arg OLDSTATE is an eight-element list like what this function returns.
 It is used to initialize the state of the parse.  Its second and third
 elements are ignored.
 Sixth arg COMMENTSTOP non-nil means stop at the start of a comment.

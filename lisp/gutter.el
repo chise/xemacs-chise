@@ -60,15 +60,15 @@ element in the gutter changes.  The value of this variable may be
 buffer-local. The gutter element symbol is passed as an argument to
 the hook, as is the visibility flag.")
 
-(defun set-gutter-element (gutter-specifier prop val &optional locale tag-set)
-  "Set GUTTER-SPECIFIER gutter element PROP to VAL in optional LOCALE.
+(defun set-gutter-element (gutter-specifier prop value &optional locale tag-set)
+  "Set GUTTER-SPECIFIER gutter element PROP to VALUE in optional LOCALE.
 This is a convenience function for setting gutter elements.
-VAL in general must be a string. If VAL is a glyph then a string will be
-created to put the glyph into."
-  (let ((spec val))
-    (when (glyphp val)
+VALUE in general must be a string. If VALUE is a glyph then a string
+will be created to put the glyph into."
+  (let ((spec value))
+    (when (glyphp value)
       (setq spec (copy-sequence "\n"))
-      (set-extent-begin-glyph (make-extent 0 1 spec) val))
+      (set-extent-begin-glyph (make-extent 0 1 spec) value))
     (map-extents #'(lambda (extent arg)
 		     (set-extent-property extent 'duplicable t)) spec)
     (modify-specifier-instances gutter-specifier #'plist-put (list prop spec)

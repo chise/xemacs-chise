@@ -118,3 +118,102 @@
 (before-and-after-compile-equal (- 3))
 (before-and-after-compile-equal (- simplyamarker 1))
 (before-and-after-compile-equal (- simplyamarker))
+
+;; byte-after-unbind-ops
+
+;; byte-constant
+;; byte-dup
+
+;; byte-symbolp
+(before-and-after-compile-equal
+ (let ((x 's))
+   (unwind-protect
+       (symbolp x)
+     (setq x 1))))
+
+;; byte-consp
+(before-and-after-compile-equal
+ (let ((x '(a b)))
+   (unwind-protect
+       (consp x)
+     (setq x 1))))
+
+;; byte-stringp
+(before-and-after-compile-equal
+ (let ((x "a"))
+   (unwind-protect
+       (stringp x)
+     (setq x 1))))
+
+;; byte-listp
+(before-and-after-compile-equal
+ (let ((x '(a b c)))
+   (unwind-protect
+       (listp x)
+     (setq x 1))))
+
+;; byte-numberp
+(before-and-after-compile-equal
+ (let ((x 1))
+   (unwind-protect
+       (numberp x)
+     (setq x nil))))
+
+;; byte-integerp
+(before-and-after-compile-equal
+ (let ((x 1))
+   (unwind-protect
+       (integerp x)
+     (setq x nil))))
+
+;; byte-equal
+(before-and-after-compile-equal
+ (let ((x 'a)
+       (y 'a))
+   (unwind-protect
+       (eq x y)
+     (setq x 'c))))
+
+;; byte-not
+(before-and-after-compile-equal
+ (let (x)
+   (unwind-protect
+       (not x)
+     (setq x t))))
+
+;; byte-cons
+(before-and-after-compile-equal
+ (equal '(1 . 2)
+	(let ((x 1)
+	      (y 2))
+	  (unwind-protect
+	      (cons x y)
+	    (setq x t)))))
+
+;; byte-list1
+(before-and-after-compile-equal
+ (equal '(1)
+	(let ((x 1))
+	  (unwind-protect
+	      (list x)
+	    (setq x t)))))
+
+;; byte-list2
+(before-and-after-compile-equal
+ (equal '(1 . 2)
+	(let ((x 1)
+	      (y 2))
+	  (unwind-protect
+	      (list x y)
+	    (setq x t)))))
+
+;; byte-interactive-p
+
+;; byte-equal
+(before-and-after-compile-equal
+ (let (x y)
+   (setq x '(1 . 2))
+   (setq y '(1 . 2))
+   (unwind-protect
+       (equal x y)
+     (setq y '(1 . 3)))))

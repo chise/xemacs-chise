@@ -119,7 +119,7 @@ between point and mark."
   (interactive "P")
   ;; we fallback to the clipboard if the current selection is not existent
   (let ((text (if check-cutbuffer-p
-		  (or (get-selection-no-error) 
+		  (or (get-selection-no-error)
 		      (get-cutbuffer)
 		      (get-selection-no-error 'CLIPBOARD)
 		      (error "No selection, clipboard or cut buffer available"))
@@ -222,7 +222,7 @@ Returns whether a drag was begun."
   ;; #### barely implemented.
   (when (click-inside-selection-p event)
     (cond ((featurep 'offix)
-	   (offix-start-drag-region 
+	   (offix-start-drag-region
 	    event
 	    (extent-start-position zmacs-region-extent)
 	    (extent-end-position zmacs-region-extent))
@@ -238,7 +238,7 @@ Returns whether a drag was begun."
   "Evaluate the sexp under the mouse.  Usually, this is the last sexp before
 the click, but if you click on a left paren, then it is the sexp beginning
 with the paren that is evaluated.  Also, since strings evaluate to themselves,
-they're fed to re-search-forward and the matched region is highlighted until
+they're fed to `re-search-forward' and the matched region is highlighted until
 the mouse button is released.
 
 Perhaps the most useful thing about this function is that the evaluation of
@@ -343,7 +343,7 @@ Display cursor at that position for a second."
       (switch-to-buffer val))))
 
 (defun narrow-window-to-region (m n)
-  "Narrow window to region between point and last mark"
+  "Narrow window to region between point and last mark."
   (interactive "r")
   (save-excursion
     (save-restriction

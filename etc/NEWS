@@ -255,7 +255,7 @@ height of the default face.  Set `window-pixel-scroll-increment' to
 modify this behavior.
 
 ** Operation progress can be displayed using graphical widgets.
-See `lprogress-display' for details.  This support has been switched
+See `progress-feedback' for details.  This support has been switched
 on by default for font-lock and some web browsing functions.  If you
 do not like this behavior set `progress-feedback-use-echo-area'.
 

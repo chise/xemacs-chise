@@ -131,16 +131,19 @@ be used only with -batch." nil nil)
 ;;;### (autoloads (build-report) "build-report" "lisp/build-report.el")
 
 (autoload 'build-report "build-report" "\
-Initializes a fresh mail composition buffer using `compose-mail'
-with the contents of XEmacs Installation file and excerpts from XEmacs
-make output and errors and leaves point at the beginning of the mail text.
- See also
-`compose-mail', `mail-user-agent',
-`build-report-destination',
-`build-report-keep-regexp',
-`build-report-delete-regexp',
-`build-report-make-output-file' and
-`build-report-installation-file'." t nil)
+Composes a fresh mail message with the contents of the built XEmacs
+Installation file and excerpts from XEmacs make output.
+`compose-mail' is used to create the mail message.  Point is left at
+the beginning of the mail text.  You may add some personal notes if
+you like and send the report.
+See also
+  `compose-mail', `mail-user-agent',
+  `build-report-destination',
+  `build-report-keep-regexp',
+  `build-report-delete-regexp',
+  `build-report-make-output-dir',
+  `build-report-make-output-files', and
+  `build-report-installation-file'." t nil)
 
 ;;;***
 
@@ -153,8 +156,8 @@ Files in subdirectories of DIRECTORY are processed also." t nil)
 (autoload 'byte-recompile-directory "bytecomp" "\
 Recompile every `.el' file in DIRECTORY that needs recompilation.
 This is if a `.elc' file exists but is older than the `.el' file.
-Files in subdirectories of DIRECTORY are processed also unless argument
-NORECURSION is non-nil.
+Files in subdirectories of DIRECTORY are also processed unless
+optional argument NORECURSION is non-nil.
 
 If the `.elc' file does not exist, normally the `.el' file is *not* compiled.
 But a prefix argument (optional second arg) means ask user,
@@ -163,7 +166,7 @@ don't ask and compile the file anyway.
 
 A nonzero prefix argument also means ask about each subdirectory.
 
-If the fourth argument FORCE is non-nil,
+If the fourth optional argument FORCE is non-nil,
 recompile every `.el' file that already has a `.elc' file." t nil)
 
 (autoload 'byte-recompile-file "bytecomp" "\
@@ -219,7 +222,7 @@ Run `byte-compile-file' on the files remaining on the command line.
 Use this from the command line, with `-batch';
 it won't work in an interactive Emacs.
 Each file is processed even if an error occurred previously.
-For example, invoke \"xemacs -batch -f batch-byte-compile $emacs/ ~/*.el\"" nil nil)
+For example, invoke \"xemacs -batch -f batch-byte-compile $emacs/ ~/*.el\"." nil nil)
 
 (autoload 'batch-byte-compile-one-file "bytecomp" "\
 Run `byte-compile-file' on a single file remaining on the command line.
@@ -595,7 +598,7 @@ If VARIABLE has a `custom-type' property, it must be a widget and the
 If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
 
 (autoload 'customize-set-variable "cus-edit" "\
-Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
+Set the default for VARIABLE to VALUE.  VALUE is any Lisp object.
 
 If VARIABLE has a `custom-set' property, that is used for setting
 VARIABLE, otherwise `set-default' is used.
@@ -730,7 +733,7 @@ Like `defface', but FACE is evaluated as a normal argument." nil nil)
 
 (autoload 'custom-set-face-update-spec "cus-face" "\
 Customize the FACE for display types matching DISPLAY, merging
-  in the new items from PLIST" nil nil)
+  in the new items from PLIST." nil nil)
 
 (autoload 'custom-set-faces "cus-face" "\
 Initialize faces according to user preferences.
@@ -761,7 +764,7 @@ FACE.  Nil otherwise." nil nil)
 Reset the value of the face to values previously defined.
 Associate this setting with the 'user' theme.
 
-ARGS is defined as for `custom-theme-reset-faces'" nil nil)
+ARGS is defined as for `custom-theme-reset-faces'." nil nil)
 
 ;;;***
 
@@ -1048,7 +1051,7 @@ A list defining the keywords for `font-lock-mode' to highlight.
 
 For example, an element of the first form highlights (if not already highlighted):
 
-  \"\\\\<foo\\\\>\"                    Discrete occurrences of \"foo\" in the value
+  \"\\\\\\=<foo\\\\\\=>\"                    Discrete occurrences of \"foo\" in the value
                                  of the variable `font-lock-keyword-face'.
 
   (\"fu\\\\(bar\\\\)\" . 1)            Substring \"bar\" within all occurrences of
@@ -1067,7 +1070,7 @@ For example, an element of the first form highlights (if not already highlighted
                                  `fubar-match' finds and matches in the value
                                  of `fubar-face'.
 
-  (\"\\\\<anchor\\\\>\" (0 anchor-face) (\"\\\\<item\\\\>\" nil nil (0 item-face)))
+  (\"\\\\\\=<anchor\\\\\\=>\" (0 anchor-face) (\"\\\\\\=<item\\\\\\=>\" nil nil (0 item-face)))
    -------------- ---------------  ------------ --- --- -------------
        |            |               |            |   |          |
    MATCHER          |         ANCHOR-MATCHER     |   +------+ MATCH-HIGHLIGHT
@@ -1138,10 +1141,10 @@ size, you can use \\[font-lock-fontify-buffer].
 See the variable `font-lock-keywords' for customization." t nil)
 
 (autoload 'turn-on-font-lock "font-lock" "\
-Unconditionally turn on Font Lock mode." nil nil)
+Unconditionally turn on Font Lock mode." t nil)
 
 (autoload 'turn-off-font-lock "font-lock" "\
-Unconditionally turn off Font Lock mode." nil nil)
+Unconditionally turn off Font Lock mode." t nil)
 
 (autoload 'font-lock-fontify-buffer "font-lock" "\
 Fontify the current buffer the way `font-lock-mode' would.
@@ -1168,7 +1171,7 @@ Generates the `Font', `Size', and `Weight' submenus for the Options menu.
 This is run the first time that a font-menu is needed for each device.
 If you don't like the lazy invocation of this function, you can add it to
 `create-device-hook' and that will make the font menus respond more quickly
-when they are selected for the first time.  If you add fonts to your system, 
+when they are selected for the first time.  If you add fonts to your system,
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
 (autoload 'font-menu-family-constructor "font-menu" nil nil nil)
@@ -1306,11 +1309,12 @@ recovering from an error in this function; it says do not attempt
 further (recursive) error recovery.  TRYFILE is ??" nil nil)
 
 (autoload 'Info-batch-rebuild-dir "info" "\
-(Re)build info `dir' files in the directories remaining on the command line.
-Use this from the command line, with `-batch';
-it won't work in an interactive Emacs.
-Each file is processed even if an error occurred previously.
-For example, invoke \"xemacs -batch -f Info-batch-rebuild-dir /usr/local/info\"" nil nil)
+(Re)build `dir' files in the directories remaining on the command line.
+Use this from the command line, with `-batch', it won't work in an
+interactive XEmacs.
+
+Each file is processed even if an error occurred previously. For example,
+invoke \"xemacs -batch -f Info-batch-rebuild-dir /usr/local/info\"." nil nil)
 
 (autoload 'Info-goto-node "info" "\
 Go to info node named NAME.  Give just NODENAME or (FILENAME)NODENAME.
@@ -1380,7 +1384,7 @@ or if you change your font path, you can call this to re-initialize the menus." 
 ;;;### (autoloads (mwheel-install) "mwheel" "lisp/mwheel.el")
 
 (autoload 'mwheel-install "mwheel" "\
-Enable mouse wheel support." nil nil)
+Enable mouse wheel support." t nil)
 
 ;;;***
 
@@ -1446,7 +1450,7 @@ recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
 
-(defcustom package-get-download-sites '(("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages") ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages") ("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages") ("unc.edu (United States)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages") ("utk.edu (United States)" "ftp.sunsite.utk.edu" "pub/xemacs/packages") ("unicamp.br (Brazil)" "ftp.unicamp.br" "pub/xemacs/packages") ("tuwien.ac.at (Austria)" "gd.tuwien.ac.at" "editors/xemacs/packages") ("auc.dk (Denmark)" "sunsite.auc.dk" "pub/emacs/xemacs/packages") ("doc.ic.ac.uk (England)" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages") ("funet.fi (Finland)" "ftp.funet.fi" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("cenatls.cena.dgac.fr (France)" "ftp.cenatls.cena.dgac.fr" "Emacs/xemacs/packages") ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages") ("kfki.hu (Hungary)" "ftp.kfki.hu" "pub/packages/xemacs/packages") ("eunet.ie (Ireland)" "ftp.eunet.ie" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("uniroma2.it (Italy)" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages") ("uio.no (Norway)" "sunsite.uio.no" "pub/xemacs/packages") ("icm.edu.pl (Poland)" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages") ("srcc.msu.su (Russia)" "ftp.srcc.msu.su" "mirror/ftp.xemacs.org/packages") ("sunet.se (Sweden)" "ftp.sunet.se" "pub/gnu/xemacs/packages") ("cnlab-switch.ch (Switzerland)" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages") ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages") ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages") ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages") ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages") ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages") ("tsukuba.ac.jp (Japan)" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages") ("kreonet.re.kr (Korea)" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages") ("nctu.edu.tw (Taiwan)" "coda.nctu.edu.tw" "Editors/xemacs/packages") ("sun.ac.za (South Africa)" "ftp.sun.ac.za" "xemacs/packages") ("isu.net.sa (Saudi Arabia)" "ftp.isu.net.sa" "pub/mirrors/ftp.xemacs.org/packages") ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
+(defcustom package-get-download-sites '(("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages") ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages") ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages") ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages") ("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages") ("unc.edu (United States)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages") ("utk.edu (United States)" "ftp.sunsite.utk.edu" "pub/xemacs/packages") ("unicamp.br (Brazil)" "ftp.unicamp.br" "pub/xemacs/packages") ("tuwien.ac.at (Austria)" "gd.tuwien.ac.at" "editors/xemacs/packages") ("auc.dk (Denmark)" "sunsite.auc.dk" "pub/emacs/xemacs/packages") ("doc.ic.ac.uk (England)" "sunsite.doc.ic.ac.uk" "packages/xemacs/packages") ("funet.fi (Finland)" "ftp.funet.fi" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages") ("cenatls.cena.dgac.fr (France)" "ftp.cenatls.cena.dgac.fr" "Emacs/xemacs/packages") ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages") ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages") ("kfki.hu (Hungary)" "ftp.kfki.hu" "pub/packages/xemacs/packages") ("eunet.ie (Ireland)" "ftp.eunet.ie" "mirrors/ftp.xemacs.org/pub/xemacs/packages") ("uniroma2.it (Italy)" "ftp.uniroma2.it" "unix/misc/dist/XEMACS/packages") ("uio.no (Norway)" "sunsite.uio.no" "pub/xemacs/packages") ("icm.edu.pl (Poland)" "ftp.icm.edu.pl" "pub/unix/editors/xemacs/packages") ("srcc.msu.su (Russia)" "ftp.srcc.msu.su" "mirror/ftp.xemacs.org/packages") ("sunet.se (Sweden)" "ftp.sunet.se" "pub/gnu/xemacs/packages") ("cnlab-switch.ch (Switzerland)" "sunsite.cnlab-switch.ch" "mirror/xemacs/packages") ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages") ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages") ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages") ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages") ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages") ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages") ("tsukuba.ac.jp (Japan)" "ftp.netlab.is.tsukuba.ac.jp" "pub/GNU/xemacs/packages") ("kreonet.re.kr (Korea)" "ftp.kreonet.re.kr" "pub/tools/emacs/xemacs/packages") ("nctu.edu.tw (Taiwan)" "coda.nctu.edu.tw" "Editors/xemacs/packages") ("sun.ac.za (South Africa)" "ftp.sun.ac.za" "xemacs/packages") ("isu.net.sa (Saudi Arabia)" "ftp.isu.net.sa" "pub/mirrors/ftp.xemacs.org/packages") ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")) "*List of remote sites available for downloading packages.\nList format is '(site-description site-name directory-on-site).\nSITE-DESCRIPTION is a textual description of the site.  SITE-NAME\nis the internet address of the download site.  DIRECTORY-ON-SITE\nis the directory on the site in which packages may be found.\nThis variable is used to initialize `package-get-remote', the\nvariable actually used to specify package download sites." :tag "Package download sites" :type '(repeat (list (string :tag "Name") host-name directory)) :group 'package-get)
 
 (autoload 'package-get-download-menu "package-get" "\
 Build the `Add Download Site' menu." nil nil)
@@ -1763,21 +1767,21 @@ server and XEmacs has the necessary sound support compiled in." t nil)
 ;;;### (autoloads (ask-user-about-supersession-threat ask-user-about-lock) "userlock" "lisp/userlock.el")
 
 (autoload 'ask-user-about-lock "userlock" "\
-Ask user what to do when he wants to edit FILE but it is locked by USER.
+Ask user wanting to edit FILENAME, locked by OTHER-USER, what to do.
 This function has a choice of three things to do:
-  do (signal 'file-locked (list FILE USER))
+  do (signal 'file-locked (list FILENAME OTHER-USER))
     to refrain from editing the file
   return t (grab the lock on the file)
   return nil (edit the file even though it is locked).
-You can rewrite it to use any criterion you like to choose which one to do." nil nil)
+You can rewrite it to use any criteria you like to choose which one to do." nil nil)
 
 (autoload 'ask-user-about-supersession-threat "userlock" "\
-Ask a user who is about to modify an obsolete buffer what to do.
+Ask user who is about to modify an obsolete buffer what to do.
 This function has two choices: it can return, in which case the modification
-of the buffer will proceed, or it can (signal 'file-supersession (file)),
+of the buffer will proceed, or it can (signal 'file-supersession (FILENAME)),
 in which case the proposed buffer modification will not be made.
 
-You can rewrite this to use any criterion you like to choose which one to do.
+You can rewrite this to use any criteria you like to choose which one to do.
 The buffer in question is current when this function is called." nil nil)
 
 ;;;***
@@ -1789,13 +1793,13 @@ The buffer in question is current when this function is called." nil nil)
 (defvar view-mode-map (let ((map (copy-keymap view-minor-mode-map))) (set-keymap-name map 'view-mode-map) map))
 
 (autoload 'view-file "view-less" "\
-Find FILE, enter view mode.  With prefix arg OTHER-P, use other window." t nil)
+Find FILENAME, enter view mode.  With prefix arg OTHER-WINDOW-P, use other window." t nil)
 
 (autoload 'view-buffer "view-less" "\
-Switch to BUF, enter view mode.  With prefix arg use other window." t nil)
+Switch to BUFFER, enter view mode.  With prefix arg use other window." t nil)
 
 (autoload 'view-file-other-window "view-less" "\
-Find FILE in other window, and enter view mode." t nil)
+Find FILENAME in other window, and enter view mode." t nil)
 
 (autoload 'view-buffer-other-window "view-less" "\
 Switch to BUFFER in another window, and enter view mode." t nil)

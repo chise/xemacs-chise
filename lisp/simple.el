@@ -108,14 +108,14 @@ This does not apply to \"yanked\" strings."
 If REGEXP-FLAG is non-nil, disregard letters preceded by `\\' (but not `\\\\')
 since they have special meaning in a regexp."
   (let ((case-fold-search nil))
-    (not (string-match (if regexp-flag 
+    (not (string-match (if regexp-flag
 			   "\\(^\\|\\\\\\\\\\|[^\\]\\)[A-Z]"
 			 "[A-Z]")
 		       string))
     ))
 
 (defmacro with-search-caps-disable-folding (string regexp-flag &rest body) "\
-Eval BODY with `case-fold-search' let to nil if `search-caps-disable-folding' 
+Eval BODY with `case-fold-search' let to nil if `search-caps-disable-folding'
 is non-nil, and if STRING (either a string or a regular expression according
 to REGEXP-FLAG) contains uppercase letters."
   `(let ((case-fold-search
@@ -124,27 +124,27 @@ to REGEXP-FLAG) contains uppercase letters."
             case-fold-search)))
      ,@body))
 (put 'with-search-caps-disable-folding 'lisp-indent-function 2)
-(put 'with-search-caps-disable-folding 'edebug-form-spec 
+(put 'with-search-caps-disable-folding 'edebug-form-spec
      '(sexp sexp &rest form))
 
-(defmacro with-interactive-search-caps-disable-folding (string regexp-flag 
+(defmacro with-interactive-search-caps-disable-folding (string regexp-flag
 							       &rest body)
   "Same as `with-search-caps-disable-folding', but only in the case of a
 function called interactively."
   `(let ((case-fold-search
-	  (if (and (interactive-p) 
+	  (if (and (interactive-p)
 		   case-fold-search search-caps-disable-folding)
               (no-upper-case-p ,string ,regexp-flag)
             case-fold-search)))
      ,@body))
 (put 'with-interactive-search-caps-disable-folding 'lisp-indent-function 2)
-(put 'with-interactive-search-caps-disable-folding 'edebug-form-spec 
+(put 'with-interactive-search-caps-disable-folding 'edebug-form-spec
      '(sexp sexp &rest form))
 
-(defun newline (&optional arg)
+(defun newline (&optional n)
   "Insert a newline, and move to left margin of the new line if it's blank.
 The newline is marked with the text-property `hard'.
-With arg, insert that many newlines.
+With optional arg N, insert that many newlines.
 In Auto Fill mode, if no numeric arg, break the preceding line if it's long."
   (interactive "*P")
   (barf-if-buffer-read-only nil (point))
@@ -178,16 +178,16 @@ In Auto Fill mode, if no numeric arg, break the preceding line if it's long."
 	  ;; Don't auto-fill if we have a numeric argument.
 	  ;; Also not if flag is true (it would fill wrong line);
 	  ;; there is no need to since we're at BOL.
-	  (auto-fill-function (if (or arg flag) nil auto-fill-function)))
+	  (auto-fill-function (if (or n flag) nil auto-fill-function)))
       (unwind-protect
-	  (self-insert-command (prefix-numeric-value arg))
+	  (self-insert-command (prefix-numeric-value n))
 	;; If we get an error in self-insert-command, put point at right place.
 	(if flag (forward-char 1))))
     ;; If we did *not* get an error, cancel that forward-char.
     (if flag (backward-char 1))
     ;; Mark the newline(s) `hard'.
     (if use-hard-newlines
-	(let* ((from (- (point) (if arg (prefix-numeric-value arg) 1)))
+	(let* ((from (- (point) (if n (prefix-numeric-value n) 1)))
 	       (sticky (get-text-property from 'end-open))) ; XEmacs
 	  (put-text-property from (point) 'hard 't)
 	  ;; If end-open is not "t", add 'hard to end-open list
@@ -219,7 +219,7 @@ In Auto Fill mode, if no numeric arg, break the preceding line if it's long."
 	(put-text-property from (point) 'rear-nonsticky
 			   (cons 'hard sticky)))))
 
-(defun open-line (arg)
+(defun open-line (n)
   "Insert a newline and leave point before it.
 If there is a fill prefix and/or a left-margin, insert them on the new line
 if the line would have been blank.
@@ -228,14 +228,14 @@ With arg N, insert N newlines."
   (let* ((do-fill-prefix (and fill-prefix (bolp)))
 	 (do-left-margin (and (bolp) (> (current-left-margin) 0)))
 	 (loc (point)))
-    (newline arg)
+    (newline n)
     (goto-char loc)
-    (while (> arg 0)
+    (while (> n 0)
       (cond ((bolp)
 	     (if do-left-margin (indent-to (current-left-margin)))
 	     (if do-fill-prefix (insert fill-prefix))))
       (forward-line 1)
-      (setq arg (1- arg)))
+      (setq n (1- n)))
     (goto-char loc)
     (end-of-line)))
 
@@ -827,33 +827,33 @@ With prefix argument, insert the result to the current buffer."
 	 (if eval-expression-insert-value (current-buffer) t)))
 
 ;; XEmacs -- extra parameter (variant, but equivalent logic)
-(defun edit-and-eval-command (prompt command &optional history)
-  "Prompting with PROMPT, let user edit COMMAND and eval result.
-COMMAND is a Lisp expression.  Let user edit that expression in
+(defun edit-and-eval-command (prompt form &optional history)
+  "Prompting with PROMPT, let user edit FORM and eval result.
+FORM is a Lisp expression.  Let user edit that expression in
 the minibuffer, then read and evaluate the result."
-  (let ((command (read-expression prompt
-				  ;; first try to format the thing readably;
-				  ;; and if that fails, print it normally.
-				  (condition-case ()
-				      (let ((print-readably t))
-					(prin1-to-string command))
-				    (error (prin1-to-string command)))
-				  (or history '(command-history . 1)))))
+  (let ((form (read-expression prompt
+			       ;; first try to format the thing readably;
+			       ;; and if that fails, print it normally.
+			       (condition-case ()
+				   (let ((print-readably t))
+				     (prin1-to-string form))
+				 (error (prin1-to-string form)))
+			       (or history '(command-history . 1)))))
     (or history (setq history 'command-history))
     (if (consp history)
 	(setq history (car history)))
     (if (eq history t)
 	nil
-      ;; If command was added to the history as a string,
+      ;; If form was added to the history as a string,
       ;; get rid of that.  We want only evallable expressions there.
       (if (stringp (car (symbol-value history)))
 	  (set history (cdr (symbol-value history))))
 
-      ;; If command to be redone does not match front of history,
+      ;; If form to be redone does not match front of history,
       ;; add it to the history.
-      (or (equal command (car (symbol-value history)))
-	  (set history (cons command (symbol-value history)))))
-    (eval command)))
+      (or (equal form (car (symbol-value history)))
+	  (set history (cons form (symbol-value history)))))
+    (eval form)))
 
 (defun repeat-complex-command (arg)
   "Edit and re-evaluate last complex command, or ARGth from last.
@@ -880,21 +880,21 @@ to get different commands to edit and resubmit."
 ;; next-complete-history-element
 ;; previous-complete-history-element
 
-(defun goto-line (arg)
-  "Goto line ARG, counting from line 1 at beginning of buffer."
+(defun goto-line (line)
+  "Goto line LINE, counting from line 1 at beginning of buffer."
   (interactive "NGoto line: ")
-  (setq arg (prefix-numeric-value arg))
+  (setq line (prefix-numeric-value line))
   (save-restriction
     (widen)
     (goto-char 1)
     (if (eq selective-display t)
-	(re-search-forward "[\n\C-m]" nil 'end (1- arg))
-      (forward-line (1- arg)))))
+	(re-search-forward "[\n\C-m]" nil 'end (1- line))
+      (forward-line (1- line)))))
 
 ;Put this on C-x u, so we can force that rather than C-_ into startup msg
 (define-function 'advertised-undo 'undo)
 
-(defun undo (&optional arg)
+(defun undo (&optional count)
   "Undo some previous changes.
 Repeat this command to undo more changes.
 A numeric argument serves as a repeat count."
@@ -910,7 +910,7 @@ A numeric argument serves as a repeat count."
 	     (eq (current-buffer) last-undo-buffer)) ; XEmacs
 	(progn (undo-start)
 	       (undo-more 1)))
-    (undo-more (or arg 1))
+    (undo-more (or count 1))
     ;; Don't specify a position in the undo record for the undo command.
     ;; Instead, undoing this should move point to where the change is.
     (let ((tail buffer-undo-list)
@@ -1090,16 +1090,16 @@ Repeating \\[universal-argument] without digits or minus sign
 
 
 ;; XEmacs -- keep zmacs-region active.
-(defun forward-to-indentation (arg)
-  "Move forward ARG lines and position at first nonblank character."
+(defun forward-to-indentation (count)
+  "Move forward COUNT lines and position at first nonblank character."
   (interactive "_p")
-  (forward-line arg)
+  (forward-line count)
   (skip-chars-forward " \t"))
 
-(defun backward-to-indentation (arg)
-  "Move backward ARG lines and position at first nonblank character."
+(defun backward-to-indentation (count)
+  "Move backward COUNT lines and position at first nonblank character."
   (interactive "_p")
-  (forward-line (- arg))
+  (forward-line (- count))
   (skip-chars-forward " \t"))
 
 (defcustom kill-whole-line nil
@@ -1271,7 +1271,7 @@ ring directly.")
 
 (defun kill-new (string &optional replace)
   "Make STRING the latest kill in the kill ring.
-Set the kill-ring-yank pointer to point to it.
+Set `kill-ring-yank-pointer' to point to it.
 Run `kill-hooks'.
 Optional second argument REPLACE non-nil means that STRING will replace
 the front of the kill ring, rather than being added to the list."
@@ -1331,7 +1331,7 @@ yanking point\; just return the Nth kill forward."
 ;(defvar kill-read-only-ok nil
 ;  "*Non-nil means don't signal an error for killing read-only text.")
 
-(defun kill-region (beg end &optional verbose) ; verbose is XEmacs addition
+(defun kill-region (start end &optional verbose) ; verbose is XEmacs addition
   "Kill between point and mark.
 The text is deleted but saved in the kill ring.
 The command \\[yank] can retrieve it from there.
@@ -1352,18 +1352,18 @@ to make one entry in the kill ring."
 ;     (prog1
 ;	 (list (point) (mark) current-prefix-arg)
 ;       (if region-hack (zmacs-deactivate-region)))))
-  ;; beg and end can be markers but the rest of this function is
+  ;; start and end can be markers but the rest of this function is
   ;; written as if they are only integers
-  (if (markerp beg) (setq beg (marker-position beg)))
+  (if (markerp start) (setq start (marker-position start)))
   (if (markerp end) (setq end (marker-position end)))
-  (or (and beg end) (if zmacs-regions ;; rewritten for I18N3 snarfing
+  (or (and start end) (if zmacs-regions ;; rewritten for I18N3 snarfing
 			(error "The region is not active now")
 		      (error "The mark is not set now")))
   (if verbose (if buffer-read-only
 		  (lmessage 'command "Copying %d characters"
-			    (- (max beg end) (min beg end)))
+			    (- (max start end) (min start end)))
 		(lmessage 'command "Killing %d characters"
-			  (- (max beg end) (min beg end)))))
+			  (- (max start end) (min start end)))))
   (cond
 
    ;; I don't like this large change in behavior -- jwz
@@ -1373,11 +1373,11 @@ to make one entry in the kill ring."
    ;; just isn't aware of this.  However, there's no harm in putting
    ;; the region's text in the kill ring, anyway.
    ((or (and buffer-read-only (not inhibit-read-only))
-	(text-property-not-all (min beg end) (max beg end) 'read-only nil))
+	(text-property-not-all (min start end) (max start end) 'read-only nil))
    ;; This is redundant.
    ;; (if verbose (message "Copying %d characters"
-   ;;			 (- (max beg end) (min beg end))))
-    (copy-region-as-kill beg end)
+   ;;			 (- (max start end) (min start end))))
+    (copy-region-as-kill start end)
    ;; ;; This should always barf, and give us the correct error.
    ;; (if kill-read-only-ok
    ;;	  (message "Read only text copied to kill ring")
@@ -1390,13 +1390,13 @@ to make one entry in the kill ring."
    ((not (or (eq buffer-undo-list t)
 	     (eq last-command 'kill-region)
 	     ;; Use = since positions may be numbers or markers.
-	     (= beg end)))
+	     (= start end)))
     ;; Don't let the undo list be truncated before we can even access it.
     ;; FSF calls this `undo-strong-limit'
-    (let ((undo-high-threshold (+ (- end beg) 100))
+    (let ((undo-high-threshold (+ (- end start) 100))
 	  ;(old-list buffer-undo-list)
 	  tail)
-      (delete-region beg end)
+      (delete-region start end)
       ;; Search back in buffer-undo-list for this string,
       ;; in case a change hook made property changes.
       (setq tail buffer-undo-list)
@@ -1411,31 +1411,31 @@ to make one entry in the kill ring."
    (t
     ;; if undo is not kept, grab the string then delete it (which won't
     ;; add another string to the undo list).
-    (copy-region-as-kill beg end)
-    (delete-region beg end)))
+    (copy-region-as-kill start end)
+    (delete-region start end)))
   (setq this-command 'kill-region))
 
 ;; copy-region-as-kill no longer sets this-command, because it's confusing
 ;; to get two copies of the text when the user accidentally types M-w and
 ;; then corrects it with the intended C-w.
-(defun copy-region-as-kill (beg end)
+(defun copy-region-as-kill (start end)
   "Save the region as if killed, but don't kill it.
 Run `kill-hooks'."
   (interactive "r")
   (if (eq last-command 'kill-region)
-      (kill-append (buffer-substring beg end) (< end beg))
-    (kill-new (buffer-substring beg end)))
+      (kill-append (buffer-substring start end) (< end start))
+    (kill-new (buffer-substring start end)))
   nil)
 
-(defun kill-ring-save (beg end)
+(defun kill-ring-save (start end)
   "Save the region as if killed, but don't kill it.
 This command is similar to `copy-region-as-kill', except that it gives
 visual feedback indicating the extent of the region being copied."
   (interactive "r")
-  (copy-region-as-kill beg end)
+  (copy-region-as-kill start end)
   ;; copy before delay, for xclipboard's benefit
   (if (interactive-p)
-      (let ((other-end (if (= (point) beg) end beg))
+      (let ((other-end (if (= (point) start) end start))
 	    (opoint (point))
 	    ;; Inhibit quitting so we can make a quit here
 	    ;; look like a C-g typed as a command.
@@ -1457,7 +1457,7 @@ visual feedback indicating the extent of the region being copied."
 	  ;; too noisy. -- jwz
 ;	  (let* ((killed-text (current-kill 0))
 ;		 (message-len (min (length killed-text) 40)))
-;	    (if (= (point) beg)
+;	    (if (= (point) start)
 ;		;; Don't say "killed"; that is misleading.
 ;		(message "Saved text until \"%s\""
 ;			(substring killed-text (- message-len)))
@@ -1656,7 +1656,7 @@ the user to see that the mark has moved, and you want the previous
 mark position to be lost.
 
 Normally, when a new mark is set, the old one should go on the stack.
-This is why most applications should use push-mark, not set-mark.
+This is why most applications should use `push-mark', not `set-mark'.
 
 Novice Emacs Lisp programmers often try to use the mark for the wrong
 purposes.  The mark saves a location for the user's convenience.
@@ -1664,7 +1664,7 @@ Most editing commands should not alter the mark.
 To remember a location for internal use in the Lisp program,
 store it in a Lisp variable.  Example:
 
-   (let ((beg (point))) (forward-line 1) (delete-region beg (point)))."
+   (let ((start (point))) (forward-line 1) (delete-region start (point)))."
 
   (setq buffer (decode-buffer buffer))
   (set-marker (mark-marker t buffer) pos buffer))
@@ -1960,7 +1960,7 @@ if `shifted-motion-keys-select-region' is nil."
 	'(left right up down home end prior next
 	       kp-left kp-right kp-up kp-down
 	       kp-home kp-end kp-prior kp-next))))
-  
+
 (defun handle-pre-motion-command ()
   (if
       (and
@@ -2028,9 +2028,9 @@ boundaries do not cause an error to be signaled."
   (scroll-up-command 1))
 
 (defun scroll-up-command (&optional n)
-  "Scroll text of current window upward ARG lines; or near full screen if no ARG.
+  "Scroll current window upward N lines; or near full screen if N is nil.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative ARG means scroll downward.
+Negative N means scroll downward.
 When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
@@ -2058,9 +2058,9 @@ boundaries do not cause an error to be signaled."
   (scroll-down-command 1))
 
 (defun scroll-down-command (&optional n)
-  "Scroll text of current window downward ARG lines; or near full screen if no ARG.
+  "Scroll current window downward N lines; or near full screen if N is nil.
 A near full screen is `next-screen-context-lines' less than a full screen.
-Negative ARG means scroll upward.
+Negative N means scroll upward.
 When calling from a program, supply a number as argument or nil.
 On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
 On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
@@ -2076,8 +2076,8 @@ boundaries do not cause an error to be signaled."
       (beginning-of-buffer nil)
       (end-of-buffer nil))))
 
-(defun next-line (arg)
-  "Move cursor vertically down ARG lines.
+(defun next-line (count)
+  "Move cursor vertically down COUNT lines.
 If there is no character in the target line exactly under the current column,
 the cursor is positioned after the character in that line which spans this
 column, or at the end of the line if it is not long enough.
@@ -2096,25 +2096,25 @@ If you are thinking of using this in a Lisp program, consider
 using `forward-line' instead.  It is usually easier to use
 and more reliable (no dependence on goal column, etc.)."
   (interactive "_p")
-  (if (and next-line-add-newlines (= arg 1))
+  (if (and next-line-add-newlines (= count 1))
       (let ((opoint (point)))
 	(end-of-line)
 	(if (eobp)
 	    (newline 1)
 	  (goto-char opoint)
-	  (line-move arg)))
+	  (line-move count)))
     (if (interactive-p)
 	;; XEmacs:  Not sure what to do about this.  It's inconsistent. -sb
 	(condition-case nil
-	    (line-move arg)
+	    (line-move count)
 	  ((beginning-of-buffer end-of-buffer)
 	   (when signal-error-on-buffer-boundary
 	     (ding nil 'buffer-bound))))
-      (line-move arg)))
+      (line-move count)))
   nil)
 
-(defun previous-line (arg)
-  "Move cursor vertically up ARG lines.
+(defun previous-line (count)
+  "Move cursor vertically up COUNT lines.
 If there is no character in the target line exactly over the current column,
 the cursor is positioned after the character in that line which spans this
 column, or at the end of the line if it is not long enough.
@@ -2129,11 +2129,11 @@ to use and more reliable (no dependence on goal column, etc.)."
   (interactive "_p")
   (if (interactive-p)
       (condition-case nil
-	  (line-move (- arg))
+	  (line-move (- count))
 	((beginning-of-buffer end-of-buffer)
 	 (when signal-error-on-buffer-boundary ; XEmacs
 	   (ding nil 'buffer-bound))))
-    (line-move (- arg)))
+    (line-move (- count)))
   nil)
 
 (defcustom block-movement-size 6
@@ -2186,8 +2186,8 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
   :group 'editing-basics)
 
 ;; This is the guts of next-line and previous-line.
-;; Arg says how many lines to move.
-(defun line-move (arg)
+;; Count says how many lines to move.
+(defun line-move (count)
   ;; Don't run any point-motion hooks, and disregard intangibility,
   ;; for intermediate positions.
   (let ((inhibit-point-motion-hooks t)
@@ -2199,7 +2199,7 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
 		       (eq last-command 'previous-line)))
 	      (setq temporary-goal-column
 		    (if (and track-eol (eolp)
-			     ;; Don't count beg of empty line as end of line
+			     ;; Don't count start of empty line as end of line
 			     ;; unless we just did explicit end-of-line.
 			     (or (not (bolp)) (eq last-command 'end-of-line)))
 			9999
@@ -2207,21 +2207,21 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
 	  (if (and (not (integerp selective-display))
 		   (not line-move-ignore-invisible))
 	      ;; Use just newline characters.
-	      (or (if (> arg 0)
-		      (progn (if (> arg 1) (forward-line (1- arg)))
-			     ;; This way of moving forward ARG lines
+	      (or (if (> count 0)
+		      (progn (if (> count 1) (forward-line (1- count)))
+			     ;; This way of moving forward COUNT lines
 			     ;; verifies that we have a newline after the last one.
 			     ;; It doesn't get confused by intangible text.
 			     (end-of-line)
 			     (zerop (forward-line 1)))
-		    (and (zerop (forward-line arg))
+		    (and (zerop (forward-line count))
 			 (bolp)))
-		  (signal (if (< arg 0)
+		  (signal (if (< count 0)
 			      'beginning-of-buffer
 			    'end-of-buffer)
 			  nil))
-	    ;; Move by arg lines, but ignore invisible ones.
-	    (while (> arg 0)
+	    ;; Move by count lines, but ignore invisible ones.
+	    (while (> count 0)
 	      (end-of-line)
 	      (and (zerop (vertical-motion 1))
 		   (signal 'end-of-buffer nil))
@@ -2237,8 +2237,8 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
 		(if (get-text-property (point) 'invisible)
 		    (goto-char (next-single-property-change (point) 'invisible))
 		  (goto-char (next-extent-change (point))))) ; XEmacs
-	      (setq arg (1- arg)))
-	    (while (< arg 0)
+	      (setq count (1- count)))
+	    (while (< count 0)
 	      (beginning-of-line)
 	      (and (zerop (vertical-motion -1))
 		   (signal 'beginning-of-buffer nil))
@@ -2252,7 +2252,7 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
 		(if (get-text-property (1- (point)) 'invisible)
 		    (goto-char (previous-single-property-change (point) 'invisible))
 		  (goto-char (previous-extent-change (point))))) ; XEmacs
-	      (setq arg (1+ arg))))
+	      (setq count (1+ count))))
 	  (move-to-column (or goal-column temporary-goal-column)))
       ;; Remember where we moved to, go back home,
       ;; then do the motion over again
@@ -2269,7 +2269,7 @@ Use with care, as it slows down movement significantly.  Outline mode sets this.
 ;; It's not on a key, as of 20.2.  So no need for this.
 ;(put 'set-goal-column 'disabled t)
 
-(defun set-goal-column (arg)
+(defun set-goal-column (column)
   "Set the current horizontal position as a goal for \\[next-line] and \\[previous-line].
 Those commands will move to this position in the line moved to
 rather than trying to keep the same horizontal position.
@@ -2277,13 +2277,13 @@ With a non-nil argument, clears out the goal column
 so that \\[next-line] and \\[previous-line] resume vertical motion.
 The goal column is stored in the variable `goal-column'."
   (interactive "_P") ; XEmacs
-  (if arg
+  (if column
       (progn
         (setq goal-column nil)
         (display-message 'command "No goal column"))
     (setq goal-column (current-column))
     (lmessage 'command
-	"Goal column %d (use %s with an arg to unset it)"
+	"Goal column %d (use %s with a prefix arg to unset it)"
       goal-column
       (substitute-command-keys "\\[set-goal-column]")))
   nil)
@@ -2395,7 +2395,7 @@ With argument 0, interchanges line point is in with line mark is in."
 
 (defun transpose-line-up (arg)
   "Move current line one line up, leaving point at beginning of that line.
-This can be run repeatedly to move to current line up a number of lines."
+This can be run repeatedly to move the current line up a number of lines."
   (interactive "*p")
   ;; Move forward over a line,
   ;; but create a newline if none exists yet.
@@ -2408,7 +2408,7 @@ This can be run repeatedly to move to current line up a number of lines."
 
 (defun transpose-line-down (arg)
   "Move current line one line down, leaving point at beginning of that line.
-This can be run repeatedly to move to current line down a number of lines."
+This can be run repeatedly to move the current line down a number of lines."
   (interactive "*p")
   ;; Move forward over a line,
   ;; but create a newline if none exists yet.
@@ -2642,7 +2642,7 @@ With argument, kill comments on that many lines starting with this one."
       (if arg (forward-line 1))
       (setq count (1- count)))))
 
-(defun comment-region (beg end &optional arg)
+(defun comment-region (start end &optional arg)
   "Comment or uncomment each line in the region.
 With just C-u prefix arg, uncomment each line in region.
 Numeric prefix arg ARG means use ARG comment characters.
@@ -2655,7 +2655,7 @@ not end the comment.  Blank lines do not get comments."
   ;; every line.
   (interactive "r\nP")
   (or comment-start (error "No comment syntax is defined"))
-  (if (> beg end) (let (mid) (setq mid beg beg end end mid)))
+  (if (> start end) (let (mid) (setq mid start start end end mid)))
   (save-excursion
     (save-restriction
       (let ((cs comment-start) (ce comment-end)
@@ -2668,9 +2668,9 @@ not end the comment.  Blank lines do not get comments."
 	    (setq cs (concat cs comment-start)
 		  ce (concat ce comment-end))
 	    (setq numarg (1- numarg))))
-	;; Loop over all lines from BEG to END.
-        (narrow-to-region beg end)
-        (goto-char beg)
+	;; Loop over all lines from START to END.
+        (narrow-to-region start end)
+        (goto-char start)
         (while (not (eobp))
           (if (or (eq numarg t) (< numarg 0))
 	      (progn
@@ -2902,7 +2902,7 @@ indicating whether soft newlines should be inserted.")
 			(= (point) fill-point))
 		      ;; 1999-09-17 hniksic: turn off Kinsoku until
 		      ;; it's debugged.
-		      (indent-new-comment-line)
+		      (funcall comment-line-break-function)
 		      ;; 97/3/14 jhod: Kinsoku processing
 ;		      ;(indent-new-comment-line)
 ;		      (let ((spacep (memq (char-before (point)) '(?\  ?\t))))
@@ -3052,6 +3052,7 @@ for `auto-fill-function' when turning Auto Fill mode on."
 
 (defun turn-on-auto-fill ()
   "Unconditionally turn on Auto Fill mode."
+  (interactive)
   (auto-fill-mode 1))
 
 (defun set-fill-column (arg)
@@ -3206,14 +3207,14 @@ state before disabling selective display."
 
 (add-hook 'change-major-mode-hook 'nuke-selective-display)
 
-(defconst overwrite-mode-textual (purecopy " Ovwrt")
+(defconst overwrite-mode-textual " Ovwrt"
   "The string displayed in the mode line when in overwrite mode.")
-(defconst overwrite-mode-binary (purecopy " Bin Ovwrt")
+(defconst overwrite-mode-binary " Bin Ovwrt"
   "The string displayed in the mode line when in binary overwrite mode.")
 
 (defun overwrite-mode (arg)
   "Toggle overwrite mode.
-With arg, turn overwrite mode on iff arg is positive.
+With arg, enable overwrite mode if arg is positive, else disable.
 In overwrite mode, printing characters typed in replace existing text
 on a one-for-one basis, rather than pushing it to the right.  At the
 end of a line, such characters extend the line.  Before a tab,
@@ -3229,7 +3230,7 @@ is supposed to make it easier to insert characters when necessary."
 
 (defun binary-overwrite-mode (arg)
   "Toggle binary overwrite mode.
-With arg, turn binary overwrite mode on iff arg is positive.
+With arg, enable binary overwrite mode if arg is positive, else disable.
 In binary overwrite mode, printing characters typed in replace
 existing text.  Newlines are not treated specially, so typing at the
 end of a line joins the line to the next, with the typed character
@@ -3256,7 +3257,7 @@ specialization of overwrite-mode, entered by setting the
 
 (defun line-number-mode (arg)
   "Toggle Line Number mode.
-With arg, turn Line Number mode on iff arg is positive.
+With arg, enable Line Number mode if arg is positive, else disable.
 When Line Number mode is enabled, the line number appears
 in the mode line."
   (interactive "P")
@@ -3272,7 +3273,7 @@ in the mode line."
 
 (defun column-number-mode (arg)
   "Toggle Column Number mode.
-With arg, turn Column Number mode on iff arg is positive.
+With arg, enable Column Number mode if arg is positive, else disable.
 When Column Number mode is enabled, the column number appears
 in the mode line."
   (interactive "P")
@@ -4399,5 +4400,5 @@ The C code calls this periodically, right before redisplay."
   "Send a string to the debugging output.
 The string is formatted using (apply #'format FORMAT ARGS)."
   (princ (apply #'format format args) 'external-debugging-output))
-	  
+
 ;;; simple.el ends here

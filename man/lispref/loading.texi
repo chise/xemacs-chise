@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/loading.info
 @node Loading, Byte Compilation, Macros, Top
@@ -300,9 +300,9 @@ to load automatically from @var{filename}.  The string @var{filename}
 specifies the file to load to get the real definition of @var{function}.
 
 The argument @var{docstring} is the documentation string for the
-function.  Normally, this is the identical to the documentation string
-in the function definition itself.  Specifying the documentation string
-in the call to @code{autoload} makes it possible to look at the
+function.  Normally, this is identical to the documentation string in
+the function definition itself.  Specifying the documentation string in
+the call to @code{autoload} makes it possible to look at the
 documentation without loading the function's real definition.
 
 If @var{interactive} is non-@code{nil}, then the function can be called
@@ -314,9 +314,9 @@ definition.
 
 You can autoload macros and keymaps as well as ordinary functions.
 Specify @var{type} as @code{macro} if @var{function} is really a macro.
-Specify @var{type} as @code{keymap} if @var{function} is really a
-keymap.  Various parts of Emacs need to know this information without
-loading the real definition.
+Specify @var{type} as @code{keymap} if @var{function} is really a keymap.
+Various parts of Emacs need to know this information without loading the
+real definition.
 
 An autoloaded keymap loads automatically during key lookup when a prefix
 key's binding is the symbol @var{function}.  Autoloading does not occur
@@ -335,7 +335,7 @@ object, then it is defined as an autoload object like this:
 (autoload @var{filename} @var{docstring} @var{interactive} @var{type})
 @end example
 
-For example, 
+For example,
 
 @example
 @group
@@ -509,7 +509,7 @@ file should call @code{provide} at the top level to add the feature to
   Features are normally named after the files that provide them, so that
 @code{require} need not be given the file name.
 
-  For example, in @file{emacs/lisp/prolog.el}, 
+  For example, in @file{emacs/lisp/prolog.el},
 the definition for @code{run-prolog} includes the following code:
 
 @smallexample
@@ -609,11 +609,11 @@ presence or absence of emacs or environment extensions.
 
 @var{fexp} can be a symbol, a number, or a list.
 
-If @var{fexp} is a symbol, it is looked up in the `features' variable,
+If @var{fexp} is a symbol, it is looked up in the @code{features} variable,
 and @code{t} is returned if it is found, @code{nil} otherwise.
 
 If @var{fexp} is a number, the function returns @code{t} if this Emacs
-has an equal or greater number than @code{fexp}, @code{nil} otherwise.
+has an equal or greater number than @var{fexp}, @code{nil} otherwise.
 Note that minor Emacs version is expected to be 2 decimal places wide,
 so @code{(featurep 20.4)} will return @code{nil} on XEmacs 20.4---you
 must write @code{(featurep 20.04)}, unless you wish to match for XEmacs
@@ -627,7 +627,7 @@ If @var{fexp} is a list whose car is the symbol @code{or}, the function
 returns @code{t} if any the features in its cdr are present, @code{nil}
 otherwise.
 
-If @var{fexp} is a list whose car is the symbol @code{not}, the function 
+If @var{fexp} is a list whose car is the symbol @code{not}, the function
 returns @code{t} if the feature is not present, @code{nil} otherwise.
 
 Examples:

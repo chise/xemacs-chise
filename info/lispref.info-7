@@ -471,19 +471,20 @@ Functions That Operate on Bit Vectors
  - Function: bitp object
      This function returns `t' if OBJECT is either 0 or 1.
 
- - Function: bit-vector &rest objects
+ - Function: bit-vector &rest bits
      This function creates and returns a bit vector whose elements are
-     the arguments OBJECTS.  The elements must be either of the two
-     integers 0 or 1.
+     the arguments BITS.  Each argument must be a bit, i.e. one of the
+     two integers 0 or 1.
 
           (bit-vector 0 0 0 1 0 0 0 0 1 0)
                => #*0001000010
           (bit-vector)
                => #*
 
- - Function: make-bit-vector length object
+ - Function: make-bit-vector length bit
      This function creates and returns a bit vector consisting of
-     LENGTH elements, each initialized to OBJECT.
+     LENGTH elements, each initialized to BIT, which must be one of the
+     two integers 0 or 1.
 
           (setq picket-fence (make-bit-vector 9 1))
                => #*111111111
@@ -999,7 +1000,7 @@ stored in places other than symbols:
           (getf '(foo 4) 'foo)
                => 4
 
- - Function: putf plist property value
+ - Macro: putf plist property value
      This stores VALUE as the value of the PROPERTY property in the
      property list PLIST.  It may modify PLIST destructively, or it may
      construct a new list structure without altering the old.  The

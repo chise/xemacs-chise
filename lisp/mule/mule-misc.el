@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -220,25 +220,6 @@ because its `find-charset-string' ignores ASCII charset."
 ;	))))
 
 
-;;; Commands
-
-(defun set-buffer-process-coding-system (decoding encoding)
-  "Set coding systems for the process associated with the current buffer.
-DECODING is the coding system to be used to decode input from the process,
-ENCODING is the coding system to be used to encode output to the process.
-
-For a list of possible values of CODING-SYSTEM, use \\[list-coding-systems]."
-  (interactive
-   "zCoding-system for process input: \nzCoding-system for process output: ")
-  (let ((proc (get-buffer-process (current-buffer))))
-    (if (null proc)
-	(error "no process")
-      (check-coding-system decoding)
-      (check-coding-system encoding)
-      (set-process-coding-system proc decoding encoding)))
-  (force-mode-line-update))
-
-
 ;;; Language environments
 
 ;; (defvar current-language-environment nil)
@@ -314,13 +295,13 @@ when the language environment is made current."
 	  (coding-system-property coding-system prop)
 	(error nil))))
 
-(defun coding-system-put (coding-system prop val)
-  "Change value in CODING-SYSTEM's property list PROP to VAL."
+(defun coding-system-put (coding-system prop value)
+  "Change value in CODING-SYSTEM's property list PROP to VALUE."
   (put (coding-system-name coding-system)
        'coding-system-property
        (plist-put (get (coding-system-name coding-system)
 		       'coding-system-property)
-		  prop val)))
+		  prop value)))
 
 (defun coding-system-category (coding-system)
   "Return the coding category of CODING-SYSTEM."
@@ -356,5 +337,5 @@ when the language environment is made current."
 			      ((= dim 2) 'iso-8-2)
 			      (t 'iso-8-designate))
 			))))))))
-	    
+
 ;;; mule-misc.el ends here

@@ -43,10 +43,10 @@
   (next-line n)
   (scroll-up n))
 
-(defun kill-region-and-unmark (beg end)
+(defun kill-region-and-unmark (start end)
   "Like kill-region, but pops the mark [which equals point, anyway.]"
   (interactive "r")
-  (kill-region beg end)
+  (kill-region start end)
   (setq this-command 'kill-region-and-unmark)
   (set-mark-command t))
 
@@ -68,11 +68,11 @@
     (let* ((command (car command-history))
 	   (command-name (symbol-name (car command)))
 	   (search-arg (car (cdr command)))
-	   (search-command 
+	   (search-command
 	    (and command-name (string-match "search" command-name)))
 	   )
       (if (and search-command (stringp search-arg)) (setq grep-arg search-arg)
-	(setq search-command this-command 
+	(setq search-command this-command
 	      grep-arg (read-string "REsearch: " grep-arg)
 	      this-command search-command)
 	grep-arg))))
@@ -91,7 +91,7 @@
 ;;; handle sun's extra function keys
 ;;; this version for those who run with standard .ttyswrc and no emacstool
 ;;;
-;;; sunview picks up expose and open on the way UP, 
+;;; sunview picks up expose and open on the way UP,
 ;;; so we ignore them on the way down
 ;;;
 
@@ -169,11 +169,11 @@
 ;;;
 ;;; {c} is [a-j] for LEFT, [a-i] for TOP, [a-o] for RIGHT.
 ;;; A higher level insists on encoding {h,j,l,n}{r} (the arrow keys)
-;;; as ANSI escape sequences.  Use the shell command 
+;;; as ANSI escape sequences.  Use the shell command
 ;;; % setkeys noarrows
 ;;; if you want these to come through for emacstool.
 ;;;
-;;; If you are not using EmacsTool, 
+;;; If you are not using EmacsTool,
 ;;; you can also use this by creating a .ttyswrc file to do the conversion.
 ;;; but it won't include the CONTROL, META, or SHIFT keys!
 ;;;
@@ -213,10 +213,10 @@
 (define-key suntool-map "i\M-l" 'research-backward)	; M-Find
 (define-key suntool-map "i\M-," 're-search-backward)	; C-M-Find
 
-(define-key suntool-map "jL" 'yank)			; DELETE        
+(define-key suntool-map "jL" 'yank)			; DELETE
 (define-key suntool-map "jl" 'kill-region-and-unmark)	; Delete
 (define-key suntool-map "j\M-l" 'exchange-point-and-mark); M-Delete
-(define-key suntool-map "j," 
+(define-key suntool-map "j,"
   #'(lambda () (interactive) (pop-mark 1)))		; C-Delete
 
 (define-key suntool-map "fT" 'shrink-window-horizontally)	; T6
@@ -249,7 +249,7 @@
 ;;;
 ;;; C-x C-@ is the mouse command prefix.
 
-(autoload 'sun-mouse-handler "sun-mouse" 
+(autoload 'sun-mouse-handler "sun-mouse"
 	  "Sun Emacstool handler for mouse blips (not loaded)." t)
 
 (defun emacstool-init ()

@@ -390,7 +390,7 @@ megabyte for buffers in `rmail-mode', and size is irrelevant otherwise."
 
 For example, an element of the first form highlights (if not already highlighted):
 
-  \"\\\\<foo\\\\>\"                    Discrete occurrences of \"foo\" in the value
+  \"\\\\\\=<foo\\\\\\=>\"                    Discrete occurrences of \"foo\" in the value
                                  of the variable `font-lock-keyword-face'.
 
   (\"fu\\\\(bar\\\\)\" . 1)            Substring \"bar\" within all occurrences of
@@ -409,7 +409,7 @@ For example, an element of the first form highlights (if not already highlighted
                                  `fubar-match' finds and matches in the value
                                  of `fubar-face'.
 
-  (\"\\\\<anchor\\\\>\" (0 anchor-face) (\"\\\\<item\\\\>\" nil nil (0 item-face)))
+  (\"\\\\\\=<anchor\\\\\\=>\" (0 anchor-face) (\"\\\\\\=<item\\\\\\=>\" nil nil (0 item-face)))
    -------------- ---------------  ------------ --- --- -------------
        |            |               |            |   |          |
    MATCHER          |         ANCHOR-MATCHER     |   +------+ MATCH-HIGHLIGHT
@@ -909,11 +909,13 @@ See the variable `font-lock-keywords' for customization."
 ;;;###autoload
 (defun turn-on-font-lock ()
   "Unconditionally turn on Font Lock mode."
+  (interactive)
   (font-lock-mode 1))
 
 ;;;###autoload
 (defun turn-off-font-lock ()
   "Unconditionally turn off Font Lock mode."
+  (interactive)
   (font-lock-mode 0))
 
 ;;; FSF has here:
@@ -2643,22 +2645,22 @@ The name is assumed to begin with a capital letter.")
      3 (if (match-beginning 2) 'bold 'italic) keep))
   "Default expressions to highlight in TeX modes.")
 
-(defconst ksh-font-lock-keywords (purecopy
+(defconst ksh-font-lock-keywords 
   (list
    '("\\(^\\|[^\$\\\]\\)#.*" . font-lock-comment-face)
    '("\\<\\(if\\|then\\|else\\|elif\\|fi\\|case\\|esac\\|for\\|do\\|done\\|foreach\\|in\\|end\\|select\\|while\\|repeat\\|time\\|function\\|until\\|exec\\|command\\|coproc\\|noglob\\|nohup\\|nocorrect\\|source\\|autoload\\|alias\\|unalias\\|export\\|set\\|echo\\|eval\\|cd\\|log\\|compctl\\)\\>" . font-lock-keyword-face)
    '("\\<\\[\\[.*\\]\\]\\>" . font-lock-type-face)
    '("\$\(.*\)" . font-lock-type-face)
-   ))
+   )
   "Additional expressions to highlight in ksh-mode.")
 
-(defconst sh-font-lock-keywords (purecopy
+(defconst sh-font-lock-keywords 
   (list
    '("\\(^\\|[^\$\\\]\\)#.*" . font-lock-comment-face)
    '("\\<\\(if\\|then\\|else\\|elif\\|fi\\|case\\|esac\\|for\\|do\\|done\\|in\\|while\\|exec\\|export\\|set\\|echo\\|eval\\|cd\\)\\>" . font-lock-keyword-face)
    '("\\[.*\\]" . font-lock-type-face)
    '("`.*`" . font-lock-type-face)
-   ))
+   )
   "Additional expressions to highlight in sh-mode.")
 
 

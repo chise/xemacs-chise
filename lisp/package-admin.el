@@ -42,9 +42,9 @@
 					   'package-admin-install-function-mswindows
 					 'package-admin-default-install-function)
   "The function to call to install a package.
-Three args are passed: FILENAME PKG-DIR BUF
+Three args are passed: FILENAME PKG-DIR BUFFER
 Install package FILENAME into directory PKG-DIR, with any messages output
-to buffer BUF.")
+to buffer BUFFER.")
 
 (defvar package-admin-error-messages '(
 				       "No space left on device"
@@ -123,31 +123,31 @@ The optional `pkg-dir' can be used to override the default package hierarchy
 		  ;; rest of command line follows
 		  package-admin-xemacs file destination)))
 
-(defun package-admin-install-function-mswindows (file pkg-dir buf)
-  "Install function for mswindows"
+(defun package-admin-install-function-mswindows (file pkg-dir buffer)
+  "Install function for mswindows."
   (let ((default-directory (file-name-as-directory pkg-dir)))
     (unless (file-directory-p default-directory)
       (make-directory default-directory t))
-    (call-process "minitar" nil buf t file)))
+    (call-process "minitar" nil buffer t file)))
 
-(defun package-admin-default-install-function (file pkg-dir buf)
+(defun package-admin-default-install-function (filename pkg-dir buffer)
   "Default function to install a package.
 Install package FILENAME into directory PKG-DIR, with any messages output
-to buffer BUF."
+to BUFFER."
   (let* ((pkg-dir (file-name-as-directory pkg-dir))
 	 (default-directory pkg-dir)
-	 (filename (expand-file-name file)))
+	 (filename (expand-file-name filename)))
     (unless (file-directory-p pkg-dir)
       (make-directory pkg-dir t))
     ;; Don't assume GNU tar.
-    (if (shell-command (concat "gunzip -c " filename " | tar xvf -") buf)
+    (if (shell-command (concat "gunzip -c " filename " | tar xvf -") buffer)
 	0
       1)
     ))
 
 ;  (call-process "add-big-package.sh"
 ;		nil
-;		buf
+;		buffer
 ;		t
 ;		;; rest of command line follows
 ;		package-admin-xemacs file pkg-dir))
@@ -180,7 +180,7 @@ or return a location appropriate for the package otherwise."
 	  (if (eq package 'xemacs-base)
 	      (car (last late-packages))
 	    (package-admin-get-install-dir 'xemacs-base nil nil)))))))
-	  
+
 
 
 (defun package-admin-get-manifest-file (pkg-topdir package)
@@ -294,7 +294,7 @@ is the top-level directory under which the package was installed."
 		      ;; Create pkginfo, if necessary
 		      (if (not (file-directory-p pathname))
 			  (make-directory pathname))
-		      (setq pathname (expand-file-name 
+		      (setq pathname (expand-file-name
 				      (concat "MANIFEST." package-name)
 				      pathname))
 		      (save-excursion
@@ -435,9 +435,9 @@ PACKAGE is a symbol, not a string."
 		  ;; Note, user might have removed the file!
 		(condition-case ()
 		    (delete-file file)
-		  (error nil)))		;; We may want to turn the error into a Warning?   
+		  (error nil)))		;; We may want to turn the error into a Warning?
 	      (forward-line 1))
-	      
+
 	    ;; Delete empty directories.
 	    (if dirs
 		(let ( (orig-default-directory default-directory)
@@ -473,7 +473,7 @@ PACKAGE is a symbol, not a string."
 			   (lambda (dir)
 			     (condition-case ()
 				 (delete-directory dir)))
-			   dirs))			
+			   dirs))
 		    (setq default-directory orig-default-directory)
 		    )))
 	    )
@@ -499,7 +499,7 @@ PACKAGE is a symbol, not a string."
 	      (package-admin-rmtree package-lispdir)
 	      (message "Removing old lisp directory \"%s\" ... done"
 		       package-lispdir)
-	      ))	
+	      ))
     ;; Delete the package from the database of installed packages.
     (package-delete-name package)))
 

@@ -255,8 +255,8 @@
 ;; (setq font-ccl-encoder-alist
 ;;       (cons (cons "big5" ccl-encode-big5-font) font-ccl-encoder-alist))
 
-(set-charset-ccl-program 'chinese-big5-1 ccl-encode-big5-font)
-(set-charset-ccl-program 'chinese-big5-2 ccl-encode-big5-font)
+(set-charset-ccl-program 'chinese-big5-1 'ccl-encode-big5-font)
+(set-charset-ccl-program 'chinese-big5-2 'ccl-encode-big5-font)
 
 (set-language-info-alist
  "Chinese-BIG5" '((charset chinese-big5-1 chinese-big5-2)

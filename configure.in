@@ -57,7 +57,7 @@ dnl - no cache file
 dnl - non-standard options
 dnl - suport for extra-verbosity
 dnl - ordinary libs are handled separately from X libs (might be a mistake)
-dnl - various random kludges (e.g. -with-dnet=no
+dnl - various random kludges (e.g. -with-dnet=no)
 
 dnl PRINT_VAR(var var ...)  prints values of shell variables
 define([PRINT_VAR],[for var in patsubst([$1],[[
@@ -1108,7 +1108,7 @@ case "$canonical" in
   *-dec-osf1.2 | *-dec-osf1* ) opsys=decosf1-2 ;;
   *-dec-osf3.[[2-9]]         ) opsys=decosf3-2 ;;
   *-dec-osf3*                ) opsys=decosf3-1 ;;
-  *-dec-osf4*                ) opsys=decosf4-0 ;;
+  *-dec-osf[[4-9]]*          ) opsys=decosf4-0 ;;
 
   dnl DEC Ultrix
   *-*-ultrix[[0-3]].* | *-*-ultrix4.0* ) opsys=bsd4-2 ;;
@@ -2710,17 +2710,18 @@ dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
 
   AC_CHECK_HEADERS(X11/Xlocale.h)
 
-  dnl remove this - we should avoid checking for specific OS
-  AC_MSG_CHECKING(for XFree86)
-  if test -d "/usr/X386/include" -o \
-          -f "/etc/XF86Config"    -o \
-	  -f "/etc/X11/XF86Config" -o \
-	  -f "/usr/X11R6/lib/X11/XF86Config"; then
-    AC_MSG_RESULT(yes)
-    AC_DEFINE(HAVE_XFREE386)
-  else
-    AC_MSG_RESULT(no)
-  fi
+  dnl XFree86 has a non-standard prototype for this X11R6 function
+  AC_CHECK_FUNCS(XRegisterIMInstantiateCallback)
+  AC_MSG_CHECKING(for standard XRegisterIMInstantiateCallback prototype)
+  AC_TRY_COMPILE([
+#define NeedFunctionPrototypes 1
+#include <X11/Xlib.h>
+extern Bool XRegisterIMInstantiateCallback(
+   Display*, struct _XrmHashBucketRec*, char*, char*, XIMProc, XPointer*);
+], [], 
+  [AC_MSG_RESULT(yes)],
+  [AC_MSG_RESULT(no)
+   AC_DEFINE(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE)])
 
   dnl autodetect -lXmu
   test -z "$with_xmu" && { AC_CHECK_LIB(Xmu, XmuReadBitmapDataFromFile,
@@ -3557,10 +3558,10 @@ fi
 AC_CHECK_FUNCS(cbrt closedir dup2 eaccess fmod fpathconf frexp ftime getaddrinfo gethostname getnameinfo getpagesize gettimeofday getcwd getwd logb lrand48 matherr mkdir mktime perror poll random rename res_init rint rmdir select setitimer setpgid setlocale setsid sigblock sighold sigprocmask snprintf stpcpy strerror tzset ulimit usleep utimes waitpid vsnprintf fsync ftruncate umask)
 
 dnl Check for PTY support functions.
-dnl  getpt is the preferred pty allocation method on glibc systems.
-dnl _getpt is the preferred pty allocation method on SGI systems.
+dnl  getpt  is the preferred pty allocation method on glibc systems.
+dnl _getpty is the preferred pty allocation method on SGI systems.
 dnl grantpt, unlockpt, ptsname are defined by Unix98.
-AC_CHECK_FUNCS(getpt _getpt grantpt unlockpt ptsname killpg tcgetpgrp)
+AC_CHECK_FUNCS(getpt _getpty grantpt unlockpt ptsname killpg tcgetpgrp)
 
 dnl openpty is the preferred pty allocation method on BSD and Tru64 systems.
 dnl openpty might be declared in pty.h or in libutil.h.
@@ -3574,10 +3575,10 @@ fi
 
 dnl Check for STREAM support functions.
 dnl Confusingly, "str" means both "string" and "SysV Streams".
-AC_CHECK_HEADERS(sys/stropts.h)
-if test "$ac_cv_header_sys_stropts_h" = "yes"; then
+AC_CHECK_HEADERS(stropts.h)
+if test "$ac_cv_header_stropts_h" = "yes"; then
   AC_CHECK_FUNCS(isastream)
-  AC_CHECK_HEADERS(sys/strtio.h) dnl TIOCSIGNAL
+  AC_CHECK_HEADERS(strtio.h) dnl TIOCSIGNAL
 fi
 
 dnl Use our own realpath always.
@@ -3697,8 +3698,11 @@ dnl case "${GCC}${opsys}" in hpux* )
 dnl  AC_CHECK_FUNC(alloca, [:], [AC_CHECK_LIB(PW, alloca)])
 dnl esac
 
-AC_FUNC_ALLOCA
-test -n "$ALLOCA" && XE_ADD_OBJS($ALLOCA)
+dnl AC_FUNC_ALLOCA doesn't know about DEC C's #pragma intrinsic(alloca)
+if test "$__DECC" != "yes"; then
+  AC_FUNC_ALLOCA
+  test -n "$ALLOCA" && XE_ADD_OBJS($ALLOCA)
+fi
 
 dnl Check whether vfork exists and works correctly. (This does more
 dnl than just check for its existence.) If so, it defines HAVE_VFORK_H.

@@ -161,9 +161,9 @@
 	  (setq pairs (cdr pairs)))
 	(cons 'setq
 	      (cons 'iso8859/1-case-table
-		    (list (list 'purecopy
-				(list 'quote
-				      (list downcase nil nil nil)))))))))
+		    (list
+		     (list 'quote
+			   (list downcase nil nil nil))))))))
  
  (?\300  ?\340)		; Agrave
  (?\301  ?\341)		; Aacute

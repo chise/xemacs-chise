@@ -924,6 +924,7 @@ tty_redisplay_shutdown (struct console *c)
    up or removed. */
 
 
+#ifdef NOT_YET
 /* FLAGS - these don't need to be console local since only one console
 	   can be being updated at a time. */
 static int insert_mode_on;		/* nonzero if in insert mode */
@@ -932,7 +933,6 @@ static int underline_mode_on;		/* nonzero if in underline mode */
 static int alternate_mode_on;		/* nonzero if in alternate char set */
 static int attributes_on;		/* nonzero if any attributes on */
 
-#ifdef NOT_YET
 static void
 turn_on_insert (struct frame *f)
 {
@@ -1218,6 +1218,7 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
    */
   cm_cost_init (c);
 
+#ifdef NOT_YET
   /*
    * Initialize local flags.
    */
@@ -1226,6 +1227,7 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
   underline_mode_on = 0;
   alternate_mode_on = 0;
   attributes_on = 0;
+#endif
 
   /*
    * Attempt to initialize the function_key_map to

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/lists.info
 @node Lists, Sequences Arrays Vectors, Strings and Characters, Top
@@ -698,8 +698,8 @@ new @sc{car} or @sc{cdr}.
 used on a list, @code{setcar} replaces one element of a list with a
 different element.
 
-@defun setcar cons object
-This function stores @var{object} as the new @sc{car} of @var{cons},
+@defun setcar cons-cell object
+This function stores @var{object} as the new @sc{car} of @var{cons-cell},
 replacing its previous @sc{car}.  It returns the value @var{object}.
 For example:
 
@@ -798,8 +798,8 @@ x2:              |
 
   The lowest-level primitive for modifying a @sc{cdr} is @code{setcdr}:
 
-@defun setcdr cons object
-This function stores @var{object} as the new @sc{cdr} of @var{cons},
+@defun setcdr cons-cell object
+This function stores @var{object} as the new @sc{cdr} of @var{cons-cell},
 replacing its previous @sc{cdr}.  It returns the value @var{object}.
 @end defun
 
@@ -1598,30 +1598,30 @@ with it.  This means that it's a malformed or circular plist.
 @node Working With Normal Plists
 @subsection Working With Normal Plists
 
-@defun plist-get plist prop &optional default
+@defun plist-get plist property &optional default
 This function extracts a value from a property list.  The function
-returns the value corresponding to the given @var{prop}, or
-@var{default} if @var{prop} is not one of the properties on the list.
+returns the value corresponding to the given @var{property}, or
+@var{default} if @var{property} is not one of the properties on the list.
 @end defun
 
-@defun plist-put plist prop val
-This function changes the value in @var{plist} of @var{prop} to
-@var{val}.  If @var{prop} is already a property on the list, its value is
-set to @var{val}, otherwise the new @var{prop} @var{val} pair is added.
-The new plist is returned; use @code{(setq x (plist-put x prop val))} to
+@defun plist-put plist property value
+This function changes the value in @var{plist} of @var{property} to
+@var{value}.  If @var{property} is already a property on the list, its value is
+set to @var{value}, otherwise the new @var{property} @var{value} pair is added.
+The new plist is returned; use @code{(setq x (plist-put x property value))} to
 be sure to use the new value.  The @var{plist} is modified by side
 effects.
 @end defun
 
-@defun plist-remprop plist prop
-This function removes from @var{plist} the property @var{prop} and its
+@defun plist-remprop plist property
+This function removes from @var{plist} the property @var{property} and its
 value.  The new plist is returned; use @code{(setq x (plist-remprop x
-prop val))} to be sure to use the new value.  The @var{plist} is
+property))} to be sure to use the new value.  The @var{plist} is
 modified by side effects.
 @end defun
 
-@defun plist-member plist prop
-This function returns @code{t} if @var{prop} has a value specified in
+@defun plist-member plist property
+This function returns @code{t} if @var{property} has a value specified in
 @var{plist}.
 @end defun
 
@@ -1657,25 +1657,25 @@ to @code{setq} the value back into where it came from.
 Recall that a @dfn{lax plist} is a property list whose keys are compared
 using @code{equal} instead of @code{eq}.
 
-@defun lax-plist-get lax-plist prop &optional default
+@defun lax-plist-get lax-plist property &optional default
 This function extracts a value from a lax property list.  The function
-returns the value corresponding to the given @var{prop}, or
-@var{default} if @var{prop} is not one of the properties on the list.
+returns the value corresponding to the given @var{property}, or
+@var{default} if @var{property} is not one of the properties on the list.
 @end defun
 
-@defun lax-plist-put lax-plist prop val
-This function changes the value in @var{lax-plist} of @var{prop} to @var{val}.
+@defun lax-plist-put lax-plist property value
+This function changes the value in @var{lax-plist} of @var{property} to @var{value}.
 @end defun
 
-@defun lax-plist-remprop lax-plist prop
-This function removes from @var{lax-plist} the property @var{prop} and
+@defun lax-plist-remprop lax-plist property
+This function removes from @var{lax-plist} the property @var{property} and
 its value.  The new plist is returned; use @code{(setq x
-(lax-plist-remprop x prop val))} to be sure to use the new value.  The
+(lax-plist-remprop x property))} to be sure to use the new value.  The
 @var{lax-plist} is modified by side effects.
 @end defun
 
-@defun lax-plist-member lax-plist prop
-This function returns @code{t} if @var{prop} has a value specified in
+@defun lax-plist-member lax-plist property
+This function returns @code{t} if @var{property} has a value specified in
 @var{lax-plist}.
 @end defun
 

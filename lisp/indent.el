@@ -64,9 +64,9 @@ Default number of columns for margin-changing functions to indent.")
       ;; XEmacs: (Need the `1+')
       (indent-to (* tab-width (1+ (/ (current-column) tab-width)))))))
 
-(defun indent-rigidly (start end arg)
-  "Indent all lines starting in the region sideways by ARG columns.
-Called from a program, takes three arguments, START, END and ARG."
+(defun indent-rigidly (start end count)
+  "Indent all lines starting in the region sideways by COUNT columns.
+Called from a program, takes three arguments, START, END and COUNT."
   (interactive "r\np")
   (save-excursion
     (goto-char end)
@@ -80,7 +80,7 @@ Called from a program, takes three arguments, START, END and ARG."
 	  (skip-chars-forward " \t")
 	  (setq eol-flag (eolp)))
 	(or eol-flag
-	    (indent-to (max 0 (+ indent arg)) 0))
+	    (indent-to (max 0 (+ indent count)) 0))
 	(delete-region (point) (progn (skip-chars-forward " \t") (point))))
       (forward-line 1))
     (move-marker end nil)
@@ -139,7 +139,8 @@ interactively or with optional argument FORCE, it will be fixed."
 
 (defun delete-to-left-margin (&optional from to)
   "Remove left margin indentation from a region.
-This deletes to the column given by `current-left-margin'.
+The amount of indentation to delete is determined by calling the
+function `current-left-margin'.
 In no case will it delete non-whitespace.
 Args FROM and TO are optional; default is the whole buffer."
   (save-excursion
@@ -264,16 +265,16 @@ If `auto-fill-mode' is active, re-fills region to fit in new margin."
 With optional argument, move forward N-1 lines first.
 From the beginning of the line, moves past the left-margin indentation, the
 fill-prefix, and any indentation used for centering or right-justifying the
-line, but does not move past any whitespace that was explicitly inserted 
+line, but does not move past any whitespace that was explicitly inserted
 \(such as a tab used to indent the first line of a paragraph)."
   (interactive "p")
   (beginning-of-line n)
   (skip-chars-forward " \t")
   ;; Skip over fill-prefix.
-  (if (and fill-prefix 
+  (if (and fill-prefix
 	   (not (string-equal fill-prefix "")))
       (if (equal fill-prefix
-		 (buffer-substring 
+		 (buffer-substring
 		  (point) (min (point-max) (+ (length fill-prefix) (point)))))
 	  (forward-char (length fill-prefix)))
     (if (and adaptive-fill-mode adaptive-fill-regexp

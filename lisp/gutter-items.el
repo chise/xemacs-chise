@@ -47,10 +47,15 @@ This option should be set through the options menu."
 					 'buffers-tab val)
 	   (setq gutter-buffers-tab-visible-p val)))
 
+(defcustom gutter-buffers-tab-enabled t
+  "*Whether to enable support for buffers tab in the gutter.
+This is different to `gutter-buffers-tab-visible-p' which still runs hooks
+even when the gutter is invisible."
+  :group 'buffers-tab
+  :type 'boolean)
+
 (defvar gutter-buffers-tab-orientation 'top
   "Where the buffers tab currently is. Do not set this.")
-
-(defvar gutter-buffers-tab-extent nil)
 
 (defcustom buffers-tab-max-size 6
   "*Maximum number of entries which may appear on the \"Buffers\" tab.
@@ -72,7 +77,7 @@ a large number or nil will slow down tab responsiveness."
 (defcustom buffers-tab-omit-function 'buffers-menu-omit-invisible-buffers
   "*If non-nil, a function specifying the buffers to omit from the buffers tab.
 This is passed a buffer and should return non-nil if the buffer should be
-omitted.  The default value `buffers-tab-omit-invisible-buffers' omits
+omitted.  The default value `buffers-menu-omit-invisible-buffers' omits
 buffers that are normally considered \"invisible\" (those whose name
 begins with a space)."
   :type '(choice (const :tag "None" nil)
@@ -88,6 +93,18 @@ by `buffers-tab-grouping-regexp'."
 
   :type '(choice (const :tag "None" nil)
 		 function)
+  :group 'buffers-tab)
+
+(defcustom buffers-tab-filter-functions (list buffers-tab-selection-function)
+  "*If non-nil, a list of functions specifying the buffers to select 
+from the buffers tab.
+Each function in the list is passed two buffers, the buffer to
+potentially select and the context buffer, and should return non-nil
+if the first buffer should be selected.  The default value groups
+buffers by major mode and by `buffers-tab-grouping-regexp'."
+
+  :type '(choice (const :tag "None" nil)
+		 sexp)
   :group 'buffers-tab)
 
 (defcustom buffers-tab-sort-function nil
@@ -159,13 +176,14 @@ If this is 0, then the full buffer name will be shown."
 	(select-window (car (windows-of-buffer buffer)))
       (switch-to-buffer buffer))))
 
-(defun select-buffers-tab-buffers-by-mode (buf1 buf2)
+(defun select-buffers-tab-buffers-by-mode (buffer-to-select buf1)
   "For use as a value of `buffers-tab-selection-function'.
 This selects buffers by major mode `buffers-tab-grouping-regexp'."
   (let ((mode1 (symbol-name (symbol-value-in-buffer 'major-mode buf1)))
-	(mode2 (symbol-name (symbol-value-in-buffer 'major-mode buf2)))
+	(mode2 (symbol-name (symbol-value-in-buffer 'major-mode 
+						    buffer-to-select)))
 	(modenm1 (symbol-value-in-buffer 'mode-name buf1))
-	(modenm2 (symbol-value-in-buffer 'mode-name buf2)))
+	(modenm2 (symbol-value-in-buffer 'mode-name buffer-to-select)))
     (cond ((or (eq mode1 mode2)
 	       (eq modenm1 modenm2)
 	       (and (string-match "^[^-]+-" mode1)
@@ -212,32 +230,25 @@ This just returns the buffer's name, optionally truncated."
 	   (when selected (setq selected nil))))
      buffers)))
 
-;;; #### SJT I'd really like this function to have just two hooks: (1) the
-;;; buffer filter list and (2) a sort function list.  Both should be lists
-;;; of functions.  Each filter takes two arguments:  a buffer and a model
-;;; buffer.  (The model buffer argument allows selecting according to the
-;;; mode or directory of that buffer.)  The filter returns t if the buffer
-;;; should be listed and nil otherwise.  Effectively the filter amounts to
-;;; the conjuction of the filter list.  (Optionally the filter could take a
-;;; frame instead of a buffer or generalize to a locale as in a specifier?)
-;;; The filtering is done this way to preserve the ordering imposed by
-;;; `buffer-list'.  In addition, the in-deletion argument will be used the
-;;; same way as in the current design.
-;;; The list is checked for length and pruned according to least-recently-
-;;; selected.  (Optionally there could be some kind of sort function here,
-;;; too.)
-;;; Finally the list is sorted to gutter display order, and the tab data
-;;; structure is created and returned.
-;;; #### Docstring isn't very well expressed.
+;;; #### SJT would like this function to have a sort function list. I
+;;; don't see how this could work given that sorting is not
+;;; cumulative --andyp.
 (defun buffers-tab-items (&optional in-deletion frame force-selection)
-  "This is the tab filter for the top-level buffers \"Buffers\" tab.
-It dynamically creates a list of buffers to use as the contents of the tab.
-Only the most-recently-used few buffers will be listed on the tab, for
-efficiency reasons.  You can control how many buffers will be shown by
-setting `buffers-tab-max-size'.  You can control the text of the tab
-items by redefining the function `format-buffers-menu-line'."
+  "Return a list of tab instantiators based on the current buffers list.
+This function is used as the tab filter for the top-level buffers
+\"Buffers\" tab.  It dynamically creates a list of tab instantiators
+to use as the contents of the tab.  The contents and order of the list
+is controlled by `buffers-tab-filter-functions' which by default
+groups buffers according to major mode and removes invisible buffers.
+You can control how many buffers will be shown by setting
+`buffers-tab-max-size'.  You can control the text of the tab items by
+redefining the function `format-buffers-menu-line'."
   (save-match-data
-    (let* ((buffers (delete-if buffers-tab-omit-function (buffer-list frame)))
+    ;; NB it is too late if we run the omit function as part of the
+    ;; filter functions because we need to know which buffer is the
+    ;; context buffer before they get run.
+    (let* ((buffers (delete-if 
+		     buffers-tab-omit-function (buffer-list frame)))
 	   (first-buf (car buffers)))
       ;; maybe force the selected window
       (when (and force-selection
@@ -249,11 +260,19 @@ items by redefining the function `format-buffers-menu-line'."
       (when in-deletion 
 	(setq buffers (delq (current-buffer) buffers))
 	(setq first-buf (car buffers)))
-      ;; select buffers in group (default is by mode)
-      (when buffers-tab-selection-function
-	(delete-if-not #'(lambda (buf)
-			   (funcall buffers-tab-selection-function
-				    first-buf buf)) buffers))
+      ;; filter buffers
+      (when buffers-tab-filter-functions
+	(setq buffers
+	      (delete-if 
+	       #'null 
+	       (mapcar #'(lambda (buf)
+			   (let ((tmp-buf buf))
+			     (mapc #'(lambda (fun)
+				       (unless (funcall fun buf first-buf)
+					 (setq tmp-buf nil)))
+				   buffers-tab-filter-functions)
+			     tmp-buf))
+		       buffers))))
       ;; maybe shorten list of buffers
       (and (integerp buffers-tab-max-size)
 	   (> buffers-tab-max-size 1)
@@ -269,14 +288,11 @@ items by redefining the function `format-buffers-menu-line'."
 (defun add-tab-to-gutter ()
   "Put a tab control in the gutter area to hold the most recent buffers."
   (setq gutter-buffers-tab-orientation (default-gutter-position))
-  (let ((gutter-string (copy-sequence "\n")))
-    (unless gutter-buffers-tab-extent
-      (setq gutter-buffers-tab-extent (make-extent 0 1 gutter-string)))
-    (set-extent-begin-glyph 
-     gutter-buffers-tab-extent
-     (setq gutter-buffers-tab 
-	   (make-glyph)))
-
+  (let* ((gutter-string (copy-sequence "\n"))
+	 (gutter-buffers-tab-extent (make-extent 0 1 gutter-string)))
+    (set-extent-begin-glyph gutter-buffers-tab-extent
+			    (setq gutter-buffers-tab 
+				  (make-glyph)))
     ;; Nuke all existing tabs
     (remove-gutter-element top-gutter 'buffers-tab)
     (remove-gutter-element bottom-gutter 'buffers-tab)
@@ -298,17 +314,11 @@ items by redefining the function `format-buffers-menu-line'."
 		 ((eq gutter-buffers-tab-orientation 'left)
 		  (set-specifier left-gutter-border-width 0 'global x)
 		  (set-gutter-element left-gutter 'buffers-tab
-				      gutter-string 'global x)
-		  (set-specifier left-gutter-width
-				 (glyph-width gutter-buffers-tab)
-				 'global x))
+				      gutter-string 'global x))
 		 ((eq gutter-buffers-tab-orientation 'right)
 		  (set-specifier right-gutter-border-width 0 'global x)
 		  (set-gutter-element right-gutter 'buffers-tab
-				      gutter-string 'global x)
-		  (set-specifier right-gutter-width
-				 (glyph-width gutter-buffers-tab)
-				 'global x))
+				      gutter-string 'global x))
 		 )))
      (console-type-list))))
 
@@ -333,21 +343,33 @@ items by redefining the function `format-buffers-menu-line'."
 			 (eq gutter-buffers-tab-orientation 'bottom))
 		     '(gutter-pixel-width) '(gutter-pixel-height))
 		 :items (buffers-tab-items nil frame force-selection))
-	 frame)))))
+	 frame)
+	;; set-glyph-image will not make the gutter dirty
+	(set-specifier-dirty-flag 
+	 (eval (intern (concat 
+			(symbol-name gutter-buffers-tab-orientation) 
+			"-gutter"))))))))
 
 ;; A myriad of different update hooks all doing slightly different things
-(add-hook 'create-frame-hook 
-	  #'(lambda (frame)
-	      (when gutter-buffers-tab (update-tab-in-gutter frame t))))
-(add-hook 'buffer-list-changed-hook 'update-tab-in-gutter)
-(add-hook 'default-gutter-position-changed-hook
-	  #'(lambda ()
-	      (when gutter-buffers-tab
-		(mapc #'update-tab-in-gutter (frame-list)))))
-(add-hook 'gutter-element-visibility-changed-hook
-	  #'(lambda (prop visible-p)
-	      (when (and (eq prop 'buffers-tab) visible-p)
-		(mapc #'update-tab-in-gutter (frame-list)))))
+(add-one-shot-hook 
+ 'after-init-hook
+ #'(lambda ()
+     ;; don't add the hooks if the user really doesn't want them
+     (when gutter-buffers-tab-enabled
+       (add-hook 'create-frame-hook 
+		 #'(lambda (frame)
+		     (when gutter-buffers-tab (update-tab-in-gutter frame t))))
+       (add-hook 'buffer-list-changed-hook 'update-tab-in-gutter)
+       (add-hook 'default-gutter-position-changed-hook
+		 #'(lambda ()
+		     (when gutter-buffers-tab
+		       (mapc #'update-tab-in-gutter (frame-list)))))
+       (add-hook 'gutter-element-visibility-changed-hook
+		 #'(lambda (prop visible-p)
+		     (when (and (eq prop 'buffers-tab) visible-p)
+		       (mapc #'update-tab-in-gutter (frame-list)))))
+       (update-tab-in-gutter (selected-frame) t))))
+
 ;;
 ;; progress display
 ;; ripped off from message display

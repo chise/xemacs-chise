@@ -120,7 +120,7 @@ print_ldap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   print_internal (ldap->host, printcharfun, 1);
   if (!ldap->ld)
     write_c_string ("(dead) ",printcharfun);
-  sprintf (buf, " 0x%x>", (unsigned int)ldap);
+  sprintf (buf, " 0x%lx>", (long)ldap);
   write_c_string (buf, printcharfun);
 }
 

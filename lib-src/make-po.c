@@ -18,7 +18,8 @@
 #endif
 
 /* #define BUFSIZE    8192 */
-#define BUFSIZE    16384
+/* #define BUFSIZE    16384 */
+#define BUFSIZE    32768
 #define NEWSTRING  31      /* Character signalling start of new doc string */
 #define LINEEND    "\\n"
 #define ENDSTRING  "\"\n"

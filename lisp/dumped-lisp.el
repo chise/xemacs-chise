@@ -115,8 +115,10 @@
 	;;;;;;;;;;;;;;;;;; Coding-system support
 	(when-feature file-coding "coding")
 	(when-feature file-coding "code-files")
+	;; Handle process with encoding/decoding coding-system.
 	(when-feature file-coding "code-process")
-
+	;; Provide basic commands to set coding systems to user
+	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")

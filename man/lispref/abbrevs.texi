@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/abbrevs.info
 @node Abbrevs, Extents, Syntax Tables, Top
@@ -42,7 +42,7 @@ Mode, emacs, The XEmacs Reference Manual}.
 @end menu
 
 @node Abbrev Mode
-@section Setting Up Abbrev Mode    
+@section Setting Up Abbrev Mode
 
   Abbrev mode is a minor mode controlled by the value of the variable
 @code{abbrev-mode}.
@@ -76,8 +76,8 @@ This function undefines all the abbrevs in abbrev table @var{table},
 leaving it empty.  The function returns @code{nil}.
 @end defun
 
-@defun define-abbrev-table tabname definitions
-This function defines @var{tabname} (a symbol) as an abbrev table name,
+@defun define-abbrev-table table-name definitions
+This function defines @var{table-name} (a symbol) as an abbrev table name,
 i.e., as a variable whose value is an abbrev table.  It defines abbrevs
 in the table according to @var{definitions}, a list of elements of the
 form @code{(@var{abbrevname} @var{expansion} @var{hook}
@@ -121,7 +121,7 @@ abbrev, or @code{nil} if the user declines to confirm redefining an
 existing abbrev.
 @end defun
 
-@defun define-abbrev table name expansion hook
+@defun define-abbrev table name &optional expansion hook count
 This function defines an abbrev in @var{table} named @var{name}, to
 expand to @var{expansion}, and call @var{hook}.  The return value is an
 uninterned symbol that represents the abbrev inside XEmacs; its name is
@@ -165,7 +165,7 @@ described here.
 This is the default file name for reading and saving abbrevs.
 @end defopt
 
-@defun quietly-read-abbrev-file filename
+@defun quietly-read-abbrev-file &optional filename
 This function reads abbrev definitions from a file named @var{filename},
 previously written with @code{write-abbrev-file}.  If @var{filename} is
 @code{nil}, the file specified in @code{abbrev-file-name} is used.
@@ -181,7 +181,7 @@ the file to save the abbrevs in.
 @end defopt
 
 @defvar abbrevs-changed
-This variable is set non-@code{nil} by defining or altering any 
+This variable is set non-@code{nil} by defining or altering any
 abbrevs.  This serves as a flag for various XEmacs commands to offer to
 save your abbrevs.
 @end defvar

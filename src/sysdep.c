@@ -3031,7 +3031,7 @@ sys_readdir (DIR *dirp)
 			  Qfile_name);
 
       Dynarr_add_many (internal_DIRENTRY, internal_name, internal_len);
-      Dynarr_add (internal_DIRENTRY, 0); /* zero-terminate */
+      Dynarr_add (internal_DIRENTRY, '\0'); /* NUL-terminate */
       return (DIRENTRY *) Dynarr_atp (internal_DIRENTRY, 0);
     }
   }

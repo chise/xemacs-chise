@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c Copyright (C) 1995 Ben Wing.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/annotations.info
@@ -123,10 +123,10 @@ space to display in.
 @section Annotation Primitives
 
 @defun make-annotation glyph &optional position layout buffer with-event d-glyph rightp
-This function creates a marginal annotation at position @var{pos} in
+This function creates a marginal annotation at position @var{position} in
 @var{buffer}.  The annotation is displayed using @var{glyph}, which
 should be a glyph object or a string, and is positioned using layout
-policy @var{layout}.  If @var{pos} is @code{nil}, point is used.  If
+policy @var{layout}.  If @var{position} is @code{nil}, point is used.  If
 @var{layout} is @code{nil}, @code{whitespace} is used.  If @var{buffer}
 is @code{nil}, the current buffer is used.
 
@@ -180,7 +180,7 @@ which should be a glyph object.
 @defun annotation-face annotation
 This function returns the face associated with @var{annotation}.
 @end defun
-        
+
 @defun set-annotation-face annotation face
 This function sets the face associated with @var{annotation} to
 @var{face}.

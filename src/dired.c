@@ -179,18 +179,18 @@ static Lisp_Object file_name_completion (Lisp_Object file,
                                          int all_flag, int ver_flag);
 
 DEFUN ("file-name-completion", Ffile_name_completion, 2, 2, 0, /*
-Complete file name FILE in directory DIRECTORY.
-Returns the longest string common to all filenames in DIRECTORY
-that start with FILE.
-If there is only one and FILE matches it exactly, returns t.
-Returns nil if DIRECTORY contains no name starting with FILE.
+Complete file name PARTIAL-FILENAME in directory DIRECTORY.
+Return the longest prefix common to all file names in DIRECTORY
+that start with PARTIAL-FILENAME.
+If there is only one and PARTIAL-FILENAME matches it exactly, return t.
+Return nil if DIRECTORY contains no name starting with PARTIAL-FILENAME.
 
-Filenames which end with any member of `completion-ignored-extensions'
-are not considered as possible completions for FILE unless there is no
-other possible completion.  `completion-ignored-extensions' is not applied
-to the names of directories.
+File names which end with any member of `completion-ignored-extensions'
+are not considered as possible completions for PARTIAL-FILENAME unless
+there is no other possible completion. `completion-ignored-extensions'
+is not applied to the names of directories.
 */
-       (file, directory))
+       (partial_filename, directory))
 {
   /* This function can GC.  GC checked 1996.04.06. */
   Lisp_Object handler;
@@ -199,27 +199,27 @@ to the names of directories.
      call the corresponding file handler.  */
   handler = Ffind_file_name_handler (directory, Qfile_name_completion);
   if (!NILP (handler))
-    return call3 (handler, Qfile_name_completion, file, directory);
+    return call3 (handler, Qfile_name_completion, partial_filename, directory);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (file, Qfile_name_completion);
+  handler = Ffind_file_name_handler (partial_filename, Qfile_name_completion);
   if (!NILP (handler))
-    return call3 (handler, Qfile_name_completion, file, directory);
+    return call3 (handler, Qfile_name_completion, partial_filename, directory);
 
-  return file_name_completion (file, directory, 0, 0);
+  return file_name_completion (partial_filename, directory, 0, 0);
 }
 
 DEFUN ("file-name-all-completions", Ffile_name_all_completions, 2, 2, 0, /*
-Return a list of all completions of file name FILE in directory DIRECTORY.
-These are all file names in directory DIRECTORY which begin with FILE.
+Return a list of all completions of PARTIAL-FILENAME in DIRECTORY.
+These are all file names in DIRECTORY which begin with PARTIAL-FILENAME.
 
 File names which end with any member of `completion-ignored-extensions'
-are not considered as possible completions for FILE unless there is no
-other possible completion.  `completion-ignored-extensions' is not applied
-to the names of directories.
+are not considered as possible completions for PARTIAL-FILENAME unless
+there is no other possible completion. `completion-ignored-extensions'
+is not applied to the names of directories.
 */
-       (file, directory))
+       (partial_filename, directory))
 {
   /* This function can GC. GC checked 1997.06.04. */
   Lisp_Object handler;
@@ -232,10 +232,10 @@ to the names of directories.
   handler = Ffind_file_name_handler (directory, Qfile_name_all_completions);
   UNGCPRO;
   if (!NILP (handler))
-    return call3 (handler, Qfile_name_all_completions, file,
+    return call3 (handler, Qfile_name_all_completions, partial_filename,
 		  directory);
 
-  return file_name_completion (file, directory, 1, 0);
+  return file_name_completion (partial_filename, directory, 1, 0);
 }
 
 static int
@@ -516,44 +516,45 @@ static Lisp_Object user_name_completion (Lisp_Object user,
                                          int *uniq);
 
 DEFUN ("user-name-completion", Fuser_name_completion, 1, 1, 0, /*
-Complete user name USER.
-
-Returns the longest string common to all user names that start
-with USER.  If there is only one and USER matches it exactly,
-returns t.  Returns nil if there is no user name starting with USER.
+Complete user name from PARTIAL-USERNAME.
+Return the longest prefix common to all user names starting with
+PARTIAL-USERNAME.  If there is only one and PARTIAL-USERNAME matches
+it exactly, returns t.  Return nil if there is no user name starting
+with PARTIAL-USERNAME.
 */
-       (user))
+       (partial_username))
 {
-  return user_name_completion (user, 0, NULL);
+  return user_name_completion (partial_username, 0, NULL);
 }
 
 DEFUN ("user-name-completion-1", Fuser_name_completion_1, 1, 1, 0, /*
-Complete user name USER.
+Complete user name from PARTIAL-USERNAME.
 
 This function is identical to `user-name-completion', except that
 the cons of the completion and an indication of whether the
 completion was unique is returned.
 
-The car of the returned value is the longest string common to all
-user names that start with USER.  If there is only one and USER
-matches it exactly, the car is t.  The car is nil if there is no
-user name starting with USER.  The cdr of the result is non-nil
-if and only if the completion returned in the car was unique.
+The car of the returned value is the longest prefix common to all user
+names that start with PARTIAL-USERNAME.  If there is only one and
+PARTIAL-USERNAME matches it exactly, the car is t.  The car is nil if
+there is no user name starting with PARTIAL-USERNAME.  The cdr of the
+result is non-nil if and only if the completion returned in the car
+was unique.
 */
-       (user))
+       (partial_username))
 {
   int uniq;
-  Lisp_Object completed = user_name_completion (user, 0, &uniq);
+  Lisp_Object completed = user_name_completion (partial_username, 0, &uniq);
   return Fcons (completed, uniq ? Qt : Qnil);
 }
 
 DEFUN ("user-name-all-completions", Fuser_name_all_completions, 1, 1, 0, /*
-Return a list of all completions of user name USER.
-These are all user names which begin with USER.
+Return a list of all user name completions from PARTIAL-USERNAME.
+These are all the user names which begin with PARTIAL-USERNAME.
 */
-       (user))
+       (partial_username))
 {
-  return user_name_completion (user, 1, NULL);
+  return user_name_completion (partial_username, 1, NULL);
 }
 
 struct user_name

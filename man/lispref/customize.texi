@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1997, 1998 Free Software Foundation, Inc. 
+@c Copyright (C) 1997, 1998 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../info/customize
 @node Customization, , , Top
@@ -13,8 +13,8 @@ definitions---as well as face definitions.
 
 @menu
 * Common Keywords::
-* Group Definitions::            
-* Variable Definitions::         
+* Group Definitions::
+* Variable Definitions::
 * Customization Types::
 @end menu
 
@@ -627,7 +627,7 @@ Substitute the tag here.  You specify the tag with the @code{:tag}
 keyword.
 
 @item %%
-Display a literal @samp{%}. 
+Display a literal @samp{%}.
 @end table
 
 @item :action @var{action}
@@ -710,7 +710,7 @@ in a @code{menu-choice} widget.  By default, the tag used will be either the
 representation of the @code{:value} property if not.
 
 @item :validate
-A function which takes a widget as an argument, and return nil if the
+A function which takes a widget as an argument, and returns @code{nil} if the
 widgets current value is valid for the widget.  Otherwise, it should
 return the widget containing the invalid data, and set that widgets
 @code{:error} property to a string explaining the error.
@@ -727,7 +727,7 @@ implemented.
 @item
 Widgets with tabbing order @code{-1} are ignored.
 
-@item 
+@item
 (Unimplemented) When on a widget with tabbing order @var{n}, go to the
 next widget in the buffer with tabbing order @var{n+1} or @code{nil},
 whichever comes first.

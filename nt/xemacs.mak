@@ -26,7 +26,14 @@
 
 default: all
 
-XEMACS=..
+# APA: Since there seems to be no way to determine the directory where
+# xemacs.mak is located (from within nmake) we just insist on the user
+# to invoke nmake in the directory where xemacs.mak is.
+!if !exist("$(MAKEDIR)\xemacs.mak")
+!error Please run nmake from the directory of this makefile (xemacs\nt).
+!endif
+
+XEMACS=$(MAKEDIR)\..
 LISP=$(XEMACS)\lisp
 LIB_SRC=$(XEMACS)\lib-src
 MODULES=$(XEMACS)\modules

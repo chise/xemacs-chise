@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/files.info
 @node Files, Backups and Auto-Saving, Documentation, Top
@@ -86,7 +86,7 @@ temporary buffer.  Visiting the file is not necessary and takes longer.
 
 @deffn Command find-file filename
 This command selects a buffer visiting the file @var{filename},
-using an existing buffer if there is one, and otherwise creating a 
+using an existing buffer if there is one, and otherwise creating a
 new buffer and reading the file into it.  It also returns that buffer.
 
 The body of the @code{find-file} function is very simple and looks
@@ -121,7 +121,7 @@ file named @var{filename}, it displays the message @samp{New file} in
 the echo area, and leaves the buffer empty.
 
 @c XEmacs feature
-If @var{no-warn} is non-@code{nil}, various warnings that XEmacs normally
+If @var{nowarn} is non-@code{nil}, various warnings that XEmacs normally
 gives (e.g. if another buffer is already visiting @var{filename} but
 @var{filename} has been removed from disk since that buffer was created)
 are suppressed.
@@ -161,7 +161,7 @@ When this command is called interactively, it prompts for
 @var{filename}.
 @end deffn
 
-@deffn Command view-file filename
+@deffn Command view-file filename &optional other-window-p
 This command visits @var{filename} in View mode, and displays it in a
 recursive edit, returning to the previous buffer when done.  View mode
 is a mode that allows you to skim rapidly through the file but does not
@@ -170,6 +170,9 @@ let you modify it.  Entering View mode runs the normal hook
 
 When @code{view-file} is called interactively, it prompts for
 @var{filename}.
+
+With non-@code{nil} prefix arg @var{other-window-p}, visit @var{filename}
+in another window.
 @end deffn
 
 @defvar find-file-hooks
@@ -403,7 +406,7 @@ major modes set it to @code{t} in particular buffers.
 using the @code{insert-file-contents} function.  Don't use the user-level
 command @code{insert-file} in a Lisp program, as that sets the mark.
 
-@defun insert-file-contents filename &optional visit beg end replace
+@defun insert-file-contents filename &optional visit start end replace
 This function inserts the contents of file @var{filename} into the
 current buffer after point.  It returns a list of the absolute file name
 and the length of the data inserted.  An error is signaled if
@@ -421,7 +424,7 @@ is visiting the file @var{filename}: these include the buffer's visited
 file name and its last save file modtime.  This feature is used by
 @code{find-file-noselect} and you probably should not use it yourself.
 
-If @var{beg} and @var{end} are non-@code{nil}, they should be integers
+If @var{start} and @var{end} are non-@code{nil}, they should be integers
 specifying the portion of the file to insert.  In this case, @var{visit}
 must be @code{nil}.  For example,
 
@@ -548,10 +551,10 @@ the file should not be locked, so this function does nothing.  It also
 does nothing if the current buffer is not visiting a file.
 @end defun
 
-@defun ask-user-about-lock file other-user
-This function is called when the user tries to modify @var{file}, but it
-is locked by another user named @var{other-user}.  The value it returns
-determines what happens next:
+@defun ask-user-about-lock filename other-user
+This function is called when the user tries to modify @var{filename},
+but it is locked by another user named @var{other-user}.  The value it
+returns determines what happens next:
 
 @itemize @bullet
 @item
@@ -570,11 +573,11 @@ case the change that the user was about to make does not take place.
 The error message for this error looks like this:
 
 @example
-@error{} File is locked: @var{file} @var{other-user}
+@error{} File is locked: @var{filename} @var{other-user}
 @end example
 
 @noindent
-where @code{file} is the name of the file and @var{other-user} is the
+where @var{filename} is the name of the file and @var{other-user} is the
 name of the user who has locked the file.
 @end itemize
 
@@ -749,7 +752,7 @@ name of a text file, a directory, or even another symbolic link, or it
 may be a nonexistent file name.
 
 If the file @var{filename} is not a symbolic link (or there is no such file),
-@code{file-symlink-p} returns @code{nil}.  
+@code{file-symlink-p} returns @code{nil}.
 
 @example
 @group
@@ -968,16 +971,16 @@ For example, here are the file attributes for @file{files.texi}:
 @example
 @group
 (file-attributes "files.texi")
-     @result{}  (nil 
-          1 
-          2235 
-          75 
-          (8489 20284) 
-          (8489 20284) 
+     @result{}  (nil
+          1
+          2235
+          75
+          (8489 20284)
+          (8489 20284)
           (8489 20285)
-          14906 
-          "-rw-rw-rw-" 
-          nil 
+          14906
+          "-rw-rw-rw-"
+          nil
           129500
           -32252)
 @end group
@@ -1037,9 +1040,10 @@ is on file system number -32252.
   The functions in this section rename, copy, delete, link, and set the
 modes of files.
 
-  In the functions that have an argument @var{newname}, if a file by the
-name of @var{newname} already exists, the actions taken depend on the
-value of the argument @var{ok-if-already-exists}:
+  In the functions that have arguments @var{newname} and
+@var{ok-if-already-exists}, if a file by the name of @var{newname}
+already exists, the actions taken depend on the value of
+@var{ok-if-already-exists}:
 
 @itemize @bullet
 @item
@@ -1047,19 +1051,20 @@ Signal a @code{file-already-exists} error if
 @var{ok-if-already-exists} is @code{nil}.
 
 @item
-Request confirmation if @var{ok-if-already-exists} is a number.
+Request confirmation if @var{ok-if-already-exists} is a number.  This is
+what happens when the function is invoked interactively.
 
 @item
 Replace the old file without confirmation if @var{ok-if-already-exists}
 is any other value.
 @end itemize
 
-@deffn Command add-name-to-file oldname newname &optional ok-if-already-exists
+@deffn Command add-name-to-file filename newname &optional ok-if-already-exists
 @cindex file with multiple names
 @cindex file hard link
-This function gives the file named @var{oldname} the additional name
+This function gives the file named @var{filename} the additional name
 @var{newname}.  This means that @var{newname} becomes a new ``hard
-link'' to @var{oldname}.
+link'' to @var{filename}.  Both these arguments must be strings.
 
 In the first part of the following example, we list two files,
 @file{foo} and @file{foo3}.
@@ -1116,8 +1121,8 @@ contents of @file{foo3} are lost.
 @end group
 @end example
 
-  This function is meaningless on VMS, where multiple names for one file
-are not allowed.
+This function is meaningless on non-Unix systems, where multiple names
+for one file are not allowed.
 
   See also @code{file-nlinks} in @ref{File Attributes}.
 @end deffn
@@ -1135,9 +1140,9 @@ In an interactive call, this function prompts for @var{filename} and
 @var{newname} already exists.
 @end deffn
 
-@deffn Command copy-file oldname newname &optional ok-if-exists time
-This command copies the file @var{oldname} to @var{newname}.  An
-error is signaled if @var{oldname} does not exist.
+@deffn Command copy-file filename newname &optional ok-if-already-exists time
+This command copies the file @var{filename} to @var{newname}.  An
+error is signaled if @var{filename} does not exist.
 
 If @var{time} is non-@code{nil}, then this functions gives the new
 file the same last-modified time that the old one has.  (This works on
@@ -1161,7 +1166,7 @@ its directory is writable.)
 See also @code{delete-directory} in @ref{Create/Delete Dirs}.
 @end deffn
 
-@deffn Command make-symbolic-link filename newname  &optional ok-if-exists
+@deffn Command make-symbolic-link filename newname &optional ok-if-already-exists
 @pindex ln
 @kindex file-already-exists
 This command makes a symbolic link to @var{filename}, named
@@ -1172,11 +1177,6 @@ In an interactive call, this function prompts for @var{filename} and
 @var{newname} in the minibuffer; also, it requests confirmation if
 @var{newname} already exists.
 @end deffn
-
-@defun define-logical-name varname string
-This function defines the logical name @var{name} to have the value
-@var{string}.  It is available only on VMS.
-@end defun
 
 @defun set-file-modes filename mode
 This function sets mode bits of @var{filename} to @var{mode} (which must
@@ -1226,11 +1226,10 @@ how to manipulate file names.
 can operate on file names that do not refer to an existing file or
 directory.
 
-  On VMS, all these functions understand both VMS file-name syntax and
-Unix syntax.  This is so that all the standard Lisp libraries can
-specify file names in Unix syntax and work properly on VMS without
-change.  On MS-DOS, these functions understand MS-DOS file-name syntax
-as well as Unix syntax.
+On MS-DOS, these functions understand MS-DOS file-name syntax as well as
+Unix syntax. This is so that all the standard Lisp libraries can specify
+file names in Unix syntax and work properly on all systems without
+change.  Similarly for other operating systems.
 
 @menu
 * File Name Components::  The directory part of a file name, and the rest.
@@ -1257,22 +1256,16 @@ parts: the @dfn{directory name} part, and the @dfn{nondirectory} part
 Concatenating these two parts reproduces the original file name.
 
   On Unix, the directory part is everything up to and including the last
-slash; the nondirectory part is the rest.  The rules in VMS syntax are
-complicated.
+slash; the nondirectory part is the rest.
 
   For some purposes, the nondirectory part is further subdivided into
 the name proper and the @dfn{version number}.  On Unix, only backup
-files have version numbers in their names; on VMS, every file has a
-version number, but most of the time the file name actually used in
-XEmacs omits the version number.  Version numbers are found mostly in
-directory lists.
+files have version numbers in their names.
 
 @defun file-name-directory filename
   This function returns the directory part of @var{filename} (or
 @code{nil} if @var{filename} does not include a directory part).  On
-Unix, the function returns a string ending in a slash.  On VMS, it
-returns a string ending in one of the three characters @samp{:},
-@samp{]}, or @samp{>}.
+Unix, the function returns a string ending in a slash.
 
 @example
 @group
@@ -1282,10 +1275,6 @@ returns a string ending in one of the three characters @samp{:},
 @group
 (file-name-directory "foo")        ; @r{Unix example}
      @result{} nil
-@end group
-@group
-(file-name-directory "[X]FOO.TMP") ; @r{VMS example}
-     @result{} "[X]"
 @end group
 @end example
 @end defun
@@ -1301,11 +1290,6 @@ returns a string ending in one of the three characters @samp{:},
 @group
 (file-name-nondirectory "foo")
      @result{} "foo"
-@end group
-@group
-;; @r{The following example is accurate only on VMS.}
-(file-name-nondirectory "[X]FOO.TMP")
-     @result{} "FOO.TMP"
 @end group
 @end example
 @end defun
@@ -1330,11 +1314,6 @@ version numbers, only true file version numbers.
 @group
 (file-name-sans-versions "~rms/foo")
      @result{} "~rms/foo"
-@end group
-@group
-;; @r{The following example applies to VMS only.}
-(file-name-sans-versions "foo;23")
-     @result{} "foo"
 @end group
 @end example
 @end defun
@@ -1363,7 +1342,7 @@ name but not identical to it.  (This is not quite the same as the usual
 Unix terminology.)  These two different names for the same entity are
 related by a syntactic transformation.  On Unix, this is simple: a
 directory name ends in a slash, whereas the directory's name as a file
-lacks that slash.  On VMS, the relationship is more complicated.
+lacks that slash.
 
   The difference between a directory name and its name as a file is
 subtle but crucial.  When an XEmacs variable or function argument is
@@ -1377,9 +1356,7 @@ such as @samp{$HOME}, and the constructs @samp{~}, and @samp{..}.
 @defun file-name-as-directory filename
 This function returns a string representing @var{filename} in a form
 that the operating system will interpret as the name of a directory.  In
-Unix, this means appending a slash to the string.  On VMS, the function
-converts a string of the form @file{[X]Y.DIR.1} to the form
-@file{[X.Y]}.
+Unix, this means appending a slash to the string.
 
 @example
 @group
@@ -1392,9 +1369,7 @@ converts a string of the form @file{[X]Y.DIR.1} to the form
 @defun directory-file-name dirname
 This function returns a string representing @var{dirname} in a form
 that the operating system will interpret as the name of a file.  On
-Unix, this means removing a final slash from the string.  On VMS, the
-function converts a string of the form @file{[X.Y]} to
-@file{[X]Y.DIR.1}.
+Unix, this means removing a final slash from the string.
 
 @example
 @group
@@ -1415,7 +1390,7 @@ abbreviation instead.
   If you wish to convert a directory name to its abbreviation, use this
 function:
 
-@defun abbreviate-file-name dirname &optional hack-homedir
+@defun abbreviate-file-name filename &optional hack-homedir
 This function applies abbreviations from @code{directory-abbrev-alist}
 to its argument, and substitutes @samp{~} for the user's home
 directory.
@@ -1468,13 +1443,11 @@ starting from the root of the tree; then it is called an @dfn{absolute}
 file name.  Or it can specify the position of the file in the tree
 relative to a default directory; then it is called a @dfn{relative}
 file name.  On Unix, an absolute file name starts with a slash or a
-tilde (@samp{~}), and a relative one does not.  The rules on VMS are
-complicated.
+tilde (@samp{~}), and a relative one does not.
 
 @defun file-name-absolute-p filename
 This function returns @code{t} if file @var{filename} is an absolute
-file name, @code{nil} otherwise.  On VMS, this function understands both
-Unix syntax and VMS syntax.
+file name, @code{nil} otherwise.
 
 @example
 @group
@@ -1622,9 +1595,6 @@ example:
      @result{} "/xcssun/users/rms/foo"
 @end group
 @end example
-
-On VMS, @samp{$} substitution is not done, so this function does nothing
-on VMS except discard superfluous initial components as shown above.
 @end defun
 
 @node Unique File Names
@@ -1666,7 +1636,7 @@ there is no danger of generating a name being used by another process.
 @end example
 
 In addition, this function makes an attempt to choose a name that does
-not specify an existing file.  To make this work, @var{prefix} should be 
+not specify an existing file.  To make this work, @var{prefix} should be
 an absolute file name.
 
 To avoid confusion, each Lisp application should preferably use a unique
@@ -1682,7 +1652,7 @@ To avoid confusion, each Lisp application should preferably use a unique
 name.  For other completion functions, see @ref{Completion}.
 
 @defun file-name-all-completions partial-filename directory
-This function returns a list of all possible completions for a file
+This function returns a list of all possible completions for files
 whose name starts with @var{partial-filename} in directory
 @var{directory}.  The order of the completions is the order of the files
 in the directory, which is unpredictable and conveys no useful
@@ -1692,6 +1662,11 @@ The argument @var{partial-filename} must be a file name containing no
 directory part and no slash.  The current buffer's default directory is
 prepended to @var{directory}, if @var{directory} is not absolute.
 
+File names which end with any member of @code{completion-ignored-extensions}
+are not considered as possible completions for @var{partial-filename} unless
+there is no other possible completion. @code{completion-ignored-extensions}
+is not applied to the names of directories.
+
 In the following example, suppose that the current default directory,
 @file{~rms/lewis}, has five files whose names begin with @samp{f}:
 @file{foo}, @file{file~}, @file{file.c}, @file{file.c.~1~}, and
@@ -1700,25 +1675,30 @@ In the following example, suppose that the current default directory,
 @example
 @group
 (file-name-all-completions "f" "")
-     @result{} ("foo" "file~" "file.c.~2~" 
+     @result{} ("foo" "file~" "file.c.~2~"
                 "file.c.~1~" "file.c")
 @end group
 
 @group
-(file-name-all-completions "fo" "")  
+(file-name-all-completions "fo" "")
      @result{} ("foo")
 @end group
 @end example
 @end defun
 
-@defun file-name-completion filename directory
-This function completes the file name @var{filename} in directory
+@defun file-name-completion partial-filename directory
+This function completes the file name @var{partial-filename} in directory
 @var{directory}.  It returns the longest prefix common to all file names
-in directory @var{directory} that start with @var{filename}.
+in directory @var{directory} that start with @var{partial-filename}.
 
-If only one match exists and @var{filename} matches it exactly, the
+If only one match exists and @var{partial-filename} matches it exactly, the
 function returns @code{t}.  The function returns @code{nil} if directory
-@var{directory} contains no name starting with @var{filename}.
+@var{directory} contains no name starting with @var{partial-filename}.
+
+File names which end with any member of @code{completion-ignored-extensions}
+are not considered as possible completions for @var{partial-filename} unless
+there is no other possible completion. @code{completion-ignored-extensions}
+is not applied to the names of directories.
 
 In the following example, suppose that the current default directory
 has five files whose names begin with @samp{f}: @file{foo},
@@ -1773,26 +1753,27 @@ completion-ignored-extensions
 name.  For other completion functions, see @ref{Completion}.
 
 @defun user-name-all-completions partial-username
-This function returns a list of all possible completions for a user
-whose name starts with @var{partial-username}.  The order of the 
-completions is unpredictable and conveys no useful information.
+This function returns a list of all possible completions for a user name
+starting with @var{partial-username}.  The order of the completions is
+unpredictable and conveys no useful information.
 
-The argument @var{partial-username} must be a partial user name 
+The argument @var{partial-username} must be a partial user name
 containing no tilde character and no slash.
 @end defun
 
-@defun user-name-completion username
-This function completes the user name @var{username}.  It returns the 
-longest prefix common to all user names that start with @var{username}.
+@defun user-name-completion partial-username
+This function completes a user name from @var{partial-username}.  It
+returns the longest prefix common to all user names that start with
+@var{partial-username}.
 
-If only one match exists and @var{username} matches it exactly, the
-function returns @code{t}.  The function returns @code{nil} if no user 
-name starting with @var{username} exists.
+If only one match exists and @var{partial-username} matches it exactly,
+the function returns @code{t}.  The function returns @code{nil} if no
+user name starting with @var{partial-username} exists.
 @end defun
 
-@defun user-name-completion-1 username
-This function completes the user name @var{username}, like 
-@code{user-name-completion}, differing only in the return value.  
+@defun user-name-completion-1 partial-username
+This function completes the partial user name @var{partial-username},
+like @code{user-name-completion}, differing only in the return value.
 This function returns the cons of the completion returned by
 @code{user-name-completion}, and a boolean indicating whether that
 completion was unique.
@@ -1843,7 +1824,7 @@ returned.
 @group
 (directory-files "~lewis")
      @result{} ("#foo#" "#foo.el#" "." ".."
-         "dired-mods.el" "files.texi" 
+         "dired-mods.el" "files.texi"
          "files.texi.~1~")
 @end group
 @end example
@@ -2002,7 +1983,7 @@ for an operation it does not recognize.  Here's one way to do this:
         @dots{}
         ;; @r{Handle any operation we don't know about.}
         (t (let ((inhibit-file-name-handlers
-                 (cons 'my-file-handler 
+                 (cons 'my-file-handler
                        (and (eq inhibit-file-name-operation operation)
                             inhibit-file-name-handlers)))
                 (inhibit-file-name-operation operation))
@@ -2028,8 +2009,8 @@ for a certain operation.
 The operation for which certain handlers are presently inhibited.
 @end defvar
 
-@defun find-file-name-handler file operation
-This function returns the handler function for file name @var{file}, or
+@defun find-file-name-handler filename &optional operation
+This function returns the handler function for file name @var{filename}, or
 @code{nil} if there is none.  The argument @var{operation} should be the
 operation to be performed on the file---the value you will pass to the
 handler as its first argument when you call it.  The operation is needed
@@ -2095,7 +2076,7 @@ work correctly.
 @node Creating a Partial File
 @subsection Creating a Partial File
 
-@defun make-file-part &optional start end name buffer
+@deffn Command make-file-part &optional start end name buffer
 Make a file part on buffer @var{buffer} out of the region.  Call it
 @var{name}.  This command creates a new buffer containing the contents
 of the region and marks the buffer as referring to the specified buffer,
@@ -2106,9 +2087,9 @@ buffer is deleted, all file parts are deleted with it.
 When called from a function, expects four arguments, @var{start},
 @var{end}, @var{name}, and @var{buffer}, all of which are optional and
 default to the beginning of @var{buffer}, the end of @var{buffer}, a
-name generated from @var{buffer} name, and the current buffer,
+name generated from @var{buffer}'s name, and the current buffer,
 respectively.
-@end defun
+@end deffn
 
 @node Detached Partial Files
 @subsection Detached Partial Files
@@ -2237,14 +2218,14 @@ When @code{write-region} writes data into a file, it first calls the
 encoding functions for the formats listed in @code{buffer-file-format},
 in the order of appearance in the list.
 
-@defun format-write-file file format
+@deffn Command format-write-file file format
 This command writes the current buffer contents into the file @var{file}
 in format @var{format}, and makes that format the default for future
 saves of the buffer.  The argument @var{format} is a list of format
 names.
-@end defun
+@end deffn
 
-@defun format-find-file file format
+@deffn Command format-find-file file format
 This command finds the file @var{file}, converting it according to
 format @var{format}.  It also makes @var{format} the default if the
 buffer is saved later.
@@ -2252,11 +2233,11 @@ buffer is saved later.
 The argument @var{format} is a list of format names.  If @var{format} is
 @code{nil}, no conversion takes place.  Interactively, typing just
 @key{RET} for @var{format} specifies @code{nil}.
-@end defun
+@end deffn
 
-@defun format-insert-file file format &optional beg end
+@deffn Command format-insert-file file format &optional start end
 This command inserts the contents of file @var{file}, converting it
-according to format @var{format}.  If @var{beg} and @var{end} are
+according to format @var{format}.  If @var{start} and @var{end} are
 non-@code{nil}, they specify which part of the file to read, as in
 @code{insert-file-contents} (@pxref{Reading from Files}).
 
@@ -2267,32 +2248,7 @@ list of the absolute file name and the length of the data inserted
 The argument @var{format} is a list of format names.  If @var{format} is
 @code{nil}, no conversion takes place.  Interactively, typing just
 @key{RET} for @var{format} specifies @code{nil}.
-@end defun
-
-@defun format-find-file file format
-This command finds the file @var{file}, converting it according to
-format @var{format}.  It also makes @var{format} the default if the
-buffer is saved later.
-
-The argument @var{format} is a list of format names.  If @var{format} is
-@code{nil}, no conversion takes place.  Interactively, typing just
-@key{RET} for @var{format} specifies @code{nil}.
-@end defun
-
-@defun format-insert-file file format &optional beg end
-This command inserts the contents of file @var{file}, converting it
-according to format @var{format}.  If @var{beg} and @var{end} are
-non-@code{nil}, they specify which part of the file to read,
-as in @code{insert-file-contents} (@pxref{Reading from Files}).
-
-The return value is like what @code{insert-file-contents} returns: a
-list of the absolute file name and the length of the data inserted
-(after conversion).
-
-The argument @var{format} is a list of format names.  If @var{format} is
-@code{nil}, no conversion takes place.  Interactively, typing just
-@key{RET} for @var{format} specifies @code{nil}.
-@end defun
+@end deffn
 
 @defvar auto-save-file-format
 This variable specifies the format to use for auto-saving.  Its value is

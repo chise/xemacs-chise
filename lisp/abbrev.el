@@ -67,38 +67,36 @@ This causes `save-some-buffers' to offer to save the abbrevs.")
   nil)
 
 
-(defun define-abbrev-table (name defs)
-  "Define TABNAME (a symbol) as an abbrev table name.
+(defun define-abbrev-table (table-name definitions)
+  "Define TABLE-NAME (a symbol) as an abbrev table name.
 Define abbrevs in it according to DEFINITIONS, which is a list of elements
 of the form (ABBREVNAME EXPANSION HOOK USECOUNT)."
-  (let ((table (and (boundp name) (symbol-value name))))
+  (let ((table (and (boundp table-name) (symbol-value table-name))))
     (cond ((vectorp table))
           ((not table)
            (setq table (make-abbrev-table))
-           (set name table)
-           (setq abbrev-table-name-list (cons name abbrev-table-name-list)))
+           (set table-name table)
+           (setq abbrev-table-name-list (cons table-name abbrev-table-name-list)))
           (t
-           (setq table (signal 'wrong-type-argument (list 'vectorp table)))
-           (set name table)))
-    (while defs
-      (apply (function define-abbrev) table (car defs))
-      (setq defs (cdr defs)))))
+           (setq table (wrong-type-argument 'vectorp table))
+           (set table-name table)))
+    (while definitions
+      (apply (function define-abbrev) table (car definitions))
+      (setq definitions (cdr definitions)))))
 
 (defun define-abbrev (table name &optional expansion hook count)
   "Define an abbrev in TABLE named NAME, to expand to EXPANSION or call HOOK.
 NAME and EXPANSION are strings.  Hook is a function or `nil'.
 To undefine an abbrev, define it with an expansion of `nil'."
-  (or (not expansion)
-      (stringp expansion)
-      (setq expansion (signal 'wrong-type-argument
-                              (list 'stringp expansion))))
-  (or (not count)
-      (integerp count)
-      (setq count (signal 'wrong-type-argument
-                          (list 'fixnump count))))
-  (or (vectorp table)
-      (setq table (signal 'wrong-type-argument
-			  (list 'vectorp table))))
+  (unless (or (null expansion) (stringp expansion))
+    (setq expansion (wrong-type-argument 'stringp expansion)))
+
+  (unless (or (null count) (integerp count))
+    (setq count (wrong-type-argument 'fixnump count)))
+
+  (unless (vectorp table)
+    (setq table (wrong-type-argument 'vectorp table)))
+
   (let* ((sym (intern name table))
          (oexp (and (boundp sym) (symbol-value sym)))
          (ohook (and (fboundp sym) (symbol-function sym))))
@@ -207,13 +205,13 @@ is not undone."
 
 
 
-(defun insert-abbrev-table-description (name human-readable)
+(defun insert-abbrev-table-description (name &optional human-readable)
   "Insert before point a full description of abbrev table named NAME.
 NAME is a symbol whose value is an abbrev table.
-If optional 2nd arg HUMAN is non-nil, insert a human-readable description.
-Otherwise the description is an expression,
-a call to `define-abbrev-table', which would
-define the abbrev table NAME exactly as it is currently defined."
+If optional second argument HUMAN-READABLE is non-nil, insert a
+human-readable description. Otherwise the description is an
+expression, a call to `define-abbrev-table', which would define the
+abbrev table NAME exactly as it is currently defined."
   (let ((table (symbol-value name))
         (stream (current-buffer)))
     (message "Abbrev-table %s..." name)
@@ -268,7 +266,7 @@ define the abbrev table NAME exactly as it is currently defined."
 
 (defun abbrev-mode (arg)
   "Toggle abbrev mode.
-With argument ARG, turn abbrev mode on iff ARG is positive.
+With argument ARG, enable abbrev mode if ARG is positive, else disable.
 In abbrev mode, inserting an abbreviation causes it to expand
 and be replaced by its expansion."
   (interactive "P")
@@ -391,7 +389,7 @@ Optional second argument QUIETLY non-nil means don't print anything."
   (setq save-abbrevs t abbrevs-changed nil))
 
 (defun quietly-read-abbrev-file (&optional file)
-  "Read abbrev definitions from file written with write-abbrev-file.
+  "Read abbrev definitions from file written with `write-abbrev-file'.
 Optional argument FILE is the name of the file to read;
 it defaults to the value of `abbrev-file-name'.
 Does not print anything."
@@ -460,6 +458,13 @@ Don't use this function in a Lisp program; use `define-abbrev' instead."
   (add-abbrev global-abbrev-table "Global" arg))
 
 (defun add-abbrev (table type arg)
+  "Add an abbreviation to abbrev table TABLE.
+TYPE is a string describing in English the kind of abbrev this will be
+(typically, \"global\" or \"mode-specific\"); this is used in
+prompting the user.  ARG is the number of words in the expansion.
+
+Return the symbol that internally represents the new abbrev, or nil if
+the user declines to confirm redefining an existing abbrev."
   ;; XEmacs change:
   (let ((exp (abbrev-string-to-be-defined arg))
 	name)

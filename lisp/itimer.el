@@ -120,7 +120,7 @@ many seconds.")
 ;; signal errors appropriately if the arguments are not valid.
 
 (defmacro check-itimer (var)
-  "If VAR is not bound to an itimer, signal wrong-type-argument.
+  "If VAR is not bound to an itimer, signal `wrong-type-argument'.
 This is a macro."
   (list 'setq var
 	(list 'if (list 'itimerp var) var
@@ -139,7 +139,7 @@ wrong-type-argument.  This is a macro."
 			    (list 'list ''string-or-itimer-p var))))))
 
 (defmacro check-nonnegative-number (var)
-  "If VAR is not bound to a number, signal wrong-type-argument.
+  "If VAR is not bound to a number, signal `wrong-type-argument'.
 If VAR is not bound to a positive number, signal args-out-of-range.
 This is a macro."
   (list 'setq var
@@ -151,7 +151,7 @@ This is a macro."
 		    var))))
 
 (defmacro check-string (var)
-  "If VAR is not bound to a string, signal wrong-type-argument.
+  "If VAR is not bound to a string, signal `wrong-type-argument'.
 This is a macro."
   (list 'setq var
 	(list 'if (list 'stringp var) var
@@ -160,16 +160,16 @@ This is a macro."
 
 ;; Functions to access and modify itimer attributes.
 
-(defun itimerp (obj)
-  "Return non-nil if OBJ is an itimer."
-  (and (consp obj) (eq (length obj) 8)))
+(defun itimerp (object)
+  "Return non-nil if OBJECT is an itimer."
+  (and (consp object) (eq (length object) 8)))
 
-(defun itimer-live-p (obj)
-  "Return non-nil if OBJ is an itimer and is active.
+(defun itimer-live-p (object)
+  "Return non-nil if OBJECT is an itimer and is active.
 ``Active'' means Emacs will run it when it expires.
 `activate-timer' must be called on an itimer to make it active.
 Itimers started with `start-itimer' are automatically active."
-  (and (itimerp obj) (memq obj itimer-list)))
+  (and (itimerp object) (memq object itimer-list)))
 
 (defun itimer-name (itimer)
   "Return the name of ITIMER."
@@ -329,7 +329,7 @@ VALUE is the number of seconds until this itimer expires.
   must be an integer.
 Optional fourth arg RESTART non-nil means that this itimer should be
   restarted automatically after its function is called.  Normally an itimer
-  is deleted at expiration after its function has returned. 
+  is deleted at expiration after its function has returned.
   If non-nil RESTART should be a number indicating the value at which the
   itimer should be set at restart time.
 Optional fifth arg IS-IDLE specifies if this is an idle timer.

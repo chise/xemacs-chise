@@ -80,17 +80,15 @@ With argument, do it that many times.  Negative arg -N means
 move forward across N balanced expressions."
   ;; XEmacs change (for zmacs regions)
   (interactive "_p")
-  (or arg (setq arg 1))
-  (forward-sexp (- arg)))
+  (forward-sexp (- (or arg 1))))
 
-(defun mark-sexp (arg)
+(defun mark-sexp (&optional arg)
   "Set mark ARG sexps from point.
 The place mark goes is the same place \\[forward-sexp] would
 move to with the same argument.
 Repeat this command to mark more sexps in the same direction."
   (interactive "p")
-  ;; XEmacs change
-  (mark-something 'mark-sexp 'forward-sexp arg))
+  (mark-something 'mark-sexp 'forward-sexp (or arg 1)))
 
 (defun forward-list (&optional arg)
   "Move forward across one balanced group of parentheses.
@@ -98,8 +96,7 @@ With argument, do it that many times.
 Negative arg -N means move backward across N groups of parentheses."
   ;; XEmacs change
   (interactive "_p")
-  (or arg (setq arg 1))
-  (goto-char (or (scan-lists (point) arg 0) (buffer-end arg))))
+  (goto-char (or (scan-lists (point) (or arg 1) 0) (buffer-end (or arg 1)))))
 
 (defun backward-list (&optional arg)
   "Move backward across one balanced group of parentheses.
@@ -107,56 +104,55 @@ With argument, do it that many times.
 Negative arg -N means move forward across N groups of parentheses."
   ;; XEmacs change (for zmacs regions)
   (interactive "_p")
-  (or arg (setq arg 1))
-  (forward-list (- arg)))
+  (forward-list (- (or arg 1))))
 
-(defun down-list (arg)
+(defun down-list (&optional arg)
   "Move forward down one level of parentheses.
 With argument, do this that many times.
-A negative argument means move backward but still go down a level.
-In Lisp programs, an argument is required."
+A negative argument means move backward but still go down a level."
   ;; XEmacs change (for zmacs regions)
   (interactive "_p")
+  (or arg (setq arg 1))
   (let ((inc (if (> arg 0) 1 -1)))
     (while (/= arg 0)
       (goto-char (or (scan-lists (point) inc -1) (buffer-end arg)))
       (setq arg (- arg inc)))))
 
-(defun backward-up-list (arg)
+(defun backward-up-list (&optional arg)
   "Move backward out of one level of parentheses.
 With argument, do this that many times.
-A negative argument means move forward but still to a less deep spot.
-In Lisp programs, an argument is required."
+A negative argument means move forward but still to a less deep spot."
   (interactive "_p")
-  (up-list (- arg)))
+  (up-list (- (or arg 1))))
 
-(defun up-list (arg) 
+(defun up-list (&optional arg)
   "Move forward out of one level of parentheses.
 With argument, do this that many times.
 A negative argument means move backward but still to a less deep spot.
 In Lisp programs, an argument is required."
   ;; XEmacs change (for zmacs regions)
   (interactive "_p")
+  (or arg (setq arg 1))
   (let ((inc (if (> arg 0) 1 -1)))
     (while (/= arg 0)
       (goto-char (or (scan-lists (point) inc 1) (buffer-end arg)))
       (setq arg (- arg inc)))))
 
-(defun kill-sexp (arg)
+(defun kill-sexp (&optional arg)
   "Kill the sexp (balanced expression) following the cursor.
 With argument, kill that many sexps after the cursor.
 Negative arg -N means kill N sexps before the cursor."
   (interactive "p")
   (let ((opoint (point)))
-    (forward-sexp arg)
+    (forward-sexp (or arg 1))
     (kill-region opoint (point))))
 
-(defun backward-kill-sexp (arg)
+(defun backward-kill-sexp (&optional arg)
   "Kill the sexp (balanced expression) preceding the cursor.
 With argument, kill that many sexps before the cursor.
 Negative arg -N means kill N sexps after the cursor."
   (interactive "p")
-  (kill-sexp (- arg)))
+  (kill-sexp (- (or arg 1))))
 
 (defun beginning-of-defun (&optional arg)
   "Move backward to the beginning of a defun.
