@@ -64,6 +64,11 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 #ifdef UTF2000
 
+#if defined(HAVE_DATABASE)
+EXFUN (Fload_char_attribute_table, 1);
+EXFUN (Fmap_char_attribute, 3);
+#endif
+
 #define BT_UINT8_MIN		0
 #define BT_UINT8_MAX		(UCHAR_MAX - 4)
 #define BT_UINT8_t		(UCHAR_MAX - 3)
@@ -2729,10 +2734,6 @@ map_char_table_for_charset_fun (struct chartab_range *range,
   return 0;
 }
 
-#if defined(HAVE_DATABASE)
-EXFUN (Fload_char_attribute_table, 1);
-#endif
-
 #endif
 
 /* Map FN (with client data ARG) over range RANGE in char table CT.
@@ -3381,11 +3382,13 @@ Save values of ATTRIBUTE into database file.
   else
     return Qnil;
 
-  if (NILP (ct->db_file))
-    ct->db_file
-      = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
   if (NILP (Fdatabase_live_p (ct->db)))
-    ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+    {
+      if (NILP (ct->db_file))
+	ct->db_file
+	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+      ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+    }
   if (!NILP (ct->db))
     {
       if (UINT8_BYTE_TABLE_P (ct->table))
@@ -3472,11 +3475,14 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 
   if (!NILP (attribute))
     {
-      if (NILP (cit->db_file))
-	cit->db_file
-	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
       if (NILP (Fdatabase_live_p (cit->db)))
-	cit->db = Fopen_database (cit->db_file, Qnil, Qnil, Qnil, Qnil);
+	{
+	  if (NILP (cit->db_file))
+	    cit->db_file
+	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+	  cit->db = Fopen_database (cit->db_file, Qnil, Qnil, Qnil, Qnil);
+	  cit->db_file = Qnil;
+	}
       if (!NILP (cit->db))
 	{
 	  Lisp_Object val
@@ -3525,11 +3531,14 @@ Load values of ATTRIBUTE into database file.
     {
       Lisp_Char_Table *ct = XCHAR_TABLE (table);
 
-      if (NILP (ct->db_file))
-	ct->db_file
-	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
       if (NILP (Fdatabase_live_p (ct->db)))
-	ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+	{
+	  if (NILP (ct->db_file))
+	    ct->db_file
+	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+	  ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+	  ct->db_file = Qnil;
+	}
       if (!NILP (ct->db))
 	{
 	  struct gcpro gcpro1;
