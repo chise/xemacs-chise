@@ -327,6 +327,7 @@ syntax table.
 }
 
 
+
 #ifdef MULE
 /* Return 1 if there is a word boundary between two word-constituent
    characters C1 and C2 if they appear in this order, else return 0.
@@ -337,16 +338,6 @@ syntax table.
    && word_boundary_p (c1, c2))
 
 extern int word_boundary_p (Emchar c1, Emchar c2);
-#else
-static int
-word_constituent_p (struct buffer *buf, Bufpos pos,
-		    struct Lisp_Char_Table *tab)
-{
-  enum syntaxcode code = SYNTAX_UNSAFE (tab, BUF_FETCH_CHAR (buf, pos));
-  return ((words_include_escapes &&
-	   (code == Sescape || code == Scharquote))
-	  || (code == Sword));
-}
 #endif
 
 /* Return the position across COUNT words from FROM.
@@ -358,11 +349,10 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 {
   Bufpos limit = count > 0 ? BUF_ZV (buf) : BUF_BEGV (buf);
   struct Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
-#ifdef MULE
   Emchar ch0, ch1;
   enum syntaxcode code;
-#endif
 
+  /* #### is it really worth it to hand expand both cases? JV */
   while (count > 0)
     {
       QUIT;
@@ -371,40 +361,36 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-#ifdef MULE
+
 	  ch0 = BUF_FETCH_CHAR (buf, from);
 	  code = SYNTAX_UNSAFE (mirrortab, ch0);
-#else
-	  if (word_constituent_p (buf, from, mirrortab))
-	    break;
-#endif
-	  from++;
-#ifdef MULE
+
 	  if (words_include_escapes
 	      && (code == Sescape || code == Scharquote))
 	    break;
 	  if (code == Sword)
 	    break;
-#endif
+
+	  from++;
 	}
 
       QUIT;
 
-      while ((from != limit)
-#ifndef MULE
-	     && word_constituent_p (buf, from, mirrortab)
-#endif
-	     )
+      while (from != limit)
 	{
-#ifdef MULE
 	  ch1 = BUF_FETCH_CHAR (buf, from);
 	  code = SYNTAX_UNSAFE (mirrortab, ch1);
 	  if (!(words_include_escapes
 		&& (code == Sescape || code == Scharquote)))
-	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	    if (code != Sword
+#ifdef MULE
+		|| WORD_BOUNDARY_P (ch0, ch1)
+#endif		
+		)
 	      break;
+#ifdef MULE
 	  ch0 = ch1;
-#endif
+#endif	  
 	  from++;
 	}
       count--;
@@ -418,12 +404,7 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	{
 	  if (from == limit)
 	    return 0;
-#ifndef MULE
-	  if (word_constituent_p (buf, from - 1, mirrortab))
-	    break;
-#endif
-	  from--;
-#ifdef MULE
+
 	  ch1 = BUF_FETCH_CHAR (buf, from - 1);
 	  code = SYNTAX_UNSAFE (mirrortab, ch1);
 	  if (words_include_escapes
@@ -431,24 +412,25 @@ scan_words (struct buffer *buf, Bufpos from, int count)
 	    break;
 	  if (code == Sword)
 	    break;
-#endif
+
+	  from--;
 	}
 
       QUIT;
 
-      while ((from != limit)
-#ifndef MULE
-	     && word_constituent_p (buf, from - 1, mirrortab)
-#endif
-	     )
+      while (from != limit)
 	{
-#ifdef MULE
 	  ch0 = BUF_FETCH_CHAR (buf, from - 1);
 	  code = SYNTAX_UNSAFE (mirrortab, ch0);
 	  if (!(words_include_escapes
 		&& (code == Sescape || code == Scharquote)))
-	    if (code != Sword || WORD_BOUNDARY_P (ch0, ch1))
+	    if (code != Sword
+#ifdef MULE
+		|| WORD_BOUNDARY_P (ch0, ch1)
+#endif
+		)
 	      break;
+#ifdef MULE
 	  ch1 = ch0;
 #endif
 	  from--;

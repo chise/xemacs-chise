@@ -59,6 +59,9 @@ GetDlgItem(FRAME_MSWINDOWS_HANDLE(f), TOOLBAR_ID_BIAS + p)
 #define MSWINDOWS_BLANK_SIZE 5
 #define MSWINDOWS_MINIMUM_TOOLBAR_SIZE 8
 
+static void
+mswindows_move_toolbar (struct frame *f, enum toolbar_pos pos);
+
 #define SET_TOOLBAR_WAS_VISIBLE_FLAG(frame, pos, flag)			\
   do {									\
     switch (pos)							\
@@ -460,6 +463,9 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 
       /* now display the window */
       ShowWindow (toolbarwnd, SW_SHOW);
+      /* no idea why this is necessary but initial display will not
+         happen otherwise. */
+      mswindows_move_toolbar (f, pos);
 
       if (button_tbl) xfree (button_tbl);
 
@@ -522,6 +528,13 @@ mswindows_redraw_exposed_toolbars (struct frame *f, int x, int y, int width,
 
   if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     mswindows_move_toolbar (f, RIGHT_TOOLBAR);
+}
+
+static void
+mswindows_redraw_frame_toolbars (struct frame *f)
+{
+  mswindows_redraw_exposed_toolbars (f, 0, 0, FRAME_PIXWIDTH (f),
+				     FRAME_PIXHEIGHT (f));
 }
 
 static void
@@ -636,5 +649,6 @@ console_type_create_toolbar_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, initialize_frame_toolbars);
   CONSOLE_HAS_METHOD (mswindows, free_frame_toolbars);
   CONSOLE_HAS_METHOD (mswindows, redraw_exposed_toolbars);
+  CONSOLE_HAS_METHOD (mswindows, redraw_frame_toolbars);
 }
 

@@ -63,10 +63,12 @@ NOTE-END  */
 
 #define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / 256.0)
 
+#ifndef linux
 /* CDC EP/IX 1.4.3 uses /unix */
 
 #undef KERNEL_FILE
 #define KERNEL_FILE "/unix"
+#endif /* ! linux */
 
 /* Define CANNOT_DUMP on machines where unexec does not work.
    Then the function dump-emacs will not be defined
@@ -106,16 +108,23 @@ NOTE-END  */
 /* This machine requires completely different unexec code
    which lives in a separate file.  Specify the file name.  */
 
+#ifndef linux
 #define UNEXEC "unexmips.o"
-
+#endif /* !linux */
 /* Describe layout of the address space in an executing process.  */
 
+#ifdef linux
+#define TEXT_START      0x00400000
+#define DATA_START      0x10000000
+#define DATA_SEG_BITS   0x10000000
+#else /* !linux */
 #define TEXT_START 0x400000
 #define DATA_START 0x800000
+#endif /* linux */
 
 /* Alter some of the options used when linking.  */
 
-#ifndef NEWSOS5
+#if !defined(NEWSOS5) && !defined(linux)
 #ifdef BSD
 
 /* DECstations don't have this library. */
@@ -138,9 +147,9 @@ NOTE-END  */
 #define C_DEBUG_SWITCH "-O -g3"
 
 #endif /* not BSD */
-#endif /* not NEWSOS5 */
+#endif /* !NEWSOS5 && !linux */
 
-#ifndef NEWSOS5
+#if !defined(NEWSOS5) && !defined(linux)
 #ifdef USG
 
 /* Don't try to use SIGIO even though it is defined.  */
@@ -167,4 +176,4 @@ NOTE-END  */
 #define TERMINFO
 #undef MAIL_USE_FLOCK  /* Someone should check this.  */
 #endif /* BSD */
-#endif /* not NEWSOS5 */
+#endif /* !NEWSOS5 && !linux */

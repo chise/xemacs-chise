@@ -83,6 +83,8 @@ Boston, MA 02111-1307, USA.  */
      same time.
 */
 
+extern const struct struct_description specifier_methods_description;
+
 struct specifier_methods
 {
   CONST char *name;
@@ -95,7 +97,7 @@ struct specifier_methods
 
   /* Mark method: Mark any lisp object within specifier data
      structure. Not required if no specifier data are Lisp_Objects. */
-  void (*mark_method) (Lisp_Object specifier, void (*markobj) (Lisp_Object));
+  void (*mark_method) (Lisp_Object specifier);
 
   /* Equal method: Compare two specifiers. This is called after
      ensuring that the two specifiers are of the same type, and have
@@ -185,6 +187,7 @@ struct specifier_methods
   void (*after_change_method) (Lisp_Object specifier,
 			       Lisp_Object locale);
 
+  const struct lrecord_description *extra_description;
   int extra_data_size;
 };
 
@@ -232,7 +235,6 @@ DECLARE_LRECORD (specifier, struct Lisp_Specifier);
 #define XSPECIFIER(x) XRECORD (x, specifier, struct Lisp_Specifier)
 #define XSETSPECIFIER(x, p) XSETRECORD (x, p, specifier)
 #define SPECIFIERP(x) RECORDP (x, specifier)
-#define GC_SPECIFIERP(x) GC_RECORDP (x, specifier)
 #define CHECK_SPECIFIER(x) CHECK_RECORD (x, specifier)
 #define CONCHECK_SPECIFIER(x) CONCHECK_RECORD (x, specifier)
 
@@ -250,6 +252,9 @@ DECLARE_LRECORD (specifier, struct Lisp_Specifier);
 } while (0)
 
 /***** Defining new specifier types *****/
+
+#define specifier_data_offset (offsetof(struct Lisp_Specifier, data))
+extern const struct lrecord_description specifier_empty_extra_description[];
 
 #ifdef ERROR_CHECK_TYPECHECK
 #define DECLARE_SPECIFIER_TYPE(type)					\
@@ -279,10 +284,17 @@ extern struct specifier_methods * type##_specifier_methods
 struct specifier_methods * type##_specifier_methods
 
 #define INITIALIZE_SPECIFIER_TYPE(type, obj_name, pred_sym) do {	\
- type##_specifier_methods = xnew_and_zero (struct specifier_methods);	\
- type##_specifier_methods->name = obj_name;				\
- defsymbol (&type##_specifier_methods->predicate_symbol, pred_sym);	\
- add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);	\
+  type##_specifier_methods = xnew_and_zero (struct specifier_methods);	\
+  type##_specifier_methods->name = obj_name;				\
+  type##_specifier_methods->extra_description =				\
+    specifier_empty_extra_description;					\
+  defsymbol_nodump (&type##_specifier_methods->predicate_symbol, pred_sym);	\
+  add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);	\
+  dumpstruct (&type##_specifier_methods, &specifier_methods_description); \
+} while (0)
+
+#define REINITIALIZE_SPECIFIER_TYPE(type) do {	\
+  staticpro_nodump (&type##_specifier_methods->predicate_symbol);	\
 } while (0)
 
 #define INITIALIZE_SPECIFIER_TYPE_WITH_DATA(type, obj_name, pred_sym)	\
@@ -290,6 +302,8 @@ do {									\
   INITIALIZE_SPECIFIER_TYPE (type, obj_name, pred_sym);			\
   type##_specifier_methods->extra_data_size =				\
     sizeof (struct type##_specifier);					\
+  type##_specifier_methods->extra_description = 			\
+    type##_specifier_description;					\
 } while (0)
 
 /* Declare that specifier-type TYPE has method METH; used in
@@ -303,24 +317,13 @@ do {									\
   ((sp)->methods == type##_specifier_methods)
 
 /* Any of the two of the magic spec */
-#define MAGIC_SPECIFIER_P(sp) \
-  (!NILP((sp)->magic_parent))
+#define MAGIC_SPECIFIER_P(sp) (!NILP((sp)->magic_parent))
 /* Normal part of the magic specifier */
-#define BODILY_SPECIFIER_P(sp) \
-  (EQ ((sp)->magic_parent, Qt))
+#define BODILY_SPECIFIER_P(sp) EQ ((sp)->magic_parent, Qt)
 /* Ghost part of the magic specifier */
-#define GHOST_SPECIFIER_P(sp) \
-  (SPECIFIERP((sp)->magic_parent))
-/* The same three, when used in GC */
-#define GC_MAGIC_SPECIFIER_P(sp) \
-  (!GC_NILP((sp)->magic_parent))
-#define GC_BODILY_SPECIFIER_P(sp) \
-  (GC_EQ ((sp)->magic_parent, Qt))
-#define GC_GHOST_SPECIFIER_P(sp) \
-  (GC_SPECIFIERP((sp)->magic_parent))
+#define GHOST_SPECIFIER_P(sp) SPECIFIERP((sp)->magic_parent)
 
-#define GHOST_SPECIFIER(sp) \
-  (XSPECIFIER ((sp)->fallback))
+#define GHOST_SPECIFIER(sp) XSPECIFIER ((sp)->fallback)
 
 #ifdef ERROR_CHECK_TYPECHECK
 # define SPECIFIER_TYPE_DATA(sp, type) \
@@ -425,7 +428,7 @@ void remove_ghost_specifier (Lisp_Object specifier, Lisp_Object locale,
 int unlock_ghost_specifiers_protected (void);
 
 void cleanup_specifiers (void);
-void prune_specifiers (int (*obj_marked_p) (Lisp_Object));
+void prune_specifiers (void);
 void setup_device_initial_specifier_tags (struct device *d);
 void kill_specifier_buffer_locals (Lisp_Object buffer);
 

@@ -64,19 +64,8 @@ static void mswindows_redraw_exposed_windows (Lisp_Object window, int x,
 					int y, int width, int height);
 static void mswindows_output_dibitmap (struct frame *f, 
 				       struct Lisp_Image_Instance *p,
-				       int x, int y, 
-				       int clip_x, int clip_y, 
-				       int clip_width, int clip_height, 
-				       int width, int height,
-				       int pixmap_offset,
-				       int offset_bitmap);
-static void mswindows_output_pixmap (struct window *w, struct display_line *dl,
-				     Lisp_Object image_instance, int xpos,
-				     int xoffset, int start_pixpos, int width,
-				     face_index findex, int cursor_start, 
-				     int cursor_width, int cursor_height,
-				     int offset_bitmap);
-void bevel_modeline (struct window *w, struct display_line *dl);
+				       struct display_box* db,
+				       struct display_glyph_area* dga);
 
 typedef struct textual_run
 {
@@ -304,14 +293,20 @@ mswindows_output_hline (struct window *w, struct display_line *dl, struct rune *
  of its face.
  ****************************************************************************/
 static void
-mswindows_output_blank (struct window *w, struct display_line *dl, struct rune *rb, int start_pixpos)
+mswindows_output_blank (struct window *w, struct display_line *dl, 
+			struct rune *rb, int start_pixpos)
 {
   struct frame *f = XFRAME (w->frame);
-  RECT rect = { rb->xpos, dl->ypos-dl->ascent,
-		rb->xpos+rb->width, dl->ypos+dl->descent-dl->clip };
+  RECT rect = { rb->xpos, DISPLAY_LINE_YPOS (dl),
+		rb->xpos+rb->width, 
+		DISPLAY_LINE_YEND (dl) };
   struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, rb->findex);
 
   Lisp_Object bg_pmap = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, rb->findex);
+
+  /* Unmap all subwindows in the area we are going to blank. */
+  redisplay_unmap_subwindows_maybe (f, rb->xpos, DISPLAY_LINE_YPOS (dl),
+				    rb->width, DISPLAY_LINE_HEIGHT (dl));
 
   if (!IMAGE_INSTANCEP (bg_pmap)
       || !IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (bg_pmap)))
@@ -319,13 +314,16 @@ mswindows_output_blank (struct window *w, struct display_line *dl, struct rune *
 
   if (!NILP(bg_pmap))
     {
+      struct display_box db;
+      struct display_glyph_area dga;
+      redisplay_calculate_display_boxes (dl, rb->xpos, 
+					 /*rb->object.dglyph.xoffset*/ 0,
+					 start_pixpos, rb->width,
+					 &db, &dga);
       /* blank the background in the appropriate color */
       mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, cachel->foreground,
 			   cachel->background, Qnil);
-
-      mswindows_output_pixmap (w, dl, bg_pmap, 
-			       rb->xpos, 0 /*rb->object.dglyph.xoffset*/,
-			       start_pixpos, rb->width, rb->findex,
+      redisplay_output_pixmap (w, bg_pmap, &db, &dga, rb->findex,
 			       0, 0, 0, TRUE);
     }
   else 
@@ -359,14 +357,18 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
   char *p_char = NULL;
   int n_char = 0;
   RECT rect = { xpos,
-		dl->ypos - dl->ascent,
+		DISPLAY_LINE_YPOS (dl),
 		xpos + width,
-		dl->ypos + dl->descent - dl->clip};
+		DISPLAY_LINE_YEND (dl) };
   Lisp_Object bar = symbol_value_in_buffer (Qbar_cursor,
 					    WINDOW_BUFFER (w));
   int bar_p = image_p || !NILP (bar);
   int cursor_p = !NILP (w->text_cursor_visible_p);
   int real_char_p = ch != 0;
+
+  /* Unmap all subwindows in the area we are going to blank. */
+  redisplay_unmap_subwindows_maybe (f, xpos, DISPLAY_LINE_YPOS (dl),
+				    width, DISPLAY_LINE_HEIGHT (dl));
 
   if (real_char_p)
     {
@@ -466,8 +468,10 @@ mswindows_output_cursor (struct window *w, struct display_line *dl, int xpos,
  ****************************************************************************/
 void
 mswindows_output_string (struct window *w, struct display_line *dl,
-		   Emchar_dynarr *buf, int xpos, int xoffset, int clip_start,
-		   int width, face_index findex)
+			 Emchar_dynarr *buf, int xpos, int xoffset, int clip_start,
+			 int width, face_index findex,
+			 int cursor, int cursor_start, int cursor_width,
+			 int cursor_height)
 {
   struct frame *f = XFRAME (w->frame);
   /* struct device *d = XDEVICE (f->device);*/
@@ -506,9 +510,13 @@ mswindows_output_string (struct window *w, struct display_line *dl,
   /* sort out the destination rectangle */
   height = DISPLAY_LINE_HEIGHT (dl);
   rect.left = clip_start;
-  rect.top  = dl->ypos - dl->ascent;
+  rect.top  = DISPLAY_LINE_YPOS (dl);
   rect.right = clip_end;
-  rect.bottom = height + dl->ypos - dl->ascent;
+  rect.bottom = rect.top + height;
+
+  /* make sure the area we are about to display is subwindow free. */
+  redisplay_unmap_subwindows_maybe (f, clip_start, DISPLAY_LINE_YPOS (dl),
+				    clip_end - clip_start, DISPLAY_LINE_HEIGHT (dl));
 
   /* output the background pixmap if there is one */
   bg_pmap = cachel->background_pixmap;
@@ -518,13 +526,14 @@ mswindows_output_string (struct window *w, struct display_line *dl,
 
   if (!NILP(bg_pmap))
     {
+      struct display_box db;
+      struct display_glyph_area dga;
+      redisplay_calculate_display_boxes (dl, xpos + xoffset, 0,
+					 clip_start, width, &db, &dga);
       /* blank the background in the appropriate color */
       mswindows_update_dc (hdc, Qnil, cachel->foreground,
 			   cachel->background, Qnil);
-
-      mswindows_output_pixmap (w, dl, bg_pmap, 
-			       xpos, xoffset,
-			       clip_start, width, findex,
+      redisplay_output_pixmap (w, bg_pmap, &db, &dga, findex,
 			       0, 0, 0, TRUE);
       /* output pixmap calls this so we have to recall to get correct
          references */
@@ -549,14 +558,14 @@ mswindows_output_string (struct window *w, struct display_line *dl,
       this_width = mswindows_text_width_single_run (hdc, cachel, runs + i);
       
       /* cope with fonts taller than lines */
-      if ((int) fi->height < (int) (height + dl->clip))
+      if ((int) fi->height < (int) (height + dl->clip + dl->top_clip))
 	{
 	  int clear_start = max (xpos, clip_start);
 	  int clear_end = min (xpos + this_width, clip_end);
 	  
 	  {
 	    redisplay_clear_region (window, findex, clear_start,
-				    dl->ypos - dl->ascent, 
+				    DISPLAY_LINE_YPOS (dl), 
 				    clear_end - clear_start,
 				    height);
 	    /* output pixmap calls this so we have to recall to get correct
@@ -581,31 +590,12 @@ mswindows_output_string (struct window *w, struct display_line *dl,
 
 static void
 mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
-			   int x, int y, 
-			   int clip_x, int clip_y, 
-			   int clip_width, int clip_height, 
-			   int width, int height, int pixmap_offset,
-			   int offset_bitmap)
+			   struct display_box* db,
+			   struct display_glyph_area* dga)
 {
   HDC hdc = FRAME_MSWINDOWS_DC (f);
   HGDIOBJ old=NULL;
   COLORREF bgcolor = GetBkColor (hdc);
-  int need_clipping = (clip_x || clip_y);
-  int yoffset=0;
-  int xoffset=0;
-
-  /* do we need to offset the pixmap vertically? this is necessary
-     for background pixmaps. */
-  if (offset_bitmap)
-    {
-      yoffset = y % IMAGE_INSTANCE_PIXMAP_HEIGHT (p);
-      xoffset = x % IMAGE_INSTANCE_PIXMAP_WIDTH (p);
-      /* the width is handled by mswindows_output_pixmap_region */
-    }
-
-  if (need_clipping)
-    {
-    }
 
   /* first blt the mask */
   if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
@@ -622,93 +612,94 @@ mswindows_output_dibitmap (struct frame *f, struct Lisp_Image_Instance *p,
       SetDIBColorTable (FRAME_MSWINDOWS_CDC (f), 1, 1, &col);
 
       BitBlt (hdc, 
-	      x,y,
-	      width, height, 
+	      db->xpos, db->ypos,
+	      dga->width, dga->height, 
 	      FRAME_MSWINDOWS_CDC (f),
-	      xoffset,yoffset, 
+	      dga->xoffset, dga->yoffset, 
 	      SRCCOPY);                  
 
       SelectObject (FRAME_MSWINDOWS_CDC (f), old);
     }
   
-  /* now blt the bitmap itself. */
+  /* Now blt the bitmap itself, or one of its slices. */
   old = SelectObject (FRAME_MSWINDOWS_CDC (f),
-		      IMAGE_INSTANCE_MSWINDOWS_BITMAP (p));
+		      IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE 
+		      (p, IMAGE_INSTANCE_PIXMAP_SLICE (p)));
 
   BitBlt (hdc, 
-	  x,y,
-	  width, height, 
+	  db->xpos, db->ypos,
+	  dga->width, dga->height,
 	  FRAME_MSWINDOWS_CDC (f),
-	  xoffset, yoffset, 
+	  dga->xoffset, dga->yoffset, 
 	  IMAGE_INSTANCE_MSWINDOWS_MASK (p) ? SRCINVERT : SRCCOPY);
 
   SelectObject (FRAME_MSWINDOWS_CDC (f),old);
-
-  if (need_clipping)
-    {
-    }
 }
 
-/*
- * X gc's have this nice property that setting the bg pixmap will
+/* X gc's have this nice property that setting the bg pixmap will
  * output it offset relative to the window. Windows doesn't have this
- * feature so we have to emulate this by outputting multiple pixmaps 
- */
+ * feature so we have to emulate this by outputting multiple pixmaps.
+ * This is only used for background pixmaps. Normal pixmaps are
+ * outputted once and are scrollable */
 static void
 mswindows_output_dibitmap_region (struct frame *f, 
 				  struct Lisp_Image_Instance *p,
-				  int x, int y, 
-				  int clip_x, int clip_y, 
-				  int clip_width, int clip_height, 
-				  int width, int height, int pixmap_offset,
-				  int offset_bitmap)
+				  struct display_box *db,
+				  struct display_glyph_area *dga)
 {
-  int pwidth = min (width, IMAGE_INSTANCE_PIXMAP_WIDTH (p));
-  int pheight = min (height, IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
+  struct display_box xdb = { db->xpos, db->ypos, db->width, db->height };
+  struct display_glyph_area xdga
+    = { 0, 0, IMAGE_INSTANCE_PIXMAP_WIDTH (p),
+	IMAGE_INSTANCE_PIXMAP_HEIGHT (p) };
   int pxoffset = 0, pyoffset = 0;
+
+  if (dga)
+    {	
+      xdga.width = dga->width;
+      xdga.height = dga->height;
+    }
+  else if (!redisplay_normalize_glyph_area (&xdb, &xdga))
+    return;
 
   /* when doing a bg pixmap do a partial pixmap first so that we
      blt whole pixmaps thereafter */
+  xdga.height = min (xdga.height, IMAGE_INSTANCE_PIXMAP_HEIGHT (p) -
+		      db->ypos % IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
 
-  if (offset_bitmap)
+  while (xdga.height > 0)
     {
-      pheight = min (pheight, IMAGE_INSTANCE_PIXMAP_HEIGHT (p) -
-		     y % IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
-    }
-  
-  while (pheight > 0)
-    {
-      if (offset_bitmap)
-	{
-	  pwidth = min (min (width, IMAGE_INSTANCE_PIXMAP_WIDTH (p)),
+      xdga.width = min (min (db->width, IMAGE_INSTANCE_PIXMAP_WIDTH (p)),
 			IMAGE_INSTANCE_PIXMAP_WIDTH (p) -
-			x % IMAGE_INSTANCE_PIXMAP_WIDTH (p));
-	  pxoffset = 0;
-	}
-      while (pwidth > 0)
+			db->xpos % IMAGE_INSTANCE_PIXMAP_WIDTH (p));
+      pxoffset = 0;
+      while (xdga.width > 0)
 	{
-	  mswindows_output_dibitmap (f, p,
-				     x + pxoffset, y + pyoffset, 
-				     clip_x, clip_y, 
-				     clip_width, clip_height, 
-				     pwidth, pheight, pixmap_offset,
-				     offset_bitmap);
-	  pxoffset += pwidth;
-	  pwidth = min ((width-pxoffset), 
-			IMAGE_INSTANCE_PIXMAP_WIDTH (p));
+	  xdb.xpos = db->xpos + pxoffset;
+	  xdb.ypos = db->ypos + pyoffset;
+	    /* do we need to offset the pixmap vertically? this is necessary
+	       for background pixmaps. */
+	  xdga.yoffset = xdb.ypos % IMAGE_INSTANCE_PIXMAP_HEIGHT (p);
+	  xdga.xoffset = xdb.xpos % IMAGE_INSTANCE_PIXMAP_WIDTH (p);
+	  /* the width is handled by mswindows_output_pixmap_region */
+	  mswindows_output_dibitmap (f, p, &xdb, &xdga);
+	  pxoffset += xdga.width;
+	  xdga.width = min ((db->width - pxoffset),
+			    IMAGE_INSTANCE_PIXMAP_WIDTH (p));
 	}
-      pyoffset += pheight;
-      pheight = min ((height-pyoffset), 
-		     IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
+      pyoffset += xdga.height;
+      xdga.height = min ((db->height - pyoffset), 
+			 IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
     }
 }
 
+/* Output a pixmap at the desired location. 
+   DB		normalized display_box.
+   DGA		normalized display_glyph_area. */
 static void
-mswindows_output_pixmap (struct window *w, struct display_line *dl,
-			 Lisp_Object image_instance, int xpos, int xoffset,
-			 int start_pixpos, int width, face_index findex,
-			 int cursor_start, int cursor_width, int cursor_height,
-			 int offset_bitmap)
+mswindows_output_pixmap (struct window *w, Lisp_Object image_instance,
+			 struct display_box *db, struct display_glyph_area *dga,
+			 face_index findex, int cursor_start, int cursor_width,
+			 int cursor_height, int bg_pixmap)
 {
   struct frame *f = XFRAME (w->frame);
   HDC hdc = FRAME_MSWINDOWS_DC (f);
@@ -716,88 +707,7 @@ mswindows_output_pixmap (struct window *w, struct display_line *dl,
   struct Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
   Lisp_Object window;
 
-  int lheight = DISPLAY_LINE_HEIGHT (dl);
-  int pheight = ((int) IMAGE_INSTANCE_PIXMAP_HEIGHT (p) > lheight ? lheight :
-		 IMAGE_INSTANCE_PIXMAP_HEIGHT (p));
-  int clip_x, clip_y, clip_width, clip_height;
-
-  /* The pixmap_offset is used to center the pixmap on lines which are
-     shorter than it is.  This results in odd effects when scrolling
-     pixmaps off of the bottom.  Let's try not using it. */
-#if 0
-  int pixmap_offset = (int) (IMAGE_INSTANCE_PIXMAP_HEIGHT (p) - lheight) / 2;
-#else
-  int pixmap_offset = 0;
-#endif
-
   XSETWINDOW (window, w);
-
-  if ((start_pixpos >= 0 && start_pixpos > xpos) || xoffset)
-    {
-      if (start_pixpos > xpos && start_pixpos > xpos + width)
-	return;
-
-      clip_x = xoffset;
-      clip_width = width;
-      if (start_pixpos > xpos)
-	{
-	  clip_x += (start_pixpos - xpos);
-	  clip_width -= (start_pixpos - xpos);
-	}
-    }
-  else
-    {
-      clip_x = 0;
-      clip_width = 0;
-    }
-
-  /* Place markers for possible future functionality (clipping the top
-     half instead of the bottom half; think pixel scrolling). */
-  clip_y = 0;
-  clip_height = pheight;
-
-  /* Clear the area the pixmap is going into.  The pixmap itself will
-     always take care of the full width.  We don't want to clear where
-     it is going to go in order to avoid flicker.  So, all we have to
-     take care of is any area above or below the pixmap. */
-  /* #### We take a shortcut for now.  We know that since we have
-     pixmap_offset hardwired to 0 that the pixmap is against the top
-     edge so all we have to worry about is below it. */
-  /* #### Unless the pixmap has a mask in which case we have to clear
-     the whole damn thing since we can't yet clear just the area not
-     included in the mask. */
-  if (((int) (dl->ypos - dl->ascent + pheight) <
-       (int) (dl->ypos + dl->descent - dl->clip))
-      || IMAGE_INSTANCE_MSWINDOWS_MASK (p))
-    {
-      int clear_x, clear_y, clear_width, clear_height;
-
-      if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
-	{
-	  clear_y = dl->ypos - dl->ascent;
-	  clear_height = lheight;
-	}
-      else
-	{
-	  clear_y = dl->ypos - dl->ascent + pheight;
-	  clear_height = lheight - pheight;
-	}
-
-      if (start_pixpos >= 0 && start_pixpos > xpos)
-	{
-	  clear_x = start_pixpos;
-	  clear_width = xpos + width - start_pixpos;
-	}
-      else
-	{
-	  clear_x = xpos;
-	  clear_width = width;
-	}
-
-      if (!offset_bitmap)	/* i.e. not a bg pixmap */
-	redisplay_clear_region (window, findex, clear_x, clear_y,
-				clear_width, clear_height);
-    }
 
   /* Output the pixmap. Have to do this as many times as is required
    to fill the given area */
@@ -805,11 +715,10 @@ mswindows_output_pixmap (struct window *w, struct display_line *dl,
 		       WINDOW_FACE_CACHEL_FOREGROUND (w, findex),
 		       WINDOW_FACE_CACHEL_BACKGROUND (w, findex), Qnil);
 
-  mswindows_output_dibitmap_region (f, p, xpos - xoffset,
-				    dl->ypos - dl->ascent,
-				    clip_x, clip_y, clip_width, clip_height,
-				    width + xoffset, pheight, pixmap_offset,
-				    offset_bitmap);
+  if (bg_pixmap)
+    mswindows_output_dibitmap_region (f, p, db, dga);
+  else
+    mswindows_output_dibitmap (f, p, db, dga);
 }
 
 #ifdef HAVE_SCROLLBARS
@@ -901,12 +810,11 @@ mswindows_redraw_exposed_window (struct window *w, int x, int y, int width,
   for (line = 0; line < Dynarr_length (cdla); line++)
     {
       struct display_line *cdl = Dynarr_atp (cdla, line);
-      int top_y = cdl->ypos - cdl->ascent;
-      int bottom_y = cdl->ypos + cdl->descent;
 
-      if (bottom_y >= rect_draw.top)
+      if (DISPLAY_LINE_YPOS (cdl) + DISPLAY_LINE_HEIGHT (cdl)
+	  >= rect_draw.top)
 	{
-	  if (top_y > rect_draw.bottom)
+	  if (DISPLAY_LINE_YPOS (cdl) > rect_draw.bottom)
 	    {
 	      if (line == 0)
 		continue;
@@ -986,29 +894,47 @@ mswindows_redraw_exposed_area (struct frame *f, int x, int y, int width, int hei
  ****************************************************************************/
 static void
 mswindows_bevel_area (struct window *w, face_index findex, int x, int y, 
-		      int width, int height, int shadow_thickness)
+		      int width, int height, int thickness,
+		      int edges, enum edge_style style)
 {
   struct frame *f = XFRAME (w->frame);
   UINT edge;
+  UINT border = 0;
 
-  if (shadow_thickness < -1)
-    edge = EDGE_SUNKEN;
-  else if (shadow_thickness < 0)
-    edge = BDR_SUNKENINNER;
-  else if (shadow_thickness == 1)
-    edge = BDR_RAISEDINNER;
-  else
-    edge = EDGE_RAISED;
+  if (style == EDGE_ETCHED_IN)
+    edge = EDGE_ETCHED;
+  else if (style == EDGE_ETCHED_OUT)
+    edge = EDGE_BUMP;
+  else if (style == EDGE_BEVEL_IN)
+    {
+      if (thickness == 1)
+	edge = BDR_SUNKENINNER;
+      else
+	edge = EDGE_SUNKEN;
+    }
+  else				/* EDGE_BEVEL_OUT */
+    {
+      if (thickness == 1)
+	edge = BDR_RAISEDINNER;
+      else
+	edge = EDGE_RAISED;
+    }
 
-  if (shadow_thickness < 0)
-    shadow_thickness = -shadow_thickness;
+  if (edges & EDGE_TOP)
+    border |= BF_TOP;
+  if (edges & EDGE_LEFT)
+    border |= BF_LEFT;
+  if (edges & EDGE_BOTTOM)
+    border |= BF_BOTTOM;
+  if (edges & EDGE_RIGHT)
+    border |= BF_RIGHT;
 
   {
     RECT rect = { x, y, x + width, y + height };
     Lisp_Object color = WINDOW_FACE_CACHEL_BACKGROUND (w, findex);
     mswindows_update_dc (FRAME_MSWINDOWS_DC (f), Qnil, Qnil, color, Qnil);
 
-    DrawEdge (FRAME_MSWINDOWS_DC (f), &rect, edge, BF_RECT);
+    DrawEdge (FRAME_MSWINDOWS_DC (f), &rect, edge, border);
   }
 }
 
@@ -1141,7 +1067,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	  if (Dynarr_length (buf))
 	    {
 	      mswindows_output_string (w, dl, buf, xpos, 0, start_pixpos, width,
-				 findex);
+				 findex, 0, 0, 0, 0);
 	      xpos = rb->xpos;
 	      width = 0;
 	    }
@@ -1175,10 +1101,9 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	      else if (rb->object.chr.ch == '\n')
 		{
 		  /* Clear in case a cursor was formerly here. */
-		  int height = DISPLAY_LINE_HEIGHT (dl);
-
-		  redisplay_clear_region (window, findex, xpos, dl->ypos - dl->ascent,
-				    rb->width, height);
+		  redisplay_clear_region (window, findex, xpos, 
+					  DISPLAY_LINE_YPOS (dl),
+					  rb->width, DISPLAY_LINE_HEIGHT (dl));
 		  elt++;
 		}
 	    }
@@ -1214,6 +1139,11 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 	  else if (rb->type == RUNE_DGLYPH)
 	    {
 	      Lisp_Object instance;
+	      struct display_box db;
+	      struct display_glyph_area dga;
+	      redisplay_calculate_display_boxes (dl, rb->xpos, rb->object.dglyph.xoffset,
+						 start_pixpos, rb->width,
+						 &db, &dga);
 
 	      XSETWINDOW (window, w);
 	      instance = glyph_image_instance (rb->object.dglyph.glyph,
@@ -1238,17 +1168,17 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		      else /* #### redisplay-x passes -1 as the width: why ? */
 			mswindows_output_string (w, dl, buf, xpos,
 					   rb->object.dglyph.xoffset,
-					   start_pixpos, rb->width, findex);
+					   start_pixpos, rb->width, findex,
+						 0, 0, 0, 0);
 		      Dynarr_reset (buf);
 		    }
 		    break;
 
 		  case IMAGE_MONO_PIXMAP:
 		  case IMAGE_COLOR_PIXMAP:
-		    mswindows_output_pixmap (w, dl, instance, xpos,
-				     rb->object.dglyph.xoffset, start_pixpos,
-				     rb->width, findex, cursor_start,
-				     cursor_width, cursor_height, 0);
+		    redisplay_output_pixmap (w, instance, &db, &dga, findex,
+					     cursor_start, cursor_width,
+					     cursor_height, 0);
 		    if (rb->cursor_type == CURSOR_ON)
 		      mswindows_output_cursor (w, dl, xpos, cursor_width,
 					       findex, 0, 1);
@@ -1259,10 +1189,18 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 
 		  case IMAGE_SUBWINDOW:
 		  case IMAGE_WIDGET:
-		    redisplay_output_subwindow (w, dl, instance, xpos,
-						rb->object.dglyph.xoffset, start_pixpos,
-						rb->width, findex, cursor_start,
-						cursor_width, cursor_height);
+		    redisplay_output_subwindow (w, instance, &db, &dga, findex,
+						cursor_start, cursor_width,
+						cursor_height);
+		    if (rb->cursor_type == CURSOR_ON)
+		      mswindows_output_cursor (w, dl, xpos, cursor_width,
+					       findex, 0, 1);
+		    break;
+
+		  case IMAGE_LAYOUT:
+		    redisplay_output_layout (w, instance, &db, &dga, findex,
+					     cursor_start, cursor_width,
+					     cursor_height);
 		    if (rb->cursor_type == CURSOR_ON)
 		      mswindows_output_cursor (w, dl, xpos, cursor_width,
 					       findex, 0, 1);
@@ -1285,7 +1223,8 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
     }
 
   if (Dynarr_length (buf))
-    mswindows_output_string (w, dl, buf, xpos, 0, start_pixpos, width, findex);
+    mswindows_output_string (w, dl, buf, xpos, 0, start_pixpos, width, findex,
+			     0, 0, 0, 0);
 
   if (dl->modeline
       && !EQ (Qzero, w->modeline_shadow_thickness)
@@ -1400,12 +1339,11 @@ mswindows_clear_region (Lisp_Object locale, struct device* d, struct frame* f,
 
   if (!NILP (background_pixmap))
     {
+      struct display_box db = { x, y, width, height };
       mswindows_update_dc (FRAME_MSWINDOWS_DC (f),
 			   Qnil, fcolor, bcolor, background_pixmap);
-
       mswindows_output_dibitmap_region 
-	( f, XIMAGE_INSTANCE (background_pixmap),
-	  x, y, 0, 0, 0, 0, width, height, 0, TRUE);
+	( f, XIMAGE_INSTANCE (background_pixmap), &db, 0);
     }
   else
     {
@@ -1449,4 +1387,6 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, flash);
   CONSOLE_HAS_METHOD (mswindows, ring_bell);
   CONSOLE_HAS_METHOD (mswindows, bevel_area);
+  CONSOLE_HAS_METHOD (mswindows, output_string);
+  CONSOLE_HAS_METHOD (mswindows, output_pixmap);
 }

@@ -165,7 +165,6 @@ x_get_composed_input (XKeyPressedEvent *x_key_event, XIC context,
 #endif /* I18N4 */
 
 
-Lisp_Object Qdomain;
 Lisp_Object Qdefer_gettext;
 
 DEFUN ("ignore-defer-gettext", Fignore_defer_gettext, 1, 1, 0, /*
@@ -274,14 +273,7 @@ Bug: it has no effect on source (.el) files, only compiled (.elc) files.
 {
   CHECK_STRING (domain_name);
   if (load_in_progress)
-    {
-#ifdef I18N3
-      Vfile_domain = Fpurecopy (domain_name);
-      return Vfile_domain;
-#else
-      return (domain_name);
-#endif
-    }
+    return (domain_name);
   else
     return Qnil;
 }
@@ -307,8 +299,6 @@ init_intl_very_early (void)
 void
 syms_of_intl (void)
 {
-  defsymbol (&Qdomain, "domain");
-
   /* defer-gettext is defined as a symbol because when it is used in menu
      specification strings, it is not evaluated as a function by
      menu_item_descriptor_to_widget_value(). */

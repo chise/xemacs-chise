@@ -61,7 +61,7 @@ Lisp_Object Qidentity;
 static int internal_old_equal (Lisp_Object, Lisp_Object, int);
 
 static Lisp_Object
-mark_bit_vector (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_bit_vector (Lisp_Object obj)
 {
   return Qnil;
 }
@@ -69,10 +69,10 @@ mark_bit_vector (Lisp_Object obj, void (*markobj) (Lisp_Object))
 static void
 print_bit_vector (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
-  int i;
+  size_t i;
   struct Lisp_Bit_Vector *v = XBIT_VECTOR (obj);
-  int len = bit_vector_length (v);
-  int last = len;
+  size_t len = bit_vector_length (v);
+  size_t last = len;
 
   if (INTP (Vprint_length))
     last = min (len, XINT (Vprint_length));
@@ -111,9 +111,16 @@ bit_vector_hash (Lisp_Object obj, int depth)
 			     sizeof (long)));
 }
 
+static const struct lrecord_description bit_vector_description[] = {
+  { XD_LISP_OBJECT, offsetof(Lisp_Bit_Vector, next), 1 },
+  { XD_END }
+};
+
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("bit-vector", bit_vector,
 				     mark_bit_vector, print_bit_vector, 0,
-				     bit_vector_equal, bit_vector_hash, 0,
+				     bit_vector_equal, bit_vector_hash,
+				     bit_vector_description,
 				     struct Lisp_Bit_Vector);
 
 DEFUN ("identity", Fidentity, 1, 1, 0, /*
@@ -208,7 +215,7 @@ Return the length of vector, bit vector, list or string SEQUENCE.
     return make_int (XSTRING_CHAR_LENGTH (sequence));
   else if (CONSP (sequence))
     {
-      int len;
+      size_t len;
       GET_EXTERNAL_LIST_LENGTH (sequence, len);
       return make_int (len);
     }
@@ -235,7 +242,7 @@ which is at least the number of distinct elements.
        (list))
 {
   Lisp_Object hare, tortoise;
-  int len;
+  size_t len;
 
   for (hare = tortoise = list, len = 0;
        CONSP (hare) && (! EQ (hare, tortoise) || len == 0);
@@ -515,7 +522,7 @@ copy_list (Lisp_Object list)
   Lisp_Object list_copy = Fcons (XCAR (list), XCDR (list));
   Lisp_Object last = list_copy;
   Lisp_Object hare, tortoise;
-  int len;
+  size_t len;
 
   for (tortoise = hare = XCDR (list), len = 1;
        CONSP (hare);
@@ -916,7 +923,7 @@ If SEQ is a string, relevant parts of the string-extent-data are copied
 */
        (seq, from, to))
 {
-  int len, f, t;
+  EMACS_INT len, f, t;
 
   if (STRINGP (seq))
     return Fsubstring (seq, from, to);
@@ -950,7 +957,7 @@ If SEQ is a string, relevant parts of the string-extent-data are copied
   if (VECTORP (seq))
     {
       Lisp_Object result = make_vector (t - f, Qnil);
-      int i;
+      EMACS_INT i;
       Lisp_Object *in_elts  = XVECTOR_DATA (seq);
       Lisp_Object *out_elts = XVECTOR_DATA (result);
 
@@ -962,7 +969,7 @@ If SEQ is a string, relevant parts of the string-extent-data are copied
   if (LISTP (seq))
     {
       Lisp_Object result = Qnil;
-      int i;
+      EMACS_INT i;
 
       seq = Fnthcdr (make_int (f), seq);
 
@@ -978,7 +985,7 @@ If SEQ is a string, relevant parts of the string-extent-data are copied
   /* bit vector */
   {
     Lisp_Object result = make_bit_vector (t - f, Qzero);
-    int i;
+    EMACS_INT i;
 
     for (i = f; i < t; i++)
       set_bit_vector_bit (XBIT_VECTOR (result), i - f,
@@ -993,7 +1000,7 @@ Take cdr N times on LIST, and return the result.
 */
        (n, list))
 {
-  REGISTER int i;
+  REGISTER size_t i;
   REGISTER Lisp_Object tail = list;
   CHECK_NATNUM (n);
   for (i = XINT (n); i; i--)
@@ -1052,7 +1059,7 @@ Return element of SEQUENCE at index N.
 #ifdef LOSING_BYTECODE
   else if (COMPILED_FUNCTIONP (sequence))
     {
-      int idx = XINT (n);
+      EMACS_INT idx = XINT (n);
       if (idx < 0)
         {
         lose:
@@ -1104,7 +1111,7 @@ If N is greater than the length of LIST, then LIST itself is returned.
 */
        (list, n))
 {
-  int int_n, count;
+  EMACS_INT int_n, count;
   Lisp_Object retval, tortoise, hare;
 
   CHECK_LIST (list);
@@ -1140,7 +1147,7 @@ If LIST has N or fewer elements, nil is returned and LIST is unmodified.
 */
        (list, n))
 {
-  int int_n;
+  EMACS_INT int_n;
 
   CHECK_LIST (list);
 
@@ -2714,12 +2721,6 @@ See also `get', `remprop', and `object-plist'.
   return value;
 }
 
-void
-pure_put (Lisp_Object sym, Lisp_Object prop, Lisp_Object val)
-{
-  Fput (sym, prop, Fpurecopy (val));
-}
-
 DEFUN ("remprop", Fremprop, 2, 2, 0, /*
 Remove from OBJECT's property list the property PROPNAME and its
 value.  OBJECT can be a symbol, face, extent, or string.  Returns
@@ -3176,11 +3177,14 @@ SEQUENCE may be a list, a vector or a string.
   return result;
 }
 
-DEFUN ("mapc", Fmapc, 2, 2, 0, /*
+DEFUN ("mapc-internal", Fmapc_internal, 2, 2, 0, /*
 Apply FUNCTION to each element of SEQUENCE.
 SEQUENCE may be a list, a vector, a bit vector, or a string.
 This function is like `mapcar' but does not accumulate the results,
 which is more efficient if you do not use the results.
+
+The difference between this and `mapc' is that `mapc' supports all
+the spiffy Common Lisp arguments.  You should normally use `mapc'.
 */
        (fn, seq))
 {
@@ -3871,7 +3875,7 @@ syms_of_fns (void)
   DEFSUBR (Fnconc);
   DEFSUBR (Fmapcar);
   DEFSUBR (Fmapvector);
-  DEFSUBR (Fmapc);
+  DEFSUBR (Fmapc_internal);
   DEFSUBR (Fmapconcat);
   DEFSUBR (Fload_average);
   DEFSUBR (Ffeaturep);

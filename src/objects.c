@@ -57,12 +57,12 @@ finalose (void *ptr)
 Lisp_Object Qcolor_instancep;
 
 static Lisp_Object
-mark_color_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_color_instance (Lisp_Object obj)
 {
   struct Lisp_Color_Instance *c = XCOLOR_INSTANCE (obj);
-  markobj (c->name);
+  mark_object (c->name);
   if (!NILP (c->device)) /* Vthe_null_color_instance */
-    MAYBE_DEVMETH (XDEVICE (c->device), mark_color_instance, (c, markobj));
+    MAYBE_DEVMETH (XDEVICE (c->device), mark_color_instance, (c));
 
   return c->device;
 }
@@ -106,7 +106,7 @@ color_instance_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
   struct Lisp_Color_Instance *c2 = XCOLOR_INSTANCE (obj2);
 
   return (c1 == c2) ||
-    ((EQ (c1->device, c2->device)) &&
+    (EQ (c1->device, c2->device) &&
      DEVICEP (c1->device) &&
      HAS_DEVMETH_P (XDEVICE (c1->device), color_instance_equal) &&
      DEVMETH (XDEVICE (c1->device), color_instance_equal, (c1, c2, depth)));
@@ -237,13 +237,13 @@ static Lisp_Object font_instance_truename_internal (Lisp_Object xfont,
 						    Error_behavior errb);
 
 static Lisp_Object
-mark_font_instance (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_font_instance (Lisp_Object obj)
 {
   struct Lisp_Font_Instance *f = XFONT_INSTANCE (obj);
 
-  markobj (f->name);
+  mark_object (f->name);
   if (!NILP (f->device)) /* Vthe_null_font_instance */
-    MAYBE_DEVMETH (XDEVICE (f->device), mark_font_instance, (f, markobj));
+    MAYBE_DEVMETH (XDEVICE (f->device), mark_font_instance, (f));
 
   return f->device;
 }
@@ -489,12 +489,12 @@ color_create (Lisp_Object obj)
 }
 
 static void
-color_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
+color_mark (Lisp_Object obj)
 {
   struct Lisp_Specifier *color = XCOLOR_SPECIFIER (obj);
 
-  markobj (COLOR_SPECIFIER_FACE (color));
-  markobj (COLOR_SPECIFIER_FACE_PROPERTY (color));
+  mark_object (COLOR_SPECIFIER_FACE (color));
+  mark_object (COLOR_SPECIFIER_FACE_PROPERTY (color));
 }
 
 /* No equal or hash methods; ignore the face the color is based off
@@ -667,12 +667,12 @@ font_create (Lisp_Object obj)
 }
 
 static void
-font_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
+font_mark (Lisp_Object obj)
 {
   struct Lisp_Specifier *font = XFONT_SPECIFIER (obj);
 
-  markobj (FONT_SPECIFIER_FACE (font));
-  markobj (FONT_SPECIFIER_FACE_PROPERTY (font));
+  mark_object (FONT_SPECIFIER_FACE (font));
+  mark_object (FONT_SPECIFIER_FACE_PROPERTY (font));
 }
 
 /* No equal or hash methods; ignore the face the font is based off
@@ -874,12 +874,12 @@ face_boolean_create (Lisp_Object obj)
 }
 
 static void
-face_boolean_mark (Lisp_Object obj, void (*markobj) (Lisp_Object))
+face_boolean_mark (Lisp_Object obj)
 {
   struct Lisp_Specifier *face_boolean = XFACE_BOOLEAN_SPECIFIER (obj);
 
-  markobj (FACE_BOOLEAN_SPECIFIER_FACE (face_boolean));
-  markobj (FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY (face_boolean));
+  mark_object (FACE_BOOLEAN_SPECIFIER_FACE (face_boolean));
+  mark_object (FACE_BOOLEAN_SPECIFIER_FACE_PROPERTY (face_boolean));
 }
 
 /* No equal or hash methods; ignore the face the face-boolean is based off
@@ -1036,6 +1036,21 @@ syms_of_objects (void)
   defsymbol (&Qface_boolean, "face-boolean");
 }
 
+static const struct lrecord_description color_specifier_description[] = {
+  { XD_LISP_OBJECT, specifier_data_offset + offsetof(struct color_specifier, face), 2 },
+  { XD_END }
+};
+
+static const struct lrecord_description font_specifier_description[] = {
+  { XD_LISP_OBJECT, specifier_data_offset + offsetof(struct font_specifier, face), 2 },
+  { XD_END }
+};
+
+static const struct lrecord_description face_boolean_specifier_description[] = {
+  { XD_LISP_OBJECT, specifier_data_offset + offsetof(struct face_boolean_specifier, face), 2 },
+  { XD_END }
+};
+
 void
 specifier_type_create_objects (void)
 {
@@ -1070,9 +1085,17 @@ specifier_type_create_objects (void)
 }
 
 void
-vars_of_objects (void)
+reinit_specifier_type_create_objects (void)
 {
-  staticpro (&Vthe_null_color_instance);
+  REINITIALIZE_SPECIFIER_TYPE (color);
+  REINITIALIZE_SPECIFIER_TYPE (font);
+  REINITIALIZE_SPECIFIER_TYPE (face_boolean);
+}
+
+void
+reinit_vars_of_objects (void)
+{
+  staticpro_nodump (&Vthe_null_color_instance);
   {
     struct Lisp_Color_Instance *c =
       alloc_lcrecord_type (struct Lisp_Color_Instance, &lrecord_color_instance);
@@ -1083,7 +1106,7 @@ vars_of_objects (void)
     XSETCOLOR_INSTANCE (Vthe_null_color_instance, c);
   }
 
-  staticpro (&Vthe_null_font_instance);
+  staticpro_nodump (&Vthe_null_font_instance);
   {
     struct Lisp_Font_Instance *f =
       alloc_lcrecord_type (struct Lisp_Font_Instance, &lrecord_font_instance);
@@ -1098,4 +1121,10 @@ vars_of_objects (void)
 
     XSETFONT_INSTANCE (Vthe_null_font_instance, f);
   }
+}
+
+void
+vars_of_objects (void)
+{
+  reinit_vars_of_objects ();
 }

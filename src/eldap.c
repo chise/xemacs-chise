@@ -47,14 +47,13 @@ static Lisp_Object Vldap_default_base;
 Lisp_Object Qldapp;
 
 /* ldap-open plist keywords */
-extern Lisp_Object Qport, Qauth, Qbinddn, Qpasswd, Qderef, Qtimelimit,
-  Qsizelimit;
+static Lisp_Object Qport, Qauth, Qbinddn, Qpasswd, Qderef, Qtimelimit, Qsizelimit;
 /* Search scope limits */
-extern Lisp_Object Qbase, Qonelevel, Qsubtree;
+static Lisp_Object Qbase, Qonelevel, Qsubtree;
 /* Authentication methods */
-extern Lisp_Object Qkrbv41, Qkrbv42;
+static Lisp_Object Qkrbv41, Qkrbv42;
 /* Deref policy */
-extern Lisp_Object Qnever, Qalways, Qfind;
+static Lisp_Object Qnever, Qalways, Qfind;
 
 /************************************************************************/
 /*                         Utility Functions                            */
@@ -98,7 +97,7 @@ make_ldap (struct Lisp_LDAP *ldap)
 }
 
 static Lisp_Object
-mark_ldap (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_ldap (Lisp_Object obj)
 {
   return XLDAP (obj)->host;
 }
@@ -579,6 +578,22 @@ void
 syms_of_eldap (void)
 {
   defsymbol (&Qldapp, "ldapp");
+  defsymbol (&Qport, "port");
+  defsymbol (&Qauth, "auth");
+  defsymbol (&Qbinddn, "binddn");
+  defsymbol (&Qpasswd, "passwd");
+  defsymbol (&Qderef, "deref");
+  defsymbol (&Qtimelimit, "timelimit");
+  defsymbol (&Qsizelimit, "sizelimit");
+  defsymbol (&Qbase, "base");
+  defsymbol (&Qonelevel, "onelevel");
+  defsymbol (&Qsubtree, "subtree");
+  defsymbol (&Qkrbv41, "krbv41");
+  defsymbol (&Qkrbv42, "krbv42");
+  defsymbol (&Qnever, "never");
+  defsymbol (&Qalways, "always");
+  defsymbol (&Qfind, "find");
+
   DEFSUBR (Fldapp);
   DEFSUBR (Fldap_host);
   DEFSUBR (Fldap_status);

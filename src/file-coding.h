@@ -140,7 +140,6 @@ DECLARE_LRECORD (coding_system, struct Lisp_Coding_System);
 #define XCODING_SYSTEM(x) XRECORD (x, coding_system, struct Lisp_Coding_System)
 #define XSETCODING_SYSTEM(x, p) XSETRECORD (x, p, coding_system)
 #define CODING_SYSTEMP(x) RECORDP (x, coding_system)
-#define GC_CODING_SYSTEMP(x) GC_RECORDP (x, coding_system)
 #define CHECK_CODING_SYSTEM(x) CHECK_RECORD (x, coding_system)
 #define CONCHECK_CODING_SYSTEM(x) CONCHECK_RECORD (x, coding_system)
 
@@ -250,9 +249,9 @@ EXFUN (Fset_coding_priority_list, 1);
 EXFUN (Fsubsidiary_coding_system, 2);
 
 extern Lisp_Object Qucs4, Qutf8;
-extern Lisp_Object Qbig5, Qbuffer_file_coding_system, Qccl, Qcharset_g0;
+extern Lisp_Object Qbig5, Qccl, Qcharset_g0;
 extern Lisp_Object Qcharset_g1, Qcharset_g2, Qcharset_g3, Qcoding_system_error;
-extern Lisp_Object Qcoding_system_p, Qcr, Qcrlf, Qctext, Qdecode, Qencode;
+extern Lisp_Object Qcoding_systemp, Qcr, Qcrlf, Qctext, Qdecode, Qencode;
 extern Lisp_Object Qeol_cr, Qeol_crlf, Qeol_lf, Qeol_type, Qescape_quoted;
 extern Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output;

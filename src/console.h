@@ -60,6 +60,9 @@ enum device_metrics
   DM_slow_device, DM_security
 };
 
+extern const struct struct_description cted_description;
+extern const struct struct_description console_methods_description;
+
 struct console_methods
 {
   CONST char *name;	/* Used by print_console, print_device, print_frame */
@@ -68,7 +71,7 @@ struct console_methods
 
   /* console methods */
   void (*init_console_method) (struct console *, Lisp_Object props);
-  void (*mark_console_method) (struct console *, void (*)(Lisp_Object));
+  void (*mark_console_method) (struct console *);
   int (*initially_selected_for_input_method) (struct console *);
   void (*delete_console_method) (struct console *);
   Lisp_Object (*semi_canonicalize_console_connection_method)
@@ -86,7 +89,7 @@ struct console_methods
   void (*init_device_method) (struct device *, Lisp_Object props);
   void (*finish_init_device_method) (struct device *, Lisp_Object props);
   void (*delete_device_method) (struct device *);
-  void (*mark_device_method) (struct device *, void (*)(Lisp_Object));
+  void (*mark_device_method) (struct device *);
   void (*asynch_device_change_method) (void);
   Lisp_Object (*device_system_metrics_method) (struct device *, enum device_metrics);
   unsigned int (*device_implementation_flags_method) (void);
@@ -103,7 +106,7 @@ struct console_methods
   void (*init_frame_3_method) (struct frame *);
   void (*after_init_frame_method) (struct frame *, int first_on_device,
 				   int first_on_console);
-  void (*mark_frame_method) (struct frame *, void (*)(Lisp_Object));
+  void (*mark_frame_method) (struct frame *);
   void (*delete_frame_method) (struct frame *);
   void (*focus_on_frame_method) (struct frame *);
   void (*raise_frame_method) (struct frame *);
@@ -155,15 +158,23 @@ struct console_methods
 			    int duration);
   void (*frame_redraw_cursor_method) (struct frame *f);
   void (*set_final_cursor_coords_method) (struct frame *, int, int);
-  void (*bevel_area_method) (struct window *, face_index, int, int, int, int, int);
-
+  void (*bevel_area_method) (struct window *, face_index, int, int, int, int, int,
+			     int, enum edge_style);
+  void (*output_pixmap_method) (struct window *w, Lisp_Object image_instance,
+				struct display_box *db, struct display_glyph_area *dga,
+				face_index findex, int cursor_start, int cursor_width,
+				int cursor_height, int offset_bitmap);
+  void (*output_string_method) (struct window *w, struct display_line *dl,
+				Emchar_dynarr *buf, int xpos, int xoffset,
+				int start_pixpos, int width, face_index findex,
+				int cursor, int cursor_start, int cursor_width,
+				int cursor_height);
   /* color methods */
   int (*initialize_color_instance_method) (struct Lisp_Color_Instance *,
 					   Lisp_Object name,
 					   Lisp_Object device,
 					   Error_behavior errb);
-  void (*mark_color_instance_method) (struct Lisp_Color_Instance *,
-				      void (*)(Lisp_Object));
+  void (*mark_color_instance_method) (struct Lisp_Color_Instance *);
   void (*print_color_instance_method) (struct Lisp_Color_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
@@ -182,8 +193,7 @@ struct console_methods
 					  Lisp_Object name,
 					  Lisp_Object device,
 					  Error_behavior errb);
-  void (*mark_font_instance_method) (struct Lisp_Font_Instance *,
-				     void (*)(Lisp_Object));
+  void (*mark_font_instance_method) (struct Lisp_Font_Instance *);
   void (*print_font_instance_method) (struct Lisp_Font_Instance *,
 				      Lisp_Object printcharfun,
 				      int escapeflag);
@@ -204,14 +214,14 @@ struct console_methods
 					   Bytecount length);
 
   /* image methods */
-  void (*mark_image_instance_method) (struct Lisp_Image_Instance *,
-				      void (*)(Lisp_Object));
+  void (*mark_image_instance_method) (struct Lisp_Image_Instance *);
   void (*print_image_instance_method) (struct Lisp_Image_Instance *,
 				       Lisp_Object printcharfun,
 				       int escapeflag);
   void (*finalize_image_instance_method) (struct Lisp_Image_Instance *);
   void (*unmap_subwindow_method) (struct Lisp_Image_Instance *);
-  void (*map_subwindow_method) (struct Lisp_Image_Instance *, int x, int y);
+  void (*map_subwindow_method) (struct Lisp_Image_Instance *, int x, int y,
+				struct display_glyph_area* dga);
   void (*resize_subwindow_method) (struct Lisp_Image_Instance *, int w, int h);
   void (*update_subwindow_method) (struct Lisp_Image_Instance *);
   int (*image_instance_equal_method) (struct Lisp_Image_Instance *,
@@ -221,6 +231,7 @@ struct console_methods
 					       int depth);
   void (*init_image_instance_from_eimage_method) (struct Lisp_Image_Instance *ii,
 						  int width, int height,
+						  int slices,
 						  unsigned char *eimage,
 						  int dest_mask,
 						  Lisp_Object instantiator,
@@ -346,11 +357,18 @@ struct console_methods * type##_console_methods
     type##_console_methods = xnew_and_zero (struct console_methods);	\
     type##_console_methods->name = obj_name;				\
     type##_console_methods->symbol = Q##type;				\
-    defsymbol (&type##_console_methods->predicate_symbol, pred_sym);	\
+    defsymbol_nodump (&type##_console_methods->predicate_symbol, pred_sym);	\
     add_entry_to_console_type_list (Q##type, type##_console_methods);	\
     type##_console_methods->image_conversion_list = Qnil;		\
-    staticpro (&type##_console_methods->image_conversion_list);		\
+    staticpro_nodump (&type##_console_methods->image_conversion_list);	\
+    dumpstruct (&type##_console_methods, &console_methods_description);	\
 } while (0)
+
+#define REINITIALIZE_CONSOLE_TYPE(type) do {	\
+    staticpro_nodump (&type##_console_methods->predicate_symbol);	\
+    staticpro_nodump (&type##_console_methods->image_conversion_list);	\
+} while (0)
+
 
 /* Declare that console-type TYPE has method M; used in
    initialization routines */
@@ -402,7 +420,6 @@ DECLARE_LRECORD (console, struct console);
 #define XCONSOLE(x) XRECORD (x, console, struct console)
 #define XSETCONSOLE(x, p) XSETRECORD (x, p, console)
 #define CONSOLEP(x) RECORDP (x, console)
-#define GC_CONSOLEP(x) GC_RECORDP (x, console)
 #define CHECK_CONSOLE(x) CHECK_RECORD (x, console)
 #define CONCHECK_CONSOLE(x) CONCHECK_RECORD (x, console)
 

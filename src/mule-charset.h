@@ -486,7 +486,6 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET(x) XRECORD (x, charset, struct Lisp_Charset)
 #define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
 #define CHARSETP(x) RECORDP (x, charset)
-#define GC_CHARSETP(x) GC_RECORDP (x, charset)
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
@@ -500,7 +499,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 
 /* Leading byte and id have been regrouped. -- OG */
 #define CHARSET_ID(cs)		 ((cs)->id)
-#define CHARSET_LEADING_BYTE(cs) ((Bufbyte)(CHARSET_ID(cs)))
+#define CHARSET_LEADING_BYTE(cs) ((Bufbyte) CHARSET_ID(cs))
 #define CHARSET_NAME(cs)	 ((cs)->name)
 #define CHARSET_SHORT_NAME(cs)	 ((cs)->short_name)
 #define CHARSET_LONG_NAME(cs)	 ((cs)->long_name)
@@ -540,11 +539,15 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 
-/* Table of charsets indexed by (leading byte - 128). */
-extern Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
+struct charset_lookup {
+  /* Table of charsets indexed by leading byte. */
+  Lisp_Object charset_by_leading_byte[128];
+  
+  /* Table of charsets indexed by type/final-byte/direction. */
+  Lisp_Object charset_by_attributes[4][128][2];
+};
 
-/* Table of charsets indexed by type/final-byte/direction. */
-extern Lisp_Object charset_by_attributes[4][128][2];
+extern struct charset_lookup *chlook;
 
 /* Table of number of bytes in the string representation of a character
    indexed by the first byte of that representation.
@@ -567,18 +570,18 @@ CHARSET_BY_LEADING_BYTE (int lb)
 {
   assert (lb >= MIN_LEADING_BYTE &&
 	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
-  return charset_by_leading_byte[lb - MIN_LEADING_BYTE];
+  return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
 #else
 
 #define CHARSET_BY_LEADING_BYTE(lb) \
-  (charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
+  (chlook->charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
 
 #endif
 
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
-  (charset_by_attributes[type][final][dir])
+  (chlook->charset_by_attributes[type][final][dir])
 
 #ifdef ERROR_CHECK_TYPECHECK
 

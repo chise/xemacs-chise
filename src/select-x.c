@@ -1492,15 +1492,18 @@ initialize_cut_buffers (Display *display, Window window)
   cut_buffers_initialized = 1;
 }
 
-#define CHECK_CUTBUFFER(symbol)						\
-  { CHECK_SYMBOL (symbol);						\
-    if (!EQ((symbol),QCUT_BUFFER0) && !EQ((symbol),QCUT_BUFFER1) &&	\
-	!EQ((symbol),QCUT_BUFFER2) && !EQ((symbol),QCUT_BUFFER3) &&	\
-	!EQ((symbol),QCUT_BUFFER4) && !EQ((symbol),QCUT_BUFFER5) &&	\
-	!EQ((symbol),QCUT_BUFFER6) && !EQ((symbol),QCUT_BUFFER7))	\
-      signal_error (Qerror, list2 (build_string ("Doesn't name a cutbuffer"), \
-                                   (symbol))); \
-  }
+#define CHECK_CUTBUFFER(symbol) do {				\
+  CHECK_SYMBOL (symbol);					\
+  if (! (EQ (symbol, QCUT_BUFFER0) ||				\
+	 EQ (symbol, QCUT_BUFFER1) ||				\
+	 EQ (symbol, QCUT_BUFFER2) ||				\
+	 EQ (symbol, QCUT_BUFFER3) ||				\
+	 EQ (symbol, QCUT_BUFFER4) ||				\
+	 EQ (symbol, QCUT_BUFFER5) ||				\
+	 EQ (symbol, QCUT_BUFFER6) ||				\
+	 EQ (symbol, QCUT_BUFFER7)))				\
+    signal_simple_error ("Doesn't name a cutbuffer", symbol);	\
+} while (0)
 
 DEFUN ("x-get-cutbuffer-internal", Fx_get_cutbuffer_internal, 1, 1, 0, /*
 Return the value of the named CUTBUFFER (typically CUT_BUFFER0).
@@ -1694,18 +1697,24 @@ console_type_create_select_x (void)
 }
 
 void
-vars_of_xselect (void)
+reinit_vars_of_xselect (void)
 {
-#ifdef CUT_BUFFER_SUPPORT
-  cut_buffers_initialized = 0;
-  Fprovide (intern ("cut-buffer"));
-#endif
-
   reading_selection_reply = 0;
   reading_which_selection = 0;
   selection_reply_timed_out = 0;
   for_whom_the_bell_tolls = 0;
   prop_location_tick = 0;
+}
+
+void
+vars_of_xselect (void)
+{
+  reinit_vars_of_xselect ();
+
+#ifdef CUT_BUFFER_SUPPORT
+  cut_buffers_initialized = 0;
+  Fprovide (intern ("cut-buffer"));
+#endif
 
   DEFVAR_LISP ("x-sent-selection-hooks", &Vx_sent_selection_hooks /*
 A function or functions to be called after we have responded to some

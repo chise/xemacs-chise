@@ -96,6 +96,7 @@ struct buffer *current_buffer;	/* the current buffer */
    Setting the default value also goes through the alist of buffers
    and stores into each buffer that does not say it has a local value.  */
 Lisp_Object Vbuffer_defaults;
+static void *buffer_defaults_saved_slots;
 
 /* This structure marks which slots in a buffer have corresponding
    default values in Vbuffer_defaults.
@@ -133,6 +134,7 @@ char initial_directory[MAXPATHLEN+1];
 /* This structure holds the names of symbols whose values may be
    buffer-local.  It is indexed and accessed in the same way as the above. */
 static Lisp_Object Vbuffer_local_symbols;
+static void *buffer_local_symbols_saved_slots;
 
 /* Alist of all buffer names vs the buffers. */
 /* This used to be a variable, but is no longer,
@@ -189,7 +191,7 @@ Lisp_Object QSscratch;          /* "*scratch*" */
 Lisp_Object Qdefault_directory;
 
 Lisp_Object Qkill_buffer_hook;
-Lisp_Object Qbuffer_file_name, Qbuffer_undo_list;
+Lisp_Object Qrecord_buffer_hook;
 
 Lisp_Object Qrename_auto_save_file;
 
@@ -220,7 +222,7 @@ make_buffer (struct buffer *buf)
 }
 
 static Lisp_Object
-mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_buffer (Lisp_Object obj)
 {
   struct buffer *buf = XBUFFER (obj);
 
@@ -229,13 +231,13 @@ mark_buffer (Lisp_Object obj, void (*markobj) (Lisp_Object))
                                        undo_threshold,
                                        undo_high_threshold);
 
-#define MARKED_SLOT(x) ((void) (markobj (buf->x)));
+#define MARKED_SLOT(x) mark_object (buf->x)
 #include "bufslots.h"
 #undef MARKED_SLOT
 
-  markobj (buf->extent_info);
+  mark_object (buf->extent_info);
   if (buf->text)
-    markobj (buf->text->line_number_cache);
+    mark_object (buf->text->line_number_cache);
 
   /* Don't mark normally through the children slot.
      (Actually, in this case, it doesn't matter.)  */
@@ -1406,6 +1408,9 @@ buffer.  See `other-buffer' for more information.
     XCDR (prev) = XCDR (XCDR (prev));
   XCDR (lynk) = f->buffer_alist;
   f->buffer_alist = lynk;
+
+  va_run_hook_with_args (Qrecord_buffer_hook, 1, buffer);
+  
   return Qnil;
 }
 
@@ -1806,6 +1811,7 @@ syms_of_buffer (void)
   defsymbol (&Qmode_class, "mode-class");
   defsymbol (&Qrename_auto_save_file, "rename-auto-save-file");
   defsymbol (&Qkill_buffer_hook, "kill-buffer-hook");
+  defsymbol (&Qrecord_buffer_hook, "record-buffer-hook");
   defsymbol (&Qpermanent_local, "permanent-local");
 
   defsymbol (&Qfirst_change_hook, "first-change-hook");
@@ -1816,8 +1822,6 @@ syms_of_buffer (void)
   defsymbol (&Qbefore_change_function, "before-change-function");
   defsymbol (&Qafter_change_function, "after-change-function");
 
-  defsymbol (&Qbuffer_file_name, "buffer-file-name");
-  defsymbol (&Qbuffer_undo_list, "buffer-undo-list");
   defsymbol (&Qdefault_directory, "default-directory");
 
   defsymbol (&Qget_file_buffer, "get-file-buffer");
@@ -1870,20 +1874,26 @@ syms_of_buffer (void)
 	    "Attempt to modify a protected field", Qerror);
 }
 
+void
+reinit_vars_of_buffer (void)
+{
+  staticpro_nodump (&Vbuffer_alist);
+  Vbuffer_alist = Qnil;
+  current_buffer = 0;
+}
+
 /* initialize the buffer routines */
 void
 vars_of_buffer (void)
 {
   /* This function can GC */
+  reinit_vars_of_buffer ();
+
   staticpro (&QSFundamental);
   staticpro (&QSscratch);
-  staticpro (&Vbuffer_alist);
 
-  QSFundamental = Fpurecopy (build_string ("Fundamental"));
-  QSscratch = Fpurecopy (build_string (DEFER_GETTEXT ("*scratch*")));
-
-  Vbuffer_alist = Qnil;
-  current_buffer = 0;
+  QSFundamental = build_string ("Fundamental");
+  QSscratch = build_string (DEFER_GETTEXT ("*scratch*"));
 
   DEFVAR_LISP ("change-major-mode-hook", &Vchange_major_mode_hook /*
 List of hooks to be run before killing local variables in a buffer.
@@ -2063,21 +2073,21 @@ nuke_all_buffer_slots (struct buffer *b, Lisp_Object zap)
   b->indirect_children = Qnil;
   b->own_text.line_number_cache = Qnil;
 
-#define MARKED_SLOT(x)	b->x = (zap);
+#define MARKED_SLOT(x)	b->x = zap
 #include "bufslots.h"
 #undef MARKED_SLOT
 }
 
-void
-complex_vars_of_buffer (void)
+static void
+common_init_complex_vars_of_buffer (void)
 {
   /* Make sure all markable slots in buffer_defaults
      are initialized reasonably, so mark_buffer won't choke. */
   struct buffer *defs = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
   struct buffer *syms = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
 
-  staticpro (&Vbuffer_defaults);
-  staticpro (&Vbuffer_local_symbols);
+  staticpro_nodump (&Vbuffer_defaults);
+  staticpro_nodump (&Vbuffer_local_symbols);
   XSETBUFFER (Vbuffer_defaults, defs);
   XSETBUFFER (Vbuffer_local_symbols, syms);
 
@@ -2193,11 +2203,57 @@ complex_vars_of_buffer (void)
     buffer_local_flags.buffer_file_coding_system  = make_int (1<<14);
 #endif
 
-    /* #### Warning: 1<<28 is the largest number currently allowable
+    /* #### Warning: 1<<31 is the largest number currently allowable
        due to the XINT() handling of this value.  With some
        rearrangement you can get 3 more bits. */
   }
+}
 
+#define BUFFER_SLOTS_SIZE (offsetof (struct buffer, BUFFER_SLOTS_LAST_NAME) - offsetof (struct buffer, BUFFER_SLOTS_FIRST_NAME) + sizeof (Lisp_Object))
+#define BUFFER_SLOTS_COUNT (BUFFER_SLOTS_SIZE / sizeof (Lisp_Object))
+
+void
+reinit_complex_vars_of_buffer (void)
+{
+  struct buffer *defs, *syms;
+
+  common_init_complex_vars_of_buffer ();
+
+  defs = XBUFFER (Vbuffer_defaults);
+  syms = XBUFFER (Vbuffer_local_symbols);
+  memcpy (&defs->BUFFER_SLOTS_FIRST_NAME,
+	  buffer_defaults_saved_slots,
+	  BUFFER_SLOTS_SIZE);
+  memcpy (&syms->BUFFER_SLOTS_FIRST_NAME,
+	  buffer_local_symbols_saved_slots,
+	  BUFFER_SLOTS_SIZE);
+}
+
+
+static const struct lrecord_description buffer_slots_description_1[] = {
+  { XD_LISP_OBJECT, 0, BUFFER_SLOTS_COUNT },
+  { XD_END }
+};
+
+static const struct struct_description buffer_slots_description = {
+  BUFFER_SLOTS_SIZE,
+  buffer_slots_description_1
+};
+
+void
+complex_vars_of_buffer (void)
+{
+  struct buffer *defs, *syms;
+
+  common_init_complex_vars_of_buffer ();
+
+  defs = XBUFFER (Vbuffer_defaults);
+  syms = XBUFFER (Vbuffer_local_symbols);
+  buffer_defaults_saved_slots      = &defs->BUFFER_SLOTS_FIRST_NAME;
+  buffer_local_symbols_saved_slots = &syms->BUFFER_SLOTS_FIRST_NAME;
+  dumpstruct (&buffer_defaults_saved_slots,      &buffer_slots_description);
+  dumpstruct (&buffer_local_symbols_saved_slots, &buffer_slots_description);
+  
   DEFVAR_BUFFER_DEFAULTS ("default-modeline-format", modeline_format /*
 Default value of `modeline-format' for buffers that don't override it.
 This is the same as (default-value 'modeline-format).

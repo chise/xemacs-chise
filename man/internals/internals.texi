@@ -63,11 +63,12 @@ instead of in the original English.
 
 @titlepage
 @title XEmacs Internals Manual
-@subtitle Version 1.2, October 1998
+@subtitle Version 1.3, August 1999
 
 @author Ben Wing
 @author Martin Buchholz
 @author Hrvoje Niksic
+@author Matthias Neubauer
 @page
 @vskip 0pt plus 1fill
 
@@ -78,8 +79,8 @@ Copyright @copyright{} 1994 - 1998 Free Software Foundation. @*
 Copyright @copyright{} 1994, 1995 Board of Trustees, University of Illinois.
 
 @sp 2
-Version 1.2 @*
-October 1998.@*
+Version 1.3 @*
+August 1999.@*
 
 Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -127,7 +128,8 @@ This Info file contains v1.0 of the XEmacs Internals Manual.
 * Consoles; Devices; Frames; Windows::
 * The Redisplay Mechanism::
 * Extents::
-* Faces and Glyphs::
+* Faces::
+* Glyphs::
 * Specifiers::
 * Menus::
 * Subprocesses::
@@ -174,6 +176,7 @@ Allocation of Objects in XEmacs Lisp
 * Introduction to Allocation::
 * Garbage Collection::
 * GCPROing::
+* Garbage Collection - Step by Step::
 * Integers and Characters::
 * Allocation from Frob Blocks::
 * lrecords::
@@ -260,7 +263,9 @@ Extents
 * Mathematics of Extent Ordering::      A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
 
-Faces and Glyphs
+Faces
+
+Glyphs
 
 Specifiers
 
@@ -4370,6 +4375,7 @@ Asian-language support, and is not currently used.
 * Introduction to Allocation::
 * Garbage Collection::
 * GCPROing::
+* Garbage Collection - Step by Step::
 * Integers and Characters::
 * Allocation from Frob Blocks::
 * lrecords::
@@ -4713,6 +4719,502 @@ anything that looks like a reference to an object as a reference.  This
 will result in a few objects not getting collected when they should, but
 it obviates the need for @code{GCPRO}ing, and allows garbage collection
 to happen at any point at all, such as during object allocation.
+
+@node Garbage Collection - Step by Step
+@section Garbage Collection - Step by Step
+@cindex garbage collection step by step
+
+@menu
+* Invocation::
+* garbage_collect_1::
+* mark_object::
+* gc_sweep::
+* sweep_lcrecords_1::
+* compact_string_chars::
+* sweep_strings::
+* sweep_bit_vectors_1::
+@end menu
+
+@node Invocation
+@subsection Invocation
+@cindex garbage collection, invocation
+
+The first thing that anyone should know about garbage collection is:
+when and how the garbage collector is invoked. One might think that this 
+could happen every time new memory is allocated, e.g. new objects are
+created, but this is @emph{not} the case. Instead, we have the following
+situation:
+
+The entry point of any process of garbage collection is an invocation
+of the function @code{garbage_collect_1} in file @code{alloc.c}. The
+invocation can occur @emph{explicitly} by calling the function
+@code{Fgarbage_collect} (in addition this function provides information
+about the freed memory), or can occur @emph{implicitly} in four different 
+situations:
+@enumerate
+@item
+In function @code{main_1} in file @code{emacs.c}. This function is called
+at each startup of xemacs. The garbage collection is invoked after all
+initial creations are completed, but only if a special internal error
+checking-constant @code{ERROR_CHECK_GC} is defined.
+@item
+In function @code{disksave_object_finalization} in file
+@code{alloc.c}. The only purpose of this function is to clear the
+objects from memory which need not be stored with xemacs when we dump out 
+an executable. This is only done by @code{Fdump_emacs} or by
+@code{Fdump_emacs_data} respectively (both in @code{emacs.c}). The
+actual clearing is accomplished by making these objects unreachable and
+starting a garbage collection. The function is only used while building
+xemacs.
+@item
+In function @code{Feval / eval} in file @code{eval.c}. Each time the
+well known and often used function eval is called to evaluate a form,
+one of the first things that could happen, is a potential call of
+@code{garbage_collect_1}. There exist three global variables,
+@code{consing_since_gc} (counts the created cons-cells since the last
+garbage collection), @code{gc_cons_threshold} (a specified threshold
+after which a garbage collection occurs) and @code{always_gc}. If
+@code{always_gc} is set or if the threshold is exceeded, the garbage
+collection will start.
+@item
+In function @code{Ffuncall / funcall} in file @code{eval.c}. This
+function evaluates calls of elisp functions and works according to
+@code{Feval}.
+@end enumerate
+
+The upshot is that garbage collection can basically occur everywhere
+@code{Feval}, respectively @code{Ffuncall}, is used - either directly or
+through another function. Since calls to these two functions are
+hidden in various other functions, many calls to
+@code{garabge_collect_1} are not obviously foreseeable, and therefore
+unexpected. Instances where they are used that are worth remembering are
+various elisp commands, as for example @code{or},
+@code{and}, @code{if}, @code{cond}, @code{while}, @code{setq}, etc.,
+miscellaneous @code{gui_item_...} functions, everything related to
+@code{eval} (@code{Feval_buffer}, @code{call0}, ...) and inside
+@code{Fsignal}. The latter is used to handle signals, as for example the
+ones raised by every @code{QUITE}-macro triggered after pressing Ctrl-g.
+
+@node garbage_collect_1
+@subsection @code{garbage_collect_1}
+@cindex @code{garbage_collect_1}
+
+We can now describe exactly what happens after the invocation takes
+place.
+@enumerate
+@item
+There are several cases in which the garbage collector is left immediately: 
+when we are already garbage collecting (@code{gc_in_progress}), when
+the garbage collection is somehow forbidden
+(@code{gc_currently_forbidden}), when we are currently displaying something
+(@code{in_display}) or when we are preparing for the armageddon of the
+whole system (@code{preparing_for_armageddon}).
+@item
+Next the correct frame in which to put
+all the output occurring during garbage collecting is determined. In
+order to be able to restore the old display's state after displaying the
+message, some data about the current cursor position has to be
+saved. The variables @code{pre_gc_curser} and @code{cursor_changed} take
+care of that.
+@item
+The state of @code{gc_currently_forbidden} must be restored after
+the garbage collection, no matter what happens during the process. We
+accomplish this by @code{record_unwind_protect}ing the suitable function
+@code{restore_gc_inhibit} together with the current value of
+@code{gc_currently_forbidden}. 
+@item
+If we are concurrently running an interactive xemacs session, the next step
+is simply to show the garbage collector's cursor/message.
+@item
+The following steps are the intrinsic steps of the garbage collector,
+therefore @code{gc_in_progress} is set.
+@item
+For debugging purposes, it is possible to copy the current C stack
+frame. However, this seems to be a currently unused feature.
+@item
+Before actually starting to go over all live objects, references to
+objects that are no longer used are pruned. We only have to do this for events
+(@code{clear_event_resource}) and for specifiers
+(@code{cleanup_specifiers}). 
+@item
+Now the mark phase begins and marks all accessible elements. In order to
+start from
+all slots that serve as roots of accessibility, the function
+@code{mark_object} is called for each root individually to go out from
+there to mark all reachable objects. All roots that are traversed are
+shown in their processed order:
+@itemize @bullet
+@item
+all constant symbols and static variables that are registered via
+@code{staticpro}@ in the array @code{staticvec}.
+@xref{Adding Global Lisp Variables}. 
+@item
+all Lisp objects that are created in C functions and that must be
+protected from freeing them. They are registered in the global
+list @code{gcprolist}.
+@xref{GCPROing}.
+@item 
+all local variables (i.e. their name fields @code{symbol} and old
+values @code{old_values}) that are bound during the evaluation by the Lisp
+engine. They are stored in @code{specbinding} structs pushed on a stack
+called @code{specpdl}.
+@xref{Dynamic Binding; The specbinding Stack; Unwind-Protects}.
+@item
+all catch blocks that the Lisp engine encounters during the evaluation
+cause the creation of structs @code{catchtag} inserted in the list
+@code{catchlist}. Their tag (@code{tag}) and value (@code{val} fields
+are freshly created objects and therefore have to be marked.
+@xref{Catch and Throw}.
+@item
+every function application pushes new structs @code{backtrace} 
+on the call stack of the Lisp engine (@code{backtrace_list}). The unique 
+parts that have to be marked are the fields for each function
+(@code{function}) and all their arguments (@code{args}).
+@xref{Evaluation}.
+@item
+all objects that are used by the redisplay engine that must not be freed 
+are marked by a special function called @code{mark_redisplay} (in
+@code{redisplay.c}).
+@item
+all objects created for profiling purposes are allocated by C functions
+instead of using the lisp allocation mechanisms. In order to receive the
+right ones during the sweep phase, they also have to be marked
+manually. That is done by the function @code{mark_profiling_info}
+@end itemize
+@item
+Hash tables in Xemacs belong to a kind of special objects that
+make use of a concept often called 'weak pointers'.
+To make a long story short, these kind of pointers are not followed
+during the estimation of the live objects during garbage collection.
+Any object referenced only by weak pointers is collected
+anyway, and the reference to it is cleared. In hash tables there are
+different usage patterns of them, manifesting in different types of hash
+tables, namely 'non-weak', 'weak', 'key-weak' and 'value-weak'
+(internally also 'key-car-weak' and 'value-car-weak') hash tables, each 
+clearing entries depending on different conditions. More information can 
+be found in the documentation to the function @code{make-hash-table}.
+
+Because there are complicated dependency rules about when and what to
+mark while processing weak hash tables, the standard @code{marker}
+method is only active if it is marking non-weak hash tables. As soon as
+a weak component is in the table, the hash table entries are ignored
+while marking. Instead their marking is done each separately by the
+function @code{finish_marking_weak_hash_tables}. This function iterates
+over each hash table entry @code{hentries} for each weak hash table in
+@code{Vall_weak_hash_tables}. Depending on the type of a table, the
+appropriate action is performed. 
+If a table is acting as @code{HASH_TABLE_KEY_WEAK}, and a key already marked,
+everything reachable from the @code{value} component is marked. If it is 
+acting as a @code{HASH_TABLE_VALUE_WEAK} and the value component is
+already marked, the marking starts beginning only from the 
+@code{key} component.
+If it is a @code{HASH_TABLE_KEY_CAR_WEAK} and the car 
+of the key entry is already marked, we mark both the @code{key} and
+@code{value} components.
+Finally, if the table is of the type @code{HASH_TABLE_VALUE_CAR_WEAK}
+and the car of the value components is already marked, again both the
+@code{key} and the @code{value} components get marked.
+
+Again, there are lists with comparable properties called weak
+lists. There exist different peculiarities of their types called
+@code{simple}, @code{assoc}, @code{key-assoc} and
+@code{value-assoc}. You can find further details about them in the
+description to the function @code{make-weak-list}. The scheme of their
+marking is similar: all weak lists are listed in @code{Qall_weak_lists}, 
+therefore we iterate over them. The marking is advanced until we hit an
+already marked pair. Then we know that during a former run all 
+the rest has been marked completely. Again, depending on the special
+type of the weak list, our jobs differ. If it is a @code{WEAK_LIST_SIMPLE}
+and the elem is marked, we mark the @code{cons} part. If it is a
+@code{WEAK_LIST_ASSOC} and not a pair or a pair with both marked car and
+cdr, we mark the @code{cons} and the @code{elem}. If it is a
+@code{WEAK_LIST_KEY_ASSOC} and not a pair or a pair with a marked car of
+the elem, we mark the @code{cons} and the @code{elem}. Finally, if it is
+a @code{WEAK_LIST_VALUE_ASSOC} and not a pair or a pair with a marked
+cdr of the elem, we mark both the @code{cons} and the @code{elem}.
+
+Since, by marking objects in reach from weak hash tables and weak lists,
+other objects could get marked, this perhaps implies further marking of
+other weak objects, both finishing functions are redone as long as 
+yet unmarked objects get freshly marked.
+
+@item
+After completing the special marking for the weak hash tables and for the weak
+lists, all entries that point to objects that are going to be swept in
+the further process are useless, and therefore have to be removed from
+the table or the list.
+
+The function @code{prune_weak_hash_tables} does the job for weak hash
+tables. Totally unmarked hash tables are removed from the list
+@code{Vall_weak_hash_tables}. The other ones are treated more carefully
+by scanning over all entries and removing one as soon as one of 
+the components @code{key} and @code{value} is unmarked.
+
+The same idea applies to the weak lists. It is accomplished by
+@code{prune_weak_lists}: An unmarked list is pruned from
+@code{Vall_weak_lists} immediately. A marked list is treated more
+carefully by going over it and removing just the unmarked pairs.
+
+@item
+The function @code{prune_specifiers} checks all listed specifiers held
+in @code{Vall_speficiers} and removes the ones from the lists that are 
+unmarked.
+
+@item
+All syntax tables are stored in a list called
+@code{Vall_syntax_tables}. The function @code{prune_syntax_tables} walks 
+through it and unlinks the tables that are unmarked.
+
+@item
+Next, we will attack the complete sweeping - the function
+@code{gc_sweep} which holds the predominance.
+@item
+First, all the variables with respect to garbage collection are
+reset. @code{consing_since_gc} - the counter of the created cells since 
+the last garbage collection - is set back to 0, and
+@code{gc_in_progress} is not @code{true} anymore.
+@item
+In case the session is interactive, the displayed cursor and message are 
+removed again.
+@item
+The state of @code{gc_inhibit} is restored to the former value by
+unwinding the stack.
+@item
+A small memory reserve is always held back that can be reached by
+@code{breathing_space}. If nothing more is left, we create a new reserve
+and exit. 
+@end enumerate
+
+@node mark_object
+@subsection @code{mark_object}
+@cindex @code{mark_object}
+
+The first thing that is checked while marking an object is whether the
+object is a real Lisp object @code{Lisp_Type_Record} or just an integer
+or a character. Integers and characters are the only two types that are
+stored directly - without another level of indirection, and therefore they
+don´t have to be marked and collected. 
+@xref{How Lisp Objects Are Represented in C}.
+
+The second case is the one we have to handle. It is the one when we are
+dealing with a pointer to a Lisp object. But, there exist also three
+possibilities, that prevent us from doing anything while marking: The
+object is read only which prevents it from being garbage collected,
+i.e. marked (@code{C_READONLY_RECORD_HEADER}). The object in question is
+already marked, and need not be marked for the second time (checked by
+@code{MARKED_RECORD_HEADER_P}). If it is a special, unmarkable object
+(@code{UNMARKABLE_RECORD_HEADER_P}, apparently, these are objects that
+sit in some CONST space, and can therefore not be marked, see
+@code{this_one_is_unmarkable} in @code{alloc.c}).
+
+Now, the actual marking is feasible. We do so by once using the macro
+@code{MARK_RECORD_HEADER} to mark the object itself (actually the
+special flag in the lrecord header), and calling its special marker
+"method" @code{marker} if available. The marker method marks every
+other object that is in reach from our current object. Note, that these 
+marker methods should not call @code{mark_object} recursively, but
+instead should return the next object from where further marking has to
+be performed.
+
+In case another object was returned, as mentioned before, we reiterate
+the whole @code{mark_object} process beginning with this next object.
+
+@node gc_sweep
+@subsection @code{gc_sweep}
+@cindex @code{gc_sweep}
+
+The job of this function is to free all unmarked records from memory. As 
+we know, there are different types of objects implemented and managed, and
+consequently different ways to free them from memory.
+@xref{Introduction to Allocation}.
+
+We start with all objects stored through @code{lcrecords}. All
+bulkier objects are allocated and handled using that scheme of
+@code{lcrecords}. Each object is @code{malloc}ed separately
+instead of placing it in one of the contiguous frob blocks. All types
+that are currently stored 
+using @code{lcrecords}´s  @code{alloc_lcrecord} and
+@code{make_lcrecord_list} are the types: vectors, buffers,
+char-table, char-table-entry, console, weak-list, database, device,
+ldap, hash-table, command-builder, extent-auxiliary, extent-info, face,
+coding-system, frame, image-instance, glyph, popup-data, gui-item,
+keymap, charset, color_instance, font_instance, opaque, opaque-list,
+process, range-table, specifier, symbol-value-buffer-local,
+symbol-value-lisp-magic, symbol-value-varalias, toolbar-button,
+tooltalk-message, tooltalk-pattern, window, and window-configuration. We
+take care of them in the fist place
+in order to be able to handle and to finalize items stored in them more
+easily. The function @code{sweep_lcrecords_1} as described below is
+doing the whole job for us.
+For a description about the internals: @xref{lrecords}.
+
+Our next candidates are the other objects that behave quite differently
+than everything else: the strings. They consists of two parts, a
+fixed-size portion (@code{struct Lisp_string}) holding the string's
+length, its property list and a pointer to the second part, and the
+actual string data, which is stored in string-chars blocks comparable to
+frob blocks. In this block, the data is not only freed, but also a
+compression of holes is made, i.e. all strings are relocated together.
+@xref{String}. This compacting phase is performed by the function
+@code{compact_string_chars}, the actual sweeping by the function
+@code{sweep_strings} is described below.
+
+After that, the other types are swept step by step using functions
+@code{sweep_conses}, @code{sweep_bit_vectors_1},
+@code{sweep_compiled_functions}, @code{sweep_floats},
+@code{sweep_symbols}, @code{sweep_extents}, @code{sweep_markers} and
+@code{sweep_extents}.  They are the fixed-size types cons, floats,
+compiled-functions, symbol, marker, extent, and event stored in
+so-called "frob blocks", and therefore we can basically do the same on
+every type objects, using the same macros, especially defined only to
+handle everything with respect to fixed-size blocks. The only fixed-size 
+type that is not handled here are the fixed-size portion of strings,
+because we took special care of them earlier.
+
+The only big exceptions are bit vectors stored differently and
+therefore treated differently by the function @code{sweep_bit_vectors_1} 
+described later.
+
+At first, we need some brief information about how
+these fixed-size types are managed in general, in order to understand
+how the sweeping is done. They have all a fixed size, and are therefore
+stored in big blocks of memory - allocated at once - that can hold a
+certain amount of objects of one type. The macro
+@code{DECLARE_FIXED_TYPE_ALLOC} creates the suitable structures for
+every type. More precisely, we have the block struct 
+(holding a pointer to the previous block @code{prev} and the
+objects in @code{block[]}), a pointer to current block
+(@code{current_..._block)}) and its last index
+(@code{current_..._block_index}), and a pointer to the free list that
+will be created. Also a macro @code{FIXED_TYPE_FROM_BLOCK} plus some
+related macros exists that are used to obtain a new object, either from
+the free list @code{ALLOCATE_FIXED_TYPE_1} if there is an unused object
+of that type stored or by allocating a completely new block using
+@code{ALLOCATE_FIXED_TYPE_FROM_BLOCK}.
+
+The rest works as follows: all of them define a
+macro @code{UNMARK_...} that is used to unmark the object. They define a
+macro @code{ADDITIONAL_FREE_...} that defines additional work that has
+to be done when converting an object from in use to not in use (so far,
+only markers use it in order to unchain them). Then, they all call
+the macro @code{SWEEP_FIXED_TYPE_BLOCK} instantiated with their type name 
+and their struct name.
+
+This call in particular does the following: we go over all blocks
+starting with the current moving towards the oldest.
+For each block, we look at every object in it. If the object already
+freed (checked with @code{FREE_STRUCT_P} using the first pointer of the
+object), or if it is 
+set to read only (@code{C_READONLY_RECORD_HEADER_P}, nothing must be
+done. If it is unmarked (checked with @code{MARKED_RECORD_HEADER_P}), it
+is put in the free list and set free (using the macro
+@code{FREE_FIXED_TYPE}, otherwise it stays in the block, but is unmarked 
+(by @code{UNMARK_...}). While going through one block, we note if the
+whole block is empty. If so, the whole block is freed (using
+@code{xfree}) and the free list state is set to the state it had before
+handling this block.
+
+@node sweep_lcrecords_1
+@subsection @code{sweep_lcrecords_1}
+@cindex @code{sweep_lcrecords_1}
+
+After nullifying the complete lcrecord statistics, we go over all
+lcrecords two separate times. They are all chained together in a list with 
+a head called @code{all_lcrecords}. 
+
+The first loop calls for each object its @code{finalizer} method, but only 
+in the case that it is not read only
+(@code{C_READONLY_RECORD_HEADER_P)}, it is not already marked
+(@code{MARKED_RECORD_HEADER_P}), it is not already in a free list (list of
+freed objects, field @code{free}) and finally it owns a finalizer
+method.
+ 
+The second loop actually frees the appropriate objects again by iterating 
+through the whole list. In case an object is read only or marked, it 
+has to persist, otherwise it is manually freed by calling
+@code{xfree}. During this loop, the lcrecord statistics are kept up to
+date by calling @code{tick_lcrecord_stats} with the right arguments, 
+
+@node compact_string_chars
+@subsection @code{compact_string_chars}
+@cindex @code{compact_string_chars}
+
+The purpose of this function is to compact all the data parts of the
+strings that are held in so-called @code{string_chars_block}, i.e. the
+strings that do not exceed a certain maximal length.
+
+The procedure with which this is done is as follows. We are keeping two
+positions in the @code{string_chars_block}s using two pointer/integer
+pairs, namely @code{from_sb}/@code{from_pos} and
+@code{to_sb}/@code{to_pos}. They stand for the actual positions, from
+where to where, to copy the actually handled string. 
+
+While going over all chained @code{string_char_block}s and their held
+strings, staring at @code{first_string_chars_block}, both pointers
+are advanced and eventually a string is copied from @code{from_sb} to
+@code{to_sb}, depending on the status of the pointed at strings.
+
+More precisely, we can distinguish between the following actions.
+@itemize @bullet
+@item
+The string at @code{from_sb}'s position could be marked as free, which
+is indicated by an invalid pointer to the pointer that should point back 
+to the fixed size string object, and which is checked by
+@code{FREE_STRUCT_P}. In this case, the @code{from_sb}/@code{from_pos}
+is advanced to the next string, and nothing has to be copied.
+@item
+Also, if a string object itself is unmarked, nothing has to be
+copied. We likewise advance the @code{from_sb}/@code{from_pos}
+pair as described above.
+@item
+In all other cases, we have a marked string at hand. The string data 
+must be moved from the from-position to the to-position. In case
+there is not enough space in the actual @code{to_sb}-block, we advance
+this pointer to the beginning of the next block before copying. In case the
+from and to positions are different, we perform the
+actual copying using the library function @code{memmove}.
+@end itemize
+
+After compacting, the pointer to the current
+@code{string_chars_block}, sitting in @code{current_string_chars_block},
+is reset on the last block to which we moved a string,
+i.e. @code{to_block}, and all remaining blocks (we know that they just
+carry garbage) are explicitly @code{xfree}d.
+
+@node sweep_strings
+@subsection @code{sweep_strings}
+@cindex @code{sweep_strings}
+
+The sweeping for the fixed sized string objects is essentially exactly
+the same as it is for all other fixed size types. As before, the freeing
+into the suitable free list is done by using the macro
+@code{SWEEP_FIXED_SIZE_BLOCK} after defining the right macros
+@code{UNMARK_string} and @code{ADDITIONAL_FREE_string}. These two
+definitions are a little bit special compared to the ones used
+for the other fixed size types.
+
+@code{UNMARK_string} is defined the same way except some additional code 
+used for updating the bookkeeping information.
+
+For strings, @code{ADDITIONAL_FREE_string} has to do something in
+addition: in case, the string was not allocated in a
+@code{string_chars_block} because it exceeded the maximal length, and
+therefore it was @code{malloc}ed separately, we know also @code{xfree}
+it explicitly.
+
+@node sweep_bit_vectors_1
+@subsection @code{sweep_bit_vectors_1}
+@cindex @code{sweep_bit_vectors_1}
+
+Bit vectors are also one of the rare types that are @code{malloc}ed
+individually. Consequently, while sweeping, all further needless
+bit vectors must be freed by hand. This is done, as one might imagine,
+the expected way: since they are all registered in a list called
+@code{all_bit_vectors}, all elements of that list are traversed,
+all unmarked bit vectors are unlinked by calling @code{xfree} and all of 
+them become unmarked.
+In addition, the bookkeeping information used for garbage 
+collector's output purposes is updated.
 
 @node Integers and Characters
 @section Integers and Characters
@@ -7402,6 +7904,7 @@ It Is Better To Be Fast Than Not To Be.
 @menu
 * Critical Redisplay Sections::
 * Line Start Cache::
+* Redisplay Piece by Piece::
 @end menu
 
 @node Critical Redisplay Sections
@@ -7497,7 +8000,58 @@ the part of the cache starting at where the modification occurs.
   In case you're wondering, the Second Golden Rule of Redisplay is not
 applicable.
 
-@node Extents, Faces and Glyphs, The Redisplay Mechanism, Top
+@node Redisplay Piece by Piece
+@section Redisplay Piece by Piece
+@cindex Redisplay Piece by Piece
+
+As you can begin to see redisplay is complex and also not well
+documented. Chuck no longer works on XEmacs so this section is my take
+on the workings of redisplay.
+
+Redisplay happens in three phases:
+
+@enumerate
+@item
+Determine desired display in area that needs redisplay.
+Implemented by @code{redisplay.c}
+@item
+Compare desired display with current display
+Implemented by @code{redisplay-output.c}
+@item
+Output changes Implemented by @code{redisplay-output.c},
+@code{redisplay-x.c}, @code{redisplay-msw.c} and @code{redisplay-tty.c}
+@end enumerate
+
+Steps 1 and 2 are device-independant and relatively complex.  Step 3 is
+mostly device-dependent.
+
+Determining the desired display
+
+Display attributes are stored in @code{display_line} structures. Each
+@code{display_line} consists of a set of @code{display_block}'s and each
+@code{display_block} contains a number of @code{rune}'s. Generally
+dynarr's of @code{display_line}'s are held by each window representing
+the current display and the desired display.
+
+The @code{display_line} structures are tighly tied to buffers which
+presents a problem for redisplay as this connection is bogus for the
+modeline. Hence the @code{display_line} generation routines are
+duplicated for generating the modeline. This means that the modeline
+display code has many bugs that the standard redisplay code does not.
+
+The guts of @code{display_line} generation are in
+@code{create_text_block}, which creates a single display line for the
+desired locale. This incrementally parses the characters on the current
+line and generates redisplay structures for each. 
+
+Gutter redisplay is different. Because the data to display is stored in
+a string we cannot use @code{create_text_block}. Instead we use
+@code{create_text_string_block} which performs the same function as
+@code{create_text_block} but for strings. Many of the complexities of
+@code{create_text_block} to do with cursor handling and selective
+display have been removed.
+
+@node Extents, Faces, The Redisplay Mechanism, Top
 @chapter Extents
 
 @menu
@@ -7785,12 +8339,74 @@ position when moving linearly through the buffer.  They rely on the
 stack-of-extents code, which does the heavy-duty algorithmic work of
 determining which extents overly a particular position.
 
-@node Faces and Glyphs, Specifiers, Extents, Top
-@chapter Faces and Glyphs
+@node Faces, Glyphs, Extents, Top
+@chapter Faces
 
 Not yet documented.
 
-@node Specifiers, Menus, Faces and Glyphs, Top
+@node Glyphs, Specifiers, Faces, Top
+@chapter Glyphs
+
+Glyphs are graphical elements that can be displayed in XEmacs buffers or
+gutters. We use the term graphical element here in the broadest possible
+sense since glyphs can be as mundane as text to as arcane as a native
+tab widget.
+
+In XEmacs, glyphs represent the uninstantiated state of graphical
+elements, i.e. they hold all the information necessary to produce an
+image on-screen but the image does not exist at this stage.
+
+Glyphs are lazily instantiated by calling one of the glyph
+functions. This usually occurs within redisplay when
+@code{Fglyph_height} is called. Instantiation causes an image-instance
+to be created and cached. This cache is on a device basis for all glyphs
+except glyph-widgets, and on a window basis for glyph widgets.  The
+caching is done by @code{image_instantiate} and is necessary because it
+is generally possible to display an image-instance in multiple
+domains. For instance if we create a Pixmap, we can actually display
+this on multiple windows - even though we only need a single Pixmap
+instance to do this. If caching wasn't done then it would be necessary
+to create image-instances for every displayable occurrance of a glyph -
+and every usage - and this would be extremely memory and cpu intensive.
+
+Widget-glyphs (a.k.a native widgets) are not cached in this way. This is
+because widget-glyph image-instances on screen are toolkit windows, and
+thus cannot be reused in multiple XEmacs domains. Thus widget-glyphs are
+cached on a window basis.
+
+Any action on a glyph first consults the cache before actually
+instantiating a widget.
+
+@section Widget-Glyphs in the MS-WIndows Environment
+
+To Do
+
+@section Widget-Glyphs in the X Environment
+
+Widget-glyphs under X make heavy use of lwlib for manipulating the
+native toolkit objects. This is primarily so that different toolkits can
+be supported for widget-glyphs, just as they are supported for features
+such as menubars etc.
+
+Lwlib is extremely poorly documented and quite hairy so here is my
+understanding of what goes on.
+
+Lwlib maintains a set of widget_instances which mirror the hierarchical
+state of Xt widgets. I think this is so that widgets can be updated and
+manipulated generically by the lwlib library. For instance
+update_one_widget_instance can cope with multiple types of widget and
+multiple types of toolkit. Each element in the widget hierarchy is updated
+from its corresponding widget_instance by walking the widget_instance
+tree recursively.
+
+This has desirable properties such as lw_modify_all_widgets which is
+called from glyphs-x.c and updates all the properties of a widget
+without having to know what the widget is or what toolkit it is from.
+Unfortunately this also has hairy properrties such as making the lwlib
+code quite complex. And of course lwlib has to know at some level what
+the widget is and how to set its properties.
+
+@node Specifiers, Menus, Glyphs, Top
 @chapter Specifiers
 
 Not yet documented.

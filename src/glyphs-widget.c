@@ -1,5 +1,5 @@
 /* Widget-specific glyph objects.
-   Copyright (C) 1998 Andy Piper
+   Copyright (C) 1998, 1999 Andy Piper.
 
 This file is part of XEmacs.
 
@@ -45,10 +45,6 @@ Lisp_Object Qedit_field;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (scrollbar);
 Lisp_Object Qscrollbar;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (widget);
-#if 0
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (group);
-Lisp_Object Qgroup;
-#endif
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (label);
 Lisp_Object Qlabel;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge);
@@ -57,12 +53,19 @@ DEFINE_IMAGE_INSTANTIATOR_FORMAT (tree_view);
 Lisp_Object Qtree_view;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (tab_control);
 Lisp_Object Qtab_control;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (layout);
+Lisp_Object Qlayout;
 
 Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
-Lisp_Object Q_image, Q_text, Q_percent;
+Lisp_Object Q_image, Q_text, Q_percent, Q_orientation, Q_justify, Q_border;
+Lisp_Object Qetched_in, Qetched_out, Qbevel_in, Qbevel_out;
 
-#define WIDGET_BORDER_HEIGHT 2
+#define WIDGET_BORDER_HEIGHT 4
 #define WIDGET_BORDER_WIDTH 4
+
+#ifdef DEBUG_WIDGETS
+int debug_widget_instances;
+#endif
 
 /* TODO:
    - more complex controls.
@@ -96,7 +99,7 @@ widget_text_to_pixel_conversion (Lisp_Object domain, Lisp_Object face,
   int ch=0, cw=0;
   widget_face_font_info (domain, face, &ch, &cw);
   if (height)
-    *height = th * (ch + 2 * WIDGET_BORDER_HEIGHT);
+    *height = th * ch + 2 * WIDGET_BORDER_HEIGHT;
   if (width)
     *width = tw * cw + 2 * WIDGET_BORDER_WIDTH;
 }
@@ -108,7 +111,7 @@ widget_possible_dest_types (void)
 }
 
 static void
-check_valid_glyph_or_image (Lisp_Object data)
+check_valid_glyph_or_instantiator (Lisp_Object data)
 {
   Lisp_Object glyph = data;
   if (SYMBOLP (data))
@@ -116,8 +119,33 @@ check_valid_glyph_or_image (Lisp_Object data)
 
   if (IMAGE_INSTANCEP (glyph))
     CHECK_IMAGE_INSTANCE (glyph);
-  else if (!CONSP (glyph))
+  else if (!CONSP (glyph) && !VECTORP (glyph))
     CHECK_BUFFER_GLYPH (glyph);
+}
+
+static void
+check_valid_orientation (Lisp_Object data)
+{
+  if (!EQ (data, Qhorizontal)
+      &&
+      !EQ (data, Qvertical))
+    signal_simple_error ("unknown orientation for layout", data);
+}
+
+static void
+check_valid_justification (Lisp_Object data)
+{
+  if (!EQ (data, Qleft) && !EQ (data, Qright) && !EQ (data, Qcenter))
+    signal_simple_error ("unknown justification for layout", data);
+}
+
+static void
+check_valid_border (Lisp_Object data)
+{
+  if (!EQ (data, Qt) && !EQ (data, Qetched_in) && !EQ (data, Qetched_out)
+      && !EQ (data, Qbevel_in) && !EQ (data, Qbevel_out)
+      && !GLYPHP (data) && !VECTORP (data))
+    signal_simple_error ("unknown border style for layout", data);
 }
 
 static void
@@ -177,6 +205,58 @@ check_valid_item_list (Lisp_Object data)
   items = Fplist_get (data, Q_items, Qnil);
 
   check_valid_item_list_1 (items);
+}
+
+static void
+check_valid_glyph_or_instantiator_list (Lisp_Object data)
+{
+  Lisp_Object rest;
+
+  CHECK_LIST (data);
+  EXTERNAL_LIST_LOOP (rest, data)
+    {
+      check_valid_glyph_or_instantiator (XCAR (rest));
+    }
+}
+
+static Lisp_Object
+glyph_instantiator_to_glyph (Lisp_Object sym)
+{
+  /* This function calls lisp. */
+  Lisp_Object glyph = sym;
+  struct gcpro gcpro1;
+	  
+  GCPRO1 (glyph);
+  /* if we have a symbol get at the actual data */
+  if (SYMBOLP (glyph))
+    glyph = XSYMBOL (glyph)->value;
+	  
+  if (CONSP (glyph))
+    glyph = Feval (glyph);
+
+  /* Be really helpful to the user. */
+  if (VECTORP (glyph))
+    {
+      glyph = call1 (intern ("make-glyph"), glyph);
+    }
+
+  /* substitute the new glyph */
+  RETURN_UNGCPRO (glyph);
+}
+
+static void 
+substitute_keyword_value (Lisp_Object inst, Lisp_Object key, Lisp_Object val)
+{
+  int i;
+  /* substitute the new glyph */
+  for (i = 0; i < XVECTOR_LENGTH (inst); i++)
+    {
+      if (EQ (key, XVECTOR_DATA (inst)[i]))
+	{
+	  XVECTOR_DATA (inst)[i+1] = val;
+	  break;
+	}
+    }
 }
 
 /* wire widget property invocations to specific widgets ...  The
@@ -289,25 +369,9 @@ widget_normalize (Lisp_Object inst, Lisp_Object console_type)
      same reasons we normalize file to data. */
   if (!NILP (glyph))
     {
-      int i;
-      struct gcpro gcpro1;
-      if (SYMBOLP (glyph))
-	glyph = XSYMBOL (glyph)->value;
-      GCPRO1 (glyph);
-
-      if (CONSP (glyph))
-	glyph = Feval (glyph);
-      /* substitute the new glyph */
-      for (i = 0; i < XVECTOR_LENGTH (inst); i++)
-	{
-	  if (EQ (Q_image, XVECTOR_DATA (inst)[i]))
-	    {
-	      XVECTOR_DATA (inst)[i+1] = glyph;
-	      break;
-	    }
-	}
-      UNGCPRO;
+      substitute_keyword_value (inst, Q_image, glyph_instantiator_to_glyph (glyph));
     }
+
   return inst;
 }
 
@@ -318,7 +382,7 @@ initialize_widget_image_instance (struct Lisp_Image_Instance *ii, Lisp_Object ty
   IMAGE_INSTANCE_WIDGET_TYPE (ii) = type;
   IMAGE_INSTANCE_WIDGET_PROPS (ii) = Qnil;
   IMAGE_INSTANCE_WIDGET_FACE (ii) = Vwidget_face;
-  IMAGE_INSTANCE_WIDGET_ITEM (ii) = allocate_gui_item ();
+  IMAGE_INSTANCE_WIDGET_ITEMS (ii) = allocate_gui_item ();
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
@@ -327,7 +391,7 @@ initialize_widget_image_instance (struct Lisp_Image_Instance *ii, Lisp_Object ty
    want to display it in and BitBlt it. So image instances can have a
    many-to-one relationship with things you see, whereas widgets can
    only be one-to-one (i.e. per frame) */
-static void
+void
 widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 		      Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		      int dest_mask, Lisp_Object domain, int default_textheight,
@@ -341,6 +405,7 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Object pixheight = find_keyword_in_vector (instantiator, Q_pixel_height);
   Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
+  Lisp_Object props = find_keyword_in_vector (instantiator, Q_properties);
   int pw=0, ph=0, tw=0, th=0;
   
   /* this just does pixel type sizing */
@@ -357,8 +422,7 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
     IMAGE_INSTANCE_WIDGET_FACE (ii) = Fget_face (face);
   
   /* data items for some widgets */
-  IMAGE_INSTANCE_WIDGET_PROPS (ii) = 
-    find_keyword_in_vector (instantiator, Q_properties);
+  IMAGE_INSTANCE_WIDGET_PROPS (ii) = props;
 
   /* retrieve the gui item information. This is easy if we have been
      provided with a vector, more difficult if we have just been given
@@ -366,13 +430,23 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   if (STRINGP (desc) || NILP (desc))
     {
       /* big cheat - we rely on the fact that a gui item looks like an instantiator */
-      IMAGE_INSTANCE_WIDGET_ITEM (ii) = 
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
 	gui_parse_item_keywords_no_errors (instantiator);
       IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
     }
   else
-    IMAGE_INSTANCE_WIDGET_ITEM (ii) =
+    IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
       gui_parse_item_keywords_no_errors (desc);
+
+  /* parse more gui items out of the properties */
+  if (!NILP (props))
+    {
+      Lisp_Object items = Fplist_get (props, Q_items, Qnil);
+      if (!NILP (items))
+	IMAGE_INSTANCE_WIDGET_ITEMS (ii) = 
+	  Fcons (IMAGE_INSTANCE_WIDGET_ITEMS (ii), 
+		 parse_gui_item_tree_children (items));
+    }
 
   /* normalize size information */
   if (!NILP (width))
@@ -421,6 +495,12 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 
   IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = pw;
   IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = ph;
+#ifdef DEBUG_WIDGETS
+  debug_widget_instances++;
+  stderr_out ("instantiated ");
+  debug_print (instantiator);
+  stderr_out ("%d widgets instantiated\n", debug_widget_instances);
+#endif
 }
 
 static void
@@ -432,11 +512,11 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			       pointer_bg, dest_mask, domain, 1, 0, 0);
 }
 
-/* combo-box generic instantiation - get he heigh right */
+/* tree-view generic instantiation - get the height right */
 static void
-combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
-		   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
-		   int dest_mask, Lisp_Object domain)
+tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+		       Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+		       int dest_mask, Lisp_Object domain)
 {
   Lisp_Object data = Fplist_get (find_keyword_in_vector (instantiator, Q_properties),
 				 Q_items, Qnil);
@@ -483,6 +563,209 @@ static_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 }
 
 
+/*****************************************************************************
+ *                              widget layout                               *
+ *****************************************************************************/
+static int
+layout_possible_dest_types (void)
+{
+  return IMAGE_LAYOUT_MASK;
+}
+
+/* we need to convert things like glyphs to images, eval expressions
+   etc.*/
+static Lisp_Object
+layout_normalize (Lisp_Object inst, Lisp_Object console_type)
+{
+  /* This function can call lisp */
+  Lisp_Object items = find_keyword_in_vector (inst, Q_items);
+  Lisp_Object border = find_keyword_in_vector (inst, Q_border);
+  /* we need to eval glyph if its an expression, we do this for the
+     same reasons we normalize file to data. */
+  if (!NILP (items))
+    {
+      Lisp_Object rest;
+      LIST_LOOP (rest, items)
+	{
+	  /* substitute the new glyph */
+	  Fsetcar (rest, glyph_instantiator_to_glyph (XCAR (rest)));
+	}
+    }
+  /* normalize the border spec. */
+  if (VECTORP (border) || CONSP (border))
+    {
+      substitute_keyword_value (inst, Q_border, glyph_instantiator_to_glyph (border));
+    }
+  return inst;
+}
+
+/* Instantiate a layout widget. */
+static void
+layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+		    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+		    int dest_mask, Lisp_Object domain)
+{
+  struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object rest, device = IMAGE_INSTANCE_DEVICE (ii);
+  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
+  Lisp_Object width = find_keyword_in_vector (instantiator, Q_pixel_width);
+  Lisp_Object height = find_keyword_in_vector (instantiator, Q_pixel_height);
+  Lisp_Object orient = find_keyword_in_vector (instantiator, Q_orientation);
+  Lisp_Object justify = find_keyword_in_vector (instantiator, Q_justify);
+  Lisp_Object border = find_keyword_in_vector (instantiator, Q_border);
+  Lisp_Object children = Qnil;
+  int pw = 0, ph = 0, x, y, maxph = 0, maxpw = 0, nitems = 0,
+    horiz_spacing, vert_spacing, ph_adjust = 0;
+
+  if (NILP (frame))
+    signal_simple_error ("No selected frame", device);
+  
+  if (!(dest_mask & IMAGE_LAYOUT_MASK))
+    incompatible_image_types (instantiator, dest_mask, IMAGE_LAYOUT_MASK);
+
+  if (NILP (orient))
+    orient = Qvertical;
+
+  if (EQ (border, Qt))
+    border = Qetched_in;
+
+  ii->data = 0;
+  IMAGE_INSTANCE_TYPE (ii) = IMAGE_LAYOUT;
+  IMAGE_INSTANCE_SUBWINDOW_ID (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii) = 0;
+  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii) = frame;
+  IMAGE_INSTANCE_LAYOUT_BORDER (ii) = border;
+
+  /* normalize size information */
+  if (!NILP (width))
+    pw = XINT (width);
+  if (!NILP (height))
+    ph = XINT (height);
+
+  /* flip through the items to work out how much stuff we have to display */
+  LIST_LOOP (rest, items)
+    {
+      Lisp_Object glyph = XCAR (rest);
+      int gheight = glyph_height (glyph, Qnil, DEFAULT_INDEX, domain);
+      int gwidth = glyph_width (glyph, Qnil, DEFAULT_INDEX, domain);
+      nitems ++;
+      if (EQ (orient, Qhorizontal))
+	{
+	  maxph = max (maxph, gheight);
+	  maxpw += gwidth;
+	}
+      else if (EQ (orient, Qvertical))
+	{
+	  maxpw = max (maxpw, gwidth);
+	  maxph += gheight;
+	}
+    }
+
+  /* work out spacing between items and bounds of the layout */
+  if (!pw)
+    {
+      /* No user provided width so we just do default spacing. */
+      horiz_spacing = WIDGET_BORDER_WIDTH * 2;
+      if (EQ (orient, Qhorizontal))
+	pw = maxpw + (nitems + 1) * horiz_spacing;
+      else 
+	pw = maxpw + 2 * horiz_spacing;
+    }
+  else if (pw < maxpw)
+    /* The user wants a smaller space than the largest item, so we
+       just provide default spacing and will let the output routines
+       clip.. */
+    horiz_spacing = WIDGET_BORDER_WIDTH * 2;
+  else if (EQ (orient, Qhorizontal))
+    /* We have a larger area to display in so distribute the space
+       evenly. */
+    horiz_spacing = (pw - maxpw) / (nitems + 1);
+  else
+    horiz_spacing = (pw - maxpw) / 2;
+
+  /* Do the border now so that we can adjust the layout. */
+  if (GLYPHP (border))
+    {
+      /* We are going to be sneaky here and add the border text as
+         just another child, the layout and output routines don't know
+         this and will just display at the offsets we prescribe. */
+      Lisp_Object bglyph = glyph_image_instance (border, domain, ERROR_ME, 1);
+
+      children = Fcons (bglyph, children);
+      XIMAGE_INSTANCE_XOFFSET (bglyph) = 10; /* Really, what should this be? */
+      XIMAGE_INSTANCE_YOFFSET (bglyph) = 0;
+
+      ph_adjust = (glyph_height (border, Qnil, DEFAULT_INDEX, domain) / 2);
+      IMAGE_INSTANCE_LAYOUT_BORDER (ii) = make_int (ph_adjust);
+    }
+
+  /* Work out vertical spacings. */
+  if (!ph)
+    {
+      vert_spacing = WIDGET_BORDER_HEIGHT * 2;
+      if (EQ (orient, Qvertical))
+	ph = maxph + (nitems + 1) * vert_spacing + ph_adjust;
+      else 
+	ph = maxph + 2 * vert_spacing + ph_adjust;
+    }
+  else if (ph < maxph)
+    vert_spacing = WIDGET_BORDER_HEIGHT * 2;
+  else if (EQ (orient, Qvertical))
+    vert_spacing = (ph - (maxph + ph_adjust)) / (nitems + 1);
+  else
+    vert_spacing = (ph - (maxph + ph_adjust)) / 2;
+
+  y = vert_spacing + ph_adjust;
+  x = horiz_spacing;
+
+  /* Now flip through putting items where we want them, paying
+     attention to justification. */
+  LIST_LOOP (rest, items)
+    {
+      /* make sure the image is instantiated */
+      Lisp_Object glyph = XCAR (rest);
+      Lisp_Object gii = glyph_image_instance (glyph, domain, ERROR_ME, 1);
+      int gwidth = glyph_width (glyph, Qnil, DEFAULT_INDEX, domain);
+      int gheight = glyph_height (glyph, Qnil, DEFAULT_INDEX, domain);
+
+      children = Fcons (gii, children);
+
+      if (EQ (orient, Qhorizontal))
+	{
+	  if (EQ (justify, Qright))
+	    y = ph - (gheight + vert_spacing);
+	  else if (EQ (justify, Qcenter))
+	    y = (ph - gheight) / 2;
+	}
+      else if (EQ (orient, Qvertical))
+	{
+	  if (EQ (justify, Qright))
+	    x = pw - (gwidth + horiz_spacing);
+	  else if (EQ (justify, Qcenter))
+	    x = (pw - gwidth) / 2;
+	}
+
+      XIMAGE_INSTANCE_XOFFSET (gii) = x;
+      XIMAGE_INSTANCE_YOFFSET (gii) = y;
+
+      if (EQ (orient, Qhorizontal))
+	{
+	  x += (gwidth + horiz_spacing);
+	}
+      else if (EQ (orient, Qvertical))
+	{
+	  y += (gheight + vert_spacing);
+	}
+    }
+
+  IMAGE_INSTANCE_LAYOUT_CHILDREN (ii) = children;
+  assert (pw && ph);
+  IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii) = pw;
+  IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii) = ph;
+}
+
+
 /************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
@@ -498,6 +781,14 @@ syms_of_glyphs_widget (void)
   defkeyword (&Q_image, ":image");
   defkeyword (&Q_percent, ":percent");
   defkeyword (&Q_text, ":text");
+  defkeyword (&Q_orientation, ":orientation");
+  defkeyword (&Q_justify, ":justify");
+  defkeyword (&Q_border, ":border");
+
+  defsymbol (&Qetched_in, "etched-in");
+  defsymbol (&Qetched_out, "etched-out");
+  defsymbol (&Qbevel_in, "bevel-in");
+  defsymbol (&Qbevel_out, "bevel-out");
 }
 
 void
@@ -536,7 +827,8 @@ image_instantiator_format_create_glyphs_widget (void)
   IIFORMAT_HAS_SHARED_METHOD (button, possible_dest_types, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (button, normalize, widget);
-  IIFORMAT_VALID_KEYWORD (button, Q_image, check_valid_glyph_or_image);
+  IIFORMAT_VALID_KEYWORD (button, 
+			  Q_image, check_valid_glyph_or_instantiator);
   VALID_WIDGET_KEYWORDS (button);
   VALID_GUI_KEYWORDS (button);
 
@@ -552,7 +844,6 @@ image_instantiator_format_create_glyphs_widget (void)
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo_box, "combo-box");
   IIFORMAT_HAS_METHOD (combo_box, validate);
   IIFORMAT_HAS_SHARED_METHOD (combo_box, possible_dest_types, widget);
-  IIFORMAT_HAS_METHOD (combo_box, instantiate);
   VALID_GUI_KEYWORDS (combo_box);
 
   IIFORMAT_VALID_KEYWORD (combo_box, Q_width, check_valid_int);
@@ -576,7 +867,7 @@ image_instantiator_format_create_glyphs_widget (void)
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge, "progress-gauge");
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, validate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, combo_box);
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, widget);
   VALID_WIDGET_KEYWORDS (progress_gauge);
   VALID_GUI_KEYWORDS (progress_gauge);
 
@@ -584,7 +875,7 @@ image_instantiator_format_create_glyphs_widget (void)
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tree_view, "tree-view");
   IIFORMAT_HAS_SHARED_METHOD (tree_view, validate, combo_box);
   IIFORMAT_HAS_SHARED_METHOD (tree_view, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (tree_view, instantiate, combo_box);
+  IIFORMAT_HAS_METHOD (tree_view, instantiate);
   VALID_WIDGET_KEYWORDS (tree_view);
   VALID_GUI_KEYWORDS (tree_view);
   IIFORMAT_VALID_KEYWORD (tree_view, Q_properties, check_valid_item_list);
@@ -605,23 +896,30 @@ image_instantiator_format_create_glyphs_widget (void)
   VALID_WIDGET_KEYWORDS (label);
   IIFORMAT_VALID_KEYWORD (label, Q_descriptor, check_valid_string);
 
-#if 0
-  /* group */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (group, "group");
-  IIFORMAT_HAS_SHARED_METHOD (group, possible_dest_types, widget);
-  IIFORMAT_HAS_METHOD (group, instantiate);
+  /* layout */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (layout, "layout");
+  IIFORMAT_HAS_METHOD (layout, possible_dest_types);
+  IIFORMAT_HAS_METHOD (layout, instantiate);
+  IIFORMAT_HAS_METHOD (layout, normalize);
+  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (layout, Q_pixel_height, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (layout, Q_orientation, check_valid_orientation);
+  IIFORMAT_VALID_KEYWORD (layout, Q_justify, check_valid_justification);
+  IIFORMAT_VALID_KEYWORD (layout, Q_border, check_valid_border);
+  IIFORMAT_VALID_KEYWORD (layout, Q_items, 
+			  check_valid_glyph_or_instantiator_list);
+}
 
-  IIFORMAT_VALID_KEYWORD (group, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (group, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (group, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (group, Q_pixel_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (group, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (group, Q_background, check_valid_string);
-  IIFORMAT_VALID_KEYWORD (group, Q_descriptor, check_valid_string);
+void
+reinit_vars_of_glyphs_widget (void)
+{
+#ifdef DEBUG_WIDGETS
+  debug_widget_instances = 0;
 #endif
 }
 
 void
 vars_of_glyphs_widget (void)
 {
+  reinit_vars_of_glyphs_widget ();
 }

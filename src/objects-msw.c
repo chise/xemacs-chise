@@ -1066,8 +1066,7 @@ mswindows_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object 
 
 #if 0
 static void
-mswindows_mark_color_instance (struct Lisp_Color_Instance *c,
-			 void (*markobj) (Lisp_Object))
+mswindows_mark_color_instance (struct Lisp_Color_Instance *c)
 {
 }
 #endif
@@ -1105,7 +1104,7 @@ mswindows_color_instance_equal (struct Lisp_Color_Instance *c1,
 static unsigned long
 mswindows_color_instance_hash (struct Lisp_Color_Instance *c, int depth)
 {
-  return (unsigned long)(COLOR_INSTANCE_MSWINDOWS_COLOR(c));
+  return (unsigned long) COLOR_INSTANCE_MSWINDOWS_COLOR(c);
 }
 
 static Lisp_Object
@@ -1406,8 +1405,7 @@ mswindows_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object na
 
 #if 0
 static void
-mswindows_mark_font_instance (struct Lisp_Font_Instance *f,
-			void (*markobj) (Lisp_Object))
+mswindows_mark_font_instance (struct Lisp_Font_Instance *f)
 {
 }
 #endif

@@ -54,10 +54,10 @@ struct regexp_cache {
 };
 
 /* The instances of that struct.  */
-struct regexp_cache searchbufs[REGEXP_CACHE_SIZE];
+static struct regexp_cache searchbufs[REGEXP_CACHE_SIZE];
 
 /* The head of the linked list; points to the most recently used buffer.  */
-struct regexp_cache *searchbuf_head;
+static struct regexp_cache *searchbuf_head;
 
 
 /* Every call to re_match, etc., must pass &search_regs as the regs
@@ -2574,9 +2574,12 @@ syms_of_search (void)
 }
 
 void
-vars_of_search (void)
+reinit_vars_of_search (void)
 {
-  REGISTER int i;
+  int i;
+
+  last_thing_searched = Qnil;
+  staticpro_nodump (&last_thing_searched);
 
   for (i = 0; i < REGEXP_CACHE_SIZE; ++i)
     {
@@ -2584,13 +2587,16 @@ vars_of_search (void)
       searchbufs[i].buf.buffer = (unsigned char *) xmalloc (100);
       searchbufs[i].buf.fastmap = searchbufs[i].fastmap;
       searchbufs[i].regexp = Qnil;
-      staticpro (&searchbufs[i].regexp);
+      staticpro_nodump (&searchbufs[i].regexp);
       searchbufs[i].next = (i == REGEXP_CACHE_SIZE-1 ? 0 : &searchbufs[i+1]);
     }
   searchbuf_head = &searchbufs[0];
+}
 
-  last_thing_searched = Qnil;
-  staticpro (&last_thing_searched);
+void
+vars_of_search (void)
+{
+  reinit_vars_of_search ();
 
   DEFVAR_LISP ("forward-word-regexp", &Vforward_word_regexp /*
 *Regular expression to be used in `forward-word'.

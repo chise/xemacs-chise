@@ -27,6 +27,1314 @@
 	* faces.h (FACE_CACHEL_FONT): Use `MIN_LEADING_BYTE' instead of
 	128.
 
+1999-11-10  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.20 is released
+
+1999-11-04  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-ccl.c (ccl_driver): Warning suppression
+
+1999-11-01  SL Baur  <steve@miho.m17n.org>
+
+	* emacs.c (main_1): Guard call to reinit_vars_of_debug when not
+	building a debugged XEmacs.
+
+1999-10-28  Andreas Jaeger  <aj@suse.de>
+
+	* src/emacs.c (main_1): Don't set the malloc hooks if using
+	DOUG_LEA_MALLOC.
+
+1999-10-30  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c (pdump_dump_rtables): Don't forget to dump the last
+ 	registered type.
+	(pdump): Ditto.
+
+1999-10-25  Olivier Galibert  <galibert@pobox.com>
+
+	* emacs.c (main_1): Call reinit_vars_of_scrollbar_x.
+
+	* symsinit.h: Declare reinit_vars_of_scrollbar_x.
+
+1999-10-25  Martin Buchholz  <martin@xemacs.org>
+
+	* redisplay.h (CLASS_RESET_CHANGED_FLAGS): 
+	(GLOBAL_RESET_CHANGED_FLAGS): 
+	(CLASS_REDISPLAY_FLAGS_CHANGEDP): 
+	(RESET_CHANGED_SET_FLAGS): 
+	Fix C++ compile errors/warnings.
+	These macros were just a tad too clever.
+
+	* process-unix.c (unix_open_network_stream):
+	* objects-x.c (allocate_nearest_color):
+	* mule-charset.c (vars_of_mule_charset): 
+	* fileio.c (Ffile_truename): 
+	* file-coding.c (vars_of_file_coding): 
+	Fix compile errors/warnings.
+
+	* alloc.c (xstrdup): Use fact that memcpy returns its first arg.
+	(allocate_lisp_storage): Simplify.
+
+1999-10-24  Olivier Galibert  <galibert@pobox.com>
+
+	* conslots.h: Add defines with first and last slot names.
+	* bufslots.h: Add defines with first and last slot names.
+
+	* buffer.c (common_init_complex_vars_of_buffer): Renamed from
+ 	reinit_complex_vars_of_buffer
+	(reinit_complex_vars_of_buffer): Reset the slots to the dumped
+ 	value.
+	(complex_vars_of_buffer): Dump the slots values.
+
+	* console.c (common_init_complex_vars_of_console): Renamed from
+ 	reinit_complex_vars_of_console
+	(reinit_complex_vars_of_console): Reset the slots to the dumped
+ 	value.
+	(complex_vars_of_console): Dump the slots values.
+
+	* alloc.c: Rename reloc_table to pdump_reloc_table, rt_list to
+ 	pdump_rt_list and move them at the beginning of the file.
+	(gc_sweep): Unmark pdumped objects after the sweep phase.
+	(pdump_dump_rtables): Change a bare 256 to
+ 	last_lrecord_type_index_assigned.  Add a separator between the
+ 	adresses or lrecords and the ones of C structs in the dump file.
+	(pdump_load): Cope with the new separator and the renamings.  Stop
+ 	looking for the hash tables list after it has been found (duh!).
+
+1999-10-24  Robert Bihlmeyer <robbe@orcus.priv.at>
+
+	* sound.c: support HAVE_ESD_SOUND
+
+	* miscplay.c: 
+	* miscplay.h: 
+	* linuxplay.c: Move large part of linuxplay to generalized file
+	miscplay. Make it platform independent.
+
+	* esd.c: New file
+
+1999-10-24  Adrian Aichner <aichner@ecf.teradyne.com>
+
+	* lisp.h (Dynarr_declare): Fix boo-boo.
+
+1999-10-24  Olivier Galibert  <galibert@pobox.com>
+
+	* process-unix.c (allocate_pty): Fix HAVE_GETPT.
+	* process.h: Ditto.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* redisplay.c (start_with_line_at_pixpos): Remove assert(cur_elt
+	>=0). Handle the cur_elt == 0 case.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* unexelf.c: Merge Martin's c++ fixes back in 
+
+1999-10-20  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+        * unexelf.c (unexec): Only copy the global offset
+        table from memory on sgi machines.
+
+1999-08-13     Alexandre Oliva <oliva@dcc.unicamp.br>, Vin Shelton <acs@xemacs.org>
+
+        * unexelf.c: Enable GNU/Linux/alpha to build with gcc 2.95 by
+        adding support for an sbss section.  Get IRIX 5.2 to build using
+        unexelf.c.
+
+        * m/iris4d.h: Use unexelf.o for unexec.
+
+        * m/iris5d.h: Use unexelf.o for unexec.
+
+1999-10-24  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* unexelf.c: Revert to 21.1 version
+
+1999-08-28  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* window.c (Fwindow_truncated_p): New function.
+
+1999-08-25  Jonathan Marten <jonathan.marten@uk.sun.com>
+
+	* window.c (window_truncation_on): Always return 0 for minibuffer
+ 	windows, to enable auto scrolling.
+
+1999-10-24 Neal Becker <nbecker@fred.net>
+	* process.h: Unix98 PTY support
+
+1999-10-17  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* fileio.c (Ffile_truename): Do proper mule decoding on
+	the argument to xrealpath()
+
+1999-08-19  Stephen Tse  <stephent@sfu.ca>
+
+	* process-unix.c (unix_open_network_stream): Add udp network
+ 	support; rename variable Qtcpip to Qtcp, parameter family to
+ 	protocol for consistency with Qudp.
+
+	* process-nt.c (nt_open_network_stream): Rename variable Qtcpip to
+ 	Qtcp, parameter family to protocol for consistency with Qudp.
+
+	* process.c (global_variables): Add a new variable Qudp for udp
+ 	network support; rename variable Qtcpip to Qtcp for consistency
+ 	with Qudp.
+	(Fopen_network_stream_internal): Rename parameter FAMILY to
+ 	PROTOCOL for consistency; fix a minor typo and add an explanation
+ 	in docstring for udp programming.
+	(Fopen_multicast_group_internal): Fix a minor typo in docstring.
+	(syms_of_process): Add a new variable Qudp for udp network
+ 	support; rename variable Qtcpip to Qtcp for consistency with Qudp.
+
+	* process.h (extern_variables): Add a new variable Qudp for udp
+ 	network support; rename variable Qtcpip to Qtcp for consistency
+ 	with Qudp.
+
+	* procimpl.h: Add a new variable Qudp for udp network support;
+ 	rename variable Qtcpip to Qtcp for consistency with Qudp.
+	(struct process_methods): Rename parameter family to protocol.
+
+
+1999-10-24  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c (pdump_make_hash): Divide pointers by 8 for a better hash.
+
+1999-10-23  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h (struct lrecord_header): Removed dumped flags.
+
+	* dynarr.c: Use DUMPEDP instead of dumped flag.
+
+	* lisp.h (DUMPEDP): Added.  Removed dumped flag from dynarr.
+
+	* alloc.c: Removed hash_next linked list pointer.
+	
+	* *.c *.h: Removed markobj and mark_object parameters, removed GC_
+ 	and XGC macros.
+
+1999-10-14  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-x.c (x_output_shadows): fix dodgy maths for border
+ 	calculations.
+
+	* gutter.c (output_gutter): be more accurate about the area to be
+ 	cleared since X seems to manage to do the clear after drawing the
+ 	border.
+
+	* redisplay.h (RESET_CHANGED_FLAGS): new macro for setting
+ 	redisplay flags as a group.
+	(RESET_CHANGED_SET_FLAGS): ditto.
+	(CLASS_RESET_CHANGED_FLAGS): ditto.
+	(GLOBAL_RESET_CHANGED_FLAGS): ditto.
+	(REDISPLAY_FLAGS_CHANGEDP): new macro for testing redisplay flags
+ 	as a group.
+	(CLASS_REDISPLAY_FLAGS_CHANGEDP): ditto.
+	(GLOBAL_REDISPLAY_FLAGS_CHANGEDP): ditto.
+
+	* redisplay.c (redisplay_frame): use CLASS_RESET_CHANGED_FLAGS
+ 	instead of setting flags individually.
+	(redisplay_device): ditto CLASS_REDISPLAY_FLAGS_CHANGEDP.
+	(redisplay_device): ditto.
+	(redisplay_device): ditto CLASS_RESET_CHANGED_FLAGS.
+	(redisplay_without_hooks): ditto GLOBAL_REDISPLAY_FLAGS_CHANGEDP.
+	(redisplay_without_hooks): ditto CLASS_REDISPLAY_FLAGS_CHANGEDP.
+	(redisplay_without_hooks): ditto.
+	(redisplay_without_hooks): ditto GLOBAL_RESET_CHANGED_FLAGS.
+
+	* redisplay-x.c (x_output_string): unmap subwindows in the area.
+	(x_output_blank): ditto.
+
+	* redisplay-output.c (redisplay_output_display_block): don't unmap
+ 	subwindows in case layout optimization can avoid it.
+	(redisplay_output_subwindow): unmap subwindows in the area.
+	(redisplay_output_layout): optimize the output of layouts - only
+ 	output glyphs that have changed if nothing else of redisplay
+ 	significance has occurred.
+	(redisplay_output_pixmap): change args to
+ 	redisplay_clear_clipped_region.
+	(redisplay_clear_clipped_region): allow the clipped region to be
+ 	cleared of all subwindows except the one passed in.
+
+	* redisplay-msw.c (mswindows_output_blank): unmap subwindows in
+ 	the area.
+	(mswindows_output_cursor): ditto.
+	(mswindows_output_string): ditto.
+
+	* gutter.c (calculate_gutter_size): if the window buffer is nil
+ 	then don't continue.
+	(update_frame_gutters): be more lenient about when we actually
+ 	update the gutter. Layout optimization makes this
+ 	non-costly. Cache redisplay flags that we want to temporarily
+ 	ignore.
+
+	* glyphs.c (Fglyph_animated_timeout_handler): handle image
+ 	specific timeouts rather than iterating over the instance cache.
+	(glyph_animated_timeout_mapper): deleted.
+	(add_glyph_animated_timeout): use a weak list to hold onto the
+ 	image so that it can be GC'ed.
+	(disable_glyph_animated_timeout): disable a specific timeout.
+	(vars_of_glyphs): disable-animated-pixmaps is a new boolean for
+ 	controlling whether pixmaps are animated or not.
+
+	* glyphs-msw.c (mswindows_finalize_image_instance): make sure the
+	image timeout gets disabled when the image gets freed.
+
+	* glyphs-eimage.c (gif_instantiate): remove meaningless
+ 	comment. Cope with timeouts specified in the gif extension block.
+
+	* event-msw.c (vars_of_event_mswindows): new variable
+ 	mswindows-meta-activates-menu.
+	(mswindows_wnd_proc): only goto defproc with VK_MENU if the user
+ 	wants it.
+
+	* glyphs-x.c (x_finalize_image_instance): delete mask first so
+ 	that we can compare with image.
+
+1999-10-14  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* event-msw.c (mswindows_key_to_emacs_keysym):
+	Recognise keypad keys as different from normal keys.
+
+1999-10-14  Didier Verna  <didier@xemacs.org>
+
+	* glyphs-x.c (x_finalize_image_instance): avoid freeing null pixmaps.
+
+1999-10-10  Olivier Galibert  <galibert@pobox.com>
+
+	* symbols.c (init_symbols_once_early): dump Vquit_flag.
+
+	* symsinit.h: Updated.
+
+	* ntproc.c (vars_of_ntproc): Use defsymbol.
+
+	* emacs.c (main_1): Updated reinit calls.
+
+	* lisp.h: Removed Fpurecopy and pure_put declarations.
+	* fns.c: Removed pure_put.
+
+	* eval.c (Fdefvar): pure_put -> Fput
+	(Fdefconst): Ditto.
+	* frame-x.c (init_x_prop_symbols): Ditto.
+	* symbols.c (deferror): Ditto.
+
+	* alloc.c (Fmake_byte_code): Remove Fpurecopy call.
+	* buffer.c (vars_of_buffer): Ditto.
+	* bytecode.c (Ffetch_bytecode): Ditto.
+	(optimize_compiled_function): Ditto.
+	* emacs.c (vars_of_emacs): Ditto.
+	* emodules.c (vars_of_module): Ditto.
+	* eval.c (define_function): Ditto.
+	(Fautoload): Ditto.
+	* frame.c (vars_of_frame): Ditto.
+	* intl.c (Fset_domain): Ditto.
+	* lread.c (load_force_doc_string_unwind): Ditto.
+	* menubar.c (vars_of_menubar): Ditto.
+	* minibuf.c (reinit_complex_vars_of_minibuf): Ditto.
+
+	* debug.c (reinit_vars_of_debug): Extracted.
+	* device-x.c (reinit_vars_of_device_x): Ditto.
+	* emodules.c (reinit_vars_of_module): Ditto.
+	* font-lock.c (reinit_vars_of_font_lock): Ditto.
+	* glyphs-widget.c (reinit_vars_of_glyphs_widget): Ditto.
+	* glyphs.c (reinit_vars_of_glyphs): Ditto.
+	* gui-x.c (reinit_vars_of_gui_x): Ditto.
+	* insdel.c (reinit_vars_of_insdel): Ditto.
+	* menubar-x.c (reinit_vars_of_menubar_x): Ditto.
+	* minibuf.c (reinit_complex_vars_of_minibuf): Ditto.
+	* mule-wnnfns.c (reinit_vars_of_mule_wnn): Ditto.
+	* print.c (reinit_vars_of_print): Ditto.
+	* redisplay.c (reinit_vars_of_redisplay): Ditto.
+	* select-x.c (reinit_vars_of_xselect): Ditto.
+	* undo.c (reinit_vars_of_undo): Ditto.
+
+1999-10-10  Olivier Galibert  <galibert@pobox.com>
+
+	* symsinit.h: Updated declarations, see other ChangeLog entries.
+
+	* redisplay.c (init_redisplay): Ensure proper reinitialisation.
+
+	* lrecord.h (XD_DYNARR_DESC): Introduce XD_INT_RESET and use it.
+
+	* glyphs.c: Add the ii_keyword_entry and related descriptions.
+  	Fix the image_instantiator_methods one.
+
+	* file-coding.c: Plonk all data that needs to be dumped in a
+ 	dynamically allocated structure.
+
+	* extents.c (reinit_vars_of_extents): Extracted from
+ 	vars_of_extents.
+
+	* event-stream.c (vars_of_event_stream): Don't staticpro when
+ 	pdump_wire is enough.
+
+	* event-msw.c (reinit_vars_of_event_mswindows): Extracted from
+ 	vars_of_event_mswindows.
+
+	* event-Xt.c (reinit_vars_of_event_Xt): Extracted from
+ 	vars_of_event_Xt.
+
+	* eval.c (vars_of_eval): Don't staticpro when pdump_wire is enough.
+
+	* emacs.c (main_1): Added some reinit calls.
+
+	* device-x.c (reinit_console_type_create_device_x): Extracted from
+ 	console_type_create_device_x.
+
+	* console.h: Declare the console_type_entry_dynarr description.
+
+	* console.c: Unstatic the console_type_entry_dynarr description.
+
+	* alloc.c: Removed some dubious comments.  Handle XD_INT_RESET.
+
+1999-10-07  Olivier Galibert  <galibert@pobox.com>
+
+	* symsinit.h: Updated declarations, see other ChangeLog entries.
+
+	* minibuf.c (reinit_complex_vars_of_minibuf): Extracted from
+ 	complex_vars_of_minibuf.
+
+	* lrecord.h: Removed XD_PARENT_INDIRECT (unused and
+ 	unimplemented), added XD_LO_LINK.
+
+	* lisp.h (pdump_wire_list): Add declaration.
+
+	* glyphs.h (INITIALIZE_DEVICE_IIFORMAT): Fix bug found by Andy.
+	(INITIALIZE_IMAGE_INSTANTIATOR_FORMAT): Fix stupid bug.
+	(REINITIALIZE_IMAGE_INSTANTIATOR_FORMAT): Remove, useless once the
+ 	stupid bug fixed.
+
+	* glyphs.c (reinit_image_instantiator_format_create): Remove.
+
+	* glyphs-x.c (reinit_image_instantiator_format_create_glyphs_x):
+ 	Remove.
+
+	* glyphs-widget.c
+ 	(reinit_image_instantiator_format_create_glyphs_widget): Remove.
+
+	* glyphs-msw.c
+ 	(reinit_image_instantiator_format_create_glyphs_mswindows):
+ 	Remove.
+
+	* glyphs-eimage.c
+ 	(reinit_image_instantiator_format_create_glyphs_eimage): Remove.
+
+	* frame.c (Fmake_frame): Don't reset the face cache when using the
+ 	stream device.
+
+	* file-coding.c: Dumped the_codesys_prop_dynarr and added all
+ 	relevant descriptions.
+
+	* events.c (reinit_vars_of_events): Extracted from vars_of_events.
+
+	* eval.c: The subr is _not_ a lcrecord.
+
+	* emacs.c (main_1): Call vars_of_specifier early before any
+ 	specifier creation (e.g in vars_of_glyphs, at least).  Remove the
+ 	useless reinit_image_instantiator_format*.  Add
+ 	reinit_vars_of_events and reinit_complex_vars_of_minibuf.  Add
+ 	calls to lstream_type_create* and process_type_create*.
+
+	* elhash.c: Dump Vall_weak_hash_tables correctly.
+
+	* data.c: Dump Vall_weak_lists correctly.
+
+	* console.c: Fix description.
+
+	* console-stream.c (init_console_stream): Do initializations
+ 	correctly in the pdump case.
+
+	* chartab.c: Fix description.  Dump Vall_syntax_tables correctly.
+	(Fcopy_char_table): Link into Vall_syntax_tables.
+
+	* alloc.c (pdump_wire_list): Added.
+	(Fgarbage_collect): Fix loop in stats couting missing the last
+ 	lrecord type.
+	(pdump_register_sub): Added XD_LO_LINK.
+	(pdump_dump_data): Ditto.  Fixed XD_LO_RESET_NIL forgttting the
+ 	counter.
+	(pdump_reloc_one): Ditto.
+	(pdump_scan_by_alignement): Use last_lrecord_type_index_assigned
+ 	instead of 256.
+	(pdump_dump_wired): Added lists.
+	(pdump): Use last_lrecord_type_index_assigned instead of 256.
+  	Dump last_lrecord_type_index_assigned value.  Fix minor bugs.
+
+1999-10-07  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_finalize_image_instance): zero out
+ 	bitmap slices.
+
+	* glyphs-x.c (x_finalize_image_instance): fix FMW problem.
+
+1999-10-06  Andy Piper  <andy@xemacs.org>
+
+	* elhash.c (resize_hash_table): Correct reference to lrecord_header.
+
+1999-10-06  Damon Lipparelli  <lipp@primus.com>
+
+	* elhash.h: forward declare Lisp_Hash_Table.
+
+1999-10-06  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (Fset_image_instance_property): mark glyphs as dirty
+ 	after setting an image instance property.
+
+1999-10-05  Andy Piper  <andy@xemacs.org>
+
+	* gutter.c (update_frame_gutters): output gutters if
+ 	windows_changed is set. This is the only way of catching changes
+ 	in selected window which obviously can affect the specifiers.
+
+	* redisplay.c: new state flags, subwindows_state_changed and
+ 	subwindows_state_changed set.
+	(redisplay_window): use them.
+	(redisplay_device): ditto.
+	(redisplay_without_hooks): ditto.
+	(redisplay_frame): ditto. Reset subwindow cachels if
+ 	subwindows_changed is set.
+	(redisplay_window): call mark_glyph_cachels_as_clean after
+ 	redisplaying.
+
+	* redisplay-x.c (x_output_x_pixmap): select correct
+ 	pixmap image for display depending on the currently selected
+ 	slice.
+
+	* redisplay-output.c (compare_runes): check dirtiness when
+ 	checking RUNE_DGLYPH runes.
+	(compare_display_blocks): relax invalidation of display blocks
+ 	since we can now detect whether individual glyphs have changed or
+ 	not.
+
+	* redisplay-msw.c (mswindows_output_dibitmap): select correct
+ 	bitmap image for display depending on the currently selected
+ 	slice.
+
+	* glyphs.h (struct Lisp_Image_Instance): add a dirty flag.
+	(IMAGE_INSTANCE_DIRTYP): new macro.
+	(XIMAGE_INSTANCE_DIRTYP): ditto.
+	(MARK_IMAGE_INSTANCE_CHANGED): ditto.
+	(GLYPH_DIRTYP): ditto.
+	(XGLYPH_DIRTYP): ditto.
+	(MARK_GLYPH_CHANGED): ditto.
+	(GLYPH_CACHEL_DIRTYP): ditto.
+	(struct glyph_cachel): add a dirty flag.
+
+	* glyphs.c (update_frame_subwindows): Don't update on
+ 	glyphs_changed.
+	(glyph_animated_timeout_mapper): new function. Map over the
+ 	instance cache lookinng for animated images to update.
+	(Fglyph_animated_timeout_handler): new function. Lisp callback for
+ 	handling animated image timeout events.
+	(disable_glyph_animated_timeout): new function. Add the animated
+ 	image timeout.
+	(disable_glyph_animated_timeout): new function. Remove the
+ 	animated image timeout.
+	(syms_of_glyphs): initialize Qglyph_animated_timeout_handler and
+ 	friends.
+	(vars_of_glyphs): initialize Vglyph_animated_ticker.
+	(image_instance_equal): add the currently displayed slice.
+	(image_instance_hash): ditto.
+	(allocate_glyph): initialize dirty flag.
+	(glyph_width): rename glyph -> glyph_or_image.
+	(glyph_height_internal): ditto.
+	(glyph_dirty_p): new function. Determine whether the image
+ 	instance in the domain and/or glyph is dirty.
+	(set_glyph_dirty_p): set the dirtiness.
+	(update_glyph_cachel_data): take dirtiness into account. Pass the
+ 	image instance we are interested in to glyph_width and friends.
+	(get_glyph_cachel_index): make non-static. Always call
+ 	update_glyph_cachel_data.
+	(mark_glyph_cachels_as_not_updated): meaningless formatting
+ 	change.
+	(mark_glyph_cachels_as_clean): new function. Clean dirtiness from
+ 	glyph cachels.
+
+	* glyphs-x.h (struct x_image_instance_data): change
+	pixmap to a list of pixmaps.
+	(IMAGE_INSTANCE_X_PIXMAP_SLICE): new macro.
+	(IMAGE_INSTANCE_X_PIXMAP_SLICES): ditto.
+	(XIMAGE_INSTANCE_X_PIXMAP_SLICE): ditto.
+	(XIMAGE_INSTANCE_X_PIXMAP_SLICES): ditto.
+
+	* glyphs-x.c (x_finalize_image_instance): make sure multi pixmap
+ 	images get deleted properly.
+	(init_image_instance_from_x_image): add slices paramater and use
+ 	it to initialize x_image_instance_data correctly.
+	(image_instance_add_x_image): new function. Add new pixmaps to our
+ 	set of instantiated pixmaps for an image. Used by animated images.
+	(x_init_image_instance_from_eimage): add a slices
+ 	parameter. Instantiate all images from the eimage.
+	(x_xpm_instantiate): update use of
+ 	init_image_instance_from_x_image.
+	(init_image_instance_from_xbm_inline): ditto.
+	(x_initialize_pixmap_image_instance): add slices paramater and use
+ 	it to allocate x_image_instance_data correctly.
+
+	* glyphs-msw.h (struct mswindows_image_instance_data): change
+ 	bitmap to a list of bitmaps.
+	(IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE): new macro.
+	(IMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES): ditto.
+	(XIMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICE): ditto.
+	(XIMAGE_INSTANCE_MSWINDOWS_BITMAP_SLICES): ditto.
+
+	* glyphs-msw.c (init_image_instance_from_dibitmap): add slices
+ 	paramater and use it to initialize mswindows_image_instance_data
+ 	correctly.
+	(image_instance_add_dibitmap): new function. Add new bitmaps to
+ 	our set of instantiated bitmaps for an image. Used by animated
+ 	images.
+	(mswindows_init_image_instance_from_eimage): add a slices
+ 	parameter. Instantiate all images from the eimage.
+	(mswindows_xpm_instantiate): update use of
+ 	init_image_instance_from_dibitmap.
+	(bmp_instantiate): ditto.
+	(init_image_instance_from_xbm_inline): ditto.
+	(mswindows_finalize_image_instance): make sure all the bitmap
+ 	slices get deleted.
+	(mswindows_initialize_dibitmap_image_instance): add slices
+ 	paramater and use it to allocate mswindows_image_instance_data
+ 	correctly.
+
+	* glyphs-eimage.c (jpeg_instantiate): give extra paramter to
+ 	init_image_instance_from_eimage.
+	(png_instantiate): ditto.
+	(tiff_instantiate): ditto.
+	(gif_instantiate): allocate bitmaps for all gif slices not just
+ 	the first one.
+
+	* device.h (struct device): add subwindows_state_changed flag.
+	(MARK_DEVICE_SUBWINDOWS_STATE_CHANGED): new macro.
+	(MARK_DEVICE_FRAMES_GLYPHS_CHANGED): ditto.
+
+	* console.h (struct console_methods): add a slice parameter to
+ 	init_image_instance_from_eimage_method.
+
+	* redisplay.c (create_string_text_block): Allow buffer to be nil
+ 	without crashing.
+
+1999-09-24  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c: only include gui-x.h if we are building with
+ 	widgets.
+
+	* gui-x.c (vars_of_gui_x): only set popup_up_p if we have popups.
+
+1999-09-28  Lee Kindness <lkindness@csl.co.uk>
+
+	* objects-x.c (allocate_nearest_color): will return 0 (failure)
+ 	when the colormap is full and the color it has computed to be the
+ 	'nearest' has been allocated read/write.
+
+1999-10-02  Olivier Galibert  <galibert@pobox.com>
+
+	* search.c (reinit_vars_of_search):   Reinit   the  search   cache
+ 	correctly.
+
+	* elhash.h:     Make    the    description    visible.     Declare
+ 	resize_hash_table.
+
+	* elhash.c  (resize_hash_table): Extracted from enlarge_hash_table
+ 	to generalize the hash table reorganization.
+	(reorganize_hash_table): Added.
+	(enlarge_hash_table): Uses resize_has_table.
+
+	* casetab.c (complex_vars_of_casetab):  staticpro  the mule mirror
+ 	tables.
+
+	* alloc.c:   Add  correct  management  of   blocks of  structures.
+  	Reorganize hash tables at reload since  the hash values can change
+ 	with the pointers.
+
+1999-10-01  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add pdump_wire declaration
+
+	* elhash.c (vars_of_elhash): Wire Vall_weak_hash_tables.
+	* symbols.c (init_symbols_once_early): Wire Qnil and Qunbound.
+
+	* alloc.c (pdump_wire): Added..
+	(pdump_load): Support it.
+	(pdump): Support it
+
+	* glyphs-msw.c
+ 	(reinit_image_instantiator_format_create_glyphs_mswindows): Fix
+ 	macro calls.
+
+1999-09-28  Olivier Galibert  <galibert@pobox.com>
+
+	* symsinit.h: Added lots of prototypes.
+
+	* symeval.h: Added defsymbol_nodump declaration.
+
+	* symbols.c (find_symbol_value): Lame attempt at making the
+ 	startup go further.
+	(defsymbol_nodump): Added.
+
+	* mule-charset.c: Collapsed global lisp objects arrays in one
+ 	dumpable structure.
+
+	* lrecord.h: Added some flags.
+
+	* lisp.h: Added dumped flag to dynarrs.  Added dumpstruct
+ 	declaration.
+
+	* glyphs.h (INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM): Don't
+ 	staticpro dynamic variables.
+
+	* glyphs.c (reinit_specifier_type_create_image): Added.
+	(image_instantiator_format_create): Dump image instantiator format
+ 	dynarr.
+	(reinit_image_instantiator_format_create): Added.
+
+	* emacs.c (main_1): Added reinits calls.
+
+	* dynarr.c: Protect dumped dynarrays from going berzek in free or
+ 	realloc.
+
+	* specifier.h (INITIALIZE_SPECIFIER_TYPE): Don't staticpro dynamic
+ 	variables.
+	* specifier.c (specifier_type_create): Dump the specifier type
+ 	dynarr.
+	(reinit_specifier_type_create): Added.
+	* console.h (INITIALIZE_CONSOLE_TYPE): Don't staticpro dynamic
+ 	variables.
+	* console.c (console_type_create): Dump the console type dynarr.
+	(reinit_vars_of_console): Extracted from vars_of_console.
+	(reinit_complex_vars_of_console): Extracted from
+ 	complex_vars_of_console
+	* window.c (reinit_vars_of_window): Extracted from vars_of_window.
+	* toolbar.c (reinit_specifier_type_create_toolbar): Added.
+	* search.c (reinit_vars_of_search): Extracted from vars_of_search.
+	* objects.c (reinit_specifier_type_create_objects): Added.
+	(reinit_vars_of_objects): Extracted from vars_of_objects.
+	* lstream.c (reinit_vars_of_lstream): Extracted from
+ 	vars_of_lstream.
+	* lread.c (reinit_vars_of_lread): Extracted from vars_of_lread.
+	* gutter.c (reinit_specifier_type_create_gutter): Added.
+	* glyphs-x.c (reinit_image_instantiator_format_create_glyphs_x):
+ 	Added.
+	* glyphs-widget.c
+ 	(reinit_image_instantiator_format_create_glyphs_widget): Added
+	* glyphs-msw.c
+ 	(reinit_image_instantiator_format_create_glyphs_mswindows): Added.
+	* glyphs-eimage.c
+ 	(reinit_image_instantiator_format_create_glyphs_eimage): Added.
+	* event-stream.c (reinit_vars_of_event_stream): Extracted from
+ 	vars_of_event_stream
+	* eval.c (reinit_vars_of_eval): Extracted from vars_of_eval.
+	* device.c (reinit_vars_of_device): Extracted from vars_of_device.
+	* console-x.c (reinit_console_type_create_x): Added.
+	* console-tty.c (reinit_console_type_create_tty): Added
+	* console-stream.c (reinit_console_type_create_stream): Added.
+	(init_console_stream): If PDUMP, always reinitialise basic
+ 	devices.
+	* console-msw.c (reinit_console_type_create_mswindows): Added.
+	* buffer.c (reinit_vars_of_buffer): Extracted from
+ 	init_vars_of_buffer.
+	(reinit_complex_vars_of_buffer): Extracted from
+ 	complex_vars_of_buffer
+
+	* alloc.c: Further with the portable dumping, the revenge.
+	(dumpstruct): Added.
+	(reinit_alloc_once_early): Extracted from init_alloc_once_early.
+
+	* specifier.c (sizeof_specifier): Correct size computation.
+	(make_specifier_internal): Ditto.
+
+1999-09-27  Olivier Galibert  <galibert@pobox.com>
+
+	* alloc.c: Further with the portable dumping.
+
+1999-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-x.c (update_widget_face): Remove bogus cast
+
+	* data.c (sign_extent_lisp):
+	* data.c (check_int_range):
+	* data.c (Faref):
+	* data.c (Faset):
+	* data.c (number_char_or_marker_to_int):
+	* data.c (number_char_or_marker_to_double):
+	* data.c (Frem):
+	* data.c (Fmod):
+	* extents.c (print_extent_1):
+	* fns.c (print_bit_vector):
+	* fns.c (Flength):
+	* fns.c (Fsafe_length):
+	* fns.c (copy_list):
+	* fns.c (Fsubseq):
+	* fns.c (Felt):
+	* fns.c (Flast):
+	* fns.c (Fnbutlast):
+	* insdel.h:
+	* marker.c (print_marker):
+	* syntax.h:
+	* bytecode.c (bytecode_arithcompare):
+	* bytecode.c (bytecode_arithop):
+	* lisp.h:
+	* lisp.h (EXTERNAL_LIST_LOOP_DELETE_IF):
+	* lisp.h (TRUE_LIST_P):
+	* lisp.h (CHECK_TRUE_LIST):
+	* lisp.h (bit_vector_length):
+	* lisp.h (GCPRO4): Make consistent.
+	* lisp.h (NGCPRO4): Make consistent.
+	* lisp.h (NNGCPRO4): Make consistent.
+	* alloc.c (Fmake_list):
+	* alloc.c (Fmake_string):
+	Use proper 64-bit types, e.g. EMACS_INT or size_t instead of int.
+	This should make all arithmetic 64-bit clean.
+
+	Use %ld with (long) casts in print statements of types with sizes
+	possibly larger than int.
+
+	Following functions had mismatched prototypes!!:
+	do_marker_adjustment(), fixup_internal_substring(), scan_lists(),
+	char_quoted(), make_string_from_buffer(),
+	make_string_from_buffer_no_extents()
+
+	The types of Bufpos, Bytind, Memind, Bytecount, Charcount,
+	Extcount are all now EMACS_INT.  I hope to see the day when I can
+	create a buffer with more than INT_MAX characters, without having
+	XEmacs slow down to a crawl.  I also hope to be able to create a
+	list with more than INT_MAX cons cells.
+
+	* redisplay.c (decode_mode_spec): 
+	The %p and %P specs in the mode line were not correct for buffers
+	larger than MAX_INT/100!  The %p spec was off by .5% even for
+	small buffers!
+
+1999-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* cmdloop.c (num_input_keys):
+	* print.c (debug_temp):
+	* emacs.c (Vinfo_directory):
+	Delete unused variables 
+
+	* console-x.h (x_interline_space):  Mark as unimplemented.
+	* redisplay-x.c (x_interline_space):  Mark as unimplemented.
+
+	* event-Xt.c (pending_timeouts):
+	* linuxplay.c (linuxplay_sndbuf):
+	* profile.c (QS*):
+	* search.c (searchbufs):
+	* specifier.c (specifier_type_entry_dynarr):
+	* undo.c (pending_boundary):
+	* event-stream.c (the_low_level_timeout_blocktype):
+	* extents.c (gap_array_marker_freelist):
+	* extents.c (extent_list_marker_freelist):
+	* print.c (being_printed):
+	* print.c (alternate_do_pointer):
+	* alloc.c (first_string_chars_block):
+	* alloc.c (current_string_chars_block):
+	* emacs.c (initial_argv):
+	* emacs.c (initial_argc):
+	* eval.c (lisp_eval_depth):
+	* free-hook.c (pointer_table):
+	* free-hook.c (free_queue):
+	* free-hook.c (current_free):
+	* free-hook.c (strict_free_check):
+	* redisplay.c (formatted_string_emchar_dynarr):
+	* redisplay.c (formatted_string_display_line):
+	* redisplay.c (formatted_string_extent_dynarr):
+	* redisplay.c (formatted_string_extent_start_dynarr):
+	* redisplay.c (formatted_string_extent_end_dynarr):
+	* redisplay.c (updating_line_start_cache):
+	* redisplay.c (last_display_warning_tick):
+	* redisplay.c (display_warning_tick):
+	* redisplay.c (internal_cache):
+	* window.c (Vwindow_configuration_free_list):
+	Make static.
+
+	* redisplay.c (Vinitial_window_system):  Make CONST.
+
+1999-09-24  Martin Buchholz  <martin@xemacs.org>
+
+	* redisplay-tty.c (term_get_fkeys_1): Minor aesthetic improvements.
+
+	* doprnt.c (get_doprnt_args): Use int, not short, with va_arg.
+
+1999-09-24  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (output_display_line): only clear the borders
+ 	if we are not displaying the gutter.
+
+1999-09-24  Jan Vroonhof <vroonhof@math.ethz.ch>
+
+	* frame-x.c (x_any_window_to_frame): Let Xt find the widget and
+ 	then use x_any_widget_or_parent_to_frame().
+	(x_find_frame_for_window): remove special cases.
+
+1999-09-24  Andy Piper  <andy@xemacs.org>
+
+	* scrollbar-x.c (x_window_is_scrollbar): deleted.
+	* scrollbar-x.h: ditto.
+	
+1999-09-23  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c (this_marks_a_marked_record): Remove.
+
+	* buffer.c (mark_buffer):
+	* buffer.c (nuke_all_buffer_slots):
+	* console.c (mark_console):
+	* console.c (nuke_all_console_slots):
+	* frame.c (mark_frame):
+	* frame.c (nuke_all_frame_slots):
+	Treat MARKED_SLOT() macros consistently.
+
+	* device.h (error_check_device_type):
+	* faces.c (face_getprop):
+	* fileio.c (DRIVE_LETTER):
+	* filelock.c (lock_file_1):
+	* frame-x.c (x_create_widgets):
+	* frame.h (error_check_frame_type):
+	* keymap.c (print_keymap):
+	* keymap.c (Fkey_description):
+	* keymap.c (where_is_recursive_mapper):
+	* mule-charset.h (CHARSET_LEADING_BYTE):
+	* objects-msw.c (mswindows_color_instance_hash):
+	* objects.c (color_instance_equal):
+	* objects.h (struct color_specifier):
+	* objects.h (struct font_specifier):
+	* objects.h (struct face_boolean_specifier):
+	* opaque.h (get_opaque_ptr):
+	* opaque.h (set_opaque_ptr):
+	* process-unix.c (set_socket_nonblocking_maybe):
+	* specifier.h (SPECIFIER_TYPE_P):
+	* symbols.c (store_symval_forwarding):
+	* syssignal.h (EMACS_KILLPG):
+	* terminfo.c (emacs_tparam):
+	* glyphs.c (glyph_putprop):
+	* glyphs.c (glyph_remprop):
+	* glyphs.c (Fimage_instance_subwindow_id):
+	* window.c (mark_window):
+	* window.c (mark_window_config):
+	* window.c (Fset_window_configuration):
+	* window.c (save_window_save):
+	* eval.c (Fuser_variable_p):
+	* eval.c (Fcommand_execute):
+	* eval.c (Feval):
+	* eval.c (Ffuncall):
+	* lisp.h (XPNTR):
+	* lisp.h (INT_OR_FLOATP):
+	* lisp.h (GC_INT_OR_FLOATP):
+	* lisp.h (XFLOATINT):
+	* lisp.h (IS_ANY_SEP):
+	* mule-ccl.c (Fccl_execute):
+	* mule-ccl.c (Fccl_execute_on_string):
+	* redisplay-x.c (x_output_string):
+	Remove redundant extra parentheses.
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* chartab.c (word_boundary_p): Add prototype for warning avoidance.
+	* eval.c (PRIMITIVE_FUNCALL): ANSIfy
+	* free-hook.c (fun_ptr): ANSIfy
+	* getloadavg.c: Remove declaration for errno.
+	* gui.c (allocate_gui_item): ANSIfy
+	* gui.h (allocate_gui_item): ANSIfy
+	* mule-ccl.c (resolve_symbol_ccl_program): Make static
+	* realpath.c: Remove K&R support.
+	* redisplay-x.c (x_output_display_block): Don't shadow previous local
+	* glyphs-widget.c (layout_instantiate):  Don't shadow previous local
+	* gutter.c (get_gutter_coords): Make static.
+	* lread.c (locate_file_map_suffixes): Make static.
+	* ralloc.c (relinquish): ANSIfy
+	* redisplay.c:
+	* lisp.h:
+	Move prototypes from redisplay.c to lisp.h
+
+1999-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-x.c (x_widget_set_property):
+	- Remove unnecessary initialization.
+	- Use char*, not Bufbyte *, with GET_C_STRING_OS_DATA_ALLOCA
+	* glyphs-x.c (x_widget_instantiate):
+	- Use char*, not Bufbyte *, with GET_C_STRING_OS_DATA_ALLOCA
+	* unexelf.c (unexec):
+	Add cast for C++ compilability.
+	* redisplay.h:
+	Fix a typo.
+	* ralloc.c (r_alloc_reinit):
+	SET_FUN_PTR was broken wrt ANSI aliasing!
+	To compensate, use __typeof__ when using gcc, else live with
+	possible (but rare) warnings.
+	* ralloc.c (init_ralloc):
+	Ditto
+	* ralloc.c: Use the real dlmalloc prototype for __morecore.
+	* lread.c (locate_file_map_suffixes):
+	* input-method-xlib.c (XIM_init_frame):
+	- Xlib functions should use XPointer, not XtPointer.
+	* input-method-xlib.c (XIM_delete_frame):
+	- Xlib functions should use XPointer, not XtPointer.
+	* input-method-xlib.c (IMDestroyCallback):
+	- Simplify.
+	- XFRAME (obj) can never be NULL, so don't test for it.
+	* gutter.h:
+	Add GUTTER_POS_LOOP for iterating over all gutter_pos'es
+	* gutter.c (SET_GUTTER_WAS_VISIBLE_FLAG):
+	Run c-backslash-region on macro body.
+	* gutter.c (gutter_was_visible):
+	Remove redundant parens - this is not a macro.
+	* gutter.c (redraw_exposed_gutters):
+	Use GUTTER_POS_LOOP.
+	* gutter.c (gutter_specs_changed):
+	Use GUTTER_POS_LOOP.
+	* gutter.c (gutter_geometry_changed_in_window):
+	Use GUTTER_POS_LOOP.
+	* gutter.c (update_frame_gutters):
+	Use GUTTER_POS_LOOP.
+	* gutter.c (init_frame_gutters):
+	Use GUTTER_POS_LOOP.
+	* file-coding.c (determine_real_coding_system):
+	Fix C++ compile error.
+	* emodules.c (find_make_module):
+	Cast return value from xrealloc
+	* emacs.c (Fkill_emacs):
+	Use __typeof__, when available.
+	* emacs.c (voodoo_free_hook):
+	Use __typeof__, when available.
+	(Unfortunately, the type of __free_hook is glibc-version-dependent)
+	* dired.c (user_cache): Use Bufbyte *, not char *
+	* dired.c (Fuser_name_all_completions): Ditto.
+
+1999-09-22  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (redisplay_frame): reset the gutter display lines
+ 	when we reset the subwindows.
+
+	* gutter.c (reset_gutter_display_lines): new function.
+
+	* window.c (Flast_nonminibuf_window): new function equivalent to
+ 	FRAME_LAST_NONMINIBUF_WINDOW ().
+	(syms_of_window): declare it.
+
+	* redisplay.c (create_string_text_block): don't add bogus eol
+ 	markers to gutter display lines.
+
+	* glyphs.c (reset_subwindow_cachels): make sure we unmap
+ 	subwindows using unmap_subwindow so that expose events get
+ 	registered correctly.
+
+	* window.c (window_scroll): use Vwindow_pixel_scroll_increment to
+ 	determine how much to scroll the window.
+	(vars_of_window): Vwindow_pixel_scroll_increment is a new
+ 	variable.
+
+1999-09-20  Robert Pluim  <rpluim@nortelnetworks.com>
+
+	* glyphs-x.c (update_widget_face): Guard fontList declaration for
+	non-motif uses.
+
+1999-09-20  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_update_subwindow): update faces.
+
+1999-09-19  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (update_frame_subwindows): update if faces have
+ 	changed.
+
+	* glyphs-x.c (x_widget_instantiate): create the clip widget using
+ 	lwlib rather than directly.
+	(x_finalize_image_instance): delete the clip widget using lwlib.
+	(x_update_subwindow): update widget faces.
+	(update_widget_face): new function for updating the face
+ 	properties of a widget.
+	(x_widget_set_property): update widget faces.
+
+	* lwlib-Xlw.c (xlw_create_clip_window): new function. We need to
+ 	manage the clip widgets using lwlib so that we can delete them in
+ 	a safe manner.
+
+1999-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp-union.h:
+	* lisp-disunion.h:
+	Define new, potentially faster INT arithmetic macros
+	INT_PLUS, INT_MINUS, INT_PLUS1, INT_MINUS1
+	* bytecode.c (execute_optimized_function):
+	Use new macros.
+	Fix metering code
+	* bytecode.c (bytecode_negate):
+	Optimize for integer case.
+
+1999-08-29  Andreas Jaeger  <aj@arthur.rhein-neckar.de>
+
+	* m/mips.h: Support for mips-linux: Add !linux around places
+	that are not valid for linux, define TEXT_START, DATA_START,
+	DATA_SEG_BITS.
+
+1999-09-16  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_subwindow): clip subwindows
+ 	that don't completely fit on-screen rather than just unmapping
+ 	them.
+
+	* glyphs.h: change signature of map_subwindow.
+
+	* glyphs.c (map_subwindow): add display_glyph_area to the
+ 	signature. make sure the mapped area saved in the subwindow_cachel
+ 	reflects this.
+	(Fforce_subwindow_map): make a no-op. I don't think this does
+ 	anything useful.
+
+	* glyphs-x.h (struct x_subwindow_data): save the Display rather
+ 	than the Screen. Add a clipwindow and clipwidget handle.
+	(IMAGE_INSTANCE_X_CLIPWINDOW): new accessor.
+	(IMAGE_INSTANCE_X_CLIPWIDGET): ditto.
+	(XIMAGE_INSTANCE_X_CLIPWIDGET): ditto.
+	(XIMAGE_INSTANCE_X_CLIPWINDOW): ditto.
+
+	* glyphs-x.c (x_finalize_image_instance): destroy the clipwidget
+ 	as well as the widget itself.
+	(x_unmap_subwindow): unmap the clipwindow and clipwidget rather
+ 	than the widgets and subwindows themselves. move the widget inside
+ 	the clipwidget.
+	(x_subwindow_instantiate): hold onto the Display rather than the
+ 	Screen. allocate a clipwindow to put the subwindow inside.
+	(x_resize_subwindow): use saved Display directly.
+	(x_widget_instantiate): allocate a clipwidget of type EmacsManager
+ 	to put widgets inside.
+
+	* glyphs-widget.c: remove group stuff.
+
+	* glyphs-msw.h (struct mswindows_subwindow_data): new structure to
+ 	hold the clipwindow.
+	(IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW): new accessor.
+	(XIMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW): ditto.
+
+	* glyphs-msw.c: remove group stuff.
+	(mswindows_finalize_image_instance): destroy clipwindow as well as
+ 	the widget itself.
+	(mswindows_unmap_subwindow): unmap the clipwindow rather than the
+ 	widget.
+	(mswindows_map_subwindow): ditto. move the widget within the
+ 	clipwindow.
+	(mswindows_subwindow_instantiate): allocate and initialize
+ 	mswindows_subwindow_data. allocate a clipwindow with the subwindow
+ 	as a child.
+	(mswindows_widget_instantiate): ditto.
+	(mswindows_control_wnd_proc): new function that allows us to
+ 	propagate events from the widget to the main windows control loop.
+
+	* device-msw.c (mswindows_init_device): register new widget clip window
+ 	class.
+
+	* console.h (struct console_methods): add display_glyph_area to
+ 	map_window.
+
+	* console-msw.h: declare new window class and wnd proc for
+ 	widgets.
+
+1999-09-14  Martin Buchholz  <martin@xemacs.org>
+
+	* general.c:
+	* eldap.c:
+	Move symbols used only by eldap.c into eldap.c as statics.
+
+1999-09-09  Martin Buchholz  <martin@xemacs.org>
+
+	* window.c (syms_of_window):
+	* symbols.c (syms_of_symbols):
+	* redisplay.c (syms_of_redisplay):
+	* print.c (syms_of_print):
+	* lisp.h:
+	* intl.c (syms_of_intl):
+	* general.c (syms_of_general):
+	* frame.c (syms_of_frame):
+	* fileio.c (syms_of_fileio):
+	* file-coding.h:
+	* file-coding.c (syms_of_file_coding):
+	* extents.c (syms_of_extents):
+	* event-stream.c (syms_of_event_stream):
+	* event-stream.c (Fnext_event):
+	* device.c (syms_of_device):
+	* data.c (syms_of_data):
+	* casetab.c (syms_of_casetab):
+	* casetab.c (check_case_table):
+	* callint.c (syms_of_callint):
+	* buffer.c (syms_of_buffer):
+	Delete unused C symbols:
+	Qbuffer_file_name, Qbuffer_undo_list, Quser_variable_p,
+	Qcurrent_prefix_arg, Qtranslate_table, Qkeywordp,
+	Qnumber_or_marker_p, Qcons, Qkeyword, Qignore, Qdelete_device,
+	Qcommand_execute, Qglyph_invisible,
+	Qbuffer_file_coding_system, Qfile_name_handler_alist,
+	Qframe_x_p, Qframe_tty_p, Qblack, Qkeyboard, Qmenubar, Qpath,
+	Qvector, Qwhite, Qcase, Qdomain, Qalternate_debugging_output,
+	Qprint_escape_newlines, Qprint_readably, Qfloat_output_format,
+	Qwindow_scroll_functions, Qfboundp, Qscroll_up, Qscroll_down
+
+	Rename symbols as required by the CHECK_RECORD macro:
+	- Qcase_table_p to Qcase_tablep
+	- Qcoding_system_p to Qcoding_systemp
+
+	* debug.h:
+	* debug.c (syms_of_debug):
+	Make debug.c's internal Lisp_Objects static.
+
+	* events.c (vars_of_events):
+	* events.c (syms_of_events):
+	Use regular old defsymbol instead of KEYSYM + staticpro().
+
+	* select-x.c (CHECK_CUTBUFFER):
+	Rewrite in accordance with coding standards.
+
+	* keymap.c (syms_of_keymap):
+	Use SPC in the same way as RET, TAB, etc.
+
+1999-08-27  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* xemacs-20/src/menubar-x.c (make_dummy_xbutton_event): Don't add
+	offset twice if HAVE_WMCOMMAND is defined.
+
+1999-09-13 Mike McEwan <mike@lotusland.demon.co.uk>
+
+	* redisplay-x.c (x_output_vertical_divider): make sure
+ 	shadow_thickness is positive.
+
+1999-09-10 Julian Back <jback@rudd.compulink.co.uk>
+
+	* process-nt.c (nt_create_process): fixup to cope with
+ 	Vprocess_environment.
+
+1999-09-02  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_layout): call output
+ 	routines with clear_clip false. output layout borders with text
+ 	correctly.
+
+	* redisplay-msw.c (mswindows_output_blank): call output routines
+ 	with clear_clip true.
+	(mswindows_output_string): ditto.
+	(mswindows_output_display_block): ditto.
+
+	* redisplay-x.c (x_output_display_block): call output routines
+ 	with clear_clip true.
+
+	* redisplay.h: fix output routines for clear_clip parameter.
+
+	* redisplay-output.c (redisplay_output_layout): cope with glyphs
+ 	in the border.
+
+	* glyphs-widget.c (layout_instantiate): deal with border glyphs.
+	(check_valid_glyph_or_instantiator): renamed from
+ 	check_valid_glyph_or_image.
+	(check_valid_border): allow glyphs or their instantiators.
+	(check_valid_glyph_or_instantiator_list): renamed from
+ 	check_valid_glyph_or_image_list,
+	(glyph_instantiator_to_glyph): new function. make sure a glyph is
+ 	a glyph and not an instantiator.
+	(substitute_keyword_value): new function. replace a keyword value
+ 	with a new one.
+
+1999-09-01  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (string_set_property): new function to set the data of
+ 	a string.
+	(image_instantiator_format_create): use it.
+
+1999-09-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fmapc): Rename back to Fmapc_internal.
+
+1999-07-30  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* ntheap.h: CONST (semantically constant) name field of file_data
+ 	struct
+
+	* unexnt.c (open_output_file): match function definition with
+ 	function declaration
+
+	* editfns.c: #include "sysfile.h" for getcwd() prototype
+
+	* gif_io.c:  #include "sysfile.h" for close() prototype
+
+1999-09-02  Martin Buchholz  <martin@xemacs.org>
+
+	* elhash.c:
+	* elhash.h:
+	Change the :type keyword to :weakness, for compatibility with the
+	GNU Emacs 20.5 hash table implementation.
+	Keep (but don't document) the :type keyword for compatibility.
+	Obsolete function hash-table-type
+	General cleanup.
+	Define function sxhash for compatibility with Common Lisp and GNU Emacs.
+
+1999-09-01  Martin Buchholz  <martin@xemacs.org>
+
+	* floatfns.c (arith_error):
+	* floatfns.c (range_error):
+	* floatfns.c (range_error2):
+	* floatfns.c (domain_error):
+	* floatfns.c (domain_error2):
+	* lrecord.h (LRECORDP):
+	* console-x.h (X_ERROR_OCCURRED):
+	* console-x.h (HANDLING_X_ERROR):
+	* chartab.c (CATEGORYP):
+	* buffer.h (XCHAR_OR_CHAR_INT):
+	Remove redundant and confusing parentheses.
+
+	* redisplay-output.c (redisplay_clear_to_window_end):
+	Remove redundant initialization.
+
+	* redisplay.h:
+	* redisplay-msw.c:
+	* redisplay-x.c:
+	Move declarations of bevel_modeline() into redisplay.h.
+
+1999-08-30  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add staticpro_nodump for undumped staticpro-ing.
+	* alloc.c: Add staticpro_nodump for undumped staticpro-ing.  Add
+		  alignment information for dumped data.  Enhance
+		  descriptions.  Phase out Vterminal_* variables while
+		  dumping.
+	* lrecord.h: Add chained descriptions and automagically-reset
+		  lisp_objects to the description system.
+
+	* console-stream.h: Declare the Vterminal_* variables.
+
+	* buffer.c: Don't dump Vbuffer_alist, Vbuffer_defaults and
+		  Vbuffer_local_symbols.
+	* console.c: Don't dump Vconsole_list, Vconsole_defaults and
+		  Vconsole_local_symbols.
+	* eval.c: Don't dump Qunbound_suspended_errors_tag.
+	* lread.c: Don't dump Vread_buffer_stream.
+	* lstream.c: Don't dump Vlstream_free_list[].
+	* search.c: Don't dump last_thing_searched.
+	* window.c: Don't dump minibuf_window and
+		  Vwindow_configuration_free_list[].
+
+	* faces.c: Add face description.
+	* fns.c: Add bit_vector description.
+	* glyphs.c: Add image specifier description.
+	* objects.c: Add color, face and face boolean specifiers descriptions.
+	* opaque.c: Add opaque description.  Don't dump Vopaque_ptr_free_list.
+	* rangetab.c: Add range table description.
+	* specifier.c: Add specifier and specifier methods description.
+	* specifier.h: Add specifier extra description support.
+
+	* symbols.c: Fix symbol_value_buffer_local_description.
+
+	* gdbinit (Lisp): Add opaque_ptr, remove opaque_list.
+
+1999-09-02  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* extents.c (extent_remprop): Get extent's plist address
+ 	correctly.
+
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* xmu.h: define Xmu/Converters.h things.
+
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* opaque.c (equal_opaque_ptr): define.
+	(hash_opaque_ptr): define.
+
+	* xmu.h: define Xmu/Misc.h things.
+
 1999-08-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (determine_real_coding_system): Treat `coding:'
@@ -39,13 +1347,556 @@
 	(decode_coding_ucs4): Use `counter'.
 	(decode_coding_utf8): Likewise.
 
+1999-08-31  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_normalize_glyph_area): make sure
+ 	the clip offset doesn't exceed the height we have available to
+ 	show.
+
+	* window.h (struct window): add top_yoffset and left_xoffset for
+ 	pixel scrolling.
+	(WINDOW_TEXT_TOP_CLIP): new macro.
+
+	* window.c (window_scroll): add behaviour for pixel-scrolling of
+ 	tall lines.
+
+	* redisplay.h (struct display_line): add top_clip.
+	(DISPLAY_LINE_HEIGHT): adjust for top_clip.
+	(DISPLAY_LINE_YPOS): ditto.
+
+	* redisplay.c (position_redisplay_data_type): add
+ 	start_col_xoffset to prepare for pixel-based h-scrolling.
+	(WINDOW_SCROLLED): new macro.
+	(next_tab_position): use it.
+	(add_glyph_rune): use new hscoll vars.
+	(create_text_block): ditto.
+	(generate_displayable_area): adjust off-by-one error.
+	(regenerate_window): take top_clip into account.
+	(regenerate_window_extents_only_changed): ditto.
+	(regenerate_window_incrementally): ditto.
+
+	* redisplay-x.c (x_output_display_block): use DISPLAY_LINE_YPOS,
+ 	DISPLAY_LINE_HEIGHT and DISPLAY_LINE_YEND macros.
+	(x_output_string): ditto.
+	(x_output_blank): ditto.
+	(x_output_hline): ditto.
+	(x_output_eol_cursor): ditto.
+
+	* redisplay-output.c (output_display_line): allow for
+ 	top_clip. use DISPLAY_LINE_YPOS, DISPLAY_LINE_HEIGHT and
+ 	DISPLAY_LINE_YEND macros.
+	(redisplay_output_layout): output strings in layouts correctly.
+	(redisplay_clear_clipped_region): allow for top_clip.
+	(redisplay_calculate_display_boxes): ditto.
+
+	* redisplay-msw.c (mswindows_output_blank): use DISPLAY_LINE_YPOS,
+ 	DISPLAY_LINE_HEIGHT and DISPLAY_LINE_YEND macros.
+	(mswindows_output_cursor): ditto.
+	(mswindows_output_string): ditto.
+	(mswindows_redraw_exposed_window): ditto.
+	(mswindows_output_display_block): ditto.
+
+	* gutter.c: new specifier type gutter-size.
+	(gutter_size_validate): validate gutter-size specifier.
+	(Fgutter_size_specifier_p): predicate for gutter-size.
+	(Fredisplay_gutter_area): allow the gutter area to be redisplayed
+ 	under user contol, like Fredisplay_echo_area.
+	(syms_of_gutter): add new functions.
+	(specifier_type_create_gutter): add new specifier.
+	(specifier_vars_of_gutter): change specifier types of *-height to
+ 	gutter-size.
+
+	* glyphs.c (glyph_width): make work with image instances.
+
+	* console.h (struct console_methods): change api of output_string.
+
+	* glyphs-x.c (x_map_subwindow): move before mapping as reported by
+ 	Stephen J. Turnbull <turnbull@sk.tsukuba.ac.jp>
+
+1999-08-30  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_finalize_image_instance): X_MASK -> PIXMAP_MASK
+ 	for assignment.
+	(init_image_instance_from_x_image): ditto.
+	(x_xpm_instantiate): ditto.
+	(x_colorize_image_instance): ditto. Reported by Richard Cognot
+ 	<cognot@ensg.u-nancy.fr>
+
+1999-08-29  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): move font initialisation so
+ 	that it doesn't get saved in the user defined args.
+	(x_tab_control_instantiate): Set the fg color of the tab's
+ 	children.
+	(x_tab_control_set_property): ditto.
+
+1999-08-27  Damon Lipparelli  <lipp@primus.com>
+
+	* events.h (XTIMEOUT): must preface Lisp_Timeout with ``struct''
+	(XSETTIMEOUT): fixup typo
+
+1999-08-11  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* syntax.c (scan_words): Unified Mule and Non-mule scanning.
+	Word boundary search looks back instead of forward so that it
+	doesn't peek over the limit.
+
+1999-08-20  Olivier Galibert  <galibert@pobox.com>
+
+	* config.h.in: Add PDUMP define.
+	* emacs.c (Fdump_emacs): Hackish, call pdump() if configured in.
+
+	* lrecord.h: Enhance description system.
+	* alloc.c: Fix vector and string description.  Add portable
+	dumper enumeration fonctions.
+
+	* symbols.c:  Fix symbols description.   Add  symbol_value_forward
+	description.
+	* eval.c: Add subr description.
+	* elhash.c (CLEAR_HENTRY):   Clean  value pointer  too.   Fix hash
+	table description.
+	(remhash_1): CLEAR_HENTRY evaluates the parameter two times now.
+
+1999-08-20  Olivier Galibert  <galibert@pobox.com>
+
+	* opaque.c: Kill opaque lists, make  Lisp_Opaque_Ptr a lrecord of
+	its own.
+	* opaque.h: Ditto.
+
+	* eval.c (eval_in_buffer_trapping_errors):
+	(run_hook_trapping_errors):
+	(safe_run_hook_trapping_errors):
+	(call0_trapping_errors):
+	(call1_trapping_errors):
+	(call2_trapping_errors): OPAQUEP  -> OPAQUE_PTRP.  make_opaque_ptr
+	now takes a non-const void *.
+
+1999-08-20  Olivier Galibert  <galibert@pobox.com>
+
+	* opaque.c: Remove make_opaque_long.
+
+	* opaque.h: Remove everything opaque_long related.
+
+	* eval.c (vars_of_eval): Make Qunbound_suspended_errors_tag an
+	opaque_ptr.
+
+	* emacs.c (main_1): Remove make_opaque_long from comment.
+
+1999-08-20  Olivier Galibert  <galibert@pobox.com>
+
+	* event-stream.c (mark_timeout):
+	(print_timeout):
+	(event_stream_generate_wakeup):
+	(event_stream_resignal_wakeup):
+	(event_stream_disable_wakeup):
+	(event_stream_wakeup_pending_p):
+	(vars_of_event_stream): Lisp_Timeout is now a lrecord.
+
+	* events.h (struct Lisp_Timeout): Added.
+
+1999-08-24  Andy Piper  <andy@xemacs.org>
+
+	* console-x.h: declare new pixmap signatures.
+
+1999-08-23  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_update_subwindow): make sure the widget size is
+ 	maintained after an update.
+
+	* event-Xt.c (emacs_Xt_handle_magic_event): use
+ 	find_matching_subwindow to check whether the exposure is totally
+ 	inside a subwindow, if it is then ignore it.
+
+	* glyphs.c (find_matching_subwindow): new function.
+
+	* toolbar-x.c (x_draw_blank_toolbar_button): use new
+ 	x_output_shadows signature.
+	(x_output_toolbar_button): use new x_output_x_pixmap signature.
+
+	* redisplay.h (struct display_box): new structure.
+	(struct display_glyph_area): ditto.
+  	declare new display_box functions.
+
+	* redisplay-x.c (x_output_pixmap): update for new display
+ 	box stuff.
+	(x_bevel_area): update to allow multiple edge styles and border
+ 	segments.
+	(x_output_display_block): update for new display_box stuff and
+ 	signatures.
+	(x_clear_region): ditto.
+	(x_output_x_pixmap): ditto. adjust offsets rather than clip.
+	(console_type_create_redisplay_x): declare new console methods.
+	(x_output_vertical_divider): update for new bevel_area signature.
+	(x_output_shadows): update to allow selective drawing of edges.
+
+	* redisplay-tty.c (tty_output_display_block): do nothing for
+ 	layouts.
+
+	* redisplay-output.c (redisplay_output_subwindow): convert to use
+ 	display_box structure, this allows us to put subwindows anywhere
+ 	with any offset, useful for layout glyphs.
+	(redisplay_output_layout): new function. output a layout and its
+ 	sub-glyphs.
+	(redisplay_output_pixmap): new modular function combining generic
+ 	parts of the X and mswindows versions. convert to use display_box
+ 	structures.
+	(redisplay_clear_clipped_region): new function. clear the area a
+ 	glyph is going into.
+	(redisplay_normalize_glyph_area): new function. calculate the
+ 	bounds of a display_glyph_area given a display_box.
+	(redisplay_normalize_display_box): new function. shrink a
+ 	display_box to enclose a display_glyph_area.
+	(redisplay_display_boxes_in_window_p): check whether the input
+ 	display_box and display_glyph_area are actually in a window.
+	(redisplay_calculate_display_boxes): calculate display boxes based
+ 	on conventional display_line metrics.
+	(bevel_modeline): update for new bevel_area signature.
+
+	* redisplay-msw.c (mswindows_output_blank): update for new
+ 	display_box stuff.
+	(mswindows_output_string): ditto.
+	(mswindows_output_dibitmap): ditto.
+	(mswindows_output_dibitmap_region): ditto.
+	(mswindows_output_pixmap): ditto.
+	(mswindows_bevel_area): update to allow multiple edge styles and
+ 	border segments.
+	(mswindows_output_display_block): update for new display_box stuff
+ 	and signatures.
+	(mswindows_clear_region): ditto.
+	(console_type_create_redisplay_mswindows): declare new console methods.
+
+	* lisp.h (edge_style): new enum.
+	declare display_box and display_glyph_area.
+
+	* gutter.c (output_gutter): update for new bevel_area signature.
+
+	* glyphs.h (image_instance_type): add layout.
+	(IMAGE_LAYOUT_MASK): ditto.
+	(LAYOUT_IMAGE_INSTANCEP): new macro.
+	(CHECK_LAYOUT_IMAGE_INSTANCE): ditto.
+	(struct Lisp_Image_Instance): add offsets for layout and the
+ 	layout type itself. move mask here also.
+	(IMAGE_INSTANCE_LAYOUT_CHILDREN): new macro.
+	(IMAGE_INSTANCE_LAYOUT_BORDER): ditto.
+	(XIMAGE_INSTANCE_LAYOUT_CHILDREN): ditto.
+	(XIMAGE_INSTANCE_LAYOUT_BORDER): ditto.
+
+	* glyphs.c (mark_image_instance): update for layouts.
+	(print_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+	(allocate_image_instance): initialise offsets for layout.
+	(decode_image_instance_type): update for layouts.
+	(encode_image_instance_type): ditto.
+	(Fimage_instance_height): ditto.
+	(Fimage_instance_width): ditto.
+	(allocate_glyph): ditto.
+	(glyph_width): allow image instances as an argument. update for layouts.
+	(glyph_height_internal): ditto.
+	(syms_of_glyphs): add layout symbols.
+
+	* glyphs-x.h (struct x_image_instance_data): remove mask entry.
+	(IMAGE_INSTANCE_X_MASK): update.
+
+	* glyphs-x.c (x_label_instantiate): new function. instantiate a
+ 	label.
+	(image_instantiator_format_create_glyphs_x): initialise new layout
+ 	glyph type.
+
+	* glyphs-widget.c: new layout type.
+	(check_valid_orientation): new keyword checker for layouts.
+	(check_valid_justification): ditto.
+	(check_valid_border): ditto.
+	(check_valid_glyph_or_image_list): ditto.
+	(layout_possible_dest_types): new function for layout glyph type.
+	(layout_normalize): ditto.
+	(layout_instantiate): ditto.
+	(syms_of_glyphs_widget): new keywords for layout.
+	(image_instantiator_format_create_glyphs_widget): initialise the
+ 	layout glyph type.
+
+	* glyphs-msw.h (struct mswindows_image_instance_data): remove mask
+ 	argument.
+	(IMAGE_INSTANCE_MSWINDOWS_MASK): update.
+
+	* glyphs-msw.c: declare layout format.
+	(image_instantiator_format_create_glyphs_mswindows): initialise it.
+
+	* general.c: new symbols for layouts.
+
+	* console.h (struct console_methods): new console methods for
+ 	outputting pixmaps and strings.
+
+1999-08-23  Didier Verna  <verna@inf.enst.fr>
+
+	* sound.c: revert the renaming of `bell_volume' to `Vbell_volume'
+ 	and `bell_inhibit_time' to `Vbell_inhibit_time'.
+
+1999-08-18  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_subwindow): disable
+ 	clipping attempt.
+
+1999-08-17  Andy Piper  <andy@xemacs.org>
+
+	* gutter.c (redraw_exposed_gutter): handle degenerate case of no
+ 	area to expose or no gutter to display.
+
+1999-08-16  Charles G Waldman  <cgw@fnal.gov>
+
+	* sound.c: rename `bell_volume' to `Vbell_volume' and
+	`bell_inhibit_time' to `Vbell_inhibit_time'.
+
+1999-08-13  Charles G Waldman  <cgw@fnal.gov>
+
+	* sound.c: (bell-inhibit-time): New variable.
+	(ding): Use it.
+	(sound-alist): Fix docstring.
+
+1999-08-17  Andy Piper  <andy@xemacs.org>
+
+	* gui-x.c (button_item_to_widget_value): xstrdup name so that
+ 	deleting it is ok.
+
+1999-08-16 Jeff Miller <jmiller@smart.net>
+
+	* syntax.c (scan_words): make compile.
+
+1999-08-16  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_subwindow): try and be more
+ 	relaxed about clipping possibilities.
+
+	* glyphs-x.c (x_tab_control_set_property): free_widget_value_tree
+ 	rather than just the widget_value.
+	(x_update_subwindow): ditto.
+	(x_widget_instantiate): ditto.
+
+	* gutter.c (output_gutter): shrink current display lines if
+ 	required.
+
+1999-08-15  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.h: declare free_display_lines.
+
+	* redisplay.c (free_display_lines): make non-static.
+
+	* gutter.c (free_frame_gutters): use free_display_lines instead of
+ 	Dynarr_free.
+	(calculate_gutter_size): ditto.
+
+1999-08-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* eval.c (run_hook_with_args_in_buffer): GCPRO globals.
+
+1999-08-14  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (update_subwindow_cachel): make it less brittle.
+
+1999-08-04  Mike Woolley  <mike@bulsara.com>
+
+	* scrollbar-msw.c (mswindows_handle_mousewheel_event): Fixed
+ 	problem in wheelmouse code occurring when the horizontal scrollbar
+ 	is enabled but not visible.
+
+1999-08-08  Andy Piper  <andyp@beasys.com>
+
+	* toolbar-msw.c (mswindows_redraw_frame_toolbars): new function.
+	(console_type_create_toolbar_mswindows): use it.
+
+	* glyphs.c (Fset_image_instance_property): fiddly reorganisation.
+
+	* redisplay-output.c (redisplay_output_display_block): unmap
+ 	subwindows in the block area before outputting the block.
+
+	* event-msw.c (mswindows_wnd_proc): check the update rect before
+ 	painting and disable expose registration while painting.
+
+	* glyphs.c (register_ignored_expose): check
+ 	hold_ignored_expose_registration before registering expose events.
+
+	* redisplay.c (redisplay_frame): reset the subwindow cache before
+ 	displaying the gutter.
+
+	* glyphs-msw.c (mswindows_map_subwindow): move the window before
+ 	mapping.
+
+	* gutter.c (update_frame_gutters): check for glyphs_changed as if
+ 	it is the subwindow cache will have been reset.
+
+1999-08-06  Andy Piper  <andyp@beasys.com>
+
+	* gui-x.c (button_item_to_widget_value): cope with strings.
+
+	* glyphs.h: declare global widget functions.
+	(IIFORMAT_HAS_SHARED_DEVMETHOD): new macro.
+
+	* glyphs-x.c (x_combo_box_instantiate): do generic initialization
+ 	here. remove dead code.
+	(image_instantiator_format_create_glyphs_x): enable combo boxes
+ 	for Motif 2.0.
+
+	* glyphs-widget.c (widget_instantiate_1): make non-static.
+	(tree_view_instantiate): renamed from combo_box_instantiate.
+	(image_instantiator_format_create_glyphs_widget): use new/changed methods.
+
+	* glyphs-msw.c (mswindows_combo_box_instantiate): do generic
+ 	initialization here.
+
+	* lwlib-Xm.c (xm_update_combo_box): new function.
+	(xm_update_one_widget): call it.
+	(xm_update_one_value): deal with combo boxes as well as lists.
+	(xm_create_combo_box): create a drop-down combo box.
+
+	* toolbar-msw.c (mswindows_output_toolbar): call
+ 	mswindows_move_toolbar.
+
+1999-08-05  Andy Piper  <andyp@beasys.com>
+
+	* window.c (Fcurrent_pixel_column): new function. use display
+ 	lines to calculate pixel position of point.
+	* window.c (syms_of_window): declare it.
+
+1999-08-05  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (check_for_ignored_expose): ignore exposures wholly
+ 	contained in our ignore list.
+
+	* buffer.c (Frecord_buffer): add call to record-buffer-hook.
+	(syms_of_buffer): declare record-buffer-hook.
+
+	* s/mingw32.h: define mousewheel things.
+
+1999-08-04  Mike Woolley <mike@bulsara.com>
+
+	* windowsnt.h (_WIN32_WINNT): enable for win95
+
+	* s/cygwin32.h: define mousewheel things.
+
+	* scrollbar-msw.h: declare mousewheel handler.
+
+	* scrollbar-msw.c (mswindows_handle_mousewheel_event): new function.
+
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* gui-x.c (gui_items_to_widget_values): remove unused variable.
+	(gui_items_to_widget_values_1): ditto.
+
+	* gui-x.h: unconditionally define since it is used everywhere.
+
+1999-08-04  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_finalize_image_instance): only free pixels if we
+ 	have that type of image.
+
+1999-07-30  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_unmap_subwindows): add comparison
+ 	subwindow to not unmap if required.
+	(redisplay_unmap_subwindows_maybe): comparison is Qnil.
+	(redisplay_unmap_subwindows_except_us): new function.
+	(redisplay_output_subwindow): use it to unmap windows in the area
+ 	we are displaying into.
+
+	* glyphs.c (update_subwindow_cachel_data): always update as we
+ 	only ever get called when an update is required.
+	(update_subwindow_cachel): new function. sync a subwindow with its
+ 	cachel.
+	(Fresize_subwindow): use it.
+	(register_ignored_expose): make sure we set the tail correctly.
+
+1999-07-28  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_clear_bottom_of_window): remove
+ 	unneeded device.
+
+	* gutter.c (redraw_exposed_gutter): unmap subwindows from the
+ 	whole gutter.
+
+	* gui.h: declare parse_gui_item_tree_list and
+ 	parse_gui_item_tree_children.
+
+	* gui.c (parse_gui_item_tree_item): new function for parsing item
+ 	lists into gui-item trees.
+	(parse_gui_item_tree_children): ditto.
+	(parse_gui_item_tree_list): ditto.
+
+	* gui-x.h: declare gui_items_to_widget_values.
+
+	* gui-x.c (gui_items_to_widget_values_1): new function for
+ 	recursively parsing gui-items into widget_values.
+	(gui_item_children_to_widget_values): ditto.
+	(gui_items_to_widget_values): ditto.
+	(sanity_check_lwlib): add widgets macrolets.
+
+	* glyphs.h (IMAGE_INSTANCE_WIDGET_ITEMS): rename from *ITEM.
+	(XIMAGE_INSTANCE_WIDGET_ITEMS): ditto.
+	(IMAGE_INSTANCE_WIDGET_ITEM): rename from *SINGLE_ITEM.
+	(XIMAGE_INSTANCE_WIDGET_ITEM): ditto.
+	(struct expose_ignore): new structure for storing ignorable expose
+ 	events.
+
+	* glyphs.c (valid_image_instantiator_format_p): fix so that using
+ 	a console-type as a locale works.
+	(mark_image_instance): ITEM->ITEMS.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+	(struct expose_ignore_blocktype): new blocktype.
+	(check_for_ignored_expose): new function. checks frame exposure
+ 	list for events to ignore.
+	(register_ignored_expose): new function. registers an expose event
+ 	as ignorable.
+	(unmap_subwindow): register the expose event as ignorable.
+	(vars_of_glyphs): initialise the exposure blocktype.
+
+	* glyphs-x.c (x_finalize_image_instance): use lw_destroy_widget.
+	(x_update_subwindow): modify all widgets using widget_value tree
+ 	rather than just a single widget value.
+	(x_widget_instantiate): LWLIB_USES_MOTIF -> LWLIB_WIDGETS_MOTIF.
+	make sure widgets don't resize themselves.
+	(x_tab_control_instantiate): new function. use lwlib tab functions.
+	(x_tab_control_set_property): new function.
+	(image_instantiator_format_create_glyphs_x): add tab_control.
+
+	* glyphs-widget.c (widget_text_to_pixel_conversion): calculate
+ 	slightly more sensibly.
+	(initialize_widget_image_instance): ITEM->ITEMS.
+	(widget_instantiate_1): parse gui items generically into the ITEMS
+ 	entry.
+
+	* glyphs-msw.c (mswindows_update_subwindow): replace
+ 	SINGLE_ITEM->ITEM.
+	(mswindows_register_widget_instance): ditto.
+	(add_tree_item): modify to use new pre-initialised gui-item
+ 	structure.
+	(add_tab_item): ditto.
+	(mswindows_tab_control_instantiate): ditto.
+	(mswindows_tab_control_set_property): ditto.
+	(image_instantiator_format_create_glyphs_mswindows): predicate
+ 	existance of widgets on HAVE_WIDGETS.
+
+	* frame.h (struct frame): add subwindow_exposures variables.
+
+	* frame.c (allocate_frame_core): reset subwindow_exposures links.
+
+	* event-msw.c (mswindows_wnd_proc): check for ignored
+ 	expose events before redrawing.
+
+	* event-Xt.c (emacs_Xt_handle_magic_event): check for ignored
+ 	expose events before redrawing.
+
+1999-07-30  SL Baur  <steve@xemacs.org>
+
+	* scrollbar-x.c: should include EmacsFrame.h.
+	From Jeff Miller <jmiller@smart.net>
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released
 
 1999-07-27  Jeff Miller  <jmiller@smart.net>
 
-	* add a "#ifdef HAVE_MENUBARS"  wrapper to gui.c around 
+	* add a "#ifdef HAVE_MENUBARS"  wrapper to gui.c around
 	  menubar_show_keybindings.
 
 1999-07-23  SL Baur  <steve@miho>
@@ -141,10 +1992,10 @@
 
 	* event-Xt.c (handle_focus_event_1): Re-enable Motif/XIM to get
 	focus the event (XIM_focus_event).
-	(emacs_Xt_handle_magic_event): No side effect on Motif/XIM because 
+	(emacs_Xt_handle_magic_event): No side effect on Motif/XIM because
 	XIM_SetGeometry does nothing in input_method_motif.c, but re-unify
 	the interface for future use (XIM_SetGeometry).
-	* redisplay-x.c (x_output_string): Re-enable Motif/XIM to set spot 
+	* redisplay-x.c (x_output_string): Re-enable Motif/XIM to set spot
 	location (XIM_SetSpotLocation).
 	(x_output_eol_cursor): Ditto.
 
@@ -252,7 +2103,7 @@
 
 	* redisplay-x.c (redisplay_clear_to_window_end): moved to
  	redisplay.c
-	
+
 	* redisplay-msw.c (redisplay_clear_to_window_end): deleted.
 
 	* gutter.c: new file - implements gutters. All new functions are
@@ -391,9 +2242,9 @@
 
 1999-07-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
 
-        * tooltalk.c (init_tooltalk): save signal actions for SIGQUIT,
-        SIGINT and SIGCHLD before calling tt_open and restore the
-        afterwards. This fixes e.g. the zombie subprocesses on Solaris
+	* tooltalk.c (init_tooltalk): save signal actions for SIGQUIT,
+	SIGINT and SIGCHLD before calling tt_open and restore the
+	afterwards. This fixes e.g. the zombie subprocesses on Solaris
 
 1999-07-06  SL Baur  <steve@xemacs.org>
 
@@ -2318,8 +4169,8 @@
 
 1998-12-11  Martin Buchholz  <martin@xemacs.org>
 
-        * event-msw.c (mswindows_cancel_dispatch_event):
-        Gratuitous code prettification
+	* event-msw.c (mswindows_cancel_dispatch_event):
+	Gratuitous code prettification
 
 
 1998-12-07  Hrvoje Niksic  <hniksic@srce.hr>
@@ -4144,7 +5995,7 @@
 
 1998-08-07 Matt Stupple <matts@tibco.com>
 
-        * ntproc.c: don't wait on char_consumed at thread entry.
+	* ntproc.c: don't wait on char_consumed at thread entry.
 	Additionally, to get the 'process' marked as finished, ensure
 	that the CHILD_ACTIVE macro returns false, so before exiting
 	close char_avail and set it to NULL, and close other handles
@@ -5437,7 +7288,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 1998-05-14  Damon Lipparelli  <lipp@primus.com>
 
-        * winslots.h: close comment
+	* winslots.h: close comment
 
 1998-05-16  Kirill M. Katsnelson  <kkm@kis.ru>
 

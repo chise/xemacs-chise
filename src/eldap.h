@@ -44,7 +44,6 @@ DECLARE_LRECORD (ldap, struct Lisp_LDAP);
 #define XLDAP(x) XRECORD (x, ldap, struct Lisp_LDAP)
 #define XSETLDAP(x, p) XSETRECORD (x, p, ldap)
 #define LDAPP(x) RECORDP (x, ldap)
-#define GC_LDAPP(x) GC_RECORDP (x, ldap)
 #define CHECK_LDAP(x) CHECK_RECORD (x, ldap)
 #define CONCHECK_LDAP(x) CONCHECK_RECORD (x, ldap)
 

@@ -44,7 +44,6 @@ DECLARE_LRECORD (process, struct Lisp_Process);
 #define XPROCESS(x) XRECORD (x, process, struct Lisp_Process)
 #define XSETPROCESS(x, p) XSETRECORD (x, p, process)
 #define PROCESSP(x) RECORDP (x, process)
-#define GC_PROCESSP(x) GC_RECORDP (x, process)
 #define CHECK_PROCESS(x) CHECK_RECORD (x, process)
 #define PROCESS_LIVE_P(x) (!NILP (XPROCESS(x)->pipe_instream))
 
@@ -93,7 +92,7 @@ int network_connection_p (Lisp_Object process);
 #define network_connection_p(x) 0
 #endif
 
-extern Lisp_Object Qclosed, Qmulticast, Qopen, Qrun, Qstop, Qtcpip;
+extern Lisp_Object Qclosed, Qmulticast, Qopen, Qrun, Qstop, Qtcp, Qudp;
 extern Lisp_Object Vprocess_connection_type, Vprocess_list;
 
 /* Report all recent events of a change in process status
@@ -133,5 +132,14 @@ Lisp_Object canonicalize_host_name (Lisp_Object host);
 #endif
 
 #endif /* emacs */
+
+#ifdef HAVE_GETPT
+#define PTY_ITERATION
+#define PTY_OPEN \
+    if ((fd = getpt()) < 0 || grantpt (fd) < 0 || unlockpt (fd) < 0) \
+      return -1;
+#define PTY_NAME_SPRINTF
+#define PTY_TTY_NAME_SPRINTF strcpy (pty_name, ptsname (fd));
+#endif
 
 #endif /* _XEMACS_PROCESS_H_ */

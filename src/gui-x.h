@@ -30,8 +30,6 @@ widget_value *xmalloc_widget_value (void);
 
 LWLIB_ID new_lwlib_id (void);
 
-#ifdef HAVE_POPUPS
-
 /* Each frame has one of these, and they are also contained in
    Vpopup_callbacks.
    It doesn't really need to be an lrecord (it's not lisp-accessible)
@@ -62,7 +60,6 @@ DECLARE_LRECORD (popup_data, struct popup_data);
 #define XPOPUP_DATA(x) XRECORD (x, popup_data, struct popup_data)
 #define XSETPOPUP_DATA(x, p) XSETRECORD (x, p, popup_data)
 #define POPUP_DATAP(x) RECORDP (x, popup_data)
-#define GC_POPUP_DATAP(x) GC_RECORDP (x, popup_data)
 #define CHECK_POPUP_DATA(x) CHECK_RECORD (x, popup_data)
 
 void gcpro_popup_callbacks (LWLIB_ID id);
@@ -73,10 +70,9 @@ void popup_selection_callback (Widget widget, LWLIB_ID ignored_id,
 			       XtPointer client_data);
 int button_item_to_widget_value (Lisp_Object desc, widget_value *wv,
 				 int allow_text_field_p, int no_keys_p);
+widget_value * gui_items_to_widget_values (Lisp_Object items);
 Lisp_Object menu_name_to_accelerator (char *name);
 char *menu_separator_style (CONST char *s);
 Lisp_Object widget_value_unwind (Lisp_Object closure);
-
-#endif /* HAVE_POPUPS */
 
 #endif /* _XEMACS_XLWLIB_H_ */

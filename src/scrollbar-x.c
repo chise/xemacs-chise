@@ -27,6 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "console-x.h"
+#include "EmacsFrame.h"
 #include "glyphs-x.h"
 #include "gui-x.h"
 #include "scrollbar-x.h"
@@ -672,19 +673,6 @@ x_scrollbar_pointer_changed_in_window (struct window *w)
 		    0, (Window) NULL);
 }
 
-/* Called directly from x_any_window_to_frame in frame-x.c */
-EMACS_INT
-x_window_is_scrollbar (struct frame *f, Window win)
-{
-  if (!FRAME_X_P (f))
-    return 0;
-
-  if (f->mirror_dirty)
-    update_frame_window_mirror (f);
-  return (EMACS_INT) x_scrollbar_loop (X_WINDOW_IS_SCROLLBAR, f->root_window,
-				 f->root_mirror, 0, win);
-}
-
 /* Make sure that all scrollbars on frame are up-to-date.  Called
    directly from x_set_frame_properties in frame-x.c*/
 void
@@ -745,8 +733,16 @@ console_type_create_scrollbar_x (void)
 }
 
 void
+reinit_vars_of_scrollbar_x (void)
+{
+  stupid_vertical_scrollbar_drag_hack = 1;
+}
+
+void
 vars_of_scrollbar_x (void)
 {
+  reinit_vars_of_scrollbar_x ();
+
 #if defined (LWLIB_SCROLLBARS_LUCID)
   Fprovide (intern ("lucid-scrollbars"));
 #elif defined (LWLIB_SCROLLBARS_MOTIF)
@@ -754,5 +750,4 @@ vars_of_scrollbar_x (void)
 #elif defined (LWLIB_SCROLLBARS_ATHENA)
   Fprovide (intern ("athena-scrollbars"));
 #endif
-  stupid_vertical_scrollbar_drag_hack = 1;
 }

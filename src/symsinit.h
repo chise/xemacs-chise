@@ -33,11 +33,13 @@ void init_process_times_very_early (void);
 void init_ralloc (void);
 void init_signals_very_early (void);
 
-/* Early Lisp-engine initialization (dump-time only). */
+/* Early Lisp-engine initialization (dump-time for init, run-time for reinit). */
 
 void init_alloc_once_early (void);
+void reinit_alloc_once_early (void);
 void init_symbols_once_early (void);
 void init_errors_once_early (void);
+void reinit_opaque_once_early (void);
 void init_opaque_once_early (void);
 
 /* Declare the built-in symbols and primitives (dump-time only). */
@@ -147,17 +149,21 @@ void syms_of_window (void);
 void syms_of_xselect (void);
 void syms_of_eldap (void);
 
-/* Initialize the console types (dump-time only). */
+/* Initialize the console types (dump-time but for reinit_). */
 
 void console_type_create (void);
 void console_type_create_stream (void);
+void reinit_console_type_create_stream (void);
 void console_type_create_tty (void);
+void reinit_console_type_create_tty (void);
 void console_type_create_device_tty (void);
 void console_type_create_frame_tty (void);
 void console_type_create_objects_tty (void);
 void console_type_create_redisplay_tty (void);
 void console_type_create_x (void);
+void reinit_console_type_create_x (void);
 void console_type_create_device_x (void);
+void reinit_console_type_create_device_x (void);
 void console_type_create_frame_x (void);
 void console_type_create_glyphs_x (void);
 void console_type_create_menubar_x (void);
@@ -168,6 +174,7 @@ void console_type_create_select_x (void);
 void console_type_create_toolbar_x (void);
 void console_type_create_dialog_x (void);
 void console_type_create_mswindows (void);
+void reinit_console_type_create_mswindows (void);
 void console_type_create_device_mswindows (void);
 void console_type_create_frame_mswindows (void);
 void console_type_create_menubar_mswindows (void);
@@ -182,10 +189,15 @@ void console_type_create_select_mswindows (void);
 /* Initialize the specifier types (dump-time only). */
 
 void specifier_type_create (void);
+void reinit_specifier_type_create (void);
 void specifier_type_create_image (void);
+void reinit_specifier_type_create_image (void);
 void specifier_type_create_gutter (void);
+void reinit_specifier_type_create_gutter (void);
 void specifier_type_create_objects (void);
+void reinit_specifier_type_create_objects (void);
 void specifier_type_create_toolbar (void);
+void reinit_specifier_type_create_toolbar (void);
 
 /* Initialize the structure types (dump-time only). */
 
@@ -220,12 +232,13 @@ void process_type_create_unix (void);
 
 void init_provide_once (void);
 
-/* Initialize most variables (dump-time only). */
+/* Initialize most variables (dump-time for vars_, run-time for reinit_vars). */
 
 void vars_of_abbrev (void);
 void vars_of_alloc (void);
 void vars_of_balloon_x (void);
 void vars_of_buffer (void);
+void reinit_vars_of_buffer (void);
 void vars_of_bytecode (void);
 void vars_of_callint (void);
 void vars_of_callproc (void);
@@ -233,15 +246,19 @@ void vars_of_chartab (void);
 void vars_of_cmdloop (void);
 void vars_of_cmds (void);
 void vars_of_console (void);
+void reinit_vars_of_console (void);
 void vars_of_console_stream (void);
 void vars_of_console_mswindows (void);
 void vars_of_console_tty (void);
 void vars_of_data (void);
 void vars_of_database (void);
 void vars_of_debug (void);
+void reinit_vars_of_debug (void);
 void vars_of_device (void);
+void reinit_vars_of_device (void);
 void vars_of_device_mswindows (void);
 void vars_of_device_x (void);
+void reinit_vars_of_device_x (void);
 void vars_of_dialog (void);
 void vars_of_dialog_x (void);
 void vars_of_dialog_mswindows (void);
@@ -253,17 +270,25 @@ void vars_of_editfns (void);
 void vars_of_elhash (void);
 void vars_of_emacs (void);
 void vars_of_eval (void);
+void reinit_vars_of_eval (void);
 void vars_of_event_stream (void);
+void reinit_vars_of_event_stream (void);
 void vars_of_event_tty (void);
+void reinit_vars_of_event_tty (void);
 void vars_of_event_mswindows (void);
+void reinit_vars_of_event_mswindows (void);
 void vars_of_event_Xt (void);
+void reinit_vars_of_event_Xt (void);
 void vars_of_events (void);
+void reinit_vars_of_events (void);
 void vars_of_extents (void);
+void reinit_vars_of_extents (void);
 void vars_of_faces (void);
 void vars_of_fileio (void);
 void vars_of_filelock (void);
 void vars_of_floatfns (void);
 void vars_of_font_lock (void);
+void reinit_vars_of_font_lock (void);
 void vars_of_frame_tty (void);
 void vars_of_frame_mswindows (void);
 void vars_of_frame_x (void);
@@ -271,26 +296,35 @@ void vars_of_frame (void);
 void vars_of_glyphs_x (void);
 void vars_of_glyphs_eimage (void);
 void vars_of_glyphs_widget (void);
+void reinit_vars_of_glyphs_widget (void);
 void vars_of_glyphs_mswindows (void);
 void vars_of_glyphs (void);
+void reinit_vars_of_glyphs (void);
 void vars_of_gui_x (void);
+void reinit_vars_of_gui_x (void);
 void vars_of_gui (void);
 void vars_of_gutter (void);
 void vars_of_input_method_motif (void);
 void vars_of_input_method_xlib (void);
 void vars_of_indent (void);
 void vars_of_insdel (void);
+void reinit_vars_of_insdel (void);
 void vars_of_intl (void);
 void vars_of_keymap (void);
 void vars_of_lread (void);
+void reinit_vars_of_lread (void);
 void vars_of_lstream (void);
+void reinit_vars_of_lstream (void);
 void vars_of_macros (void);
 void vars_of_md5 (void);
 void vars_of_menubar_x (void);
+void reinit_vars_of_menubar_x (void);
 void vars_of_menubar (void);
 void vars_of_menubar_mswindows (void);
 void vars_of_minibuf (void);
+void reinit_vars_of_minibuf (void);
 void vars_of_module (void);
+void reinit_vars_of_module (void);
 void vars_of_mule (void);
 void vars_of_mule_canna (void);
 void vars_of_mule_ccl(void);
@@ -299,20 +333,25 @@ void vars_of_file_coding (void);
 void vars_of_mule_wnn (void);
 void vars_of_ntproc (void);
 void vars_of_objects (void);
+void reinit_vars_of_objects (void);
 void vars_of_objects_tty (void);
 void vars_of_objects_mswindows (void);
 void vars_of_objects_x (void);
 void vars_of_print (void);
+void reinit_vars_of_print (void);
 void vars_of_process (void);
 void vars_of_process_nt (void);
 void vars_of_process_unix (void);
 void vars_of_profile (void);
 void vars_of_ralloc (void);
 void vars_of_redisplay (void);
+void reinit_vars_of_redisplay (void);
 void vars_of_scrollbar_x (void);
+void reinit_vars_of_scrollbar_x (void);
 void vars_of_scrollbar (void);
 void vars_of_scrollbar_mswindows (void);
 void vars_of_search (void);
+void reinit_vars_of_search (void);
 void vars_of_select (void);
 void vars_of_select_mswindows (void);
 void vars_of_sound (void);
@@ -323,8 +362,11 @@ void vars_of_syntax (void);
 void vars_of_toolbar (void);
 void vars_of_tooltalk (void);
 void vars_of_undo (void);
+void reinit_vars_of_undo (void);
 void vars_of_window (void);
+void reinit_vars_of_window (void);
 void vars_of_xselect (void);
+void reinit_vars_of_xselect (void);
 void vars_of_eldap (void);
 
 /* Initialize specifier variables (dump-time only). */
@@ -338,7 +380,7 @@ void specifier_vars_of_toolbar (void);
 void specifier_vars_of_window (void);
 
 /* Initialize variables with complex dependencies
-   on other variables (dump-time only). */
+   on other variables (dump-time for complex_vars_, run-time for reinit_). */
 
 void complex_vars_of_regex (void);
 void complex_vars_of_search (void);
@@ -358,11 +400,13 @@ void complex_vars_of_casetab (void);
 void complex_vars_of_syntax (void);
 void complex_vars_of_chartab (void);
 void complex_vars_of_buffer (void);
+void reinit_complex_vars_of_buffer (void);
 void complex_vars_of_console (void);
+void reinit_complex_vars_of_console (void);
 void complex_vars_of_emacs (void);
 void complex_vars_of_minibuf (void);
+void reinit_complex_vars_of_minibuf (void);
 void complex_vars_of_callproc (void);
-void complex_vars_of_filelock (void);
 void complex_vars_of_keymap (void);
 
 /* Reset the Lisp engine (run-time only). */

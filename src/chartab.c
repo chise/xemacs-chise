@@ -95,14 +95,14 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 #ifdef MULE
 
 static Lisp_Object
-mark_char_table_entry (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_char_table_entry (Lisp_Object obj)
 {
   struct Lisp_Char_Table_Entry *cte = XCHAR_TABLE_ENTRY (obj);
   int i;
 
   for (i = 0; i < 96; i++)
     {
-      markobj (cte->level2[i]);
+      mark_object (cte->level2[i]);
     }
   return Qnil;
 }
@@ -143,16 +143,16 @@ DEFINE_LRECORD_IMPLEMENTATION ("char-table-entry", char_table_entry,
 #endif /* MULE */
 
 static Lisp_Object
-mark_char_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_char_table (Lisp_Object obj)
 {
   struct Lisp_Char_Table *ct = XCHAR_TABLE (obj);
   int i;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
-    markobj (ct->ascii[i]);
+    mark_object (ct->ascii[i]);
 #ifdef MULE
   for (i = 0; i < NUM_LEADING_BYTES; i++)
-    markobj (ct->level1[i]);
+    mark_object (ct->level1[i]);
 #endif
   return ct->mirror_table;
 }
@@ -162,18 +162,18 @@ mark_char_table (Lisp_Object obj, void (*markobj) (Lisp_Object))
    and prune_weak_hash_tables(). */
 
 void
-prune_syntax_tables (int (*obj_marked_p) (Lisp_Object))
+prune_syntax_tables (void)
 {
   Lisp_Object rest, prev = Qnil;
 
   for (rest = Vall_syntax_tables;
-       !GC_NILP (rest);
+       !NILP (rest);
        rest = XCHAR_TABLE (rest)->next_table)
     {
-      if (! obj_marked_p (rest))
+      if (! marked_p (rest))
 	{
 	  /* This table is garbage.  Remove it from the list. */
-	  if (GC_NILP (prev))
+	  if (NILP (prev))
 	    Vall_syntax_tables = XCHAR_TABLE (rest)->next_table;
 	  else
 	    XCHAR_TABLE (prev)->next_table =
@@ -431,6 +431,8 @@ static const struct lrecord_description char_table_description[] = {
 #ifdef MULE
   { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, level1), NUM_LEADING_BYTES },
 #endif
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Char_Table, mirror_table), 1 },
+  { XD_LO_LINK,     offsetof(struct Lisp_Char_Table, next_table) },
   { XD_END }
 };
 
@@ -707,7 +709,13 @@ as OLD-TABLE.  The values will not themselves be copied.
     ctnew->mirror_table = Fcopy_char_table (ct->mirror_table);
   else
     ctnew->mirror_table = ct->mirror_table;
+  ctnew->next_table = Qnil;
   XSETCHAR_TABLE (obj, ctnew);
+  if (ctnew->type == CHAR_TABLE_TYPE_SYNTAX)
+    {
+      ctnew->next_table = Vall_syntax_tables;
+      Vall_syntax_tables = obj;
+    }
   return obj;
 }
 
@@ -1731,7 +1739,7 @@ Valid values are nil or a bit vector of size 95.
 
 
 #define CATEGORYP(x) \
-  (CHARP ((x)) && XCHAR ((x)) >= 0x20 && XCHAR ((x)) <= 0x7E)
+  (CHARP (x) && XCHAR (x) >= 0x20 && XCHAR (x) <= 0x7E)
 
 #define CATEGORY_SET(c)						\
   (get_char_table(c, XCHAR_TABLE(current_buffer->category_table)))
@@ -1746,6 +1754,7 @@ Valid values are nil or a bit vector of size 95.
    Use the macro WORD_BOUNDARY_P instead of calling this function
    directly.  */
 
+int word_boundary_p (Emchar c1, Emchar c2);
 int
 word_boundary_p (Emchar c1, Emchar c2)
 {
@@ -1839,6 +1848,7 @@ vars_of_chartab (void)
 {
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
+  pdump_wire_list (&Vall_syntax_tables);
 }
 
 void

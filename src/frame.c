@@ -86,7 +86,6 @@ Lisp_Object Qborder_color;
 Lisp_Object Qborder_width;
 
 Lisp_Object Qframep, Qframe_live_p;
-Lisp_Object Qframe_x_p, Qframe_tty_p;
 Lisp_Object Qdelete_frame;
 
 Lisp_Object Qframe_title_format, Vframe_title_format;
@@ -122,17 +121,17 @@ EXFUN (Fset_frame_properties, 2);
 
 
 static Lisp_Object
-mark_frame (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_frame (Lisp_Object obj)
 {
   struct frame *f = XFRAME (obj);
 
-#define MARKED_SLOT(x) ((void) (markobj (f->x)));
+#define MARKED_SLOT(x) mark_object (f->x)
 #include "frameslots.h"
 
-  mark_subwindow_cachels (f->subwindow_cachels, markobj);
+  mark_subwindow_cachels (f->subwindow_cachels);
 
   if (FRAME_LIVE_P (f)) /* device is nil for a dead frame */
-    MAYBE_FRAMEMETH (f, mark_frame, (f, markobj));
+    MAYBE_FRAMEMETH (f, mark_frame, (f));
 
   return Qnil;
 }
@@ -162,7 +161,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("frame", frame,
 static void
 nuke_all_frame_slots (struct frame *f)
 {
-#define MARKED_SLOT(x)	f->x = Qnil;
+#define MARKED_SLOT(x)	f->x = Qnil
 #include "frameslots.h"
 }
 
@@ -208,6 +207,10 @@ allocate_frame_core (Lisp_Object device)
 
   /* cache of subwindows visible on frame */
   f->subwindow_cachels    = Dynarr_new (subwindow_cachel);
+
+  /* associated exposure ignore list */
+  f->subwindow_exposures = 0;
+  f->subwindow_exposures_tail = 0;
 
   /* Choose a buffer for the frame's root window.  */
   XWINDOW (root_window)->buffer = Qt;
@@ -410,7 +413,7 @@ See `set-frame-properties', `default-x-frame-plist', and
 
   update_frame_window_mirror (f);
 
-  if (initialized)
+  if (initialized && !DEVICE_STREAM_P (d))
     {
       if (!NILP (f->minibuffer_window))
         reset_face_cachels (XWINDOW (f->minibuffer_window));
@@ -3074,8 +3077,6 @@ syms_of_frame (void)
 
   defsymbol (&Qframep, "framep");
   defsymbol (&Qframe_live_p, "frame-live-p");
-  defsymbol (&Qframe_x_p, "frame-x-p");
-  defsymbol (&Qframe_tty_p, "frame-tty-p");
   defsymbol (&Qdelete_frame, "delete-frame");
   defsymbol (&Qsynchronize_minibuffers, "synchronize-minibuffers");
   defsymbol (&Qbuffer_predicate, "buffer-predicate");
@@ -3291,13 +3292,13 @@ Controls the title of the X window corresponding to the selected frame.
 This is the same format as `modeline-format' with the exception that
 %- is ignored.
 */ );
-  Vframe_title_format = Fpurecopy (build_string ("%S: %b"));
+  Vframe_title_format = build_string ("%S: %b");
 
   DEFVAR_LISP ("frame-icon-title-format", &Vframe_icon_title_format /*
 Controls the title of the icon corresponding to the selected frame.
 See also the variable `frame-title-format'.
 */ );
-  Vframe_icon_title_format = Fpurecopy (build_string ("%b"));
+  Vframe_icon_title_format = build_string ("%b");
 
   DEFVAR_LISP ("default-frame-name", &Vdefault_frame_name /*
 The default name to assign to newly-created frames.
@@ -3305,9 +3306,9 @@ This can be overridden by arguments to `make-frame'.
 This must be a string.
 */ );
 #ifndef INFODOCK
-  Vdefault_frame_name = Fpurecopy (build_string ("emacs"));
+  Vdefault_frame_name = build_string ("emacs");
 #else
-  Vdefault_frame_name = Fpurecopy (build_string ("InfoDock"));
+  Vdefault_frame_name = build_string ("InfoDock");
 #endif
 
   DEFVAR_LISP ("default-frame-plist", &Vdefault_frame_plist /*

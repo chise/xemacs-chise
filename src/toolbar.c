@@ -57,19 +57,19 @@ Lisp_Object Qinit_toolbar_from_resources;
 
 
 static Lisp_Object
-mark_toolbar_button (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_toolbar_button (Lisp_Object obj)
 {
   struct toolbar_button *data = XTOOLBAR_BUTTON (obj);
-  markobj (data->next);
-  markobj (data->frame);
-  markobj (data->up_glyph);
-  markobj (data->down_glyph);
-  markobj (data->disabled_glyph);
-  markobj (data->cap_up_glyph);
-  markobj (data->cap_down_glyph);
-  markobj (data->cap_disabled_glyph);
-  markobj (data->callback);
-  markobj (data->enabled_p);
+  mark_object (data->next);
+  mark_object (data->frame);
+  mark_object (data->up_glyph);
+  mark_object (data->down_glyph);
+  mark_object (data->disabled_glyph);
+  mark_object (data->cap_up_glyph);
+  mark_object (data->cap_down_glyph);
+  mark_object (data->cap_disabled_glyph);
+  mark_object (data->callback);
+  mark_object (data->enabled_p);
   return data->help_string;
 }
 
@@ -1309,6 +1309,12 @@ specifier_type_create_toolbar (void)
 
   SPECIFIER_HAS_METHOD (toolbar, validate);
   SPECIFIER_HAS_METHOD (toolbar, after_change);
+}
+
+void
+reinit_specifier_type_create_toolbar (void)
+{
+  REINITIALIZE_SPECIFIER_TYPE (toolbar);
 }
 
 void

@@ -58,9 +58,6 @@ Lisp_Object Vmouse_leave_buffer_hook, Qmouse_leave_buffer_hook;
 
 Lisp_Object Qlet, QletX, Qsave_excursion;
 
-Lisp_Object Qcurrent_prefix_arg;
-
-Lisp_Object Quser_variable_p;
 Lisp_Object Qread_from_minibuffer;
 Lisp_Object Qread_file_name;
 Lisp_Object Qread_directory_name;
@@ -995,8 +992,6 @@ syms_of_callint (void)
   defsymbol (&Qevents_to_keys, "events-to-keys");
   defsymbol (&Qcommand_debug_status, "command-debug-status");
   defsymbol (&Qenable_recursive_minibuffers, "enable-recursive-minibuffers");
-  defsymbol (&Quser_variable_p, "user-variable-p");
-  defsymbol (&Qcurrent_prefix_arg, "current-prefix-arg");
 
   defsymbol (&Qlet, "let");
   defsymbol (&QletX, "let*");

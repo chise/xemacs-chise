@@ -53,8 +53,6 @@ struct debug_classes
   unsigned int types_of_byte_code;
 };
 
-extern Lisp_Object Qbuffers, Qdevices, Qfaces, Qframes, Qredisplay, Qwindows;
-
 extern struct debug_classes active_debug_classes;
 
 #define DASSERT(class, desired_type, action, assertion) do		\

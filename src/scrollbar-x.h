@@ -69,7 +69,6 @@ struct x_scrollbar_data
 
 void x_update_frame_scrollbars (struct frame *f);
 void x_set_scrollbar_pointer (struct frame *f, Lisp_Object cursor);
-EMACS_INT x_window_is_scrollbar (struct frame *f, Window win);
 
 #endif /* HAVE_X_WINDOWS and HAVE_SCROLLBARS */
 #endif /* _XEMACS_SCROLLBAR_H_ */

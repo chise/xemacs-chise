@@ -140,21 +140,17 @@ Initialize_Locale (void)
 static void
 IMDestroyCallback (XIM im, XPointer client_data, XPointer call_data)
 {
-  struct frame *f = (struct frame *)client_data;
-  struct device *d = XDEVICE (FRAME_DEVICE ((struct frame *)client_data));
-  Lisp_Object frame_list = DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f)));
+  struct frame *f = (struct frame *) client_data;
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
   Lisp_Object tail;
-  struct frame *target_frame = NULL;
 
-  LIST_LOOP (tail, frame_list)
+  DEVICE_FRAME_LOOP (tail, d)
     {
-      if (target_frame = XFRAME (XCAR (tail)))
+      struct frame *target_frame = XFRAME (XCAR (tail));
+      if (FRAME_X_XIC (target_frame))
 	{
-	  if ( FRAME_X_XIC(target_frame) )
-	    {
-	      XDestroyIC (FRAME_X_XIC(target_frame));
-	      FRAME_X_XIC (target_frame) = NULL;
-	    }
+	  XDestroyIC (FRAME_X_XIC (target_frame));
+	  FRAME_X_XIC (target_frame) = NULL;
 	}
     }
 
@@ -176,10 +172,10 @@ IMDestroyCallback (XIM im, XPointer client_data, XPointer call_data)
 static void
 IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
 {
-  struct frame *f = (struct frame *)client_data;
-  struct device *d = XDEVICE (FRAME_DEVICE ((struct frame *)client_data));
+  struct frame *f = (struct frame *) client_data;
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
   XIM xim;
-  Widget w = FRAME_X_TEXT_WIDGET ((struct frame *)client_data);
+  Widget w = FRAME_X_TEXT_WIDGET (f);
   Window win = XtWindow (w);
   XRectangle p_area = {0,0,1,1}, s_area = {0,0,1,1};
   XPoint spot = {0,0};
@@ -225,7 +221,7 @@ IMInstantiateCallback (Display *dpy, XPointer client_data, XPointer call_data)
 
       /* destroy callback for im */
       ximcallback.callback = IMDestroyCallback;
-      ximcallback.client_data = (XPointer)f;
+      ximcallback.client_data = (XPointer) f;
       XSetIMValues (xim, XNDestroyCallback, &ximcallback, NULL);
     }
   else
@@ -311,16 +307,16 @@ XIM_init_device (struct device *d)
 static void
 XIM_delete_frame (Widget w, XtPointer client_data, XtPointer call_data)
 {
-  struct frame *f = (struct frame *)client_data;
-  struct device *d = XDEVICE (FRAME_DEVICE ((struct frame *)client_data));
+  struct frame *f = (struct frame *) client_data;
+  struct device *d = XDEVICE (FRAME_DEVICE (f));
   Display *dpy = DEVICE_X_DISPLAY (d);
 
   XUnregisterIMInstantiateCallback (dpy, NULL, NULL, NULL,
-				    IMInstantiateCallback, (XtPointer)f);
+				    IMInstantiateCallback, (XPointer) f);
 
-  if ( FRAME_X_XIC (f) )
+  if (FRAME_X_XIC (f))
     {
-      XDestroyIC (FRAME_X_XIC(f));
+      XDestroyIC (FRAME_X_XIC (f));
       FRAME_X_XIC (f) = NULL;
     }
   return;
@@ -335,7 +331,7 @@ XIM_init_frame (struct frame *f)
   struct device *d = XDEVICE (FRAME_DEVICE (f));
 
   XRegisterIMInstantiateCallback (DEVICE_X_DISPLAY (d), NULL, NULL, NULL,
-				  IMInstantiateCallback, (XtPointer)f);
+				  IMInstantiateCallback, (XPointer) f);
 
 #if 0
   if ( FRAME_X_XIC (f) )

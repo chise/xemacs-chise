@@ -126,11 +126,11 @@ lock_file_1 (char *lfname,int force)
   char *lock_info_str;
 
   if (STRINGP (Fuser_login_name (Qnil)))
-    user_name = (char *)XSTRING_DATA((Fuser_login_name (Qnil)));
+    user_name = (char *) XSTRING_DATA (Fuser_login_name (Qnil));
   else
     user_name = "";
   if (STRINGP (Fsystem_name ()))
-    host_name = (char *)XSTRING_DATA((Fsystem_name ()));
+    host_name = (char *) XSTRING_DATA (Fsystem_name ());
   else
     host_name = "";
   lock_info_str = (char *)alloca (strlen (user_name) + strlen (host_name)

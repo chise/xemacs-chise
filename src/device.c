@@ -73,41 +73,40 @@ Lisp_Object
   Qslow_device, Qsecurity;
 
 Lisp_Object Qdevicep, Qdevice_live_p;
-Lisp_Object Qdelete_device;
 Lisp_Object Qcreate_device_hook;
 Lisp_Object Qdelete_device_hook;
 Lisp_Object Vdevice_class_list;
 
 
 static Lisp_Object
-mark_device (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_device (Lisp_Object obj)
 {
   struct device *d = XDEVICE (obj);
 
-  markobj (d->name);
-  markobj (d->connection);
-  markobj (d->canon_connection);
-  markobj (d->console);
-  markobj (d->selected_frame);
-  markobj (d->frame_with_focus_real);
-  markobj (d->frame_with_focus_for_hooks);
-  markobj (d->frame_that_ought_to_have_focus);
-  markobj (d->device_class);
-  markobj (d->user_defined_tags);
-  markobj (d->pixel_to_glyph_cache.obj1);
-  markobj (d->pixel_to_glyph_cache.obj2);
+  mark_object (d->name);
+  mark_object (d->connection);
+  mark_object (d->canon_connection);
+  mark_object (d->console);
+  mark_object (d->selected_frame);
+  mark_object (d->frame_with_focus_real);
+  mark_object (d->frame_with_focus_for_hooks);
+  mark_object (d->frame_that_ought_to_have_focus);
+  mark_object (d->device_class);
+  mark_object (d->user_defined_tags);
+  mark_object (d->pixel_to_glyph_cache.obj1);
+  mark_object (d->pixel_to_glyph_cache.obj2);
 
-  markobj (d->color_instance_cache);
-  markobj (d->font_instance_cache);
+  mark_object (d->color_instance_cache);
+  mark_object (d->font_instance_cache);
 #ifdef MULE
-  markobj (d->charset_font_cache);
+  mark_object (d->charset_font_cache);
 #endif
-  markobj (d->image_instance_cache);
+  mark_object (d->image_instance_cache);
 
   if (d->devmeths)
     {
-      markobj (d->devmeths->symbol);
-      MAYBE_DEVMETH (d, mark_device, (d, markobj));
+      mark_object (d->devmeths->symbol);
+      MAYBE_DEVMETH (d, mark_device, (d));
     }
 
   return (d->frame_list);
@@ -1250,7 +1249,6 @@ syms_of_device (void)
 
   defsymbol (&Qdevicep, "devicep");
   defsymbol (&Qdevice_live_p, "device-live-p");
-  defsymbol (&Qdelete_device, "delete-device");
 
   defsymbol (&Qcreate_device_hook, "create-device-hook");
   defsymbol (&Qdelete_device_hook, "delete-device-hook");
@@ -1299,8 +1297,18 @@ syms_of_device (void)
 }
 
 void
+reinit_vars_of_device (void)
+{
+  staticpro_nodump (&Vdefault_device);
+  Vdefault_device = Qnil;
+  asynch_device_change_pending = 0;
+}
+
+void
 vars_of_device (void)
 {
+  reinit_vars_of_device ();
+
   DEFVAR_LISP ("create-device-hook", &Vcreate_device_hook /*
 Function or functions to call when a device is created.
 One argument, the newly-created device.
@@ -1315,11 +1323,6 @@ Function or functions to call when a device is deleted.
 One argument, the to-be-deleted device.
 */ );
   Vdelete_device_hook = Qnil;
-
-  staticpro (&Vdefault_device);
-  Vdefault_device = Qnil;
-
-  asynch_device_change_pending = 0;
 
   Vdevice_class_list = list3 (Qcolor, Qgrayscale, Qmono);
   staticpro (&Vdevice_class_list);

@@ -168,10 +168,9 @@ tty_initialize_color_instance (struct Lisp_Color_Instance *c, Lisp_Object name,
 }
 
 static void
-tty_mark_color_instance (struct Lisp_Color_Instance *c,
-			 void (*markobj) (Lisp_Object))
+tty_mark_color_instance (struct Lisp_Color_Instance *c)
 {
-  markobj (COLOR_INSTANCE_TTY_SYMBOL (c));
+  mark_object (COLOR_INSTANCE_TTY_SYMBOL (c));
 }
 
 static void
@@ -256,10 +255,9 @@ tty_initialize_font_instance (struct Lisp_Font_Instance *f, Lisp_Object name,
 }
 
 static void
-tty_mark_font_instance (struct Lisp_Font_Instance *f,
-			void (*markobj) (Lisp_Object))
+tty_mark_font_instance (struct Lisp_Font_Instance *f)
 {
-  markobj (FONT_INSTANCE_TTY_CHARSET (f));
+  mark_object (FONT_INSTANCE_TTY_CHARSET (f));
 }
 
 static void

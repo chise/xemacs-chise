@@ -148,12 +148,10 @@ allocate_database (void)
 }
 
 static Lisp_Object
-mark_database (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_database (Lisp_Object obj)
 {
   Lisp_Database *db = XDATABASE (obj);
-
-  markobj (db->fname);
-  return Qnil;
+  return db->fname;
 }
 
 static void

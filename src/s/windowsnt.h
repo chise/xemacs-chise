@@ -370,3 +370,10 @@ int getegid ();
 #pragma data_seg("xdata")
 #pragma bss_seg("xdata")
 #endif
+
+#ifdef HAVE_SCROLLBARS
+/* Ensure the NT 4 mouse definitions in winuser.h are available */
+ #ifndef _WIN32_WINNT
+  #define _WIN32_WINNT 0x0400
+ #endif
+#endif

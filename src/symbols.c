@@ -63,7 +63,7 @@ Lisp_Object Qad_advice_info, Qad_activate;
 Lisp_Object Qget_value, Qset_value, Qbound_predicate, Qmake_unbound;
 Lisp_Object Qlocal_predicate, Qmake_local;
 
-Lisp_Object Qboundp, Qfboundp, Qglobally_boundp, Qmakunbound;
+Lisp_Object Qboundp, Qglobally_boundp, Qmakunbound;
 Lisp_Object Qsymbol_value, Qset, Qdefault_boundp, Qdefault_value;
 Lisp_Object Qset_default, Qsetq_default;
 Lisp_Object Qmake_variable_buffer_local, Qmake_local_variable;
@@ -87,20 +87,20 @@ static Lisp_Object follow_varalias_pointers (Lisp_Object symbol,
 
 
 static Lisp_Object
-mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
+mark_symbol (Lisp_Object obj)
 {
   struct Lisp_Symbol *sym = XSYMBOL (obj);
   Lisp_Object pname;
 
-  markobj (sym->value);
-  markobj (sym->function);
+  mark_object (sym->value);
+  mark_object (sym->function);
   XSETSTRING (pname, sym->name);
-  markobj (pname);
+  mark_object (pname);
   if (!symbol_next (sym))
     return sym->plist;
   else
   {
-    markobj (sym->plist);
+    mark_object (sym->plist);
     /* Mark the rest of the symbols in the obarray hash-chain */
     sym = symbol_next (sym);
     XSETSYMBOL (obj, sym);
@@ -109,7 +109,8 @@ mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
 }
 
 static const struct lrecord_description symbol_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct Lisp_Symbol, next), 5 }
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Symbol, next), 5 },
+  { XD_END }
 };
 
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("symbol", symbol,
@@ -895,8 +896,7 @@ Set SYMBOL's property list to NEWPLIST, and return NEWPLIST.
    symbol to operate on.  */
 
 static Lisp_Object
-mark_symbol_value_buffer_local (Lisp_Object obj,
-				void (*markobj) (Lisp_Object))
+mark_symbol_value_buffer_local (Lisp_Object obj)
 {
   struct symbol_value_buffer_local *bfwd;
 
@@ -906,15 +906,14 @@ mark_symbol_value_buffer_local (Lisp_Object obj,
 #endif
 
   bfwd = XSYMBOL_VALUE_BUFFER_LOCAL (obj);
-  markobj (bfwd->default_value);
-  markobj (bfwd->current_value);
-  markobj (bfwd->current_buffer);
+  mark_object (bfwd->default_value);
+  mark_object (bfwd->current_value);
+  mark_object (bfwd->current_buffer);
   return bfwd->current_alist_element;
 }
 
 static Lisp_Object
-mark_symbol_value_lisp_magic (Lisp_Object obj,
-			      void (*markobj) (Lisp_Object))
+mark_symbol_value_lisp_magic (Lisp_Object obj)
 {
   struct symbol_value_lisp_magic *bfwd;
   int i;
@@ -924,22 +923,21 @@ mark_symbol_value_lisp_magic (Lisp_Object obj,
   bfwd = XSYMBOL_VALUE_LISP_MAGIC (obj);
   for (i = 0; i < MAGIC_HANDLER_MAX; i++)
     {
-      markobj (bfwd->handler[i]);
-      markobj (bfwd->harg[i]);
+      mark_object (bfwd->handler[i]);
+      mark_object (bfwd->harg[i]);
     }
   return bfwd->shadowed;
 }
 
 static Lisp_Object
-mark_symbol_value_varalias (Lisp_Object obj,
-			    void (*markobj) (Lisp_Object))
+mark_symbol_value_varalias (Lisp_Object obj)
 {
   struct symbol_value_varalias *bfwd;
 
   assert (XSYMBOL_VALUE_MAGIC_TYPE (obj) == SYMVAL_VARALIAS);
 
   bfwd = XSYMBOL_VALUE_VARALIAS (obj);
-  markobj (bfwd->shadowed);
+  mark_object (bfwd->shadowed);
   return bfwd->aliasee;
 }
 
@@ -956,8 +954,13 @@ print_symbol_value_magic (Lisp_Object obj,
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description symbol_value_forward_description[] = {
+  { XD_END }
+};
+
 static const struct lrecord_description symbol_value_buffer_local_description[] = {
-  { XD_LISP_OBJECT, offsetof(struct symbol_value_buffer_local, default_value), 4 },
+  { XD_LISP_OBJECT,  offsetof(struct symbol_value_buffer_local, default_value), 1 },
+  { XD_LO_RESET_NIL, offsetof(struct symbol_value_buffer_local, current_value), 3 },
   { XD_END }
 };
 
@@ -974,7 +977,8 @@ static const struct lrecord_description symbol_value_varalias_description[] = {
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-forward",
 			       symbol_value_forward,
 			       this_one_is_unmarkable,
-			       print_symbol_value_magic, 0, 0, 0, 0,
+			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_forward_description,
 			       struct symbol_value_forward);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-buffer-local",
@@ -1214,7 +1218,7 @@ store_symval_forwarding (Lisp_Object sym, Lisp_Object ovalue,
 	  if (magicfun)
 	    magicfun (sym, &newval, Qnil, 0);
 	  *((int *) symbol_value_forward_forward (fwd))
-	    = ((NILP (newval)) ? 0 : 1);
+	    = !NILP (newval);
 	  return;
 
 	case SYMVAL_OBJECT_FORWARD:
@@ -1547,7 +1551,9 @@ find_symbol_value (Lisp_Object sym)
       /* This can also get called while we're preparing to shutdown.
          #### What should really happen in that case?  Should we
          actually fix things so we can't get here in that case? */
+#ifndef PDUMP
       assert (!initialized || preparing_for_armageddon);
+#endif
       con = 0;
     }
 
@@ -1583,7 +1589,9 @@ find_symbol_value_quickly (Lisp_Object symbol_cons, int find_it_p)
       /* This can also get called while we're preparing to shutdown.
          #### What should really happen in that case?  Should we
          actually fix things so we can't get here in that case? */
+#ifndef PDUMP
       assert (!initialized || preparing_for_armageddon);
+#endif
       con = 0;
     }
 
@@ -3153,6 +3161,19 @@ init_symbols_once_early (void)
   defsymbol (&Qt, "t");
   XSYMBOL (Qt)->value = Qt;	/* Veritas aetera */
   Vquit_flag = Qnil;
+
+  pdump_wire (&Qnil);
+  pdump_wire (&Qunbound);
+  pdump_wire (&Vquit_flag);
+}
+
+void
+defsymbol_nodump (Lisp_Object *location, CONST char *name)
+{
+  *location = Fintern (make_string_nocopy ((CONST Bufbyte *) name,
+					   strlen (name)),
+		       Qnil);
+  staticpro_nodump (location);
 }
 
 void
@@ -3268,11 +3289,11 @@ deferror (Lisp_Object *symbol, CONST char *name, CONST char *messuhhj,
 
   assert (SYMBOLP (inherits_from));
   conds = Fget (inherits_from, Qerror_conditions, Qnil);
-  pure_put (*symbol, Qerror_conditions, Fcons (*symbol, conds));
+  Fput (*symbol, Qerror_conditions, Fcons (*symbol, conds));
   /* NOT build_translated_string ().  This function is called at load time
      and the string needs to get translated at run time.  (This happens
      in the function (display-error) in cmdloop.el.) */
-  pure_put (*symbol, Qerror_message, build_string (messuhhj));
+  Fput (*symbol, Qerror_message, build_string (messuhhj));
 }
 
 void
@@ -3291,7 +3312,6 @@ syms_of_symbols (void)
   defsymbol (&Qmake_local, "make-local");
 
   defsymbol (&Qboundp, "boundp");
-  defsymbol (&Qfboundp, "fboundp");
   defsymbol (&Qglobally_boundp, "globally-boundp");
   defsymbol (&Qmakunbound, "makunbound");
   defsymbol (&Qsymbol_value, "symbol-value");

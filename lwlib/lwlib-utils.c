@@ -31,6 +31,31 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/ObjectP.h>
 #include "lwlib-utils.h"
 
+void
+destroy_all_children (Widget widget)
+{
+  Widget* children;
+  unsigned int number;
+  int i;
+
+  children = XtCompositeChildren (widget, &number);
+  if (children)
+    {
+      /* Unmanage all children and destroy them.  They will only be
+       * really destroyed when we get out of DispatchEvent. */
+      for (i = 0; i < number; i++)
+	{
+	  Widget child = children [i];
+	  if (!child->core.being_destroyed)
+	    {
+	      XtUnmanageChild (child);
+	      XtDestroyWidget (child);
+	    }
+	}
+      XtFree ((char *) children);
+    }
+}
+
 /* Redisplay the contents of the widget, without first clearing it. */
 void
 XtNoClearRefreshWidget (Widget widget)

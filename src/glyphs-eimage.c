@@ -482,7 +482,7 @@ jpeg_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* now instantiate */
   MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, cinfo.output_width, cinfo.output_height,
+		 (ii, cinfo.output_width, cinfo.output_height, 1,
 		  unwind.eimage, dest_mask,
 		  instantiator, domain));
 
@@ -651,10 +651,10 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     DGifSlurp (unwind.giffile);
   }
 
-  /* 3. Now create the EImage */
+  /* 3. Now create the EImage(s) */
   {
     ColorMapObject *cmo = unwind.giffile->SColorMap;
-    int i, j, row, pass, interlace;
+    int i, j, row, pass, interlace, slice;
     unsigned char *eip;
     /* interlaced gifs have rows in this order:
        0, 8, 16, ..., 4, 12, 20, ..., 2, 6, 10, ..., 1, 3, 5, ...  */
@@ -663,52 +663,81 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     height = unwind.giffile->SHeight;
     width = unwind.giffile->SWidth;
-    unwind.eimage = (unsigned char*) xmalloc (width * height * 3);
+    unwind.eimage = (unsigned char*) 
+      xmalloc (width * height * 3 * unwind.giffile->ImageCount);
     if (!unwind.eimage)
       signal_image_error("Unable to allocate enough memory for image", instantiator);
 
     /* write the data in EImage format (8bit RGB triples) */
 
-    /* Note: We just use the first image in the file and ignore the rest.
-       We check here that that image covers the full "screen" size.
-       I don't know whether that's always the case.
-       -dkindred@cs.cmu.edu  */
-    if (unwind.giffile->SavedImages[0].ImageDesc.Height != height
-	|| unwind.giffile->SavedImages[0].ImageDesc.Width != width
-	|| unwind.giffile->SavedImages[0].ImageDesc.Left != 0
-	|| unwind.giffile->SavedImages[0].ImageDesc.Top != 0)
-      signal_image_error ("First image in GIF file is not full size",
-			  instantiator);
-
-    interlace = unwind.giffile->SavedImages[0].ImageDesc.Interlace;
-    pass = 0;
-    row = interlace ? InterlacedOffset[pass] : 0;
-    eip = unwind.eimage;
-    for (i = 0; i < height; i++)
+    for (slice = 0; slice < unwind.giffile->ImageCount; slice++)
       {
-	if (interlace)
-	  if (row >= height) {
-	    row = InterlacedOffset[++pass];
-	    while (row >= height)
-	      row = InterlacedOffset[++pass];
-	  }
-	eip = unwind.eimage + (row * width * 3);
-	for (j = 0; j < width; j++)
-	  {
-	    unsigned char pixel = unwind.giffile->SavedImages[0].RasterBits[(i * width) + j];
-	    *eip++ = cmo->Colors[pixel].Red;
-	    *eip++ = cmo->Colors[pixel].Green;
-	    *eip++ = cmo->Colors[pixel].Blue;
-	  }
-	row += interlace ? InterlacedJumps[pass] : 1;
-      }
-  }
-  /* now instantiate */
-  MAYBE_DEVMETH (XDEVICE (ii->device),
-		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask,
-		  instantiator, domain));
+	/* We check here that that the current image covers the full "screen" size. */
+	if (unwind.giffile->SavedImages[slice].ImageDesc.Height != height
+	    || unwind.giffile->SavedImages[slice].ImageDesc.Width != width
+	    || unwind.giffile->SavedImages[slice].ImageDesc.Left != 0
+	    || unwind.giffile->SavedImages[slice].ImageDesc.Top != 0)
+	  signal_image_error ("Image in GIF file is not full size",
+			      instantiator);
 
+	interlace = unwind.giffile->SavedImages[slice].ImageDesc.Interlace;
+	pass = 0;
+	row = interlace ? InterlacedOffset[pass] : 0;
+	eip = unwind.eimage + (width * height * 3 * slice);
+	for (i = 0; i < height; i++)
+	  {
+	    if (interlace)
+	      if (row >= height) {
+		row = InterlacedOffset[++pass];
+		while (row >= height)
+		  row = InterlacedOffset[++pass];
+	      }
+	    eip = unwind.eimage + (width * height * 3 * slice) + (row * width * 3);
+	    for (j = 0; j < width; j++)
+	      {
+		unsigned char pixel = 
+		  unwind.giffile->SavedImages[slice].RasterBits[(i * width) + j];
+		*eip++ = cmo->Colors[pixel].Red;
+		*eip++ = cmo->Colors[pixel].Green;
+		*eip++ = cmo->Colors[pixel].Blue;
+	      }
+	    row += interlace ? InterlacedJumps[pass] : 1;
+	  }
+      }
+
+    /* now instantiate */
+    MAYBE_DEVMETH (XDEVICE (ii->device),
+		   init_image_instance_from_eimage,
+		   (ii, width, height, unwind.giffile->ImageCount, unwind.eimage, dest_mask,
+		    instantiator, domain));
+  }
+
+  /* We read the gif successfully. If we have more than one slice then
+     animate the gif. */
+  if (unwind.giffile->ImageCount > 1)
+    {
+    /* See if there is a timeout value. In theory there could be one
+       for every image - but that makes the implementation way to
+       complicated for now so we just take the first. */
+      unsigned short timeout = 0;
+      Lisp_Object tid;
+
+      if (unwind.giffile->SavedImages[0].Function == GRAPHICS_EXT_FUNC_CODE
+	  &&
+	  unwind.giffile->SavedImages[0].ExtensionBlockCount)
+	{
+	  timeout = (unsigned short)
+	    ((unwind.giffile->SavedImages[0].ExtensionBlocks[0].Bytes[2] << 8) + 
+	     unwind.giffile-> SavedImages[0].ExtensionBlocks[0].Bytes[1]) * 10;
+	}
+
+      /* Too short a timeout will crucify us performance-wise. */
+      tid = add_glyph_animated_timeout (timeout > 10 ? timeout : 10, image_instance);
+
+      if (!NILP (tid))
+	IMAGE_INSTANCE_PIXMAP_TIMEOUT (ii) = XINT (tid);
+    }
+  
   unbind_to (speccount, Qnil);
 }
 
@@ -990,7 +1019,7 @@ png_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* now instantiate */
   MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask,
+		 (ii, width, height, 1, unwind.eimage, dest_mask,
 		  instantiator, domain));
 
   /* This will clean up everything else. */
@@ -1270,7 +1299,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* now instantiate */
   MAYBE_DEVMETH (XDEVICE (ii->device),
 		 init_image_instance_from_eimage,
-		 (ii, width, height, unwind.eimage, dest_mask,
+		 (ii, width, height, 1, unwind.eimage, dest_mask,
 		  instantiator, domain));
 
   unbind_to (speccount, Qnil);
