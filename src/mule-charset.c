@@ -2078,7 +2078,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.8 (Kami)");
+  Vutf_2000_version = build_string("0.9 (Kyūhōji)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
@@ -2086,7 +2086,7 @@ Version number of UTF-2000.
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
 	       &Vdefault_coded_charset_priority_list /*
-Default order of preferred coded-character-set.
+Default order of preferred coded-character-sets.
 */ );
 #endif
 }
