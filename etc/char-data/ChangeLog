@@ -1,3 +1,10 @@
+2002-11-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* JSP-to-UCS.txt (JSP-583E): Add mapping for U-0002F9A0.
+	(JSP-5926): Add mapping for U-0002F9A8.
+	(JSP-5A6D): Add mapping for U-0002F9B8.
+	(JSP-5C32): Add mapping for U-0002F9C3.
+
 2002-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JX1-to-UCS.txt (JX1-7A44): Map to U-0002F97A instead of U+8005.
