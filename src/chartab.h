@@ -32,7 +32,30 @@ Boston, MA 02111-1307, USA.  */
 
 #include "char-ucs.h"
 
+Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
+
+Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
+			    Lisp_Object value);
+
 Lisp_Object make_char_id_table (Lisp_Object initval);
+
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value);
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value)
+{
+  Lisp_Object table1, table2, table3, table4;
+	
+  table1 = cit->table;
+  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
+  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
+  table4 = get_byte_table (table3, (unsigned char)(code >>  8));
+
+  table4     = put_byte_table (table4, (unsigned char) code, value);
+  table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
+  table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
+  cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+}
 
 void put_char_id_table (Lisp_Char_ID_Table* table,
 			Lisp_Object character, Lisp_Object value);
@@ -50,7 +73,7 @@ EXFUN (Fget_char_attribute, 3);
    When not under Mule, there are only 256 possible characters
    so we just represent them directly. */
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 struct Lisp_Char_Table_Entry
 {
@@ -84,16 +107,21 @@ enum char_table_type
   CHAR_TABLE_TYPE_CHAR
 };
 
+#ifndef UTF2000
 #ifdef MULE
 #define NUM_ASCII_CHARS 160
 #else
 #define NUM_ASCII_CHARS 256
+#endif
 #endif
 
 struct Lisp_Char_Table
 {
   struct lcrecord_header header;
 
+#ifdef UTF2000
+  Lisp_Object table;
+#else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
 #ifdef MULE
@@ -125,6 +153,7 @@ struct Lisp_Char_Table
   Lisp_Object level1[NUM_LEADING_BYTES];
 
 #endif /* MULE */
+#endif /* non UTF2000 */
 
   enum char_table_type type;
 
@@ -144,7 +173,24 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #define CHAR_TABLE_TYPE(ct) ((ct)->type)
 #define XCHAR_TABLE_TYPE(ct) CHAR_TABLE_TYPE (XCHAR_TABLE (ct))
 
-#ifdef MULE
+#ifdef UTF2000
+
+INLINE_HEADER Lisp_Object
+CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
+INLINE_HEADER Lisp_Object
+CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
+{
+  return get_byte_table (get_byte_table
+			 (get_byte_table
+			  (get_byte_table
+			   (ct->table,
+			    (unsigned char)(ch >> 24)),
+			   (unsigned char) (ch >> 16)),
+			  (unsigned char)  (ch >> 8)),
+			 (unsigned char)    ch);
+}
+
+#elif defined(MULE)
 
 Lisp_Object get_non_ascii_char_table_value (Lisp_Char_Table *ct,
 					    Charset_ID leading_byte,
