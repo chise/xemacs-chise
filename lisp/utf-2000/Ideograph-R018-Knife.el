@@ -5825,8 +5825,7 @@
     (ucs-cns		. #x5277)	; ø»’£®
     ))
 (define-char
-  '((=>ucs-cns		. #x2F823)	; ð¯ £
-    (morohashi-daikanwa	2143 0 2)
+  '((morohashi-daikanwa	2143 0 2)
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
@@ -5841,6 +5840,8 @@
       )
      ((ucs		  . #x5202)	; åˆ‚
       ))
+    (chinese-cns11643-3 . #x4043)	; ø»–„¨
+    (ucs-cns		. #x2F823)	; å‰·
     (ucs		. #x5277)	; å‰·
     ))
 (define-char
@@ -5853,15 +5854,6 @@
     (->same-ideograph
      ((ucs		  . #x5277)	; å‰·
       ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x7523)	; ç”£
-      )
-     ((ucs		  . #x5202)	; åˆ‚
-      ))
-    (chinese-cns11643-3 . #x4043)	; ø»–„¨
     (ucs		. #x2F823)	; ð¯ £
     ))
 (define-char
