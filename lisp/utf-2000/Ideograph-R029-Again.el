@@ -126,8 +126,9 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (chinese-cns11643-5 #x21 #x42)	; ø»™«
-    (ideograph-daikanwa #x0C #x34)	; ø¹°´
+    (chinese-cns11643-5		#x21 #x42)	; ø»™«
+    (japanese-jisx0213-2	#x23 #x5C)	; ø»™«
+    (ideograph-daikanwa		#x0C #x34)	; ø¹°´
     ))
 (define-char
   '((ucs		. #x53CC)
@@ -135,7 +136,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "[ø»†»¼ø»‡‘ ø»†¬¢ø»†·­] R172:S1-0903 (ø»‡˜») ã®ä¿—ø»†·­")
+    (comment		. "[JP:Jouyou-Kanji] <vulgar character> of R172:S1-0903")
     (shinjigen-1	. 902)
     (shinjigen-2	. 902)
     (japanese-jisx0208-1978	#x41 #x50)	; ø»‚«¯
@@ -394,6 +395,14 @@
     (ideograph-daikanwa #x0C #x4F)	; ø¹±
     ))
 (define-char
+  '((ucs		. #x355D)
+    (ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (non-morohashi	3151 9)
+    (japanese-jisx0213-2	#x23 #x5D)	; ã•
+    ))
+(define-char
   '((morohashi-daikanwa	3152)
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
@@ -432,12 +441,20 @@
     (ideograph-daikanwa #x0C #x53)	; ø¹±“
     ))
 (define-char
-  '((morohashi-daikanwa	3156)
+  '((->ucs		. #x355E)
+    (morohashi-daikanwa	3156)
+    (ideographic-radical . 29)	; â¼œ
+    (japanese-strokes	. 6)
+    (ideograph-daikanwa #x0C #x54)	; ø¹±”
+    ))
+(define-char
+  '((ucs		. #x355E)
+    (morohashi-daikanwa	3156 0 0)
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (chinese-cns11643-4 #x25 #x5A)	; ø»—§™
-    (ideograph-daikanwa #x0C #x54)	; ø¹±”
+    (chinese-cns11643-4		#x25 #x5A)	; ø»—§™
+    (japanese-jisx0213-2	#x23 #x5E)	; ã•ž
     ))
 (define-char
   '((ucs		. #x53D5)
@@ -445,9 +462,10 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (japanese-jisx0212	#x34 #x5C)	; ø»‹…
-    (chinese-cns11643-3 #x27 #x6B)	; ø»• ¢
-    (ideograph-daikanwa #x0C #x55)	; ø¹±•
+    (japanese-jisx0212		#x34 #x5C)	; ø»‹…
+    (chinese-cns11643-3		#x27 #x6B)	; ø»• ¢
+    (japanese-jisx0213-2	#x23 #x5F)	; å•
+    (ideograph-daikanwa		#x0C #x55)	; ø¹±•
     ))
 (define-char
   '((ucs		. #x53D6)
@@ -514,7 +532,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "[ø»†»¼ø»‡‘ ø»†¬¢ø»†·­] R066:S1-0915 (ø»‡¤›) ã®ä¿—ø»†·­")
+    (comment		. "[JP:Jouyou-Kanji] <vulgar character> of R066:S1-0915")
     (shinjigen-1	. 914)
     (shinjigen-2	. 914)
     (japanese-jisx0208-1978	#x3D #x76)	; ø»‚¦
@@ -539,9 +557,10 @@
     (total-strokes	 . 9)
     (shinjigen-1	. 913)
     (shinjigen-2	. 913)
-    (japanese-jisx0212	#x34 #x5D)	; ø»‹†
-    (chinese-cns11643-3 #x2B #x4F)	; ø»•¥¾
-    (ideograph-daikanwa #x0C #x5D)	; ø¹±
+    (japanese-jisx0212		#x34 #x5D)	; ø»‹†
+    (chinese-cns11643-3		#x2B #x4F)	; ø»•¥¾
+    (japanese-jisx0213-2	#x23 #x60)	; åš
+    (ideograph-daikanwa		#x0C #x5D)	; ø¹±
     ))
 (define-char
   '((->ucs		. #x53DB)
