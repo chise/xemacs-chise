@@ -116,45 +116,45 @@
    ((symbolp kb)
     nil)))
 
-(defun char-db-insert-char-ref (char &optional readable column)
+(defun char-db-insert-char-spec (char &optional readable column)
   (unless column
     (setq column (current-column)))
-  (let (char-ref ret al cal key)
+  (let (char-spec ret al cal key)
     (cond ((characterp char)
 	   (cond ((setq ret (get-char-attribute char 'ucs))
-		  (setq char-ref (list (cons 'ucs ret)))
+		  (setq char-spec (list (cons 'ucs ret)))
 		  (if (setq ret (get-char-attribute char 'name))
-		      (setq char-ref (cons (cons 'name ret) char-ref)))
+		      (setq char-spec (cons (cons 'name ret) char-spec)))
 		  )
 		 ((setq ret (split-char char))
-		  (setq char-ref (list ret))
+		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
 		    (if (and (>= (charset-iso-final-char ccs) ?0)
 			     (setq ret (get-char-attribute char ccs)))
-			(setq char-ref (cons (cons ccs ret) char-ref))))
+			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (setq ret (get-char-attribute char 'name))
-		      (setq char-ref (cons (cons 'name ret) char-ref)))
+		      (setq char-spec (cons (cons 'name ret) char-spec)))
 		  )))
 	  ((consp char)
-	   (setq char-ref char)
+	   (setq char-spec char)
 	   (setq char nil)))
     (if (or char
 	    (setq char (condition-case nil
-			   (define-char char-ref)
+			   (define-char char-spec)
 			 (error nil))))
 	(progn
 	  (setq al nil
 		cal nil)
-	  (while char-ref
-	    (setq key (car (car char-ref)))
+	  (while char-spec
+	    (setq key (car (car char-spec)))
 	    (if (find-charset key)
 		(setq cal (cons key cal))
 	      (setq al (cons key al)))
-	    (setq char-ref (cdr char-ref)))
+	    (setq char-spec (cdr char-spec)))
 	  (insert-char-attributes char
 				  readable
 				  (or al 'none) cal))
-      (insert (prin1-to-string char-ref)))))
+      (insert (prin1-to-string char-spec)))))
 
 (defun char-db-insert-alist (alist &optional readable column)
   (unless column
@@ -241,7 +241,7 @@
       (setq value (pop plist))
       (cond ((eq name :char)
 	     (insert ":char\t")
-	     (char-db-insert-char-ref value readable)
+	     (char-db-insert-char-spec value readable)
              (insert line-breaking))
             (t
 	     (insert (format "%s\t%S%s"
@@ -594,13 +594,13 @@
 		   (cond ((characterp cell)
 			  (if separator
 			      (insert lbs))
-			  (char-db-insert-char-ref cell readable)
+			  (char-db-insert-char-spec cell readable)
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator
 			      (insert lbs))
 			  (if (consp (car cell))
-			      (char-db-insert-char-ref cell readable)
+			      (char-db-insert-char-spec cell readable)
 			    (char-db-insert-char-map cell readable))
 			  (setq separator lbs))
 			 (t
