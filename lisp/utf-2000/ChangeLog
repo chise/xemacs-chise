@@ -1,3 +1,38 @@
+2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (M-29548): Relate to U+8158.
+	(C6-435A): Likewise.
+	(EGB-7C55): Unify M052398; relate to M-29548.
+	(M-29809): Unify U+8192.
+	(C3-4E3B): Relate to M-29809.
+	(M-29812): Unify U+8194 instead of U+8192.
+	(C3-4E39): Relate to U+8194 instead of U+8192.
+	(U+81A4): Unify M055481; add `ideograph=' property for M054669.
+	(M054669): New character.
+	(M-29923): Relate to U+81B7.
+	(U+81B7): Unify C2-595E; separate M-29923.
+	(C2-595E): Unify U+81B7.
+	(M-29925): Delete `daikanwa-radical' and `daikanwa-strokes'.
+	(C2-5957): Relate to U+81B9.
+
+	* Ideograph-R120-Silk.el (M-27375): Fixed.
+	(M-49469): Unify U+7D76.
+	(M-27519): Separate C4-3A25; fix strokes.
+	(C2-5E48): Unify U+7E4C.
+	(C3-557A): Unify U+7E4D.
+	(M-27913): Fix `ideographic-strokes'; delete `kangxi-strokes',
+	`daikanwa-radical' and `daikanwa-strokes'.
+	(U+7E66): Cancel relation to J90-6525 and M-27375; fix strokes;
+	Unify J90-655A, M054661 and C3-585A.
+	(C3-585A): Unify J90-655A, M054661 and U+7E66.
+	(M-27955): Fix `ideographic-strokes'.
+	(C3-5E53): Unify U+7E84.
+
+2001-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el (C3-2E68): Unify U+8224.
+	(C2-3F3F): Unify U+823F.
+
 2001-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R127-Plow.el (U+8032): Unify C4-692D.
