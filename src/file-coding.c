@@ -55,7 +55,7 @@ int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
 
 Lisp_Object Qcoding_system_p;
 
-Lisp_Object Qno_conversion, Qccl, Qiso2022;
+Lisp_Object Qraw_text, Qno_conversion, Qccl, Qiso2022;
 /* Qinternal in general.c */
 
 Lisp_Object Qmnemonic, Qeol_type;
@@ -5447,6 +5447,7 @@ syms_of_mule_coding (void)
 #endif /* MULE */
   defsymbol (&Qcoding_system_p, "coding-system-p");
   defsymbol (&Qno_conversion, "no-conversion");
+  defsymbol (&Qraw_text, "raw-text");
 #ifdef MULE
   defsymbol (&Qbig5, "big5");
   defsymbol (&Qshift_jis, "shift-jis");
@@ -5643,11 +5644,18 @@ complex_vars_of_mule_coding (void)
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qdecode);
 #endif /* MULE */
   /* Need to create this here or we're really screwed. */
-  Fmake_coding_system (Qno_conversion, Qno_conversion, build_string ("No conversion"),
-		       list2 (Qmnemonic, build_string ("Noconv")));
+  Fmake_coding_system
+    (Qraw_text, Qno_conversion,
+     build_string ("Raw text, which means it converts only line-break-codes."),
+     list2 (Qmnemonic, build_string ("Raw")));
 
-  Fcopy_coding_system (Fcoding_system_property (Qno_conversion, Qeol_lf),
-		       Qbinary);
+  Fmake_coding_system
+    (Qbinary, Qno_conversion,
+     build_string ("Binary, which means it does not convert anything."),
+     list4 (Qeol_type, Qlf,
+	    Qmnemonic, build_string ("Binary")));
+
+  Fdefine_coding_system_alias (Qno_conversion, Qraw_text);
 
   /* Need this for bootstrapping */
   coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
