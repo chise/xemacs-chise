@@ -1,3 +1,31 @@
+2001-07-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Scan
+	`ideograph-gt'.
+
+	* char-db-util.el (insert-char-attributes): Print `ideograph-gt'
+	like `ideograph-daikanwa'.
+
+	* Ideograph-R055-Two-Hands.el (J78-5732): Unify J83-5732, J90-5732
+	and U+5F09.
+
+	* Ideograph-R054-Long-Stride.el (M-09569): Separate G0-5153,
+	EGB-5153 and U+5EF6.
+	(U+5EF6): Unify G0-5153.
+	(J83-3164): Separate C1-4D37 and J90-3164.
+	(M-09571): Separate G0-4D22, C1-4A2C, J90-446E and U+5EF7.
+	(U+5EF8): Unify J90-572F.
+
+	* Ideograph-R056-Shoot.el (U+5F10): Unify J90-4675.
+
+	* Ideograph-R053-Dotted-Cliff.el (M-09337): Separate J90-446D.
+
+	* Ideograph-R049-Oneself.el (M-08756): Separate J83-392B and
+	J90-392B.
+	(M-08757): Separate C4-2C64 and U+5DF8; delete `comment'; fix
+	`total-strokes'.
+	(M-08765): Separate J83-4327, C1-5E78 and J90-4327
+
 2001-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (U+5C76): Unify J90-5627 and MH-48.
