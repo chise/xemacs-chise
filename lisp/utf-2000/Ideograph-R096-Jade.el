@@ -5409,6 +5409,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=daikanwa		. 21233)	; ø¸…‹±
+    (=jef-china3	. #x59F6)	; øº…§¶
     (mojikyo		. 021233)	; ý €…‹±
     (=ucs		. #x7496)	; ç’–
     ))
