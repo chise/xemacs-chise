@@ -5386,7 +5386,8 @@
     (ucs		. #x716E)	; ç…®
     ))
 (define-char
-  '((ideographic-radical . 86)	; â½•
+  '((=>ucs		. #x2F91B)	; ð¯¤›
+    (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 19166)	; ø¸„«ž
@@ -5397,6 +5398,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (chinese-cns11643-4 . #x3868)	; ø»˜ƒ¡
+    (ucs		. #x2F91B)	; ð¯¤›
     ))
 (define-char
   '((morohashi-daikanwa	19166 1)

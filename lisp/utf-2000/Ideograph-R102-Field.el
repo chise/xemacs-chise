@@ -804,6 +804,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-cns11643-4 . #x2A44)	; ø»—®™
+    (ucs		. #x2F936)	; ð¯¤¶
     ))
 (define-char
   '((=>ucs		. #x7554)	; ç•”
@@ -1952,6 +1953,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (chinese-cns11643-4 . #x3E6C)	; ø»˜Œ™
+    (ucs		. #x2F939)	; ð¯¤¹
     ))
 (define-char
   '((=>ucs		. #x757B)	; ç•»
