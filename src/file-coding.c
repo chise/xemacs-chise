@@ -57,12 +57,16 @@ struct file_coding_dump {
      This describes a permutation of the possible coding categories. */
   int coding_category_by_priority[CODING_CATEGORY_LAST + 1];
 
+#ifndef UTF2000
   Lisp_Object ucs_to_mule_table[65536];
+#endif
 } *fcd;
 
 static const struct lrecord_description fcd_description_1[] = {
   { XD_LISP_OBJECT, offsetof(struct file_coding_dump, coding_category_system), CODING_CATEGORY_LAST + 1 },
+#ifndef UTF2000
   { XD_LISP_OBJECT, offsetof(struct file_coding_dump, ucs_to_mule_table),      65536 },
+#endif
   { XD_END }
 };
 
@@ -3433,7 +3437,7 @@ Return the corresponding character code in Big5.
 /*                                                                      */
 /************************************************************************/
 
-
+#ifndef UTF2000
 DEFUN ("set-ucs-char", Fset_ucs_char, 2, 2, 0, /*
 Map UCS-4 code CODE to Mule character CHARACTER.
 
@@ -3508,6 +3512,7 @@ Return the UCS code (a positive integer) corresponding to CHARACTER.
 {
   return Fget_char_table (character, mule_to_ucs_table);
 }
+#endif
 
 #ifdef UTF2000
 #define decode_ucs4 DECODE_ADD_UCS_CHAR
@@ -3542,6 +3547,7 @@ decode_ucs4 (unsigned long ch, unsigned_char_dynarr *dst)
 }
 #endif
 
+#ifndef UTF2000
 static unsigned long
 mule_char_to_ucs4 (Lisp_Object charset,
 		   unsigned char h, unsigned char l)
@@ -3585,6 +3591,7 @@ encode_ucs4 (Lisp_Object charset,
   Dynarr_add (dst, (code >>  8) & 255);
   Dynarr_add (dst,  code        & 255);
 }
+#endif
 
 static int
 detect_coding_ucs4 (struct detection_state *st, CONST unsigned char *src,
@@ -6125,10 +6132,12 @@ syms_of_file_coding (void)
   DEFSUBR (Fencode_shift_jis_char);
   DEFSUBR (Fdecode_big5_char);
   DEFSUBR (Fencode_big5_char);
+#ifndef UTF2000
   DEFSUBR (Fset_ucs_char);
   DEFSUBR (Fucs_char);
   DEFSUBR (Fset_char_ucs);
   DEFSUBR (Fchar_ucs);
+#endif /* not UTF2000 */
 #endif /* MULE */
   defsymbol (&Qcoding_systemp, "coding-system-p");
   defsymbol (&Qno_conversion, "no-conversion");
@@ -6362,7 +6371,7 @@ complex_vars_of_file_coding (void)
    = Fget_coding_system (Qutf8);
 #endif
 
-#ifdef MULE
+#if defined(MULE) && !defined(UTF2000)
   {
     unsigned int i;
 
