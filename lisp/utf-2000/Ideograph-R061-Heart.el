@@ -11563,6 +11563,13 @@
 (define-char
   '((ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideograph-cbeta	. 01158)	; ø¸ ’†
+    (mojikyo		. 072895)	; ý €‘²¿
+    ))
+(define-char
+  '((ideographic-radical . 61)	; â¼¼
+    (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x2D6E)	; ø»ž‘©
     ))
