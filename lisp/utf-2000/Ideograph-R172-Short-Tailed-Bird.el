@@ -79,6 +79,7 @@
     (total-strokes	 . 10)
     (japanese-jisx0208-1978	. #x4049)	; ø»‚ªŠ
     (japanese-jisx0208		. #x4049)	; ø»†¾’
+    (korean-ksc5601		. #x7434)	; ø»Š”™
     (japanese-jisx0208-1990	. #x4049)	; ø½Š¤†
     ))
 (define-char
@@ -2630,6 +2631,7 @@
     (shinjigen-2	. 903)
     (japanese-jisx0208-1978	. #x5256)	; ø»ƒ„³
     (japanese-jisx0208		. #x5256)	; ø»‡˜»
+    (korean-ksc5601		. #x642A)	; ø»‰¼¯
     (ideograph-daikanwa		. 42116)	; ø¸Š’„
     ))
 (define-char
