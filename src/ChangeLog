@@ -1,3 +1,15 @@
+2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (encode_builtin_char_1): Comment out special code
+	for MIN_CHAR_MOJIKYO_0 ... MAX_CHAR_MOJIKYO_0.
+
+	* char-ucs.h (MIN_CHAR_MOJIKYO_0): Comment out.
+	(MAX_CHAR_MOJIKYO_0): Comment out.
+	(MIN_CHAR_CBETA): Changed to 0x00E20000.
+	(MAX_CHAR_CBETA): Changed to 0x00E2FFFF.
+	(MIN_CHAR_JEF_CHINA3): Changed to 0x00E80000.
+	(MAX_CHAR_JEF_CHINA3): Changed to 0x00E8FFFF.
+
 2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ideograph_cbeta): New variable.
