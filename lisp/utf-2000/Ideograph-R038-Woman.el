@@ -6878,10 +6878,16 @@
     (ucs		. #x3715)	; ãœ•
     ))
 (define-char
+  '((=>ucs		. #x5626)	; å˜¦
+    (ideographic-radical . 38)	; â¼¥
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (chinese-cns11643-3 . #x4650)	; ø»–©
+    ))
+(define-char
   '((ideographic-radical . 38)	; â¼¥
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (non-morohashi	6697 9)
     (chinese-gb2312	. #x664D)	; ø»…¬†
     (chinese-isoir165	. #x664D)	; ø»Ž”–
     (ucs		. #x5AF1)	; å«±
