@@ -1,3 +1,16 @@
+2002-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el, Ideograph-R126-And.el,
+	Ideograph-R127-Plow.el, Ideograph-R128-Ear.el,
+	Ideograph-R121-Jar.el, Ideograph-R122-Net.el,
+	Ideograph-R123-Sheep.el, Ideograph-R124-Feather.el,
+	Ideograph-R119-Rice.el, Ideograph-R120-Silk.el,
+	Ideograph-R035-Go-Slowly.el, Ideograph-R079-Weapon.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R010-Legs.el,
+	Ideograph-R008-Lid.el, Ideograph-R009-Man.el,
+	Ideograph-R004-Slash.el: Add some mappings for CJK Ext-B code
+	points.
+
 2002-05-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R094-Dog.el (M-20786'): Unify GT-26606.
