@@ -367,6 +367,10 @@
     (ucs		. #x01A0)	; Æ 
     ))
 (define-char
+  '((=>ucs		. #x01A0)	; Æ 
+    (china3-jef		. #x83A8)	; øºˆŽ¨
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -380,6 +384,10 @@
     (latin-viscii-lower . #xBD)	; øº’œ
     (latin-viscii	. #xBD)	; øº’œ
     (ucs		. #x01A1)	; Æ¡
+    ))
+(define-char
+  '((=>ucs		. #x01A1)	; Æ¡
+    (china3-jef		. #x83B5)	; øºˆŽµ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER OI")
@@ -534,6 +542,10 @@
     (ucs		. #x01AF)	; Æ¯
     ))
 (define-char
+  '((=>ucs		. #x01AF)	; Æ¯
+    (china3-jef		. #x83A9)	; øºˆŽ©
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -547,6 +559,10 @@
     (latin-viscii-lower . #xDF)	; øº’œ¿
     (latin-viscii	. #xDF)	; øº’œ¿
     (ucs		. #x01B0)	; Æ°
+    ))
+(define-char
+  '((=>ucs		. #x01B0)	; Æ°
+    (china3-jef		. #x83B6)	; øºˆŽ¶
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER UPSILON")
@@ -1725,6 +1741,10 @@
     (ucs		. #x01F4)	; Ç´
     ))
 (define-char
+  '((=>ucs		. #x01F4)	; Ç´
+    (china3-jef		. #x85D9)	; øºˆ—™
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER G WITH ACUTE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -1790,6 +1810,10 @@
       (ucs		  . #x01F9)	; Ç¹
       ))
     (ucs		. #x01F8)	; Ç¸
+    ))
+(define-char
+  '((=>ucs		. #x01F8)	; Ç¸
+    (china3-jef		. #x85BC)	; øºˆ–¼
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH GRAVE")
@@ -1930,6 +1954,10 @@
     (ucs		. #x0200)	; È€
     ))
 (define-char
+  '((=>ucs		. #x0200)	; È€
+    (china3-jef		. #x85B1)	; øºˆ–±
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER A WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -1940,6 +1968,10 @@
       (ucs		  . #x0200)	; È€
       ))
     (ucs		. #x0201)	; È
+    ))
+(define-char
+  '((=>ucs		. #x0201)	; È
+    (china3-jef		. #x85B4)	; øºˆ–´
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH INVERTED BREVE")
@@ -1978,6 +2010,10 @@
     (ucs		. #x0204)	; È„
     ))
 (define-char
+  '((=>ucs		. #x0204)	; È„
+    (china3-jef		. #x85B2)	; øºˆ–²
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER E WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -1988,6 +2024,10 @@
       (ucs		  . #x0204)	; È„
       ))
     (ucs		. #x0205)	; È…
+    ))
+(define-char
+  '((=>ucs		. #x0205)	; È…
+    (china3-jef		. #x85B5)	; øºˆ–µ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH INVERTED BREVE")
@@ -2074,6 +2114,10 @@
     (ucs		. #x020C)	; ÈŒ
     ))
 (define-char
+  '((=>ucs		. #x020C)	; ÈŒ
+    (china3-jef		. #x85B3)	; øºˆ–³
+    ))
+(define-char
   '((name		. "LATIN SMALL LETTER O WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2084,6 +2128,10 @@
       (ucs		  . #x020C)	; ÈŒ
       ))
     (ucs		. #x020D)	; È
+    ))
+(define-char
+  '((=>ucs		. #x020D)	; È
+    (china3-jef		. #x85B6)	; øºˆ–¶
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH INVERTED BREVE")
