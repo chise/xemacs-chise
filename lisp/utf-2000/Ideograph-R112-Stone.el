@@ -3116,7 +3116,16 @@
     (japanese-jisx0213-1	. #x7927)	; ø»¤”’
     (ideograph-daikanwa		. 24289)	; ø¸…»¡
     (china3-jef			. #x5CB3)	; øº…²³
+    (ucs-jis			. #xFA4B)	; ç¢‘
     (ucs			. #x7891)	; ç¢‘
+    ))
+(define-char
+  '((=>ucs*		. #x7891)	; ç¢‘
+    (morohashi-daikanwa	24289 0 0)
+    (ideographic-radical . 112)	; â½¯
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ucs		. #xFA4B)	; ï©‹
     ))
 (define-char
   '((ideographic-radical . 112)	; â½¯
