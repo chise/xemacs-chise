@@ -160,10 +160,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (comment		. "<vulgar character> of S1-0069")
-    (non-morohashi	239 9)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
+    (vulgar-char-of-shinjigen-1 . 69)
     (japanese-jisx0208-1978	. #x502F)	; ø»ƒ
     (japanese-jisx0208		. #x502F)	; ø»‡•˜
     (ucs			. #x4E8A)	; äºŠ

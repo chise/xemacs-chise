@@ -67,7 +67,7 @@
   '((ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (comment		. "<original character> of S1-0075")
+    (original-char-of-shinjigen-1 . 75)
     (shinjigen-1	. 76)
     (chinese-gb2312	. #x3F77)	; ø»„³ž
     (chinese-isoir165	. #x3F77)	; ø»›®
@@ -80,8 +80,8 @@
     (ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (comment		. "<variant> of S1-0075")
     (shinjigen-1	. 77)
+    (variant-of-shinjigen-1 . 75)
     (korean-ksc5601	. #x6A27)	; ø»Š… 
     (ucs		. #x4E90)	; äº
     ))

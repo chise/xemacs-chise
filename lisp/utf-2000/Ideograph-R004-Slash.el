@@ -142,8 +142,8 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (comment		. "<vulgar character> of S1-0047")
     (shinjigen-1	. 48)
+    (vulgar-char-of-shinjigen-1 . 47)
     (chinese-cns11643-3 . #x2130)	; ø»•–³
     (ideograph-daikanwa . 00119)	; ø¸€·
     (ucs		. #x4E46)	; ä¹†
