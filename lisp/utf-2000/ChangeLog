@@ -78,6 +78,19 @@
 	(int-list<): New function.
 	(ideograph-char<): New implementation.
 
+2000-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el: Resorted; add missing
+	`ideographic-strokes' attributes.
+
+2000-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el: Resorted; add missing
+	`ideographic-strokes' attributes.
+
+	* Ideograph-R214-Flute.el: Add missing `ideographic-strokes'
+	attributes.
+
 2000-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-data): Copy `attributes' and
