@@ -1,3 +1,18 @@
+2000-01-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`mojikyo-pj-[1 .. 21]' in UTF-2000.
+
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208-1978' in UTF-2000.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-daikanwa' in UTF-2000.
+
 1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Add
