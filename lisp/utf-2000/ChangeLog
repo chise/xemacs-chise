@@ -1,3 +1,17 @@
+2001-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R208-Rat.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
+2001-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (M-24846): Moved from
+	Ideograph-R112-Stone.el; separate C3-5845.
+	(C5-627B): Relate to M-24847.
+	(C7-412C): Relate to M-24848.
+	(C7-412B): Relate to M-24850.
+
 2001-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R209-Nose.el: Resorted; add some missing Morohashi's
