@@ -61,6 +61,8 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
+Lisp_Object Vcharset_hiragana_jisx0208;
+Lisp_Object Vcharset_katakana_jisx0208;
 #endif
 Lisp_Object Vcharset_chinese_big5_1;
 Lisp_Object Vcharset_chinese_big5_2;
@@ -342,6 +344,8 @@ Lisp_Object Qascii,
   Qucs_bmp,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
+  Qhiragana_jisx0208,
+  Qkatakana_jisx0208,
 #endif
   Qchinese_big5_1,
   Qchinese_big5_2,
@@ -769,7 +773,8 @@ make_charset (Charset_ID id, Lisp_Object name,
 	      Lisp_Object long_name, Lisp_Object doc,
 	      Lisp_Object reg,
 	      Lisp_Object decoding_table,
-	      Emchar ucs_min, Emchar ucs_max, Emchar code_offset)
+	      Emchar ucs_min, Emchar ucs_max,
+	      Emchar code_offset, unsigned char byte_offset)
 {
   Lisp_Object obj;
   struct Lisp_Charset *cs =
@@ -794,6 +799,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_UCS_MIN(cs) = ucs_min;
   CHARSET_UCS_MAX(cs) = ucs_max;
   CHARSET_CODE_OFFSET(cs) = code_offset;
+  CHARSET_BYTE_OFFSET(cs) = byte_offset;
 #endif
   
   switch ( CHARSET_TYPE (cs) )
@@ -893,8 +899,11 @@ make_charset (Charset_ID id, Lisp_Object name,
 	 ASCII, Control-1, Composite, and the two faux private
 	 charsets. */
 #if UTF2000
-      assert (NILP (charset_by_attributes[type][final]));
-      charset_by_attributes[type][final] = obj;
+      if (code_offset == 0)
+	{
+	  assert (NILP (charset_by_attributes[type][final]));
+	  charset_by_attributes[type][final] = obj;
+	}
 #else
       assert (NILP (charset_by_attributes[type][final][direction]));
       charset_by_attributes[type][final][direction] = obj;
@@ -953,44 +962,61 @@ charset_get_byte1 (Lisp_Object charset, Emchar ch)
 
   if ((table = XCHARSET_TO_BYTE1_TABLE (charset)) != NULL)
     return get_byte_from_character_table (ch, table);
-  else if ((CHARSET_UCS_MIN (XCHARSET (charset)) <= ch)
-	   && (ch <= CHARSET_UCS_MAX (XCHARSET (charset))))
-    return ch - CHARSET_UCS_MIN (XCHARSET (charset))
-      +  CHARSET_CODE_OFFSET (XCHARSET (charset));
-  else if (XCHARSET_DIMENSION (charset) == 1)
+  else if ((XCHARSET_UCS_MIN (charset) <= ch)
+	   && (ch <= XCHARSET_UCS_MAX (charset)))
+    return (ch - XCHARSET_UCS_MIN (charset)
+	    + XCHARSET_CODE_OFFSET (charset))
+      / (XCHARSET_DIMENSION (charset) == 1 ?
+	 1
+	 :
+	 XCHARSET_DIMENSION (charset) == 2 ?
+	 XCHARSET_CHARS (charset)
+	 :
+	 XCHARSET_DIMENSION (charset) == 3 ?
+	 XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset)
+	 :
+	 XCHARSET_CHARS (charset)
+	 * XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
+      + XCHARSET_BYTE_OFFSET (charset);
+  else if (XCHARSET_CODE_OFFSET (charset) == 0)
     {
-      if (XCHARSET_CHARS (charset) == 94)
+      if (XCHARSET_DIMENSION (charset) == 1)
 	{
-	  if (((d = ch - (MIN_CHAR_94
-			  + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
-	      && (d < 94))
-	    return d + 33;
+	  if (XCHARSET_CHARS (charset) == 94)
+	    {
+	      if (((d = ch - (MIN_CHAR_94
+			      + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
+		  && (d < 94))
+		return d + 33;
+	    }
+	  else if (XCHARSET_CHARS (charset) == 96)
+	    {
+	      if (((d = ch - (MIN_CHAR_96
+			      + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
+		  && (d < 96))
+		return d + 32;
+	    }
+	  else
+	    return 0;
 	}
-      else if (XCHARSET_CHARS (charset) == 96)
+      else if (XCHARSET_DIMENSION (charset) == 2)
 	{
-	  if (((d = ch - (MIN_CHAR_96
-			  + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
-	      && (d < 96))
-	    return d + 32;
-	}
-      else
-	return 0;
-    }
-  else if (XCHARSET_DIMENSION (charset) == 2)
-    {
-      if (XCHARSET_CHARS (charset) == 94)
-	{
-	  if (((d = ch - (MIN_CHAR_94x94
-			  + (XCHARSET_FINAL (charset) - '0') * 94 * 94)) >= 0)
-	      && (d < 94 * 94))
-	    return (d / 94) + 33;
-	}
-      else if (XCHARSET_CHARS (charset) == 96)
-	{
-	  if (((d = ch - (MIN_CHAR_96x96
-			  + (XCHARSET_FINAL (charset) - '0') * 96 * 96)) >= 0)
-	      && (d < 96 * 96))
-	    return (d / 96) + 32;
+	  if (XCHARSET_CHARS (charset) == 94)
+	    {
+	      if (((d = ch - (MIN_CHAR_94x94
+			      + (XCHARSET_FINAL (charset) - '0') * 94 * 94))
+		   >= 0)
+		  && (d < 94 * 94))
+		return (d / 94) + 33;
+	    }
+	  else if (XCHARSET_CHARS (charset) == 96)
+	    {
+	      if (((d = ch - (MIN_CHAR_96x96
+			      + (XCHARSET_FINAL (charset) - '0') * 96 * 96))
+		   >= 0)
+		  && (d < 96 * 96))
+		return (d / 96) + 32;
+	    }
 	}
     }
   return 0;
@@ -1007,8 +1033,19 @@ charset_get_byte2 (Lisp_Object charset, Emchar ch)
 
       if ((table = XCHARSET_TO_BYTE2_TABLE (charset)) != NULL)
 	return get_byte_from_character_table (ch, table);
-      else if (EQ (charset, Vcharset_ucs_bmp))
-	return (ch >> 8) & 0xff;
+      else if ((XCHARSET_UCS_MIN (charset) <= ch)
+	       && (ch <= XCHARSET_UCS_MAX (charset)))
+	return ((ch - XCHARSET_UCS_MIN (charset)
+		 + XCHARSET_CODE_OFFSET (charset))
+		/ (XCHARSET_DIMENSION (charset) == 2 ?
+		   1
+		   :
+		   XCHARSET_DIMENSION (charset) == 3 ?
+		   XCHARSET_CHARS (charset)
+		   :
+		   XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset)))
+	  % XCHARSET_CHARS (charset)
+	  + XCHARSET_BYTE_OFFSET (charset);
       else if (XCHARSET_CHARS (charset) == 94)
 	return (MIN_CHAR_94x94
 		+ (XCHARSET_FINAL (charset) - '0') * 94 * 94 <= ch)
@@ -1336,7 +1373,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  Qnil, 0, 0, 0);
+			  Qnil, 0, 0, 0, 0);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -1388,7 +1425,8 @@ NEW-NAME is the name of the new charset.  Return the new charset.
 			      CHARSET_DECODING_TABLE(cs),
 			      CHARSET_UCS_MIN(cs),
 			      CHARSET_UCS_MAX(cs),
-			      CHARSET_CODE_OFFSET(cs)
+			      CHARSET_CODE_OFFSET(cs),
+			      CHARSET_BYTE_OFFSET(cs)
 #else
 			      Qnil, 0, 0, 0
 #endif
@@ -1856,6 +1894,8 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qlatin_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qhiragana_jisx0208, 	"hiragana-jisx0208");
+  defsymbol (&Qkatakana_jisx0208, 	"katakana-jisx0208");
 #endif
   defsymbol (&Qchinese_big5_1,		"chinese-big5-1");
   defsymbol (&Qchinese_big5_2,		"chinese-big5-2");
@@ -3163,7 +3203,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("BMP"),
 		  build_string ("BMP"),
 		  build_string (""),
-		  Qnil, 0, 0xFFFF, 0);
+		  Qnil, 0, 0xFFFF, 0, 0);
 #else
 # define latin_iso8859_2_to_ucs NULL
 # define latin_iso8859_3_to_ucs NULL
@@ -3189,7 +3229,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ASCII)"),
 		  build_string ("ASCII (ISO646 IRV)"),
 		  build_string ("\\(iso8859-[0-9]*\\|-ascii\\)"),
-		  Qnil, 0, 0x7F, 0);
+		  Qnil, 0, 0x7F, 0, 0);
   Vcharset_control_1 =
     make_charset (LEADING_BYTE_CONTROL_1, Qcontrol_1,
 		  CHARSET_TYPE_94, 1, 1, 0,
@@ -3198,7 +3238,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
 		  build_string (""),
-		  Qnil, 0x80, 0x9F, 0);
+		  Qnil, 0x80, 0x9F, 0, 0);
   Vcharset_latin_iso8859_1 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1,
 		  CHARSET_TYPE_96, 1, 1, 'A',
@@ -3207,7 +3247,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("iso8859-1"),
-		  Qnil, 0xA0, 0xFF, 32);
+		  Qnil, 0xA0, 0xFF, 0, 32);
   Vcharset_latin_iso8859_2 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2,
 		  CHARSET_TYPE_96, 1, 1, 'B',
@@ -3216,7 +3256,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("ISO8859-2 (Latin-2)"),
 		  build_string ("iso8859-2"),
-		  latin_iso8859_2_to_ucs, 0, 0, 32);
+		  latin_iso8859_2_to_ucs, 0, 0, 0, 32);
   Vcharset_latin_iso8859_3 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_3, Qlatin_iso8859_3,
 		  CHARSET_TYPE_96, 1, 1, 'C',
@@ -3225,7 +3265,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("ISO8859-3 (Latin-3)"),
 		  build_string ("iso8859-3"),
-		  latin_iso8859_3_to_ucs, 0, 0, 32);
+		  latin_iso8859_3_to_ucs, 0, 0, 0, 32);
   Vcharset_latin_iso8859_4 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_4, Qlatin_iso8859_4,
 		  CHARSET_TYPE_96, 1, 1, 'D',
@@ -3234,7 +3274,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("ISO8859-4 (Latin-4)"),
 		  build_string ("iso8859-4"),
-		  latin_iso8859_4_to_ucs, 0, 0, 32);
+		  latin_iso8859_4_to_ucs, 0, 0, 0, 32);
   Vcharset_thai_tis620 =
     make_charset (LEADING_BYTE_THAI_TIS620, Qthai_tis620,
 		  CHARSET_TYPE_96, 1, 1, 'T',
@@ -3243,7 +3283,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
-		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI, 32);
+		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI, 0, 32);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7,
 		  CHARSET_TYPE_96, 1, 1, 'F',
@@ -3252,7 +3292,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("iso8859-7"),
-		  Qnil, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 32);
+		  Qnil, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 0, 32);
   Vcharset_arabic_iso8859_6 =
     make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6,
 		  CHARSET_TYPE_96, 1, 1, 'G',
@@ -3261,7 +3301,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("ISO8859-6 (Arabic)"),
 		  build_string ("iso8859-6"),
-		  Qnil, 0, 0, 32);
+		  Qnil, 0, 0, 0, 32);
   Vcharset_hebrew_iso8859_8 =
     make_charset (LEADING_BYTE_HEBREW_ISO8859_8, Qhebrew_iso8859_8,
 		  CHARSET_TYPE_96, 1, 1, 'H',
@@ -3270,7 +3310,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("iso8859-8"),
-		  Qnil, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 32);
+		  Qnil, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 0, 32);
   Vcharset_katakana_jisx0201 =
     make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201,
 		  CHARSET_TYPE_94, 1, 1, 'I',
@@ -3278,10 +3318,10 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201 Kana"),
 		  build_string ("JISX0201.1976 (Japanese Kana)"),
 		  build_string ("JISX0201.1976 Japanese Kana"),
-		  build_string ("jisx0201.1976"),
+		  build_string ("jisx0201\\.1976"),
 		  Qnil,
 		  MIN_CHAR_HALFWIDTH_KATAKANA,
-		  MAX_CHAR_HALFWIDTH_KATAKANA, 33);
+		  MAX_CHAR_HALFWIDTH_KATAKANA, 0, 33);
   Vcharset_latin_jisx0201 =
     make_charset (LEADING_BYTE_LATIN_JISX0201, Qlatin_jisx0201,
 		  CHARSET_TYPE_94, 1, 0, 'J',
@@ -3289,8 +3329,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0201 Roman"),
 		  build_string ("JISX0201.1976 (Japanese Roman)"),
 		  build_string ("JISX0201.1976 Japanese Roman"),
-		  build_string ("jisx0201.1976"),
-		  latin_jisx0201_to_ucs, 0, 0, 33);
+		  build_string ("jisx0201\\.1976"),
+		  latin_jisx0201_to_ucs, 0, 0, 0, 33);
   Vcharset_cyrillic_iso8859_5 =
     make_charset (LEADING_BYTE_CYRILLIC_ISO8859_5, Qcyrillic_iso8859_5,
 		  CHARSET_TYPE_96, 1, 1, 'L',
@@ -3299,7 +3339,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("iso8859-5"),
-		  Qnil, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 32);
+		  Qnil, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 0, 32);
   Vcharset_latin_iso8859_9 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9,
 		  CHARSET_TYPE_96, 1, 1, 'M',
@@ -3308,17 +3348,17 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("iso8859-9"),
-		  latin_iso8859_9_to_ucs, 0, 0, 32);
+		  latin_iso8859_9_to_ucs, 0, 0, 0, 32);
   Vcharset_japanese_jisx0208_1978 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978, Qjapanese_jisx0208_1978,
 		  CHARSET_TYPE_94X94, 2, 0, '@',
 		  CHARSET_LEFT_TO_RIGHT,
-		  build_string ("JISX0208.1978"),
-		  build_string ("JISX0208.1978 (Japanese)"),
+		  build_string ("JIS X0208:1978"),
+		  build_string ("JIS X0208:1978 (Japanese)"),
 		  build_string
-		  ("JISX0208.1978 Japanese Kanji (so called \"old JIS\")"),
+		  ("JIS X0208:1978 Japanese Kanji (so called \"old JIS\")"),
 		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312,
 		  CHARSET_TYPE_94X94, 2, 0, 'A',
@@ -3327,16 +3367,16 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
 		  build_string ("gb2312"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_japanese_jisx0208 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208, Qjapanese_jisx0208,
 		  CHARSET_TYPE_94X94, 2, 0, 'B',
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208"),
-		  build_string ("JISX0208.1983/1990 (Japanese)"),
-		  build_string ("JISX0208.1983/1990 Japanese Kanji"),
-		  build_string ("jisx0208.19\\(83\\|90\\)"),
-		  Qnil, 0, 0, 33);
+		  build_string ("JIS X0208:1983 (Japanese)"),
+		  build_string ("JIS X0208:1983 Japanese Kanji"),
+		  build_string ("jisx0208\\.1983"),
+		  Qnil, 0, 0, 0, 33);
   Vcharset_korean_ksc5601 =
     make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
 		  CHARSET_TYPE_94X94, 2, 0, 'C',
@@ -3345,7 +3385,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("KSC5601 (Korean"),
 		  build_string ("KSC5601 Korean Hangul and Hanja"),
 		  build_string ("ksc5601"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_japanese_jisx0212 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0212, Qjapanese_jisx0212,
 		  CHARSET_TYPE_94X94, 2, 0, 'D',
@@ -3354,7 +3394,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JISX0212 (Japanese)"),
 		  build_string ("JISX0212 Japanese Supplement"),
 		  build_string ("jisx0212"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
 
 #define CHINESE_CNS_PLANE_RE(n) "cns11643[.-]\\(.*[.-]\\)?" n "$"
   Vcharset_chinese_cns11643_1 =
@@ -3366,7 +3406,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 1 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("1")),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_chinese_cns11643_2 =
     make_charset (LEADING_BYTE_CHINESE_CNS11643_2, Qchinese_cns11643_2,
 		  CHARSET_TYPE_94X94, 2, 0, 'H',
@@ -3376,7 +3416,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
 #ifdef UTF2000
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower,
@@ -3385,8 +3425,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII lower"),
 		  build_string ("VISCII lower (Vietnamese)"),
 		  build_string ("VISCII lower (Vietnamese)"),
-		  build_string ("VISCII1.1"),
-		  latin_viscii_lower_to_ucs, 0, 0, 32);
+		  build_string ("VISCII1\\.1"),
+		  latin_viscii_lower_to_ucs, 0, 0, 0, 32);
   Vcharset_latin_viscii_upper =
     make_charset (LEADING_BYTE_LATIN_VISCII_UPPER, Qlatin_viscii_upper,
 		  CHARSET_TYPE_96, 1, 1, '2',
@@ -3394,8 +3434,28 @@ complex_vars_of_mule_charset (void)
 		  build_string ("VISCII upper"),
 		  build_string ("VISCII upper (Vietnamese)"),
 		  build_string ("VISCII upper (Vietnamese)"),
-		  build_string ("VISCII1.1"),
-		  latin_viscii_upper_to_ucs, 0, 0, 32);
+		  build_string ("VISCII1\\.1"),
+		  latin_viscii_upper_to_ucs, 0, 0, 0, 32);
+  Vcharset_hiragana_jisx0208 =
+    make_charset (LEADING_BYTE_HIRAGANA_JISX0208, Qhiragana_jisx0208,
+		  CHARSET_TYPE_94X94, 2, 0, 'B',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Hiragana"),
+		  build_string ("Hiragana of JIS X0208"),
+		  build_string ("Japanese Hiragana of JIS X0208"),
+		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
+		  Qnil, MIN_CHAR_HIRAGANA, MAX_CHAR_HIRAGANA,
+		  (0x24 - 33) * 94 + (0x21 - 33), 33);
+  Vcharset_katakana_jisx0208 =
+    make_charset (LEADING_BYTE_KATAKANA_JISX0208, Qkatakana_jisx0208,
+		  CHARSET_TYPE_94X94, 2, 0, 'B',
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Katakana"),
+		  build_string ("Katakana of JIS X0208"),
+		  build_string ("Japanese Katakana of JIS X0208"),
+		  build_string ("jisx0208\\.19\\(78\\|83\\|90\\)"),
+		  Qnil, MIN_CHAR_KATAKANA, MAX_CHAR_KATAKANA,
+		  (0x25 - 33) * 94 + (0x21 - 33), 33);
 #endif
   Vcharset_chinese_big5_1 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_1, Qchinese_big5_1,
@@ -3406,7 +3466,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-1 Chinese traditional"),
 		  build_string ("big5"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
   Vcharset_chinese_big5_2 =
     make_charset (LEADING_BYTE_CHINESE_BIG5_2, Qchinese_big5_2,
 		  CHARSET_TYPE_94X94, 2, 0, '1',
@@ -3416,7 +3476,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Big5 Level-2 Chinese traditional"),
 		  build_string ("big5"),
-		  Qnil, 0, 0, 33);
+		  Qnil, 0, 0, 0, 33);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   /* #### For simplicity, we put composite chars into a 96x96 charset.
