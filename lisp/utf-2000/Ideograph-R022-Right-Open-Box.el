@@ -17,13 +17,22 @@
     (=daikanwa		. 02595)	; ø¸€¨£
     ))
 (define-char
-  '((ideographic-radical . 22)	; â¼•
+  '((=>daikanwa		. 02596)	; ý¢€ˆŸ”
+    (ideographic-radical@ucs . 22)	; â¼•
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 23)	; â¼–
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 50 2)
     (=ucs		. #x2092C)	; ð ¤¬
-    (=big5-cdp		. #x87D4)	; ý¢€ˆŸ”
-    (=daikanwa		. 02596)	; ø¸€¨¤
+    (->subsumptive
+     ((=big5-cdp	  . #x87D4)	; ý¢€ˆŸ”
+      (=daikanwa	  . 02596)	; ø¸€¨¤
+      (=ucs@iso		  . #x2092C)	; ý¢€ˆŸ”
+      )
+     ((=cns11643-6	  . #x212B)	; ø»›´º
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
