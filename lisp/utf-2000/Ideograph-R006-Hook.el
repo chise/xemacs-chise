@@ -319,15 +319,16 @@
     (ucs			. #x20117)	; ð „—
     ))
 (define-char
-  '((=>ucs		. #x20029)	; ð €©
-    (ideographic-radical . 6)	; â¼…
-    (ideographic-strokes . 6)
+  '((ideographic-	(:radical	1 ; â¼€
+			 :strokes	6)
+			(:radical	6 ; â¼…
+			 :strokes	6))
     (total-strokes	 . 7)
-    (->identical
-     ((ucs		  . #x20029)	; ð €©
-      ))
-    (chinese-cns11643-6 . #x2563)	; ø»›»ª
-    (ideograph-daikanwa . 00239)	; ø¸€ƒ¯
+    (hanyu-dazidian	1 553 5)
+    (chinese-cns11643-6		. #x2563)	; ø»›»ª
+    (ideograph-daikanwa		. 00239)	; ø¸€ƒ¯
+    (ideograph-hanziku-2	. #xC1C0)	; ý¢€¬‡€
+    (ucs			. #x20029)	; ð €©
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…

@@ -209,15 +209,19 @@
     (ideograph-daikanwa . 04684)	; ø¸‰Œ
     ))
 (define-char
-  '((=>ucs		. #x20064)	; ð ¤
-    (morohashi-daikanwa	4684 0 0)
-    (ideographic-radical . 31)	; â¼ž
-    (ideographic-strokes . 2)
+  '((morohashi-daikanwa	4684 0 0)
+    (ideographic-	(:radical	31 ; â¼ž
+			 :strokes	2)
+			(:radical	2 ; â¼
+			 :strokes	4))
     (total-strokes	 . 5)
-    (->identical
-     ((ucs		  . #x20064)	; ð ¤
+    (->same-ideograph
+     ((ideograph-daikanwa . 04684)	; ø¸‰Œ
       ))
+    (hanyu-dazidian	1 29 3)
     (chinese-cns11643-6 . #x225F)	; ø»›·Œ
+    (chinese-big5-cdp	. #x87E5)	; ý¢€ˆŸ¥
+    (ucs		. #x20064)	; ð ¤
     ))
 (define-char
   '((ideographic-radical . 31)	; â¼ž

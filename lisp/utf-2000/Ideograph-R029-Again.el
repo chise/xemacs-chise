@@ -1317,8 +1317,7 @@
     (hanyu-dazidian-page . 397)
     (hanyu-dazidian-char . 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "CJK RADICAL DIVINATION")
       (ucs		  . #x2E8A)	; ⺊
       )

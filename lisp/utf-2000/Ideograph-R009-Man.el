@@ -30,15 +30,19 @@
     ))
 (define-char
   '((name		. "cjk radical person for top")
-    (=>ucs		. #x20089)	; ð ‚‰
-    (ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 0)
+    (ideographic-	(:radical	4 ; â¼ƒ
+			 :strokes	1)
+			(:radical	1 ; â¼€
+			 :strokes	1)
+			(:radical	9 ; â¼ˆ
+			 :strokes	0))
     (total-strokes	 . 2)
-    (<-radical
-     ((ucs		  . #x20089)	; ð ‚‰
-      ))
     (ideograph-cdp	. -63)
-    (chinese-big5-cdp	. #x8B4A)	; ý¢€ˆ­Š
+    (japanese-jisx0213-2	. #x2121)	; ø»¤€
+    (ideograph-gt-pj-9		. #x4D4A)	; ý¡€€€ˆ
+    (chinese-big5-cdp		. #x8B4A)	; ý¢€ˆ­Š
+    (ideograph-gt		. 00008)	; ý¡€€€ˆ
+    (ucs			. #x20089)	; ð ‚‰
     ))
 (define-char
   '((name		. "cjk radical person as roof")
@@ -5473,8 +5477,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "CJK RADICAL PERSON")
       (chinese-big5-cdp	  . #x8AF5)	; ý¢€ˆ«µ
       (ucs		  . #x2E85)	; âº…
@@ -5780,8 +5783,7 @@
     (total-strokes	 . 7)
     (hanyu-dazidian	1 136 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x20086)	; ð ‚†
@@ -5953,8 +5955,7 @@
     (total-strokes	 . 7)
     (hanyu-dazidian	1 137 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B5B)	; ý¢€ˆ­›
@@ -6068,8 +6069,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 154 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B69)	; ý¢€ˆ­©
@@ -6898,8 +6898,7 @@
     (hanyu-dazidian-page . 150)
     (hanyu-dazidian-char . 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "CJK RADICAL PERSON")
       (ucs		  . #x2E85)	; âº…
       )
@@ -7423,8 +7422,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 149 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x20086)	; ð ‚†
@@ -7907,8 +7905,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 155 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B74)	; ý¢€ˆ­´
@@ -7965,8 +7962,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 143 8)
     (ideographic-structure
-     (:cdp-combinator	5
-      )
+     (:cdp-combinator	5)
      ((chinese-big5-cdp	  . #x8DF9)	; ý¢€ˆ·¹
       )
      ((ucs		  . #x4EBA)	; äºº
@@ -8187,8 +8183,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 151 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5469)	; ø»ƒˆ‚
@@ -8209,8 +8204,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 149 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x20086)	; ð ‚†
@@ -8230,8 +8224,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 149 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E4D)	; ä¹
@@ -8331,8 +8324,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 148 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8DDF)	; ý¢€ˆ·Ÿ
@@ -8505,8 +8497,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 147 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((name		  . "CJK RADICAL DIVINATION")
@@ -8873,8 +8864,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 162 13)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5E72)	; å¹²
@@ -10825,8 +10815,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 166 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
@@ -10844,8 +10833,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 156 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B5B)	; ý¢€ˆ­›
       )
      ((ucs		  . #x5C38)	; å°¸
@@ -10886,8 +10874,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 162 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x51F9)	; å‡¹
@@ -10923,8 +10910,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 162 9)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x56D7)	; å›—
@@ -10942,8 +10928,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 162 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x53E3)	; å£
@@ -10961,8 +10946,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 164 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x51E0)	; å‡ 
@@ -11209,8 +11193,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 158 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E00)	; ä¸€
@@ -12025,8 +12008,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 185 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5E7A)	; å¹º
@@ -12130,8 +12112,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 172 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x3401)	; ã
@@ -12687,8 +12668,7 @@
     (hanyu-dazidian-page . 175)
     (hanyu-dazidian-char . 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹
@@ -14283,8 +14263,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 175 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x864D)	; è™
@@ -14375,8 +14354,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 182 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5678)	; ø»ƒ‹
@@ -14483,8 +14461,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 185 9)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B74)	; ý¢€ˆ­´
@@ -14504,8 +14481,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 182 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E36)	; ä¸¶
@@ -15067,8 +15043,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 198 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -15403,8 +15378,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 194 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x65EC)	; æ—¬
@@ -16414,8 +16388,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 187 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E19)	; ä¸™
@@ -16516,8 +16489,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 194 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5678)	; ø»ƒ‹
@@ -16574,8 +16546,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 191 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C71)	; å±±
@@ -16601,8 +16572,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 193 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BFA)	; ý¢€ˆ¯º
@@ -17152,8 +17122,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 196 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BAB)	; ý¢€ˆ®«
@@ -17228,8 +17197,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 203 15)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((name		  . "CJK RADICAL PAW ONE")
@@ -17267,8 +17235,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 191 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -17301,8 +17268,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 194 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5035)	; ø»ƒ–
@@ -17608,8 +17574,7 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 189 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((japanese-jisx0208-1978	  . #x5469)	; ø»ƒˆ‚
@@ -17743,6 +17708,28 @@
     (ucs			. #x507D)	; å½
     ))
 (define-char
+  '((morohashi-daikanwa	7516 0 0)
+    (ideographic-	(:radical	42 ; â¼©
+			 :strokes	8)
+			(:radical	9 ; â¼ˆ
+			 :strokes	9))
+    (total-strokes	 . 11)
+    (->same-ideograph
+     ((ideograph-daikanwa . 07516)	; ø¸µœ
+      ))
+    (hanyu-dazidian	1 185 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x5C12)	; å°’
+      )
+     ((chinese-big5-cdp	  . #x87C1)	; ý¢€ˆŸ
+      ))
+    (chinese-cns11643-6 . #x3E65)	; ø»œ š
+    (ucs		. #x202D3)	; ð ‹“
+    ))
+(define-char
   '((=>ucs		. #x202DD)	; ð ‹
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 9)
@@ -17846,27 +17833,6 @@
     (chinese-isoir165		. #x3325)	; ø»ˆ´
     (ideograph-hanziku-1	. #xCD59)	; ý¢€œµ™
     (ucs			. #x507F)	; å¿
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (->identical
-     ((chinese-cns11643-6 . #x3E65)	; ø»œ š
-      ))
-    (->same-ideograph
-     ((ideograph-daikanwa . 07516)	; ø¸µœ
-      ))
-    (hanyu-dazidian	1 185 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
-      )
-     ((ucs		  . #x5C12)	; å°’
-      )
-     ((chinese-big5-cdp	  . #x87C1)	; ý¢€ˆŸ
-      ))
-    (ucs		. #x202D3)	; ð ‹“
     ))
 (define-char
   '((=>ucs		. #x202D3)	; ð ‹“
@@ -18119,8 +18085,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 202 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8CF3)	; ý¢€ˆ³³
@@ -18204,8 +18169,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 206 15)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B6E)	; ý¢€ˆ­®
@@ -18876,8 +18840,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 200 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8CFA)	; ý¢€ˆ³º
@@ -18943,8 +18906,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 204 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x65EC)	; æ—¬
@@ -19614,8 +19576,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 188 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5927)	; å¤§
@@ -19633,8 +19594,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 199 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x738B)	; çŽ‹
@@ -19656,8 +19616,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 200 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x89B6)	; ý¢€ˆ¦¶
@@ -19696,8 +19655,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((name		  . "CJK RADICAL PAW ONE")
@@ -19769,8 +19727,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 204 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x51AB)	; å†«
@@ -19790,8 +19747,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 213 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BAF)	; ý¢€ˆ®¯
@@ -19811,8 +19767,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 205 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8C50)	; ý¢€ˆ±
@@ -19922,8 +19877,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 200 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BDF)	; ý¢€ˆ¯Ÿ
@@ -20054,8 +20008,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 201 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5F0B)	; å¼‹
@@ -20079,8 +20032,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 203 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x53E3)	; å£
@@ -20159,6 +20111,29 @@
     (ideograph-daikanwa . 01001)	; ø¸€©
     ))
 (define-char
+  '((=>ucs		. #x2032A)	; ð Œª
+    (ideographic-	(:radical	109 ; â½¬
+			 :strokes	6)
+			(:radical	9 ; â¼ˆ
+			 :strokes	10))
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 189 5)
+    (ideographic-structure
+     (:cdp-combinator	4)
+     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+      )
+     ((japanese-jisx0208-1978	  . #x5469)	; ø»ƒˆ‚
+      (japanese-jisx0208	  . #x5469)	; ø»‡œŠ
+      (chinese-cns11643-3	  . #x2139)	; ø»•–¼
+      (ideograph-daikanwa	  . 05691)	; ø¸˜»
+      )
+     ((ucs		  . #x76EE)	; ç›®
+      ))
+    (chinese-cns11643-5		. #x3421)	; ø»š†¦
+    (ideograph-daikanwa		. 23328)	; ø¸…¬ 
+    (ideograph-hanziku-1	. #xCD57)	; ý¢€œµ—
+    ))
+(define-char
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -20172,8 +20147,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 201 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x53E4)	; å¤
@@ -20381,24 +20355,10 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->identical
+    (->same-ideograph
      ((ideograph-daikanwa . 23328)	; ø¸…¬ 
       ))
-    (hanyu-dazidian	1 189 5)
-    (ideographic-structure
-     (:cdp-combinator	4
-      )
-     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
-      )
-     ((japanese-jisx0208-1978	  . #x5469)	; ø»ƒˆ‚
-      (japanese-jisx0208	  . #x5469)	; ø»‡œŠ
-      (chinese-cns11643-3	  . #x2139)	; ø»•–¼
-      (ideograph-daikanwa	  . 05691)	; ø¸˜»
-      )
-     ((ucs		  . #x76EE)	; ç›®
-      ))
-    (ideograph-hanziku-1	. #xCD57)	; ý¢€œµ—
-    (ucs			. #x2032A)	; ð Œª
+    (ucs		. #x2032A)	; ð Œª
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
@@ -21129,8 +21089,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 215 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x52A0)	; åŠ 
@@ -22363,8 +22322,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 210 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8DE0)	; ý¢€ˆ· 
@@ -22384,8 +22342,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 210 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x8C55)	; è±•
@@ -22421,8 +22378,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 213 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x65E8)	; æ—¨
@@ -22564,8 +22520,7 @@
     (total-strokes	 . 13)
     (hanyu-dazidian	1 215 9)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x77DB)	; çŸ›
@@ -22580,25 +22535,25 @@
     (ucs			. #x20362)	; ð ¢
     ))
 (define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 11)
+  '((morohashi-daikanwa	49471 0 1)
+    (ideographic-	(:radical	120 ; â½·
+			 :strokes	7)
+			(:radical	9 ; â¼ˆ
+			 :strokes	11))
     (total-strokes	 . 13)
-    (->identical
-     ((chinese-cns11643-6 . #x564E)	; ø»ƒ“
-      ))
     (->same-ideograph
      ((ideograph-daikanwa . 49471)	; ø¸Œ„¿
       ))
     (hanyu-dazidian	1 210 15)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8DA2)	; ý¢€ˆ¶¢
       )
      ((ucs		  . #x7CF8)	; ç³¸
       ))
+    (chinese-cns11643-6		. #x564E)	; ø»ƒ“
     (ideograph-hanziku-1	. #xD1AF)	; ý¢€†¯
     (ucs			. #x2035E)	; ð ž
     ))
@@ -22612,8 +22567,7 @@
       ))
     (hanyu-dazidian	1 206 18)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x672A)	; æœª
       )
      ((ucs		  . #x6210)	; æˆ
@@ -23754,8 +23708,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 216 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -23849,8 +23802,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 217 15)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x88E1)	; ý¢€ˆ£¡
@@ -24268,8 +24220,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 222 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BE3)	; ý¢€ˆ¯£
@@ -24309,8 +24260,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 222 9)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x88E4)	; ý¢€ˆ£¤
@@ -24474,8 +24424,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 216 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x6208)	; æˆˆ
@@ -24495,8 +24444,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 218 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -24529,8 +24477,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 217 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x829A)	; èŠš
@@ -24598,8 +24545,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 219 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x56D7)	; å›—
@@ -24635,8 +24581,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 222 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x6CD5)	; æ³•
@@ -24662,8 +24607,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 221 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8D65)	; ý¢€ˆµ¥
@@ -25099,8 +25043,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 225 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x592D)	; å¤­
@@ -25809,8 +25752,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 229 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8C5F)	; ý¢€ˆ±Ÿ
@@ -26134,8 +26076,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 224 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -26352,8 +26293,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ucs		  . #x5E7A)	; å¹º
@@ -26482,8 +26422,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 231 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8D5F)	; ý¢€ˆµŸ
@@ -26540,8 +26479,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x6208)	; æˆˆ
@@ -26580,8 +26518,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 224 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8CF3)	; ý¢€ˆ³³
@@ -26672,8 +26609,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 224 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5927)	; å¤§
@@ -26835,8 +26771,7 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	1 232 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x7A74)	; ç©´
@@ -26856,8 +26791,7 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	1 231 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C71)	; å±±
@@ -26877,8 +26811,7 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	1 232 9)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B6E)	; ý¢€ˆ­®
@@ -26942,8 +26875,7 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	1 230 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x81E3)	; è‡£
@@ -28368,8 +28300,7 @@
     (total-strokes	 . 17)
     (hanyu-dazidian	1 233 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E25)	; ä¸¥
@@ -28816,8 +28747,7 @@
     (total-strokes	 . 18)
     (hanyu-dazidian	1 237 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8AD5)	; ý¢€ˆ«•
@@ -29003,8 +28933,7 @@
     (total-strokes	 . 18)
     (hanyu-dazidian	1 236 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x54C1)	; å“
@@ -29120,8 +29049,7 @@
     (total-strokes	 . 18)
     (hanyu-dazidian	1 236 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x857B)	; ý¢€ˆ•»
       )
      ((ucs		  . #x65E9)	; æ—©
@@ -29226,8 +29154,7 @@
     (total-strokes	 . 19)
     (hanyu-dazidian	1 238 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x7A74)	; ç©´
@@ -29676,8 +29603,7 @@
     (total-strokes	 . 20)
     (hanyu-dazidian	1 238 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B56)	; ý¢€ˆ­–
@@ -29730,8 +29656,7 @@
     (total-strokes	 . 20)
     (hanyu-dazidian	1 238 17)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x830D)	; èŒ
@@ -29940,8 +29865,7 @@
     (total-strokes	 . 21)
     (hanyu-dazidian	1 239 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8AA3)	; ý¢€ˆª£
@@ -30315,8 +30239,7 @@
     (total-strokes	 . 22)
     (hanyu-dazidian	1 239 13)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -30341,8 +30264,7 @@
     (total-strokes	 . 22)
     (hanyu-dazidian	1 239 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BA8)	; ý¢€ˆ®¨
@@ -30364,8 +30286,7 @@
     (total-strokes	 . 22)
     (hanyu-dazidian	1 239 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x6B62)	; æ­¢
@@ -30460,8 +30381,7 @@
     (total-strokes	 . 23)
     (hanyu-dazidian	1 240 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x571F)	; åœŸ
@@ -30481,8 +30401,7 @@
     (total-strokes	 . 23)
     (hanyu-dazidian	1 239 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8AF7)	; ý¢€ˆ«·
@@ -30672,8 +30591,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 111 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "cjk radical person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
@@ -30688,8 +30606,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 113 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E00)	; ä¸€
@@ -30703,8 +30620,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 115 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5341)	; å
@@ -30817,8 +30733,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 128 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4E00)	; ä¸€
       )
      ((ucs		  . #x4E28)	; ä¸¨
@@ -30898,8 +30813,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 131 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5927)	; å¤§
@@ -30913,8 +30827,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 132 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C0F)	; å°
@@ -30956,8 +30869,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 138 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x4F3B)	; ø»‚¿¾
@@ -30974,8 +30886,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 141 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x89E1)	; ý¢€ˆ§¡
@@ -30995,8 +30906,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 143 7)
     (ideographic-structure
-     (:cdp-combinator	3
-      )
+     (:cdp-combinator	3)
      ((ucs		  . #x5148)	; å…ˆ
       )
      ((ucs		  . #x4EBA)	; äºº
@@ -31008,8 +30918,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 147 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C0F)	; å°
@@ -31052,8 +30961,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 148 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C71)	; å±±
@@ -31139,8 +31047,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 169 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "cjk radical person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
@@ -31230,8 +31137,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 183 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5035)	; ø»ƒ–
@@ -31248,8 +31154,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 185 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8BAB)	; ý¢€ˆ®«
@@ -31277,8 +31182,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 185 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((name		  . "cjk radical person as roof")
       (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
@@ -31337,8 +31241,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 188 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8CF3)	; ý¢€ˆ³³
@@ -31352,8 +31255,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 189 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8DA2)	; ý¢€ˆ¶¢
@@ -31367,8 +31269,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 189 3)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B54)	; ý¢€ˆ­”
@@ -31443,8 +31344,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 203 19)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x3405)	; ã…
@@ -31475,8 +31375,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 198 12)
     (ideographic-structure
-     (:cdp-combinator	5
-      )
+     (:cdp-combinator	5)
      ((chinese-big5-cdp	  . #x8DF6)	; ý¢€ˆ·¶
       )
      ((ucs		  . #x4ECB)	; ä»‹
@@ -31488,8 +31387,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 200 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8C6F)	; ý¢€ˆ±¯
@@ -31517,8 +31415,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 202 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((ucs		  . #x4E3F)	; ä¸¿
@@ -31534,8 +31431,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 203 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x56D7)	; å›—
@@ -31565,8 +31461,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 203 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x4E3F)	; ä¸¿
@@ -31582,8 +31477,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 203 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x767D)	; ç™½
@@ -31617,8 +31511,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 215 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x5C38)	; å°¸
@@ -31674,8 +31567,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 207 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x738B)	; çŽ‹
@@ -31689,8 +31581,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 210 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x767E)	; ç™¾
@@ -31706,8 +31597,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 210 6)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x767E)	; ç™¾
@@ -31737,8 +31627,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 210 14)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((name		  . "CJK RADICAL DIVINATION")
@@ -31771,8 +31660,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 214 2)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x8863)	; è¡£
@@ -31814,8 +31702,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 216 11)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure
@@ -31944,8 +31831,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 225 7)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x53E3)	; å£
@@ -31989,8 +31875,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 227 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((japanese-jisx0208-1978	  . #x5678)	; ø»ƒ‹
@@ -32008,8 +31893,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 229 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8B4E)	; ý¢€ˆ­Ž
@@ -32165,8 +32049,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 185 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8AFE)	; ý¢€ˆ«¾
       )
      ((ucs		  . #x5C38)	; å°¸
@@ -32182,8 +32065,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 202 10)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((chinese-big5-cdp	  . #x8DA2)	; ý¢€ˆ¶¢
@@ -32197,8 +32079,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 220 1)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x53EA)	; åª
@@ -32212,8 +32093,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 210 12)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ucs		  . #x6B62)	; æ­¢
@@ -32227,8 +32107,7 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian	1 218 8)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹
@@ -32374,8 +32253,7 @@
     (hanyu-dazidian-page . 178)
     (hanyu-dazidian-char . 4)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; äº»
       )
      ((ideographic-structure

@@ -1090,15 +1090,15 @@
     (ucs		. #x38B6)	; ã¢¶
     ))
 (define-char
-  '((=>ucs		. #x20134)	; ð „´
-    (ideographic-radical . 57)	; â¼¸
-    (ideographic-strokes . 6)
+  '((ideographic-	(:radical	57 ; â¼¸
+			 :strokes	6)
+			(:radical	7 ; â¼†
+			 :strokes	7))
     (total-strokes	 . 9)
-    (->identical
-     ((ucs		  . #x20134)	; ð „´
-      ))
-    (chinese-cns11643-6 . #x307C)	; ø»œŒ
-    (ideograph-daikanwa . 09782)	; ø¸‚˜¶
+    (chinese-cns11643-6		. #x307C)	; ø»œŒ
+    (ideograph-daikanwa		. 09782)	; ø¸‚˜¶
+    (ideograph-hanziku-1	. #xF5B0)	; ý¢€Ÿ–°
+    (ucs			. #x20134)	; ð „´
     ))
 (define-char
   '((ideographic-radical . 57)	; â¼¸

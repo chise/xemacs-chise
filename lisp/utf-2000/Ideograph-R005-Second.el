@@ -495,6 +495,20 @@
     (chinese-big5-cdp	. #x87D1)	; ý¢€ˆŸ‘
     ))
 (define-char
+  '((morohashi-daikanwa	38 0 0)
+    (ideographic-	(:radical	1 ; â¼€
+			 :strokes	4)
+			(:radical	5 ; â¼„
+			 :strokes	4))
+    (total-strokes	 . 5)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 52)
+    (hanyu-dazidian-char . 9)
+    (chinese-cns11643-6 . #x222A)	; ø»›¶—
+    (chinese-big5-cdp	. #x87CF)	; ý¢€ˆŸ
+    (ucs		. #x200E0)	; ð ƒ 
+    ))
+(define-char
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
@@ -606,19 +620,6 @@
      ((ucs		  . #x4E59)	; ä¹™
       ))
     (ucs		. #x4E67)	; ä¹§
-    ))
-(define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 9)
-    (->identical
-     ((chinese-cns11643-6 . #x222A)	; ø»›¶—
-      ))
-    (chinese-big5-cdp	. #x87CF)	; ý¢€ˆŸ
-    (ucs		. #x200E0)	; ð ƒ 
     ))
 (define-char
   '((ideographic-radical . 5)	; â¼„
@@ -1199,6 +1200,56 @@
     (ideograph-gt	. 00254)	; ý¡€€ƒ¾
     ))
 (define-char
+  '((ideographic-	(:radical	39 ; â¼¦
+			 :strokes	5)
+			(:radical	5 ; â¼„
+			 :strokes	7))
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 54 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x5B5B)	; å­›
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
+    (chinese-cns11643-4		. #x2624)	; ø»—¨
+    (ideograph-daikanwa		. 06971)	; ø¸¬»
+    (ideograph-hanziku-1	. #xAF42)	; ý¢€š½‚
+    (ucs			. #x200F1)	; ð ƒ±
+    ))
+(define-char
+  '((morohashi-daikanwa	21712 0 1)
+    (ideographic-	(:radical	101 ; â½¤
+			 :strokes	3)
+			(:radical	5 ; â¼„
+			 :strokes	7))
+    (total-strokes	 . 8)
+    (->same-ideograph
+     ((ideograph-daikanwa . 21712)	; ø¸…“
+      ))
+    (hanyu-dazidian	1 55 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((chinese-big5-cdp   . #x89C2)	; ý¢€ˆ§‚
+	)
+       ((chinese-big5-cdp   . #x89C7)	; ý¢€ˆ§‡
+	))
+      )
+     ((ucs		  . #x7528)	; ç”¨
+      ))
+    (chinese-cns11643-6		. #x2D2C)	; ø»œ†£
+    (ideograph-hanziku-1	. #xAF63)	; ý¢€š½£
+    (ucs			. #x200F0)	; ð ƒ°
+    ))
+(define-char
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
@@ -1228,55 +1279,6 @@
       ))
     (korean-ksc5601	. #x5F2D)	; ø»‰µœ
     (ucs		. #x4E77)	; ä¹·
-    ))
-(define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (->identical
-     ((chinese-cns11643-6 . #x2D2C)	; ø»œ†£
-      ))
-    (->same-ideograph
-     ((ideograph-daikanwa . 21712)	; ø¸…“
-      ))
-    (hanyu-dazidian	1 55 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(ucs		    . #x2FF0)	; â¿°
-	)
-       ((chinese-big5-cdp   . #x89C2)	; ý¢€ˆ§‚
-	)
-       ((chinese-big5-cdp   . #x89C7)	; ý¢€ˆ§‡
-	))
-      )
-     ((ucs		  . #x7528)	; ç”¨
-      ))
-    (ideograph-hanziku-1	. #xAF63)	; ý¢€š½£
-    (ucs			. #x200F0)	; ð ƒ°
-    ))
-(define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (->identical
-     ((chinese-cns11643-4 . #x2624)	; ø»—¨
-      (ideograph-daikanwa . 06971)	; ø¸¬»
-      ))
-    (hanyu-dazidian	1 54 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x5B5B)	; å­›
-      )
-     ((ucs		  . #x4E5A)	; ä¹š
-      ))
-    (ideograph-hanziku-1	. #xAF42)	; ý¢€š½‚
-    (ucs			. #x200F1)	; ð ƒ±
     ))
 (define-char
   '((ideographic-radical . 5)	; â¼„

@@ -176,11 +176,16 @@
     (ucs		. #x269C9)	; ð¦§‰
     ))
 (define-char
-  '((=>ucs		. #x654C)	; æ•Œ
-    (ideographic-radical . 135)	; â¾†
-    (ideographic-strokes . 4)
+  '((ideographic-	(:radical	135 ; â¾†
+			 :strokes	4)
+			(:radical	66 ; â½
+			 :strokes	6))
     (total-strokes	 . 10)
+    (chinese-gb2312	. #x3550)	; ø»„¤‹
+    (chinese-isoir165	. #x3550)	; ø»Œ›
+    (chinese-cns11643-4 . #x2D44)	; ø»—²³
     (ideograph-daikanwa . 30285)	; ø¸‡™
+    (ucs		. #x654C)	; æ•Œ
     ))
 (define-char
   '((=>ucs		. #x269CA)	; ð¦§Š

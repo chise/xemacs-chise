@@ -238,8 +238,7 @@
     (chinese-cns11643-7 . #x302E)	; ø»ž•ƒ
     ))
 (define-char
-  '((=>ucs		. #x24D21)	; ð¤´¡
-    (ideographic-radical . 103)	; â½¦
+  '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x2552)	; ø»ž…

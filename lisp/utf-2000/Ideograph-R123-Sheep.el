@@ -1403,14 +1403,16 @@
     (ideograph-daikanwa . 49510)	; ø¸Œ…¦
     ))
 (define-char
-  '((=>ucs		. #x20186)	; ð ††
-    (morohashi-daikanwa	49510 0 0)
-    (ideographic-radical . 123)	; â½º
-    (ideographic-strokes . 8)
+  '((morohashi-daikanwa	49510 0 0)
+    (ideographic-	(:radical	123 ; â½º
+			 :strokes	8)
+			(:radical	8 ; â¼‡
+			 :strokes	13))
     (total-strokes	 . 15)
-    (->identical
-     ((ucs		  . #x20186)	; ð ††
+    (->same-ideograph
+     ((ideograph-daikanwa . 49510)	; ø¸Œ…¦
       ))
+    (hanyu-dazidian	1 292 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -1440,7 +1442,9 @@
        ((ucs		    . #x5E72)	; å¹²
 	))
       ))
-    (chinese-cns11643-7 . #x2679)	; ø»ž‡¢
+    (chinese-cns11643-7		. #x2679)	; ø»ž‡¢
+    (ideograph-hanziku-1	. #xE256)	; ý¢€ž‰–
+    (ucs			. #x20186)	; ð ††
     ))
 (define-char
   '((ideographic-radical . 123)	; â½º

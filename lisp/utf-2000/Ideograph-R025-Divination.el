@@ -529,8 +529,7 @@
       :char	((shinjigen-1	     . 839)
 		 (ideograph-daikanwa . 02791)	; ø¸€«§
 		 )
-      :denied	(setsumon-tsuukun-teisei morohashi-daikanwa)
-      ))
+      :denied	(setsumon-tsuukun-teisei morohashi-daikanwa)))
     (shinjigen-1	. 840)
     (chinese-cns11643-4 . #x2851)	; ø»—«ª
     (ideograph-daikanwa . 02810)	; ø¸€«º

@@ -7421,8 +7421,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 203 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; 亻
       )
      ((ucs		  . #x53E3)	; 口
@@ -7441,8 +7440,7 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 203 5)
     (ideographic-structure
-     (:cdp-combinator	4
-      )
+     (:cdp-combinator	4)
      ((ucs		  . #x4EBB)	; 亻
       )
      ((ucs		  . #x53E3)	; 口
