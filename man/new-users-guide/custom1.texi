@@ -1,25 +1,25 @@
 @comment  node-name,  next,  previous,  up
 @node Customization Basics, Help, Edit, Top
 @chapter Customize key bindings and menus 
-@cindex .emacs
+@cindex init.el
 @cindex customize
 @findex eval-region
 
-  When you start Emacs, it reads the file @file{~/.emacs} in your home
-directory. You can use this file to initialize and customize Emacs to
-your liking. This file should contain lisp-code. You can customize your
-@file{.emacs} file to create new
-menus, disable menus, change key bindings, enable a minor mode, etc. Any
-kind of customization affects 
-only a particular Emacs job that you do them in. If you want to save
-your customizations `permanently' i.e. for future use also, you have to
-put it in your @samp{.emacs} file. After you make changes to your
-@file{.emacs} file and save it, the changes will be effective only after
-you start Emacs again i.e. for a new Emacs process. To try out some of
-the examples in this section, highlight that region and evaluate the
-region by giving the command @kbd{M-x eval-region}. You will be able to
-see the results of your customizations in that Emacs session only
-(@pxref{Lisp Eval,,,xemacs,XEmacs User's Manual}).
+When you start Emacs, it reads the file @file{~/.xemacs/init.el} in the
+@file{.xemacs/} subdirectory of your home directory. You can use this
+file to initialize and customize Emacs to your liking. This file should
+contain lisp-code. You can customize your @file{init.el} file to create
+new menus, disable menus, change key bindings, enable a minor mode,
+etc. Any kind of customization affects only a particular Emacs job that
+you do them in. If you want to save your customizations `permanently'
+i.e. for future use also, you have to put it in your @samp{init.el}
+file. After you make changes to your @file{init.el} file and save it, the
+changes will be effective only after you start Emacs again i.e. for a
+new Emacs process. To try out some of the examples in this section,
+highlight that region and evaluate the region by giving the command
+@kbd{M-x eval-region}. You will be able to see the results of your
+customizations in that Emacs session only (@pxref{Lisp
+Eval,,,xemacs,XEmacs User's Manual}).
 
 @comment  node-name,  next,  previous,  up
 @menu
@@ -43,7 +43,7 @@ define a particular behavior. You can customize the key @kbd{C-n} to
 move to the previous line by binding it to @b{previous-line} and
 @kbd{C-p} to move to the next line by binding it to @b{next-line}. To
 bind keys to globally run commands you need to use the following syntax
-in your @b{.emacs} file:
+in your @b{init.el} file:
 
 @cindex binding keys
 @example
@@ -52,7 +52,7 @@ in your @b{.emacs} file:
 @noindent
   Here, @code{global-set-key} is a function which will bind the
 @dfn{keys} to the specified @dfn{cmd}. For example, if you type the
-following in your @b{.emacs} file:
+following in your @b{init.el} file:
 
 @example
 (global-set-key "\C-p" 'next-line)
@@ -69,14 +69,14 @@ which means disable a command or turn off a feature. If you want to
 enable a command or turn on a particular feature use @samp{t}
 which stands for @samp{true}.  For example, if you do not wish @kbd{C-x
 C-c} to @samp{Exit Emacs} you can type the following expression in your
-@file{.emacs} file:
+@file{init.el} file:
 
 @example
 (global-set-key "\C-x\C-c" nil)
 @end example
 
 @noindent
-You might want to have this statement in your @file{.emacs} file because
+You might want to have this statement in your @file{init.el} file because
 its easy to hit this command by mistake and it could be annoying to exit
 Emacs unintentionally. There is a @b{Exit Emacs} option in the @b{File
 menu} which you might want to use instead. To make a particular key
@@ -174,7 +174,7 @@ add-menu-item: (@var{menu-name} @var{item-name} @var{function} @var{enabled-p}
 This function will add a menu item to a menu, creating the menu first if
 necessary. If the named item already exists, the menu will remain
 unchanged. For example, if you add the following example to your
-@file{.emacs} file or evaluate it (@pxref{Customization Basics}),
+@file{init.el} file or evaluate it (@pxref{Customization Basics}),
 
 @example
 (add-menu-item '("Edit") "Replace String" replace-string t "Clear")

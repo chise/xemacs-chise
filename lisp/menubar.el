@@ -523,35 +523,40 @@ button was clicked."
 				     (extent-property extent 'context-menu))
 				 context-extents))))
     (popup-menu
-     (cond ((and global-popup-menu mode-popup-menu)
+     (progn
 	    ;; Merge global-popup-menu and mode-popup-menu
-	    (check-menu-syntax mode-popup-menu)
-	    (let* ((title (car mode-popup-menu))
-		   (items (cdr mode-popup-menu))
+	    (and mode-popup-menu (check-menu-syntax mode-popup-menu))
+	    (let* ((mode-title (and (stringp (car mode-popup-menu))
+				    (car mode-popup-menu)))
+		   (mode-items (if mode-title (cdr mode-popup-menu)
+				 mode-popup-menu))
+		   (global-title (and (stringp (car global-popup-menu))
+				      (car global-popup-menu)))
+		   (global-items (if global-title (cdr global-popup-menu)
+				   global-popup-menu))
 		   mode-filters)
 	      ;; Strip keywords from local menu for attaching them at the top
-	      (while (and items
-			  (keywordp (car items)))
+	      (while (and mode-items
+			  (keywordp (car mode-items)))
 		;; Push both keyword and its argument.
-		(push (pop items) mode-filters)
-		(push (pop items) mode-filters))
+		(push (pop mode-items) mode-filters)
+		(push (pop mode-items) mode-filters))
 	      (setq mode-filters (nreverse mode-filters))
 	      ;; If mode-filters contains a keyword already present in
 	      ;; `global-popup-menu', you will probably lose.
-	      (append (list (car global-popup-menu))
+	      (append (and popup-menu-titles
+			   (cond (mode-title (list mode-title))
+				 (global-title (list global-title))
+				 (t "")))
 		      mode-filters
-		      (cdr global-popup-menu)
-		      '("---" "---")
-		      (if popup-menu-titles (list title))
-		      (if popup-menu-titles '("---" "---"))
-		      items
-		      context-menu-items)))
-	   (t
-	    (append
-	     (or mode-popup-menu
-		 global-popup-menu
-		 (error "No menu defined in this buffer"))
-	     context-menu-items))))
+		      context-menu-items
+		      (and context-menu-items mode-items '("---"))
+		      mode-items
+		      (and (or context-menu-items mode-items)
+			   global-items '("---" "---"))
+		      (and global-title (list global-title))
+		      global-items
+		      ))))
 
     (while (popup-up-p)
       (dispatch-event (next-event)))

@@ -4810,6 +4810,11 @@ init_event_stream (void)
 	init_event_Xt_late ();
       else
 #endif
+#ifdef HAVE_GTK
+      if (!strcmp (display_use, "gtk"))
+	init_event_gtk_late ();
+      else
+#endif
 #ifdef HAVE_MS_WINDOWS
       if (!strcmp (display_use, "mswindows"))
 	init_event_mswindows_late ();

@@ -76,7 +76,8 @@
 
 (defvar auto-language-alist
   '(("^ja" . "Japanese")
-    ("^zh" . "Chinese")
+    ("^zh_.*.GB.*" . "Chinese-GB")
+    ("^zh_.*.BIG5.*" . "Chinese-BIG5")
     ("^ko" . "Korean"))
   "Alist of LANG patterns vs. corresponding language environment.
 Each element looks like (REGEXP . LANGUAGE-ENVIRONMENT).

@@ -52,6 +52,7 @@
 This is equivalent to the type of the device's console.
 Value is `tty' for a tty device (a character-only terminal),
 `x' for a device that is a screen on an X display,
+`gtk' for a device that is a GTK connection.
 `ns' for a device that is a NeXTstep connection (not yet implemented),
 `mswindows' for a device that is a MS Windows workstation,
 `msprinter' for a device that is a MS Windows printer connection,
@@ -102,6 +103,10 @@ it is nil, it is assumes to be the value returned by emacs-pid."
 (defun device-color-cells (&optional device)
   "Return the number of color cells of DEVICE, or nil if unknown."
   (device-system-metric device 'num-color-cells))
+
+(defun make-gtk-device ()
+  "Create a new GTK device."
+  (make-device 'gtk nil))
 
 (defun make-x-device (&optional display)
   "Create a new device connected to DISPLAY."

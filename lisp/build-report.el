@@ -4,7 +4,7 @@
 
 ;; Author: Adrian Aichner <adrian@xemacs.org>
 ;; Date: Sun., Apr. 20, 1997-2000.
-;; Version: $Revision: 1.5.2.7 $
+;; Version: $Revision: 1.5.2.9 $
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.
@@ -271,19 +271,22 @@ under csh, so that you get beta.err went you run `mk beta'."
 
 ;;;###autoload
 (defun build-report (&rest args)
-  "Composes a fresh mail message with the contents of the built XEmacs
-Installation file and excerpts from XEmacs make output.
-`compose-mail' is used to create the mail message.  Point is left at
-the beginning of the mail text.  You may add some personal notes if
-you like and send the report.
-See also
-  `compose-mail', `mail-user-agent',
-  `build-report-destination',
-  `build-report-keep-regexp',
-  `build-report-delete-regexp',
-  `build-report-make-output-dir',
-  `build-report-make-output-files', and
-  `build-report-installation-file'."
+  "Report build information including Installation and make output.
+
+Prompts for status (usually \"Success\" or \"Failure\").  Then uses
+`compose-mail' to create a mail message.  The Subject header contains
+status and version information.  Point is left at the beginning of the
+mail text.  Add some notes if you like, and send the report.
+
+Looks for Installation and the make output file (`beta.err' by
+default, customizable via `build-report-make-output-files') in the
+build directory of the running XEmacs by default (customizable via
+`build-report-make-output-dir').  The output from make is filtered
+through `build-report-keep-regexp' and `build-report-delete-regexp'
+before including in the message.
+
+See also `mail-user-agent', `build-report-destination', and
+`build-report-installation-file'."
   ;; `interactive' form returns value for formal parameter `args'.
   (interactive
    (let (prompt

@@ -33,7 +33,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WIN32_NATIVE
 #ifdef MINGW
-#include <mingw32/process.h>
+#include <mingw/process.h>
 #else
 /* <process.h> should not conflict with "process.h", as per ANSI definition.
    This is not true with visual c though. The trick below works with
@@ -2985,23 +2985,22 @@ sys_readdir (DIR *dirp)
   if (rtnval == NULL)           /* End of directory */
     return NULL;
   {
-    Extcount external_len;
-    int ascii_filename_p = 1;
     const Extbyte * const external_name = (const Extbyte *) rtnval->d_name;
+    Extcount external_len = strlen (rtnval->d_name);
+    const Bufbyte *internal_name;
+    Bytecount internal_len;
+    
+    TO_INTERNAL_FORMAT (DATA, (external_name, external_len),
+			ALLOCA, (internal_name, internal_len),
+			Qfile_name);
 
-    /* Optimize for the common all-ASCII case, computing len en passant */
-    for (external_len = 0; external_name[external_len] ; external_len++)
-      {
-        if (!BYTE_ASCII_P (external_name[external_len]))
-          ascii_filename_p = 0;
-      }
-    if (ascii_filename_p)
+    /* check for common case of ASCII filename */
+    if (internal_len == external_len &&
+	!memcmp (external_name, internal_name, internal_len))
       return rtnval;
 
     { /* Non-ASCII filename */
       static Bufbyte_dynarr *internal_DIRENTRY;
-      const Bufbyte *internal_name;
-      Bytecount internal_len;
       if (!internal_DIRENTRY)
         internal_DIRENTRY = Dynarr_new (Bufbyte);
       else
@@ -3010,9 +3009,6 @@ sys_readdir (DIR *dirp)
       Dynarr_add_many (internal_DIRENTRY, (Bufbyte *) rtnval,
                        offsetof (DIRENTRY, d_name));
 
-      TO_INTERNAL_FORMAT (DATA, (external_name, external_len),
-			  ALLOCA, (internal_name, internal_len),
-			  Qfile_name);
 
       Dynarr_add_many (internal_DIRENTRY, internal_name, internal_len);
       Dynarr_add (internal_DIRENTRY, '\0'); /* NUL-terminate */

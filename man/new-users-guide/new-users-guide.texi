@@ -186,7 +186,7 @@ Other Customizations
 
 * Setting Variables::           Customizing Emacs variables
 * Init File::                   Some examples of Lisp expressions in
-                                .emacs file
+                                init.el file
 
 Selecting and Moving Text
 

@@ -1186,12 +1186,14 @@ Otherwise, changes to existing text will not be processed until the
 next redisplay cycle, avoiding excessive fontification when many
 buffer modifications are performed or a buffer is reverted.")
 
-(defvar font-lock-pending-extent-table (make-hash-table :weakness 'key))
+;; list of buffers in which there is a pending change.
+(defvar font-lock-pending-buffer-table (make-hash-table :weakness 'key))
+;; table used to keep track of ranges needing fontification.
 (defvar font-lock-range-table (make-range-table))
 
 (defun font-lock-pre-idle-hook ()
   (condition-case font-lock-error
-      (if (> (hash-table-count font-lock-pending-extent-table) 0)
+      (if (> (hash-table-count font-lock-pending-buffer-table) 0)
 	  (font-lock-fontify-pending-extents))
     (error (warn "Error caught in `font-lock-pre-idle-hook': %s"
 		 font-lock-error))))
@@ -1203,12 +1205,15 @@ buffer modifications are performed or a buffer is reverted.")
 
 (defun font-lock-after-change-function (beg end old-len)
   (when font-lock-mode
-    (let ((ex (make-extent beg end)))
-      (set-extent-property ex 'detachable nil)
-      (set-extent-property ex 'end-open nil)
-      (let ((exs (gethash (current-buffer) font-lock-pending-extent-table)))
-	(push ex exs)
-	(puthash (current-buffer) exs font-lock-pending-extent-table)))
+    ;; treat deletions as if the following character (or previous, if
+    ;; there is no following) were inserted.  this is a bit of a hack
+    ;; but allows us to use text properties for everything.
+    (if (= beg end)
+	(cond ((/= end (point-max)) (setq end (1+ end)))
+	      ((/= beg (point-min)) (setq beg (1- beg)))
+	      (t nil)))
+    (put-text-property beg end 'font-lock-pending t)
+    (puthash (current-buffer) t font-lock-pending-buffer-table)
     (if font-lock-always-fontify-immediately
 	(font-lock-fontify-pending-extents))))
 
@@ -1218,61 +1223,55 @@ buffer modifications are performed or a buffer is reverted.")
   ;; only one buffer and one contiguous region!
   (save-match-data
     (maphash
-     #'(lambda (buffer exs)
+     #'(lambda (buffer dummy)
 	 ;; remove first, to avoid infinite reprocessing if error
-	 (remhash buffer font-lock-pending-extent-table)
+	 (remhash buffer font-lock-pending-buffer-table)
 	 (when (buffer-live-p buffer)
 	   (clear-range-table font-lock-range-table)
 	   (with-current-buffer buffer
 	     (save-excursion
 	       (save-restriction
-		 ;; if we don't widen, then the C code will fail to
-		 ;; realize that we're inside a comment.
+		 ;; if we don't widen, then the C code in
+		 ;; syntactically-sectionize will fail to realize that
+		 ;; we're inside a comment. #### We don't actually use
+		 ;; syntactically-sectionize any more.  Do we still
+		 ;; need the widen?
 		 (widen)
 		 (let ((zmacs-region-stays
 			zmacs-region-stays)) ; protect from change!
-		   (mapc
-		    #'(lambda (ex)
-			;; paranoia.
-			(when (and (extent-live-p ex)
-				   (not (extent-detached-p ex)))
-			  ;; first expand the ranges to full lines, because
-			  ;; that is what will be fontified; then use a
-			  ;; range table to merge the ranges.
-			  (let* ((beg (extent-start-position ex))
-				 (end (extent-end-position ex))
-				 (beg (progn (goto-char beg)
-					     (beginning-of-line)
-					     (point)))
-				 (end (progn (goto-char end)
-					     (forward-line 1)
-					     (point))))
-			    (detach-extent ex)
-			    (put-range-table beg end t
-					     font-lock-range-table))))
-		    exs)
+		   (map-extents
+		    #'(lambda (ex dummy-maparg)
+			;; first expand the ranges to full lines,
+			;; because that is what will be fontified;
+			;; then use a range table to merge the
+			;; ranges. (we could also do this simply using
+			;; text properties.  the range table code was
+			;; here from a previous version of this code
+			;; and works just as well.)
+			(let* ((beg (extent-start-position ex))
+			       (end (extent-end-position ex))
+			       (beg (progn (goto-char beg)
+					   (beginning-of-line)
+					   (point)))
+			       (end (progn (goto-char end)
+					   (forward-line 1)
+					   (point))))
+			  (put-range-table beg end t
+					   font-lock-range-table)))
+		    nil nil nil nil nil 'font-lock-pending t)
+		   ;; clear all pending extents first in case of error below.
+		   (put-text-property (point-min) (point-max)
+				      'font-lock-pending nil)
 		   (map-range-table
 		    #'(lambda (beg end val)
-			;; Maybe flush the internal cache used by
-			;; syntactically-sectionize.  (It'd be nice if this
-			;; was more automatic.)  Any deletions mean the
-			;; cache is invalid, and insertions at beginning or
-			;; end of line mean that the bol cache might be
-			;; invalid.
-			;; #### This code has been commented out for some time
-			;; now and is bit-rotting.  Someone should look into
-			;; this.
-;;			(if (or change-was-deletion (bobp)
-;;				(= (preceding-char) ?\n))
-;;			    (buffer-syntactic-context-flush-cache))
-			;; #### This creates some unnecessary progress gauges.
+			;; This creates some unnecessary progress gauges.
 ;;			(if (and (= beg (point-min))
 ;;				 (= end (point-max)))
 ;;			    (font-lock-fontify-buffer)
 ;;			  (font-lock-fontify-region beg end)))
 			(font-lock-fontify-region beg end))
 		    font-lock-range-table)))))))
-     font-lock-pending-extent-table)))
+     font-lock-pending-buffer-table)))
 
 ;; Syntactic fontification functions.
 

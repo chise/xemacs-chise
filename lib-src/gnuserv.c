@@ -500,7 +500,7 @@ permitted (unsigned long host_addr, int fd)
 
 #ifdef AUTH_MAGIC_COOKIE
 	  if (server_xauth && server_xauth->data)
-	  {
+	    {
 	    /* Do a compare without comprising info about
 	       the size of the cookie */
 	    int auth_data_pos;
@@ -517,7 +517,7 @@ permitted (unsigned long host_addr, int fd)
 	      return TRUE;
 	    
 	    for(;rand() % 1000;);
-	  }
+	    }
 
 #else
 	  printf ("client tried Xauth, but server is not compiled with Xauth\n");

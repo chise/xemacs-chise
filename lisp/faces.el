@@ -761,7 +761,10 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
     (and (face-equal-loop common-props face1 face2 domain)
 	 (cond ((eq 'tty (device-type device))
 		(face-equal-loop tty-props face1 face2 domain))
+ 	       ;; #### Why isn't this (console-on-window-system-p (device-console device))?
+ 	       ;; #### FIXME!
 	       ((or (eq 'x (device-type device))
+		    (eq 'gtk (device-type device))
 		    (eq 'mswindows (device-type device)))
 		(face-equal-loop win-props face1 face2 domain))
 	       (t t)))))
@@ -1018,7 +1021,10 @@ circumstances."
      (when (featurep 'tty)
        (set-face-highlight-p face t locale (cons 'tty tags))))
    (lambda ()
-     ;; handle X/MS Windows specific entries
+     ;; handle window-system specific entries
+     (when (featurep 'gtk)
+       (frob-face-property face 'font 'gtk-make-font-bold
+			   '(gtk) locale tags))
      (when (featurep 'x)
        (frob-face-property face 'font 'x-make-font-bold
 			   '(x) locale tags))
@@ -1045,7 +1051,10 @@ how this function works."
      (when (featurep 'tty)
        (set-face-underline-p face t locale (cons 'tty tags))))
    (lambda ()
-     ;; handle X specific entries
+     ;; handle window-system specific entries
+     (when (featurep 'gtk)
+       (frob-face-property face 'font 'gtk-make-font-italic
+			   '(gtk) locale tags))
      (when (featurep 'x)
        (frob-face-property face 'font 'x-make-font-italic
 			   '(x) locale tags))
@@ -1073,7 +1082,10 @@ argument and for more specifics on exactly how this function works."
        (set-face-highlight-p face t locale (cons 'tty tags))
        (set-face-underline-p face t locale (cons 'tty tags))))
    (lambda ()
-     ;; handle X specific entries
+     ;; handle window-system specific entries
+     (when (featurep 'gtk)
+       (frob-face-property face 'font 'gtk-make-font-bold-italic
+			   '(gtk) locale tags))
      (when (featurep 'x)
        (frob-face-property face 'font 'x-make-font-bold-italic
 			   '(x) locale tags))
@@ -1100,7 +1112,10 @@ specifics on exactly how this function works."
      (when (featurep 'tty)
        (set-face-highlight-p face nil locale (cons 'tty tags))))
    (lambda ()
-     ;; handle X specific entries
+     ;; handle window-system specific entries
+     (when (featurep 'gtk)
+       (frob-face-property face 'font 'gtk-make-font-unbold
+			   '(gtk) locale tags))
      (when (featurep 'x)
        (frob-face-property face 'font 'x-make-font-unbold
 			   '(x) locale tags))
@@ -1127,7 +1142,10 @@ specifics on exactly how this function works."
      (when (featurep 'tty)
        (set-face-underline-p face nil locale (cons 'tty tags))))
    (lambda ()
-     ;; handle X specific entries
+     ;; handle window-system specific entries
+     (when (featurep 'gtk)
+       (frob-face-property face 'font 'gtk-make-font-unitalic
+			   '(gtk) locale tags))
      (when (featurep 'x)
        (frob-face-property face 'font 'x-make-font-unitalic
 			   '(x) locale tags))
@@ -1477,6 +1495,8 @@ and 'global)."
     ;; Then do any device-specific initialization.
     (cond ((eq 'x (device-type device))
 	   (x-init-device-faces device))
+	  ((eq 'gtk (device-type device))
+	   (gtk-init-device-faces device))
 	  ((eq 'mswindows (device-type device))
 	   (mswindows-init-device-faces device))
 	  ;; Nothing to do for TTYs?
@@ -1492,6 +1512,8 @@ and 'global)."
     ;; Then do any frame-specific initialization.
     (cond ((eq 'x (frame-type frame))
 	   (x-init-frame-faces frame))
+	  ((eq 'gtk (frame-type frame))
+	   (gtk-init-frame-faces frame))
 	  ((eq 'mswindows (frame-type frame))
 	   (mswindows-init-frame-faces frame))
 	  ;; Is there anything which should be done for TTY's?
@@ -1508,7 +1530,9 @@ and 'global)."
   (loop for face in (face-list) do
 	(init-face-from-resources face 'global))
   ;; Further X frobbing.
-  (x-init-global-faces)
+  (and (featurep 'x) (x-init-global-faces))
+  (and (featurep 'gtk) (gtk-init-global-faces))
+
   ;; for bold and the like, make the global specification be bold etc.
   ;; if the user didn't already specify a value.  These will also be
   ;; frobbed further in init-other-random-faces.
@@ -1737,6 +1761,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'highlight
 			    '(((x default mono) . "gray1")
+;; 			      ((gtk default mono) . "gray1")
 			      ((mswindows default mono) . "gray1"))
 			    'global)
 
@@ -1748,6 +1773,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'zmacs-region
 			    '(((x default mono) . "gray3")
+;; 			      ((gtk default mono) . "gray3")
 			      ((mswindows default mono) . "gray3"))
 			    'global)
 
@@ -1755,6 +1781,9 @@ in that frame; otherwise change each frame."
 		     '(((x default color) . "gray68")
 		       ((x default grayscale) . "gray68")
 		       ((x default mono) . [default foreground])
+;; 		       ((gtk default color) . "gray68")
+;; 		       ((gtk default grayscale) . "gray68")
+;; 		       ((gtk default mono) . [default foreground])
 		       ((mswindows default color) . "gray68")
 		       ((mswindows default grayscale) . "gray68")
 		       ((mswindows default mono) . [default foreground]))
@@ -1772,6 +1801,7 @@ in that frame; otherwise change each frame."
 		     'global)
 (set-face-background-pixmap 'primary-selection
 			    '(((x default mono) . "gray3")
+			      ;;((gtk default mono) . "gray3")
 			      ((mswindows default mono) . "gray3"))
 			    'global)
 
@@ -1779,18 +1809,24 @@ in that frame; otherwise change each frame."
 		     '(((x default color) . "paleturquoise")
 		       ((x default color) . "green")
 		       ((x default grayscale) . "gray53")
+		       ;;((gtk default color) . "paleturquoise")
+		       ;;((gtk default color) . "green")
+		       ;;((gtk default grayscale) . "gray53")
 		       ((mswindows default color) . "paleturquoise")
 		       ((mswindows default color) . "green")
 		       ((mswindows default grayscale) . "gray53"))
 		     'global)
 (set-face-background-pixmap 'secondary-selection
 			    '(((x default mono) . "gray1")
+			      ;;((gtk default mono) . "gray1")
 			      ((mswindows default mono) . "gray1"))
 			    'global)
 
 (set-face-background 'isearch
 		     '(((x default color) . "paleturquoise")
 		       ((x default color) . "green")
+		       ;;((gtk default color) . "paleturquoise")
+		       ;;((gtk default color) . "green")
 		       ((mswindows default color) . "paleturquoise")
 		       ((mswindows default color) . "green"))
 		     'global)

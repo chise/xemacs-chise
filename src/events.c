@@ -30,6 +30,7 @@ Boston, MA 02111-1307, USA.  */
 #include "console-tty.h" /* for stuff in character_to_event */
 #include "device.h"
 #include "console-x.h"	/* for x_event_name prototype */
+#include "console-gtk.h" /* for gtk_event_name prototype */
 #include "extents.h"	/* Just for the EXTENTP abort check... */
 #include "events.h"
 #include "frame.h"
@@ -268,6 +269,12 @@ event_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
       {
 	struct console *con = XCONSOLE (CDFW_CONSOLE (e1->channel));
 
+#ifdef HAVE_GTK
+ 	if (CONSOLE_GTK_P (con))
+	  return (!memcmp (&e1->event.magic.underlying_gdk_event,
+			   &e2->event.magic.underlying_gdk_event,
+			   sizeof (GdkEvent)));
+#endif
 #ifdef HAVE_X_WINDOWS
 	if (CONSOLE_X_P (con))
 	  return (e1->event.magic.underlying_x_event.xany.serial ==
@@ -338,6 +345,10 @@ event_hash (Lisp_Object obj, int depth)
     case magic_event:
       {
 	struct console *con = XCONSOLE (CDFW_CONSOLE (EVENT_CHANNEL (e)));
+#ifdef HAVE_GTK
+ 	if (CONSOLE_GTK_P (con))
+ 	  return HASH2 (hash, e->event.magic.underlying_gdk_event.type);
+#endif
 #ifdef HAVE_X_WINDOWS
 	if (CONSOLE_X_P (con))
 	  return HASH2 (hash, e->event.magic.underlying_x_event.xany.serial);
@@ -1269,6 +1280,13 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
       {
         const char *name = NULL;
 
+#ifdef HAVE_GTK
+ 	{
+ 	  Lisp_Object console = CDFW_CONSOLE (EVENT_CHANNEL (event));
+ 	  if (CONSOLE_GTK_P (XCONSOLE (console)))
+ 	    name = gtk_event_name (event->event.magic.underlying_gdk_event.type);
+ 	}
+#endif
 #ifdef HAVE_X_WINDOWS
 	{
 	  Lisp_Object console = CDFW_CONSOLE (EVENT_CHANNEL (event));

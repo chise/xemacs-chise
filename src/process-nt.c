@@ -1051,7 +1051,7 @@ nt_send_process (Lisp_Object proc, struct lstream* lstream)
 
   while (1)
     {
-      ssize_t writeret;
+      Lstream_data_count writeret;
 
       chunklen = Lstream_read (lstream, chunkbuf, 512);
       if (chunklen <= 0)

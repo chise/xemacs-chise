@@ -307,10 +307,23 @@ DEPEND=0
 # #### here, it doesn't seem to matter if we double ^'s!
 # results are the same with all single ^ and all double ^^!
 # see comment below.
-! if [perl -p -e "s/^\x23if defined(.+)/!if defined$$1/; s/^\x23e/!e/;" \
+# #### Yuuuuuuuuuuck!!!  Cygwin is too smart for its own good.  If we are
+# being run from within Cygwin, a Cygwin Perl seems to require twice as
+# much backslash quoting.  This does not happen, of course, with a non-
+# Cygwin Perl, so in that circumstance, you'd be screwed and would have
+# to fix this Makefile to not have a special Cygwin case.
+! if defined(_)
+!  if [perl -p -e "s/^\\x23if defined(.+)/!if defined$$1/; s/^\\x23e/!e/;" \
+	-e "s/([\\s=^])([\\w\\d\\.\\-^]+\\.[ch^])/$$1$(SRC:\=\\\\)\\\\$$2/g;" \
+	-e "s/^(.+)\\.o:(.+)/$(OUTDIR:\=\\\\)\\\\$$1.obj:$$2 $(NT:\=\\\\)\\\\config.inc/;" \
+	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
+!  endif
+! else
+!  if [perl -p -e "s/^\x23if defined(.+)/!if defined$$1/; s/^\x23e/!e/;" \
 	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
 	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
 	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
+!  endif
 ! endif
 ! include "$(OUTDIR)\depend.tmp"
 !else

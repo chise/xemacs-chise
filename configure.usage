@@ -59,6 +59,8 @@ Installation options:
 
 Window-system options:
 
+--with-gtk              Support GTK on the X Window System. (EXPERIMENTAL)
+--with-gnome            Support GNOME on the X Window System. (EXPERIMENTAL)
 --with-x11 (*)          Support the X Window System.
 --x-includes=DIR        Search for X header files in DIR.
 --x-libraries=DIR       Search for X libraries in DIR.
@@ -166,6 +168,7 @@ Additional features:
 --with-dnet (*)         Compile with support for DECnet.
 --with-modules          Compile in experimental support for dynamically
                         loaded libraries (Dynamic Shared Objects).
+--with-netinstall      Compile in support for installation over the internet.		
 --with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy
                         searched before the installation packages.
 --with-site-modules=no  Disable site-modules directory in the XEmacs hierarchy,

@@ -2994,7 +2994,7 @@ positions), even in Mule. (Fixing this is very difficult.)
        occurs inside of the filedesc stream. */
     while (1)
       {
-	ssize_t this_len;
+	Lstream_data_count this_len;
 	Charcount cc_inserted;
 
 	QUIT;

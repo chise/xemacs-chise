@@ -6,12 +6,12 @@
 @cindex font-lock-mode
 
 You can modify the behavior of Emacs in minor ways permanently by
-putting your changes in your @file{.emacs} file. This file contains Lisp
+putting your changes in your @file{init.el} file. This file contains Lisp
 function call expressions. Each of these expressions will consist of a
 function name followed by arguments, all surrounded by parentheses. For
 example, to turn on the auto-fill-mode (i.e. break lines automatically
 when they become too long) , put the following  line in your
-@file{.emacs} file: 
+@file{init.el} file: 
 
 @example
 (add-hook 'text-mode-hook 
@@ -35,7 +35,7 @@ example above.
 
 Similarly, to enable the "font-lock mode" which displays your program in
 different fonts and colors(@pxref{Modes}), put the following in your
-@file{.emacs} file. The comments above the statement explain what the
+@file{init.el} file. The comments above the statement explain what the
 statements do.
 
 @example
@@ -64,7 +64,7 @@ functions, comments or other keywords  should be displayed in :
 
 @noindent
 For other customizations regarding the font-lock face, look at the file
-@file{/usr/local/lib/xemacs-19.11/etc/sample.emacs}. 
+@file{/usr/local/lib/xemacs-VERSION/etc/sample.init.el}. 
 
 
 
@@ -72,7 +72,7 @@ For other customizations regarding the font-lock face, look at the file
 @menu
 * Setting Variables::           Customizing Emacs variables
 * Init File::                   Some examples of Lisp expressions in
-                                .emacs file
+                                init.el file
 @end menu
 
 @node Setting Variables, Init File, Other Customizations, Other Customizations
@@ -132,7 +132,7 @@ Type "nil" and hit @key{RET}.  Now if you again use @kbd{M-x describe
 variable} , you will see that the new value of case-fold-search will be
 "nil" and your searches will be case-sensitive. This will be effective
 only for that Emacs session. If you want to change the value of a
-variable permanently put the following statement in your @file{.emacs}
+variable permanently put the following statement in your @file{init.el}
 file :
 
 @example
@@ -141,7 +141,7 @@ file :
 
 @noindent
 This statement will make searches case-sensitive only in the current
-buffer which is the @file{.emacs} file. This will not be very useful. To
+buffer which is the @file{init.el} file. This will not be very useful. To
 make searches case-sensitive globally in all buffers, use:
 
 @example
@@ -204,8 +204,8 @@ these options.
 @cindex init file examples
 
    For customizing Emacs, you need to put Lisp expressions in your
-@file{.emacs} file. The following are some useful Lisp expressions. If
-you find any of them useful, just type them in your @file{.emacs} file:
+@file{init.el} file. The following are some useful Lisp expressions. If
+you find any of them useful, just type them in your @file{init.el} file:
 
 @itemize @bullet
 @item 
@@ -290,7 +290,7 @@ This expression will make searches case sensitive:
 @noindent
 If we use "setq" instead of "setq-default" then searches will be
 case-sensitive only in the current buffer's local value. In this case the
-buffer would be the @file{.emacs} file. Since this would not be too
+buffer would be the @file{init.el} file. Since this would not be too
 helpful and we want to have case-sensitive searches in all buffers, we
 have to use "setq-default".
 
@@ -370,7 +370,7 @@ the modeline:
 @item
 If you don't want the text to be highlighted when you use commands for
 marking regions so as to use the @dfn{kill} and @dfn{yank} commands
-later, you can use the following expression in your @file{.emacs} file:
+later, you can use the following expression in your @file{init.el} file:
 
 @vindex zmacs-regions
 @example
@@ -410,7 +410,7 @@ To get rid of the menu, use :
 
 @item
 If you want an extensive menu-bar use the following expression in your
-@file{.emacs} file.
+@file{init.el} file.
 
 @example
 (load "big-menubar")
@@ -419,14 +419,14 @@ If you want an extensive menu-bar use the following expression in your
 @noindent
 If you want to write your own menus, you can look at some of the
 examples in
-@file{/usr/local/lib/xemacs-20.0/lisp/packages/big-menubar.el} file.
+@file{/usr/local/lib/xemacs-VERSION/lisp/packages/big-menubar.el} file.
 
 @end itemize
 
-   For more information on initializing your @file{.emacs} file,
+   For more information on initializing your @file{init.el} file,
 @xref{Init File,,,xemacs,XEmacs User's Manual}. You should also look at
-@file{/usr/local/lib/xemacs-20.0/etc/sample.emacs}, which is a sample
-@file{.emacs} file. It contains some of the commonly desired
+@file{/usr/local/lib/xemacs-VERSION/etc/sample.init.el}, which is a sample
+@file{init.el} file. It contains some of the commonly desired
 customizations in Emacs. 
 
 

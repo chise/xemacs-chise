@@ -105,7 +105,7 @@ instead of in the original English.
 @node Top, A History of Emacs, (dir), (dir)
 
 @ifinfo
-This Info file contains v1.0 of the XEmacs Internals Manual.
+This Info file contains v1.3 of the XEmacs Internals Manual, August 1999.
 @end ifinfo
 
 @menu
@@ -309,7 +309,8 @@ Extents
 
 @node A History of Emacs, XEmacs From the Outside, Top, Top
 @chapter A History of Emacs
-@cindex history of Emacs
+@cindex history of Emacs, a
+@cindex Emacs, a history of
 @cindex Hackers (Steven Levy)
 @cindex Levy, Steven
 @cindex ITS (Incompatible Timesharing System)
@@ -345,8 +346,9 @@ Lisp, a programming language developed at MIT that underlies Emacs.)
 * XEmacs::                      The continuation of Lucid Emacs.
 @end menu
 
-@node Through Version 18, Lucid Emacs, A History of Emacs, A History of Emacs
+@node Through Version 18
 @section Through Version 18
+@cindex version 18, through
 @cindex Gosling, James
 @cindex Great Usenet Renaming
 
@@ -458,7 +460,7 @@ version 18.58 released ?????.
 version 18.59 released October 31, 1992.
 @end itemize
 
-@node Lucid Emacs, GNU Emacs 19, Through Version 18, A History of Emacs
+@node Lucid Emacs
 @section Lucid Emacs
 @cindex Lucid Emacs
 @cindex Lucid Inc.
@@ -546,9 +548,11 @@ version 20.3 (the first stable version of XEmacs 20.x) released November 30,
 version 20.4 released February 28, 1998.
 @end itemize
 
-@node GNU Emacs 19, GNU Emacs 20, Lucid Emacs, A History of Emacs
+@node GNU Emacs 19
 @section GNU Emacs 19
 @cindex GNU Emacs 19
+@cindex Emacs 19, GNU
+@cindex version 19, GNU Emacs
 @cindex FSF Emacs
 
   About a year after the initial release of Lucid Emacs, the FSF
@@ -623,9 +627,11 @@ Lucid Emacs; the work was mostly done by Richard Mlynarik, who had been
 working on and using GNU Emacs for a long time (back as far as version
 16 or 17).
 
-@node GNU Emacs 20, XEmacs, GNU Emacs 19, A History of Emacs
+@node GNU Emacs 20
 @section GNU Emacs 20
 @cindex GNU Emacs 20
+@cindex Emacs 20, GNU
+@cindex version 20, GNU Emacs
 @cindex FSF Emacs
 
 On February 2, 1997 work began on GNU Emacs to integrate Mule.  The first
@@ -642,7 +648,7 @@ version 20.2 released September 20, 1997.
 version 20.3 released August 19, 1998.
 @end itemize
 
-@node XEmacs,  , GNU Emacs 20, A History of Emacs
+@node XEmacs
 @section XEmacs
 @cindex XEmacs
 
@@ -720,6 +726,8 @@ have consistently failed.
 
 @node XEmacs From the Outside, The Lisp Language, A History of Emacs, Top
 @chapter XEmacs From the Outside
+@cindex XEmacs from the outside
+@cindex outside, XEmacs from the
 @cindex read-eval-print
 
   XEmacs appears to the outside world as an editor, but it is really a
@@ -762,6 +770,7 @@ have to write functions to do those operations in Lisp.
 
 @node The Lisp Language, XEmacs From the Perspective of Building, XEmacs From the Outside, Top
 @chapter The Lisp Language
+@cindex Lisp language, the
 @cindex Lisp vs. C
 @cindex C vs. Lisp
 @cindex Lisp vs. Java
@@ -983,6 +992,8 @@ inside the real OS.
 
 @node XEmacs From the Perspective of Building, XEmacs From the Inside, The Lisp Language, Top
 @chapter XEmacs From the Perspective of Building
+@cindex XEmacs from the perspective of building
+@cindex building, XEmacs from the perspective of
 
 The heart of XEmacs is the Lisp environment, which is written in C.
 This is contained in the @file{src/} subdirectory.  Underneath
@@ -1092,6 +1103,8 @@ such as allocation memory in one process, and freeing it in the next.
 
 @node XEmacs From the Inside, The XEmacs Object System (Abstractly Speaking), XEmacs From the Perspective of Building, Top
 @chapter XEmacs From the Inside
+@cindex XEmacs from the inside
+@cindex inside, XEmacs from the
 
 Internally, XEmacs is quite complex, and can be very confusing.  To
 simplify things, it can be useful to think of XEmacs as containing an
@@ -1251,6 +1264,8 @@ change the C code.
 
 @node The XEmacs Object System (Abstractly Speaking), How Lisp Objects Are Represented in C, XEmacs From the Inside, Top
 @chapter The XEmacs Object System (Abstractly Speaking)
+@cindex XEmacs object system (abstractly speaking), the
+@cindex object system (abstractly speaking), the XEmacs
 
   At the heart of the Lisp interpreter is its management of objects.
 XEmacs Lisp contains many built-in objects, some of which are
@@ -1610,6 +1625,9 @@ initialized through a read syntax.
 
 @node How Lisp Objects Are Represented in C, Rules When Writing New C Code, The XEmacs Object System (Abstractly Speaking), Top
 @chapter How Lisp Objects Are Represented in C
+@cindex Lisp objects are represented in C, how
+@cindex objects are represented in C, how Lisp
+@cindex represented in C, how Lisp objects are
 
 Lisp objects are represented in C using a 32-bit or 64-bit machine word
 (depending on the processor; i.e. DEC Alphas use 64-bit Lisp objects and
@@ -1694,6 +1712,9 @@ specified.
 
 @node Rules When Writing New C Code, A Summary of the Various XEmacs Modules, How Lisp Objects Are Represented in C, Top
 @chapter Rules When Writing New C Code
+@cindex writing new C code, rules when
+@cindex C code, rules when writing new
+@cindex code, rules when writing new C
 
 The XEmacs C Code is extremely complex and intricate, and there are many
 rules that are more or less consistently followed throughout the code.
@@ -1705,13 +1726,16 @@ situations, often in code far away from where the actual breakage is.
 @menu
 * General Coding Rules::
 * Writing Lisp Primitives::
+* Writing Good Comments::
 * Adding Global Lisp Variables::
+* Proper Use of Unsigned Types::
 * Coding for Mule::
 * Techniques for XEmacs Developers::
 @end menu
 
-@node General Coding Rules, Writing Lisp Primitives, Rules When Writing New C Code, Rules When Writing New C Code
+@node General Coding Rules
 @section General Coding Rules
+@cindex coding rules, general
 
 The C code is actually written in a dialect of C called @dfn{Clean C},
 meaning that it can be compiled, mostly warning-free, with either a C or
@@ -1828,8 +1852,11 @@ the list.  The macros @code{EXTERNAL_LIST_LOOP_DELETE_IF} and
 @code{LIST_LOOP_DELETE_IF} delete elements from a lisp list satisfying some
 predicate.
 
-@node Writing Lisp Primitives, Adding Global Lisp Variables, General Coding Rules, Rules When Writing New C Code
+@node Writing Lisp Primitives
 @section Writing Lisp Primitives
+@cindex writing Lisp primitives
+@cindex Lisp primitives, writing
+@cindex primitives, writing Lisp
 
 Lisp primitives are Lisp functions implemented in C.  The details of
 interfacing the C function so that Lisp can call it are handled by a few
@@ -2072,8 +2099,73 @@ number of arguments.  They work by calling @code{Ffuncall}.
 @file{lisp.h} contains the definitions for important macros and
 functions.
 
-@node Adding Global Lisp Variables, Coding for Mule, Writing Lisp Primitives, Rules When Writing New C Code
+@node Writing Good Comments
+@section Writing Good Comments
+@cindex writing good comments
+@cindex comments, writing good
+
+Comments are a lifeline for programmers trying to understand tricky
+code.  In general, the less obvious it is what you are doing, the more
+you need a comment, and the more detailed it needs to be.  You should
+always be on guard when you're writing code for stuff that's tricky, and
+should constantly be putting yourself in someone else's shoes and asking
+if that person could figure out without much difficulty what's going
+on. (Assume they are a competent programmer who understands the
+essentials of how the XEmacs code is structured but doesn't know much
+about the module you're working on or any algorithms you're using.) If
+you're not sure whether they would be able to, add a comment.  Always
+err on the side of more comments, rather than less.
+
+Generally, when making comments, there is no need to attribute them with
+your name or initials.  This especially goes for small,
+easy-to-understand, non-opinionated ones.  Also, comments indicating
+where, when, and by whom a file was changed are @emph{strongly}
+discouraged, and in general will be removed as they are discovered.
+This is exactly what @file{ChangeLogs} are there for.  However, it can
+occasionally be useful to mark exactly where (but not when or by whom)
+changes are made, particularly when making small changes to a file
+imported from elsewhere.  These marks help when later on a newer version
+of the file is imported and the changes need to be merged. (If
+everything were always kept in CVS, there would be no need for this.
+But in practice, this often doesn't happen, or the CVS repository is
+later on lost or unavailable to the person doing the update.)
+
+When putting in an explicit opinion in a comment, you should
+@emph{always} attribute it with your name, and optionally the date.
+This also goes for long, complex comments explaining in detail the
+workings of something -- by putting your name there, you make it
+possible for someone who has questions about how that thing works to
+determine who wrote the comment so they can write to them.  Preferably,
+use your actual name and not your initials, unless your initials are
+generally recognized (e.g. @samp{jwz}).  You can use only your first
+name if it's obvious who you are; otherwise, give first and last name.
+If you're not a regular contributor, you might consider putting your
+email address in -- it may be in the ChangeLog, but after awhile
+ChangeLogs have a tendency of disappearing or getting
+muddled. (E.g. your comment may get copied somewhere else or even into
+another program, and tracking down the proper ChangeLog may be very
+difficult.)
+
+If you come across an opinion that is not or no longer valid, or you
+come across any comment that no longer applies but you want to keep it
+around, enclose it in @samp{[[ } and @samp{ ]]} marks and add a comment
+afterwards explaining why the preceding comment is no longer valid.  Put
+your name on this comment, as explained above.
+
+Just as comments are a lifeline to programmers, incorrect comments are
+death.  If you come across an incorrect comment, @strong{immediately}
+correct it or flag it as incorrect, as described in the previous
+paragraph.  Whenever you work on a section of code, @emph{always} make
+sure to update any comments to be correct -- or, at the very least, flag
+them as incorrect.
+
+To indicate a "todo" or other problem, use four pound signs --
+i.e. @samp{####}.
+
+@node Adding Global Lisp Variables
 @section Adding Global Lisp Variables
+@cindex global Lisp variables, adding
+@cindex variables, adding global Lisp
 
 Global variables whose names begin with @samp{Q} are constants whose
 value is a symbol of a particular name.  The name of the variable should
@@ -2134,9 +2226,41 @@ is in use, and will happily collect it and reuse its storage for another
 Lisp object, and you will be the one who's unhappy when you can't figure
 out how your variable got overwritten.
 
-@node Coding for Mule, Techniques for XEmacs Developers, Adding Global Lisp Variables, Rules When Writing New C Code
+@node Proper Use of Unsigned Types
+@section Proper Use of Unsigned Types
+@cindex unsigned types, proper use of
+@cindex types, proper use of unsigned
+
+Avoid using @code{unsigned int} and @code{unsigned long} whenever
+possible.  Unsigned types are viral -- any arithmetic or comparisons
+involving mixed signed and unsigned types are automatically converted to
+unsigned, which is almost certainly not what you want.  Many subtle and
+hard-to-find bugs are created by careless use of unsigned types.  In
+general, you should almost @emph{never} use an unsigned type to hold a
+regular quantity of any sort.  The only exceptions are
+
+@enumerate
+@item
+When there's a reasonable possibility you will actually need all 32 or
+64 bits to store the quantity.
+@item
+When calling existing API's that require unsigned types.  In this case,
+you should still do all manipulation using signed types, and do the
+conversion at the very threshold of the API call.
+@item
+In existing code that you don't want to modify because you don't
+maintain it.
+@item
+In bit-field structures.
+@end enumerate
+
+Other reasonable uses of @code{unsigned int} and @code{unsigned long}
+are representing non-quantities -- e.g. bit-oriented flags and such.
+
+@node Coding for Mule
 @section Coding for Mule
-@cindex Coding for Mule
+@cindex coding for Mule
+@cindex Mule, coding for
 
 Although Mule support is not compiled by default in XEmacs, many people
 are using it, and we consider it crucial that new code works correctly
@@ -2157,8 +2281,10 @@ code generalization for future I18N work.
 * An Example of Mule-Aware Code::
 @end menu
 
-@node Character-Related Data Types, Working With Character and Byte Positions, Coding for Mule, Coding for Mule
+@node Character-Related Data Types
 @subsection Character-Related Data Types
+@cindex character-related data types
+@cindex data types, character-related
 
 First, let's review the basic character-related datatypes used by
 XEmacs.  Note that the separate @code{typedef}s are not mandatory in the
@@ -2234,8 +2360,11 @@ which are equivalent to @code{unsigned char}.  Obviously, an
 and Extcounts are not all that frequent in XEmacs code.
 @end table
 
-@node Working With Character and Byte Positions, Conversion to and from External Data, Character-Related Data Types, Coding for Mule
+@node Working With Character and Byte Positions
 @subsection Working With Character and Byte Positions
+@cindex character and byte positions, working with
+@cindex byte positions, working with character and
+@cindex positions, working with character and byte
 
 Now that we have defined the basic character-related types, we can look
 at the macros and functions designed for work with them and for
@@ -2358,8 +2487,10 @@ Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
 @end example
 @end table
 
-@node Conversion to and from External Data, General Guidelines for Writing Mule-Aware Code, Working With Character and Byte Positions, Coding for Mule
+@node Conversion to and from External Data
 @subsection Conversion to and from External Data
+@cindex conversion to and from external data
+@cindex external data, conversion to and from
 
 When an external function, such as a C library function, returns a
 @code{char} pointer, you should almost never treat it as @code{Bufbyte}.
@@ -2500,8 +2631,11 @@ for @code{TO_INTERNAL_FORMAT} or a sink for @code{TO_EXTERNAL_FORMAT}.
 You'll get an assertion failure if you try.
 
 
-@node General Guidelines for Writing Mule-Aware Code, An Example of Mule-Aware Code, Conversion to and from External Data, Coding for Mule
+@node General Guidelines for Writing Mule-Aware Code
 @subsection General Guidelines for Writing Mule-Aware Code
+@cindex writing Mule-aware code, general guidelines for
+@cindex Mule-aware code, general guidelines for writing
+@cindex code, general guidelines for writing Mule-aware
 
 This section contains some general guidance on how to write Mule-aware
 code, as well as some pitfalls you should avoid.
@@ -2552,8 +2686,10 @@ needs to be decoded only once, when it is read.  After that, it is
 passed around in internal format.
 @end table
 
-@node An Example of Mule-Aware Code,  , General Guidelines for Writing Mule-Aware Code, Coding for Mule
+@node An Example of Mule-Aware Code
 @subsection An Example of Mule-Aware Code
+@cindex code, an example of Mule-aware
+@cindex Mule-aware code, an example of
 
 As an example of Mule-aware code, we will analyze the @code{string}
 function, which conses up a Lisp string from the character arguments it
@@ -2602,9 +2738,13 @@ over the XEmacs code.  For starters, I recommend
 understood this section of the manual and studied the examples, you can
 proceed writing new Mule-aware code.
 
-@node Techniques for XEmacs Developers,  , Coding for Mule, Rules When Writing New C Code
+@node Techniques for XEmacs Developers
 @section Techniques for XEmacs Developers
+@cindex techniques for XEmacs developers
+@cindex developers, techniques for XEmacs
 
+@cindex Purify
+@cindex Quantify
 To make a purified XEmacs, do: @code{make puremacs}.
 To make a quantified XEmacs, do: @code{make quantmacs}.
 
@@ -2616,6 +2756,7 @@ machine!.  Run it like so:
 temacs -batch -l loadup.el run-temacs @var{xemacs-args...}
 @end example
 
+@cindex error checking
 Before you go through the trouble, are you compiling with all
 debugging and error-checking off?  If not, try that first.  Be warned
 that while Quantify is directly responsible for quite a few
@@ -2660,6 +2801,7 @@ Heavily used small code fragments need to be fast.  The traditional way
 to implement such code fragments in C is with macros.  But macros in C
 are known to be broken.
 
+@cindex macro hygiene
 Macro arguments that are repeatedly evaluated may suffer from repeated
 side effects or suboptimal performance.
 
@@ -2702,6 +2844,7 @@ is, since a C block has no value, a macro used as an expression rather
 than a statement cannot use the techniques just described to avoid
 multiple evaluation.
 
+@cindex inline functions
 In most cases where a macro has function semantics, an inline function
 is a better implementation technique.  Modern compiler optimizers tend
 to inline functions even if they have no @code{inline} keyword, and
@@ -2744,6 +2887,8 @@ The declaration right before the definition is to prevent warnings when
 compiling with @code{gcc -Wmissing-declarations}.  I consider issuing
 this warning for inline functions a gcc bug, but the gcc maintainers disagree.
 
+@cindex inline functions, headers
+@cindex header files, inline functions
 Every header which contains inline functions, either directly by using
 @code{INLINE_HEADER} or indirectly by using @code{DECLARE_LRECORD} must
 be added to @file{inline.c}'s includes to make the optimization
@@ -2794,6 +2939,9 @@ use it to do so.
 
 @end itemize
 
+@cindex Lisp object types, creating
+@cindex creating Lisp object types
+@cindex object types, creating Lisp
 Here is a checklist of things to do when creating a new lisp object type
 named @var{foo}:
 
@@ -2821,6 +2969,7 @@ add an INIT_LRECORD_IMPLEMENTATION call to @code{syms_of_@var{foo}.c}
 
 @node A Summary of the Various XEmacs Modules, Allocation of Objects in XEmacs Lisp, Rules When Writing New C Code, Top
 @chapter A Summary of the Various XEmacs Modules
+@cindex modules, a summary of the various XEmacs
 
   This is accurate as of XEmacs 20.0.
 
@@ -2839,8 +2988,10 @@ add an INIT_LRECORD_IMPLEMENTATION call to @code{syms_of_@var{foo}.c}
 * Modules for Internationalization::
 @end menu
 
-@node Low-Level Modules, Basic Lisp Modules, A Summary of the Various XEmacs Modules, A Summary of the Various XEmacs Modules
+@node Low-Level Modules
 @section Low-Level Modules
+@cindex low-level modules
+@cindex modules, low-level
 
 @example
 config.h
@@ -3055,8 +3206,10 @@ This is not currently used.
 
 
 
-@node Basic Lisp Modules, Modules for Standard Editing Operations, Low-Level Modules, A Summary of the Various XEmacs Modules
+@node Basic Lisp Modules
 @section Basic Lisp Modules
+@cindex Lisp modules, basic
+@cindex modules, basic Lisp
 
 @example
 lisp-disunion.h
@@ -3229,8 +3382,10 @@ structures.  Note that the byte-code @emph{compiler} is written in Lisp.
 
 
 
-@node Modules for Standard Editing Operations, Editor-Level Control Flow Modules, Basic Lisp Modules, A Summary of the Various XEmacs Modules
+@node Modules for Standard Editing Operations
 @section Modules for Standard Editing Operations
+@cindex modules for standard editing operations
+@cindex editing operations, modules for standard
 
 @example
 buffer.c
@@ -3399,8 +3554,10 @@ Most of this could be implemented in Lisp.
 
 
 
-@node Editor-Level Control Flow Modules, Modules for the Basic Displayable Lisp Objects, Modules for Standard Editing Operations, A Summary of the Various XEmacs Modules
+@node Editor-Level Control Flow Modules
 @section Editor-Level Control Flow Modules
+@cindex control flow modules, editor-level
+@cindex modules, editor-level control flow
 
 @example
 event-Xt.c
@@ -3501,8 +3658,12 @@ code is loaded).
 
 
 
-@node Modules for the Basic Displayable Lisp Objects, Modules for other Display-Related Lisp Objects, Editor-Level Control Flow Modules, A Summary of the Various XEmacs Modules
+@node Modules for the Basic Displayable Lisp Objects
 @section Modules for the Basic Displayable Lisp Objects
+@cindex modules for the basic displayable Lisp objects
+@cindex displayable Lisp objects, modules for the basic
+@cindex Lisp objects, modules for the basic displayable
+@cindex objects, modules for the basic displayable Lisp
 
 @example
 console-msw.c
@@ -3592,8 +3753,11 @@ types such as scrollbars.
 
 
 
-@node Modules for other Display-Related Lisp Objects, Modules for the Redisplay Mechanism, Modules for the Basic Displayable Lisp Objects, A Summary of the Various XEmacs Modules
+@node Modules for other Display-Related Lisp Objects
 @section Modules for other Display-Related Lisp Objects
+@cindex modules for other display-related Lisp objects
+@cindex display-related Lisp objects, modules for other
+@cindex Lisp objects, modules for other display-related
 
 @example
 faces.c
@@ -3682,8 +3846,10 @@ These files were removed due to Unisys patent infringement concerns.
 
 
 
-@node Modules for the Redisplay Mechanism, Modules for Interfacing with the File System, Modules for other Display-Related Lisp Objects, A Summary of the Various XEmacs Modules
+@node Modules for the Redisplay Mechanism
 @section Modules for the Redisplay Mechanism
+@cindex modules for the redisplay mechanism
+@cindex redisplay mechanism, modules for the
 
 @example
 redisplay-output.c
@@ -3755,8 +3921,11 @@ probably be merged into @file{redisplay-tty.c}.
 
 
 
-@node Modules for Interfacing with the File System, Modules for Other Aspects of the Lisp Interpreter and Object System, Modules for the Redisplay Mechanism, A Summary of the Various XEmacs Modules
+@node Modules for Interfacing with the File System
 @section Modules for Interfacing with the File System
+@cindex modules for interfacing with the file system
+@cindex interfacing with the file system, modules for
+@cindex file system, modules for interfacing with the
 
 @example
 lstream.c
@@ -3856,8 +4025,12 @@ a broken implementation.
 
 
 
-@node Modules for Other Aspects of the Lisp Interpreter and Object System, Modules for Interfacing with the Operating System, Modules for Interfacing with the File System, A Summary of the Various XEmacs Modules
+@node Modules for Other Aspects of the Lisp Interpreter and Object System
 @section Modules for Other Aspects of the Lisp Interpreter and Object System
+@cindex modules for other aspects of the Lisp interpreter and object system
+@cindex Lisp interpreter and object system, modules for other aspects of the
+@cindex interpreter and object system, modules for other aspects of the Lisp
+@cindex object system, modules for other aspects of the Lisp interpreter and
 
 @example
 elhash.c
@@ -4018,8 +4191,11 @@ various security applications on the Internet.
 
 
 
-@node Modules for Interfacing with the Operating System, Modules for Interfacing with X Windows, Modules for Other Aspects of the Lisp Interpreter and Object System, A Summary of the Various XEmacs Modules
+@node Modules for Interfacing with the Operating System
 @section Modules for Interfacing with the Operating System
+@cindex modules for interfacing with the operating system
+@cindex interfacing with the operating system, modules for
+@cindex operating system, modules for interfacing with the
 
 @example
 callproc.c
@@ -4247,8 +4423,11 @@ AIX prior to 4.1.
 
 
 
-@node Modules for Interfacing with X Windows, Modules for Internationalization, Modules for Interfacing with the Operating System, A Summary of the Various XEmacs Modules
+@node Modules for Interfacing with X Windows
 @section Modules for Interfacing with X Windows
+@cindex modules for interfacing with X Windows
+@cindex interfacing with X Windows, modules for
+@cindex X Windows, modules for interfacing with
 
 @example
 Emacs.ad.h
@@ -4392,8 +4571,10 @@ Don't touch this code; something is liable to break if you do.
 
 
 
-@node Modules for Internationalization,  , Modules for Interfacing with X Windows, A Summary of the Various XEmacs Modules
+@node Modules for Internationalization
 @section Modules for Internationalization
+@cindex modules for internationalization
+@cindex internationalization, modules for
 
 @example
 mule-canna.c
@@ -4471,6 +4652,9 @@ Asian-language support, and is not currently used.
 
 @node Allocation of Objects in XEmacs Lisp, Dumping, A Summary of the Various XEmacs Modules, Top
 @chapter Allocation of Objects in XEmacs Lisp
+@cindex allocation of objects in XEmacs Lisp
+@cindex objects in XEmacs Lisp, allocation of
+@cindex Lisp objects, allocation of in XEmacs
 
 @menu
 * Introduction to Allocation::
@@ -4490,8 +4674,9 @@ Asian-language support, and is not currently used.
 * Compiled Function::
 @end menu
 
-@node Introduction to Allocation, Garbage Collection, Allocation of Objects in XEmacs Lisp, Allocation of Objects in XEmacs Lisp
+@node Introduction to Allocation
 @section Introduction to Allocation
+@cindex allocation, introduction to
 
   Emacs Lisp, like all Lisps, has garbage collection.  This means that
 the programmer never has to explicitly free (destroy) an object; it
@@ -4561,7 +4746,7 @@ except that their type is stored in lrecord fashion rather than
 in directly-tagged fashion.
 
 
-@node Garbage Collection, GCPROing, Introduction to Allocation, Allocation of Objects in XEmacs Lisp
+@node Garbage Collection
 @section Garbage Collection
 @cindex garbage collection
 
@@ -4585,8 +4770,11 @@ once a certain amount of memory has been allocated since the last
 garbage collection (according to @code{gc-cons-threshold}).
 
 
-@node GCPROing, Garbage Collection - Step by Step, Garbage Collection, Allocation of Objects in XEmacs Lisp
+@node GCPROing
 @section @code{GCPRO}ing
+@cindex @code{GCPRO}ing
+@cindex garbage collection protection
+@cindex protection, garbage collection
 
 @code{GCPRO}ing is one of the ugliest and trickiest parts of Emacs
 internals.  The basic idea is that whenever garbage collection
@@ -4741,9 +4929,9 @@ will result in a few objects not getting collected when they should, but
 it obviates the need for @code{GCPRO}ing, and allows garbage collection
 to happen at any point at all, such as during object allocation.
 
-@node Garbage Collection - Step by Step, Integers and Characters, GCPROing, Allocation of Objects in XEmacs Lisp
+@node Garbage Collection - Step by Step
 @section Garbage Collection - Step by Step
-@cindex garbage collection step by step
+@cindex garbage collection - step by step
 
 @menu
 * Invocation::
@@ -4756,7 +4944,7 @@ to happen at any point at all, such as during object allocation.
 * sweep_bit_vectors_1::
 @end menu
 
-@node Invocation, garbage_collect_1, Garbage Collection - Step by Step, Garbage Collection - Step by Step
+@node Invocation
 @subsection Invocation
 @cindex garbage collection, invocation
 
@@ -4816,7 +5004,7 @@ everything related to @code{eval} (@code{Feval_buffer}, @code{call0},
 for example the ones raised by every @code{QUIT}-macro triggered after
 pressing Ctrl-g.
 
-@node garbage_collect_1, mark_object, Invocation, Garbage Collection - Step by Step
+@node garbage_collect_1
 @subsection @code{garbage_collect_1}
 @cindex @code{garbage_collect_1}
 
@@ -5006,7 +5194,7 @@ A small memory reserve is always held back that can be reached by
 and exit.
 @end enumerate
 
-@node mark_object, gc_sweep, garbage_collect_1, Garbage Collection - Step by Step
+@node mark_object
 @subsection @code{mark_object}
 @cindex @code{mark_object}
 
@@ -5040,7 +5228,7 @@ be performed.
 In case another object was returned, as mentioned before, we reiterate
 the whole @code{mark_object} process beginning with this next object.
 
-@node gc_sweep, sweep_lcrecords_1, mark_object, Garbage Collection - Step by Step
+@node gc_sweep
 @subsection @code{gc_sweep}
 @cindex @code{gc_sweep}
 
@@ -5135,7 +5323,7 @@ whole block is empty. If so, the whole block is freed (using
 @code{xfree}) and the free list state is set to the state it had before
 handling this block.
 
-@node sweep_lcrecords_1, compact_string_chars, gc_sweep, Garbage Collection - Step by Step
+@node sweep_lcrecords_1
 @subsection @code{sweep_lcrecords_1}
 @cindex @code{sweep_lcrecords_1}
 
@@ -5156,7 +5344,7 @@ has to persist, otherwise it is manually freed by calling
 @code{xfree}. During this loop, the lcrecord statistics are kept up to
 date by calling @code{tick_lcrecord_stats} with the right arguments,
 
-@node compact_string_chars, sweep_strings, sweep_lcrecords_1, Garbage Collection - Step by Step
+@node compact_string_chars
 @subsection @code{compact_string_chars}
 @cindex @code{compact_string_chars}
 
@@ -5202,7 +5390,7 @@ is reset on the last block to which we moved a string,
 i.e. @code{to_block}, and all remaining blocks (we know that they just
 carry garbage) are explicitly @code{xfree}d.
 
-@node sweep_strings, sweep_bit_vectors_1, compact_string_chars, Garbage Collection - Step by Step
+@node sweep_strings
 @subsection @code{sweep_strings}
 @cindex @code{sweep_strings}
 
@@ -5223,7 +5411,7 @@ addition: in case, the string was not allocated in a
 therefore it was @code{malloc}ed separately, we know also @code{xfree}
 it explicitly.
 
-@node sweep_bit_vectors_1,  , sweep_strings, Garbage Collection - Step by Step
+@node sweep_bit_vectors_1
 @subsection @code{sweep_bit_vectors_1}
 @cindex @code{sweep_bit_vectors_1}
 
@@ -5237,8 +5425,10 @@ them become unmarked.
 In addition, the bookkeeping information used for garbage
 collector's output purposes is updated.
 
-@node Integers and Characters, Allocation from Frob Blocks, Garbage Collection - Step by Step, Allocation of Objects in XEmacs Lisp
+@node Integers and Characters
 @section Integers and Characters
+@cindex integers and characters
+@cindex characters, integers and
 
   Integer and character Lisp objects are created from integers using the
 macros @code{XSETINT()} and @code{XSETCHAR()} or the equivalent
@@ -5251,8 +5441,10 @@ directly in the @code{Lisp_Object}.
 are too big; i.e. you won't get the value you expected but the tag bits
 will at least be correct.
 
-@node Allocation from Frob Blocks, lrecords, Integers and Characters, Allocation of Objects in XEmacs Lisp
+@node Allocation from Frob Blocks
 @section Allocation from Frob Blocks
+@cindex allocation from frob blocks
+@cindex frob blocks, allocation from
 
 The uninitialized memory required by a @code{Lisp_Object} of a particular type
 is allocated using
@@ -5278,8 +5470,9 @@ last frob block for space, and creates a new frob block if there is
 none. (There are actually two versions of these macros, one of which is
 more defensive but less efficient and is used for error-checking.)
 
-@node lrecords, Low-level allocation, Allocation from Frob Blocks, Allocation of Objects in XEmacs Lisp
+@node lrecords
 @section lrecords
+@cindex lrecords
 
   [see @file{lrecord.h}]
 
@@ -5517,8 +5710,10 @@ simply return the object's size in bytes, exactly as you might expect.
 For an example, see the methods for window configurations and opaques.
 @end enumerate
 
-@node Low-level allocation, Cons, lrecords, Allocation of Objects in XEmacs Lisp
+@node Low-level allocation
 @section Low-level allocation
+@cindex low-level allocation
+@cindex allocation, low-level
 
   Memory that you want to allocate directly should be allocated using
 @code{xmalloc()} rather than @code{malloc()}.  This implements
@@ -5588,8 +5783,9 @@ and bit-vector creation routines.  These routines also call
 statistics on how much memory is allocated, so that garbage-collection
 can be invoked when the threshold is reached.
 
-@node Cons, Vector, Low-level allocation, Allocation of Objects in XEmacs Lisp
+@node Cons
 @section Cons
+@cindex cons
 
   Conses are allocated in standard frob blocks.  The only thing to
 note is that conses can be explicitly freed using @code{free_cons()}
@@ -5602,8 +5798,9 @@ However, you have to be @emph{extremely} careful when doing this.
 If you mess this up, you will get BADLY BURNED, and it has happened
 before.
 
-@node Vector, Bit Vector, Cons, Allocation of Objects in XEmacs Lisp
+@node Vector
 @section Vector
+@cindex vector
 
   As mentioned above, each vector is @code{malloc()}ed individually, and
 all are threaded through the variable @code{all_vectors}.  Vectors are
@@ -5613,8 +5810,10 @@ Note that the @code{struct Lisp_Vector} is declared with its
 is actually @code{malloc()}ed with the right size, however, and access
 to any element through the @code{contents} array works fine.
 
-@node Bit Vector, Symbol, Vector, Allocation of Objects in XEmacs Lisp
+@node Bit Vector
 @section Bit Vector
+@cindex bit vector
+@cindex vector, bit
 
   Bit vectors work exactly like vectors, except for more complicated
 code to access an individual bit, and except for the fact that bit
@@ -5623,8 +5822,9 @@ that there's an lrecord implementation pointer at the beginning and the
 tag field in bit vector Lisp words is ``lrecord'' rather than
 ``vector''.)
 
-@node Symbol, Marker, Bit Vector, Allocation of Objects in XEmacs Lisp
+@node Symbol
 @section Symbol
+@cindex symbol
 
   Symbols are also allocated in frob blocks.  Symbols in the awful
 horrible obarray structure are chained through their @code{next} field.
@@ -5632,8 +5832,9 @@ horrible obarray structure are chained through their @code{next} field.
 Remember that @code{intern} looks up a symbol in an obarray, creating
 one if necessary.
 
-@node Marker, String, Symbol, Allocation of Objects in XEmacs Lisp
+@node Marker
 @section Marker
+@cindex marker
 
   Markers are allocated in frob blocks, as usual.  They are kept
 in a buffer unordered, but in a doubly-linked list so that they
@@ -5643,8 +5844,9 @@ long time due to the O(N^2) time required to remove lots of
 markers from a buffer.) Markers are removed from a buffer in
 the finalize stage, in @code{ADDITIONAL_FREE_marker()}.
 
-@node String, Compiled Function, Marker, Allocation of Objects in XEmacs Lisp
+@node String
 @section String
+@cindex string
 
   As mentioned above, strings are a special case.  A string is logically
 two parts, a fixed-size object (containing the length, property list,
@@ -5704,16 +5906,20 @@ string data (which would normally be obtained from the now-non-existent
 The string compactor recognizes this special 0xFFFFFFFF marker and
 handles it correctly.
 
-@node Compiled Function,  , String, Allocation of Objects in XEmacs Lisp
+@node Compiled Function
 @section Compiled Function
+@cindex compiled function
+@cindex function, compiled
 
   Not yet documented.
 
 
 @node Dumping, Events and the Event Loop, Allocation of Objects in XEmacs Lisp, Top
 @chapter Dumping
+@cindex dumping
 
 @section What is dumping and its justification
+@cindex dumping and its justification, what is
 
 The C code of XEmacs is just a Lisp engine with a lot of built-in
 primitives useful for writing an editor.  The editor itself is written
@@ -5756,8 +5962,9 @@ without any system-specific hacks.
 * Remaining issues::
 @end menu
 
-@node Overview, Data descriptions, Dumping, Dumping
+@node Overview
 @section Overview
+@cindex dumping overview
 
 The portable dumping system has to:
 
@@ -5773,8 +5980,9 @@ starting address if needed, and reinitialize all pointers to this
 data.  Also, rebuild all the quickly rebuildable data.
 @end enumerate
 
-@node Data descriptions, Dumping phase, Overview, Dumping
+@node Data descriptions
 @section Data descriptions
+@cindex dumping data descriptions
 
 The more complex task of the dumper is to be able to write lisp objects
 (lrecords) and C structs to disk and reload them at a different address,
@@ -5813,8 +6021,9 @@ lrecord_implementation, so we don't need to duplicate it.  For C
 structures we use a struct struct_description, which includes a size
 field and a pointer to an associated array of lrecord_description.
 
-@node Dumping phase, Reloading phase, Data descriptions, Dumping
+@node Dumping phase
 @section Dumping phase
+@cindex dumping phase
 
 Dumping is done by calling the function pdump() (in dumper.c) which is
 invoked from Fdump_emacs (in emacs.c).  This function performs a number
@@ -5828,8 +6037,9 @@ of tasks.
 * Pointers dumping::
 @end menu
 
-@node Object inventory, Address allocation, Dumping phase, Dumping phase
+@node Object inventory
 @subsection Object inventory
+@cindex dumping object inventory
 
 The first task is to build the list of the objects to dump.  This
 includes:
@@ -5914,8 +6124,9 @@ Weak lists and weak hash tables are dumped as if they were their
 non-weak equivalent (without changing their type, of course).  This has
 not yet been a problem.
 
-@node Address allocation, The header, Object inventory, Dumping phase
+@node Address allocation
 @subsection Address allocation
+@cindex dumping address allocation
 
 
 The next step is to allocate the offsets of each of the objects in the
@@ -5951,8 +6162,9 @@ The maximum alignment requirement we take into account is 2^8.
 starting at offset 256 (this leaves room for the header and keeps the
 alignments happy).
 
-@node The header, Data dumping, Address allocation, Dumping phase
+@node The header
 @subsection The header
+@cindex dumping, the header
 
 The next step creates the file and writes a header with a signature and
 some random information in it.  The @code{reloc_address} field, which
@@ -5960,8 +6172,10 @@ indicates at which address the file should be loaded if we want to avoid
 post-reload relocation, is set to 0.  It then seeks to offset 256 (base
 offset for the objects).
 
-@node Data dumping, Pointers dumping, The header, Dumping phase
+@node Data dumping
 @subsection Data dumping
+@cindex data dumping
+@cindex dumping, data
 
 The data is dumped in the same order as the addresses were allocated by
 @code{pdump_dump_data()}, called from @code{pdump_scan_by_alignment()}.
@@ -5972,8 +6186,10 @@ if we are careful with lrecords whose size is not a multiple of 4, we
 are ensured that the object is always written at the offset in the file
 allocated in step Address Allocation.
 
-@node Pointers dumping,  , Data dumping, Dumping phase
+@node Pointers dumping
 @subsection Pointers dumping
+@cindex pointers dumping
+@cindex dumping, pointers
 
 A bunch of tables needed to reassign properly the global pointers are
 then written.  They are:
@@ -6009,10 +6225,13 @@ Some very important information like the @code{staticpros} and
 
 This is the end of the dumping part.
 
-@node Reloading phase, Remaining issues, Dumping phase, Dumping
+@node Reloading phase
 @section Reloading phase
+@cindex reloading phase
+@cindex dumping, reloading phase
 
 @subsection File loading
+@cindex dumping, file loading
 
 The file is mmap'ed in memory (which ensures a PAGESIZE alignment, at
 least 4096), or if mmap is unavailable or fails, a 256-bytes aligned
@@ -6025,17 +6244,20 @@ is computed and will be used for all the relocations.
 
 
 @subsection Putting back the pdump_opaques
+@cindex dumping, putting back the pdump_opaques
 
 The memory contents are restored in the obvious and trivial way.
 
 
 @subsection Putting back the pdump_root_struct_ptrs
+@cindex dumping, putting back the pdump_root_struct_ptrs
 
 The variables pointed to by pdump_root_struct_ptrs in the dump phase are
 reset to the right relocated object addresses.
 
 
 @subsection Object relocation
+@cindex dumping, object relocation
 
 All the objects are relocated using their description and their offset
 by @code{pdump_reloc_one}.  This step is unnecessary if the
@@ -6043,18 +6265,21 @@ reloc_address is equal to the file loading address.
 
 
 @subsection Putting back the pdump_root_objects and pdump_weak_object_chains
+@cindex dumping, putting back the pdump_root_objects and pdump_weak_object_chains
 
 Same as Putting back the pdump_root_struct_ptrs.
 
 
 @subsection Reorganize the hash tables
+@cindex dumping, reorganize the hash tables
 
 Since some of the hash values in the lisp hash tables are
 address-dependent, their layout is now wrong.  So we go through each of
 them and have them resorted by calling @code{pdump_reorganize_hash_table}.
 
-@node Remaining issues,  , Reloading phase, Dumping
+@node Remaining issues
 @section Remaining issues
+@cindex dumping, remaining issues
 
 The build process will have to start a post-dump xemacs, ask it the
 loading address (which will, hopefully, be always the same between
@@ -6075,6 +6300,8 @@ The DOC file contents should probably end up in the dump file.
 
 @node Events and the Event Loop, Evaluation; Stack Frames; Bindings, Dumping, Top
 @chapter Events and the Event Loop
+@cindex events and the event loop
+@cindex event loop, events and the
 
 @menu
 * Introduction to Events::
@@ -6087,8 +6314,9 @@ The DOC file contents should probably end up in the dump file.
 * Dispatching Events; The Command Builder::
 @end menu
 
-@node Introduction to Events, Main Loop, Events and the Event Loop, Events and the Event Loop
+@node Introduction to Events
 @section Introduction to Events
+@cindex events, introduction to
 
   An event is an object that encapsulates information about an
 interesting occurrence in the operating system.  Events are
@@ -6126,8 +6354,10 @@ Emacs events---there may not be a one-to-one correspondence.
   Emacs events are documented in @file{events.h}; I'll discuss them
 later.
 
-@node Main Loop, Specifics of the Event Gathering Mechanism, Introduction to Events, Events and the Event Loop
+@node Main Loop
 @section Main Loop
+@cindex main loop
+@cindex events, main loop
 
   The @dfn{command loop} is the top-level loop that the editor is always
 running.  It loops endlessly, calling @code{next-event} to retrieve an
@@ -6193,8 +6423,9 @@ wrapper similar to @code{command_loop_2()}.  Note also that
 invoking @code{top_level_1()}, just like when it invokes
 @code{command_loop_2()}.
 
-@node Specifics of the Event Gathering Mechanism, Specifics About the Emacs Event, Main Loop, Events and the Event Loop
+@node Specifics of the Event Gathering Mechanism
 @section Specifics of the Event Gathering Mechanism
+@cindex event gathering mechanism, specifics of the
 
   Here is an approximate diagram of the collection processes
 at work in XEmacs, under TTY's (TTY's are simpler than X
@@ -6432,14 +6663,18 @@ a SIGINT?   emacs_Xt_next_event()
             using `dispatch-event'
 @end example
 
-@node Specifics About the Emacs Event, The Event Stream Callback Routines, Specifics of the Event Gathering Mechanism, Events and the Event Loop
+@node Specifics About the Emacs Event
 @section Specifics About the Emacs Event
+@cindex event, specifics about the Lisp object
 
-@node The Event Stream Callback Routines, Other Event Loop Functions, Specifics About the Emacs Event, Events and the Event Loop
+@node The Event Stream Callback Routines
 @section The Event Stream Callback Routines
+@cindex event stream callback routines, the
+@cindex callback routines, the event stream
 
-@node Other Event Loop Functions, Converting Events, The Event Stream Callback Routines, Events and the Event Loop
+@node Other Event Loop Functions
 @section Other Event Loop Functions
+@cindex event loop functions, other
 
   @code{detect_input_pending()} and @code{input-pending-p} look for
 input by calling @code{event_stream->event_pending_p} and looking in
@@ -6460,8 +6695,10 @@ or scrollbar action), calling @code{dispatch-event} on any others.
 the right kind of input method support, it is possible for (read-char)
 to return a Kanji character.
 
-@node Converting Events, Dispatching Events; The Command Builder, Other Event Loop Functions, Events and the Event Loop
+@node Converting Events
 @section Converting Events
+@cindex converting events
+@cindex events, converting
 
   @code{character_to_event()}, @code{event_to_character()},
 @code{event-to-character}, and @code{character-to-event} convert between
@@ -6471,13 +6708,19 @@ event was not a keypress, @code{event_to_character()} returns -1 and
 between character representation and the split-up event representation
 (keysym plus mod keys).
 
-@node Dispatching Events; The Command Builder,  , Converting Events, Events and the Event Loop
+@node Dispatching Events; The Command Builder
 @section Dispatching Events; The Command Builder
+@cindex dispatching events; the command builder
+@cindex events; the command builder, dispatching
+@cindex command builder, dispatching events; the
 
 Not yet documented.
 
 @node Evaluation; Stack Frames; Bindings, Symbols and Variables, Events and the Event Loop, Top
 @chapter Evaluation; Stack Frames; Bindings
+@cindex evaluation; stack frames; bindings
+@cindex stack frames; bindings, evaluation;
+@cindex bindings, evaluation; stack frames;
 
 @menu
 * Evaluation::
@@ -6486,8 +6729,9 @@ Not yet documented.
 * Catch and Throw::
 @end menu
 
-@node Evaluation, Dynamic Binding; The specbinding Stack; Unwind-Protects, Evaluation; Stack Frames; Bindings, Evaluation; Stack Frames; Bindings
+@node Evaluation
 @section Evaluation
+@cindex evaluation
 
   @code{Feval()} evaluates the form (a Lisp object) that is passed to
 it.  Note that evaluation is only non-trivial for two types of objects:
@@ -6616,8 +6860,12 @@ arguments are given as separate C arguments rather than being passed as
 an array).  @code{apply1()} uses @code{Fapply()} while the others use
 @code{Ffuncall()} to do the real work.
 
-@node Dynamic Binding; The specbinding Stack; Unwind-Protects, Simple Special Forms, Evaluation, Evaluation; Stack Frames; Bindings
+@node Dynamic Binding; The specbinding Stack; Unwind-Protects
 @section Dynamic Binding; The specbinding Stack; Unwind-Protects
+@cindex dynamic binding; the specbinding stack; unwind-protects
+@cindex binding; the specbinding stack; unwind-protects, dynamic
+@cindex specbinding stack; unwind-protects, dynamic binding; the
+@cindex unwind-protects, dynamic binding; the specbinding stack;
 
 @example
 struct specbinding
@@ -6670,8 +6918,9 @@ a local-variable binding (@code{func} is 0, @code{symbol} is not
 the symbol's value).
 @end enumerate
 
-@node Simple Special Forms, Catch and Throw, Dynamic Binding; The specbinding Stack; Unwind-Protects, Evaluation; Stack Frames; Bindings
+@node Simple Special Forms
 @section Simple Special Forms
+@cindex special forms, simple
 
 @code{or}, @code{and}, @code{if}, @code{cond}, @code{progn},
 @code{prog1}, @code{prog2}, @code{setq}, @code{quote}, @code{function},
@@ -6687,8 +6936,10 @@ typically called in real life only in interpreted code, since the byte
 compiler knows how to convert calls to these functions directly into
 byte code.
 
-@node Catch and Throw,  , Simple Special Forms, Evaluation; Stack Frames; Bindings
+@node Catch and Throw
 @section Catch and Throw
+@cindex catch and throw
+@cindex throw, catch and
 
 @example
 struct catchtag
@@ -6748,6 +6999,8 @@ created since the catch.
 
 @node Symbols and Variables, Buffers and Textual Representation, Evaluation; Stack Frames; Bindings, Top
 @chapter Symbols and Variables
+@cindex symbols and variables
+@cindex variables, symbols and
 
 @menu
 * Introduction to Symbols::
@@ -6755,8 +7008,9 @@ created since the catch.
 * Symbol Values::
 @end menu
 
-@node Introduction to Symbols, Obarrays, Symbols and Variables, Symbols and Variables
+@node Introduction to Symbols
 @section Introduction to Symbols
+@cindex symbols, introduction to
 
   A symbol is basically just an object with four fields: a name (a
 string), a value (some Lisp object), a function (some Lisp object), and
@@ -6772,8 +7026,9 @@ property list is used as a more general mechanism of associating
 additional values with particular names, and once again the namespace is
 independent of the function and variable namespaces.
 
-@node Obarrays, Symbol Values, Introduction to Symbols, Symbols and Variables
+@node Obarrays
 @section Obarrays
+@cindex obarrays
 
   The identity of symbols with their names is accomplished through a
 structure called an obarray, which is just a poorly-implemented hash
@@ -6839,8 +7094,10 @@ returns the removed symbol. (Remember: You can't put the symbol back
 into any obarray.) Finally, @code{mapatoms} maps over all of the symbols
 in an obarray.
 
-@node Symbol Values,  , Obarrays, Symbols and Variables
+@node Symbol Values
 @section Symbol Values
+@cindex symbol values
+@cindex values, symbol
 
   The value field of a symbol normally contains a Lisp object.  However,
 a symbol can be @dfn{unbound}, meaning that it logically has no value.
@@ -6884,6 +7141,8 @@ well-documented in comments in @file{buffer.c}, @file{symbols.c}, and
 
 @node Buffers and Textual Representation, MULE Character Sets and Encodings, Symbols and Variables, Top
 @chapter Buffers and Textual Representation
+@cindex buffers and textual representation
+@cindex textual representation, buffers and
 
 @menu
 * Introduction to Buffers::     A buffer holds a block of text such as a file.
@@ -6894,8 +7153,9 @@ well-documented in comments in @file{buffer.c}, @file{symbols.c}, and
 * The Buffer Object::           The Lisp object corresponding to a buffer.
 @end menu
 
-@node Introduction to Buffers, The Text in a Buffer, Buffers and Textual Representation, Buffers and Textual Representation
+@node Introduction to Buffers
 @section Introduction to Buffers
+@cindex buffers, introduction to
 
   A buffer is logically just a Lisp object that holds some text.
 In this, it is like a string, but a buffer is optimized for
@@ -6947,8 +7207,10 @@ and @dfn{buffer of the selected window}, and the distinction between
 window. (This latter distinction is explained in detail in the section
 on windows.)
 
-@node The Text in a Buffer, Buffer Lists, Introduction to Buffers, Buffers and Textual Representation
+@node The Text in a Buffer
 @section The Text in a Buffer
+@cindex text in a buffer, the
+@cindex buffer, the text in a
 
   The text in a buffer consists of a sequence of zero or more
 characters.  A @dfn{character} is an integer that logically represents
@@ -7087,8 +7349,9 @@ in the internal Emacs buffer representation rather than in one of a
 number of possible alternative representations (e.g. EUC-encoded text,
 etc.).
 
-@node Buffer Lists, Markers and Extents, The Text in a Buffer, Buffers and Textual Representation
+@node Buffer Lists
 @section Buffer Lists
+@cindex buffer lists
 
   Recall earlier that buffers are @dfn{permanent} objects, i.e.  that
 they remain around until explicitly deleted.  This entails that there is
@@ -7123,8 +7386,10 @@ respectively.  You can also force a new buffer to be created using
 a unique name from this by appending a number, and then creates the
 buffer.  This is basically like the symbol operation @code{gensym}.
 
-@node Markers and Extents, Bufbytes and Emchars, Buffer Lists, Buffers and Textual Representation
+@node Markers and Extents
 @section Markers and Extents
+@cindex markers and extents
+@cindex extents, markers and
 
   Among the things associated with a buffer are things that are
 logically attached to certain buffer positions.  This can be used to
@@ -7163,13 +7428,17 @@ given the buffer.  Extents remain in a buffer until they are detached
 (which could happen as a result of text being deleted) or the buffer is
 deleted, and primitives do exist to enumerate the extents in a buffer.
 
-@node Bufbytes and Emchars, The Buffer Object, Markers and Extents, Buffers and Textual Representation
+@node Bufbytes and Emchars
 @section Bufbytes and Emchars
+@cindex Bufbytes and Emchars
+@cindex Emchars, Bufbytes and
 
   Not yet documented.
 
-@node The Buffer Object,  , Bufbytes and Emchars, Buffers and Textual Representation
+@node The Buffer Object
 @section The Buffer Object
+@cindex buffer object, the
+@cindex object, the buffer
 
   Buffers contain fields not directly accessible by the Lisp programmer.
 We describe them here, naming them by the names used in the C code.
@@ -7267,6 +7536,9 @@ or @code{nil}.
 
 @node MULE Character Sets and Encodings, The Lisp Reader and Compiler, Buffers and Textual Representation, Top
 @chapter MULE Character Sets and Encodings
+@cindex Mule character sets and encodings
+@cindex character sets and encodings, Mule
+@cindex encodings, Mule character sets and
 
   Recall that there are two primary ways that text is represented in
 XEmacs.  The @dfn{buffer} representation sees the text as a series of
@@ -7287,8 +7559,9 @@ representation is that it's compact and is compatible with ASCII.
 * CCL::
 @end menu
 
-@node Character Sets, Encodings, MULE Character Sets and Encodings, MULE Character Sets and Encodings
+@node Character Sets
 @section Character Sets
+@cindex character sets
 
   A character set (or @dfn{charset}) is an ordered set of characters.  A
 particular character in a charset is indexed using one or more
@@ -7368,8 +7641,10 @@ Bytes           Character set           Range
 
   This is a bit ad-hoc but gets the job done.
 
-@node Encodings, Internal Mule Encodings, Character Sets, MULE Character Sets and Encodings
+@node Encodings
 @section Encodings
+@cindex encodings, Mule
+@cindex Mule encodings
 
   An @dfn{encoding} is a way of numerically representing characters from
 one or more character sets.  If an encoding only encompasses one
@@ -7395,8 +7670,11 @@ encodings:
 * JIS7::
 @end menu
 
-@node Japanese EUC (Extended Unix Code), JIS7, Encodings, Encodings
+@node Japanese EUC (Extended Unix Code)
 @subsection Japanese EUC (Extended Unix Code)
+@cindex Japanese EUC (Extended Unix Code)
+@cindex EUC (Extended Unix Code), Japanese
+@cindex Extended Unix Code, Japanese EUC
 
 This encompasses the character sets Printing-ASCII, Japanese-JISX0201,
 and Japanese-JISX0208-Kana (half-width katakana, the right half of
@@ -7417,8 +7695,9 @@ Japanese-JISX0212        PC1 + 0x80 | PC2 + 0x80
 @end example
 
 
-@node JIS7,  , Japanese EUC (Extended Unix Code), Encodings
+@node JIS7
 @subsection JIS7
+@cindex JIS7
 
 This encompasses the character sets Printing-ASCII,
 Japanese-JISX0201-Roman (the left half of JISX0201; this character set
@@ -7452,8 +7731,11 @@ Escape sequence   ASCII equivalent   Meaning
 
   Initially, Printing-ASCII is invoked.
 
-@node Internal Mule Encodings, CCL, Encodings, MULE Character Sets and Encodings
+@node Internal Mule Encodings
 @section Internal Mule Encodings
+@cindex internal Mule encodings
+@cindex Mule encodings, internal
+@cindex encodings, internal Mule
 
 In XEmacs/Mule, each character set is assigned a unique number, called a
 @dfn{leading byte}.  This is used in the encodings of a character.
@@ -7498,8 +7780,11 @@ followed later by the exact details.)
 * Internal Character Encoding::
 @end menu
 
-@node Internal String Encoding, Internal Character Encoding, Internal Mule Encodings, Internal Mule Encodings
+@node Internal String Encoding
 @subsection Internal String Encoding
+@cindex internal string encoding
+@cindex string encoding, internal
+@cindex encoding, internal string
 
 ASCII characters are encoded using their position code directly.  Other
 characters are encoded using their leading byte followed by their
@@ -7548,8 +7833,11 @@ conditions.  For example, EUC satisfies only (2) and (3), while
 Shift-JIS and Big5 (not yet described) satisfy only (2). (All
 non-modal encodings must satisfy (2), in order to be unambiguous.)
 
-@node Internal Character Encoding,  , Internal String Encoding, Internal Mule Encodings
+@node Internal Character Encoding
 @subsection Internal Character Encoding
+@cindex internal character encoding
+@cindex character encoding, internal
+@cindex encoding, internal character
 
   One 19-bit word represents a single character.  The word is
 separated into three fields:
@@ -7583,8 +7871,9 @@ Composite                 0x1F             ?               ?
   Note that character codes 0 - 255 are the same as the ``binary encoding''
 described above.
 
-@node CCL,  , Internal Mule Encodings, MULE Character Sets and Encodings
+@node CCL
 @section CCL
+@cindex CCL
 
 @example
 CCL PROGRAM SYNTAX:
@@ -7751,11 +8040,15 @@ ReadJumpCondR:  11111 RRR c...c      Read1 and JumpCondR
 
 @node The Lisp Reader and Compiler, Lstreams, MULE Character Sets and Encodings, Top
 @chapter The Lisp Reader and Compiler
+@cindex Lisp reader and compiler, the
+@cindex reader and compiler, the Lisp
+@cindex compiler, the Lisp reader and
 
 Not yet documented.
 
 @node Lstreams, Consoles; Devices; Frames; Windows, The Lisp Reader and Compiler, Top
 @chapter Lstreams
+@cindex lstreams
 
   An @dfn{lstream} is an internal Lisp object that provides a generic
 buffering stream implementation.  Conceptually, you send data to the
@@ -7774,8 +8067,9 @@ blocking data together in order to achieve efficiency.
 * Lstream Methods::             Creating new lstream types.
 @end menu
 
-@node Creating an Lstream, Lstream Types, Lstreams, Lstreams
+@node Creating an Lstream
 @section Creating an Lstream
+@cindex lstream, creating an
 
 Lstreams come in different types, depending on what is being interfaced
 to.  Although the primitive for creating new lstreams is
@@ -7805,8 +8099,10 @@ and he's probably right.
   Open for writing, but never writes partial MULE characters.
 @end table
 
-@node Lstream Types, Lstream Functions, Creating an Lstream, Lstreams
+@node Lstream Types
 @section Lstream Types
+@cindex lstream types
+@cindex types, lstream
 
 @table @asis
 @item stdio
@@ -7830,8 +8126,9 @@ and he's probably right.
 @item encoding
 @end table
 
-@node Lstream Functions, Lstream Methods, Lstream Types, Lstreams
+@node Lstream Functions
 @section Lstream Functions
+@cindex lstream functions
 
 @deftypefun {Lstream *} Lstream_new (Lstream_implementation *@var{imp}, const char *@var{mode})
 Allocate and return a new Lstream.  This function is not really meant to
@@ -7913,8 +8210,9 @@ necessary storage structures, for example.
 Rewind the stream to the beginning.
 @end deftypefun
 
-@node Lstream Methods,  , Lstream Functions, Lstreams
+@node Lstream Methods
 @section Lstream Methods
+@cindex lstream methods
 
 @deftypefn {Lstream Method} ssize_t reader (Lstream *@var{stream}, unsigned char *@var{data}, size_t @var{size})
 Read some data from the stream's end and store it into @var{data}, which
@@ -7980,6 +8278,10 @@ Mark this object for garbage collection.  Same semantics as a standard
 
 @node Consoles; Devices; Frames; Windows, The Redisplay Mechanism, Lstreams, Top
 @chapter Consoles; Devices; Frames; Windows
+@cindex consoles; devices; frames; windows
+@cindex devices; frames; windows, consoles;
+@cindex frames; windows, consoles; devices;
+@cindex windows, consoles; devices; frames;
 
 @menu
 * Introduction to Consoles; Devices; Frames; Windows::
@@ -7988,8 +8290,12 @@ Mark this object for garbage collection.  Same semantics as a standard
 * The Window Object::
 @end menu
 
-@node Introduction to Consoles; Devices; Frames; Windows, Point, Consoles; Devices; Frames; Windows, Consoles; Devices; Frames; Windows
+@node Introduction to Consoles; Devices; Frames; Windows
 @section Introduction to Consoles; Devices; Frames; Windows
+@cindex consoles; devices; frames; windows, introduction to
+@cindex devices; frames; windows, introduction to consoles;
+@cindex frames; windows, introduction to consoles; devices;
+@cindex windows, introduction to consoles; devices; frames;
 
 A window-system window that you see on the screen is called a
 @dfn{frame} in Emacs terminology.  Each frame is subdivided into one or
@@ -8030,8 +8336,9 @@ selected, and changing the selected frame causes the remembered window
 within it to become the selected window.  Similar relationships apply
 for consoles to devices and devices to frames.
 
-@node Point, Window Hierarchy, Introduction to Consoles; Devices; Frames; Windows, Consoles; Devices; Frames; Windows
+@node Point
 @section Point
+@cindex point
 
   Recall that every buffer has a current insertion position, called
 @dfn{point}.  Now, two or more windows may be displaying the same buffer,
@@ -8051,7 +8358,7 @@ you must special-case on the selected window and retrieve the
 buffer's point instead.  This is related to why @code{save-window-excursion}
 does not save the selected window's value of @code{point}.
 
-@node Window Hierarchy, The Window Object, Point, Consoles; Devices; Frames; Windows
+@node Window Hierarchy
 @section Window Hierarchy
 @cindex window hierarchy
 @cindex hierarchy of windows
@@ -8149,8 +8456,10 @@ is @code{nil} but the @code{prev} points to itself. (#### This is an
 artifact that should be fixed.)
 @end enumerate
 
-@node The Window Object,  , Window Hierarchy, Consoles; Devices; Frames; Windows
+@node The Window Object
 @section The Window Object
+@cindex window object, the
+@cindex object, the window
 
   Windows have the following accessible fields:
 
@@ -8256,6 +8565,7 @@ this field is @code{nil}.
 
 @node The Redisplay Mechanism, Extents, Consoles; Devices; Frames; Windows, Top
 @chapter The Redisplay Mechanism
+@cindex redisplay mechanism, the
 
   The redisplay mechanism is one of the most complicated sections of
 XEmacs, especially from a conceptual standpoint.  This is doubly so
@@ -8281,8 +8591,9 @@ It Is Better To Be Fast Than Not To Be.
 * Redisplay Piece by Piece::
 @end menu
 
-@node Critical Redisplay Sections, Line Start Cache, The Redisplay Mechanism, The Redisplay Mechanism
+@node Critical Redisplay Sections
 @section Critical Redisplay Sections
+@cindex redisplay sections, critical
 @cindex critical redisplay sections
 
 Within this section, we are defenseless and assume that the
@@ -8313,7 +8624,7 @@ we simply return. #### We should abort instead.
 #### If a frame-size change does occur we should probably
 actually be preempting redisplay.
 
-@node Line Start Cache, Redisplay Piece by Piece, Critical Redisplay Sections, The Redisplay Mechanism
+@node Line Start Cache
 @section Line Start Cache
 @cindex line start cache
 
@@ -8374,9 +8685,9 @@ the part of the cache starting at where the modification occurs.
   In case you're wondering, the Second Golden Rule of Redisplay is not
 applicable.
 
-@node Redisplay Piece by Piece,  , Line Start Cache, The Redisplay Mechanism
+@node Redisplay Piece by Piece
 @section Redisplay Piece by Piece
-@cindex Redisplay Piece by Piece
+@cindex redisplay piece by piece
 
 As you can begin to see redisplay is complex and also not well
 documented. Chuck no longer works on XEmacs so this section is my take
@@ -8427,6 +8738,7 @@ display have been removed.
 
 @node Extents, Faces, The Redisplay Mechanism, Top
 @chapter Extents
+@cindex extents
 
 @menu
 * Introduction to Extents::     Extents are ranges over text, with properties.
@@ -8437,8 +8749,9 @@ display have been removed.
 * Extent Fragments::            Cached information useful for redisplay.
 @end menu
 
-@node Introduction to Extents, Extent Ordering, Extents, Extents
+@node Introduction to Extents
 @section Introduction to Extents
+@cindex extents, introduction to
 
   Extents are regions over a buffer, with a start and an end position
 denoting the region of the buffer included in the extent.  In
@@ -8459,8 +8772,9 @@ further work needing to be done.  It didn't work out that way,
 however, and just ended up complexifying and buggifying all the
 rest of the code.)
 
-@node Extent Ordering, Format of the Extent Info, Introduction to Extents, Extents
+@node Extent Ordering
 @section Extent Ordering
+@cindex extent ordering
 
   Extents are compared using memory indices.  There are two orderings
 for extents and both orders are kept current at all times.  The normal
@@ -8493,8 +8807,9 @@ theorem about the display order also applies to the e-order if you swap
 all occurrences of ``display order'' and ``e-order'', ``less than'' and
 ``greater than'', and ``extent start'' and ``extent end''.
 
-@node Format of the Extent Info, Zero-Length Extents, Extent Ordering, Extents
+@node Format of the Extent Info
 @section Format of the Extent Info
+@cindex extent info, format of the
 
   An extent-info structure consists of a list of the buffer or string's
 extents and a @dfn{stack of extents} that lists all of the extents over
@@ -8527,8 +8842,10 @@ not be aware of the fact that the extent list is implemented as an
 array, except for the fact that positions are integers (this should be
 generalized to handle integers and linked list equally well).
 
-@node Zero-Length Extents, Mathematics of Extent Ordering, Format of the Extent Info, Extents
+@node Zero-Length Extents
 @section Zero-Length Extents
+@cindex zero-length extents
+@cindex extents, zero-length
 
   Extents can be zero-length, and will end up that way if their endpoints
 are explicitly set that way or if their detachable property is @code{nil}
@@ -8556,10 +8873,10 @@ endpoint is open, the extent remains in the buffer, moving as necessary.
 exactly like markers and that open-closed, non-detachable zero-length
 extents behave like the ``point-type'' marker in Mule.
 
-@node Mathematics of Extent Ordering, Extent Fragments, Zero-Length Extents, Extents
+@node Mathematics of Extent Ordering
 @section Mathematics of Extent Ordering
+@cindex mathematics of extent ordering
 @cindex extent mathematics
-@cindex mathematics of extents
 @cindex extent ordering
 
 @cindex display order of extents
@@ -8691,9 +9008,10 @@ greater than @math{I} and thus it is greater than any extent in
 @math{S}, including @math{F}.  Otherwise, @math{F2} includes @math{I}
 and thus is in @math{S}, and thus @math{F2 >= F}.
 
-@node Extent Fragments,  , Mathematics of Extent Ordering, Extents
+@node Extent Fragments
 @section Extent Fragments
-@cindex extent fragment
+@cindex extent fragments
+@cindex fragments, extent
 
   Imagine that the buffer is divided up into contiguous, non-overlapping
 @dfn{runs} of text such that no extent starts or ends within a run
@@ -8715,11 +9033,13 @@ determining which extents overly a particular position.
 
 @node Faces, Glyphs, Extents, Top
 @chapter Faces
+@cindex faces
 
 Not yet documented.
 
 @node Glyphs, Specifiers, Faces, Top
 @chapter Glyphs
+@cindex glyphs
 
 Glyphs are graphical elements that can be displayed in XEmacs buffers or
 gutters. We use the term graphical element here in the broadest possible
@@ -8753,6 +9073,8 @@ Any action on a glyph first consults the cache before actually
 instantiating a widget.
 
 @section Glyph Instantiation
+@cindex glyph instantiation
+@cindex instantiation, glyph
 
 Glyph instantiation is a hairy topic and requires some explanation. The
 guts of glyph instantiation is contained within
@@ -8819,12 +9141,17 @@ governing-domain. The governing domain for an image-instance is
 determined using the governing_domain image-instance method.
 
 @section Widget-Glyphs
+@cindex widget-glyphs
 
 @section Widget-Glyphs in the MS-Windows Environment
+@cindex widget-glyphs in the MS-Windows environment
+@cindex MS-Windows environment, widget-glyphs in the
 
 To Do
 
 @section Widget-Glyphs in the X Environment
+@cindex widget-glyphs in the X environment
+@cindex X environment, widget-glyphs in the
 
 Widget-glyphs under X make heavy use of lwlib (@pxref{Lucid Widget
 Library}) for manipulating the native toolkit objects. This is primarily
@@ -8851,11 +9178,13 @@ the widget is and how to set its properties.
 
 @node Specifiers, Menus, Glyphs, Top
 @chapter Specifiers
+@cindex specifiers
 
 Not yet documented.
 
 @node Menus, Subprocesses, Specifiers, Top
 @chapter Menus
+@cindex menus
 
   A menu is set by setting the value of the variable
 @code{current-menubar} (which may be buffer-local) and then calling
@@ -8908,6 +9237,7 @@ description.
 
 @node Subprocesses, Interface to the X Window System, Menus, Top
 @chapter Subprocesses
+@cindex subprocesses
 
   The fields of a process are:
 
@@ -8981,6 +9311,7 @@ or @code{nil} if it is using pipes.
 
 @node Interface to the X Window System, Index, Subprocesses, Top
 @chapter Interface to the X Window System
+@cindex X Window System, interface to the
 
 Mostly undocumented.
 
@@ -8988,8 +9319,11 @@ Mostly undocumented.
 * Lucid Widget Library::        An interface to various widget sets.
 @end menu
 
-@node Lucid Widget Library, , , Interface to the X Window System
+@node Lucid Widget Library
 @section Lucid Widget Library
+@cindex Lucid Widget Library
+@cindex widget library, Lucid
+@cindex library, Lucid Widget
 
 Lwlib is extremely poorly documented and quite hairy.  The author(s)
 blame that on X, Xt, and Motif, with some justice, but also sufficient
@@ -9018,8 +9352,9 @@ interface.
 * Tab Controls::
 @end menu
 
-@node Generic Widget Interface, Scrollbars, , Lucid Widget Library
+@node Generic Widget Interface
 @subsection Generic Widget Interface
+@cindex widget interface, generic
 
 In general in any toolkit a widget may be a composite object.  In Xt,
 all widgets have an X window that they manage, but typically a complex
@@ -9098,20 +9433,28 @@ The @code{widget_instance} structure also contains a pointer to the root
 of its tree.  Widget instances are further confi
 
 
-@node Scrollbars, Menubars, Generic Widget Interface, Lucid Widget Library
+@node Scrollbars
 @subsection Scrollbars
+@cindex scrollbars
 
-@node Menubars, Checkboxes and Radio Buttons, Scrollbars, Lucid Widget Library
+@node Menubars
 @subsection Menubars
+@cindex menubars
 
-@node Checkboxes and Radio Buttons, Progress Bars, Menubars, Lucid Widget Library
+@node Checkboxes and Radio Buttons
 @subsection Checkboxes and Radio Buttons
+@cindex checkboxes and radio buttons
+@cindex radio buttons, checkboxes and
+@cindex buttons, checkboxes and radio
 
-@node Progress Bars, Tab Controls, Checkboxes and Radio Buttons, Lucid Widget Library
+@node Progress Bars
 @subsection Progress Bars
+@cindex progress bars
+@cindex bars, progress
 
-@node Tab Controls, , Progress Bars, Lucid Widget Library
+@node Tab Controls
 @subsection Tab Controls
+@cindex tab controls
 
 @include index.texi
 

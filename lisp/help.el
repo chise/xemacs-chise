@@ -1,6 +1,7 @@
 ;;; help.el --- help commands for XEmacs.
 
 ;; Copyright (C) 1985, 1986, 1992-4, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 2001 Ben Wing.
 
 ;; Maintainer: FSF
 ;; Keywords: help, internal, dumped
@@ -264,41 +265,9 @@ otherwise it is killed."
 
 ;;(define-key global-map 'backspace 'deprecated-help-command)
 
-;; This function has been moved to help-nomule.el and mule-help.el.
-;; TUTORIAL arg is XEmacs addition
-;(defun help-with-tutorial (&optional tutorial)
-;  "Select the XEmacs learn-by-doing tutorial.
-;Optional arg TUTORIAL specifies the tutorial file; default is \"TUTORIAL\"."
-;  (interactive)
-;  (if (null tutorial)
-;      (setq tutorial "TUTORIAL"))
-;  (let ((file (expand-file-name (concat "~/" tutorial))))
-;    (delete-other-windows)
-;    (if (get-file-buffer file)
-;	(switch-to-buffer (get-file-buffer file))
-;      (switch-to-buffer (create-file-buffer file))
-;      (setq buffer-file-name file)
-;      (setq default-directory (expand-file-name "~/"))
-;      (setq buffer-auto-save-file-name nil)
-;      (insert-file-contents (expand-file-name tutorial data-directory))
-;      (goto-char (point-min))
-;      (search-forward "\n<<")
-;      (delete-region (point-at-bol) (point-at-eol))
-;      (let ((n (- (window-height (selected-window))
-;		  (count-lines (point-min) (point))
-;		  6)))
-;	(if (< n 12)
-;	    (newline n)
-;	  ;; Some people get confused by the large gap.
-;	  (newline (/ n 2))
-;	  (insert "[Middle of page left blank for didactic purposes.  "
-;		  "Text continues below]")
-;	  (newline (- n (/ n 2)))))
-;      (goto-char (point-min))
-;      (set-buffer-modified-p nil))))
+;; help-with-tutorial moved to help-nomule.el and mule-help.el.
 
 ;; used by describe-key, describe-key-briefly, insert-key-binding, etc.
-
 (defun key-or-menu-binding (key &optional menu-flag)
   "Return the command invoked by KEY.
 Like `key-binding', but handles menu events and toolbar presses correctly.
@@ -620,25 +589,27 @@ describes the minor mode."
 ;; So keyboard macro definitions are documented correctly
 (fset 'defining-kbd-macro (symbol-function 'start-kbd-macro))
 
+;; view a read-only file intelligently
+(defun Help-find-file (file)
+  (if (fboundp 'view-file)
+      (view-file file)
+    (find-file-read-only file)
+    (goto-char (point-min))))
+
 (defun describe-distribution ()
   "Display info on how to obtain the latest version of XEmacs."
   (interactive)
-  (find-file-read-only
-   (locate-data-file "DISTRIB")))
+  (Help-find-file (locate-data-file "DISTRIB")))
 
 (defun describe-beta ()
   "Display info on how to deal with Beta versions of XEmacs."
   (interactive)
-  (find-file-read-only
-   (locate-data-file "BETA"))
-  (goto-char (point-min)))
+  (Help-find-file (locate-data-file "BETA")))
 
 (defun describe-copying ()
   "Display info on how you may redistribute copies of XEmacs."
   (interactive)
-  (find-file-read-only
-   (locate-data-file "COPYING"))
-  (goto-char (point-min)))
+  (Help-find-file (locate-data-file "COPYING")))
 
 (defun describe-pointer ()
   "Show a list of all defined mouse buttons, and their definitions."
@@ -648,9 +619,7 @@ describes the minor mode."
 (defun describe-project ()
   "Display info on the GNU project."
   (interactive)
-  (find-file-read-only
-   (locate-data-file "GNU"))
-  (goto-char (point-min)))
+  (Help-find-file (locate-data-file "GNU")))
 
 (defun describe-no-warranty ()
   "Display info on all the kinds of warranty XEmacs does NOT have."
@@ -762,7 +731,7 @@ of the key sequence that ran this command."
 (defun view-emacs-news ()
   "Display info on recent changes to XEmacs."
   (interactive)
-  (find-file (locate-data-file "NEWS")))
+  (Help-find-file (locate-data-file "NEWS")))
 
 (defun xemacs-www-page ()
   "Go to the XEmacs World Wide Web page."
@@ -787,6 +756,11 @@ instead, to ensure that you get the most up-to-date information."
     (info)
     (Info-find-node "xemacs-faq" "Top"))
   (switch-to-buffer "*info*"))
+
+(defun view-sample-init-el ()
+  "Display the sample init.el file."
+  (interactive)
+  (Help-find-file (locate-data-file "sample.init.el")))
 
 (defcustom view-lossage-key-count 100
   "*Number of keys `view-lossage' shows.
@@ -1124,6 +1098,38 @@ part of the documentation of internal subroutines."
 ;     ;; CLisp `:' keywords as references.
 ;     (list (concat "\\<:" sym-char "+\\>") 0 'font-lock-reference-face t)))
 
+;; replacement for `princ' that puts the text in the specified face,
+;; if possible
+(defun Help-princ-face (object face)
+  (cond ((bufferp standard-output)
+        (let ((opoint (point standard-output)))
+          (princ object)
+          (put-nonduplicable-text-property opoint (point standard-output)
+                                           'face face standard-output)))
+       ((markerp standard-output)
+        (let ((buf (marker-buffer standard-output))
+              (pos (marker-position standard-output)))
+          (princ object)
+          (put-nonduplicable-text-property
+           pos (marker-position standard-output) 'face face buf)))
+       (t princ object)))
+
+;; replacement for `prin1' that puts the text in the specified face,
+;; if possible
+(defun Help-prin1-face (object face)
+  (cond ((bufferp standard-output)
+        (let ((opoint (point standard-output)))
+          (prin1 object)
+          (put-nonduplicable-text-property opoint (point standard-output)
+                                           'face face standard-output)))
+       ((markerp standard-output)
+        (let ((buf (marker-buffer standard-output))
+              (pos (marker-position standard-output)))
+          (prin1 object)
+          (put-nonduplicable-text-property
+           pos (marker-position standard-output) 'face face buf)))
+       (t prin1 object)))
+
 (defvar help-symbol-regexp
   (let ((sym-char "[+a-zA-Z0-9_:*]")
 	(sym-char-no-dash "[-+a-zA-Z0-9_:*]"))
@@ -1151,25 +1157,25 @@ part of the documentation of internal subroutines."
       (help-symbol-run-function-1 last-popup-menu-event ex fun))))
 
 (defvar help-symbol-function-context-menu
-  '("---"
-    ["View %_Documentation" (help-symbol-run-function 'describe-function)]
+  '(["View %_Documentation" (help-symbol-run-function 'describe-function)]
     ["Find %_Function Source" (help-symbol-run-function 'find-function)]
+    ["Find %_Tag" (help-symbol-run-function 'find-tag)]
     ))
 
 (defvar help-symbol-variable-context-menu
-  '("---"
-    ["View %_Documentation" (help-symbol-run-function 'describe-variable)]
+  '(["View %_Documentation" (help-symbol-run-function 'describe-variable)]
     ["Find %_Variable Source" (help-symbol-run-function 'find-variable)]
+    ["Find %_Tag" (help-symbol-run-function 'find-tag)]
     ))
 
 (defvar help-symbol-function-and-variable-context-menu
-  '("---"
-    ["View Function %_Documentation" (help-symbol-run-function
+  '(["View Function %_Documentation" (help-symbol-run-function
 				      'describe-function)]
     ["View Variable D%_ocumentation" (help-symbol-run-function
 				      'describe-variable)]
     ["Find %_Function Source" (help-symbol-run-function 'find-function)]
     ["Find %_Variable Source" (help-symbol-run-function 'find-variable)]
+    ["Find %_Tag" (help-symbol-run-function 'find-tag)]
     ))
 
 (defun frob-help-extents (buffer)
@@ -1179,9 +1185,10 @@ part of the documentation of internal subroutines."
   ;; properties:
   ;; 1. mouse-face is 'highlight (so the extent gets highlighted on mouse over)
   ;; 2. help-symbol is the name of the symbol.
-  ;; 3. context-menu is a list of context menu items, specific to whether
+  ;; 3. face is 'font-lock-reference-face.
+  ;; 4. context-menu is a list of context menu items, specific to whether
   ;;    the symbol is a function, variable, or both.
-  ;; 4. activate-function will cause the function or variable to be described,
+  ;; 5. activate-function will cause the function or variable to be described,
   ;;    replacing the existing help contents.
   (save-excursion
     (set-buffer buffer)
@@ -1200,6 +1207,7 @@ part of the documentation of internal subroutines."
 	    (let ((ex (make-extent b e)))
 	      (set-extent-property ex 'mouse-face 'highlight)
 	      (set-extent-property ex 'help-symbol sym)
+	      (set-extent-property ex 'face 'font-lock-reference-face)
 	      (set-extent-property
 	       ex 'context-menu
 	       (cond ((and var fun)
@@ -1217,7 +1225,10 @@ part of the documentation of internal subroutines."
 
 (defun describe-function-1 (function &optional nodoc)
   "This function does the work for `describe-function'."
-  (princ (format "`%s' is " function))
+  (princ "`")
+  ;; (Help-princ-face function 'font-lock-function-name-face) overkill
+  (princ function)
+  (princ "' is ")
   (let* ((def function)
 	 aliases file-name autoload-file kbd-macro-p fndef macrop)
     (while (and (symbolp def) (fboundp def))
@@ -1281,7 +1292,7 @@ part of the documentation of internal subroutines."
     (if describe-function-show-arglist
 	(let ((arglist (function-arglist function)))
 	  (when arglist
-	    (princ arglist)
+	    (Help-princ-face arglist 'font-lock-comment-face)
 	    (terpri))))
     (terpri)
     (cond (kbd-macro-p
@@ -1421,7 +1432,11 @@ there is no variable around that point, nil is returned."
      (let ((origvar variable)
 	   aliases)
        (let ((print-escape-newlines t))
-	 (princ (format "`%s' is " (symbol-name variable)))
+	 (princ "`")
+	 ;; (Help-princ-face (symbol-name variable)
+	 ;;               'font-lock-variable-name-face) overkill
+	 (princ (symbol-name variable))
+	 (princ "' is ")
 	 (while (variable-alias variable)
 	   (let ((newvar (variable-alias variable)))
 	     (if aliases
@@ -1443,8 +1458,8 @@ there is no variable around that point, nil is returned."
 	       (princ (format "  -- loaded from \"%s\"\n" file-name))))
 	 (princ "\nValue: ")
 	 (if (not (boundp variable))
-	     (princ "void\n")
-	   (prin1 (symbol-value variable))
+	     (Help-princ-face "void\n" 'font-lock-comment-face)
+	   (Help-prin1-face (symbol-value variable) 'font-lock-comment-face)
 	   (terpri))
 	 (terpri)
 	 (cond ((local-variable-p variable (current-buffer))

@@ -1421,7 +1421,7 @@ mswindows_fstat (int desc, struct stat * buf)
     }
   else
     {
-      buf->st_nlink = info.nNumberOfLinks;
+      buf->st_nlink = (short) info.nNumberOfLinks;
       /* Might as well use file index to fake inode values, but this
 	 is not guaranteed to be unique unless we keep a handle open
 	 all the time (even then there are situations where it is
@@ -1432,9 +1432,9 @@ mswindows_fstat (int desc, struct stat * buf)
 
   /* MSVC defines _ino_t to be short; other libc's might not.  */
   if (sizeof (buf->st_ino) == 2)
-    buf->st_ino = fake_inode ^ (fake_inode >> 16);
+    buf->st_ino = (unsigned short) (fake_inode ^ (fake_inode >> 16));
   else
-    buf->st_ino = fake_inode;
+    buf->st_ino = (unsigned short) fake_inode;
 
   /* consider files to belong to current user */
   buf->st_uid = 0;
@@ -1618,7 +1618,7 @@ mswindows_stat (const char * path, struct stat * buf)
   buf->st_ino = (unsigned short) (fake_inode ^ (fake_inode >> 16));
 
   /* consider files to belong to current user */
-  buf->st_uid = buf->st_gid = nt_fake_unix_uid;
+  buf->st_uid = buf->st_gid = (short) nt_fake_unix_uid;
 
   /* volume_info is set indirectly by map_win32_filename */
   buf->st_dev = volume_info.serialnum;

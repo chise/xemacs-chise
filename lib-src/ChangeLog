@@ -1,3 +1,20 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-19  Andy Piper  <andy@xemacs.org>
+
+	* installexe.sh: use bash by default.
+
+2001-03-09  William M. Perry  <wmperry@aventail.com>
+
+	* gnuclient.c: The Great GTK Merge.
+
+2000-08-10  Ben Wing  <ben@xemacs.org>
+
+	* update-elc.sh: deleted (retroactively).  replaced by update-elc-2.el,
+	which does the same thing but in a platform-independent way.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

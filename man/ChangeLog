@@ -1,3 +1,319 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-08  Ben Wing  <ben@xemacs.org>
+
+	* internals\internals.texi (Top):
+	* internals\internals.texi (A History of Emacs):
+	* internals\internals.texi (Through Version 18):
+	* internals\internals.texi (Lucid Emacs):
+	* internals\internals.texi (GNU Emacs 19):
+	* internals\internals.texi (GNU Emacs 20):
+	* internals\internals.texi (XEmacs From the Outside):
+	* internals\internals.texi (The Lisp Language):
+	* internals\internals.texi (XEmacs From the Perspective of Building):
+	* internals\internals.texi (XEmacs From the Inside):
+	* internals\internals.texi (The XEmacs Object System (Abstractly Speaking)):
+	* internals\internals.texi (How Lisp Objects Are Represented in C):
+	* internals\internals.texi (Rules When Writing New C Code):
+	* internals\internals.texi (General Coding Rules):
+	* internals\internals.texi (Writing Lisp Primitives):
+	* internals\internals.texi (Writing Good Comments):
+	* internals\internals.texi (Adding Global Lisp Variables):
+	* internals\internals.texi (Proper Use of Unsigned Types):
+	* internals\internals.texi (Coding for Mule):
+	* internals\internals.texi (Character-Related Data Types):
+	* internals\internals.texi (Working With Character and Byte Positions):
+	* internals\internals.texi (Conversion to and from External Data):
+	* internals\internals.texi (General Guidelines for Writing Mule-Aware Code):
+	* internals\internals.texi (An Example of Mule-Aware Code):
+	* internals\internals.texi (Techniques for XEmacs Developers):
+	* internals\internals.texi (A Summary of the Various XEmacs Modules):
+	* internals\internals.texi (Low-Level Modules):
+	* internals\internals.texi (Basic Lisp Modules):
+	* internals\internals.texi (Modules for Standard Editing Operations):
+	* internals\internals.texi (Editor-Level Control Flow Modules):
+	* internals\internals.texi (Modules for the Basic Displayable Lisp Objects):
+	* internals\internals.texi (Modules for other Display-Related Lisp Objects):
+	* internals\internals.texi (Modules for the Redisplay Mechanism):
+	* internals\internals.texi (Modules for Interfacing with the File System):
+	* internals\internals.texi (Modules for Other Aspects of the Lisp Interpreter and Object System):
+	* internals\internals.texi (Modules for Interfacing with the Operating System):
+	* internals\internals.texi (Modules for Interfacing with X Windows):
+	* internals\internals.texi (Allocation of Objects in XEmacs Lisp):
+	* internals\internals.texi (Introduction to Allocation):
+	* internals\internals.texi (Garbage Collection):
+	* internals\internals.texi (GCPROing):
+	* internals\internals.texi (Garbage Collection - Step by Step):
+	* internals\internals.texi (Invocation):
+	* internals\internals.texi (garbage_collect_1):
+	* internals\internals.texi (mark_object):
+	* internals\internals.texi (gc_sweep):
+	* internals\internals.texi (sweep_lcrecords_1):
+	* internals\internals.texi (compact_string_chars):
+	* internals\internals.texi (sweep_strings):
+	* internals\internals.texi (sweep_bit_vectors_1):
+	* internals\internals.texi (Integers and Characters):
+	* internals\internals.texi (Allocation from Frob Blocks):
+	* internals\internals.texi (lrecords):
+	* internals\internals.texi (Low-level allocation):
+	* internals\internals.texi (Cons):
+	* internals\internals.texi (Vector):
+	* internals\internals.texi (Bit Vector):
+	* internals\internals.texi (Symbol):
+	* internals\internals.texi (Marker):
+	* internals\internals.texi (String):
+	* internals\internals.texi (Dumping):
+	* internals\internals.texi (Overview):
+	* internals\internals.texi (Data descriptions):
+	* internals\internals.texi (Dumping phase):
+	* internals\internals.texi (Object inventory):
+	* internals\internals.texi (Address allocation):
+	* internals\internals.texi (The header):
+	* internals\internals.texi (Data dumping):
+	* internals\internals.texi (Pointers dumping):
+	* internals\internals.texi (Reloading phase):
+	* internals\internals.texi (Events and the Event Loop):
+	* internals\internals.texi (Introduction to Events):
+	* internals\internals.texi (Main Loop):
+	* internals\internals.texi (Specifics of the Event Gathering Mechanism):
+	* internals\internals.texi (Specifics About the Emacs Event):
+	* internals\internals.texi (The Event Stream Callback Routines):
+	* internals\internals.texi (Other Event Loop Functions):
+	* internals\internals.texi (Converting Events):
+	* internals\internals.texi (Evaluation; Stack Frames; Bindings):
+	* internals\internals.texi (Evaluation):
+	* internals\internals.texi (Dynamic Binding; The specbinding Stack; Unwind-Protects):
+	* internals\internals.texi (Simple Special Forms):
+	* internals\internals.texi (Symbols and Variables):
+	* internals\internals.texi (Introduction to Symbols):
+	* internals\internals.texi (Obarrays):
+	* internals\internals.texi (Buffers and Textual Representation):
+	* internals\internals.texi (Introduction to Buffers):
+	* internals\internals.texi (The Text in a Buffer):
+	* internals\internals.texi (Buffer Lists):
+	* internals\internals.texi (Markers and Extents):
+	* internals\internals.texi (Bufbytes and Emchars):
+	* internals\internals.texi (MULE Character Sets and Encodings):
+	* internals\internals.texi (Character Sets):
+	* internals\internals.texi (Encodings):
+	* internals\internals.texi (Japanese EUC (Extended Unix Code)):
+	* internals\internals.texi (JIS7):
+	* internals\internals.texi (Internal Mule Encodings):
+	* internals\internals.texi (Internal String Encoding):
+	* internals\internals.texi (Internal Character Encoding):
+	* internals\internals.texi (The Lisp Reader and Compiler):
+	* internals\internals.texi (Lstreams):
+	* internals\internals.texi (Creating an Lstream):
+	* internals\internals.texi (Lstream Types):
+	* internals\internals.texi (Lstream Functions):
+	* internals\internals.texi (Consoles; Devices; Frames; Windows):
+	* internals\internals.texi (Introduction to Consoles; Devices; Frames; Windows):
+	* internals\internals.texi (Point):
+	* internals\internals.texi (Window Hierarchy):
+	* internals\internals.texi (The Redisplay Mechanism):
+	* internals\internals.texi (Critical Redisplay Sections):
+	* internals\internals.texi (Line Start Cache):
+	* internals\internals.texi (Extents):
+	* internals\internals.texi (Introduction to Extents):
+	* internals\internals.texi (Extent Ordering):
+	* internals\internals.texi (Format of the Extent Info):
+	* internals\internals.texi (Zero-Length Extents):
+	* internals\internals.texi (Mathematics of Extent Ordering):
+	* internals\internals.texi (Faces):
+	* internals\internals.texi (Glyphs):
+	* internals\internals.texi (Specifiers):
+	* internals\internals.texi (Menus):
+	* internals\internals.texi (Subprocesses):
+	* internals\internals.texi (Interface to the X Window System):
+	* internals\internals.texi (Lucid Widget Library):
+	* internals\internals.texi (Generic Widget Interface):
+	* internals\internals.texi (Scrollbars):
+	* internals\internals.texi (Menubars):
+	* internals\internals.texi (Checkboxes and Radio Buttons):
+	* internals\internals.texi (Progress Bars):
+	* internals\internals.texi (Tab Controls):
+	Add more index entries.  Add sections on comments and unsigned types.
+
+2001-03-08  Ben Wing  <ben@xemacs.org>
+
+	* make-stds.texi (Makefile Basics):
+	* make-stds.texi (Command Variables):
+	* make-stds.texi (Directory Variables):
+	* make-stds.texi (Standard Targets):
+	* standards.texi:
+	* standards.texi (Top):
+	* standards.texi (Preface):
+	* standards.texi (Legal Issues):
+	* standards.texi (Reading Non-Free Code):
+	* standards.texi (Contributions):
+	* standards.texi (Trademarks):
+	* standards.texi (Design Advice):
+	* standards.texi (Source Language):
+	* standards.texi (Compatibility):
+	* standards.texi (Using Extensions):
+	* standards.texi (Standard C):
+	* standards.texi (Program Behavior):
+	* standards.texi (Semantics):
+	* standards.texi (Libraries):
+	* standards.texi (Errors):
+	* standards.texi (User Interfaces):
+	* standards.texi (Graphical Interfaces):
+	* standards.texi (Command-Line Interfaces):
+	* standards.texi (Option Table):
+	* standards.texi (Memory Usage):
+	* standards.texi (File Usage):
+	* standards.texi (Formatting):
+	* standards.texi (Comments):
+	* standards.texi (Syntactic Conventions):
+	* standards.texi (Names):
+	* standards.texi (System Portability):
+	* standards.texi (CPU Portability):
+	* standards.texi (System Functions):
+	* standards.texi (Internationalization):
+	* standards.texi (Mmap):
+	* standards.texi (Documentation):
+	* standards.texi (GNU Manuals):
+	* standards.texi (Doc Strings and Manuals):
+	* standards.texi (Manual Structure Details):
+	* standards.texi (License for Manuals):
+	* standards.texi (Manual Credits):
+	* standards.texi (Printed Manuals):
+	* standards.texi (NEWS File):
+	* standards.texi (Change Logs):
+	* standards.texi (Style of Change Logs):
+	* standards.texi (Simple Changes):
+	* standards.texi (Conditional Changes):
+	* standards.texi (Indicating the Part Changed):
+	* standards.texi (Managing Releases):
+	* standards.texi (Configuration):
+	* standards.texi (Releases):
+	* standards.texi (References):
+	* standards.texi (Index):
+	Update to latest GNU version.
+	
+	* xemacs-faq.texi (Q6.3.3):
+	* xemacs-faq.texi (Q6.4.1):
+	Improve questions on current Windows activity.
+
+2001-03-07  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi: (Q.1.0.7): changed list archive address
+
+2001-02-25  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Top):
+	* xemacs-faq.texi (Introduction):
+	* xemacs-faq.texi (Q1.0.1):
+	* xemacs-faq.texi (Q1.0.4):
+	* xemacs-faq.texi (Q1.0.6):
+	* xemacs-faq.texi (Q1.0.10):
+	* xemacs-faq.texi (Q1.2.1):
+	* xemacs-faq.texi (Q1.4.1):
+	* xemacs-faq.texi (Q1.4.2):
+	* xemacs-faq.texi (Q2.0.12):
+	* xemacs-faq.texi (Q2.1.1):
+	* xemacs-faq.texi (Q2.1.2):
+	* xemacs-faq.texi (Q2.1.9):
+	* xemacs-faq.texi (Q2.1.15):
+	* xemacs-faq.texi (Q2.1.19):
+	* xemacs-faq.texi (Customization):
+	* xemacs-faq.texi (Q3.0.1):
+	* xemacs-faq.texi (Q3.0.2):
+	* xemacs-faq.texi (Q3.0.3):
+	* xemacs-faq.texi (Q3.0.7):
+	* xemacs-faq.texi (Q3.1.5):
+	* xemacs-faq.texi (Q3.1.6):
+	* xemacs-faq.texi (Q3.2.1):
+	* xemacs-faq.texi (Q3.2.3):
+	* xemacs-faq.texi (Q3.2.4):
+	* xemacs-faq.texi (Q3.3.1):
+	* xemacs-faq.texi (Q3.3.2):
+	* xemacs-faq.texi (Q3.3.3):
+	* xemacs-faq.texi (Q3.3.4):
+	* xemacs-faq.texi (Q3.3.5):
+	* xemacs-faq.texi (Q3.4.1):
+	* xemacs-faq.texi (Q3.4.2):
+	* xemacs-faq.texi (Q3.5.2):
+	* xemacs-faq.texi (Q3.5.4):
+	* xemacs-faq.texi (key-translation-map): New.
+	* xemacs-faq.texi (Q3.5.5):
+	* xemacs-faq.texi (Q3.5.6):
+	* xemacs-faq.texi (Q3.5.7):
+	* xemacs-faq.texi (Q3.5.8):
+	* xemacs-faq.texi (global-map): Removed.
+	* xemacs-faq.texi (Q3.5.9):
+	* xemacs-faq.texi (Q3.6.1):
+	* xemacs-faq.texi (Q3.6.2):
+	* xemacs-faq.texi (Q3.6.3):
+	* xemacs-faq.texi (Q3.7.6):
+	* xemacs-faq.texi (Q3.7.7):
+	* xemacs-faq.texi (Q3.8.1):
+	* xemacs-faq.texi (Q3.8.2):
+	* xemacs-faq.texi (Q3.8.3):
+	* xemacs-faq.texi (Q3.9.1):
+	* xemacs-faq.texi (Q3.9.4):
+	* xemacs-faq.texi (Q3.10.1):
+	* xemacs-faq.texi (Q3.10.2):
+	* xemacs-faq.texi (Q3.10.3):
+	* xemacs-faq.texi (Q4.0.12):
+	* xemacs-faq.texi (Miscellaneous):
+	* xemacs-faq.texi (Q5.0.1):
+	* xemacs-faq.texi (Q5.0.2):
+	* xemacs-faq.texi (Q5.0.3):
+	* xemacs-faq.texi (Q5.0.4):
+	* xemacs-faq.texi (Q5.0.5):
+	* xemacs-faq.texi (Q5.0.8):
+	* xemacs-faq.texi (Q5.0.9):
+	* xemacs-faq.texi (Q5.0.11):
+	* xemacs-faq.texi (Q5.0.12):
+	* xemacs-faq.texi (Q5.0.13):
+	* xemacs-faq.texi (Q5.0.16):
+	* xemacs-faq.texi (Q5.0.17):
+	* xemacs-faq.texi (Q5.1.9):
+	* xemacs-faq.texi (Q5.1.11):
+	* xemacs-faq.texi (Q5.2.1):
+	* xemacs-faq.texi (Q5.2.2):
+	* xemacs-faq.texi (Q5.3.1):
+	* xemacs-faq.texi (Q5.3.2):
+	* xemacs-faq.texi (Q5.3.4):
+	* xemacs-faq.texi (MS Windows):
+	* xemacs-faq.texi (Q6.0.1):
+	* xemacs-faq.texi (Q6.0.2):
+	* xemacs-faq.texi (Q6.0.3):
+	* xemacs-faq.texi (Q6.0.4):
+	* xemacs-faq.texi (Q6.1.5):
+	* xemacs-faq.texi (Q6.2.3):
+	* xemacs-faq.texi (Q6.3.1):
+
+	Remove most references to XEmacs pre-19.15, since they are way out
+	of date and are cluttering up and confusing many answers.  Update
+	references to .emacs to take into account the new init file
+	location.  Update information about the MS Windows port.  Change
+	description of XEmacs at beginning to match the web site.  Update
+	info about current developers.
+	
+
+2001-02-25  Ben Wing  <ben@xemacs.org>
+
+	* lispref\help.texi (Describing Characters):
+	kp- not kp_.
+	
+2001-02-25  Ben Wing  <ben@xemacs.org>
+
+	* new-users-guide\custom1.texi (Customization Basics):
+	* new-users-guide\custom1.texi (Customizing key Bindings):
+	* new-users-guide\custom1.texi (Customizing Menus):
+	* new-users-guide\custom2.texi (Other Customizations):
+	* new-users-guide\custom2.texi (Setting Variables):
+	* new-users-guide\custom2.texi (Init File):
+	* new-users-guide\xmenu.texi (Options Menu):
+	* new-users-guide\modes.texi (Major Modes):
+	* new-users-guide\modes.texi (Minor Modes):
+	* new-users-guide\new-users-guide.texi (Top):
+	Fix up references to .emacs to take into account init.el.
+	
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.
