@@ -1,5 +1,30 @@
 2004-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R004-Slash.el (U+4E46): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'; add `<-wrong' for U+4E45.
+	(U-000200BD): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'; use
+	`->vulgar' and `->vulgar*sources' instead of `->vulgar-ideograph'.
+
+	* Ideograph-R079-Weapon.el (J0-3B26): Use `<-denotational' for
+	U+6BBA; use `->subsumptive' to integrate B-B1FE.
+	(G1-4931): Separate U+6BBA; use `<-denotational' for U+6BBA; use
+	`=>daikanwa' instead of `morohashi-daikanwa'.
+	(U-0002F8F5): use `<-denotational' for U+6BBA; use `=>daikanwa'
+	instead of `morohashi-daikanwa'.
+	(U+6BBA): Define as an abstract character.
+	(K0-5F2F): Use `<-denotational' for U+6BBA; use `->subsumptive' to
+	integrate U+F970 and C1-5B44.
+
+	* Ideograph-R085-Water.el (M-18520): Use `<-denotational' for
+	U+701E; use `<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(J90-4654): Separate U+701E; use `<-denotational' for U+701E; use
+	`->subsumptive' to integrate U-0002F914; use `=>daikanwa' instead
+	of `morohashi-daikanwa'.
+	(U+701E): Define as an abstract character.
+	(J78-4654): Use `<-denotational' for U+701E; use `->subsumptive'
+	to integrate C3-5A52.
+
 	* Ideograph-R053-Dotted-Cliff.el (JSP-3C4A): Moved into U+5EAC;
 	use `<-vulgar*sources' instead of char-ref in `<-vulgar'.
 	(U+5EAC): Use `->subsumptive'.
