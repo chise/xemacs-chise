@@ -26,7 +26,7 @@
 ;;; Code:
 
 (set-charset-mapping-table
- 'vietnamese-viscii-lower
+ 'latin-viscii-lower
  [nil		; 0x20
   ?\u1eaf	; 0x21
   ?\u1eb1	; 0x22
@@ -126,7 +126,7 @@
   ])
 
 (set-charset-mapping-table
- 'vietnamese-viscii-upper
+ 'latin-viscii-upper
  [nil		; 0x20
   ?\u1eae	; 0x21
   ?\u1eb0	; 0x22
