@@ -3312,10 +3312,6 @@ Version number of XEmacs UTF-2000.
 
   staticpro (&Vcharacter_variant_table);
   Vcharacter_variant_table = make_char_id_table (Qnil);
-
-  staticpro (&Vchar_attribute_hash_table);
-  Vchar_attribute_hash_table
-    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
 #endif
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
@@ -3336,6 +3332,11 @@ structure_type_create_chartab (void)
 void
 complex_vars_of_chartab (void)
 {
+#ifdef UTF2000
+  staticpro (&Vchar_attribute_hash_table);
+  Vchar_attribute_hash_table
+    = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+#endif /* UTF2000 */
 #ifdef MULE
   /* Set this now, so first buffer creation can refer to it. */
   /* Make it nil before calling copy-category-table
