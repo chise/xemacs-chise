@@ -1,3 +1,38 @@
+2001-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el (U+81E8): Unify G1-4159.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el: Merge GB 12345 code points.
+	(C4-5221): Relate to M-25261.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el: Merge GB 12345 code points.
+
+	* Ideograph-R129-Brush.el (U+8085): Unify G1-4B60.
+
+	* Ideograph-R127-Plow.el, Ideograph-R124-Feather.el,
+	Ideograph-R123-Sheep.el, Ideograph-R121-Jar.el: Merge GB 12345
+	code points.
+
+2001-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R139-Color.el (U+8277): Unify G1-515E.
+
+	* Ideograph-R138-Stopping.el (U+8271): Unify G1-3C68.
+
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+81FA): Unify G1-4C28.
+
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el: Merge GB 12345 code points.
+	(M-24824): Separate J0-3150 and U+9834; move them to
+	Ideograph-R181-Leaf.el.
+
 2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el (J0-3150): Separated from M-24824 and
