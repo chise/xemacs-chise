@@ -1219,6 +1219,7 @@
     (=big5		. #xAE7A)	; ý¢€Š¹º
     (=daikanwa		. 09791)	; ø¸‚˜¿
     (=jef-china3	. #x4CE8)	; øº„³¨
+    (=ucs@big5		. #x5F31)	; ø»‰¾“
     ))
 (define-char
   '((morohashi-daikanwa	9791 1)
@@ -1535,6 +1536,7 @@
     (=big5		. #xD54C)	; ý¢€•Œ
     (=daikanwa		. 09813)	; ø¸‚™•
     (=ucs@jis		. #x5F36)	; ø»‹‡
+    (=ucs@big5		. #x5F36)	; ø»‹‡
     ))
 (define-char
   '((morohashi-daikanwa	9813 0 0)
