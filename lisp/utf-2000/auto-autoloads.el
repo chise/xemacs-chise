@@ -1,9 +1,7 @@
 ;;; DO NOT MODIFY THIS FILE
 (if (featurep 'utf-2000-autoloads) (error "Already loaded"))
 
-;;;### (autoloads (what-char-definition char-db-update-comment char-spec= char-ref= char-ref-p) "char-db-util" "utf-2000/char-db-util.el")
-
-(autoload 'char-ref-p "char-db-util" nil nil nil)
+;;;### (autoloads (what-char-definition char-db-update-comment char-spec= char-ref=) "char-db-util" "utf-2000/char-db-util.el")
 
 (autoload 'char-ref= "char-db-util" nil nil nil)
 
@@ -15,9 +13,13 @@
 
 ;;;***
 
-;;;### (autoloads (ideographic-structure-find-char update-ideograph-radical-table) "ideograph-util" "utf-2000/ideograph-util.el")
+;;;### (autoloads (ideographic-structure-find-char char-ucs char-daikanwa update-ideograph-radical-table) "ideograph-util" "utf-2000/ideograph-util.el")
 
 (autoload 'update-ideograph-radical-table "ideograph-util" nil t nil)
+
+(autoload 'char-daikanwa "ideograph-util" nil nil nil)
+
+(autoload 'char-ucs "ideograph-util" nil nil nil)
 
 (autoload 'ideographic-structure-find-char "ideograph-util" nil nil nil)
 
