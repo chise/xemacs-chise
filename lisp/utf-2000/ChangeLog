@@ -1,3 +1,23 @@
+2004-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (U+6700):
+	Copied from Ideograph-R073-Say.el.
+	(M-01597): Use `<-denotational' for U+6700; separate B-B3CC; add
+	S1-926.
+	(U-0002F8D4): New character.
+
+	* Ideograph-R073-Say.el (U+6700): Define as an abstract character;
+	unify B-B3CC.
+	(M-01597): Copied from Ideograph-R014-Cover.el.
+	(U-0002F8D4): New character.
+	(J0-3A47): Moved into U-0002F8D4.
+	(G0-576E): Moved into U-0002F8D4.
+
+	* Ideograph-R029-Again.el (U+6700): Copied from
+	Ideograph-R073-Say.el.
+	(M-01597): Copied from Ideograph-R014-Cover.el.
+	(U-0002F8D4): New character.
+
 2004-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+8294): Rename `<-original-ideograph'
