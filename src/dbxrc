@@ -279,8 +279,8 @@ function pobj {
     pstruct Lisp_Marker
   elif lrecord_type_p opaque; then
     pstruct Lisp_Opaque
-  elif lrecord_type_p opaque_list; then
-    pstruct Lisp_Opaque_List
+  elif lrecord_type_p opaque_ptr; then
+    pstruct Lisp_Opaque_Ptr
   elif lrecord_type_p popup_data; then
     pstruct popup_data
   elif lrecord_type_p process; then
