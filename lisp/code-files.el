@@ -390,7 +390,7 @@ for reading.
 See also `insert-file-contents-access-hook',
 `insert-file-contents-pre-hook', `insert-file-contents-error-hook',
 and `insert-file-contents-post-hook'."
-  (let (return-val coding-system cs used-codesys p)
+  (let (return-val coding-system used-codesys)
     ;; OK, first load the file.
     (condition-case err
 	(progn
@@ -419,30 +419,11 @@ and `insert-file-contents-post-hook'."
 		   "Invalid coding-system (%s), using 'undecided"
 		   coding-system)
 		  (setq coding-system 'undecided)))
-	    (setq p (point))
 	    (setq return-val
 		  (insert-file-contents-internal filename visit beg end
-						 (and coding-system-for-read
-						      replace)
-						 coding-system
+						 replace coding-system
 						 ;; store here!
 						 'used-codesys))
-	    (unless coding-system-for-read
-	      (if (or (null (setq cs (find-coding-system-magic-cookie)))
-		      (eq cs used-codesys)
-		      (eq cs (coding-system-name
-			      (coding-system-base used-codesys))))
-		  (if replace
-		      (let* ((len (nth 1 return-val))
-			     (end (+ p len)))
-			(delete-region end (+ end len))))
-		(delete-region p (+ p (nth 1 return-val)))
-		(setq return-val
-		      (insert-file-contents-internal
-		       filename visit beg end
-		       replace cs
-		       ;; store here!
-		       'used-codesys))))
 	    ))
       (file-error
        (run-hook-with-args 'insert-file-contents-error-hook
