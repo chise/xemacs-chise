@@ -1,3 +1,9 @@
+2004-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (open_chise_data_source_maybe): Use Vdata_directory
+	instead of Vexec_directory.
+	(char_attribute_system_db_file): Likewise.
+
 2004-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fsave_char_attribute_table): Use
