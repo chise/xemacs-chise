@@ -1,4 +1,4 @@
-2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2003-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (M-46875): Separate U+4CD0 and C3-5746.
 	(M-46876): Separate C5-6063.
