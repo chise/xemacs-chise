@@ -1,25 +1,45 @@
 (define-char
-  '((ideographic-radical . 213)	; â¿”
+  '((=>ucs		. #x9F9C)	; é¾œ
+    (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (shinjigen-1	. 9918)
     (shinjigen-2	. 9917)
-    (japanese-jisx0208-1978	. #x737D)	; ø»ƒµ¸
     (japanese-jisx0208		. #x737D)	; ø»ˆŠ€
     (korean-ksc5601		. #x4F4F)	; ø»‰žž
     (chinese-cns11643-1		. #x733F)	; ø»’»–
     (japanese-jisx0208-1990	. #x737D)	; ø½‹¯´
     (ideograph-daikanwa		. 48847)	; ø¸‹»
-    (ucs			. #x9F9C)	; é¾œ
+    ))
+(define-char
+  '((=>ucs		. #x9F9C)	; é¾œ
+    (morohashi-daikanwa	48847 0 0)
+    (ideographic-radical . 213)	; â¿”
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (japanese-jisx0208-1978	. #x737D)	; ø»ƒµ¸
     ))
 (define-char
   '((ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (comment		. "<original character> of S1-9918")
+    (<-original-ideograph
+     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
+      :char	((shinjigen-1	     . 9918)
+		 (ideograph-daikanwa . 48847)	; ø¸‹»
+		 )
+      ))
     (shinjigen-1	. 9919)
-    (chinese-cns11643-7 . #x2C3A)	; ø»ž—
     (ideograph-daikanwa . 48848)	; ø¸‹»
+    (ucs		. #x9F9C)	; é¾œ
+    ))
+(define-char
+  '((=>ucs		. #x9F9C)	; é¾œ
+    (morohashi-daikanwa	48848 0 1)
+    (ideographic-radical . 213)	; â¿”
+    (ideographic-strokes . 0)
+    (total-strokes	 . 15)
+    (chinese-cns11643-7 . #x2C3A)	; ø»ž—
     ))
 (define-char
   '((ideographic-radical . 213)	; â¿”
@@ -185,16 +205,36 @@
     (ideograph-daikanwa . 48868)	; ø¸‹»¤
     ))
 (define-char
-  '((ideographic-radical . 213)	; â¿”
+  '((=>ucs		. #x9F9D)	; é¾
+    (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 5)
-    (kangxi-radical	 . 115)	; â½²
-    (kangxi-strokes	 . 16)
     (total-strokes	 . 21)
-    (comment		. "<Ancient character> of M24940")
-    (chinese-cns11643-3		. #x5E47)	; ø»–°°
+    (->same-ideograph
+     ((ideograph-daikanwa . 25381)	; ø¸†Œ¥
+      ))
+    (<-ancient-ideograph
+     (:sources	(jii morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 24940)	; ø¸†…¬
+		 )
+      ))
+    (japanese-jisx0208		. #x6354)	; ø»‡±·
     (japanese-jisx0208-1990	. #x6354)	; ø½‹—«
     (ideograph-daikanwa		. 48869)	; ø¸‹»¥
-    (ucs			. #x9F9D)	; é¾
+    ))
+(define-char
+  '((=>ucs		. #x9F9D)	; é¾
+    (morohashi-daikanwa	48869 0 0)
+    (ideographic-radical . 213)	; â¿”
+    (ideographic-strokes . 5)
+    (total-strokes	 . 21)
+    (japanese-jisx0208-1978	. #x6354)	; ø»ƒ¯
+    ))
+(define-char
+  '((morohashi-daikanwa	48869 0 2)
+    (ideographic-radical . 213)	; â¿”
+    (ideographic-strokes . 5)
+    (total-strokes	 . 20)
+    (ucs		. #x9F9D)	; é¾
     ))
 (define-char
   '((ideographic-radical . 213)	; â¿”
