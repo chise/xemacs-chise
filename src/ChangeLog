@@ -1,3 +1,21 @@
+2001-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_gt): New variable.
+	(Vcharset_ideograph_gt_pj_{1..11}): Likewise.
+	(Qideograph_gt): Likewise.
+	(Qideograph_gt_pj_{1..11}): Likewise.
+	(syms_of_mule_charset): Add `ideograph-gt', `ideograph-gt-pj-1',
+	`ideograph-gt-pj-2', ..., `ideograph-gt-pj-10' and
+	`ideograph-gt-pj-11'.
+	(complex_vars_of_mule_charset): Add coded-charset `ideograph-gt',
+	`ideograph-gt-pj-1', `ideograph-gt-pj-2', ...,
+	`ideograph-gt-pj-10' and `ideograph-gt-pj-11'.
+
+	* char-ucs.h (LEADING_BYTE_GT): New macro.
+	(LEADING_BYTE_GT_PJ_{1..11}): Likewise.
+	(MIN_CHAR_GT): Likewise.
+	(MAX_CHAR_GT): Likewise.
+
 2001-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* lisp-disunion.h (XCHARVAL): New implementation for UTF-2000 to
