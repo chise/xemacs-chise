@@ -1142,6 +1142,8 @@ Lisp_Object Q_component;
 Lisp_Object Q_component_of;
 Lisp_Object Q_same;
 Lisp_Object Q_same_of;
+Lisp_Object Q_vulgar;
+Lisp_Object Q_vulgar_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3512,6 +3514,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_component_of) ||
 	    EQ (attribute, Q_same) ||
 	    EQ (attribute, Q_same_of) ||
+	    EQ (attribute, Q_vulgar) ||
+	    EQ (attribute, Q_vulgar_of) ||
 	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
 				  Fsymbol_name (attribute),
 				  Qnil, Qnil)) )
@@ -3542,6 +3546,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_same_of;
       else if (EQ (attribute, Q_same_of))
 	rev_feature = Q_same;
+      else if (EQ (attribute, Q_vulgar))
+	rev_feature = Q_vulgar_of;
+      else if (EQ (attribute, Q_vulgar_of))
+	rev_feature = Q_vulgar;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
@@ -4607,6 +4615,8 @@ syms_of_chartab (void)
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Q_same,			"->same");
   defsymbol (&Q_same_of,		"<-same");
+  defsymbol (&Q_vulgar,			"->vulgar");
+  defsymbol (&Q_vulgar_of,		"<-vulgar");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");

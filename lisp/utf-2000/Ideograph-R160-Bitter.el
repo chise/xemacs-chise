@@ -218,40 +218,45 @@
     (=cns11643-3	. #x3F4B)	; &I-C3-3F4B;
     ))
 (define-char
-  '((=>ucs		. #x8F9E)	; 辞
-    (ideographic-radical . 160)	; ⾟
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6D66)	; &GT-51611;
-      (=ks-x1001	  . #x5E76)	; &I-K0-5E76;
-      (=daikanwa	  . 38671)	; &I-M-38671;
-      ))
-    (<-vulgar-ideograph@jiyun
-     ((=daikanwa	  . 38649)	; &I-M-38649;
-      ))
-    (<-vulgar-ideograph@jiyun*sources
-     jiyun daikanwa)
-    (<-vulgar-ideograph@zhengzi-tong
-     ((=daikanwa	  . 38671)	; &I-M-38671;
-      ))
-    (<-vulgar-ideograph@zhengzi-tong*sources
-     zhengzi-tong daikanwa)
-    (shinjigen-2	. 8199)
-    (=jis-x0208		. #x3C2D)	; &GT-51568;
-    (=gt		. 51568)	; &I-GT-51568;
-    (=gt-pj-1		. #x3C2D)	; &I-GT-51568;
-    (=daikanwa		. 38638)	; &I-M-38638;
-    (=ucs@jis		. #x8F9E)	; &GT-51568;
-    ))
-(define-char
-  '((morohashi-daikanwa	38638 0 0)
-    (ideographic-radical . 160)	; ⾟
+  '((ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x8F9E)	; 辞
-    (=gb2312		. #x3447)	; &I-G0-3447;
-    (=cns11643-3	. #x4477)	; &I-C3-4477;
+    ))
+(define-char
+  '((ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x8F9E)	; 辞
+      ))
+    (->subsumptive
+     ((<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x6D66)	; &GT-51611;
+	(=ks-x1001	    . #x5E76)	; &I-K0-5E76;
+	(=daikanwa	    . 38671)	; &I-M-38671;
+	))
+      (<-vulgar@jiyun
+       ((=daikanwa	    . 38649)	; &I-M-38649;
+	))
+      (<-vulgar@jiyun*sources
+       jiyun daikanwa)
+      (<-vulgar@zhengzi-tong
+       ((=daikanwa	    . 38671)	; &I-M-38671;
+	))
+      (<-vulgar@zhengzi-tong*sources
+       zhengzi-tong daikanwa)
+      (shinjigen-2	  . 8199)
+      (=jis-x0208	  . #x3C2D)	; &GT-51568;
+      (=gt		  . 51568)	; &I-GT-51568;
+      (=gt-pj-1		  . #x3C2D)	; &I-GT-51568;
+      (=daikanwa	  . 38638)	; &I-M-38638;
+      (=ucs@jis		  . #x8F9E)	; &GT-51568;
+      )
+     ((=gb2312		  . #x3447)	; &C3-4477;
+      (=cns11643-3	  . #x4477)	; &I-C3-4477;
+      (=ucs@unicode	  . #x8F9E)	; &C3-4477;
+      ))
     ))
 (define-char
   '((=>ucs		. #x28414)	; 𨐔

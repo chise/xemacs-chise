@@ -60,47 +60,45 @@
     (=hanziku-2		. #xE7E8)	; &I-HZK02-E7E8;
     ))
 (define-char
-  '((=>ucs		. #x5E02)	; 市
-    (ideographic-radical . 50)	; ⼱
+  '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (comment		. "(market)")
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=jis-x0208	  . #x5035)	; &GT-00376;
-      )
-     ((=ucs		  . #x5DFE)	; 巾
-      ))
-    (shinjigen-2	. 2082)
-    (=jis-x0208		. #x3B54)	; &GT-11066;
-    (=ks-x1001		. #x633C)	; &I-K0-633C;
-    (=big5		. #xA5AB)	; &I-B-A5AB;
-    (=gt		. 11066)	; &I-GT-11066;
-    (=gt-k		. 00943)	; &I-GT-K00943;
-    (=gt-pj-1		. #x3B54)	; &I-GT-11066;
-    (=daikanwa		. 08775)	; &I-M-08775;
-    (=ucs@jis		. #x5E02)	; &GT-11066;
-    (=ucs@big5		. #x5E02)	; &GT-11066;
-    ))
-(define-char
-  '((morohashi-daikanwa	8775 0 0)
-    (ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((=ucs		  . #x5DFE)	; 巾
-      ))
-    (shinjigen-2	. 2082)
     (=ucs		. #x5E02)	; 市
-    (=gb2312		. #x4A50)	; &I-G0-4A50;
-    (=cns11643-1	. #x464B)	; &I-C1-464B;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x5035)	; &GT-00376;
+	)
+       ((=ucs		    . #x5DFE)	; 巾
+	))
+      (shinjigen-2	  . 2082)
+      (=jis-x0208	  . #x3B54)	; &GT-11066;
+      (=ks-x1001	  . #x633C)	; &I-K0-633C;
+      (=big5		  . #xA5AB)	; &I-B-A5AB;
+      (=gt		  . 11066)	; &I-GT-11066;
+      (=gt-k		  . 00943)	; &I-GT-K00943;
+      (=gt-pj-1		  . #x3B54)	; &I-GT-11066;
+      (=daikanwa	  . 08775)	; &I-M-08775;
+      (=ucs@jis		  . #x5E02)	; &GT-11066;
+      (=ucs@big5	  . #x5E02)	; &GT-11066;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gb2312	    . #x596F)	; &GT-00375;
+	(=daikanwa	    . 00286)	; &I-M-00286;
+	)
+       ((=ucs		    . #x5DFE)	; 巾
+	))
+      (shinjigen-2	  . 2082)
+      (=gb2312		  . #x4A50)	; &C1-464B;
+      (=cns11643-1	  . #x464B)	; &I-C1-464B;
+      (=ucs@unicode	  . #x5E02)	; &C1-464B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱

@@ -167,49 +167,12 @@
     (=gt-pj-2		. #x306D)	; &GT-00142;
     ))
 (define-char
-  '((ideographic-radical@ucs . 16)	; ⼏
-    (ideographic-strokes@ucs . 1)
-    (ideographic-radical@ucs*sources
-     daikanwa ucs)
-    (ideographic-radical@cns . 3)	; ⼂
-    (ideographic-strokes@cns . 2)
-    (ideographic-radical@cns*sources
-     shinjigen-1 cns11643)
+  '((ideographic-radical@ucs . 3)	; ⼂
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@daikanwa . 26)	; ⼙
+    (ideographic-strokes@daikanwa . 1)
     (total-strokes	 . 3)
-    (hanyu-dazidian	1 276 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((=ucs		  . #x51E0)	; 几
-      )
-     ((=ucs		  . #x4E36)	; 丶
-      ))
-    (shinjigen-1	. 566)
-    (shinjigen-2	. 566)
-    (sound@ja/kun	"oyo-so" "arayu-ru")
-    (sound@ja/on/go	"bon")
-    (sound@ja/on/kan	"han")
-    (=ucs		. #x51E1)	; 凡
-    (=jis-x0208		. #x4B5E)	; &I-J90-4B5E;
-    (=gb2312		. #x3732)	; &I-G0-3732;
-    (=ks-x1001		. #x5B6D)	; &I-K0-5B6D;
-    (=cns11643-1	. #x443B)	; &I-C1-443B;
-    (=big5		. #xA45A)	; &I-B-A45A;
-    (=gt		. 02286)	; &I-GT-02286;
-    (=gt-k		. 00203)	; &I-GT-K00203;
-    (=gt-pj-1		. #x4B5E)	; &I-GT-02286;
-    (=daikanwa		. 01739)	; &I-M-01739;
-    ))
-(define-char
-  '((ideographic-	(:radical	26 ; ⼙
-			 :strokes	1)
-			(:radical	3 ; ⼂
-			 :strokes	2))
-    (total-strokes	 . 3)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 1)
+    (hanyu-dazidian	1 52 1)
     (=ucs		. #x2007E)	; 𠁾
     (=cns11643-5	. #x212D)	; &I-C5-212D;
     (=daikanwa		. 02840)	; &I-M-02840;

@@ -63,13 +63,26 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((ideographic-radical . 26)	; ⼙
-		 (shinjigen-1	     . 848)
-		 (=daikanwa	     . 02847)	; &I-M-02847;
-		 )
+    (->mistakable
+     ((=daikanwa	  . 02843)	; &I-M-02843;
+      )
+     ((=daikanwa	  . 02847)	; &I-M-02847;
       ))
+    (->mistakable*sources
+     kangxi daikanwa)
+    (->same
+     ((=ucs		  . #x5917)	; 夗
+      (=daikanwa	  . 05752)	; &I-M-05752;
+      ))
+    (->same*sources
+     zihui daikanwa)
+    (<-vulgar
+     ((shinjigen-1	  . 848)
+      (=ucs		  . #x536F)	; 卯
+      (=jis-x0208	  . #x312C)	; &I-J90-312C;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -608,10 +621,12 @@
     ))
 (define-char
   '((total-strokes	 . 11)
-    (<-vulgar-ideograph
-     ((=daikanwa	  . 05802)	; &I-M-05802;
+    (<-vulgar
+     ((shinjigen-1	  . 1550)
+      (=cns11643-1	  . #x6842)	; &M-05802;
+      (=daikanwa	  . 05802)	; &I-M-05802;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen-1)
     (hanyu-dazidian	2 863 18)
     (shinjigen-1	. 1552)
@@ -844,37 +859,36 @@
     (=ucs@big5		. #x5922)	; &M-05802;
     ))
 (define-char
-  '((=>ucs		. #x5923)	; 夣
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (<-vulgar-ideograph
-     ((shinjigen-1	  . 1550)
-      (=daikanwa	  . 05802)	; &I-M-05802;
-      ))
-    (<-vulgar-ideograph*sources
-     shinjigen-1)
-    (shinjigen-1	. 1553)
-    (=jis-x0212		. #x3869)	; &M-05803;
-    (=daikanwa		. 05803)	; &I-M-05803;
-    (=ucs@jis		. #x5923)	; &M-05803;
-    ))
-(define-char
-  '((morohashi-daikanwa	5803 0 0)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
+  '((ideographic-radical . 36)	; ⼣
     (=ucs		. #x5923)	; 夣
-    (mojikyo		. 005803)	; &MCS-600016AB;
-    ))
-(define-char
-  '((=>ucs		. #x5923)	; 夣
-    (morohashi-daikanwa	5803 0 1)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x405F)	; &C3-405F;
-    (mojikyo		. 059363)	; &MCS-6000E7E3;
+    (->subsumptive
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (<-vulgar
+       ((shinjigen-1	    . 1550)
+	(=cns11643-1	    . #x6842)	; &M-05802;
+	(=daikanwa	    . 05802)	; &I-M-05802;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (shinjigen-1	  . 1553)
+      (=jis-x0212	  . #x3869)	; &M-05803;
+      (=daikanwa	  . 05803)	; &I-M-05803;
+      (=ucs@jis		  . #x5923)	; &M-05803;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (mojikyo		  . 005803)	; &MCS-600016AB;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (=ucs@unicode	  . #x5923)	; &UU+5923;
+      )
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 13)
+      (=cns11643-3	  . #x405F)	; &C3-405F;
+      (mojikyo		  . 059363)	; &MCS-6000E7E3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣

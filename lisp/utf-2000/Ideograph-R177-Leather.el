@@ -163,40 +163,32 @@
     (=daikanwa		. 42723)	; &I-M-42723;
     ))
 (define-char
-  '((=>ucs		. #x9771)	; 靱
-    (morohashi-daikanwa	ho 701)
-    (ideographic-radical . 177)	; ⾰
-    (ideographic-strokes . 3)
-    (total-strokes	 . 12)
-    (<-vulgar-ideograph
-     (:sources	(doubun-tsuukou morohashi-daikanwa)
-      :char	((=daikanwa	     . 42713)	; &I-M-42713;
-		 )
-      )
-     (:sources	(ruishuu-meigishou morohashi-daikanwa)
-      :char	((=daikanwa	     . 27248)	; &I-M-27248;
-		 )
-      ))
-    (=jis-x0208-1990	. #x7057)	; &GT-57335;
-    (=gt		. 57335)	; &I-GT-57335;
-    (=gt-pj-1		. #x7057)	; &I-GT-57335;
-    (=ucs@jis		. #x9771)	; &GT-57335;
-    ))
-(define-char
-  '((morohashi-daikanwa	ho 701 0)
-    (ideographic-radical . 177)	; ⾰
+  '((ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
     (=ucs		. #x9771)	; 靱
-    (=jis-x0208-1983	. #x7057)	; &I-J83-7057;
-    ))
-(define-char
-  '((=>ucs		. #x9771)	; 靱
-    (morohashi-daikanwa	ho 701 2)
-    (ideographic-radical . 177)	; ⾰
-    (ideographic-strokes . 3)
-    (total-strokes	 . 12)
-    (=jis-x0208-1978	. #x3F59)	; &J78-3F59;
+    (->subsumptive
+     ((morohashi-daikanwa	ho 701)
+      (<-vulgar@ruijumyougishou
+       ((=daikanwa	    . 27248)	; &I-M-27248;
+	))
+      (<-vulgar@ruijumyougishou*sources
+       ruijumyougishou daikanwa)
+      (<-vulgar@tongwen-tongkao
+       ((=daikanwa	    . 42713)	; &I-M-42713;
+	))
+      (<-vulgar@tongwen-tongkao*sources
+       tongwen-tongkao daikanwa)
+      (=jis-x0208-1990	  . #x7057)	; &GT-57335;
+      (=gt		  . 57335)	; &I-GT-57335;
+      (=gt-pj-1		  . #x7057)	; &I-GT-57335;
+      (=ucs@jis		  . #x9771)	; &GT-57335;
+      )
+     ((=jis-x0208-1983	  . #x7057)	; &J83-7057;
+      (=ucs@unicode	  . #x9771)	; &J83-7057;
+      )
+     ((=jis-x0208-1978	  . #x3F59)	; &J78-3F59;
+      ))
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰

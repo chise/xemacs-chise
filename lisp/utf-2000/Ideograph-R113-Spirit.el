@@ -2800,10 +2800,10 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 24835)	; &I-M-24835;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      sougen-irai-zokujifu daikanwa)
     (=daikanwa		. 24754)	; &M-24754;
     ))
@@ -3833,10 +3833,10 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 25267)	; &I-M-25267;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      seiji-tsuu daikanwa)
     (=daikanwa		. 24824)	; &M-24824;
     ))

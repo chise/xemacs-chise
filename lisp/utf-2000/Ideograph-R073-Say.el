@@ -270,31 +270,6 @@
     (=jef-china3	. #x52A2)	; &I-JC3-52A2;
     ))
 (define-char
-  '((morohashi-daikanwa	2392 0 1)
-    (ideographic-radical@ucs . 19)	; ⼒
-    (ideographic-strokes@ucs . 9)
-    (ideographic-radical@ucs*sources
-     daikanwa ucs)
-    (ideographic-radical@cns . 73)	; ⽈
-    (ideographic-strokes@cns . 7)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	2 1512 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=cns11643-1	  . #x454B)	; &C1-454B;
-      )
-     ((=ucs		  . #x52A9)	; 助
-      ))
-    (=ucs		. #x52D7)	; 勗
-    (=jis-x0208		. #x5228)	; &I-J90-5228;
-    (=cns11643-1	. #x5B2B)	; &I-C1-5B2B;
-    (=big5		. #xB1E5)	; &I-B-B1E5;
-    (=gt		. 03066)	; &I-GT-03066;
-    (=gt-pj-1		. #x5228)	; &I-GT-03066;
-    ))
-(define-char
   '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 7)
     (total-strokes	 . 11)

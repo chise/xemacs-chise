@@ -118,7 +118,7 @@
     (ideographic-radical@cns*sources
      cns11643-3 daikanwa)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=ucs		  . #x5167)	; 內
       ))
     (=ucs		. #x5185)	; 内
@@ -130,10 +130,10 @@
     (<-denotational
      ((=ucs		  . #x5185)	; 内
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 01418)	; &I-M-01418;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (=cns11643-6	. #x2150)	; &M-01512;
     (=daikanwa		. 01512)	; &I-M-01512;

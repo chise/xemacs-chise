@@ -1977,11 +1977,11 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
-     (:sources	(sougen-irai-zokujifu morohashi-daikanwa)
-      :char	((=daikanwa	     . 19746)	; &I-M-19746;
-		 )
+    (<-vulgar
+     ((=daikanwa	  . 19746)	; &I-M-19746;
       ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (=ucs		. #x21641)	; 𡙁
     (=cns11643-4	. #x3127)	; &I-C4-3127;
     (=big5-cdp		. #x856E)	; &I-CDP-856E;
@@ -2552,11 +2552,12 @@
     (total-strokes	 . 14)
     (=ucs		. #x5969)	; 奩
     (->subsumptive
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((shinjigen-1	    . 796)
 	(=ucs		    . #x5333)	; 匳
+	(=jis-x0208	    . #x523D)	; &I-J90-523D;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        shinjigen-1)
       (shinjigen-1	  . 799)
       (shinjigen-2	  . 799)

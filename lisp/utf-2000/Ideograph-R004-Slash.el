@@ -299,11 +299,21 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (<-vulgar-ideograph
-     (:char	((shinjigen-1	     . 47)
-		 (=daikanwa	     . 00118)	; &I-M-00118;
-		 )
-      :sources	(shinjigen-1)))
+    (<-vulgar
+     ((shinjigen-1	  . 47)
+      (=ucs		  . #x4E45)	; 久
+      (=jis-x0208	  . #x3557)	; &I-J90-3557;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
+    (<-wrong
+     ((shinjigen-1	  . 47)
+      (=ucs		  . #x4E45)	; 久
+      (=jis-x0208	  . #x3557)	; &I-J90-3557;
+      (=daikanwa	  . 00118)	; &I-M-00118;
+      ))
+    (<-wrong*sources
+     zhengzi-tong daikanwa)
     (hanyu-dazidian	1 51 2)
     (shinjigen-1	. 48)
     (=ucs		. #x4E46)	; 乆
@@ -388,10 +398,14 @@
     ))
 (define-char
   '((total-strokes	 . 3)
-    (<-vulgar-ideograph
-     ((=daikanwa	  . 01739)	; &I-M-01739;
+    (<-vulgar
+     ((=jis-x0208	  . #x4B5E)	; &GT-02286;
+      (=gb2312		  . #x3732)	; &I-G0-3732;
+      (=ks-x1001	  . #x5B6D)	; &I-K0-5B6D;
+      (=cns11643-1	  . #x443B)	; &I-C1-443B;
+      (=daikanwa	  . 01739)	; &I-M-01739;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zhengzi-tong daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1722,17 +1736,19 @@
     (=hanziku-1		. #xAC7C)	; &I-HZK01-AC7C;
     ))
 (define-char
-  '((ideographic-	(:radical	102 ; ⽥
-			 :strokes	5
-			 :sources	(cns-11643 morohashi-daikanwa))
-			(:radical	4 ; ⼃
-			 :strokes	9
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 102)	; ⽥
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     cns11643 daikanwa)
     (total-strokes	 . 10)
-    (->vulgar-ideograph
-     (:char	((=daikanwa	     . 21778)	; &I-M-21778;
-		 )
-      :sources	(morohashi-daikanwa)))
+    (->vulgar
+     ((=ucs		  . #x754F)	; 畏
+      (=daikanwa	  . 21778)	; &I-M-21778;
+      ))
+    (->vulgar*sources
+     daikanwa)
     (hanyu-dazidian	1 41 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

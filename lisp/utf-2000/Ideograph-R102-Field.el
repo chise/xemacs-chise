@@ -646,6 +646,9 @@
   '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (<-vulgar
+     ((=ucs		  . #x200BD)	; 𠂽
+      ))
     (shinjigen-1	. 5030)
     (shinjigen-2	. 5030)
     (=ucs		. #x754F)	; 畏
@@ -1205,17 +1208,19 @@
     (=daikanwa		. 21827)	; &I-M-21827;
     ))
 (define-char
-  '((ideographic-	(:radical	102 ; ⽥
-			 :strokes	5
-			 :sources	(cns-11643 morohashi-daikanwa))
-			(:radical	4 ; ⼃
-			 :strokes	9
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 102)	; ⽥
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     cns11643 daikanwa)
     (total-strokes	 . 10)
-    (->vulgar-ideograph
-     (:char	((=daikanwa	     . 21778)	; &I-M-21778;
-		 )
-      :sources	(morohashi-daikanwa)))
+    (->vulgar
+     ((=ucs		  . #x754F)	; 畏
+      (=daikanwa	  . 21778)	; &I-M-21778;
+      ))
+    (->vulgar*sources
+     daikanwa)
     (hanyu-dazidian	1 41 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

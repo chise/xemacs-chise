@@ -9,11 +9,12 @@
     (ideographic-radical@cns*sources
      shinjigen-1 cns11643 gt)
     (total-strokes	 . 11)
-    (<-vulgar-ideograph
-     ((ideographic-radical . 213)	; ⿔
+    (<-vulgar
+     ((=jis-x0208-1983	  . #x737D)	; &GT-66712;
+      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F;
       (=daikanwa	  . 48847)	; &I-M-48847;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (hanyu-dazidian	8 10 19)
     (ideographic-structure

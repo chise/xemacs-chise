@@ -90,40 +90,39 @@
     (=jef-china3	. #x45A2)	; &I-JC3-45A2;
     ))
 (define-char
-  '((=>ucs		. #x5300)	; 匀
-    (ideographic-radical . 20)	; ⼓
+  '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
-     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 764)
-		 (=daikanwa	     . 02496)	; &I-M-02496;
-		 )
-      ))
-    (shinjigen-1	. 764)
-    (shinjigen-2	. 765)
-    (=jis-x0212		. #x337B)	; &M-02497;
-    (=jis-x0213-1-2000	. #x2E6B)	; &I-JX1-2E6B;
-    (=daikanwa		. 02497)	; &I-M-02497;
-    (=jef-china3	. #x45A3)	; &I-JC3-45A3;
-    (=ucs@jis		. #x5300)	; &M-02497;
-    ))
-(define-char
-  '((morohashi-daikanwa	2497 0 1)
-    (ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      )
-     ((=ucs		  . #x52F9)	; 勹
-      )
-     ((=ucs		  . #x51AB)	; 冫
-      ))
     (=ucs		. #x5300)	; 匀
-    (=gb2312		. #x5448)	; &I-G0-5448;
-    (=cns11643-3	. #x2156)	; &I-C3-2156;
+    (->subsumptive
+     ((<-vulgar
+       ((shinjigen-1	    . 764)
+	(=ucs		    . #x52FB)	; 勻
+	(=jis-x0213-1-2000  . #x2E6A)	; &I-JX1-2E6A;
+	(=daikanwa	    . 02496)	; &I-M-02496;
+	))
+      (<-vulgar*sources
+       zhengzi-tong daikanwa shinjigen-1)
+      (shinjigen-1	  . 764)
+      (shinjigen-2	  . 765)
+      (=jis-x0212	  . #x337B)	; &M-02497;
+      (=jis-x0213-1-2000  . #x2E6B)	; &I-JX1-2E6B;
+      (=daikanwa	  . 02497)	; &I-M-02497;
+      (=jef-china3	  . #x45A3)	; &I-JC3-45A3;
+      (=ucs@jis		  . #x5300)	; &M-02497;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x52F9)	; 勹
+	)
+       ((=ucs		    . #x51AB)	; 冫
+	))
+      (=gb2312		  . #x5448)	; &C3-2156;
+      (=cns11643-3	  . #x2156)	; &I-C3-2156;
+      (=ucs@unicode	  . #x5300)	; &C3-2156;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓

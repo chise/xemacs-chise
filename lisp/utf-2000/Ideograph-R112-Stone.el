@@ -619,10 +619,12 @@
       (=jis-x0213-1-2000  . #x7923)	; &I-JX1-7923;
       (=daikanwa	  . 24177)	; &I-M-24177;
       ))
-    (<-vulgar-ideograph
-     ((=daikanwa	  . 24177)	; &I-M-24177;
+    (<-vulgar
+     ((=ks-x1001	  . #x665A)	; &GT-30890;
+      (=jis-x0213-1-2000  . #x7923)	; &I-JX1-7923;
+      (=daikanwa	  . 24177)	; &I-M-24177;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa)
     (shinjigen-2	. 5407)
     (=ucs		. #x7814)	; 研

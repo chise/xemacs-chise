@@ -388,11 +388,11 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 69)
       (=daikanwa	  . 00241)	; &I-M-00241;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)

@@ -97,13 +97,14 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((ideographic-radical . 50)	; ⼱
-		 (shinjigen-1	     . 2079)
-		 (=ucs		     . #x5E00)	; 帀
-		 )
+    (<-vulgar
+     ((shinjigen-1	  . 2079)
+      (=ucs		  . #x5E00)	; 帀
+      (=jis-x0212	  . #x3C24)	; &I-JSP-3C24;
+      (=jis-x0213-2-2000  . #x2870)	; &I-JX2-2870;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 82 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -1222,11 +1223,11 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 796)
       (=daikanwa	  . 02655)	; &I-M-02655;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      shinjigen-1)
     (hanyu-dazidian	1 89 13)
     (ideographic-structure

@@ -652,9 +652,15 @@
      ((<-simplified@CN
        ((=gb12345	    . #x3373)	; &UU+919C;
 	))
-      (<-vulgar-ideograph
-       ((=daikanwa	    . 00023)	; &I-M-00023;
+      (<-vulgar
+       ((shinjigen-1	    . 16)
+	(=jis-x0208	    . #x312F)	; &GT-00033;
+	(=ks-x1001	    . #x7564)	; &I-K0-7564;
+	(=cns11643-1	    . #x4460)	; &I-C1-4460;
+	(=daikanwa	    . 00023)	; &I-M-00023;
 	))
+      (<-vulgar*sources
+       shinjigen-1)
       (shinjigen-1	  . 17)
       (=gb2312		  . #x3373)	; &GT-00035;
       (=gt		  . 00035)	; &I-GT-00035;
@@ -693,15 +699,18 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=ucs		  . #x4E08)	; 丈
       ))
     (=ucs		. #x2000B)	; 𠀋
     (->subsumptive
-     ((<-vulgar-ideograph
-       ((=daikanwa	    . 00011)	; &I-M-00011;
+     ((<-vulgar
+       ((=jis-x0208-1978    . #x3E66)	; &GT-00018;
+	(=jis-x0208-1983    . #x3E66)	; &I-J83-3E66;
+	(=ks-x1001	    . #x6D5B)	; &I-K0-6D5B;
+	(=daikanwa	    . 00011)	; &I-M-00011;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        daikanwa)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -722,11 +731,13 @@
       )
      ((mojikyo		  . 000026)	; &MCS-6000001A;
       )
-     ((<-vulgar-ideograph
+     ((<-vulgar
        ((shinjigen-1	    . 9)
+	(=gb2312	    . #x5549)	; &GT-00020;
 	(=jis-x0208-1990    . #x3E66)	; &I-J90-3E66;
+	(=cns11643-1	    . #x4437)	; &I-C1-4437;
 	))
-      (<-vulgar-ideograph*sources
+      (<-vulgar*sources
        shinjigen-1)
       (hanyu-dazidian	  1 12 5)
       (ideographic-structure
@@ -789,11 +800,13 @@
     (ideographic-radical@daikanwa . 1)	; ⼀
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 4)
-    (<-vulgar-ideograph
+    (<-vulgar
      ((shinjigen-1	  . 491)
+      (=jis-x0208	  . #x5142)	; &GT-01891;
+      (=ks-x1001	  . #x7B31)	; &I-K0-7B31;
       (=daikanwa	  . 01455)	; &I-M-01455;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      daikanwa shinjigen-1)
     (hanyu-dazidian	1 241 5)
     (shinjigen-1	. 492)

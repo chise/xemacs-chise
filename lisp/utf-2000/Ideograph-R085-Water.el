@@ -9963,10 +9963,10 @@
      ((=ucs		  . #x6EAB)	; 溫
       (=jis-x0213-1-2000  . #x767C)	; &I-JX1-767C;
       ))
-    (<-vulgar-ideograph
+    (<-vulgar
      ((=daikanwa	  . 17968)	; &I-M-17968;
       ))
-    (<-vulgar-ideograph*sources
+    (<-vulgar*sources
      zihui daikanwa)
     (shinjigen-2	. 4319)
     (=ucs		. #x6E29)	; 温
@@ -20922,41 +20922,44 @@
     (=cns11643-7	. #x386E)	; &C7-386E;
     ))
 (define-char
-  '((=>ucs		. #x701E)	; 瀞
-    (=>ucs@cns		. #x2F914)	; 瀞
+  '((=>ucs@cns		. #x2F914)	; 瀞
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (<-vulgar-ideograph
-     (:char	((=daikanwa	     . 18659)	; &I-M-18659;
-		 )
-      :sources	(seiji-tsuu morohashi-daikanwa)))
+    (<-denotational
+     ((=ucs		  . #x701E)	; 瀞
+      ))
+    (<-vulgar
+     ((=daikanwa	  . 18659)	; &I-M-18659;
+      ))
+    (<-vulgar*sources
+     zhengzi-tong daikanwa)
     (=daikanwa		. 18520)	; &M-18520;
     (=jef-china3	. #x57B6)	; &I-JC3-57B6;
     ))
 (define-char
   '((=>ucs@cns		. #x2F914)	; 瀞
-    (morohashi-daikanwa	18520 0 5)
+    (=>daikanwa		. 18520)	; &M-18520;
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=ucs		. #x701E)	; 瀞
-    (=jis-x0208-1983	. #x4654)	; &I-J83-4654;
-    (=jis-x0208-1990	. #x4654)	; &I-J90-4654;
-    (=gt		. 23701)	; &I-GT-23701;
-    (=gt-pj-1		. #x4654)	; &I-GT-23701;
-    (=jef-china3	. #x70D8)	; &I-JC3-70D8;
-    ))
-(define-char
-  '((=>ucs*		. #x701E)	; 瀞
-    (=>ucs@gb		. #x701E)	; 瀞
-    (=>ucs@jis		. #x701E)	; 瀞
-    (morohashi-daikanwa	18520 0 5 0)
-    (ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=ucs		. #x2F914)	; 瀞
-    (=cns11643-4	. #x565D)	; &I-C4-565D;
+    (<-denotational
+     ((=ucs		  . #x701E)	; 瀞
+      ))
+    (->subsumptive
+     ((=jis-x0208-1983	  . #x4654)	; &GT-23701;
+      (=jis-x0208-1990	  . #x4654)	; &I-J90-4654;
+      (=gt		  . 23701)	; &I-GT-23701;
+      (=gt-pj-1		  . #x4654)	; &I-GT-23701;
+      (=jef-china3	  . #x70D8)	; &I-JC3-70D8;
+      (=ucs@unicode	  . #x701E)	; &GT-23701;
+      )
+     ((=>ucs*		  . #x701E)	; 瀞
+      (=>ucs@gb		  . #x701E)	; &GT-23701;
+      (=>ucs@jis	  . #x701E)	; &GT-23701;
+      (=ucs		  . #x2F914)	; 瀞
+      (=cns11643-4	  . #x565D)	; &I-C4-565D;
+      ))
     ))
 (define-char
   '((=>ucs		. #x6FEB)	; 濫
@@ -21272,6 +21275,10 @@
     (total-strokes	 . 17)
     (=ucs		. #x2404C)	; 𤁌
     (=cns11643-7	. #x387C)	; &I-C7-387C;
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (=ucs		. #x701E)	; 瀞
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
@@ -22556,22 +22563,20 @@
     (=daikanwa		. 18658)	; &I-M-18658;
     ))
 (define-char
-  '((=>ucs		. #x701E)	; 瀞
-    (ideographic-radical . 85)	; ⽔
+  '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (=jis-x0208-1978	. #x4654)	; &M-18659;
-    (=ks-x1001		. #x6F67)	; &I-K0-6F67;
-    (=daikanwa		. 18659)	; &I-M-18659;
-    (=cbeta		. 01336)	; &I-CB01336;
-    ))
-(define-char
-  '((=>ucs		. #x701E)	; 瀞
-    (morohashi-daikanwa	18659 0 2)
-    (ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (=cns11643-3	. #x5A52)	; &C3-5A52;
+    (<-denotational
+     ((=ucs		  . #x701E)	; 瀞
+      ))
+    (->subsumptive
+     ((=jis-x0208-1978	  . #x4654)	; &M-18659;
+      (=ks-x1001	  . #x6F67)	; &I-K0-6F67;
+      (=daikanwa	  . 18659)	; &I-M-18659;
+      (=cbeta		  . 01336)	; &I-CB01336;
+      )
+     ((=cns11643-3	  . #x5A52)	; &C3-5A52;
+      ))
     ))
 (define-char
   '((=>ucs		. #x701F)	; 瀟
