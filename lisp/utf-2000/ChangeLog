@@ -1,3 +1,20 @@
+2004-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add mappings between CJK
+	Ext B and CNS 11643 plain 5.
+	(M-41949): Moved into U+49F2.
+	(M-41956): Don't map into U+49F2.
+	(U+49F2): Use `->subsumptive'; integrate M-41949 instead of
+	M-41956.
+
+	* Ideograph-R182-Wind.el (U+98B0): Use `->subsumptive'.
+	(JSP-683D): Separate U+98B0; unify CB00584.
+	(C4-4857): Moved into U+98B0.
+	(CB02664): New character in U+98B0.
+
 2004-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R026-Seal.el (U+3541): Use `<-wrong*sources' instead
