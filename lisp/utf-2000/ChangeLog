@@ -1,3 +1,8 @@
+2003-01-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-make-char-spec): Add `name*' as same as
+	`name'.
+
 2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
