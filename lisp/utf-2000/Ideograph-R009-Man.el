@@ -568,11 +568,11 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (<-original-ideograph
+    (<-original
      ((ideographic-radical . 15)	; ⼎
       (=daikanwa	  . 01612)	; &I-M-01612;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      shuowen shuowen-tongxun-dingsheng daikanwa)
     (=ucs		. #x4ECC)	; 仌
     (->subsumptive
@@ -8936,13 +8936,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (<-denotational
-     ((=daikanwa	  . 23937)	; &I-M-23937;
+     ((=jis-x0212	  . #x4F46)	; &M-23937; [47-38]
+      (=jis-x0213-2-2000  . #x7236)	; &I-JX2-7236; [82-22]
+      (=daikanwa	  . 23937)	; &I-M-23937;
       ))
-    (<-original-ideograph
+    (<-original
      ((=daikanwa	  . 00633)	; &I-M-00633;
       ))
-    (<-original-ideograph*sources
-     daikanwa)
+    (<-original*sources
+     zihui daikanwa)
     (=daikanwa		. 00634)	; &M-00634;
     ))
 (define-char
@@ -16379,7 +16381,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=cns11643-3	  . #x2E36)	; &CDP-8AC7; [14-22]
+     ((=cns11643-3	  . #x2E36)	; &C3-2E36; [14-22]
       ))
     (=ucs		. #x202B1)	; 𠊱
     (=cns11643-6	. #x3D33)	; &I-C6-3D33; [29-19]
