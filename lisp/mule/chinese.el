@@ -39,58 +39,21 @@
 ;;(loop for row from 42 to 126
 ;;      do (modify-syntax-entry `[chinese-gb2312 ,row] "w"))
 
-(modify-syntax-entry 'chinese-cns11643-1  "w")
-(modify-syntax-entry 'chinese-cns11643-2  "w")
+(modify-syntax-entry 'chinese-cns11643-1 "w")
+(modify-syntax-entry 'chinese-cns11643-2 "w")
+(modify-syntax-entry 'chinese-cns11643-3 "w")
+(modify-syntax-entry 'chinese-cns11643-4 "w")
+(modify-syntax-entry 'chinese-cns11643-5 "w")
+(modify-syntax-entry 'chinese-cns11643-6 "w")
+(modify-syntax-entry 'chinese-cns11643-7 "w")
 (modify-syntax-entry 'chinese-big5-1 "w")
 (modify-syntax-entry 'chinese-big5-2 "w")
 
-;; CNS11643 Plane3 thru Plane7
-;; These represent more and more obscure Chinese characters.
-;; By the time you get to Plane 7, we're talking about characters
-;; that appear once in some ancient manuscript and whose meaning
-;; is unknown.
-
-(flet
-    ((make-chinese-cns11643-charset
-      (name plane final)
-      (make-charset
-       name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
-       `(registry 
-	 ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
-	 dimension 2
-	 chars 94
-	 final ,final
-	 graphic 0))
-      (modify-syntax-entry   name "w")
-      (modify-category-entry name ?t)
-      ))
-  (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
-  (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
-  (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
-  (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
-  (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
-  )
-
-;; ISO-IR-165 (CCITT Extended GB)
-;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
-;;    GB 8565-88 table A4 + 293 characters.
-(make-charset
- 'chinese-isoir165
- "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
- `(registry "isoir165"
-   dimension 2
-   chars 94
-   final ?E
-   graphic 0))
-
-;; PinYin-ZhuYin
-(make-charset 'sisheng "PinYin-ZhuYin"
-	      '(registry "sisheng_cwnn\\|OMRON_UDC_ZH"
-		dimension 1
-		chars 94
-		final ?0
-		graphic 0
-		))
+(modify-category-entry 'chinese-cns11643-3 ?t)
+(modify-category-entry 'chinese-cns11643-4 ?t)
+(modify-category-entry 'chinese-cns11643-5 ?t)
+(modify-category-entry 'chinese-cns11643-6 ?t)
+(modify-category-entry 'chinese-cns11643-7 ?t)
 
 ;; If you prefer QUAIL to EGG, please modify below as you wish.
 ;;(when (and (featurep 'egg) (featurep 'wnn))
