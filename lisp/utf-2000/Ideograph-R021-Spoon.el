@@ -25,6 +25,7 @@
     (japanese-jisx0208		. #x5238)	; ø»‡˜
     (chinese-cns11643-6		. #x212A)	; ø»›´¹
     (ideograph-daikanwa		. 02571)	; ø¸€¨‹
+    (china3-jef			. #x45AB)	; øº„–«
     (chinese-big5-cdp		. #x8BBA)	; ý¢€ˆ®º
     ))
 (define-char
@@ -45,6 +46,7 @@
     (chinese-gb2312	. #x3B2F)	; ø»„¬ž
     (chinese-isoir165	. #x3B2F)	; ø»”®
     (ideograph-daikanwa . 02572)	; ø¸€¨Œ
+    (china3-jef		. #x41E4)	; øº„‡¤
     (ucs		. #x5316)	; åŒ–
     ))
 (define-char
