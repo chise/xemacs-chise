@@ -458,7 +458,8 @@
 					 ((integerp code)
 					  (format "#x%04X" code))
 					 (t
-					  (format "%s%S" line-breaking code))))
+					  (format "%s %S"
+						  line-breaking code))))
 				 value " ")
 		      line-breaking))
       (setq attributes (delq '->uppercase attributes))
@@ -472,7 +473,8 @@
 					 ((integerp code)
 					  (format "#x%04X" code))
 					 (t
-					  (format "%s%S" line-breaking code))))
+					  (format "%s %S"
+						  line-breaking code))))
 				 value " ")
 		      line-breaking))
       (setq attributes (delq '->lowercase attributes))
@@ -486,7 +488,8 @@
 					 ((integerp code)
 					  (format "#x%04X" code))
 					 (t
-					  (format "%s%S" line-breaking code))))
+					  (format "%s %S"
+						  line-breaking code))))
 				 value " ")
 		      line-breaking))
       (setq attributes (delq '->titlecase attributes))
@@ -600,7 +603,8 @@
       (setq attributes (cdr attributes)))
     (while ccs-attributes
       (setq name (car ccs-attributes))
-      (if (setq value (get-char-attribute char name))
+      (if (and (eq name (charset-name name))
+	       (setq value (get-char-attribute char name)))
 	  (insert
 	   (format
 	    (cond ((memq name '(ideograph-daikanwa ideograph-gt))
