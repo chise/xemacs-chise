@@ -232,7 +232,15 @@
 (define-char
   '((ideographic-radical . 144)	; â¾
     (ideographic-strokes . 5)
+    (total-strokes	 . 11)
     (=ucs		. #x8850)	; è¡
+    ))
+(define-char
+  '((ideographic-radical . 144)	; â¾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (=ucs		. #x8854)	; è¡”
+    (=gb2312		. #x4F4E)	; ø»…Š•
     ))
 (define-char
   '((ideographic-radical . 144)	; â¾
