@@ -6,6 +6,12 @@
 	(LEADING_BYTE_UCS_BMP): Changed to -176.
 	(LEADING_BYTE_JAPANESE_JISX0208_1990): Changed to -168.
 
+2003-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qiso_ir): New variable.
+	(Fmake_charset): Recognise new property `iso-ir'.
+	(syms_of_mule_charset): Add new symbol `iso-ir'.
+
 2003-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h: Change charset-id of ISO-IR sets from ISO-IR-number
