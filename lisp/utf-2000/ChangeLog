@@ -1,3 +1,20 @@
+2004-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+6949): Changed to abstract character.
+	(C2-435E): Add `<-denotational' for U+6949.
+	(JSP-4444): Likewise; separate JC3-53E7.
+	(U+69EE): Use `->subsumptive'.
+	(U+69EF): Likewise.
+	(U+69F0): Changed to abstract character.
+	(M-15373): Add `<-denotational' for U+69F0.
+	(UU+69F0): Likewise.
+	(C3-4C51): Likewise.
+	(U+69F1): Use `->subsumptive'.
+
+2004-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+655D): Changed to abstract character.
+
 2004-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R050-Turban.el (K0-7847): Modify
@@ -12,6 +29,10 @@
 
 2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
+	G0-hhhh.
+	(mapping-table-read-file): Modify for `=ucs@gb'.
+
 	* Ideograph-R160-Bitter.el (U+8F9F): Use `->subsumptive'.
 	(U+8FA0): Likewise.
 	(U+8FA1): Likewise.
@@ -19,6 +40,8 @@
 
 	* Ideograph-R018-Knife.el (U+5288): Use `->subsumptive'.
 	(U+5289): Likewise.
+
+	* maps-conf.el: Read etc/char-data/G0-to-UCS.txt.
 
 2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
