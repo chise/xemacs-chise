@@ -113,6 +113,79 @@
    ((symbolp kb)
     nil)))
 
+(defun char-db-insert-alist (alist &optional readable column)
+  (unless column
+    (setq column (current-column)))
+  (let ((line-breaking
+	 (concat "\n" (make-string (1+ column) ?\ )))
+	name value
+	ret al cal key
+	lbs cell rest separator)
+    (insert "(")
+    (while alist
+      (setq name (car (car alist))
+	    value (cdr (car alist)))
+      (cond ((eq name 'char)
+	     (insert "(char . ")
+	     (if (setq ret (condition-case nil
+			       (define-char value)
+			     (error nil)))
+		 (progn
+		   (setq al nil
+			 cal nil)
+		   (while value
+		     (setq key (car (car value)))
+		     (if (find-charset key)
+			 (setq cal (cons key cal))
+		       (setq al (cons key al)))
+		     (setq value (cdr value)))
+		   (insert-char-attributes ret
+					   readable
+					   al cal))
+	       (insert (prin1-to-string value)))
+	     (insert ")")
+	     (insert line-breaking))
+	    ((consp value)
+	     (insert (format "(%-18s " name))
+	     (setq lbs (concat "\n" (make-string (current-column) ?\ )))
+	     (while (consp value)
+	       (setq cell (car value))
+	       (if (and (consp cell)
+			(consp (car cell))
+			(setq ret (condition-case nil
+				      (define-char cell)
+				    (error nil)))
+			)
+		   (progn
+		     (setq rest cell
+			   al nil
+			   cal nil)
+		     (while rest
+		       (setq key (car (car rest)))
+		       (if (find-charset key)
+			   (setq cal (cons key cal))
+			 (setq al (cons key al)))
+		       (setq rest (cdr rest)))
+		     (if separator
+			 (insert lbs))
+		     (insert-char-attributes ret
+					     readable
+					     al cal)
+		     (setq separator lbs))
+		 (if separator
+		     (insert separator))
+		 (insert (prin1-to-string cell))
+		 (setq separator " "))
+	       (setq value (cdr value)))
+	     (insert ")")
+	     (insert line-breaking))
+	    (t
+	     (insert (format "(%-18s . %S)%s"
+			     name value
+			     line-breaking))))
+      (setq alist (cdr alist))))
+  (insert ")"))
+
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
 				    column)
@@ -403,7 +476,11 @@
     (while attributes
       (setq name (car attributes))
       (if (setq value (get-char-attribute char name))
-	  (cond ((string-match "^->" (symbol-name name))
+	  (cond ((eq name 'jisx0208-1978/4X)
+		 (insert (format "(%-18s . #x%04X)%s"
+				 name value
+				 line-breaking)))
+		((string-match "^->" (symbol-name name))
 		 (insert
 		  (format "(%-18s %s)%s"
 			  name
@@ -417,6 +494,30 @@
 						      line-breaking code))))
 				     value " ")
 			  line-breaking)))
+		((memq name '(ideograph=
+			      original-ideograph-of
+			      vulgar-ideograph-of))
+		 (insert (format "(%-18s%s " name line-breaking))
+		 (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
+		       cell ret
+		       rest key al cal
+		       separator)
+		   (while (consp value)
+		     (setq cell (car value))
+		     (if (and (consp cell)
+			      (consp (car cell)))
+			 (progn
+                           (if separator
+			       (insert lbs))
+                           (char-db-insert-alist cell readable)
+			   (setq separator lbs))
+		       (if separator
+			   (insert separator))
+		       (insert (prin1-to-string cell))
+		       (setq separator " "))
+		     (setq value (cdr value))))
+		 (insert ")")
+		 (insert line-breaking))
 		((consp value)
 		 (insert (format "(%-18s " name))
 		 (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
@@ -453,10 +554,6 @@
 		     (setq value (cdr value))))
 		 (insert ")")
 		 (insert line-breaking))
-		((eq name 'jisx0208-1978/4X)
-		 (insert (format "(%-18s . #x%04X)%s"
-				 name value
-				 line-breaking)))
 		(t
 		 (insert (format "(%-18s . %S)%s"
 				 name value
