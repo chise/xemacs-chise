@@ -452,7 +452,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 47748)	; ø¸‹ª„
-    (mojikyo . 47748)	; ø¸‹ª„
+    (mojikyo		. 047748)	; ý €‹ª„
     (ucs		. #x2A312)	; ðªŒ’
     ))
 (define-char
