@@ -1,3 +1,47 @@
+2003-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41676): Use
+	`->same-ideograph{*sources}' instead of `ideograph='.
+	(M-41836): Use `<-simplified-ideograph{*sources}' instead of
+	`simplified-ideograph-of'.	
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R167-Gold.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R171-Slave.el (U+96B6): Unify GT-56338.
+	(M-41928): Separate all; unify C3-5349 instead.
+	(U+96B7): Separate M-41928; unify GT-56345.
+	(M-41932): Unify C1-7622.
+	(U+96B8): Unify GT-56348.
+
+	* Ideograph-R169-Gate.el:
+	- Add some GT code points.
+	- Add some `total-strokes'.
+
+	* Ideograph-R030-Mouth.el (CB03537): Modify
+	`ideographic-structure' [because J0-6F6B was separated from
+	M-41434].
+
+	* Ideograph-R168-Long.el (U+9577): Unify GT-55291.
+
+	* Ideograph-R058-Snout.el (GT-PJ-11-5A40): Unify GT-67403 instead
+	of GT-60403.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E60 and J90-6F52.
+
+	* isolated-char.el: Comment out GT-40268, GT-52230, GT-52349 and
+	GT-56364.
+	(GT-PJ-11-5A40): Unify GT-67403 instead of GT-60403.
+
+	* Ideograph-R077-Stop.el (U+6B6F): Unify GT-66384.
+
+	* Ideograph-R005-Second.el (U+4E80): Unify GT-66701.
+
 2003-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (JX1-7635): Fixed.
