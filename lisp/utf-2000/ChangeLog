@@ -1,3 +1,70 @@
+2001-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Sort `attributes' and
+	`ccs-attributes'; support `ideographic-different-form-of'.
+
+2001-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (M-02673): Separate C1-4528.
+	(C1-4528): Unify M002673.
+	(U+5339): Unify J90-4924.
+	(U+533A): Use `script' and `simplified-ideograph-of' instead of
+	`comment'.
+	(M-02690): Unify M002690.
+	(U+533F): Unify J90-463F.
+
+2001-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (M-02506'): Unify J90-4A71.
+	(M002510): New character; relate to M-02510.
+	(M-02511): Use `ideographic-variants' instead of
+	`variant-of-shinjigen-1'; unify M002511.
+	(U+5306): Unify J90-5232 and M072447.
+	(U+5307): Use `ideographic-different-form-of' instead of
+	`comment'; unify M054897.
+
+	* Ideograph-R018-Knife.el (M-01923): Unify M001923.
+	(J83-483D): Unify J90-483D and M054305.
+	(U+5224): Unify M053097.
+	(M-01965): Use `original-ideograph-of' instead of
+	`original-char-of-shinjigen-1'.
+	(M-01966): Unify M001966.
+	(U+5238): Unify J90-3774 and M054101.
+	(M-02000): Unify M002000.
+	(U+524A): Unify J90-3A6F and M054134.
+	(C1-5028): Unify M059136.
+	(M-02011): Unify M002011.
+	(U+524D): Unify J90-3A6F and M054193.
+	(C1-5029): Unify M070879.
+	(M-02076'): Unify J90-3A5E.
+	(U+5271): Use `simplified-ideograph-of' instead of `comment';
+	delete `non-morohashi'; unify J90-517B and M054511.
+	(C6-3D46): Delete `non-morohashi'.
+	(C6-3D47): Likewise.
+	(M-02113): Unify M002113.
+	(U+5273): Unify J90-5175.
+	(M-02224): Unify M002224.
+	(U+5289): Unify J90-4E2D and M058565.
+	(M-02243): Unify J90-517A.
+	(M-02245): Unify M002245.
+
+2001-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (M-02360'): Unify J90-4D26.
+	(M-02362): Use `ideograph=' instead of `comment'.
+	(M-02384'): Unify J90-4A59.
+	(M-02409): Unify M002409.
+	(U+52DD): Use `script' instead of `comment'; unify J90-3E21 and
+	M054161.
+	(M-02416): Unify M002416.
+	(U+52DF): Unify J90-4A67 and M054354.
+	(M-02472): Unify M002472.
+	(J83-522F): Unify J90-522F and M055147.
+	(C5-6755): Delete `non-morohashi'.
+	(M-02486): Delete `kangxi-strokes'; separate C1-7961 and U+52F8;
+	unify M002486.
+	(J83-5230): Unify J90-5230, M055148 and U+52F8.
+
 2001-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el (M-48818): Unify M048818.
