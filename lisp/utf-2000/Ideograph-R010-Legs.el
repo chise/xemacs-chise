@@ -415,7 +415,10 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((ideograph-daikanwa . 01450)	; ø¸€–ª
+     ((japanese-jisx0208-1978	  . #x482C)	; ø»‚µ
+      (japanese-jisx0208	  . #x482C)	; ø»‡‰¥
+      (korean-ksc5601		  . #x7822)	; ø»Š™¿
+      (ideograph-daikanwa	  . 01450)	; ø¸€–ª
       )
      ((ucs		  . #x5144)	; å…„
       ))
@@ -466,6 +469,16 @@
     (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ucs		  . #x5200)	; åˆ€
+      )
+     ((chinese-big5-cdp	  . #x8BCB)	; ï•ƒ
+      ))
     (shinjigen-1	. 471)
     (shinjigen-2	. 471)
     (chinese-cns11643-3		. #x2452)	; ø»•›¯
@@ -781,7 +794,10 @@
       (japanese-jisx0208	  . #x5035)	; ø»‡•ž
       (chinese-big5-cdp		  . #x8B42)	; ø»ƒ–
       )
-     ((ideograph-daikanwa . 01351)	; ø¸€•‡
+     ((japanese-jisx0208-1978	  . #x513C)	; ø»ƒ‚»
+      (japanese-jisx0208	  . #x513C)	; ø»‡—ƒ
+      (korean-ksc5601		  . #x773A)	; ø»Š˜¹
+      (ideograph-daikanwa	  . 01356)	; ø¸€•Œ
       ))
     (shinjigen-1	. 472)
     (shinjigen-2	. 472)
