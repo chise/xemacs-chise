@@ -81,6 +81,14 @@
 
 2004-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
 
+	* Ideograph-R113-Spirit.el (U-00025626): Use `->subsumptive'; use
+	`ideographic-radical@{ucs|cns}'.
+
+	* Ideograph-R066-Rap.el (C6-315A): Moved into U-00025626 instead
+	of using `->identical'.
+
+2004-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
+
 	* Ideograph-R136-Oppose.el (M-49571): Moved into U-000243DE.
 	(C7-317A): Likewise.
 
