@@ -59,6 +59,7 @@
     (total-strokes	 . 2)
     (chinese-cns11643-5 . #x2128)	; ø»™ª³
     (ideograph-daikanwa . 00229)	; ø¸€ƒ¥
+    (ideograph-cbeta	. 06876)	; ø¸¡«œ
     (mojikyo		. 000229)	; ý €€ƒ¥
     ))
 (define-char
