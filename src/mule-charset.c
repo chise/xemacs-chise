@@ -571,7 +571,38 @@ put_char_attribute (Lisp_Object character, Lisp_Object attribute,
   put_char_code_table (char_code, ret, Vcharacter_attribute_table);
   return ret;
 }
-  
+
+Lisp_Object
+remove_char_attribute (Lisp_Object character, Lisp_Object attribute)
+{
+  Emchar char_code = XCHAR (character);
+  Lisp_Object alist
+    = get_char_code_table (char_code, Vcharacter_attribute_table);
+
+  if (!EQ (attribute, Fcar (Fcar (alist))))
+    {
+      alist = Fcdr (alist);
+    }
+  else
+    {
+      Lisp_Object pr = alist;
+      Lisp_Object r = Fcdr (alist);
+
+      while (!NILP (r))
+	{
+	  if (EQ (attribute, Fcar (Fcar (r))))
+	    {
+	      XCDR (pr) = Fcdr (r);
+	      break;
+	    }
+	  pr = r;
+	  r = Fcdr (r);
+	}
+    }
+  put_char_code_table (char_code, alist, Vcharacter_attribute_table);
+  return alist;
+}
+
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
 Store CHARACTER's ATTRIBUTE with VALUE.
 */
@@ -732,6 +763,59 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	}
     }
   return put_char_attribute (character, attribute, value);
+}
+  
+DEFUN ("remove-char-attribute", Fremove_char_attribute, 2, 2, 0, /*
+Remove CHARACTER's ATTRIBUTE.
+*/
+       (character, attribute))
+{
+  Lisp_Object ccs;
+
+  CHECK_CHAR (character);
+  ccs = Ffind_charset (attribute);
+  if (!NILP (ccs))
+    {
+      Lisp_Object cpos;
+      Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+      Lisp_Object nv;
+      int i = -1;
+      int ccs_len;
+      int dim;
+      int code_point;
+	      
+      /* ad-hoc method for `ascii' */
+      if ((XCHARSET_CHARS (ccs) == 94) &&
+	  (XCHARSET_BYTE_OFFSET (ccs) != 33))
+	ccs_len = 128 - XCHARSET_BYTE_OFFSET (ccs);
+      else
+	ccs_len = XCHARSET_CHARS (ccs);
+
+      attribute = ccs;
+      cpos = Fget_char_attribute (character, attribute);
+      if (VECTORP (v))
+	{
+	  if (!NILP (cpos))
+	    {
+	      dim = XCHARSET_DIMENSION (ccs);
+	      code_point = XINT (cpos);
+	      while (dim > 0)
+		{
+		  dim--;
+		  i = ((code_point >> (8 * dim)) & 255)
+		    - XCHARSET_BYTE_OFFSET (ccs);
+		  nv = XVECTOR_DATA(v)[i];
+		  if (!VECTORP (nv))
+		    break;
+		  v = nv;
+		}
+	      if (i >= 0)
+		XVECTOR_DATA(v)[i] = Qnil;
+	      v = XCHARSET_DECODING_TABLE (ccs);
+	    }
+	}
+    }
+  return remove_char_attribute (character, attribute);
 }
 
 Lisp_Object Qucs;
@@ -1618,12 +1702,12 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = Vcharset_latin_iso8859_1;
       return c & 0x7F;
     }
+  /*
   else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
     {
       *charset = Vcharset_greek_iso8859_7;
       return c - MIN_CHAR_GREEK + 0x20;
     }
-  /*
   else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
     {
       *charset = Vcharset_cyrillic_iso8859_5;
@@ -2397,6 +2481,7 @@ Make a character from CHARSET and code-point CODE.
   int c;
 
   charset = Fget_charset (charset);
+  CHECK_INT (code);
   c = XINT (code);
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
@@ -2645,6 +2730,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
+  DEFSUBR (Fremove_char_attribute);
   DEFSUBR (Fdefine_char);
   DEFSUBR (Fchar_variants);
   DEFSUBR (Fget_composite_char);
@@ -2855,14 +2941,10 @@ complex_vars_of_mule_charset (void)
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
-# define MIN_CHAR_GREEK 0
-# define MAX_CHAR_GREEK 0
 # define MIN_CHAR_HEBREW 0
 # define MAX_CHAR_HEBREW 0
 # define MIN_CHAR_HALFWIDTH_KATAKANA 0
 # define MAX_CHAR_HALFWIDTH_KATAKANA 0
-# define MIN_CHAR_CYRILLIC 0
-# define MAX_CHAR_CYRILLIC 0
 #endif
   staticpro (&Vcharset_ascii);
   Vcharset_ascii =
@@ -2935,7 +3017,9 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("iso8859-7"),
-		  Qnil, MIN_CHAR_GREEK, MAX_CHAR_GREEK, 0, 32);
+		  Qnil,
+		  0 /* MIN_CHAR_GREEK */,
+		  0 /* MAX_CHAR_GREEK */, 0, 32);
   staticpro (&Vcharset_arabic_iso8859_6);
   Vcharset_arabic_iso8859_6 =
     make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6, 96, 1,
