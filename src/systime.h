@@ -231,7 +231,7 @@ int set_file_times (char *filename, EMACS_TIME atime, EMACS_TIME mtime);
 void get_process_times (double *user_time, double *system_time,
 			double *real_time);
 
-#if defined(WINDOWSNT) || defined(BROKEN_CYGWIN)
+#if defined(WINDOWSNT) || defined(BROKEN_CYGWIN) || defined(__MINGW32__)
 
 /* setitimer emulation for Win32 (see nt.c) */
 

@@ -168,13 +168,6 @@ NOTE-END */
 #define NO_REMAP
 #endif
 
-#ifdef WINDOWSNT
-#define VIRT_ADDR_VARIES
-#define DATA_END 	get_data_end ()
-#define DATA_START 	get_data_start ()
-#define HAVE_ALLOCA
-#endif
-
 #ifdef linux
 /* libc-linux/sysdeps/linux/i386/ulimit.c says that due to shared library, */
 /* we cannot get the maximum address for brk */

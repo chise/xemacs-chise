@@ -6,6 +6,11 @@
 @c %**end of header
 
 @ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+@end direntry
+
 Edition History:
 
 GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993

@@ -1652,8 +1652,8 @@ complex_vars_of_syntax (void)
   Vstandard_syntax_table = Fcopy_syntax_table (Qnil);
   staticpro (&Vstandard_syntax_table);
 
-  Vsyntax_designator_chars_string = make_pure_string (syntax_code_spec,
-						      Smax, Qnil, 1);
+  Vsyntax_designator_chars_string = make_string_nocopy (syntax_code_spec,
+							Smax);
   staticpro (&Vsyntax_designator_chars_string);
 
   fill_char_table (XCHAR_TABLE (Vstandard_syntax_table),

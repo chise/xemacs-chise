@@ -366,7 +366,6 @@ with_file_coding=''
 dnl const_is_losing is removed - we rely on AC_C_CONST instead.
 dnl We accept (and ignore) the --const-is-losing option for compatibility.
 dnl const_is_losing='yes'
-puresize=''
 cpp='' cppflags='' libs='' ldflags=''
 dynamic=''
 with_x11=''
@@ -513,9 +512,6 @@ while test $# != 0; do
 	use_union_type	| \
 	debug		| \
 	use_assertions	| \
-	gung_ho		| \
-	use_minimal_tagbits			| \
-	use_indexed_lrecord_implementation	| \
 	memory_usage_stats | \
 	with_clash_detection | \
 	with_shlib | \
@@ -529,7 +525,7 @@ while test $# != 0; do
 	  eval "$opt=\"$val\"" ;;
 
 
-	dnl Options that take a user-supplied value, as in --puresize=8000000
+	dnl Options that take a user-supplied value, as in --x-includes=/usr/X11R6/include
 	dnl The cache-file option is ignored (for compatibility with other configures)
 	srcdir		| \
 	compiler	| \
@@ -538,7 +534,6 @@ while test $# != 0; do
 	cppflags	| \
 	libs		| \
 	ldflags		| \
-	puresize	| \
 	cache_file	| \
 	native_sound_lib| \
 	site_lisp	| \
@@ -792,19 +787,6 @@ test -n "$with_x" && with_x11="$with_x"
 dnl --with-quantify or --with-purify imply --use-system-malloc
 if test "$with_purify" = "yes" -o "$with_quantify" = "yes"; then
   test "$with_system_malloc" = "default" && with_system_malloc=yes
-fi
-
-dnl --gung-ho=val is a synonym for
-dnl --use-minimal-tagbits=val --use-indexed-lrecord-implementation=val
-if test -n "$gung_ho"; then
-  test -z "$use_minimal_tagbits" && use_minimal_tagbits="$gung_ho"
-  test -z "$use_indexed_lrecord_implementation" && \
-    use_indexed_lrecord_implementation="$gung_ho"
-fi
-if test "$use_minimal_tagbits" = "no"; then
-  test "$with_dlmalloc" = "yes" && \
-    USAGE_ERROR("--with-dlmalloc requires --use-minimal-tagbits")
-  with_dlmalloc=no
 fi
 
 dnl XE_CHECK_FEATURE_DEPENDENCY(feature1, feature2)
@@ -1484,7 +1466,9 @@ case "$canonical" in
       *-386bsd* )	        opsys=386bsd ;;
       *-freebsd* )		opsys=freebsd ;;
       *-nextstep* )		opsys=nextstep ;;
-      *-pc-cygwin32 )		opsys=cygwin32 ;;
+      *-pc-cygwin* )		opsys=cygwin32 ;;
+      *-pc-mingw* )		opsys=mingw32 ;
+				test -z "$with_tty" && with_tty="no";;
       dnl Otherwise, we fall through to the generic opsys code at the bottom.
     esac
   ;;
@@ -1724,6 +1708,7 @@ CPP_boolean_to_sh(SYSTEM_MALLOC, system_malloc)
 CPP_boolean_to_sh(TERMINFO, have_terminfo)
 CPP_boolean_to_sh(MAIL_USE_FLOCK, mail_use_flock)
 CPP_boolean_to_sh(MAIL_USE_LOCKF, mail_use_lockf)
+CPP_boolean_to_sh(HAVE_WIN32_PROCESSES, win32_processes)
 EOF
 
 dnl The value of CPP is a quoted variable reference, so we need to do this
@@ -1762,9 +1747,6 @@ if test "$cflags_specified" = "no"; then
     dnl I'm not convinced this is a good idea any more. -sb
     dnl test "$opsys $machine" = "linux intel386" && \
     dnl CFLAGS="$CFLAGS -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2"
-    dnl cygwin b19 can't cope with -O3, but most people use 20.1 or egcs now.
-    dnl    test "$opsys $machine" = "cygwin32 intel386" && \
-    dnl      CFLAGS="-g -O2 -Wall -Wno-switch"
   elif test "$__SUNPRO_C" = "yes"; then
     case "$opsys" in
       sol2    ) CFLAGS="-v -xO4" ;;
@@ -2198,7 +2180,7 @@ dnl check for long file names
 AC_SYS_LONG_FILE_NAMES
 
 dnl -lm is required by LISP_FLOAT_TYPE, among other things
-AC_CHECK_LIB(m, sin)
+AC_CHECK_FUNC(sin, ,AC_CHECK_LIB(m, sin))
 
 dnl Floating operation support is now unconditional
 AC_DEFINE(LISP_FLOAT_TYPE)
@@ -2215,12 +2197,6 @@ if   test "$mail_locking" = "lockf"; then AC_DEFINE(REAL_MAIL_USE_LOCKF)
 elif test "$mail_locking" = "flock"; then AC_DEFINE(REAL_MAIL_USE_FLOCK)
 else mail_locking="dot-locking"
 fi
-
-dnl Used by getloadavg() - does not require root priveleges
-AC_CHECK_LIB(kstat, kstat_open)
-
-dnl Another way to get the load average
-AC_CHECK_LIB(kvm, kvm_read)
 
 case "$opsys" in decosf*)
   AC_CHECK_LIB(pthreads, cma_open)
@@ -2501,8 +2477,6 @@ if test "$with_msw" != "no"; then
     [AC_DEFINE(HAVE_MSG_SELECT)])
     const_is_losing=no
     with_file_coding=yes
-    use_minimal_tagbits=yes
-    use_indexed_lrecord_implementation=yes
     XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o gui-msw.o)
   fi
 fi
@@ -2956,10 +2930,6 @@ else
   fi
 fi
 
-test "$use_minimal_tagbits" = "yes" && AC_DEFINE(USE_MINIMAL_TAGBITS)
-test "$use_indexed_lrecord_implementation" = "yes" && \
-  AC_DEFINE(USE_INDEXED_LRECORD_IMPLEMENTATION)
-
 dnl ----------------------
 dnl Mule-dependent options
 dnl ----------------------
@@ -2983,7 +2953,7 @@ if test "$with_mule" = "yes" ; then
   AC_CHECKING(for Mule-related features)
   AC_DEFINE(MULE)
   AC_DEFINE(FILE_CODING)
-  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o mule-coding.o file-coding.o)
+  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o file-coding.o)
 
   dnl Use -lintl to get internationalized strerror for Mule
   AC_CHECK_HEADERS(libintl.h)
@@ -3118,6 +3088,20 @@ case "$opsys" in
 	  test "$ac_cv_func_realpath" != "yes" && XE_ADD_OBJS(realpath.o) ;;
     esac ;;
 esac
+
+dnl Check whether the system provides getloadavg (Solaris 7 has it)
+AC_CHECK_FUNCS(getloadavg)
+
+if test "$ac_cv_func_getloadavg" != "yes"
+then
+  XE_ADD_OBJS(getloadavg.o)
+
+  dnl Used by getloadavg() - does not require root priveleges
+  AC_CHECK_LIB(kstat, kstat_open)
+
+  dnl Another way to get the load average
+  AC_CHECK_LIB(kvm, kvm_read)
+fi
 
 dnl If netdb.h does not declare h_errno, we must declare it by hand.
 AC_MSG_CHECKING(whether netdb declares h_errno)
@@ -3649,12 +3633,13 @@ AC_TRY_RUN([int main(int c,char *v[]){return 0;}],[:],[
   echo "*** PANIC *** on your system.  Don't do that."
   exit 1])
 
-dnl Process support (hardcoded)
-dnl every system that supports this runs configure, the others don't
-
-dnl We're not ready for this yet.
-AC_DEFINE(HAVE_UNIX_PROCESSES)
-XE_ADD_OBJS(process-unix.o)
+dnl Process support
+if test "$win32_processes" = "yes"; then
+  XE_ADD_OBJS(process-nt.o)
+else
+  AC_DEFINE(HAVE_UNIX_PROCESSES)
+  XE_ADD_OBJS(process-unix.o)
+fi
 
 dnl --------------------------------
 dnl Compute SUBST-itutable variables
@@ -3946,8 +3931,6 @@ dnl at the point where the autodetection occurs or would occur,
 dnl so that the user gets immediate feedback on the results of the
 dnl autodetection.
 
-test -n "$puresize" && AC_DEFINE_UNQUOTED(RAW_PURESIZE, $puresize)
-
 if   test "$GNU_MALLOC"         = "yes"; then AC_DEFINE(GNU_MALLOC)
 elif test "$with_system_malloc" = "yes"; then AC_DEFINE(USE_SYSTEM_MALLOC)
 elif test "$with_debug_malloc"  = "yes"; then AC_DEFINE(USE_DEBUG_MALLOC)
@@ -4121,10 +4104,7 @@ test "$with_pop"	= yes && echo "  Using POP for mail access."
 test "$with_kerberos"	= yes && echo "  Using Kerberos for POP authentication."
 test "$with_hesiod"	= yes && echo "  Using Hesiod to get POP server host."
 test "$use_union_type"  = yes && echo "  Using the union type for Lisp_Objects."
-test "$use_minimal_tagbits" = yes && echo "  Using Lisp_Objects with minimal tagbits."
-test "$use_indexed_lrecord_implementation" = yes && echo "  Using indexed lrecord implementation."
 test "$debug"              = yes && echo "  Compiling in extra code for debugging."
-test "$memory_usage_stats" = yes && echo "  Compiling in code for checking XEmacs memory usage."
 test "$usage_tracking"     = yes && echo "  Compiling with usage tracking active (Sun internal)."
 if test "$error_check_extents $error_check_typecheck $error_check_bufpos $error_check_gc $error_check_malloc" \
   != "no no no no no"; then
@@ -4138,11 +4118,6 @@ echo ""
 ) | tee -a Installation
 dnl echo "The above configure report is appended to \"Installation\" file."
 echo ""
-
-dnl Generate Installation.el
-echo '(setq Installation-string "' > Installation.el
-sed 's/"/\\"/g' Installation >> Installation.el
-echo '")' >> Installation.el
 
 dnl -----------------------------------
 dnl Now generate config.h and Makefiles

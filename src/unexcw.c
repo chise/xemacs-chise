@@ -21,7 +21,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 */
 
 /* This is a complete rewrite, some code snarfed from unexnt.c and
-   unexec.c, Andy Piper (andyp@parallax.co.uk) 13-1-98 */
+   unexec.c, Andy Piper (andy@xemacs.org) 13-1-98 */
 
 #include <stdio.h>
 #include <stdlib.h>

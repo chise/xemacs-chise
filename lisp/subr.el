@@ -614,6 +614,28 @@ If FUNCTION is not interactive, nil will be returned."
 	(t
 	 (error "Non-funcallable object: %s" function))))
 
+;; This function used to be an alias to `buffer-substring', except
+;; that FSF Emacs 20.4 added a BUFFER argument in an incompatible way.
+;; The new FSF's semantics makes more sense, but we try to support
+;; both for backward compatibility.
+(defun buffer-string (&optional buffer old-end old-buffer)
+  "Return the contents of the current buffer as a string.
+If narrowing is in effect, this function returns only the visible part
+of the buffer.
+
+If BUFFER is specified, the contents of that buffer are returned.
+
+The arguments OLD-END and OLD-BUFFER are supported for backward
+compatibility with pre-21.2 XEmacsen times when arguments to this
+function were (buffer-string &optional START END BUFFER)."
+  (if (or (null buffer)
+	  (bufferp buffer)
+	  (stringp buffer))
+      ;; The new way
+      (buffer-substring nil nil buffer)
+    ;; The old way
+    (buffer-substring buffer old-end old-buffer)))
+
 ;; This was not present before.  I think Jamie had some objections
 ;; to this, so I'm leaving this undefined for now. --ben
 
@@ -667,6 +689,5 @@ FILE should be the name of a library, with no directory name."
 (define-function 'remove-directory 'delete-directory)
 (define-function 'set-match-data 'store-match-data)
 (define-function 'send-string-to-terminal 'external-debugging-output)
-(define-function 'buffer-string 'buffer-substring)
 
 ;;; subr.el ends here

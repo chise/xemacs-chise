@@ -323,7 +323,11 @@ make_file_preface (void)
   /* the_date has an unwanted newline at the end */
   date_length = strlen (the_date) - 1;
   the_date[date_length] = '\0';
+#ifdef WINDOWSNT
+  temp = "(null)";
+#else
   temp = cuserid ((char *) NULL);
+#endif
   user_length = strlen (temp);
   the_user = alloc_string ((size_t) (user_length + 1));
   strcpy (the_user, temp);

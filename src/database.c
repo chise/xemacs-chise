@@ -128,7 +128,7 @@ struct Lisp_Database
 static Lisp_Database *
 allocate_database (void)
 {
-  Lisp_Database *db = alloc_lcrecord_type (Lisp_Database, lrecord_database);
+  Lisp_Database *db = alloc_lcrecord_type (Lisp_Database, &lrecord_database);
 
   db->fname = Qnil;
   db->live_p = 0;

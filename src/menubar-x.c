@@ -465,10 +465,12 @@ pre_activate_callback (Widget widget, LWLIB_ID id, XtPointer client_data)
 	  wv = xmalloc_widget_value ();
 	  wv->type = CASCADE_TYPE;
 	  wv->next = NULL;
+	  wv->accel = LISP_TO_VOID (Qnil);
 	  wv->contents = xmalloc_widget_value ();
 	  wv->contents->type = TEXT_TYPE;
 	  wv->contents->name = (char *) "No menu";
 	  wv->contents->next = NULL;
+	  wv->contents->accel = LISP_TO_VOID (Qnil);
 	}
       assert (wv && wv->type == CASCADE_TYPE && wv->contents);
       replace_widget_value_tree (hack_wv, wv->contents);
@@ -572,7 +574,7 @@ set_frame_menubar (struct frame *f, int deep_p, int first_time_p)
   if (NILP (FRAME_MENUBAR_DATA (f)))
     {
       struct popup_data *mdata =
-	alloc_lcrecord_type (struct popup_data, lrecord_popup_data);
+	alloc_lcrecord_type (struct popup_data, &lrecord_popup_data);
 
       mdata->id = new_lwlib_id ();
       mdata->last_menubar_buffer = Qnil;

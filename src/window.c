@@ -252,7 +252,7 @@ Lisp_Object
 allocate_window (void)
 {
   Lisp_Object val;
-  struct window *p = alloc_lcrecord_type (struct window, lrecord_window);
+  struct window *p = alloc_lcrecord_type (struct window, &lrecord_window);
 
   zero_lcrecord (p);
   XSETWINDOW (val, p);
@@ -3319,7 +3319,7 @@ make_dummy_parent (Lisp_Object window)
 {
   Lisp_Object new;
   struct window *o = XWINDOW (window);
-  struct window *p = alloc_lcrecord_type (struct window, lrecord_window);
+  struct window *p = alloc_lcrecord_type (struct window, &lrecord_window);
 
   XSETWINDOW (new, p);
   copy_lcrecord (p, o);
@@ -4621,8 +4621,8 @@ struct saved_window
 struct window_config
 {
   struct lcrecord_header header;
-  int frame_width;
-  int frame_height;
+  /*  int frame_width; No longer needed, JV
+      int frame_height; */
 #if 0 /* FSFmacs */
   Lisp_Object selected_frame;
 #endif
@@ -4630,6 +4630,7 @@ struct window_config
   Lisp_Object current_buffer;
   Lisp_Object minibuffer_scroll_window;
   Lisp_Object root_window;
+  int minibuf_height; /* 0 = no minibuffer, <0, size in lines, >0 in pixels */
   /* Record the values of window-min-width and window-min-height
      so that window sizes remain consistent with them.  */
   int min_width, min_height;
@@ -4761,9 +4762,10 @@ window_config_equal (Lisp_Object conf1, Lisp_Object conf2)
 	EQ (fig1->current_window,	    fig2->current_window) &&
 	EQ (fig1->current_buffer,	    fig2->current_buffer) &&
 	EQ (fig1->root_window,		    fig2->root_window) &&
-	EQ (fig1->minibuffer_scroll_window, fig2->minibuffer_scroll_window) &&
+	EQ (fig1->minibuffer_scroll_window, fig2->minibuffer_scroll_window)))
+	/* &&
 	fig1->frame_width  == fig2->frame_width &&
-	fig1->frame_height == fig2->frame_height))
+	fig1->frame_height == fig2->frame_height)) */
     return 0;
 
   for (i = 0; i < fig1->saved_windows_count; i++)
@@ -4859,8 +4861,15 @@ by `current-window-configuration' (which see).
   struct frame *f;
   struct gcpro gcpro1;
   Lisp_Object old_window_config;
-  int previous_frame_height;
-  int previous_frame_width;
+  /*  int previous_frame_height;
+      int previous_frame_width;*/
+  int previous_pixel_top;
+  int previous_pixel_height;
+  int previous_pixel_left;
+  int previous_pixel_width;
+  int previous_minibuf_height, previous_minibuf_top,previous_minibuf_width;
+  int real_font_height;
+  int converted_minibuf_height,target_minibuf_height; 
   int specpdl_count = specpdl_depth ();
 
   GCPRO1 (configuration);
@@ -4925,6 +4934,20 @@ by `current-window-configuration' (which see).
 
       mark_windows_in_use (f, 1);
 
+#if 0
+      /* JV: This is bogus,
+	 First of all, the units are inconsistent. The frame sizes are measured
+	 in characters but the window sizes are stored in pixels. So if a 
+	 font size change happened between saving and restoring, the
+	 frame "sizes" maybe equal but the windows still should be
+	 resized. This is tickled alot by the new "character size
+	 stays constant" policy in 21.0. It leads to very wierd
+	 glitches (and possibly craches when asserts are tickled).
+
+	 Just changing the units doens't help because changing the
+	 toolbar configuration can also change the pixel positions.
+	 Luckily there is a much simpler way of doing this, see below.
+       */
       previous_frame_width = FRAME_WIDTH (f);
       previous_frame_height = FRAME_HEIGHT (f);
       /* If the frame has been resized since this window configuration was
@@ -4934,7 +4957,37 @@ by `current-window-configuration' (which see).
       if (config->frame_height != FRAME_HEIGHT (f)
 	  || config->frame_width != FRAME_WIDTH (f))
 	change_frame_size (f, config->frame_height, config->frame_width, 0);
+#endif
+      
+      previous_pixel_top = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top;
+      previous_pixel_height = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_height;
+      previous_pixel_left = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left;
+      previous_pixel_width = XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_width;
 
+      /* remember some properties of the minibuffer */
+
+      default_face_height_and_width (frame, &real_font_height, 0);
+      assert(real_font_height > 0);
+  
+      if (FRAME_HAS_MINIBUF_P (f) && ! FRAME_MINIBUF_ONLY_P (f))
+	{
+	  previous_minibuf_height
+	    = XWINDOW(FRAME_MINIBUF_WINDOW(f))->pixel_height;
+	  previous_minibuf_top
+	    = XWINDOW(FRAME_MINIBUF_WINDOW(f))->pixel_top;
+	  previous_minibuf_width
+	    = XWINDOW(FRAME_MINIBUF_WINDOW(f))->pixel_width;
+	}
+      else
+	{
+	  previous_minibuf_height = 0;
+	  previous_minibuf_width = 0;
+	}
+      converted_minibuf_height =
+	(previous_minibuf_height % real_font_height) == 0 ?
+	- (previous_minibuf_height / real_font_height ) :    /* lines */
+	    previous_minibuf_height;   /* pixels */
+           
       /* Temporarily avoid any problems with windows that are smaller
 	 than they are supposed to be.  */
       window_min_height = 1;
@@ -5100,11 +5153,61 @@ by `current-window-configuration' (which see).
 	 currently selected, or just set the selected window of the
 	 window config's frame. */
 
+#if 0
       /* Set the frame height to the value it had before this function.  */
       if (previous_frame_height != FRAME_HEIGHT (f)
 	  || previous_frame_width != FRAME_WIDTH (f))
 	change_frame_size (f, previous_frame_height, previous_frame_width, 0);
+#endif
+      /* We just reset the size and position of the minibuffer, to its old
+	 value, which needn't be valid. So we do some magic to see which value
+	 to actually take. Then we set it.
 
+	 The magic:
+	 We take the old value if is in the same units but differs from the
+	 current value.
+
+         #### Now we get more cases correct then ever before, but
+	 are we treating all? For instance what if the frames minibuf window
+	 is no longer the same one? 
+      */
+      target_minibuf_height = previous_minibuf_height;
+      if (converted_minibuf_height &&
+	  (converted_minibuf_height * config->minibuf_height) > 0 &&
+	  (converted_minibuf_height !=  config->minibuf_height))
+	{
+	  target_minibuf_height = config->minibuf_height < 0 ?
+	    - (config->minibuf_height * real_font_height) :
+	    config->minibuf_height;
+	  target_minibuf_height =
+	    max(target_minibuf_height,real_font_height);
+	}
+      if (previous_minibuf_height)
+	{
+	  XWINDOW (FRAME_MINIBUF_WINDOW (f))->pixel_top
+	    = previous_minibuf_top -
+	          (target_minibuf_height - previous_minibuf_height);
+	  set_window_pixheight (FRAME_MINIBUF_WINDOW (f),
+				target_minibuf_height, 0);
+	  set_window_pixwidth  (FRAME_MINIBUF_WINDOW (f),
+			    previous_minibuf_width, 0);
+	}
+	
+      /* This is a better way to deal with frame resizing, etc.
+	 What we _actually_ want is for the old (just restored)
+	 root window to fit
+	 into the place of the new one. So we just do that. Simple! */
+      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_top = previous_pixel_top;
+      /* Note that this function also updates the subwindow
+	 "pixel_top"s */
+      set_window_pixheight (FRAME_ROOT_WINDOW (f),
+	  previous_pixel_height -
+		  (target_minibuf_height - previous_minibuf_height), 0);
+      XWINDOW (FRAME_ROOT_WINDOW (f))->pixel_left = previous_pixel_left;
+      /* Note that this function also updates the subwindow
+	 "pixel_left"s */
+      set_window_pixwidth (FRAME_ROOT_WINDOW (f), previous_pixel_width, 0);
+      
       /* If restoring in the current frame make the window current,
 	 otherwise just update the frame selected_window slot to be
 	 the restored current_window. */
@@ -5319,6 +5422,8 @@ its value is -not- saved.
   struct frame *f = decode_frame (frame);
   struct window_config *config;
   int n_windows = count_windows (XWINDOW (FRAME_ROOT_WINDOW (f)));
+  int minibuf_height;
+  int real_font_height;
 
   if (n_windows <= countof (Vwindow_configuration_free_list))
     config = XWINDOW_CONFIGURATION (allocate_managed_lcrecord
@@ -5328,11 +5433,11 @@ its value is -not- saved.
     /* More than ten windows; just allocate directly */
     config = (struct window_config *)
       alloc_lcrecord (sizeof_window_config_for_n_windows (n_windows),
-		      lrecord_window_configuration);
+		      &lrecord_window_configuration);
   XSETWINDOW_CONFIGURATION (result, config);
-
+  /*
   config->frame_width = FRAME_WIDTH (f);
-  config->frame_height = FRAME_HEIGHT (f);
+  config->frame_height = FRAME_HEIGHT (f); */
   config->current_window = FRAME_SELECTED_WINDOW (f);
   XSETBUFFER (config->current_buffer, current_buffer);
   config->minibuffer_scroll_window = Vminibuffer_scroll_window;
@@ -5341,6 +5446,22 @@ its value is -not- saved.
   config->min_width = window_min_width;
   config->saved_windows_count = n_windows;
   save_window_save (FRAME_ROOT_WINDOW (f), config, 0);
+
+  /* save the minibuffer height using the heuristics from
+     change_frame_size_1 */
+  
+  XSETFRAME (frame, f); /* frame could have been nil ! */
+  default_face_height_and_width (frame, &real_font_height, 0);
+  assert(real_font_height > 0);
+  
+  if (FRAME_HAS_MINIBUF_P (f) && ! FRAME_MINIBUF_ONLY_P (f))
+    minibuf_height = XWINDOW(FRAME_MINIBUF_WINDOW(f))->pixel_height;
+  else
+    minibuf_height = 0;
+  config->minibuf_height = (minibuf_height % real_font_height) == 0 ?
+    - (minibuf_height / real_font_height ) :    /* lines */
+    minibuf_height;   /* pixels */
+
   return result;
 }
 
@@ -5577,7 +5698,7 @@ If non-nil, this is a buffer and \\[scroll-other-window] should scroll its windo
       {
 	Vwindow_configuration_free_list[i] =
 	  make_lcrecord_list (sizeof_window_config_for_n_windows (i + 1),
-			      lrecord_window_configuration);
+			      &lrecord_window_configuration);
 	staticpro (&Vwindow_configuration_free_list[i]);
       }
   }

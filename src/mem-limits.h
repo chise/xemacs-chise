@@ -101,12 +101,7 @@ typedef unsigned long SIZE;
 #endif
 
 extern POINTER start_of_data (void);
-#ifdef DATA_SEG_BITS
-#define EXCEEDS_LISP_PTR(ptr) \
-  (((EMACS_UINT) (ptr) & ~DATA_SEG_BITS) >> VALBITS)
-#else
-#define EXCEEDS_LISP_PTR(ptr) ((EMACS_UINT) (ptr) >> VALBITS)
-#endif
+#define EXCEEDS_LISP_PTR(ptr) 0
 
 #ifdef BSD
 #ifndef DATA_SEG_BITS

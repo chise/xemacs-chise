@@ -411,7 +411,7 @@ make_general_lisp_hash_table (size_t size,
 			     double rehash_threshold)
 {
   Lisp_Object hash_table;
-  Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, lrecord_hash_table);
+  Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, &lrecord_hash_table);
 
   ht->type             = type;
   ht->rehash_size      = rehash_size;
@@ -832,7 +832,7 @@ The keys and values will not themselves be copied.
        (hash_table))
 {
   CONST Lisp_Hash_Table *ht_old = xhash_table (hash_table);
-  Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, lrecord_hash_table);
+  Lisp_Hash_Table *ht = alloc_lcrecord_type (Lisp_Hash_Table, &lrecord_hash_table);
 
   copy_lcrecord (ht, ht_old);
 

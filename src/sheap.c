@@ -85,8 +85,8 @@ void* more_static_core ( ptrdiff_t increment )
 "\nRequested %d bytes, static heap exhausted!  base is %p, current ptr
 is %p. You have exhausted the static heap. 
 
-If you are simply trying to compile, remove sheap-adjust.h and
-puresize-adjust.h and recompile from the top level. If this doesn't
+If you are simply trying to compile, remove sheap-adjust.h
+and recompile from the top level. If this doesn't
 work then STATIC_HEAP_SLOP (defined in this file) is too small.
 
 If you want to run temacs, change SHEAP_ADJUSTMENT in sheap-adjust.h

@@ -1,3 +1,43 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-14  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* update-elc.sh (ignore_pattern): Correct ignore_dirs/ignore=dirs
+	european keyboard fuckage.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* update-elc.sh (ignore_pattern): Installation.el is dead.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* gnuclient.c: Include <sysfile.h> instead of <../src/sysfile.h>.
+
+	* Makefile.in.in (cppflags): Add -I$(top_srcdir)/src.
+
+1999-04-29  Andy Piper  <andy@xemacs.org>
+	
+	* make-docfile.c: build fixes for mingw32.	
+	* movemail.c: ditto.
+	* run.c: ditto.
+	* yow.c: ditto.
+	* profile.c: ditto.
+	(gettimeofday): new function copied from nt.c.
+	
+	* fakemail.c (make_file_preface): make buildable under windows.
+
+	* Makefile.in.in: fix some build targets for when we are building
+ 	on a windows platform.
+
+1999-03-12  giacomo boffi  <giacomo.boffi@polimi.it>
+
+	* sorted-doc.c: corrected the outdated or plainly wrong
+	texinfo headers. Broken up the mega-@table that crashes (at
+	least RedHat's) TeX with:
+	 "! TeX capacity exceeded, sorry [save size=4000]."
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

@@ -513,13 +513,13 @@ x_locate_pixmap_file (Lisp_Object name)
 
   {
     Lisp_Object found;
-    if (locate_file (Vx_bitmap_file_path, name, "", &found, R_OK) < 0)
+    if (locate_file (Vx_bitmap_file_path, name, Qnil, &found, R_OK) < 0)
       {
 	Lisp_Object temp = list1 (Vdata_directory);
 	struct gcpro gcpro1;
 
 	GCPRO1 (temp);
-	locate_file (temp, name, "", &found, R_OK);
+	locate_file (temp, name, Qnil, &found, R_OK);
 	UNGCPRO;
       }
 

@@ -59,7 +59,6 @@ Boston, MA 02111-1307, USA.  */
 #include <../src/config.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <sys/file.h>
 #include <stdio.h>
 #include <errno.h>
 #include "../src/sysfile.h"

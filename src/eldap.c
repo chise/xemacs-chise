@@ -123,7 +123,7 @@ static struct Lisp_LDAP *
 allocate_ldap (void)
 {
   struct Lisp_LDAP *ldap =
-    alloc_lcrecord_type (struct Lisp_LDAP, lrecord_ldap);
+    alloc_lcrecord_type (struct Lisp_LDAP, &lrecord_ldap);
 
   ldap->ld = NULL;
   ldap->host = Qnil;
@@ -359,7 +359,7 @@ Close an LDAP connection.
 struct ldap_unwind_struct
 {
   LDAPMessage *res;
-  char **vals;
+  struct berval **vals;
 };
 
 
@@ -371,11 +371,11 @@ ldap_search_unwind (Lisp_Object unwind_obj)
   if (unwind->res)
     ldap_msgfree (unwind->res);
   if (unwind->vals)
-    ldap_value_free (unwind->vals);
+    ldap_value_free_len (unwind->vals);
   return Qnil;
 }
 
-DEFUN ("ldap-search-internal", Fldap_search_internal, 2, 6, 0, /*
+DEFUN ("ldap-search-internal", Fldap_search_internal, 2, 7, 0, /*
 Perform a search on an open LDAP connection.
 LDAP is an LDAP connection object created with `ldap-open'.
 FILTER is a filter string for the search as described in RFC 1558.
@@ -386,10 +386,13 @@ ATTRS is a list of strings indicating which attributes to retrieve
  for each matching entry. If nil return all available attributes.
 If ATTRSONLY is non-nil then only the attributes are retrieved, not
 the associated values.
+If WITHDN is non-nil each entry in the result will be prepennded with
+its distinguished name DN.
 The function returns a list of matching entries.  Each entry is itself
-an alist of attribute/values.
+an alist of attribute/value pairs optionally preceded by the DN of the
+entry according to the value of WITHDN.
 */
-       (ldap, filter, base, scope, attrs, attrsonly))
+       (ldap, filter, base, scope, attrs, attrsonly, withdn))
 {
   /* This function can GC */
 
@@ -397,7 +400,7 @@ an alist of attribute/values.
   LDAP *ld;
   LDAPMessage *e;
   BerElement *ptr;
-  char *a;
+  char *a, *dn;
   int i, rc;
   int  matches;
   struct ldap_unwind_struct unwind;
@@ -500,23 +503,35 @@ an alist of attribute/values.
          restore the old echo area contents later.  */
       message ("Parsing ldap results... %d", matches);
       entry = Qnil;
+      /* Get the DN if required */
+      if (! NILP (withdn))
+        {
+          dn = ldap_get_dn (ld, e);
+          if (dn == NULL)
+            {
+              signal_ldap_error (ld);
+            }
+          entry = Fcons (build_ext_string (dn, FORMAT_OS), Qnil);
+        }
       for (a= ldap_first_attribute (ld, e, &ptr);
            a != NULL;
-           a= ldap_next_attribute (ld, e, ptr) )
+           a = ldap_next_attribute (ld, e, ptr) )
         {
           list = Fcons (build_ext_string (a, FORMAT_OS), Qnil);
-          unwind.vals = ldap_get_values (ld, e, a);
+          unwind.vals = ldap_get_values_len (ld, e, a);
           if (unwind.vals != NULL)
             {
               for (i = 0; unwind.vals[i] != NULL; i++)
                 {
-                  list = Fcons (build_ext_string (unwind.vals[i], FORMAT_OS),
+                  list = Fcons (make_ext_string (unwind.vals[i]->bv_val,
+                                                 unwind.vals[i]->bv_len,
+                                                 FORMAT_OS),
                                 list);
                 }
             }
           entry = Fcons (Fnreverse (list),
                          entry);
-          ldap_value_free (unwind.vals);
+          ldap_value_free_len (unwind.vals);
           unwind.vals = NULL;
         }
       result = Fcons (Fnreverse (entry),

@@ -73,8 +73,8 @@ char resolved_path [];
   char copy_path[PATH_MAX];
   char *new_path = resolved_path;
   char *max_path;
-  int readlinks = 0;
 #ifdef S_IFLNK
+  int readlinks = 0;
   char link_path[PATH_MAX];
   int n;
 #endif

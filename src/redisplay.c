@@ -5253,8 +5253,9 @@ regeneration_done:
       Bufpos end = (w->window_end_pos[DESIRED_DISP] == -1
 		    ? BUF_ZV (b)
 		    : BUF_Z (b) - w->window_end_pos[DESIRED_DISP] - 1);
-
-      update_line_start_cache (w, start, end, pointm, 1);
+      /* Don't pollute the cache if not sure if we are correct */
+      if (w->start_at_line_beg)
+	update_line_start_cache (w, start, end, pointm, 1);
       redisplay_output_window (w);
       /*
        * If we just displayed the echo area, the line start cache is
@@ -6278,7 +6279,7 @@ update_internal_cache_list (struct window *w, int type)
       else
 	{
 	  struct line_start_cache lsc;
-
+	  
 	  lsc.start = dl->bufpos;
 	  lsc.end = dl->end_bufpos;
 	  lsc.height = dl->ascent + dl->descent;

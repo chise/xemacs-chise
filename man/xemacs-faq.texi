@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1998/05/03 10:22:33 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/03/04 15:48:25 $
 @sp 1
 @author Tony Rossini <arossini@@stat.sc.edu>
 @author Ben Wing <wing@@666.com>
@@ -17,6 +17,13 @@
 @author Christian Nyb@o{} <chr@@mediascience.no>
 @page
 @end titlepage
+
+@ifinfo
+@dircategory XEmacs Editor
+@direntry
+* FAQ: (xemacs-faq).		XEmacs FAQ.
+@end direntry
+@end ifinfo
 
 @node Top, Introduction, (dir), (dir)
 @top XEmacs FAQ
@@ -2760,7 +2767,7 @@ For XEmacs 19.14 and previous:
 @email{mannj@@ll.mit.edu, John Mann} writes:
 
 @quotation
-You have to go to Options->Menubar Appearance and unselect
+You have to go to Options->Frame Appearance and unselect
 @samp{Frame-Local Font Menu}.  If this option is selected, font changes
 are only applied to the @emph{current} frame and do @emph{not} get saved
 when you save options.

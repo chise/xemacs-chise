@@ -1,4 +1,7 @@
 							-*- indented-text -*-
+to 21.2.14 ""
+-- mingw32 port from Andy Piper
+
 to 21.2.13 "Demeter"
 -- Build fixes from Martin Buchholz
 -- experimental splash screen rewrite from Didier Verna

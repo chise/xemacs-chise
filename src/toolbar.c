@@ -303,7 +303,7 @@ update_toolbar_button (struct frame *f, struct toolbar_button *tb,
 
   if (!tb)
     {
-      tb = alloc_lcrecord_type (struct toolbar_button, lrecord_toolbar_button);
+      tb = alloc_lcrecord_type (struct toolbar_button, &lrecord_toolbar_button);
       tb->next = Qnil;
       XSETFRAME (tb->frame, f);
       tb->up_glyph = Qnil;

@@ -1,3 +1,207 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-13  SL Baur  <steve@gneiss.etl.go.jp>
+
+        * about.el: update contact info for jason and slb.
+
+1999-05-13  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* mule/european.el (setup-romanian-environment): Add Romanian
+	support from Emacs/Mule romanian.el.
+
+1999-03-17  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* cus-face.el: Label all custom changes with the 'custom' tag.
+
+	* cus-edit.el: idem ditto.
+
+	* faces.el: Added suport for adding device tags to various functions.
+	(custom): New device tag.
+	(face-spec-set): Call reset face with tags argument. No longer do
+	x-init-global-faces hack.
+
+	* faces.el (frob-face-property): Use an anonymous specifier to map
+	frob-face-property-1 over.
+
+	* x-font-menu.el (font-menu-set-font): Always specify all
+	properties to custom.
+
+1999-05-12  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* mule/european.el (setup-czech-environment): Add czech support.
+	From David Sauer <davids@orfinet.cz>
+
+1999-03-15  SL Baur  <steve@xemacs.org>
+
+	* check-features.el: Turn hard errors into warnings.
+
+1999-03-21  SL Baur  <steve@xemacs.org>
+
+	* simple.el (delete-key-deletes-forward): As per discussion on
+	xemacs-beta, default to t.
+
+1999-05-11  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* loadup.el: Define Installation-string before loading anything.
+
+1999-05-06  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* files.el (auto-mode-alist): fix typo in regex for .bash_* files
+	From Anders Stenman <stenman@isy.liu.se>
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* wid-edit.el (widget-glyph-find): Ditto.
+
+	* packages.el (locate-library): Ditto.
+
+	* loadup.el (really-early-error-handler): Ditto.
+
+	* lib-complete.el (read-library): Ditto.
+
+	* faces.el (set-face-stipple): Ditto.
+
+	* code-files.el (load): Use new calling style of locate-file.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* packages.el (packages-unbytecompiled-lisp): Installation.el is
+ 	dead.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dumped-lisp.el (preloaded-file-list): Don't load
+ 	Installation.el.
+
+	* loadup.el (Installation-string): Define it here.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dumped-lisp.el (preloaded-file-list): Revert previous change --
+ 	Installation.el needs to be loaded before `dump-paths', otherwise
+	the dumping process won't find it.
+
+1999-03-13  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* dumped-lisp.el (preloaded-file-list): Load Installation.el after
+	subr so that we can use `replace-in-string' in Installation.el to
+	get rid of C-m chars under the native Windows build.
+
+1999-04-29  Andy Piper  <andy@xemacs.org>
+
+	* make-docfile.el: canonicalize file and directory names.
+
+	* device.el (call-device-method): new function for calling device
+ 	specific methods.
+	(define-device-method): new function for defining device methods.
+	(define-device-method*): ditto.
+
+1999-04-27  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (buffer-string): Support new FSFmacs 20.4 stuff.
+
+1999-04-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): New variable.
+	(cyrillic-koi8-r-encode-table): Likewise.
+	(ccl-decode-koi8): Use `cyrillic-koi8-r-decode-table'.
+	(ccl-encode-koi8): Use `cyrillic-koi8-r-encode-table'.
+
+	* mule/mule-misc.el (split-char-or-char-int): New function [moved
+	from vietnamese.el].
+
+	* mule/vietnamese.el: Move function `split-char-or-char-int' to
+	mule/mule-misc.el.
+
+1999-04-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el:
+	- Change font registry name from "Thai94x94-0" to "xtis-0".
+	- Change mnemonic of coding-system `tis-620' to "TIS620".
+
+1999-04-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/ethiopic.el: fixed.
+
+1999-03-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el: Add ethiopic, thai-xtis and vietnamese.
+
+	* mule/thai-xtis.el: New file.
+
+	* mule/vietnamese.el: New file.
+
+	* mule/ethiopic.el: New file.
+
+1999-04-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* bytecomp.el (byte-compile-close-variables): Leave
+	debug-issue-ebola-notices alone.
+
+1999-04-11  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* ldap.el (ldap-host-parameters-alist): Make `Search Base' appear
+ 	at the top of the buffer since it is the most important thing to
+ 	customize
+	(ldap-get-host-parameter): New defun
+	(ldap-search): Add a new parameter `withdn' to retrieve the
+ 	distinguished names of entries
+
+1999-04-22  Kai Haberzettl  <khaberz@synnet.de>
+
+	* startup.el (splash-frame-body): Date and spelling fixes.
+
+1999-03-16  Colin Rafferty  <colin@xemacs.org>
+
+	* view-less.el (toggle-truncate-lines): add autoload tag
+
+1999-04-19  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* format.el (format-alist): Disable image stuff.
+
+1999-04-17  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* wid-edit.el (widget-glyph-find): Search by directories, then by
+ 	suffixes rather than the other way around.
+	(widget-image-conversion): Renamed to
+ 	`widget-image-file-name-suffixes'.
+
+1999-04-16  Olivier Galibert  <galibert@pobox.com>
+
+	* mule/mule-charset.el: Made old functions obsolete, remove the
+ 	unspeakably evil (and inexistant in fsf's) charset-leading-byte.
+ 	(charset-iso-graphic-plane): Rename from charset-graphic.
+	(charset-iso-final-char): Rename from charset-final.
+	(charset-width): Rename from charset-columns.
+	(charset-bytes): Added from fsf compatibility, returns always 1.
+
+	* mule/mule-misc.el: Move charset-doc-string alias to
+ 	mule-charset.el
+
+1999-04-14  Colin Rafferty  <colin@xemacs.org>
+
+	* x-faces.el (x-make-font-bold-italic): honor
+	*try-oblique-before-italic-fonts*
+
+1999-04-14  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* cl-extra.el (coerce): Coerce numbers to characters correctly.
+
+1998-12-02  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* x-faces.el (try-oblique-before-italic-fonts): Use the right
+ 	name.
+
+1999-04-14  Dave Gillesipe  <daveg@synaptics.com>
+
+	* cl-extra.el (equalp): Would bug out for lists.
+
+1999-03-12  Charles G Waldman  <cgw@fnal.gov>
+
+	* about.el (about-hackers):  Change cgw's email address
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

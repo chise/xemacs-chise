@@ -33,7 +33,11 @@ Boston, MA 02111-1307, USA.  */
 #include "sysdep.h"
 
 #include <windows.h>
+#ifndef __MINGW32__
 #include <shellapi.h>
+#else
+#include <errno.h>
+#endif
 #include <signal.h>
 #ifdef HAVE_SOCKETS
 #include <winsock.h>
@@ -306,7 +310,8 @@ send_signal (HANDLE h_process, int signo)
 	sigkill_data d;
 	d.adr_ExitProcess = GetProcAddress (h_kernel, "ExitProcess");
 	assert (d.adr_ExitProcess);
-	retval = run_in_other_process (h_process, sigkill_proc,
+	retval = run_in_other_process (h_process, 
+				       (LPTHREAD_START_ROUTINE)sigkill_proc,
 				       &d, sizeof (d));
 	break;
       }
@@ -317,7 +322,8 @@ send_signal (HANDLE h_process, int signo)
 	  GetProcAddress (h_kernel, "GenerateConsoleCtrlEvent");
 	assert (d.adr_GenerateConsoleCtrlEvent);
 	d.event = CTRL_C_EVENT;
-	retval = run_in_other_process (h_process, sigint_proc,
+	retval = run_in_other_process (h_process, 
+				       (LPTHREAD_START_ROUTINE)sigint_proc,
 				       &d, sizeof (d));
 	break;
       }
@@ -341,7 +347,7 @@ enable_child_signals (HANDLE h_process)
   d.adr_SetConsoleCtrlHandler =
     GetProcAddress (h_kernel, "SetConsoleCtrlHandler");
   assert (d.adr_SetConsoleCtrlHandler);
-  run_in_other_process (h_process, sig_enable_proc,
+  run_in_other_process (h_process, (LPTHREAD_START_ROUTINE)sig_enable_proc,
 			&d, sizeof (d));
 }
   
@@ -862,7 +868,7 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
 
   /* We don't want to be blocked on connect */
   {
-    unsigned int nonblock = 1;
+    unsigned long nonblock = 1;
     ioctlsocket (s, FIONBIO, &nonblock);
   }
   

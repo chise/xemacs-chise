@@ -97,12 +97,12 @@ BUFFER defaults to the current buffer if omitted."
 
 ;;;; Charset accessors
 
-(defun charset-graphic (charset)
+(defun charset-iso-graphic-plane (charset)
   "Return the `graphic' property of CHARSET.
 See `make-charset'."
   (charset-property charset 'graphic))
 
-(defun charset-final (charset)
+(defun charset-iso-final-char (charset)
   "Return the final byte of the ISO 2022 escape sequence designating CHARSET."
   (charset-property charset 'final))
 
@@ -110,7 +110,7 @@ See `make-charset'."
   "Return the number of characters per dimension of CHARSET."
   (charset-property charset 'chars))
 
-(defun charset-columns (charset)
+(defun charset-width (charset)
   "Return the number of display columns per character of CHARSET.
 This only applies to TTY mode (under X, the actual display width can
 be automatically determined)."
@@ -131,10 +131,14 @@ that can display the characters in CHARSET."
 See `make-charset'."
   (charset-property charset 'ccl-program))
 
-(defun charset-leading-byte (charset)
-  "Return the leading byte of CHARSET.
-See `make-charset'."
-  (charset-property charset 'leading-byte))
+(defun charset-bytes (charset)
+  "Useless in XEmacs, returns 1."
+   1)
+
+(define-obsolete-function-alias 'charset-columns 'charset-width) ;; 19990409
+(define-obsolete-function-alias 'charset-final 'charset-iso-final-char) ;; 19990409
+(define-obsolete-function-alias 'charset-graphic 'charset-iso-graphic-plane) ;; 19990409
+(define-obsolete-function-alias 'charset-doc-string 'charset-description) ;; 19990409
 
 ;;;; Define setf methods for all settable Charset properties
 

@@ -42,18 +42,36 @@
 (defvar preloaded-file-list nil
   "List of files preloaded into the XEmacs binary image.")
 
+(defvar Installation-string nil
+  "Description of XEmacs installation.")
 
 (let ((gc-cons-threshold 30000))
   
 ;; This is awfully damn early to be getting an error, right?
 (call-with-condition-handler 'really-early-error-handler
     #'(lambda ()
-	;; message not defined yet ...
+
+	;; Initializa Installation-string.  We do it before loading
+	;; anything so that dumped code can make use of its value.
+	(setq Installation-string
+	      (save-current-buffer
+		(set-buffer (get-buffer-create (generate-new-buffer-name
+						" *temp*")))
+		;; insert-file-contents-internal bogusly calls
+		;; format-decode without checking if it's defined.
+		(fset 'format-decode #'(lambda (f l &optional v) l))
+		(insert-file-contents-internal "../Installation")
+		(fmakunbound 'format-decode)
+		(prog1 (buffer-substring)
+		  (kill-buffer (current-buffer)))))
+
 	(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
 	(setq module-load-path (split-path (getenv "EMACSBOOTSTRAPMODULEPATH")))
 
+	;; message not defined yet ...
 	(external-debugging-output (format "\nUsing load-path %s" load-path))
-	(external-debugging-output (format "\nUsing module-load-path %s" module-load-path))
+	(external-debugging-output (format "\nUsing module-load-path %s"
+					   module-load-path))
 
 	;; We don't want to have any undo records in the dumped XEmacs.
 	(buffer-disable-undo (get-buffer "*scratch*"))
@@ -86,7 +104,8 @@
 	(defun pureload (file)
 	  (let ((full-path
 		 (locate-file file load-path
-			      (if load-ignore-elc-files ".el:" ".elc:.el:"))))
+			      (if load-ignore-elc-files
+				  '(".el" "") '(".elc" ".el" "")))))
 	    (if full-path
 		(prog1
 		  (load full-path)
@@ -144,7 +163,6 @@
 ;;; Turn on recording of which commands get rebound,
 ;;; for the sake of the next call to precompute-menubar-bindings.
 ;(setq define-key-rebound-commands nil)
-
 
 ;; Note: all compiled Lisp files loaded above this point
 ;; must be among the ones parsed by make-docfile

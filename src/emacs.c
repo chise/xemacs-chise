@@ -224,6 +224,8 @@ static void sort_args (int argc, char **argv);
 Lisp_Object Qkill_emacs_hook;
 Lisp_Object Qsave_buffers_kill_emacs;
 
+extern Lisp_Object Vlisp_EXEC_SUFFIXES;
+
 
 /* Signal code for the fatal signal that was received */
 static int fatal_error_code;
@@ -1022,6 +1024,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MSW_C_DIRED
       syms_of_dired_mswindows ();
 #endif
+#ifdef WINDOWSNT
+      syms_of_ntproc ();
+#endif
 #endif	/* HAVE_MS_WINDOWS */
 
 #ifdef MULE
@@ -1676,7 +1681,8 @@ main_1 (int argc, char **argv, char **envp, int restart)
     else
       {
 	Vinvocation_path = decode_env_path ("PATH", NULL);
-	locate_file (Vinvocation_path, Vinvocation_name, EXEC_SUFFIXES,
+	locate_file (Vinvocation_path, Vinvocation_name,
+		     Vlisp_EXEC_SUFFIXES,
 		     &Vinvocation_directory, X_OK);
       }
 
@@ -2014,7 +2020,7 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
       total_len += wampum_all_len[ac];
     }
   DO_REALLOC (run_temacs_args, run_temacs_args_size, total_len, char);
-  DO_REALLOC (run_temacs_argv, run_temacs_argv_size, nargs+1, char *);
+  DO_REALLOC (run_temacs_argv, run_temacs_argv_size, nargs+2, char *);
 
   memcpy (run_temacs_args, wampum, namesize);
   run_temacs_argv [0] = run_temacs_args;
@@ -2031,13 +2037,6 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   unbind_to (0, Qnil); /* this closes loadup.el */
   purify_flag = 0;
   run_temacs_argc = nargs + 1;
-#if 0
-#ifdef REPORT_PURE_USAGE
-  report_pure_usage (1, 0);
-#else
-  report_pure_usage (0, 0);
-#endif
-#endif /* 0 */
   LONGJMP (run_temacs_catch, 1);
   return Qnil; /* not reached; warning suppression */
 }
@@ -2445,12 +2444,6 @@ and announce itself normally when it is run.
 
   opurify = purify_flag;
   purify_flag = 0;
-
-#ifdef DEBUG_XEMACS
-  report_pure_usage (1, 1);
-#else
-  report_pure_usage (0, 1);
-#endif
 
   fflush (stderr);
   fflush (stdout);

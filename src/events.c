@@ -87,7 +87,7 @@ deinitialize_event (Lisp_Object ev)
     ((int *) event) [i] = 0xdeadbeef;
   event->event_type = dead_event;
   event->channel = Qnil;
-  set_lheader_implementation (&(event->lheader), lrecord_event);
+  set_lheader_implementation (&(event->lheader), &lrecord_event);
   XSET_EVENT_NEXT (ev, Qnil);
 }
 
@@ -96,7 +96,7 @@ void
 zero_event (struct Lisp_Event *e)
 {
   xzero (*e);
-  set_lheader_implementation (&(e->lheader), lrecord_event);
+  set_lheader_implementation (&(e->lheader), &lrecord_event);
   e->event_type = empty_event;
   e->next = Qnil;
   e->channel = Qnil;

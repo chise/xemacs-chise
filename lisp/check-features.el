@@ -39,8 +39,8 @@
   (condition-case nil
       (package-require 'tooltalk 1.0)
     (t (progn
-	 (setq build-error 1)
-	 (message "Error:  This XEmacs is built with tooltalk support but")
+	 ;; (setq build-error 1)
+	 (message "Warning:  This XEmacs is built with tooltalk support but")
 	 (message "does not have a tooltalk package installed.  Without the")
 	 (message "tooltalk lisp package, Tooltalk support is broken.")))))
 
@@ -48,8 +48,8 @@
   (condition-case nil
       (package-require 'Sun 1.0)
     (t (progn
-	 (setq build-error 1)
-	 (message "Error:  This XEmacs is built with sparcworks support but")
+	 ;; (setq build-error 1)
+	 (message "Warning:  This XEmacs is built with sparcworks support but")
 	 (message "does not have the Sun package installed.  Without the Sun")
 	 (message "lisp package, Sparcworks support will be broken.")))))
 

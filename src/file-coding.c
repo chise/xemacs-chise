@@ -531,7 +531,7 @@ static Lisp_Coding_System *
 allocate_coding_system (enum coding_system_type type, Lisp_Object name)
 {
   Lisp_Coding_System *codesys =
-    alloc_lcrecord_type (Lisp_Coding_System, lrecord_coding_system);
+    alloc_lcrecord_type (Lisp_Coding_System, &lrecord_coding_system);
 
   zero_lcrecord (codesys);
   CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = Qnil;
@@ -947,6 +947,40 @@ be created.
     to->name = new_name;
   }
   return new_coding_system;
+}
+
+DEFUN ("define-coding-system-alias", Fdefine_coding_system_alias, 2, 2, 0, /*
+Define symbol ALIAS as an alias for coding system CODING-SYSTEM.
+*/
+       (alias, coding_system))
+{
+  CHECK_SYMBOL (alias);
+  if (!NILP (Ffind_coding_system (alias)))
+    signal_simple_error ("Symbol already names a coding system", alias);
+  coding_system = Fget_coding_system (coding_system);
+  Fputhash (alias, coding_system, Vcoding_system_hash_table);
+
+  /* Set up aliases for subsidiaries. */
+  if (XCODING_SYSTEM_EOL_TYPE (coding_system) == EOL_AUTODETECT)
+    {
+      Lisp_Object str;
+      XSETSTRING (str, symbol_name (XSYMBOL (alias)));
+#define FROB(type, name)							\
+      do {									\
+	Lisp_Object subsidiary = XCODING_SYSTEM_EOL_##type (coding_system);	\
+	if (!NILP (subsidiary))							\
+	  Fdefine_coding_system_alias						\
+	    (Fintern (concat2 (str, build_string (name)), Qnil), subsidiary);	\
+      } while (0)
+      FROB (LF,   "-unix");
+      FROB (CRLF, "-dos");
+      FROB (CR,   "-mac");
+#undef FROB
+    }
+  /* FSF return value is a vector of [ALIAS-unix ALIAS-doc ALIAS-mac],
+     but it doesn't look intentional, so I'd rather return something
+     meaningful or nothing at all. */
+  return Qnil;
 }
 
 static Lisp_Object
@@ -1718,10 +1752,12 @@ do {					\
 
 #define DECODE_HANDLE_END_OF_CONVERSION(flags, ch, dst)	\
 do {					\
-  DECODE_OUTPUT_PARTIAL_CHAR (ch);	\
-  if ((flags & CODING_STATE_END) &&	\
-      (flags & CODING_STATE_CR))	\
-    Dynarr_add (dst, '\r');		\
+  if (flags & CODING_STATE_END)		\
+    {					\
+      DECODE_OUTPUT_PARTIAL_CHAR (ch);	\
+      if (flags & CODING_STATE_CR)	\
+	Dynarr_add (dst, '\r');		\
+    }					\
 } while (0)
 
 #define DECODING_STREAM_DATA(stream) LSTREAM_TYPE_DATA (stream, decoding)
@@ -3164,7 +3200,8 @@ Return the UCS code (a positive integer) corresponding to CHARACTER.
 }
 
 /* Decode a UCS-4 character into a buffer.  If the lookup fails, use
-   JIS X 0208 double-width `=' instead.
+   <GETA MARK> (U+3013) of JIS X 0208, which means correct character
+   is not found, instead.
    #### do something more appropriate (use blob?)
         Danger, Will Robinson!  Data loss.  Should we signal user? */
 static void
@@ -5379,6 +5416,7 @@ syms_of_mule_coding (void)
   DEFSUBR (Fcoding_system_name);
   DEFSUBR (Fmake_coding_system);
   DEFSUBR (Fcopy_coding_system);
+  DEFSUBR (Fdefine_coding_system_alias);
   DEFSUBR (Fsubsidiary_coding_system);
 
   DEFSUBR (Fcoding_system_type);

@@ -173,8 +173,7 @@ in dumped-lisp.el and is not itself listed.")
     "dumped-lisp.el"
     "dumped-pkg-lisp.el"
     "version.el"
-    "very-early-lisp.el"
-    "Installation.el")
+    "very-early-lisp.el")
   "Lisp packages that should not be byte compiled.")
 
 
@@ -203,14 +202,13 @@ is used instead of `load-path'."
 			  (member 'crypt-find-file-hook find-file-hooks)))
 		 ;; Compression involved.
 		 (if nosuffix
-		     ":.gz:.Z"
-		   ".elc:.elc.gz:elc.Z:.el:.el.gz:.el.Z::.gz:.Z"))
+		     '("" ".gz" ".Z")
+		   '(".elc" ".elc.gz" "elc.Z" ".el" ".el.gz" ".el.Z" "" ".gz" ".Z")))
 		(t
 		 ;; No compression.
 		 (if nosuffix
 		     ""
-		   ".elc:.el:")))
-	  4)))
+		   '(".elc" ".el" "")))))))
     (and interactive-call
 	 (if result
 	     (message "Library is file %s" result)
@@ -343,9 +341,7 @@ If no DIR-LIST is supplied, it defaults to `data-directory-list'."
   "Locate a file in a search path DIR-LIST (a list of directories).
 If no DIR-LIST is supplied, it defaults to `data-directory-list'.
 This function is basically a wrapper over `locate-file'."
-  (unless dir-list
-    (setq dir-list data-directory-list))
-  (locate-file name dir-list))
+  (locate-file name (or dir-list data-directory-list)))
 
 ;; Path setup
 

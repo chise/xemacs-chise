@@ -568,7 +568,11 @@ if test -z "$ld_dynamic_link_flags"; then
     ld_dynamic_link_flags=
     ;;
 
-  sco3.2v5* | unixware* | sysv5* | sysv4* | solaris2* | solaris7*)
+  solaris2* | solaris7*)
+    ld_dynamic_link_flags="${wl}-Bdynamic"
+    ;;
+
+  sco3.2v5* | unixware* | sysv5* | sysv4*)
     ld_dynamic_link_flags="${wl}-Bexport"
     ;;
 

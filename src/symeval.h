@@ -293,12 +293,7 @@ void deferror (Lisp_Object *symbol, CONST char *name,
 
 void defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *magic);
 
-#ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
-# define symbol_value_forward_lheader_initializer { 1, 0, 0 }
-#else
-# define symbol_value_forward_lheader_initializer \
-   { lrecord_symbol_value_forward }
-#endif
+#define symbol_value_forward_lheader_initializer { 1, { 0, 0, 0 } }
 
 #define DEFVAR_SYMVAL_FWD(lname, c_location, forward_type, magicfun) do {	\
   static CONST_IF_NOT_DEBUG struct symbol_value_forward I_hate_C		\

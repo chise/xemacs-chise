@@ -1575,7 +1575,7 @@ If the optional FRAME argument is provided, change only
 in that frame; otherwise change each frame."
   (while (not (find-face face))
     (setq face (signal 'wrong-type-argument (list 'facep face))))
-  (locate-file pixmap x-bitmap-file-path ".xbm:" 4)
+  (locate-file pixmap x-bitmap-file-path '(".xbm" ""))
   (while (cond ((stringp pixmap)
 		(unless (file-readable-p pixmap)
 		  (setq pixmap `[xbm :file ,pixmap]))

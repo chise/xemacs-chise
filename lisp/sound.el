@@ -105,6 +105,7 @@
   :type 'directory
   )
 
+;; #### This should really be a list.  --hniksic
 (defcustom sound-extension-list (if (or (eq system-type 'cygwin32)
 					(eq system-type 'windows-nt))
 				    ".wav:" ".au:")
@@ -144,7 +145,8 @@ nVolume (0 for default): ")
     (error "volume not an integer or nil"))
   (let (buf
 	data
-	(file (locate-file filename  default-sound-directory-list  sound-extension-list)))
+	(file (locate-file filename default-sound-directory-list
+			   sound-extension-list)))
     (unless file
       (error "Couldn't load sound file %s" filename))
     (unwind-protect

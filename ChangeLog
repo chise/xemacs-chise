@@ -1,3 +1,57 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-11  SL Baur  <steve@altair.xemacs.org>
+
+	* version.sh (infodock_build_version): Synch InfoDock version.
+
+1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* aclocal.m4 (ld_dynamic_link_flags): Change -Bexport to -Bdynamic 
+	for Solaris.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* configure.in (xemacs_betaname): Don't generate Installation.el.
+
+	* Makefile.in.in (top_distclean): Don't remove Installation.el.
+
+1999-04-29  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: add mingw32 as a target platform. add nt process
+ 	support options.
+
+1999-03-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/HELLO (Amharic): New language.
+	(Slovak): Likewise.
+	(Thai): Likewise (by Virach Sornlertlamvanich).
+	(Greek): Fixed (by Yannis Haralambous).
+
+1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* configure.in: Delete mule-coding.o.
+
+1999-04-22  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* lwlib/xlwmenu.c (string_width_u): Initialise chars before
+ 	calling XmStringGetLtoR
+	(string_draw_u): ditto and check return value of XmStringGetLtoR()
+
+1999-04-05  Olivier Galibert  <galibert@pobox.com>
+
+	* Makefile.in.in (GENERATED_HEADERS): Don't generate
+ 	puresize-adjust.h anymore
+
+	* configure.usage: Remove everything gung-ho or purespace related
+
+	* configure.in: Ditto
+
+1999-04-17  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* configure.in: Check for getloadavg().
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

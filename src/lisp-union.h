@@ -23,20 +23,17 @@ Boston, MA 02111-1307, USA.  */
 
 /* Definition of Lisp_Object type as a union.
    The declaration order of the objects within the struct members
-   of the union is dependent on ENDIAN-ness and USE_MINIMAL_TAGBITS.
+   of the union is dependent on ENDIAN-ness.
    See lisp-disunion.h for more details.  */
 
 typedef
 union Lisp_Object
 {
   /* if non-valbits are at lower addresses */
-#if defined(WORDS_BIGENDIAN) == defined(USE_MINIMAL_TAGBITS)
+#if defined(WORDS_BIGENDIAN)
   struct
   {
     EMACS_UINT val : VALBITS;
-#if GCMARKBITS > 0
-    unsigned int markbit: GCMARKBITS;
-#endif
     enum_field (Lisp_Type) type : GCTYPEBITS;
   } gu;
 
@@ -55,9 +52,6 @@ union Lisp_Object
   struct
   {
     enum_field (Lisp_Type) type : GCTYPEBITS;
-#if GCMARKBITS > 0
-    unsigned int markbit: GCMARKBITS;
-#endif
     EMACS_UINT val : VALBITS;
   } gu;
 
@@ -88,8 +82,6 @@ Lisp_Object;
 
 #define XCHARVAL(x) ((x).gu.val)
 
-#ifdef USE_MINIMAL_TAGBITS
-
 # define XSETINT(var, value) do {	\
   EMACS_INT xset_value = (value);	\
   Lisp_Object *xset_var = &(var);	\
@@ -107,21 +99,6 @@ Lisp_Object;
   (var).ui = xset_value;			\
 } while (0)
 # define XPNTRVAL(x) ((x).ui)
-
-#else /* ! USE_MINIMAL_TAGBITS */
-
-# define XSETOBJ(var, vartype, value) do {	\
-  EMACS_UINT xset_value = (EMACS_UINT) (value);	\
-  Lisp_Object *xset_var = &(var);		\
-  xset_var->gu.type = (vartype);		\
-  xset_var->gu.markbit = 0;			\
-  xset_var->gu.val = xset_value;		\
-} while (0)
-# define XSETINT(var, value) XSETOBJ (var, Lisp_Type_Int, value)
-# define XSETCHAR(var, value) XSETOBJ (var, Lisp_Type_Char, value)
-# define XPNTRVAL(x) ((x).gu.val)
-
-#endif /* ! USE_MINIMAL_TAGBITS */
 
 INLINE Lisp_Object make_int (EMACS_INT val);
 INLINE Lisp_Object
@@ -149,25 +126,8 @@ extern Lisp_Object Qnull_pointer, Qzero;
 #define XGCTYPE(x) XTYPE (x)
 #define EQ(x,y) ((x).v == (y).v)
 
-#ifdef USE_MINIMAL_TAGBITS
 #define INTP(x) ((x).s.bits)
 #define GC_EQ(x,y) EQ (x, y)
-#else
-#define INTP(x) (XTYPE(x) == Lisp_Type_Int)
-#define GC_EQ(x,y) ((x).gu.val == (y).gu.val && XTYPE (x) == XTYPE (y))
-#endif
-
-#if GCMARKBITS > 0
-/* XMARKBIT accesses the markbit.  Markbits are used only in
-   particular slots of particular structure types.  Other markbits are
-   always zero.  Outside of garbage collection, all mark bits are
-   always zero. */
-# define XMARKBIT(x) ((x).gu.markbit)
-# define XMARK(x) ((void) (XMARKBIT (x) = 1))
-# define XUNMARK(x) ((void) (XMARKBIT (x) = 0))
-#else
-# define XUNMARK(x) DO_NOTHING
-#endif
 
 /* Convert between a (void *) and a Lisp_Object, as when the
    Lisp_Object is passed to a toolkit callback function */

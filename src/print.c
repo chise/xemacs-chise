@@ -1093,12 +1093,8 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
   switch (XTYPE (obj))
     {
-#ifdef USE_MINIMAL_TAGBITS
     case Lisp_Type_Int_Even:
     case Lisp_Type_Int_Odd:
-#else
-    case Lisp_Type_Int:
-#endif
       {
 	char buf[24];
 	long_to_string (buf, XINT (obj));
@@ -1146,68 +1142,11 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	break;
       }
 
-#ifndef LRECORD_STRING
-    case Lisp_Type_String:
-      {
-	print_string (obj, printcharfun, escapeflag);
-	break;
-      }
-#endif /* ! LRECORD_STRING */
-
-#ifndef LRECORD_CONS
-    case Lisp_Type_Cons:
-      {
-	struct gcpro gcpro1, gcpro2;
-
-	/* If deeper than spec'd depth, print placeholder.  */
-	if (INTP (Vprint_level)
-	    && print_depth > XINT (Vprint_level))
-	  {
-	    GCPRO2 (obj, printcharfun);
-	    write_c_string ("...", printcharfun);
-	    UNGCPRO;
-	    break;
-	  }
-
-	print_cons (obj, printcharfun, escapeflag);
-	break;
-      }
-#endif /* ! LRECORD_CONS */
-
-#ifndef LRECORD_VECTOR
-    case Lisp_Type_Vector:
-      {
-	/* If deeper than spec'd depth, print placeholder.  */
-	if (INTP (Vprint_level)
-	    && print_depth > XINT (Vprint_level))
-	  {
-	    struct gcpro gcpro1, gcpro2;
-	    GCPRO2 (obj, printcharfun);
-	    write_c_string ("...", printcharfun);
-	    UNGCPRO;
-	    break;
-	  }
-
-	/* God intended that this be #(...), you know. */
-	print_vector_internal ("[", "]", obj, printcharfun, escapeflag);
-	break;
-      }
-#endif /* !LRECORD_VECTOR */
-
-#ifndef LRECORD_SYMBOL
-    case Lisp_Type_Symbol:
-      {
-        print_symbol (obj, printcharfun, escapeflag);
-        break;
-      }
-#endif /* !LRECORD_SYMBOL */
-
     case Lisp_Type_Record:
       {
 	struct lrecord_header *lheader = XRECORD_LHEADER (obj);
 	struct gcpro gcpro1, gcpro2;
 
-#if defined(LRECORD_CONS) || defined(LRECORD_VECTOR)
 	if (CONSP (obj) || VECTORP(obj))
 	  {
 	    /* If deeper than spec'd depth, print placeholder.  */
@@ -1220,7 +1159,6 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 		break;
 	      }
 	  }
-#endif
 
 	GCPRO2 (obj, printcharfun);
 	if (LHEADER_IMPLEMENTATION (lheader)->printer)
@@ -1292,7 +1230,12 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   /* If we print an uninterned symbol as part of a complex object and
      the flag print-gensym is non-nil, prefix it with #n= to read the
      object back with the #n# reader syntax later if needed.  */
-  if (!NILP (Vprint_gensym) && NILP (XSYMBOL (obj)->obarray))
+  if (!NILP (Vprint_gensym)
+      /* #### Test whether this produces a noticable slow-down for
+         printing when print-gensym is non-nil.  */
+      && !EQ (obj, oblookup (Vobarray,
+			     string_data (symbol_name (XSYMBOL (obj))),
+			     string_length (symbol_name (XSYMBOL (obj))))))
     {
       if (print_depth > 1)
 	{

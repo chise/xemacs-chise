@@ -9,6 +9,13 @@
 @end iftex
 @c %**end of header
 
+@ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Widgets: (widget).		The Emacs Widget Library.
+@end direntry
+@end ifinfo
+
 @node Top, Introduction, (dir), (dir)
 @comment  node-name,  next,  previous,  up
 @top The Emacs Widget Library

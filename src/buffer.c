@@ -541,7 +541,7 @@ get_truename_buffer (REGISTER Lisp_Object filename)
 static struct buffer *
 allocate_buffer (void)
 {
-  struct buffer *b = alloc_lcrecord_type (struct buffer, lrecord_buffer);
+  struct buffer *b = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
 
   copy_lcrecord (b, XBUFFER (Vbuffer_defaults));
 
@@ -2073,8 +2073,8 @@ complex_vars_of_buffer (void)
 {
   /* Make sure all markable slots in buffer_defaults
      are initialized reasonably, so mark_buffer won't choke. */
-  struct buffer *defs = alloc_lcrecord_type (struct buffer, lrecord_buffer);
-  struct buffer *syms = alloc_lcrecord_type (struct buffer, lrecord_buffer);
+  struct buffer *defs = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
+  struct buffer *syms = alloc_lcrecord_type (struct buffer, &lrecord_buffer);
 
   staticpro (&Vbuffer_defaults);
   staticpro (&Vbuffer_local_symbols);

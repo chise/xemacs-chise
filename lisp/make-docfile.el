@@ -51,9 +51,9 @@
 		 (string-equal arg "-a") ; Append to DOC file
 		 (string-equal arg "-d")) ; Set working directory
 	     (if (string-equal arg "-o")
-		 (setq docfile (car (cdr command-line-args))))
+		 (setq docfile (expand-file-name (car (cdr command-line-args)))))
 	     (setq options (cons arg options))
-	     (setq options (cons (car (cdr command-line-args)) options)))
+	     (setq options (cons (expand-file-name (car (cdr command-line-args))) options)))
 	    ((string-equal arg "-i") ; Set site files to scan
 	     (setq site-file-list (car (cdr command-line-args))))
 	    (t (setq done t)))

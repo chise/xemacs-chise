@@ -8,11 +8,10 @@ settitle Notes about emacs Term mode
 @end titlepage
 
 @ifinfo
-@c @format
-@c START-INFO-DIR-ENTRY
-@c * term mode::                       Emacs terminal emulator mode.
-@c END-INFO-DIR-ENTRY
-@c @end format
+@dircategory XEmacs Editor
+@direntry
+* Term mode: (term).		Emacs terminal emulator mode.
+@end direntry
 
 @node Top, , (DIR)
 @top Terminal emulator mode

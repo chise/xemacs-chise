@@ -1,3 +1,463 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-12  Andy Piper  <andy@xemacs.org>
+
+	* ntproc.c (sys_spawnve): kludge argv[0] in a MS compatible way.
+
+1999-05-11  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* emacs.c (Frun_emacs_from_temacs): (re)alloc natgs+2 entries for
+	run_temacs_argv array -- fixes random memory corruption crash
+
+1999-05-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* window.c (Fcurrent_window_configuration):
+	Save minibuffer height;
+
+	* window.c (set_window_configuration): use it.
+
+1999-05-10  Robert Pluim  <rpluim@bigfoot.com>
+
+	* lisp.h (NNUNGCPRO): fix typo in name of DEBUG_GCPRO version
+
+1999-04-21  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* redisplay.c (redisplay_window): Do not put data
+	in the line start cache if it is not guaranteed to be correct
+
+1999-04-02  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* window.c (struct window_config): Removed frame
+	size members.
+	(window_config_equal): No longer compare frame sizes.
+	(Fset_window_configuration): Resize old top window to fit in the
+	current frame directly, no longer use a fake frame resize.
+	(Fcurrent_window_configuration): No longer save frame size
+
+1999-05-11  Andy Piper  <andy@xemacs.org>
+
+	* ntproc.c (sys_spawnve): actually assign argv[0] instead of the
+ 	first character.
+
+1999-05-10  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* sysdep.c (init_system_name): If gethostname gives a proper
+	domain name, don't look further for one.
+
+1999-05-09  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* symbols.c (Fintern): Avoid frequent XSYMBOL (foo).
+	(Fintern_soft): Accept a symbol argument.
+
+1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* symbols.c (Fintern): ...do it here.
+
+	* lread.c (read_atom): Don't handle keywords here.
+
+1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* symbols.c (reject_constant_symbols): Just use SYMBOL_IS_KEYWORD.
+
+1999-05-03  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h (SYMBOL_IS_KEYWORD): A symbol can be a keyword only if it
+	is interned in the main obarray.
+
+1999-04-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+        
+	* menubar-x.c (pre_activate_callback): set accelerator field in
+	"No menu" entries to nil. Avoid crash in
+	command_builder_operate_menu_accelerator
+
+1999-05-03  Olivier Galibert  <galibert@pobox.com>
+
+	* symeval.h (symbol_value_forward_lheader_initializer): Ditto.
+
+	* lisp.h (DEFUN): Fix lrecord header initialisation.
+
+1999-05-02  Andy Piper  <andy@xemacs.org>
+
+	* objects-msw.c (mswindows_font_instance_truename): add a ';'.
+
+	* ntproc.c (sys_kill): cast using MS mandated defines.
+
+1999-04-29  Andy Piper  <andy@xemacs.org>
+
+	* m/intel386.h: remove redundant definitions.
+
+	* s/mingw32.h: new header for mingw32.
+	
+	* unexnt.c: (open_input_file): function moved to nt.c.
+	(close_file_data): ditto.
+	(rva_to_section): function moved to ntproc.
+
+	* symsinit.h: declare syms_of_ntproc();
+	
+	* objects-msw.c (mswindows_font_instance_truename): new function.
+
+	* ntproc.c: remove many warnings.
+	(_sys_read_ahead): moved from nt.c and made static.
+	(rva_to_section): moved from unexnt.c but not defined under
+ 	mingw32.
+	(win32_executable_type): implement what we can for mingw32
+ 	headers.
+	(sys_spawnve): fix bad MULE/GCPRO bug in filename handling.
+
+	* ntheap.h: remove declarations of functions that are now static.
+	
+	* ntheap.c: support static heap.
+
+	* nt.h: conditionalise X_OK definition.
+
+	* nt.c: eliminate many warnings and support mingw32.
+	(open_input_file): function moved from unexnt.c and made static
+	(close_file_data): ditto.
+	(_sys_read_ahead): moved to ntproc.c
+
+	* emacs.c: make sure syms_of_ntptroc gets called under windows.
+	
+	* console-msw.h: support mingw32.
+	* getloadavg.c: ditto.
+	* ntplay.c: ditto.
+	* sysdep.c: ditto.
+	* sysdir.h: ditto.
+	* systime.h: ditto.
+	* systty.h: ditto.
+
+	* config.h.in: dont turn on DEBUG_ENCAPSULATION by default because
+ 	some systems don't have all of the encapsulated system calls.
+	
+	* callproc.c: warning elimination.
+	* dired-msw.c: ditto.
+	* process-nt.c: ditto.
+	* realpath.c: ditto.
+	
+	* Makefile.in.in: tweak : and ; for building under mswindows.
+	
+1999-04-26  Michael Harnois  <mharnois@willinet.net>
+
+	* eldap.c (allocate_ldap): Adapt to the new semantics of
+	alloc_lcrecord_type().
+
+1999-03-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (DECODE_HANDLE_END_OF_CONVERSION): fixed.
+
+1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* Delete mule-coding.c and mule-coding.h because they are not
+	used.
+
+1999-04-22  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* objects.c (print_font_instance): Check for NILP(f->device),
+	i.e. Vthe_null_font_instance.
+	(font_instance_truename_internal): ditto.
+	(Ffont_instance_properties): ditto.
+
+1999-04-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h (DECLARE_LRECORD): lrecord_implementation isn't an
+	array anymore.
+
+1999-04-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* Makefile.in.in (tests): Don't mention tests explicitly -- makes
+	it easier to add new ones.
+
+1999-04-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* symbols.c (reject_constant_symbols): Ditto.
+	(init_symbols_once_early): Ditto.
+
+	* print.c (print_symbol): Don't use ->obarray.
+
+	* symbols.c (Funintern): Ditto.
+
+	* alloc.c (Fmake_symbol): Don't set ->obarray.
+
+	* lisp.h (struct Lisp_Symbol): Removed .obarray field.
+
+	* symbols.c (init_symbols_once_early): Removed
+ 	Vpure_uninterned_symbol_table.
+	(Fintern): Don't store to ->obarray field.
+
+1999-04-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* data.c (vars_of_data): Default debug_issue_ebola_notices to 0.
+	(eq_with_ebola_notice): Remove abracadabra support.
+
+1999-04-11  Oscar Figueiredo  <Oscar.Figueiredo@di.epfl.ch>
+
+	* eldap.c (Fldap_search_internal): Add a new parameter `withdn' to
+ 	retrieve the distinguished names of entries
+
+1999-03-08  Martin Buchholz  <martin@xemacs.org>
+
+	* lread.c (read_escape): Make hex escapes read only two hex digits.
+
+1999-04-05  Olivier Galibert  <galibert@pobox.com>
+
+	* Makefile.in.in: Remove puresize-adjust.h and recursive makes.
+	* make-src-depend: Remove puresize-adjust.h.
+	* src-headers: Remove puresize-adjust.h.
+	* config.h.in: Kill everything purespace/gung-ho related.
+
+	* dbxrc: Make gung-ho mandatory.
+	* gdbinit: Ditto.
+
+	* lrecord.h: Make gung-ho mandatory.  Remove pure flag and add
+ 	c_readonly and lisp_readonly.  Remove implementation arrays.
+	(C_READONLY_RECORD_HEADER_P): Added.
+	(LISP_READONLY_RECORD_HEADER_P): Added.
+	(SET_C_READONLY_RECORD_HEADER): Added.
+	(SET_LISP_READONLY_RECORD_HEADER): Added.
+
+	* lisp.h: Kill everything purespace/non gung-ho related.
+	(CHECK_C_WRITEABLE): Added.
+	(CHECK_LISP_WRITEABLE): Added.
+	(C_READONLY): Added.
+	(LISP_READONLY): Added.
+
+	* lisp-union.h: Make gung-ho mandatory.
+	* lisp-disunion.h: Ditto.
+
+	* alloc.c: Kill everything purespace/non  gung-ho related. Fix all
+ 	set_lheader_implementation calls.
+	(c_readonly): Added.
+	(lisp_readonly): Added.
+	(make_string_nocopy): Added.
+	(Fpurecopy):  Changed to do  nothing.   Kept the old documentation
+ 	for reference purposes for the next patches.
+	(sweep_lcrecords_1): Don't free C readonly lcrecords.
+	(sweep_bit_vectors_1): Don't free C readonly bitvectors.
+	(SWEEP_FIXED_TYPE_BLOCK): Don't free C readonly lrecords.
+
+	* fns.c: Make gung-ho mandatory.
+ 	(Fput): CHECK_IMPURE -> CHECK_LISP_WRITEABLE.
+	(Fremprop): Ditto.
+	(Ffillarray): Ditto.
+
+	* data.c: Make gung-ho mandatory.
+	(pure_write_error): Removed.
+	(c_write_error): Added.
+	(lisp_write_error): Added.
+	(Fsetcar): CHECK_IMPURE -> CHECK_LISP_WRITEABLE.
+	(Fsetcdr): Ditto.
+	(Faset): Ditto.
+
+	* symbols.c: Make gung-ho mandatory.  make_pure_pname ->
+ 		  make_string or make_string_nocopy.  Fix various
+	 	  alloc_lcrecord_type.
+	
+	* lread.c: Remove everything purespace related.
+	(Flocate_file_clear_hashing): purified -> c_readonly.
+	(locate_file): Ditto.
+	(read_atom): make_pure_pname -> make_string.
+
+	* emacs.c (Frun_emacs_from_temacs): Remove purespace stats
+ 		  reporting.
+	(Fdump_emacs): Ditto.
+
+	* print.c (print_internal): Make gung-ho mandatory.
+	* ntheap.c (sbrk): Ditto.
+	* mem-limits.h (EXCEEDS_LISP_PTR): Ditto
+	* symeval.h (symbol_value_forward_lheader_initializer): Ditto.
+
+	* sheap.c (more_static_core): Remove puresize-adjust.h from
+ 		  message.
+
+	* syntax.c (complex_vars_of_syntax): make_pure_string ->
+ 		  make_string_nocopy.
+	* keymap.c (make_keymap): Fix alloc_lcrecord_type.
+	(vars_of_keymap): make_pure_string -> make_string_nocopy.
+	* events.c (deinitialize_event): Fix set_lheader_implementation.
+	(zero_event): Ditto.
+	* specifier.c (make_specifier_internal): Fix alloc_lcrecord.
+	* menubar-x.c (set_frame_menubar): Fix alloc_lcrecord_type.
+	* mule-charset.c (make_charset): Ditto.
+	* console.c (allocate_console): Ditto.
+	(complex_vars_of_console): Ditto.
+	* file-coding.c (allocate_coding_system): Ditto.
+	* device.c (allocate_device): Ditto
+	* gui-x.c (gcpro_popup_callbacks): Ditto.
+	* extents.c (allocate_extent_auxiliary): Ditto.
+	(allocate_extent_info): Ditto.
+	(copy_extent): Ditto.
+	* glyphs.c (allocate_image_instance): Ditto.
+	(allocate_glyph): Ditto.
+	* frame.c (allocate_frame_core): Ditto.
+	* database.c (allocate_database): Ditto.
+	* tooltalk.c (make_tooltalk_message): Ditto.
+	(make_tooltalk_pattern): Ditto.
+	* rangetab.c (Fmake_range_table): Ditto.
+	(Fcopy_range_table): Ditto.
+	* process.c (make_process_internal): Ditto.
+	* chartab.c (Fmake_char_table): Ditto.
+	(make_char_table_entry): Ditto.
+	(copy_char_table_entry): Ditto.
+	(Fcopy_char_table): Ditto.
+	* elhash.c (make_general_lisp_hash_table): Ditto.
+	(Fcopy_hash_table): Ditto.
+	* buffer.c (allocate_buffer): Ditto.
+	(complex_vars_of_buffer): Ditto.
+	* event-stream.c (allocate_command_builder): Ditto.
+	* objects.c (Fmake_color_instance): Ditto.
+	(Fmake_font_instance): Ditto.
+	(vars_of_objects): Ditto.
+	* toolbar.c (update_toolbar_button): Ditto.
+	* window.c (allocate_window): Ditto.
+	(make_dummy_parent): Ditto.
+	(Fcurrent_window_configuration): Fix alloc_lcrecord.
+	(vars_of_window): Fix make_lcrecord_list.
+	* faces.c (allocate_face): Fix alloc_lcrecord_type. pure_list ->
+ 		  Flist.
+	* lstream.c (Lstream_new): Fix make_lcrecord_list.
+	* opaque.c (make_opaque): Fix alloc_lrecord.
+	(make_opaque_list): Fix alloc_lrecord_type.
+
+1999-04-19  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* process.c (Fstart_process_internal): Ditto.
+
+	* ntproc.c (sys_spawnve): Use Vlisp_EXEC_SUFFIXES when calling
+ 	locate_file().
+
+	* glyphs-x.c (x_locate_pixmap_file): Ditto.
+
+	* glyphs-msw.c (mswindows_locate_pixmap_file): Fix call to
+ 	locate_file().
+
+	* emodules.c (vars_of_module): New variable Vmodule_extensions.
+	(emodules_load): Use it when calling locate_file().
+
+	* emacs.c (main_1): Use Vlisp_EXEC_SUFFIXES when calling
+ 	locate_file().
+
+	* callproc.c: Vlisp_EXEC_SUFFIXES: New variable.
+	(vars_of_callproc): Initialize it.
+	(Fcall_process_internal): Use it when calling locate_file().
+
+	* alloc.c (disksave_object_finalization): Use
+ 	Flocate_file_clear_hashing().
+
+	* lread.c (Flocate_file_clear_hashing): Clear all hasing when
+	given `t' as argument.
+
+1999-04-18  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* lread.c (locate_file): Expand `pathel' when appropriate.
+	(Flocate_file_clear_hashing): Expand path elements.
+	(Flocate_file_clear_hashing): Use Vlocate_file_hash_table.
+
+	* dired.c (make_directory_hash_table): Create the hash-table only
+	if the directory open is successful.
+
+	* lread.c (decode_mode_1): New function.
+	(decode_mode): Ditto.
+	(Flocate_file): Use them.
+	(Flocate_file): Expand FILENAME.
+	(locate_file_map_suffixes): New function.
+	(locate_file_in_directory_mapper): New function.
+	(locate_file_in_directory): Use locate_file_in_directory_mapper()
+ 	and locate_file_map_suffixes().
+	(locate_file_construct_suffixed_files): Use
+ 	locate_file_map_suffixes().
+	(locate_file_without_hash): Don't GCPRO path.
+	(Flocate_file_clear_hashing): Use EXTERNAL_LIST_LOOP.
+	(syms_of_lread): Remove Qlocate_file_hash_table.
+	(locate_file_find_directory_hash_table): Use
+ 	Vlocate_file_hash_table.
+	(locate_file_refresh_hashing): Ditto.
+
+	* lread.c: Renamed read_objects to Vread_objects.
+
+1999-04-16  Olivier Galibert  <galibert@pobox.com>
+
+	* mule-charset.c: Generally resync with fsf 20.3 charset
+ 	interface.
+	(make_charset): Add long and short name.  Use id instead of
+ 	leading byte.
+	(Fmake_charset): Ditto.
+	(Fmake_reverse_direction_charset): Ditto.
+	(Fcharset_property): Ditto.
+	(Fcharset_short_name): Added.
+	(Fcharset_long_name): Added.
+	(Fcharset_description): Renamed from charset-doc-string.
+	(syms_of_mule_charset): Synced symbols.
+	(complex_vars_of_mule_charset): Synced charsets.
+
+	* mule-charset.h: Removed leading byte (uses id instead), added
+ 	short and long name.
+
+1999-04-15  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* file-coding.c (Fdefine_coding_system_alias): New function.
+
+1999-04-08  Olivier Galibert  <galibert@pobox.com>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Allow all iso8859
+ 	and -ascii fonts for displaying ascii instead of iso8859-1 only.
+
+1998-12-14  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* extents.c (set_extent_glyph_1): Make sure that the glyph we
+	attach to the extent is valid.
+
+1998-12-12  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dired.c (user_name_completion): Mule-ize.
+	(user_name_completion): Use xmalloc/xrealloc/xfree.
+	(user_name_completion): Use DO_REALLOC.
+	(user_name_completion): Cut down the number of static variables;
+ 	use a structure.
+	(user_name_completion): Username completion is always
+ 	case-sensitive.
+
+1998-12-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (base64_decode_1): Remove COUNTER.
+	(base64_decode_1): Accept CRLF in addition to CR.
+	(base64_decode_1): Disallow a stray character after final EOF; the 
+	check was probably a remnant of buggy recode code.
+
+1998-12-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (init_provide_once): Provide `base64'.
+
+1998-12-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (XMALLOC_UNBIND): Include SPECCOUNT argument, for clarity.
+	(Fbase64_encode_region): If buffer is read-only, bail out early.
+	(Fbase64_decode_region): Ditto.
+	(Fbase64_encode_region): Initialize SPECCOUNT to pacify the
+ 	compiler.
+	(Fbase64_encode_string): Ditto.
+	(Fbase64_decode_region): Ditto.
+	(Fbase64_decode_string): Ditto.
+
+1998-11-25  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* dired.c (Fdirectory_files): Remove redundant code.
+
+1999-03-05  Philip Aston  <philipa@parallax.co.uk>
+
+	* frame-msw.c Make raise-frame restore minimised windows.
+
+1999-03-05  Philip Aston  <philipa@parallax.co.uk>
+
+	* device-msw.c: Fix DEFVAR format - Death to phantom quote, and
+ 	add magic newline.
+
+1999-03-05  Philip Aston  <philipa@parallax.co.uk>
+
+	* toolbar-msw.c Consider captions when deciding whether to rebuild
+ 	toolbar. This fixes the initial toolbar display for those of us
+ 	who don't like captions. These patches applied by Andy Piper.
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released
@@ -2315,12 +2775,6 @@
 1998-10-05  Andy Piper  <andyp@parallax.co.uk>
 
 	* s/cygwin32.h: more cygwin b20 reorganisation.
-
-1998-10-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
-
-	* window.c (Fset_window_start): Document me.
-	(Fset_window_buffer): Document me.
-	Fixes some sort of repeatable crash.
 
 1998-10-01  Raymond Toy  <toy@rtp.ericsson.se>
 

@@ -42,6 +42,8 @@ typedef struct _emodules_list
   dll_handle dlhandle;  /* Dynamic lib handle                           */
 } emodules_list;
 
+static Lisp_Object Vmodule_extensions;
+
 static int emodules_depth;
 static dll_handle dlhandle;
 static emodules_list *modules;
@@ -334,7 +336,8 @@ emodules_load(CONST char *module, CONST char *modname, CONST char *modver)
 
   GCPRO2(filename, foundname);
   filename = build_string (tmod);
-  fd = locate_file(Vmodule_load_path, filename, ":.ell:.so:.dll", &foundname, -1);
+  fd = locate_file(Vmodule_load_path, filename, Vmodule_extensions,
+		   &foundname, -1);
   UNGCPRO;
 
   if (fd < 0)
@@ -566,6 +569,10 @@ are similar enough to each other that XEmacs will be unable to determine
 the correctness of a dynamic module, which can have unpredictable results
 when a dynamic module is loaded.
 */);
+
+  /* #### Export this to Lisp */
+  Vmodule_extensions = build_string (":.ell:.so:.dll");
+  staticpro (&Vmodule_extensions);
 
   load_modules_quietly = 0;
   emodules_depth = 0;

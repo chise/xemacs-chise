@@ -115,6 +115,7 @@ void syms_of_mule_ccl (void);
 void syms_of_mule_charset (void);
 void syms_of_mule_coding (void);
 void syms_of_mule_wnn (void);
+void syms_of_ntproc (void);
 void syms_of_objects_tty (void);
 void syms_of_objects_x (void);
 void syms_of_objects_mswindows (void);
