@@ -1,3 +1,109 @@
+2003-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add mappings for Big5 code points.
+
+2003-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+830D): Copied from
+	Ideograph-R140-Grass.el.
+
+	* Ideograph-R075-Tree.el: Add `=ucs@big5' features.
+
+2003-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el, Ideograph-R072-Sun.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R073-Say.el: Add `=ucs@big5' features.
+	(U+52D7): Add `ideographic-structure'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R068-Dipper.el, Ideograph-R067-Script.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D7): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R064-Hand.el, Ideograph-R061-Heart.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R057-Bow.el (JX1-7437): Unify JC3-4CEF.
+	(U+5F36): Separate JC3-4CEF.
+
+	* Ideograph-R066-Rap.el, Ideograph-R063-Door.el,
+	Ideograph-R060-Step.el, Ideograph-R059-Bristle.el: Add `=ucs@big5'
+	features.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-00020295): Add strokes; complete
+	`ideographic-structure'; separate H1-CC70.
+	(C3-3449): Unify JC3-42E6; add `ideographic-structure'.
+	(U+3464): Separate JC3-42E6.
+	(U-000202A7): Modify `ideographic-structure'.
+	(C4-2B60): Add `ideographic-structure'.
+	(M-00827): Unify JC3-42E7.
+	(U+5040): Separate JC3-42E7.
+	(M-00902): Unify H1-CEB8; add `ideographic-structure'.
+	(U-000202B8): Complete `ideographic-structure'; separate H1-CEB8.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+	* Ideograph-R062-Halberd.el, Ideograph-R057-Bow.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R050-Turban.el: Add `=ucs@big5' features.
+	(U+5E1A): Add `ideographic-structure'.
+
+	* Ideograph-R037-Big.el, Ideograph-R030-Mouth.el,
+	Ideograph-R028-Private.el, Ideograph-R018-Knife.el,
+	Ideograph-R016-Table.el, Ideograph-R011-Enter.el,
+	Ideograph-R008-Lid.el, Ideograph-R002-Line.el: Reformatted.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=big5-cdp' to `=gt'.
+
+	* Ideograph-R073-Say.el (U+52D7): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (GT-67403): Unify BC-8BAB.
+	(B-B16B): Add BU+5F57.
+
+	* Ideograph-R056-Shoot.el, Ideograph-R053-Dotted-Cliff.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D6): Separate JC3-44EC.
+	(M-02392): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+52D7): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+	(J0-342A): Separate GT-03062, GT-K07734, U+52D8 and G0-3F31.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R052-Short-Thread.el (J0-3476): Separate GT-11608 and
+	GT-K09021; add BU+5E7E.
+	(C1-5E7D): Unify GT-11608 and GT-K09021.
+
+	* Ideograph-R051-Dry.el, Ideograph-R048-Work.el,
+	Ideograph-R047-River.el: Add `=ucs@big5' features.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el (JC3-6CDC): New character.
+
+	* Ideograph-R162-Walk.el (K0-6B34): Unify JC3-67DB.
+	(K0-5433): Unify JC3-67DF.
+
 2003-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (M000941): Separate C2-3A43 and B-D85F.
@@ -55,8 +161,6 @@
 
 	* read-maps.el (mapping-table-read-file): Use `=ucs@jis-2000'
 	instead of `ucs-jis' for JX2-XXXX.
-
-	* maps-conf.el: Don't add `=gt-pj-1' for J90-5423.
 
 	* Ideograph-R172-Short-Tailed-Bird.el (JSP-6676): Separate
 	JX2-7B73; unify GT-56559.
@@ -530,8 +634,6 @@
 	U+98DF.
 	(<CJK RADICAL C-SIMPLIFIED EAT>): Likewise.
 
-	* maps-conf.el: Don't add `=gt-pj-1' for J90-{7366,7367,7368,736C}.
-
 	* Ideograph-R214-Flute.el (U+9FA0): Unify GT-66752.
 
 	* Ideograph-R210-Even.el: Add some GT code points.
@@ -559,15 +661,10 @@
 	* Ideograph-R198-Deer.el, Ideograph-R196-Bird.el,
 	Ideograph-R197-Salt.el: Add some GT code points.
 
-	* maps-conf.el: Don't add `=gt-pj-1' for J90-733B and J90-4E6F.
-
 	* Ideograph-R195-Fish.el, Ideograph-R194-Ghost.el,
 	Ideograph-R191-Fight.el: Add some GT code points.
 
 2003-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
-	points.
 
 	* Ideograph-R193-Cauldron.el (J0-722F): Unify GT-61436.
 	(J0-6478): Unify GT-61490.
@@ -595,9 +692,6 @@
 	* Ideograph-R182-Wind.el:
 	- Add some GT code points.
 	- Add some `total-strokes'.
-
-	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
-	points.
 
 	* Ideograph-R183-Fly.el (U+98DB): Unify GT-59007.
 	(U+98DC): Unify GT-59018.
@@ -651,8 +745,6 @@
 
 	* Ideograph-R058-Snout.el (GT-PJ-11-5A40): Unify GT-67403 instead
 	of GT-60403.
-
-	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E60 and J90-6F52.
 
 	* isolated-char.el: Comment out GT-40268, GT-52230, GT-52349 and
 	GT-56364.
@@ -1136,8 +1228,6 @@
 	(U+51EC): Add `<-ancient-ideograph' for J0-4977.
 
 2003-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* maps-conf.el: Don't add `=gt-pj-1' for J90-3D3F.
 
 	* Ideograph-R182-Wind.el (U+98A8): Add S1-9211.
 

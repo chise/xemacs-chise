@@ -61,7 +61,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=gt		  . 00458)	; ý¡€€‡Š
+      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -140,6 +140,7 @@
     (=daikanwa		. 09972)	; ø¸‚›´
     (=jef-china3	. #x4DA5)	; øº„¶¥
     (=ucs@jis		. #x5F64)	; ø»‹–
+    (=ucs@big5		. #x5F64)	; ø»‹–
     ))
 (define-char
   '((morohashi-daikanwa	9972 0 0)
@@ -224,6 +225,7 @@
     (=big5		. #xABDB)	; ý¢€Š¯›
     (=daikanwa		. 09980)	; ø¸‚›¼
     (=jef-china3	. #x4DA1)	; øº„¶¡
+    (=ucs@big5		. #x5F65)	; ý¢€Š¯›
     ))
 (define-char
   '((morohashi-daikanwa	9980 0 0)
@@ -395,6 +397,7 @@
     (=big5		. #xB16D)	; ý¢€‹…­
     (=daikanwa		. 09992)	; ø¸‚œˆ
     (=jef-china3	. #x4DA6)	; øº„¶¦
+    (=ucs@big5		. #x5F69)	; ý¢€‹…­
     (mojikyo		. 009992)	; ý €‚œˆ
     ))
 (define-char
@@ -425,6 +428,7 @@
     (=gt-pj-1		. #x4937)	; ý¡€ƒ…‚
     (=daikanwa		. 09993)	; ø¸‚œ‰
     (=ucs@jis		. #x5F6A)	; ø½Š±‚
+    (=ucs@big5		. #x5F6A)	; ø½Š±‚
     (mojikyo		. 009993)	; ý €‚œ‰
     ))
 (define-char
@@ -747,8 +751,8 @@
     (=gt		. 12630)	; ý¡€ƒ…–
     (=gt-pj-1		. #x3E34)	; ý¡€ƒ…–
     (=daikanwa		. 10015)	; ø¸‚œŸ
-    (=jef-china3	. #x4DA9)	; øº„¶©
     (=ucs@jis		. #x5F70)	; ø½Š µ
+    (=ucs@big5		. #x5F70)	; ø½Š µ
     ))
 (define-char
   '((morohashi-daikanwa	10015 0 0)
@@ -760,12 +764,27 @@
     (=cns11643-1	. #x6864)	; ø»’«±
     ))
 (define-char
-  '((ideographic-radical . 59)	; â¼º
+  '((=>ucs		. #x5F70)	; å½°
+    (morohashi-daikanwa	10015 0 1)
+    (ideographic-radical . 59)	; â¼º
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=jef-china3	. #x4DA9)	; øº„¶©
+    ))
+(define-char
+  '((=>ucs		. #x38D1)	; ã£‘
+    (ideographic-radical . 59)	; â¼º
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=daikanwa		. 10016)	; ø¸‚œ 
+    ))
+(define-char
+  '((morohashi-daikanwa	10016 0 0)
+    (ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x38D1)	; ã£‘
     (=cns11643-4	. #x433B)	; ø»˜’¾
-    (=daikanwa		. 10016)	; ø¸‚œ 
     ))
 (define-char
   '((ideographic-radical . 59)	; â¼º

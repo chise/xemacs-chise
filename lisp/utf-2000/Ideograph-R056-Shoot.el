@@ -333,6 +333,7 @@
     (total-strokes	 . 13)
     (=cns11643-1	. #x636F)	; ø»’¤¦
     (=big5		. #xB749)	; ý¢€‹‰
+    (=ucs@big5		. #x5F12)	; ø»’¤¦
     ))
 (define-char
   '((ideographic-radical . 56)	; â¼·

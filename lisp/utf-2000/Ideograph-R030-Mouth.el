@@ -8499,6 +8499,19 @@
     (=jef-china3	. #x9AAB)	; øº‰ª«
     ))
 (define-char
+  '((ideographic-radical@ucs . 140)	; â¾‹
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 30)	; â¼
+    (ideographic-strokes@cns . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x830D)	; èŒ
+    (=cns11643-2	. #x2942)	; ø»“˜±
+    (=big5		. #xCE41)	; ý¢€Œ¹
+    (=daikanwa		. 30853)	; ø¸‡¢…
+    ))
+(define-char
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -13257,7 +13270,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=daikanwa	  . 13145)	; ø¸ƒ™
+     ((=big5-cdp	  . #x8CB6)	; ý¢€ˆ²¶
+      (=daikanwa	  . 13145)	; ø¸ƒ™
       )
      ((=ucs		  . #x53E3)	; å£
       ))

@@ -555,7 +555,7 @@
      ((=ucs		  . #x53BD)	; åŽ½
       )
      ((name*		  . "ideographic component person as roof")
-      (=gt		  . 00458)	; ý¡€€‡Š
+      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       ))
     (=daikanwa		. 03088)	; ø¸€°
     ))
