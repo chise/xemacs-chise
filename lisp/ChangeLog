@@ -1,5 +1,10 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/mule-cmds.el (set-language-environment-coding-systems):
+	Treat duplicated coding-categories.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/misc-lang.el (setup-ipa-environment): Just call
 	`set-language-environment'.
 	- Specify `coding-priority' and `input-method' properties of IPA
