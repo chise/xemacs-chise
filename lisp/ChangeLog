@@ -1,3 +1,11 @@
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-gt-pj-{1..11}'.
+
+	* dumped-lisp.el (preloaded-file-list): Dump `isolated-char' in
+	XEmacs UTF-2000.
+
 2000-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
