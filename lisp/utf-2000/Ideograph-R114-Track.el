@@ -160,10 +160,40 @@
   '((ideographic-radical . 114)	; â½±
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (ideograph-daikanwa . 24897)	; ø¸†…
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 58)
+    (hanyu-dazidian-char . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (ucs		  . #x2FF3)	; â¿³
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((chinese-cns11643-4 . #x2127)	; ø»— ®
+	)
+       ((chinese-big5-cdp   . #x88AC)	; ý¢€ˆ¢¬
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(ucs		    . #x2FF4)	; â¿´
+	)
+       ((ucs		    . #x56D7)	; å›—
+	)
+       ((ucs		    . #x3405)	; ã…
+	))
+      )
+     ((ucs		  . #x79B8)	; ç¦¸
+      ))
+    (ideograph-daikanwa		. 24897)	; ø¸†…
+    (ideograph-hanziku-1	. #xAFE5)	; ý¢€š¿¥
+    (ucs			. #x25744)	; ð¥„
     ))
 (define-char
-  '((morohashi-daikanwa	24897 0 2)
+  '((=>ucs		. #x25744)	; ð¥„
+    (morohashi-daikanwa	24897 0 2)
     (ideographic-radical . 114)	; â½±
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
