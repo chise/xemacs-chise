@@ -1,3 +1,33 @@
+2001-11-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* isolated-char.el (GT-52230): New character.
+	(GT-52349): New character.
+
+	* Ideograph-R032-Earth.el:
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+
+2001-11-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R031-Enclosure.el:
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+
+2001-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R120-Silk.el (J0-4147): Separate G0-4B58; unify
+	C1-5743.
+	(U+7D20): Unify G0-4B58; separate C1-5743.
+
+	* Ideograph-R033-Scholar.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge CBETA numbers.
+
+	* Ideograph-R164-Wine.el (J0-6E50): Unify G1-523D and U+91AB.
+	(C1-7750): Separate G1-523D and U+91AB.
+
 2001-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (what-char-definition): If a target character is
