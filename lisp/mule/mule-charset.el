@@ -279,6 +279,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  latin-viscii-upper
 	  ipa
 	  lao
+	  ethiopic-ucs
+	  ethiopic
 	  ucs-bmp
 	  arabic-iso8859-6)))
 
