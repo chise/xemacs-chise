@@ -754,7 +754,7 @@
     (total-strokes	 . 4)
     (->same-ideograph
      (:sources	(morohashi-daikanwa)
-      :char	((=>ucs		. #x5167)	; 內
+      :char	((=>ucs		     . #x5167)	; 內
 		 (ideographic-radical . 11)	; ⼊
 		 (ideographic-strokes . 2)
 		 (total-strokes	      . 4)
