@@ -1622,27 +1622,28 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
     {
       unsigned char random_buffer[4096];
       int nread;
+      Lisp_Object coding_system = Qnil;
 
       nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
       if (nread)
 	{
 	  unsigned char *cp = random_buffer;
-	  Lisp_Object coding_system = Qnil;
 
 	  while (cp < random_buffer + 4096)
 	    {
-	      if ((*cp++ == 'c') &&
-		  (*cp++ == 'o') &&
-		  (*cp++ == 'd') &&
-		  (*cp++ == 'i') &&
-		  (*cp++ == 'n') &&
-		  (*cp++ == 'g') &&
-		  (*cp++ == ':'))
+	      if ((*cp++ == 'c') && (cp < random_buffer + 4096) &&
+		  (*cp++ == 'o') && (cp < random_buffer + 4096) &&
+		  (*cp++ == 'd') && (cp < random_buffer + 4096) &&
+		  (*cp++ == 'i') && (cp < random_buffer + 4096) &&
+		  (*cp++ == 'n') && (cp < random_buffer + 4096) &&
+		  (*cp++ == 'g') && (cp < random_buffer + 4096) &&
+		  (*cp++ == ':') && (cp < random_buffer + 4096))
 		{
 		  unsigned char coding_system_name[4096 - 6];
 		  unsigned char *np = coding_system_name;
 
-		  while ( (*cp == ' ') || (*cp == '\t') )
+		  while ( (cp < random_buffer + 4096)
+			  && ((*cp == ' ') || (*cp == '\t')) )
 		    {
 		      cp++;
 		    }
@@ -1653,43 +1654,29 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
 		    }
 		  *np = 0;
 		  coding_system
-		    = Ffind_coding_system (intern
-					   (build_string
-					    (coding_system_name)));
+		    = Ffind_coding_system (intern (coding_system_name));
 		  break;
 		}
 	    }
-	  if (!EQ(coding_system, Qnil))
-	    {
-	      if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
-		*codesys_in_out = coding_system;
-	    }
-	  else
-	    {
-	      while (1)
-		{
-		  nread
-		    = Lstream_read (stream,
+	  if (EQ(coding_system, Qnil))
+	    do{
+	      if (detect_coding_type (&decst, random_buffer, nread,
+				      XCODING_SYSTEM_TYPE (*codesys_in_out)
+				      != CODESYS_AUTODETECT))
+		break;
+	      nread = Lstream_read (stream,
 				    random_buffer, sizeof (random_buffer));
-		  if (!nread)
-		    break;
-		  if (detect_coding_type
-		      (&decst, random_buffer, nread,
-		       XCODING_SYSTEM_TYPE (*codesys_in_out) !=
-		       CODESYS_AUTODETECT))
-		    break;
-		}
-
-	      *eol_type_in_out = decst.eol_type;
-	      if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
-		*codesys_in_out = coding_system_from_mask (decst.mask);
-	    }
+	      if (!nread)
+		break;
+	    } while(1);
 	}
-      else
+      *eol_type_in_out = decst.eol_type;
+      if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
 	{
-	  *eol_type_in_out = decst.eol_type;
-	  if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
+	  if (EQ(coding_system, Qnil))
 	    *codesys_in_out = coding_system_from_mask (decst.mask);
+	  else
+	    *codesys_in_out = coding_system;
 	}
     }
   /* If we absolutely can't determine the EOL type, just assume LF. */
