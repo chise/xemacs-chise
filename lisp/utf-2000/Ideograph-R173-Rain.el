@@ -3987,7 +3987,7 @@
   '((->ucs		. #x9738)	; éœ¸
     (morohashi-daikanwa	42490 0 0)
     (ideographic-radical . 173)	; â¾¬
-    (kangxi-strokes	 . 13)
+    (ideographic-strokes . 13)
     (total-strokes	 . 21)
     (chinese-cns11643-1 . #x7B3D)	; ø»“‡„
     ))
