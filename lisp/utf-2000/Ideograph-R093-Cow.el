@@ -16,18 +16,7 @@
     (=daikanwa		. 19922)	; ø¸„·’
     ))
 (define-char
-  '((=>ucs		. #x725C)	; ç‰œ
-    (ideographic-radical . 93)	; â½œ
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x725B)	; ç‰›
-      ))
-    (=big5-cdp		. #x8BA9)	; ý¢€ˆ®©
-    (=daikanwa		. 19923)	; ø¸„·“
-    ))
-(define-char
-  '((morohashi-daikanwa	19923 0 0)
+  '((=>daikanwa		. 19923)	; ý¢€ˆ®©
     (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
@@ -35,7 +24,13 @@
      ((=ucs		  . #x725B)	; ç‰›
       ))
     (=ucs		. #x725C)	; ç‰œ
-    (=jis-x0212		. #x4A58)	; ø»‹¡•
+    (->subsumptive
+     ((=big5-cdp	  . #x8BA9)	; ý¢€ˆ®©
+      (=daikanwa	  . 19923)	; ø¸„·“
+      )
+     ((=jis-x0212	  . #x4A58)	; ø»‹¡•
+      (=ucs@unicode	  . #x725C)	; ø»‹¡•
+      ))
     ))
 (define-char
   '((ideographic-radical . 93)	; â½œ

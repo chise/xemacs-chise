@@ -1,3 +1,63 @@
+2004-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (GT-39643): Unify <CJK RADICAL GRASS
+	TWO> instead of U+FA5E; add `<-denotational' for U+8279; add
+	JU+FA5E.
+	(U+8279): Separate all; changed to an abstraction character; add
+	`<-ideographic-component-forms' for U+8278.
+	(U+FA5D): Separate all; add `->identical' for <CJK RADICAL GRASS
+	THREE>.
+	(U+FA5E): Separate all; add `->identical' for <CJK RADICAL GRASS
+	TWO>.
+	(GT-39639): Unify <CJK RADICAL GRASS ONE> instead of U+8279; add
+	`<-denotational' for U+8279; add UU+8279.
+	(GT-39645): Unify <CJK RADICAL GRASS THREE> instead of U+FA5D; add
+	`<-denotational' for U+8279; add JU+FA5D.
+	(BC-8B4B): Moved into U+4491.
+	(U+4491): Use `->subsumptive'.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
+	Unify G0-5C33, JX2-7576, GT-39639, GT-K00279 and JC3-72FA; add
+	`<-denotational' for U+8279.
+	(<CJK RADICAL GRASS TWO>): Unify C4-2153, JX2-7575, BC-8AFE,
+	GT-39643, GT-K00671 and M-30639; add `<-denotational' for U+8279.
+	(<CJK RADICAL GRASS THREE>): Unify JX2-7574, GT-39645 and
+	GT-K00569; add `<-denotational' for U+8279.
+	(<CJK RADICAL SIMPLIFIED WALK>): Unify G0-6541, JX2-7969, BC-8966
+	and JC3-67A3; add `<-denotational' for U+8FB6; add
+	`<-simplified@component' for <CJK RADICAL WALK ONE>.
+	(<CJK RADICAL WALK ONE>): Add `<-denotational' for U+8FB6.
+	(<CJK RADICAL WALK TWO>): Add `<-denotational' for U+8FB6; add
+	`<-simplified@component' for <CJK RADICAL WALK ONE>.
+
+	* Ideograph-R162-Walk.el (<CJK RADICAL WALK ONE>): Add
+	`<-denotational' for U+8FB6.
+	(U+8FB6): Add `<-ideographic-component-forms' for U+8FB5; delete
+	`->identical' for U+FA66.
+	(BC-8966): Unify <CJK RADICAL SIMPLIFIED WALK> instead of U+FA66;
+	add `<-denotational' for U+8FB6; add `<-simplified@component' for
+	U+2ECD; add JU+FA66.
+	(<CJK RADICAL WALK TWO>): Add `<-denotational' for U+8FB6; add
+	`<-simplified@component' for U+2ECD.
+	(U+FA66): Separate all; add `->identical' for <CJK RADICAL
+	SIMPLIFIED WALK>.
+
+2004-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->ideographic-component-forms' when running with non-readable
+	mode.
+
+2004-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el (J0-4E49): Moved into U+826F.
+	(U+826F): Use `->subsumptive'.
+
+2004-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el (BC-8BA9): Moved into U+725C.
+	(U+725C): Use `->subsumptive'.
+
 2004-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R168-Long.el, Ideograph-R167-Gold.el: Add missing
