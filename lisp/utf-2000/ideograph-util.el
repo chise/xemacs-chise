@@ -248,8 +248,8 @@
 		   (decode-char 'ideograph-daikanwa m)))
 	  (when (or m
 		    (setq m (get-char-attribute char 'morohashi-daikanwa)))
-	    (setq m-m (pop m))
-	    (setq m-s (pop m))
+	    (setq m-m (car m))
+	    (setq m-s (nth 1 m))
 	    (if (= m-s 0)
 		(or (decode-char '=daikanwa-rev2 m-m 'defined-only)
 		    (decode-char 'ideograph-daikanwa m-m))
