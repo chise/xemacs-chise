@@ -1378,14 +1378,42 @@ INLINE_HEADER Emchar
 TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch)
 {
   Lisp_Object TRT_char;
-  TRT_char = get_char_table (ch, XCHAR_TABLE (table));
+#ifdef UTF2000
+  if (CHAR_TABLEP (table))
+    TRT_char = get_char_table (ch, XCHAR_TABLE (table));
+  else
+    {
+      TRT_char = Fget_char_attribute (make_char (ch), table, Qnil);
+      if (CONSP (TRT_char))
+	{
+	  TRT_char = XCAR (TRT_char);
+	  if (CONSP (TRT_char))
+	    TRT_char = Ffind_char (TRT_char);
+	}
+    }
+#else
+    TRT_char = get_char_table (ch, XCHAR_TABLE (table));
+#endif
   if (NILP (TRT_char))
     return ch;
   else
     return XCHAR (TRT_char);
 }
+#ifdef UTF2000
+INLINE_HEADER Lisp_Object
+SET_TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch1, Emchar ch2);
+INLINE_HEADER Lisp_Object
+SET_TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch1, Emchar ch2)
+{
+  if (CHAR_TABLEP (table))
+    return Fput_char_table (make_char (ch1), make_char (ch2), table);
+  else
+    return Fput_char_attribute (make_char (ch1), table, make_char (ch2));
+}
+#else
 #define SET_TRT_TABLE_CHAR_1(table, ch1, ch2)	\
   Fput_char_table (make_char (ch1), make_char (ch2), table);
+#endif
 
 INLINE_HEADER Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
 INLINE_HEADER Emchar
