@@ -1,3 +1,8 @@
+2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs-hangul): New coded-charset for XEmacs
+	CHISE.
+
 2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs@cns/fw): New coded-charset for XEmacs
