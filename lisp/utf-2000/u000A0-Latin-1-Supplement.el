@@ -107,7 +107,8 @@
     (=ks-x1001		. #x2234)	; &I-K0-2234; [02-20]
     (=jis-x0212		. #x2270)	; &I-JSP-2270; [02-80]
     (=jis-x0213-1-2000	. #x2924)	; &I-JX1-2924; [09-04]
-    (=ucs@jis/fw	. #x00A4)	; &JX1-2924;
+    (=ucs@gb		. #x00A4)	; &JX1-2924;
+    (=ucs@jis		. #x00A4)	; &JX1-2924;
     ))
 (define-char
   '((name		. "YEN SIGN")
@@ -168,6 +169,7 @@
     (=ks-x1001		. #x2157)	; &I-K0-2157; [01-55]
     (=cns11643-1	. #x2170)	; &I-C1-2170; [01-80]
     (=big5		. #xA1B1)	; &I-B-A1B1;
+    (=ucs@gb		. #x00A7)	; &J90-2178;
     (=ucs@jis		. #x00A7)	; &J90-2178;
     ))
 (define-char
@@ -199,6 +201,7 @@
     (=ks-x1001		. #x2127)	; &I-K0-2127; [01-07]
     (=big5-eten		. #xC6D8)	; &B-C6D8;
     (=jef-china3	. #x81AA)	; &I-JC3-81AA;
+    (=ucs@gb		. #x00A8)	; &J90-212F;
     (=ucs@jis		. #x00A8)	; &J90-212F;
     ))
 (define-char
@@ -383,6 +386,7 @@
     (=ks-x1001		. #x2146)	; &I-K0-2146; [01-38]
     (=cns11643-1	. #x2278)	; &I-C1-2278; [02-88]
     (=big5		. #xA258)	; &I-B-A258;
+    (=ucs@gb		. #x00B0)	; &J90-216B;
     (=ucs@jis		. #x00B0)	; &J90-216B;
     ))
 (define-char
@@ -410,6 +414,7 @@
     (=ks-x1001		. #x213E)	; &I-K0-213E; [01-30]
     (=cns11643-1	. #x2234)	; &I-C1-2234; [02-20]
     (=big5		. #xA1D3)	; &I-B-A1D3;
+    (=ucs@gb		. #x00B1)	; &J90-215E;
     (=ucs@jis		. #x00B1)	; &J90-215E;
     ))
 (define-char
@@ -1630,6 +1635,7 @@
     (=ks-x1001		. #x213F)	; &I-K0-213F; [01-31]
     (=cns11643-1	. #x2232)	; &I-C1-2232; [02-18]
     (=big5		. #xA1D1)	; &I-B-A1D1;
+    (=ucs@gb		. #x00D7)	; &J90-215F;
     (=ucs@jis		. #x00D7)	; &J90-215F;
     ))
 (define-char
@@ -1946,6 +1952,7 @@
     (=jis-x0212		. #x2B22)	; &I-JSP-2B22; [11-02]
     (=jis-x0213-1-2000	. #x2956)	; &I-JX1-2956; [09-54]
     (=jef-china3	. #x85C1)	; &I-JC3-85C1;
+    (=ucs@gb/fw		. #x00E0)	; &JX1-2956;
     (=ucs@jis/fw	. #x00E0)	; &JX1-2956;
     ))
 (define-char
@@ -1986,6 +1993,7 @@
     (=jis-x0212		. #x2B21)	; &I-JSP-2B21; [11-01]
     (=jis-x0213-1-2000	. #x2957)	; &I-JX1-2957; [09-55]
     (=jef-china3	. #x85EB)	; &I-JC3-85EB;
+    (=ucs@gb/fw		. #x00E1)	; &JX1-2957;
     (=ucs@jis/fw	. #x00E1)	; &JX1-2957;
     ))
 (define-char
@@ -2242,6 +2250,7 @@
     (=jis-x0212		. #x2B32)	; &I-JSP-2B32; [11-18]
     (=jis-x0213-1-2000	. #x295E)	; &I-JX1-295E; [09-62]
     (=jef-china3	. #x85C2)	; &I-JC3-85C2;
+    (=ucs@gb/fw		. #x00E8)	; &JX1-295E;
     (=ucs@jis/fw	. #x00E8)	; &JX1-295E;
     ))
 (define-char
@@ -2282,6 +2291,7 @@
     (=jis-x0212		. #x2B31)	; &I-JSP-2B31; [11-17]
     (=jis-x0213-1-2000	. #x295F)	; &I-JX1-295F; [09-63]
     (=jef-china3	. #x85EE)	; &I-JC3-85EE;
+    (=ucs@gb/fw		. #x00E9)	; &JX1-295F;
     (=ucs@jis/fw	. #x00E9)	; &JX1-295F;
     ))
 (define-char
@@ -2320,6 +2330,7 @@
     (=jis-x0212		. #x2B34)	; &I-JSP-2B34; [11-20]
     (=jis-x0213-1-2000	. #x2960)	; &I-JX1-2960; [09-64]
     (=jef-china3	. #x86C6)	; &I-JC3-86C6;
+    (=ucs@gb/fw		. #x00EA)	; &JX1-2960;
     (=ucs@jis/fw	. #x00EA)	; &JX1-2960;
     ))
 (define-char
@@ -2393,6 +2404,7 @@
     (=gb2312		. #x282C)	; &JX1-2962; [08-12]
     (=jis-x0212		. #x2B40)	; &I-JSP-2B40; [11-32]
     (=jis-x0213-1-2000	. #x2962)	; &I-JX1-2962; [09-66]
+    (=ucs@gb/fw		. #x00EC)	; &JX1-2962;
     (=ucs@jis/fw	. #x00EC)	; &JX1-2962;
     ))
 (define-char
@@ -2432,6 +2444,7 @@
     (=gb2312		. #x282A)	; &JX1-2963; [08-10]
     (=jis-x0212		. #x2B3F)	; &I-JSP-2B3F; [11-31]
     (=jis-x0213-1-2000	. #x2963)	; &I-JX1-2963; [09-67]
+    (=ucs@gb/fw		. #x00ED)	; &JX1-2963;
     (=ucs@jis/fw	. #x00ED)	; &JX1-2963;
     ))
 (define-char
@@ -2606,6 +2619,7 @@
     (=jis-x0212		. #x2B52)	; &I-JSP-2B52; [11-50]
     (=jis-x0213-1-2000	. #x2968)	; &I-JX1-2968; [09-72]
     (=jef-china3	. #x85C5)	; &I-JC3-85C5;
+    (=ucs@gb/fw		. #x00F2)	; &JX1-2968;
     (=ucs@jis/fw	. #x00F2)	; &JX1-2968;
     ))
 (define-char
@@ -2645,6 +2659,7 @@
     (=jis-x0212		. #x2B51)	; &I-JSP-2B51; [11-49]
     (=jis-x0213-1-2000	. #x2969)	; &I-JX1-2969; [09-73]
     (=jef-china3	. #x85F6)	; &I-JC3-85F6;
+    (=ucs@gb/fw		. #x00F3)	; &JX1-2969;
     (=ucs@jis/fw	. #x00F3)	; &JX1-2969;
     ))
 (define-char
@@ -2786,6 +2801,7 @@
     (=ks-x1001		. #x2140)	; &I-K0-2140; [01-32]
     (=cns11643-1	. #x2233)	; &I-C1-2233; [02-19]
     (=big5		. #xA1D2)	; &I-B-A1D2;
+    (=ucs@gb		. #x00F7)	; &J90-2160;
     (=ucs@jis		. #x00F7)	; &J90-2160;
     ))
 (define-char
@@ -2859,6 +2875,7 @@
     (=jis-x0212		. #x2B63)	; &I-JSP-2B63; [11-67]
     (=jis-x0213-1-2000	. #x296E)	; &I-JX1-296E; [09-78]
     (=jef-china3	. #x85C7)	; &I-JC3-85C7;
+    (=ucs@gb/fw		. #x00F9)	; &JX1-296E;
     (=ucs@jis/fw	. #x00F9)	; &JX1-296E;
     ))
 (define-char
@@ -2899,6 +2916,7 @@
     (=jis-x0212		. #x2B62)	; &I-JSP-2B62; [11-66]
     (=jis-x0213-1-2000	. #x296F)	; &I-JX1-296F; [09-79]
     (=jef-china3	. #x85FC)	; &I-JC3-85FC;
+    (=ucs@gb/fw		. #x00FA)	; &JX1-296F;
     (=ucs@jis/fw	. #x00FA)	; &JX1-296F;
     ))
 (define-char
@@ -2971,6 +2989,7 @@
     (=jis-x0212		. #x2B64)	; &I-JSP-2B64; [11-68]
     (=jis-x0213-1-2000	. #x2971)	; &I-JX1-2971; [09-81]
     (=jef-china3	. #x88DB)	; &I-JC3-88DB;
+    (=ucs@gb/fw		. #x00FC)	; &JX1-2971;
     (=ucs@jis/fw	. #x00FC)	; &JX1-2971;
     ))
 (define-char
