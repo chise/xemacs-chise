@@ -38,187 +38,6 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: internals.info,  Node: Obarrays,  Next: Symbol Values,  Prev: Introduction to Symbols,  Up: Symbols and Variables
-
-Obarrays
-========
-
-   The identity of symbols with their names is accomplished through a
-structure called an obarray, which is just a poorly-implemented hash
-table mapping from strings to symbols whose name is that string. (I say
-"poorly implemented" because an obarray appears in Lisp as a vector
-with some hidden fields rather than as its own opaque type.  This is an
-Emacs Lisp artifact that should be fixed.)
-
-   Obarrays are implemented as a vector of some fixed size (which should
-be a prime for best results), where each "bucket" of the vector
-contains one or more symbols, threaded through a hidden `next' field in
-the symbol.  Lookup of a symbol in an obarray, and adding a symbol to
-an obarray, is accomplished through standard hash-table techniques.
-
-   The standard Lisp function for working with symbols and obarrays is
-`intern'.  This looks up a symbol in an obarray given its name; if it's
-not found, a new symbol is automatically created with the specified
-name, added to the obarray, and returned.  This is what happens when the
-Lisp reader encounters a symbol (or more precisely, encounters the name
-of a symbol) in some text that it is reading.  There is a standard
-obarray called `obarray' that is used for this purpose, although the
-Lisp programmer is free to create his own obarrays and `intern' symbols
-in them.
-
-   Note that, once a symbol is in an obarray, it stays there until
-something is done about it, and the standard obarray `obarray' always
-stays around, so once you use any particular variable name, a
-corresponding symbol will stay around in `obarray' until you exit
-XEmacs.
-
-   Note that `obarray' itself is a variable, and as such there is a
-symbol in `obarray' whose name is `"obarray"' and which contains
-`obarray' as its value.
-
-   Note also that this call to `intern' occurs only when in the Lisp
-reader, not when the code is executed (at which point the symbol is
-already around, stored as such in the definition of the function).
-
-   You can create your own obarray using `make-vector' (this is
-horrible but is an artifact) and intern symbols into that obarray.
-Doing that will result in two or more symbols with the same name.
-However, at most one of these symbols is in the standard `obarray': You
-cannot have two symbols of the same name in any particular obarray.
-Note that you cannot add a symbol to an obarray in any fashion other
-than using `intern': i.e. you can't take an existing symbol and put it
-in an existing obarray.  Nor can you change the name of an existing
-symbol. (Since obarrays are vectors, you can violate the consistency of
-things by storing directly into the vector, but let's ignore that
-possibility.)
-
-   Usually symbols are created by `intern', but if you really want, you
-can explicitly create a symbol using `make-symbol', giving it some
-name.  The resulting symbol is not in any obarray (i.e. it is
-"uninterned"), and you can't add it to any obarray.  Therefore its
-primary purpose is as a symbol to use in macros to avoid namespace
-pollution.  It can also be used as a carrier of information, but cons
-cells could probably be used just as well.
-
-   You can also use `intern-soft' to look up a symbol but not create a
-new one, and `unintern' to remove a symbol from an obarray.  This
-returns the removed symbol. (Remember: You can't put the symbol back
-into any obarray.) Finally, `mapatoms' maps over all of the symbols in
-an obarray.
-
-
-File: internals.info,  Node: Symbol Values,  Prev: Obarrays,  Up: Symbols and Variables
-
-Symbol Values
-=============
-
-   The value field of a symbol normally contains a Lisp object.
-However, a symbol can be "unbound", meaning that it logically has no
-value.  This is internally indicated by storing a special Lisp object,
-called "the unbound marker" and stored in the global variable
-`Qunbound'.  The unbound marker is of a special Lisp object type called
-"symbol-value-magic".  It is impossible for the Lisp programmer to
-directly create or access any object of this type.
-
-   *You must not let any "symbol-value-magic" object escape to the Lisp
-level.*  Printing any of these objects will cause the message `INTERNAL
-EMACS BUG' to appear as part of the print representation.  (You may see
-this normally when you call `debug_print()' from the debugger on a Lisp
-object.) If you let one of these objects escape to the Lisp level, you
-will violate a number of assumptions contained in the C code and make
-the unbound marker not function right.
-
-   When a symbol is created, its value field (and function field) are
-set to `Qunbound'.  The Lisp programmer can restore these conditions
-later using `makunbound' or `fmakunbound', and can query to see whether
-the value of function fields are "bound" (i.e. have a value other than
-`Qunbound') using `boundp' and `fboundp'.  The fields are set to a
-normal Lisp object using `set' (or `setq') and `fset'.
-
-   Other symbol-value-magic objects are used as special markers to
-indicate variables that have non-normal properties.  This includes any
-variables that are tied into C variables (setting the variable magically
-sets some global variable in the C code, and likewise for retrieving the
-variable's value), variables that magically tie into slots in the
-current buffer, variables that are buffer-local, etc.  The
-symbol-value-magic object is stored in the value cell in place of a
-normal object, and the code to retrieve a symbol's value (i.e.
-`symbol-value') knows how to do special things with them.  This means
-that you should not just fetch the value cell directly if you want a
-symbol's value.
-
-   The exact workings of this are rather complex and involved and are
-well-documented in comments in `buffer.c', `symbols.c', and `lisp.h'.
-
-
-File: internals.info,  Node: Buffers and Textual Representation,  Next: MULE Character Sets and Encodings,  Prev: Symbols and Variables,  Up: Top
-
-Buffers and Textual Representation
-**********************************
-
-* Menu:
-
-* Introduction to Buffers::     A buffer holds a block of text such as a file.
-* The Text in a Buffer::        Representation of the text in a buffer.
-* Buffer Lists::                Keeping track of all buffers.
-* Markers and Extents::         Tagging locations within a buffer.
-* Bufbytes and Emchars::        Representation of individual characters.
-* The Buffer Object::           The Lisp object corresponding to a buffer.
-
-
-File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Prev: Buffers and Textual Representation,  Up: Buffers and Textual Representation
-
-Introduction to Buffers
-=======================
-
-   A buffer is logically just a Lisp object that holds some text.  In
-this, it is like a string, but a buffer is optimized for frequent
-insertion and deletion, while a string is not.  Furthermore:
-
-  1. Buffers are "permanent" objects, i.e. once you create them, they
-     remain around, and need to be explicitly deleted before they go
-     away.
-
-  2. Each buffer has a unique name, which is a string.  Buffers are
-     normally referred to by name.  In this respect, they are like
-     symbols.
-
-  3. Buffers have a default insertion position, called "point".
-     Inserting text (unless you explicitly give a position) goes at
-     point, and moves point forward past the text.  This is what is
-     going on when you type text into Emacs.
-
-  4. Buffers have lots of extra properties associated with them.
-
-  5. Buffers can be "displayed".  What this means is that there exist a
-     number of "windows", which are objects that correspond to some
-     visible section of your display, and each window has an associated
-     buffer, and the current contents of the buffer are shown in that
-     section of the display.  The redisplay mechanism (which takes care
-     of doing this) knows how to look at the text of a buffer and come
-     up with some reasonable way of displaying this.  Many of the
-     properties of a buffer control how the buffer's text is displayed.
-
-  6. One buffer is distinguished and called the "current buffer".  It is
-     stored in the variable `current_buffer'.  Buffer operations operate
-     on this buffer by default.  When you are typing text into a
-     buffer, the buffer you are typing into is always `current_buffer'.
-     Switching to a different window changes the current buffer.  Note
-     that Lisp code can temporarily change the current buffer using
-     `set-buffer' (often enclosed in a `save-excursion' so that the
-     former current buffer gets restored when the code is finished).
-     However, calling `set-buffer' will NOT cause a permanent change in
-     the current buffer.  The reason for this is that the top-level
-     event loop sets `current_buffer' to the buffer of the selected
-     window, each time it finishes executing a user command.
-
-   Make sure you understand the distinction between "current buffer"
-and "buffer of the selected window", and the distinction between
-"point" of the current buffer and "window-point" of the selected
-window. (This latter distinction is explained in detail in the section
-on windows.)
-
-
 File: internals.info,  Node: The Text in a Buffer,  Next: Buffer Lists,  Prev: Introduction to Buffers,  Up: Buffers and Textual Representation
 
 The Text in a Buffer
@@ -1116,3 +935,228 @@ print
 decoding
 
 encoding
+
+File: internals.info,  Node: Lstream Functions,  Next: Lstream Methods,  Prev: Lstream Types,  Up: Lstreams
+
+Lstream Functions
+=================
+
+ - Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
+          char *MODE)
+     Allocate and return a new Lstream.  This function is not really
+     meant to be called directly; rather, each stream type should
+     provide its own stream creation function, which creates the stream
+     and does any other necessary creation stuff (e.g. opening a file).
+
+ - Function: void Lstream_set_buffering (Lstream *LSTR,
+          Lstream_buffering BUFFERING, int BUFFERING_SIZE)
+     Change the buffering of a stream.  See `lstream.h'.  By default the
+     buffering is `STREAM_BLOCK_BUFFERED'.
+
+ - Function: int Lstream_flush (Lstream *LSTR)
+     Flush out any pending unwritten data in the stream.  Clear any
+     buffered input data.  Returns 0 on success, -1 on error.
+
+ - Macro: int Lstream_putc (Lstream *STREAM, int C)
+     Write out one byte to the stream.  This is a macro and so it is
+     very efficient.  The C argument is only evaluated once but the
+     STREAM argument is evaluated more than once.  Returns 0 on
+     success, -1 on error.
+
+ - Macro: int Lstream_getc (Lstream *STREAM)
+     Read one byte from the stream.  This is a macro and so it is very
+     efficient.  The STREAM argument is evaluated more than once.
+     Return value is -1 for EOF or error.
+
+ - Macro: void Lstream_ungetc (Lstream *STREAM, int C)
+     Push one byte back onto the input queue.  This will be the next
+     byte read from the stream.  Any number of bytes can be pushed back
+     and will be read in the reverse order they were pushed back--most
+     recent first. (This is necessary for consistency--if there are a
+     number of bytes that have been unread and I read and unread a
+     byte, it needs to be the first to be read again.) This is a macro
+     and so it is very efficient.  The C argument is only evaluated
+     once but the STREAM argument is evaluated more than once.
+
+ - Function: int Lstream_fputc (Lstream *STREAM, int C)
+ - Function: int Lstream_fgetc (Lstream *STREAM)
+ - Function: void Lstream_fungetc (Lstream *STREAM, int C)
+     Function equivalents of the above macros.
+
+ - Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Read SIZE bytes of DATA from the stream.  Return the number of
+     bytes read.  0 means EOF. -1 means an error occurred and no bytes
+     were read.
+
+ - Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Write SIZE bytes of DATA to the stream.  Return the number of
+     bytes written.  -1 means an error occurred and no bytes were
+     written.
+
+ - Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Push back SIZE bytes of DATA onto the input queue.  The next call
+     to `Lstream_read()' with the same size will read the same bytes
+     back.  Note that this will be the case even if there is other
+     pending unread data.
+
+ - Function: int Lstream_close (Lstream *STREAM)
+     Close the stream.  All data will be flushed out.
+
+ - Function: void Lstream_reopen (Lstream *STREAM)
+     Reopen a closed stream.  This enables I/O on it again.  This is not
+     meant to be called except from a wrapper routine that reinitializes
+     variables and such--the close routine may well have freed some
+     necessary storage structures, for example.
+
+ - Function: void Lstream_rewind (Lstream *STREAM)
+     Rewind the stream to the beginning.
+
+
+File: internals.info,  Node: Lstream Methods,  Prev: Lstream Functions,  Up: Lstreams
+
+Lstream Methods
+===============
+
+ - Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
+          *DATA, size_t SIZE)
+     Read some data from the stream's end and store it into DATA, which
+     can hold SIZE bytes.  Return the number of bytes read.  A return
+     value of 0 means no bytes can be read at this time.  This may be
+     because of an EOF, or because there is a granularity greater than
+     one byte that the stream imposes on the returned data, and SIZE is
+     less than this granularity. (This will happen frequently for
+     streams that need to return whole characters, because
+     `Lstream_read()' calls the reader function repeatedly until it has
+     the number of bytes it wants or until 0 is returned.)  The lstream
+     functions do not treat a 0 return as EOF or do anything special;
+     however, the calling function will interpret any 0 it gets back as
+     EOF.  This will normally not happen unless the caller calls
+     `Lstream_read()' with a very small size.
+
+     This function can be `NULL' if the stream is output-only.
+
+ - Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned char
+          *DATA, size_t SIZE)
+     Send some data to the stream's end.  Data to be sent is in DATA
+     and is SIZE bytes.  Return the number of bytes sent.  This
+     function can send and return fewer bytes than is passed in; in that
+     case, the function will just be called again until there is no
+     data left or 0 is returned.  A return value of 0 means that no
+     more data can be currently stored, but there is no error; the data
+     will be squirreled away until the writer can accept data. (This is
+     useful, e.g., if you're dealing with a non-blocking file
+     descriptor and are getting `EWOULDBLOCK' errors.)  This function
+     can be `NULL' if the stream is input-only.
+
+ - Lstream Method: int rewinder (Lstream *STREAM)
+     Rewind the stream.  If this is `NULL', the stream is not seekable.
+
+ - Lstream Method: int seekable_p (Lstream *STREAM)
+     Indicate whether this stream is seekable--i.e. it can be rewound.
+     This method is ignored if the stream does not have a rewind
+     method.  If this method is not present, the result is determined
+     by whether a rewind method is present.
+
+ - Lstream Method: int flusher (Lstream *STREAM)
+     Perform any additional operations necessary to flush the data in
+     this stream.
+
+ - Lstream Method: int pseudo_closer (Lstream *STREAM)
+
+ - Lstream Method: int closer (Lstream *STREAM)
+     Perform any additional operations necessary to close this stream
+     down.  May be `NULL'.  This function is called when
+     `Lstream_close()' is called or when the stream is
+     garbage-collected.  When this function is called, all pending data
+     in the stream will already have been written out.
+
+ - Lstream Method: Lisp_Object marker (Lisp_Object LSTREAM, void
+          (*MARKFUN) (Lisp_Object))
+     Mark this object for garbage collection.  Same semantics as a
+     standard `Lisp_Object' marker.  This function can be `NULL'.
+
+
+File: internals.info,  Node: Consoles; Devices; Frames; Windows,  Next: The Redisplay Mechanism,  Prev: Lstreams,  Up: Top
+
+Consoles; Devices; Frames; Windows
+**********************************
+
+* Menu:
+
+* Introduction to Consoles; Devices; Frames; Windows::
+* Point::
+* Window Hierarchy::
+* The Window Object::
+
+
+File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Prev: Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
+
+Introduction to Consoles; Devices; Frames; Windows
+==================================================
+
+   A window-system window that you see on the screen is called a
+"frame" in Emacs terminology.  Each frame is subdivided into one or
+more non-overlapping panes, called (confusingly) "windows".  Each
+window displays the text of a buffer in it. (See above on Buffers.) Note
+that buffers and windows are independent entities: Two or more windows
+can be displaying the same buffer (potentially in different locations),
+and a buffer can be displayed in no windows.
+
+   A single display screen that contains one or more frames is called a
+"display".  Under most circumstances, there is only one display.
+However, more than one display can exist, for example if you have a
+"multi-headed" console, i.e. one with a single keyboard but multiple
+displays. (Typically in such a situation, the various displays act like
+one large display, in that the mouse is only in one of them at a time,
+and moving the mouse off of one moves it into another.) In some cases,
+the different displays will have different characteristics, e.g. one
+color and one mono.
+
+   XEmacs can display frames on multiple displays.  It can even deal
+simultaneously with frames on multiple keyboards (called "consoles" in
+XEmacs terminology).  Here is one case where this might be useful: You
+are using XEmacs on your workstation at work, and leave it running.
+Then you go home and dial in on a TTY line, and you can use the
+already-running XEmacs process to display another frame on your local
+TTY.
+
+   Thus, there is a hierarchy console -> display -> frame -> window.
+There is a separate Lisp object type for each of these four concepts.
+Furthermore, there is logically a "selected console", "selected
+display", "selected frame", and "selected window".  Each of these
+objects is distinguished in various ways, such as being the default
+object for various functions that act on objects of that type.  Note
+that every containing object remembers the "selected" object among the
+objects that it contains: e.g. not only is there a selected window, but
+every frame remembers the last window in it that was selected, and
+changing the selected frame causes the remembered window within it to
+become the selected window.  Similar relationships apply for consoles
+to devices and devices to frames.
+
+
+File: internals.info,  Node: Point,  Next: Window Hierarchy,  Prev: Introduction to Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
+
+Point
+=====
+
+   Recall that every buffer has a current insertion position, called
+"point".  Now, two or more windows may be displaying the same buffer,
+and the text cursor in the two windows (i.e. `point') can be in two
+different places.  You may ask, how can that be, since each buffer has
+only one value of `point'?  The answer is that each window also has a
+value of `point' that is squirreled away in it.  There is only one
+selected window, and the value of "point" in that buffer corresponds to
+that window.  When the selected window is changed from one window to
+another displaying the same buffer, the old value of `point' is stored
+into the old window's "point" and the value of `point' from the new
+window is retrieved and made the value of `point' in the buffer.  This
+means that `window-point' for the selected window is potentially
+inaccurate, and if you want to retrieve the correct value of `point'
+for a window, you must special-case on the selected window and retrieve
+the buffer's point instead.  This is related to why
+`save-window-excursion' does not save the selected window's value of
+`point'.
+

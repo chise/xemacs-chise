@@ -920,6 +920,7 @@ Index
 * delete-horizontal-space:               User-Level Deletion.
 * delete-indentation:                    User-Level Deletion.
 * delete-menu-item:                      Modifying Menus.
+* delete-old-versions:                   Numbered Backups.
 * delete-other-windows:                  Deleting Windows.
 * delete-process:                        Deleting Processes.
 * delete-region:                         Deletion.
@@ -3081,7 +3082,6 @@ Index
 * translate-region:                      Substitution.
 * translating input events:              Translating Input.
 * transpose-regions:                     Transposition.
-* trim-versions-without-asking:          Numbered Backups.
 * true:                                  nil and t.
 * truename (of file):                    Truenames.
 * truncate:                              Numeric Conversions.

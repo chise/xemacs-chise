@@ -755,8 +755,8 @@ such as `type' and `ftype', are silently ignored.
 
           (declaim (inline foo bar))
           (eval-when (compile load eval) (proclaim '(inline foo bar)))
-          (proclaim-inline foo bar)      ; XEmacs only
-          (defsubst foo (...) ...)       ; instead of defun; Emacs 19 only
+          (proclaim-inline foo bar)   ; XEmacs only
+          (defsubst foo (...) ...)    ; instead of defun; Emacs 19 only
 
      *Please note:*  This declaration remains in effect after the
      containing source file is done.  It is correct to use it to

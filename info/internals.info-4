@@ -38,85 +38,6 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: internals.info,  Node: Modules for Interfacing with the File System,  Next: Modules for Other Aspects of the Lisp Interpreter and Object System,  Prev: Modules for the Redisplay Mechanism,  Up: A Summary of the Various XEmacs Modules
-
-Modules for Interfacing with the File System
-============================================
-
-     lstream.c
-     lstream.h
-
-   These modules implement the "stream" Lisp object type.  This is an
-internal-only Lisp object that implements a generic buffering stream.
-The idea is to provide a uniform interface onto all sources and sinks of
-data, including file descriptors, stdio streams, chunks of memory, Lisp
-buffers, Lisp strings, etc.  That way, I/O functions can be written to
-the stream interface and can transparently handle all possible sources
-and sinks.  (For example, the `read' function can read data from a
-file, a string, a buffer, or even a function that is called repeatedly
-to return data, without worrying about where the data is coming from or
-what-size chunks it is returned in.)
-
-   Note that in the C code, streams are called "lstreams" (for "Lisp
-streams") to distinguish them from other kinds of streams, e.g. stdio
-streams and C++ I/O streams.
-
-   Similar to other subsystems in XEmacs, lstreams are separated into
-generic functions and a set of methods for the different types of
-lstreams.  `lstream.c' provides implementations of many different types
-of streams; others are provided, e.g., in `mule-coding.c'.
-
-     fileio.c
-
-   This implements the basic primitives for interfacing with the file
-system.  This includes primitives for reading files into buffers,
-writing buffers into files, checking for the presence or accessibility
-of files, canonicalizing file names, etc.  Note that these primitives
-are usually not invoked directly by the user: There is a great deal of
-higher-level Lisp code that implements the user commands such as
-`find-file' and `save-buffer'.  This is similar to the distinction
-between the lower-level primitives in `editfns.c' and the higher-level
-user commands in `commands.c' and `simple.el'.
-
-     filelock.c
-
-   This file provides functions for detecting clashes between different
-processes (e.g. XEmacs and some external process, or two different
-XEmacs processes) modifying the same file.  (XEmacs can optionally use
-the `lock/' subdirectory to provide a form of "locking" between
-different XEmacs processes.)  This module is also used by the low-level
-functions in `insdel.c' to ensure that, if the first modification is
-being made to a buffer whose corresponding file has been externally
-modified, the user is made aware of this so that the buffer can be
-synched up with the external changes if necessary.
-
-     filemode.c
-
-   This file provides some miscellaneous functions that construct a
-`rwxr-xr-x'-type permissions string (as might appear in an `ls'-style
-directory listing) given the information returned by the `stat()'
-system call.
-
-     dired.c
-     ndir.h
-
-   These files implement the XEmacs interface to directory searching.
-This includes a number of primitives for determining the files in a
-directory and for doing filename completion. (Remember that generic
-completion is handled by a different mechanism, in `minibuf.c'.)
-
-   `ndir.h' is a header file used for the directory-searching emulation
-functions provided in `sysdep.c' (see section J below), for systems
-that don't provide any directory-searching functions. (On those
-systems, directories can be read directly as files, and parsed.)
-
-     realpath.c
-
-   This file provides an implementation of the `realpath()' function
-for expanding symbolic links, on systems that don't implement it or have
-a broken implementation.
-
-
 File: internals.info,  Node: Modules for Other Aspects of the Lisp Interpreter and Object System,  Next: Modules for Interfacing with the Operating System,  Prev: Modules for Interfacing with the File System,  Up: A Summary of the Various XEmacs Modules
 
 Modules for Other Aspects of the Lisp Interpreter and Object System
@@ -612,7 +533,6 @@ Allocation of Objects in XEmacs Lisp
 * Allocation from Frob Blocks::
 * lrecords::
 * Low-level allocation::
-* Pure Space::
 * Cons::
 * Vector::
 * Bit Vector::
@@ -646,9 +566,9 @@ corresponding Lisp primitives.  Every Lisp object, though, has at least
 one C primitive for creating it.
 
    Recall from section (VII) that a Lisp object, as stored in a 32-bit
-or 64-bit word, has a mark bit, a few tag bits, and a "value" that
-occupies the remainder of the bits.  We can separate the different Lisp
-object types into four broad categories:
+or 64-bit word, has a few tag bits, and a "value" that occupies the
+remainder of the bits.  We can separate the different Lisp object types
+into three broad categories:
 
    * (a) Those for whom the value directly represents the contents of
      the Lisp object.  Only two types are in this category: integers and
@@ -656,51 +576,27 @@ object types into four broad categories:
      necessary for such objects.  Lisp objects of these types do not
      need to be `GCPRO'ed.
 
-   In the remaining three categories, the value is a pointer to a
-structure.
-
-   * (b) Those for whom the tag directly specifies the type.  Recall
-     that there are only three tag bits; this means that at most five
-     types can be specified this way.  The most commonly-used types are
-     stored in this format; this includes conses, strings, vectors, and
-     sometimes symbols.  With the exception of vectors, objects in this
-     category are allocated in "frob blocks", i.e. large blocks of
-     memory that are subdivided into individual objects.  This saves a
-     lot on malloc overhead, since there are typically quite a lot of
-     these objects around, and the objects are small.  (A cons, for
-     example, occupies 8 bytes on 32-bit machines--4 bytes for each of
-     the two objects it contains.) Vectors are individually
-     `malloc()'ed since they are of variable size.  (It would be
-     possible, and desirable, to allocate vectors of certain small
-     sizes out of frob blocks, but it isn't currently done.) Strings
-     are handled specially: Each string is allocated in two parts, a
-     fixed size structure containing a length and a data pointer, and
-     the actual data of the string.  The former structure is allocated
-     in frob blocks as usual, and the latter data is stored in "string
-     chars blocks" and is relocated during garbage collection to
-     eliminate holes.
-
    In the remaining two categories, the type is stored in the object
 itself.  The tag for all such objects is the generic "lrecord"
-(Lisp_Record) tag.  The first four bytes (or eight, for 64-bit machines)
-of the object's structure are a pointer to a structure that describes
-the object's type, which includes method pointers and a pointer to a
-string naming the type.  Note that it's possible to save some space by
-using a one- or two-byte tag, rather than a four- or eight-byte pointer
-to store the type, but it's not clear it's worth making the change.
+(Lisp_Type_Record) tag.  The first bytes of the object's structure are
+an integer (actually a char) characterising the object's type and some
+flags, in particular the mark bit used for garbage collection.  A
+structure describing the type is accessible thru the
+lrecord_implementation_table indexed with said integer.  This structure
+includes the method pointers and a pointer to a string naming the type.
 
-   * (c) Those lrecords that are allocated in frob blocks (see above).
+   * (b) Those lrecords that are allocated in frob blocks (see above).
      This includes the objects that are most common and relatively
-     small, and includes floats, compiled functions, symbols (when not
-     in category (b)), extents, events, and markers.  With the cleanup
-     of frob blocks done in 19.12, it's not terribly hard to add more
-     objects to this category, but it's a bit trickier than adding an
-     object type to type (d) (esp. if the object needs a finalization
-     method), and is not likely to save much space unless the object is
-     small and there are many of them. (In fact, if there are very few
-     of them, it might actually waste space.)
+     small, and includes conses, strings, subrs, floats, compiled
+     functions, symbols, extents, events, and markers.  With the
+     cleanup of frob blocks done in 19.12, it's not terribly hard to
+     add more objects to this category, but it's a bit trickier than
+     adding an object type to type (c) (esp. if the object needs a
+     finalization method), and is not likely to save much space unless
+     the object is small and there are many of them. (In fact, if there
+     are very few of them, it might actually waste space.)
 
-   * (d) Those lrecords that are individually `malloc()'ed.  These are
+   * (c) Those lrecords that are individually `malloc()'ed.  These are
      called "lcrecords".  All other types are in this category.  Adding
      a new type to this category is comparatively easy, and all types
      added since 19.8 (when the current allocation scheme was devised,
@@ -708,17 +604,10 @@ to store the type, but it's not clear it's worth making the change.
      have been in this category.
 
    Note that bit vectors are a bit of a special case.  They are simple
-lrecords as in category (c), but are individually `malloc()'ed like
+lrecords as in category (b), but are individually `malloc()'ed like
 vectors.  You can basically view them as exactly like vectors except
 that their type is stored in lrecord fashion rather than in
 directly-tagged fashion.
-
-   Note that FSF Emacs redesigned their object system in 19.29 to follow
-a similar scheme.  However, given RMS's expressed dislike for data
-abstraction, the FSF scheme is not nearly as clean or as easy to
-extend. (FSF calls items of type (c) `Lisp_Misc' and items of type (d)
-`Lisp_Vectorlike', with separate tags for each, although
-`Lisp_Vectorlike' is also used for vectors.)
 
 
 File: internals.info,  Node: Garbage Collection,  Next: GCPROing,  Prev: Introduction to Allocation,  Up: Allocation of Objects in XEmacs Lisp
@@ -738,52 +627,10 @@ allocated objects.  Traversing all these objects means traversing all
 frob blocks, all vectors (which are chained in one big list), and all
 lcrecords (which are likewise chained).
 
-   Note that, when an object is marked, the mark has to occur inside of
-the object's structure, rather than in the 32-bit `Lisp_Object' holding
-the object's pointer; i.e. you can't just set the pointer's mark bit.
-This is because there may be many pointers to the same object.  This
-means that the method of marking an object can differ depending on the
-type.  The different marking methods are approximately as follows:
-
-  1. For conses, the mark bit of the car is set.
-
-  2. For strings, the mark bit of the string's plist is set.
-
-  3. For symbols when not lrecords, the mark bit of the symbol's plist
-     is set.
-
-  4. For vectors, the length is negated after adding 1.
-
-  5. For lrecords, the pointer to the structure describing the type is
-     changed (see below).
-
-  6. Integers and characters do not need to be marked, since no
-     allocation occurs for them.
-
-   The details of this are in the `mark_object()' function.
-
-   Note that any code that operates during garbage collection has to be
-especially careful because of the fact that some objects may be marked
-and as such may not look like they normally do.  In particular:
-
-     Some object pointers may have their mark bit set.  This will make
-     `FOOBARP()' predicates fail.  Use `GC_FOOBARP()' to deal with this.
-
-   * Even if you clear the mark bit, `FOOBARP()' will still fail for
-     lrecords because the implementation pointer has been changed (see
-     below).  `GC_FOOBARP()' will correctly deal with this.
-
-   * Vectors have their size field munged, so anything that looks at
-     this field will fail.
-
-   * Note that `XFOOBAR()' macros _will_ work correctly on object
-     pointers with their mark bit set, because the logical shift
-     operations that remove the tag also remove the mark bit.
-
-   Finally, note that garbage collection can be invoked explicitly by
-calling `garbage-collect' but is also called automatically by `eval',
-once a certain amount of memory has been allocated since the last
-garbage collection (according to `gc-cons-threshold').
+   Garbage collection can be invoked explicitly by calling
+`garbage-collect' but is also called automatically by `eval', once a
+certain amount of memory has been allocated since the last garbage
+collection (according to `gc-cons-threshold').
 
 
 File: internals.info,  Node: GCPROing,  Next: Garbage Collection - Step by Step,  Prev: Garbage Collection,  Up: Allocation of Objects in XEmacs Lisp
@@ -796,14 +643,17 @@ internals.  The basic idea is that whenever garbage collection occurs,
 all in-use objects must be reachable somehow or other from one of the
 roots of accessibility.  The roots of accessibility are:
 
-  1. All objects that have been `staticpro()'d.  This is used for any
-     global C variables that hold Lisp objects.  A call to
-     `staticpro()' happens implicitly as a result of any symbols
-     declared with `defsymbol()' and any variables declared with
-     `DEFVAR_FOO()'.  You need to explicitly call `staticpro()' (in the
-     `vars_of_foo()' method of a module) for other global C variables
-     holding Lisp objects. (This typically includes internal lists and
-     such things.)
+  1. All objects that have been `staticpro()'d or
+     `staticpro_nodump()'ed.  This is used for any global C variables
+     that hold Lisp objects.  A call to `staticpro()' happens implicitly
+     as a result of any symbols declared with `defsymbol()' and any
+     variables declared with `DEFVAR_FOO()'.  You need to explicitly
+     call `staticpro()' (in the `vars_of_foo()' method of a module) for
+     other global C variables holding Lisp objects. (This typically
+     includes internal lists and such things.).  Use
+     `staticpro_nodump()' only in the rare cases when you do not want
+     the pointed variable to be saved at dump time but rather recompute
+     it at startup.
 
      Note that `obarray' is one of the `staticpro()'d things.
      Therefore, all functions and variables get marked through this.
@@ -983,7 +833,7 @@ can occur _implicitly_ in four different situations:
    The upshot is that garbage collection can basically occur everywhere
 `Feval', respectively `Ffuncall', is used - either directly or through
 another function. Since calls to these two functions are hidden in
-various other functions, many calls to `garabge_collect_1' are not
+various other functions, many calls to `garbage_collect_1' are not
 obviously foreseeable, and therefore unexpected. Instances where they
 are used that are worth remembering are various elisp commands, as for
 example `or', `and', `if', `cond', `while', `setq', etc., miscellaneous
@@ -991,4 +841,220 @@ example `or', `and', `if', `cond', `while', `setq', etc., miscellaneous
 `call0', ...) and inside `Fsignal'. The latter is used to handle
 signals, as for example the ones raised by every `QUITE'-macro
 triggered after pressing Ctrl-g.
+
+
+File: internals.info,  Node: garbage_collect_1,  Next: mark_object,  Prev: Invocation,  Up: Garbage Collection - Step by Step
+
+`garbage_collect_1'
+-------------------
+
+   We can now describe exactly what happens after the invocation takes
+place.
+  1. There are several cases in which the garbage collector is left
+     immediately: when we are already garbage collecting
+     (`gc_in_progress'), when the garbage collection is somehow
+     forbidden (`gc_currently_forbidden'), when we are currently
+     displaying something (`in_display') or when we are preparing for
+     the armageddon of the whole system (`preparing_for_armageddon').
+
+  2. Next the correct frame in which to put all the output occurring
+     during garbage collecting is determined. In order to be able to
+     restore the old display's state after displaying the message, some
+     data about the current cursor position has to be saved. The
+     variables `pre_gc_cursor' and `cursor_changed' take care of that.
+
+  3. The state of `gc_currently_forbidden' must be restored after the
+     garbage collection, no matter what happens during the process. We
+     accomplish this by `record_unwind_protect'ing the suitable function
+     `restore_gc_inhibit' together with the current value of
+     `gc_currently_forbidden'.
+
+  4. If we are concurrently running an interactive xemacs session, the
+     next step is simply to show the garbage collector's cursor/message.
+
+  5. The following steps are the intrinsic steps of the garbage
+     collector, therefore `gc_in_progress' is set.
+
+  6. For debugging purposes, it is possible to copy the current C stack
+     frame. However, this seems to be a currently unused feature.
+
+  7. Before actually starting to go over all live objects, references to
+     objects that are no longer used are pruned. We only have to do
+     this for events (`clear_event_resource') and for specifiers
+     (`cleanup_specifiers').
+
+  8. Now the mark phase begins and marks all accessible elements. In
+     order to start from all slots that serve as roots of
+     accessibility, the function `mark_object' is called for each root
+     individually to go out from there to mark all reachable objects.
+     All roots that are traversed are shown in their processed order:
+        * all constant symbols and static variables that are registered
+          via `staticpro' in the array `staticvec'.  *Note Adding
+          Global Lisp Variables::.
+
+        * all Lisp objects that are created in C functions and that
+          must be protected from freeing them. They are registered in
+          the global list `gcprolist'.  *Note GCPROing::.
+
+        * all local variables (i.e. their name fields `symbol' and old
+          values `old_values') that are bound during the evaluation by
+          the Lisp engine. They are stored in `specbinding' structs
+          pushed on a stack called `specpdl'.  *Note Dynamic Binding;
+          The specbinding Stack; Unwind-Protects::.
+
+        * all catch blocks that the Lisp engine encounters during the
+          evaluation cause the creation of structs `catchtag' inserted
+          in the list `catchlist'. Their tag (`tag') and value (`val'
+          fields are freshly created objects and therefore have to be
+          marked.  *Note Catch and Throw::.
+
+        * every function application pushes new structs `backtrace' on
+          the call stack of the Lisp engine (`backtrace_list'). The
+          unique parts that have to be marked are the fields for each
+          function (`function') and all their arguments (`args').
+          *Note Evaluation::.
+
+        * all objects that are used by the redisplay engine that must
+          not be freed are marked by a special function called
+          `mark_redisplay' (in `redisplay.c').
+
+        * all objects created for profiling purposes are allocated by C
+          functions instead of using the lisp allocation mechanisms. In
+          order to receive the right ones during the sweep phase, they
+          also have to be marked manually. That is done by the function
+          `mark_profiling_info'
+
+  9. Hash tables in XEmacs belong to a kind of special objects that
+     make use of a concept often called 'weak pointers'.  To make a
+     long story short, these kind of pointers are not followed during
+     the estimation of the live objects during garbage collection.  Any
+     object referenced only by weak pointers is collected anyway, and
+     the reference to it is cleared. In hash tables there are different
+     usage patterns of them, manifesting in different types of hash
+     tables, namely 'non-weak', 'weak', 'key-weak' and 'value-weak'
+     (internally also 'key-car-weak' and 'value-car-weak') hash tables,
+     each clearing entries depending on different conditions. More
+     information can be found in the documentation to the function
+     `make-hash-table'.
+
+     Because there are complicated dependency rules about when and what
+     to mark while processing weak hash tables, the standard `marker'
+     method is only active if it is marking non-weak hash tables. As
+     soon as a weak component is in the table, the hash table entries
+     are ignored while marking. Instead their marking is done each
+     separately by the function `finish_marking_weak_hash_tables'. This
+     function iterates over each hash table entry `hentries' for each
+     weak hash table in `Vall_weak_hash_tables'. Depending on the type
+     of a table, the appropriate action is performed.  If a table is
+     acting as `HASH_TABLE_KEY_WEAK', and a key already marked,
+     everything reachable from the `value' component is marked. If it is
+     acting as a `HASH_TABLE_VALUE_WEAK' and the value component is
+     already marked, the marking starts beginning only from the `key'
+     component.  If it is a `HASH_TABLE_KEY_CAR_WEAK' and the car of
+     the key entry is already marked, we mark both the `key' and
+     `value' components.  Finally, if the table is of the type
+     `HASH_TABLE_VALUE_CAR_WEAK' and the car of the value components is
+     already marked, again both the `key' and the `value' components
+     get marked.
+
+     Again, there are lists with comparable properties called weak
+     lists. There exist different peculiarities of their types called
+     `simple', `assoc', `key-assoc' and `value-assoc'. You can find
+     further details about them in the description to the function
+     `make-weak-list'. The scheme of their marking is similar: all weak
+     lists are listed in `Qall_weak_lists', therefore we iterate over
+     them. The marking is advanced until we hit an already marked pair.
+     Then we know that during a former run all the rest has been marked
+     completely. Again, depending on the special type of the weak list,
+     our jobs differ. If it is a `WEAK_LIST_SIMPLE' and the elem is
+     marked, we mark the `cons' part. If it is a `WEAK_LIST_ASSOC' and
+     not a pair or a pair with both marked car and cdr, we mark the
+     `cons' and the `elem'. If it is a `WEAK_LIST_KEY_ASSOC' and not a
+     pair or a pair with a marked car of the elem, we mark the `cons'
+     and the `elem'. Finally, if it is a `WEAK_LIST_VALUE_ASSOC' and
+     not a pair or a pair with a marked cdr of the elem, we mark both
+     the `cons' and the `elem'.
+
+     Since, by marking objects in reach from weak hash tables and weak
+     lists, other objects could get marked, this perhaps implies
+     further marking of other weak objects, both finishing functions
+     are redone as long as yet unmarked objects get freshly marked.
+
+ 10. After completing the special marking for the weak hash tables and
+     for the weak lists, all entries that point to objects that are
+     going to be swept in the further process are useless, and
+     therefore have to be removed from the table or the list.
+
+     The function `prune_weak_hash_tables' does the job for weak hash
+     tables. Totally unmarked hash tables are removed from the list
+     `Vall_weak_hash_tables'. The other ones are treated more carefully
+     by scanning over all entries and removing one as soon as one of
+     the components `key' and `value' is unmarked.
+
+     The same idea applies to the weak lists. It is accomplished by
+     `prune_weak_lists': An unmarked list is pruned from
+     `Vall_weak_lists' immediately. A marked list is treated more
+     carefully by going over it and removing just the unmarked pairs.
+
+ 11. The function `prune_specifiers' checks all listed specifiers held
+     in `Vall_specifiers' and removes the ones from the lists that are
+     unmarked.
+
+ 12. All syntax tables are stored in a list called
+     `Vall_syntax_tables'. The function `prune_syntax_tables' walks
+     through it and unlinks the tables that are unmarked.
+
+ 13. Next, we will attack the complete sweeping - the function
+     `gc_sweep' which holds the predominance.
+
+ 14. First, all the variables with respect to garbage collection are
+     reset. `consing_since_gc' - the counter of the created cells since
+     the last garbage collection - is set back to 0, and
+     `gc_in_progress' is not `true' anymore.
+
+ 15. In case the session is interactive, the displayed cursor and
+     message are removed again.
+
+ 16. The state of `gc_inhibit' is restored to the former value by
+     unwinding the stack.
+
+ 17. A small memory reserve is always held back that can be reached by
+     `breathing_space'. If nothing more is left, we create a new reserve
+     and exit.
+
+
+File: internals.info,  Node: mark_object,  Next: gc_sweep,  Prev: garbage_collect_1,  Up: Garbage Collection - Step by Step
+
+`mark_object'
+-------------
+
+   The first thing that is checked while marking an object is whether
+the object is a real Lisp object `Lisp_Type_Record' or just an integer
+or a character. Integers and characters are the only two types that are
+stored directly - without another level of indirection, and therefore
+they don't have to be marked and collected.  *Note How Lisp Objects Are
+Represented in C::.
+
+   The second case is the one we have to handle. It is the one when we
+are dealing with a pointer to a Lisp object. But, there exist also three
+possibilities, that prevent us from doing anything while marking: The
+object is read only which prevents it from being garbage collected,
+i.e. marked (`C_READONLY_RECORD_HEADER'). The object in question is
+already marked, and need not be marked for the second time (checked by
+`MARKED_RECORD_HEADER_P'). If it is a special, unmarkable object
+(`UNMARKABLE_RECORD_HEADER_P', apparently, these are objects that sit
+in some const space, and can therefore not be marked, see
+`this_one_is_unmarkable' in `alloc.c').
+
+   Now, the actual marking is feasible. We do so by once using the macro
+`MARK_RECORD_HEADER' to mark the object itself (actually the special
+flag in the lrecord header), and calling its special marker "method"
+`marker' if available. The marker method marks every other object that
+is in reach from our current object. Note, that these marker methods
+should not call `mark_object' recursively, but instead should return
+the next object from where further marking has to be performed.
+
+   In case another object was returned, as mentioned before, we
+reiterate the whole `mark_object' process beginning with this next
+object.
 

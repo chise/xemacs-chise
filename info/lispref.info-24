@@ -310,7 +310,7 @@ backup version 3 is excess.  The function `find-backup-file-name'
 (*note Backup Names::) is responsible for determining which backup
 versions to delete, but does not delete them itself.
 
- - User Option: trim-versions-without-asking
+ - User Option: delete-old-versions
      If this variable is non-`nil', then saving a file deletes excess
      backup versions silently.  Otherwise, it asks the user whether to
      delete them.

@@ -133,6 +133,7 @@ Variable Index
 * default-input-method:                  Select Input Method.
 * default-major-mode:                    Choosing Modes.
 * delete-auto-save-files:                Auto Save Files.
+* delete-old-versions:                   Backup Deletion.
 * describe-function-show-arglist:        Help.
 * diary-date-forms:                      Diary Customizing.
 * diary-display-hook:                    Fancy Diary Display.
@@ -297,7 +298,6 @@ Variable Index
 * today-invisible-calendar-hook:         Calendar Customizing.
 * today-visible-calendar-hook:           Calendar Customizing.
 * track-eol:                             Basic.
-* trim-versions-without-asking:          Backup Deletion.
 * truncate-lines:                        Continuation Lines.
 * truncate-partial-width-windows:        Split Window.
 * vc-command-messages:                   Variables for Check-in/out.

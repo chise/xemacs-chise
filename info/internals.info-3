@@ -38,105 +38,6 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: internals.info,  Node: Working With Character and Byte Positions,  Next: Conversion to and from External Data,  Prev: Character-Related Data Types,  Up: Coding for Mule
-
-Working With Character and Byte Positions
------------------------------------------
-
-   Now that we have defined the basic character-related types, we can
-look at the macros and functions designed for work with them and for
-conversion between them.  Most of these macros are defined in
-`buffer.h', and we don't discuss all of them here, but only the most
-important ones.  Examining the existing code is the best way to learn
-about them.
-
-`MAX_EMCHAR_LEN'
-     This preprocessor constant is the maximum number of buffer bytes
-     per Emacs character, i.e. the byte length of an `Emchar'.  It is
-     useful when allocating temporary strings to keep a known number of
-     characters.  For instance:
-
-          {
-            Charcount cclen;
-            ...
-            {
-              /* Allocate place for CCLEN characters. */
-              Bufbyte *buf = (Bufbyte *)alloca (cclen * MAX_EMCHAR_LEN);
-          ...
-
-     If you followed the previous section, you can guess that,
-     logically, multiplying a `Charcount' value with `MAX_EMCHAR_LEN'
-     produces a `Bytecount' value.
-
-     In the current Mule implementation, `MAX_EMCHAR_LEN' equals 4.
-     Without Mule, it is 1.
-
-`charptr_emchar'
-`set_charptr_emchar'
-     The `charptr_emchar' macro takes a `Bufbyte' pointer and returns
-     the `Emchar' stored at that position.  If it were a function, its
-     prototype would be:
-
-          Emchar charptr_emchar (Bufbyte *p);
-
-     `set_charptr_emchar' stores an `Emchar' to the specified byte
-     position.  It returns the number of bytes stored:
-
-          Bytecount set_charptr_emchar (Bufbyte *p, Emchar c);
-
-     It is important to note that `set_charptr_emchar' is safe only for
-     appending a character at the end of a buffer, not for overwriting a
-     character in the middle.  This is because the width of characters
-     varies, and `set_charptr_emchar' cannot resize the string if it
-     writes, say, a two-byte character where a single-byte character
-     used to reside.
-
-     A typical use of `set_charptr_emchar' can be demonstrated by this
-     example, which copies characters from buffer BUF to a temporary
-     string of Bufbytes.
-
-          {
-            Bufpos pos;
-            for (pos = beg; pos < end; pos++)
-              {
-                Emchar c = BUF_FETCH_CHAR (buf, pos);
-                p += set_charptr_emchar (buf, c);
-              }
-          }
-
-     Note how `set_charptr_emchar' is used to store the `Emchar' and
-     increment the counter, at the same time.
-
-`INC_CHARPTR'
-`DEC_CHARPTR'
-     These two macros increment and decrement a `Bufbyte' pointer,
-     respectively.  They will adjust the pointer by the appropriate
-     number of bytes according to the byte length of the character
-     stored there.  Both macros assume that the memory address is
-     located at the beginning of a valid character.
-
-     Without Mule support, `INC_CHARPTR (p)' and `DEC_CHARPTR (p)'
-     simply expand to `p++' and `p--', respectively.
-
-`bytecount_to_charcount'
-     Given a pointer to a text string and a length in bytes, return the
-     equivalent length in characters.
-
-          Charcount bytecount_to_charcount (Bufbyte *p, Bytecount bc);
-
-`charcount_to_bytecount'
-     Given a pointer to a text string and a length in characters,
-     return the equivalent length in bytes.
-
-          Bytecount charcount_to_bytecount (Bufbyte *p, Charcount cc);
-
-`charptr_n_addr'
-     Return a pointer to the beginning of the character offset CC (in
-     characters) from P.
-
-          Bufbyte *charptr_n_addr (Bufbyte *p, Charcount cc);
-
-
 File: internals.info,  Node: Conversion to and from External Data,  Next: General Guidelines for Writing Mule-Aware Code,  Prev: Working With Character and Byte Positions,  Up: Coding for Mule
 
 Conversion to and from External Data
@@ -152,99 +53,132 @@ convert it to an appropriate external encoding, lest the internal stuff
 
    The interface to conversion between the internal and external
 representations of text are the numerous conversion macros defined in
-`buffer.h'.  Before looking at them, we'll look at the external formats
-supported by these macros.
+`buffer.h'.  There used to be a fixed set of external formats supported
+by these macros, but now any coding system can be used with these
+macros.  The coding system alias mechanism is used to create the
+following logical coding systems, which replace the fixed external
+formats.  The (dontusethis-set-symbol-value-handler) mechanism was
+enhanced to make this possible (more work on that is needed - like
+remove the `dontusethis-' prefix).
 
-   Currently meaningful formats are `FORMAT_BINARY', `FORMAT_FILENAME',
-`FORMAT_OS', and `FORMAT_CTEXT'.  Here is a description of these.
+`Qbinary'
+     This is the simplest format and is what we use in the absence of a
+     more appropriate format.  This converts according to the `binary'
+     coding system:
 
-`FORMAT_BINARY'
-     Binary format.  This is the simplest format and is what we use in
-     the absence of a more appropriate format.  This converts according
-     to the `binary' coding system:
-
-       a. On input, bytes 0-255 are converted into characters 0-255.
+       a. On input, bytes 0-255 are converted into (implicitly Latin-1)
+          characters 0-255.  A non-Mule xemacs doesn't really know about
+          different character sets and the fonts to display them, so
+          the bytes can be treated as text in different 1-byte
+          encodings by simply setting the appropriate fonts.  So in a
+          sense, non-Mule xemacs is a multi-lingual editor if, for
+          example, different fonts are used to display text in
+          different buffers, faces, or windows.  The specifier
+          mechanism gives the user complete control over this kind of
+          behavior.
 
        b. On output, characters 0-255 are converted into bytes 0-255
-          and other characters are converted into `X'.
+          and other characters are converted into `~'.
 
-`FORMAT_FILENAME'
-     Format used for filenames.  In the original Mule, this is
-     user-definable with the `pathname-coding-system' variable.  For
-     the moment, we just use the `binary' coding system.
+`Qfile_name'
+     Format used for filenames.  This is user-definable via either the
+     `file-name-coding-system' or `pathname-coding-system' (now
+     obsolete) variables.
 
-`FORMAT_OS'
+`Qnative'
      Format used for the external Unix environment--`argv[]', stuff
      from `getenv()', stuff from the `/etc/passwd' file, etc.
+     Currently this is the same as Qfile_name.  The two should be
+     distinguished for clarity and possible future separation.
 
-     Perhaps should be the same as FORMAT_FILENAME.
+`Qctext'
+     Compound-text format.  This is the standard X11 format used for
+     data stored in properties, selections, and the like.  This is an
+     8-bit no-lock-shift ISO2022 coding system.  This is a real coding
+     system, unlike Qfile_name, which is user-definable.
 
-`FORMAT_CTEXT'
-     Compound-text format.  This is the standard X format used for data
-     stored in properties, selections, and the like.  This is an 8-bit
-     no-lock-shift ISO2022 coding system.
+   There are two fundamental macros to convert between external and
+internal format.
 
-   The macros to convert between these formats and the internal format,
-and vice versa, follow.
+   `TO_INTERNAL_FORMAT' converts external data to internal format, and
+`TO_EXTERNAL_FORMAT' converts the other way around.  The arguments each
+of these receives are a source type, a source, a sink type, a sink, and
+a coding system (or a symbol naming a coding system).
 
-`GET_CHARPTR_INT_DATA_ALLOCA'
-`GET_CHARPTR_EXT_DATA_ALLOCA'
-     These two are the most basic conversion macros.
-     `GET_CHARPTR_INT_DATA_ALLOCA' converts external data to internal
-     format, and `GET_CHARPTR_EXT_DATA_ALLOCA' converts the other way
-     around.  The arguments each of these receives are PTR (pointer to
-     the text in external format), LEN (length of texts in bytes), FMT
-     (format of the external text), PTR_OUT (lvalue to which new text
-     should be copied), and LEN_OUT (lvalue which will be assigned the
-     length of the internal text in bytes).  The resulting text is
-     stored to a stack-allocated buffer.  If the text doesn't need
-     changing, these macros will do nothing, except for setting LEN_OUT.
+   A typical call looks like
+     TO_EXTERNAL_FORMAT (LISP_STRING, str, C_STRING_MALLOC, ptr, Qfile_name);
 
-     The macros above take many arguments which makes them unwieldy.
-     For this reason, a number of convenience macros are defined with
-     obvious functionality, but accepting less arguments.  The general
-     rule is that macros with `INT' in their name convert text to
-     internal Emacs representation, whereas the `EXT' macros convert to
-     external representation.
+   which means that the contents of the lisp string `str' are written
+to a malloc'ed memory area which will be pointed to by `ptr', after the
+function returns.  The conversion will be done using the `file-name'
+coding system, which will be controlled by the user indirectly by
+setting or binding the variable `file-name-coding-system'.
 
-`GET_C_CHARPTR_INT_DATA_ALLOCA'
-`GET_C_CHARPTR_EXT_DATA_ALLOCA'
-     As their names imply, these macros work on C char pointers, which
-     are zero-terminated, and thus do not need LEN or LEN_OUT
-     parameters.
+   Some sources and sinks require two C variables to specify.  We use
+some preprocessor magic to allow different source and sink types, and
+even different numbers of arguments to specify different types of
+sources and sinks.
 
-`GET_STRING_EXT_DATA_ALLOCA'
-`GET_C_STRING_EXT_DATA_ALLOCA'
-     These two macros convert a Lisp string into an external
-     representation.  The difference between them is that
-     `GET_STRING_EXT_DATA_ALLOCA' stores its output to a generic
-     string, providing LEN_OUT, the length of the resulting external
-     string.  On the other hand, `GET_C_STRING_EXT_DATA_ALLOCA' assumes
-     that the caller will be satisfied with output string being
-     zero-terminated.
+   So we can have a call that looks like
+     TO_INTERNAL_FORMAT (DATA, (ptr, len),
+                         MALLOC, (ptr, len),
+                         coding_system);
 
-     Note that for Lisp strings only one conversion direction makes
-     sense.
+   The parenthesized argument pairs are required to make the
+preprocessor magic work.
 
-`GET_C_CHARPTR_EXT_BINARY_DATA_ALLOCA'
-`GET_CHARPTR_EXT_BINARY_DATA_ALLOCA'
-`GET_STRING_BINARY_DATA_ALLOCA'
-`GET_C_STRING_BINARY_DATA_ALLOCA'
-`GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA'
-`...'
-     These macros convert internal text to a specific external
-     representation, with the external format being encoded into the
-     name of the macro.  Note that the `GET_STRING_...' and
-     `GET_C_STRING...'  macros lack the `EXT' tag, because they only
-     make sense in that direction.
+   Here are the different source and sink types:
 
-`GET_C_CHARPTR_INT_BINARY_DATA_ALLOCA'
-`GET_CHARPTR_INT_BINARY_DATA_ALLOCA'
-`GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA'
-`...'
-     These macros convert external text of a specific format to its
-     internal representation, with the external format being incoded
-     into the name of the macro.
+``DATA, (ptr, len),''
+     input data is a fixed buffer of size LEN at address PTR
+
+``ALLOCA, (ptr, len),''
+     output data is placed in an alloca()ed buffer of size LEN pointed
+     to by PTR
+
+``MALLOC, (ptr, len),''
+     output data is in a malloc()ed buffer of size LEN pointed to by PTR
+
+``C_STRING_ALLOCA, ptr,''
+     equivalent to `ALLOCA (ptr, len_ignored)' on output.
+
+``C_STRING_MALLOC, ptr,''
+     equivalent to `MALLOC (ptr, len_ignored)' on output
+
+``C_STRING, ptr,''
+     equivalent to `DATA, (ptr, strlen (ptr) + 1)' on input
+
+``LISP_STRING, string,''
+     input or output is a Lisp_Object of type string
+
+``LISP_BUFFER, buffer,''
+     output is written to `(point)' in lisp buffer BUFFER
+
+``LISP_LSTREAM, lstream,''
+     input or output is a Lisp_Object of type lstream
+
+``LISP_OPAQUE, object,''
+     input or output is a Lisp_Object of type opaque
+
+   Often, the data is being converted to a '\0'-byte-terminated string,
+which is the format required by many external system C APIs.  For these
+purposes, a source type of `C_STRING' or a sink type of
+`C_STRING_ALLOCA' or `C_STRING_MALLOC' is appropriate.  Otherwise, we
+should try to keep XEmacs '\0'-byte-clean, which means using (ptr, len)
+pairs.
+
+   The sinks to be specified must be lvalues, unless they are the lisp
+object types `LISP_LSTREAM' or `LISP_BUFFER'.
+
+   For the sink types `ALLOCA' and `C_STRING_ALLOCA', the resulting
+text is stored in a stack-allocated buffer, which is automatically
+freed on returning from the function.  However, the sink types `MALLOC'
+and `C_STRING_MALLOC' return `xmalloc()'ed memory.  The caller is
+responsible for freeing this memory using `xfree()'.
+
+   Note that it doesn't make sense for `LISP_STRING' to be a source for
+`TO_INTERNAL_FORMAT' or a sink for `TO_EXTERNAL_FORMAT'.  You'll get an
+assertion failure if you try.
 
 
 File: internals.info,  Node: General Guidelines for Writing Mule-Aware Code,  Next: An Example of Mule-Aware Code,  Prev: Conversion to and from External Data,  Up: Coding for Mule
@@ -275,10 +209,22 @@ _Always convert external data_
      internal buffers literally.
 
      This means that when a system function, such as `readdir', returns
-     a string, you need to convert it using one of the conversion macros
-     described in the previous chapter, before passing it further to
-     Lisp.  In the case of `readdir', you would use the
-     `GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA' macro.
+     a string, you may need to convert it using one of the conversion
+     macros described in the previous chapter, before passing it
+     further to Lisp.
+
+     Actually, most of the basic system functions that accept
+     '\0'-terminated string arguments, like `stat()' and `open()', have
+     been *encapsulated* so that they are they `always' do internal to
+     external conversion themselves.  This means you must pass
+     internally encoded data, typically the `XSTRING_DATA' of a
+     Lisp_String to these functions.  This is actually a design bug,
+     since it unexpectedly changes the semantics of the system
+     functions.  A better design would be to provide separate versions
+     of these system functions that accepted Lisp_Objects which were
+     lisp strings in place of their current `char *' arguments.
+
+          int stat_lisp (Lisp_Object path, struct stat *buf); /* Implement me */
 
      Also note that many internal functions, such as `make_string',
      accept Bufbytes, which removes the need for them to convert the
@@ -292,7 +238,7 @@ File: internals.info,  Node: An Example of Mule-Aware Code,  Prev: General Guide
 An Example of Mule-Aware Code
 -----------------------------
 
-   As an example of Mule-aware code, we shall will analyze the `string'
+   As an example of Mule-aware code, we will analyze the `string'
 function, which conses up a Lisp string from the character arguments it
 receives.  Here is the definition, pasted from `alloc.c':
 
@@ -400,7 +346,7 @@ you can try to improve the test suite in `tests/automated'.
      <...>' syntax, not the `#include "..."' syntax.  The generated
      headers are:
 
-     `config.h puresize-adjust.h sheap-adjust.h paths.h Emacs.ad.h'
+     `config.h sheap-adjust.h paths.h Emacs.ad.h'
 
      The basic rule is that you should assume builds using `--srcdir'
      and the `#include <...>' syntax needs to be used when the
@@ -421,6 +367,25 @@ you can try to improve the test suite in `tests/automated'.
 
    * Did I mention that you should run the test suite?
           make check
+
+   Here is a checklist of things to do when creating a new lisp object
+type named FOO:
+
+  1. create FOO.h
+
+  2. create FOO.c
+
+  3. add definitions of syms_of_FOO, etc. to FOO.c
+
+  4. add declarations of syms_of_FOO, etc. to symsinit.h
+
+  5. add calls to syms_of_FOO, etc. to emacs.c(main_1)
+
+  6. add definitions of macros like CHECK_FOO and FOOP to FOO.h
+
+  7. add the new type index to enum lrecord_type
+
+  8. add DEFINE_LRECORD_IMPLEMENTATION call to FOO.c
 
 
 File: internals.info,  Node: A Summary of the Various XEmacs Modules,  Next: Allocation of Objects in XEmacs Lisp,  Prev: Rules When Writing New C Code,  Up: Top
@@ -674,8 +639,6 @@ special-purpose argument types requiring definitions not in `lisp.h'.)
 All initialization functions are prototyped in `symsinit.h'.
 
      alloc.c
-     pure.c
-     puresize.h
 
    The large module `alloc.c' implements all of the basic allocation and
 garbage collection for Lisp objects.  The most commonly used Lisp
@@ -699,33 +662,6 @@ code, adding a new subtype within a subsystem will in general not
 require changes to the generic subsystem code or affect any of the other
 subtypes in the subsystem; this provides a great deal of robustness to
 the XEmacs code.
-
-   `pure.c' contains the declaration of the "purespace" array.  Pure
-space is a hack used to place some constant Lisp data into the code
-segment of the XEmacs executable, even though the data needs to be
-initialized through function calls.  (See above in section VIII for more
-info about this.)  During startup, certain sorts of data is
-automatically copied into pure space, and other data is copied manually
-in some of the basic Lisp files by calling the function `purecopy',
-which copies the object if possible (this only works in temacs, of
-course) and returns the new object.  In particular, while temacs is
-executing, the Lisp reader automatically copies all compiled-function
-objects that it reads into pure space.  Since compiled-function objects
-are large, are never modified, and typically comprise the majority of
-the contents of a compiled-Lisp file, this works well.  While XEmacs is
-running, any attempt to modify an object that resides in pure space
-causes an error.  Objects in pure space are never garbage collected -
-almost all of the time, they're intended to be permanent, and in any
-case you can't write into pure space to set the mark bits.
-
-   `puresize.h' contains the declaration of the size of the pure space
-array.  This depends on the optional features that are compiled in, any
-extra purespace requested by the user at compile time, and certain other
-factors (e.g. 64-bit machines need more pure space because their Lisp
-objects are larger).  The smallest size that suffices should be used, so
-that there's no wasted space.  If there's not enough pure space, you
-will get an error during the build process, specifying how much more
-pure space is needed.
 
      eval.c
      backtrace.h
@@ -1186,4 +1122,83 @@ TTY.
 
    These files provide some miscellaneous TTY-output functions and
 should probably be merged into `redisplay-tty.c'.
+
+
+File: internals.info,  Node: Modules for Interfacing with the File System,  Next: Modules for Other Aspects of the Lisp Interpreter and Object System,  Prev: Modules for the Redisplay Mechanism,  Up: A Summary of the Various XEmacs Modules
+
+Modules for Interfacing with the File System
+============================================
+
+     lstream.c
+     lstream.h
+
+   These modules implement the "stream" Lisp object type.  This is an
+internal-only Lisp object that implements a generic buffering stream.
+The idea is to provide a uniform interface onto all sources and sinks of
+data, including file descriptors, stdio streams, chunks of memory, Lisp
+buffers, Lisp strings, etc.  That way, I/O functions can be written to
+the stream interface and can transparently handle all possible sources
+and sinks.  (For example, the `read' function can read data from a
+file, a string, a buffer, or even a function that is called repeatedly
+to return data, without worrying about where the data is coming from or
+what-size chunks it is returned in.)
+
+   Note that in the C code, streams are called "lstreams" (for "Lisp
+streams") to distinguish them from other kinds of streams, e.g. stdio
+streams and C++ I/O streams.
+
+   Similar to other subsystems in XEmacs, lstreams are separated into
+generic functions and a set of methods for the different types of
+lstreams.  `lstream.c' provides implementations of many different types
+of streams; others are provided, e.g., in `mule-coding.c'.
+
+     fileio.c
+
+   This implements the basic primitives for interfacing with the file
+system.  This includes primitives for reading files into buffers,
+writing buffers into files, checking for the presence or accessibility
+of files, canonicalizing file names, etc.  Note that these primitives
+are usually not invoked directly by the user: There is a great deal of
+higher-level Lisp code that implements the user commands such as
+`find-file' and `save-buffer'.  This is similar to the distinction
+between the lower-level primitives in `editfns.c' and the higher-level
+user commands in `commands.c' and `simple.el'.
+
+     filelock.c
+
+   This file provides functions for detecting clashes between different
+processes (e.g. XEmacs and some external process, or two different
+XEmacs processes) modifying the same file.  (XEmacs can optionally use
+the `lock/' subdirectory to provide a form of "locking" between
+different XEmacs processes.)  This module is also used by the low-level
+functions in `insdel.c' to ensure that, if the first modification is
+being made to a buffer whose corresponding file has been externally
+modified, the user is made aware of this so that the buffer can be
+synched up with the external changes if necessary.
+
+     filemode.c
+
+   This file provides some miscellaneous functions that construct a
+`rwxr-xr-x'-type permissions string (as might appear in an `ls'-style
+directory listing) given the information returned by the `stat()'
+system call.
+
+     dired.c
+     ndir.h
+
+   These files implement the XEmacs interface to directory searching.
+This includes a number of primitives for determining the files in a
+directory and for doing filename completion. (Remember that generic
+completion is handled by a different mechanism, in `minibuf.c'.)
+
+   `ndir.h' is a header file used for the directory-searching emulation
+functions provided in `sysdep.c' (see section J below), for systems
+that don't provide any directory-searching functions. (On those
+systems, directories can be read directly as files, and parsed.)
+
+     realpath.c
+
+   This file provides an implementation of the `realpath()' function
+for expanding symbolic links, on systems that don't implement it or have
+a broken implementation.
 

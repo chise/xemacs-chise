@@ -360,10 +360,9 @@ keep, each time a new backup is made.  The values are used just after a
 new backup version is made; that newly made backup is included in the
 count in `kept-new-versions'.  By default, both variables are 2.
 
-   If `trim-versions-without-asking' is non-`nil',  excess middle
-versions are deleted without notification.  If it is `nil', the
-default, you are asked whether the excess middle versions should really
-be deleted.
+   If `delete-old-versions' is non-`nil',  excess middle versions are
+deleted without notification.  If it is `nil', the default, you are
+asked whether the excess middle versions should really be deleted.
 
    You can also use Dired's `.' (Period) command to delete old versions.
 *Note Dired::.
