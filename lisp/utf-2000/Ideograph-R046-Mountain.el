@@ -4368,6 +4368,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=jis-x0213-1-2000	. #x4F6F)	; ø»£—®
+    (=jef-china3	. #x4AFE)	; øº„«¾
     (mojikyo		. 050650)	; ý €Œ—š
     (=ucs		. #x37E2)	; ãŸ¢
     ))
