@@ -1,3 +1,87 @@
+2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.4.13 is released
+
+2003-03-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (INTPTR_T_IN_CYGWIN_TYPES_H): 
+	Cygwin defines these types in <cygwin/types.h>.  Detect and don't
+	duplicate the definition.
+
+2003-03-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.usage (Usage): Use an autodetected feature as an
+	example of how to disable features.  A Martin Buchholz Suggestion.
+
+2003-03-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* INSTALL: Give location of Darwin X11 downloads.
+
+2003-01-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* INSTALL (--with-scrollbars):
+	(--with-dialogs):
+	(--with-widgets):
+	(--with-athena):
+	Update to current reality.
+
+2003-01-18  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* INSTALL:
+	* PROBLEMS:
+	Mention --site-includes and subdirectories for helping configure
+	to find 3rd-party add-ons.
+
+2003-01-28  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (opsys): (AIX specific)
+	Use opsys=aix4-2 for AIX 5 and all future versions.
+
+2003-01-28  Martin Buchholz  <martin@xemacs.org>
+	* configure.in (-mthreads): (AIX specific)
+	Use either -mthreads or -pthread, depending on gcc versions.
+	gcc changed the name of the `-mthreads' option to `-pthread'
+	on 2000-06-12.
+
+	Be more careful when appending "_r" to various names of xlc, 
+	so that users can specify --compiler=/absolute/path/to/xlc
+
+2003-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Don't disable athena just because the user
+	specified --with-widgets=no.
+
+2003-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in (athena_3d): 
+	AC_CHECK_LIB must always take a function as
+	argument, never a global variable.  Some linkers can tell the
+	difference.  So change:
+	threeDClassRec ==> Xaw3dComputeBottomShadowRGB
+
+2003-03-02  Vin Shelton  <acs@xemacs.org>
+
+	* etc/BETA: synced up with 21.5.  Original patch from
+	Chris Palmer  <chris@nodewarrior.org>.
+
+2003-03-02  Robert Pluim  <rpluim@bigfoot.com>
+
+	* configure.in : Don't use the u_int8_t etc typedefs on FreeBSD
+	when detecting Berkeley DB, as they conflict with <sys/types.h>.
+
+2003-02-01  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Don't look for Motif if it's already present in
+	$x_includes and $x_libraries.
+
+2003-02-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Fix darwin regexp for pdump.
+
+2003-02-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* INSTALL: Recommend Mule, deprecate stripped binaries.
+
 2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.12 "Portable Code" is released.

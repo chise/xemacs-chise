@@ -33,6 +33,7 @@
 * Widget Minor Mode::           
 * Utilities::                   
 * Widget Wishlist::             
+* Widget Internals::
 @end menu
 
 @node  Introduction, User Interface, Top, Top
@@ -120,7 +121,7 @@ create any widgets, the code has been split in two files:
 @table @file
 @item widget.el
 This will declare the user variables, define the function
-@code{widget-define}, and autoload the function @code{widget-create}. 
+@code{define-widget}, and autoload the function @code{widget-create}. 
 @item wid-edit.el
 Everything else is here, there is no reason to load it explicitly, as
 it will be autoloaded when needed.
@@ -133,7 +134,7 @@ it will be autoloaded when needed.
 A form consists of read only text for documentation and some fields,
 where each of the fields contains two parts, a tag and a value.  The
 tags are used to identify the fields, so the documentation can refer to
-the foo field, meaning the field tagged with @samp{Foo}.  Here is an
+the foo field, meaning the field tagged with @samp{Foo}. Here is an
 example form:
 
 @example
@@ -542,7 +543,9 @@ A function called each time the widget or a nested widget is changed.
 The function is called with two or three arguments.  The first argument
 is the widget itself, the second argument is the widget that was
 changed, and the third argument is the event leading to the change, if
-any. 
+any.  In editable fields, this includes all insertions, deletions,
+@emph{etc}.  To watch only for ``final'' actions, redefine the
+@code{:action} callback.
 
 @item :menu-tag
 Tag used in the menu when the widget is used as an option in a
@@ -1357,7 +1360,7 @@ you to create a shorthand for more complex widgets.  This includes
 specifying component widgets and new default values for the keyword
 arguments.
 
-@defun widget-define name class doc &rest args
+@defun define-widget name class doc &rest args
 Define a new widget type named @var{name} from @code{class}.
 
 @var{name} and class should both be symbols, @code{class} should be one
@@ -1382,31 +1385,48 @@ create identical widgets:
 
 @end defun
 
-Using @code{widget-define} just stores the definition of the widget type
+Using @code{define-widget} just stores the definition of the widget type
 in the @code{widget-type} property of @var{name}, which is what
 @code{widget-create} uses.
 
 If you just want to specify defaults for keywords with no complex
-conversions, you can use @code{identity} as your conversion function.
+conversions, you can use @code{identity} as your @code{:convert-widget}
+function.
 
 The following additional keyword arguments are useful when defining new
 widgets: 
 @table @code
 @item :convert-widget
-Function to convert a widget type before creating a widget of that
-type.  It takes a widget type as an argument, and returns the converted
-widget type.  When a widget is created, this function is called for the
-widget type and all the widget's parent types, most derived first. 
+Method to convert type-specific components of a widget type before
+instantiating a widget of that type.  Not normally called from user
+code, it is invoked by @code{widget-convert}.  Typical operations
+include converting types of child widgets to widget instances and
+converting values from external format (@emph{i.e.}, as expected by the
+calling code) to internal format (which is often different for the
+convenience of widget manipulation).  It takes a widget type as an
+argument, and returns the converted widget type.  When a widget is
+created, the value of this property is called for the widget type, then
+for all the widget's parent types, most derived first.  (The property is
+reevaluated for each parent type.)
 
 The following predefined functions can be used here:
 
 @defun widget-types-convert-widget widget
-Convert @code{:args} as widget types in @var{widget}.
+Convert each member of @code{:args} in @var{widget} from a widget type
+to a widget.
 @end defun
 
 @defun widget-value-convert-widget widget
-Initialize @code{:value} from @code{:args} in @var{widget}.
+Initialize @code{:value} from @code{(car :args)} in @var{widget}, and
+reset @code{:args}.
 @end defun
+
+@item :copy
+A method to implement deep copying of the type.  Any member of the
+widget which might be changed in place (rather than replaced) should be
+copied by this method.  (@code{widget-copy} uses @code{copy-sequence} to
+ensure that the top-level list is a copy.)  This particularly applies to
+child widgets.
 
 @item :value-to-internal
 Function to convert the value to the internal format.  The function
@@ -1424,8 +1444,14 @@ when the widget is created, and on any value set later with
 
 @item :create
 Function to create a widget from scratch.  The function takes one
-argument, a widget type, and creates a widget of that type, inserts it
-in the buffer, and returns a widget object.
+argument, a widget, and inserts it in the buffer.  Not normally called
+from user code.  Instead, call @code{widget-create} or related
+functions, which take a type argument, (usually) convert it to a widget,
+call the @code{:create} function to insert it in the buffer, and then
+return the (possibly converted) widget.
+
+The default, @code{widget-default-create}, is invariably appropriate.
+(None of the standard widgets specify @code{:create}.)
 
 @item :delete
 Function to delete a widget.  The function takes one argument, a widget,
@@ -1469,7 +1495,9 @@ escape sequences as well as give an error for unknown escapes.
 
 @item :action
 Function to handle user initiated events.  By default, @code{:notify}
-the parent. 
+the parent.  Actions normally do not include mere edits, but refer to
+things like invoking buttons or hitting enter in an editable field.  To
+watch for any change, redefine the @code{:notify} callback.
 
 The following predefined function can be used here:
 
@@ -1497,6 +1525,43 @@ Widget used as a base for other widgets.
 It provides most of the functionality that is referred to as ``by
 default'' in this text. 
 @end deffn
+
+In implementing complex hierarchical widgets (@emph{e.g.}, using the
+@samp{group} widget), the following functions may be useful.
+The syntax for the @var{type} arguments to these functions is described
+in @ref{Basic Types}.
+
+@defun widget-create-child-and-convert parent type &rest args
+As a child of @var{parent}, create a widget with type @var{type} and
+value @var{value}.  @var{type} is copied, and the @code{:widget-contvert}
+method is applied to the optional keyword arguments from @var{args}.
+@end defun
+
+@defun widget-create-child parent type
+As a child of @var{parent}, create a widget with type @var{type}.
+@var{type} is copied, but no conversion method is applied.
+@end defun
+
+@defun widget-create-child-value parent type value
+As a child of @var{parent}, create a widget with type @var{type} and
+value @var{value}.  @var{type} is copied, but no conversion method is
+applied.
+@end defun
+
+@defun widget-convert type &rest args
+Convert @var{type} to a widget without inserting it in the buffer.
+The optional @var{args} are additional keyword arguments.
+
+The widget's @code{:args} property is set from the longest tail of
+@var{args} whose @samp{cdr} is not a keyword, or if that is null, from
+the longest tail of @var{type}'s @code{:args} property whose cdr is not
+a keyword.  Keyword arguments from @var{args} are set, and the
+@code{:value} property (if any) is converted from external to internal
+format.
+@end defun
+
+@code{widget-convert} is typically not called from user code; rather it
+is called implicitly through the @samp{widget-create*} functions.
 
 @node Widget Browser, Widget Minor Mode, Defining New Widgets, Top
 @comment  node-name,  next,  previous,  up
@@ -1554,7 +1619,7 @@ Get the item @var{widget} is assumed to toggle.@*
 This is only meaningful for radio buttons or checkboxes in a list.
 @end defun
 
-@node  Widget Wishlist,  , Utilities, Top
+@node Widget Wishlist, Widget Internals, Utilities, Top
 @comment  node-name,  next,  previous,  up
 @section Wishlist
 
@@ -1616,7 +1681,7 @@ A mailto widget.
 the field, not the end of the field itself. 
 
 @item
-Use and overlay instead of markers to delimit the widget.  Create
+Use an overlay instead of markers to delimit the widget.  Create
 accessors for the end points.
 
 @item
@@ -1626,6 +1691,36 @@ through @code{apropos}.  If more than one function is valid for the
 symbol, it should pop up a menu.
 
 @end itemize
+
+@node Widget Internals, , Widget Wishlist, Top
+@section Internals
+
+This (very brief!) section provides a few notes on the internal
+structure and implementation of Emacs widgets.  Avoid relying on this
+information.  (We intend to improve it, but this will take some time.)
+To the extent that it actually describes APIs, the information will be
+moved to appropriate sections of the manual in due course.
+
+@subsection The @dfn{Widget} and @dfn{Type} Structures
+
+Widgets and types are currently both implemented as lists.
+
+A symbol may be defined as a @dfn{type name} using @code{define-widget}.
+@xref{Defining New Widgets}.  A @dfn{type} is a list whose car is a
+previously defined type name, nil, or (recursively) a type.  The car is
+the @dfn{class} or parent type of the type, and properties which are not
+specified in the new type will be inherited from ancestors.  Probably
+the only type without a class should be the @code{default} type.  The
+cdr of a type is a plist whose keys are widget property keywords.
+
+A type or type name may also be referred to as an @dfn{unconverted
+widget}.
+
+A @dfn{converted widget} or @dfn{widget instance} is a list whose car is
+a type name or a type, and whose cdr is a property list.  Furthermore,
+all children of the converted widget must be converted.  Finally, in the
+process of appropriate parts of the list structure are copied to ensure
+that changes in values of one instance do not affect another's.
 
 @contents
 @bye

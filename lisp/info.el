@@ -1033,7 +1033,7 @@ actually get any text from."
 	(setq lbuffers (cdr lbuffers)))
       (message "Composing main Info directory...done"))
     (setq Info-dir-contents (buffer-string)))
-  (setq default-directory Info-dir-contents-directory)
+  (setq default-directory (file-name-as-directory Info-dir-contents-directory))
   (setq buffer-file-name (caar Info-dir-file-attributes)))
 
 (defmacro Info-directory-files (dir-file &optional all full nosort files-only)

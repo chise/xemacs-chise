@@ -234,7 +234,7 @@ containing the text and defaults to the current buffer."
     (setq start (next-single-property-change start prop buffer-or-string end)))
   ;; we have to insert a special check for end due to the illogical
   ;; definition of next-single-property-change (blame FSF for this).
-  (if (eq start end) nil start))
+  (if (and start (>= start end)) nil start))
 
 (defun text-property-not-all (start end prop value &optional buffer-or-string)
   "Check text from START to END to see if PROP is ever not `eq' to VALUE.
@@ -248,7 +248,7 @@ containing the text and defaults to the current buffer."
 					       buffer-or-string end)))
       ;; we have to insert a special check for end due to the illogical
       ;; definition of previous-single-property-change (blame FSF for this).
-      (if (eq retval end) nil retval))))
+      (if (and retval (>= retval end)) nil retval))))
 
 ;; Older versions that only work sometimes (when VALUE is non-nil
 ;; for text-property-any, and maybe only when VALUE is nil for

@@ -2264,6 +2264,9 @@ struct overhead_stats
 
 #ifdef HAVE_INTTYPES_H
 #include <inttypes.h>
+#elif defined(INTPTR_T_IN_CYGWIN_TYPES_H)
+/* Recent Cygwin defines these types in <cygwin/types.h>
+   We can hope that if they ever get inttypes.h, they won't define twice */
 #elif SIZEOF_VOID_P == SIZEOF_INT
 typedef int intptr_t;
 typedef unsigned int uintptr_t;

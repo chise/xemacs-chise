@@ -15,8 +15,8 @@ Conventions for options:
   useful default.  Denoted `(Enum)'.
 - Set options accept one or more types from a list of implementations of the
   feature.  All specified implementations will be included.  Prefix a type
-  with `no' to disable only that implementation (e.g., `--with-sound=noesd'
-  to disable ESD).  The special values `none' and `all' must be first in the
+  with `no' to disable only that implementation (e.g., `--with-sound=nonas'
+  to disable NAS).  The special values `none' and `all' must be first in the
   list if used.  They change the defaults for all types individually from
   autodetect to `no' or `yes' respectively.  `--with-sound=none,native' and
   `--with-sound=noesd,nonas,native' have the same effect.  Denoted `(Set)'.

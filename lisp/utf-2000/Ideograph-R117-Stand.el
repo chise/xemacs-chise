@@ -18,7 +18,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=gb2312		. #x4122)	; ø»„µ…
-    (=iso-ir165		. #x4122)	; ø»•
     (=cns11643-1	. #x4721)	; ø»‘º
     (=ucs		. #x7ACB)	; ç«‹
     ))
@@ -315,7 +314,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=gb2312		. #x4A7A)	; ø»…ƒ«
-    (=iso-ir165		. #x4A7A)	; ø»«»
     (=ucs		. #x7AD6)	; ç«–
     ))
 (define-char
@@ -358,7 +356,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=gb2312		. #x553E)	; ø»…’¹
-    (=iso-ir165		. #x553E)	; ø»»‰
     (=cns11643-1	. #x573B)	; ø»’’Š
     (=ucs		. #x7AD9)	; ç«™
     ))
@@ -620,7 +617,6 @@
   '((ideographic-radical . 117)	; â½´
     (ideographic-strokes . 5)
     (=gb2312		. #x3E3A)	; ø»„±ƒ
-    (=iso-ir165		. #x3E3A)	; ø»™“
     (=ucs		. #x7ADE)	; ç«ž
     ))
 (define-char
@@ -649,7 +645,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=gb2312		. #x3E39)	; ø»„±‚
-    (=iso-ir165		. #x3E39)	; ø»™’
     (=cns11643-1	. #x5D7E)	; ø»’œ
     (=ucs		. #x7ADF)	; ç«Ÿ
     ))
@@ -719,7 +714,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=gb2312		. #x5542)	; ø»…’½
-    (=iso-ir165		. #x5542)	; ø»»
     (=cns11643-1	. #x5D7D)	; ø»’œ€
     (=ucs		. #x7AE0)	; ç« 
     ))
@@ -893,7 +887,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=gb2312		. #x3F22)	; ø»„²‰
-    (=iso-ir165		. #x3F22)	; ø»š™
     (=ucs		. #x7AE3)	; ç«£
     ))
 (define-char
@@ -932,7 +925,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=gb2312		. #x4D2F)	; ø»…†º
-    (=iso-ir165		. #x4D2F)	; ø»¯Š
     (=cns11643-1	. #x6129)	; ø»’ ¤
     (=ucs		. #x7AE5)	; ç«¥
     ))
@@ -962,7 +954,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=gb2312		. #x7135)	; ø»…»¸
-    (=iso-ir165		. #x7135)	; ø»Ž¤ˆ
     (=cns11643-2	. #x3E60)	; ø»“¸…
     (=ucs		. #x7AE6)	; ç«¦
     ))
@@ -1383,7 +1374,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=gb2312		. #x3D5F)	; ø»„°Š
-    (=iso-ir165		. #x3D5F)	; ø»˜š
     (=cns11643-1	. #x6A25)	; ø»’­®
     (=ucs		. #x7AED)	; ç«­
     ))
@@ -1437,7 +1427,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=gb2312		. #x364B)	; ø»„¥¤
-    (=iso-ir165		. #x364B)	; ø»´
     (=cns11643-1	. #x6A26)	; ø»’­¯
     (=ucs		. #x7AEF)	; ç«¯
     ))
