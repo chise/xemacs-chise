@@ -1,5 +1,18 @@
 2003-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U-00020C8A): Unify MH-0065 and M085233;
+	add strokes.
+	(MH-0068): New character.
+	(U-00020E5D): Unify MH-0069 and M073224; add strokes.
+	(U-00020E91): Unify MH-0070 and M085353; add strokes.
+	(U+565B): Unify MH-0071, GT-05383 and M054061.
+	(CB03519): Unify MH-0072.
+	(U+567B): Relate to MH-0072; delete `->mojikyo'.
+	(JC3-8EE0): Unify MH-0073; separate G0-606A, C2-5C4C and U+5693.
+	(C3-602D): Unify MH-0075 and GT-05858.
+	(U+361A): Relate to MH-0075.
+	(U+56D6): Add `total-strokes'.
+
 	* Ideograph-R169-Gate.el (M-41484): Separate all.
 	(U+95DE): Fix strokes.
 
