@@ -2157,9 +2157,7 @@
     (<-vulgar-ideograph
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 2207)
-		 (ideograph-gt-pj-11 . #x3B54)	; ý¡€‚¹¾
 		 (=gt		     . 11902)	; ý¡€‚¹¾
-		 (mojikyo	     . 050989)	; ý €Œœ­
 		 )
       ))
     (ideographic-structure

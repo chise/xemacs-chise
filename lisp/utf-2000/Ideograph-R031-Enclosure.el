@@ -3668,7 +3668,8 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((korean-ksc5601	  . #x5532)	; ø»‰¦µ
+     ((=jis-x0208	  . #x5D33)	; ø½‹Ž–
+      (korean-ksc5601	  . #x5532)	; ø»‰¦µ
       (ideograph-daikanwa . 15947)	; ø¸ƒ¹‹
       ))
     (ideograph-gt-pj-2	. #x5D3E)	; ý¡€Ÿ©

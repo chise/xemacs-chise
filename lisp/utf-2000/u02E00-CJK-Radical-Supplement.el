@@ -288,7 +288,6 @@
     (mirrored		. nil)
     (<-radical
      ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
-      (mojikyo		  . 070546)	; ý €‘Ž’
       ))
     (ucs		. #x2E9C)	; âºœ
     ))
