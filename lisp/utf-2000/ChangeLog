@@ -1,3 +1,108 @@
+2002-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u03200-Enclosed-CJK-Letters-and-Months.el, u030A0-Katakana.el,
+	u03040-Hiragana.el, u03000-CJK-Symbols-and-Punctuation.el,
+	u02F00-Kangxi-Radicals.el, u02E00-CJK-Radical-Supplement.el,
+	u02700-Dingbats.el, u02580-Block-Elements.el,
+	u02500-Box-Drawing.el, u02460-Enclosed-Alphanumerics.el,
+	u02190-Arrows.el, u02150-Number-Forms.el,
+	u02100-Letterlike-Symbols.el, u00400-Cyrillic.el,
+	u002B0-Spacing-Modifier-Letters.el: Use `chinese-big5-eten' for
+	Big5-ETEN code points.
+
+	* u0FE50-Small-Form-Variants.el,
+	u0FE30-CJK-Compatibility-Forms.el, u0E000-Private-Use.el,
+	u03300-CJK-Compatibility.el, u03100-Bopomofo.el,
+	u02600-Miscellaneous-Symbols.el, u025A0-Geometric-Shapes.el,
+	u02200-Mathematical-Operators.el, u020A0-Currency-Symbols.el,
+	u02000-General-Punctuation.el, u00370-Greek.el: Reformatted.
+
+	* u000A0-Latin-1-Supplement.el: Use `chinese-big5-eten' for
+	Big5-ETEN code points.
+	(fullwidth acute accent): Delete B-A1A6.
+
+2002-03-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u0FE70-Arabic-Presentation-Forms-B.el,
+	u0FE30-CJK-Compatibility-Forms.el,
+	u0FB50-Arabic-Presentation-Forms-A.el, u0AC00-Hangul-Syllables.el:
+	Reformatted.
+
+2002-03-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u0A490-Yi-Radicals.el: New file.
+
+	* u0A000-Yi-Syllables.el: Separate <YI RADICAL *> (U+A490
+	.. U+A4C6) into u0A490-Yi-Radicals.el.
+
+2002-03-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u03300-CJK-Compatibility.el: Reformatted.
+
+2002-03-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02FF0-Ideographic-Description-Characters.el,
+	u02700-Dingbats.el: Reformatted.
+
+2002-03-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u025A0-Geometric-Shapes.el, u02500-Box-Drawing.el,
+	u01F00-Greek-Extended.el: Reformatted.
+
+2002-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01E00-Latin-Extended-Additional.el: Reformatted.
+
+2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01800-Mongolian.el: Reformatted.
+
+2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01780-Khmer.el: Reformatted.
+
+2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u016A0-Runic.el: Reformatted.
+
+2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01680-Ogham.el: Reformatted.
+
+2002-03-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01400-Canadian.el: Reformatted.
+
+2002-03-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01100-Hangul-Jamo.el: Reformatted.
+
+2002-03-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u010A0-Georgian.el: Reformatted.
+
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01000-Myanmar.el: Reformatted.
+
+2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00F00-Tibetan.el: Reformatted.
+
+2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00D80-Sinhala.el, u00D00-Malayalam.el, u00C80-Kannada.el,
+	u00C00-Telugu.el, u00B80-Tamil.el, u00B00-Oriya.el: Reformatted.
+
+2002-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00A80-Gujarati.el, u00A00-Gurmukhi.el, u00600-Arabic.el,
+	u00400-Cyrillic.el, u00370-Greek.el,
+	u002B0-Spacing-Modifier-Letters.el, u00250-IPA-Extensions.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, u00080-C1.el: Reformatted.
+
 2002-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R110-Spear.el, Ideograph-R106-White.el,
