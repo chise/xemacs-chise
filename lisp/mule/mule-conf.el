@@ -125,6 +125,28 @@
 
 (when (featurep 'utf-2000)
   (make-charset
+   '=ucs-jis-1990
+   "UCS for JIS:1990"
+   `(long-name "ISO/IEC 10646 for JIS X 0208/0212:1990"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ucs-jis))
+  (make-charset
+   '=ucs-jis-2000
+   "UCS for JIS:2000"
+   `(long-name "ISO/IEC 10646 for JIS X 0213:2000"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ucs-jis))
+  (define-charset-alias 'ucs-jis-1990 '=ucs-jis-1990)
+  (define-charset-alias 'ucs-jis-2000 '=ucs-jis-2000)
+  (make-charset
    'chinese-big5-pua
    "Big5-PUA"
    `(long-name "Big5 with private used area"
