@@ -1,3 +1,34 @@
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting to format
+	`=>ucs-jis'.
+
+	* Ideograph-R021-Spoon.el: Add some CJK Ext-B code points.
+	(M-02571): Unify U-0002090E; relate to JU-5315 instead of U+5315.
+
+	* Ideograph-R020-Wrap.el, Ideograph-R019-Power.el: Merge some CJK
+	Ext-B code points.
+
+	* Ideograph-R115-Grain.el (U+79F0): Separate C3-327C.
+	(J0-3E4E): Unify C3-327C and CB-00379.
+
+	* Ideograph-R059-Bristle.el (C6-3F5B): Use `->same-ideograph'
+	instead of `ideograph='.
+	- Add some CBETA numbers.
+	- Merge Big5 code points.
+
+	* Ideograph-R058-Snout.el: Merge Big5 code points.
+	(U+5F5C): Unify CB-02362; relate to M-09948.
+
+	* Ideograph-R057-Bow.el:
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Add some CBETA numbers.
+
+	* Ideograph-R056-Shoot.el:
+	- Merge Big5 code points.
+	- Merge some CBETA numbers.
+
 2001-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (U+49BE): New character.
