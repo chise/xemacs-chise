@@ -24,7 +24,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (chinese-gb12345	. #x6679)	; ç³¹
-    (chinese-big5-cdp	. #x8AFB)	; ý¢€ˆ«»
+    (=big5-cdp		. #x8AFB)	; ý¢€ˆ«»
     (ucs		. #x7CF9)	; ç³¹
     ))
 (define-char
@@ -6052,7 +6052,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+     ((=big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -6084,7 +6084,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+     ((=big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

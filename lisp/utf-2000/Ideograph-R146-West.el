@@ -26,7 +26,7 @@
     (ideographic-radical . 146)	; â¾‘
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (chinese-big5-cdp	. #x8BD5)	; ý¢€ˆ¯•
+    (=big5-cdp		. #x8BD5)	; ý¢€ˆ¯•
     ))
 (define-char
   '((morohashi-daikanwa	34763 0 2)

@@ -1186,7 +1186,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
+     ((=big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
       )
      ((ucs		  . #x5144)	; å…„
       ))
@@ -1219,7 +1219,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
+     ((=big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
       )
      ((ucs		  . #x7533)	; ç”³
       ))
@@ -1355,7 +1355,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
+     ((=big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
       )
      ((ucs		  . #x4E14)	; ä¸”
       ))
@@ -2183,7 +2183,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
+     ((=big5-cdp	  . #x88C7)	; ý¢€ˆ£‡
       )
      ((ucs		  . #x752B)	; ç”«
       ))

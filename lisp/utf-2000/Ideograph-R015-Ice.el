@@ -9,7 +9,7 @@
     (=jis-x0208		. #x5152)	; ø½Š½
     (chinese-isoir165	. #x597B)	; ø»Ž¾
     (ideograph-daikanwa . 01607)	; ø¸€™‡
-    (chinese-big5-cdp	. #x8BEE)	; ý¢€ˆ¯®
+    (=big5-cdp		. #x8BEE)	; ý¢€ˆ¯®
     (ucs		. #x51AB)	; å†«
     ))
 (define-char
@@ -64,7 +64,7 @@
       )
      ((ucs		  . #x5902)	; å¤‚
       )
-     ((chinese-big5-cdp	  . #x8971)	; ý¢€ˆ¥±
+     ((=big5-cdp	  . #x8971)	; ý¢€ˆ¥±
       ))
     (shinjigen-1	. 540)
     (shinjigen-2	. 540)

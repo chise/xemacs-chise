@@ -50,7 +50,7 @@
     (hanyu-dazidian	1 2 3)
     (chinese-cns11643-6 . #x2128)	; ø»›´·
     (ideograph-daikanwa . 00249)	; ø¸€ƒ¹
-    (chinese-big5-cdp	. #x8A76)	; ý¢€ˆ©¶
+    (=big5-cdp		. #x8A76)	; ý¢€ˆ©¶
     (ucs		. #x2011F)	; ð „Ÿ
     ))
 (define-char
@@ -124,7 +124,7 @@
     (chinese-isoir165	. #x3F77)	; ø»›®
     (chinese-cns11643-3 . #x2131)	; ø»•–´
     (ideograph-daikanwa . 00253)	; ø¸€ƒ½
-    (chinese-big5-cdp	. #x8CF1)	; ý¢€ˆ³±
+    (=big5-cdp		. #x8CF1)	; ý¢€ˆ³±
     (ucs		. #x4E8F)	; äº
     ))
 (define-char
@@ -148,7 +148,7 @@
       ))
     (shinjigen-1	. 77)
     (korean-ksc5601	. #x6A27)	; ø»Š… 
-    (chinese-big5-cdp	. #x8A42)	; ý¢€ˆ©‚
+    (=big5-cdp		. #x8A42)	; ý¢€ˆ©‚
     (ucs		. #x4E90)	; äº
     ))
 (define-char
@@ -332,7 +332,7 @@
     (chinese-isoir165	. #x5828)	; ø»¿
     (chinese-cns11643-3 . #x2266)	; ø»•™‡
     (ideograph-daikanwa . 00262)	; ø¸€„†
-    (chinese-big5-cdp	. #x8CEE)	; ý¢€ˆ³®
+    (=big5-cdp		. #x8CEE)	; ý¢€ˆ³®
     (=cbeta		. #x0028)	; ø¸ €¨
     (ucs		. #x4E98)	; äº˜
     ))
@@ -355,7 +355,7 @@
       )
      ((ucs		  . #x4E8C)	; äºŒ
       )
-     ((chinese-big5-cdp	  . #x87EC)	; ý¢€ˆŸ¬
+     ((=big5-cdp	  . #x87EC)	; ý¢€ˆŸ¬
       ))
     (chinese-cns11643-6		. #x2348)	; ø»›¸“
     (ideograph-daikanwa		. 00264)	; ø¸€„ˆ
@@ -373,7 +373,7 @@
       )
      ((ucs		  . #x4E8C)	; äºŒ
       )
-     ((chinese-big5-cdp	  . #x8959)	; ý¢€ˆ¥™
+     ((=big5-cdp	  . #x8959)	; ý¢€ˆ¥™
       ))
     (shinjigen-1	. 82)
     (shinjigen-2	. 82)
@@ -410,7 +410,7 @@
     (hanyu-dazidian	1 17 14)
     (chinese-gb2312	. #x5147)	; ø»…Š
     (chinese-isoir165	. #x5147)	; ø»µš
-    (chinese-big5-cdp	. #x89B7)	; ý¢€ˆ¦·
+    (=big5-cdp		. #x89B7)	; ý¢€ˆ¦·
     (ucs		. #x4E9A)	; äºš
     ))
 (define-char
@@ -538,7 +538,7 @@
     (=jis-x0208		. #x3021)	; ø½Š‹¾
     (chinese-cns11643-3 . #x2442)	; ø»•›Ÿ
     (ideograph-daikanwa . 00272)	; ø¸€„
-    (chinese-big5-cdp	. #x89B8)	; ý¢€ˆ¦¸
+    (=big5-cdp		. #x89B8)	; ý¢€ˆ¦¸
     (ucs		. #x4E9C)	; äºœ
     ))
 (define-char
@@ -592,9 +592,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-big5-cdp   . #x8B44)	; ý¢€ˆ­„
+       ((ucs		    . #x5E7A)	; å¹º
 	)
-       ((chinese-big5-cdp   . #x8B44)	; ý¢€ˆ­„
+       ((ucs		    . #x5E7A)	; å¹º
 	))
       )
      ((ucs		  . #x4E00)	; ä¸€

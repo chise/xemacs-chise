@@ -7,7 +7,7 @@
     (=jis-x0208		. #x5469)	; ø½‹¾
     (chinese-cns11643-3 . #x2139)	; ø»•–¼
     (ideograph-daikanwa . 05691)	; ø¸˜»
-    (chinese-big5-cdp	. #x8B45)	; ý¢€ˆ­…
+    (=big5-cdp		. #x8B45)	; ý¢€ˆ­…
     (ucs-jis		. #x5902)	; ø½‹¾
     ))
 (define-char
@@ -35,7 +35,7 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 9)
     (hanyu-dazidian-char . 5)
-    (chinese-big5-cdp	. #x8874)	; ý¢€ˆ¡´
+    (=big5-cdp		. #x8874)	; ý¢€ˆ¡´
     (ucs		. #x21552)	; ð¡•’
     ))
 (define-char
@@ -132,7 +132,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-cns11643-3 . #x2344)	; ø»•šƒ
-    (chinese-big5-cdp	. #x8D5F)	; ý¢€ˆµŸ
+    (=big5-cdp		. #x8D5F)	; ý¢€ˆµŸ
     ))
 (define-char
   '((=>ucs		. #x5905)	; å¤…

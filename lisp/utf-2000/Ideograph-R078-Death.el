@@ -2185,7 +2185,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8C4D)	; ý¢€ˆ±
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(ucs		    . #x2FF3)	; â¿³
+	)
+       ((=jis-x0208	    . #x5035)	; ø½Š»’
+	)
+       ((ucs		    . #x53E3)	; å£
+	)
+       ((ucs		    . #x5196)	; å†–
+	))
+      (=big5-cdp	  . #x8C4D)	; ý¢€ˆ±
       )
      ((ucs		  . #x6B7B)	; æ­»
       ))
@@ -2201,7 +2211,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8C4D)	; ý¢€ˆ±
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(ucs		    . #x2FF3)	; â¿³
+	)
+       ((=jis-x0208	    . #x5035)	; ø½Š»’
+	)
+       ((ucs		    . #x53E3)	; å£
+	)
+       ((ucs		    . #x5196)	; å†–
+	))
+      (=big5-cdp	  . #x8C4D)	; ý¢€ˆ±
       )
      ((ucs		  . #x6B7B)	; æ­»
       ))
@@ -2218,7 +2238,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8C4D)	; ý¢€ˆ±
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(ucs		    . #x2FF3)	; â¿³
+	)
+       ((=jis-x0208	    . #x5035)	; ø½Š»’
+	)
+       ((ucs		    . #x53E3)	; å£
+	)
+       ((ucs		    . #x5196)	; å†–
+	))
+      (=big5-cdp	  . #x8C4D)	; ý¢€ˆ±
       )
      ((chinese-cns11643-1 . #x483B)	; ø»‘¼ˆ
       ))

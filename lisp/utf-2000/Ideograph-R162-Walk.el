@@ -42,7 +42,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-cns11643-4 . #x2154)	; ø»—¡›
-    (chinese-big5-cdp	. #x8AF7)	; ý¢€ˆ«·
+    (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
     (ucs-cns		. #x8FB6)	; â»Ž
     (ucs		. #x2ECE)	; â»Ž
     ))

@@ -8,7 +8,7 @@
     (chinese-isoir165	. #x675B)	; ø»Ž–‚
     (chinese-cns11643-3 . #x213D)	; ø»•—€
     (ideograph-daikanwa . 09189)	; ø¸‚¥
-    (chinese-big5-cdp	. #x8B44)	; ý¢€ˆ­„
+    (=big5-cdp		. #x8B44)	; ý¢€ˆ­„
     (ucs		. #x5E7A)	; å¹º
     ))
 (define-char
@@ -18,7 +18,7 @@
     (<-simplified-ideograph
      ((ideograph-daikanwa . 09189)	; ø¸‚¥
       ))
-    (chinese-big5-cdp	. #x895C)	; ý¢€ˆ¥œ
+    (=big5-cdp		. #x895C)	; ý¢€ˆ¥œ
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³

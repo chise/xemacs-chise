@@ -4424,7 +4424,7 @@
     (japanese-jisx0212	. #x4C49)	; ø»‹¤‚
     (=jis-x0213-2-2000	. #x7077)	; ø»¦’˜
     (ideograph-daikanwa . 21167)	; ø¸…Š¯
-    (chinese-big5-cdp	. #xE2D0)	; ý¢€Ž‹
+    (=big5-cdp		. #xE2D0)	; ý¢€Ž‹
     (=jef-china3	. #x59EE)	; øº…§®
     (ucs-jis		. #x7471)	; ø»‹¤‚
     ))

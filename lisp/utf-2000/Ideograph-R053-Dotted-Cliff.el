@@ -5,7 +5,7 @@
     (total-strokes	 . 3)
     (=jis-x0208		. #x5678)	; ø½‹…‰
     (ideograph-daikanwa . 09221)	; ø¸‚…
-    (chinese-big5-cdp	. #x8B50)	; ý¢€ˆ­
+    (=big5-cdp		. #x8B50)	; ý¢€ˆ­
     (ucs-jis		. #x5E7F)	; ø½‹…‰
     ))
 (define-char

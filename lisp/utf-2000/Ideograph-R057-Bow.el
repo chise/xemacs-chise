@@ -126,9 +126,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8A6E)	; ý¢€ˆ©®
+     ((=big5-cdp	  . #x8A6E)	; ý¢€ˆ©®
       )
-     ((chinese-big5-cdp	  . #x88CD)	; ý¢€ˆ£
+     ((=big5-cdp	  . #x88CD)	; ý¢€ˆ£
       ))
     (chinese-cns11643-6		. #x2177)	; ø»›¶†
     (ideograph-daikanwa		. 09701)	; ø¸‚—¥
@@ -200,7 +200,7 @@
       ))
     (chinese-cns11643-6 . #x2322)	; ø»›·­
     (ideograph-daikanwa . 09706)	; ø¸‚—ª
-    (chinese-big5-cdp	. #x87DB)	; ý¢€ˆŸ›
+    (=big5-cdp		. #x87DB)	; ý¢€ˆŸ›
     (ucs		. #x223A3)	; ð¢Ž£
     ))
 (define-char

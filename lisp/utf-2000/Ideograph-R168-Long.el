@@ -40,7 +40,7 @@
     (total-strokes	 . 4)
     (chinese-gb2312	. #x3324)	; ø»„ £
     (chinese-isoir165	. #x3324)	; ø»ˆ³
-    (chinese-big5-cdp	. #x89A5)	; ý¢€ˆ¦¥
+    (=big5-cdp		. #x89A5)	; ý¢€ˆ¦¥
     (ucs		. #x957F)	; é•¿
     ))
 (define-char

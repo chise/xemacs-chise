@@ -6,7 +6,7 @@
     (shinjigen-2	. 1801)
     (=jis-x0208		. #x555F)	; ø½‹ƒ’
     (ideograph-daikanwa . 07054)	; ø¸®Ž
-    (chinese-big5-cdp	. #x8AF8)	; ý¢€ˆ«¸
+    (=big5-cdp		. #x8AF8)	; ý¢€ˆ«¸
     (ucs-jis		. #x5B80)	; ø½‹ƒ’
     ))
 (define-char
@@ -2287,7 +2287,7 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (chinese-big5-cdp	. #x8D7C)	; ý¢€ˆµ¼
+    (=big5-cdp		. #x8D7C)	; ý¢€ˆµ¼
     ))
 (define-char
   '((=>ucs		. #x5BC1)	; å¯

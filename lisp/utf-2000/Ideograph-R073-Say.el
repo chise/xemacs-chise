@@ -422,7 +422,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x88E1)	; ý¢€ˆ£¡
+     ((=big5-cdp	  . #x88E1)	; ý¢€ˆ£¡
       )
      ((ucs		  . #x4E9A)	; äºš
       ))

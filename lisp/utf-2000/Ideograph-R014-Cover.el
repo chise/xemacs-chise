@@ -8,7 +8,7 @@
     (chinese-isoir165	. #x5A22)	; ø»Ž‚ƒ
     (chinese-cns11643-3 . #x2128)	; ø»•–«
     (ideograph-daikanwa . 01565)	; ø¸€˜
-    (chinese-big5-cdp	. #x8B40)	; ý¢€ˆ­€
+    (=big5-cdp		. #x8B40)	; ý¢€ˆ­€
     (ucs		. #x5196)	; å†–
     ))
 (define-char
@@ -222,9 +222,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x89E2)	; ý¢€ˆ§¢
+     ((=big5-cdp	  . #x89E2)	; ý¢€ˆ§¢
       )
-     ((chinese-big5-cdp	  . #x8CC6)	; ý¢€ˆ³†
+     ((=big5-cdp	  . #x8CC6)	; ý¢€ˆ³†
       ))
     (chinese-gb2312		. #x4529)	; ø»„»„
     (chinese-isoir165		. #x4529)	; ø»£”
@@ -329,7 +329,7 @@
       )
      ((ucs		  . #x5196)	; å†–
       )
-     ((chinese-big5-cdp	  . #x8DB7)	; ý¢€ˆ¶·
+     ((=big5-cdp	  . #x8DB7)	; ý¢€ˆ¶·
       ))
     (shinjigen-1	. 528)
     (shinjigen-2	. 528)
@@ -393,7 +393,7 @@
     (japanese-jisx0212	. #x3276)	; ø»Š¾£
     (chinese-cns11643-3 . #x2F5B)	; ø»•¬‚
     (ideograph-daikanwa . 01584)	; ø¸€˜°
-    (chinese-big5-cdp	. #x8CE1)	; ý¢€ˆ³¡
+    (=big5-cdp		. #x8CE1)	; ý¢€ˆ³¡
     (=cbeta		. #x0B7F)	; ø¸ ­¿
     (ucs		. #x51A1)	; å†¡
     ))
@@ -599,7 +599,7 @@
       )
      ((ucs		  . #x5196)	; å†–
       )
-     ((chinese-big5-cdp	  . #x8DD7)	; ý¢€ˆ·—
+     ((=big5-cdp	  . #x8DD7)	; ý¢€ˆ·—
       ))
     (=jis-x0208			. #x514E)	; ø½Š½‰
     (chinese-cns11643-3		. #x2F5A)	; ø»•¬

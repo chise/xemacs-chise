@@ -26,7 +26,7 @@
     (<-simplified-ideograph
      ((ideograph-daikanwa . 25761)	; ø¸†’¡
       ))
-    (chinese-big5-cdp	. #x8BAE)	; ý¢€ˆ®®
+    (=big5-cdp		. #x8BAE)	; ý¢€ˆ®®
     ))
 (define-char
   '((=>ucs		. #x41C2)	; ä‡‚

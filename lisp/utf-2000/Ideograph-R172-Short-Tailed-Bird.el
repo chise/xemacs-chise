@@ -54,7 +54,7 @@
     (japanese-jisx0212	. #x6671)	; ø»ŒŠ¶
     (=jis-x0213-2-2000	. #x7B6E)	; ø»¦¢™
     (ideograph-daikanwa . 41940)	; ø¸Š”
-    (chinese-big5-cdp	. #x8D4B)	; ý¢€ˆµ‹
+    (=big5-cdp		. #x8D4B)	; ý¢€ˆµ‹
     (ucs-jis		. #x96BA)	; ø»ŒŠ¶
     ))
 (define-char

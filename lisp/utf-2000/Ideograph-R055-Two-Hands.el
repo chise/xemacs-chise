@@ -64,7 +64,7 @@
     (chinese-gb2312	. #x3F2A)	; ø»„²‘
     (chinese-isoir165	. #x3F2A)	; ø»š¡
     (chinese-cns11643-4 . #x214D)	; ø»—¡”
-    (chinese-big5-cdp	. #x8B6F)	; ý¢€ˆ­¯
+    (=big5-cdp		. #x8B6F)	; ý¢€ˆ­¯
     (ucs		. #x5F00)	; å¼€
     ))
 (define-char

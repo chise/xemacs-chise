@@ -18,7 +18,7 @@
     (hanyu-dazidian	6 3622 2)
     (chinese-gb2312	. #x3134)	; ø»„·
     (chinese-isoir165	. #x3134)	; ø»†‡
-    (chinese-big5-cdp	. #x895D)	; ý¢€ˆ¥
+    (=big5-cdp		. #x895D)	; ý¢€ˆ¥
     (ucs		. #x8D1D)	; è´
     ))
 (define-char
@@ -128,7 +128,7 @@
     (ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
-    (chinese-big5-cdp	. #x8ACC)	; ý¢€ˆ«Œ
+    (=big5-cdp		. #x8ACC)	; ý¢€ˆ«Œ
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™

@@ -63,7 +63,7 @@
     (ideographic-radical . 106)	; â½©
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (chinese-big5-cdp	. #x8ABE)	; ý¢€ˆª¾
+    (=big5-cdp		. #x8ABE)	; ý¢€ˆª¾
     ))
 (define-char
   '((ideographic-radical . 106)	; â½©

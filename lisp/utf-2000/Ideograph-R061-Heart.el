@@ -19,7 +19,7 @@
     (hanyu-dazidian	1 42 13)
     (chinese-cns11643-5 . #x2131)	; ø»™ª¼
     (ideograph-daikanwa . 10296)	; ø¸‚ ¸
-    (chinese-big5-cdp	. #x87D6)	; ý¢€ˆŸ–
+    (=big5-cdp		. #x87D6)	; ý¢€ˆŸ–
     (ucs		. #x225A9)	; ð¢–©
     ))
 (define-char
@@ -2019,7 +2019,18 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      (=big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2549,7 +2560,18 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      (=big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5006,7 +5028,7 @@
     (ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-big5-cdp	. #x8BDD)	; ý¢€ˆ¯
+    (=big5-cdp		. #x8BDD)	; ý¢€ˆ¯
     ))
 (define-char
   '((ideographic-radical . 61)	; â¼¼
@@ -10911,7 +10933,7 @@
     (ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (chinese-big5-cdp	. #xB46E)	; ý¢€‹‘®
+    (=big5-cdp		. #xB46E)	; ý¢€‹‘®
     (=jef-china3	. #x4ED6)	; øº„»–
     ))
 (define-char
@@ -12060,7 +12082,7 @@
     (korean-ksc5601	. #x7173)	; ø»Š¾
     (=jis-x0213-1-2000	. #x745E)	; ø»¤³
     (ideograph-daikanwa . 11202)	; ø¸‚¯‚
-    (chinese-big5-cdp	. #xBCA8)	; ý¢€‹²¨
+    (=big5-cdp		. #xBCA8)	; ý¢€‹²¨
     (=jef-china3	. #x4ED8)	; øº„»˜
     (ucs-ks		. #x618E)	; ï¨¿
     (ucs		. #xFA3F)	; ï¨¿

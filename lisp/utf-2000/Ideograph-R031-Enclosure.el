@@ -57,12 +57,12 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((chinese-big5-cdp	  . #x8C78)	; ý¢€ˆ±¸
+     ((=big5-cdp	  . #x8C78)	; ý¢€ˆ±¸
       ))
     (japanese-jisx0212	. #x3672)	; ø»‹„—
     (chinese-cns11643-4 . #x216F)	; ø»—¡¶
     (ideograph-daikanwa . 04678)	; ø¸‰†
-    (chinese-big5-cdp	. #x8DE5)	; ý¢€ˆ·¥
+    (=big5-cdp		. #x8DE5)	; ý¢€ˆ·¥
     (ucs		. #x56D9)	; å›™
     ))
 (define-char
@@ -217,7 +217,7 @@
       ))
     (hanyu-dazidian	1 29 3)
     (chinese-cns11643-6 . #x225F)	; ø»›·Œ
-    (chinese-big5-cdp	. #x87E5)	; ý¢€ˆŸ¥
+    (=big5-cdp		. #x87E5)	; ý¢€ˆŸ¥
     (ucs		. #x20064)	; ð ¤
     ))
 (define-char
@@ -305,7 +305,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
       )
-     ((chinese-big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
+     ((=big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
       )
      ((ucs		  . #x3405)	; ã…
       ))
@@ -381,7 +381,7 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 711 7)
     (ideograph-daikanwa . 04695)	; ø¸‰—
-    (chinese-big5-cdp	. #x8668)	; ý¢€ˆ™¨
+    (=big5-cdp		. #x8668)	; ý¢€ˆ™¨
     (ucs		. #x211AA)	; ð¡†ª
     ))
 (define-char
@@ -627,7 +627,7 @@
       )
      ((ucs		  . #x56DB)	; å››
       )
-     ((chinese-big5-cdp	  . #x8BC0)	; ý¢€ˆ¯€
+     ((=big5-cdp	  . #x8BC0)	; ý¢€ˆ¯€
       ))
     (japanese-jisx0212	. #x367A)	; ø»‹„Ÿ
     (chinese-cns11643-2 . #x2348)	; ø»“ƒ
@@ -682,7 +682,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
       )
-     ((chinese-big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
+     ((=big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
       )
      ((ucs		  . #x590A)	; å¤Š
       ))
@@ -757,7 +757,7 @@
       )
      ((ucs		  . #x56D7)	; å›—
       )
-     ((chinese-big5-cdp	  . #x89CC)	; ý¢€ˆ§Œ
+     ((=big5-cdp	  . #x89CC)	; ý¢€ˆ§Œ
       ))
     (chinese-cns11643-3		. #x252B)	; ø»•œ¦
     (ideograph-daikanwa		. 04713)	; ø¸‰©
@@ -1114,9 +1114,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
       )
-     ((chinese-big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
+     ((=big5-cdp	  . #x8CC8)	; ý¢€ˆ³ˆ
       )
-     ((chinese-big5-cdp	  . #x89D5)	; ý¢€ˆ§•
+     ((=big5-cdp	  . #x89D5)	; ý¢€ˆ§•
       ))
     (chinese-cns11643-1 . #x4959)	; ø»‘¾„
     (chinese-big5	. #xA777)	; ý¢€Š·
@@ -1249,7 +1249,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 717 18)
     (chinese-cns11643-6 . #x2F5C)	; ø»œŠ
-    (chinese-big5-cdp	. #x8870)	; ý¢€ˆ¡°
+    (=big5-cdp		. #x8870)	; ý¢€ˆ¡°
     (ucs		. #x211B5)	; ð¡†µ
     ))
 (define-char
@@ -1441,7 +1441,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 717 3)
-    (chinese-big5-cdp	. #x876C)	; ý¢€ˆ¬
+    (=big5-cdp		. #x876C)	; ý¢€ˆ¬
     ))
 (define-char
   '((morohashi-daikanwa	4747 0 8)
@@ -2000,7 +2000,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B69)	; ý¢€ˆ­©
+     ((=big5-cdp	  . #x8B69)	; ý¢€ˆ­©
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -2008,7 +2008,7 @@
 	)
        ((ucs		    . #x56D7)	; å›—
 	)
-       ((chinese-big5-cdp   . #x8B75)	; ý¢€ˆ­µ
+       ((=big5-cdp	    . #x8B75)	; ý¢€ˆ­µ
 	))
       ))
     (chinese-cns11643-3		. #x3027)	; ø»•¬¬
@@ -2829,7 +2829,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8DDD)	; ý¢€ˆ·
+     ((=big5-cdp	  . #x8DDD)	; ý¢€ˆ·
       )
      ((ideograph-daikanwa . 04736)	; ø¸Š€
       ))
@@ -2862,7 +2862,7 @@
     (hanyu-dazidian	1 724 9)
     (chinese-cns11643-6 . #x5147)	; ø»œ»¶
     (ideograph-daikanwa . 04823)	; ø¸‹—
-    (chinese-big5-cdp	. #x8559)	; ý¢€ˆ•™
+    (=big5-cdp		. #x8559)	; ý¢€ˆ•™
     (ucs		. #x2120D)	; ð¡ˆ
     ))
 (define-char
@@ -3516,7 +3516,7 @@
     (hanyu-dazidian	1 727 13)
     (chinese-cns11643-7 . #x5321)	; ø»Ÿˆ
     (ideograph-daikanwa . 04865)	; ø¸Œ
-    (chinese-big5-cdp	. #x856D)	; ý¢€ˆ•­
+    (=big5-cdp		. #x856D)	; ý¢€ˆ•­
     (ucs		. #x21239)	; ð¡ˆ¹
     ))
 (define-char

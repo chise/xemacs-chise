@@ -8,7 +8,7 @@
     (=jis-x0208		. #x523E)	; ø½Š¾—
     (chinese-cns11643-3 . #x2129)	; ø»•–¬
     (ideograph-daikanwa . 02672)	; ø¸€©°
-    (chinese-big5-cdp	. #x8A70)	; ý¢€ˆ©°
+    (=big5-cdp		. #x8A70)	; ý¢€ˆ©°
     (ucs		. #x5338)	; åŒ¸
     ))
 (define-char
@@ -195,7 +195,7 @@
       ))
     (chinese-cns11643-3 . #x2466)	; ø»•œƒ
     (ideograph-daikanwa . 02680)	; ø¸€©¸
-    (chinese-big5-cdp	. #x8CD3)	; ý¢€ˆ³“
+    (=big5-cdp		. #x8CD3)	; ý¢€ˆ³“
     ))
 (define-char
   '((morohashi-daikanwa	2680 0 1)

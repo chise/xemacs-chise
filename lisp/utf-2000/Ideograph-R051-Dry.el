@@ -23,7 +23,7 @@
     (chinese-gb2312	. #x3F2A)	; ø»„²‘
     (chinese-isoir165	. #x3F2A)	; ø»š¡
     (chinese-cns11643-4 . #x214D)	; ø»—¡”
-    (chinese-big5-cdp	. #x8B6F)	; ý¢€ˆ­¯
+    (=big5-cdp		. #x8B6F)	; ý¢€ˆ­¯
     (ucs		. #x5F00)	; å¼€
     ))
 (define-char
@@ -156,7 +156,7 @@
     (hanyu-dazidian-page . 38)
     (hanyu-dazidian-char . 15)
     (ideograph-daikanwa . 09173)	; ø¸‚•
-    (chinese-big5-cdp	. #x8A48)	; ý¢€ˆ©ˆ
+    (=big5-cdp		. #x8A48)	; ý¢€ˆ©ˆ
     (ucs		. #x2218D)	; ð¢†
     ))
 (define-char
@@ -180,7 +180,7 @@
     (total-strokes	 . 8)
     (korean-ksc5601	. #x5C34)	; ø»‰±‰
     (ideograph-daikanwa . 09175)	; ø¸‚—
-    (chinese-big5-cdp	. #x88EB)	; ý¢€ˆ£«
+    (=big5-cdp		. #x88EB)	; ý¢€ˆ£«
     (=jef-china3	. #x4CB2)	; øº„²²
     ))
 (define-char

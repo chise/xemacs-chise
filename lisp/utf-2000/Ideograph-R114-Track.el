@@ -63,7 +63,10 @@
 	(ucs		    . #x2FF1)	; â¿±
 	)
        ((name*		    . "ideographic component person as roof")
-	(chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
 	)
        ((ucs		    . #x4E37)	; ä¸·
 	))
@@ -89,7 +92,10 @@
 	(ucs		    . #x2FF1)	; â¿±
 	)
        ((name*		    . "ideographic component person as roof")
-	(chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
 	)
        ((ucs		    . #x4E37)	; ä¸·
 	))
@@ -231,7 +237,7 @@
 	)
        ((chinese-cns11643-4 . #x2127)	; ø»— ®
 	)
-       ((chinese-big5-cdp   . #x88AC)	; ý¢€ˆ¢¬
+       ((=big5-cdp	    . #x88AC)	; ý¢€ˆ¢¬
 	))
       )
      ((ideographic-structure
@@ -277,9 +283,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      (=big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
-     ((chinese-big5-cdp	  . #x87FB)	; ý¢€ˆŸ»
+     ((=big5-cdp	  . #x87FB)	; ý¢€ˆŸ»
       ))
     (chinese-cns11643-7 . #x262D)	; ø»ž†–
     ))

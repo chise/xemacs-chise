@@ -27,7 +27,7 @@
     (hanyu-dazidian-page . 52)
     (hanyu-dazidian-char . 4)
     (ideograph-daikanwa . 19759)	; ø¸„´¯
-    (chinese-big5-cdp	. #x87D0)	; ý¢€ˆŸ
+    (=big5-cdp		. #x87D0)	; ý¢€ˆŸ
     ))
 (define-char
   '((morohashi-daikanwa	19759 0 2)

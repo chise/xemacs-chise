@@ -16,7 +16,7 @@
     (total-strokes	 . 3)
     (chinese-gb2312	. #x4345)	; ø»„¸¤
     (chinese-isoir165	. #x4345)	; ø» ´
-    (chinese-big5-cdp	. #x896B)	; ý¢€ˆ¥«
+    (=big5-cdp		. #x896B)	; ý¢€ˆ¥«
     (ucs		. #x95E8)	; é—¨
     ))
 (define-char

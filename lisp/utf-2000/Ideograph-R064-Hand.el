@@ -6572,7 +6572,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 12236)	; ø¸‚¿Œ
-    (chinese-big5-cdp	. #xABF7)	; ý¢€Š¯·
+    (=big5-cdp		. #xABF7)	; ý¢€Š¯·
     ))
 (define-char
   '((=>ucs*		. #x62FC)	; æ‹¼

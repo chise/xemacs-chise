@@ -33,7 +33,7 @@
     (japanese-jisx0212	. #x3436)	; ø»‹€Ÿ
     (=jis-x0213-2-2000	. #x2351)	; ø»¤ ¬
     (ideograph-daikanwa . 02696)	; ø¸€ªˆ
-    (chinese-big5-cdp	. #x8D45)	; ý¢€ˆµ…
+    (=big5-cdp		. #x8D45)	; ý¢€ˆµ…
     (=jef-china3	. #x45C2)	; øº„—‚
     (ucs		. #x5342)	; å‚
     ))
@@ -78,7 +78,7 @@
     (korean-ksc5601	. #x6C7E)	; ø»Š‰³
     (chinese-cns11643-3 . #x2138)	; ø»•–»
     (ideograph-daikanwa . 02698)	; ø¸€ªŠ
-    (chinese-big5-cdp	. #x8975)	; ý¢€ˆ¥µ
+    (=big5-cdp		. #x8975)	; ý¢€ˆ¥µ
     (ucs		. #x5344)	; å„
     ))
 (define-char
@@ -200,7 +200,7 @@
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (chinese-big5-cdp	. #x86A4)	; ý¢€ˆš¤
+    (=big5-cdp		. #x86A4)	; ý¢€ˆš¤
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -265,7 +265,7 @@
     (hanyu-dazidian	2 1152 1)
     (chinese-cns11643-5 . #x215A)	; ø»™«¥
     (ideograph-daikanwa . 02708)	; ø¸€ª”
-    (chinese-big5-cdp	. #x8654)	; ý¢€ˆ™”
+    (=big5-cdp		. #x8654)	; ý¢€ˆ™”
     (ucs		. #x2097D)	; ð ¥½
     ))
 (define-char
@@ -320,7 +320,7 @@
     (<-simplified-ideograph
      ((ideograph-daikanwa . 07833)	; ø¸º™
       ))
-    (chinese-big5-cdp	. #x8B75)	; ý¢€ˆ­µ
+    (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -374,7 +374,7 @@
     (hanyu-dazidian	1 60 22)
     (chinese-cns11643-6 . #x2370)	; ø»›¸»
     (ideograph-daikanwa . 02717)	; ø¸€ª
-    (chinese-big5-cdp	. #x88EA)	; ý¢€ˆ£ª
+    (=big5-cdp		. #x88EA)	; ý¢€ˆ£ª
     (ucs		. #x20982)	; ð ¦‚
     ))
 (define-char
@@ -407,7 +407,7 @@
     (shinjigen-1	. 815)
     (chinese-cns11643-4 . #x2244)	; ø»—¢©
     (ideograph-daikanwa . 02719)	; ø¸€ªŸ
-    (chinese-big5-cdp	. #x88F7)	; ý¢€ˆ£·
+    (=big5-cdp		. #x88F7)	; ý¢€ˆ£·
     (ucs		. #x20983)	; ð ¦ƒ
     ))
 (define-char
@@ -442,7 +442,7 @@
     (hanyu-dazidian	1 60 15)
     (chinese-cns11643-6 . #x2373)	; ø»›¸¾
     (ideograph-daikanwa . 02722)	; ø¸€ª¢
-    (chinese-big5-cdp	. #x87CA)	; ý¢€ˆŸŠ
+    (=big5-cdp		. #x87CA)	; ý¢€ˆŸŠ
     (ucs		. #x20986)	; ð ¦†
     ))
 (define-char
@@ -526,7 +526,7 @@
     (hanyu-dazidian	1 51 9)
     (chinese-cns11643-3 . #x232D)	; ø»•™¬
     (ideograph-daikanwa . 48950)	; ø¸‹¼¶
-    (chinese-big5-cdp	. #x8A45)	; ý¢€ˆ©…
+    (=big5-cdp		. #x8A45)	; ý¢€ˆ©…
     (=cbeta		. #x0011)	; ø¸ €‘
     (=jef-china3	. #x80B6)	; øºˆ‚¶
     (ucs		. #x5350)	; å
@@ -573,7 +573,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 60 20)
-    (chinese-big5-cdp	. #x8849)	; ý¢€ˆ¡‰
+    (=big5-cdp		. #x8849)	; ý¢€ˆ¡‰
     (ucs		. #x2098F)	; ð ¦
     ))
 (define-char
@@ -581,7 +581,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 60 21)
-    (chinese-big5-cdp	. #x855D)	; ý¢€ˆ•
+    (=big5-cdp		. #x855D)	; ý¢€ˆ•
     (ucs		. #x20990)	; ð ¦
     ))
 (define-char
@@ -597,7 +597,7 @@
     (shinjigen-1	. 911)
     (chinese-cns11643-6 . #x2639)	; ø»›¼ž
     (ideograph-daikanwa . 02732)	; ø¸€ª¬
-    (chinese-big5-cdp	. #x88D8)	; ý¢€ˆ£˜
+    (=big5-cdp		. #x88D8)	; ý¢€ˆ£˜
     (ucs		. #x20991)	; ð ¦‘
     ))
 (define-char
@@ -615,7 +615,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 60 24)
-    (chinese-big5-cdp	. #x88FE)	; ý¢€ˆ£¾
+    (=big5-cdp		. #x88FE)	; ý¢€ˆ£¾
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -674,7 +674,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x89BE)	; ý¢€ˆ¦¾
+     ((=big5-cdp	  . #x89BE)	; ý¢€ˆ¦¾
       )
      ((ucs		  . #x5341)	; å
       ))
@@ -742,11 +742,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8775)	; ý¢€ˆµ
+     ((=big5-cdp	  . #x8775)	; ý¢€ˆµ
       )
      ((ucs		  . #x5341)	; å
       ))
-    (chinese-big5-cdp	. #x887E)	; ý¢€ˆ¡¾
+    (=big5-cdp		. #x887E)	; ý¢€ˆ¡¾
     ))
 (define-char
   '((=>ucs		. #x24C1E)	; ð¤°ž
@@ -874,7 +874,7 @@
     (hanyu-dazidian	1 369 15)
     (chinese-cns11643-6 . #x2977)	; ø»œ¶
     (ideograph-daikanwa . 02745)	; ø¸€ª¹
-    (chinese-big5-cdp	. #x85D0)	; ý¢€ˆ—
+    (=big5-cdp		. #x85D0)	; ý¢€ˆ—
     (ucs		. #x2099A)	; ð ¦š
     ))
 (define-char
@@ -902,7 +902,7 @@
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (chinese-big5-cdp	. #x88DF)	; ý¢€ˆ£Ÿ
+    (=big5-cdp		. #x88DF)	; ý¢€ˆ£Ÿ
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -932,7 +932,7 @@
       )
      ((ucs		  . #x4E37)	; ä¸·
       )
-     ((chinese-big5-cdp	  . #x8BD9)	; ý¢€ˆ¯™
+     ((=big5-cdp	  . #x8BD9)	; ý¢€ˆ¯™
       ))
     (chinese-gb2312		. #x3525)	; ø»„£ 
     (chinese-isoir165		. #x3525)	; ø»‹°
@@ -975,7 +975,7 @@
       )
      ((ucs		  . #x65E9)	; æ—©
       ))
-    (chinese-big5-cdp	. #x8C49)	; ý¢€ˆ±‰
+    (=big5-cdp		. #x8C49)	; ý¢€ˆ±‰
     (=jef-china3	. #x73FC)	; øº‡¼
     (ucs		. #x2099D)	; ð ¦
     ))
@@ -990,7 +990,7 @@
       )
      ((ucs		  . #x5341)	; å
       )
-     ((chinese-big5-cdp	  . #x8BDC)	; ý¢€ˆ¯œ
+     ((=big5-cdp	  . #x8BDC)	; ý¢€ˆ¯œ
       ))
     (shinjigen-1	. 828)
     (shinjigen-2	. 828)
@@ -1023,9 +1023,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x89B2)	; ý¢€ˆ¦²
+     ((=big5-cdp	  . #x89B2)	; ý¢€ˆ¦²
       )
-     ((chinese-big5-cdp	  . #x8BD9)	; ý¢€ˆ¯™
+     ((=big5-cdp	  . #x8BD9)	; ý¢€ˆ¯™
       ))
     (shinjigen-1	. 1169)
     (shinjigen-2	. 1169)
@@ -1157,7 +1157,7 @@
     (hanyu-dazidian	1 41 9)
     (chinese-cns11643-4 . #x3062)	; ø»—·«
     (ideograph-daikanwa . 02760)	; ø¸€«ˆ
-    (chinese-big5-cdp	. #x8AAA)	; ý¢€ˆªª
+    (=big5-cdp		. #x8AAA)	; ý¢€ˆªª
     (ucs		. #x209AC)	; ð ¦¬
     ))
 (define-char
@@ -1248,7 +1248,7 @@
     (hanyu-dazidian	1 26 16)
     (chinese-cns11643-6 . #x5078)	; ø»œ»‰
     (ideograph-daikanwa . 02763)	; ø¸€«‹
-    (chinese-big5-cdp	. #x8562)	; ý¢€ˆ•¢
+    (=big5-cdp		. #x8562)	; ý¢€ˆ•¢
     (ucs		. #x209B4)	; ð ¦´
     ))
 (define-char

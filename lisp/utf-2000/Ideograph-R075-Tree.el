@@ -18,7 +18,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-gb12345	. #x7D33)	; æœ©
-    (chinese-big5-cdp	. #x8956)	; ý¢€ˆ¥–
+    (=big5-cdp		. #x8956)	; ý¢€ˆ¥–
     (ucs		. #x6729)	; æœ©
     ))
 (define-char
@@ -47,7 +47,7 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x85C0)	; ý¢€ˆ—€
+     ((=big5-cdp	  . #x85C0)	; ý¢€ˆ—€
       ))
     (chinese-cns11643-4		. #x214E)	; ø»—¡•
     (ideograph-daikanwa		. 14417)	; ø¸ƒ¡‘
@@ -63,7 +63,7 @@
     (hanyu-dazidian-char . 11)
     (chinese-cns11643-4 . #x217D)	; ø»—¢„
     (ideograph-daikanwa . 14418)	; ø¸ƒ¡’
-    (chinese-big5-cdp	. #x8A7C)	; ý¢€ˆ©¼
+    (=big5-cdp		. #x8A7C)	; ý¢€ˆ©¼
     (ucs		. #x233B5)	; ð£Žµ
     ))
 (define-char
@@ -151,7 +151,7 @@
     (chinese-gb2312	. #x4A75)	; ø»…ƒ¦
     (chinese-isoir165	. #x4A75)	; ø»«¶
     (chinese-cns11643-3 . #x2252)	; ø»•˜³
-    (chinese-big5-cdp	. #x8A61)	; ý¢€ˆ©¡
+    (=big5-cdp		. #x8A61)	; ý¢€ˆ©¡
     (ucs		. #x672F)	; æœ¯
     ))
 (define-char
@@ -1154,7 +1154,7 @@
     (chinese-isoir165	. #x4034)	; ø»œ‰
     (chinese-cns11643-4 . #x2446)	; ø»—¥§
     (ideograph-daikanwa . 14489)	; ø¸ƒ¢™
-    (chinese-big5-cdp	. #x8A68)	; ý¢€ˆ©¨
+    (=big5-cdp		. #x8A68)	; ý¢€ˆ©¨
     (ucs		. #x6765)	; æ¥
     ))
 (define-char
@@ -2896,7 +2896,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	2 1178 1)
     (chinese-cns11643-3 . #x2D2E)	; ø»•¨™
-    (chinese-big5-cdp	. #x8CAD)	; ý¢€ˆ²­
+    (=big5-cdp		. #x8CAD)	; ý¢€ˆ²­
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
@@ -8685,7 +8685,7 @@
     (chinese-cns11643-3 . #x3C32)	; ø»•¾Ÿ
     (=jis-x0213-2-2000	. #x2F23)	; ø»¤±¦
     (ideograph-daikanwa . 14959)	; ø¸ƒ©¯
-    (chinese-big5-cdp	. #x8AD7)	; ý¢€ˆ«—
+    (=big5-cdp		. #x8AD7)	; ý¢€ˆ«—
     (ucs		. #x68E5)	; æ£¥
     ))
 (define-char
@@ -9405,7 +9405,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 15010)	; ø¸ƒª¢
-    (chinese-big5-cdp	. #xD1D9)	; ý¢€‡™
+    (=big5-cdp		. #xD1D9)	; ý¢€‡™
     ))
 (define-char
   '((=>ucs*		. #x681F)	; æ Ÿ
