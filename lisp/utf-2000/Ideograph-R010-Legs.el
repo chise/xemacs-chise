@@ -1242,10 +1242,11 @@
       )
      ((ucs		  . #x5141)	; å…
       ))
-    (chinese-gb2312	. #x5970)	; ø»…™£
-    (chinese-isoir165	. #x5970)	; ø»Ž³
-    (chinese-cns11643-3 . #x2752)	; ø»• ‰
-    (ucs		. #x5156)	; å…–
+    (chinese-gb2312		. #x5970)	; ø»…™£
+    (chinese-isoir165		. #x5970)	; ø»Ž³
+    (chinese-cns11643-3		. #x2752)	; ø»• ‰
+    (ideograph-hanziku-1	. #xE0CF)	; ý¢€žƒ
+    (ucs			. #x5156)	; å…–
     ))
 (define-char
   '((ideographic-radical . 10)	; â¼‰
