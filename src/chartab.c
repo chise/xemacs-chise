@@ -231,13 +231,17 @@ uint8_byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct,
-			   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+			   int (*fn) (struct chartab_range *range,
+				      Lisp_Object val, void *arg),
 			   void *arg, Emchar ofs, int place)
 {
+  struct chartab_range rainj;
   int i, retval;
   int unit = 1 << (8 * place);
   Emchar c = ofs;
   Emchar c1;
+
+  rainj.type = CHARTAB_RANGE_CHAR;
 
   for (i = 0, retval = 0; i < 256 && retval == 0; i++)
     {
@@ -245,7 +249,10 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct,
 	{
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
-	    retval = (fn) (c, UINT8_DECODE (ct->property[i]), arg);
+	    {
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, UINT8_DECODE (ct->property[i]), arg);
+	    }
 	}
       else
 	c += unit;
@@ -448,13 +455,17 @@ uint16_byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct,
-			    int (*fn) (Emchar c, Lisp_Object val, void *arg),
+			    int (*fn) (struct chartab_range *range,
+				       Lisp_Object val, void *arg),
 			    void *arg, Emchar ofs, int place)
 {
+  struct chartab_range rainj;
   int i, retval;
   int unit = 1 << (8 * place);
   Emchar c = ofs;
   Emchar c1;
+
+  rainj.type = CHARTAB_RANGE_CHAR;
 
   for (i = 0, retval = 0; i < 256 && retval == 0; i++)
     {
@@ -462,7 +473,10 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct,
 	{
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
-	    retval = (fn) (c, UINT16_DECODE (ct->property[i]), arg);
+	    {
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, UINT16_DECODE (ct->property[i]), arg);
+	    }
 	}
       else
 	c += unit;
@@ -587,7 +601,8 @@ byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_byte_table (Lisp_Byte_Table *ct,
-		     int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		     int (*fn) (struct chartab_range *range,
+				Lisp_Object val, void *arg),
 		     void *arg, Emchar ofs, int place)
 {
   int i, retval;
@@ -620,10 +635,16 @@ map_over_byte_table (Lisp_Byte_Table *ct,
 	}
       else if (!UNBOUNDP (v))
 	{
+	  struct chartab_range rainj;
 	  Emchar c1 = c + unit;
 
+	  rainj.type = CHARTAB_RANGE_CHAR;
+
 	  for (; c < c1 && retval == 0; c++)
-	    retval = (fn) (c, v, arg);
+	    {
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, v, arg);
+	    }
 	}
       else
 	c += unit;
@@ -864,11 +885,13 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
    becomes the return value of map_char_id_table(). */
 int
 map_char_id_table (Lisp_Char_ID_Table *ct,
-		   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		   int (*fn) (struct chartab_range *range,
+			      Lisp_Object val, void *arg),
 		   void *arg);
 int
 map_char_id_table (Lisp_Char_ID_Table *ct,
-		   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		   int (*fn) (struct chartab_range *range,
+			      Lisp_Object val, void *arg),
 		   void *arg)
 {
   Lisp_Object v = ct->table;
@@ -881,35 +904,24 @@ map_char_id_table (Lisp_Char_ID_Table *ct,
     return map_over_byte_table (XBYTE_TABLE(v), fn, arg, 0, 3);
   else if (!UNBOUNDP (v))
     {
+      struct chartab_range rainj;
       int unit = 1 << 24;
       Emchar c = 0;
       Emchar c1 = c + unit;
       int retval;
 
+      rainj.type = CHARTAB_RANGE_CHAR;
+
       for (retval = 0; c < c1 && retval == 0; c++)
-	retval = (fn) (c, v, arg);
+	{
+	  rainj.ch = c;
+	  retval = (fn) (&rainj, v, arg);
+	}
     }
   return 0;
 }
 
-struct slow_map_char_id_table_arg
-{
-  Lisp_Object function;
-  Lisp_Object retval;
-};
 
-static int
-slow_map_char_id_table_fun (Emchar c, Lisp_Object val, void *arg)
-{
-  struct slow_map_char_id_table_arg *closure =
-    (struct slow_map_char_id_table_arg *) arg;
-
-  closure->retval = call2 (closure->function, make_char (c), val);
-  return !NILP (closure->retval);
-}
-
-
-Lisp_Object Vchar_attribute_hash_table;
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
 
@@ -1021,443 +1033,6 @@ Return variants of CHARACTER.
   CHECK_CHAR (character);
   return Fcopy_list (get_char_id_table (XCHAR (character),
 					Vcharacter_variant_table));
-}
-
-
-/* We store the char-attributes in hash tables with the names as the
-   key and the actual char-id-table object as the value.  Occasionally
-   we need to use them in a list format.  These routines provide us
-   with that. */
-struct char_attribute_list_closure
-{
-  Lisp_Object *char_attribute_list;
-};
-
-static int
-add_char_attribute_to_list_mapper (Lisp_Object key, Lisp_Object value,
-				   void *char_attribute_list_closure)
-{
-  /* This function can GC */
-  struct char_attribute_list_closure *calcl
-    = (struct char_attribute_list_closure*) char_attribute_list_closure;
-  Lisp_Object *char_attribute_list = calcl->char_attribute_list;
-
-  *char_attribute_list = Fcons (key, *char_attribute_list);
-  return 0;
-}
-
-DEFUN ("char-attribute-list", Fchar_attribute_list, 0, 0, 0, /*
-Return the list of all existing character attributes except coded-charsets.
-*/
-       ())
-{
-  Lisp_Object char_attribute_list = Qnil;
-  struct gcpro gcpro1;
-  struct char_attribute_list_closure char_attribute_list_closure;
-  
-  GCPRO1 (char_attribute_list);
-  char_attribute_list_closure.char_attribute_list = &char_attribute_list;
-  elisp_maphash (add_char_attribute_to_list_mapper,
-		 Vchar_attribute_hash_table,
-		 &char_attribute_list_closure);
-  UNGCPRO;
-  return char_attribute_list;
-}
-
-DEFUN ("find-char-attribute-table", Ffind_char_attribute_table, 1, 1, 0, /*
-Return char-id-table corresponding to ATTRIBUTE.
-*/
-       (attribute))
-{
-  return Fgethash (attribute, Vchar_attribute_hash_table, Qnil);
-}
-
-
-/* We store the char-id-tables in hash tables with the attributes as
-   the key and the actual char-id-table object as the value.  Each
-   char-id-table stores values of an attribute corresponding with
-   characters.  Occasionally we need to get attributes of a character
-   in a association-list format.  These routines provide us with
-   that. */
-struct char_attribute_alist_closure
-{
-  Emchar char_id;
-  Lisp_Object *char_attribute_alist;
-};
-
-static int
-add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
-				 void *char_attribute_alist_closure)
-{
-  /* This function can GC */
-  struct char_attribute_alist_closure *caacl =
-    (struct char_attribute_alist_closure*) char_attribute_alist_closure;
-  Lisp_Object ret = get_char_id_table (caacl->char_id, value);
-  if (!UNBOUNDP (ret))
-    {
-      Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
-      *char_attribute_alist
-	= Fcons (Fcons (key, ret), *char_attribute_alist);
-    }
-  return 0;
-}
-
-DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
-Return the alist of attributes of CHARACTER.
-*/
-       (character))
-{
-  Lisp_Object alist = Qnil;
-  int i;
-
-  CHECK_CHAR (character);
-  {
-    struct gcpro gcpro1;
-    struct char_attribute_alist_closure char_attribute_alist_closure;
-  
-    GCPRO1 (alist);
-    char_attribute_alist_closure.char_id = XCHAR (character);
-    char_attribute_alist_closure.char_attribute_alist = &alist;
-    elisp_maphash (add_char_attribute_alist_mapper,
-		   Vchar_attribute_hash_table,
-		   &char_attribute_alist_closure);
-    UNGCPRO;
-  }
-
-  for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)
-    {
-      Lisp_Object ccs = chlook->charset_by_leading_byte[i];
-
-      if (!NILP (ccs))
-	{
-	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
-	  Lisp_Object cpos;
-
-	  if ( CHAR_ID_TABLE_P (encoding_table)
-	       && INTP (cpos = get_char_id_table (XCHAR (character),
-						  encoding_table)) )
-	    {
-	      alist = Fcons (Fcons (ccs, cpos), alist);
-	    }
-	}
-    }
-  return alist;
-}
-
-DEFUN ("get-char-attribute", Fget_char_attribute, 2, 3, 0, /*
-Return the value of CHARACTER's ATTRIBUTE.
-Return DEFAULT-VALUE if the value is not exist.
-*/
-       (character, attribute, default_value))
-{
-  Lisp_Object ccs;
-
-  CHECK_CHAR (character);
-  if (!NILP (ccs = Ffind_charset (attribute)))
-    {
-      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
-
-      if (CHAR_ID_TABLE_P (encoding_table))
-	return get_char_id_table (XCHAR (character), encoding_table);
-    }
-  else
-    {
-      Lisp_Object table = Fgethash (attribute,
-				    Vchar_attribute_hash_table,
-				    Qunbound);
-      if (!UNBOUNDP (table))
-	{
-	  Lisp_Object ret = get_char_id_table (XCHAR (character), table);
-	  if (!UNBOUNDP (ret))
-	    return ret;
-	}
-    }
-  return default_value;
-}
-
-DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
-Store CHARACTER's ATTRIBUTE with VALUE.
-*/
-       (character, attribute, value))
-{
-  Lisp_Object ccs;
-
-  CHECK_CHAR (character);
-  ccs = Ffind_charset (attribute);
-  if (!NILP (ccs))
-    {
-      return put_char_ccs_code_point (character, ccs, value);
-    }
-  else if (EQ (attribute, Q_decomposition))
-    {
-      Lisp_Object seq;
-
-      if (!CONSP (value))
-	signal_simple_error ("Invalid value for ->decomposition",
-			     value);
-
-      if (CONSP (Fcdr (value)))
-	{
-	  Lisp_Object rest = value;
-	  Lisp_Object table = Vcharacter_composition_table;
-	  size_t len;
-	  int i = 0;
-
-	  GET_EXTERNAL_LIST_LENGTH (rest, len);
-	  seq = make_vector (len, Qnil);
-
-	  while (CONSP (rest))
-	    {
-	      Lisp_Object v = Fcar (rest);
-	      Lisp_Object ntable;
-	      Emchar c
-		= to_char_id (v, "Invalid value for ->decomposition", value);
-
-	      if (c < 0)
-		XVECTOR_DATA(seq)[i++] = v;
-	      else
-		XVECTOR_DATA(seq)[i++] = make_char (c);
-	      rest = Fcdr (rest);
-	      if (!CONSP (rest))
-		{
-		  put_char_id_table (c, character, table);
-		  break;
-		}
-	      else
-		{
-		  ntable = get_char_id_table (c, table);
-		  if (!CHAR_ID_TABLE_P (ntable))
-		    {
-		      ntable = make_char_id_table (Qnil);
-		      put_char_id_table (c, ntable, table);
-		    }
-		  table = ntable;
-		}
-	    }
-	}
-      else
-	{
-	  Lisp_Object v = Fcar (value);
-
-	  if (INTP (v))
-	    {
-	      Emchar c = XINT (v);
-	      Lisp_Object ret
-		= get_char_id_table (c, Vcharacter_variant_table);
-
-	      if (NILP (Fmemq (v, ret)))
-		{
-		  put_char_id_table (c, Fcons (character, ret),
-				     Vcharacter_variant_table);
-		}
-	    }
-	  seq = make_vector (1, v);
-	}
-      value = seq;
-    }
-  else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
-    {
-      Lisp_Object ret;
-      Emchar c;
-
-      if (!INTP (value))
-	signal_simple_error ("Invalid value for ->ucs", value);
-
-      c = XINT (value);
-
-      ret = get_char_id_table (c, Vcharacter_variant_table);
-      if (NILP (Fmemq (character, ret)))
-	{
-	  put_char_id_table (c, Fcons (character, ret),
-			     Vcharacter_variant_table);
-	}
-#if 0
-      if (EQ (attribute, Q_ucs))
-	attribute = Qto_ucs;
-#endif
-    }
-  {
-    Lisp_Object table = Fgethash (attribute,
-				  Vchar_attribute_hash_table,
-				  Qnil);
-
-    if (NILP (table))
-      {
-	table = make_char_id_table (Qunbound);
-	Fputhash (attribute, table, Vchar_attribute_hash_table);
-      }
-    put_char_id_table (XCHAR (character), value, table);
-    return value;
-  }
-}
-  
-DEFUN ("remove-char-attribute", Fremove_char_attribute, 2, 2, 0, /*
-Remove CHARACTER's ATTRIBUTE.
-*/
-       (character, attribute))
-{
-  Lisp_Object ccs;
-
-  CHECK_CHAR (character);
-  ccs = Ffind_charset (attribute);
-  if (!NILP (ccs))
-    {
-      return remove_char_ccs (character, ccs);
-    }
-  else
-    {
-      Lisp_Object table = Fgethash (attribute,
-				    Vchar_attribute_hash_table,
-				    Qunbound);
-      if (!UNBOUNDP (table))
-	{
-	  put_char_id_table (XCHAR (character), Qunbound, table);
-	  return Qt;
-	}
-    }
-  return Qnil;
-}
-
-DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 2, 0, /*
-Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
-each key and value in the table.
-*/
-       (function, attribute))
-{
-  Lisp_Object ccs;
-  Lisp_Char_ID_Table *ct;
-  struct slow_map_char_id_table_arg slarg;
-  struct gcpro gcpro1, gcpro2;
-
-  if (!NILP (ccs = Ffind_charset (attribute)))
-    {
-      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
-
-      if (CHAR_ID_TABLE_P (encoding_table))
-	ct = XCHAR_ID_TABLE (encoding_table);
-      else
-	return Qnil;
-    }
-  else
-    {
-      Lisp_Object table = Fgethash (attribute,
-				    Vchar_attribute_hash_table,
-				    Qunbound);
-      if (CHAR_ID_TABLE_P (table))
-	ct = XCHAR_ID_TABLE (table);
-      else
-	return Qnil;
-    }
-  slarg.function = function;
-  slarg.retval = Qnil;
-  GCPRO2 (slarg.function, slarg.retval);
-  map_char_id_table (ct, slow_map_char_id_table_fun, &slarg);
-  UNGCPRO;
-
-  return slarg.retval;
-}
-
-EXFUN (Fmake_char, 3);
-EXFUN (Fdecode_char, 2);
-
-DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
-Store character's ATTRIBUTES.
-*/
-       (attributes))
-{
-  Lisp_Object rest = attributes;
-  Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
-  Lisp_Object character;
-
-  if (NILP (code))
-    {
-      while (CONSP (rest))
-	{
-	  Lisp_Object cell = Fcar (rest);
-	  Lisp_Object ccs;
-
-	  if (!LISTP (cell))
-	    signal_simple_error ("Invalid argument", attributes);
-	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
-	      && ((XCHARSET_FINAL (ccs) != 0) ||
-		  (XCHARSET_UCS_MAX (ccs) > 0)) )
-	    {
-	      cell = Fcdr (cell);
-	      if (CONSP (cell))
-		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
-	      else
-		character = Fdecode_char (ccs, cell);
-	      if (!NILP (character))
-		goto setup_attributes;
-	    }
-	  rest = Fcdr (rest);
-	}
-      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-	   (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
-	
-	{
-	  if (!INTP (code))
-	    signal_simple_error ("Invalid argument", attributes);
-	  else
-	    character = make_char (XINT (code) + 0x100000);
-	  goto setup_attributes;
-	}
-      return Qnil;
-    }
-  else if (!INTP (code))
-    signal_simple_error ("Invalid argument", attributes);
-  else
-    character = make_char (XINT (code));
-
- setup_attributes:
-  rest = attributes;
-  while (CONSP (rest))
-    {
-      Lisp_Object cell = Fcar (rest);
-
-      if (!LISTP (cell))
-	signal_simple_error ("Invalid argument", attributes);
-
-      Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
-      rest = Fcdr (rest);
-    }
-  return character;
-}
-
-DEFUN ("find-char", Ffind_char, 1, 1, 0, /*
-Retrieve the character of the given ATTRIBUTES.
-*/
-       (attributes))
-{
-  Lisp_Object rest = attributes;
-  Lisp_Object code;
-
-  while (CONSP (rest))
-    {
-      Lisp_Object cell = Fcar (rest);
-      Lisp_Object ccs;
-
-      if (!LISTP (cell))
-	signal_simple_error ("Invalid argument", attributes);
-      if (!NILP (ccs = Ffind_charset (Fcar (cell))))
-	{
-	  cell = Fcdr (cell);
-	  if (CONSP (cell))
-	    return Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
-	  else
-	    return Fdecode_char (ccs, cell);
-	}
-      rest = Fcdr (rest);
-    }
-  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
-       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
-    {
-      if (!INTP (code))
-	signal_simple_error ("Invalid argument", attributes);
-      else
-	return make_char (XINT (code) + 0x100000);
-    }
-  return Qnil;
 }
 
 #endif
@@ -2881,6 +2456,452 @@ the entire table.
   return slarg.retval;
 }
 
+
+/************************************************************************/
+/*                         Character Attributes                         */
+/************************************************************************/
+
+#ifdef UTF2000
+
+Lisp_Object Vchar_attribute_hash_table;
+
+/* We store the char-attributes in hash tables with the names as the
+   key and the actual char-id-table object as the value.  Occasionally
+   we need to use them in a list format.  These routines provide us
+   with that. */
+struct char_attribute_list_closure
+{
+  Lisp_Object *char_attribute_list;
+};
+
+static int
+add_char_attribute_to_list_mapper (Lisp_Object key, Lisp_Object value,
+				   void *char_attribute_list_closure)
+{
+  /* This function can GC */
+  struct char_attribute_list_closure *calcl
+    = (struct char_attribute_list_closure*) char_attribute_list_closure;
+  Lisp_Object *char_attribute_list = calcl->char_attribute_list;
+
+  *char_attribute_list = Fcons (key, *char_attribute_list);
+  return 0;
+}
+
+DEFUN ("char-attribute-list", Fchar_attribute_list, 0, 0, 0, /*
+Return the list of all existing character attributes except coded-charsets.
+*/
+       ())
+{
+  Lisp_Object char_attribute_list = Qnil;
+  struct gcpro gcpro1;
+  struct char_attribute_list_closure char_attribute_list_closure;
+  
+  GCPRO1 (char_attribute_list);
+  char_attribute_list_closure.char_attribute_list = &char_attribute_list;
+  elisp_maphash (add_char_attribute_to_list_mapper,
+		 Vchar_attribute_hash_table,
+		 &char_attribute_list_closure);
+  UNGCPRO;
+  return char_attribute_list;
+}
+
+DEFUN ("find-char-attribute-table", Ffind_char_attribute_table, 1, 1, 0, /*
+Return char-id-table corresponding to ATTRIBUTE.
+*/
+       (attribute))
+{
+  return Fgethash (attribute, Vchar_attribute_hash_table, Qnil);
+}
+
+
+/* We store the char-id-tables in hash tables with the attributes as
+   the key and the actual char-id-table object as the value.  Each
+   char-id-table stores values of an attribute corresponding with
+   characters.  Occasionally we need to get attributes of a character
+   in a association-list format.  These routines provide us with
+   that. */
+struct char_attribute_alist_closure
+{
+  Emchar char_id;
+  Lisp_Object *char_attribute_alist;
+};
+
+static int
+add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
+				 void *char_attribute_alist_closure)
+{
+  /* This function can GC */
+  struct char_attribute_alist_closure *caacl =
+    (struct char_attribute_alist_closure*) char_attribute_alist_closure;
+  Lisp_Object ret = get_char_id_table (caacl->char_id, value);
+  if (!UNBOUNDP (ret))
+    {
+      Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
+      *char_attribute_alist
+	= Fcons (Fcons (key, ret), *char_attribute_alist);
+    }
+  return 0;
+}
+
+DEFUN ("char-attribute-alist", Fchar_attribute_alist, 1, 1, 0, /*
+Return the alist of attributes of CHARACTER.
+*/
+       (character))
+{
+  Lisp_Object alist = Qnil;
+  int i;
+
+  CHECK_CHAR (character);
+  {
+    struct gcpro gcpro1;
+    struct char_attribute_alist_closure char_attribute_alist_closure;
+  
+    GCPRO1 (alist);
+    char_attribute_alist_closure.char_id = XCHAR (character);
+    char_attribute_alist_closure.char_attribute_alist = &alist;
+    elisp_maphash (add_char_attribute_alist_mapper,
+		   Vchar_attribute_hash_table,
+		   &char_attribute_alist_closure);
+    UNGCPRO;
+  }
+
+  for (i = 0; i < countof (chlook->charset_by_leading_byte); i++)
+    {
+      Lisp_Object ccs = chlook->charset_by_leading_byte[i];
+
+      if (!NILP (ccs))
+	{
+	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
+	  Lisp_Object cpos;
+
+	  if ( CHAR_ID_TABLE_P (encoding_table)
+	       && INTP (cpos = get_char_id_table (XCHAR (character),
+						  encoding_table)) )
+	    {
+	      alist = Fcons (Fcons (ccs, cpos), alist);
+	    }
+	}
+    }
+  return alist;
+}
+
+DEFUN ("get-char-attribute", Fget_char_attribute, 2, 3, 0, /*
+Return the value of CHARACTER's ATTRIBUTE.
+Return DEFAULT-VALUE if the value is not exist.
+*/
+       (character, attribute, default_value))
+{
+  Lisp_Object ccs;
+
+  CHECK_CHAR (character);
+  if (!NILP (ccs = Ffind_charset (attribute)))
+    {
+      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
+
+      if (CHAR_ID_TABLE_P (encoding_table))
+	return get_char_id_table (XCHAR (character), encoding_table);
+    }
+  else
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (!UNBOUNDP (table))
+	{
+	  Lisp_Object ret = get_char_id_table (XCHAR (character), table);
+	  if (!UNBOUNDP (ret))
+	    return ret;
+	}
+    }
+  return default_value;
+}
+
+DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
+Store CHARACTER's ATTRIBUTE with VALUE.
+*/
+       (character, attribute, value))
+{
+  Lisp_Object ccs;
+
+  CHECK_CHAR (character);
+  ccs = Ffind_charset (attribute);
+  if (!NILP (ccs))
+    {
+      return put_char_ccs_code_point (character, ccs, value);
+    }
+  else if (EQ (attribute, Q_decomposition))
+    {
+      Lisp_Object seq;
+
+      if (!CONSP (value))
+	signal_simple_error ("Invalid value for ->decomposition",
+			     value);
+
+      if (CONSP (Fcdr (value)))
+	{
+	  Lisp_Object rest = value;
+	  Lisp_Object table = Vcharacter_composition_table;
+	  size_t len;
+	  int i = 0;
+
+	  GET_EXTERNAL_LIST_LENGTH (rest, len);
+	  seq = make_vector (len, Qnil);
+
+	  while (CONSP (rest))
+	    {
+	      Lisp_Object v = Fcar (rest);
+	      Lisp_Object ntable;
+	      Emchar c
+		= to_char_id (v, "Invalid value for ->decomposition", value);
+
+	      if (c < 0)
+		XVECTOR_DATA(seq)[i++] = v;
+	      else
+		XVECTOR_DATA(seq)[i++] = make_char (c);
+	      rest = Fcdr (rest);
+	      if (!CONSP (rest))
+		{
+		  put_char_id_table (c, character, table);
+		  break;
+		}
+	      else
+		{
+		  ntable = get_char_id_table (c, table);
+		  if (!CHAR_ID_TABLE_P (ntable))
+		    {
+		      ntable = make_char_id_table (Qnil);
+		      put_char_id_table (c, ntable, table);
+		    }
+		  table = ntable;
+		}
+	    }
+	}
+      else
+	{
+	  Lisp_Object v = Fcar (value);
+
+	  if (INTP (v))
+	    {
+	      Emchar c = XINT (v);
+	      Lisp_Object ret
+		= get_char_id_table (c, Vcharacter_variant_table);
+
+	      if (NILP (Fmemq (v, ret)))
+		{
+		  put_char_id_table (c, Fcons (character, ret),
+				     Vcharacter_variant_table);
+		}
+	    }
+	  seq = make_vector (1, v);
+	}
+      value = seq;
+    }
+  else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
+    {
+      Lisp_Object ret;
+      Emchar c;
+
+      if (!INTP (value))
+	signal_simple_error ("Invalid value for ->ucs", value);
+
+      c = XINT (value);
+
+      ret = get_char_id_table (c, Vcharacter_variant_table);
+      if (NILP (Fmemq (character, ret)))
+	{
+	  put_char_id_table (c, Fcons (character, ret),
+			     Vcharacter_variant_table);
+	}
+#if 0
+      if (EQ (attribute, Q_ucs))
+	attribute = Qto_ucs;
+#endif
+    }
+  {
+    Lisp_Object table = Fgethash (attribute,
+				  Vchar_attribute_hash_table,
+				  Qnil);
+
+    if (NILP (table))
+      {
+	table = make_char_id_table (Qunbound);
+	Fputhash (attribute, table, Vchar_attribute_hash_table);
+      }
+    put_char_id_table (XCHAR (character), value, table);
+    return value;
+  }
+}
+  
+DEFUN ("remove-char-attribute", Fremove_char_attribute, 2, 2, 0, /*
+Remove CHARACTER's ATTRIBUTE.
+*/
+       (character, attribute))
+{
+  Lisp_Object ccs;
+
+  CHECK_CHAR (character);
+  ccs = Ffind_charset (attribute);
+  if (!NILP (ccs))
+    {
+      return remove_char_ccs (character, ccs);
+    }
+  else
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (!UNBOUNDP (table))
+	{
+	  put_char_id_table (XCHAR (character), Qunbound, table);
+	  return Qt;
+	}
+    }
+  return Qnil;
+}
+
+DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 2, 0, /*
+Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
+each key and value in the table.
+*/
+       (function, attribute))
+{
+  Lisp_Object ccs;
+  Lisp_Char_ID_Table *ct;
+  struct slow_map_char_table_arg slarg;
+  struct gcpro gcpro1, gcpro2;
+
+  if (!NILP (ccs = Ffind_charset (attribute)))
+    {
+      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
+
+      if (CHAR_ID_TABLE_P (encoding_table))
+	ct = XCHAR_ID_TABLE (encoding_table);
+      else
+	return Qnil;
+    }
+  else
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (CHAR_ID_TABLE_P (table))
+	ct = XCHAR_ID_TABLE (table);
+      else
+	return Qnil;
+    }
+  slarg.function = function;
+  slarg.retval = Qnil;
+  GCPRO2 (slarg.function, slarg.retval);
+  map_char_id_table (ct, slow_map_char_table_fun, &slarg);
+  UNGCPRO;
+
+  return slarg.retval;
+}
+
+EXFUN (Fmake_char, 3);
+EXFUN (Fdecode_char, 2);
+
+DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
+Store character's ATTRIBUTES.
+*/
+       (attributes))
+{
+  Lisp_Object rest = attributes;
+  Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
+  Lisp_Object character;
+
+  if (NILP (code))
+    {
+      while (CONSP (rest))
+	{
+	  Lisp_Object cell = Fcar (rest);
+	  Lisp_Object ccs;
+
+	  if (!LISTP (cell))
+	    signal_simple_error ("Invalid argument", attributes);
+	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
+	      && ((XCHARSET_FINAL (ccs) != 0) ||
+		  (XCHARSET_UCS_MAX (ccs) > 0)) )
+	    {
+	      cell = Fcdr (cell);
+	      if (CONSP (cell))
+		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+	      else
+		character = Fdecode_char (ccs, cell);
+	      if (!NILP (character))
+		goto setup_attributes;
+	    }
+	  rest = Fcdr (rest);
+	}
+      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
+	   (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+	
+	{
+	  if (!INTP (code))
+	    signal_simple_error ("Invalid argument", attributes);
+	  else
+	    character = make_char (XINT (code) + 0x100000);
+	  goto setup_attributes;
+	}
+      return Qnil;
+    }
+  else if (!INTP (code))
+    signal_simple_error ("Invalid argument", attributes);
+  else
+    character = make_char (XINT (code));
+
+ setup_attributes:
+  rest = attributes;
+  while (CONSP (rest))
+    {
+      Lisp_Object cell = Fcar (rest);
+
+      if (!LISTP (cell))
+	signal_simple_error ("Invalid argument", attributes);
+
+      Fput_char_attribute (character, Fcar (cell), Fcdr (cell));
+      rest = Fcdr (rest);
+    }
+  return character;
+}
+
+DEFUN ("find-char", Ffind_char, 1, 1, 0, /*
+Retrieve the character of the given ATTRIBUTES.
+*/
+       (attributes))
+{
+  Lisp_Object rest = attributes;
+  Lisp_Object code;
+
+  while (CONSP (rest))
+    {
+      Lisp_Object cell = Fcar (rest);
+      Lisp_Object ccs;
+
+      if (!LISTP (cell))
+	signal_simple_error ("Invalid argument", attributes);
+      if (!NILP (ccs = Ffind_charset (Fcar (cell))))
+	{
+	  cell = Fcdr (cell);
+	  if (CONSP (cell))
+	    return Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+	  else
+	    return Fdecode_char (ccs, cell);
+	}
+      rest = Fcdr (rest);
+    }
+  if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) ||
+       (!NILP (code = Fcdr (Fassq (Q_ucs, attributes)))) )
+    {
+      if (!INTP (code))
+	signal_simple_error ("Invalid argument", attributes);
+      else
+	return make_char (XINT (code) + 0x100000);
+    }
+  return Qnil;
+}
+
+#endif
 
 
 /************************************************************************/
