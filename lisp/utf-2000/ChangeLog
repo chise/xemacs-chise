@@ -1,3 +1,16 @@
+2004-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4C60.
+
+	* Ideograph-R076-Lack.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R010-Legs.el (U+FA0C): New character; copied from
+	Ideograph-R043-Lame.el.
+	(U+5148): Use `sound@ja/kun' instead of `sound@ja/on/kun'.
+
 2004-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R072-Sun.el: Use `->subsumptive' or
@@ -13,6 +26,13 @@
 	* Ideograph-R070-Square.el, Ideograph-R030-Mouth.el: Use
 	`->subsumptive' or `{<-|->}denotational' for some character
 	definitions.
+
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R090-Half-Tree-Trunk.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
 
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 

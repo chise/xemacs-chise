@@ -1,5 +1,11 @@
 2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-conf.el (=ucs-radicals): Use "-zhRadicals-.*-ucs-0" as
+	its registry.
+	(=ucs-radicals@unicode): Likewise.
+
+2004-12-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule/mule-conf.el (=ucs-hangul): New coded-charset for XEmacs
 	CHISE.
 
