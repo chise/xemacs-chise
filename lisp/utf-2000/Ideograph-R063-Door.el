@@ -155,11 +155,11 @@
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-original-ideograph
+    (<-original
      ((shinjigen-1	  . 848)
       (=daikanwa	  . 02847)	; &I-M-02847;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      shinjigen-1)
     (hanyu-dazidian	1 53 15)
     (shinjigen-1	. 849)
