@@ -71,7 +71,7 @@ static void
 decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
 
 int
-map_char_id_table (Lisp_Char_ID_Table *ct,
+map_char_id_table (Lisp_Char_Table *ct,
 		   struct chartab_range *range,
 		   int (*fn) (struct chartab_range *range,
 			      Lisp_Object val, void *arg),
@@ -858,90 +858,18 @@ put_byte_table (Lisp_Object table, unsigned char idx, Lisp_Object value)
   return table;
 }
 
-static Lisp_Object
-mark_char_id_table (Lisp_Object obj)
-{
-  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
-
-  return cte->table;
-}
-
-static void
-print_char_id_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
-{
-  Lisp_Object table = XCHAR_ID_TABLE (obj)->table;
-  int i;
-  struct gcpro gcpro1, gcpro2;
-  GCPRO2 (obj, printcharfun);
-
-  write_c_string ("#<char-id-table ", printcharfun);
-  for (i = 0; i < 256; i++)
-    {
-      Lisp_Object elt = get_byte_table (table, i);
-      if (i != 0) write_c_string ("\n  ", printcharfun);
-      if (EQ (elt, Qunbound))
-	write_c_string ("void", printcharfun);
-      else
-	print_internal (elt, printcharfun, escapeflag);
-    }
-  UNGCPRO;
-  write_c_string (">", printcharfun);
-}
-
-static int
-char_id_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
-{
-  Lisp_Object table1 = XCHAR_ID_TABLE (obj1)->table;
-  Lisp_Object table2 = XCHAR_ID_TABLE (obj2)->table;
-  int i;
-
-  for (i = 0; i < 256; i++)
-    {
-      if (!internal_equal (get_byte_table (table1, i),
-			  get_byte_table (table2, i), 0))
-	return 0;
-    }
-  return -1;
-}
-
-static unsigned long
-char_id_table_hash (Lisp_Object obj, int depth)
-{
-  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
-
-  return char_id_table_hash (cte->table, depth + 1);
-}
-
-static const struct lrecord_description char_id_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table) },
-  { XD_END }
-};
-
-DEFINE_LRECORD_IMPLEMENTATION ("char-id-table", char_id_table,
-                               mark_char_id_table,
-			       print_char_id_table,
-			       0, char_id_table_equal,
-			       char_id_table_hash,
-			       char_id_table_description,
-			       Lisp_Char_ID_Table);
 
 Lisp_Object
 make_char_id_table (Lisp_Object initval)
 {
   Lisp_Object obj;
-  Lisp_Char_ID_Table *cte;
-
-  cte = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
-
-  cte->table = make_byte_table (initval);
-
-  XSETCHAR_ID_TABLE (obj, cte);
+  obj = Fmake_char_table (Qgeneric);
+  fill_char_table (XCHAR_TABLE (obj), initval);
   return obj;
 }
 
-
 Lisp_Object
-get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch)
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
   unsigned int code = ch;
 
@@ -956,7 +884,7 @@ get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch)
 }
 
 void
-put_char_id_table (Lisp_Char_ID_Table* cit,
+put_char_id_table (Lisp_Char_Table* cit,
 		   Lisp_Object character, Lisp_Object value)
 {
   struct chartab_range range;
@@ -1052,7 +980,7 @@ put_char_id_table (Lisp_Char_ID_Table* cit,
    Mapping stops the first time FN returns non-zero, and that value
    becomes the return value of map_char_id_table(). */
 int
-map_char_id_table (Lisp_Char_ID_Table *ct,
+map_char_id_table (Lisp_Char_Table *ct,
 		   struct chartab_range *range,
 		   int (*fn) (struct chartab_range *range,
 			      Lisp_Object val, void *arg),
@@ -3276,7 +3204,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      rest = Fcdr (rest);
 	      if (!CONSP (rest))
 		{
-		  put_char_id_table (XCHAR_ID_TABLE(table),
+		  put_char_id_table (XCHAR_TABLE(table),
 				     make_char (c), character);
 		  break;
 		}
@@ -3286,7 +3214,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		  if (!CHAR_ID_TABLE_P (ntable))
 		    {
 		      ntable = make_char_id_table (Qnil);
-		      put_char_id_table (XCHAR_ID_TABLE(table),
+		      put_char_id_table (XCHAR_TABLE(table),
 					 make_char (c), ntable);
 		    }
 		  table = ntable;
@@ -3306,7 +3234,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
 	      if (NILP (Fmemq (v, ret)))
 		{
-		  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 				     make_char (c), Fcons (character, ret));
 		}
 	    }
@@ -3328,7 +3256,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       ret = get_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table), c);
       if (NILP (Fmemq (character, ret)))
 	{
-	  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 			     make_char (c), Fcons (character, ret));
 	}
 #if 0
@@ -3346,7 +3274,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
       }
-    put_char_id_table (XCHAR_ID_TABLE(table), character, value);
+    put_char_id_table (XCHAR_TABLE(table), character, value);
     return value;
   }
 }
@@ -3371,7 +3299,7 @@ Remove CHARACTER's ATTRIBUTE.
 				    Qunbound);
       if (!UNBOUNDP (table))
 	{
-	  put_char_id_table (XCHAR_ID_TABLE(table), character, Qunbound);
+	  put_char_id_table (XCHAR_TABLE(table), character, Qunbound);
 	  return Qt;
 	}
     }
@@ -3869,7 +3797,6 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
-  INIT_LRECORD_IMPLEMENTATION (char_id_table);
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs,			"->ucs");
