@@ -1,5 +1,9 @@
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R003-Dot.el (M00100): Fixed.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R002-Line.el: Sync with CNS2Dict 0.390.
 
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
