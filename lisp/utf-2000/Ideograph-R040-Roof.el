@@ -4219,7 +4219,6 @@
     (ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (chinese-cns11643-4 . #x4948)	; ø»˜›¿
     (ucs		. #x21AA3)	; ð¡ª£
     ))
 (define-char
