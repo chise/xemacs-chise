@@ -1,3 +1,27 @@
+2005-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (U+8C59): Use `->subsumptive'.
+
+	* Ideograph-R129-Brush.el (C3-383E): Unify BC-88C9.
+
+	* Ideograph-R087-Claw.el (U+722B): Changed to abstract character;
+	add `<-ideographic-component-forms' for U+722A.
+	(<CJK RADICAL PAW TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el; use `<-denotational' for U+722B;
+	add `<-radical' for U+722A.
+	(JX2-7029): Unify <CJK RADICAL PAW ONE> and BC-8B58; use
+	`=ucs@unicode' instead of `=ucs@gb' for UU+722B; use
+	`->subsumptive' for U+FA49.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL PAW ONE>): Use
+	`<-denotational' for U+722B; unify JX2-7029, UU+722B and JU+FA49;
+	add `->subsumptive' for U+FA49.
+	(<CJK RADICAL PAW TWO>): Use `<-denotational' for U+722B; add
+	`<-radical' for U+722A.
+
+	* Ideograph-R072-Sun.el (U+669B): Changed to abstract character.
+	(U+669C): Use `->subsumptive'.
+
 2005-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (U+5D11): Use `->subsumptive'.
