@@ -733,7 +733,9 @@
 (define-char
   '((ideographic-radical . 70)	; â½…
     (ideographic-strokes . 12)
-    (ucs		. #x65D9)	; æ—™
+    (total-strokes	 . 16)
+    (japanese-jisx0208-1990	. #x5A5A)	; ø½‹Š£
+    (ucs			. #x65D9)	; æ—™
     ))
 (define-char
   '((ideographic-radical . 70)	; â½…
