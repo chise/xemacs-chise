@@ -1,3 +1,28 @@
+2003-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (decode_char_table_range): CHARTAB_RANGE_DEFAULT is
+	only for XEmacs CHISE.
+
+2003-04-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Compact non-ISO-IR charset-ids.
+	(LEADING_BYTE_UCS): Changed to -177.
+	(LEADING_BYTE_CONTROL_1): Changed to -77.
+	(LEADING_BYTE_UCS_BMP): Changed to -176.
+	(LEADING_BYTE_JAPANESE_JISX0208_1990): Changed to -168.
+
+2003-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qiso_ir): New variable.
+	(Fmake_charset): Recognise new property `iso-ir'.
+	(syms_of_mule_charset): Add new symbol `iso-ir'.
+
+2003-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Change charset-id of ISO-IR sets from ISO-IR-number
+	n to -n; charset-id of non ISO-IR sets are changed to positive
+	numbers.
+
 2003-03-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (put_char_ccs_code_point): Refer `=ucs' instead

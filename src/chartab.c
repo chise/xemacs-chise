@@ -1740,8 +1740,10 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 {
   if (EQ (range, Qt))
     outrange->type = CHARTAB_RANGE_ALL;
+#ifdef UTF2000
   else if (EQ (range, Qnil))
     outrange->type = CHARTAB_RANGE_DEFAULT;
+#endif
   else if (CHAR_OR_CHAR_INTP (range))
     {
       outrange->type = CHARTAB_RANGE_CHAR;

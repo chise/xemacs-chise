@@ -66,7 +66,8 @@
 (make-charset
  'chinese-isoir165
  "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
- `(registry "isoir165"
+ `(iso-ir 165
+   registry "isoir165"
    dimension 2
    chars 94
    final ?E
@@ -80,21 +81,22 @@
 
 (flet
     ((make-chinese-cns11643-charset
-      (name plane final)
+      (name iso-ir plane final)
       (make-charset
        name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
-       `(registry 
+       `(iso-ir ,iso-ir
+	 registry 
 	 ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
 	 dimension 2
 	 chars 94
 	 final ,final
 	 graphic 0))
       ))
-  (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
-  (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
-  (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
-  (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
-  (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
+  (make-chinese-cns11643-charset 'chinese-cns11643-3 183 "3" ?I)
+  (make-chinese-cns11643-charset 'chinese-cns11643-4 184 "4" ?J)
+  (make-chinese-cns11643-charset 'chinese-cns11643-5 185 "5" ?K)
+  (make-chinese-cns11643-charset 'chinese-cns11643-6 186 "6" ?L)
+  (make-chinese-cns11643-charset 'chinese-cns11643-7 187 "7" ?M)
   )
 
 ;; JIS X 0213:2000
@@ -103,20 +105,22 @@
       (make-charset
        '=jis-x0213-1-2000
        "JIS X 0213:2000 Plain 1"
-       '(registry "jisx0213\\(\\.2000\\)-1"
-		  dimension 2
-		  chars 94
-		  mother =jis-x0208-1990
-		  final ?O
-		  graphic 0))
+       '(iso-ir 228
+		registry "jisx0213\\(\\.2000\\)-1"
+		dimension 2
+		chars 94
+		mother =jis-x0208-1990
+		final ?O
+		graphic 0))
       (make-charset
        '=jis-x0213-2-2000
        "JIS X 0213:2000 Plain 2"
-       '(registry "jisx0213\\(\\.2000\\)-2"
-		  dimension 2
-		  chars 94
-		  final ?P
-		  graphic 0))
+       '(iso-ir 229
+		registry "jisx0213\\(\\.2000\\)-2"
+		dimension 2
+		chars 94
+		final ?P
+		graphic 0))
       (define-charset-alias 'japanese-jisx0213-1 '=jis-x0213-1-2000)
       (define-charset-alias 'japanese-jisx0213-2 '=jis-x0213-2-2000)
       )
