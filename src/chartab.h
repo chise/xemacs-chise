@@ -42,6 +42,8 @@ EXFUN (Fput_char_attribute, 3);
 
 EXFUN (Ffind_char, 1);
 
+EXFUN (Fmount_char_attribute_table, 1);
+
 
 /************************************************************************/
 /*			    Char-ID Tables                              */
