@@ -421,6 +421,15 @@
     (ucs		. #x6C2F)	; æ°¯
     ))
 (define-char
+  '((=>ucs		. #x6C30)	; æ°°
+    (morohashi-daikanwa	17072 1)
+    (ideographic-radical . 84)	; â½“
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideograph-gt-pj-4	. #x493C)	; ý¡€…•¦
+    (ideograph-gt	. 21862)	; ý¡€…•¦
+    ))
+(define-char
   '((morohashi-daikanwa	17072 1 4)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 8)
@@ -431,7 +440,7 @@
     ))
 (define-char
   '((->ucs		. #x6C30)	; æ°°
-    (morohashi-daikanwa	17072 1 4 0)
+    (morohashi-daikanwa	17072 1 5)
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
