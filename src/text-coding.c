@@ -163,10 +163,11 @@ static void decode_coding_sjis (Lstream *decoding,
 				CONST unsigned char *src,
 				unsigned_char_dynarr *dst,
 				unsigned int n);
-static void encode_coding_sjis (Lstream *encoding,
-				CONST unsigned char *src,
-				unsigned_char_dynarr *dst,
-				unsigned int n);
+void char_encode_shift_jis (struct encoding_stream *str, Emchar c,
+			    unsigned_char_dynarr *dst, unsigned int *flags);
+void char_finish_shift_jis (struct encoding_stream *str,
+			    unsigned_char_dynarr *dst, unsigned int *flags);
+
 static int detect_coding_big5 (struct detection_state *st,
 			       CONST unsigned char *src,
 			       unsigned int n);
@@ -2561,6 +2562,12 @@ reset_encoding_stream (struct encoding_stream *str)
     case CODESYS_UTF8:
       str->encode_char = &char_encode_utf8;
       str->finish = &char_finish_utf8;
+    case CODESYS_UCS4:
+      str->encode_char = &char_encode_ucs4;
+      str->finish = &char_finish_ucs4;
+    case CODESYS_SHIFT_JIS:
+      str->encode_char = &char_encode_shift_jis;
+      str->finish = &char_finish_shift_jis;
     default:
       break;
     }
@@ -2676,9 +2683,6 @@ mule_encode (Lstream *encoding, CONST unsigned char *src,
       encode_coding_no_conversion (encoding, src, dst, n);
       break;
 #ifdef MULE
-    case CODESYS_SHIFT_JIS:
-      encode_coding_sjis (encoding, src, dst, n);
-      break;
     case CODESYS_BIG5:
       encode_coding_big5 (encoding, src, dst, n);
       break;
@@ -2960,137 +2964,50 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
   str->ch    = ch;
 }
 
-/* Convert internally-formatted data to Shift-JIS. */
+/* Convert internal character representation to Shift_JIS. */
 
-static void
-encode_coding_sjis (Lstream *encoding, CONST unsigned char *src,
-		    unsigned_char_dynarr *dst, unsigned int n)
+void
+char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
+		       unsigned_char_dynarr *dst, unsigned int *flags)
 {
-  unsigned char c;
-  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
-#ifdef UTF2000
-  unsigned char char_boundary = str->iso2022.current_char_boundary;
-#endif
 
-  while (n--)
+  if (ch == '\n')
     {
-      c = *src++;
-#ifdef UTF2000
-      switch (char_boundary)
-	{
-	case 0:
-	  if ( c >= 0xfc )
-	    {
-	      ch = c & 0x01;
-	      char_boundary = 5;
-	    }
-	  else if ( c >= 0xf8 )
-	    {
-	      ch = c & 0x03;
-	      char_boundary = 4;
-	    }
-	  else if ( c >= 0xf0 )
-	    {
-	      ch = c & 0x07;
-	      char_boundary = 3;
-	    }
-	  else if ( c >= 0xe0 )
-	    {
-	      ch = c & 0x0f;
-	      char_boundary = 2;
-	    }
-	  else if ( c >= 0xc0 )
-	    {
-	      ch = c & 0x1f;
-	      char_boundary = 1;
-	    }
-	  else
-	    {
-	      ch = 0;
-	      if (c == '\n')
-		{
-		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-		    Dynarr_add (dst, '\r');
-		  if (eol_type != EOL_CR)
-		    Dynarr_add (dst, c);
-		}
-	      else
-		Dynarr_add (dst, c);
-	      char_boundary = 0;
-	    }
-	  break;
-	case 1:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  {
-	    Lisp_Object charset;
-	    unsigned int c1, c2, s1, s2;
-	    
-	    BREAKUP_CHAR (ch, charset, c1, c2);
-	    if (EQ(charset, Vcharset_katakana_jisx0201))
-	      {
-		Dynarr_add (dst, c1 | 0x80);
-	      }
-	    else if (EQ(charset, Vcharset_japanese_jisx0208))
-	      {
-		ENCODE_SJIS (c1 | 0x80, c2 | 0x80, s1, s2);
-		Dynarr_add (dst, s1);
-		Dynarr_add (dst, s2);
-	      }
-	  }
-	  char_boundary = 0;
-	  break;
-	default:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  char_boundary--;
-	}
-#else
-      if (c == '\n')
-	{
-	  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-	    Dynarr_add (dst, '\r');
-	  if (eol_type != EOL_CR)
-	    Dynarr_add (dst, '\n');
-	  ch = 0;
-	}
-      else if (BYTE_ASCII_P (c))
-	{
-	  Dynarr_add (dst, c);
-	  ch = 0;
-	}
-      else if (BUFBYTE_LEADING_BYTE_P (c))
-	ch = (c == LEADING_BYTE_KATAKANA_JISX0201 ||
-	      c == LEADING_BYTE_JAPANESE_JISX0208_1978 ||
-	      c == LEADING_BYTE_JAPANESE_JISX0208) ? c : 0;
-      else if (ch)
-	{
-	  if (ch == LEADING_BYTE_KATAKANA_JISX0201)
-	    {
-	      Dynarr_add (dst, c);
-	      ch = 0;
-	    }
-	  else if (ch == LEADING_BYTE_JAPANESE_JISX0208_1978 ||
-		   ch == LEADING_BYTE_JAPANESE_JISX0208)
-	    ch = c;
-	  else
-	    {
-	      unsigned char j1, j2;
-	      ENCODE_SJIS (ch, c, j1, j2);
-	      Dynarr_add (dst, j1);
-	      Dynarr_add (dst, j2);
-	      ch = 0;
-	    }
-	}
-#endif
+      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+	Dynarr_add (dst, '\r');
+      if (eol_type != EOL_CR)
+	Dynarr_add (dst, ch);
     }
+  else if (ch <= 0x7f)
+    Dynarr_add (dst, ch);
+  else if (ch == 0xA5)
+    Dynarr_add (dst, 0x5C);
+  else if (ch == 0X203E)
+    Dynarr_add (dst, 0x7E);
+  else
+    {
+      Lisp_Object charset;
+      unsigned int c1, c2, s1, s2;
+	    
+      BREAKUP_CHAR (ch, charset, c1, c2);
+      if (EQ(charset, Vcharset_katakana_jisx0201))
+	{
+	  Dynarr_add (dst, c1 | 0x80);
+	}
+      else if (EQ(charset, Vcharset_japanese_jisx0208))
+	{
+	  ENCODE_SJIS (c1 | 0x80, c2 | 0x80, s1, s2);
+	  Dynarr_add (dst, s1);
+	  Dynarr_add (dst, s2);
+	}
+    }
+}
 
-  str->flags = flags;
-  str->ch    = ch;
-#ifdef UTF2000
-  str->iso2022.current_char_boundary = char_boundary;
-#endif
+void
+char_finish_shift_jis (struct encoding_stream *str, unsigned_char_dynarr *dst,
+		       unsigned int *flags)
+{
 }
 
 DEFUN ("decode-shift-jis-char", Fdecode_shift_jis_char, 1, 1, 0, /*
@@ -3621,47 +3538,56 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 }
 
 void
-char_encode_utf8 (struct encoding_stream *str, Emchar code,
+char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 		  unsigned_char_dynarr *dst, unsigned int *flags)
 {
-  if ( code <= 0x7f )
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+
+  if (ch == '\n')
     {
-      Dynarr_add (dst, code);
+      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+	Dynarr_add (dst, '\r');
+      if (eol_type != EOL_CR)
+	Dynarr_add (dst, ch);
     }
-  else if ( code <= 0x7ff )
+  else if (ch <= 0x7f)
     {
-      Dynarr_add (dst, (code >> 6) | 0xc0);
-      Dynarr_add (dst, (code & 0x3f) | 0x80);
+      Dynarr_add (dst, ch);
     }
-  else if ( code <= 0xffff )
+  else if (ch <= 0x7ff)
     {
-      Dynarr_add (dst,  (code >> 12) | 0xe0);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst, (ch >> 6) | 0xc0);
+      Dynarr_add (dst, (ch & 0x3f) | 0x80);
     }
-  else if ( code <= 0x1fffff )
+  else if (ch <= 0xffff)
     {
-      Dynarr_add (dst,  (code >> 18) | 0xf0);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 12) | 0xe0);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
-  else if ( code <= 0x3ffffff )
+  else if (ch <= 0x1fffff)
     {
-      Dynarr_add (dst,  (code >> 24) | 0xf8);
-      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 18) | 0xf0);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
+    }
+  else if (ch <= 0x3ffffff)
+    {
+      Dynarr_add (dst,  (ch >> 24) | 0xf8);
+      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
   else
     {
-      Dynarr_add (dst,  (code >> 30) | 0xfc);
-      Dynarr_add (dst, ((code >> 24) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
-      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
-      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch >> 30) | 0xfc);
+      Dynarr_add (dst, ((ch >> 24) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((ch >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (ch        & 0x3f) | 0x80);
     }
 }
 
