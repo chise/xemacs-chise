@@ -1,3 +1,14 @@
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R166-Village.el (M-40132'): Unify GT-53970.
+
+	* Ideograph-R163-City.el (M-39542'): Unify GT-53191.
+
+	* Ideograph-R162-Walk.el (M-39112'): Unify GT-52598.
+	(GT-52500): New character.
+	(M-39190'): Unify GT-52732.
+	(GT-52669): New character.
+
 2003-11-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R002-Line.el (U+4E30): Unify BC-897E.
