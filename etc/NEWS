@@ -187,9 +187,9 @@ for PSWrap.
 Olivier Galibert has written a portable dumper for XEmacs, based on
 initial work by Kyle Jones.  Normally, XEmacs C sources link into an
 executable called `temacs', which loads the Lisp code and "unexecs"
-into a proper `xemacs' executable.  The unexec() process is hard to
-implement correctly and makes XEmacs very hard to port to new
-operating systems, or even to new releases of old systems.
+into a proper `xemacs' executable.  The unexec() process is unreliable
+and makes XEmacs hard to port to new operating systems, or even to new
+releases of old systems.
 
 A portable dumper is a different approach to dumping: instead of
 dumping full-fledged executable, it only dumps out the initialized
@@ -248,8 +248,8 @@ are implemented as native window-system widgets.  Thus you can embed
 buttons, scrollbars, combo boxes, edit fields and progress gauges in a
 buffer.  As a side effect subwindow support now works once again.
 
-All of this is still very experimental.  This feature is currently
-more complete under MS-Windows.
+All of this is still very experimental.  This support is currently
+only available under MS-Windows.  (#### Is this true?)
 
 ** user-init-directory is now an absolute, unexpanded path.
 Previously, `user-init-directory' used to be relative to

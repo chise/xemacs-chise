@@ -1,29 +1,3 @@
-1999-12-14  Martin Buchholz <martin@xemacs.org>
-
-	* XEmacs 21.2.24 is released.
-
-1999-12-13  Martin Buchholz  <martin@xemacs.org>
-
-	* configure.in: 
-	* configure.usage:
-	- Autodetect NAS.  Change Docs accordingly.
-
-	* configure.in: Warn if configure --with-xpm --without-x11.
-
-1999-12-09  Martin Buchholz  <martin@xemacs.org>
-
-	* configure.in: Clean up sound support.
-	- variable `old_nas' was used but never set.
-	- change `with_esd' to `with_esd_sound' for consistency.
-	- Don't trust the output of `esd-config --libs`; test it.
-	- Add `esd-config --cflags` to c_switch_site.
-	- Die if ESD sound requested, but not available.
-	- ESD is not dependent on X, therefore use LIBS, not libs_x.
-
-1999-12-07  Martin Buchholz  <martin@xemacs.org>
-
-	* configure.in (--with-sound): Variable with_esd was mispelled.
-
 1999-12-07  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.23 is released.

@@ -1313,7 +1313,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Jonathan Edwards" "edwards@intranet.com")
        (print-short "Eric Eide" "eeide@asylum.cs.utah.edu")
        (print-short "EKR" "ekr@terisa.com")
-       (print-short "Gunnar Evermann" "ge204@eng.cam.ac.uk")
+       (print-short "Gunnar Evermann" "Gunnar.Evermann@nats.informatik.uni-hamburg.de")
        (print-short "Oscar Figueiredo" "Oscar.Figueiredo@di.epfl.ch")
        (print-short "David Fletcher" "frodo@tsunami.com")
        (print-short "Paul Flinders" "ptf@delcam.co.uk")

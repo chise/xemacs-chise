@@ -4333,9 +4333,5 @@ This variable affects the built-in functions only on Windows,
 on other platforms, it is initialized so that Lisp code can find out
 what the normal separator is.
 */ );
-#ifdef WINDOWSNT
-  Vdirectory_sep_char = make_char ('\\');
-#else
-   Vdirectory_sep_char = make_char ('/');
-#endif
+  Vdirectory_sep_char = make_char ('/');
 }

@@ -617,8 +617,8 @@ while test $# != 0; do
 	      nas )          with_nas_sound=yes ;;
 	      nonas )        with_nas_sound=no ;;
 
-	      esd )	     with_esd_sound=yes ;;
-	      noesd )        with_esd_sound=no ;;
+	      esd )	     with_esd=yes ;;
+	      noesd )        with_esh=no ;;
 
 	      * ) bogus_sound=yes ;;
 	    esac
@@ -627,11 +627,11 @@ while test $# != 0; do
 		types="\`all', \`none', \`(no)native', \`no(nas)', \`(no)esd'."
 		USAGE_ERROR(["Valid types for the \`--$optname' option are:
   $types.
-The default is to autodetect all sound support."])
+The default is native,esd."])
 	    elif test -n "$new_sdefault" ; then
 		with_native_sound=$new_sdefault
 		with_nas_sound=$new_sdefault
-		with_esd_sound=$new_sdefault
+		with_esd=$new_sdefault
 		new_sdefault=	# reset this
 	    fi
 	    sound_notfirst=true
@@ -2568,7 +2568,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix wmcommand xim xmu xpm nas_sound
+  for feature in tooltalk cde offix wmcommand xim xmu
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -3008,6 +3008,12 @@ if test "$with_x11" = "yes"; then
   test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
   test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
   test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
+else
+  if test "$with_nas_sound" = "nas"; then
+    echo "Attempt to Build NAS sound without X"
+    echo "Please remove NAS configuration or build with X"
+    exit 1
+  fi
 fi
 
 dnl ----------------------
@@ -3464,50 +3470,35 @@ if test "$with_native_sound" = "yes"; then
   test -n "$native_sound_lib" && XE_PREPEND($native_sound_lib, LIBS)
 fi
 
-dnl NAS Sound support
-if test "$with_nas_sound" != "no"; then
-  AC_CHECK_HEADER(audio/audiolib.h, [
-    AC_CHECK_LIB(audio, AuOpenServer, have_nas_sound=yes)])
-  if test "$have_nas_sound" = "yes"; then
-    with_nas_sound=yes
-    AC_DEFINE(HAVE_NAS_SOUND)
-    XE_ADD_OBJS(nas.o)
-    XE_PREPEND(-laudio, libs_x)
-    dnl If the nas library does not contain the error jump point,
-    dnl then we force safer behavior.
-    AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[old_nas=yes; AC_DEFINE(NAS_NO_ERROR_JUMP)])
-  else
-    test "$with_nas_sound" = "yes" && \
-      XE_DIE("Required NAS sound support cannot be provided.")
-    with_nas_sound=no
-  fi
+if test "$with_nas_sound" = "yes"; then
+  AC_DEFINE(HAVE_NAS_SOUND)
+  XE_ADD_OBJS(nas.o)
+  XE_PREPEND(-laudio, libs_x)
+  dnl If the nas library does not contain the error jump point,
+  dnl then we force safer behavior.
+  AC_EGREP_HEADER(AuXtErrorJump,audio/Xtutil.h,,[AC_DEFINE(NAS_NO_ERROR_JUMP)])
 fi
 
-dnl ESD Sound support
-if test "$with_esd_sound" != "no"; then
-  AC_CHECK_PROG(have_esd_config, esd-config, yes, no)
-  if test "$have_esd_config" = "yes"; then
-    save_c_switch_site="$c_switch_site" save_LIBS="$LIBS"
-    XE_APPEND(`esd-config --cflags`, c_switch_site)
-    XE_PREPEND(`esd-config --libs`, LIBS)
-    AC_CHECK_FUNC(esd_play_stream,
-      have_esd_sound=yes,
-      c_switch_site="$save_c_switch_site" LIBS="$save_LIBS")
-  fi
+AC_CHECK_PROG(have_esd_config, esd-config, yes, no)
+if test -z "$with_esd"; then
+  with_esd=$have_esd_config
+fi
 
-  if test "$have_esd_sound" = "yes"; then
-    with_esd_sound=yes
+if test "$with_esd" = "yes"; then
+  if test "$have_esd_config" = "no"; then
+    echo "*** esd-config was not found in your PATH. Disabling esd support."
+    with_esd=no
+  else
+    AC_DEFINE(HAVE_ESD_SOUND)
     need_miscplay=yes
     XE_ADD_OBJS(esd.o)
-    AC_DEFINE(HAVE_ESD_SOUND)
-  else
-    test "$with_esd_sound" = "yes" && \
-      XE_DIE("Required ESD sound support cannot be provided.")
-    with_esd_sound=no
+    XE_PREPEND(`esd-config --libs`, libs_x)
   fi
 fi
 
-test "$need_miscplay" = "yes" && XE_ADD_OBJS(miscplay.o)
+if test "$need_miscplay" = "yes"; then
+  XE_ADD_OBJS(miscplay.o)
+fi
 
 dnl ---------------------
 dnl TTY-dependent options
@@ -4184,11 +4175,10 @@ test "$with_gif"   = yes && echo "  Compiling in support for (builtin) GIF image
 test "$with_jpeg"  = yes && echo "  Compiling in support for JPEG image handling."
 test "$with_tiff"  = yes && echo "  Compiling in support for TIFF image handling."
 test "$with_xface" = yes && echo "  Compiling in support for X-Face message headers."
-
 test "$with_native_sound" = yes && echo "  Compiling in native sound support."
-test "$with_nas_sound"    = yes && echo "  Compiling in network sound (NAS) support."
-test "$old_nas"           = yes && echo "     nas library lacks error trapping, will play synchronously."
-test "$with_esd_sound"    = yes && echo "  Compiling in support for Enlightened Sound Daemon (ESD)."
+test "$with_nas_sound" = yes && echo "  Compiling in network sound (NAS) support."
+test "$old_nas" = yes && echo "        nas library lacks error trapping, will play synchronously."
+test "$with_esd" = yes && echo "  Compiling in support for Enlightened Sound Daemon."
 
 test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley DB."
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."

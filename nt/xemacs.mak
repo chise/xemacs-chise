@@ -1229,9 +1229,7 @@ distclean:
 	$(DEL) *.info*
 
 depend:
-	cd $(SRCDIR)
-	perl ./make-src-depend > depend.tmp
-	perl -MFile::Compare -e "compare('depend.tmp', 'depend') && rename('depend.tmp', 'depend') or unlink('depend.tmp')"
+	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c
 
 $(XEMACS)\Installation:
 	@type > $(XEMACS)\Installation <<

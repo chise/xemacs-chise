@@ -658,7 +658,9 @@ nt_create_process (struct Lisp_Process *p,
 	kick_status_notify ();
       }
 
-    return ((int)pi.dwProcessId);
+    /* Hack to support Windows 95 negative pids */
+    return ((int)pi.dwProcessId < 0
+	    ? -(int)pi.dwProcessId : (int)pi.dwProcessId);
   }
 }
 
@@ -717,8 +719,7 @@ nt_update_status_if_terminated (struct Lisp_Process* p)
 static void
 nt_send_process (Lisp_Object proc, struct lstream* lstream)
 {
-  volatile Lisp_Object vol_proc = proc;
-  struct Lisp_Process *volatile p = XPROCESS (proc);
+  struct Lisp_Process *p = XPROCESS (proc);
 
   /* use a reasonable-sized buffer (somewhere around the size of the
      stream buffer) so as to avoid inundating the stream with blocked
@@ -748,7 +749,7 @@ nt_send_process (Lisp_Object proc, struct lstream* lstream)
 	  p->core_dumped = 0;
 	  p->tick++;
 	  process_tick++;
-	  deactivate_process (*((Lisp_Object *) (&vol_proc)));
+	  deactivate_process (proc);
 	  error ("Broken pipe error sending to process %s; closed it",
 		 XSTRING_DATA (p->name));
 	}
@@ -889,12 +890,6 @@ get_internet_address (Lisp_Object host, struct sockaddr_in *address,
 	  /* Ok, got an answer */
 	  if (WSAGETASYNCERROR(msg.lParam) == NO_ERROR)
 	    success = 1;
-	  else
-	    {
-	      warn_when_safe(Qstream, Qwarning,
-			     "cannot get IP address for host \"%s\"",
-			     XSTRING_DATA (host));
-	    }
 	  goto done;
 	}
       else if (msg.message == WM_TIMER && msg.wParam == SOCK_TIMER_ID)
@@ -985,6 +980,7 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
   retval = connect (s, (struct sockaddr *) &address, sizeof (address));
   if (retval != NO_ERROR && WSAGetLastError() != WSAEWOULDBLOCK)
     goto connect_failed;
+
   /* Wait while connection is established */
   while (1)
     {
@@ -1027,10 +1023,6 @@ nt_open_network_stream (Lisp_Object name, Lisp_Object host, Lisp_Object service,
 
  connect_failed:  
   closesocket (s);
-  warn_when_safe(Qstream, Qwarning,
-		 "failure to open network stream to host \"%s\" for service \"%s\"",
-		 XSTRING_DATA (host),
-		 XSTRING_DATA (service));
   report_file_error ("connection failed", list2 (host, name));
 }
 

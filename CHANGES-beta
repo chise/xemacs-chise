@@ -1,10 +1,5 @@
 							-*- indented-text -*-
 to 21.2.24 "Hecate"
--- (coding-system-list) deals properly with coding system aliases, Shenghuo ZHU
--- configure support for ESD sound rewritte, Martin Buchholz
--- directory separator fix from Mike Alexander
--- Windows process support cleanup, Adrian Aichner
--- NT now encapsulates fstat to get correct file mod time, Adrian Aichner
 
 to 21.2.23 "Hebe"
 -- MS-Windows selection fixes from Mike Alexander

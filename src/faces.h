@@ -258,7 +258,7 @@ EXFUN (Fget_face, 1);
 
 extern Lisp_Object Qstrikethru, Vbuilt_in_face_specifiers, Vdefault_face;
 extern Lisp_Object Vleft_margin_face, Vpointer_face, Vright_margin_face;
-extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face;
+extern Lisp_Object Vtext_cursor_face, Vvertical_divider_face; 
 extern Lisp_Object Vtoolbar_face, Vgui_element_face, Vwidget_face;
 
 void mark_all_faces_as_clean (void);

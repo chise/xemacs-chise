@@ -44,12 +44,7 @@ Bufbyte get_eof_char (int fd);
 
 /* Wait for subprocess with process id `pid' to terminate and
    make sure it will get eliminated (not remain forever as a zombie) */
-#ifdef WINDOWSNT
-#include <windows.h>
-void wait_for_termination (HANDLE pid);
-#else
 void wait_for_termination (int pid);
-#endif
 
 /* flush any pending output
  * (may flush input as well; it does not matter the way we use it)

@@ -97,7 +97,7 @@ typedef struct
 
    #### This should really be made smaller.
 */
-
+   
 typedef struct rune rune;
 struct rune
 {
@@ -121,12 +121,12 @@ struct rune
 				   this. */
                                 /* #### This isn't used as an rvalue anywhere!
                                    remove! */
-
-
+                                   
+  
   short xpos;			/* horizontal starting position in pixels */
   short width;			/* pixel width of rune */
-
-
+       
+  
   unsigned char cursor_type;	/* is this rune covered by the cursor? */
   unsigned char type;		/* type of rune object */
                                 /* We used to do bitfields here, but if I

@@ -89,7 +89,7 @@ they are locate the early, late, and last package hierarchies
 respectively.  If two components are present, they locate the early and
 late hierarchies.  If only one component is present, it locates the late
 hierarchy.  At run time, the package path may also be specified via the
-@code{EMACSPACKAGEPATH} environment variable.
+@code{PACKAGEPATH} environment variable.
 
 An XEmacs package is laid out just like a normal installed XEmacs lisp
 directory.  It may have @file{lisp}, @file{etc}, @file{info}, and

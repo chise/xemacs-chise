@@ -125,8 +125,7 @@ typedef int pid_t;
 /* XEmacs file I/O for DOS text files requires FILE_CODING */
 #define FILE_CODING
 
-extern Lisp_Object Vdirectory_sep_char;
-#define DIRECTORY_SEP ((char)XCHARVAL(Vdirectory_sep_char))
+#define DIRECTORY_SEP '\\'
 
 /* Define this to be the separator between devices and paths */
 #define DEVICE_SEP ':'

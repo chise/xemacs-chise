@@ -931,7 +931,7 @@ reorganize_hash_table (Lisp_Hash_Table *ht)
 static void
 enlarge_hash_table (Lisp_Hash_Table *ht)
 {
-  size_t new_size =
+  size_t new_size = 
     hash_table_size ((size_t) ((double) ht->size * ht->rehash_size));
   resize_hash_table (ht, new_size);
 }

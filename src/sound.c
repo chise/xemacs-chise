@@ -562,9 +562,6 @@ vars_of_sound (void)
 #ifdef HAVE_NAS_SOUND
   Fprovide (intern ("nas-sound"));
 #endif
-#ifdef HAVE_ESD_SOUND
-  Fprovide (intern ("esd-sound"));
-#endif
 
   DEFVAR_INT ("bell-volume", &bell_volume /*
 *How loud to be, from 0 to 100.

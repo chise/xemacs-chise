@@ -437,7 +437,7 @@ union magic_data
 
 struct Lisp_Timeout
 {
-  struct lcrecord_header header;
+  struct lcrecord_header header; 
   int id; /* Id we use to identify the timeout over its lifetime */
   int interval_id; /* Id for this particular interval; this may
 		      be different each time the timeout is
