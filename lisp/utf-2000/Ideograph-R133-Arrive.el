@@ -181,6 +181,7 @@
     (korean-ksc5601		. #x5366)	; ø»‰¤­
     (chinese-cns11643-1		. #x6A57)	; ø»’® 
     (japanese-jisx0208-1990	. #x674A)	; ø½‹™
+    (chinese-gb12345		. #x4C28)	; è‡º
     (ideograph-daikanwa		. 30161)	; ø¸‡—‘
     (ucs			. #x81FA)	; è‡º
     ))
