@@ -1,5 +1,10 @@
 2003-06-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R119-Rice.el (U+7CE9): Separate C7-4857; unify
+	JC3-5EDB and M027150.
+
+	* Ideograph-R079-Weapon.el (JC3-93C8): New character.
+
 	* Ideograph-R123-Sheep.el (U+7FA1): Unify JC3-5FF7.
 	(M-28545): Unify JC3-98F3.
 	(B-F5EE): Unify JC3-5FFB.
