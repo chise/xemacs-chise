@@ -38,7 +38,7 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
-File: internals.info,  Node: Index,  Prev: Interface to X Windows,  Up: Top
+File: internals.info,  Node: Index,  Prev: Interface to the X Window System,  Up: Top
 
 Index
 *****
@@ -91,7 +91,6 @@ Index
 * external widget:                       Modules for Interfacing with X Windows.
 * flusher:                               Lstream Methods.
 * Free Software Foundation:              A History of Emacs.
-* frob block:                            Introduction to Allocation.
 * FSF:                                   A History of Emacs.
 * FSF Emacs <1>:                         GNU Emacs 20.
 * FSF Emacs:                             GNU Emacs 19.
@@ -161,11 +160,9 @@ Index
 * permanent objects:                     The XEmacs Object System (Abstractly Speaking).
 * pi, calculating:                       XEmacs From the Outside.
 * pseudo_closer:                         Lstream Methods.
-* pure space:                            Basic Lisp Modules.
 * read syntax:                           The XEmacs Object System (Abstractly Speaking).
 * read-eval-print:                       XEmacs From the Outside.
 * reader:                                Lstream Methods.
-* record type:                           How Lisp Objects Are Represented in C.
 * Redisplay Piece by Piece:              Redisplay Piece by Piece.
 * relocating allocator:                  Low-Level Modules.
 * rename to XEmacs:                      XEmacs.
