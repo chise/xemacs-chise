@@ -1,3 +1,24 @@
+2005-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el: Add `hanyu-dazidian' for some
+	characters.
+
+2005-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+67FB): Use `->subsumptive'; add
+	`<-denotational' for J97-3A3A.
+	(J97-3A3A): New abstract character.
+	(U+67E5): Use `->subsumptive'; add `<-denotational' for J97-3A3A.
+
+	* Ideograph-R040-Roof.el (U+5B80): Use `->subsumptive'.
+	(U+5BA3): Likewise.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5267.
+
+	* Ideograph-R123-Sheep.el (C1-6143): Fix `ideographic-radical';
+	use `<-denotational' for U+5584; moved into
+	Ideograph-R030-Mouth.el.
+
 2005-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R015-Ice.el: Use `->subsumptive' for some character
