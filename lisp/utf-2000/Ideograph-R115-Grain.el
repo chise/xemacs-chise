@@ -2540,15 +2540,25 @@
     (ucs		. #x2580E)	; ð¥ Ž
     ))
 (define-char
-  '((=>ucs		. #x7A40)	; ç©€
+  '((=>ucs		. #x2F959)	; ð¯¥™
+    (=>ucs*		. #x7A40)	; ç©€
     (morohashi-daikanwa	25188 1)
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 9)
     (japanese-strokes	 . 14)
     (=jis-x0208		. #x3972)	; ø½Šš
-    (chinese-cns11643-4 . #x455F)	; ø»˜–ž
     (china3-jef		. #x5CF4)	; øº…³´
     (ucs-jis		. #x7A40)	; ø½Šš
+    ))
+(define-char
+  '((=>ucs*		. #x7A40)	; ç©€
+    (=>ucs-jis		. #x7A40)	; ø½Šš
+    (morohashi-daikanwa	25188 1 0)
+    (ideographic-radical . 115)	; â½²
+    (ideographic-strokes . 9)
+    (japanese-strokes	 . 14)
+    (chinese-cns11643-4 . #x455F)	; ø»˜–ž
+    (ucs		. #x2F959)	; ð¯¥™
     ))
 (define-char
   '((=>ucs		. #x25822)	; ð¥ ¢
@@ -3520,27 +3530,43 @@
     (chinese-cns11643-2 . #x587A)	; ø»”ž«
     ))
 (define-char
-  '((=>ucs		. #x7A4A)	; ç©Š
+  '((=>ucs		. #x2F95A)	; ð¯¥š
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 25261)	; ø¸†Š­
     ))
 (define-char
-  '((=>ucs		. #x7A4A)	; ç©Š
+  '((=>ucs*		. #x7A4A)	; ç©Š
     (morohashi-daikanwa	25261 0 0)
+    (ideographic-radical . 115)	; â½²
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (ucs		. #x2F95A)	; ð¯¥š
+    ))
+(define-char
+  '((=>ucs		. #x2F95A)	; ð¯¥š
+    (=>ucs*		. #x7A4A)	; ç©Š
+    (morohashi-daikanwa	25261 0 1)
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (chinese-cns11643-4 . #x5221)	; ø»˜¨¦
     ))
 (define-char
-  '((morohashi-daikanwa	25261 0 5)
+  '((morohashi-daikanwa	25261 0 4)
+    (ideographic-radical . 115)	; â½²
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ucs		. #x7A4A)	; ç©Š
+    ))
+(define-char
+  '((=>ucs		. #x7A4A)	; ç©Š
+    (morohashi-daikanwa	25261 0 5)
     (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4C4C)	; ø»”Œ•
-    (ucs		. #x7A4A)	; ç©Š
     ))
 (define-char
   '((=>ucs		. #x7A4B)	; ç©‹
