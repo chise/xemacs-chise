@@ -212,7 +212,8 @@
 	  ((consp char)
 	   char))))
     
-(defun char-db-insert-char-spec (char &optional readable column)
+(defun char-db-insert-char-spec (char &optional readable column
+				      required-features)
   (unless column
     (setq column (current-column)))
   (let (char-spec al cal key temp-char)
@@ -250,6 +251,11 @@
     (unless (or cal
 		(memq 'ideographic-structure al))
       (push 'ideographic-structure al))
+    (dolist (feature required-features)
+      (if (find-charset feature)
+	  (if (encode-char char feature 'defined-only)
+	      (setq cal (adjoin feature cal)))
+	(setq al (adjoin feature al))))
     (insert-char-attributes char
 			    readable
 			    (or al 'none) cal)
@@ -442,7 +448,8 @@
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
 	key al cal
-	dest-ccss)
+	dest-ccss
+	sources required-features)
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -876,11 +883,37 @@
                    (if (integerp cell)
 		       (setq cell (decode-char '=ucs cell)))
 		   (cond ((characterp cell)
+			  (setq sources
+				(get-char-attribute
+				 char
+				 (intern (format "%s*sources" name))))
+			  (setq required-features nil)
+			  (dolist (source sources)
+			    (setq required-features
+				  (cons
+				   (if (find-charset
+					(setq ret (intern
+						   (format "=%s" source))))
+				       ret
+				     source)
+				   required-features)))
+			  (when (string-match "@JP" (symbol-name name))
+			    (setq required-features
+				  (union required-features
+					 '(=jis-x0208
+					   =jis-x0208-1990
+					   =jis-x0213-1-2000
+					   =jis-x0213-2-2000
+					   =jis-x0212
+					   =jis-x0208-1983
+					   =jis-x0208-1978))))
 			  (if separator
 			      (insert lbs))
 			  (if readable
 			      (insert (format "%S" cell))
-			    (char-db-insert-char-spec cell readable))
+			    (char-db-insert-char-spec cell readable
+						      nil
+						      required-features))
 			  (setq separator lbs))
 			 ((consp cell)
 			  (if separator
