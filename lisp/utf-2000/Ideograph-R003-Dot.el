@@ -88,6 +88,9 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 276)
+    (hanyu-dazidian-char . 4)
     (<-original-ideograph
      (:sources	(chuuka-daijiten morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 39)
