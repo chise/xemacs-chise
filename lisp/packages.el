@@ -1,6 +1,7 @@
 ;;; packages.el --- Low level support for XEmacs packages
 
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
+;; Copyright (C) 2002, 2003 Ben Wing.
 
 ;; Author: Steven L Baur <steve@xemacs.org>
 ;; Maintainer: Steven L Baur <steve@xemacs.org>
@@ -96,6 +97,10 @@ show up in.
 The third component is a thunk which, if it returns NIL, causes
 the directory to be ignored."
   (list
+   (list (paths-construct-path (list user-init-directory "site-packages"))
+	 'early #'(lambda () t))
+   (list (paths-construct-path (list user-init-directory "infodock-packages"))
+	 'early #'(lambda () (featurep 'infodock)))
    (list (paths-construct-path (list user-init-directory "mule-packages"))
 	 'early #'(lambda () (featurep 'mule)))
    (list (paths-construct-path (list user-init-directory "xemacs-packages"))
@@ -129,11 +134,13 @@ the directory to be ignored."
 (defun package-require (name version)
   (let ((pkg (assq name packages-package-list)))
     (cond ((null pkg)
-	   (error "Package %s has not been loaded into this XEmacsen"
-		  name))
+	   (error 'invalid-state
+		  (format "Package %s has not been loaded into this XEmacsen"
+			  name)))
 	  ((< (package-get-key name :version) version)
-	   (error "Need version %g of package %s, got version %g"
-		  version name (cdr pkg)))
+	   (error 'search-failed
+		  (format "Need version %g of package %s, got version %g"
+			  version name (cdr pkg))))
 	  (t t))))
 
 (defun package-delete-name (name)
@@ -144,40 +151,14 @@ the directory to be ignored."
     ;; one.
     (while (setq pkg (assq name packages-package-list))
       (setq packages-package-list (delete pkg (copy-alist
-					       packages-package-list)))
-      )
-    ))
+					       packages-package-list))))))
 
 ;;; Build time stuff
 
 (defvar autoload-file-name "auto-autoloads.el"
   "Filename that autoloads are expected to be found in.")
 
-(defvar packages-hardcoded-lisp
-  '(
-    ;; Nothing at this time
-    )
-  "Lisp packages that are always dumped with XEmacs.
-This includes every package that is loaded directly by a package listed
-in dumped-lisp.el and is not itself listed.")
-
-(defvar packages-useful-lisp
-  '("bytecomp"
-    "byte-optimize"
-    "shadow"
-    "cl-macs")
-  "Lisp packages that need early byte compilation.")
-
-(defvar packages-unbytecompiled-lisp
-  '("paths.el"
-    "dumped-lisp.el"
-    "dumped-pkg-lisp.el"
-    "version.el"
-    "very-early-lisp.el")
-  "Lisp packages that should not be byte compiled.")
-
-
-;; Copied from help.el, could possibly move it to here permanently.
+;; Moved from help.el.
 ;; Unlike the FSF version, our `locate-library' uses the `locate-file'
 ;; primitive, which should make it lightning-fast.
 
@@ -352,7 +333,7 @@ This function is basically a wrapper over `locate-file'."
   ;; make sure paths-find-version-directory and paths-find-site-directory
   ;; don't both pick up version-independent directories ...
   (let ((version-directory (paths-find-version-directory roots base nil nil t))
-	(site-directory (paths-find-site-directory roots base nil nil t)))
+	(site-directory (paths-find-site-directory roots base)))
     (paths-uniq-append
      (and version-directory (list version-directory))
      (and site-directory (list site-directory)))))

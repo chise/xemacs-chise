@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "SUPERSCRIPT ZERO")
     (general-category	number other) ; Normative Category
@@ -21,7 +21,7 @@
     (->decomposition	super #x0034)
     (->fullwidth
      ((name		  . "fullwidth superscript four")
-      (=ks-x1001	  . #x2979)	; ø»ˆ§”
+      (=ks-x1001	  . #x2979)	; &K0-2979; [09-89]
       ))
     (=ucs		. #x2074)	; â´
     ))
@@ -39,7 +39,7 @@
      ((name		  . "SUPERSCRIPT FOUR")
       (=ucs		  . #x2074)	; â´
       ))
-    (=ks-x1001		. #x2979)	; ø»ˆ§”
+    (=ks-x1001		. #x2979)	; &K0-2979; [09-89]
     ))
 (define-char
   '((name		. "SUPERSCRIPT FIVE")
@@ -144,7 +144,7 @@
     (->decomposition	super #x006E)
     (->fullwidth
      ((name		  . "fullwidth superscript latin small letter n")
-      (=ks-x1001	  . #x297A)	; ø»ˆ§•
+      (=ks-x1001	  . #x297A)	; &K0-297A; [09-90]
       ))
     (=ucs		. #x207F)	; â¿
     ))
@@ -159,5 +159,5 @@
      ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
       (=ucs		  . #x207F)	; â¿
       ))
-    (=ks-x1001		. #x297A)	; ø»ˆ§•
+    (=ks-x1001		. #x297A)	; &K0-297A; [09-90]
     ))

@@ -177,6 +177,8 @@ set Info-directory-list.")
   "This used to be the name of the user whose init file was read at startup.")
 (make-obsolete-variable 'init-file-user 'load-user-init-file-p)
 
+(define-obsolete-function-alias 'pui-add-install-directory
+  'pui-set-local-package-get-directory) ; misleading name
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; hooks
 
 (make-compatible-variable 'lisp-indent-hook 'lisp-indent-function)
@@ -226,6 +228,9 @@ set Info-directory-list.")
   (add-submenu menu-path (cons menu-name menu-items) before))
 ;; Can't make this obsolete.  easymenu depends on it.
 (make-compatible 'add-menu 'add-submenu)
+
+(define-obsolete-function-alias 'package-get-download-menu 
+  'package-ui-download-menu)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; minibuffer
 

@@ -1,11 +1,11 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "LAO LETTER KO")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E81)	; àº
-    (lao		. #xA1)	; øº¦ž
+    (lao		. #xA1)	; &I-MULE-LAO-21;
     ))
 (define-char
   '((name		. "LAO LETTER KHO SUNG")
@@ -13,7 +13,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E82)	; àº‚
-    (lao		. #xA2)	; øº¦Ÿ
+    (lao		. #xA2)	; &I-MULE-LAO-22;
     ))
 (define-char
   '((name		. "LAO LETTER KHO TAM")
@@ -21,7 +21,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E84)	; àº„
-    (lao		. #xA4)	; øº¦¡
+    (lao		. #xA4)	; &I-MULE-LAO-24;
     ))
 (define-char
   '((name		. "LAO LETTER NGO")
@@ -29,7 +29,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E87)	; àº‡
-    (lao		. #xA7)	; øº¦¤
+    (lao		. #xA7)	; &I-MULE-LAO-27;
     ))
 (define-char
   '((name		. "LAO LETTER CO")
@@ -37,7 +37,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E88)	; àºˆ
-    (lao		. #xA8)	; øº¦¥
+    (lao		. #xA8)	; &I-MULE-LAO-28;
     ))
 (define-char
   '((name		. "LAO LETTER SO TAM")
@@ -45,7 +45,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E8A)	; àºŠ
-    (lao		. #xAA)	; øº¦§
+    (lao		. #xAA)	; &I-MULE-LAO-2A;
     ))
 (define-char
   '((name		. "LAO LETTER NYO")
@@ -53,7 +53,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E8D)	; àº
-    (lao		. #xAD)	; øº¦ª
+    (lao		. #xAD)	; &I-MULE-LAO-2D;
     ))
 (define-char
   '((name		. "LAO LETTER DO")
@@ -61,7 +61,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E94)	; àº”
-    (lao		. #xB4)	; øº¦±
+    (lao		. #xB4)	; &I-MULE-LAO-34;
     ))
 (define-char
   '((name		. "LAO LETTER TO")
@@ -69,7 +69,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E95)	; àº•
-    (lao		. #xB5)	; øº¦²
+    (lao		. #xB5)	; &I-MULE-LAO-35;
     ))
 (define-char
   '((name		. "LAO LETTER THO SUNG")
@@ -77,7 +77,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E96)	; àº–
-    (lao		. #xB6)	; øº¦³
+    (lao		. #xB6)	; &I-MULE-LAO-36;
     ))
 (define-char
   '((name		. "LAO LETTER THO TAM")
@@ -85,7 +85,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E97)	; àº—
-    (lao		. #xB7)	; øº¦´
+    (lao		. #xB7)	; &I-MULE-LAO-37;
     ))
 (define-char
   '((name		. "LAO LETTER NO")
@@ -93,7 +93,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E99)	; àº™
-    (lao		. #xB9)	; øº¦¶
+    (lao		. #xB9)	; &I-MULE-LAO-39;
     ))
 (define-char
   '((name		. "LAO LETTER BO")
@@ -101,7 +101,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9A)	; àºš
-    (lao		. #xBA)	; øº¦·
+    (lao		. #xBA)	; &I-MULE-LAO-3A;
     ))
 (define-char
   '((name		. "LAO LETTER PO")
@@ -109,7 +109,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9B)	; àº›
-    (lao		. #xBB)	; øº¦¸
+    (lao		. #xBB)	; &I-MULE-LAO-3B;
     ))
 (define-char
   '((name		. "LAO LETTER PHO SUNG")
@@ -117,7 +117,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9C)	; àºœ
-    (lao		. #xBC)	; øº¦¹
+    (lao		. #xBC)	; &I-MULE-LAO-3C;
     ))
 (define-char
   '((name		. "LAO LETTER FO TAM")
@@ -125,7 +125,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9D)	; àº
-    (lao		. #xBD)	; øº¦º
+    (lao		. #xBD)	; &I-MULE-LAO-3D;
     ))
 (define-char
   '((name		. "LAO LETTER PHO TAM")
@@ -133,7 +133,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9E)	; àºž
-    (lao		. #xBE)	; øº¦»
+    (lao		. #xBE)	; &I-MULE-LAO-3E;
     ))
 (define-char
   '((name		. "LAO LETTER FO SUNG")
@@ -141,7 +141,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0E9F)	; àºŸ
-    (lao		. #xBF)	; øº¦¼
+    (lao		. #xBF)	; &I-MULE-LAO-3F;
     ))
 (define-char
   '((name		. "LAO LETTER MO")
@@ -149,7 +149,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EA1)	; àº¡
-    (lao		. #xC1)	; øº¦¾
+    (lao		. #xC1)	; &I-MULE-LAO-41;
     ))
 (define-char
   '((name		. "LAO LETTER YO")
@@ -157,7 +157,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EA2)	; àº¢
-    (lao		. #xC2)	; øº¦¿
+    (lao		. #xC2)	; &I-MULE-LAO-42;
     ))
 (define-char
   '((name		. "LAO LETTER LO LING")
@@ -165,7 +165,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EA3)	; àº£
-    (lao		. #xC3)	; øº§€
+    (lao		. #xC3)	; &I-MULE-LAO-43;
     ))
 (define-char
   '((name		. "LAO LETTER LO LOOT")
@@ -173,7 +173,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EA5)	; àº¥
-    (lao		. #xC5)	; øº§‚
+    (lao		. #xC5)	; &I-MULE-LAO-45;
     ))
 (define-char
   '((name		. "LAO LETTER WO")
@@ -181,7 +181,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EA7)	; àº§
-    (lao		. #xC7)	; øº§„
+    (lao		. #xC7)	; &I-MULE-LAO-47;
     ))
 (define-char
   '((name		. "LAO LETTER SO SUNG")
@@ -189,7 +189,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EAA)	; àºª
-    (lao		. #xCA)	; øº§‡
+    (lao		. #xCA)	; &I-MULE-LAO-4A;
     ))
 (define-char
   '((name		. "LAO LETTER HO SUNG")
@@ -197,7 +197,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EAB)	; àº«
-    (lao		. #xCB)	; øº§ˆ
+    (lao		. #xCB)	; &I-MULE-LAO-4B;
     ))
 (define-char
   '((name		. "LAO LETTER O")
@@ -205,7 +205,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EAD)	; àº­
-    (lao		. #xCD)	; øº§Š
+    (lao		. #xCD)	; &I-MULE-LAO-4D;
     ))
 (define-char
   '((name		. "LAO LETTER HO TAM")
@@ -213,7 +213,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EAE)	; àº®
-    (lao		. #xCE)	; øº§‹
+    (lao		. #xCE)	; &I-MULE-LAO-4E;
     ))
 (define-char
   '((name		. "LAO ELLIPSIS")
@@ -221,7 +221,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EAF)	; àº¯
-    (lao		. #xCF)	; øº§Œ
+    (lao		. #xCF)	; &I-MULE-LAO-4F;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN A")
@@ -229,7 +229,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EB0)	; àº°
-    (lao		. #xD0)	; øº§
+    (lao		. #xD0)	; &I-MULE-LAO-50;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN MAI KAN")
@@ -237,7 +237,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB1)	; àº±
-    (lao		. #xD1)	; øº§Ž
+    (lao		. #xD1)	; &I-MULE-LAO-51;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AA")
@@ -245,7 +245,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EB2)	; àº²
-    (lao		. #xD2)	; øº§
+    (lao		. #xD2)	; &I-MULE-LAO-52;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AM")
@@ -254,7 +254,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0ECD #x0EB2)
     (=ucs		. #x0EB3)	; àº³
-    (lao		. #xD3)	; øº§
+    (lao		. #xD3)	; &I-MULE-LAO-53;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN I")
@@ -262,7 +262,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB4)	; àº´
-    (lao		. #xD4)	; øº§‘
+    (lao		. #xD4)	; &I-MULE-LAO-54;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN II")
@@ -270,7 +270,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB5)	; àºµ
-    (lao		. #xD5)	; øº§’
+    (lao		. #xD5)	; &I-MULE-LAO-55;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN Y")
@@ -278,7 +278,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB6)	; àº¶
-    (lao		. #xD6)	; øº§“
+    (lao		. #xD6)	; &I-MULE-LAO-56;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN YY")
@@ -286,7 +286,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB7)	; àº·
-    (lao		. #xD7)	; øº§”
+    (lao		. #xD7)	; &I-MULE-LAO-57;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN U")
@@ -294,7 +294,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB8)	; àº¸
-    (lao		. #xD8)	; øº§•
+    (lao		. #xD8)	; &I-MULE-LAO-58;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN UU")
@@ -302,7 +302,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EB9)	; àº¹
-    (lao		. #xD9)	; øº§–
+    (lao		. #xD9)	; &I-MULE-LAO-59;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN MAI KON")
@@ -310,7 +310,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EBB)	; àº»
-    (lao		. #xDB)	; øº§˜
+    (lao		. #xDB)	; &I-MULE-LAO-5B;
     ))
 (define-char
   '((name		. "LAO SEMIVOWEL SIGN LO")
@@ -318,7 +318,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EBC)	; àº¼
-    (lao		. #xDC)	; øº§™
+    (lao		. #xDC)	; &I-MULE-LAO-5C;
     ))
 (define-char
   '((name		. "LAO SEMIVOWEL SIGN NYO")
@@ -326,7 +326,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EBD)	; àº½
-    (lao		. #xDD)	; øº§š
+    (lao		. #xDD)	; &I-MULE-LAO-5D;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN E")
@@ -334,7 +334,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC0)	; à»€
-    (lao		. #xE0)	; øº§
+    (lao		. #xE0)	; &I-MULE-LAO-60;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN EI")
@@ -342,7 +342,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC1)	; à»
-    (lao		. #xE1)	; øº§ž
+    (lao		. #xE1)	; &I-MULE-LAO-61;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN O")
@@ -350,7 +350,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC2)	; à»‚
-    (lao		. #xE2)	; øº§Ÿ
+    (lao		. #xE2)	; &I-MULE-LAO-62;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AY")
@@ -358,7 +358,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC3)	; à»ƒ
-    (lao		. #xE3)	; øº§ 
+    (lao		. #xE3)	; &I-MULE-LAO-63;
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AI")
@@ -366,7 +366,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC4)	; à»„
-    (lao		. #xE4)	; øº§¡
+    (lao		. #xE4)	; &I-MULE-LAO-64;
     ))
 (define-char
   '((name		. "LAO KO LA")
@@ -374,7 +374,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0EC6)	; à»†
-    (lao		. #xE6)	; øº§£
+    (lao		. #xE6)	; &I-MULE-LAO-66;
     ))
 (define-char
   '((name		. "LAO TONE MAI EK")
@@ -382,7 +382,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EC8)	; à»ˆ
-    (lao		. #xE8)	; øº§¥
+    (lao		. #xE8)	; &I-MULE-LAO-68;
     ))
 (define-char
   '((name		. "LAO TONE MAI THO")
@@ -390,7 +390,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0EC9)	; à»‰
-    (lao		. #xE9)	; øº§¦
+    (lao		. #xE9)	; &I-MULE-LAO-69;
     ))
 (define-char
   '((name		. "LAO TONE MAI TI")
@@ -398,7 +398,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0ECA)	; à»Š
-    (lao		. #xEA)	; øº§§
+    (lao		. #xEA)	; &I-MULE-LAO-6A;
     ))
 (define-char
   '((name		. "LAO TONE MAI CATAWA")
@@ -406,7 +406,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0ECB)	; à»‹
-    (lao		. #xEB)	; øº§¨
+    (lao		. #xEB)	; &I-MULE-LAO-6B;
     ))
 (define-char
   '((name		. "LAO CANCELLATION MARK")
@@ -414,7 +414,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0ECC)	; à»Œ
-    (lao		. #xEC)	; øº§©
+    (lao		. #xEC)	; &I-MULE-LAO-6C;
     ))
 (define-char
   '((name		. "LAO NIGGAHITA")
@@ -422,7 +422,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (=ucs		. #x0ECD)	; à»
-    (lao		. #xED)	; øº§ª
+    (lao		. #xED)	; &I-MULE-LAO-6D;
     ))
 (define-char
   '((name		. "LAO DIGIT ZERO")
@@ -433,7 +433,7 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (=ucs		. #x0ED0)	; à»
-    (lao		. #xF0)	; øº§­
+    (lao		. #xF0)	; &I-MULE-LAO-70;
     ))
 (define-char
   '((name		. "LAO DIGIT ONE")
@@ -444,7 +444,7 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (=ucs		. #x0ED1)	; à»‘
-    (lao		. #xF1)	; øº§®
+    (lao		. #xF1)	; &I-MULE-LAO-71;
     ))
 (define-char
   '((name		. "LAO DIGIT TWO")
@@ -455,7 +455,7 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (=ucs		. #x0ED2)	; à»’
-    (lao		. #xF2)	; øº§¯
+    (lao		. #xF2)	; &I-MULE-LAO-72;
     ))
 (define-char
   '((name		. "LAO DIGIT THREE")
@@ -466,7 +466,7 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (=ucs		. #x0ED3)	; à»“
-    (lao		. #xF3)	; øº§°
+    (lao		. #xF3)	; &I-MULE-LAO-73;
     ))
 (define-char
   '((name		. "LAO DIGIT FOUR")
@@ -477,7 +477,7 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (=ucs		. #x0ED4)	; à»”
-    (lao		. #xF4)	; øº§±
+    (lao		. #xF4)	; &I-MULE-LAO-74;
     ))
 (define-char
   '((name		. "LAO DIGIT FIVE")
@@ -488,7 +488,7 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (=ucs		. #x0ED5)	; à»•
-    (lao		. #xF5)	; øº§²
+    (lao		. #xF5)	; &I-MULE-LAO-75;
     ))
 (define-char
   '((name		. "LAO DIGIT SIX")
@@ -499,7 +499,7 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (=ucs		. #x0ED6)	; à»–
-    (lao		. #xF6)	; øº§³
+    (lao		. #xF6)	; &I-MULE-LAO-76;
     ))
 (define-char
   '((name		. "LAO DIGIT SEVEN")
@@ -510,7 +510,7 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (=ucs		. #x0ED7)	; à»—
-    (lao		. #xF7)	; øº§´
+    (lao		. #xF7)	; &I-MULE-LAO-77;
     ))
 (define-char
   '((name		. "LAO DIGIT EIGHT")
@@ -521,7 +521,7 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (=ucs		. #x0ED8)	; à»˜
-    (lao		. #xF8)	; øº§µ
+    (lao		. #xF8)	; &I-MULE-LAO-78;
     ))
 (define-char
   '((name		. "LAO DIGIT NINE")
@@ -532,7 +532,7 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (=ucs		. #x0ED9)	; à»™
-    (lao		. #xF9)	; øº§¶
+    (lao		. #xF9)	; &I-MULE-LAO-79;
     ))
 (define-char
   '((name		. "LAO HO NO")
@@ -541,7 +541,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0EAB #x0E99)
     (=ucs		. #x0EDC)	; à»œ
-    (lao		. #xFC)	; øº§¹
+    (lao		. #xFC)	; &I-MULE-LAO-7C;
     ))
 (define-char
   '((name		. "LAO HO MO")
@@ -550,5 +550,5 @@
     (mirrored		. nil)
     (->decomposition	compat #x0EAB #x0EA1)
     (=ucs		. #x0EDD)	; à»
-    (lao		. #xFD)	; øº§º
+    (lao		. #xFD)	; &I-MULE-LAO-7D;
     ))
