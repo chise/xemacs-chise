@@ -124,18 +124,12 @@ Boston, MA 02111-1307, USA.  */
 #elif defined(MULE)
 # include "mb-lb.h"
 #else
-# define MAX_EMCHAR_LEN 1
+# include "mb-1byte.h"
 #endif
 
 /* ---------------------------------------------------------------------- */
 /* (A) For working with charptr's (pointers to internally-formatted text) */
 /* ---------------------------------------------------------------------- */
-
-#ifdef MULTIBYTE
-# define VALID_CHARPTR_P(ptr) BUFBYTE_FIRST_BYTE_P (* (unsigned char *) ptr)
-#else
-# define VALID_CHARPTR_P(ptr) 1
-#endif
 
 #ifdef ERROR_CHECK_BUFPOS
 # define ASSERT_VALID_CHARPTR(ptr) assert (VALID_CHARPTR_P (ptr))
@@ -186,30 +180,6 @@ Boston, MA 02111-1307, USA.  */
 #define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
 #endif /* ! ERROR_CHECK_BUFPOS */
 
-#ifdef MULTIBYTE
-
-#define VALIDATE_CHARPTR_BACKWARD(ptr) do {	\
-  while (!VALID_CHARPTR_P (ptr)) ptr--;		\
-} while (0)
-
-/* This needs to be trickier to avoid the possibility of running off
-   the end of the string. */
-
-#define VALIDATE_CHARPTR_FORWARD(ptr) do {	\
-  Bufbyte *vcf_ptr = (ptr);			\
-  VALIDATE_CHARPTR_BACKWARD (vcf_ptr);		\
-  if (vcf_ptr != (ptr))				\
-    {						\
-      (ptr) = vcf_ptr;				\
-      INC_CHARPTR (ptr);			\
-    }						\
-} while (0)
-
-#else /* not MULTIBYTE */
-#define VALIDATE_CHARPTR_BACKWARD(ptr)
-#define VALIDATE_CHARPTR_FORWARD(ptr)
-#endif /* not MULTIBYTE */
-
 /* -------------------------------------------------------------- */
 /* (B) For working with the length (in bytes and characters) of a */
 /*     section of internally-formatted text 			  */
@@ -225,51 +195,6 @@ charptr_n_addr (CONST Bufbyte *ptr, Charcount offset)
 /* -------------------------------------------------------------------- */
 /* (C) For retrieving or changing the character pointed to by a charptr */
 /* -------------------------------------------------------------------- */
-
-#define simple_charptr_emchar(ptr)		((Emchar) (ptr)[0])
-#define simple_set_charptr_emchar(ptr, x)	((ptr)[0] = (Bufbyte) (x), 1)
-#define simple_charptr_copy_char(ptr, ptr2)	((ptr2)[0] = *(ptr), 1)
-
-#ifdef MULTIBYTE
-
-Emchar non_ascii_charptr_emchar (CONST Bufbyte *ptr);
-Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
-
-INLINE Emchar charptr_emchar (CONST Bufbyte *ptr);
-INLINE Emchar
-charptr_emchar (CONST Bufbyte *ptr)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_emchar (ptr) :
-    non_ascii_charptr_emchar (ptr);
-}
-
-INLINE Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
-INLINE Bytecount
-set_charptr_emchar (Bufbyte *ptr, Emchar x)
-{
-  return !CHAR_MULTIBYTE_P (x) ?
-    simple_set_charptr_emchar (ptr, x) :
-    non_ascii_set_charptr_emchar (ptr, x);
-}
-
-INLINE Bytecount charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2);
-INLINE Bytecount
-charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_copy_char (ptr, ptr2) :
-    non_ascii_charptr_copy_char (ptr, ptr2);
-}
-
-#else /* not MULE */
-
-# define charptr_emchar(ptr)		simple_charptr_emchar (ptr)
-# define set_charptr_emchar(ptr, x)	simple_set_charptr_emchar (ptr, x)
-# define charptr_copy_char(ptr, ptr2)	simple_charptr_copy_char (ptr, ptr2)
-
-#endif /* not MULE */
 
 #define charptr_emchar_n(ptr, offset) \
   charptr_emchar (charptr_n_addr (ptr, offset))
