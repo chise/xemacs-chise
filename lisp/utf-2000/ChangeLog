@@ -1,5 +1,16 @@
 2003-07-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R184-Eat.el (GT-K04996): Unify JX2-7C4B.
+	(C6-6440): Separate U+4B3B.
+	(JX2-7C55): New character.
+	(JSP-686E): Unify JX2-7C68.
+	(C2-6A63): Separate U+994E.
+	(M-44392): Unify C3-5E7E.
+
+	* Ideograph-R178-Tanned-Leather.el (C2-6C5F): Separate JSP-676B
+	and U+97E1.
+	(JSP-676B): Unify JX2-7C30.
+
 	* Ideograph-R140-Grass.el (JX2-7575): Unify U+FA5E instead of <CJK
 	RADICAL GRASS TWO>; add `->ideographic-component-forms' for <CJK
 	RADICAL GRASS TWO>.
