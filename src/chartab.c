@@ -1073,7 +1073,7 @@ Lisp_Object Qsystem_char_id;
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Qto_ucs;
-Lisp_Object Q_ucs_variants;
+Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
 Lisp_Object Qinitial;
@@ -1170,7 +1170,7 @@ Return variants of CHARACTER.
   Lisp_Object ret;
 
   CHECK_CHAR (character);
-  ret = Fget_char_attribute (character, Q_ucs_variants, Qnil);
+  ret = Fget_char_attribute (character, Q_ucs_unified, Qnil);
   if (CONSP (ret))
     return Fcopy_list (ret);
   else
@@ -3211,16 +3211,16 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	{
 	  Emchar c = XINT (v);
 	  Lisp_Object ret
-	    = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
+	    = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
 
 	  if (!CONSP (ret))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_variants,
+	      Fput_char_attribute (make_char (c), Q_ucs_unified,
 				   Fcons (character, Qnil));
 	    }
 	  else if (NILP (Fmemq (character, ret)))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_variants,
+	      Fput_char_attribute (make_char (c), Q_ucs_unified,
 				   Fcons (character, ret));
 	    }
 	}
@@ -3253,15 +3253,15 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
+      ret = Fget_char_attribute (make_char (c), Q_ucs_unified, Qnil);
       if (!CONSP (ret))
 	{
-	  Fput_char_attribute (make_char (c), Q_ucs_variants,
+	  Fput_char_attribute (make_char (c), Q_ucs_unified,
 			       Fcons (character, Qnil));
 	}
       else if (NILP (Fmemq (character, ret)))
 	{
-	  Fput_char_attribute (make_char (c), Q_ucs_variants,
+	  Fput_char_attribute (make_char (c), Q_ucs_unified,
 			       Fcons (character, ret));
 	}
     }
@@ -4084,7 +4084,7 @@ syms_of_chartab (void)
   defsymbol (&Qsystem_char_id,		"system-char-id");
 
   defsymbol (&Qto_ucs,			"=>ucs");
-  defsymbol (&Q_ucs_variants,		"->ucs-variants");
+  defsymbol (&Q_ucs_unified,		"->ucs-unified");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
