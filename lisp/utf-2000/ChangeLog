@@ -1,3 +1,49 @@
+2001-11-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (what-char-definition): If a target character is
+	a builtin character, display a corresponding ordinary character as
+	a comment.
+
+2001-11-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ideograph-util.el (ideographic-structure-find-char): New
+	function.
+
+	* char-db-util.el (char-ref-p): New function.
+	(char-ref=): New function.
+	(char-spec=): New function.
+
+2001-11-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-567E): Separate S1-2207.
+	(C3-4661): Fix `ideographic-strokes'.
+	(S1-2207): Unify GT-11902 and M050989.
+	(J0-567D): Separate S1-2209.
+	(K0-4F2A): Delete `kangxi-strokes'.
+	(S1-2209): Unify GT-11901.
+
+	* Ideograph-R027-Cliff.el (U+53A0): Use `<-vulgar-ideograph'
+	instead of `vulgar-char-of-shinjigen-1'.
+	(M-02993): Separate S-2200.
+	(U+53A6): Separate C3-3A28; unify S-2200; add
+	`<-vulgar-ideograph'.
+	(U+53A8): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(S-2208): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify GT-03811.
+	(U+53A9): Delete `kangxi-strokes'.
+	(U+53AE): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(M-03033): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(J0-5252): Likewise.
+	(C3-5755): Use `->same-ideograph' instead of `morohashi-daikanwa';
+	delete `daikanwa-radical'.
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA code points.
+	- Use `=>ucs' instead of `->ucs'.
+
 2001-10-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R061-Heart.el (CB-01158): New character.
