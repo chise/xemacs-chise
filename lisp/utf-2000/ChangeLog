@@ -1,3 +1,21 @@
+2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el (U+51A8): Add `zhengzi-tong' and
+	`daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Add `zhengzi-tong'
+	and `daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R018-Knife.el (U+5226): Add `->same' for U+5227 and
+	U+52AB.
+	(U+5227): Add `->same' for U+5226 and U+52AB.
+
+	* Ideograph-R006-Hook.el (U+4E8A): Add `songyuan-yilai-suzipu' and
+	`daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R029-Again.el (U+53CC): Use `JP Jouyou' instead of
+	`JP-Jouyou' in `script'.
+
 2004-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R173-Rain.el: Add mappings between CJK Ext B and CNS
