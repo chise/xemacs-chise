@@ -1,3 +1,14 @@
+2003-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R143-Blood.el: Add some GT code points.
+
+	* Ideograph-R087-Claw.el (U+89C5): Moved to Ideograph-R147-See.el.
+
+2003-07-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R123-Sheep.el (U+8B71): Copied from
+	Ideograph-R149-Speech.el.
+
 2003-07-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R147-See.el, Ideograph-R140-Grass.el: Add some GT code
