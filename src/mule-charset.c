@@ -385,13 +385,14 @@ Lisp_Object Vcharacter_variant_table;
 
 Lisp_Object Q_decomposition;
 Lisp_Object Q_ucs;
-Lisp_Object Qwide;
-Lisp_Object Qnarrow;
 Lisp_Object Qcompat;
 Lisp_Object QnoBreak;
 Lisp_Object Qsuper;
 Lisp_Object Qsub;
 Lisp_Object Qfraction;
+Lisp_Object Qwide;
+Lisp_Object Qnarrow;
+Lisp_Object Qfont;
 
 Emchar
 to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
@@ -400,20 +401,22 @@ to_char_code (Lisp_Object v, char* err_msg, Lisp_Object err_arg)
     return XINT (v);
   if (CHARP (v))
     return XCHAR (v);
-  else if (EQ (v, Qwide))
-    return -1;
-  else if (EQ (v, Qnarrow))
-    return -2;
   else if (EQ (v, Qcompat))
-    return -3;
+    return -1;
   else if (EQ (v, QnoBreak))
-    return -4;
+    return -2;
   else if (EQ (v, Qsuper))
-    return -5;
+    return -3;
   else if (EQ (v, Qsub))
-    return -6;
+    return -4;
   else if (EQ (v, Qfraction))
+    return -5;
+  else if (EQ (v, Qwide))
+    return -6;
+  else if (EQ (v, Qnarrow))
     return -7;
+  else if (EQ (v, Qfont))
+    return -8;
   else 
     signal_simple_error (err_msg, err_arg);
 }
@@ -2506,13 +2509,14 @@ syms_of_mule_charset (void)
 #ifdef UTF2000
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
-  defsymbol (&Qwide,			"wide");
-  defsymbol (&Qnarrow,			"narrow");
   defsymbol (&Qcompat,			"compat");
   defsymbol (&QnoBreak,			"noBreak");
   defsymbol (&Qsuper,			"super");
   defsymbol (&Qsub,			"sub");
   defsymbol (&Qfraction,		"fraction");
+  defsymbol (&Qwide,			"wide");
+  defsymbol (&Qnarrow,			"narrow");
+  defsymbol (&Qfont,			"font");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
