@@ -1825,7 +1825,9 @@
 (define-char
   '((ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 6)
-    (ucs		. #x99F2)	; é§²
+    (total-strokes	 . 16)
+    (japanese-jisx0208-1990	. #x7152)	; ø½‹¬
+    (ucs			. #x99F2)	; é§²
     ))
 (define-char
   '((ideographic-radical . 187)	; â¾º
@@ -2693,8 +2695,9 @@
     (ideographic-radical . 187)	; â¾º
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (mojikyo		. 050594)	; ý €Œ–¢
-    (ucs		. #x9A12)	; é¨’
+    (japanese-jisx0208-1990	. #x417B)	; ø½Š¦–
+    (mojikyo			. 050594)	; ý €Œ–¢
+    (ucs			. #x9A12)	; é¨’
     ))
 (define-char
   '((ideographic-radical . 187)	; â¾º
