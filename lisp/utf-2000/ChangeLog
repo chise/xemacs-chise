@@ -1,3 +1,8 @@
+2004-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (U+5E63): Unify B-B9F4.
+	(K0-7847): Separate B-B9F4.
+
 2004-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R071-Not.el (M-13719): Unify U-0002312F.
