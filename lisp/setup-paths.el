@@ -47,6 +47,9 @@
 (defvar paths-mule-load-path-depth 0
   "Depth of load-path searches in Mule Lisp paths.")
 
+(defvar paths-utf-2000-load-path-depth 0
+  "Depth of load-path searches in UTF-2000 Lisp paths.")
+
 (defvar paths-default-info-directories
   (mapcar (function
 	   (lambda (dirlist)
@@ -89,6 +92,21 @@
 					nil
 					configure-mule-lisp-directory)))))
 
+(defun paths-find-utf-2000-lisp-directory (roots &optional lisp-directory)
+  "Find the UTF-2000 Lisp directory of the XEmacs hierarchy."
+  ;; #### kludge
+  (if lisp-directory
+      (let ((guess
+	     (file-name-as-directory
+	      (paths-construct-path (list lisp-directory "utf-2000")))))
+	(if (paths-file-readable-directory-p guess)
+	    guess
+	  (paths-find-version-directory roots "utf-2000-lisp"
+					nil
+					nil
+					;; configure-utf-2000-lisp-directory
+					)))))
+
 (defun paths-find-module-directory (roots)
   "Find the main modules directory of the XEmacs hierarchy."
   (paths-find-architecture-directory roots "modules"
@@ -97,7 +115,8 @@
 (defun paths-construct-load-path
   (roots early-package-load-path late-package-load-path last-package-load-path
 	 lisp-directory
-	 &optional site-lisp-directory mule-lisp-directory)
+	 &optional site-lisp-directory mule-lisp-directory
+	 utf-2000-lisp-directory)
   "Construct the load path."
   (let* ((envvar-value (getenv "EMACSLOADPATH"))
 	 (env-load-path
@@ -111,6 +130,10 @@
 	  (and mule-lisp-directory
 	       (paths-find-recursive-load-path (list mule-lisp-directory)
 					       paths-mule-load-path-depth)))
+	 (utf-2000-lisp-load-path
+	  (and utf-2000-lisp-directory
+	       (paths-find-recursive-load-path (list utf-2000-lisp-directory)
+					       paths-utf-2000-load-path-depth)))
 	 (lisp-load-path
 	  (and lisp-directory
 	       (paths-find-recursive-load-path (list lisp-directory)
@@ -120,6 +143,7 @@
 	    site-lisp-load-path
 	    late-package-load-path
 	    mule-lisp-load-path
+	    utf-2000-lisp-load-path
 	    lisp-load-path
 	    last-package-load-path)))
 
