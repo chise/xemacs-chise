@@ -1,5 +1,20 @@
 2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R181-Leaf.el (J83-7073): Separate C1-6764, J90-7073
+	and U+980C.
+	(J83-4852): Separate C1-6763, J90-4852 and U+9812.
+	(J83-7075): Separate J78-7075, C1-7326 and U+9824; fix
+	`total-strokes'.
+	(J83-7123): Separate C2-717C, J90-7123 and U+9873.
+
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el:
+	- Merge Big5 and KS X 1001 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+2001-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R182-Wind.el (J90-7124): Unify J78-7124 and J83-7124.
 	(J83-7129): Separate J90-7129.
 
