@@ -1,5 +1,34 @@
 2004-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R151-Bean.el (GT-K02620): New character.
+	(U-00027BDA): Use `->subsumptive'.
+	(M-36251): Unify U-00027BDD.
+	(U+3AB7): Use `->subsumptive' to integrate M-13507 and CB00356;
+	use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
+
+	* Ideograph-R068-Dipper.el (M-13507): Use `->subsumptive' to
+	integrate U+3AB7 and C3-392B; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources'.
+
+	* Ideograph-R159-Cart.el (C6-454E): Unify U-000282B4.
+
+2004-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (U+7FBD): Define as an abstract
+	character.
+	(K0-6962): Use `<-denotational' for U+7FBD.
+	(GT-36834): Likewise.
+	(GT-K01762): Add `<-denotational' and
+	`<-ideographic-component-forms' for K0-6962.
+	(J0-3129): Use `<-denotational' for U+7FBD.
+
+	* Ideograph-R036-Evening.el (U-00020199): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}',
+	`ideographic-radical@ucs*sources' and
+	`ideographic-strokes@daikanwa*sources' instead of `ideographic-'.
+
 	* Ideograph-R008-Lid.el: Use GT-K01444 instead of BC-8BAA in
 	`ideographic-structure'.
 	(BC-8BAA): Use `->subsumptive' to integrate GT-K01444.
