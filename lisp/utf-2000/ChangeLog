@@ -1,3 +1,17 @@
+2004-01-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (U+52B4): Use `script', `<-simplified'
+	and `<-simplified*sources' instead of `comment'.
+
+	* char-db-util.el (insert-char-attributes): Delete formatter for
+	`simplified-ideograph-of' and `ideographic-different-form-of'.
+
+	* Ideograph-R058-Snout.el (U-00022450): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+5F53): Use `<-simplified' and `<-simplified*sources' instead of
+	`simplified-ideograph-of'.
+
 2004-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el, Ideograph-R181-Leaf.el,
