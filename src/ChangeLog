@@ -1,3 +1,7 @@
+2002-12-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule.c (vars_of_mule): Update `utf-2000-version' to 0.20.
+
 2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (charset_lookup_description_1): Use
