@@ -1,3 +1,38 @@
+2001-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U+551B): Delete invalid
+	`morohashi-daikanwa'.
+	(U+551C): Likewise; delete `kangxi-radical' and `kangxi-strokes'.
+	(U+551D): Delete invalid `morohashi-daikanwa'; delete
+	`kangxi-strokes'.
+	(U+551E): Delete invalid `morohashi-daikanwa'.
+	(U+551F): Likewise.
+	(U+5520): Likewise.
+	(U+5521): Likewise.
+	(U+5522): Likewise.
+	(U+5523): Likewise.
+	(U+5524): Delete `non-morohashi'.
+	(U+5525): Add `total-strokes'.
+
+2001-11-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R007-Two.el (U+4E96): Add `ideographic-structure'.
+	(U+4E97): Likewise.
+	(U+4E9D): Likewise.
+
+	* Ideograph-R005-Second.el (M-00190): Use U+4E5A instead of <CJK
+	RADICAL SECOND TWO> in `ideographic-structure'.
+	(M-00192): Add `ideographic-structure'.
+	(M-00205): Likewise.
+
+2001-11-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R006-Hook.el (U+4E87): Add `ideographic-structure'.
+	(U+4E89): Likewise.
+
+	* Ideograph-R002-Line.el (BC-8869): Moved to
+	Ideograph-R017-Open-Box.el.
+
 2001-11-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el: Merge some CJK Ext-B code points.
