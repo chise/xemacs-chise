@@ -1,3 +1,38 @@
+2001-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Move char-it-table related codes to chartab.c.
+	(Vutf_2000_version): Moved to chartab.c.
+	(Fdefine_char): Likewise.
+	(Ffind_char): Likewise.
+	(syms_of_mule_charset): Move types `uint8-byte-table',
+	`uint16-byte-table', `byte-table' and `char-id-table' to
+	chartab.c; move functions `char_attribute_list,
+	`find_char_attribute_table, `char_attribute_alist,
+	`get_char_attribute, `put_char_attribute, `remove_char_attribute,
+	`map_char_attribute, `define_char, `find_char, `char_variants and
+	`get_composite_char to chartab.c; move symbols `=>ucs',
+	`->decomposition', `compat', `isolated', `initial', `medial',
+	`final', `vertical', `noBreak', `fraction', `super', `sub',
+	`circle', `square', `wide', `narrow', `small' and `font' to
+	chartab.c.
+	(vars_of_mule_charset): Move `utf-2000-version' to chartab.c; move
+	setting codes for `Vcharacter_composition_table' and
+	`Vcharacter_variant_table' to chartab.c.
+	(complex_vars_of_mule_charset): Move setting code for
+	`Vchar_attribute_hash_table' to chartab.c.
+
+	* chartab.h: Include "char-ucs.h" if --with-utf-2000 is specified.
+	(make_char_id_table): New prototype.
+	(put_char_id_table): Likewise.
+	(Fget_char_attribute): Likewise.
+
+	* chartab.c: Move char-id-table related code from mule-charset.c.
+	(Vutf_2000_version): Moved from mule-charset.c.
+
+	* char-ucs.h (Qucs): New external variable.
+	(put_char_ccs_code_point): New prototype.
+	(remove_char_ccs): Likewise.
+
 2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
 	* mule-charset.c (Vcharset_ucs_jis): New variable.
