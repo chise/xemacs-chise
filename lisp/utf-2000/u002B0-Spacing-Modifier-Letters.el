@@ -198,6 +198,7 @@
     (=jis-x0213-1-2000	. #x2A31)	; &I-JX1-2A31; [10-17]
     (=big5		. #xA3BE)	; &I-B-A3BE;
     (=jef-china3	. #x81AB)	; &I-JC3-81AB;
+    (=ucs@gb/fw		. #x02C7)	; &JX1-2A31;
     (=ucs@jis/fw	. #x02C7)	; &JX1-2A31;
     ))
 (define-char
@@ -240,6 +241,7 @@
     (=gb2312		. #x2125)	; &I-C1-256D; [01-05]
     (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     (=big5		. #xA3BC)	; &I-B-A3BC;
+    (=ucs@gb/fw		. #x02C9)	; &I-C1-256D;
     ))
 (define-char
   '((name		. "MODIFIER LETTER ACUTE ACCENT")
