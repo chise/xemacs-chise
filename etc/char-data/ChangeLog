@@ -1,3 +1,12 @@
+2002-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt (JX1-7A44): Map to U-0002F97A instead of U+8005.
+
+	* JC3-to-UCS.txt (JC3-5CF4): Map to U-0002F959 instead of U+7A40.
+	(JC3-60B5): Map to U-0002F97A instead of U+8005.
+
+	* C4-to-UCS.txt (C4-2471): Fixed.
+
 2002-11-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* JSP-to-UCS.txt (JSP-382A): Add mapping for U-0002F856.
