@@ -1361,7 +1361,9 @@
     (ideographic-radical . 194)	; â¿
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
+    (japanese-jisx0208-1978	. #x4B62)	; ø»‚º­
     (chinese-gb2312		. #x4427)	; ø»„¹¤
+    (japanese-jisx0208		. #x4B62)	; ø»‡Žµ
     (chinese-isoir165		. #x4427)	; ø»¡´
     (japanese-jisx0208-1990	. #x4B62)	; ø½Š´©
     (mojikyo			. 057627)	; ý €Ž„›
