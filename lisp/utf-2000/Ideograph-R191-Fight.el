@@ -178,14 +178,6 @@
     (ucs			. #x9B2A)	; é¬ª
     ))
 (define-char
-  '((->ucs		. #x95D8)	; é—˜
-    (morohashi-daikanwa	45649 1)
-    (ideographic-radical . 191)	; â¾¾
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (mojikyo		. 050601)	; ý €Œ–©
-    ))
-(define-char
   '((ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 11)
     (total-strokes	 . 21)

@@ -80,7 +80,6 @@
     (japanese-jisx0208-1978	. #x3D2D)	; ø»‚¥”
     (japanese-jisx0208		. #x3D2D)	; ø»†¹œ
     (japanese-jisx0208-1990	. #x3D2D)	; ø½ŠŸ
-    (mojikyo			. 050380)	; ý €Œ“Œ
     ))
 (define-char
   '((ideographic-radical . 132)	; â¾ƒ
@@ -94,13 +93,6 @@
     (total-strokes	 . 10)
     (chinese-cns11643-5 . #x2F72)	; ø»š€¡
     (ideograph-daikanwa . 30105)	; ø¸‡–™
-    ))
-(define-char
-  '((morohashi-daikanwa	30105 0 0)
-    (ideographic-radical . 132)	; â¾ƒ
-    (ideographic-strokes . 4)
-    (total-strokes	 . 10)
-    (mojikyo		. 030105)	; ý €‡–™
     ))
 (define-char
   '((ideographic-radical . 132)	; â¾ƒ

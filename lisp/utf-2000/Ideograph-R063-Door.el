@@ -475,7 +475,6 @@
     (japanese-jisx0208-1978	. #x4070)	; ø»‚ª±
     (japanese-jisx0208		. #x4070)	; ø»†¾¹
     (japanese-jisx0208-1990	. #x4070)	; ø½Š¤­
-    (mojikyo			. 050190)	; ý €ŒŽ
     ))
 (define-char
   '((morohashi-daikanwa	11743 1 3)
@@ -484,7 +483,6 @@
     (total-strokes	 . 10)
     (chinese-gb2312	. #x4948)	; ø»…›
     (chinese-isoir165	. #x4948)	; ø»©«
-    (mojikyo		. 057162)	; ý €½Š
     (ucs		. #x6247)	; æ‰‡
     ))
 (define-char

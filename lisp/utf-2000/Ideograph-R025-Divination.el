@@ -36,12 +36,6 @@
     ))
 (define-char
   '((ideographic-radical . 25)	; â¼˜
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (mojikyo		. 070816)	; ý €‘’ 
-    ))
-(define-char
-  '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideograph-daikanwa . 02776)	; ø¸€«˜
@@ -51,15 +45,6 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((mojikyo		  . 070816)	; ý €‘’ 
-      )
-     ((name		  . "CJK RADICAL DIVINATION")
-      (ucs		  . #x2E8A)	; âºŠ
-      ))
     (chinese-cns11643-3 . #x215A)	; ø»•—
     (ideograph-daikanwa . 02777)	; ø¸€«™
     (ideograph-cbeta	. 01453)	; ø¸ –­

@@ -623,7 +623,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3456)	; ø»•³“
-    (mojikyo		. 070966)	; ý €‘”¶
     (ucs		. #x3558)	; ã•˜
     ))
 (define-char

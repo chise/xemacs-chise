@@ -495,7 +495,6 @@
     (japanese-jisx0208		. #x6C49)	; ø»‡¾º
     (chinese-cns11643-3		. #x3931)	; ø»•º„
     (japanese-jisx0208-1990	. #x6C49)	; ø½‹¤®
-    (mojikyo			. 050082)	; ý €ŒŽ¢
     (ucs			. #x8CAE)	; è²®
     ))
 (define-char
@@ -659,7 +658,6 @@
     (chinese-cns11643-1		. #x6674)	; ø»’©…
     (japanese-jisx0208-1990	. #x6C47)	; ø½‹¤¬
     (chinese-gb12345		. #x6A5F)	; è²²
-    (mojikyo			. 036702)	; ý €ˆ½ž
     (ucs			. #x8CB2)	; è²²
     ))
 (define-char
@@ -3071,7 +3069,6 @@
     (japanese-jisx0208-1978	. #x4223)	; ø»‚¬ 
     (japanese-jisx0208		. #x4223)	; ø»‡€¨
     (japanese-jisx0208-1990	. #x4223)	; ø½Š¦œ
-    (mojikyo			. 050478)	; ý €Œ”®
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™
@@ -3339,7 +3336,6 @@
   '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (mojikyo		. 059942)	; ý €Ž¨¦
     (ucs		. #x8D0C)	; è´Œ
     ))
 (define-char
@@ -3786,7 +3782,6 @@
   '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (mojikyo		. 059943)	; ý €Ž¨§
     (ucs		. #x8D18)	; è´˜
     ))
 (define-char

@@ -92,7 +92,6 @@
     (japanese-jisx0208		. #x3D4D)	; ø»†¹¼
     (chinese-cns11643-3		. #x383E)	; ø»•¸³
     (japanese-jisx0208-1990	. #x3D4D)	; ø½ŠŸ°
-    (mojikyo			. 050367)	; ý €Œ’¿
     (ucs			. #x7C9B)	; ç²›
     ))
 (define-char

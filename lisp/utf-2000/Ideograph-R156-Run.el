@@ -27,7 +27,6 @@
     (japanese-jisx0208		. #x6C61)	; ø»‡¿’
     (chinese-cns11643-3		. #x243A)	; ø»•›—
     (japanese-jisx0208-1990	. #x6C61)	; ø½‹¥†
-    (mojikyo			. 050479)	; ý €Œ”¯
     (ucs			. #x8D71)	; èµ±
     ))
 (define-char
@@ -84,7 +83,6 @@
     (japanese-jisx0208		. #x6C62)	; ø»‡¿“
     (korean-ksc5601		. #x502F)	; ø»‰Ÿœ
     (japanese-jisx0208-1990	. #x6C62)	; ø½‹¥‡
-    (mojikyo			. 054693)	; ý €–¥
     ))
 (define-char
   '((ideographic-radical . 156)	; â¾›

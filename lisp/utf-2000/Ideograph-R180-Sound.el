@@ -42,7 +42,6 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 43268)	; ø¸Š¤„
-    (mojikyo		. 043268)	; ý €Š¤„
     ))
 (define-char
   '((morohashi-daikanwa	43268 0 2)
@@ -497,7 +496,6 @@
     (japanese-jisx0208-1978	. #x3641)	; ø»‚›–
     (japanese-jisx0208		. #x3641)	; ø»†¯ž
     (japanese-jisx0208-1990	. #x3641)	; ø½Š•’
-    (mojikyo			. 050573)	; ý €Œ–
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³

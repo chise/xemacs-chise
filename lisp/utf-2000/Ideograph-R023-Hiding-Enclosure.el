@@ -53,7 +53,6 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (chinese-cns11643-1 . #x4528)	; ø»‘·›
-    (mojikyo		. 002673)	; ý €€©±
     ))
 (define-char
   '((morohashi-daikanwa	2673 0 1)
@@ -479,7 +478,6 @@
     (chinese-cns11643-1 . #x5933)	; ø»’”¾
     (chinese-big5	. #xB0CE)	; øº Ÿ
     (ideograph-daikanwa . 02690)	; ø¸€ª‚
-    (mojikyo		. 002690)	; ý €€ª‚
     ))
 (define-char
   '((morohashi-daikanwa	2690 0 2)

@@ -3239,7 +3239,6 @@
       ))
     (chinese-cns11643-2 . #x4C61)	; ø»”Œª
     (chinese-big5	. #xE35A)	; øº¢¥
-    (mojikyo		. 054893)	; ý €™­
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
@@ -4124,7 +4123,6 @@
     (total-strokes	 . 15)
     (korean-ksc5601		. #x6F3D)	; ø»ŠŒ
     (japanese-jisx0213-1	. #x7964)	; ø»¤•
-    (mojikyo			. 054432)	; ý €’ 
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
@@ -5670,7 +5668,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (chinese-isoir165	. #x7E2A)	; ø»Ž·ƒ
-    (mojikyo		. 057361)	; ý €Ž€‘
     (ucs		. #x7C09)	; ç°‰
     ))
 (define-char
@@ -6409,7 +6406,6 @@
     (chinese-cns11643-1		. #x767C)	; ø»“€­
     (japanese-jisx0208-1990	. #x344A)	; ø½Š’Ÿ
     (chinese-gb12345		. #x3C72)	; ç°¡
-    (mojikyo			. 050336)	; ý €Œ’ 
     (ucs			. #x7C21)	; ç°¡
     ))
 (define-char
@@ -6966,13 +6962,11 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (chinese-cns11643-3 . #x584C)	; ø»–¨
-    (mojikyo		. 059839)	; ý €Ž¦¿
     (ucs		. #x7C2E)	; ç°®
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 12)
-    (mojikyo		. 059840)	; ý €Ž§€
     (ucs		. #x7C2F)	; ç°¯
     ))
 (define-char
@@ -6994,7 +6988,6 @@
     (ideographic-strokes . 12)
     (japanese-jisx0212		. #x526D)	; ø»‹­š
     (japanese-jisx0213-1	. #x7968)	; ø»¤•“
-    (mojikyo			. 050025)	; ý €Œ©
     (ucs			. #x7C31)	; ç°±
     ))
 (define-char
@@ -7504,7 +7497,6 @@
     (japanese-jisx0208-1978	. #x4A6D)	; ø»‚¹š
     (japanese-jisx0208		. #x4A6D)	; ø»‡¢
     (japanese-jisx0208-1990	. #x4A6D)	; ø½Š³–
-    (mojikyo			. 050337)	; ý €Œ’¡
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
@@ -8129,14 +8121,12 @@
     (japanese-jisx0208-1978	. #x6459)	; ø»ƒŸ’
     (japanese-jisx0208		. #x6459)	; ø»‡³š
     (japanese-jisx0208-1990	. #x6459)	; ø½‹™Ž
-    (mojikyo			. 050025)	; ý €Œ©
     (ucs			. #x7C4F)	; ç±
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (mojikyo		. 059845)	; ý €Ž§…
     (ucs		. #x7C4E)	; ç±Ž
     ))
 (define-char

@@ -315,7 +315,6 @@
     (japanese-jisx0208-1990	. #x3626)	; ø½Š”·
     (chinese-big5		. #xA640)	; øºŸ§‘
     (ideograph-daikanwa		. 01458)	; ø¸€–²
-    (mojikyo			. 001458)	; ý €€–²
     (ucs			. #x5171)	; å…±
     ))
 (define-char
@@ -370,7 +369,6 @@
     (japanese-jisx0213-2	. #x2328)	; ø»¤ ƒ
     (ideograph-cbeta		. 00659)	; ø¸ Š“
     (chinese-big5-cdp		. #x8C63)	; ý¢€ˆ±£
-    (mojikyo			. 051198)	; ý €ŒŸ¾
     (ucs			. #x5173)	; å…³
     ))
 (define-char
@@ -884,25 +882,6 @@
     (korean-ksc5601	. #x4C42)	; ø»‰™·
     (ideograph-daikanwa . 01483)	; ø¸€—‹
     (china3-jef		. #x43E6)	; øº„¦
-    (mojikyo		. 058241)	; ý €ŽŽ
-    ))
-(define-char
-  '((=>ucs		. #x517C)	; å…¼
-    (morohashi-daikanwa	1483 0 0)
-    (ideographic-radical . 12)	; â¼‹
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
-      )
-     ((ucs		  . #x516B)	; å…«
-      )
-     ((ucs		  . #x4E00)	; ä¸€
-      )
-     ((chinese-big5-cdp	  . #x8CDE)	; ý¢€ˆ³ž
-      ))
-    (mojikyo		. 001483)	; ý €€—‹
     ))
 (define-char
   '((morohashi-daikanwa	1483 0 2)
@@ -929,7 +908,6 @@
     (chinese-cns11643-1		. #x5440)	; ø»’µ
     (japanese-jisx0208-1990	. #x3773)	; ø½Š—¢
     (chinese-big5		. #xADDD)	; øºŸº—
-    (mojikyo			. 054100)	; ý €”
     (ucs			. #x517C)	; å…¼
     ))
 (define-char
@@ -942,7 +920,6 @@
     (shinjigen-2	. 503)
     (ideograph-gt-pj-9	. #x4C41)	; ý¡€€ž
     (ideograph-gt	. 01936)	; ý¡€€ž
-    (mojikyo		. 054445)	; ý €’­
     ))
 (define-char
   '((ideographic-radical . 12)	; â¼‹
@@ -1134,7 +1111,6 @@
     (ideograph-daikanwa . 01494)	; ø¸€—–
     (china3-jef		. #x43E7)	; øº„§
     (ideograph-cbeta	. 00042)	; ø¸ €ª
-    (mojikyo		. 001494)	; ý €€—–
     ))
 (define-char
   '((morohashi-daikanwa	1494 0 0)
@@ -1356,7 +1332,6 @@
       (ideograph-daikanwa	  . 23236)	; ø¸…«„
       ))
     (ideograph-daikanwa . 01504)	; ø¸€— 
-    (mojikyo		. 001504)	; ý €€— 
     ))
 (define-char
   '((morohashi-daikanwa	1504 0 1)

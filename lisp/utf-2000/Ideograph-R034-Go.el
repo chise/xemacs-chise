@@ -79,7 +79,6 @@
     (cns-radical	 . 35)	; â¼¢
     (total-strokes	 . 5)
     (chinese-cns11643-3 . #x2235)	; ø»•˜–
-    (mojikyo		. 075966)	; ý €’¢¾
     ))
 (define-char
   '((ideographic-radical . 34)	; å¤‚

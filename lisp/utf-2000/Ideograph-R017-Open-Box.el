@@ -116,7 +116,6 @@
      ((ucs		  . #x53C8)	; åˆ
       ))
     (ideograph-cbeta	. 04552)	; ø¸¡‡ˆ
-    (mojikyo		. 070631)	; ý €‘§
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼
@@ -653,7 +652,6 @@
     (total-strokes	 . 17)
     (chinese-cns11643-5 . #x5A75)	; ø»š¿®
     (ideograph-daikanwa . 01841)	; ø¸€œ±
-    (mojikyo		. 023906)	; ý €…µ¢
     (ucs		. #x25390)	; ð¥Ž
     ))
 (define-char

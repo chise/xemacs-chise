@@ -471,7 +471,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (chinese-cns11643-2 . #x3224)	; ø»“¥¡
-    (mojikyo		. 028241)	; ý €†¹‘
     ))
 (define-char
   '((ideographic-radical . 122)	; â½¹
@@ -1185,7 +1184,6 @@
     (chinese-isoir165		. #x4A70)	; ø»«±
     (chinese-cns11643-1		. #x6577)	; ø»’§ª
     (japanese-jisx0208-1990	. #x3D70)	; ø½Š “
-    (mojikyo			. 050357)	; ý €Œ’µ
     (ucs			. #x7F72)	; ç½²
     ))
 (define-char
