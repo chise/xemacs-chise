@@ -1,494 +1,496 @@
 (define-char
   '((name		. "ACCOUNT OF")
-    (ucs		. #x2100)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0061 #x002F #x0063)
+    (ucs		. #x2100)	; â„€
     ))
 (define-char
   '((name		. "ADDRESSED TO THE SUBJECT")
-    (ucs		. #x2101)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0061 #x002F #x0073)
+    (ucs		. #x2101)	; â„
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL C")
-    (ucs		. #x2102)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0043)
+    (ucs		. #x2102)	; â„‚
     ))
 (define-char
   '((name		. "DEGREE CELSIUS")
-    (ucs		. #x2103)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
-    (japanese-jisx0208-1978	#x21 #x6E)	; ø»½
-    (chinese-gb2312		#x21 #x66)	; ø»„‡‰
-    (japanese-jisx0208		#x21 #x6E)	; ø»†‘•
-    (korean-ksc5601		#x21 #x49)	; ø»ˆš´
-    (chinese-cns11643-1		#x22 #x6A)	; ø»‘…ƒ
+    (japanese-jisx0208-1978	. #x216E)	; ø»½
+    (chinese-gb2312		. #x2166)	; ø»„‡‰
+    (japanese-jisx0208		. #x216E)	; ø»†‘•
+    (korean-ksc5601		. #x2149)	; ø»ˆš´
+    (chinese-cns11643-1		. #x226A)	; ø»‘…ƒ
+    (japanese-jisx0208-1990	. #x216E)	; â„ƒ
+    (ucs			. #x2103)	; â„ƒ
     ))
 (define-char
   '((name		. "CENTRE LINE SYMBOL")
-    (ucs		. #x2104)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2104)	; â„„
     ))
 (define-char
   '((name		. "CARE OF")
-    (ucs		. #x2105)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
-    (chinese-cns11643-1 #x22 #x22)	; ø»‘ƒ»
+    (chinese-cns11643-1 . #x2222)	; ø»‘ƒ»
+    (ucs		. #x2105)	; â„…
     ))
 (define-char
   '((name		. "CADA UNA")
-    (ucs		. #x2106)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x0075)
+    (ucs		. #x2106)	; â„†
     ))
 (define-char
   '((name		. "EULER CONSTANT")
-    (ucs		. #x2107)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0190)
+    (ucs		. #x2107)	; â„‡
     ))
 (define-char
   '((name		. "SCRUPLE")
-    (ucs		. #x2108)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2108)	; â„ˆ
     ))
 (define-char
   '((name		. "DEGREE FAHRENHEIT")
-    (ucs		. #x2109)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
-    (korean-ksc5601	#x22 #x35)	; ø»ˆ›¾
-    (chinese-cns11643-1 #x22 #x6B)	; ø»‘…„
+    (korean-ksc5601	. #x2235)	; ø»ˆ›¾
+    (chinese-cns11643-1 . #x226B)	; ø»‘…„
+    (ucs		. #x2109)	; â„‰
     ))
 (define-char
   '((name		. "SCRIPT SMALL G")
-    (ucs		. #x210A)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0067)
+    (ucs		. #x210A)	; â„Š
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL H")
-    (ucs		. #x210B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0048)
+    (ucs		. #x210B)	; â„‹
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL H")
-    (ucs		. #x210C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0048)
+    (ucs		. #x210C)	; â„Œ
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL H")
-    (ucs		. #x210D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0048)
+    (ucs		. #x210D)	; â„
     ))
 (define-char
   '((name		. "PLANCK CONSTANT")
-    (ucs		. #x210E)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0068)
+    (ucs		. #x210E)	; â„Ž
     ))
 (define-char
   '((name		. "PLANCK CONSTANT OVER TWO PI")
-    (ucs		. #x210F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0127)
-    (japanese-jisx0213-1	#x23 #x5D)	; â„
+    (japanese-jisx0213-1	. #x235D)	; â„
+    (ucs			. #x210F)	; â„
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
-    (ucs		. #x2110)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0049)
+    (ucs		. #x2110)	; â„
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL I")
-    (ucs		. #x2111)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0049)
+    (ucs		. #x2111)	; â„‘
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL L")
-    (ucs		. #x2112)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x004C)
+    (ucs		. #x2112)	; â„’
     ))
 (define-char
   '((name		. "SCRIPT SMALL L")
-    (ucs		. #x2113)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006C)
-    (korean-ksc5601		#x27 #x24)	; ø»ˆ£ƒ
-    (japanese-jisx0213-1	#x23 #x5F)	; â„“
+    (korean-ksc5601		. #x2724)	; ø»ˆ£ƒ
+    (japanese-jisx0213-1	. #x235F)	; â„“
+    (ucs			. #x2113)	; â„“
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
-    (ucs		. #x2114)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2114)	; â„”
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL N")
-    (ucs		. #x2115)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x004E)
+    (ucs		. #x2115)	; â„•
     ))
 (define-char
   '((name		. "NUMERO SIGN")
-    (ucs		. #x2116)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
-    (chinese-gb2312		#x21 #x6D)	; ø»„‡
-    (korean-ksc5601		#x22 #x60)	; ø»ˆœ©
-    (japanese-jisx0212		#x22 #x71)	; ø»Š¦¾
-    (japanese-jisx0213-1	#x2D #x62)	; â„–
+    (chinese-gb2312		. #x216D)	; ø»„‡
+    (korean-ksc5601		. #x2260)	; ø»ˆœ©
+    (japanese-jisx0212		. #x2271)	; ø»Š¦¾
+    (japanese-jisx0213-1	. #x2D62)	; â„–
+    (ucs			. #x2116)	; â„–
     ))
 (define-char
   '((name		. "HALFWIDTH NUMERO SIGN")
-    (->ucs		. #x2116)
+    (->ucs		. #x2116)	; â„–
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2116)
-    (cyrillic-iso8859-5 #xF0)	; Ñ
+    (cyrillic-iso8859-5 . #xF0)	; øº“…°
     ))
 (define-char
   '((name		. "SOUND RECORDING COPYRIGHT")
-    (ucs		. #x2117)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2117)	; â„—
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL P")
-    (ucs		. #x2118)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2118)	; â„˜
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL P")
-    (ucs		. #x2119)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0050)
+    (ucs		. #x2119)	; â„™
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL Q")
-    (ucs		. #x211A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0051)
+    (ucs		. #x211A)	; â„š
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL R")
-    (ucs		. #x211B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0052)
+    (ucs		. #x211B)	; â„›
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL R")
-    (ucs		. #x211C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0052)
+    (ucs		. #x211C)	; â„œ
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL R")
-    (ucs		. #x211D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0052)
+    (ucs		. #x211D)	; â„
     ))
 (define-char
   '((name		. "PRESCRIPTION TAKE")
-    (ucs		. #x211E)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x211E)	; â„ž
     ))
 (define-char
   '((name		. "RESPONSE")
-    (ucs		. #x211F)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x211F)	; â„Ÿ
     ))
 (define-char
   '((name		. "SERVICE MARK")
-    (ucs		. #x2120)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x0053 #x004D)
+    (ucs		. #x2120)	; â„ 
     ))
 (define-char
   '((name		. "TELEPHONE SIGN")
-    (ucs		. #x2121)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
-    (korean-ksc5601		#x22 #x65)	; ø»ˆœ®
-    (japanese-jisx0213-1	#x2D #x64)	; â„¡
+    (korean-ksc5601		. #x2265)	; ø»ˆœ®
+    (japanese-jisx0213-1	. #x2D64)	; â„¡
+    (ucs			. #x2121)	; â„¡
     ))
 (define-char
   '((name		. "TRADE MARK SIGN")
-    (ucs		. #x2122)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
-    (korean-ksc5601	#x22 #x62)	; ø»ˆœ«
-    (japanese-jisx0212	#x22 #x6F)	; ø»Š¦¼
+    (korean-ksc5601	. #x2262)	; ø»ˆœ«
+    (japanese-jisx0212	. #x226F)	; ø»Š¦¼
+    (ucs		. #x2122)	; â„¢
     ))
 (define-char
   '((name		. "VERSICLE")
-    (ucs		. #x2123)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2123)	; â„£
     ))
 (define-char
   '((name		. "DOUBLE-STRUCK CAPITAL Z")
-    (ucs		. #x2124)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x005A)
+    (ucs		. #x2124)	; â„¤
     ))
 (define-char
   '((name		. "OUNCE SIGN")
-    (ucs		. #x2125)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2125)	; â„¥
     ))
 (define-char
   '((name		. "OHM SIGN")
-    (ucs		. #x2126)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x03A9)
     (->lowercase	#x03C9)
-    (korean-ksc5601	#x27 #x59)	; ø»ˆ£¸
+    (korean-ksc5601	. #x2759)	; ø»ˆ£¸
+    (ucs		. #x2126)	; â„¦
     ))
 (define-char
   '((name		. "INVERTED OHM SIGN")
-    (ucs		. #x2127)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x60)	; â„§
+    (japanese-jisx0213-1	. #x2360)	; â„§
+    (ucs			. #x2127)	; â„§
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
-    (ucs		. #x2128)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x005A)
+    (ucs		. #x2128)	; â„¨
     ))
 (define-char
   '((name		. "TURNED GREEK SMALL LETTER IOTA")
-    (ucs		. #x2129)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2129)	; â„©
     ))
 (define-char
   '((name		. "KELVIN SIGN")
-    (ucs		. #x212A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x004B)
     (->lowercase	#x006B)
+    (ucs		. #x212A)	; â„ª
     ))
 (define-char
   '((name		. "ANGSTROM SIGN")
-    (ucs		. #x212B)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (->lowercase	#x00E5)
-    (japanese-jisx0208	#x22 #x72)	; ø»†’·
-    (korean-ksc5601	#x21 #x4A)	; ø»ˆšµ
+    (japanese-jisx0208		. #x2272)	; ø»†’·
+    (korean-ksc5601		. #x214A)	; ø»ˆšµ
+    (japanese-jisx0208-1990	. #x2272)	; â„«
+    (ucs			. #x212B)	; â„«
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")
-    (ucs		. #x212C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0042)
+    (ucs		. #x212C)	; â„¬
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL C")
-    (ucs		. #x212D)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0043)
+    (ucs		. #x212D)	; â„­
     ))
 (define-char
   '((name		. "ESTIMATED SYMBOL")
-    (ucs		. #x212E)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
+    (ucs		. #x212E)	; â„®
     ))
 (define-char
   '((name		. "SCRIPT SMALL E")
-    (ucs		. #x212F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0065)
+    (ucs		. #x212F)	; â„¯
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL E")
-    (ucs		. #x2130)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0045)
+    (ucs		. #x2130)	; â„°
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL F")
-    (ucs		. #x2131)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0046)
+    (ucs		. #x2131)	; â„±
     ))
 (define-char
   '((name		. "TURNED CAPITAL F")
-    (ucs		. #x2132)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x2132)	; â„²
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL M")
-    (ucs		. #x2133)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x004D)
+    (ucs		. #x2133)	; â„³
     ))
 (define-char
   '((name		. "SCRIPT SMALL O")
-    (ucs		. #x2134)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006F)
+    (ucs		. #x2134)	; â„´
     ))
 (define-char
   '((name		. "ALEF SYMBOL")
-    (ucs		. #x2135)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
-    (japanese-jisx0213-1	#x23 #x5C)	; â„µ
+    (japanese-jisx0213-1	. #x235C)	; â„µ
+    (ucs			. #x2135)	; â„µ
     ))
 (define-char
   '((name		. "BET SYMBOL")
-    (ucs		. #x2136)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D1)
+    (ucs		. #x2136)	; â„¶
     ))
 (define-char
   '((name		. "GIMEL SYMBOL")
-    (ucs		. #x2137)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D2)
+    (ucs		. #x2137)	; â„·
     ))
 (define-char
   '((name		. "DALET SYMBOL")
-    (ucs		. #x2138)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D3)
+    (ucs		. #x2138)	; â„¸
     ))
 (define-char
   '((name		. "INFORMATION SOURCE")
-    (ucs		. #x2139)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0069)
+    (ucs		. #x2139)	; â„¹
     ))
 (define-char
   '((name		. "ROTATED CAPITAL Q")
-    (ucs		. #x213A)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x213A)	; â„º
     ))

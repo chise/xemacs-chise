@@ -1,750 +1,756 @@
 (define-char
   '((name		. "LEFTWARDS ARROW")
-    (ucs		. #x2190)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x2B)	; ø»½¨
-    (chinese-gb2312		#x21 #x7B)	; ø»„‡ž
-    (japanese-jisx0208		#x22 #x2B)	; ø»†‘°
-    (korean-ksc5601		#x21 #x67)	; ø»ˆ›’
-    (chinese-cns11643-1		#x22 #x58)	; ø»‘„±
+    (japanese-jisx0208-1978	. #x222B)	; ø»½¨
+    (chinese-gb2312		. #x217B)	; ø»„‡ž
+    (japanese-jisx0208		. #x222B)	; ø»†‘°
+    (korean-ksc5601		. #x2167)	; ø»ˆ›’
+    (chinese-cns11643-1		. #x2258)	; ø»‘„±
+    (japanese-jisx0208-1990	. #x222B)	; â†
+    (ucs			. #x2190)	; â†
     ))
 (define-char
   '((name		. "UPWARDS ARROW")
-    (ucs		. #x2191)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x2C)	; ø»½©
-    (chinese-gb2312		#x21 #x7C)	; ø»„‡Ÿ
-    (japanese-jisx0208		#x22 #x2C)	; ø»†‘±
-    (korean-ksc5601		#x21 #x68)	; ø»ˆ›“
-    (chinese-cns11643-1		#x22 #x55)	; ø»‘„®
+    (japanese-jisx0208-1978	. #x222C)	; ø»½©
+    (chinese-gb2312		. #x217C)	; ø»„‡Ÿ
+    (japanese-jisx0208		. #x222C)	; ø»†‘±
+    (korean-ksc5601		. #x2168)	; ø»ˆ›“
+    (chinese-cns11643-1		. #x2255)	; ø»‘„®
+    (japanese-jisx0208-1990	. #x222C)	; â†‘
+    (ucs			. #x2191)	; â†‘
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW")
-    (ucs		. #x2192)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x2A)	; ø»½§
-    (chinese-gb2312		#x21 #x7A)	; ø»„‡
-    (japanese-jisx0208		#x22 #x2A)	; ø»†‘¯
-    (korean-ksc5601		#x21 #x66)	; ø»ˆ›‘
-    (chinese-cns11643-1		#x22 #x57)	; ø»‘„°
+    (japanese-jisx0208-1978	. #x222A)	; ø»½§
+    (chinese-gb2312		. #x217A)	; ø»„‡
+    (japanese-jisx0208		. #x222A)	; ø»†‘¯
+    (korean-ksc5601		. #x2166)	; ø»ˆ›‘
+    (chinese-cns11643-1		. #x2257)	; ø»‘„°
+    (japanese-jisx0208-1990	. #x222A)	; â†’
+    (ucs			. #x2192)	; â†’
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW")
-    (ucs		. #x2193)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x2D)	; ø»½ª
-    (chinese-gb2312		#x21 #x7D)	; ø»„‡ 
-    (japanese-jisx0208		#x22 #x2D)	; ø»†‘²
-    (korean-ksc5601		#x21 #x69)	; ø»ˆ›”
-    (chinese-cns11643-1		#x22 #x56)	; ø»‘„¯
+    (japanese-jisx0208-1978	. #x222D)	; ø»½ª
+    (chinese-gb2312		. #x217D)	; ø»„‡ 
+    (japanese-jisx0208		. #x222D)	; ø»†‘²
+    (korean-ksc5601		. #x2169)	; ø»ˆ›”
+    (chinese-cns11643-1		. #x2256)	; ø»‘„¯
+    (japanese-jisx0208-1990	. #x222D)	; â†“
+    (ucs			. #x2193)	; â†“
     ))
 (define-char
   '((name		. "LEFT RIGHT ARROW")
-    (ucs		. #x2194)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		#x21 #x6A)	; ø»ˆ›•
-    (japanese-jisx0213-1	#x22 #x71)	; â†”
+    (korean-ksc5601		. #x216A)	; ø»ˆ›•
+    (japanese-jisx0213-1	. #x2271)	; â†”
+    (ucs			. #x2194)	; â†”
     ))
 (define-char
   '((name		. "UP DOWN ARROW")
-    (ucs		. #x2195)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601	#x22 #x55)	; ø»ˆœž
+    (korean-ksc5601	. #x2255)	; ø»ˆœž
+    (ucs		. #x2195)	; â†•
     ))
 (define-char
   '((name		. "NORTH WEST ARROW")
-    (ucs		. #x2196)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		#x22 #x58)	; ø»ˆœ¡
-    (chinese-cns11643-1		#x22 #x59)	; ø»‘„²
-    (japanese-jisx0213-1	#x23 #x27)	; â†–
+    (korean-ksc5601		. #x2258)	; ø»ˆœ¡
+    (chinese-cns11643-1		. #x2259)	; ø»‘„²
+    (japanese-jisx0213-1	. #x2327)	; â†–
+    (ucs			. #x2196)	; â†–
     ))
 (define-char
   '((name		. "NORTH EAST ARROW")
-    (ucs		. #x2197)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		#x22 #x56)	; ø»ˆœŸ
-    (chinese-cns11643-1		#x22 #x5A)	; ø»‘„³
-    (japanese-jisx0213-1	#x23 #x25)	; â†—
+    (korean-ksc5601		. #x2256)	; ø»ˆœŸ
+    (chinese-cns11643-1		. #x225A)	; ø»‘„³
+    (japanese-jisx0213-1	. #x2325)	; â†—
+    (ucs			. #x2197)	; â†—
     ))
 (define-char
   '((name		. "SOUTH EAST ARROW")
-    (ucs		. #x2198)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		#x22 #x59)	; ø»ˆœ¢
-    (chinese-cns11643-1		#x22 #x5C)	; ø»‘„µ
-    (japanese-jisx0213-1	#x23 #x26)	; â†˜
+    (korean-ksc5601		. #x2259)	; ø»ˆœ¢
+    (chinese-cns11643-1		. #x225C)	; ø»‘„µ
+    (japanese-jisx0213-1	. #x2326)	; â†˜
+    (ucs			. #x2198)	; â†˜
     ))
 (define-char
   '((name		. "SOUTH WEST ARROW")
-    (ucs		. #x2199)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (korean-ksc5601		#x22 #x57)	; ø»ˆœ 
-    (chinese-cns11643-1		#x22 #x5B)	; ø»‘„´
-    (japanese-jisx0213-1	#x23 #x28)	; â†™
+    (korean-ksc5601		. #x2257)	; ø»ˆœ 
+    (chinese-cns11643-1		. #x225B)	; ø»‘„´
+    (japanese-jisx0213-1	. #x2328)	; â†™
+    (ucs			. #x2199)	; â†™
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH STROKE")
-    (ucs		. #x219A)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x2190 #x0338)
+    (ucs		. #x219A)	; â†š
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW WITH STROKE")
-    (ucs		. #x219B)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x2192 #x0338)
+    (ucs		. #x219B)	; â†›
     ))
 (define-char
   '((name		. "LEFTWARDS WAVE ARROW")
-    (ucs		. #x219C)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x219C)	; â†œ
     ))
 (define-char
   '((name		. "RIGHTWARDS WAVE ARROW")
-    (ucs		. #x219D)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x219D)	; â†
     ))
 (define-char
   '((name		. "LEFTWARDS TWO HEADED ARROW")
-    (ucs		. #x219E)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x219E)	; â†ž
     ))
 (define-char
   '((name		. "UPWARDS TWO HEADED ARROW")
-    (ucs		. #x219F)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x219F)	; â†Ÿ
     ))
 (define-char
   '((name		. "RIGHTWARDS TWO HEADED ARROW")
-    (ucs		. #x21A0)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A0)	; â† 
     ))
 (define-char
   '((name		. "DOWNWARDS TWO HEADED ARROW")
-    (ucs		. #x21A1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A1)	; â†¡
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH TAIL")
-    (ucs		. #x21A2)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A2)	; â†¢
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW WITH TAIL")
-    (ucs		. #x21A3)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A3)	; â†£
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW FROM BAR")
-    (ucs		. #x21A4)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A4)	; â†¤
     ))
 (define-char
   '((name		. "UPWARDS ARROW FROM BAR")
-    (ucs		. #x21A5)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A5)	; â†¥
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW FROM BAR")
-    (ucs		. #x21A6)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A6)	; â†¦
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW FROM BAR")
-    (ucs		. #x21A7)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A7)	; â†§
     ))
 (define-char
   '((name		. "UP DOWN ARROW WITH BASE")
-    (ucs		. #x21A8)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A8)	; â†¨
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH HOOK")
-    (ucs		. #x21A9)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21A9)	; â†©
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW WITH HOOK")
-    (ucs		. #x21AA)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21AA)	; â†ª
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW WITH LOOP")
-    (ucs		. #x21AB)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21AB)	; â†«
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW WITH LOOP")
-    (ucs		. #x21AC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21AC)	; â†¬
     ))
 (define-char
   '((name		. "LEFT RIGHT WAVE ARROW")
-    (ucs		. #x21AD)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21AD)	; â†­
     ))
 (define-char
   '((name		. "LEFT RIGHT ARROW WITH STROKE")
-    (ucs		. #x21AE)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x2194 #x0338)
+    (ucs		. #x21AE)	; â†®
     ))
 (define-char
   '((name		. "DOWNWARDS ZIGZAG ARROW")
-    (ucs		. #x21AF)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21AF)	; â†¯
     ))
 (define-char
   '((name		. "UPWARDS ARROW WITH TIP LEFTWARDS")
-    (ucs		. #x21B0)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B0)	; â†°
     ))
 (define-char
   '((name		. "UPWARDS ARROW WITH TIP RIGHTWARDS")
-    (ucs		. #x21B1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B1)	; â†±
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW WITH TIP LEFTWARDS")
-    (ucs		. #x21B2)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B2)	; â†²
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW WITH TIP RIGHTWARDS")
-    (ucs		. #x21B3)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B3)	; â†³
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW WITH CORNER DOWNWARDS")
-    (ucs		. #x21B4)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B4)	; â†´
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW WITH CORNER LEFTWARDS")
-    (ucs		. #x21B5)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B5)	; â†µ
     ))
 (define-char
   '((name		. "ANTICLOCKWISE TOP SEMICIRCLE ARROW")
-    (ucs		. #x21B6)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B6)	; â†¶
     ))
 (define-char
   '((name		. "CLOCKWISE TOP SEMICIRCLE ARROW")
-    (ucs		. #x21B7)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B7)	; â†·
     ))
 (define-char
   '((name		. "NORTH WEST ARROW TO LONG BAR")
-    (ucs		. #x21B8)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B8)	; â†¸
     ))
 (define-char
   '((name . "LEFTWARDS ARROW TO BAR OVER RIGHTWARDS ARROW TO BAR")
-    (ucs		. #x21B9)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21B9)	; â†¹
     ))
 (define-char
   '((name		. "ANTICLOCKWISE OPEN CIRCLE ARROW")
-    (ucs		. #x21BA)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BA)	; â†º
     ))
 (define-char
   '((name		. "CLOCKWISE OPEN CIRCLE ARROW")
-    (ucs		. #x21BB)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BB)	; â†»
     ))
 (define-char
   '((name		. "LEFTWARDS HARPOON WITH BARB UPWARDS")
-    (ucs		. #x21BC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BC)	; â†¼
     ))
 (define-char
   '((name		. "LEFTWARDS HARPOON WITH BARB DOWNWARDS")
-    (ucs		. #x21BD)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BD)	; â†½
     ))
 (define-char
   '((name		. "UPWARDS HARPOON WITH BARB RIGHTWARDS")
-    (ucs		. #x21BE)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BE)	; â†¾
     ))
 (define-char
   '((name		. "UPWARDS HARPOON WITH BARB LEFTWARDS")
-    (ucs		. #x21BF)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21BF)	; â†¿
     ))
 (define-char
   '((name		. "RIGHTWARDS HARPOON WITH BARB UPWARDS")
-    (ucs		. #x21C0)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C0)	; â‡€
     ))
 (define-char
   '((name		. "RIGHTWARDS HARPOON WITH BARB DOWNWARDS")
-    (ucs		. #x21C1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C1)	; â‡
     ))
 (define-char
   '((name		. "DOWNWARDS HARPOON WITH BARB RIGHTWARDS")
-    (ucs		. #x21C2)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C2)	; â‡‚
     ))
 (define-char
   '((name		. "DOWNWARDS HARPOON WITH BARB LEFTWARDS")
-    (ucs		. #x21C3)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C3)	; â‡ƒ
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW OVER LEFTWARDS ARROW")
-    (ucs		. #x21C4)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x29)	; â‡„
+    (japanese-jisx0213-1	. #x2329)	; â‡„
+    (ucs			. #x21C4)	; â‡„
     ))
 (define-char
   '((name		. "UPWARDS ARROW LEFTWARDS OF DOWNWARDS ARROW")
-    (ucs		. #x21C5)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C5)	; â‡…
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW OVER RIGHTWARDS ARROW")
-    (ucs		. #x21C6)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C6)	; â‡†
     ))
 (define-char
   '((name		. "LEFTWARDS PAIRED ARROWS")
-    (ucs		. #x21C7)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C7)	; â‡‡
     ))
 (define-char
   '((name		. "UPWARDS PAIRED ARROWS")
-    (ucs		. #x21C8)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C8)	; â‡ˆ
     ))
 (define-char
   '((name		. "RIGHTWARDS PAIRED ARROWS")
-    (ucs		. #x21C9)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21C9)	; â‡‰
     ))
 (define-char
   '((name		. "DOWNWARDS PAIRED ARROWS")
-    (ucs		. #x21CA)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21CA)	; â‡Š
     ))
 (define-char
   '((name		. "LEFTWARDS HARPOON OVER RIGHTWARDS HARPOON")
-    (ucs		. #x21CB)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21CB)	; â‡‹
     ))
 (define-char
   '((name		. "RIGHTWARDS HARPOON OVER LEFTWARDS HARPOON")
-    (ucs		. #x21CC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21CC)	; â‡Œ
     ))
 (define-char
   '((name		. "LEFTWARDS DOUBLE ARROW WITH STROKE")
-    (ucs		. #x21CD)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x21D0 #x0338)
+    (ucs		. #x21CD)	; â‡
     ))
 (define-char
   '((name		. "LEFT RIGHT DOUBLE ARROW WITH STROKE")
-    (ucs		. #x21CE)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x21D4 #x0338)
+    (ucs		. #x21CE)	; â‡Ž
     ))
 (define-char
   '((name		. "RIGHTWARDS DOUBLE ARROW WITH STROKE")
-    (ucs		. #x21CF)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	#x21D2 #x0338)
+    (ucs		. #x21CF)	; â‡
     ))
 (define-char
   '((name		. "LEFTWARDS DOUBLE ARROW")
-    (ucs		. #x21D0)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D0)	; â‡
     ))
 (define-char
   '((name		. "UPWARDS DOUBLE ARROW")
-    (ucs		. #x21D1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D1)	; â‡‘
     ))
 (define-char
   '((name		. "RIGHTWARDS DOUBLE ARROW")
-    (ucs		. #x21D2)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x4D)	; ø»†’’
-    (korean-ksc5601	#x22 #x21)	; ø»ˆ›ª
+    (japanese-jisx0208		. #x224D)	; ø»†’’
+    (korean-ksc5601		. #x2221)	; ø»ˆ›ª
+    (japanese-jisx0208-1990	. #x224D)	; â‡’
+    (ucs			. #x21D2)	; â‡’
     ))
 (define-char
   '((name		. "DOWNWARDS DOUBLE ARROW")
-    (ucs		. #x21D3)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D3)	; â‡“
     ))
 (define-char
   '((name		. "LEFT RIGHT DOUBLE ARROW")
-    (ucs		. #x21D4)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208	#x22 #x4E)	; ø»†’“
-    (korean-ksc5601	#x22 #x22)	; ø»ˆ›«
+    (japanese-jisx0208		. #x224E)	; ø»†’“
+    (korean-ksc5601		. #x2222)	; ø»ˆ›«
+    (japanese-jisx0208-1990	. #x224E)	; â‡”
+    (ucs			. #x21D4)	; â‡”
     ))
 (define-char
   '((name		. "UP DOWN DOUBLE ARROW")
-    (ucs		. #x21D5)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D5)	; â‡•
     ))
 (define-char
   '((name		. "NORTH WEST DOUBLE ARROW")
-    (ucs		. #x21D6)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D6)	; â‡–
     ))
 (define-char
   '((name		. "NORTH EAST DOUBLE ARROW")
-    (ucs		. #x21D7)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D7)	; â‡—
     ))
 (define-char
   '((name		. "SOUTH EAST DOUBLE ARROW")
-    (ucs		. #x21D8)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D8)	; â‡˜
     ))
 (define-char
   '((name		. "SOUTH WEST DOUBLE ARROW")
-    (ucs		. #x21D9)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21D9)	; â‡™
     ))
 (define-char
   '((name		. "LEFTWARDS TRIPLE ARROW")
-    (ucs		. #x21DA)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DA)	; â‡š
     ))
 (define-char
   '((name		. "RIGHTWARDS TRIPLE ARROW")
-    (ucs		. #x21DB)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DB)	; â‡›
     ))
 (define-char
   '((name		. "LEFTWARDS SQUIGGLE ARROW")
-    (ucs		. #x21DC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DC)	; â‡œ
     ))
 (define-char
   '((name		. "RIGHTWARDS SQUIGGLE ARROW")
-    (ucs		. #x21DD)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DD)	; â‡
     ))
 (define-char
   '((name		. "UPWARDS ARROW WITH DOUBLE STROKE")
-    (ucs		. #x21DE)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DE)	; â‡ž
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW WITH DOUBLE STROKE")
-    (ucs		. #x21DF)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21DF)	; â‡Ÿ
     ))
 (define-char
   '((name		. "LEFTWARDS DASHED ARROW")
-    (ucs		. #x21E0)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E0)	; â‡ 
     ))
 (define-char
   '((name		. "UPWARDS DASHED ARROW")
-    (ucs		. #x21E1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E1)	; â‡¡
     ))
 (define-char
   '((name		. "RIGHTWARDS DASHED ARROW")
-    (ucs		. #x21E2)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E2)	; â‡¢
     ))
 (define-char
   '((name		. "DOWNWARDS DASHED ARROW")
-    (ucs		. #x21E3)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E3)	; â‡£
     ))
 (define-char
   '((name		. "LEFTWARDS ARROW TO BAR")
-    (ucs		. #x21E4)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E4)	; â‡¤
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW TO BAR")
-    (ucs		. #x21E5)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21E5)	; â‡¥
     ))
 (define-char
   '((name		. "LEFTWARDS WHITE ARROW")
-    (ucs		. #x21E6)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x2B)	; â‡¦
+    (japanese-jisx0213-1	. #x232B)	; â‡¦
+    (ucs			. #x21E6)	; â‡¦
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW")
-    (ucs		. #x21E7)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x2C)	; â‡§
+    (japanese-jisx0213-1	. #x232C)	; â‡§
+    (ucs			. #x21E7)	; â‡§
     ))
 (define-char
   '((name		. "RIGHTWARDS WHITE ARROW")
-    (ucs		. #x21E8)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x2A)	; â‡¨
+    (japanese-jisx0213-1	. #x232A)	; â‡¨
+    (ucs			. #x21E8)	; â‡¨
     ))
 (define-char
   '((name		. "DOWNWARDS WHITE ARROW")
-    (ucs		. #x21E9)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	#x23 #x2D)	; â‡©
+    (japanese-jisx0213-1	. #x232D)	; â‡©
+    (ucs			. #x21E9)	; â‡©
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW FROM BAR")
-    (ucs		. #x21EA)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21EA)	; â‡ª
     ))
 (define-char
   '((name		. "UPWARDS WHITE ARROW ON PEDESTAL")
-    (ucs		. #x21EB)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21EB)	; â‡«
     ))
 (define-char
   '((name . "UPWARDS WHITE ARROW ON PEDESTAL WITH HORIZONTAL BAR")
-    (ucs		. #x21EC)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21EC)	; â‡¬
     ))
 (define-char
   '((name . "UPWARDS WHITE ARROW ON PEDESTAL WITH VERTICAL BAR")
-    (ucs		. #x21ED)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21ED)	; â‡­
     ))
 (define-char
   '((name		. "UPWARDS WHITE DOUBLE ARROW")
-    (ucs		. #x21EE)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21EE)	; â‡®
     ))
 (define-char
   '((name		. "UPWARDS WHITE DOUBLE ARROW ON PEDESTAL")
-    (ucs		. #x21EF)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21EF)	; â‡¯
     ))
 (define-char
   '((name		. "RIGHTWARDS WHITE ARROW FROM WALL")
-    (ucs		. #x21F0)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21F0)	; â‡°
     ))
 (define-char
   '((name		. "NORTH WEST ARROW TO CORNER")
-    (ucs		. #x21F1)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21F1)	; â‡±
     ))
 (define-char
   '((name		. "SOUTH EAST ARROW TO CORNER")
-    (ucs		. #x21F2)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21F2)	; â‡²
     ))
 (define-char
   '((name		. "UP DOWN WHITE ARROW")
-    (ucs		. #x21F3)
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ucs		. #x21F3)	; â‡³
     ))
