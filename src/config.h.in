@@ -550,9 +550,14 @@ void *alloca ();
    if you're working with ASCII files. */
 #undef MULE
 
+/* Define this if you want UTF-2000 support (character representation
+   based on character object model). */
 #undef UTF2000
 
 #undef CHAR_IS_UCS4
+
+/* Compile in support for external character database. */
+#undef HAVE_CHISE_CLIENT
 
 /* Define this if you want file coding support */
 #undef FILE_CODING

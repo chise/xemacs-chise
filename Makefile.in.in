@@ -239,8 +239,13 @@ INSTALL_ARCH_DEP_SUBDIR = @INSTALL_ARCH_DEP_SUBDIR@
 ## When installing the info files, we need to do special things to
 ## avoid nuking an existing dir file, so we don't do that here;
 ## instead, we have written out explicit code in the `install' targets.
+#ifdef HAVE_CHISE_CLIENT
+COPYDIR = ${srcdir}/etc ${srcdir}/lisp ${srcdir}/lib-src/char-db
+COPYDESTS = ${etcdir} ${lispdir} ${archlibdir}/char-db
+#else
 COPYDIR = ${srcdir}/etc ${srcdir}/lisp
 COPYDESTS = ${etcdir} ${lispdir}
+#endif
 GENERATED_HEADERS = src/paths.h src/Emacs.ad.h src/config.h lwlib/config.h src/sheap-adjust.h
 GENERATED_LISP = lisp/finder-inf.el
 

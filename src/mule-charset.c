@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -176,20 +176,7 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 
 #ifdef UTF2000
 
-INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
-INLINE_HEADER int
-CHARSET_BYTE_SIZE (Lisp_Charset* cs)
-{
-  /* ad-hoc method for `ascii' */
-  if ((CHARSET_CHARS (cs) == 94) &&
-      (CHARSET_BYTE_OFFSET (cs) != 33))
-    return 128 - CHARSET_BYTE_OFFSET (cs);
-  else
-    return CHARSET_CHARS (cs);
-}
-
-#define XCHARSET_BYTE_SIZE(ccs)	CHARSET_BYTE_SIZE (XCHARSET (ccs))
-
+int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
 int
 decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
 {
@@ -226,7 +213,6 @@ put_char_ccs_code_point (Lisp_Object character,
       || (XCHAR (character) != XINT (value)))
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-      int ccs_len = XCHARSET_BYTE_SIZE (ccs);
       int code_point;
 
       if (CONSP (value))
@@ -279,12 +265,6 @@ put_char_ccs_code_point (Lisp_Object character,
 	      decoding_table_remove_char (ccs, XINT (cpos));
 	    }
 	}
-      else
-	{
-	  XCHARSET_DECODING_TABLE (ccs)
-	    = v = make_vector (ccs_len, Qnil);
-	}
-
       decoding_table_put_char (ccs, code_point, character);
     }
   return value;
@@ -307,7 +287,7 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
     }
   if (CHAR_TABLEP (encoding_table))
     {
-      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qnil);
+      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qunbound);
     }
   return Qt;
 }
@@ -837,7 +817,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
-  CHARSET_DECODING_TABLE(cs) = Qnil;
+  CHARSET_DECODING_TABLE(cs) = Qunbound;
   CHARSET_MIN_CODE	(cs) = min_code;
   CHARSET_MAX_CODE	(cs) = max_code;
   CHARSET_CODE_OFFSET	(cs) = code_offset;
@@ -2043,7 +2023,183 @@ Set mapping-table of CHARSET to TABLE.
     }
   return table;
 }
+
+DEFUN ("save-charset-mapping-table", Fsave_charset_mapping_table, 1, 1, 0, /*
+Save mapping-table of CHARSET.
+*/
+       (charset))
+{
+#ifdef HAVE_DATABASE
+  struct Lisp_Charset *cs;
+  int byte_min, byte_max;
+  Lisp_Object db;
+  Lisp_Object db_file;
+
+  charset = Fget_charset (charset);
+  cs = XCHARSET (charset);
+
+  db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
+					   Qsystem_char_id, 1);
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+      
+  byte_min = CHARSET_BYTE_OFFSET (cs);
+  byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
+  switch (CHARSET_DIMENSION (cs))
+    {
+    case 1:
+      {
+	Lisp_Object table_c = XCHARSET_DECODING_TABLE (charset);
+	int cell;
+
+	for (cell = byte_min; cell < byte_max; cell++)
+	  {
+	    Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
+
+	    if (CHARP (c))
+	      Fput_database (Fprin1_to_string (make_int (cell), Qnil),
+			     Fprin1_to_string (c, Qnil),
+			     db, Qt);
+	  }
+      }
+      break;
+    case 2:
+      {
+	Lisp_Object table_r = XCHARSET_DECODING_TABLE (charset);
+	int row;
+
+	for (row = byte_min; row < byte_max; row++)
+	  {
+	    Lisp_Object table_c = get_ccs_octet_table (table_r, charset, row);
+	    int cell;
+
+	    for (cell = byte_min; cell < byte_max; cell++)
+	      {
+		Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
+
+		if (CHARP (c))
+		  Fput_database (Fprin1_to_string (make_int ((row << 8)
+							     | cell),
+						   Qnil),
+				 Fprin1_to_string (c, Qnil),
+				 db, Qt);
+	      }
+	  }
+      }
+      break;
+    case 3:
+      {
+	Lisp_Object table_p = XCHARSET_DECODING_TABLE (charset);
+	int plane;
+
+	for (plane = byte_min; plane < byte_max; plane++)
+	  {
+	    Lisp_Object table_r
+	      = get_ccs_octet_table (table_p, charset, plane);
+	    int row;
+
+	    for (row = byte_min; row < byte_max; row++)
+	      {
+		Lisp_Object table_c
+		  = get_ccs_octet_table (table_r, charset, row);
+		int cell;
+
+		for (cell = byte_min; cell < byte_max; cell++)
+		  {
+		    Lisp_Object c = get_ccs_octet_table (table_c, charset,
+							 cell);
+
+		    if (CHARP (c))
+		      Fput_database (Fprin1_to_string (make_int ((plane << 16)
+								 | (row <<  8)
+								 | cell),
+						       Qnil),
+				     Fprin1_to_string (c, Qnil),
+				     db, Qt);
+		  }
+	      }
+	  }
+      }
+      break;
+    default:
+      {
+	Lisp_Object table_g = XCHARSET_DECODING_TABLE (charset);
+	int group;
+
+	for (group = byte_min; group < byte_max; group++)
+	  {
+	    Lisp_Object table_p
+	      = get_ccs_octet_table (table_g, charset, group);
+	    int plane;
+
+	    for (plane = byte_min; plane < byte_max; plane++)
+	      {
+		Lisp_Object table_r
+		  = get_ccs_octet_table (table_p, charset, plane);
+		int row;
+
+		for (row = byte_min; row < byte_max; row++)
+		  {
+		    Lisp_Object table_c
+		      = get_ccs_octet_table (table_r, charset, row);
+		    int cell;
+
+		    for (cell = byte_min; cell < byte_max; cell++)
+		      {
+			Lisp_Object c
+			  = get_ccs_octet_table (table_c, charset, cell);
+
+			if (CHARP (c))
+			  Fput_database (Fprin1_to_string
+					 (make_int ((  group << 24)
+						    | (plane << 16)
+						    | (row   <<  8)
+						    |  cell),
+					  Qnil),
+					 Fprin1_to_string (c, Qnil),
+					 db, Qt);
+		      }
+		  }
+	      }
+	  }
+      }
+    }
+  return Fclose_database (db);
+#else
+  return Qnil;
 #endif
+}
+
+#ifdef HAVE_CHISE_CLIENT
+Emchar
+load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
+{
+  Lisp_Object db;
+  Lisp_Object db_file
+    = char_attribute_system_db_file (XCHARSET_NAME(ccs), Qsystem_char_id,
+				     0);
+
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+  if (!NILP (db))
+    {
+      Lisp_Object ret
+	= Fget_database (Fprin1_to_string (make_int (code_point), Qnil),
+			 db, Qnil);
+      if (!NILP (ret))
+	{
+	  ret = Fread (ret);
+	  if (CHARP (ret))
+	    {
+	      decoding_table_put_char (ccs, code_point, ret);
+	      Fclose_database (db);
+	      return XCHAR (ret);
+	    }
+	}
+      Fclose_database (db);
+    }
+  return -1;
+}
+#endif /* HAVE_CHISE_CLIENT */
+#endif /* UTF2000 */
 
 
 /************************************************************************/
@@ -2382,6 +2538,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
   DEFSUBR (Fencode_char);
+  DEFSUBR (Fsave_charset_mapping_table);
 #endif
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);

@@ -3243,6 +3243,9 @@ extern Lisp_Object Qtext_image_instance_p;
 extern Lisp_Object Qtop_level;
 extern Lisp_Object Qtrue_list_p;
 extern Lisp_Object Qunbound, Qunderflow_error;
+#ifdef UTF2000
+extern Lisp_Object Qunloaded;
+#endif
 extern Lisp_Object Qunderline, Quser_files_and_directories;
 extern Lisp_Object Qvalues;
 extern Lisp_Object Qvariable_documentation, Qvariable_domain;

@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -30,6 +30,10 @@ Boston, MA 02111-1307, USA.  */
 
 
 #ifdef UTF2000
+
+#ifdef HAVE_DATABASE
+#include "database.h"
+#endif
 
 EXFUN (Fmake_char, 3);
 EXFUN (Fdecode_char, 3);
@@ -161,6 +165,8 @@ struct Lisp_Char_Table
 #ifdef UTF2000
   Lisp_Object table;
   Lisp_Object default_value;
+  Lisp_Object name;
+  unsigned char unloaded;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
@@ -216,6 +222,12 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #define XCHAR_TABLE_TYPE(ct) CHAR_TABLE_TYPE (XCHAR_TABLE (ct))
 
 #ifdef UTF2000
+
+#define CHAR_TABLE_NAME(ct) ((ct)->name)
+#define XCHAR_TABLE_NAME(ct) CHAR_TABLE_NAME (XCHAR_TABLE (ct))
+
+#define CHAR_TABLE_UNLOADED(ct) ((ct)->unloaded)
+#define XCHAR_TABLE_UNLOADED(ct) CHAR_TABLE_UNLOADED (XCHAR_TABLE (ct))
 
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
@@ -314,24 +326,6 @@ extern Lisp_Object Vall_syntax_tables;
 
 #ifdef UTF2000
 
-INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
-INLINE_HEADER Lisp_Object
-get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
-{
-  Lisp_Object val = get_byte_table (get_byte_table
-				    (get_byte_table
-				     (get_byte_table
-				      (cit->table,
-				       (unsigned char)(ch >> 24)),
-				      (unsigned char) (ch >> 16)),
-				     (unsigned char)  (ch >> 8)),
-				    (unsigned char)    ch);
-  if (UNBOUNDP (val))
-    return cit->default_value;
-  else
-    return val;
-}
-
 INLINE_HEADER void
 put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value);
 INLINE_HEADER void
@@ -348,6 +342,46 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
   table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+}
+
+#ifdef HAVE_DATABASE
+extern Lisp_Object Qsystem_char_id;
+
+Lisp_Object
+char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
+			       int writing_mode);
+
+Lisp_Object load_char_attribute_maybe (Emchar ch, Lisp_Object attribute);
+#endif
+
+INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
+{
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (cit->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+#ifdef HAVE_DATABASE
+  if (EQ (val, Qunloaded))
+    {
+      Lisp_Object attribute = CHAR_TABLE_NAME (cit);
+
+      if (!NILP (attribute))
+	val = load_char_attribute_maybe (ch, attribute);
+      else
+	val = Qunbound;
+      put_char_id_table_0 (cit, ch, val);
+    }
+#endif
+  if (UNBOUNDP (val))
+    return cit->default_value;
+  else
+    return val;
 }
 
 void

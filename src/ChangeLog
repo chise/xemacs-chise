@@ -1,3 +1,270 @@
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (load_char_decoding_entry_maybe): Don't define it
+	when HAVE_CHISE_CLIENT is not defined.
+
+	* mule.c (vars_of_mule): Provide feature `chise' when
+	HAVE_CHISE_CLIENT is defined.
+
+2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* config.h.in (UTF2000): Add comment.
+	(HAVE_CHISE_CLIENT): New macro.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fchar_variants): Check Vcharacter_variant_table is
+	CONSP.
+	(Fput_char_attribute): Likewise.
+	(char_attribute_system_db_file): Encode file-name of attribute.
+	(vars_of_chartab): Set Qunbound into Vcharacter_variant_table as
+	the initial value.
+
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Delete unused codes.
+	(Fsave_charset_mapping_table): Use
+	`char_attribute_system_db_file'.
+	(load_char_decoding_entry_maybe): Likewise.
+
+	* chartab.h (Qsystem_char_id): New external variable.
+	(char_attribute_system_db_file): New prototype.
+
+	* chartab.c (Qsystem_char_id): New variable in UTF-2000.
+	(char_attribute_system_db_file): New function.
+	(Fsave_char_attribute_table): Use `char_attribute_system_db_file'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+	(syms_of_chartab): Add new symbol `system-char-id'.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h (DECODE_DEFINED_CHAR): Don't check
+	`XCHARSET_GRAPHIC(ccs)'.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Fixed.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Q_ucs_variants): New variable.
+	(syms_of_chartab): Add new symbol `->ucs-variants'.
+	(complex_vars_of_chartab): Set `Vcharacter_variant_table' on
+	`Vchar_attribute_hash_table' as the value of `->ucs-variants'; set
+	`->ucs-variants' on `XCHAR_TABLE_NAME (Vcharacter_variant_table)'.
+
+	* mule-charset.c (load_char_decoding_entry_maybe): New function.
+
+	* char-ucs.h (load_char_decoding_entry_maybe): New prototype when
+	`HAVE_DATABASE' is defined.
+	(DECODE_DEFINED_CHAR): Use `load_char_decoding_entry_maybe' when
+	`HAVE_DATABASE' is defined.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fsave_char_attribute_table): Don't clear internal
+	attribute-table.
+	(Freset_char_attribute_table): New function.
+	(syms_of_chartab): Add new builtin function
+	`reset-char-attribute-table'.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (load_char_attribute_maybe): Don't make directories.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Add EXFUN for `Fmake_directory_internal'.
+
+	* mule-charset.c (put_char_ccs_code_point): Don't prepare a vector
+	for decoding-table.
+
+2002-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use
+	`XCHARSET_BYTE_SIZE' instead of `XCHARSET_CHARS'.
+
+	* char-ucs.h (put_ccs_octet_table): Use `XCHARSET_BYTE_SIZE'
+	instead of `XCHARSET_CHARS'.
+
+2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (CHARSET_BYTE_SIZE): Moved to char-ucs.h.
+	(XCHARSET_BYTE_SIZE): Likewise.
+
+	* char-ucs.h (CHARSET_BYTE_SIZE): New inline function [moved from
+	mule-charset.c].
+	(XCHARSET_BYTE_SIZE): Likewise.
+
+2002-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fput_char_attribute): Use exec-directory instead of
+	data-directory to store database.
+	(Fsave_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): New function.
+	(syms_of_mule_charset): Add new builtin function
+	`save-charset-mapping-table'.
+
+2002-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_check_elements): Delete prototype.
+	(get_ccs_octet_table): New inline function.
+	(put_ccs_octet_table): Likewise.
+	(decoding_table_put_char): Use `get_ccs_octet_table' and
+	`put_ccs_octet_table'.
+	(decoding_table_remove_char): Use `decoding_table_put_char'.
+	(DECODE_DEFINED_CHAR): Use `get_ccs_octet_table'.
+
+	* mule-charset.c (remove_char_ccs): Store Qunbound instead of Qnil
+	into encoding_table.
+	(make_charset): Use Qunbound instead Qnil as initial value of
+	decoding_table.
+
+2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Set Qunbound if an
+	element is Qunloaded.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Likewise for CHARTAB_RANGE_ALL in UTF-2000; when
+	CHARTAB_RANGE_CHARSET is specified in UTF-2000 with external
+	database support, load encoding-table of the specified
+	coded-charset if it is not loaded yet.
+	(save_uint8_byte_table): New function of UTF-2000 with external
+	database support.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(Fput_char_attribute): Don't store value into external database
+	even if the external database feature is supported in UTF-2000;
+	set `attribute' as name of char-table if the external database
+	feature is supported.
+	(Fsave_char_attribute_table): New function in UTF-2000.
+	(syms_of_chartab): Add new builtin function
+	`save-char-attribute-table' in UTF-2000.
+
+2002-02-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_attribute_table_to_put): New variable in
+	UTF-2000.
+	(Qput_char_table_map_function): Likewise.
+	(value_to_put): Likewise.
+	(Fput_char_table_map_function): New function in UTF-2000.
+	(put_char_table): Use `Fmap_char_attribute' for
+	CHARTAB_RANGE_CHARSET in UTF-2000.
+	(Fput_char_attribute): Store symbol instead of string in
+	`XCHAR_TABLE_NAME (table)'.
+	(load_char_attribute_maybe): Likewise.
+	(syms_of_chartab): Add new symbol/function
+	`put-char-table-map-function'.
+
+2002-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add new EXFUN for `Fmap_database'.
+
+	* database.c (Fmap_database): Renamed from `Fmapdatabase'.
+	(syms_of_database): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `unloaded' in
+	UTF-2000.
+	(CHAR_TABLE_UNLOADED): New macro of UTF-2000.
+	(XCHAR_TABLE_UNLOADED): Likewise.
+
+	* chartab.c (fill_char_table): Initialize `ct->unloaded'.
+	(Fput_char_attribute): Set XCHAR_TABLE_UNLOADED(table) if
+	HAVE_DATABASE is defined.
+	(char_attribute_table_to_load): New variable of UTF-2000 with
+	external database support.
+	(Qload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table_map_function): New function of
+	UTF-2000 with external database support.
+	(Fload_char_attribute_table): New function of UTF-2000.
+	(Fmap_char_attribute): Call Fload_char_attribute_table if
+	CHAR_TABLE_UNLOADED(ct) is set when HAVE_DATABASE is defined.
+	(syms_of_chartab): Add new symbol and function
+	`load-char-attribute-table-map-function' in UTF-2000 with external
+	database support; add new function `load-char-attribute-table' in
+	UTF-2000.
+
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (load_char_attribute_maybe): New prototype for
+	UTF-2000 with DATABASE support.
+	(get_char_id_table): Use `load_char_attribute_maybe' if
+	HAVE_DATABASE is defined.
+
+	* chartab.c (load_char_attribute_maybe): New function in UTF-2000
+	with DATABASE support.
+
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Use S-expression as key of
+	external database.
+
+	* chartab.h (get_char_id_table): Use S-expression as key of
+	external database.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Add new argument `root';
+	if an element is not loaded, load the corresponding attributes
+	from an external database.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Modify for `map_over_uint8_byte_table',
+	`map_over_uint16_byte_table' and `map_over_byte_table'; if an
+	element is not loaded, load the corresponding attributes from an
+	external database.
+	(Fput_char_attribute): Change initial values to Qunloaded.
+
+	* chartab.h (get_char_id_table): If a character attribute is not
+	loaded and the attribute value is not found in an external
+	database, store Qunbound as the attribute value.
+
+2002-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (BT_UINT8_unloaded): New macro.
+	(UINT8_VALUE_P): Accept Qunloaded.
+	(UINT8_ENCODE): Likewise.
+	(UINT8_DECODE): Likewise.
+	(BT_UINT16_unloaded): New macro.
+	(UINT16_VALUE_P): Accept Qunloaded.
+	(UINT16_ENCODE): Likewise.
+	(UINT16_DECODE): Likewise.
+	(UINT8_TO_UINT16): Convert BT_UINT8_unloaded into
+	BT_UINT16_unloaded.
+	(mark_char_table): Mark `ct->name' in UTF-2000.
+	(char_table_description): Add `name' in UTF-2000.
+	(Fmake_char_table): Initialize `ct->name'.
+	(Fcopy_char_table): Copy `ct->name'.
+	(Fput_char_attribute): Store value into an external database if
+	HAVE_DATABASE is defined.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `name' in
+	UTF-2000.
+	(CHAR_TABLE_NAME): New macro in UTF-2000.
+	(XCHAR_TABLE_NAME): New macro in UTF-2000.
+	(get_char_id_table): Try to read an external database if Qunloaded
+	is stored in a table.
+
+	* symbols.c (init_symbols_once_early): Assign '#<unloaded> into
+	Qunloaded.
+
+2002-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add EXFUN definitions for Fopen_database,
+	Fput_database, Fget_database and Fclose_database.
+
+	* data.c (Qunloaded): New variable in UTF-2000.
+
+	* lisp.h (Qunloaded): New variable in UTF-2000.
+
 2002-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (put_char_ccs_code_point): Modify for

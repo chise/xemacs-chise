@@ -1,3 +1,24 @@
+2002-02-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Rename
+	utf-2000/make-cdbs.el -> utf-2000/update-cdb.el.
+
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-elc.el: Load lisp/utf-2000/dumped-chars.el in UTF-2000;
+	append `system-char-db-source-file-list' into
+	`preloaded-file-list' in UTF-2000.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Delete
+	character-definition files.
+
+2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add `make-cdbs' in
+	UTF-2000.
+
 2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):

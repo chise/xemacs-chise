@@ -1,3 +1,77 @@
+2002-03-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: When feature `chise' is not provided, just load
+	up files defined in `system-char-db-source-file-list'.
+	(system-char-database-directory): Don't define it when feature
+	`chise' is not provided.
+	(file-name-char-attribute-name): Likewise.  Don't call
+	`reset-char-attribute-table' for files in
+	`system-char-database-directory' when feature `chise' is not
+	provided.
+
+2002-03-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: Delete system-char-database-directory before
+	loading system-char-db-source-file-list when updating database
+	files.
+
+2002-03-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R007-Two.el (U+4E92): Use char-spec instead of
+	char-ref in the `ideographic-structure'.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: Renamed from make-cdbs.el.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el: (file-name-char-attribute-name) New function.
+	- Use `file-name-char-attribute-name' to get character attribute
+	  names.
+
+2002-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el (C1-485F): Fix :char of
+	`<-original-ideograph'.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* make-cdbs.el (delete-file-with-children): New function; use it
+	instead of "rm".
+
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el: Load dumped-chars.el and refer
+	`system-char-db-source-file-list'.
+
+	* dumped-chars.el: New file.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Ignore
+	`->ucs-variants' if optional argument `readable' is not specified;
+	regard ->FOO and <-FOO as list of char-refs.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el (system-char-database-directory): New variable.
+	- Load character-definition files if
+	  `system-char-database-directory' is not found or
+	  `load-ignore-elc-files' is non-nil.
+	- Call `reset-char-attribute-table' for each character-attribute
+	  corresponding with each file in
+	  `system-char-database-directory'/system-char-id.
+
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el: Use `save-charset-mapping-table' for all
+	coded-charsets.
+
+2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el: New file.
+
 2002-02-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R170-Mound.el (U+9689): Separate JSP-6664.
