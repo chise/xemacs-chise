@@ -182,6 +182,7 @@
     (total-strokes	 . 18)
     (chinese-cns11643-3		. #x594A)	; ø»–©
     (japanese-jisx0208-1990	. #x462E)	; ø½Š¬Ÿ
+    (mojikyo			. 050601)	; ø¸Œ–©
     (ucs			. #x95D8)	; é—˜
     ))
 (define-char
