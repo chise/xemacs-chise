@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "IDEOGRAPHIC SPACE")
     (general-category	separator space) ; Normative Category
@@ -9,11 +9,11 @@
       (=ucs		  . #x0020)	;
       ))
     (=ucs		. #x3000)	; ã€€
-    (=jis-x0208		. #x2121)	; ø½‰µ¼
-    (=gb2312		. #x2121)	; ø»„†„
-    (=ks-x1001		. #x2121)	; ø»ˆšŒ
-    (=cns11643-1	. #x2121)	; ø»‘‚œ
-    (=big5		. #xA140)	; ý¢€Š…€
+    (=jis-x0208		. #x2121)	; &I-J90-2121;
+    (=gb2312		. #x2121)	; &I-G0-2121;
+    (=ks-x1001		. #x2121)	; &I-K0-2121;
+    (=cns11643-1	. #x2121)	; &I-C1-2121;
+    (=big5		. #xA140)	; &I-B-A140;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC COMMA")
@@ -21,11 +21,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3001)	; ã€
-    (=jis-x0208		. #x2122)	; ø½‰µ½
-    (=gb2312		. #x2122)	; ø»„†…
-    (=ks-x1001		. #x2122)	; ø»ˆš
-    (=cns11643-1	. #x2123)	; ø»‘‚ž
-    (=big5		. #xA142)	; ý¢€Š…‚
+    (=jis-x0208		. #x2122)	; &I-J90-2122;
+    (=gb2312		. #x2122)	; &I-G0-2122;
+    (=ks-x1001		. #x2122)	; &I-K0-2122;
+    (=cns11643-1	. #x2123)	; &I-C1-2123;
+    (=big5		. #xA142)	; &I-B-A142;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC FULL STOP")
@@ -33,11 +33,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3002)	; ã€‚
-    (=jis-x0208		. #x2123)	; ø½‰µ¾
-    (=gb2312		. #x2123)	; ø»„††
-    (=ks-x1001		. #x2123)	; ø»ˆšŽ
-    (=cns11643-1	. #x2124)	; ø»‘‚Ÿ
-    (=big5		. #xA143)	; ý¢€Š…ƒ
+    (=jis-x0208		. #x2123)	; &I-J90-2123;
+    (=gb2312		. #x2123)	; &I-G0-2123;
+    (=ks-x1001		. #x2123)	; &I-K0-2123;
+    (=cns11643-1	. #x2124)	; &I-C1-2124;
+    (=big5		. #xA143)	; &I-B-A143;
     ))
 (define-char
   '((name		. "DITTO MARK")
@@ -45,11 +45,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3003)	; ã€ƒ
-    (=jis-x0208		. #x2137)	; ø½‰¶’
-    (=gb2312		. #x2128)	; ø»„†‹
-    (=ks-x1001		. #x2128)	; ø»ˆš“
-    (=cns11643-1	. #x2171)	; ø»‘ƒ¬
-    (=big5		. #xA1B2)	; ý¢€Š†²
+    (=jis-x0208		. #x2137)	; &I-J90-2137;
+    (=gb2312		. #x2128)	; &I-G0-2128;
+    (=ks-x1001		. #x2128)	; &I-K0-2128;
+    (=cns11643-1	. #x2171)	; &I-C1-2171;
+    (=big5		. #xA1B2)	; &I-B-A1B2;
     ))
 (define-char
   '((name		. "JAPANESE INDUSTRIAL STANDARD SYMBOL")
@@ -68,15 +68,15 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x3005)	; ã€…
-    (=jis-x0208		. #x2139)	; ø½‰¶”
-    (=gb2312		. #x2129)	; ø»„†Œ
-    (=gt		. 00135)	; ý¡€€‚‡
-    (=gt-k		. 00282)	; ý¡„€„š
-    (=gt-pj-2		. #x306C)	; ý¡€€‚‡
-    (=daikanwa		. 00097)	; ø¸€¡
-    (=big5-eten		. #xC6E0)	; ý¢€Œ› 
-    (=cbeta		. 02728)	; ø¸ ª¨
-    (mojikyo		. 000097)	; ý €€¡
+    (=jis-x0208		. #x2139)	; &I-J90-2139;
+    (=gb2312		. #x2129)	; &I-G0-2129;
+    (=gt		. 00135)	; &I-GT-00135;
+    (=gt-k		. 00282)	; &I-GT-K00282;
+    (=gt-pj-2		. #x306C)	; &I-GT-00135;
+    (=daikanwa		. 00097)	; &I-M-00097;
+    (=big5-eten		. #xC6E0)	; &B-C6E0;
+    (=cbeta		. 02728)	; &I-CB02728;
+    (mojikyo		. 000097)	; &MCS-60000061;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
@@ -84,8 +84,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3006)	; ã€†
-    (=jis-x0208		. #x213A)	; ø½‰¶•
-    (=big5-eten		. #xC6E1)	; ý¢€Œ›¡
+    (=jis-x0208		. #x213A)	; &I-J90-213A;
+    (=big5-eten		. #xC6E1)	; &B-C6E1;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC NUMBER ZERO")
@@ -94,8 +94,8 @@
     (mirrored		. nil)
     (numeric-value	. 0)
     (=ucs		. #x3007)	; ã€‡
-    (=jis-x0208		. #x213B)	; ø½‰¶–
-    (=big5-eten		. #xC6E2)	; ý¢€Œ›¢
+    (=jis-x0208		. #x213B)	; &I-J90-213B;
+    (=big5-eten		. #xC6E2)	; &B-C6E2;
     ))
 (define-char
   '((name		. "LEFT ANGLE BRACKET")
@@ -103,11 +103,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3008)	; ã€ˆ
-    (=jis-x0208		. #x2152)	; ø½‰¶­
-    (=gb2312		. #x2134)	; ø»„†—
-    (=ks-x1001		. #x2134)	; ø»ˆšŸ
-    (=cns11643-1	. #x2152)	; ø»‘ƒ
-    (=big5		. #xA171)	; ý¢€Š…±
+    (=jis-x0208		. #x2152)	; &I-J90-2152;
+    (=gb2312		. #x2134)	; &I-G0-2134;
+    (=ks-x1001		. #x2134)	; &I-K0-2134;
+    (=cns11643-1	. #x2152)	; &I-C1-2152;
+    (=big5		. #xA171)	; &I-B-A171;
     ))
 (define-char
   '((name		. "RIGHT ANGLE BRACKET")
@@ -115,11 +115,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3009)	; ã€‰
-    (=jis-x0208		. #x2153)	; ø½‰¶®
-    (=gb2312		. #x2135)	; ø»„†˜
-    (=ks-x1001		. #x2135)	; ø»ˆš 
-    (=cns11643-1	. #x2153)	; ø»‘ƒŽ
-    (=big5		. #xA172)	; ý¢€Š…²
+    (=jis-x0208		. #x2153)	; &I-J90-2153;
+    (=gb2312		. #x2135)	; &I-G0-2135;
+    (=ks-x1001		. #x2135)	; &I-K0-2135;
+    (=cns11643-1	. #x2153)	; &I-C1-2153;
+    (=big5		. #xA172)	; &I-B-A172;
     ))
 (define-char
   '((name		. "LEFT DOUBLE ANGLE BRACKET")
@@ -127,11 +127,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300A)	; ã€Š
-    (=jis-x0208		. #x2154)	; ø½‰¶¯
-    (=gb2312		. #x2136)	; ø»„†™
-    (=ks-x1001		. #x2136)	; ø»ˆš¡
-    (=cns11643-1	. #x214E)	; ø»‘ƒ‰
-    (=big5		. #xA16D)	; ý¢€Š…­
+    (=jis-x0208		. #x2154)	; &I-J90-2154;
+    (=gb2312		. #x2136)	; &I-G0-2136;
+    (=ks-x1001		. #x2136)	; &I-K0-2136;
+    (=cns11643-1	. #x214E)	; &I-C1-214E;
+    (=big5		. #xA16D)	; &I-B-A16D;
     ))
 (define-char
   '((name		. "RIGHT DOUBLE ANGLE BRACKET")
@@ -139,11 +139,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300B)	; ã€‹
-    (=jis-x0208		. #x2155)	; ø½‰¶°
-    (=gb2312		. #x2137)	; ø»„†š
-    (=ks-x1001		. #x2137)	; ø»ˆš¢
-    (=cns11643-1	. #x214F)	; ø»‘ƒŠ
-    (=big5		. #xA16E)	; ý¢€Š…®
+    (=jis-x0208		. #x2155)	; &I-J90-2155;
+    (=gb2312		. #x2137)	; &I-G0-2137;
+    (=ks-x1001		. #x2137)	; &I-K0-2137;
+    (=cns11643-1	. #x214F)	; &I-C1-214F;
+    (=big5		. #xA16E)	; &I-B-A16E;
     ))
 (define-char
   '((name		. "LEFT CORNER BRACKET")
@@ -151,11 +151,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300C)	; ã€Œ
-    (=jis-x0208		. #x2156)	; ø½‰¶±
-    (=gb2312		. #x2138)	; ø»„†›
-    (=ks-x1001		. #x2138)	; ø»ˆš£
-    (=cns11643-1	. #x2156)	; ø»‘ƒ‘
-    (=big5		. #xA175)	; ý¢€Š…µ
+    (=jis-x0208		. #x2156)	; &I-J90-2156;
+    (=gb2312		. #x2138)	; &I-G0-2138;
+    (=ks-x1001		. #x2138)	; &I-K0-2138;
+    (=cns11643-1	. #x2156)	; &I-C1-2156;
+    (=big5		. #xA175)	; &I-B-A175;
     ))
 (define-char
   '((name		. "RIGHT CORNER BRACKET")
@@ -163,11 +163,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300D)	; ã€
-    (=jis-x0208		. #x2157)	; ø½‰¶²
-    (=gb2312		. #x2139)	; ø»„†œ
-    (=ks-x1001		. #x2139)	; ø»ˆš¤
-    (=cns11643-1	. #x2157)	; ø»‘ƒ’
-    (=big5		. #xA176)	; ý¢€Š…¶
+    (=jis-x0208		. #x2157)	; &I-J90-2157;
+    (=gb2312		. #x2139)	; &I-G0-2139;
+    (=ks-x1001		. #x2139)	; &I-K0-2139;
+    (=cns11643-1	. #x2157)	; &I-C1-2157;
+    (=big5		. #xA176)	; &I-B-A176;
     ))
 (define-char
   '((name		. "LEFT WHITE CORNER BRACKET")
@@ -175,11 +175,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300E)	; ã€Ž
-    (=jis-x0208		. #x2158)	; ø½‰¶³
-    (=gb2312		. #x213A)	; ø»„†
-    (=ks-x1001		. #x213A)	; ø»ˆš¥
-    (=cns11643-1	. #x215A)	; ø»‘ƒ•
-    (=big5		. #xA179)	; ý¢€Š…¹
+    (=jis-x0208		. #x2158)	; &I-J90-2158;
+    (=gb2312		. #x213A)	; &I-G0-213A;
+    (=ks-x1001		. #x213A)	; &I-K0-213A;
+    (=cns11643-1	. #x215A)	; &I-C1-215A;
+    (=big5		. #xA179)	; &I-B-A179;
     ))
 (define-char
   '((name		. "RIGHT WHITE CORNER BRACKET")
@@ -187,11 +187,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x300F)	; ã€
-    (=jis-x0208		. #x2159)	; ø½‰¶´
-    (=gb2312		. #x213B)	; ø»„†ž
-    (=ks-x1001		. #x213B)	; ø»ˆš¦
-    (=cns11643-1	. #x215B)	; ø»‘ƒ–
-    (=big5		. #xA17A)	; ý¢€Š…º
+    (=jis-x0208		. #x2159)	; &I-J90-2159;
+    (=gb2312		. #x213B)	; &I-G0-213B;
+    (=ks-x1001		. #x213B)	; &I-K0-213B;
+    (=cns11643-1	. #x215B)	; &I-C1-215B;
+    (=big5		. #xA17A)	; &I-B-A17A;
     ))
 (define-char
   '((name		. "LEFT BLACK LENTICULAR BRACKET")
@@ -199,11 +199,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3010)	; ã€
-    (=jis-x0208		. #x215A)	; ø½‰¶µ
-    (=gb2312		. #x213E)	; ø»„†¡
-    (=ks-x1001		. #x213C)	; ø»ˆš§
-    (=cns11643-1	. #x214A)	; ø»‘ƒ…
-    (=big5		. #xA169)	; ý¢€Š…©
+    (=jis-x0208		. #x215A)	; &I-J90-215A;
+    (=gb2312		. #x213E)	; &I-G0-213E;
+    (=ks-x1001		. #x213C)	; &I-K0-213C;
+    (=cns11643-1	. #x214A)	; &I-C1-214A;
+    (=big5		. #xA169)	; &I-B-A169;
     ))
 (define-char
   '((name		. "RIGHT BLACK LENTICULAR BRACKET")
@@ -211,11 +211,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3011)	; ã€‘
-    (=jis-x0208		. #x215B)	; ø½‰¶¶
-    (=gb2312		. #x213F)	; ø»„†¢
-    (=ks-x1001		. #x213D)	; ø»ˆš¨
-    (=cns11643-1	. #x214B)	; ø»‘ƒ†
-    (=big5		. #xA16A)	; ý¢€Š…ª
+    (=jis-x0208		. #x215B)	; &I-J90-215B;
+    (=gb2312		. #x213F)	; &I-G0-213F;
+    (=ks-x1001		. #x213D)	; &I-K0-213D;
+    (=cns11643-1	. #x214B)	; &I-C1-214B;
+    (=big5		. #xA16A)	; &I-B-A16A;
     ))
 (define-char
   '((name		. "POSTAL MARK")
@@ -223,9 +223,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3012)	; ã€’
-    (=jis-x0208		. #x2229)	; ø½‰·¢
-    (=cns11643-1	. #x2265)	; ø»‘„¾
-    (=big5		. #xA245)	; ý¢€Š‰…
+    (=jis-x0208		. #x2229)	; &I-J90-2229;
+    (=cns11643-1	. #x2265)	; &I-C1-2265;
+    (=big5		. #xA245)	; &I-B-A245;
     ))
 (define-char
   '((name		. "GETA MARK")
@@ -233,9 +233,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3013)	; ã€“
-    (=jis-x0208		. #x222E)	; ø½‰·§
-    (=gb2312		. #x217E)	; ø»„‡¡
-    (=ks-x1001		. #x216B)	; ø»ˆ›–
+    (=jis-x0208		. #x222E)	; &I-J90-222E;
+    (=gb2312		. #x217E)	; &I-G0-217E;
+    (=ks-x1001		. #x216B)	; &I-K0-216B;
     ))
 (define-char
   '((name		. "LEFT TORTOISE SHELL BRACKET")
@@ -243,11 +243,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3014)	; ã€”
-    (=jis-x0208		. #x214C)	; ø½‰¶§
-    (=gb2312		. #x2132)	; ø»„†•
-    (=ks-x1001		. #x2132)	; ø»ˆš
-    (=cns11643-1	. #x2146)	; ø»‘ƒ
-    (=big5		. #xA165)	; ý¢€Š…¥
+    (=jis-x0208		. #x214C)	; &I-J90-214C;
+    (=gb2312		. #x2132)	; &I-G0-2132;
+    (=ks-x1001		. #x2132)	; &I-K0-2132;
+    (=cns11643-1	. #x2146)	; &I-C1-2146;
+    (=big5		. #xA165)	; &I-B-A165;
     ))
 (define-char
   '((name		. "RIGHT TORTOISE SHELL BRACKET")
@@ -255,11 +255,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3015)	; ã€•
-    (=jis-x0208		. #x214D)	; ø½‰¶¨
-    (=gb2312		. #x2133)	; ø»„†–
-    (=ks-x1001		. #x2133)	; ø»ˆšž
-    (=cns11643-1	. #x2147)	; ø»‘ƒ‚
-    (=big5		. #xA166)	; ý¢€Š…¦
+    (=jis-x0208		. #x214D)	; &I-J90-214D;
+    (=gb2312		. #x2133)	; &I-G0-2133;
+    (=ks-x1001		. #x2133)	; &I-K0-2133;
+    (=cns11643-1	. #x2147)	; &I-C1-2147;
+    (=big5		. #xA166)	; &I-B-A166;
     ))
 (define-char
   '((name		. "LEFT WHITE LENTICULAR BRACKET")
@@ -267,8 +267,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3016)	; ã€–
-    (=gb2312		. #x213C)	; ø»„†Ÿ
-    (=jis-x0213-1-2000	. #x225A)	; ø»¢•“
+    (=gb2312		. #x213C)	; &I-G0-213C;
+    (=jis-x0213-1-2000	. #x225A)	; &I-JX1-225A;
     ))
 (define-char
   '((name		. "RIGHT WHITE LENTICULAR BRACKET")
@@ -276,8 +276,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3017)	; ã€—
-    (=gb2312		. #x213D)	; ø»„† 
-    (=jis-x0213-1-2000	. #x225B)	; ø»¢•”
+    (=gb2312		. #x213D)	; &I-G0-213D;
+    (=jis-x0213-1-2000	. #x225B)	; &I-JX1-225B;
     ))
 (define-char
   '((name		. "LEFT WHITE TORTOISE SHELL BRACKET")
@@ -285,7 +285,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3018)	; ã€˜
-    (=jis-x0213-1-2000	. #x2258)	; ø»¢•‘
+    (=jis-x0213-1-2000	. #x2258)	; &I-JX1-2258;
     ))
 (define-char
   '((name		. "RIGHT WHITE TORTOISE SHELL BRACKET")
@@ -293,7 +293,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x3019)	; ã€™
-    (=jis-x0213-1-2000	. #x2259)	; ø»¢•’
+    (=jis-x0213-1-2000	. #x2259)	; &I-JX1-2259;
     ))
 (define-char
   '((name		. "LEFT WHITE SQUARE BRACKET")
@@ -315,7 +315,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x301C)	; ã€œ
-    (=jis-x0208		. #x2141)	; ø½‰¶œ
+    (=jis-x0208		. #x2141)	; &I-J90-2141;
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME QUOTATION MARK")
@@ -323,9 +323,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x301D)	; ã€
-    (=cns11643-1	. #x2168)	; ø»‘ƒ£
-    (=jis-x0213-1-2000	. #x2D60)	; ø»¢¥£
-    (=big5		. #xA1A9)	; ý¢€Š†©
+    (=cns11643-1	. #x2168)	; &I-C1-2168;
+    (=jis-x0213-1-2000	. #x2D60)	; &I-JX1-2D60;
+    (=big5		. #xA1A9)	; &I-B-A1A9;
     ))
 (define-char
   '((name		. "DOUBLE PRIME QUOTATION MARK")
@@ -333,8 +333,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x301E)	; ã€ž
-    (=cns11643-1	. #x2169)	; ø»‘ƒ¤
-    (=big5		. #xA1AA)	; ý¢€Š†ª
+    (=cns11643-1	. #x2169)	; &I-C1-2169;
+    (=big5		. #xA1AA)	; &I-B-A1AA;
     ))
 (define-char
   '((name		. "LOW DOUBLE PRIME QUOTATION MARK")
@@ -342,7 +342,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x301F)	; ã€Ÿ
-    (=jis-x0213-1-2000	. #x2D61)	; ø»¢¥¤
+    (=jis-x0213-1-2000	. #x2D61)	; &I-JX1-2D61;
     ))
 (define-char
   '((name		. "POSTAL MARK FACE")
@@ -350,7 +350,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x3020)	; ã€ 
-    (=jis-x0213-1-2000	. #x2666)	; ø»¢›—
+    (=jis-x0213-1-2000	. #x2666)	; &I-JX1-2666;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL ONE")
@@ -359,8 +359,8 @@
     (mirrored		. nil)
     (numeric-value	. 1)
     (=ucs		. #x3021)	; ã€¡
-    (=cns11643-1	. #x2435)	; ø»‘‡Š
-    (=big5		. #xA2C3)	; ý¢€Š‹ƒ
+    (=cns11643-1	. #x2435)	; &I-C1-2435;
+    (=big5		. #xA2C3)	; &I-B-A2C3;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL TWO")
@@ -369,8 +369,8 @@
     (mirrored		. nil)
     (numeric-value	. 2)
     (=ucs		. #x3022)	; ã€¢
-    (=cns11643-1	. #x2436)	; ø»‘‡‹
-    (=big5		. #xA2C4)	; ý¢€Š‹„
+    (=cns11643-1	. #x2436)	; &I-C1-2436;
+    (=big5		. #xA2C4)	; &I-B-A2C4;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL THREE")
@@ -379,8 +379,8 @@
     (mirrored		. nil)
     (numeric-value	. 3)
     (=ucs		. #x3023)	; ã€£
-    (=cns11643-1	. #x2437)	; ø»‘‡Œ
-    (=big5		. #xA2C5)	; ý¢€Š‹…
+    (=cns11643-1	. #x2437)	; &I-C1-2437;
+    (=big5		. #xA2C5)	; &I-B-A2C5;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL FOUR")
@@ -389,8 +389,8 @@
     (mirrored		. nil)
     (numeric-value	. 4)
     (=ucs		. #x3024)	; ã€¤
-    (=cns11643-1	. #x2438)	; ø»‘‡
-    (=big5		. #xA2C6)	; ý¢€Š‹†
+    (=cns11643-1	. #x2438)	; &I-C1-2438;
+    (=big5		. #xA2C6)	; &I-B-A2C6;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL FIVE")
@@ -399,8 +399,8 @@
     (mirrored		. nil)
     (numeric-value	. 5)
     (=ucs		. #x3025)	; ã€¥
-    (=cns11643-1	. #x2439)	; ø»‘‡Ž
-    (=big5		. #xA2C7)	; ý¢€Š‹‡
+    (=cns11643-1	. #x2439)	; &I-C1-2439;
+    (=big5		. #xA2C7)	; &I-B-A2C7;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL SIX")
@@ -409,8 +409,8 @@
     (mirrored		. nil)
     (numeric-value	. 6)
     (=ucs		. #x3026)	; ã€¦
-    (=cns11643-1	. #x243A)	; ø»‘‡
-    (=big5		. #xA2C8)	; ý¢€Š‹ˆ
+    (=cns11643-1	. #x243A)	; &I-C1-243A;
+    (=big5		. #xA2C8)	; &I-B-A2C8;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL SEVEN")
@@ -419,8 +419,8 @@
     (mirrored		. nil)
     (numeric-value	. 7)
     (=ucs		. #x3027)	; ã€§
-    (=cns11643-1	. #x243B)	; ø»‘‡
-    (=big5		. #xA2C9)	; ý¢€Š‹‰
+    (=cns11643-1	. #x243B)	; &I-C1-243B;
+    (=big5		. #xA2C9)	; &I-B-A2C9;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL EIGHT")
@@ -429,8 +429,8 @@
     (mirrored		. nil)
     (numeric-value	. 8)
     (=ucs		. #x3028)	; ã€¨
-    (=cns11643-1	. #x243C)	; ø»‘‡‘
-    (=big5		. #xA2CA)	; ý¢€Š‹Š
+    (=cns11643-1	. #x243C)	; &I-C1-243C;
+    (=big5		. #xA2CA)	; &I-B-A2CA;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL NINE")
@@ -439,8 +439,8 @@
     (mirrored		. nil)
     (numeric-value	. 9)
     (=ucs		. #x3029)	; ã€©
-    (=cns11643-1	. #x243D)	; ø»‘‡’
-    (=big5		. #xA2CB)	; ý¢€Š‹‹
+    (=cns11643-1	. #x243D)	; &I-C1-243D;
+    (=big5		. #xA2CB)	; &I-B-A2CB;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC LEVEL TONE MARK")
@@ -511,7 +511,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3033)	; ã€³
-    (=jis-x0213-1-2000	. #x2233)	; ø»¢”¬
+    (=jis-x0213-1-2000	. #x2233)	; &I-JX1-2233;
     ))
 (define-char
   '((name . "VERTICAL KANA REPEAT WITH VOICED SOUND MARK UPPER HALF")
@@ -519,7 +519,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3034)	; ã€´
-    (=jis-x0213-1-2000	. #x2234)	; ø»¢”­
+    (=jis-x0213-1-2000	. #x2234)	; &I-JX1-2234;
     ))
 (define-char
   '((name		. "VERTICAL KANA REPEAT MARK LOWER HALF")
@@ -527,7 +527,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3035)	; ã€µ
-    (=jis-x0213-1-2000	. #x2235)	; ø»¢”®
+    (=jis-x0213-1-2000	. #x2235)	; &I-JX1-2235;
     ))
 (define-char
   '((name		. "CIRCLED POSTAL MARK")
@@ -552,8 +552,8 @@
     (numeric-value	. 10)
     (->decomposition	compat #x5341)
     (=ucs		. #x3038)	; ã€¸
-    (=cns11643-1	. #x243E)	; ø»‘‡“
-    (=big5		. #xA2CC)	; ý¢€Š‹Œ
+    (=cns11643-1	. #x243E)	; &I-C1-243E;
+    (=big5		. #xA2CC)	; &I-B-A2CC;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL TWENTY")
@@ -563,8 +563,8 @@
     (numeric-value	. 20)
     (->decomposition	compat #x5344)
     (=ucs		. #x3039)	; ã€¹
-    (=cns11643-1	. #x243F)	; ø»‘‡”
-    (=big5		. #xA2CD)	; ý¢€Š‹
+    (=cns11643-1	. #x243F)	; &I-C1-243F;
+    (=big5		. #xA2CD)	; &I-B-A2CD;
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL THIRTY")
@@ -574,23 +574,23 @@
     (numeric-value	. 30)
     (->decomposition	compat #x5345)
     (=ucs		. #x303A)	; ã€º
-    (=cns11643-1	. #x2440)	; ø»‘‡•
-    (=big5		. #xA2CE)	; ý¢€Š‹Ž
+    (=cns11643-1	. #x2440)	; &I-C1-2440;
+    (=big5		. #xA2CE)	; &I-B-A2CE;
     ))
 (define-char
   '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
     (=ucs		. #x303B)	; ã€»
-    (=jis-x0213-1-2000	. #x2236)	; ø»¢”¯
+    (=jis-x0213-1-2000	. #x2236)	; &I-JX1-2236;
     ))
 (define-char
   '((name		. "MASU MARK")
     (=ucs		. #x303C)	; ã€¼
-    (=jis-x0213-1-2000	. #x2237)	; ø»¢”°
+    (=jis-x0213-1-2000	. #x2237)	; &I-JX1-2237;
     ))
 (define-char
   '((name		. "PART ALTERNATION MARK")
     (=ucs		. #x303D)	; ã€½
-    (=jis-x0213-1-2000	. #x233C)	; ø»¢–“
+    (=jis-x0213-1-2000	. #x233C)	; &I-JX1-233C;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC VARIATION INDICATOR")
