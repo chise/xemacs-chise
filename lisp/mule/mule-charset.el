@@ -256,7 +256,7 @@ DESCRIPTION (string) is the description string of the charset."
 ;;;
 
 (when (featurep 'utf-2000)
-  (setq default-coded-charset-priority-list-for-font
+  (setq default-coded-charset-priority-list
 	'(ascii
 	  control-1
 	  latin-iso8859-1
@@ -272,11 +272,8 @@ DESCRIPTION (string) is the description string of the charset."
           ;; katakana-jisx0208
 	  japanese-jisx0208
 	  hebrew-iso8859-8
-	  latin-viscii))
-  (setq default-coded-charset-priority-list
-	(append default-coded-charset-priority-list-for-font
-		'(vietnamese-viscii-lower
-		  vietnamese-viscii-upper)))
-  )
+	  latin-viscii
+	  vietnamese-viscii-lower
+	  vietnamese-viscii-upper)))
 
 ;;; mule-charset.el ends here
