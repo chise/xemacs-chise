@@ -1,6 +1,19 @@
+2004-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R009-Man.el (H1-D0BE): Move `hanyu-dazidian' feature
+	from U-000202F4.
+
 2004-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R035-Go-Slowly.el:
+	* Ideograph-R037-Big.el, Ideograph-R034-Go.el,
+	Ideograph-R033-Scholar.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R015-Ice.el,
+	Ideograph-R035-Go-Slowly.el:	
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
