@@ -1,3 +1,24 @@
+2003-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add settings for
+	`ideographic-{radicals|strokes}@{ucs|daikanwa|cns}' and
+	`ideographic-radicals@{ucs|daikanwa|cns}*sources'.
+
+	* Ideograph-R017-Open-Box.el (M-01822): Add
+	`ideographic-structure'.
+	(U+342B): Relate to MH-0008 instead of M-01822; moved to
+	Ideograph-R008-Lid.el.
+
+	* Ideograph-R008-Lid.el (BC-8C5E): Unify MH-0008.
+	(U+342B): Relate to MH-0008.
+
+	* ideograph-util.el (char-ideographic-radical): Support
+	`ideographic-radical@{ucs|daikanwa|cns}'.
+	(char-ideographic-strokes): Support
+	`ideographic-strokes@{ucs|daikanwa|cns}'.
+	(update-ideograph-radical-table): Search
+	`ideographic-radical@{ucs|daikanwa|cns}'.
+
 2003-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U-000200C0): Unify MH-0005.
