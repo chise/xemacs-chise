@@ -241,6 +241,8 @@
       (setq value (pop plist))
       (cond ((eq name :char)
 	     (insert ":char\t")
+	     (if (numberp value)
+		 (setq value (decode-char 'ucs value)))
 	     (char-db-insert-char-spec value readable)
              (insert line-breaking))
             (t
@@ -306,7 +308,7 @@
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
       (insert (format
-	       (if (> (length value) 47)
+	       (if (> (+ (current-column) (length value)) 48)
 		   "(name . %S)%s"
 		 "(name               . %S)%s")
 	       value line-breaking))
@@ -591,7 +593,8 @@
 			      ->synonyms
 			      ->radical <-radical
 			      ->bopomofo <-bopomofo
-			      ->ideographic <-ideographic))
+			      ->ideographic <-ideographic
+			      ideographic-structure))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
