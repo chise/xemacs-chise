@@ -1258,19 +1258,23 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
-*** Mandrake (all versions)
+*** Mandrake
 
-Cannot be fully supported by XEmacs developers because they insist on
-applying known broken patches.
+The Mandrake Linux distribution is attempting to comprehensively
+update the user interface, and make it consistent across
+applications.  This is very difficult, and will occasionally cause
+conflicts with applications like Emacs with their own long-established
+interfaces.  Known issues specific to Mandrake or especially common:
 
-One known issue is that on keyboards with both a Meta key (typically
-the Windows key on PCs) and an Alt key, XEmacs wants to bind the Meta
-modifier to the Meta key.  Mandrake has a policy that XEmacs
-Meta-chords should use the Alt key, which they enforce by patching
-XEmacs's modifier-handling code, making the Meta and Alt modifiers
-synonymous.  This will break planned upgrades to XEmacs to allow menu
-hotkeys; be warned.  See next topic for how to implement Meta-on-Alt
-portably.
+Some versions of XEmacs (21.1.9 is known) distributed with Mandrake
+were patched to make the Meta and Alt keysyms synonymous.  These
+normally work as expected in the Mandrake environment.  However,
+custom-built XEmacsen (including all 21.2 betas) will "inexplicably"
+not respect the "Alt-invokes-Meta-commands" convention.  See "I want
+XEmacs to use the Alt key" below.
+
+The color-gcc wrapper (see below) is in common use on the Mandrake
+platform.
 
 *** I want XEmacs to use the Alt key, not the XXX key, for Meta commands
 
@@ -1284,12 +1288,35 @@ the window manager.
 One correct way to implement this was suggested on comp.emacs.xemacs
 (by Kilian Foth and in more detail by Michael Piotrowski): unmap the
 Meta modifier using xmodmap or xkb, and then map the Meta/Windows key
-to the Super or Hyper modifier.  XEmacs will not find the Meta keysym,
-and default to using the Alt key for Meta keybindings.  Typically few
-applications use the (X11) Meta modifier (sawfish is one); it is
-tedious but not too much so to teach them to use Super instead of
-Meta.  There may be further useful hints in the discussion of
-keymapping on non-Linux platforms.
+to the Super or Hyper keysym and an appropriate mod bit.  XEmacs will
+not find the Meta keysym, and default to using the Alt key for Meta
+keybindings.  Typically few applications use the (X11) Meta modifier;
+it is tedious but not too much so to teach the ones you need to use
+Super instead of Meta.  There may be further useful hints in the
+discussion of keymapping on non-Linux platforms.
+
+*** The color-gcc wrapper
+
+This wrapper colorizes the error messages from gcc.  By default XEmacs
+does not interpret the escape sequences used to generate colors,
+resulting in a cluttered, hard-to-read buffer.  You can remove the
+wrapper, or defeat the wrapper colorization in Emacs process buffers
+by editing the "nocolor" attribute in /etc/colorgccrc:
+
+$ diff -u /etc/colorgccrc.old /etc/colorgccrc
+--- /etc/colorgccrc.old Tue Dec 26 02:17:46 2000
++++ /etc/colorgccrc     Tue Dec 26 02:15:48 2000
+@@ -34,1 +34,1 @@
+-nocolor: dumb
++nocolor: dumb emacs
+
+If you want colorization in your Emacs buffers, you may get good
+results from the ansi-color.el library:
+
+http://www.geocities.com/kensanata/color-emacs.html#ansicolors
+
+This is written for the mainline GNU Emacs but the author has made
+efforts to adapt it to XEmacs.  YMMV.
 
 *** You get crashes in a non-C locale with Linux GNU Libc 2.0.
 
