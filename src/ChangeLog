@@ -1,3 +1,13 @@
+2003-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (save_uint8_byte_table): Use libchise when CHISE is
+	defined.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(char_table_get_db): Use `chise_ds_load_char_feature_value'
+	instead of `chise_char_load_feature_value'.
+	(Fsave_char_attribute_table): Use libchise when CHISE is defined.
+
 2003-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.h (struct Lisp_Char_Table): Delete member
