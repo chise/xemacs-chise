@@ -1,3 +1,28 @@
+2001-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Return canonicalized
+	value; don't store value into `encoding_table' of `Lisp_Charset'.
+	(mark_charset): `encoding_table' was deleted.
+	(charset_description): Likewise.
+	(make_charset): Likewise.
+	(Fset_charset_mapping_table): Use `Fput_char_attribute' instead of
+	`put_char_ccs_code_point'.
+
+	* chartab.h (Fput_char_attribute): New EXFUN.
+
+	* chartab.c (Fchar_attribute_alist): Name space of CCS-attributes
+	is unified with normal symbol space.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise; behavior of
+	`put_char_ccs_code_point' is changed.
+
+	* char-ucs.h: Include "elhash.h".
+	(Vchar_attribute_hash_table): New external variable.
+	(struct Lisp_Charset): Delete `encoding_table'.
+	(CHARSET_ENCODING_TABLE): New implementation; refer
+	`Vchar_attribute_hash_table' instead of `encoding_table' of struct
+	`Lisp_Charset'.
+
 2001-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fcharset_property): Return Qnil if CHARSET_FINAL
