@@ -1,5 +1,9 @@
 2004-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R007-Two.el: Add some GT code points.
+	(U-0002011E): Separate H1-A4A3.
+	(U-00020120): Unify H1-A4A3.
+
 	* Ideograph-R039-Child.el (U+5B6B): Use `->subsumptive'.
 	(U+3743): Likewise.
 	(U+5B6C): Likewise.
