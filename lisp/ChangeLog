@@ -1,3 +1,22 @@
+2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.8 "Honest Recruiter" is released.
+
+2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	This patch is based on Jerry James's patch and analysis.
+
+	* select.el (get-clipboard):
+	(get-selection):
+	Update docstrings.
+	(get-clipboard-foreign):
+	(get-selection-foreign):
+	New function for use as `interprogram-paste-function's.
+
+	* simple.el (interprogram-paste-function): Change default to
+	`get-clipboard-foreign'; improve docstring.
+	(interprogram-cut-function): Improve dosctring.
+
 2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.7 "Economic Science" is released.

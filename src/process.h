@@ -46,11 +46,18 @@ DECLARE_LRECORD (process, Lisp_Process);
 #define PROCESSP(x) RECORDP (x, process)
 #define CHECK_PROCESS(x) CHECK_RECORD (x, process)
 #define PROCESS_LIVE_P(x) (EQ ((x)->status_symbol, Qrun))
+#define PROCESS_READABLE_P(x) (!NILP ((x)->pipe_instream))
 
 #define CHECK_LIVE_PROCESS(x) do {			\
   CHECK_PROCESS (x);					\
   if (! PROCESS_LIVE_P (XPROCESS (x)))			\
     dead_wrong_type_argument (Qprocess_live_p, (x));	\
+} while (0)
+
+#define CHECK_READABLE_PROCESS(x) do {			\
+  CHECK_PROCESS (x);					\
+  if (! PROCESS_READABLE_P (XPROCESS (x)))		\
+    dead_wrong_type_argument (Qprocess_readable_p, (x));	\
 } while (0)
 
 #ifdef emacs
