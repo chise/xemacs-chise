@@ -1,3 +1,81 @@
+2001-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J83-5256): Use `=>ucs'
+	instead of `->ucs'; separate J90-5256.
+
+2001-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u031A0-Bopomofo-Extended.el: Renamed from
+	u031A0-Extended-Bopomofo.el.
+
+	* Ideograph-R013-Down-Box.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge KS X 1001 and Big5 code points.
+
+	* Ideograph-R009-Man.el (U+5036): Delete K0-4E7C.
+	(U+4FF1): Unify K0-4E7C.
+	- Merge KS X 1001 code points.
+
+	* Ideograph-R008-Lid.el (M-00304): Unify K0-5555.
+	(K0-5322): New character; relate to U+4EB6 and M-00328.
+
+	* Ideograph-R007-Two.el (U+4E8C): Unify K0-6C23.
+	(M-00250): Delete K0-6C23.
+
+	* u0FE30-CJK-Compatibility-Forms.el (presentation form for
+	vertical book name mark): New character; relate to U+FE34; unify
+	C1-213C and Big5-A15B.
+	(book name mark): New character; relate to U+FE4F; unify C1-213D
+	and Big5-A15C.
+	- Merge Big5 code points.
+
+	* u000A0-Latin-1-Supplement.el (fullwidth *): Delete
+	`->decomposition'.
+
+	* Ideograph-R011-Enter.el (U+4EBD): Delete `kangxi-radical'.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 and GB 12345 code points.
+
+	* Ideograph-R010-Legs.el:
+	- Merge Big5 and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+2001-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-decode-isolated-char): Don't use
+	isolated characters of `arabic-iso8859-6'; format
+	`->original-ideograph', `<-original-ideograph', `->ideographic',
+	`<-ideographic' and `->ideograph' as character-reference style.
+	(insert-char-data-with-variant): Sort variants.
+
+	* Ideograph-R009-Man.el:
+	- Merge Big5 and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `->same-ideograph' instead of `ideograph='.
+	- Use `<-original-ideograph' instead of `original-ideograph-of'.
+	- Use `<-ancient-ideograph' instead of `ancient-ideograph-of'.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (FULLWIDTH *): Add
+	`<-fullwidth'.
+	(FULLWIDTH ASTERISK): Unify C1-216E.
+	(FULLWIDTH LATIN CAPITAL LETTER *): Use ``character-reference''
+	style for `->lowercase'.
+	(heavy low line): Use `=>ucs' instead of `->ucs'.
+	(FULLWIDTH LATIN SMALL LETTER *): Use ``character-reference''
+	style for `->uppercase'; omit `->titlecase'.
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el: Merge Big5 code
+	points.
+
+	* u03100-Bopomofo.el: Merge Big5 code points.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (IDEOGRAPHIC SPACE):
+	Delete `->decomposition'; add `<-ideographic'.
+	(WAVY DASH): Delete Big5-A1CA.
+	(HANGZHOU NUMERAL TEN): Unify Big5-A2CC.
+	(HANGZHOU NUMERAL TWENTY): Unify Big5-A2CD.
+	(HANGZHOU NUMERAL THIRTY): Unify Big5-A2CE.
+
 2001-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el: Fix JIS X 0208 code points.
