@@ -1,0 +1,37 @@
+# NOTE!!
+# The use of BLDDIR here is _BOGUS_.
+# What really needs to happen is that we should install config.h into
+# the architecture dependent directory when we really hash all this
+# out.
+
+blddir=@blddir@
+dll_cflags=@dll_cflags@
+dll_oflags=@dll_oflags@
+dll_lflags=@dll_lflags@
+dll_ld=@dll_ld@
+
+INCLUDES=-I$(blddir)/src
+CFLAGS=@CFLAGS@ $(INCLUDES)
+CC=@CC@
+RM=@RM@
+
+TARGET=base64
+
+.PHONY: clean mostlyclean distclean realclean install
+
+all: $(TARGET).ell
+
+$(TARGET).ell: $(TARGET).o
+	$(dll_ld) $(dll_oflags) $@ $(dll_lflags) $^
+
+install:
+	echo "Don't know how to install yet"
+
+clean mostlyclean:
+	$(RM) *.o $(TARGET).ell
+
+distclean: clean
+	$(RM) Makefile
+
+realclean extraclean: distclean
+	$(RM) *~ \#*
