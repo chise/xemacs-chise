@@ -1,11 +1,11 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "SYMBOL FOR NULL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2400)	; â€
-    (=cns11643-1	. #x4221)	; ø»‘²º
+    (=cns11643-1	. #x4221)	; &I-C1-4221; [34-01]
     ))
 (define-char
   '((name		. "SYMBOL FOR START OF HEADING")
@@ -13,7 +13,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2401)	; â
-    (=cns11643-1	. #x4222)	; ø»‘²»
+    (=cns11643-1	. #x4222)	; &I-C1-4222; [34-02]
     ))
 (define-char
   '((name		. "SYMBOL FOR START OF TEXT")
@@ -21,7 +21,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2402)	; â‚
-    (=cns11643-1	. #x4223)	; ø»‘²¼
+    (=cns11643-1	. #x4223)	; &I-C1-4223; [34-03]
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TEXT")
@@ -29,7 +29,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2403)	; âƒ
-    (=cns11643-1	. #x4224)	; ø»‘²½
+    (=cns11643-1	. #x4224)	; &I-C1-4224; [34-04]
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TRANSMISSION")
@@ -37,7 +37,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2404)	; â„
-    (=cns11643-1	. #x4225)	; ø»‘²¾
+    (=cns11643-1	. #x4225)	; &I-C1-4225; [34-05]
     ))
 (define-char
   '((name		. "SYMBOL FOR ENQUIRY")
@@ -45,7 +45,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2405)	; â…
-    (=cns11643-1	. #x4226)	; ø»‘²¿
+    (=cns11643-1	. #x4226)	; &I-C1-4226; [34-06]
     ))
 (define-char
   '((name		. "SYMBOL FOR ACKNOWLEDGE")
@@ -53,7 +53,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2406)	; â†
-    (=cns11643-1	. #x4227)	; ø»‘³€
+    (=cns11643-1	. #x4227)	; &I-C1-4227; [34-07]
     ))
 (define-char
   '((name		. "SYMBOL FOR BELL")
@@ -61,7 +61,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2407)	; â‡
-    (=cns11643-1	. #x4228)	; ø»‘³
+    (=cns11643-1	. #x4228)	; &I-C1-4228; [34-08]
     ))
 (define-char
   '((name		. "SYMBOL FOR BACKSPACE")
@@ -69,7 +69,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2408)	; âˆ
-    (=cns11643-1	. #x4229)	; ø»‘³‚
+    (=cns11643-1	. #x4229)	; &I-C1-4229; [34-09]
     ))
 (define-char
   '((name		. "SYMBOL FOR HORIZONTAL TABULATION")
@@ -77,7 +77,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2409)	; â‰
-    (=cns11643-1	. #x422A)	; ø»‘³ƒ
+    (=cns11643-1	. #x422A)	; &I-C1-422A; [34-10]
     ))
 (define-char
   '((name		. "SYMBOL FOR LINE FEED")
@@ -85,7 +85,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240A)	; âŠ
-    (=cns11643-1	. #x422B)	; ø»‘³„
+    (=cns11643-1	. #x422B)	; &I-C1-422B; [34-11]
     ))
 (define-char
   '((name		. "SYMBOL FOR VERTICAL TABULATION")
@@ -93,7 +93,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240B)	; â‹
-    (=cns11643-1	. #x422C)	; ø»‘³…
+    (=cns11643-1	. #x422C)	; &I-C1-422C; [34-12]
     ))
 (define-char
   '((name		. "SYMBOL FOR FORM FEED")
@@ -101,7 +101,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240C)	; âŒ
-    (=cns11643-1	. #x422D)	; ø»‘³†
+    (=cns11643-1	. #x422D)	; &I-C1-422D; [34-13]
     ))
 (define-char
   '((name		. "SYMBOL FOR CARRIAGE RETURN")
@@ -109,7 +109,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240D)	; â
-    (=cns11643-1	. #x422E)	; ø»‘³‡
+    (=cns11643-1	. #x422E)	; &I-C1-422E; [34-14]
     ))
 (define-char
   '((name		. "SYMBOL FOR SHIFT OUT")
@@ -117,7 +117,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240E)	; âŽ
-    (=cns11643-1	. #x422F)	; ø»‘³ˆ
+    (=cns11643-1	. #x422F)	; &I-C1-422F; [34-15]
     ))
 (define-char
   '((name		. "SYMBOL FOR SHIFT IN")
@@ -125,7 +125,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x240F)	; â
-    (=cns11643-1	. #x4230)	; ø»‘³‰
+    (=cns11643-1	. #x4230)	; &I-C1-4230; [34-16]
     ))
 (define-char
   '((name		. "SYMBOL FOR DATA LINK ESCAPE")
@@ -133,7 +133,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2410)	; â
-    (=cns11643-1	. #x4231)	; ø»‘³Š
+    (=cns11643-1	. #x4231)	; &I-C1-4231; [34-17]
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL ONE")
@@ -141,7 +141,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2411)	; â‘
-    (=cns11643-1	. #x4232)	; ø»‘³‹
+    (=cns11643-1	. #x4232)	; &I-C1-4232; [34-18]
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL TWO")
@@ -149,7 +149,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2412)	; â’
-    (=cns11643-1	. #x4233)	; ø»‘³Œ
+    (=cns11643-1	. #x4233)	; &I-C1-4233; [34-19]
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL THREE")
@@ -157,7 +157,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2413)	; â“
-    (=cns11643-1	. #x4234)	; ø»‘³
+    (=cns11643-1	. #x4234)	; &I-C1-4234; [34-20]
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL FOUR")
@@ -165,7 +165,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2414)	; â”
-    (=cns11643-1	. #x4235)	; ø»‘³Ž
+    (=cns11643-1	. #x4235)	; &I-C1-4235; [34-21]
     ))
 (define-char
   '((name		. "SYMBOL FOR NEGATIVE ACKNOWLEDGE")
@@ -173,7 +173,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2415)	; â•
-    (=cns11643-1	. #x4236)	; ø»‘³
+    (=cns11643-1	. #x4236)	; &I-C1-4236; [34-22]
     ))
 (define-char
   '((name		. "SYMBOL FOR SYNCHRONOUS IDLE")
@@ -181,7 +181,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2416)	; â–
-    (=cns11643-1	. #x4237)	; ø»‘³
+    (=cns11643-1	. #x4237)	; &I-C1-4237; [34-23]
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TRANSMISSION BLOCK")
@@ -189,7 +189,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2417)	; â—
-    (=cns11643-1	. #x4238)	; ø»‘³‘
+    (=cns11643-1	. #x4238)	; &I-C1-4238; [34-24]
     ))
 (define-char
   '((name		. "SYMBOL FOR CANCEL")
@@ -197,7 +197,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2418)	; â˜
-    (=cns11643-1	. #x4239)	; ø»‘³’
+    (=cns11643-1	. #x4239)	; &I-C1-4239; [34-25]
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF MEDIUM")
@@ -205,7 +205,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2419)	; â™
-    (=cns11643-1	. #x423A)	; ø»‘³“
+    (=cns11643-1	. #x423A)	; &I-C1-423A; [34-26]
     ))
 (define-char
   '((name		. "SYMBOL FOR SUBSTITUTE")
@@ -213,7 +213,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241A)	; âš
-    (=cns11643-1	. #x423B)	; ø»‘³”
+    (=cns11643-1	. #x423B)	; &I-C1-423B; [34-27]
     ))
 (define-char
   '((name		. "SYMBOL FOR ESCAPE")
@@ -221,7 +221,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241B)	; â›
-    (=cns11643-1	. #x423C)	; ø»‘³•
+    (=cns11643-1	. #x423C)	; &I-C1-423C; [34-28]
     ))
 (define-char
   '((name		. "SYMBOL FOR FILE SEPARATOR")
@@ -229,7 +229,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241C)	; âœ
-    (=cns11643-1	. #x423D)	; ø»‘³–
+    (=cns11643-1	. #x423D)	; &I-C1-423D; [34-29]
     ))
 (define-char
   '((name		. "SYMBOL FOR GROUP SEPARATOR")
@@ -237,7 +237,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241D)	; â
-    (=cns11643-1	. #x423E)	; ø»‘³—
+    (=cns11643-1	. #x423E)	; &I-C1-423E; [34-30]
     ))
 (define-char
   '((name		. "SYMBOL FOR RECORD SEPARATOR")
@@ -245,7 +245,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241E)	; âž
-    (=cns11643-1	. #x423F)	; ø»‘³˜
+    (=cns11643-1	. #x423F)	; &I-C1-423F; [34-31]
     ))
 (define-char
   '((name		. "SYMBOL FOR UNIT SEPARATOR")
@@ -253,7 +253,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x241F)	; âŸ
-    (=cns11643-1	. #x4240)	; ø»‘³™
+    (=cns11643-1	. #x4240)	; &I-C1-4240; [34-32]
     ))
 (define-char
   '((name		. "SYMBOL FOR SPACE")
@@ -268,7 +268,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2421)	; â¡
-    (=cns11643-1	. #x4241)	; ø»‘³š
+    (=cns11643-1	. #x4241)	; &I-C1-4241; [34-33]
     ))
 (define-char
   '((name		. "BLANK SYMBOL")
@@ -283,7 +283,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2423)	; â£
-    (=jis-x0213-1-2000	. #x277D)	; ø»¢Œ
+    (=jis-x0213-1-2000	. #x277D)	; &I-JX1-277D; [07-93]
     ))
 (define-char
   '((name		. "SYMBOL FOR NEWLINE")

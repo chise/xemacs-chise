@@ -44,15 +44,24 @@ LWLIB_SRCDIR=$(XEMACS)\lwlib
 MAKEDIRSTRING=$(MAKEDIR:\=\\)
 XEMACSDIRSTRING=$(MAKEDIRSTRING:\\nt=)
 
-
-# Define a variable for the 'del' command to use
-# N.B. Windows Millenium Edition's ERASE can only handle one target (file or
-# wildcard) per invocation.  Make sure each use has only one target!
-DEL=-del
-
 # Program name and version
 
 !include "$(XEMACS)\version.sh"
+
+# Put these before including config.inc so they can be overridden there.
+# Note that some versions of some commands are deficient.
+
+# Define a variable for the 'del' command to use.
+# WinME's DEL command can only handle one argument and only has the /P flag.
+# So only delete one glob at a time.  Override flags in config.inc.
+DEL=-del
+
+# Tell COPY, MOVE, and XCOPY to suppress confirmation for overwriting
+# files.
+COPYCMD=/y
+# Define the 'copy' command to use.
+COPY=xcopy /q
+COPYDIR=xcopy /q /e
 
 !include "config.inc"
 
@@ -490,12 +499,15 @@ XEMACS_INCLUDES=\
 
 # #### Copying is cheap, we should just force these
 $(SRC)\config.h:	config.h
+	set COPYCMD=$(COPYCMD)
 	copy config.h $(SRC)
 
 $(SRC)\Emacs.ad.h:	Emacs.ad.h
+	set COPYCMD=$(COPYCMD)
 	copy Emacs.ad.h $(SRC)
 
 $(SRC)\paths.h:	paths.h
+	set COPYCMD=$(COPYCMD)
 	copy paths.h $(SRC)
 
 #------------------------------------------------------------------------------
@@ -1405,6 +1417,7 @@ temacs: $(LASTFILE) $(TEMACS)
 # use this rule to install the system
 install:	all
 	cd $(NT)
+	set COPYCMD=$(COPYCMD)
 	@echo Installing in $(INSTALL_DIR) ...
 	@echo PlaceHolder > PlaceHolder
 	@xcopy /q PROBLEMS "$(INSTALL_DIR)\"

@@ -348,6 +348,7 @@ with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
 with_scrollbars=''
+dnl can't turn off widgets here because of systems where they are demanded
 with_widgets=''
 with_dialogs=''
 with_file_coding=''
@@ -1454,9 +1455,14 @@ case "$canonical" in
     esac
 
     case "$canonical" in
-      *-solaris*	  )
+      *-solaris* )
 	opsys=sol2
-	os_release=`uname -r | sed -e 's/^\([[0-9]]\)\.\([[0-9]]\).*/\1\2/'`
+	os_release_major=`uname -r | sed -e 's/^\([[0-9]]\{1,\}\)\.\([[0-9]]\{1,\}\).*/\1/'`
+	os_release_minor=`uname -r | sed -e 's/^\([[0-9]]\{1,\}\)\.\([[0-9]]\{1,\}\).*/\2/'`
+	case "$os_release_minor" in [[0-9]])
+	  os_release_minor="0${os_release_minor}";;
+	esac
+	os_release="${os_release_major}${os_release_minor}"
 	AC_DEFINE_UNQUOTED(OS_RELEASE, $os_release) ;;
 
       dnl The last Sun386 ran 4.0.
@@ -1706,7 +1712,7 @@ case "$opsys" in
   sol2)
    AC_DEFINE(__EXTENSIONS__)
    dnl Solaris 2 before 2.5 had some bugs with feature test macro interaction.
-   if test "$os_release" -ge 55; then
+   if test "$os_release" -ge 505; then
      AC_DEFINE(_XOPEN_SOURCE,500)
      AC_DEFINE(_XOPEN_SOURCE_EXTENDED)
    fi ;;
@@ -1727,14 +1733,19 @@ return 11;
 return 12;
 #elif defined __USLC__ && defined __SCO_VERSION__
 return 13;
+#elif defined __INTEL_COMPILER
+return 14;
 #else
 return 0;
 #endif
 }], [],
 [case "$conftest_rc" in
-  11) echo "You appear to be using the SunPro C compiler."; __SUNPRO_C=yes ;;
-  12) echo "You appear to be using the DEC C compiler."   ; __DECC=yes ;;
-  13) echo "You appear to be using the SCO C compiler."   ; __USLC__=yes ;;
+  11) echo "You appear to be using the SunPro C compiler." ; __SUNPRO_C=yes ;;
+  12) echo "You appear to be using the DEC C compiler."    ; __DECC=yes ;;
+  13) echo "You appear to be using the SCO C compiler."    ; __USLC__=yes ;;
+  14) echo "You appear to be using the Intel C++ compiler."; __ICC=yes
+      dnl Newer versions of icc claim to be GCC
+      GCC=no ;;
 esac])
 
 
@@ -1953,6 +1964,8 @@ if test "$cflags_specified" = "no"; then
     CFLAGS="-O3"
   elif test "$CC" = "xlc"; then
     CFLAGS="-g -O3 -qstrict -qnoansialias -qlibansi -qinfo -qro -qmaxmem=20000"
+  elif test "$__ICC" = "yes"; then
+    CFLAGS="-g -O3 -Ob2 -Wall -W1"
   dnl ### Add optimal CFLAGS support for other compilers HERE!
   else
     CFLAGS="-O" ;dnl The only POSIX-approved flag
@@ -2304,6 +2317,7 @@ if test "$add_runtime_path" = "yes" -a -n "$dash_r"; then
       case "$arg" in -L*) XE_ADD_RUNPATH_DIR(`echo '' "$arg" | sed -e 's:^ ::' -e 's/^-L//'`);; esac
     done
     dnl Sometimes /opt/SUNWdt/lib is the only installed Motif available
+    dnl #### this test always fails here as need_motif is null
     if test "$opsys $need_motif" = "sol2 yes"; then
       xe_runpath_dir="/opt/SUNWdt/lib";
       eval "$xe_add_unique_runpath_dir";
@@ -2566,7 +2580,7 @@ fi
 
 dnl Link with "-z ignore" on Solaris if supported
 if test "$opsys" = "sol2"; then
-  if test "$os_release" -ge 56; then
+  if test "$os_release" -ge 506; then
     AC_MSG_CHECKING(for \"-z ignore\" linker flag)
     case "`ld -h 2>&1`" in
       *-z\ ignore\|record* ) AC_MSG_RESULT(yes)
@@ -2971,7 +2985,7 @@ if test "$with_msw" != "no"; then
       XE_APPEND(netinstall, INSTALL_ARCH_DEP_SUBDIR)
     fi
 
-    install_pp="$blddir/lib-src/installexe.sh"
+    install_pp="$srcdir/lib-src/installexe.sh"
     XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lkernel32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
@@ -3573,15 +3587,27 @@ fi dnl "$with_x11" = "yes"
 
 dnl Finish ensuring that we have values for the various toolkit items.
 dnl Not all toolkits support all widgets
-dnl if Motif is available we use it for the dialog boxes.
+
+dnl Avoid using Motif :-(
+case "$opsys" in
+  *linux* )  lucid_prefers_motif = "no"  ;;
+  * )        lucid_prefers_motif = "yes" ;;
+esac
 
 case "$with_menubars" in "" | "yes" | "athena" )
   with_menubars="lucid" ;;
 esac
 case "$with_dialogs" in "" | "yes" | "lucid" )
-  if   test "$have_motif"     = "yes"; then with_dialogs="motif"
-  elif test "$have_xaw"       = "yes"; then with_dialogs="athena"
-  else with_dialogs=no
+  if test "$lucid_prefers_motif" = "yes"; then
+    if   test "$have_motif"     = "yes"; then with_dialogs="motif"
+    elif test "$have_xaw"       = "yes"; then with_dialogs="athena"
+    else with_dialogs=no
+    fi
+  else
+    if   test "$have_xaw"       = "yes"; then with_dialogs="athena"
+    elif test "$have_motif"     = "yes"; then with_dialogs="motif"
+    else with_dialogs=no
+    fi
   fi ;;
 esac
 case "$with_scrollbars" in "" | "yes" )
@@ -3589,9 +3615,16 @@ case "$with_scrollbars" in "" | "yes" )
 esac
 case "$with_widgets" in
   "yes" | "lucid")
-    if   test "$have_motif" = "yes"; then with_widgets="motif"
-    elif test "$have_xaw"   = "yes"; then with_widgets="athena"
-    else with_widgets=no
+    if test "$lucid_prefers_motif" = "yes"; then
+      if   test "$have_motif" = "yes"; then with_widgets="motif"
+      elif test "$have_xaw"   = "yes"; then with_widgets="athena"
+      else with_widgets=no
+      fi
+    else
+      if   test "$have_xaw"   = "yes"; then with_widgets="athena"
+      elif test "$have_motif" = "yes"; then with_widgets="motif"
+      else with_widgets=no
+      fi
     fi ;;
   "" )
     with_widgets=no ;;
@@ -3785,7 +3818,10 @@ if test "$with_mule" = "yes" ; then
     AC_CHECKING(for XIM)
     AC_CHECK_LIB(X11, XOpenIM, with_xim=xlib, with_xim=no)
     dnl XIM + Lesstif is not (yet?) usable
-    if test "$have_motif $have_lesstif" = "yes no"; then
+    dnl Only use Motif if linking Motif anyway, or don't have xlib XIM
+    if test "$need_motif $have_lesstif" = "yes no"; then
+      AC_CHECK_LIB(Xm, XmImMbLookupString, with_xim=motif)
+    elif test "$have_motif $have_lesstif $with_xim" = "yes no no"; then
       AC_CHECK_LIB(Xm, XmImMbLookupString, with_xim=motif)
     fi ;;
   esac
@@ -4196,17 +4232,25 @@ if test "$with_native_sound" != "no"; then
 
   dnl Autodetect Sun native sound from SUNWaudmo package
   if test -z "$sound_found" -a -d "/usr/demo/SOUND"; then
-    sound_found=yes
-    XE_ADD_OBJS(sunplay.o)
-    if test -d "/usr/demo/SOUND/include"
-      then sound_cflags="-I/usr/demo/SOUND/include"
-      else sound_cflags="-I/usr/demo/SOUND"
+    if test -d "/usr/demo/SOUND/include/multimedia"; then
+      sun_sound_cflags="-I/usr/demo/SOUND/include"
+    elif test -d "/usr/demo/SOUND/multimedia"; then
+      sun_sound_cflags="-I/usr/demo/SOUND"
     fi
-    if test -z "$native_sound_lib" ; then
-      if test -r "/usr/demo/SOUND/lib/libaudio.a"
-        then native_sound_lib="/usr/demo/SOUND/lib/libaudio.a"
-        else native_sound_lib="/usr/demo/SOUND/libaudio.a"
-      fi
+
+    if test -n "$native_sound_lib"; then
+      sun_sound_lib="$native_sound_lib"
+    elif test -r "/usr/demo/SOUND/lib/libaudio.a"; then
+      sun_sound_lib="/usr/demo/SOUND/lib/libaudio.a"
+    elif test -r "/usr/demo/SOUND/libaudio.a"; then
+      sun_sound_lib="/usr/demo/SOUND/libaudio.a"
+    fi
+
+    if test -n "$sun_sound_cflags" -a -n "$sun_sound_lib"; then
+      native_sound_lib="$sun_sound_lib"
+      sound_cflags="$sun_sound_cflags"
+      sound_found=yes
+      XE_ADD_OBJS(sunplay.o)
     fi
   fi
 
@@ -5019,12 +5063,118 @@ else echo "  Not using any machine description file"
 fi
 
 echo "  Compiler:                          $CC $CFLAGS"
+dnl Let's save some helpful-for-debugging info like compiler and libc versions..
+dnl First, see if it's gcc - the same check works everyplace...
+case "$CC" in
+  gcc*)	echo "  Compiler version:                  `$CC --version | head -1`"
+        echo "  Compiler specs file:               `$CC -v 2>&1 | sed 's/.* \([[^ ]]\)/\1/' | head -1`"
+	;;
+dnl non-gcc machine-specific magic - contributions welcome
+  *) case "$canonical" in
+	*-*-aix*   ) 
+          dnl Yes, it's this ugly for AIX...
+	  realcc=`which $CC`
+	  dnl Might be a symlink created by replaceCset command
+	  if test -L $realcc ; then
+	    ccdir=`dirname $realcc`
+	    ccprog=`/bin/ls -l $realcc | sed 's/.* \([[^ ]]\)/\1/'`
+	    dnl This doesn't handle ../../xlc type stuff, but I've not seen one...
+	    case $ccprog in
+		*/*) realcc=$ccprog;;
+		*) realcc=$ccdir/$ccprog;;
+	    esac
+	  fi
+	  lpp=`lslpp -wqc $realcc | cut -f2 -d:`
+	  if test ! -z "$lpp" ; then
+	    lppstr=`lslpp -Lqc $lpp`
+	    lpplev=`echo "$lppstr" | cut -f3 -d:`
+	    lppdesc=`echo "$lppstr" | cut -f8 -d:`
+	  fi
+	  if test ! -z "$lpplev" ; then
+	    echo "  Compiler version:                  $lpp $lpplev - $lppdesc"
+	  else
+	    echo "  Compiler version:                  (unknown version)"
+	  fi
+	;;
+	
+	*-*-solaris*)
+	  ccvers=`$CC -V 2>&1 | head -1`
+	  if test ! -z "$ccvers" ; then
+	    echo "  Compiler version:                  $ccvers"
+	  fi
+	;;
+
+	alpha*-dec-osf*)
+	  ccvers=`$CC -V | tr '\n' ' '`
+	  if test ! -z "$ccvers" ; then
+	    echo "  Compiler version:                  $ccvers"
+	  fi
+	;;
+
+	mips-sgi-irix*)
+	  ccvers=`$CC -version`
+	  if test ! -z "$ccvers" ; then
+	    echo "  Compiler version:                  $ccvers"
+	  fi
+	;;
+
+	dnl Intel C++ Compiler on Linux
+	i[[3-9]]86-pc-linux)
+	  ccvers=`$CC -V 2>&1 | sed -n 's@^Intel.*Version @@'p`
+	  if test ! -z "$ccvers" ; then
+	    echo "  Compiler version:                  $ccvers"
+	  fi
+	;;
+	  
+	*) echo "  Compiler version:                  $CC on $canonical";;
+  esac
+esac
+
 echo "  Relocating allocator for buffers:  $rel_alloc"
 echo "  GNU version of malloc:             ${GNU_MALLOC}${GNU_MALLOC_reason}"
 case "$ld_switch_site" in
   *nocombreloc*) echo "  Linking with \`-z nocombreloc'.
     - Consider configuring with --pdump." ;;
 esac
+
+dnl Now get the libc version - contributions welcome
+case "$canonical" in
+	*-*-linux*) 
+	  if test -f /etc/redhat-release ; then
+	    echo "  libc:                              `rpm -q glibc`";
+dnl need a Debian and Suse check here...
+          else
+	    echo "Need to guess glibc1/2/etc here";
+          fi
+	;;
+
+	*-*-aix*) 
+	  echo "  libc:                              bos.rte.libc `lslpp -Lqc bos.rte.libc | cut -f3 -d:`" 
+	;;
+
+	*-*-solaris*)
+	  libc=`pkginfo -l SUNWcsl | grep VERSION: | awk '{print $2}'`
+	  echo "  libc:                              SUNWcsl $libc"
+
+	;;
+
+	mips-sgi-irix*)
+	  echo "  IRIX version:                      `uname -sRm`'"
+	;;
+	  
+
+	alpha*-dec-osf*)
+	dnl Another ugly case
+	  (cd /usr/.smdb.;
+		libc=` grep -h libc.so *.inv | awk '$9 == "f" {print $12}' | tr '\n' ','`
+		echo "  libc:                              $libc"
+		
+	  )
+	;;
+
+	*) echo "  libc:                              system-provided libc on $canonical" ;;
+esac
+
 
 echo "
 Window System:"
@@ -5047,6 +5197,9 @@ if test "$with_x11" = "yes"; then
 fi
 if test "$need_motif" = "yes" ; then
   echo "  Compiling in support for Motif."
+  if test "$have_lesstif" = "yes"; then
+    echo "    - Using LessTif implementation."
+  fi
   echo "  *WARNING*  Many versions of Motif are buggy, requiring workarounds."
   echo "             You are likely to experience slow redisplay."
   echo "             You may need to install vendor patches to Motif."
