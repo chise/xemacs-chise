@@ -1,5 +1,14 @@
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* utf-2000/char-db-util.el (char-db-update-comment): Use
+	mapping-table for `arabic-iso8859-6'.
+	(insert-char-data-with-variant): New function.
+	(insert-char-range-data): Use `insert-char-data-with-variant'.
+	(what-char-definition): Use `insert-char-data-with-variant'
+	instead of `insert-char-data'; use `char-db-update-comment'.
+
+1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`lao'.
 
