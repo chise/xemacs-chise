@@ -1,233 +1,257 @@
 (define-char
   '((name		. "SMALL COMMA")
-    (ucs		. #xFE50)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "CS")
-    (->decomposition	small #x002C)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x2E)	; ø»‘‚©
+    (->decomposition	small #x002C)
+    (chinese-cns11643-1 . #x212E)	; ø»‘‚©
+    (chinese-big5	. #xA14D)	; øºŸ›
+    (ucs		. #xFE50)	; ï¹
     ))
 (define-char
   '((name		. "SMALL IDEOGRAPHIC COMMA")
-    (ucs		. #xFE51)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x3001)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x2F)	; ø»‘‚ª
+    (->decomposition	small #x3001)
+    (chinese-cns11643-1 . #x212F)	; ø»‘‚ª
+    (chinese-big5	. #xA14E)	; øºŸ›Ž
+    (ucs		. #xFE51)	; ï¹‘
     ))
 (define-char
   '((name		. "SMALL FULL STOP")
-    (ucs		. #xFE52)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "CS")
-    (->decomposition	small #x002E)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x30)	; ø»‘‚«
+    (->decomposition	small #x002E)
+    (chinese-cns11643-1 . #x2130)	; ø»‘‚«
+    (chinese-big5	. #xA14F)	; øºŸ›
+    (ucs		. #xFE52)	; ï¹’
     ))
 (define-char
   '((name		. "SMALL SEMICOLON")
-    (ucs		. #xFE54)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x003B)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x32)	; ø»‘‚­
+    (->decomposition	small #x003B)
+    (chinese-cns11643-1 . #x2132)	; ø»‘‚­
+    (chinese-big5	. #xA151)	; øºŸ›‘
+    (ucs		. #xFE54)	; ï¹”
     ))
 (define-char
   '((name		. "SMALL COLON")
-    (ucs		. #xFE55)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "CS")
-    (->decomposition	small #x003A)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x33)	; ø»‘‚®
+    (->decomposition	small #x003A)
+    (chinese-cns11643-1 . #x2133)	; ø»‘‚®
+    (chinese-big5	. #xA152)	; øºŸ›’
+    (ucs		. #xFE55)	; ï¹•
     ))
 (define-char
   '((name		. "SMALL QUESTION MARK")
-    (ucs		. #xFE56)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x003F)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x34)	; ø»‘‚¯
+    (->decomposition	small #x003F)
+    (chinese-cns11643-1 . #x2134)	; ø»‘‚¯
+    (chinese-big5	. #xA153)	; øºŸ›“
+    (ucs		. #xFE56)	; ï¹–
     ))
 (define-char
   '((name		. "SMALL EXCLAMATION MARK")
-    (ucs		. #xFE57)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x0021)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x35)	; ø»‘‚°
+    (->decomposition	small #x0021)
+    (chinese-cns11643-1 . #x2135)	; ø»‘‚°
+    (chinese-big5	. #xA154)	; øºŸ›”
+    (ucs		. #xFE57)	; ï¹—
     ))
 (define-char
   '((name		. "SMALL EM DASH")
-    (ucs		. #xFE58)
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x2014)
     (mirrored		. nil)
+    (->decomposition	small #x2014)
+    (ucs		. #xFE58)	; ï¹˜
     ))
 (define-char
   '((name		. "SMALL LEFT PARENTHESIS")
-    (ucs		. #xFE59)
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x0028)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x5E)	; ø»‘ƒ™
+    (->decomposition	small #x0028)
+    (chinese-cns11643-1 . #x215E)	; ø»‘ƒ™
+    (chinese-big5	. #xA17D)	; øºŸ›½
+    (ucs		. #xFE59)	; ï¹™
     ))
 (define-char
   '((name		. "SMALL RIGHT PARENTHESIS")
-    (ucs		. #xFE5A)
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x0029)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x5F)	; ø»‘ƒš
+    (->decomposition	small #x0029)
+    (chinese-cns11643-1 . #x215F)	; ø»‘ƒš
+    (chinese-big5	. #xA17E)	; øºŸ›¾
+    (ucs		. #xFE5A)	; ï¹š
     ))
 (define-char
   '((name		. "SMALL LEFT CURLY BRACKET")
-    (ucs		. #xFE5B)
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x007B)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x60)	; ø»‘ƒ›
+    (->decomposition	small #x007B)
+    (chinese-cns11643-1 . #x2160)	; ø»‘ƒ›
+    (chinese-big5	. #xA1A1)	; øºŸ›¿
+    (ucs		. #xFE5B)	; ï¹›
     ))
 (define-char
   '((name		. "SMALL RIGHT CURLY BRACKET")
-    (ucs		. #xFE5C)
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x007D)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x61)	; ø»‘ƒœ
+    (->decomposition	small #x007D)
+    (chinese-cns11643-1 . #x2161)	; ø»‘ƒœ
+    (chinese-big5	. #xA1A2)	; øºŸœ€
+    (ucs		. #xFE5C)	; ï¹œ
     ))
 (define-char
   '((name		. "SMALL LEFT TORTOISE SHELL BRACKET")
-    (ucs		. #xFE5D)
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x3014)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x62)	; ø»‘ƒ
+    (->decomposition	small #x3014)
+    (chinese-cns11643-1 . #x2162)	; ø»‘ƒ
+    (chinese-big5	. #xA1A3)	; øºŸœ
+    (ucs		. #xFE5D)	; ï¹
     ))
 (define-char
   '((name		. "SMALL RIGHT TORTOISE SHELL BRACKET")
-    (ucs		. #xFE5E)
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x3015)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x21 #x63)	; ø»‘ƒž
+    (->decomposition	small #x3015)
+    (chinese-cns11643-1 . #x2163)	; ø»‘ƒž
+    (chinese-big5	. #xA1A4)	; øºŸœ‚
+    (ucs		. #xFE5E)	; ï¹ž
     ))
 (define-char
   '((name		. "SMALL NUMBER SIGN")
-    (ucs		. #xFE5F)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
-    (->decomposition	small #x0023)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x2D)	; ø»‘„†
+    (->decomposition	small #x0023)
+    (chinese-cns11643-1 . #x222D)	; ø»‘„†
+    (chinese-big5	. #xA1CC)	; øºŸœª
+    (ucs		. #xFE5F)	; ï¹Ÿ
     ))
 (define-char
   '((name		. "SMALL AMPERSAND")
-    (ucs		. #xFE60)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x0026)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x2E)	; ø»‘„‡
+    (->decomposition	small #x0026)
+    (chinese-cns11643-1 . #x222E)	; ø»‘„‡
+    (chinese-big5	. #xA1CD)	; øºŸœ«
+    (ucs		. #xFE60)	; ï¹ 
     ))
 (define-char
   '((name		. "SMALL ASTERISK")
-    (ucs		. #xFE61)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x002A)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x2F)	; ø»‘„ˆ
+    (->decomposition	small #x002A)
+    (chinese-cns11643-1 . #x222F)	; ø»‘„ˆ
+    (chinese-big5	. #xA1CE)	; øºŸœ¬
+    (ucs		. #xFE61)	; ï¹¡
     ))
 (define-char
   '((name		. "SMALL PLUS SIGN")
-    (ucs		. #xFE62)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
-    (->decomposition	small #x002B)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x3F)	; ø»‘„˜
+    (->decomposition	small #x002B)
+    (chinese-cns11643-1 . #x223F)	; ø»‘„˜
+    (chinese-big5	. #xA1DE)	; øºŸœ¼
+    (ucs		. #xFE62)	; ï¹¢
     ))
 (define-char
   '((name		. "SMALL HYPHEN-MINUS")
-    (ucs		. #xFE63)
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ET")
-    (->decomposition	small #x002D)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x40)	; ø»‘„™
+    (->decomposition	small #x002D)
+    (chinese-cns11643-1 . #x2240)	; ø»‘„™
+    (chinese-big5	. #xA1DF)	; øºŸœ½
+    (ucs		. #xFE63)	; ï¹£
     ))
 (define-char
   '((name		. "SMALL LESS-THAN SIGN")
-    (ucs		. #xFE64)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x003C)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x41)	; ø»‘„š
+    (->decomposition	small #x003C)
+    (chinese-cns11643-1 . #x2241)	; ø»‘„š
+    (chinese-big5	. #xA1E0)	; øºŸœ¾
+    (ucs		. #xFE64)	; ï¹¤
     ))
 (define-char
   '((name		. "SMALL GREATER-THAN SIGN")
-    (ucs		. #xFE65)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x003E)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x42)	; ø»‘„›
+    (->decomposition	small #x003E)
+    (chinese-cns11643-1 . #x2242)	; ø»‘„›
+    (chinese-big5	. #xA1E1)	; øºŸœ¿
+    (ucs		. #xFE65)	; ï¹¥
     ))
 (define-char
   '((name		. "SMALL EQUALS SIGN")
-    (ucs		. #xFE66)
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x003D)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x43)	; ø»‘„œ
+    (->decomposition	small #x003D)
+    (chinese-cns11643-1 . #x2243)	; ø»‘„œ
+    (chinese-big5	. #xA1E2)	; øºŸ€
+    (ucs		. #xFE66)	; ï¹¦
     ))
 (define-char
   '((name		. "SMALL REVERSE SOLIDUS")
-    (ucs		. #xFE68)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x005C)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x62)	; ø»‘„»
+    (->decomposition	small #x005C)
+    (chinese-cns11643-1 . #x2262)	; ø»‘„»
+    (ucs		. #xFE68)	; ï¹¨
     ))
 (define-char
   '((name		. "SMALL DOLLAR SIGN")
-    (ucs		. #xFE69)
     (general-category	symbol currency) ; Informative Category
     (bidi-category	. "ET")
-    (->decomposition	small #x0024)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x6C)	; ø»‘……
+    (->decomposition	small #x0024)
+    (chinese-cns11643-1 . #x226C)	; ø»‘……
+    (chinese-big5	. #xA24C)	; øºŸ©
+    (ucs		. #xFE69)	; ï¹©
     ))
 (define-char
   '((name		. "SMALL PERCENT SIGN")
-    (ucs		. #xFE6A)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ET")
-    (->decomposition	small #x0025)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x6D)	; ø»‘…†
+    (->decomposition	small #x0025)
+    (chinese-cns11643-1 . #x226D)	; ø»‘…†
+    (chinese-big5	. #xA24D)	; øºŸª
+    (ucs		. #xFE6A)	; ï¹ª
     ))
 (define-char
   '((name		. "SMALL COMMERCIAL AT")
-    (ucs		. #xFE6B)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	small #x0040)
     (mirrored		. nil)
-    (chinese-cns11643-1	#x22 #x6E)	; ø»‘…‡
+    (->decomposition	small #x0040)
+    (chinese-cns11643-1 . #x226E)	; ø»‘…‡
+    (chinese-big5	. #xA24E)	; øºŸ«
+    (ucs		. #xFE6B)	; ï¹«
     ))
