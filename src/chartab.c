@@ -2061,7 +2061,26 @@ Lisp_Object
 get_char_table (Emchar ch, Lisp_Char_Table *ct)
 {
 #ifdef UTF2000
-  return get_char_id_table (ct, ch);
+  {
+    Lisp_Object ret = get_char_id_table (ct, ch);
+
+#ifdef HAVE_DATABASE
+    if (NILP (ret))
+      {
+	if (EQ (CHAR_TABLE_NAME (ct), Qdowncase))
+	  ret = Fget_char_attribute (make_char (ch), Q_lowercase, Qnil);
+	else if (EQ (CHAR_TABLE_NAME (ct), Qflippedcase))
+	  ret = Fget_char_attribute (make_char (ch), Q_uppercase, Qnil);
+	if (CONSP (ret))
+	  {
+	    ret = XCAR (ret);
+	    if (CONSP (ret))
+	      ret = Ffind_char (ret);
+	  }
+      }
+#endif
+    return ret;
+  }
 #elif defined(MULE)
   {
     Lisp_Object charset;
