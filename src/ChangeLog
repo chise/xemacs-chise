@@ -1,5 +1,10 @@
 1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (Fcharset_name): Define `byte_offset' in
+	non-UTF-2000 configuration.
+
+1999-10-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* text-coding.c (char_encode_shift_jis): Use `charset_code_point'
 	not to use `XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201)'.
 
