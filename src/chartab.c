@@ -2377,7 +2377,6 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
     case CHARTAB_RANGE_CHARSET:
 #ifdef UTF2000
       {
-	Emchar c;
 	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range->charset);
 
 	/* printf ("put-char-table: range = charset: %d\n",
@@ -2385,29 +2384,24 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	*/
 	if ( CHAR_TABLEP (encoding_table) )
 	  {
-#if 1
 	    char_attribute_table_to_put = ct;
 	    value_to_put = val;
 	    Fmap_char_attribute (Qput_char_table_map_function,
 				 XCHAR_TABLE_NAME (encoding_table),
 				 Qnil);
-#else
-	    for (c = 0; c < 1 << 24; c++)
-	      {
-		if ( INTP (get_char_id_table (XCHAR_TABLE(encoding_table),
-					      c)) )
-		  put_char_id_table_0 (ct, c, val);
-	      }
-#endif
 	  }
+#if 0
 	else
 	  {
+	    Emchar c;
+
 	    for (c = 0; c < 1 << 24; c++)
 	      {
 		if ( charset_code_point (range->charset, c) >= 0 )
 		  put_char_id_table_0 (ct, c, val);
 	      }
 	  }
+#endif
       }
 #else
       if (EQ (range->charset, Vcharset_ascii))
