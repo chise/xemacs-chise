@@ -343,6 +343,29 @@ uint8_byte_table_same_value_p (Lisp_Object obj)
   return -1;
 }
 
+static int
+map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct,
+			   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+			   void *arg, Emchar ofs, int place)
+{
+  int i, retval;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+  Emchar c1;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      if (ct->property[i] != BT_UINT8_unbound)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    retval = (fn) (c, UINT8_DECODE (ct->property[i]), arg);
+	}
+      else
+	c += unit;
+    }
+  return retval;
+}
 
 #define BT_UINT16_MIN		0
 #define BT_UINT16_MAX	 (USHRT_MAX - 3)
@@ -537,6 +560,30 @@ uint16_byte_table_same_value_p (Lisp_Object obj)
   return -1;
 }
 
+static int
+map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct,
+			    int (*fn) (Emchar c, Lisp_Object val, void *arg),
+			    void *arg, Emchar ofs, int place)
+{
+  int i, retval;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+  Emchar c1;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      if (ct->property[i] != BT_UINT16_unbound)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    retval = (fn) (c, UINT16_DECODE (ct->property[i]), arg);
+	}
+      else
+	c += unit;
+    }
+  return retval;
+}
+
 
 static Lisp_Object
 mark_byte_table (Lisp_Object obj)
@@ -650,6 +697,52 @@ byte_table_same_value_p (Lisp_Object obj)
 	return 0;
     }
   return -1;
+}
+
+static int
+map_over_byte_table (Lisp_Byte_Table *ct,
+		     int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		     void *arg, Emchar ofs, int place)
+{
+  int i, retval;
+  Lisp_Object v;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      v = ct->property[i];
+      if (UINT8_BYTE_TABLE_P (v))
+	{
+	  retval
+	    = map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v),
+					 fn, arg, c, place - 1);
+	  c += unit;
+	}
+      else if (UINT16_BYTE_TABLE_P (v))
+	{
+	  retval
+	    = map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v),
+					  fn, arg, c, place - 1);
+	  c += unit;
+	}
+      else if (BYTE_TABLE_P (v))
+	{
+	  retval = map_over_byte_table (XBYTE_TABLE(v),
+					fn, arg, c, place - 1);
+	  c += unit;
+	}
+      else if (!UNBOUNDP (v))
+	{
+	  Emchar c1 = c + unit;
+
+	  for (; c < c1 && retval == 0; c++)
+	    retval = (fn) (c, v, arg);
+	}
+      else
+	c += unit;
+    }
+  return retval;
 }
 
 
@@ -879,6 +972,55 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
   table2 = put_byte_table (table2, (unsigned char)(code >> 16), table3);
   XCHAR_ID_TABLE (table)->table
     = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+}
+
+/* Map FN (with client data ARG) in char table CT.
+   Mapping stops the first time FN returns non-zero, and that value
+   becomes the return value of map_char_id_table(). */
+int
+map_char_id_table (Lisp_Char_ID_Table *ct,
+		   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		   void *arg);
+int
+map_char_id_table (Lisp_Char_ID_Table *ct,
+		   int (*fn) (Emchar c, Lisp_Object val, void *arg),
+		   void *arg)
+{
+  Lisp_Object v = ct->table;
+
+  if (UINT8_BYTE_TABLE_P (v))
+    return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v), fn, arg, 0, 3);
+  else if (UINT16_BYTE_TABLE_P (v))
+    return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v), fn, arg, 0, 3);
+  else if (BYTE_TABLE_P (v))
+    return map_over_byte_table (XBYTE_TABLE(v), fn, arg, 0, 3);
+  else if (!UNBOUNDP (v))
+    {
+      int unit = 1 << 24;
+      Emchar c = 0;
+      Emchar c1 = c + unit;
+      int retval;
+
+      for (retval = 0; c < c1 && retval == 0; c++)
+	retval = (fn) (c, v, arg);
+    }
+  return 0;
+}
+
+struct slow_map_char_id_table_arg
+{
+  Lisp_Object function;
+  Lisp_Object retval;
+};
+
+static int
+slow_map_char_id_table_fun (Emchar c, Lisp_Object val, void *arg)
+{
+  struct slow_map_char_id_table_arg *closure =
+    (struct slow_map_char_id_table_arg *) arg;
+
+  closure->retval = call2 (closure->function, make_char (c), val);
+  return !NILP (closure->retval);
 }
 
 
@@ -1294,6 +1436,45 @@ Remove CHARACTER's ATTRIBUTE.
 	}
     }
   return Qnil;
+}
+
+DEFUN ("map-char-attribute", Fmap_char_attribute, 2, 2, 0, /*
+Map FUNCTION over entries in ATTRIBUTE, calling it with two args,
+each key and value in the table.
+*/
+       (function, attribute))
+{
+  Lisp_Object ccs;
+  Lisp_Char_ID_Table *ct;
+  struct slow_map_char_id_table_arg slarg;
+  struct gcpro gcpro1, gcpro2;
+
+  if (!NILP (ccs = Ffind_charset (attribute)))
+    {
+      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
+
+      if (CHAR_ID_TABLE_P (encoding_table))
+	ct = XCHAR_ID_TABLE (encoding_table);
+      else
+	return Qnil;
+    }
+  else
+    {
+      Lisp_Object table = Fgethash (attribute,
+				    Vchar_attribute_hash_table,
+				    Qunbound);
+      if (CHAR_ID_TABLE_P (table))
+	ct = XCHAR_ID_TABLE (table);
+      else
+	return Qnil;
+    }
+  slarg.function = function;
+  slarg.retval = Qnil;
+  GCPRO2 (slarg.function, slarg.retval);
+  map_char_id_table (ct, slow_map_char_id_table_fun, &slarg);
+  UNGCPRO;
+
+  return slarg.retval;
 }
 
 INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
@@ -3497,6 +3678,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fget_char_attribute);
   DEFSUBR (Fput_char_attribute);
   DEFSUBR (Fremove_char_attribute);
+  DEFSUBR (Fmap_char_attribute);
   DEFSUBR (Fdefine_char);
   DEFSUBR (Ffind_char);
   DEFSUBR (Fchar_variants);
