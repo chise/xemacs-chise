@@ -3,60 +3,52 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	. #x222B)	; ø»½¨
-    (chinese-gb2312		. #x217B)	; ø»„‡ž
-    (japanese-jisx0208		. #x222B)	; ø»†‘°
-    (korean-ksc5601		. #x2167)	; ø»ˆ›’
-    (chinese-cns11643-1		. #x2258)	; ø»‘„±
-    (japanese-jisx0208-1990	. #x222B)	; ø½‰·¤
-    (chinese-big5		. #xA1F6)	; ý¢€Š‡¶
-    (china3-jef			. #x7BCE)	; øº‡¯Ž
-    (ucs			. #x2190)	; â†
+    (chinese-gb2312	. #x217B)	; ø»„‡ž
+    (=jis-x0208		. #x222B)	; ø½‰·¤
+    (korean-ksc5601	. #x2167)	; ø»ˆ›’
+    (chinese-cns11643-1 . #x2258)	; ø»‘„±
+    (chinese-big5	. #xA1F6)	; ý¢€Š‡¶
+    (china3-jef		. #x7BCE)	; øº‡¯Ž
+    (ucs		. #x2190)	; â†
     ))
 (define-char
   '((name		. "UPWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	. #x222C)	; ø»½©
-    (chinese-gb2312		. #x217C)	; ø»„‡Ÿ
-    (japanese-jisx0208		. #x222C)	; ø»†‘±
-    (korean-ksc5601		. #x2168)	; ø»ˆ›“
-    (chinese-cns11643-1		. #x2255)	; ø»‘„®
-    (japanese-jisx0208-1990	. #x222C)	; ø½‰·¥
-    (chinese-big5		. #xA1F4)	; ý¢€Š‡´
-    (china3-jef			. #x7BCF)	; øº‡¯
-    (ucs			. #x2191)	; â†‘
+    (chinese-gb2312	. #x217C)	; ø»„‡Ÿ
+    (=jis-x0208		. #x222C)	; ø½‰·¥
+    (korean-ksc5601	. #x2168)	; ø»ˆ›“
+    (chinese-cns11643-1 . #x2255)	; ø»‘„®
+    (chinese-big5	. #xA1F4)	; ý¢€Š‡´
+    (china3-jef		. #x7BCF)	; øº‡¯
+    (ucs		. #x2191)	; â†‘
     ))
 (define-char
   '((name		. "RIGHTWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	. #x222A)	; ø»½§
-    (chinese-gb2312		. #x217A)	; ø»„‡
-    (japanese-jisx0208		. #x222A)	; ø»†‘¯
-    (korean-ksc5601		. #x2166)	; ø»ˆ›‘
-    (chinese-cns11643-1		. #x2257)	; ø»‘„°
-    (japanese-jisx0208-1990	. #x222A)	; ø½‰·£
-    (chinese-big5		. #xA1F7)	; ý¢€Š‡·
-    (china3-jef			. #x7BCD)	; øº‡¯
-    (ucs			. #x2192)	; â†’
+    (chinese-gb2312	. #x217A)	; ø»„‡
+    (=jis-x0208		. #x222A)	; ø½‰·£
+    (korean-ksc5601	. #x2166)	; ø»ˆ›‘
+    (chinese-cns11643-1 . #x2257)	; ø»‘„°
+    (chinese-big5	. #xA1F7)	; ý¢€Š‡·
+    (china3-jef		. #x7BCD)	; øº‡¯
+    (ucs		. #x2192)	; â†’
     ))
 (define-char
   '((name		. "DOWNWARDS ARROW")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	. #x222D)	; ø»½ª
-    (chinese-gb2312		. #x217D)	; ø»„‡ 
-    (japanese-jisx0208		. #x222D)	; ø»†‘²
-    (korean-ksc5601		. #x2169)	; ø»ˆ›”
-    (chinese-cns11643-1		. #x2256)	; ø»‘„¯
-    (japanese-jisx0208-1990	. #x222D)	; ø½‰·¦
-    (chinese-big5		. #xA1F5)	; ý¢€Š‡µ
-    (china3-jef			. #x7BD0)	; øº‡¯
-    (ucs			. #x2193)	; â†“
+    (chinese-gb2312	. #x217D)	; ø»„‡ 
+    (=jis-x0208		. #x222D)	; ø½‰·¦
+    (korean-ksc5601	. #x2169)	; ø»ˆ›”
+    (chinese-cns11643-1 . #x2256)	; ø»‘„¯
+    (chinese-big5	. #xA1F5)	; ý¢€Š‡µ
+    (china3-jef		. #x7BD0)	; øº‡¯
+    (ucs		. #x2193)	; â†“
     ))
 (define-char
   '((name		. "LEFT RIGHT ARROW")
