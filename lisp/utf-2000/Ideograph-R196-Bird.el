@@ -4223,6 +4223,7 @@
   '((morohashi-daikanwa	47074 1)
     (ideographic-radical . 196)	; â¿ƒ
     (ideographic-strokes . 8)
+    (mojikyo		. 050605)	; ø¸Œ–­
     (ucs		. #x9D8F)	; é¶
     ))
 (define-char
