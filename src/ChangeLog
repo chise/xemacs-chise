@@ -1,3 +1,14 @@
+1999-10-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): New inline function.
+	(breakup_char_1): Use `SPLIT_CHAR'.
+
+	* mule-charset.c (range_charset_code_point): New function.
+	(charset_code_point): New function.
+
+	* char-ucs.h (range_charset_code_point): New interface.
+	(breakup_char_1): Use `range_charset_code_point'.
+
 1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_charset): Delete unused local variable
