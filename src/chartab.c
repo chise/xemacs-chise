@@ -1804,18 +1804,7 @@ Lisp_Object
 get_char_table (Emchar ch, Lisp_Char_Table *ct)
 {
 #ifdef UTF2000
-  Lisp_Object val = get_byte_table (get_byte_table
-				    (get_byte_table
-				     (get_byte_table
-				      (ct->table,
-				       (unsigned char)(ch >> 24)),
-				      (unsigned char) (ch >> 16)),
-				     (unsigned char)  (ch >>  8)),
-				    (unsigned char)    ch);
-  if (UNBOUNDP (val))
-    return ct->default_value;
-  else
-    return val;
+  return get_char_id_table (ct, ch);
 #elif defined(MULE)
   {
     Lisp_Object charset;
