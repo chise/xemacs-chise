@@ -1314,6 +1314,8 @@
     (ideographic-strokes@ucs . 12)
     (ideographic-radical@cns . 15)	; ⼎
     (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 17)
     (hanyu-dazidian	4 2571 15)
     (=ucs		. #x250B3)	; 𥂳
