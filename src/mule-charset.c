@@ -176,20 +176,6 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 
 #ifdef UTF2000
 
-INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
-INLINE_HEADER int
-CHARSET_BYTE_SIZE (Lisp_Charset* cs)
-{
-  /* ad-hoc method for `ascii' */
-  if ((CHARSET_CHARS (cs) == 94) &&
-      (CHARSET_BYTE_OFFSET (cs) != 33))
-    return 128 - CHARSET_BYTE_OFFSET (cs);
-  else
-    return CHARSET_CHARS (cs);
-}
-
-#define XCHARSET_BYTE_SIZE(ccs)	CHARSET_BYTE_SIZE (XCHARSET (ccs))
-
 int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
 int
 decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
@@ -218,58 +204,6 @@ decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
   return 0;
 }
 
-INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
-			    int code_point);
-INLINE_HEADER void
-decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
-			    int code_point)
-{
-  int i = -1;
-
-  while (dim > 0)
-    {
-      Lisp_Object nv;
-
-      dim--;
-      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
-      nv = XVECTOR_DATA(v)[i];
-      if (!VECTORP (nv))
-	break;
-      v = nv;
-    }
-  if (i >= 0)
-    XVECTOR_DATA(v)[i] = Qnil;
-}
-
-INLINE_HEADER void
-decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
-			 int code_point, Lisp_Object character);
-INLINE_HEADER void
-decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
-			 int code_point, Lisp_Object character)
-{
-  int i = -1;
-  Lisp_Object nv;
-  int ccs_len = XVECTOR_LENGTH (v);
-
-  while (dim > 0)
-    {
-      dim--;
-      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
-      nv = XVECTOR_DATA(v)[i];
-      if (dim > 0)
-	{
-	  if (!VECTORP (nv))
-	    nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
-	  v = nv;
-	}
-      else
-	break;
-    }
-  XVECTOR_DATA(v)[i] = character;
-}
-
 Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
@@ -279,9 +213,6 @@ put_char_ccs_code_point (Lisp_Object character,
       || (XCHAR (character) != XINT (value)))
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-      int dim = XCHARSET_DIMENSION (ccs);
-      int ccs_len = XCHARSET_BYTE_SIZE (ccs);
-      int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
       int code_point;
 
       if (CONSP (value))
@@ -331,16 +262,10 @@ put_char_ccs_code_point (Lisp_Object character,
 	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
 	  if (INTP (cpos))
 	    {
-	      decoding_table_remove_char (v, dim, byte_offset, XINT (cpos));
+	      decoding_table_remove_char (ccs, XINT (cpos));
 	    }
 	}
-      else
-	{
-	  XCHARSET_DECODING_TABLE (ccs)
-	    = v = make_vector (ccs_len, Qnil);
-	}
-
-      decoding_table_put_char (v, dim, byte_offset, code_point, character);
+      decoding_table_put_char (ccs, code_point, character);
     }
   return value;
 }
@@ -357,15 +282,12 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 
       if (!NILP (cpos))
 	{
-	  decoding_table_remove_char (decoding_table,
-				      XCHARSET_DIMENSION (ccs),
-				      XCHARSET_BYTE_OFFSET (ccs),
-				      XINT (cpos));
+	  decoding_table_remove_char (ccs, XINT (cpos));
 	}
     }
   if (CHAR_TABLEP (encoding_table))
     {
-      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qnil);
+      put_char_id_table (XCHAR_TABLE(encoding_table), character, Qunbound);
     }
   return Qt;
 }
@@ -895,7 +817,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_CCL_PROGRAM	(cs) = Qnil;
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
-  CHARSET_DECODING_TABLE(cs) = Qnil;
+  CHARSET_DECODING_TABLE(cs) = Qunbound;
   CHARSET_MIN_CODE	(cs) = min_code;
   CHARSET_MAX_CODE	(cs) = max_code;
   CHARSET_CODE_OFFSET	(cs) = code_offset;
@@ -984,12 +906,44 @@ get_unallocated_leading_byte (int dimension)
 #define BIG5_SAME_ROW (0xFF - 0xA1 + 0x7F - 0x40)
 
 Emchar
+decode_defined_char (Lisp_Object ccs, int code_point)
+{
+  int dim = XCHARSET_DIMENSION (ccs);
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
+  Emchar char_id = -1;
+  Lisp_Object mother;
+
+  while (dim > 0)
+    {
+      dim--;
+      decoding_table
+	= get_ccs_octet_table (decoding_table, ccs,
+			       (code_point >> (dim * 8)) & 255);
+    }
+  if (CHARP (decoding_table))
+    return XCHAR (decoding_table);
+  if (char_id >= 0)
+    return char_id;
+  else if ( CHARSETP (mother = XCHARSET_MOTHER (ccs)) )
+    {
+      if ( XCHARSET_CONVERSION (ccs) == CONVERSION_IDENTICAL )
+	{
+	  if ( EQ (mother, Vcharset_ucs) )
+	    return DECODE_CHAR (mother, code_point);
+	  else
+	    return decode_defined_char (mother, code_point);
+	}
+    }
+  return -1;
+}
+
+Emchar
 decode_builtin_char (Lisp_Object charset, int code_point)
 {
   Lisp_Object mother = XCHARSET_MOTHER (charset);
   int final;
 
-  if ( CHARSETP (mother) )
+  if ( CHARSETP (mother) && (XCHARSET_MAX_CODE (charset) > 0) )
     {
       int code = code_point;
 
@@ -1137,7 +1091,8 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	code = charset_code_point (mother, ch);
       else
 	code = ch;
-      if ( (min <= code) && (code <= max) )
+      if ( ((max == 0) && CHARSETP (mother)) ||
+	   ((min <= code) && (code <= max)) )
 	{
 	  int d = code - XCHARSET_CODE_OFFSET (charset);
 
@@ -2129,7 +2084,7 @@ If corresponding character is not found, nil is returned.
   if (NILP (defined_only))
     c = DECODE_CHAR (charset, c);
   else
-    c = DECODE_DEFINED_CHAR (charset, c);
+    c = decode_defined_char (charset, c);
   return c >= 0 ? make_char (c) : Qnil;
 }
 
@@ -2624,7 +2579,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS"),
 		  build_string ("ISO/IEC 10646"),
 		  build_string (""),
-		  Qnil, 0, 0xFFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,
@@ -2663,17 +2618,17 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_jis);
   Vcharset_ucs_jis =
     make_charset (LEADING_BYTE_UCS_JIS, Qucs_jis, 256, 3,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for JIS"),
 		  build_string ("UCS for JIS X 0208, 0212 and 0213"),
-		  build_string ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
+		  build_string
+		  ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_ks);
   Vcharset_ucs_ks =
     make_charset (LEADING_BYTE_UCS_KS, Qucs_ks, 256, 3,
@@ -2682,7 +2637,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CCS defined by KS"),
 		  build_string ("ISO/IEC 10646 for Korean Standards"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_big5);
   Vcharset_ucs_big5 =
     make_charset (LEADING_BYTE_UCS_BIG5, Qucs_big5, 256, 3,
@@ -2691,7 +2646,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for Big5"),
 		  build_string ("ISO/IEC 10646 for Big5"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
