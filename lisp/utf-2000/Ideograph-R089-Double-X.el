@@ -61,9 +61,7 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 39)
-    (hanyu-dazidian-char . 15)
+    (hanyu-dazidian	1 39 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
