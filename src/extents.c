@@ -3843,6 +3843,7 @@ See documentation on `detach-extent' for a discussion of undo recording.
   get_buffer_or_string_range_byte (buffer_or_string, start, end, &s, &e,
 				   GB_ALLOW_PAST_ACCESSIBLE);
 
+  buffer_or_string_extent_info_force (buffer_or_string);
   set_extent_endpoints (ext, s, e, buffer_or_string);
   return extent;
 }
@@ -4574,27 +4575,36 @@ process_extents_for_insertion_mapper (EXTENT extent, void *arg)
 #endif
 
   /* The extent-adjustment code adjusted the extent's endpoints as if
-     they were markers -- endpoints at the gap (i.e. the insertion
-     point) go to the left of the insertion point, which is correct
-     for [) extents.  We need to fix the other kinds of extents.
+     all extents were closed-open -- endpoints at the insertion point
+     remain unchanged.  We need to fix the other kinds of extents:
 
-     Note that both conditions below will hold for zero-length (]
-     extents at the gap.  Zero-length () extents would get adjusted
-     such that their start is greater than their end; we treat them
-     as [) extents.  This is unfortunately an inelegant part of the
-     extent model, but there is no way around it. */
+     1. Start position of start-open extents needs to be moved.
+
+     2. End position of end-closed extents needs to be moved.
+
+     Note that both conditions hold for zero-length (] extents at the
+     insertion point.  But under these rules, zero-length () extents
+     would get adjusted such that their start is greater than their
+     end; instead of allowing that, we treat them as [) extents by
+     modifying condition #1 to not fire nothing when dealing with a
+     zero-length open-open extent.
+
+     Existence of zero-length open-open extents is unfortunately an
+     inelegant part of the extent model, but there is no way around
+     it. */
 
   {
-    Memind new_start, new_end;
+    Memind new_start = extent_start (extent);
+    Memind new_end   = extent_end (extent);
 
-    new_start = extent_start (extent);
-    new_end = extent_end (extent);
-    if (indice == extent_start (extent) && extent_start_open_p (extent) &&
-	/* coerce zero-length () extents to [) */
-	new_start != new_end)
+    if (indice == extent_start (extent) && extent_start_open_p (extent)
+	/* zero-length () extents are exempt; see comment above. */
+	&& !(new_start == new_end && extent_end_open_p (extent))
+	)
       new_start += closure->length;
     if (indice == extent_end (extent) && !extent_end_open_p (extent))
       new_end += closure->length;
+
     set_extent_endpoints_1 (extent, new_start, new_end);
   }
 

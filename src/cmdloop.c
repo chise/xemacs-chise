@@ -415,7 +415,7 @@ Lisp_Object
 call_command_loop (Lisp_Object catch_errors)
 {
   /* This function can GC */
-  reset_this_command_keys (Vselected_console, Qnil); /* #### bleagh */
+  reset_this_command_keys (Vselected_console, 0); /* #### bleagh */
 
  loop:
   for (;;)

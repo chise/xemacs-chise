@@ -754,8 +754,8 @@ This example is explained in the section on regexps.  @xref{Regexps}.
 @node Paragraphs, Pages, Sentences, Text
 @section Paragraphs
 @cindex paragraphs
-@kindex M-[
-@kindex M-]
+@kindex M-@{
+@kindex M-@}
 @findex backward-paragraph
 @findex forward-paragraph
 
@@ -763,16 +763,16 @@ This example is explained in the section on regexps.  @xref{Regexps}.
 keys.
 
 @table @kbd
-@item M-[
+@item M-@{
 Move back to previous paragraph beginning @*(@code{backward-paragraph}).
-@item M-]
+@item M-@}
 Move forward to next paragraph end (@code{forward-paragraph}).
 @item M-h
 Put point and mark around this or next paragraph (@code{mark-paragraph}).
 @end table
 
-  @kbd{Meta-[} moves to the beginning of the current or previous paragraph,
-while @kbd{Meta-]} moves to the end of the current or next paragraph.
+  @kbd{Meta-@{} moves to the beginning of the current or previous paragraph,
+while @kbd{Meta-@}} moves to the end of the current or next paragraph.
 Blank lines and text formatter command lines separate paragraphs and are
 not part of any paragraph.  An indented line starts a new paragraph.
 

@@ -1,3 +1,25 @@
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.0 "Solid Vapor" is released.
+
+2001-04-14  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+        * xemacs/building.texi : Correct documentation of eval-expression.
+        By default it is bound to M-: and not M-ESC.
+
+        * xemacs/custom.texi (Init Examples):
+        * xemacs/search.texi (Query Replace): C-x ESC -> C-x ESC ESC
+
+        * xemacs/text.texi (Paragraphs): M-[ -> M-{  and M-] -> M-}
+        From Klaus Frank <klausf@i3.informatik.rwth-aachen.de>
+
+2001-04-15  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.1):
+	* xemacs-faq.texi (Q1.0.2):
+	Rewrite description of XEmacs to match what's on web page,
+	in about.el.
+
 2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.2.47 "Zephir" is released.

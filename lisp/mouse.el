@@ -471,7 +471,10 @@ been created during the operation of `mouse-track'.
 Unlike all of the other mouse-track hooks, this is a \"normal\"
 hook: the hook functions are called with no arguments, and
 all hook functions are called regardless of their return
-values.")
+values.
+
+This function is called with the buffer where the mouse was clicked
+set to the current buffer, unless that buffer was killed.")
 
 (defcustom mouse-track-multi-click-time 400
   "*Maximum number of milliseconds allowed between clicks for a multi-click.
@@ -711,7 +714,7 @@ at the initial click position."
       (if mouse-track-timeout-id
 	  (disable-timeout mouse-track-timeout-id))
       (setq mouse-track-timeout-id nil)
-      (and buffer
+      (and (buffer-live-p buffer)
 	   (save-excursion
 	     (set-buffer buffer)
 	     (run-hooks 'mouse-track-cleanup-hook))))))
