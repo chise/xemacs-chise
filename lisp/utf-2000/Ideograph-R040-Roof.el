@@ -2917,6 +2917,7 @@
     (=jis-x0208		. #x5565)	; ø½‹ƒ˜
     (=gt-pj-1		. #x5565)	; ý¡€‚ª
     (=cbeta		. 05265)	; ø¸¡’‘
+    (=ucs@jis		. #x5BC9)	; ø½‹ƒ˜
     (=gt		. 09066)	; ý¡€‚ª
     ))
 (define-char
