@@ -357,17 +357,15 @@ Boston, MA 02111-1307, USA.  */
 #define LEADING_BYTE_JAPANESE_JISX0208	0x92	/* Japanese JIS X0208-1983 */
 #define LEADING_BYTE_KOREAN_KSC5601	0x93	/* Hangul KS C5601-1987 */
 #define LEADING_BYTE_JAPANESE_JISX0212	0x94	/* Japanese JIS X0212-1990 */
-#define LEADING_BYTE_CHINESE_CCITT_GB	0x95	/* CCITT Extended GB */
-#define LEADING_BYTE_CHINESE_BIG5_1	0x96	/* Big5 Level 1 */
-#define LEADING_BYTE_CHINESE_CNS11643_1	0x97	/* Chinese CNS11643 Set 1 */
-#define LEADING_BYTE_CHINESE_CNS11643_2	0x98	/* Chinese CNS11643 Set 2 */
-#define LEADING_BYTE_CHINESE_CNS11643_3	0x99	/* Chinese CNS11643 Set 3 */
-#define LEADING_BYTE_CHINESE_CNS11643_4	0x9A	/* Chinese CNS11643 Set 4 */
-#define LEADING_BYTE_CHINESE_CNS11643_5	0x9B	/* Chinese CNS11643 Set 5 */
-#define LEADING_BYTE_CHINESE_CNS11643_6	0x9C	/* Chinese CNS11643 Set 6 */
-#define LEADING_BYTE_CHINESE_CNS11643_7	0x9D	/* Chinese CNS11643 Set 7 */
-#define LEADING_BYTE_CHINESE_BIG5_2	0x9D	/* Big5 Level 2 */
-#define LEADING_BYTE_KOREAN_KPS9566	0x9E	/* DPRK Hangul KPS 9566-1997 */
+#define LEADING_BYTE_CHINESE_CNS11643_1	0x95	/* Chinese CNS11643 Set 1 */
+#define LEADING_BYTE_CHINESE_CNS11643_2	0x96	/* Chinese CNS11643 Set 2 */
+#define LEADING_BYTE_CHINESE_BIG5_1	0x97	/* Big5 Level 1 */
+#define LEADING_BYTE_CHINESE_BIG5_2	0x98	/* Big5 Level 2 */
+				     /* 0x99	   unused */
+				     /* 0x9A       unused */
+				     /* 0x9B       unused */
+				     /* 0x9C       unused */
+				     /* 0x9D       unused */
 
 #define MIN_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_JAPANESE_JISX0208_1978
 #define MAX_LEADING_BYTE_OFFICIAL_2	LEADING_BYTE_CHINESE_BIG5_2
@@ -433,15 +431,7 @@ LEADING_BYTE_PREFIX_P (unsigned char lb)
 
 /* Does this byte represent the first byte of a character? */
 
-#ifdef UTF2000
-INLINE int
-BUFBYTE_FIRST_BYTE_P(Bufbyte c)
-{
-  return (c <= 0x7f) || (0xc0 <= c);
-}
-#else
 #define BUFBYTE_FIRST_BYTE_P(c) ((c) < 0xA0)
-#endif
 
 /* Does this byte represent the first byte of a multi-byte character? */
 
@@ -588,25 +578,6 @@ CHARSET_BY_LEADING_BYTE (int lb)
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
   (charset_by_attributes[type][final][dir])
 
-#ifdef UTF2000
-INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
-INLINE int
-REP_BYTES_BY_FIRST_BYTE (int fb)
-{
-  if ( fb >= 0xfc )
-    return 6;
-  else if ( fb >= 0xf8 )
-    return 5;
-  else if ( fb >= 0xf0 )
-    return 4;
-  else if ( fb >= 0xe0 )
-    return 3;
-  else if ( fb >= 0xc0 )
-    return 2;
-  else
-    return 1;
-}
-#else /* MULE */
 #ifdef ERROR_CHECK_TYPECHECK
 
 /* Number of bytes in the string representation of a character */
@@ -621,7 +592,6 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 #else
 #define REP_BYTES_BY_FIRST_BYTE(fb) (rep_bytes_by_first_byte[fb])
 #endif
-#endif /* end MULE */
 
 
 /************************************************************************/
@@ -637,30 +607,15 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 /* The bit fields of character are divided into 3 parts:
    FIELD1(5bits):FIELD2(7bits):FIELD3(7bits) */
 
-#define CHAR_FIELD1_MASK (0x7F << 14)
+#define CHAR_FIELD1_MASK (0x1F << 14)
 #define CHAR_FIELD2_MASK (0x7F << 7)
 #define CHAR_FIELD3_MASK 0x7F
-
-#define MIN_CHAR_GREEK		0x0370
-#define MAX_CHAR_GREEK		0x03CF
-
-#define MIN_CHAR_CYRILLIC	0x0400
-#define MAX_CHAR_CYRILLIC	0x045F
-
-#define MIN_CHAR_HEBREW		0x0590
-#define MAX_CHAR_HEBREW		0x05EF
-
-#define MIN_CHAR_THAI		0x0E00
-#define MAX_CHAR_THAI		0x0E5F
-
-#define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF60
-#define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
 /* Macros to access each field of a character code of C.  */
 
 #define CHAR_FIELD1(c) (((c) & CHAR_FIELD1_MASK) >> 14)
-#define CHAR_FIELD2_INTERNAL(c) (((c) & CHAR_FIELD2_MASK) >> 7)
-#define CHAR_FIELD3_INTERNAL(c)  ((c) & CHAR_FIELD3_MASK)
+#define CHAR_FIELD2(c) (((c) & CHAR_FIELD2_MASK) >> 7)
+#define CHAR_FIELD3(c)  ((c) & CHAR_FIELD3_MASK)
 
 /* Field 1, if non-zero, usually holds a leading byte for a
    dimension-2 charset.  Field 2, if non-zero, usually holds a leading
@@ -671,49 +626,8 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 #define FIELD2_TO_OFFICIAL_LEADING_BYTE 0x80
 #define FIELD2_TO_PRIVATE_LEADING_BYTE  0x80
 
-#define FIELD1_TO_PRIVATE_LEADING_BYTE  0xc0
-#define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x50
-
-INLINE Emchar
-CHAR_FIELD2 (Emchar c)
-{
-  if( (MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK) )
-    return LEADING_BYTE_GREEK_ISO8859_7
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC) )
-    return LEADING_BYTE_CYRILLIC_ISO8859_5
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW) )
-    return LEADING_BYTE_HEBREW_ISO8859_8
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI) )
-    return LEADING_BYTE_THAI_TIS620
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else if( (MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	   && (c <= MAX_CHAR_HALFWIDTH_KATAKANA) )
-    return LEADING_BYTE_KATAKANA_JISX0201
-      - FIELD2_TO_OFFICIAL_LEADING_BYTE;
-  else
-    return CHAR_FIELD2_INTERNAL(c);
-}
-
-INLINE Emchar
-CHAR_FIELD3 (Emchar c)
-{
-  if( (MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK) )
-    return c - MIN_CHAR_GREEK + 0x20;
-  else if( (MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC) )
-    return c - MIN_CHAR_CYRILLIC + 0x20;
-  else if( (MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW) )
-    return c - MIN_CHAR_HEBREW + 0x20;
-  else if( (MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI) )
-    return c - MIN_CHAR_THAI + 0x20;
-  else if( (MIN_CHAR_HALFWIDTH_KATAKANA <= c)
-	   && (c <= MAX_CHAR_HALFWIDTH_KATAKANA) )
-    return c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
-  else
-    return CHAR_FIELD3_INTERNAL(c);
-}
+#define FIELD1_TO_OFFICIAL_LEADING_BYTE 0x8F
+#define FIELD1_TO_PRIVATE_LEADING_BYTE  0xE1
 
 /* Minimum and maximum allowed values for the fields. */
 
@@ -739,18 +653,11 @@ CHAR_FIELD3 (Emchar c)
 
 /* Minimum character code of each <type> character.  */
 
-#define MULE_CHAR_PRIVATE_OFFSET (0xe0 << 16)
-
-#define MIN_CHAR_OFFICIAL_TYPE9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD2_OFFICIAL <<  7))
-#define MIN_CHAR_PRIVATE_TYPE9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD2_PRIVATE  <<  7))
-#define MIN_CHAR_PRIVATE_TYPE9NX9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_PRIVATE  << 14))
-#define MIN_CHAR_OFFICIAL_TYPE9NX9N \
-  (MULE_CHAR_PRIVATE_OFFSET | (MIN_CHAR_FIELD1_OFFICIAL << 14))
-#define MIN_CHAR_COMPOSITION \
-  (MULE_CHAR_PRIVATE_OFFSET | (0x7f << 14))
+#define MIN_CHAR_OFFICIAL_TYPE9N    (MIN_CHAR_FIELD2_OFFICIAL <<  7)
+#define MIN_CHAR_PRIVATE_TYPE9N     (MIN_CHAR_FIELD2_PRIVATE  <<  7)
+#define MIN_CHAR_OFFICIAL_TYPE9NX9N (MIN_CHAR_FIELD1_OFFICIAL << 14)
+#define MIN_CHAR_PRIVATE_TYPE9NX9N  (MIN_CHAR_FIELD1_PRIVATE  << 14)
+#define MIN_CHAR_COMPOSITION        (0x1F << 14)
 
 /* Leading byte of a character.
 
@@ -767,24 +674,12 @@ CHAR_LEADING_BYTE (Emchar c)
     return LEADING_BYTE_ASCII;
   else if (c < 0xA0)
     return LEADING_BYTE_CONTROL_1;
-  else if (c <= 0xff)
-    return LEADING_BYTE_LATIN_ISO8859_1;
-  else if (c <= MAX_CHAR_GREEK)
-    return LEADING_BYTE_GREEK_ISO8859_7;
-  else if (c <= MAX_CHAR_CYRILLIC)
-    return LEADING_BYTE_CYRILLIC_ISO8859_5;
-  else if (c <= MAX_CHAR_HEBREW)
-    return LEADING_BYTE_HEBREW_ISO8859_8;
-  else if (c <= MAX_CHAR_THAI)
-    return LEADING_BYTE_THAI_TIS620;
-  else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
-    return LEADING_BYTE_KATAKANA_JISX0201;
-  else if (c < MIN_CHAR_PRIVATE_TYPE9NX9N)
-    return CHAR_FIELD2 (c) + FIELD2_TO_OFFICIAL_LEADING_BYTE;
   else if (c < MIN_CHAR_OFFICIAL_TYPE9NX9N)
-    return CHAR_FIELD1 (c) + FIELD1_TO_PRIVATE_LEADING_BYTE;
-  else if (c < MIN_CHAR_COMPOSITION)
+    return CHAR_FIELD2 (c) + FIELD2_TO_OFFICIAL_LEADING_BYTE;
+  else if (c < MIN_CHAR_PRIVATE_TYPE9NX9N)
     return CHAR_FIELD1 (c) + FIELD1_TO_OFFICIAL_LEADING_BYTE;
+  else if (c < MIN_CHAR_COMPOSITION)
+    return CHAR_FIELD1 (c) + FIELD1_TO_PRIVATE_LEADING_BYTE;
   else
     {
 #ifdef ENABLE_COMPOSITE_CHARS
@@ -814,37 +709,19 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return c1;
   else if (EQ (charset, Vcharset_control_1))
     return c1 | 0x80;
-  else if (EQ (charset, Vcharset_latin_iso8859_1))
-    return c1 | 0x80;
-  else if (EQ (charset, Vcharset_greek_iso8859_7))
-    return c1 + MIN_CHAR_GREEK - 0x20;
-  else if (EQ (charset, Vcharset_cyrillic_iso8859_5))
-    return c1 + MIN_CHAR_CYRILLIC - 0x20;
-  else if (EQ (charset, Vcharset_hebrew_iso8859_8))
-    return c1 + MIN_CHAR_HEBREW - 0x20;
-  else if (EQ (charset, Vcharset_thai_tis620))
-    return c1 + MIN_CHAR_THAI - 0x20;
-  else if (EQ (charset, Vcharset_katakana_jisx0201))
-    if (c1 < 0x60)
-      return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
-    else
-      return 32;
 #ifdef ENABLE_COMPOSITE_CHARS
   else if (EQ (charset, Vcharset_composite))
     return (0x1F << 14) | ((c1) << 7) | (c2);
 #endif
   else if (XCHARSET_DIMENSION (charset) == 1)
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | (c1);
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | (c1);
   else if (!XCHARSET_PRIVATE_P (charset))
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
   else
-    return MULE_CHAR_PRIVATE_OFFSET
-      | ((XCHARSET_LEADING_BYTE (charset) -
-	  FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
+    return ((XCHARSET_LEADING_BYTE (charset) -
+	     FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | ((c1) << 7) | (c2);
 }
 
 /* The charset of character C is set to CHARSET, and the
