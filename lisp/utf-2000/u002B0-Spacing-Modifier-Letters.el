@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "MODIFIER LETTER SMALL H")
     (general-category	letter modifier) ; Informative Category
@@ -98,7 +98,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x02BC)	; Ê¼
-    (greek-iso8859-7	. #xA2)	; øº’»¢
+    (greek-iso8859-7	. #xA2)	; &I-GREEK-22;
     ))
 (define-char
   '((name		. "MODIFIER LETTER REVERSED COMMA")
@@ -106,7 +106,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x02BD)	; Ê½
-    (greek-iso8859-7	. #xA1)	; øº’»¡
+    (greek-iso8859-7	. #xA1)	; &I-GREEK-21;
     ))
 (define-char
   '((name		. "MODIFIER LETTER RIGHT HALF RING")
@@ -170,7 +170,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x02C6)	; Ë†
-    (=big5-eten		. #xC6D9)	; ý¢€Œ›™
+    (=big5-eten		. #xC6D9)	; &B-C6D9;
     ))
 (define-char
   '((name		. "CARON")
@@ -180,15 +180,15 @@
     (iso-10646-comment	. "Mandarin Chinese third tone")
     (->fullwidth
      ((name		  . "fullwidth caron")
-      (=gb2312		  . #x2126)	; ø»„†‰
-      (=ks-x1001	  . #x2227)	; ø»ˆ›°
-      (=jis-x0212	  . #x2230)	; ø»Š¥½
-      (=cns11643-1	  . #x256F)	; ø»‘‰¢
-      (=jis-x0213-1-2000  . #x2A31)	; ø»¢ š
+      (=gb2312		  . #x2126)	; &JX1-2A31; [01-06]
+      (=ks-x1001	  . #x2227)	; &I-K0-2227; [02-07]
+      (=jis-x0212	  . #x2230)	; &I-JSP-2230; [02-16]
+      (=cns11643-1	  . #x256F)	; &I-C1-256F; [05-79]
+      (=jis-x0213-1-2000  . #x2A31)	; &I-JX1-2A31; [10-17]
       ))
     (=ucs		. #x02C7)	; Ë‡
-    (latin-iso8859-2	. #xB7)	; øº’µ·
-    (latin-iso8859-4	. #xB7)	; øº’¸·
+    (latin-iso8859-2	. #xB7)	; &I-LATIN2-37;
+    (latin-iso8859-4	. #xB7)	; &I-LATIN4-37;
     ))
 (define-char
   '((name		. "fullwidth caron")
@@ -202,14 +202,14 @@
      ((name		  . "CARON")
       (=ucs		  . #x02C7)	; Ë‡
       ))
-    (=gb2312		. #x2126)	; ø»„†‰
-    (=ks-x1001		. #x2227)	; ø»ˆ›°
-    (=jis-x0212		. #x2230)	; ø»Š¥½
-    (=cns11643-1	. #x256F)	; ø»‘‰¢
-    (=jis-x0213-1-2000	. #x2A31)	; ø»¢ š
-    (=big5		. #xA3BE)	; ý¢€ŠŽ¾
-    (=jef-china3	. #x81AB)	; øºˆ†«
-    (=ucs@jis		. #x02C7)	; ø»„†‰
+    (=gb2312		. #x2126)	; &JX1-2A31; [01-06]
+    (=ks-x1001		. #x2227)	; &I-K0-2227; [02-07]
+    (=jis-x0212		. #x2230)	; &I-JSP-2230; [02-16]
+    (=cns11643-1	. #x256F)	; &I-C1-256F; [05-79]
+    (=jis-x0213-1-2000	. #x2A31)	; &I-JX1-2A31; [10-17]
+    (=big5		. #xA3BE)	; &I-B-A3BE;
+    (=jef-china3	. #x81AB)	; &I-JC3-81AB;
+    (=ucs@jis		. #x02C7)	; &JX1-2A31;
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -218,10 +218,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter vertical line")
-      (=jis-x0213-1-2000  . #x2B53)	; ø»¢¢š
+      (=jis-x0213-1-2000  . #x2B53)	; &JX1-2B53; [11-51]
       ))
     (=ucs		. #x02C8)	; Ëˆ
-    (ipa		. #xF0)	; øº’›°
+    (ipa		. #xF0)	; &I-MULE-IPA-70;
     ))
 (define-char
   '((name		. "fullwidth modifier letter vertical line")
@@ -234,8 +234,8 @@
      ((name		  . "MODIFIER LETTER VERTICAL LINE")
       (=ucs		  . #x02C8)	; Ëˆ
       ))
-    (=jis-x0213-1-2000	. #x2B53)	; ø»¢¢š
-    (=ucs@jis		. #x02C8)	; ø»¢¢š
+    (=jis-x0213-1-2000	. #x2B53)	; &JX1-2B53; [11-51]
+    (=ucs@jis		. #x02C8)	; &JX1-2B53;
     ))
 (define-char
   '((name		. "MODIFIER LETTER MACRON")
@@ -245,7 +245,7 @@
     (iso-10646-comment	. "Mandarin Chinese first tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter macron")
-      (=gb2312		  . #x2125)	; ø»„†ˆ
+      (=gb2312		  . #x2125)	; &I-C1-256D; [01-05]
       ))
     (=ucs		. #x02C9)	; Ë‰
     ))
@@ -261,9 +261,9 @@
      ((name		  . "MODIFIER LETTER MACRON")
       (=ucs		  . #x02C9)	; Ë‰
       ))
-    (=gb2312		. #x2125)	; ø»„†ˆ
-    (=cns11643-1	. #x256D)	; ø»‘‰ 
-    (=big5		. #xA3BC)	; ý¢€ŠŽ¼
+    (=gb2312		. #x2125)	; &I-C1-256D; [01-05]
+    (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
+    (=big5		. #xA3BC)	; &I-B-A3BC;
     ))
 (define-char
   '((name		. "MODIFIER LETTER ACUTE ACCENT")
@@ -273,8 +273,8 @@
     (iso-10646-comment	. "Mandarin Chinese second tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter acute accent")
-      (=cns11643-1	  . #x256E)	; ø»‘‰¡
-      (=big5		  . #xA3BD)	; ý¢€ŠŽ½
+      (=cns11643-1	  . #x256E)	; &C1-256E; [05-78]
+      (=big5		  . #xA3BD)	; &I-B-A3BD;
       ))
     (=ucs		. #x02CA)	; ËŠ
     ))
@@ -290,8 +290,8 @@
      ((name		  . "MODIFIER LETTER ACUTE ACCENT")
       (=ucs		  . #x02CA)	; ËŠ
       ))
-    (=cns11643-1	. #x256E)	; ø»‘‰¡
-    (=big5		. #xA3BD)	; ý¢€ŠŽ½
+    (=cns11643-1	. #x256E)	; &C1-256E; [05-78]
+    (=big5		. #xA3BD)	; &I-B-A3BD;
     ))
 (define-char
   '((name		. "MODIFIER LETTER GRAVE ACCENT")
@@ -301,8 +301,8 @@
     (iso-10646-comment	. "Mandarin Chinese fourth tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter grave accent")
-      (=cns11643-1	  . #x2570)	; ø»‘‰£
-      (=big5		  . #xA3BF)	; ý¢€ŠŽ¿
+      (=cns11643-1	  . #x2570)	; &C1-2570; [05-80]
+      (=big5		  . #xA3BF)	; &I-B-A3BF;
       ))
     (=ucs		. #x02CB)	; Ë‹
     ))
@@ -318,8 +318,8 @@
      ((name		  . "MODIFIER LETTER GRAVE ACCENT")
       (=ucs		  . #x02CB)	; Ë‹
       ))
-    (=cns11643-1	. #x2570)	; ø»‘‰£
-    (=big5		. #xA3BF)	; ý¢€ŠŽ¿
+    (=cns11643-1	. #x2570)	; &C1-2570; [05-80]
+    (=big5		. #xA3BF)	; &I-B-A3BF;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW VERTICAL LINE")
@@ -328,10 +328,10 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth modifier letter low vertical line")
-      (=jis-x0213-1-2000  . #x2B54)	; ø»¢¢›
+      (=jis-x0213-1-2000  . #x2B54)	; &JX1-2B54; [11-52]
       ))
     (=ucs		. #x02CC)	; ËŒ
-    (ipa		. #xF1)	; øº’›±
+    (ipa		. #xF1)	; &I-MULE-IPA-71;
     ))
 (define-char
   '((name		. "fullwidth modifier letter low vertical line")
@@ -343,8 +343,8 @@
      ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
       (=ucs		  . #x02CC)	; ËŒ
       ))
-    (=jis-x0213-1-2000	. #x2B54)	; ø»¢¢›
-    (=ucs@jis		. #x02CC)	; ø»¢¢›
+    (=jis-x0213-1-2000	. #x2B54)	; &JX1-2B54; [11-52]
+    (=ucs@jis		. #x02CC)	; &JX1-2B54;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW MACRON")
@@ -374,11 +374,11 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter triangular colon")
-      (=ks-x1001	  . #x2230)	; ø»ˆ›¹
-      (=jis-x0213-1-2000  . #x2B55)	; ø»¢¢œ
+      (=ks-x1001	  . #x2230)	; &JX1-2B55; [02-16]
+      (=jis-x0213-1-2000  . #x2B55)	; &I-JX1-2B55; [11-53]
       ))
     (=ucs		. #x02D0)	; Ë
-    (ipa		. #xF2)	; øº’›²
+    (ipa		. #xF2)	; &I-MULE-IPA-72;
     ))
 (define-char
   '((name		. "fullwidth modifier letter triangular colon")
@@ -391,9 +391,9 @@
      ((name		  . "MODIFIER LETTER TRIANGULAR COLON")
       (=ucs		  . #x02D0)	; Ë
       ))
-    (=ks-x1001		. #x2230)	; ø»ˆ›¹
-    (=jis-x0213-1-2000	. #x2B55)	; ø»¢¢œ
-    (=ucs@jis		. #x02D0)	; ø»ˆ›¹
+    (=ks-x1001		. #x2230)	; &JX1-2B55; [02-16]
+    (=jis-x0213-1-2000	. #x2B55)	; &I-JX1-2B55; [11-53]
+    (=ucs@jis		. #x02D0)	; &JX1-2B55;
     ))
 (define-char
   '((name		. "MODIFIER LETTER HALF TRIANGULAR COLON")
@@ -402,7 +402,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth modifier letter half triangular colon")
-      (=jis-x0213-1-2000  . #x2B56)	; ø»¢¢
+      (=jis-x0213-1-2000  . #x2B56)	; &JX1-2B56; [11-54]
       ))
     (=ucs		. #x02D1)	; Ë‘
     ))
@@ -417,8 +417,8 @@
      ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
       (=ucs		  . #x02D1)	; Ë‘
       ))
-    (=jis-x0213-1-2000	. #x2B56)	; ø»¢¢
-    (=ucs@jis		. #x02D1)	; ø»¢¢
+    (=jis-x0213-1-2000	. #x2B56)	; &JX1-2B56; [11-54]
+    (=ucs@jis		. #x02D1)	; &JX1-2B56;
     ))
 (define-char
   '((name		. "MODIFIER LETTER CENTRED RIGHT HALF RING")
@@ -470,13 +470,13 @@
     (->decomposition	compat #x0020 #x0306)
     (->fullwidth
      ((name		  . "fullwidth breve")
-      (=ks-x1001	  . #x2228)	; ø»ˆ›±
-      (=jis-x0212	  . #x222F)	; ø»Š¥¼
-      (=jis-x0213-1-2000  . #x2A22)	; ø»¢ ‹
+      (=ks-x1001	  . #x2228)	; &JX1-2A22; [02-08]
+      (=jis-x0212	  . #x222F)	; &I-JSP-222F; [02-15]
+      (=jis-x0213-1-2000  . #x2A22)	; &I-JX1-2A22; [10-02]
       ))
     (=ucs		. #x02D8)	; Ë˜
-    (latin-iso8859-2	. #xA2)	; øº’µ¢
-    (latin-iso8859-3	. #xA2)	; øº’·‚
+    (latin-iso8859-2	. #xA2)	; &I-LATIN2-22;
+    (latin-iso8859-3	. #xA2)	; &I-LATIN3-22;
     ))
 (define-char
   '((name		. "fullwidth breve")
@@ -489,11 +489,11 @@
      ((name		  . "BREVE")
       (=ucs		  . #x02D8)	; Ë˜
       ))
-    (=ks-x1001		. #x2228)	; ø»ˆ›±
-    (=jis-x0212		. #x222F)	; ø»Š¥¼
-    (=jis-x0213-1-2000	. #x2A22)	; ø»¢ ‹
-    (=jef-china3	. #x81A8)	; øºˆ†¨
-    (=ucs@jis		. #x02D8)	; ø»ˆ›±
+    (=ks-x1001		. #x2228)	; &JX1-2A22; [02-08]
+    (=jis-x0212		. #x222F)	; &I-JSP-222F; [02-15]
+    (=jis-x0213-1-2000	. #x2A22)	; &I-JX1-2A22; [10-02]
+    (=jef-china3	. #x81A8)	; &I-JC3-81A8;
+    (=ucs@jis		. #x02D8)	; &JX1-2A22;
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -504,15 +504,15 @@
     (->decomposition	compat #x0020 #x0307)
     (->fullwidth
      ((name		  . "fullwidth dot above")
-      (=ks-x1001	  . #x222B)	; ø»ˆ›´
-      (=jis-x0212	  . #x2232)	; ø»Š¥¿
-      (=cns11643-1	  . #x256C)	; ø»‘‰Ÿ
-      (=jis-x0213-1-2000  . #x2A58)	; ø»¢¡
+      (=ks-x1001	  . #x222B)	; &JX1-2A58; [02-11]
+      (=jis-x0212	  . #x2232)	; &I-JSP-2232; [02-18]
+      (=cns11643-1	  . #x256C)	; &I-C1-256C; [05-76]
+      (=jis-x0213-1-2000  . #x2A58)	; &I-JX1-2A58; [10-56]
       ))
     (=ucs		. #x02D9)	; Ë™
-    (latin-iso8859-2	. #xFF)	; øº’¶¿
-    (latin-iso8859-3	. #xFF)	; øº’¸Ÿ
-    (latin-iso8859-4	. #xFF)	; øº’¹¿
+    (latin-iso8859-2	. #xFF)	; &I-LATIN2-7F;
+    (latin-iso8859-3	. #xFF)	; &I-LATIN3-7F;
+    (latin-iso8859-4	. #xFF)	; &I-LATIN4-7F;
     ))
 (define-char
   '((name		. "fullwidth dot above")
@@ -526,13 +526,13 @@
      ((name		  . "DOT ABOVE")
       (=ucs		  . #x02D9)	; Ë™
       ))
-    (=ks-x1001		. #x222B)	; ø»ˆ›´
-    (=jis-x0212		. #x2232)	; ø»Š¥¿
-    (=cns11643-1	. #x256C)	; ø»‘‰Ÿ
-    (=jis-x0213-1-2000	. #x2A58)	; ø»¢¡
-    (=big5		. #xA3BB)	; ý¢€ŠŽ»
-    (=jef-china3	. #x81A9)	; øºˆ†©
-    (=ucs@jis		. #x02D9)	; ø»ˆ›´
+    (=ks-x1001		. #x222B)	; &JX1-2A58; [02-11]
+    (=jis-x0212		. #x2232)	; &I-JSP-2232; [02-18]
+    (=cns11643-1	. #x256C)	; &I-C1-256C; [05-76]
+    (=jis-x0213-1-2000	. #x2A58)	; &I-JX1-2A58; [10-56]
+    (=big5		. #xA3BB)	; &I-B-A3BB;
+    (=jef-china3	. #x81A9)	; &I-JC3-81A9;
+    (=ucs@jis		. #x02D9)	; &JX1-2A58;
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -542,9 +542,9 @@
     (->decomposition	compat #x0020 #x030A)
     (->fullwidth
      ((name		  . "fullwidth ring above")
-      (=ks-x1001	  . #x222A)	; ø»ˆ›³
-      (=jis-x0212	  . #x2236)	; ø»Š¦ƒ
-      (=jef-china3	  . #x81AC)	; øºˆ†¬
+      (=ks-x1001	  . #x222A)	; &JSP-2236; [02-10]
+      (=jis-x0212	  . #x2236)	; &I-JSP-2236; [02-22]
+      (=jef-china3	  . #x81AC)	; &I-JC3-81AC;
       ))
     (=ucs		. #x02DA)	; Ëš
     ))
@@ -559,10 +559,10 @@
      ((name		  . "RING ABOVE")
       (=ucs		  . #x02DA)	; Ëš
       ))
-    (=ks-x1001		. #x222A)	; ø»ˆ›³
-    (=jis-x0212		. #x2236)	; ø»Š¦ƒ
-    (=jef-china3	. #x81AC)	; øºˆ†¬
-    (=ucs@jis		. #x02DA)	; ø»ˆ›³
+    (=ks-x1001		. #x222A)	; &JSP-2236; [02-10]
+    (=jis-x0212		. #x2236)	; &I-JSP-2236; [02-22]
+    (=jef-china3	. #x81AC)	; &I-JC3-81AC;
+    (=ucs@jis		. #x02DA)	; &JSP-2236;
     ))
 (define-char
   '((name		. "OGONEK")
@@ -572,13 +572,13 @@
     (->decomposition	compat #x0020 #x0328)
     (->fullwidth
      ((name		  . "fullwidth ogonek")
-      (=ks-x1001	  . #x222D)	; ø»ˆ›¶
-      (=jis-x0212	  . #x2235)	; ø»Š¦‚
-      (=jis-x0213-1-2000  . #x2A2D)	; ø»¢ –
+      (=ks-x1001	  . #x222D)	; &JX1-2A2D; [02-13]
+      (=jis-x0212	  . #x2235)	; &I-JSP-2235; [02-21]
+      (=jis-x0213-1-2000  . #x2A2D)	; &I-JX1-2A2D; [10-13]
       ))
     (=ucs		. #x02DB)	; Ë›
-    (latin-iso8859-2	. #xB2)	; øº’µ²
-    (latin-iso8859-4	. #xB2)	; øº’¸²
+    (latin-iso8859-2	. #xB2)	; &I-LATIN2-32;
+    (latin-iso8859-4	. #xB2)	; &I-LATIN4-32;
     ))
 (define-char
   '((name		. "fullwidth ogonek")
@@ -590,11 +590,11 @@
      ((name		  . "OGONEK")
       (=ucs		  . #x02DB)	; Ë›
       ))
-    (=ks-x1001		. #x222D)	; ø»ˆ›¶
-    (=jis-x0212		. #x2235)	; ø»Š¦‚
-    (=jis-x0213-1-2000	. #x2A2D)	; ø»¢ –
-    (=jef-china3	. #x81B3)	; øºˆ†³
-    (=ucs@jis		. #x02DB)	; ø»ˆ›¶
+    (=ks-x1001		. #x222D)	; &JX1-2A2D; [02-13]
+    (=jis-x0212		. #x2235)	; &I-JSP-2235; [02-21]
+    (=jis-x0213-1-2000	. #x2A2D)	; &I-JX1-2A2D; [10-13]
+    (=jef-china3	. #x81B3)	; &I-JC3-81B3;
+    (=ucs@jis		. #x02DB)	; &JX1-2A2D;
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -612,12 +612,12 @@
     (->decomposition	compat #x0020 #x030B)
     (->fullwidth
      ((name		  . "fullwidth double acute accent")
-      (=ks-x1001	  . #x2229)	; ø»ˆ›²
-      (=jis-x0212	  . #x2233)	; ø»Š¦€
-      (=jis-x0213-1-2000  . #x2A36)	; ø»¢ Ÿ
+      (=ks-x1001	  . #x2229)	; &JX1-2A36; [02-09]
+      (=jis-x0212	  . #x2233)	; &I-JSP-2233; [02-19]
+      (=jis-x0213-1-2000  . #x2A36)	; &I-JX1-2A36; [10-22]
       ))
     (=ucs		. #x02DD)	; Ë
-    (latin-iso8859-2	. #xBD)	; øº’µ½
+    (latin-iso8859-2	. #xBD)	; &I-LATIN2-3D;
     ))
 (define-char
   '((name		. "fullwidth double acute accent")
@@ -630,11 +630,11 @@
      ((name		  . "DOUBLE ACUTE ACCENT")
       (=ucs		  . #x02DD)	; Ë
       ))
-    (=ks-x1001		. #x2229)	; ø»ˆ›²
-    (=jis-x0212		. #x2233)	; ø»Š¦€
-    (=jis-x0213-1-2000	. #x2A36)	; ø»¢ Ÿ
-    (=jef-china3	. #x81B0)	; øºˆ†°
-    (=ucs@jis		. #x02DD)	; ø»ˆ›²
+    (=ks-x1001		. #x2229)	; &JX1-2A36; [02-09]
+    (=jis-x0212		. #x2233)	; &I-JSP-2233; [02-19]
+    (=jis-x0213-1-2000	. #x2A36)	; &I-JX1-2A36; [10-22]
+    (=jef-china3	. #x81B0)	; &I-JC3-81B0;
+    (=ucs@jis		. #x02DD)	; &JX1-2A36;
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")
@@ -643,7 +643,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter rhotic hook")
-      (=jis-x0213-1-2000  . #x2B71)	; ø»¢¢¸
+      (=jis-x0213-1-2000  . #x2B71)	; &JX1-2B71; [11-81]
       ))
     (=ucs		. #x02DE)	; Ëž
     ))
@@ -658,8 +658,8 @@
      ((name		  . "MODIFIER LETTER RHOTIC HOOK")
       (=ucs		  . #x02DE)	; Ëž
       ))
-    (=jis-x0213-1-2000	. #x2B71)	; ø»¢¢¸
-    (=ucs@jis		. #x02DE)	; ø»¢¢¸
+    (=jis-x0213-1-2000	. #x2B71)	; &JX1-2B71; [11-81]
+    (=ucs@jis		. #x02DE)	; &JX1-2B71;
     ))
 (define-char
   '((name		. "MODIFIER LETTER CROSS ACCENT")
@@ -715,7 +715,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth modifier letter extra-high tone bar")
-      (=jis-x0213-1-2000  . #x2B60)	; ø»¢¢§
+      (=jis-x0213-1-2000  . #x2B60)	; &JX1-2B60; [11-64]
       ))
     (=ucs		. #x02E5)	; Ë¥
     ))
@@ -730,8 +730,8 @@
      ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
       (=ucs		  . #x02E5)	; Ë¥
       ))
-    (=jis-x0213-1-2000	. #x2B60)	; ø»¢¢§
-    (=ucs@jis		. #x02E5)	; ø»¢¢§
+    (=jis-x0213-1-2000	. #x2B60)	; &JX1-2B60; [11-64]
+    (=ucs@jis		. #x02E5)	; &JX1-2B60;
     ))
 (define-char
   '((name		. "MODIFIER LETTER HIGH TONE BAR")
@@ -740,7 +740,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter high tone bar")
-      (=jis-x0213-1-2000  . #x2B61)	; ø»¢¢¨
+      (=jis-x0213-1-2000  . #x2B61)	; &JX1-2B61; [11-65]
       ))
     (=ucs		. #x02E6)	; Ë¦
     ))
@@ -755,8 +755,8 @@
      ((name		  . "MODIFIER LETTER HIGH TONE BAR")
       (=ucs		  . #x02E6)	; Ë¦
       ))
-    (=jis-x0213-1-2000	. #x2B61)	; ø»¢¢¨
-    (=ucs@jis		. #x02E6)	; ø»¢¢¨
+    (=jis-x0213-1-2000	. #x2B61)	; &JX1-2B61; [11-65]
+    (=ucs@jis		. #x02E6)	; &JX1-2B61;
     ))
 (define-char
   '((name		. "MODIFIER LETTER MID TONE BAR")
@@ -765,7 +765,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter mid tone bar")
-      (=jis-x0213-1-2000  . #x2B62)	; ø»¢¢©
+      (=jis-x0213-1-2000  . #x2B62)	; &JX1-2B62; [11-66]
       ))
     (=ucs		. #x02E7)	; Ë§
     ))
@@ -780,8 +780,8 @@
      ((name		  . "MODIFIER LETTER MID TONE BAR")
       (=ucs		  . #x02E7)	; Ë§
       ))
-    (=jis-x0213-1-2000	. #x2B62)	; ø»¢¢©
-    (=ucs@jis		. #x02E7)	; ø»¢¢©
+    (=jis-x0213-1-2000	. #x2B62)	; &JX1-2B62; [11-66]
+    (=ucs@jis		. #x02E7)	; &JX1-2B62;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW TONE BAR")
@@ -790,7 +790,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth modifier letter low tone bar")
-      (=jis-x0213-1-2000  . #x2B63)	; ø»¢¢ª
+      (=jis-x0213-1-2000  . #x2B63)	; &JX1-2B63; [11-67]
       ))
     (=ucs		. #x02E8)	; Ë¨
     ))
@@ -805,8 +805,8 @@
      ((name		  . "MODIFIER LETTER LOW TONE BAR")
       (=ucs		  . #x02E8)	; Ë¨
       ))
-    (=jis-x0213-1-2000	. #x2B63)	; ø»¢¢ª
-    (=ucs@jis		. #x02E8)	; ø»¢¢ª
+    (=jis-x0213-1-2000	. #x2B63)	; &JX1-2B63; [11-67]
+    (=ucs@jis		. #x02E8)	; &JX1-2B63;
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-LOW TONE BAR")
@@ -815,7 +815,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name . "fullwidth modifier letter extra-low tone bar")
-      (=jis-x0213-1-2000  . #x2B64)	; ø»¢¢«
+      (=jis-x0213-1-2000  . #x2B64)	; &JX1-2B64; [11-68]
       ))
     (=ucs		. #x02E9)	; Ë©
     ))
@@ -830,8 +830,8 @@
      ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")
       (=ucs		  . #x02E9)	; Ë©
       ))
-    (=jis-x0213-1-2000	. #x2B64)	; ø»¢¢«
-    (=ucs@jis		. #x02E9)	; ø»¢¢«
+    (=jis-x0213-1-2000	. #x2B64)	; &JX1-2B64; [11-68]
+    (=ucs@jis		. #x02E9)	; &JX1-2B64;
     ))
 (define-char
   '((name		. "MODIFIER LETTER YIN DEPARTING TONE MARK")

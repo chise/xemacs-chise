@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "PARENTHESIZED HANGUL KIYEOK")
     (general-category	symbol other) ; Informative Category
@@ -6,7 +6,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x0029)
     (=ucs		. #x3200)	; ãˆ€
-    (=ks-x1001		. #x2931)	; ø»ˆ¦Œ
+    (=ks-x1001		. #x2931)	; &I-K0-2931; [09-17]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL NIEUN")
@@ -15,7 +15,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x0029)
     (=ucs		. #x3201)	; ãˆ
-    (=ks-x1001		. #x2932)	; ø»ˆ¦
+    (=ks-x1001		. #x2932)	; &I-K0-2932; [09-18]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL TIKEUT")
@@ -24,7 +24,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x0029)
     (=ucs		. #x3202)	; ãˆ‚
-    (=ks-x1001		. #x2933)	; ø»ˆ¦Ž
+    (=ks-x1001		. #x2933)	; &I-K0-2933; [09-19]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL RIEUL")
@@ -33,7 +33,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x0029)
     (=ucs		. #x3203)	; ãˆƒ
-    (=ks-x1001		. #x2934)	; ø»ˆ¦
+    (=ks-x1001		. #x2934)	; &I-K0-2934; [09-20]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL MIEUM")
@@ -42,7 +42,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x0029)
     (=ucs		. #x3204)	; ãˆ„
-    (=ks-x1001		. #x2935)	; ø»ˆ¦
+    (=ks-x1001		. #x2935)	; &I-K0-2935; [09-21]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PIEUP")
@@ -51,7 +51,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x0029)
     (=ucs		. #x3205)	; ãˆ…
-    (=ks-x1001		. #x2936)	; ø»ˆ¦‘
+    (=ks-x1001		. #x2936)	; &I-K0-2936; [09-22]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL SIOS")
@@ -60,7 +60,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x0029)
     (=ucs		. #x3206)	; ãˆ†
-    (=ks-x1001		. #x2937)	; ø»ˆ¦’
+    (=ks-x1001		. #x2937)	; &I-K0-2937; [09-23]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL IEUNG")
@@ -69,7 +69,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x0029)
     (=ucs		. #x3207)	; ãˆ‡
-    (=ks-x1001		. #x2938)	; ø»ˆ¦“
+    (=ks-x1001		. #x2938)	; &I-K0-2938; [09-24]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC")
@@ -78,7 +78,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x0029)
     (=ucs		. #x3208)	; ãˆˆ
-    (=ks-x1001		. #x2939)	; ø»ˆ¦”
+    (=ks-x1001		. #x2939)	; &I-K0-2939; [09-25]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CHIEUCH")
@@ -87,7 +87,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x0029)
     (=ucs		. #x3209)	; ãˆ‰
-    (=ks-x1001		. #x293A)	; ø»ˆ¦•
+    (=ks-x1001		. #x293A)	; &I-K0-293A; [09-26]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KHIEUKH")
@@ -96,7 +96,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x0029)
     (=ucs		. #x320A)	; ãˆŠ
-    (=ks-x1001		. #x293B)	; ø»ˆ¦–
+    (=ks-x1001		. #x293B)	; &I-K0-293B; [09-27]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL THIEUTH")
@@ -105,7 +105,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x0029)
     (=ucs		. #x320B)	; ãˆ‹
-    (=ks-x1001		. #x293C)	; ø»ˆ¦—
+    (=ks-x1001		. #x293C)	; &I-K0-293C; [09-28]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PHIEUPH")
@@ -114,7 +114,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x0029)
     (=ucs		. #x320C)	; ãˆŒ
-    (=ks-x1001		. #x293D)	; ø»ˆ¦˜
+    (=ks-x1001		. #x293D)	; &I-K0-293D; [09-29]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL HIEUH")
@@ -123,7 +123,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x0029)
     (=ucs		. #x320D)	; ãˆ
-    (=ks-x1001		. #x293E)	; ø»ˆ¦™
+    (=ks-x1001		. #x293E)	; &I-K0-293E; [09-30]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KIYEOK A")
@@ -132,7 +132,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1100 #x1161 #x0029)
     (=ucs		. #x320E)	; ãˆŽ
-    (=ks-x1001		. #x293F)	; ø»ˆ¦š
+    (=ks-x1001		. #x293F)	; &I-K0-293F; [09-31]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL NIEUN A")
@@ -141,7 +141,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1102 #x1161 #x0029)
     (=ucs		. #x320F)	; ãˆ
-    (=ks-x1001		. #x2940)	; ø»ˆ¦›
+    (=ks-x1001		. #x2940)	; &I-K0-2940; [09-32]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL TIKEUT A")
@@ -150,7 +150,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1103 #x1161 #x0029)
     (=ucs		. #x3210)	; ãˆ
-    (=ks-x1001		. #x2941)	; ø»ˆ¦œ
+    (=ks-x1001		. #x2941)	; &I-K0-2941; [09-33]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL RIEUL A")
@@ -159,7 +159,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1105 #x1161 #x0029)
     (=ucs		. #x3211)	; ãˆ‘
-    (=ks-x1001		. #x2942)	; ø»ˆ¦
+    (=ks-x1001		. #x2942)	; &I-K0-2942; [09-34]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL MIEUM A")
@@ -168,7 +168,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1106 #x1161 #x0029)
     (=ucs		. #x3212)	; ãˆ’
-    (=ks-x1001		. #x2943)	; ø»ˆ¦ž
+    (=ks-x1001		. #x2943)	; &I-K0-2943; [09-35]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PIEUP A")
@@ -177,7 +177,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1107 #x1161 #x0029)
     (=ucs		. #x3213)	; ãˆ“
-    (=ks-x1001		. #x2944)	; ø»ˆ¦Ÿ
+    (=ks-x1001		. #x2944)	; &I-K0-2944; [09-36]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL SIOS A")
@@ -186,7 +186,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1109 #x1161 #x0029)
     (=ucs		. #x3214)	; ãˆ”
-    (=ks-x1001		. #x2945)	; ø»ˆ¦ 
+    (=ks-x1001		. #x2945)	; &I-K0-2945; [09-37]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL IEUNG A")
@@ -195,7 +195,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110B #x1161 #x0029)
     (=ucs		. #x3215)	; ãˆ•
-    (=ks-x1001		. #x2946)	; ø»ˆ¦¡
+    (=ks-x1001		. #x2946)	; &I-K0-2946; [09-38]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC A")
@@ -204,7 +204,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x1161 #x0029)
     (=ucs		. #x3216)	; ãˆ–
-    (=ks-x1001		. #x2947)	; ø»ˆ¦¢
+    (=ks-x1001		. #x2947)	; &I-K0-2947; [09-39]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CHIEUCH A")
@@ -213,7 +213,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110E #x1161 #x0029)
     (=ucs		. #x3217)	; ãˆ—
-    (=ks-x1001		. #x2948)	; ø»ˆ¦£
+    (=ks-x1001		. #x2948)	; &I-K0-2948; [09-40]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL KHIEUKH A")
@@ -222,7 +222,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110F #x1161 #x0029)
     (=ucs		. #x3218)	; ãˆ˜
-    (=ks-x1001		. #x2949)	; ø»ˆ¦¤
+    (=ks-x1001		. #x2949)	; &I-K0-2949; [09-41]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL THIEUTH A")
@@ -231,7 +231,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1110 #x1161 #x0029)
     (=ucs		. #x3219)	; ãˆ™
-    (=ks-x1001		. #x294A)	; ø»ˆ¦¥
+    (=ks-x1001		. #x294A)	; &I-K0-294A; [09-42]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL PHIEUPH A")
@@ -240,7 +240,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1111 #x1161 #x0029)
     (=ucs		. #x321A)	; ãˆš
-    (=ks-x1001		. #x294B)	; ø»ˆ¦¦
+    (=ks-x1001		. #x294B)	; &I-K0-294B; [09-43]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL HIEUH A")
@@ -249,7 +249,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x1112 #x1161 #x0029)
     (=ucs		. #x321B)	; ãˆ›
-    (=ks-x1001		. #x294C)	; ø»ˆ¦§
+    (=ks-x1001		. #x294C)	; &I-K0-294C; [09-44]
     ))
 (define-char
   '((name		. "PARENTHESIZED HANGUL CIEUC U")
@@ -258,7 +258,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x110C #x116E #x0029)
     (=ucs		. #x321C)	; ãˆœ
-    (=ks-x1001		. #x225F)	; ø»ˆœ¨
+    (=ks-x1001		. #x225F)	; &I-K0-225F; [02-63]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH ONE")
@@ -267,7 +267,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E00 #x0029)
     (=ucs		. #x3220)	; ãˆ 
-    (=gb2312		. #x2265)	; ø»„ˆ¦
+    (=gb2312		. #x2265)	; &I-G0-2265; [02-69]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH TWO")
@@ -276,7 +276,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E8C #x0029)
     (=ucs		. #x3221)	; ãˆ¡
-    (=gb2312		. #x2266)	; ø»„ˆ§
+    (=gb2312		. #x2266)	; &I-G0-2266; [02-70]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH THREE")
@@ -285,7 +285,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E09 #x0029)
     (=ucs		. #x3222)	; ãˆ¢
-    (=gb2312		. #x2267)	; ø»„ˆ¨
+    (=gb2312		. #x2267)	; &I-G0-2267; [02-71]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FOUR")
@@ -294,7 +294,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x56DB #x0029)
     (=ucs		. #x3223)	; ãˆ£
-    (=gb2312		. #x2268)	; ø»„ˆ©
+    (=gb2312		. #x2268)	; &I-G0-2268; [02-72]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FIVE")
@@ -303,7 +303,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E94 #x0029)
     (=ucs		. #x3224)	; ãˆ¤
-    (=gb2312		. #x2269)	; ø»„ˆª
+    (=gb2312		. #x2269)	; &I-G0-2269; [02-73]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SIX")
@@ -312,7 +312,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516D #x0029)
     (=ucs		. #x3225)	; ãˆ¥
-    (=gb2312		. #x226A)	; ø»„ˆ«
+    (=gb2312		. #x226A)	; &I-G0-226A; [02-74]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SEVEN")
@@ -321,7 +321,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E03 #x0029)
     (=ucs		. #x3226)	; ãˆ¦
-    (=gb2312		. #x226B)	; ø»„ˆ¬
+    (=gb2312		. #x226B)	; &I-G0-226B; [02-75]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH EIGHT")
@@ -330,7 +330,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x516B #x0029)
     (=ucs		. #x3227)	; ãˆ§
-    (=gb2312		. #x226C)	; ø»„ˆ­
+    (=gb2312		. #x226C)	; &I-G0-226C; [02-76]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH NINE")
@@ -339,7 +339,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4E5D #x0029)
     (=ucs		. #x3228)	; ãˆ¨
-    (=gb2312		. #x226D)	; ø»„ˆ®
+    (=gb2312		. #x226D)	; &I-G0-226D; [02-77]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH TEN")
@@ -348,7 +348,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5341 #x0029)
     (=ucs		. #x3229)	; ãˆ©
-    (=gb2312		. #x226E)	; ø»„ˆ¯
+    (=gb2312		. #x226E)	; &I-G0-226E; [02-78]
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH MOON")
@@ -413,9 +413,9 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
     (=ucs		. #x3231)	; ãˆ±
-    (=jis-x0213-1-2000	. #x2D6A)	; ø»¢¥­
-    (=big5-eten		. #xC8D1)	; ý¢€Œ£‘
-    (=jef-china3	. #x78D5)	; øº‡£•
+    (=jis-x0213-1-2000	. #x2D6A)	; &I-JX1-2D6A; [13-74]
+    (=big5-eten		. #xC8D1)	; &B-C8D1;
+    (=jef-china3	. #x78D5)	; &I-JC3-78D5;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH HAVE")
@@ -424,8 +424,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x6709 #x0029)
     (=ucs		. #x3232)	; ãˆ²
-    (=jis-x0213-1-2000	. #x2D6B)	; ø»¢¥®
-    (=jef-china3	. #x78CF)	; øº‡£
+    (=jis-x0213-1-2000	. #x2D6B)	; &I-JX1-2D6B; [13-75]
+    (=jef-china3	. #x78CF)	; &I-JC3-78CF;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SOCIETY")
@@ -434,7 +434,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x793E #x0029)
     (=ucs		. #x3233)	; ãˆ³
-    (=jef-china3	. #x78D0)	; øº‡£
+    (=jef-china3	. #x78D0)	; &I-JC3-78D0;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH NAME")
@@ -443,7 +443,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x540D #x0029)
     (=ucs		. #x3234)	; ãˆ´
-    (=jef-china3	. #x78CD)	; øº‡£
+    (=jef-china3	. #x78CD)	; &I-JC3-78CD;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SPECIAL")
@@ -452,7 +452,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x7279 #x0029)
     (=ucs		. #x3235)	; ãˆµ
-    (=jef-china3	. #x78D6)	; øº‡£–
+    (=jef-china3	. #x78D6)	; &I-JC3-78D6;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FINANCIAL")
@@ -461,7 +461,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x8CA1 #x0029)
     (=ucs		. #x3236)	; ãˆ¶
-    (=jef-china3	. #x78D4)	; øº‡£”
+    (=jef-china3	. #x78D4)	; &I-JC3-78D4;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH CONGRATULATION")
@@ -486,8 +486,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4EE3 #x0029)
     (=ucs		. #x3239)	; ãˆ¹
-    (=jis-x0213-1-2000	. #x2D6C)	; ø»¢¥¯
-    (=jef-china3	. #x78CB)	; øº‡£‹
+    (=jis-x0213-1-2000	. #x2D6C)	; &I-JX1-2D6C; [13-76]
+    (=jef-china3	. #x78CB)	; &I-JC3-78CB;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH CALL")
@@ -496,7 +496,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x547C #x0029)
     (=ucs		. #x323A)	; ãˆº
-    (=jef-china3	. #x78D9)	; øº‡£™
+    (=jef-china3	. #x78D9)	; &I-JC3-78D9;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH STUDY")
@@ -505,7 +505,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5B66 #x0029)
     (=ucs		. #x323B)	; ãˆ»
-    (=jef-china3	. #x78D7)	; øº‡£—
+    (=jef-china3	. #x78D7)	; &I-JC3-78D7;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH SUPERVISE")
@@ -514,7 +514,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x76E3 #x0029)
     (=ucs		. #x323C)	; ãˆ¼
-    (=jef-china3	. #x78D1)	; øº‡£‘
+    (=jef-china3	. #x78D1)	; &I-JC3-78D1;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH ENTERPRISE")
@@ -523,7 +523,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x4F01 #x0029)
     (=ucs		. #x323D)	; ãˆ½
-    (=jef-china3	. #x78CA)	; øº‡£Š
+    (=jef-china3	. #x78CA)	; &I-JC3-78CA;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH RESOURCE")
@@ -532,7 +532,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x8CC7 #x0029)
     (=ucs		. #x323E)	; ãˆ¾
-    (=jef-china3	. #x78D3)	; øº‡£“
+    (=jef-china3	. #x78D3)	; &I-JC3-78D3;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH ALLIANCE")
@@ -541,7 +541,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x5354 #x0029)
     (=ucs		. #x323F)	; ãˆ¿
-    (=jef-china3	. #x78CC)	; øº‡£Œ
+    (=jef-china3	. #x78CC)	; &I-JC3-78CC;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH FESTIVAL")
@@ -550,7 +550,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x796D #x0029)
     (=ucs		. #x3240)	; ã‰€
-    (=jef-china3	. #x78D8)	; øº‡£˜
+    (=jef-china3	. #x78D8)	; &I-JC3-78D8;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH REST")
@@ -567,7 +567,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x81EA #x0029)
     (=ucs		. #x3242)	; ã‰‚
-    (=jef-china3	. #x78D2)	; øº‡£’
+    (=jef-china3	. #x78D2)	; &I-JC3-78D2;
     ))
 (define-char
   '((name		. "PARENTHESIZED IDEOGRAPH REACH")
@@ -576,82 +576,82 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x81F3 #x0029)
     (=ucs		. #x3243)	; ã‰ƒ
-    (=jef-china3	. #x78C9)	; øº‡£‰
+    (=jef-china3	. #x78C9)	; &I-JC3-78C9;
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY ONE")
     (=ucs		. #x3251)	; ã‰‘
-    (=jis-x0213-1-2000	. #x2841)	; ø»¢®
+    (=jis-x0213-1-2000	. #x2841)	; &I-JX1-2841; [08-33]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY TWO")
     (=ucs		. #x3252)	; ã‰’
-    (=jis-x0213-1-2000	. #x2842)	; ø»¢¯
+    (=jis-x0213-1-2000	. #x2842)	; &I-JX1-2842; [08-34]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY THREE")
     (=ucs		. #x3253)	; ã‰“
-    (=jis-x0213-1-2000	. #x2843)	; ø»¢°
+    (=jis-x0213-1-2000	. #x2843)	; &I-JX1-2843; [08-35]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FOUR")
     (=ucs		. #x3254)	; ã‰”
-    (=jis-x0213-1-2000	. #x2844)	; ø»¢±
+    (=jis-x0213-1-2000	. #x2844)	; &I-JX1-2844; [08-36]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY FIVE")
     (=ucs		. #x3255)	; ã‰•
-    (=jis-x0213-1-2000	. #x2845)	; ø»¢²
+    (=jis-x0213-1-2000	. #x2845)	; &I-JX1-2845; [08-37]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SIX")
     (=ucs		. #x3256)	; ã‰–
-    (=jis-x0213-1-2000	. #x2846)	; ø»¢³
+    (=jis-x0213-1-2000	. #x2846)	; &I-JX1-2846; [08-38]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY SEVEN")
     (=ucs		. #x3257)	; ã‰—
-    (=jis-x0213-1-2000	. #x2847)	; ø»¢´
+    (=jis-x0213-1-2000	. #x2847)	; &I-JX1-2847; [08-39]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY EIGHT")
     (=ucs		. #x3258)	; ã‰˜
-    (=jis-x0213-1-2000	. #x2848)	; ø»¢µ
+    (=jis-x0213-1-2000	. #x2848)	; &I-JX1-2848; [08-40]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY NINE")
     (=ucs		. #x3259)	; ã‰™
-    (=jis-x0213-1-2000	. #x2849)	; ø»¢¶
+    (=jis-x0213-1-2000	. #x2849)	; &I-JX1-2849; [08-41]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY")
     (=ucs		. #x325A)	; ã‰š
-    (=jis-x0213-1-2000	. #x284A)	; ø»¢·
+    (=jis-x0213-1-2000	. #x284A)	; &I-JX1-284A; [08-42]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY ONE")
     (=ucs		. #x325B)	; ã‰›
-    (=jis-x0213-1-2000	. #x284B)	; ø»¢¸
+    (=jis-x0213-1-2000	. #x284B)	; &I-JX1-284B; [08-43]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY TWO")
     (=ucs		. #x325C)	; ã‰œ
-    (=jis-x0213-1-2000	. #x284C)	; ø»¢¹
+    (=jis-x0213-1-2000	. #x284C)	; &I-JX1-284C; [08-44]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY THREE")
     (=ucs		. #x325D)	; ã‰
-    (=jis-x0213-1-2000	. #x284D)	; ø»¢º
+    (=jis-x0213-1-2000	. #x284D)	; &I-JX1-284D; [08-45]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FOUR")
     (=ucs		. #x325E)	; ã‰ž
-    (=jis-x0213-1-2000	. #x284E)	; ø»¢»
+    (=jis-x0213-1-2000	. #x284E)	; &I-JX1-284E; [08-46]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY FIVE")
     (=ucs		. #x325F)	; ã‰Ÿ
-    (=jis-x0213-1-2000	. #x284F)	; ø»¢¼
+    (=jis-x0213-1-2000	. #x284F)	; &I-JX1-284F; [08-47]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK")
@@ -660,7 +660,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1100)
     (=ucs		. #x3260)	; ã‰ 
-    (=ks-x1001		. #x2831)	; ø»ˆ¤®
+    (=ks-x1001		. #x2831)	; &I-K0-2831; [08-17]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL NIEUN")
@@ -669,7 +669,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1102)
     (=ucs		. #x3261)	; ã‰¡
-    (=ks-x1001		. #x2832)	; ø»ˆ¤¯
+    (=ks-x1001		. #x2832)	; &I-K0-2832; [08-18]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL TIKEUT")
@@ -678,7 +678,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1103)
     (=ucs		. #x3262)	; ã‰¢
-    (=ks-x1001		. #x2833)	; ø»ˆ¤°
+    (=ks-x1001		. #x2833)	; &I-K0-2833; [08-19]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL RIEUL")
@@ -687,7 +687,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1105)
     (=ucs		. #x3263)	; ã‰£
-    (=ks-x1001		. #x2834)	; ø»ˆ¤±
+    (=ks-x1001		. #x2834)	; &I-K0-2834; [08-20]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL MIEUM")
@@ -696,7 +696,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1106)
     (=ucs		. #x3264)	; ã‰¤
-    (=ks-x1001		. #x2835)	; ø»ˆ¤²
+    (=ks-x1001		. #x2835)	; &I-K0-2835; [08-21]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PIEUP")
@@ -705,7 +705,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1107)
     (=ucs		. #x3265)	; ã‰¥
-    (=ks-x1001		. #x2836)	; ø»ˆ¤³
+    (=ks-x1001		. #x2836)	; &I-K0-2836; [08-22]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL SIOS")
@@ -714,7 +714,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1109)
     (=ucs		. #x3266)	; ã‰¦
-    (=ks-x1001		. #x2837)	; ø»ˆ¤´
+    (=ks-x1001		. #x2837)	; &I-K0-2837; [08-23]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL IEUNG")
@@ -723,7 +723,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110B)
     (=ucs		. #x3267)	; ã‰§
-    (=ks-x1001		. #x2838)	; ø»ˆ¤µ
+    (=ks-x1001		. #x2838)	; &I-K0-2838; [08-24]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CIEUC")
@@ -732,7 +732,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110C)
     (=ucs		. #x3268)	; ã‰¨
-    (=ks-x1001		. #x2839)	; ø»ˆ¤¶
+    (=ks-x1001		. #x2839)	; &I-K0-2839; [08-25]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CHIEUCH")
@@ -741,7 +741,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110E)
     (=ucs		. #x3269)	; ã‰©
-    (=ks-x1001		. #x283A)	; ø»ˆ¤·
+    (=ks-x1001		. #x283A)	; &I-K0-283A; [08-26]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KHIEUKH")
@@ -750,7 +750,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110F)
     (=ucs		. #x326A)	; ã‰ª
-    (=ks-x1001		. #x283B)	; ø»ˆ¤¸
+    (=ks-x1001		. #x283B)	; &I-K0-283B; [08-27]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL THIEUTH")
@@ -759,7 +759,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1110)
     (=ucs		. #x326B)	; ã‰«
-    (=ks-x1001		. #x283C)	; ø»ˆ¤¹
+    (=ks-x1001		. #x283C)	; &I-K0-283C; [08-28]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PHIEUPH")
@@ -768,7 +768,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1111)
     (=ucs		. #x326C)	; ã‰¬
-    (=ks-x1001		. #x283D)	; ø»ˆ¤º
+    (=ks-x1001		. #x283D)	; &I-K0-283D; [08-29]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL HIEUH")
@@ -777,7 +777,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1112)
     (=ucs		. #x326D)	; ã‰­
-    (=ks-x1001		. #x283E)	; ø»ˆ¤»
+    (=ks-x1001		. #x283E)	; &I-K0-283E; [08-30]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KIYEOK A")
@@ -786,7 +786,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1100 #x1161)
     (=ucs		. #x326E)	; ã‰®
-    (=ks-x1001		. #x283F)	; ø»ˆ¤¼
+    (=ks-x1001		. #x283F)	; &I-K0-283F; [08-31]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL NIEUN A")
@@ -795,7 +795,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1102 #x1161)
     (=ucs		. #x326F)	; ã‰¯
-    (=ks-x1001		. #x2840)	; ø»ˆ¤½
+    (=ks-x1001		. #x2840)	; &I-K0-2840; [08-32]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL TIKEUT A")
@@ -804,7 +804,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1103 #x1161)
     (=ucs		. #x3270)	; ã‰°
-    (=ks-x1001		. #x2841)	; ø»ˆ¤¾
+    (=ks-x1001		. #x2841)	; &I-K0-2841; [08-33]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL RIEUL A")
@@ -813,7 +813,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1105 #x1161)
     (=ucs		. #x3271)	; ã‰±
-    (=ks-x1001		. #x2842)	; ø»ˆ¤¿
+    (=ks-x1001		. #x2842)	; &I-K0-2842; [08-34]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL MIEUM A")
@@ -822,7 +822,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1106 #x1161)
     (=ucs		. #x3272)	; ã‰²
-    (=ks-x1001		. #x2843)	; ø»ˆ¥€
+    (=ks-x1001		. #x2843)	; &I-K0-2843; [08-35]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PIEUP A")
@@ -831,7 +831,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1107 #x1161)
     (=ucs		. #x3273)	; ã‰³
-    (=ks-x1001		. #x2844)	; ø»ˆ¥
+    (=ks-x1001		. #x2844)	; &I-K0-2844; [08-36]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL SIOS A")
@@ -840,7 +840,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1109 #x1161)
     (=ucs		. #x3274)	; ã‰´
-    (=ks-x1001		. #x2845)	; ø»ˆ¥‚
+    (=ks-x1001		. #x2845)	; &I-K0-2845; [08-37]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL IEUNG A")
@@ -849,7 +849,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110B #x1161)
     (=ucs		. #x3275)	; ã‰µ
-    (=ks-x1001		. #x2846)	; ø»ˆ¥ƒ
+    (=ks-x1001		. #x2846)	; &I-K0-2846; [08-38]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CIEUC A")
@@ -858,7 +858,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110C #x1161)
     (=ucs		. #x3276)	; ã‰¶
-    (=ks-x1001		. #x2847)	; ø»ˆ¥„
+    (=ks-x1001		. #x2847)	; &I-K0-2847; [08-39]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL CHIEUCH A")
@@ -867,7 +867,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110E #x1161)
     (=ucs		. #x3277)	; ã‰·
-    (=ks-x1001		. #x2848)	; ø»ˆ¥…
+    (=ks-x1001		. #x2848)	; &I-K0-2848; [08-40]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL KHIEUKH A")
@@ -876,7 +876,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x110F #x1161)
     (=ucs		. #x3278)	; ã‰¸
-    (=ks-x1001		. #x2849)	; ø»ˆ¥†
+    (=ks-x1001		. #x2849)	; &I-K0-2849; [08-41]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL THIEUTH A")
@@ -885,7 +885,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1110 #x1161)
     (=ucs		. #x3279)	; ã‰¹
-    (=ks-x1001		. #x284A)	; ø»ˆ¥‡
+    (=ks-x1001		. #x284A)	; &I-K0-284A; [08-42]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL PHIEUPH A")
@@ -894,7 +894,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1111 #x1161)
     (=ucs		. #x327A)	; ã‰º
-    (=ks-x1001		. #x284B)	; ø»ˆ¥ˆ
+    (=ks-x1001		. #x284B)	; &I-K0-284B; [08-43]
     ))
 (define-char
   '((name		. "CIRCLED HANGUL HIEUH A")
@@ -903,7 +903,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x1112 #x1161)
     (=ucs		. #x327B)	; ã‰»
-    (=ks-x1001		. #x284C)	; ø»ˆ¥‰
+    (=ks-x1001		. #x284C)	; &I-K0-284C; [08-44]
     ))
 (define-char
   '((name		. "KOREAN STANDARD SYMBOL")
@@ -911,7 +911,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x327F)	; ã‰¿
-    (=ks-x1001		. #x225E)	; ø»ˆœ§
+    (=ks-x1001		. #x225E)	; &I-K0-225E; [02-62]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ONE")
@@ -1066,7 +1066,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x682A)
     (=ucs		. #x3291)	; ãŠ‘
-    (=jef-china3	. #x78E6)	; øº‡£¦
+    (=jef-china3	. #x78E6)	; &I-JC3-78E6;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH HAVE")
@@ -1075,7 +1075,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x6709)
     (=ucs		. #x3292)	; ãŠ’
-    (=jef-china3	. #x78E5)	; øº‡£¥
+    (=jef-china3	. #x78E5)	; &I-JC3-78E5;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SOCIETY")
@@ -1084,7 +1084,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x793E)
     (=ucs		. #x3293)	; ãŠ“
-    (=jef-china3	. #x78E7)	; øº‡£§
+    (=jef-china3	. #x78E7)	; &I-JC3-78E7;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH NAME")
@@ -1093,7 +1093,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x540D)
     (=ucs		. #x3294)	; ãŠ”
-    (=jef-china3	. #x78E1)	; øº‡£¡
+    (=jef-china3	. #x78E1)	; &I-JC3-78E1;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SPECIAL")
@@ -1110,7 +1110,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x8CA1)
     (=ucs		. #x3296)	; ãŠ–
-    (=jef-china3	. #x78EA)	; øº‡£ª
+    (=jef-china3	. #x78EA)	; &I-JC3-78EA;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CONGRATULATION")
@@ -1127,7 +1127,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x52B4)
     (=ucs		. #x3298)	; ãŠ˜
-    (=jef-china3	. #x78E3)	; øº‡££
+    (=jef-china3	. #x78E3)	; &I-JC3-78E3;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SECRET")
@@ -1216,8 +1216,8 @@
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
     (=ucs		. #x32A3)	; ãŠ£
-    (=cns11643-1	. #x2221)	; ø»‘ƒº
-    (=big5		. #xA1C0)	; ý¢€Š‡€
+    (=cns11643-1	. #x2221)	; &I-C1-2221; [02-01]
+    (=big5		. #xA1C0)	; &I-B-A1C0;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH HIGH")
@@ -1226,7 +1226,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x4E0A)
     (=ucs		. #x32A4)	; ãŠ¤
-    (=jis-x0213-1-2000	. #x2D65)	; ø»¢¥¨
+    (=jis-x0213-1-2000	. #x2D65)	; &I-JX1-2D65; [13-69]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH CENTRE")
@@ -1235,7 +1235,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x4E2D)
     (=ucs		. #x32A5)	; ãŠ¥
-    (=jis-x0213-1-2000	. #x2D66)	; ø»¢¥©
+    (=jis-x0213-1-2000	. #x2D66)	; &I-JX1-2D66; [13-70]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LOW")
@@ -1244,7 +1244,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x4E0B)
     (=ucs		. #x32A6)	; ãŠ¦
-    (=jis-x0213-1-2000	. #x2D67)	; ø»¢¥ª
+    (=jis-x0213-1-2000	. #x2D67)	; &I-JX1-2D67; [13-71]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH LEFT")
@@ -1253,7 +1253,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x5DE6)
     (=ucs		. #x32A7)	; ãŠ§
-    (=jis-x0213-1-2000	. #x2D68)	; ø»¢¥«
+    (=jis-x0213-1-2000	. #x2D68)	; &I-JX1-2D68; [13-72]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RIGHT")
@@ -1262,7 +1262,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x53F3)
     (=ucs		. #x32A8)	; ãŠ¨
-    (=jis-x0213-1-2000	. #x2D69)	; ø»¢¥¬
+    (=jis-x0213-1-2000	. #x2D69)	; &I-JX1-2D69; [13-73]
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH MEDICINE")
@@ -1271,7 +1271,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x533B)
     (=ucs		. #x32A9)	; ãŠ©
-    (=jef-china3	. #x78DF)	; øº‡£Ÿ
+    (=jef-china3	. #x78DF)	; &I-JC3-78DF;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RELIGION")
@@ -1280,7 +1280,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x5B97)
     (=ucs		. #x32AA)	; ãŠª
-    (=jef-china3	. #x78E2)	; øº‡£¢
+    (=jef-china3	. #x78E2)	; &I-JC3-78E2;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH STUDY")
@@ -1289,7 +1289,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x5B66)
     (=ucs		. #x32AB)	; ãŠ«
-    (=jef-china3	. #x78E4)	; øº‡£¤
+    (=jef-china3	. #x78E4)	; &I-JC3-78E4;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH SUPERVISE")
@@ -1298,7 +1298,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x76E3)
     (=ucs		. #x32AC)	; ãŠ¬
-    (=jef-china3	. #x78E8)	; øº‡£¨
+    (=jef-china3	. #x78E8)	; &I-JC3-78E8;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ENTERPRISE")
@@ -1307,7 +1307,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x4F01)
     (=ucs		. #x32AD)	; ãŠ­
-    (=jef-china3	. #x78DE)	; øº‡£ž
+    (=jef-china3	. #x78DE)	; &I-JC3-78DE;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH RESOURCE")
@@ -1316,7 +1316,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x8CC7)
     (=ucs		. #x32AE)	; ãŠ®
-    (=jef-china3	. #x78E9)	; øº‡£©
+    (=jef-china3	. #x78E9)	; &I-JC3-78E9;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH ALLIANCE")
@@ -1325,7 +1325,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x5354)
     (=ucs		. #x32AF)	; ãŠ¯
-    (=jef-china3	. #x78E0)	; øº‡£ 
+    (=jef-china3	. #x78E0)	; &I-JC3-78E0;
     ))
 (define-char
   '((name		. "CIRCLED IDEOGRAPH NIGHT")
@@ -1334,82 +1334,82 @@
     (mirrored		. nil)
     (->decomposition	circle #x591C)
     (=ucs		. #x32B0)	; ãŠ°
-    (=jef-china3	. #x78DD)	; øº‡£
+    (=jef-china3	. #x78DD)	; &I-JC3-78DD;
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SIX")
     (=ucs		. #x32B1)	; ãŠ±
-    (=jis-x0213-1-2000	. #x2850)	; ø»¢½
+    (=jis-x0213-1-2000	. #x2850)	; &I-JX1-2850; [08-48]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY SEVEN")
     (=ucs		. #x32B2)	; ãŠ²
-    (=jis-x0213-1-2000	. #x2851)	; ø»¢¾
+    (=jis-x0213-1-2000	. #x2851)	; &I-JX1-2851; [08-49]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY EIGHT")
     (=ucs		. #x32B3)	; ãŠ³
-    (=jis-x0213-1-2000	. #x2852)	; ø»¢¿
+    (=jis-x0213-1-2000	. #x2852)	; &I-JX1-2852; [08-50]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTY NINE")
     (=ucs		. #x32B4)	; ãŠ´
-    (=jis-x0213-1-2000	. #x2853)	; ø»¢ž€
+    (=jis-x0213-1-2000	. #x2853)	; &I-JX1-2853; [08-51]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY")
     (=ucs		. #x32B5)	; ãŠµ
-    (=jis-x0213-1-2000	. #x2854)	; ø»¢ž
+    (=jis-x0213-1-2000	. #x2854)	; &I-JX1-2854; [08-52]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY ONE")
     (=ucs		. #x32B6)	; ãŠ¶
-    (=jis-x0213-1-2000	. #x2855)	; ø»¢ž‚
+    (=jis-x0213-1-2000	. #x2855)	; &I-JX1-2855; [08-53]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY TWO")
     (=ucs		. #x32B7)	; ãŠ·
-    (=jis-x0213-1-2000	. #x2856)	; ø»¢žƒ
+    (=jis-x0213-1-2000	. #x2856)	; &I-JX1-2856; [08-54]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY THREE")
     (=ucs		. #x32B8)	; ãŠ¸
-    (=jis-x0213-1-2000	. #x2857)	; ø»¢ž„
+    (=jis-x0213-1-2000	. #x2857)	; &I-JX1-2857; [08-55]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FOUR")
     (=ucs		. #x32B9)	; ãŠ¹
-    (=jis-x0213-1-2000	. #x2858)	; ø»¢ž…
+    (=jis-x0213-1-2000	. #x2858)	; &I-JX1-2858; [08-56]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY FIVE")
     (=ucs		. #x32BA)	; ãŠº
-    (=jis-x0213-1-2000	. #x2859)	; ø»¢ž†
+    (=jis-x0213-1-2000	. #x2859)	; &I-JX1-2859; [08-57]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SIX")
     (=ucs		. #x32BB)	; ãŠ»
-    (=jis-x0213-1-2000	. #x285A)	; ø»¢ž‡
+    (=jis-x0213-1-2000	. #x285A)	; &I-JX1-285A; [08-58]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY SEVEN")
     (=ucs		. #x32BC)	; ãŠ¼
-    (=jis-x0213-1-2000	. #x285B)	; ø»¢žˆ
+    (=jis-x0213-1-2000	. #x285B)	; &I-JX1-285B; [08-59]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY EIGHT")
     (=ucs		. #x32BD)	; ãŠ½
-    (=jis-x0213-1-2000	. #x285C)	; ø»¢ž‰
+    (=jis-x0213-1-2000	. #x285C)	; &I-JX1-285C; [08-60]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FORTY NINE")
     (=ucs		. #x32BE)	; ãŠ¾
-    (=jis-x0213-1-2000	. #x285D)	; ø»¢žŠ
+    (=jis-x0213-1-2000	. #x285D)	; &I-JX1-285D; [08-61]
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FIFTY")
     (=ucs		. #x32BF)	; ãŠ¿
-    (=jis-x0213-1-2000	. #x285E)	; ø»¢ž‹
+    (=jis-x0213-1-2000	. #x285E)	; &I-JX1-285E; [08-62]
     ))
 (define-char
   '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR JANUARY")
@@ -1514,7 +1514,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30A2)
     (=ucs		. #x32D0)	; ã‹
-    (=jis-x0213-1-2000	. #x2C5B)	; ø»¢¤€
+    (=jis-x0213-1-2000	. #x2C5B)	; &I-JX1-2C5B; [12-59]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA I")
@@ -1523,7 +1523,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30A4)
     (=ucs		. #x32D1)	; ã‹‘
-    (=jis-x0213-1-2000	. #x2C5C)	; ø»¢¤
+    (=jis-x0213-1-2000	. #x2C5C)	; &I-JX1-2C5C; [12-60]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA U")
@@ -1532,7 +1532,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30A6)
     (=ucs		. #x32D2)	; ã‹’
-    (=jis-x0213-1-2000	. #x2C5D)	; ø»¢¤‚
+    (=jis-x0213-1-2000	. #x2C5D)	; &I-JX1-2C5D; [12-61]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA E")
@@ -1541,7 +1541,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30A8)
     (=ucs		. #x32D3)	; ã‹“
-    (=jis-x0213-1-2000	. #x2C5E)	; ø»¢¤ƒ
+    (=jis-x0213-1-2000	. #x2C5E)	; &I-JX1-2C5E; [12-62]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA O")
@@ -1550,7 +1550,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30AA)
     (=ucs		. #x32D4)	; ã‹”
-    (=jis-x0213-1-2000	. #x2C5F)	; ø»¢¤„
+    (=jis-x0213-1-2000	. #x2C5F)	; &I-JX1-2C5F; [12-63]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KA")
@@ -1559,7 +1559,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30AB)
     (=ucs		. #x32D5)	; ã‹•
-    (=jis-x0213-1-2000	. #x2C60)	; ø»¢¤…
+    (=jis-x0213-1-2000	. #x2C60)	; &I-JX1-2C60; [12-64]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KI")
@@ -1568,7 +1568,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30AD)
     (=ucs		. #x32D6)	; ã‹–
-    (=jis-x0213-1-2000	. #x2C61)	; ø»¢¤†
+    (=jis-x0213-1-2000	. #x2C61)	; &I-JX1-2C61; [12-65]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KU")
@@ -1577,7 +1577,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30AF)
     (=ucs		. #x32D7)	; ã‹—
-    (=jis-x0213-1-2000	. #x2C62)	; ø»¢¤‡
+    (=jis-x0213-1-2000	. #x2C62)	; &I-JX1-2C62; [12-66]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KE")
@@ -1586,7 +1586,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30B1)
     (=ucs		. #x32D8)	; ã‹˜
-    (=jis-x0213-1-2000	. #x2C63)	; ø»¢¤ˆ
+    (=jis-x0213-1-2000	. #x2C63)	; &I-JX1-2C63; [12-67]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA KO")
@@ -1595,7 +1595,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30B3)
     (=ucs		. #x32D9)	; ã‹™
-    (=jis-x0213-1-2000	. #x2C64)	; ø»¢¤‰
+    (=jis-x0213-1-2000	. #x2C64)	; &I-JX1-2C64; [12-68]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SA")
@@ -1604,7 +1604,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30B5)
     (=ucs		. #x32DA)	; ã‹š
-    (=jis-x0213-1-2000	. #x2C65)	; ø»¢¤Š
+    (=jis-x0213-1-2000	. #x2C65)	; &I-JX1-2C65; [12-69]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SI")
@@ -1613,7 +1613,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30B7)
     (=ucs		. #x32DB)	; ã‹›
-    (=jis-x0213-1-2000	. #x2C66)	; ø»¢¤‹
+    (=jis-x0213-1-2000	. #x2C66)	; &I-JX1-2C66; [12-70]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SU")
@@ -1622,7 +1622,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30B9)
     (=ucs		. #x32DC)	; ã‹œ
-    (=jis-x0213-1-2000	. #x2C67)	; ø»¢¤Œ
+    (=jis-x0213-1-2000	. #x2C67)	; &I-JX1-2C67; [12-71]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SE")
@@ -1631,7 +1631,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30BB)
     (=ucs		. #x32DD)	; ã‹
-    (=jis-x0213-1-2000	. #x2C68)	; ø»¢¤
+    (=jis-x0213-1-2000	. #x2C68)	; &I-JX1-2C68; [12-72]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA SO")
@@ -1640,7 +1640,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30BD)
     (=ucs		. #x32DE)	; ã‹ž
-    (=jis-x0213-1-2000	. #x2C69)	; ø»¢¤Ž
+    (=jis-x0213-1-2000	. #x2C69)	; &I-JX1-2C69; [12-73]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TA")
@@ -1649,7 +1649,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30BF)
     (=ucs		. #x32DF)	; ã‹Ÿ
-    (=jis-x0213-1-2000	. #x2C6A)	; ø»¢¤
+    (=jis-x0213-1-2000	. #x2C6A)	; &I-JX1-2C6A; [12-74]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TI")
@@ -1658,7 +1658,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30C1)
     (=ucs		. #x32E0)	; ã‹ 
-    (=jis-x0213-1-2000	. #x2C6B)	; ø»¢¤
+    (=jis-x0213-1-2000	. #x2C6B)	; &I-JX1-2C6B; [12-75]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TU")
@@ -1667,7 +1667,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30C4)
     (=ucs		. #x32E1)	; ã‹¡
-    (=jis-x0213-1-2000	. #x2C6C)	; ø»¢¤‘
+    (=jis-x0213-1-2000	. #x2C6C)	; &I-JX1-2C6C; [12-76]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TE")
@@ -1676,7 +1676,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30C6)
     (=ucs		. #x32E2)	; ã‹¢
-    (=jis-x0213-1-2000	. #x2C6D)	; ø»¢¤’
+    (=jis-x0213-1-2000	. #x2C6D)	; &I-JX1-2C6D; [12-77]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA TO")
@@ -1685,7 +1685,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30C8)
     (=ucs		. #x32E3)	; ã‹£
-    (=jis-x0213-1-2000	. #x2C6E)	; ø»¢¤“
+    (=jis-x0213-1-2000	. #x2C6E)	; &I-JX1-2C6E; [12-78]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NA")
@@ -1702,7 +1702,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30CB)
     (=ucs		. #x32E5)	; ã‹¥
-    (=jis-x0213-1-2000	. #x2C71)	; ø»¢¤–
+    (=jis-x0213-1-2000	. #x2C71)	; &I-JX1-2C71; [12-81]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA NU")
@@ -1735,7 +1735,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30CF)
     (=ucs		. #x32E9)	; ã‹©
-    (=jis-x0213-1-2000	. #x2C70)	; ø»¢¤•
+    (=jis-x0213-1-2000	. #x2C70)	; &I-JX1-2C70; [12-80]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HI")
@@ -1760,7 +1760,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30D8)
     (=ucs		. #x32EC)	; ã‹¬
-    (=jis-x0213-1-2000	. #x2C73)	; ø»¢¤˜
+    (=jis-x0213-1-2000	. #x2C73)	; &I-JX1-2C73; [12-83]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA HO")
@@ -1769,7 +1769,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30DB)
     (=ucs		. #x32ED)	; ã‹­
-    (=jis-x0213-1-2000	. #x2C72)	; ø»¢¤—
+    (=jis-x0213-1-2000	. #x2C72)	; &I-JX1-2C72; [12-82]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA MA")
@@ -1874,7 +1874,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x30ED)
     (=ucs		. #x32FA)	; ã‹º
-    (=jis-x0213-1-2000	. #x2C6F)	; ø»¢¤”
+    (=jis-x0213-1-2000	. #x2C6F)	; &I-JX1-2C6F; [12-79]
     ))
 (define-char
   '((name		. "CIRCLED KATAKANA WA")
