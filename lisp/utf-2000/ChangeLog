@@ -1,3 +1,7 @@
+2004-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (C2-315E): Delete `=>ucs'.
+
 2004-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el:

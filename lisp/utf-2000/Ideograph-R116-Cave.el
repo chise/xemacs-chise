@@ -732,10 +732,17 @@
       (=jef-china3	  . #x5DCF)	; &I-JC3-5DCF;
       (=ucs@jis		  . #x7A8A)	; &JX2-732E;
       )
-     ((mojikyo		  . 025467)	; &MCS-6000637B;
-      )
      ((=cns11643-2	  . #x315E)	; &C2-315E;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (<-denotational
+     ((=cns11643-2	  . #x315E)	; &C2-315E;
+      ))
+    (mojikyo		. 025467)	; &MCS-6000637B;
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
