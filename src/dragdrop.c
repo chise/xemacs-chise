@@ -130,7 +130,7 @@ Each element is the feature symbol of the protocol.
   
   Vdragdrop_protocols = Qnil;
 
-#ifdef HAVE_MSWINDOWS
+#ifdef HAVE_MS_WINDOWS
   Vdragdrop_protocols = Fcons ( Qmswindows , Vdragdrop_protocols );
 #endif
 #ifdef HAVE_CDE

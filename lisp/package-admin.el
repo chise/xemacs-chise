@@ -146,14 +146,34 @@ to buffer BUF."
 ;		;; rest of command line follows
 ;		package-admin-xemacs file pkg-dir))
 
-(defun package-admin-get-install-dir (pkg-dir)
-  (when (null pkg-dir)
-    (when (or (not (listp late-packages))
-	      (not late-packages))
-      (error "No package path"))
-    (setq pkg-dir (car (last late-packages))))
-  pkg-dir
-  )
+(defun package-admin-get-install-dir (package pkg-dir &optional mule-related)
+  "If PKG-DIR is non-nil return that,
+else return the current location of the package if it is already installed
+or return a location appropriate for the package otherwise."
+  (if pkg-dir
+      pkg-dir
+    (let ((package-feature (intern-soft (concat
+					 (symbol-name package) "-autoloads")))
+	  autoload-dir)
+      (when (and (not (eq package 'unknown))
+	         (featurep package-feature)
+		 (setq autoload-dir (feature-file package-feature))
+		 (setq autoload-dir (file-name-directory autoload-dir))
+		 (member autoload-dir late-package-load-path))
+	;; Find the corresonding entry in late-package
+	(setq pkg-dir
+	      (car-safe (member-if (lambda (h)
+			   (string-match (concat "^" (regexp-quote h))
+					 autoload-dir))
+			 late-packages))))
+      (if pkg-dir
+	  pkg-dir
+	;; Ok we need to guess
+	(if mule-related
+	    (package-admin-get-install-dir 'mule-base nil nil)
+	  (car (last late-packages)))))))
+	  
+
 
 (defun package-admin-get-manifest-file (pkg-topdir package)
   "Return the name of the MANIFEST file for package PACKAGE.
@@ -299,7 +319,7 @@ is the top-level directory under which the package was installed."
 	(status 1)
 	start err-list
 	)
-    (setq pkg-dir (package-admin-get-install-dir pkg-dir))
+    (setq pkg-dir (package-admin-get-install-dir 'unknown pkg-dir))
     ;; Insure that the current directory doesn't change
     (save-excursion
       (set-buffer buf)
@@ -334,37 +354,29 @@ is the top-level directory under which the package was installed."
 (defun package-admin-rmtree (directory)
   "Delete a directory and all of its contents, recursively.
 This is a feeble attempt at making a portable rmdir."
-  (let ( (orig-default-directory default-directory) files dirs dir)
-    (unwind-protect
-	(progn
-	  (setq directory (file-name-as-directory directory))
-	  (setq files (directory-files directory nil nil nil t))
-	  (setq dirs (directory-files directory nil nil nil 'dirs))
-	  (while dirs
-	    (setq dir (car dirs))
-	    (if (file-symlink-p dir)	;; just in case, handle symlinks
-		(delete-file dir)
-	      (if (not (or (string-equal dir ".") (string-equal dir "..")))
-		  (package-admin-rmtree (expand-file-name dir directory))))
-	    (setq dirs (cdr dirs))
-	    )
-	  (setq default-directory directory)
-	  (condition-case err
-	      (progn
-		(while files
-		  (delete-file (car files))
-		  (setq files (cdr files))
-		  )
-		(delete-directory directory)
-		)
-	    (file-error
-	     (message "%s: %s: \"%s\"" (nth 1 err) (nth 2 err) (nth 3 err)))
-	    )
-	  )
-      (progn
-	(setq default-directory orig-default-directory)
-	))
-    ))
+  (setq directory (file-name-as-directory directory))
+  (let ((files (directory-files directory nil nil nil t))
+        (dirs (directory-files directory nil nil nil 'dirs)))
+    (while dirs
+      (if (not (member (car dirs) '("." "..")))
+          (let ((dir (expand-file-name (car dirs) directory)))
+            (condition-case err
+                (if (file-symlink-p dir) ;; just in case, handle symlinks
+                    (delete-file dir)
+                  (package-admin-rmtree dir))
+              (file-error
+               (message "%s: %s: \"%s\"" (nth 1 err) (nth 2 err) (nth 3 err)))))
+        (setq dirs (cdr dirs))))
+    (while files
+      (condition-case err
+          (delete-file (expand-file-name (car files) directory))
+        (file-error
+         (message "%s: %s: \"%s\"" (nth 1 err) (nth 2 err) (nth 3 err))))
+      (setq files (cdr files)))
+    (condition-case err
+        (delete-directory directory)
+      (file-error
+       (message "%s: %s: \"%s\"" (nth 1 err) (nth 2 err) (nth 3 err))))))
 
 (defun package-admin-get-lispdir  (pkg-topdir package)
   (let (package-lispdir)
@@ -379,8 +391,7 @@ This is a feeble attempt at making a portable rmdir."
   "Delete a binary installation of PACKAGE below directory PKG-TOPDIR.
 PACKAGE is a symbol, not a string."
   (let ( (tmpbuf " *pkg-manifest*") manifest-file package-lispdir dirs file)
-    (if (not pkg-topdir)
-	(setq pkg-topdir (package-admin-get-install-dir nil)))
+    (setq pkg-topdir (package-admin-get-install-dir package pkg-topdir))
     (setq manifest-file (package-admin-get-manifest-file pkg-topdir package))
     (if (file-exists-p manifest-file)
 	(progn
@@ -388,89 +399,99 @@ PACKAGE is a symbol, not a string."
 	  (message "Removing old files for package \"%s\" ..." package)
 	  (sit-for 0)
 	  (setq tmpbuf (get-buffer-create tmpbuf))
-	  (save-excursion
-	    (set-buffer tmpbuf)
-	    (buffer-disable-undo tmpbuf)
-	    (erase-buffer tmpbuf)
+	  (with-current-buffer tmpbuf
+	    (buffer-disable-undo)
+	    (erase-buffer)
 	    (insert-file-contents manifest-file)
 	    (goto-char (point-min))
+
 	    ;; For each entry in the MANIFEST ...
 	    (while (< (point) (point-max))
 	      (beginning-of-line)
 	      (setq file (expand-file-name (buffer-substring
 					    (point)
-					    (save-excursion (end-of-line)
-							    (point)))
+					    (point-at-eol))
 					   pkg-topdir))
 	      (if (file-directory-p file)
 		  ;; Keep a record of each directory
 		  (setq dirs (cons file dirs))
-		(progn
 		  ;; Delete each file.
 		  ;; Make sure that the file is writable.
 		  ;; (This is important under MS Windows.)
-		  (set-file-modes file 438) ;; 438 -> #o666
-		  (delete-file file)
-		  ))
-	      (forward-line 1)
-	      )
+		  ;; I do not know why it important under MS Windows but
+		  ;;    1. It bombs out out when the file does not exist. This can be condition-cased
+		  ;;    2. If I removed the write permissions, I do not want XEmacs to just ignore them.
+		  ;;       If it wants to, XEmacs may ask, but that is about all
+		  ;; (set-file-modes file 438) ;; 438 -> #o666
+		  ;; Note, user might have removed the file!
+		(condition-case ()
+		    (delete-file file)
+		  (error nil)))		;; We may want to turn the error into a Warning?   
+	      (forward-line 1))
+	      
 	    ;; Delete empty directories.
 	    (if dirs
 		(let ( (orig-default-directory default-directory)
 		       directory files file )
 		  ;; Make sure we preserve the existing `default-directory'.
+		  ;; JV, why does this change the default directory? Does it indeed?
 		  (unwind-protect
 		      (progn
 			;; Warning: destructive sort!
 			(setq dirs (nreverse (sort dirs 'string<)))
-			;; For each directory ...
-			(while dirs
-			  (setq directory (file-name-as-directory (car dirs)))
-			  (setq files (directory-files directory))
-			  ;; Delete the directory if it's empty.
-			  (if (catch 'done
-				(while files
-				  (setq file (car files))
-				  (if (and (not (string= file "."))
-					   (not (string= file "..")))
-				      (throw 'done nil))
-				  (setq files (cdr files))
-				  )
-				t)
-			      (delete-directory directory))
-			  (setq dirs (cdr dirs))
-			  )
-			)
+;			;; For each directory ...
+;			(while dirs
+;			  (setq directory (file-name-as-directory (car dirs)))
+;			  (setq files (directory-files directory))
+;			  ;; Delete the directory if it's empty.
+;			  (if (catch 'done
+;				(while files
+;				  (setq file (car files))
+;				  (if (and (not (string= file "."))
+;					   (not (string= file "..")))
+;				      (throw 'done nil))
+;				  (setq files (cdr files))
+;				  )
+;				t)
+;			      (
+;			      (delete-directory directory))
+;			  (setq dirs (cdr dirs))
+;			  )
+			;; JV, On all OS's that I know of delete-directory fails on
+			;; on non-empty dirs anyway
+			(mapc
+			   (lambda (dir)
+			     (condition-case ()
+				 (delete-directory dir)))
+			   dirs))			
 		    (setq default-directory orig-default-directory)
 		    )))
 	    )
 	  (kill-buffer tmpbuf)
 	  ;; Delete the MANIFEST file
-	  (set-file-modes manifest-file 438) ;; 438 -> #o666
-	  (delete-file manifest-file)
-	  (message "Removing old files for package \"%s\" ... done" package)
-	  )
-      (progn
+	  ;; (set-file-modes manifest-file 438) ;; 438 -> #o666
+	  ;; Note. Packages can have MANIFEST in MANIFEST.
+	  (condition-case ()
+	      (delete-file manifest-file)
+	    (error nil)) ;; Do warning?
+	  (message "Removing old files for package \"%s\" ... done" package))
 	;; The manifest file doesn't exist.  Fallback to just deleting the
 	;; package-specific lisp directory, if it exists.
 	;;
 	;; Delete old lisp directory, if any
 	;; Gads, this is ugly.  However, we're not supposed to use `concat'
 	;; in the name of portability.
-	(if (setq package-lispdir (package-admin-get-lispdir pkg-topdir
+	(when (setq package-lispdir (package-admin-get-lispdir pkg-topdir
 							     package))
-	    (progn
 	      (message "Removing old lisp directory \"%s\" ..."
 		       package-lispdir)
 	      (sit-for 0)
 	      (package-admin-rmtree package-lispdir)
 	      (message "Removing old lisp directory \"%s\" ... done"
 		       package-lispdir)
-	      ))
-	))
+	      ))	
     ;; Delete the package from the database of installed packages.
-    (package-delete-name package)
-    ))
+    (package-delete-name package)))
 
 (provide 'package-admin)
 

@@ -662,7 +662,7 @@ If it returns non-nil, this file needs processing by evalling
 		    syn-tab exact-syntax-table)
 	    (setq tag-target tagname
 		  syn-tab normal-syntax-table))
-	  (with-caps-disable-folding tag-target
+	  (with-search-caps-disable-folding tag-target t
 	    (while tag-tables
 	      (set-buffer (get-tag-table-buffer (car tag-tables)))
 	      (bury-buffer (current-buffer))
@@ -963,11 +963,11 @@ To continue searching for next match, use command \\[tags-loop-continue].
 See documentation of variable `tag-table-alist'."
   (interactive "sTags search (regexp): ")
   (if (and (equal regexp "")
-           (eq (car tags-loop-scan) 'with-caps-disable-folding)
+           (eq (car tags-loop-scan) 'with-search-caps-disable-folding)
            (null tags-loop-operate))
       ;; Continue last tags-search as if by `M-,'.
       (tags-loop-continue nil)
-    (setq tags-loop-scan `(with-caps-disable-folding ,regexp
+    (setq tags-loop-scan `(with-search-caps-disable-folding ,regexp t
                             (re-search-forward ,regexp nil t))
           tags-loop-operate nil)
     (tags-loop-continue (or file-list-form t))))
@@ -982,7 +982,7 @@ with the command \\[tags-loop-continue].
 See documentation of variable `tag-table-alist'."
   (interactive
    "sTags query replace (regexp): \nsTags query replace %s by: \nP")
-  (setq tags-loop-scan `(with-caps-disable-folding ,from
+  (setq tags-loop-scan `(with-search-caps-disable-folding ,from t
                           (if (re-search-forward ,from nil t)
                               ;; When we find a match, move back
                               ;; to the beginning of it so perform-replace

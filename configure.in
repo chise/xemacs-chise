@@ -2442,6 +2442,7 @@ if test "$with_msw" != "no"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
     install_pp="$blddir/lib-src/installexe.sh"
     XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomctl32, libs_system)
+    test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
  	window_system=msw
 	test "$with_scrollbars" != "no" && with_scrollbars=msw \
@@ -3556,6 +3557,9 @@ if test "$usage_tracking" = "yes"; then
   AC_DEFINE(USAGE_TRACKING)
   XE_PREPEND(-Bstatic -lut -Bdynamic, LIBS)
 fi
+
+dnl cygwin can't cope with dlfcn at the moment
+test -z "$with_shlib" && test "$opsys $machine" = "cygwin32 intel386" && with_shlib=no
 
 dnl autodetect dll support
 AC_CHECK_HEADERS(dlfcn.h, have_dlfcn=yes)

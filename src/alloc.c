@@ -56,6 +56,8 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "window.h"
 
+#include <stddef.h>
+
 #ifdef DOUG_LEA_MALLOC
 #include <malloc.h>
 #endif

@@ -1342,17 +1342,12 @@ and we don't even do that unless it would come from the file name."
 			  (setq alist (cdr alist)))))))
               (if mode
 		  (if (not (fboundp mode))
-		      (progn
-			(if (or (not (boundp 'package-get-base))
-				(not package-get-base))
-			    (load "package-get-base"))
-			(require 'package-get)
-			(let ((name (package-get-package-provider mode)))
-			  (if name
-			      (message "Mode %s is not installed.  Download package %s" mode name)
-			    (message "Mode %s either doesn't exist or is not a known package" mode))
-			  (sit-for 2)
-			  (error "%s" mode)))
+                      (let ((name (package-get-package-provider mode)))
+                        (if name
+                            (message "Mode %s is not installed.  Download package %s" mode name)
+                          (message "Mode %s either doesn't exist or is not a known package" mode))
+                        (sit-for 2)
+                        (error "%s" mode))
 		    (unless (and just-from-file-name
 				 (or
 				  ;; Don't reinvoke major mode.

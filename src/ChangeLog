@@ -1,3 +1,76 @@
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-10-13  Raymond Toy  <toy@rtp.ericsson.se>
+
+	* runemacs.c (WinMain): If the basename is "rungnuclient.exe", run
+	gnuclient.  Otherwise, we run xemacs as we always did.  This gets
+	rid of the annoying DOS window when running gnuclient.
+
+1998-10-13  Andy Piper  <andyp@parallax.co.uk>
+
+	* dragdrop.c (vars_of_dragdrop): rename HAVE_MSWINDOWS ->
+	HAVE_MS_WINDOWS typo.
+
+1998-10-13  SL Baur  <steve@altair.xemacs.org>
+
+	* process-unix.c (unix_send_process): Set closed flag on writable
+	pipe after SIGPIPE is received and before we call deactivate_process.
+
+1998-10-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* window.c (Fset_window_start): respect narrowing when
+	checking wheter start is at the beginning of a line.
+	(Fset_window_buffer): Ditto
+	Fixes repeatable crash in VM.
+
+1998-10-09  SL Baur  <steve@altair.xemacs.org>
+
+	* window.c (specifier_vars_of_window): Set default vertical
+	divider width to 1 on ttys.
+
+1998-10-08  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c:
+	* unexec.c:
+	* malloc.c:
+	Add <stddef.h> to get ptrdiff_t declaration
+
+1998-10-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* scrollbar-msw.c: Use the same vertical scrollbar drag hack as 
+	  is used for Motif or Lucid scrollbars under X.
+
+1998-10-08  Pierre Wendling  <pw@ebc.vbe.dec.com>
+
+	* m/alpha.h (UNEXEC): quoted to avoid bad expansion when running
+	`configure'
+
+1998-10-06  Takeshi Hagiwara  <hagiwara@ie.niigata-u.ac.jp>
+
+	* frame-x.c (x_delete_frame): Fix an argument of XtDestroyWidget.
+
+1998-10-05  Andy Piper  <andyp@parallax.co.uk>
+
+	* s/cygwin32.h: more cygwin b20 reorganisation.
+
+1998-10-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* window.c (Fset_window_start): Document me.
+	(Fset_window_buffer): Document me.
+	Fixes some sort of repeatable crash.
+
+1998-10-01  Raymond Toy  <toy@rtp.ericsson.se>
+
+	* nas.c: Added necessary support functions to be able to handle
+	WAVE files in memory, just like the support for SND files in
+	memory.
+
+1998-09-30  SL Baur  <steve@altair.xemacs.org>
+
+	* callproc.c (child_setup): Fix spelling typo.
+
 1998-09-29  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta2 is released.

@@ -1,3 +1,11 @@
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-10-09  SL Baur  <steve@altair.xemacs.org>
+
+	* Makefile (MAKEINFO): Undo no-split change.
+
 1998-09-29  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta2 is released.

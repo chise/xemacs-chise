@@ -217,6 +217,8 @@ filename_expand (char *fullpath, char *filename)
 	;					/* yep */
       else
 	strcat (fullpath, "/");		/* nope, append trailing slash */
+      /* Don't forget to add the filename! */
+      strcat (fullpath,filename);
     }
 } /* filename_expand */
 

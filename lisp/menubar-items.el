@@ -231,9 +231,18 @@
        ["Saved..." customize-saved]
        ["Set..." customize-customized]
        ["Apropos..." customize-apropos]
-       ["Browse..." customize-browse]
-       ["List Packages" pui-list-packages]
-       ["Update Packages" package-get-custom])
+       ["Browse..." customize-browse])
+      
+      ("Manage Packages"
+       ["List & Install" pui-list-packages]
+       ("Using Custom"
+	("Select" :filter (lambda (&rest junk)
+			  (cdr (custom-menu-create 'packages))))
+	["Update" package-get-custom])
+       ["Help" (Info-goto-node "(xemacs)Packages")])
+
+      "---"
+      
       ("Editing Options"
        ["Overstrike"
 	(progn

@@ -32,5 +32,5 @@ Boston, MA 02111-1307, USA.  */
 # define TEXT_START    0x120000000
 # define DATA_START    0x140000000
   /* The program to be used for unexec. */
-# define UNEXEC unexalpha.o
+# define UNEXEC "unexalpha.o"
 #endif

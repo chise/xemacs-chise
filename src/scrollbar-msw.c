@@ -34,11 +34,13 @@ Boston, MA 02111-1307, USA.  */
 #include "specifier.h"
 #include "window.h"
 
-/* This has really different semantics in Windows than in Motif.
-   There's no corresponding method; we just do not change slider
-   size while dragging. It makes the scrollbar look smother and
-   prevents some weird behavior when scrolled near the bottom */
-static int inhibit_slider_size_change = 0;
+/* We use a similar sort of vertical scrollbar drag hack for mswindows
+ * scrollbars as is used for Motif or Lucid scrollbars under X.
+ * We do character-based instead of line-based scrolling, which can mean that
+ * without the hack it is impossible to drag to the end of a buffer. */
+#define VERTICAL_SCROLLBAR_DRAG_HACK
+
+static int vertical_drag_in_progress = 0;
 
 static void
 mswindows_create_scrollbar_instance (struct frame *f, int vertical,
@@ -59,6 +61,7 @@ mswindows_create_scrollbar_instance (struct frame *f, int vertical,
 		 CW_USEDEFAULT, CW_USEDEFAULT,
 		 FRAME_MSWINDOWS_HANDLE (f),
 		 NULL, NULL, NULL);
+  SCROLLBAR_MSW_INFO (sb).cbSize = sizeof(SCROLLINFO);
   SCROLLBAR_MSW_INFO (sb).fMask = SIF_ALL;
   GetScrollInfo(SCROLLBAR_MSW_HANDLE (sb), SB_CTL,
 		&SCROLLBAR_MSW_INFO (sb));
@@ -110,10 +113,8 @@ mswindows_update_scrollbar_instance_values (struct window *w,
 					    int new_scrollbar_x,
 					    int new_scrollbar_y)
 {
-  struct frame *f;
   int pos_changed = 0;
-
-  f = XFRAME (w->frame);
+  int vert = GetWindowLong (SCROLLBAR_MSW_HANDLE (sb), GWL_STYLE) & SBS_VERT;
 
 #if 0
   stderr_out ("[%d, %d], page = %d, pos = %d, inhibit = %d\n", new_minimum, new_maximum,
@@ -122,17 +123,23 @@ mswindows_update_scrollbar_instance_values (struct window *w,
 
   /* These might be optimized, but since at least one will change at each
      call, it's probably not worth it. */
-  SCROLLBAR_MSW_INFO (sb).cbSize = sizeof(SCROLLINFO);
   SCROLLBAR_MSW_INFO (sb).nMin = new_minimum;
   SCROLLBAR_MSW_INFO (sb).nMax = new_maximum;
-  SCROLLBAR_MSW_INFO (sb).nPage = new_slider_size + 1; /* for DISABLENOSCROLL */
+  SCROLLBAR_MSW_INFO (sb).nPage = new_slider_size + 1; /* +1 for DISABLENOSCROLL */
   SCROLLBAR_MSW_INFO (sb).nPos = new_slider_position;
-  SCROLLBAR_MSW_INFO (sb).fMask = (inhibit_slider_size_change 
+#ifndef VERTICAL_SCROLLBAR_DRAG_HACK
+  SCROLLBAR_MSW_INFO (sb).fMask = ((vert && vertical_drag_in_progress)
 				   ? SIF_RANGE | SIF_POS
 				   : SIF_ALL | SIF_DISABLENOSCROLL);
-  
-  SetScrollInfo(SCROLLBAR_MSW_HANDLE (sb), SB_CTL, &SCROLLBAR_MSW_INFO (sb),
-		!pos_changed);
+#else
+  SCROLLBAR_MSW_INFO (sb).fMask = SIF_ALL | SIF_DISABLENOSCROLL;
+
+  /* Ignore XEmacs' requests to update the thumb position and size; they don't
+   * bear any relation to reality because we're reporting made-up positions */
+  if (!(vert && vertical_drag_in_progress))
+#endif
+    SetScrollInfo (SCROLLBAR_MSW_HANDLE (sb), SB_CTL, &SCROLLBAR_MSW_INFO (sb),
+		   TRUE);
 
   UPDATE_POS_FIELD (scrollbar_x);
   UPDATE_POS_FIELD (scrollbar_y);
@@ -171,13 +178,12 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
   struct scrollbar_instance *sb;
   SCROLLINFO scrollinfo;
   int vert = GetWindowLong (hwnd, GWL_STYLE) & SBS_VERT;
+  int value;
 
   sb = (struct scrollbar_instance *)GetWindowLong (hwnd, GWL_USERDATA);
   win = real_window (sb->mirror, 1);
   frame = XWINDOW (win)->frame;
   f = XFRAME (frame);
-
-  inhibit_slider_size_change = code == SB_THUMBTRACK;
 
   /* SB_LINEDOWN == SB_CHARLEFT etc. This is the way they will
      always be - any Windows is binary compatible backward with 
@@ -221,12 +227,40 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
     case SB_THUMBTRACK:
     case SB_THUMBPOSITION:
       scrollinfo.cbSize = sizeof(SCROLLINFO);
-      scrollinfo.fMask = SIF_TRACKPOS;
+      scrollinfo.fMask = SIF_ALL;
       GetScrollInfo (hwnd, SB_CTL, &scrollinfo);
+      vertical_drag_in_progress = vert;
+#ifdef VERTICAL_SCROLLBAR_DRAG_HACK
+      if (vert && (scrollinfo.nTrackPos > scrollinfo.nPos))
+        /* new buffer position =
+	 *  buffer position at start of drag +
+	 *   ((text remaining in buffer at start of drag) *
+	 *    (amount that the thumb has been moved) /
+	 *    (space that remained past end of the thumb at start of drag)) */
+	value = (int)
+	  (scrollinfo.nPos
+	   + (((double)
+	      (scrollinfo.nMax - scrollinfo.nPos)
+	       * (scrollinfo.nTrackPos - scrollinfo.nPos))
+	      / (scrollinfo.nMax - scrollinfo.nPage - scrollinfo.nPos)))
+	  - 2;	/* ensure that the last line doesn't disappear off screen */
+      else
+#endif
+        value = scrollinfo.nTrackPos;
       mswindows_enqueue_misc_user_event
 	(frame,
 	 vert ? Qscrollbar_vertical_drag : Qscrollbar_horizontal_drag,
-	 Fcons (win, make_int (scrollinfo.nTrackPos)));
+	 Fcons (win, make_int (value)));
+      break;
+
+    case SB_ENDSCROLL:
+#ifdef VERTICAL_SCROLLBAR_DRAG_HACK
+      if (vertical_drag_in_progress)
+	/* User has just dropped the thumb - finally update it */
+	SetScrollInfo (SCROLLBAR_MSW_HANDLE (sb), SB_CTL,
+		       &SCROLLBAR_MSW_INFO (sb), TRUE);
+#endif
+      vertical_drag_in_progress = 0;
       break;
     }
 }

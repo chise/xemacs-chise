@@ -308,6 +308,10 @@
 ;; contain none or when it has become older than info files in the same
 ;; directory.
 
+;; Modified 1998-09-23 by Didier Verna <verna@inf.enst.fr>
+;;
+;; Use the new macro `with-search-caps-disable-folding'
+
 ;; Code:
 
 (defgroup info nil
@@ -1571,7 +1575,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
   (if (equal regexp "")
       (setq regexp Info-last-search)
     (setq Info-last-search regexp))
-  (with-caps-disable-folding regexp
+  (with-search-caps-disable-folding regexp t
     (let ((found ())
           (onode Info-current-node)
           (ofile Info-current-file)

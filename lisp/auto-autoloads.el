@@ -1204,7 +1204,26 @@ Install a pre-bytecompiled XEmacs package into package hierarchy." t nil)
 
 ;;;***
 
-;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-all package-get-update-all) "package-get" "lisp/package-get.el")
+;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base) "package-get" "lisp/package-get.el")
+
+(autoload 'package-get-require-base "package-get" "\
+Require that a package-get database has been loaded." nil nil)
+
+(autoload 'package-get-update-base-entry "package-get" "\
+Update an entry in `package-get-base'." nil nil)
+
+(autoload 'package-get-update-base "package-get" "\
+Update the package-get database file with entries from DB-FILE." t nil)
+
+(autoload 'package-get-update-base-from-buffer "package-get" "\
+Update the package-get database with entries from BUFFER.
+BUFFER defaults to the current buffer.  This command can be
+used interactively, for example from a mail or news buffer." t nil)
+
+(autoload 'package-get-delete-package "package-get" "\
+Delete an installation of PACKAGE below directory PKG-TOPDIR.
+PACKAGE is a symbol, not a string.
+This is just an interactive wrapper for `package-admin-delete-binary-package'." t nil)
 
 (autoload 'package-get-update-all "package-get" "\
 Fetch and install the latest versions of all currently installed packages." t nil)
@@ -1214,9 +1233,17 @@ Fetch PACKAGE with VERSION and all other required packages.
 Uses `package-get-base' to determine just what is required and what
 package provides that functionality.  If VERSION is nil, retrieves
 latest version.  Optional argument FETCHED-PACKAGES is used to keep
-track of packages already fetched.
+track of packages already fetched.  Optional argument INSTALL-DIR,
+if non-nil, specifies the package directory where fetched packages
+should be installed.
 
 Returns nil upon error." t nil)
+
+(autoload 'package-get-dependencies "package-get" "\
+Compute dependencies for PACKAGES.
+Uses `package-get-base' to determine just what is required and what
+package provides that functionality.  Returns the list of packages
+required by PACKAGES." nil nil)
 
 (autoload 'package-get "package-get" "\
 Fetch PACKAGE from remote site.

@@ -97,8 +97,17 @@
 ;;; Code:
 
 (require 'package-admin)
-(require 'package-get-base)
+;; (require 'package-get-base)
 
+(defgroup package-tools nil
+  "Tools to manipulate packages."
+  :group 'emacs)
+
+(defgroup package-get nil
+  "Automatic Package Fetcher and Installer."
+  :prefix "package-get"
+  :group 'package-tools)
+  
 (defvar package-get-base nil
   "List of packages that are installed at this site.
 For each element in the alist,  car is the package name and the cdr is
@@ -145,25 +154,157 @@ recent to least recent -- in other words, the version names don't have to
 be lexically ordered.  It is debatable if it makes sense to have more than
 one version of a package available.")
 
-(defvar package-get-dir (temp-directory)
-  "*Where to store temporary files for staging.")
+(defcustom package-get-dir (temp-directory)
+  "*Where to store temporary files for staging."
+  :tag "Temporary directory"
+  :type 'directory
+  :group 'package-get)
 
-(defvar package-get-remote
+;; JV Any Custom expert know to get "Host" and "Dir" for the remote option
+(defcustom package-get-remote
   '(("ftp.xemacs.org" "/pub/xemacs/packages"))
   "*List of remote sites to contact for downloading packages.
 List format is '(site-name directory-on-site).  Each site is tried in
 order until the package is found.  As a special case, `site-name' can be
-`nil', in which case `directory-on-site' is treated as a local directory.")
+`nil', in which case `directory-on-site' is treated as a local directory."
+  :tag "Package repository"
+  :type '(repeat (choice (list :tag "Local" (const :tag "Local" nil) directory )
+			 (list :tag "Remote" string string) ))
+  :group 'package-get)
 
-(defvar package-get-remove-copy nil
+(defcustom package-get-remove-copy nil
   "*After copying and installing a package, if this is T, then remove the
-copy.  Otherwise, keep it around.")
+copy.  Otherwise, keep it around."
+  :type 'boolean
+  :group 'package-get)
+
+(defcustom package-get-base-filename
+  "/ftp.xemacs.org:/pub/xemacs/packages/package-index.LATEST"
+  "*Name of the default package database file, usually on ftp.xemacs.org."
+  :type 'file
+  :group 'package-get)
+
+;;;###autoload
+(defun package-get-require-base ()
+  "Require that a package-get database has been loaded."
+  (when (or (not (boundp 'package-get-base))
+            (not package-get-base))
+    (package-get-update-base))
+  (when (or (not (boundp 'package-get-base))
+            (not package-get-base))
+    (error "Package-get database not loaded")))
+
+(defconst package-get-pgp-signed-begin-line "^-----BEGIN PGP SIGNED MESSAGE-----"
+  "Text for start of PGP signed messages.")
+(defconst package-get-pgp-signature-begin-line "^-----BEGIN PGP SIGNATURE-----"
+  "Text for beginning of PGP signature.")
+(defconst package-get-pgp-signature-end-line "^-----END PGP SIGNATURE-----"
+  "Text for end of PGP signature.")
+
+;;;###autoload
+(defun package-get-update-base-entry (entry)
+  "Update an entry in `package-get-base'."
+  (let ((existing (assoc (car entry) package-get-base)))
+    (if existing
+        (setcdr existing (cdr entry))
+      (setq package-get-base (cons entry package-get-base)))))
+
+;;;###autoload
+(defun package-get-update-base (&optional db-file)
+  "Update the package-get database file with entries from DB-FILE."
+  (interactive (list
+                (read-file-name "Load package-get database: "
+                                (file-name-directory package-get-base-filename)
+                                package-get-base-filename
+                                t
+                                (file-name-nondirectory package-get-base-filename))))
+  (setq db-file (expand-file-name (or db-file package-get-base-filename)))
+  (if (not (file-exists-p db-file))
+      (error "Package-get database file `%s' does not exist" db-file))
+  (if (not (file-readable-p db-file))
+      (error "Package-get database file `%s' not readable" db-file))
+  (let ((buf (get-buffer-create "*package database*")))
+    (unwind-protect
+        (save-excursion
+          (set-buffer buf)
+          (erase-buffer buf)
+          (insert-file-contents-internal db-file)
+          (package-get-update-base-from-buffer buf))
+      (kill-buffer buf))))
+
+;;;###autoload
+(defun package-get-update-base-from-buffer (&optional buf)
+  "Update the package-get database with entries from BUFFER.
+BUFFER defaults to the current buffer.  This command can be
+used interactively, for example from a mail or news buffer."
+  (interactive)
+  (setq buf (or buf (current-buffer)))
+  (let (content-beg content-end beg end)
+    (save-excursion
+      (set-buffer buf)
+      (goto-char (point-min))
+      (setq content-beg (point))
+      (setq content-end (save-excursion (goto-char (point-max)) (point)))
+      (when (re-search-forward package-get-pgp-signed-begin-line nil t)
+        (setq beg (match-beginning 0))
+        (setq content-beg (match-end 0)))
+      (when (re-search-forward package-get-pgp-signature-begin-line nil t)
+        (setq content-end (match-beginning 0)))
+      (when (re-search-forward package-get-pgp-signature-end-line nil t)
+        (setq end (point)))
+      (if (not (and content-beg content-end beg end))
+          (or (yes-or-no-p "Package-get entries not PGP signed, continue? ")
+              (error "Package-get database not updated")))
+      (if (and content-beg content-end beg end)
+          (if (not (condition-case nil
+                       (or (fboundp 'mc-pgp-verify-region)
+                           (load-library "mc-pgp")
+                           (fboundp 'mc-pgp-verify-region))
+                     (error nil)))
+              (or (yes-or-no-p
+                   "No mailcrypt; can't verify package-get DB signature, continue? ")
+                  (error "Package-get database not updated"))))
+      (if (and beg end
+               (fboundp 'mc-pgp-verify-region)
+               (or (not
+                    (condition-case err
+                        (mc-pgp-verify-region beg end)
+                      (file-error
+                       (and (string-match "No such file" (nth 2 err))
+                            (yes-or-no-p
+                             "Can't find PGP, continue without package-get DB verification? ")))
+                      (t nil)))))
+          (error "Package-get PGP signature failed to verify"))
+      (package-get-update-base-entries content-beg content-end)
+      (message "Updated package-get database"))))
+
+(defun package-get-update-base-entries (beg end)
+  "Update the package-get database with the entries found between
+BEG and END in the current buffer."
+  (save-excursion
+    (goto-char beg)
+    (if (not (re-search-forward "^(package-get-update-base-entry" nil t))
+        (error "Buffer does not contain package-get database entries"))
+    (beginning-of-line)
+    (let ((count 0))
+      (while (and (< (point) end)
+                  (re-search-forward "^(package-get-update-base-entry" nil t))
+        (beginning-of-line)
+        (let ((entry (read (current-buffer))))
+          (if (or (not (consp entry))
+                  (not (eq (car entry) 'package-get-update-base-entry)))
+              (error "Invalid package-get database entry found"))
+          (package-get-update-base-entry
+           (car (cdr (car (cdr entry)))))
+          (setq count (1+ count))))
+      (message "Got %d package-get database entries" count))))
 
 (defun package-get-interactive-package-query (get-version package-symbol)
   "Perform interactive querying for package and optional version.
 Query for a version if GET-VERSION is non-nil.  Return package name as
 a symbol instead of a string if PACKAGE-SYMBOL is non-nil.
 The return value is suitable for direct passing to `interactive'."
+  (package-get-require-base)
   (let ( (table (mapcar '(lambda (item)
 			   (let ( (name (symbol-name (car item))) )
 			     (cons name name)
@@ -206,6 +347,7 @@ This is just an interactive wrapper for `package-admin-delete-binary-package'."
 (defun package-get-update-all ()
   "Fetch and install the latest versions of all currently installed packages."
   (interactive)
+  (package-get-require-base)
   ;; Load a fresh copy
   (catch 'exit
     (mapcar (lambda (pkg)
@@ -215,12 +357,14 @@ This is just an interactive wrapper for `package-admin-delete-binary-package'."
 	    packages-package-list)))
 
 ;;;###autoload
-(defun package-get-all (package version &optional fetched-packages)
+(defun package-get-all (package version &optional fetched-packages install-dir)
   "Fetch PACKAGE with VERSION and all other required packages.
 Uses `package-get-base' to determine just what is required and what
 package provides that functionality.  If VERSION is nil, retrieves
 latest version.  Optional argument FETCHED-PACKAGES is used to keep
-track of packages already fetched.
+track of packages already fetched.  Optional argument INSTALL-DIR,
+if non-nil, specifies the package directory where fetched packages
+should be installed.
 
 Returns nil upon error."
   (interactive (package-get-interactive-package-query t nil))
@@ -233,7 +377,7 @@ Returns nil upon error."
     (catch 'exit
       (setq version (package-get-info-prop this-package 'version))
       (unless (package-get-installedp package version)
-	(if (not (package-get package version))
+	(if (not (package-get package version nil install-dir))
 	    (progn
 	      (setq fetched-packages nil)
 	      (throw 'exit nil))))
@@ -256,13 +400,50 @@ Returns nil upon error."
 			 (car this-requires)))
 	      (if (not (setq fetched-packages
 			     (package-get-all reqd-name reqd-version
-					      fetched-packages)))
+					      fetched-packages
+                                              install-dir)))
 		  (throw 'exit nil)))
 	  )
 	(setq this-requires (cdr this-requires)))
       )
     fetched-packages
     ))
+
+;;;###autoload
+(defun package-get-dependencies (packages)
+  "Compute dependencies for PACKAGES.
+Uses `package-get-base' to determine just what is required and what
+package provides that functionality.  Returns the list of packages
+required by PACKAGES."
+  (package-get-require-base)
+  (let ((orig-packages packages)
+        dependencies provided)
+    (while packages
+      (let* ((package (car packages))
+             (the-package (package-get-info-find-package
+                           package-get-base package))
+             (this-package (package-get-info-version
+                            the-package nil))
+             (this-requires (package-get-info-prop this-package 'requires))
+             (new-depends   (set-difference
+                             (mapcar
+                              #'(lambda (reqd)
+                                  (let* ((reqd-package (package-get-package-provider reqd))
+                                         (reqd-version (cadr reqd-package))
+                                         (reqd-name    (car reqd-package)))
+                                    (if (null reqd-name)
+                                        (error "Unable to find a provider for %s" reqd))
+                                    reqd-name))
+                              this-requires)
+                             dependencies))
+             (this-provides (package-get-info-prop this-package 'provides)))
+        (setq dependencies
+              (union dependencies new-depends))
+        (setq provided
+              (union provided (union (list package) this-provides)))
+        (setq packages
+              (union new-depends (cdr packages)))))
+    (set-difference dependencies orig-packages)))
 
 (defun package-get-load-package-file (lispdir file)
   (let (pathname)
@@ -332,6 +513,7 @@ successfully installed but errors occurred during initialization, or
 	  (package-get-info-version
 	   (package-get-info-find-package package-get-base
 					  package) version))
+	 (this-requires (package-get-info-prop this-package 'requires))
 	 (found nil)
 	 (search-dirs package-get-remote)
 	 (base-filename (package-get-info-prop this-package 'filename))
@@ -343,8 +525,9 @@ successfully installed but errors occurred during initialization, or
     (if (null base-filename)
 	(error "No filename associated with package %s, version %s"
 	       package version))
-    (if (null install-dir)
-	(setq install-dir (package-admin-get-install-dir nil)))
+    (setq install-dir
+	  (package-admin-get-install-dir package install-dir
+		(or (eq package 'mule-base) (memq 'mule-base this-requires))))
 
     ;; Contrive a list of possible package filenames.
     ;; Ugly.  Is there a better way to do this?
@@ -581,6 +764,7 @@ some built in variables.  For now, use packages-package-list."
   consp, then it must match a corresponding (provide (SYM VERSION)) from 
   the package."
   (interactive "SSymbol: ")
+  (package-get-require-base)
   (let ((packages package-get-base)
 	(done nil)
 	(found nil))
@@ -612,6 +796,7 @@ some built in variables.  For now, use packages-package-list."
 (defun package-get-custom ()
   "Fetch and install the latest versions of all customized packages."
   (interactive)
+  (package-get-require-base)
   ;; Load a fresh copy
   (load "package-get-custom.el")
   (mapcar (lambda (pkg)
@@ -690,6 +875,8 @@ Entries in the customization file are retrieved from package-get-base.el."
 (provide 'package-get)
 
 ;; potentially update the custom dependencies every time we load this
+(when nil ;; #### disable for now... -gk
+(unless noninteractive
 (let ((custom-file (package-get-file-installed-p "package-get-custom.el"))
       (package-file (package-get-file-installed-p "package-get-base.el")))
   ;; update custom file if it doesn't exist
@@ -703,6 +890,7 @@ Entries in the customization file are retrieved from package-get-base.el."
 	(set-buffer (package-get-create-custom))
 	(save-buffer)
 	(message "generating package customizations...done")))
-  (load "package-get-custom.el"))
+  (load "package-get-custom.el")))
+)
 
 ;;; package-get.el ends here

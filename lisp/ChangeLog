@@ -1,3 +1,164 @@
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-10-15  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-update-base): use
+	insert-file-contents-internal, not insert-file-contents-literally.
+
+1998-10-14  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* auto-save.el: expand-file 'auto-save-*-dir' at runtime not at
+	dump time. 
+
+1998-10-15  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-update-base-entry): new function.
+	(package-get-update-base): renamed; was `package-get-load-base'.
+	cleanup, and use package-get-update-base-from-buffer.
+	(package-get-update-base-from-buffer): new function.
+	(package-get-update-base-entries): new; helper for above.
+	Do not eval lisp grabbed over ftp; parse it from new format.
+
+1998-10-15  Greg Klanderman  <greg@alphatech.com>
+
+	* files.el (set-auto-mode): Don't play games loading package-get
+	database; package-get-package-provider will handle it all.
+
+1998-10-14  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-base-filename): new variable.
+	(package-get-require-base): new function.
+	(package-get-pgp-signed-begin-line): new variable.
+	(package-get-pgp-signature-begin-line): ditto.
+	(package-get-pgp-signature-end-line):  ditto.
+	(package-get-load-base): new function.
+	(package-get-interactive-package-query):
+	(package-get-update-all):
+	(package-get-dependencies):
+	(package-get-package-provider):
+	(package-get-custom): use package-get-require-base.
+	[package-get-custom loading]: disable for now.
+
+	* package-ui.el (pui-list-packages): use (package-get-require-base)
+
+1998-10-14  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-ui.el: Correct obvious thinko in choosing extent face.
+
+1998-10-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* menubar-items.el (default-menubar): pui-list-package has nothing 
+	to with Customize. Move all the package stuff to a new Item in Options.
+
+	* package-ui.el (pui-menu): Add menu and Popup menu.
+
+	* package-get.el (package-get): Use new
+	package-admin-get-install-dir.
+
+	* package-admin.el (package-admin-get-install-dir): New syntax.
+	Conserve package location and put mule packages where mule-base is.
+
+	* package-get.el : Customized
+
+	* package-ui.el (pui): Customized
+	(pui-package-install-dest-dir): New variable.
+	(pui-install-selected-packages): Use it
+
+1998-10-12  SL Baur  <steve@altair.xemacs.org>
+
+	* package-get.el (package-get-interactive-package-query): Move
+	dependency on package-get-base to run-time.
+	(package-get-update-all): Ditto.
+	(package-get-dependencies): Ditto.
+	(package-get-package-provider): Ditto.
+	(package-get-custom): Ditto.
+
+1998-10-11  Glynn Clements  <glynn@sensei.co.uk>
+
+	* events.el: Remove 'ascii-character property from 'backspace
+	and 'delete symbols
+
+1998-10-11  SL Baur  <steve@altair.xemacs.org>
+
+	* package-get-base.el: removed.
+
+1998-09-23  Didier Verna  <verna@inf.enst.fr>
+
+	* simple.el (search-caps-disable-folding): moved from isearch-mode.el
+	(no-upper-case-p): new function.
+	(with-search-caps-disable-folding): new macro.
+	(with-interactive-search-caps-disable-folding): new macro.
+	(zap-to-char): In interactive mode, do a case-sensitive search if
+	the character is uppercase.
+	(zap-up-to-char): ditto.
+
+	* replace.el (perform-replace): use the function no-upper-case-p.
+
+	* isearch-mode.el (isearch-fix-case): ditto.
+	make obsolete `with-caps-disable-folding' and
+	`isearch-no-upper-case-p'.
+
+	* etags.el (find-tag-internal): use `with-search-caps-disable-folding'.
+	(tags-search): ditto.
+	(tags-query-replace): ditto.
+
+	* info.el (Info-search): ditto.
+
+1998-10-07  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* x-font-menu.el (font-menu-set-font): Respect font-menu-frame-local
+
+1998-10-07  Greg Klanderman  <greg@alphatech.com>
+
+	* package-admin.el (package-admin-rmtree): rewritten.  need to
+	check for "." and ".." before symlink check.  expand files and
+	directories with respect to DIRECTORY, not default-directory.
+
+1998-10-04  Greg Klanderman  <greg@alphatech.com>
+
+	* package-get.el (package-get-all): add INSTALL-DIR argument.
+
+1998-10-06  Greg Klanderman  <greg@alphatech.com>
+
+	* package-ui.el (pui-add-required-packages): new function, select
+	dependent packages.
+	(pui-display-keymap): bind it.
+	(pui-help-string): document it.
+	(pui-install-selected-packages): package-get-all -> package-get.
+
+	* package-get.el (package-get-dependencies): new function.
+
+1998-10-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* isearch-mode.el (isearch-done): Use regexp-search-ring-max for
+	regexps.
+
+1998-10-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* mouse.el (default-mouse-track-point-at-opening-quote-p): New
+	function.
+	(default-mouse-track-normalize-point): Use it.
+
+1998-09-30  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-admin.el (package-admin-delete-binary-package):
+		General cleanup. Remove unnessary use of progn and
+	save-excursion. 
+	(package-admin-delete-binary-package): Do NOT mess with file
+	modes. That is evil. 
+	(package-admin-delete-binary-package): Wrap all deleting in
+	condition-case. The data in MANIFEST is untrustworthy.
+	(package-admin-delete-binary-package): Let the OS worry about non
+	empty directories.
+
+1998-10-09  SL Baur  <steve@altair.xemacs.org>
+
+	* lisp-mnt.el (lm-commentary): Fix InfoDock-style comment
+	processing.
+	(lm-report-bug): Fix mail address to send bug reports to.
+
 1998-09-29  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta2 is released.

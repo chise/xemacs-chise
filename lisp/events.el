@@ -120,8 +120,6 @@ See `keyboard-translate-table' for more information."
   (while pairs
     (puthash (pop pairs) (pop pairs) keyboard-translate-table)))
 
-(put 'backspace 'ascii-character ?\b)
-(put 'delete    'ascii-character ?\177)
 (put 'tab       'ascii-character ?\t)
 (put 'linefeed  'ascii-character ?\n)
 (put 'clear     'ascii-character 12)

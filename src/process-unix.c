@@ -1198,6 +1198,10 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
   else
     { /* We got here from a longjmp() from the SIGPIPE handler */
       signal (SIGPIPE, old_sigpipe);
+      /* Close the file lstream so we don't attempt to write to it further */
+      /* #### There is controversy over whether this might cause fd leakage */
+      /*      my tests say no. -slb */
+      XLSTREAM (p->pipe_outstream)->flags &= ~LSTREAM_FL_IS_OPEN;
       p->status_symbol = Qexit;
       p->exit_code = 256; /* #### SIGPIPE ??? */
       p->core_dumped = 0;

@@ -148,12 +148,6 @@ that the search has reached."
   :type 'integer
   :group 'isearch)
 
-(defcustom search-caps-disable-folding t
-  "*If non-nil, upper case chars disable case fold searching.
-This does not apply to \"yanked\" strings."
-  :type 'boolean
-  :group 'isearch)
-
 (defcustom search-nonincremental-instead t
   "*If non-nil, do a nonincremental search instead if exiting immediately."
   :type 'boolean
@@ -587,7 +581,7 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 		      (cons isearch-string regexp-search-ring)
 		      regexp-search-ring-yank-pointer regexp-search-ring)
 		(if (> (length regexp-search-ring) regexp-search-ring-max)
-		    (setcdr (nthcdr (1- search-ring-max) regexp-search-ring)
+		    (setcdr (nthcdr (1- regexp-search-ring-max) regexp-search-ring)
 			    nil))))
 	(if (not (setq search-ring-yank-pointer
 		       ;; really need equal test instead of eq.
@@ -938,7 +932,8 @@ backwards."
 
 (defun isearch-fix-case ()
   (if (and isearch-case-fold-search search-caps-disable-folding)
-      (setq isearch-case-fold-search (isearch-no-upper-case-p isearch-string)))
+      (setq isearch-case-fold-search 
+	    (no-upper-case-p isearch-string isearch-regexp)))
   (setq isearch-mode (if case-fold-search
                          (if isearch-case-fold-search
                              " Isearch"  ;As God Intended Mode
@@ -1598,10 +1593,9 @@ currently matches the search-string.")
 ;    ;; Go ahead and search.
 ;    (if search-caps-disable-folding
 ;	(setq isearch-case-fold-search 
-;	      (isearch-no-upper-case-p isearch-string)))
+;	      (no-upper-case-p isearch-string isearch-regexp)))
 ;    (let ((case-fold-search isearch-case-fold-search))
 ;      (funcall function isearch-string))))
-
 
 (defun isearch-no-upper-case-p (string)
   "Return t if there are no upper case chars in string.
@@ -1610,6 +1604,7 @@ have special meaning in a regexp."
   ;; this incorrectly returns t for "\\\\A"
   (let ((case-fold-search nil))
     (not (string-match "\\(^\\|[^\\]\\)[A-Z]" string))))
+(make-obsolete 'isearch-no-upper-case-p 'no-upper-case-p)
 
 ;; Used by etags.el and info.el
 (defmacro with-caps-disable-folding (string &rest body) "\
@@ -1620,6 +1615,7 @@ uppercase letters and `search-caps-disable-folding' is t."
               (isearch-no-upper-case-p ,string)
             case-fold-search)))
      ,@body))
+(make-obsolete 'with-caps-disable-folding 'with-search-caps-disable-folding)
 (put 'with-caps-disable-folding 'lisp-indent-function 1)
 (put 'with-caps-disable-folding 'edebug-form-spec '(form body))
 

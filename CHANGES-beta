@@ -1,4 +1,10 @@
 							-*- indented-text -*-
+to 21.2 beta3 "Aglaia"
+-- case sensitiveness improvements from Didier Verna
+-- Bug fixes from 21.0
+-- Word selection on mouse click on quotes from Hrvoje Niksic
+-- WAVE support for NAS from Raymond Toy
+
 to 21.2 beta2 "Aether"
 -- Synched with 21.0-pre14 "Poitou"
 -- isearch improvements from Hrvoje Niksic

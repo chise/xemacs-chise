@@ -628,7 +628,7 @@ which will run faster and probably do exactly what you want."
 	 ;; XEmacs addition
 	 (qr-case-fold-search
 	  (if (and case-fold-search search-caps-disable-folding)
-	      (isearch-no-upper-case-p search-string)
+	      (no-upper-case-p search-string regexp-flag)
 	    case-fold-search))
 	 (message
 	  (if query-flag

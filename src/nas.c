@@ -49,6 +49,7 @@
  *			correct error facilities.
  *      4/11/94, rjc    Added wait_for_sounds to be called when user wants to
  *			be sure all play has finished.
+ *      1998-10-01 rlt  Added support for WAVE files.
  */
 
 #ifdef emacs
@@ -74,6 +75,7 @@
 #include <audio/audiolib.h>
 #include <audio/soundlib.h>
 #include <audio/snd.h>
+#include <audio/wave.h>
 #include <audio/fileutil.h>
 
 #ifdef emacs
@@ -486,9 +488,13 @@ play_sound_data (unsigned char *data,
       /* hack, hack */
       offset = ((SndInfo *) (s->formatInfo))->h.dataOffset;
     }
+  else if (SoundFileFormat (s) == SoundFileFormatWave)
+    {
+      offset = ((WaveInfo *) (s->formatInfo))->dataOffset;
+    }
   else
     {
-      warn ("only understand snd files at the moment");
+      warn ("only understand snd and wave files at the moment");
       SoundCloseFile (s);
 #ifdef ROBUST_PLAY
       signal (SIGPIPE, old_sigpipe);
@@ -576,6 +582,7 @@ CatchIoErrorAndJump (AuServer *old_aud)
   longjmp (AuXtErrorJump, 1);
  
 #endif /* XTEVENTS */
+  return 0;
 }
 
 SIGTYPE
@@ -711,6 +718,260 @@ SndOpenDataForReading (CONST char *data,
   return si;
 }
 
+/* Stuff taken from wave.c from NAS.  Just like snd files, NAS can't
+   read wave data from memory, so these functions do that for us. */
+
+#define Err()		{ return NULL; }
+#define readFourcc(_f)	dread(_f, sizeof(RIFF_FOURCC), 1)
+#define cmpID(_x, _y)							      \
+    strncmp((char *) (_x), (char *) (_y), sizeof(RIFF_FOURCC))
+#define PAD2(_x)	(((_x) + 1) & ~1)
+
+/* These functions here are for faking file I/O from buffer. */
+
+/* The "file" position */
+static int file_posn;
+/* The length of the "file" */
+static int file_len;
+/* The actual "file" data. */
+CONST static char* file_data;
+
+/* Like fopen, but for a buffer in memory */
+static void
+dopen(CONST char* data, int length)
+{
+   file_data = data;
+   file_len = length;
+   file_posn = 0;
+}
+
+/* Like fread, but for a buffer in memory */
+static int
+dread(char* buf, int size, int nitems)
+{
+  int nread;
+
+  nread = size * nitems;
+  
+  if (file_posn + nread <= file_len)
+    {
+      memcpy(buf, file_data + file_posn, size * nitems);
+      file_posn += nread;
+      return nitems;
+    }
+  else
+    {
+      return EOF;
+    }
+}
+
+/* Like fgetc, but for a buffer in memory */
+static int
+dgetc()
+{
+  int ch;
+  
+  if (file_posn < file_len)
+    return file_data[file_posn++];
+  else
+    return -1;
+}
+
+/* Like fseek, but for a buffer in memory */
+static int
+dseek(long offset, int from)
+{
+  if (from == 0)
+    file_posn = offset;
+  else if (from == 1)
+    file_posn += offset;
+  else if (from == 2)
+    file_posn = file_len + offset;
+
+  return 0;
+}
+
+/* Like ftell, but for a buffer in memory */
+static int
+dtell()
+{
+  return file_posn;
+}
+
+/* Data buffer analogs for FileReadS and FileReadL in NAS. */
+
+static unsigned short
+DataReadS(int swapit)
+{
+    unsigned short us;
+
+    dread(&us, 2, 1);
+    if (swapit)
+	us = FileSwapS(us);
+    return us;
+}
+
+static AuUint32
+DataReadL(int swapit)
+{
+    AuUint32 ul;
+
+    dread(&ul, 4, 1);
+    if (swapit)
+	ul = FileSwapL(ul);
+    return ul;
+}
+
+static int
+readChunk(RiffChunk *c)
+{
+    int             status;
+    char            n;
+
+    if ((status = dread(c, sizeof(RiffChunk), 1)))
+	if (BIG_ENDIAN)
+	    swapl(&c->ckSize, n);
+
+    return status;
+}
+
+/* A very straight-forward translation of WaveOpenFileForReading to
+   read the wave data from a buffer in memory. */
+
+static WaveInfo *
+WaveOpenDataForReading(CONST char *data,
+		       int length)
+{
+    RiffChunk       ck;
+    RIFF_FOURCC     fourcc;
+    AuInt32            fileSize;
+    WaveInfo       *wi;
+
+    
+    if (!(wi = (WaveInfo *) malloc(sizeof(WaveInfo))))
+	return NULL;
+
+    wi->comment = NULL;
+    wi->dataOffset = wi->format = wi->writing = 0;
+
+    dopen(data, length);
+    
+    if (!readChunk(&ck) ||
+	cmpID(&ck.ckID, RIFF_RiffID) ||
+	!readFourcc(&fourcc) ||
+	cmpID(&fourcc, RIFF_WaveID))
+	Err();
+
+    fileSize = PAD2(ck.ckSize) - sizeof(RIFF_FOURCC);
+
+    while (fileSize >= sizeof(RiffChunk))
+    {
+	if (!readChunk(&ck))
+	    Err();
+
+	fileSize -= sizeof(RiffChunk) + PAD2(ck.ckSize);
+
+	/* LIST chunk */
+	if (!cmpID(&ck.ckID, RIFF_ListID))
+	{
+	    if (!readFourcc(&fourcc))
+		Err();
+
+	    /* INFO chunk */
+	    if (!cmpID(&fourcc, RIFF_ListInfoID))
+	    {
+		ck.ckSize -= sizeof(RIFF_FOURCC);
+
+		while (ck.ckSize)
+		{
+		    RiffChunk       c;
+
+		    if (!readChunk(&c))
+			Err();
+
+		    /* ICMT chunk */
+		    if (!cmpID(&c.ckID, RIFF_InfoIcmtID))
+		    {
+			if (!(wi->comment = (char *) malloc(c.ckSize)) ||
+			    !dread(wi->comment, c.ckSize, 1))
+			    Err();
+
+			if (c.ckSize & 1)
+			    dgetc();	/* eat the pad byte */
+		    }
+		    else
+			/* skip unknown chunk */
+			dseek(PAD2(c.ckSize), 1);
+
+		    ck.ckSize -= sizeof(RiffChunk) + PAD2(c.ckSize);
+		}
+	    }
+	    else
+		/* skip unknown chunk */
+		dseek(PAD2(ck.ckSize) - sizeof(RIFF_FOURCC), 1);
+	}
+	/* wave format chunk */
+	else if (!cmpID(&ck.ckID, RIFF_WaveFmtID) && !wi->format)
+	{
+	    AuInt32            dummy;
+
+	    wi->format = DataReadS(BIG_ENDIAN);
+	    wi->channels = DataReadS(BIG_ENDIAN);
+	    wi->sampleRate = DataReadL(BIG_ENDIAN);
+
+	    /* we don't care about the next two fields */
+	    dummy = DataReadL(BIG_ENDIAN);
+	    dummy = DataReadS(BIG_ENDIAN);
+
+	    if (wi->format != RIFF_WAVE_FORMAT_PCM)
+		Err();
+
+	    wi->bitsPerSample = DataReadS(BIG_ENDIAN);
+
+	    /* skip any other format specific fields */
+	    dseek(PAD2(ck.ckSize - 16), 1);
+	}
+	/* wave data chunk */
+	else if (!cmpID(&ck.ckID, RIFF_WaveDataID) && !wi->dataOffset)
+	{
+	    long endOfFile;
+
+	    wi->dataOffset = dtell();
+	    wi->dataSize = ck.ckSize;
+	    dseek(0, 2);
+	    endOfFile = dtell();
+
+	    /* seek past the data */
+	    if (dseek(wi->dataOffset + PAD2(ck.ckSize), 0) ||
+		dtell() > endOfFile)
+	    {
+		/* the seek failed, assume the size is bogus */
+		dseek(0, 2);
+		wi->dataSize = dtell() - wi->dataOffset;
+	    }
+
+	    wi->dataOffset -= sizeof(long);
+	}
+	else
+	    /* skip unknown chunk */
+	    dseek(PAD2(ck.ckSize), 1);
+    }
+
+    if (!wi->dataOffset)
+	Err();
+
+    wi->numSamples = wi->dataSize / wi->channels / (wi->bitsPerSample >> 3);
+
+    if (!wi->comment)
+       wi->comment = NameFromData (data + wi->dataOffset,
+                                   length - wi->dataOffset);
+
+    wi->fp = NULL;
+    
+    return wi;
+}
+
+
 static Sound
 SoundOpenDataForReading (unsigned char *data,
 			 int length)
@@ -721,18 +982,23 @@ SoundOpenDataForReading (unsigned char *data,
   if (!(s = (Sound) malloc (sizeof (SoundRec))))
     return NULL;
 
-  if ((s->formatInfo = SndOpenDataForReading (data, length))==NULL)
+  if ((s->formatInfo = SndOpenDataForReading (data, length)) != NULL)
     {
-      free (s);
-      return NULL;
+      if (!(SoundFileInfo[SoundFileFormatSnd].toSound) (s))
+	{
+	  SndCloseFile (s->formatInfo);
+	  free (s);
+	  return NULL;
+	}
     }
-    
-
-  if (!(SoundFileInfo[SoundFileFormatSnd].toSound) (s))
+  else if ((s->formatInfo = WaveOpenDataForReading (data, length)) != NULL)
     {
-      SndCloseFile (s->formatInfo);
-      free (s);
-      return NULL;
+      if (!(SoundFileInfo[SoundFileFormatWave].toSound) (s))
+	{
+	  WaveCloseFile (s->formatInfo);
+	  free (s);
+	  return NULL;
+	}
     }
 
   return s;

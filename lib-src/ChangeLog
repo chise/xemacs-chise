@@ -1,3 +1,35 @@
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-10-12  SL Baur  <steve@altair.xemacs.org>
+
+	* lib-src/gnudepend.pl: Use /usr/bin/perl.
+	* Makefile.in.in (INSTALLABLE_SCRIPTS): Remove send-pr, install-sid.
+	(GEN_SCRIPTS): Ditto.
+	Delete TM_SCRIPTS.
+
+1998-10-11  SL Baur  <steve@altair.xemacs.org>
+
+	* tm-au:
+	* tm-file:
+	* tm-html:
+	* tm-image:
+	* tm-mpeg:
+	* tm-plain:
+	* tm-ps:
+	* tmdecode: packaged.
+
+1998-10-10  SL Baur  <steve@altair.xemacs.org>
+
+	* install-sid:
+	* send-pr:  Packaged
+
+1998-10-01  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* gnuclient.c (filename_expand): Don't forget to copy the
+	filename under UNIX.
+
 1998-09-29  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta2 is released.

@@ -2631,6 +2631,7 @@ static void
 x_delete_frame (struct frame *f)
 {
   Widget w = FRAME_X_SHELL_WIDGET (f);
+  Display *dpy = XtDisplay (w);
 
 #ifndef HAVE_SESSION
   if (FRAME_X_TOP_LEVEL_FRAME_P (f))
@@ -2638,20 +2639,17 @@ x_delete_frame (struct frame *f)
 #endif /* HAVE_SESSION */
 
 #ifdef EXTERNAL_WIDGET
-  {
-    Display *dpy = XtDisplay (w);
-    expect_x_error (dpy);
-    /* for obscure reasons having (I think) to do with the internal
-       window-to-widget hierarchy maintained by Xt, we have to call
-       XtUnrealizeWidget() here.  Xt can really suck. */
-    if (f->being_deleted)
-      XtUnrealizeWidget (w);
-    XtDestroyWidget (w);
-    x_error_occurred_p (dpy);
-  }
+  expect_x_error (dpy);
+  /* for obscure reasons having (I think) to do with the internal
+     window-to-widget hierarchy maintained by Xt, we have to call
+     XtUnrealizeWidget() here.  Xt can really suck. */
+  if (f->being_deleted)
+    XtUnrealizeWidget (w);
+  XtDestroyWidget (w);
+  x_error_occurred_p (dpy);
 #else
   XtDestroyWidget (w);
-  XFlush (XtDisplay(w));   /* make sure the windows are really gone! */
+  XFlush (dpy);   /* make sure the windows are really gone! */
 #endif /* EXTERNAL_WIDGET */
 
   if (FRAME_X_GEOM_FREE_ME_PLEASE (f))
