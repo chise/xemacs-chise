@@ -7098,7 +7098,7 @@
     (ucs			. #x5B0B)	; 嬋
     ))
 (define-char
-  '((morohashi-daikanwa	6738 0 *)
+  '((morohashi-daikanwa	6738 0 8)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
