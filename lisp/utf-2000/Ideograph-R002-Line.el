@@ -137,9 +137,9 @@
 		 (ucs		     . #x2FF9)	; â¿¹
 		 )
       )
-     ((ucs		  . #xF617)	; ï˜—
+     ((chinese-big5-cdp	  . #x8D43)	; âº„
       )
-     ((ucs		  . #xF569)	; ï•©
+     ((chinese-big5-cdp	  . #x8BF1)	; ï•©
       ))
     (japanese-jisx0212		. #x302B)	; ø»Šºœ
     (chinese-cns11643-2		. #x2130)	; ø»“Œ¯
