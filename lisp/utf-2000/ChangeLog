@@ -1,3 +1,20 @@
+2003-07-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R128-Ear.el, Ideograph-R127-Plow.el,
+	Ideograph-R125-Old.el, Ideograph-R124-Feather.el,
+	Ideograph-R123-Sheep.el, Ideograph-R122-Net.el,
+	Ideograph-R121-Jar.el, Ideograph-R118-Bamboo.el: Add some GT code
+	points.
+
+	* Ideograph-R060-Step.el (J90-352B): Unify GT-35717.
+
+2003-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R126-And.el (U+800C): Unify GT-37338.
+	(U+8010): Unify GT-37346.
+
+	* Ideograph-R120-Silk.el: Add some GT code points.
+
 2003-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* isolated-char.el (GT-19655): Deleted because it is included in
