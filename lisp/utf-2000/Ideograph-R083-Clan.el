@@ -3,7 +3,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (shinjigen-2	. 4037)
+    (japanese-jisx0208-1978	. #x3B61)	; ø»‚£Œ
     (chinese-gb2312		. #x4A4F)	; ø»…ƒ€
+    (japanese-jisx0208		. #x3B61)	; ø»†·”
     (chinese-isoir165		. #x4A4F)	; ø»«
     (chinese-cns11643-1		. #x4554)	; ø»‘¸‡
     (japanese-jisx0208-1990	. #x3B61)	; ø½Šˆ
@@ -34,7 +36,9 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (shinjigen-2	. 4039)
+    (japanese-jisx0208-1978	. #x4C31)	; ø»‚»š
     (chinese-gb2312		. #x4371)	; ø»„¹
+    (japanese-jisx0208		. #x4C31)	; ø»‡¢
     (chinese-isoir165		. #x4371)	; ø»¡ 
     (chinese-cns11643-1		. #x4661)	; ø»‘¹²
     (japanese-jisx0208-1990	. #x4C31)	; ø½Šµ–
