@@ -23,8 +23,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x51E0)	; 几
       ))
@@ -211,8 +210,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x7C73)	; 米
       ))
@@ -252,8 +250,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((chinese-big5-cdp	  . #x8DB7)	; 
       ))
@@ -317,8 +314,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x8C56)	; 豖
       ))
@@ -356,8 +352,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((japanese-jisx0208-1978	  . #x513D)	; �����
       (chinese-cns11643-3	  . #x2753)	; �����
@@ -380,8 +375,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x5154)	; 兔
       ))
@@ -404,8 +398,7 @@
 		 (ucs		     . #x2FF3)	; ⿳
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x65E5)	; 日
       )
@@ -434,8 +427,7 @@
 		 (ucs		     . #x2FF3)	; ⿳
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x65E5)	; 日
       )
@@ -595,8 +587,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((chinese-cns11643-1 . #x685D)	; �����
       (ideograph-daikanwa . 09051)	; �����
@@ -618,8 +609,7 @@
 		 (ucs		     . #x2FF1)	; ⿱
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B40)	; 冖
-      (ucs		  . #x5196)	; 冖
+     ((ucs		  . #x5196)	; 冖
       )
      ((ucs		  . #x5E55)	; 幕
       ))
