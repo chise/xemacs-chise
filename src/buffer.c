@@ -1624,6 +1624,8 @@ thus, the least likely buffer for \\[switch-to-buffer] to select by default.
 If BUFFER is nil or omitted, bury the current buffer.
 Also, if BUFFER is nil or omitted, remove the current buffer from the
 selected window if it is displayed there.
+Because of this, you may need to specify (current-buffer) as
+BUFFER when calling from minibuffer.
 If BEFORE is non-nil, it specifies a buffer before which BUFFER
 will be placed, instead of being placed at the end.
 */

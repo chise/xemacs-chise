@@ -204,6 +204,7 @@ main(int argc, char **argv)
 	in_block = 0;
     }
   }
+  exit (0);
 }	
 
 

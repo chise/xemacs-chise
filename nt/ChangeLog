@@ -1,8 +1,17 @@
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-15  Scott Blachowicz  <Scott.Blachowicz@seaslug.org>
+
+	* minitar.c (main): Add explicit exit(0) to get successful return
+	code.
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.
 
-1999-11-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-11-28  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (depend): Only update `depend' if there were changes.
 	Use "perl ./make-src-depend" instead of "mkdepend".
@@ -11,7 +20,7 @@
 
 	* XEmacs 21.2.23 is released.
 
-1999-11-27  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-11-27  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (SRCDIR): Make path to xemacs absolute to
 	facilitate building info in man subdirs.  Echo all cd commands,
@@ -48,7 +57,7 @@
 	* xemacs.mak: Ignore return code of 'del' calls. Use a make
 	variable for 'del'.
 
-1999-09-26  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-09-26  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (all): Update $(LISP)/auto-autoloads.elc? and
  	$(LISP)/custom-load.el using XEmacs itself, like xemacs-packages
@@ -60,7 +69,7 @@
 
 	* xemacs.mak (HAVE_WIDGETS): add define to appropriate places.
 
-1999-07-26  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-07-26  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak ($(MANDIR)\lispref\lispref.texi): Replace bad
 	dependency.
@@ -69,7 +78,7 @@
 
 	* XEmacs 21.2.19 is released
 
-1999-07-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-07-10  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (.SUFFIXES): Add .texi.
 	(check): Improve automated test section.
@@ -88,7 +97,7 @@
 
 	* XEmacs 21.2.17 is released
 
-1999-06-13  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-06-13  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (DOC_SRC8): Remove mule-coding.c.
 	(TEMACS_MULE_OBJS): Remove mule-coding.obj
@@ -103,7 +112,7 @@
 
 	* XEmacs 21.2.16 is released
 
-1999-05-14  Adrian Aichner  &lt;aichner@ecf.teradyne.com&gt;
+1999-05-14  Adrian Aichner  &lt;adrian@xemacs.org&gt;
 
 	* xemacs.mak (GUNG_HO): Explicitly default to 0.
 	Fix some comment typos.
@@ -132,7 +141,7 @@
 	* xemacs.mak ($(LISP)\Installation.el): Don't use
  	`replace-in-string'.
 
-1999-03-17  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-03-17  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak: Remove ESC macro -- no longer needed.
 	Remove small configuration report.  Remove simplified version of
@@ -208,7 +217,7 @@
 
 	* XEmacs 21.2.9 is released
 
-1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-01-14  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (MODULES): Adding variable.
 	(update-elc): Setting EMACSBOOTSTRAPMODULEPATH.
@@ -259,7 +268,7 @@
 
 	* XEmacs 21.2.6 is released
 
-1998-12-11  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-12-11  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak (DOC_SRC2): CLASH_DETECTION is not supported under
  	native Windows NT.  Therefore src\filelock.c is not to be
@@ -281,7 +290,7 @@
 	(DOC_SRC4): 
 	- Remove pure.c, pure.obj
 
-1998-11-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-11-04  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs.mak: Creating minimal versions of Installation,
  	Installation.el, and config.values to make
@@ -310,7 +319,7 @@
 
 	* XEmacs 21.2-beta2 is released.
 
-1998-09-19  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-09-19  Adrian Aichner  <adrian@xemacs.org>
 
 	* tiff.mak: New file provided by Charles Wilson
 	  <cwilson@ee.gatech.edu>
@@ -400,7 +409,7 @@
 
 	* config.h:
 	* xemacs.mak: NT native sound fixes
-	From Fabrice POPINEAU via Adrian Aichner <aichner@ecf.teradyne.com>
+	From Fabrice POPINEAU via Adrian Aichner <adrian@xemacs.org>
 
 1998-06-21  Martin Buchholz  <martin@xemacs.org>
 
@@ -423,7 +432,7 @@
 
 	* xemacs.mak (distclean): Reorder when puresize-adjust.h gets
 	deleted.
-	From Adrian Aichner <aichner@ecf.teradyne.com>
+	From Adrian Aichner <adrian@xemacs.org>
 
 1998-06-08  Kirill M. Katsnelson  <kkm@kis.ru>
 

@@ -47,16 +47,16 @@ static void redraw_cursor_in_window (struct window *w,
 				     int run_end_begin_glyphs);
 static void redisplay_output_display_block (struct window *w, struct display_line *dl,
 					    int block, int start, int end, int start_pixpos,
-					    int cursor_start, int cursor_width, 
+					    int cursor_start, int cursor_width,
 					    int cursor_height);
-static void redisplay_normalize_display_box (struct display_box* dest, 
+static void redisplay_normalize_display_box (struct display_box* dest,
 					     struct display_glyph_area* src);
 static int redisplay_display_boxes_in_window_p (struct window* w,
 						struct display_box* db,
 						struct display_glyph_area* dga);
-static void redisplay_clear_clipped_region (Lisp_Object locale, face_index findex, 
-					    struct display_box* dest, 
-					    struct display_glyph_area* glyphsrc, 
+static void redisplay_clear_clipped_region (Lisp_Object locale, face_index findex,
+					    struct display_box* dest,
+					    struct display_glyph_area* glyphsrc,
 					    int fullheight_p, Lisp_Object);
 
 /*****************************************************************************
@@ -210,7 +210,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 
      #### It would really be worth it to arrange for this function to
      be (almost) a single call to memcmp. */
-  
+
   if ((crb->findex != drb->findex) ||
       (WINDOW_FACE_CACHEL_DIRTY (w, drb->findex)))
     return 0;
@@ -229,7 +229,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	   (crb->object.hline.thickness != drb->object.hline.thickness ||
 	    crb->object.hline.yoffset != drb->object.hline.yoffset))
     return 0;
-  else if (crb->type == RUNE_DGLYPH && 
+  else if (crb->type == RUNE_DGLYPH &&
 	   (!EQ (crb->object.dglyph.glyph, drb->object.dglyph.glyph) ||
 	    !EQ (crb->object.dglyph.extent, drb->object.dglyph.extent) ||
 	    crb->object.dglyph.xoffset != drb->object.dglyph.xoffset))
@@ -244,7 +244,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	 up-to-date. */
       if (GLYPH_CACHEL_DIRTYP (w, gindex))
 	return 0;
-      else 
+      else
 	return 1;
     }
   else
@@ -657,7 +657,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 		  if (x < ddl->bounds.left_in)
 		    {
 		      findex = ddl->left_margin_findex ?
-			ddl->left_margin_findex 
+			ddl->left_margin_findex
 			: get_builtin_face_cache_index (w, Vleft_margin_face);
 		    }
 		  else if (x < ddl->bounds.right_in)
@@ -668,7 +668,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 		  else if (x < ddl->bounds.right_out)
 		    {
 		      findex = ddl->right_margin_findex ?
-			ddl->right_margin_findex 
+			ddl->right_margin_findex
 			: get_builtin_face_cache_index (w, Vright_margin_face);
 		    }
 		  else
@@ -712,10 +712,10 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 	     region or if it was a block of a different type, then
 	     output the entire ddb.  Otherwise, compare cdb and
 	     ddb and output only the changed region. */
-	  if (!force && cdb && ddb->type == cdb->type 
+	  if (!force && cdb && ddb->type == cdb->type
 	      /* If there was no buffer being display before the
                  compare anyway as we might be outputting a gutter. */
-	      && 
+	      &&
 	      (b == old_b || !old_b))
 	    {
 	      must_sync |= compare_display_blocks (w, cdl, ddl, old_block,
@@ -754,7 +754,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 					      cursor_start, cursor_width,
 					      cursor_height);
 	    }
-	  
+
 	  start_pixpos = next_start_pixpos;
 	}
     }
@@ -778,7 +778,7 @@ output_display_line (struct window *w, display_line_dynarr *cdla,
 	      y -= MODELINE_SHADOW_THICKNESS (w);
 	      height += (2 * MODELINE_SHADOW_THICKNESS (w));
 	    }
-	  
+
 	  if (window_is_leftmost (w))
 	    clear_left_border (w, y, height);
 	  if (window_is_rightmost (w))
@@ -924,7 +924,7 @@ redisplay_move_cursor (struct window *w, Bufpos new_point, int no_output_end)
 	    }
 	}
 
-      while ((up ? (cur_dl < Dynarr_length (cla)) : (cur_dl >= 0)))
+      while (up ? (cur_dl < Dynarr_length (cla)) : (cur_dl >= 0))
 	{
 	  dl = Dynarr_atp (cla, cur_dl);
 	  db = get_display_block_from_line (dl, TEXT);
@@ -1112,7 +1112,7 @@ static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width
 	  cachel->x + cachel->width > x && cachel->x < x + width
 	  &&
 	  cachel->y + cachel->height > y && cachel->y < y + height
-	  && 
+	  &&
 	  !EQ (cachel->subwindow, ignored_window))
 	{
 	  unmap_subwindow (cachel->subwindow);
@@ -1134,7 +1134,7 @@ void redisplay_unmap_subwindows_maybe (struct frame* f, int x, int y, int width,
     }
 }
 
-static void redisplay_unmap_subwindows_except_us (struct frame* f, int x, int y, int width, 
+static void redisplay_unmap_subwindows_except_us (struct frame* f, int x, int y, int width,
 						  int height, Lisp_Object subwindow)
 {
   if (Dynarr_length (FRAME_SUBWINDOW_CACHE (f)))
@@ -1151,7 +1151,7 @@ static void redisplay_unmap_subwindows_except_us (struct frame* f, int x, int y,
  pixmaps, backgrounds etc.
  ****************************************************************************/
 void
-redisplay_output_subwindow (struct window *w, 
+redisplay_output_subwindow (struct window *w,
 			    Lisp_Object image_instance,
 			    struct display_box* db, struct display_glyph_area* dga,
 			    face_index findex, int cursor_start, int cursor_width,
@@ -1189,7 +1189,7 @@ redisplay_output_subwindow (struct window *w,
   sdga.yoffset = -dga->yoffset;
   sdga.height = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (p);
   sdga.width = IMAGE_INSTANCE_SUBWINDOW_WIDTH (p);
-  
+
   if (redisplay_display_boxes_in_window_p (w, db, &sdga) < 0)
     {
       map_subwindow (image_instance, db->xpos, db->ypos, dga);
@@ -1197,7 +1197,7 @@ redisplay_output_subwindow (struct window *w,
   else
     {
       sdga.xoffset = sdga.yoffset = 0;
-      map_subwindow (image_instance, db->xpos - dga->xoffset, 
+      map_subwindow (image_instance, db->xpos - dga->xoffset,
 		     db->ypos - dga->yoffset, &sdga);
     }
 }
@@ -1208,7 +1208,7 @@ redisplay_output_subwindow (struct window *w,
  Output a widget hierarchy. This can safely call itself recursively.
  ****************************************************************************/
 void
-redisplay_output_layout (struct window *w, 
+redisplay_output_layout (struct window *w,
 			 Lisp_Object image_instance,
 			 struct display_box* db, struct display_glyph_area* dga,
 			 face_index findex, int cursor_start, int cursor_width,
@@ -1252,7 +1252,7 @@ redisplay_output_layout (struct window *w,
 	 thing to do since we have many gaps that we have to make sure are
 	 filled in. */
       redisplay_clear_clipped_region (window, findex, db, dga, 1, Qnil);
-      
+
       /* Output a border if required */
       if (!NILP (IMAGE_INSTANCE_LAYOUT_BORDER (p)))
 	{
@@ -1260,7 +1260,7 @@ redisplay_output_layout (struct window *w,
 	  enum edge_style style;
 	  int ypos = db->ypos;
 	  int height = dga->height;
-	  
+
 	  if (dga->xoffset >= 0)
 	    edges |= EDGE_LEFT;
 	  if (dga->width - dga->xoffset == layout_width)
@@ -1269,7 +1269,7 @@ redisplay_output_layout (struct window *w,
 	    edges |= EDGE_TOP;
 	  if (dga->height - dga->yoffset == layout_height)
 	    edges |= EDGE_BOTTOM;
-	  
+
 	  if (EQ (IMAGE_INSTANCE_LAYOUT_BORDER (p), Qetched_in))
 	    style = EDGE_ETCHED_IN;
 	  else if (EQ (IMAGE_INSTANCE_LAYOUT_BORDER (p), Qetched_out))
@@ -1288,13 +1288,13 @@ redisplay_output_layout (struct window *w,
 	  else
 	    style = EDGE_BEVEL_OUT;
 
-	  MAYBE_DEVMETH (d, bevel_area, 
+	  MAYBE_DEVMETH (d, bevel_area,
 			 (w, findex, db->xpos,
-			  ypos, 
+			  ypos,
 			  dga->width, height, 2, edges, style));
 	}
     }
-    
+
   /* This shrinks the display box to exactly enclose the glyph
      area. */
   redisplay_normalize_display_box (db, dga);
@@ -1346,8 +1346,8 @@ redisplay_output_layout (struct window *w,
 		  {
 		    /* #### This is well hacked and could use some
 		       generalisation.*/
-		    if (redisplay_normalize_glyph_area (&cdb, &cdga) 
-			&&  
+		    if (redisplay_normalize_glyph_area (&cdb, &cdga)
+			&&
 			(frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii)))
 		      {
 			struct display_line dl;	/* this is fake */
@@ -1355,7 +1355,7 @@ redisplay_output_layout (struct window *w,
 			  IMAGE_INSTANCE_TEXT_STRING (childii);
 			convert_bufbyte_string_into_emchar_dynarr
 			  (XSTRING_DATA (string), XSTRING_LENGTH (string), buf);
-			
+
 			redisplay_normalize_display_box (&cdb, &cdga);
 			/* Offsets are now +ve again so be careful
 			   when fixing up the display line. */
@@ -1379,30 +1379,30 @@ redisplay_output_layout (struct window *w,
 		      }
 		  }
 		  break;
-		  
+
 		case IMAGE_MONO_PIXMAP:
 		case IMAGE_COLOR_PIXMAP:
 		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_pixmap (w, child, &cdb, &cdga, findex,
 					     0, 0, 0, 0);
 		  break;
-	      
+
 		case IMAGE_WIDGET:
 		case IMAGE_SUBWINDOW:
 		  if (frame_really_changed || IMAGE_INSTANCE_DIRTYP (childii))
 		    redisplay_output_subwindow (w, child, &cdb, &cdga, findex,
 						0, 0, 0);
 		  break;
-	      
+
 		case IMAGE_LAYOUT:
 		  redisplay_output_layout (w, child, &cdb, &cdga, findex,
 					   0, 0, 0);
 		  break;
-	      
+
 		case IMAGE_NOTHING:
 		  /* nothing is as nothing does */
 		  break;
-		  
+
 		case IMAGE_POINTER:
 		default:
 		  abort ();
@@ -1420,7 +1420,7 @@ redisplay_output_layout (struct window *w,
  output a pixmap.
  ****************************************************************************/
 void
-redisplay_output_pixmap (struct window *w, 
+redisplay_output_pixmap (struct window *w,
 			 Lisp_Object image_instance,
 			 struct display_box* db, struct display_glyph_area* dga,
 			 face_index findex, int cursor_start, int cursor_width,
@@ -1449,7 +1449,7 @@ redisplay_output_pixmap (struct window *w,
   if (!offset_bitmap)
     {
       redisplay_clear_clipped_region (window, findex,
-				      db, dga, 
+				      db, dga,
 				      (int)IMAGE_INSTANCE_PIXMAP_MASK (p),
 				      Qnil);
 
@@ -1506,7 +1506,7 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
 
   /* #### This isn't quite right for when this function is called
      from the toolbar code. */
-  
+
   /* Don't use a backing pixmap in the border area */
   if (x >= FRAME_LEFT_BORDER_END (f)
       && x < FRAME_RIGHT_BORDER_START (f)
@@ -1514,11 +1514,11 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
       && y < FRAME_BOTTOM_BORDER_START (f))
     {
       Lisp_Object temp;
-      
+
       if (w)
 	{
 	  temp = WINDOW_FACE_CACHEL_BACKGROUND_PIXMAP (w, findex);
-	  
+
 	  if (IMAGE_INSTANCEP (temp)
 	      && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
 	    {
@@ -1530,14 +1530,14 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
       else
 	{
 	  temp = FACE_BACKGROUND_PIXMAP (Vdefault_face, locale);
-	  
+
 	  if (IMAGE_INSTANCEP (temp)
 	      && IMAGE_INSTANCE_PIXMAP_TYPE_P (XIMAGE_INSTANCE (temp)))
 	    {
 	      background_pixmap = temp;
 	    }
 	}
-    }      
+    }
 
   if (!UNBOUNDP (background_pixmap) &&
       XIMAGE_INSTANCE_PIXMAP_DEPTH (background_pixmap) == 0)
@@ -1558,13 +1558,13 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
       fcolor = (w ?
 		WINDOW_FACE_CACHEL_BACKGROUND (w, findex) :
 		FACE_BACKGROUND (Vdefault_face, locale));
-      
+
     }
-  
+
   if (UNBOUNDP (background_pixmap))
     background_pixmap = Qnil;
-  
-  DEVMETH (d, clear_region, 
+
+  DEVMETH (d, clear_region,
 	   (locale, d, f, findex, x, y, width, height, fcolor, bcolor, background_pixmap));
 }
 
@@ -1577,8 +1577,8 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
  around with by altering these. glyphsrc should be normalized.
  ****************************************************************************/
 static void
-redisplay_clear_clipped_region (Lisp_Object window, face_index findex, 
-	struct display_box* dest, struct display_glyph_area* glyphsrc, 
+redisplay_clear_clipped_region (Lisp_Object window, face_index findex,
+	struct display_box* dest, struct display_glyph_area* glyphsrc,
 	int fullheight_p, Lisp_Object ignored_subwindow)
 {
   /* assume dest->xpos >= 0 */
@@ -1602,8 +1602,8 @@ redisplay_clear_clipped_region (Lisp_Object window, face_index findex,
     }
   else
     {
-      int yoffset = (glyphsrc->yoffset > 0 ? glyphsrc->yoffset : 0); 
-      
+      int yoffset = (glyphsrc->yoffset > 0 ? glyphsrc->yoffset : 0);
+
       /* We need to make sure that subwindows are unmapped from the
          whole area. */
       redisplay_unmap_subwindows_except_us (f, clear_x, dest->ypos,
@@ -1614,14 +1614,14 @@ redisplay_clear_clipped_region (Lisp_Object window, face_index findex,
 	{
 	  redisplay_clear_region (window, findex, clear_x, dest->ypos,
 				  glyphsrc->width, yoffset);
-	  
+
 	}
       /* Then the bottom box */
       if (yoffset + glyphsrc->height < dest->height)
 	{
 	  redisplay_clear_region (window, findex, clear_x,
 				  dest->ypos + yoffset + glyphsrc->height,
-				  glyphsrc->width, 
+				  glyphsrc->width,
 				  dest->height - (yoffset + glyphsrc->height));
 
 	}
@@ -1635,7 +1635,7 @@ redisplay_clear_clipped_region (Lisp_Object window, face_index findex,
  Calculate the visible box for displaying src in dest.
  ****************************************************************************/
 int
-redisplay_normalize_glyph_area (struct display_box* dest, 
+redisplay_normalize_glyph_area (struct display_box* dest,
 				struct display_glyph_area* glyphsrc)
 {
   if (dest->xpos + glyphsrc->xoffset > dest->xpos + dest->width
@@ -1678,7 +1678,7 @@ redisplay_normalize_glyph_area (struct display_box* dest,
 }
 
 static void
-redisplay_normalize_display_box (struct display_box* dest, 
+redisplay_normalize_display_box (struct display_box* dest,
 				 struct display_glyph_area* glyphsrc)
 {
   /* Adjust the destination area. At the end of this the destination
@@ -1735,7 +1735,7 @@ redisplay_display_boxes_in_window_p (struct window* w,
       || db->ypos + db->height > bottom)
     /* We are not displaying in a window at all */
     return 0;
-  
+
   if (db->xpos + dga->xoffset >= left
       &&
       db->ypos + dga->yoffset >= top
@@ -1757,7 +1757,7 @@ redisplay_display_boxes_in_window_p (struct window* w,
 int
 redisplay_calculate_display_boxes (struct display_line *dl, int xpos,
 				   int xoffset, int start_pixpos, int width,
-				   struct display_box* dest, 
+				   struct display_box* dest,
 				   struct display_glyph_area* src)
 {
   dest->xpos = xpos;
@@ -1838,38 +1838,38 @@ redisplay_clear_to_window_end (struct window *w, int ypos1, int ypos2)
   else
     {
       int height = ypos2 - ypos1;
-      
+
       if (height)
 	{
 	  Lisp_Object window;
 	  int bflag = 0 ; /* (window_needs_vertical_divider (w) ? 0 : 1);*/
 	  layout_bounds bounds;
-	  
+
 	  bounds = calculate_display_line_boundaries (w, bflag);
 	  XSETWINDOW (window, w);
 
 	  if (window_is_leftmost (w))
 	    redisplay_clear_region (window, DEFAULT_INDEX, FRAME_LEFT_BORDER_START (f),
 				    ypos1, FRAME_BORDER_WIDTH (f), height);
-	  
+
 	  if (bounds.left_in - bounds.left_out > 0)
 	    redisplay_clear_region (window,
 				    get_builtin_face_cache_index (w, Vleft_margin_face),
 				    bounds.left_out, ypos1,
 				    bounds.left_in - bounds.left_out, height);
-	  
+
 	  if (bounds.right_in - bounds.left_in > 0)
-	    redisplay_clear_region (window, 
+	    redisplay_clear_region (window,
 				    DEFAULT_INDEX,
 				    bounds.left_in, ypos1,
 				    bounds.right_in - bounds.left_in, height);
-	  
+
 	  if (bounds.right_out - bounds.right_in > 0)
 	    redisplay_clear_region (window,
 				    get_builtin_face_cache_index (w, Vright_margin_face),
 				    bounds.right_in, ypos1,
 				    bounds.right_out - bounds.right_in, height);
-	  
+
 	  if (window_is_rightmost (w))
 	    redisplay_clear_region (window, DEFAULT_INDEX, FRAME_RIGHT_BORDER_START (f),
 				    ypos1, FRAME_BORDER_WIDTH (f), height);
@@ -2256,7 +2256,7 @@ bevel_modeline (struct window *w, struct display_line *dl)
       style = EDGE_BEVEL_OUT;
     }
 
-  MAYBE_DEVMETH (d, bevel_area, 
+  MAYBE_DEVMETH (d, bevel_area,
 		 (w, MODELINE_INDEX, x, y, width, height, shadow_thickness,
 		  EDGE_ALL, style));
 }

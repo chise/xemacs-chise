@@ -113,7 +113,6 @@ struct Lisp_Database
 #define XDATABASE(x) XRECORD (x, database, Lisp_Database)
 #define XSETDATABASE(x, p) XSETRECORD (x, p, database)
 #define DATABASEP(x) RECORDP (x, database)
-#define GC_DATABASEP(x) GC_RECORDP (x, database)
 #define CHECK_DATABASE(x) CHECK_RECORD (x, database)
 #define CONCHECK_DATABASE(x) CONCHECK_RECORD (x, database)
 #define DATABASE_LIVE_P(x) (x->live_p)

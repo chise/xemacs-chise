@@ -348,11 +348,13 @@ visual screen.  Totally visible frames are preferred.  If none found, return nil
 	       ;; In case of an error, write the description to the
 	       ;; client, and then signal it.
 	       (error (setq gnuserv-string "")
-		      (gnuserv-write-to-client gnuserv-current-client oops)
+		      (when gnuserv-current-client
+			(gnuserv-write-to-client gnuserv-current-client oops))
 		      (setq gnuserv-current-client nil)
 		      (signal (car oops) (cdr oops)))
 	       (quit (setq gnuserv-string "")
-		     (gnuserv-write-to-client gnuserv-current-client oops)
+		     (when gnuserv-current-client
+		       (gnuserv-write-to-client gnuserv-current-client oops))
 		     (setq gnuserv-current-client nil)
 		     (signal 'quit nil)))
 	     (setq gnuserv-string "")))

@@ -7,15 +7,15 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/12/07 03:11:46 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 1999/12/23 01:50:47 $
 @sp 1
-@author Tony Rossini <arossini@@stat.sc.edu>
+@author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
 @author Chuck Thompson <cthomp@@xemacs.org>
 @author Steve Baur <steve@@xemacs.org>
 @author Andreas Kaempf <andreas@@sccon.com>
 @author Christian Nyb@o{} <chr@@mediascience.no>
-@author Sandra Wambold <wambold@@pobox.com>
+@author Sandra Wambold <wambold@@xemacs.org>
 @page
 @end titlepage
 
@@ -182,6 +182,7 @@ Trouble Shooting:
 * Q2.1.21::     Every so often the XEmacs frame freezes.
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 
 Customization and Options
 
@@ -424,7 +425,7 @@ considering XEmacs for their own use, or has just obtained it and is
 wondering what to do next.  It is also useful as a reference to
 available resources.
 
-The previous maintainer of the FAQ was @email{rossini@@stat.sc.edu,
+The previous maintainer of the FAQ was @email{rossini@@biostat.washington.edu,
 Anthony Rossini}, who started it, after getting tired of hearing JWZ
 complain about repeatedly having to answer questions.
 @email{ben@@xemacs.org, Ben Wing} and @email{cthomp@@xemacs.org, Chuck
@@ -435,15 +436,13 @@ contributors to this FAQ are listed later in this document.
 
 The previous version was converted to hypertext format, and edited by
 @email{steve@@xemacs.org, Steven L. Baur}.  It was converted back to
-texinfo by @email{hniksic@@xemacs.org, Hrvoje Niksic}.
-
-The FAQ was then maintained by @email{andreas@@sccon.com, Andreas
-Kaempf}, who passed it on to @email{faq@@xemacs.org, Christian
-Nyb@o{}}, the current FAQ maintainer.
+texinfo by @email{hniksic@@xemacs.org, Hrvoje Niksic}.  The FAQ was then
+maintained by @email{andreas@@sccon.com, Andreas Kaempf}, who passed it
+on to ChristianNyb@o{}.
 
 If you notice any errors or items which should be added or amended to
-this FAQ please send email to @email{faq@@xemacs.org, Christian
-Nyb@o{}}. Include @samp{XEmacs FAQ} on the Subject: line.
+this FAQ please send email to @email{faq@@xemacs.org, Sandra
+Wambold}.  Include @samp{XEmacs FAQ} on the Subject: line.
 
 @menu
 Introduction:
@@ -728,8 +727,10 @@ XEmacs web site in the future.
 @unnumberedsubsec Q1.1.1: What is the FAQ editorial policy?
 
 The FAQ is actively maintained and modified regularly.  All links should
-be up to date.  All submissions are welcome.  E-mail submissions to
-@email{faq@@xemacs.org, XEmacs FAQ maintainers}.
+be up to date.  Unfortunately, some of the information is out of date --
+a situation which the FAQ maintainer is working on.  All submissions are
+welcome, please e-mail submissions to @email{faq@@xemacs.org, XEmacs FAQ
+maintainers}.
 
 Please make sure that @samp{XEmacs FAQ} appears on the Subject: line.
 If you think you have a better way of answering a question, or think a
@@ -1331,6 +1332,7 @@ Trouble Shooting:
 * Q2.1.21::     Every so often the XEmacs frame freezes.
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 @end menu
 
 @node Q2.0.1, Q2.0.2, Installation, Installation
@@ -2547,7 +2549,7 @@ debug-on-quit doesn't work if something's turned on inhibit-quit or in
 some other strange cases.
 @end quotation
 
-@node Q2.1.23,  , Q2.1.22, Installation
+@node Q2.1.23, Q2.1.24, Q2.1.22, Installation
 @unnumberedsubsec Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
 
 Movemail used to work fine in 19.14 but has stopped working in 19.15
@@ -2565,6 +2567,20 @@ and uncomment the line that reads:
 #define MAIL_USE_FLOCK
 @end example
 @end quotation
+
+@node Q2.1.24,  , Q2.1.23, Installation
+@unnumberedsubsec Q2.1.24:  XEmacs won't start without network. (NEW)
+Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
+
+If XEmacs starts when you're on the network, but fails when you're not
+on the network, you may be missing a "localhost" entry in your
+@file{/etc/hosts} file.  The file should contain an entry like:
+
+@example
+127.0.0.1        localhost
+@end example
+
+Add that line, and XEmacs will be happy.
 
 @node Customization, Subsystems, Installation, Top
 @unnumbered 3 Customization and Options
@@ -4925,23 +4941,10 @@ appreciated.
 
 @node Q4.7.6,  , Q4.7.5, Subsystems
 @unnumberedsubsec Q4.7.5: Is there a MatLab mode?
-@c New
-Is there any way I can get syntax highlighting for MatLab .m files?
-Can I "teach" emacs what words are MatLab commands, comments, etc. ?
 
-@email{elsner@@mathematik.tu-chemnitz.de, Ulrich Elsner} writes:
-@quotation
-One way to do this (and much more) is by using the
-@iftex
-@*
-@end iftex
-@comment @uref{ftp://ftp.mathworks.com/pub/contrib/v5/tools/matlab.el, matlab mode}.
-matlab mode.  (If someone knows where this can be found, please contact
-the @email{faq@@xemacs.org,XEmacs FAQ maintainer}.
-
-Instructions on how to install this mode are included in this file.
-@end quotation
-
+Yes, a matlab mode and other items are available at the
+@uref{ftp://ftp.mathworks.com/pub/contrib/emacs_add_ons,
+MathWorks' emacs_add_ons ftp directory}.
 
 @node Miscellaneous, MS Windows, Subsystems, Top
 @unnumbered 5 The Miscellaneous Stuff

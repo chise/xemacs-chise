@@ -29,4 +29,12 @@ Boston, MA 02111-1307, USA.  */
 #undef NEED_ATHENA
 #undef NEED_LUCID
 
+/* The path to the Athena widgets - the usual value is `X11/Xaw' */
+#undef ATHENA_H_PATH
+
+/* For use in #include statements.  This extra level of macro indirection
+   is necessary because you can't use macros directly within <> or "" */
+#define ATHENA_INCLUDE(header_file) <ATHENA_H_PATH/header_file>
+
+
 #endif /* _LWLIB_CONFIG_H_ */

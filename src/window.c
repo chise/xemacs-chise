@@ -4731,7 +4731,6 @@ struct window_config
 #define XWINDOW_CONFIGURATION(x) XRECORD (x, window_configuration, struct window_config)
 #define XSETWINDOW_CONFIGURATION(x, p) XSETRECORD (x, p, window_configuration)
 #define WINDOW_CONFIGURATIONP(x) RECORDP (x, window_configuration)
-#define GC_WINDOW_CONFIGURATIONP(x) GC_RECORDP (x, window_configuration)
 #define CHECK_WINDOW_CONFIGURATION(x) CHECK_RECORD (x, window_configuration)
 
 static Lisp_Object

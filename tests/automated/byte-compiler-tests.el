@@ -91,3 +91,30 @@
  error "`let' bindings can have only one value-form"
  (eval '(let* ((x 1 2)) 3)))
 
+(defmacro before-and-after-compile-equal (&rest form)
+  `(Assert (equal (funcall (quote (lambda () ,@form)))
+		 (funcall (byte-compile (quote (lambda () ,@form)))))))
+
+(defvar simplyamarker (point-min-marker))
+
+;; The byte optimizer must be careful with +/- with a single argument.
+
+(before-and-after-compile-equal (+))
+(before-and-after-compile-equal (+ 2 2))
+(before-and-after-compile-equal (+ 2 1))
+(before-and-after-compile-equal (+ 1 2))
+;; (+ 1) is OK. but (+1) signals an error.
+(before-and-after-compile-equal (+ 1))
+(before-and-after-compile-equal (+ 3))
+(before-and-after-compile-equal (+ simplyamarker 1))
+;; The optimization (+ m) --> m is invalid when m is a marker.
+;; Currently the following test fails - controversial.
+;; (before-and-after-compile-equal (+ simplyamarker))
+;; Same tests for minus.
+(before-and-after-compile-equal (- 2 2))
+(before-and-after-compile-equal (- 2 1))
+(before-and-after-compile-equal (- 1 2))
+(before-and-after-compile-equal (- 1))
+(before-and-after-compile-equal (- 3))
+(before-and-after-compile-equal (- simplyamarker 1))
+(before-and-after-compile-equal (- simplyamarker))

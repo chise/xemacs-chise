@@ -951,18 +951,27 @@ omitted. (In FSF Emacs, and earlier versions of XEmacs, these functions
 usually did not have these optional BUFFER arguments and always
 operated on the current buffer.)
 
- - Function: char-after position &optional buffer
+ - Function: char-after &optional position buffer
      This function returns the character in the buffer at (i.e.,
      immediately after) position POSITION.  If POSITION is out of range
      for this purpose, either before the beginning of the buffer, or at
-     or beyond the end, then the value is `nil'.  If optional argument
-     BUFFER is `nil', the current buffer is assumed.
+     or beyond the end, then the value is `nil'.  The default for
+     POSITION is point.  If optional argument BUFFER is `nil', the
+     current buffer is assumed.
 
      In the following example, assume that the first character in the
      buffer is `@':
 
           (char-to-string (char-after 1))
                => "@"
+
+ - Function: char-before &optional position buffer
+     This function returns the character in the current buffer
+     immediately before position POSITION.  If POSITION is out of range
+     for this purpose, either at or before the beginning of the buffer,
+     or beyond the end, then the value is `nil'.  The default for
+     POSITION is point.  If optional argument BUFFER is `nil', the
+     current buffer is assumed.
 
  - Function: following-char &optional buffer
      This function returns the character following point in the buffer.

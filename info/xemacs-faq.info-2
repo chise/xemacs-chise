@@ -57,6 +57,7 @@ Trouble Shooting:
 * Q2.1.21::     Every so often the XEmacs frame freezes.
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
+* Q2.1.24::     XEmacs won't start without network. (NEW)
 
 
 File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
@@ -1189,7 +1190,7 @@ Q2.1.22: XEmacs seems to take a really long time to do some things
      or in some other strange cases.
 
 
-File: xemacs-faq.info,  Node: Q2.1.23,  Prev: Q2.1.22,  Up: Installation
+File: xemacs-faq.info,  Node: Q2.1.23,  Next: Q2.1.24,  Prev: Q2.1.22,  Up: Installation
 
 Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
 ---------------------------------------------------------------------
@@ -1205,4 +1206,20 @@ and 20.x.  I am using Linux.
      src/s/linux.h and uncomment the line that reads:
 
           #define MAIL_USE_FLOCK
+
+
+File: xemacs-faq.info,  Node: Q2.1.24,  Prev: Q2.1.23,  Up: Installation
+
+Q2.1.24:  XEmacs won't start without network. (NEW)
+---------------------------------------------------
+
+   Q2.1.23:  Movemail on Linux does not work for XEmacs 19.15 and later.
+
+   If XEmacs starts when you're on the network, but fails when you're
+not on the network, you may be missing a "localhost" entry in your
+`/etc/hosts' file.  The file should contain an entry like:
+
+     127.0.0.1        localhost
+
+   Add that line, and XEmacs will be happy.
 

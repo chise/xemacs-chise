@@ -384,7 +384,6 @@ static Lisp_Object recursive_sit_for;
   XRECORD (x, command_builder, struct command_builder)
 #define XSETCOMMAND_BUILDER(x, p) XSETRECORD (x, p, command_builder)
 #define COMMAND_BUILDERP(x) RECORDP (x, command_builder)
-#define GC_COMMAND_BUILDERP(x) GC_RECORDP (x, command_builder)
 #define CHECK_COMMAND_BUILDER(x) CHECK_RECORD (x, command_builder)
 
 static Lisp_Object

@@ -1,3 +1,22 @@
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-21  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/byte-compiler-tests.el: Add Jan's tests for equal
+	effect of bytecode and interpreted code.
+
+	* automated/lisp-tests.el: Add tests for near-text functions.
+
+1999-12-19  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el: Add tests for fillarray, aset.
+
+1999-12-17  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el:  Add tests for mapcar1() crashes.
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.

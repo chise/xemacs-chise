@@ -1,4 +1,4 @@
-Copyright (c) 1997, Adrian Aichner <aichner@ecf.teradyne.com>.
+Copyright (c) 1997, Adrian Aichner <adrian@xemacs.org>.
 
 Copyright (c) 1985, 1996 Free Software Foundation, Inc. See end for conditions.
 
@@ -1131,13 +1131,13 @@ dem von Stuart Cracraft für den ursprünglichen Emacs geschriebenen ab.
 Ben Wing hat das Tutorial für X Windows erweitert.  Martin Buchholz
 und Hrvoje Niksic haben weitere Korrekturen für XEmacs beigetragen.
 Ins Deutsche übertragen wurde es von Adrian Aichner
-<aichner@ecf.teradyne.com>.
+<adrian@xemacs.org>.
 
 Diese Version des Tutorials ist, wie GNU Emacs selbst,
 urheberrechtlich geschützt und erlaubt die Verteilung von Kopien unter
 bestimmten Voraussetzungen:
 
-Copyright (c) 1997, Adrian Aichner <aichner@ecf.teradyne.com>.
+Copyright (c) 1997, Adrian Aichner <adrian@xemacs.org>.
 
 Copyright (c) 1985, 1996 Free Software Foundation
 
