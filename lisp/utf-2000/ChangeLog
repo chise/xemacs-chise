@@ -1,5 +1,7 @@
 2003-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el: Add mappings for Big5 code points.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SMALL ONE>): Add
 	`<-ideographic-component-forms' for U+5C0F.
 	(GT-K00305): Likewise.
