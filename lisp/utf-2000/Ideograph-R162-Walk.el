@@ -5054,7 +5054,9 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (korean-ksc5601	. #x6244)	; ø»‰º
+    (ideograph-gt-pj-7	. #x5821)	; ý¡€Œ±½
     (ideograph-daikanwa . 38985)	; ø¸‰¡‰
+    (ideograph-gt	. 52349)	; ý¡€Œ±½
     ))
 (define-char
   '((->ucs		. #x9042)	; é‚
@@ -5074,6 +5076,8 @@
     (chinese-gb2312		. #x4B6C)	; ø»…„»
     (chinese-isoir165		. #x4B6C)	; ø»­‹
     (japanese-jisx0208-1990	. #x3F6B)	; ø½Š£Š
+    (ideograph-gt-pj-1		. #x3F6B)	; ý¡€Œ°†
+    (ideograph-gt		. 52230)	; ý¡€Œ°†
     (mojikyo			. 050516)	; ý €Œ•”
     (ucs			. #x9042)	; é‚
     ))
