@@ -69,6 +69,9 @@
       (setq i (1+ i)))
     v))
 
+(defvar char-db-feature-domains
+  '(ucs daikanwa cns gt))
+
 (defvar char-db-ignored-attributes nil)
 
 ;;;###autoload
@@ -630,8 +633,17 @@
       )
     (setq radical nil
 	  strokes nil)
+    (when (and (memq 'ideographic-radical attributes)
+	       (setq value (get-char-attribute char 'ideographic-radical)))
+      (setq radical value)
+      (insert (format "(ideographic-radical . %S)\t; %c%s"
+		      radical
+		      (aref ideographic-radicals radical)
+		      line-breaking))
+      (setq attributes (delq 'ideographic-radical attributes))
+      )
     (let (key)
-      (dolist (domain '(ucs daikanwa cns))
+      (dolist (domain char-db-feature-domains)
 	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
@@ -653,27 +665,29 @@
 			  line-breaking))
 	  (setq attributes (delq key attributes))
 	  )
-	(setq key (intern (format "%s@%s*sources"
-				  'ideographic-radical domain)))
+	(setq key (intern (format "%s@%s" 'total-strokes domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
-	  (insert (format "(%s%s" key line-breaking))
-	  (dolist (cell value)
-	    (insert (format " %s" cell)))
-	  (insert ")")
-	  (insert line-breaking)
+	  (insert (format "(%s       . %S)%s"
+			  key
+			  value
+			  line-breaking))
 	  (setq attributes (delq key attributes))
 	  )
+	(dolist (feature '(ideographic-radical
+			   ideographic-strokes
+			   total-strokes))
+	  (setq key (intern (format "%s@%s*sources" feature domain)))
+	  (when (and (memq key attributes)
+		     (setq value (get-char-attribute char key)))
+	    (insert (format "(%s%s" key line-breaking))
+	    (dolist (cell value)
+	      (insert (format " %s" cell)))
+	    (insert ")")
+	    (insert line-breaking)
+	    (setq attributes (delq key attributes))
+	    ))
 	))
-    (when (and (memq 'ideographic-radical attributes)
-	       (setq value (get-char-attribute char 'ideographic-radical)))
-      (setq radical value)
-      (insert (format "(ideographic-radical . %S)\t; %c%s"
-		      radical
-		      (aref ideographic-radicals radical)
-		      line-breaking))
-      (setq attributes (delq 'ideographic-radical attributes))
-      )
     (when (and (memq 'ideographic-strokes attributes)
 	       (setq value (get-char-attribute char 'ideographic-strokes)))
       (setq strokes value)
