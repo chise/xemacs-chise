@@ -1,3 +1,9 @@
+2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}{fullwidth|halfwidth}[^*]*' to characters and put reverse
+	links.
+
 2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c: Add EXFUN for `Fregexp_quote'.

@@ -1,4 +1,41 @@
+2004-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for
+	J90-{612E|4D63|4E57|316A|4A43}.
+
+	* Ideograph-R086-Fire.el: Use `->subsumptive' for some character
+	definitions.
+
+2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->halfwidth' when running with non-readable mode and it does not
+	have `->halfwidth*sources'.
+
 2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R001-One.el (U-0002233D):
+	Use `ideographic-{radical|strokes}@{cns|gt}' and
+	`ideographic-radical@{cns|gt}*sources'; unify C5-262E, GT-00083
+	and JC3-8EF3.
+
+	* Ideograph-R046-Mountain.el (U+FA11): Add `<-vulgar' for U+5D0E.
+
+	* Ideograph-R028-Private.el (U-00020B02): Use `->subsumptive'; use
+	`->synonyms*sources' instead of char-ref in `->synonyms'.
+
+	* ideograph-util.el (update-ideograph-radical-table): Ignore a
+	parent specified by `<-subsumptive' if it has `<-subsumptive'.
+
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R030-Mouth.el (CB01236): Map to U-00021126.
 
 	* Ideograph-R131-Minister.el: Use `->subsumptive' for some
 	character definitions.
