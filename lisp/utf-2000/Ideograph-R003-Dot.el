@@ -2,6 +2,7 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
+    (ideograph-cdp	. 271)
     (japanese-jisx0208-1978	. #x5026)	; ø»ƒ‡
     (chinese-gb2312		. #x583C)	; ø»…—‘
     (japanese-jisx0208		. #x5026)	; ø»‡•
@@ -9,6 +10,8 @@
     (chinese-cns11643-3		. #x2122)	; ø»•–¥
     (japanese-jisx0208-1990	. #x5026)	; ø½Š»ƒ
     (ideograph-gt-pj-1		. #x5026)	; ý¡€€‚€
+    (chinese-big5		. #x8B41)	; ä¸¶
+    (chinese-big5-cdp		. #x8B41)	; ä¸¶
     (ideograph-daikanwa		. 00091)	; ø¸€›
     (ideograph-gt		. 00128)	; ý¡€€‚€
     (mojikyo			. 000091)	; ý €€›
@@ -70,6 +73,7 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideograph-cdp	. 274)
     (chinese-cns11643-1 . #x443A)	; ø»‘¶
     (ideograph-gt-pj-2	. #x306A)	; ý¡€€‚„
     (chinese-big5	. #xA459)	; øºŸ¢°
@@ -127,6 +131,7 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (ideograph-cdp	. 278)
     (shinjigen-1	. 41)
     (shinjigen-2	. 41)
     (japanese-jisx0208-1978	. #x4330)	; ø»‚®‹
@@ -176,6 +181,17 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideograph-cdp	. 280)
+    (ideographic-structure
+     (:cdp-combinator	2
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+		 (ucs		     . #x2FF1)	; â¿±
+		 )
+      )
+     ((ucs		  . #x4E36)	; ä¸¶
+      )
+     ((ucs		  . #x738B)	; çŽ‹
+      ))
     (shinjigen-1	. 42)
     (shinjigen-2	. 42)
     (japanese-jisx0208-1978	. #x3C67)	; ø»‚¤°
@@ -194,6 +210,17 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideograph-cdp	. 281)
+    (ideographic-structure
+     (:cdp-combinator	3
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+		 (ucs		     . #x2FF4)	; â¿´
+		 )
+      )
+     ((ucs		  . #x4E95)	; äº•
+      )
+     ((ucs		  . #x4E36)	; ä¸¶
+      ))
     (shinjigen-1	. 44)
     (shinjigen-2	. 44)
     (japanese-jisx0208-1978	. #x5027)	; ø»ƒˆ
