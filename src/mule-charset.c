@@ -130,7 +130,7 @@ struct charset_lookup *chlook;
 static const struct lrecord_description charset_lookup_description_1[] = {
   { XD_LISP_OBJECT_ARRAY, offsetof (struct charset_lookup, charset_by_leading_byte),
 #ifdef UTF2000
-    128+4*128
+    NUM_LEADING_BYTES+4*128
 #else
     128+4*128*2 
 #endif
