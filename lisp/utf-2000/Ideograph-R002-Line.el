@@ -69,6 +69,7 @@
     (japanese-jisx0208-1990	. #x5024)	; ø½Š»
     (ideograph-gt-pj-1		. #x5024)	; ý¡€€©
     (ideograph-daikanwa		. 00070)	; ø¸€†
+    (ideograph-cbeta		. 00286)	; ø¸ „ž
     (ideograph-gt		. 00105)	; ý¡€€©
     (mojikyo			. 000070)	; ý €€†
     (ucs			. #x4E2A)	; ä¸ª
