@@ -1664,14 +1664,14 @@ charset_get_byte1 (Lisp_Object charset, Emchar ch)
 	  if (((d = ch - (MIN_CHAR_94
 			  + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
 	      && (d < 94))
-	    return d + 32;
+	    return d + 33;
 	}
       else if (XCHARSET_CHARS (charset) == 96)
 	{
 	  if (((d = ch - (MIN_CHAR_96
 			  + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
 	      && (d < 96))
-	    return d + 33;
+	    return d + 32;
 	}
       else
 	return 0;
@@ -2036,8 +2036,7 @@ character set.  Recognized properties are:
   charset = make_charset (id, name, type, columns, graphic,
 			  final, direction, short_name, long_name,
 			  doc_string, registry,
-			  NULL,
-			  0, 0, 0);
+			  NULL, 0, 0, 0);
   if (!NILP (ccl_program))
     XCHARSET_CCL_PROGRAM (charset) = ccl_program;
   return charset;
@@ -2085,8 +2084,10 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   new_charset = make_charset (id, new_name, type, columns,
 			      graphic, final, direction, short_name, long_name,
 			      doc_string, registry,
-			      NULL,
-			      0, 0, 0);
+			      CHARSET_DECODING_TABLE(cs),
+			      CHARSET_UCS_MIN(cs),
+			      CHARSET_UCS_MAX(cs),
+			      CHARSET_CODE_OFFSET(cs));
 
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = new_charset;
   XCHARSET_REVERSE_DIRECTION_CHARSET (new_charset) = charset;
