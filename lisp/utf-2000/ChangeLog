@@ -1,5 +1,15 @@
 2004-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R067-Script.el (M-13451): Add `<-vulgar' for M-48560;
+	add `ideographic-{radical|strokes}'.
+	(U+6592): Changed to abstract character.
+	(C2-4343): Add CU+6592.
+
+	* Ideograph-R062-Halberd.el (M-11634): Unify U-000229E3.
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 	* Ideograph-R068-Dipper.el, Ideograph-R063-Door.el,
 	Ideograph-R053-Dotted-Cliff.el:
 	- Add some `=ucs@cns' features.
