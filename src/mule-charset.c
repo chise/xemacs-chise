@@ -1344,6 +1344,8 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 }
 
 Lisp_Object Vdefault_coded_charset_priority_list;
+Lisp_Object Vdisplay_coded_charset_priority_use_inheritance;
+Lisp_Object Vdisplay_coded_charset_priority_use_hierarchy_order;
 #endif
 
 
@@ -3008,6 +3010,16 @@ Leading-code of private TYPE9N charset of column-width 1.
   DEFVAR_LISP ("default-coded-charset-priority-list",
 	       &Vdefault_coded_charset_priority_list /*
 Default order of preferred coded-character-sets.
+*/ );
+  Vdisplay_coded_charset_priority_use_inheritance = Qt;
+  DEFVAR_LISP ("display-coded-charset-priority-use-inheritance",
+	       &Vdisplay_coded_charset_priority_use_inheritance /*
+If non-nil, use character inheritance.
+*/ );
+  Vdisplay_coded_charset_priority_use_hierarchy_order = Qt;
+  DEFVAR_LISP ("display-coded-charset-priority-use-hierarchy-order",
+	       &Vdisplay_coded_charset_priority_use_hierarchy_order /*
+If non-nil, prefer nearest character in hierarchy order.
 */ );
 #endif
 }
