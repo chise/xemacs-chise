@@ -147,12 +147,16 @@ char_byte_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 
   for (i = 0; i < 256; i++)
     if (CHAR_BYTE_TABLE_P (cte1->property[i]))
-      if (CHAR_BYTE_TABLE_P (cte2->property[i]))
-	if (!char_byte_table_equal (cte1->property[i],
+      {
+	if (CHAR_BYTE_TABLE_P (cte2->property[i]))
+	  {
+	    if (!char_byte_table_equal (cte1->property[i],
 					cte2->property[i], depth + 1))
+	      return 0;
+	  }
+	else
 	  return 0;
-      else
-	return 0;
+      }
     else
       if (!internal_equal (cte1->property[i], cte2->property[i], depth + 1))
 	return 0;
@@ -1359,10 +1363,12 @@ character set.  Recognized properties are:
       abort ();
     }
   if (final)
-    if (chars == 94)
-      byte_offset = 33;
-    else if (chars == 96)
-      byte_offset = 32;
+    {
+      if (chars == 94)
+	byte_offset = 33;
+      else if (chars == 96)
+	byte_offset = 32;
+    }
 #else
   id = get_unallocated_leading_byte (dimension);
 #endif
@@ -2082,8 +2088,8 @@ complex_vars_of_mule_charset (void)
 		  CHARSET_LEFT_TO_RIGHT,
 		  build_string ("BMP"),
 		  build_string ("BMP"),
-		  build_string ("BMP"),
-		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?\\)"),
+		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
+		  build_string ("\\(ISO10646.*-1\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0);
 #else
 # define MIN_CHAR_THAI 0
