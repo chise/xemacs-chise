@@ -66,6 +66,7 @@
     (morohashi-daikanwa	97)
     (=gb2312		. #x2129)	; ø»„†Œ
     (=jis-x0208		. #x2139)	; ø½‰¶”
+    (=iso-ir165		. #x2129)	; ø»Œ®œ
     (=big5-eten		. #xC6E0)	; ý¢€Œ› 
     (=ucs		. #x3005)	; ã€…
     ))

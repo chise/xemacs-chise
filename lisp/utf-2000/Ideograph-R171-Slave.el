@@ -4,6 +4,7 @@
     (total-strokes	 . 8)
     (=gb2312		. #x4125)	; ø»„µˆ
     (=jis-x0208		. #x7030)	; ø½‹ª
+    (=iso-ir165		. #x4125)	; ø»˜
     (=cns11643-3	. #x2A7D)	; ø»•¥Ž
     (=gt-pj-1		. #x7030)	; éš¶
     (=daikanwa		. 41923)	; ø¸Šƒ
