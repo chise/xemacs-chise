@@ -1120,7 +1120,9 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
+#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
 Lisp_Object Qsystem_char_id;
+#endif
 
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
@@ -3500,6 +3502,7 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
   return val;
 }
 
+#ifndef HAVE_LIBCHISE
 Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode)
@@ -3547,10 +3550,8 @@ char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
     UNGCPRO;
     return Fexpand_file_name (dest, db_dir);
   }
-#if 0
-  return Fexpand_file_name (Fsymbol_name (attribute), db_dir);
-#endif
 }
+#endif /* not HAVE_LIBCHISE */
 
 DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
 Save values of ATTRIBUTE into database file.
@@ -3680,7 +3681,7 @@ Reset values of ATTRIBUTE with database file.
 */
        (attribute))
 {
-#ifdef HAVE_CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_Feature feature
     = chise_ds_get_feature (default_chise_data_source,
 			    XSTRING_DATA (Fsymbol_name
@@ -4330,7 +4331,9 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
 
+#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
   defsymbol (&Qsystem_char_id,		"system-char-id");
+#endif
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");
