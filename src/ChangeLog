@@ -1,3 +1,7 @@
+1999-09-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c: New file.
+
 1999-09-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_char): Fix problem of 256-set.
