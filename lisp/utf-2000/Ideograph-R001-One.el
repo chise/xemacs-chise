@@ -676,7 +676,9 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (morohashi-daikanwa-ho . 1)
     (japanese-jisx0213-1	. #x2E23)	; ø»¢¦„
+    (mojikyo			. 050741)	; ø¸Œ˜µ
     (ucs			. #x3402)	; ã‚
     ))
 (define-char
