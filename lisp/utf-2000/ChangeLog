@@ -1,3 +1,15 @@
+2005-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (<CJK RADICAL GRASS TWO>): Use
+	`->subsumptive' to integrate U+FA5E.
+	(U+FA5E): Use `<-subsumptive' instead of `->identical'.
+	(<CJK RADICAL GRASS THREE>): Use `->subsumptive' to integrate
+	U+FA5D.
+	(U+FA5D): Use `<-subsumptive' instead of `->identical'.
+	(U+44E7): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R031-Enclosure.el (U+361D): Use `->subsumptive'.
+
 2005-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R199-Wheat.el: Add mappings between CJK Ext B and CNS
