@@ -2979,21 +2979,28 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
       if (eol_type != EOL_CR)
 	Dynarr_add (dst, ch);
     }
-  else if (ch <= 0x7f)
-    Dynarr_add (dst, ch);
-  else if (ch == 0xA5)
-    Dynarr_add (dst, 0x5C);
-  else if (ch == 0X203E)
-    Dynarr_add (dst, 0x7E);
   else
     {
       Lisp_Object charset;
       unsigned int c1, c2, s1, s2;
-	    
-      BREAKUP_CHAR (ch, charset, c1, c2);
+      
+#ifdef UTF2000
+      if ( (c1 = get_byte_from_character_table (ch, ucs_to_latin_jisx0201)) )
+	{
+	  charset = Vcharset_latin_jisx0201;
+	  c2 = 0;
+	}
+      else
+#endif
+	BREAKUP_CHAR (ch, charset, c1, c2);
+	  
       if (EQ(charset, Vcharset_katakana_jisx0201))
 	{
 	  Dynarr_add (dst, c1 | 0x80);
+	}
+      else if (c2 == 0)
+	{
+	  Dynarr_add (dst, c1);
 	}
       else if (EQ(charset, Vcharset_japanese_jisx0208))
 	{
@@ -3001,6 +3008,8 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
 	  Dynarr_add (dst, s1);
 	  Dynarr_add (dst, s2);
 	}
+      else
+	Dynarr_add (dst, '?');
     }
 }
 
