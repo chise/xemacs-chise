@@ -1,5 +1,10 @@
 2002-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R045-Sprout.el (U+5C70): Unify JC3-99E5.
+
+	* Ideograph-R044-Corpse.el: Merge mapping to CHINA3-JEF code
+	points.
+
 	* Ideograph-R042-Small.el (M-07479): Add `->ideographic-variants'
 	for M-07477; separate C3-223F.  Merge mapping to CHINA3-JEF code
 	points.
