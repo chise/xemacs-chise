@@ -39,4 +39,7 @@
 	(append default-coded-charset-priority-list
 		'(mojikyo-2022-1))))
 
+
+(provide 'mojikyo-conf)
+
 ;;; mojikyo-conf.el ends here
