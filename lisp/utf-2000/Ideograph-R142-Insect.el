@@ -11509,6 +11509,7 @@
     (ideographic-radical . 142)	; â¾
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
+    (=big5		. #xF7D7)	; ý¢€Ÿ—
     (=daikanwa		. 33859)	; ø¸ˆ‘ƒ
     ))
 (define-char
