@@ -240,10 +240,11 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (korean-ksc5601	. #x7046)	; ø»ŠŽ³
-    (japanese-jisx0212	. #x426D)	; ø»‹•º
-    (china3-jef		. #x52A2)	; øº…Š¢
-    (ucs		. #x66FA)	; æ›º
+    (korean-ksc5601		. #x7046)	; ø»ŠŽ³
+    (japanese-jisx0212		. #x426D)	; ø»‹•º
+    (japanese-jisx0213-1	. #x754C)	; ø»¤Ž¿
+    (china3-jef			. #x52A2)	; øº…Š¢
+    (ucs			. #x66FA)	; æ›º
     ))
 (define-char
   '((morohashi-daikanwa	2392 0 1)
