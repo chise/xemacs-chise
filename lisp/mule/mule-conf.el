@@ -254,18 +254,19 @@
 	       graphic 0
 	       direction l2r
 	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
-  (make-charset 'ideograph-cbeta "CBETA PUA"
-		'(long-name
-		  "CBETA private characters"
-		  chars		256
-		  dimension	2
-		  registry	"cbeta-0"
-		  graphic	2
-		  min-code	#xE20000
-		  max-code	#xE2FFFF
-		  code-offset	#xE20000
-		  columns	2
-		  direction	l2r))
+  (make-charset
+   '=cbeta "CBETA PUA"
+   '(long-name "CBETA private characters"
+	       chars		256
+	       dimension	2
+	       registry	"cbeta-0"
+	       graphic	2
+	       min-code	#xE20000
+	       max-code	#xE2FFFF
+	       code-offset	#xE20000
+	       columns	2
+	       direction	l2r))
+  (define-charset-alias 'ideograph-cbeta '=cbeta)
   (make-charset
    '=jef-china3
    "JEF + CHINA3"
