@@ -1,3 +1,16 @@
+2003-02-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R109-Eye.el (U+7758): Unify GT-K10417.
+	(GT-K10415): New character.
+	(GT-K10416): New character.
+
+	* Ideograph-R102-Field.el (U+753B): Add S1-5026.
+	(J0-3268): Add S1-5023.
+
+	* Ideograph-R062-Halberd.el (GT-K02180): New character.
+
+	* Ideograph-R047-River.el (GT-K02004): New character.
+
 2003-02-21  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* Ideograph-R019-Power.el (M-02485): Modify
