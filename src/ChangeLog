@@ -1,3 +1,12 @@
+2000-12-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* search.c (search_buffer): Use charset-id as charset_base_code in
+	UTF-2000 [I'm not sure it is right thing].
+	(boyer_moore): Likewise.
+
+	* emacs.c (vars_of_emacs): Convert XEMACS_CODENAME to internal
+	representation in MULE.
+
 2000-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Fmake_coding_system): Use
