@@ -2777,6 +2777,7 @@
     (japanese-jisx0208		. #x4264)	; ø»‡©
     (chinese-cns11643-1		. #x7957)	; ø»“„¢
     (japanese-jisx0208-1990	. #x4264)	; ø½Š§
+    (mojikyo			. 050603)	; ø¸Œ–«
     (ucs			. #x9BDB)	; é¯›
     ))
 (define-char
@@ -5968,6 +5969,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (chinese-cns11643-7 . #x6046)	; ø»Ÿ›»
+    (mojikyo		. 050604)	; ø¸Œ–¬
     ))
 (define-char
   '((ideographic-radical . 195)	; â¿‚
