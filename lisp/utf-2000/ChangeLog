@@ -1,3 +1,58 @@
+2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el, Ideograph-R134-Mortar.el,
+	Ideograph-R124-Feather.el, Ideograph-R102-Field.el,
+	Ideograph-R085-Water.el, Ideograph-R072-Sun.el,
+	Ideograph-R066-Rap.el, Ideograph-R062-Halberd.el,
+	Ideograph-R061-Heart.el, Ideograph-R059-Bristle.el: Reformatted.
+
+	* Ideograph-R055-Two-Hands.el (M-09592): Unify U-00020020; use
+	`ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for U-00020020.
+
+	* Ideograph-R049-Oneself.el, Ideograph-R029-Again.el,
+	Ideograph-R027-Cliff.el, Ideograph-R025-Divination.el:
+	Reformatted.
+
+	* Ideograph-R009-Man.el (BC-8B4A): Unify U-00020089 and GT-00008;
+	use `ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `<-radical' for U-00020089.
+
+	* Ideograph-R004-Slash.el (U-00020089): Unify GT-00008 and
+	BC-8B4A; use `ideographic-' attribute instead of
+	`ideographic-radical' and `ideographic-strokes'; delete
+	`->identical' for GT-00008.
+
+	* Ideograph-R001-One.el (GT-00008): Unify U-00020089 and BC-8B4A;
+	use `ideographic-' attribute instead of `ideographic-radical' and
+	`ideographic-strokes'; delete `->identical' for U-00020089.
+	(U-00020020): Unify M-09592; use `ideographic-' attribute instead
+	of `ideographic-radical' and `ideographic-strokes'; delete
+	`->identical' for M-09592.
+
+	* char-db-util.el (char-db-insert-char-reference): Don't insert
+	line-break just before final `)'; add formatter for `:radical'.
+	(insert-char-attributes): Add formatter for `ideographic-'
+	property.
+
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Regard ->FOO and <-FOO
+	as list of char-refs.
+
+2002-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-radical): Add new optional
+	argument `radical'; refer `ideographic-' property.
+	(char-ideographic-strokes): Likewise.
+	(update-ideograph-radical-table): Check `ideographic-' property
+	too.
+	(ideographic-radical): New variable.
+	(char-daikanwa-strokes): Add new optional argument `radical'.
+	(ideograph-char<): Add new optional argument `radical'.
+	(insert-ideograph-radical-char-data): Bind `ideographic-radical'
+	as argument `radical'.
+
 2002-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R129-Brush.el, Ideograph-R131-Minister.el,
