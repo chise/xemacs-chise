@@ -45,7 +45,9 @@
      ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))
     (<-simplified
-     ((=daikanwa	  . 30597)	; ø¸‡ž…
+     ((=jis-x0208	  . #x4E49)	; ø½Š¸ª
+      (=ks-x1001	  . #x555E)	; ø»‰§¡
+      (=daikanwa	  . 30597)	; ø¸‡ž…
       ))
     (=big5-cdp		. #x8C42)	; ý¢€ˆ±‚
     ))

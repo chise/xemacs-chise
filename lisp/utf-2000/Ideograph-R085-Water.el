@@ -6673,6 +6673,8 @@
     (total-strokes	 . 10)
     (<-simplified
      ((=jis-x0208-1978	  . #x4642)	; ø»‚²·
+      (=ks-x1001	  . #x5439)	; ø»‰¥ž
+      (=jis-x0212	  . #x492C)	; ø»‹Ÿ‹
       (=jis-x0213-1-2000  . #x773D)	; ø»¤‘¬
       (=daikanwa	  . 18591)	; ø¸„¢Ÿ
       ))

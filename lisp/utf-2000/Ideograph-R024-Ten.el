@@ -404,7 +404,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (<-simplified
-     ((=daikanwa	  . 07833)	; ø¸º™
+     ((=ucs		  . #x5C70)	; å±°
       ))
     (sources		bos=A016219-00020)
     (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ

@@ -19,7 +19,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (<-simplified
-     ((=daikanwa	  . 09189)	; ø¸‚¥
+     ((=ucs		  . #x5E7A)	; å¹º
       ))
     (=big5-cdp		. #x895C)	; ý¢€ˆ¥œ
     ))
