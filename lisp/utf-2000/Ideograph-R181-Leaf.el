@@ -1937,6 +1937,7 @@
   '((ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (korean-ksc5601	. #x775D)	; ø»Š™œ
     (chinese-cns11643-1 . #x7325)	; ø»’º¼
     (ideograph-daikanwa . 43517)	; ø¸Š§½
     (ucs		. #x9839)	; é ¹
