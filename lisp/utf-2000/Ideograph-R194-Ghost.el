@@ -1353,6 +1353,7 @@
     (ideographic-strokes . 11)
     (chinese-gb2312	. #x4427)	; ø»„¹¤
     (chinese-isoir165	. #x4427)	; ø»¡´
+    (mojikyo		. 050602)	; ø¸Œ–ª
     (ucs		. #x9B54)	; é­”
     ))
 (define-char
