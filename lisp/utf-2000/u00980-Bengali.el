@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "BENGALI SIGN CANDRABINDU")
     (general-category	mark non-spacing) ; Normative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "EN QUAD")
     (general-category	separator space) ; Normative Category

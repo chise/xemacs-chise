@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "HIRAGANA LETTER SMALL A")
     (general-category	letter other) ; Informative Category

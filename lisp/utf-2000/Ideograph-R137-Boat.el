@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 0)

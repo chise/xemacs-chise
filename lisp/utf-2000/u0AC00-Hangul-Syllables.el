@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((general-category	letter other) ; Informative Category
     (bidi-category	. "L")

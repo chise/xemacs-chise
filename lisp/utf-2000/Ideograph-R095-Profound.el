@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7384)	; 玄
     (ideographic-radical . 95)	; ⽞

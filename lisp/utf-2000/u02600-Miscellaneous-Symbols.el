@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "BLACK SUN WITH RAYS")
     (general-category	symbol other) ; Informative Category

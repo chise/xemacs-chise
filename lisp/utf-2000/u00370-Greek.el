@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "GREEK NUMERAL SIGN")
     (general-category	symbol modifier) ; Informative Category

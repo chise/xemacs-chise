@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8F9B)	; 辛
     (ideographic-radical . 160)	; ⾟

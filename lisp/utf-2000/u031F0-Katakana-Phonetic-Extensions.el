@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "KATAKANA LETTER SMALL KU")
     (=jis-x0213-1-2000	. #x266E)	; ø»¢›Ÿ

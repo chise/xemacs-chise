@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x9F4A)	; 齊
     (ideographic-radical . 210)	; ⿑

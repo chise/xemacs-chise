@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "FOR ALL")
     (general-category	symbol math) ; Informative Category

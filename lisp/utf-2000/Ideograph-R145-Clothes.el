@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x8863)	; 衣
     (ideographic-radical . 145)	; ⾐

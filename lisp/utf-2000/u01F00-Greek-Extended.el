@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH PSILI")
     (general-category	letter lowercase) ; Normative Category

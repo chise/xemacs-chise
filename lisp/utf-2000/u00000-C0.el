@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "NULL")
     (general-category	other control) ; Normative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "ARMENIAN CAPITAL LETTER AYB")
     (general-category	letter uppercase) ; Normative Category

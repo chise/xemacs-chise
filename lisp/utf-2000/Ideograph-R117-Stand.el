@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7ACB)	; 立
     (ideographic-radical . 117)	; ⽴

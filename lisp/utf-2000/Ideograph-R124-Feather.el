@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x7FBD)	; 羽
     (ideographic-radical . 124)	; ⽻

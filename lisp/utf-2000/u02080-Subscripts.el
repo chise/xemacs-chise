@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "SUBSCRIPT ZERO")
     (general-category	number other) ; Normative Category

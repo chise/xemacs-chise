@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x97F3)	; 音
     (ideographic-radical . 180)	; ⾳

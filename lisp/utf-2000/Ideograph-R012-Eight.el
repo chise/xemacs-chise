@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x516B)	; 八
     (ideographic-radical . 12)	; ⼋

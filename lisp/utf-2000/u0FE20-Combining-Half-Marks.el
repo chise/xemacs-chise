@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "COMBINING LIGATURE LEFT HALF")
     (general-category	mark non-spacing) ; Normative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "ARABIC LETTER ALEF WASLA ISOLATED FORM")
     (general-category	letter other) ; Informative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "UPPER BLADE SCISSORS")
     (general-category	symbol other) ; Informative Category

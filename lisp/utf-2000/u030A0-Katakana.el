@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "KATAKANA-HIRAGANA DOUBLE HYPHEN")
     (=jis-x0213-1-2000	. #x237B)	; ø»¢—’

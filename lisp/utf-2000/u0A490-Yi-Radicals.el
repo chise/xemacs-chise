@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "YI RADICAL QOT")
     (general-category	symbol other) ; Informative Category

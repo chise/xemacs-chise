@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "FULLWIDTH EXCLAMATION MARK")
     (general-category	punctuation other) ; Informative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((name		. "VULGAR FRACTION ONE THIRD")
     (general-category	number other) ; Normative Category

@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs -*-
 (define-char
   '((=>ucs		. #x793A)	; 示
     (ideographic-radical . 113)	; ⽰
