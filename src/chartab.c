@@ -3132,26 +3132,6 @@ Return DEFAULT-VALUE if the value is not exist.
 
   table = Fgethash (attribute, Vchar_attribute_hash_table,
 		    Qunbound);
-#if 0 && defined(HAVE_DATABASE)
-  if (UNBOUNDP (table))
-    {
-      Lisp_Object db_dir = Vexec_directory;
-      Lisp_Object db_file;
-
-      if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
-      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-      db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-      db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
-      if (!NILP (Ffile_exists_p (db_file)))
-	{
-	  table = make_char_id_table (Qunloaded);
-	  XCHAR_TABLE (table)->default_value = Qunbound;
-	  Fputhash (attribute, table, Vchar_attribute_hash_table);
-	  XCHAR_TABLE_NAME (table) = attribute;
-	}
-    }
-#endif
   if (!UNBOUNDP (table))
     {
       Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table),
@@ -3272,47 +3252,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				  Vchar_attribute_hash_table,
 				  Qnil);
 
-#if defined(HAVE_DATABASE) && 0
-    {
-      Lisp_Object db;
-      Lisp_Object db_dir = Vexec_directory;
-      Lisp_Object db_file;
-
-      if (NILP (table))
-	{
-	  /* table = make_char_id_table (Qunbound); */
-	  table = make_char_id_table (Qunloaded);
-	  XCHAR_TABLE (table)->default_value = Qunbound;
-	  Fputhash (attribute, table, Vchar_attribute_hash_table);
-	  XCHAR_TABLE_NAME (table) = attribute;
-	}
-      if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
-
-      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-      if (NILP (Ffile_exists_p (db_dir)))
-	Fmake_directory_internal (db_dir);
-
-      db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-      if (NILP (Ffile_exists_p (db_dir)))
-	Fmake_directory_internal (db_dir);
-
-      db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
-      db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-      if (!NILP (db))
-	{
-	  Fput_database (Fprin1_to_string (character, Qnil),
-			 Fprin1_to_string (value, Qnil),
-			 db, Qt);
-	  /* put_char_id_table (XCHAR_TABLE(table), character, value); */
-	  put_char_id_table (XCHAR_TABLE(table), character, Qunloaded);
-	  XCHAR_TABLE_UNLOADED(table) = 1;
-	  Fclose_database (db);
-	}
-      else
-	put_char_id_table (XCHAR_TABLE(table), character, value);
-    }
-#else
     if (NILP (table))
       {
 	table = make_char_id_table (Qunbound);
@@ -3322,7 +3261,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 #endif
       }
     put_char_id_table (XCHAR_TABLE(table), character, value);
-#endif
     return value;
   }
 }
