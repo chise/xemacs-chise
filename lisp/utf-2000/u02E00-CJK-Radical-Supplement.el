@@ -30,6 +30,7 @@
       ))
     (ideograph-cdp	. -14)
     (chinese-big5	. #x8C5D)	; ⺃
+    (chinese-big5-cdp	. #x8C5D)	; ⺃
     (ucs		. #x2E83)	; ⺃
     ))
 (define-char
@@ -47,6 +48,7 @@
     (total-strokes	 . 2)
     (ideograph-cdp	. -55)
     (chinese-big5	. #x8AF5)	; ⺅
+    (chinese-big5-cdp	. #x8AF5)	; ⺅
     (ucs		. #x2E85)	; ⺅
     ))
 (define-char
@@ -79,7 +81,6 @@
      ((ucs		  . #x5202)	; 刂
       ))
     (chinese-big5	. #xC87D)	; �����
-    (ucs-big5		. #x5202)	; ⺉
     (ucs		. #x2E89)	; ⺉
     ))
 (define-char
