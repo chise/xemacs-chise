@@ -115,7 +115,9 @@ or a function symbol which, when called, returns such a cons cell."
   (interactive "zterminal-coding-system: ")
   (get-coding-system coding-system) ; correctness check
   (setq terminal-coding-system coding-system)
-  (set-console-tty-coding-system (device-console) terminal-coding-system)
+  ; #### should this affect all current tty consoles ?
+  (if (eq (device-type) 'tty)
+      (set-console-tty-coding-system (device-console) terminal-coding-system))
   (redraw-modeline t))
 
 (defun set-pathname-coding-system (coding-system)
