@@ -3824,7 +3824,7 @@
 	(=ks-x1001	    . #x7B7D)	; &I-K0-7B7D; [91-93]
 	(=daikanwa	    . 18850)	; &I-M-18850;
 	)
-       ((=ucs@unicode	    . #x77E3)	; &UU+77E3;
+       ((=ucs@unicode	    . #x77E3)	; &GT-30619;
 	))
       (=daikanwa	  . 19063)	; &M-19063;
       (=cbeta		  . 00198)	; &I-CB00198;
