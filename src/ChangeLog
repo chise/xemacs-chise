@@ -1,3 +1,34 @@
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_add_er_char): Must to quote prefix string
+	as regexp.
+
+2004-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (put_char_ccs_code_point): Store characters of
+	=ucs whose code_points >= 0xF0000.
+
+2004-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_system_char_id): New variable in XEmacs
+	CHISE.
+	(syms_of_mule_charset): Add new symbol `system-char-id' in XEmacs
+	CHISE.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`system-char-id' in XEmacs CHISE; modify `=ucs' to eliminate
+	builtin characters over 0xEFFFF.
+
+	* chartab.c (syms_of_chartab): Don't define symbol
+	`system-char-id' in every case.
+
+	* char-ucs.h (Qsystem_char_id): New extern variable.
+	(LEADING_BYTE_SYSTEM_CHAR_ID): New macro.
+
+2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_utf8): Try to use entity-references
+	for U-000F0000 ...  U-0010FFFF.
+
 2004-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (ER_BUF_SIZE): New macro.

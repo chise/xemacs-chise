@@ -389,34 +389,33 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (shinjigen-2	. 1885)
     (=ucs		. #x5C08)	; 專
-    (=jis-x0208		. #x5573)	; &I-J90-5573;
-    (=ks-x1001		. #x6E76)	; &I-K0-6E76;
-    (=cns11643-1	. #x5971)	; &I-C1-5971;
-    (=gb12345		. #x5728)	; 專
-    (=big5		. #xB14D)	; &I-B-B14D;
-    (=gt		. 09367)	; &I-GT-09367;
-    (=gt-k		. 07926)	; &I-GT-K07926;
-    (=gt-pj-1		. #x5573)	; &I-GT-09367;
-    (=daikanwa		. 07439)	; &I-M-07439;
+    (->subsumptive
+     ((shinjigen-2	  . 1885)
+      (=jis-x0208	  . #x5573)	; &GT-09367;
+      (=ks-x1001	  . #x6E76)	; &I-K0-6E76;
+      (=cns11643-1	  . #x5971)	; &I-C1-5971;
+      (=gb12345		  . #x5728)	; &GT-09367;
+      (=big5		  . #xB14D)	; &I-B-B14D;
+      (=gt		  . 09367)	; &I-GT-09367;
+      (=gt-k		  . 07926)	; &I-GT-K07926;
+      (=gt-pj-1		  . #x5573)	; &I-GT-09367;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      (=ucs@unicode	  . #x5C08)	; &GT-09367;
+      )
+     ((=jef-china3	  . #x4ACE)	; &JC3-4ACE;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x5C08)	; 專
-    (morohashi-daikanwa	7439 0 1)
-    (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=jef-china3	. #x4ACE)	; &JC3-4ACE;
-    ))
-(define-char
-  '((morohashi-daikanwa	7439 0 5)
+  '((=>daikanwa		. 07439)	; &GT-09367;
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5C08)	; 專
-      (=jis-x0208	  . #x5573)	; &I-J90-5573;
+     ((=jis-x0208	  . #x5573)	; &GT-09367;
+      (=ks-x1001	  . #x6E76)	; &I-K0-6E76;
+      (=cns11643-1	  . #x5971)	; &I-C1-5971;
+      (=daikanwa	  . 07439)	; &I-M-07439;
       ))
     (=ucs		. #x5C02)	; 専
     (=jis-x0208		. #x406C)	; &I-J90-406C;

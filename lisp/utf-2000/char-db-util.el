@@ -89,8 +89,8 @@
     nil)
    ((find-charset ka)
     (if (find-charset kb)
-	(if (<= (charset-id ka) 0)
-	    (if (<= (charset-id kb) 0)
+	(if (<= (charset-id ka) 1)
+	    (if (<= (charset-id kb) 1)
 		(cond
 		 ((= (charset-dimension ka)
 		     (charset-dimension kb))
@@ -100,7 +100,7 @@
 		     (charset-dimension kb))
 		  ))
 	      t)
-	  (if (<= (charset-id kb) 0)
+	  (if (<= (charset-id kb) 1)
 	      nil
 	    (< (charset-id ka)(charset-id kb))))
       nil))
@@ -945,24 +945,45 @@
 				 (intern (format "%s*sources" name))))
 			  (setq required-features nil)
 			  (dolist (source sources)
-			    (setq required-features
-				  (cons
-				   (if (find-charset
-					(setq ret (intern
-						   (format "=%s" source))))
-				       ret
-				     source)
-				   required-features)))
-			  (when (string-match "@JP" (symbol-name name))
-			    (setq required-features
-				  (union required-features
-					 '(=jis-x0208
-					   =jis-x0208-1990
-					   =jis-x0213-1-2000
-					   =jis-x0213-2-2000
-					   =jis-x0212
-					   =jis-x0208-1983
-					   =jis-x0208-1978))))
+			    (cond
+			     ((find-charset
+			       (setq ret (intern (format "=%s" source))))
+			      (setq required-features
+				    (cons ret required-features)))
+			     ((memq source '(JP JP/Jouyou))
+			      (setq required-features
+				    (union required-features
+					   '(=jis-x0208
+					     =jis-x0208-1990
+					     =jis-x0213-1-2000
+					     =jis-x0213-2-2000
+					     =jis-x0212
+					     =jis-x0208-1983
+					     =jis-x0208-1978))))
+			     ((eq source 'CN)
+			      (setq required-features
+				    (union required-features
+					   '(=gb2312
+					     =gb12345
+					     =iso-ir165))))
+			     (t (setq required-features
+				      (cons source required-features)))))
+			  (cond ((string-match "@JP" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=jis-x0208
+						=jis-x0208-1990
+						=jis-x0213-1-2000
+						=jis-x0213-2-2000
+						=jis-x0212
+						=jis-x0208-1983
+						=jis-x0208-1978))))
+				((string-match "@CN" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=gb2312
+						=gb12345
+						=iso-ir165)))))
 			  (if separator
 			      (insert lbs))
 			  (if readable

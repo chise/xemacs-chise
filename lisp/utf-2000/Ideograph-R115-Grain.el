@@ -3915,7 +3915,7 @@
      ((=daikanwa	  . 25262)	; &M-25262;
       (=jef-china3	  . #x98E8)	; &I-JC3-98E8;
       )
-     ((=ucs@unicode	  . #x7A4B)	; 󰀝
+     ((=ucs@unicode	  . #x7A4B)	; &UU+7A4B;
       )
      ((=cns11643-1	  . #x715C)	; &C1-715C;
       ))
@@ -5310,7 +5310,7 @@
     (->subsumptive
      ((ideographic-strokes . 15)
       (total-strokes	   . 20)
-      (=ucs@unicode	  . #x4188)	; 󰀞
+      (=ucs@unicode	  . #x4188)	; &UU+4188;
       )
      ((ideographic-strokes . 16)
       (total-strokes	   . 21)
@@ -5323,7 +5323,7 @@
     (total-strokes	 . 20)
     (=ucs		. #x4189)	; 䆉
     (->subsumptive
-     ((=ucs@unicode	  . #x4189)	; 󰀟
+     ((=ucs@unicode	  . #x4189)	; &UU+4189;
       )
      ((=cns11643-4	  . #x6379)	; &C4-6379;
       ))

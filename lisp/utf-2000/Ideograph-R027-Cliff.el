@@ -3175,7 +3175,7 @@
     (->subsumptive
      ((=daikanwa	  . 48819)	; &M-48819;
       )
-     ((=ucs@unicode	  . #x9F8E)	; 󰀕
+     ((=ucs@unicode	  . #x9F8E)	; &UU+9F8E;
       )
      ((=cns11643-3	  . #x5755)	; &C3-5755;
       ))

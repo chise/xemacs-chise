@@ -313,7 +313,7 @@
       (=ucs@jis-1990	  . #x6256)	; &GT-14901;
       (=ucs@jis-2000	  . #x6256)	; &GT-14901;
       )
-     ((=ucs@unicode	  . #x6256)	; 󰀚
+     ((=ucs@unicode	  . #x6256)	; &UU+6256;
       ))
     ))
 (define-char

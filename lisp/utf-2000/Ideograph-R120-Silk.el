@@ -4491,27 +4491,25 @@
     (=cns11643-1	. #x5C53)	; &C1-5C53;
     ))
 (define-char
-  '((=>ucs		. #x7D72)	; 絲
-    (ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (shinjigen-2	. 5959)
-    (=jis-x0208		. #x652F)	; &GT-35315;
-    (=ks-x1001		. #x5E6A)	; &I-K0-5E6A;
-    (=gt		. 35315)	; &I-GT-35315;
-    (=gt-k		. 09222)	; &I-GT-K09222;
-    (=gt-pj-1		. #x652F)	; &I-GT-35315;
-    (=daikanwa		. 27448)	; &I-M-27448;
-    (=ucs@jis		. #x7D72)	; &GT-35315;
-    ))
-(define-char
-  '((morohashi-daikanwa	27448 0 2)
-    (ideographic-radical . 120)	; ⽷
+  '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x7D72)	; 絲
-    (=cns11643-1	. #x613D)	; &I-C1-613D;
-    (=gb12345		. #x4B3F)	; 絲
+    (->subsumptive
+     ((shinjigen-2	  . 5959)
+      (=jis-x0208	  . #x652F)	; &GT-35315;
+      (=ks-x1001	  . #x5E6A)	; &I-K0-5E6A;
+      (=gt		  . 35315)	; &I-GT-35315;
+      (=gt-k		  . 09222)	; &I-GT-K09222;
+      (=gt-pj-1		  . #x652F)	; &I-GT-35315;
+      (=daikanwa	  . 27448)	; &I-M-27448;
+      (=ucs@jis		  . #x7D72)	; &GT-35315;
+      )
+     ((=cns11643-1	  . #x613D)	; &C1-613D;
+      )
+     ((=gb12345		  . #x4B3F)	; &UU+7D72;
+      (=ucs@unicode	  . #x7D72)	; &UU+7D72;
+      ))
     ))
 (define-char
   '((=>ucs		. #x7D73)	; 絳

@@ -3304,8 +3304,8 @@
     (total-strokes	 . 10)
     (=ucs		. #x70EE)	; 烮
     (->subsumptive
-     ((=ucs@unicode	  . #x70EE)	; &MCS-6000E961;
-      (mojikyo		  . 059745)	; &MCS-6000E961;
+     ((=ucs@unicode	  . #x70EE)	; &UU+70EE;
+      (mojikyo		  . 059745)	; &UU+70EE;
       )
      ((=cns11643-3	  . #x3230)	; &C3-3230;
       ))

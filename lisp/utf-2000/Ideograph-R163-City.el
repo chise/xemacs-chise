@@ -2841,8 +2841,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9115)	; 鄕
-      (=jis-x0213-1-2000  . #x7C6C)	; &I-JX1-7C6C;
+     ((=jis-x0213-1-2000  . #x7C6C)	; &CDP-B66D;
       ))
     (=ucs		. #x90F7)	; 郷
     (=jis-x0208		. #x363F)	; &I-J90-363F;
@@ -3766,37 +3765,34 @@
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=ucs		. #x9115)	; 鄕
-    (=ks-x1001		. #x7A41)	; &I-K0-7A41;
-    (=jis-x0213-1-2000	. #x7C6C)	; &I-JX1-7C6C;
-    (=daikanwa		. 39571)	; &I-M-39571;
-    ))
-(define-char
-  '((=>ucs		. #x9115)	; 鄕
-    (morohashi-daikanwa	39571 0 0)
-    (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x4525)	; &C3-4525;
-    ))
-(define-char
-  '((=>ucs		. #x9109)	; 鄉
-    (morohashi-daikanwa	39571 0 3)
-    (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=big5		. #xB66D)	; &B-B66D;
-    ))
-(define-char
-  '((morohashi-daikanwa	39571 0 5)
-    (ideographic-radical . 163)	; ⾢
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs		. #x9109)	; 鄉
-    (=cns11643-1	. #x6254)	; &I-C1-6254;
-    (=gb12345		. #x4F67)	; 鄉
+    (->subsumptive
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 13)
+      (=ucs		  . #x9115)	; 鄕
+      (->subsumptive
+       ((=ks-x1001	    . #x7A41)	; &M-39571;
+	(=daikanwa	    . 39571)	; &I-M-39571;
+	(=jef-china3	    . #x68AC)	; &I-JC3-68AC;
+	(=ucs@unicode	    . #x9115)	; &M-39571;
+	)
+       ((=cns11643-3	    . #x4525)	; &C3-4525;
+	))
+      )
+     ((=>ucs		  . #x9115)	; 鄕
+      (ideographic-strokes . 10)
+      (total-strokes	   . 13)
+      (=jis-x0213-1-2000  . #x7C6C)	; &CDP-B66D;
+      (=big5-cdp	  . #xB66D)	; &I-B-B66D;
+      (=ucs@jis		  . #x9115)	; &CDP-B66D;
+      )
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 12)
+      (=ucs		  . #x9109)	; 鄉
+      (=cns11643-1	  . #x6254)	; &I-C1-6254;
+      (=gb12345		  . #x4F67)	; 鄉
+      (=big5		  . #xB66D)	; &I-B-B66D;
+      (=ucs@unicode	  . #x9109)	; 鄉
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢

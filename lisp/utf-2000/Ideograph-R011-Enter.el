@@ -670,50 +670,37 @@
     (=cns11643-6	. #x2579)	; &C6-2579;
     ))
 (define-char
-  '((=>ucs		. #x5169)	; 兩
-    (ideographic-radical . 11)	; ⼊
+  '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=big5-cdp	  . #x8C62)	; &CDP-8C62;
-      ))
-    (shinjigen-1	. 484)
-    (shinjigen-2	. 484)
-    (=jis-x0208		. #x5140)	; &GT-01871;
-    (=ks-x1001		. #x5557)	; &I-K0-5557;
-    (=big5		. #xA8E2)	; &I-B-A8E2;
-    (=gt		. 01871)	; &I-GT-01871;
-    (=gt-k		. 03859)	; &I-GT-K03859;
-    (=gt-pj-1		. #x5140)	; &I-GT-01871;
-    (=daikanwa		. 01436)	; &I-M-01436;
-    (=ucs@jis		. #x5169)	; &GT-01871;
-    (=ucs@big5		. #x5169)	; &GT-01871;
-    (mojikyo		. 001436)	; &MCS-6000059C;
-    ))
-(define-char
-  '((morohashi-daikanwa	1436 0 0)
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 24 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=big5-cdp	  . #x8C62)	; &CDP-8C62;
-      ))
-    (shinjigen-1	. 484)
-    (shinjigen-2	. 484)
     (=ucs		. #x5169)	; 兩
-    (=cns11643-1	. #x4C25)	; &I-C1-4C25;
-    (=gb12345		. #x413D)	; 兩
+    (->subsumptive
+     ((shinjigen-1	  . 484)
+      (shinjigen-2	  . 484)
+      (=jis-x0208	  . #x5140)	; &GT-01871;
+      (=ks-x1001	  . #x5557)	; &I-K0-5557;
+      (=big5		  . #xA8E2)	; &I-B-A8E2;
+      (=gt		  . 01871)	; &I-GT-01871;
+      (=gt-k		  . 03859)	; &I-GT-K03859;
+      (=gt-pj-1		  . #x5140)	; &I-GT-01871;
+      (=daikanwa	  . 01436)	; &I-M-01436;
+      (=ucs@jis		  . #x5169)	; &GT-01871;
+      (=ucs@big5	  . #x5169)	; &GT-01871;
+      (mojikyo		  . 001436)	; &MCS-6000059C;
+      )
+     ((hanyu-dazidian	  1 24 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=big5-cdp	    . #x8C62)	; &CDP-8C62;
+	))
+      (=cns11643-1	  . #x4C25)	; &C1-4C25;
+      (=gb12345		  . #x413D)	; &C1-4C25;
+      (=ucs@unicode	  . #x5169)	; &C1-4C25;
+      ))
     ))
 (define-char
   '((=>ucs		. #x516A)	; 兪

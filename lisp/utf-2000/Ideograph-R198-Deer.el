@@ -816,42 +816,27 @@
     (=daikanwa		. 47662)	; &I-M-47662;
     ))
 (define-char
-  '((=>ucs		. #x9E97)	; 麗
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (shinjigen-2	. 9782)
-    (=jis-x0208-1978	. #x4E6F)	; &GT-64844;
-    (=jis-x0208-1983	. #x4E6F)	; &I-J83-4E6F;
-    (=ks-x1001		. #x5572)	; &I-K0-5572;
-    (=gt		. 64844)	; &I-GT-64844;
-    (=gt-pj-1		. #x4E6F)	; &I-GT-64844;
-    (=daikanwa		. 47663)	; &I-M-47663;
-    ))
-(define-char
-  '((morohashi-daikanwa	47663 0 0)
-    (ideographic-radical . 198)	; ⿅
+  '((ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
     (=ucs		. #x9E97)	; 麗
-    (=gb12345		. #x4076)	; 麗
-    ))
-(define-char
-  '((=>ucs		. #x9E97)	; 麗
-    (morohashi-daikanwa	47663 0 1)
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (=jis-x0208-1990	. #x4E6F)	; &J90-4E6F;
-    (=ucs@jis		. #x9E97)	; &J90-4E6F;
-    ))
-(define-char
-  '((=>ucs		. #x9E97)	; 麗
-    (morohashi-daikanwa	47663 0 2)
-    (ideographic-radical . 198)	; ⿅
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (=cns11643-1	. #x795E)	; &C1-795E;
+    (->subsumptive
+     ((shinjigen-2	  . 9782)
+      (=jis-x0208-1978	  . #x4E6F)	; &GT-64844;
+      (=jis-x0208-1983	  . #x4E6F)	; &I-J83-4E6F;
+      (=ks-x1001	  . #x5572)	; &I-K0-5572;
+      (=gt		  . 64844)	; &I-GT-64844;
+      (=gt-pj-1		  . #x4E6F)	; &I-GT-64844;
+      (=daikanwa	  . 47663)	; &I-M-47663;
+      )
+     ((=gb12345		  . #x4076)	; &UU+9E97;
+      (=ucs@unicode	  . #x9E97)	; &UU+9E97;
+      )
+     ((=jis-x0208-1990	  . #x4E6F)	; &J90-4E6F;
+      (=ucs@jis		  . #x9E97)	; &J90-4E6F;
+      )
+     ((=cns11643-1	  . #x795E)	; &C1-795E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 198)	; ⿅

@@ -58,7 +58,7 @@
     (->subsumptive
      ((=daikanwa	  . 48819)	; &M-48819;
       )
-     ((=ucs@unicode	  . #x9F8E)	; 󰀕
+     ((=ucs@unicode	  . #x9F8E)	; &UU+9F8E;
       )
      ((=cns11643-3	  . #x5755)	; &C3-5755;
       ))
@@ -127,8 +127,8 @@
       (=jef-china3	  . #x70AA)	; &I-JC3-70AA;
       (=ucs@jis		  . #x9F90)	; &M-48824;
       )
-     ((=gb12345		  . #x4553)	; 󰃎
-      (=ucs@unicode	  . #x9F90)	; 󰃎
+     ((=gb12345		  . #x4553)	; &UU+9F90;
+      (=ucs@unicode	  . #x9F90)	; &UU+9F90;
       )
      ((ideographic-radical@cns . 53)	; ⼴
       (ideographic-strokes@cns . 16)

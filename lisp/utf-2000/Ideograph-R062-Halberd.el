@@ -604,7 +604,7 @@
      ((=cns11643-4	  . #x2D2F)	; &M-11583;
       (=daikanwa	  . 11583)	; &I-M-11583;
       )
-     ((=ucs@unicode	  . #x39B4)	; 󰀙
+     ((=ucs@unicode	  . #x39B4)	; &UU+39B4;
       ))
     ))
 (define-char

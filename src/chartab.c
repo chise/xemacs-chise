@@ -1130,10 +1130,6 @@ make_char_id_table (Lisp_Object initval)
 }
 
 
-#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
-Lisp_Object Qsystem_char_id;
-#endif
-
 Lisp_Object Qcomposition;
 Lisp_Object Q_decomposition;
 Lisp_Object Q_identical;
@@ -4598,10 +4594,6 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
-
-#if defined(HAVE_CHISE) && !defined(HAVE_LIBCHISE_LIBCHISE)
-  defsymbol (&Qsystem_char_id,		"system-char-id");
-#endif
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs_unified,		"->ucs-unified");

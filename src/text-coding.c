@@ -3295,6 +3295,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	    pat = ret;
 	  else
 	    continue;
+	  pat = Fregexp_quote (pat);
 
 	  cell = Fcdr (cell);
 	  cell = Fcdr (cell);
@@ -4609,7 +4610,7 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 0);
       int code_point = charset_code_point (ucs_ccs, ch, 0);
 
-      if ( (code_point < 0) || (code_point > 0x10FFFF) )
+      if ( (code_point < 0) || (code_point > 0xEFFFF) )
 	{
 	  Lisp_Object map
 	    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);

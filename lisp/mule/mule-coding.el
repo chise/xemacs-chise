@@ -287,6 +287,18 @@
 	  ((chinese-big5 . isolated)           	 "I-B-" 4 X)
 	  ( chinese-big5                    	   "B-" 4 X)
 	  ( chinese-big5                    	  "C0-" 4 X)
+	  ( =ucs@unicode                    	  "UU+" 4 X)
+	  ( =ucs@unicode                    	  "UU-" 8 X)
+	  ( =ucs@iso                    	   "U+" 4 X)
+	  ( =ucs@iso                    	   "U-" 8 X)
+	  ( =ucs@gb	                    	  "GU+" 4 X)
+	  ( =ucs@gb	                    	  "GU-" 8 X)
+	  ( =ucs@jis	                    	  "JU+" 4 X)
+	  ( =ucs@jis	                    	  "JU-" 8 X)
+	  ( =ucs@cns	                    	  "CU+" 4 X)
+	  ( =ucs@cns	                    	  "CU-" 8 X)
+	  ( =ucs@ks	                    	  "KU+" 4 X)
+	  ( =ucs@ks	                    	  "KU-" 8 X)
 	  ))
 
   (make-coding-system
