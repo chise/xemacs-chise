@@ -191,7 +191,7 @@
 		  direction	l2r
 		  mother	ucs-jis))
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
-  (make-charset 'ucs-ks
+  (make-charset '=ucs@ks
 		"UCS for KS"
 		`(long-name	"ISO/IEC 10646 for Korean Standards"
 		  chars		256
@@ -200,6 +200,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs))
+  (define-charset-alias 'ucs-ks '=ucs@ks)
   (make-charset 'ucs-big5
 		"UCS for Big5"
 		`(long-name	"ISO/IEC 10646 for Big5"
