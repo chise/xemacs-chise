@@ -10,7 +10,7 @@
     (chinese-isoir165		. #x3924)	; ø»‘§
     (chinese-cns11643-1		. #x4456)	; ø»‘¶«
     (japanese-jisx0208-1990	. #x3929)	; ø½Š™”
-    (chinese-big5		. #xA475)	; øºŸ£Œ
+    (chinese-big5		. #xA475)	; ý¢€Š‘µ
     (ideograph-daikanwa		. 08714)	; ø¸‚ˆŠ
     (ucs			. #x5DE5)	; å·¥
     ))
@@ -65,7 +65,7 @@
     (chinese-isoir165		. #x5773)	; ø»¾º
     (chinese-cns11643-1		. #x464A)	; ø»‘¹›
     (japanese-jisx0208-1990	. #x3A38)	; ø½Š›
-    (chinese-big5		. #xA5AA)	; øºŸ¥¼
+    (chinese-big5		. #xA5AA)	; ý¢€Š–ª
     (ideograph-daikanwa		. 08720)	; ø¸‚ˆ
     (ucs			. #x5DE6)	; å·¦
     ))
@@ -81,7 +81,7 @@
     (chinese-isoir165		. #x4749)	; ø»¦°
     (chinese-cns11643-1		. #x4649)	; ø»‘¹š
     (japanese-jisx0208-1990	. #x392A)	; ø½Š™•
-    (chinese-big5		. #xA5A9)	; øºŸ¥»
+    (chinese-big5		. #xA5A9)	; ý¢€Š–©
     (ideograph-daikanwa		. 08721)	; ø¸‚ˆ‘
     (ucs			. #x5DE7)	; å·§
     ))
@@ -104,7 +104,7 @@
     (chinese-isoir165		. #x3E5E)	; ø»™·
     (chinese-cns11643-1		. #x4648)	; ø»‘¹™
     (japanese-jisx0208-1990	. #x3570)	; ø½Š”£
-    (chinese-big5		. #xA5A8)	; øºŸ¥º
+    (chinese-big5		. #xA5A8)	; ý¢€Š–¨
     (ucs			. #x5DE8)	; å·¨
     ))
 (define-char
@@ -190,7 +190,7 @@
     (chinese-isoir165		. #x4E57)	; ø»±
     (chinese-cns11643-1		. #x4A27)	; ø»‘¾°
     (japanese-jisx0208-1990	. #x5660)	; ø½‹„±
-    (chinese-big5		. #xA7C5)	; øºŸ«‘
+    (chinese-big5		. #xA7C5)	; ý¢€ŠŸ…
     (ideograph-daikanwa		. 08728)	; ø¸‚ˆ˜
     (ucs			. #x5DEB)	; å·«
     ))
@@ -250,7 +250,7 @@
     (korean-ksc5601		. #x732C)	; ø»Š’³
     (chinese-cns11643-1		. #x5538)	; ø»’‹
     (japanese-jisx0208-1990	. #x3A39)	; ø½Š›‚
-    (chinese-big5		. #xAE74)	; øºŸ»­
+    (chinese-big5		. #xAE74)	; ý¢€Š¹´
     (ideograph-daikanwa		. 08732)	; ø¸‚ˆœ
     ))
 (define-char
@@ -317,7 +317,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (chinese-gb12345	. #x5B4F)	; å·°
-    (chinese-big5	. #xDD57)	; øº¢–Ÿ
+    (chinese-big5	. #xDD57)	; ý¢€µ—
     (mojikyo		. 053083)	; ý €Œ½›
     (ucs		. #x5DF0)	; å·°
     ))

@@ -2732,9 +2732,20 @@
   '((ideographic-radical . 142)	; â¾
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (chinese-cns11643-4 . #x405B)	; ø»˜„
-    (ideograph-daikanwa . 33094)	; ø¸ˆ…†
-    (ucs		. #x45BA)	; ä–º
+    (hanyu-dazidian	1 202 13)
+    (ideographic-structure
+     (:cdp-combinator	4
+      )
+     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+      )
+     ((chinese-big5-cdp	  . #x8AF9)	; ý¢€ˆ«¹
+      )
+     ((ucs		  . #x866B)	; è™«
+      ))
+    (chinese-cns11643-4		. #x405B)	; ø»˜„
+    (ideograph-daikanwa		. 33094)	; ø¸ˆ…†
+    (ideograph-hanziku-1	. #xCFE7)	; ý¢€œ¿§
+    (ucs			. #x45BA)	; ä–º
     ))
 (define-char
   '((ideographic-radical . 142)	; â¾

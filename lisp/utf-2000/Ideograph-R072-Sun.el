@@ -2535,8 +2535,22 @@
   '((ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-4 . #x323B)	; ø»—º€
-    (ucs		. #x3AE6)	; ã«¦
+    (hanyu-dazidian	1 176 3)
+    (ideographic-structure
+     (:cdp-combinator	4
+      )
+     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+      )
+     ((japanese-jisx0208-1978	  . #x5469)	; ø»ƒˆ‚
+      (japanese-jisx0208	  . #x5469)	; ø»‡œŠ
+      (chinese-cns11643-3	  . #x2139)	; ø»•–¼
+      (ideograph-daikanwa	  . 05691)	; ø¸˜»
+      )
+     ((ucs		  . #x65E5)	; æ—¥
+      ))
+    (chinese-cns11643-4		. #x323B)	; ø»—º€
+    (ideograph-hanziku-1	. #xCAAE)	; ý¢€œª®
+    (ucs			. #x3AE6)	; ã«¦
     ))
 (define-char
   '((ideographic-radical . 72)	; â½‡

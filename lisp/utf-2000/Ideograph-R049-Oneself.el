@@ -10,7 +10,7 @@
     (chinese-isoir165		. #x3C3A)	; ø»–—
     (chinese-cns11643-1		. #x4457)	; ø»‘¶¬
     (japanese-jisx0208-1990	. #x384A)	; ø½Š˜—
-    (chinese-big5		. #xA476)	; øºŸ£
+    (chinese-big5		. #xA476)	; ý¢€Š‘¶
     (ideograph-daikanwa		. 08742)	; ø¸‚ˆ¦
     (ucs			. #x5DF1)	; å·±
     ))
@@ -26,7 +26,7 @@
     (chinese-isoir165		. #x5251)	; ø»·‚
     (chinese-cns11643-1		. #x4458)	; ø»‘¶­
     (japanese-jisx0208-1990	. #x5661)	; ø½‹„²
-    (chinese-big5		. #xA477)	; øºŸ£Ž
+    (chinese-big5		. #xA477)	; ý¢€Š‘·
     (ideograph-daikanwa		. 08743)	; ø¸‚ˆ§
     (ucs			. #x5DF2)	; å·²
     ))
@@ -42,7 +42,7 @@
     (chinese-isoir165		. #x4B48)	; ø»¬§
     (chinese-cns11643-1		. #x4459)	; ø»‘¶®
     (japanese-jisx0208-1990	. #x4C26)	; ø½Šµ‹
-    (chinese-big5		. #xA478)	; øºŸ£
+    (chinese-big5		. #xA478)	; ý¢€Š‘¸
     (ideograph-daikanwa		. 08744)	; ø¸‚ˆ¨
     (ucs			. #x5DF3)	; å·³
     ))
@@ -58,7 +58,7 @@
     (chinese-isoir165		. #x304D)	; ø»…‚
     (chinese-cns11643-1		. #x453B)	; ø»‘·®
     (japanese-jisx0208-1990	. #x4743)	; ø½Š®’
-    (chinese-big5		. #xA4DA)	; øºŸ¤
+    (chinese-big5		. #xA4DA)	; ý¢€Š“š
     (ideograph-daikanwa		. 08745)	; ø¸‚ˆ©
     (ucs			. #x5DF4)	; å·´
     ))
@@ -167,7 +167,7 @@
     (korean-ksc5601		. #x7975)	; ø»Šœ°
     (chinese-isoir165		. #x4F6F)	; ø»³†
     (chinese-cns11643-1		. #x5073)	; ø»’ˆ°
-    (chinese-big5		. #xABD1)	; øºŸµ‘
+    (chinese-big5		. #xABD1)	; ý¢€Š¯‘
     (ideograph-daikanwa		. 08756)	; ø¸‚ˆ´
     (ucs			. #x5DF7)	; å··
     ))
@@ -205,7 +205,7 @@
     (shinjigen-1	. 2072)
     (japanese-jisx0212	. #x3C23)	; ø»‹‹¼
     (chinese-cns11643-2 . #x2A30)	; ø»“™½
-    (chinese-big5	. #xCEAF)	; øº¡²¢
+    (chinese-big5	. #xCEAF)	; ý¢€Œº¯
     (ideograph-daikanwa . 08758)	; ø¸‚ˆ¶
     (ucs		. #x5DF9)	; å·¹
     ))
@@ -316,7 +316,7 @@
     (korean-ksc5601		. #x615E)	; ø»‰¹‰
     (chinese-isoir165		. #x5963)	; ø»Ž¦
     (chinese-cns11643-6		. #x4837)	; ø»œ®˜
-    (chinese-big5		. #xB453)	; øº ‰º
+    (chinese-big5		. #xB453)	; ý¢€‹‘“
     (ideograph-daikanwa		. 08765)	; ø¸‚ˆ½
     (ucs			. #x5DFD)	; å·½
     ))
