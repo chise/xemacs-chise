@@ -1,3 +1,20 @@
+2004-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el: Add some GT code points.
+
+	* Ideograph-R057-Bow.el: Add some GT code points.
+	(U-00022417): New character.
+
+	* Ideograph-R156-Run.el: Add some GT code points.
+
+	* Ideograph-R152-Pig.el: Add some GT code points.
+	(U-00027C4C): New character.
+
+	* Ideograph-R087-Claw.el (M-19682): Use
+	`<-ancient-ideograph*sources' instead of char-ref in
+	`<-ancient-ideograph'.
+	(U+7232): Unify GT-25271 and GT-K09877.
+
 2004-01-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el: Add some `<-simplified@JP/Jouyou'
