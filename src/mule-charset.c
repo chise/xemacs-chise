@@ -3165,8 +3165,10 @@ Make a builtin character from CHARSET and code-point CODE.
   charset = Fget_charset (charset);
   CHECK_INT (code);
   c = XINT (code);
+#if 0
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
+#endif
   c = decode_builtin_char (charset, c);
   return c ? make_char (c) : Fdecode_char (charset, code);
 }
