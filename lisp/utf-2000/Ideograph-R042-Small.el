@@ -80,12 +80,25 @@
   '((ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (->ideographic-variants
+     (:sources	(jiyun morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 07477)	; ø¸´µ
+		 )
+      ))
     (chinese-gb2312	. #x367B)	; ø»„¦”
     (chinese-isoir165	. #x367B)	; ø»Ž¤
-    (chinese-cns11643-3 . #x223F)	; ø»•˜ 
     (ideograph-daikanwa . 07479)	; ø¸´·
     (ideograph-cbeta	. 00380)	; ø¸ …¼
     (ucs		. #x5C14)	; å°”
+    ))
+(define-char
+  '((=>ucs		. #x5C14)	; å°”
+    (morohashi-daikanwa	7479 0 1)
+    (ideographic-radical . 42)	; â¼©
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (chinese-cns11643-3 . #x223F)	; ø»•˜ 
+    (china3-jef		. #x81C4)	; øºˆ‡„
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
@@ -95,6 +108,7 @@
     (chinese-isoir165	. #x6658)	; ø»Ž”¡
     (chinese-cns11643-2 . #x2234)	; ø»“Ž‘
     (chinese-big5	. #xC9D4)	; øº¡¦¶
+    (china3-jef		. #x9DD2)	; øº‰·’
     (ucs		. #x5C15)	; å°•
     ))
 (define-char
@@ -153,6 +167,7 @@
     (chinese-isoir165	. #x333E)	; ø»‰
     (chinese-cns11643-3 . #x2352)	; ø»•š‘
     (ideograph-daikanwa . 07484)	; ø¸´¼
+    (china3-jef		. #x81D4)	; øºˆ‡”
     (ucs		. #x5C18)	; å°˜
     ))
 (define-char
@@ -227,7 +242,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (korean-ksc5601	. #x5F46)	; ø»‰µµ
+    (chinese-big5	. #xA97C)	; øºŸ¯¤
     (ideograph-daikanwa . 07493)	; ø¸µ…
+    (china3-jef		. #x4AD3)	; øº„«“
     (mojikyo		. 007493)	; ý €µ…
     (ucs		. #x5C19)	; å°™
     ))
@@ -250,7 +267,6 @@
     (chinese-isoir165		. #x4950)	; ø»©³
     (chinese-cns11643-1		. #x4C7E)	; ø»’ƒƒ
     (japanese-jisx0208-1990	. #x3E30)	; ø½Š ±
-    (chinese-big5		. #xA97C)	; øºŸ¯¤
     (mojikyo			. 050154)	; ý €Œª
     (ucs			. #x5C1A)	; å°š
     ))
@@ -520,6 +536,7 @@
     (chinese-cns11643-3		. #x3B24)	; ø»•¼³
     (japanese-jisx0213-1	. #x4F5C)	; ø»£—›
     (ideograph-daikanwa		. 07517)	; ø¸µ
+    (china3-jef			. #x4AD4)	; øº„«”
     (ideograph-cbeta		. 02500)	; ø¸ §„
     (ucs			. #x5C1E)	; å°ž
     ))
