@@ -6,7 +6,7 @@
     (=jis-x0208		. #x4439)	; ø½Š©®
     (=ks-x1001		. #x6D7E)	; ø»Š‹‘
     (chinese-cns11643-1 . #x4F5B)	; ø»’†º
-    (chinese-gb12345	. #x3324)	; é•·
+    (=gb12345		. #x3324)	; é•·
     (=gt-pj-1		. #x4439)	; é•·
     (ideograph-daikanwa . 41100)	; ø¸Š‚Œ
     (=gt-k		. 03775)	; ý¡„€º¿

@@ -346,7 +346,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-gb12345	. #x3039)	; 骯
+    (=gb12345		. #x3039)	; 骯
     (=ucs		. #x9AAF)	; 骯
     ))
 (define-char
@@ -2394,7 +2394,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x7743)	; 髏
+    (=gb12345		. #x7743)	; 髏
     (=ucs		. #x9ACF)	; 髏
     ))
 (define-char
@@ -2677,7 +2677,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (chinese-gb12345	. #x787E)	; 髒
+    (=gb12345		. #x787E)	; 髒
     (=ucs		. #x9AD2)	; 髒
     ))
 (define-char
@@ -2801,7 +2801,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
-    (chinese-gb12345	. #x4C65)	; 體
+    (=gb12345		. #x4C65)	; 體
     (=ucs		. #x9AD4)	; 體
     ))
 (define-char
@@ -2915,7 +2915,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
-    (chinese-gb12345	. #x7746)	; 髕
+    (=gb12345		. #x7746)	; 髕
     (=ucs		. #x9AD5)	; 髕
     ))
 (define-char
@@ -2948,7 +2948,7 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
-    (chinese-gb12345	. #x7745)	; 髖
+    (=gb12345		. #x7745)	; 髖
     (=ucs		. #x9AD6)	; 髖
     ))
 (define-char

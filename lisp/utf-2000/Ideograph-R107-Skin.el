@@ -592,7 +592,7 @@
     (shinjigen-2	. 5227)
     (=jis-x0208		. #x6230)	; ø½‹•©
     (chinese-cns11643-2 . #x4C29)	; ø»”‹²
-    (chinese-gb12345	. #x7164)	; çš¸
+    (=gb12345		. #x7164)	; çš¸
     (ideograph-daikanwa . 22888)	; ø¸…¥¨
     (=ucs		. #x76B8)	; çš¸
     ))
@@ -742,7 +742,7 @@
     (=jis-x0208		. #x6232)	; ø½‹•«
     (=ks-x1001		. #x7554)	; ø»Š–—
     (chinese-cns11643-1 . #x6D74)	; ø»’³—
-    (chinese-gb12345	. #x5665)	; çšº
+    (=gb12345		. #x5665)	; çšº
     (=gt-pj-1		. #x6232)	; çšº
     (ideograph-daikanwa . 22899)	; ø¸…¥³
     (=gt-k		. 11991)	; ý¡„‚»—

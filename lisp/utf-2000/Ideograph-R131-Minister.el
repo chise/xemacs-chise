@@ -221,7 +221,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (chinese-cns11643-1 . #x7527)	; ø»’½º
-    (chinese-gb12345	. #x4159)	; è‡¨
+    (=gb12345		. #x4159)	; è‡¨
     (=ucs		. #x81E8)	; è‡¨
     ))
 (define-char

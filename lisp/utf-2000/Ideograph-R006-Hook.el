@@ -138,7 +138,7 @@
       )
      ((=ucs		  . #x4E85)	; 亅
       ))
-    (chinese-gb12345	. #x7D3B)	; 亇
+    (=gb12345		. #x7D3B)	; 亇
     (=ucs		. #x4E87)	; 亇
     ))
 (define-char

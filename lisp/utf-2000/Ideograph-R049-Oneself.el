@@ -236,7 +236,7 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-gb12345	. #x7D60)	; 巼
+    (=gb12345		. #x7D60)	; 巼
     (=ucs		. #x5DFC)	; 巼
     ))
 (define-char

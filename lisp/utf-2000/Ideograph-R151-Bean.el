@@ -56,7 +56,7 @@
     (=jis-x0208		. #x6C31)	; ø½‹¤–
     (=ks-x1001		. #x5142)	; ø»‰¡
     (chinese-cns11643-1 . #x583F)	; ø»’“¬
-    (chinese-gb12345	. #x4671)	; è±ˆ
+    (=gb12345		. #x4671)	; è±ˆ
     (=gt-pj-1		. #x6C31)	; è±ˆ
     (ideograph-daikanwa . 36249)	; ø¸ˆ¶™
     (=gt-k		. 06644)	; ý¡„§´
@@ -588,7 +588,7 @@
     (shinjigen-2	. 7808)
     (=jis-x0208		. #x6C34)	; ø½‹¤™
     (chinese-cns11643-1 . #x7742)	; ø»“‘
-    (chinese-gb12345	. #x3761)	; è±
+    (=gb12345		. #x3761)	; è±
     (ideograph-daikanwa . 36304)	; ø¸ˆ·
     (=ucs		. #x8C50)	; è±
     ))

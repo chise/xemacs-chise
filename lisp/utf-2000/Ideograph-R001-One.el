@@ -201,7 +201,7 @@
       )
      ((=ucs		  . #x4E3F)	; ä¸¿
       ))
-    (chinese-gb12345	. #x7D3D)	; ä¸†
+    (=gb12345		. #x7D3D)	; ä¸†
     (=big5-cdp		. #x896C)	; ý¢€ˆ¥¬
     (=ucs		. #x4E06)	; ä¸†
     ))

@@ -254,7 +254,7 @@
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x7626)	; 靚
+    (=gb12345		. #x7626)	; 靚
     (=ucs		. #x975A)	; 靚
     ))
 (define-char
@@ -302,7 +302,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
     (chinese-cns11643-1 . #x727B)	; �����
-    (chinese-gb12345	. #x3E32)	; 靜
+    (=gb12345		. #x3E32)	; 靜
     (=ucs		. #x975C)	; 靜
     ))
 (define-char

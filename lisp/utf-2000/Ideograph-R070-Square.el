@@ -191,7 +191,7 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (chinese-gb12345	. #x7D3C)	; 旀
+    (=gb12345		. #x7D3C)	; 旀
     (=ucs		. #x65C0)	; 旀
     ))
 (define-char
@@ -796,7 +796,7 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-gb12345	. #x7D76)	; 旕
+    (=gb12345		. #x7D76)	; 旕
     (=ucs		. #x65D5)	; 旕
     ))
 (define-char

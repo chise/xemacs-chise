@@ -173,7 +173,7 @@
     (ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x3722)	; 發
+    (=gb12345		. #x3722)	; 發
     (=ucs		. #x767C)	; 發
     ))
 (define-char

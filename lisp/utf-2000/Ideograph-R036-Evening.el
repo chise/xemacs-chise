@@ -466,7 +466,7 @@
   '((ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (chinese-gb12345	. #x7D7E)	; å¤ž
+    (=gb12345		. #x7D7E)	; å¤ž
     (=ucs		. #x591E)	; å¤ž
     ))
 (define-char
@@ -784,7 +784,7 @@
     (=jis-x0208		. #x4C34)	; ø½Šµ™
     (=ks-x1001		. #x5953)	; ø»‰­Ž
     (chinese-cns11643-6 . #x515E)	; ø»œ¼
-    (chinese-gb12345	. #x434E)	; å¤¢
+    (=gb12345		. #x434E)	; å¤¢
     (=gt-pj-1		. #x4C34)	; å¤¢
     (=gt-k		. 10272)	; ý¡„‚  
     (=ucs		. #x5922)	; å¤¢

@@ -168,7 +168,7 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (chinese-gb12345	. #x7D23)	; 巪
+    (=gb12345		. #x7D23)	; 巪
     (=ucs		. #x5DEA)	; 巪
     ))
 (define-char
@@ -228,14 +228,14 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-gb12345	. #x7D43)	; 巬
+    (=gb12345		. #x7D43)	; 巬
     (=ucs		. #x5DEC)	; 巬
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-gb12345	. #x7D44)	; 巭
+    (=gb12345		. #x7D44)	; 巭
     (=ucs		. #x5DED)	; 巭
     ))
 (define-char
@@ -313,7 +313,7 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (chinese-gb12345	. #x5B4F)	; 巰
+    (=gb12345		. #x5B4F)	; 巰
     (=big5		. #xDD57)	; ������
     (=ucs		. #x5DF0)	; 巰
     ))

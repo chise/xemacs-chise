@@ -5,7 +5,7 @@
     (shinjigen-2	. 9211)
     (=jis-x0208		. #x4977)	; ø½Š²‚
     (=ks-x1001		. #x7926)	; ø»Š›¡
-    (chinese-gb12345	. #x3767)	; é¢¨
+    (=gb12345		. #x3767)	; é¢¨
     (=gt-pj-1		. #x4977)	; é¢¨
     (ideograph-daikanwa . 43756)	; ø¸Š«¬
     (=gt-k		. 05176)	; ý¡„¸
@@ -635,7 +635,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=jis-x0212		. #x683C)	; ø»ŒŒ½
-    (chinese-gb12345	. #x6C29)	; é¢®
+    (=gb12345		. #x6C29)	; é¢®
     (ideograph-daikanwa . 43805)	; ø¸Š¬
     (=ucs		. #x98AE)	; é¢®
     ))
@@ -682,7 +682,7 @@
     (shinjigen-2	. 9216)
     (=jis-x0208		. #x7125)	; ø½‹« 
     (=ks-x1001		. #x5F3D)	; ø»‰µ¬
-    (chinese-gb12345	. #x6C2A)	; é¢¯
+    (=gb12345		. #x6C2A)	; é¢¯
     (ideograph-daikanwa . 43808)	; ø¸Š¬ 
     (=ucs		. #x98AF)	; é¢¯
     ))
@@ -774,7 +774,7 @@
     (shinjigen-2	. 9218)
     (=jis-x0208		. #x7126)	; ø½‹«¡
     (=ks-x1001		. #x7747)	; ø»Š™†
-    (chinese-gb12345	. #x786C)	; é¢±
+    (=gb12345		. #x786C)	; é¢±
     (ideograph-daikanwa . 43815)	; ø¸Š¬§
     (=ucs		. #x98B1)	; é¢±
     ))
@@ -937,7 +937,7 @@
   '((ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x7837)	; é¢³
+    (=gb12345		. #x7837)	; é¢³
     (ideograph-daikanwa . 43825)	; ø¸Š¬±
     (=ucs		. #x98B3)	; é¢³
     ))
@@ -1571,7 +1571,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
     (=jis-x0208		. #x7127)	; ø½‹«¢
-    (chinese-gb12345	. #x6C2B)	; é¢¶
+    (=gb12345		. #x6C2B)	; é¢¶
     (=ucs		. #x98B6)	; é¢¶
     ))
 (define-char
@@ -2145,7 +2145,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x6C2C)	; é¢¼
+    (=gb12345		. #x6C2C)	; é¢¼
     (=ucs		. #x98BC)	; é¢¼
     ))
 (define-char
@@ -2559,7 +2559,7 @@
     (shinjigen-2	. 9227)
     (=jis-x0208		. #x7128)	; ø½‹«£
     (=ks-x1001		. #x787D)	; ø»Š›š
-    (chinese-gb12345	. #x462E)	; é£„
+    (=gb12345		. #x462E)	; é£„
     (=ucs		. #x98C4)	; é£„
     ))
 (define-char
@@ -2800,7 +2800,7 @@
     (total-strokes	 . 21)
     (shinjigen-2	. 9230)
     (=jis-x0208		. #x712A)	; ø½‹«¥
-    (chinese-gb12345	. #x6C2D)	; é£†
+    (=gb12345		. #x6C2D)	; é£†
     (ideograph-daikanwa . 43963)	; ø¸Š®»
     (=ucs		. #x98C6)	; é£†
     ))
@@ -2835,7 +2835,7 @@
     (total-strokes	 . 21)
     (=jis-x0212		. #x6846)	; ø»Œ‡
     (=jis-x0213-1-2000	. #x7E28)	; ø»¤›©
-    (chinese-gb12345	. #x6C2E)	; é£ˆ
+    (=gb12345		. #x6C2E)	; é£ˆ
     (ideograph-daikanwa . 43965)	; ø¸Š®½
     (=ucs		. #x98C8)	; é£ˆ
     ))

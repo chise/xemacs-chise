@@ -198,7 +198,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3745)	; ø»•·œ
-    (chinese-gb12345	. #x327A)	; ç”£
+    (=gb12345		. #x327A)	; ç”£
     (=ucs		. #x7523)	; ç”£
     ))
 (define-char

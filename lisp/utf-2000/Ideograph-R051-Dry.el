@@ -306,7 +306,7 @@
     (=jis-x0208		. #x3434)	; ø½Š’‰
     (=ks-x1001		. #x4A4F)	; ø»‰—ˆ
     (chinese-cns11643-1 . #x636C)	; ø»’¤£
-    (chinese-gb12345	. #x3849)	; å¹¹
+    (=gb12345		. #x3849)	; å¹¹
     (=gt-pj-1		. #x3434)	; å¹¹
     (=big5		. #xB746)	; ý¢€‹†
     (ideograph-daikanwa . 09183)	; ø¸‚Ÿ

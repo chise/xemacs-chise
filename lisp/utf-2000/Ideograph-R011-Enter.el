@@ -684,7 +684,7 @@
     (shinjigen-1	. 484)
     (shinjigen-2	. 484)
     (chinese-cns11643-1 . #x4C25)	; ø»’ª
-    (chinese-gb12345	. #x413D)	; å…©
+    (=gb12345		. #x413D)	; å…©
     (=ucs		. #x5169)	; å…©
     ))
 (define-char

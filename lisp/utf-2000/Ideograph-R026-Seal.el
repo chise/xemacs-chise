@@ -45,7 +45,7 @@
      ((=ucs		  . #x4E36)	; ä¸¶
       ))
     (chinese-cns11643-4 . #x2131)	; ø»— ¸
-    (chinese-gb12345	. #x7D39)	; åª
+    (=gb12345		. #x7D39)	; åª
     (ideograph-daikanwa . 02838)	; ø¸€¬–
     (=big5-cdp		. #x8D7A)	; ý¢€ˆµº
     (=ucs		. #x536A)	; åª
@@ -1004,7 +1004,7 @@
       )
      ((=ucs		  . #x5369)	; å©
       ))
-    (chinese-gb12345	. #x7D48)	; åŽ
+    (=gb12345		. #x7D48)	; åŽ
     (=ucs		. #x5381)	; åŽ
     ))
 (define-char

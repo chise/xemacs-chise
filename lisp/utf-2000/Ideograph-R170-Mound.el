@@ -1165,7 +1165,7 @@
     (=jis-x0212		. #x6658)	; ø»ŒŠ
     (chinese-cns11643-1 . #x5867)	; ø»’””
     (=jis-x0213-1-2000	. #x7D5B)	; ø»¤š¾
-    (chinese-gb12345	. #x5A6A)	; é™˜
+    (=gb12345		. #x5A6A)	; é™˜
     (ideograph-daikanwa . 41650)	; ø¸ŠŠ²
     (=ucs		. #x9658)	; é™˜
     ))
@@ -1258,7 +1258,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (chinese-cns11643-1 . #x5865)	; ø»’”’
-    (chinese-gb12345	. #x4942)	; é™
+    (=gb12345		. #x4942)	; é™
     (=ucs		. #x965D)	; é™
     ))
 (define-char
@@ -1378,7 +1378,7 @@
     (=jis-x0208		. #x3F58)	; ø½Š¢·
     (=ks-x1001		. #x7266)	; ø»Š’
     (chinese-cns11643-1 . #x5862)	; ø»’”
-    (chinese-gb12345	. #x5573)	; é™£
+    (=gb12345		. #x5573)	; é™£
     (=gt-pj-1		. #x3F58)	; é™£
     (ideograph-daikanwa . 41667)	; ø¸Š‹ƒ
     (=gt-k		. 06481)	; ý¡„¥‘
@@ -1720,7 +1720,7 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (chinese-gb12345	. #x5275)	; é™°
+    (=gb12345		. #x5275)	; é™°
     (=ucs		. #x9670)	; é™°
     ))
 (define-char
@@ -1807,7 +1807,7 @@
     (=jis-x0208		. #x4444)	; ø½Š©¹
     (=ks-x1001		. #x7267)	; ø»Š’
     (chinese-cns11643-1 . #x5D73)	; ø»’›¶
-    (chinese-gb12345	. #x3342)	; é™³
+    (=gb12345		. #x3342)	; é™³
     (=gt-pj-1		. #x4444)	; é™³
     (ideograph-daikanwa . 41698)	; ø¸Š‹¢
     (=gt-k		. 07835)	; ý¡„º›
@@ -1957,7 +1957,7 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (chinese-gb12345	. #x423D)	; é™¸
+    (=gb12345		. #x423D)	; é™¸
     (=ucs		. #x9678)	; é™¸
     ))
 (define-char
@@ -2091,7 +2091,7 @@
     (=jis-x0208		. #x4D5B)	; ø½Š·ž
     (=ks-x1001		. #x6555)	; ø»‰¾¸
     (chinese-cns11643-1 . #x626C)	; ø»’£…
-    (chinese-gb12345	. #x5174)	; é™½
+    (=gb12345		. #x5174)	; é™½
     (=gt-pj-1		. #x4D5B)	; é™½
     (ideograph-daikanwa . 41725)	; ø¸Š‹½
     (=gt-k		. 09157)	; ý¡„‚…
@@ -2341,7 +2341,7 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x5A6D)	; éš‰
+    (=gb12345		. #x5A6D)	; éš‰
     (=ucs		. #x9689)	; éš‰
     ))
 (define-char
@@ -2369,7 +2369,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (chinese-cns11643-1 . #x6269)	; ø»’£‚
-    (chinese-gb12345	. #x3653)	; éšŠ
+    (=gb12345		. #x3653)	; éšŠ
     (=ucs		. #x968A)	; éšŠ
     ))
 (define-char
@@ -2422,7 +2422,7 @@
     (=jis-x0208		. #x332C)	; ø½Š£
     (=ks-x1001		. #x4D2D)	; ø»‰›€
     (chinese-cns11643-1 . #x626A)	; ø»’£ƒ
-    (chinese-gb12345	. #x3D57)	; éšŽ
+    (=gb12345		. #x3D57)	; éšŽ
     (ideograph-daikanwa . 41755)	; ø¸ŠŒ›
     (=ucs		. #x968E)	; éšŽ
     ))
@@ -2756,7 +2756,7 @@
     (=jis-x0208		. #x7028)	; ø½‹ª…
     (=ks-x1001		. #x6A22)	; ø»Š…›
     (chinese-cns11643-1 . #x6753)	; ø»’ª‚
-    (chinese-gb12345	. #x5449)	; éš•
+    (=gb12345		. #x5449)	; éš•
     (ideograph-daikanwa . 41785)	; ø¸ŠŒ¹
     (=ucs		. #x9695)	; éš•
     ))
@@ -3131,7 +3131,7 @@
     (shinjigen-2	. 8925)
     (=jis-x0208		. #x3A5D)	; ø½Š›¦
     (=ks-x1001		. #x7037)	; ø»ŠŽ¤
-    (chinese-gb12345	. #x3C4A)	; éš›
+    (=gb12345		. #x3C4A)	; éš›
     (=ucs		. #x969B)	; éš›
     ))
 (define-char
@@ -3739,7 +3739,7 @@
     (ideographic-strokes . 12)
     (kangxi-strokes	 . 13)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x4B66)	; éš¨
+    (=gb12345		. #x4B66)	; éš¨
     (=ucs		. #x96A8)	; éš¨
     ))
 (define-char
@@ -3767,7 +3767,7 @@
     (=jis-x0208		. #x702A)	; ø½‹ª‡
     (=ks-x1001		. #x7A4F)	; ø»Š¨
     (chinese-cns11643-1 . #x7272)	; ø»’º«
-    (chinese-gb12345	. #x4F55)	; éšª
+    (=gb12345		. #x4F55)	; éšª
     (ideograph-daikanwa . 41874)	; ø¸ŠŽ’
     (=ucs		. #x96AA)	; éšª
     ))
@@ -3925,7 +3925,7 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (chinese-gb12345	. #x527E)	; éš±
+    (=gb12345		. #x527E)	; éš±
     (=ucs		. #x96B1)	; éš±
     ))
 (define-char
@@ -4104,7 +4104,7 @@
     (total-strokes	 . 19)
     (shinjigen-2	. 8937)
     (=jis-x0208		. #x702F)	; ø½‹ªŒ
-    (chinese-gb12345	. #x4224)	; éš´
+    (=gb12345		. #x4224)	; éš´
     (ideograph-daikanwa . 41904)	; ø¸ŠŽ°
     (=ucs		. #x96B4)	; éš´
     ))

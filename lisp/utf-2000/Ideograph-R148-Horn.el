@@ -1560,7 +1560,7 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x757C)	; 觴
+    (=gb12345		. #x757C)	; 觴
     (=ucs		. #x89F4)	; 觴
     ))
 (define-char
@@ -1679,7 +1679,7 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x7623)	; 觶
+    (=gb12345		. #x7623)	; 觶
     (=ucs		. #x89F6)	; 觶
     ))
 (define-char
@@ -1777,7 +1777,7 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x3425)	; 觸
+    (=gb12345		. #x3425)	; 觸
     (=ucs		. #x89F8)	; 觸
     ))
 (define-char

@@ -837,7 +837,7 @@
     (=jis-x0208		. #x332E)	; ø½Š¥
     (=ks-x1001		. #x4B42)	; ø»‰˜™
     (chinese-cns11643-1 . #x5E33)	; ø»’œ”
-    (chinese-gb12345	. #x3F2D)	; å‡±
+    (=gb12345		. #x3F2D)	; å‡±
     (=gt-pj-1		. #x332E)	; å‡±
     (=big5		. #xB3CD)	; ý¢€‹
     (ideograph-daikanwa . 01790)	; ø¸€›¾

@@ -865,7 +865,7 @@
     (=jis-x0208		. #x3628)	; ø½Š”¹
     (=ks-x1001		. #x7A70)	; ø»Šž‰
     (chinese-cns11643-1 . #x4C36)	; ø»’»
-    (chinese-gb12345	. #x502D)	; å”
+    (=gb12345		. #x502D)	; å”
     (=gt-pj-1		. #x3628)	; å”
     (=big5		. #xA8F3)	; ý¢€Š£³
     (ideograph-daikanwa . 02742)	; ø¸€ª¶

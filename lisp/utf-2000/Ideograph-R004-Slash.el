@@ -54,7 +54,7 @@
     (hanyu-dazidian	1 48 3)
     (=jis-x0212		. #x3030)	; ø»Šº¡
     (chinese-cns11643-4 . #x2123)	; ø»— ª
-    (chinese-gb12345	. #x7D7B)	; ä¹
+    (=gb12345		. #x7D7B)	; ä¹
     (=gt-pj-2		. #x3075)	; ý¡€€‚”
     (ideograph-daikanwa . 00109)	; ø¸€­
     (=big5-cdp		. #x89FC)	; ý¢€ˆ§¼
@@ -407,7 +407,7 @@
       )
      ((=ucs		  . #x4E37)	; ä¸·
       ))
-    (chinese-gb12345	. #x7D6B)	; ä¹Š
+    (=gb12345		. #x7D6B)	; ä¹Š
     (=ucs		. #x4E4A)	; ä¹Š
     ))
 (define-char

@@ -47,7 +47,7 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x396A)	; 龜
+    (=gb12345		. #x396A)	; 龜
     (=ucs		. #x9F9C)	; 龜
     ))
 (define-char

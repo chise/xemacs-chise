@@ -63,7 +63,7 @@
     (=jis-x0208		. #x4740)	; ø½Š®
     (=ks-x1001		. #x525C)	; ø»‰£…
     (chinese-cns11643-1 . #x6729)	; ø»’©˜
-    (chinese-gb12345	. #x4529)	; è¾²
+    (=gb12345		. #x4529)	; è¾²
     (=gt-pj-1		. #x4740)	; è¾²
     (ideograph-daikanwa . 38688)	; ø¸‰œ 
     (=gt-k		. 10262)	; ý¡„‚ –

@@ -270,7 +270,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-gb12345	. #x4931)	; 殺
+    (=gb12345		. #x4931)	; 殺
     (=ucs		. #x6BBA)	; 殺
     ))
 (define-char
@@ -594,7 +594,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3665)	; �����
-    (chinese-gb12345	. #x3F47)	; 殻
+    (=gb12345		. #x3F47)	; 殻
     (=ucs		. #x6BBB)	; 殻
     ))
 (define-char
@@ -1004,7 +1004,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x4539)	; 毆
+    (=gb12345		. #x4539)	; 毆
     (=ucs		. #x6BC6)	; 毆
     ))
 (define-char

@@ -1076,7 +1076,7 @@
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (chinese-gb12345	. #x5E4F)	; 尷
+    (=gb12345		. #x5E4F)	; 尷
     (=ucs		. #x5C37)	; 尷
     ))
 (define-char

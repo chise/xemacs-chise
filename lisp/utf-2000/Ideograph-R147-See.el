@@ -6,7 +6,7 @@
     (=jis-x0208		. #x382B)	; ø½Š—¸
     (=ks-x1001		. #x4C38)	; ø»‰™­
     (chinese-cns11643-1 . #x4B44)	; ø»’€«
-    (chinese-gb12345	. #x3C7B)	; è¦‹
+    (=gb12345		. #x3C7B)	; è¦‹
     (=gt-pj-1		. #x382B)	; è¦‹
     (ideograph-daikanwa . 34796)	; ø¸ˆŸ¬
     (=gt-k		. 02537)	; ý¡„€§©
@@ -150,7 +150,7 @@
     (=jis-x0208		. #x352C)	; ø½Š“Ÿ
     (=ks-x1001		. #x502E)	; ø»‰Ÿ›
     (chinese-cns11643-1 . #x5D3D)	; ø»’›€
-    (chinese-gb12345	. #x3966)	; è¦
+    (=gb12345		. #x3966)	; è¦
     (=gt-pj-1		. #x352C)	; è¦
     (ideograph-daikanwa . 34810)	; ø¸ˆŸº
     (=gt-k		. 07741)	; ý¡„¸½
@@ -222,7 +222,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (chinese-cns11643-1 . #x5D3C)	; ø»’š¿
-    (chinese-gb12345	. #x4359)	; è¦“
+    (=gb12345		. #x4359)	; è¦“
     (=ucs		. #x8993)	; è¦“
     ))
 (define-char
@@ -316,7 +316,7 @@
     (total-strokes	 . 12)
     (=jis-x0208		. #x3B6B)	; ø½Š’
     (chinese-cns11643-1 . #x617E)	; ø»’¡¹
-    (chinese-gb12345	. #x4A53)	; è¦–
+    (=gb12345		. #x4A53)	; è¦–
     (=ucs		. #x8996)	; è¦–
     ))
 (define-char
@@ -439,7 +439,7 @@
     (shinjigen-2	. 7492)
     (=jis-x0208		. #x6B2D)	; ø½‹¢´
     (chinese-cns11643-2 . #x4037)	; ø»“º˜
-    (chinese-gb12345	. #x6A68)	; è¦˜
+    (=gb12345		. #x6A68)	; è¦˜
     (ideograph-daikanwa . 34840)	; ø¸ˆ ˜
     (=ucs		. #x8998)	; è¦˜
     ))
@@ -743,7 +743,7 @@
     (=jis-x0208		. #x6B2E)	; ø½‹¢µ
     (=ks-x1001		. #x4C2F)	; ø»‰™¤
     (chinese-cns11643-2 . #x4E2C)	; ø»”Ž±
-    (chinese-gb12345	. #x6A6A)	; è¦¡
+    (=gb12345		. #x6A6A)	; è¦¡
     (ideograph-daikanwa . 34875)	; ø¸ˆ »
     (=ucs		. #x89A1)	; è¦¡
     ))
@@ -990,7 +990,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (chinese-cns11643-1 . #x7236)	; ø»’¹¯
-    (chinese-gb12345	. #x6A6C)	; è¦¦
+    (=gb12345		. #x6A6C)	; è¦¦
     (=ucs		. #x89A6)	; è¦¦
     ))
 (define-char
@@ -1142,7 +1142,7 @@
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x4757)	; è¦ª
+    (=gb12345		. #x4757)	; è¦ª
     (=ucs		. #x89AA)	; è¦ª
     ))
 (define-char
@@ -1285,7 +1285,7 @@
     (shinjigen-2	. 7498)
     (=jis-x0208		. #x6B31)	; ø½‹¢¸
     (chinese-cns11643-1 . #x7546)	; ø»’¾™
-    (chinese-gb12345	. #x6A69)	; è¦¬
+    (=gb12345		. #x6A69)	; è¦¬
     (ideograph-daikanwa . 34934)	; ø¸ˆ¡¶
     (=ucs		. #x89AC)	; è¦¬
     ))
@@ -1320,7 +1320,7 @@
     (=jis-x0208-1983	. #x6B32)	; ø»‡½…
     (chinese-cns11643-2 . #x5F48)	; ø»”¨‹
     (=jis-x0208-1990	. #x6B32)	; ø½‹¢¹
-    (chinese-gb12345	. #x6A6D)	; è¦¯
+    (=gb12345		. #x6A6D)	; è¦¯
     (=ucs		. #x89AF)	; è¦¯
     ))
 (define-char
@@ -1477,7 +1477,7 @@
     (=jis-x0208		. #x6B33)	; ø½‹¢º
     (=ks-x1001		. #x504C)	; ø»‰Ÿ¹
     (chinese-cns11643-1 . #x773C)	; ø»“‹
-    (chinese-gb12345	. #x6A6E)	; è¦²
+    (=gb12345		. #x6A6E)	; è¦²
     (ideograph-daikanwa . 34952)	; ø¸ˆ¢ˆ
     (=ucs		. #x89B2)	; è¦²
     ))
@@ -1630,7 +1630,7 @@
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x6A6F)	; è¦·
+    (=gb12345		. #x6A6F)	; è¦·
     (=ucs		. #x89B7)	; è¦·
     ))
 (define-char
@@ -1668,7 +1668,7 @@
     (=jis-x0208		. #x6B34)	; ø½‹¢»
     (=ks-x1001		. #x4A46)	; ø»‰–¿
     (chinese-cns11643-1 . #x7A3C)	; ø»“…¥
-    (chinese-gb12345	. #x3E75)	; è¦º
+    (=gb12345		. #x3E75)	; è¦º
     (ideograph-daikanwa . 34973)	; ø¸ˆ¢
     (=ucs		. #x89BA)	; è¦º
     ))
@@ -1711,7 +1711,7 @@
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (chinese-gb12345	. #x4040)	; è¦½
+    (=gb12345		. #x4040)	; è¦½
     (=ucs		. #x89BD)	; è¦½
     ))
 (define-char
@@ -1784,7 +1784,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
     (chinese-cns11643-2 . #x6E22)	; ø»”½§
-    (chinese-gb12345	. #x6A6B)	; è¦¿
+    (=gb12345		. #x6A6B)	; è¦¿
     (=ucs		. #x89BF)	; è¦¿
     ))
 (define-char
@@ -1889,7 +1889,7 @@
     (ideographic-radical . 147)	; â¾’
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
-    (chinese-gb12345	. #x395B)	; è§€
+    (=gb12345		. #x395B)	; è§€
     (=ucs		. #x89C0)	; è§€
     ))
 (define-char

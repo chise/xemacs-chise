@@ -1868,7 +1868,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (chinese-cns11643-3 . #x532F)	; ø»– Ž
-    (chinese-gb12345	. #x544D)	; é†–
+    (=gb12345		. #x544D)	; é†–
     (=ucs		. #x9196)	; é†–
     ))
 (define-char
@@ -2048,7 +2048,7 @@
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x3373)	; é†œ
+    (=gb12345		. #x3373)	; é†œ
     (=ucs		. #x919C)	; é†œ
     ))
 (define-char
@@ -2416,7 +2416,7 @@
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x523D)	; é†«
+    (=gb12345		. #x523D)	; é†«
     (=ucs		. #x91AB)	; é†«
     ))
 (define-char
@@ -2464,7 +2464,7 @@
     (=ks-x1001		. #x6D7D)	; ø»Š‹
     (=jis-x0212		. #x6273)	; ø»Œ…€
     (=jis-x0213-1-2000	. #x7C79)	; ø»¤™¾
-    (chinese-gb12345	. #x3D34)	; é†¬
+    (=gb12345		. #x3D34)	; é†¬
     (ideograph-daikanwa . 40011)	; ø¸‰±‹
     (=ucs		. #x91AC)	; é†¬
     ))
@@ -3299,7 +3299,7 @@
     (=jis-x0208		. #x6E56)	; ø½‹§·
     (=ks-x1001		. #x6554)	; ø»‰¾·
     (chinese-cns11643-1 . #x7C6E)	; ø»“‰“
-    (chinese-gb12345	. #x4470)	; é‡€
+    (=gb12345		. #x4470)	; é‡€
     (ideograph-daikanwa . 40099)	; ø¸‰²£
     (=ucs		. #x91C0)	; é‡€
     ))
@@ -3376,7 +3376,7 @@
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 19)
     (total-strokes	 . 26)
-    (chinese-gb12345	. #x5046)	; é‡
+    (=gb12345		. #x5046)	; é‡
     (=ucs		. #x91C1)	; é‡
     ))
 (define-char
@@ -3403,7 +3403,7 @@
     (=jis-x0212		. #x6322)	; ø»Œ…
     (chinese-cns11643-2 . #x7160)	; ø»•‚¿
     (=jis-x0213-2-2000	. #x7A4C)	; ø»¦ ™
-    (chinese-gb12345	. #x7527)	; é‡ƒ
+    (=gb12345		. #x7527)	; é‡ƒ
     (ideograph-daikanwa . 40106)	; ø¸‰²ª
     (=ucs		. #x91C3)	; é‡ƒ
     ))
@@ -3445,7 +3445,7 @@
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 19)
     (total-strokes	 . 26)
-    (chinese-gb12345	. #x7526)	; é‡…
+    (=gb12345		. #x7526)	; é‡…
     (=ucs		. #x91C5)	; é‡…
     ))
 (define-char

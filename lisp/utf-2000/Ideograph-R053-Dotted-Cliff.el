@@ -1497,7 +1497,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (chinese-cns11643-1 . #x553B)	; ø»’Ž
-    (chinese-gb12345	. #x3F62)	; åº«
+    (=gb12345		. #x3F62)	; åº«
     (=big5		. #xAE77)	; ý¢€Š¹·
     (=ucs		. #x5EAB)	; åº«
     ))
@@ -3866,7 +3866,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-1 . #x6C5B)	; ø»’± 
-    (chinese-gb12345	. #x436D)	; å»Ÿ
+    (=gb12345		. #x436D)	; å»Ÿ
     (=big5		. #xBC71)	; ý¢€‹±±
     (=ucs		. #x5EDF)	; å»Ÿ
     ))
@@ -3898,7 +3898,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-1 . #x6C5E)	; ø»’±£
-    (chinese-gb12345	. #x3327)	; å» 
+    (=gb12345		. #x3327)	; å» 
     (=big5		. #xBC74)	; ý¢€‹±´
     (=ucs		. #x5EE0)	; å» 
     ))
@@ -3920,7 +3920,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-2 . #x503E)	; ø»”‘¿
-    (chinese-gb12345	. #x6250)	; å»¡
+    (=gb12345		. #x6250)	; å»¡
     (=big5		. #xE575)	; ý¢€Ž•µ
     (=ucs		. #x5EE1)	; å»¡
     ))
@@ -3943,7 +3943,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-1 . #x6C59)	; ø»’±ž
-    (chinese-gb12345	. #x374F)	; å»¢
+    (=gb12345		. #x374F)	; å»¢
     (=big5		. #xBC6F)	; ý¢€‹±¯
     (=ucs		. #x5EE2)	; å»¢
     ))
@@ -3974,7 +3974,7 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (chinese-gb12345	. #x3963)	; å»£
+    (=gb12345		. #x3963)	; å»£
     (=ucs		. #x5EE3)	; å»£
     ))
 (define-char
@@ -4079,7 +4079,7 @@
   '((ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x7D28)	; å»¤
+    (=gb12345		. #x7D28)	; å»¤
     (=ucs		. #x5EE4)	; å»¤
     ))
 (define-char
@@ -4527,7 +4527,7 @@
     (ideographic-strokes . 17)
     (kangxi-strokes	 . 16)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x422E)	; å»¬
+    (=gb12345		. #x422E)	; å»¬
     (=ucs		. #x5EEC)	; å»¬
     ))
 (define-char
@@ -4906,7 +4906,7 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 22)
     (total-strokes	 . 25)
-    (chinese-gb12345	. #x4C7C)	; å»³
+    (=gb12345		. #x4C7C)	; å»³
     (=ucs		. #x5EF3)	; å»³
     ))
 (define-char

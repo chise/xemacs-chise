@@ -387,7 +387,7 @@
     (shinjigen-2	. 6680)
     (=jis-x0208		. #x6766)	; ø½‹µ
     (chinese-cns11643-1 . #x7C6C)	; ø»“‰‘
-    (chinese-gb12345	. #x515E)	; è‰·
+    (=gb12345		. #x515E)	; è‰·
     (ideograph-daikanwa . 30637)	; ø¸‡ž­
     (=ucs		. #x8277)	; è‰·
     ))

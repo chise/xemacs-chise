@@ -1013,7 +1013,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
     (chinese-cns11643-1 . #x777C)	; ø»“‚‹
-    (chinese-gb12345	. #x774B)	; é­Ž
+    (=gb12345		. #x774B)	; é­Ž
     (=ucs		. #x9B4E)	; é­Ž
     ))
 (define-char
@@ -1735,7 +1735,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 24)
     (=jis-x0208		. #x7236)	; ø½‹­
-    (chinese-gb12345	. #x774A)	; é­˜
+    (=gb12345		. #x774A)	; é­˜
     (ideograph-daikanwa . 45941)	; ø¸‹µ
     (=ucs		. #x9B58)	; é­˜
     ))
