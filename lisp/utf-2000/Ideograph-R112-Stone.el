@@ -4706,9 +4706,9 @@
 (define-char
   '((=>ucs		. #x78D6)	; ç£–
     (ideographic-radical . 112)	; â½¯
+    (ideographic-strokes@daikanwa . 10)
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (daikanwa-strokes	. 10)
     (=jis-x0212		. #x502C)	; ø»‹©
     (=daikanwa		. 24408)	; ø¸…½˜
     (=ucs@jis		. #x78D6)	; ø»‹©

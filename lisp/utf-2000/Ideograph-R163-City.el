@@ -1838,6 +1838,7 @@
     (=ks-x1001		. #x554D)	; ø»‰§
     (=jis-x0213-1-2000	. #x7C67)	; ø»¤™¬
     (=daikanwa		. 39431)	; ø¸‰¨‡
+    (=ucs@jis		. #x90DE)	; ø»‰§
     ))
 (define-char
   '((morohashi-daikanwa	39431 0 0)

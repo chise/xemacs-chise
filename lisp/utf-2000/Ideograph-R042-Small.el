@@ -45,6 +45,7 @@
     (=gt-pj-1		. #x3E2F)	; ý¡€‚“‘
     (=daikanwa		. 07475)	; ø¸´³
     (=ucs@jis		. #x5C11)	; ø½Š °
+    (=ucs@big5		. #x5C11)	; ø½Š °
     ))
 (define-char
   '((morohashi-daikanwa	7475 0 0)

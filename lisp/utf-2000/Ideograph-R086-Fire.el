@@ -12744,6 +12744,7 @@
     (=jis-x0213-1-2000	. #x7763)	; ø»¤’’
     (=cbeta		. 05307)	; ø¸¡’»
     (=jef-china3	. #x57CF)	; øº…Ÿ
+    (=ucs@jis		. #x7215)	; ø»¤’’
     (mojikyo		. 050268)	; ý €Œ‘œ
     ))
 (define-char

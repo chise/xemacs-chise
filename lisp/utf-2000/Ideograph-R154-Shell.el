@@ -3063,7 +3063,7 @@
     (=jis-x0212		. #x5F3D)	; ø»‹¿°
     (=jis-x0213-1-2000	. #x7C3B)	; ø»¤™€
     (=daikanwa		. 36878)	; ø¸‰€Ž
-    (=ucs@jis-1990	. #x8CF8)	; ø»‹¿°
+    (=ucs@jis		. #x8CF8)	; ø»‹¿°
     ))
 (define-char
   '((morohashi-daikanwa	36878 0 2)

@@ -717,6 +717,7 @@
       ))
     (=big5		. #xE553)	; ý¢€Ž•“
     (=daikanwa		. 05678)	; ø¸˜®
+    (=ucs@big5		. #x58FF)	; ý¢€Ž•“
     ))
 (define-char
   '((morohashi-daikanwa	5678 0 2)

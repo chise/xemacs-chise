@@ -336,11 +336,17 @@
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³
+    (ideographic-strokes@daikanwa . 8)
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (daikanwa-strokes	. 8)
-    (=cns11643-5	. #x6627)	; ø»›ˆ
     (=daikanwa		. 43297)	; ø¸Š¤¡
+    ))
+(define-char
+  '((morohashi-daikanwa	43297 0 0)
+    (ideographic-radical . 180)	; â¾³
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=cns11643-5	. #x6627)	; ø»›ˆ
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³
@@ -350,28 +356,50 @@
     (=daikanwa		. 43298)	; ø¸Š¤¢
     ))
 (define-char
-  '((ideographic-radical . 180)	; â¾³
+  '((=>ucs		. #x97F9)	; éŸ¹
+    (ideographic-radical . 180)	; â¾³
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=daikanwa		. 43299)	; ø¸Š¤£
+    ))
+(define-char
+  '((morohashi-daikanwa	43299 0 0)
+    (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
     (=ucs		. #x97F9)	; éŸ¹
     (=cns11643-1	. #x776B)	; ø»“º
-    (=daikanwa		. 43299)	; ø¸Š¤£
     ))
 (define-char
   '((=>ucs		. #x97FA)	; éŸº
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (=cns11643-2	. #x6451)	; ø»”¯ª
     (=daikanwa		. 43300)	; ø¸Š¤¤
     ))
 (define-char
-  '((morohashi-daikanwa	43300 0 1)
+  '((=>ucs		. #x97FA)	; éŸº
+    (morohashi-daikanwa	43300 0 0)
+    (ideographic-radical . 180)	; â¾³
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=cns11643-2	. #x6451)	; ø»”¯ª
+    ))
+(define-char
+  '((=>ucs		. #x97FA)	; éŸº
+    (morohashi-daikanwa	43300 0 1)
+    (ideographic-radical . 180)	; â¾³
+    (ideographic-strokes . 8)
+    (total-strokes	 . 17)
+    (=jis-x0212		. #x6772)	; ø»ŒŒ•
+    (=ucs@jis		. #x97FA)	; ø»ŒŒ•
+    ))
+(define-char
+  '((morohashi-daikanwa	43300 0 2)
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
     (=ucs		. #x97FA)	; éŸº
-    (=jis-x0212		. #x6772)	; ø»ŒŒ•
     ))
 (define-char
   '((ideographic-radical . 180)	; â¾³

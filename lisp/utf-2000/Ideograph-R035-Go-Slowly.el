@@ -157,6 +157,7 @@
     (=big5		. #xCC42)	; ý¢€Œ±‚
     (=jef-china3	. #x48D1)	; øº„£‘
     (=ucs@jis		. #x590C)	; ø»‹‡ƒ
+    (=ucs@big5		. #x590C)	; ø»‹‡ƒ
     ))
 (define-char
   '((morohashi-daikanwa	5714 0 3)

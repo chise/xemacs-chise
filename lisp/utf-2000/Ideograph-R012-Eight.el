@@ -15,22 +15,31 @@
     (=daikanwa		. 01450)	; ø¸€–ª
     (=jef-china3	. #x43E4)	; øº„¤
     (=ucs@jis		. #x516B)	; ø½Š¯™
+    (=ucs@big5		. #x516B)	; ø½Š¯™
     ))
 (define-char
-  '((morohashi-daikanwa	1450 0 0)
+  '((=>ucs		. #x516B)	; å…«
+    (morohashi-daikanwa	1450 0 0)
+    (ideographic-radical . 12)	; â¼‹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (shinjigen-1	. 489)
+    (shinjigen-2	. 489)
+    (=cns11643-1	. #x442C)	; ø»‘¶
+    (mojikyo		. 001450)	; ý €€–ª
+    ))
+(define-char
+  '((morohashi-daikanwa	1450 0 1)
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 241 3)
-    (shinjigen-1	. 489)
-    (shinjigen-2	. 489)
     (=ucs		. #x516B)	; å…«
     (=gb2312		. #x304B)	; ø»„œ°
-    (=cns11643-1	. #x442C)	; ø»‘¶
     ))
 (define-char
   '((=>ucs		. #x516B)	; å…«
-    (morohashi-daikanwa	1450 0 1)
+    (morohashi-daikanwa	1450 0 2)
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
@@ -87,6 +96,7 @@
     (=gt-pj-2		. #x3C58)	; ý¡€€¤
     (=daikanwa		. 01452)	; ø¸€–¬
     (=jef-china3	. #x43E5)	; øº„¥
+    (=ucs@big5		. #x516C)	; ø»‚Ÿ‰
     ))
 (define-char
   '((morohashi-daikanwa	1452 0 1)
@@ -135,6 +145,7 @@
     (=gt-pj-1		. #x4F3B)	; ý¡€€¨
     (=daikanwa		. 01453)	; ø¸€–­
     (=ucs@jis		. #x516D)	; ø½Š¹º
+    (=ucs@big5		. #x516D)	; ø½Š¹º
     ))
 (define-char
   '((morohashi-daikanwa	1453 0 0)
@@ -195,6 +206,7 @@
     (=gt-pj-1		. #x5142)	; ý¡€€£
     (=daikanwa		. 01455)	; ø¸€–¯
     (=ucs@jis		. #x516E)	; ø½Š¼½
+    (=ucs@big5		. #x516E)	; ø½Š¼½
     ))
 (define-char
   '((morohashi-daikanwa	1455 0 0)
@@ -935,6 +947,7 @@
     (=big5		. #xADDD)	; ý¢€Š·
     (=daikanwa		. 01483)	; ø¸€—‹
     (=jef-china3	. #x43E6)	; øº„¦
+    (=ucs@big5		. #x517C)	; ø»‰™·
     (mojikyo		. 058241)	; ý €ŽŽ
     ))
 (define-char
@@ -947,7 +960,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; â¿³
       )
-     ((=ucs		  . #x516B)	; å…«
+     ((mojikyo		  . 001450)	; ý €€–ª
       )
      ((=ucs		  . #x4E00)	; ä¸€
       )

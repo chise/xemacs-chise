@@ -18072,6 +18072,7 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (=jis-x0208-1978	. #x432E)	; ø»‚®‰
     (=ks-x1001		. #x715C)	; ø»Š§
     (=big5		. #xBEEA)	; ý¢€‹»ª
     (=daikanwa		. 15500)	; ø¸ƒ²Œ

@@ -1962,6 +1962,7 @@
     (total-strokes	 . 12)
     (=jis-x0208-1978	. #x343A)	; ø»‚˜“
     (=jis-x0208-1983	. #x343A)	; ø»†¬›
+    (mojikyo		. 013260)	; ý €ƒŒ
     ))
 (define-char
   '((morohashi-daikanwa	13260 0 5)

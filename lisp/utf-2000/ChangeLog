@@ -1,3 +1,148 @@
+2003-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00180-Latin-Extended-B.el (JX1-2874): Add JU+01F8.
+
+	* Ideograph-R163-City.el (JX1-7C67): Add JU+90DE.
+
+	* Ideograph-R154-Shell.el (JX1-7C3B): Add JU+8CF8 instead of
+	J90U+8CF8.
+
+	* Ideograph-R149-Speech.el (JX1-7C34): Add JU+8B69.
+	(JX1-7C35): Add JU+8B9D.
+
+	* Ideograph-R104-Sickness.el (JX1-784D): Add JU+3F72.
+
+	* Ideograph-R086-Fire.el (JX1-7763): Add JU+7215.
+
+	* read-maps.el (mapping-table-read-file): If ucs-ccs is
+	`=ucs-jis-2000', add it.
+
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01E00-Latin-Extended-Additional.el (JX1-2872): Unify JC3-85DE.
+	(JC3-8AF0): New character.
+	(JC3-8AC2): New character.
+
+	* Ideograph-R180-Sound.el (M-43297): Separate C5-6627; use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+	(M-43299): Separate U+97F9 and C1-776B.
+	(M-43300): Separate C2-6451.
+	(U+97FA): Separate JSP-6772.
+
+	* Ideograph-R046-Mountain.el: Add `=ucs@big5' features.
+
+	* Ideograph-R040-Roof.el: Reformatted.
+
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el, Ideograph-R043-Lame.el,
+	Ideograph-R042-Small.el, Ideograph-R041-Inch.el,
+	Ideograph-R038-Woman.el: Add `=ucs@big5' features.
+
+	* read-maps.el (mapping-table-read-file): Use `=ucs@jis-2000'
+	instead of `ucs-jis' for JX2-XXXX.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5423.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (JSP-6676): Separate
+	JX2-7B73; unify GT-56559.
+	(GT-56560): New character.
+	(JX2-7B73): Unify GT-56531.
+
+	* Ideograph-R140-Grass.el (JC3-61FA): New character.
+	(U+845B): Unify J78-336B.
+	(BC-8CB0): Unify GT-42188 and GT-K11857.
+	(JX2-7657): Unify GT-41801.
+	(M-49635): Use `ideographic-strokes@daikanwa' instead of
+	`ideographic-strokes'.
+
+	* Ideograph-R072-Sun.el: Reformatted.
+
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R031-Enclosure.el: Add `=ucs@big5' features.
+
+	* Ideograph-R030-Mouth.el (JSP-3669): Separate B-F5C6.
+
+	* u0AC00-Hangul-Syllables.el: Add some mappings for CHINA3 PUA
+	code points.
+	(U+C815): Unify JC3-96D5 instead of JC3-82DA.
+	(JC3-95EB): New character.
+
+	* Ideograph-R034-Go.el (M-05693): Separate C2-213A and B-C95A;
+	unify GT-07202.
+
+	* Ideograph-R019-Power.el: Reformatted.
+
+	* Ideograph-R149-Speech.el, Ideograph-R120-Silk.el (H12-EFEB): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'.
+	(U-000261E5): Likewise.
+
+	* Ideograph-R113-Spirit.el (M-24692): Fix strokes.
+	(U+7966): Separate C3-3D5E.
+
+	* Ideograph-R112-Stone.el (M-24408): Use
+	`ideographic-strokes@daikanwa' instead of `daikanwa-strokes'.
+
+2003-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add `=ucs@big5' features.
+
+	* Ideograph-R036-Evening.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R033-Scholar.el, Ideograph-R032-Earth.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R138-Stopping.el (BC-8C42): Add
+	`<-ideographic-component-forms'.
+
+	* u000A0-Latin-1-Supplement.el (JX1-2965): Unify JC3-88D6.
+
+	* Ideograph-R075-Tree.el (M-15500): Unify J78-432E.
+
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el, Ideograph-R019-Power.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R008-Lid.el, Ideograph-R010-Legs.el: Add `=ucs@big5'
+	features.
+
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-ideographic-strokes-from-domains): New
+	function.
+	(char-ideographic-strokes): Add new optional argument
+	`preferred-domains'; use `char-ideographic-strokes-from-domains'.
+	(char-daikanwa-strokes): Specify '(daikanwa) as the
+	`preferred-domains' for `char-ideographic-strokes'.
+
+2003-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el: Add `=ucs@big5' features.
+
+	* char-db-util.el (char-db-feature-domains): Add jis-x0213.
+
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R015-Ice.el, Ideograph-R009-Man.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R121-Jar.el (C4-2F29): Unify BC-8CDA.
+
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el, Ideograph-R011-Enter.el: Add
+	`=ucs@big5' features.
+
+2003-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add `=ucs@big5' features.
+
 2003-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,

@@ -133,6 +133,7 @@
     (total-strokes	 . 7)
     (=jis-x0213-1-2000	. #x784D)	; ø»¤“š
     (=daikanwa		. 22022)	; ø¸…˜†
+    (=ucs@jis		. #x3F72)	; ø»¤“š
     ))
 (define-char
   '((morohashi-daikanwa	22022 0 0)

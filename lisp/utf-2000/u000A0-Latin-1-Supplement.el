@@ -2841,6 +2841,7 @@
       ))
     (=jis-x0212		. #x2B41)	; ø»Š³œ
     (=jis-x0213-1-2000	. #x2965)	; ø»¢Ÿ°
+    (=jef-china3	. #x88D6)	; øºˆ£–
     (=ucs@jis		. #x00EF)	; ø»Š³œ
     ))
 (define-char

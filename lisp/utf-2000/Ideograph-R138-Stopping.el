@@ -41,6 +41,9 @@
   '((ideographic-radical . 138)	; â¾‰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
+    (<-ideographic-component-forms
+     ((=daikanwa	  . 30597)	; ø¸‡ž…
+      ))
     (<-simplified-ideograph
      ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))

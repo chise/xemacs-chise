@@ -126,6 +126,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=cns11643-4	. #x2F29)	; ø»—µ”
+    (=big5-cdp		. #x8CDA)	; ý¢€ˆ³š
     ))
 (define-char
   '((morohashi-daikanwa	28120 0 5)

@@ -504,6 +504,7 @@
     (=gt-pj-1		. #x524B)	; ý¡€€¸´
     (=daikanwa		. 02860)	; ø¸€¬¬
     (=ucs@jis		. #x5377)	; ø½Š¾¤
+    (=ucs@big5		. #x5377)	; ø½Š¾¤
     ))
 (define-char
   '((morohashi-daikanwa	2860 0 1)
@@ -925,6 +926,7 @@
     (=ks-x1001		. #x4C4F)	; ø»‰š„
     (=big5		. #xADEB)	; ý¢€Š·«
     (=daikanwa		. 02880)	; ø¸€­€
+    (=ucs@big5		. #x537F)	; ø»‚š¿
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
