@@ -103,8 +103,10 @@
 (define-char
   '((ideographic-radical . 115)	; â½²
     (ideographic-strokes . 2)
+    (total-strokes	 . 7)
     (chinese-gb2312	. #x4D3A)	; ø»…‡…
     (chinese-isoir165	. #x4D3A)	; ø»¯•
+    (mojikyo		. 057263)	; ø¸¾¯
     (ucs		. #x79C3)	; ç§ƒ
     ))
 (define-char
@@ -236,9 +238,11 @@
     (ucs		. #x412C)	; ä„¬
     ))
 (define-char
-  '((ideographic-radical . 115)	; â½²
+  '((->ucs		. #x79C3)	; ç§ƒ
+    (ideographic-radical . 115)	; â½²
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (->mojikyo		. 057263)	; ç§ƒ
     (chinese-cns11643-3 . #x2A3E)	; ø»•¤
     ))
 (define-char
