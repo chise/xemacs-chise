@@ -829,9 +829,6 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (->same-ideograph
-     ((ideograph-daikanwa . 14471)	; ø¸ƒ¢‡
-      ))
     (chinese-gb2312	. #x4931)	; ø»…„
     (chinese-isoir165	. #x4931)	; ø»©”
     (ucs		. #x6740)	; æ€
