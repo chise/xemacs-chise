@@ -770,7 +770,7 @@
     (ideograph-daikanwa . 29074)	; ø¸‡†’
     ))
 (define-char
-  '((->ucs		. #x8056)	; è–
+  '((=>ucs		. #x8056)	; è–
     (morohashi-daikanwa	29074 0 0)
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 7)
