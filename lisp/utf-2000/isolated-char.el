@@ -1,6 +1,6 @@
 ;;; isolated-char.el --- Set up isolated-characters.
 
-;; Copyright (C) 2001,2002 MORIOKA Tomohiko
+;; Copyright (C) 2001,2002,2003 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, UCS-4, character, CCS, multiscript, multilingual
@@ -190,6 +190,7 @@
   (insert-file-contents "../etc/char-data/GT-fmap-K1.txt")
   (insert-file-contents "../etc/char-data/GT-fmap-K2.txt")
   (insert-file-contents "../etc/char-data/GT-fmap-K3.txt")
+  (insert-file-contents "../etc/char-data/GT-fmap-K4.txt")
   (goto-char (point-min))
   (let (plane code gt-code)
     (while (re-search-forward "^GTps-\\([0-9k][0-9]\\)-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)\tGT-K\\([0-9]+\\)" nil t)
