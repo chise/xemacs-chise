@@ -1,3 +1,34 @@
+2004-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Use GT-K01444 instead of BC-8BAA in
+	`ideographic-structure'.
+	(BC-8BAA): Use `->subsumptive' to integrate GT-K01444.
+	(M-00320): Compact `ideographic-structure'.
+	(C6-3D22): Likewise.
+	(U-00020199): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}',
+	`ideographic-radical@ucs*sources' and
+	`ideographic-strokes@daikanwa*sources' instead of `ideographic-'.
+
+	* Ideograph-R141-Tiger.el (CB08839): New character.
+
+	* Ideograph-R134-Mortar.el (CB07105): New character.
+
+	* Ideograph-R057-Bow.el (U+5F25): Use `->subsumptive'.
+	(CB07460): New character in U+5F25.
+	(G0-4356): Unify H3-CAD7.
+	(U+5F26): Use `->subsumptive'.
+
+	* Ideograph-R054-Long-Stride.el (G0-5B48): Unify BC-8BD4.
+
+	* Ideograph-R044-Corpse.el (U-00021C28): New character.
+	(U-00021C32): New character.
+
+	* Ideograph-R009-Man.el (U+4EE4): Use `->subsumptive'.
+	(C1-456F): Unify GT-K01023.
+	(G0-416E): Unify GT-K01022.
+	(U+50CC): Modify `ideographic-structure'.
+
 2004-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+53ED): Use `->subsumptive'.
@@ -29,6 +60,9 @@
 
 	* Ideograph-R011-Enter.el (U+5168): Use `->subsumptive'.
 	(M-01424): Unify GT-01862 and GT-K01745.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL FOOT>): Add
+	`<-ideographic-component-forms' for U+8DB3; unify GT-K02600.
 
 	* Ideograph-R129-Brush.el (BC-8BC6): New character.
 	(GT-K02451): New character.
