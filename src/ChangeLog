@@ -1,5 +1,15 @@
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* file-coding.c (Fmake_coding_system): Don't set up
+	`codesys->fixed.size'.
+	(encode_coding_no_conversion): Don't refer
+	`str->codesys->fixed.size'.
+
+	* char-ucs.h (breakup_char_1): Concatenate code for (c < 0x17F)
+	and (c < MIN_CHAR_GREEK).
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c, char-ucs.h (latin_a_char_to_charset): Deleted.
 	(latin_a_char_to_byte1): Deleted.
 	(latin_a_char_to_byte2): Deleted.
