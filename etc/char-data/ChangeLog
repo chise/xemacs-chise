@@ -1,3 +1,11 @@
+2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX2-to-UCS.txt, JX1-to-UCS.txt: Complete some mappings.
+
+2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JX1-to-UCS.txt: Complete some mappings.
+
 2003-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* GT-RS.txt: Add information about GT-19303 .. GT-33340.
