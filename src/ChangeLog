@@ -1,3 +1,8 @@
+2003-08-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c: Include <chise.h> when `CHISE' is defined.
+	(load_char_attribute_maybe): Use libchise when `CHISE' is defined.
+
 2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): Fix problem when searching
