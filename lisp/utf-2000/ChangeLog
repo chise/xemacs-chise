@@ -1,5 +1,17 @@
 2002-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R061-Heart.el (U+60EB): Delete `kangxi-radical' and
+	`kangxi-strokes'.
+
+	* Ideograph-R034-Go.el: Reformatted.
+
+2002-12-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (ideographic-radicals): Use <KANGXI RADICAL GO>
+	instead of U+5902; use `decode-char' instead of `int-char'.
+
+2002-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R038-Woman.el (U+599F): Unify BC-8DD2.
 
 	* Ideograph-R026-Seal.el (U+537D): Modify `ideographic-structure'.
