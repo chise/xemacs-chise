@@ -29,16 +29,24 @@
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
 
-(defun char-ideographic-radical (char)
-  (or (get-char-attribute char 'ideographic-radical)
-      (let ((radical
-	     (or (get-char-attribute char 'daikanwa-radical)
-		 (get-char-attribute char 'kangxi-radical)
-		 (get-char-attribute char 'japanese-radical)
-		 (get-char-attribute char 'korean-radical))))
-	(when radical
-	  (put-char-attribute char 'ideographic-radical radical)
-	  radical))))
+(defun char-ideographic-radical (char &optional radical)
+  (let (ret)
+    (or (catch 'tag
+	  (dolist (cell (get-char-attribute char 'ideographic-))
+	    (if (and (setq ret (plist-get cell :radical))
+		     (or (eq ret radical)
+			 (null radical)))
+		(throw 'tag ret))))
+	(get-char-attribute char 'ideographic-radical)
+	(progn
+	  (setq ret
+		(or (get-char-attribute char 'daikanwa-radical)
+		    (get-char-attribute char 'kangxi-radical)
+		    (get-char-attribute char 'japanese-radical)
+		    (get-char-attribute char 'korean-radical)))
+	  (when ret
+	    (put-char-attribute char 'ideographic-radical ret)
+	    ret)))))
 
 (defvar ideograph-radical-strokes-vector
   ;;0  1  2  3  4  5  6  7  8  9
@@ -67,26 +75,33 @@
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
-(defun char-ideographic-strokes (char)
-  (or (get-char-attribute char 'daikanwa-strokes)
-      (get-char-attribute char 'ideographic-strokes)
-      (let ((strokes
-	     (or (get-char-attribute char 'kangxi-strokes)
-		 (get-char-attribute char 'japanese-strokes)
-		 (get-char-attribute char 'korean-strokes)
-		 (let ((r (char-ideographic-radical char))
-		       (ts (get-char-attribute char 'total-strokes)))
-		   (if (and r ts)
-		       (- ts (aref ideograph-radical-strokes-vector r))))
-		 )))
-	(when strokes
-	  (put-char-attribute char 'ideographic-strokes strokes)
-	  strokes))))
+(defun char-ideographic-strokes (char &optional radical)
+  (let (ret)
+    (or (catch 'tag
+	  (dolist (cell (get-char-attribute char 'ideographic-))
+	    (if (and (setq ret (plist-get cell :radical))
+		     (or (eq ret radical)
+			 (null radical)))
+		(throw 'tag (plist-get cell :strokes)))))
+	(get-char-attribute char 'daikanwa-strokes)
+	(get-char-attribute char 'ideographic-strokes)
+	(let ((strokes
+	       (or (get-char-attribute char 'kangxi-strokes)
+		   (get-char-attribute char 'japanese-strokes)
+		   (get-char-attribute char 'korean-strokes)
+		   (let ((r (char-ideographic-radical char))
+			 (ts (get-char-attribute char 'total-strokes)))
+		     (if (and r ts)
+			 (- ts (aref ideograph-radical-strokes-vector r))))
+		   )))
+	  (when strokes
+	    (put-char-attribute char 'ideographic-strokes strokes)
+	    strokes)))))
 
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let (ret script)
+  (let (ret radical script)
     (map-char-attribute
      (lambda (char radical)
        (when (and radical
@@ -99,7 +114,21 @@
 	   (aset ideograph-radical-chars-vector radical
 		 (cons char ret))))
        nil)
-     'ideographic-radical)))
+     'ideographic-radical)
+    (map-char-attribute
+     (lambda (char data)
+       (dolist (cell data)
+	 (setq radical (plist-get cell :radical))
+	 (when (and radical
+		    (or (null (setq script (get-char-attribute char 'script)))
+			(memq 'Ideograph script)))
+	   (unless (memq char
+			 (setq ret
+			       (aref ideograph-radical-chars-vector radical)))
+	     (char-ideographic-strokes char)
+	     (aset ideograph-radical-chars-vector radical
+		   (cons char ret))))))
+     'ideographic-)))
 
 (defun int-list< (a b)
   (if (numberp (car a))
@@ -186,13 +215,18 @@
 	      testers (cdr testers)
 	      defaulters (cdr defaulters))))))
 
-(defun char-daikanwa-strokes (char)
+(defvar ideographic-radical nil)
+
+(defun char-daikanwa-strokes (char &optional radical)
+  (unless radical
+    (setq radical ideographic-radical))
   (let ((drc (char-representative-of-daikanwa char)))
     (char-ideographic-strokes
-     (if (= (get-char-attribute drc 'ideographic-radical)
-	    (get-char-attribute char 'ideographic-radical))
+     (if (= (char-ideographic-radical drc radical)
+	    (char-ideographic-radical char radical))
 	 drc
-       char))))
+       char)
+     radical)))
 
 ;;;###autoload
 (defun char-daikanwa (char)
@@ -208,18 +242,21 @@
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
 
-(defun ideograph-char< (a b)
-  (char-attributes-poly<
-   a b
-   '(char-daikanwa-strokes char-daikanwa char-ucs char-id)
-   '(< morohashi-daikanwa< < <)
-   '(> > > >)))
+(defun ideograph-char< (a b &optional radical)
+  (let ((ideographic-radical (or radical
+				 ideographic-radical)))
+    (char-attributes-poly<
+     a b
+     '(char-daikanwa-strokes char-daikanwa char-ucs char-id)
+     '(< morohashi-daikanwa< < <)
+     '(> > > >))))
 
 (defun insert-ideograph-radical-char-data (radical)
-  (let ((chars
-	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
-	       (function ideograph-char<)))
-	attributes ccss)
+  (let* ((ideographic-radical radical)
+	 (chars
+	  (sort (copy-list (aref ideograph-radical-chars-vector radical))
+		(function ideograph-char<)))
+	 attributes ccss)
     (dolist (name (char-attribute-list))
       (unless (memq name char-db-ignored-attributes)
 	(if (find-charset name)
