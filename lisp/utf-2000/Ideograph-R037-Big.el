@@ -1280,7 +1280,14 @@
   '((ideographic-radical . 37)	; â¼¤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (<-vulgar-ideograph
+     (:sources	(sougen-irai-zokujifu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 19746)	; ø¸„´¢
+		 )
+      ))
     (chinese-cns11643-4 . #x3127)	; ø»—¸Ž
+    (chinese-big5	. #x856E)	; ø»—¸Ž
+    (chinese-big5-cdp	. #x856E)	; ø»—¸Ž
     (ideograph-daikanwa . 05959)	; ø¸‡
     ))
 (define-char
