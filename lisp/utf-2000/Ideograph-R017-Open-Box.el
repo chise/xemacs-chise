@@ -371,23 +371,16 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=daikanwa		. 01822)	; ø¸€œž
-    ))
-(define-char
-  '((morohashi-daikanwa	1822 0 8)
-    (ideographic-radical . 17)	; â¼
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; â¿¶
       )
-     ((=ucs		  . #x4EA0)	; äº 
+     ((=ucs		  . #x51F5)	; å‡µ
       )
-     ((=ucs		  . #x51F6)	; å‡¶
+     ((=jis-x0208	  . #x4A38)	; ø½Š²¡
+      (=gt-k		  . 00487)	; ý¡„€‡§
       ))
-    (=cns11643-3	. #x2323)	; ø»•™¢
-    (=ucs		. #x342B)	; ã«
+    (=daikanwa		. 01822)	; ø¸€œž
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼
