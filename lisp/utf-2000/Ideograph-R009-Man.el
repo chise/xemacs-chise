@@ -10806,6 +10806,8 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 487)
+	(=jis-x0208	    . #x5141)	; &GT-01873;
+	(=ks-x1001	    . #x6A64)	; &I-K0-6A64;
 	(=daikanwa	    . 01437)	; &I-M-01437;
 	))
       (<-vulgar*sources
