@@ -19,6 +19,8 @@
     (=iso-ir165		. #x3838)	; ø»
     (=cns11643-1	. #x4558)	; ø»‘¸‹
     (=jis-x0208-1990	. #x4963)	; ø½Š±®
+    (=gt-pj-1		. #x4963)	; ý¡€†‹¹
+    (=gt		. 25337)	; ý¡€†‹¹
     (=ucs		. #x7236)	; çˆ¶
     ))
 (define-char
@@ -229,9 +231,11 @@
     (shinjigen-2	. 4711)
     (=jis-x0208		. #x4C6C)	; ø½Š¶‘
     (=ks-x1001		. #x652C)	; ø»‰¾
+    (=gt-pj-1		. #x4C6C)	; ý¡€†Œˆ
     (=big5		. #xB7DD)	; ý¢€‹Ÿ
     (=daikanwa		. 19734)	; ø¸„´–
     (=ucs@jis		. #x723A)	; ø½Š¶‘
+    (=gt		. 25352)	; ý¡€†Œˆ
     ))
 (define-char
   '((=>ucs		. #x723A)	; çˆº
