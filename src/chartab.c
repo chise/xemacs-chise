@@ -254,7 +254,6 @@ uint8_byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Emchar ofs, int place,
-			   Lisp_Object ccs,
 			   int (*fn) (struct chartab_range *range,
 				      Lisp_Object val, void *arg),
 			   void *arg)
@@ -274,11 +273,8 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Emchar ofs, int place,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
-	      if ( NILP (ccs) || charset_code_point (ccs, c) >= 0 )
-		{
-		  rainj.ch = c;
-		  retval = (fn) (&rainj, UINT8_DECODE (ct->property[i]), arg);
-		}
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, UINT8_DECODE (ct->property[i]), arg);
 	    }
 	}
       else
@@ -501,7 +497,6 @@ uint16_byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Emchar ofs, int place,
-			    Lisp_Object ccs,
 			    int (*fn) (struct chartab_range *range,
 				       Lisp_Object val, void *arg),
 			    void *arg)
@@ -521,12 +516,8 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Emchar ofs, int place,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
-	      if ( NILP (ccs) || charset_code_point (ccs, c) >= 0 )
-		{
-		  rainj.ch = c;
-		  retval = (fn) (&rainj, UINT16_DECODE (ct->property[i]),
-				 arg);
-		}
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, UINT16_DECODE (ct->property[i]), arg);
 	    }
 	}
       else
@@ -683,7 +674,6 @@ byte_table_same_value_p (Lisp_Object obj)
 
 static int
 map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
-		     Lisp_Object ccs,
 		     int (*fn) (struct chartab_range *range,
 				Lisp_Object val, void *arg),
 		     void *arg)
@@ -700,20 +690,20 @@ map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
 	{
 	  retval
 	    = map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v),
-					 c, place - 1, ccs, fn, arg);
+					 c, place - 1, fn, arg);
 	  c += unit;
 	}
       else if (UINT16_BYTE_TABLE_P (v))
 	{
 	  retval
 	    = map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v),
-					  c, place - 1, ccs, fn, arg);
+					  c, place - 1, fn, arg);
 	  c += unit;
 	}
       else if (BYTE_TABLE_P (v))
 	{
 	  retval = map_over_byte_table (XBYTE_TABLE(v),
-					c, place - 1, ccs, fn, arg);
+					c, place - 1, fn, arg);
 	  c += unit;
 	}
       else if (!UNBOUNDP (v))
@@ -725,11 +715,8 @@ map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
 
 	  for (; c < c1 && retval == 0; c++)
 	    {
-	      if ( NILP (ccs) || charset_code_point (ccs, c) >= 0 )
-		{
-		  rainj.ch = c;
-		  retval = (fn) (&rainj, v, arg);
-		}
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, v, arg);
 	    }
 	}
       else
@@ -2639,14 +2626,14 @@ map_char_table (Lisp_Char_Table *ct,
 	    return retval;
 	}
       if (UINT8_BYTE_TABLE_P (ct->table))
-	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), 0, 3,
-					  Qnil, fn, arg);
+	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table),
+					  0, 3, fn, arg);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), 0, 3,
-					   Qnil, fn, arg);
+	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table),
+					   0, 3, fn, arg);
       else if (BYTE_TABLE_P (ct->table))
-	return map_over_byte_table (XBYTE_TABLE(ct->table), 0, 3,
-				    Qnil, fn, arg);
+	return map_over_byte_table (XBYTE_TABLE(ct->table),
+				    0, 3, fn, arg);
       else if (!UNBOUNDP (ct->table))
 #if 0
 	{
