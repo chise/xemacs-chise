@@ -111,14 +111,16 @@
     (ideograph-daikanwa #x05 #x8D)	; ø¹–
     ))
 (define-char
-  '((morohashi-daikanwa	1422)
+  '((->ucs		. #x34B0)
+    (morohashi-daikanwa	1422)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideograph-daikanwa #x05 #x8E)	; ø¹–Ž
     ))
 (define-char
-  '((morohashi-daikanwa	1422 0 0)
+  '((ucs		. #x34B0)
+    (morohashi-daikanwa	1422 0 0)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -177,14 +179,16 @@
     (chinese-cns11643-6 #x23 #x56)	; ø»›¸¡
     ))
 (define-char
-  '((morohashi-daikanwa	1426)
+  '((->ucs		. #x34B2)
+    (morohashi-daikanwa	1426)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideograph-daikanwa #x05 #x92)	; ø¹–’
     ))
 (define-char
-  '((morohashi-daikanwa	1426 0 0)
+  '((ucs		. #x34B2)
+    (morohashi-daikanwa	1426 0 0)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -219,14 +223,16 @@
     (ideograph-daikanwa #x05 #x95)	; ø¹–•
     ))
 (define-char
-  '((morohashi-daikanwa	1430)
+  '((->ucs		. #x34B3)
+    (morohashi-daikanwa	1430)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideograph-daikanwa #x05 #x96)	; ø¹––
     ))
 (define-char
-  '((morohashi-daikanwa	1430 0 0)
+  '((ucs		. #x34B3)
+    (morohashi-daikanwa	1430 0 0)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -247,14 +253,16 @@
     (chinese-cns11643-5 #x23 #x36)	; ø»™­½
     ))
 (define-char
-  '((morohashi-daikanwa	1432)
+  '((->ucs		. #x34B4)
+    (morohashi-daikanwa	1432)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideograph-daikanwa #x05 #x98)	; ø¹–˜
     ))
 (define-char
-  '((morohashi-daikanwa	1432 0 0)
+  '((ucs		. #x34B4)
+    (morohashi-daikanwa	1432 0 0)
     (ideographic-radical . 11)	; â¼Š
     (ideographic-strokes . 5)
     (total-strokes	 . 7)

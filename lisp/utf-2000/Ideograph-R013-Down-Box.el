@@ -479,7 +479,8 @@
     (chinese-cns11643-5 #x2B #x77)	; ø»™º®
     ))
 (define-char
-  '((morohashi-daikanwa	1544)
+  '((ucs		. #x34BB)
+    (morohashi-daikanwa	1544)
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
@@ -548,12 +549,20 @@
     (ideograph-daikanwa #x06 #x0D)	; ø¹˜
     ))
 (define-char
-  '((morohashi-daikanwa	1550)
+  '((->ucs		. #x34BD)
+    (morohashi-daikanwa	1550)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideograph-daikanwa #x06 #x0E)	; ø¹˜Ž
+    ))
+(define-char
+  '((ucs		. #x34BD)
+    (morohashi-daikanwa	1550 0 2)
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (chinese-cns11643-4 #x36 #x3D)	; ø»—¿º
-    (ideograph-daikanwa #x06 #x0E)	; ø¹˜Ž
     ))
 (define-char
   '((morohashi-daikanwa	1551)
@@ -572,12 +581,20 @@
     (ideograph-daikanwa #x06 #x10)	; ø¹˜
     ))
 (define-char
-  '((morohashi-daikanwa	1553)
+  '((->ucs		. #x34BE)
+    (morohashi-daikanwa	1553)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideograph-daikanwa #x06 #x11)	; ø¹˜‘
+    ))
+(define-char
+  '((ucs		. #x34BE)
+    (morohashi-daikanwa	1553 0 0)
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (chinese-cns11643-4 #x3C #x32)	; ø»˜ˆ£
-    (ideograph-daikanwa #x06 #x11)	; ø¹˜‘
     ))
 (define-char
   '((morohashi-daikanwa	1554)
@@ -658,12 +675,20 @@
     (chinese-cns11643-5 #x6B #x6E)	; ø»›˜¥
     ))
 (define-char
-  '((morohashi-daikanwa	1563)
+  '((->ucs		. #x34BF)
+    (morohashi-daikanwa	1563)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 21)
+    (total-strokes	 . 23)
+    (ideograph-daikanwa #x06 #x1B)	; ø¹˜›
+    ))
+(define-char
+  '((ucs		. #x34BF)
+    (morohashi-daikanwa	1563 0 1)
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 21)
     (total-strokes	 . 23)
     (chinese-cns11643-4 #x6A #x42)	; ø»™Œ—
-    (ideograph-daikanwa #x06 #x1B)	; ø¹˜›
     ))
 (define-char
   '((morohashi-daikanwa	1564)
