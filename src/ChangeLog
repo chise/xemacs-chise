@@ -1,3 +1,13 @@
+2004-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_ucs_unified): Deleted.
+	(Fchar_variants): Use `->subsumptive' and `->denotational' instead
+	of `->ucs-unified'.
+	(put_char_composition): Use `->denotational' instead of
+	`->ucs-unified'.
+	(Fput_char_attribute): Convert `=>ucs' to `<-denotational'.
+	(syms_of_chartab): Delete `->ucs-unified'.
+
 2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (encode_char_2): New inline function.
