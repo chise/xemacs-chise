@@ -1891,7 +1891,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (->same
-     ((=daikanwa	  . 00104)	; ø¸€¨
+     ((=cns11643-3	  . #x2740)	; ø»•Ÿ·
+      (=daikanwa	  . 00104)	; ø¸€¨
       ))
     (<-ancient-ideograph
      ((ideographic-radical . 198)	; â¿…
@@ -1934,7 +1935,7 @@
      cns11643)
     (total-strokes	 . 8)
     (->same
-     ((ideographic-radical . 1)	; â¼€
+     ((=cns11643-6	  . #x2936)	; ø»œ€µ
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph

@@ -46,7 +46,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (->same
-     ((=daikanwa	  . 02775)	; ø¸€«—
+     ((=cns11643-6	  . #x212C)	; ø»›´»
+      (=daikanwa	  . 02775)	; ø¸€«—
       ))
     (->same*sources
      daikanwa)
