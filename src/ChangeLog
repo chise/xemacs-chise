@@ -1,3 +1,44 @@
+1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
+	(find_charsets_in_emchar_string): Likewise.
+	(vars_of_insdel): Don't define local variable `i' in UTF-2000.
+
+	* file-coding.c (Fdecode_big5_char): Use `Charset_ID' instead of
+	`int'.
+	(decode_coding_iso2022): Likewise.
+
+	* toolbar-x.c (x_output_toolbar_button): Use `Charset_ID' instead
+	of `unsigned char'.
+
+	* redisplay.c (redisplay_text_width_emchar_string): Use
+	`Charset_ID' instead of `unsigned char'.
+	(redisplay_frame_text_width_string): Likewise.
+
+	* glyphs.c (glyph_height_internal): Use `Charset_ID' instead of
+	`unsigned char'.
+
+	* faces.h, faces.c (ensure_face_cachel_complete): Use `Charset_ID'
+	instead of `unsigned char'.
+	(face_cachel_charset_font_metric_info): Likewise.
+
+	* chartab.c (print_char_table): Use `Charset_ID' instead of `int'.
+	(get_non_ascii_char_table_value): Likewise.
+	(get_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_over_other_charset): Likewise.
+	(map_char_table): Likewise.
+
+	* buffer.h (find_charsets_in_bufbyte_string): Use `Charset_ID'
+	instead of `unsigned char'.
+
+1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-ccl.c (ccl_driver): Don't define `CCL_ReadMultibyteChar2'
+	in UTF-2000 because it is not ported yet and not to use
+	`PRE_LEADING_BYTE_PRIVATE_1' and `PRE_LEADING_BYTE_PRIVATE_2'.
+
 1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* character.h (LEADING_BYTE_COMPOSITE): Deleted.
