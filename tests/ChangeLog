@@ -1,3 +1,30 @@
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-12-28  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el:
+	Avoid triggering Solaris printf buffer overflow from (format).
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* redisplay-tests.el: New file.
+
+2000-12-12  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: Add/Change (format) tests.
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/lisp-test.el: Test if all-completions ignore
+	elements start with space.
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/regexp-tests.el: Test unmatched search doesn't
+	alter match-string.
+
 2000-12-05  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.38 is released.

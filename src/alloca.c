@@ -100,7 +100,7 @@ void xfree (pointer);
 
    Callers below should use malloc.  */
 
-#ifndef emacs
+#ifdef emacs
 #define malloc xmalloc
 #endif
 #ifndef WIN32_NATIVE

@@ -19,6 +19,7 @@ local needs with safe removal of unnecessary code.
 * Package Terminology:: Understanding different kinds of packages.
 * Using Packages::      How to install and use packages.
 * Building Packages::   Building packages from sources.
+* Creating Packages::   The basics.
 * Available Packages::  A brief, out-of-date, directory of packaged LISP.
 @end menu
 
@@ -339,7 +340,7 @@ changed packages.
 
 @end enumerate
 
-@node Building Packages, Available Packages, Using Packages, Packages
+@node Building Packages, Creating Packages, Using Packages, Packages
 @comment  node-name,  next,  previous,  up
 
 Source packages are available from the @file{packages/source-packages}
@@ -381,7 +382,7 @@ Bytecompile all files, build and bytecompile byproduct files like
 of TeXinfo documentation if present.
 
 @item srckit
-Usually aliased to @code{make srckit-std}.  This does a @code{make
+Usually aliased to @code{srckit-std}.  This does a @code{make
 distclean} and creates a package source tarball in the staging
 directory.  This is generally only of use for package maintainers.
 
@@ -402,7 +403,132 @@ primarily of use by XEmacs maintainers producing files for distribution.
 
 @end table
 
-@node Available Packages,  , Building Packages, Packages
+@node Creating Packages, Available Packages, Building Packages, Packages
+@comment  node-name,  next,  previous,  up
+
+Creating a package from an existing Lisp library is not very difficult.
+
+In addition to the Lisp libraries themselves, you need a
+@file{package-info.in} file and a simple @file{Makefile}.  The rest is
+done by @file{XEmacs.rules}, part of the packaging system
+infrastructure.
+
+@file{package-info.in} contains a single Lisp form like this:
+
+@example
+(name                               ; your package's name
+  (standards-version 1.1
+   version VERSION
+   author-version AUTHOR_VERSION
+   date DATE
+   build-date BUILD_DATE
+   maintainer MAINTAINER
+   distribution xemacs              ; change to "mule" if MULE is needed
+   priority high
+   category CATEGORY
+   dump nil
+   description "description"        ; a one-line description string
+   filename FILENAME
+   md5sum MD5SUM
+   size SIZE
+   provides (feature1 feature2)     ; one for every `provides' form
+   requires (REQUIRES)
+   type regular
+))
+@end example
+
+You must fill in the four commented lines.  The value of @code{name} is
+the name of your package as an unquoted symbol.  Normally it is the name
+of the main Lisp file or principal feature provided.  The allowed values
+for distribution are @code{xemacs} and @code{mule}.  Write them as
+unquoted symbols.  The @code{description} is a quoted Lisp string; use
+the usual conventions.  The value for @code{provides} is a list of
+feature symbols (written unquoted).  All of the features provided by
+libraries in your package should be elements of this list.  Implementing
+an automatic method for generating the @file{provides} line is
+desirable, but as yet undone.
+
+The variables in upper-case are references to variables set in the
+@file{Makefile} or automatically generated.  Do not change them; they
+are automatically filled in by the build process.
+
+The remaining lines refer to implementation constants
+(@code{standards-version}), or features that are unimplemented or have
+been removed (@code{priority} and @code{dump}).  The @code{type} line is
+not normally relevant to external maintainers; the alternate value is
+@code{single-file}, which refers to packages consed up out of a number
+of single-file libraries that are more or less thematically related.  An
+example is @code{prog-modes}.  Single-file packages are basically for
+administrative convenience, and new packages should generally be created
+as regular packages.
+
+The @file{Makefile} is quite stylized.  The idea is similar to an
+@file{Imakefile} or an @code{automake} file: the complexity is hidden in
+generic rules files, in this case the @file{XEmacs.rules} include file
+in the top directory of the packages hierarchy.  Although a number of
+facilities are available for complex libraries, most simple packages'
+@file{Makefile}s contain a copyright notice, a few variable definitions,
+an include for @file{XEmacs.rules}, and a couple of standard targets.
+
+The first few @code{make} variables defined are @code{VERSION},
+@code{AUTHOR_VERSION}, @code{MAINTAINER}, @code{PACKAGE},
+@code{PKG_TYPE}, @code{REQUIRES}, and @code{CATEGORY}.  All but one were
+described in the description of @file{package-info.in}.  The last is an
+admistrative grouping.  Current categories include @code{comm},
+@code{games}, @code{libs}, @code{mule}, @code{oa}, @code{os},
+@code{prog}, and @code{wp}.  @ref{Available Packages}, for a list of
+categories.
+
+Next, define the variable @code{ELCS}.  This contains the list of the
+byte-compiled Lisp files used by the package.  These files and their
+@file{.el} versions will be included in the binary package.  If there
+are other files (such as extra Lisp sources or an upstream
+@file{Makefile}) that are normally placed in the installed Lisp
+directory, but not byte-compiled, they can be listed as the value of
+@code{EXTRA_SOURCES}.
+
+The include is simply
+@example
+include ../../XEmacs.rules
+@end example
+
+The standard targets follow.  These are
+
+@example
+all:: $(ELCS) auto-autoloads.elc
+
+srckit: srckit-alias
+
+binkit: binkit-alias
+@end example
+
+Other targets (such as Texinfo sources) may need to be added as
+dependencies for the @code{all} target.  Dependencies for @code{srckit}
+and @code{binkit} (that is, values for @var{srckit-alias} and
+@var{binkit-alias}) are defined in @file{XEmacs.rules}.  The most useful
+of these values are given in the following table.
+
+@table @var
+@item srckit-alias
+Usually set to @code{srckit-std}.
+
+@item binkit-alias
+May be set to @code{binkit-sourceonly}, @code{binkit-sourceinfo},
+@code{binkit-sourcedata}, or
+@code{binkit-sourcedatainfo}.  @code{sourceonly} indicates there is
+nothing to install in a data directory or info directory.
+@code{sourceinfo} indicates that source and info files are to be
+installed.  @code{sourcedata} indicates that source and etc (data) files
+are to be installed.  @code{sourcedatainfo} indicates source, etc
+(data), and info files are to be installed.
+@end table
+
+Data files include things like pixmaps for a package-specific toolbar,
+and are normally installed in @file{etc/@var{PACKAGE_NAME}}.  A few
+packages have needs beyond the basic templates.  See @file{XEmacs.rules}
+or a future revision of this manual for details.
+
+@node Available Packages,  , Creating Packages, Packages
 @comment  node-name,  next,  previous,  up
 
 This section is surely out-of-date.  If you're sure that XEmacs is

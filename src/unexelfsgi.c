@@ -226,9 +226,10 @@ unexec (char *new_name,
       fatal ("Can't fstat (%s): errno %d\n", old_name, errno);
 
   /* map old file into the address space. */
-  if ( (old_base = (caddr_t) mmap ((caddr_t) 0, stat_buf.st_size,
-				   PROT_READ, MAP_SHARED, old_file, 0)) < 0 )
-      fatal ("Can't mmap (%s): errno %d\n", old_name, errno);
+  old_base = (caddr_t) mmap ((caddr_t) 0, stat_buf.st_size,
+			     PROT_READ, MAP_SHARED, old_file, 0);
+  if (old_base == (caddr_t) MAP_FAILED)
+    fatal ("Can't mmap (%s): errno %d\n", old_name, errno);
 
   old_file_h    = (ElfW(Ehdr) *) old_base;
   old_program_h = (ElfW(Phdr) *) ((byte *) old_base + old_file_h->e_phoff);
