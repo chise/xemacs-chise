@@ -5392,6 +5392,7 @@
       ))
     (chinese-cns11643-3 . #x3470)	; ø»•³­
     (ideograph-daikanwa . 05234)	; ø¸‘²
+    (ucs		. #x2F855)	; ð¯¡•
     ))
 (define-char
   '((script		Japanese Ideograph)

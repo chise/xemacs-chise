@@ -424,15 +424,15 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 816)
+     (:char	((shinjigen-1	     . 816)
 		 (ideograph-daikanwa . 02706)	; ø¸€ª’
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (shinjigen-1	. 818)
     (shinjigen-2	. 818)
     (chinese-cns11643-3 . #x2329)	; ø»•™¨
     (ideograph-daikanwa . 02720)	; ø¸€ª 
+    (ucs		. #x2F82C)	; ð¯ ¬
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—

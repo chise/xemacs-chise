@@ -41,16 +41,13 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 525)
+     (:char	((shinjigen-1	     . 525)
 		 (ideograph-daikanwa . 01566)	; ø¸€˜ž
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((chinese-big5-cdp	  . #x8B40)	; ý¢€ˆ­€
       )
@@ -60,6 +57,7 @@
     (shinjigen-2	. 527)
     (chinese-cns11643-3 . #x214F)	; ø»•—’
     (mojikyo		. 050943)	; ý €Œ›¿
+    (ucs		. #x2F817)	; ð¯ —
     ))
 (define-char
   '((ideographic-radical . 14)	; â¼

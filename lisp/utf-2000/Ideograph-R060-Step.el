@@ -1315,6 +1315,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3565)	; ø»•µ€
     (ideograph-daikanwa . 10143)	; ø¸‚žŸ
+    (ucs		. #x2F89C)	; ð¯¢œ
     ))
 (define-char
   '((=>ucs		. #x22506)	; ð¢”†
