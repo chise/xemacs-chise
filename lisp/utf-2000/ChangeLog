@@ -1,3 +1,9 @@
+2003-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u000A0-Latin-1-Supplement.el (JX1-2965): Unify JC3-88D6.
+
+	* Ideograph-R075-Tree.el (M-15500): Unify J78-432E.
+
 2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el, Ideograph-R019-Power.el: Add
