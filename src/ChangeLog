@@ -1,5 +1,10 @@
 2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (get_char_table): Use `get_char_id_table' in XEmacs
+	UTF-2000.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.h (get_char_id_table): New inline function.
 
 	* chartab.c (get_char_id_table): Moved to chartab.h as an inline
