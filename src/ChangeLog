@@ -1,3 +1,10 @@
+2001-11-05  MORIOKA Tomohiko  <tomo@localhost>
+
+	* chartab.c (uint8_byte_table_description): New constant.
+	(uint8-byte-table): Use `uint8_byte_table_description'.
+	(uint16_byte_table_description): New constant.
+	(uint16-byte-table): Use `uint16_byte_table_description'.
+
 2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Don't use builtin
