@@ -329,7 +329,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xC877)	; ý¢€Œ¡·
+    (=big5-eten		. #xC877)	; ý¢€Œ¡·
     (ucs		. #x21B8)	; â†¸
     ))
 (define-char
@@ -337,7 +337,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xC878)	; ý¢€Œ¡¸
+    (=big5-eten		. #xC878)	; ý¢€Œ¡¸
     (ucs		. #x21B9)	; â†¹
     ))
 (define-char
@@ -675,7 +675,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=jis-x0213-1-2000	. #x232C)	; ø»¢–ƒ
-    (chinese-big5-eten	. #xC876)	; ý¢€Œ¡¶
+    (=big5-eten		. #xC876)	; ý¢€Œ¡¶
     (=jef-china3	. #x76B1)	; øº‡š±
     (ucs		. #x21E7)	; â‡§
     ))

@@ -67,7 +67,7 @@
     (chinese-gb2312	. #x2129)	; ø»„†Œ
     (=jis-x0208		. #x2139)	; ø½‰¶”
     (chinese-isoir165	. #x2129)	; ø»Œ®œ
-    (chinese-big5-eten	. #xC6E0)	; ý¢€Œ› 
+    (=big5-eten		. #xC6E0)	; ý¢€Œ› 
     (ucs		. #x3005)	; ã€…
     ))
 (define-char
@@ -76,7 +76,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=jis-x0208		. #x213A)	; ø½‰¶•
-    (chinese-big5-eten	. #xC6E1)	; ý¢€Œ›¡
+    (=big5-eten		. #xC6E1)	; ý¢€Œ›¡
     (ucs		. #x3006)	; ã€†
     ))
 (define-char
@@ -86,7 +86,7 @@
     (mirrored		. nil)
     (numeric-value	. 0)
     (=jis-x0208		. #x213B)	; ø½‰¶–
-    (chinese-big5-eten	. #xC6E2)	; ý¢€Œ›¢
+    (=big5-eten		. #xC6E2)	; ý¢€Œ›¢
     (ucs		. #x3007)	; ã€‡
     ))
 (define-char

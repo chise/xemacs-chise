@@ -167,7 +167,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9FE)	; ý¢€§¾
+    (=big5-eten		. #xF9FE)	; ý¢€§¾
     (ucs		. #x2593)	; â–“
     ))
 (define-char

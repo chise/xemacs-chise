@@ -227,7 +227,7 @@
     (chinese-gb2312	. #x2127)	; ø»„†Š
     (=jis-x0208		. #x212F)	; ø½‰¶Š
     (korean-ksc5601	. #x2127)	; ø»ˆš’
-    (chinese-big5-eten	. #xC6D8)	; ý¢€Œ›˜
+    (=big5-eten		. #xC6D8)	; ý¢€Œ›˜
     (=jef-china3	. #x81AA)	; øºˆ†ª
     (ucs-jis		. #x00A8)	; ø»„†Š
     ))

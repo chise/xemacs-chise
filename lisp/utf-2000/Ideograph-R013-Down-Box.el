@@ -161,7 +161,7 @@
     (chinese-isoir165	. #x3854)	; ø»¹
     (chinese-cns11643-4 . #x2152)	; ø»—¡™
     (ideograph-daikanwa . 28201)	; ø¸†¸©
-    (chinese-big5-eten	. #xC8A2)	; ý¢€Œ¢¢
+    (=big5-eten		. #xC8A2)	; ý¢€Œ¢¢
     (chinese-big5-cdp	. #x85BE)	; ý¢€ˆ–¾
     (ucs		. #x5188)	; å†ˆ
     ))
