@@ -181,6 +181,8 @@
 	  ( ideograph-cbeta   		           "CB" 5 d)
 	  ((ideograph-gt . isolated)            "I-GT-" 5 d)
 	  ( ideograph-gt   		          "GT-" 5 d)
+	  ((ideograph-gt-k . isolated)         "I-GT-K" 5 d)
+	  ( ideograph-gt-k   		         "GT-K" 5 d)
 	  ((japanese-jisx0208-1990 . isolated) "I-J90-" 4 X)
 	  ( japanese-jisx0208-1990  	         "J90-" 4 X)
 	  ((japanese-jisx0208 . isolated)      "I-J83-" 4 X)
