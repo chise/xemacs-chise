@@ -1,5 +1,10 @@
 1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R008-Lid.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Add
 	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
 
